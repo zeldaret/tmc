@@ -33,14 +33,14 @@ _08000136:
 	pop {r4, pc}
 _08000138:
 _08000138: .4byte gUnk_030056F1
-_0800013C: .4byte 0x0807D281
-_08000140: .4byte 0x0807D46D
-_08000144: .4byte 0x0807D6D9
+_0800013C: .4byte sub_0807D280
+_08000140: .4byte sub_0807D46C
+_08000144: .4byte sub_0807D6D8
 
 	thumb_func_start sub_08000148
 sub_08000148: @ 0x08000148
 	lsls r2, r2, #2
-	ldr r3, _08000204 @ =0x08000248
+	ldr r3, _08000204 @ =gUnk_08000248
 	ldr r2, [r3, r2]
 	strb r0, [r2, r1]
 	bx lr
@@ -58,7 +58,7 @@ sub_08000152: @ 0x08000152
 sub_0800015E: @ 0x0800015E
 	push {r4, r5, r6, r7, lr}
 	lsls r3, r2, #3
-	ldr r4, _08000208 @ =0x08000228
+	ldr r4, _08000208 @ =gUnk_08000228
 	ldr r5, [r4, r3]
 	lsls r6, r1, #1
 	ldrh r7, [r5, r6]
@@ -107,7 +107,7 @@ _080001CC: .4byte gUnk_0202BEB4
 	thumb_func_start sub_080001D0
 sub_080001D0: @ 0x080001D0
 	lsls r2, r2, #2
-	ldr r3, _08000220 @ =0x08000278
+	ldr r3, _08000220 @ =gUnk_08000278
 	ldr r3, [r3, r2]
 	strb r0, [r3, r1]
 	bx lr
@@ -115,7 +115,7 @@ sub_080001D0: @ 0x080001D0
 	non_word_aligned_thumb_func_start sub_080001DA
 sub_080001DA: @ 0x080001DA
 	lsls r1, r1, #3
-	ldr r2, _08000224 @ =0x08000228
+	ldr r2, _08000224 @ =gUnk_08000228
 	ldr r1, [r2, r1]
 	lsls r0, r0, #1
 	ldrh r0, [r1, r0]
@@ -128,39 +128,44 @@ _080001F4: .4byte gUnk_02021F70
 _080001F8: .4byte gUnk_0200B650
 _080001FC: .4byte gUnk_02002F00
 _08000200: .4byte gUnk_020344F0
-_08000204: .4byte 0x08000248
-_08000208: .4byte 0x08000228
+_08000204: .4byte gUnk_08000248
+_08000208: .4byte gUnk_08000228
 _0800020C: .4byte 0x00004000
 _08000210: .4byte gUnk_080B7910
 _08000214: .4byte gUnk_080B79A7
 _08000218: .4byte gUnk_080B37A0
 _0800021C: .4byte gUnk_080B3E80
-_08000220: .4byte 0x08000278
-_08000224: .4byte 0x08000228
-_08000228: .4byte gUnk_02025EB4
-_0800022C: .4byte gUnk_0202AEB4
-_08000230: .4byte gUnk_02025EB4
-_08000234: .4byte gUnk_0202AEB4
-_08000238: .4byte gUnk_0200B654
-_0800023C: .4byte gUnk_02010654
-_08000240: .4byte gUnk_02025EB4
-_08000244: .4byte gUnk_0202AEB4
-_08000248: .4byte gUnk_02027EB4
-_0800024C: .4byte gUnk_02027EB4
-_08000250: .4byte gUnk_0200D654
-_08000254: .4byte gUnk_02027EB4
-_08000258: .4byte gUnk_02028EB4
-_0800025C: .4byte gUnk_0202AEB4
-_08000260: .4byte gUnk_02028EB4
-_08000264: .4byte gUnk_0202AEB4
-_08000268: .4byte gUnk_0200E654
-_0800026C: .4byte gUnk_02010654
-_08000270: .4byte gUnk_02028EB4
-_08000274: .4byte gUnk_0202AEB4
-_08000278: .4byte gUnk_02030EB4
-_0800027C: .4byte gUnk_02030EB4
-_08000280: .4byte gUnk_02016654
-_08000284: .4byte gUnk_02030EB4
+_08000220: .4byte gUnk_08000278
+_08000224: .4byte gUnk_08000228
+gUnk_08000228::
+	.4byte gUnk_02025EB4
+gUnk_0800022C::
+	.4byte gUnk_0202AEB4
+	.4byte gUnk_02025EB4
+	.4byte gUnk_0202AEB4
+	.4byte gUnk_0200B654
+	.4byte gUnk_02010654
+	.4byte gUnk_02025EB4
+	.4byte gUnk_0202AEB4
+gUnk_08000248::
+	.4byte gUnk_02027EB4
+	.4byte gUnk_02027EB4
+	.4byte gUnk_0200D654
+	.4byte gUnk_02027EB4
+gUnk_08000258::
+	.4byte gUnk_02028EB4
+	.4byte gUnk_0202AEB4
+	.4byte gUnk_02028EB4
+	.4byte gUnk_0202AEB4
+	.4byte gUnk_0200E654
+	.4byte gUnk_02010654
+	.4byte gUnk_02028EB4
+	.4byte gUnk_0202AEB4
+gUnk_08000278::
+	.4byte gUnk_02030EB4
+	.4byte gUnk_02030EB4
+	.4byte gUnk_02016654
+	.4byte gUnk_02030EB4
 
 	thumb_func_start sub_08000288
 sub_08000288: @ 0x08000288
