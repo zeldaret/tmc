@@ -180,7 +180,7 @@ SECTIONS {
         . = 0x000010EC; gUnk_030010EC = .;
         . = 0x0000110C; gUnk_0300110C = .;
         . = 0x00001150; gUnk_03001150 = .;
-        . = 0x00001160; gUnk_03001160 = .;
+        . = 0x00001160; gLinkEntity = .;
         . = 0x00001198; gUnk_03001198 = .;
         . = 0x000011E8; gUnk_030011E8 = .;
         . = 0x000015A0; gUnk_030015A0 = .;
@@ -290,12 +290,23 @@ SECTIONS {
         data/data_6.o(.rodata);
         asm/code_0800857C.o(.text);
 
+
         /* C source compiled with interworking */
         asm/code_08016B30.o(.text);
-
         /* C source compiled without interworking */
         asm/code.o(.text);
-
+		asm/readKeyInput.o(.text);
+		asm/code_0801D6E0.o(.text);
+		src/loadRoom.o(.text);
+		asm/code_0804B058.o(.text);
+		asm/InitializeLink.o(.text);
+		asm/code_08052620.o(.text);
+		asm/mainLoop.o(.text);
+		asm/code_08055FF4.o(.text);
+		asm/GetProgressFlag.o(.text);
+		asm/code_0807CC3C.o(.text);
+		asm/createFx.o(.text);
+		asm/code_080A29BC.o(.text);
         /* library functions */
         asm/m4a_asm.o(.text);
         asm/m4a.o(.text);
@@ -305,7 +316,6 @@ SECTIONS {
 
         /* handwritten assembly in arm mode */
         asm/intr.o(.text);
-
         /* data */
         data/data_8.o(.rodata);
     } >rom

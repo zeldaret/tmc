@@ -1404,7 +1404,7 @@ _0800293A:
 sub_0800293E: @ 0x0800293E
 	push {r4, r5, r6, r7, lr}
 	ldr r4, _080029AC @ =gUnk_03000BF0
-	ldr r7, _080029B0 @ =gUnk_03001160
+	ldr r7, _080029B0 @ =gLinkEntity
 	ldrh r6, [r4, #6]
 	ldrh r5, [r7, #0x2e]
 	subs r5, r5, r6
@@ -1444,4 +1444,4 @@ _080029A0: .4byte 0x0000E040
 _080029A4: .4byte 0x00000E20
 _080029A8: .4byte gUnk_03000BF0
 _080029AC: .4byte gUnk_03000BF0
-_080029B0: .4byte gUnk_03001160
+_080029B0: .4byte gLinkEntity

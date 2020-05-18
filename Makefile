@@ -38,7 +38,8 @@ MID_BUILDDIR = $(OBJ_DIR)/$(MID_SUBDIR)
 ASFLAGS := -mcpu=arm7tdmi --defsym $(GAME_VERSION)=1 --defsym REVISION=$(REVISION) --defsym $(GAME_LANGUAGE)=1
 
 CC1             := tools/agbcc/bin/agbcc
-override CFLAGS += -mthumb-interwork -Wimplicit -Wparentheses -Werror -O2 -fhex-asm
+override CFLAGS += -Wimplicit -Wparentheses -Werror -O2 
+# -fhex-asm
 
 ifeq ($(DINFO),1)
 override CFLAGS += -g
@@ -48,7 +49,7 @@ CPPFLAGS := -I tools/agbcc -I tools/agbcc/include -iquote include -nostdinc -und
 
 LDFLAGS = -Map ../../$(MAP)
 
-LIB := -L ../../tools/agbcc/lib -lc
+LIB := -L ../../tools/agbcc/lib  -lc
 
 SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
 GFX := tools/gbagfx/gbagfx
@@ -79,6 +80,8 @@ $(call infoshell, $(MAKE) tools)
 else
 NODEP := 1
 endif
+
+#$(C_BUILDDIR)/need_interworking_file_name.o: CFLAGS += -mthumb-interwork
 
 C_SRCS := $(wildcard $(C_SUBDIR)/*.c)
 C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(C_BUILDDIR)/%.o,$(C_SRCS))
@@ -117,8 +120,6 @@ endif
 
 tools: $(TOOLDIRS)
 
-$(TOOLDIRS):
-	@$(MAKE) -C $@
 
 # For contributors to make sure a change didn't affect the contents of the ROM.
 compare:

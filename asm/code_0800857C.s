@@ -179,7 +179,7 @@ sub_080086B4: @ 0x080086B4
 	mov r7, fp
 	push {r4, r5, r6, r7}
 	mov fp, r2
-	ldr r2, _080088BC @ =gUnk_03001160
+	ldr r2, _080088BC @ =gLinkEntity
 	mov r8, r2
 	bl sub_080086D8
 	pop {r4, r5, r6, r7}
@@ -441,7 +441,7 @@ _080088AC: .4byte gUnk_0800851C
 _080088B0: .4byte gUnk_080082DC
 _080088B4: .4byte gUnk_03000BF6
 _080088B8: .4byte gUnk_03000BF8
-_080088BC: .4byte gUnk_03001160
+_080088BC: .4byte gLinkEntity
 _080088C0: .4byte 0x000003F0
 _080088C4: .4byte gUnk_08000248
 _080088C8: .4byte gUnk_03003F80
@@ -760,7 +760,7 @@ _08008B20:
 	non_word_aligned_thumb_func_start sub_08008B22
 sub_08008B22: @ 0x08008B22
 	push {lr}
-	ldr r0, _08008B58 @ =gUnk_03001160
+	ldr r0, _08008B58 @ =gLinkEntity
 	bl sub_08008B02
 	adds r0, r2, #0
 	pop {pc}
@@ -780,7 +780,7 @@ _08008B48: .4byte gUnk_03003F80
 _08008B4C: .4byte gUnk_02000020
 _08008B50: .4byte 0x00004000
 _08008B54: .4byte gUnk_08007CAC
-_08008B58: .4byte gUnk_03001160
+_08008B58: .4byte gLinkEntity
 
 gUnk_08008B5C:: @ 08008B5C
 	.incbin "baserom.gba", 0x008B5C, 0x0000034
