@@ -22,6 +22,7 @@
 #include <cstdarg>
 #include <string>
 #include <memory>
+#include <stdexcept>
 #include "preproc.h"
 #include "c_file.h"
 #include "char_util.h"
