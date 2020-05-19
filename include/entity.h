@@ -2,15 +2,18 @@
 #define ENTITY_H
 
 #include "global.h"
+typedef struct {
+	u8 type;
+    u8 subtype;
+    u8 parameter1;
+    u8 parameter2;
+} EntityType;
 
 typedef struct
 {
     u32 *field_0x0;
     u32 * field_0x4;
-    u8 type;
-    u8 subtype;
-    u8 parameter1;
-    u8 parameter2;
+	EntityType entityType;
     u8 action;
     u8 previousActionFlag;
     u8 parameter3;
@@ -79,4 +82,5 @@ typedef struct
 	u8 filler[12];
     u32 * field_0x84;
 } Entity;
+
 #endif

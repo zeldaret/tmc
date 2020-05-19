@@ -3,7 +3,7 @@
 #include "global.h"
 typedef struct {
 	u8 entityType;
-	u8 unk;
+	u8 field_0x1;
 	u8 entitySubtype;
 	u8 entityParameter1;
 	u32 entityParameter2;

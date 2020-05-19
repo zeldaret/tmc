@@ -10,9 +10,9 @@ Entity * CreateEnemy(u32 subtype, u32 param1)
     
     enemy = sub_0805E678();
     if (enemy != NULL) {
-        enemy->type = 3;
-        enemy->subtype = subtype;
-        enemy->parameter1 = param1;
+        (enemy->entityType).type = 3;
+        (enemy->entityType).subtype = subtype;
+        (enemy->entityType).parameter1 = param1;
         sub_0805EA2C(enemy,4);
     }
     return enemy;
