@@ -5,38 +5,6 @@
 
 	.text
 
-	thumb_func_start sub_0801D6E0
-sub_0801D6E0: @ 0x0801D6E0
-	push {lr}
-	adds r2, r0, #0
-	ldrh r0, [r2]
-	adds r3, r1, #0
-	bics r3, r0
-	strh r3, [r2, #2]
-	cmp r1, r0
-	bne _0801D70A
-	ldrb r0, [r2, #7]
-	subs r0, #1
-	strb r0, [r2, #7]
-	lsls r0, r0, #0x18
-	cmp r0, #0
-	bne _0801D704
-	movs r0, #4
-	strb r0, [r2, #7]
-	strh r1, [r2, #4]
-	b _0801D710
-_0801D704:
-	movs r0, #0
-	strh r0, [r2, #4]
-	b _0801D710
-_0801D70A:
-	movs r0, #0x14
-	strb r0, [r2, #7]
-	strh r3, [r2, #4]
-_0801D710:
-	strh r1, [r2]
-	pop {pc}
-
 	thumb_func_start sub_0801D714
 sub_0801D714: @ 0x0801D714
 	push {r4, lr}
@@ -5515,7 +5483,7 @@ sub_0801FFDC: @ 0x0801FFDC
 	bne _08020018
 	movs r0, #3
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _08020010
@@ -10237,7 +10205,7 @@ _080222F2:
 	bl CreateFX
 	movs r0, #1
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _08022356
@@ -11482,7 +11450,7 @@ sub_08022C58: @ 0x08022C58
 	bhi _08022D34
 	movs r0, #0xd
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	mov sb, r0
 	str r0, [r7, #0x54]
 	mov r2, sb
@@ -11504,7 +11472,7 @@ sub_08022C58: @ 0x08022C58
 	bl sub_0806FA24
 	movs r0, #0xd
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r6, r0, #0
 	mov r1, sb
 	str r6, [r1, #0x54]
@@ -11522,7 +11490,7 @@ sub_08022C58: @ 0x08022C58
 	bl sub_0806FA24
 	movs r0, #0xd
 	movs r1, #3
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	str r5, [r6, #0x54]
 	adds r1, r5, #0
@@ -12218,49 +12186,49 @@ sub_080231BC: @ 0x080231BC
 	bhi _0802327E
 	movs r0, #0xf
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	str r4, [r6, #0x54]
 	str r6, [r4, #0x50]
 	movs r0, #0xf
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	str r5, [r4, #0x54]
 	str r6, [r5, #0x50]
 	movs r0, #0xf
 	movs r1, #3
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	str r4, [r5, #0x54]
 	str r6, [r4, #0x50]
 	movs r0, #0xf
 	movs r1, #4
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	str r5, [r4, #0x54]
 	str r6, [r5, #0x50]
 	movs r0, #0xf
 	movs r1, #5
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	str r4, [r5, #0x54]
 	str r6, [r4, #0x50]
 	movs r0, #0xf
 	movs r1, #6
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	str r5, [r4, #0x54]
 	str r6, [r5, #0x50]
 	movs r0, #0xf
 	movs r1, #7
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	str r4, [r5, #0x54]
 	str r6, [r4, #0x50]
 	movs r0, #0xf
 	movs r1, #8
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r0, [r4, #0x54]
 	str r4, [r0, #0x74]
 	str r6, [r0, #0x50]
@@ -13812,7 +13780,7 @@ _08023DC0:
 	beq _08023DF2
 	movs r0, #0x10
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08023E0A
@@ -13889,7 +13857,7 @@ sub_08023E54: @ 0x08023E54
 	strb r0, [r4, #0xf]
 	movs r0, #0x10
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _08023E94
@@ -18208,7 +18176,7 @@ _08025EAA:
 	movs r1, #3
 	orrs r1, r0
 	movs r0, #0x13
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 	str r2, [r5, #0x68]
 	cmp r2, #0
@@ -18238,7 +18206,7 @@ _08025F46:
 	movs r1, #2
 	orrs r1, r0
 	movs r0, #0x13
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 	str r2, [r5, #0x50]
 	cmp r2, #0
@@ -18273,7 +18241,7 @@ _08025F8C:
 	adds r1, r7, #0
 	orrs r1, r0
 	movs r0, #0x13
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 	str r2, [r5, #0x54]
 	cmp r2, #0
@@ -18308,7 +18276,7 @@ _08025F8C:
 _08025FD6:
 	movs r0, #0x13
 	movs r1, #8
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08025FE6
@@ -25252,7 +25220,7 @@ sub_0802940C: @ 0x0802940C
 	adds r4, r0, #0
 	ldrb r1, [r4, #0xa]
 	movs r0, #0x17
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0802944A
@@ -25957,7 +25925,7 @@ sub_0802999C: @ 0x0802999C
 	bhi _08029A8E
 	movs r0, #0x18
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	str r7, [r4, #0x50]
 	adds r0, r7, #0
@@ -25968,7 +25936,7 @@ sub_0802999C: @ 0x0802999C
 	str r4, [r7, #0x54]
 	movs r0, #0x18
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	str r7, [r5, #0x50]
 	adds r0, r7, #0
@@ -25979,7 +25947,7 @@ sub_0802999C: @ 0x0802999C
 	str r5, [r4, #0x54]
 	movs r0, #0x18
 	movs r1, #3
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	str r7, [r4, #0x50]
 	adds r0, r7, #0
@@ -25990,7 +25958,7 @@ sub_0802999C: @ 0x0802999C
 	str r4, [r5, #0x54]
 	movs r0, #0x18
 	movs r1, #4
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	str r7, [r5, #0x50]
 	adds r0, r7, #0
@@ -26001,7 +25969,7 @@ sub_0802999C: @ 0x0802999C
 	str r5, [r4, #0x54]
 	movs r0, #0x18
 	movs r1, #5
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r6, r0, #0
 	str r7, [r6, #0x50]
 	adds r0, r7, #0
@@ -26012,7 +25980,7 @@ sub_0802999C: @ 0x0802999C
 	str r6, [r5, #0x54]
 	movs r0, #0x18
 	movs r1, #6
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	str r7, [r4, #0x54]
 	str r7, [r4, #0x50]
@@ -28672,7 +28640,7 @@ sub_0802ADDC: @ 0x0802ADDC
 	ldrb r1, [r4, #0xa]
 	adds r1, #2
 	movs r0, #0x1b
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0802AE20
@@ -29247,7 +29215,7 @@ sub_0802B204: @ 0x0802B204
 	bne _0802B232
 	movs r0, #0x22
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0802B22E
@@ -30706,7 +30674,7 @@ sub_0802BCA8: @ 0x0802BCA8
 	strb r0, [r4, #0x1c]
 	movs r0, #0x20
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0802BCF0
@@ -33843,7 +33811,7 @@ _0802D470:
 _0802D47A:
 	movs r0, #0x24
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r0, [r4, #0x54]
 	adds r3, r6, #1
 	cmp r0, #0
@@ -33892,7 +33860,7 @@ _0802D4D6:
 	bls _0802D47A
 	movs r0, #0x24
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 	str r2, [r4, #0x54]
 	cmp r2, #0
@@ -34218,7 +34186,7 @@ _0802D734:
 	bl sub_08004260
 	movs r0, #0x24
 	movs r1, #5
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r0, [r4, #0x54]
 	cmp r0, #0
 	beq _0802D774
@@ -34536,7 +34504,7 @@ _0802D9B8:
 _0802D9CE:
 	movs r0, #0x24
 	movs r1, #6
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r1, [r4, #0x54]
 	cmp r1, #0
@@ -34580,7 +34548,7 @@ _0802DA0E:
 _0802DA24:
 	movs r0, #0x24
 	movs r1, #3
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r1, [r4, #0x54]
 	cmp r1, #0
@@ -34718,7 +34686,7 @@ _0802DB20:
 	bgt _0802DB7E
 	movs r0, #0x24
 	movs r1, #4
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r1, [r4, #0x54]
 	cmp r1, #0
@@ -35871,7 +35839,7 @@ _0802E3CA:
 	bl sub_08004260
 	movs r0, #0x24
 	movs r1, #5
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r0, [r4, #0x54]
 	cmp r0, #0
 	beq _0802E400
@@ -37213,7 +37181,7 @@ sub_0802ED8C: @ 0x0802ED8C
 	bl sub_0805EA2C
 	movs r0, #0x25
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r4, [r0, #0x50]
 	movs r0, #1
 	strb r0, [r4, #0xc]
@@ -37286,7 +37254,7 @@ sub_0802EE38: @ 0x0802EE38
 	bhi _0802EE82
 	movs r0, #0x25
 	movs r1, #3
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r5, [r0, #0x50]
 	movs r0, #1
 	strb r0, [r5, #0xc]
@@ -37434,7 +37402,7 @@ sub_0802EF58: @ 0x0802EF58
 _0802EF5E:
 	movs r0, #0x25
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0802EF86
@@ -42884,7 +42852,7 @@ sub_08031840: @ 0x08031840
 	adds r5, r0, #0
 	ldrb r1, [r5, #0xa]
 	movs r0, #0x2d
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08031862
@@ -43459,7 +43427,7 @@ sub_08031C58: @ 0x08031C58
 	ands r6, r0
 	movs r0, #0x2e
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	movs r0, #0
 	mov r8, r0
@@ -43475,7 +43443,7 @@ sub_08031C58: @ 0x08031C58
 	bl sub_08031E48
 	movs r0, #0x2e
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	str r5, [r4, #0x54]
 	movs r0, #1
@@ -43489,7 +43457,7 @@ sub_08031C58: @ 0x08031C58
 	bl sub_08031E48
 	movs r0, #0x2e
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	str r4, [r5, #0x54]
 	movs r0, #2
@@ -43503,7 +43471,7 @@ sub_08031C58: @ 0x08031C58
 	bl sub_08031E48
 	movs r0, #0x2e
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	str r5, [r4, #0x54]
 	mov r0, sb
@@ -43517,7 +43485,7 @@ sub_08031C58: @ 0x08031C58
 	bl sub_08031E48
 	movs r0, #0x2e
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r1, [r5, #0x54]
 	movs r0, #4
@@ -48169,7 +48137,7 @@ _08033F70:
 	bl sub_08004260
 	movs r0, #0x36
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	str r4, [r5, #0x50]
 	movs r0, #0x7e
@@ -48197,19 +48165,19 @@ _08033FD0: .4byte gUnk_030010A0
 _08033FD4:
 	movs r0, #0x44
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r4, [r0, #0x50]
 	str r4, [r0, #0x78]
 	str r0, [r4, #0x74]
 	movs r0, #0x44
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r4, [r0, #0x50]
 	str r5, [r0, #0x78]
 	str r0, [r4, #0x78]
 	movs r0, #0x36
 	movs r1, #4
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r4, [r0, #0x50]
 _08033FFA:
 	pop {r4, r5, pc}
@@ -49508,7 +49476,7 @@ _08034982:
 	adds r2, r0, #2
 	movs r0, #0x36
 	adds r1, r2, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _08034996
@@ -50014,7 +49982,7 @@ sub_08034CC4: @ 0x08034CC4
 	bl sub_0800015E
 	movs r0, #0x37
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08034D42
@@ -50046,7 +50014,7 @@ sub_08034D4C: @ 0x08034D4C
 	bhi _08034DBC
 	movs r0, #0x4b
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08034DBC
@@ -50441,7 +50409,7 @@ sub_08035050: @ 0x08035050
 	strb r4, [r0]
 	movs r0, #0x4b
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08035082
@@ -50509,7 +50477,7 @@ _080350E4: .4byte gUnk_03000BF0
 _080350E8:
 	movs r0, #0x37
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 _080350F2:
 	ldrh r0, [r7, #6]
@@ -51422,7 +51390,7 @@ _080357E6:
 	adds r6, r5, #1
 	movs r0, #0x39
 	adds r1, r6, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r1, [r4, #0x54]
 	cmp r1, #0
@@ -51447,7 +51415,7 @@ _08035816:
 	bls _080357E6
 	movs r0, #0x39
 	movs r1, #5
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r1, [r4, #0x54]
 	cmp r1, #0
@@ -51464,7 +51432,7 @@ _08035816:
 _08035840:
 	movs r0, #0x39
 	movs r1, #6
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r1, [r4, #0x54]
 	cmp r1, #0
@@ -51487,7 +51455,7 @@ _0803586A:
 _0803586E:
 	movs r0, #0x39
 	movs r1, #7
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r0, [r4, #0x54]
 	adds r6, r5, #1
 	cmp r0, #0
@@ -55603,7 +55571,7 @@ sub_0803775C: @ 0x0803775C
 	bne _08037790
 	movs r0, #0x42
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0803778A
@@ -59081,7 +59049,7 @@ sub_080391B4: @ 0x080391B4
 	bne _0803920C
 	movs r0, #0x41
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0803920C
@@ -60755,7 +60723,7 @@ _08039E74:
 	ldrb r1, [r5, #0xa]
 	subs r1, #2
 	movs r0, #0x42
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08039EC6
@@ -61300,13 +61268,13 @@ sub_0803A274: @ 0x0803A274
 	bne _0803A2CC
 	movs r0, #0x38
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r4, [r1, #0x50]
 	str r1, [r4, #0x54]
 	movs r0, #0x44
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r4, [r1, #0x50]
 	str r1, [r4, #0x74]
@@ -61331,13 +61299,13 @@ _0803A2C8: .4byte gUnk_03003DBC
 _0803A2CC:
 	movs r0, #0x38
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r4, [r1, #0x50]
 	str r1, [r4, #0x54]
 	movs r0, #0x44
 	movs r1, #3
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r4, [r1, #0x50]
 	str r1, [r4, #0x74]
@@ -64054,7 +64022,7 @@ sub_0803B724: @ 0x0803B724
 	beq _0803B78E
 	movs r0, #7
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0803B78E
@@ -67620,7 +67588,7 @@ _0803D158:
 	str r0, [r5, #0x7c]
 	movs r0, #0x4a
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	str r5, [r4, #0x50]
 	str r4, [r5, #0x54]
@@ -67628,7 +67596,7 @@ _0803D158:
 _0803D1E2:
 	movs r0, #0x54
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	str r5, [r4, #0x50]
 	adds r0, #0x79
@@ -67640,7 +67608,7 @@ _0803D1E2:
 _0803D1FA:
 	movs r0, #0x4a
 	movs r1, #3
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	str r5, [r4, #0x50]
 	strb r6, [r4, #0xe]
@@ -67651,7 +67619,7 @@ _0803D1FA:
 _0803D210:
 	movs r0, #0x54
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	str r5, [r4, #0x50]
 	movs r0, #1
@@ -68658,7 +68626,7 @@ sub_0803D974: @ 0x0803D974
 	bl sub_0806FA48
 	movs r0, #0x4a
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r4, [r0, #0x50]
 	ldr r1, [r4, #0x50]
 	str r1, [r0, #0x54]
@@ -69731,7 +69699,7 @@ sub_0803E1A8: @ 0x0803E1A8
 	bne _0803E1F8
 	movs r0, #0x4b
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	cmp r0, #0
 	beq _0803E250
 	str r5, [r0, #0x50]
@@ -72856,7 +72824,7 @@ _0803F8C2:
 _0803F8E0:
 	movs r0, #0x5a
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r5, [r0, #0x50]
 	strb r4, [r0, #0xb]
 	ldrb r1, [r7]
@@ -74642,7 +74610,7 @@ sub_08040648: @ 0x08040648
 	adds r4, r1, #0
 	adds r7, r2, #0
 	movs r0, #0x4f
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r5, r0, #0
 	strb r7, [r5, #0xb]
 	str r6, [r5, #0x50]
@@ -76256,7 +76224,7 @@ sub_0804122C: @ 0x0804122C
 _08041250:
 	movs r0, #0x50
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _080412C8
@@ -76973,7 +76941,7 @@ _080417DA:
 	bne _08041806
 	movs r0, #0x51
 	movs r1, #3
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0804181A
@@ -77866,12 +77834,12 @@ sub_08041ED4: @ 0x08041ED4
 	str r0, [r4, #0x18]
 	movs r0, #0x51
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r4, [r0, #0x64]
 	str r0, [r4, #4]
 	movs r0, #0x51
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	str r4, [r0, #0x64]
 	str r0, [r4, #8]
 	movs r0, #1
@@ -77893,28 +77861,28 @@ sub_08041F1C: @ 0x08041F1C
 	bhi _08041F70
 	movs r0, #0x5f
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r4, [r1, #0x50]
 	ldr r0, [r4, #0x64]
 	str r1, [r0, #0x1c]
 	movs r0, #0x5f
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r4, [r1, #0x50]
 	ldr r0, [r4, #0x64]
 	str r1, [r0, #0x20]
 	movs r0, #0x5f
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r4, [r1, #0x50]
 	ldr r0, [r4, #0x64]
 	str r1, [r0, #0x24]
 	movs r0, #0x5f
 	movs r1, #3
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r4, [r1, #0x50]
 	ldr r0, [r4, #0x64]
@@ -77954,7 +77922,7 @@ _08041F8C:
 	beq _08041FB6
 	movs r0, #0x52
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	strb r6, [r4, #0xb]
 	str r5, [r4, #0x50]
@@ -81272,7 +81240,7 @@ _080437FC:
 	str r6, [r7]
 	movs r0, #0x52
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 	adds r3, r2, #0
 	adds r3, #0x29
@@ -81294,7 +81262,7 @@ _080437FC:
 	bl sub_0806FA24
 	movs r0, #0x52
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 	adds r3, r2, #0
 	adds r3, #0x29
@@ -81316,7 +81284,7 @@ _080437FC:
 	bl sub_0806FA24
 	movs r0, #0x52
 	movs r1, #3
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 	adds r3, r2, #0
 	adds r3, #0x29
@@ -81338,7 +81306,7 @@ _080437FC:
 	bl sub_0806FA24
 	movs r0, #0x52
 	movs r1, #4
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 	adds r1, r2, #0
 	adds r1, #0x29
@@ -82869,7 +82837,7 @@ _080443EA:
 	adds r6, r2, r0
 	movs r0, #0x53
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	mov r8, r4
 	cmp r1, #0
@@ -84590,7 +84558,7 @@ _080450D0:
 	mov r0, r8
 	ldrb r1, [r0, #0xa]
 	movs r0, #0x57
-	bl sub_0804AA60
+	bl CreateEnemy
 	stm r4!, {r0}
 	subs r5, #1
 	cmp r5, #0
@@ -85085,7 +85053,7 @@ _0804547C:
 	mov r0, r8
 	ldrb r1, [r0, #0xa]
 	movs r0, #0x59
-	bl sub_0804AA60
+	bl CreateEnemy
 	stm r4!, {r0}
 	subs r5, #1
 	cmp r5, #0
@@ -85566,7 +85534,7 @@ sub_080457E4: @ 0x080457E4
 	bl sub_08045A00
 	movs r0, #0x5a
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0804585A
@@ -86802,49 +86770,49 @@ sub_0804614C: @ 0x0804614C
 	str r1, [r0, #0x14]
 	movs r0, #0x63
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r6, [r1, #0x50]
 	ldr r0, [r6, #0x64]
 	str r1, [r0, #0x10]
 	movs r0, #0x61
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r6, [r1, #0x50]
 	movs r0, #0x61
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r6, [r1, #0x50]
 	movs r0, #0x61
 	movs r1, #2
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r6, [r1, #0x50]
 	movs r0, #0x61
 	movs r1, #3
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r6, [r1, #0x50]
 	movs r0, #0x61
 	movs r1, #4
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r6, [r1, #0x50]
 	movs r0, #0x61
 	movs r1, #5
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r6, [r1, #0x50]
 	movs r0, #0x61
 	movs r1, #6
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r6, [r1, #0x50]
 	movs r0, #0x61
 	movs r1, #7
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r6, [r1, #0x50]
 	movs r0, #1
@@ -89511,7 +89479,7 @@ _080475CA:
 	movs r1, #3
 	ands r1, r0
 	movs r0, #0x62
-	bl sub_0804AA60
+	bl CreateEnemy
 	cmp r0, #0
 	beq _080475EE
 	str r4, [r0, #0x50]
@@ -89675,7 +89643,7 @@ _08047700:
 	movs r1, #3
 	ands r1, r0
 	movs r0, #0x62
-	bl sub_0804AA60
+	bl CreateEnemy
 	cmp r0, #0
 	beq _08047724
 	str r4, [r0, #0x50]
@@ -90047,7 +90015,7 @@ _080479CC:
 	movs r1, #3
 	ands r1, r0
 	movs r0, #0x62
-	bl sub_0804AA60
+	bl CreateEnemy
 	cmp r0, #0
 	beq _080479F4
 	str r4, [r0, #0x50]
@@ -93664,7 +93632,7 @@ _08049518:
 	movs r1, #3
 	ands r1, r0
 	movs r0, #0x62
-	bl sub_0804AA60
+	bl CreateEnemy
 	cmp r0, #0
 	beq _08049534
 	str r4, [r0, #0x50]
@@ -96522,742 +96490,3 @@ sub_0804AA30: @ 0x0804AA30
 	bl _call_via_r1
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-
-	thumb_func_start sub_0804AA60
-sub_0804AA60: @ 0x0804AA60
-	push {r4, r5, r6, lr}
-	adds r5, r0, #0
-	adds r6, r1, #0
-	bl sub_0805E678
-	adds r4, r0, #0
-	cmp r4, #0
-	beq _0804AA80
-	movs r0, #3
-	strb r0, [r4, #8]
-	strb r5, [r4, #9]
-	strb r6, [r4, #0xa]
-	adds r0, r4, #0
-	movs r1, #4
-	bl sub_0805EA2C
-_0804AA80:
-	adds r0, r4, #0
-	pop {r4, r5, r6, pc}
-
-	thumb_func_start sub_0804AA84
-sub_0804AA84: @ 0x0804AA84
-	push {lr}
-	ldr r3, _0804AA98 @ =gUnk_02033A90
-	ldrb r0, [r3, #0x19]
-	cmp r0, #0
-	bne _0804AA9C
-	strb r0, [r3, #0x18]
-	strb r0, [r3, #0x19]
-	movs r0, #0
-	b _0804AAB0
-	.align 2, 0
-_0804AA98: .4byte gUnk_02033A90
-_0804AA9C:
-	ldr r2, _0804AAB4 @ =gUnk_03001000
-	movs r1, #0
-	movs r0, #4
-	strb r0, [r2, #4]
-	strb r1, [r3, #0xe]
-	strb r1, [r3, #0xf]
-	strh r1, [r3, #0x10]
-	bl sub_0805E5A8
-	movs r0, #1
-_0804AAB0:
-	pop {pc}
-	.align 2, 0
-_0804AAB4: .4byte gUnk_03001000
-
-	thumb_func_start sub_0804AAB8
-sub_0804AAB8: @ 0x0804AAB8
-	push {lr}
-	ldr r1, _0804AACC @ =gUnk_080D4120
-	ldr r0, _0804AAD0 @ =gUnk_02033A90
-	ldrb r0, [r0, #0xe]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r0, [r0]
-	bl _call_via_r0
-	pop {pc}
-	.align 2, 0
-_0804AACC: .4byte gUnk_080D4120
-_0804AAD0: .4byte gUnk_02033A90
-
-	thumb_func_start sub_0804AAD4
-sub_0804AAD4: @ 0x0804AAD4
-	push {r4, lr}
-	ldr r4, _0804AAFC @ =gUnk_02018EB0
-	adds r0, r4, #0
-	movs r1, #0x28
-	bl sub_0801D630
-	movs r0, #0
-	str r0, [r4, #0x14]
-	bl sub_0805E60C
-	ldr r4, _0804AB00 @ =gUnk_02033A90
-	ldrb r1, [r4, #0x17]
-	movs r0, #0x3d
-	movs r2, #0
-	bl sub_080A2960
-	ldrb r0, [r4, #0xe]
-	adds r0, #1
-	strb r0, [r4, #0xe]
-	pop {r4, pc}
-	.align 2, 0
-_0804AAFC: .4byte gUnk_02018EB0
-_0804AB00: .4byte gUnk_02033A90
-
-	thumb_func_start sub_0804AB04
-sub_0804AB04: @ 0x0804AB04
-	push {lr}
-	bl sub_0805E5C0
-	ldr r0, _0804AB20 @ =gUnk_02033A90
-	ldrh r0, [r0, #0x10]
-	cmp r0, #0
-	beq _0804AB1E
-	bl sub_080AD90C
-	bl sub_080AD9B0
-	bl sub_080AD918
-_0804AB1E:
-	pop {pc}
-	.align 2, 0
-_0804AB20: .4byte gUnk_02033A90
-
-	thumb_func_start sub_0804AB24
-sub_0804AB24: @ 0x0804AB24
-	push {r4, r5, lr}
-	ldr r5, _0804AB48 @ =gUnk_03000FD0
-	ldrb r1, [r5]
-	cmp r1, #0
-	bne _0804AB46
-	ldr r0, _0804AB4C @ =gUnk_03000F50
-	movs r4, #0
-	strh r1, [r0]
-	bl sub_0801E104
-	ldr r0, _0804AB50 @ =gUnk_02033A90
-	strb r4, [r0, #0xe]
-	movs r0, #6
-	movs r1, #0
-	bl sub_080A7138
-	strb r4, [r5]
-_0804AB46:
-	pop {r4, r5, pc}
-	.align 2, 0
-_0804AB48: .4byte gUnk_03000FD0
-_0804AB4C: .4byte gUnk_03000F50
-_0804AB50: .4byte gUnk_02033A90
-
-	thumb_func_start sub_0804AB54
-sub_0804AB54: @ 0x0804AB54
-	push {lr}
-	ldr r1, _0804AB68 @ =gUnk_080D412C
-	ldr r0, _0804AB6C @ =gUnk_02033A90
-	ldrb r0, [r0, #0xe]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r0, [r0]
-	bl _call_via_r0
-	pop {pc}
-	.align 2, 0
-_0804AB68: .4byte gUnk_080D412C
-_0804AB6C: .4byte gUnk_02033A90
-
-	thumb_func_start sub_0804AB70
-sub_0804AB70: @ 0x0804AB70
-	push {r4, r5, lr}
-	movs r0, #0
-	bl sub_0801DA90
-	ldr r1, _0804ABF8 @ =gUnk_03000F50
-	movs r2, #0
-	movs r0, #0x92
-	lsls r0, r0, #5
-	strh r0, [r1]
-	ldr r0, _0804ABFC @ =0x00009E83
-	strh r0, [r1, #0x14]
-	ldr r0, _0804AC00 @ =gUnk_03000BF0
-	strh r2, [r1, #0x16]
-	strh r2, [r0, #0xa]
-	strh r2, [r1, #0x18]
-	strh r2, [r0, #0xc]
-	ldr r0, _0804AC04 @ =gUnk_02033A90
-	ldrb r5, [r0, #0x17]
-	cmp r5, #2
-	bne _0804ABA4
-	ldr r0, _0804AC08 @ =gUnk_02032EC0
-	adds r0, #0x20
-	ldrb r0, [r0]
-	cmp r0, #2
-	beq _0804ABA4
-	movs r5, #3
-_0804ABA4:
-	lsls r4, r5, #1
-	ldr r0, _0804AC0C @ =gUnk_080D4138
-	adds r4, r4, r0
-	ldrb r0, [r4]
-	bl sub_0801D714
-	ldrb r0, [r4, #1]
-	bl sub_0801D7EC
-	ldr r0, _0804AC10 @ =gUnk_02017700
-	movs r2, #0x90
-	lsls r2, r2, #2
-	adds r1, r0, r2
-	movs r2, #0x20
-	bl sub_0801D66C
-	ldr r2, _0804AC14 @ =gUnk_0200B644
-	ldr r0, [r2]
-	movs r1, #0x80
-	lsls r1, r1, #0xe
-	orrs r0, r1
-	str r0, [r2]
-	bl sub_0805E60C
-	ldr r1, _0804AC18 @ =gUnk_080D4110
-	lsls r0, r5, #2
-	adds r0, r0, r1
-	ldr r0, [r0]
-	bl sub_0804ADDC
-	bl sub_0805E5B4
-	ldr r1, _0804AC04 @ =gUnk_02033A90
-	ldrb r0, [r1, #0xe]
-	adds r0, #1
-	strb r0, [r1, #0xe]
-	movs r0, #4
-	movs r1, #8
-	bl sub_08050054
-	pop {r4, r5, pc}
-	.align 2, 0
-_0804ABF8: .4byte gUnk_03000F50
-_0804ABFC: .4byte 0x00009E83
-_0804AC00: .4byte gUnk_03000BF0
-_0804AC04: .4byte gUnk_02033A90
-_0804AC08: .4byte gUnk_02032EC0
-_0804AC0C: .4byte gUnk_080D4138
-_0804AC10: .4byte gUnk_02017700
-_0804AC14: .4byte gUnk_0200B644
-_0804AC18: .4byte gUnk_080D4110
-
-	thumb_func_start sub_0804AC1C
-sub_0804AC1C: @ 0x0804AC1C
-	push {r4, lr}
-	bl sub_0805E5C0
-	ldr r0, _0804AC98 @ =gUnk_02018EB0
-	ldr r2, [r0, #0x14]
-	cmp r2, #0
-	beq _0804AC5E
-	ldr r3, _0804AC9C @ =gUnk_03000BF0
-	movs r1, #0xc
-	ldrsh r0, [r3, r1]
-	movs r4, #0x32
-	ldrsh r1, [r2, r4]
-	subs r1, #0x50
-	subs r0, r0, r1
-	movs r4, #0x36
-	ldrsh r1, [r2, r4]
-	subs r1, r0, r1
-	cmp r1, #0
-	beq _0804AC5E
-	ldrh r0, [r3, #0xc]
-	subs r0, r0, r1
-	strh r0, [r3, #0xc]
-	lsls r0, r0, #0x10
-	cmp r0, #0
-	bge _0804AC52
-	movs r0, #0
-	strh r0, [r3, #0xc]
-_0804AC52:
-	movs r1, #0xc
-	ldrsh r0, [r3, r1]
-	cmp r0, #0x9f
-	ble _0804AC5E
-	movs r0, #0x9f
-	strh r0, [r3, #0xc]
-_0804AC5E:
-	ldr r2, _0804ACA0 @ =gUnk_03000F50
-	ldr r1, _0804AC9C @ =gUnk_03000BF0
-	ldrh r0, [r1, #0xa]
-	strh r0, [r2, #0x16]
-	ldrh r0, [r1, #0xc]
-	strh r0, [r2, #0x18]
-	bl sub_080AD90C
-	bl sub_080AD9B0
-	bl sub_080AD918
-	ldr r0, _0804AC98 @ =gUnk_02018EB0
-	ldrb r0, [r0, #0x1b]
-	cmp r0, #0
-	bne _0804AC86
-	bl sub_0804ACA8
-	cmp r0, #0
-	beq _0804AC96
-_0804AC86:
-	ldr r1, _0804ACA4 @ =gUnk_02033A90
-	ldrb r0, [r1, #0xe]
-	adds r0, #1
-	strb r0, [r1, #0xe]
-	movs r0, #7
-	movs r1, #0x10
-	bl sub_08050054
-_0804AC96:
-	pop {r4, pc}
-	.align 2, 0
-_0804AC98: .4byte gUnk_02018EB0
-_0804AC9C: .4byte gUnk_03000BF0
-_0804ACA0: .4byte gUnk_03000F50
-_0804ACA4: .4byte gUnk_02033A90
-
-	thumb_func_start sub_0804ACA8
-sub_0804ACA8: @ 0x0804ACA8
-	push {lr}
-	ldr r0, _0804ACC0 @ =gUnk_03000FF0
-	ldrh r1, [r0, #2]
-	movs r0, #0x81
-	lsls r0, r0, #1
-	ands r0, r1
-	cmp r0, #0
-	beq _0804ACC4
-	bl sub_0804AD18
-	b _0804ACC6
-	.align 2, 0
-_0804ACC0: .4byte gUnk_03000FF0
-_0804ACC4:
-	movs r0, #0
-_0804ACC6:
-	pop {pc}
-
-	thumb_func_start sub_0804ACC8
-sub_0804ACC8: @ 0x0804ACC8
-	push {lr}
-	ldr r0, _0804ACEC @ =gUnk_03000FD0
-	ldrb r0, [r0]
-	cmp r0, #0
-	bne _0804ACE8
-	ldr r0, _0804ACF0 @ =gUnk_02033A90
-	ldrb r0, [r0, #0x17]
-	adds r0, #0x5e
-	bl sub_0807CD04
-	ldr r0, _0804ACF4 @ =gUnk_02032EDC
-	bl sub_0804AD6C
-	movs r0, #0
-	bl sub_080A71F4
-_0804ACE8:
-	pop {pc}
-	.align 2, 0
-_0804ACEC: .4byte gUnk_03000FD0
-_0804ACF0: .4byte gUnk_02033A90
-_0804ACF4: .4byte gUnk_02032EDC
-
-	thumb_func_start sub_0804ACF8
-sub_0804ACF8: @ 0x0804ACF8
-	push {lr}
-	bl sub_0804AD18
-	cmp r0, #0
-	beq _0804AD12
-	ldr r0, _0804AD14 @ =gUnk_03000BF0
-	bl sub_0804AD6C
-	bl sub_0805E5A8
-	movs r0, #0xf8
-	bl sub_080A3268
-_0804AD12:
-	pop {pc}
-	.align 2, 0
-_0804AD14: .4byte gUnk_03000BF0
-
-	thumb_func_start sub_0804AD18
-sub_0804AD18: @ 0x0804AD18
-	push {lr}
-	ldr r0, _0804AD30 @ =gUnk_02033A90
-	ldrb r1, [r0, #0x17]
-	adds r2, r0, #0
-	cmp r1, #6
-	bhi _0804AD66
-	lsls r0, r1, #2
-	ldr r1, _0804AD34 @ =_0804AD38
-	adds r0, r0, r1
-	ldr r0, [r0]
-	mov pc, r0
-	.align 2, 0
-_0804AD30: .4byte gUnk_02033A90
-_0804AD34: .4byte _0804AD38
-_0804AD38: @ jump table
-	.4byte _0804AD54 @ case 0
-	.4byte _0804AD54 @ case 1
-	.4byte _0804AD54 @ case 2
-	.4byte _0804AD66 @ case 3
-	.4byte _0804AD66 @ case 4
-	.4byte _0804AD66 @ case 5
-	.4byte _0804AD62 @ case 6
-_0804AD54:
-	ldrb r0, [r2, #0x17]
-	adds r0, #0x5e
-	bl GetProgressFlag
-	adds r1, r0, #0
-	cmp r1, #0
-	bne _0804AD68
-_0804AD62:
-	movs r0, #0
-	b _0804AD68
-_0804AD66:
-	movs r0, #0
-_0804AD68:
-	pop {pc}
-	.align 2, 0
-
-	thumb_func_start sub_0804AD6C
-sub_0804AD6C: @ 0x0804AD6C
-	push {r4, r5, r6, lr}
-	mov r6, r8
-	push {r6}
-	ldr r3, _0804ADD0 @ =gUnk_030010A0
-	movs r1, #0
-	movs r6, #1
-	strb r6, [r3, #8]
-	strb r1, [r3, #9]
-	ldr r4, _0804ADD4 @ =gUnk_02033A90
-	ldr r5, _0804ADD8 @ =gUnk_080D4140
-	ldrb r1, [r4, #0x16]
-	lsls r1, r1, #2
-	adds r1, r1, r5
-	ldrh r1, [r1]
-	ldrh r2, [r4, #0x12]
-	adds r1, r1, r2
-	ldrh r2, [r0, #6]
-	subs r1, r1, r2
-	movs r2, #0
-	mov r8, r2
-	strh r1, [r3, #0x10]
-	ldrb r1, [r4, #0x16]
-	lsls r1, r1, #1
-	adds r1, #1
-	lsls r1, r1, #1
-	adds r1, r1, r5
-	ldrh r1, [r1]
-	ldrh r2, [r4, #0x14]
-	adds r1, r1, r2
-	ldrh r2, [r0, #8]
-	subs r1, r1, r2
-	strh r1, [r3, #0x12]
-	ldrb r1, [r4, #0x16]
-	lsls r1, r1, #1
-	strb r1, [r3, #0xe]
-	strb r6, [r3, #0xf]
-	ldrb r1, [r0, #4]
-	strb r1, [r3, #0xc]
-	ldrb r0, [r0, #5]
-	strb r0, [r3, #0xd]
-	mov r0, r8
-	strb r0, [r3, #0x14]
-	bl sub_080300AC
-	bl sub_080300C4
-	pop {r3}
-	mov r8, r3
-	pop {r4, r5, r6, pc}
-	.align 2, 0
-_0804ADD0: .4byte gUnk_030010A0
-_0804ADD4: .4byte gUnk_02033A90
-_0804ADD8: .4byte gUnk_080D4140
-
-	thumb_func_start sub_0804ADDC
-sub_0804ADDC: @ 0x0804ADDC
-	push {r4, lr}
-	adds r4, r0, #0
-	cmp r4, #0
-	beq _0804ADF4
-	b _0804ADEE
-_0804ADE6:
-	adds r0, r4, #0
-	adds r4, #0x10
-	bl sub_0804ADF8
-_0804ADEE:
-	ldrb r0, [r4]
-	cmp r0, #0xff
-	bne _0804ADE6
-_0804ADF4:
-	pop {r4, pc}
-	.align 2, 0
-
-	thumb_func_start sub_0804ADF8
-sub_0804ADF8: @ 0x0804ADF8
-	push {r4, r5, r6, r7, lr}
-	adds r4, r0, #0
-	ldrb r0, [r4]
-	movs r6, #0xf
-	ands r6, r0
-	ldrb r1, [r4, #1]
-	movs r0, #0xf0
-	ands r0, r1
-	cmp r0, #0x50
-	bne _0804AE1C
-	ldrb r1, [r4, #2]
-	adds r0, r6, #0
-	bl sub_0805EB9C
-	cmp r0, #0
-	beq _0804AE1C
-	movs r0, #0
-	b _0804AEAC
-_0804AE1C:
-	adds r0, r6, #0
-	bl sub_0805E768
-	adds r5, r0, #0
-	cmp r5, #0
-	beq _0804AEAA
-	strb r6, [r5, #8]
-	ldrb r0, [r4, #2]
-	strb r0, [r5, #9]
-	ldrb r0, [r4, #3]
-	strb r0, [r5, #0xa]
-	adds r0, r5, #0
-	adds r1, r4, #0
-	bl sub_0804AEB0
-	ldrb r1, [r4, #1]
-	movs r7, #0xf0
-	adds r0, r7, #0
-	ands r0, r1
-	cmp r0, #0x10
-	beq _0804AEAA
-	ldrb r0, [r4, #4]
-	strb r0, [r5, #0xb]
-	ldr r0, [r4, #4]
-	movs r1, #0xff
-	lsls r1, r1, #8
-	ands r0, r1
-	lsrs r0, r0, #8
-	strb r0, [r5, #0xe]
-	cmp r6, #9
-	beq _0804AEAA
-	adds r0, r5, #0
-	adds r1, r4, #0
-	bl sub_0804AF0C
-	ldr r0, [r5, #4]
-	cmp r0, #0
-	beq _0804AEAA
-	ldrb r0, [r4]
-	adds r2, r7, #0
-	ands r2, r0
-	movs r0, #0x10
-	ands r0, r2
-	cmp r0, #0
-	bne _0804AE94
-	movs r0, #0x20
-	ands r2, r0
-	cmp r2, #0
-	beq _0804AE88
-	adds r1, r5, #0
-	adds r1, #0x38
-	movs r0, #2
-	strb r0, [r1]
-	b _0804AEAA
-_0804AE88:
-	ldr r0, _0804AEA0 @ =gUnk_03000BF0
-	ldrb r1, [r0, #0xf]
-	movs r0, #2
-	ands r0, r1
-	cmp r0, #0
-	beq _0804AEA4
-_0804AE94:
-	adds r1, r5, #0
-	adds r1, #0x38
-	movs r0, #1
-	strb r0, [r1]
-	b _0804AEAA
-	.align 2, 0
-_0804AEA0: .4byte gUnk_03000BF0
-_0804AEA4:
-	adds r0, r5, #0
-	bl sub_08016A30
-_0804AEAA:
-	adds r0, r5, #0
-_0804AEAC:
-	pop {r4, r5, r6, r7, pc}
-	.align 2, 0
-
-	thumb_func_start sub_0804AEB0
-sub_0804AEB0: @ 0x0804AEB0
-	push {r4, r5, r6, lr}
-	adds r5, r0, #0
-	adds r6, r1, #0
-	ldrb r0, [r6, #1]
-	movs r1, #0xf
-	adds r2, r1, #0
-	ands r2, r0
-	ldrb r0, [r6]
-	adds r4, r1, #0
-	ands r4, r0
-	ldr r0, [r5]
-	cmp r0, #0
-	bne _0804AEF6
-	cmp r2, #0xf
-	bne _0804AEE0
-	ldr r0, _0804AEDC @ =gUnk_081091E4
-	adds r0, r4, r0
-	ldrb r1, [r0]
-	adds r0, r5, #0
-	bl sub_0805EA2C
-	b _0804AEF6
-	.align 2, 0
-_0804AEDC: .4byte gUnk_081091E4
-_0804AEE0:
-	cmp r2, #8
-	bne _0804AEEE
-	adds r0, r5, #0
-	movs r1, #8
-	bl sub_0805EA2C
-	b _0804AEF6
-_0804AEEE:
-	adds r0, r5, #0
-	adds r1, r2, #0
-	bl sub_0805EA2C
-_0804AEF6:
-	adds r1, r5, #0
-	adds r1, #0x78
-	cmp r4, #9
-	bne _0804AF00
-	subs r1, #0x48
-_0804AF00:
-	adds r0, r6, #0
-	movs r2, #0x10
-	bl sub_0801D66C
-	pop {r4, r5, r6, pc}
-	.align 2, 0
-
-	thumb_func_start sub_0804AF0C
-sub_0804AF0C: @ 0x0804AF0C
-	push {r4, lr}
-	adds r4, r0, #0
-	adds r2, r1, #0
-	ldrb r0, [r2, #1]
-	movs r1, #0xf0
-	ands r1, r0
-	cmp r1, #0x20
-	beq _0804AF40
-	cmp r1, #0x20
-	bgt _0804AF26
-	cmp r1, #0
-	beq _0804AF2C
-	b _0804AF88
-_0804AF26:
-	cmp r1, #0x40
-	beq _0804AF64
-	b _0804AF88
-_0804AF2C:
-	ldr r0, _0804AF3C @ =gUnk_03000BF0
-	ldrh r1, [r0, #6]
-	ldrh r3, [r2, #8]
-	adds r1, r1, r3
-	strh r1, [r4, #0x2e]
-	ldrh r0, [r0, #8]
-	b _0804AF58
-	.align 2, 0
-_0804AF3C: .4byte gUnk_03000BF0
-_0804AF40:
-	adds r3, r4, #0
-	adds r3, #0x6d
-	ldrb r1, [r3]
-	movs r0, #0x20
-	orrs r0, r1
-	strb r0, [r3]
-	ldr r1, _0804AF60 @ =gUnk_03000BF0
-	ldrh r0, [r1, #6]
-	ldrh r3, [r2, #8]
-	adds r0, r0, r3
-	strh r0, [r4, #0x2e]
-	ldrh r0, [r1, #8]
-_0804AF58:
-	ldrh r2, [r2, #0xa]
-	adds r0, r0, r2
-	strh r0, [r4, #0x32]
-	b _0804AF88
-	.align 2, 0
-_0804AF60: .4byte gUnk_03000BF0
-_0804AF64:
-	ldr r1, _0804AF8C @ =gUnk_03000BF0
-	ldrh r0, [r1, #6]
-	ldrh r3, [r2, #8]
-	adds r0, r0, r3
-	strh r0, [r4, #0x2e]
-	ldrh r0, [r1, #8]
-	ldrh r1, [r2, #0xa]
-	adds r0, r0, r1
-	strh r0, [r4, #0x32]
-	ldr r1, [r2, #0xc]
-	adds r0, r4, #0
-	bl sub_0807DAD0
-	cmp r0, #0
-	bne _0804AF88
-	adds r0, r4, #0
-	bl sub_0805E7BC
-_0804AF88:
-	pop {r4, pc}
-	.align 2, 0
-_0804AF8C: .4byte gUnk_03000BF0
-
-	thumb_func_start sub_0804AF90
-sub_0804AF90: @ 0x0804AF90
-	push {lr}
-	ldr r0, _0804AFA8 @ =gUnk_02033A90
-	ldr r1, _0804AFAC @ =0x0000085C
-	adds r0, r0, r1
-	ldr r0, [r0]
-	ldr r0, [r0, #0x1c]
-	bl sub_0804AFB0
-	bl sub_080A7C7C
-	pop {pc}
-	.align 2, 0
-_0804AFA8: .4byte gUnk_02033A90
-_0804AFAC: .4byte 0x0000085C
-
-	thumb_func_start sub_0804AFB0
-sub_0804AFB0: @ 0x0804AFB0
-	push {r4, lr}
-	ldr r1, _0804AFD4 @ =gUnk_02017654
-	str r0, [r1]
-	movs r2, #0
-	ldr r0, _0804AFD8 @ =gUnk_02034350
-	adds r3, r1, #0
-	adds r4, r0, #0
-	adds r4, #0x6c
-_0804AFC0:
-	lsls r0, r2, #2
-	ldr r1, [r3]
-	adds r0, r0, r1
-	ldr r0, [r0]
-	stm r4!, {r0}
-	adds r2, #1
-	cmp r2, #7
-	bls _0804AFC0
-	pop {r4, pc}
-	.align 2, 0
-_0804AFD4: .4byte gUnk_02017654
-_0804AFD8: .4byte gUnk_02034350
-
-	thumb_func_start sub_0804AFDC
-sub_0804AFDC: @ 0x0804AFDC
-	push {r4, lr}
-	movs r4, #1
-	movs r0, #6
-	bl sub_0804B128
-	cmp r0, #0
-	beq _0804AFF0
-	bl _call_via_r0
-	adds r4, r0, #0
-_0804AFF0:
-	adds r0, r4, #0
-	pop {r4, pc}
-
-	thumb_func_start sub_0804AFF4
-sub_0804AFF4: @ 0x0804AFF4
-	push {lr}
-	bl sub_080186EC
-	movs r0, #5
-	bl sub_0804B128
-	cmp r0, #0
-	beq _0804B008
-	bl _call_via_r0
-_0804B008:
-	movs r0, #7
-	bl sub_0804B128
-	cmp r0, #0
-	beq _0804B016
-	bl _call_via_r0
-_0804B016:
-	bl sub_0804B16C
-	pop {pc}

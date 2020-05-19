@@ -1,7 +1,7 @@
 #include "global.h"
 /* called when loading any room */
 
-	extern void sub_0804ADDC();
+	extern void LoadRoomEntityList();
 	extern s32 GetProgressFlag(u32 flag);
 	extern s32* sub_0804B128(u8 unk);
 	extern void sub_0804B058(s32 *unk);
@@ -16,9 +16,9 @@ void LoadRoom(void)
     s32 *dat;
 
 	sub_0804B128(1);
-	sub_0804ADDC();
+	LoadRoomEntityList();
 	sub_0804B128(0);
-	sub_0804ADDC();
+	LoadRoomEntityList();
 	
     iVar1 = GetProgressFlag(21);
     if (iVar1 != 0) {

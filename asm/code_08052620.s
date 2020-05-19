@@ -2040,7 +2040,7 @@ sub_080535AC: @ 0x080535AC
 	ands r0, r1
 	strh r0, [r2]
 	ldr r0, _080535F0 @ =gUnk_080FCB94
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	movs r0, #6
 	movs r1, #8
 	bl sub_08050054
@@ -2222,7 +2222,7 @@ sub_0805370C: @ 0x0805370C
 	strb r0, [r1]
 	bl sub_08051FF0
 	ldr r0, _08053738 @ =gUnk_080FCC54
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	movs r0, #4
 	movs r1, #0x10
 	bl sub_08050054
@@ -2517,7 +2517,7 @@ sub_08053974: @ 0x08053974
 	bl sub_080197AC
 	bl sub_08051F78
 	ldr r0, _080539B0 @ =gUnk_080FCBC4
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
@@ -2552,7 +2552,7 @@ sub_080539BC: @ 0x080539BC
 	movs r1, #0x11
 	bl sub_0804B0B0
 	ldr r0, _080539EC @ =gUnk_080FCC14
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldr r1, _080539F0 @ =gUnk_02000080
 	ldrb r0, [r1, #6]
 	adds r0, #1
@@ -2687,7 +2687,7 @@ sub_08053ACC: @ 0x08053ACC
 	strb r0, [r1]
 	bl sub_08051FF0
 	ldr r0, _08053AFC @ =gUnk_080FCD84
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
@@ -2771,7 +2771,7 @@ sub_08053B74: @ 0x08053B74
 	movs r0, #1
 	strb r0, [r1]
 	ldr r0, _08053BA8 @ =gUnk_080FCDE0
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	bl sub_0805E5B4
 	bl sub_0805E470
 	movs r1, #0x80
@@ -2860,7 +2860,7 @@ sub_08053C20: @ 0x08053C20
 	movs r0, #4
 	bl sub_0805B4D0
 	ldr r0, _08053C58 @ =gUnk_080FCEBC
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	movs r0, #4
 	movs r1, #0x10
 	bl sub_08050054
@@ -2944,17 +2944,17 @@ sub_08053CC8: @ 0x08053CC8
 	adds r0, #8
 	str r0, [r6, #0xc]
 	ldr r0, [r4]
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldrb r0, [r4, #4]
 	ldrb r1, [r4, #5]
 	movs r2, #1
 	bl sub_0804B0FC
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldrb r0, [r4, #4]
 	ldrb r1, [r4, #5]
 	movs r2, #2
 	bl sub_0804B0FC
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	movs r5, #1
 	strb r5, [r6, #6]
 	ldr r2, _08053D28 @ =gUnk_03000F50
@@ -3075,17 +3075,17 @@ sub_08053DB4: @ 0x08053DB4
 	adds r0, r0, r2
 	strh r0, [r1, #0xc]
 	ldr r0, [r4]
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldrb r0, [r4, #4]
 	ldrb r1, [r4, #5]
 	movs r2, #1
 	bl sub_0804B0FC
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldrb r0, [r4, #4]
 	ldrb r1, [r4, #5]
 	movs r2, #2
 	bl sub_0804B0FC
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	movs r0, #0x78
 	strh r0, [r5, #8]
 	ldrb r0, [r5, #6]
@@ -3146,7 +3146,7 @@ sub_08053E74: @ 0x08053E74
 	ldr r4, _08053EB4 @ =gUnk_02000080
 	str r0, [r4, #0xc]
 	ldr r0, [r0]
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	movs r0, #0x78
 	strh r0, [r4, #8]
 	movs r0, #0x3c
@@ -3194,7 +3194,7 @@ sub_08053EC4: @ 0x08053EC4
 	adds r0, #0xc
 	str r0, [r4, #0xc]
 	ldr r0, [r1, #4]
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
@@ -3253,7 +3253,7 @@ sub_08053F20: @ 0x08053F20
 	adds r0, r0, r2
 	strh r0, [r1, #0xc]
 	ldr r0, [r4]
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	movs r0, #0x78
 	strh r0, [r5, #8]
 	movs r0, #0x3c
@@ -4441,7 +4441,7 @@ _08054838:
 _08054842:
 	movs r0, #7
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805486A
@@ -5133,7 +5133,7 @@ sub_08054DAC: @ 0x08054DAC
 	ldrb r1, [r1, #3]
 	bl sub_0804B0B0
 	ldr r0, _08054DF4 @ =gUnk_080FEED4
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	movs r0, #2
 	bl sub_0805B4D0
 	movs r0, #0
@@ -5394,7 +5394,7 @@ sub_08054FAC: @ 0x08054FAC
 	lsls r0, r0, #2
 	adds r0, r0, r1
 	ldr r0, [r0]
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldrb r0, [r5, #1]
 	movs r1, #0
 	cmp r0, #0
@@ -5472,7 +5472,7 @@ _08055050: .4byte gUnk_02000080
 sub_08055054: @ 0x08055054
 	push {r4, lr}
 	ldr r0, _08055080 @ =gUnk_080FF128
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldr r4, _08055084 @ =gUnk_02000080
 	ldrb r0, [r4, #4]
 	movs r1, #2
@@ -5528,7 +5528,7 @@ sub_080550B0: @ 0x080550B0
 	ldrb r1, [r1, #3]
 	bl sub_0804B0B0
 	ldr r0, _080550EC @ =gUnk_080FF154
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldrb r0, [r4, #4]
 	movs r1, #0
 	movs r2, #0
@@ -5573,7 +5573,7 @@ _08055110: .4byte gUnk_02000080
 sub_08055114: @ 0x08055114
 	push {r4, lr}
 	ldr r0, _08055150 @ =gUnk_080FF17C
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldr r0, _08055154 @ =gUnk_02002A40
 	ldrb r0, [r0, #8]
 	cmp r0, #9
@@ -6308,7 +6308,7 @@ sub_080556AC: @ 0x080556AC
 	ldrb r1, [r1, #3]
 	bl sub_0804B0B0
 	ldr r0, _080556EC @ =gUnk_080FF264
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldrb r0, [r4, #4]
 	movs r1, #0
 	movs r2, #0
@@ -6352,7 +6352,7 @@ sub_08055710: @ 0x08055710
 	ldrb r1, [r1, #3]
 	bl sub_0804B0B0
 	ldr r0, _08055760 @ =gUnk_080FEE48
-	bl sub_0804ADF8
+	bl CreateEntity
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08055734
@@ -6456,7 +6456,7 @@ sub_080557D0: @ 0x080557D0
 	ldrb r1, [r1, #3]
 	bl sub_0804B0B0
 	ldr r0, _08055810 @ =gUnk_080FF298
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldrb r0, [r4, #4]
 	movs r1, #0
 	movs r2, #0
@@ -6495,7 +6495,7 @@ _08055830: .4byte gUnk_02000080
 sub_08055834: @ 0x08055834
 	push {r4, lr}
 	ldr r0, _08055870 @ =gUnk_080FF2C0
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldr r0, _08055874 @ =gUnk_02002A40
 	ldrb r0, [r0, #8]
 	cmp r0, #9
@@ -6555,7 +6555,7 @@ sub_080558A4: @ 0x080558A4
 	ldrb r1, [r1, #3]
 	bl sub_0804B0B0
 	ldr r0, _080558E0 @ =gUnk_080FF308
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldrb r0, [r4, #4]
 	movs r1, #0
 	movs r2, #0
@@ -6730,7 +6730,7 @@ sub_080559FC: @ 0x080559FC
 	cmp r0, #0
 	beq _08055A0E
 	ldr r0, _08055A34 @ =gUnk_080FF33C
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 _08055A0E:
 	ldrb r0, [r4, #4]
 	movs r1, #0
@@ -6857,7 +6857,7 @@ sub_08055AEC: @ 0x08055AEC
 	lsls r0, r0, #4
 	ldr r1, _08055B30 @ =gUnk_080FED18
 	adds r0, r0, r1
-	bl sub_0804ADF8
+	bl CreateEntity
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08055B14
@@ -6924,7 +6924,7 @@ sub_08055B70: @ 0x08055B70
 	lsls r0, r0, #4
 	ldr r1, _08055BA8 @ =gUnk_080FF378
 	adds r0, r0, r1
-	bl sub_0804ADF8
+	bl CreateEntity
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _08055BA2
@@ -7283,7 +7283,7 @@ sub_08055E24: @ 0x08055E24
 	ldrb r1, [r1, #3]
 	bl sub_0804B0B0
 	ldr r0, _08055E64 @ =gUnk_080FF400
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	ldrb r0, [r4, #4]
 	movs r1, #0
 	movs r2, #0

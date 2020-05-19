@@ -1,6 +1,12 @@
-struct Entity {
-    void *field_0x0;
-    struct Entity * field_0x4;
+#ifndef ENTITY_H
+#define ENTITY_H
+
+#include "global.h"
+
+typedef struct
+{
+    u32 *field_0x0;
+    u32 * field_0x4;
     u8 type;
     u8 subtype;
     u8 parameter1;
@@ -21,7 +27,7 @@ struct Entity {
     u8 palette;
     u8 spriteOrientation[3];
     u16 spritePointer;
-    uint field_0x20;
+    u16 field_0x20;
     s16 nonPlanarMovement;
     u8 spriteAnimation[3];
     u8 ticks;
@@ -48,13 +54,13 @@ struct Entity {
     u8 field_0x44;
     u8 currentHealth;
     s16 field_0x46;
-    void * boundingBox;
+    u32 * boundingBox;
     u8 field_0x4c;
     u8 field_0x4d;
     u8 field_0x4e;
     u8 field_0x4f;
-    void * spritePtr;
-    struct Entity * attachedEntity;
+    u32 * spritePtr;
+    u32 * attachedEntity;
     u8 field_0x58;
     u8 field_0x59;
     u8 frames;
@@ -67,27 +73,10 @@ struct Entity {
     u8 spriteRenderPositionOffset;
     u8 field_0x63;
     u8 * field_0x64;
-    struct Entity * otherEntity;
-    u8 field_0x6c;
-    u8 field_0x6d;
-    u8 field_0x6e;
-    u8 field_0x6f;
-    u8 field_0x70;
-    u8 field_0x71;
-    u8 field_0x72;
-    u8 field_0x73;
-    struct Entity * heldObjectPtr;
-    u8 field_0x78;
-    u8 field_0x79;
-    u8 field_0x7a;
-    u8 field_0x7b;
-    u8 field_0x7c;
-    u8 field_0x7d;
-    u8 field_0x7e;
-    u8 field_0x7f;
-    u8 field_0x80;
-    u8 field_0x81;
-    u8 field_0x82;
-    u8 field_0x83;
-    int * field_0x84;
-};
+    u32 * otherEntity;
+	u8 filler2[8];
+    u32 * heldObjectPtr;
+	u8 filler[12];
+    u32 * field_0x84;
+} Entity;
+#endif

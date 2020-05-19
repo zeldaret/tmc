@@ -3581,7 +3581,7 @@ _080A4544:
 	bne _080A45A2
 	ldrb r0, [r2, #9]
 	ldrb r1, [r2, #0xa]
-	bl sub_0804AA60
+	bl CreateEnemy
 _080A4550:
 	adds r4, r0, #0
 	cmp r4, #0
@@ -16248,7 +16248,7 @@ sub_080AA654: @ 0x080AA654
 	adds r0, #8
 	strh r0, [r4, #0xa]
 	adds r0, r4, #0
-	bl sub_0804ADF8
+	bl CreateEntity
 	pop {r4, r5, pc}
 	.align 2, 0
 _080AA688: .4byte gUnk_0812A004

@@ -475,7 +475,7 @@ _0801889A:
 	ldr r1, _080188AC @ =gUnk_080FECC8
 _080188A4:
 	adds r0, r0, r1
-	bl sub_0804ADF8
+	bl CreateEntity
 	b _080189E4
 	.align 2, 0
 _080188AC: .4byte gUnk_080FECC8
@@ -488,7 +488,7 @@ _080188B8:
 	lsls r0, r0, #4
 	ldr r1, _080188DC @ =gUnk_080FED18
 	adds r0, r0, r1
-	bl sub_0804ADF8
+	bl CreateEntity
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _080188CC
@@ -527,7 +527,7 @@ _080188FE:
 	lsls r0, r0, #4
 	ldr r1, _08018924 @ =gUnk_080FED58
 	adds r0, r0, r1
-	bl sub_0804ADF8
+	bl CreateEntity
 	ldr r2, _08018928 @ =gUnk_02034350
 	ldrb r0, [r5, #1]
 	lsls r0, r0, #2
@@ -549,7 +549,7 @@ _08018930:
 	lsls r0, r0, #4
 	ldr r1, _08018974 @ =gUnk_080FEE78
 	adds r0, r0, r1
-	bl sub_0804ADF8
+	bl CreateEntity
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08018958
@@ -604,7 +604,7 @@ _080189A4:
 	cmp r4, #0
 	beq _080189E4
 	ldr r0, _080189B0 @ =gUnk_080FEE18
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	b _080189E4
 	.align 2, 0
 _080189B0: .4byte gUnk_080FEE18
@@ -612,13 +612,13 @@ _080189B4:
 	cmp r4, #0
 	beq _080189C4
 	ldr r0, _080189C0 @ =gUnk_080FEE58
-	bl sub_0804ADF8
+	bl CreateEntity
 	b _080189E4
 	.align 2, 0
 _080189C0: .4byte gUnk_080FEE58
 _080189C4:
 	ldr r0, _080189CC @ =gUnk_080FEE48
-	bl sub_0804ADF8
+	bl CreateEntity
 	b _080189E4
 	.align 2, 0
 _080189CC: .4byte gUnk_080FEE48
@@ -630,7 +630,7 @@ _080189D0:
 	movs r1, #0x79
 	bl sub_0807CC9C
 	ldr r0, _080189E8 @ =gUnk_080FEE38
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 _080189E4:
 	pop {r4, r5, pc}
 	.align 2, 0

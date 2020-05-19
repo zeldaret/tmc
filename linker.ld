@@ -293,17 +293,29 @@ SECTIONS {
 
         /* C source compiled with interworking */
         asm/code_08016B30.o(.text);
+		asm/updateBackgroundRegisters.o(.text);
+		asm/code_08016DF8.o(.text);
         /* C source compiled without interworking */
         asm/code.o(.text);
+		src/readKeyInput.o(.text);
 		asm/readKeyInput.o(.text);
-		asm/code_0801D6E0.o(.text);
+		asm/code_0801D714.o(.text);
+		src/createEnemy.o(.text);
+		asm/code_0804AA84.o(.text);
+		src/loadRoomEntityList.o(.text);
+		asm/createEntity.o(.text);
+		asm/code_0804AEB0.o(.text);
 		src/loadRoom.o(.text);
 		asm/code_0804B058.o(.text);
-		asm/InitializeLink.o(.text);
+		asm/upperInn.o(.text);
+		asm/code_0804B9F8.o(.text);
+		asm/initializeLink.o(.text);
 		asm/code_08052620.o(.text);
 		asm/mainLoop.o(.text);
 		asm/code_08055FF4.o(.text);
-		asm/GetProgressFlag.o(.text);
+		asm/getEmptyEntity.o(.text);
+		asm/code_0805E744.o(.text);
+		src/getProgressFlag.o(.text);
 		asm/code_0807CC3C.o(.text);
 		asm/createFx.o(.text);
 		asm/code_080A29BC.o(.text);

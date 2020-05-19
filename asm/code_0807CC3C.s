@@ -2949,7 +2949,7 @@ sub_0807E148: @ 0x0807E148
 	push {lr}
 	ldr r0, [r1]
 	bl sub_08016998
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	pop {pc}
 	.align 2, 0
 
@@ -63425,7 +63425,7 @@ sub_0809AB04: @ 0x0809AB04
 _0809AB22:
 	movs r0, #0x36
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0809AB9C
@@ -63739,14 +63739,14 @@ sub_0809AD68: @ 0x0809AD68
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xa]
 	bl sub_0804B128
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	movs r0, #0x17
 	bl sub_0807CA84
 	cmp r0, #0
 	beq _0809AD8A
 	ldrb r0, [r4, #0xb]
 	bl sub_0804B128
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 _0809AD8A:
 	pop {r4, pc}
 
@@ -73042,7 +73042,7 @@ sub_0809F5B0: @ 0x0809F5B0
 	movs r0, #0x24
 	bl sub_0807CD04
 	ldr r0, _0809F5D8 @ =gUnk_080DD750
-	bl sub_0804ADDC
+	bl LoadRoomEntityList
 	bl sub_0805E780
 _0809F5D4:
 	pop {pc}
@@ -77290,7 +77290,7 @@ _080A15BC:
 	ldrsh r1, [r5, r0]
 	subs r1, #1
 	movs r0, #0x41
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _080A15E6
@@ -77479,13 +77479,13 @@ _080A171E:
 	str r0, [r7]
 	movs r0, #0x5c
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	str r7, [r1, #0x64]
 	str r1, [r7, #4]
 	movs r0, #0x5d
 	movs r1, #0
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	ldr r4, _080A182C @ =gUnk_03000BF0
 	movs r2, #0x80
@@ -77504,7 +77504,7 @@ _080A171E:
 	str r1, [r7, #8]
 	movs r0, #0x5d
 	movs r1, #1
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r1, r0, #0
 	movs r2, #0x98
 	lsls r2, r2, #2
@@ -78485,7 +78485,7 @@ sub_080A1ED0: @ 0x080A1ED0
 _080A1F1C:
 	movs r0, #0x60
 	mov r1, sb
-	bl sub_0804AA60
+	bl CreateEnemy
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _080A1FA6

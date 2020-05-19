@@ -49,7 +49,7 @@ CPPFLAGS := -I tools/agbcc -I tools/agbcc/include -iquote include -nostdinc -und
 
 LDFLAGS = -Map ../../$(MAP)
 
-LIB := -L ../../tools/agbcc/lib  -lc
+LIB := -L ../../tools/agbcc/lib -lc
 
 SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
 GFX := tools/gbagfx/gbagfx
@@ -120,6 +120,8 @@ endif
 
 tools: $(TOOLDIRS)
 
+$(TOOLDIRS):
+	@$(MAKE) -C $@
 
 # For contributors to make sure a change didn't affect the contents of the ROM.
 compare:
