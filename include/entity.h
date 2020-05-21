@@ -1,13 +1,22 @@
+#include "global.h"
+
+
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "global.h"
+
+
 typedef struct {
 	u8 type;
     u8 subtype;
     u8 parameter1;
     u8 parameter2;
 } EntityType;
+
+union SplitWord {
+    u32 WORD;
+    u16 LO, HI;
+};
 
 typedef struct
 {
@@ -35,13 +44,9 @@ typedef struct
     u8 spriteAnimation[3];
     u8 ticks;
     u16 collisions;
-    s16 xPosSubPixel;
-    s16 xPos;
-    s16 yPosSubPixel;
-    s16 yPos;
-    u8 field_0x34;
-    u8 field_0x35;
-    s16 height;
+	union SplitWord x;
+	union SplitWord y;
+	union SplitWord height; // todo
     u8 collisionLayer;
     u8 field_0x39;
     u8 field_0x3a;
@@ -81,6 +86,7 @@ typedef struct
     u32 * heldObjectPtr;
 	u8 filler[12];
     u32 * field_0x84;
+	
 } Entity;
 
 #endif

@@ -110,7 +110,7 @@ _080185C2:
 	cmp r0, #0xfe
 	bne _080185D4
 	ldrb r0, [r2, #1]
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	beq _080185F6
 	movs r0, #1
@@ -436,7 +436,7 @@ _08018858:
 	b _080189E4
 _0801885E:
 	ldrh r0, [r5, #0x12]
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	beq _0801886A
 	b _080189E4
@@ -1612,7 +1612,7 @@ _080190FC:
 	ldrb r1, [r4, #0xa]
 	movs r0, #0x43
 	movs r2, #1
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08019172
@@ -2330,7 +2330,7 @@ sub_08019698: @ 0x08019698
 	movs r0, #0x2c
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08019700
@@ -3544,7 +3544,7 @@ _0801A018:
 	movs r0, #7
 	mov r1, r8
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _0801A02A
@@ -4185,7 +4185,7 @@ sub_0801A4F8: @ 0x0801A4F8
 	cmp r0, #0
 	beq _0801A544
 	movs r0, #0x45
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #1
 	bne _0801A564
 	ldrb r1, [r4, #0xd]
@@ -4932,7 +4932,7 @@ _0801AA94:
 	movs r0, #7
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0801AB00
@@ -5320,7 +5320,7 @@ sub_0801AD6C: @ 0x0801AD6C
 	ldrh r0, [r4, #2]
 	cmp r0, #9
 	beq _0801ADDC
-	bl sub_0805E678
+	bl GetEmptyEntity
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0801AE26

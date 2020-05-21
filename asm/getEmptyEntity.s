@@ -5,8 +5,8 @@
 
 	.text
 	
-	thumb_func_start sub_0805E678
-sub_0805E678: @ 0x0805E678
+	thumb_func_start GetEmptyEntity
+GetEmptyEntity: @ 0x0805E678
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}

@@ -1613,7 +1613,7 @@ sub_080179EC: @ 0x080179EC
 	lsls r3, r3, #0x10
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]
@@ -1677,7 +1677,7 @@ sub_08017A90: @ 0x08017A90
 	movs r0, #0x99
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _08017AAA
@@ -1854,7 +1854,7 @@ sub_08017BBC: @ 0x08017BBC
 	movs r0, #0x42
 	movs r1, #1
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	cmp r0, #0
 	beq _08017BF2
 	str r4, [r0, #0x54]
@@ -2374,7 +2374,7 @@ _08017F9A:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	b _08017FC2
 	.align 2, 0
 _08017FAC: .4byte gLinkEntity
@@ -2385,7 +2385,7 @@ _08017FB4:
 	adds r0, r5, #0
 	adds r1, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 _08017FC2:
 	ldrb r1, [r4, #0x10]
 	movs r0, #0x7f

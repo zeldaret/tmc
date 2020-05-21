@@ -287,6 +287,7 @@ SECTIONS {
         asm/code_080011C4.o(.text);
         data/data_4.o(.rodata);
         asm/code_08003FC4.o(.text);
+		asm/code_080043E8.o(.text);
         data/data_6.o(.rodata);
         asm/code_0800857C.o(.text);
 
@@ -301,24 +302,39 @@ SECTIONS {
 		asm/readKeyInput.o(.text);
 		asm/code_0801D714.o(.text);
 		src/createEnemy.o(.text);
+		src/sub_0804AA84.o(.text); /* wip */
 		asm/code_0804AA84.o(.text);
 		src/loadRoomEntityList.o(.text);
 		asm/createEntity.o(.text);
 		asm/code_0804AEB0.o(.text);
+		src/sub_0804AFF4.o(.text);
 		src/loadRoom.o(.text);
 		asm/code_0804B058.o(.text);
 		asm/upperInn.o(.text);
 		asm/code_0804B9F8.o(.text);
+		src/sub_08050008.o(.text);
+		src/sub_08050024.o(.text);
+		asm/code_08050038.o(.text);
 		asm/initializeLink.o(.text);
 		asm/code_08052620.o(.text);
 		asm/mainLoop.o(.text);
+		asm/sub_08055F70.o(.text);
 		asm/code_08055FF4.o(.text);
 		asm/getEmptyEntity.o(.text);
 		asm/code_0805E744.o(.text);
+		src/sub_0806FA30.o(.text);
+		src/positionRelative.o(.text);
+		asm/code_0806FA6C.o(.text);
+		asm/getInventoryValue.o(.text);
+		asm/code_0807CAA0.o(.text);
 		src/getProgressFlag.o(.text);
 		asm/code_0807CC3C.o(.text);
+		src/createObject.o(.text);
+		asm/sub_080A2988.o(.text);
 		asm/createFx.o(.text);
 		asm/code_080A29BC.o(.text);
+		asm/sub_080AD8F0.o(.text);
+		asm/code_080AD90C.o(.text);
         /* library functions */
         asm/m4a_asm.o(.text);
         asm/m4a.o(.text);

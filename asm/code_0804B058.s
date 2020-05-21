@@ -348,7 +348,7 @@ _0804B2A4:
 	ldrb r1, [r4, #1]
 	movs r0, #0x52
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	cmp r0, #0
 	beq _0804B2FC
 	ldrh r1, [r4, #4]
@@ -454,7 +454,7 @@ _0804B396:
 	movs r0, #0xf
 	movs r1, #2
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0804B3BA
@@ -697,7 +697,7 @@ sub_0804B4E4: @ 0x0804B4E4
 	movs r0, #0x22
 	bl sub_080580B0
 	movs r0, #2
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	beq _0804B4FC
 	movs r0, #0x56
@@ -874,7 +874,7 @@ _0804B5EE:
 _0804B5F4:
 	ldrh r0, [r4]
 	adds r4, #2
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	beq _0804B602
 	adds r6, #1
@@ -986,7 +986,7 @@ sub_0804B6EC: @ 0x0804B6EC
 sub_0804B6F0: @ 0x0804B6F0
 	push {lr}
 	movs r0, #0x46
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	bne _0804B71C
 	ldr r0, _0804B714 @ =gUnk_080D6578
@@ -1029,7 +1029,7 @@ sub_0804B738: @ 0x0804B738
 	bl LoadRoomEntityList
 _0804B748:
 	movs r0, #0x46
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	bne _0804B77C
 	movs r0, #0x29

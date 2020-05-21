@@ -2513,7 +2513,7 @@ sub_0801E99C: @ 0x0801E99C
 	adds r0, r0, r1
 	ldr r7, [r0]
 	movs r0, #0x67
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	beq _0801EA56
 	ldr r1, _0801E9E8 @ =gUnk_02002A40
@@ -12666,7 +12666,7 @@ _0802355A:
 	adds r0, r7, #0
 	adds r1, r5, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	ldrb r0, [r7, #0x14]
 	ands r4, r0
 	adds r4, r4, r6
@@ -13873,7 +13873,7 @@ sub_08023E54: @ 0x08023E54
 	lsls r3, r3, #0x10
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA48
+	bl PositionRelative
 _08023E94:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -16067,7 +16067,7 @@ _08024ECC:
 	adds r0, r4, #0
 	adds r1, r6, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	adds r1, r6, #0
 	adds r1, #0x63
 	movs r0, #0x1a
@@ -16304,7 +16304,7 @@ _080250C2:
 	movs r0, #0x21
 	movs r1, #2
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08025104
@@ -17699,7 +17699,7 @@ _08025B52:
 	movs r0, #0x21
 	movs r1, #2
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08025BB4
@@ -17711,7 +17711,7 @@ _08025B52:
 	lsls r3, r3, #0x10
 	adds r0, r6, #0
 	adds r1, r4, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	ldrh r1, [r4, #0x2e]
 	mov r0, sb
 	ands r0, r1
@@ -17758,7 +17758,7 @@ sub_08025BD4: @ 0x08025BD4
 	movs r0, #0x21
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08025C22
@@ -17776,7 +17776,7 @@ sub_08025BD4: @ 0x08025BD4
 	lsls r3, r3, #0x10
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	ldr r0, _08025C28 @ =0x0000FFF6
 	strh r0, [r4, #0x36]
 _08025C22:
@@ -22641,7 +22641,7 @@ _0802809C:
 	adds r0, r5, #0
 	adds r1, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	ldrh r0, [r5, #0x12]
 	ldrb r1, [r5, #0x1e]
 	bl sub_080700C8
@@ -22799,7 +22799,7 @@ sub_080281E0: @ 0x080281E0
 	push {r4, r5, r6, r7, lr}
 	adds r7, r0, #0
 	movs r4, #0
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #1
 	bne _0802821A
 	ldr r6, _08028220 @ =gUnk_02002A40
@@ -24861,7 +24861,7 @@ _08029174:
 	b _08029194
 _0802917E:
 	movs r0, #0x44
-	bl sub_0807CA84
+	bl GetInventoryValue
 	b _0802918C
 _08029186:
 	movs r0, #0x5a
@@ -24903,7 +24903,7 @@ _080291BC:
 	bl GetProgressFlag
 	b _080291D0
 _080291C4:
-	bl sub_0807CA84
+	bl GetInventoryValue
 	b _080291D0
 _080291CA:
 	ldrh r0, [r2, #0xa]
@@ -25415,7 +25415,7 @@ _08029584:
 	adds r0, r5, #0
 	adds r1, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	ldrh r0, [r5, #0x12]
 	ldrb r1, [r5, #0x1e]
 	bl sub_080700C8
@@ -25932,7 +25932,7 @@ sub_0802999C: @ 0x0802999C
 	adds r1, r4, #0
 	movs r2, #0
 	movs r3, #5
-	bl sub_0806FA48
+	bl PositionRelative
 	str r4, [r7, #0x54]
 	movs r0, #0x18
 	movs r1, #2
@@ -25943,7 +25943,7 @@ sub_0802999C: @ 0x0802999C
 	adds r1, r5, #0
 	movs r2, #0
 	movs r3, #4
-	bl sub_0806FA48
+	bl PositionRelative
 	str r5, [r4, #0x54]
 	movs r0, #0x18
 	movs r1, #3
@@ -25954,7 +25954,7 @@ sub_0802999C: @ 0x0802999C
 	adds r1, r4, #0
 	movs r2, #0
 	movs r3, #3
-	bl sub_0806FA48
+	bl PositionRelative
 	str r4, [r5, #0x54]
 	movs r0, #0x18
 	movs r1, #4
@@ -25965,7 +25965,7 @@ sub_0802999C: @ 0x0802999C
 	adds r1, r5, #0
 	movs r2, #0
 	movs r3, #2
-	bl sub_0806FA48
+	bl PositionRelative
 	str r5, [r4, #0x54]
 	movs r0, #0x18
 	movs r1, #5
@@ -25976,7 +25976,7 @@ sub_0802999C: @ 0x0802999C
 	adds r1, r6, #0
 	movs r2, #0
 	movs r3, #1
-	bl sub_0806FA48
+	bl PositionRelative
 	str r6, [r5, #0x54]
 	movs r0, #0x18
 	movs r1, #6
@@ -25988,7 +25988,7 @@ sub_0802999C: @ 0x0802999C
 	adds r1, r4, #0
 	movs r2, #0
 	movs r3, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	str r4, [r6, #0x54]
 	movs r4, #1
 	strb r4, [r7, #0xc]
@@ -27105,7 +27105,7 @@ sub_0802A250: @ 0x0802A250
 	movs r0, #0x66
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	cmp r0, #0
 	beq _0802A2A6
 	str r5, [r0, #0x50]
@@ -31339,7 +31339,7 @@ sub_0802C18C: @ 0x0802C18C
 	movs r0, #0xf
 	movs r1, #0x11
 	movs r2, #0x40
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0802C1BC
@@ -31347,7 +31347,7 @@ sub_0802C18C: @ 0x0802C18C
 	lsls r3, r3, #9
 	adds r0, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 _0802C1BC:
 	pop {r4, pc}
 	.align 2, 0
@@ -38164,7 +38164,7 @@ _0802F4F8:
 	movs r0, #0x2a
 	movs r1, #3
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0802F536
@@ -39360,7 +39360,7 @@ _0802FE2C:
 	movs r0, #0x2a
 	movs r1, #3
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0802FE6A
@@ -41552,7 +41552,7 @@ sub_08030E80: @ 0x08030E80
 	movs r0, #0xf
 	movs r1, #2
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08030EC0
@@ -41579,7 +41579,7 @@ _08030EC0:
 	movs r0, #0xf
 	movs r1, #2
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08030EFA
@@ -44930,7 +44930,7 @@ sub_08032794: @ 0x08032794
 	lsls r3, r3, #0x10
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA48
+	bl PositionRelative
 _080327C2:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -46698,7 +46698,7 @@ _080334E0:
 	movs r0, #0x20
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080334F6
@@ -47268,7 +47268,7 @@ sub_08033890: @ 0x08033890
 	ldrb r1, [r6, #0xa]
 	movs r0, #0x7d
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _08033928
@@ -48143,7 +48143,7 @@ _08033F70:
 	movs r0, #0x7e
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	str r4, [r0, #0x50]
 	ldr r0, _08033FD0 @ =gUnk_030010A0
 	adds r0, #0x39
@@ -49667,7 +49667,7 @@ sub_08034AC4: @ 0x08034AC4
 	lsls r3, r3, #9
 	adds r1, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	ldr r1, _08034AE8 @ =gUnk_080CED74
 	ldrb r0, [r4, #0xc]
 	lsls r0, r0, #2
@@ -49772,7 +49772,7 @@ _08034B7C:
 	lsls r3, r3, #0x10
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA48
+	bl PositionRelative
 _08034B9A:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -56084,7 +56084,7 @@ sub_08037B48: @ 0x08037B48
 	movs r0, #0x2a
 	movs r1, #3
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _08037B88
@@ -56117,7 +56117,7 @@ _08037B88:
 	movs r0, #0x2a
 	movs r1, #3
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _08037BCA
@@ -56150,7 +56150,7 @@ _08037BCA:
 	movs r0, #0x2a
 	movs r1, #3
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _08037C06
@@ -61281,7 +61281,7 @@ sub_0803A274: @ 0x0803A274
 	movs r0, #0x7e
 	movs r1, #1
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	str r4, [r1, #0x50]
 	ldr r0, [r4, #0x54]
@@ -61292,7 +61292,7 @@ sub_0803A274: @ 0x0803A274
 	movs r3, #0x80
 	lsls r3, r3, #0xe
 	adds r1, r4, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	b _0803A310
 	.align 2, 0
 _0803A2C8: .4byte gUnk_03003DBC
@@ -61312,7 +61312,7 @@ _0803A2CC:
 	movs r0, #0x7e
 	movs r1, #2
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	str r4, [r1, #0x50]
 	ldr r0, [r4, #0x54]
@@ -61326,7 +61326,7 @@ _0803A2CC:
 	movs r3, #0x80
 	lsls r3, r3, #0xe
 	adds r1, r4, #0
-	bl sub_0806FA48
+	bl PositionRelative
 _0803A310:
 	ldr r0, _0803A350 @ =gUnk_030010A0
 	adds r0, #0x38
@@ -63329,7 +63329,7 @@ _0803B23A:
 	movs r0, #0
 	movs r1, #0x5e
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0803B268
@@ -63346,7 +63346,7 @@ _0803B23A:
 	lsls r3, r3, #0x10
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA48
+	bl PositionRelative
 _0803B268:
 	ldr r4, [r5, #0x74]
 	adds r1, r4, #0
@@ -63650,7 +63650,7 @@ sub_0803B480: @ 0x0803B480
 	movs r0, #0x2d
 	movs r1, #1
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _0803B4B6
@@ -63663,7 +63663,7 @@ sub_0803B480: @ 0x0803B480
 	adds r0, r4, #0
 	adds r1, r3, #0
 	movs r3, #0
-	bl sub_0806FA48
+	bl PositionRelative
 _0803B4B6:
 	adds r1, r4, #0
 	adds r1, #0x7e
@@ -63741,12 +63741,12 @@ sub_0803B538: @ 0x0803B538
 	ldr r1, [r4, #0x54]
 	ldr r3, _0803B554 @ =0xFFFF0000
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	ldr r1, [r4, #0x74]
 	ldr r3, _0803B558 @ =0xFFFE0000
 	adds r0, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	pop {r4, pc}
 	.align 2, 0
 _0803B554: .4byte 0xFFFF0000
@@ -65327,7 +65327,7 @@ _0803C100:
 	movs r0, #0x1a
 	adds r1, r6, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0803C116
@@ -66151,7 +66151,7 @@ sub_0803C714: @ 0x0803C714
 	lsls r3, r3, #0x18
 	asrs r3, r3, #0x18
 	lsls r3, r3, #0x10
-	bl sub_0806FA48
+	bl PositionRelative
 	pop {pc}
 	.align 2, 0
 _0803C734: .4byte gUnk_080CFFC4
@@ -66748,7 +66748,7 @@ sub_0803CB64: @ 0x0803CB64
 	lsls r3, r3, #0x10
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	ldr r0, _0803CBA8 @ =0x00000193
 	bl sub_08004488
 _0803CBA0:
@@ -67644,7 +67644,7 @@ _0803D210:
 	lsls r3, r3, #0x10
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	adds r6, #1
 	cmp r6, #1
 	ble _0803D210
@@ -68493,7 +68493,7 @@ _0803D870:
 	adds r0, r5, #0
 	adds r1, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	str r5, [r4, #0x50]
 	b _0803D8EE
 	.align 2, 0
@@ -68623,7 +68623,7 @@ sub_0803D974: @ 0x0803D974
 	lsls r3, r3, #9
 	adds r1, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	movs r0, #0x4a
 	movs r1, #2
 	bl CreateEnemy
@@ -68755,7 +68755,7 @@ _0803DA72:
 	lsls r3, r3, #9
 	adds r1, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	adds r0, r4, #0
 	bl sub_080042B8
 	pop {r4, r5, pc}
@@ -68785,7 +68785,7 @@ sub_0803DAA8: @ 0x0803DAA8
 	lsls r3, r3, #0xa
 	adds r1, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	adds r0, r4, #0
 	movs r1, #2
 	bl sub_080042AC
@@ -68872,7 +68872,7 @@ _0803DB54:
 	lsls r3, r3, #0xa
 	adds r1, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	adds r0, r4, #0
 	bl sub_080042B8
 	pop {r4, r5, pc}
@@ -68979,7 +68979,7 @@ sub_0803DC0C: @ 0x0803DC0C
 	adds r3, #1
 	lsls r3, r3, #0x10
 	adds r1, r4, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	adds r0, r4, #0
 	bl sub_080042B8
 	pop {r4, r5, pc}
@@ -69769,7 +69769,7 @@ _0803E1F8:
 	ldr r3, _0803E254 @ =0xFFFF0000
 	adds r1, r5, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	adds r0, r5, #0
 	movs r1, #1
 	bl sub_08004260
@@ -69992,7 +69992,7 @@ _0803E3E4:
 	ldr r3, _0803E3F8 @ =0xFFFF0000
 	adds r1, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	adds r0, r4, #0
 	bl sub_08004274
 	pop {r4, pc}
@@ -73033,7 +73033,7 @@ _0803FA42:
 	movs r0, #0x9b
 	movs r1, #0
 	str r3, [sp]
-	bl sub_080A2960
+	bl CreateObject
 	adds r6, r0, #0
 	ldr r3, [sp]
 	cmp r6, #0
@@ -73333,7 +73333,7 @@ _0803FCA8:
 	movs r0, #0x9b
 	movs r1, #1
 	movs r2, #0xff
-	bl sub_080A2960
+	bl CreateObject
 	adds r6, r0, #0
 	cmp r6, #0
 	beq _0803FD32
@@ -76882,7 +76882,7 @@ _08041748:
 	movs r0, #0xb5
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _080417AA
@@ -77616,13 +77616,13 @@ _08041D40:
 	movs r0, #0xb6
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	str r4, [r0, #0x50]
 	str r0, [r4, #0x54]
 	movs r0, #0xb6
 	movs r1, #1
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	str r4, [r0, #0x50]
 	movs r0, #3
 	strb r0, [r4, #0xd]
@@ -79532,7 +79532,7 @@ _08042B68:
 	movs r0, #0xaf
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08042B9C
@@ -79546,7 +79546,7 @@ _08042B9C:
 	movs r0, #0xaf
 	movs r1, #2
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08042BBA
@@ -79768,7 +79768,7 @@ sub_08042D24: @ 0x08042D24
 	movs r0, #0xaf
 	movs r1, #1
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08042D5E
@@ -79812,7 +79812,7 @@ _08042D8E:
 	movs r0, #0xaf
 	movs r1, #2
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08042DB4
@@ -81460,7 +81460,7 @@ _080439BC:
 	add r0, ip
 	ldr r0, [r0]
 	adds r1, r5, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	ldr r0, [r5, #0x34]
 	add r0, r8
 	str r0, [r5, #0x34]
@@ -82239,7 +82239,7 @@ _08043F94:
 	movs r0, #0xaf
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _08043FCA
@@ -82851,7 +82851,7 @@ _080443EA:
 	adds r3, #8
 	lsls r3, r3, #0x10
 	adds r0, r5, #0
-	bl sub_0806FA48
+	bl PositionRelative
 _08044440:
 	ldr r0, [r5, #0x64]
 	ldrb r0, [r0]
@@ -82974,7 +82974,7 @@ _0804450C:
 	movs r0, #0xf
 	movs r1, #0x11
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0804454C
@@ -83057,7 +83057,7 @@ sub_080445C0: @ 0x080445C0
 	movs r0, #0x21
 	movs r1, #1
 	movs r2, #1
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080445DA
@@ -83223,7 +83223,7 @@ _080446C8:
 	subs r3, #0x10
 	lsls r3, r3, #0x10
 	adds r1, r4, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	ldr r0, [r4, #0x50]
 	ldrh r0, [r0, #0x36]
 	strh r0, [r4, #0x36]
@@ -84070,7 +84070,7 @@ _08044D10:
 	adds r0, r6, #0
 	adds r1, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
 	beq _08044DE6
@@ -84231,7 +84231,7 @@ _08044E26:
 	ldr r3, _08044E70 @ =0xFFF00000
 	mov r1, ip
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	pop {pc}
 	.align 2, 0
 _08044E6C: .4byte gUnk_080D1628
@@ -84266,7 +84266,7 @@ sub_08044E74: @ 0x08044E74
 	ldr r3, _08044ED0 @ =0xFFF00000
 	adds r1, r5, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	movs r0, #0xc0
 	lsls r0, r0, #6
 	strh r0, [r5, #0x24]
@@ -85800,7 +85800,7 @@ sub_08045A00: @ 0x08045A00
 	asrs r3, r3, #0x18
 	adds r3, #3
 	lsls r3, r3, #0x10
-	bl sub_0806FA48
+	bl PositionRelative
 	pop {pc}
 	.align 2, 0
 _08045A24: .4byte gUnk_080D18B4
@@ -85927,7 +85927,7 @@ _08045AF8:
 	ldr r3, _08045B18 @ =0xFFFF0000
 	adds r1, r5, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	adds r2, r5, #0
 	adds r2, #0x83
 	ldrb r0, [r2]
@@ -91490,7 +91490,7 @@ _080484BC:
 	lsls r3, r3, #0xc
 	adds r0, r4, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 _080484E6:
 	pop {r4, pc}
 
@@ -94486,7 +94486,7 @@ _08049B9C:
 	cmp r0, #7
 	bhi _08049BB0
 	movs r0, #0x67
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	bne _08049BB0
 	movs r0, #8
@@ -94508,7 +94508,7 @@ _08049BB0:
 	movs r0, #0x40
 	movs r1, #0x60
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08049C16
@@ -94526,7 +94526,7 @@ _08049BF0:
 	ldrb r2, [r0]
 	movs r0, #0x96
 	movs r1, #7
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08049C16
@@ -95950,7 +95950,7 @@ _0804A638:
 	subs r1, r2, #1
 	movs r0, #0xa9
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0804A6B6
@@ -96182,7 +96182,7 @@ _0804A80A:
 	ldrb r1, [r5, #9]
 	movs r0, #1
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _0804A81C
@@ -96194,7 +96194,7 @@ _0804A81C:
 	adds r1, r4, #0
 	movs r2, #0
 	movs r3, #1
-	bl sub_0806FA48
+	bl PositionRelative
 	str r5, [r4, #0x50]
 	ldrb r1, [r6]
 	movs r0, #2
@@ -96248,7 +96248,7 @@ _0804A864:
 	ldrb r1, [r5, #9]
 	movs r0, #1
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0804A8CA

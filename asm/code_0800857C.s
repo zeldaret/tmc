@@ -358,7 +358,7 @@ _080087F6:
 	bne _080087FE
 	movs r2, #0x80
 _080087FE:
-	bl sub_080A2960
+	bl CreateObject
 	cmp r0, #0
 	beq _0800883A
 	ldrb r1, [r5, #2]

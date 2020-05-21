@@ -25,7 +25,7 @@ _08000F18:
 	bpl _08000F18
 	pop {r4, r5, r6}
 	bx lr
-
+	
 	thumb_func_start sub_08000F2C
 sub_08000F2C: @ 0x08000F2C
 	push {r4, r5, r6, r7}

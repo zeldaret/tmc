@@ -1745,7 +1745,7 @@ _0805338C: .4byte gUnk_03000BF0
 sub_08053390: @ 0x08053390
 	push {lr}
 	movs r0, #8
-	bl sub_0807CA84
+	bl GetInventoryValue
 	movs r1, #0x19
 	cmp r0, #0
 	beq _080533A0
@@ -1754,14 +1754,14 @@ _080533A0:
 	adds r0, r1, #0
 	bl sub_0801D7EC
 	movs r0, #0xa
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	beq _080533B6
 	movs r0, #0x1d
 	bl sub_0801D7EC
 _080533B6:
 	movs r0, #0xc
-	bl sub_0807CA84
+	bl GetInventoryValue
 	movs r1, #0x1b
 	cmp r0, #0
 	beq _080533C4
@@ -1961,21 +1961,21 @@ sub_08053518: @ 0x08053518
 	bl sub_0807CD80
 _08053534:
 	movs r0, #0x40
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	bne _08053544
 	movs r0, #2
 	bl sub_0807CD80
 _08053544:
 	movs r0, #0x41
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	bne _08053554
 	movs r0, #3
 	bl sub_0807CD80
 _08053554:
 	movs r0, #0x42
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	bne _08053564
 	movs r0, #5
@@ -2108,7 +2108,7 @@ sub_08053648: @ 0x08053648
 	movs r0, #0x2d
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08053674
@@ -3337,7 +3337,7 @@ sub_08053FF0: @ 0x08053FF0
 	push {r7}
 	adds r6, r0, #0
 	adds r7, r1, #0
-	bl sub_0807CA84
+	bl GetInventoryValue
 	adds r5, r0, #0
 	lsls r1, r6, #3
 	ldr r0, _08054010 @ =gUnk_080FD5B4
@@ -3428,7 +3428,7 @@ _080540CA:
 	b _0805427C
 _080540D0:
 	adds r0, r4, #0
-	bl sub_0807CA84
+	bl GetInventoryValue
 	adds r1, r4, #0
 	cmp r0, #0
 	bne _080540C6
@@ -3574,7 +3574,7 @@ _080541F0:
 	b _0805424E
 _080541F8:
 	movs r0, #0x66
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	bne _0805420A
 	movs r0, #0x66
@@ -4345,7 +4345,7 @@ _08054782:
 _08054786:
 	movs r0, #9
 _08054788:
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	bne _080547DA
 _08054790:
@@ -4353,7 +4353,7 @@ _08054790:
 	b _0805486C
 _08054794:
 	movs r0, #0x40
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	beq _08054790
 	cmp r5, #0
@@ -4362,7 +4362,7 @@ _08054794:
 	b _080547DA
 _080547A6:
 	movs r0, #0x67
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	beq _08054790
 	ldr r0, _080547FC @ =gUnk_02034350
@@ -4393,7 +4393,7 @@ _080547DA:
 	movs r0, #0
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805486A
@@ -4855,7 +4855,7 @@ _08054B68:
 	movs r0, #0x45
 	movs r1, #0
 	movs r2, #0x10
-	bl sub_080A2960
+	bl CreateObject
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _08054BE8
@@ -4864,7 +4864,7 @@ _08054B68:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	movs r2, #0
-	bl sub_0806FA48
+	bl PositionRelative
 	adds r0, r4, #0
 	adds r0, #0x29
 	ldrb r1, [r0]
@@ -5933,7 +5933,7 @@ sub_080553E0: @ 0x080553E0
 	movs r0, #0xf
 	movs r1, #0x43
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08055408
@@ -6235,7 +6235,7 @@ sub_08055634: @ 0x08055634
 	movs r0, #0x2c
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805565C

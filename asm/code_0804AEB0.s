@@ -177,22 +177,3 @@ sub_0804AFDC: @ 0x0804AFDC
 _0804AFF0:
 	adds r0, r4, #0
 	pop {r4, pc}
-
-	thumb_func_start sub_0804AFF4
-sub_0804AFF4: @ 0x0804AFF4
-	push {lr}
-	bl sub_080186EC
-	movs r0, #5
-	bl sub_0804B128
-	cmp r0, #0
-	beq _0804B008
-	bl _call_via_r0
-_0804B008:
-	movs r0, #7
-	bl sub_0804B128
-	cmp r0, #0
-	beq _0804B016
-	bl _call_via_r0
-_0804B016:
-	bl sub_0804B16C
-	pop {pc}

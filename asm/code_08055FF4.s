@@ -3142,7 +3142,7 @@ sub_080577AC: @ 0x080577AC
 	movs r0, #0xf
 	movs r1, #0x26
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08057808
@@ -6222,7 +6222,7 @@ sub_08058F84: @ 0x08058F84
 	movs r0, #0x21
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08058FA8
@@ -6337,7 +6337,7 @@ sub_08059064: @ 0x08059064
 	movs r0, #0
 	movs r1, #0x53
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805908E
@@ -6687,7 +6687,7 @@ sub_0805930C: @ 0x0805930C
 	movs r0, #0xf
 	movs r1, #0x43
 	movs r2, #0x40
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805933A
@@ -6845,7 +6845,7 @@ _08059436:
 	movs r0, #0xf
 	movs r1, #0x35
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08059476
@@ -6931,7 +6931,7 @@ sub_080594DC: @ 0x080594DC
 	strb r0, [r4, #0xc]
 _080594F2:
 	movs r0, #6
-	bl sub_0807CA84
+	bl GetInventoryValue
 	cmp r0, #0
 	beq _08059540
 	movs r0, #0x8c
@@ -8064,7 +8064,7 @@ _08059DD4:
 	ldrb r1, [r4, #4]
 	movs r0, #0x1c
 	adds r2, r7, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08059E38
@@ -8938,7 +8938,7 @@ sub_0805A4CC: @ 0x0805A4CC
 	adds r4, r0, #0
 	movs r0, #0x8e
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _0805A4F8
@@ -9944,7 +9944,7 @@ _0805AC60:
 	ldrb r0, [r4]
 	ldrb r1, [r4, #1]
 	ldrb r2, [r4, #2]
-	bl sub_080A2960
+	bl CreateObject
 _0805AC6A:
 	adds r3, r0, #0
 	mov r2, r8
@@ -10104,7 +10104,7 @@ sub_0805AD80: @ 0x0805AD80
 	ldrb r1, [r4, #0xa]
 	ldrb r2, [r4, #0xb]
 	movs r0, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805ADCC
@@ -10532,7 +10532,7 @@ _0805B0FC:
 	ldrb r1, [r0]
 	ldrb r2, [r0, #1]
 	movs r0, #0x28
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _0805B128
@@ -10558,7 +10558,7 @@ _0805B128:
 	movs r0, #0x28
 	movs r1, #3
 	movs r2, #3
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _0805B15E
@@ -11419,7 +11419,7 @@ sub_0805B7A0: @ 0x0805B7A0
 	ldrb r0, [r5, #0xe]
 	ldrb r1, [r5, #0xa]
 	ldrb r2, [r5, #0xb]
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0805B81A
@@ -11522,7 +11522,7 @@ _0805B848:
 	movs r0, #0x4e
 	movs r1, #1
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0805B8B6
@@ -12340,7 +12340,7 @@ sub_0805BEC4: @ 0x0805BEC4
 	movs r0, #0x2a
 	movs r1, #1
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805BF10
@@ -12588,7 +12588,7 @@ sub_0805C050: @ 0x0805C050
 	movs r0, #0x4f
 	movs r1, #0xe
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _0805C0E0
@@ -12658,7 +12658,7 @@ _0805C11C:
 	adds r1, r0, #0
 	movs r0, #0x4f
 	movs r2, #6
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _0805C16E
@@ -12727,7 +12727,7 @@ sub_0805C178: @ 0x0805C178
 	movs r0, #0x4f
 	movs r1, #0xe
 	movs r2, #1
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805C204
@@ -12794,7 +12794,7 @@ _0805C23E:
 	adds r1, r0, #0
 	movs r0, #0x4f
 	movs r2, #7
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805C28E
@@ -12860,7 +12860,7 @@ sub_0805C294: @ 0x0805C294
 	movs r0, #0x4f
 	movs r1, #0xe
 	movs r2, #2
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _0805C320
@@ -12928,7 +12928,7 @@ _0805C35C:
 	adds r1, r0, #0
 	movs r0, #0x4f
 	movs r2, #8
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _0805C3AC
@@ -12995,7 +12995,7 @@ sub_0805C3B4: @ 0x0805C3B4
 	movs r0, #0x4f
 	movs r1, #0xe
 	movs r2, #3
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805C448
@@ -13064,7 +13064,7 @@ _0805C482:
 	adds r1, r0, #0
 	movs r0, #0x4f
 	movs r2, #9
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805C4D4
@@ -13132,7 +13132,7 @@ sub_0805C4E0: @ 0x0805C4E0
 	movs r0, #0x4f
 	movs r1, #0xe
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _0805C570
@@ -13202,7 +13202,7 @@ _0805C5AC:
 	adds r1, r0, #0
 	movs r0, #0x4f
 	movs r2, #6
-	bl sub_080A2960
+	bl CreateObject
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _0805C5FE
@@ -13375,7 +13375,7 @@ _0805C716:
 	ldrb r2, [r4, #2]
 	movs r0, #0x4c
 	str r3, [sp]
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	ldr r3, [sp]
 	cmp r2, #0
@@ -14579,7 +14579,7 @@ _0805D068:
 	ldrh r1, [r5, #4]
 	movs r0, #0xa0
 	adds r2, r7, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r4, r0, #0
 	mov r1, r8
 	ldrh r0, [r1, #6]
@@ -15436,7 +15436,7 @@ _0805D700:
 	adds r2, r2, r0
 	movs r0, #2
 	movs r1, #0x5c
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805D760
@@ -16010,7 +16010,7 @@ _0805DB58:
 	movs r0, #0x96
 	movs r1, #1
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0805DB84
@@ -16228,7 +16228,7 @@ _0805DCEC:
 	movs r0, #0x69
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0805DD1E
@@ -16503,7 +16503,7 @@ sub_0805DEB8: @ 0x0805DEB8
 	movs r0, #0x64
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805DF1A

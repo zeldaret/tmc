@@ -5,7 +5,7 @@
 
 	.text
 	
-	thumb_func_start sub_0804AA84
+		thumb_func_start sub_0804AA84
 sub_0804AA84: @ 0x0804AA84
 	push {lr}
 	ldr r3, _0804AA98 @ =gUnk_02033A90
@@ -62,7 +62,7 @@ sub_0804AAD4: @ 0x0804AAD4
 	ldrb r1, [r4, #0x17]
 	movs r0, #0x3d
 	movs r2, #0
-	bl sub_080A2960
+	bl CreateObject
 	ldrb r0, [r4, #0xe]
 	adds r0, #1
 	strb r0, [r4, #0xe]
