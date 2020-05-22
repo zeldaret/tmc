@@ -28,7 +28,8 @@ typedef struct
     u8 parameter3;
     u8 field_0xf;
     u8 flags;
-    u8 scriptedScene;
+    u8 scriptedScene:4;
+	u8 scriptedScene2:4;
     s16 spriteTileSize;
     u8 animationState;
     u8 direction;

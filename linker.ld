@@ -297,8 +297,11 @@ SECTIONS {
 		asm/updateBackgroundRegisters.o(.text);
 		asm/code_08016DF8.o(.text);
         /* C source compiled without interworking */
-        asm/code.o(.text);
-		src/readKeyInput.o(.text);
+        asm/code_08018500.o(.text);
+		src/sub_0801D5EC.o(.text);
+		src/sub_0801D610.o(.text);
+		asm/sub_0801D630.o(.text);
+		asm/sub_0801D66C.o(.text);
 		asm/readKeyInput.o(.text);
 		asm/code_0801D714.o(.text);
 		src/createEnemy.o(.text);
@@ -317,9 +320,13 @@ SECTIONS {
 		asm/code_08050038.o(.text);
 		asm/initializeLink.o(.text);
 		asm/code_08052620.o(.text);
+		src/sub_08055E08.o(.text);
+		asm/sub_08055E24.o(.text);
 		asm/mainLoop.o(.text);
 		asm/sub_08055F70.o(.text);
 		asm/code_08055FF4.o(.text);
+		src/sub_0805E3A0.o(.text);
+		asm/code_0805E3B0.o(.text);
 		asm/getEmptyEntity.o(.text);
 		asm/code_0805E744.o(.text);
 		src/sub_0806FA30.o(.text);
