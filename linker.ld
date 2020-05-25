@@ -30,7 +30,7 @@ SECTIONS {
         . = 0x00002AA0; gUnk_02002AA0 = .;
         . = 0x00002AC0; gUnk_02002AC0 = .;
         . = 0x00002AC8; gUnk_02002AC8 = .;
-        . = 0x00002AE8; gUnk_02002AE8 = .;
+        . = 0x00002AE8; gStats = .;
         . = 0x00002B0E; gUnk_02002B0E = .;
         . = 0x00002B32; gUnk_02002B32 = .;
         . = 0x00002B54; gUnk_02002B54 = .;
@@ -299,11 +299,13 @@ SECTIONS {
         /* C source compiled without interworking */
         asm/code_08018500.o(.text);
 		src/sub_0801D5EC.o(.text);
-		src/sub_0801D610.o(.text);
+		src/_dmaFill32.o(.text);
 		asm/sub_0801D630.o(.text);
 		asm/sub_0801D66C.o(.text);
 		asm/readKeyInput.o(.text);
 		asm/code_0801D714.o(.text);
+		asm/code_0801D79C.o(.text);
+		asm/sub_0804AA30.o(.text);
 		src/createEnemy.o(.text);
 		src/sub_0804AA84.o(.text); /* wip */
 		asm/code_0804AA84.o(.text);
@@ -320,22 +322,34 @@ SECTIONS {
 		asm/code_08050038.o(.text);
 		asm/initializeLink.o(.text);
 		asm/code_08052620.o(.text);
+		src/bitGetters.o(.text);
+		src/modHealth.o(.text);
+		asm/code_080526CC.o(.text);
 		src/sub_08055E08.o(.text);
 		asm/sub_08055E24.o(.text);
 		asm/mainLoop.o(.text);
 		asm/sub_08055F70.o(.text);
 		asm/code_08055FF4.o(.text);
+		src/sub_0805E374.o(.text);
 		src/sub_0805E3A0.o(.text);
 		asm/code_0805E3B0.o(.text);
 		asm/getEmptyEntity.o(.text);
 		asm/code_0805E744.o(.text);
+		src/sub_0806F9EC.o(.text);
+		src/sub_0806FA04.o(.text);
+		src/sub_0806FA24.o(.text);
 		src/sub_0806FA30.o(.text);
 		src/positionRelative.o(.text);
 		asm/code_0806FA6C.o(.text);
+		src/sub_0807C998.o(.text);
+		src/sub_0801D754.o(.text);
+		asm/sub_0807CA18.o(.text);
 		asm/getInventoryValue.o(.text);
 		asm/code_0807CAA0.o(.text);
 		src/getProgressFlag.o(.text);
 		asm/code_0807CC3C.o(.text);
+		asm/sub_080A2838.o(.text);
+		asm/sub_080A285C.o(.text);
 		src/createObject.o(.text);
 		asm/sub_080A2988.o(.text);
 		asm/createFx.o(.text);

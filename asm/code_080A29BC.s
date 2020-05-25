@@ -12219,7 +12219,7 @@ sub_080A881C: @ 0x080A881C
 	strb r1, [r0, #0xf]
 	movs r0, #2
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 _080A884A:
 	bl sub_0805E780
 	b _080A8866
@@ -13676,7 +13676,7 @@ sub_080A9334: @ 0x080A9334
 	beq _080A9368
 	movs r0, #2
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 	adds r0, r4, #0
 	bl sub_080A9488
 	adds r0, r4, #0
@@ -15038,7 +15038,7 @@ sub_080A9D2C: @ 0x080A9D2C
 	bne _080A9D56
 	movs r0, #2
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 	ldr r0, _080A9D68 @ =gLinkEntity
 	movs r1, #0x7a
 	bl sub_0800449C
@@ -15252,7 +15252,7 @@ sub_080A9EBC: @ 0x080A9EBC
 	movs r0, #0
 	strb r0, [r4, #0xf]
 	subs r0, #2
-	bl sub_080526A0
+	bl ModHealth
 	adds r0, r4, #0
 	bl sub_080AF090
 	adds r0, r4, #0
@@ -17487,7 +17487,7 @@ _080AAF94:
 	movs r0, #8
 	strb r0, [r1]
 	subs r0, #0xc
-	bl sub_080526A0
+	bl ModHealth
 	adds r0, r4, #0
 	movs r1, #0x7a
 	bl sub_0800449C
@@ -17935,7 +17935,7 @@ sub_080AB2DC: @ 0x080AB2DC
 	bne _080AB314
 	movs r0, #4
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 _080AB314:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -19169,7 +19169,7 @@ _080ABC24:
 _080ABC2A:
 	movs r0, #4
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 _080ABC32:
 	adds r0, r4, #0
 	bl sub_080A29BC
@@ -19182,7 +19182,7 @@ _080ABC3E:
 	bne _080ABC52
 	movs r0, #2
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 	bl sub_0805E780
 _080ABC52:
 	pop {r4, pc}
@@ -19232,7 +19232,7 @@ sub_080ABC90: @ 0x080ABC90
 	beq _080ABCBE
 	movs r0, #2
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 	ldr r0, _080ABCC0 @ =gLinkEntity
 	movs r1, #0x7a
 	bl sub_0800449C

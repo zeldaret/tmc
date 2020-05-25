@@ -1425,7 +1425,7 @@ _080178AE:
 	movs r1, #1
 _080178B4:
 	rsbs r0, r1, #0
-	bl sub_080526A0
+	bl ModHealth
 	adds r5, r0, #0
 	adds r0, r4, #0
 	movs r1, #0x7a

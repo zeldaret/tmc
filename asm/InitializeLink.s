@@ -18,7 +18,7 @@ InitializeLink: @ 0x080524A8
 	adds r1, r6, #0
 	adds r1, #0x40
 	movs r2, #0x40
-	bl sub_0801D610
+	bl _DmaFill32
 	ldr r4, _08052518 @ =gLinkEntity
 	adds r0, r4, #0
 	movs r1, #0x88

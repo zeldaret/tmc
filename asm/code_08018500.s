@@ -2,7 +2,7 @@
 	.include "constants/constants.inc"
 
 	.syntax unified
-
+	
 	.text
 
 	thumb_func_start sub_08018500
@@ -7308,7 +7308,7 @@ _0801BC7A:
 	bl sub_080A3268
 _0801BC98:
 	adds r0, r5, #0
-	bl sub_080526A0
+	bl ModHealth
 	adds r0, r4, #0
 	adds r0, #0x68
 	ldrb r1, [r0]
@@ -7386,7 +7386,7 @@ _0801BD40:
 	movs r3, #2
 	bl sub_080A2988
 	movs r0, #0x20
-	bl sub_080526A0
+	bl ModHealth
 	b _0801BD6C
 _0801BD54:
 	ldr r1, _0801BD88 @ =gUnk_02002A40

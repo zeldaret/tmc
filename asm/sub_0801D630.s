@@ -23,7 +23,7 @@ sub_0801D630: @ 0x0801D630
 _0801D64A:
 	movs r0, #0
 	adds r1, r3, #0
-	bl sub_0801D610
+	bl _DmaFill32
 	b _0801D668
 _0801D654:
 	movs r0, #0
@@ -39,3 +39,4 @@ _0801D65E:
 _0801D668:
 	pop {r4, pc}
 	.align 2, 0
+	

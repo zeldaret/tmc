@@ -2001,7 +2001,7 @@ sub_0805F5CC: @ 0x0805F5CC
 	lsls r3, r3, #1
 	ands r2, r3
 	lsls r2, r2, #3
-	bl sub_0801D610
+	bl _DmaFill32
 	adds r0, r6, #0
 	movs r1, #0
 	bl sub_0805F324
@@ -2444,7 +2444,7 @@ sub_0805F918: @ 0x0805F918
 	bl sub_0805F8F8
 	ldr r1, _0805F990 @ =gUnk_02036AD8
 	movs r2, #0xe0
-	bl sub_0801D610
+	bl _DmaFill32
 	ldr r0, _0805F994 @ =gUnk_081092AC
 	lsls r4, r4, #2
 	adds r4, r4, r0
@@ -22362,16 +22362,16 @@ sub_08068F14: @ 0x08068F14
 	cmp r0, #5
 	bne _08068F24
 	movs r0, #0xa0
-	bl sub_080526A0
+	bl ModHealth
 _08068F24:
 	ldrb r0, [r4, #0xe]
 	cmp r0, #6
 	bne _08068F38
 	movs r0, #0xa0
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 	movs r0, #2
-	bl sub_080526A0
+	bl ModHealth
 _08068F38:
 	pop {r4, pc}
 	.align 2, 0
@@ -22383,7 +22383,7 @@ sub_08068F3C: @ 0x08068F3C
 	cmp r0, #6
 	bne _08068F4A
 	movs r0, #0xa0
-	bl sub_080526A0
+	bl ModHealth
 _08068F4A:
 	pop {pc}
 
@@ -36606,48 +36606,4 @@ _0806F9E6:
 	adds r0, r4, #0
 	pop {r4, pc}
 	.align 2, 0
-
-	thumb_func_start sub_0806F9EC
-sub_0806F9EC: @ 0x0806F9EC
-	push {lr}
-	lsls r0, r0, #0x10
-	asrs r0, r0, #0x10
-	lsls r1, r1, #0x10
-	asrs r1, r1, #0x10
-	muls r0, r1, r0
-	cmp r0, #0
-	bge _0806F9FE
-	adds r0, #0xff
-_0806F9FE:
-	lsls r0, r0, #8
-	asrs r0, r0, #0x10
-	pop {pc}
-
-	thumb_func_start sub_0806FA04
-sub_0806FA04: @ 0x0806FA04
-	push {lr}
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	lsls r1, r1, #0x10
-	asrs r1, r1, #0x10
-	cmp r1, #0
-	beq _0806FA20
-	lsls r0, r0, #0x10
-	asrs r0, r0, #8
-	bl __divsi3
-	lsls r0, r0, #0x10
-	asrs r0, r0, #0x10
-	b _0806FA22
-_0806FA20:
-	movs r0, #0
-_0806FA22:
-	pop {pc}
-
-	thumb_func_start sub_0806FA24
-sub_0806FA24: @ 0x0806FA24
-	push {lr}
-	movs r2, #0
-	movs r3, #0
-	bl PositionRelative
-	pop {pc}
 

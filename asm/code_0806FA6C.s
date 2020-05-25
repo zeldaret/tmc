@@ -2458,7 +2458,7 @@ _08070CFC:
 	movs r0, #0x20
 	strb r0, [r1]
 	subs r0, #0x22
-	bl sub_080526A0
+	bl ModHealth
 _08070D1A:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -4574,7 +4574,7 @@ _08071D3A:
 	cmp r4, #0
 	beq _08071D74
 	adds r0, r4, #0
-	bl sub_080526A0
+	bl ModHealth
 	movs r2, #0
 	movs r0, #3
 	strb r0, [r5, #0xd]
@@ -5458,7 +5458,7 @@ sub_080723D0: @ 0x080723D0
 	movs r0, #0x14
 	strb r0, [r1]
 	subs r0, #0x16
-	bl sub_080526A0
+	bl ModHealth
 	bl sub_08079458
 _0807240A:
 	pop {r4, pc}
@@ -5491,7 +5491,7 @@ sub_0807240C: @ 0x0807240C
 	str r0, [r2, #0x30]
 	movs r0, #2
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 	bl sub_08079458
 _08072448:
 	pop {pc}
@@ -5553,7 +5553,7 @@ _080724AE:
 	strb r1, [r0]
 	movs r0, #8
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 	bl sub_080791D0
 _080724C2:
 	pop {pc}
@@ -8930,7 +8930,7 @@ _08073E9E:
 	strb r0, [r1]
 	movs r0, #2
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 	movs r0, #0x7a
 	bl sub_080A3268
 _08073EDC:
@@ -9798,7 +9798,7 @@ sub_0807450C: @ 0x0807450C
 	bne _08074568
 	movs r0, #2
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 	movs r0, #0x7a
 	bl sub_080A3268
 	movs r0, #0x18
@@ -10107,7 +10107,7 @@ _0807476C:
 	movs r0, #0x20
 	strb r0, [r1]
 	subs r0, #0x24
-	bl sub_080526A0
+	bl ModHealth
 	bl sub_08079458
 _08074792:
 	pop {r4, pc}
@@ -17430,7 +17430,7 @@ _08077F20: .4byte gUnk_03003F80
 	thumb_func_start sub_08077F24
 sub_08077F24: @ 0x08077F24
 	push {lr}
-	ldr r2, _08077F34 @ =gUnk_02002AE8
+	ldr r2, _08077F34 @ =gStats
 	ldrb r3, [r0, #1]
 	ldrb r0, [r2, #0xc]
 	cmp r0, r3
@@ -17438,7 +17438,7 @@ sub_08077F24: @ 0x08077F24
 	movs r2, #1
 	b _08077F42
 	.align 2, 0
-_08077F34: .4byte gUnk_02002AE8
+_08077F34: .4byte gStats
 _08077F38:
 	ldrb r0, [r2, #0xd]
 	movs r2, #0
@@ -19183,7 +19183,7 @@ sub_08078C24: @ 0x08078C24
 	rsbs r0, r0, #0
 	adds r1, #4
 	movs r2, #0x40
-	bl sub_0801D610
+	bl _DmaFill32
 	ldr r0, _08078CB0 @ =gUnk_03003DF0
 	movs r1, #0xc4
 	lsls r1, r1, #1
@@ -19799,7 +19799,7 @@ sub_080790E4: @ 0x080790E4
 	strb r0, [r1]
 	movs r0, #2
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 	movs r0, #0x7a
 	bl sub_080A3268
 	b _08079182
@@ -23733,7 +23733,7 @@ _0807AE74:
 	strb r0, [r1]
 	movs r0, #2
 	rsbs r0, r0, #0
-	bl sub_080526A0
+	bl ModHealth
 	movs r0, #0x7a
 	bl sub_080A3268
 _0807AEA8:
@@ -27150,116 +27150,3 @@ _0807C98C:
 _0807C994:
 	pop {pc}
 	.align 2, 0
-
-	thumb_func_start sub_0807C998
-sub_0807C998: @ 0x0807C998
-	push {r4, r5, lr}
-	adds r5, r0, #0
-	ldr r4, _0807C9CC @ =gUnk_0202CEB4
-	ldr r1, [r5]
-	adds r0, r4, #0
-	bl sub_0807C960
-	ldr r0, _0807C9D0 @ =0xFFFFE000
-	adds r4, r4, r0
-	ldr r1, [r5, #4]
-	adds r0, r4, #0
-	bl sub_0807C960
-	ldr r4, _0807C9D4 @ =gUnk_02012654
-	ldr r1, [r5, #8]
-	adds r0, r4, #0
-	bl sub_0807C960
-	ldr r0, _0807C9D0 @ =0xFFFFE000
-	adds r4, r4, r0
-	ldr r1, [r5, #0xc]
-	adds r0, r4, #0
-	bl sub_0807C960
-	pop {r4, r5, pc}
-	.align 2, 0
-_0807C9CC: .4byte gUnk_0202CEB4
-_0807C9D0: .4byte 0xFFFFE000
-_0807C9D4: .4byte gUnk_02012654
-
-	thumb_func_start sub_0807C9D8
-sub_0807C9D8: @ 0x0807C9D8
-	push {r4, r5, lr}
-	adds r5, r0, #0
-	ldr r0, _0807CA0C @ =0x06004000
-	ldr r1, [r5]
-	bl sub_0807C960
-	movs r0, #0xc0
-	lsls r0, r0, #0x13
-	ldr r1, [r5, #4]
-	bl sub_0807C960
-	ldr r0, _0807CA10 @ =0x06008000
-	ldr r1, [r5, #8]
-	bl sub_0807C960
-	ldr r4, _0807CA14 @ =gUnk_020176E0
-	ldr r1, [r5, #0xc]
-	adds r0, r4, #0
-	bl sub_0807C960
-	adds r0, r4, #0
-	movs r1, #2
-	movs r2, #0xd
-	bl sub_0801D754
-	pop {r4, r5, pc}
-	.align 2, 0
-_0807CA0C: .4byte 0x06004000
-_0807CA10: .4byte 0x06008000
-_0807CA14: .4byte gUnk_020176E0
-
-	thumb_func_start sub_0807CA18
-sub_0807CA18: @ 0x0807CA18
-	push {lr}
-	ldr r0, _0807CA7C @ =gUnk_02002A40
-	mov ip, r0
-	ldrh r1, [r0]
-	movs r0, #0x80
-	lsls r0, r0, #1
-	cmp r1, r0
-	beq _0807CA66
-	movs r2, #0
-	mov r0, ip
-	strb r2, [r0]
-	movs r3, #1
-	strb r3, [r0, #1]
-	strb r3, [r0, #8]
-	mov r1, ip
-	adds r1, #0xaa
-	movs r0, #0x18
-	strb r0, [r1]
-	adds r1, #1
-	strb r0, [r1]
-	subs r1, #0x23
-	movs r0, #0x22
-	strb r0, [r1]
-	adds r1, #1
-	movs r0, #0x15
-	strb r0, [r1]
-	mov r0, ip
-	adds r0, #0x8a
-	strb r2, [r0]
-	adds r0, #1
-	strb r2, [r0]
-	adds r0, #5
-	strb r3, [r0]
-	adds r1, #3
-	movs r0, #0x90
-	strh r0, [r1]
-	adds r1, #2
-	movs r0, #0x38
-	strh r0, [r1]
-_0807CA66:
-	mov r1, ip
-	adds r1, #0x80
-	ldrb r0, [r1]
-	cmp r0, #0
-	bne _0807CA78
-	ldr r0, _0807CA80 @ =gUnk_0811E470
-	movs r2, #5
-	bl sub_0801D66C
-_0807CA78:
-	movs r0, #1
-	pop {pc}
-	.align 2, 0
-_0807CA7C: .4byte gUnk_02002A40
-_0807CA80: .4byte gUnk_0811E470

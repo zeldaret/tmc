@@ -1594,7 +1594,7 @@ sub_08056BDC: @ 0x08056BDC
 	ldr r1, _08056C28 @ =gUnk_02000D00
 	movs r2, #0xd0
 	lsls r2, r2, #4
-	bl sub_0801D610
+	bl _DmaFill32
 	bl sub_08056F70
 	adds r1, r4, #0
 	adds r1, #0x9e
@@ -17052,26 +17052,3 @@ _0805E364: .4byte 0x00000275
 _0805E368: .4byte 0x0000026F
 _0805E36C: .4byte 0x00000272
 _0805E370: .4byte gUnk_02000070
-
-	thumb_func_start sub_0805E374
-sub_0805E374: @ 0x0805E374
-	push {lr}
-	adds r2, r0, #0
-	ldr r0, _0805E394 @ =gUnk_030010A0
-	adds r0, #0x2c
-	ldrb r0, [r0]
-	ldr r1, _0805E398 @ =gUnk_081091F8
-	cmp r0, #2
-	beq _0805E386
-	ldr r1, _0805E39C @ =gUnk_081091EE
-_0805E386:
-	ldrb r0, [r2, #8]
-	adds r0, r1, r0
-	ldrb r1, [r0]
-	adds r0, r2, #0
-	bl sub_0805E3A0
-	pop {pc}
-	.align 2, 0
-_0805E394: .4byte gUnk_030010A0
-_0805E398: .4byte gUnk_081091F8
-_0805E39C: .4byte gUnk_081091EE

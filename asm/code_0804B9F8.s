@@ -7841,7 +7841,7 @@ sub_0804E864: @ 0x0804E864
 	movs r1, #6
 	bl sub_080751E8
 	movs r0, #0xa0
-	bl sub_080526A0
+	bl ModHealth
 	pop {pc}
 	.align 2, 0
 _0804E888: .4byte gLinkEntity

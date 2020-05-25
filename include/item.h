@@ -2,7 +2,7 @@
 
 #ifndef ITEM_H
 #define ITEM_H
-	enum ItemType
+	enum
     {
         Untyped,
         SmithSword = 0x01,
@@ -122,5 +122,5 @@
         FastSpin = 0x73,
         FastSplit = 0x74,
         LongSpin = 0x75
-    }
+    } ItemType;
 #endif
