@@ -7,7 +7,7 @@
 // extern void sub_0804AEB0(Entity *, EntityData *);
 // extern u32 sub_0804AF0C(Entity *, EntityData *);
 // extern void sub_08016A30(Entity *);
-// extern u32 gUnk_03000BF0;
+// extern u32 gRoomControls;
 
 // Entity * CreateEntity(EntityData *param_1)
 // {
@@ -37,7 +37,7 @@
                             // entity->collisionLayer = 2;
                             // return entity;
                         // }
-                        // if ((gUnk_03000BF0 & 2) == 0) {
+                        // if ((gRoomControls & 2) == 0) {
                             // sub_08016A30(entity);
                             // return entity;
                         // }

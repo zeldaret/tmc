@@ -357,7 +357,7 @@ _080170B4:
 	beq _080170C0
 	b _080171EA
 _080170C0:
-	ldr r0, _08017124 @ =gUnk_02000050
+	ldr r0, _08017124 @ =gTextBox
 	ldrb r0, [r0]
 	movs r1, #0x7f
 	ands r1, r0
@@ -410,7 +410,7 @@ _08017112:
 	strh r1, [r0]
 	b _0801715A
 	.align 2, 0
-_08017124: .4byte gUnk_02000050
+_08017124: .4byte gTextBox
 _08017128: .4byte gUnk_02034350
 _0801712C: .4byte gUnk_02002A40
 _08017130: .4byte gUnk_0200AF00
@@ -1003,7 +1003,7 @@ _080175A4:
 	lsls r0, r1, #4
 	subs r0, #0x10
 	adds r2, r0, r2
-	ldr r3, _080175E4 @ =gUnk_03000BF0
+	ldr r3, _080175E4 @ =gRoomControls
 	ldrh r0, [r4, #0x2e]
 	ldrh r1, [r3, #6]
 	subs r0, r0, r1
@@ -1023,7 +1023,7 @@ _080175D2:
 _080175D8: .4byte gUnk_020342F8
 _080175DC: .4byte gUnk_080B313C
 _080175E0: .4byte gUnk_02031EC0
-_080175E4: .4byte gUnk_03000BF0
+_080175E4: .4byte gRoomControls
 
 	thumb_func_start sub_080175E8
 sub_080175E8: @ 0x080175E8

@@ -142,7 +142,7 @@ sub_08016C3C: @ 0x08016C3C
 	ldrb r0, [r2]
 	cmp r0, #0
 	beq _08016C6C
-	ldr r0, _08016C98 @ =gUnk_03000F50
+	ldr r0, _08016C98 @ =gLCDControls
 	ldrh r1, [r0]
 	movs r0, #0x80
 	lsls r0, r0, #5
@@ -162,7 +162,7 @@ sub_08016C3C: @ 0x08016C3C
 	str r0, [r1, #8]
 	ldr r0, [r1, #8]
 _08016C6C:
-	ldr r4, _08016CA4 @ =gUnk_03000F58
+	ldr r4, _08016CA4 @ =gBG0Settings
 	adds r0, r4, #0
 	bl sub_08016CA8
 	adds r0, r4, #0
@@ -179,10 +179,10 @@ _08016C6C:
 	bx r0
 	.align 2, 0
 _08016C94: .4byte gUnk_03000000
-_08016C98: .4byte gUnk_03000F50
+_08016C98: .4byte gLCDControls
 _08016C9C: .4byte 0x040000D4
 _08016CA0: .4byte 0x84000100
-_08016CA4: .4byte gUnk_03000F58
+_08016CA4: .4byte gBG0Settings
 
 	thumb_func_start sub_08016CA8
 sub_08016CA8: @ 0x08016CA8

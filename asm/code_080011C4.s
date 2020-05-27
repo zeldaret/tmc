@@ -1375,7 +1375,7 @@ _08002902:
 	non_word_aligned_thumb_func_start sub_0800290E
 sub_0800290E: @ 0x0800290E
 	push {r4, r5, r6, lr}
-	ldr r4, _080029A8 @ =gUnk_03000BF0
+	ldr r4, _080029A8 @ =gRoomControls
 	ldrh r5, [r4, #0xa]
 	ldrh r6, [r4, #6]
 	subs r5, r5, r6
@@ -1403,7 +1403,7 @@ _0800293A:
 	non_word_aligned_thumb_func_start sub_0800293E
 sub_0800293E: @ 0x0800293E
 	push {r4, r5, r6, r7, lr}
-	ldr r4, _080029AC @ =gUnk_03000BF0
+	ldr r4, _080029AC @ =gRoomControls
 	ldr r7, _080029B0 @ =gLinkEntity
 	ldrh r6, [r4, #6]
 	ldrh r5, [r7, #0x2e]
@@ -1442,6 +1442,6 @@ _08002998: .4byte 0x0000E004
 _0800299C: .4byte 0x00000E02
 _080029A0: .4byte 0x0000E040
 _080029A4: .4byte 0x00000E20
-_080029A8: .4byte gUnk_03000BF0
-_080029AC: .4byte gUnk_03000BF0
+_080029A8: .4byte gRoomControls
+_080029AC: .4byte gRoomControls
 _080029B0: .4byte gLinkEntity

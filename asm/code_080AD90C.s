@@ -104,7 +104,7 @@ sub_080AD9B0: @ 0x080AD9B0
 	movs r1, #0xf
 _080AD9C2:
 	strb r1, [r2, #0xe]
-	ldr r1, _080AD9FC @ =gUnk_03000BF0
+	ldr r1, _080AD9FC @ =gRoomControls
 	adds r0, r1, #0
 	adds r0, #0x24
 	ldrb r0, [r0]
@@ -130,7 +130,7 @@ _080AD9C2:
 	.align 2, 0
 _080AD9F4: .4byte gUnk_03000000
 _080AD9F8: .4byte gUnk_030010A0
-_080AD9FC: .4byte gUnk_03000BF0
+_080AD9FC: .4byte gRoomControls
 _080ADA00: .4byte gUnk_03006164
 
 	thumb_func_start sub_080ADA04
@@ -1628,7 +1628,7 @@ sub_080AE4CC: @ 0x080AE4CC
 	adds r6, r1, #0
 	adds r5, r2, #0
 	adds r4, r3, #0
-	ldr r1, _080AE4FC @ =gUnk_03000BF0
+	ldr r1, _080AE4FC @ =gRoomControls
 	ldrh r2, [r1, #6]
 	subs r2, r6, r2
 	asrs r2, r2, #4
@@ -1648,7 +1648,7 @@ sub_080AE4CC: @ 0x080AE4CC
 	beq _080AE588
 	b _080AE516
 	.align 2, 0
-_080AE4FC: .4byte gUnk_03000BF0
+_080AE4FC: .4byte gRoomControls
 _080AE500:
 	cmp r3, #0xf
 	bhi _080AE53E
@@ -3467,7 +3467,7 @@ _080AF280: .4byte gUnk_08135168
 	thumb_func_start sub_080AF284
 sub_080AF284: @ 0x080AF284
 	push {lr}
-	ldr r0, _080AF2AC @ =gUnk_03000BF0
+	ldr r0, _080AF2AC @ =gRoomControls
 	ldrh r1, [r0, #0x20]
 	subs r1, #0x50
 	movs r0, #0x78
@@ -3484,7 +3484,7 @@ sub_080AF284: @ 0x080AF284
 	ldr r1, _080AF2B8 @ =gUnk_08135048
 	b _080AF2D4
 	.align 2, 0
-_080AF2AC: .4byte gUnk_03000BF0
+_080AF2AC: .4byte gRoomControls
 _080AF2B0: .4byte gUnk_02033A90
 _080AF2B4: .4byte 0x0000085C
 _080AF2B8: .4byte gUnk_08135048

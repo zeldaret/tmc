@@ -13,7 +13,7 @@ SECTIONS {
         . = 0x00000020; gUnk_02000020 = .;
         . = 0x00000030; gUnk_02000030 = .;
         . = 0x00000040; gUnk_02000040 = .;
-        . = 0x00000050; gUnk_02000050 = .;
+        . = 0x00000050; gTextBox = .;
         . = 0x0000005C; gUnk_0200005C = .;
         . = 0x00000070; gUnk_02000070 = .;
         . = 0x00000080; gUnk_02000080 = .;
@@ -157,17 +157,17 @@ SECTIONS {
         . = 0x00000420; gUnk_03000420 = .;
         . = 0x00000B80; gUnk_03000B80 = .;
         . = 0x00000BD4; gUnk_03000BD4 = .;
-        . = 0x00000BF0; gUnk_03000BF0 = .;
+        . = 0x00000BF0; gRoomControls = .;
         . = 0x00000BF6; gUnk_03000BF6 = .;
         . = 0x00000BF8; gUnk_03000BF8 = .;
         . = 0x00000C24; gUnk_03000C24 = .;
         . = 0x00000C30; gUnk_03000C30 = .;
         . = 0x00000E10; gUnk_03000E10 = .;
-        . = 0x00000F50; gUnk_03000F50 = .;
-        . = 0x00000F58; gUnk_03000F58 = .;
-        . = 0x00000F64; gUnk_03000F64 = .;
-        . = 0x00000F70; gUnk_03000F70 = .;
-        . = 0x00000F88; gUnk_03000F88 = .;
+        . = 0x00000F50; gLCDControls = .;
+        . = 0x00000F58; gBG0Settings = .;
+        . = 0x00000F64; gBG1Settings = .;
+        . = 0x00000F70; gBGAffSettings = .;
+        . = 0x00000F88; gBgControls = .;
         . = 0x00000FBC; gUnk_03000FBC = .;
         . = 0x00000FD0; gUnk_03000FD0 = .;
         . = 0x00000FF0; gUnk_03000FF0 = .;
@@ -290,6 +290,7 @@ SECTIONS {
 		asm/code_080043E8.o(.text);
         data/data_6.o(.rodata);
         asm/code_0800857C.o(.text);
+		asm/sub_08016AE4.o(.text);
 
 
         /* C source compiled with interworking */
@@ -320,8 +321,10 @@ SECTIONS {
 		src/sub_08050008.o(.text);
 		src/sub_08050024.o(.text);
 		asm/code_08050038.o(.text);
+		asm/sub_08052418.o(.text);
 		asm/initializeLink.o(.text);
-		asm/code_08052620.o(.text);
+		src/sub_08052620.o(.text);
+		src/sub_08052638.o(.text);
 		src/bitGetters.o(.text);
 		src/modHealth.o(.text);
 		asm/code_080526CC.o(.text);
@@ -330,17 +333,26 @@ SECTIONS {
 		asm/mainLoop.o(.text);
 		asm/sub_08055F70.o(.text);
 		asm/code_08055FF4.o(.text);
+		src/textbox.o(.text);
+		asm/code_08056418.o(.text);
 		src/sub_0805E374.o(.text);
 		src/sub_0805E3A0.o(.text);
 		asm/code_0805E3B0.o(.text);
 		asm/getEmptyEntity.o(.text);
 		asm/code_0805E744.o(.text);
+		src/createNPC.o(.text);
+		asm/code_0806ED78.o(.text);
 		src/sub_0806F9EC.o(.text);
 		src/sub_0806FA04.o(.text);
 		src/sub_0806FA24.o(.text);
 		src/sub_0806FA30.o(.text);
 		src/positionRelative.o(.text);
 		asm/code_0806FA6C.o(.text);
+		src/sub_0807B7D8.o(.text);
+		src/sub_0807B820.o(.text);
+		src/sub_0807B8A8.o(.text);
+		src/sub_0807B930.o(.text);
+		asm/code_0807B9B8.o(.text);
 		src/sub_0807C998.o(.text);
 		src/sub_0801D754.o(.text);
 		asm/sub_0807CA18.o(.text);
@@ -348,12 +360,26 @@ SECTIONS {
 		asm/code_0807CAA0.o(.text);
 		src/getProgressFlag.o(.text);
 		asm/code_0807CC3C.o(.text);
+		asm/code_08080974.o(.text);
 		asm/sub_080A2838.o(.text);
 		asm/sub_080A285C.o(.text);
 		src/createObject.o(.text);
 		asm/sub_080A2988.o(.text);
 		asm/createFx.o(.text);
 		asm/code_080A29BC.o(.text);
+		src/sub_080A554C.o(.text);
+		asm/code_080A5574.o(.text);
+		src/introSetTransition.o(.text);
+		asm/sub_080AD380.o(.text);
+		asm/sub_080AD3F4.o(.text);
+		asm/sub_080AD474.o(.text);
+		src/sub_080AD644.o(.text);
+		asm/sub_080AD670.o(.text);
+		asm/sub_080AD6Ac.o(.text);
+		asm/sub_080AD76C.o(.text);
+		src/sub_080AD834.o(.text);
+		asm/sub_080AD84C.o(.text);
+		asm/sub_080AD89C.o(.text);
 		asm/sub_080AD8F0.o(.text);
 		asm/code_080AD90C.o(.text);
         /* library functions */

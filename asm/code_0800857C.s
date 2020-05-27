@@ -306,7 +306,7 @@ sub_08008790: @ 0x08008790
 sub_08008796: @ 0x08008796
 	push {r4, r5, r6, r7, lr}
 	push {r2, r3}
-	ldr r2, _080088D4 @ =gUnk_03000BF0
+	ldr r2, _080088D4 @ =gRoomControls
 	ldrh r3, [r2]
 	movs r2, #1
 	cmp r2, r3
@@ -389,7 +389,7 @@ _0800882C:
 	strb r1, [r0, r3]
 	bl sub_08016A04
 _0800883A:
-	ldr r1, _080088E0 @ =gUnk_03000BF0
+	ldr r1, _080088E0 @ =gRoomControls
 	ldrh r0, [r1, #6]
 	subs r2, r6, r0
 	lsrs r2, r2, #4
@@ -447,10 +447,10 @@ _080088C4: .4byte gUnk_08000248
 _080088C8: .4byte gUnk_03003F80
 _080088CC: .4byte gUnk_0800823C
 _080088D0: .4byte gUnk_08007DF4
-_080088D4: .4byte gUnk_03000BF0
+_080088D4: .4byte gRoomControls
 _080088D8: .4byte gUnk_080046A4
 _080088DC: .4byte gUnk_080047F6
-_080088E0: .4byte gUnk_03000BF0
+_080088E0: .4byte gRoomControls
 _080088E4: .4byte 0x00004000
 _080088E8: .4byte 0x0000FFFF
 _080088EC:
@@ -4126,40 +4126,3 @@ sub_08016AD2: @ 0x08016AD2
 	bl sub_08016A04
 	pop {r0, r4, pc}
 
-	thumb_func_start sub_08016AE4
-sub_08016AE4: @ 0x08016AE4
-	mov r3, lr
-	push {r3, r4}
-	adds r4, r0, #0
-	ldrb r2, [r0, #0xc]
-	cmp r2, #0
-	bne _08016AFC
-	bl sub_080A7D80
-	cmp r0, #0
-	bne _08016B0A
-	bl sub_0805E780
-_08016AFC:
-	bl sub_0805E3B0
-	cmp r0, #0
-	bne _08016B22
-	adds r0, r4, #0
-	bl sub_080028E0
-_08016B0A:
-	adds r0, r4, #0
-	ldrb r1, [r0, #9]
-	lsls r1, r1, #2
-	ldr r2, _08016B2C @ =gUnk_08129320
-	ldr r1, [r2, r1]
-	bl _call_via_r1
-	movs r1, #0x41
-	movs r3, #0x7f
-	ldrb r2, [r4, r1]
-	ands r2, r3
-	strb r2, [r4, r1]
-_08016B22:
-	adds r0, r4, #0
-	bl sub_0800404C
-	pop {r3, r4}
-	bx r3
-	.align 2, 0
-_08016B2C: .4byte gUnk_08129320

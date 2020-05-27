@@ -74,7 +74,7 @@ _0804AF26:
 	beq _0804AF64
 	b _0804AF88
 _0804AF2C:
-	ldr r0, _0804AF3C @ =gUnk_03000BF0
+	ldr r0, _0804AF3C @ =gRoomControls
 	ldrh r1, [r0, #6]
 	ldrh r3, [r2, #8]
 	adds r1, r1, r3
@@ -82,7 +82,7 @@ _0804AF2C:
 	ldrh r0, [r0, #8]
 	b _0804AF58
 	.align 2, 0
-_0804AF3C: .4byte gUnk_03000BF0
+_0804AF3C: .4byte gRoomControls
 _0804AF40:
 	adds r3, r4, #0
 	adds r3, #0x6d
@@ -90,7 +90,7 @@ _0804AF40:
 	movs r0, #0x20
 	orrs r0, r1
 	strb r0, [r3]
-	ldr r1, _0804AF60 @ =gUnk_03000BF0
+	ldr r1, _0804AF60 @ =gRoomControls
 	ldrh r0, [r1, #6]
 	ldrh r3, [r2, #8]
 	adds r0, r0, r3
@@ -102,9 +102,9 @@ _0804AF58:
 	strh r0, [r4, #0x32]
 	b _0804AF88
 	.align 2, 0
-_0804AF60: .4byte gUnk_03000BF0
+_0804AF60: .4byte gRoomControls
 _0804AF64:
-	ldr r1, _0804AF8C @ =gUnk_03000BF0
+	ldr r1, _0804AF8C @ =gRoomControls
 	ldrh r0, [r1, #6]
 	ldrh r3, [r2, #8]
 	adds r0, r0, r3
@@ -123,7 +123,7 @@ _0804AF64:
 _0804AF88:
 	pop {r4, pc}
 	.align 2, 0
-_0804AF8C: .4byte gUnk_03000BF0
+_0804AF8C: .4byte gRoomControls
 
 	thumb_func_start sub_0804AF90
 sub_0804AF90: @ 0x0804AF90

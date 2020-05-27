@@ -77,7 +77,7 @@ _0804AE1C:
 	strb r0, [r1]
 	b _0804AEAA
 _0804AE88:
-	ldr r0, _0804AEA0 @ =gUnk_03000BF0
+	ldr r0, _0804AEA0 @ =gRoomControls
 	ldrb r1, [r0, #0xf]
 	movs r0, #2
 	ands r0, r1
@@ -90,7 +90,7 @@ _0804AE94:
 	strb r0, [r1]
 	b _0804AEAA
 	.align 2, 0
-_0804AEA0: .4byte gUnk_03000BF0
+_0804AEA0: .4byte gRoomControls
 _0804AEA4:
 	adds r0, r5, #0
 	bl sub_08016A30

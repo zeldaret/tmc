@@ -18,6 +18,11 @@ union SplitWord {
     u16 LO, HI;
 };
 
+typedef struct {
+	u16 LO;
+	u16 HI;
+} Pos;
+
 typedef struct
 {
     u32 *field_0x0;

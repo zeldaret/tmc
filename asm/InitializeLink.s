@@ -23,7 +23,7 @@ InitializeLink: @ 0x080524A8
 	adds r0, r4, #0
 	movs r1, #0x88
 	bl sub_0801D630
-	ldr r0, _0805251C @ =gUnk_03000BF0
+	ldr r0, _0805251C @ =gRoomControls
 	str r4, [r0, #0x30]
 	ldr r1, _08052520 @ =gUnk_080FCAC8
 	ldr r5, _08052524 @ =gUnk_030010A0
@@ -54,7 +54,7 @@ _080524FA:
 _08052510: .4byte gUnk_03000B80
 _08052514: .4byte gUnk_03003F80
 _08052518: .4byte gLinkEntity
-_0805251C: .4byte gUnk_03000BF0
+_0805251C: .4byte gRoomControls
 _08052520: .4byte gUnk_080FCAC8
 _08052524: .4byte gUnk_030010A0
 _08052528: .4byte _0805252C

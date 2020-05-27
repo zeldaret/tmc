@@ -1,9 +1,6 @@
 #include "global.h"
 
 extern u8 gUnk_02033A90;
-#include "global.h"
-
-extern u8 gUnk_02033A90;
 
 u32 sub_08052654()
 {

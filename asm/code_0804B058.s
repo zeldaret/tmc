@@ -335,7 +335,7 @@ _0804B2A4:
 	ands r0, r1
 	cmp r0, #0
 	beq _0804B2FC
-	ldr r0, _0804B2F0 @ =gUnk_03000BF0
+	ldr r0, _0804B2F0 @ =gRoomControls
 	ldrb r1, [r0, #0xf]
 	movs r0, #2
 	ands r0, r1
@@ -356,7 +356,7 @@ _0804B2A4:
 	b _0804B2FC
 	.align 2, 0
 _0804B2EC: .4byte gUnk_02017660
-_0804B2F0: .4byte gUnk_03000BF0
+_0804B2F0: .4byte gRoomControls
 _0804B2F4:
 	adds r1, #1
 	adds r4, #8
@@ -811,7 +811,7 @@ sub_0804B580: @ 0x0804B580
 	ldr r0, _0804B5A0 @ =gLinkEntity
 	movs r1, #0x32
 	ldrsh r0, [r0, r1]
-	ldr r1, _0804B5A4 @ =gUnk_03000BF0
+	ldr r1, _0804B5A4 @ =gRoomControls
 	ldrh r1, [r1, #8]
 	subs r0, r0, r1
 	cmp r0, #0x40
@@ -822,7 +822,7 @@ _0804B59E:
 	pop {pc}
 	.align 2, 0
 _0804B5A0: .4byte gLinkEntity
-_0804B5A4: .4byte gUnk_03000BF0
+_0804B5A4: .4byte gRoomControls
 _0804B5A8: .4byte gUnk_080D6138
 
 	thumb_func_start sub_0804B5AC
@@ -1120,7 +1120,7 @@ sub_0804B7E8: @ 0x0804B7E8
 	movs r0, #5
 	bl sub_08050054
 	ldr r2, _0804B820 @ =gLinkEntity
-	ldr r1, _0804B824 @ =gUnk_03000BF0
+	ldr r1, _0804B824 @ =gRoomControls
 	ldrh r0, [r1, #6]
 	adds r0, #0x50
 	strh r0, [r2, #0x2e]
@@ -1135,7 +1135,7 @@ _0804B81E:
 	pop {pc}
 	.align 2, 0
 _0804B820: .4byte gLinkEntity
-_0804B824: .4byte gUnk_03000BF0
+_0804B824: .4byte gRoomControls
 _0804B828: .4byte gUnk_08010A5C
 
 	thumb_func_start sub_0804B82C
@@ -1183,7 +1183,7 @@ sub_0804B86C: @ 0x0804B86C
 	movs r0, #5
 	bl sub_08050054
 	ldr r2, _0804B8A4 @ =gLinkEntity
-	ldr r1, _0804B8A8 @ =gUnk_03000BF0
+	ldr r1, _0804B8A8 @ =gRoomControls
 	ldrh r0, [r1, #6]
 	adds r0, #0x50
 	strh r0, [r2, #0x2e]
@@ -1198,7 +1198,7 @@ _0804B8A2:
 	pop {pc}
 	.align 2, 0
 _0804B8A4: .4byte gLinkEntity
-_0804B8A8: .4byte gUnk_03000BF0
+_0804B8A8: .4byte gRoomControls
 _0804B8AC: .4byte gUnk_08010A5C
 
 	thumb_func_start sub_0804B8B0
@@ -1246,7 +1246,7 @@ sub_0804B8F0: @ 0x0804B8F0
 	movs r0, #5
 	bl sub_08050054
 	ldr r2, _0804B928 @ =gLinkEntity
-	ldr r1, _0804B92C @ =gUnk_03000BF0
+	ldr r1, _0804B92C @ =gRoomControls
 	ldrh r0, [r1, #6]
 	adds r0, #0x60
 	strh r0, [r2, #0x2e]
@@ -1261,7 +1261,7 @@ _0804B926:
 	pop {pc}
 	.align 2, 0
 _0804B928: .4byte gLinkEntity
-_0804B92C: .4byte gUnk_03000BF0
+_0804B92C: .4byte gRoomControls
 _0804B930: .4byte gUnk_08010A5C
 
 	thumb_func_start sub_0804B934

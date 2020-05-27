@@ -94,7 +94,7 @@ sub_0804AB24: @ 0x0804AB24
 	ldrb r1, [r5]
 	cmp r1, #0
 	bne _0804AB46
-	ldr r0, _0804AB4C @ =gUnk_03000F50
+	ldr r0, _0804AB4C @ =gLCDControls
 	movs r4, #0
 	strh r1, [r0]
 	bl sub_0801E104
@@ -108,7 +108,7 @@ _0804AB46:
 	pop {r4, r5, pc}
 	.align 2, 0
 _0804AB48: .4byte gUnk_03000FD0
-_0804AB4C: .4byte gUnk_03000F50
+_0804AB4C: .4byte gLCDControls
 _0804AB50: .4byte gUnk_02033A90
 
 	thumb_func_start sub_0804AB54
@@ -131,14 +131,14 @@ sub_0804AB70: @ 0x0804AB70
 	push {r4, r5, lr}
 	movs r0, #0
 	bl sub_0801DA90
-	ldr r1, _0804ABF8 @ =gUnk_03000F50
+	ldr r1, _0804ABF8 @ =gLCDControls
 	movs r2, #0
 	movs r0, #0x92
 	lsls r0, r0, #5
 	strh r0, [r1]
 	ldr r0, _0804ABFC @ =0x00009E83
 	strh r0, [r1, #0x14]
-	ldr r0, _0804AC00 @ =gUnk_03000BF0
+	ldr r0, _0804AC00 @ =gRoomControls
 	strh r2, [r1, #0x16]
 	strh r2, [r0, #0xa]
 	strh r2, [r1, #0x18]
@@ -189,9 +189,9 @@ _0804ABA4:
 	bl sub_08050054
 	pop {r4, r5, pc}
 	.align 2, 0
-_0804ABF8: .4byte gUnk_03000F50
+_0804ABF8: .4byte gLCDControls
 _0804ABFC: .4byte 0x00009E83
-_0804AC00: .4byte gUnk_03000BF0
+_0804AC00: .4byte gRoomControls
 _0804AC04: .4byte gUnk_02033A90
 _0804AC08: .4byte gUnk_02032EC0
 _0804AC0C: .4byte gUnk_080D4138
@@ -207,7 +207,7 @@ sub_0804AC1C: @ 0x0804AC1C
 	ldr r2, [r0, #0x14]
 	cmp r2, #0
 	beq _0804AC5E
-	ldr r3, _0804AC9C @ =gUnk_03000BF0
+	ldr r3, _0804AC9C @ =gRoomControls
 	movs r1, #0xc
 	ldrsh r0, [r3, r1]
 	movs r4, #0x32
@@ -235,8 +235,8 @@ _0804AC52:
 	movs r0, #0x9f
 	strh r0, [r3, #0xc]
 _0804AC5E:
-	ldr r2, _0804ACA0 @ =gUnk_03000F50
-	ldr r1, _0804AC9C @ =gUnk_03000BF0
+	ldr r2, _0804ACA0 @ =gLCDControls
+	ldr r1, _0804AC9C @ =gRoomControls
 	ldrh r0, [r1, #0xa]
 	strh r0, [r2, #0x16]
 	ldrh r0, [r1, #0xc]
@@ -263,8 +263,8 @@ _0804AC96:
 	pop {r4, pc}
 	.align 2, 0
 _0804AC98: .4byte gUnk_02018EB0
-_0804AC9C: .4byte gUnk_03000BF0
-_0804ACA0: .4byte gUnk_03000F50
+_0804AC9C: .4byte gRoomControls
+_0804ACA0: .4byte gLCDControls
 _0804ACA4: .4byte gUnk_02033A90
 
 	thumb_func_start sub_0804ACA8
@@ -314,7 +314,7 @@ sub_0804ACF8: @ 0x0804ACF8
 	bl sub_0804AD18
 	cmp r0, #0
 	beq _0804AD12
-	ldr r0, _0804AD14 @ =gUnk_03000BF0
+	ldr r0, _0804AD14 @ =gRoomControls
 	bl sub_0804AD6C
 	bl sub_0805E5A8
 	movs r0, #0xf8
@@ -322,7 +322,7 @@ sub_0804ACF8: @ 0x0804ACF8
 _0804AD12:
 	pop {pc}
 	.align 2, 0
-_0804AD14: .4byte gUnk_03000BF0
+_0804AD14: .4byte gRoomControls
 
 	thumb_func_start sub_0804AD18
 sub_0804AD18: @ 0x0804AD18

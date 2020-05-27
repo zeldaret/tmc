@@ -8,7 +8,7 @@
 	.code 16
 sub_080B197C:: @ 0x080B197C
 	push {r4, r5, r6}
-	ldr r2, _080B19C0 @ =gUnk_03000BF0
+	ldr r2, _080B19C0 @ =gRoomControls
 	ldrh r3, [r2, #0xa]
 	ldrh r4, [r2, #6]
 	subs r3, r3, r4
@@ -45,7 +45,7 @@ _080B19B4:
 	pop {r4, r5, r6}
 	bx lr
 	.align 2, 0
-_080B19C0: .4byte gUnk_03000BF0
+_080B19C0: .4byte gRoomControls
 _080B19C4: .4byte 0x80000020
 _080B19C8: .4byte 0x040000D4
 
@@ -54,7 +54,7 @@ sub_080B19CC: @ 0x080B19CC
 	ldrb r2, [r0, #0x38]
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
-	ldr ip, _080B1C10 @ =gUnk_03000BF0
+	ldr ip, _080B1C10 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3
 	ldrh r3, [ip, #8]
@@ -82,7 +82,7 @@ _080B1A28:
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
 _080B1A34:
-	ldr ip, _080B1C18 @ =gUnk_03000BF0
+	ldr ip, _080B1C18 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3
 	ldrh r3, [ip, #8]
@@ -123,7 +123,7 @@ _080B1AA8:
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
 _080B1AB4:
-	ldr ip, _080B1C20 @ =gUnk_03000BF0
+	ldr ip, _080B1C20 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3
 	ldrh r3, [ip, #8]
@@ -153,7 +153,7 @@ _080B1B0C:
 	ldrh r1, [r0, #0x32]
 	ldrh r0, [r0, #0x2e]
 _080B1B18:
-	ldr ip, _080B1C28 @ =gUnk_03000BF0
+	ldr ip, _080B1C28 @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r0, r0, r3
 	ldrh r3, [ip, #8]
@@ -217,7 +217,7 @@ sub_080B1BCC: @ 0x080B1BCC
 	add r1, r1, r3
 	ldrh r3, [r0, #0x32]
 	add r2, r2, r3
-	ldr ip, _080B1C4C @ =gUnk_03000BF0
+	ldr ip, _080B1C4C @ =gRoomControls
 	ldrh r3, [ip, #6]
 	sub r1, r1, r3
 	ldrh r3, [ip, #8]
@@ -231,13 +231,13 @@ sub_080B1BCC: @ 0x080B1BCC
 	ldrb r0, [r2, r1, lsr #4]
 	bx lr
 	.align 2, 0
-_080B1C10: .4byte gUnk_03000BF0
+_080B1C10: .4byte gRoomControls
 _080B1C14: .4byte gUnk_08000258
-_080B1C18: .4byte gUnk_03000BF0
+_080B1C18: .4byte gRoomControls
 _080B1C1C: .4byte gUnk_08000228
-_080B1C20: .4byte gUnk_03000BF0
+_080B1C20: .4byte gRoomControls
 _080B1C24: .4byte gUnk_08000278
-_080B1C28: .4byte gUnk_03000BF0
+_080B1C28: .4byte gRoomControls
 _080B1C2C: .4byte gUnk_08000248
 _080B1C30: .4byte gUnk_080B37A0
 _080B1C34: .4byte gUnk_080B7910
@@ -246,7 +246,7 @@ _080B1C3C: .4byte gUnk_08000360
 _080B1C40: .4byte gUnk_080B7A3E
 _080B1C44: .4byte gUnk_08000360
 _080B1C48: .4byte gUnk_080B7A3E
-_080B1C4C: .4byte gUnk_03000BF0
+_080B1C4C: .4byte gRoomControls
 _080B1C50: .4byte gUnk_08000278
 
 	arm_func_start sub_080B1C54

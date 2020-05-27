@@ -143,7 +143,7 @@ sub_080040A2: @ 0x080040A2
 
 	thumb_func_start sub_080040A8
 sub_080040A8: @ 0x080040A8
-	ldr r1, _08004368 @ =gUnk_03000BF0
+	ldr r1, _08004368 @ =gRoomControls
 	movs r2, #0x2e
 	ldrsh r2, [r0, r2]
 	ldrh r3, [r1, #0xa]
@@ -567,7 +567,7 @@ _08004358: .4byte gUnk_081326EC
 _0800435C: .4byte gUnk_02024048
 _08004360: .4byte gUnk_02021F20
 _08004364: .4byte gUnk_02024048
-_08004368: .4byte gUnk_03000BF0
+_08004368: .4byte gRoomControls
 _0800436C: .4byte 0x0000016E
 _08004370: .4byte 0x0000011E
 _08004374: .4byte gUnk_03000BF6
