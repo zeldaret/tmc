@@ -15,7 +15,7 @@ extern u32 gUnk_02036A40;
 extern u32 gUnk_02036A38;
 extern u32 gUnk_02000040;
 
-void sub_08056360()
+void sub_08056360(void)
 
 {
     if ((gTextBox.doTextBox & 127) != 0) {
@@ -80,7 +80,7 @@ void ShowTextbox(u32 index,u32 param_2,u32 *dest)
     return;
 }
 
-void sub_08056418()
+void sub_08056418(void)
 {
 
     sub_0801D630(&gTextBox,32);

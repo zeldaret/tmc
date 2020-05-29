@@ -28,7 +28,7 @@ sub_08055E24: @ 0x08055E24
 	bl sub_08055B70
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08055E5C: .4byte gUnk_02000080

@@ -284,7 +284,7 @@ sub_08016FF4: @ 0x08016FF4
 	cmp r0, #0
 	ble _0801702E
 	movs r0, #0x86
-	bl sub_080A3268
+	bl PlaySFX
 _0801702E:
 	ldr r4, _080170A8 @ =gUnk_03003F80
 	ldr r0, [r4, #0x30]
@@ -431,7 +431,7 @@ _08017150:
 	movs r0, #0
 	strb r0, [r2]
 	ldr r0, _0801716C @ =0x000001B3
-	bl sub_080A3268
+	bl PlaySFX
 _0801715A:
 	ldr r0, _08017170 @ =gUnk_02002A40
 	adds r3, r0, #0
@@ -461,7 +461,7 @@ _08017188:
 	strb r0, [r3]
 	movs r0, #0xa0
 	lsls r0, r0, #1
-	bl sub_080A3268
+	bl PlaySFX
 	b _080171A4
 _08017196:
 	movs r0, #0xf
@@ -1567,7 +1567,7 @@ sub_08017940: @ 0x08017940
 	adds r0, #0x38
 	strb r1, [r0]
 	adds r0, r2, #0
-	bl sub_08016A04
+	bl UpdateSpriteOrderAndFlip
 _080179CC:
 	movs r1, #0
 	ldr r0, _080179E8 @ =gLinkEntity

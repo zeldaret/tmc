@@ -21454,7 +21454,7 @@ gUnk_080FD580:: @ 080FD580
 gUnk_080FD588:: @ 080FD588
 	.incbin "baserom.gba", 0x0FD588, 0x0000008
 
-gUnk_080FD590:: @ 080FD590
+gWalletSizes:: @ 080FD590
 	.incbin "baserom.gba", 0x0FD590, 0x0000010
 
 gUnk_080FD5A0:: @ 080FD5A0

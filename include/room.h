@@ -21,7 +21,11 @@ typedef struct {
 	u16 roomOriginY;
 	s16 roomScrollX;
 	s16 roomScrollY;
-	u8 filler[8];
+	u8 unk5;
+    u8 unk6;
+    u8 filler[4];
+	u8 screenShakeMagnitude;
+	u8 unk7;
 	u16 screenShakeTime;
 	u16 filler2[6];
 	u8 filler3[4];

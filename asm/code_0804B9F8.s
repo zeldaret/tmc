@@ -349,7 +349,7 @@ sub_0804BC70: @ 0x0804BC70
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl sub_08050054
+	bl DoFade
 	ldr r2, _0804BCB0 @ =gLinkEntity
 	ldr r1, _0804BCB4 @ =gRoomControls
 	ldrh r0, [r1, #6]
@@ -932,7 +932,7 @@ _0804BFE8:
 	ldrh r1, [r4, #0xc]
 	bl sub_08080964
 	ldrh r0, [r4, #0xe]
-	bl sub_080A3268
+	bl PlaySFX
 	pop {r3, r4, r5}
 	mov r8, r3
 	mov sb, r4
@@ -1031,7 +1031,7 @@ _0804C090:
 	cmp r1, r0
 	bne _0804C0C8
 	movs r0, #0x72
-	bl sub_080A3268
+	bl PlaySFX
 _0804C0C8:
 	movs r0, #0x62
 	bl sub_0807CD80
@@ -3206,7 +3206,7 @@ _0804CDA0: .4byte 0x00007FFF
 _0804CDA4: .4byte gUnk_080DF94C
 _0804CDA8:
 	ldr r0, _0804CDC0 @ =0x80100000
-	bl sub_080A3268
+	bl PlaySFX
 	ldr r0, _0804CDC4 @ =gUnk_02033A90
 	movs r2, #0x86
 	lsls r2, r2, #4
@@ -3513,7 +3513,7 @@ _0804CF10: .4byte gLinkEntity
 _0804CF14: .4byte gUnk_080E1814
 _0804CF18:
 	ldr r0, _0804CF30 @ =0x80100000
-	bl sub_080A3268
+	bl PlaySFX
 	ldr r0, _0804CF34 @ =gUnk_02033A90
 	movs r2, #0x86
 	lsls r2, r2, #4
@@ -3668,7 +3668,7 @@ sub_0804CFB0: @ 0x0804CFB0
 	cmp r0, #0
 	bne _0804CFD8
 	ldr r0, _0804CFD4 @ =0x80100000
-	bl sub_080A3268
+	bl PlaySFX
 	b _0804CFEE
 	.align 2, 0
 _0804CFD0: .4byte gUnk_030010A0
@@ -3680,7 +3680,7 @@ _0804CFD8:
 	cmp r0, #0
 	bne _0804CFEE
 	ldr r0, _0804D000 @ =0x80050000
-	bl sub_080A3268
+	bl PlaySFX
 	movs r0, #3
 	bl sub_08078A90
 _0804CFEE:
@@ -4035,7 +4035,7 @@ sub_0804D140: @ 0x0804D140
 _0804D15C: .4byte gUnk_080E49F4
 _0804D160:
 	ldr r0, _0804D178 @ =0x80100000
-	bl sub_080A3268
+	bl PlaySFX
 	ldr r0, _0804D17C @ =gUnk_02033A90
 	movs r2, #0x86
 	lsls r2, r2, #4
@@ -4546,7 +4546,7 @@ _0804D3B8:
 	ldr r0, [r0]
 	str r0, [r1]
 	ldr r0, _0804D3F4 @ =0x80100000
-	bl sub_080A3268
+	bl PlaySFX
 _0804D3EA:
 	pop {pc}
 	.align 2, 0
@@ -5189,7 +5189,7 @@ sub_0804D6C4: @ 0x0804D6C4
 sub_0804D6C8: @ 0x0804D6C8
 	push {lr}
 	ldr r0, _0804D6E4 @ =0x80100000
-	bl sub_080A3268
+	bl PlaySFX
 	ldr r0, _0804D6E8 @ =gUnk_02033A90
 	movs r2, #0x86
 	lsls r2, r2, #4
@@ -6543,7 +6543,7 @@ _0804DE5C:
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #7
-	bl sub_08050054
+	bl DoFade
 	b _0804DECC
 	.align 2, 0
 _0804DEB4: .4byte gUnk_02033A90
@@ -6553,7 +6553,7 @@ _0804DEC0: .4byte gUnk_030010A0
 _0804DEC4:
 	movs r0, #6
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 _0804DECC:
 	movs r0, #1
 	pop {r4, r5, r6, pc}
@@ -7266,7 +7266,7 @@ _0804E436:
 	adds r0, r0, r1
 	bl sub_0804B3C4
 	ldr r0, _0804E458 @ =0x80100000
-	bl sub_080A3268
+	bl PlaySFX
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0804E448: .4byte gUnk_080F0D58
@@ -7648,7 +7648,7 @@ sub_0804E6E8: @ 0x0804E6E8
 	ldr r0, [r0]
 	str r0, [r1]
 	ldr r0, _0804E720 @ =0x800B0036
-	bl sub_080A3268
+	bl PlaySFX
 _0804E70A:
 	movs r0, #0x13
 	bl GetProgressFlag
@@ -7684,7 +7684,7 @@ sub_0804E72C: @ 0x0804E72C
 	ldr r0, [r0]
 	str r0, [r1]
 	ldr r0, _0804E764 @ =0x800B0036
-	bl sub_080A3268
+	bl PlaySFX
 _0804E74E:
 	movs r0, #0x13
 	bl GetProgressFlag
@@ -7786,7 +7786,7 @@ sub_0804E7DC: @ 0x0804E7DC
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl sub_08050054
+	bl DoFade
 	ldr r2, _0804E850 @ =gUnk_08009B30
 	movs r0, #0
 	movs r1, #6
@@ -7805,7 +7805,7 @@ _0804E818:
 	ldr r0, [r0]
 	str r0, [r1]
 	ldr r0, _0804E858 @ =0x800B0036
-	bl sub_080A3268
+	bl PlaySFX
 _0804E838:
 	ldr r0, _0804E85C @ =gUnk_03003F80
 	ldr r0, [r0, #0x30]
@@ -9248,7 +9248,7 @@ sub_0804F23C: @ 0x0804F23C
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #7
-	bl sub_08050054
+	bl DoFade
 _0804F252:
 	movs r0, #0x49
 	bl sub_0807CD04

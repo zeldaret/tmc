@@ -386,7 +386,7 @@ _080ADBE0:
 	cmp r5, #0
 	beq _080ADBF2
 	adds r0, r5, #0
-	bl sub_080A3268
+	bl PlaySFX
 _080ADBF2:
 	movs r0, #0xf
 	strb r0, [r4, #0xf]

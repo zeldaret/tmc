@@ -45,7 +45,7 @@ _080AD42C:
 	strh r5, [r0, #0x1a]
 	movs r0, #6
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	movs r1, #0
 	b _080AD45E
 	.align 2, 0

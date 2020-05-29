@@ -58,9 +58,9 @@ _080AD6F4:
 	str r0, [r6, #4]
 	movs r0, #6
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	movs r0, #0xf8
-	bl sub_080A3268
+	bl PlaySFX
 	b _080AD76A
 	.align 2, 0
 _080AD718: .4byte gUnk_03000FD0

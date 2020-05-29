@@ -20,7 +20,7 @@ sub_080A2838: @ 0x080A2838
 	cmp r0, #2
 	bne _080A2856
 	adds r0, r4, #0
-	bl sub_08016A04
+	bl UpdateSpriteOrderAndFlip
 _080A2856:
 	pop {r4, pc}
 	.align 2, 0

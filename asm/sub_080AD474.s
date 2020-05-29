@@ -121,10 +121,10 @@ _080AD524:
 _080AD55A:
 	bl sub_080A3210
 	movs r0, #3
-	bl sub_080A3268
+	bl PlaySFX
 	movs r0, #6
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	b _080AD610
 	.align 2, 0
 _080AD570: .4byte gLCDControls
@@ -174,7 +174,7 @@ _080AD5C8:
 	cmp r4, #2
 	bne _080AD5DE
 	movs r0, #0x6a
-	bl sub_080A3268
+	bl PlaySFX
 	b _080AD5E0
 _080AD5DE:
 	movs r4, #0
@@ -182,7 +182,7 @@ _080AD5E0:
 	adds r0, r4, #0
 	bl IntroSetTransition
 	ldr r0, _080AD634 @ =0x80080000
-	bl sub_080A3268
+	bl PlaySFX
 _080AD5EC:
 	bl sub_080AD644
 	ldr r0, _080AD638 @ =gUnk_02000080

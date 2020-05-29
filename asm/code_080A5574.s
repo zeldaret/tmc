@@ -209,7 +209,7 @@ _080A56F8:
 	ldr r0, _080A5708 @ =gUnk_02000080
 	strb r3, [r0, #3]
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 	b _080A575E
 	.align 2, 0
 _080A5708: .4byte gUnk_02000080
@@ -258,7 +258,7 @@ _080A5752:
 	adds r0, r1, #0
 	bl sub_080A4E84
 	movs r0, #0x6a
-	bl sub_080A3268
+	bl PlaySFX
 _080A575E:
 	ldr r0, _080A5780 @ =gUnk_02000080
 	ldrb r1, [r0, #3]
@@ -622,13 +622,13 @@ _080A5A10:
 	movs r0, #2
 	bl sub_080A7114
 	movs r0, #0x6a
-	bl sub_080A3268
+	bl PlaySFX
 	b _080A5A52
 _080A5A2E:
 	movs r0, #3
 	bl sub_080A7114
 	movs r0, #0x6c
-	bl sub_080A3268
+	bl PlaySFX
 	b _080A5A52
 _080A5A3C:
 	ldrb r0, [r1, #3]
@@ -639,7 +639,7 @@ _080A5A3C:
 	adds r1, r2, #0
 	bl sub_08052418
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 _080A5A52:
 	pop {pc}
 
@@ -812,7 +812,7 @@ _080A5B76:
 	adds r1, r4, #0
 	bl sub_08052418
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 _080A5B8E:
 	cmp r5, #0
 	beq _080A5BB6
@@ -820,7 +820,7 @@ _080A5B8E:
 	bne _080A5BAA
 	movs r0, #7
 	movs r1, #0x20
-	bl sub_08050054
+	bl DoFade
 	movs r0, #0x3c
 	strh r0, [r6, #8]
 	movs r0, #2
@@ -828,7 +828,7 @@ _080A5B8E:
 	b _080A5BB6
 _080A5BAA:
 	movs r0, #0x6c
-	bl sub_080A3268
+	bl PlaySFX
 	movs r0, #2
 	bl sub_080A4E84
 _080A5BB6:
@@ -848,7 +848,7 @@ sub_080A5BB8: @ 0x080A5BB8
 	strb r0, [r1, #1]
 	movs r0, #6
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	movs r0, #2
 	bl sub_080A4E84
 	ldr r1, _080A5BEC @ =gUnk_02034490
@@ -983,7 +983,7 @@ _080A5CE6:
 	adds r0, r2, #0
 	bl sub_080A5CFC
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 _080A5CFA:
 	pop {pc}
 
@@ -1551,7 +1551,7 @@ _080A6164:
 	beq _080A6178
 	strb r2, [r1, #3]
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 _080A6178:
 	pop {pc}
 	.align 2, 0
@@ -1765,7 +1765,7 @@ _080A6326:
 	cmp r0, #0
 	beq _080A635A
 	movs r0, #0x6a
-	bl sub_080A3268
+	bl PlaySFX
 	movs r0, #6
 	bl sub_080A4E84
 	b _080A635A
@@ -1794,7 +1794,7 @@ _080A635A:
 	ldr r0, _080A6374 @ =gUnk_02000080
 	strb r4, [r0, #3]
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 _080A6368:
 	ldr r0, _080A6374 @ =gUnk_02000080
 	ldrb r0, [r0, #3]
@@ -2059,7 +2059,7 @@ sub_080A6534: @ 0x080A6534
 	bl sub_080A7114
 	movs r0, #4
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _080A6590: .4byte gLCDControls
@@ -2093,7 +2093,7 @@ sub_080A65AC: @ 0x080A65AC
 	movs r0, #0x20
 	strb r0, [r1]
 	adds r0, #0xe3
-	bl sub_080A3268
+	bl PlaySFX
 _080A65DA:
 	ldrh r0, [r4, #8]
 	subs r0, #1
@@ -2862,7 +2862,7 @@ _080A6BD4:
 	bl sub_080A7114
 	movs r0, #4
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	pop {r3}
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
@@ -2913,7 +2913,7 @@ _080A6C50:
 _080A6C58: .4byte gUnk_03000FF0
 _080A6C5C:
 	ldr r0, _080A6C6C @ =0x00000103
-	bl sub_080A3268
+	bl PlaySFX
 _080A6C62:
 	ldr r1, _080A6C70 @ =gUnk_02000080
 	ldrh r0, [r1, #8]
@@ -2963,7 +2963,7 @@ sub_080A6CA8: @ 0x080A6CA8
 	bl sub_080A7114
 	movs r0, #4
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	pop {pc}
 	.align 2, 0
 _080A6CD4: .4byte gUnk_02000080
@@ -3045,7 +3045,7 @@ _080A6D58:
 	beq _080A6D6E
 	strb r0, [r1, #3]
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 _080A6D6E:
 	pop {r4, pc}
 	.align 2, 0
@@ -3138,7 +3138,7 @@ sub_080A6DF8: @ 0x080A6DF8
 	bl sub_080A7114
 	movs r0, #5
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	b _080A6E3A
 	.align 2, 0
 _080A6E14: .4byte gUnk_02000080
@@ -3155,7 +3155,7 @@ _080A6E18:
 	movs r0, #0
 	strb r0, [r1]
 	movs r0, #0x6c
-	bl sub_080A3268
+	bl PlaySFX
 _080A6E3A:
 	pop {pc}
 	.align 2, 0
@@ -3581,7 +3581,7 @@ _080A716C:
 	strb r0, [r1, #4]
 	movs r0, #5
 	movs r1, #0x20
-	bl sub_08050054
+	bl DoFade
 	ldr r0, _080A71A0 @ =gUnk_02018EB0
 	strb r4, [r0]
 	strb r4, [r0, #1]
@@ -3633,7 +3633,7 @@ sub_080A71DC: @ 0x080A71DC
 	strb r0, [r1]
 	movs r0, #5
 	movs r1, #0x20
-	bl sub_08050054
+	bl DoFade
 	pop {pc}
 	.align 2, 0
 _080A71F0: .4byte gUnk_02032EC0
@@ -3906,7 +3906,7 @@ _080A73B4:
 	beq _080A74A8
 	adds r0, r1, #0
 	ldrh r1, [r5, #0xa]
-	bl sub_08050054
+	bl DoFade
 	b _080A74AE
 	.align 2, 0
 _080A7468: .4byte gUnk_03000FD0
@@ -4177,7 +4177,7 @@ _080A7692:
 	lsls r0, r0, #1
 	adds r0, r0, r4
 	ldrh r0, [r0]
-	bl sub_080A3268
+	bl PlaySFX
 	b _080A76C2
 	.align 2, 0
 _080A76B0: .4byte gUnk_03003F80
@@ -4189,7 +4189,7 @@ _080A76BC:
 _080A76C2:
 	movs r0, #0x87
 	lsls r0, r0, #1
-	bl sub_080A3268
+	bl PlaySFX
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_080A76CC
@@ -4253,7 +4253,7 @@ _080A7728:
 	beq _080A77C4
 	movs r0, #0x8b
 	lsls r0, r0, #1
-	bl sub_080A3268
+	bl PlaySFX
 	b _080A77C4
 	.align 2, 0
 _080A7740: .4byte gLinkEntity
@@ -4417,7 +4417,7 @@ _080A7868:
 	cmp r0, #0
 	beq _080A7880
 	movs r0, #0x77
-	bl sub_080A3268
+	bl PlaySFX
 _080A7880:
 	ldrb r0, [r4, #0x1e]
 	cmp r0, #0x8a
@@ -5015,7 +5015,7 @@ _080A7CDC:
 	movs r1, #0x78
 	bl sub_0805E4E0
 	ldr r0, _080A7CF8 @ =0x0000011B
-	bl sub_080A3268
+	bl PlaySFX
 _080A7CF4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -5202,7 +5202,7 @@ _080A7E14:
 	ldr r0, [r5, #4]
 	str r0, [r4, #0x48]
 	adds r0, r4, #0
-	bl sub_08016A04
+	bl UpdateSpriteOrderAndFlip
 _080A7E4A:
 	movs r0, #1
 _080A7E4C:
@@ -7401,7 +7401,7 @@ sub_080A8E28: @ 0x080A8E28
 	movs r1, #0x51
 	bl sub_08004260
 	ldr r0, _080A8E84 @ =0x000001B5
-	bl sub_080A3268
+	bl PlaySFX
 _080A8E6E:
 	ldrb r4, [r5, #0xa]
 	cmp r4, #2
@@ -8099,7 +8099,7 @@ _080A93BE:
 	strb r0, [r4, #0x10]
 	str r2, [r5, #0x54]
 	movs r0, #0xfc
-	bl sub_080A3268
+	bl PlaySFX
 _080A93DA:
 	pop {r4, r5, pc}
 
@@ -8284,7 +8284,7 @@ sub_080A9518: @ 0x080A9518
 	movs r1, #0
 	bl sub_08004260
 	ldr r0, _080A953C @ =0x00000149
-	bl sub_080A3268
+	bl PlaySFX
 	pop {pc}
 	.align 2, 0
 _080A953C: .4byte 0x00000149
@@ -8557,7 +8557,7 @@ _080A9718:
 	bl sub_08004260
 _080A9756:
 	ldr r0, _080A9768 @ =0x000001B5
-	bl sub_080A3268
+	bl PlaySFX
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A9760: .4byte gLinkEntity
@@ -8678,7 +8678,7 @@ _080A9804:
 	strb r0, [r1]
 _080A983C:
 	ldr r0, _080A98B8 @ =0x00000127
-	bl sub_080A3268
+	bl PlaySFX
 	adds r0, r4, #0
 	bl sub_080A99F0
 _080A9848:
@@ -8730,7 +8730,7 @@ _080A989A:
 _080A98A4:
 	movs r0, #0xb2
 	lsls r0, r0, #1
-	bl sub_080A3268
+	bl PlaySFX
 	ldrh r0, [r5]
 	cmp r0, #0
 	bne _080A98BC
@@ -10441,7 +10441,7 @@ sub_080AA534: @ 0x080AA534
 	adds r2, #0x38
 	movs r1, #3
 	strb r1, [r2]
-	bl sub_08016A04
+	bl UpdateSpriteOrderAndFlip
 	pop {pc}
 
 	thumb_func_start sub_080AA544
@@ -11432,7 +11432,7 @@ _080AACB4: .4byte gUnk_03003F80
 _080AACB8: .4byte gLinkEntity
 _080AACBC:
 	ldr r0, _080AACDC @ =0x00000119
-	bl sub_080A3268
+	bl PlaySFX
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
 	bl sub_0806FA24
@@ -12346,7 +12346,7 @@ sub_080AB318: @ 0x080AB318
 	movs r1, #0x51
 	bl sub_08004260
 	ldr r0, _080AB3E0 @ =0x000001B5
-	bl sub_080A3268
+	bl PlaySFX
 	adds r0, r6, #0
 	bl sub_080AB4F8
 	movs r1, #0x2e
@@ -13653,7 +13653,7 @@ sub_080ABCC4: @ 0x080ABCC4
 	movs r1, #0
 	bl sub_08004260
 	ldr r0, _080ABD40 @ =0x0000014B
-	bl sub_080A3268
+	bl PlaySFX
 	pop {r4, r5, pc}
 	.align 2, 0
 _080ABD3C: .4byte gRoomControls
@@ -13815,7 +13815,7 @@ _080ABE56:
 	movs r1, #0
 	bl sub_08004260
 	ldr r0, _080ABE84 @ =0x0000012D
-	bl sub_080A3268
+	bl PlaySFX
 	pop {r4, r5, pc}
 	.align 2, 0
 _080ABE84: .4byte 0x0000012D
@@ -13876,7 +13876,7 @@ _080ABEEC:
 	movs r1, #0
 	bl sub_08004260
 	ldr r0, _080ABF00 @ =0x00000193
-	bl sub_080A3268
+	bl PlaySFX
 	pop {r4, pc}
 	.align 2, 0
 _080ABEFC: .4byte 0x0000013F
@@ -13930,7 +13930,7 @@ sub_080ABF40: @ 0x080ABF40
 	movs r1, #0
 	bl sub_08004260
 	ldr r0, _080ABFA4 @ =0x00000199
-	bl sub_080A3268
+	bl PlaySFX
 _080ABF66:
 	ldrh r2, [r4, #0x36]
 	movs r0, #0x36
@@ -14067,7 +14067,7 @@ _080AC058:
 	strh r0, [r4, #0x36]
 	ldr r0, _080AC070 @ =0x00000149
 _080AC06A:
-	bl sub_080A3268
+	bl PlaySFX
 	pop {r4, pc}
 	.align 2, 0
 _080AC070: .4byte 0x00000149
@@ -14102,7 +14102,7 @@ _080AC084:
 	cmp r0, #0
 	bne _080AC0B2
 	ldr r0, _080AC0E8 @ =0x00000149
-	bl sub_080A3268
+	bl PlaySFX
 _080AC0B2:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -14126,7 +14126,7 @@ _080AC0B2:
 	lsls r0, r0, #1
 	strh r0, [r4, #0x24]
 	adds r0, #0x13
-	bl sub_080A3268
+	bl PlaySFX
 	b _080AC0F8
 	.align 2, 0
 _080AC0E8: .4byte 0x00000149
@@ -14638,7 +14638,7 @@ _080AC4A2:
 	strb r1, [r0]
 	movs r0, #0x8b
 	lsls r0, r0, #1
-	bl sub_080A3268
+	bl PlaySFX
 	b _080AC50A
 _080AC4BE:
 	ldrb r0, [r4, #0xf]
@@ -15257,7 +15257,7 @@ sub_080AC928: @ 0x080AC928
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl sub_08016A04
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0
 	bl sub_08004260
@@ -15317,7 +15317,7 @@ _080AC964:
 	strb r0, [r5, #0x15]
 	movs r0, #0x97
 	lsls r0, r0, #1
-	bl sub_080A3268
+	bl PlaySFX
 _080AC9C0:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -15451,7 +15451,7 @@ _080ACAB0:
 _080ACAB6:
 	strb r0, [r4, #0x15]
 	movs r0, #0xd8
-	bl sub_080A3268
+	bl PlaySFX
 	b _080ACAC4
 _080ACAC0:
 	bl sub_0805E780
@@ -15473,7 +15473,7 @@ sub_080ACAC8: @ 0x080ACAC8
 	movs r1, #7
 	bl sub_08004260
 	ldr r0, _080ACAEC @ =0x00000199
-	bl sub_080A3268
+	bl PlaySFX
 	pop {pc}
 	.align 2, 0
 _080ACAE8: .4byte 0x0000FFFC
@@ -16377,10 +16377,10 @@ _080AD188:
 	bne _080AD196
 	movs r0, #0x82
 	lsls r0, r0, #1
-	bl sub_080A3268
+	bl PlaySFX
 _080AD196:
 	adds r0, r4, #0
-	bl sub_08016A04
+	bl UpdateSpriteOrderAndFlip
 	movs r0, #3
 	strb r0, [r5, #0xd]
 	ldrb r2, [r4, #0x19]
@@ -16418,7 +16418,7 @@ _080AD1DA:
 _080AD1E0:
 	movs r0, #0x82
 	lsls r0, r0, #1
-	bl sub_080A3268
+	bl PlaySFX
 	ldrb r0, [r4, #0xe]
 	adds r0, #1
 	strb r0, [r4, #0xe]
@@ -16455,7 +16455,7 @@ _080AD220:
 	cmp r5, #0
 	beq _080AD244
 	movs r0, #0x79
-	bl sub_080A3268
+	bl PlaySFX
 	adds r0, r4, #0
 	bl sub_080AD27C
 	b _080AD26E

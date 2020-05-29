@@ -1118,7 +1118,7 @@ sub_0804B7E8: @ 0x0804B7E8
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl sub_08050054
+	bl DoFade
 	ldr r2, _0804B820 @ =gLinkEntity
 	ldr r1, _0804B824 @ =gRoomControls
 	ldrh r0, [r1, #6]
@@ -1181,7 +1181,7 @@ sub_0804B86C: @ 0x0804B86C
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl sub_08050054
+	bl DoFade
 	ldr r2, _0804B8A4 @ =gLinkEntity
 	ldr r1, _0804B8A8 @ =gRoomControls
 	ldrh r0, [r1, #6]
@@ -1244,7 +1244,7 @@ sub_0804B8F0: @ 0x0804B8F0
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl sub_08050054
+	bl DoFade
 	ldr r2, _0804B928 @ =gLinkEntity
 	ldr r1, _0804B92C @ =gRoomControls
 	ldrh r0, [r1, #6]

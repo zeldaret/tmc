@@ -24,8 +24,8 @@ _08050050:
 _08050052:
 	pop {pc}
 
-	thumb_func_start sub_08050054
-sub_08050054: @ 0x08050054
+	thumb_func_start DoFade
+DoFade: @ 0x08050054
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r2, _08050078 @ =gUnk_03000FD0
@@ -150,7 +150,7 @@ _08050136:
 	strh r1, [r2, #0x18]
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl sub_08050054
+	bl DoFade
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0805014C: .4byte gUnk_03000FD0
@@ -438,7 +438,7 @@ sub_08050318: @ 0x08050318
 	ldrh r0, [r4]
 	cmp r0, #0
 	beq _08050368
-	bl sub_080A3268
+	bl PlaySFX
 _08050368:
 	ldr r1, _08050380 @ =gLCDControls
 	movs r0, #1
@@ -713,10 +713,10 @@ _08050586:
 	ldr r0, _08050604 @ =gUnk_03001000
 	strb r1, [r0, #3]
 	movs r0, #7
-	bl sub_080A3268
+	bl PlaySFX
 	movs r0, #4
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _080505DC: .4byte gUnk_0200AF00
@@ -1274,7 +1274,7 @@ _08050A10:
 	adds r0, r5, #0
 	bl sub_080503BC
 	movs r0, #0x6a
-	bl sub_080A3268
+	bl PlaySFX
 _08050A22:
 	adds r0, r4, r6
 	adds r1, r6, #0
@@ -1288,7 +1288,7 @@ _08050A22:
 	adds r0, r4, #0
 	bl sub_08050AFC
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 _08050A42:
 	adds r0, r5, #0
 	adds r0, #8
@@ -1617,7 +1617,7 @@ _08050D08:
 	cmp r4, #0
 	bne _08050D12
 	ldr r0, _08050D28 @ =0x80080000
-	bl sub_080A3268
+	bl PlaySFX
 _08050D12:
 	ldr r1, _08050D2C @ =gUnk_02000080
 	movs r0, #0xf
@@ -1625,14 +1625,14 @@ _08050D12:
 	movs r0, #1
 	bl sub_080A7114
 	movs r0, #0x6a
-	bl sub_080A3268
+	bl PlaySFX
 	b _08050D44
 	.align 2, 0
 _08050D28: .4byte 0x80080000
 _08050D2C: .4byte gUnk_02000080
 _08050D30:
 	movs r0, #0x6c
-	bl sub_080A3268
+	bl PlaySFX
 	movs r0, #0
 	bl sub_080503BC
 	b _08050D44
@@ -1656,7 +1656,7 @@ _08050D50:
 	beq _08050D60
 	strb r4, [r1, #1]
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 _08050D60:
 	pop {r4, pc}
 	.align 2, 0
@@ -1770,7 +1770,7 @@ _08050E22:
 	b _08050E62
 _08050E26:
 	movs r0, #0x6a
-	bl sub_080A3268
+	bl PlaySFX
 	ldr r0, _08050E44 @ =gUnk_02000080
 	ldrb r0, [r0, #4]
 	cmp r0, r4
@@ -1792,7 +1792,7 @@ _08050E50:
 	ldrb r4, [r0, #4]
 	strb r4, [r1, #7]
 	movs r0, #0x6c
-	bl sub_080A3268
+	bl PlaySFX
 	movs r0, #0
 	bl sub_080503BC
 _08050E62:
@@ -1811,7 +1811,7 @@ _08050E6E:
 	beq _08050E80
 	strb r4, [r1, #7]
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 _08050E80:
 	pop {r4, pc}
 	.align 2, 0
@@ -1971,7 +1971,7 @@ _08050F9C:
 	movs r1, #0
 	bl sub_08050318
 	movs r0, #0x6a
-	bl sub_080A3268
+	bl PlaySFX
 	b _08050FBA
 _08050FAC:
 	ldrb r0, [r6, #4]
@@ -1979,7 +1979,7 @@ _08050FAC:
 	ldrb r0, [r6, #5]
 	strb r0, [r1, #3]
 	movs r0, #0x6c
-	bl sub_080A3268
+	bl PlaySFX
 _08050FBA:
 	adds r0, r5, #0
 	bl sub_080A7114
@@ -1996,7 +1996,7 @@ _08050FD0:
 	beq _08050FE2
 	strb r3, [r1, #1]
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 	b _08050FF4
 _08050FE2:
 	cmp r2, r8
@@ -2005,7 +2005,7 @@ _08050FE2:
 	ldrb r0, [r6, #6]
 	bl sub_080503E4
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 _08050FF4:
 	pop {r3}
 	mov r8, r3
@@ -2193,7 +2193,7 @@ _08051130:
 	cmp r5, #0
 	beq _0805114C
 	movs r0, #0x67
-	bl sub_080A3268
+	bl PlaySFX
 _0805114C:
 	cmp r6, #0
 	beq _0805123A
@@ -2452,7 +2452,7 @@ _08051330:
 	strb r4, [r1, #1]
 	bl sub_08051458
 	movs r0, #0x68
-	bl sub_080A3268
+	bl PlaySFX
 _0805134C:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -2481,7 +2481,7 @@ _0805136A:
 	movs r0, #0xb
 	strb r0, [r2, #0x10]
 	movs r0, #0x67
-	bl sub_080A3268
+	bl PlaySFX
 _08051382:
 	pop {pc}
 	.align 2, 0
@@ -2760,7 +2760,7 @@ _08051572:
 	thumb_func_start sub_08051574
 sub_08051574: @ 0x08051574
 	push {lr}
-	bl sub_080A3268
+	bl PlaySFX
 	ldr r0, _08051594 @ =gUnk_02002A40
 	ldr r3, _08051598 @ =gUnk_02019EE0
 	ldrb r1, [r3, #6]
@@ -2878,7 +2878,7 @@ _08051694:
 	movs r0, #2
 	bl sub_080A7114
 	movs r0, #0x6a
-	bl sub_080A3268
+	bl PlaySFX
 	b _080516C8
 	.align 2, 0
 _080516B0: .4byte gUnk_02000080
@@ -2886,7 +2886,7 @@ _080516B4:
 	movs r0, #0
 	bl sub_080503BC
 	movs r0, #0x6c
-	bl sub_080A3268
+	bl PlaySFX
 	b _080516C8
 _080516C2:
 	movs r4, #0
@@ -2900,7 +2900,7 @@ _080516C8:
 	beq _080516D8
 	strb r4, [r1, #1]
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 _080516D8:
 	pop {r4, pc}
 	.align 2, 0
@@ -3093,13 +3093,13 @@ _0805182C:
 	movs r0, #2
 	bl sub_080A7114
 	movs r0, #0x6a
-	bl sub_080A3268
+	bl PlaySFX
 	b _08051858
 _08051848:
 	movs r0, #4
 	strb r0, [r2, #7]
 	movs r0, #0x6c
-	bl sub_080A3268
+	bl PlaySFX
 	movs r0, #0
 	bl sub_080503BC
 _08051858:
@@ -3111,7 +3111,7 @@ _08051858:
 	beq _0805186E
 	strb r0, [r1, #7]
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 _0805186E:
 	pop {r4, pc}
 	.align 2, 0
@@ -3217,7 +3217,7 @@ sub_08051914: @ 0x08051914
 	strb r0, [r1, #3]
 	movs r0, #5
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 _0805193E:
 	pop {pc}
 	.align 2, 0
@@ -3377,8 +3377,8 @@ sub_08051A90: @ 0x08051A90
 _08051AA4: .4byte gUnk_080FC9E8
 _08051AA8: .4byte gUnk_03001000
 
-	thumb_func_start sub_08051AAC
-sub_08051AAC: @ 0x08051AAC
+	thumb_func_start InitializeNewRoom
+InitializeNewRoom: @ 0x08051AAC
 	push {lr}
 	bl sub_0805E5A8
 	ldr r1, _08051AE4 @ =gLCDControls
@@ -3397,7 +3397,7 @@ sub_08051AAC: @ 0x08051AAC
 	bl sub_08052CFC
 	movs r0, #0
 	bl sub_0801C370
-	bl sub_08051D40
+	bl InitializeEntities
 	bl sub_0801855C
 	pop {pc}
 	.align 2, 0
@@ -3446,7 +3446,7 @@ _08051B02:
 	ldr r0, _08051BC0 @ =0x800B0000
 	orrs r2, r0
 	adds r0, r2, #0
-	bl sub_080A3268
+	bl PlaySFX
 _08051B5A:
 	bl sub_0805E9F4
 	bl sub_0805BC04
@@ -3635,14 +3635,14 @@ sub_08051D2C: @ 0x08051D2C
 	push {lr}
 	movs r0, #7
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	movs r0, #3
 	bl sub_08056010
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_08051D40
-sub_08051D40: @ 0x08051D40
+	thumb_func_start InitializeEntities
+InitializeEntities: @ 0x08051D40
 	push {lr}
 	bl sub_08052EA0
 	bl sub_0804AF90
@@ -3660,7 +3660,7 @@ sub_08051D40: @ 0x08051D40
 	movs r1, #0
 	bl sub_0801D79C
 	bl LoadRoom
-	bl sub_080609AC
+	bl CreateZeldaFollower
 	bl sub_0804AFF4
 	bl sub_0805329C
 	bl sub_08000108
@@ -4080,7 +4080,7 @@ sub_080520D8: @ 0x080520D8
 	ldr r0, _08052124 @ =gUnk_03001000
 	strb r2, [r0, #5]
 	movs r0, #0xa
-	bl sub_080A3268
+	bl PlaySFX
 	movs r0, #4
 	bl sub_080500F4
 	ldr r0, _08052128 @ =0xFFFF0001
@@ -4141,7 +4141,7 @@ _08052158:
 	str r0, [r4, #4]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	b _0805219C
 	.align 2, 0
 _08052190: .4byte gLCDControls
@@ -4244,7 +4244,7 @@ _08052248:
 	adds r0, r2, #0
 	bl sub_080A7114
 	movs r0, #0x6a
-	bl sub_080A3268
+	bl PlaySFX
 _0805225A:
 	ldr r1, _08052274 @ =gUnk_02000080
 	ldrb r0, [r1, #3]
@@ -4255,7 +4255,7 @@ _0805225A:
 	adds r1, r4, #0
 	bl sub_08052418
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 	b _080522E8
 	.align 2, 0
 _08052274: .4byte gUnk_02000080
@@ -4387,17 +4387,17 @@ _0805236A:
 	movs r0, #2
 	bl sub_080A7114
 	movs r0, #0x6a
-	bl sub_080A3268
+	bl PlaySFX
 	cmp r4, #0
 	bne _08052384
 	movs r0, #5
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	b _0805238C
 _08052384:
 	movs r0, #7
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 _0805238C:
 	ldr r1, _080523A8 @ =gUnk_02000080
 	ldrb r0, [r1, #3]
@@ -4408,7 +4408,7 @@ _0805238C:
 	adds r1, r4, #0
 	bl sub_08052418
 	movs r0, #0x69
-	bl sub_080A3268
+	bl PlaySFX
 	b _080523CC
 	.align 2, 0
 _080523A8: .4byte gUnk_02000080

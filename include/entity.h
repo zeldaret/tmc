@@ -14,8 +14,8 @@ typedef struct {
 } EntityType;
 
 union SplitWord {
-    u32 WORD;
-    u16 LO, HI;
+    s32 WORD;
+    s16 LO, HI;
 };
 
 typedef struct {

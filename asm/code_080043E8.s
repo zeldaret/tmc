@@ -106,7 +106,7 @@ sub_0800449C: @ 0x0800449C
 	cmp r0, #0
 	pop {r0}
 	beq _080044AC
-	bl sub_080A3268
+	bl PlaySFX
 _080044AC:
 	pop {pc}
 

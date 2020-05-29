@@ -3371,7 +3371,7 @@ _0807E456:
 	cmp r1, #0
 	beq _0807E474
 	rsbs r0, r2, #0
-	bl sub_080526CC
+	bl ModRupees
 	adds r0, r4, #0
 	adds r1, r6, #0
 	movs r2, #0
@@ -3865,7 +3865,7 @@ sub_0807E7B0: @ 0x0807E7B0
 	ldr r0, _0807E7C0 @ =gUnk_02033280
 	ldrb r1, [r0, #8]
 	movs r0, #4
-	bl sub_08050054
+	bl DoFade
 	pop {pc}
 	.align 2, 0
 _0807E7C0: .4byte gUnk_02033280
@@ -3876,7 +3876,7 @@ sub_0807E7C4: @ 0x0807E7C4
 	ldr r0, _0807E7D4 @ =gUnk_02033280
 	ldrb r1, [r0, #8]
 	movs r0, #5
-	bl sub_08050054
+	bl DoFade
 	pop {pc}
 	.align 2, 0
 _0807E7D4: .4byte gUnk_02033280
@@ -3887,7 +3887,7 @@ sub_0807E7D8: @ 0x0807E7D8
 	ldr r0, _0807E7E8 @ =gUnk_02033280
 	ldrb r1, [r0, #8]
 	movs r0, #6
-	bl sub_08050054
+	bl DoFade
 	pop {pc}
 	.align 2, 0
 _0807E7E8: .4byte gUnk_02033280
@@ -3898,7 +3898,7 @@ sub_0807E7EC: @ 0x0807E7EC
 	ldr r0, _0807E7FC @ =gUnk_02033280
 	ldrb r1, [r0, #8]
 	movs r0, #7
-	bl sub_08050054
+	bl DoFade
 	pop {pc}
 	.align 2, 0
 _0807E7FC: .4byte gUnk_02033280
@@ -5011,7 +5011,7 @@ sub_0807EFA0: @ 0x0807EFA0
 	push {lr}
 	ldr r0, [r1]
 	ldrh r0, [r0, #2]
-	bl sub_080A3268
+	bl PlaySFX
 	pop {pc}
 
 	thumb_func_start sub_0807EFAC
@@ -5026,13 +5026,13 @@ sub_0807EFAC: @ 0x0807EFAC
 	lsls r1, r1, #4
 	adds r0, r0, r1
 	ldr r0, [r0]
-	bl sub_080A3268
+	bl PlaySFX
 	b _0807EFD2
 	.align 2, 0
 _0807EFC8: .4byte gUnk_02033A90
 _0807EFCC:
 	ldrh r0, [r1, #2]
-	bl sub_080A3268
+	bl PlaySFX
 _0807EFD2:
 	pop {pc}
 
@@ -5041,7 +5041,7 @@ sub_0807EFD4: @ 0x0807EFD4
 	push {lr}
 	ldr r0, [r1]
 	bl sub_08016998
-	bl sub_080A3268
+	bl PlaySFX
 	pop {pc}
 	.align 2, 0
 
@@ -5049,7 +5049,7 @@ sub_0807EFD4: @ 0x0807EFD4
 sub_0807EFE4: @ 0x0807EFE4
 	push {lr}
 	ldr r0, _0807EFF0 @ =0x80100000
-	bl sub_080A3268
+	bl PlaySFX
 	pop {pc}
 	.align 2, 0
 _0807EFF0: .4byte 0x80100000
@@ -5060,7 +5060,7 @@ sub_0807EFF4: @ 0x0807EFF4
 	ldr r0, [r1]
 	movs r1, #2
 	ldrsh r0, [r0, r1]
-	bl sub_080526CC
+	bl ModRupees
 	pop {pc}
 	.align 2, 0
 
@@ -5269,7 +5269,7 @@ sub_0807F158: @ 0x0807F158
 	adds r2, #0x38
 	movs r1, #1
 	strb r1, [r2]
-	bl sub_08016A04
+	bl UpdateSpriteOrderAndFlip
 	pop {pc}
 
 	thumb_func_start sub_0807F168
@@ -5280,7 +5280,7 @@ sub_0807F168: @ 0x0807F168
 	adds r2, #0x38
 	movs r1, #1
 	strb r1, [r2]
-	bl sub_08016A04
+	bl UpdateSpriteOrderAndFlip
 	pop {pc}
 	.align 2, 0
 _0807F17C: .4byte gLinkEntity
@@ -5292,7 +5292,7 @@ sub_0807F180: @ 0x0807F180
 	adds r2, #0x38
 	movs r1, #2
 	strb r1, [r2]
-	bl sub_08016A04
+	bl UpdateSpriteOrderAndFlip
 	pop {pc}
 
 	thumb_func_start sub_0807F190
@@ -5301,7 +5301,7 @@ sub_0807F190: @ 0x0807F190
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #4
-	bl sub_08050054
+	bl DoFade
 	pop {pc}
 	.align 2, 0
 
@@ -5621,7 +5621,7 @@ sub_0807F3C8: @ 0x0807F3C8
 	push {lr}
 	bl sub_0807F36C
 	movs r0, #0xe5
-	bl sub_080A3268
+	bl PlaySFX
 	pop {pc}
 	.align 2, 0
 
@@ -6230,7 +6230,7 @@ _0807F80C:
 	adds r0, r4, #0
 	bl sub_08053FE0
 	rsbs r0, r0, #0
-	bl sub_080526CC
+	bl ModRupees
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #0
@@ -8424,7 +8424,7 @@ _0808089A:
 	ldrh r0, [r4, #0x10]
 	cmp r0, #0
 	beq _080808B8
-	bl sub_080A3268
+	bl PlaySFX
 _080808B8:
 	ldr r0, _080808D4 @ =gUnk_0811E7C4
 	ldrh r1, [r4]
@@ -8485,56 +8485,3 @@ sub_08080910: @ 0x08080910
 	.align 2, 0
 _08080918: .4byte gUnk_030010A0
 
-	thumb_func_start sub_0808091C
-sub_0808091C: @ 0x0808091C
-	push {r4, lr}
-	adds r4, r1, #0
-	bl sub_08080840
-	ldr r0, _0808092C @ =gUnk_030010A0
-	strb r4, [r0, #9]
-	pop {r4, pc}
-	.align 2, 0
-_0808092C: .4byte gUnk_030010A0
-
-	thumb_func_start sub_08080930
-sub_08080930: @ 0x08080930
-	push {lr}
-	ldr r1, _08080948 @ =gRoomControls
-	movs r2, #0
-	movs r0, #5
-	strb r0, [r1, #2]
-	strb r2, [r1, #3]
-	movs r0, #2
-	strh r0, [r1]
-	strb r2, [r1, #0x10]
-	bl sub_0805E5A8
-	pop {pc}
-	.align 2, 0
-_08080948: .4byte gRoomControls
-
-	thumb_func_start sub_0808094C
-sub_0808094C: @ 0x0808094C
-	push {lr}
-	cmp r0, #2
-	beq _0808095C
-	ldr r0, _08080958 @ =gUnk_02025EB0
-	b _0808095E
-	.align 2, 0
-_08080958: .4byte gUnk_02025EB0
-_0808095C:
-	ldr r0, _08080960 @ =gUnk_0200B650
-_0808095E:
-	pop {pc}
-	.align 2, 0
-_08080960: .4byte gUnk_0200B650
-
-	thumb_func_start sub_08080964
-sub_08080964: @ 0x08080964
-	ldr r2, _08080970 @ =gRoomControls
-	strh r0, [r2, #0x16]
-	movs r0, #7
-	ands r1, r0
-	strb r1, [r2, #0x14]
-	bx lr
-	.align 2, 0
-_08080970: .4byte gRoomControls

@@ -39,7 +39,7 @@ _080AD78A:
 	orrs r0, r1
 	strh r0, [r2]
 	movs r0, #0xf6
-	bl sub_080A3268
+	bl PlaySFX
 	b _080AD82A
 	.align 2, 0
 _080AD7AC: .4byte gUnk_03000FD0
@@ -60,7 +60,7 @@ _080AD7B4:
 	strb r0, [r1, #6]
 	movs r0, #6
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 _080AD7D6:
 	bl sub_080AD670
 	b _080AD82A
@@ -83,9 +83,9 @@ _080AD7DC:
 	bl CreateObject
 	movs r0, #6
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	movs r0, #0xf8
-	bl sub_080A3268
+	bl PlaySFX
 	b _080AD82A
 _080AD80E:
 	ldr r0, _080AD82C @ =gUnk_03000FD0

@@ -204,7 +204,7 @@ _0805616A:
 sub_0805616C: @ 0x0805616C
 	push {lr}
 	ldr r0, _080561E8 @ =0x80040000
-	bl sub_080A3268
+	bl PlaySFX
 	ldr r0, _080561EC @ =gLCDControls
 	adds r3, r0, #0
 	adds r3, #0x6c
@@ -285,7 +285,7 @@ _08056204: .4byte 0x040000D4
 sub_08056208: @ 0x08056208
 	push {lr}
 	ldr r0, _08056224 @ =0x80060000
-	bl sub_080A3268
+	bl PlaySFX
 	ldr r0, _08056228 @ =gLCDControls
 	adds r3, r0, #0
 	adds r3, #0x6d

@@ -5,33 +5,6 @@
 	.syntax unified
 
 	.text
-	
-thumb_func_start sub_080526CC
-sub_080526CC: @ 0x080526CC
-	push {lr}
-	ldr r3, _080526DC @ =gStats
-	ldrh r1, [r3, #0x18]
-	adds r2, r1, r0
-	cmp r2, #0
-	bge _080526E0
-	movs r2, #0
-	b _080526F0
-	.align 2, 0
-_080526DC: .4byte gStats
-_080526E0:
-	ldr r1, _080526F4 @ =gUnk_080FD590
-	ldrb r0, [r3]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldrh r0, [r0]
-	cmp r2, r0
-	ble _080526F0
-	adds r2, r0, #0
-_080526F0:
-	strh r2, [r3, #0x18]
-	pop {pc}
-	.align 2, 0
-_080526F4: .4byte gUnk_080FD590
 
 	thumb_func_start sub_080526F8
 sub_080526F8: @ 0x080526F8
@@ -240,7 +213,7 @@ sub_08052878: @ 0x08052878
 	ldr r0, [r0]
 	str r0, [r1]
 	ldr r0, _08052898 @ =0x80010000
-	bl sub_080A3268
+	bl PlaySFX
 	pop {pc}
 	.align 2, 0
 _08052894: .4byte gUnk_02033A90
@@ -280,9 +253,9 @@ _080528C8:
 	strb r2, [r1, #4]
 	movs r0, #5
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	ldr r0, _080528EC @ =0x80100000
-	bl sub_080A3268
+	bl PlaySFX
 	movs r0, #1
 _080528E6:
 	pop {pc}
@@ -365,12 +338,12 @@ _0805296C: @ jump table
 _08052990:
 	movs r0, #0xd
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	b _080529DC
 _0805299A:
 	movs r0, #0xd
 	movs r1, #3
-	bl sub_08050054
+	bl DoFade
 	b _080529DC
 _080529A4:
 	movs r0, #7
@@ -379,29 +352,29 @@ _080529A8:
 	movs r0, #5
 _080529AA:
 	movs r1, #4
-	bl sub_08050054
+	bl DoFade
 	b _080529DC
 _080529B2:
 	movs r0, #5
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	b _080529DC
 _080529BC:
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl sub_08050054
+	bl DoFade
 	b _080529DC
 _080529C8:
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #7
-	bl sub_08050054
+	bl DoFade
 	b _080529DC
 _080529D4:
 	movs r0, #7
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 _080529DC:
 	bl sub_080528F0
 	ldr r0, _080529F0 @ =gUnk_03001000
@@ -534,35 +507,35 @@ _08052AD8:
 _08052ADC:
 	movs r0, #0xc
 	movs r1, #3
-	bl sub_08050054
+	bl DoFade
 	b _08052B22
 _08052AE6:
 	movs r0, #6
 	movs r1, #4
-	bl sub_08050054
+	bl DoFade
 	b _08052B22
 _08052AF0:
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl sub_08050054
+	bl DoFade
 	b _08052B22
 _08052AFC:
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #7
-	bl sub_08050054
+	bl DoFade
 	b _08052B22
 _08052B08:
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	b _08052B22
 _08052B12:
 	movs r0, #6
 _08052B14:
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	b _08052B22
 _08052B1C:
 	movs r0, #0x10
@@ -1802,7 +1775,7 @@ sub_080534AC: @ 0x080534AC
 	movs r1, #0
 	str r1, [r0]
 	ldr r0, _080534E0 @ =0x80100000
-	bl sub_080A3268
+	bl PlaySFX
 _080534D6:
 	pop {r4, pc}
 	.align 2, 0
@@ -1937,7 +1910,7 @@ sub_080535AC: @ 0x080535AC
 	bl LoadRoomEntityList
 	movs r0, #6
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	pop {pc}
 	.align 2, 0
 _080535DC: .4byte gUnk_02000080
@@ -2045,7 +2018,7 @@ sub_0805368C: @ 0x0805368C
 	beq _080536A6
 	bl sub_0805E7BC
 	movs r0, #0xf0
-	bl sub_080A3268
+	bl PlaySFX
 _080536A6:
 	pop {pc}
 
@@ -2070,7 +2043,7 @@ sub_080536B8: @ 0x080536B8
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl sub_08050054
+	bl DoFade
 	pop {pc}
 	.align 2, 0
 
@@ -2119,7 +2092,7 @@ sub_0805370C: @ 0x0805370C
 	bl LoadRoomEntityList
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {pc}
 	.align 2, 0
 _08053730: .4byte gUnk_02000080
@@ -2196,12 +2169,12 @@ sub_08053758: @ 0x08053758
 	ldr r0, _080537FC @ =0x00001DC1
 	strh r0, [r2, #0x20]
 	movs r0, #0xf
-	bl sub_080A3268
+	bl PlaySFX
 	bl sub_0805E5B4
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _080537DC: .4byte gUnk_02000080
@@ -2271,7 +2244,7 @@ sub_08053800: @ 0x08053800
 	strh r1, [r0]
 	ldrh r1, [r4, #0xa]
 	movs r0, #4
-	bl sub_08050054
+	bl DoFade
 _0805387A:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -2333,7 +2306,7 @@ _080538E4:
 	strb r0, [r4, #6]
 	movs r0, #5
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 _080538F8:
 	pop {r4, pc}
 	.align 2, 0
@@ -2391,7 +2364,7 @@ _08053954:
 	strb r0, [r4, #6]
 	movs r0, #5
 	movs r1, #1
-	bl sub_08050054
+	bl DoFade
 _08053968:
 	pop {r4, pc}
 	.align 2, 0
@@ -2415,7 +2388,7 @@ sub_08053974: @ 0x08053974
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl sub_08050054
+	bl DoFade
 	ldr r1, _080539B4 @ =gUnk_02000080
 	ldrb r0, [r1, #6]
 	adds r0, #1
@@ -2501,7 +2474,7 @@ sub_08053A1C: @ 0x08053A1C
 	strb r4, [r1, #7]
 	movs r0, #4
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 _08053A4E:
 	pop {r4, pc}
 	.align 2, 0
@@ -2530,7 +2503,7 @@ sub_08053A5C: @ 0x08053A5C
 	strb r0, [r1, #6]
 	movs r0, #5
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 _08053A86:
 	pop {pc}
 	.align 2, 0
@@ -2585,7 +2558,7 @@ sub_08053ACC: @ 0x08053ACC
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl sub_08050054
+	bl DoFade
 	pop {pc}
 	.align 2, 0
 _08053AF4: .4byte gUnk_02000080
@@ -2618,7 +2591,7 @@ sub_08053B10: @ 0x08053B10
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #4
-	bl sub_08050054
+	bl DoFade
 _08053B34:
 	pop {pc}
 	.align 2, 0
@@ -2636,7 +2609,7 @@ sub_08053B3C: @ 0x08053B3C
 	bl sub_080A71C4
 	movs r0, #5
 	adds r1, r4, #0
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 
 	thumb_func_start sub_08053B58
@@ -2671,7 +2644,7 @@ sub_08053B74: @ 0x08053B74
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
-	bl sub_08050054
+	bl DoFade
 	pop {pc}
 	.align 2, 0
 _08053BA0: .4byte gUnk_02000080
@@ -2704,7 +2677,7 @@ sub_08053BBC: @ 0x08053BBC
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #4
-	bl sub_08050054
+	bl DoFade
 _08053BE0:
 	pop {pc}
 	.align 2, 0
@@ -2722,7 +2695,7 @@ sub_08053BE8: @ 0x08053BE8
 	bl sub_080A71C4
 	movs r0, #5
 	adds r1, r4, #0
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 
 	thumb_func_start sub_08053C04
@@ -2757,9 +2730,9 @@ sub_08053C20: @ 0x08053C20
 	bl LoadRoomEntityList
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	movs r0, #0x33
-	bl sub_080A3268
+	bl PlaySFX
 	pop {pc}
 	.align 2, 0
 _08053C50: .4byte gUnk_02000080
@@ -2776,11 +2749,11 @@ sub_08053C60: @ 0x08053C60
 	push {lr}
 	movs r0, #5
 	movs r1, #2
-	bl sub_08050054
+	bl DoFade
 	movs r0, #0xf4
-	bl sub_080A3268
+	bl PlaySFX
 	ldr r0, _08053C80 @ =0x80100000
-	bl sub_080A3268
+	bl PlaySFX
 	movs r0, #3
 	bl sub_08056010
 	pop {pc}
@@ -2860,7 +2833,7 @@ sub_08053CC8: @ 0x08053CC8
 	strb r5, [r0]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	ldrb r0, [r4, #5]
 	cmp r0, #0x1d
 	bne _08053D1E
@@ -3060,7 +3033,7 @@ sub_08053E74: @ 0x08053E74
 	bl sub_0805E450
 	movs r0, #4
 	movs r1, #8
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08053EB0: .4byte gUnk_080FCFB8
@@ -3295,7 +3268,7 @@ _08054098:
 	ldrb r0, [r4, #2]
 	bl ModHealth
 	movs r0, #0x71
-	bl sub_080A3268
+	bl PlaySFX
 	b _0805427C
 _080540A6:
 	ldr r0, _080540BC @ =gUnk_080FD5A8
@@ -3303,9 +3276,9 @@ _080540A6:
 	lsls r1, r1, #1
 	adds r1, r1, r0
 	ldrh r0, [r1]
-	bl sub_080526CC
+	bl ModRupees
 	movs r0, #0x6f
-	bl sub_080A3268
+	bl PlaySFX
 	b _0805427C
 	.align 2, 0
 _080540BC: .4byte gUnk_080FD5A8
@@ -3377,7 +3350,7 @@ _0805412C:
 	movs r1, #1
 	bl sub_0807CAA0
 	ldr r0, _08054148 @ =0x00000109
-	bl sub_080A3268
+	bl PlaySFX
 	b _0805427C
 	.align 2, 0
 _08054144: .4byte gUnk_02002A40
@@ -3509,7 +3482,7 @@ _08054240:
 	bl sub_080542C0
 _0805424E:
 	ldr r0, _08054258 @ =0x00000103
-	bl sub_080A3268
+	bl PlaySFX
 	b _0805427C
 	.align 2, 0
 _08054258: .4byte 0x00000103
@@ -4350,7 +4323,7 @@ _08054842:
 	adds r0, #0x38
 	strb r1, [r0]
 	adds r0, r2, #0
-	bl sub_08016A04
+	bl UpdateSpriteOrderAndFlip
 _0805486A:
 	adds r0, r4, #0
 _0805486C:
@@ -4463,7 +4436,7 @@ _08054954:
 	strb r0, [r1]
 	movs r0, #7
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 _08054962:
 	pop {pc}
 	.align 2, 0
@@ -4835,7 +4808,7 @@ sub_08054C20: @ 0x08054C20
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08054C50: .4byte gUnk_02000080
@@ -4854,7 +4827,7 @@ sub_08054C58: @ 0x08054C58
 	beq _08054C7C
 	movs r0, #7
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	ldr r1, _08054C84 @ =gUnk_02000080
 	ldrb r0, [r1, #6]
 	adds r0, #1
@@ -4878,9 +4851,9 @@ sub_08054C88: @ 0x08054C88
 	bl sub_08054974
 	movs r0, #6
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	movs r0, #0x73
-	bl sub_080A3268
+	bl PlaySFX
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
@@ -4951,7 +4924,7 @@ sub_08054D04: @ 0x08054D04
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08054D34: .4byte gUnk_02000080
@@ -5045,7 +5018,7 @@ sub_08054DAC: @ 0x08054DAC
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08054DF0: .4byte gUnk_02000080
@@ -5096,7 +5069,7 @@ sub_08054E1C: @ 0x08054E1C
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, r5, pc}
 	.align 2, 0
 _08054E54: .4byte gUnk_02000080
@@ -5121,7 +5094,7 @@ sub_08054E5C: @ 0x08054E5C
 	strh r0, [r4, #8]
 	movs r0, #6
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	ldrb r0, [r4, #4]
 	bl sub_080553E0
 	ldrb r0, [r4, #4]
@@ -5216,7 +5189,7 @@ sub_08054EFC: @ 0x08054EFC
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl sub_08016A04
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0x35
 	movs r2, #0
@@ -5231,7 +5204,7 @@ sub_08054EFC: @ 0x08054EFC
 	bl sub_0806FAD8
 _08054F54:
 	movs r0, #0xfd
-	bl sub_080A3268
+	bl PlaySFX
 	pop {r4, r5, pc}
 	.align 2, 0
 _08054F5C: .4byte gRoomControls
@@ -5308,7 +5281,7 @@ _08054FCA:
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	strh r4, [r6, #0xa]
 	movs r0, #0x80
 	lsls r0, r0, #3
@@ -5381,7 +5354,7 @@ sub_08055054: @ 0x08055054
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08055080: .4byte gUnk_080FF128
@@ -5436,7 +5409,7 @@ sub_080550B0: @ 0x080550B0
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _080550E8: .4byte gUnk_02000080
@@ -5489,7 +5462,7 @@ _0805512A:
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08055150: .4byte gUnk_080FF17C
@@ -5580,7 +5553,7 @@ sub_08055184: @ 0x08055184
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r3}
 	mov r8, r3
 	pop {r4, r5, r6, pc}
@@ -5630,7 +5603,7 @@ sub_0805524C: @ 0x0805524C
 	adds r0, #1
 	strb r0, [r3, #7]
 	movs r0, #0xf6
-	bl sub_080A3268
+	bl PlaySFX
 	b _080552D6
 	.align 2, 0
 _08055270: .4byte gUnk_02000080
@@ -5679,7 +5652,7 @@ _080552B4:
 	adds r0, #1
 	strb r0, [r3, #6]
 	movs r0, #0x73
-	bl sub_080A3268
+	bl PlaySFX
 _080552D6:
 	pop {r4, pc}
 	.align 2, 0
@@ -5739,7 +5712,7 @@ sub_08055318: @ 0x08055318
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08055348: .4byte gUnk_02000080
@@ -5758,7 +5731,7 @@ sub_08055350: @ 0x08055350
 	beq _08055374
 	movs r0, #7
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	ldr r1, _0805537C @ =gUnk_02000080
 	ldrb r0, [r1, #6]
 	adds r0, #1
@@ -5782,9 +5755,9 @@ sub_08055380: @ 0x08055380
 	bl sub_08054974
 	movs r0, #6
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	movs r0, #0x73
-	bl sub_080A3268
+	bl PlaySFX
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
@@ -5882,7 +5855,7 @@ sub_08055430: @ 0x08055430
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08055460: .4byte gUnk_02000080
@@ -5901,7 +5874,7 @@ sub_08055468: @ 0x08055468
 	beq _0805548C
 	movs r0, #7
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	ldr r1, _08055494 @ =gUnk_02000080
 	ldrb r0, [r1, #6]
 	adds r0, #1
@@ -5927,9 +5900,9 @@ sub_08055498: @ 0x08055498
 	bl sub_080553E0
 	movs r0, #6
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	movs r0, #0x73
-	bl sub_080A3268
+	bl PlaySFX
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
@@ -5996,7 +5969,7 @@ sub_08055518: @ 0x08055518
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08055540: .4byte gUnk_02000080
@@ -6093,7 +6066,7 @@ sub_080555B8: @ 0x080555B8
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, r5, pc}
 	.align 2, 0
 _08055600: .4byte gUnk_02000080
@@ -6210,7 +6183,7 @@ sub_080556AC: @ 0x080556AC
 	bl sub_08055B70
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _080556E4: .4byte gUnk_02000080
@@ -6271,7 +6244,7 @@ _08055734:
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _0805575C: .4byte gUnk_02000080
@@ -6358,7 +6331,7 @@ sub_080557D0: @ 0x080557D0
 	bl sub_08055B70
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08055808: .4byte gUnk_02000080
@@ -6411,7 +6384,7 @@ _0805584A:
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08055870: .4byte gUnk_080FF2C0
@@ -6463,7 +6436,7 @@ sub_080558A4: @ 0x080558A4
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _080558DC: .4byte gUnk_02000080
@@ -6514,7 +6487,7 @@ sub_08055908: @ 0x08055908
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, r5, pc}
 	.align 2, 0
 _08055940: .4byte gUnk_02000080
@@ -6594,7 +6567,7 @@ _080559AE:
 	ldrb r0, [r4, #4]
 	bl sub_080553E0
 	movs r0, #0x73
-	bl sub_080A3268
+	bl PlaySFX
 	pop {r4, pc}
 	.align 2, 0
 _080559D8: .4byte gUnk_02000080
@@ -6639,7 +6612,7 @@ _08055A0E:
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08055A30: .4byte gUnk_02000080
@@ -6659,7 +6632,7 @@ sub_08055A3C: @ 0x08055A3C
 	beq _08055A60
 	movs r0, #7
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	ldr r1, _08055A68 @ =gUnk_02000080
 	ldrb r0, [r1, #6]
 	adds r0, #1
@@ -6685,9 +6658,9 @@ sub_08055A6C: @ 0x08055A6C
 	bl sub_080553E0
 	movs r0, #6
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	movs r0, #0x73
-	bl sub_080A3268
+	bl PlaySFX
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
@@ -6766,7 +6739,7 @@ _08055B14:
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08055B2C: .4byte gUnk_02000080
@@ -6875,7 +6848,7 @@ sub_08055BCC: @ 0x08055BCC
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08055BFC: .4byte gUnk_02000080
@@ -6894,7 +6867,7 @@ sub_08055C04: @ 0x08055C04
 	beq _08055C28
 	movs r0, #7
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	ldr r1, _08055C30 @ =gUnk_02000080
 	ldrb r0, [r1, #6]
 	adds r0, #1
@@ -6948,9 +6921,9 @@ _08055C6C:
 _08055C8C:
 	movs r0, #6
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	movs r0, #0x73
-	bl sub_080A3268
+	bl PlaySFX
 	ldr r0, _08055CAC @ =gUnk_02000080
 	ldrb r1, [r0, #6]
 	adds r1, #1
@@ -7022,7 +6995,7 @@ sub_08055CF4: @ 0x08055CF4
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
 _08055D24: .4byte gUnk_02000080
@@ -7101,7 +7074,7 @@ sub_08055D9C: @ 0x08055D9C
 	strb r0, [r1]
 	movs r0, #4
 	movs r1, #0x10
-	bl sub_08050054
+	bl DoFade
 	pop {pc}
 	.align 2, 0
 _08055DB8: .4byte gUnk_02000080

@@ -1013,7 +1013,7 @@ _0806F444:
 	str r0, [r5, #0x50]
 _0806F4B4:
 	movs r0, #0xed
-	bl sub_080A3268
+	bl PlaySFX
 	b _0806F4D8
 	.align 2, 0
 _0806F4BC: .4byte gLinkEntity
@@ -1026,7 +1026,7 @@ _0806F4C8:
 	ldr r0, [r0, #0x2c]
 	strb r1, [r0, #0xa]
 	movs r0, #0xef
-	bl sub_080A3268
+	bl PlaySFX
 _0806F4D8:
 	movs r0, #1
 	b _0806F4E2
