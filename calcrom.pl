@@ -75,7 +75,7 @@ my @sorted = sort { $a->[1] <=> $b->[1] } @pairs;
 #
 # You'd expect this to take a while, because of uniq. It runs in under a second,
 # though. Uniq is pretty fast!
-my $base_cmd = "nm zeldatmc.elf | awk '{print \$3}' | grep '^[^_].\\{4\\}' | uniq";
+my $base_cmd = "nm tmc.elf | awk '{print \$3}' | grep '^[^_].\\{4\\}' | uniq";
 
 # This looks for Unknown_, Unknown_, or sub_, followed by just numbers. Note that
 # it matches even if stuff precedes the unknown, like sUnknown/gUnknown.
