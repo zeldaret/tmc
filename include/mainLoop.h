@@ -38,7 +38,7 @@ extern s32 sub_08050154(s32);
 extern s32 sub_080A3480(s32);
 
 extern s32 gUnk_02000010;
-extern s32 gUnk_03001150;
+extern s32 gRand;
 extern MainStruct gUnk_03001000;
 extern s32 gUnk_08100CBC;
 #endif

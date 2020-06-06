@@ -31,7 +31,7 @@ MainLoop: @ 0x08055E6C
 	bl sub_0804FF84
 	bl sub_08056418
 	bl sub_080ADD30
-	ldr r1, _08055EFC @ =gUnk_03001150
+	ldr r1, _08055EFC @ =gRand
 	ldr r0, _08055F00 @ =0x01234567
 	str r0, [r1]
 	ldr r4, _08055F04 @ =gUnk_03001000
@@ -61,7 +61,7 @@ _08055EEC: .4byte gUnk_02000010
 _08055EF0: .4byte 0x040000D4
 _08055EF4: .4byte gUnk_020176A0
 _08055EF8: .4byte 0x84000080
-_08055EFC: .4byte gUnk_03001150
+_08055EFC: .4byte gRand
 _08055F00: .4byte 0x01234567
 _08055F04: .4byte gUnk_03001000
 _08055F08:

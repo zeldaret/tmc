@@ -1082,7 +1082,7 @@ sub_0804B7A8: @ 0x0804B7A8
 	bl sub_0807CBD0
 	cmp r0, #0
 	beq _0804B7C8
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	bl __modsi3
 	adds r4, r0, #0
@@ -1145,7 +1145,7 @@ sub_0804B82C: @ 0x0804B82C
 	bl sub_0807CBD0
 	cmp r0, #0
 	beq _0804B84A
-	bl sub_08000E50
+	bl Random
 	adds r4, r0, #0
 	movs r0, #1
 	ands r4, r0
@@ -1208,7 +1208,7 @@ sub_0804B8B0: @ 0x0804B8B0
 	bl sub_0807CBD0
 	cmp r0, #0
 	beq _0804B8D0
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	bl __modsi3
 	adds r4, r0, #0

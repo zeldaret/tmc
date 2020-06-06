@@ -15,7 +15,7 @@ sub_08065AA4: @ 0x08065AA4
 	ldrsb r2, [r0, r2]
 	cmp r2, #0
 	beq _08065B18
-	ldr r0, _08065AD0 @ =gUnk_03003F80
+	ldr r0, _08065AD0 @ =gLinkState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -29,7 +29,7 @@ sub_08065AA4: @ 0x08065AA4
 	bl sub_0806F118
 	b _08065AE6
 	.align 2, 0
-_08065AD0: .4byte gUnk_03003F80
+_08065AD0: .4byte gLinkState
 _08065AD4:
 	movs r0, #3
 	strb r0, [r4, #0xc]

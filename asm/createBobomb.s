@@ -23,7 +23,7 @@ sub_0802B204: @ 0x0802B204
 	beq _0802B22E
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldr r0, [r5, #0x50]
 	str r0, [r4, #0x50]
 _0802B22E:

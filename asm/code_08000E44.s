@@ -15,9 +15,9 @@ sub_08000E44: @ 0x08000E44
 _08000E4E:
 	bx lr
 
-	thumb_func_start sub_08000E50
-sub_08000E50: @ 0x08000E50
-	ldr r2, _08000EBC @ =gUnk_03001150
+	thumb_func_start Random
+Random: @ 0x08000E50
+	ldr r2, _08000EBC @ =gRand
 	ldr r0, [r2]
 	lsls r1, r0, #1
 	adds r0, r0, r1
@@ -82,7 +82,7 @@ _08000EB6:
 	pop {r4, r5}
 	bx lr
 	.align 2, 0
-_08000EBC: .4byte gUnk_03001150
+_08000EBC: .4byte gRand
 _08000EC0: .4byte 0x55555555
 _08000EC4: .4byte 0x33333333
 _08000EC8: .4byte 0x0F0F0F0F

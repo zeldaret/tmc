@@ -9,5 +9,5 @@ CreateFX: @ 0x080A29AC
 	adds r3, r2, #0
 	movs r1, #0xf
 	adds r2, r4, #0
-	bl sub_080A2988
+	bl CreateObjectWithParent
 	pop {r4, pc}

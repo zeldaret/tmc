@@ -7226,7 +7226,7 @@ _0804E3DE:
 	beq _0804E3EA
 	movs r6, #3
 _0804E3EA:
-	bl sub_08000E50
+	bl Random
 	adds r4, r0, #0
 	ldr r1, _0804E448 @ =gUnk_080F0D58
 	lsls r0, r6, #2
@@ -7745,7 +7745,7 @@ sub_0804E7A4: @ 0x0804E7A4
 	bl GetProgressFlag
 	cmp r0, #0
 	bne _0804E7CC
-	ldr r0, _0804E7D0 @ =gUnk_03003F80
+	ldr r0, _0804E7D0 @ =gLinkState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -7756,7 +7756,7 @@ sub_0804E7A4: @ 0x0804E7A4
 _0804E7CC:
 	pop {pc}
 	.align 2, 0
-_0804E7D0: .4byte gUnk_03003F80
+_0804E7D0: .4byte gLinkState
 _0804E7D4: .4byte gUnk_080F30CC
 
 	thumb_func_start sub_0804E7D8
@@ -7807,7 +7807,7 @@ _0804E818:
 	ldr r0, _0804E858 @ =0x800B0036
 	bl PlaySFX
 _0804E838:
-	ldr r0, _0804E85C @ =gUnk_03003F80
+	ldr r0, _0804E85C @ =gLinkState
 	ldr r0, [r0, #0x30]
 	movs r1, #8
 	ands r0, r1
@@ -7822,7 +7822,7 @@ _0804E84C: .4byte gUnk_02000070
 _0804E850: .4byte gUnk_08009B30
 _0804E854: .4byte gUnk_02033A90
 _0804E858: .4byte 0x800B0036
-_0804E85C: .4byte gUnk_03003F80
+_0804E85C: .4byte gLinkState
 _0804E860: .4byte gUnk_080F31D8
 
 	thumb_func_start sub_0804E864
@@ -8725,7 +8725,7 @@ _0804EEF4: .4byte gUnk_080F5758
 _0804EEF8: .4byte gUnk_080F57E8
 _0804EEFC: .4byte gUnk_080F57A8
 _0804EF00:
-	ldr r1, _0804EF34 @ =gUnk_080FD5A0
+	ldr r1, _0804EF34 @ =gBombBagSizes
 	ldr r0, _0804EF38 @ =gUnk_02002A40
 	adds r0, #0xae
 	ldrb r0, [r0]
@@ -8748,7 +8748,7 @@ _0804EF16:
 	bl LoadRoomEntityList
 	b _0804EF54
 	.align 2, 0
-_0804EF34: .4byte gUnk_080FD5A0
+_0804EF34: .4byte gBombBagSizes
 _0804EF38: .4byte gUnk_02002A40
 _0804EF3C: .4byte gUnk_080F57C8
 _0804EF40: .4byte gUnk_080F5888

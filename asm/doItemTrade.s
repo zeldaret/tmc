@@ -65,7 +65,7 @@ _08028D5C:
 	cmp r1, #0xff
 	bne _08028D70
 	ldr r4, _08028D98 @ =gUnk_080CC9C0
-	bl sub_08000E50
+	bl Random
 	movs r1, #7
 	ands r1, r0
 	adds r1, r1, r4

@@ -87,7 +87,7 @@ sub_0802999C: @ 0x0802999C
 	movs r0, #0x80
 	orrs r0, r1
 	strb r0, [r7, #0x10]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x18
 	ands r0, r1
 	strb r0, [r7, #0x15]

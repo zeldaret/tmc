@@ -10,7 +10,7 @@
 sub_08067C44: @ 0x08067C44
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r0, _08067C6C @ =gUnk_03003F80
+	ldr r0, _08067C6C @ =gLinkState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -27,7 +27,7 @@ sub_08067C44: @ 0x08067C44
 	bl sub_08078778
 	b _08067C7C
 	.align 2, 0
-_08067C6C: .4byte gUnk_03003F80
+_08067C6C: .4byte gLinkState
 _08067C70:
 	adds r0, r4, #0
 	adds r0, #0x68

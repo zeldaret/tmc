@@ -160,7 +160,7 @@ _080ADA2C: .4byte gUnk_03001010
 sub_080ADA30: @ 0x080ADA30
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r1, _080ADA60 @ =gUnk_03003F80
+	ldr r1, _080ADA60 @ =gLinkState
 	ldr r0, [r1, #0x2c]
 	cmp r0, r4
 	bne _080ADA42
@@ -182,7 +182,7 @@ _080ADA46:
 	bl sub_08078E84
 	pop {r4, pc}
 	.align 2, 0
-_080ADA60: .4byte gUnk_03003F80
+_080ADA60: .4byte gLinkState
 _080ADA64: .4byte gUnk_08132700
 _080ADA68: .4byte gLinkEntity
 
@@ -244,7 +244,7 @@ _080ADAD2:
 sub_080ADAD4: @ 0x080ADAD4
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r3, _080ADAF4 @ =gUnk_03003F80
+	ldr r3, _080ADAF4 @ =gLinkState
 	ldrb r1, [r3, #0x1c]
 	adds r0, r1, #0
 	cmp r0, #3
@@ -258,7 +258,7 @@ sub_080ADAD4: @ 0x080ADAD4
 	adds r1, #8
 	b _080ADB0C
 	.align 2, 0
-_080ADAF4: .4byte gUnk_03003F80
+_080ADAF4: .4byte gLinkState
 _080ADAF8: .4byte gLinkEntity
 _080ADAFC:
 	cmp r0, #6
@@ -366,7 +366,7 @@ _080ADBB0:
 	movs r2, #1
 	movs r5, #0xe7
 _080ADBCA:
-	ldr r0, _080ADC0C @ =gUnk_03003F80
+	ldr r0, _080ADC0C @ =gLinkState
 	ldrb r1, [r0, #0x1c]
 	movs r0, #0xf
 	ands r0, r1
@@ -403,14 +403,14 @@ _080ADBF6:
 _080ADC08:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080ADC0C: .4byte gUnk_03003F80
+_080ADC0C: .4byte gLinkState
 _080ADC10: .4byte gLinkEntity
 
 	thumb_func_start sub_080ADC14
 sub_080ADC14: @ 0x080ADC14
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _080ADC40 @ =gUnk_03003F80
+	ldr r0, _080ADC40 @ =gLinkState
 	ldrb r0, [r0, #0x1c]
 	movs r1, #0xf
 	ands r1, r0
@@ -429,7 +429,7 @@ sub_080ADC14: @ 0x080ADC14
 	bl sub_080042AC
 	b _080ADC5C
 	.align 2, 0
-_080ADC40: .4byte gUnk_03003F80
+_080ADC40: .4byte gLinkState
 _080ADC44: .4byte gLinkEntity
 _080ADC48:
 	adds r0, r4, #0

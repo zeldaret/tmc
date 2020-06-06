@@ -177,7 +177,7 @@ _080190FC:
 	ands r0, r2
 	orrs r0, r1
 	strb r0, [r4, #0x18]
-	ldr r0, _0801916C @ =gUnk_03003F80
+	ldr r0, _0801916C @ =gLinkState
 	str r4, [r0, #0x2c]
 	adds r0, r4, #0
 	movs r1, #1
@@ -200,11 +200,11 @@ _080190FC:
 	cmp r1, #0
 	beq _08019172
 	adds r0, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	b _08019172
 	.align 2, 0
 _08019168: .4byte gUnk_080B3E40
-_0801916C: .4byte gUnk_03003F80
+_0801916C: .4byte gLinkState
 _08019170:
 	str r5, [r4, #0x78]
 _08019172:

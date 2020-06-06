@@ -112,7 +112,7 @@ sub_0806E764: @ 0x0806E764
 	bne _0806E782
 	adds r0, #1
 	strb r0, [r4, #0xd]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r0, r1
 	adds r0, #0x1e
@@ -129,7 +129,7 @@ _0806E782:
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	strb r1, [r4, #0xd]
-	bl sub_08000E50
+	bl Random
 	movs r1, #1
 	ands r1, r0
 	cmp r1, #0
@@ -150,7 +150,7 @@ sub_0806E7B0: @ 0x0806E7B0
 	bne _0806E7F2
 	adds r0, #1
 	strb r0, [r4, #0xd]
-	bl sub_08000E50
+	bl Random
 	movs r5, #1
 	ands r0, r5
 	cmp r0, #0
@@ -166,7 +166,7 @@ sub_0806E7B0: @ 0x0806E7B0
 	orrs r2, r1
 	strb r2, [r4, #0x18]
 _0806E7DE:
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	ands r0, r1
 	adds r0, #1

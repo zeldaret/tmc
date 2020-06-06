@@ -812,7 +812,7 @@ _08050690:
 	bne _080506AA
 	movs r0, #1
 	strb r0, [r4, #2]
-	bl sub_08000E50
+	bl Random
 	movs r1, #7
 	ands r1, r0
 	lsls r1, r1, #4
@@ -3550,7 +3550,7 @@ _08051C60: .4byte gTextBox
 _08051C64: .4byte gUnk_03003DC0
 _08051C68: .4byte gRoomControls
 _08051C6C:
-	ldr r0, _08051C80 @ =gUnk_03003F80
+	ldr r0, _08051C80 @ =gLinkState
 	movs r1, #0x17
 	strb r1, [r0, #0xc]
 	ldr r0, _08051C84 @ =gUnk_03001000
@@ -3559,10 +3559,10 @@ _08051C6C:
 	bl sub_08051D98
 	b _08051C9C
 	.align 2, 0
-_08051C80: .4byte gUnk_03003F80
+_08051C80: .4byte gLinkState
 _08051C84: .4byte gUnk_03001000
 _08051C88:
-	ldr r1, _08051CA0 @ =gUnk_03003F80
+	ldr r1, _08051CA0 @ =gLinkState
 	movs r0, #0x17
 	strb r0, [r1, #0xc]
 	ldr r1, _08051CA4 @ =gUnk_03001000
@@ -3573,7 +3573,7 @@ _08051C88:
 _08051C9C:
 	pop {pc}
 	.align 2, 0
-_08051CA0: .4byte gUnk_03003F80
+_08051CA0: .4byte gLinkState
 _08051CA4: .4byte gUnk_03001000
 
 	thumb_func_start sub_08051CA8

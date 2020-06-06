@@ -9,7 +9,11 @@ typedef struct {
 	u8 heartPieces;
 	u8 health;
 	u8 maxHealth;
-	u8 filler[8];
+	u8 bombCount;
+	u8 arrowCount;
+	u8 bombBagType;
+	u8 quiverType;
+	u8 filler[4];
 	u8 itemOnA;
 	u8 itemonB;
 	u8 filler2[10];

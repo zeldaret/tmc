@@ -66,7 +66,7 @@ _0802AE8A:
 	beq _0802AEA8
 	adds r0, r1, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldrb r1, [r4, #0x18]
 	movs r0, #4
 	rsbs r0, r0, #0
@@ -426,7 +426,7 @@ _0802B10E:
 	ldrb r0, [r4, #0xd]
 	cmp r0, #1
 	bne _0802B12E
-	ldr r0, _0802B188 @ =gUnk_03003F80
+	ldr r0, _0802B188 @ =gLinkState
 	strb r1, [r0, #5]
 _0802B12E:
 	adds r0, r4, #0
@@ -463,7 +463,7 @@ _0802B16C:
 	movs r1, #0x20
 	movs r2, #0
 	movs r3, #0
-	bl sub_080A2988
+	bl CreateObjectWithParent
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0802B190
@@ -473,7 +473,7 @@ _0802B16C:
 	strb r0, [r1]
 	b _0802B19E
 	.align 2, 0
-_0802B188: .4byte gUnk_03003F80
+_0802B188: .4byte gLinkState
 _0802B18C: .4byte gUnk_080CD17C
 _0802B190:
 	adds r0, r4, #0
@@ -529,7 +529,7 @@ _0802B1E2:
 	beq _0802B1F6
 	adds r0, r1, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	b _0802B200
 _0802B1F6:
 	movs r0, #2

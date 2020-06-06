@@ -4,7 +4,11 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-
+typedef struct {
+	void *entity1;
+	void *entity2;
+	u8 filler[14];
+} UnkStruct;
 
 typedef struct {
 	u8 type;
@@ -17,11 +21,6 @@ union SplitWord {
     s32 WORD;
     s16 LO, HI;
 };
-
-typedef struct {
-	u16 LO;
-	u16 HI;
-} Pos;
 
 typedef struct
 {
@@ -73,7 +72,7 @@ typedef struct
     u8 field_0x4d;
     u8 field_0x4e;
     u8 field_0x4f;
-    u32 * spritePtr;
+    void * parent;
     u32 * attachedEntity;
     u8 field_0x58;
     u8 field_0x59;
@@ -90,8 +89,11 @@ typedef struct
     u32 * otherEntity;
 	u8 filler2[8];
     u32 * heldObjectPtr;
-	u8 filler[12];
-    u32 * field_0x84;
+	u8 filler3[2];
+	u16 itemCooldown;
+	u32 field_0x7c;
+	UnkStruct *unkStruct;
+	u32 *field_0x84;
 	
 } Entity;
 

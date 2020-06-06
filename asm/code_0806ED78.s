@@ -13,7 +13,7 @@ sub_0806ED78: @ 0x0806ED78
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0806ED94
-	ldr r0, _0806ED98 @ =gUnk_03003F80
+	ldr r0, _0806ED98 @ =gLinkState
 	ldrb r1, [r0, #0x1e]
 	movs r0, #0x40
 	ands r0, r1
@@ -24,7 +24,7 @@ _0806ED94:
 	adds r0, r4, #0
 	pop {r4, pc}
 	.align 2, 0
-_0806ED98: .4byte gUnk_03003F80
+_0806ED98: .4byte gLinkState
 
 	thumb_func_start sub_0806ED9C
 sub_0806ED9C: @ 0x0806ED9C
@@ -548,14 +548,14 @@ sub_0806F118: @ 0x0806F118
 	ldrh r3, [r0, #4]
 	adds r0, r4, #0
 	bl sub_0801DFB4
-	ldr r0, _0806F144 @ =gUnk_03003F80
+	ldr r0, _0806F144 @ =gLinkState
 	adds r0, #0x8b
 	movs r1, #3
 	strb r1, [r0]
 	pop {r4, pc}
 	.align 2, 0
 _0806F140: .4byte gUnk_08001A7C
-_0806F144: .4byte gUnk_03003F80
+_0806F144: .4byte gLinkState
 
 	thumb_func_start sub_0806F148
 sub_0806F148: @ 0x0806F148
@@ -574,14 +574,14 @@ sub_0806F148: @ 0x0806F148
 	.align 2, 0
 _0806F164: .4byte gUnk_02022740
 _0806F168:
-	ldr r0, _0806F184 @ =gUnk_03003F80
+	ldr r0, _0806F184 @ =gLinkState
 	adds r0, #0x8b
 	movs r1, #3
 	strb r1, [r0]
 	movs r4, #1
 _0806F172:
 	bl sub_0807919C
-	ldr r0, _0806F184 @ =gUnk_03003F80
+	ldr r0, _0806F184 @ =gLinkState
 	adds r0, #0x8b
 	movs r1, #1
 	strb r1, [r0]
@@ -589,7 +589,7 @@ _0806F17E:
 	adds r0, r4, #0
 	pop {r4, pc}
 	.align 2, 0
-_0806F184: .4byte gUnk_03003F80
+_0806F184: .4byte gLinkState
 
 	thumb_func_start sub_0806F188
 sub_0806F188: @ 0x0806F188
@@ -801,7 +801,7 @@ _0806F332:
 	movs r0, #0
 	b _0806F34E
 _0806F336:
-	ldr r0, _0806F348 @ =gUnk_03003F80
+	ldr r0, _0806F348 @ =gLinkState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -811,7 +811,7 @@ _0806F342:
 	ldrh r0, [r6, #6]
 	b _0806F34E
 	.align 2, 0
-_0806F348: .4byte gUnk_03003F80
+_0806F348: .4byte gLinkState
 _0806F34C:
 	ldrh r0, [r6, #4]
 _0806F34E:
@@ -907,7 +907,7 @@ sub_0806F3E4: @ 0x0806F3E4
 	push {r4, r5, r6, lr}
 	sub sp, #0x88
 	adds r5, r0, #0
-	ldr r2, _0806F408 @ =gUnk_03003F80
+	ldr r2, _0806F408 @ =gLinkState
 	ldrb r1, [r2, #0x1c]
 	movs r0, #0x7f
 	ands r0, r1
@@ -922,7 +922,7 @@ sub_0806F3E4: @ 0x0806F3E4
 	beq _0806F416
 	b _0806F410
 	.align 2, 0
-_0806F408: .4byte gUnk_03003F80
+_0806F408: .4byte gLinkState
 _0806F40C:
 	cmp r0, #3
 	beq _0806F42A
@@ -999,7 +999,7 @@ _0806F444:
 	movs r0, #3
 	strb r0, [r5, #0xd]
 	str r5, [r6, #0x70]
-	ldr r1, _0806F4C4 @ =gUnk_03003F80
+	ldr r1, _0806F4C4 @ =gLinkState
 	movs r0, #7
 	strb r0, [r1, #0x1c]
 	movs r0, #0x11
@@ -1018,11 +1018,11 @@ _0806F4B4:
 	.align 2, 0
 _0806F4BC: .4byte gLinkEntity
 _0806F4C0: .4byte gUnk_08126EE4
-_0806F4C4: .4byte gUnk_03003F80
+_0806F4C4: .4byte gLinkState
 _0806F4C8:
 	cmp r1, #1
 	bne _0806F4D8
-	ldr r0, _0806F4DC @ =gUnk_03003F80
+	ldr r0, _0806F4DC @ =gLinkState
 	ldr r0, [r0, #0x2c]
 	strb r1, [r0, #0xa]
 	movs r0, #0xef
@@ -1031,7 +1031,7 @@ _0806F4D8:
 	movs r0, #1
 	b _0806F4E2
 	.align 2, 0
-_0806F4DC: .4byte gUnk_03003F80
+_0806F4DC: .4byte gLinkState
 _0806F4E0:
 	movs r0, #0
 _0806F4E2:
@@ -1657,7 +1657,7 @@ _0806F944:
 sub_0806F948: @ 0x0806F948
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r1, _0806F974 @ =gUnk_03003F80
+	ldr r1, _0806F974 @ =gLinkState
 	ldrb r0, [r1, #0xd]
 	cmp r0, #0xff
 	beq _0806F994
@@ -1677,7 +1677,7 @@ sub_0806F948: @ 0x0806F948
 	adds r0, r2, #0
 	b _0806F996
 	.align 2, 0
-_0806F974: .4byte gUnk_03003F80
+_0806F974: .4byte gLinkState
 _0806F978:
 	movs r2, #0
 	cmp r3, #4

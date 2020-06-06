@@ -434,7 +434,7 @@ _0806802C:
 	cmp r0, #0
 	bne _08068068
 	ldr r4, _08068064 @ =gUnk_0811137A
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	bl __modsi3
 	lsls r0, r0, #1
@@ -446,7 +446,7 @@ _0806802C:
 _08068064: .4byte gUnk_0811137A
 _08068068:
 	ldr r4, _080680F4 @ =gUnk_08111374
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	bl __modsi3
 	lsls r0, r0, #1
@@ -502,7 +502,7 @@ _080680D2:
 	movs r0, #0xf7
 	ands r0, r1
 	strb r0, [r6]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r0, r1
 	ldrb r1, [r7]
@@ -816,7 +816,7 @@ sub_08068318: @ 0x08068318
 	ands r3, r7
 	orrs r3, r0
 	adds r7, r3, #0
-	ldr r0, _08068420 @ =gUnk_03003F80
+	ldr r0, _08068420 @ =gLinkState
 	adds r0, #0xa8
 	ldrb r0, [r0]
 	lsls r0, r0, #0x10
@@ -928,7 +928,7 @@ _080683E6:
 _08068414: .4byte gLinkEntity
 _08068418: .4byte 0xFFFF0000
 _0806841C: .4byte 0x0000FFFF
-_08068420: .4byte gUnk_03003F80
+_08068420: .4byte gLinkState
 _08068424: .4byte 0xFF00FFFF
 _08068428: .4byte 0xC0FFFFFF
 _0806842C: .4byte 0x3FFFFFFF
@@ -1127,7 +1127,7 @@ sub_08068578: @ 0x08068578
 	ldrh r0, [r4, #0x36]
 	ands r3, r6
 	orrs r3, r0
-	ldr r0, _08068670 @ =gUnk_03003F80
+	ldr r0, _08068670 @ =gLinkState
 	adds r0, #0xa8
 	ldrb r0, [r0]
 	lsls r0, r0, #0x10
@@ -1227,7 +1227,7 @@ _08068614:
 _08068664: .4byte gLinkEntity
 _08068668: .4byte 0xFFFF0000
 _0806866C: .4byte 0x0000FFFF
-_08068670: .4byte gUnk_03003F80
+_08068670: .4byte gLinkState
 _08068674: .4byte 0xFF00FFFF
 _08068678: .4byte 0xC0FFFFFF
 _0806867C: .4byte 0x3FFFFFFF
@@ -1455,7 +1455,7 @@ _0806880E:
 	cmp r0, #0
 	bne _08068848
 	ldr r4, _08068844 @ =gUnk_0811153E
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	bl __modsi3
 	lsls r0, r0, #1
@@ -1467,7 +1467,7 @@ _0806880E:
 _08068844: .4byte gUnk_0811153E
 _08068848:
 	ldr r4, _0806887C @ =gUnk_08111538
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	bl __modsi3
 	lsls r0, r0, #1
@@ -2322,7 +2322,7 @@ _08068E8C: .4byte gUnk_08111714
 
 	thumb_func_start sub_08068E90
 sub_08068E90: @ 0x08068E90
-	ldr r2, _08068EAC @ =gUnk_03003F80
+	ldr r2, _08068EAC @ =gLinkState
 	adds r2, #0xac
 	ldr r1, _08068EB0 @ =gUnk_08111740
 	ldrb r0, [r0, #0xe]
@@ -2337,18 +2337,18 @@ sub_08068E90: @ 0x08068E90
 	strh r0, [r2]
 	bx lr
 	.align 2, 0
-_08068EAC: .4byte gUnk_03003F80
+_08068EAC: .4byte gLinkState
 _08068EB0: .4byte gUnk_08111740
 
 	thumb_func_start sub_08068EB4
 sub_08068EB4: @ 0x08068EB4
-	ldr r0, _08068EC0 @ =gUnk_03003F80
+	ldr r0, _08068EC0 @ =gLinkState
 	adds r0, #0xab
 	movs r1, #0
 	strb r1, [r0]
 	bx lr
 	.align 2, 0
-_08068EC0: .4byte gUnk_03003F80
+_08068EC0: .4byte gLinkState
 
 	thumb_func_start sub_08068EC4
 sub_08068EC4: @ 0x08068EC4
@@ -2358,7 +2358,7 @@ sub_08068EC4: @ 0x08068EC4
 	ldrb r4, [r0, #0xe]
 	lsls r1, r4, #2
 	adds r1, r1, r2
-	ldr r0, _08068EF0 @ =gUnk_03003F80
+	ldr r0, _08068EF0 @ =gLinkState
 	adds r0, #0xab
 	ldr r1, [r1]
 	ldrb r0, [r0]
@@ -2373,7 +2373,7 @@ sub_08068EC4: @ 0x08068EC4
 	b _08068EFA
 	.align 2, 0
 _08068EEC: .4byte gUnk_08111740
-_08068EF0: .4byte gUnk_03003F80
+_08068EF0: .4byte gLinkState
 _08068EF4: .4byte gUnk_0811172A
 _08068EF8:
 	movs r0, #0
@@ -2543,7 +2543,7 @@ sub_08069018: @ 0x08069018
 	bne _0806903A
 	adds r0, #1
 	strb r0, [r4, #0xd]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x3f
 	ands r0, r1
 	adds r0, #0x3c
@@ -2586,7 +2586,7 @@ sub_08069068: @ 0x08069068
 	bne _080690A4
 	adds r0, #1
 	strb r0, [r4, #0xd]
-	bl sub_08000E50
+	bl Random
 	movs r1, #2
 	ands r1, r0
 	subs r1, #1
@@ -2597,7 +2597,7 @@ sub_08069068: @ 0x08069068
 	strb r1, [r4, #0x14]
 	lsls r1, r1, #3
 	strb r1, [r4, #0x15]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x3f
 	ands r0, r1
 	adds r0, #0x3c
@@ -2696,7 +2696,7 @@ _08069144: .4byte gUnk_08111928
 sub_08069148: @ 0x08069148
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	ands r0, r1
 	adds r0, #3
@@ -2809,7 +2809,7 @@ _08069208: .4byte gUnk_08111938
 sub_0806920C: @ 0x0806920C
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r0, _08069234 @ =gUnk_03003F80
+	ldr r0, _08069234 @ =gLinkState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -2826,7 +2826,7 @@ sub_0806920C: @ 0x0806920C
 	bl sub_08078778
 	b _08069244
 	.align 2, 0
-_08069234: .4byte gUnk_03003F80
+_08069234: .4byte gLinkState
 _08069238:
 	adds r0, r4, #0
 	adds r0, #0x6c

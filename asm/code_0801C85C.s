@@ -16,7 +16,7 @@ sub_0801C85C: @ 0x0801C85C
 	ands r0, r1
 	cmp r0, #0
 	bne _0801C878
-	ldr r0, _0801C888 @ =gUnk_03003F80
+	ldr r0, _0801C888 @ =gLinkState
 	adds r0, #0xa0
 	ldrb r1, [r0]
 	rsbs r0, r1, #0
@@ -29,7 +29,7 @@ _0801C878:
 	b _0801C984
 	.align 2, 0
 _0801C884: .4byte gUnk_0200AF00
-_0801C888: .4byte gUnk_03003F80
+_0801C888: .4byte gLinkState
 _0801C88C:
 	ldrb r0, [r5, #4]
 	ldr r4, _0801C92C @ =gUnk_02034D30
@@ -37,7 +37,7 @@ _0801C88C:
 	bls _0801C896
 	adds r4, #0x40
 _0801C896:
-	ldr r0, _0801C930 @ =gUnk_03003F80
+	ldr r0, _0801C930 @ =gLinkState
 	adds r0, #0xa4
 	movs r1, #0
 	ldrsh r0, [r0, r1]
@@ -100,7 +100,7 @@ _0801C90C:
 	ldr r0, _0801C94C @ =gLCDControls
 	strh r6, [r0, #0xe]
 _0801C910:
-	ldr r0, _0801C930 @ =gUnk_03003F80
+	ldr r0, _0801C930 @ =gLinkState
 	adds r0, #0xa0
 	ldrb r0, [r0]
 	cmp r0, #5
@@ -116,7 +116,7 @@ _0801C910:
 	b _0801C956
 	.align 2, 0
 _0801C92C: .4byte gUnk_02034D30
-_0801C930: .4byte gUnk_03003F80
+_0801C930: .4byte gLinkState
 _0801C934: .4byte 0x0000F016
 _0801C938: .4byte 0x0000F416
 _0801C93C: .4byte 0x040000D4
@@ -658,15 +658,15 @@ _0801CD28:
 	adds r0, #0x80
 	strb r0, [r3]
 _0801CD3C:
-	ldr r1, _0801CD48 @ =gUnk_080FD5A0
+	ldr r1, _0801CD48 @ =gBombBagSizes
 	adds r0, r5, #0
 	adds r0, #0xae
 	b _0801CD52
 	.align 2, 0
 _0801CD44: .4byte gUnk_02002A40
-_0801CD48: .4byte gUnk_080FD5A0
+_0801CD48: .4byte gBombBagSizes
 _0801CD4C:
-	ldr r1, _0801CD5C @ =gUnk_080FD5A4
+	ldr r1, _0801CD5C @ =gQuiverSizes
 	adds r0, r5, #0
 	adds r0, #0xaf
 _0801CD52:
@@ -675,7 +675,7 @@ _0801CD52:
 	ldrb r0, [r0]
 	b _0801CD64
 	.align 2, 0
-_0801CD5C: .4byte gUnk_080FD5A4
+_0801CD5C: .4byte gQuiverSizes
 _0801CD60:
 	movs r0, #1
 	movs r2, #0

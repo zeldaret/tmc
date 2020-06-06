@@ -141,7 +141,7 @@ _0809D2D6:
 	beq _0809D3A8
 	cmp r0, #9
 	beq _0809D3A8
-	ldr r7, _0809D438 @ =gUnk_03003F80
+	ldr r7, _0809D438 @ =gLinkState
 	adds r0, r7, #0
 	adds r0, #0xa8
 	ldrb r0, [r0]
@@ -286,7 +286,7 @@ _0809D3DA:
 	.align 2, 0
 _0809D430: .4byte gLinkEntity
 _0809D434: .4byte gTextBox
-_0809D438: .4byte gUnk_03003F80
+_0809D438: .4byte gLinkState
 _0809D43C: .4byte gUnk_03003DC0
 _0809D440: .4byte gUnk_02034490
 _0809D444: .4byte 0xFFF80000
@@ -295,7 +295,7 @@ _0809D448:
 	strb r0, [r5, #0xe]
 	adds r0, r2, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 _0809D454:
 	adds r0, r5, #0
 	bl sub_080040A8

@@ -263,8 +263,8 @@ sub_0805E544: @ 0x0805E544
 _0805E55C: .4byte gUnk_03003DC0
 _0805E560: .4byte gLinkEntity
 
-	thumb_func_start sub_0805E564
-sub_0805E564: @ 0x0805E564
+	thumb_func_start UnfreezeTime
+UnfreezeTime: @ 0x0805E564
 	ldr r1, _0805E57C @ =gUnk_03003DC0
 	movs r0, #0
 	strb r0, [r1]

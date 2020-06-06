@@ -2515,7 +2515,7 @@ _0801EA34:
 	adds r0, r1, r2
 	add r0, r8
 	strb r6, [r0]
-	bl sub_08000E50
+	bl Random
 	ldrb r4, [r7, #1]
 	movs r1, #0x64
 	bl __modsi3
@@ -2542,7 +2542,7 @@ _0801EA6E:
 	thumb_func_start sub_0801EA74
 sub_0801EA74: @ 0x0801EA74
 	push {r4, r5, r6, lr}
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x12
 	bl __modsi3
 	adds r5, r0, #0
@@ -2741,7 +2741,7 @@ sub_0801EBC8: @ 0x0801EBC8
 	ldrb r0, [r4, #0xa]
 	cmp r0, #2
 	beq _0801EBDE
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	ands r0, r1
 _0801EBDE:
@@ -2767,7 +2767,7 @@ sub_0801EBF4: @ 0x0801EBF4
 	bne _0801EC1E
 	movs r0, #2
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	ldr r2, _0801EC28 @ =gUnk_080CA170
 	movs r1, #3
 	ands r1, r0
@@ -2804,7 +2804,7 @@ sub_0801EC2C: @ 0x0801EC2C
 	ldrb r0, [r5, #0xa]
 	adds r0, r0, r1
 	ldrb r4, [r0]
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	ands r0, r1
 	cmp r4, r0
@@ -2889,7 +2889,7 @@ sub_0801ECFC: @ 0x0801ECFC
 	adds r4, r0, #0
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x38
 	ands r0, r1
 	adds r0, #0x18
@@ -2911,7 +2911,7 @@ sub_0801ED14: @ 0x0801ED14
 	ldrb r0, [r5, #0xa]
 	cmp r0, #1
 	bne _0801ED46
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	ands r1, r0
 	cmp r1, #0
@@ -2922,10 +2922,10 @@ sub_0801ED14: @ 0x0801ED14
 	cmp r0, #0
 	bne _0801EDC4
 _0801ED46:
-	bl sub_08000E50
+	bl Random
 	b _0801EDD0
 _0801ED4C:
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	ands r1, r0
 	cmp r1, #0
@@ -2933,7 +2933,7 @@ _0801ED4C:
 	adds r0, r5, #0
 	bl sub_08049EE4
 	adds r4, r0, #0
-	bl sub_08000E50
+	bl Random
 	ldr r2, _0801ED74 @ =gUnk_080CA17E
 	movs r1, #1
 	ands r1, r0
@@ -2944,7 +2944,7 @@ _0801ED4C:
 	.align 2, 0
 _0801ED74: .4byte gUnk_080CA17E
 _0801ED78:
-	bl sub_08000E50
+	bl Random
 	b _0801EDD0
 _0801ED7E:
 	adds r0, r5, #0
@@ -2956,10 +2956,10 @@ _0801ED7E:
 	bl sub_08049FA0
 	cmp r0, #0
 	beq _0801ED9A
-	bl sub_08000E50
+	bl Random
 	b _0801EDD0
 _0801ED9A:
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	ands r1, r0
 	cmp r1, #0
@@ -2967,7 +2967,7 @@ _0801ED9A:
 	adds r0, r5, #0
 	bl sub_08049EE4
 	adds r4, r0, #0
-	bl sub_08000E50
+	bl Random
 	ldr r2, _0801EDC0 @ =gUnk_080CA17E
 	movs r1, #1
 	ands r1, r0
@@ -3395,11 +3395,11 @@ sub_0801F0C8: @ 0x0801F0C8
 	movs r4, #3
 	movs r0, #3
 	strb r0, [r5, #0xc]
-	bl sub_08000E50
+	bl Random
 	ands r0, r4
 	adds r0, #0xc
 	strb r0, [r5, #0xe]
-	bl sub_08000E50
+	bl Random
 	strb r0, [r5, #0xf]
 	adds r0, r5, #0
 	movs r1, #1
@@ -3480,7 +3480,7 @@ _0801F18A:
 	bl sub_08049F64
 	cmp r0, #0
 	beq _0801F1A6
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	ands r0, r1
 	adds r0, #0xc
@@ -3726,12 +3726,12 @@ sub_0801F360: @ 0x0801F360
 	adds r4, r0, #0
 	movs r0, #7
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x38
 	ands r0, r1
 	adds r0, #0xb4
 	strb r0, [r4, #0xe]
-	bl sub_08000E50
+	bl Random
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #1
@@ -3831,7 +3831,7 @@ sub_0801F428: @ 0x0801F428
 	movs r4, #0
 	movs r0, #1
 	strb r0, [r5, #0xc]
-	bl sub_08000E50
+	bl Random
 	strb r0, [r5, #0xe]
 	adds r0, r5, #0
 	adds r0, #0x45
@@ -3970,7 +3970,7 @@ _0801F51C:
 	bl sub_08049F64
 	cmp r0, #0
 	beq _0801F566
-	bl sub_08000E50
+	bl Random
 	movs r1, #1
 	ands r1, r0
 	cmp r1, #0
@@ -4325,7 +4325,7 @@ sub_0801F7D8: @ 0x0801F7D8
 	movs r5, #0
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	adds r0, #0x45
@@ -4969,7 +4969,7 @@ sub_0801FC9C: @ 0x0801FC9C
 	bl sub_0804A720
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	strb r0, [r4, #0xe]
 	pop {r4, pc}
 
@@ -4983,7 +4983,7 @@ sub_0801FCB0: @ 0x0801FCB0
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0801FD28
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r1, r0
 	adds r0, r5, #0
@@ -5003,7 +5003,7 @@ sub_0801FCB0: @ 0x0801FCB0
 	adds r0, r5, #0
 	bl sub_080045C4
 	adds r4, r0, #0
-	bl sub_08000E50
+	bl Random
 	ldr r2, _0801FD18 @ =gUnk_080CA4C8
 	movs r1, #1
 	ands r1, r0
@@ -5023,7 +5023,7 @@ sub_0801FCB0: @ 0x0801FCB0
 _0801FD14: .4byte gUnk_020000B0
 _0801FD18: .4byte gUnk_080CA4C8
 _0801FD1C:
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x18
 	ands r0, r1
 	adds r0, #8
@@ -5414,7 +5414,7 @@ sub_0801FFDC: @ 0x0801FFDC
 	beq _08020010
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldrh r0, [r5, #0x36]
 	subs r0, #8
 	strh r0, [r5, #0x36]
@@ -5594,15 +5594,15 @@ sub_08020130: @ 0x08020130
 	strb r5, [r4, #0xc]
 	movs r0, #0x10
 	strb r0, [r4, #0xe]
-	bl sub_08000E50
+	bl Random
 	strb r0, [r4, #0xf]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r0, r1
 	strb r0, [r4, #0x15]
 	movs r0, #0x12
 	strb r0, [r4, #0x1c]
-	bl sub_08000E50
+	bl Random
 	ands r0, r5
 	movs r1, #0xfe
 	cmp r0, #0
@@ -5658,7 +5658,7 @@ _08020192:
 	beq _080201D4
 	movs r0, #2
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	ands r0, r1
 	strb r0, [r4, #0xd]
@@ -5677,12 +5677,12 @@ _080201D4:
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	bl sub_08020604
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	ands r1, r0
 	cmp r1, #0
 	bne _0802020C
-	bl sub_08000E50
+	bl Random
 	movs r1, #1
 	ands r1, r0
 	movs r2, #0xfe
@@ -5736,7 +5736,7 @@ _0802024C:
 	adds r0, r5, #0
 	bl sub_080045C4
 	adds r4, r0, #0
-	bl sub_08000E50
+	bl Random
 	ldr r2, _08020280 @ =gUnk_080CA5D4
 	movs r1, #1
 	ands r1, r0
@@ -5947,7 +5947,7 @@ _080203F2:
 	movs r0, #0xc0
 	lsls r0, r0, #9
 	str r0, [r4, #0x20]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r0, r1
 	strb r0, [r4, #0x15]
@@ -5993,7 +5993,7 @@ _0802044E:
 	strb r0, [r4, #0xc]
 	movs r0, #0xf0
 	strb r0, [r4, #0xe]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r0, r1
 	strb r0, [r4, #0x15]
@@ -6045,7 +6045,7 @@ _080204A6:
 	movs r0, #0xfd
 	ands r0, r1
 	strb r0, [r5]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r0, r1
 	strb r0, [r4, #0x15]
@@ -6145,7 +6145,7 @@ sub_0802053C: @ 0x0802053C
 	strb r2, [r4, #0x18]
 	movs r0, #0x20
 	strh r0, [r4, #0x24]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x10
 	ands r0, r1
 	adds r0, #8
@@ -6199,7 +6199,7 @@ _080205C8:
 	bne _080205F2
 	movs r0, #0x28
 	strb r0, [r4, #0xf]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x10
 	ands r0, r1
 	adds r0, #8
@@ -6225,7 +6225,7 @@ sub_08020604: @ 0x08020604
 	bl sub_08049FA0
 	cmp r0, #0
 	bne _08020624
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	ands r1, r0
 	cmp r1, #0
@@ -6502,7 +6502,7 @@ sub_080207F4: @ 0x080207F4
 	adds r0, r4, #0
 	adds r0, #0x84
 	strb r1, [r0]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x18
 	ands r0, r1
 	strb r0, [r4, #0x15]
@@ -6810,7 +6810,7 @@ sub_08020A30: @ 0x08020A30
 	ldrb r0, [r5]
 	cmp r0, #1
 	bhi _08020A68
-	bl sub_08000E50
+	bl Random
 	ldr r2, _08020A64 @ =gUnk_080CA6CC
 	movs r1, #7
 	ands r1, r0
@@ -6845,7 +6845,7 @@ _08020A7A:
 sub_08020A7C: @ 0x08020A7C
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
-	bl sub_08000E50
+	bl Random
 	ldrb r5, [r6, #0x15]
 	ldr r4, _08020ACC @ =gUnk_080CA6D4
 	movs r1, #3
@@ -7961,7 +7961,7 @@ _080212DC:
 	strb r0, [r1]
 	ldr r4, _0802131C @ =gUnk_080CAB4A
 _080212E2:
-	bl sub_08000E50
+	bl Random
 	movs r1, #7
 	ands r1, r0
 	adds r1, r1, r4
@@ -7972,7 +7972,7 @@ _080212E2:
 	cmp r2, #2
 	bne _08021306
 	ldr r4, _08021320 @ =gUnk_080CAB52
-	bl sub_08000E50
+	bl Random
 	movs r1, #3
 	ands r1, r0
 	adds r1, r1, r4
@@ -8288,7 +8288,7 @@ _0802153E:
 sub_08021540: @ 0x08021540
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08000E50
+	bl Random
 	adds r5, r0, #0
 	adds r0, r4, #0
 	bl sub_08049FA0
@@ -8627,7 +8627,7 @@ sub_08021780: @ 0x08021780
 	beq _080217F4
 	b _080217FA
 _08021792:
-	ldr r0, _080217A4 @ =gUnk_03003F80
+	ldr r0, _080217A4 @ =gLinkState
 	adds r0, #0xa8
 	ldrb r0, [r0]
 	cmp r0, #0x18
@@ -8636,7 +8636,7 @@ _08021792:
 	bl sub_08021768
 	b _080217FA
 	.align 2, 0
-_080217A4: .4byte gUnk_03003F80
+_080217A4: .4byte gLinkState
 _080217A8:
 	movs r1, #0
 	movs r0, #5
@@ -8817,7 +8817,7 @@ sub_080218CC: @ 0x080218CC
 	movs r1, #1
 	bl sub_08049F84
 	adds r4, r0, #0
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x10
 	eors r4, r1
 	ldr r2, _08021980 @ =gUnk_080CB5DC
@@ -8866,7 +8866,7 @@ _08021948:
 	beq _0802197C
 	movs r0, #2
 	strb r0, [r5, #0xc]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x38
 	ands r0, r1
 	adds r0, #8
@@ -8981,7 +8981,7 @@ sub_08021A10: @ 0x08021A10
 	bne _08021A5E
 	movs r0, #3
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x3f
 	ands r0, r1
 	adds r0, #0x1e
@@ -9013,7 +9013,7 @@ sub_08021A64: @ 0x08021A64
 	bne _08021A96
 	movs r0, #2
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r0, r1
 	adds r0, #0x1e
@@ -9128,7 +9128,7 @@ _08021B60:
 sub_08021B64: @ 0x08021B64
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	ldr r0, _08021B88 @ =gUnk_03003F80
+	ldr r0, _08021B88 @ =gLinkState
 	ldr r1, [r0, #0x30]
 	movs r2, #4
 	ands r1, r2
@@ -9144,7 +9144,7 @@ sub_08021B64: @ 0x08021B64
 	bl sub_08004260
 	b _08021C4E
 	.align 2, 0
-_08021B88: .4byte gUnk_03003F80
+_08021B88: .4byte gLinkState
 _08021B8C:
 	movs r5, #1
 	adds r0, r6, #0
@@ -9498,7 +9498,7 @@ sub_08021DF0: @ 0x08021DF0
 	ldr r0, _08021E48 @ =0x0000FFF0
 	strh r0, [r4, #0x36]
 _08021E14:
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r0, r1
 	strb r0, [r4, #0x15]
@@ -9621,7 +9621,7 @@ sub_08021EF0: @ 0x08021EF0
 	adds r4, r0, #0
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	ldr r2, _08021F20 @ =gUnk_080CB6D6
 	movs r1, #0xf
 	ands r1, r0
@@ -9652,7 +9652,7 @@ sub_08021F24: @ 0x08021F24
 	bne _08021F48
 	movs r0, #2
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	ldr r2, _08021F44 @ =gUnk_080CB6F6
 	movs r1, #0xf
 	ands r1, r0
@@ -9693,7 +9693,7 @@ _08021F80:
 	bl sub_08049FA0
 	cmp r0, #0
 	beq _08021F94
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r0, r1
 	b _08021F9A
@@ -10116,7 +10116,7 @@ _08022280: @ jump table
 	.4byte _08022356 @ case 23
 	.4byte _080222F2 @ case 24
 _080222E4:
-	ldr r0, _08022340 @ =gUnk_03003F80
+	ldr r0, _08022340 @ =gLinkState
 	adds r0, #0xac
 	ldrh r1, [r0]
 	movs r0, #8
@@ -10161,7 +10161,7 @@ _080222F2:
 	str r5, [r4, #0x54]
 	b _08022356
 	.align 2, 0
-_08022340: .4byte gUnk_03003F80
+_08022340: .4byte gLinkState
 _08022344:
 	adds r0, r4, #0
 	adds r0, #0x3f
@@ -10191,7 +10191,7 @@ sub_08022368: @ 0x08022368
 	bl sub_0804A720
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #1
@@ -10222,7 +10222,7 @@ sub_08022390: @ 0x08022390
 	movs r1, #1
 	bl sub_08049F84
 	strb r0, [r4, #0x15]
-	bl sub_08000E50
+	bl Random
 	movs r1, #4
 	ands r0, r1
 	strb r0, [r4, #0xf]
@@ -10238,7 +10238,7 @@ _080223CE:
 	strb r0, [r4, #0xf]
 	b _080223DA
 _080223D4:
-	bl sub_08000E50
+	bl Random
 	strb r0, [r4, #0xe]
 _080223DA:
 	adds r0, r4, #0
@@ -10758,7 +10758,7 @@ _080227EE:
 	cmp r0, #0
 	beq _08022812
 	strb r3, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	ldr r2, _08022818 @ =gUnk_080CBA60
 	movs r1, #3
 	ands r1, r0
@@ -11117,7 +11117,7 @@ sub_08022A88: @ 0x08022A88
 	movs r5, #0
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0xf
 	ands r0, r1
 	adds r0, #8
@@ -11130,7 +11130,7 @@ sub_08022A88: @ 0x08022A88
 sub_08022AA4: @ 0x08022AA4
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08000E50
+	bl Random
 	adds r5, r0, #0
 	movs r0, #2
 	strb r0, [r4, #0xc]
@@ -11394,7 +11394,7 @@ sub_08022C58: @ 0x08022C58
 	str r7, [r0, #0x50]
 	adds r0, r7, #0
 	mov r1, sb
-	bl sub_0806FA24
+	bl CopyPosition
 	movs r0, #0xd
 	movs r1, #2
 	bl CreateEnemy
@@ -11412,7 +11412,7 @@ sub_08022C58: @ 0x08022C58
 	str r7, [r6, #0x50]
 	adds r0, r7, #0
 	adds r1, r6, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	movs r0, #0xd
 	movs r1, #3
 	bl CreateEnemy
@@ -11428,7 +11428,7 @@ sub_08022C58: @ 0x08022C58
 	str r7, [r5, #0x50]
 	adds r0, r7, #0
 	adds r1, r5, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	adds r0, r7, #0
 	bl sub_0804A720
 	movs r0, #1
@@ -11446,7 +11446,7 @@ sub_08022C58: @ 0x08022C58
 	adds r0, r7, #0
 	adds r0, #0x80
 	str r5, [r0]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r0, r1
 	strb r0, [r7, #0x15]
@@ -11773,7 +11773,7 @@ _08022F4E:
 	bne _08022F84
 	movs r0, #8
 	strb r0, [r4, #0xf]
-	bl sub_08000E50
+	bl Random
 	ldr r2, _08022FA0 @ =gUnk_080CBBC4
 	movs r1, #1
 	ands r1, r0
@@ -12043,7 +12043,7 @@ _08023132:
 	ldr r4, _08023194 @ =gLinkEntity
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldrb r1, [r4, #0x10]
 	movs r0, #0x80
 	orrs r0, r1
@@ -12063,7 +12063,7 @@ _08023132:
 	adds r4, #0x3d
 	movs r0, #0xec
 	strb r0, [r4]
-	ldr r2, _08023198 @ =gUnk_03003F80
+	ldr r2, _08023198 @ =gLinkState
 	movs r0, #0x41
 	strb r0, [r2, #2]
 	ldr r0, [r2, #0x30]
@@ -12077,7 +12077,7 @@ _0802318A:
 	pop {r4, r5, pc}
 	.align 2, 0
 _08023194: .4byte gLinkEntity
-_08023198: .4byte gUnk_03003F80
+_08023198: .4byte gLinkState
 _0802319C: .4byte 0xFFF7FFFF
 _080231A0: .4byte gUnk_080CBC38
 
@@ -12176,7 +12176,7 @@ sub_080231BC: @ 0x080231BC
 	movs r1, #5
 	orrs r0, r1
 	strb r0, [r6, #0x1a]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r0, r1
 	strb r0, [r6, #0x15]
@@ -12218,7 +12218,7 @@ sub_08023288: @ 0x08023288
 	ands r0, r1
 	cmp r0, #0
 	bne _08023324
-	bl sub_08000E50
+	bl Random
 	adds r4, r0, #0
 	movs r0, #0x1e
 	ands r4, r0
@@ -12307,7 +12307,7 @@ sub_08023330: @ 0x08023330
 	movs r0, #0x96
 	lsls r0, r0, #2
 	strh r0, [r1]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1c
 	ands r0, r1
 	strb r0, [r5, #0x15]
@@ -12323,7 +12323,7 @@ sub_08023330: @ 0x08023330
 	bl sub_08023A88
 	ldr r1, [r5, #0x54]
 	adds r0, r5, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	adds r0, r5, #0
 	movs r1, #4
 	movs r2, #0
@@ -12514,7 +12514,7 @@ sub_080234D8: @ 0x080234D8
 	movs r1, #5
 	orrs r0, r1
 	strb r0, [r4, #0x1a]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r0, r1
 	strb r0, [r4, #0x15]
@@ -12577,7 +12577,7 @@ _0802355A:
 	adds r2, r4, #0
 	ands r2, r0
 	strb r2, [r5, #0x14]
-	ldr r3, _080235AC @ =gUnk_03003F80
+	ldr r3, _080235AC @ =gLinkState
 	ldr r0, [r3, #0x30]
 	movs r1, #0x80
 	lsls r1, r1, #0xc
@@ -12602,7 +12602,7 @@ _0802355A:
 	b _080235B8
 	.align 2, 0
 _080235A8: .4byte gLinkEntity
-_080235AC: .4byte gUnk_03003F80
+_080235AC: .4byte gLinkState
 _080235B0: .4byte gUnk_080CBC90
 _080235B4:
 	movs r0, #4
@@ -13018,7 +13018,7 @@ sub_08023894: @ 0x08023894
 	ldrb r0, [r0, #0xb]
 	cmp r0, #0
 	bne _08023900
-	ldr r2, _08023904 @ =gUnk_03003F80
+	ldr r2, _08023904 @ =gLinkState
 	ldr r0, [r2, #0x30]
 	movs r1, #0x80
 	lsls r1, r1, #0xe
@@ -13050,7 +13050,7 @@ sub_08023894: @ 0x08023894
 _08023900:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08023904: .4byte gUnk_03003F80
+_08023904: .4byte gLinkState
 _08023908: .4byte gLinkEntity
 
 	thumb_func_start sub_0802390C
@@ -13169,7 +13169,7 @@ _080239D4:
 	bl sub_080239F0
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldr r4, [r4, #0x54]
 	cmp r4, #0
 	bne _080239D4
@@ -13520,12 +13520,12 @@ sub_08023C5C: @ 0x08023C5C
 	bl sub_0804A720
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x30
 	ands r0, r1
 	adds r0, #0xb4
 	strb r0, [r4, #0xe]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x18
 	ands r0, r1
 	strb r0, [r4, #0x15]
@@ -13560,7 +13560,7 @@ sub_08023C8C: @ 0x08023C8C
 	strb r0, [r4, #0xe]
 	b _08023CDC
 _08023CBC:
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x30
 	ands r0, r1
 	adds r0, #0xb4

@@ -27,7 +27,7 @@ sub_0802ADDC: @ 0x0802ADDC
 	str r5, [r4, #0x54]
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	adds r1, r4, #0
 	adds r1, #0x81
 	movs r0, #1

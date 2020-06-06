@@ -179,7 +179,7 @@ SECTIONS {
         . = 0x000010D8; gUnk_030010D8 = .;
         . = 0x000010EC; gUnk_030010EC = .;
         . = 0x0000110C; gUnk_0300110C = .;
-        . = 0x00001150; gUnk_03001150 = .;
+        . = 0x00001150; gRand = .;
         . = 0x00001160; gLinkEntity = .;
         . = 0x00001198; gUnk_03001198 = .;
         . = 0x000011E8; gUnk_030011E8 = .;
@@ -201,7 +201,7 @@ SECTIONS {
         . = 0x00003DE4; gUnk_03003DE4 = .;
         . = 0x00003DF0; gUnk_03003DF0 = .;
         . = 0x00003DF8; gUnk_03003DF8 = .;
-        . = 0x00003F80; gUnk_03003F80 = .;
+        . = 0x00003F80; gLinkState = .;
         . = 0x00003FC0; gUnk_03003FC0 = .;
         . = 0x00004010; gUnk_03004010 = .;
         . = 0x00004020; gUnk_03004020 = .;
@@ -353,6 +353,9 @@ SECTIONS {
 		src/modHealth.o(.text);
 		src/modRupees.o(.text);
 		asm/code_080526F8.o(.text);
+		asm/modBombs.o(.text);
+		asm/modArrows.o(.text);
+		asm/code_0805436C.o(.text);
 		src/sub_08055E08.o(.text);
 		asm/sub_08055E24.o(.text);
 		asm/mainLoop.o(.text);
@@ -382,12 +385,14 @@ SECTIONS {
 		asm/code_0806ED78.o(.text);
 		src/sub_0806F9EC.o(.text);
 		src/sub_0806FA04.o(.text);
-		src/sub_0806FA24.o(.text);
+		src/copyPosition.o(.text);
 		src/sub_0806FA30.o(.text);
 		src/positionRelative.o(.text);
 		asm/code_0806FA6C.o(.text);
 		asm/stairsInteract.o(.text);
 		asm/code_080732D0.o(.text);
+		asm/ocarina.o(.text);
+		asm/code_08076C80.o(.text);
 		asm/respawnLink.o(.text);
 		asm/code_08077B98.o(.text);
 		src/sub_0807B7D8.o(.text);
@@ -409,7 +414,7 @@ SECTIONS {
 		asm/sub_080A2838.o(.text);
 		asm/sub_080A285C.o(.text);
 		src/createObject.o(.text);
-		asm/sub_080A2988.o(.text);
+		src/createObjectWithParent.o(.text);
 		asm/createFx.o(.text);
 		asm/code_080A29BC.o(.text);
 		asm/playSFX.o(.text);

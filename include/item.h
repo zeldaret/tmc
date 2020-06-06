@@ -2,6 +2,9 @@
 
 #ifndef ITEM_H
 #define ITEM_H
+
+/* On hold until naming conflicts are resolved */
+/* 
 	enum
     {
         Untyped,
@@ -123,4 +126,16 @@
         FastSplit = 0x74,
         LongSpin = 0x75
     } ItemType;
+*/
+	typedef struct {
+		u8 unk;
+		u8 behaviorID;
+		u8 unk2;
+		u8 unk3;
+		u8 stateID;
+        u8 filler[4];
+        u8 unk4;
+		u8 filler2[4];
+        u8 unk5;
+	} ItemBehavior;
 #endif

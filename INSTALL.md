@@ -29,14 +29,14 @@ Install the **devkitARM** toolchain of [devkitPro](https://devkitpro.org/wiki/Ge
 
 To set up the repository:
 
-	git clone https://github.com/jiangzhengwenjz/zeldatmc
+	git clone https://github.com/zeldaret/tmc
 	git clone https://github.com/pret/agbcc
 
 	cd ./agbcc
 	sh build.sh
-	sh install.sh ../zeldatmc
+	sh install.sh ../tmc
 
-	cd ../zeldatmc
+	cd ../tmc
 
 To build **zeldatmc.gba**:
 

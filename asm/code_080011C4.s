@@ -1360,7 +1360,7 @@ _080028F2:
 sub_080028F4: @ 0x080028F4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08000E50
+	bl Random
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
 	movs r1, #0

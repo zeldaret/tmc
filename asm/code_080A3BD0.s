@@ -3101,7 +3101,7 @@ _080A53E0:
 	blo _080A542E
 	cmp r3, #8
 	bhi _080A5414
-	ldr r0, _080A5410 @ =gUnk_080FD5A0
+	ldr r0, _080A5410 @ =gBombBagSizes
 	adds r1, r4, #0
 	adds r1, #0xae
 	ldrb r1, [r1]
@@ -3117,11 +3117,11 @@ _080A5400: .4byte gUnk_03001010
 _080A5404: .4byte gUnk_02002A40
 _080A5408: .4byte gUnk_02000080
 _080A540C: .4byte gUnk_08128B64
-_080A5410: .4byte gUnk_080FD5A0
+_080A5410: .4byte gBombBagSizes
 _080A5414:
 	cmp r3, #0xa
 	bhi _080A542E
-	ldr r0, _080A552C @ =gUnk_080FD5A4
+	ldr r0, _080A552C @ =gQuiverSizes
 	adds r1, r4, #0
 	adds r1, #0xaf
 	ldrb r1, [r1]
@@ -3261,7 +3261,7 @@ _080A5522:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A552C: .4byte gUnk_080FD5A4
+_080A552C: .4byte gQuiverSizes
 _080A5530: .4byte gUnk_03001010
 _080A5534: .4byte gUnk_080FDFD8
 _080A5538: .4byte gUnk_02000080

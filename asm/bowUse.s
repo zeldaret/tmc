@@ -238,7 +238,7 @@ _08019336:
 	strb r0, [r4, #0x18]
 	b _08019402
 _0801934A:
-	ldr r1, _0801938C @ =gUnk_03003F80
+	ldr r1, _0801938C @ =gLinkState
 	ldr r0, [r1, #0x2c]
 	cmp r0, r4
 	bne _0801935E
@@ -259,7 +259,7 @@ _08019368:
 	ldrb r0, [r0]
 	cmp r0, #0xa
 	bne _08019398
-	ldr r0, _0801938C @ =gUnk_03003F80
+	ldr r0, _0801938C @ =gLinkState
 	adds r2, r0, #0
 	adds r2, #0x21
 	ldrb r0, [r2]
@@ -272,7 +272,7 @@ _08019368:
 	strb r0, [r2]
 	b _08019398
 	.align 2, 0
-_0801938C: .4byte gUnk_03003F80
+_0801938C: .4byte gLinkState
 _08019390:
 	adds r1, r4, #0
 	adds r1, #0x40
@@ -319,14 +319,14 @@ _080193C2:
 	bl sub_08077CB8
 	cmp r0, #0
 	beq _080193FA
-	ldr r2, _0801940C @ =gUnk_03003F80
+	ldr r2, _0801940C @ =gLinkState
 	ldrb r1, [r2, #4]
 	movs r0, #0x80
 	orrs r0, r1
 	strb r0, [r2, #4]
 	movs r0, #1
 	rsbs r0, r0, #0
-	bl sub_08054330
+	bl ModArrows
 _080193FA:
 	ldr r1, _08019408 @ =gLinkEntity
 	adds r0, r4, #0
@@ -336,4 +336,4 @@ _08019402:
 	.align 2, 0
 _08019404: .4byte gUnk_02002A40
 _08019408: .4byte gLinkEntity
-_0801940C: .4byte gUnk_03003F80
+_0801940C: .4byte gLinkState

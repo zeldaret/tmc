@@ -19,7 +19,7 @@ _08077B32:
 	adds r4, #1
 	cmp r4, #2
 	bls _08077B32
-	ldr r2, _08077B8C @ =gUnk_03003F80
+	ldr r2, _08077B8C @ =gLinkState
 	adds r0, r2, #0
 	adds r0, #0x3d
 	movs r3, #0
@@ -58,6 +58,6 @@ _08077B86:
 	pop {r4, r5, pc}
 	.align 2, 0
 _08077B88: .4byte gUnk_03000B80
-_08077B8C: .4byte gUnk_03003F80
+_08077B8C: .4byte gLinkState
 _08077B90: .4byte 0xF7FBFFFF
 _08077B94: .4byte gLinkEntity

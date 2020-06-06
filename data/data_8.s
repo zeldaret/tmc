@@ -21457,10 +21457,10 @@ gUnk_080FD588:: @ 080FD588
 gWalletSizes:: @ 080FD590
 	.incbin "baserom.gba", 0x0FD590, 0x0000010
 
-gUnk_080FD5A0:: @ 080FD5A0
+gBombBagSizes:: @ 080FD5A0
 	.incbin "baserom.gba", 0x0FD5A0, 0x0000004
 
-gUnk_080FD5A4:: @ 080FD5A4
+gQuiverSizes:: @ 080FD5A4
 	.incbin "baserom.gba", 0x0FD5A4, 0x0000004
 
 gUnk_080FD5A8:: @ 080FD5A8
@@ -32602,7 +32602,7 @@ gUnk_0811BDB4:: @ 0811BDB4
 gUnk_0811BDCC:: @ 0811BDCC
 	.incbin "baserom.gba", 0x11BDCC, 0x000000C
 
-gUnk_0811BDD8:: @ 0811BDD8
+gOcarinaStates:: @ 0811BDD8
 	.incbin "baserom.gba", 0x11BDD8, 0x0000008
 
 gUnk_0811BDE0:: @ 0811BDE0

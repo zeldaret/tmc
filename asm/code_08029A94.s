@@ -496,13 +496,13 @@ sub_08029E0C: @ 0x08029E0C
 	ldr r0, _08029EE0 @ =gUnk_080CCDC8
 	adds r1, r1, r0
 	str r1, [sp]
-	bl sub_08000E50
+	bl Random
 	movs r1, #1
 	ands r1, r0
 	lsls r1, r1, #1
 	subs r1, #1
 	mov sl, r1
-	bl sub_08000E50
+	bl Random
 	adds r1, r0, #0
 	movs r0, #0xf
 	ands r0, r1
@@ -1057,14 +1057,14 @@ sub_0802A250: @ 0x0802A250
 	strb r1, [r5, #0xe]
 	ldr r0, _0802A2A8 @ =0xFFFD0000
 	str r0, [r5, #0x20]
-	bl sub_08000E50
+	bl Random
 	ldr r1, _0802A2AC @ =gUnk_080CD03C
 	movs r4, #3
 	ands r0, r4
 	adds r0, r0, r1
 	ldrb r0, [r0]
 	strh r0, [r5, #0x24]
-	bl sub_08000E50
+	bl Random
 	ldr r1, _0802A2B0 @ =gUnk_080CD040
 	ands r0, r4
 	adds r0, r0, r1
@@ -1398,7 +1398,7 @@ sub_0802A4E4: @ 0x0802A4E4
 	adds r1, #0x38
 	movs r0, #3
 	strb r0, [r1]
-	bl sub_08000E50
+	bl Random
 	adds r1, r4, #0
 	adds r1, #0x7d
 	strb r0, [r1]
@@ -1618,7 +1618,7 @@ sub_0802A69C: @ 0x0802A69C
 	push {r4, lr}
 	adds r4, r0, #0
 	bl sub_0802A7D0
-	ldr r2, _0802A6E4 @ =gUnk_03003F80
+	ldr r2, _0802A6E4 @ =gLinkState
 	ldrb r1, [r2, #0xa]
 	movs r0, #0x80
 	orrs r1, r0
@@ -1651,7 +1651,7 @@ sub_0802A69C: @ 0x0802A69C
 	subs r0, r2, #1
 	b _0802A6EE
 	.align 2, 0
-_0802A6E4: .4byte gUnk_03003F80
+_0802A6E4: .4byte gLinkState
 _0802A6E8: .4byte gLinkEntity
 _0802A6EC:
 	adds r0, r2, #1
@@ -1722,7 +1722,7 @@ _0802A768:
 	ldr r1, _0802A784 @ =0xFFFE0000
 	adds r0, r0, r1
 	str r0, [r4, #0x34]
-	ldr r1, _0802A788 @ =gUnk_03003F80
+	ldr r1, _0802A788 @ =gLinkState
 	ldrb r0, [r1, #0xa]
 	movs r2, #0x80
 	orrs r0, r2
@@ -1734,7 +1734,7 @@ _0802A780:
 	pop {r4, pc}
 	.align 2, 0
 _0802A784: .4byte 0xFFFE0000
-_0802A788: .4byte gUnk_03003F80
+_0802A788: .4byte gLinkState
 
 	thumb_func_start sub_0802A78C
 sub_0802A78C: @ 0x0802A78C
@@ -1939,7 +1939,7 @@ sub_0802A8F4: @ 0x0802A8F4
 sub_0802A8FC: @ 0x0802A8FC
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _0802A914 @ =gUnk_03003F80
+	ldr r0, _0802A914 @ =gLinkState
 	ldrb r0, [r0, #0x1c]
 	movs r1, #0xf
 	ands r1, r0
@@ -1951,7 +1951,7 @@ sub_0802A8FC: @ 0x0802A8FC
 _0802A912:
 	pop {pc}
 	.align 2, 0
-_0802A914: .4byte gUnk_03003F80
+_0802A914: .4byte gLinkState
 
 	thumb_func_start nullsub_143
 nullsub_143: @ 0x0802A918
@@ -1981,7 +1981,7 @@ sub_0802A924: @ 0x0802A924
 	movs r4, #0
 	ldr r0, _0802A9A4 @ =0x0000FFD0
 	strh r0, [r7, #0x36]
-	bl sub_08000E50
+	bl Random
 	ands r0, r6
 	adds r1, r7, #0
 	adds r1, #0x80

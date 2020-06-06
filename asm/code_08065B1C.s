@@ -728,7 +728,7 @@ _0806606E:
 	movs r2, #0x20
 	bl CreateFX
 	ldr r4, _080660A4 @ =gUnk_08110380
-	bl sub_08000E50
+	bl Random
 	movs r1, #7
 	ands r1, r0
 	lsls r1, r1, #1
@@ -978,7 +978,7 @@ nullsub_501: @ 0x08066254
 sub_08066258: @ 0x08066258
 	push {r4, lr}
 	ldr r4, _08066270 @ =gUnk_081103D0
-	bl sub_08000E50
+	bl Random
 	movs r1, #7
 	ands r1, r0
 	lsls r1, r1, #1
@@ -2476,7 +2476,7 @@ sub_08066D14: @ 0x08066D14
 	strb r0, [r4, #0x18]
 	adds r0, r2, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldr r1, [r4, #0x50]
 	adds r0, r4, #0
 	bl sub_08068680
@@ -2496,7 +2496,7 @@ sub_08066D4C: @ 0x08066D4C
 	ldr r1, [r4, #0x50]
 	cmp r1, #0
 	beq _08066D90
-	bl sub_0806FA24
+	bl CopyPosition
 	ldr r3, [r4, #0x50]
 	ldrb r1, [r3, #0x18]
 	movs r2, #4
@@ -2557,7 +2557,7 @@ sub_08066D94: @ 0x08066D94
 	strh r1, [r0]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 _08066DD6:
 	bl sub_0805E780
 	pop {r4, r5, pc}
@@ -2577,7 +2577,7 @@ sub_08066DE4: @ 0x08066DE4
 	beq _08066E06
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	adds r0, r5, #0
 	adds r1, r4, #0
 	bl sub_080686C4
@@ -3959,7 +3959,7 @@ _08067872:
 	adds r0, r4, #0
 	adds r0, #0x75
 	strb r1, [r0]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x7f
 	ands r0, r1
 	adds r0, #0x1e
@@ -4251,7 +4251,7 @@ sub_08067AAC: @ 0x08067AAC
 	adds r4, r0, #0
 	movs r0, #2
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	ldr r2, _08067AFC @ =gUnk_081110FC
 	movs r1, #3
 	ands r1, r0
@@ -4294,7 +4294,7 @@ sub_08067B08: @ 0x08067B08
 	adds r4, r0, #0
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	ldr r2, _08067B30 @ =gUnk_08111104
 	movs r1, #3
 	ands r1, r0
@@ -4316,7 +4316,7 @@ sub_08067B34: @ 0x08067B34
 	adds r4, r0, #0
 	movs r1, #0
 	bl sub_08067DCC
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x30
 	ands r0, r1
 	adds r0, #0xb4
@@ -4357,7 +4357,7 @@ sub_08067B80: @ 0x08067B80
 	strb r0, [r5, #0xc]
 	movs r0, #0x14
 	strb r0, [r5, #0xe]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x7f
 	ands r0, r1
 	adds r0, #0x1e

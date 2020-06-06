@@ -1851,7 +1851,7 @@ _080A6392:
 	bl __divsi3
 	adds r0, #0xc
 	strh r0, [r5, #2]
-	ldr r0, _080A642C @ =gUnk_03003F80
+	ldr r0, _080A642C @ =gLinkState
 	ldr r0, [r0, #0x30]
 	movs r1, #8
 	ands r0, r1
@@ -1891,7 +1891,7 @@ _080A63EA:
 _080A6420: .4byte gUnk_02000080
 _080A6424: .4byte gUnk_03001010
 _080A6428: .4byte gUnk_030010A0
-_080A642C: .4byte gUnk_03003F80
+_080A642C: .4byte gLinkState
 _080A6430: .4byte 0x000001FB
 _080A6434: .4byte gUnk_08128DE8
 
@@ -2475,7 +2475,7 @@ _080A68D0: .4byte gUnk_02019EE0
 	thumb_func_start sub_080A68D4
 sub_080A68D4: @ 0x080A68D4
 	push {r4, r5, r6, lr}
-	ldr r0, _080A690C @ =gUnk_03003F80
+	ldr r0, _080A690C @ =gLinkState
 	ldr r0, [r0, #0x30]
 	movs r1, #8
 	ands r0, r1
@@ -2501,7 +2501,7 @@ _080A68E6:
 	movs r5, #0
 	b _080A693A
 	.align 2, 0
-_080A690C: .4byte gUnk_03003F80
+_080A690C: .4byte gLinkState
 _080A6910: .4byte gUnk_030010A0
 _080A6914: .4byte 0x000001FB
 _080A6918: .4byte gUnk_02002A40
@@ -2807,7 +2807,7 @@ sub_080A6B04: @ 0x080A6B04
 	movs r2, #0x80
 	lsls r2, r2, #5
 	bl sub_0801D5EC
-	ldr r0, _080A6C0C @ =gUnk_03003F80
+	ldr r0, _080A6C0C @ =gLinkState
 	ldr r0, [r0, #0x30]
 	movs r1, #8
 	ands r0, r1
@@ -2874,7 +2874,7 @@ _080A6BFC: .4byte gUnk_02000080
 _080A6C00: .4byte 0x0000475F
 _080A6C04: .4byte 0x00005001
 _080A6C08: .4byte gUnk_02001A40
-_080A6C0C: .4byte gUnk_03003F80
+_080A6C0C: .4byte gLinkState
 _080A6C10: .4byte gUnk_030010A0
 _080A6C14: .4byte 0x000001FB
 _080A6C18: .4byte gUnk_08128E94
@@ -3738,7 +3738,7 @@ sub_080A7250: @ 0x080A7250
 	adds r0, #0x2f
 	ldrb r0, [r0]
 	strb r0, [r1, #0xd]
-	ldr r0, _080A7318 @ =gUnk_03003F80
+	ldr r0, _080A7318 @ =gLinkState
 	adds r0, #0x8b
 	ldrb r0, [r0]
 	strb r0, [r1, #0xc]
@@ -3768,7 +3768,7 @@ _080A7308: .4byte gRoomControls
 _080A730C: .4byte gUnk_03000420
 _080A7310: .4byte gUnk_02033280
 _080A7314: .4byte gUnk_030010A0
-_080A7318: .4byte gUnk_03003F80
+_080A7318: .4byte gLinkState
 _080A731C: .4byte gUnk_02017654
 _080A7320: .4byte gUnk_02025EB0
 _080A7324: .4byte gUnk_0200B650
@@ -3839,7 +3839,7 @@ _080A73B4:
 	ldr r5, _080A7470 @ =gUnk_02032EC0
 	ldr r0, [r5, #0x10]
 	str r0, [r1]
-	ldr r0, _080A7474 @ =gUnk_03003F80
+	ldr r0, _080A7474 @ =gLinkState
 	ldrb r1, [r5, #0xc]
 	adds r0, #0x8b
 	strb r1, [r0]
@@ -3912,7 +3912,7 @@ _080A73B4:
 _080A7468: .4byte gUnk_03000FD0
 _080A746C: .4byte gUnk_02017654
 _080A7470: .4byte gUnk_02032EC0
-_080A7474: .4byte gUnk_03003F80
+_080A7474: .4byte gLinkState
 _080A7478: .4byte gUnk_02025EB0
 _080A747C: .4byte gUnk_0200B650
 _080A7480: .4byte gUnk_02033280
@@ -4042,7 +4042,7 @@ sub_080A758C: @ 0x080A758C
 	ldrb r0, [r5, #0xa]
 	cmp r0, #0
 	bne _080A75AC
-	ldr r1, _080A7654 @ =gUnk_03003F80
+	ldr r1, _080A7654 @ =gLinkState
 	ldrb r0, [r1, #4]
 	cmp r0, #0
 	bne _080A75AC
@@ -4103,7 +4103,7 @@ _080A75BA:
 	ldrb r0, [r5, #0xa]
 	cmp r0, #0
 	bne _080A76BC
-	ldr r2, _080A7654 @ =gUnk_03003F80
+	ldr r2, _080A7654 @ =gLinkState
 	ldrb r1, [r2, #2]
 	movs r0, #0x20
 	ands r0, r1
@@ -4135,7 +4135,7 @@ _080A75BA:
 	movs r0, #0x1a
 	b _080A766A
 	.align 2, 0
-_080A7654: .4byte gUnk_03003F80
+_080A7654: .4byte gLinkState
 _080A7658: .4byte gLinkEntity
 _080A765C:
 	adds r1, r5, #0
@@ -4167,7 +4167,7 @@ _080A767A:
 	adds r0, r5, #0
 	bl sub_080A76CC
 _080A7692:
-	ldr r0, _080A76B0 @ =gUnk_03003F80
+	ldr r0, _080A76B0 @ =gLinkState
 	str r5, [r0, #0x2c]
 	adds r0, r5, #0
 	bl sub_08079BD8
@@ -4180,7 +4180,7 @@ _080A7692:
 	bl PlaySFX
 	b _080A76C2
 	.align 2, 0
-_080A76B0: .4byte gUnk_03003F80
+_080A76B0: .4byte gLinkState
 _080A76B4: .4byte gUnk_0812906C
 _080A76B8: .4byte gUnk_08129068
 _080A76BC:
@@ -4201,7 +4201,7 @@ sub_080A76CC: @ 0x080A76CC
 	beq _080A76D8
 	b _080A77DC
 _080A76D8:
-	ldr r5, _080A771C @ =gUnk_03003F80
+	ldr r5, _080A771C @ =gLinkState
 	ldr r0, [r5, #0x2c]
 	cmp r0, r4
 	beq _080A76E4
@@ -4235,7 +4235,7 @@ _080A76F2:
 	movs r0, #0xa
 	b _080A7726
 	.align 2, 0
-_080A771C: .4byte gUnk_03003F80
+_080A771C: .4byte gLinkState
 _080A7720:
 	movs r0, #8
 	b _080A7726
@@ -4280,7 +4280,7 @@ _080A7762:
 _080A7768:
 	strb r0, [r1]
 _080A776A:
-	ldr r0, _080A77D0 @ =gUnk_03003F80
+	ldr r0, _080A77D0 @ =gLinkState
 	adds r0, #0x3e
 	ldrb r0, [r0]
 	movs r2, #3
@@ -4332,11 +4332,11 @@ _080A77C4:
 	bl sub_080A78B8
 	b _080A7806
 	.align 2, 0
-_080A77D0: .4byte gUnk_03003F80
+_080A77D0: .4byte gLinkState
 _080A77D4: .4byte gLinkEntity
 _080A77D8: .4byte gUnk_081292E2
 _080A77DC:
-	ldr r1, _080A7810 @ =gUnk_03003F80
+	ldr r1, _080A7810 @ =gLinkState
 	ldrb r0, [r1, #4]
 	cmp r0, #0
 	beq _080A7814
@@ -4361,7 +4361,7 @@ _080A7806:
 	bl sub_080A7A84
 	b _080A7820
 	.align 2, 0
-_080A7810: .4byte gUnk_03003F80
+_080A7810: .4byte gLinkState
 _080A7814:
 	movs r0, #0xff
 	strb r0, [r4, #0x1e]
@@ -4377,7 +4377,7 @@ _080A7820:
 sub_080A7824: @ 0x080A7824
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	ldr r5, _080A7860 @ =gUnk_03003F80
+	ldr r5, _080A7860 @ =gLinkState
 	ldr r0, [r5, #0x2c]
 	cmp r0, r4
 	beq _080A7834
@@ -4405,7 +4405,7 @@ _080A7846:
 	bl sub_0805E780
 	b _080A78B4
 	.align 2, 0
-_080A7860: .4byte gUnk_03003F80
+_080A7860: .4byte gLinkState
 _080A7864: .4byte gLinkEntity
 _080A7868:
 	adds r0, r4, #0
@@ -4457,7 +4457,7 @@ sub_080A78B8: @ 0x080A78B8
 	push {r7}
 	adds r4, r0, #0
 	adds r6, r1, #0
-	ldr r0, _080A78E8 @ =gUnk_03003F80
+	ldr r0, _080A78E8 @ =gLinkState
 	ldrb r1, [r0, #0x1b]
 	movs r0, #0x20
 	ands r0, r1
@@ -4477,7 +4477,7 @@ sub_080A78B8: @ 0x080A78B8
 	adds r1, #0xb1
 	b _080A78F2
 	.align 2, 0
-_080A78E8: .4byte gUnk_03003F80
+_080A78E8: .4byte gLinkState
 _080A78EC: .4byte gUnk_030010A0
 _080A78F0:
 	ldrb r1, [r4, #0x1e]
@@ -4498,7 +4498,7 @@ _080A78FC:
 	adds r0, r4, #0
 	bl sub_080042D0
 _080A7912:
-	ldr r2, _080A792C @ =gUnk_03003F80
+	ldr r2, _080A792C @ =gLinkState
 	ldrb r1, [r2, #0x1b]
 	movs r0, #0x40
 	ands r0, r1
@@ -4511,7 +4511,7 @@ _080A7912:
 	ands r0, r1
 	b _080A7958
 	.align 2, 0
-_080A792C: .4byte gUnk_03003F80
+_080A792C: .4byte gLinkState
 _080A7930:
 	ldrb r1, [r6, #0x14]
 	movs r0, #2
@@ -4718,7 +4718,7 @@ sub_080A7A84: @ 0x080A7A84
 	adds r0, r0, r2
 	movs r5, #0
 	ldrsb r5, [r0, r5]
-	ldr r2, _080A7AE8 @ =gUnk_03003F80
+	ldr r2, _080A7AE8 @ =gLinkState
 	ldrb r1, [r2, #0x1b]
 	movs r0, #0xc0
 	ands r0, r1
@@ -4747,7 +4747,7 @@ _080A7AC4:
 	.align 2, 0
 _080A7AE0: .4byte gLinkEntity
 _080A7AE4: .4byte gUnk_08129072
-_080A7AE8: .4byte gUnk_03003F80
+_080A7AE8: .4byte gLinkState
 _080A7AEC:
 	ldr r0, [r4, #0x34]
 	cmp r0, #0
@@ -4838,7 +4838,7 @@ sub_080A7B98: @ 0x080A7B98
 	mov r5, r8
 	push {r5, r6, r7}
 	adds r6, r0, #0
-	ldr r0, _080A7BFC @ =gUnk_03003F80
+	ldr r0, _080A7BFC @ =gLinkState
 	adds r0, #0xac
 	ldrh r1, [r0]
 	movs r0, #8
@@ -4884,7 +4884,7 @@ _080A7BCE:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A7BFC: .4byte gUnk_03003F80
+_080A7BFC: .4byte gLinkState
 
 	thumb_func_start sub_080A7C00
 sub_080A7C00: @ 0x080A7C00
@@ -6409,7 +6409,7 @@ _080A8700:
 	ands r0, r1
 	cmp r0, #3
 	bne _080A8768
-	ldr r0, _080A875C @ =gUnk_03003F80
+	ldr r0, _080A875C @ =gLinkState
 	ldrb r0, [r0, #0xf]
 	cmp r0, #0
 	beq _080A876E
@@ -6446,7 +6446,7 @@ _080A8700:
 	bl sub_0805E780
 	b _080A876E
 	.align 2, 0
-_080A875C: .4byte gUnk_03003F80
+_080A875C: .4byte gLinkState
 _080A8760: .4byte gRoomControls
 _080A8764: .4byte gLinkEntity
 _080A8768:
@@ -6496,7 +6496,7 @@ _080A87A4:
 _080A87B6:
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldrh r0, [r5, #0x36]
 	adds r0, #2
 	strh r0, [r5, #0x36]
@@ -6565,7 +6565,7 @@ sub_080A881C: @ 0x080A881C
 	ldrb r0, [r0]
 	cmp r0, #0x80
 	bne _080A884A
-	ldr r0, _080A8850 @ =gUnk_03003F80
+	ldr r0, _080A8850 @ =gLinkState
 	movs r1, #0xf0
 	strb r1, [r0, #0xf]
 	movs r0, #2
@@ -6575,7 +6575,7 @@ _080A884A:
 	bl sub_0805E780
 	b _080A8866
 	.align 2, 0
-_080A8850: .4byte gUnk_03003F80
+_080A8850: .4byte gLinkState
 _080A8854:
 	ldrb r0, [r1, #0xc]
 	cmp r0, #1
@@ -6691,7 +6691,7 @@ _080A890E:
 	bl sub_08078954
 	ldr r1, [r4, #0x54]
 	adds r0, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldrb r0, [r4, #0xe]
 	adds r1, r0, #1
 	strb r1, [r4, #0xe]
@@ -6767,7 +6767,7 @@ _080A89A6:
 	bl sub_08078954
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 _080A89B4:
 	movs r1, #0xa0
 	lsls r1, r1, #6
@@ -6939,7 +6939,7 @@ _080A8AE6:
 	bne _080A8B2E
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldrb r0, [r5, #0x15]
 	adds r2, r0, #4
 	movs r0, #0x18
@@ -7098,7 +7098,7 @@ _080A8C16:
 	bne _080A8C42
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	beq _080A8C42
@@ -7243,7 +7243,7 @@ _080A8D2A:
 	bne _080A8D56
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	beq _080A8D56
@@ -7382,7 +7382,7 @@ sub_080A8E28: @ 0x080A8E28
 	beq _080A8E6E
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	movs r1, #0x80
 	lsls r1, r1, #5
 	ldrb r2, [r5, #0x15]
@@ -7430,7 +7430,7 @@ _080A8E8E:
 	ldrb r6, [r5, #0xa]
 	cmp r6, #1
 	bne _080A8ECE
-	bl sub_08000E50
+	bl Random
 	adds r2, r0, #0
 	ldr r0, _080A8EC4 @ =0x000001FF
 	ands r2, r0
@@ -7478,7 +7478,7 @@ _080A8EF2:
 _080A8F02:
 	ldr r0, _080A8F64 @ =0xFF600000
 	str r0, [r5, #0x34]
-	bl sub_08000E50
+	bl Random
 	ands r4, r0
 	lsls r2, r4, #1
 	ldr r1, _080A8F68 @ =gUnk_08129978
@@ -7501,7 +7501,7 @@ _080A8F02:
 	ands r2, r0
 	cmp r2, #0
 	beq _080A8F74
-	bl sub_08000E50
+	bl Random
 	ldr r2, _080A8F6C @ =gUnk_08129988
 	movs r1, #0xf
 	ands r1, r0
@@ -7511,7 +7511,7 @@ _080A8F02:
 	ldrh r2, [r5, #0x2e]
 	adds r0, r0, r2
 	strh r0, [r5, #0x2e]
-	bl sub_08000E50
+	bl Random
 	ldr r2, _080A8F70 @ =gUnk_08129980
 	movs r1, #7
 	ands r1, r0
@@ -7527,7 +7527,7 @@ _080A8F68: .4byte gUnk_08129978
 _080A8F6C: .4byte gUnk_08129988
 _080A8F70: .4byte gUnk_08129980
 _080A8F74:
-	bl sub_08000E50
+	bl Random
 	ldr r2, _080A8FB0 @ =gUnk_08129980
 	movs r1, #7
 	ands r1, r0
@@ -7537,7 +7537,7 @@ _080A8F74:
 	ldrh r1, [r5, #0x2e]
 	adds r0, r0, r1
 	strh r0, [r5, #0x2e]
-	bl sub_08000E50
+	bl Random
 	ldr r2, _080A8FB4 @ =gUnk_08129988
 	movs r1, #0xf
 	ands r1, r0
@@ -7817,7 +7817,7 @@ _080A91A4:
 	str r0, [r5, #0x48]
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	adds r0, r4, #0
 	adds r0, #0x3d
 	ldrb r0, [r0]
@@ -7851,7 +7851,7 @@ sub_080A91E0: @ 0x080A91E0
 	bne _080A9204
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	bl sub_08000E50
+	bl Random
 	strb r0, [r4, #0xe]
 	ldrb r1, [r4, #0x18]
 	movs r0, #4
@@ -7874,7 +7874,7 @@ _080A9218:
 _080A921C:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
 	beq _080A9230
@@ -7919,7 +7919,7 @@ _080A9230:
 	str r0, [r5, #0x50]
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	b _080A92F6
 	.align 2, 0
 _080A9284: .4byte gUnk_081299C8
@@ -8457,7 +8457,7 @@ _080A9660:
 	movs r1, #6
 	orrs r0, r1
 	strb r0, [r2]
-	bl sub_08000E50
+	bl Random
 	ldr r2, _080A96C8 @ =0x000001FF
 	adds r1, r2, #0
 	ands r0, r1
@@ -8465,14 +8465,14 @@ _080A9660:
 	adds r1, r2, #0
 	adds r0, r0, r1
 	strh r0, [r4, #0x24]
-	bl sub_08000E50
+	bl Random
 	ldr r1, _080A96CC @ =0x00001FFF
 	ands r1, r0
 	movs r0, #0xc0
 	lsls r0, r0, #9
 	adds r1, r1, r0
 	str r1, [r4, #0x20]
-	bl sub_08000E50
+	bl Random
 	movs r1, #7
 	ands r0, r1
 	subs r0, #4
@@ -8495,11 +8495,11 @@ _080A9660:
 _080A96C8: .4byte 0x000001FF
 _080A96CC: .4byte 0x00001FFF
 _080A96D0:
-	bl sub_08000E50
+	bl Random
 	ands r0, r5
 	cmp r0, #0
 	beq _080A96EA
-	bl sub_08000E50
+	bl Random
 	movs r1, #7
 	ands r0, r1
 	ldrb r1, [r4, #0x15]
@@ -8507,7 +8507,7 @@ _080A96D0:
 	strb r0, [r4, #0x15]
 	b _080A96F8
 _080A96EA:
-	bl sub_08000E50
+	bl Random
 	movs r1, #7
 	ands r0, r1
 	ldrb r1, [r4, #0x15]
@@ -8531,7 +8531,7 @@ _080A96F8:
 _080A9718:
 	ldr r0, _080A9760 @ =gLinkEntity
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldr r0, _080A9764 @ =0xFF600000
 	str r0, [r4, #0x34]
 	ldrh r0, [r4, #0x2e]
@@ -8540,13 +8540,13 @@ _080A9718:
 	ldrh r0, [r4, #0x32]
 	adds r0, #0x40
 	strh r0, [r4, #0x32]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0xc0
 	bl __modsi3
 	ldrh r1, [r4, #0x2e]
 	subs r1, r1, r0
 	strh r1, [r4, #0x2e]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x7f
 	ands r1, r0
 	ldrh r0, [r4, #0x32]
@@ -8771,7 +8771,7 @@ _080A98D0:
 	strb r0, [r1, #0x15]
 	ldr r1, [r4, #0x54]
 	adds r0, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 _080A98FC:
 	adds r5, #1
 	cmp r5, #2
@@ -10071,7 +10071,7 @@ sub_080AA270: @ 0x080AA270
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	ldr r4, [r5, #0x50]
-	bl sub_08000E50
+	bl Random
 	ldr r1, _080AA2A4 @ =gUnk_08129CA4
 	movs r6, #7
 	ands r0, r6
@@ -10096,7 +10096,7 @@ sub_080AA270: @ 0x080AA270
 _080AA2A4: .4byte gUnk_08129CA4
 _080AA2A8: .4byte gUnk_08129CF4
 _080AA2AC:
-	bl sub_08000E50
+	bl Random
 	ldr r1, _080AA2D8 @ =gUnk_08129CAC
 	ands r0, r6
 	adds r0, r0, r1
@@ -10346,7 +10346,7 @@ _080AA474:
 	cmp r1, #0
 	beq _080AA48A
 	adds r0, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 _080AA48A:
 	adds r0, r4, #0
 	bl sub_0805E7BC
@@ -10952,7 +10952,7 @@ _080AA920:
 	ldrb r2, [r4, #0xa]
 	cmp r0, r2
 	bne _080AA99A
-	ldr r1, _080AA9A4 @ =gUnk_03003F80
+	ldr r1, _080AA9A4 @ =gLinkState
 	adds r0, r1, #0
 	adds r0, #0xa8
 	ldrb r0, [r0]
@@ -11011,7 +11011,7 @@ _080AA99A:
 	.align 2, 0
 _080AA99C: .4byte gLinkEntity
 _080AA9A0: .4byte gUnk_0812A064
-_080AA9A4: .4byte gUnk_03003F80
+_080AA9A4: .4byte gLinkState
 _080AA9A8: .4byte gUnk_0812A06C
 
 	thumb_func_start sub_080AA9AC
@@ -11300,7 +11300,7 @@ sub_080AABB0: @ 0x080AABB0
 	ldr r5, [r4, #0x50]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldrb r1, [r5, #0x14]
 	lsls r1, r1, #1
 	ldr r0, _080AABEC @ =gUnk_080C9160
@@ -11409,7 +11409,7 @@ _080AAC84:
 	bl sub_0806FAB0
 _080AAC8C:
 	bl sub_08077B2C
-	ldr r2, _080AACB4 @ =gUnk_03003F80
+	ldr r2, _080AACB4 @ =gLinkState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80
 	orrs r1, r0
@@ -11428,14 +11428,14 @@ _080AACA0:
 	strb r1, [r0]
 	b _080AACCA
 	.align 2, 0
-_080AACB4: .4byte gUnk_03003F80
+_080AACB4: .4byte gLinkState
 _080AACB8: .4byte gLinkEntity
 _080AACBC:
 	ldr r0, _080AACDC @ =0x00000119
 	bl PlaySFX
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 _080AACCA:
 	adds r1, r4, #0
 	adds r1, #0x42
@@ -11671,7 +11671,7 @@ _080AAE64:
 	strb r0, [r5, #0x10]
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
-	bl sub_0806FA24
+	bl CopyPosition
 _080AAE7C:
 	ldrb r1, [r5, #0xa]
 	adds r0, r5, #0
@@ -11735,7 +11735,7 @@ _080AAEE0:
 _080AAEEE:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 _080AAEF6:
 	adds r0, r4, #0
 	bl sub_080AB034
@@ -11757,7 +11757,7 @@ sub_080AAF10: @ 0x080AAF10
 	adds r4, r0, #0
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	adds r0, r4, #0
 	bl sub_080AB034
 	ldr r3, [r4, #0x50]
@@ -11813,7 +11813,7 @@ sub_080AAF74: @ 0x080AAF74
 	bl sub_0807953C
 	cmp r0, #0
 	beq _080AAF94
-	bl sub_08000E50
+	bl Random
 	adds r3, r5, #0
 	adds r3, #0x80
 	ldrb r1, [r3]
@@ -11869,7 +11869,7 @@ _080AAFE0:
 	adds r0, #0x3d
 	movs r1, #0xf0
 	strb r1, [r0]
-	ldr r0, _080AB000 @ =gUnk_03003F80
+	ldr r0, _080AB000 @ =gLinkState
 	strb r2, [r0, #0x1a]
 	adds r0, r5, #0
 	adds r0, #0x45
@@ -11877,10 +11877,10 @@ _080AAFE0:
 	b _080AB028
 	.align 2, 0
 _080AAFFC: .4byte gLinkEntity
-_080AB000: .4byte gUnk_03003F80
+_080AB000: .4byte gLinkState
 _080AB004:
 	bl sub_08077B2C
-	ldr r2, _080AB02C @ =gUnk_03003F80
+	ldr r2, _080AB02C @ =gLinkState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80
 	orrs r1, r0
@@ -11891,14 +11891,14 @@ _080AB004:
 	ldr r4, _080AB030 @ =gLinkEntity
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldrh r0, [r4, #0x36]
 	subs r0, #4
 	strh r0, [r5, #0x36]
 _080AB028:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080AB02C: .4byte gUnk_03003F80
+_080AB02C: .4byte gLinkState
 _080AB030: .4byte gLinkEntity
 
 	thumb_func_start sub_080AB034
@@ -12325,7 +12325,7 @@ sub_080AB318: @ 0x080AB318
 	strh r1, [r0]
 	ldr r0, [r6, #0x50]
 	adds r1, r6, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	movs r1, #0x80
 	lsls r1, r1, #5
 	ldrb r2, [r6, #0x15]
@@ -12365,7 +12365,7 @@ sub_080AB318: @ 0x080AB318
 	adds r2, r7, #0
 	bl sub_080041DC
 	adds r4, r0, #0
-	bl sub_08000E50
+	bl Random
 	adds r1, r0, #0
 	ldr r0, _080AB3E4 @ =0x000001FF
 	ands r1, r0
@@ -13087,7 +13087,7 @@ sub_080AB8E8: @ 0x080AB8E8
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _080AB90E
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x18
 	ands r0, r1
 	strb r0, [r4, #0x15]
@@ -13109,7 +13109,7 @@ _080AB90E:
 	str r0, [r1, #0x50]
 	str r4, [r1, #0x54]
 	adds r0, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 _080AB936:
 	adds r1, r4, #0
 	adds r1, #0x68
@@ -13151,7 +13151,7 @@ sub_080AB950: @ 0x080AB950
 	cmp r0, #0
 	beq _080AB9D4
 _080AB980:
-	bl sub_08000E50
+	bl Random
 	ldr r2, _080AB998 @ =gUnk_0812A6BC
 	movs r1, #1
 	ands r1, r0
@@ -13605,13 +13605,13 @@ sub_080ABCC4: @ 0x080ABCC4
 	movs r4, #0
 	movs r0, #1
 	strb r0, [r5, #0xc]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x3f
 	ands r0, r1
 	adds r0, #0x30
 	strb r0, [r5, #0xe]
 	strb r4, [r5, #0xf]
-	bl sub_08000E50
+	bl Random
 	movs r1, #0x1f
 	ands r0, r1
 	strb r0, [r5, #0x15]
@@ -13760,7 +13760,7 @@ _080ABE00:
 sub_080ABE04: @ 0x080ABE04
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08000E50
+	bl Random
 	adds r5, r0, #0
 	movs r0, #0xff
 	ands r5, r0
@@ -13857,7 +13857,7 @@ sub_080ABEA8: @ 0x080ABEA8
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	bne _080ABEDA
-	bl sub_08000E50
+	bl Random
 	movs r1, #0xf
 	ands r0, r1
 	lsls r0, r0, #1
@@ -14213,7 +14213,7 @@ sub_080AC168: @ 0x080AC168
 	movs r0, #4
 	strb r0, [r4, #0xc]
 	strb r0, [r4, #0xe]
-	bl sub_08000E50
+	bl Random
 	adds r5, r0, #0
 	movs r0, #7
 	ands r5, r0
@@ -14298,7 +14298,7 @@ sub_080AC200: @ 0x080AC200
 	ldr r0, [r4, #0x50]
 	str r0, [r1, #0x50]
 	adds r0, r4, #0
-	bl sub_0806FA24
+	bl CopyPosition
 _080AC23C:
 	ldrb r0, [r4, #0xf]
 	subs r0, #1
@@ -14459,7 +14459,7 @@ sub_080AC340: @ 0x080AC340
 	ands r0, r1
 	orrs r0, r2
 	strb r0, [r5, #0x18]
-	bl sub_08000E50
+	bl Random
 	ldr r1, _080AC384 @ =gUnk_0812A9B4
 	ands r0, r4
 	lsls r0, r0, #1
@@ -15072,7 +15072,7 @@ sub_080AC7C4: @ 0x080AC7C4
 	beq _080AC7E4
 	ldr r0, [r4, #0x50]
 	adds r1, r5, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	b _080AC7E6
 _080AC7E4:
 	ldr r5, [r4, #0x50]
@@ -15602,7 +15602,7 @@ _080ACBC8: .4byte 0x00000119
 sub_080ACBCC: @ 0x080ACBCC
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _080ACBFC @ =gUnk_03003F80
+	ldr r0, _080ACBFC @ =gLinkState
 	ldrb r1, [r0, #0x1c]
 	movs r0, #0x7f
 	ands r0, r1
@@ -15623,7 +15623,7 @@ _080ACBE0:
 	strb r0, [r1]
 	pop {r4, pc}
 	.align 2, 0
-_080ACBFC: .4byte gUnk_03003F80
+_080ACBFC: .4byte gLinkState
 _080ACC00: .4byte gUnk_0812AA80
 
 	thumb_func_start sub_080ACC04
@@ -15789,7 +15789,7 @@ _080ACD32:
 	adds r6, r0, #0
 	cmp r6, #0
 	beq _080ACDAE
-	bl sub_08000E50
+	bl Random
 	adds r2, r0, #0
 	movs r0, #0xf
 	ands r2, r0
@@ -16161,7 +16161,7 @@ _080ACFE8:
 	bl sub_0805E780
 	b _080AD03C
 _080ACFF8:
-	ldr r0, _080AD02C @ =gUnk_03003F80
+	ldr r0, _080AD02C @ =gLinkState
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	beq _080AD00E
@@ -16188,7 +16188,7 @@ _080AD00E:
 	str r2, [r4, #0x20]
 	b _080AD03C
 	.align 2, 0
-_080AD02C: .4byte gUnk_03003F80
+_080AD02C: .4byte gLinkState
 _080AD030: .4byte gLinkEntity
 _080AD034:
 	bl sub_08079184
@@ -16361,7 +16361,7 @@ _080AD16A:
 	ldrb r2, [r4, #0xe]
 	adds r0, r4, #0
 	movs r3, #0
-	bl sub_080A2988
+	bl CreateObjectWithParent
 	b _080AD1DA
 _080AD178:
 	ldrb r0, [r4, #0xe]
@@ -16439,7 +16439,7 @@ _080AD202:
 	bl sub_0806F8DC
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA24
+	bl CopyPosition
 	ldr r0, [r4, #0x20]
 	str r0, [r5, #0x20]
 	ldrb r0, [r4, #0x15]
@@ -16462,7 +16462,7 @@ _080AD220:
 	.align 2, 0
 _080AD240: .4byte gLinkEntity
 _080AD244:
-	ldr r0, _080AD270 @ =gUnk_03003F80
+	ldr r0, _080AD270 @ =gLinkState
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	beq _080AD25A
@@ -16486,7 +16486,7 @@ _080AD25A:
 _080AD26E:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080AD270: .4byte gUnk_03003F80
+_080AD270: .4byte gLinkState
 
 	thumb_func_start sub_080AD274
 sub_080AD274: @ 0x080AD274
