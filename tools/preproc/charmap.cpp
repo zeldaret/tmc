@@ -69,6 +69,7 @@ CharmapReader::CharmapReader(std::string filename) : m_filename(filename)
 {
     if (filename == "")
     {
+        m_pos = 0;
         m_size = 0;
         m_buffer = new char[1] {};
         return;
