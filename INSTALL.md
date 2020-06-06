@@ -38,7 +38,7 @@ To set up the repository:
 
 	cd ../tmc
 
-To build **zeldatmc.gba**:
+To build **tmc.gba**:
 
 	make -j$(nproc)
 
