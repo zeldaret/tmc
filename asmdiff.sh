@@ -1,6 +1,6 @@
 #!/bin/bash
 
-buildname=zeldatmc
+buildname=tmc
 baserom=baserom
 
 OBJDUMP="$DEVKITARM/bin/arm-none-eabi-objdump -D -bbinary -marmv4t -Mforce-thumb"
