@@ -13,13 +13,13 @@ gUnk_080B2CD8:: @ 080B2CD8
 gUnk_080B2CE8:: @ 080B2CE8
 	.incbin "baserom.gba", 0x0B2CE8, 0x0000064
 
-gUnk_080B2D4C:: @ 080B2D4C
+gObjectFunctions:: @ 080B2D4C
 	.incbin "baserom.gba", 0x0B2D4C, 0x0000308
 
 gUnk_080B3054:: @ 080B3054
 	.incbin "baserom.gba", 0x0B3054, 0x00000E8
 
-gUnk_080B313C:: @ 080B313C
+gNPCFunctions:: @ 080B313C
 	.incbin "baserom.gba", 0x0B313C, 0x0000604
 
 gUnk_080B3740:: @ 080B3740
@@ -9394,7 +9394,7 @@ gUnk_080D3BC8:: @ 080D3BC8
 gUnk_080D3BE8:: @ 080D3BE8
 	.incbin "baserom.gba", 0x0D3BE8, 0x0000010
 
-gUnk_080D3BF8:: @ 080D3BF8
+gEnemyFunctions:: @ 080D3BF8
 	.incbin "baserom.gba", 0x0D3BF8, 0x000019C
 
 gUnk_080D3D94:: @ 080D3D94
@@ -32575,7 +32575,7 @@ gUnk_0811BC98:: @ 0811BC98
 gUnk_0811BCB4:: @ 0811BCB4
 	.incbin "baserom.gba", 0x11BCB4, 0x0000010
 
-gUnk_0811BCC4:: @ 0811BCC4
+gItemBehaviors:: @ 0811BCC4
 	.incbin "baserom.gba", 0x11BCC4, 0x0000080
 
 gUnk_0811BD44:: @ 0811BD44

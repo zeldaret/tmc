@@ -979,7 +979,7 @@ _080A30F8:
 _080A30FC:
 	adds r0, r4, #0
 	movs r1, #0x18
-	bl sub_08004260
+	bl UpdateSprite
 	adds r0, r4, #0
 	bl sub_080A310C
 	pop {r4, r5, pc}

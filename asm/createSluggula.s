@@ -59,7 +59,7 @@ _08023D20:
 	strb r1, [r4, #0x1b]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_08004260
+	bl UpdateSprite
 	b _08023E0A
 	.align 2, 0
 _08023D44: .4byte 0x0000FF80
@@ -96,7 +96,7 @@ _08023D6E:
 	bl sub_08004488
 	adds r0, r4, #0
 	movs r1, #4
-	bl sub_08004260
+	bl UpdateSprite
 	b _08023E0A
 	.align 2, 0
 _08023D90: .4byte 0x0000012D

@@ -455,11 +455,11 @@ sub_0806F078: @ 0x0806F078
 	cmp r0, #0
 	beq _0806F096
 	adds r0, r2, #0
-	bl sub_080042AC
+	bl LoadAnimation
 	b _0806F09C
 _0806F096:
 	adds r0, r2, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0806F09C:
 	movs r0, #1
 	b _0806F0A2

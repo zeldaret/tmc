@@ -51,7 +51,7 @@ _08033F70:
 	strb r2, [r0]
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 	movs r0, #0x36
 	movs r1, #1
 	bl CreateEnemy

@@ -87,7 +87,7 @@ _0809D234:
 	bl sub_0805E3A0
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_080042AC
+	bl LoadAnimation
 	ldr r0, _0809D2AC @ =0x00000123
 	bl PlaySFX
 	movs r0, #0x68

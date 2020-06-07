@@ -167,7 +167,7 @@ sub_0802B33C: @ 0x0802B33C
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {r4, pc}
 	.align 2, 0
 
@@ -436,7 +436,7 @@ sub_0802B530: @ 0x0802B530
 	movs r1, #1
 	strb r1, [r0, #0xc]
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {pc}
 	.align 2, 0
 
@@ -492,7 +492,7 @@ _0802B586:
 	beq _0802B5A2
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_08004260
+	bl UpdateSprite
 _0802B5A2:
 	ldrh r2, [r4, #0x24]
 	movs r0, #0x24
@@ -510,7 +510,7 @@ _0802B5B8:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_08004260
+	bl UpdateSprite
 _0802B5C4:
 	pop {r4, pc}
 	.align 2, 0
@@ -533,7 +533,7 @@ sub_0802B5C8: @ 0x0802B5C8
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802B5EE:
 	pop {r4, pc}
 
@@ -649,7 +649,7 @@ _0802B6CC:
 	strb r0, [r1]
 	adds r0, r4, #0
 	movs r1, #9
-	bl sub_08004260
+	bl UpdateSprite
 _0802B706:
 	adds r0, r4, #0
 	adds r0, #0x43
@@ -711,7 +711,7 @@ sub_0802B744: @ 0x0802B744
 	strb r1, [r4, #0x15]
 	adds r0, r4, #0
 	movs r1, #8
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802B7A2
 _0802B780:
 	ldrb r0, [r4, #0xe]
@@ -773,7 +773,7 @@ sub_0802B7A4: @ 0x0802B7A4
 	strb r0, [r4, #0x14]
 	adds r0, r4, #0
 	adds r1, r2, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802B7F4:
 	pop {r4, pc}
 	.align 2, 0
@@ -870,7 +870,7 @@ sub_0802B880: @ 0x0802B880
 	strb r0, [r2, #0x14]
 	ldrb r1, [r2, #0x14]
 	adds r0, r2, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802B8AC:
 	pop {pc}
 	.align 2, 0
@@ -947,7 +947,7 @@ _0802B91C:
 	strb r0, [r1]
 	ldrb r1, [r3, #0x14]
 	adds r0, r3, #0
-	bl sub_08004260
+	bl UpdateSprite
 	ldr r0, _0802B944 @ =0x0000012B
 	bl sub_08004488
 _0802B940:
@@ -1025,7 +1025,7 @@ sub_0802B9B4: @ 0x0802B9B4
 	strb r1, [r0, #0x14]
 	ldrb r1, [r0, #0x14]
 	adds r1, #4
-	bl sub_08004260
+	bl UpdateSprite
 	pop {pc}
 	.align 2, 0
 
@@ -1412,7 +1412,7 @@ sub_0802BC74: @ 0x0802BC74
 	strb r0, [r4, #0x14]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {r4, pc}
 	.align 2, 0
 _0802BC9C: .4byte gLinkEntity
@@ -1463,7 +1463,7 @@ _0802BCF0:
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802BCFA:
 	pop {r4, pc}
 
@@ -1550,7 +1550,7 @@ sub_0802BD54: @ 0x0802BD54
 	strb r0, [r4, #0x14]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {r4, pc}
 
 	thumb_func_start sub_0802BD8C
@@ -1762,7 +1762,7 @@ sub_0802BEEC: @ 0x0802BEEC
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802BF3A
 _0802BF1E:
 	movs r1, #0xe0
@@ -1807,7 +1807,7 @@ sub_0802BF3C: @ 0x0802BF3C
 	strb r0, [r4, #0x14]
 	adds r1, r0, #4
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802BF76:
 	pop {r4, pc}
 
@@ -1826,7 +1826,7 @@ sub_0802BF78: @ 0x0802BF78
 	strb r1, [r0, #0x15]
 	ldrb r1, [r0, #0x14]
 	adds r1, #8
-	bl sub_08004260
+	bl UpdateSprite
 	pop {pc}
 
 	thumb_func_start sub_0802BF98
@@ -1949,7 +1949,7 @@ sub_0802C058: @ 0x0802C058
 	lsrs r1, r1, #3
 	strb r1, [r0, #0x14]
 	ldrb r1, [r0, #0x14]
-	bl sub_08004260
+	bl UpdateSprite
 	pop {pc}
 
 	thumb_func_start sub_0802C06C
@@ -2621,7 +2621,7 @@ _0802C534:
 	strb r0, [r5, #0xe]
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802C55E:
 	movs r0, #3
 	ands r4, r0
@@ -2649,7 +2649,7 @@ _0802C584:
 	strb r0, [r5, #0xe]
 	adds r0, r5, #0
 	movs r1, #1
-	bl sub_08004260
+	bl UpdateSprite
 _0802C596:
 	movs r2, #3
 	ands r4, r2
@@ -2900,7 +2900,7 @@ _0802C770:
 	movs r0, #6
 	orrs r1, r0
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802C79E:
 	ldr r1, _0802C7A8 @ =gUnk_080CD5D4
 	adds r0, r4, #0
@@ -3047,7 +3047,7 @@ _0802C88C:
 	movs r0, #6
 	orrs r1, r0
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802C8A2:
 	ldrb r1, [r4, #0x10]
 	movs r0, #0x7f
@@ -3116,7 +3116,7 @@ sub_0802C8D8: @ 0x0802C8D8
 	ldrb r1, [r5, #0x15]
 	lsrs r1, r1, #4
 	adds r0, r5, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -3143,7 +3143,7 @@ sub_0802C91C: @ 0x0802C91C
 	movs r0, #2
 	orrs r1, r0
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802C950:
 	ldrb r0, [r4, #0xe]
 	subs r1, r0, #1
@@ -3175,7 +3175,7 @@ _0802C97A:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #4
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802C992:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -3192,7 +3192,7 @@ _0802C992:
 	strb r1, [r4, #0x15]
 	lsrs r1, r1, #4
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802C9B4:
 	pop {r4, pc}
 	.align 2, 0
@@ -3237,7 +3237,7 @@ sub_0802C9D0: @ 0x0802C9D0
 	movs r0, #6
 	orrs r1, r0
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	adds r0, r4, #0
 	bl sub_08004274
 	pop {r4, pc}
@@ -3357,7 +3357,7 @@ sub_0802CA94: @ 0x0802CA94
 	movs r0, #6
 	orrs r1, r0
 	adds r0, r3, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {pc}
 	.align 2, 0
 _0802CAF4: .4byte gLinkEntity
@@ -3457,7 +3457,7 @@ sub_0802CB68: @ 0x0802CB68
 	movs r0, #2
 	orrs r1, r0
 	adds r0, r5, #0
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802CBC2
 _0802CBB2:
 	movs r0, #0x3c
@@ -3466,7 +3466,7 @@ _0802CBB2:
 	strh r0, [r5, #0x24]
 	lsrs r1, r2, #4
 	adds r0, r5, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802CBC2:
 	pop {r4, r5, pc}
 
@@ -3592,7 +3592,7 @@ _0802CC9A:
 	strb r0, [r4, #0x10]
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_08004260
+	bl UpdateSprite
 	ldr r2, _0802CCD4 @ =gLinkEntity
 	ldrb r1, [r2, #0x10]
 	adds r0, r5, #0
@@ -3665,7 +3665,7 @@ sub_0802CCE0: @ 0x0802CCE0
 	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 	adds r0, r4, #0
 	bl sub_0802CF64
 	adds r0, r4, #0
@@ -4341,7 +4341,7 @@ _0802D276:
 	bne _0802D288
 	adds r0, r5, #0
 	movs r1, #0x4e
-	bl sub_08004260
+	bl UpdateSprite
 _0802D288:
 	ldrb r0, [r5, #0xe]
 	cmp r0, #0
@@ -4682,7 +4682,7 @@ _0802D52E:
 	strb r1, [r0]
 	adds r0, r4, #0
 	movs r1, #0x4c
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802D63C
 	.align 2, 0
 _0802D540: .4byte gLinkState
@@ -4719,7 +4719,7 @@ _0802D55C:
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #0x24
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802D63C
 	.align 2, 0
 _0802D588: .4byte gUnk_080CD7C4
@@ -4735,7 +4735,7 @@ _0802D58C:
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080042AC
+	bl LoadAnimation
 	b _0802D63C
 _0802D5A8:
 	ldr r0, _0802D5E8 @ =gUnk_080CD884
@@ -4765,14 +4765,14 @@ _0802D5A8:
 	bl CopyPosition
 	adds r0, r4, #0
 	movs r1, #0x4f
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802D63C
 	.align 2, 0
 _0802D5E8: .4byte gUnk_080CD884
 _0802D5EC:
 	adds r0, r4, #0
 	movs r1, #0x2c
-	bl sub_080042AC
+	bl LoadAnimation
 	b _0802D63C
 _0802D5F6:
 	adds r2, r4, #0
@@ -4789,7 +4789,7 @@ _0802D5F6:
 	bl CopyPosition
 	adds r0, r4, #0
 	movs r1, #0x2d
-	bl sub_080042AC
+	bl LoadAnimation
 	b _0802D63C
 _0802D61A:
 	adds r2, r4, #0
@@ -4806,7 +4806,7 @@ _0802D61A:
 	bl CopyPosition
 	adds r0, r4, #0
 	movs r1, #0x50
-	bl sub_08004260
+	bl UpdateSprite
 _0802D63C:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
@@ -4960,7 +4960,7 @@ _0802D734:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #0x4d
-	bl sub_08004260
+	bl UpdateSprite
 	movs r0, #0x24
 	movs r1, #5
 	bl CreateEnemy
@@ -6302,7 +6302,7 @@ _0802E158:
 	strb r0, [r4, #0xb]
 	adds r0, r4, #0
 	movs r1, #0x4e
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802E1C4
 	.align 2, 0
 _0802E18C: .4byte 0xFFFF0000
@@ -6613,7 +6613,7 @@ _0802E3CA:
 	strb r1, [r6]
 	adds r0, r4, #0
 	movs r1, #0x4d
-	bl sub_08004260
+	bl UpdateSprite
 	movs r0, #0x24
 	movs r1, #5
 	bl CreateEnemy
@@ -6932,7 +6932,7 @@ _0802E64C:
 	cmp r0, r1
 	beq _0802E6E8
 	adds r0, r2, #0
-	bl sub_080042AC
+	bl LoadAnimation
 	b _0802E6E8
 _0802E662:
 	ldr r2, [sp, #8]
@@ -6999,7 +6999,7 @@ _0802E6CA:
 	beq _0802E6E2
 	adds r0, r1, #0
 	adds r1, r7, #0
-	bl sub_080042AC
+	bl LoadAnimation
 	b _0802E6E8
 _0802E6E2:
 	adds r0, r1, #0
@@ -7059,7 +7059,7 @@ _0802E73E:
 	beq _0802E756
 	adds r0, r1, #0
 	adds r1, r7, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802E756:
 	adds r6, r4, #0
 	cmp r6, #4
@@ -7991,7 +7991,7 @@ _0802EDE0:
 	bl sub_0802EFB8
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 	adds r0, r4, #0
 	bl sub_0802EF58
 _0802EE0A:
@@ -8055,7 +8055,7 @@ sub_0802EE38: @ 0x0802EE38
 	strb r0, [r5, #0x15]
 	adds r0, r5, #0
 	movs r1, #1
-	bl sub_08004260
+	bl UpdateSprite
 _0802EE82:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -8509,7 +8509,7 @@ _0802F1CE:
 	str r0, [r4, #0x20]
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802F1E8
 	.align 2, 0
 _0802F1DC: .4byte gUnk_080CDEF8
@@ -8599,7 +8599,7 @@ _0802F270:
 	strh r1, [r0]
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {r4, r5, pc}
 	.align 2, 0
 _0802F280: .4byte gUnk_080CDEF8
@@ -8651,7 +8651,7 @@ _0802F2AA:
 	bl sub_0802F45C
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802F2FE
 _0802F2E4:
 	adds r0, r4, #0
@@ -8665,7 +8665,7 @@ _0802F2E4:
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_08004260
+	bl UpdateSprite
 _0802F2FE:
 	pop {r4, pc}
 
@@ -8715,7 +8715,7 @@ _0802F350:
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802F3F0
 	.align 2, 0
 _0802F360: .4byte gUnk_080CDEF8
@@ -8765,7 +8765,7 @@ _0802F3AC:
 	bge _0802F3C6
 	adds r0, r4, #0
 	movs r1, #4
-	bl sub_08004260
+	bl UpdateSprite
 	movs r0, #1
 	strb r0, [r4, #0xd]
 _0802F3C6:
@@ -8837,7 +8837,7 @@ sub_0802F3F4: @ 0x0802F3F4
 	bl sub_0802F45C
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802F45A
 _0802F44C:
 	movs r1, #0
@@ -8845,7 +8845,7 @@ _0802F44C:
 	strb r0, [r4, #0xc]
 	strb r1, [r2]
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802F45A:
 	pop {r4, pc}
 
@@ -9040,7 +9040,7 @@ _0802F5D0:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {r4, pc}
 
 	thumb_func_start sub_0802F5DC
@@ -9112,7 +9112,7 @@ _0802F62A:
 	movs r0, #4
 	orrs r1, r0
 	adds r0, r5, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802F660:
 	adds r0, r5, #0
 	bl sub_0802F9C8
@@ -9225,7 +9225,7 @@ _0802F6F0:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802F7A2
 _0802F742:
 	ldrb r0, [r4, #0xe]
@@ -9272,7 +9272,7 @@ _0802F76C:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802F7A2:
 	adds r0, r4, #0
 	bl sub_0802F9C8
@@ -9360,7 +9360,7 @@ _0802F818:
 	lsrs r1, r1, #1
 _0802F844:
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802F884
 _0802F84C:
 	lsls r0, r1, #0x18
@@ -9699,12 +9699,12 @@ sub_0802FA88: @ 0x0802FA88
 	movs r0, #4
 	orrs r1, r0
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802FAF2
 _0802FAEA:
 	lsrs r1, r2, #3
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802FAF2:
 	movs r7, #1
 	b _0802FB2A
@@ -9731,7 +9731,7 @@ _0802FAF6:
 	strb r2, [r4, #0x14]
 	lsrs r1, r2, #1
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802FB2A:
 	adds r0, r7, #0
 	pop {r4, r5, r6, r7, pc}
@@ -9840,7 +9840,7 @@ _0802FBF6:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {r4, pc}
 	.align 2, 0
 
@@ -9913,7 +9913,7 @@ _0802FC52:
 	movs r0, #4
 	orrs r1, r0
 	adds r0, r5, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802FC88:
 	adds r0, r5, #0
 	bl sub_0802F9C8
@@ -10026,7 +10026,7 @@ _0802FD18:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	b _0802FDCA
 _0802FD6A:
 	ldrb r0, [r4, #0xe]
@@ -10073,7 +10073,7 @@ _0802FD94:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802FDCA:
 	adds r0, r4, #0
 	bl sub_0802F9C8
@@ -10210,7 +10210,7 @@ _0802FECE:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {r4, pc}
 	.align 2, 0
 
@@ -10283,7 +10283,7 @@ _0802FF2A:
 	movs r0, #4
 	orrs r1, r0
 	adds r0, r5, #0
-	bl sub_08004260
+	bl UpdateSprite
 _0802FF60:
 	adds r0, r5, #0
 	bl sub_0802F9C8
@@ -10396,7 +10396,7 @@ _0802FFF0:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	b _080300A2
 _08030042:
 	ldrb r0, [r4, #0xe]
@@ -10443,7 +10443,7 @@ _0803006C:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _080300A2:
 	adds r0, r4, #0
 	bl sub_0802F9C8
@@ -11679,7 +11679,7 @@ _080309C4:
 sub_080309C8: @ 0x080309C8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004260
+	bl UpdateSprite
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldr r0, [r0]
@@ -11964,12 +11964,12 @@ sub_08030B78: @ 0x08030B78
 	strb r0, [r4, #0x10]
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl sub_08004260
+	bl UpdateSprite
 	b _08030BE8
 _08030BE0:
 	adds r0, r4, #0
 	movs r1, #0xe
-	bl sub_08004260
+	bl UpdateSprite
 _08030BE8:
 	pop {r4, pc}
 	.align 2, 0
@@ -12037,7 +12037,7 @@ _08030C1C:
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl sub_08004260
+	bl UpdateSprite
 _08030C68:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -12085,7 +12085,7 @@ _08030C98:
 	bl sub_08030E58
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_08004260
+	bl UpdateSprite
 	adds r0, r4, #0
 	bl sub_08030FB4
 _08030CCC:
@@ -12113,7 +12113,7 @@ sub_08030CD0: @ 0x08030CD0
 	beq _08030D66
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	adds r0, r4, #0
 	adds r0, #0x79
 	ldrb r1, [r0]
@@ -12140,7 +12140,7 @@ _08030D1A:
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _08030D34:
 	adds r0, r4, #0
 	adds r0, #0x7a
@@ -12189,7 +12189,7 @@ sub_08030D68: @ 0x08030D68
 	beq _08030E1C
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	adds r0, r4, #0
 	movs r1, #1
 	bl sub_08049FDC
@@ -12229,7 +12229,7 @@ _08030DC4:
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _08030DDE:
 	movs r1, #0xe0
 	lsls r1, r1, #5
@@ -12256,7 +12256,7 @@ _08030DFC:
 	strb r0, [r4, #0x10]
 	adds r0, r4, #0
 	movs r1, #0xe
-	bl sub_08004260
+	bl UpdateSprite
 	adds r0, r4, #0
 	bl sub_08030F00
 _08030E1C:
@@ -12939,7 +12939,7 @@ sub_08031320: @ 0x08031320
 	ldr r1, _08031340 @ =gUnk_080FD308
 	str r1, [r0, #0x48]
 	movs r1, #0xa
-	bl sub_08004260
+	bl UpdateSprite
 	pop {pc}
 	.align 2, 0
 _08031340: .4byte gUnk_080FD308
@@ -13238,7 +13238,7 @@ _0803151E:
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	b _080315BA
 	.align 2, 0
 _08031574: .4byte gUnk_020000B0
@@ -13260,7 +13260,7 @@ _08031578:
 	beq _080315A2
 	strb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _080315A2:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -13337,7 +13337,7 @@ sub_08031600: @ 0x08031600
 	beq _08031638
 	strb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _08031638:
 	pop {r4, pc}
 	.align 2, 0
@@ -13584,7 +13584,7 @@ sub_080317E0: @ 0x080317E0
 	lsrs r1, r1, #2
 	strb r1, [r0, #0x14]
 	ldrb r1, [r0, #0x14]
-	bl sub_08004260
+	bl UpdateSprite
 	pop {pc}
 	.align 2, 0
 
@@ -13815,7 +13815,7 @@ _080319A2:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #0xe
-	bl sub_08004260
+	bl UpdateSprite
 _080319AC:
 	ldr r1, [sp]
 	ldrb r0, [r1]
@@ -13887,7 +13887,7 @@ _08031A1A:
 	strb r1, [r2]
 	adds r0, r4, #0
 	movs r1, #0xe
-	bl sub_08004260
+	bl UpdateSprite
 _08031A36:
 	adds r0, r4, #0
 	adds r0, #0x43
@@ -14030,7 +14030,7 @@ _08031AD8:
 	strh r4, [r6, #0x32]
 	adds r0, r6, #0
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 _08031B44:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -14070,7 +14070,7 @@ _08031B6C:
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_08004260
+	bl UpdateSprite
 _08031B90:
 	pop {r4, pc}
 	.align 2, 0
@@ -14108,7 +14108,7 @@ _08031BCE:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_08004260
+	bl UpdateSprite
 	b _08031C1A
 _08031BDA:
 	adds r2, r4, #0
@@ -14141,7 +14141,7 @@ _08031BFA:
 	strb r0, [r4, #0x10]
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_08004260
+	bl UpdateSprite
 _08031C1A:
 	pop {r4, pc}
 
@@ -14287,7 +14287,7 @@ sub_08031C58: @ 0x08031C58
 	strb r0, [r2]
 	adds r0, r7, #0
 	movs r1, #7
-	bl sub_08004260
+	bl UpdateSprite
 	b _08031D66
 	.align 2, 0
 _08031D50: .4byte gUnk_03003DBC
@@ -14511,7 +14511,7 @@ sub_08031EA8: @ 0x08031EA8
 	strb r0, [r1]
 	adds r0, r4, #0
 	movs r1, #4
-	bl sub_08004260
+	bl UpdateSprite
 	pop {r4, pc}
 
 	thumb_func_start sub_08031EE8
@@ -14563,7 +14563,7 @@ _08031F2E:
 	strb r0, [r4, #0x10]
 	adds r0, r4, #0
 	movs r1, #5
-	bl sub_08004260
+	bl UpdateSprite
 _08031F48:
 	pop {r4, pc}
 	.align 2, 0
@@ -14613,7 +14613,7 @@ sub_08031F54: @ 0x08031F54
 _08031FA2:
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_08004260
+	bl UpdateSprite
 _08031FAA:
 	pop {r4, pc}
 	.align 2, 0
@@ -14656,12 +14656,12 @@ _08031FD8:
 	beq _08031FFE
 	adds r0, r5, #0
 	movs r1, #9
-	bl sub_08004260
+	bl UpdateSprite
 	b _08032006
 _08031FFE:
 	adds r0, r5, #0
 	movs r1, #8
-	bl sub_08004260
+	bl UpdateSprite
 _08032006:
 	pop {r4, r5, pc}
 
@@ -14886,7 +14886,7 @@ _0803219C:
 	strb r0, [r2]
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl sub_08004260
+	bl UpdateSprite
 _080321C2:
 	ldr r0, [r4, #0x54]
 	cmp r0, #0
@@ -14959,7 +14959,7 @@ _08032230:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #0xd
-	bl sub_08004260
+	bl UpdateSprite
 _08032244:
 	pop {r4, pc}
 	.align 2, 0
@@ -15010,7 +15010,7 @@ sub_08032290: @ 0x08032290
 	movs r1, #0xc
 	strb r1, [r0, #0xe]
 	movs r1, #0xb
-	bl sub_08004260
+	bl UpdateSprite
 	pop {pc}
 	.align 2, 0
 
@@ -15038,7 +15038,7 @@ sub_080322A4: @ 0x080322A4
 	strh r0, [r2, #0x36]
 	adds r0, r2, #0
 	movs r1, #0xb
-	bl sub_08004260
+	bl UpdateSprite
 	movs r0, #1
 	b _080322E4
 _080322D8:
@@ -15223,7 +15223,7 @@ sub_080323F4: @ 0x080323F4
 	strb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl sub_080042AC
+	bl LoadAnimation
 	adds r5, r4, #0
 	adds r5, #0x43
 	b _08032446
@@ -15270,7 +15270,7 @@ sub_08032468: @ 0x08032468
 	strb r0, [r4, #0x14]
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_080042AC
+	bl LoadAnimation
 	adds r0, r4, #0
 	bl sub_080326FC
 	adds r0, r4, #0
@@ -15355,7 +15355,7 @@ sub_080324FC: @ 0x080324FC
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl sub_080042AC
+	bl LoadAnimation
 _08032524:
 	adds r0, r4, #0
 	bl sub_080042B8
@@ -15578,7 +15578,7 @@ sub_0803269C: @ 0x0803269C
 	ands r1, r0
 	adds r1, r1, r2
 	adds r0, r3, #0
-	bl sub_080042AC
+	bl LoadAnimation
 	b _080326F8
 _080326D6:
 	adds r0, r2, #4
@@ -15596,7 +15596,7 @@ _080326D6:
 	ands r1, r0
 	adds r1, r1, r2
 	adds r0, r3, #0
-	bl sub_080042AC
+	bl LoadAnimation
 _080326F8:
 	pop {pc}
 	.align 2, 0
@@ -15650,7 +15650,7 @@ sub_08032740: @ 0x08032740
 	strh r0, [r4, #0x24]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	adds r0, r4, #0
 	bl sub_08032650
 	pop {r4, pc}
@@ -15667,7 +15667,7 @@ sub_0803275C: @ 0x0803275C
 	strh r0, [r4, #0x24]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl sub_080042AC
+	bl LoadAnimation
 	ldrb r1, [r4, #0x15]
 	adds r0, r4, #0
 	bl sub_0803269C
@@ -15682,7 +15682,7 @@ sub_08032784: @ 0x08032784
 	strb r1, [r0, #0xc]
 	ldrb r1, [r0, #0x14]
 	adds r1, #8
-	bl sub_080042AC
+	bl LoadAnimation
 	pop {pc}
 
 	thumb_func_start sub_08032794
@@ -16158,7 +16158,7 @@ sub_08032AF4: @ 0x08032AF4
 	adds r2, #0x81
 	ldrb r2, [r2]
 	adds r1, r1, r2
-	bl sub_08004260
+	bl UpdateSprite
 	pop {pc}
 	.align 2, 0
 
@@ -16342,7 +16342,7 @@ _08032C46:
 	beq _08032C64
 	adds r1, r2, #4
 	adds r0, r5, #0
-	bl sub_08004260
+	bl UpdateSprite
 _08032C64:
 	adds r0, r5, #0
 	bl sub_08032B10
@@ -16597,7 +16597,7 @@ _08032E28:
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	b _08032E4E
 _08032E3C:
 	adds r0, r4, #0
@@ -16734,7 +16734,7 @@ _08032F38:
 _08032F3C:
 	adds r1, r1, r0
 	adds r0, r2, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {pc}
 	.align 2, 0
 
@@ -16834,7 +16834,7 @@ _08032FE8:
 	ldrb r1, [r2, #0x14]
 	adds r1, #4
 	adds r0, r2, #0
-	bl sub_08004260
+	bl UpdateSprite
 _08032FFE:
 	pop {pc}
 
@@ -16883,7 +16883,7 @@ _08033044:
 	ldrb r1, [r2, #0x14]
 	adds r1, #4
 	adds r0, r2, #0
-	bl sub_08004260
+	bl UpdateSprite
 _08033056:
 	pop {pc}
 
@@ -17194,7 +17194,7 @@ sub_08033280: @ 0x08033280
 	strb r0, [r4, #0x14]
 	adds r1, r0, #4
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 _080332A4:
 	pop {r4, pc}
 	.align 2, 0
@@ -17262,7 +17262,7 @@ _08033312:
 	strb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {r4, pc}
 
 	thumb_func_start sub_08033320
@@ -17381,7 +17381,7 @@ sub_080333D4: @ 0x080333D4
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	beq _0803340E
@@ -17714,7 +17714,7 @@ sub_08033674: @ 0x08033674
 	bl sub_08033744
 	ldrb r1, [r4, #0xb]
 	adds r0, r4, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {r4, pc}
 	.align 2, 0
 
@@ -17948,7 +17948,7 @@ _0803381A:
 	bl sub_08033D78
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_08004260
+	bl UpdateSprite
 _08033864:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -18064,7 +18064,7 @@ _08033928:
 _08033940:
 	adds r0, r6, #0
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0803394C: .4byte 0xFFF00000
@@ -18217,7 +18217,7 @@ _08033A2C:
 	bl sub_0807B9B8
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_08004260
+	bl UpdateSprite
 _08033A72:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -18260,7 +18260,7 @@ _08033A90:
 	strb r0, [r2]
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_08004260
+	bl UpdateSprite
 _08033AC8:
 	pop {r4, pc}
 	.align 2, 0
@@ -18316,7 +18316,7 @@ _08033AF8:
 	str r0, [r1]
 	adds r0, r4, #0
 	movs r1, #4
-	bl sub_08004260
+	bl UpdateSprite
 	b _08033B42
 	.align 2, 0
 _08033B38: .4byte 0xFFF00000
@@ -18489,7 +18489,7 @@ _08033C68:
 	bl sub_0800015E
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 _08033C82:
 	add sp, #0xc
 	pop {r3, r4, r5}
@@ -18771,7 +18771,7 @@ sub_08033E1C: @ 0x08033E1C
 	str r2, [r4, #0x54]
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_08004260
+	bl UpdateSprite
 	movs r2, #0xc
 	rsbs r2, r2, #0
 	adds r0, r4, #0

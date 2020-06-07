@@ -36,7 +36,7 @@ sub_0802AE24: @ 0x0802AE24
 	strb r3, [r0]
 	mov r0, ip
 	movs r1, #3
-	bl sub_08004260
+	bl UpdateSprite
 	pop {pc}
 	.align 2, 0
 _0802AE64: .4byte gUnk_080CD174
@@ -498,7 +498,7 @@ sub_0802B1A0: @ 0x0802B1A0
 	adds r1, #0x81
 	strb r2, [r1]
 	movs r1, #0
-	bl sub_08004260
+	bl UpdateSprite
 	pop {pc}
 
 	thumb_func_start sub_0802B1BC

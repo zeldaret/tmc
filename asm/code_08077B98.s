@@ -353,7 +353,7 @@ _08077E0A:
 	strh r1, [r0, #0x12]
 	lsls r1, r2, #0x18
 	lsrs r1, r1, #0x18
-	bl sub_080042AC
+	bl LoadAnimation
 	adds r0, r4, #0
 	bl sub_08077E54
 	pop {r4, pc}
@@ -2771,7 +2771,7 @@ _08079042:
 	ands r2, r0
 	adds r0, r4, #0
 	adds r1, r2, #0
-	bl sub_080042AC
+	bl LoadAnimation
 _08079062:
 	pop {r4, r5, r6, pc}
 

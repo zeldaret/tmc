@@ -31,7 +31,7 @@ _080011EA:
 	bhs _0800120A
 	ldrb r1, [r0, #9]
 	lsls r1, r1, #2
-	ldr r2, _08001358 @ =gUnk_080D3BF8
+	ldr r2, _08001358 @ =gEnemyFunctions
 	ldr r1, [r2, r1]
 	bl _call_via_r1
 	movs r1, #0x41
@@ -237,7 +237,7 @@ _08001352:
 	movs r0, #0xff
 	bx lr
 	.align 2, 0
-_08001358: .4byte gUnk_080D3BF8
+_08001358: .4byte gEnemyFunctions
 _0800135C: .4byte sub_08004276
 _08001360: .4byte sub_080043B4
 _08001364: .4byte 0x00001800

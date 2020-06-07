@@ -4321,7 +4321,7 @@ _080752E4: .4byte gUnk_02033280
 	thumb_func_start sub_080752E8
 sub_080752E8: @ 0x080752E8
 	push {lr}
-	ldr r3, _080752FC @ =gUnk_0811BCC4
+	ldr r3, _080752FC @ =gItemBehaviors
 	ldrb r2, [r0, #1]
 	lsls r2, r2, #2
 	adds r2, r2, r3
@@ -4329,7 +4329,7 @@ sub_080752E8: @ 0x080752E8
 	bl _call_via_r2
 	pop {pc}
 	.align 2, 0
-_080752FC: .4byte gUnk_0811BCC4
+_080752FC: .4byte gItemBehaviors
 
 	thumb_func_start sub_08075300
 sub_08075300: @ 0x08075300

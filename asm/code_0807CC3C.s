@@ -2587,7 +2587,7 @@ _0807DEB0:
 	beq _0807DEC2
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl sub_080042AC
+	bl LoadAnimation
 _0807DEC2:
 	adds r0, r4, #0
 	adds r0, #0x82
@@ -4090,7 +4090,7 @@ sub_0807E930: @ 0x0807E930
 	adds r1, #0x80
 	strh r2, [r1]
 	ldrh r1, [r3, #2]
-	bl sub_080042AC
+	bl LoadAnimation
 	pop {pc}
 
 	thumb_func_start sub_0807E944
@@ -5634,7 +5634,7 @@ sub_0807F3D8: @ 0x0807F3D8
 	ldr r1, [r1, #4]
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_080042AC
+	bl LoadAnimation
 	adds r0, r4, #0
 	adds r0, #0x58
 	ldrb r0, [r0]

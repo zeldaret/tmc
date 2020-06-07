@@ -1053,7 +1053,7 @@ _0807018C:
 	bl sub_0801766C
 	ldrb r1, [r4]
 	adds r0, r5, #0
-	bl sub_08004260
+	bl UpdateSprite
 	ldr r0, _080701F4 @ =0x000001DD
 	bl PlaySFX
 	pop {r4, r5, pc}
@@ -1209,7 +1209,7 @@ _08070280:
 	str r0, [r5, #0x7c]
 	adds r0, r5, #0
 	movs r1, #0x14
-	bl sub_08004260
+	bl UpdateSprite
 	ldr r0, _08070360 @ =0x00004020
 	movs r3, #0x2e
 	ldrsh r1, [r5, r3]
@@ -1403,7 +1403,7 @@ sub_08070458: @ 0x08070458
 _0807049E:
 	adds r0, r4, #0
 	movs r1, #0x13
-	bl sub_08004260
+	bl UpdateSprite
 	adds r0, r4, #0
 	bl sub_08017744
 	ldr r0, _080704B8 @ =0x00000199
@@ -1710,7 +1710,7 @@ sub_08070698: @ 0x08070698
 	bl sub_080AE008
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_080042AC
+	bl LoadAnimation
 	adds r0, r4, #0
 	adds r0, #0x38
 	ldrb r0, [r0]
@@ -4369,7 +4369,7 @@ sub_08071B60: @ 0x08071B60
 	lsrs r1, r1, #1
 	adds r1, #0x3c
 	adds r0, r4, #0
-	bl sub_080042AC
+	bl LoadAnimation
 _08071BA8:
 	pop {r4, r5, pc}
 	.align 2, 0

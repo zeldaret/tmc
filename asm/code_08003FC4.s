@@ -414,8 +414,8 @@ _0800425C:
 	pop {r4}
 	bx lr
 
-	thumb_func_start sub_08004260
-sub_08004260: @ 0x08004260
+	thumb_func_start UpdateSprite
+UpdateSprite: @ 0x08004260
 	movs r2, #0x58
 	strb r1, [r0, r2]
 	ldrh r3, [r0, #0x12]
@@ -463,10 +463,10 @@ _0800429C:
 	strb r2, [r0, r1]
 	bx r3
 
-	thumb_func_start sub_080042AC
-sub_080042AC: @ 0x080042AC
+	thumb_func_start LoadAnimation
+LoadAnimation: @ 0x080042AC
 	push {lr}
-	bl sub_08004260
+	bl UpdateSprite
 	movs r2, #0xff
 	strb r2, [r0, #0x1f]
 	b _080042C0

@@ -891,7 +891,7 @@ _080174D0:
 	bl sub_0805E3B0
 	cmp r0, #0
 	bne _080174F6
-	ldr r1, _08017504 @ =gUnk_080B2D4C
+	ldr r1, _08017504 @ =gObjectFunctions
 	ldrb r0, [r4, #9]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -911,7 +911,7 @@ _080174F6:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_08017504: .4byte gUnk_080B2D4C
+_08017504: .4byte gObjectFunctions
 
 	thumb_func_start sub_08017508
 sub_08017508: @ 0x08017508
@@ -966,7 +966,7 @@ _08017566:
 	bl sub_0805E3B0
 	cmp r0, #0
 	bne _08017584
-	ldr r2, _080175DC @ =gUnk_080B313C
+	ldr r2, _080175DC @ =gNPCFunctions
 	ldrb r1, [r4, #9]
 	lsls r0, r1, #1
 	adds r0, r0, r1
@@ -979,7 +979,7 @@ _08017584:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	beq _080175D2
-	ldr r2, _080175DC @ =gUnk_080B313C
+	ldr r2, _080175DC @ =gNPCFunctions
 	ldrb r1, [r4, #9]
 	lsls r0, r1, #1
 	adds r0, r0, r1
@@ -1021,7 +1021,7 @@ _080175D2:
 	bx r0
 	.align 2, 0
 _080175D8: .4byte gUnk_020342F8
-_080175DC: .4byte gUnk_080B313C
+_080175DC: .4byte gNPCFunctions
 _080175E0: .4byte gUnk_02031EC0
 _080175E4: .4byte gRoomControls
 
