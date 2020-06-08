@@ -2912,7 +2912,7 @@ _0805FCA4:
 	adds r0, r4, #0
 	movs r1, #0x19
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _0805FCF6:
 	adds r0, r4, #0
@@ -2923,7 +2923,7 @@ _0805FCF6:
 	adds r0, r4, #0
 	movs r1, #0x19
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 	b _0805FD20
 	.align 2, 0

@@ -97,7 +97,7 @@ _08065A30: .4byte gTextBox
 sub_08065A34: @ 0x08065A34
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _08065A4E
 	movs r0, #1

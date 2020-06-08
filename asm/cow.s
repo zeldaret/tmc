@@ -320,7 +320,7 @@ _080691DE:
 sub_080691E0: @ 0x080691E0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _080691F4
 	movs r1, #0

@@ -141,7 +141,7 @@ _08069BF2:
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 _08069C30:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -484,7 +484,7 @@ _08069EC8:
 sub_08069ECC: @ 0x08069ECC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _08069EDC
 	movs r0, #1

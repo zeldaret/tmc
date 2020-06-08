@@ -19,7 +19,9 @@ typedef struct {
 
 union SplitWord {
     s32 WORD;
+    struct {
     s16 LO, HI;
+    } HALF;
 };
 
 typedef struct
@@ -39,11 +41,23 @@ typedef struct
     u8 direction;
     u8 possibleBool;
     u8 field_0x17;
-    u8 shadowSize;
+    union {
+        u8 raw;
+        struct {
+            u8 ss0:2;
+            u8 ss2:1;
+            u8 ss3:1;
+            u8 ss4:1;
+            u8 ss5:1;
+            u8 ss6:1;
+            u8 ss7:1;
+        } __attribute__((packed)) b;
+    } __attribute__((packed)) spriteSettings;
     u8 spriteOrder;
     u8 palette;
     u8 spriteOrientation[3];
-    u16 spritePointer;
+    u8 animationList;
+    u8 field_1f;
     u16 field_0x20;
     s16 nonPlanarMovement;
     u8 spriteAnimation[3];
@@ -53,7 +67,7 @@ typedef struct
 	union SplitWord y;
 	union SplitWord height; // todo
     u8 collisionLayer;
-    u8 field_0x39;
+    s8 interactType;
     u8 field_0x3a;
     u8 flags2;
     u8 field_0x3c;
@@ -76,8 +90,13 @@ typedef struct
     u32 * attachedEntity;
     u8 field_0x58;
     u8 field_0x59;
-    u8 frames;
-    u8 spriteOrientation2;
+    union {
+        u8 all;
+        u8 f0:6;
+        u8 f1:1;
+        u8 f2:1;
+    } __attribute__((packed)) frames;
+    u8 gfx;
     u8 field_0x5c;
     u8 field_0x5d;
     u8 field_0x5e;
@@ -92,9 +111,11 @@ typedef struct
 	u8 filler3[2];
 	u16 itemCooldown;
 	u32 field_0x7c;
-	UnkStruct *unkStruct;
-	u32 *field_0x84;
+	u32 field_0x80;
+	u16 cutsceneBeh;
+    u16 field_0x86;
 	
 } Entity;
+
 
 #endif

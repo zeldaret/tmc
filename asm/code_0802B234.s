@@ -136,7 +136,7 @@ sub_0802B2E0: @ 0x0802B2E0
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0802B334
@@ -2447,7 +2447,7 @@ _0802C408:
 	adds r0, r4, #0
 	movs r1, #0x15
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0802C420
@@ -4415,7 +4415,7 @@ _0802D2F8:
 	ldr r0, [r0]
 	movs r1, #0x48
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	cmp r0, #0
 	beq _0802D32E
 	adds r2, r0, #0
@@ -6411,7 +6411,7 @@ _0802E23A:
 	ldr r0, [r1, #0x3c]
 	movs r1, #0xc
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	movs r0, #0x92
 	lsls r0, r0, #1
 	bl PlaySFX
@@ -6681,7 +6681,7 @@ _0802E452:
 	ldr r0, [r6, #0x3c]
 	movs r1, #0xc
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	movs r0, #0x7d
 	bl PlaySFX
 _0802E46E:
@@ -8974,7 +8974,7 @@ _0802F536:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 _0802F556:
 	pop {r4, pc}
 	.align 2, 0
@@ -9221,7 +9221,7 @@ _0802F6F0:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
@@ -9434,7 +9434,7 @@ sub_0802F888: @ 0x0802F888
 	ldr r0, _0802F8E0 @ =0x00004071
 	ldrh r1, [r5]
 	ldrb r2, [r6]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0802F8DC: .4byte gRoomControls
@@ -9800,7 +9800,7 @@ _0802FB88:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 _0802FBB0:
 	pop {r4, pc}
 	.align 2, 0
@@ -10019,7 +10019,7 @@ _0802FD18:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	movs r0, #0xab
 	lsls r0, r0, #1
 	bl sub_08004488
@@ -10170,7 +10170,7 @@ _0802FE6A:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 _0802FE8A:
 	pop {r4, pc}
 	.align 2, 0
@@ -10389,7 +10389,7 @@ _0802FFF0:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	movs r0, #0xab
 	lsls r0, r0, #1
 	bl sub_08004488
@@ -11465,7 +11465,7 @@ sub_080307EC: @ 0x080307EC
 	ldr r0, _08030830 @ =0x00004022
 	ldrb r2, [r6]
 	adds r1, r4, #0
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0803082C: .4byte gRoomControls
@@ -11496,7 +11496,7 @@ sub_08030834: @ 0x08030834
 	adds r0, #0x38
 	ldrb r2, [r0]
 	adds r0, r5, #0
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08030868: .4byte gRoomControls
@@ -11605,7 +11605,7 @@ _0803093C:
 	mov r3, r8
 	ldrb r2, [r3]
 	adds r1, r4, #0
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	b _0803098A
 	.align 2, 0
 _0803094C: .4byte 0x00004022
@@ -11636,7 +11636,7 @@ _08030950:
 	mov r0, r8
 	ldrb r2, [r0]
 	mov r0, sl
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 _0803098A:
 	adds r2, r5, #0
 	adds r2, #0x29
@@ -11902,7 +11902,7 @@ _08030B52:
 	adds r0, r4, #0
 	movs r1, #0x51
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 _08030B6A:
 	adds r0, r4, #0
 	bl sub_0804A7D4
@@ -12447,19 +12447,19 @@ sub_08030F00: @ 0x08030F00
 	ldrb r2, [r6]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldrb r2, [r6]
 	adds r0, r5, #0
 	mov r1, sl
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldrb r2, [r6]
 	adds r0, r5, #0
 	mov r1, sb
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldrb r2, [r6]
 	adds r0, r5, #0
 	mov r1, r8
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	pop {r3, r4, r5}
 	mov r8, r3
 	mov sb, r4
@@ -12498,27 +12498,27 @@ sub_08030FB4: @ 0x08030FB4
 	adds r5, #0x38
 	ldrb r2, [r5]
 	adds r1, r4, #0
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	adds r0, r6, #0
 	adds r0, #0x82
 	ldrh r0, [r0]
 	adds r1, r4, #1
 	ldrb r2, [r5]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	adds r0, r6, #0
 	adds r0, #0x84
 	ldrh r0, [r0]
 	adds r1, r4, #0
 	adds r1, #0x40
 	ldrb r2, [r5]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	adds r0, r6, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
 	adds r4, #0x41
 	ldrb r2, [r5]
 	adds r1, r4, #0
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08031020: .4byte gRoomControls
@@ -15691,7 +15691,7 @@ sub_08032794: @ 0x08032794
 	adds r4, r0, #0
 	movs r1, #0x11
 	movs r2, #0x40
-	bl CreateFX
+	bl CreateFx
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _080327C2
@@ -17147,7 +17147,7 @@ _08033238:
 	adds r0, r5, #0
 	movs r1, #2
 	movs r2, #0x40
-	bl CreateFX
+	bl CreateFx
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08033278
@@ -17633,7 +17633,7 @@ _080335EE:
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08033624
@@ -18041,7 +18041,7 @@ sub_08033890: @ 0x08033890
 	ldr r0, _08033954 @ =0x00004022
 	ldrh r1, [r4]
 	ldrb r2, [r5]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldrb r1, [r6, #0xa]
 	movs r0, #0x7d
 	movs r2, #0
@@ -18486,7 +18486,7 @@ _08033C68:
 	ldrh r1, [r5]
 	ldr r3, [sp, #8]
 	ldrb r2, [r3]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	adds r0, r4, #0
 	movs r1, #0
 	bl UpdateSprite

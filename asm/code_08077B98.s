@@ -6485,7 +6485,7 @@ _0807ABF4:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 _0807AC44:
 	pop {r3, r4, r5}
 	mov r8, r3
@@ -6980,7 +6980,7 @@ sub_0807AFE8: @ 0x0807AFE8
 	ldr r0, _0807B00C @ =gLinkEntity
 	movs r1, #0x43
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0807B004
@@ -7534,7 +7534,7 @@ _0807B410:
 	adds r0, r5, #0
 	adds r1, r4, #0
 	adds r2, r6, #0
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	b _0807B430
 	.align 2, 0
 _0807B424: .4byte 0x00003FFF

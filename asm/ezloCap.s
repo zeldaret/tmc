@@ -144,7 +144,7 @@ sub_0806D96C: @ 0x0806D96C
 	adds r4, r0, #0
 	movs r1, #0x42
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0806D99C

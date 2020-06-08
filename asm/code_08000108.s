@@ -54,8 +54,8 @@ sub_08000152: @ 0x08000152
 	ldrh r0, [r3, r0]
 	lsrs r2, r2, #2
 
-	non_word_aligned_thumb_func_start sub_0800015E
-sub_0800015E: @ 0x0800015E
+	non_word_aligned_thumb_func_start UpdateCollisionLayer
+UpdateCollisionLayer: @ 0x0800015E
 	push {r4, r5, r6, r7, lr}
 	lsls r3, r2, #3
 	ldr r4, _08000208 @ =gUnk_08000228

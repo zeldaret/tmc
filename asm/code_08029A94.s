@@ -104,7 +104,7 @@ sub_08029B2C: @ 0x08029B2C
 	adds r0, r4, #0
 	movs r1, #0x48
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r0, r4, #0
 	bl sub_0805E7BC
 	b _08029B8A
@@ -289,7 +289,7 @@ sub_08029C98: @ 0x08029C98
 	adds r0, r4, #0
 	movs r1, #0x48
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r0, r4, #0
 	bl sub_0805E7BC
 	b _08029CC6

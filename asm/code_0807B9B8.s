@@ -261,7 +261,7 @@ _0807BBBC:
 	adds r1, r5, r4
 	ldr r0, _0807BBE0 @ =0x00004072
 	mov r2, sl
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	adds r4, #1
 	cmp r4, r8
 	blo _0807BBBC
@@ -1354,7 +1354,7 @@ _0807C49A:
 	adds r1, r4, #0
 	movs r2, #1
 	str r3, [sp, #4]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldr r3, [sp, #4]
 _0807C4AC:
 	ldrh r0, [r6]
@@ -1363,7 +1363,7 @@ _0807C4AC:
 	adds r1, r4, #0
 	movs r2, #2
 	str r3, [sp, #4]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldr r3, [sp, #4]
 _0807C4BE:
 	adds r7, #2

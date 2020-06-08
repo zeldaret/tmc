@@ -80,7 +80,7 @@ _080191F0:
 	adds r0, r4, #0
 	movs r1, #0x14
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 _0801920E:
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0

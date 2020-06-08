@@ -54,7 +54,7 @@ _08064AE4:
 	cmp r3, #0
 	beq _08064B00
 	adds r0, r4, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _08064B42
 	movs r0, #1
@@ -233,7 +233,7 @@ _08064C4C: .4byte gTextBox
 sub_08064C50: @ 0x08064C50
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _08064C68
 	movs r0, #1

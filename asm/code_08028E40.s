@@ -44,7 +44,7 @@ _08028E80: .4byte gTextBox
 sub_08028E84: @ 0x08028E84
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _08028E98
 	movs r0, #4
@@ -299,7 +299,7 @@ sub_08028FFC: @ 0x08028FFC
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	pop {r4, pc}
 	.align 2, 0
 _08029074: .4byte 0x00004022
@@ -351,7 +351,7 @@ _080290AE:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 _080290DE:
 	pop {r4, pc}
 

@@ -240,7 +240,7 @@ _08068B6C:
 sub_08068B70: @ 0x08068B70
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _08068B80
 	movs r0, #1
@@ -311,7 +311,7 @@ sub_08068BEC: @ 0x08068BEC
 	adds r4, r0, #0
 	movs r1, #0x44
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08068C22

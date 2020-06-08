@@ -101,7 +101,7 @@ _0806B436:
 	adds r0, r4, #0
 	movs r1, #0x25
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 _0806B462:
 	adds r0, r4, #0
 	bl sub_0807DD50
@@ -160,7 +160,7 @@ _0806B4D4:
 	b _0806B4EC
 _0806B4DE:
 	adds r0, r4, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _0806B4EC
 	movs r0, #1

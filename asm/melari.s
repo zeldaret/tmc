@@ -161,7 +161,7 @@ _080687EA:
 	b _0806880E
 _08068800:
 	adds r0, r5, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _0806880E
 	movs r0, #1
@@ -205,7 +205,7 @@ _0806885E:
 	adds r0, r5, #0
 	movs r1, #0x3d
 	movs r2, #0x20
-	bl CreateFX
+	bl CreateFx
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806887A

@@ -365,7 +365,7 @@ _08061E4C: .4byte gTextBox
 sub_08061E50: @ 0x08061E50
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _08061E6C
 	movs r0, #1
@@ -544,7 +544,7 @@ sub_08061F94: @ 0x08061F94
 	adds r4, r0, #0
 	movs r1, #0x35
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08061FAC

@@ -2,8 +2,8 @@
 	.text
 	.syntax unified
 	
-	thumb_func_start CreateFX
-CreateFX: @ 0x080A29AC
+	thumb_func_start CreateFx
+CreateFx: @ 0x080A29AC
 	push {r4, lr}
 	adds r4, r1, #0
 	adds r3, r2, #0

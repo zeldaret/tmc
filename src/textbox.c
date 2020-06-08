@@ -44,8 +44,8 @@ void TextboxNoOverlap(u32 index,Entity *ent)
 
     ShowTextbox(index);
 
-    y = *(&ent->y.HI + 1);
-    h = *(&ent->height.HI + 1);
+    y = ent->y.HALF.HI;
+    h = ent->height.HALF.HI;
     
     if (88 < ((y + h) - gRoomControls.roomScrollY)) {
         gTextBox.textWindowPosY = 1;

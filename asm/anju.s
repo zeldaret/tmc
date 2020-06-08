@@ -72,7 +72,7 @@ _0806C338:
 	b _0806C350
 _0806C342:
 	adds r0, r4, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _0806C350
 	movs r0, #1

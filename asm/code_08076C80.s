@@ -928,7 +928,7 @@ _080773BC:
 	adds r0, r5, #0
 	movs r1, #0x1d
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _080773F6
@@ -953,7 +953,7 @@ _080773F6:
 	adds r0, r5, #0
 	movs r1, #0x1d
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _08077432

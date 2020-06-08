@@ -106,7 +106,7 @@ _0806606E:
 	adds r0, r4, #0
 	movs r1, #0x3d
 	movs r2, #0x20
-	bl CreateFX
+	bl CreateFx
 	ldr r4, _080660A4 @ =gUnk_08110380
 	bl Random
 	movs r1, #7
@@ -319,7 +319,7 @@ sub_08066200: @ 0x08066200
 sub_08066218: @ 0x08066218
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _08066228
 	movs r0, #1

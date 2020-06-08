@@ -506,7 +506,7 @@ _080171D6:
 	adds r1, #0x55
 	adds r0, r5, #0
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 _080171EA:
 	pop {r4, r5}
 	pop {r0}
@@ -1506,7 +1506,7 @@ sub_08017940: @ 0x08017940
 	adds r0, r4, #0
 	movs r1, #0x2c
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _080179CC
@@ -1600,7 +1600,7 @@ sub_080179EC: @ 0x080179EC
 	ldrb r1, [r1]
 	adds r0, r5, #0
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08017A84

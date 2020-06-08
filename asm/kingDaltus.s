@@ -173,7 +173,7 @@ sub_0806670C: @ 0x0806670C
 sub_08066718: @ 0x08066718
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _08066728
 	movs r0, #1

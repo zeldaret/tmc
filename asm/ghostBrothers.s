@@ -121,7 +121,7 @@ _08065C74:
 	b _08065CCA
 _08065C7E:
 	adds r0, r4, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _08065CCA
 	b _08065CC6

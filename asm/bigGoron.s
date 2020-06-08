@@ -1030,7 +1030,7 @@ _0806D690:
 	ldrsb r1, [r4, r1]
 	adds r0, r5, #0
 	movs r2, #0x40
-	bl CreateFX
+	bl CreateFx
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D6C0

@@ -195,7 +195,7 @@ sub_08069428: @ 0x08069428
 	adds r6, r2, #0
 	movs r1, #4
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08069452
@@ -213,7 +213,7 @@ _08069452:
 	adds r0, r5, #0
 	movs r1, #0x41
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0806947A

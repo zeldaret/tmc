@@ -4301,7 +4301,7 @@ _080A776A:
 _080A778E:
 	adds r0, r4, #0
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _080A77C4
@@ -6799,13 +6799,13 @@ _080A89E6:
 	movs r1, #0
 _080A89EA:
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	b _080A89FC
 _080A89F2:
 	adds r0, r5, #0
 	movs r1, #0xc
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 _080A89FC:
 	bl sub_0805E780
 _080A8A00:
@@ -6834,7 +6834,7 @@ _080A8A2A:
 	adds r0, r5, #0
 	movs r1, #5
 	movs r2, #0x80
-	bl CreateFX
+	bl CreateFx
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _080A8A3E
@@ -7578,7 +7578,7 @@ sub_080A8FB8: @ 0x080A8FB8
 	adds r0, r4, #0
 	movs r1, #4
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 	b _080A9054
 _080A8FE8:
@@ -8890,7 +8890,7 @@ _080A99D2:
 	adds r0, r4, #0
 	movs r1, #4
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _080A99EE:
 	pop {r4, r5, pc}
@@ -8900,7 +8900,7 @@ sub_080A99F0: @ 0x080A99F0
 	push {lr}
 	movs r1, #4
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 	pop {pc}
 
@@ -9163,13 +9163,13 @@ sub_080A9BA8: @ 0x080A9BA8
 	adds r0, r1, #0
 	movs r1, #5
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	b _080A9BC8
 _080A9BBE:
 	adds r0, r1, #0
 	movs r1, #0x3c
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 _080A9BC8:
 	bl sub_0805E780
 	pop {pc}
@@ -9349,7 +9349,7 @@ sub_080A9CF0: @ 0x080A9CF0
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _080A9D0A:
 	ldr r0, _080A9D1C @ =gUnk_08129B78
@@ -9398,7 +9398,7 @@ _080A9D56:
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _080A9D64:
 	pop {r4, pc}
@@ -9518,7 +9518,7 @@ _080A9E34:
 	adds r0, r4, #0
 	movs r1, #0x4f
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _080A9E42:
 	adds r0, r4, #0
@@ -9776,7 +9776,7 @@ _080A9FF2:
 	ldr r0, _080AA040 @ =0x00004005
 	ldrh r1, [r4]
 	ldrb r2, [r5]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 _080AA034:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -10428,7 +10428,7 @@ _080AA4EE:
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080AA52C: .4byte gRoomControls
@@ -11146,7 +11146,7 @@ sub_080AAA68: @ 0x080AAA68
 	adds r0, #0x38
 	ldrb r2, [r0]
 	adds r0, r5, #0
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080AAAA0: .4byte gUnk_0812A084
@@ -11476,7 +11476,7 @@ _080AACF4:
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 _080AAD16:
 	ldr r2, [r4, #0x50]
 	ldrb r0, [r4, #0xb]
@@ -11521,7 +11521,7 @@ _080AAD58:
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 _080AAD68:
 	bl sub_0805E780
 	pop {r4, r5, pc}
@@ -12634,7 +12634,7 @@ sub_080AB59C: @ 0x080AB59C
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _080AB5BC:
 	adds r0, r4, #0
@@ -12658,7 +12658,7 @@ sub_080AB5C4: @ 0x080AB5C4
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _080AB5F0:
 	pop {r4, pc}
@@ -12736,7 +12736,7 @@ _080AB640:
 	ldr r0, [r4]
 	movs r1, #0x45
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 _080AB67A:
 	adds r0, r6, #0
 	bl sub_0805E7BC
@@ -13548,7 +13548,7 @@ sub_080ABC54: @ 0x080ABC54
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _080ABC6E:
 	ldr r0, _080ABC80 @ =gUnk_0812A808
@@ -13591,7 +13591,7 @@ sub_080ABC90: @ 0x080ABC90
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _080ABCBE:
 	pop {r4, pc}
@@ -13832,7 +13832,7 @@ sub_080ABE88: @ 0x080ABE88
 	adds r0, r4, #0
 	movs r1, #4
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _080ABEA6:
 	pop {r4, pc}
@@ -15589,7 +15589,7 @@ sub_080ACB90: @ 0x080ACB90
 	adds r0, r2, #0
 	movs r1, #0x1f
 	movs r2, #0x40
-	bl CreateFX
+	bl CreateFx
 	ldr r0, _080ACBC8 @ =0x00000119
 	bl sub_08004488
 	bl sub_0805E780
@@ -16327,13 +16327,13 @@ _080AD12C:
 	movs r1, #0xb
 _080AD130:
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	b _080AD142
 _080AD138:
 	adds r0, r4, #0
 	movs r1, #0x52
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 _080AD142:
 	movs r0, #4
 	b _080AD148
@@ -16354,7 +16354,7 @@ _080AD14E:
 	ldrb r1, [r4, #0xe]
 	adds r0, r4, #0
 	movs r2, #0x80
-	bl CreateFX
+	bl CreateFx
 	b _080AD1DA
 _080AD16A:
 	ldrb r1, [r4, #0xb]

@@ -10,7 +10,7 @@ sub_080A29BC: @ 0x080A29BC
 	push {lr}
 	movs r1, #2
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	pop {pc}
 
 	thumb_func_start sub_080A29C8
@@ -46,7 +46,7 @@ sub_080A29FC: @ 0x080A29FC
 	push {lr}
 	movs r1, #0x11
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	pop {pc}
 
 	thumb_func_start sub_080A2A08
@@ -54,7 +54,7 @@ sub_080A2A08: @ 0x080A2A08
 	push {lr}
 	movs r1, #6
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	pop {pc}
 
 	thumb_func_start sub_080A2A14
@@ -62,7 +62,7 @@ sub_080A2A14: @ 0x080A2A14
 	push {lr}
 	movs r1, #0xb
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	pop {pc}
 
 	thumb_func_start sub_080A2A20
@@ -110,7 +110,7 @@ sub_080A2A64: @ 0x080A2A64
 	push {lr}
 	movs r1, #0x20
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _080A2A80
@@ -171,7 +171,7 @@ sub_080A2AD4: @ 0x080A2AD4
 	push {lr}
 	movs r1, #0x21
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _080A2AF0
@@ -1058,7 +1058,7 @@ _080A315C:
 	adds r0, r4, #0
 	movs r1, #0x19
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _080A31AE:
 	adds r0, r4, #0
@@ -1069,7 +1069,7 @@ _080A31AE:
 	adds r0, r4, #0
 	movs r1, #0x19
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _080A31C6:
 	adds r0, r4, #0

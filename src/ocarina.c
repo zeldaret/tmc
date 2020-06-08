@@ -15,29 +15,32 @@ extern void UnfreezeTime(void);
 
 extern Entity gLinkEntity;
 extern LinkState gLinkState;
-extern void gOcarinaStates;
+extern void (*gOcarinaStates[4])(ItemBehavior *, u32);
 extern u8 gUnk_02034490;
 
 void Ocarina(ItemBehavior *pItemBeh,u32 inputFlags)
 
 {
-    u32 *ocarinaStates = &gOcarinaStates;
-    _call_via_r2(pItemBeh, inputFlags,(ocarinaStates)[pItemBeh->stateID]);
+    //u32 *ocarinaStates = &gOcarinaStates;
+    //_call_via_r2(pItemBeh, inputFlags,(ocarinaStates)[pItemBeh->stateID]);
+    gOcarinaStates[pItemBeh->stateID](pItemBeh, inputFlags);
     gLinkEntity.itemCooldown = gLinkEntity.itemCooldown + 1;
 }
 
 void OcarinaUse(ItemBehavior *itemBeh,s32 inputFlags)
-
 {
     u32 bVar1;
-    
+    u32 var;
+
     if (gLinkState.linkAction == 24) {
         sub_08077E78(itemBeh,inputFlags);
     }
     else {
-        itemBeh->unk4 = itemBeh->unk4 | 15;
+        itemBeh->unk4 |= 15;
         gLinkEntity.animationState = 4;
-        gLinkEntity.shadowSize = gLinkEntity.animationState & (gLinkEntity.shadowSize - 0x45);
+        var = gLinkEntity.spriteSettings.raw & ~0x40;
+        gLinkEntity.spriteSettings.raw &= var;
+
         gLinkEntity.flags = gLinkEntity.flags & 127;
         gLinkEntity.itemCooldown = 2;
         gLinkState.flags.all = (gLinkState.flags.all | 0x10000000);

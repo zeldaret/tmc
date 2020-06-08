@@ -35,7 +35,7 @@ sub_08019468: @ 0x08019468
 	adds r0, r1, #0
 	movs r1, #0x50
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 _0801947E:
 	pop {pc}
 
@@ -228,7 +228,7 @@ _080195B0:
 	adds r0, r4, #0
 	movs r1, #0x19
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _08019602:
 	adds r0, r4, #0
@@ -239,7 +239,7 @@ _08019602:
 	adds r0, r4, #0
 	movs r1, #0x19
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_0805E780
 _0801961A:
 	adds r0, r4, #0
@@ -1814,7 +1814,7 @@ _0801A1D4:
 	adds r1, #0x38
 	ldrb r2, [r1]
 	adds r1, r7, #0
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	movs r0, #0xa0
 	strb r0, [r6, #6]
 	movs r0, #5
@@ -1859,7 +1859,7 @@ _0801A23C:
 	adds r4, #0x38
 	ldrb r2, [r4]
 	adds r1, r7, #0
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldrb r2, [r4]
 	movs r0, #0xd
 	adds r1, r7, #0
@@ -1876,7 +1876,7 @@ _0801A28C:
 	adds r1, #0x38
 	ldrb r2, [r1]
 	adds r1, r7, #0
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	movs r0, #4
 	b _0801A2A6
 	.align 2, 0
@@ -3549,7 +3549,7 @@ _0801AF2E:
 	ldrsh r1, [r4, r2]
 	adds r1, r6, r1
 	adds r2, r5, #0
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	adds r4, #4
 	movs r1, #0
 	ldrsh r0, [r4, r1]
@@ -3686,7 +3686,7 @@ _0801B026:
 	lsls r1, r7, #6
 	adds r1, r1, r2
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 _0801B03E:
 	adds r3, r4, #0
 	adds r2, r5, #0

@@ -6,7 +6,6 @@
 
 	.text
 
-
 	thumb_func_start sub_0806BF80
 sub_0806BF80: @ 0x0806BF80
 	push {r4, lr}

@@ -1545,7 +1545,7 @@ sub_08054EFC: @ 0x08054EFC
 	subs r1, #0x40
 	ldr r0, _08054F60 @ =0x00004074
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	adds r1, r4, #0
 	adds r1, #0x38
 	movs r0, #2
@@ -1555,7 +1555,7 @@ sub_08054EFC: @ 0x08054EFC
 	adds r0, r4, #0
 	movs r1, #0x35
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08054F54

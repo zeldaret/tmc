@@ -291,7 +291,7 @@ _080622CC:
 _080622E0: .4byte gTextBox
 _080622E4:
 	adds r0, r4, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _080622F2
 _080622EE:
@@ -912,27 +912,27 @@ sub_08062788: @ 0x08062788
 	ldr r1, _080627D0 @ =0x0000060B
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldr r1, _080627D4 @ =0x0000060C
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldr r1, _080627D8 @ =0x0000060D
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldr r1, _080627DC @ =0x0000064B
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldr r1, _080627E0 @ =0x0000064C
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldr r1, _080627E4 @ =0x0000064D
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	pop {r4, pc}
 	.align 2, 0
 _080627CC: .4byte 0x00004072

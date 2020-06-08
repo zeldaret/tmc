@@ -2688,7 +2688,7 @@ _080746DC:
 	adds r0, r4, #0
 	movs r1, #0x52
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	b _08074714
 	.align 2, 0
 _08074700: .4byte gLinkState
@@ -2753,7 +2753,7 @@ _0807476C:
 	adds r0, r4, #0
 	movs r1, #0x52
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r1, r4, #0
 	adds r1, #0x3d
 	movs r0, #0x20
@@ -2869,7 +2869,7 @@ _08074840:
 	adds r0, r6, #0
 	movs r1, #0xb
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 _08074862:
 	ldr r0, _080748B0 @ =0x000001A5
 	bl PlaySFX
@@ -5177,7 +5177,7 @@ _08075962:
 	adds r0, r4, #0
 	movs r1, #0x11
 	movs r2, #0x40
-	bl CreateFX
+	bl CreateFx
 	b _080759B2
 	.align 2, 0
 _08075990: .4byte gLinkEntity
@@ -7113,7 +7113,7 @@ _0807684A:
 	adds r0, r4, #0
 	movs r1, #0x52
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	b _080768DA
 	.align 2, 0
 _08076880: .4byte gLinkState
@@ -7121,7 +7121,7 @@ _08076884:
 	adds r0, r4, #0
 	movs r1, #0x11
 	movs r2, #0x40
-	bl CreateFX
+	bl CreateFx
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _080768DA

@@ -1226,7 +1226,7 @@ _08070280:
 	lsls r2, r2, #6
 	orrs r1, r2
 	ldrb r2, [r4]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	b _0807037A
 	.align 2, 0
 _08070354: .4byte gRoomControls
@@ -1399,7 +1399,7 @@ sub_08070458: @ 0x08070458
 	adds r0, #0x38
 	ldrb r2, [r0]
 	adds r0, r5, #0
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 _0807049E:
 	adds r0, r4, #0
 	movs r1, #0x13
@@ -3195,7 +3195,7 @@ _080712C4:
 	adds r0, r4, #0
 	movs r1, #0xb
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	ldr r0, [r5, #0x30]
 	movs r1, #8
 	ands r0, r1
@@ -4968,7 +4968,7 @@ sub_08072008: @ 0x08072008
 	adds r0, r3, #0
 	movs r1, #0xd
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	bl sub_080791BC
 	pop {pc}
 	.align 2, 0
@@ -5421,7 +5421,7 @@ sub_08072354: @ 0x08072354
 	adds r0, r4, #0
 	movs r1, #0xc
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	movs r0, #0xd3
 	lsls r0, r0, #1
 	bl PlaySFX
@@ -5903,7 +5903,7 @@ _0807274C:
 	ldr r0, _080727A4 @ =gLinkEntity
 	movs r1, #0x11
 	movs r2, #0x40
-	bl CreateFX
+	bl CreateFx
 	movs r0, #4
 	strb r0, [r4, #0xe]
 _0807277E:
@@ -6268,7 +6268,7 @@ _08072A14:
 	lsls r2, r2, #6
 	orrs r1, r2
 	ldrb r2, [r6]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	bl sub_08077B2C
 	adds r0, r5, #0
 	bl sub_08072A60
@@ -6456,7 +6456,7 @@ _08072B82:
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldrb r0, [r5, #0x14]
 	lsls r0, r0, #2
 	strb r0, [r5, #0x15]

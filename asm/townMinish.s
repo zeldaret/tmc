@@ -277,7 +277,7 @@ _0806ADCE:
 _0806ADD8: .4byte gTextBox
 _0806ADDC:
 	adds r0, r4, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _0806ADEA
 	movs r0, #1

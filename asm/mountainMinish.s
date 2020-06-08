@@ -245,7 +245,7 @@ _08067FF2:
 _08067FFC: .4byte gTextBox
 _08068000:
 	adds r0, r5, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _0806801A
 	movs r0, #1
@@ -312,7 +312,7 @@ _0806807E:
 	adds r0, r5, #0
 	movs r1, #4
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080680A8
@@ -332,7 +332,7 @@ _080680A8:
 	adds r0, r5, #0
 	movs r1, #0x3d
 	movs r2, #0x20
-	bl CreateFX
+	bl CreateFx
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080680D2

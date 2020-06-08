@@ -187,7 +187,7 @@ _0806567E:
 sub_08065680: @ 0x08065680
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _080656A0
 	adds r0, r4, #0

@@ -69,7 +69,7 @@ _08064900:
 	b _08064924
 _0806490A:
 	adds r0, r4, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _08064924
 	movs r0, #1

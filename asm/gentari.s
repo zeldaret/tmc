@@ -75,7 +75,7 @@ _0805FDA4:
 	b _0805FDBC
 _0805FDAE:
 	adds r0, r4, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	cmp r0, #0
 	beq _0805FDBC
 	movs r0, #1

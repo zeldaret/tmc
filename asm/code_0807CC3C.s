@@ -5575,7 +5575,7 @@ sub_0807F36C: @ 0x0807F36C
 	adds r5, r0, #0
 	movs r1, #0x41
 	movs r2, #0
-	bl CreateFX
+	bl CreateFx
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0807F3C2

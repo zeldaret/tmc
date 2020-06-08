@@ -2697,17 +2697,17 @@ _080578E0:
 	adds r1, #0x3f
 	adds r0, r6, #0
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldrh r1, [r4]
 	adds r1, #0x40
 	adds r0, r6, #0
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldrh r1, [r4]
 	adds r1, #0x41
 	adds r0, r6, #0
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	adds r4, #8
 _08057906:
 	adds r0, r4, #0
@@ -12689,7 +12689,7 @@ sub_0805C61C: @ 0x0805C61C
 	movs r2, #0x38
 	ldrsh r1, [r4, r2]
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	b _0805C674
 	.align 2, 0
 _0805C668: .4byte gRoomControls
@@ -12721,7 +12721,7 @@ _0805C694:
 	ldrsh r1, [r4, r2]
 	adds r0, r5, #0
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	bl sub_0805E780
 _0805C6B2:
 	pop {r4, r5, pc}
@@ -14197,7 +14197,7 @@ sub_0805D1FC: @ 0x0805D1FC
 	ldr r0, _0805D240 @ =0x00004014
 	ldr r1, _0805D244 @ =0x000005C3
 	movs r2, #1
-	bl sub_0800015E
+	bl UpdateCollisionLayer
 	ldr r3, _0805D248 @ =gRoomControls
 	ldrh r0, [r3, #8]
 	adds r0, #0xc8

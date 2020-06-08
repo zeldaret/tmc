@@ -376,12 +376,12 @@ SECTIONS {
 		asm/townsperson.o(.text);
 		asm/kid.o(.text);
 		asm/npc9.o(.text);
-		asm/stamp.o(.text);
+		src/stamp.o(.text);
 		asm/marcy.o(.text);
 		asm/wheaton.o(.text);
 		asm/pita.o(.text);
 		asm/minishEzlo.o(.text);
-		asm/mailbox.o(.text);
+		src/mailbox.o(.text);
 		asm/beedle.o(.text);
 		asm/brocco.o(.text);
 		asm/sittingPerson.o(.text);
@@ -397,7 +397,7 @@ SECTIONS {
 		asm/talon.o(.text);
 		asm/malon.o(.text);
 		asm/epona.o(.text);
-		asm/cartOfLonLonMilk.o(.text);
+		src/milkCart.o(.text);
 		asm/ghostBrothers.o(.text);
 		asm/smith.o(.text);
 		asm/npc23.o(.text);
@@ -436,7 +436,7 @@ SECTIONS {
 		asm/simon.o(.text);
 		asm/anju.o(.text);
 		asm/mama.o(.text);
-		asm/emma.o(.text);
+		src/emma.o(.text);
 		asm/teachers.o(.text);
 		asm/windTribespeople.o(.text);
 		asm/gregal.o(.text);
@@ -482,6 +482,9 @@ SECTIONS {
 		asm/code_0807CC3C.o(.text);
 		src/room.o(.text);
 		asm/code_08080974.o(.text);
+		src/greatFairy.o(.text);
+		asm/greatFairy.o(.text);
+		asm/code_080874A0.o(.text);
 		asm/fastTravel.o(.text);
 		asm/code_0809D498.o(.text);
 		asm/sub_080A2838.o(.text);

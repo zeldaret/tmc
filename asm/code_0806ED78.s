@@ -557,8 +557,8 @@ sub_0806F118: @ 0x0806F118
 _0806F140: .4byte gUnk_08001A7C
 _0806F144: .4byte gLinkState
 
-	thumb_func_start sub_0806F148
-sub_0806F148: @ 0x0806F148
+	thumb_func_start UpdateFuseInteraction
+UpdateFuseInteraction: @ 0x0806F148
 	push {r4, lr}
 	bl sub_0801E00C
 	movs r4, #1

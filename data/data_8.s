@@ -28417,10 +28417,10 @@ gUnk_0810C2A5:: @ 0810C2A5
 gUnk_0810C2B2:: @ 0810C2B2
 	.incbin "baserom.gba", 0x10C2B2, 0x000001A
 
-gUnk_0810C2CC:: @ 0810C2CC
+gStampBehaviors1:: @ 0810C2CC
 	.incbin "baserom.gba", 0x10C2CC, 0x0000010
 
-gUnk_0810C2DC:: @ 0810C2DC
+gStampBehaviors2:: @ 0810C2DC
 	.incbin "baserom.gba", 0x10C2DC, 0x0000008
 
 gUnk_0810C2E4:: @ 0810C2E4
@@ -28567,7 +28567,7 @@ gUnk_0810C7C9:: @ 0810C7C9
 gUnk_0810C7D4:: @ 0810C7D4
 	.incbin "baserom.gba", 0x10C7D4, 0x0000030
 
-gUnk_0810C804:: @ 0810C804
+gMailboxBehaviors:: @ 0810C804
 	.incbin "baserom.gba", 0x10C804, 0x0000010
 
 gUnk_0810C814:: @ 0810C814
@@ -29521,7 +29521,7 @@ gUnk_081100E4:: @ 081100E4
 gUnk_08110110:: @ 08110110
 	.incbin "baserom.gba", 0x110110, 0x0000008
 
-gUnk_08110118:: @ 08110118
+gMilkCartBehaviors:: @ 08110118
 	.incbin "baserom.gba", 0x110118, 0x0000008
 
 gUnk_08110120:: @ 08110120
@@ -34027,43 +34027,43 @@ gUnk_081206B4:: @ 081206B4
 gUnk_081206C4:: @ 081206C4
 	.incbin "baserom.gba", 0x1206C4, 0x000000C
 
-gUnk_081206D0:: @ 081206D0
+gGreatFairy:: @ 081206D0
 	.incbin "baserom.gba", 0x1206D0, 0x000002C
 
-gUnk_081206FC:: @ 081206FC
+gGreatFairyBehaviors:: @ 081206FC
 	.incbin "baserom.gba", 0x1206FC, 0x0000018
 
-gUnk_08120714:: @ 08120714
+gGreatFairyRippleOffsets:: @ 08120714
 	.incbin "baserom.gba", 0x120714, 0x0000014
 
-gUnk_08120728:: @ 08120728
+gGreatFairyWings:: @ 08120728
 	.incbin "baserom.gba", 0x120728, 0x000000C
 
 gUnk_08120734:: @ 08120734
 	.incbin "baserom.gba", 0x120734, 0x0000008
 
-gUnk_0812073C:: @ 0812073C
+gGreatFairyWake:: @ 0812073C
 	.incbin "baserom.gba", 0x12073C, 0x000000C
 
-gUnk_08120748:: @ 08120748
+gGreatFairyMiniAnim:: @ 08120748
 	.incbin "baserom.gba", 0x120748, 0x0000010
 
-gUnk_08120758:: @ 08120758
+gGreatFairyDrip:: @ 08120758
 	.incbin "baserom.gba", 0x120758, 0x0000008
 
-gUnk_08120760:: @ 08120760
+gGreatFairyRipple:: @ 08120760
 	.incbin "baserom.gba", 0x120760, 0x0000008
 
-gUnk_08120768:: @ 08120768
+gGreatFairyBigRipple:: @ 08120768
 	.incbin "baserom.gba", 0x120768, 0x0000008
 
-gUnk_08120770:: @ 08120770
+gGreatFairyEnergy:: @ 08120770
 	.incbin "baserom.gba", 0x120770, 0x0000008
 
-gUnk_08120778:: @ 08120778
+gGreatFairyInteract1:: @ 08120778
 	.incbin "baserom.gba", 0x120778, 0x0000010
 
-gUnk_08120788:: @ 08120788
+gGreatFairyInteract2:: @ 08120788
 	.incbin "baserom.gba", 0x120788, 0x0000014
 
 gUnk_0812079C:: @ 0812079C

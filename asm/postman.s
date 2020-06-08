@@ -150,7 +150,7 @@ sub_080604DC: @ 0x080604DC
 	adds r0, r5, #0
 	movs r1, #0x11
 	movs r2, #0x40
-	bl CreateFX
+	bl CreateFx
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08060524
@@ -283,7 +283,7 @@ _08060618:
 	adds r0, r4, #0
 	bl sub_080042B8
 	adds r0, r4, #0
-	bl sub_0806F148
+	bl UpdateFuseInteraction
 	adds r5, r4, #0
 	adds r5, #0x6a
 	adds r6, r4, #0
