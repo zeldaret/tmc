@@ -29,7 +29,7 @@ void sub_08086A90(Entity *ent)
     gGreatFairy[(ent->entityType).parameter2](ent);
 }
 
-void sub_08086ABC(Entity *ent)
+void GreatFairyBehaviors(Entity *ent)
 {
     gGreatFairyBehaviors[ent->action](ent);
 
@@ -51,4 +51,78 @@ void sub_08086AF8(Entity *ent)
     ent->parameter3 = 0;
     ent->cutsceneBeh = 290;
     return;
+}
+
+void sub_08086B10(Entity *ent)
+{
+  u16 *pFrame; // r1@2
+  s32 frame; // r1@4
+  Entity *ripple; // r5@16
+  u32 event;
+
+    event = sub_0807CC3C(0);
+    if (event == 0) {
+        return;
+    }
+    pFrame = &ent->cutsceneBeh;
+    if (*pFrame != 0) {
+        *pFrame = *pFrame - 1;
+    }
+    frame = *pFrame;
+
+    if ( frame == 0x96 ) 
+    {
+        goto LABEL_16;
+    }
+  
+    if ( frame < 0x97 )
+    {
+        if (frame != 0)
+        {
+            if ( frame == 0x82 )
+            {
+                goto LABEL_16;
+            }
+            else {
+                return;
+            }
+        }
+        goto LABEL_17;
+    }
+    else {
+        if (frame == 0xd2)
+        {
+            goto LABEL_16;
+        }
+        if (frame < 0xd3)
+        {
+            if (frame == 0xaa)
+            {
+                goto LABEL_16;
+            }
+            else return;
+        }
+        if ( frame == 289 )
+        {
+            goto LABEL_16;
+        }
+        else {
+            return;
+        }
+    }
+
+LABEL_17:
+        ent->action = 2;
+        return;
+LABEL_16:
+    ripple = sub_080873AC(ent, 6, 0);
+    if ( ripple )
+    {
+        PositionRelative(
+            ent,
+            ripple,
+            (s32)gGreatFairyRippleOffsets[ent->parameter3] << 16,
+            (s32)gGreatFairyRippleOffsets[ent->parameter3 + 1] << 16);
+        ent->parameter3 += 2;
+    }
 }
