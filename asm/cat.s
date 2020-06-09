@@ -6,34 +6,6 @@
 
 	.text
 	
-	thumb_func_start sub_080677B4
-sub_080677B4: @ 0x080677B4
-	push {r4, lr}
-	adds r4, r0, #0
-	ldr r1, _080677E8 @ =gUnk_081110D8
-	ldrb r0, [r4, #0xc]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r1, [r0]
-	adds r0, r4, #0
-	bl _call_via_r1
-	adds r0, r4, #0
-	bl sub_08067C44
-	ldrb r1, [r4, #0x10]
-	movs r0, #0x80
-	ands r0, r1
-	cmp r0, #0
-	bne _080677E4
-	ldrb r0, [r4, #0xa]
-	cmp r0, #5
-	beq _080677E4
-	adds r0, r4, #0
-	bl sub_0806ED78
-_080677E4:
-	pop {r4, pc}
-	.align 2, 0
-_080677E8: .4byte gUnk_081110D8
-
 	thumb_func_start sub_080677EC
 sub_080677EC: @ 0x080677EC
 	push {r4, lr}

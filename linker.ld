@@ -412,6 +412,7 @@ SECTIONS {
 		asm/mutoh.o(.text);
 		asm/carpenter.o(.text);
 		asm/castorWildsStatue.o(.text);
+		src/cat.o(.text);
 		asm/cat.o(.text);
 		asm/mountainMinish.o(.text);
 		asm/zeldaFollower.o(.text);
@@ -485,6 +486,8 @@ SECTIONS {
 		asm/code_0807CC3C.o(.text);
 		src/room.o(.text);
 		asm/code_08080974.o(.text);
+		asm/houseDoorExterior.o(.text);
+		src/object1A.o(.text);
 		src/greatFairy.o(.text);
 		asm/greatFairy.o(.text);
 		asm/code_080874A0.o(.text);
