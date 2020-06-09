@@ -1171,7 +1171,7 @@ sub_0802A334: @ 0x0802A334
 	ldr r2, _0802A380 @ =gRoomControls
 	movs r3, #0xa
 	ldrsh r0, [r2, r3]
-	ldr r3, _0802A384 @ =gLCDControls
+	ldr r3, _0802A384 @ =gScreen
 	subs r1, r1, r0
 	ldrh r5, [r3, #0x16]
 	adds r1, r1, r5
@@ -1204,7 +1204,7 @@ sub_0802A334: @ 0x0802A334
 	b _0802A392
 	.align 2, 0
 _0802A380: .4byte gRoomControls
-_0802A384: .4byte gLCDControls
+_0802A384: .4byte gScreen
 _0802A388: .4byte gUnk_02001A40
 _0802A38C:
 	adds r1, r4, #0
@@ -1226,7 +1226,7 @@ sub_0802A39C: @ 0x0802A39C
 	ldr r2, _0802A3F0 @ =gRoomControls
 	movs r3, #0xa
 	ldrsh r0, [r2, r3]
-	ldr r3, _0802A3F4 @ =gLCDControls
+	ldr r3, _0802A3F4 @ =gScreen
 	subs r1, r1, r0
 	ldrh r6, [r3, #0x16]
 	adds r1, r1, r6
@@ -1261,7 +1261,7 @@ sub_0802A39C: @ 0x0802A39C
 	.align 2, 0
 _0802A3EC: .4byte gLinkEntity
 _0802A3F0: .4byte gRoomControls
-_0802A3F4: .4byte gLCDControls
+_0802A3F4: .4byte gScreen
 _0802A3F8: .4byte gUnk_02001A40
 _0802A3FC:
 	ldrb r1, [r5, #0x10]

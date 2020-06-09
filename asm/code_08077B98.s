@@ -931,7 +931,7 @@ _08078230:
 	.align 2, 0
 _08078238: .4byte gUnk_0200AF00
 _0807823C:
-	ldr r0, _0807824C @ =gUnk_02034350
+	ldr r0, _0807824C @ =gRoomVars
 	ldrb r0, [r0, #6]
 	ldr r6, _08078250 @ =gUnk_0200AF00
 	cmp r0, #0
@@ -939,7 +939,7 @@ _0807823C:
 	movs r4, #9
 	b _080782B6
 	.align 2, 0
-_0807824C: .4byte gUnk_02034350
+_0807824C: .4byte gRoomVars
 _08078250: .4byte gUnk_0200AF00
 _08078254:
 	movs r4, #6
@@ -1215,7 +1215,7 @@ _0807848E:
 	.align 2, 0
 _080784A0: .4byte gUnk_03003DF0
 _080784A4:
-	ldr r2, _080784B0 @ =gUnk_02034350
+	ldr r2, _080784B0 @ =gRoomVars
 	ldrb r0, [r2, #6]
 	cmp r0, #0
 	beq _080784B4
@@ -1223,7 +1223,7 @@ _080784AC:
 	movs r0, #0
 	b _080784C6
 	.align 2, 0
-_080784B0: .4byte gUnk_02034350
+_080784B0: .4byte gRoomVars
 _080784B4:
 	adds r1, r6, #0
 	adds r1, #0x39
@@ -2173,7 +2173,7 @@ _08078BF0:
 	ands r0, r1
 	str r0, [r2, #0x30]
 _08078BF8:
-	ldr r0, _08078C1C @ =gUnk_02034350
+	ldr r0, _08078C1C @ =gRoomVars
 	ldrb r0, [r0, #6]
 	cmp r0, #0
 	bne _08078C04
@@ -2191,7 +2191,7 @@ _08078C04:
 	pop {pc}
 	.align 2, 0
 _08078C18: .4byte 0xFFFBFFFF
-_08078C1C: .4byte gUnk_02034350
+_08078C1C: .4byte gRoomVars
 _08078C20: .4byte gLinkEntity
 
 	thumb_func_start sub_08078C24

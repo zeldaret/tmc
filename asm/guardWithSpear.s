@@ -426,7 +426,7 @@ _08063FF6:
 
 	thumb_func_start sub_08064030
 sub_08064030: @ 0x08064030
-	ldr r0, _08064040 @ =gUnk_02034350
+	ldr r0, _08064040 @ =gRoomVars
 	ldr r2, [r0, #0x68]
 	rsbs r0, r2, #0
 	orrs r0, r2
@@ -434,7 +434,7 @@ sub_08064030: @ 0x08064030
 	str r0, [r1, #0x14]
 	bx lr
 	.align 2, 0
-_08064040: .4byte gUnk_02034350
+_08064040: .4byte gRoomVars
 
 	thumb_func_start sub_08064044
 sub_08064044: @ 0x08064044

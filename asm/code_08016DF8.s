@@ -365,7 +365,7 @@ _080170C0:
 	beq _080170CE
 	b _080171EA
 _080170CE:
-	ldr r3, _08017128 @ =gUnk_02034350
+	ldr r3, _08017128 @ =gRoomVars
 	strb r1, [r3, #0xa]
 	ldr r2, _0801712C @ =gUnk_02002A40
 	adds r0, r2, #0
@@ -411,7 +411,7 @@ _08017112:
 	b _0801715A
 	.align 2, 0
 _08017124: .4byte gTextBox
-_08017128: .4byte gUnk_02034350
+_08017128: .4byte gRoomVars
 _0801712C: .4byte gUnk_02002A40
 _08017130: .4byte gUnk_0200AF00
 _08017134: .4byte gUnk_030010A0

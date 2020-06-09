@@ -57,7 +57,7 @@ _0805007E:
 	ldr r1, _080500E4 @ =gUnk_03000000
 	movs r0, #1
 	strb r0, [r1, #2]
-	ldr r2, _080500E8 @ =gLCDControls
+	ldr r2, _080500E8 @ =gScreen
 	ldrh r0, [r2, #0x14]
 	movs r1, #0x40
 	orrs r0, r1
@@ -100,7 +100,7 @@ _080500E0:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080500E4: .4byte gUnk_03000000
-_080500E8: .4byte gLCDControls
+_080500E8: .4byte gScreen
 _080500EC: .4byte 0x0000FFFB
 _080500F0: .4byte gUnk_0200B644
 
@@ -296,7 +296,7 @@ sub_08050230: @ 0x08050230
 	movs r0, #0xf
 	subs r2, r0, r2
 _0805024A:
-	ldr r3, _08050264 @ =gLCDControls
+	ldr r3, _08050264 @ =gScreen
 	ldr r1, _08050268 @ =gUnk_080FC3C4
 	lsls r0, r2, #1
 	adds r0, r0, r1
@@ -309,7 +309,7 @@ _0805024A:
 	movs r0, #1
 	b _08050298
 	.align 2, 0
-_08050264: .4byte gLCDControls
+_08050264: .4byte gScreen
 _08050268: .4byte gUnk_080FC3C4
 _0805026C:
 	ldr r1, _0805029C @ =gUnk_03000000
@@ -440,7 +440,7 @@ sub_08050318: @ 0x08050318
 	beq _08050368
 	bl PlaySFX
 _08050368:
-	ldr r1, _08050380 @ =gLCDControls
+	ldr r1, _08050380 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
 	add sp, #0x18
@@ -449,7 +449,7 @@ _08050368:
 _08050374: .4byte gUnk_080FC844
 _08050378: .4byte gUnk_020227E8
 _0805037C: .4byte gUnk_080FC85C
-_08050380: .4byte gLCDControls
+_08050380: .4byte gScreen
 
 	thumb_func_start sub_08050384
 sub_08050384: @ 0x08050384
@@ -461,25 +461,25 @@ sub_08050384: @ 0x08050384
 	movs r1, #0x80
 	lsls r1, r1, #4
 	bl sub_0801D630
-	ldr r1, _080503A4 @ =gLCDControls
+	ldr r1, _080503A4 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
 	pop {pc}
 	.align 2, 0
 _080503A0: .4byte gUnk_02034CB0
-_080503A4: .4byte gLCDControls
+_080503A4: .4byte gScreen
 
 	thumb_func_start sub_080503A8
 sub_080503A8: @ 0x080503A8
 	push {lr}
 	bl sub_0801D7EC
-	ldr r1, _080503B8 @ =gLCDControls
+	ldr r1, _080503B8 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0x1a]
 	strh r0, [r1, #0x26]
 	pop {pc}
 	.align 2, 0
-_080503B8: .4byte gLCDControls
+_080503B8: .4byte gScreen
 
 	thumb_func_start sub_080503BC
 sub_080503BC: @ 0x080503BC
@@ -574,7 +574,7 @@ sub_08050450: @ 0x08050450
 	beq _0805048A
 	movs r0, #0
 	strb r1, [r4, #2]
-	ldr r1, _080504E4 @ =gLCDControls
+	ldr r1, _080504E4 @ =gScreen
 	strh r0, [r1, #0xa]
 	strh r0, [r1, #0xc]
 	strh r0, [r1, #0x16]
@@ -618,7 +618,7 @@ _080504D4:
 _080504D8: .4byte gUnk_080FC8A4
 _080504DC: .4byte gUnk_03001000
 _080504E0: .4byte gUnk_02032EC0
-_080504E4: .4byte gLCDControls
+_080504E4: .4byte gScreen
 _080504E8: .4byte gUnk_02000080
 _080504EC: .4byte gUnk_080FC8B0
 _080504F0: .4byte gUnk_02019EE0
@@ -691,7 +691,7 @@ _08050586:
 	ldr r0, _080505EC @ =gUnk_080FC8D0
 	bl sub_080A70AC
 	bl sub_080507FC
-	ldr r1, _080505F0 @ =gLCDControls
+	ldr r1, _080505F0 @ =gScreen
 	ldrh r2, [r1]
 	movs r3, #0xf8
 	lsls r3, r3, #5
@@ -724,7 +724,7 @@ _080505E0: .4byte gUnk_02019EE0
 _080505E4: .4byte 0x00000E28
 _080505E8: .4byte gUnk_02032EC0
 _080505EC: .4byte gUnk_080FC8D0
-_080505F0: .4byte gLCDControls
+_080505F0: .4byte gScreen
 _080505F4: .4byte 0x00001E0B
 _080505F8: .4byte 0x00000844
 _080505FC: .4byte 0x00000A0F
@@ -1400,14 +1400,14 @@ sub_08050AFC: @ 0x08050AFC
 	adds r0, r5, r1
 	bl sub_08050B3C
 _08050B28:
-	ldr r1, _08050B38 @ =gLCDControls
+	ldr r1, _08050B38 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0x1a]
 	pop {r4, r5, pc}
 	.align 2, 0
 _08050B30: .4byte gUnk_02021F30
 _08050B34: .4byte gUnk_02019EE0
-_08050B38: .4byte gLCDControls
+_08050B38: .4byte gScreen
 
 	thumb_func_start sub_08050B3C
 sub_08050B3C: @ 0x08050B3C
@@ -2100,7 +2100,7 @@ sub_08051090: @ 0x08051090
 	bl sub_08050790
 	bl sub_0805070C
 	bl sub_08051458
-	ldr r1, _080510B4 @ =gLCDControls
+	ldr r1, _080510B4 @ =gScreen
 	movs r0, #0xff
 	strh r0, [r1, #0x18]
 	strh r0, [r1, #0x24]
@@ -2108,7 +2108,7 @@ sub_08051090: @ 0x08051090
 	bl sub_080A7114
 	pop {pc}
 	.align 2, 0
-_080510B4: .4byte gLCDControls
+_080510B4: .4byte gScreen
 
 	thumb_func_start sub_080510B8
 sub_080510B8: @ 0x080510B8
@@ -3381,7 +3381,7 @@ _08051AA8: .4byte gUnk_03001000
 InitializeNewRoom: @ 0x08051AAC
 	push {lr}
 	bl sub_0805E5A8
-	ldr r1, _08051AE4 @ =gLCDControls
+	ldr r1, _08051AE4 @ =gScreen
 	movs r2, #0
 	movs r0, #0xba
 	lsls r0, r0, #5
@@ -3401,7 +3401,7 @@ InitializeNewRoom: @ 0x08051AAC
 	bl sub_0801855C
 	pop {pc}
 	.align 2, 0
-_08051AE4: .4byte gLCDControls
+_08051AE4: .4byte gScreen
 _08051AE8: .4byte gUnk_03001000
 _08051AEC: .4byte gUnk_030010A0
 
@@ -3473,7 +3473,7 @@ _08051B5A:
 _08051B96:
 	bl sub_08052BF8
 	bl sub_08053178
-	ldr r0, _08051BCC @ =gUnk_02034350
+	ldr r0, _08051BCC @ =gRoomVars
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08051BAE
@@ -3490,7 +3490,7 @@ _08051BBC: .4byte 0x00000864
 _08051BC0: .4byte 0x800B0000
 _08051BC4: .4byte gUnk_03001000
 _08051BC8: .4byte gUnk_02034490
-_08051BCC: .4byte gUnk_02034350
+_08051BCC: .4byte gRoomVars
 
 	thumb_func_start sub_08051BD0
 sub_08051BD0: @ 0x08051BD0
@@ -3677,7 +3677,7 @@ _08051D94: .4byte gUnk_02000070
 sub_08051D98: @ 0x08051D98
 	push {lr}
 	bl sub_08052EA0
-	ldr r1, _08051DC8 @ =gUnk_02034350
+	ldr r1, _08051DC8 @ =gRoomVars
 	movs r0, #1
 	strb r0, [r1]
 	bl sub_0805E9A8
@@ -3691,7 +3691,7 @@ sub_08051D98: @ 0x08051D98
 	bl sub_08078A90
 	pop {pc}
 	.align 2, 0
-_08051DC8: .4byte gUnk_02034350
+_08051DC8: .4byte gRoomVars
 
 	thumb_func_start sub_08051DCC
 sub_08051DCC: @ 0x08051DCC
@@ -3920,7 +3920,7 @@ sub_08051F9C: @ 0x08051F9C
 	push {r6}
 	adds r6, r2, #0
 	mov r8, r3
-	ldr r5, _08051FE0 @ =gLCDControls
+	ldr r5, _08051FE0 @ =gScreen
 	ldrh r2, [r5]
 	movs r4, #0xc0
 	lsls r4, r4, #7
@@ -3947,7 +3947,7 @@ sub_08051F9C: @ 0x08051F9C
 	mov r8, r3
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08051FE0: .4byte gLCDControls
+_08051FE0: .4byte gScreen
 _08051FE4: .4byte gRoomControls
 _08051FE8: .4byte gUnk_02000070
 _08051FEC: .4byte gUnk_0200B644
@@ -4003,7 +4003,7 @@ sub_08052010: @ 0x08052010
 	ldr r0, _08052084 @ =gUnk_02000080
 	movs r1, #0x30
 	bl sub_0801D630
-	ldr r1, _08052088 @ =gLCDControls
+	ldr r1, _08052088 @ =gScreen
 	ldrh r2, [r1]
 	movs r3, #0x80
 	lsls r3, r3, #5
@@ -4022,7 +4022,7 @@ sub_08052010: @ 0x08052010
 _0805207C: .4byte gUnk_02021F30
 _08052080: .4byte gUnk_020344B0
 _08052084: .4byte gUnk_02000080
-_08052088: .4byte gLCDControls
+_08052088: .4byte gScreen
 _0805208C: .4byte 0x00001C01
 _08052090: .4byte 0x00001D05
 
@@ -4130,7 +4130,7 @@ _08052158:
 	movs r0, #0
 	movs r1, #0
 	bl sub_08052418
-	ldr r2, _08052190 @ =gLCDControls
+	ldr r2, _08052190 @ =gScreen
 	ldrh r0, [r2]
 	movs r3, #0xc0
 	lsls r3, r3, #3
@@ -4144,7 +4144,7 @@ _08052158:
 	bl DoFade
 	b _0805219C
 	.align 2, 0
-_08052190: .4byte gLCDControls
+_08052190: .4byte gScreen
 _08052194: .4byte 0x0000FFFF
 _08052198:
 	subs r0, #1
@@ -4306,7 +4306,7 @@ _080522BC:
 	.align 2, 0
 _080522D0: .4byte gUnk_03000FF0
 _080522D4:
-	ldr r2, _080522EC @ =gLCDControls
+	ldr r2, _080522EC @ =gScreen
 	ldrh r1, [r2]
 	ldr r0, _080522F0 @ =0x0000FDFF
 	ands r0, r1
@@ -4317,7 +4317,7 @@ _080522D4:
 _080522E8:
 	pop {r4, pc}
 	.align 2, 0
-_080522EC: .4byte gLCDControls
+_080522EC: .4byte gScreen
 _080522F0: .4byte 0x0000FDFF
 
 	thumb_func_start sub_080522F4
@@ -4345,7 +4345,7 @@ sub_080522F4: @ 0x080522F4
 	.align 2, 0
 _08052320: .4byte gUnk_02000080
 _08052324:
-	ldr r2, _08052340 @ =gLCDControls
+	ldr r2, _08052340 @ =gScreen
 	ldrh r1, [r2]
 	movs r4, #0x80
 	lsls r4, r4, #2
@@ -4359,7 +4359,7 @@ _08052324:
 	strh r0, [r3, #8]
 	b _080523CC
 	.align 2, 0
-_08052340: .4byte gLCDControls
+_08052340: .4byte gScreen
 _08052344:
 	ldrb r4, [r3, #3]
 	ldr r0, _08052358 @ =gUnk_03000FF0

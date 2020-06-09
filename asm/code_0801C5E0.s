@@ -89,7 +89,7 @@ sub_0801C66C: @ 0x0801C66C
 	movs r2, #2
 _0801C684:
 	ldr r0, _0801C6A8 @ =gUnk_02034CF0
-	ldr r3, _0801C6AC @ =gLCDControls
+	ldr r3, _0801C6AC @ =gScreen
 	movs r1, #0
 _0801C68A:
 	str r1, [r0]
@@ -109,4 +109,4 @@ _0801C6A2:
 	.align 2, 0
 _0801C6A4: .4byte gUnk_0200AF00
 _0801C6A8: .4byte gUnk_02034CF0
-_0801C6AC: .4byte gLCDControls
+_0801C6AC: .4byte gScreen

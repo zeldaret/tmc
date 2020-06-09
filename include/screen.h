@@ -23,7 +23,6 @@ typedef struct {
 	u16 bg2yOffset;
 	u16 unk;
 	u32 unk2;
-	u16 unk3;
 	u16 bg3Control;
 	u16 bg3xOffset;
 	u16 bg3yOffset;
@@ -59,5 +58,13 @@ typedef struct {
 	u16 alphaBlend;
 	u16 layerBrightness;
 } BgControls;
+
+typedef struct {
+	LcdControls lcd;
+	BgSettings bg1;
+	BgSettings bg2;
+	BgAffSettings affine;
+	BgControls controls;
+} Screen;
 
 #endif

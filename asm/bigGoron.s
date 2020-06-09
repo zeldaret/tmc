@@ -152,7 +152,7 @@ _0806D028:
 sub_0806D02C: @ 0x0806D02C
 	push {lr}
 	bl sub_0806D164
-	ldr r2, _0806D0A8 @ =gLCDControls
+	ldr r2, _0806D0A8 @ =gScreen
 	ldrh r1, [r2]
 	movs r3, #0x80
 	lsls r3, r3, #7
@@ -220,7 +220,7 @@ _0806D09C:
 	strh r0, [r1]
 	pop {pc}
 	.align 2, 0
-_0806D0A8: .4byte gLCDControls
+_0806D0A8: .4byte gScreen
 _0806D0AC: .4byte 0x00003F3F
 
 	thumb_func_start sub_0806D0B0
@@ -243,7 +243,7 @@ sub_0806D0B0: @ 0x0806D0B0
 	adds r0, r4, #0
 	bl sub_0806D164
 _0806D0DA:
-	ldr r0, _0806D0F0 @ =gLCDControls
+	ldr r0, _0806D0F0 @ =gScreen
 	ldr r1, _0806D0F4 @ =0x00001D47
 	strh r1, [r0, #0x14]
 	str r5, [r0, #0x1c]
@@ -253,7 +253,7 @@ _0806D0DA:
 	.align 2, 0
 _0806D0E8: .4byte gUnk_0200B650
 _0806D0EC: .4byte gUnk_02002F00
-_0806D0F0: .4byte gLCDControls
+_0806D0F0: .4byte gScreen
 _0806D0F4: .4byte 0x00001D47
 
 	thumb_func_start sub_0806D0F8
@@ -325,7 +325,7 @@ sub_0806D164: @ 0x0806D164
 	ldrsh r1, [r0, r3]
 	subs r2, r2, r1
 	adds r2, #0xa0
-	ldr r4, _0806D1BC @ =gLCDControls
+	ldr r4, _0806D1BC @ =gScreen
 	movs r3, #0xf
 	adds r1, r2, #0
 	ands r1, r3
@@ -362,7 +362,7 @@ _0806D1A0:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0806D1B8: .4byte gRoomControls
-_0806D1BC: .4byte gLCDControls
+_0806D1BC: .4byte gScreen
 _0806D1C0: .4byte gUnk_02006F00
 _0806D1C4: .4byte 0xFFFFC000
 _0806D1C8: .4byte 0x040000D4

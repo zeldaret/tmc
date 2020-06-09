@@ -274,7 +274,7 @@ _080A365E:
 	movs r0, #0
 	movs r1, #0
 	bl sub_0801D79C
-	ldr r2, _080A36B4 @ =gLCDControls
+	ldr r2, _080A36B4 @ =gScreen
 	movs r0, #0xc8
 	lsls r0, r0, #3
 	strh r0, [r2]
@@ -299,7 +299,7 @@ _080A365E:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A36B0: .4byte gUnk_081272F0
-_080A36B4: .4byte gLCDControls
+_080A36B4: .4byte gScreen
 _080A36B8: .4byte 0x00002442
 _080A36BC: .4byte 0x00001E4D
 
@@ -355,7 +355,7 @@ sub_080A36F8: @ 0x080A36F8
 	movs r1, #0x80
 	lsls r1, r1, #4
 	bl sub_0801D630
-	ldr r1, _080A3764 @ =gLCDControls
+	ldr r1, _080A3764 @ =gScreen
 	movs r2, #0
 	movs r0, #1
 	strh r0, [r1, #0x1a]
@@ -384,7 +384,7 @@ _080A3754: .4byte gUnk_03000FD0
 _080A3758: .4byte gUnk_02000080
 _080A375C: .4byte gUnk_08127CEC
 _080A3760: .4byte gUnk_02021F30
-_080A3764: .4byte gLCDControls
+_080A3764: .4byte gScreen
 
 	thumb_func_start sub_080A3768
 sub_080A3768: @ 0x080A3768
@@ -419,7 +419,7 @@ _080A378A:
 	adds r1, r1, r2
 	ldr r1, [r1]
 	bl sub_0805F46C
-	ldr r1, _080A37C0 @ =gLCDControls
+	ldr r1, _080A37C0 @ =gScreen
 	movs r2, #0
 	movs r0, #1
 	strh r0, [r1, #0x1a]
@@ -431,7 +431,7 @@ _080A378A:
 	.align 2, 0
 _080A37B8: .4byte gUnk_02021F30
 _080A37BC: .4byte gUnk_081272E0
-_080A37C0: .4byte gLCDControls
+_080A37C0: .4byte gScreen
 _080A37C4:
 	ldr r0, _080A37F8 @ =gUnk_03000FD0
 	ldrb r0, [r0]
@@ -447,7 +447,7 @@ _080A37C4:
 	strb r1, [r4, #0x18]
 	lsls r0, r1, #0x18
 	lsrs r3, r0, #0x18
-	ldr r2, _080A3800 @ =gLCDControls
+	ldr r2, _080A3800 @ =gScreen
 	movs r0, #0x10
 	subs r0, r0, r3
 	lsls r0, r0, #8
@@ -462,7 +462,7 @@ _080A37C4:
 	.align 2, 0
 _080A37F8: .4byte gUnk_03000FD0
 _080A37FC: .4byte gUnk_030010A0
-_080A3800: .4byte gLCDControls
+_080A3800: .4byte gScreen
 _080A3804:
 	ldrh r0, [r4, #8]
 	subs r0, #1
@@ -483,7 +483,7 @@ _080A3812:
 	strb r1, [r4, #0x18]
 	lsls r0, r1, #0x18
 	lsrs r3, r0, #0x18
-	ldr r2, _080A3848 @ =gLCDControls
+	ldr r2, _080A3848 @ =gScreen
 	movs r0, #0x10
 	subs r0, r0, r3
 	lsls r0, r0, #8
@@ -500,7 +500,7 @@ _080A383C:
 	b _080A385E
 	.align 2, 0
 _080A3844: .4byte gUnk_030010A0
-_080A3848: .4byte gLCDControls
+_080A3848: .4byte gScreen
 _080A384C:
 	ldr r1, _080A3860 @ =gUnk_03000FD0
 	ldrb r0, [r1]
@@ -581,7 +581,7 @@ sub_080A38D0: @ 0x080A38D0
 	lsls r6, r6, #4
 	adds r1, r6, #0
 	bl sub_0801D630
-	ldr r4, _080A3924 @ =gLCDControls
+	ldr r4, _080A3924 @ =gScreen
 	movs r0, #0
 	mov r8, r0
 	movs r5, #1
@@ -607,7 +607,7 @@ _080A3914:
 	.align 2, 0
 _080A391C: .4byte gUnk_03000FD0
 _080A3920: .4byte gUnk_02021F30
-_080A3924: .4byte gLCDControls
+_080A3924: .4byte gScreen
 _080A3928: .4byte gUnk_020344B0
 _080A392C: .4byte gUnk_02000080
 
@@ -716,7 +716,7 @@ _080A39C8:
 	movs r0, #0
 	movs r1, #0
 	bl sub_08052418
-	ldr r2, _080A3A2C @ =gLCDControls
+	ldr r2, _080A3A2C @ =gScreen
 	ldrh r0, [r2]
 	movs r3, #0xc0
 	lsls r3, r3, #3
@@ -733,7 +733,7 @@ _080A39C8:
 	bl DoFade
 	b _080A3B36
 	.align 2, 0
-_080A3A2C: .4byte gLCDControls
+_080A3A2C: .4byte gScreen
 _080A3A30: .4byte 0x00001C01
 _080A3A34: .4byte 0x00001D05
 _080A3A38:
@@ -852,7 +852,7 @@ _080A3AFC:
 	.align 2, 0
 _080A3B10: .4byte gUnk_03000FF0
 _080A3B14:
-	ldr r2, _080A3B38 @ =gLCDControls
+	ldr r2, _080A3B38 @ =gScreen
 	ldrh r1, [r2]
 	ldr r0, _080A3B3C @ =0x0000FDFF
 	ands r0, r1
@@ -870,7 +870,7 @@ _080A3B14:
 _080A3B36:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080A3B38: .4byte gLCDControls
+_080A3B38: .4byte gScreen
 _080A3B3C: .4byte 0x0000FDFF
 _080A3B40: .4byte gUnk_03001000
 _080A3B44: .4byte gUnk_02000080

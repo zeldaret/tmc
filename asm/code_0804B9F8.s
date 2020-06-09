@@ -40,7 +40,7 @@ sub_0804BA0C: @ 0x0804BA0C
 	ldr r0, _0804BA38 @ =gUnk_080D7038
 	bl LoadRoomEntityList
 _0804BA1C:
-	ldr r0, _0804BA3C @ =gUnk_02034350
+	ldr r0, _0804BA3C @ =gRoomVars
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0804BA32
@@ -55,7 +55,7 @@ _0804BA32:
 	.align 2, 0
 _0804BA34: .4byte gUnk_02002A40
 _0804BA38: .4byte gUnk_080D7038
-_0804BA3C: .4byte gUnk_02034350
+_0804BA3C: .4byte gRoomVars
 
 	thumb_func_start sub_0804BA40
 sub_0804BA40: @ 0x0804BA40
@@ -111,7 +111,7 @@ sub_0804BA9C: @ 0x0804BA9C
 	bl GetProgressFlag
 	cmp r0, #0
 	beq _0804BAB2
-	ldr r0, _0804BAB8 @ =gUnk_02034350
+	ldr r0, _0804BAB8 @ =gRoomVars
 	ldr r1, _0804BABC @ =gUnk_080D7348
 	str r1, [r0, #0x6c]
 	movs r1, #0
@@ -120,7 +120,7 @@ _0804BAB2:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804BAB8: .4byte gUnk_02034350
+_0804BAB8: .4byte gRoomVars
 _0804BABC: .4byte gUnk_080D7348
 
 	thumb_func_start sub_0804BAC0
@@ -172,7 +172,7 @@ sub_0804BB18: @ 0x0804BB18
 	bl GetProgressFlag
 	cmp r0, #0
 	beq _0804BB2E
-	ldr r0, _0804BB34 @ =gUnk_02034350
+	ldr r0, _0804BB34 @ =gRoomVars
 	ldr r1, _0804BB38 @ =gUnk_080D7410
 	str r1, [r0, #0x6c]
 	movs r1, #0
@@ -181,7 +181,7 @@ _0804BB2E:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804BB34: .4byte gUnk_02034350
+_0804BB34: .4byte gRoomVars
 _0804BB38: .4byte gUnk_080D7410
 
 	thumb_func_start sub_0804BB3C
@@ -1078,7 +1078,7 @@ sub_0804C128: @ 0x0804C128
 	push {r4, r5, lr}
 	movs r0, #0
 	bl sub_080AF250
-	ldr r0, _0804C15C @ =gUnk_02034350
+	ldr r0, _0804C15C @ =gRoomVars
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0804C13A
@@ -1102,7 +1102,7 @@ _0804C13A:
 	orrs r0, r1
 	b _0804C19A
 	.align 2, 0
-_0804C15C: .4byte gUnk_02034350
+_0804C15C: .4byte gRoomVars
 _0804C160: .4byte gUnk_02033A90
 _0804C164:
 	ldr r2, _0804C18C @ =gRoomControls
@@ -1481,14 +1481,14 @@ sub_0804C3CC: @ 0x0804C3CC
 	bl sub_0807CBD0
 	cmp r0, #0
 	bne _0804C3DE
-	ldr r1, _0804C3E4 @ =gUnk_02034350
+	ldr r1, _0804C3E4 @ =gRoomVars
 	ldr r0, _0804C3E8 @ =gUnk_080DA230
 	str r0, [r1, #0x6c]
 _0804C3DE:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804C3E4: .4byte gUnk_02034350
+_0804C3E4: .4byte gRoomVars
 _0804C3E8: .4byte gUnk_080DA230
 
 	thumb_func_start nullsub_203
@@ -2072,14 +2072,14 @@ sub_0804C730: @ 0x0804C730
 	bl sub_0807CBD0
 	cmp r0, #0
 	bne _0804C74C
-	ldr r1, _0804C750 @ =gUnk_02034350
+	ldr r1, _0804C750 @ =gRoomVars
 	ldr r0, _0804C754 @ =gUnk_080DB910
 	str r0, [r1, #0x70]
 _0804C74C:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804C750: .4byte gUnk_02034350
+_0804C750: .4byte gRoomVars
 _0804C754: .4byte gUnk_080DB910
 
 	thumb_func_start sub_0804C758
@@ -3405,14 +3405,14 @@ sub_0804CE80: @ 0x0804CE80
 	bl GetProgressFlag
 	cmp r0, #0
 	beq _0804CE92
-	ldr r1, _0804CE98 @ =gUnk_02034350
+	ldr r1, _0804CE98 @ =gRoomVars
 	ldr r0, _0804CE9C @ =gUnk_080E103C
 	str r0, [r1, #0x70]
 _0804CE92:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804CE98: .4byte gUnk_02034350
+_0804CE98: .4byte gRoomVars
 _0804CE9C: .4byte gUnk_080E103C
 
 	thumb_func_start nullsub_271
@@ -3495,7 +3495,7 @@ sub_0804CED8: @ 0x0804CED8
 	ldr r1, _0804CF04 @ =gUnk_0200B650
 	movs r0, #0
 	str r0, [r1]
-	ldr r2, _0804CF08 @ =gLCDControls
+	ldr r2, _0804CF08 @ =gScreen
 	ldrh r1, [r2]
 	ldr r0, _0804CF0C @ =0x0000FDFF
 	ands r0, r1
@@ -3507,7 +3507,7 @@ sub_0804CED8: @ 0x0804CED8
 	b _0804CF2E
 	.align 2, 0
 _0804CF04: .4byte gUnk_0200B650
-_0804CF08: .4byte gLCDControls
+_0804CF08: .4byte gScreen
 _0804CF0C: .4byte 0x0000FDFF
 _0804CF10: .4byte gLinkEntity
 _0804CF14: .4byte gUnk_080E1814
@@ -5539,7 +5539,7 @@ sub_0804D904: @ 0x0804D904
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0804D93C
-	ldr r1, _0804D930 @ =gUnk_02034350
+	ldr r1, _0804D930 @ =gRoomVars
 	ldr r0, _0804D934 @ =gUnk_080EB604
 	str r0, [r1, #0x6c]
 	movs r0, #0
@@ -5555,7 +5555,7 @@ sub_0804D904: @ 0x0804D904
 	str r1, [r2]
 	b _0804D96A
 	.align 2, 0
-_0804D930: .4byte gUnk_02034350
+_0804D930: .4byte gRoomVars
 _0804D934: .4byte gUnk_080EB604
 _0804D938: .4byte gUnk_02033A90
 _0804D93C:
@@ -5563,7 +5563,7 @@ _0804D93C:
 	bl sub_0807CBD0
 	cmp r0, #0
 	beq _0804D96A
-	ldr r4, _0804D970 @ =gUnk_02034350
+	ldr r4, _0804D970 @ =gRoomVars
 	str r5, [r4, #0x6c]
 	movs r0, #0x7a
 	bl sub_0807CBD0
@@ -5583,7 +5583,7 @@ _0804D96A:
 	movs r0, #1
 	pop {r4, r5, pc}
 	.align 2, 0
-_0804D970: .4byte gUnk_02034350
+_0804D970: .4byte gRoomVars
 _0804D974: .4byte gUnk_080EB5D4
 _0804D978: .4byte sub_0804D9B0
 
@@ -5707,14 +5707,14 @@ sub_0804DA2C: @ 0x0804DA2C
 	adds r1, r0, #0
 	cmp r1, #0
 	bne _0804DA40
-	ldr r0, _0804DA44 @ =gUnk_02034350
+	ldr r0, _0804DA44 @ =gRoomVars
 	str r1, [r0, #0x6c]
 	str r1, [r0, #0x74]
 _0804DA40:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804DA44: .4byte gUnk_02034350
+_0804DA44: .4byte gRoomVars
 
 	thumb_func_start sub_0804DA48
 sub_0804DA48: @ 0x0804DA48
@@ -6021,14 +6021,14 @@ sub_0804DBC0: @ 0x0804DBC0
 	bl sub_0807CBD0
 	cmp r0, #0
 	beq _0804DBD2
-	ldr r1, _0804DBD8 @ =gUnk_02034350
+	ldr r1, _0804DBD8 @ =gRoomVars
 	movs r0, #0
 	str r0, [r1, #0x74]
 _0804DBD2:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804DBD8: .4byte gUnk_02034350
+_0804DBD8: .4byte gRoomVars
 
 	thumb_func_start sub_0804DBDC
 sub_0804DBDC: @ 0x0804DBDC
@@ -6085,7 +6085,7 @@ sub_0804DC28: @ 0x0804DC28
 	bl GetProgressFlag
 	cmp r0, #0
 	beq _0804DC3E
-	ldr r0, _0804DC44 @ =gUnk_02034350
+	ldr r0, _0804DC44 @ =gRoomVars
 	ldr r1, _0804DC48 @ =gUnk_080ED1E4
 	str r1, [r0, #0x6c]
 	movs r1, #0
@@ -6094,7 +6094,7 @@ _0804DC3E:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804DC44: .4byte gUnk_02034350
+_0804DC44: .4byte gRoomVars
 _0804DC48: .4byte gUnk_080ED1E4
 
 	thumb_func_start sub_0804DC4C
@@ -6334,7 +6334,7 @@ sub_0804DD18: @ 0x0804DD18
 	bl sub_0807CBD0
 	cmp r0, #0
 	beq _0804DD2C
-	ldr r1, _0804DD30 @ =gUnk_02034350
+	ldr r1, _0804DD30 @ =gRoomVars
 	movs r0, #0
 	str r0, [r1, #0x74]
 	str r0, [r1, #0x6c]
@@ -6342,7 +6342,7 @@ _0804DD2C:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804DD30: .4byte gUnk_02034350
+_0804DD30: .4byte gRoomVars
 
 	thumb_func_start sub_0804DD34
 sub_0804DD34: @ 0x0804DD34
@@ -6389,14 +6389,14 @@ sub_0804DD78: @ 0x0804DD78
 	bl sub_0807CBD0
 	cmp r0, #0
 	beq _0804DD8A
-	ldr r1, _0804DD90 @ =gUnk_02034350
+	ldr r1, _0804DD90 @ =gRoomVars
 	movs r0, #0
 	str r0, [r1, #0x74]
 _0804DD8A:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804DD90: .4byte gUnk_02034350
+_0804DD90: .4byte gRoomVars
 
 	thumb_func_start sub_0804DD94
 sub_0804DD94: @ 0x0804DD94
@@ -7057,14 +7057,14 @@ sub_0804E25C: @ 0x0804E25C
 	bl GetInventoryValue
 	cmp r0, #0
 	beq _0804E26E
-	ldr r1, _0804E274 @ =gUnk_02034350
+	ldr r1, _0804E274 @ =gRoomVars
 	ldr r0, _0804E278 @ =gUnk_080F09A0
 	str r0, [r1, #0x70]
 _0804E26E:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804E274: .4byte gUnk_02034350
+_0804E274: .4byte gRoomVars
 _0804E278: .4byte gUnk_080F09A0
 
 	thumb_func_start sub_0804E27C
@@ -8005,21 +8005,21 @@ sub_0804E998: @ 0x0804E998
 	bl sub_0807CBD0
 	cmp r0, #0
 	bne _0804E9BC
-	ldr r1, _0804E9B4 @ =gUnk_02034350
+	ldr r1, _0804E9B4 @ =gRoomVars
 	ldr r0, _0804E9B8 @ =gUnk_080F3EA4
 	b _0804E9C0
 	.align 2, 0
-_0804E9B4: .4byte gUnk_02034350
+_0804E9B4: .4byte gRoomVars
 _0804E9B8: .4byte gUnk_080F3EA4
 _0804E9BC:
-	ldr r1, _0804E9C8 @ =gUnk_02034350
+	ldr r1, _0804E9C8 @ =gRoomVars
 	ldr r0, _0804E9CC @ =gUnk_080F3D44
 _0804E9C0:
 	str r0, [r1, #0x74]
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804E9C8: .4byte gUnk_02034350
+_0804E9C8: .4byte gRoomVars
 _0804E9CC: .4byte gUnk_080F3D44
 
 	thumb_func_start sub_0804E9D0
@@ -8343,7 +8343,7 @@ sub_0804EBDC: @ 0x0804EBDC
 	bl GetProgressFlag
 	cmp r0, #0
 	beq _0804EBF2
-	ldr r0, _0804EBF8 @ =gUnk_02034350
+	ldr r0, _0804EBF8 @ =gRoomVars
 	ldr r1, _0804EBFC @ =gUnk_080F4EB0
 	str r1, [r0, #0x6c]
 	movs r1, #0
@@ -8352,7 +8352,7 @@ _0804EBF2:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804EBF8: .4byte gUnk_02034350
+_0804EBF8: .4byte gRoomVars
 _0804EBFC: .4byte gUnk_080F4EB0
 
 	thumb_func_start sub_0804EC00
@@ -8454,7 +8454,7 @@ sub_0804ECBC: @ 0x0804ECBC
 	bl GetProgressFlag
 	cmp r0, #0
 	beq _0804ECDA
-	ldr r1, _0804ECE0 @ =gUnk_02034350
+	ldr r1, _0804ECE0 @ =gRoomVars
 	ldr r0, _0804ECE4 @ =gUnk_080F5348
 	str r0, [r1, #0x6c]
 	adds r2, r1, #0
@@ -8467,7 +8467,7 @@ _0804ECDA:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804ECE0: .4byte gUnk_02034350
+_0804ECE0: .4byte gRoomVars
 _0804ECE4: .4byte gUnk_080F5348
 _0804ECE8: .4byte sub_0804ED18
 
@@ -9359,14 +9359,14 @@ sub_0804F308: @ 0x0804F308
 	bl GetInventoryValue
 	cmp r0, #0
 	bne _0804F324
-	ldr r1, _0804F328 @ =gUnk_02034350
+	ldr r1, _0804F328 @ =gRoomVars
 	ldr r0, _0804F32C @ =gUnk_080F7680
 	str r0, [r1, #0x74]
 _0804F324:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804F328: .4byte gUnk_02034350
+_0804F328: .4byte gRoomVars
 _0804F32C: .4byte gUnk_080F7680
 
 	thumb_func_start sub_0804F330
@@ -9513,7 +9513,7 @@ sub_0804F468: @ 0x0804F468
 	bl GetInventoryValue
 	cmp r0, #0
 	bne _0804F48A
-	ldr r0, _0804F4D0 @ =gUnk_02034350
+	ldr r0, _0804F4D0 @ =gRoomVars
 	ldr r1, _0804F4D4 @ =gUnk_080F7CD0
 	str r1, [r0, #0x6c]
 	adds r0, #0x88
@@ -9533,7 +9533,7 @@ _0804F48A:
 	adds r3, r0, #0
 	cmp r3, #0
 	bne _0804F4BA
-	ldr r1, _0804F4D0 @ =gUnk_02034350
+	ldr r1, _0804F4D0 @ =gRoomVars
 	ldr r0, _0804F4DC @ =gUnk_080F7C80
 	str r0, [r1, #0x6c]
 	adds r2, r1, #0
@@ -9552,7 +9552,7 @@ _0804F4CA:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804F4D0: .4byte gUnk_02034350
+_0804F4D0: .4byte gRoomVars
 _0804F4D4: .4byte gUnk_080F7CD0
 _0804F4D8: .4byte sub_0804F5E8
 _0804F4DC: .4byte gUnk_080F7C80
@@ -10661,14 +10661,14 @@ sub_0804FC4C: @ 0x0804FC4C
 	bl sub_0801E7F4
 	cmp r0, #0
 	bne _0804FC5E
-	ldr r1, _0804FC64 @ =gUnk_02034350
+	ldr r1, _0804FC64 @ =gRoomVars
 	ldr r0, _0804FC68 @ =gUnk_080F9BF8
 	str r0, [r1, #0x6c]
 _0804FC5E:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804FC64: .4byte gUnk_02034350
+_0804FC64: .4byte gRoomVars
 _0804FC68: .4byte gUnk_080F9BF8
 
 	thumb_func_start sub_0804FC6C
@@ -11083,7 +11083,7 @@ sub_0804FDE0: @ 0x0804FDE0
 	bl GetProgressFlag
 	cmp r0, #0
 	beq _0804FDF6
-	ldr r0, _0804FDFC @ =gUnk_02034350
+	ldr r0, _0804FDFC @ =gRoomVars
 	ldr r1, _0804FE00 @ =gUnk_080FAD48
 	str r1, [r0, #0x6c]
 	movs r1, #0
@@ -11092,7 +11092,7 @@ _0804FDF6:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804FDFC: .4byte gUnk_02034350
+_0804FDFC: .4byte gRoomVars
 _0804FE00: .4byte gUnk_080FAD48
 
 	thumb_func_start sub_0804FE04

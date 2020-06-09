@@ -34,7 +34,7 @@ _080AD6CA:
 	ands r0, r1
 	cmp r0, #0
 	bne _080AD6E4
-	ldr r1, _080AD71C @ =gLCDControls
+	ldr r1, _080AD71C @ =gScreen
 	ldrh r0, [r1, #0x18]
 	adds r0, #1
 	strh r0, [r1, #0x18]
@@ -42,7 +42,7 @@ _080AD6E4:
 	bl sub_080AD84C
 	cmp r0, #2
 	beq _080AD6F4
-	ldr r0, _080AD71C @ =gLCDControls
+	ldr r0, _080AD71C @ =gScreen
 	ldrh r0, [r0, #0x18]
 	cmp r0, #0
 	bne _080AD76A
@@ -50,7 +50,7 @@ _080AD6F4:
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
-	ldr r1, _080AD71C @ =gLCDControls
+	ldr r1, _080AD71C @ =gScreen
 	strh r5, [r1, #0x18]
 	ldr r0, _080AD720 @ =0x00000C09
 	strh r0, [r1, #0x14]
@@ -64,7 +64,7 @@ _080AD6F4:
 	b _080AD76A
 	.align 2, 0
 _080AD718: .4byte gUnk_03000FD0
-_080AD71C: .4byte gLCDControls
+_080AD71C: .4byte gScreen
 _080AD720: .4byte 0x00000C09
 _080AD724:
 	ldr r1, _080AD754 @ =gUnk_03000FD0

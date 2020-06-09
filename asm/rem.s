@@ -981,7 +981,7 @@ _0806AA94: .4byte gUnk_081122B0
 _0806AA98:
 	ldr r2, _0806AAD0 @ =gUnk_081122B8
 _0806AA9A:
-	ldr r1, _0806AAD4 @ =gUnk_02034350
+	ldr r1, _0806AAD4 @ =gRoomVars
 	ldr r0, [r1, #0x68]
 	lsls r0, r0, #1
 	adds r0, r0, r2
@@ -1009,7 +1009,7 @@ _0806AAB6:
 	b _0806AB1C
 	.align 2, 0
 _0806AAD0: .4byte gUnk_081122B8
-_0806AAD4: .4byte gUnk_02034350
+_0806AAD4: .4byte gRoomVars
 _0806AAD8:
 	adds r0, r4, #0
 	adds r0, #0xac
@@ -1060,7 +1060,7 @@ _0806AB2C:
 	.align 2, 0
 _0806AB34: .4byte 0x0000441E
 _0806AB38:
-	ldr r0, _0806AB58 @ =gUnk_02034350
+	ldr r0, _0806AB58 @ =gRoomVars
 	ldr r1, [r5, #4]
 	lsls r1, r1, #2
 	adds r0, #0xac
@@ -1077,7 +1077,7 @@ _0806AB38:
 	strb r0, [r5, #0x18]
 	b _0806AB64
 	.align 2, 0
-_0806AB58: .4byte gUnk_02034350
+_0806AB58: .4byte gRoomVars
 _0806AB5C:
 	movs r1, #0x36
 	ldrsh r0, [r6, r1]
@@ -1098,7 +1098,7 @@ _0806AB70: .4byte gUnk_02033280
 sub_0806AB74: @ 0x0806AB74
 	push {lr}
 	adds r2, r0, #0
-	ldr r1, _0806AB94 @ =gUnk_02034350
+	ldr r1, _0806AB94 @ =gRoomVars
 	movs r0, #1
 	strb r0, [r1, #3]
 	movs r1, #0x32
@@ -1114,7 +1114,7 @@ sub_0806AB74: @ 0x0806AB74
 _0806AB92:
 	pop {pc}
 	.align 2, 0
-_0806AB94: .4byte gUnk_02034350
+_0806AB94: .4byte gRoomVars
 _0806AB98: .4byte gRoomControls
 
 	thumb_func_start sub_0806AB9C

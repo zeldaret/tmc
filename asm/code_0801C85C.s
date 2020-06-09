@@ -97,7 +97,7 @@ _0801C8BA:
 	orrs r0, r1
 	strh r0, [r2, #2]
 _0801C90C:
-	ldr r0, _0801C94C @ =gLCDControls
+	ldr r0, _0801C94C @ =gScreen
 	strh r6, [r0, #0xe]
 _0801C910:
 	ldr r0, _0801C930 @ =gLinkState
@@ -123,7 +123,7 @@ _0801C93C: .4byte 0x040000D4
 _0801C940: .4byte gUnk_080C8F54
 _0801C944: .4byte 0x8000000A
 _0801C948: .4byte 0x000003FF
-_0801C94C: .4byte gLCDControls
+_0801C94C: .4byte gScreen
 _0801C950: .4byte gUnk_0200AF00
 _0801C954:
 	adds r0, r1, #1
@@ -194,14 +194,14 @@ _0801C9B2:
 	strh r0, [r1]
 	adds r1, #2
 	strh r0, [r1]
-	ldr r1, _0801C9E8 @ =gLCDControls
+	ldr r1, _0801C9E8 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
 	b _0801CA50
 	.align 2, 0
 _0801C9E0: .4byte gUnk_0200AF00
 _0801C9E4: .4byte gUnk_020350E2
-_0801C9E8: .4byte gLCDControls
+_0801C9E8: .4byte gScreen
 _0801C9EC:
 	ldrb r0, [r4, #0x10]
 	cmp r0, #0
@@ -225,7 +225,7 @@ _0801C9EC:
 	strh r0, [r2, #6]
 	adds r0, r3, #3
 	strh r0, [r1, #6]
-	ldr r1, _0801CA5C @ =gLCDControls
+	ldr r1, _0801CA5C @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
 _0801CA1E:
@@ -259,7 +259,7 @@ _0801CA50:
 	.align 2, 0
 _0801CA54: .4byte gUnk_020350E2
 _0801CA58: .4byte 0x0000F01C
-_0801CA5C: .4byte gLCDControls
+_0801CA5C: .4byte gScreen
 _0801CA60: .4byte gUnk_02002A40
 _0801CA64: .4byte gUnk_02033A90
 _0801CA68: .4byte 0x0000045C

@@ -27,7 +27,7 @@ _0801C83C:
 	str r2, [r1, #0xc]
 	str r2, [r1, #0x10]
 	str r2, [r1, #0x14]
-	ldr r1, _0801C858 @ =gLCDControls
+	ldr r1, _0801C858 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
 _0801C84E:
@@ -35,4 +35,4 @@ _0801C84E:
 	.align 2, 0
 _0801C850: .4byte gUnk_0200AF00
 _0801C854: .4byte gUnk_02034D30
-_0801C858: .4byte gLCDControls
+_0801C858: .4byte gScreen

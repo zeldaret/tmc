@@ -61,7 +61,7 @@ _080AD4D2:
 	ldrb r0, [r4, #7]
 	cmp r0, #0
 	bne _080AD524
-	ldr r2, _080AD510 @ =gLCDControls
+	ldr r2, _080AD510 @ =gScreen
 	adds r1, r2, #0
 	adds r1, #0x66
 	ldr r0, _080AD514 @ =0x00000844
@@ -86,13 +86,13 @@ _080AD4D2:
 	b _080AD55A
 	.align 2, 0
 _080AD50C: .4byte gUnk_02024490
-_080AD510: .4byte gLCDControls
+_080AD510: .4byte gScreen
 _080AD514: .4byte 0x00000844
 _080AD518: .4byte 0x00001C09
 _080AD51C: .4byte 0x00001E03
 _080AD520: .4byte 0x0000FF60
 _080AD524:
-	ldr r2, _080AD570 @ =gLCDControls
+	ldr r2, _080AD570 @ =gScreen
 	adds r1, r2, #0
 	adds r1, #0x66
 	ldr r0, _080AD574 @ =0x00000241
@@ -127,7 +127,7 @@ _080AD55A:
 	bl DoFade
 	b _080AD610
 	.align 2, 0
-_080AD570: .4byte gLCDControls
+_080AD570: .4byte gScreen
 _080AD574: .4byte 0x00000241
 _080AD578: .4byte 0x00000909
 _080AD57C: .4byte 0x00001D02

@@ -49,7 +49,7 @@ _0801C398:
 	lsls r1, r1, #4
 	adds r0, r4, #0
 	bl sub_0801D630
-	ldr r1, _0801C47C @ =gLCDControls
+	ldr r1, _0801C47C @ =gScreen
 	str r4, [r1, #0x10]
 	ldr r0, _0801C480 @ =0x00001F0C
 	strh r0, [r1, #8]
@@ -123,7 +123,7 @@ _0801C398:
 _0801C470: .4byte gUnk_0200AF00
 _0801C474: .4byte gUnk_02002A40
 _0801C478: .4byte gUnk_02034CB0
-_0801C47C: .4byte gLCDControls
+_0801C47C: .4byte gScreen
 _0801C480: .4byte 0x00001F0C
 _0801C484: .4byte gUnk_03000000
 _0801C488: .4byte 0x00000427
@@ -132,12 +132,12 @@ _0801C490: .4byte 0x0000042E
 
 	thumb_func_start sub_0801C494
 sub_0801C494: @ 0x0801C494
-	ldr r1, _0801C49C @ =gLCDControls
+	ldr r1, _0801C49C @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
 	bx lr
 	.align 2, 0
-_0801C49C: .4byte gLCDControls
+_0801C49C: .4byte gScreen
 
 	thumb_func_start sub_0801C4A0
 sub_0801C4A0: @ 0x0801C4A0

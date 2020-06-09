@@ -34039,10 +34039,10 @@ gGreatFairyRippleOffsets:: @ 08120714
 gGreatFairyWings:: @ 08120728
 	.incbin "baserom.gba", 0x120728, 0x000000C
 
-gUnk_08120734:: @ 08120734
+gGreatFairyWake:: @ 08120734
 	.incbin "baserom.gba", 0x120734, 0x0000008
 
-gGreatFairyWake:: @ 0812073C
+gGreatFairyMini:: @ 0812073C
 	.incbin "baserom.gba", 0x12073C, 0x000000C
 
 gGreatFairyMiniAnim:: @ 08120748

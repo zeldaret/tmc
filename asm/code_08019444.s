@@ -336,7 +336,7 @@ sub_08019698: @ 0x08019698
 	movs r0, #1
 	strb r0, [r1]
 	bl sub_08000108
-	ldr r2, _08019734 @ =gLCDControls
+	ldr r2, _08019734 @ =gScreen
 	ldrh r1, [r2]
 	ldr r0, _08019738 @ =0x0000FEFF
 	ands r0, r1
@@ -375,7 +375,7 @@ _08019724: .4byte gUnk_02032EC0
 _08019728: .4byte gUnk_080B4410
 _0801972C: .4byte gRoomControls
 _08019730: .4byte gUnk_02000070
-_08019734: .4byte gLCDControls
+_08019734: .4byte gScreen
 _08019738: .4byte 0x0000FEFF
 _0801973C: .4byte gUnk_02018EB0
 
@@ -3189,7 +3189,7 @@ sub_0801AC68: @ 0x0801AC68
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r2, _0801AC84 @ =gUnk_0200B240
-	ldr r0, _0801AC88 @ =gUnk_02034350
+	ldr r0, _0801AC88 @ =gRoomVars
 	ldrh r3, [r0, #0xe]
 	movs r0, #0
 	cmp r0, r3
@@ -3203,7 +3203,7 @@ _0801AC78:
 	b _0801AC96
 	.align 2, 0
 _0801AC84: .4byte gUnk_0200B240
-_0801AC88: .4byte gUnk_02034350
+_0801AC88: .4byte gRoomVars
 _0801AC8C:
 	adds r2, #4
 	adds r0, #1
@@ -3572,7 +3572,7 @@ sub_0801AF48: @ 0x0801AF48
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0801AF7A
-	ldr r2, _0801AF84 @ =gUnk_02034350
+	ldr r2, _0801AF84 @ =gRoomVars
 	ldrh r3, [r2, #0xe]
 	cmp r3, #0xff
 	bhi _0801AF7A
@@ -3590,7 +3590,7 @@ _0801AF7A:
 	.align 2, 0
 _0801AF7C: .4byte 0x00003FFF
 _0801AF80: .4byte gUnk_030010A0
-_0801AF84: .4byte gUnk_02034350
+_0801AF84: .4byte gRoomVars
 _0801AF88: .4byte gUnk_0200B240
 
 	thumb_func_start sub_0801AF8C
@@ -3600,7 +3600,7 @@ sub_0801AF8C: @ 0x0801AF8C
 	lsls r1, r1, #0xc
 	orrs r4, r1
 	ldr r2, _0801AFB8 @ =gUnk_0200B240
-	ldr r0, _0801AFBC @ =gUnk_02034350
+	ldr r0, _0801AFBC @ =gRoomVars
 	ldrh r1, [r0, #0xe]
 	movs r3, #0
 	adds r5, r2, #0
@@ -3618,7 +3618,7 @@ sub_0801AF8C: @ 0x0801AF8C
 	b _0801AFE0
 	.align 2, 0
 _0801AFB8: .4byte gUnk_0200B240
-_0801AFBC: .4byte gUnk_02034350
+_0801AFBC: .4byte gRoomVars
 _0801AFC0:
 	adds r2, #4
 	adds r3, #1

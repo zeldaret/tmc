@@ -32,7 +32,7 @@ sub_0806C0B0: @ 0x0806C0B0
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	bl sub_0807DD50
-	ldr r1, _0806C100 @ =gLCDControls
+	ldr r1, _0806C100 @ =gScreen
 	adds r2, r1, #0
 	adds r2, #0x66
 	movs r0, #0xfd
@@ -46,7 +46,7 @@ sub_0806C0B0: @ 0x0806C0B0
 	str r5, [r4, #0x20]
 	b _0806C134
 	.align 2, 0
-_0806C100: .4byte gLCDControls
+_0806C100: .4byte gScreen
 _0806C104:
 	adds r0, r4, #0
 	movs r1, #0
@@ -65,7 +65,7 @@ _0806C11E:
 	bgt _0806C124
 	movs r3, #4
 _0806C124:
-	ldr r2, _0806C138 @ =gLCDControls
+	ldr r2, _0806C138 @ =gScreen
 	lsls r1, r3, #8
 	movs r0, #0x10
 	subs r0, r0, r3
@@ -76,4 +76,4 @@ _0806C124:
 _0806C134:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0806C138: .4byte gLCDControls
+_0806C138: .4byte gScreen

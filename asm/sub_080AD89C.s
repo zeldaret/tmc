@@ -33,7 +33,7 @@ _080AD8BC:
 	movs r1, #7
 	ands r0, r1
 	strb r0, [r4, #0x11]
-	ldr r1, _080AD8E8 @ =gLCDControls
+	ldr r1, _080AD8E8 @ =gScreen
 	ldr r2, _080AD8EC @ =gUnk_081320FC
 	ldrb r0, [r4, #0x11]
 	lsls r0, r0, #1
@@ -45,5 +45,5 @@ _080AD8E0:
 	pop {r4, pc}
 	.align 2, 0
 _080AD8E4: .4byte gUnk_02000080
-_080AD8E8: .4byte gLCDControls
+_080AD8E8: .4byte gScreen
 _080AD8EC: .4byte gUnk_081320FC

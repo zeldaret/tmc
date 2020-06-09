@@ -35,7 +35,7 @@ sub_080AD3F4: @ 0x080AD3F4
 _080AD42C:
 	adds r0, r1, #0
 	bl sub_0801D714
-	ldr r0, _080AD454 @ =gLCDControls
+	ldr r0, _080AD454 @ =gScreen
 	ldrh r1, [r0]
 	movs r3, #0x80
 	lsls r3, r3, #3
@@ -50,7 +50,7 @@ _080AD42C:
 	b _080AD45E
 	.align 2, 0
 _080AD450: .4byte gUnk_02000080
-_080AD454: .4byte gLCDControls
+_080AD454: .4byte gScreen
 _080AD458:
 	cmp r1, #1
 	bne _080AD45E

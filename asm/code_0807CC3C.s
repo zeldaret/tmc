@@ -3352,7 +3352,7 @@ sub_0807E42C: @ 0x0807E42C
 	ldrh r6, [r0, #4]
 	cmp r4, #0
 	bne _0807E440
-	ldr r0, _0807E480 @ =gUnk_02034350
+	ldr r0, _0807E480 @ =gRoomVars
 	ldrb r4, [r0, #6]
 	ldrb r6, [r0, #7]
 _0807E440:
@@ -3376,7 +3376,7 @@ _0807E456:
 	adds r1, r6, #0
 	movs r2, #0
 	bl sub_080A7C18
-	ldr r1, _0807E480 @ =gUnk_02034350
+	ldr r1, _0807E480 @ =gRoomVars
 	movs r0, #0
 	strb r0, [r1, #6]
 	strb r0, [r1, #7]
@@ -3388,7 +3388,7 @@ _0807E474:
 	strb r0, [r2, #7]
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0807E480: .4byte gUnk_02034350
+_0807E480: .4byte gRoomVars
 _0807E484: .4byte gUnk_02002A40
 _0807E488: .4byte gUnk_02033280
 
@@ -3411,7 +3411,7 @@ _0807E4A8: .4byte gUnk_02033280
 
 	thumb_func_start sub_0807E4AC
 sub_0807E4AC: @ 0x0807E4AC
-	ldr r0, _0807E4C4 @ =gUnk_02034350
+	ldr r0, _0807E4C4 @ =gRoomVars
 	ldrb r2, [r0, #6]
 	rsbs r0, r2, #0
 	orrs r0, r2
@@ -3424,7 +3424,7 @@ sub_0807E4AC: @ 0x0807E4AC
 	strb r0, [r2, #7]
 	bx lr
 	.align 2, 0
-_0807E4C4: .4byte gUnk_02034350
+_0807E4C4: .4byte gRoomVars
 _0807E4C8: .4byte gUnk_02033280
 
 	thumb_func_start sub_0807E4CC
@@ -6166,7 +6166,7 @@ sub_0807F78C: @ 0x0807F78C
 	ldr r5, [r1, #4]
 	cmp r5, #0
 	bne _0807F79A
-	ldr r0, _0807F7BC @ =gUnk_02034350
+	ldr r0, _0807F7BC @ =gRoomVars
 	ldrb r5, [r0, #6]
 _0807F79A:
 	adds r0, r5, #0
@@ -6184,7 +6184,7 @@ _0807F79A:
 	str r5, [r0, #0x10]
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0807F7BC: .4byte gUnk_02034350
+_0807F7BC: .4byte gRoomVars
 _0807F7C0: .4byte gTextBox
 
 	thumb_func_start sub_0807F7C4
@@ -6194,7 +6194,7 @@ sub_0807F7C4: @ 0x0807F7C4
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	bne _0807F7D2
-	ldr r0, _0807F7F4 @ =gUnk_02034350
+	ldr r0, _0807F7F4 @ =gRoomVars
 	ldrb r0, [r0, #6]
 _0807F7D2:
 	bl sub_08053FE0
@@ -6214,7 +6214,7 @@ _0807F7E4:
 	strb r0, [r2, #7]
 	pop {r4, pc}
 	.align 2, 0
-_0807F7F4: .4byte gUnk_02034350
+_0807F7F4: .4byte gRoomVars
 _0807F7F8: .4byte gUnk_02002A40
 _0807F7FC: .4byte gUnk_02033280
 
@@ -6224,7 +6224,7 @@ sub_0807F800: @ 0x0807F800
 	ldr r4, [r1, #4]
 	cmp r4, #0
 	bne _0807F80C
-	ldr r0, _0807F834 @ =gUnk_02034350
+	ldr r0, _0807F834 @ =gRoomVars
 	ldrb r4, [r0, #6]
 _0807F80C:
 	adds r0, r4, #0
@@ -6235,7 +6235,7 @@ _0807F80C:
 	movs r1, #0
 	movs r2, #0
 	bl sub_080A7C18
-	ldr r1, _0807F834 @ =gUnk_02034350
+	ldr r1, _0807F834 @ =gRoomVars
 	movs r0, #0
 	strb r0, [r1, #6]
 	ldr r2, _0807F838 @ =gUnk_02033280
@@ -6245,7 +6245,7 @@ _0807F80C:
 	strb r0, [r2, #7]
 	pop {r4, pc}
 	.align 2, 0
-_0807F834: .4byte gUnk_02034350
+_0807F834: .4byte gRoomVars
 _0807F838: .4byte gUnk_02033280
 
 	thumb_func_start sub_0807F83C
@@ -7236,7 +7236,7 @@ sub_0807FF6C: @ 0x0807FF6C
 	push {r4, lr}
 	movs r1, #1
 	strb r1, [r0, #3]
-	ldr r3, _0807FFC8 @ =gLCDControls
+	ldr r3, _0807FFC8 @ =gScreen
 	ldrh r1, [r3]
 	movs r2, #0x80
 	lsls r2, r2, #7
@@ -7277,7 +7277,7 @@ sub_0807FF6C: @ 0x0807FF6C
 	strb r0, [r1, #0x14]
 	b _0807FFD8
 	.align 2, 0
-_0807FFC8: .4byte gLCDControls
+_0807FFC8: .4byte gScreen
 _0807FFCC: .4byte gUnk_03004030
 _0807FFD0: .4byte gLinkEntity
 _0807FFD4:
@@ -7386,7 +7386,7 @@ _0808009C:
 	ble _080800A8
 	movs r3, #0xa0
 _080800A8:
-	ldr r2, _080800F0 @ =gLCDControls
+	ldr r2, _080800F0 @ =gScreen
 	movs r1, #0xff
 	ands r7, r1
 	lsls r0, r7, #8
@@ -7420,7 +7420,7 @@ _080800C6:
 	bl sub_08080C80
 	b _08080102
 	.align 2, 0
-_080800F0: .4byte gLCDControls
+_080800F0: .4byte gScreen
 _080800F4: .4byte gUnk_08109194
 _080800F8: .4byte gUnk_03004030
 _080800FC:
@@ -7555,7 +7555,7 @@ _0808020C:
 	ble _08080214
 	movs r3, #0xa0
 _08080214:
-	ldr r2, _08080260 @ =gLCDControls
+	ldr r2, _08080260 @ =gScreen
 	movs r1, #0xff
 	ands r7, r1
 	lsls r0, r7, #8
@@ -7577,7 +7577,7 @@ _08080232:
 	strb r0, [r5, #2]
 	strh r0, [r5]
 	bl sub_0805E5B4
-	ldr r1, _08080260 @ =gLCDControls
+	ldr r1, _08080260 @ =gScreen
 	ldrh r2, [r1]
 	ldr r0, _08080264 @ =0x0000BFFF
 	ands r0, r2
@@ -7594,7 +7594,7 @@ _08080232:
 	strh r0, [r1]
 	b _08080272
 	.align 2, 0
-_08080260: .4byte gLCDControls
+_08080260: .4byte gScreen
 _08080264: .4byte 0x0000BFFF
 _08080268:
 	ldr r0, _08080274 @ =gUnk_02000070

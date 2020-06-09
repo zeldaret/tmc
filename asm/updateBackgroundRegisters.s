@@ -7,7 +7,7 @@
 	
 	thumb_func_start sub_08016CF4
 sub_08016CF4: @ 0x08016CF4
-	ldr r3, _08016DF0 @ =gLCDControls
+	ldr r3, _08016DF0 @ =gScreen
 	ldrh r1, [r3]
 	ldrh r0, [r3, #6]
 	ands r0, r1
@@ -134,5 +134,5 @@ sub_08016CF4: @ 0x08016CF4
 	strh r0, [r2]
 	bx lr
 	.align 2, 0
-_08016DF0: .4byte gLCDControls
+_08016DF0: .4byte gScreen
 _08016DF4: .4byte 0x04000020

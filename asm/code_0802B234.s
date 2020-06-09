@@ -4079,7 +4079,7 @@ _0802D04C:
 	adds r0, r4, #0
 	adds r0, #0x75
 	strb r1, [r0]
-	ldr r1, _0802D088 @ =gLCDControls
+	ldr r1, _0802D088 @ =gScreen
 	ldrb r2, [r2]
 	adds r0, r1, #0
 	adds r0, #0x68
@@ -4091,7 +4091,7 @@ _0802D04C:
 	bl PlaySFX
 	b _0802D148
 	.align 2, 0
-_0802D088: .4byte gLCDControls
+_0802D088: .4byte gScreen
 _0802D08C: .4byte 0x00001442
 _0802D090:
 	ldrb r0, [r4, #0xe]
@@ -4111,7 +4111,7 @@ _0802D090:
 	ldrb r0, [r1]
 	subs r0, #1
 	strb r0, [r1]
-	ldr r2, _0802D0EC @ =gLCDControls
+	ldr r2, _0802D0EC @ =gScreen
 	ldrb r1, [r1]
 	ldrb r0, [r3]
 	lsls r0, r0, #8
@@ -4138,7 +4138,7 @@ _0802D0D2:
 	bl PlaySFX
 	b _0802D148
 	.align 2, 0
-_0802D0EC: .4byte gLCDControls
+_0802D0EC: .4byte gScreen
 _0802D0F0: .4byte gLinkEntity
 _0802D0F4:
 	movs r0, #0x94
@@ -4508,7 +4508,7 @@ sub_0802D3B8: @ 0x0802D3B8
 	bl GetProgressFlag
 	cmp r0, #0
 	beq _0802D3DE
-	ldr r2, _0802D3F4 @ =gLCDControls
+	ldr r2, _0802D3F4 @ =gScreen
 	ldrh r1, [r2]
 	ldr r0, _0802D3F8 @ =0x0000FDFF
 	ands r0, r1
@@ -4530,7 +4530,7 @@ _0802D3EA:
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_0802D3F4: .4byte gLCDControls
+_0802D3F4: .4byte gScreen
 _0802D3F8: .4byte 0x0000FDFF
 _0802D3FC: .4byte gLinkEntity
 _0802D400: .4byte _0802D404
@@ -6391,7 +6391,7 @@ _0802E218:
 	adds r2, #0x30
 	adds r7, r5, #0
 	adds r7, #0x7c
-	ldr r0, _0802E288 @ =gLCDControls
+	ldr r0, _0802E288 @ =gScreen
 	mov sb, r0
 	movs r1, #0x66
 	add r1, sb
@@ -6432,7 +6432,7 @@ _0802E23A:
 	.align 2, 0
 _0802E280: .4byte gLinkEntity
 _0802E284: .4byte gLinkState
-_0802E288: .4byte gLCDControls
+_0802E288: .4byte gScreen
 _0802E28C:
 	adds r4, r7, #0
 	strh r6, [r4]
@@ -6537,7 +6537,7 @@ _0802E31E:
 	ldrb r0, [r1]
 	adds r0, #1
 	strb r0, [r1]
-	ldr r2, _0802E3A0 @ =gLCDControls
+	ldr r2, _0802E3A0 @ =gScreen
 	ldrb r1, [r1]
 	ldrb r0, [r3]
 	lsls r0, r0, #8
@@ -6571,7 +6571,7 @@ _0802E364:
 	ldrb r0, [r1]
 	subs r0, #1
 	strb r0, [r1]
-	ldr r2, _0802E3A0 @ =gLCDControls
+	ldr r2, _0802E3A0 @ =gScreen
 	ldrb r1, [r1]
 	ldrb r0, [r3]
 	lsls r0, r0, #8
@@ -6580,7 +6580,7 @@ _0802E364:
 	strh r1, [r2]
 	b _0802E428
 	.align 2, 0
-_0802E3A0: .4byte gLCDControls
+_0802E3A0: .4byte gScreen
 _0802E3A4:
 	ldrb r1, [r2]
 	movs r0, #0x7f

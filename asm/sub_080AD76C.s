@@ -31,7 +31,7 @@ _080AD78A:
 	bne _080AD82A
 	movs r0, #1
 	strb r0, [r1, #6]
-	ldr r2, _080AD7B0 @ =gLCDControls
+	ldr r2, _080AD7B0 @ =gScreen
 	ldrh r1, [r2]
 	movs r3, #0x80
 	lsls r3, r3, #3
@@ -43,7 +43,7 @@ _080AD78A:
 	b _080AD82A
 	.align 2, 0
 _080AD7AC: .4byte gUnk_03000FD0
-_080AD7B0: .4byte gLCDControls
+_080AD7B0: .4byte gScreen
 _080AD7B4:
 	ldr r0, [r1, #0x2c]
 	adds r0, #0x10

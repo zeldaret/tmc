@@ -324,7 +324,7 @@ _0805E5BC: .4byte gUnk_03003DC0
 	thumb_func_start sub_0805E5C0
 sub_0805E5C0: @ 0x0805E5C0
 	push {lr}
-	ldr r0, _0805E5F0 @ =gUnk_02034350
+	ldr r0, _0805E5F0 @ =gRoomVars
 	ldrb r1, [r0, #4]
 	movs r2, #0
 	strb r1, [r0, #5]
@@ -340,7 +340,7 @@ sub_0805E5C0: @ 0x0805E5C0
 	bl sub_0805EE88
 	pop {pc}
 	.align 2, 0
-_0805E5F0: .4byte gUnk_02034350
+_0805E5F0: .4byte gRoomVars
 _0805E5F4: .4byte gUnk_03005F40
 
 	thumb_func_start sub_0805E5F8

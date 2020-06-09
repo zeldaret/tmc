@@ -70,7 +70,7 @@ sub_080650CC: @ 0x080650CC
 	mov r7, r8
 	push {r7}
 	adds r5, r0, #0
-	ldr r6, _080650F8 @ =gUnk_02034350
+	ldr r6, _080650F8 @ =gRoomVars
 	ldr r0, [r6, #0x68]
 	movs r1, #1
 	ands r0, r1
@@ -87,7 +87,7 @@ sub_080650CC: @ 0x080650CC
 	bl sub_0807DB88
 	b _080651A6
 	.align 2, 0
-_080650F8: .4byte gUnk_02034350
+_080650F8: .4byte gRoomVars
 _080650FC: .4byte gUnk_080143C0
 _08065100:
 	adds r2, r5, #0
@@ -328,7 +328,7 @@ sub_080652B0: @ 0x080652B0
 	strb r0, [r2, #0xd]
 	movs r0, #0xa
 	strb r0, [r2, #0xe]
-	ldr r1, _080652E0 @ =gUnk_02034350
+	ldr r1, _080652E0 @ =gRoomVars
 	ldrb r0, [r2, #0xf]
 	str r0, [r1, #0x68]
 	movs r0, #0x36
@@ -339,7 +339,7 @@ _080652DA:
 	pop {pc}
 	.align 2, 0
 _080652DC: .4byte gTextBox
-_080652E0: .4byte gUnk_02034350
+_080652E0: .4byte gRoomVars
 
 	thumb_func_start sub_080652E4
 sub_080652E4: @ 0x080652E4
@@ -401,7 +401,7 @@ sub_08065338: @ 0x08065338
 	movs r0, #1
 	strb r0, [r2, #0xc]
 	strb r1, [r2, #0xd]
-	ldr r1, _08065364 @ =gUnk_02034350
+	ldr r1, _08065364 @ =gRoomVars
 	ldrb r0, [r2, #0xf]
 	str r0, [r1, #0x68]
 	adds r0, r2, #0
@@ -411,7 +411,7 @@ _0806535C:
 	pop {pc}
 	.align 2, 0
 _08065360: .4byte gTextBox
-_08065364: .4byte gUnk_02034350
+_08065364: .4byte gRoomVars
 
 	thumb_func_start sub_08065368
 sub_08065368: @ 0x08065368
@@ -428,7 +428,7 @@ sub_08065370: @ 0x08065370
 	adds r4, r0, #0
 	mov r8, r1
 	movs r6, #1
-	ldr r0, _0806539C @ =gUnk_02034350
+	ldr r0, _0806539C @ =gRoomVars
 	ldrb r5, [r0, #6]
 	movs r0, #0
 	mov sb, r0
@@ -444,7 +444,7 @@ sub_08065370: @ 0x08065370
 	beq _080653D0
 	b _0806543C
 	.align 2, 0
-_0806539C: .4byte gUnk_02034350
+_0806539C: .4byte gRoomVars
 _080653A0:
 	cmp r5, #0x64
 	beq _08065414
@@ -539,7 +539,7 @@ _0806543C:
 	bhi _080654C0
 	rsbs r0, r6, #0
 	bl ModRupees
-	ldr r4, _080654A0 @ =gUnk_02034350
+	ldr r4, _080654A0 @ =gRoomVars
 	ldrb r1, [r4, #7]
 	adds r0, r5, #0
 	movs r2, #2
@@ -572,7 +572,7 @@ _0806548A:
 _08065494: .4byte gUnk_02002A40
 _08065498: .4byte 0x000003E6
 _0806549C: .4byte 0x00002C0E
-_080654A0: .4byte gUnk_02034350
+_080654A0: .4byte gRoomVars
 _080654A4: .4byte 0x00002C11
 _080654A8:
 	cmp r6, #0x63
@@ -654,9 +654,9 @@ _08065524: .4byte gUnk_02033280
 
 	thumb_func_start sub_08065528
 sub_08065528: @ 0x08065528
-	ldr r2, _08065530 @ =gUnk_02034350
+	ldr r2, _08065530 @ =gRoomVars
 	ldr r0, [r1, #4]
 	str r0, [r2, #0x68]
 	bx lr
 	.align 2, 0
-_08065530: .4byte gUnk_02034350
+_08065530: .4byte gRoomVars

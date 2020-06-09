@@ -187,7 +187,7 @@ _0801C7EE:
 	orrs r1, r2
 	strh r1, [r0, #2]
 _0801C7FC:
-	ldr r1, _0801C820 @ =gLCDControls
+	ldr r1, _0801C820 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
 _0801C802:
@@ -201,4 +201,4 @@ _0801C810: .4byte 0x0000F010
 _0801C814: .4byte 0x040000D4
 _0801C818: .4byte gUnk_02034CF0
 _0801C81C: .4byte 0xFFFFF000
-_0801C820: .4byte gLCDControls
+_0801C820: .4byte gScreen

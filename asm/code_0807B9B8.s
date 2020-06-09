@@ -1242,7 +1242,7 @@ _0807C3BC:
 	orrs r0, r1
 	strh r0, [r2]
 _0807C3CC:
-	ldr r2, _0807C3DC @ =gLCDControls
+	ldr r2, _0807C3DC @ =gScreen
 	ldrh r1, [r2]
 	ldr r0, _0807C3E0 @ =0x0000FDFF
 	ands r0, r1
@@ -1250,7 +1250,7 @@ _0807C3CC:
 	b _0807C444
 	.align 2, 0
 _0807C3D8: .4byte gUnk_02025EB0
-_0807C3DC: .4byte gLCDControls
+_0807C3DC: .4byte gScreen
 _0807C3E0: .4byte 0x0000FDFF
 _0807C3E4:
 	ldr r0, _0807C3F8 @ =gUnk_0200B650
@@ -1283,7 +1283,7 @@ _0807C40E:
 	ldrh r0, [r0, #2]
 	strh r0, [r1]
 _0807C41C:
-	ldr r2, _0807C458 @ =gLCDControls
+	ldr r2, _0807C458 @ =gScreen
 	ldrh r0, [r2]
 	movs r1, #0x80
 	lsls r1, r1, #4
@@ -1312,7 +1312,7 @@ _0807C444:
 _0807C44C: .4byte gUnk_02025EB0
 _0807C450: .4byte gUnk_080B77C0
 _0807C454: .4byte gUnk_0200B650
-_0807C458: .4byte gLCDControls
+_0807C458: .4byte gScreen
 _0807C45C: .4byte gUnk_02033A90
 
 	thumb_func_start sub_0807C460

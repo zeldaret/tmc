@@ -528,7 +528,7 @@ _080188FE:
 	ldr r1, _08018924 @ =gUnk_080FED58
 	adds r0, r0, r1
 	bl CreateEntity
-	ldr r2, _08018928 @ =gUnk_02034350
+	ldr r2, _08018928 @ =gRoomVars
 	ldrb r0, [r5, #1]
 	lsls r0, r0, #2
 	adds r2, #0x8c
@@ -540,7 +540,7 @@ _080188FE:
 	b _080189E4
 	.align 2, 0
 _08018924: .4byte gUnk_080FED58
-_08018928: .4byte gUnk_02034350
+_08018928: .4byte gRoomVars
 _0801892C: .4byte gUnk_080FED98
 _08018930:
 	cmp r4, #0

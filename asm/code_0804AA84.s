@@ -94,7 +94,7 @@ sub_0804AB24: @ 0x0804AB24
 	ldrb r1, [r5]
 	cmp r1, #0
 	bne _0804AB46
-	ldr r0, _0804AB4C @ =gLCDControls
+	ldr r0, _0804AB4C @ =gScreen
 	movs r4, #0
 	strh r1, [r0]
 	bl sub_0801E104
@@ -108,7 +108,7 @@ _0804AB46:
 	pop {r4, r5, pc}
 	.align 2, 0
 _0804AB48: .4byte gUnk_03000FD0
-_0804AB4C: .4byte gLCDControls
+_0804AB4C: .4byte gScreen
 _0804AB50: .4byte gUnk_02033A90
 
 	thumb_func_start sub_0804AB54
@@ -131,7 +131,7 @@ sub_0804AB70: @ 0x0804AB70
 	push {r4, r5, lr}
 	movs r0, #0
 	bl sub_0801DA90
-	ldr r1, _0804ABF8 @ =gLCDControls
+	ldr r1, _0804ABF8 @ =gScreen
 	movs r2, #0
 	movs r0, #0x92
 	lsls r0, r0, #5
@@ -189,7 +189,7 @@ _0804ABA4:
 	bl DoFade
 	pop {r4, r5, pc}
 	.align 2, 0
-_0804ABF8: .4byte gLCDControls
+_0804ABF8: .4byte gScreen
 _0804ABFC: .4byte 0x00009E83
 _0804AC00: .4byte gRoomControls
 _0804AC04: .4byte gUnk_02033A90
@@ -235,7 +235,7 @@ _0804AC52:
 	movs r0, #0x9f
 	strh r0, [r3, #0xc]
 _0804AC5E:
-	ldr r2, _0804ACA0 @ =gLCDControls
+	ldr r2, _0804ACA0 @ =gScreen
 	ldr r1, _0804AC9C @ =gRoomControls
 	ldrh r0, [r1, #0xa]
 	strh r0, [r2, #0x16]
@@ -264,7 +264,7 @@ _0804AC96:
 	.align 2, 0
 _0804AC98: .4byte gUnk_02018EB0
 _0804AC9C: .4byte gRoomControls
-_0804ACA0: .4byte gLCDControls
+_0804ACA0: .4byte gScreen
 _0804ACA4: .4byte gUnk_02033A90
 
 	thumb_func_start sub_0804ACA8

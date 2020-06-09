@@ -146,7 +146,7 @@ sub_0804AFB0: @ 0x0804AFB0
 	ldr r1, _0804AFD4 @ =gUnk_02017654
 	str r0, [r1]
 	movs r2, #0
-	ldr r0, _0804AFD8 @ =gUnk_02034350
+	ldr r0, _0804AFD8 @ =gRoomVars
 	adds r3, r1, #0
 	adds r4, r0, #0
 	adds r4, #0x6c
@@ -162,7 +162,7 @@ _0804AFC0:
 	pop {r4, pc}
 	.align 2, 0
 _0804AFD4: .4byte gUnk_02017654
-_0804AFD8: .4byte gUnk_02034350
+_0804AFD8: .4byte gRoomVars
 
 	thumb_func_start sub_0804AFDC
 sub_0804AFDC: @ 0x0804AFDC

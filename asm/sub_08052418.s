@@ -61,7 +61,7 @@ sub_08052418: @ 0x08052418
 	ldrh r0, [r2, #0xa]
 	mov r1, sp
 	bl sub_0805F46C
-	ldr r0, _080524A4 @ =gLCDControls
+	ldr r0, _080524A4 @ =gScreen
 	strh r5, [r0, #0x1a]
 	add sp, #0x18
 	pop {r4, r5, r6, pc}
@@ -70,4 +70,4 @@ _08052494: .4byte gUnk_02021F30
 _08052498: .4byte gUnk_020227E8
 _0805249C: .4byte gUnk_080FCA8C
 _080524A0: .4byte gUnk_080FCAA4
-_080524A4: .4byte gLCDControls
+_080524A4: .4byte gScreen

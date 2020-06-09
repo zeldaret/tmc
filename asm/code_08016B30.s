@@ -142,7 +142,7 @@ sub_08016C3C: @ 0x08016C3C
 	ldrb r0, [r2]
 	cmp r0, #0
 	beq _08016C6C
-	ldr r0, _08016C98 @ =gLCDControls
+	ldr r0, _08016C98 @ =gScreen
 	ldrh r1, [r0]
 	movs r0, #0x80
 	lsls r0, r0, #5
@@ -179,7 +179,7 @@ _08016C6C:
 	bx r0
 	.align 2, 0
 _08016C94: .4byte gUnk_03000000
-_08016C98: .4byte gLCDControls
+_08016C98: .4byte gScreen
 _08016C9C: .4byte 0x040000D4
 _08016CA0: .4byte 0x84000100
 _08016CA4: .4byte gBG0Settings

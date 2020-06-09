@@ -24,7 +24,7 @@ union SplitWord {
     } HALF;
 };
 
-typedef struct
+typedef struct Entity
 {
     u32 *field_0x0;
     u32 * field_0x4;
@@ -53,15 +53,28 @@ typedef struct
             u8 ss7:1;
         } __attribute__((packed)) b;
     } __attribute__((packed)) spriteSettings;
-    u8 spriteOrder;
+    
+    struct {
+        u8 b0:2;
+        u8 b1:2;
+        u8 b2:4;
+    } __attribute__((packed)) spriteOrder;
     u8 palette;
-    u8 spriteOrientation[3];
+    struct {
+        u8 b0:4;
+        u8 b1:1;
+        u8 b2:3;
+    } __attribute__((packed)) spriteOrientation;
+    u8 filler[2];
     u8 animationList;
     u8 field_1f;
-    u16 field_0x20;
+    u32 field_0x20;
     s16 nonPlanarMovement;
     u8 spriteAnimation[3];
-    u8 ticks;
+    struct {
+        u8 b0:3;
+        u8 b1:5;
+    } __attribute__((packed)) ticks;
     u16 collisions;
 	union SplitWord x;
 	union SplitWord y;
@@ -86,8 +99,8 @@ typedef struct
     u8 field_0x4d;
     u8 field_0x4e;
     u8 field_0x4f;
-    void * parent;
-    u32 * attachedEntity;
+    struct Entity * parent;
+    struct Entity * attachedEntity;
     u8 field_0x58;
     u8 field_0x59;
     union {
@@ -104,9 +117,10 @@ typedef struct
     u16 spriteVramOffset;
     u8 spriteRenderPositionOffset;
     u8 field_0x63;
-    u8 * field_0x64;
     u32 * otherEntity;
-	u8 filler2[8];
+	u16 field_0x68;
+    u16 field_0x6a;
+    u8 filler4[8];
     u32 * heldObjectPtr;
 	u8 filler3[2];
 	u16 itemCooldown;
@@ -116,6 +130,5 @@ typedef struct
     u16 field_0x86;
 	
 } Entity;
-
 
 #endif

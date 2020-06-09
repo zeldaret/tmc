@@ -36,14 +36,14 @@ _0801C4C8:
 	strh r0, [r4, #4]
 	strh r0, [r4, #6]
 	strh r0, [r4, #8]
-	ldr r1, _0801C4F8 @ =gLCDControls
+	ldr r1, _0801C4F8 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
 	b _0801C5D0
 	.align 2, 0
 _0801C4F0: .4byte gUnk_0200AF00
 _0801C4F4: .4byte gUnk_02035160
-_0801C4F8: .4byte gLCDControls
+_0801C4F8: .4byte gScreen
 _0801C4FC:
 	ldrb r0, [r6, #0xa]
 	cmp r0, #0
@@ -80,7 +80,7 @@ _0801C4FC:
 	strh r0, [r3, #8]
 	adds r0, r1, #5
 	strh r0, [r4, #8]
-	ldr r1, _0801C55C @ =gLCDControls
+	ldr r1, _0801C55C @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
 	movs r4, #1
@@ -90,7 +90,7 @@ _0801C54C: .4byte gUnk_02035160
 _0801C550: .4byte gWalletSizes
 _0801C554: .4byte gUnk_02002A40
 _0801C558: .4byte 0x0000F070
-_0801C55C: .4byte gLCDControls
+_0801C55C: .4byte gScreen
 _0801C560:
 	movs r4, #0
 	ldr r2, _0801C580 @ =gUnk_02002A40

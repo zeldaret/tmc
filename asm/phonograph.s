@@ -238,7 +238,7 @@ sub_0806EABC: @ 0x0806EABC
 	ldr r0, _0806EAE8 @ =0x00003302
 	ldr r1, _0806EAEC @ =gUnk_081146B8
 	bl sub_0805F46C
-	ldr r1, _0806EAF0 @ =gLCDControls
+	ldr r1, _0806EAF0 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
 	pop {r4, pc}
@@ -247,4 +247,4 @@ _0806EAE0: .4byte gUnk_020227E8
 _0806EAE4: .4byte 0x00202020
 _0806EAE8: .4byte 0x00003302
 _0806EAEC: .4byte gUnk_081146B8
-_0806EAF0: .4byte gLCDControls
+_0806EAF0: .4byte gScreen

@@ -115,7 +115,7 @@ SECTIONS {
         . = 0x000342CC; gUnk_020342CC = .;
         . = 0x000342F8; gUnk_020342F8 = .;
         . = 0x00034330; gUnk_02034330 = .;
-        . = 0x00034350; gUnk_02034350 = .;
+        . = 0x00034350; gRoomVars = .;
         . = 0x00034364; gUnk_02034364 = .;
         . = 0x00034398; gUnk_02034398 = .;
         . = 0x00034480; gUnk_02034480 = .;
@@ -163,7 +163,7 @@ SECTIONS {
         . = 0x00000C24; gUnk_03000C24 = .;
         . = 0x00000C30; gUnk_03000C30 = .;
         . = 0x00000E10; gUnk_03000E10 = .;
-        . = 0x00000F50; gLCDControls = .;
+        . = 0x00000F50; gScreen = .;
         . = 0x00000F58; gBG0Settings = .;
         . = 0x00000F64; gBG1Settings = .;
         . = 0x00000F70; gBGAffSettings = .;

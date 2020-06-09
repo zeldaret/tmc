@@ -650,7 +650,7 @@ _08080F00:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0x5c
 	bne _08080F0E
-	ldr r1, _08080F1C @ =gUnk_02034350
+	ldr r1, _08080F1C @ =gRoomVars
 	ldrb r0, [r1, #4]
 	adds r0, #1
 	strb r0, [r1, #4]
@@ -660,7 +660,7 @@ _08080F0E:
 	pop {r4, pc}
 	.align 2, 0
 _08080F18: .4byte gUnk_0811E7D4
-_08080F1C: .4byte gUnk_02034350
+_08080F1C: .4byte gRoomVars
 
 	thumb_func_start sub_08080F20
 sub_08080F20: @ 0x08080F20
@@ -1965,7 +1965,7 @@ _080818C0:
 	strb r2, [r1]
 	movs r0, #3
 	strb r0, [r4, #0xc]
-	ldr r1, _080818E8 @ =gUnk_02034350
+	ldr r1, _080818E8 @ =gRoomVars
 	movs r0, #1
 	str r0, [r1, #0x68]
 	ldr r1, _080818EC @ =gLinkState
@@ -1973,7 +1973,7 @@ _080818C0:
 	strb r0, [r1, #0xc]
 	b _08081920
 	.align 2, 0
-_080818E8: .4byte gUnk_02034350
+_080818E8: .4byte gRoomVars
 _080818EC: .4byte gLinkState
 _080818F0:
 	adds r1, r4, #0
@@ -2074,7 +2074,7 @@ _080819B0: .4byte gLinkState
 sub_080819B4: @ 0x080819B4
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
-	ldr r0, _08081A48 @ =gUnk_02034350
+	ldr r0, _08081A48 @ =gRoomVars
 	ldrb r0, [r0, #6]
 	cmp r0, #0
 	bne _080819D4
@@ -2095,7 +2095,7 @@ _080819D4:
 	ldr r4, _08081A50 @ =gLinkEntity
 	str r2, [r4, #0x74]
 	ldr r1, _08081A54 @ =gUnk_0200AF00
-	ldr r3, _08081A48 @ =gUnk_02034350
+	ldr r3, _08081A48 @ =gRoomVars
 	strb r2, [r3, #6]
 	adds r0, r1, #0
 	adds r0, #0x2c
@@ -2146,7 +2146,7 @@ _080819D4:
 	bl sub_08081A5C
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08081A48: .4byte gUnk_02034350
+_08081A48: .4byte gRoomVars
 _08081A4C: .4byte gLinkState
 _08081A50: .4byte gLinkEntity
 _08081A54: .4byte gUnk_0200AF00
@@ -2177,7 +2177,7 @@ _08081A7C: .4byte gUnk_03003DF0
 sub_08081A80: @ 0x08081A80
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _08081A98 @ =gUnk_02034350
+	ldr r0, _08081A98 @ =gRoomVars
 	ldr r0, [r0, #0x68]
 	cmp r0, #0
 	bne _08081A9C
@@ -2185,7 +2185,7 @@ sub_08081A80: @ 0x08081A80
 	bl sub_0805E780
 	b _08081AAC
 	.align 2, 0
-_08081A98: .4byte gUnk_02034350
+_08081A98: .4byte gRoomVars
 _08081A9C:
 	cmp r0, #2
 	bne _08081AAC
@@ -2201,7 +2201,7 @@ _08081AAC:
 	thumb_func_start sub_08081AB0
 sub_08081AB0: @ 0x08081AB0
 	push {lr}
-	ldr r1, _08081AC4 @ =gUnk_02034350
+	ldr r1, _08081AC4 @ =gRoomVars
 	movs r0, #0
 	str r0, [r1, #0x68]
 	strb r0, [r1, #6]
@@ -2209,7 +2209,7 @@ sub_08081AB0: @ 0x08081AB0
 	bl sub_08078A90
 	pop {pc}
 	.align 2, 0
-_08081AC4: .4byte gUnk_02034350
+_08081AC4: .4byte gRoomVars
 
 	thumb_func_start sub_08081AC8
 sub_08081AC8: @ 0x08081AC8
@@ -6947,7 +6947,7 @@ sub_08083EB0: @ 0x08083EB0
 	bl sub_0807CBE4
 	cmp r0, #0
 	beq _08083F0A
-	ldr r1, _08083F0C @ =gLCDControls
+	ldr r1, _08083F0C @ =gScreen
 	adds r2, r1, #0
 	adds r2, #0x66
 	movs r3, #0
@@ -6985,7 +6985,7 @@ sub_08083EB0: @ 0x08083EB0
 _08083F0A:
 	pop {r4, pc}
 	.align 2, 0
-_08083F0C: .4byte gLCDControls
+_08083F0C: .4byte gScreen
 _08083F10: .4byte gUnk_02034490
 
 	thumb_func_start sub_08083F14
@@ -7020,7 +7020,7 @@ sub_08083F14: @ 0x08083F14
 	adds r0, #1
 	strb r0, [r4, #0xf]
 	ands r2, r0
-	ldr r3, _08083F74 @ =gLCDControls
+	ldr r3, _08083F74 @ =gScreen
 	movs r0, #0x10
 	subs r0, r0, r2
 	lsls r0, r0, #8
@@ -7036,7 +7036,7 @@ sub_08083F14: @ 0x08083F14
 	bne _08083FE6
 	b _08083FCC
 	.align 2, 0
-_08083F74: .4byte gLCDControls
+_08083F74: .4byte gScreen
 _08083F78:
 	ldr r5, _08083FA0 @ =gLinkEntity
 	adds r0, r4, #0
@@ -9254,7 +9254,7 @@ sub_08085028: @ 0x08085028
 	adds r1, #0x63
 	movs r0, #4
 	strb r0, [r1]
-	ldr r0, _080850A8 @ =gLCDControls
+	ldr r0, _080850A8 @ =gScreen
 	mov ip, r0
 	ldrh r1, [r0]
 	movs r2, #0x80
@@ -9304,7 +9304,7 @@ sub_08085028: @ 0x08085028
 _080850A6:
 	pop {r4, pc}
 	.align 2, 0
-_080850A8: .4byte gLCDControls
+_080850A8: .4byte gScreen
 _080850AC: .4byte gRoomControls
 
 	thumb_func_start sub_080850B0
@@ -9336,7 +9336,7 @@ sub_080850CC: @ 0x080850CC
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080850F0
-	ldr r2, _080850F4 @ =gLCDControls
+	ldr r2, _080850F4 @ =gScreen
 	ldrh r1, [r2]
 	ldr r0, _080850F8 @ =0x0000DFFF
 	ands r0, r1
@@ -9346,7 +9346,7 @@ sub_080850CC: @ 0x080850CC
 _080850F0:
 	pop {r4, pc}
 	.align 2, 0
-_080850F4: .4byte gLCDControls
+_080850F4: .4byte gScreen
 _080850F8: .4byte 0x0000DFFF
 
 	thumb_func_start sub_080850FC

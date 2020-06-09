@@ -206,17 +206,17 @@ _080696AE:
 
 	thumb_func_start sub_080696B0
 sub_080696B0: @ 0x080696B0
-	ldr r1, _080696B8 @ =gUnk_02034350
+	ldr r1, _080696B8 @ =gRoomVars
 	movs r0, #0
 	strb r0, [r1, #6]
 	bx lr
 	.align 2, 0
-_080696B8: .4byte gUnk_02034350
+_080696B8: .4byte gRoomVars
 
 	thumb_func_start sub_080696BC
 sub_080696BC: @ 0x080696BC
 	push {r4, r5, lr}
-	ldr r0, _08069710 @ =gUnk_02034350
+	ldr r0, _08069710 @ =gRoomVars
 	ldrb r0, [r0, #7]
 	movs r5, #0
 	cmp r0, #0x70
@@ -259,7 +259,7 @@ _08069700:
 	ldrh r0, [r1]
 	pop {r4, r5, pc}
 	.align 2, 0
-_08069710: .4byte gUnk_02034350
+_08069710: .4byte gRoomVars
 _08069714: .4byte gUnk_08111BA0
 
 	thumb_func_start sub_08069718
@@ -274,7 +274,7 @@ sub_08069718: @ 0x08069718
 	ldrh r0, [r0]
 	cmp r6, r0
 	bgt _08069764
-	ldr r5, _08069758 @ =gUnk_02034350
+	ldr r5, _08069758 @ =gRoomVars
 	ldrb r0, [r5, #7]
 	bl sub_0801E7D0
 	cmp r0, #0x62
@@ -292,7 +292,7 @@ sub_08069718: @ 0x08069718
 	b _0806976E
 	.align 2, 0
 _08069754: .4byte gUnk_02002A40
-_08069758: .4byte gUnk_02034350
+_08069758: .4byte gRoomVars
 _0806975C:
 	ldr r0, _08069760 @ =0x00002C1F
 	b _08069766

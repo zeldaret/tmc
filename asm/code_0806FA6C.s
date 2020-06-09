@@ -1946,7 +1946,7 @@ _080708E4:
 	bl sub_080782C0
 	cmp r0, #0
 	beq _08070924
-	ldr r0, _08070920 @ =gUnk_02034350
+	ldr r0, _08070920 @ =gRoomVars
 	ldrb r0, [r0, #6]
 	cmp r0, #0
 	bne _08070902
@@ -1964,7 +1964,7 @@ _0807090C:
 	.align 2, 0
 _08070918: .4byte gLinkState
 _0807091C: .4byte 0x10000002
-_08070920: .4byte gUnk_02034350
+_08070920: .4byte gRoomVars
 _08070924:
 	ldr r0, _0807094C @ =gLinkState
 	ldr r1, [r0, #0x30]
@@ -5632,7 +5632,7 @@ _0807254C:
 	strb r0, [r4, #0x18]
 	movs r0, #1
 	strb r0, [r4, #0xd]
-	ldr r0, _08072570 @ =gUnk_02034350
+	ldr r0, _08072570 @ =gRoomVars
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08072588
@@ -5645,7 +5645,7 @@ _0807254C:
 	ldr r0, _08072578 @ =0x00000C18
 	b _08072580
 	.align 2, 0
-_08072570: .4byte gUnk_02034350
+_08072570: .4byte gRoomVars
 _08072574: .4byte gLinkState
 _08072578: .4byte 0x00000C18
 _0807257C:
