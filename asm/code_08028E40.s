@@ -769,7 +769,7 @@ sub_080293B4: @ 0x080293B4
 	adds r1, r1, r3
 	ldrb r2, [r1]
 	movs r1, #0xff
-	bl sub_0804A7E0
+	bl CreateDeathFx
 	pop {pc}
 	.align 2, 0
 _080293D4: .4byte gUnk_080CCC34

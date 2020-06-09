@@ -1490,7 +1490,7 @@ sub_0802BD10: @ 0x0802BD10
 	ands r1, r2
 	strb r1, [r0, #0x10]
 	movs r1, #2
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	pop {pc}
 	.align 2, 0
 
@@ -1632,7 +1632,7 @@ sub_0802BE18: @ 0x0802BE18
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -8613,7 +8613,7 @@ sub_0802F284: @ 0x0802F284
 	bls _0802F298
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	b _0802F29E
 _0802F298:
 	adds r0, r4, #0
@@ -10809,7 +10809,7 @@ sub_08030338: @ 0x08030338
 _0803034C:
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldr r0, [r0]
@@ -13287,7 +13287,7 @@ sub_080315BC: @ 0x080315BC
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	b _080315FC
 _080315D4:
 	adds r0, r4, #0
@@ -18505,7 +18505,7 @@ sub_08033C94: @ 0x08033C94
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #3
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	adds r1, r4, #0
 	adds r1, #0x79
 	ldrb r0, [r1]

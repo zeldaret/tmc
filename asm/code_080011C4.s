@@ -68,7 +68,7 @@ _08001230:
 	beq _0800123E
 	strb r1, [r0, #0xe]
 	movs r1, #4
-	ldr r3, _0800135C @ =sub_08004276
+	ldr r3, _0800135C @ =UpdateSpriteAnimation
 	bx r3
 _0800123E:
 	ldr r3, _08001360 @ =sub_080043B4
@@ -238,7 +238,7 @@ _08001352:
 	bx lr
 	.align 2, 0
 _08001358: .4byte gEnemyFunctions
-_0800135C: .4byte sub_08004276
+_0800135C: .4byte UpdateSpriteAnimation
 _08001360: .4byte sub_080043B4
 _08001364: .4byte 0x00001800
 _08001368: .4byte gUnk_080012C8

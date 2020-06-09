@@ -8116,7 +8116,7 @@ _08037CD6:
 	adds r0, r4, #0
 	movs r1, #0xff
 	movs r2, #0x58
-	bl sub_0804A7E0
+	bl CreateDeathFx
 	pop {r4, pc}
 	.align 2, 0
 
@@ -8158,7 +8158,7 @@ _08037D1C:
 _08037D26:
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	adds r0, r4, #0
 	bl sub_080AEF88
 	cmp r0, #0
@@ -8183,7 +8183,7 @@ sub_08037D54: @ 0x08037D54
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -8457,7 +8457,7 @@ _08037F6E:
 _08037F78:
 	adds r0, r4, #0
 	movs r1, #0xff
-	bl sub_0804A7E0
+	bl CreateDeathFx
 	pop {r4, pc}
 	.align 2, 0
 
@@ -8513,7 +8513,7 @@ sub_08037FE0: @ 0x08037FE0
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	ldrb r0, [r4, #0xe]
 	adds r2, r0, #0
 	cmp r2, #0
@@ -8567,7 +8567,7 @@ sub_08038048: @ 0x08038048
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	adds r0, r4, #0
 	bl sub_080AEF88
 	movs r0, #0x36
@@ -8669,7 +8669,7 @@ sub_08038110: @ 0x08038110
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -8829,7 +8829,7 @@ _0803824A:
 	adds r0, r4, #0
 	movs r1, #0xff
 	movs r2, #0x58
-	bl sub_0804A7E0
+	bl CreateDeathFx
 	pop {r4, pc}
 	.align 2, 0
 
@@ -8887,7 +8887,7 @@ _080382B8: .4byte gLinkEntity
 _080382BC:
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	adds r0, r4, #0
 	bl sub_080AEF88
 	cmp r0, #0
@@ -8929,7 +8929,7 @@ sub_08038304: @ 0x08038304
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	adds r0, r4, #0
 	bl sub_080AEF88
 	cmp r0, #0
@@ -11182,7 +11182,7 @@ sub_08039418: @ 0x08039418
 	adds r0, r1, #0
 	movs r1, #0xf3
 	movs r2, #0
-	bl sub_0804A7E0
+	bl CreateDeathFx
 	b _08039434
 _0803942E:
 	adds r0, r1, #0
@@ -22035,7 +22035,7 @@ sub_0803E570: @ 0x0803E570
 	push {lr}
 	movs r1, #0xff
 	movs r2, #0x57
-	bl sub_0804A7E0
+	bl CreateDeathFx
 	pop {pc}
 
 	thumb_func_start nullsub_20
@@ -22824,7 +22824,7 @@ sub_0803EB34: @ 0x0803EB34
 	push {lr}
 	movs r1, #0xff
 	movs r2, #0x57
-	bl sub_0804A7E0
+	bl CreateDeathFx
 	pop {pc}
 
 	thumb_func_start nullsub_21
@@ -44329,7 +44329,7 @@ _08048C6C:
 	bl UpdateSprite
 	adds r0, r4, #0
 	movs r1, #7
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	adds r1, r6, #0
 	ldrb r4, [r4, #0xa]
 	lsls r1, r4
@@ -44357,7 +44357,7 @@ _08048CBC:
 	movs r1, #0x1c
 	ands r1, r0
 	adds r0, r4, #0
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 _08048CE4:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -47976,11 +47976,11 @@ sub_0804A7D4: @ 0x0804A7D4
 	push {lr}
 	ldrb r1, [r0, #9]
 	movs r2, #0
-	bl sub_0804A7E0
+	bl CreateDeathFx
 	pop {pc}
 
-	thumb_func_start sub_0804A7E0
-sub_0804A7E0: @ 0x0804A7E0
+	thumb_func_start CreateDeathFx
+CreateDeathFx: @ 0x0804A7E0
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb

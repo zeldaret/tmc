@@ -317,6 +317,9 @@ SECTIONS {
 		asm/readKeyInput.o(.text);
 		asm/code_0801D714.o(.text);
 		asm/code_0801D79C.o(.text);
+		src/octorok.o(.text);
+		asm/octorok.o(.text);
+		asm/code_0801EE18.o(.text);
 		asm/createSluggula.o(.text);
 		asm/code_08023E10.o(.text);
 		asm/doItemTrade.o(.text);

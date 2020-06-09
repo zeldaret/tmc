@@ -3304,10 +3304,10 @@ gUnk_080CA06C:: @ 080CA06C
 gUnk_080CA11C:: @ 080CA11C
 	.incbin "baserom.gba", 0x0CA11C, 0x0000014
 
-gUnk_080CA130:: @ 080CA130
+gOctorok:: @ 080CA130
 	.incbin "baserom.gba", 0x0CA130, 0x0000018
 
-gUnk_080CA148:: @ 080CA148
+gOctorokIdle:: @ 080CA148
 	.incbin "baserom.gba", 0x0CA148, 0x0000010
 
 gUnk_080CA158:: @ 080CA158

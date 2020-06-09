@@ -4732,7 +4732,7 @@ sub_08089848: @ 0x08089848
 	ands r1, r0
 	adds r1, #1
 	adds r0, r4, #0
-	bl sub_08004276
+	bl UpdateSpriteAnimation
 	pop {r4, pc}
 	.align 2, 0
 _08089870: .4byte gUnk_08120D90
