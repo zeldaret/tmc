@@ -15,10 +15,10 @@ The basic decompilation process is:
 * Repeat for each function until `asm/x.s` is empty.
 
 
-# For example, let's decompile `asm/cable_car.s`.
+# For example, let's decompile `asm/evilSpirit.s`.
 
 
-## 1. Create `src/cable_car.c`
+## 1. Create `src/evilSpirit.c`
 
 ```c
 #include "global.h"
@@ -30,129 +30,127 @@ It must be the first include in the file. Other includes will assume you have in
 
 ## 2. Include it in the rom
 
-Include `src/cable_car.c` in the rom by adding `src/cable_car.o` to `ld_script.ld`:
+Include `src/evilSpirit.c` in the rom by adding `src/evilSpirit.o` to `ld_script.ld`:
 ```diff
-         asm/battle_message.o(.text);
-         asm/choose_party.o(.text);
-+        src/cable_car.o(.text);
-         asm/cable_car.o(.text);
-         asm/roulette_util.o(.text);
+	asm/room.o(.text);
+	asm/code_08080974.o(.text);
++	src/evilSpirit.o(.text);
+	asm/evilSpirit.o(.text);
+	asm/houseDoorExterior.o(.text);
+
 ```
-Do not remove `asm/cable_car.o(.text)`. We want both `src/cable_car.c` and `asm/cable_car.s` in the rom.
+Do not remove `asm/evilSpirit.o(.text)`. We want both `src/evilSpirit.c` and `asm/evilSpirit.s` in the rom.
 
 
 ## 3. Translate the function to C
 
-Take the first function in `asm/cable_car.s`. Either comment it out or remove it, whichever is easier.
+Take the first function in `asm/evilSpirit.s`. Either comment it out or remove it, whichever is easier.
 
 ```asm
-	thumb_func_start sub_81231EC
-sub_81231EC: @ 81231EC
-	push {r4,lr}
-	lsls r0, 24
-	lsrs r4, r0, 24
-	ldr r0, _08123210 @ =gPaletteFade
-	ldrb r1, [r0, 0x7]
-	movs r0, 0x80
-	ands r0, r1
-	cmp r0, 0
-	bne _0812320A
-	ldr r0, _08123214 @ =sub_8123244
-	bl SetMainCallback2
-	adds r0, r4, 0
-	bl DestroyTask
-_0812320A:
-	pop {r4}
-	pop {r0}
-	bx r0
+	thumb_func_start sub_08086284
+sub_08086284: @ 0x08086284
+	push {r4, lr}
+	adds r4, r0, #0
+	ldr r1, _080862B4 @ =gUnk_08120668
+	ldrb r0, [r4, #0xc]
+	lsls r0, r0, #2
+	adds r0, r0, r1
+	ldr r1, [r0]
+	adds r0, r4, #0
+	bl _call_via_r1
+	adds r1, r4, #0
+	adds r1, #0x41
+	movs r0, #0
+	strb r0, [r1]
+	adds r0, r4, #0
+	adds r0, #0x76
+	ldrh r1, [r0]
+	adds r0, #4
+	ldrh r2, [r0]
+	adds r0, r4, #0
+	movs r3, #0
+	bl sub_0805EC9C
+	pop {r4, pc}
 	.align 2, 0
-_08123210: .4byte gPaletteFade
-_08123214: .4byte sub_8123244
-	thumb_func_end sub_81231EC
+_080862B4: .4byte gUnk_08120668
 ```
 ---
 
-Then, start translating the code to `src/cable_car.c`, bit by bit:
+Then, start translating the code to `src/evilSpirit.c`, bit by bit:
 
 ```asm
-	lsls r0, 24
-	lsrs r4, r0, 24
+	push {r4, lr}
+	adds r4, r0, #0
 ```
 ```c
-void sub_81231EC(u8 r4) {
+	void sub_08086284(u8 *r4) {
 ```
 ---
 ```asm
-	ldr r0, _08123210 @ =gPaletteFade
-	ldrb r1, [r0, 0x7]
-	movs r0, 0x80
-	ands r0, r1
+        add     r4, r0, #0
+        ldr     r1, _080862B4 @ =gUnk_08120668
+        ldrb    r0, [r4, #0xc]
+        lsl     r0, r0, #0x2
+        add     r0, r0, r1
+        ldr     r1, [r0]
+        add     r0, r4, #0
+        bl      _call_via_r1
 ```
 ```c
-	r0 = (u8 *)(&gPaletteFade + 7) & 0x80;
+	gUnk_08120668[*(u8 *)(r4 + 12)](r4);
 ```
 ---
 
 ---
 ```asm
-	cmp r0, 0
-	bne _0812320A
+        add     r1, r4, #0
+        add     r1, r1, #0x41
+        mov     r0, #0
+        strb    r0, [r1]
 ```
 ```c
-	if (!r0) {
+    *(u8 *)(r4 + 65) = 0;
 ```
 ---
 ```asm
-	ldr r0, _08123214 @ =sub_8123244
-	bl SetMainCallback2
+        add     r0, r4, #0
+        add     r0, r0, #0x76
+        ldrh    r1, [r0]
+        add     r0, r0, #0x4
+        ldrh    r2, [r0]
+        add     r0, r4, #0
+        mov     r3, #0
+        bl      sub_0805EC9C
 ```
 ```c
-		SetMainCallback2(&sub_8123244);
+	sub_0805EC9C(r4, *(u16 *)(r4 + 118), *(u16 *)(r4 + 122), 0);
 ```
 ---
 ```asm
-	adds r0, r4, 0
-	bl DestroyTask
-```
-```c
-		DestroyTask(r4);
-```
----
-```asm
-_0812320A:
-```
-```c
-	}
-```
----
-```asm
-	pop {r4}
-	pop {r0}
-	bx r0
+        pop     {r4, pc}
 ```
 ```c
 	return;
 ```
 The type signature of the function depends on the return type.
-* `bx r0`: `void`
-* `bx r1`: `*`
-* `bx lr`: `void`, `*`
+* `pop {r4, pc}`: `void`
+* `adds {r0, r4}`
+  `pop {r4, pc}`: `void`, `*`
 
 You will need to look at the caller and the function prologue to determine the exact type if not void.
 
-Since it used `bx r0`, it's `void` for sure.
+Since it only used `pop {r4, pc}`, it's probably `void`.
 
 ---
 
 Putting it all together, we get:
 ```c
-void sub_81231EC(u8 r4) {
-	r0 = (u8 *)(&gPaletteFade + 7) & 0x80;
-	if (!r0) {
-		SetMainCallback2(&sub_8123244);
-		DestroyTask(r4);
-	}
-	return;
+void sub_08086284(u8 *r4) {
+{
+    gUnk_08120668[*(u8 *)(r4 + 12)](r4);
+    *(u8 *)(r4 + 65) = 0;
+    sub_0805EC9C(r4, *(u16 *)(r4 + 118), *(u16 *)(r4 + 122), 0);
+    return;
 }
 ```
 
@@ -162,63 +160,55 @@ void sub_81231EC(u8 r4) {
 This line doesn't look quite right.
 
 ```c
-	r0 = (u8 *)(&gPaletteFade + 7) & 0x80;
+	gUnk_08120668[*(u8 *)(r4 + 12)](r4);
 ```
 
-What is `gPaletteFade`? You can find out where stuff is with `git grep`:
+What is `r4`? Since this function corresponds to an entity, we should first try to assign r4 to an`Entity` struct.
+You can find out what this is with `git grep`:
 
 ```sh
-git grep "gPaletteFade" include/
+git grep "Entity" include/
 ```
 ```grep
-include/palette.h:extern struct PaletteFadeControl gPaletteFade;
+include/entity.h:typedef struct Entity
 ```
 
-So it's a struct called `PaletteFadeControl`. Let's look in `palette.h`:
+So it's a struct called `Entity`. Let's look in `entity.h`:
 
 ```c
-struct PaletteFadeControl
+typedef struct Entity
 {
-    u32 multipurpose1;
-    u8 delayCounter:6;
-    u16 y:5; // blend coefficient
-    u16 targetY:5; // target blend coefficient
-    u16 blendColor:15;
-    u16 active:1;
-    u16 multipurpose2:6;
-    u16 yDec:1; // whether blend coefficient is decreasing
-    u16 bufferTransferDisabled:1;
-    u16 mode:2;
-    u16 shouldResetBlendRegisters:1;
-    u16 hardwareFadeFinishing:1;
-    u16 softwareFadeFinishingCounter:5;
-    u16 softwareFadeFinishing:1;
-    u16 objPaletteToggle:1;
-    u8 deltaY:4; // rate of change of blend coefficient
-};
+    u32 *field_0x0;
+    u32 * field_0x4;
+    EntityType entityType;
+    u8 action;
+    u8 previousActionFlag;
+    u8 parameter3;
+    u8 field_0xf;
+    u8 flags;
+    
+    ...
+    
+} Entity;
 ```
 ---
 
-What's the 7th byte in this struct?
+What's the 12th byte in this struct?
 ```c
-    u32 multipurpose1; // 0-3
-    u8 delayCounter:6; // 4
-    u16 y:5;           // 5
-    u16 targetY:5;     // 5-6
-    u16 blendColor:15; // 7
-    u16 active:1;      // 7
+    u32 *field_0x0; //0-3
+    u32 * field_0x4; //4-7
+    EntityType entityType; //8-11
+    u8 action; //12
+    u8 previousActionFlag; //13
 ```
-
-Byte 7 has both `.blendColor` and `.active`.
 
 ---
 
-Okay, what's 0x80 mean? It's `0b10000000`, which is the highest bit in a byte.
-
-`.active` comes after, which means it's higher, but it's also only one bit, so it's a safe bet.
+The 12th byte belongs to `action`. We can substitute this in by replacing r4's parameter type and adding in the member names.
 
 ```c
-	r0 = gPaletteFade.active;
+void sub_08086284(Entity *r4) {
+    gUnk_08120668[r4->action](r4);
 ```
 
 Much better.
@@ -226,32 +216,18 @@ Much better.
 ---
 
 ```c
-void sub_81231EC(u8 r4) {
-	r0 = gPaletteFade.active;
-	if (!r0) {
-		SetMainCallback2(&sub_8123244);
-		DestroyTask(r4);
-	}
-	return;
+void sub_08086284(Entity *r4) {
+
+    gUnk_08120668[r4->action](r4);
+    r4->bitfield = 0;
+    sub_0805EC9C(r4, *((u8 *)&r4->heldObjectPtr + 2), r4->itemCooldown, 0);
+    return;
 }
 ```
 
-Now the temp variable `r0` is a little pointless. We can simplify this to:
-
-```c
-void sub_81231EC(u8 taskId) {
-	if (!gPaletteFade.active) {
-		SetMainCallback2(&sub_8123244);
-		DestroyTask(taskId);
-	}
-}
-```
-
-Looks done, right?
-This function is pretty simple, so it doesn't need any comments right now.
-
-But what about `sub_8123244`? It's still not obvious what that function does. We can find out by decompiling it later.
-
+The second of the function that is called uses an offset right in the middle of `heldObjectPtr`. Something seems wrong.
+We can ignore this for now, since we can come back to that later.
+Right now we are just concerned with making the function match, even if it isn't pretty.
 
 ## 5. Build
 
@@ -259,44 +235,41 @@ But what about `sub_8123244`? It's still not obvious what that function does. We
 make
 ```
 ```gcc
-src/cable_car.c: In function `sub_81231EC':
-src/cable_car.c:4: `gPaletteFade' undeclared (first use in this function)
-src/cable_car.c:4: (Each undeclared identifier is reported only once for each function it appears in.)
-src/cable_car.c:5: warning: implicit declaration of function `SetMainCallback2'
-src/cable_car.c:5: `sub_8123244' undeclared (first use in this function)
-src/cable_car.c:6: warning: implicit declaration of function `DestroyTask'
+src/evilSpirit.c: In function `sub_08086284':
+src/evilSpirit.c:5: `r4' undeclared (first use in this function)
+src/evilSpirit.c:5: `gUnk_08120668' undeclared (first use in this function)
+src/evilSpirit.c:5: (Each undeclared identifier is reported only once for each function it appears in.)
+src/evilSpirit.c:7: warning: implicit declaration of function `sub_0805EC9C'
 ```
 
-We got some errors. We need to tell the compiler what `gPaletteFade`, `SetMainCallback2`, `sub_8123244`, and `DestroyTask` are.
+We got some errors. We need to tell the compiler what `gUnk_08120668`, `r4`, and `sub_0805EC9C` are.
 
-We know `gPaletteFade` is from `palette.h`. We can do the same with the others. Declare them above the function:
+We know `r4` is an `Entity`, which is from `entity.h`. We can declare this above the function:
 ```c
-#include "palette.h"
-#include "main.h"
-#include "task.h"
+#include "entity.h"
 ```
-The odd one out is `sub_8123244`, which is in `asm/cable_car.s`! What then?
+What about `gUnk_08120668` and `sub_0805EC9C`?
 ```c
-void sub_8123244();
+extern void sub_0805EC9C();
+extern (*gUnk_08120668[99])(Entity *);
 ```
-Normally, we would do `extern void sub_8123244();`, but it won't be `extern` when we're done this file.
+Now the compiler will look outside of this file for both of these. We can set the size of `gUnk_08120668`, a pointer array, to `99`, since it's size is irrelevant for now.
 
 ---
 
 Now our file looks like this:
 ```c
 #include "global.h"
-#include "palette.h"
-#include "main.h"
-#include "task.h"
+#include "entity.h"
 
-void sub_8123244();
+extern void sub_0805EC9C();
+extern (*gUnk_08120668[99])(Entity *);
 
-void sub_81231EC(u8 taskId) {
-	if (!gPaletteFade.active) {
-		SetMainCallback2(&sub_8123244);
-		DestroyTask(taskId);
-	}
+void sub_08086284(Entity *r4) {
+    gUnk_08120668[r4->action](r4);
+    r4->bitfield = 0;
+    sub_0805EC9C(r4, *((u8 *)&r4->heldObjectPtr + 2), r4->itemCooldown, 0);
+    return;
 }
 ```
 
@@ -322,9 +295,9 @@ sha1sum: WARNING: 1 computed checksum did NOT match
 
 ---
 
-If you forgot to remove the function from `asm/cable_car.s`, you will get this error:
+If you forgot to remove the function from `asm/evilSpirit.s`, you will get this error:
 ```gcc
-asm/cable_car.o: In function `sub_81231EC':
-(.text+0x0): multiple definition of `sub_81231EC'
-src/cable_car.o:(.text+0x0): first defined here
+asm/evilSpirit.o: In function `sub_08086284':
+(.text+0x0): multiple definition of `sub_08086284'
+src/evilSpirit.o:(.text+0x0): first defined here
 ```
