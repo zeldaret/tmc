@@ -220,7 +220,7 @@ void sub_08086284(Entity *r4) {
 
     gUnk_08120668[r4->action](r4);
     r4->bitfield = 0;
-    sub_0805EC9C(r4, *((u8 *)&r4->heldObjectPtr + 2), r4->itemCooldown, 0);
+    sub_0805EC9C(r4, *((u16 *)&r4->heldObjectPtr + 1), r4->itemCooldown, 0);
     return;
 }
 ```
@@ -268,7 +268,7 @@ extern (*gUnk_08120668[99])(Entity *);
 void sub_08086284(Entity *r4) {
     gUnk_08120668[r4->action](r4);
     r4->bitfield = 0;
-    sub_0805EC9C(r4, *((u8 *)&r4->heldObjectPtr + 2), r4->itemCooldown, 0);
+    sub_0805EC9C(r4, *((u16 *)&r4->heldObjectPtr + 1), r4->itemCooldown, 0);
     return;
 }
 ```
