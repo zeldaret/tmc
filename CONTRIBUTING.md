@@ -134,7 +134,7 @@ Then, start translating the code to `src/evilSpirit.c`, bit by bit:
 ```
 The type signature of the function depends on the return type.
 * `pop {r4, pc}`: `void`
-* `adds {r0, r4}`
+* `add r0, r4, #0`
   `pop {r4, pc}`: `void`, `*`
 
 You will need to look at the caller and the function prologue to determine the exact type if not void.
