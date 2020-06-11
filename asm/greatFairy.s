@@ -153,7 +153,7 @@ sub_080873FC: @ 0x080873FC
 	.align 2, 0
 _0808740C: .4byte gRoomControls
 _08087410:
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08087414:
 	movs r0, #6
 	movs r1, #0x1b

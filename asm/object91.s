@@ -950,24 +950,24 @@ sub_0809CAC8: @ 0x0809CAC8
 	movs r0, #0x9b
 	bl sub_0807CCB4
 	ldr r0, [r5, #0x50]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	adds r4, r5, #0
 	adds r4, #0x84
 	ldr r0, [r4]
 	ldr r0, [r0, #8]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldr r0, [r4]
 	ldr r0, [r0, #0x20]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldr r0, [r4]
 	ldr r0, [r0, #0x24]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldr r0, [r4]
 	ldr r0, [r0, #0x28]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldr r0, [r4]
 	ldr r0, [r0, #0x2c]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	movs r0, #7
 	strb r0, [r5, #0xd]
 _0809CB26:

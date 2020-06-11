@@ -65,7 +65,7 @@ sub_0806C23C: @ 0x0806C23C
 	adds r4, #0x38
 	ldrb r2, [r4]
 	movs r0, #0x73
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0x73
 	bl PlaySFX
 	pop {r4, r5, pc}

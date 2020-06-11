@@ -279,7 +279,7 @@ sub_08097008: @ 0x08097008
 	adds r1, r5, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002B0
+	bl GetTileType
 	adds r4, r0, #0
 	ldr r0, _08097048 @ =0x00004036
 	cmp r4, r0
@@ -320,7 +320,7 @@ _08097062:
 	b _08097070
 _0809706A:
 	adds r0, r5, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08097070:
 	movs r0, #0
 _08097072:
@@ -370,7 +370,7 @@ sub_08097098: @ 0x08097098
 	adds r4, r6, #0
 	adds r4, #0x38
 	ldrb r2, [r4]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _080970F0 @ =gUnk_080B4488
 	ldrb r0, [r6, #0x15]
 	lsrs r0, r0, #3
@@ -381,7 +381,7 @@ sub_08097098: @ 0x08097098
 	ldrh r5, [r5]
 	adds r0, r0, r5
 	ldrb r1, [r4]
-	bl sub_080002B0
+	bl GetTileType
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r0, #0x79
@@ -432,7 +432,7 @@ sub_080970F4: @ 0x080970F4
 	ldr r0, _08097140 @ =0x00004036
 	ldrh r1, [r4]
 	ldrb r2, [r5]
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0809713C: .4byte gRoomControls
@@ -490,7 +490,7 @@ sub_08097194: @ 0x08097194
 	b _080971DE
 _080971A4:
 	adds r0, r4, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	adds r1, r0, #0
 	subs r0, #0x71
 	cmp r0, #1
@@ -590,7 +590,7 @@ _08097234:
 	adds r0, #0x38
 	ldrb r2, [r0]
 	movs r0, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 _08097274:
 	bl sub_0805E780
 	b _08097346
@@ -623,7 +623,7 @@ _08097284:
 	ldrb r2, [r0]
 	movs r0, #0x73
 	adds r1, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	b _08097274
 	.align 2, 0
 _080972C0: .4byte gRoomControls

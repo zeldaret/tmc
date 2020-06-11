@@ -266,7 +266,7 @@ sub_080817FC: @ 0x080817FC
 	adds r1, #0x6e
 	ldrb r1, [r1]
 	movs r2, #0
-	bl sub_08054754
+	bl CreateItemDrop
 	pop {pc}
 
 	thumb_func_start sub_0808180C

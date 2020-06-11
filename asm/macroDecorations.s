@@ -162,7 +162,7 @@ _08097EE8:
 	ldrsh r1, [r4, r2]
 	adds r1, r5, r1
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r4, #4
 	movs r1, #0
 	ldrsh r0, [r4, r1]

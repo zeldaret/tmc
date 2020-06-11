@@ -159,7 +159,7 @@ _0809EAF8:
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 _0809EB24:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

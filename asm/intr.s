@@ -94,8 +94,8 @@ _080B1A34:
 	add r0, r0, r1, lsl #6
 	mov r1, r2
 
-	arm_func_start sub_080B1A60
-sub_080B1A60: @ 0x080B1A60
+	arm_func_start _GetTileType
+_GetTileType: @ 0x080B1A60
 	ldr r2, _080B1C1C @ =gUnk_08000228
 _080B1A64:
 	add r2, r2, r1, lsl #3
@@ -190,7 +190,7 @@ sub_080B1B68: @ 0x080B1B68
 	arm_func_start sub_080B1B84
 sub_080B1B84: @ 0x080B1B84
 	mov ip, lr
-	bl sub_080B1A60
+	bl _GetTileType
 	lsls r0, r0, #0x12
 	ldrlo r1, _080B1C3C @ =gUnk_08000360
 	ldrhs r1, _080B1C40 @ =gUnk_080B7A3E
@@ -202,7 +202,7 @@ sub_080B1B84: @ 0x080B1B84
 sub_080B1BA4: @ 0x080B1BA4
 	mov ip, lr
 	mov r3, r2
-	bl sub_080B1A60
+	bl _GetTileType
 	lsls r0, r0, #0x12
 	ldrlo r1, _080B1C44 @ =gUnk_08000360
 	ldrhs r1, _080B1C48 @ =gUnk_080B7A3E

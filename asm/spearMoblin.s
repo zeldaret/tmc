@@ -110,7 +110,7 @@ _080282DE:
 	adds r0, r4, #0
 	bl sub_080287E0
 	ldr r0, [r4, #0x54]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	str r5, [r4, #0x54]
 _0802830C:
 	pop {r4, r5, pc}

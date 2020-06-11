@@ -100,7 +100,7 @@ sub_08098B28: @ 0x08098B28
 	ldrh r1, [r6]
 	subs r1, #0x40
 	ldrb r2, [r7]
-	bl UpdateCollisionLayer
+	bl SetTile
 _08098BCA:
 	adds r0, r5, #0
 	bl sub_08098BE8

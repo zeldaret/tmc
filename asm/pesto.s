@@ -1135,9 +1135,9 @@ _0802475E:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldrh r0, [r5, #0x36]
 	subs r0, #0xe
 	strh r0, [r5, #0x36]

@@ -230,7 +230,7 @@ sub_080834B4: @ 0x080834B4
 	ldrh r1, [r1]
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _080834E8 @ =0x0000010B
 	bl sub_08004488
 _080834E6:
@@ -502,7 +502,7 @@ sub_080836A0: @ 0x080836A0
 	ldrh r1, [r1]
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {pc}
 	.align 2, 0
 _080836D8: .4byte 0x00004022
@@ -517,7 +517,7 @@ sub_080836DC: @ 0x080836DC
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #7
 	strb r0, [r5, #0xe]
 	ldrb r1, [r5, #0x18]

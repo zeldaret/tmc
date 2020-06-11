@@ -133,21 +133,21 @@ sub_08067418: @ 0x08067418
 	adds r4, #0x38
 	ldrb r2, [r4]
 	adds r0, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrh r1, [r7]
 	ldrb r2, [r4]
 	adds r0, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrh r1, [r7]
 	adds r1, #0x3f
 	ldrb r2, [r4]
 	adds r0, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrh r1, [r7]
 	adds r1, #0x40
 	ldrb r2, [r4]
 	adds r0, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _080674F8
 	.align 2, 0
 _08067488: .4byte gRoomControls
@@ -186,19 +186,19 @@ _08067494:
 	ldr r1, _08067504 @ =0x00000E81
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _08067508 @ =0x00000E82
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _0806750C @ =0x00000E83
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _08067510 @ =0x00000EC3
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 _080674F8:
 	adds r0, r6, #0
 	bl sub_0807DD50

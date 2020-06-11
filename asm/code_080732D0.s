@@ -143,7 +143,7 @@ sub_080733BC: @ 0x080733BC
 	ldr r0, [r4, #0x54]
 	cmp r0, #0
 	beq _080733FC
-	bl sub_0805E7BC
+	bl DeleteEntity
 	movs r0, #0
 	str r0, [r4, #0x54]
 	adds r0, r4, #0
@@ -3501,7 +3501,7 @@ sub_08074CF8: @ 0x08074CF8
 	adds r4, r5, #0
 	adds r4, #0x84
 	ldr r1, [r4]
-	bl sub_0807DF74
+	bl ExecuteScriptCommandSet
 	ldr r1, [r4]
 	adds r0, r5, #0
 	bl sub_08074D34
@@ -3818,7 +3818,7 @@ sub_08074F2C: @ 0x08074F2C
 	adds r5, r4, #0
 	adds r5, #0x84
 	ldr r1, [r5]
-	bl sub_0807DF74
+	bl ExecuteScriptCommandSet
 	ldr r1, [r5]
 	adds r0, r4, #0
 	bl sub_08074D34
@@ -3835,7 +3835,7 @@ sub_08074F44: @ 0x08074F44
 	ldr r0, [r0, #0x6c]
 	cmp r0, #0
 	beq _08074F5A
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08074F5A:
 	ldr r2, _08074F78 @ =gLinkState
 	adds r0, r2, #0
@@ -4469,7 +4469,7 @@ _080753F4:
 	ldr r0, [r4, #0x2c]
 	cmp r0, #0
 	beq _080754B4
-	bl sub_0805E7BC
+	bl DeleteEntity
 	str r6, [r4, #0x2c]
 	b _080754B4
 _0807541E:
@@ -4535,7 +4535,7 @@ _08075492:
 	cmp r0, #1
 	beq _080754A6
 	adds r0, r1, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	str r6, [r4, #0x2c]
 _080754A6:
 	adds r0, r5, #0

@@ -79,7 +79,7 @@ sub_080A01E0: @ 0x080A01E0
 	strb r3, [r0]
 _080A0246:
 	ldr r0, _080A028C @ =gUnk_0800A0B4
-	bl sub_0807DB2C
+	bl StartPlayerScript
 	ldr r1, _080A0284 @ =gScreen
 	adds r2, r1, #0
 	adds r2, #0x66
@@ -155,7 +155,7 @@ sub_080A02CC: @ 0x080A02CC
 	cmp r0, #0
 	beq _080A0342
 	ldr r0, [r4, #0x54]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldrb r1, [r4, #0x18]
 	movs r0, #4
 	rsbs r0, r0, #0

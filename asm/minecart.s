@@ -134,7 +134,7 @@ _0809171A:
 	adds r2, r6, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080917C8: .4byte gUnk_030010EC
@@ -827,7 +827,7 @@ sub_08091CC8: @ 0x08091CC8
 	adds r2, r6, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _08091D8A
 	.align 2, 0
 _08091D58: .4byte gLinkState

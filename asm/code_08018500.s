@@ -593,12 +593,12 @@ _0801897C:
 	subs r1, r4, #1
 	movs r0, #0x8c
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0x8e
 	adds r1, r4, #0
 _0801899C:
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	b _080189E4
 _080189A4:
 	cmp r4, #0
@@ -660,7 +660,7 @@ _08018A0E:
 	adds r0, r5, r1
 	adds r1, r6, r5
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	adds r5, #1
 	cmp r5, #3
 	bls _08018A0E
@@ -672,12 +672,12 @@ _08018A24:
 	adds r4, r6, r5
 	adds r1, r4, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _08018A54 @ =0x000001DB
 	adds r0, r5, r1
 	adds r1, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	adds r5, #1
 	cmp r5, #3
 	bls _08018A24
@@ -721,7 +721,7 @@ _08018A8A:
 	adds r6, #1
 	adds r1, r5, r4
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	adds r4, #1
 	cmp r4, #6
 	bls _08018A8A
@@ -764,12 +764,12 @@ _08018ADA:
 	adds r1, r5, r6
 	movs r2, #1
 	str r3, [sp]
-	bl sub_0807B314
+	bl SetTileType
 	adds r0, r7, #0
 	adds r7, #1
 	adds r1, r4, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	adds r4, #1
 	adds r6, #1
 	ldr r3, [sp]
@@ -805,12 +805,12 @@ _08018B28:
 	add r8, r1
 	adds r1, r6, r5
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	adds r0, r7, #0
 	adds r7, #1
 	adds r1, r4, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	adds r4, #1
 	adds r5, #1
 	cmp r5, #3
@@ -858,7 +858,7 @@ _08018B8A:
 	adds r1, r5, r4
 	movs r2, #1
 	str r3, [sp]
-	bl sub_0807B314
+	bl SetTileType
 	adds r4, #1
 	ldr r3, [sp]
 	cmp r4, #4
@@ -917,7 +917,7 @@ sub_08018BB4: @ 0x08018BB4
 _08018C08:
 	movs r0, #0x73
 	adds r1, r3, #0
-	bl sub_0807B314
+	bl SetTileType
 _08018C10:
 	add sp, #8
 	pop {r4, r5, pc}
@@ -944,7 +944,7 @@ _08018C32:
 	adds r6, #1
 	adds r1, r5, r4
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	adds r4, #1
 	cmp r4, #4
 	bls _08018C32
@@ -969,12 +969,12 @@ _08018C5E:
 	adds r0, r5, r1
 	adds r1, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _08018C84 @ =0x00000261
 	adds r0, r5, r1
 	adds r1, r4, #1
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	adds r5, #2
 	adds r4, #0x40
 	cmp r5, #5

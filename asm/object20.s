@@ -164,7 +164,7 @@ _0808790A:
 	bne _08087970
 	adds r0, r4, #0
 	mov r1, r8
-	bl sub_080002B0
+	bl GetTileType
 	adds r1, r0, #0
 	movs r0, #0xda
 	lsls r0, r0, #2
@@ -185,7 +185,7 @@ _08087960:
 	ldr r0, _0808796C @ =0x00004022
 	adds r1, r4, #0
 	mov r2, r8
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _0808797C
 	.align 2, 0
 _0808796C: .4byte 0x00004022

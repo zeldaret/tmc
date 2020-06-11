@@ -554,7 +554,7 @@ _0806DC88:
 	adds r4, #2
 	ldr r0, _0806DC9C @ =0x00004072
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0806DC94:
 	ldrh r0, [r4]
 	cmp r0, #0

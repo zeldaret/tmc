@@ -676,7 +676,7 @@ _0801997C:
 	adds r5, r4, #0
 	adds r5, #0x38
 	ldrb r0, [r5]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	mov r8, r0
 	ldrb r1, [r4, #0x14]
 	movs r0, #6
@@ -708,7 +708,7 @@ _0801997C:
 	orrs r7, r0
 	ldrb r1, [r5]
 	adds r0, r7, #0
-	bl sub_080002B0
+	bl GetTileType
 	adds r6, r0, #0
 	ldr r0, _080199E8 @ =0x00003FFF
 	cmp r6, r0
@@ -1814,7 +1814,7 @@ _0801A1D4:
 	adds r1, #0x38
 	ldrb r2, [r1]
 	adds r1, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #0xa0
 	strb r0, [r6, #6]
 	movs r0, #5
@@ -1859,7 +1859,7 @@ _0801A23C:
 	adds r4, #0x38
 	ldrb r2, [r4]
 	adds r1, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r2, [r4]
 	movs r0, #0xd
 	adds r1, r7, #0
@@ -1876,7 +1876,7 @@ _0801A28C:
 	adds r1, #0x38
 	ldrb r2, [r1]
 	adds r1, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #4
 	b _0801A2A6
 	.align 2, 0
@@ -1928,7 +1928,7 @@ sub_0801A2B0: @ 0x0801A2B0
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl sub_080002B0
+	bl GetTileType
 	bl sub_080002E4
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
@@ -2004,7 +2004,7 @@ sub_0801A370: @ 0x0801A370
 	cmp r0, #0
 	beq _0801A44E
 	movs r0, #2
-	bl sub_0808094C
+	bl GetLayerByIndex
 	adds r7, r0, #0
 	ldr r1, _0801A3CC @ =gUnk_080B4488
 	ldrb r0, [r5, #0x14]
@@ -2018,7 +2018,7 @@ sub_0801A370: @ 0x0801A370
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl sub_080002B0
+	bl GetTileType
 	adds r1, r0, #0
 	ldr r0, _0801A3D0 @ =0x0000402B
 	cmp r1, r0
@@ -2048,7 +2048,7 @@ _0801A3D6:
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl sub_080002B0
+	bl GetTileType
 	bl sub_080002E4
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
@@ -2132,7 +2132,7 @@ sub_0801A458: @ 0x0801A458
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl sub_080002B0
+	bl GetTileType
 	bl sub_080002E4
 	cmp r0, #0x52
 	beq _0801A4F0
@@ -2272,7 +2272,7 @@ _0801A58C:
 	adds r4, r6, #0
 	adds r4, #0x38
 	ldrb r0, [r4]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	mov r8, r0
 	ldr r0, _0801A668 @ =0x00005004
 	add r0, r8
@@ -2356,7 +2356,7 @@ _0801A628:
 	mov r0, sb
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl sub_080002B0
+	bl GetTileType
 	adds r5, r0, #0
 	ldr r1, _0801A670 @ =0xFFFFFC97
 	adds r0, r5, r1
@@ -2457,7 +2457,7 @@ _0801A6E6:
 	mov r0, sb
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl sub_080002B0
+	bl GetTileType
 	adds r5, r0, #0
 	ldr r0, _0801A734 @ =0x00000369
 	cmp r5, r0
@@ -2559,7 +2559,7 @@ _0801A7A6:
 	mov r0, sb
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl sub_080002B0
+	bl GetTileType
 	adds r5, r0, #0
 	ldr r0, _0801A7F4 @ =0x00000369
 	cmp r5, r0
@@ -2655,7 +2655,7 @@ _0801A85E:
 	mov r0, sb
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl sub_080002B0
+	bl GetTileType
 	adds r5, r0, #0
 	ldr r0, _0801A89C @ =0x00000369
 	cmp r5, r0
@@ -2718,7 +2718,7 @@ sub_0801A8D0: @ 0x0801A8D0
 	adds r0, r5, #0
 	adds r0, #0x38
 	ldrb r0, [r0]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	adds r6, r0, #4
 	cmp r4, #0
 	bne _0801A92C
@@ -2808,7 +2808,7 @@ sub_0801A980: @ 0x0801A980
 	adds r6, r4, #0
 	adds r6, #0x38
 	ldrb r0, [r6]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	ldrb r0, [r4, #0x14]
 	movs r2, #6
 	ands r2, r0
@@ -2838,7 +2838,7 @@ sub_0801A980: @ 0x0801A980
 	lsls r1, r1, #6
 	orrs r0, r1
 	ldrb r1, [r6]
-	bl sub_080002B0
+	bl GetTileType
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	ldr r0, _0801A9EC @ =0x00003FFF
@@ -2923,7 +2923,7 @@ sub_0801AA58: @ 0x0801AA58
 	adds r0, r0, r6
 	mov r8, r0
 	ldrb r0, [r0]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	ldr r2, _0801AAF0 @ =gUnk_080B4488
 	lsrs r1, r7, #3
 	lsls r1, r1, #1
@@ -3259,7 +3259,7 @@ _0801ACDA:
 	adds r4, r0, #0
 	adds r0, r6, #0
 	movs r1, #1
-	bl sub_080002B0
+	bl GetTileType
 	cmp r4, r0
 	bne _0801ACD8
 	ldrh r0, [r5, #0xa]
@@ -3289,7 +3289,7 @@ _0801AD1A:
 	adds r4, r0, #0
 	adds r0, r6, #0
 	movs r1, #2
-	bl sub_080002B0
+	bl GetTileType
 	cmp r4, r0
 	bne _0801AD18
 	ldrh r0, [r5, #0xa]
@@ -3549,7 +3549,7 @@ _0801AF2E:
 	ldrsh r1, [r4, r2]
 	adds r1, r6, r1
 	adds r2, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r4, #4
 	movs r1, #0
 	ldrsh r0, [r4, r1]
@@ -3593,8 +3593,8 @@ _0801AF80: .4byte gUnk_030010A0
 _0801AF84: .4byte gRoomVars
 _0801AF88: .4byte gUnk_0200B240
 
-	thumb_func_start sub_0801AF8C
-sub_0801AF8C: @ 0x0801AF8C
+	thumb_func_start DeleteLoadedTileEntity
+DeleteLoadedTileEntity: @ 0x0801AF8C
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	lsls r1, r1, #0xc
@@ -3686,7 +3686,7 @@ _0801B026:
 	lsls r1, r7, #6
 	adds r1, r1, r2
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 _0801B03E:
 	adds r3, r4, #0
 	adds r2, r5, #0
@@ -5183,7 +5183,7 @@ sub_0801BB2C: @ 0x0801BB2C
 	subs r4, #0x1c
 	ldrb r0, [r5, #0xb]
 	adds r1, r4, #0
-	bl sub_08054464
+	bl SetBottleContents
 	ldrb r0, [r5, #0xb]
 	adds r1, r4, #0
 	movs r2, #5
@@ -5328,7 +5328,7 @@ _0801BC98:
 	ldrb r1, [r0]
 	subs r1, #0x1c
 	adds r0, r6, #0
-	bl sub_08054464
+	bl SetBottleContents
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0801BCB0: .4byte gUnk_02002A40
@@ -5352,7 +5352,7 @@ sub_0801BCB4: @ 0x0801BCB4
 	ldrb r1, [r0]
 	subs r1, #0x1c
 	movs r0, #0x20
-	bl sub_08054464
+	bl SetBottleContents
 _0801BCDA:
 	ldrb r0, [r5]
 	subs r0, #0x26
@@ -5668,7 +5668,7 @@ sub_0801BEF8: @ 0x0801BEF8
 	mov r1, r8
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002B0
+	bl GetTileType
 	mov r1, r8
 	adds r1, #0x6c
 	strh r0, [r1]
@@ -5732,7 +5732,7 @@ _0801BF62:
 	mov r1, r8
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002B0
+	bl GetTileType
 	mov r1, r8
 	adds r1, #0x6c
 	strh r0, [r1]

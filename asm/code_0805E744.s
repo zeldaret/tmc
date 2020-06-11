@@ -60,7 +60,7 @@ sub_0805E79C: @ 0x0805E79C
 	push {lr}
 	adds r1, r0, #0
 	ldrb r0, [r1, #8]
-	ldr r2, _0805E7B4 @ =sub_0805E7BC
+	ldr r2, _0805E7B4 @ =DeleteEntity
 	cmp r0, #9
 	bne _0805E7AA
 	ldr r2, _0805E7B8 @ =sub_0805E900
@@ -69,11 +69,11 @@ _0805E7AA:
 	bl _call_via_r2
 	pop {pc}
 	.align 2, 0
-_0805E7B4: .4byte sub_0805E7BC
+_0805E7B4: .4byte DeleteEntity
 _0805E7B8: .4byte sub_0805E900
 
-	thumb_func_start sub_0805E7BC
-sub_0805E7BC: @ 0x0805E7BC
+	thumb_func_start DeleteEntity
+DeleteEntity: @ 0x0805E7BC
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r0, [r4, #4]
@@ -671,7 +671,7 @@ _0805EBDA:
 	cmp r0, #3
 	bne _0805EBE8
 	adds r0, r1, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0805EBE8:
 	adds r1, r4, #0
 	cmp r1, r5

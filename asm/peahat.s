@@ -849,7 +849,7 @@ sub_08020590: @ 0x08020590
 	cmp r0, #0
 	bne _080205AE
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080205F2
 _080205AE:
 	lsls r0, r1, #0x18

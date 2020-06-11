@@ -54,8 +54,8 @@ sub_08000152: @ 0x08000152
 	ldrh r0, [r3, r0]
 	lsrs r2, r2, #2
 
-	non_word_aligned_thumb_func_start UpdateCollisionLayer
-UpdateCollisionLayer: @ 0x0800015E
+	non_word_aligned_thumb_func_start SetTile
+SetTile: @ 0x0800015E
 	push {r4, r5, r6, r7, lr}
 	lsls r3, r2, #3
 	ldr r4, _08000208 @ =gUnk_08000228
@@ -77,7 +77,7 @@ UpdateCollisionLayer: @ 0x0800015E
 	bl sub_08000148
 	pop {r0, r1}
 	push {r0, r1}
-	bl sub_0801AF8C
+	bl DeleteLoadedTileEntity
 	adds r0, r7, #0
 	pop {r1, r2}
 	bl sub_0801AF48
@@ -96,7 +96,7 @@ _0800019A:
 	lsrs r2, r2, #2
 	bl sub_08000148
 	pop {r0, r1}
-	bl sub_0801AF8C
+	bl DeleteLoadedTileEntity
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080001C0: .4byte gUnk_0202BEB4
@@ -197,13 +197,13 @@ sub_0800029C: @ 0x0800029C
 	ldr r3, _08000308 @ =gUnk_03005780
 	bx r3
 
-	thumb_func_start sub_080002A0
-sub_080002A0: @ 0x080002A0
+	thumb_func_start GetTileTypeByEntity
+GetTileTypeByEntity: @ 0x080002A0
 	ldr r3, _0800030C @ =gUnk_0300579C
 	bx r3
 
-	thumb_func_start sub_080002A4
-sub_080002A4: @ 0x080002A4
+	thumb_func_start GetTileTypeByPos
+GetTileTypeByPos: @ 0x080002A4
 	ldr r3, _08000310 @ =gUnk_030057A8
 	bx r3
 
@@ -217,8 +217,8 @@ sub_080002AC: @ 0x080002AC
 	ldr r3, _08000318 @ =gUnk_030057CC
 	bx r3
 
-	thumb_func_start sub_080002B0
-sub_080002B0: @ 0x080002B0
+	thumb_func_start GetTileType
+GetTileType: @ 0x080002B0
 	ldr r3, _0800031C @ =gUnk_030057D4
 	bx r3
 

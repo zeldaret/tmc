@@ -628,7 +628,7 @@ sub_0802BFE0: @ 0x0802BFE0
 	cmp r0, #0
 	beq _0802BFF2
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0802BFF2:
 	pop {r4, pc}
 
@@ -652,7 +652,7 @@ sub_0802BFF4: @ 0x0802BFF4
 	cmp r0, #0
 	bne _0802C01C
 	adds r0, r3, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0802C01C:
 	pop {pc}
 	.align 2, 0

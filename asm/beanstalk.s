@@ -505,7 +505,7 @@ _0808A0A8:
 	cmp r0, #0
 	bge _0808A0BA
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0808A0BA:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -614,11 +614,11 @@ _0808A154:
 	ldrh r1, [r4]
 	adds r0, r7, #0
 	movs r2, #2
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrh r1, [r4]
 	adds r0, r7, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, [r5, #0x6c]
 	adds r2, r0, #0
 	adds r2, #0x10
@@ -732,7 +732,7 @@ sub_0808A220: @ 0x0808A220
 	ldr r0, _0808A2E8 @ =0x00004017
 	ldrh r1, [r2]
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r7, #1
 	strb r7, [r4, #0xd]
 	adds r0, r4, #0
@@ -881,7 +881,7 @@ _0808A316:
 	orrs r1, r0
 	adds r0, r3, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _0808A3EC
 	.align 2, 0
 _0808A38C: .4byte gLinkEntity
@@ -926,7 +926,7 @@ _0808A39C:
 	lsls r2, r2, #6
 	orrs r1, r2
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 _0808A3EC:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

@@ -79,52 +79,52 @@ _0809AE1E:
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r5, #1
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r5, #0
 	adds r1, #0x3f
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r5, #0
 	adds r1, #0x40
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r5, #0
 	adds r1, #0x41
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r4, #0x1b
 	adds r1, r5, #0
 	subs r1, #0x41
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r5, #0
 	subs r1, #0x40
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	subs r4, #0x17
 	adds r1, r5, #0
 	subs r1, #0x3f
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r5, #0
 	subs r1, #0x81
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r5, #0
 	subs r1, #0x80
 	adds r0, r4, #0
@@ -138,17 +138,17 @@ _0809AEBC:
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r6, #0
 	adds r1, #0x40
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _0809AEF8 @ =0x00004025
 	adds r1, r6, #0
 	adds r1, #0x41
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #0x4f
 	bl sub_0807CBD0
 	cmp r0, #0
@@ -165,7 +165,7 @@ _0809AF02:
 	adds r1, r6, #1
 _0809AF04:
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _0809AF46
 	.align 2, 0
 _0809AF0C: .4byte 0x0000402D
@@ -179,20 +179,20 @@ _0809AF10:
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r5, #0
 	subs r1, #0x40
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	subs r1, r5, #1
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 _0809AF46:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

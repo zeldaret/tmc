@@ -4889,7 +4889,7 @@ _080A7BFC: .4byte gLinkState
 	thumb_func_start sub_080A7C00
 sub_080A7C00: @ 0x080A7C00
 	push {r4, lr}
-	bl sub_080A7C38
+	bl GiveItemWithCutscene
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _080A7C16
@@ -4903,7 +4903,7 @@ _080A7C16:
 	thumb_func_start sub_080A7C18
 sub_080A7C18: @ 0x080A7C18
 	push {lr}
-	bl sub_080A7C38
+	bl GiveItemWithCutscene
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _080A7C32
@@ -4918,8 +4918,8 @@ _080A7C32:
 	.align 2, 0
 _080A7C34: .4byte gLinkEntity
 
-	thumb_func_start sub_080A7C38
-sub_080A7C38: @ 0x080A7C38
+	thumb_func_start GiveItemWithCutscene
+GiveItemWithCutscene: @ 0x080A7C38
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
 	adds r6, r1, #0
@@ -5516,7 +5516,7 @@ sub_080A8064: @ 0x080A8064
 	cmp r0, #0x80
 	bne _080A8078
 	adds r0, r1, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A8086
 _080A8078:
 	adds r0, r1, #0
@@ -5556,7 +5556,7 @@ sub_080A80A0: @ 0x080A80A0
 	cmp r0, #0
 	beq _080A80C4
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A80F0
 _080A80C4:
 	adds r0, r4, #0
@@ -5596,7 +5596,7 @@ sub_080A80F4: @ 0x080A80F4
 	cmp r0, #0
 	bne _080A8116
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _080A8116:
 	pop {r4, pc}
 
@@ -5618,7 +5618,7 @@ sub_080A8118: @ 0x080A8118
 	b _080A815A
 _080A813A:
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A8176
 _080A8142:
 	ldrb r1, [r4, #0x10]
@@ -5702,7 +5702,7 @@ sub_080A81C4: @ 0x080A81C4
 	cmp r0, #0x80
 	bne _080A81D8
 	adds r0, r1, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A81DE
 _080A81D8:
 	adds r0, r1, #0
@@ -5740,7 +5740,7 @@ sub_080A81FC: @ 0x080A81FC
 	cmp r0, #0
 	beq _080A8222
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A8246
 _080A8222:
 	adds r0, r4, #0
@@ -5814,7 +5814,7 @@ sub_080A827C: @ 0x080A827C
 	cmp r0, #0
 	bne _080A82B2
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _080A82B2:
 	pop {r4, pc}
 
@@ -5832,7 +5832,7 @@ sub_080A82B4: @ 0x080A82B4
 	cmp r0, #0
 	bne _080A82D6
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _080A82D6:
 	pop {r4, pc}
 
@@ -6080,7 +6080,7 @@ sub_080A8470: @ 0x080A8470
 	bl sub_08004488
 _080A848E:
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A84C6
 _080A8496:
 	adds r0, r4, #0
@@ -6451,7 +6451,7 @@ _080A8760: .4byte gRoomControls
 _080A8764: .4byte gLinkEntity
 _080A8768:
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _080A876E:
 	pop {r4, r5, r6, pc}
 
@@ -6842,7 +6842,7 @@ _080A8A2A:
 	str r0, [r4, #0x50]
 _080A8A3E:
 	adds r0, r5, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _080A8A44:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -6860,7 +6860,7 @@ sub_080A8A48: @ 0x080A8A48
 	cmp r0, #0
 	beq _080A8A64
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _080A8A64:
 	pop {r4, pc}
 	.align 2, 0
@@ -6922,14 +6922,14 @@ sub_080A8AC8: @ 0x080A8AC8
 	ldr r5, [r4, #0x50]
 	cmp r5, #0
 	bne _080A8AD8
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A8B34
 _080A8AD8:
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	bne _080A8AE6
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A8B34
 _080A8AE6:
 	ldrb r0, [r4, #0x18]
@@ -6988,7 +6988,7 @@ sub_080A8B38: @ 0x080A8B38
 	cmp r0, #0
 	beq _080A8B5E
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A8B74
 _080A8B5E:
 	adds r0, r4, #0
@@ -7019,7 +7019,7 @@ sub_080A8B78: @ 0x080A8B78
 	cmp r0, #0
 	beq _080A8B94
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _080A8B94:
 	pop {r4, pc}
 	.align 2, 0
@@ -7081,14 +7081,14 @@ sub_080A8BF8: @ 0x080A8BF8
 	ldr r5, [r4, #0x50]
 	cmp r5, #0
 	bne _080A8C08
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A8C48
 _080A8C08:
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	bne _080A8C16
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A8C48
 _080A8C16:
 	ldrb r0, [r4, #0x18]
@@ -7133,7 +7133,7 @@ sub_080A8C4C: @ 0x080A8C4C
 	cmp r0, #0
 	beq _080A8C72
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A8C88
 _080A8C72:
 	adds r0, r4, #0
@@ -7164,7 +7164,7 @@ sub_080A8C8C: @ 0x080A8C8C
 	cmp r0, #0
 	beq _080A8CA8
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _080A8CA8:
 	pop {r4, pc}
 	.align 2, 0
@@ -7226,14 +7226,14 @@ sub_080A8D0C: @ 0x080A8D0C
 	ldr r5, [r4, #0x50]
 	cmp r5, #0
 	bne _080A8D1C
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A8D5C
 _080A8D1C:
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	bne _080A8D2A
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A8D5C
 _080A8D2A:
 	ldrb r0, [r4, #0x18]
@@ -7278,7 +7278,7 @@ sub_080A8D60: @ 0x080A8D60
 	cmp r0, #0
 	beq _080A8D86
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A8D9C
 _080A8D86:
 	adds r0, r4, #0
@@ -7309,7 +7309,7 @@ sub_080A8DA0: @ 0x080A8DA0
 	cmp r0, #0
 	beq _080A8DBC
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _080A8DBC:
 	pop {r4, pc}
 	.align 2, 0
@@ -7736,7 +7736,7 @@ sub_080A90D8: @ 0x080A90D8
 	mov r2, ip
 	strh r4, [r2]
 	adds r0, r5, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	cmp r0, #0x13
 	beq _080A9128
 	cmp r0, #0x34
@@ -7804,7 +7804,7 @@ _080A917C:
 	bl sub_0803C0AC
 _080A9198:
 	adds r0, r5, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080A91D8
 	.align 2, 0
 _080A91A0: .4byte gLinkEntity
@@ -8368,7 +8368,7 @@ sub_080A95BC: @ 0x080A95BC
 	cmp r0, #0
 	beq _080A95D8
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _080A95D8:
 	pop {r4, pc}
 	.align 2, 0
@@ -9768,7 +9768,7 @@ _080A9FF2:
 	ldrh r0, [r4]
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080002B0
+	bl GetTileType
 	movs r1, #0x80
 	lsls r1, r1, #7
 	cmp r0, r1
@@ -9776,7 +9776,7 @@ _080A9FF2:
 	ldr r0, _080AA040 @ =0x00004005
 	ldrh r1, [r4]
 	ldrb r2, [r5]
-	bl UpdateCollisionLayer
+	bl SetTile
 _080AA034:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -10349,7 +10349,7 @@ _080AA474:
 	bl CopyPosition
 _080AA48A:
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	pop {r4, pc}
 	.align 2, 0
 
@@ -10358,7 +10358,7 @@ sub_080AA494: @ 0x080AA494
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	movs r4, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	adds r2, r0, #0
 	ldr r1, _080AA4A4 @ =gUnk_08129FD0
 	b _080AA4AA
@@ -10428,7 +10428,7 @@ _080AA4EE:
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080AA52C: .4byte gRoomControls
@@ -11146,7 +11146,7 @@ sub_080AAA68: @ 0x080AAA68
 	adds r0, #0x38
 	ldrb r2, [r0]
 	adds r0, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080AAAA0: .4byte gUnk_0812A084
@@ -12511,7 +12511,7 @@ sub_080AB4A4: @ 0x080AB4A4
 	beq _080AB4F2
 	strh r5, [r7]
 	adds r0, r6, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	cmp r0, #0x13
 	beq _080AB4E2
 	cmp r0, #0x34
@@ -12739,7 +12739,7 @@ _080AB640:
 	bl CreateFx
 _080AB67A:
 	adds r0, r6, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	movs r0, #1
 	b _080AB68E
 _080AB684:
@@ -13222,7 +13222,7 @@ sub_080AB9FC: @ 0x080AB9FC
 	adds r4, r1, #0
 	adds r0, #0x38
 	ldrb r0, [r0]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	movs r1, #0x2e
 	ldrsh r3, [r5, r1]
 	ldr r2, _080ABA4C @ =gRoomControls
@@ -13636,7 +13636,7 @@ sub_080ABCC4: @ 0x080ABCC4
 	strh r1, [r0]
 	ldrh r0, [r0]
 	movs r1, #2
-	bl sub_080002B0
+	bl GetTileType
 	adds r1, r5, #0
 	adds r1, #0x76
 	strh r0, [r1]
@@ -13720,7 +13720,7 @@ sub_080ABD70: @ 0x080ABD70
 	strh r1, [r4]
 	ldrh r0, [r4]
 	movs r1, #2
-	bl sub_080002B0
+	bl GetTileType
 	adds r1, r5, #0
 	adds r1, #0x76
 	strh r0, [r1]
@@ -13733,7 +13733,7 @@ sub_080ABD70: @ 0x080ABD70
 	ldrh r1, [r4]
 	movs r0, #0x6e
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	b _080ABDEE
 	.align 2, 0
 _080ABDDC: .4byte gRoomControls
@@ -13742,7 +13742,7 @@ _080ABDE4:
 	ldrh r1, [r4]
 	movs r0, #0x6d
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 _080ABDEE:
 	adds r0, r5, #0
 	adds r0, #0x5a

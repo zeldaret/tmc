@@ -77,7 +77,7 @@ _0809277C:
 	lsls r2, r2, #6
 	orrs r1, r2
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 _080927A2:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -147,7 +147,7 @@ sub_080927D4: @ 0x080927D4
 	subs r1, #1
 	mov r0, r8
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #0x2e
 	ldrsh r1, [r4, r0]
 	ldrh r0, [r6, #6]
@@ -164,7 +164,7 @@ sub_080927D4: @ 0x080927D4
 	orrs r1, r0
 	mov r0, r8
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r3}
 	mov r8, r3
 	pop {r4, r5, r6, pc}

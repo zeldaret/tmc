@@ -79,7 +79,7 @@ sub_0808483C: @ 0x0808483C
 	ldrh r1, [r5]
 	adds r4, #0x38
 	ldrb r2, [r4]
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #0x89
 	lsls r0, r0, #1
 	bl PlaySFX
@@ -375,7 +375,7 @@ _08084AF8:
 	movs r2, #0
 	bl CreateFx
 	ldr r0, [r4, #0x54]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldr r0, _08084B18 @ =0x0000018F
 	bl PlaySFX
 	bl sub_0805E780
@@ -624,7 +624,7 @@ sub_08084CAC: @ 0x08084CAC
 	adds r1, r5, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002B0
+	bl GetTileType
 	bl sub_080002E4
 	cmp r0, #0x72
 	bne _08084D24

@@ -258,7 +258,7 @@ sub_0809ACA0: @ 0x0809ACA0
 	movs r1, #0xf1
 	strb r1, [r0]
 	adds r0, r2, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0809ACC4:
 	pop {pc}
 	.align 2, 0

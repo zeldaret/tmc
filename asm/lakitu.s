@@ -742,7 +742,7 @@ _0803CCAA:
 	movs r0, #0
 	str r0, [r4, #0x54]
 	adds r0, r5, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0803CCB4:
 	pop {r4, r5, pc}
 	.align 2, 0

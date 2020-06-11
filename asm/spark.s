@@ -314,6 +314,6 @@ sub_0802B4A8: @ 0x0802B4A8
 	strh r0, [r1, #0x32]
 _0802B4D0:
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0802B4D6:
 	pop {r4, pc}

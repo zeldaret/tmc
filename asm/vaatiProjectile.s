@@ -620,7 +620,7 @@ sub_0803E4D8: @ 0x0803E4D8
 	ldr r0, _0803E524 @ =0x00004074
 	ldrb r2, [r5]
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 _0803E518:
 	pop {r4, r5, pc}
 	.align 2, 0

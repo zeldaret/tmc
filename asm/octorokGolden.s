@@ -261,7 +261,7 @@ sub_08037E14: @ 0x08037E14
 	adds r0, r5, #0
 	adds r0, #0x38
 	ldrb r0, [r0]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	ldr r1, _08037E70 @ =0x00002004
 	adds r0, r0, r1
 	lsrs r3, r4, #2

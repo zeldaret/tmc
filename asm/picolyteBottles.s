@@ -305,7 +305,7 @@ sub_0806E0DC: @ 0x0806E0DC
 	ldr r0, [r4, #0x54]
 	cmp r0, #0
 	beq _0806E120
-	bl sub_0805E7BC
+	bl DeleteEntity
 	str r6, [r4, #0x54]
 _0806E120:
 	adds r0, r4, #0

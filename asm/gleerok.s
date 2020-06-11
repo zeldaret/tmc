@@ -418,7 +418,7 @@ sub_0802D33C: @ 0x0802D33C
 	adds r5, r7, #0
 _0802D34A:
 	ldm r5!, {r0}
-	bl sub_0805E7BC
+	bl DeleteEntity
 	adds r4, #1
 	cmp r4, #3
 	bls _0802D34A

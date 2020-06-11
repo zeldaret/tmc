@@ -2697,17 +2697,17 @@ _080578E0:
 	adds r1, #0x3f
 	adds r0, r6, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrh r1, [r4]
 	adds r1, #0x40
 	adds r0, r6, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrh r1, [r4]
 	adds r1, #0x41
 	adds r0, r6, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r4, #8
 _08057906:
 	adds r0, r4, #0
@@ -3257,7 +3257,7 @@ _08057D18:
 	ldrh r1, [r4, #2]
 	ldrb r2, [r4, #4]
 	ldrb r3, [r4, #5]
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _08057D3A
 	movs r1, #0x36
@@ -4155,7 +4155,7 @@ sub_08058408: @ 0x08058408
 	ldrh r1, [r4, #0x22]
 	ldrh r2, [r4, #0x24]
 	ldrh r3, [r4, #0x26]
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _08058488
 	ldrb r0, [r4, #0xa]
@@ -5424,7 +5424,7 @@ _08058DFC:
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	ldrh r0, [r4, #0x3a]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	ldrh r1, [r4, #0x38]
 	lsls r1, r1, #1
 	adds r1, #4
@@ -5613,7 +5613,7 @@ sub_08058F44: @ 0x08058F44
 	orrs r1, r0
 	movs r0, #0x26
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_08058F84
@@ -5897,7 +5897,7 @@ _08059182:
 	lsls r2, r2, #6
 	orrs r1, r2
 	ldrb r2, [r4, #0xb]
-	bl sub_0807B314
+	bl SetTileType
 	b _080591C8
 	.align 2, 0
 _080591A8: .4byte 0x00000365
@@ -5982,7 +5982,7 @@ _08059238:
 	ldrh r1, [r4, #2]
 	ldrh r2, [r4, #4]
 	ldrh r3, [r4, #6]
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _0805924C
 	ldrh r0, [r4, #8]
@@ -6123,16 +6123,16 @@ sub_08059340: @ 0x08059340
 	movs r0, #0x1d
 	adds r1, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0
 	adds r1, r4, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	subs r4, #0x40
 	movs r0, #0
 	adds r1, r4, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	pop {r4, pc}
 	.align 2, 0
 
@@ -6300,7 +6300,7 @@ sub_0805947C: @ 0x0805947C
 	lsls r1, r1, #2
 	adds r1, r1, r0
 	ldr r0, [r1]
-	bl sub_0807DB2C
+	bl StartPlayerScript
 	b _080594CE
 	.align 2, 0
 _080594B0: .4byte gRoomControls
@@ -6314,7 +6314,7 @@ _080594BC:
 	lsls r0, r0, #2
 	adds r0, r0, r1
 	ldr r0, [r0]
-	bl sub_0807DB2C
+	bl StartPlayerScript
 _080594CE:
 	bl sub_0805E780
 _080594D2:
@@ -7465,7 +7465,7 @@ _08059DD4:
 	ldrh r1, [r4, #2]
 	movs r2, #0x10
 	movs r3, #0x10
-	bl sub_0800290E
+	bl CheckRectOnScreen
 	cmp r0, #0
 	beq _08059E38
 	ldrb r1, [r4, #4]
@@ -9307,7 +9307,7 @@ _0805AC00:
 	ldrh r1, [r4, #6]
 	movs r2, #0x18
 	movs r3, #0x20
-	bl sub_0800290E
+	bl CheckRectOnScreen
 	cmp r0, #0
 	bne _0805AC1A
 	adds r0, r7, #0
@@ -10710,7 +10710,7 @@ sub_0805B6C0: @ 0x0805B6C0
 	ldrsh r1, [r4, r2]
 	ldrh r2, [r4, #0x34]
 	ldrh r3, [r4, #0x36]
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _0805B6EC
 	ldrh r0, [r4, #0x3e]
@@ -10814,7 +10814,7 @@ sub_0805B778: @ 0x0805B778
 	adds r0, #0x36
 	ldrb r2, [r0]
 	adds r0, r3, #0
-	bl sub_0807B314
+	bl SetTileType
 	pop {pc}
 	.align 2, 0
 _0805B79C: .4byte gUnk_08108C9C
@@ -10913,7 +10913,7 @@ _0805B848:
 	ldrh r1, [r4, #2]
 	movs r2, #4
 	movs r3, #4
-	bl sub_0800290E
+	bl CheckRectOnScreen
 	cmp r0, #0
 	beq _0805B8AC
 	movs r6, #1
@@ -11073,7 +11073,7 @@ _0805B978:
 	subs r1, r1, r2
 	movs r2, #0
 	movs r3, #0
-	bl sub_0800290E
+	bl CheckRectOnScreen
 	cmp r0, #0
 	beq _0805B9B4
 	ldr r2, _0805B9B0 @ =gScreen
@@ -11593,7 +11593,7 @@ _0805BD76:
 _0805BD94:
 	ldrh r0, [r4, #0x20]
 	ldrb r1, [r4, #0xb]
-	bl sub_080002B0
+	bl GetTileType
 	cmp r0, #0x76
 	bne _0805BDB0
 	ldrh r0, [r4, #0x3e]
@@ -11667,7 +11667,7 @@ _0805BE26:
 _0805BE2C:
 	ldrh r0, [r4, #0x20]
 	ldrb r1, [r4, #0xb]
-	bl sub_080002B0
+	bl GetTileType
 	cmp r0, #0x76
 	bne _0805BE6C
 	ldrh r0, [r4, #0x3e]
@@ -11713,7 +11713,7 @@ sub_0805BE70: @ 0x0805BE70
 	orrs r1, r2
 	ldrb r2, [r0, #0xb]
 	adds r0, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	pop {r4, pc}
 
 	thumb_func_start sub_0805BE94
@@ -11733,7 +11733,7 @@ sub_0805BE94: @ 0x0805BE94
 	orrs r1, r0
 	ldrb r2, [r4, #0xb]
 	movs r0, #0x76
-	bl sub_0807B314
+	bl SetTileType
 	ldrb r0, [r4, #0xe]
 	bl sub_0805308C
 	bl sub_0805E780
@@ -11877,7 +11877,7 @@ _0805BFC0:
 	thumb_func_start sub_0805BFC4
 sub_0805BFC4: @ 0x0805BFC4
 	push {lr}
-	bl sub_080002B0
+	bl GetTileType
 	adds r1, r0, #0
 	cmp r1, #0xec
 	beq _0805C018
@@ -11968,25 +11968,25 @@ sub_0805C050: @ 0x0805C050
 	subs r1, #0x41
 	movs r0, #0xb1
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	subs r1, #0x40
 	movs r0, #0xb2
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	subs r1, #0x3f
 	movs r0, #0xb3
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	subs r1, r5, #1
 	movs r0, #0xb4
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #1
 	movs r0, #0xb7
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	cmp r4, #1
 	bne _0805C11C
 	bl sub_08052670
@@ -12029,35 +12029,35 @@ _0805C0E0:
 	movs r0, #0xb5
 	adds r1, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	b _0805C0F6
 _0805C0EC:
 	movs r0, #0xb6
 	adds r1, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0805C0F6:
 	adds r1, r5, #0
 	subs r1, #0x41
 	movs r0, #0xb8
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	subs r1, #0x40
 	movs r0, #0xb9
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	subs r1, #0x3f
 	movs r0, #0xba
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	b _0805C16E
 _0805C11C:
 	movs r0, #0xb5
 	adds r1, r5, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	bl sub_08052660
 	cmp r0, #0
 	beq _0805C16E
@@ -12106,26 +12106,26 @@ sub_0805C178: @ 0x0805C178
 	subs r1, #0x40
 	movs r0, #0xf1
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	subs r1, #0x3f
 	movs r0, #0xf5
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #1
 	movs r0, #0xf6
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	adds r1, #0x40
 	movs r0, #0xf4
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	adds r1, #0x41
 	movs r0, #0xf7
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	cmp r4, #1
 	bne _0805C23E
 	bl sub_08052670
@@ -12166,34 +12166,34 @@ _0805C204:
 	movs r0, #0xf2
 	adds r1, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	b _0805C21A
 _0805C210:
 	movs r0, #0xf3
 	adds r1, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0805C21A:
 	adds r1, r5, #0
 	subs r1, #0x3f
 	movs r0, #0xf8
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #1
 	movs r0, #0xf9
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	adds r1, #0x41
 	movs r0, #0xfa
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	b _0805C28E
 _0805C23E:
 	movs r0, #0xf2
 	adds r1, r5, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	bl sub_08052660
 	cmp r0, #0
 	beq _0805C28E
@@ -12239,26 +12239,26 @@ sub_0805C294: @ 0x0805C294
 	subs r1, r5, #1
 	movs r0, #0xd1
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #1
 	movs r0, #0xd4
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	adds r1, #0x3f
 	movs r0, #0xd5
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	adds r1, #0x40
 	movs r0, #0xd6
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	adds r1, #0x41
 	movs r0, #0xd7
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	cmp r4, #1
 	bne _0805C35C
 	bl sub_08052670
@@ -12299,35 +12299,35 @@ _0805C320:
 	movs r0, #0xd2
 	adds r1, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	b _0805C336
 _0805C32C:
 	movs r0, #0xd3
 	adds r1, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0805C336:
 	adds r1, r5, #0
 	adds r1, #0x3f
 	movs r0, #0xd8
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	adds r1, #0x40
 	movs r0, #0xd9
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	adds r1, #0x41
 	movs r0, #0xda
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	b _0805C3AC
 _0805C35C:
 	movs r0, #0xd2
 	adds r1, r5, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	bl sub_08052660
 	cmp r0, #0
 	beq _0805C3AC
@@ -12374,26 +12374,26 @@ sub_0805C3B4: @ 0x0805C3B4
 	subs r1, #0x41
 	movs r0, #0xe1
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	subs r1, #0x40
 	movs r0, #0xe4
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	subs r1, r5, #1
 	movs r0, #0xe2
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	adds r1, #0x3f
 	movs r0, #0xe3
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	adds r1, #0x40
 	movs r0, #0xe7
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	cmp r4, #1
 	bne _0805C482
 	bl sub_08052670
@@ -12436,34 +12436,34 @@ _0805C448:
 	movs r0, #0xe5
 	adds r1, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	b _0805C45E
 _0805C454:
 	movs r0, #0xe6
 	adds r1, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0805C45E:
 	adds r1, r5, #0
 	subs r1, #0x41
 	movs r0, #0xe8
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	subs r1, r5, #1
 	movs r0, #0xe9
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	adds r1, #0x3f
 	movs r0, #0xea
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	b _0805C4D4
 _0805C482:
 	movs r0, #0xe5
 	adds r1, r5, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	bl sub_08052660
 	cmp r0, #0
 	beq _0805C4D4
@@ -12512,25 +12512,25 @@ sub_0805C4E0: @ 0x0805C4E0
 	subs r1, #0x41
 	movs r0, #0xc1
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	subs r1, #0x40
 	movs r0, #0xc2
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	subs r1, #0x3f
 	movs r0, #0xc3
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	subs r1, r5, #1
 	movs r0, #0xc4
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #1
 	movs r0, #0xc7
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	cmp r4, #1
 	bne _0805C5AC
 	bl sub_08052670
@@ -12573,35 +12573,35 @@ _0805C570:
 	movs r0, #0xc5
 	adds r1, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	b _0805C586
 _0805C57C:
 	movs r0, #0xc6
 	adds r1, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0805C586:
 	adds r1, r5, #0
 	subs r1, #0x41
 	movs r0, #0xc8
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	subs r1, #0x40
 	movs r0, #0xc9
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	adds r1, r5, #0
 	subs r1, #0x3f
 	movs r0, #0xca
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	b _0805C5FE
 _0805C5AC:
 	movs r0, #0xc5
 	adds r1, r5, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	bl sub_08052660
 	cmp r0, #0
 	beq _0805C5FE
@@ -12680,7 +12680,7 @@ sub_0805C61C: @ 0x0805C61C
 	movs r1, #0x38
 	ldrsh r0, [r4, r1]
 	movs r1, #2
-	bl sub_080002B0
+	bl GetTileType
 	cmp r0, #0x75
 	bne _0805C670
 	movs r0, #1
@@ -12689,7 +12689,7 @@ sub_0805C61C: @ 0x0805C61C
 	movs r2, #0x38
 	ldrsh r1, [r4, r2]
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _0805C674
 	.align 2, 0
 _0805C668: .4byte gRoomControls
@@ -12700,7 +12700,7 @@ _0805C674:
 	movs r5, #0x38
 	ldrsh r0, [r4, r5]
 	movs r1, #1
-	bl sub_080002B0
+	bl GetTileType
 	ldr r5, _0805C6B4 @ =0x0000406B
 	cmp r0, r5
 	bne _0805C694
@@ -12714,14 +12714,14 @@ _0805C694:
 	movs r1, #0x38
 	ldrsh r0, [r4, r1]
 	movs r1, #2
-	bl sub_080002B0
+	bl GetTileType
 	cmp r0, #0x76
 	bne _0805C6B2
 	movs r2, #0x38
 	ldrsh r1, [r4, r2]
 	adds r0, r5, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	bl sub_0805E780
 _0805C6B2:
 	pop {r4, r5, pc}
@@ -13479,10 +13479,10 @@ sub_0805CBD0: @ 0x0805CBD0
 	adds r4, r5, #0
 	adds r4, #0x34
 	ldrb r1, [r4]
-	bl sub_080002B0
+	bl GetTileType
 	strh r0, [r5, #0x3c]
 	ldrb r0, [r4]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	ldr r2, _0805CC38 @ =0x00005004
 	adds r1, r0, r2
 	str r1, [r5, #0x28]
@@ -13930,7 +13930,7 @@ sub_0805CFF0: @ 0x0805CFF0
 	bne _0805D012
 	ldrh r0, [r4, #4]
 	ldrb r1, [r4, #1]
-	bl sub_080002B0
+	bl GetTileType
 	ldrh r1, [r4, #6]
 	cmp r1, r0
 	bne _0805D012
@@ -14111,7 +14111,7 @@ _0805D12E:
 	ldrb r1, [r1]
 	bl sub_0807BA8C
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	adds r6, #1
 	cmp r6, #3
 	bls _0805D12E
@@ -14138,7 +14138,7 @@ _0805D184:
 	ldrsh r1, [r5, r2]
 	movs r2, #0x14
 	movs r3, #0x40
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _0805D1EE
 	ldr r0, _0805D1F0 @ =gLinkEntity
@@ -14197,7 +14197,7 @@ sub_0805D1FC: @ 0x0805D1FC
 	ldr r0, _0805D240 @ =0x00004014
 	ldr r1, _0805D244 @ =0x000005C3
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r3, _0805D248 @ =gRoomControls
 	ldrh r0, [r3, #8]
 	adds r0, #0xc8
@@ -14625,7 +14625,7 @@ _0805D520:
 	strh r5, [r6, #0x2c]
 	ldrh r0, [r6, #0x2e]
 	ldrb r1, [r6, #0xb]
-	bl sub_080002B0
+	bl GetTileType
 	adds r1, r0, #0
 	ldr r3, _0805D570 @ =0x00000317
 	cmp r1, r3
@@ -15725,7 +15725,7 @@ _0805DD94:
 	ldr r0, [r4, #0x18]
 	cmp r0, #0
 	beq _0805DDAA
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0805DDAA:
 	bl sub_0805E780
 _0805DDAE:
@@ -16355,43 +16355,43 @@ _0805E25C:
 	subs r4, #0x41
 	adds r1, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0805E2D0 @ =0x00000283
 	adds r1, r4, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0805E2D4 @ =0x0000027D
 	adds r4, #1
 	adds r1, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0xa1
 	lsls r0, r0, #2
 	adds r1, r4, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0805E2D8 @ =0x0000027E
 	adds r4, #1
 	adds r1, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0805E2DC @ =0x00000285
 	adds r1, r4, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0805E2E0 @ =0x0000027F
 	subs r1, r5, #1
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0xa0
 	lsls r0, r0, #2
 	adds r1, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0805E2E4 @ =0x00000282
 	adds r1, r5, #1
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	b _0805E350
 	.align 2, 0
 _0805E2C8: .4byte gUnk_03004030
@@ -16409,43 +16409,43 @@ _0805E2E8:
 	subs r4, #0x41
 	adds r1, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0805E358 @ =0x00000273
 	adds r1, r4, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0805E35C @ =0x0000026D
 	adds r4, #1
 	adds r1, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0x9d
 	lsls r0, r0, #2
 	adds r1, r4, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0805E360 @ =0x0000026E
 	adds r4, #1
 	adds r1, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0805E364 @ =0x00000275
 	adds r1, r4, #0
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0805E368 @ =0x0000026F
 	subs r1, r5, #1
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0x9c
 	lsls r0, r0, #2
 	adds r1, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0805E36C @ =0x00000272
 	adds r1, r5, #1
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0805E350:
 	ldr r1, _0805E370 @ =gUnk_02000070
 	movs r0, #0

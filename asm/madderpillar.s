@@ -363,7 +363,7 @@ sub_08029B2C: @ 0x08029B2C
 	movs r2, #0
 	bl CreateFx
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _08029B8A
 _08029B60:
 	ldrb r1, [r4, #0x10]
@@ -548,7 +548,7 @@ sub_08029C98: @ 0x08029C98
 	movs r2, #0
 	bl CreateFx
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _08029CC6
 _08029CB6:
 	ldr r0, _08029CC8 @ =gUnk_080CCDA8

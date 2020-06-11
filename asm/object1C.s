@@ -27,7 +27,7 @@ _080874AE:
 	ldrsh r1, [r1, r2]
 	movs r2, #0x10
 	movs r3, #0x10
-	bl sub_0800290E
+	bl CheckRectOnScreen
 	cmp r0, #0
 	bne _080874DC
 	ldr r2, [r4, #0x50]

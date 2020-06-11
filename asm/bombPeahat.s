@@ -759,7 +759,7 @@ sub_0802AD54: @ 0x0802AD54
 	ands r0, r1
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _0802ADD8
 	.align 2, 0
 _0802AD7C: .4byte gRoomControls
@@ -1055,7 +1055,7 @@ _0802AF8A:
 	thumb_func_start sub_0802AF94
 sub_0802AF94: @ 0x0802AF94
 	push {lr}
-	bl sub_0805E7BC
+	bl DeleteEntity
 	pop {pc}
 
 	thumb_func_start sub_0802AF9C
@@ -1079,7 +1079,7 @@ sub_0802AF9C: @ 0x0802AF9C
 	strb r0, [r1]
 _0802AFC0:
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0802AFC6:
 	pop {r4, pc}
 
@@ -1325,7 +1325,7 @@ _0802B188: .4byte gLinkState
 _0802B18C: .4byte gUnk_080CD17C
 _0802B190:
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _0802B19E
 _0802B198:
 	adds r0, r4, #0
@@ -1417,7 +1417,7 @@ _0802B232:
 sub_0802B234: @ 0x0802B234
 	push {r4, lr}
 	movs r4, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	ldr r1, _0802B24C @ =0xFFFFFE3C
 	adds r0, r0, r1
 	cmp r0, #1

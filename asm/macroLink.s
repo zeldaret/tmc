@@ -393,7 +393,7 @@ _0808CDB8:
 	ldr r0, _0808CDD8 @ =0x00000C04
 	strh r0, [r1]
 	ldr r0, [r4, #0x54]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	adds r0, r4, #0
 	bl sub_0805EC60
 _0808CDD6:

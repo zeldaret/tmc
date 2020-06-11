@@ -126,7 +126,7 @@ sub_0809B034: @ 0x0809B034
 	adds r1, r4, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002B0
+	bl GetTileType
 	adds r0, r4, #0
 	bl sub_0809B234
 	pop {r4, pc}
@@ -225,16 +225,16 @@ _0809B0F0:
 	ldr r0, _0809B128 @ =0x00004082
 	subs r1, r6, #1
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r4, _0809B12C @ =0x00004022
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r6, #1
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	adds r1, r5, #0
 	b _0809B162
@@ -252,21 +252,21 @@ _0809B130:
 	ldr r0, _0809B16C @ =0x0000405F
 	adds r1, r6, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r4, _0809B170 @ =0x00004022
 	adds r1, r6, #1
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r6, #2
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _0809B174 @ =0x00004082
 	adds r1, r6, #3
 _0809B162:
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _0809B228
 	.align 2, 0
 _0809B16C: .4byte 0x0000405F
@@ -283,15 +283,15 @@ _0809B178:
 	ldr r0, _0809B1B4 @ =0x00004082
 	adds r1, r6, #3
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _0809B1B8 @ =0x00004022
 	adds r1, r6, #2
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _0809B1BC @ =0x0000405F
 	adds r1, r6, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	mov r1, r8
 	ldr r0, [r1, #0x50]
 	adds r0, #0x86
@@ -314,15 +314,15 @@ _0809B1C0:
 	ldr r0, _0809B1FC @ =0x00004082
 	subs r1, r6, #1
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _0809B200 @ =0x00004022
 	adds r1, r6, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _0809B204 @ =0x0000405F
 	adds r1, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	mov r1, r8
 	ldr r0, [r1, #0x50]
 	adds r0, #0x86
@@ -338,15 +338,15 @@ _0809B208:
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r6, #1
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r6, #2
 	adds r0, r4, #0
 	adds r2, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 _0809B228:
 	pop {r3}
 	mov r8, r3
@@ -444,7 +444,7 @@ _0809B2BA:
 	ldrh r1, [r1]
 	adds r1, #2
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, [r4, #0x54]
 	bl sub_0809B358
 	b _0809B332
@@ -503,7 +503,7 @@ _0809B340:
 	ldr r0, _0809B354 @ =0x00004026
 	adds r1, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	subs r5, #1
 	adds r4, #1
 	cmp r5, #0
@@ -530,7 +530,7 @@ _0809B370:
 	ldrh r0, [r5]
 	adds r1, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	subs r6, #1
 	adds r4, #1
 	adds r5, #4

@@ -1738,7 +1738,7 @@ sub_080AE58C: @ 0x080AE58C
 	adds r4, r2, #0
 	adds r0, #0x38
 	ldrb r0, [r0]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	ldr r1, _080AE624 @ =0x00002004
 	adds r5, r0, r1
 	ldr r2, [sp]
@@ -3220,7 +3220,7 @@ _080AF0C4:
 sub_080AF0C8: @ 0x080AF0C8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	cmp r0, #0x88
 	beq _080AF10A
 	cmp r0, #0x88
@@ -3473,7 +3473,7 @@ sub_080AF284: @ 0x080AF284
 	movs r0, #0x78
 	movs r2, #0x78
 	movs r3, #0x50
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _080AF2BC
 	bl sub_08052E8C

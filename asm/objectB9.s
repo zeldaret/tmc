@@ -584,24 +584,24 @@ sub_080A1648: @ 0x080A1648
 	ldr r1, _080A1688 @ =0x00000D36
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _080A168C @ =0x00000D37
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _080A1690 @ =0x00000D38
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	subs r4, #1
 	ldr r1, _080A1694 @ =0x00000D75
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _080A1698 @ =0x00000E75
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	pop {r4, pc}
 	.align 2, 0
 _080A1684: .4byte 0x0000407F

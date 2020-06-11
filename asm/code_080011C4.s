@@ -1372,8 +1372,8 @@ _08002902:
 	subs r0, r1, #1
 	pop {r4, pc}
 
-	non_word_aligned_thumb_func_start sub_0800290E
-sub_0800290E: @ 0x0800290E
+	non_word_aligned_thumb_func_start CheckRectOnScreen
+CheckRectOnScreen: @ 0x0800290E
 	push {r4, r5, r6, lr}
 	ldr r4, _080029A8 @ =gRoomControls
 	ldrh r5, [r4, #0xa]
@@ -1400,8 +1400,8 @@ _0800293A:
 	movs r0, #0
 	pop {r4, r5, r6, pc}
 
-	non_word_aligned_thumb_func_start sub_0800293E
-sub_0800293E: @ 0x0800293E
+	non_word_aligned_thumb_func_start CheckPlayerInRegion
+CheckPlayerInRegion: @ 0x0800293E
 	push {r4, r5, r6, r7, lr}
 	ldr r4, _080029AC @ =gRoomControls
 	ldr r7, _080029B0 @ =gLinkEntity

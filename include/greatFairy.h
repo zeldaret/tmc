@@ -14,7 +14,7 @@ extern void sub_08004274();
 extern void sub_0805EC9C();
 extern void sub_0805EC60();
 extern void sub_080873D0();
-extern void sub_0805E7BC();
+extern void DeleteEntity();
 extern void sub_080045D4();
 extern void sub_0806F69C();
 extern u32 Random();

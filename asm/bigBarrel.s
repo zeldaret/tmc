@@ -67,7 +67,7 @@ _08088AA4:
 	subs r1, r1, r2
 	movs r2, #0x80
 	movs r3, #0x60
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _08088B82
 	ldr r0, _08088AE0 @ =gRoomVars
@@ -546,7 +546,7 @@ _08088E50:
 	ands r1, r2
 	str r1, [r0, #0x68]
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08088E6E:
 	pop {r4, pc}
 	.align 2, 0
@@ -581,7 +581,7 @@ _08088E94:
 	orrs r1, r2
 	str r1, [r0, #0x68]
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _08088F14
 	.align 2, 0
 _08088EB0: .4byte gRoomVars
@@ -672,7 +672,7 @@ _08088F3E:
 	b _0808908E
 _08088F5A:
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _0808908E
 _08088F62:
 	ldrb r0, [r4, #0xb]
@@ -737,7 +737,7 @@ _08088FBC:
 	orrs r1, r0
 	movs r0, #0x76
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	b _0808908E
 	.align 2, 0
 _08088FE8: .4byte gRoomControls
@@ -820,7 +820,7 @@ _0808905C:
 	bl PlaySFX
 _08089088:
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0808908E:
 	pop {r4, r5, pc}
 	.align 2, 0

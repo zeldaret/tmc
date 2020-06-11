@@ -26,7 +26,7 @@ sub_0808BE00: @ 0x0808BE00
 	adds r5, r0, #0
 	adds r0, #0x38
 	ldrb r0, [r0]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	adds r4, r0, #0
 	adds r0, r5, #0
 	bl sub_0806F798

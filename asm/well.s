@@ -47,7 +47,7 @@ sub_080A0EB0: @ 0x080A0EB0
 	ldrh r1, [r0]
 	adds r0, r2, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A0EE8: .4byte gRoomControls
@@ -60,7 +60,7 @@ sub_080A0EF0: @ 0x080A0EF0
 	adds r0, #0x80
 	ldrh r0, [r0]
 	movs r1, #1
-	bl sub_080002B0
+	bl GetTileType
 	ldr r1, _080A0F1C @ =0x0000407D
 	cmp r0, r1
 	beq _080A0F18

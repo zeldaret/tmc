@@ -131,7 +131,7 @@ _08092A08:
 	ldr r0, _08092A90 @ =0x00004022
 	ldrh r1, [r4]
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08092A8C: .4byte gRoomControls
@@ -172,7 +172,7 @@ sub_08092A94: @ 0x08092A94
 	adds r5, #0x7e
 	ldrh r1, [r5]
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	adds r0, #0x7a
 	ldrh r0, [r0]

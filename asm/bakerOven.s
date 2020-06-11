@@ -245,42 +245,42 @@ sub_0809CDF0: @ 0x0809CDF0
 	subs r1, r6, #1
 	adds r4, #0x38
 	ldrb r2, [r4]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r5, _0809CE88 @ =0x00004022
 	ldrb r2, [r4]
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r6, #1
 	ldrb r2, [r4]
 	adds r0, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r5, #4
 	adds r1, r6, #0
 	subs r1, #0x41
 	ldrb r2, [r4]
 	adds r0, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r6, #0
 	subs r1, #0x40
 	ldrb r2, [r4]
 	adds r0, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _0809CE8C @ =0x00004024
 	adds r1, r6, #0
 	subs r1, #0x3f
 	ldrb r2, [r4]
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r6, #0
 	subs r1, #0x81
 	ldrb r2, [r4]
 	adds r0, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r6, #0
 	subs r1, #0x80
 	ldrb r2, [r4]
 	adds r0, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0809CE80: .4byte gRoomControls

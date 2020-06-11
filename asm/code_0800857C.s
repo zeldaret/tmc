@@ -318,7 +318,7 @@ sub_08008796: @ 0x08008796
 	adds r1, r7, #0
 	movs r2, #0x38
 	ldrb r2, [r4, r2]
-	bl sub_080002A4
+	bl GetTileTypeByPos
 	ldr r1, _080088D8 @ =gUnk_080046A4
 	bl sub_08007DE0
 	beq _080087CE
@@ -409,7 +409,7 @@ _0800883A:
 	beq _08008876
 	push {r0, r1}
 	adds r0, r2, #0
-	bl sub_0808094C
+	bl GetLayerByIndex
 	adds r3, r0, #4
 	pop {r0, r1}
 	lsls r1, r1, #1
@@ -3994,26 +3994,26 @@ gUnk_08016984:: @ 08016984
 
 	.text
 
-	non_word_aligned_thumb_func_start sub_08016986
-sub_08016986: @ 0x08016986
+	non_word_aligned_thumb_func_start GetNextScriptCommandHalfword
+GetNextScriptCommandHalfword: @ 0x08016986
 	ldrh r0, [r0]
 	bx lr
 
-	non_word_aligned_thumb_func_start sub_0801698A
-sub_0801698A: @ 0x0801698A
+	non_word_aligned_thumb_func_start GetNextScriptCommandHalfwordAfterCommandMetadata
+GetNextScriptCommandHalfwordAfterCommandMetadata: @ 0x0801698A
 	ldrh r0, [r0, #2]
 	bx lr
 
-	non_word_aligned_thumb_func_start sub_0801698E
-sub_0801698E: @ 0x0801698E
+	non_word_aligned_thumb_func_start GetNextScriptCommandWord
+GetNextScriptCommandWord: @ 0x0801698E
 	ldrh r1, [r0]
 	ldrh r0, [r0, #2]
 	lsls r0, r0, #0x10
 	orrs r0, r1
 	bx lr
 
-	thumb_func_start sub_08016998
-sub_08016998: @ 0x08016998
+	thumb_func_start GetNextScriptCommandWordAfterCommandMetadata
+GetNextScriptCommandWordAfterCommandMetadata: @ 0x08016998
 	ldrh r1, [r0, #2]
 	ldrh r0, [r0, #4]
 	lsls r0, r0, #0x10
@@ -4064,7 +4064,7 @@ sub_08016A30: @ 0x08016A30
 	ldrh r0, [r4, #0x2e]
 	ldrh r1, [r4, #0x32]
 	movs r2, #2
-	bl sub_080002A4
+	bl GetTileTypeByPos
 	movs r3, #1
 	cmp r0, #0
 	beq _08016A62

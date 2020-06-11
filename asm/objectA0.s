@@ -48,7 +48,7 @@ sub_0809F144: @ 0x0809F144
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
 	bl UpdateSprite

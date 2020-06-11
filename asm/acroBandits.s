@@ -711,7 +711,7 @@ sub_08031DA0: @ 0x08031DA0
 	cmp r2, #0x50
 	bne _08031DBA
 	adds r0, r1, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _08031DC2
 _08031DBA:
 	movs r0, #1
@@ -1349,7 +1349,7 @@ sub_08032248: @ 0x08032248
 	subs r0, #1
 	strb r0, [r1, #0xe]
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _0803228E
 _08032276:
 	adds r0, r4, #0

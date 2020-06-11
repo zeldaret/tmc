@@ -163,7 +163,7 @@ sub_080829E4: @ 0x080829E4
 	cmp r1, #0
 	bne _08082A18
 	adds r0, r5, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _08082AB4
 	.align 2, 0
 _08082A10: .4byte gLinkEntity
@@ -426,7 +426,7 @@ sub_08082B9C: @ 0x08082B9C
 	adds r4, #0x84
 	ldr r1, [r4]
 	adds r0, r6, #0
-	bl sub_0807DF74
+	bl ExecuteScriptCommandSet
 	ldr r1, [r4]
 	adds r0, r6, #0
 	bl sub_08082D20
@@ -451,7 +451,7 @@ sub_08082C38: @ 0x08082C38
 	adds r4, r5, #0
 	adds r4, #0x84
 	ldr r1, [r4]
-	bl sub_0807DF74
+	bl ExecuteScriptCommandSet
 	ldr r1, [r4]
 	adds r0, r5, #0
 	bl sub_08082D20
@@ -705,7 +705,7 @@ sub_08082E14: @ 0x08082E14
 	adds r0, #0x84
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0807DF74
+	bl ExecuteScriptCommandSet
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r4, #0

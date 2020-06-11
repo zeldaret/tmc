@@ -1609,7 +1609,7 @@ sub_08034A84: @ 0x08034A84
 	cmp r0, #0
 	bne _08034A98
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _08034AC2
 _08034A98:
 	ldrb r0, [r4, #0xc]
@@ -1772,7 +1772,7 @@ sub_08034BA0: @ 0x08034BA0
 	movs r1, #0xff
 	strh r1, [r0]
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08034BC4:
 	pop {r4, pc}
 	.align 2, 0
@@ -1828,7 +1828,7 @@ sub_08034C00: @ 0x08034C00
 	adds r1, #0xd
 	movs r2, #3
 	movs r3, #3
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _08034C5A
 	ldr r0, _08034C4C @ =gUnk_030010A0

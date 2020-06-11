@@ -137,6 +137,6 @@ sub_0808A4D0: @ 0x0808A4D0
 	cmp r0, #0
 	beq _0808A4F2
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0808A4F2:
 	pop {r4, pc}

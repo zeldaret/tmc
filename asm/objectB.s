@@ -93,7 +93,7 @@ _08083C18: @ jump table
 _08083C30:
 	ldrb r0, [r4, #0xa]
 	ldrb r1, [r4, #0xb]
-	bl sub_08053FF0
+	bl GiveItem
 	adds r1, r4, #0
 	adds r1, #0x68
 	strh r0, [r1]
@@ -106,7 +106,7 @@ _08083C30:
 _08083C4A:
 	ldrb r0, [r4, #0xa]
 	ldrb r1, [r4, #0xb]
-	bl sub_08053FF0
+	bl GiveItem
 	ldr r1, _08083C6C @ =gUnk_080FD964
 	ldrb r0, [r4, #0xa]
 	lsls r0, r0, #3

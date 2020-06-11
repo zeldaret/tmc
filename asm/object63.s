@@ -96,7 +96,7 @@ _08093E06:
 	thumb_func_start sub_08093E08
 sub_08093E08: @ 0x08093E08
 	push {lr}
-	bl sub_0805E7BC
+	bl DeleteEntity
 	pop {pc}
 
 	thumb_func_start sub_08093E10

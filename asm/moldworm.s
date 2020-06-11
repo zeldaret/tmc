@@ -50,7 +50,7 @@ _08023080:
 	b _08023090
 _08023088:
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080230CA
 _08023090:
 	ldr r0, [r4, #0x50]
@@ -367,7 +367,7 @@ _080232C2:
 	ldrb r2, [r0]
 	adds r0, r6, #0
 	adds r1, r5, #0
-	bl sub_080002A4
+	bl GetTileTypeByPos
 	bl sub_08023A38
 	cmp r0, #0
 	beq _08023314
@@ -479,7 +479,7 @@ _080233C0:
 	cmp r0, #0
 	bne _08023416
 	adds r0, r5, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	bl sub_08023A38
 	cmp r0, #0
 	beq _08023412

@@ -126,7 +126,7 @@ _080822D6:
 	orrs r1, r0
 	ldrb r2, [r5]
 	mov r0, r8
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	movs r1, #5
 	bl UpdateSprite
@@ -151,7 +151,7 @@ sub_08082310: @ 0x08082310
 	cmp r1, #0x1d
 	beq _0808234C
 	adds r0, r5, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	adds r4, r0, #0
 	movs r0, #0x80
 	lsls r0, r0, #7
@@ -194,7 +194,7 @@ _0808234C:
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r1, #0
 	movs r0, #5
 	strb r0, [r5, #0xc]
@@ -283,7 +283,7 @@ _08082400:
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _08082444 @ =0x0000010F
 	bl sub_08004488
 	b _080824F6
@@ -315,7 +315,7 @@ _08082448:
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	bl sub_0805E780
 	b _080824F6
 	.align 2, 0
@@ -360,7 +360,7 @@ _0808249A:
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 _080824D8:
 	adds r0, r5, #0
 	movs r1, #0
@@ -436,7 +436,7 @@ sub_08082510: @ 0x08082510
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r0, [r5, #0xd]
 	adds r0, #1
 	strb r0, [r5, #0xd]
@@ -596,7 +596,7 @@ _08082658:
 	adds r1, #0x70
 	strh r0, [r1]
 	adds r0, r5, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	adds r6, r4, #0
 	cmp r0, #0x72
 	bhi _080826AC
@@ -629,7 +629,7 @@ _080826AC:
 	lsls r2, r2, #6
 	orrs r1, r2
 	ldrb r2, [r6]
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r5, #0
 	bl sub_08078930
 _080826DC:
@@ -706,7 +706,7 @@ _0808272A:
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _08082776
 	.align 2, 0
 _08082768: .4byte gLinkState
@@ -755,7 +755,7 @@ sub_08082778: @ 0x08082778
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 _080827C4:
 	ldr r0, _080827EC @ =gLinkState
 	ldrb r1, [r0, #0x1c]

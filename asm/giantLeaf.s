@@ -74,7 +74,7 @@ _0808D64A:
 	adds r1, r5, r1
 	ldr r0, _0808D670 @ =0x00004074
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r4, #2
 	adds r6, #1
 	cmp r6, #0xc

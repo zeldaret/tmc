@@ -72,7 +72,7 @@ sub_0808434C: @ 0x0808434C
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r0, [r5, #0xa]
 	cmp r0, #1
 	beq _080843C8

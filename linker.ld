@@ -317,6 +317,7 @@ SECTIONS {
 		asm/readKeyInput.o(.text);
 		asm/code_0801D714.o(.text);
 		asm/code_0801D79C.o(.text);
+		/* enemies */
 		src/octorok.o(.text);
 		asm/octorok.o(.text);
 		asm/chuchu.o(.text);
@@ -423,7 +424,7 @@ SECTIONS {
 		asm/code_08049CD4.o(.text);
 		asm/sub_0804AA30.o(.text);
 		src/createEnemy.o(.text);
-		src/sub_0804AA84.o(.text); /* wip */
+		src/sub_0804AA84.o(.text);
 		asm/code_0804AA84.o(.text);
 		src/loadRoomEntityList.o(.text);
 		asm/createEntity.o(.text);
@@ -459,6 +460,7 @@ SECTIONS {
 		asm/code_0805E3B0.o(.text);
 		asm/getEmptyEntity.o(.text);
 		asm/code_0805E744.o(.text);
+		/* npcs */
 		asm/gentari.o(.text);
 		asm/festari.o(.text);
 		asm/forestMinish.o(.text);
@@ -573,6 +575,7 @@ SECTIONS {
 		src/getProgressFlag.o(.text);
 		asm/code_0807CC3C.o(.text);
 		src/room.o(.text);
+		/* objects */
 		asm/itemOnGround.o(.text);
 		asm/deathFx.o(.text);
 		asm/itemForSale.o(.text);

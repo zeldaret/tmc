@@ -299,7 +299,7 @@ void sub_08086E64(Entity *ent)
     sub_08004274(ent);
     sub_080873D0(ent);
     if ((gRoomVars.greatFairyState & 1) != 0) {
-        sub_0805E7BC(ent);
+        DeleteEntity(ent);
     }
 }
 
@@ -373,7 +373,7 @@ void sub_08086FA0(Entity *ent)
 {
     sub_08004274(ent);
     if ((ent->frames.all & 128) != 0) {
-        sub_0805E7BC(ent);
+        DeleteEntity(ent);
     }
 }
 
@@ -395,7 +395,7 @@ void sub_08086FD8(Entity *ent)
 void sub_08087000(Entity *ent)
 {
     if ((gRoomVars.greatFairyState & 2) != 0) {
-        sub_0805E7BC(ent);
+        DeleteEntity(ent);
     }
     else {
         sub_08004274(ent);
@@ -432,7 +432,7 @@ void sub_0808706C(Entity *ent)
         if (target != NULL) {
             PositionRelative(ent,target,0,-524288);
             gRoomVars.greatFairyState = gRoomVars.greatFairyState | 2;
-            sub_0805E7BC(ent);
+            DeleteEntity(ent);
         }
     }
 }
@@ -456,7 +456,7 @@ void sub_080870F4(Entity *ent)
 {
     sub_08004274(ent);
     if ((ent->frames.all & 128) != 0) {
-        sub_0805E7BC(ent);
+        DeleteEntity(ent);
     }
 }
 
@@ -520,7 +520,7 @@ void sub_080871D0(Entity *ent)
     bVar1 = ent->parameter3 -= 1;
     if (bVar1 == 0) {
         gRoomVars.greatFairyState = gRoomVars.greatFairyState | 8;
-        sub_0805E7BC(ent);
+        DeleteEntity(ent);
     }
 }
 
@@ -571,7 +571,7 @@ void sub_0808727C(Entity *ent)
     
     bVar1 = ent->parameter3 -= 1;
     if (bVar1 == 0) {
-        sub_0805E7BC(ent);
+        DeleteEntity(ent);
     }
 }
 

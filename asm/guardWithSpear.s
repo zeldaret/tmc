@@ -626,7 +626,7 @@ sub_08064180: @ 0x08064180
 	bl sub_0805EB00
 	cmp r0, #0
 	beq _08064194
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08064194:
 	pop {pc}
 	.align 2, 0

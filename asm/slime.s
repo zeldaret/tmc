@@ -280,7 +280,7 @@ _08045142:
 	bl CopyPosition
 _0804515A:
 	mov r0, r8
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08045160:
 	add sp, #0x10
 	pop {r3, r4}

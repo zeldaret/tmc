@@ -81,50 +81,50 @@ sub_08091F14: @ 0x08091F14
 	subs r1, #0x41
 	adds r4, #0x38
 	ldrb r2, [r4]
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _08091FF0 @ =0x000001A3
 	ldrh r1, [r5]
 	subs r1, #0x40
 	ldrb r2, [r4]
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0xd2
 	lsls r0, r0, #1
 	ldrh r1, [r5]
 	subs r1, #0x3f
 	ldrb r2, [r4]
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _08091FF4 @ =0x000001A5
 	ldrh r1, [r5]
 	subs r1, #1
 	ldrb r2, [r4]
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0xd3
 	lsls r0, r0, #1
 	ldrh r1, [r5]
 	ldrb r2, [r4]
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _08091FF8 @ =0x000001A7
 	ldrh r1, [r5]
 	adds r1, #1
 	ldrb r2, [r4]
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0xd4
 	lsls r0, r0, #1
 	ldrh r1, [r5]
 	adds r1, #0x3f
 	ldrb r2, [r4]
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _08091FFC @ =0x000001A9
 	ldrh r1, [r5]
 	adds r1, #0x40
 	ldrb r2, [r4]
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0xd5
 	lsls r0, r0, #1
 	ldrh r1, [r5]
 	adds r1, #0x41
 	ldrb r2, [r4]
-	bl sub_0807B314
+	bl SetTileType
 _08091FEA:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -143,7 +143,7 @@ sub_08092000: @ 0x08092000
 	adds r1, r4, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002B0
+	bl GetTileType
 	movs r1, #0xd3
 	lsls r1, r1, #1
 	cmp r0, r1

@@ -69,7 +69,7 @@ sub_0808923C: @ 0x0808923C
 	adds r1, r4, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002B0
+	bl GetTileType
 	lsls r0, r0, #0x10
 	lsrs r5, r0, #0x10
 	ldr r0, _08089278 @ =0x0000400B
@@ -187,7 +187,7 @@ _0808932C:
 	adds r1, r5, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002B0
+	bl GetTileType
 	lsls r0, r0, #0x10
 	lsrs r4, r0, #0x10
 	ldr r0, _08089364 @ =0x0000400B
@@ -325,7 +325,7 @@ _08089424:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	bl sub_080894C8
 _0808944E:
@@ -368,13 +368,13 @@ sub_08089454: @ 0x08089454
 	ldrh r1, [r6]
 	ldrb r2, [r4]
 	adds r0, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r0, [r4]
 	cmp r0, #2
 	bne _080894BC
 	ldrh r0, [r6]
 	movs r1, #1
-	bl sub_080002B0
+	bl GetTileType
 	movs r1, #0xc4
 	lsls r1, r1, #2
 	cmp r0, r1
@@ -382,7 +382,7 @@ sub_08089454: @ 0x08089454
 	ldrh r1, [r6]
 	adds r0, r5, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 _080894BC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -451,7 +451,7 @@ _08089518:
 	str r0, [r1]
 _08089530:
 	adds r0, r3, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	pop {r4, pc}
 
 	thumb_func_start sub_08089538
@@ -473,13 +473,13 @@ sub_08089538: @ 0x08089538
 	adds r4, r5, #0
 	adds r4, #0x38
 	ldrb r2, [r4]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r0, [r4]
 	cmp r0, #2
 	bne _08089580
 	ldrh r0, [r6]
 	movs r1, #1
-	bl sub_080002B0
+	bl GetTileType
 	ldr r1, _080895B8 @ =0x0000400B
 	cmp r0, r1
 	bne _08089580
@@ -503,7 +503,7 @@ _08089580:
 	adds r1, r5, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002B0
+	bl GetTileType
 	lsls r0, r0, #0x10
 	lsrs r0, r0, #0x10
 	cmp r0, #0x79
@@ -713,7 +713,7 @@ sub_080896B0: @ 0x080896B0
 	cmp r1, #0x29
 	beq _08089768
 	ldrb r0, [r5]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	asrs r1, r4, #0x10
 	ldr r2, _08089764 @ =0x00002004
 	adds r0, r0, r2

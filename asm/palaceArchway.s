@@ -57,7 +57,7 @@ sub_0809F2A0: @ 0x0809F2A0
 	adds r0, #0x38
 	ldrb r2, [r0]
 	adds r0, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0809F2EC: .4byte 0x00004069

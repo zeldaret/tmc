@@ -84,7 +84,7 @@ _0808AA4C:
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r5, #0
 	adds r0, #0x45
 	strb r6, [r0]

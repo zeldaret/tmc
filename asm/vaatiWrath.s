@@ -1146,7 +1146,7 @@ sub_08041BE8: @ 0x08041BE8
 	ldr r7, [r0, #4]
 	str r5, [r7, #0x64]
 	adds r0, r7, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldr r0, [r6, #0x64]
 	str r5, [r0, #4]
 	ldr r7, [r0, #8]
@@ -1170,13 +1170,13 @@ sub_08041BE8: @ 0x08041BE8
 	ldr r7, [r0, #0xc]
 	str r5, [r7, #0x64]
 	adds r0, r7, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldr r0, [r6, #0x64]
 	str r5, [r0, #0xc]
 	ldr r7, [r0, #0x10]
 	str r5, [r7, #0x64]
 	adds r0, r7, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldr r2, [r6, #0x64]
 	str r5, [r2, #0x10]
 	ldr r1, _08041CC8 @ =gRoomControls
@@ -1185,25 +1185,25 @@ sub_08041BE8: @ 0x08041BE8
 	ldr r7, [r2, #0x1c]
 	str r5, [r7, #0x64]
 	adds r0, r7, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldr r0, [r6, #0x64]
 	str r5, [r0, #0x1c]
 	ldr r7, [r0, #0x20]
 	str r5, [r7, #0x64]
 	adds r0, r7, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldr r0, [r6, #0x64]
 	str r5, [r0, #0x20]
 	ldr r7, [r0, #0x24]
 	str r5, [r7, #0x64]
 	adds r0, r7, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldr r0, [r6, #0x64]
 	str r5, [r0, #0x24]
 	ldr r7, [r0, #0x28]
 	str r5, [r7, #0x64]
 	adds r0, r7, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	ldr r0, [r6, #0x64]
 	str r5, [r0, #0x28]
 	movs r0, #2
@@ -1428,7 +1428,7 @@ sub_08041E50: @ 0x08041E50
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
 	str r5, [r0, #0x64]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	bl sub_0805E780
 _08041E76:
 	pop {r4, r5, pc}

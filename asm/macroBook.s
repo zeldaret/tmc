@@ -302,7 +302,7 @@ _0809A9A0:
 	ldrh r0, [r6]
 	adds r1, r5, r4
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 _0809A9B4:
 	adds r4, #1
 	adds r6, #2

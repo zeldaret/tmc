@@ -2077,8 +2077,8 @@ _0807DB28:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0807DB2C
-sub_0807DB2C: @ 0x0807DB2C
+	thumb_func_start StartPlayerScript
+StartPlayerScript: @ 0x0807DB2C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _0807DB5C @ =gUnk_02022750
@@ -2449,7 +2449,7 @@ sub_0807DDAC: @ 0x0807DDAC
 	ldr r1, [r4]
 	cmp r1, #0
 	beq _0807DDE0
-	bl sub_0807DF74
+	bl ExecuteScriptCommandSet
 	cmp r6, #0
 	beq _0807DDCE
 	ldr r1, [r4]
@@ -2682,8 +2682,8 @@ sub_0807DF50: @ 0x0807DF50
 _0807DF6C: .4byte gUnk_02034490
 _0807DF70: .4byte gUnk_0200AF00
 
-	thumb_func_start sub_0807DF74
-sub_0807DF74: @ 0x0807DF74
+	thumb_func_start ExecuteScriptCommandSet
+ExecuteScriptCommandSet: @ 0x0807DF74
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -2704,7 +2704,7 @@ _0807DF92:
 	strb r1, [r6, #7]
 _0807DF96:
 	ldr r0, [r5]
-	bl sub_08016986
+	bl GetNextScriptCommandHalfword
 	adds r1, r0, #0
 	ldr r0, _0807DFF4 @ =0x0000FFFF
 	cmp r1, r0
@@ -2787,7 +2787,7 @@ sub_0807E024: @ 0x0807E024
 	ldr r0, [r4]
 	adds r0, #2
 	str r0, [r4]
-	bl sub_08016986
+	bl GetNextScriptCommandHalfword
 	lsls r0, r0, #0x10
 	asrs r1, r0, #0x10
 	lsrs r0, r0, #0x1f
@@ -2857,7 +2857,7 @@ sub_0807E0A0: @ 0x0807E0A0
 	push {r4, lr}
 	adds r4, r1, #0
 	ldr r0, [r4]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	str r0, [r4]
 	ldr r1, _0807E0B4 @ =gUnk_02033280
 	movs r0, #0
@@ -2922,7 +2922,7 @@ sub_0807E10C: @ 0x0807E10C
 	adds r5, r0, #0
 	adds r4, r1, #0
 	ldr r0, [r4]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	adds r2, r0, #0
 	adds r0, r5, #0
 	adds r1, r4, #0
@@ -2935,11 +2935,11 @@ sub_0807E124: @ 0x0807E124
 	adds r6, r0, #0
 	adds r4, r1, #0
 	ldr r0, [r4]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	adds r5, r0, #0
 	ldr r0, [r4]
 	adds r0, #6
-	bl sub_0801698E
+	bl GetNextScriptCommandWord
 	str r0, [r4, #4]
 	adds r0, r6, #0
 	adds r1, r4, #0
@@ -2951,7 +2951,7 @@ sub_0807E124: @ 0x0807E124
 sub_0807E148: @ 0x0807E148
 	push {lr}
 	ldr r0, [r1]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	bl LoadRoomEntityList
 	pop {pc}
 	.align 2, 0
@@ -2961,7 +2961,7 @@ sub_0807E158: @ 0x0807E158
 	push {r4, r5, lr}
 	adds r4, r1, #0
 	ldr r0, [r4]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	adds r2, r0, #0
 	movs r5, #0
 	ldr r3, _0807E184 @ =gUnk_02033280
@@ -2988,7 +2988,7 @@ sub_0807E188: @ 0x0807E188
 	push {r4, lr}
 	adds r4, r1, #0
 	ldr r0, [r4]
-	bl sub_0801698A
+	bl GetNextScriptCommandHalfwordAfterCommandMetadata
 	cmp r0, #0x51
 	beq _0807E1B4
 	cmp r0, #0x51
@@ -3087,7 +3087,7 @@ sub_0807E240: @ 0x0807E240
 	push {r4, lr}
 	adds r4, r1, #0
 	ldr r0, [r4]
-	bl sub_0801698A
+	bl GetNextScriptCommandHalfwordAfterCommandMetadata
 	bl GetProgressFlag
 	str r0, [r4, #0x14]
 	ldr r2, _0807E25C @ =gUnk_02033280
@@ -3127,7 +3127,7 @@ sub_0807E280: @ 0x0807E280
 	ands r2, r0
 	ldrh r0, [r1, #2]
 	ldrh r1, [r1, #4]
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	str r0, [r4, #0x14]
 	ldr r2, _0807E2A4 @ =gUnk_02033280
 	ldrb r1, [r2, #7]
@@ -3156,7 +3156,7 @@ sub_0807E2A8: @ 0x0807E2A8
 	ldrsh r1, [r5, r7]
 	ldrh r4, [r4, #8]
 	subs r1, r1, r4
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	str r0, [r6, #0x14]
 	ldr r2, _0807E2E0 @ =gUnk_02033280
 	ldrb r1, [r2, #7]
@@ -3496,7 +3496,7 @@ sub_0807E538: @ 0x0807E538
 	push {r4, lr}
 	adds r4, r1, #0
 	ldr r0, [r4]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	ldr r1, _0807E55C @ =gLinkState
 	ldr r1, [r1, #0x30]
 	ands r0, r1
@@ -3600,7 +3600,7 @@ _0807E5F4: .4byte gUnk_02033280
 sub_0807E5F8: @ 0x0807E5F8
 	push {lr}
 	ldr r0, [r1]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	ldr r2, _0807E60C @ =gUnk_02033280
 	ldr r1, [r2]
 	orrs r1, r0
@@ -3613,7 +3613,7 @@ _0807E60C: .4byte gUnk_02033280
 sub_0807E610: @ 0x0807E610
 	push {lr}
 	ldr r0, [r1]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	ldr r2, _0807E624 @ =gUnk_02033280
 	ldr r1, [r2]
 	bics r1, r0
@@ -3685,7 +3685,7 @@ sub_0807E680: @ 0x0807E680
 	push {r4, lr}
 	adds r4, r1, #0
 	ldr r0, [r4]
-	bl sub_0801698A
+	bl GetNextScriptCommandHalfwordAfterCommandMetadata
 	strh r0, [r4, #0x10]
 	pop {r4, pc}
 	.align 2, 0
@@ -3694,7 +3694,7 @@ sub_0807E680: @ 0x0807E680
 sub_0807E690: @ 0x0807E690
 	push {lr}
 	ldr r0, [r1]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	ldr r2, _0807E6A8 @ =gUnk_02033280
 	ldr r1, [r2]
 	ands r1, r0
@@ -3711,7 +3711,7 @@ _0807E6A8: .4byte gUnk_02033280
 sub_0807E6AC: @ 0x0807E6AC
 	push {lr}
 	ldr r0, [r1]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	ldr r3, _0807E6C8 @ =gUnk_02033280
 	ldr r2, [r3]
 	adds r1, r2, #0
@@ -3837,7 +3837,7 @@ _0807E784: .4byte gUnk_02033280
 sub_0807E788: @ 0x0807E788
 	push {lr}
 	ldr r0, [r1]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	ldr r1, _0807E798 @ =gUnk_03000FD0
 	str r0, [r1, #4]
 	pop {pc}
@@ -3997,7 +3997,7 @@ _0807E894: .4byte gLinkState
 sub_0807E898: @ 0x0807E898
 	push {lr}
 	ldr r0, [r1]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	ldr r3, _0807E8C0 @ =gLinkState
 	strb r0, [r3, #0xc]
 	lsrs r2, r0, #8
@@ -4020,8 +4020,8 @@ _0807E8C0: .4byte gLinkState
 sub_0807E8C4: @ 0x0807E8C4
 	push {lr}
 	ldr r0, [r1]
-	bl sub_08016998
-	bl sub_0807DB2C
+	bl GetNextScriptCommandWordAfterCommandMetadata
+	bl StartPlayerScript
 	pop {pc}
 	.align 2, 0
 
@@ -4067,7 +4067,7 @@ sub_0807E914: @ 0x0807E914
 	push {r4, lr}
 	adds r4, r1, #0
 	ldr r0, [r4]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	str r0, [r4, #4]
 	pop {r4, pc}
 	.align 2, 0
@@ -4469,7 +4469,7 @@ sub_0807EBC8: @ 0x0807EBC8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, [r1]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	str r0, [r4, #0x20]
 	pop {r4, pc}
 	.align 2, 0
@@ -5040,7 +5040,7 @@ _0807EFD2:
 sub_0807EFD4: @ 0x0807EFD4
 	push {lr}
 	ldr r0, [r1]
-	bl sub_08016998
+	bl GetNextScriptCommandWordAfterCommandMetadata
 	bl PlaySFX
 	pop {pc}
 	.align 2, 0
@@ -6170,7 +6170,7 @@ sub_0807F78C: @ 0x0807F78C
 	ldrb r5, [r0, #6]
 _0807F79A:
 	adds r0, r5, #0
-	bl sub_08053FD0
+	bl GetSaleItemConfirmMessageID
 	adds r4, r0, #0
 	adds r0, r5, #0
 	bl sub_08053FE0
@@ -6373,7 +6373,7 @@ _0807F914: .4byte 0x000003FF
 sub_0807F918: @ 0x0807F918
 	push {lr}
 	ldr r0, [r1, #4]
-	bl sub_08054398
+	bl PutItemOnSlot
 	pop {pc}
 	.align 2, 0
 
@@ -6420,7 +6420,7 @@ sub_0807F950: @ 0x0807F950
 	bl sub_0805EB2C
 	cmp r0, #0
 	beq _0807F96C
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0807F96C:
 	add sp, #4
 	pop {pc}

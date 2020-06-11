@@ -585,7 +585,7 @@ _0804A0DE:
 	beq _0804A15A
 	mov r1, sl
 	ldrb r0, [r1]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	mov sb, r0
 	cmp r6, #0
 	bge _0804A0FA
@@ -1643,7 +1643,7 @@ _0804A8CA:
 	orrs r1, r2
 	strb r1, [r0]
 	adds r0, r5, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _0804A982
 	.align 2, 0
 _0804A8E8: .4byte gUnk_02002A40

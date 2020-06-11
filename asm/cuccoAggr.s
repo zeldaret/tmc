@@ -447,7 +447,7 @@ _08038FFC:
 	cmp r0, #0
 	beq _08039018
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08039018:
 	pop {r4, pc}
 	.align 2, 0

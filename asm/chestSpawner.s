@@ -525,7 +525,7 @@ sub_08084190: @ 0x08084190
 	ldr r0, _08084208 @ =gUnk_0811F8A8
 	str r0, [r4, #0x48]
 	adds r0, r4, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	cmp r0, #0x74
 	bne _080841D2
 	bl sub_0805E780
@@ -627,11 +627,11 @@ sub_0808427C: @ 0x0808427C
 	bne _080842D4
 _0808428A:
 	adds r0, r4, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	cmp r0, #0x74
 	bne _0808429C
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080842D4
 _0808429C:
 	adds r0, r4, #0

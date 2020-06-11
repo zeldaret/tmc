@@ -282,7 +282,7 @@ _0809FC00:
 	str r0, [r4, #0x54]
 	ldrb r0, [r4, #0xa]
 	movs r1, #0
-	bl sub_08053FF0
+	bl GiveItem
 _0809FC22:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -427,7 +427,7 @@ _0809FD1C:
 	bl sub_0809FECC
 	ldrb r0, [r4, #0xa]
 	movs r1, #0
-	bl sub_08053FF0
+	bl GiveItem
 _0809FD44:
 	pop {r4, pc}
 	.align 2, 0

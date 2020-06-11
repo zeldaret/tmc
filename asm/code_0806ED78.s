@@ -1612,7 +1612,7 @@ sub_0806F8DC: @ 0x0806F8DC
 	ldrsh r1, [r4, r2]
 	subs r1, #4
 	movs r2, #2
-	bl sub_080002A4
+	bl GetTileTypeByPos
 	cmp r0, #0
 	beq _0806F91C
 	ldrb r2, [r4, #0x19]
@@ -1635,7 +1635,7 @@ _0806F91C:
 	ldrsh r1, [r4, r2]
 	subs r1, #4
 	ldrb r2, [r5]
-	bl sub_080002A4
+	bl GetTileTypeByPos
 	ldrb r2, [r4, #0x19]
 	movs r1, #0x3f
 	adds r0, r1, #0

@@ -291,5 +291,5 @@ _080043B6:
 	strb r1, [r0, #0xb]
 _080043E0:
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	pop {r4, pc}

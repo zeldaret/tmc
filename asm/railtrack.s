@@ -86,7 +86,7 @@ _0808521E:
 	adds r0, r5, #0
 	adds r0, #0x38
 	ldrb r0, [r0]
-	bl sub_0808094C
+	bl GetLayerByIndex
 	movs r1, #0x2e
 	ldrsh r2, [r5, r1]
 	ldr r3, _08085260 @ =gRoomControls
@@ -317,7 +317,7 @@ sub_08085394: @ 0x08085394
 	adds r6, #0x38
 	ldrb r2, [r6]
 	mov r0, sl
-	bl UpdateCollisionLayer
+	bl SetTile
 	mov r1, sb
 	ldrh r0, [r1]
 	adds r1, r7, #0
@@ -326,7 +326,7 @@ sub_08085394: @ 0x08085394
 	ldrb r2, [r6]
 	mov r0, sl
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	add r5, sb
 	ldrh r1, [r5]
 	adds r0, r7, #0
@@ -336,7 +336,7 @@ sub_08085394: @ 0x08085394
 	ldrb r2, [r6]
 	mov r0, sl
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r3, r4, r5}
 	mov r8, r3
 	mov sb, r4
@@ -381,20 +381,20 @@ sub_0808543C: @ 0x0808543C
 	adds r5, r7, #0
 	adds r5, #0x38
 	ldrb r2, [r5]
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r7, #0
 	adds r0, #0x76
 	ldrh r0, [r0]
 	ldrb r2, [r5]
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r7, #0
 	adds r0, #0x78
 	ldrh r0, [r0]
 	adds r4, r4, r6
 	ldrb r2, [r5]
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080854A0: .4byte gUnk_080B4488

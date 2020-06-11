@@ -893,7 +893,7 @@ sub_080307EC: @ 0x080307EC
 	ldr r0, _08030830 @ =0x00004022
 	ldrb r2, [r6]
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0803082C: .4byte gRoomControls
@@ -924,7 +924,7 @@ sub_08030834: @ 0x08030834
 	adds r0, #0x38
 	ldrb r2, [r0]
 	adds r0, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08030868: .4byte gRoomControls
@@ -984,7 +984,7 @@ _0803088E:
 	mov r8, r0
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl sub_080002B0
+	bl GetTileType
 	ldr r1, _08030930 @ =0x00004049
 	mov sl, r1
 	cmp r0, sl
@@ -993,14 +993,14 @@ _0803088E:
 	adds r1, r6, #0
 	movs r2, #2
 	movs r3, #0xc
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _0803093C
 	subs r1, r6, #4
 	adds r0, r7, #0
 	movs r2, #2
 	movs r3, #4
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _0803098A
 	ldr r2, _08030934 @ =gLinkEntity
@@ -1033,7 +1033,7 @@ _0803093C:
 	mov r3, r8
 	ldrb r2, [r3]
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _0803098A
 	.align 2, 0
 _0803094C: .4byte 0x00004022
@@ -1042,7 +1042,7 @@ _08030950:
 	adds r0, r7, #0
 	movs r2, #2
 	movs r3, #5
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _0803098A
 	movs r4, #0x2e
@@ -1064,7 +1064,7 @@ _08030950:
 	mov r0, r8
 	ldrb r2, [r0]
 	mov r0, sl
-	bl UpdateCollisionLayer
+	bl SetTile
 _0803098A:
 	adds r2, r5, #0
 	adds r2, #0x29

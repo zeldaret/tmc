@@ -318,7 +318,7 @@ _080949A0:
 	adds r0, #0x38
 	ldrb r2, [r0]
 	ldr r0, [sp, #4]
-	bl UpdateCollisionLayer
+	bl SetTile
 _080949EC:
 	adds r7, #2
 	movs r3, #2

@@ -198,7 +198,7 @@ sub_08033890: @ 0x08033890
 	ldr r0, _08033954 @ =0x00004022
 	ldrh r1, [r4]
 	ldrb r2, [r5]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r1, [r6, #0xa]
 	movs r0, #0x7d
 	movs r2, #0
@@ -643,7 +643,7 @@ _08033C68:
 	ldrh r1, [r5]
 	ldr r3, [sp, #8]
 	ldrb r2, [r3]
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	movs r1, #0
 	bl UpdateSprite
@@ -815,7 +815,7 @@ sub_08033D78: @ 0x08033D78
 	adds r4, #0x38
 	ldrb r1, [r4]
 	adds r0, r5, #0
-	bl sub_080002B0
+	bl GetTileType
 	adds r1, r0, #0
 	ldr r0, _08033DEC @ =0x000001C5
 	cmp r1, r0

@@ -185,7 +185,7 @@ _0804B170:
 _0804B190:
 	movs r0, #0x74
 	adds r1, r3, #0
-	bl sub_0807B314
+	bl SetTileType
 _0804B198:
 	adds r4, #8
 	ldr r0, _0804B1A8 @ =gUnk_020176A0
@@ -413,7 +413,7 @@ sub_0804B340: @ 0x0804B340
 	ldrh r0, [r4, #6]
 	ldrh r1, [r4, #4]
 	ldrb r2, [r4, #1]
-	bl sub_0807B314
+	bl SetTileType
 	b _0804B380
 _0804B35A:
 	ldr r1, _0804B384 @ =gRoomVars
@@ -450,7 +450,7 @@ sub_0804B388: @ 0x0804B388
 _0804B396:
 	adds r1, r5, #0
 	adds r2, r4, #0
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0xf
 	movs r1, #2
 	movs r2, #0

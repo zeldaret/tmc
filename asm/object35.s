@@ -177,7 +177,7 @@ sub_0808B934: @ 0x0808B934
 	ldr r0, _0808B9BC @ =0x00004022
 	ldrh r1, [r5]
 	ldrb r2, [r6]
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _0808B9D2
 	.align 2, 0
 _0808B9B8: .4byte gRoomControls
@@ -218,7 +218,7 @@ sub_0808B9D4: @ 0x0808B9D4
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _0808BA0C @ =0x0000010B
 	bl sub_08004488
 _0808BA0A:
@@ -302,7 +302,7 @@ sub_0808BA6C: @ 0x0808BA6C
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 _0808BAA4:
 	pop {r4, pc}
 	.align 2, 0

@@ -116,7 +116,7 @@ sub_08092940: @ 0x08092940
 	adds r5, r4, #0
 	adds r5, #0x84
 	ldr r1, [r5]
-	bl sub_0807DF74
+	bl ExecuteScriptCommandSet
 	ldr r1, [r5]
 	adds r0, r4, #0
 	bl sub_08092958

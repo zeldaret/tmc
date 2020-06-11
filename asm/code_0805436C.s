@@ -33,8 +33,8 @@ _08054392:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_08054398
-sub_08054398: @ 0x08054398
+	thumb_func_start PutItemOnSlot
+PutItemOnSlot: @ 0x08054398
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	cmp r5, #0x46
@@ -147,8 +147,8 @@ _08054458: .4byte gUnk_02002A40
 _0805445C: .4byte gUnk_080FD5B4
 _08054460: .4byte gUnk_0200AF00
 
-	thumb_func_start sub_08054464
-sub_08054464: @ 0x08054464
+	thumb_func_start SetBottleContents
+SetBottleContents: @ 0x08054464
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r3, _08054498 @ =gUnk_02002A40
@@ -528,7 +528,7 @@ _08054726:
 	beq _0805474C
 	adds r0, r6, #0
 	movs r2, #0
-	bl sub_08054754
+	bl CreateItemDrop
 	b _0805474E
 	.align 2, 0
 _0805473C: .4byte gUnk_0800143C
@@ -542,8 +542,8 @@ _0805474E:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08054754
-sub_08054754: @ 0x08054754
+	thumb_func_start CreateItemDrop
+CreateItemDrop: @ 0x08054754
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
 	adds r4, r1, #0
@@ -1545,7 +1545,7 @@ sub_08054EFC: @ 0x08054EFC
 	subs r1, #0x40
 	ldr r0, _08054F60 @ =0x00004074
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r4, #0
 	adds r1, #0x38
 	movs r0, #2
@@ -1675,7 +1675,7 @@ sub_08055014: @ 0x08055014
 	ldr r1, _08055034 @ =0x00000407
 	movs r0, #0x74
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0805502C:
 	pop {pc}
 	.align 2, 0
@@ -2925,7 +2925,7 @@ _080559AE:
 	orrs r1, r0
 	movs r0, #0x73
 	adds r2, r3, #0
-	bl sub_0807B314
+	bl SetTileType
 	ldrb r0, [r4, #4]
 	bl sub_080553E0
 	movs r0, #0x73
@@ -3277,9 +3277,9 @@ _08055C6C:
 	cmp r4, #0
 	beq _08055C8C
 	ldr r0, [r4, #0x54]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08055C8C:
 	movs r0, #6
 	movs r1, #0x10

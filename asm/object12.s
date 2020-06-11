@@ -172,7 +172,7 @@ sub_080850CC: @ 0x080850CC
 	ands r0, r1
 	strh r0, [r2]
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _080850F0:
 	pop {r4, pc}
 	.align 2, 0
@@ -205,44 +205,44 @@ sub_080850FC: @ 0x080850FC
 	subs r1, #0x41
 	adds r0, r5, #0
 	adds r2, r6, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r4, #0
 	subs r1, #0x40
 	adds r0, r5, #0
 	adds r2, r6, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r4, #0
 	subs r1, #0x3f
 	adds r0, r5, #0
 	adds r2, r6, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	subs r1, r4, #1
 	adds r0, r5, #0
 	adds r2, r6, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r5, #0
 	adds r1, r4, #0
 	adds r2, r6, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r4, #1
 	adds r0, r5, #0
 	adds r2, r6, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r4, #0
 	adds r1, #0x3f
 	adds r0, r5, #0
 	adds r2, r6, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r4, #0
 	adds r1, #0x40
 	adds r0, r5, #0
 	adds r2, r6, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r4, #0x41
 	adds r0, r5, #0
 	adds r1, r4, #0
 	adds r2, r6, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0808518C: .4byte gRoomControls

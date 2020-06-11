@@ -42,15 +42,15 @@ sub_080984EC: @ 0x080984EC
 	movs r1, #0x82
 	lsls r1, r1, #3
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _08098530 @ =0x00004026
 	ldr r1, _08098534 @ =0x00000411
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _08098538 @ =0x00004025
 	ldr r1, _0809853C @ =0x00000412
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 _08098524:
 	pop {pc}
 	.align 2, 0

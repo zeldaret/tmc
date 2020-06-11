@@ -862,7 +862,7 @@ _080262EC:
 	movs r1, #0xb2
 	lsls r1, r1, #2
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 _0802631A:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

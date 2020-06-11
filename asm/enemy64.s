@@ -102,19 +102,19 @@ sub_08049100: @ 0x08049100
 	adds r0, r4, #0
 	movs r1, #0xa
 	movs r2, #2
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	movs r1, #0x4a
 	movs r2, #2
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	movs r1, #0x8a
 	movs r2, #2
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	movs r1, #0xca
 	movs r2, #2
-	bl UpdateCollisionLayer
+	bl SetTile
 	bl sub_0805E780
 	b _0804916E
 	.align 2, 0
@@ -1152,7 +1152,7 @@ _080498FC:
 	movs r1, #0x4a
 _0804990E:
 	movs r2, #2
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #0x71
 	bl PlaySFX
 	b _0804993E
@@ -1168,7 +1168,7 @@ _08049920:
 	ldr r0, _08049940 @ =0x00004081
 	movs r1, #0xa
 	movs r2, #2
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #0x71
 	bl PlaySFX
 _0804993E:

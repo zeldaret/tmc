@@ -133,7 +133,7 @@ _08084D7E:
 	lsls r2, r2, #6
 	orrs r1, r2
 	ldrb r2, [r6]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r0, [r7, #0xa]
 	lsls r0, r0, #2
 	add r0, r8

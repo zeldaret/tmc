@@ -415,7 +415,7 @@ sub_0803775C: @ 0x0803775C
 	bl sub_08037C0C
 _0803778A:
 	adds r0, r5, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08037790:
 	pop {r4, r5, pc}
 	.align 2, 0

@@ -175,11 +175,11 @@ _080976A2:
 	subs r1, r5, #1
 	ldrb r2, [r7]
 	adds r0, r6, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r2, [r7]
 	adds r0, r6, #0
 	adds r1, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrh r0, [r4, #0x32]
 	adds r0, #2
 	strh r0, [r4, #0x32]
@@ -193,7 +193,7 @@ _08097704:
 	ldrb r2, [r7]
 	adds r0, r6, #0
 	adds r1, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r0, [r4, #0xb]
 	cmp r0, #2
 	bne _08097722
@@ -347,14 +347,14 @@ sub_080977F4: @ 0x080977F4
 	ldrb r2, [r6]
 	adds r0, r7, #0
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r0, [r5, #0xa]
 	cmp r0, #0
 	bne _08097844
 	subs r1, r4, #1
 	ldrb r2, [r6]
 	adds r0, r7, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 _08097844:
 	adds r1, r5, #0
 	adds r1, #0x86
@@ -392,7 +392,7 @@ _0809786E:
 	bne _08097892
 	ldrh r0, [r4]
 	ldrb r1, [r6]
-	bl sub_080002B0
+	bl GetTileType
 	ldr r1, _08097940 @ =0x0000403F
 	cmp r0, r1
 	bne _08097986

@@ -30,7 +30,7 @@ void sub_08080930(void)
     return;
 }
 
-u32 * sub_0808094C(u32 param_1)
+u32 * GetLayerByIndex(u32 param_1)
 
 {
     

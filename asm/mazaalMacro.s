@@ -111,7 +111,7 @@ sub_08034CC4: @ 0x08034CC4
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #0x37
 	movs r1, #2
 	bl CreateEnemy
@@ -402,7 +402,7 @@ sub_08034F58: @ 0x08034F58
 	ldr r0, _08034F6C @ =gUnk_0813ABA8
 	bl sub_08080840
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	pop {r4, pc}
 	.align 2, 0
 _08034F6C: .4byte gUnk_0813ABA8

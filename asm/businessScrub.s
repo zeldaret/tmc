@@ -963,7 +963,7 @@ sub_08028FFC: @ 0x08028FFC
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, pc}
 	.align 2, 0
 _08029074: .4byte 0x00004022
@@ -993,7 +993,7 @@ sub_08029078: @ 0x08029078
 	cmp r0, #0
 	bne _080290AE
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _080290DE
 _080290AE:
 	adds r0, r4, #0
@@ -1015,7 +1015,7 @@ _080290AE:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 _080290DE:
 	pop {r4, pc}
 

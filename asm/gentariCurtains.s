@@ -117,11 +117,11 @@ _0809207A:
 	ldrh r1, [r5]
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrh r1, [r7]
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r6, #0
 	movs r1, #0
 	bl LoadAnimation
@@ -176,7 +176,7 @@ sub_08092164: @ 0x08092164
 	adds r1, #0x70
 	ldrh r1, [r1]
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	adds r0, #0x76
 	ldrh r0, [r0]
@@ -184,7 +184,7 @@ sub_08092164: @ 0x08092164
 	adds r1, #0x72
 	ldrh r1, [r1]
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	bl sub_08092214
 	adds r0, r4, #0

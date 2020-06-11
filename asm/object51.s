@@ -64,19 +64,19 @@ _0809105C:
 	subs r1, r4, #2
 	adds r0, r6, #0
 	adds r2, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	subs r1, r4, #1
 	adds r0, r6, #0
 	adds r2, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r6, #0
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r1, r4, #1
 	adds r0, r6, #0
 	adds r2, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	adds r0, #0x40
 	lsls r0, r0, #0x10

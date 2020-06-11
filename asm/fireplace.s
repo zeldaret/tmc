@@ -82,7 +82,7 @@ _0809B73A:
 	adds r2, r6, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 _0809B78A:
 	adds r0, r6, #0
 	bl sub_0809B7A0
@@ -113,7 +113,7 @@ _0809B7BC:
 sub_0809B7C0: @ 0x0809B7C0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	ldr r1, _0809B7D8 @ =0xFFFFBF9F
 	adds r0, r0, r1
 	cmp r0, #1
@@ -167,7 +167,7 @@ sub_0809B7DC: @ 0x0809B7DC
 	adds r2, r6, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #1
 	strb r0, [r6, #0xe]
 	pop {r4, r5, r6, pc}

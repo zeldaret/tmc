@@ -69,7 +69,7 @@ _08081B0E:
 	adds r6, r4, #0
 	adds r6, #0x38
 	ldrb r1, [r6]
-	bl sub_080002B0
+	bl GetTileType
 	adds r1, r4, #0
 	adds r1, #0x72
 	strh r0, [r1]
@@ -87,7 +87,7 @@ _08081B0E:
 	ldrh r1, [r5]
 	ldrb r2, [r6]
 	movs r0, #0x7a
-	bl sub_0807B314
+	bl SetTileType
 	b _08081B82
 	.align 2, 0
 _08081B6C: .4byte gRoomControls
@@ -120,7 +120,7 @@ sub_08081B84: @ 0x08081B84
 	adds r1, r4, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002B0
+	bl GetTileType
 	adds r1, r4, #0
 	adds r1, #0x72
 	strh r0, [r1]
@@ -221,7 +221,7 @@ sub_08081C30: @ 0x08081C30
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 _08081C5A:
 	adds r0, r4, #0
 	bl sub_08081CB0
@@ -246,7 +246,7 @@ _08081C70:
 	subs r0, #0x3c
 	ldrb r2, [r0]
 	movs r0, #0x77
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0x86
 	lsls r0, r0, #1
 	bl PlaySFX
@@ -283,7 +283,7 @@ sub_08081CB0: @ 0x08081CB0
 	ldrh r0, [r5]
 	adds r4, #0x38
 	ldrb r1, [r4]
-	bl sub_080002B0
+	bl GetTileType
 	ldr r1, _08081CE8 @ =0x00004035
 	cmp r0, r1
 	bne _08081D1C
@@ -302,7 +302,7 @@ _08081CEC:
 	adds r5, r4, #0
 	adds r5, #0x38
 	ldrb r1, [r5]
-	bl sub_080002B0
+	bl GetTileType
 	lsls r0, r0, #0x10
 	lsrs r1, r0, #0x10
 	cmp r1, #0x77
@@ -482,7 +482,7 @@ sub_08081E3C: @ 0x08081E3C
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r2, #0
-	bl sub_080002B0
+	bl GetTileType
 	adds r2, r0, #0
 	ldr r1, _08081E64 @ =gUnk_0811EE50
 _08081E52:
@@ -512,13 +512,13 @@ sub_08081E6C: @ 0x08081E6C
 	ldrb r5, [r0]
 	adds r0, r6, #0
 	adds r1, r5, #0
-	bl sub_080002B0
+	bl GetTileType
 	adds r7, r0, #0
 	ldr r0, _08081EEC @ =0x00003FFF
 	cmp r7, r0
 	bls _08081EE8
 	adds r0, r5, #0
-	bl sub_0808094C
+	bl GetLayerByIndex
 	adds r1, r0, #0
 	ldrb r0, [r4, #0xa]
 	movs r4, #0x78
@@ -558,11 +558,11 @@ _08081EB4:
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r0, r7, #0
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 _08081EE8:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -680,7 +680,7 @@ _08081FA4:
 	adds r5, #0x38
 	ldrb r2, [r5]
 	adds r0, r7, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r0, r4, #0
 	bl sub_08081F24
 	movs r0, #0x86
@@ -695,7 +695,7 @@ _08081FA4:
 	adds r0, r1, #0
 	ldrh r1, [r6]
 	ldrb r2, [r5]
-	bl UpdateCollisionLayer
+	bl SetTile
 _08081FEC:
 	movs r0, #0
 	b _08081FF6

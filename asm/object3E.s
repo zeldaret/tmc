@@ -165,7 +165,7 @@ _0808D1AE:
 	orrs r1, r2
 	subs r1, #0x40
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _0808D234
 	.align 2, 0
 _0808D1F4: .4byte 0x00004069
@@ -574,7 +574,7 @@ _0808D500:
 	adds r1, #0x38
 	ldrb r2, [r1]
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 _0808D50E:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -638,7 +638,7 @@ sub_0808D518: @ 0x0808D518
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 _0808D58A:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

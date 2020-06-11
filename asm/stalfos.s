@@ -618,7 +618,7 @@ sub_0803970C: @ 0x0803970C
 	adds r0, r4, #0
 	bl sub_0803998C
 	ldr r0, [r4, #0x54]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	movs r0, #0
 	str r0, [r4, #0x54]
 	b _08039740
@@ -1124,7 +1124,7 @@ sub_08039AD4: @ 0x08039AD4
 	adds r1, #0x38
 	ldrb r2, [r1]
 	adds r1, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _08039B26
 	.align 2, 0
 _08039B18: .4byte 0x0000FFFF
@@ -1172,7 +1172,7 @@ sub_08039B28: @ 0x08039B28
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r5, #0
-	bl sub_080002B0
+	bl GetTileType
 	adds r2, r0, #0
 	ldr r1, _08039B90 @ =gUnk_080CF938
 _08039B76:

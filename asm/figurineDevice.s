@@ -495,16 +495,16 @@ sub_08087F58: @ 0x08087F58
 	subs r1, #1
 	adds r0, r5, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrh r1, [r4]
 	adds r0, r5, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrh r1, [r4]
 	adds r1, #1
 	adds r0, r5, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 _08087F8C:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1372,7 +1372,7 @@ sub_0808861C: @ 0x0808861C
 	movs r1, #0x54
 	movs r2, #0xc
 	movs r3, #8
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	str r0, [r4, #0x14]
 	ldr r1, _08088650 @ =gLinkEntity
 	ldrb r0, [r1, #0x14]
@@ -1404,7 +1404,7 @@ sub_08088658: @ 0x08088658
 	movs r1, #0x78
 	movs r2, #0x10
 	movs r3, #8
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	str r0, [r4, #0x14]
 	ldr r0, _08088684 @ =gLinkEntity
 	movs r1, #0x36

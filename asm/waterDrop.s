@@ -117,7 +117,7 @@ sub_0802A2FC: @ 0x0802A2FC
 	cmp r0, #0
 	beq _0802A31A
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	b _0802A332
 _0802A31A:
 	movs r0, #1

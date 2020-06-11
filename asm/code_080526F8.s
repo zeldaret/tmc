@@ -2016,7 +2016,7 @@ sub_0805368C: @ 0x0805368C
 	bl sub_0805EB00
 	cmp r0, #0
 	beq _080536A6
-	bl sub_0805E7BC
+	bl DeleteEntity
 	movs r0, #0xf0
 	bl PlaySFX
 _080536A6:
@@ -2866,7 +2866,7 @@ sub_08053D34: @ 0x08053D34
 	movs r0, #0x74
 	movs r1, #0xc4
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _08053D5C:
 	adds r0, r4, #0
 	movs r1, #0x3e
@@ -2876,7 +2876,7 @@ _08053D5C:
 	movs r0, #0x74
 	movs r1, #0xcc
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _08053D72:
 	ldr r0, _08053D8C @ =gUnk_03000FD0
 	ldrb r0, [r0]
@@ -3177,8 +3177,8 @@ sub_08053FB4: @ 0x08053FB4
 _08053FC8: .4byte gUnk_080FD138
 _08053FCC: .4byte gUnk_02000080
 
-	thumb_func_start sub_08053FD0
-sub_08053FD0: @ 0x08053FD0
+	thumb_func_start GetSaleItemConfirmMessageID
+GetSaleItemConfirmMessageID: @ 0x08053FD0
 	lsls r0, r0, #3
 	ldr r1, _08053FDC @ =gUnk_080FD964
 	adds r0, r0, r1
@@ -3197,8 +3197,8 @@ sub_08053FE0: @ 0x08053FE0
 	.align 2, 0
 _08053FEC: .4byte gUnk_080FD964
 
-	thumb_func_start sub_08053FF0
-sub_08053FF0: @ 0x08053FF0
+	thumb_func_start GiveItem
+GiveItem: @ 0x08053FF0
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -3225,7 +3225,7 @@ _08054018:
 	cmp r0, #0
 	bne _08054034
 	adds r0, r6, #0
-	bl sub_08054398
+	bl PutItemOnSlot
 	cmp r5, #0
 	bne _08054034
 	adds r0, r6, #0
@@ -3313,7 +3313,7 @@ _080540EE:
 	movs r1, #1
 	bl sub_0807CAA0
 	adds r0, r6, #0
-	bl sub_08054398
+	bl PutItemOnSlot
 	b _0805427C
 	.align 2, 0
 _08054100: .4byte gUnk_02002A40
@@ -3414,7 +3414,7 @@ _080541B6:
 	movs r1, #1
 	bl sub_0807CAA0
 	movs r0, #7
-	bl sub_08054398
+	bl PutItemOnSlot
 	b _080541E2
 _080541CA:
 	ldr r0, _080541EC @ =gUnk_02002A40

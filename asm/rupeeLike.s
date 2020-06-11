@@ -524,7 +524,7 @@ sub_08029688: @ 0x08029688
 	cmp r0, #0
 	bne _0802969A
 	adds r0, r1, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0802969A:
 	pop {pc}
 

@@ -535,23 +535,23 @@ sub_0804BD50: @ 0x0804BD50
 	ldr r1, _0804BD9C @ =0x0000014D
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r1, #0x86
 	lsls r1, r1, #1
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r4, #0x1e
 	movs r1, #0xa6
 	lsls r1, r1, #1
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r1, #0xc6
 	lsls r1, r1, #1
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _0804BDA0 @ =gUnk_080D7D34
 	bl LoadRoomEntityList
 _0804BD94:
@@ -633,11 +633,11 @@ _0804BDE8:
 	movs r0, #0x76
 	movs r1, #0x82
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0x76
 	movs r1, #0x8c
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 _0804BE00:
 	pop {pc}
 	.align 2, 0
@@ -995,20 +995,20 @@ _0804C054:
 	lsls r0, r0, #1
 	ldr r1, _0804C0D8 @ =0x0000058E
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0804C0DC @ =0x0000017B
 	ldr r1, _0804C0E0 @ =0x0000058F
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0xbe
 	lsls r0, r0, #1
 	ldr r1, _0804C0E4 @ =0x000005CE
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0804C0E8 @ =0x0000017D
 	ldr r1, _0804C0EC @ =0x000005CF
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0804C090:
 	bl sub_08054570
 	bl sub_08059278
@@ -1016,11 +1016,11 @@ _0804C090:
 	ldr r1, _0804C0F4 @ =0x00000A47
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _0804C0F8 @ =0x00000C47
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #0x62
 	bl GetProgressFlag
 	cmp r0, #0
@@ -1199,7 +1199,7 @@ _0804C206:
 	ldr r1, _0804C244 @ =0x00000107
 	movs r0, #0x73
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0804C228:
 	ldr r0, _0804C248 @ =gUnk_080D9328
 	bl sub_0804B1AC
@@ -1268,7 +1268,7 @@ sub_0804C290: @ 0x0804C290
 	ldrh r0, [r1]
 	ldrh r1, [r1, #2]
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0804C2B2:
 	pop {pc}
 	.align 2, 0
@@ -2172,7 +2172,7 @@ _0804C806:
 	ldr r0, _0804C828 @ =0x00004072
 	adds r1, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	adds r4, #1
 	adds r5, #1
 	cmp r4, #0x12
@@ -2932,7 +2932,7 @@ _0804CC08:
 	ldr r1, _0804CC28 @ =0x00000285
 	movs r0, #0x79
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	b _0804CC4A
 	.align 2, 0
 _0804CC24: .4byte gUnk_080DE834
@@ -2941,7 +2941,7 @@ _0804CC2C:
 	ldr r1, _0804CC4C @ =0x00000285
 	movs r0, #0x7a
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0x24
 	bl sub_0807CBD0
 	cmp r0, #0
@@ -2949,7 +2949,7 @@ _0804CC2C:
 	ldr r1, _0804CC50 @ =0x00000205
 	movs r0, #0x73
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0804CC4A:
 	pop {pc}
 	.align 2, 0
@@ -3004,11 +3004,11 @@ _0804CC7E:
 	ldr r1, _0804CC98 @ =0x0000020B
 	movs r0, #0x90
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804CC9C @ =0x00000411
 	movs r0, #0x90
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	b _0804CCB4
 	.align 2, 0
 _0804CC94: .4byte gUnk_02002A40
@@ -3018,11 +3018,11 @@ _0804CCA0:
 	ldr r1, _0804CCE4 @ =0x00000211
 	movs r0, #0x90
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804CCE8 @ =0x0000040B
 	movs r0, #0x90
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0804CCB4:
 	movs r0, #0x15
 	bl sub_0807CBD0
@@ -3032,7 +3032,7 @@ _0804CCB4:
 	lsls r1, r1, #2
 	movs r0, #0x76
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 _0804CCCA:
 	movs r0, #0x16
 	bl sub_0807CBD0
@@ -3042,7 +3042,7 @@ _0804CCCA:
 	lsls r1, r1, #2
 	movs r0, #0x76
 	movs r2, #2
-	bl sub_0807B314
+	bl SetTileType
 _0804CCE0:
 	pop {pc}
 	.align 2, 0
@@ -4477,7 +4477,7 @@ sub_0804D340: @ 0x0804D340
 	movs r1, #0x84
 	lsls r1, r1, #1
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	bl sub_08054570
 	movs r0, #0xc4
 	bl sub_0807CBD0
@@ -5328,11 +5328,11 @@ _0804D7A0:
 	ldr r1, _0804D7DC @ =0x00000145
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804D7E0 @ =0x00000149
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0804D7E4 @ =gUnk_02033A90
 	ldr r1, _0804D7E8 @ =0x00000864
 	adds r0, r0, r1
@@ -5359,7 +5359,7 @@ _0804D7F8:
 	adds r4, #2
 	ldr r0, _0804D80C @ =0x00004072
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0804D804:
 	ldrh r0, [r4]
 	cmp r0, #0
@@ -6567,7 +6567,7 @@ sub_0804DED0: @ 0x0804DED0
 	lsls r0, r0, #1
 	ldr r1, _0804DEF8 @ =0x0000066B
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0804DEFC @ =gUnk_02002A40
 	ldrb r0, [r0, #8]
 	cmp r0, #1
@@ -6853,7 +6853,7 @@ _0804E168:
 	ldrh r0, [r4, #4]
 	ldrh r1, [r4, #2]
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 _0804E17A:
 	adds r4, #6
 _0804E17C:
@@ -6881,7 +6881,7 @@ _0804E1A0:
 	ldrh r0, [r4, #4]
 	ldrh r1, [r4, #2]
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 _0804E1B2:
 	adds r4, #6
 _0804E1B4:
@@ -6910,7 +6910,7 @@ _0804E1D8:
 	ldrh r0, [r4, #4]
 	ldrh r1, [r4, #2]
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 _0804E1EA:
 	adds r4, #6
 _0804E1EC:
@@ -7110,20 +7110,20 @@ _0804E2C0:
 	lsls r1, r1, #2
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r1, #0xa6
 	lsls r1, r1, #2
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804E310 @ =0x00000266
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804E314 @ =0x000002A6
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	b _0804E3A6
 	.align 2, 0
 _0804E300: .4byte gUnk_02033A90
@@ -7143,15 +7143,15 @@ _0804E318:
 	adds r0, r4, #0
 	movs r1, #0x9e
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	adds r0, r4, #0
 	movs r1, #0x9f
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	adds r0, r4, #0
 	movs r1, #0xa0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0804E348:
 	ldr r0, _0804E368 @ =gUnk_080F0850
 	bl LoadRoomEntityList
@@ -7176,12 +7176,12 @@ _0804E376:
 	lsls r1, r1, #2
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r1, #0xa6
 	lsls r1, r1, #2
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0x10
 	bl sub_0807CBD0
 	cmp r0, #0
@@ -7866,21 +7866,21 @@ sub_0804E898: @ 0x0804E898
 	ldr r1, _0804E8E4 @ =0x00000202
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804E8E8 @ =0x00000242
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r1, #0x81
 	lsls r1, r1, #2
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r1, #0x91
 	lsls r1, r1, #2
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0804E8D8:
 	pop {r4, pc}
 	.align 2, 0
@@ -8059,71 +8059,71 @@ _0804EA14:
 	lsls r1, r1, #3
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _0804EAD8 @ =0x00000591
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _0804EADC @ =0x00000592
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _0804EAE0 @ =0x00000593
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _0804EAE4 @ =0x00000594
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r1, #0xba
 	lsls r1, r1, #3
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r1, #0xc2
 	lsls r1, r1, #3
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r1, #0xca
 	lsls r1, r1, #3
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _0804EAE8 @ =0x000005D4
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _0804EAEC @ =0x00000614
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _0804EAF0 @ =0x00000654
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r1, #0xd2
 	lsls r1, r1, #3
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _0804EAF4 @ =0x00000691
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _0804EAF8 @ =0x00000692
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _0804EAFC @ =0x00000693
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r1, _0804EB00 @ =0x00000694
 	adds r0, r4, #0
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, pc}
 	.align 2, 0
 _0804EAC4: .4byte gUnk_080F3C64
@@ -9001,11 +9001,11 @@ _0804F0E6:
 	ldr r1, _0804F120 @ =0x000004C7
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F124 @ =0x00000507
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0804F106:
 	movs r2, #0xf4
 	lsls r2, r2, #1
@@ -9395,19 +9395,19 @@ _0804F346:
 	ldr r1, _0804F39C @ =0x00000311
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F3A0 @ =0x00000351
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F3A4 @ =0x000003D9
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F3A8 @ =0x00000419
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0804F38A:
 	pop {r4, pc}
 	.align 2, 0
@@ -9473,11 +9473,11 @@ _0804F406:
 	ldr r0, _0804F450 @ =0x00004072
 	ldr r1, _0804F454 @ =0x00000D88
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _0804F458 @ =0x00004096
 	ldr r1, _0804F45C @ =0x00000DC8
 	movs r2, #1
-	bl UpdateCollisionLayer
+	bl SetTile
 _0804F42A:
 	ldr r0, _0804F460 @ =gUnk_02002A40
 	ldrb r0, [r0, #8]
@@ -9582,23 +9582,23 @@ sub_0804F4F4: @ 0x0804F4F4
 	ldr r1, _0804F55C @ =0x000007A2
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F560 @ =0x000007A3
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F564 @ =0x000007A5
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F568 @ =0x000007A6
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F56C @ =0x000007A7
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0804F540:
 	movs r0, #0x15
 	bl GetProgressFlag
@@ -9637,27 +9637,27 @@ _0804F590:
 	ldr r1, _0804F5D0 @ =0x0000094A
 	movs r0, #0x37
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F5D4 @ =0x0000094B
 	movs r0, #0x37
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F5D8 @ =0x0000094C
 	movs r0, #0x37
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F5DC @ =0x0000098A
 	movs r0, #0x37
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F5E0 @ =0x0000098B
 	movs r0, #0x37
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F5E4 @ =0x0000098C
 	movs r0, #0x37
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0804F5CC:
 	pop {pc}
 	.align 2, 0
@@ -9675,44 +9675,44 @@ sub_0804F5E8: @ 0x0804F5E8
 	ldr r0, _0804F654 @ =0x000001D3
 	ldr r1, _0804F658 @ =0x00000BDE
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r4, #0xeb
 	lsls r4, r4, #1
 	ldr r1, _0804F65C @ =0x00000BE2
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0xea
 	lsls r0, r0, #1
 	ldr r1, _0804F660 @ =0x00000C1F
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0804F664 @ =0x000001D5
 	movs r1, #0xc2
 	lsls r1, r1, #4
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F668 @ =0x00000C5E
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r4, _0804F66C @ =0x00004072
 	ldr r1, _0804F670 @ =0x00000B9B
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F674 @ =0x00000BDB
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F678 @ =0x00000AA4
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F67C @ =0x00000AE4
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	pop {r4, pc}
 	.align 2, 0
 _0804F654: .4byte 0x000001D3
@@ -9935,11 +9935,11 @@ sub_0804F808: @ 0x0804F808
 	ldr r1, _0804F828 @ =0x0000041D
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F82C @ =0x00000621
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	pop {r4, pc}
 	.align 2, 0
 _0804F824: .4byte 0x000001D3
@@ -9954,12 +9954,12 @@ sub_0804F830: @ 0x0804F830
 	ldr r1, _0804F850 @ =0x0000041E
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r1, #0xc4
 	lsls r1, r1, #3
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	pop {r4, pc}
 	.align 2, 0
 _0804F850: .4byte 0x0000041E
@@ -9971,21 +9971,21 @@ sub_0804F854: @ 0x0804F854
 	ldr r1, _0804F88C @ =0x0000041F
 	adds r0, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r4, #0xea
 	lsls r4, r4, #1
 	ldr r1, _0804F890 @ =0x000004E5
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F894 @ =0x0000061F
 	adds r0, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F898 @ =0x00000559
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	pop {r4, r5, pc}
 	.align 2, 0
 _0804F888: .4byte 0x000001D5
@@ -10003,20 +10003,20 @@ sub_0804F89C: @ 0x0804F89C
 	lsls r1, r1, #3
 	adds r0, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r4, _0804F8D0 @ =0x000001D5
 	ldr r1, _0804F8D4 @ =0x00000525
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F8D8 @ =0x0000061E
 	adds r0, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F8DC @ =0x00000519
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	pop {r4, r5, pc}
 	.align 2, 0
 _0804F8D0: .4byte 0x000001D5
@@ -10031,21 +10031,21 @@ sub_0804F8E0: @ 0x0804F8E0
 	ldr r1, _0804F918 @ =0x00000421
 	adds r0, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r4, #0xeb
 	lsls r4, r4, #1
 	ldr r1, _0804F91C @ =0x00000565
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F920 @ =0x0000061D
 	adds r0, r5, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r1, _0804F924 @ =0x000004D9
 	adds r0, r4, #0
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	pop {r4, r5, pc}
 	.align 2, 0
 _0804F914: .4byte 0x000001D3
@@ -10408,7 +10408,7 @@ sub_0804FB30: @ 0x0804FB30
 	movs r0, #0x73
 	movs r1, #0xcb
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _0804FB64:
 	pop {pc}
 	.align 2, 0
@@ -11226,7 +11226,7 @@ sub_0804FED8: @ 0x0804FED8
 	lsls r0, r0, #1
 	ldr r1, _0804FEE8 @ =0x0000066F
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	pop {pc}
 	.align 2, 0
 _0804FEE8: .4byte 0x0000066F

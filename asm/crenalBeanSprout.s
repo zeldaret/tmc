@@ -71,7 +71,7 @@ _08096368:
 	adds r1, #0x38
 	ldrb r2, [r1]
 	movs r1, #0xdc
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _0809650A
 	.align 2, 0
 _0809639C: .4byte gLinkEntity
@@ -230,7 +230,7 @@ _080964C4:
 	adds r2, r5, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	b _0809651A
 	.align 2, 0
 _080964F0: .4byte 0x00004032
@@ -576,7 +576,7 @@ sub_08096780: @ 0x08096780
 	adds r0, r0, r1
 	ldrh r4, [r0]
 	adds r0, r5, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	cmp r4, r0
 	bne _080967DC
 	adds r0, r5, #0
@@ -989,7 +989,7 @@ sub_08096A78: @ 0x08096A78
 	orrs r1, r2
 	adds r4, #0x38
 	ldrb r2, [r4]
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08096ACC: .4byte 0x0000403B

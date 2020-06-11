@@ -981,7 +981,7 @@ sub_080811AC: @ 0x080811AC
 	ands r0, r1
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	adds r4, #0x6e
 	strh r0, [r4]
 	pop {r4, pc}
@@ -1124,7 +1124,7 @@ sub_080812A8: @ 0x080812A8
 	adds r0, #0x6e
 	ldrh r4, [r0]
 	adds r0, r5, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	cmp r4, r0
 	beq _080812E4
 	movs r0, #0
@@ -1322,12 +1322,12 @@ _08081418:
 sub_08081420: @ 0x08081420
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08081450
+	bl CheckShouldPlayItemGetCutscene
 	cmp r0, #0
 	bne _08081438
 	ldrb r0, [r4, #0xa]
 	ldrb r1, [r4, #0xb]
-	bl sub_08053FF0
+	bl GiveItem
 	movs r0, #0
 	b _0808144C
 _08081438:
@@ -1343,8 +1343,8 @@ _0808144C:
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08081450
-sub_08081450: @ 0x08081450
+	thumb_func_start CheckShouldPlayItemGetCutscene
+CheckShouldPlayItemGetCutscene: @ 0x08081450
 	push {r4, lr}
 	movs r4, #0
 	ldr r1, _08081478 @ =gUnk_080FD5B4

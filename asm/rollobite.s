@@ -673,7 +673,7 @@ sub_08020AD0: @ 0x08020AD0
 	adds r6, #0x38
 	ldrb r1, [r6]
 	adds r0, r5, #0
-	bl sub_080002B0
+	bl GetTileType
 	lsls r0, r0, #0x10
 	ldr r1, _08020B60 @ =0xFF8F0000
 	adds r0, r0, r1
@@ -707,7 +707,7 @@ sub_08020AD0: @ 0x08020AD0
 	ldr r0, _08020B64 @ =0x00004034
 	ldrb r2, [r6]
 	adds r1, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #1
 	b _08020B6A
 	.align 2, 0

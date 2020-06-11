@@ -119,7 +119,7 @@ _08096B9C:
 	ldr r0, _08096BB8 @ =0x00004022
 	ldrh r1, [r5]
 	ldrb r2, [r6]
-	bl UpdateCollisionLayer
+	bl SetTile
 _08096BB6:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -148,7 +148,7 @@ sub_08096BBC: @ 0x08096BBC
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _08096BF4 @ =0x0000010B
 	bl sub_08004488
 _08096BF2:

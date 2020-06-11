@@ -188,20 +188,20 @@ sub_0806BEFC: @ 0x0806BEFC
 	lsls r0, r0, #1
 	ldr r1, _0806BF2C @ =0x0000058E
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0806BF30 @ =0x0000017F
 	ldr r1, _0806BF34 @ =0x0000058F
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	movs r0, #0xc0
 	lsls r0, r0, #1
 	ldr r1, _0806BF38 @ =0x000005CE
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	ldr r0, _0806BF3C @ =0x00000181
 	ldr r1, _0806BF40 @ =0x000005CF
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 	pop {pc}
 	.align 2, 0
 _0806BF2C: .4byte 0x0000058E

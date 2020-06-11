@@ -98,7 +98,7 @@ _0805E718:
 	cmp r5, #0
 	beq _0805E72E
 	adds r0, r5, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	adds r0, r5, #0
 	bl sub_0805E870
 _0805E72E:

@@ -14,9 +14,9 @@ sub_0807B9B8: @ 0x0807B9B8
 	adds r6, r2, #0
 	adds r0, r4, #0
 	adds r1, r6, #0
-	bl sub_0801AF8C
+	bl DeleteLoadedTileEntity
 	adds r0, r6, #0
-	bl sub_0808094C
+	bl GetLayerByIndex
 	adds r5, r0, #0
 	lsls r1, r4, #1
 	adds r0, r5, #4
@@ -111,9 +111,9 @@ sub_0807BA8C: @ 0x0807BA8C
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r7, r1, #0
-	bl sub_0801AF8C
+	bl DeleteLoadedTileEntity
 	adds r0, r7, #0
-	bl sub_0808094C
+	bl GetLayerByIndex
 	adds r5, r0, #0
 	lsls r2, r4, #1
 	adds r1, r5, #4
@@ -227,7 +227,7 @@ _0807BB7E:
 	ldrsh r1, [r4, r2]
 	adds r1, r6, r1
 	adds r2, r5, #0
-	bl sub_0807B314
+	bl SetTileType
 	adds r4, #4
 	movs r1, #0
 	ldrsh r0, [r4, r1]
@@ -261,7 +261,7 @@ _0807BBBC:
 	adds r1, r5, r4
 	ldr r0, _0807BBE0 @ =0x00004072
 	mov r2, sl
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r4, #1
 	cmp r4, r8
 	blo _0807BBBC
@@ -1354,7 +1354,7 @@ _0807C49A:
 	adds r1, r4, #0
 	movs r2, #1
 	str r3, [sp, #4]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r3, [sp, #4]
 _0807C4AC:
 	ldrh r0, [r6]
@@ -1363,7 +1363,7 @@ _0807C4AC:
 	adds r1, r4, #0
 	movs r2, #2
 	str r3, [sp, #4]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r3, [sp, #4]
 _0807C4BE:
 	adds r7, #2

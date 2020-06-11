@@ -407,7 +407,7 @@ _0808657E:
 	ldr r0, [r4, #0x54]
 	ldr r1, [r0, #0x50]
 	str r1, [r4, #0x54]
-	bl sub_0805E7BC
+	bl DeleteEntity
 	adds r5, #1
 	cmp r5, #3
 	bls _0808657E

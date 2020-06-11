@@ -57,7 +57,7 @@ _08083ABC:
 	lsls r2, r2, #6
 	orrs r1, r2
 	ldrb r2, [r7]
-	bl sub_0807B314
+	bl SetTileType
 	ldrh r1, [r5]
 	mov r0, r8
 	ands r0, r1
@@ -107,7 +107,7 @@ _08083B24:
 	adds r2, r6, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl sub_0807B314
+	bl SetTileType
 	adds r0, r6, #0
 	adds r0, #0x86
 	ldrh r0, [r0]

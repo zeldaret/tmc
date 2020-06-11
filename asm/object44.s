@@ -32,7 +32,7 @@ sub_0808E298: @ 0x0808E298
 	movs r5, #0
 	movs r6, #0
 	adds r0, r4, #0
-	bl sub_080002A0
+	bl GetTileTypeByEntity
 	adds r1, r0, #0
 	movs r0, #0xd1
 	lsls r0, r0, #2

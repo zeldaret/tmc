@@ -76,7 +76,7 @@ _0806DDC4:
 	mov r0, sb
 	ldrb r2, [r0]
 	mov r0, sl
-	bl UpdateCollisionLayer
+	bl SetTile
 	mov r2, r8
 	ldrh r1, [r2, #6]
 	adds r1, #0x18
@@ -92,7 +92,7 @@ _0806DDC4:
 	mov r0, sb
 	ldrb r2, [r0]
 	mov r0, sl
-	bl UpdateCollisionLayer
+	bl SetTile
 	mov r2, r8
 	ldrh r1, [r2, #6]
 	adds r1, #0x18
@@ -109,7 +109,7 @@ _0806DDC4:
 	mov r0, sb
 	ldrb r2, [r0]
 	mov r0, sl
-	bl UpdateCollisionLayer
+	bl SetTile
 	mov r2, r8
 	ldrh r1, [r2, #6]
 	subs r1, #0x18
@@ -126,7 +126,7 @@ _0806DDC4:
 	mov r0, sb
 	ldrb r2, [r0]
 	mov r0, sl
-	bl UpdateCollisionLayer
+	bl SetTile
 	mov r2, r8
 	ldrh r1, [r2, #6]
 	subs r1, #0x18
@@ -142,7 +142,7 @@ _0806DDC4:
 	mov r0, sb
 	ldrb r2, [r0]
 	mov r0, sl
-	bl UpdateCollisionLayer
+	bl SetTile
 	mov r1, r8
 	ldrh r0, [r1, #6]
 	subs r0, #0x18
@@ -160,7 +160,7 @@ _0806DDC4:
 	ldrb r2, [r0]
 	mov r0, sl
 	adds r1, r5, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r3, r4, r5}
 	mov r8, r3
 	mov sb, r4

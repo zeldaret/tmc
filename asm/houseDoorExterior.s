@@ -251,7 +251,7 @@ _0808688C:
 	adds r4, #0x84
 	ldr r1, [r4]
 	adds r0, r5, #0
-	bl sub_0807DF74
+	bl ExecuteScriptCommandSet
 	ldr r1, [r4]
 	adds r0, r5, #0
 	bl sub_080868EC
@@ -284,7 +284,7 @@ _080868D2:
 	adds r4, #0x84
 	ldr r1, [r4]
 	adds r0, r5, #0
-	bl sub_0807DF74
+	bl ExecuteScriptCommandSet
 	ldr r1, [r4]
 	adds r0, r5, #0
 	bl sub_080868EC

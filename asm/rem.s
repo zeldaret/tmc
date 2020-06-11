@@ -1132,7 +1132,7 @@ sub_0806AB9C: @ 0x0806AB9C
 	bl sub_0805EB2C
 	cmp r0, #0
 	beq _0806ABBC
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0806ABBC:
 	adds r0, r4, #0
 	adds r1, r5, #0

@@ -1315,7 +1315,7 @@ _08085EBE:
 	ldr r0, [r1, #0x2c]
 	cmp r0, #0
 	beq _08085EE8
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08085EE8:
 	bl sub_08077B2C
 	pop {pc}

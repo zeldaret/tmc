@@ -161,7 +161,7 @@ _080A0068:
 	orrs r1, r0
 	movs r0, #0x39
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _080A00A4:
 	adds r0, r4, #0
 	bl sub_080A00B0

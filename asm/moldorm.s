@@ -313,7 +313,7 @@ sub_08022D90: @ 0x08022D90
 _08022DDC: .4byte gUnk_080CBBBC
 _08022DE0:
 	adds r0, r5, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08022DE6:
 	pop {r4, r5, pc}
 

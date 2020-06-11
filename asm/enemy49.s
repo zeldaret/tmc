@@ -154,7 +154,7 @@ sub_0803CF94: @ 0x0803CF94
 	adds r1, r4, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002B0
+	bl GetTileType
 	cmp r0, #0x76
 	bne _0803CFBA
 	adds r1, r4, #0

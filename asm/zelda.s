@@ -401,7 +401,7 @@ _08066FA0:
 	adds r4, #2
 	ldr r0, _08066FB4 @ =0x00004072
 	movs r2, #1
-	bl sub_0807B314
+	bl SetTileType
 _08066FAC:
 	ldrh r0, [r4]
 	cmp r0, #0

@@ -256,16 +256,16 @@ sub_080A080C: @ 0x080A080C
 	subs r1, #1
 	ldrb r2, [r5]
 	adds r0, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrh r1, [r6]
 	ldrb r2, [r5]
 	adds r0, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrh r1, [r6]
 	adds r1, #1
 	ldrb r2, [r5]
 	adds r0, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080A086C: .4byte 0x00004022
@@ -283,19 +283,19 @@ sub_080A0870: @ 0x080A0870
 	adds r4, r6, #0
 	adds r4, #0x38
 	ldrb r2, [r4]
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r6, #0
 	adds r0, #0x78
 	ldrh r0, [r0]
 	ldrh r1, [r5]
 	ldrb r2, [r4]
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r6, #0
 	adds r0, #0x7a
 	ldrh r0, [r0]
 	ldrh r1, [r5]
 	adds r1, #1
 	ldrb r2, [r4]
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0

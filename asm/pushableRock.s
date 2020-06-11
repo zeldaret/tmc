@@ -65,7 +65,7 @@ sub_0808A550: @ 0x0808A550
 	adds r1, r4, #0
 	adds r1, #0x38
 	ldrb r1, [r1]
-	bl sub_080002B0
+	bl GetTileType
 	adds r1, r0, #0
 	ldr r0, _0808A58C @ =0x0000401F
 	cmp r1, r0
@@ -105,7 +105,7 @@ _0808A598:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	ldrb r1, [r4, #0x14]
@@ -233,7 +233,7 @@ _0808A69E:
 	ldr r0, _0808A6D4 @ =0x00004015
 	ldrh r1, [r5]
 	ldrb r2, [r6]
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #3
 	strb r0, [r4, #0xc]
 	adds r5, r4, #0
@@ -262,7 +262,7 @@ _0808A6E2:
 	ldr r0, _0808A6F0 @ =0x0000401B
 	ldrh r1, [r5]
 	ldrb r2, [r6]
-	bl UpdateCollisionLayer
+	bl SetTile
 _0808A6EC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

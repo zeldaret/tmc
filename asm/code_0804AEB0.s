@@ -119,7 +119,7 @@ _0804AF64:
 	cmp r0, #0
 	bne _0804AF88
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0804AF88:
 	pop {r4, pc}
 	.align 2, 0

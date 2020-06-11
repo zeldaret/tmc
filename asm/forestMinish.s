@@ -455,7 +455,7 @@ _0806031C:
 	beq _08060336
 	bl sub_080A29BC
 	adds r0, r4, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08060336:
 	subs r5, #1
 	cmp r5, #0

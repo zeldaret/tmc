@@ -30,7 +30,7 @@ sub_0806EC38: @ 0x0806EC38
 	bl sub_0805EB00
 	cmp r0, #0
 	beq _0806EC4C
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0806EC4C:
 	pop {pc}
 	.align 2, 0

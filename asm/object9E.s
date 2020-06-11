@@ -70,11 +70,11 @@ sub_0809EC4C: @ 0x0809EC4C
 	ldr r0, _0809ECFC @ =0x00004066
 	subs r1, r4, #1
 	ldrb r2, [r5]
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldr r0, _0809ED00 @ =0x00004065
 	ldrb r2, [r5]
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r6, #0
 	bl UpdateSpriteOrderAndFlip
 	movs r0, #0x9e

@@ -232,6 +232,6 @@ sub_080223E4: @ 0x080223E4
 	strb r1, [r0]
 _0802240A:
 	adds r0, r3, #0
-	bl sub_0805E7BC
+	bl DeleteEntity
 	pop {pc}
 	.align 2, 0

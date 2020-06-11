@@ -97,7 +97,7 @@ _0802FE6A:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 _0802FE8A:
 	pop {r4, pc}
 	.align 2, 0
@@ -316,7 +316,7 @@ _0802FFF0:
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	movs r0, #0xab
 	lsls r0, r0, #1
 	bl sub_08004488

@@ -67,7 +67,7 @@ sub_08022004: @ 0x08022004
 	adds r2, r4, #0
 	adds r2, #0x38
 	ldrb r2, [r2]
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r4, #0
 	movs r1, #5
 	movs r2, #0
@@ -335,7 +335,7 @@ sub_080221C0: @ 0x080221C0
 	ldrh r0, [r0]
 	ldrb r2, [r5]
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08022220: .4byte gRoomControls

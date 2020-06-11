@@ -22,7 +22,7 @@ sub_08065054: @ 0x08065054
 	adds r0, #0x84
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0807DF74
+	bl ExecuteScriptCommandSet
 	adds r0, r4, #0
 	bl sub_0806ED78
 	pop {r4, pc}
@@ -121,7 +121,7 @@ _08065100:
 _08065138: .4byte 0x00002C01
 _0806513C:
 	ldrb r0, [r6, #6]
-	bl sub_08053FD0
+	bl GetSaleItemConfirmMessageID
 	adds r7, r0, #0
 	ldrb r0, [r6, #6]
 	bl sub_08053FE0

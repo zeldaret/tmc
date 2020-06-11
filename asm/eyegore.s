@@ -719,19 +719,19 @@ sub_08030F00: @ 0x08030F00
 	ldrb r2, [r6]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r2, [r6]
 	adds r0, r5, #0
 	mov r1, sl
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r2, [r6]
 	adds r0, r5, #0
 	mov r1, sb
-	bl UpdateCollisionLayer
+	bl SetTile
 	ldrb r2, [r6]
 	adds r0, r5, #0
 	mov r1, r8
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r3, r4, r5}
 	mov r8, r3
 	mov sb, r4
@@ -770,27 +770,27 @@ sub_08030FB4: @ 0x08030FB4
 	adds r5, #0x38
 	ldrb r2, [r5]
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r6, #0
 	adds r0, #0x82
 	ldrh r0, [r0]
 	adds r1, r4, #1
 	ldrb r2, [r5]
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r6, #0
 	adds r0, #0x84
 	ldrh r0, [r0]
 	adds r1, r4, #0
 	adds r1, #0x40
 	ldrb r2, [r5]
-	bl UpdateCollisionLayer
+	bl SetTile
 	adds r0, r6, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
 	adds r4, #0x41
 	ldrb r2, [r5]
 	adds r1, r4, #0
-	bl UpdateCollisionLayer
+	bl SetTile
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08031020: .4byte gRoomControls
@@ -955,7 +955,7 @@ _08031120:
 	adds r3, r3, r7
 	mov r8, r3
 	ldrb r2, [r3]
-	bl sub_080002A4
+	bl GetTileTypeByPos
 	adds r6, r0, #0
 	movs r1, #0x2e
 	ldrsh r0, [r7, r1]
@@ -974,7 +974,7 @@ _08031120:
 	adds r1, r1, r2
 	mov r3, r8
 	ldrb r2, [r3]
-	bl sub_080002A4
+	bl GetTileTypeByPos
 	adds r1, r0, #0
 	ldr r2, _080311B8 @ =gUnk_080B3E80
 	adds r6, r6, r2

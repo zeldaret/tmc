@@ -101,7 +101,7 @@ _08082EF6:
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r5, #0
-	bl sub_080002B0
+	bl GetTileType
 	str r0, [r4, #0x68]
 	ldrb r0, [r4, #0xa]
 	cmp r0, #1
@@ -487,7 +487,7 @@ _080831EC:
 	bl sub_0807B7D8
 _080832BA:
 	mov r0, sb
-	bl sub_0805E7BC
+	bl DeleteEntity
 _080832C0:
 	pop {r3, r4}
 	mov r8, r3

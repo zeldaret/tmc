@@ -2401,7 +2401,7 @@ sub_080436C0: @ 0x080436C0
 	str r5, [r0, #0x64]
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #4]
-	bl sub_0805E7BC
+	bl DeleteEntity
 _080436FC:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -2431,7 +2431,7 @@ sub_08043700: @ 0x08043700
 	str r5, [r0, #0x64]
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_0805E7BC
+	bl DeleteEntity
 _08043734:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -2461,7 +2461,7 @@ sub_08043738: @ 0x08043738
 	str r5, [r0, #0x64]
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #0xc]
-	bl sub_0805E7BC
+	bl DeleteEntity
 _0804376C:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -3327,7 +3327,7 @@ sub_08043DB0: @ 0x08043DB0
 	adds r1, #2
 	movs r2, #3
 	movs r3, #3
-	bl sub_0800293E
+	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _08043EAC
 	ldr r0, _08043E50 @ =gUnk_080D13EC
