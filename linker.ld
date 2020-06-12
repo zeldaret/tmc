@@ -490,7 +490,7 @@ SECTIONS {
 		asm/stockwell.o(.text);
 		asm/talon.o(.text);
 		asm/malon.o(.text);
-		asm/epona.o(.text);
+		src/epona.o(.text);
 		src/milkCart.o(.text);
 		asm/ghostBrothers.o(.text);
 		asm/smith.o(.text);

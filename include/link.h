@@ -25,14 +25,16 @@ typedef struct {
 	u8 *unk4;
     union {
         u32 all;
-        u32 filler9:3;
-	    u32 noMinishCap:1;
-	    u32 pullingState:1;
-	    u32 windyState:1;
-	    u32 filler10:4;
-	    u32 slipperyState:1;
-	    u32 filler11:5;
-	    u32 filler11b:16;
+		struct {
+        	u32 filler9:3;
+	    	u32 noMinishCap:1;
+	    	u32 pullingState:1;
+	    	u32 windyState:1;
+	    	u32 filler10:4;
+	    	u32 slipperyState:1;
+	    	u32 filler11:5;
+	    	u32 filler11b:16;
+		} PACKED b;
     } flags;
 	u8 filler12[6];
 	u16 unk5;
