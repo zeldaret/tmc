@@ -643,7 +643,7 @@ SECTIONS {
 		asm/macroLink.o(.text);
 		asm/object3D.o(.text);
 		asm/object3E.o(.text);
-		asm/giantLeaf.o(.text);
+		src/giantLeaf.o(.text);
 		asm/fairy.o(.text);
 		asm/ladderUp.o(.text);
 		asm/object42.o(.text);
@@ -765,7 +765,7 @@ SECTIONS {
 		asm/windTribeTeleporter.o(.text);
 		asm/objectB9.o(.text);
 		asm/objectBA.o(.text);
-		asm/windCrest.o(.text);
+		asm/windcrest.o(.text);
 		asm/litArea.o(.text);
 		asm/objectBD.o(.text);
 		asm/pinwheel.o(.text);

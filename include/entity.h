@@ -57,7 +57,8 @@ typedef struct Entity
     struct {
         u8 b0:2;
         u8 b1:2;
-        u8 b2:4;
+        u8 b2:2;
+        u8 b3:2;
     } __attribute__((packed)) spriteOrder;
     u8 palette;
     struct {
