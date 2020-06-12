@@ -643,7 +643,7 @@ SECTIONS {
 		asm/macroLink.o(.text);
 		asm/object3D.o(.text);
 		asm/object3E.o(.text);
-		asm/giantLeaf.o(.text);
+		src/giantLeaf.o(.text);
 		asm/fairy.o(.text);
 		asm/ladderUp.o(.text);
 		asm/object42.o(.text);
