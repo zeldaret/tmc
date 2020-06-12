@@ -644,7 +644,7 @@ SECTIONS {
 		asm/macroLink.o(.text);
 		asm/object3D.o(.text);
 		asm/object3E.o(.text);
-		asm/giantLeaf.o(.text);
+		src/giantLeaf.o(.text);
 		asm/fairy.o(.text);
 		asm/ladderUp.o(.text);
 		asm/object42.o(.text);
@@ -698,7 +698,7 @@ SECTIONS {
 		asm/object72.o(.text);
 		asm/lilypadSmall.o(.text);
 		asm/object74.o(.text);
-		asm/bell.o(.text);
+		src/bell.o(.text);
 		asm/macroDecorations.o(.text);
 		asm/object79.o(.text);
 		asm/steam.o(.text);
@@ -762,7 +762,7 @@ SECTIONS {
 		asm/objectB4.o(.text);
 		asm/objectB5.o(.text);
 		asm/objectB6.o(.text);
-		asm/well.o(.text);
+		src/well.o(.text);
 		asm/windTribeTeleporter.o(.text);
 		asm/objectB9.o(.text);
 		asm/objectBA.o(.text);

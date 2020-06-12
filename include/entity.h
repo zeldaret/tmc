@@ -64,8 +64,10 @@ typedef struct Entity
     struct {
         u8 b0:2;
         u8 b1:2;
-        u8 b2:4;
+        u8 b2:2;
+		u8 b3:2;
     } PACKED spriteOrder;
+
     u8 palette;
     struct {
         u8 b0:4;
@@ -132,7 +134,8 @@ typedef struct Entity
 	u8 filler3[2];
 	u16 itemCooldown;
 	u32 field_0x7c;
-	u32 field_0x80;
+	u16 field_0x80;
+    u16 field_0x82;
 	union SplitHWord cutsceneBeh;
     u16 field_0x86;
 	
