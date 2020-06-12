@@ -255,7 +255,7 @@ sub_08030BEC: @ 0x08030BEC
 	ldrh r0, [r1]
 	cmp r0, #0
 	beq _08030C08
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08030C08
 	adds r0, r4, #0

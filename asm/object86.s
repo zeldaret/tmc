@@ -60,7 +60,7 @@ sub_08099E10: @ 0x08099E10
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	movs r0, #0x74
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _08099E54
 	adds r0, r4, #0
@@ -141,7 +141,7 @@ sub_08099E8C: @ 0x08099E8C
 	bl sub_0805E4E0
 _08099EB2:
 	movs r0, #0x75
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _08099EC2
 	movs r0, #7

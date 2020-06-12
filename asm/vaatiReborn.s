@@ -184,7 +184,7 @@ sub_0806B7BC: @ 0x0806B7BC
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r0, #3
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	bne _0806B7CC
 	b _0806B968
@@ -354,7 +354,7 @@ _0806B906:
 	cmp r0, #0
 	beq _0806B91E
 	movs r0, #0
-	bl sub_0807CD10
+	bl SetRoomFlag
 	bl sub_0805E780
 _0806B91E:
 	ldrb r0, [r5, #0xf]

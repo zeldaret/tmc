@@ -228,24 +228,24 @@ _080696CA:
 	movs r5, #2
 _080696D0:
 	movs r0, #0x3e
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	rsbs r1, r0, #0
 	orrs r1, r0
 	lsrs r4, r1, #0x1f
 	movs r0, #0x3f
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _080696E8
 	movs r4, #2
 _080696E8:
 	movs r0, #0x40
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _080696F4
 	movs r4, #3
 _080696F4:
 	movs r0, #0x41
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _08069700
 	movs r4, #4

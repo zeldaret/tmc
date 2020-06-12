@@ -85,7 +85,7 @@ _0809AFC4:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _0809B010
 	movs r3, #0x80
@@ -296,7 +296,7 @@ _0809B178:
 	ldr r0, [r1, #0x50]
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	b _0809B228
 	.align 2, 0
 _0809B1B4: .4byte 0x00004082
@@ -327,7 +327,7 @@ _0809B1C0:
 	ldr r0, [r1, #0x50]
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CD48
+	bl ClearFlag
 	b _0809B228
 	.align 2, 0
 _0809B1FC: .4byte 0x00004082

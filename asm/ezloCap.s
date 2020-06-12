@@ -362,23 +362,23 @@ _0806DB00: @ jump table
 	.4byte _0806DB34 @ case 4
 _0806DB14:
 	movs r0, #0xee
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806DB3A
 _0806DB1C:
 	movs r0, #0xef
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806DB3A
 _0806DB24:
 	movs r0, #0xf0
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806DB3A
 _0806DB2C:
 	movs r0, #0xf1
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806DB3A
 _0806DB34:
 	movs r0, #0xf2
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0806DB3A:
 	movs r0, #0xcd
 	bl PlaySFX
@@ -392,23 +392,23 @@ sub_0806DB44: @ 0x0806DB44
 	movs r0, #0
 	str r0, [r4, #0x14]
 	movs r0, #0xee
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0806DB82
 	movs r0, #0xef
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0806DB82
 	movs r0, #0xf0
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0806DB82
 	movs r0, #0xf1
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0806DB82
 	movs r0, #0xf2
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0806DB82
 	movs r0, #1

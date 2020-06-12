@@ -91,7 +91,7 @@ sub_0808886C: @ 0x0808886C
 	adds r0, r5, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	ldr r0, _080888B4 @ =0x0000016B
 	bl sub_08004488
 	b _080888F2
@@ -156,7 +156,7 @@ sub_080888F4: @ 0x080888F4
 	adds r0, r5, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CD48
+	bl ClearFlag
 	adds r0, r5, #0
 	adds r1, r4, #0
 	bl UpdateSprite

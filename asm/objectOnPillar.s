@@ -26,7 +26,7 @@ sub_08096E28: @ 0x08096E28
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _08096EBC
@@ -502,7 +502,7 @@ _080971B8:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	ldr r0, _080971D8 @ =0x0000010B
 	bl sub_08004488
 	adds r0, r4, #0
@@ -706,7 +706,7 @@ _08097350:
 	cmp r0, r3
 	bne _08097364
 	ldrb r0, [r1, #1]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	b _0809736E
 	.align 2, 0
 _08097360: .4byte gUnk_02017660

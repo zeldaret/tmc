@@ -269,7 +269,7 @@ sub_08064F28: @ 0x08064F28
 	adds r0, r0, r1
 	ldrb r7, [r0]
 	adds r0, r7, #0
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	bne _08064F84
 	ldr r4, _08064F64 @ =gUnk_02002A40
@@ -302,7 +302,7 @@ _08064F7E:
 	b _08064FD2
 _08064F84:
 	movs r0, #0x3a
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _08064FCE
 	ldr r0, _08064FB0 @ =gUnk_02002A40
@@ -316,7 +316,7 @@ _08064F84:
 	movs r5, #8
 	movs r4, #0
 	movs r0, #0x3a
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	movs r0, #1
 	mov r1, r8
 	str r0, [r1, #0x14]
@@ -360,18 +360,18 @@ _08064FD2:
 	str r0, [r1, #0x10]
 _08064FF4:
 	adds r0, r7, #0
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	bne _08065010
 	adds r0, r7, #0
-	bl sub_0807CD10
+	bl SetRoomFlag
 	b _08065016
 	.align 2, 0
 _08065008: .4byte gUnk_0810FC08
 _0806500C: .4byte gTextBox
 _08065010:
 	adds r0, r7, #0
-	bl sub_0807CD8C
+	bl ClearRoomFlag
 _08065016:
 	pop {r3}
 	mov r8, r3

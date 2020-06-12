@@ -2,7 +2,7 @@
 /* called when loading any room */
 
 	void LoadRoomEntityList();
-	s32 GetProgressFlag(u32 flag);
+	s32 CheckGlobalFlag(u32 flag);
 	extern s32* sub_0804B128(u8 unk);
 	extern void sub_0804B058(s32 *unk);
 	extern void sub_0804B1AC();
@@ -20,7 +20,7 @@ void LoadRoom(void)
 	sub_0804B128(0);
 	LoadRoomEntityList();
 	
-    iVar1 = GetProgressFlag(21);
+    iVar1 = CheckGlobalFlag(21);
     if (iVar1 != 0) {
         dat = sub_0804B128(2);   
 		sub_0804B058(dat);

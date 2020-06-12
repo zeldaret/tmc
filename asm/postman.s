@@ -751,7 +751,7 @@ _080609A8:
 CreateZeldaFollower: @ 0x080609AC
 	push {r4, lr}
 	movs r0, #0x1c
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _080609E0
 	movs r0, #0x2e

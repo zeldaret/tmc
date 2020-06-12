@@ -15,7 +15,7 @@ sub_080910A0: @ 0x080910A0
 	cmp r0, #0
 	bne _080910C8
 	ldrb r0, [r4, #0xa]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _080910B8
 	bl sub_0805E780

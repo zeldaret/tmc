@@ -31,7 +31,7 @@ sub_080A0684: @ 0x080A0684
 	cmp r1, r0
 	beq _080A06A2
 	adds r0, r1, #0
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080A06A2
 	bl sub_0805E780
@@ -186,7 +186,7 @@ sub_080A07BC: @ 0x080A07BC
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080A07EA
 	movs r0, #4

@@ -1269,7 +1269,7 @@ sub_080A5F24: @ 0x080A5F24
 	movs r0, #0x8c
 	lsls r0, r0, #4
 	movs r1, #0x7b
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _080A5F40
 	movs r4, #0
@@ -2360,7 +2360,7 @@ _080A67E0:
 	b _080A6822
 _080A67E6:
 	movs r0, #0x18
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _080A6822
 	movs r5, #0x70
@@ -4995,7 +4995,7 @@ _080A7CB0:
 	cmp r2, #0
 	beq _080A7CD2
 	ldrb r0, [r4, #1]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	ldrb r0, [r4, #2]
 	ldrb r1, [r4, #3]
 	movs r2, #0
@@ -6122,7 +6122,7 @@ sub_080A84C8: @ 0x080A84C8
 	subs r0, #4
 	strh r0, [r4, #0x36]
 	movs r0, #0x15
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080A84F0
 	adds r1, r4, #0
@@ -10375,7 +10375,7 @@ _080AA4AA:
 	bne _080AA4A8
 _080AA4B6:
 	ldrh r0, [r5, #0x24]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080AA4EE
 	cmp r4, #4
@@ -10525,7 +10525,7 @@ _080AA5BA:
 	adds r1, r7, #0
 	bl sub_080AA654
 	ldrh r0, [r6, #0x24]
-	bl sub_0807CCC8
+	bl SetFlag
 	b _080AA648
 	.align 2, 0
 _080AA5E8: .4byte gUnk_08129FF8
@@ -10570,7 +10570,7 @@ _080AA618:
 	ldrb r1, [r1]
 	bl sub_0807BA8C
 	ldrh r0, [r6, #0x24]
-	bl sub_0807CCC8
+	bl SetFlag
 _080AA648:
 	pop {r3, r4}
 	mov r8, r3
@@ -10830,7 +10830,7 @@ sub_080AA834: @ 0x080AA834
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080AA848
 	bl sub_0805E780
@@ -11158,7 +11158,7 @@ sub_080AAAA8: @ 0x080AAAA8
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	movs r1, #0x2e
 	ldrsh r0, [r4, r1]
 	ldr r2, _080AAAE4 @ =gRoomControls

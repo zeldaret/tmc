@@ -200,7 +200,7 @@ sub_0808B9D4: @ 0x0808B9D4
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _0808BA0A
 	movs r1, #0

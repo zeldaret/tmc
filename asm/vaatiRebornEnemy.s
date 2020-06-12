@@ -69,7 +69,7 @@ sub_0803D134: @ 0x0803D134
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	movs r0, #0x7b
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0803D146
 	bl sub_0805E780
@@ -77,7 +77,7 @@ _0803D146:
 	adds r0, r5, #0
 	bl sub_0804A720
 	movs r0, #0
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	bne _0803D158
 	b _0803D25A
@@ -87,7 +87,7 @@ _0803D158:
 	cmp r0, #0x41
 	bhi _0803D25A
 	movs r0, #0
-	bl sub_0807CD8C
+	bl ClearRoomFlag
 	movs r2, #0
 	movs r0, #3
 	strb r0, [r5, #0xc]
@@ -1109,7 +1109,7 @@ sub_0803D8FC: @ 0x0803D8FC
 	cmp r0, #0
 	bne _0803D918
 	movs r0, #1
-	bl sub_0807CD10
+	bl SetRoomFlag
 	b _0803D968
 _0803D918:
 	movs r0, #7

@@ -58,7 +58,7 @@ sub_0808A71C: @ 0x0808A71C
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0808A760
 	strb r5, [r4, #0xa]
@@ -72,7 +72,7 @@ _0808A764:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 _0808A76E:
 	adds r0, r4, #0
 	bl sub_0808A7D8
@@ -109,15 +109,15 @@ sub_0808A778: @ 0x0808A778
 	adds r4, r5, #0
 	adds r4, #0x86
 	ldrh r0, [r4]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0808A7C2
 	ldrh r0, [r4]
-	bl sub_0807CD48
+	bl ClearFlag
 	b _0808A7C8
 _0808A7C2:
 	ldrh r0, [r4]
-	bl sub_0807CCC8
+	bl SetFlag
 _0808A7C8:
 	ldr r1, _0808A7D4 @ =0x00000117
 	adds r0, r5, #0

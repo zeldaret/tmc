@@ -57,7 +57,7 @@ sub_080886A4: @ 0x080886A4
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08088704
 	strb r6, [r4, #0xc]
@@ -113,7 +113,7 @@ _08088728:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 _0808875A:
 	pop {r4, pc}
 	.align 2, 0
@@ -162,7 +162,7 @@ sub_08088790: @ 0x08088790
 	cmp r1, r0
 	beq _080887BC
 	ldrh r0, [r2]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080887BC
 	movs r0, #0
@@ -180,7 +180,7 @@ _080887BC:
 	movs r0, #4
 	strb r0, [r4, #0xc]
 	ldrh r0, [r5]
-	bl sub_0807CD48
+	bl ClearFlag
 _080887D6:
 	pop {r4, r5, pc}
 

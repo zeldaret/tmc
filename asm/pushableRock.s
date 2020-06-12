@@ -239,11 +239,11 @@ _0808A69E:
 	adds r5, r4, #0
 	adds r5, #0x86
 	ldrh r0, [r5]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _0808A6D8
 	ldrh r0, [r5]
-	bl sub_0807CCC8
+	bl SetFlag
 	movs r0, #0xcd
 	bl PlaySFX
 	adds r0, r4, #0

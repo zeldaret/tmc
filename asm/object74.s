@@ -40,7 +40,7 @@ sub_08097B84: @ 0x08097B84
 	cmp r1, r0
 	beq _08097BB0
 	adds r0, r1, #0
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08097BD4
 _08097BB0:
@@ -71,7 +71,7 @@ sub_08097BDC: @ 0x08097BDC
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08097C10
 	movs r0, #1
@@ -164,7 +164,7 @@ sub_08097C20: @ 0x08097C20
 	movs r0, #0x72
 	bl PlaySFX
 	movs r0, #0x63
-	bl sub_0807CD04
+	bl SetGlobalFlag
 _08097CA6:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

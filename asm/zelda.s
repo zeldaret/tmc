@@ -135,7 +135,7 @@ sub_08066D94: @ 0x08066D94
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r0, #0x1c
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	movs r0, #0x2e
 	movs r1, #0
 	movs r2, #0

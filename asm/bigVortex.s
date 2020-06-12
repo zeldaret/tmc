@@ -43,7 +43,7 @@ sub_08098D1C: @ 0x08098D1C
 	ldrh r0, [r0]
 	cmp r0, #0
 	beq _08098D44
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _08098D44
 	strb r5, [r4, #0xc]
@@ -76,7 +76,7 @@ sub_08098D6C: @ 0x08098D6C
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08098D9A
 	movs r0, #2
@@ -160,7 +160,7 @@ sub_08098DC4: @ 0x08098DC4
 	cmp r0, #1
 	bne _08098E20
 	movs r0, #0x23
-	bl sub_0807CD04
+	bl SetGlobalFlag
 _08098E20:
 	bl sub_08077B20
 _08098E24:

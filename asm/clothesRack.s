@@ -31,18 +31,18 @@ sub_0806DD90: @ 0x0806DD90
 	movs r0, #1
 	strb r0, [r7, #0xc]
 	movs r0, #0x3b
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	rsbs r1, r0, #0
 	orrs r1, r0
 	lsrs r4, r1, #0x1f
 	movs r0, #0x3c
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0806DDB8
 	movs r4, #2
 _0806DDB8:
 	movs r0, #0x3d
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0806DDC4
 	movs r4, #3

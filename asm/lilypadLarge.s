@@ -44,7 +44,7 @@ _08085520:
 	cmp r0, #0x1b
 	beq _08085544
 	ldrb r0, [r4, #0xb]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08085552
 	movs r0, #5
@@ -54,7 +54,7 @@ _08085520:
 _08085540: .4byte gUnk_02033A90
 _08085544:
 	ldrb r0, [r4, #0xb]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08085552
 	bl sub_0805E780
@@ -809,7 +809,7 @@ _08085ACC:
 	movs r0, #0x46
 	strh r0, [r1]
 	movs r0, #0x73
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _08085B22
 	.align 2, 0
 _08085B00: .4byte 0x007FFFFF
@@ -1076,7 +1076,7 @@ sub_08085D10: @ 0x08085D10
 	cmp r0, #0
 	beq _08085D26
 	ldrb r0, [r4, #0xb]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	bl sub_0805E780
 _08085D26:
 	pop {r4, pc}

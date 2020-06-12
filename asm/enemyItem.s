@@ -13,7 +13,7 @@ sub_080A2448: @ 0x080A2448
 	adds r5, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080A245E
 	adds r0, r5, #0

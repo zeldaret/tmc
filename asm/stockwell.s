@@ -553,7 +553,7 @@ _0806543C:
 	mov r0, sb
 	cmp r0, #0
 	beq _0806547C
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0806547C:
 	ldr r1, [r7, #0x5c]
 	movs r0, #2

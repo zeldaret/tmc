@@ -99,7 +99,7 @@ sub_0803F818: @ 0x0803F818
 	adds r5, r0, #0
 	bl sub_0804A720
 	movs r0, #0
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _0803F910
 	ldr r0, _0803F8FC @ =gUnk_03003DBC
@@ -1210,7 +1210,7 @@ sub_0804006C: @ 0x0804006C
 	cmp r0, #0
 	bne _080400C2
 	movs r0, #2
-	bl sub_0807CD10
+	bl SetRoomFlag
 	movs r0, #8
 	strb r0, [r4, #0xf]
 	b _080400BA

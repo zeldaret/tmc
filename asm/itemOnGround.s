@@ -671,7 +671,7 @@ sub_08080F20: @ 0x08080F20
 	ldrh r0, [r1]
 	cmp r0, #0
 	beq _08080F3A
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08080F3A
 	bl sub_0805E780
@@ -1312,7 +1312,7 @@ sub_08081404: @ 0x08081404
 	ldrh r0, [r1]
 	cmp r0, #0
 	beq _08081418
-	bl sub_0807CCC8
+	bl SetFlag
 _08081418:
 	bl sub_0805E780
 	pop {pc}

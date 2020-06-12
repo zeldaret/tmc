@@ -180,16 +180,16 @@ sub_0806387C: @ 0x0806387C
 	adds r6, r0, #0
 	movs r4, #3
 	movs r0, #0xda
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08063896
 	movs r4, #0
 	movs r0, #0xda
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _080638D6
 _08063896:
 	movs r0, #0xd1
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _080638D6
 	movs r5, #0
@@ -210,7 +210,7 @@ _080638B2:
 	ble _080638D6
 	movs r4, #2
 	movs r0, #0xd1
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	ldr r0, _080638FC @ =0x00000A17
 	movs r1, #1
 	bl sub_0807BA8C
@@ -247,12 +247,12 @@ sub_0806390C: @ 0x0806390C
 	adds r4, r0, #0
 	movs r5, #1
 	movs r0, #0xd9
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806392E
 	movs r5, #0
 	movs r0, #0xd9
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldr r1, [r0]

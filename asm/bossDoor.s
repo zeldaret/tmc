@@ -31,7 +31,7 @@ sub_0808C1FC: @ 0x0808C1FC
 	cmp r1, r0
 	beq _0808C21A
 	adds r0, r1, #0
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0808C21A
 	bl sub_0805E780
@@ -41,7 +41,7 @@ _0808C21A:
 	ldrh r0, [r1]
 	cmp r0, #0
 	beq _0808C230
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0808C230
 	bl sub_0805E780
@@ -181,7 +181,7 @@ sub_0808C320: @ 0x0808C320
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 _0808C344:
 	pop {r4, pc}
 	.align 2, 0
@@ -371,7 +371,7 @@ sub_0808C4A4: @ 0x0808C4A4
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0808C4B8
 	movs r0, #2

@@ -25,7 +25,7 @@ sub_0809BECC: @ 0x0809BECC
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x9b
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809BEDE
 	bl sub_0805E780
@@ -69,7 +69,7 @@ sub_0809BF1C: @ 0x0809BF1C
 	movs r3, #0
 	bl sub_0805EC9C
 	movs r0, #0x37
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809BF6C
 	movs r0, #0x90
@@ -120,7 +120,7 @@ sub_0809BF74: @ 0x0809BF74
 	adds r0, r7, #0
 	bl sub_0809C23C
 	movs r0, #0x9b
-	bl sub_0807CBE4
+	bl CheckFlags
 	bl sub_0805E780
 	b _0809C09A
 _0809BFA0:

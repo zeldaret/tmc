@@ -197,7 +197,7 @@ sub_0806673C: @ 0x0806673C
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #2
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0806674E
 	movs r1, #0

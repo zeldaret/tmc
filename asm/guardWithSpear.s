@@ -188,7 +188,7 @@ sub_08063E54: @ 0x08063E54
 	cmp r1, #0
 	bne _08063E68
 	movs r0, #0xf
-	bl sub_0807CD10
+	bl SetRoomFlag
 _08063E68:
 	pop {pc}
 	.align 2, 0
@@ -926,7 +926,7 @@ sub_080643D8: @ 0x080643D8
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #2
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080643EA
 	movs r3, #0

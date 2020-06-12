@@ -479,7 +479,7 @@ sub_0802D3B8: @ 0x0802D3B8
 	push {r7}
 	adds r4, r0, #0
 	movs r0, #3
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0802D3DE
 	ldr r2, _0802D3F4 @ =gScreen

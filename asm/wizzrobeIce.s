@@ -454,7 +454,7 @@ sub_08030118: @ 0x08030118
 	lsls r0, r0, #2
 	adds r1, r2, #0
 	adds r1, #0x67
-	bl sub_0807CC9C
+	bl SetLocalFlagByOffset
 	b _0803014C
 	.align 2, 0
 _0803013C: .4byte gUnk_030010A0
@@ -463,7 +463,7 @@ _08030140:
 	lsls r0, r0, #2
 	adds r1, r2, #0
 	adds r1, #0x67
-	bl sub_0807CD20
+	bl ClearLocalFlagByOffset
 _0803014C:
 	pop {pc}
 	.align 2, 0

@@ -194,12 +194,12 @@ sub_0806B504: @ 0x0806B504
 	b _0806B52A
 _0806B518:
 	movs r0, #0x86
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806B52A
 	movs r4, #0
 	movs r0, #0x86
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0806B52A:
 	ldr r0, _0806B53C @ =gUnk_08112E54
 	lsls r1, r4, #1
@@ -236,14 +236,14 @@ _0806B562:
 	adds r1, r2, #0
 	bl TextboxNoOverlap
 	movs r0, #0x3f
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806B606
 	ldrb r0, [r4, #0x18]
 	adds r0, #1
 	strb r0, [r4, #0x18]
 	movs r0, #0x3f
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806B600
 	.align 2, 0
 _0806B584: .4byte 0x00002312
@@ -292,7 +292,7 @@ _0806B5DC:
 	bl sub_080A7C18
 _0806B5E6:
 	movs r0, #0xf
-	bl sub_0807CD10
+	bl SetRoomFlag
 	b _0806B600
 _0806B5EE:
 	ldr r0, _0806B5FC @ =gLinkEntity

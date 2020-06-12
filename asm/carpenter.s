@@ -193,7 +193,7 @@ sub_080672C8: @ 0x080672C8
 	cmp r0, #0
 	bne _080672E4
 	movs r0, #0x15
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	rsbs r1, r0, #0
 	orrs r1, r0
 	lsrs r4, r1, #0x1f

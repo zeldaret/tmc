@@ -29,7 +29,7 @@ sub_08092B8C: @ 0x08092B8C
 	ldrh r0, [r1]
 	cmp r0, #0
 	beq _08092BA6
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08092BA6
 	bl sub_0805E780
@@ -86,7 +86,7 @@ sub_08092BF8: @ 0x08092BF8
 	ldrh r0, [r1]
 	cmp r0, #0
 	beq _08092C20
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08092C20
 	movs r0, #2

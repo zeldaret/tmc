@@ -26,7 +26,7 @@ sub_08092050: @ 0x08092050
 	adds r6, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809207A
 	movs r0, #3
@@ -146,7 +146,7 @@ sub_0809214C: @ 0x0809214C
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08092160
 	movs r0, #2

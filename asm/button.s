@@ -79,7 +79,7 @@ _08081B0E:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08081B70
 	movs r0, #5
@@ -239,7 +239,7 @@ _08081C70:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CD48
+	bl ClearFlag
 	adds r0, r4, #0
 	adds r0, #0x74
 	ldrh r1, [r0]
@@ -672,7 +672,7 @@ _08081FA4:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	adds r6, r4, #0
 	adds r6, #0x74
 	ldrh r1, [r6]

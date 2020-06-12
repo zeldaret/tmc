@@ -110,7 +110,7 @@ sub_08028994: @ 0x08028994
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080289FC
 _080289D4:
@@ -446,7 +446,7 @@ _08028C66:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	adds r0, r4, #0
 	bl sub_0802925C
 _08028C76:
@@ -585,7 +585,7 @@ _08028D70:
 	movs r1, #3
 	bl sub_080290E0
 	movs r0, #0x87
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _08028DE2
 	.align 2, 0
 _08028D98: .4byte gUnk_080CC9C0
@@ -687,11 +687,11 @@ sub_08028E40: @ 0x08028E40
 	movs r0, #1
 	strb r0, [r4, #0xe]
 	ldrh r0, [r5, #0xa]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08028E6C
 	ldrh r0, [r5, #0xa]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _08028E6C:
 	movs r0, #0
 	bl sub_08078A90
@@ -1118,7 +1118,7 @@ _0802917E:
 	b _0802918C
 _08029186:
 	movs r0, #0x5a
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 _0802918C:
 	cmp r0, #0
 	bne _08029194
@@ -1153,14 +1153,14 @@ _080291B6:
 	b _080291D8
 _080291BC:
 	movs r0, #0x5a
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	b _080291D0
 _080291C4:
 	bl GetInventoryValue
 	b _080291D0
 _080291CA:
 	ldrh r0, [r2, #0xa]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 _080291D0:
 	cmp r0, #0
 	beq _080291D8
@@ -1235,7 +1235,7 @@ sub_0802922C: @ 0x0802922C
 	cmp r0, #0x1c
 	bne _08029252
 	movs r0, #0x5a
-	bl sub_0807CD04
+	bl SetGlobalFlag
 _08029252:
 	adds r0, r4, #0
 	movs r1, #3

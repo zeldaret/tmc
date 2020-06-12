@@ -93,7 +93,7 @@ sub_0806B260: @ 0x0806B260
 	cmp r0, #0
 	bne _0806B29E
 	movs r0, #0x29
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0806B286
 	movs r4, #2
@@ -102,12 +102,12 @@ sub_0806B260: @ 0x0806B260
 	b _0806B2A0
 _0806B286:
 	movs r0, #0x7a
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806B29A
 	movs r4, #0
 	movs r0, #0x7a
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806B2A0
 _0806B29A:
 	movs r4, #1
@@ -130,43 +130,43 @@ sub_0806B2B4: @ 0x0806B2B4
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r0, #0xb3
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0806B314
 	movs r0, #0
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	bne _0806B2D6
 	movs r4, #1
 	movs r0, #0
-	bl sub_0807CD10
+	bl SetRoomFlag
 	b _0806B316
 _0806B2D6:
 	movs r0, #1
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	bne _0806B2EA
 	movs r4, #2
 	movs r0, #1
-	bl sub_0807CD10
+	bl SetRoomFlag
 	b _0806B316
 _0806B2EA:
 	movs r0, #2
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	bne _0806B2FE
 	movs r4, #3
 	movs r0, #2
-	bl sub_0807CD10
+	bl SetRoomFlag
 	b _0806B316
 _0806B2FE:
 	movs r4, #4
 	movs r0, #0
-	bl sub_0807CD8C
+	bl ClearRoomFlag
 	movs r0, #1
-	bl sub_0807CD8C
+	bl ClearRoomFlag
 	movs r0, #2
-	bl sub_0807CD8C
+	bl ClearRoomFlag
 	b _0806B316
 _0806B314:
 	movs r4, #0

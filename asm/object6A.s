@@ -806,7 +806,7 @@ _08095040:
 	movs r0, #4
 	strb r0, [r4, #0xc]
 	movs r0, #0x5b
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _08095086
 	movs r0, #0x1c
@@ -814,7 +814,7 @@ _08095040:
 	movs r2, #0
 	bl sub_080A7C00
 	movs r0, #0x5b
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	movs r0, #0x3c
 	strb r0, [r4, #0xe]
 	b _08095086
@@ -2872,14 +2872,14 @@ sub_08096028: @ 0x08096028
 	lsls r5, r5, #2
 	adds r0, r5, #0
 	movs r1, #0x7b
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	bne _0809603E
 	movs r4, #4
 _0809603E:
 	adds r0, r5, #0
 	movs r1, #0x7a
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	bne _0809604C
 	movs r4, #3

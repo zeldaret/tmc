@@ -225,7 +225,7 @@ sub_0809D0AC: @ 0x0809D0AC
 	adds r0, #0x38
 	strb r1, [r0]
 	movs r0, #0x45
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	movs r0, #0x72
 	bl PlaySFX
 	adds r0, r4, #0
@@ -868,7 +868,7 @@ _0809D5E6:
 	movs r0, #0
 	strb r0, [r1]
 	movs r0, #0x52
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0809D62E
 	movs r0, #0x69
@@ -884,7 +884,7 @@ _0809D5E6:
 	adds r1, #0x84
 	str r0, [r1]
 	movs r0, #0x52
-	bl sub_0807CD04
+	bl SetGlobalFlag
 _0809D62E:
 	adds r0, r5, #0
 	bl sub_0806F69C

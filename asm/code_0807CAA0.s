@@ -65,8 +65,8 @@ _0807CB04: .4byte gUnk_02002A40
 _0807CB08: .4byte gUnk_02033A90
 _0807CB0C: .4byte 0x0000047C
 
-	thumb_func_start GetProgressFlagWithOffset
-GetProgressFlagWithOffset: @ 0x0807CB10
+	thumb_func_start CheckLocalFlagByOffset
+CheckLocalFlagByOffset: @ 0x0807CB10
 	push {lr}
 	adds r2, r0, #0
 	ldr r0, _0807CB20 @ =gUnk_02002C9C
@@ -119,7 +119,7 @@ _0807CB88:
 	adds r1, r1, r0
 	ldrh r0, [r1]
 	adds r1, r3, #0
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 _0807CB96:
 	adds r1, r0, #0
 	b _0807CBCA
@@ -152,19 +152,19 @@ _0807CBCA:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0807CBD0
-sub_0807CBD0: @ 0x0807CBD0
+	thumb_func_start CheckLocalFlag
+CheckLocalFlag: @ 0x0807CBD0
 	push {lr}
 	adds r1, r0, #0
 	ldr r0, _0807CBE0 @ =gUnk_02033A90
 	ldrh r0, [r0, #4]
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	pop {pc}
 	.align 2, 0
 _0807CBE0: .4byte gUnk_02033A90
 
-	thumb_func_start sub_0807CBE4
-sub_0807CBE4: @ 0x0807CBE4
+	thumb_func_start CheckFlags
+CheckFlags: @ 0x0807CBE4
 	push {lr}
 	ldr r3, _0807CC14 @ =0x000003FF
 	ands r3, r0
@@ -185,19 +185,19 @@ sub_0807CBE4: @ 0x0807CBE4
 	bne _0807CC2C
 	adds r0, r3, #0
 	adds r1, r2, #0
-	bl sub_0807CC88
+	bl CheckRoomFlags
 	b _0807CC2E
 	.align 2, 0
 _0807CC14: .4byte 0x000003FF
 _0807CC18:
 	adds r0, r3, #0
 	adds r1, r2, #0
-	bl sub_0807CC60
+	bl CheckLocalFlags
 	b _0807CC2E
 _0807CC22:
 	adds r0, r3, #0
 	adds r1, r2, #0
-	bl sub_0807CC78
+	bl CheckGlobalFlags
 	b _0807CC2E
 _0807CC2C:
 	movs r0, #0

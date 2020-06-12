@@ -127,12 +127,12 @@ _0806C048:
 	bne _0806C078
 	movs r4, #6
 	movs r0, #0xaf
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806C086
 	movs r4, #5
 	movs r0, #0xaf
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806C086
 	.align 2, 0
 _0806C074: .4byte gUnk_02002A40

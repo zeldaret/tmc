@@ -200,7 +200,7 @@ _080A1088:
 	cmp r0, #3
 	bne _080A10A2
 	movs r0, #0xf9
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _080A10A2:
 	ldrb r1, [r4, #0xb]
 	lsls r0, r1, #2

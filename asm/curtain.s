@@ -80,7 +80,7 @@ sub_08048224: @ 0x08048224
 	orrs r1, r0
 	strb r1, [r2]
 	movs r0, #0x72
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	adds r1, r0, #0
 	cmp r1, #0
 	bne _0804824E
@@ -142,7 +142,7 @@ sub_08048294: @ 0x08048294
 	movs r0, #3
 	strb r0, [r4, #0xc]
 	movs r0, #0x72
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	adds r0, r4, #0
 	movs r1, #1
 	bl UpdateSprite

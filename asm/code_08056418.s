@@ -2466,7 +2466,7 @@ _080576EC:
 	ldrb r0, [r4, #0xa]
 	strb r0, [r5, #0x17]
 	movs r0, #0x14
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _08057740
 	movs r0, #1
@@ -3027,7 +3027,7 @@ _08057B54:
 	cmp r1, #2
 	bne _08057B9A
 	ldrh r0, [r5, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08057B9A
 	ldrh r0, [r5, #0x32]
@@ -3075,7 +3075,7 @@ sub_08057BA4: @ 0x08057BA4
 	movs r0, #8
 	strb r0, [r4, #0xe]
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08057BF6
 	ldrh r0, [r4, #0x32]
@@ -3134,7 +3134,7 @@ sub_08057C28: @ 0x08057C28
 	cmp r0, #0
 	bne _08057C44
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08057C9C
 	ldrb r0, [r4, #0xd]
@@ -4085,7 +4085,7 @@ sub_08058398: @ 0x08058398
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080583AA
 	bl sub_0805E780
@@ -4130,7 +4130,7 @@ sub_080583EC: @ 0x080583EC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08058404
 	movs r0, #2
@@ -4327,7 +4327,7 @@ _08058590:
 	strb r1, [r0]
 	bl UnfreezeTime
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CCC8
+	bl SetFlag
 	bl sub_0805E780
 _080585A6:
 	pop {r4, pc}
@@ -4347,7 +4347,7 @@ sub_080585B0: @ 0x080585B0
 	bl sub_0805E780
 _080585C2:
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080585D4
 	bl sub_0801855C
@@ -4361,7 +4361,7 @@ _080585D8: .4byte gUnk_02033A90
 sub_080585DC: @ 0x080585DC
 	push {lr}
 	ldrh r0, [r0, #0x3c]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080585EC
 	bl sub_0805E780
@@ -4400,7 +4400,7 @@ sub_08058620: @ 0x08058620
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _08058648
 	movs r0, #1
@@ -4426,7 +4426,7 @@ sub_08058650: @ 0x08058650
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08058698
 	adds r0, r4, #0
@@ -4472,7 +4472,7 @@ sub_080586A8: @ 0x080586A8
 	cmp r0, #0
 	bne _080586E4
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CCC8
+	bl SetFlag
 	ldrh r0, [r4, #0x3c]
 	cmp r0, #0
 	beq _080586E0
@@ -4733,7 +4733,7 @@ sub_08058894: @ 0x08058894
 	str r0, [r4, #0x28]
 	movs r0, #0x15
 	movs r1, #2
-	bl sub_0807CC60
+	bl CheckLocalFlags
 	rsbs r1, r0, #0
 	orrs r1, r0
 	lsrs r1, r1, #0x1f
@@ -4949,7 +4949,7 @@ sub_08058A04: @ 0x08058A04
 	cmp r0, #0xc
 	bhi _08058A78
 	movs r0, #0x17
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _08058A78
 	mov r0, r8
@@ -5379,7 +5379,7 @@ sub_08058D34: @ 0x08058D34
 	ldr r0, _08058DCC @ =gUnk_02000070
 	strb r4, [r0]
 	movs r0, #0x17
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _08058DA8
 	movs r0, #0x4a
@@ -5415,7 +5415,7 @@ sub_08058DE8: @ 0x08058DE8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08058DFC
 	bl sub_0805E780
@@ -5465,7 +5465,7 @@ sub_08058E34: @ 0x08058E34
 	cmp r0, #0
 	bne _08058E5E
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CCC8
+	bl SetFlag
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	beq _08058E58
@@ -5487,7 +5487,7 @@ sub_08058E60: @ 0x08058E60
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08058E80
 	adds r0, r4, #0
@@ -5495,7 +5495,7 @@ sub_08058E60: @ 0x08058E60
 	b _08058EC8
 _08058E80:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08058EC8
 	ldrb r0, [r4, #0xb]
@@ -5554,7 +5554,7 @@ sub_08058EE4: @ 0x08058EE4
 	strb r0, [r6, #0xc]
 _08058EF2:
 	ldrb r0, [r6, #0xb]
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08058F40
 	movs r5, #0x94
@@ -5595,7 +5595,7 @@ sub_08058F44: @ 0x08058F44
 	adds r4, r0, #0
 	adds r5, r1, #0
 	adds r0, r2, #0
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	bne _08058F80
 	adds r0, r4, #0
@@ -5678,7 +5678,7 @@ _08058FDC:
 _08058FE2:
 	strb r0, [r4, #0xf]
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08059060
 	adds r0, r4, #0
@@ -5686,7 +5686,7 @@ _08058FE2:
 	b _08059060
 _08058FF6:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08059060
 	movs r0, #2
@@ -5729,7 +5729,7 @@ _08059034:
 _0805904C: .4byte gLinkEntity
 _08059050:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CCC8
+	bl SetFlag
 	movs r0, #1
 	bl sub_08078A90
 	bl sub_0805E780
@@ -5775,19 +5775,19 @@ sub_08059094: @ 0x08059094
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	movs r0, #0x60
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _080590CC
 	movs r0, #0x5f
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _080590C8
 _080590B6:
 	movs r0, #0x60
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _080590C8
 	movs r0, #0x5f
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	movs r5, #1
 _080590C8:
 	cmp r5, #0
@@ -5816,23 +5816,23 @@ sub_080590E0: @ 0x080590E0
 	bl sub_0805E3A0
 _080590F6:
 	movs r0, #0x6c
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0805911A
 	movs r0, #0x4b
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _08059112
 	movs r0, #0x4a
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _08059120
 _08059112:
 	movs r0, #0x4a
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	b _08059120
 _0805911A:
 	movs r0, #0x4a
-	bl sub_0807CD34
+	bl ClearLocalFlag
 _08059120:
 	pop {pc}
 	.align 2, 0
@@ -5877,7 +5877,7 @@ sub_08059124: @ 0x08059124
 	b _080591C8
 _08059174:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08059182
 	bl sub_0805E780
@@ -5903,7 +5903,7 @@ _08059182:
 _080591A8: .4byte 0x00000365
 _080591AC:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080591C8
 	adds r0, r4, #0
@@ -5928,7 +5928,7 @@ sub_080591CC: @ 0x080591CC
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	strb r0, [r4, #0xb]
 	lsls r0, r0, #0x18
 	cmp r0, #0
@@ -5940,7 +5940,7 @@ sub_080591CC: @ 0x080591CC
 _080591F0: .4byte gRoomVars
 _080591F4:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	adds r1, r0, #0
 	ldrb r0, [r4, #0xb]
 	cmp r0, r1
@@ -6046,7 +6046,7 @@ sub_080592A4: @ 0x080592A4
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080592EA
 	adds r0, r4, #0
@@ -6055,7 +6055,7 @@ sub_080592A4: @ 0x080592A4
 	b _080592EA
 _080592C8:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080592EA
 	adds r0, r4, #0
@@ -6148,7 +6148,7 @@ sub_08059368: @ 0x08059368
 	cmp r0, r1
 	bne _08059384
 	ldrh r0, [r2, #0x3e]
-	bl sub_0807CCC8
+	bl SetFlag
 	bl sub_0805E780
 _08059384:
 	pop {pc}
@@ -6240,13 +6240,13 @@ sub_08059424: @ 0x08059424
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08059436
 	bl sub_0805E780
 _08059436:
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08059476
 	movs r0, #0xf
@@ -6282,7 +6282,7 @@ _08059478: .4byte gRoomControls
 sub_0805947C: @ 0x0805947C
 	push {lr}
 	ldrh r0, [r0, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _080594CE
 	movs r0, #3
@@ -6344,7 +6344,7 @@ _080594F2:
 	movs r0, #0x8c
 	lsls r0, r0, #4
 	movs r1, #0x85
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	bne _08059540
 	movs r0, #2
@@ -6365,7 +6365,7 @@ _0805952A:
 	movs r0, #0x8c
 	lsls r0, r0, #4
 	movs r1, #0x85
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _08059540
 	bl sub_0801855C
@@ -6959,18 +6959,18 @@ sub_080599B8: @ 0x080599B8
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080599EA
 	bl sub_0805E780
 	b _080599EA
 _080599D6:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080599EA
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CCC8
+	bl SetFlag
 	bl sub_0805E780
 _080599EA:
 	pop {r4, pc}
@@ -7128,7 +7128,7 @@ sub_08059B18: @ 0x08059B18
 	push {r6, r7}
 	sub sp, #4
 	movs r0, #0x18
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _08059BEC
 	movs r6, #0
@@ -7224,7 +7224,7 @@ _08059BE4: .4byte gUnk_086E8460
 _08059BE8: .4byte 0x06001800
 _08059BEC:
 	movs r0, #0x19
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _08059C5E
 	movs r6, #0
@@ -7721,7 +7721,7 @@ _08059FBC: @ jump table
 	.4byte _0805A036 @ case 23
 _0805A01C:
 	movs r0, #0x16
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0805A02A
 	movs r0, #0
@@ -8055,7 +8055,7 @@ sub_0805A298: @ 0x0805A298
 	adds r0, r4, #0
 	bl sub_0805A89C
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0805A2BA
 	adds r1, r4, #0
@@ -8100,7 +8100,7 @@ sub_0805A2E4: @ 0x0805A2E4
 	movs r0, #1
 	bl sub_0805AAF0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0805A324
 	strb r5, [r4, #0xc]
@@ -8115,7 +8115,7 @@ _0805A31C: .4byte gScreen
 _0805A320: .4byte 0x0000B7FF
 _0805A324:
 	movs r0, #0x48
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0805A332
 	movs r0, #4
@@ -8186,9 +8186,9 @@ sub_0805A394: @ 0x0805A394
 	bne _0805A3C4
 _0805A3AA:
 	movs r0, #0x48
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	movs r0, #0
-	bl sub_0807CD8C
+	bl ClearRoomFlag
 	ldr r2, _0805A3C8 @ =gScreen
 	ldrh r1, [r2]
 	ldr r0, _0805A3CC @ =0x0000B7FF
@@ -8231,11 +8231,11 @@ _0805A3F8:
 	ldrb r0, [r1]
 	bl sub_0805AAF0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0805A428
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CD48
+	bl ClearFlag
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	ldr r2, _0805A420 @ =gScreen
@@ -8249,7 +8249,7 @@ _0805A420: .4byte gScreen
 _0805A424: .4byte 0x0000B7FF
 _0805A428:
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CCC8
+	bl SetFlag
 	movs r0, #3
 	strb r0, [r4, #0xc]
 	ldr r2, _0805A444 @ =gScreen
@@ -8282,7 +8282,7 @@ sub_0805A464: @ 0x0805A464
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0805A47E
 	movs r0, #2
@@ -8303,7 +8303,7 @@ sub_0805A480: @ 0x0805A480
 	movs r0, #3
 	strb r0, [r1, #0xc]
 	ldrh r0, [r1, #0x3c]
-	bl sub_0807CCC8
+	bl SetFlag
 _0805A494:
 	pop {pc}
 	.align 2, 0
@@ -8313,7 +8313,7 @@ sub_0805A498: @ 0x0805A498
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0805A4B2
 	movs r0, #4
@@ -8334,7 +8334,7 @@ sub_0805A4B4: @ 0x0805A4B4
 	movs r0, #1
 	strb r0, [r1, #0xc]
 	ldrh r0, [r1, #0x3c]
-	bl sub_0807CD48
+	bl ClearFlag
 _0805A4C8:
 	pop {pc}
 	.align 2, 0
@@ -8377,7 +8377,7 @@ sub_0805A500: @ 0x0805A500
 	bl sub_0805A89C
 	str r5, [r4, #0x28]
 	movs r0, #0x36
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0805A538
 	adds r3, r4, #0
@@ -8397,7 +8397,7 @@ sub_0805A500: @ 0x0805A500
 _0805A534: .4byte gScreen
 _0805A538:
 	movs r0, #0x34
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0805A560
 	adds r3, r4, #0
@@ -8493,7 +8493,7 @@ sub_0805A5FC: @ 0x0805A5FC
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x34
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0805A616
 	movs r0, #2
@@ -8521,7 +8521,7 @@ sub_0805A628: @ 0x0805A628
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x36
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0805A64A
 	movs r0, #4
@@ -8795,7 +8795,7 @@ _0805A81C: @ jump table
 	.4byte _0805A88A @ case 4
 _0805A830:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0805A83E
 	movs r0, #1
@@ -8816,7 +8816,7 @@ _0805A840:
 	b _0805A89A
 _0805A858:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0805A89A
 	movs r0, #2
@@ -8830,7 +8830,7 @@ _0805A866:
 	b _0805A89A
 _0805A872:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0805A89A
 	movs r0, #4
@@ -9490,7 +9490,7 @@ sub_0805AD60: @ 0x0805AD60
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805AD76
 	bl sub_0805E780
@@ -9505,7 +9505,7 @@ sub_0805AD80: @ 0x0805AD80
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805ADD0
 	ldrb r1, [r4, #0xa]
@@ -9959,7 +9959,7 @@ _0805B128:
 	cmp r0, #0xa
 	bne _0805B15E
 	movs r0, #0x4b
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0805B15E
 	movs r0, #0x28
@@ -10688,7 +10688,7 @@ sub_0805B680: @ 0x0805B680
 	cmp r0, #0
 	bne _0805B6B8
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805B6B8
 	adds r0, r4, #0
@@ -10714,7 +10714,7 @@ sub_0805B6C0: @ 0x0805B6C0
 	cmp r0, #0
 	beq _0805B6EC
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CCC8
+	bl SetFlag
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _0805B6F2
@@ -10723,7 +10723,7 @@ sub_0805B6C0: @ 0x0805B6C0
 	b _0805B6F2
 _0805B6EC:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CD48
+	bl ClearFlag
 _0805B6F2:
 	pop {r4, pc}
 
@@ -10745,7 +10745,7 @@ sub_0805B70C: @ 0x0805B70C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805B71E
 	movs r0, #1
@@ -10775,7 +10775,7 @@ sub_0805B744: @ 0x0805B744
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0805B766
@@ -10835,7 +10835,7 @@ sub_0805B7A0: @ 0x0805B7A0
 	adds r1, #0x86
 	strh r0, [r1]
 	ldrh r0, [r5, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805B7EC
 	adds r0, r5, #0
@@ -10981,7 +10981,7 @@ sub_0805B8CC: @ 0x0805B8CC
 	cmp r0, #4
 	bne _0805B8DA
 	movs r0, #0x18
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	b _0805B8E8
 _0805B8DA:
 	cmp r0, #4
@@ -11468,14 +11468,14 @@ sub_0805BC8C: @ 0x0805BC8C
 	movs r0, #0x1e
 	strb r0, [r4, #0xf]
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805BCAE
 	adds r0, r4, #0
 	bl sub_0805BE94
 _0805BCAE:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805BCD0
 	ldrb r0, [r4, #0xf]
@@ -11514,7 +11514,7 @@ _0805BCEE:
 	movs r0, #0x1e
 	strb r0, [r4, #0xf]
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805BD5A
 	adds r0, r4, #0
@@ -11525,7 +11525,7 @@ _0805BCEE:
 	b _0805BD5A
 _0805BD0E:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805BD5A
 	ldrb r0, [r4, #0xf]
@@ -11544,7 +11544,7 @@ _0805BD0E:
 	b _0805BD5A
 _0805BD38:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _0805BD5A
 	ldrb r0, [r4, #0xf]
@@ -11569,7 +11569,7 @@ sub_0805BD5C: @ 0x0805BD5C
 	cmp r0, #0
 	bne _0805BD94
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805BD76
 	adds r0, r4, #0
@@ -11597,7 +11597,7 @@ _0805BD94:
 	cmp r0, #0x76
 	bne _0805BDB0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CCC8
+	bl SetFlag
 	ldrb r0, [r4, #0xe]
 	bl sub_0805308C
 	bl sub_0805E780
@@ -11627,7 +11627,7 @@ sub_0805BDB4: @ 0x0805BDB4
 	ldrb r2, [r4, #0xb]
 	bl sub_080A29C8
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CD48
+	bl ClearFlag
 	ldrh r0, [r4, #0x20]
 	ldrb r1, [r4, #0xb]
 	bl sub_0807BA8C
@@ -11637,11 +11637,11 @@ sub_0805BDB4: @ 0x0805BDB4
 	b _0805BE26
 _0805BDF4:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _0805BE08
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805BE0E
 _0805BE08:
@@ -11671,7 +11671,7 @@ _0805BE2C:
 	cmp r0, #0x76
 	bne _0805BE6C
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CCC8
+	bl SetFlag
 	ldrb r0, [r4, #0xe]
 	bl sub_0805308C
 	movs r0, #2
@@ -11686,7 +11686,7 @@ _0805BE2C:
 	b _0805BE6C
 _0805BE58:
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805BE6C
 	adds r0, r4, #0
@@ -11822,7 +11822,7 @@ sub_0805BF30: @ 0x0805BF30
 	bl sub_0805BFC4
 	strb r0, [r4, #0xa]
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0805BF74
 	adds r0, r4, #0
@@ -11851,7 +11851,7 @@ sub_0805BF78: @ 0x0805BF78
 	adds r0, r4, #0
 	bl sub_0805C02C
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0805BFA0:
 	pop {r4, pc}
 	.align 2, 0
@@ -12837,7 +12837,7 @@ _0805C778:
 _0805C784: .4byte gRoomControls
 _0805C788:
 	ldrb r0, [r5, #0xb]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0805C796
 	movs r0, #2
@@ -12865,7 +12865,7 @@ sub_0805C7A0: @ 0x0805C7A0
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	ldrb r0, [r4, #0xb]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0805C7BC:
 	adds r0, r4, #0
 	bl sub_0805C7CC
@@ -12936,7 +12936,7 @@ sub_0805C81C: @ 0x0805C81C
 	lsls r0, r0, #2
 	ldrb r1, [r4, #0xa]
 	adds r1, #0x67
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _0805C85C
 	ldr r0, _0805C858 @ =gUnk_030010A0
@@ -13072,7 +13072,7 @@ sub_0805C920: @ 0x0805C920
 	ldrb r1, [r0, #0xa]
 	adds r1, #0x67
 	adds r0, r2, #0
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	pop {pc}
 	.align 2, 0
 
@@ -13421,7 +13421,7 @@ sub_0805CB90: @ 0x0805CB90
 	adds r0, r4, #0
 	bl sub_0805CBD0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805CBCE
 	adds r0, r4, #0
@@ -13435,7 +13435,7 @@ _0805CBB8:
 	cmp r0, #0
 	beq _0805CBCE
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CCC8
+	bl SetFlag
 	adds r0, r4, #0
 	bl sub_0805E900
 _0805CBCE:
@@ -13925,7 +13925,7 @@ sub_0805CFF0: @ 0x0805CFF0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #2]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0805D012
 	ldrh r0, [r4, #4]
@@ -13935,7 +13935,7 @@ sub_0805CFF0: @ 0x0805CFF0
 	cmp r1, r0
 	bne _0805D012
 	ldrh r0, [r4, #2]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0805D012:
 	pop {r4, pc}
 
@@ -13961,7 +13961,7 @@ sub_0805D02C: @ 0x0805D02C
 	push {r5, r6, r7}
 	adds r6, r0, #0
 	ldrh r0, [r6, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805D046
 	bl sub_0805E780
@@ -14069,7 +14069,7 @@ sub_0805D0FC: @ 0x0805D0FC
 	cmp r0, #0
 	bne _0805D118
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CCC8
+	bl SetFlag
 	adds r0, r4, #0
 	bl sub_0805E900
 _0805D118:
@@ -14260,17 +14260,17 @@ sub_0805D280: @ 0x0805D280
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805D292
 	bl sub_0805E780
 _0805D292:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805D2A6
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CCC8
+	bl SetFlag
 	bl sub_0805E780
 _0805D2A6:
 	movs r0, #1
@@ -14292,7 +14292,7 @@ sub_0805D2C0: @ 0x0805D2C0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805D2EE
 	ldr r0, _0805D2F0 @ =gUnk_03003DC0
@@ -14338,7 +14338,7 @@ _0805D31A:
 	ldrh r0, [r4, #0x3c]
 	cmp r0, #0
 	beq _0805D324
-	bl sub_0807CCC8
+	bl SetFlag
 _0805D324:
 	bl sub_0805E780
 _0805D328:
@@ -14363,7 +14363,7 @@ sub_0805D344: @ 0x0805D344
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	ldrb r0, [r4, #0xe]
@@ -14385,7 +14385,7 @@ sub_0805D36C: @ 0x0805D36C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805D382
 	movs r0, #2
@@ -14417,17 +14417,17 @@ _0805D3A4:
 	adds r0, r1, #0
 	bl PlaySFX
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CCC8
+	bl SetFlag
 	b _0805D3C6
 _0805D3B2:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _0805D3C6
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CD48
+	bl ClearFlag
 _0805D3C6:
 	pop {r4, pc}
 
@@ -14666,11 +14666,11 @@ _0805D5A4:
 	ldrh r0, [r6, #0x3e]
 	cmp r0, #0
 	beq _0805D628
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805D628
 	ldrh r0, [r6, #0x3e]
-	bl sub_0807CD48
+	bl ClearFlag
 	movs r0, #1
 	strb r0, [r6, #0xc]
 	ldrb r0, [r6, #0xf]
@@ -14724,7 +14724,7 @@ _0805D604:
 	cmp r0, #0x20
 	bne _0805D628
 	ldrh r0, [r6, #0x3c]
-	bl sub_0807CCC8
+	bl SetFlag
 	b _0805D628
 _0805D622:
 	movs r0, #0x72
@@ -14750,70 +14750,70 @@ _0805D642:
 	adds r0, #1
 	strb r0, [r6, #0xc]
 	movs r0, #0x42
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0805D6E4
 	movs r0, #0x43
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0805D6E4
 	movs r0, #0x44
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0805D6E4
 	movs r0, #0x3e
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0805D680
 	movs r0, #2
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0805D6E4
 	movs r0, #0x3e
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	b _0805D6D2
 _0805D680:
 	movs r0, #0x3f
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0805D69C
 	movs r0, #3
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0805D6E4
 	movs r0, #0x3f
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	b _0805D6D2
 _0805D69C:
 	movs r0, #0x40
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0805D6B8
 	movs r0, #4
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0805D6E4
 	movs r0, #0x40
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	b _0805D6D2
 _0805D6B8:
 	movs r0, #0x41
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0805D6E4
 	movs r0, #5
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0805D6E4
 	movs r0, #0x41
-	bl sub_0807CD04
+	bl SetGlobalFlag
 _0805D6D2:
 	movs r0, #0x42
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 	movs r0, #0x43
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 	movs r0, #0x44
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 _0805D6E4:
 	adds r1, r6, #0
 	adds r1, #0x22
@@ -14832,7 +14832,7 @@ _0805D6E4:
 _0805D700:
 	adds r0, r5, #0
 	adds r0, #0x42
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0805D760
 	bl Random
@@ -14885,7 +14885,7 @@ _0805D76A:
 	adds r4, r5, #0
 	adds r4, #0x42
 	adds r0, r4, #0
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0805D78E
 	adds r0, r6, #0
@@ -14897,7 +14897,7 @@ _0805D76A:
 	cmp r0, #0
 	bge _0805D78E
 	adds r0, r4, #0
-	bl sub_0807CD04
+	bl SetGlobalFlag
 _0805D78E:
 	adds r5, #1
 	cmp r5, #2
@@ -15592,17 +15592,17 @@ sub_0805DC9C: @ 0x0805DC9C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805DCAE
 	bl sub_0805E780
 _0805DCAE:
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805DCC2
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CCC8
+	bl SetFlag
 	bl sub_0805E780
 _0805DCC2:
 	movs r0, #1
@@ -15614,7 +15614,7 @@ sub_0805DCC8: @ 0x0805DCC8
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #0x3e]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0805DD1E
 	movs r0, #2
@@ -15679,7 +15679,7 @@ sub_0805DD24: @ 0x0805DD24
 	movs r0, #3
 	strb r0, [r4, #0xc]
 	ldrh r0, [r4, #0x3c]
-	bl sub_0807CCC8
+	bl SetFlag
 	adds r1, r4, #0
 	adds r1, #0x36
 	ldrb r0, [r1]
@@ -15838,7 +15838,7 @@ sub_0805DE68: @ 0x0805DE68
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x7b
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0805DE7A
 	bl sub_0805E780
@@ -16024,7 +16024,7 @@ sub_0805DFCC: @ 0x0805DFCC
 	cmp r0, #0
 	bne _0805DFE0
 	movs r0, #0x1c
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 	bl sub_0805E094
 _0805DFE0:
 	pop {pc}

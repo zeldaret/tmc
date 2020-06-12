@@ -105,7 +105,7 @@ _0808E840:
 	beq _0808E894
 	strb r1, [r4, #0xb]
 	movs r0, #0x14
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	movs r2, #0x80
 	lsls r2, r2, #1
 	adds r1, r2, #0

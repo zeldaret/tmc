@@ -40,7 +40,7 @@ sub_08088A68: @ 0x08088A68
 	orrs r0, r2
 	strb r0, [r4, #0x11]
 	movs r0, #0x17
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _08088AA0
 	ldr r0, _08088A9C @ =gUnk_02002A40
@@ -211,7 +211,7 @@ sub_08088BE0: @ 0x08088BE0
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x15
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08088C1C
 	movs r3, #0x78
@@ -237,7 +237,7 @@ sub_08088BE0: @ 0x08088BE0
 	strh r0, [r2, #0x32]
 _08088C1C:
 	movs r0, #0x16
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08088C58
 	adds r0, r4, #0
@@ -376,7 +376,7 @@ _08088CFA:
 _08088D28:
 	strb r0, [r4, #0xf]
 	ldrb r0, [r4, #0xf]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _08088DB0
 	ldr r1, _08088D48 @ =gUnk_08120C50
@@ -393,7 +393,7 @@ _08088D28:
 _08088D48: .4byte gUnk_08120C50
 _08088D4C:
 	ldrb r0, [r4, #0xf]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _08088DB0
 	movs r0, #2
@@ -513,7 +513,7 @@ _08088E1E:
 	b _08088E6E
 _08088E28:
 	ldrb r0, [r4, #0xb]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _08088E6E
 	ldrb r0, [r4, #0xc]
@@ -666,7 +666,7 @@ _08088F3E:
 	orrs r0, r1
 	strb r0, [r4, #0x11]
 	ldrb r0, [r4, #0xb]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08088F5A
 	b _0808908E
@@ -676,7 +676,7 @@ _08088F5A:
 	b _0808908E
 _08088F62:
 	ldrb r0, [r4, #0xb]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08088F6E
 	b _0808908E
@@ -777,7 +777,7 @@ _08089020:
 	bne _0808905C
 	movs r0, #0x15
 	movs r1, #2
-	bl sub_0807CC60
+	bl CheckLocalFlags
 	cmp r0, #0
 	beq _08089048
 	ldr r0, _08089044 @ =gRoomVars
@@ -810,7 +810,7 @@ _0808905C:
 	str r0, [r2, #0x68]
 	movs r0, #0x15
 	movs r1, #2
-	bl sub_0807CC60
+	bl CheckLocalFlags
 	cmp r0, #0
 	beq _08089088
 	adds r0, r4, #0

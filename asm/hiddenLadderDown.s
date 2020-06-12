@@ -64,7 +64,7 @@ sub_08091F14: @ 0x08091F14
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08091FEA
 	movs r0, #2
@@ -159,7 +159,7 @@ sub_08092000: @ 0x08092000
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 _08092034:
 	pop {r4, pc}
 	.align 2, 0

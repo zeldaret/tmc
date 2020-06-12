@@ -665,26 +665,26 @@ _0806F214:
 	b _0806F248
 _0806F21A:
 	adds r0, r4, #0
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	adds r5, r0, #0
 _0806F222:
 	adds r0, r4, #0
-	bl sub_0807CD10
+	bl SetRoomFlag
 	b _0806F248
 _0806F22A:
 	adds r0, r4, #0
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	adds r5, r0, #0
 _0806F232:
 	adds r0, r4, #0
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806F248
 _0806F23A:
 	adds r0, r4, #0
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	adds r5, r0, #0
 	adds r0, r4, #0
-	bl sub_0807CD04
+	bl SetGlobalFlag
 _0806F248:
 	cmp r5, #0
 	beq _0806F342
@@ -712,34 +712,34 @@ _0806F270:
 	b _0806F248
 _0806F276:
 	adds r0, r4, #0
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0806F222
 	adds r0, r4, #0
-	bl sub_0807CD8C
+	bl ClearRoomFlag
 	b _0806F248
 _0806F28A:
 	adds r0, r4, #0
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0806F232
 	adds r0, r4, #0
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	b _0806F248
 _0806F29E:
 	adds r0, r4, #0
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _0806F2B2
 	adds r0, r4, #0
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	b _0806F248
 _0806F2B2:
 	adds r0, r4, #0
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 	b _0806F248
 _0806F2BA:
 	ldr r4, [r6]
@@ -767,15 +767,15 @@ _0806F2E0: @ jump table
 	.4byte _0806F314 @ case 4
 _0806F2F4:
 	adds r0, r4, #0
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	b _0806F320
 _0806F2FC:
 	adds r0, r4, #0
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	b _0806F320
 _0806F304:
 	adds r0, r4, #0
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	b _0806F320
 _0806F30C:
 	adds r0, r4, #0

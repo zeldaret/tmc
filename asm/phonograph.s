@@ -81,7 +81,7 @@ _0806E988:
 _0806E9A8:
 	movs r5, #0x1c
 	movs r0, #0x55
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0806E9B6
 	movs r5, #0x34

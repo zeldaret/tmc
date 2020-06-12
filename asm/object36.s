@@ -25,7 +25,7 @@ sub_0808BB30: @ 0x0808BB30
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x17
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0808BB4C
@@ -191,7 +191,7 @@ sub_0808BC3C: @ 0x0808BC3C
 	cmp r0, #0
 	bne _0808BCA0
 	movs r0, #0x17
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	movs r0, #2
 	strb r0, [r5, #0xc]
 	movs r0, #0x80
@@ -254,7 +254,7 @@ _0808BCFE:
 sub_0808BD00: @ 0x0808BD00
 	push {lr}
 	movs r0, #0x17
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	movs r0, #0x72
 	bl PlaySFX
 	bl sub_0805E780

@@ -70,7 +70,7 @@ sub_0809D9D8: @ 0x0809D9D8
 	b _0809DA28
 _0809DA1E:
 	movs r0, #0x20
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	bl sub_0805E780
 _0809DA28:
 	pop {r4, pc}
@@ -202,7 +202,7 @@ sub_0809DB14: @ 0x0809DB14
 	cmp r5, #0
 	bne _0809DB36
 	movs r0, #0x20
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	ldr r0, [r4, #0x54]
 	str r5, [r0, #0x50]
 	bl sub_0805E780
@@ -446,7 +446,7 @@ sub_0809DC80: @ 0x0809DC80
 _0809DCFC: .4byte 0xFFF00000
 _0809DD00:
 	movs r0, #0x20
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	bl sub_0805E780
 _0809DD0A:
 	pop {r4, pc}
@@ -591,7 +591,7 @@ sub_0809DDE4: @ 0x0809DDE4
 	cmp r5, #0
 	bne _0809DE2A
 	movs r0, #0x20
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	ldr r0, [r4, #0x54]
 	str r5, [r0, #0x50]
 	bl sub_0805E780

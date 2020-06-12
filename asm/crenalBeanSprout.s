@@ -53,11 +53,11 @@ _08096362:
 	b _0809650A
 _08096368:
 	movs r0, #0x1a
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _080963DA
 	movs r0, #0x1b
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080963A4
 	ldr r0, _0809639C @ =gLinkEntity
@@ -78,7 +78,7 @@ _0809639C: .4byte gLinkEntity
 _080963A0: .4byte 0x00004022
 _080963A4:
 	ldrb r0, [r5, #0xb]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _080963C8
 	adds r0, r5, #0
@@ -120,11 +120,11 @@ _080963DA:
 _080963F8: .4byte gRoomControls
 _080963FC:
 	movs r0, #0x1a
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _08096450
 	movs r0, #0x1b
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0809644C
 	ldr r0, _08096444 @ =gLinkEntity
@@ -198,7 +198,7 @@ _08096494:
 	b _0809650A
 _080964A6:
 	ldrb r0, [r5, #0xb]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _080964F8
 	adds r0, r5, #0
@@ -509,7 +509,7 @@ sub_0809671C: @ 0x0809671C
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x1a
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	ldrb r0, [r4, #0xd]
 	adds r0, #1
 	strb r0, [r4, #0xd]
@@ -525,7 +525,7 @@ nullsub_121: @ 0x08096730
 sub_08096734: @ 0x08096734
 	push {lr}
 	movs r0, #0x1a
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 	pop {pc}
 	.align 2, 0
 
@@ -682,7 +682,7 @@ sub_08096858: @ 0x08096858
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xb]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	movs r3, #0
 	movs r0, #0xf
 	strb r0, [r5, #0xe]
@@ -957,7 +957,7 @@ sub_08096A78: @ 0x08096A78
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	movs r0, #0x1b
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	ldrb r1, [r4, #0xa]
 	lsrs r1, r1, #1
 	adds r1, #8

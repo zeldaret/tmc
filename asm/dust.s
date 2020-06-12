@@ -122,7 +122,7 @@ sub_080441E0: @ 0x080441E0
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	movs r0, #0x12
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _080441F2
 	bl sub_0805E780
@@ -447,7 +447,7 @@ _08044440:
 	cmp r0, #0
 	bne _08044458
 	movs r0, #0x12
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	movs r0, #0x72
 	bl PlaySFX
 	bl sub_0805E780

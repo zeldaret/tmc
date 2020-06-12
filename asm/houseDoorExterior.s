@@ -147,7 +147,7 @@ sub_080867CC: @ 0x080867CC
 	cmp r0, #2
 	bne _080867DE
 	movs r0, #0x18
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	b _080867E0
 _080867DE:
 	movs r0, #1

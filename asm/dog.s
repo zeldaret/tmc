@@ -117,7 +117,7 @@ _08069BF2:
 	cmp r0, #2
 	bne _08069C30
 	movs r0, #0xcf
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08069C30
 	ldr r0, _08069C38 @ =0x00004072
@@ -599,7 +599,7 @@ sub_08069F90: @ 0x08069F90
 	cmp r0, #2
 	bne _08069FA8
 	movs r0, #0xcf
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08069FA8
 	movs r0, #1
@@ -751,12 +751,12 @@ sub_0806A0A4: @ 0x0806A0A4
 	beq _0806A100
 	movs r5, #4
 	movs r0, #0xcf
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806A120
 	movs r5, #3
 	movs r0, #0xcf
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	movs r1, #0x2e
 	ldrsh r0, [r4, r1]
 	ldr r2, _0806A0FC @ =gRoomControls
@@ -785,17 +785,17 @@ _0806A0FC: .4byte gRoomControls
 _0806A100:
 	movs r5, #2
 	movs r0, #0xcf
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806A120
 	movs r5, #1
 	movs r0, #0xdb
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806A120
 	movs r5, #0
 	movs r0, #0xdb
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0806A120:
 	ldr r2, _0806A13C @ =gUnk_08111F74
 	ldr r0, _0806A140 @ =gUnk_02002A40
@@ -830,11 +830,11 @@ sub_0806A144: @ 0x0806A144
 	cmp r0, #0
 	bne _0806A17A
 	movs r0, #0x29
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0806A17A
 	movs r0, #0x85
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	movs r4, #2
 	cmp r0, #0
 	bne _0806A17A

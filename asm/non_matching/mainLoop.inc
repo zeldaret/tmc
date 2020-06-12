@@ -5,8 +5,6 @@
 
 	.text
 	
-	thumb_func_start MainLoop
-MainLoop: @ 0x08055E6C
 	push {r4, r5, r6, lr}
 	bl sub_08055F70
 	bl sub_080A3204
@@ -114,3 +112,4 @@ _08055F64:
 	b _08055EC8
 	.align 2, 0
 _08055F6C: .4byte gUnk_08100CBC
+	.syntax divided

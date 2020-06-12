@@ -19,7 +19,7 @@ sub_080A2164: @ 0x080A2164
 	ldrh r0, [r1]
 	cmp r0, #0
 	beq _080A2180
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080A224E
 _080A2180:

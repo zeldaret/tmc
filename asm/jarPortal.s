@@ -47,7 +47,7 @@ sub_0808BE9C: @ 0x0808BE9C
 	adds r0, #0x68
 	strb r2, [r0]
 	ldrb r0, [r4, #0xa]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0808BEEE
 	adds r0, r4, #0
@@ -101,11 +101,11 @@ sub_0808BF14: @ 0x0808BF14
 	cmp r0, #0
 	bne _0808BF3E
 	ldrb r0, [r4, #0xa]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0808BF44
 _0808BF3E:
 	ldrb r0, [r4, #0xa]
-	bl sub_0807CD34
+	bl ClearLocalFlag
 _0808BF44:
 	adds r0, r4, #0
 	movs r1, #0
@@ -201,11 +201,11 @@ sub_0808BFD8: @ 0x0808BFD8
 	cmp r0, #0
 	bne _0808C002
 	ldrb r0, [r4, #0xa]
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	b _0808C008
 _0808C002:
 	ldrb r0, [r4, #0xa]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0808C008:
 	adds r0, r4, #0
 	movs r1, #0

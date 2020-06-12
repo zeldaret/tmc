@@ -56,7 +56,7 @@ _08089D54:
 	ldrb r0, [r5, #0xe]
 	cmp r0, #0
 	beq _08089D74
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08089D6A
 	b _08089F06

@@ -25,7 +25,7 @@ sub_0809AB04: @ 0x0809AB04
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r0, #0x31
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809AB22
 	adds r0, r5, #0
@@ -304,7 +304,7 @@ sub_0809ACE8: @ 0x0809ACE8
 	movs r0, #0x73
 	bl PlaySFX
 	movs r0, #0x31
-	bl sub_0807CCC8
+	bl SetFlag
 	adds r0, r4, #0
 	bl sub_0809AD8C
 	b _0809AD58

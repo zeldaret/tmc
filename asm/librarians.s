@@ -53,7 +53,7 @@ sub_0806BA34: @ 0x0806BA34
 	movs r0, #0
 	str r0, [r4, #0x14]
 	movs r0, #0x73
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0806BA60
 	ldr r0, _0806BA5C @ =0x00004913
@@ -97,19 +97,19 @@ _0806BA98:
 	str r5, [r4, #0x14]
 _0806BAA2:
 	movs r0, #0x6b
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	movs r0, #0x6a
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806BB06
 	.align 2, 0
 _0806BAB0: .4byte 0x00004908
 _0806BAB4:
 	movs r0, #0x6a
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0806BB06
 	movs r0, #0x6b
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806BAD0
 	ldr r0, _0806BACC @ =0x00004901
@@ -123,7 +123,7 @@ _0806BAD0:
 _0806BAD6:
 	mov r8, r0
 	movs r0, #0x6b
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806BB06
 	.align 2, 0
 _0806BAE0: .4byte 0x00004902
@@ -133,7 +133,7 @@ _0806BAE4:
 	ldr r0, _0806BAF4 @ =0x00004903
 	mov r8, r0
 	movs r0, #0x6d
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806BB06
 	.align 2, 0
 _0806BAF4: .4byte 0x00004903
@@ -143,7 +143,7 @@ _0806BAF8:
 	ldr r0, _0806BB18 @ =0x00004904
 	mov r8, r0
 	movs r0, #0x70
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0806BB06:
 	mov r0, r8
 	mov r1, sb
@@ -224,7 +224,7 @@ sub_0806BB7C: @ 0x0806BB7C
 	cmp r0, #2
 	bne _0806BBAC
 	movs r0, #0x73
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	movs r0, #1
 	str r0, [r4, #0x14]
 _0806BBAC:
@@ -240,7 +240,7 @@ sub_0806BBB0: @ 0x0806BBB0
 	cmp r0, #0
 	bne _0806BBCC
 	movs r0, #0x29
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	rsbs r1, r0, #0
 	orrs r1, r0
 	lsrs r1, r1, #0x1f

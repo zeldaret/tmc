@@ -26,7 +26,7 @@ sub_080A08C4: @ 0x080A08C4
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _080A08E2
 	movs r0, #1
@@ -64,7 +64,7 @@ sub_080A0910: @ 0x080A0910
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080A0932
 	movs r0, #2

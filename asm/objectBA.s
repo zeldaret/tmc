@@ -35,7 +35,7 @@ sub_080A1704: @ 0x080A1704
 	push {r5, r6, r7}
 	mov sl, r0
 	movs r0, #0x7b
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080A171E
 	bl sub_0805E780
@@ -676,7 +676,7 @@ sub_080A1C04: @ 0x080A1C04
 	cmp r0, #0
 	bne _080A1C40
 	movs r0, #0x7b
-	bl sub_0807CCC8
+	bl SetFlag
 	ldr r0, _080A1C3C @ =gUnk_0813ABD0
 	movs r1, #8
 	bl sub_0808091C

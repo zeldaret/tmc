@@ -26,7 +26,7 @@ sub_0809E83C: @ 0x0809E83C
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809E856
 	adds r0, r4, #0
@@ -55,7 +55,7 @@ sub_0809E86C: @ 0x0809E86C
 	cmp r0, #0
 	beq _0809E89A
 	movs r0, #0x14
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0809E89A
 	ldr r0, _0809E8B8 @ =gUnk_030010A0
@@ -121,7 +121,7 @@ sub_0809E8EC: @ 0x0809E8EC
 	adds r0, r1, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	movs r0, #0
 	bl sub_08078A90
 	movs r0, #0x73

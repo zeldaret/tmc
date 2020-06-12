@@ -199,7 +199,7 @@ _0809D8E8:
 	ldrh r0, [r6, #0x1c]
 	cmp r0, #0
 	beq _0809D906
-	bl sub_0807CCC8
+	bl SetFlag
 _0809D906:
 	bl sub_0805E780
 _0809D90A:

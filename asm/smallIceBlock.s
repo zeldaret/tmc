@@ -42,7 +42,7 @@ sub_080991CC: @ 0x080991CC
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080991EC
 	bl sub_0805E780
@@ -113,7 +113,7 @@ sub_08099248: @ 0x08099248
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	b _0809930E
 	.align 2, 0
 _0809927C: .4byte 0x000001B3
@@ -620,7 +620,7 @@ sub_0809963C: @ 0x0809963C
 	bl sub_0804B128
 	adds r4, r0, #0
 	ldrh r0, [r4]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08099684
 	ldr r0, _08099694 @ =gRoomControls

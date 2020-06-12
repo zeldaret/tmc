@@ -43,7 +43,7 @@ _0809FFA2:
 	cmp r0, #0
 	beq _080A0068
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _080A00AA
 	ldrb r2, [r4, #0xd]

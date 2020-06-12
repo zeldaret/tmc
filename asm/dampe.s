@@ -127,12 +127,12 @@ sub_0806BE84: @ 0x0806BE84
 	str r0, [r4, #0x14]
 	movs r5, #1
 	movs r0, #0x69
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806BEA6
 	movs r5, #0
 	movs r0, #0x69
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	movs r0, #1
 	str r0, [r4, #0x14]
 _0806BEA6:

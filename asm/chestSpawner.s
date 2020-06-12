@@ -76,7 +76,7 @@ sub_08083E4C: @ 0x08083E4C
 	ldr r0, _08083E80 @ =gUnk_0811F8B0
 	str r0, [r4, #0x48]
 	ldrb r0, [r4, #0xb]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _08083E84
 	ldrb r1, [r4, #0x18]
@@ -100,7 +100,7 @@ _08083E84:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _08083E98
 	ldrb r0, [r4, #0xa]
@@ -127,7 +127,7 @@ sub_08083EB0: @ 0x08083EB0
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08083F0A
 	ldr r1, _08083F0C @ =gScreen
@@ -344,7 +344,7 @@ _08084060:
 	bl sub_08084074
 _0808406A:
 	ldrb r0, [r4, #0xb]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _08084070:
 	pop {r4, pc}
 	.align 2, 0
@@ -533,7 +533,7 @@ _080841D2:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08084200
 	movs r0, #3
@@ -562,7 +562,7 @@ sub_0808420C: @ 0x0808420C
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08084220
 	movs r0, #2
@@ -637,7 +637,7 @@ _0808429C:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _080842D4
 	adds r1, r4, #0

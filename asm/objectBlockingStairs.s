@@ -76,7 +76,7 @@ _08092F48:
 	ldrh r0, [r1]
 	cmp r0, #0
 	beq _08092F5E
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _08092F5E
 	movs r5, #1
@@ -104,7 +104,7 @@ sub_08092F68: @ 0x08092F68
 	ldrh r0, [r1]
 	cmp r0, #0
 	beq _08092FA8
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _08092F92
 	b _080930E6
@@ -554,7 +554,7 @@ sub_080932D8: @ 0x080932D8
 	adds r4, r0, r1
 	ldr r0, [r4]
 	ldrh r1, [r4, #4]
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _080932F4
 	movs r0, #1
@@ -564,7 +564,7 @@ _080932F0: .4byte gUnk_08122898
 _080932F4:
 	ldr r0, [r4]
 	ldrh r1, [r4, #6]
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	bne _08093304
 	movs r0, #0
@@ -585,7 +585,7 @@ sub_08093308: @ 0x08093308
 	bne _08093324
 	ldr r0, [r1]
 	ldrh r1, [r1, #4]
-	bl sub_0807CC9C
+	bl SetLocalFlagByOffset
 	b _08093330
 	.align 2, 0
 _08093320: .4byte gUnk_08122898
@@ -594,7 +594,7 @@ _08093324:
 	bne _08093330
 	ldr r0, [r1]
 	ldrh r1, [r1, #6]
-	bl sub_0807CC9C
+	bl SetLocalFlagByOffset
 _08093330:
 	pop {pc}
 	.align 2, 0

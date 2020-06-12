@@ -179,7 +179,7 @@ _08067494:
 	orrs r0, r1
 	strb r0, [r2]
 	movs r0, #0x1d
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _080674F8
 	ldr r4, _08067500 @ =0x00004022

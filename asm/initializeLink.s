@@ -32,7 +32,7 @@ InitializeLink: @ 0x080524A8
 	ldrb r0, [r0]
 	strb r0, [r6, #0xc]
 	movs r0, #0x14
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080524FA
 	ldr r0, [r6, #0x30]

@@ -33,7 +33,7 @@ sub_080929A4: @ 0x080929A4
 	adds r4, r5, #0
 	adds r4, #0x86
 	ldrh r0, [r4]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08092A08
 	ldrb r0, [r5, #0xb]
@@ -67,7 +67,7 @@ _080929F4: .4byte gUnk_030010A0
 _080929F8: .4byte 0x0000044F
 _080929FC:
 	ldrh r0, [r4]
-	bl sub_0807CD48
+	bl ClearFlag
 	b _08092A08
 _08092A04:
 	bl sub_0805E780
@@ -222,7 +222,7 @@ _08092B32:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 _08092B3C:
 	adds r0, r4, #0
 	movs r1, #5

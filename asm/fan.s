@@ -47,7 +47,7 @@ sub_0809ED54: @ 0x0809ED54
 	ldrh r0, [r1]
 	cmp r0, #0
 	beq _0809ED6A
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809ED86
 _0809ED6A:
@@ -85,13 +85,13 @@ sub_0809ED88: @ 0x0809ED88
 	ldrh r0, [r1]
 	cmp r0, r2
 	bne _0809EDB4
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _0809EDE2
 	b _0809EDBE
 _0809EDB4:
 	ldrh r0, [r1]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809EDE2
 _0809EDBE:

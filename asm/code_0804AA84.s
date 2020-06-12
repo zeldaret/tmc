@@ -296,7 +296,7 @@ sub_0804ACC8: @ 0x0804ACC8
 	ldr r0, _0804ACF0 @ =gUnk_02033A90
 	ldrb r0, [r0, #0x17]
 	adds r0, #0x5e
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	ldr r0, _0804ACF4 @ =gUnk_02032EDC
 	bl sub_0804AD6C
 	movs r0, #0
@@ -351,7 +351,7 @@ _0804AD38: @ jump table
 _0804AD54:
 	ldrb r0, [r2, #0x17]
 	adds r0, #0x5e
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	adds r1, r0, #0
 	cmp r1, #0
 	bne _0804AD68

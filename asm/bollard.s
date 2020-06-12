@@ -48,7 +48,7 @@ sub_0808B2CC: @ 0x0808B2CC
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0808B31C
 	b _0808B2F4
@@ -56,7 +56,7 @@ _0808B2E6:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _0808B31C
 _0808B2F4:
@@ -110,7 +110,7 @@ sub_0808B344: @ 0x0808B344
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _0808B384
 	b _0808B36C
@@ -118,7 +118,7 @@ _0808B35E:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0808B384
 _0808B36C:

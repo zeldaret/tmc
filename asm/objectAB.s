@@ -53,7 +53,7 @@ sub_080A012C: @ 0x080A012C
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _080A0154
 	adds r0, r4, #0
@@ -77,7 +77,7 @@ sub_080A0158: @ 0x080A0158
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #1
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _080A018A
 	adds r0, r4, #0

@@ -93,7 +93,7 @@ sub_08037F58: @ 0x08037F58
 	cmp r0, #0
 	bne _08037F6E
 	ldrb r0, [r4, #0xb]
-	bl sub_0807CD04
+	bl SetGlobalFlag
 _08037F6E:
 	ldrb r0, [r4, #0xa]
 	movs r2, #0x58
@@ -128,7 +128,7 @@ sub_08037FA0: @ 0x08037FA0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xb]
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _08037FB2
 	bl sub_0805E780

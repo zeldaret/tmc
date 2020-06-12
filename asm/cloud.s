@@ -141,7 +141,7 @@ sub_0809F5B0: @ 0x0809F5B0
 	movs r0, #0x73
 	bl PlaySFX
 	movs r0, #0x24
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	ldr r0, _0809F5D8 @ =gUnk_080DD750
 	bl LoadRoomEntityList
 	bl sub_0805E780
@@ -168,7 +168,7 @@ sub_0809F5F0: @ 0x0809F5F0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xe]
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _0809F614
 	movs r0, #2
@@ -199,7 +199,7 @@ sub_0809F61C: @ 0x0809F61C
 	cmp r0, #0x1e
 	bne _0809F638
 	ldrb r0, [r4, #0xb]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0809F638:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1

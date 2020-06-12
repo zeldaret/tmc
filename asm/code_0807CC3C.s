@@ -5,8 +5,8 @@
 
 	.text
 	
-	thumb_func_start sub_0807CC3C
-sub_0807CC3C: @ 0x0807CC3C
+	thumb_func_start CheckRoomFlag
+CheckRoomFlag: @ 0x0807CC3C
 	push {lr}
 	adds r1, r0, #0
 	ldr r0, _0807CC48 @ =gUnk_02034364
@@ -15,8 +15,8 @@ sub_0807CC3C: @ 0x0807CC3C
 	.align 2, 0
 _0807CC48: .4byte gUnk_02034364
 
-	thumb_func_start sub_0807CC4C
-sub_0807CC4C: @ 0x0807CC4C
+	thumb_func_start CheckLocalFlagsByOffset
+CheckLocalFlagsByOffset: @ 0x0807CC4C
 	push {lr}
 	adds r3, r0, #0
 	ldr r0, _0807CC5C @ =gUnk_02002C9C
@@ -27,31 +27,31 @@ sub_0807CC4C: @ 0x0807CC4C
 	.align 2, 0
 _0807CC5C: .4byte gUnk_02002C9C
 
-	thumb_func_start sub_0807CC60
-sub_0807CC60: @ 0x0807CC60
+	thumb_func_start CheckLocalFlags
+CheckLocalFlags: @ 0x0807CC60
 	push {lr}
 	adds r3, r0, #0
 	adds r2, r1, #0
 	ldr r0, _0807CC74 @ =gUnk_02033A90
 	ldrh r0, [r0, #4]
 	adds r1, r3, #0
-	bl sub_0807CC4C
+	bl CheckLocalFlagsByOffset
 	pop {pc}
 	.align 2, 0
 _0807CC74: .4byte gUnk_02033A90
 
-	thumb_func_start sub_0807CC78
-sub_0807CC78: @ 0x0807CC78
+	thumb_func_start CheckGlobalFlags
+CheckGlobalFlags: @ 0x0807CC78
 	push {lr}
 	adds r3, r0, #0
 	adds r2, r1, #0
 	movs r0, #0
 	adds r1, r3, #0
-	bl sub_0807CC4C
+	bl CheckLocalFlagsByOffset
 	pop {pc}
 
-	thumb_func_start sub_0807CC88
-sub_0807CC88: @ 0x0807CC88
+	thumb_func_start CheckRoomFlags
+CheckRoomFlags: @ 0x0807CC88
 	push {lr}
 	adds r3, r0, #0
 	adds r2, r1, #0
@@ -62,8 +62,8 @@ sub_0807CC88: @ 0x0807CC88
 	.align 2, 0
 _0807CC98: .4byte gUnk_02034364
 
-	thumb_func_start sub_0807CC9C
-sub_0807CC9C: @ 0x0807CC9C
+	thumb_func_start SetLocalFlagByOffset
+SetLocalFlagByOffset: @ 0x0807CC9C
 	push {lr}
 	adds r2, r0, #0
 	cmp r1, #0
@@ -76,19 +76,19 @@ _0807CCAC:
 	.align 2, 0
 _0807CCB0: .4byte gUnk_02002C9C
 
-	thumb_func_start sub_0807CCB4
-sub_0807CCB4: @ 0x0807CCB4
+	thumb_func_start SetLocalFlag
+SetLocalFlag: @ 0x0807CCB4
 	push {lr}
 	adds r1, r0, #0
 	ldr r0, _0807CCC4 @ =gUnk_02033A90
 	ldrh r0, [r0, #4]
-	bl sub_0807CC9C
+	bl SetLocalFlagByOffset
 	pop {pc}
 	.align 2, 0
 _0807CCC4: .4byte gUnk_02033A90
 
-	thumb_func_start sub_0807CCC8
-sub_0807CCC8: @ 0x0807CCC8
+	thumb_func_start SetFlag
+SetFlag: @ 0x0807CCC8
 	push {lr}
 	adds r1, r0, #0
 	cmp r1, #0
@@ -106,30 +106,30 @@ sub_0807CCC8: @ 0x0807CCC8
 	cmp r0, #2
 	bne _0807CD02
 	adds r0, r2, #0
-	bl sub_0807CD10
+	bl SetRoomFlag
 	b _0807CD02
 	.align 2, 0
 _0807CCF0: .4byte 0x000003FF
 _0807CCF4:
 	adds r0, r2, #0
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0807CD02
 _0807CCFC:
 	adds r0, r2, #0
-	bl sub_0807CD04
+	bl SetGlobalFlag
 _0807CD02:
 	pop {pc}
 
-	thumb_func_start sub_0807CD04
-sub_0807CD04: @ 0x0807CD04
+	thumb_func_start SetGlobalFlag
+SetGlobalFlag: @ 0x0807CD04
 	push {lr}
 	adds r1, r0, #0
 	movs r0, #0
-	bl sub_0807CC9C
+	bl SetLocalFlagByOffset
 	pop {pc}
 
-	thumb_func_start sub_0807CD10
-sub_0807CD10: @ 0x0807CD10
+	thumb_func_start SetRoomFlag
+SetRoomFlag: @ 0x0807CD10
 	push {lr}
 	adds r1, r0, #0
 	ldr r0, _0807CD1C @ =gUnk_02034364
@@ -138,8 +138,8 @@ sub_0807CD10: @ 0x0807CD10
 	.align 2, 0
 _0807CD1C: .4byte gUnk_02034364
 
-	thumb_func_start sub_0807CD20
-sub_0807CD20: @ 0x0807CD20
+	thumb_func_start ClearLocalFlagByOffset
+ClearLocalFlagByOffset: @ 0x0807CD20
 	push {lr}
 	adds r2, r0, #0
 	ldr r0, _0807CD30 @ =gUnk_02002C9C
@@ -150,19 +150,19 @@ sub_0807CD20: @ 0x0807CD20
 	.align 2, 0
 _0807CD30: .4byte gUnk_02002C9C
 
-	thumb_func_start sub_0807CD34
-sub_0807CD34: @ 0x0807CD34
+	thumb_func_start ClearLocalFlag
+ClearLocalFlag: @ 0x0807CD34
 	push {lr}
 	adds r1, r0, #0
 	ldr r0, _0807CD44 @ =gUnk_02033A90
 	ldrh r0, [r0, #4]
-	bl sub_0807CD20
+	bl ClearLocalFlagByOffset
 	pop {pc}
 	.align 2, 0
 _0807CD44: .4byte gUnk_02033A90
 
-	thumb_func_start sub_0807CD48
-sub_0807CD48: @ 0x0807CD48
+	thumb_func_start ClearFlag
+ClearFlag: @ 0x0807CD48
 	push {lr}
 	ldr r2, _0807CD6C @ =0x000003FF
 	ands r2, r0
@@ -177,30 +177,30 @@ sub_0807CD48: @ 0x0807CD48
 	cmp r1, #2
 	bne _0807CD7E
 	adds r0, r2, #0
-	bl sub_0807CD8C
+	bl ClearRoomFlag
 	b _0807CD7E
 	.align 2, 0
 _0807CD6C: .4byte 0x000003FF
 _0807CD70:
 	adds r0, r2, #0
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	b _0807CD7E
 _0807CD78:
 	adds r0, r2, #0
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 _0807CD7E:
 	pop {pc}
 
-	thumb_func_start sub_0807CD80
-sub_0807CD80: @ 0x0807CD80
+	thumb_func_start ClearGlobalFlag
+ClearGlobalFlag: @ 0x0807CD80
 	push {lr}
 	adds r1, r0, #0
 	movs r0, #0
-	bl sub_0807CD20
+	bl ClearLocalFlagByOffset
 	pop {pc}
 
-	thumb_func_start sub_0807CD8C
-sub_0807CD8C: @ 0x0807CD8C
+	thumb_func_start ClearRoomFlag
+ClearRoomFlag: @ 0x0807CD8C
 	push {lr}
 	adds r1, r0, #0
 	ldr r0, _0807CD98 @ =gUnk_02034364
@@ -3053,7 +3053,7 @@ sub_0807E200: @ 0x0807E200
 	adds r4, r1, #0
 	ldr r0, [r4]
 	ldrh r0, [r0, #2]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	str r0, [r4, #0x14]
 	ldr r2, _0807E21C @ =gUnk_02033280
 	ldrb r1, [r2, #7]
@@ -3071,7 +3071,7 @@ sub_0807E220: @ 0x0807E220
 	ldr r1, [r4]
 	ldrh r0, [r1, #2]
 	ldrh r1, [r1, #4]
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	str r0, [r4, #0x14]
 	ldr r2, _0807E23C @ =gUnk_02033280
 	ldrb r1, [r2, #7]
@@ -3088,7 +3088,7 @@ sub_0807E240: @ 0x0807E240
 	adds r4, r1, #0
 	ldr r0, [r4]
 	bl GetNextScriptCommandHalfwordAfterCommandMetadata
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	str r0, [r4, #0x14]
 	ldr r2, _0807E25C @ =gUnk_02033280
 	ldrb r1, [r2, #7]
@@ -3105,7 +3105,7 @@ sub_0807E260: @ 0x0807E260
 	adds r4, r1, #0
 	ldr r0, [r4]
 	ldrh r0, [r0, #2]
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	str r0, [r4, #0x14]
 	ldr r2, _0807E27C @ =gUnk_02033280
 	ldrb r1, [r2, #7]
@@ -3627,7 +3627,7 @@ sub_0807E628: @ 0x0807E628
 	push {lr}
 	ldr r0, [r1]
 	ldrh r0, [r0, #2]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	pop {pc}
 
 	thumb_func_start sub_0807E634
@@ -3636,7 +3636,7 @@ sub_0807E634: @ 0x0807E634
 	ldr r1, [r1]
 	ldrh r0, [r1, #2]
 	ldrh r1, [r1, #4]
-	bl sub_0807CC9C
+	bl SetLocalFlagByOffset
 	pop {pc}
 	.align 2, 0
 
@@ -3645,7 +3645,7 @@ sub_0807E644: @ 0x0807E644
 	push {lr}
 	ldr r0, [r1]
 	ldrh r0, [r0, #2]
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	pop {pc}
 
 	thumb_func_start sub_0807E650
@@ -3653,7 +3653,7 @@ sub_0807E650: @ 0x0807E650
 	push {lr}
 	ldr r0, [r1]
 	ldrh r0, [r0, #2]
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	pop {pc}
 
 	thumb_func_start sub_0807E65C
@@ -3661,7 +3661,7 @@ sub_0807E65C: @ 0x0807E65C
 	push {lr}
 	ldr r0, [r1]
 	ldrh r0, [r0, #2]
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 	pop {pc}
 
 	thumb_func_start sub_0807E668
@@ -3669,7 +3669,7 @@ sub_0807E668: @ 0x0807E668
 	push {lr}
 	ldr r0, [r1]
 	ldrh r0, [r0, #2]
-	bl sub_0807CD10
+	bl SetRoomFlag
 	pop {pc}
 
 	thumb_func_start sub_0807E674
@@ -3677,7 +3677,7 @@ sub_0807E674: @ 0x0807E674
 	push {lr}
 	ldr r0, [r1]
 	ldrh r0, [r0, #2]
-	bl sub_0807CD8C
+	bl ClearRoomFlag
 	pop {pc}
 
 	thumb_func_start sub_0807E680
@@ -6782,7 +6782,7 @@ sub_0807FC24: @ 0x0807FC24
 	movs r1, #0xcf
 _0807FC32:
 	adds r0, r1, #0
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	pop {pc}
 	.align 2, 0
 _0807FC3C: .4byte gRoomControls

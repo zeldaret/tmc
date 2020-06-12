@@ -26,7 +26,7 @@ sub_0808E6A0: @ 0x0808E6A0
 	adds r4, r0, #0
 	adds r0, #0x84
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0808E6B4
 	bl sub_0805E780
@@ -61,7 +61,7 @@ sub_0808E6E4: @ 0x0808E6E4
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0808E712
 	movs r0, #2
@@ -139,7 +139,7 @@ sub_0808E764: @ 0x0808E764
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	movs r0, #0x62
 	movs r1, #0
 	movs r2, #0

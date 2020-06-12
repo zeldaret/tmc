@@ -30,7 +30,7 @@ sub_08084FD8: @ 0x08084FD8
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08084FF4
 	bl sub_0805E780

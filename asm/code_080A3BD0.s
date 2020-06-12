@@ -1406,7 +1406,7 @@ sub_080A46C0: @ 0x080A46C0
 	movs r0, #0x6c
 	bl PlaySFX
 	movs r0, #2
-	bl sub_0807CD8C
+	bl ClearRoomFlag
 	bl sub_080A71DC
 	pop {pc}
 

@@ -583,11 +583,11 @@ sub_0806B004: @ 0x0806B004
 	adds r5, r1, #0
 	movs r4, #0
 	movs r0, #0x29
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0806B050
 	movs r0, #0x73
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0806B048
 	movs r0, #0x46
@@ -596,14 +596,14 @@ sub_0806B004: @ 0x0806B004
 	bne _0806B044
 	movs r4, #3
 	movs r0, #0x78
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806B050
 	movs r4, #2
 	movs r0, #1
 	str r0, [r5, #0x14]
 	movs r0, #0x78
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806B050
 _0806B044:
 	movs r4, #4
@@ -611,7 +611,7 @@ _0806B044:
 _0806B048:
 	movs r4, #1
 	movs r0, #0x6a
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0806B050:
 	ldr r0, _0806B060 @ =gUnk_08112C40
 	lsls r1, r4, #1
@@ -629,12 +629,12 @@ sub_0806B064: @ 0x0806B064
 	adds r5, r0, #0
 	movs r4, #0
 	movs r0, #0x29
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0806B082
 	movs r4, #1
 	movs r0, #0x73
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0806B082
 	movs r4, #2
@@ -660,11 +660,11 @@ sub_0806B098: @ 0x0806B098
 	bne _0806B0C0
 	movs r4, #1
 	movs r0, #0x29
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0806B0C0
 	movs r0, #0x2a
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	rsbs r1, r0, #0
 	orrs r1, r0
 	lsrs r4, r1, #0x1f
@@ -735,17 +735,17 @@ sub_0806B134: @ 0x0806B134
 	beq _0806B158
 	movs r4, #2
 	movs r0, #0x7b
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806B160
 	movs r4, #1
 	movs r0, #0x7b
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806B160
 _0806B158:
 	movs r4, #0
 	movs r0, #0x4a
-	bl sub_0807CD04
+	bl SetGlobalFlag
 _0806B160:
 	ldr r0, _0806B17C @ =gUnk_02002A40
 	ldrb r0, [r0, #8]

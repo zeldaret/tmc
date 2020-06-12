@@ -516,7 +516,7 @@ sub_0808D474: @ 0x0808D474
 	cmp r0, #0
 	bne _0808D4D4
 	movs r0, #0x7c
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	adds r1, r0, #0
 	cmp r1, #0
 	bne _0808D4D4

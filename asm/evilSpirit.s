@@ -39,7 +39,7 @@ sub_080862B8: @ 0x080862B8
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	movs r0, #0x63
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _080862CA
 	bl sub_0805E780
@@ -399,9 +399,9 @@ _08086566:
 	cmp r0, #0
 	beq _08086592
 	movs r0, #0x63
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	movs r0, #0
-	bl sub_0807CD10
+	bl SetRoomFlag
 	movs r5, #0
 _0808657E:
 	ldr r0, [r4, #0x54]

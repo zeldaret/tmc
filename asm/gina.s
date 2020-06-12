@@ -78,7 +78,7 @@ _0806C1BE:
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	movs r0, #0x88
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0806C1D2:
 	pop {r4, pc}
 

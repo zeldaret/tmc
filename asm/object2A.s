@@ -78,7 +78,7 @@ _08089B7C:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _08089B96
 	ldrb r1, [r4, #0x18]
@@ -197,7 +197,7 @@ _08089C72:
 	adds r0, r5, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	adds r1, r0, #0
 	ldrb r0, [r5, #0xd]
 	cmp r0, #0

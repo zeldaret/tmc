@@ -135,7 +135,7 @@ _0808FA42:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	b _0808FA7C
 _0808FA5E:
 	adds r2, r4, #0
@@ -152,7 +152,7 @@ _0808FA5E:
 	b _0808FAA2
 _0808FA76:
 	ldrb r0, [r2]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 _0808FA7C:
 	cmp r0, #0
 	beq _0808FAA2
@@ -475,7 +475,7 @@ _0808FCCC:
 	bne _0808FCE4
 	adds r0, #5
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	b _0808FD0C
 _0808FCE4:
 	adds r2, r4, #0
@@ -497,7 +497,7 @@ _0808FCE4:
 	b _0808FD0C
 _0808FD06:
 	ldrb r0, [r2]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0808FD0C:
 	adds r0, r4, #0
 	adds r0, #0x80

@@ -87,15 +87,15 @@ sub_0809EA80: @ 0x0809EA80
 	adds r4, r5, #0
 	adds r4, #0x86
 	ldrh r0, [r4]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809EAA6
 	ldrh r0, [r4]
-	bl sub_0807CD48
+	bl ClearFlag
 	b _0809EAAC
 _0809EAA6:
 	ldrh r0, [r4]
-	bl sub_0807CCC8
+	bl SetFlag
 _0809EAAC:
 	movs r0, #0x88
 	lsls r0, r0, #1
@@ -111,7 +111,7 @@ sub_0809EABC: @ 0x0809EABC
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	rsbs r1, r0, #0
 	orrs r1, r0
 	lsrs r1, r1, #0x1f
@@ -244,7 +244,7 @@ sub_0809EB80: @ 0x0809EB80
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809EBD2
 	strb r5, [r4, #0xc]
@@ -273,7 +273,7 @@ sub_0809EBD8: @ 0x0809EBD8
 	adds r0, r2, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	movs r0, #0x88
 	lsls r0, r0, #1
 	bl sub_08004488
@@ -287,7 +287,7 @@ sub_0809EC08: @ 0x0809EC08
 	adds r4, r0, #0
 	adds r0, #0x84
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809EC1E
 	movs r0, #3
@@ -307,7 +307,7 @@ _0809EC1E:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CD48
+	bl ClearFlag
 	movs r0, #0x88
 	lsls r0, r0, #1
 	bl sub_08004488

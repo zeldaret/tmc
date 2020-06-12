@@ -149,55 +149,55 @@ sub_08069888: @ 0x08069888
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r0, #0x47
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080698A0
 	movs r4, #0
 	movs r0, #0x47
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	b _08069906
 _080698A0:
 	movs r0, #0x2b
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080698C2
 	movs r0, #0x2c
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080698C2
 	movs r0, #0x2d
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080698C2
 	movs r4, #1
 	b _08069906
 _080698C2:
 	movs r0, #0x18
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080698D0
 	movs r4, #2
 	b _08069906
 _080698D0:
 	movs r0, #0x48
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080698E4
 	movs r4, #3
 	movs r0, #0x48
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	b _08069906
 _080698E4:
 	movs r0, #0x2e
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _08069904
 	movs r0, #0x2f
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _08069904
 	movs r0, #0x30
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	movs r4, #4
 	cmp r0, #0
 	beq _08069906

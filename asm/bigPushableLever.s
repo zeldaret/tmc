@@ -112,13 +112,13 @@ sub_08098F90: @ 0x08098F90
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	b _08098FC2
 _08098FB8:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CD48
+	bl ClearFlag
 _08098FC2:
 	adds r0, r4, #0
 	bl sub_08098FCC
@@ -144,7 +144,7 @@ sub_08098FE0: @ 0x08098FE0
 	adds r6, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _0809906C
 	strb r0, [r6, #0xb]

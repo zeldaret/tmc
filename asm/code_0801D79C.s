@@ -623,7 +623,7 @@ _0801DC26:
 	ldrb r1, [r4, #1]
 	mov r0, r8
 	str r3, [sp]
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	ldr r3, [sp]
 	cmp r0, #0
 	bne _0801DCA6
@@ -695,7 +695,7 @@ _0801DCAE:
 	ldr r0, _0801DD4C @ =gUnk_02033A90
 	ldrb r0, [r0, #3]
 	adds r0, #1
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0801DD16
 	ldr r0, _0801DD50 @ =gUnk_0811E214
@@ -1077,7 +1077,7 @@ sub_0801DF90: @ 0x0801DF90
 _0801DF9A:
 	ldrb r1, [r0, #1]
 	adds r0, r2, #0
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	b _0801DFB2
 _0801DFA4:
 	cmp r1, #1

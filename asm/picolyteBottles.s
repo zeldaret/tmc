@@ -118,7 +118,7 @@ _0806DF96:
 	movs r0, #0xff
 	strb r0, [r4, #0xe]
 	movs r0, #0
-	bl sub_0807CD10
+	bl SetRoomFlag
 _0806DFB0:
 	pop {r4, pc}
 	.align 2, 0
@@ -191,7 +191,7 @@ sub_0806E014: @ 0x0806E014
 	adds r7, r0, #0
 	strb r0, [r5, #0xe]
 	movs r0, #0x93
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	adds r1, r0, #0
 	cmp r1, #0
 	bne _0806E088

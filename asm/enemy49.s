@@ -192,7 +192,7 @@ sub_0803CFD8: @ 0x0803CFD8
 	b _0803CFEE
 _0803CFE8:
 	ldrh r0, [r1]
-	bl sub_0807CBE4
+	bl CheckFlags
 _0803CFEE:
 	pop {pc}
 
@@ -209,7 +209,7 @@ sub_0803CFF0: @ 0x0803CFF0
 	cmp r2, r0
 	bne _0803D016
 	adds r0, r2, #0
-	bl sub_0807CBE4
+	bl CheckFlags
 	movs r1, #0
 	cmp r0, #0
 	bne _0803D012
@@ -219,7 +219,7 @@ _0803D012:
 	b _0803D020
 _0803D016:
 	ldrh r0, [r1]
-	bl sub_0807CBE4
+	bl CheckFlags
 	b _0803D020
 _0803D01E:
 	movs r0, #0

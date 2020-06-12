@@ -124,16 +124,16 @@ sub_0806CE80: @ 0x0806CE80
 	cmp r0, #0
 	bne _0806CEC0
 	movs r0, #0x70
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0806CEBC
 	movs r0, #0x71
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806CEB8
 	movs r4, #0xb
 	movs r0, #0x71
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806CED6
 	.align 2, 0
 _0806CEB4: .4byte gUnk_02002A40
@@ -145,12 +145,12 @@ _0806CEBC:
 	b _0806CED6
 _0806CEC0:
 	movs r0, #0x89
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806CED4
 	movs r4, #0xd
 	movs r0, #0x89
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _0806CED6
 _0806CED4:
 	movs r4, #0xe

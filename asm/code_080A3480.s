@@ -229,7 +229,7 @@ sub_080A3608: @ 0x080A3608
 	movs r4, #1
 	strb r4, [r0, #6]
 	movs r0, #0x55
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	ldr r0, _080A3644 @ =gUnk_03001000
 	strb r4, [r0, #3]
 	ldr r2, _080A3648 @ =gUnk_02000080

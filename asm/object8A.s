@@ -150,7 +150,7 @@ _0809AEBC:
 	adds r2, r7, #0
 	bl SetTile
 	movs r0, #0x4f
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0809AF00
 	ldr r0, _0809AEFC @ =0x0000402F

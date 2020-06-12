@@ -26,7 +26,7 @@ sub_0809F920: @ 0x0809F920
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809F934
 	bl sub_0805E780
@@ -88,7 +88,7 @@ _0809F99A:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	bl sub_0805E780
 _0809F9A8:
 	pop {r4, pc}

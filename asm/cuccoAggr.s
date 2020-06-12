@@ -72,7 +72,7 @@ sub_08038D10: @ 0x08038D10
 	cmp r0, #0
 	bne _08038D3E
 	movs r0, #1
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	bne _08038D3E
 	adds r0, r4, #0

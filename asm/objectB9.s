@@ -304,11 +304,11 @@ _080A1424:
 _080A142C: .4byte gUnk_02002A40
 _080A1430:
 	movs r0, #0x4f
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080A1442
 	movs r0, #0x4f
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	b _080A1444
 _080A1442:
 	movs r6, #1
@@ -379,44 +379,44 @@ _080A14B8:
 	cmp r0, #0
 	beq _080A14C8
 	movs r0, #0x4b
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	b _080A14CE
 _080A14C8:
 	movs r0, #0x4b
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 _080A14CE:
 	movs r0, #2
 	ands r0, r4
 	cmp r0, #0
 	beq _080A14DE
 	movs r0, #0x4c
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	b _080A14E4
 _080A14DE:
 	movs r0, #0x4c
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 _080A14E4:
 	movs r0, #4
 	ands r0, r4
 	cmp r0, #0
 	beq _080A14F4
 	movs r0, #0x4d
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	b _080A14FA
 _080A14F4:
 	movs r0, #0x4d
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 _080A14FA:
 	movs r0, #8
 	ands r0, r4
 	cmp r0, #0
 	beq _080A150A
 	movs r0, #0x4e
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	b _080A1510
 _080A150A:
 	movs r0, #0x4e
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 _080A1510:
 	pop {r4, pc}
 	.align 2, 0
@@ -425,26 +425,26 @@ _080A1510:
 sub_080A1514: @ 0x080A1514
 	push {r4, lr}
 	movs r0, #0x4b
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	rsbs r1, r0, #0
 	orrs r1, r0
 	lsrs r4, r1, #0x1f
 	movs r0, #0x4c
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _080A1530
 	movs r0, #2
 	orrs r4, r0
 _080A1530:
 	movs r0, #0x4d
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _080A153E
 	movs r0, #4
 	orrs r4, r0
 _080A153E:
 	movs r0, #0x4e
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _080A154C
 	movs r0, #8
@@ -551,7 +551,7 @@ sub_080A1608: @ 0x080A1608
 	push {r4, lr}
 	ldr r4, _080A163C @ =0x00003002
 	movs r0, #1
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _080A1618
 	adds r4, #4

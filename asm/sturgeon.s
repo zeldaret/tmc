@@ -311,7 +311,7 @@ sub_08064CD8: @ 0x08064CD8
 	cmp r0, #0
 	bne _08064CF4
 	movs r0, #0x73
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	rsbs r1, r0, #0
 	orrs r1, r0
 	lsrs r4, r1, #0x1f

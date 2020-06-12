@@ -361,7 +361,7 @@ _08097844:
 	ldrh r0, [r1]
 	cmp r0, #0
 	beq _08097852
-	bl sub_0807CCC8
+	bl SetFlag
 _08097852:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -383,7 +383,7 @@ _0809786E:
 	adds r0, r5, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	adds r4, r5, #0
 	adds r4, #0x68
 	adds r6, r5, #0
@@ -481,7 +481,7 @@ _08097948:
 	adds r0, r5, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08097986
 	movs r0, #2
@@ -527,7 +527,7 @@ _0809799E:
 	adds r0, r1, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080979AE
 	movs r4, #1

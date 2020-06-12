@@ -74,7 +74,7 @@ sub_0808B474: @ 0x0808B474
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0808B4E0
 	adds r0, r4, #0
@@ -126,7 +126,7 @@ sub_0808B530: @ 0x0808B530
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0808B562
 	adds r0, r4, #0

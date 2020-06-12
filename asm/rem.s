@@ -175,7 +175,7 @@ _0806A486:
 	movs r1, #0xa
 	bl UpdateSprite
 	movs r0, #0x62
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	b _0806A4CA
 _0806A4A8:
 	adds r0, r2, #0
@@ -735,7 +735,7 @@ sub_0806A8C8: @ 0x0806A8C8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r0, #0x60
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806A8F0
 	movs r0, #0x37
@@ -878,7 +878,7 @@ sub_0806A9B0: @ 0x0806A9B0
 	movs r1, #9
 	bl UpdateSprite
 	movs r0, #0x62
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	pop {r4, pc}
 	.align 2, 0
 _0806A9E4: .4byte gUnk_081122A0
@@ -962,7 +962,7 @@ _0806AA6A:
 _0806AA70:
 	str r0, [r5, #0x14]
 	movs r0, #0x8f
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806AA84
 	ldr r2, _0806AA80 @ =gUnk_081122A8
@@ -1050,7 +1050,7 @@ _0806AB1C:
 	cmp r7, r0
 	bne _0806AB2C
 	movs r0, #0x8f
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	movs r0, #1
 	str r0, [r5, #0x14]
 _0806AB2C:

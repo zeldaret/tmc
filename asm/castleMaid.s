@@ -182,19 +182,19 @@ sub_0806464C: @ 0x0806464C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r0, #0x15
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0806465E
 	movs r4, #2
 	b _08064674
 _0806465E:
 	movs r0, #0xa0
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08064672
 	movs r4, #0
 	movs r0, #0xa0
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	b _08064674
 _08064672:
 	movs r4, #1

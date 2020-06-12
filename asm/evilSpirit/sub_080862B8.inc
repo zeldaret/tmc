@@ -9,7 +9,7 @@
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	movs r0, #0x63
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _080862CA
 	bl sub_0805E780

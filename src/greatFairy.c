@@ -49,7 +49,7 @@ void sub_08086B10(Entity *ent)
   Entity *ripple; // r5@16
   u32 event;
 
-    event = sub_0807CC3C(0);
+    event = CheckRoomFlag(0);
     if (event == 0) {
         return;
     }

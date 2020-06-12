@@ -449,7 +449,7 @@ sub_08068190: @ 0x08068190
 	movs r5, #8
 _0806819C:
 	movs r0, #0x7e
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	rsbs r1, r0, #0
 	orrs r1, r0
 	lsrs r4, r1, #0x1f

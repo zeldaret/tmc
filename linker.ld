@@ -450,7 +450,7 @@ SECTIONS {
 		asm/code_0805436C.o(.text);
 		src/sub_08055E08.o(.text);
 		asm/sub_08055E24.o(.text);
-		asm/mainLoop.o(.text);
+		src/mainLoop.o(.text);
 		asm/sub_08055F70.o(.text);
 		asm/code_08055FF4.o(.text);
 		src/textbox.o(.text);

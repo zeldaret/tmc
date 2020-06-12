@@ -740,7 +740,7 @@ sub_0805488C: @ 0x0805488C
 	bl sub_08054974
 	bl sub_0806F364
 	movs r0, #0xff
-	bl sub_0807CD8C
+	bl ClearRoomFlag
 	bl sub_080548E8
 	pop {r4, pc}
 	.align 2, 0
@@ -900,7 +900,7 @@ sub_08054A14: @ 0x08054A14
 	adds r0, r0, r1
 	ldrh r0, [r0]
 	ldrh r1, [r2, #0x12]
-	bl sub_0807CC9C
+	bl SetLocalFlagByOffset
 _08054A34:
 	pop {pc}
 	.align 2, 0
@@ -1184,7 +1184,7 @@ sub_08054C58: @ 0x08054C58
 	cmp r0, #0
 	bne _08054C7C
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08054C7C
 	movs r0, #7
@@ -1300,7 +1300,7 @@ sub_08054D3C: @ 0x08054D3C
 	cmp r0, #0
 	bne _08054D6A
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08054D6A
 	ldr r4, _08054D70 @ =gUnk_02000080
@@ -1445,7 +1445,7 @@ sub_08054E5C: @ 0x08054E5C
 	cmp r0, #0
 	bne _08054E92
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08054E92
 	ldr r4, _08054E98 @ =gUnk_02000080
@@ -1648,7 +1648,7 @@ _08054FCA:
 	movs r0, #0x80
 	lsls r0, r0, #3
 	movs r1, #0x77
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _08055004
 	ldrb r0, [r5, #2]
@@ -1935,7 +1935,7 @@ sub_08055224: @ 0x08055224
 	cmp r0, #0
 	bne _08055240
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08055240
 	ldr r1, _08055248 @ =gUnk_02000080
@@ -2088,7 +2088,7 @@ sub_08055350: @ 0x08055350
 	cmp r0, #0
 	bne _08055374
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08055374
 	movs r0, #7
@@ -2231,7 +2231,7 @@ sub_08055468: @ 0x08055468
 	cmp r0, #0
 	bne _0805548C
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _0805548C
 	movs r0, #7
@@ -2345,7 +2345,7 @@ sub_08055548: @ 0x08055548
 	cmp r0, #0
 	bne _08055576
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08055576
 	ldr r4, _0805557C @ =gUnk_02000080
@@ -2409,7 +2409,7 @@ sub_080555B8: @ 0x080555B8
 	adds r0, r0, r1
 	ldrh r0, [r0]
 	ldrh r1, [r4, #0x12]
-	bl sub_0807CC9C
+	bl SetLocalFlagByOffset
 	ldrb r0, [r4, #2]
 	ldrb r1, [r4, #3]
 	bl sub_0804B0E8
@@ -2443,7 +2443,7 @@ sub_0805560C: @ 0x0805560C
 	cmp r0, #0
 	bne _08055628
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08055628
 	ldr r1, _08055630 @ =gUnk_02000080
@@ -2622,7 +2622,7 @@ sub_0805576C: @ 0x0805576C
 	cmp r0, #0
 	bne _0805578C
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _0805578C
 	ldr r0, _08055794 @ =gUnk_02000080
@@ -2863,7 +2863,7 @@ sub_08055948: @ 0x08055948
 	cmp r0, #0
 	bne _0805596C
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _0805596C
 	bl sub_08055994
@@ -2989,7 +2989,7 @@ sub_08055A3C: @ 0x08055A3C
 	cmp r0, #0
 	bne _08055A60
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08055A60
 	movs r0, #7
@@ -3224,7 +3224,7 @@ sub_08055C04: @ 0x08055C04
 	cmp r0, #0
 	bne _08055C28
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08055C28
 	movs r0, #7
@@ -3371,7 +3371,7 @@ sub_08055D2C: @ 0x08055D2C
 	cmp r0, #0
 	bne _08055D5A
 	movs r0, #0xff
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08055D5A
 	ldr r4, _08055D60 @ =gUnk_02000080

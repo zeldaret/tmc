@@ -98,11 +98,11 @@ _08062F06:
 	movs r4, #3
 _08062F12:
 	movs r0, #0x5b
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08062F24
 	movs r0, #0x5b
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	movs r4, #4
 _08062F24:
 	bl Random

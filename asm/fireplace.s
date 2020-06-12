@@ -37,7 +37,7 @@ sub_0809B708: @ 0x0809B708
 	adds r0, r6, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809B73A
 	adds r0, r6, #0
@@ -103,7 +103,7 @@ sub_0809B7A0: @ 0x0809B7A0
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	bl sub_0805E780
 _0809B7BC:
 	pop {r4, pc}

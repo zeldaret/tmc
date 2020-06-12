@@ -579,7 +579,7 @@ _080915E0:
 	adds r0, r5, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	b _08091656
 	.align 2, 0
 _0809163C: .4byte gUnk_080C9160
@@ -651,7 +651,7 @@ _080916AA:
 	adds r5, r4, #0
 	adds r5, #0x86
 	ldrh r0, [r5]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _080916C8
 	adds r0, r4, #0
@@ -660,7 +660,7 @@ _080916AA:
 	cmp r0, #0
 	bne _080916C8
 	ldrh r0, [r5]
-	bl sub_0807CD48
+	bl ClearFlag
 _080916C8:
 	pop {r4, r5, pc}
 	.align 2, 0

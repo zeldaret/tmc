@@ -277,7 +277,7 @@ sub_080601D4: @ 0x080601D4
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #4
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080601E6
 	movs r1, #2
@@ -366,22 +366,22 @@ sub_08060270: @ 0x08060270
 	bne _08060294
 	movs r4, #1
 	movs r0, #0x29
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080602A8
 	movs r4, #0
 	movs r0, #0x29
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	b _080602A8
 _08060294:
 	movs r4, #3
 	movs r0, #0x76
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _080602A8
 	movs r4, #2
 	movs r0, #0x76
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _080602A8:
 	ldr r0, _080602B8 @ =gUnk_0810A35A
 	lsls r1, r4, #1
@@ -486,7 +486,7 @@ sub_08060354: @ 0x08060354
 	ldr r0, [r1]
 	subs r4, r2, r0
 	movs r0, #0x3b
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _08060380
 	cmp r4, #4
@@ -498,7 +498,7 @@ _08060378: .4byte gUnk_02002A40
 _0806037C: .4byte 0x00008444
 _08060380:
 	movs r0, #0x3c
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _08060398
 	cmp r4, #9
@@ -509,7 +509,7 @@ _08060380:
 _08060394: .4byte 0x00008444
 _08060398:
 	movs r0, #0x3d
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080603B0
 	cmp r4, #0xe

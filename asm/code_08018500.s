@@ -124,7 +124,7 @@ _080185D4:
 	adds r0, r0, r1
 	ldrh r0, [r0]
 	ldrb r1, [r2, #1]
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	b _080185F6
 	.align 2, 0
 _080185EC: .4byte gUnk_0811E454
@@ -419,7 +419,7 @@ _08018838:
 	b _080189E4
 _0801883E:
 	ldrh r0, [r5, #0x12]
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0801884A
 	b _080189E4
@@ -628,7 +628,7 @@ _080189D0:
 	movs r0, #0x80
 	lsls r0, r0, #1
 	movs r1, #0x79
-	bl sub_0807CC9C
+	bl SetLocalFlagByOffset
 	ldr r0, _080189E8 @ =gUnk_080FEE38
 	bl LoadRoomEntityList
 _080189E4:
@@ -903,7 +903,7 @@ sub_08018BB4: @ 0x08018BB4
 	mov r0, sp
 	bl sub_0804B3C4
 	ldrb r0, [r5, #1]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08018C10
 	ldrh r3, [r5, #4]

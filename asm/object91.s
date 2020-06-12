@@ -446,7 +446,7 @@ _0809C6F6:
 	b _0809C7C4
 _0809C738:
 	movs r0, #0x37
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809C74A
 	adds r0, r5, #0
@@ -948,7 +948,7 @@ sub_0809CAC8: @ 0x0809CAC8
 	ldr r0, _0809CB40 @ =gLinkEntity
 	str r0, [r2, #0x30]
 	movs r0, #0x9b
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	ldr r0, [r5, #0x50]
 	bl DeleteEntity
 	adds r4, r5, #0

@@ -1424,7 +1424,7 @@ sub_08041E50: @ 0x08041E50
 	cmp r5, #0
 	bne _08041E76
 	movs r0, #0x51
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
 	str r5, [r0, #0x64]

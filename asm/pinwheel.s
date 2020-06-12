@@ -55,7 +55,7 @@ sub_080A23DC: @ 0x080A23DC
 	orrs r0, r1
 	strb r0, [r3]
 	ldrh r0, [r2]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _080A2410
 	movs r0, #2
@@ -78,7 +78,7 @@ sub_080A2420: @ 0x080A2420
 	adds r4, r0, #0
 	adds r0, #0x68
 	ldrh r0, [r0]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _080A243A
 	movs r0, #2

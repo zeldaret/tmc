@@ -76,7 +76,7 @@ _0806C27C: .4byte gRoomControls
 sub_0806C280: @ 0x0806C280
 	push {lr}
 	movs r0, #0x50
-	bl sub_0807CD04
+	bl SetGlobalFlag
 	ldr r0, _0806C298 @ =gUnk_0813AD74
 	bl sub_08080840
 	ldr r1, _0806C29C @ =gUnk_030010A0

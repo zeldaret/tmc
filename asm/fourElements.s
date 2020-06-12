@@ -301,7 +301,7 @@ sub_080A03E8: @ 0x080A03E8
 	strb r1, [r0]
 	bl sub_0807DF50
 	movs r0, #0
-	bl sub_0807CD10
+	bl SetRoomFlag
 	bl sub_0805E780
 _080A041A:
 	pop {pc}

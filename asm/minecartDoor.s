@@ -202,7 +202,7 @@ sub_08096C3C: @ 0x08096C3C
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _08096CAE
 _08096C56:
@@ -294,7 +294,7 @@ sub_08096CEC: @ 0x08096CEC
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	bne _08096D60
 _08096D06:

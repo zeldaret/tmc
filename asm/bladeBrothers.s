@@ -492,7 +492,7 @@ _08068D4C:
 	b _08068DAA
 _08068D50:
 	movs r0, #3
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	b _08068DAE
 _08068D58:
 	ldr r0, _08068D64 @ =gUnk_02002A40

@@ -36,7 +36,7 @@ _08083ABC:
 	adds r0, r6, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08083B1C
 	ldrh r0, [r4]
@@ -111,7 +111,7 @@ _08083B24:
 	adds r0, r6, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	adds r0, r6, #0
 	bl sub_080A29BC
 	movs r0, #1

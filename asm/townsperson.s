@@ -616,11 +616,11 @@ sub_0806200C: @ 0x0806200C
 	adds r5, r0, #0
 	movs r4, #0
 	movs r0, #0x29
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _08062034
 	movs r0, #0x6b
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _08062034
 	movs r0, #0x39

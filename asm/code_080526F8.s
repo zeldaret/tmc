@@ -188,7 +188,7 @@ sub_0805283C: @ 0x0805283C
 	movs r0, #0x8c
 	lsls r0, r0, #4
 	movs r1, #0x7c
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _08052864
 	movs r0, #0x33
@@ -1272,14 +1272,14 @@ sub_080530C8: @ 0x080530C8
 	lsls r5, r5, #2
 	adds r0, r5, #0
 	movs r1, #0x78
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _080530E0
 	movs r4, #9
 	b _08053138
 _080530E0:
 	movs r0, #6
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _080530EE
 	movs r4, #8
@@ -1287,21 +1287,21 @@ _080530E0:
 _080530EE:
 	adds r0, r5, #0
 	movs r1, #0x32
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _080530FE
 	movs r4, #7
 	b _08053138
 _080530FE:
 	movs r0, #5
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0805310C
 	movs r4, #6
 	b _08053138
 _0805310C:
 	movs r0, #4
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0805311A
 	movs r4, #5
@@ -1310,14 +1310,14 @@ _0805311A:
 	movs r0, #0x80
 	lsls r0, r0, #1
 	movs r1, #0x9c
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _0805312C
 	movs r4, #4
 	b _08053138
 _0805312C:
 	movs r0, #2
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _08053138
 	movs r4, #2
@@ -1332,7 +1332,7 @@ _08053140: .4byte gUnk_02002A40
 sub_08053144: @ 0x08053144
 	push {lr}
 	movs r0, #0x51
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _08053154
 	movs r0, #0
@@ -1370,11 +1370,11 @@ sub_08053178: @ 0x08053178
 	adds r0, #0x2e
 	strb r1, [r0]
 	movs r0, #0x15
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _080531E6
 	movs r0, #0x51
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080531DC
 	bl sub_0805E8D4
@@ -1729,11 +1729,11 @@ sub_08053460: @ 0x08053460
 	movs r0, #0x8c
 	lsls r0, r0, #4
 	movs r1, #0x79
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _08053480
 	movs r0, #0x1c
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 _08053480:
 	ldr r0, _08053490 @ =gUnk_080FCB38
 	bl sub_0805356C
@@ -1763,12 +1763,12 @@ sub_080534AC: @ 0x080534AC
 	lsls r4, r4, #4
 	adds r0, r4, #0
 	movs r1, #0x7c
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _080534D6
 	adds r0, r4, #0
 	movs r1, #0x7c
-	bl sub_0807CD20
+	bl ClearLocalFlagByOffset
 	ldr r0, _080534D8 @ =gUnk_02002A40
 	ldr r1, _080534DC @ =0x0000048C
 	adds r0, r0, r1
@@ -1821,32 +1821,32 @@ sub_08053518: @ 0x08053518
 	ldr r0, _08053568 @ =gUnk_080FCB62
 	bl sub_0805356C
 	movs r0, #0x1b
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _08053534
 	movs r0, #0x1a
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 _08053534:
 	movs r0, #0x40
 	bl GetInventoryValue
 	cmp r0, #0
 	bne _08053544
 	movs r0, #2
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 _08053544:
 	movs r0, #0x41
 	bl GetInventoryValue
 	cmp r0, #0
 	bne _08053554
 	movs r0, #3
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 _08053554:
 	movs r0, #0x42
 	bl GetInventoryValue
 	cmp r0, #0
 	bne _08053564
 	movs r0, #5
-	bl sub_0807CD80
+	bl ClearGlobalFlag
 _08053564:
 	pop {pc}
 	.align 2, 0
@@ -1864,7 +1864,7 @@ sub_0805356C: @ 0x0805356C
 _0805357A:
 	ldrh r0, [r4]
 	ldrh r1, [r4, #2]
-	bl sub_0807CD20
+	bl ClearLocalFlagByOffset
 	adds r4, #4
 	ldrh r0, [r4]
 	cmp r0, r5
@@ -2579,7 +2579,7 @@ _08053B0C: .4byte gUnk_02000080
 sub_08053B10: @ 0x08053B10
 	push {lr}
 	movs r0, #1
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08053B34
 	ldr r0, _08053B38 @ =gUnk_02000080
@@ -2665,7 +2665,7 @@ _08053BB8: .4byte gUnk_02000080
 sub_08053BBC: @ 0x08053BBC
 	push {lr}
 	movs r0, #0
-	bl sub_0807CC3C
+	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08053BE0
 	ldr r0, _08053BE4 @ =gUnk_02000080
@@ -2860,7 +2860,7 @@ sub_08053D34: @ 0x08053D34
 	lsls r4, r4, #3
 	adds r0, r4, #0
 	movs r1, #0x3d
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _08053D5C
 	movs r0, #0x74
@@ -2870,7 +2870,7 @@ sub_08053D34: @ 0x08053D34
 _08053D5C:
 	adds r0, r4, #0
 	movs r1, #0x3e
-	bl GetProgressFlagWithOffset
+	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _08053D72
 	movs r0, #0x74

@@ -39,7 +39,7 @@ sub_08062D18: @ 0x08062D18
 	cmp r0, #0
 	beq _08062D36
 	movs r0, #0x26
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08062D36
 	movs r4, #7
@@ -49,7 +49,7 @@ _08062D36:
 	cmp r0, #0
 	beq _08062D4C
 	movs r0, #0x25
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08062D4C
 	movs r4, #6
@@ -59,7 +59,7 @@ _08062D4C:
 	cmp r0, #0
 	beq _08062D62
 	movs r0, #0x24
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08062D62
 	movs r4, #5
@@ -69,7 +69,7 @@ _08062D62:
 	cmp r0, #0
 	beq _08062D78
 	movs r0, #0x23
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08062D78
 	movs r4, #4
@@ -79,7 +79,7 @@ _08062D78:
 	cmp r0, #0
 	beq _08062D8E
 	movs r0, #0x22
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08062D8E
 	movs r4, #3
@@ -89,7 +89,7 @@ _08062D8E:
 	cmp r0, #0
 	beq _08062DA4
 	movs r0, #0x21
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08062DA4
 	movs r4, #2
@@ -99,7 +99,7 @@ _08062DA4:
 	cmp r0, #0
 	beq _08062DBA
 	movs r0, #0x20
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08062DBA
 	movs r4, #1
@@ -107,7 +107,7 @@ _08062DBA:
 	strb r4, [r5, #0xb]
 	movs r4, #0
 	ldr r0, _08062DCC @ =0x00001C1F
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08062DD0
 	movs r4, #1
@@ -116,16 +116,16 @@ _08062DBA:
 _08062DCC: .4byte 0x00001C1F
 _08062DD0:
 	movs r0, #0x8c
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _08062DE4
 	movs r4, #2
 	movs r0, #0x8c
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	b _08062DF0
 _08062DE4:
 	movs r0, #0x8b
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _08062DF0
 	movs r4, #3
@@ -153,6 +153,6 @@ _08062E0E:
 sub_08062E14: @ 0x08062E14
 	push {lr}
 	movs r0, #0x8b
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	pop {pc}
 	.align 2, 0

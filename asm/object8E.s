@@ -499,7 +499,7 @@ _0809BBF8:
 	movs r0, #3
 	strb r0, [r4, #0xc]
 	movs r0, #0x35
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	movs r0, #0x72
 	bl PlaySFX
 	b _0809BC68
@@ -533,7 +533,7 @@ _0809BC48:
 	movs r0, #1
 	strb r0, [r1, #0xd]
 	movs r0, #0x64
-	bl sub_0807CD10
+	bl SetRoomFlag
 	bl sub_0805E780
 _0809BC68:
 	pop {r4, r5, pc}
@@ -674,7 +674,7 @@ _0809BD64:
 	orrs r0, r1
 	strh r0, [r2]
 	movs r0, #0x37
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	movs r0, #0x9a
 	lsls r0, r0, #1
 	bl PlaySFX

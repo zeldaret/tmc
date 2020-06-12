@@ -208,7 +208,7 @@ _0809A8E2:
 	movs r0, #0xff
 	bl sub_08078A90
 	movs r0, #0x2a
-	bl sub_0807CD04
+	bl SetGlobalFlag
 _0809A8FC:
 	adds r0, r4, #0
 	bl sub_080042B8

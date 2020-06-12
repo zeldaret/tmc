@@ -37,7 +37,7 @@ sub_0809B3C4: @ 0x0809B3C4
 	b _0809B3FE
 _0809B3E2:
 	movs r0, #0x73
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0809B3F0
 	bl sub_0805E780
@@ -57,7 +57,7 @@ _0809B3FE:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _0809B424
 	ldrb r0, [r4, #0xb]
@@ -265,7 +265,7 @@ sub_0809B56C: @ 0x0809B56C
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0

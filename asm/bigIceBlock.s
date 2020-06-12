@@ -36,7 +36,7 @@ sub_0809975C: @ 0x0809975C
 	adds r4, r0, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CBE4
+	bl CheckFlags
 	cmp r0, #0
 	beq _08099770
 	bl sub_0805E780
@@ -155,7 +155,7 @@ _08099828:
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
-	bl sub_0807CCC8
+	bl SetFlag
 	b _0809986C
 	.align 2, 0
 _08099858: .4byte gUnk_081237B0

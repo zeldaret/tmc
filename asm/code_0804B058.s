@@ -171,7 +171,7 @@ _0804B170:
 	cmp r0, #0
 	beq _0804B198
 	ldrb r0, [r4, #1]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B198
 	ldrh r3, [r4, #4]
@@ -312,7 +312,7 @@ _0804B28C: .4byte gUnk_02033A90
 sub_0804B290: @ 0x0804B290
 	push {lr}
 	ldrb r0, [r0, #1]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	pop {pc}
 	.align 2, 0
 
@@ -342,7 +342,7 @@ _0804B2A4:
 	cmp r0, #0
 	beq _0804B2FC
 	ldrb r0, [r4, #1]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0804B2FC
 	ldrb r1, [r4, #1]
@@ -407,7 +407,7 @@ sub_0804B340: @ 0x0804B340
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrh r0, [r4, #2]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B35A
 	ldrh r0, [r4, #6]
@@ -701,7 +701,7 @@ sub_0804B4E4: @ 0x0804B4E4
 	cmp r0, #0
 	beq _0804B4FC
 	movs r0, #0x56
-	bl sub_0807CD04
+	bl SetGlobalFlag
 _0804B4FC:
 	pop {pc}
 	.align 2, 0
@@ -883,7 +883,7 @@ _0804B602:
 	cmp r5, #0
 	bge _0804B5F4
 	movs r0, #0x8b
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B648
 	ldr r4, _0804B620 @ =gUnk_080D6508
@@ -900,67 +900,67 @@ _0804B628:
 	cmp r5, r6
 	bge _0804B648
 	ldrh r0, [r4]
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0804B624
 	ldrh r0, [r4]
-	bl sub_0807CCB4
+	bl SetLocalFlag
 	movs r0, #0x8b
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	movs r0, #0x8c
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0804B648:
 	movs r0, #0x1f
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B658
 	ldr r0, _0804B6CC @ =gUnk_080D6360
 	bl LoadRoomEntityList
 _0804B658:
 	movs r0, #0x20
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B668
 	ldr r0, _0804B6D0 @ =gUnk_080D6380
 	bl LoadRoomEntityList
 _0804B668:
 	movs r0, #0x21
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B678
 	ldr r0, _0804B6D4 @ =gUnk_080D63A0
 	bl LoadRoomEntityList
 _0804B678:
 	movs r0, #0x22
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B688
 	ldr r0, _0804B6D8 @ =gUnk_080D63C0
 	bl LoadRoomEntityList
 _0804B688:
 	movs r0, #0x23
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B698
 	ldr r0, _0804B6DC @ =gUnk_080D63E0
 	bl LoadRoomEntityList
 _0804B698:
 	movs r0, #0x24
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B6A8
 	ldr r0, _0804B6E0 @ =gUnk_080D6400
 	bl LoadRoomEntityList
 _0804B6A8:
 	movs r0, #0x25
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B6B8
 	ldr r0, _0804B6E4 @ =gUnk_080D6420
 	bl LoadRoomEntityList
 _0804B6B8:
 	movs r0, #0x26
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B6C8
 	ldr r0, _0804B6E8 @ =gUnk_080D6440
@@ -992,7 +992,7 @@ sub_0804B6F0: @ 0x0804B6F0
 	ldr r0, _0804B714 @ =gUnk_080D6578
 	bl LoadRoomEntityList
 	movs r0, #0x73
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0804B722
 	ldr r0, _0804B718 @ =gUnk_080D6638
@@ -1033,11 +1033,11 @@ _0804B748:
 	cmp r0, #0
 	bne _0804B77C
 	movs r0, #0x29
-	bl GetProgressFlag
+	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0804B77C
 	movs r0, #0x6a
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B77C
 	ldr r0, _0804B778 @ =gUnk_080D6734
@@ -1079,7 +1079,7 @@ _0804B7A4: .4byte gUnk_080D6924
 sub_0804B7A8: @ 0x0804B7A8
 	push {r4, lr}
 	movs r0, #0x91
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B7C8
 	bl Random
@@ -1087,12 +1087,12 @@ sub_0804B7A8: @ 0x0804B7A8
 	bl __modsi3
 	adds r4, r0, #0
 	movs r0, #1
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	b _0804B7D0
 _0804B7C8:
 	movs r4, #0
 	movs r0, #1
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0804B7D0:
 	ldr r2, _0804B7E0 @ =gRoomVars
 	ldr r1, _0804B7E4 @ =gUnk_080D6A74
@@ -1110,11 +1110,11 @@ _0804B7E4: .4byte gUnk_080D6A74
 sub_0804B7E8: @ 0x0804B7E8
 	push {lr}
 	movs r0, #0x91
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B81E
 	movs r0, #0x91
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
@@ -1142,7 +1142,7 @@ _0804B828: .4byte gUnk_08010A5C
 sub_0804B82C: @ 0x0804B82C
 	push {r4, lr}
 	movs r0, #0x91
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B84A
 	bl Random
@@ -1150,12 +1150,12 @@ sub_0804B82C: @ 0x0804B82C
 	movs r0, #1
 	ands r4, r0
 	movs r0, #2
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	b _0804B852
 _0804B84A:
 	movs r4, #0
 	movs r0, #2
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0804B852:
 	ldr r2, _0804B864 @ =gRoomVars
 	ldr r1, _0804B868 @ =gUnk_080D6B18
@@ -1173,11 +1173,11 @@ _0804B868: .4byte gUnk_080D6B18
 sub_0804B86C: @ 0x0804B86C
 	push {lr}
 	movs r0, #0x91
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B8A2
 	movs r0, #0x91
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
@@ -1205,7 +1205,7 @@ _0804B8AC: .4byte gUnk_08010A5C
 sub_0804B8B0: @ 0x0804B8B0
 	push {r4, lr}
 	movs r0, #0x91
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B8D0
 	bl Random
@@ -1213,12 +1213,12 @@ sub_0804B8B0: @ 0x0804B8B0
 	bl __modsi3
 	adds r4, r0, #0
 	movs r0, #3
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	b _0804B8D8
 _0804B8D0:
 	movs r4, #0
 	movs r0, #3
-	bl sub_0807CCB4
+	bl SetLocalFlag
 _0804B8D8:
 	ldr r2, _0804B8E8 @ =gRoomVars
 	ldr r1, _0804B8EC @ =gUnk_080D6BB8
@@ -1236,11 +1236,11 @@ _0804B8EC: .4byte gUnk_080D6BB8
 sub_0804B8F0: @ 0x0804B8F0
 	push {lr}
 	movs r0, #0x91
-	bl sub_0807CBD0
+	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0804B926
 	movs r0, #0x91
-	bl sub_0807CD34
+	bl ClearLocalFlag
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #5
