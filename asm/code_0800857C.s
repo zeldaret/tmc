@@ -387,7 +387,7 @@ _0800882C:
 	movs r3, #0x38
 	ldrb r1, [r4, r3]
 	strb r1, [r0, r3]
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _0800883A:
 	ldr r1, _080088E0 @ =gRoomControls
 	ldrh r0, [r1, #6]
@@ -4030,8 +4030,8 @@ gUnk_080169A4::
 	.byte 0x00, 0x00, 0x00, 0x01, 0x02, 0x00, 0x01, 0x00, 0x00, 0x00, 0xFF, 0x00, 0xFF, 0x00, 0xFF, 0x00
 	.byte 0x00, 0x00, 0x01, 0x00
 
-	thumb_func_start InitializeAnimationOrderAndFlip
-InitializeAnimationOrderAndFlip: @ 0x08016A04
+	thumb_func_start UpdateSpriteOrderAndFlip
+UpdateSpriteOrderAndFlip: @ 0x08016A04
 	movs r1, #0x38
 	ldrb r1, [r0, r1]
 	lsls r1, r1, #1
@@ -4083,7 +4083,7 @@ _08016A62:
 	strb r3, [r4, r5]
 _08016A64:
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_08016A6C
@@ -4123,6 +4123,6 @@ sub_08016AD2: @ 0x08016AD2
 	bl sub_08016A6C
 	push {r0}
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	pop {r0, r4, pc}
 

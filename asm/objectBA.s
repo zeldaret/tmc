@@ -1026,7 +1026,7 @@ sub_080A1E54: @ 0x080A1E54
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _080A1ECA:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1241,7 +1241,7 @@ sub_080A1FF0: @ 0x080A1FF0
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _080A2066:
 	adds r4, r5, #0
 	adds r4, #0x7b

@@ -47,7 +47,7 @@ sub_0809ADCC: @ 0x0809ADCC
 	adds r0, #0x38
 	ldrb r7, [r0]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	ldrb r0, [r4, #0xa]
 	cmp r0, #1
 	beq _0809AEBC

@@ -570,7 +570,7 @@ _0804948C:
 	strb r0, [r1]
 	str r4, [r2, #0x50]
 	adds r0, r2, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _080494B2:
 	adds r0, r4, #0
 	bl sub_08049944
@@ -1414,7 +1414,7 @@ sub_08049AB0: @ 0x08049AB0
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _08049B18:
 	pop {r4, r5, pc}
 	.align 2, 0

@@ -29,7 +29,7 @@ sub_08093FCC: @ 0x08093FCC
 	adds r2, #0x38
 	movs r1, #2
 	strb r1, [r2]
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	pop {pc}
 
 	thumb_func_start sub_08093FE0
@@ -54,7 +54,7 @@ _08094002:
 	movs r0, #1
 	strb r0, [r3]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]
@@ -76,7 +76,7 @@ _08094024:
 	movs r0, #2
 	strb r0, [r3]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]

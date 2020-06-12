@@ -288,7 +288,7 @@ _080819D4:
 	orrs r0, r1
 	strb r0, [r2]
 	adds r0, r5, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r5, #0
 	bl sub_08081A5C
 	pop {r4, r5, r6, pc}

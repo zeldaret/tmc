@@ -67,7 +67,7 @@ sub_0809EA34: @ 0x0809EA34
 	adds r0, r4, #0
 	bl sub_0809EAD8
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	bl sub_0809EABC
 	pop {r4, pc}
@@ -240,7 +240,7 @@ sub_0809EB80: @ 0x0809EB80
 	adds r0, r4, #0
 	bl sub_0809EAD8
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldrh r0, [r0]

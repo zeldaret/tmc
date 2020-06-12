@@ -1290,7 +1290,7 @@ _0804A612:
 	strb r0, [r1]
 _0804A638:
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r5, r4, #0
 	adds r5, #0x6d
 	ldrb r1, [r5]

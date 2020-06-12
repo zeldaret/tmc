@@ -40,7 +40,7 @@ _0809E856:
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	pop {r4, pc}
 	.align 2, 0
 
@@ -162,7 +162,7 @@ _0809E92A:
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r2, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _0809E958:
 	adds r4, #4
 	movs r1, #0

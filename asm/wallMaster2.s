@@ -135,7 +135,7 @@ sub_0802CCE0: @ 0x0802CCE0
 	adds r0, #0x7c
 	strh r5, [r0]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0
 	bl InitializeAnimation

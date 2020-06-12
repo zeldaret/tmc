@@ -26,7 +26,7 @@ sub_0809CC74: @ 0x0809CC74
 	adds r5, r0, #0
 	movs r4, #1
 	strb r4, [r5, #0xc]
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	ldrb r0, [r5, #0xa]
 	cmp r0, #0
 	bne _0809CCD4

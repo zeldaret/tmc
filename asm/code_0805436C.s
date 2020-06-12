@@ -685,7 +685,7 @@ _08054842:
 	adds r0, #0x38
 	strb r1, [r0]
 	adds r0, r2, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _0805486A:
 	adds r0, r4, #0
 _0805486C:
@@ -1551,7 +1551,7 @@ sub_08054EFC: @ 0x08054EFC
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0x35
 	movs r2, #0

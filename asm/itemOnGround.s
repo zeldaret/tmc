@@ -1473,7 +1473,7 @@ _08081522:
 	ldrb r0, [r4, #0xa]
 	bl sub_0808148C
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _08081532:
 	adds r0, r4, #0
 	bl sub_080AEFE0
@@ -1510,7 +1510,7 @@ sub_0808153C: @ 0x0808153C
 	ldrb r0, [r4, #0xa]
 	bl sub_0808148C
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	b _08081596
 _0808157E:
 	movs r1, #0xa0

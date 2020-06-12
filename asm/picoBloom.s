@@ -40,7 +40,7 @@ _08098A9C:
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	ldr r1, _08098ACC @ =gUnk_08123574
 	ldrb r0, [r4, #0xa]
 	adds r0, r0, r1

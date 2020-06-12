@@ -213,7 +213,7 @@ sub_0803BCA4: @ 0x0803BCA4
 	adds r1, #0x7a
 	strh r0, [r1]
 	adds r0, r6, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r6, #0
 	bl sub_0803BF2C
 	pop {r4, r5, r6, pc}
@@ -459,7 +459,7 @@ sub_0803BE7C: @ 0x0803BE7C
 	movs r0, #3
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	bl sub_0803BF2C
 _0803BEE6:

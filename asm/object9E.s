@@ -76,7 +76,7 @@ sub_0809EC4C: @ 0x0809EC4C
 	adds r1, r4, #0
 	bl SetTile
 	adds r0, r6, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	movs r0, #0x9e
 	movs r1, #1
 	movs r2, #0
@@ -100,7 +100,7 @@ _0809ED04:
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r6, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _0809ED14:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

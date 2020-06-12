@@ -26,7 +26,7 @@ sub_0809CEA8: @ 0x0809CEA8
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0
 	bl InitializeAnimation

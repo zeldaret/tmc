@@ -4884,7 +4884,7 @@ sub_08071F80: @ 0x08071F80
 	cmp r5, #0
 	bne _08071FB8
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	ldr r0, _08071FB4 @ =gLinkState
 	strb r5, [r0, #2]
 	ldrb r0, [r0, #0x14]
@@ -5180,7 +5180,7 @@ _080721AC:
 	orrs r0, r1
 	strb r0, [r4, #0x10]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	bl sub_080791BC
 _080721DE:
 	pop {r4, pc}
@@ -5417,7 +5417,7 @@ sub_08072354: @ 0x08072354
 	ands r0, r1
 	str r0, [r2, #0x30]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0xc
 	movs r2, #0

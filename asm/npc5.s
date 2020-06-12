@@ -550,7 +550,7 @@ sub_08060DFC: @ 0x08060DFC
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0x1c
 	bl sub_08060E70

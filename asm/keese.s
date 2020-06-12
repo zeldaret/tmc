@@ -127,7 +127,7 @@ _08021E14:
 	movs r0, #3
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	bl sub_08021EF0
 	pop {r4, pc}

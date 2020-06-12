@@ -44,7 +44,7 @@ sub_08097D90: @ 0x08097D90
 	ands r0, r1
 	strb r0, [r2]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0
 	bl LoadAnimation

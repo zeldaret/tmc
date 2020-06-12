@@ -315,7 +315,7 @@ sub_0804882C: @ 0x0804882C
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	adds r0, #0x7a
 	ldrb r0, [r0]

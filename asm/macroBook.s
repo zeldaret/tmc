@@ -62,7 +62,7 @@ sub_0809A78C: @ 0x0809A78C
 	adds r1, r2, #0
 	bl sub_0805EC9C
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	ldrb r1, [r4, #0xf]
 	adds r0, r4, #0
 	bl LoadAnimation

@@ -40,7 +40,7 @@ sub_0809F840: @ 0x0809F840
 	strb r0, [r2, #0x18]
 _0809F860:
 	adds r0, r2, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	pop {pc}
 
 	thumb_func_start sub_0809F868

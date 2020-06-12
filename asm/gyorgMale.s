@@ -997,7 +997,7 @@ _08046F12:
 	strb r0, [r1]
 	str r4, [r2, #0x50]
 	adds r0, r2, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _08046F58:
 	adds r0, r4, #0
 	bl sub_08047E48
@@ -1052,7 +1052,7 @@ _08046F82:
 	strb r0, [r1]
 	str r4, [r2, #0x50]
 	adds r0, r2, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _08046FC8:
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0]
@@ -2751,7 +2751,7 @@ sub_08047BF0: @ 0x08047BF0
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _08047C74:
 	adds r0, r5, #0
 	adds r0, #0x76

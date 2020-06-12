@@ -44,7 +44,7 @@ sub_0808B89C: @ 0x0808B89C
 	adds r1, #0x38
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]

@@ -143,7 +143,7 @@ sub_0801FCB0: @ 0x0801FCB0
 	movs r1, #0
 	bl InitializeAnimation
 	adds r0, r5, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	b _0801FD28
 	.align 2, 0
 _0801FD14: .4byte gUnk_020000B0

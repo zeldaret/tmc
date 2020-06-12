@@ -29,7 +29,7 @@ sub_080933D8: @ 0x080933D8
 	ldrb r0, [r4, #0xa]
 	strb r0, [r4, #0x1e]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	ldr r0, _080933F8 @ =gUnk_081228A8
 	str r0, [r4, #0x48]
 	adds r0, r4, #0

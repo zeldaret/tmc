@@ -163,7 +163,7 @@ _0806ECD0:
 	strb r1, [r0]
 	strb r1, [r4, #0x1e]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _0806ED4A:
 	pop {r4, r5, pc}
 	.align 2, 0

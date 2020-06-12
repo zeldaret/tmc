@@ -54,7 +54,7 @@ _080A08F6:
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	pop {r4, pc}
 	.align 2, 0
 

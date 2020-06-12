@@ -331,7 +331,7 @@ _0802268C:
 	movs r0, #0x7d
 	bl sub_08004488
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _080226BE:
 	adds r0, r4, #0
 	bl sub_08004274

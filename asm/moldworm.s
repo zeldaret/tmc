@@ -1275,7 +1275,7 @@ sub_08023990: @ 0x08023990
 	adds r0, #0x38
 	strb r1, [r0]
 	adds r0, r5, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r5, #0
 	movs r1, #0x16
 	bl InitializeAnimation

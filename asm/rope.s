@@ -212,7 +212,7 @@ _080314CC:
 	orrs r0, r1
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	movs r0, #0x84
 	bl sub_08004488
 _080314FA:

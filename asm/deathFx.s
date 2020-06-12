@@ -42,7 +42,7 @@ sub_08081634: @ 0x08081634
 	adds r0, #0x38
 	strb r1, [r0]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	ldrb r0, [r4, #0x19]
 	movs r1, #3
 	orrs r0, r1

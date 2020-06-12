@@ -5202,7 +5202,7 @@ _080A7E14:
 	ldr r0, [r5, #4]
 	str r0, [r4, #0x48]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 _080A7E4A:
 	movs r0, #1
 _080A7E4C:
@@ -10441,7 +10441,7 @@ sub_080AA534: @ 0x080AA534
 	adds r2, #0x38
 	movs r1, #3
 	strb r1, [r2]
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	pop {pc}
 
 	thumb_func_start sub_080AA544
@@ -15257,7 +15257,7 @@ sub_080AC928: @ 0x080AC928
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0
 	bl InitializeAnimation
@@ -16380,7 +16380,7 @@ _080AD188:
 	bl PlaySFX
 _080AD196:
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	movs r0, #3
 	strb r0, [r5, #0xd]
 	ldrb r2, [r4, #0x19]

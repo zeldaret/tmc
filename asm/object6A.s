@@ -59,7 +59,7 @@ sub_08094A90: @ 0x08094A90
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	ldr r1, _08094AE4 @ =gUnk_08114F30
 	ldrb r2, [r4, #0x19]
 	lsrs r0, r2, #6
@@ -252,7 +252,7 @@ sub_08094BE0: @ 0x08094BE0
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #1
 	bl LoadAnimation
@@ -1209,7 +1209,7 @@ sub_08095364: @ 0x08095364
 	movs r4, #1
 	strb r4, [r0]
 	adds r0, r6, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	str r5, [r6, #0x54]
 	strb r4, [r6, #0xd]
 	ldr r0, _080953A0 @ =0x0000FFF0
@@ -1868,7 +1868,7 @@ _08095880:
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r5, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	ldr r1, _080958D4 @ =gUnk_08114F30
 	ldrb r2, [r5, #0x19]
 	lsrs r0, r2, #6
@@ -2225,7 +2225,7 @@ sub_08095B48: @ 0x08095B48
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r5, #0
-	bl InitializeAnimationOrderAndFlip
+	bl UpdateSpriteOrderAndFlip
 	ldr r1, _08095BA8 @ =gUnk_08114F30
 	ldrb r2, [r5, #0x19]
 	lsrs r0, r2, #6
