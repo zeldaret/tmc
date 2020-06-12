@@ -251,9 +251,9 @@ We know `r4` is an `Entity`, which is from `entity.h`. We can declare this above
 What about `gUnk_08120668` and `sub_0805EC9C`?
 ```c
 extern void sub_0805EC9C();
-extern (*gUnk_08120668[])(Entity *);
+extern void (*gUnk_08120668[])(Entity *);
 ```
-Now the compiler will look outside of this file for both of these. We don't have to set the size of `gUnk_08120668`, a pointer array, since it's size is irrelevant for now.
+Now the compiler will look outside of this file for both of these. We don't have to set the size of `gUnk_08120668`, a function array, since it's size is irrelevant for now.
 
 ---
 
@@ -263,7 +263,7 @@ Now our file looks like this:
 #include "entity.h"
 
 extern void sub_0805EC9C();
-extern (*gUnk_08120668[])(Entity *);
+extern void (*gUnk_08120668[])(Entity *);
 
 void sub_08086284(Entity *r4) {
     gUnk_08120668[r4->action](r4);
