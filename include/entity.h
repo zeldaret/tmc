@@ -126,7 +126,8 @@ typedef struct Entity
 	u8 filler3[2];
 	u16 itemCooldown;
 	u32 field_0x7c;
-	u32 field_0x80;
+	u16 field_0x80;
+    u16 field_0x82;
 	u16 cutsceneBeh;
     u16 field_0x86;
 	
