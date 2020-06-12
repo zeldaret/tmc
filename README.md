@@ -24,6 +24,8 @@ Website: <https://zelda64.dev/>
 
 Discord: <https://discord.zelda64.dev>
 
+## Installation
+
 To set up the repository, see [INSTALL.md](INSTALL.md).
 
 ## Contributing
