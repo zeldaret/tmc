@@ -697,7 +697,7 @@ SECTIONS {
 		asm/object72.o(.text);
 		asm/lilypadSmall.o(.text);
 		asm/object74.o(.text);
-		asm/bell.o(.text);
+		src/bell.o(.text);
 		asm/macroDecorations.o(.text);
 		asm/object79.o(.text);
 		asm/steam.o(.text);
@@ -765,7 +765,7 @@ SECTIONS {
 		asm/windTribeTeleporter.o(.text);
 		asm/objectB9.o(.text);
 		asm/objectBA.o(.text);
-		asm/windCrest.o(.text);
+		asm/windcrest.o(.text);
 		asm/litArea.o(.text);
 		asm/objectBD.o(.text);
 		asm/pinwheel.o(.text);
