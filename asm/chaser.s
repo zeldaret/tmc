@@ -57,7 +57,7 @@ sub_0802B530: @ 0x0802B530
 	movs r1, #1
 	strb r1, [r0, #0xc]
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 
@@ -113,7 +113,7 @@ _0802B586:
 	beq _0802B5A2
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802B5A2:
 	ldrh r2, [r4, #0x24]
 	movs r0, #0x24
@@ -131,7 +131,7 @@ _0802B5B8:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802B5C4:
 	pop {r4, pc}
 	.align 2, 0
@@ -154,6 +154,6 @@ sub_0802B5C8: @ 0x0802B5C8
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802B5EE:
 	pop {r4, pc}

@@ -1015,7 +1015,7 @@ _08035974:
 	adds r1, r1, r0
 	ldrb r1, [r1]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080359A0
 	.align 2, 0
 _0803598C: .4byte gUnk_080CF08C

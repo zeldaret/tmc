@@ -78,7 +78,7 @@ sub_0809D7A8: @ 0x0809D7A8
 	strb r1, [r5, #0x15]
 _0809D80C:
 	adds r0, r5, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	ldrb r4, [r5, #0xa]
 	adds r0, r5, #0
 	bl sub_08080CB4
@@ -151,7 +151,7 @@ _0809D888:
 	adds r0, #0x38
 	strb r1, [r0]
 	adds r0, r5, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	ldr r1, [r6]
 	cmp r1, #0
 	beq _0809D8AC

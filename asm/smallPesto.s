@@ -226,7 +226,7 @@ sub_080317E0: @ 0x080317E0
 	lsrs r1, r1, #2
 	strb r1, [r0, #0x14]
 	ldrb r1, [r0, #0x14]
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 

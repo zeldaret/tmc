@@ -550,7 +550,7 @@ sub_080603B4: @ 0x080603B4
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #6
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080603FA
 	.align 2, 0
 _080603F0: .4byte gUnk_0810A348

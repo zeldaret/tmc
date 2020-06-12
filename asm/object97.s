@@ -243,7 +243,7 @@ sub_0809DB58: @ 0x0809DB58
 	orrs r0, r1
 	strb r0, [r4, #0x19]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0x3c
 	bl LoadAnimation
@@ -357,7 +357,7 @@ _0809DC3C:
 	adds r0, #0x38
 	strb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 _0809DC54:
 	movs r0, #0x6e
 	bl PlaySFX
@@ -430,7 +430,7 @@ sub_0809DC80: @ 0x0809DC80
 	adds r0, #2
 	strb r2, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #3
 	bl LoadAnimation
@@ -659,7 +659,7 @@ sub_0809DE50: @ 0x0809DE50
 	ldr r0, _0809DEF8 @ =0x0000FFC0
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	ldr r1, _0809DEFC @ =gUnk_08124128
 	ldrb r0, [r4, #0xb]
 	adds r0, r0, r1

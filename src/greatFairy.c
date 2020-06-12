@@ -38,7 +38,7 @@ void sub_08086AF8(Entity *ent)
 {
     sub_08087380();
     ent->parameter3 = 0;
-    ent->cutsceneBeh = 290;
+    ent->cutsceneBeh.HWORD = 290;
 }
 
 //Dormant update
@@ -53,7 +53,7 @@ void sub_08086B10(Entity *ent)
     if (event == 0) {
         return;
     }
-    pFrame = &ent->cutsceneBeh;
+    pFrame = &ent->cutsceneBeh.HWORD;
     if (*pFrame != 0) {
         *pFrame = *pFrame - 1;
     }

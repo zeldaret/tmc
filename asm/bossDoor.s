@@ -100,7 +100,7 @@ _0808C230:
 	movs r1, #0x1f
 	ands r1, r0
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r0, [r4, #0xb]
 	cmp r0, #1
 	beq _0808C2F8

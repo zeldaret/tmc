@@ -166,7 +166,7 @@ _080912CE:
 	strb r1, [r0]
 	ldrb r1, [r6, #0xb]
 	adds r0, r6, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0809132C:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -331,9 +331,9 @@ sub_08091444: @ 0x08091444
 	ldrb r1, [r0, #0xb]
 	adds r1, #8
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	pop {r4, pc}
 
 	thumb_func_start sub_08091470
@@ -417,7 +417,7 @@ _080914E2:
 	adds r1, r1, r3
 	adds r1, #8
 	adds r0, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08091502:
 	pop {r4, pc}
 
@@ -445,9 +445,9 @@ sub_08091504: @ 0x08091504
 	ldrb r1, [r4, #0xb]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	pop {r4, pc}
 
 	thumb_func_start sub_0809153C

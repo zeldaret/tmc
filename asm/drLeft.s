@@ -69,12 +69,12 @@ _0806BFF0:
 	ands r1, r5
 	adds r1, #0xc
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806C00A
 _0806C002:
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806C00A:
 	pop {r4, r5, pc}
 
@@ -103,7 +103,7 @@ sub_0806C028: @ 0x0806C028
 	lsrs r2, r2, #1
 	ldr r1, [r1, #4]
 	adds r1, r1, r2
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 
 	thumb_func_start sub_0806C038

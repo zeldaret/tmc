@@ -11,7 +11,7 @@
 sub_080481C0: @ 0x080481C0
 	push {lr}
 	ldr r1, _080481CC @ =gUnk_080D1CC8
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	pop {pc}
 	.align 2, 0
 _080481CC: .4byte gUnk_080D1CC8
@@ -57,7 +57,7 @@ _08048212:
 	strb r0, [r2, #0xe]
 	ldrb r1, [r2, #0xe]
 	adds r0, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 
@@ -100,7 +100,7 @@ _0804824E:
 _0804825E:
 	ldrb r1, [r4, #0xe]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 
 	thumb_func_start sub_08048268
@@ -123,7 +123,7 @@ sub_08048268: @ 0x08048268
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08048292:
 	pop {r4, pc}
 
@@ -145,7 +145,7 @@ sub_08048294: @ 0x08048294
 	bl SetLocalFlag
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _080482BC:
 	pop {r4, pc}
 	.align 2, 0

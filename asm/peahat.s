@@ -16,13 +16,13 @@ sub_0801FF5C: @ 0x0801FF5C
 	bne _0801FF84
 	ldr r1, _0801FF80 @ =gUnk_080CA570
 	adds r0, r4, #0
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	movs r3, #0x10
 	rsbs r3, r3, #0
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	b _0801FF94
 	.align 2, 0
 _0801FF80: .4byte gUnk_080CA570
@@ -124,7 +124,7 @@ _0802001E:
 	strb r1, [r0]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08020068
 _08020042:
 	cmp r1, #0x80
@@ -209,7 +209,7 @@ sub_080200B4: @ 0x080200B4
 	strb r3, [r0]
 	ldrb r1, [r2, #0x14]
 	adds r0, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080200E2:
 	pop {pc}
 
@@ -301,7 +301,7 @@ _08020162:
 	strb r0, [r4, #0x14]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -403,7 +403,7 @@ sub_08020220: @ 0x08020220
 	movs r1, #4
 	subs r1, r1, r0
 	adds r0, r5, #0
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 	b _08020292
 _0802024C:
 	movs r0, #3
@@ -437,7 +437,7 @@ _08020284:
 _0802028A:
 	adds r0, r5, #0
 	movs r1, #4
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 _08020292:
 	pop {r4, r5, pc}
 
@@ -495,7 +495,7 @@ _080202F8:
 _080202FE:
 	adds r0, r4, #0
 	movs r1, #4
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 	pop {r4, pc}
 
 	thumb_func_start sub_08020308
@@ -533,7 +533,7 @@ _08020340:
 	bl sub_080AEFE0
 	adds r0, r4, #0
 	movs r1, #4
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 _0802034E:
 	pop {r4, pc}
 
@@ -638,7 +638,7 @@ _080203F2:
 	strb r0, [r4, #0x14]
 	adds r0, r4, #0
 	movs r1, #5
-	bl UpdateSprite
+	bl InitializeAnimation
 _08020418:
 	pop {r4, pc}
 	.align 2, 0
@@ -710,7 +710,7 @@ sub_08020468: @ 0x08020468
 	strb r0, [r4, #0x14]
 	adds r0, r4, #0
 	movs r1, #4
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080204A6
 _080204A2:
 	movs r0, #1
@@ -773,7 +773,7 @@ sub_080204E0: @ 0x080204E0
 	strb r2, [r4, #0x14]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0802053A
 _0802051A:
 	movs r0, #1
@@ -833,7 +833,7 @@ sub_0802053C: @ 0x0802053C
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	movs r1, #3
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 
 	thumb_func_start sub_08020590

@@ -148,7 +148,7 @@ _080645EA:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, [r4, #0x68]
 	cmp r0, #0
 	beq _0806463C

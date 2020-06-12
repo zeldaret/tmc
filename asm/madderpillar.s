@@ -411,12 +411,12 @@ sub_08029B90: @ 0x08029B90
 	bhi _08029BBA
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08029BC2
 _08029BBA:
 	adds r0, r4, #0
 	movs r1, #4
-	bl UpdateSprite
+	bl InitializeAnimation
 _08029BC2:
 	pop {r4, pc}
 
@@ -442,7 +442,7 @@ _08029BE8:
 	ldrb r1, [r4, #0x14]
 	adds r1, r1, r2
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08029BF2:
 	movs r0, #0x2e
 	ldrsh r1, [r4, r0]
@@ -579,7 +579,7 @@ sub_08029CCC: @ 0x08029CCC
 	bl sub_0802A058
 	adds r0, r4, #0
 	movs r1, #8
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 
 	thumb_func_start sub_08029CF0
@@ -592,7 +592,7 @@ sub_08029CF0: @ 0x08029CF0
 	ldrb r1, [r4, #0x14]
 	adds r1, #8
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08029D06:
 	pop {r4, pc}
 
@@ -620,7 +620,7 @@ sub_08029D14: @ 0x08029D14
 	ldrb r1, [r4, #0x14]
 	adds r1, #0xc
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	movs r1, #0x7f
 	bl sub_0801D2B4
@@ -676,7 +676,7 @@ sub_08029D78: @ 0x08029D78
 	ldrb r1, [r4, #0x14]
 	adds r1, #0x10
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08029DA6:
 	pop {r4, pc}
 	.align 2, 0
@@ -703,7 +703,7 @@ sub_08029DAC: @ 0x08029DAC
 	ldrb r1, [r4, #0x14]
 	adds r1, #8
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08029DD8:
 	pop {r4, pc}
 	.align 2, 0

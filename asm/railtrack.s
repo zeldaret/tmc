@@ -82,7 +82,7 @@ _080851EE:
 _0808521E:
 	ldrb r1, [r5, #0x14]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r5, #0
 	adds r0, #0x38
 	ldrb r0, [r0]
@@ -143,7 +143,7 @@ _0808528A:
 	strb r0, [r4, #0x14]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_0808543C
 	ldr r0, _080852B0 @ =0x00000151
@@ -184,7 +184,7 @@ sub_080852B4: @ 0x080852B4
 	strb r0, [r5, #0x14]
 	ldrb r1, [r5, #0x14]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r5, #0
 	bl sub_08085394
 	ldr r0, _08085304 @ =0x00000151
@@ -256,7 +256,7 @@ _08085354:
 	strb r0, [r4, #0x14]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_0808543C
 	ldr r0, _08085390 @ =0x00000151

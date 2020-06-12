@@ -11,7 +11,7 @@
 sub_08022FA4: @ 0x08022FA4
 	push {lr}
 	ldr r1, _08022FB0 @ =gUnk_080CBBC8
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	pop {pc}
 	.align 2, 0
 _08022FB0: .4byte gUnk_080CBBC8

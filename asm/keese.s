@@ -127,7 +127,7 @@ _08021E14:
 	movs r0, #3
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	bl sub_08021EF0
 	pop {r4, pc}
@@ -247,7 +247,7 @@ sub_08021EF0: @ 0x08021EF0
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 	.align 2, 0
 _08021F20: .4byte gUnk_080CB6D6
@@ -294,7 +294,7 @@ _08021F6E:
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08021FA4
 	.align 2, 0
 _08021F7C: .4byte gLinkEntity
@@ -314,7 +314,7 @@ _08021F9A:
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08021FA4:
 	pop {r4, pc}
 	.align 2, 0

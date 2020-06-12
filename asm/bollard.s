@@ -64,7 +64,7 @@ _0808B2F4:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #3
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	adds r0, #0x72
 	ldrh r0, [r0]
@@ -126,7 +126,7 @@ _0808B36C:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_0808B3AC
 	ldr r0, _0808B388 @ =0x000001A5
@@ -215,7 +215,7 @@ sub_0808B41C: @ 0x0808B41C
 	movs r1, #1
 	strb r1, [r0, #0xc]
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 
@@ -231,6 +231,6 @@ sub_0808B42C: @ 0x0808B42C
 	orrs r1, r2
 	strb r1, [r3]
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0

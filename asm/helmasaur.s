@@ -16,13 +16,13 @@ sub_0802BB6C: @ 0x0802BB6C
 	bne _0802BB94
 	ldr r1, _0802BB90 @ =gUnk_080CD3E4
 	adds r0, r4, #0
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	movs r3, #0x10
 	rsbs r3, r3, #0
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	b _0802BBA4
 	.align 2, 0
 _0802BB90: .4byte gUnk_080CD3E4
@@ -160,7 +160,7 @@ sub_0802BC74: @ 0x0802BC74
 	strb r0, [r4, #0x14]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 	.align 2, 0
 _0802BC9C: .4byte gLinkEntity
@@ -211,7 +211,7 @@ _0802BCF0:
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802BCFA:
 	pop {r4, pc}
 
@@ -238,7 +238,7 @@ sub_0802BD10: @ 0x0802BD10
 	ands r1, r2
 	strb r1, [r0, #0x10]
 	movs r1, #2
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 	pop {pc}
 	.align 2, 0
 
@@ -298,7 +298,7 @@ sub_0802BD54: @ 0x0802BD54
 	strb r0, [r4, #0x14]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 
 	thumb_func_start sub_0802BD8C
@@ -380,7 +380,7 @@ sub_0802BE18: @ 0x0802BE18
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -510,7 +510,7 @@ sub_0802BEEC: @ 0x0802BEEC
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0802BF3A
 _0802BF1E:
 	movs r1, #0xe0
@@ -555,7 +555,7 @@ sub_0802BF3C: @ 0x0802BF3C
 	strb r0, [r4, #0x14]
 	adds r1, r0, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802BF76:
 	pop {r4, pc}
 
@@ -574,7 +574,7 @@ sub_0802BF78: @ 0x0802BF78
 	strb r1, [r0, #0x15]
 	ldrb r1, [r0, #0x14]
 	adds r1, #8
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 
 	thumb_func_start sub_0802BF98
@@ -697,7 +697,7 @@ sub_0802C058: @ 0x0802C058
 	lsrs r1, r1, #3
 	strb r1, [r0, #0x14]
 	ldrb r1, [r0, #0x14]
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 
 	thumb_func_start sub_0802C06C

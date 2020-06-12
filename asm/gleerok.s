@@ -315,7 +315,7 @@ _0802D276:
 	bne _0802D288
 	adds r0, r5, #0
 	movs r1, #0x4e
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802D288:
 	ldrb r0, [r5, #0xe]
 	cmp r0, #0
@@ -656,7 +656,7 @@ _0802D52E:
 	strb r1, [r0]
 	adds r0, r4, #0
 	movs r1, #0x4c
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0802D63C
 	.align 2, 0
 _0802D540: .4byte gLinkState
@@ -693,7 +693,7 @@ _0802D55C:
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #0x24
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0802D63C
 	.align 2, 0
 _0802D588: .4byte gUnk_080CD7C4
@@ -739,7 +739,7 @@ _0802D5A8:
 	bl CopyPosition
 	adds r0, r4, #0
 	movs r1, #0x4f
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0802D63C
 	.align 2, 0
 _0802D5E8: .4byte gUnk_080CD884
@@ -780,7 +780,7 @@ _0802D61A:
 	bl CopyPosition
 	adds r0, r4, #0
 	movs r1, #0x50
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802D63C:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
@@ -934,7 +934,7 @@ _0802D734:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #0x4d
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0x24
 	movs r1, #5
 	bl CreateEnemy
@@ -2276,7 +2276,7 @@ _0802E158:
 	strb r0, [r4, #0xb]
 	adds r0, r4, #0
 	movs r1, #0x4e
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0802E1C4
 	.align 2, 0
 _0802E18C: .4byte 0xFFFF0000
@@ -2587,7 +2587,7 @@ _0802E3CA:
 	strb r1, [r6]
 	adds r0, r4, #0
 	movs r1, #0x4d
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0x24
 	movs r1, #5
 	bl CreateEnemy
@@ -3033,7 +3033,7 @@ _0802E73E:
 	beq _0802E756
 	adds r0, r1, #0
 	adds r1, r7, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802E756:
 	adds r6, r4, #0
 	cmp r6, #4

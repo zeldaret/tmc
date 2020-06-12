@@ -39,7 +39,7 @@ sub_08022BA0: @ 0x08022BA0
 	strh r0, [r1]
 	ldr r1, _08022BD0 @ =gUnk_080CBBA0
 	adds r0, r4, #0
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	adds r0, r4, #0
 	bl sub_08022EAC
 	pop {r4, pc}

@@ -191,7 +191,7 @@ sub_08067118: @ 0x08067118
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08067156
 	.align 2, 0
 _0806714C: .4byte gUnk_08110C00

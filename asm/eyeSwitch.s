@@ -64,7 +64,7 @@ sub_080886A4: @ 0x080886A4
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08088716
 	.align 2, 0
 _08088700: .4byte gUnk_080FD168
@@ -76,7 +76,7 @@ _08088704:
 	strb r0, [r4, #0x10]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08088716:
 	pop {r4, r5, r6, pc}
 
@@ -141,7 +141,7 @@ sub_08088760: @ 0x08088760
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0808878E:
 	pop {r4, pc}
 
@@ -204,6 +204,6 @@ sub_080887D8: @ 0x080887D8
 	strb r0, [r4, #0x10]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08088802:
 	pop {r4, pc}

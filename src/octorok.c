@@ -1,18 +1,18 @@
 #include "global.h"
 #include "entity.h"
 
-extern void sub_0800129E();
-extern void sub_0804A9AC();
+extern void EnemyFunctionHandler();
+extern void SetChildOffset();
 extern void sub_0804AA30();
 extern void sub_0804A9FC();
 extern void sub_0804A7D4();
 extern void CreateDeathFx();
 extern void sub_0801ECFC();
 extern u32 sub_0806F520();
-extern void UpdateSprite();
+extern void InitializeAnimation();
 extern void sub_0806F4E8();
 extern void sub_0806F3E4();
-extern void UpdateSpriteAnimation();
+extern void InitializeAnimationAnimation();
 extern void sub_0804A720();
 extern u32 Random();
 extern void sub_0801ED14();
@@ -26,8 +26,8 @@ extern u8 gUnk_080CA170[8];
 //Main
 void sub_0801EAB0(Entity *ent)
 {
-    sub_0800129E(ent, gOctorok);
-    sub_0804A9AC(ent, 0, 1, -16);
+    EnemyFunctionHandler(ent, gOctorok);
+    SetChildOffset(ent, 0, 1, -16);
 }
 
 //Idle
@@ -62,7 +62,7 @@ void sub_0801EB2C(Entity *ent)
     
     if ((ent->previousActionFlag < 3) && (iVar1 = sub_0806F520(ent), iVar1 == 0)) {
         sub_0801ECFC(ent);
-        UpdateSprite(ent, ent->animationState);
+        InitializeAnimation(ent, ent->animationState);
     }
     else {
         gUnk_080CA158[ent->previousActionFlag](ent);
@@ -88,7 +88,7 @@ void sub_0801EB7C(Entity *ent)
 void sub_0801EB84(Entity *ent)
 {
     ent->flags = ent->flags & 127;
-    UpdateSpriteAnimation(ent, 2);
+    InitializeAnimationAnimation(ent, 2);
 }
 
 void nullsub_3()
@@ -114,7 +114,7 @@ void sub_0801EBC8(Entity *ent)
     ent->animationState = (ent->entityType).parameter1 == 2 ? (ent->entityType).parameter1 : Random() & 3;
     ent->filler[0] = 18;
     sub_0801ECFC(ent);
-    UpdateSprite(ent,ent->animationState);
+    InitializeAnimation(ent,ent->animationState);
 }
 #else
 NAKED

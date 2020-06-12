@@ -459,7 +459,7 @@ sub_0806F078: @ 0x0806F078
 	b _0806F09C
 _0806F096:
 	adds r0, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806F09C:
 	movs r0, #1
 	b _0806F0A2

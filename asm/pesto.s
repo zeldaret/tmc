@@ -227,7 +227,7 @@ sub_0802409C: @ 0x0802409C
 	strb r0, [r1]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_080A29BC
 	pop {r4, pc}
@@ -306,7 +306,7 @@ _08024132:
 	strh r0, [r4, #0x36]
 _08024136:
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	bl sub_08052660
 	cmp r0, #0
 	beq _08024150
@@ -1439,7 +1439,7 @@ sub_080249DC: @ 0x080249DC
 	lsrs r1, r1, #2
 	strb r1, [r0, #0x14]
 	ldrb r1, [r0, #0x14]
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 
@@ -1458,7 +1458,7 @@ sub_080249F4: @ 0x080249F4
 	strb r1, [r2, #0x14]
 	ldrb r1, [r2, #0x14]
 	adds r0, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08024A12:
 	pop {pc}
 

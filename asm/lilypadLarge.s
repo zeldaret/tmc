@@ -125,7 +125,7 @@ _0808557A:
 	strb r3, [r0]
 	adds r0, r4, #0
 	movs r1, #9
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_080855E8
 _080855E2:

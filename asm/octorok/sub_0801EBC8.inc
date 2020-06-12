@@ -22,7 +22,7 @@ _0801EBDE:
 	bl sub_0801ECFC
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 	.syntax divided
 	

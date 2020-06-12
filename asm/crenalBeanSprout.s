@@ -83,7 +83,7 @@ _080963A4:
 	bne _080963C8
 	adds r0, r5, #0
 	movs r1, #0xa
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrh r0, [r5, #0x32]
 	adds r0, #4
 	strh r0, [r5, #0x32]
@@ -114,7 +114,7 @@ _080963DA:
 	ldrb r1, [r5, #0xa]
 	adds r1, #3
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0809651A
 	.align 2, 0
 _080963F8: .4byte gRoomControls
@@ -180,7 +180,7 @@ _0809646E:
 	strb r0, [r5, #0x19]
 	adds r0, r5, #0
 	movs r1, #0xc
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r5, #0
 	bl sub_0809651C
 	b _0809651A
@@ -203,7 +203,7 @@ _080964A6:
 	bne _080964F8
 	adds r0, r5, #0
 	movs r1, #0xb
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrh r0, [r5, #0x32]
 	adds r0, #4
 	strh r0, [r5, #0x32]
@@ -247,7 +247,7 @@ _0809650A:
 	ldrb r1, [r5, #0xa]
 	adds r1, #3
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r5, #0
 	bl sub_0809651C
 _0809651A:
@@ -298,7 +298,7 @@ _08096564:
 _08096570:
 	adds r0, r6, #0
 	movs r1, #4
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08096586
 	.align 2, 0
 _0809657C: .4byte gLinkState
@@ -363,7 +363,7 @@ _080965D6:
 	lsrs r1, r1, #0x19
 	adds r1, #3
 	adds r0, r6, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08096606
 	.align 2, 0
 _080965FC: .4byte gLinkState
@@ -560,7 +560,7 @@ sub_08096758: @ 0x08096758
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl UpdateSprite
+	bl InitializeAnimation
 _0809677C:
 	pop {r4, pc}
 	.align 2, 0

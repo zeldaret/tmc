@@ -11,7 +11,7 @@
 sub_0802C228: @ 0x0802C228
 	push {lr}
 	ldr r1, _0802C234 @ =gUnk_080CD540
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	pop {pc}
 	.align 2, 0
 _0802C234: .4byte gUnk_080CD540
@@ -340,7 +340,7 @@ _0802C48C:
 	orrs r0, r1
 	strb r0, [r2]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 _0802C4AA:
 	pop {r4, r5, r6, r7, pc}
 
@@ -441,7 +441,7 @@ _0802C534:
 	strb r0, [r5, #0xe]
 	adds r0, r5, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802C55E:
 	movs r0, #3
 	ands r4, r0
@@ -469,7 +469,7 @@ _0802C584:
 	strb r0, [r5, #0xe]
 	adds r0, r5, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802C596:
 	movs r2, #3
 	ands r4, r2

@@ -23,7 +23,7 @@ sub_0802F4A0: @ 0x0802F4A0
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	pop {r4, r5, pc}
 	.align 2, 0
 _0802F4C8: .4byte gUnk_080CDF50
@@ -163,7 +163,7 @@ _0802F5D0:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 
 	thumb_func_start sub_0802F5DC
@@ -235,7 +235,7 @@ _0802F62A:
 	movs r0, #4
 	orrs r1, r0
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802F660:
 	adds r0, r5, #0
 	bl sub_0802F9C8
@@ -348,7 +348,7 @@ _0802F6F0:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0802F7A2
 _0802F742:
 	ldrb r0, [r4, #0xe]
@@ -395,7 +395,7 @@ _0802F76C:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802F7A2:
 	adds r0, r4, #0
 	bl sub_0802F9C8
@@ -483,7 +483,7 @@ _0802F818:
 	lsrs r1, r1, #1
 _0802F844:
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0802F884
 _0802F84C:
 	lsls r0, r1, #0x18
@@ -822,12 +822,12 @@ sub_0802FA88: @ 0x0802FA88
 	movs r0, #4
 	orrs r1, r0
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0802FAF2
 _0802FAEA:
 	lsrs r1, r2, #3
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802FAF2:
 	movs r7, #1
 	b _0802FB2A
@@ -854,7 +854,7 @@ _0802FAF6:
 	strb r2, [r4, #0x14]
 	lsrs r1, r2, #1
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802FB2A:
 	adds r0, r7, #0
 	pop {r4, r5, r6, r7, pc}

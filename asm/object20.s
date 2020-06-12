@@ -60,7 +60,7 @@ _08087836:
 	bl sub_080878CC
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_0801766C
 	movs r0, #0xfd

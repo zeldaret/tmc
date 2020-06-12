@@ -64,7 +64,7 @@ _08099F60:
 _08099F70:
 	adds r0, r5, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0x92
 	lsls r0, r0, #1
 	bl sub_08004488
@@ -133,7 +133,7 @@ _08099FCE:
 	bl sub_0806F62C
 	adds r0, r5, #0
 	movs r1, #5
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0xa6
 	lsls r0, r0, #1
 	bl PlaySFX
@@ -172,7 +172,7 @@ _0809A040:
 _0809A04E:
 	adds r0, r5, #0
 	movs r1, #6
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0809A1B6
 _0809A058:
 	bl Random
@@ -209,7 +209,7 @@ _0809A092:
 _0809A0A0:
 	adds r0, r5, #0
 	movs r1, #5
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0809A1B6
 _0809A0AA:
 	movs r0, #0xc3
@@ -263,7 +263,7 @@ _0809A0B0:
 	bl sub_0805EC9C
 	adds r0, r5, #0
 	movs r1, #7
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0809A1B6
 	.align 2, 0
 _0809A118: .4byte gUnk_0812388C
@@ -272,7 +272,7 @@ _0809A11C:
 	strb r0, [r5, #0xe]
 	adds r0, r5, #0
 	movs r1, #8
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
 	bl CopyPosition

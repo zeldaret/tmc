@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 
-extern void UpdateSpriteOrderAndFlip(Entity *);
+extern void InitializeAnimationOrderAndFlip(Entity *);
 
 void PositionRelative(Entity *source, Entity *target, s32 offsetX, s32 offsetY) { //r0, r1, r2, r3
 	s32 x;
@@ -15,5 +15,5 @@ void PositionRelative(Entity *source, Entity *target, s32 offsetX, s32 offsetY) 
 	
 	target->height = source->height;   //ldr
 	target->collisionLayer = source->collisionLayer;
-	UpdateSpriteOrderAndFlip(target);
+	InitializeAnimationOrderAndFlip(target);
 }

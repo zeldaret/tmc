@@ -73,7 +73,7 @@ _08089D74:
 	adds r0, r0, r4
 	ldrb r1, [r0]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r0, [r5, #0xb]
 	lsls r0, r0, #2
 	adds r0, r0, r4
@@ -89,7 +89,7 @@ _08089D90:
 	adds r1, r1, r0
 	ldrb r1, [r1]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08089DC6
 	.align 2, 0
 _08089DA8: .4byte gUnk_08120E14
@@ -658,7 +658,7 @@ _0808A1B0:
 	ldrb r1, [r3]
 	adds r1, #1
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0808A1DE
 _0808A1DA:
 	movs r0, #0
@@ -680,7 +680,7 @@ _0808A1DE:
 	adds r1, r1, r0
 	adds r1, #1
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0808A202:
 	pop {r3}
 	mov r8, r3

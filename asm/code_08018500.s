@@ -1145,7 +1145,7 @@ _08018D64:
 	ldrb r1, [r4, #0xa]
 	adds r1, #0xa
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08018FA0
 _08018DD2:
@@ -1343,7 +1343,7 @@ _08018F46:
 	ldrb r1, [r4, #0xa]
 	adds r1, #0xd
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08018F56:
 	ldrb r0, [r4, #0xc]
 	adds r0, #1

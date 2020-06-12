@@ -116,7 +116,7 @@ _0806A420:
 	strb r0, [r2, #0xd]
 	adds r0, r2, #0
 	movs r1, #8
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806A456
 _0806A43C:
 	adds r0, r2, #0
@@ -173,7 +173,7 @@ _0806A486:
 	strb r0, [r2, #0xd]
 	adds r0, r2, #0
 	movs r1, #0xa
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0x62
 	bl ClearLocalFlag
 	b _0806A4CA
@@ -193,7 +193,7 @@ _0806A4A8:
 	strb r0, [r2, #0xe]
 	adds r0, r2, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806A4CA:
 	pop {pc}
 
@@ -232,7 +232,7 @@ _0806A4E0:
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806A54C
 _0806A512:
 	movs r0, #2
@@ -244,7 +244,7 @@ _0806A512:
 	bl sub_0806EDC4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806A54C
 _0806A52C:
 	adds r0, r4, #0
@@ -260,7 +260,7 @@ _0806A52C:
 	bl sub_0806EDC4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806A54C:
 	pop {r4, pc}
 	.align 2, 0
@@ -276,7 +276,7 @@ sub_0806A550: @ 0x0806A550
 	strb r0, [r4, #0xd]
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806A5B0
 _0806A568:
 	adds r5, r4, #0
@@ -309,7 +309,7 @@ _0806A590:
 	strb r1, [r4, #0xd]
 	adds r0, r4, #0
 	movs r1, #0xd
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_0806A914
 _0806A5B0:
@@ -340,7 +340,7 @@ sub_0806A5C0: @ 0x0806A5C0
 	ands r1, r0
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806A5E6:
 	pop {r4, pc}
 
@@ -355,7 +355,7 @@ sub_0806A5E8: @ 0x0806A5E8
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #0x10
-	bl UpdateSprite
+	bl InitializeAnimation
 	bl Random
 	movs r1, #0x3f
 	ands r0, r1
@@ -391,7 +391,7 @@ sub_0806A630: @ 0x0806A630
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #0x12
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806A646:
 	ldr r0, _0806A670 @ =gUnk_02033280
 	ldr r0, [r0]
@@ -455,7 +455,7 @@ _0806A6A0:
 	strb r0, [r2]
 	adds r0, r4, #0
 	movs r1, #0x13
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806A82A
 _0806A6BE:
 	ldr r0, _0806A6E0 @ =gUnk_02033280
@@ -664,7 +664,7 @@ sub_0806A830: @ 0x0806A830
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #0x14
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	movs r1, #2
 	bl sub_0805E3A0
@@ -712,7 +712,7 @@ sub_0806A890: @ 0x0806A890
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #0x15
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	movs r1, #2
 	bl sub_0805E3A0
@@ -876,7 +876,7 @@ sub_0806A9B0: @ 0x0806A9B0
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #9
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0x62
 	bl SetLocalFlag
 	pop {r4, pc}

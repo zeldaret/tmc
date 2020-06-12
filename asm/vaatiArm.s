@@ -1053,7 +1053,7 @@ _08042CC8:
 	adds r0, r2, #0
 	movs r1, #0x12
 	str r3, [sp]
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r3, [sp]
 _08042D04:
 	adds r3, #0x10
@@ -1741,7 +1741,7 @@ _08043206:
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #0xc]
 	movs r1, #0x11
-	bl UpdateSprite
+	bl InitializeAnimation
 _08043230:
 	adds r6, #0x10
 	adds r5, #1
@@ -2321,7 +2321,7 @@ _08043660:
 	adds r0, r5, r0
 	ldrb r1, [r0]
 	adds r0, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0804366C:
 	adds r6, #0x10
 	adds r5, #1
@@ -3244,7 +3244,7 @@ sub_08043D08: @ 0x08043D08
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #0x13
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_0804AA1C
 	adds r0, r4, #0
@@ -3692,14 +3692,14 @@ sub_08044078: @ 0x08044078
 _080440AC:
 	adds r0, r4, #0
 	movs r1, #0x12
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080440C4
 	.align 2, 0
 _080440B8: .4byte gUnk_030010A0
 _080440BC:
 	adds r0, r4, #0
 	movs r1, #0x11
-	bl UpdateSprite
+	bl InitializeAnimation
 _080440C4:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -3731,14 +3731,14 @@ sub_080440CC: @ 0x080440CC
 	bne _08044108
 	adds r0, r4, #0
 	movs r1, #0x13
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08044110
 	.align 2, 0
 _08044104: .4byte gUnk_030010A0
 _08044108:
 	adds r0, r4, #0
 	movs r1, #0x11
-	bl UpdateSprite
+	bl InitializeAnimation
 _08044110:
 	adds r0, r4, #0
 	bl sub_08004274

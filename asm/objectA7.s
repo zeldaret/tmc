@@ -26,7 +26,7 @@ sub_0809F9AC: @ 0x0809F9AC
 	strb r0, [r2]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0809F9D2:
 	adds r0, r4, #0
 	bl sub_08004274

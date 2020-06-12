@@ -5269,7 +5269,7 @@ sub_0807F158: @ 0x0807F158
 	adds r2, #0x38
 	movs r1, #1
 	strb r1, [r2]
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	pop {pc}
 
 	thumb_func_start sub_0807F168
@@ -5280,7 +5280,7 @@ sub_0807F168: @ 0x0807F168
 	adds r2, #0x38
 	movs r1, #1
 	strb r1, [r2]
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	pop {pc}
 	.align 2, 0
 _0807F17C: .4byte gLinkEntity
@@ -5292,7 +5292,7 @@ sub_0807F180: @ 0x0807F180
 	adds r2, #0x38
 	movs r1, #2
 	strb r1, [r2]
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	pop {pc}
 
 	thumb_func_start sub_0807F190

@@ -155,7 +155,7 @@ _0801954E:
 	adds r0, r0, r1
 	ldrb r1, [r0]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r5, #0
 	bl sub_0801766C
 	adds r0, r5, #0
@@ -4031,14 +4031,14 @@ _0801B29E:
 	bne _0801B2C0
 	adds r0, r2, #0
 	movs r1, #5
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0801B2C8
 	.align 2, 0
 _0801B2BC: .4byte gUnk_080B77F4
 _0801B2C0:
 	adds r0, r2, #0
 	movs r1, #0x15
-	bl UpdateSprite
+	bl InitializeAnimation
 _0801B2C8:
 	pop {pc}
 	.align 2, 0
@@ -4548,7 +4548,7 @@ _0801B600:
 	strh r0, [r6, #0x32]
 	adds r0, r6, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, _0801B67C @ =gLinkState
 	str r5, [r0, #0x2c]
 	ldrb r1, [r0, #4]

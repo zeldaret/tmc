@@ -12,13 +12,13 @@ sub_08030198: @ 0x08030198
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080301B8 @ =gUnk_080CE124
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	movs r3, #0x10
 	rsbs r3, r3, #0
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	adds r0, r4, #0
 	bl sub_08030150
 	pop {r4, pc}
@@ -237,7 +237,7 @@ sub_08030338: @ 0x08030338
 _0803034C:
 	adds r0, r4, #0
 	movs r1, #3
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldr r0, [r0]
@@ -1107,7 +1107,7 @@ _080309C4:
 sub_080309C8: @ 0x080309C8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldr r0, [r0]

@@ -49,7 +49,7 @@ sub_080632E0: @ 0x080632E0
 	beq _0806330E
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08078778
 	ldrb r1, [r4, #0x18]
@@ -88,7 +88,7 @@ sub_08063314: @ 0x08063314
 	cmp r0, r1
 	beq _08063342
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08063342:
 	adds r0, r4, #0
 	adds r0, #0x39
@@ -126,7 +126,7 @@ sub_0806336C: @ 0x0806336C
 	strb r0, [r2, #0xc]
 	adds r0, r2, #0
 	movs r1, #8
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806338A:
 	pop {pc}
 	.align 2, 0
@@ -150,7 +150,7 @@ sub_08063390: @ 0x08063390
 	bl sub_0806EDC4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08078778
 _080633BE:

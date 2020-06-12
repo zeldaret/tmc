@@ -151,7 +151,7 @@ _0808AB10:
 	ldrb r1, [r5, #0x14]
 	adds r1, #9
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0808AB5E
 	.align 2, 0
 _0808AB1C: .4byte gUnk_080FD224
@@ -411,7 +411,7 @@ sub_0808ACEC: @ 0x0808ACEC
 	beq _0808AD00
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0808AD00:
 	adds r0, r4, #0
 	adds r0, #0x41
@@ -555,7 +555,7 @@ _0808AE26:
 	cmp r1, r0
 	beq _0808AE54
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r0, [r4, #0x14]
 	cmp r0, #3
 	bne _0808AE42
@@ -594,7 +594,7 @@ _0808AE54:
 	ldrb r1, [r4, #0x14]
 	adds r1, #0xd
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0808AE80:
 	pop {r4, pc}
 	.align 2, 0
@@ -738,7 +738,7 @@ _0808AF68:
 	ldrb r1, [r4, #0x14]
 	adds r1, #5
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	movs r1, #0
 	bl sub_0808B21C
@@ -867,7 +867,7 @@ sub_0808B05C: @ 0x0808B05C
 	ldrb r1, [r4, #0x14]
 	adds r1, #5
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	movs r1, #1
 	bl sub_0808B21C

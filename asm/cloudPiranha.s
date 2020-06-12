@@ -12,13 +12,13 @@ sub_08038430: @ 0x08038430
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0803844C @ =gUnk_080CF4F0
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	movs r3, #0x10
 	rsbs r3, r3, #0
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	pop {r4, pc}
 	.align 2, 0
 _0803844C: .4byte gUnk_080CF4F0
@@ -142,7 +142,7 @@ sub_080384E0: @ 0x080384E0
 	strb r0, [r1]
 	ldrb r1, [r6, #0x14]
 	adds r0, r6, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start sub_08038534
@@ -193,7 +193,7 @@ _08038578:
 _0803858A:
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080385C8
 _08038594:
 	ldrb r0, [r4, #0xe]
@@ -218,7 +218,7 @@ _08038594:
 	strb r0, [r4, #0x15]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080385C8:
 	pop {r4, pc}
 	.align 2, 0
@@ -247,7 +247,7 @@ sub_080385CC: @ 0x080385CC
 	strb r0, [r4, #0x15]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08038648
 _08038604:
 	ldrb r0, [r4, #0xf]
@@ -284,7 +284,7 @@ _08038638:
 	strb r0, [r4, #0x15]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08038648:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -383,7 +383,7 @@ sub_080386B8: @ 0x080386B8
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #2
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
@@ -476,7 +476,7 @@ sub_08038754: @ 0x08038754
 	lsrs r1, r1, #0x18
 	adds r1, #9
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080387D8
 	.align 2, 0
 _080387C0: .4byte 0x0000012B
@@ -489,7 +489,7 @@ _080387C4:
 	lsrs r1, r1, #0x18
 	adds r1, #8
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080387D8:
 	adds r0, r4, #0
 	movs r1, #2
@@ -583,7 +583,7 @@ _0803887E:
 	strb r0, [r4, #0x14]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08038890:
 	adds r0, r4, #0
 	bl sub_08004274

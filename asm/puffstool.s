@@ -12,13 +12,13 @@ sub_08024FE8: @ 0x08024FE8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08025004 @ =gUnk_080CBF9C
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	movs r3, #0x10
 	rsbs r3, r3, #0
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	pop {r4, pc}
 	.align 2, 0
 _08025004: .4byte gUnk_080CBF9C
@@ -111,7 +111,7 @@ _0802508A:
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r1, r4, #0
 	adds r1, #0x59
 	movs r0, #6
@@ -233,7 +233,7 @@ sub_08025180: @ 0x08025180
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_0804AA1C
 	pop {r4, pc}
@@ -301,7 +301,7 @@ sub_080251FC: @ 0x080251FC
 	bl sub_080256B4
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -478,7 +478,7 @@ _08025352:
 	str r0, [r4, #0x20]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _08025388:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -515,7 +515,7 @@ _080253AE:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 _080253CC:
 	pop {r4, pc}
 	.align 2, 0
@@ -539,7 +539,7 @@ sub_080253D4: @ 0x080253D4
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #3
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0802541A
 _080253FE:
 	movs r0, #6
@@ -548,7 +548,7 @@ _080253FE:
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #3
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08025A54
 	adds r0, r4, #0
@@ -577,7 +577,7 @@ sub_0802541C: @ 0x0802541C
 	str r0, [r4, #0x20]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _08025448:
 	pop {r4, pc}
 	.align 2, 0
@@ -604,7 +604,7 @@ _08025460:
 	bl sub_080256B4
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802547A:
 	pop {r4, pc}
 
@@ -679,7 +679,7 @@ _080254F6:
 _08025502:
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08025512
 _0802550C:
 	adds r0, r4, #0
@@ -1626,7 +1626,7 @@ sub_08025C2C: @ 0x08025C2C
 	adds r1, #0x80
 	strb r2, [r1]
 	movs r1, #8
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 

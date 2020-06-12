@@ -54,7 +54,7 @@ sub_0808DDB4: @ 0x0808DDB4
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_0808DDE8
 _0808DDDC:

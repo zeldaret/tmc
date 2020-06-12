@@ -79,7 +79,7 @@ _080991EC:
 	bl sub_08099468
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0x84
 	movs r1, #3
 	movs r2, #0
@@ -687,7 +687,7 @@ _080996BC:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #3
-	bl UpdateSprite
+	bl InitializeAnimation
 _080996CE:
 	ldr r0, [r4, #0x50]
 	ldrb r0, [r0, #0xc]

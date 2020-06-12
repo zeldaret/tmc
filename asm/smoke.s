@@ -118,7 +118,7 @@ sub_0808A484: @ 0x0808A484
 	orrs r2, r4
 	strb r2, [r0, #0x1b]
 	movs r1, #0x28
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 	.align 2, 0
 

@@ -297,7 +297,7 @@ sub_08037220: @ 0x08037220
 	bl SetTile
 	adds r0, r5, #0
 	movs r1, #5
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0803727C: .4byte gRoomControls

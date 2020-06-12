@@ -47,7 +47,7 @@ sub_08093E3C: @ 0x08093E3C
 _08093E6A:
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r0, [r4, #0xa]
 	lsls r0, r0, #2
 	ldr r1, _08093EA8 @ =gUnk_08122950

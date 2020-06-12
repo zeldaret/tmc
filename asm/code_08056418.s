@@ -2578,7 +2578,7 @@ _080577F2:
 	mov r1, r8
 	strb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 _08057808:
 	pop {r3}
 	mov r8, r3
@@ -14218,7 +14218,7 @@ sub_0805D1FC: @ 0x0805D1FC
 	movs r0, #3
 	strb r0, [r1]
 	adds r0, r2, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 _0805D236:
 	adds r0, r4, #0
 	bl sub_0805E900
@@ -16066,7 +16066,7 @@ sub_0805E000: @ 0x0805E000
 	movs r5, #1
 	strb r5, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	ldr r0, _0805E068 @ =gUnk_030010A0
 	adds r0, #0x38
 	ldrb r1, [r0]

@@ -26,7 +26,7 @@ sub_0809CC74: @ 0x0809CC74
 	adds r5, r0, #0
 	movs r4, #1
 	strb r4, [r5, #0xc]
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	ldrb r0, [r5, #0xa]
 	cmp r0, #0
 	bne _0809CCD4
@@ -95,7 +95,7 @@ _0809CD00:
 _0809CD02:
 	adds r0, r5, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0809CD0A:
 	pop {r4, r5, pc}
 
@@ -212,7 +212,7 @@ sub_0809CDB4: @ 0x0809CDB4
 	strh r0, [r3, #0x32]
 	adds r0, r3, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0809CDEC:
 	pop {pc}
 	.align 2, 0

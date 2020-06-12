@@ -95,7 +95,7 @@ _08090640:
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r7, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	b _080906E6
 _08090650:
 	ldrh r1, [r7, #0x32]
@@ -657,7 +657,7 @@ _08090B14:
 	movs r0, #1
 	strb r0, [r3]
 	adds r0, r2, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 _08090B2C:
 	adds r0, r5, #0
 	bl GetTileTypeByEntity
@@ -1095,7 +1095,7 @@ sub_08090E64: @ 0x08090E64
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 _08090EA0:
 	pop {r4, r5, pc}
 	.align 2, 0

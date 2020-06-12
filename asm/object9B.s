@@ -34,7 +34,7 @@ sub_0809E7C0: @ 0x0809E7C0
 _0809E7D4:
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 	.align 2, 0
 

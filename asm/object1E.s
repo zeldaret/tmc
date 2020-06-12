@@ -131,7 +131,7 @@ _080875DC:
 	ldrb r0, [r4, #0x14]
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 
 	thumb_func_start sub_080875F4

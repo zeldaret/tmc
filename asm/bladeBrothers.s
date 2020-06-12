@@ -79,7 +79,7 @@ _08068A38:
 _08068A42:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 
 	thumb_func_start sub_08068A4C

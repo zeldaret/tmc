@@ -1053,7 +1053,7 @@ _0807018C:
 	bl sub_0801766C
 	ldrb r1, [r4]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, _080701F4 @ =0x000001DD
 	bl PlaySFX
 	pop {r4, r5, pc}
@@ -1209,7 +1209,7 @@ _08070280:
 	str r0, [r5, #0x7c]
 	adds r0, r5, #0
 	movs r1, #0x14
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, _08070360 @ =0x00004020
 	movs r3, #0x2e
 	ldrsh r1, [r5, r3]
@@ -1403,7 +1403,7 @@ sub_08070458: @ 0x08070458
 _0807049E:
 	adds r0, r4, #0
 	movs r1, #0x13
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08017744
 	ldr r0, _080704B8 @ =0x00000199
@@ -4884,7 +4884,7 @@ sub_08071F80: @ 0x08071F80
 	cmp r5, #0
 	bne _08071FB8
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	ldr r0, _08071FB4 @ =gLinkState
 	strb r5, [r0, #2]
 	ldrb r0, [r0, #0x14]
@@ -5180,7 +5180,7 @@ _080721AC:
 	orrs r0, r1
 	strb r0, [r4, #0x10]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	bl sub_080791BC
 _080721DE:
 	pop {r4, pc}
@@ -5417,7 +5417,7 @@ sub_08072354: @ 0x08072354
 	ands r0, r1
 	str r0, [r2, #0x30]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0xc
 	movs r2, #0

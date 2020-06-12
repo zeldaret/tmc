@@ -137,7 +137,7 @@ _0801921A:
 	ldrb r1, [r0]
 	adds r1, #0xf
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080192A2
 	.align 2, 0
 _08019288: .4byte gRoomControls
@@ -149,7 +149,7 @@ _08019294:
 	ldrb r1, [r0]
 	adds r1, #2
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080192A2:
 	adds r0, r4, #0
 	bl sub_08017744
@@ -224,7 +224,7 @@ _080192EE:
 	strb r0, [r4, #0x10]
 	adds r0, r4, #0
 	movs r1, #6
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08019402
 _08019336:
 	ldrb r0, [r4, #0xc]

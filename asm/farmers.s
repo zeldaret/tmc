@@ -113,7 +113,7 @@ sub_0806BC94: @ 0x0806BC94
 	ldrb r2, [r0, #0x14]
 	lsrs r2, r2, #1
 	adds r1, r1, r2
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 

@@ -12,13 +12,13 @@ sub_0803C738: @ 0x0803C738
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0803C754 @ =gUnk_080D0110
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	movs r3, #0x10
 	rsbs r3, r3, #0
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	pop {r4, pc}
 	.align 2, 0
 _0803C754: .4byte gUnk_080D0110

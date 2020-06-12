@@ -2,7 +2,7 @@
 #define GREATFAIRY_H
 
 extern u32 __modsi3(u32, u32);
-extern void UpdateSprite(Entity *, u32);
+extern void InitializeAnimation(Entity *, u32);
 extern void sub_08087380();
 extern u32 CheckRoomFlag();
 extern Entity *sub_080873AC(Entity*, u32, u32);

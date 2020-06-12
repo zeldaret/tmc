@@ -44,7 +44,7 @@ sub_080482EC: @ 0x080482EC
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08048326
 	.align 2, 0
 _08048310: .4byte gUnk_030010A0
@@ -52,7 +52,7 @@ _08048314:
 	strb r2, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0xb3
 	lsls r0, r0, #1
 	bl PlaySFX
@@ -80,7 +80,7 @@ sub_08048330: @ 0x08048330
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _08048358:
 	pop {r4, pc}
 	.align 2, 0
@@ -184,7 +184,7 @@ sub_080483F8: @ 0x080483F8
 	bne _08048436
 	adds r0, r4, #0
 	movs r1, #3
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08048436
 _0804841C:
 	adds r0, r4, #0
@@ -226,7 +226,7 @@ _08048456:
 	str r0, [r4, #0x54]
 	adds r0, r4, #0
 	movs r1, #5
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, _08048474 @ =0x0000019B
 	bl PlaySFX
 _0804846A:
@@ -254,7 +254,7 @@ sub_08048478: @ 0x08048478
 	bne _080484E6
 	adds r0, r4, #0
 	movs r1, #6
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080484E6
 _080484A2:
 	adds r3, r4, #0
@@ -381,7 +381,7 @@ _08048562:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_080485FC
 	movs r0, #0xb3

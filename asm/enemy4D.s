@@ -11,7 +11,7 @@
 sub_0803EAEC: @ 0x0803EAEC
 	push {lr}
 	ldr r1, _0803EAF8 @ =gUnk_080D0880
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	pop {pc}
 	.align 2, 0
 _0803EAF8: .4byte gUnk_080D0880

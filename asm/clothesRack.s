@@ -49,7 +49,7 @@ _0806DDB8:
 _0806DDC4:
 	adds r0, r7, #0
 	adds r1, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0x2e
 	ldrsh r5, [r7, r0]
 	movs r1, #0x32

@@ -33,7 +33,7 @@ sub_08094A5C: @ 0x08094A5C
 	bl sub_0807DD64
 	adds r0, r4, #0
 	movs r1, #4
-	bl UpdateSprite
+	bl InitializeAnimation
 _08094A78:
 	adds r0, r4, #0
 	movs r1, #0
@@ -59,7 +59,7 @@ sub_08094A90: @ 0x08094A90
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	ldr r1, _08094AE4 @ =gUnk_08114F30
 	ldrb r2, [r4, #0x19]
 	lsrs r0, r2, #6
@@ -252,7 +252,7 @@ sub_08094BE0: @ 0x08094BE0
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #1
 	bl LoadAnimation
@@ -606,7 +606,7 @@ _08094EA6:
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_080002B8
 	cmp r0, #0xd
@@ -634,7 +634,7 @@ _08094ED4:
 	str r1, [r4, #0x20]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0xbf
 	lsls r0, r0, #1
 	bl sub_08004488
@@ -692,7 +692,7 @@ _08094F5E:
 _08094F68:
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08094F94
 _08094F72:
 	ldrb r0, [r4, #0x18]
@@ -702,7 +702,7 @@ _08094F72:
 _08094F7A:
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08094F94
 _08094F84:
 	ldrb r0, [r4, #0x18]
@@ -711,7 +711,7 @@ _08094F84:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 _08094F94:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1006,7 +1006,7 @@ sub_080951C4: @ 0x080951C4
 	bl sub_0807DD64
 	adds r0, r4, #0
 	movs r1, #3
-	bl UpdateSprite
+	bl InitializeAnimation
 _080951E8:
 	adds r0, r4, #0
 	movs r1, #0
@@ -1209,7 +1209,7 @@ sub_08095364: @ 0x08095364
 	movs r4, #1
 	strb r4, [r0]
 	adds r0, r6, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	str r5, [r6, #0x54]
 	strb r4, [r6, #0xd]
 	ldr r0, _080953A0 @ =0x0000FFF0
@@ -1462,7 +1462,7 @@ _0809550A:
 	ldrb r1, [r4, #0xb]
 	adds r1, #2
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08095754
 	bl Random
@@ -1636,7 +1636,7 @@ sub_080956B4: @ 0x080956B4
 	strb r0, [r5, #0xc]
 	adds r0, r5, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r4, r5, #0
 	adds r4, #0x68
 	ldrh r2, [r5, #0x2e]
@@ -1740,7 +1740,7 @@ sub_0809577C: @ 0x0809577C
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _08095796:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -1868,7 +1868,7 @@ _08095880:
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r5, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	ldr r1, _080958D4 @ =gUnk_08114F30
 	ldrb r2, [r5, #0x19]
 	lsrs r0, r2, #6
@@ -1946,7 +1946,7 @@ sub_08095918: @ 0x08095918
 	bl sub_0807DD64
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0809593C:
 	adds r0, r4, #0
 	movs r1, #0
@@ -2225,7 +2225,7 @@ sub_08095B48: @ 0x08095B48
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r5, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	ldr r1, _08095BA8 @ =gUnk_08114F30
 	ldrb r2, [r5, #0x19]
 	lsrs r0, r2, #6
@@ -2590,7 +2590,7 @@ _08095DF4:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #0x4b
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r1, _08095E78 @ =gUnk_08114F30
 	ldrb r2, [r4, #0x19]
 	lsrs r0, r2, #6
@@ -2925,7 +2925,7 @@ sub_08096084: @ 0x08096084
 	bl sub_0807DD64
 	ldrb r1, [r4, #0xb]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080960A0:
 	adds r0, r4, #0
 	movs r1, #0
@@ -3039,7 +3039,7 @@ sub_08096168: @ 0x08096168
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #0x4b
-	bl UpdateSprite
+	bl InitializeAnimation
 _0809618C:
 	adds r0, r4, #0
 	bl sub_08004274

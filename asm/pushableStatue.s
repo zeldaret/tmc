@@ -50,7 +50,7 @@ sub_080891F4: @ 0x080891F4
 	bl sub_080894C8
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08089236:
 	pop {r4, pc}
 	.align 2, 0

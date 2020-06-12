@@ -90,7 +90,7 @@ sub_08087380: @ 0x08087380
 	strb r0, [r1]
 	ldrb r1, [r4, #0xb]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	movs r1, #2
 	bl sub_0805E3A0

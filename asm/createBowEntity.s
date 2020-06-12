@@ -145,7 +145,7 @@ _08019062:
 _080190E8:
 	ldrb r1, [r5]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0xfc
 	bl PlaySFX
 	b _08019178

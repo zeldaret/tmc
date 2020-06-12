@@ -41,7 +41,7 @@ sub_08089B18: @ 0x08089B18
 _08089B38:
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r0, [r4, #0xa]
 	cmp r0, #2
 	beq _08089B66
@@ -224,7 +224,7 @@ _08089C96:
 	strb r0, [r5, #0x18]
 	adds r0, r5, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0x92
 	lsls r0, r0, #1
 	bl sub_08004488

@@ -112,7 +112,7 @@ _0808A598:
 	lsrs r1, r1, #1
 	adds r1, #1
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, _0808A5C8 @ =0x0000010F
 	bl sub_08004488
 	b _0808A5DE
@@ -126,7 +126,7 @@ _0808A5CC:
 	beq _0808A5DE
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0808A5DE:
 	pop {r4, pc}
 
@@ -248,7 +248,7 @@ _0808A69E:
 	bl PlaySFX
 	adds r0, r4, #0
 	movs r1, #5
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0808A6EC
 	.align 2, 0
 _0808A6D0: .4byte gRoomControls
@@ -256,7 +256,7 @@ _0808A6D4: .4byte 0x00004015
 _0808A6D8:
 	adds r0, r4, #0
 	movs r1, #6
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0808A6EC
 _0808A6E2:
 	ldr r0, _0808A6F0 @ =0x0000401B

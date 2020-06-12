@@ -12,13 +12,13 @@ sub_0801FC08: @ 0x0801FC08
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0801FC24 @ =gUnk_080CA49C
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	movs r3, #0x10
 	rsbs r3, r3, #0
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	pop {r4, pc}
 	.align 2, 0
 _0801FC24: .4byte gUnk_080CA49C
@@ -141,9 +141,9 @@ sub_0801FCB0: @ 0x0801FCB0
 	strb r0, [r5, #0x15]
 	adds r0, r5, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r5, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	b _0801FD28
 	.align 2, 0
 _0801FD14: .4byte gUnk_020000B0
@@ -187,7 +187,7 @@ _0801FD5A:
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0801FD7C
 _0801FD66:
 	movs r0, #1
@@ -228,7 +228,7 @@ sub_0801FD80: @ 0x0801FD80
 	strb r0, [r4, #0x10]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _0801FDB2:
 	pop {r4, pc}
 

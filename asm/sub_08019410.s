@@ -17,7 +17,7 @@ sub_08019410: @ 0x08019410
 	adds r0, #0x58
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0801942E
 _08019428:
 	adds r0, r4, #0

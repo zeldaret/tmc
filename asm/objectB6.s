@@ -23,7 +23,7 @@ _080A0E64:
 	strb r0, [r4, #0xc]
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080A0E76:
 	ldr r0, [r4, #0x50]
 	ldrb r3, [r4, #0xa]

@@ -404,6 +404,7 @@ SECTIONS {
 		asm/vaatiArm.o(.text);
 		asm/dust.o(.text);
 		asm/vaatiBall.o(.text);
+		src/slime.o(.text);
 		asm/slime.o(.text);
 		asm/miniSlime.o(.text);
 		asm/fireballGuy.o(.text);
@@ -765,7 +766,7 @@ SECTIONS {
 		asm/windTribeTeleporter.o(.text);
 		asm/objectB9.o(.text);
 		asm/objectBA.o(.text);
-		asm/windCrest.o(.text);
+		asm/windcrest.o(.text);
 		asm/litArea.o(.text);
 		asm/objectBD.o(.text);
 		asm/pinwheel.o(.text);

@@ -11,7 +11,7 @@
 sub_08020638: @ 0x08020638
 	push {lr}
 	ldr r1, _08020644 @ =gUnk_080CA66C
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	pop {pc}
 	.align 2, 0
 _08020644: .4byte gUnk_080CA66C
@@ -61,7 +61,7 @@ sub_08020668: @ 0x08020668
 	ldrb r1, [r4, #0x14]
 	adds r1, #8
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080206A2:
 	adds r0, r4, #0
 	adds r0, #0x41
@@ -84,7 +84,7 @@ _080206A2:
 	ldrb r1, [r4, #0x14]
 	adds r1, #0x10
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080206D0:
 	ldrb r0, [r5]
 	cmp r0, #0x93
@@ -160,7 +160,7 @@ sub_08020734: @ 0x08020734
 	ldrb r1, [r4, #0x14]
 	adds r1, #0x10
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08020774
 _08020764:
 	ldr r0, _08020778 @ =gUnk_080CA6A4
@@ -247,7 +247,7 @@ sub_080207A8: @ 0x080207A8
 	strh r1, [r0, #0x24]
 	ldrb r1, [r0, #0x14]
 	adds r1, #0x10
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 
 	thumb_func_start sub_080207F4
@@ -378,7 +378,7 @@ sub_080208B4: @ 0x080208B4
 	ldrb r1, [r2, #0x14]
 	adds r1, #0x10
 	adds r0, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080208E6:
 	ldrb r0, [r5, #0x14]
 	strb r0, [r4]
@@ -412,7 +412,7 @@ sub_08020904: @ 0x08020904
 	strb r1, [r0, #0x15]
 	ldrb r1, [r0, #0x14]
 	adds r1, #0x10
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 
 	thumb_func_start sub_08020920
@@ -461,7 +461,7 @@ _08020950:
 	ldrb r1, [r4, #0x14]
 	adds r1, #0xc
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08020978:
 	adds r0, r4, #0
 	bl sub_08078930
@@ -514,7 +514,7 @@ sub_080209A0: @ 0x080209A0
 	strb r0, [r4, #0x15]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080209F0
 _080209E2:
 	movs r0, #1
@@ -637,7 +637,7 @@ _08020ABA:
 	strb r0, [r6, #0x14]
 	ldrb r1, [r6, #0x14]
 	adds r0, r6, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08020ACC: .4byte gUnk_080CA6D4
@@ -703,7 +703,7 @@ sub_08020AD0: @ 0x08020AD0
 	ldrb r1, [r4, #0x14]
 	adds r1, #0x14
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, _08020B64 @ =0x00004034
 	ldrb r2, [r6]
 	adds r1, r5, #0

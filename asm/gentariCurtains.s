@@ -62,7 +62,7 @@ _0809207A:
 	adds r0, #2
 	strh r0, [r6, #0x2e]
 	adds r0, r6, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	movs r0, #0x2e
 	ldrsh r2, [r6, r0]
 	ldr r3, _08092130 @ =gRoomControls
@@ -248,7 +248,7 @@ sub_080921F0: @ 0x080921F0
 	orrs r0, r1
 	strb r0, [r3]
 	adds r0, r2, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 _08092212:
 	pop {pc}
 
@@ -271,7 +271,7 @@ sub_08092214: @ 0x08092214
 	orrs r0, r1
 	strb r0, [r3]
 	adds r0, r2, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 _0809223A:
 	pop {pc}
 
@@ -290,5 +290,5 @@ sub_0809223C: @ 0x0809223C
 	movs r2, #3
 	orrs r1, r2
 	strb r1, [r3]
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	pop {pc}

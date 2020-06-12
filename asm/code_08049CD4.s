@@ -1290,7 +1290,7 @@ _0804A612:
 	strb r0, [r1]
 _0804A638:
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r5, r4, #0
 	adds r5, #0x6d
 	ldrb r1, [r5]
@@ -1752,8 +1752,8 @@ _0804A9A8:
 	adds r0, r4, #0
 	pop {r4, r5, r6, pc}
 
-	thumb_func_start sub_0804A9AC
-sub_0804A9AC: @ 0x0804A9AC
+	thumb_func_start SetChildOffset
+SetChildOffset: @ 0x0804A9AC
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
 	adds r6, r1, #0

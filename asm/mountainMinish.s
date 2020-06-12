@@ -48,7 +48,7 @@ sub_08067E60: @ 0x08067E60
 	bl sub_08078778
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 _08067E80:
 	pop {r4, pc}
 	.align 2, 0
@@ -190,7 +190,7 @@ _08067F58:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r5, #0
 	bl sub_0806F118
 	b _0806801A
@@ -219,7 +219,7 @@ _08067F98:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r5, #0
 	bl sub_08068190
 	b _0806801A
@@ -239,7 +239,7 @@ _08067FDC:
 	adds r1, #4
 _08067FF2:
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806801A
 	.align 2, 0
 _08067FFC: .4byte gTextBox
@@ -254,7 +254,7 @@ _08068000:
 	adds r0, #0x69
 	ldrb r1, [r0]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806801A:
 	adds r0, r5, #0
 	adds r0, #0x59
@@ -576,7 +576,7 @@ sub_08068270: @ 0x08068270
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #6
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080682AE
 	.align 2, 0
 _080682A4: .4byte gUnk_08111358

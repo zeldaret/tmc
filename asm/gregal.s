@@ -129,7 +129,7 @@ sub_0806CBB4: @ 0x0806CBB4
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #0x11
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806CBD6:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -274,7 +274,7 @@ sub_0806CCD0: @ 0x0806CCD0
 	lsrs r1, r1, #1
 	adds r1, r2, r1
 	adds r0, r3, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #1
 	str r0, [r4, #0x14]
 	b _0806CCF6

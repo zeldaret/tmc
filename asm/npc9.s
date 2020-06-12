@@ -34,7 +34,7 @@ sub_08062AF0: @ 0x08062AF0
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08078778
 	pop {r4, pc}
@@ -57,7 +57,7 @@ sub_08062B14: @ 0x08062B14
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_0805E47C
 _08062B40:
@@ -99,7 +99,7 @@ sub_08062B70: @ 0x08062B70
 	bne _08062B92
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0

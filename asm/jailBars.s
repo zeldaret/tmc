@@ -40,7 +40,7 @@ _080A08E2:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	movs r1, #1
 	bl sub_080A0960
@@ -54,7 +54,7 @@ _080A08F6:
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	pop {r4, pc}
 	.align 2, 0
 
@@ -95,7 +95,7 @@ sub_080A0938: @ 0x080A0938
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _080A095A:
 	pop {r4, pc}
 

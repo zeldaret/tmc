@@ -308,7 +308,7 @@ sub_08048BB0: @ 0x08048BB0
 	adds r0, r0, r1
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08048CEA
 	.align 2, 0
 _08048BF8: .4byte gUnk_080D2030
@@ -331,7 +331,7 @@ _08048BFC:
 	adds r0, r0, r1
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0x40
@@ -363,7 +363,7 @@ _08048C34:
 	lsrs r1, r1, #6
 	adds r1, #0x14
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, _08048CB4 @ =0x00000119
 	bl PlaySFX
 _08048C6C:
@@ -388,10 +388,10 @@ _08048C6C:
 	adds r0, r0, r1
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	movs r1, #7
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 	adds r1, r6, #0
 	ldrb r4, [r4, #0xa]
 	lsls r1, r4
@@ -414,12 +414,12 @@ _08048CBC:
 	ldrb r1, [r4, #0x14]
 	adds r1, #0x10
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	bl Random
 	movs r1, #0x1c
 	ands r1, r0
 	adds r0, r4, #0
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 _08048CE4:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -448,7 +448,7 @@ sub_08048CEC: @ 0x08048CEC
 	adds r0, r0, r1
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08048D1A:
 	pop {r4, pc}
 	.align 2, 0
@@ -486,7 +486,7 @@ sub_08048D20: @ 0x08048D20
 	adds r0, r0, r1
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08048D60:
 	pop {r4, r5, pc}
 	.align 2, 0

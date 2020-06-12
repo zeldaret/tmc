@@ -27,7 +27,7 @@ sub_08097DEC: @ 0x08097DEC
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	ldrb r0, [r4, #0xa]
 	cmp r0, #1
 	beq _08097E46

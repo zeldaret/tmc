@@ -73,7 +73,7 @@ sub_08091120: @ 0x08091120
 	adds r0, r0, r3
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08004168
 	pop {r4, pc}

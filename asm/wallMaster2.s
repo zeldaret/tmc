@@ -23,7 +23,7 @@ sub_0802CC3C: @ 0x0802CC3C
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	pop {r4, r5, pc}
 	.align 2, 0
 _0802CC64: .4byte gUnk_080CD6FC
@@ -65,7 +65,7 @@ _0802CC9A:
 	strb r0, [r4, #0x10]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r2, _0802CCD4 @ =gLinkEntity
 	ldrb r1, [r2, #0x10]
 	adds r0, r5, #0
@@ -135,10 +135,10 @@ sub_0802CCE0: @ 0x0802CCE0
 	adds r0, #0x7c
 	strh r5, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_0802CF64
 	adds r0, r4, #0

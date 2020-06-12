@@ -47,7 +47,7 @@ _0806A206:
 	bl sub_0807DD50
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806A22A:
 	pop {r4, pc}
 	.align 2, 0

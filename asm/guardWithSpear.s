@@ -72,7 +72,7 @@ sub_08063D44: @ 0x08063D44
 	beq _08063DC6
 	adds r0, r4, #0
 	movs r1, #4
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, _08063DA8 @ =gUnk_0810F6BC
 	ldrb r1, [r4, #0xa]
 	lsls r1, r1, #2
@@ -148,7 +148,7 @@ _08063DF8:
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08063E1E
 _08063E18:
 	adds r0, r4, #0
@@ -170,7 +170,7 @@ _08063E1E:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08064428
 _08063E4C:
@@ -208,7 +208,7 @@ sub_08063E6C: @ 0x08063E6C
 	ldrb r1, [r2, #0x14]
 	adds r1, #4
 	adds r0, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08063E8A:
 	pop {pc}
 	.align 2, 0
@@ -280,7 +280,7 @@ _08063EFE:
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	bl sub_0807DD64
 	adds r0, r4, #0
@@ -321,7 +321,7 @@ sub_08063F20: @ 0x08063F20
 	asrs r0, r0, #0x18
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08064428
 _08063F72:
@@ -352,7 +352,7 @@ sub_08063F78: @ 0x08063F78
 	adds r0, #4
 	adds r1, r1, r0
 	adds r0, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08063FA6:
 	pop {pc}
 	.align 2, 0
@@ -551,7 +551,7 @@ _080640E8:
 	adds r1, #4
 	adds r1, r2, r1
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806410A:
 	adds r0, r4, #0
 	bl sub_080AEF88
@@ -729,7 +729,7 @@ _08064222:
 	cmp r1, r0
 	beq _08064256
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08064256:
 	movs r0, #0
 	ldrsb r0, [r6, r0]
@@ -754,7 +754,7 @@ _08064256:
 	cmp r1, r0
 	beq _0806428C
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806428C:
 	adds r0, r5, #0
 	bl sub_0806ED78
@@ -874,7 +874,7 @@ _08064342:
 	cmp r1, r0
 	beq _08064376
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08064376:
 	movs r0, #0
 	ldrsb r0, [r6, r0]
@@ -899,7 +899,7 @@ _08064376:
 	cmp r1, r0
 	beq _080643AC
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080643AC:
 	adds r0, r5, #0
 	bl sub_0806ED78

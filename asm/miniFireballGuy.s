@@ -11,7 +11,7 @@
 sub_080455AC: @ 0x080455AC
 	push {lr}
 	ldr r1, _080455B8 @ =gUnk_080D1868
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	pop {pc}
 	.align 2, 0
 _080455B8: .4byte gUnk_080D1868
@@ -94,7 +94,7 @@ sub_08045618: @ 0x08045618
 	bl sub_0804A720
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08045678
 	pop {r4, pc}

@@ -123,7 +123,7 @@ _08086354:
 _08086360:
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08086370
 	pop {r4, r5, pc}

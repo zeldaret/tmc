@@ -102,7 +102,7 @@ sub_0802A8AC: @ 0x0802A8AC
 	bhi _0802A8C6
 	adds r0, r1, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802A8C6:
 	pop {pc}
 
@@ -229,7 +229,7 @@ sub_0802A924: @ 0x0802A924
 	ldrb r1, [r7, #0xa]
 	adds r1, #1
 	adds r0, r7, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0802A9A0: .4byte gUnk_080CD16C
@@ -450,7 +450,7 @@ _0802AB0E:
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802AB3C:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -558,7 +558,7 @@ _0802ABF2:
 	ldrb r1, [r4, #0xa]
 	adds r1, #1
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802AC04:
 	pop {r4, pc}
 	.align 2, 0
@@ -884,7 +884,7 @@ sub_0802AE24: @ 0x0802AE24
 	strb r3, [r0]
 	mov r0, ip
 	movs r1, #3
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 _0802AE64: .4byte gUnk_080CD174
@@ -1346,7 +1346,7 @@ sub_0802B1A0: @ 0x0802B1A0
 	adds r1, #0x81
 	strb r2, [r1]
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 
 	thumb_func_start sub_0802B1BC

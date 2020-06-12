@@ -51,7 +51,7 @@ sub_0809F144: @ 0x0809F144
 	bl SetTile
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0809F188: .4byte gUnk_080FD178
@@ -71,7 +71,7 @@ sub_0809F194: @ 0x0809F194
 	ldrb r1, [r2, #0xa]
 	adds r1, #4
 	adds r0, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0809F1AE:
 	pop {pc}
 
@@ -126,7 +126,7 @@ _0809F20C:
 	strb r3, [r4, #0xc]
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0809F21E:
 	pop {r4, r5, pc}
 
@@ -146,7 +146,7 @@ sub_0809F220: @ 0x0809F220
 	strb r0, [r2, #0xe]
 	ldrb r1, [r2, #0xa]
 	adds r0, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0809F252
 _0809F242:
 	ldr r0, [r2, #0x50]

@@ -72,7 +72,7 @@ _0809AFC4:
 	adds r0, #0x84
 	strb r6, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	movs r0, #0x8b
 	movs r1, #1
 	movs r2, #0

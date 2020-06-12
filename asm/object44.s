@@ -78,7 +78,7 @@ _0808E2E6:
 	strh r0, [r4, #0x32]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r1, _0808E314 @ =0x00000347
 	adds r0, r4, #0
 	bl sub_0808E354

@@ -213,7 +213,7 @@ sub_0803BCA4: @ 0x0803BCA4
 	adds r1, #0x7a
 	strh r0, [r1]
 	adds r0, r6, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r6, #0
 	bl sub_0803BF2C
 	pop {r4, r5, r6, pc}
@@ -459,7 +459,7 @@ sub_0803BE7C: @ 0x0803BE7C
 	movs r0, #3
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	bl sub_0803BF2C
 _0803BEE6:
@@ -514,7 +514,7 @@ sub_0803BF2C: @ 0x0803BF2C
 	adds r2, #0x81
 	ldrb r2, [r2]
 	adds r1, r1, r2
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 
@@ -698,7 +698,7 @@ _0803C07E:
 	beq _0803C09C
 	adds r1, r2, #4
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0803C09C:
 	adds r0, r5, #0
 	bl sub_0803BF48

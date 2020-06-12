@@ -51,7 +51,7 @@ _08099E04:
 	strb r5, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08099E0E:
 	pop {r4, r5, r6, pc}
 
@@ -87,7 +87,7 @@ _08099E3E:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _08099E54:
 	pop {r4, r5, pc}
 	.align 2, 0

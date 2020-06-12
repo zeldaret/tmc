@@ -111,7 +111,7 @@ _080876E2:
 	adds r0, r0, r3
 	ldrb r1, [r0]
 	mov r0, ip
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 _08087760: .4byte gUnk_08120A20

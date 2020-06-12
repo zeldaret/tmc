@@ -38,7 +38,7 @@ _080381D0:
 	adds r0, r5, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 _080381F2:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -150,7 +150,7 @@ _080382B8: .4byte gLinkEntity
 _080382BC:
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 	adds r0, r4, #0
 	bl sub_080AEF88
 	cmp r0, #0
@@ -192,7 +192,7 @@ sub_08038304: @ 0x08038304
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 	adds r0, r4, #0
 	bl sub_080AEF88
 	cmp r0, #0
@@ -269,7 +269,7 @@ _08038398:
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080383AA:
 	pop {r4, r5, r6, pc}
 
@@ -296,7 +296,7 @@ sub_080383AC: @ 0x080383AC
 	beq _080383DC
 	strb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080383DC:
 	pop {r4, pc}
 	.align 2, 0
@@ -336,7 +336,7 @@ sub_080383E4: @ 0x080383E4
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 	.align 2, 0
 _0803842C: .4byte gLinkEntity

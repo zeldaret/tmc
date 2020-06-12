@@ -237,7 +237,7 @@ _08025E4C:
 	adds r0, r0, r6
 	ldrb r1, [r0]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08025E58:
 	ldrb r0, [r5, #0xa]
 	movs r6, #3

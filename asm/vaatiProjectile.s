@@ -191,7 +191,7 @@ _0803E1D8:
 _0803E1E8:
 	adds r0, r5, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0803E250
 	.align 2, 0
 _0803E1F4: .4byte 0x0000FF80
@@ -237,7 +237,7 @@ _0803E1F8:
 	bl PositionRelative
 	adds r0, r5, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _0803E250:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -260,7 +260,7 @@ sub_0803E258: @ 0x0803E258
 	strb r0, [r4, #0xe]
 	ldr r0, [r4, #0x54]
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0803E29C
 _0803E280:
 	ldr r0, _0803E2A4 @ =gUnk_020000B0
@@ -334,7 +334,7 @@ sub_0803E2D0: @ 0x0803E2D0
 	strb r0, [r4, #0xe]
 	ldr r0, [r4, #0x54]
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _0803E30C:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -489,7 +489,7 @@ sub_0803E3FC: @ 0x0803E3FC
 	strb r0, [r4, #0xe]
 	ldr r0, [r4, #0x54]
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 _0803E42E:
 	adds r0, r4, #0
 	bl sub_0803E2A8

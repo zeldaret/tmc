@@ -877,7 +877,7 @@ sub_0806A194: @ 0x0806A194
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #0x23
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806A1D4
 _0806A1CE:
 	adds r0, r4, #0

@@ -43,7 +43,7 @@ sub_080662F8: @ 0x080662F8
 	strb r0, [r5, #0x14]
 	ldrb r1, [r5, #0xa]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrh r0, [r5, #0x2e]
 	adds r1, r5, #0
 	adds r1, #0x7e
@@ -165,7 +165,7 @@ sub_080663D4: @ 0x080663D4
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806642E
 	.align 2, 0
 _0806640C: .4byte gLinkEntity
@@ -177,7 +177,7 @@ _08066410:
 	lsrs r1, r1, #3
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r0, [r4, #0xd]
 	adds r0, #1
 	strb r0, [r4, #0xd]
@@ -283,7 +283,7 @@ _080664D2:
 	strh r0, [r1]
 	mov r0, ip
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806650A
 _080664F0:
 	mov r6, ip
@@ -297,7 +297,7 @@ _080664F0:
 	strh r0, [r1]
 	mov r0, ip
 	movs r1, #6
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806650A:
 	pop {r4, r5, r6, pc}
 
@@ -413,7 +413,7 @@ _080665C8:
 	lsrs r3, r3, #3
 	adds r0, r5, #0
 	adds r1, r3, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080665DE:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

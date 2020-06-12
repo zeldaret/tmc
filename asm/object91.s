@@ -253,7 +253,7 @@ _0809C5A4:
 	adds r1, r1, r0
 	ldrb r1, [r1]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_0809C5C4
 _0809C5BA:

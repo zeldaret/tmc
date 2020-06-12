@@ -41,7 +41,7 @@ sub_080A05A4: @ 0x080A05A4
 	bl sub_080A0640
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080A05F0
 _080A05D2:
 	movs r0, #0
@@ -57,7 +57,7 @@ _080A05D2:
 	strb r0, [r1]
 	adds r0, r4, #0
 	movs r1, #3
-	bl UpdateSprite
+	bl InitializeAnimation
 _080A05F0:
 	pop {r4, pc}
 	.align 2, 0
@@ -73,7 +73,7 @@ sub_080A05F4: @ 0x080A05F4
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080A0622
 _080A060C:
 	ldr r0, [r0, #4]

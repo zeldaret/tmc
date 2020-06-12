@@ -23,7 +23,7 @@ sub_0802A408: @ 0x0802A408
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	pop {r4, r5, pc}
 	.align 2, 0
 _0802A430: .4byte gUnk_080CD07C
@@ -87,7 +87,7 @@ _0802A474:
 	beq _0802A4A8
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802A4A8:
 	adds r2, r4, #0
 	adds r2, #0x42
@@ -156,7 +156,7 @@ sub_0802A4E4: @ 0x0802A4E4
 	adds r1, #0x78
 	strh r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	bl sub_0802A7D0
 	pop {r4, pc}
@@ -220,7 +220,7 @@ _0802A548:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_0802A7D0
 _0802A5B0:
@@ -246,7 +246,7 @@ sub_0802A5B8: @ 0x0802A5B8
 	bl sub_08004488
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0802A60E
 	.align 2, 0
 _0802A5E4: .4byte 0x0000012D
@@ -268,7 +268,7 @@ _0802A5E8:
 	strh r2, [r4, #0x36]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802A60E:
 	pop {r4, pc}
 

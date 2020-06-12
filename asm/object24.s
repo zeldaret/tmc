@@ -25,7 +25,7 @@ sub_08088804: @ 0x08088804
 	strb r0, [r1]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08088828:
 	ldr r0, _0808883C @ =gUnk_08120BE0
 	ldrb r1, [r4, #0xc]
@@ -87,7 +87,7 @@ sub_0808886C: @ 0x0808886C
 	strh r1, [r5, #0x36]
 	adds r0, r5, #0
 	movs r1, #4
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r5, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
@@ -108,12 +108,12 @@ _080888B8:
 	strb r0, [r5, #0xf]
 	adds r1, r4, #1
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080888DA
 _080888D2:
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080888DA:
 	movs r0, #0x86
 	lsls r0, r0, #1
@@ -124,7 +124,7 @@ _080888E4:
 	bhs _080888F0
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080888F0:
 	strb r4, [r5, #0x14]
 _080888F2:
@@ -159,7 +159,7 @@ sub_080888F4: @ 0x080888F4
 	bl ClearFlag
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08088934:
 	pop {r4, r5, pc}
 	.align 2, 0

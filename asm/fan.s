@@ -35,7 +35,7 @@ sub_0809ED30: @ 0x0809ED30
 	bl sub_0809EFB0
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 
 	thumb_func_start sub_0809ED54
@@ -147,7 +147,7 @@ sub_0809EE08: @ 0x0809EE08
 	adds r2, #0x74
 	strh r1, [r2]
 	ldrb r1, [r0, #0xa]
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 
 	thumb_func_start sub_0809EE24
@@ -157,7 +157,7 @@ sub_0809EE24: @ 0x0809EE24
 	strb r1, [r0, #0xc]
 	ldrb r1, [r0, #0xa]
 	adds r1, #4
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 
 	thumb_func_start sub_0809EE34

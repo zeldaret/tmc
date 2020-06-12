@@ -91,7 +91,7 @@ _080843C8:
 	bl SetFlag
 	adds r0, r5, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080843F4
 	.align 2, 0
 _080843E0: .4byte gUnk_080FD188
@@ -100,7 +100,7 @@ _080843E8: .4byte gRoomControls
 _080843EC:
 	ldrb r1, [r5, #0xa]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080843F4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

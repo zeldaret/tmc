@@ -35,10 +35,10 @@ _0809CEEE:
 _0809CEF4:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0809CF0C
 _0809CF06:
 	adds r0, r4, #0

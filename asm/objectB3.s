@@ -84,7 +84,7 @@ _080A0AC0: .4byte gUnk_02022740
 sub_080A0AC4: @ 0x080A0AC4
 	push {lr}
 	ldrb r1, [r0, #0xa]
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 
@@ -163,7 +163,7 @@ sub_080A0B4C: @ 0x080A0B4C
 	movs r1, #0x50
 	strh r1, [r0, #0x32]
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 

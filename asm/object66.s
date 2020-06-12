@@ -42,7 +42,7 @@ sub_08094084: @ 0x08094084
 	strb r0, [r1]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _080940CA:
 	ldrh r0, [r5, #0x2e]
 	strh r0, [r4, #0x2e]

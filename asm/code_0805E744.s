@@ -2838,7 +2838,7 @@ _0805FC36:
 	lsrs r1, r1, #0x19
 	adds r1, #0xc
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r5, #0
 	bl sub_0801766C
 	adds r0, r5, #0

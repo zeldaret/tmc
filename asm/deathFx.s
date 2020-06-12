@@ -42,7 +42,7 @@ sub_08081634: @ 0x08081634
 	adds r0, #0x38
 	strb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	ldrb r0, [r4, #0x19]
 	movs r1, #3
 	orrs r0, r1
@@ -87,7 +87,7 @@ _080816B2:
 	beq _080816C4
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08081702
 _080816C4:
 	adds r2, r4, #0
@@ -120,7 +120,7 @@ _080816C4:
 _080816FA:
 	adds r0, r4, #0
 	adds r1, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08081702:
 	movs r0, #1
 	strb r0, [r4, #0xc]

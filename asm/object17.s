@@ -72,7 +72,7 @@ sub_080861C4: @ 0x080861C4
 	strb r0, [r4, #0xa]
 	adds r0, r4, #0
 	movs r1, #0x11
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08086230: .4byte gLinkEntity

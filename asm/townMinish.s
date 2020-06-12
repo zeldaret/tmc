@@ -48,7 +48,7 @@ sub_0806ABFC: @ 0x0806ABFC
 	beq _0806AC36
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r1, #0
 	movs r0, #1
 	strb r0, [r4, #0xc]
@@ -132,7 +132,7 @@ _0806AC9A:
 	movs r0, #2
 	eors r1, r0
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806ACBA:
 	adds r0, r5, #0
 	bl sub_080042B8
@@ -230,7 +230,7 @@ _0806AD44:
 	adds r1, r0, #0
 	adds r1, #8
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldr r1, [r0]
@@ -271,7 +271,7 @@ _0806ADB8:
 	adds r1, #4
 _0806ADCE:
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806ADEA
 	.align 2, 0
 _0806ADD8: .4byte gTextBox
@@ -489,7 +489,7 @@ sub_0806AF60: @ 0x0806AF60
 	lsrs r2, r2, #1
 	ldr r1, [r1, #4]
 	adds r1, r1, r2
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 
 	thumb_func_start sub_0806AF70
@@ -791,7 +791,7 @@ sub_0806B184: @ 0x0806B184
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #6
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806B1CA
 	.align 2, 0
 _0806B1C0: .4byte gUnk_08112674

@@ -139,7 +139,7 @@ _08084D7E:
 	add r0, r8
 	ldrb r1, [r0]
 	adds r0, r7, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r3}
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}

@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "textbox.h"
 
-extern void UpdateSprite(Entity *, u32);
+extern void InitializeAnimation(Entity *, u32);
 extern void sub_08078778(Entity *);
 extern void sub_0805E47C(Entity *);
 extern void sub_08004274(Entity *);
@@ -24,7 +24,7 @@ extern void (*gStampBehaviors2[2])(Entity*);
 extern TextBox gTextBox;
 extern u32 gUnk_0810C2E4;
 
-extern void UpdateSprite(Entity *, u32);
+extern void InitializeAnimation(Entity *, u32);
 extern void sub_08078778(Entity *);
 extern void sub_0805E47C(Entity *);
 extern void sub_08004274(Entity *);
@@ -60,7 +60,7 @@ void sub_08062BD4(Entity *ent)
 {
     ent->action = 1;
     ent->spriteSettings.b.ss0 = 1;
-    UpdateSprite(ent, 0);
+    InitializeAnimation(ent, 0);
     sub_08078778(ent);
 }
 
@@ -79,7 +79,7 @@ void sub_08062C24(Entity *ent)
 {
     sub_08004274(ent);
     if ((ent->frames.all & 128) != 0) {
-        UpdateSprite(ent, 4);
+        InitializeAnimation(ent, 4);
         TextboxTryNoOverlap(2561);
         ent->action++;
     }
@@ -89,7 +89,7 @@ void sub_08062C54(Entity *ent)
 {
     if ((gTextBox.doTextBox & 127) == 0) {
         ent->action = 1;
-        UpdateSprite(ent, 0);
+        InitializeAnimation(ent, 0);
         sub_0805E584(ent);
     }
 }
@@ -98,7 +98,7 @@ void sub_08062C7C(Entity *ent)
 {
     ent->action = 1;
     sub_0807DD64(ent);
-    UpdateSprite(ent, 0);
+    InitializeAnimation(ent, 0);
     CreateFx(ent, 37, 0);
     sub_08062CA4(ent);
 }

@@ -32,7 +32,7 @@ _080A09CA:
 	str r1, [r4, #0x54]
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080A09D4:
 	ldr r0, [r4, #0x50]
 	ldrh r0, [r0, #0x24]

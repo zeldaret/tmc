@@ -79,7 +79,7 @@ sub_08096E28: @ 0x08096E28
 	subs r1, #0x2b
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	bl sub_080970F4
 	ldr r1, _08096EB8 @ =gUnk_08123264

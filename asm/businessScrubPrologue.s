@@ -11,7 +11,7 @@
 sub_08045B88: @ 0x08045B88
 	push {lr}
 	ldr r1, _08045B94 @ =gUnk_080D19FC
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	pop {pc}
 	.align 2, 0
 _08045B94: .4byte gUnk_080D19FC
@@ -586,7 +586,7 @@ sub_08045FA0: @ 0x08045FA0
 	strb r1, [r0]
 	adds r0, r2, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 
@@ -633,7 +633,7 @@ sub_08046030: @ 0x08046030
 	adds r3, r3, r2
 	ldrb r2, [r3]
 	orrs r1, r2
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 _08046048: .4byte gUnk_080D1A38

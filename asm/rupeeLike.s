@@ -44,7 +44,7 @@ _080292CE:
 	adds r0, r5, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	b _080292FE
 	.align 2, 0
 _080292F4: .4byte gUnk_080CCC00
@@ -94,10 +94,10 @@ _08029338:
 	bne _08029356
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, [r4, #0x54]
 	movs r1, #4
-	bl UpdateSprite
+	bl InitializeAnimation
 _08029356:
 	movs r1, #0
 	movs r0, #4
@@ -275,11 +275,11 @@ sub_08029474: @ 0x08029474
 	strb r0, [r4, #0x14]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, [r4, #0x54]
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080294D2
 	.align 2, 0
 _080294BC: .4byte gLinkEntity
@@ -337,10 +337,10 @@ _0802951C:
 	strb r0, [r4, #0x10]
 	adds r0, r4, #0
 	movs r1, #3
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, [r4, #0x54]
 	movs r1, #7
-	bl UpdateSprite
+	bl InitializeAnimation
 _08029538:
 	pop {r4, pc}
 	.align 2, 0
@@ -544,10 +544,10 @@ sub_0802969C: @ 0x0802969C
 	strb r4, [r5, #0x14]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, [r5, #0x54]
 	adds r1, r4, #4
-	bl UpdateSprite
+	bl InitializeAnimation
 _080296C4:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -683,7 +683,7 @@ sub_08029770: @ 0x08029770
 	str r0, [r4, #0x48]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r2, [r4, #0x54]
 	ldrb r1, [r2, #0x18]
 	movs r0, #4
@@ -694,7 +694,7 @@ sub_08029770: @ 0x08029770
 	strb r0, [r2, #0x18]
 	ldr r0, [r4, #0x54]
 	movs r1, #6
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_080A29BC
 _080297E8:
@@ -747,7 +747,7 @@ sub_080297F0: @ 0x080297F0
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #0x54
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 	.align 2, 0
 _08029850: .4byte 0x00000143

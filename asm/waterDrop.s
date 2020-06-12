@@ -50,9 +50,9 @@ sub_0802A250: @ 0x0802A250
 	strb r0, [r1]
 	adds r0, r5, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r5, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	movs r0, #0x66
 	movs r1, #0
 	movs r2, #0
@@ -186,7 +186,7 @@ _0802A38C:
 _0802A392:
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_0802A39C

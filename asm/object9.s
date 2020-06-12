@@ -290,7 +290,7 @@ _08083A7C:
 	movs r0, #0xee
 	strb r0, [r2]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08083998
 	pop {r4, pc}

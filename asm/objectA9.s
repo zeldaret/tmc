@@ -31,7 +31,7 @@ sub_0809FEF8: @ 0x0809FEF8
 	adds r0, r0, r1
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r1, _0809FF24 @ =gUnk_08124860
 	ldrb r0, [r4, #0xa]
 	lsls r0, r0, #1

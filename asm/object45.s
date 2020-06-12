@@ -32,7 +32,7 @@ sub_0808E42C: @ 0x0808E42C
 	orrs r1, r2
 	strb r1, [r0, #0x11]
 	ldrb r1, [r0, #0xa]
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 

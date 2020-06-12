@@ -167,7 +167,7 @@ sub_08061CB4: @ 0x08061CB4
 	cmp r0, r1
 	beq _08061CC8
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08061CCE
 _08061CC8:
 	adds r0, r4, #0
@@ -281,7 +281,7 @@ sub_08061D64: @ 0x08061D64
 	ands r1, r2
 	adds r1, r1, r0
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08061E18
 	.align 2, 0
 _08061DAC: .4byte gLinkEntity
@@ -331,7 +331,7 @@ _08061DD4:
 	ands r1, r2
 	adds r1, r1, r0
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08061E18:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -355,7 +355,7 @@ sub_08061E24: @ 0x08061E24
 	adds r0, #0x69
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08061E48:
 	pop {r4, pc}
 	.align 2, 0
@@ -374,7 +374,7 @@ sub_08061E50: @ 0x08061E50
 	adds r0, #0x69
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08061E6C:
 	pop {r4, pc}
 	.align 2, 0
@@ -471,7 +471,7 @@ _08061F04:
 	cmp r1, r0
 	beq _08061F1A
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08061F1A:
 	adds r0, r4, #0
 	bl sub_080AEF88
@@ -583,7 +583,7 @@ sub_08061FD8: @ 0x08061FD8
 	push {lr}
 	ldrb r1, [r0, #0x14]
 	lsrs r1, r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 
 	thumb_func_start sub_08061FE4
@@ -592,7 +592,7 @@ sub_08061FE4: @ 0x08061FE4
 	ldrb r1, [r0, #0x14]
 	lsrs r1, r1, #1
 	adds r1, #4
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 

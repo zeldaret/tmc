@@ -273,7 +273,7 @@ _0806229A:
 	ands r1, r2
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080622F2
 	.align 2, 0
 _080622C8: .4byte gLinkEntity
@@ -1166,7 +1166,7 @@ _080629B4:
 	cmp r1, r0
 	beq _080629D2
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r1, [r5]
 	adds r0, r4, #0
 	adds r0, #0x80
@@ -1285,7 +1285,7 @@ sub_08062A60: @ 0x08062A60
 	movs r1, #0x16
 _08062AA2:
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08062AB6
 	.align 2, 0
 _08062AAC: .4byte gUnk_0810BDC4

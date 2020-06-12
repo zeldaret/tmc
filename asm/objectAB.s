@@ -45,7 +45,7 @@ sub_080A00F8: @ 0x080A00F8
 	strb r1, [r2]
 	strb r3, [r0, #0xd]
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 
 	thumb_func_start sub_080A012C

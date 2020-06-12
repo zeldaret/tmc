@@ -40,7 +40,7 @@ _0808DB7C:
 	strb r0, [r1]
 	adds r0, r7, #0
 	movs r1, #0xa
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r0, [r7, #0xc]
 	cmp r0, #1
 	bne _0808DB9A

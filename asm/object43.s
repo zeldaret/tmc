@@ -84,7 +84,7 @@ sub_0808DEE8: @ 0x0808DEE8
 	strb r2, [r5, #0x11]
 	adds r0, r5, #0
 	movs r1, #7
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _0808DF78
@@ -430,7 +430,7 @@ sub_0808E1BC: @ 0x0808E1BC
 	ldrb r1, [r4, #0x14]
 	lsrs r1, r1, #1
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 	.align 2, 0
 _0808E204: .4byte gLinkEntity

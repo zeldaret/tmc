@@ -12,13 +12,13 @@ sub_08037EC8: @ 0x08037EC8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08037EE4 @ =gUnk_080CF4A0
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	movs r3, #0x10
 	rsbs r3, r3, #0
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	pop {r4, pc}
 	.align 2, 0
 _08037EE4: .4byte gUnk_080CF4A0
@@ -76,7 +76,7 @@ _08037F46:
 	str r0, [r4, #0x20]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08037F50:
 	pop {r4, pc}
 	.align 2, 0
@@ -150,7 +150,7 @@ _08037FB2:
 	strb r4, [r0]
 	adds r0, r5, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -159,7 +159,7 @@ sub_08037FE0: @ 0x08037FE0
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 	ldrb r0, [r4, #0xe]
 	adds r2, r0, #0
 	cmp r2, #0
@@ -190,7 +190,7 @@ _08037FF8:
 	bl sub_08038168
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08038046
 _0803802C:
 	adds r0, r4, #0
@@ -204,7 +204,7 @@ _0803802C:
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _08038046:
 	pop {r4, pc}
 
@@ -213,7 +213,7 @@ sub_08038048: @ 0x08038048
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 	adds r0, r4, #0
 	bl sub_080AEF88
 	movs r0, #0x36
@@ -235,7 +235,7 @@ sub_08038048: @ 0x08038048
 	movs r0, #0x14
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0803810C
 _08038088:
 	ldrh r0, [r4, #0x2a]
@@ -279,7 +279,7 @@ _080380C8:
 	bge _080380E2
 	adds r0, r4, #0
 	movs r1, #4
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #1
 	strb r0, [r4, #0xd]
 _080380E2:
@@ -315,7 +315,7 @@ sub_08038110: @ 0x08038110
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -339,7 +339,7 @@ sub_08038110: @ 0x08038110
 	bl sub_08038168
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08038164
 _08038150:
 	movs r0, #0
@@ -350,7 +350,7 @@ _08038150:
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08038164:
 	pop {r4, pc}
 	.align 2, 0

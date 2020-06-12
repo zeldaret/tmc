@@ -36,7 +36,7 @@ sub_0801EC2C: @ 0x0801EC2C
 	ldrb r1, [r5, #0x14]
 	adds r1, #4
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0801EC7E
 	.align 2, 0
 _0801EC74: .4byte gUnk_080CA174
@@ -215,7 +215,7 @@ _0801EDD0:
 	strb r0, [r5, #0x14]
 	ldrb r1, [r5, #0x14]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, r5, pc}
 	.align 2, 0
 _0801EDE8: .4byte gUnk_020000B0

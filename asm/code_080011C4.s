@@ -68,7 +68,7 @@ _08001230:
 	beq _0800123E
 	strb r1, [r0, #0xe]
 	movs r1, #4
-	ldr r3, _0800135C @ =UpdateSpriteAnimation
+	ldr r3, _0800135C @ =InitializeAnimationAnimation
 	bx r3
 _0800123E:
 	ldr r3, _08001360 @ =sub_080043B4
@@ -126,8 +126,8 @@ sub_08001290: @ 0x08001290
 _0800129C:
 	bx lr
 
-	non_word_aligned_thumb_func_start sub_0800129E
-sub_0800129E: @ 0x0800129E
+	non_word_aligned_thumb_func_start EnemyFunctionHandler
+EnemyFunctionHandler: @ 0x0800129E
 	mov r3, lr
 	push {r3, r4, r5}
 	adds r4, r0, #0
@@ -238,7 +238,7 @@ _08001352:
 	bx lr
 	.align 2, 0
 _08001358: .4byte gEnemyFunctions
-_0800135C: .4byte UpdateSpriteAnimation
+_0800135C: .4byte InitializeAnimationAnimation
 _08001360: .4byte sub_080043B4
 _08001364: .4byte 0x00001800
 _08001368: .4byte gUnk_080012C8

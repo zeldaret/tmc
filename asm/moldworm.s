@@ -30,7 +30,7 @@ _08023052:
 	strb r0, [r1]
 	ldr r1, _08023068 @ =gUnk_080CBC38
 	adds r0, r4, #0
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	b _08023090
 	.align 2, 0
 _08023068: .4byte gUnk_080CBC38
@@ -304,7 +304,7 @@ sub_080231BC: @ 0x080231BC
 	strb r0, [r6, #0x14]
 	ldrb r1, [r6, #0x14]
 	adds r0, r6, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802327E:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -575,7 +575,7 @@ _08023460:
 	ldrb r1, [r1]
 	adds r1, r0, r1
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802349C:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -674,10 +674,10 @@ _08023534:
 	ldr r0, [r7, #0x54]
 	ldrb r1, [r0, #0x14]
 	adds r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r1, [r7, #0x14]
 	adds r0, r7, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802355A:
 	adds r0, r7, #0
 	adds r0, #0x7f
@@ -764,7 +764,7 @@ _080235F8:
 	strb r0, [r4, #0x14]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 
 	thumb_func_start sub_08023604
@@ -919,10 +919,10 @@ sub_080236F8: @ 0x080236F8
 	ldr r0, [r4, #0x54]
 	ldrb r1, [r0, #0x14]
 	adds r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802372E:
 	pop {r4, pc}
 
@@ -1129,7 +1129,7 @@ sub_08023894: @ 0x08023894
 	strb r1, [r0]
 	ldrb r1, [r5, #0x14]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, [r5, #0x50]
 	ldrb r0, [r0, #0xb]
 	cmp r0, #0
@@ -1275,10 +1275,10 @@ sub_08023990: @ 0x08023990
 	adds r0, #0x38
 	strb r1, [r0]
 	adds r0, r5, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r5, #0
 	movs r1, #0x16
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r4, [r5, #0x54]
 _080239D4:
 	adds r0, r4, #0
@@ -1375,7 +1375,7 @@ sub_08023A68: @ 0x08023A68
 	strb r0, [r2]
 	adds r0, r4, #0
 	movs r1, #0x17
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 
 	thumb_func_start sub_08023A88
@@ -1396,7 +1396,7 @@ sub_08023A88: @ 0x08023A88
 	strb r0, [r2]
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_08023AB0
@@ -1433,7 +1433,7 @@ _08023ADE:
 	strb r0, [r5]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08023B34
 _08023AF6:
 	adds r5, r4, #0
@@ -1466,7 +1466,7 @@ _08023B06:
 	ldrb r1, [r4, #0x14]
 	adds r1, #8
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08023B34:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

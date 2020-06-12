@@ -111,7 +111,7 @@ _08087C64:
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08087CA6
 _08087C7C:
 	movs r0, #0x1e
@@ -306,7 +306,7 @@ sub_08087DBC: @ 0x08087DBC
 	bl sub_0801D2B4
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0x88
 	lsls r0, r0, #1
 	bl PlaySFX

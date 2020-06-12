@@ -23,7 +23,7 @@ sub_08089CBC: @ 0x08089CBC
 	strb r0, [r4, #0x19]
 	adds r0, r4, #0
 	movs r1, #9
-	bl UpdateSprite
+	bl InitializeAnimation
 _08089CDC:
 	ldr r1, [r4, #0x50]
 	ldr r0, [r1, #0x34]

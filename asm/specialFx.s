@@ -79,7 +79,7 @@ _08084538:
 _0808454E:
 	ldrb r1, [r5, #0xa]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r0, [r5, #0xa]
 	lsls r0, r0, #2
 	ldr r1, _080845B4 @ =gUnk_0811F960

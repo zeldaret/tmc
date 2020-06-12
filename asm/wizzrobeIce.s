@@ -23,7 +23,7 @@ sub_0802FDD4: @ 0x0802FDD4
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	pop {r4, r5, pc}
 	.align 2, 0
 _0802FDFC: .4byte gUnk_080CE074
@@ -137,7 +137,7 @@ _0802FECE:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 	.align 2, 0
 
@@ -210,7 +210,7 @@ _0802FF2A:
 	movs r0, #4
 	orrs r1, r0
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0802FF60:
 	adds r0, r5, #0
 	bl sub_0802F9C8
@@ -323,7 +323,7 @@ _0802FFF0:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080300A2
 _08030042:
 	ldrb r0, [r4, #0xe]
@@ -370,7 +370,7 @@ _0803006C:
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080300A2:
 	adds r0, r4, #0
 	bl sub_0802F9C8

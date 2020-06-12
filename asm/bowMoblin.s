@@ -12,13 +12,13 @@ sub_0803C160: @ 0x0803C160
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0803C17C @ =gUnk_080CFF78
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	movs r3, #0x18
 	rsbs r3, r3, #0
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	pop {r4, pc}
 	.align 2, 0
 _0803C17C: .4byte gUnk_080CFF78
@@ -731,7 +731,7 @@ _0803C6D0:
 _0803C6D2:
 	adds r0, r3, #0
 	adds r1, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 
 	thumb_func_start sub_0803C6DC

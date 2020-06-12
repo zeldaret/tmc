@@ -12,13 +12,13 @@ sub_0802823C: @ 0x0802823C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08028268 @ =gUnk_080CC790
-	bl sub_0800129E
+	bl EnemyFunctionHandler
 	movs r3, #0x20
 	rsbs r3, r3, #0
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 	ldr r1, [r4, #0x54]
 	cmp r1, #0
 	beq _08028266
@@ -791,7 +791,7 @@ _0802881C:
 _0802881E:
 	adds r0, r3, #0
 	adds r1, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 
 	thumb_func_start sub_08028828

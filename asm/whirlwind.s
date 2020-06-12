@@ -87,7 +87,7 @@ sub_08092CDC: @ 0x08092CDC
 	bl sub_0801D2B4
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08092D5C
 	.align 2, 0
 _08092D48: .4byte gUnk_080FD320
@@ -97,7 +97,7 @@ _08092D50:
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _08092D5C:
 	ldrb r1, [r4, #0x10]
 	movs r0, #2

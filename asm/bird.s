@@ -74,7 +74,7 @@ sub_0809CF54: @ 0x0809CF54
 	ldr r0, _0809CFE8 @ =0x00000123
 	bl PlaySFX
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0
 	bl LoadAnimation
@@ -162,7 +162,7 @@ sub_0809D048: @ 0x0809D048
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0x17
 	bl LoadAnimation
@@ -266,7 +266,7 @@ sub_0809D10C: @ 0x0809D10C
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0x17
 	bl LoadAnimation
@@ -323,7 +323,7 @@ sub_0809D178: @ 0x0809D178
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r1, r4, #0
 	adds r1, #0x5a
 	movs r0, #0x80
@@ -340,7 +340,7 @@ _0809D19C:
 	movs r1, #3
 	ands r1, r0
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	bl Random
 	movs r1, #0xf
 	ands r0, r1

@@ -74,7 +74,7 @@ sub_0808483C: @ 0x0808483C
 	strh r1, [r5]
 	adds r0, r4, #0
 	movs r1, #8
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, _080848C4 @ =0x00004016
 	ldrh r1, [r5]
 	adds r4, #0x38

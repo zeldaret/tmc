@@ -132,7 +132,7 @@ _08094200:
 	strh r0, [r4, #0x24]
 	adds r0, r4, #0
 	movs r1, #0x56
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0809438A
 	.align 2, 0
 _08094228: .4byte gUnk_081229D0
@@ -152,7 +152,7 @@ _08094230:
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	movs r1, #0x57
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0809438A
 _08094254:
 	ldrb r0, [r4, #0xb]

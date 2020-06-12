@@ -193,7 +193,7 @@ _0806BB52:
 	bl sub_08095BE0
 	adds r0, r5, #0
 	movs r1, #0xc
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0xcd
 	bl PlaySFX
 	b _0806BB78

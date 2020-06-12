@@ -27,7 +27,7 @@ sub_08090FB8: @ 0x08090FB8
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]
@@ -37,6 +37,6 @@ sub_08090FB8: @ 0x08090FB8
 	strb r0, [r2]
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08090FF6:
 	pop {r4, pc}

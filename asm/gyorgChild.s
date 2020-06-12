@@ -134,7 +134,7 @@ sub_080486F4: @ 0x080486F4
 	bne _0804876C
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	strb r5, [r4, #0xc]
 	ldrb r0, [r4, #0x10]
 	movs r1, #0x80
@@ -315,7 +315,7 @@ sub_0804882C: @ 0x0804882C
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r0, r4, #0
 	adds r0, #0x7a
 	ldrb r0, [r0]
@@ -325,7 +325,7 @@ sub_0804882C: @ 0x0804882C
 	strb r0, [r4, #0x14]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r0, [r4, #0x14]
 	lsrs r0, r0, #1
 	cmp r0, #1

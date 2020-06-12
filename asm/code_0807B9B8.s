@@ -1807,7 +1807,7 @@ _0807C7C2:
 	movs r1, #1
 	strb r1, [r0]
 	ldr r0, [r4, #0x30]
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 _0807C7FC:
 	ldrb r1, [r4, #0xf]
 	movs r0, #0xfb

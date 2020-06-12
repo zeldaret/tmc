@@ -92,7 +92,7 @@ sub_08083E4C: @ 0x08083E4C
 	bl sub_080842D8
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08083EAC
 	.align 2, 0
 _08083E80: .4byte gUnk_0811F8B0
@@ -116,7 +116,7 @@ _08083EA0:
 _08083EA4:
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08083EAC:
 	pop {r4, pc}
 	.align 2, 0

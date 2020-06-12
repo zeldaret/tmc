@@ -111,7 +111,7 @@ _08033F70:
 	strb r2, [r0]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0x36
 	movs r1, #1
 	bl CreateEnemy
@@ -1446,7 +1446,7 @@ _0803496C:
 	strb r0, [r3, #0x10]
 	adds r0, r3, #0
 	movs r1, #5
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08034996
 _08034982:
 	ldrb r0, [r3, #0xa]
@@ -1627,7 +1627,7 @@ _08034A98:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08034ABA:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
@@ -1665,7 +1665,7 @@ sub_08034AEC: @ 0x08034AEC
 	strb r1, [r0, #0xe]
 	ldrb r1, [r0, #0xa]
 	adds r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, _08034B08 @ =0x00000151
 	bl PlaySFX
 	pop {pc}
@@ -1714,7 +1714,7 @@ sub_08034B38: @ 0x08034B38
 	ldrb r1, [r4, #0xa]
 	adds r1, #3
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08034B9A
 _08034B58:
 	movs r0, #0xe
@@ -1788,7 +1788,7 @@ sub_08034BC8: @ 0x08034BC8
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _08034BDE:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0

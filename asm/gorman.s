@@ -55,7 +55,7 @@ sub_080697C4: @ 0x080697C4
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_08078778
 _080697E4:
@@ -84,7 +84,7 @@ sub_080697EC: @ 0x080697EC
 	cmp r0, r1
 	beq _0806981E
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806981E
 _0806981A:
 	subs r0, #1

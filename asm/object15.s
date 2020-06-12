@@ -34,7 +34,7 @@ sub_08086034: @ 0x08086034
 	adds r1, r0, #0
 	adds r1, #0x58
 	ldrb r1, [r1]
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 

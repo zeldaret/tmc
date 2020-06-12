@@ -216,7 +216,7 @@ sub_08048F00: @ 0x08048F00
 	ldrb r1, [r0]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08048F2E:
 	pop {r4, pc}
 
@@ -266,7 +266,7 @@ sub_08048F74: @ 0x08048F74
 	ldrb r1, [r1]
 	adds r1, r1, r2
 	ldrb r1, [r1]
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 _08048F88: .4byte gUnk_080D2348

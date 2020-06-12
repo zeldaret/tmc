@@ -36,7 +36,7 @@ _080879C4:
 	bne _080879D8
 	adds r0, r4, #0
 	movs r1, #0xd
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080879EA
 _080879D8:
 	adds r0, r4, #0
@@ -117,7 +117,7 @@ _08087A68:
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 _08087A76:
 	ldrb r1, [r4, #0x10]
 	movs r0, #0x80
@@ -171,7 +171,7 @@ _08087AC0:
 	strb r1, [r0]
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08087AF8
 	.align 2, 0
 _08087AE4: .4byte gUnk_08120A8C
@@ -180,7 +180,7 @@ _08087AEC: .4byte gLinkEntity
 _08087AF0:
 	adds r0, r4, #0
 	movs r1, #0x10
-	bl UpdateSprite
+	bl InitializeAnimation
 _08087AF8:
 	pop {r4, pc}
 	.align 2, 0

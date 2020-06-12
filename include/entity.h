@@ -24,6 +24,13 @@ union SplitWord {
     } HALF;
 };
 
+union SplitHWord {
+    u16 HWORD;
+    struct {
+    u8 LO, HI;
+    } PACKED HALF;
+};
+
 typedef struct Entity
 {
     u32 *field_0x0;
@@ -51,20 +58,20 @@ typedef struct Entity
             u8 ss5:1;
             u8 ss6:1;
             u8 ss7:1;
-        } __attribute__((packed)) b;
-    } __attribute__((packed)) spriteSettings;
+        } PACKED b;
+    } PACKED spriteSettings;
     
     struct {
         u8 b0:2;
         u8 b1:2;
         u8 b2:4;
-    } __attribute__((packed)) spriteOrder;
+    } PACKED spriteOrder;
     u8 palette;
     struct {
         u8 b0:4;
         u8 b1:1;
         u8 b2:3;
-    } __attribute__((packed)) spriteOrientation;
+    } PACKED spriteOrientation;
     u8 filler[2];
     u8 animationList;
     u8 field_1f;
@@ -74,7 +81,7 @@ typedef struct Entity
     struct {
         u8 b0:3;
         u8 b1:5;
-    } __attribute__((packed)) ticks;
+    } PACKED ticks;
     u16 collisions;
 	union SplitWord x;
 	union SplitWord y;
@@ -108,7 +115,7 @@ typedef struct Entity
         u8 f0:6;
         u8 f1:1;
         u8 f2:1;
-    } __attribute__((packed)) frames;
+    } PACKED frames;
     u8 gfx;
     u8 field_0x5c;
     u8 field_0x5d;
@@ -126,7 +133,7 @@ typedef struct Entity
 	u16 itemCooldown;
 	u32 field_0x7c;
 	u32 field_0x80;
-	u16 cutsceneBeh;
+	union SplitHWord cutsceneBeh;
     u16 field_0x86;
 	
 } Entity;

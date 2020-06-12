@@ -70,7 +70,7 @@ sub_0808B474: @ 0x0808B474
 	strb r2, [r4, #0x11]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
@@ -429,7 +429,7 @@ sub_0808B73C: @ 0x0808B73C
 	strb r0, [r4, #0x1a]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _0808B766:
 	ldr r5, _0808B78C @ =gLinkEntity
 	movs r0, #0x2e

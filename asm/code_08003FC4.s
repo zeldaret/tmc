@@ -414,8 +414,8 @@ _0800425C:
 	pop {r4}
 	bx lr
 
-	thumb_func_start UpdateSprite
-UpdateSprite: @ 0x08004260
+	thumb_func_start InitializeAnimation
+InitializeAnimation: @ 0x08004260
 	movs r2, #0x58
 	strb r1, [r0, r2]
 	ldrh r3, [r0, #0x12]
@@ -431,8 +431,8 @@ UpdateSprite: @ 0x08004260
 sub_08004274: @ 0x08004274
 	movs r1, #1
 
-	non_word_aligned_thumb_func_start UpdateSpriteAnimation
-UpdateSpriteAnimation: @ 0x08004276
+	non_word_aligned_thumb_func_start InitializeAnimationAnimation
+InitializeAnimationAnimation: @ 0x08004276
 	movs r3, #0x59
 	ldrb r2, [r0, r3]
 	subs r2, r2, r1
@@ -466,7 +466,7 @@ _0800429C:
 	thumb_func_start LoadAnimation
 LoadAnimation: @ 0x080042AC
 	push {lr}
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r2, #0xff
 	strb r2, [r0, #0x1f]
 	b _080042C0
@@ -478,7 +478,7 @@ sub_080042B8: @ 0x080042B8
 	non_word_aligned_thumb_func_start sub_080042BA
 sub_080042BA: @ 0x080042BA
 	push {lr}
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 _080042C0:
 	pop {r1}
 	mov lr, r1

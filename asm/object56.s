@@ -46,7 +46,7 @@ _08091E96:
 	strb r0, [r4, #0x1b]
 	ldrb r1, [r4, #0xb]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r1, _08091EBC @ =gUnk_08122590
 	ldrb r0, [r4, #0xb]
 	lsls r0, r0, #1

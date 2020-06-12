@@ -37,7 +37,7 @@ sub_080333D4: @ 0x080333D4
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	beq _0803340E

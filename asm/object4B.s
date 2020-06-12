@@ -28,7 +28,7 @@ sub_0808F794: @ 0x0808F794
 	movs r1, #0x3c
 	strb r1, [r0, #0xe]
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 
@@ -84,7 +84,7 @@ sub_0808F7D4: @ 0x0808F7D4
 	strb r0, [r2]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 _0808F80A:
 	pop {r4, pc}
 
@@ -118,7 +118,7 @@ sub_0808F80C: @ 0x0808F80C
 	strb r2, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #3
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, _0808F854 @ =0x0000012B
 	bl PlaySFX
 _0808F850:
@@ -176,7 +176,7 @@ _0808F88A:
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0808F8EA
 	.align 2, 0
 _0808F8C4: .4byte gRoomControls
@@ -193,7 +193,7 @@ _0808F8C8:
 	str r0, [r4, #0x20]
 	adds r0, r4, #0
 	movs r1, #3
-	bl UpdateSprite
+	bl InitializeAnimation
 	ldr r0, _0808F8EC @ =0x0000012B
 	bl PlaySFX
 _0808F8EA:
@@ -217,7 +217,7 @@ sub_0808F8F0: @ 0x0808F8F0
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #5
-	bl UpdateSprite
+	bl InitializeAnimation
 _0808F912:
 	pop {r4, pc}
 
@@ -240,7 +240,7 @@ sub_0808F914: @ 0x0808F914
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _0808F93C:
 	pop {r4, pc}
 	.align 2, 0

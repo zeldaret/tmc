@@ -23,7 +23,7 @@ sub_080973E4: @ 0x080973E4
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	bl sub_08052660
 	cmp r0, #0
 	beq _0809741E

@@ -37,7 +37,7 @@ _08037C5C:
 	adds r0, r5, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0804A9AC
+	bl SetChildOffset
 _08037C7E:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -133,7 +133,7 @@ _08037D1C:
 _08037D26:
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 	adds r0, r4, #0
 	bl sub_080AEF88
 	cmp r0, #0
@@ -158,7 +158,7 @@ sub_08037D54: @ 0x08037D54
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl UpdateSpriteAnimation
+	bl InitializeAnimationAnimation
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -240,7 +240,7 @@ _08037DEE:
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08037E0C:
 	pop {r4, pc}
 	.align 2, 0
@@ -302,7 +302,7 @@ _08037E7A:
 	strb r4, [r5, #0x14]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08037E8E:
 	pop {r4, r5, r6, pc}
 
@@ -331,7 +331,7 @@ _08037EAC:
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #1
 _08037EC6:
 	pop {r4, pc}

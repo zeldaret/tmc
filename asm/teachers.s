@@ -79,7 +79,7 @@ _0806C604:
 	ands r1, r2
 	adds r1, r1, r0
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r5, #0
 	bl sub_0806F118
 	b _0806C670
@@ -101,7 +101,7 @@ _0806C656:
 	adds r0, #0x69
 	ldrb r1, [r0]
 	adds r0, r5, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806C670:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -229,7 +229,7 @@ sub_0806C738: @ 0x0806C738
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806C77E
 	.align 2, 0
 _0806C774: .4byte gUnk_08113910

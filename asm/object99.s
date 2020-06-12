@@ -50,7 +50,7 @@ _0809E444:
 	strb r0, [r2]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0809E482:
 	ldrb r0, [r6, #0x14]
 	mov r1, r8

@@ -59,7 +59,7 @@ _0806C2FA:
 	ands r1, r2
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _0806C350

@@ -114,7 +114,7 @@ sub_0806C834: @ 0x0806C834
 	lsrs r1, r1, #1
 	adds r1, #4
 	adds r0, r2, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806C856:
 	pop {pc}
 	.align 2, 0
@@ -448,7 +448,7 @@ sub_0806CA94: @ 0x0806CA94
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #6
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0806CADA
 	.align 2, 0
 _0806CAD0: .4byte gUnk_08113A1C

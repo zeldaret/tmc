@@ -72,7 +72,7 @@ _08048FD4:
 	strh r0, [r4, #0x32]
 	lsrs r1, r6, #0x19
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _0804901E
 	.align 2, 0
 _08049010: .4byte gUnk_080D28CC

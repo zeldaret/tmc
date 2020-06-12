@@ -196,7 +196,7 @@ sub_08098FE0: @ 0x08098FE0
 	bl SetTile
 	adds r0, r6, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080990DC
 	.align 2, 0
 _08099060: .4byte gRoomControls
@@ -253,7 +253,7 @@ _0809906C:
 	bl SetTile
 	adds r0, r6, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _080990DC:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

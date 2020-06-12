@@ -174,7 +174,7 @@ _0806B7A6:
 _0806B7B0:
 	adds r0, r6, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0806B7B8:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

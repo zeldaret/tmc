@@ -123,7 +123,7 @@ sub_08022034: @ 0x08022034
 	strh r0, [r1]
 	ldrb r1, [r4, #0xb]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	adds r0, r4, #0
 	bl sub_080221C0
 	pop {r4, pc}
@@ -155,7 +155,7 @@ sub_0802209C: @ 0x0802209C
 	ldrb r1, [r4, #0xb]
 	adds r1, #4
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080220D6
 _080220D2:
 	subs r0, #1
@@ -264,7 +264,7 @@ sub_08022174: @ 0x08022174
 	ldrb r1, [r4, #0xb]
 	adds r1, #8
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _08022196:
 	pop {r4, pc}
 

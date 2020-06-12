@@ -29,7 +29,7 @@ sub_0809F318: @ 0x0809F318
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	bl Random
 	movs r1, #0x10
 	ands r1, r0
@@ -90,7 +90,7 @@ sub_0809F374: @ 0x0809F374
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	movs r0, #0xc3
 	lsls r0, r0, #1
 	bl PlaySFX
@@ -114,7 +114,7 @@ _0809F3C8:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 _0809F3D4:
 	movs r0, #0
 	strb r0, [r4, #0xe]
@@ -140,7 +140,7 @@ sub_0809F3E8: @ 0x0809F3E8
 	strb r0, [r2, #0xc]
 	adds r0, r2, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 _0809F404:
 	pop {pc}
 	.align 2, 0

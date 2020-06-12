@@ -129,7 +129,7 @@ _080822D6:
 	bl SetTile
 	adds r0, r4, #0
 	movs r1, #5
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r3}
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}

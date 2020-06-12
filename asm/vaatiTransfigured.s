@@ -1703,7 +1703,7 @@ sub_0804041C: @ 0x0804041C
 	orrs r1, r2
 	strb r1, [r3]
 	movs r1, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
 
@@ -1797,7 +1797,7 @@ sub_080404D0: @ 0x080404D0
 	strb r0, [r3]
 	adds r0, r2, #0
 	movs r1, #2
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08040518
 _080404FC:
 	movs r0, #1
@@ -1858,7 +1858,7 @@ _0804054A:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #1
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _080405C4
 _0804056C:
 	ldr r0, [r4, #0x50]
@@ -1953,7 +1953,7 @@ _080405F6:
 	strb r0, [r3]
 	adds r0, r4, #0
 	movs r1, #3
-	bl UpdateSprite
+	bl InitializeAnimation
 	b _08040638
 _08040626:
 	adds r0, r4, #0

@@ -44,7 +44,7 @@ sub_0808B89C: @ 0x0808B89C
 	adds r1, #0x38
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl InitializeAnimationOrderAndFlip
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]
@@ -58,7 +58,7 @@ sub_0808B89C: @ 0x0808B89C
 	strb r0, [r4, #0xe]
 	ldrb r1, [r4, #0xb]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 	pop {r4, pc}
 	.align 2, 0
 
@@ -84,7 +84,7 @@ sub_0808B8D4: @ 0x0808B8D4
 	strb r0, [r4, #0xb]
 	ldrb r1, [r4, #0xb]
 	adds r0, r4, #0
-	bl UpdateSprite
+	bl InitializeAnimation
 _0808B904:
 	pop {r4, pc}
 	.align 2, 0
