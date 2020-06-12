@@ -1258,7 +1258,7 @@ sub_0807037C: @ 0x0807037C
 	ands r0, r1
 	cmp r0, #0
 	beq _08070394
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08070394:
 	pop {r4, pc}
 	.align 2, 0
@@ -1276,7 +1276,7 @@ sub_08070398: @ 0x08070398
 	bl sub_08003FC4
 	cmp r0, #0
 	bne _080703B8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080703B8:
 	pop {r4, pc}
 	.align 2, 0

@@ -15,7 +15,7 @@ sub_08048F8C: @ 0x08048F8C
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _08048F9C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08048F9C:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0

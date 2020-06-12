@@ -88,7 +88,7 @@ _080441AC: .4byte gUnk_080D15A8
 _080441B0:
 	adds r0, r4, #0
 	bl sub_080445C0
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080441BA:
 	pop {r4, pc}
 
@@ -125,7 +125,7 @@ sub_080441E0: @ 0x080441E0
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _080441F2
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080441F2:
 	ldrb r7, [r4, #0xa]
 	cmp r7, #0
@@ -450,7 +450,7 @@ _08044440:
 	bl SetGlobalFlag
 	movs r0, #0x72
 	bl PlaySFX
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08044458:
 	movs r2, #0
 	adds r3, r5, #0
@@ -635,7 +635,7 @@ _080445B0: .4byte gUnk_08126EE4
 _080445B4:
 	adds r0, r6, #0
 	bl sub_080445C0
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080445BE:
 	pop {r4, r5, r6, r7, pc}
 

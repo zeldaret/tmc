@@ -231,7 +231,7 @@ _0806B80C:
 	ldrb r0, [r5, #0xd]
 	adds r0, #1
 	strb r0, [r5, #0xd]
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0806B968
 	.align 2, 0
 _0806B828: .4byte 0x00001634
@@ -257,7 +257,7 @@ _0806B84C:
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _0806B85C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0806B85C:
 	movs r3, #0x84
 	lsls r3, r3, #0xe
@@ -355,7 +355,7 @@ _0806B906:
 	beq _0806B91E
 	movs r0, #0
 	bl SetRoomFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0806B91E:
 	ldrb r0, [r5, #0xf]
 	subs r0, #1
@@ -376,7 +376,7 @@ _0806B93C:
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _0806B94E
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0806B968
 _0806B94E:
 	ldrb r0, [r4, #0xd]
@@ -404,7 +404,7 @@ sub_0806B96C: @ 0x0806B96C
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _0806B97E
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0806B97E:
 	ldrb r3, [r4, #0xb]
 	lsls r3, r3, #1

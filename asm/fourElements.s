@@ -302,7 +302,7 @@ sub_080A03E8: @ 0x080A03E8
 	bl sub_0807DF50
 	movs r0, #0
 	bl SetRoomFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A041A:
 	pop {pc}
 	.align 2, 0

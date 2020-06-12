@@ -394,7 +394,7 @@ _080448A4:
 	beq _080448B0
 	b _080449EA
 _080448B0:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080449EA
 _080448B6:
 	adds r0, r4, #0

@@ -37,7 +37,7 @@ _080874AE:
 	ldr r0, [r2, #0x20]
 	bics r0, r1
 	str r0, [r2, #0x20]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080874DC:
 	pop {r4, pc}
 	.align 2, 0

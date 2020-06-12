@@ -313,7 +313,7 @@ _08023DC0:
 	beq _08023E0A
 	adds r0, r4, #0
 	bl sub_0804A4E4
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08023E0A
 _08023DF2:
 	ldr r1, _08023E0C @ =gUnk_080CBDF4

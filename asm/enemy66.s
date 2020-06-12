@@ -24,7 +24,7 @@ sub_08049CAC: @ 0x08049CAC
 	.align 2, 0
 _08049CC8: .4byte gUnk_080D2ABC
 _08049CCC:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08049CD0:
 	pop {pc}
 	.align 2, 0

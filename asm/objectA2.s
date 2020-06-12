@@ -174,7 +174,7 @@ _0809F438:
 	ldr r1, _0809F444 @ =gUnk_02000080
 	movs r0, #1
 	strb r0, [r1, #4]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809F442:
 	pop {pc}
 	.align 2, 0

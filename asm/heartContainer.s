@@ -29,7 +29,7 @@ sub_0808E6A0: @ 0x0808E6A0
 	bl CheckFlags
 	cmp r0, #0
 	beq _0808E6B4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808E6B4:
 	movs r0, #1
 	strb r0, [r4, #0xc]
@@ -144,7 +144,7 @@ sub_0808E764: @ 0x0808E764
 	movs r1, #0
 	movs r2, #0
 	bl sub_080A7C00
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808E79A:
 	pop {r4, pc}
 	.align 2, 0

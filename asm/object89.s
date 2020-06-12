@@ -32,7 +32,7 @@ sub_0809AB04: @ 0x0809AB04
 	bl sub_0809AD68
 	adds r0, r5, #0
 	bl sub_0809AD8C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809AB22:
 	movs r0, #0x36
 	movs r1, #0
@@ -54,7 +54,7 @@ _0809AB22:
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _0809AB52
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809AB52:
 	movs r0, #7
 	strb r0, [r5, #0xc]
@@ -336,7 +336,7 @@ _0809AD3A:
 	adds r0, #0x8b
 	movs r1, #1
 	strb r1, [r0]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809AD58:
 	pop {r4, pc}
 	.align 2, 0

@@ -31,7 +31,7 @@ sub_08085504: @ 0x08085504
 	bl GetInventoryValue
 	cmp r0, #0
 	beq _0808551C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808551C:
 	movs r0, #0
 	strb r0, [r4, #0xa]
@@ -57,7 +57,7 @@ _08085544:
 	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08085552
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08085552:
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
@@ -66,7 +66,7 @@ _08085552:
 	bl sub_080040A2
 	cmp r0, #0
 	bne _08085566
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08085566:
 	movs r0, #0
 	strb r0, [r4, #0xe]
@@ -76,7 +76,7 @@ _0808556C:
 	bl sub_0805EABC
 	cmp r0, #0
 	beq _0808557A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808557A:
 	movs r2, #1
 	strb r2, [r4, #0xc]
@@ -1063,7 +1063,7 @@ sub_08085CDC: @ 0x08085CDC
 	.align 2, 0
 _08085D04: .4byte 0x03FFFFFF
 _08085D08:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08085D0C:
 	pop {r4, pc}
 	.align 2, 0
@@ -1077,7 +1077,7 @@ sub_08085D10: @ 0x08085D10
 	beq _08085D26
 	ldrb r0, [r4, #0xb]
 	bl SetLocalFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08085D26:
 	pop {r4, pc}
 

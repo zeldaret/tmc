@@ -121,7 +121,7 @@ _080974E8:
 	movs r1, #0x80
 	orrs r0, r1
 	strb r0, [r2, #0x1b]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080974FA:
 	ldr r2, _08097540 @ =gLinkEntity
 	ldr r0, [r2, #0x2c]
@@ -192,7 +192,7 @@ _08097574:
 _0809757C:
 	orrs r1, r0
 	strb r1, [r2, #0x1b]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08097584:
 	pop {r4, pc}
 	.align 2, 0

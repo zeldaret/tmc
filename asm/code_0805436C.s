@@ -962,7 +962,7 @@ sub_08054A60: @ 0x08054A60
 	bl sub_0806FBD8
 	cmp r0, #0
 	bne _08054AAC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08054AAC:
 	adds r0, r4, #0
 	bl sub_0801766C
@@ -1130,7 +1130,7 @@ _08054BE8:
 _08054BF4: .4byte gLinkEntity
 _08054BF8: .4byte gUnk_080FEEB0
 _08054BFC:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08054C00:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

@@ -29,7 +29,7 @@ sub_0809F920: @ 0x0809F920
 	bl CheckFlags
 	cmp r0, #0
 	beq _0809F934
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809F934:
 	movs r2, #1
 	strb r2, [r4, #0xc]
@@ -89,7 +89,7 @@ _0809F99A:
 	adds r0, #0x86
 	ldrh r0, [r0]
 	bl SetFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809F9A8:
 	pop {r4, pc}
 	.align 2, 0

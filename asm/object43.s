@@ -141,7 +141,7 @@ sub_0808DFAC: @ 0x0808DFAC
 	cmp r0, #0
 	beq _0808DFD0
 _0808DFCC:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808DFD0:
 	ldr r0, _0808DFF0 @ =gLinkState
 	adds r2, r0, #0
@@ -172,14 +172,14 @@ _0808DFF8:
 	strb r0, [r4, #0x18]
 	b _0808E1BA
 _0808E008:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0808E038
 _0808E00E:
 	ldr r5, _0808E02C @ =gLinkState
 	ldrb r0, [r5, #4]
 	cmp r0, #0
 	bne _0808E01A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808E01A:
 	ldrb r1, [r5, #0x1b]
 	movs r0, #1
@@ -193,7 +193,7 @@ _0808E01A:
 _0808E02C: .4byte gLinkState
 _0808E030: .4byte gUnk_081217D0
 _0808E034:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808E038:
 	cmp r6, #0
 	bne _0808E03E
@@ -389,10 +389,10 @@ _0808E17A:
 	.align 2, 0
 _0808E1AC: .4byte gLinkState
 _0808E1B0:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0808E1BA
 _0808E1B6:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808E1BA:
 	pop {r4, r5, r6, r7, pc}
 
@@ -466,7 +466,7 @@ sub_0808E208: @ 0x0808E208
 _0808E240: .4byte gLinkState
 _0808E244: .4byte gUnk_030010A0
 _0808E248:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808E24C:
 	adds r0, r4, #0
 	adds r0, #0x5a
@@ -493,7 +493,7 @@ sub_0808E264: @ 0x0808E264
 	ands r0, r1
 	cmp r0, #0
 	beq _0808E27C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808E27C:
 	pop {r4, pc}
 	.align 2, 0

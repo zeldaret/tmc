@@ -99,7 +99,7 @@ _080963C8:
 	strb r0, [r5, #0xf]
 	adds r0, r5, #0
 	bl sub_080969A4
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809650A
 _080963DA:
 	ldr r1, _080963F8 @ =gRoomControls
@@ -156,7 +156,7 @@ _080963FC:
 _08096444: .4byte gLinkEntity
 _08096448: .4byte 0xFFE80000
 _0809644C:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08096450:
 	adds r0, r5, #0
 	movs r1, #0x6b
@@ -241,7 +241,7 @@ _080964F8:
 	strb r0, [r5, #0xf]
 	adds r0, r5, #0
 	bl sub_080969A4
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809651A
 _0809650A:
 	ldrb r1, [r5, #0xa]

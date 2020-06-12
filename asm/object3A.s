@@ -233,7 +233,7 @@ sub_0808C840: @ 0x0808C840
 	movs r1, #0
 	strh r1, [r0]
 	bl sub_0801E104
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 	.align 2, 0
 _0808C854: .4byte gScreen
@@ -338,7 +338,7 @@ _0808C904:
 	ldrsh r0, [r0, r1]
 	cmp r0, #0
 	bne _0808C914
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808C914:
 	pop {pc}
 	.align 2, 0

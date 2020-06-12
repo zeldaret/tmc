@@ -515,7 +515,7 @@ sub_08037408: @ 0x08037408
 	movs r1, #5
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_08037418
@@ -552,7 +552,7 @@ sub_08037418: @ 0x08037418
 	ldrb r2, [r6]
 	adds r1, r4, #0
 	bl SetTile
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08037460:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

@@ -85,12 +85,12 @@ _0806EB48:
 	ldr r0, [r7, #4]
 	cmp r0, #0
 	bne _0806EBA8
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0806EBA8
 	.align 2, 0
 _0806EBA0: .4byte gUnk_081146D0
 _0806EBA4:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0806EBA8:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

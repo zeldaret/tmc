@@ -146,7 +146,7 @@ sub_080875F4: @ 0x080875F4
 	ands r0, r1
 	cmp r0, #0
 	beq _0808760E
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808760E:
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0

@@ -40,7 +40,7 @@ sub_0808222C: @ 0x0808222C
 	bl CheckFlags
 	cmp r0, #0
 	beq _0808224C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808224C:
 	movs r2, #1
 	strb r2, [r4, #0xc]
@@ -108,7 +108,7 @@ _08082298:
 	mov r8, r1
 	cmp r0, r8
 	bne _080822D6
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080822D6:
 	movs r2, #0x2e
 	ldrsh r1, [r4, r2]
@@ -316,7 +316,7 @@ _08082448:
 	adds r2, #0x38
 	ldrb r2, [r2]
 	bl SetTile
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080824F6
 	.align 2, 0
 _08082480: .4byte gRoomControls
@@ -503,7 +503,7 @@ _080825D0:
 	.align 2, 0
 _080825DC: .4byte gLinkEntity
 _080825E0:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080825E4:
 	pop {r4, pc}
 	.align 2, 0
@@ -511,7 +511,7 @@ _080825E4:
 	thumb_func_start sub_080825E8
 sub_080825E8: @ 0x080825E8
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_080825F0
@@ -865,7 +865,7 @@ _08082874:
 	ldrh r0, [r0]
 	bl SetFlag
 _08082884:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {r4, r5, pc}
 	.align 2, 0
 

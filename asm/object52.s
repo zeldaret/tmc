@@ -18,7 +18,7 @@ sub_080910A0: @ 0x080910A0
 	bl CheckLocalFlag
 	cmp r0, #0
 	beq _080910B8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080910B8:
 	movs r1, #1
 	strb r1, [r4, #0xc]
@@ -53,7 +53,7 @@ _080910C8:
 	orrs r0, r1
 	movs r1, #2
 	bl sub_080A7C8C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08091100:
 	pop {r4, r5, pc}
 	.align 2, 0

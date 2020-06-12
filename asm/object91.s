@@ -117,7 +117,7 @@ _0809C440:
 	mov r8, r0
 	cmp r2, #0
 	bne _0809C4B8
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809C5BA
 	.align 2, 0
 _0809C4B4: .4byte gRoomControls
@@ -525,7 +525,7 @@ _0809C7D2:
 	ldr r0, [r0, #0x30]
 	cmp r0, r5
 	beq _0809C7DE
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809C7DE:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -999,7 +999,7 @@ sub_0809CB4C: @ 0x0809CB4C
 	ldr r0, _0809CB6C @ =0x00000B44
 	movs r1, #0
 	bl sub_08078AA8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809CB66:
 	pop {pc}
 	.align 2, 0

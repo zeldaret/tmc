@@ -45,7 +45,7 @@ sub_080351D8: @ 0x080351D8
 	bl sub_0803520C
 	b _08035208
 _08035204:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08035208:
 	pop {r4, pc}
 	.align 2, 0
@@ -1333,7 +1333,7 @@ _08035BE4:
 	ands r0, r1
 	cmp r0, #0
 	beq _08035BF6
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08035BF6:
 	adds r1, r5, #0
 	adds r1, #0x84
@@ -1491,7 +1491,7 @@ _08035D14:
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _08035D28
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08035D28:
 	ldr r0, [r4]
 	ldrb r0, [r0, #1]
@@ -1499,7 +1499,7 @@ _08035D28:
 	ldrb r1, [r5, #0xb]
 	cmp r0, r1
 	bge _08035D38
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08035D38:
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
@@ -1568,7 +1568,7 @@ _08035DB0:
 	ldrb r0, [r0]
 	cmp r0, #1
 	bhi _08035DC4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08035DC4:
 	adds r0, r5, #0
 	bl sub_080042B8

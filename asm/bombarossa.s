@@ -138,7 +138,7 @@ _080334E0:
 	adds r0, r4, #0
 	bl CopyPosition
 _080334F6:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080334FA:
 	ldr r1, _08033504 @ =gUnk_080CEB38
 	adds r0, r4, #0

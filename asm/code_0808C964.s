@@ -33,7 +33,7 @@ _0808C982:
 	ldrb r1, [r4, #0xb]
 	cmp r0, r1
 	beq _0808C996
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808C996:
 	movs r2, #1
 	movs r0, #1

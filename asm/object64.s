@@ -194,7 +194,7 @@ _08093F72:
 	bl PlaySFX
 	bl sub_08079D84
 _08093F8E:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08093FB0
 	.align 2, 0
 _08093F94: .4byte gLinkEntity
@@ -208,7 +208,7 @@ _08093F98:
 	ands r0, r1
 	cmp r0, #0
 	beq _08093FB0
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08093FB0:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

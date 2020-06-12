@@ -79,7 +79,7 @@ sub_0808BE2C: @ 0x0808BE2C
 _0808BE6C:
 	movs r0, #1
 	strb r0, [r4]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808BE74:
 	pop {r4, pc}
 	.align 2, 0

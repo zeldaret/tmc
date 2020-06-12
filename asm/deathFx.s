@@ -272,5 +272,5 @@ sub_080817FC: @ 0x080817FC
 	thumb_func_start sub_0808180C
 sub_0808180C: @ 0x0808180C
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}

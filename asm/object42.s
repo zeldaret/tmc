@@ -64,7 +64,7 @@ _0808DDDC:
 	thumb_func_start sub_0808DDE0
 sub_0808DDE0: @ 0x0808DDE0
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_0808DDE8
@@ -101,7 +101,7 @@ _0808DE1C:
 	ldr r2, _0808DE94 @ =0xFFFFFBFF
 	ands r1, r2
 	str r1, [r0, #0x30]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808DE2A:
 	ldr r3, _0808DE98 @ =gLinkEntity
 	ldr r1, _0808DE9C @ =gUnk_081217B8
@@ -158,7 +158,7 @@ _0808DE94: .4byte 0xFFFFFBFF
 _0808DE98: .4byte gLinkEntity
 _0808DE9C: .4byte gUnk_081217B8
 _0808DEA0:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808DEA4:
 	ldr r1, _0808DEC0 @ =gLinkEntity
 	ldrb r0, [r1, #0x14]

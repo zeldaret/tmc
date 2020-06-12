@@ -674,7 +674,7 @@ sub_08080F20: @ 0x08080F20
 	bl CheckFlags
 	cmp r0, #0
 	beq _08080F3A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08080F3A:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0x60
@@ -822,7 +822,7 @@ _0808107C:
 _0808109A:
 	adds r0, r4, #0
 	bl CopyPosition
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080810A4:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1314,7 +1314,7 @@ sub_08081404: @ 0x08081404
 	beq _08081418
 	bl SetFlag
 _08081418:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 	.align 2, 0
 

@@ -437,13 +437,13 @@ _08056324:
 	thumb_func_start sub_08056328
 sub_08056328: @ 0x08056328
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_08056330
 sub_08056330: @ 0x08056330
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_08056338

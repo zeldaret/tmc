@@ -188,7 +188,7 @@ _0809A8C0:
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0809A902
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809A902
 _0809A8D4:
 	movs r0, #0xbf

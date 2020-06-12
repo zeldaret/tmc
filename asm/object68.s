@@ -167,7 +167,7 @@ _080948B0:
 	movs r0, #1
 	strb r0, [r1, #0xe]
 _080948C6:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080948CA:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -259,7 +259,7 @@ _08094970:
 	strb r0, [r4, #0xe]
 	b _0809497C
 _08094978:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809497C:
 	pop {r4, pc}
 	.align 2, 0

@@ -2203,7 +2203,7 @@ _08061A9E:
 	thumb_func_start sub_08061AA0
 sub_08061AA0: @ 0x08061AA0
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_08061AA8

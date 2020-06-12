@@ -201,7 +201,7 @@ _08084994:
 	adds r0, r0, r1
 	movs r1, #0
 	str r1, [r0]
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080849D6
 	.align 2, 0
 _080849BC: .4byte 0x00000315
@@ -378,7 +378,7 @@ _08084AF8:
 	bl DeleteEntity
 	ldr r0, _08084B18 @ =0x0000018F
 	bl PlaySFX
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08084B16:
 	pop {r4, r5, pc}
 	.align 2, 0

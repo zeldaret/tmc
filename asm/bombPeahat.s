@@ -1409,7 +1409,7 @@ sub_0802B204: @ 0x0802B204
 	ldr r0, [r5, #0x50]
 	str r0, [r4, #0x50]
 _0802B22E:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0802B232:
 	pop {r4, r5, pc}
 	

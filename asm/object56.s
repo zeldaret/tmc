@@ -80,7 +80,7 @@ _08091ED6:
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _08091EEC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08091EEC:
 	adds r0, r4, #0
 	bl sub_08004274

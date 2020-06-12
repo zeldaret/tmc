@@ -131,7 +131,7 @@ sub_08037FA0: @ 0x08037FA0
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _08037FB2
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08037FB2:
 	adds r0, r5, #0
 	bl sub_0804A720

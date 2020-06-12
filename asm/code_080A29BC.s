@@ -743,7 +743,7 @@ _080A2F20:
 	bne _080A2F2C
 	str r1, [r7, #0x2c]
 _080A2F2C:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A2F30:
 	ldr r6, _080A301C @ =gLinkEntity
 	ldrh r0, [r6, #0x12]
@@ -998,7 +998,7 @@ sub_080A310C: @ 0x080A310C
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
 	bne _080A3200
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080A3200
 _080A312A:
 	adds r0, r4, #0
@@ -1059,7 +1059,7 @@ _080A315C:
 	movs r1, #0x19
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A31AE:
 	adds r0, r4, #0
 	adds r0, #0x41
@@ -1070,14 +1070,14 @@ _080A31AE:
 	movs r1, #0x19
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A31C6:
 	adds r0, r4, #0
 	movs r1, #0xc
 	bl sub_08008790
 	cmp r0, #0
 	beq _080A31D6
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A31D6:
 	adds r0, r4, #0
 	adds r0, #0x68
@@ -1096,7 +1096,7 @@ _080A31F0: .4byte gRoomControls
 _080A31F4: .4byte gLinkEntity
 _080A31F8: .4byte gUnk_08003E44
 _080A31FC:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A3200:
 	pop {r4, r5, pc}
 	.align 2, 0

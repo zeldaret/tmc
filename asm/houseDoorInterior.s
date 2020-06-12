@@ -32,7 +32,7 @@ sub_08092B8C: @ 0x08092B8C
 	bl CheckFlags
 	cmp r0, #0
 	beq _08092BA6
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08092BA6:
 	movs r2, #1
 	movs r0, #1
@@ -159,5 +159,5 @@ _08092C94: .4byte 0x00000111
 	thumb_func_start sub_08092C98
 sub_08092C98: @ 0x08092C98
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}

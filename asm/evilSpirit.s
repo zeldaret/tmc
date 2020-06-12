@@ -42,7 +42,7 @@ sub_080862B8: @ 0x080862B8
 	bl CheckLocalFlag
 	cmp r0, #0
 	beq _080862CA
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080862CA:
 	movs r3, #1
 	strb r3, [r4, #0xc]
@@ -411,7 +411,7 @@ _0808657E:
 	adds r5, #1
 	cmp r5, #3
 	bls _0808657E
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08086592:
 	pop {r4, r5, pc}
 

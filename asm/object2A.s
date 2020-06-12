@@ -170,7 +170,7 @@ _08089BD6:
 	movs r2, #0
 	bl sub_0807AB44
 _08089C42:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08089CBA
 	.align 2, 0
 _08089C48: .4byte gRoomControls
@@ -179,7 +179,7 @@ _08089C4C:
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _08089C58
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08089C58:
 	ldrb r0, [r5, #0xe]
 	subs r0, #1
@@ -187,7 +187,7 @@ _08089C58:
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _08089C68
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08089C68:
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0

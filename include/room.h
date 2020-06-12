@@ -44,4 +44,7 @@ typedef struct {
 	u8 filler5[28];
 	u32 greatFairyState;
 } RoomVars;
+
+extern RoomControls gRoomControls;
+extern RoomVars gRoomVars;
 #endif

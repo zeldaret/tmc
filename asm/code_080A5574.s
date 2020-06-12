@@ -4051,13 +4051,13 @@ sub_080A758C: @ 0x080A758C
 	ands r0, r1
 	cmp r0, #0
 	bne _080A75AC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A75AC:
 	adds r0, r5, #0
 	bl sub_0806FBD8
 	cmp r0, #0
 	bne _080A75BA
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A75BA:
 	adds r0, r5, #0
 	movs r1, #1
@@ -4205,14 +4205,14 @@ _080A76D8:
 	ldr r0, [r5, #0x2c]
 	cmp r0, r4
 	beq _080A76E4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A76E4:
 	ldrb r0, [r5, #4]
 	cmp r0, #0
 	bne _080A76F2
 	str r0, [r5, #0x2c]
 	strb r0, [r5, #0x1b]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A76F2:
 	ldrb r2, [r5, #0x1b]
 	cmp r2, #0
@@ -4381,7 +4381,7 @@ sub_080A7824: @ 0x080A7824
 	ldr r0, [r5, #0x2c]
 	cmp r0, r4
 	beq _080A7834
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A7834:
 	ldrb r0, [r5, #4]
 	cmp r0, #0
@@ -4390,7 +4390,7 @@ _080A7834:
 	cmp r0, #0
 	bne _080A7846
 	str r0, [r5, #0x2c]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A7846:
 	ldr r2, _080A7864 @ =gLinkEntity
 	adds r6, r2, #0
@@ -4402,7 +4402,7 @@ _080A7846:
 	beq _080A7868
 	movs r0, #0
 	str r0, [r5, #0x2c]
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080A78B4
 	.align 2, 0
 _080A7860: .4byte gLinkState
@@ -4445,7 +4445,7 @@ _080A78A4:
 	b _080A78B4
 _080A78AE:
 	str r0, [r5, #0x2c]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A78B4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -4638,7 +4638,7 @@ _080A7A08:
 	strb r1, [r7, #0x1b]
 	strb r1, [r7, #4]
 	str r1, [r7, #0x2c]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A7A1C:
 	adds r1, r5, #0
 	ldrb r0, [r1]
@@ -5337,7 +5337,7 @@ _080A7F26:
 	cmp r0, #0
 	bne _080A7F38
 _080A7F34:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A7F38:
 	adds r2, r4, #0
 	adds r2, #0x41
@@ -5967,12 +5967,12 @@ sub_080A83B4: @ 0x080A83B4
 	ldr r5, [r4, #0x50]
 	cmp r5, #0
 	bne _080A83C2
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A83C2:
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	bne _080A83CC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A83CC:
 	adds r0, r5, #0
 	adds r0, #0x5a
@@ -6152,7 +6152,7 @@ sub_080A8504: @ 0x080A8504
 	bl sub_080A7EB0
 	cmp r0, #0
 	beq _080A8524
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A8524:
 	adds r0, r4, #0
 	bl sub_08016AD2
@@ -6239,7 +6239,7 @@ sub_080A85B8: @ 0x080A85B8
 	bl sub_080A7EB0
 	cmp r0, #0
 	beq _080A85D8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A85D8:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -6279,7 +6279,7 @@ sub_080A8610: @ 0x080A8610
 	ands r0, r1
 	cmp r0, #0
 	beq _080A8628
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A8628:
 	pop {r4, pc}
 	.align 2, 0
@@ -6301,7 +6301,7 @@ sub_080A862C: @ 0x080A862C
 	beq _080A8654
 	b _080A8662
 _080A864E:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080A867E
 _080A8654:
 	ldrb r0, [r4, #0x10]
@@ -6398,7 +6398,7 @@ sub_080A86F0: @ 0x080A86F0
 	ldr r1, [r4, #0x50]
 	cmp r1, #0
 	bne _080A8700
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080A876E
 _080A8700:
 	adds r5, r1, #0
@@ -6443,7 +6443,7 @@ _080A8700:
 	movs r0, #0x7f
 	ands r0, r1
 	strb r0, [r5]
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080A876E
 	.align 2, 0
 _080A875C: .4byte gLinkState
@@ -6478,12 +6478,12 @@ sub_080A878C: @ 0x080A878C
 	ldr r4, [r5, #0x50]
 	cmp r4, #0
 	bne _080A879A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A879A:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	bne _080A87A4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A87A4:
 	adds r0, r4, #0
 	adds r0, #0x83
@@ -6492,7 +6492,7 @@ _080A87A4:
 	ands r0, r1
 	cmp r0, #3
 	beq _080A87B6
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A87B6:
 	adds r0, r4, #0
 	adds r1, r5, #0
@@ -6528,13 +6528,13 @@ sub_080A87E4: @ 0x080A87E4
 	ldr r0, [r4, #0x54]
 	cmp r0, #0
 	bne _080A87F8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A87F8:
 	ldr r0, [r4, #0x54]
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _080A8804
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A8804:
 	ldr r0, _080A8818 @ =gUnk_08129754
 	ldrb r1, [r4, #0xc]
@@ -6572,7 +6572,7 @@ sub_080A881C: @ 0x080A881C
 	rsbs r0, r0, #0
 	bl ModHealth
 _080A884A:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080A8866
 	.align 2, 0
 _080A8850: .4byte gLinkState
@@ -6756,12 +6756,12 @@ sub_080A8988: @ 0x080A8988
 	ldr r4, [r5, #0x54]
 	cmp r4, #0
 	bne _080A899C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A899C:
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	bne _080A89A6
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A89A6:
 	adds r0, r4, #0
 	bl sub_08078954
@@ -6807,7 +6807,7 @@ _080A89F2:
 	movs r2, #0
 	bl CreateFx
 _080A89FC:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A8A00:
 	ldrb r0, [r5, #0xa]
 	cmp r0, #1
@@ -6872,7 +6872,7 @@ sub_080A8A68: @ 0x080A8A68
 	bl sub_0800279C
 	cmp r0, #0
 	beq _080A8A78
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A8A78:
 	ldr r0, _080A8A8C @ =gUnk_0812979C
 	ldrb r1, [r4, #0xc]
@@ -7031,7 +7031,7 @@ sub_080A8B98: @ 0x080A8B98
 	bl sub_0800279C
 	cmp r0, #0
 	beq _080A8BA8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A8BA8:
 	ldr r0, _080A8BBC @ =gUnk_0812982C
 	ldrb r1, [r4, #0xc]
@@ -7176,7 +7176,7 @@ sub_080A8CAC: @ 0x080A8CAC
 	bl sub_0800279C
 	cmp r0, #0
 	beq _080A8CBC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A8CBC:
 	ldr r0, _080A8CD0 @ =gUnk_081298B8
 	ldrb r1, [r4, #0xc]
@@ -7579,7 +7579,7 @@ sub_080A8FB8: @ 0x080A8FB8
 	movs r1, #4
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080A9054
 _080A8FE8:
 	adds r0, r4, #0
@@ -7695,7 +7695,7 @@ sub_080A90BC: @ 0x080A90BC
 	ands r0, r1
 	cmp r0, #0
 	beq _080A90D4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A90D4:
 	pop {r4, pc}
 	.align 2, 0
@@ -7870,7 +7870,7 @@ _080A9204:
 	movs r0, #0xff
 	strb r0, [r1, #0xa]
 _080A9218:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A921C:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
@@ -7955,7 +7955,7 @@ _080A92B0:
 	movs r0, #0xff
 	strb r0, [r1, #0xa]
 _080A92C4:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A92C8:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -7963,7 +7963,7 @@ _080A92C8:
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A92D8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A92D8:
 	adds r0, r4, #0
 	bl sub_0806F69C
@@ -7976,7 +7976,7 @@ _080A92D8:
 	bl sub_080AE4CC
 	cmp r0, #0
 	beq _080A92F6
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A92F6:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -8038,7 +8038,7 @@ sub_080A9334: @ 0x080A9334
 	strb r1, [r0]
 	b _080A936C
 _080A9368:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A936C:
 	pop {r4, pc}
 	.align 2, 0
@@ -8080,12 +8080,12 @@ sub_080A93A0: @ 0x080A93A0
 	cmp r0, #0
 	bne _080A93B4
 _080A93B0:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A93B4:
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
 	beq _080A93BE
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A93BE:
 	ldrb r0, [r5, #0xf]
 	cmp r0, #0
@@ -8137,7 +8137,7 @@ _080A9414:
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A9424
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A9424:
 	adds r0, r4, #0
 	bl sub_080AF090
@@ -8153,7 +8153,7 @@ sub_080A942C: @ 0x080A942C
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A9440
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A9440:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -8170,7 +8170,7 @@ sub_080A9448: @ 0x080A9448
 	bne _080A9464
 	adds r0, r4, #0
 	bl sub_080A29BC
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080A9486
 _080A9464:
 	ldrb r0, [r4, #0xe]
@@ -8593,7 +8593,7 @@ _080A9790:
 	ldrb r0, [r0, #0xc]
 	cmp r0, #2
 	bne _080A979C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A979C:
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
@@ -8878,7 +8878,7 @@ _080A99C2:
 	movs r0, #1
 	strb r0, [r1, #0xe]
 _080A99CC:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080A99EE
 _080A99D2:
 	movs r1, #0xc0
@@ -8891,7 +8891,7 @@ _080A99D2:
 	movs r1, #4
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A99EE:
 	pop {r4, r5, pc}
 
@@ -8901,7 +8901,7 @@ sub_080A99F0: @ 0x080A99F0
 	movs r1, #4
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_080A9A00
@@ -9171,7 +9171,7 @@ _080A9BBE:
 	movs r2, #0
 	bl CreateFx
 _080A9BC8:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 	.align 2, 0
 
@@ -9307,7 +9307,7 @@ sub_080A9CA8: @ 0x080A9CA8
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _080A9CB8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A9CB8:
 	ldr r4, _080A9CD0 @ =gUnk_08129B58
 	adds r0, r5, #0
@@ -9350,7 +9350,7 @@ sub_080A9CF0: @ 0x080A9CF0
 	movs r1, #2
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A9D0A:
 	ldr r0, _080A9D1C @ =gUnk_08129B78
 	ldrb r1, [r4, #0xd]
@@ -9399,7 +9399,7 @@ _080A9D56:
 	movs r1, #2
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A9D64:
 	pop {r4, pc}
 	.align 2, 0
@@ -9477,7 +9477,7 @@ sub_080A9DD8: @ 0x080A9DD8
 	cmp r0, #0x80
 	bne _080A9DF2
 _080A9DEE:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A9DF2:
 	adds r0, r4, #0
 	bl sub_080A9DC0
@@ -9519,13 +9519,13 @@ _080A9E34:
 	movs r1, #0x4f
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A9E42:
 	adds r0, r4, #0
 	bl sub_080A7EB0
 	cmp r0, #0
 	beq _080A9E50
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A9E50:
 	pop {r4, pc}
 	.align 2, 0
@@ -9791,12 +9791,12 @@ sub_080AA044: @ 0x080AA044
 	ldr r5, [r4, #0x54]
 	cmp r5, #0
 	bne _080AA052
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AA052:
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	bne _080AA05E
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080AA0A2
 _080AA05E:
 	ldrh r0, [r5, #0x12]
@@ -9919,7 +9919,7 @@ _080AA136:
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080AA14E
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AA14E:
 	movs r0, #0xf2
 	bl sub_08004488
@@ -9975,7 +9975,7 @@ _080AA1B6:
 	bl sub_080040A8
 	cmp r0, #0
 	bne _080AA1C4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AA1C4:
 	adds r0, r6, #0
 	bl sub_0806F69C
@@ -9996,7 +9996,7 @@ sub_080AA1D8: @ 0x080AA1D8
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	bne _080AA1EC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AA1EC:
 	ldrb r1, [r4, #0x1e]
 	movs r0, #0x20
@@ -10061,7 +10061,7 @@ _080AA256:
 	strb r0, [r5, #0x10]
 	b _080AA26C
 _080AA268:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AA26C:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -10399,7 +10399,7 @@ _080AA4B6:
 	adds r0, r5, #0
 	bl sub_080AA654
 _080AA4EA:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AA4EE:
 	strb r4, [r5, #0xb]
 	adds r2, r5, #0
@@ -10833,7 +10833,7 @@ sub_080AA834: @ 0x080AA834
 	bl CheckFlags
 	cmp r0, #0
 	beq _080AA848
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AA848:
 	movs r2, #0
 	movs r0, #1
@@ -11178,7 +11178,7 @@ sub_080AAAA8: @ 0x080AAAA8
 	adds r4, #0x38
 	ldrb r1, [r4]
 	bl sub_0807BA8C
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {r4, r5, pc}
 	.align 2, 0
 _080AAAE4: .4byte gRoomControls
@@ -11214,7 +11214,7 @@ _080AAB18: .4byte gUnk_0812A3D4
 	thumb_func_start sub_080AAB1C
 sub_080AAB1C: @ 0x080AAB1C
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_080AAB24
@@ -11264,13 +11264,13 @@ sub_080AAB64: @ 0x080AAB64
 	ldrh r0, [r4, #0x2a]
 	cmp r0, #0
 	beq _080AAB7C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AAB7C:
 	adds r0, r4, #0
 	bl sub_080A7EB0
 	cmp r0, #0
 	beq _080AAB8A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AAB8A:
 	pop {r4, pc}
 
@@ -11459,7 +11459,7 @@ sub_080AACE0: @ 0x080AACE0
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	beq _080AACF4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AACF4:
 	ldrb r1, [r4, #0x18]
 	lsls r0, r1, #0x1e
@@ -11523,7 +11523,7 @@ _080AAD58:
 	movs r2, #0
 	bl CreateFx
 _080AAD68:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -11724,14 +11724,14 @@ _080AAED0:
 	cmp r0, #0
 	bne _080AAEE0
 _080AAEDC:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AAEE0:
 	ldr r0, [r4, #0x50]
 	ldrb r0, [r0, #0x18]
 	lsls r0, r0, #0x1e
 	cmp r0, #0
 	bne _080AAEEE
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AAEEE:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
@@ -11943,7 +11943,7 @@ sub_080AB074: @ 0x080AB074
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	bne _080AB084
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AB084:
 	ldrb r6, [r4, #0xc]
 	cmp r6, #0
@@ -12070,7 +12070,7 @@ sub_080AB170: @ 0x080AB170
 	ldr r0, [r6, #4]
 	cmp r0, #0
 	bne _080AB180
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AB180:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0
@@ -12221,7 +12221,7 @@ _080AB28C:
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080AB29E
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080AB2A4
 _080AB29E:
 	ldrb r0, [r2, #0x1e]
@@ -12439,7 +12439,7 @@ _080AB446:
 	lsrs r0, r0, #0x18
 	cmp r0, #0xe0
 	bls _080AB458
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AB458:
 	pop {r4, pc}
 	.align 2, 0
@@ -12479,7 +12479,7 @@ sub_080AB488: @ 0x080AB488
 	ands r0, r1
 	cmp r0, #0
 	beq _080AB4A0
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AB4A0:
 	pop {r4, pc}
 	.align 2, 0
@@ -12635,7 +12635,7 @@ sub_080AB59C: @ 0x080AB59C
 	movs r1, #2
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AB5BC:
 	adds r0, r4, #0
 	bl sub_080AB5F4
@@ -12659,7 +12659,7 @@ sub_080AB5C4: @ 0x080AB5C4
 	movs r1, #2
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AB5F0:
 	pop {r4, pc}
 	.align 2, 0
@@ -12760,7 +12760,7 @@ sub_080AB690: @ 0x080AB690
 	lsls r0, r0, #0x1e
 	cmp r0, #0
 	bne _080AB6A2
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AB6A2:
 	ldr r0, _080AB6B4 @ =gUnk_0812A5E8
 	ldrb r1, [r4, #0xc]
@@ -12852,7 +12852,7 @@ sub_080AB728: @ 0x080AB728
 	ldrb r0, [r0, #0xf]
 	cmp r0, #0
 	bne _080AB754
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AB754:
 	pop {r4, pc}
 	.align 2, 0
@@ -13167,13 +13167,13 @@ _080AB99C:
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
 	bne _080AB9A6
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AB9A6:
 	ldr r0, [r4, #0x50]
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _080AB9B2
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AB9B2:
 	ldr r1, [r4, #0x54]
 	cmp r1, #0
@@ -13191,7 +13191,7 @@ _080AB9B2:
 	strh r0, [r4, #0x32]
 	b _080AB9D4
 _080AB9D0:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AB9D4:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -13524,7 +13524,7 @@ _080ABC2A:
 _080ABC32:
 	adds r0, r4, #0
 	bl sub_080A29BC
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080ABC52
 _080ABC3E:
 	movs r0, #0x3f
@@ -13534,7 +13534,7 @@ _080ABC3E:
 	movs r0, #2
 	rsbs r0, r0, #0
 	bl ModHealth
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ABC52:
 	pop {r4, pc}
 
@@ -13549,7 +13549,7 @@ sub_080ABC54: @ 0x080ABC54
 	movs r1, #2
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ABC6E:
 	ldr r0, _080ABC80 @ =gUnk_0812A808
 	ldrb r1, [r4, #0xd]
@@ -13592,7 +13592,7 @@ sub_080ABC90: @ 0x080ABC90
 	movs r1, #2
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ABCBE:
 	pop {r4, pc}
 	.align 2, 0
@@ -13751,7 +13751,7 @@ _080ABDEE:
 	ands r0, r1
 	cmp r0, #0
 	beq _080ABE00
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ABE00:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -13833,7 +13833,7 @@ sub_080ABE88: @ 0x080ABE88
 	movs r1, #4
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ABEA6:
 	pop {r4, pc}
 
@@ -13889,7 +13889,7 @@ sub_080ABF04: @ 0x080ABF04
 	bl sub_080040A8
 	cmp r0, #0
 	bne _080ABF14
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ABF14:
 	adds r0, r4, #0
 	bl sub_0806F69C
@@ -13947,7 +13947,7 @@ _080ABF78:
 	ldrh r0, [r4, #0x2a]
 	cmp r0, #0
 	beq _080ABF88
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ABF88:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -13955,7 +13955,7 @@ _080ABF88:
 	bl sub_080A7EB0
 	cmp r0, #0
 	beq _080ABF9C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ABF9C:
 	pop {r4, pc}
 	.align 2, 0
@@ -13965,7 +13965,7 @@ _080ABFA4: .4byte 0x00000199
 	thumb_func_start sub_080ABFA8
 sub_080ABFA8: @ 0x080ABFA8
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_080ABFB0
@@ -13999,7 +13999,7 @@ _080ABFE0: .4byte gUnk_0812A968
 	thumb_func_start sub_080ABFE4
 sub_080ABFE4: @ 0x080ABFE4
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_080ABFEC
@@ -14080,7 +14080,7 @@ sub_080AC074: @ 0x080AC074
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _080AC084
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AC084:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
@@ -14162,7 +14162,7 @@ _080AC116:
 	ldrh r0, [r4, #0x2a]
 	cmp r0, #0
 	beq _080AC126
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AC126:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -14170,7 +14170,7 @@ _080AC126:
 	bl sub_080A7EB0
 	cmp r0, #0
 	beq _080AC13A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AC13A:
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0x1d
@@ -14306,7 +14306,7 @@ _080AC23C:
 	ands r0, r5
 	cmp r0, #0
 	bne _080AC24C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AC24C:
 	ldr r0, [r4, #0x50]
 	adds r0, #0x84
@@ -14341,7 +14341,7 @@ sub_080AC274: @ 0x080AC274
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _080AC284
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AC284:
 	ldr r1, _080AC2BC @ =gUnk_0812A994
 	ldrb r0, [r4, #0xb]
@@ -14735,7 +14735,7 @@ sub_080AC560: @ 0x080AC560
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	bne _080AC570
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AC570:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0
@@ -15220,7 +15220,7 @@ sub_080AC8DC: @ 0x080AC8DC
 	cmp r1, #0x1e
 	blt _080AC8FE
 _080AC8F8:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080AC920
 _080AC8FE:
 	ldrb r0, [r4, #0xc]
@@ -15274,7 +15274,7 @@ sub_080AC954: @ 0x080AC954
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _080AC964
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AC964:
 	ldr r0, [r5, #0x50]
 	ldrb r3, [r0, #0x14]
@@ -15335,7 +15335,7 @@ sub_080AC9CC: @ 0x080AC9CC
 	bl sub_080A7EB0
 	cmp r0, #0
 	beq _080AC9E8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AC9E8:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -15373,7 +15373,7 @@ sub_080ACA14: @ 0x080ACA14
 	ands r0, r1
 	cmp r0, #0
 	beq _080ACA32
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ACA32:
 	pop {r4, pc}
 
@@ -15454,7 +15454,7 @@ _080ACAB6:
 	bl PlaySFX
 	b _080ACAC4
 _080ACAC0:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ACAC4:
 	pop {r4, pc}
 	.align 2, 0
@@ -15490,7 +15490,7 @@ sub_080ACAF0: @ 0x080ACAF0
 	bl sub_080A7EB0
 	cmp r0, #0
 	beq _080ACB0C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ACB0C:
 	pop {r4, pc}
 	.align 2, 0
@@ -15503,7 +15503,7 @@ sub_080ACB10: @ 0x080ACB10
 	ldrh r0, [r4, #0x2a]
 	cmp r0, #0
 	beq _080ACB22
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ACB22:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -15513,7 +15513,7 @@ _080ACB22:
 	bl sub_080A7EB0
 	cmp r0, #0
 	beq _080ACB3C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ACB3C:
 	pop {r4, pc}
 	.align 2, 0
@@ -15592,7 +15592,7 @@ sub_080ACB90: @ 0x080ACB90
 	bl CreateFx
 	ldr r0, _080ACBC8 @ =0x00000119
 	bl sub_08004488
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ACBC6:
 	pop {r4, pc}
 	.align 2, 0
@@ -15608,7 +15608,7 @@ sub_080ACBCC: @ 0x080ACBCC
 	ands r0, r1
 	cmp r0, #1
 	beq _080ACBE0
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ACBE0:
 	ldr r1, _080ACC00 @ =gUnk_0812AA80
 	ldrb r0, [r4, #0xc]
@@ -16158,7 +16158,7 @@ _080ACFE8:
 	cmp r0, #2
 	beq _080ACFF8
 	bl sub_08079184
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080AD03C
 _080ACFF8:
 	ldr r0, _080AD02C @ =gLinkState
@@ -16192,7 +16192,7 @@ _080AD02C: .4byte gLinkState
 _080AD030: .4byte gLinkEntity
 _080AD034:
 	bl sub_08079184
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AD03C:
 	pop {r4, pc}
 	.align 2, 0
@@ -16205,7 +16205,7 @@ sub_080AD040: @ 0x080AD040
 	ldrb r0, [r5, #0xc]
 	cmp r0, #2
 	beq _080AD050
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AD050:
 	adds r0, r4, #0
 	adds r0, #0x41
@@ -16341,7 +16341,7 @@ _080AD146:
 	movs r0, #3
 _080AD148:
 	strb r0, [r5, #0xd]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AD14E:
 	ldr r0, [r4, #0x54]
 	cmp r0, r4
@@ -16413,7 +16413,7 @@ _080AD196:
 	orrs r0, r1
 	strb r0, [r3]
 _080AD1DA:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080AD26E
 _080AD1E0:
 	movs r0, #0x82
@@ -16491,7 +16491,7 @@ _080AD270: .4byte gLinkState
 	thumb_func_start sub_080AD274
 sub_080AD274: @ 0x080AD274
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_080AD27C
@@ -16579,7 +16579,7 @@ _080AD318: .4byte gUnk_081320CC
 _080AD31C: .4byte gUnk_081320D4
 _080AD320:
 	bl sub_08079184
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080AD328:
 	pop {r4, r5, pc}
 	.align 2, 0

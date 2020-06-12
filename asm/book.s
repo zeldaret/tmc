@@ -33,14 +33,14 @@ sub_0809B3C4: @ 0x0809B3C4
 	beq _0809B3E2
 	cmp r5, #0
 	beq _0809B3FE
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809B3FE
 _0809B3E2:
 	movs r0, #0x73
 	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0809B3F0
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809B3F0:
 	cmp r5, #2
 	beq _0809B3FE
@@ -304,7 +304,7 @@ _0809B5D0:
 	movs r1, #0
 	movs r2, #0
 	bl sub_080A7C00
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809B5EA:
 	pop {r4, pc}
 
@@ -363,7 +363,7 @@ _0809B646:
 	cmp r0, #1
 	beq _0809B668
 _0809B650:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809B682
 _0809B656:
 	ldrb r0, [r4, #0xa]

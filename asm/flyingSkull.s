@@ -714,7 +714,7 @@ sub_0803A0E0: @ 0x0803A0E0
 	adds r0, r4, #0
 	movs r1, #0x3c
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {r4, pc}
 	.align 2, 0
 
@@ -752,7 +752,7 @@ sub_0803A100: @ 0x0803A100
 	ldrb r2, [r6]
 	adds r1, r4, #0
 	bl SetTile
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0803A148:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

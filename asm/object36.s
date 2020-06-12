@@ -31,7 +31,7 @@ sub_0808BB30: @ 0x0808BB30
 	beq _0808BB4C
 	movs r0, #0x4a
 	bl sub_0801D7EC
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0808BBD4
 _0808BB4C:
 	movs r3, #1
@@ -257,7 +257,7 @@ sub_0808BD00: @ 0x0808BD00
 	bl SetGlobalFlag
 	movs r0, #0x72
 	bl PlaySFX
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_0808BD14

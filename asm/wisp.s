@@ -89,7 +89,7 @@ _08033590:
 	lsls r2, r2, #0x18
 	cmp r2, #0
 	beq _08033628
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08033628
 	.align 2, 0
 _080335DC: .4byte gLinkState
@@ -127,7 +127,7 @@ _080335EE:
 	adds r0, r4, #0
 	bl CopyPosition
 _08033624:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08033628:
 	pop {r4, pc}
 	.align 2, 0

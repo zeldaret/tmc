@@ -260,7 +260,7 @@ sub_0808F940: @ 0x0808F940
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808F960:
 	pop {r4, pc}
 	.align 2, 0

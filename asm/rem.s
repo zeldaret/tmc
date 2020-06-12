@@ -676,7 +676,7 @@ _0806A84E:
 	ands r0, r1
 	cmp r0, #0
 	beq _0806A860
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0806A860:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -726,7 +726,7 @@ _0806A8AE:
 	ands r0, r1
 	cmp r0, #0
 	beq _0806A8C6
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0806A8C6:
 	pop {r4, pc}
 

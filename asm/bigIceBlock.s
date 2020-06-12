@@ -39,7 +39,7 @@ sub_0809975C: @ 0x0809975C
 	bl CheckFlags
 	cmp r0, #0
 	beq _08099770
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08099770:
 	movs r2, #1
 	strb r2, [r4, #0xc]
@@ -190,7 +190,7 @@ sub_08099880: @ 0x08099880
 	lsls r0, r1, #0x18
 	cmp r0, #0
 	bne _08099896
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809990E
 _08099896:
 	lsls r0, r1, #0x18
@@ -742,7 +742,7 @@ sub_08099D30: @ 0x08099D30
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _08099D40
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08099D40:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0

@@ -206,7 +206,7 @@ sub_08033890: @ 0x08033890
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _08033928
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08033928:
 	adds r0, r6, #0
 	adds r1, r4, #0

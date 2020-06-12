@@ -29,7 +29,7 @@ _08089CDC:
 	ldr r0, [r1, #0x34]
 	cmp r0, #0
 	bne _08089CEA
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08089D02
 _08089CEA:
 	movs r2, #0x36

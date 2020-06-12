@@ -31,7 +31,7 @@ sub_0809E83C: @ 0x0809E83C
 	beq _0809E856
 	adds r0, r4, #0
 	bl sub_0809E96C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809E856:
 	movs r0, #1
 	strb r0, [r4, #0xc]
@@ -126,7 +126,7 @@ sub_0809E8EC: @ 0x0809E8EC
 	bl sub_08078A90
 	movs r0, #0x73
 	bl PlaySFX
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809E916:
 	pop {pc}
 

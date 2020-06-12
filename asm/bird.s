@@ -130,7 +130,7 @@ _0809D018:
 	bl sub_080040A8
 	cmp r0, #0
 	bne _0809D026
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809D026:
 	adds r0, r4, #0
 	bl sub_080042B8
@@ -303,7 +303,7 @@ _0809D14C:
 	lsls r2, r2, #0x15
 	orrs r1, r2
 	str r1, [r0, #0x40]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809D170:
 	pop {pc}
 	.align 2, 0
@@ -683,7 +683,7 @@ _0809D478:
 	adds r0, r4, #0
 	bl sub_0805E79C
 _0809D484:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809D488:
 	pop {r3, r4, r5}
 	mov r8, r3
@@ -898,7 +898,7 @@ _0809D62E:
 	bl sub_080040A8
 	cmp r0, #0
 	bne _0809D652
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809D652:
 	pop {r3}
 	mov r8, r3
@@ -985,7 +985,7 @@ _0809D6F4:
 	strb r0, [r4, #0xc]
 	b _0809D6FE
 _0809D6FA:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809D6FE:
 	pop {r4, pc}
 

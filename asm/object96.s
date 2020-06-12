@@ -201,7 +201,7 @@ _0809D8E8:
 	beq _0809D906
 	bl SetFlag
 _0809D906:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809D90A:
 	ldrb r4, [r5, #0xa]
 	ldrb r0, [r6, #0xd]

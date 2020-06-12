@@ -98,7 +98,7 @@ _0802D090:
 	bne _0802D0D2
 	ldr r0, _0802D0F0 @ =gLinkEntity
 	bl sub_0807AABC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0802D0D2:
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
@@ -450,7 +450,7 @@ _0802D34A:
 	ands r0, r2
 	orrs r0, r1
 	strb r0, [r3, #0x18]
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {r4, r5, r6, r7, pc}
 
 	thumb_func_start sub_0802D394
@@ -489,7 +489,7 @@ sub_0802D3B8: @ 0x0802D3B8
 	strh r0, [r2]
 	ldr r0, _0802D3FC @ =gLinkEntity
 	bl sub_0807AABC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0802D3DE:
 	movs r0, #1
 	strb r0, [r4, #0xc]
@@ -552,7 +552,7 @@ _0802D420:
 	bne _0802D470
 	adds r0, r4, #0
 	bl sub_0804A7D4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0802D470:
 	ldr r0, [r7]
 	str r0, [r4, #0x64]
@@ -1227,7 +1227,7 @@ _0802D97A:
 	lsls r0, r0, #1
 	bl PlaySFX
 _0802D99C:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0802DB7E
 _0802D9A2:
 	ldr r0, _0802D9F4 @ =gUnk_030010A0

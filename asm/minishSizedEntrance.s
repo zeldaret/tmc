@@ -67,7 +67,7 @@ sub_08090F00: @ 0x08090F00
 	ands r0, r1
 	cmp r0, #0
 	bne _08090F1C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08090F1C:
 	ldr r6, _08090F64 @ =gLinkState
 	ldr r0, [r6, #0x30]

@@ -74,7 +74,7 @@ sub_08022004: @ 0x08022004
 	bl CreateFx
 	adds r0, r4, #0
 	bl sub_08049CF4
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {r4, pc}
 	.align 2, 0
 

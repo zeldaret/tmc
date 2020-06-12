@@ -2285,7 +2285,7 @@ _0807DC90:
 _0807DC9E:
 	adds r0, r6, #0
 	bl sub_0807DAC4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0807DCA8:
 	ldrb r0, [r5, #0x18]
 	movs r2, #4
@@ -2464,7 +2464,7 @@ _0807DDD6:
 	ldr r0, [r5, #4]
 	cmp r0, #0
 	bne _0807DDE0
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0807DDE0:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

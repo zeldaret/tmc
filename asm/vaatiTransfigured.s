@@ -1334,7 +1334,7 @@ sub_0804015C: @ 0x0804015C
 	movs r0, #2
 	orrs r0, r1
 	strb r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0804017C:
 	adds r0, r5, #0
 	adds r0, #0x7a
@@ -1470,7 +1470,7 @@ sub_08040268: @ 0x08040268
 	movs r0, #2
 	orrs r0, r1
 	strb r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08040286:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
@@ -1618,7 +1618,7 @@ sub_0804038C: @ 0x0804038C
 	movs r0, #2
 	orrs r0, r1
 	strb r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080403AA:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
@@ -1671,7 +1671,7 @@ sub_080403EC: @ 0x080403EC
 	movs r0, #2
 	orrs r0, r1
 	strb r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0804040A:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
@@ -1722,7 +1722,7 @@ sub_0804044C: @ 0x0804044C
 	movs r0, #2
 	orrs r0, r1
 	strb r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0804046A:
 	ldr r0, [r4, #0x50]
 	ldrb r0, [r0, #0xc]
@@ -1833,7 +1833,7 @@ sub_0804051C: @ 0x0804051C
 	movs r0, #2
 	orrs r0, r1
 	strb r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0804053A:
 	adds r1, r4, #0
 	adds r1, #0x80
@@ -1930,7 +1930,7 @@ sub_080405D8: @ 0x080405D8
 	movs r0, #2
 	orrs r0, r1
 	strb r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080405F6:
 	adds r3, r4, #0
 	adds r3, #0x80
@@ -1963,7 +1963,7 @@ _08040626:
 	ands r0, r1
 	cmp r0, #0
 	beq _08040638
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08040638:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0

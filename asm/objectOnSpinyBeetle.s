@@ -314,7 +314,7 @@ _080987A4:
 	bl sub_080989C0
 	b _080987B0
 _080987AC:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080987B0:
 	pop {r4, pc}
 	.align 2, 0
@@ -322,7 +322,7 @@ _080987B0:
 	thumb_func_start sub_080987B4
 sub_080987B4: @ 0x080987B4
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_080987BC
@@ -464,7 +464,7 @@ _080988A0:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _080988B4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080988B4:
 	pop {r4, pc}
 	.align 2, 0
@@ -633,7 +633,7 @@ _080989D2:
 	adds r0, r4, #0
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {r4, pc}
 
 	thumb_func_start sub_080989E4

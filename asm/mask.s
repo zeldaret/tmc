@@ -60,7 +60,7 @@ _080929D2:
 	cmp r1, r0
 	blt _080929FC
 _080929EE:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08092A08
 	.align 2, 0
 _080929F4: .4byte gUnk_030010A0
@@ -70,7 +70,7 @@ _080929FC:
 	bl ClearFlag
 	b _08092A08
 _08092A04:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08092A08:
 	movs r0, #1
 	strb r0, [r5, #0xc]
@@ -251,5 +251,5 @@ _08092B6A:
 	thumb_func_start sub_08092B6C
 sub_08092B6C: @ 0x08092B6C
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}

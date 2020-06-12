@@ -28,7 +28,7 @@ sub_0809BECC: @ 0x0809BECC
 	bl CheckFlags
 	cmp r0, #0
 	beq _0809BEDE
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809BEDE:
 	movs r0, #0x91
 	movs r1, #0
@@ -121,7 +121,7 @@ sub_0809BF74: @ 0x0809BF74
 	bl sub_0809C23C
 	movs r0, #0x9b
 	bl CheckFlags
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809C09A
 _0809BFA0:
 	movs r0, #0x1f

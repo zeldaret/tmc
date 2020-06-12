@@ -43,7 +43,7 @@ sub_080216FC: @ 0x080216FC
 	movs r1, #3
 	movs r2, #0x80
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0802171A:
 	pop {pc}
 

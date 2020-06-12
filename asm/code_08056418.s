@@ -4088,7 +4088,7 @@ sub_08058398: @ 0x08058398
 	bl CheckFlags
 	cmp r0, #0
 	beq _080583AA
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080583AA:
 	adds r0, r4, #0
 	adds r0, #0x3a
@@ -4328,7 +4328,7 @@ _08058590:
 	bl UnfreezeTime
 	ldrh r0, [r4, #0x3c]
 	bl SetFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080585A6:
 	pop {r4, pc}
 	.align 2, 0
@@ -4344,14 +4344,14 @@ sub_080585B0: @ 0x080585B0
 	ldrb r0, [r0]
 	cmp r0, #0xff
 	beq _080585C2
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080585C2:
 	ldrh r0, [r4, #0x3c]
 	bl CheckFlags
 	cmp r0, #0
 	beq _080585D4
 	bl sub_0801855C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080585D4:
 	pop {r4, pc}
 	.align 2, 0
@@ -4364,7 +4364,7 @@ sub_080585DC: @ 0x080585DC
 	bl CheckFlags
 	cmp r0, #0
 	beq _080585EC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080585EC:
 	pop {pc}
 	.align 2, 0
@@ -4416,7 +4416,7 @@ _0805863E:
 	bl sub_0805E3A0
 	b _0805864C
 _08058648:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805864C:
 	pop {r4, pc}
 	.align 2, 0
@@ -4492,7 +4492,7 @@ sub_080586A8: @ 0x080586A8
 	bl PlaySFX
 	bl sub_0801855C
 _080586E0:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080586E4:
 	pop {r4, pc}
 	.align 2, 0
@@ -4512,7 +4512,7 @@ sub_080586EC: @ 0x080586EC
 	adds r5, r0, #0
 	cmp r5, #0
 	bne _0805870A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805870A:
 	ldrb r0, [r7, #0xb]
 	bl sub_0804B128
@@ -4645,7 +4645,7 @@ _080587E0:
 	subs r0, #1
 	strb r0, [r1, #0xe]
 _080587FA:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080587FE:
 	pop {r4, r5, pc}
 
@@ -5418,7 +5418,7 @@ sub_08058DE8: @ 0x08058DE8
 	bl CheckFlags
 	cmp r0, #0
 	beq _08058DFC
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08058E14
 _08058DFC:
 	movs r0, #1
@@ -5521,7 +5521,7 @@ _08058EB4:
 	ldrb r0, [r4, #0xa]
 	bl sub_0804B128
 	bl LoadRoomEntityList
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08058EC8
 _08058EC4:
 	subs r0, r1, #1
@@ -5584,7 +5584,7 @@ _08058EF2:
 	movs r0, #0x92
 	lsls r0, r0, #1
 	bl PlaySFX
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08058F40:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -5732,7 +5732,7 @@ _08059050:
 	bl SetFlag
 	movs r0, #1
 	bl sub_08078A90
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08059060:
 	pop {r4, pc}
 	.align 2, 0
@@ -5873,14 +5873,14 @@ sub_08059124: @ 0x08059124
 	bl sub_0807BA8C
 	movs r0, #0xcd
 	bl PlaySFX
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080591C8
 _08059174:
 	ldrh r0, [r4, #0x3e]
 	bl CheckFlags
 	cmp r0, #0
 	beq _08059182
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08059182:
 	movs r0, #1
 	strb r0, [r4, #0xc]
@@ -6051,7 +6051,7 @@ sub_080592A4: @ 0x080592A4
 	beq _080592EA
 	adds r0, r4, #0
 	bl sub_080592EC
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080592EA
 _080592C8:
 	ldrh r0, [r4, #0x3e]
@@ -6065,7 +6065,7 @@ _080592C8:
 	movs r0, #0xb7
 	lsls r0, r0, #1
 	bl PlaySFX
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080592EA:
 	pop {r4, pc}
 
@@ -6149,7 +6149,7 @@ sub_08059368: @ 0x08059368
 	bne _08059384
 	ldrh r0, [r2, #0x3e]
 	bl SetFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08059384:
 	pop {pc}
 	.align 2, 0
@@ -6243,7 +6243,7 @@ sub_08059424: @ 0x08059424
 	bl CheckFlags
 	cmp r0, #0
 	beq _08059436
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08059436:
 	ldrh r0, [r4, #0x3c]
 	bl CheckFlags
@@ -6272,7 +6272,7 @@ _08059436:
 	movs r0, #0xd8
 	lsls r0, r0, #1
 	bl sub_08004488
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08059476:
 	pop {r4, pc}
 	.align 2, 0
@@ -6316,7 +6316,7 @@ _080594BC:
 	ldr r0, [r0]
 	bl StartPlayerScript
 _080594CE:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080594D2:
 	pop {pc}
 	.align 2, 0
@@ -6360,7 +6360,7 @@ _0805951C:
 	ldrb r0, [r0]
 	cmp r0, #0xff
 	beq _0805952A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805952A:
 	movs r0, #0x8c
 	lsls r0, r0, #4
@@ -6369,7 +6369,7 @@ _0805952A:
 	cmp r0, #0
 	beq _08059540
 	bl sub_0801855C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08059540:
 	pop {r4, pc}
 	.align 2, 0
@@ -6384,7 +6384,7 @@ sub_08059548: @ 0x08059548
 	ldrb r0, [r0, #0xc]
 	cmp r0, #0x16
 	bne _0805955C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805955C:
 	ldr r2, _0805956C @ =gUnk_03000FF0
 	ldrh r1, [r2]
@@ -6962,7 +6962,7 @@ sub_080599B8: @ 0x080599B8
 	bl CheckFlags
 	cmp r0, #0
 	beq _080599EA
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080599EA
 _080599D6:
 	ldrh r0, [r4, #0x3e]
@@ -6971,7 +6971,7 @@ _080599D6:
 	beq _080599EA
 	ldrh r0, [r4, #0x3c]
 	bl SetFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080599EA:
 	pop {r4, pc}
 
@@ -7547,7 +7547,7 @@ sub_08059E80: @ 0x08059E80
 	bl sub_0805EABC
 	cmp r0, #0
 	beq _08059E90
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08059E90:
 	adds r1, r4, #0
 	adds r1, #0x22
@@ -7729,7 +7729,7 @@ _0805A01C:
 _0805A02A:
 	adds r0, r4, #0
 	bl sub_0805A25C
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0805A03C
 _0805A036:
 	movs r0, #1
@@ -7846,7 +7846,7 @@ sub_0805A0C0: @ 0x0805A0C0
 	ands r0, r1
 	strh r0, [r4]
 	bl sub_08056250
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805A106:
 	pop {r4, pc}
 	.align 2, 0
@@ -8194,7 +8194,7 @@ _0805A3AA:
 	ldr r0, _0805A3CC @ =0x0000B7FF
 	ands r0, r1
 	strh r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805A3C4:
 	pop {pc}
 	.align 2, 0
@@ -8481,7 +8481,7 @@ _0805A5CC:
 	ldr r0, _0805A5F8 @ =0x0000B7FF
 	ands r0, r1
 	strh r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805A5F0:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -8848,7 +8848,7 @@ _0805A88A:
 	strb r0, [r4, #0xc]
 	b _0805A89A
 _0805A896:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805A89A:
 	pop {r4, pc}
 
@@ -8931,7 +8931,7 @@ _0805A91C:
 	ldr r0, _0805A948 @ =0x0000B7FF
 	ands r0, r1
 	strh r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805A940:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -9225,7 +9225,7 @@ sub_0805AB4C: @ 0x0805AB4C
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _0805AB68
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805AB68:
 	ldrb r0, [r6, #0xc]
 	movs r1, #0x20
@@ -9493,7 +9493,7 @@ sub_0805AD60: @ 0x0805AD60
 	bl CheckFlags
 	cmp r0, #0
 	beq _0805AD76
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805AD76:
 	adds r0, r4, #0
 	bl sub_0805AD80
@@ -9539,7 +9539,7 @@ sub_0805AD80: @ 0x0805AD80
 	adds r0, #0x86
 	strh r1, [r0]
 _0805ADCC:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805ADD0:
 	pop {r4, pc}
 	.align 2, 0
@@ -9602,7 +9602,7 @@ _0805AE4C: .4byte 0x0000088C
 _0805AE50: .4byte sub_0805AEDC
 _0805AE54: .4byte sub_0805AF3C
 _0805AE58:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0805AEC4
 _0805AE5E:
 	ldr r2, _0805AEC8 @ =gUnk_0810865C
@@ -9782,7 +9782,7 @@ _0805AFC0: .4byte gUnk_02033A90
 _0805AFC4: .4byte 0x0000088C
 _0805AFC8: .4byte sub_0805AFFC
 _0805AFCC:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0805AFEE
 _0805AFD2:
 	ldr r1, _0805AFF0 @ =gRoomControls
@@ -9996,7 +9996,7 @@ sub_0805B168: @ 0x0805B168
 	beq _0805B182
 	adds r0, r4, #0
 	bl sub_0805B210
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0805B1C0
 _0805B182:
 	adds r0, r4, #0
@@ -10029,7 +10029,7 @@ _0805B198:
 	ands r0, r1
 	strh r0, [r2]
 _0805B1BC:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805B1C0:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -10305,7 +10305,7 @@ sub_0805B3B4: @ 0x0805B3B4
 	bl sub_0805EABC
 	cmp r0, #0
 	beq _0805B3C4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805B3C4:
 	ldrb r0, [r4, #0xa]
 	lsls r0, r0, #2
@@ -11010,7 +11010,7 @@ sub_0805B8EC: @ 0x0805B8EC
 	ldr r0, _0805B96C @ =0x0000D7FF
 	ands r0, r1
 	strh r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805B90A:
 	ldrb r2, [r5, #0xc]
 	cmp r2, #0
@@ -11600,7 +11600,7 @@ _0805BD94:
 	bl SetFlag
 	ldrb r0, [r4, #0xe]
 	bl sub_0805308C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805BDB0:
 	pop {r4, pc}
 	.align 2, 0
@@ -11691,7 +11691,7 @@ _0805BE58:
 	beq _0805BE6C
 	adds r0, r4, #0
 	bl sub_0805BEC4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805BE6C:
 	pop {r4, pc}
 	.align 2, 0
@@ -11736,7 +11736,7 @@ sub_0805BE94: @ 0x0805BE94
 	bl SetTileType
 	ldrb r0, [r4, #0xe]
 	bl sub_0805308C
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {r4, pc}
 	.align 2, 0
 
@@ -12695,7 +12695,7 @@ sub_0805C61C: @ 0x0805C61C
 _0805C668: .4byte gRoomControls
 _0805C66C: .4byte 0x0000406A
 _0805C670:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805C674:
 	movs r5, #0x38
 	ldrsh r0, [r4, r5]
@@ -12709,7 +12709,7 @@ _0805C674:
 	movs r0, #0x76
 	movs r2, #2
 	bl sub_0807B7D8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805C694:
 	movs r1, #0x38
 	ldrsh r0, [r4, r1]
@@ -12722,7 +12722,7 @@ _0805C694:
 	adds r0, r5, #0
 	movs r2, #1
 	bl SetTile
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805C6B2:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -13407,7 +13407,7 @@ _0805CB84:
 	ldrb r0, [r4, #0xe]
 	cmp r0, #1
 	bhi _0805CB8E
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805CB8E:
 	pop {r4, r5, r6, pc}
 
@@ -13964,7 +13964,7 @@ sub_0805D02C: @ 0x0805D02C
 	bl CheckFlags
 	cmp r0, #0
 	beq _0805D046
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805D046:
 	ldr r0, _0805D0BC @ =gUnk_03003DBC
 	ldrb r0, [r0]
@@ -14263,7 +14263,7 @@ sub_0805D280: @ 0x0805D280
 	bl CheckFlags
 	cmp r0, #0
 	beq _0805D292
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805D292:
 	ldrh r0, [r4, #0x3e]
 	bl CheckFlags
@@ -14271,7 +14271,7 @@ _0805D292:
 	beq _0805D2A6
 	ldrh r0, [r4, #0x3c]
 	bl SetFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805D2A6:
 	movs r0, #1
 	strb r0, [r4, #0xc]
@@ -14340,7 +14340,7 @@ _0805D31A:
 	beq _0805D324
 	bl SetFlag
 _0805D324:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805D328:
 	pop {r4, pc}
 	.align 2, 0
@@ -14480,7 +14480,7 @@ _0805D428: .4byte gUnk_02033A90
 _0805D42C: .4byte 0x0000088C
 _0805D430: .4byte sub_0805D470
 _0805D434:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0805D45E
 _0805D43A:
 	ldr r1, _0805D460 @ =gRoomControls
@@ -15092,7 +15092,7 @@ _0805D8D6:
 	ldr r0, _0805D8FC @ =0x0000F7FF
 	ands r0, r1
 	strh r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805D8F4:
 	pop {pc}
 	.align 2, 0
@@ -15168,7 +15168,7 @@ _0805D966:
 	ldr r0, _0805D988 @ =0x0000F7FF
 	ands r0, r1
 	strh r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805D982:
 	pop {pc}
 	.align 2, 0
@@ -15430,7 +15430,7 @@ _0805DB58:
 	ldr r0, _0805DB90 @ =0x0000FFE8
 	strh r0, [r1, #0x36]
 _0805DB84:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805DB88:
 	pop {r3}
 	mov r8, r3
@@ -15595,7 +15595,7 @@ sub_0805DC9C: @ 0x0805DC9C
 	bl CheckFlags
 	cmp r0, #0
 	beq _0805DCAE
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805DCAE:
 	ldrh r0, [r4, #0x3e]
 	bl CheckFlags
@@ -15603,7 +15603,7 @@ _0805DCAE:
 	beq _0805DCC2
 	ldrh r0, [r4, #0x3c]
 	bl SetFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805DCC2:
 	movs r0, #1
 	strb r0, [r4, #0xc]
@@ -15727,7 +15727,7 @@ _0805DD94:
 	beq _0805DDAA
 	bl DeleteEntity
 _0805DDAA:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805DDAE:
 	pop {r4, pc}
 	.align 2, 0
@@ -15841,7 +15841,7 @@ sub_0805DE68: @ 0x0805DE68
 	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0805DE7A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805DE7A:
 	movs r1, #0
 	movs r0, #1
@@ -16074,7 +16074,7 @@ sub_0805E000: @ 0x0805E000
 	ands r0, r1
 	cmp r0, #0
 	beq _0805E040
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805E040:
 	str r4, [r6, #0x18]
 	strb r5, [r6, #0xc]
@@ -16110,7 +16110,7 @@ sub_0805E078: @ 0x0805E078
 	ldr r1, [r1, #0x18]
 	movs r0, #1
 	strb r0, [r1, #0xd]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805E08E:
 	pop {pc}
 	.align 2, 0
@@ -16153,7 +16153,7 @@ sub_0805E0C0: @ 0x0805E0C0
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _0805E0EC
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0805E0EC
 _0805E0DE:
 	adds r0, r4, #0
@@ -16293,7 +16293,7 @@ sub_0805E1D8: @ 0x0805E1D8
 	ldr r1, _0805E1F4 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 	.align 2, 0
 _0805E1F0: .4byte gUnk_02034DF0

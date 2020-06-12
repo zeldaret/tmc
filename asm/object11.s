@@ -188,7 +188,7 @@ _08084E7A:
 	adds r1, #0x38
 	ldrb r1, [r1]
 	bl sub_0807BA8C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08084EA8:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -299,7 +299,7 @@ _08084F62:
 	ands r0, r1
 	cmp r0, #1
 	bne _08084F7A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08084F7A:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -342,6 +342,6 @@ _08084FAE:
 	movs r3, #0
 	bl CreateObjectWithParent
 _08084FB8:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 	.align 2, 0

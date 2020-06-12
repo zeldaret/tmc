@@ -231,7 +231,7 @@ sub_0808AB98: @ 0x0808AB98
 	bne _0808ABB4
 	movs r0, #0
 	str r0, [r2, #0x54]
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0808ABC2
 	.align 2, 0
 _0808ABB0: .4byte 0x00000201
@@ -254,7 +254,7 @@ sub_0808ABC4: @ 0x0808ABC4
 	ldr r0, _0808AC38 @ =0x00000201
 	cmp r1, r0
 	bne _0808ABD6
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808ABD6:
 	ldr r0, [r4, #0x54]
 	ldr r1, [r4, #0x50]

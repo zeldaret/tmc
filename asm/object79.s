@@ -17,7 +17,7 @@ sub_08097F84: @ 0x08097F84
 	ands r0, r1
 	cmp r0, #0
 	beq _08097F98
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08097F98:
 	ldr r0, _08097FB0 @ =gUnk_08123410
 	ldrb r1, [r4, #0xc]
@@ -152,7 +152,7 @@ sub_08098084: @ 0x08098084
 	movs r2, #0x80
 	orrs r1, r2
 	str r1, [r0, #0x30]
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809812E
 	.align 2, 0
 _080980A4: .4byte gLinkState

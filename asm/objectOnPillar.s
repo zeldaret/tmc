@@ -592,7 +592,7 @@ _08097234:
 	movs r0, #0
 	bl SetTile
 _08097274:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08097346
 	.align 2, 0
 _0809727C: .4byte 0xFFF80000
@@ -691,7 +691,7 @@ _08097304:
 	adds r0, #0x86
 	strh r1, [r0]
 _08097342:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08097346:
 	pop {r4, r5, pc}
 

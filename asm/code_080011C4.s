@@ -16,7 +16,7 @@ sub_080011C4: @ 0x080011C4
 	bl sub_0804A57C
 	cmp r0, #0
 	bne _080011EA
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080011DC:
 	bl sub_0805E3B0
 	cmp r0, #0

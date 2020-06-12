@@ -70,7 +70,7 @@ _0809FA84:
 	movs r1, #0
 	movs r2, #0
 	bl sub_080A7C00
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809FA9A:
 	ldr r0, _0809FAB8 @ =gUnk_08124824
 	ldrb r1, [r4, #0xc]

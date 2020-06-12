@@ -48,7 +48,7 @@ _080A09D4:
 	bl sub_080AE4CC
 	cmp r0, #0
 	beq _080A09F8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A09F8:
 	movs r1, #0x24
 	ldrsh r0, [r4, r1]
@@ -69,7 +69,7 @@ _080A09F8:
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A0A22
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A0A22:
 	adds r0, r4, #0
 	bl sub_08004274

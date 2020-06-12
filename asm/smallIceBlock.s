@@ -45,7 +45,7 @@ sub_080991CC: @ 0x080991CC
 	bl CheckFlags
 	cmp r0, #0
 	beq _080991EC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080991EC:
 	movs r2, #1
 	strb r2, [r4, #0xc]
@@ -294,7 +294,7 @@ sub_080993CC: @ 0x080993CC
 	lsls r0, r1, #0x18
 	cmp r0, #0
 	bne _080993E2
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08099466
 _080993E2:
 	lsls r0, r1, #0x18
@@ -667,7 +667,7 @@ sub_0809969C: @ 0x0809969C
 	movs r1, #0xd
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_080996AC
@@ -678,7 +678,7 @@ sub_080996AC: @ 0x080996AC
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _080996BC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080996BC:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0

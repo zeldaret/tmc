@@ -124,8 +124,8 @@ typedef struct Entity
     u8 field_0x5e;
     u8 field_0x5f;
     u16 spriteVramOffset;
-    u8 spriteRenderPositionOffset;
-    u8 field_0x63;
+    u8 spriteOffsetX;
+    u8 spriteOffsetY;
     u32 * otherEntity;
 	u16 field_0x68;
     u16 field_0x6a;

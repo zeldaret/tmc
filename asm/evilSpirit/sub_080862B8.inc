@@ -12,7 +12,7 @@
 	bl CheckLocalFlag
 	cmp r0, #0
 	beq _080862CA
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080862CA:
 	movs r3, #1
 	strb r3, [r4, #0xc]

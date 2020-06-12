@@ -95,7 +95,7 @@ _0809E5A4:
 	cmp r4, #0
 	bne _0809E5BA
 _0809E5B4:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809E5C4
 _0809E5BA:
 	strb r5, [r6, #0x1e]

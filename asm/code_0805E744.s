@@ -42,8 +42,8 @@ _0805E772:
 _0805E778: .4byte GetEmptyEntity
 _0805E77C: .4byte sub_0805E8D4
 
-	thumb_func_start sub_0805E780
-sub_0805E780: @ 0x0805E780
+	thumb_func_start DeleteThisEntity
+DeleteThisEntity: @ 0x0805E780
 	push {lr}
 	ldr r0, _0805E794 @ =gUnk_03003DD0
 	ldr r0, [r0, #8]
@@ -2913,7 +2913,7 @@ _0805FCA4:
 	movs r1, #0x19
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805FCF6:
 	adds r0, r4, #0
 	adds r0, #0x41
@@ -2924,14 +2924,14 @@ _0805FCF6:
 	movs r1, #0x19
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0805FD20
 	.align 2, 0
 _0805FD10: .4byte gRoomControls
 _0805FD14: .4byte gLinkEntity
 _0805FD18: .4byte gUnk_08003E44
 _0805FD1C:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0805FD20:
 	pop {r4, r5, pc}
 	.align 2, 0

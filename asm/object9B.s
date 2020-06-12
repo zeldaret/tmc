@@ -49,7 +49,7 @@ sub_0809E7E0: @ 0x0809E7E0
 	ands r0, r1
 	cmp r0, #0
 	beq _0809E7F8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809E7F8:
 	pop {r4, pc}
 	.align 2, 0

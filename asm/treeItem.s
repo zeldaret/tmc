@@ -28,7 +28,7 @@ sub_08049B70: @ 0x08049B70
 	lsrs r0, r0, #0x18
 	cmp r0, #8
 	bls _08049B9C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08049B9C:
 	ldrb r0, [r4]
 	cmp r0, #7
@@ -89,7 +89,7 @@ _08049BF0:
 _08049C16:
 	adds r0, r5, #0
 	bl sub_08049CF4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08049C20:
 	pop {r4, r5, pc}
 	.align 2, 0

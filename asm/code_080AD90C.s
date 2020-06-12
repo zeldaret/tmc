@@ -168,7 +168,7 @@ sub_080ADA30: @ 0x080ADA30
 	cmp r0, #0
 	bne _080ADA46
 _080ADA42:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080ADA46:
 	ldr r1, _080ADA64 @ =gUnk_08132700
 	ldrb r0, [r4, #0xc]

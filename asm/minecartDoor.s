@@ -99,7 +99,7 @@ _08096B12:
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08096B94
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08096BB6
 	.align 2, 0
 _08096B90: .4byte gRoomControls
@@ -187,7 +187,7 @@ sub_08096BF8: @ 0x08096BF8
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08096C3A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08096C3A:
 	pop {r4, pc}
 

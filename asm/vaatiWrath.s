@@ -1429,7 +1429,7 @@ sub_08041E50: @ 0x08041E50
 	ldr r0, [r0, #8]
 	str r5, [r0, #0x64]
 	bl DeleteEntity
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08041E76:
 	pop {r4, r5, pc}
 
@@ -2207,7 +2207,7 @@ sub_08042428: @ 0x08042428
 	cmp r0, #0
 	bne _0804243C
 	str r0, [r4, #0x64]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0804243C:
 	ldrb r1, [r4, #0xc]
 	cmp r1, #0
@@ -2267,7 +2267,7 @@ sub_080424A0: @ 0x080424A0
 	cmp r0, #0
 	bne _080424B4
 	str r0, [r4, #0x64]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080424B4:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0
@@ -2322,7 +2322,7 @@ sub_0804250C: @ 0x0804250C
 	cmp r0, #0
 	bne _08042520
 	str r0, [r4, #0x64]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08042520:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0

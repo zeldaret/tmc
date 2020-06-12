@@ -63,7 +63,7 @@ sub_08082098: @ 0x08082098
 	ands r0, r1
 	cmp r0, #0
 	bne _080820AC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080820AC:
 	ldr r5, _08082104 @ =gLinkEntity
 	adds r0, r4, #0

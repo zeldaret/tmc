@@ -71,7 +71,7 @@ sub_0809D9D8: @ 0x0809D9D8
 _0809DA1E:
 	movs r0, #0x20
 	bl SetGlobalFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809DA28:
 	pop {r4, pc}
 	.align 2, 0
@@ -205,7 +205,7 @@ sub_0809DB14: @ 0x0809DB14
 	bl SetGlobalFlag
 	ldr r0, [r4, #0x54]
 	str r5, [r0, #0x50]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809DB36:
 	adds r0, r4, #0
 	bl sub_080042B8
@@ -260,7 +260,7 @@ sub_0809DB88: @ 0x0809DB88
 	ldr r0, [r4, #4]
 	cmp r0, #0
 	bne _0809DB9C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809DB9C:
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
@@ -283,7 +283,7 @@ _0809DBB0:
 	strb r1, [r5, #0x18]
 	b _0809DBC8
 _0809DBC4:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809DBC8:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -447,7 +447,7 @@ _0809DCFC: .4byte 0xFFF00000
 _0809DD00:
 	movs r0, #0x20
 	bl SetGlobalFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809DD0A:
 	pop {r4, pc}
 
@@ -594,7 +594,7 @@ sub_0809DDE4: @ 0x0809DDE4
 	bl SetGlobalFlag
 	ldr r0, [r4, #0x54]
 	str r5, [r0, #0x50]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809DE2A:
 	adds r0, r4, #0
 	bl sub_080042B8
@@ -829,7 +829,7 @@ _0809DFF4:
 	lsrs r0, r0, #0x18
 	cmp r0, #0
 	beq _0809E008
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809E034
 _0809E008:
 	strb r0, [r4, #0xc]

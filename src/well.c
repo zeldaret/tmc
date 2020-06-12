@@ -5,7 +5,7 @@
 void SetTile(u32 tileIndex, s32 tilePosition, s32 layerIndex);
 s32 GetTileType(s32 tilePosition, s32 layerIndex);
 void sub_08078B48();
-void sub_0805E780();
+void DeleteThisEntity();
 
 extern Entity gLinkEntity;
 extern RoomControls gRoomControls;
@@ -36,6 +36,6 @@ void sub_080A0EF0(Entity* ent)
         sub_08078B48();
         gLinkEntity.x.WORD = ent->x.WORD;
         gLinkEntity.y.HALF.HI = ent->y.HALF.HI + 4;
-        sub_0805E780();
+        DeleteThisEntity();
     }
 }

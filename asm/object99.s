@@ -19,7 +19,7 @@ sub_0809E42C: @ 0x0809E42C
 	ldr r0, [r6, #4]
 	cmp r0, #0
 	bne _0809E444
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809E444:
 	ldrb r0, [r4, #0xc]
 	movs r1, #0x76
@@ -57,7 +57,7 @@ _0809E482:
 	ldrb r1, [r1]
 	cmp r0, r1
 	beq _0809E490
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809E490:
 	ldrb r1, [r6, #0x18]
 	lsls r1, r1, #0x1e
@@ -107,7 +107,7 @@ _0809E4DA:
 	ands r0, r1
 	cmp r0, #0
 	beq _0809E4F4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809E4F4:
 	pop {r3, r4, r5}
 	mov r8, r3

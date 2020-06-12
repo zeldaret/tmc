@@ -115,7 +115,7 @@ sub_08049100: @ 0x08049100
 	movs r1, #0xca
 	movs r2, #2
 	bl SetTile
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0804916E
 	.align 2, 0
 _08049140: .4byte 0x00004081
@@ -1113,7 +1113,7 @@ sub_080498B4: @ 0x080498B4
 	lsls r0, r1, #0x18
 	cmp r0, #0
 	bne _080498C8
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0804993E
 _080498C8:
 	lsls r0, r1, #0x18

@@ -127,7 +127,7 @@ sub_080A0AF0: @ 0x080A0AF0
 	ands r0, r1
 	cmp r0, #0
 	beq _080A0B1C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A0B1C:
 	adds r0, r4, #0
 	movs r1, #0x80

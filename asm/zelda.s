@@ -162,7 +162,7 @@ sub_08066D94: @ 0x08066D94
 	adds r1, r4, #0
 	bl CopyPosition
 _08066DD6:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {r4, r5, pc}
 	.align 2, 0
 _08066DDC: .4byte gLinkEntity

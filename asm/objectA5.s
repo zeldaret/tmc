@@ -52,7 +52,7 @@ _0809F8DE:
 	adds r5, r3, #0
 	cmp r5, #4
 	ble _0809F8B6
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809F8FC:
 	pop {r3}
 	mov r8, r3

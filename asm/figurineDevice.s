@@ -346,7 +346,7 @@ _08087E3C:
 	strb r0, [r4, #0x18]
 	movs r0, #4
 	bl ClearRoomFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08087E5A:
 	pop {r4, pc}
 

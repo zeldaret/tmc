@@ -72,7 +72,7 @@ _0808607C:
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080860AA
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080860AA
 _08086098:
 	adds r0, r4, #0
@@ -82,7 +82,7 @@ _08086098:
 	ands r0, r1
 	cmp r0, #0
 	beq _080860AA
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080860AA:
 	ldr r1, [r4, #0x54]
 	cmp r1, #0

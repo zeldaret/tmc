@@ -46,7 +46,7 @@ _080879D8:
 	ands r0, r1
 	cmp r0, #0
 	beq _080879EA
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080879EA:
 	movs r1, #0x24
 	ldrsh r0, [r4, r1]
@@ -283,6 +283,6 @@ sub_08087B9C: @ 0x08087B9C
 	bl sub_0806F3E4
 	cmp r0, #0
 	beq _08087BAA
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08087BAA:
 	pop {pc}

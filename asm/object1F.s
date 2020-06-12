@@ -203,6 +203,6 @@ _080877F8:
 	movs r3, #0
 	bl CreateObjectWithParent
 _08087804:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {r4, pc}
 	.align 2, 0

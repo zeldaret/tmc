@@ -104,7 +104,7 @@ _080A24F6:
 	thumb_func_start sub_080A2500
 sub_080A2500: @ 0x080A2500
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_080A2508

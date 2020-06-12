@@ -262,7 +262,7 @@ sub_08082AB8: @ 0x08082AB8
 	ands r0, r5
 	cmp r0, #0
 	beq _08082ACC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08082ACC:
 	adds r0, r4, #0
 	bl sub_080042B8
@@ -665,7 +665,7 @@ _08082DC0:
 	strb r0, [r4, #0x18]
 	b _08082E0A
 _08082DDA:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08082DDE:
 	movs r0, #2
 	strb r0, [r4, #0xc]
@@ -735,7 +735,7 @@ _08082E44:
 	movs r2, #2
 	orrs r1, r2
 	str r1, [r0]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08082E5E:
 	adds r0, r4, #0
 	bl sub_080042B8

@@ -81,7 +81,7 @@ sub_08087888: @ 0x08087888
 	ands r0, r1
 	cmp r0, #0
 	beq _080878A4
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080878C8
 _080878A4:
 	lsls r0, r1, #0x18

@@ -20,7 +20,7 @@ sub_08064508: @ 0x08064508
 	bl sub_08064570
 	b _08064522
 _0806451E:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08064522:
 	pop {pc}
 

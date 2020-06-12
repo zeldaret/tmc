@@ -34,7 +34,7 @@ sub_0808C1FC: @ 0x0808C1FC
 	bl CheckFlags
 	cmp r0, #0
 	beq _0808C21A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808C21A:
 	adds r1, r4, #0
 	adds r1, #0x86
@@ -44,7 +44,7 @@ _0808C21A:
 	bl CheckFlags
 	cmp r0, #0
 	beq _0808C230
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808C230:
 	ldrb r0, [r4, #0xa]
 	lsrs r0, r0, #2
@@ -240,7 +240,7 @@ sub_0808C384: @ 0x0808C384
 	lsls r0, r0, #3
 	strb r0, [r1, #0x15]
 _0808C3B0:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808C3B4:
 	pop {r4, pc}
 	.align 2, 0

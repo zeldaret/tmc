@@ -49,7 +49,7 @@ sub_080916EC: @ 0x080916EC
 	cmp r0, #0
 	beq _0809171A
 _08091716:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809171A:
 	ldr r4, _080917CC @ =gRoomControls
 	ldrh r1, [r7]

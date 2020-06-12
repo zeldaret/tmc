@@ -104,7 +104,7 @@ sub_08038258: @ 0x08038258
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0803826A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0803826A:
 	adds r0, r4, #0
 	bl sub_0804A720

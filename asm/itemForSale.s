@@ -234,7 +234,7 @@ sub_080819B4: @ 0x080819B4
 	movs r1, #0xff
 	strb r1, [r0]
 _080819D0:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080819D4:
 	ldr r0, _08081A4C @ =gLinkState
 	movs r2, #0
@@ -329,7 +329,7 @@ sub_08081A80: @ 0x08081A80
 	cmp r0, #0
 	bne _08081A9C
 	bl sub_08081AB0
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08081AAC
 	.align 2, 0
 _08081A98: .4byte gRoomVars

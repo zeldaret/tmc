@@ -160,7 +160,7 @@ sub_080845DC: @ 0x080845DC
 	ands r0, r1
 	cmp r0, #0
 	beq _080845F4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080845F4:
 	pop {r4, pc}
 	.align 2, 0
@@ -233,7 +233,7 @@ sub_08084630: @ 0x08084630
 	bics r0, r1
 	strh r0, [r2]
 _0808467A:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808467E:
 	pop {r4, pc}
 
@@ -260,7 +260,7 @@ sub_08084694: @ 0x08084694
 	cmp r0, #0
 	bne _080846A8
 _080846A4:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080846A8:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -367,7 +367,7 @@ _0808475E:
 	adds r4, #1
 	cmp r4, #3
 	bls _08084734
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08084768:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -414,7 +414,7 @@ sub_08084798: @ 0x08084798
 	cmp r0, #0
 	bne _080847BA
 _080847B6:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080847BA:
 	pop {r4, pc}
 
@@ -447,7 +447,7 @@ sub_080847E0: @ 0x080847E0
 	ldrh r0, [r0]
 	cmp r0, #1
 	bne _080847F0
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080847F0:
 	ldr r4, _08084818 @ =gLinkEntity
 	ldr r3, _0808481C @ =0xFFFD0000

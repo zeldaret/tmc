@@ -368,6 +368,6 @@ sub_0808BB04: @ 0x0808BB04
 	lsls r1, r1, #0x18
 	cmp r1, #0
 	bne _0808BB16
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808BB16:
 	pop {pc}

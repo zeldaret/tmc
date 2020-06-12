@@ -2520,7 +2520,7 @@ _080437B8:
 	ldr r0, [r2, #0x64]
 	ldr r0, [r0, #0x10]
 	str r0, [r1, #0x50]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080437D8:
 	pop {r4, r5, pc}
 	.align 2, 0

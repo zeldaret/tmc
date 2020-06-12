@@ -63,7 +63,7 @@ _0808E2DE:
 	movs r5, #0x10
 	b _0808E2E6
 _0808E2E2:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808E2E6:
 	ldrh r0, [r4, #0x2e]
 	adds r0, r0, r5
@@ -103,7 +103,7 @@ sub_0808E318: @ 0x0808E318
 	ldr r1, _0808E33C @ =0x00000343
 	adds r0, r4, #0
 	bl sub_0808E354
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0808E34E
 	.align 2, 0
 _0808E33C: .4byte 0x00000343

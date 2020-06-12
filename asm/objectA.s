@@ -67,7 +67,7 @@ _08083ABC:
 	movs r0, #0
 	strb r0, [r1]
 _08083B08:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08083B7E
 	.align 2, 0
 _08083B10: .4byte gUnk_080FD170
@@ -117,7 +117,7 @@ _08083B24:
 	movs r0, #1
 	rsbs r0, r0, #0
 	bl sub_080526F8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08083B7E:
 	pop {r3}
 	mov r8, r3

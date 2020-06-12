@@ -155,7 +155,7 @@ _08025DA4:
 	movs r0, #2
 	orrs r0, r1
 	strb r0, [r2]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08025DBC:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -586,7 +586,7 @@ _080260EA:
 	ldr r1, _08026108 @ =gRoomControls
 	ldr r0, _0802610C @ =gLinkEntity
 	str r0, [r1, #0x30]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08026106:
 	pop {r4, pc}
 	.align 2, 0

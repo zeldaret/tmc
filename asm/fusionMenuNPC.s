@@ -26,7 +26,7 @@ sub_0806E8CC: @ 0x0806E8CC
 	.align 2, 0
 _0806E8EC: .4byte gNPCFunctions
 _0806E8F0:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0806E8F4:
 	pop {pc}
 	.align 2, 0

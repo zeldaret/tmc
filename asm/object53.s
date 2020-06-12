@@ -122,7 +122,7 @@ _080911DA:
 	movs r3, #0
 	bl CreateObjectWithParent
 _080911E4:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080911E8:
 	pop {r4, pc}
 	.align 2, 0

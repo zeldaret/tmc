@@ -98,7 +98,7 @@ _080898EE:
 	cmp r0, #0
 	bne _080898C8
 _080898FA:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08089940
 _08089900:
 	strb r3, [r4, #0xc]

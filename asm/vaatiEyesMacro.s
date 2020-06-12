@@ -316,7 +316,7 @@ sub_0802EEB8: @ 0x0802EEB8
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _0802EEC8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0802EEC8:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0
@@ -367,7 +367,7 @@ sub_0802EF1C: @ 0x0802EF1C
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _0802EF2C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0802EF2C:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0

@@ -42,7 +42,7 @@ sub_0809B708: @ 0x0809B708
 	beq _0809B73A
 	adds r0, r6, #0
 	bl sub_0809B7DC
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809B78A
 _0809B73A:
 	ldr r0, _0809B794 @ =0x0000030B
@@ -104,7 +104,7 @@ sub_0809B7A0: @ 0x0809B7A0
 	adds r0, #0x86
 	ldrh r0, [r0]
 	bl SetFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809B7BC:
 	pop {r4, pc}
 	.align 2, 0

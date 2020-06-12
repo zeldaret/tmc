@@ -33,7 +33,7 @@ sub_08084FD8: @ 0x08084FD8
 	bl CheckFlags
 	cmp r0, #0
 	beq _08084FF4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08084FF4:
 	movs r0, #1
 	strb r0, [r4, #0xc]

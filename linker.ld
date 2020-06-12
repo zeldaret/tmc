@@ -536,6 +536,7 @@ SECTIONS {
 		asm/windTribespeople.o(.text);
 		asm/gregal.o(.text);
 		asm/mayorHagen.o(.text);
+		src/bigGoron.o(.text);
 		asm/bigGoron.o(.text);
 		asm/ezloCap.o(.text);
 		asm/npc4E.o(.text);
@@ -742,7 +743,7 @@ SECTIONS {
 		asm/objectA0.o(.text);
 		asm/palaceArchway.o(.text);
 		asm/objectA2.o(.text);
-		asm/cloud.o(.text);
+		src/cloud.o(.text);
 		asm/minishLight.o(.text);
 		asm/objectA5.o(.text);
 		asm/objectA6.o(.text);

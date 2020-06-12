@@ -103,7 +103,7 @@ _0808625E:
 	bl sub_0806F3E4
 	cmp r0, #0
 	beq _0808626E
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0808627E
 _0808626E:
 	ldr r0, _08086280 @ =gLinkState
@@ -112,7 +112,7 @@ _0808626E:
 	ands r0, r1
 	cmp r0, #1
 	beq _0808627E
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808627E:
 	pop {r4, pc}
 	.align 2, 0

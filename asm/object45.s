@@ -44,7 +44,7 @@ sub_0808E448: @ 0x0808E448
 	bl sub_0805436C
 	cmp r0, #1
 	bls _0808E45A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808E45A:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -55,7 +55,7 @@ _0808E45A:
 	beq _0808E472
 	cmp r0, #0x80
 	bne _0808E486
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808E472:
 	ldrb r2, [r4, #0x18]
 	lsls r1, r2, #0x1e

@@ -29,7 +29,7 @@ _08040B4E:
 	movs r1, #2
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08040B5C:
 	ldr r4, _08040B80 @ =gUnk_080D0DC4
 	adds r0, r5, #0
@@ -402,7 +402,7 @@ _08040E26:
 	bl sub_0804A7D4
 	b _08040E38
 _08040E34:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08040E38:
 	pop {r4, pc}
 	.align 2, 0

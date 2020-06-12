@@ -949,7 +949,7 @@ sub_08017530: @ 0x08017530
 	bl sub_0801D5A8
 	cmp r0, #0
 	bne _08017550
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08017550:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0

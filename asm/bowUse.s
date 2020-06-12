@@ -22,7 +22,7 @@ _08019188:
 	bne _0801919C
 	adds r0, r4, #0
 	bl sub_08019468
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0801919C:
 	adds r0, r4, #0
 	bl sub_08004274
@@ -60,7 +60,7 @@ _080191D0:
 	ldrb r0, [r6]
 	cmp r0, #0xe
 	beq _080191EA
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080191EA:
 	movs r7, #1
 	b _080191F0
@@ -252,7 +252,7 @@ _0801935E:
 	adds r0, r1, #0
 	adds r0, #0x21
 	strb r2, [r0]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08019368:
 	adds r0, r4, #0
 	adds r0, #0x68

@@ -25,7 +25,7 @@ sub_08093428: @ 0x08093428
 	ldr r0, _08093464 @ =gLinkEntity
 	str r0, [r1, #0x30]
 _08093446:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809344A:
 	ldr r0, _08093468 @ =gUnk_081228C8
 	ldrb r1, [r4, #0xc]

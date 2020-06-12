@@ -157,7 +157,7 @@ _0809B948:
 	ldr r1, [r4, #0x50]
 	movs r0, #1
 	strb r0, [r1, #0xd]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809B972:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -331,7 +331,7 @@ _0809BA9C:
 	ldr r1, [r4, #0x50]
 	movs r0, #1
 	strb r0, [r1, #0xd]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809BAC2:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -534,7 +534,7 @@ _0809BC48:
 	strb r0, [r1, #0xd]
 	movs r0, #0x64
 	bl SetRoomFlag
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809BC68:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -692,7 +692,7 @@ _0809BD98:
 	ldr r1, [r4, #0x50]
 	movs r0, #1
 	strb r0, [r1, #0xd]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809BDAE:
 	pop {r4, r5, r6, pc}
 
@@ -793,7 +793,7 @@ _0809BE54:
 	ldr r1, [r4, #0x50]
 	movs r0, #1
 	strb r0, [r1, #0xd]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809BE70:
 	pop {r4, pc}
 	.align 2, 0

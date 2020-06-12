@@ -15,7 +15,7 @@ sub_08048D98: @ 0x08048D98
 	ldr r0, [r6, #4]
 	cmp r0, #0
 	bne _08048DA8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08048DA8:
 	ldr r4, _08048E00 @ =gUnk_080D22D8
 	adds r0, r5, #0
@@ -233,7 +233,7 @@ sub_08048F30: @ 0x08048F30
 	ands r0, r1
 	cmp r0, #0
 	beq _08048F4E
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08048F4E:
 	pop {r4, pc}
 

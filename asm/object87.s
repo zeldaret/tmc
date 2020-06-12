@@ -574,7 +574,7 @@ _0809A388:
 	bne _0809A38E
 	b _0809A632
 _0809A38E:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809A632
 _0809A394:
 	ldr r3, [r7, #0x78]
@@ -638,7 +638,7 @@ _0809A3E0:
 	adds r4, #0x74
 	cmp r0, #0
 	beq _0809A420
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0809A420
 _0809A40E:
 	adds r0, r2, #0
@@ -914,7 +914,7 @@ _0809A616:
 	ldr r1, _0809A640 @ =gRoomControls
 	ldr r0, _0809A644 @ =gLinkEntity
 	str r0, [r1, #0x30]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809A632:
 	add sp, #0x38
 	pop {r3, r4, r5}
@@ -1004,7 +1004,7 @@ sub_0809A648: @ 0x0809A648
 	.align 2, 0
 _0809A6E8: .4byte gUnk_080C9160
 _0809A6EC:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809A6F0:
 	pop {r3}
 	mov r8, r3

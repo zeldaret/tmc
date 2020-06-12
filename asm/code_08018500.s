@@ -1006,7 +1006,7 @@ sub_08018C88: @ 0x08018C88
 	.align 2, 0
 _08018CB0: .4byte gUnk_080B3DD0
 _08018CB4:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08018CB8:
 	pop {pc}
 	.align 2, 0
@@ -1094,7 +1094,7 @@ _08018D58:
 	ldrb r0, [r7, #0x1c]
 	cmp r0, #0
 	bne _08018D64
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08018D64:
 	movs r0, #2
 	strb r0, [r4, #0xc]
@@ -1173,7 +1173,7 @@ sub_08018DE8: @ 0x08018DE8
 	bne _08018E08
 	ldr r0, _08018E18 @ =gLinkState
 	strb r1, [r0, #0x1c]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08018E08:
 	ldr r0, _08018E18 @ =gLinkState
 	ldrb r0, [r0, #0x1c]
@@ -1242,7 +1242,7 @@ _08018E82:
 	ands r0, r1
 	cmp r0, #0
 	bne _08018E92
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08018E92:
 	adds r0, r4, #0
 	adds r0, #0x41
@@ -1382,7 +1382,7 @@ _08018F8A:
 	cmp r0, #0
 	beq _08018F9E
 _08018F9A:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08018F9E:
 	pop {r4, pc}
 

@@ -1572,12 +1572,12 @@ _0804A81C:
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _0804A84A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0804A84A:
 	bl sub_0807CD9C
 	ldr r0, _0804A860 @ =0x80100000
 	bl PlaySFX
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0804A982
 	.align 2, 0
 _0804A85C: .4byte gUnk_030010A0
@@ -1683,13 +1683,13 @@ _0804A91A:
 _0804A92A:
 	movs r0, #0
 	str r0, [r4, #0x50]
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0804A982
 _0804A934:
 	ldrb r0, [r5, #0xe]
 	cmp r0, #0
 	bne _0804A940
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0804A982
 _0804A940:
 	subs r1, r0, #1

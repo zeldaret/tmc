@@ -197,7 +197,7 @@ _0808D1FC:
 	adds r0, r4, #0
 	adds r0, #0x66
 	strh r3, [r0]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808D234:
 	ldrb r0, [r5, #0xe]
 	subs r0, #1

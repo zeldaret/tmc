@@ -298,7 +298,7 @@ _08083DC8:
 	movs r1, #2
 	bl sub_0807CAA0
 _08083DD0:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08083DD4:
 	pop {r4, pc}
 	.align 2, 0

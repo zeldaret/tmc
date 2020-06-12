@@ -23,7 +23,7 @@ _080874F4: .4byte gUnk_081208A0
 	thumb_func_start sub_080874F8
 sub_080874F8: @ 0x080874F8
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start nullsub_117

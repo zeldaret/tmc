@@ -72,7 +72,7 @@ sub_0803D134: @ 0x0803D134
 	bl CheckLocalFlag
 	cmp r0, #0
 	beq _0803D146
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0803D146:
 	adds r0, r5, #0
 	bl sub_0804A720

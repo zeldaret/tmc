@@ -41,6 +41,8 @@ typedef struct {
 	u8 swordBlueParticle:1;
 	u8 filler14:6;
 	u8 unk6;
+	u8 filler15[75];
+	u8 unk7;
 } LinkState;
 
 

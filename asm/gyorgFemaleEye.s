@@ -15,7 +15,7 @@ sub_08048988: @ 0x08048988
 	ldr r0, [r0, #4]
 	cmp r0, #0
 	bne _08048998
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08048998:
 	ldr r4, _080489B0 @ =gUnk_080D1F64
 	adds r0, r5, #0

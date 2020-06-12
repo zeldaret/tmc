@@ -35,7 +35,7 @@ sub_080A2584: @ 0x080A2584
 	ldr r1, _080A2598 @ =gUnk_02034490
 	movs r0, #0
 	strb r0, [r1]
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 	.align 2, 0
 _080A2598: .4byte gUnk_02034490

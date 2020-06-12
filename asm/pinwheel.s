@@ -22,7 +22,7 @@ sub_080A23A0: @ 0x080A23A0
 	bl sub_0801D5A8
 	cmp r0, #0
 	bne _080A23C0
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A23C0:
 	ldr r0, _080A23D8 @ =gUnk_0812505C
 	ldrb r1, [r4, #0xc]

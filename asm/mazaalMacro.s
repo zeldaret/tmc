@@ -222,7 +222,7 @@ sub_08034DC8: @ 0x08034DC8
 	adds r1, #0x38
 	ldrb r1, [r1]
 	bl sub_0807BA8C
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08034E0E:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -311,7 +311,7 @@ _08034E8A:
 _08034EB0: .4byte gUnk_030010A0
 _08034EB4: .4byte gUnk_08012E20
 _08034EB8:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08034EBC:
 	pop {r4, pc}
 	.align 2, 0
@@ -326,7 +326,7 @@ sub_08034EC0: @ 0x08034EC0
 	bne _08034ED6
 	adds r0, r1, #0
 	bl sub_08035120
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08034ED6:
 	pop {pc}
 

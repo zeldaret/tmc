@@ -238,7 +238,7 @@ _0808D0B4:
 	adds r0, #1
 	strb r0, [r1, #0xe]
 	strh r2, [r1, #0x10]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808D0C2:
 	pop {r4, pc}
 	.align 2, 0

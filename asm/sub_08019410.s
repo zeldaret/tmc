@@ -30,7 +30,7 @@ _0801942E:
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
 	bne _08019440
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08019440:
 	pop {r4, pc}
 	.align 2, 0

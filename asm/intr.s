@@ -694,12 +694,12 @@ _080B2238:
 	str r0, [fp, #8]
 	pop {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	bx lr
-_080B2248: .4byte sub_0805E780
+_080B2248: .4byte DeleteThisEntity
 _080B224C: .4byte sub_08016F28
-_080B2250: .4byte sub_0805E780
+_080B2250: .4byte DeleteThisEntity
 _080B2254: .4byte sub_080011C4
 _080B2258: .4byte sub_08016AE4
-_080B225C: .4byte sub_0805E780
+_080B225C: .4byte DeleteThisEntity
 _080B2260: .4byte sub_080174A4
 _080B2264: .4byte sub_08017530
 _080B2268: .4byte sub_08017338

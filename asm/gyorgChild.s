@@ -448,7 +448,7 @@ _08048976:
 	cmp r1, r0
 	bgt _08048980
 _0804897C:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08048980:
 	pop {r4, pc}
 	.align 2, 0

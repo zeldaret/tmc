@@ -6,7 +6,7 @@ extern void CopyPosition();
 extern void sub_08086A6C();
 extern s32 sub_080044EC();
 extern void sub_080AEF88();
-extern void sub_0805E780();
+extern void DeleteThisEntity();
 extern u32 Random(void);
 
 extern void (*gUnk_081206C4[99])(Entity *);
@@ -57,7 +57,7 @@ void sub_08086A28(Entity *ent)
 void sub_08086A5C(Entity *ent)
 {
     ent->attachedEntity->parent = NULL;
-    sub_0805E780();
+    DeleteThisEntity();
 }
 
 void sub_08086A6C(Entity *ent)

@@ -94,6 +94,6 @@ _0809411E:
 	bl sub_0805EC9C
 	b _0809412E
 _0809412A:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809412E:
 	pop {r4, r5, pc}

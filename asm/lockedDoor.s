@@ -34,7 +34,7 @@ sub_08083338: @ 0x08083338
 	bl CheckFlags
 	cmp r0, #0
 	beq _08083356
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08083356:
 	adds r0, r4, #0
 	bl sub_080837B0
@@ -201,10 +201,10 @@ _08083484:
 	.align 2, 0
 _080834A4: .4byte gUnk_0811F740
 _080834A8:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _080834B2
 _080834AE:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080834B2:
 	pop {r4, r5, r6, r7, pc}
 
@@ -258,7 +258,7 @@ sub_080834EC: @ 0x080834EC
 	bl sub_08083638
 	b _08083516
 _08083512:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08083516:
 	pop {r4, pc}
 

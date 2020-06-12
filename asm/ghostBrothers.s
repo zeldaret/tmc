@@ -403,7 +403,7 @@ _08065EA4:
 	ldrb r0, [r1]
 	adds r0, #1
 	strb r0, [r1]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08065EB0:
 	adds r0, r4, #0
 	bl sub_080042B8

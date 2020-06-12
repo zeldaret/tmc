@@ -44,7 +44,7 @@ sub_0808F0D0: @ 0x0808F0D0
 	str r0, [r5, #0x54]
 	cmp r0, #0
 	bne _0808F0E8
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808F0E8:
 	movs r6, #1
 	strb r6, [r5, #0xc]
@@ -161,7 +161,7 @@ sub_0808F1A4: @ 0x0808F1A4
 	ldr r1, [r4, #0x54]
 	movs r0, #0xff
 	strb r0, [r1, #0xc]
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0808F1DE
 	.align 2, 0
 _0808F1D4: .4byte 0x000003FF
@@ -274,7 +274,7 @@ sub_0808F244: @ 0x0808F244
 	ands r0, r1
 	cmp r0, #0
 	beq _0808F2AC
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808F2AC:
 	pop {r4, pc}
 	.align 2, 0
@@ -376,7 +376,7 @@ _0808F34C:
 	ldrb r0, [r5, #0xc]
 	cmp r0, #0xff
 	bne _0808F36E
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808F36E:
 	pop {r4, r5, r6, pc}
 
@@ -501,7 +501,7 @@ _0808F438:
 	adds r0, #0x3f
 	strb r1, [r0]
 _0808F452:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808F456:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #5
@@ -556,7 +556,7 @@ sub_0808F498: @ 0x0808F498
 	movs r0, #0xef
 	bl PlaySFX
 _0808F4BE:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808F4C2:
 	ldrb r0, [r5, #0xe]
 	subs r0, #1
@@ -565,13 +565,13 @@ _0808F4C2:
 	lsrs r0, r0, #0x18
 	cmp r0, #0xff
 	bne _0808F4D4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808F4D4:
 	ldr r0, _0808F4E8 @ =gLinkState
 	ldrb r0, [r0, #0x1c]
 	cmp r0, #1
 	beq _0808F550
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0808F550
 	.align 2, 0
 _0808F4E4: .4byte gUnk_030010A0
@@ -666,7 +666,7 @@ _0808F588:
 	str r0, [r1]
 	cmp r0, #0
 	bne _0808F5A4
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808F5A4:
 	adds r0, r5, #0
 	bl sub_08004274

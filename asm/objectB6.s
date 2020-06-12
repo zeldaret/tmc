@@ -14,7 +14,7 @@ sub_080A0E54: @ 0x080A0E54
 	ldrb r0, [r0, #0xd]
 	cmp r0, #3
 	bls _080A0E64
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A0E64:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0

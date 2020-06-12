@@ -63,7 +63,7 @@ _08094180:
 	ldr r1, _080941A0 @ =gRoomControls
 	ldr r0, _080941A4 @ =gLinkEntity
 	str r0, [r1, #0x30]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08094198:
 	bl sub_08078B48
 	b _08094394
@@ -352,7 +352,7 @@ _080943A8:
 	movs r2, #0
 	bl CreateFx
 _080943D2:
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08094420
 _080943D8:
 	ldrb r1, [r4, #0xb]
@@ -387,7 +387,7 @@ _0809440A:
 	ands r1, r0
 	cmp r1, #0
 	bne _0809441A
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0809441A:
 	adds r0, r4, #0
 	bl sub_08094660
@@ -602,7 +602,7 @@ _08094590:
 	ands r0, r1
 	cmp r0, #0
 	bne _08094622
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08094622
 	.align 2, 0
 _080945B0: .4byte 0xFFFFFF00

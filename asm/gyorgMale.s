@@ -2866,7 +2866,7 @@ _08047D4C:
 _08047D50:
 	movs r0, #0
 	str r0, [r4, #0x64]
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _08047D84
 _08047D5A:
 	ldr r0, _08047D68 @ =0x000001FF

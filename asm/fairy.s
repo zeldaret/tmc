@@ -79,7 +79,7 @@ _0808D71C:
 	str r0, [r4, #0x54]
 	b _0808D750
 _0808D73C:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808D740:
 	adds r0, r4, #0
 	bl sub_0808DAD0
@@ -579,7 +579,7 @@ sub_0808DAD0: @ 0x0808DAD0
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0808DAE0
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0808DAE0:
 	movs r0, #4
 	strb r0, [r4, #0xc]

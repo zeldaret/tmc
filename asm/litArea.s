@@ -125,7 +125,7 @@ _080A221E:
 	ldrh r0, [r1]
 	cmp r0, #0
 	bne _080A224E
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080A224E:
 	pop {r4, pc}
 	.align 2, 0

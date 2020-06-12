@@ -19,7 +19,7 @@ sub_08019444: @ 0x08019444
 	bl sub_08003FC4
 	cmp r0, #0
 	bne _08019464
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08019464:
 	pop {r4, pc}
 	.align 2, 0
@@ -229,7 +229,7 @@ _080195B0:
 	movs r1, #0x19
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08019602:
 	adds r0, r4, #0
 	adds r0, #0x41
@@ -240,21 +240,21 @@ _08019602:
 	movs r1, #0x19
 	movs r2, #0
 	bl CreateFx
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0801961A:
 	adds r0, r4, #0
 	movs r1, #0xc
 	bl sub_08008790
 	cmp r0, #0
 	beq _0801963C
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0801963C
 	.align 2, 0
 _0801962C: .4byte gRoomControls
 _08019630: .4byte gLinkEntity
 _08019634: .4byte gUnk_08003E44
 _08019638:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0801963C:
 	adds r0, r4, #0
 	bl sub_08019644
@@ -4156,7 +4156,7 @@ _0801B380:
 	thumb_func_start sub_0801B384
 sub_0801B384: @ 0x0801B384
 	push {lr}
-	bl sub_0805E780
+	bl DeleteThisEntity
 	pop {pc}
 
 	thumb_func_start sub_0801B38C
@@ -4169,7 +4169,7 @@ sub_0801B38C: @ 0x0801B38C
 	lsrs r1, r1, #0x18
 	cmp r1, #0xff
 	bne _0801B3A0
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0801B3A0:
 	pop {pc}
 	.align 2, 0
@@ -4459,7 +4459,7 @@ _0801B5A8:
 	movs r0, #0
 	str r0, [r1, #0x2c]
 _0801B5B4:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0801B5B8:
 	ldr r7, _0801B5FC @ =gLinkEntity
 	adds r0, r7, #0
@@ -4753,7 +4753,7 @@ _0801B7D4:
 	bl sub_0800419C
 	cmp r0, #0
 	beq _0801B7FA
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0801B7FA:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -4889,7 +4889,7 @@ sub_0801B8B0: @ 0x0801B8B0
 	.align 2, 0
 _0801B8F0: .4byte gLinkState
 _0801B8F4:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0801B8F8:
 	pop {r4, pc}
 	.align 2, 0
@@ -4901,7 +4901,7 @@ sub_0801B8FC: @ 0x0801B8FC
 	ldr r2, [r1, #0x2c]
 	cmp r2, r0
 	beq _0801B910
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0801B934
 	.align 2, 0
 _0801B90C: .4byte gLinkState
@@ -4910,7 +4910,7 @@ _0801B910:
 	cmp r0, #0
 	bne _0801B91E
 	str r0, [r1, #0x2c]
-	bl sub_0805E780
+	bl DeleteThisEntity
 	b _0801B934
 _0801B91E:
 	ldrb r1, [r2, #0x10]
@@ -5191,7 +5191,7 @@ sub_0801BB2C: @ 0x0801BB2C
 	ldr r0, _0801BB8C @ =0x00000109
 	bl PlaySFX
 _0801BB64:
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0801BB68:
 	ldr r1, _0801BB90 @ =gLinkEntity
 	adds r0, r5, #0
@@ -5861,7 +5861,7 @@ _0801C074:
 	ands r0, r1
 	mov r1, sb
 	strb r0, [r1, #0x1a]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _0801C0D4:
 	ldr r0, _0801C1D0 @ =gUnk_03000FF0
 	ldrh r1, [r0]

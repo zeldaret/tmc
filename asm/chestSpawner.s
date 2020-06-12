@@ -528,7 +528,7 @@ sub_08084190: @ 0x08084190
 	bl GetTileTypeByEntity
 	cmp r0, #0x74
 	bne _080841D2
-	bl sub_0805E780
+	bl DeleteThisEntity
 _080841D2:
 	adds r0, r4, #0
 	adds r0, #0x86
@@ -549,7 +549,7 @@ _080841D2:
 	ands r0, r1
 	cmp r0, #0
 	bne _08084200
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08084200:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -611,7 +611,7 @@ _08084258:
 	ands r0, r1
 	cmp r0, #0
 	bne _08084278
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08084278:
 	pop {r4, pc}
 	.align 2, 0

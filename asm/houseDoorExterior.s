@@ -178,7 +178,7 @@ sub_080867E4: @ 0x080867E4
 	ldr r0, [r2, #0x68]
 	bics r0, r1
 	str r0, [r2, #0x68]
-	bl sub_0805E780
+	bl DeleteThisEntity
 _08086814:
 	adds r0, r4, #0
 	bl sub_0808681C
