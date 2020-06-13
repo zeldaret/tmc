@@ -366,7 +366,7 @@ SECTIONS {
 		asm/rope.o(.text);
 		asm/smallPesto.o(.text);
 		asm/acroBandits.o(.text);
-		asm/bladeTrap.o(.text);
+		src/bladeTrap.o(.text);
 		asm/keaton.o(.text);
 		asm/crow.o(.text);
 		asm/mulldozer.o(.text);
@@ -499,7 +499,7 @@ SECTIONS {
 		asm/ministerPotho.o(.text);
 		asm/npc26.o(.text);
 		asm/vaati.o(.text);
-		asm/zelda.o(.text);
+		src/zelda.o(.text);
 		asm/mutoh.o(.text);
 		asm/carpenter.o(.text);
 		asm/castorWildsStatue.o(.text);
@@ -509,7 +509,7 @@ SECTIONS {
 		asm/zeldaFollower.o(.text);
 		asm/melari.o(.text);
 		asm/bladeBrothers.o(.text);
-		asm/cow.o(.text);
+		src/cow.o(.text);
 		asm/goron.o(.text);
 		asm/goronMerchant.o(.text);
 		asm/gorman.o(.text);
