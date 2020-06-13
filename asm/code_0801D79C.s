@@ -575,7 +575,7 @@ sub_0801DBA0: @ 0x0801DBA0
 	strb r0, [r5, #2]
 	adds r5, #3
 	ldr r1, _0801DBE8 @ =gUnk_080C9C50
-	ldr r0, _0801DBEC @ =gUnk_02033A90
+	ldr r0, _0801DBEC @ =gArea
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -587,7 +587,7 @@ sub_0801DBA0: @ 0x0801DBA0
 	.align 2, 0
 _0801DBE4: .4byte gUnk_030010A0
 _0801DBE8: .4byte gUnk_080C9C50
-_0801DBEC: .4byte gUnk_02033A90
+_0801DBEC: .4byte gArea
 _0801DBF0:
 	ldrb r0, [r6]
 	ldrb r1, [r6, #1]
@@ -692,7 +692,7 @@ _0801DCAE:
 	ands r0, r1
 	cmp r0, #0
 	beq _0801DD16
-	ldr r0, _0801DD4C @ =gUnk_02033A90
+	ldr r0, _0801DD4C @ =gArea
 	ldrb r0, [r0, #3]
 	adds r0, #1
 	bl CheckGlobalFlag
@@ -767,7 +767,7 @@ _0801DD42:
 	mov sb, r4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0801DD4C: .4byte gUnk_02033A90
+_0801DD4C: .4byte gArea
 _0801DD50: .4byte gUnk_0811E214
 _0801DD54: .4byte gUnk_030010A0
 
@@ -781,7 +781,7 @@ sub_0801DD58: @ 0x0801DD58
 	lsls r2, r2, #1
 	ldr r3, [r0]
 	adds r3, r3, r2
-	ldr r0, _0801DD80 @ =gUnk_02033A90
+	ldr r0, _0801DD80 @ =gArea
 	ldr r1, _0801DD84 @ =0x0000085C
 	adds r0, r0, r1
 	ldr r2, [r0]
@@ -793,7 +793,7 @@ sub_0801DD58: @ 0x0801DD58
 	bx lr
 	.align 2, 0
 _0801DD7C: .4byte gUnk_0811E214
-_0801DD80: .4byte gUnk_02033A90
+_0801DD80: .4byte gArea
 _0801DD84: .4byte 0x0000085C
 
 	thumb_func_start sub_0801DD88
@@ -824,7 +824,7 @@ sub_0801DDA0: @ 0x0801DDA0
 	b _0801DEEA
 _0801DDB8:
 	ldr r1, _0801DDD8 @ =gUnk_080C9C50
-	ldr r0, _0801DDDC @ =gUnk_02033A90
+	ldr r0, _0801DDDC @ =gArea
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -839,7 +839,7 @@ _0801DDB8:
 	b _0801DEE2
 	.align 2, 0
 _0801DDD8: .4byte gUnk_080C9C50
-_0801DDDC: .4byte gUnk_02033A90
+_0801DDDC: .4byte gArea
 _0801DDE0: .4byte gUnk_02019EE0
 _0801DDE4:
 	ldrb r0, [r4]

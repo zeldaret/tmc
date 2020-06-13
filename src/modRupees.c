@@ -1,7 +1,6 @@
 #include "global.h"
-#include "stats.h"
+#include "link.h"
 
-extern Stats gStats;
 extern u16 gWalletSizes[4];
 
 void ModRupees(s32 rupeeDelta)

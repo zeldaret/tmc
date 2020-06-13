@@ -8,7 +8,7 @@
 		thumb_func_start sub_0804AA84
 sub_0804AA84: @ 0x0804AA84
 	push {lr}
-	ldr r3, _0804AA98 @ =gUnk_02033A90
+	ldr r3, _0804AA98 @ =gArea
 	ldrb r0, [r3, #0x19]
 	cmp r0, #0
 	bne _0804AA9C
@@ -17,7 +17,7 @@ sub_0804AA84: @ 0x0804AA84
 	movs r0, #0
 	b _0804AAB0
 	.align 2, 0
-_0804AA98: .4byte gUnk_02033A90
+_0804AA98: .4byte gArea
 _0804AA9C:
 	ldr r2, _0804AAB4 @ =gUnk_03001000
 	movs r1, #0
@@ -37,7 +37,7 @@ _0804AAB4: .4byte gUnk_03001000
 sub_0804AAB8: @ 0x0804AAB8
 	push {lr}
 	ldr r1, _0804AACC @ =gUnk_080D4120
-	ldr r0, _0804AAD0 @ =gUnk_02033A90
+	ldr r0, _0804AAD0 @ =gArea
 	ldrb r0, [r0, #0xe]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -46,7 +46,7 @@ sub_0804AAB8: @ 0x0804AAB8
 	pop {pc}
 	.align 2, 0
 _0804AACC: .4byte gUnk_080D4120
-_0804AAD0: .4byte gUnk_02033A90
+_0804AAD0: .4byte gArea
 
 	thumb_func_start sub_0804AAD4
 sub_0804AAD4: @ 0x0804AAD4
@@ -58,7 +58,7 @@ sub_0804AAD4: @ 0x0804AAD4
 	movs r0, #0
 	str r0, [r4, #0x14]
 	bl sub_0805E60C
-	ldr r4, _0804AB00 @ =gUnk_02033A90
+	ldr r4, _0804AB00 @ =gArea
 	ldrb r1, [r4, #0x17]
 	movs r0, #0x3d
 	movs r2, #0
@@ -69,13 +69,13 @@ sub_0804AAD4: @ 0x0804AAD4
 	pop {r4, pc}
 	.align 2, 0
 _0804AAFC: .4byte gUnk_02018EB0
-_0804AB00: .4byte gUnk_02033A90
+_0804AB00: .4byte gArea
 
 	thumb_func_start sub_0804AB04
 sub_0804AB04: @ 0x0804AB04
 	push {lr}
 	bl sub_0805E5C0
-	ldr r0, _0804AB20 @ =gUnk_02033A90
+	ldr r0, _0804AB20 @ =gArea
 	ldrh r0, [r0, #0x10]
 	cmp r0, #0
 	beq _0804AB1E
@@ -85,7 +85,7 @@ sub_0804AB04: @ 0x0804AB04
 _0804AB1E:
 	pop {pc}
 	.align 2, 0
-_0804AB20: .4byte gUnk_02033A90
+_0804AB20: .4byte gArea
 
 	thumb_func_start sub_0804AB24
 sub_0804AB24: @ 0x0804AB24
@@ -98,7 +98,7 @@ sub_0804AB24: @ 0x0804AB24
 	movs r4, #0
 	strh r1, [r0]
 	bl sub_0801E104
-	ldr r0, _0804AB50 @ =gUnk_02033A90
+	ldr r0, _0804AB50 @ =gArea
 	strb r4, [r0, #0xe]
 	movs r0, #6
 	movs r1, #0
@@ -109,13 +109,13 @@ _0804AB46:
 	.align 2, 0
 _0804AB48: .4byte gUnk_03000FD0
 _0804AB4C: .4byte gScreen
-_0804AB50: .4byte gUnk_02033A90
+_0804AB50: .4byte gArea
 
 	thumb_func_start sub_0804AB54
 sub_0804AB54: @ 0x0804AB54
 	push {lr}
 	ldr r1, _0804AB68 @ =gUnk_080D412C
-	ldr r0, _0804AB6C @ =gUnk_02033A90
+	ldr r0, _0804AB6C @ =gArea
 	ldrb r0, [r0, #0xe]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -124,7 +124,7 @@ sub_0804AB54: @ 0x0804AB54
 	pop {pc}
 	.align 2, 0
 _0804AB68: .4byte gUnk_080D412C
-_0804AB6C: .4byte gUnk_02033A90
+_0804AB6C: .4byte gArea
 
 	thumb_func_start sub_0804AB70
 sub_0804AB70: @ 0x0804AB70
@@ -143,7 +143,7 @@ sub_0804AB70: @ 0x0804AB70
 	strh r2, [r0, #0xa]
 	strh r2, [r1, #0x18]
 	strh r2, [r0, #0xc]
-	ldr r0, _0804AC04 @ =gUnk_02033A90
+	ldr r0, _0804AC04 @ =gArea
 	ldrb r5, [r0, #0x17]
 	cmp r5, #2
 	bne _0804ABA4
@@ -180,7 +180,7 @@ _0804ABA4:
 	ldr r0, [r0]
 	bl LoadRoomEntityList
 	bl sub_0805E5B4
-	ldr r1, _0804AC04 @ =gUnk_02033A90
+	ldr r1, _0804AC04 @ =gArea
 	ldrb r0, [r1, #0xe]
 	adds r0, #1
 	strb r0, [r1, #0xe]
@@ -192,7 +192,7 @@ _0804ABA4:
 _0804ABF8: .4byte gScreen
 _0804ABFC: .4byte 0x00009E83
 _0804AC00: .4byte gRoomControls
-_0804AC04: .4byte gUnk_02033A90
+_0804AC04: .4byte gArea
 _0804AC08: .4byte gUnk_02032EC0
 _0804AC0C: .4byte gUnk_080D4138
 _0804AC10: .4byte gUnk_02017700
@@ -252,7 +252,7 @@ _0804AC5E:
 	cmp r0, #0
 	beq _0804AC96
 _0804AC86:
-	ldr r1, _0804ACA4 @ =gUnk_02033A90
+	ldr r1, _0804ACA4 @ =gArea
 	ldrb r0, [r1, #0xe]
 	adds r0, #1
 	strb r0, [r1, #0xe]
@@ -265,7 +265,7 @@ _0804AC96:
 _0804AC98: .4byte gUnk_02018EB0
 _0804AC9C: .4byte gRoomControls
 _0804ACA0: .4byte gScreen
-_0804ACA4: .4byte gUnk_02033A90
+_0804ACA4: .4byte gArea
 
 	thumb_func_start sub_0804ACA8
 sub_0804ACA8: @ 0x0804ACA8
@@ -293,7 +293,7 @@ sub_0804ACC8: @ 0x0804ACC8
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0804ACE8
-	ldr r0, _0804ACF0 @ =gUnk_02033A90
+	ldr r0, _0804ACF0 @ =gArea
 	ldrb r0, [r0, #0x17]
 	adds r0, #0x5e
 	bl SetGlobalFlag
@@ -305,7 +305,7 @@ _0804ACE8:
 	pop {pc}
 	.align 2, 0
 _0804ACEC: .4byte gUnk_03000FD0
-_0804ACF0: .4byte gUnk_02033A90
+_0804ACF0: .4byte gArea
 _0804ACF4: .4byte gUnk_02032EDC
 
 	thumb_func_start sub_0804ACF8
@@ -327,7 +327,7 @@ _0804AD14: .4byte gRoomControls
 	thumb_func_start sub_0804AD18
 sub_0804AD18: @ 0x0804AD18
 	push {lr}
-	ldr r0, _0804AD30 @ =gUnk_02033A90
+	ldr r0, _0804AD30 @ =gArea
 	ldrb r1, [r0, #0x17]
 	adds r2, r0, #0
 	cmp r1, #6
@@ -338,7 +338,7 @@ sub_0804AD18: @ 0x0804AD18
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_0804AD30: .4byte gUnk_02033A90
+_0804AD30: .4byte gArea
 _0804AD34: .4byte _0804AD38
 _0804AD38: @ jump table
 	.4byte _0804AD54 @ case 0
@@ -374,7 +374,7 @@ sub_0804AD6C: @ 0x0804AD6C
 	movs r6, #1
 	strb r6, [r3, #8]
 	strb r1, [r3, #9]
-	ldr r4, _0804ADD4 @ =gUnk_02033A90
+	ldr r4, _0804ADD4 @ =gArea
 	ldr r5, _0804ADD8 @ =gUnk_080D4140
 	ldrb r1, [r4, #0x16]
 	lsls r1, r1, #2
@@ -415,5 +415,5 @@ sub_0804AD6C: @ 0x0804AD6C
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0804ADD0: .4byte gUnk_030010A0
-_0804ADD4: .4byte gUnk_02033A90
+_0804ADD4: .4byte gArea
 _0804ADD8: .4byte gUnk_080D4140

@@ -128,7 +128,7 @@ _0804AF8C: .4byte gRoomControls
 	thumb_func_start sub_0804AF90
 sub_0804AF90: @ 0x0804AF90
 	push {lr}
-	ldr r0, _0804AFA8 @ =gUnk_02033A90
+	ldr r0, _0804AFA8 @ =gArea
 	ldr r1, _0804AFAC @ =0x0000085C
 	adds r0, r0, r1
 	ldr r0, [r0]
@@ -137,7 +137,7 @@ sub_0804AF90: @ 0x0804AF90
 	bl sub_080A7C7C
 	pop {pc}
 	.align 2, 0
-_0804AFA8: .4byte gUnk_02033A90
+_0804AFA8: .4byte gArea
 _0804AFAC: .4byte 0x0000085C
 
 	thumb_func_start sub_0804AFB0

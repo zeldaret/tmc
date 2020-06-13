@@ -430,7 +430,7 @@ _080735E0:
 	.align 2, 0
 _0807360C: .4byte gUnk_0200AF00
 _08073610:
-	ldr r0, _08073620 @ =gUnk_02033A90
+	ldr r0, _08073620 @ =gArea
 	ldrb r0, [r0, #1]
 	cmp r0, #0x10
 	bne _08073624
@@ -439,7 +439,7 @@ _08073610:
 	strh r0, [r4, #0x24]
 	b _08073626
 	.align 2, 0
-_08073620: .4byte gUnk_02033A90
+_08073620: .4byte gArea
 _08073624:
 	strh r5, [r4, #0x24]
 _08073626:
@@ -566,7 +566,7 @@ _080736FA:
 	ldrh r1, [r6, #8]
 	cmp r0, r1
 	bne _0807372C
-	ldr r0, _08073720 @ =gUnk_02033A90
+	ldr r0, _08073720 @ =gArea
 	ldrb r0, [r0, #1]
 	cmp r0, #0x10
 	bne _08073724
@@ -576,7 +576,7 @@ _080736FA:
 	b _0807372E
 	.align 2, 0
 _0807371C: .4byte gUnk_0811BC28
-_08073720: .4byte gUnk_02033A90
+_08073720: .4byte gArea
 _08073724:
 	adds r0, r4, #0
 	bl sub_080042B8
@@ -1648,7 +1648,7 @@ _08073F48: .4byte gLinkState
 sub_08073F4C: @ 0x08073F4C
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r0, _08073F84 @ =gUnk_02033A90
+	ldr r0, _08073F84 @ =gArea
 	ldrh r3, [r0, #0x12]
 	ldrh r5, [r0, #0x14]
 	movs r0, #0x2e
@@ -1674,7 +1674,7 @@ _08073F66:
 	bl sub_0806F69C
 	b _08073FC6
 	.align 2, 0
-_08073F84: .4byte gUnk_02033A90
+_08073F84: .4byte gArea
 _08073F88:
 	ldrb r1, [r4, #0x10]
 	movs r0, #0x7f

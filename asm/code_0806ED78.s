@@ -830,7 +830,7 @@ _0806F35E:
 	thumb_func_start sub_0806F364
 sub_0806F364: @ 0x0806F364
 	push {lr}
-	ldr r2, _0806F384 @ =gUnk_02033A90
+	ldr r2, _0806F384 @ =gArea
 	ldrb r0, [r2, #8]
 	movs r1, #0x80
 	eors r0, r1
@@ -845,19 +845,19 @@ sub_0806F364: @ 0x0806F364
 	bl sub_0801D630
 	pop {pc}
 	.align 2, 0
-_0806F384: .4byte gUnk_02033A90
+_0806F384: .4byte gArea
 _0806F388: .4byte 0x00000868
 
 	thumb_func_start sub_0806F38C
 sub_0806F38C: @ 0x0806F38C
-	ldr r0, _0806F398 @ =gUnk_02033A90
+	ldr r0, _0806F398 @ =gArea
 	ldrb r1, [r0, #8]
 	movs r2, #0x80
 	eors r1, r2
 	strb r1, [r0, #8]
 	bx lr
 	.align 2, 0
-_0806F398: .4byte gUnk_02033A90
+_0806F398: .4byte gArea
 
 	thumb_func_start sub_0806F39C
 sub_0806F39C: @ 0x0806F39C

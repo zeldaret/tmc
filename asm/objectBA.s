@@ -154,7 +154,7 @@ _080A171E:
 	strh r0, [r2, #0x18]
 	ldr r0, _080A1840 @ =0x80100000
 	bl PlaySFX
-	ldr r0, _080A1844 @ =gUnk_02033A90
+	ldr r0, _080A1844 @ =gArea
 	movs r2, #0x86
 	lsls r2, r2, #4
 	adds r1, r0, r2
@@ -176,7 +176,7 @@ _080A1834: .4byte 0x00001E07
 _080A1838: .4byte gUnk_030010A0
 _080A183C: .4byte gLinkState
 _080A1840: .4byte 0x80100000
-_080A1844: .4byte gUnk_02033A90
+_080A1844: .4byte gArea
 _080A1848: .4byte 0x00000864
 
 	thumb_func_start sub_080A184C

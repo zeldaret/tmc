@@ -3325,10 +3325,10 @@ sub_08071380: @ 0x08071380
 	ands r0, r1
 	cmp r0, #0
 	beq _080713FC
-	bl sub_08052660
+	bl CheckIsDungeon
 	cmp r0, #0
 	bne _080713D0
-	ldr r0, _080713F4 @ =gUnk_02033A90
+	ldr r0, _080713F4 @ =gArea
 	ldrb r0, [r0, #0x17]
 	cmp r0, #3
 	bne _080713F8
@@ -3347,7 +3347,7 @@ _080713D0:
 _080713E8: .4byte gLinkState
 _080713EC: .4byte gUnk_0811BA9C
 _080713F0: .4byte gUnk_03000FF0
-_080713F4: .4byte gUnk_02033A90
+_080713F4: .4byte gArea
 _080713F8:
 	bl sub_0804ACF8
 _080713FC:
@@ -3366,7 +3366,7 @@ sub_08071400: @ 0x08071400
 	adds r0, r4, #0
 	adds r0, #0x42
 	strb r1, [r0]
-	ldr r0, _0807149C @ =gUnk_02033A90
+	ldr r0, _0807149C @ =gArea
 	ldrh r3, [r0, #0x12]
 	ldrh r5, [r0, #0x14]
 	movs r0, #0x2e
@@ -3410,7 +3410,7 @@ _08071444:
 	subs r0, #0x45
 	ands r0, r1
 	strb r0, [r4, #0x18]
-	ldr r0, _0807149C @ =gUnk_02033A90
+	ldr r0, _0807149C @ =gArea
 	ldrb r0, [r0, #0x17]
 	cmp r0, #4
 	bne _0807147C
@@ -3419,7 +3419,7 @@ _08071444:
 _0807147C:
 	movs r0, #8
 	strb r0, [r4, #0xe]
-	ldr r0, _0807149C @ =gUnk_02033A90
+	ldr r0, _0807149C @ =gArea
 	ldrb r0, [r0, #0x17]
 	cmp r0, #3
 	beq _0807149A
@@ -3435,7 +3435,7 @@ _0807147C:
 _0807149A:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0807149C: .4byte gUnk_02033A90
+_0807149C: .4byte gArea
 _080714A0: .4byte gLinkState
 _080714A4: .4byte 0x0000052C
 
@@ -3443,7 +3443,7 @@ _080714A4: .4byte 0x0000052C
 sub_080714A8: @ 0x080714A8
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _08071524 @ =gUnk_02033A90
+	ldr r0, _08071524 @ =gArea
 	ldrb r0, [r0, #0x17]
 	cmp r0, #5
 	bgt _080714BE
@@ -3505,7 +3505,7 @@ _08071516:
 	str r1, [r3, #0x30]
 	b _0807156A
 	.align 2, 0
-_08071524: .4byte gUnk_02033A90
+_08071524: .4byte gArea
 _08071528: .4byte gLinkEntity
 _0807152C: .4byte gLinkState
 _08071530: .4byte 0x0000080C
@@ -3518,7 +3518,7 @@ _0807153E:
 	movs r0, #8
 	strb r0, [r4, #0xe]
 _08071542:
-	ldr r0, _0807155C @ =gUnk_02033A90
+	ldr r0, _0807155C @ =gArea
 	ldrb r0, [r0, #0x17]
 	cmp r0, #4
 	bne _08071560
@@ -3531,7 +3531,7 @@ _08071542:
 	bl sub_080042B8
 	b _0807156A
 	.align 2, 0
-_0807155C: .4byte gUnk_02033A90
+_0807155C: .4byte gArea
 _08071560:
 	adds r0, r4, #0
 	bl sub_08077698
@@ -3829,7 +3829,7 @@ sub_0807176C: @ 0x0807176C
 	rsbs r0, r0, #0
 	ands r0, r1
 	strb r0, [r4, #0x18]
-	ldr r1, _080717AC @ =gUnk_02033A90
+	ldr r1, _080717AC @ =gArea
 	ldrb r0, [r1, #0x17]
 	cmp r0, #3
 	bne _080717B0
@@ -3843,7 +3843,7 @@ sub_0807176C: @ 0x0807176C
 	bl sub_080717F8
 	b _080717CA
 	.align 2, 0
-_080717AC: .4byte gUnk_02033A90
+_080717AC: .4byte gArea
 _080717B0:
 	cmp r0, #6
 	bne _080717C0
@@ -3890,7 +3890,7 @@ _080717F4:
 	thumb_func_start sub_080717F8
 sub_080717F8: @ 0x080717F8
 	push {r4, lr}
-	ldr r2, _08071850 @ =gUnk_02033A90
+	ldr r2, _08071850 @ =gArea
 	ldrb r1, [r2, #0x16]
 	lsls r1, r1, #1
 	strb r1, [r0, #0x14]
@@ -3931,7 +3931,7 @@ sub_080717F8: @ 0x080717F8
 	bl UnfreezeTime
 	pop {r4, pc}
 	.align 2, 0
-_08071850: .4byte gUnk_02033A90
+_08071850: .4byte gArea
 _08071854: .4byte gUnk_0811BAC4
 _08071858: .4byte gUnk_02034490
 _0807185C: .4byte gLinkState

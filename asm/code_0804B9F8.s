@@ -137,7 +137,7 @@ _0804BAD2:
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0804BAF4
-	ldr r0, _0804BAEC @ =gUnk_02033A90
+	ldr r0, _0804BAEC @ =gArea
 	ldr r1, _0804BAF0 @ =0x00000864
 	adds r0, r0, r1
 	movs r1, #0x1b
@@ -145,14 +145,14 @@ _0804BAD2:
 	b _0804BB0C
 	.align 2, 0
 _0804BAE8: .4byte gUnk_080D7328
-_0804BAEC: .4byte gUnk_02033A90
+_0804BAEC: .4byte gArea
 _0804BAF0: .4byte 0x00000864
 _0804BAF4:
 	movs r0, #0x51
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0804BB0C
-	ldr r0, _0804BB10 @ =gUnk_02033A90
+	ldr r0, _0804BB10 @ =gArea
 	ldr r2, _0804BB14 @ =0x00000864
 	adds r1, r0, r2
 	subs r2, #4
@@ -162,7 +162,7 @@ _0804BAF4:
 _0804BB0C:
 	pop {pc}
 	.align 2, 0
-_0804BB10: .4byte gUnk_02033A90
+_0804BB10: .4byte gArea
 _0804BB14: .4byte 0x00000864
 
 	thumb_func_start sub_0804BB18
@@ -214,7 +214,7 @@ _0804BB72:
 	cmp r0, #0
 	beq _0804BB8A
 _0804BB7C:
-	ldr r0, _0804BB94 @ =gUnk_02033A90
+	ldr r0, _0804BB94 @ =gArea
 	ldr r2, _0804BB98 @ =0x00000864
 	adds r1, r0, r2
 	subs r2, #4
@@ -226,7 +226,7 @@ _0804BB8A:
 	.align 2, 0
 _0804BB8C: .4byte gUnk_080D73B0
 _0804BB90: .4byte gUnk_080D73E0
-_0804BB94: .4byte gUnk_02033A90
+_0804BB94: .4byte gArea
 _0804BB98: .4byte 0x00000864
 
 	thumb_func_start sub_0804BB9C
@@ -241,7 +241,7 @@ sub_0804BBA0: @ 0x0804BBA0
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0804BBBA
-	ldr r0, _0804BBDC @ =gUnk_02033A90
+	ldr r0, _0804BBDC @ =gArea
 	ldr r2, _0804BBE0 @ =0x00000864
 	adds r1, r0, r2
 	subs r2, #4
@@ -255,7 +255,7 @@ _0804BBBA:
 	beq _0804BBE8
 	ldr r0, _0804BBE4 @ =gUnk_080D7618
 	bl LoadRoomEntityList
-	ldr r0, _0804BBDC @ =gUnk_02033A90
+	ldr r0, _0804BBDC @ =gArea
 	ldr r2, _0804BBE0 @ =0x00000864
 	adds r1, r0, r2
 	subs r2, #4
@@ -264,7 +264,7 @@ _0804BBBA:
 	str r0, [r1]
 	b _0804BC2E
 	.align 2, 0
-_0804BBDC: .4byte gUnk_02033A90
+_0804BBDC: .4byte gArea
 _0804BBE0: .4byte 0x00000864
 _0804BBE4: .4byte gUnk_080D7618
 _0804BBE8:
@@ -274,7 +274,7 @@ _0804BBE8:
 	bne _0804BC10
 	ldr r0, _0804BC04 @ =gUnk_080D74C8
 	bl LoadRoomEntityList
-	ldr r0, _0804BC08 @ =gUnk_02033A90
+	ldr r0, _0804BC08 @ =gArea
 	ldr r1, _0804BC0C @ =0x00000864
 	adds r0, r0, r1
 	movs r1, #0x1b
@@ -282,7 +282,7 @@ _0804BBE8:
 	b _0804BC2E
 	.align 2, 0
 _0804BC04: .4byte gUnk_080D74C8
-_0804BC08: .4byte gUnk_02033A90
+_0804BC08: .4byte gArea
 _0804BC0C: .4byte 0x00000864
 _0804BC10:
 	movs r0, #2
@@ -378,7 +378,7 @@ _0804BCBC:
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0804BCD0
-	ldr r0, _0804BCD4 @ =gUnk_02033A90
+	ldr r0, _0804BCD4 @ =gArea
 	ldr r1, _0804BCD8 @ =0x00000864
 	adds r0, r0, r1
 	movs r1, #0x1b
@@ -386,7 +386,7 @@ _0804BCBC:
 _0804BCD0:
 	pop {pc}
 	.align 2, 0
-_0804BCD4: .4byte gUnk_02033A90
+_0804BCD4: .4byte gArea
 _0804BCD8: .4byte 0x00000864
 
 	thumb_func_start sub_0804BCDC
@@ -1059,7 +1059,7 @@ sub_0804C104: @ 0x0804C104
 	thumb_func_start sub_0804C108
 sub_0804C108: @ 0x0804C108
 	push {lr}
-	ldr r2, _0804C124 @ =gUnk_02033A90
+	ldr r2, _0804C124 @ =gArea
 	ldrb r1, [r2]
 	movs r0, #0x40
 	orrs r0, r1
@@ -1071,7 +1071,7 @@ sub_0804C108: @ 0x0804C108
 	bl sub_0804C128
 	pop {pc}
 	.align 2, 0
-_0804C124: .4byte gUnk_02033A90
+_0804C124: .4byte gArea
 
 	thumb_func_start sub_0804C128
 sub_0804C128: @ 0x0804C128
@@ -1084,7 +1084,7 @@ sub_0804C128: @ 0x0804C128
 	bne _0804C13A
 	b _0804C24C
 _0804C13A:
-	ldr r1, _0804C160 @ =gUnk_02033A90
+	ldr r1, _0804C160 @ =gArea
 	ldrb r3, [r1, #0xd]
 	movs r0, #0xe
 	ands r0, r3
@@ -1103,7 +1103,7 @@ _0804C13A:
 	b _0804C19A
 	.align 2, 0
 _0804C15C: .4byte gRoomVars
-_0804C160: .4byte gUnk_02033A90
+_0804C160: .4byte gArea
 _0804C164:
 	ldr r2, _0804C18C @ =gRoomControls
 	ldr r1, _0804C190 @ =gUnk_080D9338
@@ -1225,7 +1225,7 @@ _0804C254:
 	thumb_func_start sub_0804C258
 sub_0804C258: @ 0x0804C258
 	push {lr}
-	ldr r3, _0804C288 @ =gUnk_02033A90
+	ldr r3, _0804C288 @ =gArea
 	ldrb r0, [r3, #0xd]
 	movs r2, #0xf
 	rsbs r2, r2, #0
@@ -1248,13 +1248,13 @@ sub_0804C258: @ 0x0804C258
 _0804C284:
 	pop {pc}
 	.align 2, 0
-_0804C288: .4byte gUnk_02033A90
+_0804C288: .4byte gArea
 _0804C28C: .4byte gUnk_030010A0
 
 	thumb_func_start sub_0804C290
 sub_0804C290: @ 0x0804C290
 	push {lr}
-	ldr r0, _0804C2B4 @ =gUnk_02033A90
+	ldr r0, _0804C2B4 @ =gArea
 	ldrb r1, [r0, #0xd]
 	movs r0, #0xe
 	ands r0, r1
@@ -1272,7 +1272,7 @@ sub_0804C290: @ 0x0804C290
 _0804C2B2:
 	pop {pc}
 	.align 2, 0
-_0804C2B4: .4byte gUnk_02033A90
+_0804C2B4: .4byte gArea
 _0804C2B8: .4byte gUnk_080D9348
 
 	thumb_func_start sub_0804C2BC
@@ -3207,7 +3207,7 @@ _0804CDA4: .4byte gUnk_080DF94C
 _0804CDA8:
 	ldr r0, _0804CDC0 @ =0x80100000
 	bl PlaySFX
-	ldr r0, _0804CDC4 @ =gUnk_02033A90
+	ldr r0, _0804CDC4 @ =gArea
 	movs r2, #0x86
 	lsls r2, r2, #4
 	adds r1, r0, r2
@@ -3219,7 +3219,7 @@ _0804CDBE:
 	pop {r4, pc}
 	.align 2, 0
 _0804CDC0: .4byte 0x80100000
-_0804CDC4: .4byte gUnk_02033A90
+_0804CDC4: .4byte gArea
 
 	thumb_func_start sub_0804CDC8
 sub_0804CDC8: @ 0x0804CDC8
@@ -3240,7 +3240,7 @@ sub_0804CDD0: @ 0x0804CDD0
 sub_0804CDD4: @ 0x0804CDD4
 	push {lr}
 	bl sub_08058D34
-	ldr r2, _0804CDEC @ =gUnk_02033A90
+	ldr r2, _0804CDEC @ =gArea
 	ldrb r1, [r2]
 	movs r0, #0x40
 	orrs r0, r1
@@ -3250,7 +3250,7 @@ sub_0804CDD4: @ 0x0804CDD4
 	strb r0, [r1, #4]
 	pop {pc}
 	.align 2, 0
-_0804CDEC: .4byte gUnk_02033A90
+_0804CDEC: .4byte gArea
 _0804CDF0: .4byte gUnk_03001000
 
 	thumb_func_start sub_0804CDF4
@@ -3514,7 +3514,7 @@ _0804CF14: .4byte gUnk_080E1814
 _0804CF18:
 	ldr r0, _0804CF30 @ =0x80100000
 	bl PlaySFX
-	ldr r0, _0804CF34 @ =gUnk_02033A90
+	ldr r0, _0804CF34 @ =gArea
 	movs r2, #0x86
 	lsls r2, r2, #4
 	adds r1, r0, r2
@@ -3526,7 +3526,7 @@ _0804CF2E:
 	pop {pc}
 	.align 2, 0
 _0804CF30: .4byte 0x80100000
-_0804CF34: .4byte gUnk_02033A90
+_0804CF34: .4byte gArea
 
 	thumb_func_start sub_0804CF38
 sub_0804CF38: @ 0x0804CF38
@@ -3684,7 +3684,7 @@ _0804CFD8:
 	movs r0, #3
 	bl sub_08078A90
 _0804CFEE:
-	ldr r0, _0804D004 @ =gUnk_02033A90
+	ldr r0, _0804D004 @ =gArea
 	movs r2, #0x86
 	lsls r2, r2, #4
 	adds r1, r0, r2
@@ -3696,7 +3696,7 @@ _0804CFFE:
 	pop {pc}
 	.align 2, 0
 _0804D000: .4byte 0x80050000
-_0804D004: .4byte gUnk_02033A90
+_0804D004: .4byte gArea
 
 	thumb_func_start sub_0804D008
 sub_0804D008: @ 0x0804D008
@@ -4036,7 +4036,7 @@ _0804D15C: .4byte gUnk_080E49F4
 _0804D160:
 	ldr r0, _0804D178 @ =0x80100000
 	bl PlaySFX
-	ldr r0, _0804D17C @ =gUnk_02033A90
+	ldr r0, _0804D17C @ =gArea
 	movs r2, #0x86
 	lsls r2, r2, #4
 	adds r1, r0, r2
@@ -4048,7 +4048,7 @@ _0804D176:
 	pop {pc}
 	.align 2, 0
 _0804D178: .4byte 0x80100000
-_0804D17C: .4byte gUnk_02033A90
+_0804D17C: .4byte gArea
 
 	thumb_func_start sub_0804D180
 sub_0804D180: @ 0x0804D180
@@ -4537,7 +4537,7 @@ _0804D3B8:
 	bl sub_08078A90
 	ldr r0, _0804D3EC @ =gUnk_080E72E4
 	bl LoadRoomEntityList
-	ldr r0, _0804D3F0 @ =gUnk_02033A90
+	ldr r0, _0804D3F0 @ =gArea
 	movs r2, #0x86
 	lsls r2, r2, #4
 	adds r1, r0, r2
@@ -4551,7 +4551,7 @@ _0804D3EA:
 	pop {pc}
 	.align 2, 0
 _0804D3EC: .4byte gUnk_080E72E4
-_0804D3F0: .4byte gUnk_02033A90
+_0804D3F0: .4byte gArea
 _0804D3F4: .4byte 0x80100000
 
 	thumb_func_start sub_0804D3F8
@@ -5190,7 +5190,7 @@ sub_0804D6C8: @ 0x0804D6C8
 	push {lr}
 	ldr r0, _0804D6E4 @ =0x80100000
 	bl PlaySFX
-	ldr r0, _0804D6E8 @ =gUnk_02033A90
+	ldr r0, _0804D6E8 @ =gArea
 	movs r2, #0x86
 	lsls r2, r2, #4
 	adds r1, r0, r2
@@ -5201,7 +5201,7 @@ sub_0804D6C8: @ 0x0804D6C8
 	pop {pc}
 	.align 2, 0
 _0804D6E4: .4byte 0x80100000
-_0804D6E8: .4byte gUnk_02033A90
+_0804D6E8: .4byte gArea
 
 	thumb_func_start sub_0804D6EC
 sub_0804D6EC: @ 0x0804D6EC
@@ -5333,7 +5333,7 @@ _0804D7A0:
 	adds r0, r4, #0
 	movs r2, #1
 	bl SetTileType
-	ldr r0, _0804D7E4 @ =gUnk_02033A90
+	ldr r0, _0804D7E4 @ =gArea
 	ldr r1, _0804D7E8 @ =0x00000864
 	adds r0, r0, r1
 	str r5, [r0]
@@ -5344,7 +5344,7 @@ _0804D7D4: .4byte gUnk_080EADB8
 _0804D7D8: .4byte 0x00004072
 _0804D7DC: .4byte 0x00000145
 _0804D7E0: .4byte 0x00000149
-_0804D7E4: .4byte gUnk_02033A90
+_0804D7E4: .4byte gArea
 _0804D7E8: .4byte 0x00000864
 
 	thumb_func_start sub_0804D7EC
@@ -5395,7 +5395,7 @@ sub_0804D830: @ 0x0804D830
 	thumb_func_start sub_0804D834
 sub_0804D834: @ 0x0804D834
 	push {r4, lr}
-	ldr r4, _0804D86C @ =gUnk_02033A90
+	ldr r4, _0804D86C @ =gArea
 	movs r0, #0
 	movs r1, #0x40
 	strb r1, [r4]
@@ -5418,7 +5418,7 @@ sub_0804D834: @ 0x0804D834
 	str r0, [r1]
 	b _0804D8BC
 	.align 2, 0
-_0804D86C: .4byte gUnk_02033A90
+_0804D86C: .4byte gArea
 _0804D870: .4byte gUnk_080EAEC0
 _0804D874: .4byte 0x00000864
 _0804D878:
@@ -5544,7 +5544,7 @@ sub_0804D904: @ 0x0804D904
 	str r0, [r1, #0x6c]
 	movs r0, #0
 	str r0, [r1, #0x74]
-	ldr r0, _0804D938 @ =gUnk_02033A90
+	ldr r0, _0804D938 @ =gArea
 	movs r1, #0x86
 	lsls r1, r1, #4
 	adds r2, r0, r1
@@ -5557,7 +5557,7 @@ sub_0804D904: @ 0x0804D904
 	.align 2, 0
 _0804D930: .4byte gRoomVars
 _0804D934: .4byte gUnk_080EB604
-_0804D938: .4byte gUnk_02033A90
+_0804D938: .4byte gArea
 _0804D93C:
 	movs r0, #0x79
 	bl CheckLocalFlag
@@ -5594,7 +5594,7 @@ sub_0804D97C: @ 0x0804D97C
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0804D996
-	ldr r0, _0804D9A8 @ =gUnk_02033A90
+	ldr r0, _0804D9A8 @ =gArea
 	ldr r2, _0804D9AC @ =0x00000864
 	adds r1, r0, r2
 	subs r2, #4
@@ -5610,7 +5610,7 @@ _0804D996:
 _0804D9A4:
 	pop {pc}
 	.align 2, 0
-_0804D9A8: .4byte gUnk_02033A90
+_0804D9A8: .4byte gArea
 _0804D9AC: .4byte 0x00000864
 
 	thumb_func_start sub_0804D9B0
@@ -5633,7 +5633,7 @@ sub_0804D9B0: @ 0x0804D9B0
 	bl sub_0807BB98
 	ldr r0, _0804D9F8 @ =gUnk_080EB684
 	bl LoadRoomEntityList
-	ldr r0, _0804D9FC @ =gUnk_02033A90
+	ldr r0, _0804D9FC @ =gArea
 	ldr r2, _0804DA00 @ =0x00000864
 	adds r1, r0, r2
 	subs r2, #4
@@ -5646,7 +5646,7 @@ _0804D9EC: .4byte 0x00000797
 _0804D9F0: .4byte 0x00000357
 _0804D9F4: .4byte 0x0000055F
 _0804D9F8: .4byte gUnk_080EB684
-_0804D9FC: .4byte gUnk_02033A90
+_0804D9FC: .4byte gArea
 _0804DA00: .4byte 0x00000864
 
 	thumb_func_start sub_0804DA04
@@ -6044,7 +6044,7 @@ sub_0804DBDC: @ 0x0804DBDC
 	bl sub_0807BB98
 	ldr r0, _0804DC0C @ =gUnk_080ECFCC
 	bl LoadRoomEntityList
-	ldr r0, _0804DC10 @ =gUnk_02033A90
+	ldr r0, _0804DC10 @ =gArea
 	ldr r2, _0804DC14 @ =0x00000864
 	adds r1, r0, r2
 	subs r2, #4
@@ -6055,7 +6055,7 @@ _0804DC08:
 	pop {pc}
 	.align 2, 0
 _0804DC0C: .4byte gUnk_080ECFCC
-_0804DC10: .4byte gUnk_02033A90
+_0804DC10: .4byte gArea
 _0804DC14: .4byte 0x00000864
 
 	thumb_func_start sub_0804DC18
@@ -6104,7 +6104,7 @@ sub_0804DC4C: @ 0x0804DC4C
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0804DC66
-	ldr r0, _0804DC68 @ =gUnk_02033A90
+	ldr r0, _0804DC68 @ =gArea
 	ldr r2, _0804DC6C @ =0x00000864
 	adds r1, r0, r2
 	subs r2, #4
@@ -6114,7 +6114,7 @@ sub_0804DC4C: @ 0x0804DC4C
 _0804DC66:
 	pop {pc}
 	.align 2, 0
-_0804DC68: .4byte gUnk_02033A90
+_0804DC68: .4byte gArea
 _0804DC6C: .4byte 0x00000864
 
 	thumb_func_start sub_0804DC70
@@ -6358,7 +6358,7 @@ sub_0804DD34: @ 0x0804DD34
 	bl sub_0807BB98
 	ldr r0, _0804DD64 @ =gUnk_080EE314
 	bl LoadRoomEntityList
-	ldr r0, _0804DD68 @ =gUnk_02033A90
+	ldr r0, _0804DD68 @ =gArea
 	ldr r2, _0804DD6C @ =0x00000864
 	adds r1, r0, r2
 	subs r2, #4
@@ -6369,7 +6369,7 @@ _0804DD60:
 	pop {pc}
 	.align 2, 0
 _0804DD64: .4byte gUnk_080EE314
-_0804DD68: .4byte gUnk_02033A90
+_0804DD68: .4byte gArea
 _0804DD6C: .4byte 0x00000864
 
 	thumb_func_start sub_0804DD70
@@ -6412,7 +6412,7 @@ sub_0804DD94: @ 0x0804DD94
 	bl sub_0807BB98
 	ldr r0, _0804DDC8 @ =gUnk_080EE5DC
 	bl LoadRoomEntityList
-	ldr r0, _0804DDCC @ =gUnk_02033A90
+	ldr r0, _0804DDCC @ =gArea
 	ldr r2, _0804DDD0 @ =0x00000864
 	adds r1, r0, r2
 	subs r2, #4
@@ -6424,7 +6424,7 @@ _0804DDC0:
 	.align 2, 0
 _0804DDC4: .4byte 0x00000392
 _0804DDC8: .4byte gUnk_080EE5DC
-_0804DDCC: .4byte gUnk_02033A90
+_0804DDCC: .4byte gArea
 _0804DDD0: .4byte 0x00000864
 
 	thumb_func_start sub_0804DDD4
@@ -6510,7 +6510,7 @@ _0804DE58: .4byte gUnk_02017654
 _0804DE5C:
 	movs r0, #0x1c
 	bl SetGlobalFlag
-	ldr r4, _0804DEB4 @ =gUnk_02033A90
+	ldr r4, _0804DEB4 @ =gArea
 	ldr r0, _0804DEB8 @ =0x0000085C
 	adds r4, r4, r0
 	ldr r0, [r4]
@@ -6546,7 +6546,7 @@ _0804DE5C:
 	bl DoFade
 	b _0804DECC
 	.align 2, 0
-_0804DEB4: .4byte gUnk_02033A90
+_0804DEB4: .4byte gArea
 _0804DEB8: .4byte 0x0000085C
 _0804DEBC: .4byte gRoomControls
 _0804DEC0: .4byte gUnk_030010A0
@@ -7076,7 +7076,7 @@ sub_0804E27C: @ 0x0804E27C
 	bne _0804E2AC
 	ldr r0, _0804E2A0 @ =gUnk_080F0650
 	bl LoadRoomEntityList
-	ldr r0, _0804E2A4 @ =gUnk_02033A90
+	ldr r0, _0804E2A4 @ =gArea
 	ldr r1, _0804E2A8 @ =0x00000864
 	adds r0, r0, r1
 	movs r1, #0x13
@@ -7086,14 +7086,14 @@ sub_0804E27C: @ 0x0804E27C
 	b _0804E2C0
 	.align 2, 0
 _0804E2A0: .4byte gUnk_080F0650
-_0804E2A4: .4byte gUnk_02033A90
+_0804E2A4: .4byte gArea
 _0804E2A8: .4byte 0x00000864
 _0804E2AC:
 	movs r0, #0x64
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0804E2C0
-	ldr r0, _0804E300 @ =gUnk_02033A90
+	ldr r0, _0804E300 @ =gArea
 	ldr r1, _0804E304 @ =0x00000864
 	adds r0, r0, r1
 	movs r1, #0x1b
@@ -7126,7 +7126,7 @@ _0804E2C0:
 	bl SetTileType
 	b _0804E3A6
 	.align 2, 0
-_0804E300: .4byte gUnk_02033A90
+_0804E300: .4byte gArea
 _0804E304: .4byte 0x00000864
 _0804E308: .4byte gUnk_080F0800
 _0804E30C: .4byte 0x00004072
@@ -7639,7 +7639,7 @@ sub_0804E6E8: @ 0x0804E6E8
 	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0804E70A
-	ldr r0, _0804E71C @ =gUnk_02033A90
+	ldr r0, _0804E71C @ =gArea
 	movs r2, #0x86
 	lsls r2, r2, #4
 	adds r1, r0, r2
@@ -7659,7 +7659,7 @@ _0804E70A:
 _0804E71A:
 	pop {pc}
 	.align 2, 0
-_0804E71C: .4byte gUnk_02033A90
+_0804E71C: .4byte gArea
 _0804E720: .4byte 0x800B0036
 _0804E724: .4byte gUnk_080F2E2C
 
@@ -7675,7 +7675,7 @@ sub_0804E72C: @ 0x0804E72C
 	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0804E74E
-	ldr r0, _0804E760 @ =gUnk_02033A90
+	ldr r0, _0804E760 @ =gArea
 	movs r2, #0x86
 	lsls r2, r2, #4
 	adds r1, r0, r2
@@ -7694,7 +7694,7 @@ _0804E74E:
 	bl LoadRoomEntityList
 	b _0804E772
 	.align 2, 0
-_0804E760: .4byte gUnk_02033A90
+_0804E760: .4byte gArea
 _0804E764: .4byte 0x800B0036
 _0804E768: .4byte gUnk_080F2E94
 _0804E76C:
@@ -7796,7 +7796,7 @@ _0804E818:
 	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0804E838
-	ldr r0, _0804E854 @ =gUnk_02033A90
+	ldr r0, _0804E854 @ =gArea
 	movs r2, #0x86
 	lsls r2, r2, #4
 	adds r1, r0, r2
@@ -7820,7 +7820,7 @@ _0804E84A:
 	.align 2, 0
 _0804E84C: .4byte gUnk_02000070
 _0804E850: .4byte gUnk_08009B30
-_0804E854: .4byte gUnk_02033A90
+_0804E854: .4byte gArea
 _0804E858: .4byte 0x800B0036
 _0804E85C: .4byte gLinkState
 _0804E860: .4byte gUnk_080F31D8
@@ -8245,7 +8245,7 @@ nullsub_390: @ 0x0804EB50
 
 	thumb_func_start sub_0804EB54
 sub_0804EB54: @ 0x0804EB54
-	ldr r2, _0804EB64 @ =gUnk_02033A90
+	ldr r2, _0804EB64 @ =gArea
 	ldrb r1, [r2]
 	movs r0, #0x48
 	orrs r0, r1
@@ -8253,7 +8253,7 @@ sub_0804EB54: @ 0x0804EB54
 	movs r0, #1
 	bx lr
 	.align 2, 0
-_0804EB64: .4byte gUnk_02033A90
+_0804EB64: .4byte gArea
 
 	thumb_func_start nullsub_391
 nullsub_391: @ 0x0804EB68
@@ -8262,7 +8262,7 @@ nullsub_391: @ 0x0804EB68
 
 	thumb_func_start sub_0804EB6C
 sub_0804EB6C: @ 0x0804EB6C
-	ldr r2, _0804EB7C @ =gUnk_02033A90
+	ldr r2, _0804EB7C @ =gArea
 	ldrb r1, [r2]
 	movs r0, #0x48
 	orrs r0, r1
@@ -8270,7 +8270,7 @@ sub_0804EB6C: @ 0x0804EB6C
 	movs r0, #1
 	bx lr
 	.align 2, 0
-_0804EB7C: .4byte gUnk_02033A90
+_0804EB7C: .4byte gArea
 
 	thumb_func_start nullsub_392
 nullsub_392: @ 0x0804EB80
@@ -8279,7 +8279,7 @@ nullsub_392: @ 0x0804EB80
 
 	thumb_func_start sub_0804EB84
 sub_0804EB84: @ 0x0804EB84
-	ldr r2, _0804EB94 @ =gUnk_02033A90
+	ldr r2, _0804EB94 @ =gArea
 	ldrb r1, [r2]
 	movs r0, #0x48
 	orrs r0, r1
@@ -8287,7 +8287,7 @@ sub_0804EB84: @ 0x0804EB84
 	movs r0, #1
 	bx lr
 	.align 2, 0
-_0804EB94: .4byte gUnk_02033A90
+_0804EB94: .4byte gArea
 
 	thumb_func_start nullsub_393
 nullsub_393: @ 0x0804EB98
@@ -8300,7 +8300,7 @@ sub_0804EB9C: @ 0x0804EB9C
 	movs r0, #0x58
 	movs r1, #5
 	bl sub_0801DD58
-	ldr r2, _0804EBB4 @ =gUnk_02033A90
+	ldr r2, _0804EBB4 @ =gArea
 	ldrb r1, [r2]
 	movs r0, #0x48
 	orrs r0, r1
@@ -8308,7 +8308,7 @@ sub_0804EB9C: @ 0x0804EB9C
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804EBB4: .4byte gUnk_02033A90
+_0804EBB4: .4byte gArea
 
 	thumb_func_start nullsub_394
 nullsub_394: @ 0x0804EBB8
@@ -8321,7 +8321,7 @@ sub_0804EBBC: @ 0x0804EBBC
 	movs r0, #0x58
 	movs r1, #6
 	bl sub_0801DD58
-	ldr r2, _0804EBD4 @ =gUnk_02033A90
+	ldr r2, _0804EBD4 @ =gArea
 	ldrb r1, [r2]
 	movs r0, #0x48
 	orrs r0, r1
@@ -8329,7 +8329,7 @@ sub_0804EBBC: @ 0x0804EBBC
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0804EBD4: .4byte gUnk_02033A90
+_0804EBD4: .4byte gArea
 
 	thumb_func_start nullsub_395
 nullsub_395: @ 0x0804EBD8
@@ -8362,7 +8362,7 @@ sub_0804EC00: @ 0x0804EC00
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0804EC1A
-	ldr r0, _0804EC48 @ =gUnk_02033A90
+	ldr r0, _0804EC48 @ =gArea
 	ldr r2, _0804EC4C @ =0x00000864
 	adds r1, r0, r2
 	subs r2, #4
@@ -8389,7 +8389,7 @@ _0804EC2A:
 	bl LoadRoomEntityList
 	b _0804EC5E
 	.align 2, 0
-_0804EC48: .4byte gUnk_02033A90
+_0804EC48: .4byte gArea
 _0804EC4C: .4byte 0x00000864
 _0804EC50: .4byte gUnk_080F4D50
 _0804EC54: .4byte gUnk_080F4DB0
@@ -8494,7 +8494,7 @@ _0804ED14: .4byte gUnk_080F5308
 
 	thumb_func_start sub_0804ED18
 sub_0804ED18: @ 0x0804ED18
-	ldr r0, _0804ED28 @ =gUnk_02033A90
+	ldr r0, _0804ED28 @ =gArea
 	ldr r2, _0804ED2C @ =0x00000864
 	adds r1, r0, r2
 	subs r2, #4
@@ -8503,7 +8503,7 @@ sub_0804ED18: @ 0x0804ED18
 	str r0, [r1]
 	bx lr
 	.align 2, 0
-_0804ED28: .4byte gUnk_02033A90
+_0804ED28: .4byte gArea
 _0804ED2C: .4byte 0x00000864
 
 	thumb_func_start sub_0804ED30
@@ -8519,7 +8519,7 @@ sub_0804ED34: @ 0x0804ED34
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0804ED4E
-	ldr r0, _0804ED50 @ =gUnk_02033A90
+	ldr r0, _0804ED50 @ =gArea
 	ldr r1, _0804ED54 @ =0x00000864
 	adds r0, r0, r1
 	movs r1, #0x31
@@ -8527,7 +8527,7 @@ sub_0804ED34: @ 0x0804ED34
 _0804ED4E:
 	pop {pc}
 	.align 2, 0
-_0804ED50: .4byte gUnk_02033A90
+_0804ED50: .4byte gArea
 _0804ED54: .4byte 0x00000864
 
 	thumb_func_start sub_0804ED58
@@ -8640,7 +8640,7 @@ _0804EE46:
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0804EE5A
-	ldr r0, _0804EE6C @ =gUnk_02033A90
+	ldr r0, _0804EE6C @ =gArea
 	ldr r1, _0804EE70 @ =0x00000864
 	adds r0, r0, r1
 	movs r1, #0x31
@@ -8652,7 +8652,7 @@ _0804EE5C: .4byte gUnk_080F55D8
 _0804EE60: .4byte gUnk_080F5528
 _0804EE64: .4byte gUnk_080F5578
 _0804EE68: .4byte gUnk_080F55B8
-_0804EE6C: .4byte gUnk_02033A90
+_0804EE6C: .4byte gArea
 _0804EE70: .4byte 0x00000864
 
 	thumb_func_start sub_0804EE74
@@ -8678,7 +8678,7 @@ _0804EE94:
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0804EEA8
-	ldr r0, _0804EEB0 @ =gUnk_02033A90
+	ldr r0, _0804EEB0 @ =gArea
 	ldr r1, _0804EEB4 @ =0x00000864
 	adds r0, r0, r1
 	movs r1, #0x31
@@ -8687,7 +8687,7 @@ _0804EEA8:
 	pop {pc}
 	.align 2, 0
 _0804EEAC: .4byte gUnk_080F5660
-_0804EEB0: .4byte gUnk_02033A90
+_0804EEB0: .4byte gArea
 _0804EEB4: .4byte 0x00000864
 
 	thumb_func_start sub_0804EEB8
@@ -9115,7 +9115,7 @@ _0804F1B6:
 	movs r0, #8
 	movs r1, #0
 	bl sub_08052CA4
-	ldr r2, _0804F1D8 @ =gUnk_02033A90
+	ldr r2, _0804F1D8 @ =gArea
 	ldrb r1, [r2]
 	movs r0, #0x80
 	orrs r0, r1
@@ -9123,7 +9123,7 @@ _0804F1B6:
 	pop {pc}
 	.align 2, 0
 _0804F1D4: .4byte gUnk_080F66AC
-_0804F1D8: .4byte gUnk_02033A90
+_0804F1D8: .4byte gArea
 
 	thumb_func_start sub_0804F1DC
 sub_0804F1DC: @ 0x0804F1DC
@@ -9273,7 +9273,7 @@ _0804F27A:
 	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0804F28E
-	ldr r0, _0804F2B4 @ =gUnk_02033A90
+	ldr r0, _0804F2B4 @ =gArea
 	ldr r1, _0804F2B8 @ =0x00000864
 	adds r0, r0, r1
 	movs r1, #0x10
@@ -9298,7 +9298,7 @@ _0804F2AE:
 	pop {r4, pc}
 	.align 2, 0
 _0804F2B0: .4byte gUnk_080F70A8
-_0804F2B4: .4byte gUnk_02033A90
+_0804F2B4: .4byte gArea
 _0804F2B8: .4byte 0x00000864
 _0804F2BC: .4byte gUnk_02002A40
 _0804F2C0: .4byte gUnk_080F70D8
@@ -9604,7 +9604,7 @@ _0804F540:
 	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0804F554
-	ldr r0, _0804F570 @ =gUnk_02033A90
+	ldr r0, _0804F570 @ =gArea
 	ldr r1, _0804F574 @ =0x00000864
 	adds r0, r0, r1
 	movs r1, #0x13
@@ -9618,7 +9618,7 @@ _0804F560: .4byte 0x000007A3
 _0804F564: .4byte 0x000007A5
 _0804F568: .4byte 0x000007A6
 _0804F56C: .4byte 0x000007A7
-_0804F570: .4byte gUnk_02033A90
+_0804F570: .4byte gArea
 _0804F574: .4byte 0x00000864
 
 	thumb_func_start sub_0804F578
@@ -11102,7 +11102,7 @@ sub_0804FE04: @ 0x0804FE04
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _0804FE28
-	ldr r0, _0804FE20 @ =gUnk_02033A90
+	ldr r0, _0804FE20 @ =gArea
 	ldr r2, _0804FE24 @ =0x00000864
 	adds r1, r0, r2
 	subs r2, #4
@@ -11111,7 +11111,7 @@ sub_0804FE04: @ 0x0804FE04
 	str r0, [r1]
 	b _0804FE2E
 	.align 2, 0
-_0804FE20: .4byte gUnk_02033A90
+_0804FE20: .4byte gArea
 _0804FE24: .4byte 0x00000864
 _0804FE28:
 	ldr r0, _0804FE3C @ =gUnk_080FACB8

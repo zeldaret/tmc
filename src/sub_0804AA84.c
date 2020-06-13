@@ -4,13 +4,13 @@
 
 /* extern void sub_0805E5A8();
 
-extern u8 gUnk_02033A90;
+extern u8 gArea;
 extern u8 gUnk_03001000;
 
 u32 sub_0804AA84(void)
 
 {
-	u8 * r3 = &gUnk_02033A90; 
+	u8 * r3 = &gArea; 
 	u8 * r2;
 	u8 r0 = *(u8 *)(r3 + 0x19);
 	u8 r1;

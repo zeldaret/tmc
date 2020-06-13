@@ -1442,7 +1442,7 @@ _080777CC:
 	.align 2, 0
 _080777D0: .4byte gLinkState
 _080777D4:
-	ldr r2, _080777F4 @ =gUnk_02033A90
+	ldr r2, _080777F4 @ =gArea
 	ldrb r0, [r2, #0x18]
 	cmp r0, #2
 	beq _080777FC
@@ -1459,7 +1459,7 @@ _080777D4:
 	bne _0807787A
 	b _08077838
 	.align 2, 0
-_080777F4: .4byte gUnk_02033A90
+_080777F4: .4byte gArea
 _080777F8: .4byte gUnk_0200AF00
 _080777FC:
 	ldrb r0, [r2, #0x1a]

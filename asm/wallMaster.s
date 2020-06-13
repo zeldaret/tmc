@@ -442,7 +442,7 @@ sub_0802A734: @ 0x0802A734
 	bne _0802A768
 	bl sub_0805E5A8
 	ldr r1, _0802A760 @ =gUnk_0813AB1C
-	ldr r0, _0802A764 @ =gUnk_02033A90
+	ldr r0, _0802A764 @ =gArea
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -451,7 +451,7 @@ sub_0802A734: @ 0x0802A734
 	b _0802A780
 	.align 2, 0
 _0802A760: .4byte gUnk_0813AB1C
-_0802A764: .4byte gUnk_02033A90
+_0802A764: .4byte gArea
 _0802A768:
 	ldr r0, [r4, #0x34]
 	ldr r1, _0802A784 @ =0xFFFE0000

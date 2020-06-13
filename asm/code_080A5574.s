@@ -910,7 +910,7 @@ sub_080A5C44: @ 0x080A5C44
 	bl sub_080A5CFC
 	movs r0, #0x81
 	bl sub_0801D7EC
-	ldr r4, _080A5C90 @ =gUnk_02033A90
+	ldr r4, _080A5C90 @ =gArea
 	ldrb r0, [r4, #3]
 	movs r1, #1
 	bl sub_080A6FB4
@@ -935,7 +935,7 @@ sub_080A5C44: @ 0x080A5C44
 	.align 2, 0
 _080A5C88: .4byte gUnk_02000080
 _080A5C8C: .4byte gUnk_08128D38
-_080A5C90: .4byte gUnk_02033A90
+_080A5C90: .4byte gArea
 _080A5C94: .4byte gUnk_08128D43
 _080A5C98: .4byte gScreen
 
@@ -945,7 +945,7 @@ sub_080A5C9C: @ 0x080A5C9C
 	bl sub_080A51F4
 	cmp r0, #0
 	beq _080A5CFA
-	ldr r0, _080A5CC4 @ =gUnk_02033A90
+	ldr r0, _080A5CC4 @ =gArea
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #2
 	ldr r1, _080A5CC8 @ =gUnk_080C9C6C
@@ -960,7 +960,7 @@ sub_080A5C9C: @ 0x080A5C9C
 	beq _080A5CDC
 	b _080A5CE6
 	.align 2, 0
-_080A5CC4: .4byte gUnk_02033A90
+_080A5CC4: .4byte gArea
 _080A5CC8: .4byte gUnk_080C9C6C
 _080A5CCC: .4byte gUnk_02000080
 _080A5CD0: .4byte gUnk_03000FF0
@@ -1009,7 +1009,7 @@ sub_080A5D1C: @ 0x080A5D1C
 	mov r6, sb
 	mov r5, r8
 	push {r5, r6, r7}
-	ldr r0, _080A5E98 @ =gUnk_02033A90
+	ldr r0, _080A5E98 @ =gArea
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #2
 	ldr r1, _080A5E9C @ =gUnk_080C9C6C
@@ -1192,7 +1192,7 @@ _080A5E88:
 	beq _080A5ECA
 	b _080A5EEE
 	.align 2, 0
-_080A5E98: .4byte gUnk_02033A90
+_080A5E98: .4byte gArea
 _080A5E9C: .4byte gUnk_080C9C6C
 _080A5EA0: .4byte gUnk_08128D3C
 _080A5EA4: .4byte gUnk_03001010
@@ -1262,7 +1262,7 @@ _080A5F20: .4byte 0x000001FB
 sub_080A5F24: @ 0x080A5F24
 	push {r4, lr}
 	movs r4, #1
-	ldr r0, _080A5F44 @ =gUnk_02033A90
+	ldr r0, _080A5F44 @ =gArea
 	ldrb r0, [r0, #3]
 	cmp r0, #6
 	bne _080A5F40
@@ -1277,7 +1277,7 @@ _080A5F40:
 	adds r0, r4, #0
 	pop {r4, pc}
 	.align 2, 0
-_080A5F44: .4byte gUnk_02033A90
+_080A5F44: .4byte gArea
 
 	thumb_func_start sub_080A5F48
 sub_080A5F48: @ 0x080A5F48
@@ -3886,7 +3886,7 @@ _080A73B4:
 	bl sub_0801D66C
 	ldrb r0, [r4, #4]
 	bl sub_08052D58
-	ldr r4, _080A749C @ =gUnk_02033A90
+	ldr r4, _080A749C @ =gArea
 	strh r0, [r4, #4]
 	bl sub_08052E8C
 	ldr r1, _080A74A0 @ =0x0000085C
@@ -3922,7 +3922,7 @@ _080A748C: .4byte gUnk_02024490
 _080A7490: .4byte gRoomControls
 _080A7494: .4byte gUnk_03001020
 _080A7498: .4byte gScreen
-_080A749C: .4byte gUnk_02033A90
+_080A749C: .4byte gArea
 _080A74A0: .4byte 0x0000085C
 _080A74A4: .4byte 0x0000FFFF
 _080A74A8:
@@ -9869,7 +9869,7 @@ _080AA0B8:
 	strb r0, [r4, #0x14]
 	ldr r0, _080AA10C @ =gUnk_080FD150
 	str r0, [r4, #0x48]
-	bl sub_08052660
+	bl CheckIsDungeon
 	cmp r0, #0
 	beq _080AA100
 	ldrb r0, [r4, #0x1b]

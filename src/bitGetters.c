@@ -1,29 +1,29 @@
 #include "global.h"
 
-extern u8 gUnk_02033A90;
+extern u8 gArea;
 
 u32 sub_08052654()
 {
-    return (gUnk_02033A90 >> 7) & 1;
+    return (gArea >> 7) & 1;
 }
 
-u32 sub_08052660()
+u32 CheckIsDungeon()
 {
-    return (gUnk_02033A90 >> 2) & 1;
+    return (gArea >> 2) & 1;
 }
 
 u32 sub_08052670()
 {
-    return (gUnk_02033A90 >> 4) & 1;
+    return (gArea >> 4) & 1;
 }
 
 u32 sub_08052680()
 {
-    return (gUnk_02033A90 >> 6) & 1;
+    return (gArea >> 6) & 1;
 }
 
 u32 sub_08052690()
 
 {
-    return (gUnk_02033A90 >> 3) & 1;
+    return (gArea >> 3) & 1;
 }

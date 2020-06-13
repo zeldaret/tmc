@@ -3432,7 +3432,7 @@ _08051B02:
 	cmp r0, #0
 	bne _08051BAE
 	bl sub_08052F1C
-	ldr r5, _08051BB8 @ =gUnk_02033A90
+	ldr r5, _08051BB8 @ =gArea
 	movs r0, #0x86
 	lsls r0, r0, #4
 	adds r3, r5, r0
@@ -3485,7 +3485,7 @@ _08051BAE:
 	.align 2, 0
 _08051BB0: .4byte gUnk_03000FD0
 _08051BB4: .4byte gRoomControls
-_08051BB8: .4byte gUnk_02033A90
+_08051BB8: .4byte gArea
 _08051BBC: .4byte 0x00000864
 _08051BC0: .4byte 0x800B0000
 _08051BC4: .4byte gUnk_03001000
@@ -3802,7 +3802,7 @@ sub_08051E84: @ 0x08051E84
 	bl sub_08053320
 	ldrb r0, [r5, #4]
 	bl sub_08052D58
-	ldr r1, _08051EFC @ =gUnk_02033A90
+	ldr r1, _08051EFC @ =gArea
 	movs r6, #0
 	strh r0, [r1, #4]
 	ldrb r0, [r4]
@@ -3840,7 +3840,7 @@ sub_08051E84: @ 0x08051E84
 _08051EF0: .4byte gUnk_02032EC0
 _08051EF4: .4byte gUnk_080FCA20
 _08051EF8: .4byte gRoomControls
-_08051EFC: .4byte gUnk_02033A90
+_08051EFC: .4byte gArea
 _08051F00: .4byte gUnk_02000080
 
 	thumb_func_start sub_08051F04

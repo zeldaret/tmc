@@ -178,7 +178,7 @@ _08083456:
 	ldrh r2, [r5]
 	adds r0, r4, #0
 	bl sub_080836DC
-	bl sub_08052660
+	bl CheckIsDungeon
 	cmp r0, #0
 	bne _08083484
 	movs r0, #5

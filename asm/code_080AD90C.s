@@ -3444,7 +3444,7 @@ sub_080AF250: @ 0x080AF250
 	adds r4, r0, #0
 	bl sub_08052E8C
 	adds r1, r0, #0
-	ldr r0, _080AF26C @ =gUnk_02033A90
+	ldr r0, _080AF26C @ =gArea
 	ldr r2, _080AF270 @ =0x0000085C
 	adds r0, r0, r2
 	str r1, [r0]
@@ -3453,7 +3453,7 @@ sub_080AF250: @ 0x080AF250
 	ldr r0, _080AF274 @ =gUnk_08135190
 	b _080AF27A
 	.align 2, 0
-_080AF26C: .4byte gUnk_02033A90
+_080AF26C: .4byte gArea
 _080AF270: .4byte 0x0000085C
 _080AF274: .4byte gUnk_08135190
 _080AF278:
@@ -3477,7 +3477,7 @@ sub_080AF284: @ 0x080AF284
 	cmp r0, #0
 	beq _080AF2BC
 	bl sub_08052E8C
-	ldr r1, _080AF2B0 @ =gUnk_02033A90
+	ldr r1, _080AF2B0 @ =gArea
 	ldr r2, _080AF2B4 @ =0x0000085C
 	adds r1, r1, r2
 	str r0, [r1]
@@ -3485,7 +3485,7 @@ sub_080AF284: @ 0x080AF284
 	b _080AF2D4
 	.align 2, 0
 _080AF2AC: .4byte gRoomControls
-_080AF2B0: .4byte gUnk_02033A90
+_080AF2B0: .4byte gArea
 _080AF2B4: .4byte 0x0000085C
 _080AF2B8: .4byte gUnk_08135048
 _080AF2BC:
@@ -3494,7 +3494,7 @@ _080AF2BC:
 	cmp r0, #0
 	beq _080AF2D6
 	bl sub_08052E8C
-	ldr r1, _080AF2D8 @ =gUnk_02033A90
+	ldr r1, _080AF2D8 @ =gArea
 	ldr r2, _080AF2DC @ =0x0000085C
 	adds r1, r1, r2
 	str r0, [r1]
@@ -3504,7 +3504,7 @@ _080AF2D4:
 _080AF2D6:
 	pop {pc}
 	.align 2, 0
-_080AF2D8: .4byte gUnk_02033A90
+_080AF2D8: .4byte gArea
 _080AF2DC: .4byte 0x0000085C
 _080AF2E0: .4byte gUnk_08134FBC
 
@@ -3516,7 +3516,7 @@ sub_080AF2E4: @ 0x080AF2E4
 	cmp r0, #0
 	beq _080AF300
 	bl sub_08052E8C
-	ldr r1, _080AF304 @ =gUnk_02033A90
+	ldr r1, _080AF304 @ =gArea
 	ldr r2, _080AF308 @ =0x0000085C
 	adds r1, r1, r2
 	str r0, [r1]
@@ -3525,6 +3525,6 @@ sub_080AF2E4: @ 0x080AF2E4
 _080AF300:
 	pop {pc}
 	.align 2, 0
-_080AF304: .4byte gUnk_02033A90
+_080AF304: .4byte gArea
 _080AF308: .4byte 0x0000085C
 _080AF30C: .4byte gUnk_0813A76C

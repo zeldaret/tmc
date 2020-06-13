@@ -16,4 +16,6 @@ typedef struct {
     u16 unk2; //HI?
 } TextBox;
 
+extern TextBox gTextBox;
+
 #endif

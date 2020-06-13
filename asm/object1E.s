@@ -83,7 +83,7 @@ _08087588:
 	.align 2, 0
 _08087590: .4byte gLinkEntity
 _08087594:
-	ldr r0, _080875B4 @ =gUnk_02033A90
+	ldr r0, _080875B4 @ =gArea
 	ldrb r0, [r0, #1]
 	movs r1, #4
 	cmp r0, #0x10
@@ -100,7 +100,7 @@ _080875A2:
 	bne _080875CE
 	b _080875C0
 	.align 2, 0
-_080875B4: .4byte gUnk_02033A90
+_080875B4: .4byte gArea
 _080875B8:
 	ldrb r0, [r4, #0x18]
 	movs r1, #0x40

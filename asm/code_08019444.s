@@ -3458,7 +3458,7 @@ _0801AE5A:
 	beq _0801AE70
 	bl sub_0807C898
 _0801AE70:
-	ldr r4, _0801AEE8 @ =gUnk_02033A90
+	ldr r4, _0801AEE8 @ =gArea
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0
 	beq _0801AE8C
@@ -3514,7 +3514,7 @@ _0801AED0:
 	.align 2, 0
 _0801AEE0: .4byte gRoomControls
 _0801AEE4: .4byte gUnk_030010A0
-_0801AEE8: .4byte gUnk_02033A90
+_0801AEE8: .4byte gArea
 _0801AEEC: .4byte 0x0600F000
 _0801AEF0: .4byte gUnk_03004030
 _0801AEF4: .4byte 0x0000088C

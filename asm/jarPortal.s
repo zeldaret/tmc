@@ -233,7 +233,7 @@ sub_0808C01C: @ 0x0808C01C
 	bl sub_0806FBFC
 	cmp r0, #0
 	beq _0808C0A6
-	ldr r2, _0808C06C @ =gUnk_02033A90
+	ldr r2, _0808C06C @ =gArea
 	ldrh r0, [r4, #0x2e]
 	strh r0, [r2, #0x12]
 	ldrh r0, [r4, #0x32]
@@ -260,13 +260,13 @@ _0808C050:
 	strb r6, [r2, #0x18]
 	b _0808C082
 	.align 2, 0
-_0808C06C: .4byte gUnk_02033A90
+_0808C06C: .4byte gArea
 _0808C070: .4byte gLinkState
 _0808C074:
 	bl sub_08057810
 	cmp r0, #0
 	beq _0808C082
-	ldr r1, _0808C0A8 @ =gUnk_02033A90
+	ldr r1, _0808C0A8 @ =gArea
 	movs r0, #3
 	strb r0, [r1, #0x18]
 _0808C082:
@@ -289,7 +289,7 @@ _0808C082:
 _0808C0A6:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0808C0A8: .4byte gUnk_02033A90
+_0808C0A8: .4byte gArea
 
 	thumb_func_start sub_0808C0AC
 sub_0808C0AC: @ 0x0808C0AC

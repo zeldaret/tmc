@@ -242,14 +242,14 @@ _0804B210:
 	bl sub_0804B300
 	b _0804B252
 _0804B218:
-	ldr r0, _0804B224 @ =gUnk_02033A90
+	ldr r0, _0804B224 @ =gArea
 	ldr r1, _0804B228 @ =0x00000864
 	adds r0, r0, r1
 	ldrb r1, [r4, #3]
 	str r1, [r0]
 	b _0804B252
 	.align 2, 0
-_0804B224: .4byte gUnk_02033A90
+_0804B224: .4byte gArea
 _0804B228: .4byte 0x00000864
 _0804B22C:
 	adds r0, r4, #0
@@ -300,13 +300,13 @@ _0804B278: .4byte gUnk_02034398
 	thumb_func_start sub_0804B27C
 sub_0804B27C: @ 0x0804B27C
 	push {lr}
-	ldr r1, _0804B28C @ =gUnk_02033A90
+	ldr r1, _0804B28C @ =gArea
 	ldrb r0, [r0, #1]
 	strb r0, [r1, #1]
 	bl sub_08054524
 	pop {pc}
 	.align 2, 0
-_0804B28C: .4byte gUnk_02033A90
+_0804B28C: .4byte gArea
 
 	thumb_func_start sub_0804B290
 sub_0804B290: @ 0x0804B290
@@ -602,14 +602,14 @@ sub_0804B460: @ 0x0804B460
 	push {lr}
 	movs r0, #9
 	bl sub_08030118
-	ldr r0, _0804B474 @ =gUnk_02033A90
+	ldr r0, _0804B474 @ =gArea
 	movs r1, #3
 	strb r1, [r0, #3]
 	movs r1, #0x4e
 	strb r1, [r0]
 	pop {pc}
 	.align 2, 0
-_0804B474: .4byte gUnk_02033A90
+_0804B474: .4byte gArea
 
 	thumb_func_start sub_0804B478
 sub_0804B478: @ 0x0804B478
@@ -621,14 +621,14 @@ sub_0804B47C: @ 0x0804B47C
 	push {lr}
 	movs r0, #0xa
 	bl sub_08030118
-	ldr r0, _0804B490 @ =gUnk_02033A90
+	ldr r0, _0804B490 @ =gArea
 	movs r1, #3
 	strb r1, [r0, #3]
 	movs r1, #0x4e
 	strb r1, [r0]
 	pop {pc}
 	.align 2, 0
-_0804B490: .4byte gUnk_02033A90
+_0804B490: .4byte gArea
 
 	thumb_func_start sub_0804B494
 sub_0804B494: @ 0x0804B494

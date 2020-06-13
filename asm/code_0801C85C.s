@@ -230,7 +230,7 @@ _0801C9EC:
 	strh r0, [r1, #0xe]
 _0801CA1E:
 	ldr r0, _0801CA60 @ =gUnk_02002A40
-	ldr r3, _0801CA64 @ =gUnk_02033A90
+	ldr r3, _0801CA64 @ =gArea
 	ldrb r1, [r3, #3]
 	ldr r5, _0801CA68 @ =0x0000045C
 	adds r2, r0, r5
@@ -261,7 +261,7 @@ _0801CA54: .4byte gUnk_020350E2
 _0801CA58: .4byte 0x0000F01C
 _0801CA5C: .4byte gScreen
 _0801CA60: .4byte gUnk_02002A40
-_0801CA64: .4byte gUnk_02033A90
+_0801CA64: .4byte gArea
 _0801CA68: .4byte 0x0000045C
 
 	thumb_func_start sub_0801CA6C
@@ -718,7 +718,7 @@ sub_0801CD94: @ 0x0801CD94
 	ldrb r2, [r0]
 	cmp r2, #0
 	bne _0801CDCE
-	ldr r0, _0801CDC4 @ =gUnk_02033A90
+	ldr r0, _0801CDC4 @ =gArea
 	ldrb r0, [r0, #0x18]
 	cmp r0, #2
 	beq _0801CDC8
@@ -730,7 +730,7 @@ sub_0801CD94: @ 0x0801CD94
 	b _0801CDCE
 	.align 2, 0
 _0801CDC0: .4byte gUnk_0200AF00
-_0801CDC4: .4byte gUnk_02033A90
+_0801CDC4: .4byte gArea
 _0801CDC8:
 	movs r2, #0xb
 	b _0801CDCE
