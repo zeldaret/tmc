@@ -159,7 +159,7 @@ _0806CED6:
 	ldr r0, _0806CEE4 @ =gUnk_08113F48
 	adds r1, r1, r0
 	adds r0, r5, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806CEE4: .4byte gUnk_08113F48

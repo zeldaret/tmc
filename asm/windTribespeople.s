@@ -232,7 +232,7 @@ sub_0806C928: @ 0x0806C928
 	lsls r1, r1, #3
 	ldr r2, _0806C940 @ =gUnk_08113ABC
 	adds r1, r1, r2
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806C93C: .4byte gUnk_02002A40
@@ -376,7 +376,7 @@ _0806CA38: .4byte 0x00002527
 sub_0806CA3C: @ 0x0806CA3C
 	push {lr}
 	ldr r1, _0806CA48 @ =gUnk_08113B28
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806CA48: .4byte gUnk_08113B28
@@ -385,7 +385,7 @@ _0806CA48: .4byte gUnk_08113B28
 sub_0806CA4C: @ 0x0806CA4C
 	push {lr}
 	ldr r1, _0806CA58 @ =gUnk_08113B30
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806CA58: .4byte gUnk_08113B30

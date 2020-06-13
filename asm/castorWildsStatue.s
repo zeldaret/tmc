@@ -558,7 +558,7 @@ sub_08067790: @ 0x08067790
 	ldr r3, _080677B0 @ =gUnk_08110EF8
 	adds r2, r2, r3
 	adds r1, r1, r2
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _080677AC: .4byte gUnk_02002A40

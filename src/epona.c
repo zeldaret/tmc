@@ -9,7 +9,7 @@ extern void LoadAnimation(Entity*, u32);
 extern void sub_080042B8(Entity*);
 extern void sub_08065AA4(Entity*);
 extern u32 UpdateFuseInteraction(void);
-extern void sub_0806F1AC(Entity*, u64*);
+extern void ShowNPCDialogue(Entity*, u64*);
 extern void sub_08078778(Entity*);
 extern void sub_080787A8(Entity*, u32);
 extern void sub_0806F118(Entity*);
@@ -77,7 +77,7 @@ void sub_08065A34(Entity* ent)
 
 void sub_08065A50(Entity* ent)
 {
-    sub_0806F1AC(ent, &gUnk_08110080[ent->entityType.parameter1]);
+    ShowNPCDialogue(ent, &gUnk_08110080[ent->entityType.parameter1]);
 }
 
 void sub_08065A64(Entity* ent)

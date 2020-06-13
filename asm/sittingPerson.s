@@ -289,7 +289,7 @@ _08063958:
 	adds r0, r0, r2
 	adds r1, r1, r0
 	adds r0, r3, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806396C: .4byte gUnk_02002A40

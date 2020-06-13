@@ -768,7 +768,7 @@ _08062678:
 	lsls r0, r0, #3
 	adds r1, r1, r0
 	adds r0, r2, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 _08062690:
 	pop {pc}
 	.align 2, 0

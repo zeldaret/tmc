@@ -217,7 +217,7 @@ _08067300: .4byte gUnk_08110CE8
 sub_08067304: @ 0x08067304
 	push {lr}
 	ldr r1, _08067310 @ =gUnk_08110D00
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _08067310: .4byte gUnk_08110D00

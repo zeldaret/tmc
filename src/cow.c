@@ -9,7 +9,7 @@ extern u32 sub_0805ACC0(Entity*);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_0806924C(Entity*);
 extern void sub_080AEF88(Entity*);
-extern void sub_0806F1AC(Entity*, u32*);
+extern void ShowNPCDialogue(Entity*, u32*);
 extern void sub_08078778(Entity*);
 extern void sub_080787A8(Entity*, u32);
 extern void sub_0806F118(Entity*);
@@ -182,10 +182,11 @@ void sub_080691E0(Entity* ent) {
     }
 }
 
+//Show dialogue
 void sub_080691F8(Entity* ent) {
     u32 var0 = ent->entityType.parameter1;
     u32* var1 = gUnk_08111938 + (var0 * 2);
-    sub_0806F1AC(ent, var1);
+    ShowNPCDialogue(ent, var1);
 }
 
 void sub_0806920C(Entity* ent) {
@@ -204,6 +205,7 @@ void sub_0806920C(Entity* ent) {
     ent->field_0x6d = var1;
 }
 
+//Check if player interacting
 void sub_0806924C(Entity* ent) {
     s8 itype = ent->interactType;
     if (itype != 0) {

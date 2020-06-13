@@ -177,7 +177,7 @@ sub_0806C4DC: @ 0x0806C4DC
 	lsls r1, r1, #3
 	ldr r2, _0806C4F4 @ =gUnk_08113760
 	adds r1, r1, r2
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806C4F0: .4byte gUnk_02002A40

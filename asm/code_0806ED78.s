@@ -610,8 +610,8 @@ _0806F1A0:
 _0806F1A4: .4byte gUnk_02002A40
 _0806F1A8: .4byte 0x000001C1
 
-	thumb_func_start sub_0806F1AC
-sub_0806F1AC: @ 0x0806F1AC
+	thumb_func_start ShowNPCDialogue
+ShowNPCDialogue: @ 0x0806F1AC
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}

@@ -661,7 +661,7 @@ _0806205E:
 	adds r0, r0, r2
 	adds r1, r1, r0
 	adds r0, r3, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	b _08062084
 	.align 2, 0
 _08062074: .4byte gUnk_02002A40

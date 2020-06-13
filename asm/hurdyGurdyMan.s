@@ -152,7 +152,7 @@ _0806E428:
 	ldr r0, _0806E43C @ =gUnk_081144FC
 	adds r1, r1, r0
 	adds r0, r2, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806E438: .4byte gUnk_02002A40

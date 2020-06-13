@@ -995,7 +995,7 @@ _08064454:
 _08064460:
 	adds r1, r0, r1
 	adds r0, r3, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806446C: .4byte gUnk_0810D0A4

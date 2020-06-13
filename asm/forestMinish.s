@@ -306,7 +306,7 @@ sub_08060208: @ 0x08060208
 	lsls r1, r1, #5
 	ldr r2, _08060218 @ =gUnk_08109DC8
 	adds r1, r1, r2
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _08060218: .4byte gUnk_08109DC8
@@ -339,7 +339,7 @@ _08060244:
 	adds r0, r0, r2
 	adds r1, r1, r0
 	adds r0, r5, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {r4, r5, pc}
 	.align 2, 0
 _08060258: .4byte gUnk_08109DC8
@@ -351,7 +351,7 @@ sub_0806025C: @ 0x0806025C
 	lsls r1, r1, #5
 	ldr r2, _0806026C @ =gUnk_08109DC8
 	adds r1, r1, r2
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806026C: .4byte gUnk_08109DC8

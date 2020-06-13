@@ -6085,7 +6085,7 @@ _0807F704: .4byte gLinkState
 sub_0807F708: @ 0x0807F708
 	push {lr}
 	ldr r1, [r1, #4]
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 
