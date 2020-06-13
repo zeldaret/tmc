@@ -159,7 +159,7 @@ void sub_08069168(Entity* ent) {
 }
 
 void sub_08069188(Entity* ent) {
-    if (ent->frames.f2 == 0) return;
+    if (ent->frames.b.f0 == 0) return;
     ent->frames.all = 0;
 
     if (((s8) --ent->field_0xf) != 0) return;
