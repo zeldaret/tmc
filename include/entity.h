@@ -77,7 +77,7 @@ typedef struct Entity
     u8 filler[2];
     u8 animationList;
     u8 field_1f;
-    u32 field_0x20;
+    s32 field_0x20;
     s16 nonPlanarMovement;
     u8 spriteAnimation[3];
     struct {
@@ -114,9 +114,12 @@ typedef struct Entity
     u8 field_0x59;
     union {
         u8 all;
-        u8 f0:6;
-        u8 f1:1;
-        u8 f2:1;
+        struct {
+            u8 f0:1;
+            u8 f1:5;
+            u8 f2:1;
+            u8 f3:1;
+        } PACKED b;
     } PACKED frames;
     u8 gfx;
     u8 field_0x5c;
