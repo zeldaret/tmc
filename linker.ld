@@ -499,7 +499,7 @@ SECTIONS {
 		asm/ministerPotho.o(.text);
 		asm/npc26.o(.text);
 		asm/vaati.o(.text);
-		asm/zelda.o(.text);
+		src/zelda.o(.text);
 		asm/mutoh.o(.text);
 		asm/carpenter.o(.text);
 		asm/castorWildsStatue.o(.text);
