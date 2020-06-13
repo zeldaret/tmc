@@ -1,9 +1,7 @@
 #include "global.h"
 #include "entity.h"
-#include "stats.h"
+#include "link.h"
 
-extern Stats gStats;
-extern Entity gLinkEntity;
 s32 ModHealth(s32 deltaHealth)
 
 {

@@ -265,7 +265,7 @@ _0805E928: .4byte gUnk_020354B4
 	thumb_func_start sub_0805E92C
 sub_0805E92C: @ 0x0805E92C
 	push {lr}
-	ldr r2, _0805E94C @ =gUnk_02033A90
+	ldr r2, _0805E94C @ =gArea
 	ldr r1, _0805E950 @ =0x00000888
 	adds r3, r2, r1
 	ldr r1, [r3]
@@ -282,7 +282,7 @@ sub_0805E92C: @ 0x0805E92C
 _0805E94A:
 	pop {pc}
 	.align 2, 0
-_0805E94C: .4byte gUnk_02033A90
+_0805E94C: .4byte gArea
 _0805E950: .4byte 0x00000888
 _0805E954: .4byte 0x0000088C
 

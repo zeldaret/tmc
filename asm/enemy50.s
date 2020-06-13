@@ -853,7 +853,7 @@ _08041184:
 	bl sub_0806FD54
 	cmp r0, #0
 	bne _080411B6
-	ldr r0, _080411C0 @ =gUnk_02033A90
+	ldr r0, _080411C0 @ =gArea
 	movs r1, #0xa
 	ldrsh r0, [r0, r1]
 	cmp r0, #0xf
@@ -872,7 +872,7 @@ _080411B6:
 	movs r0, #1
 	b _080411CA
 	.align 2, 0
-_080411C0: .4byte gUnk_02033A90
+_080411C0: .4byte gArea
 _080411C4: .4byte gUnk_020000B0
 _080411C8:
 	movs r0, #0
@@ -923,7 +923,7 @@ _08041204:
 	.align 2, 0
 _08041214: .4byte gLinkState
 _08041218:
-	ldr r0, _08041228 @ =gUnk_02033A90
+	ldr r0, _08041228 @ =gArea
 	movs r1, #0xa
 	ldrsh r0, [r0, r1]
 	cmp r0, #0xf
@@ -933,7 +933,7 @@ _08041222:
 _08041224:
 	pop {r4, pc}
 	.align 2, 0
-_08041228: .4byte gUnk_02033A90
+_08041228: .4byte gArea
 
 	thumb_func_start sub_0804122C
 sub_0804122C: @ 0x0804122C

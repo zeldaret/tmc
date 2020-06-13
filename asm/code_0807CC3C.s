@@ -19,26 +19,26 @@ _0807CC48: .4byte gUnk_02034364
 CheckLocalFlagsByOffset: @ 0x0807CC4C
 	push {lr}
 	adds r3, r0, #0
-	ldr r0, _0807CC5C @ =gUnk_02002C9C
+	ldr r0, _0807CC5C @ =gGlobalFlags
 	adds r3, r3, r1
 	adds r1, r3, #0
 	bl sub_08000F10
 	pop {pc}
 	.align 2, 0
-_0807CC5C: .4byte gUnk_02002C9C
+_0807CC5C: .4byte gGlobalFlags
 
 	thumb_func_start CheckLocalFlags
 CheckLocalFlags: @ 0x0807CC60
 	push {lr}
 	adds r3, r0, #0
 	adds r2, r1, #0
-	ldr r0, _0807CC74 @ =gUnk_02033A90
+	ldr r0, _0807CC74 @ =gArea
 	ldrh r0, [r0, #4]
 	adds r1, r3, #0
 	bl CheckLocalFlagsByOffset
 	pop {pc}
 	.align 2, 0
-_0807CC74: .4byte gUnk_02033A90
+_0807CC74: .4byte gArea
 
 	thumb_func_start CheckGlobalFlags
 CheckGlobalFlags: @ 0x0807CC78
@@ -68,24 +68,24 @@ SetLocalFlagByOffset: @ 0x0807CC9C
 	adds r2, r0, #0
 	cmp r1, #0
 	beq _0807CCAC
-	ldr r0, _0807CCB0 @ =gUnk_02002C9C
+	ldr r0, _0807CCB0 @ =gGlobalFlags
 	adds r1, r2, r1
 	bl sub_0801D5BC
 _0807CCAC:
 	pop {pc}
 	.align 2, 0
-_0807CCB0: .4byte gUnk_02002C9C
+_0807CCB0: .4byte gGlobalFlags
 
 	thumb_func_start SetLocalFlag
 SetLocalFlag: @ 0x0807CCB4
 	push {lr}
 	adds r1, r0, #0
-	ldr r0, _0807CCC4 @ =gUnk_02033A90
+	ldr r0, _0807CCC4 @ =gArea
 	ldrh r0, [r0, #4]
 	bl SetLocalFlagByOffset
 	pop {pc}
 	.align 2, 0
-_0807CCC4: .4byte gUnk_02033A90
+_0807CCC4: .4byte gArea
 
 	thumb_func_start SetFlag
 SetFlag: @ 0x0807CCC8
@@ -142,24 +142,24 @@ _0807CD1C: .4byte gUnk_02034364
 ClearLocalFlagByOffset: @ 0x0807CD20
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _0807CD30 @ =gUnk_02002C9C
+	ldr r0, _0807CD30 @ =gGlobalFlags
 	adds r2, r2, r1
 	adds r1, r2, #0
 	bl sub_0801D5D4
 	pop {pc}
 	.align 2, 0
-_0807CD30: .4byte gUnk_02002C9C
+_0807CD30: .4byte gGlobalFlags
 
 	thumb_func_start ClearLocalFlag
 ClearLocalFlag: @ 0x0807CD34
 	push {lr}
 	adds r1, r0, #0
-	ldr r0, _0807CD44 @ =gUnk_02033A90
+	ldr r0, _0807CD44 @ =gArea
 	ldrh r0, [r0, #4]
 	bl ClearLocalFlagByOffset
 	pop {pc}
 	.align 2, 0
-_0807CD44: .4byte gUnk_02033A90
+_0807CD44: .4byte gArea
 
 	thumb_func_start ClearFlag
 ClearFlag: @ 0x0807CD48
@@ -5021,7 +5021,7 @@ sub_0807EFAC: @ 0x0807EFAC
 	ldrh r0, [r1, #2]
 	cmp r0, #0x63
 	bls _0807EFCC
-	ldr r0, _0807EFC8 @ =gUnk_02033A90
+	ldr r0, _0807EFC8 @ =gArea
 	movs r1, #0x86
 	lsls r1, r1, #4
 	adds r0, r0, r1
@@ -5029,7 +5029,7 @@ sub_0807EFAC: @ 0x0807EFAC
 	bl PlaySFX
 	b _0807EFD2
 	.align 2, 0
-_0807EFC8: .4byte gUnk_02033A90
+_0807EFC8: .4byte gArea
 _0807EFCC:
 	ldrh r0, [r1, #2]
 	bl PlaySFX
@@ -8163,7 +8163,7 @@ sub_080806BC: @ 0x080806BC
 	mov r8, r1
 	adds r7, r2, #0
 	adds r6, r3, #0
-	ldr r0, _08080710 @ =gUnk_02033A90
+	ldr r0, _08080710 @ =gArea
 	ldr r1, _08080714 @ =0x0000085C
 	adds r0, r0, r1
 	ldr r0, [r0]
@@ -8196,7 +8196,7 @@ _080806E2:
 	movs r0, #1
 	b _0808072A
 	.align 2, 0
-_08080710: .4byte gUnk_02033A90
+_08080710: .4byte gArea
 _08080714: .4byte 0x0000085C
 _08080718: .4byte 0x0000FFFF
 _0808071C: .4byte gUnk_0811E7AC
@@ -8221,7 +8221,7 @@ sub_08080734: @ 0x08080734
 	push {r7}
 	adds r6, r0, #0
 	adds r5, r1, #0
-	ldr r0, _08080778 @ =gUnk_02033A90
+	ldr r0, _08080778 @ =gArea
 	ldr r1, _0808077C @ =0x0000085C
 	adds r0, r0, r1
 	ldr r0, [r0]
@@ -8251,7 +8251,7 @@ _08080756:
 	adds r0, r4, #0
 	b _0808078E
 	.align 2, 0
-_08080778: .4byte gUnk_02033A90
+_08080778: .4byte gArea
 _0808077C: .4byte 0x0000085C
 _08080780: .4byte 0x0000FFFF
 _08080784:

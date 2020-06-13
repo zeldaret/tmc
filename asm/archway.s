@@ -30,7 +30,7 @@ sub_08090F70: @ 0x08090F70
 	strb r0, [r1]
 	adds r0, r4, #0
 	bl UpdateSpriteOrderAndFlip
-	bl sub_08052660
+	bl CheckIsDungeon
 	cmp r0, #0
 	beq _08090FB4
 	adds r2, r4, #0

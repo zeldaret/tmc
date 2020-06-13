@@ -1605,7 +1605,7 @@ _0803DC66:
 	strb r7, [r4, #0xe]
 	ldr r0, _0803DCE8 @ =0x80100000
 	bl PlaySFX
-	ldr r0, _0803DCEC @ =gUnk_02033A90
+	ldr r0, _0803DCEC @ =gArea
 	movs r2, #0x86
 	lsls r2, r2, #4
 	adds r1, r0, r2
@@ -1617,7 +1617,7 @@ _0803DC66:
 	.align 2, 0
 _0803DCE4: .4byte gUnk_080D04D0
 _0803DCE8: .4byte 0x80100000
-_0803DCEC: .4byte gUnk_02033A90
+_0803DCEC: .4byte gArea
 _0803DCF0:
 	movs r0, #1
 	strb r0, [r4, #0xe]

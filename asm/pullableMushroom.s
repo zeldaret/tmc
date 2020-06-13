@@ -32,7 +32,7 @@ sub_0808AA1C: @ 0x0808AA1C
 	movs r4, #0
 	movs r6, #1
 	strb r6, [r5, #0xc]
-	bl sub_08052660
+	bl CheckIsDungeon
 	cmp r0, #0
 	bne _0808AA36
 	adds r0, r5, #0

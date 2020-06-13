@@ -28,7 +28,7 @@ _0808C982:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #4
 	bls _0808C996
-	ldr r0, _0808CA0C @ =gUnk_02033A90
+	ldr r0, _0808CA0C @ =gArea
 	ldrb r0, [r0, #0x16]
 	ldrb r1, [r4, #0xb]
 	cmp r0, r1
@@ -94,7 +94,7 @@ _0808CA04:
 	pop {r4, pc}
 	.align 2, 0
 _0808CA08: .4byte gUnk_02032EC0
-_0808CA0C: .4byte gUnk_02033A90
+_0808CA0C: .4byte gArea
 
 	thumb_func_start sub_0808CA10
 sub_0808CA10: @ 0x0808CA10

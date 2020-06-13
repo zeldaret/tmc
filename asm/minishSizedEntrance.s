@@ -38,7 +38,7 @@ sub_08090EC0: @ 0x08090EC0
 	strb r0, [r2]
 	ldrb r0, [r4, #0xb]
 	strb r0, [r4, #0x1e]
-	bl sub_08052660
+	bl CheckIsDungeon
 	cmp r0, #0
 	beq _08090EFE
 	ldrb r0, [r4, #0x1e]

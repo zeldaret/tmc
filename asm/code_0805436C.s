@@ -277,7 +277,7 @@ _08054520:
 	thumb_func_start sub_08054524
 sub_08054524: @ 0x08054524
 	push {lr}
-	ldr r0, _08054550 @ =gUnk_02033A90
+	ldr r0, _08054550 @ =gArea
 	ldrb r1, [r0, #1]
 	cmp r1, #0
 	bne _08054534
@@ -300,7 +300,7 @@ _0805453A:
 	bl sub_0801D66C
 	pop {pc}
 	.align 2, 0
-_08054550: .4byte gUnk_02033A90
+_08054550: .4byte gArea
 _08054554: .4byte gUnk_030010A0
 _08054558: .4byte gUnk_080FE1C6
 _0805455C: .4byte gUnk_080015BC
@@ -833,7 +833,7 @@ sub_08054974: @ 0x08054974
 	bl sub_08053320
 	ldrb r0, [r4, #4]
 	bl sub_08052D58
-	ldr r1, _080549B8 @ =gUnk_02033A90
+	ldr r1, _080549B8 @ =gArea
 	strh r0, [r1, #4]
 	cmp r5, #0
 	beq _080549BC
@@ -844,7 +844,7 @@ sub_08054974: @ 0x08054974
 	.align 2, 0
 _080549B0: .4byte gUnk_080FE320
 _080549B4: .4byte gRoomControls
-_080549B8: .4byte gUnk_02033A90
+_080549B8: .4byte gArea
 _080549BC:
 	ldrb r0, [r6, #2]
 	ldrb r1, [r6, #3]

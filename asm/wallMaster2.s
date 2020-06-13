@@ -365,7 +365,7 @@ sub_0802CEF4: @ 0x0802CEF4
 	bne _0802CF28
 	bl sub_0805E5A8
 	ldr r1, _0802CF20 @ =gUnk_0813AB1C
-	ldr r0, _0802CF24 @ =gUnk_02033A90
+	ldr r0, _0802CF24 @ =gArea
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -374,7 +374,7 @@ sub_0802CEF4: @ 0x0802CEF4
 	b _0802CF5A
 	.align 2, 0
 _0802CF20: .4byte gUnk_0813AB1C
-_0802CF24: .4byte gUnk_02033A90
+_0802CF24: .4byte gArea
 _0802CF28:
 	ldr r0, [r4, #0x34]
 	ldr r1, _0802CF5C @ =0xFFFE0000

@@ -39,7 +39,7 @@ _08085520:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	beq _08085552
-	ldr r0, _08085540 @ =gUnk_02033A90
+	ldr r0, _08085540 @ =gArea
 	ldrb r0, [r0, #1]
 	cmp r0, #0x1b
 	beq _08085544
@@ -51,7 +51,7 @@ _08085520:
 	strb r0, [r4, #0xc]
 	b _080855E2
 	.align 2, 0
-_08085540: .4byte gUnk_02033A90
+_08085540: .4byte gArea
 _08085544:
 	ldrb r0, [r4, #0xb]
 	bl CheckLocalFlag
@@ -795,7 +795,7 @@ _08085ACC:
 	beq _08085B34
 	movs r0, #2
 	strb r0, [r4, #0xd]
-	ldr r0, _08085B08 @ =gUnk_02033A90
+	ldr r0, _08085B08 @ =gArea
 	ldrb r0, [r0, #1]
 	cmp r0, #0x1b
 	bne _08085B10
@@ -814,7 +814,7 @@ _08085ACC:
 	.align 2, 0
 _08085B00: .4byte 0x007FFFFF
 _08085B04: .4byte 0xFFFE0000
-_08085B08: .4byte gUnk_02033A90
+_08085B08: .4byte gArea
 _08085B0C: .4byte 0x0000FF30
 _08085B10:
 	ldrh r0, [r4, #0x32]
@@ -879,7 +879,7 @@ _08085B7A:
 	ldrh r1, [r1]
 	subs r2, r0, r1
 	strh r2, [r4, #0x32]
-	ldr r0, _08085BA4 @ =gUnk_02033A90
+	ldr r0, _08085BA4 @ =gArea
 	ldrb r0, [r0, #1]
 	cmp r0, #0x1b
 	bne _08085BA8
@@ -890,7 +890,7 @@ _08085B7A:
 	.align 2, 0
 _08085B9C: .4byte 0x011FFFFF
 _08085BA0: .4byte gLinkEntity
-_08085BA4: .4byte gUnk_02033A90
+_08085BA4: .4byte gArea
 _08085BA8:
 	subs r0, r3, r1
 	adds r1, r2, #0

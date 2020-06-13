@@ -1,5 +1,5 @@
 #include "global.h"
-#include "mainLoop.h"
+#include "main.h"
 
 #ifdef NON_MATCHING
 

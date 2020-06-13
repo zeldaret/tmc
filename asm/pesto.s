@@ -307,7 +307,7 @@ _08024132:
 _08024136:
 	adds r0, r4, #0
 	bl UpdateSpriteOrderAndFlip
-	bl sub_08052660
+	bl CheckIsDungeon
 	cmp r0, #0
 	beq _08024150
 	ldrb r0, [r4, #0x1b]
@@ -1385,7 +1385,7 @@ _0802497C:
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	bne _0802498A
-	bl sub_08052660
+	bl CheckIsDungeon
 	cmp r0, #0
 	beq _080249CE
 _0802498A:

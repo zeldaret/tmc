@@ -84,7 +84,7 @@ sub_0808B474: @ 0x0808B474
 _0808B4D8: .4byte gUnk_08121380
 _0808B4DC: .4byte gUnk_080FD168
 _0808B4E0:
-	bl sub_08052660
+	bl CheckIsDungeon
 	cmp r0, #0
 	beq _0808B4F8
 	ldrb r0, [r4, #0xa]
@@ -131,7 +131,7 @@ sub_0808B530: @ 0x0808B530
 	beq _0808B562
 	adds r0, r4, #0
 	bl sub_0808B830
-	bl sub_08052660
+	bl CheckIsDungeon
 	cmp r0, #0
 	beq _0808B554
 	ldrb r0, [r4, #0xa]

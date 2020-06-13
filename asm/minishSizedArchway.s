@@ -24,7 +24,7 @@ sub_080973E4: @ 0x080973E4
 	strb r0, [r1]
 	adds r0, r4, #0
 	bl UpdateSpriteOrderAndFlip
-	bl sub_08052660
+	bl CheckIsDungeon
 	cmp r0, #0
 	beq _0809741E
 	adds r2, r4, #0

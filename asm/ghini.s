@@ -777,7 +777,7 @@ sub_0803F5A8: @ 0x0803F5A8
 	movs r0, #0
 	b _0803F5D2
 _0803F5BA:
-	ldr r0, _0803F5CC @ =gUnk_02033A90
+	ldr r0, _0803F5CC @ =gArea
 	movs r1, #0xa
 	ldrsh r0, [r0, r1]
 	cmp r0, #0xf
@@ -786,7 +786,7 @@ _0803F5BA:
 	bl sub_0806FD54
 	b _0803F5D2
 	.align 2, 0
-_0803F5CC: .4byte gUnk_02033A90
+_0803F5CC: .4byte gArea
 _0803F5D0:
 	movs r0, #1
 _0803F5D2:
@@ -814,7 +814,7 @@ _0803F5E8:
 	bl sub_0806FD54
 	cmp r0, #0
 	bne _0803F61A
-	ldr r0, _0803F624 @ =gUnk_02033A90
+	ldr r0, _0803F624 @ =gArea
 	movs r1, #0xa
 	ldrsh r0, [r0, r1]
 	cmp r0, #0xf
@@ -833,7 +833,7 @@ _0803F61A:
 	movs r0, #1
 	b _0803F62E
 	.align 2, 0
-_0803F624: .4byte gUnk_02033A90
+_0803F624: .4byte gArea
 _0803F628: .4byte gUnk_020000B0
 _0803F62C:
 	movs r0, #0
