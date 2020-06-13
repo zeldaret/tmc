@@ -509,7 +509,7 @@ SECTIONS {
 		asm/zeldaFollower.o(.text);
 		asm/melari.o(.text);
 		asm/bladeBrothers.o(.text);
-		asm/cow.o(.text);
+		src/cow.o(.text);
 		asm/goron.o(.text);
 		asm/goronMerchant.o(.text);
 		asm/gorman.o(.text);

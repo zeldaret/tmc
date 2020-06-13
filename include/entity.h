@@ -133,7 +133,9 @@ typedef struct Entity
 	u8 field_0x68;
     u8 field_0x69;
     u16 field_0x6a;
-    u8 filler4[8];
+    u8 field_0x6c;
+    u8 field_0x6d;
+    u8 filler4[6];
     u32 * heldObjectPtr;
 	u8 filler3[2];
 	u16 itemCooldown;
