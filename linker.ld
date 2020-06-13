@@ -366,7 +366,7 @@ SECTIONS {
 		asm/rope.o(.text);
 		asm/smallPesto.o(.text);
 		asm/acroBandits.o(.text);
-		asm/bladeTrap.o(.text);
+		src/bladeTrap.o(.text);
 		asm/keaton.o(.text);
 		asm/crow.o(.text);
 		asm/mulldozer.o(.text);
