@@ -4,38 +4,36 @@
 #include "link.h"
 
 extern void _call_via_r2();
-extern void sub_08077E78(ItemBehavior *, u32);
+extern void sub_08077E78(ItemBehavior*, u32);
 extern void PlaySFX(u32);
 extern void sub_08078F60(void);
-extern void sub_08077D38(ItemBehavior *, u32);
+extern void sub_08077D38(ItemBehavior*, u32);
 extern void sub_0805E544(void);
-extern void UpdateItemAnim(ItemBehavior *);
+extern void UpdateItemAnim(ItemBehavior*);
 extern void CreateBird(void);
 extern void UnfreezeTime(void);
 
 extern Entity gLinkEntity;
 extern LinkState gLinkState;
-extern void (*gOcarinaStates[4])(ItemBehavior *, u32);
+extern void (*gOcarinaStates[4])(ItemBehavior*, u32);
 extern u8 gUnk_02034490;
 
-void Ocarina(ItemBehavior *pItemBeh,u32 inputFlags)
+void Ocarina(ItemBehavior* pItemBeh, u32 inputFlags)
 
 {
-    //u32 *ocarinaStates = &gOcarinaStates;
+    // u32 *ocarinaStates = &gOcarinaStates;
     //_call_via_r2(pItemBeh, inputFlags,(ocarinaStates)[pItemBeh->stateID]);
     gOcarinaStates[pItemBeh->stateID](pItemBeh, inputFlags);
     gLinkEntity.itemCooldown = gLinkEntity.itemCooldown + 1;
 }
 
-void OcarinaUse(ItemBehavior *itemBeh,s32 inputFlags)
-{
+void OcarinaUse(ItemBehavior* itemBeh, s32 inputFlags) {
     u32 bVar1;
     u32 var;
 
     if (gLinkState.linkAction == 24) {
-        sub_08077E78(itemBeh,inputFlags);
-    }
-    else {
+        sub_08077E78(itemBeh, inputFlags);
+    } else {
         itemBeh->unk4 |= 15;
         gLinkEntity.animationState = 4;
         var = gLinkEntity.spriteSettings.raw & ~0x40;
@@ -50,7 +48,7 @@ void OcarinaUse(ItemBehavior *itemBeh,s32 inputFlags)
         gLinkState.unk3 = bVar1 | gLinkState.unk3;
         gLinkState.keepFacing = bVar1 | gLinkState.keepFacing;
         sub_08078F60();
-        sub_08077D38(itemBeh,inputFlags);
+        sub_08077D38(itemBeh, inputFlags);
         PlaySFX(534);
         sub_0805E544();
     }

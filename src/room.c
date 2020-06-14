@@ -8,10 +8,10 @@ extern u32 gUnk_0200B650;
 extern u32 gUnk_02025EB0;
 extern u8 gUnk_030010A0[10];
 
-extern void sub_08080840(Entity *);
+extern void sub_08080840(Entity*);
 extern void sub_080809D4();
 
-void sub_0808091C(Entity *param_1,u32 param_2)
+void sub_0808091C(Entity* param_1, u32 param_2)
 
 {
     sub_08080840(param_1);
@@ -30,19 +30,18 @@ void sub_08080930(void)
     return;
 }
 
-u32 * GetLayerByIndex(u32 param_1)
+u32* GetLayerByIndex(u32 param_1)
 
 {
-    
+
     if (param_1 == 2) {
         return &gUnk_0200B650;
-    }
-    else {
+    } else {
         return &gUnk_02025EB0;
     }
 }
 
-void sub_08080964(u16 time,u32 magnitude)
+void sub_08080964(u16 time, u32 magnitude)
 
 {
     gRoomControls.screenShakeTime = time;

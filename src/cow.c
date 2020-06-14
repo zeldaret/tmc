@@ -35,9 +35,9 @@ void sub_08068FC0(Entity* ent) {
     ent->action = 1;
     ent->animationState = ent->entityType.parameter2;
     ent->nonPlanarMovement = 0x40;
-   
+
     ent->field_0x6d = 0xFF;
-    
+
     r2 = sub_0805ACC0(ent);
     if (r2 == 0) {
         u16 x, y;
@@ -49,7 +49,7 @@ void sub_08068FC0(Entity* ent) {
         ent->field_0x6a = y;
     } else {
         u32 var1 = r2 >> 16;
-        //0x68+0x69 probably a SplitWord
+        // 0x68+0x69 probably a SplitWord
         *(u16*)&ent->field_0x68 = var1;
         ent->field_0x6a = r2;
     }
@@ -71,17 +71,17 @@ void sub_08069018(Entity* ent) {
     var0 = --ent->field_0xf;
     if (var0 == 0) {
         if (ent->parameter3 == 0) {
-          ent->action = 2;
+            ent->action = 2;
         } else {
-          ent->action = 3;
+            ent->action = 3;
         }
         ent->previousActionFlag = var0;
     }
-    
+
     sub_0806924C(ent);
 }
 
-void sub_08069068(Entity *ent) {
+void sub_08069068(Entity* ent) {
     s32 var0;
 
     if (ent->previousActionFlag == 0) {
@@ -103,7 +103,7 @@ void sub_08069068(Entity *ent) {
 
     {
         s32 x = ent->x.HALF.HI;
-        s16 *x2 = (s16 *)&ent->field_0x68;
+        s16* x2 = (s16*)&ent->field_0x68;
         x -= *x2;
         if (x > 16) {
             ent->x.HALF.HI = *x2 + 16;
@@ -116,7 +116,7 @@ void sub_08069068(Entity *ent) {
     }
     {
         s32 y = ent->y.HALF.HI;
-        s16 *y2 = &ent->field_0x6a;
+        s16* y2 = &ent->field_0x6a;
         y -= *y2;
         if (y > 16) {
             ent->y.HALF.HI = *y2 + 16;
@@ -159,10 +159,12 @@ void sub_08069168(Entity* ent) {
 }
 
 void sub_08069188(Entity* ent) {
-    if (ent->frames.b.f0 == 0) return;
+    if (ent->frames.b.f0 == 0)
+        return;
     ent->frames.all = 0;
 
-    if (((s8) --ent->field_0xf) != 0) return;
+    if (((s8)--ent->field_0xf) != 0)
+        return;
     ent->previousActionFlag = 3;
     LoadAnimation(ent, ent->animationState + 16);
 }
@@ -182,7 +184,7 @@ void sub_080691E0(Entity* ent) {
     }
 }
 
-//Show dialogue
+// Show dialogue
 void sub_080691F8(Entity* ent) {
     u32 var0 = ent->entityType.parameter1;
     u32* var1 = gUnk_08111938 + (var0 * 2);
@@ -190,7 +192,7 @@ void sub_080691F8(Entity* ent) {
 }
 
 void sub_0806920C(Entity* ent) {
-    //TODO: figure out what bitfield flag this is
+    // TODO: figure out what bitfield flag this is
     u32 var0 = gLinkState.flags.all & 0x80;
     u32 var1 = -var0 >> 0x1F;
 
@@ -205,11 +207,11 @@ void sub_0806920C(Entity* ent) {
     ent->field_0x6d = var1;
 }
 
-//Check if player interacting
+// Check if player interacting
 void sub_0806924C(Entity* ent) {
     s8 itype = ent->interactType;
     if (itype != 0) {
-        //TODO: figure out what bitfield flag this is
+        // TODO: figure out what bitfield flag this is
         if ((gLinkState.flags.all & 0x80) != 0) {
             if (itype == 2) {
                 ent->action = 4;

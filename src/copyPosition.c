@@ -3,9 +3,9 @@
 
 extern void PositionRelative();
 
-void CopyPosition(Entity *param_1,Entity *param_2)
+void CopyPosition(Entity* param_1, Entity* param_2)
 
 {
-    PositionRelative(param_1,param_2,0,0);
+    PositionRelative(param_1, param_2, 0, 0);
     return;
 }

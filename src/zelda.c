@@ -6,12 +6,12 @@ extern void sub_0805EA78(Entity*, u32);
 extern void sub_0805E3A0(Entity*, u32);
 extern void sub_0807DD50(Entity*);
 extern void sub_0807DD94(Entity*, u32);
-extern Entity* sub_0805EB9C(u32, u32); 
+extern Entity* sub_0805EB9C(u32, u32);
 void CopyPosition(Entity*, Entity*);
 void sub_08068680(Entity*, Entity*);
 void sub_08068694(Entity*, Entity*);
 extern void SetGlobalFlag(u32);
-extern Entity* CreateNPC(u32 subtype,u32 parameter1,u32 parameter2);
+extern Entity* CreateNPC(u32 subtype, u32 parameter1, u32 parameter2);
 u32 sub_0806EDC4(Entity* ent);
 void DeleteThisEntity(void);
 extern Entity* GetEntityByType(u32, u32);
@@ -31,14 +31,11 @@ extern void (*gUnk_08110BD8[])(Entity* ent);
 extern u8 gUnk_02033280[];
 extern u16 gUnk_08110BE0[];
 
-
-void sub_08066CB4(Entity* ent)
-{
+void sub_08066CB4(Entity* ent) {
     gUnk_08110BD8[ent->action](ent);
 }
 
-void sub_08066CCC(Entity *ent)
-{
+void sub_08066CCC(Entity* ent) {
     ent->action = 1;
     ent->spriteSettings.b.ss0 = 1;
     sub_0805EA78(ent, 7);
@@ -46,42 +43,34 @@ void sub_08066CCC(Entity *ent)
     sub_0807DD50(ent);
 }
 
-void sub_08066CF8(Entity* ent)
-{
+void sub_08066CF8(Entity* ent) {
     sub_0807DD94(ent, 0);
 }
 
-void sub_08066D04(Entity* ent)
-{
+void sub_08066D04(Entity* ent) {
     ent->parent = sub_0805EB9C(7, 0x2E);
 }
 
-void sub_08066D14(Entity* ent, u32* param_2)
-{
+void sub_08066D14(Entity* ent, u32* param_2) {
     Entity* parent;
-  
+
     parent = ent->parent;
-    if (parent != NULL)
-    {
+    if (parent != NULL) {
         ent->animationState = parent->animationState;
         ent->spriteSettings.b.ss0 = 1;
         CopyPosition(parent, ent);
         sub_08068680(ent, ent->parent);
         param_2[5] = 1;
-    }
-    else
-    {
+    } else {
         param_2[5] = 0;
     }
 }
 
-void sub_08066D4C(Entity* ent, u32* param_2)
-{
+void sub_08066D4C(Entity* ent, u32* param_2) {
     Entity* parent;
 
     parent = ent->parent;
-    if (ent->parent != NULL)
-    {
+    if (ent->parent != NULL) {
         CopyPosition(ent, parent);
         ent->parent->spriteSettings.b.ss0 = 1;
         ent->parent->animationState = ent->animationState;
@@ -89,22 +78,18 @@ void sub_08066D4C(Entity* ent, u32* param_2)
         ent->field_0x17 &= 0xFE;
         sub_08068694(ent, ent->parent);
         param_2[5] = 1;
-    }
-    else
-    {
+    } else {
         param_2[5] = 0;
     }
 }
 
-void sub_08066D94(Entity* ent)
-{
+void sub_08066D94(Entity* ent) {
     u32 roomID;
     Entity* npc;
-    
+
     SetGlobalFlag(0x1C);
     npc = CreateNPC(0x2E, 0, 0);
-    if (npc != NULL)
-    {
+    if (npc != NULL) {
         npc->animationState = gLinkEntity.animationState;
         npc->flags |= 0x20;
         npc->animationState = sub_0806EDC4(ent);
@@ -115,60 +100,50 @@ void sub_08066D94(Entity* ent)
     DeleteThisEntity();
 }
 
-void sub_08066DE4(Entity* ent)
-{
+void sub_08066DE4(Entity* ent) {
     Entity* pEVar1;
-    
+
     pEVar1 = sub_0805EB9C(7, 0x2E);
-    if (pEVar1 != NULL)
-    {
+    if (pEVar1 != NULL) {
         CopyPosition(ent, pEVar1);
         sub_080686C4(ent, pEVar1);
     }
 }
 
-void sub_08066E08(Entity* ent)
-{
+void sub_08066E08(Entity* ent) {
     LoadAnimation(ent, 0x50);
     ent->field_0x80 = ent->field_0x58;
 }
 
-void sub_08066E20(Entity* ent)
-{
+void sub_08066E20(Entity* ent) {
     LoadAnimation(ent, 0x44);
     ent->field_0x80 = ent->field_0x58;
 }
 
-void sub_08066E38(Entity* ent)
-{
+void sub_08066E38(Entity* ent) {
     LoadAnimation(ent, 0x48);
     ent->field_0x80 = ent->field_0x58;
 }
 
-void sub_08066E50(Entity* ent)
-{
+void sub_08066E50(Entity* ent) {
     LoadAnimation(ent, 0x4C);
     ent->field_0x80 = ent->field_0x58;
 }
 
-void sub_08066E68(Entity* ent)
-{
+void sub_08066E68(Entity* ent) {
     LoadAnimation(ent, 0x54);
     ent->field_0x80 = ent->field_0x58;
 }
 
-void sub_08066E80(Entity* ent, u8* param_2)
-{
-    switch(param_2[0x18])
-    {
+void sub_08066E80(Entity* ent, u8* param_2) {
+    switch (param_2[0x18]) {
         case 0:
             param_2[0x18]++;
             LoadAnimation(ent, 0x16);
             break;
         case 1:
             sub_080042B8(ent);
-            if (ent->frames.all & 1)
-            {
+            if (ent->frames.all & 1) {
                 param_2[0x18]++;
                 ent->field_0x20 = 0x20000;
                 ent->frames.all &= 0xFE;
@@ -178,28 +153,24 @@ void sub_08066E80(Entity* ent, u8* param_2)
         case 2:
             sub_0806F62C(ent, 0x100, 0x80);
             sub_08003FC4(ent, 0x2000);
-            if (!(ent->frames.all & 1))
-            {
+            if (!(ent->frames.all & 1)) {
                 sub_080042B8(ent);
             }
-            if (ent->field_0x20 < 0)
-            {
+            if (ent->field_0x20 < 0) {
                 param_2[0x18]++;
             }
             break;
         case 3:
             sub_0806F62C(ent, 0x100, 0x80);
             sub_080042B8(ent);
-            if (sub_08003FC4(ent, 0x2000) == 0)
-            {
+            if (sub_08003FC4(ent, 0x2000) == 0) {
                 param_2[0x18]++;
                 LoadAnimation(ent, 0x1E);
             }
             break;
         case 4:
             sub_080042B8(ent);
-            if (ent->frames.b.f3)
-            {
+            if (ent->frames.b.f3) {
                 gUnk_02033280[7] |= 1;
                 return;
             }
@@ -208,28 +179,24 @@ void sub_08066E80(Entity* ent, u8* param_2)
     gUnk_02033280[6] = 0;
 }
 
-void sub_08066F94(void)
-{
+void sub_08066F94(void) {
     u16 uVar1;
     u16* puVar2;
-  
+
     puVar2 = gUnk_08110BE0;
-    while (*puVar2 != 0)
-    {
+    while (*puVar2 != 0) {
         uVar1 = *puVar2;
         puVar2++;
         SetTileType(16498, uVar1, 1);
     }
 }
 
-void sub_08066FB8(void)
-{
+void sub_08066FB8(void) {
     u16 uVar1;
     u16* puVar2;
-    
+
     puVar2 = gUnk_08110BE0;
-    while (*puVar2 != 0)
-    {
+    while (*puVar2 != 0) {
         uVar1 = *puVar2;
         puVar2++;
         sub_0807BA8C(uVar1, 1);

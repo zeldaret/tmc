@@ -30,7 +30,7 @@ extern void sub_0804FFE4(void);
 extern void sub_0804FF84(u32);
 extern void sub_08056418(void);
 extern void sub_080ADD30(void);
-extern void sub_0801D630(void *,u32);
+extern void sub_0801D630(void*, u32);
 extern void sub_08056010(u32);
 extern void ReadKeyInput();
 extern u32 sub_08055FF4();
@@ -45,15 +45,14 @@ extern u8 gUnk_02000014;
 extern u32 gUnk_020176A0;
 extern u32 gRand;
 extern MainStruct gUnk_03001000;
-extern void (* gUnk_08100CBC[])();
+extern void (*gUnk_08100CBC[])();
 extern void VBlankInterruptWait(void);
 
-void MainLoop(void)
-{
+void MainLoop(void) {
     bool32 codeInputted;
     u8 cVar1;
     u32 uVar2;
-    
+
     sub_08055F70();
     sub_080A3204();
     sub_0805616C();
@@ -62,12 +61,12 @@ void MainLoop(void)
     sub_08056208();
     gUnk_02000014 = 193;
     sub_0804FFE4();
-    DmaSet(3, 0x5000000U,  &gUnk_020176A0, 0x84000080U);
+    DmaSet(3, 0x5000000U, &gUnk_020176A0, 0x84000080U);
     sub_0804FF84(1);
     sub_08056418();
     sub_080ADD30();
     gRand = 0x1234567;
-    sub_0801D630(&gUnk_03001000,16);
+    sub_0801D630(&gUnk_03001000, 16);
     sub_08056010(0);
     do {
         ReadKeyInput();
@@ -97,16 +96,15 @@ void MainLoop(void)
             sub_08056458();
             sub_08050154();
             sub_080A3480();
-        }
-        else {
+        } else {
             sub_08056260();
         }
         sub_08016E78();
-    } while( TRUE );
+    } while (TRUE);
 }
 #else
 NAKED
 void MainLoop(void) {
-	asm(".include \"asm/non_matching/mainLoop.inc\"");
+    asm(".include \"asm/non_matching/mainLoop.inc\"");
 }
 #endif

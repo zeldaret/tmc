@@ -23,122 +23,96 @@ extern TextBox gTextBox;
 extern LinkState gLinkState;
 extern Entity gLinkEntity;
 
-void sub_08065A64(Entity* ent);
+void sub_08065A64(Entity* this);
 
 extern void (*gUnk_0811006C[])(Entity*);
 extern u64 gUnk_08110080[];
 
-void sub_08065990(Entity* ent)
-{
-    gUnk_0811006C[ent->action](ent);
-    sub_08065A64(ent);
-    sub_0806ED78(ent);
+void sub_08065990(Entity* this) {
+    gUnk_0811006C[this->action](this);
+    sub_08065A64(this);
+    sub_0806ED78(this);
 }
 
-void sub_080659B8(Entity* ent)
-{
-    ent->action = 1;
-    ent->spriteSettings.b.ss0 = 1;
-    ent->animationState = 6;
-    ent->field_0x69 = -1;
-    ent->field_0x68 = sub_0801E99C(ent);
-    LoadAnimation(ent, ent->animationState / 2);
+void sub_080659B8(Entity* this) {
+    this->action = 1;
+    this->spriteSettings.b.ss0 = 1;
+    this->animationState = 6;
+    this->field_0x69 = -1;
+    this->field_0x68 = sub_0801E99C(this);
+    LoadAnimation(this, this->animationState / 2);
 }
 
-void sub_080659F0(Entity* ent)
-{
-    sub_080042B8(ent);
-    sub_08065AA4(ent);
+void sub_080659F0(Entity* this) {
+    sub_080042B8(this);
+    sub_08065AA4(this);
 }
 
-void sub_08065A00(Entity* ent)
-{
-    sub_080042B8(ent);
-    sub_08065AA4(ent);
+void sub_08065A00(Entity* this) {
+    sub_080042B8(this);
+    sub_08065AA4(this);
 }
 
-void sub_08065A10(Entity* ent)
-{
-    if ((gTextBox.doTextBox & 0x7F) == 0)
-    {
-        ent->action = 1;
-        LoadAnimation(ent, ent->animationState / 2);
+void sub_08065A10(Entity* this) {
+    if ((gTextBox.doTextBox & 0x7F) == 0) {
+        this->action = 1;
+        LoadAnimation(this, this->animationState / 2);
     }
 }
 
-void sub_08065A34(Entity* ent)
-{
-    if (UpdateFuseInteraction() != 0)
-    {
-        ent->action = 1;
-        LoadAnimation(ent, ent->animationState / 2);
+void sub_08065A34(Entity* this) {
+    if (UpdateFuseInteraction() != 0) {
+        this->action = 1;
+        LoadAnimation(this, this->animationState / 2);
     }
 }
 
-void sub_08065A50(Entity* ent)
-{
-    ShowNPCDialogue(ent, &gUnk_08110080[ent->entityType.parameter1]);
+void sub_08065A50(Entity* this) {
+    ShowNPCDialogue(this, &gUnk_08110080[this->entityType.parameter1]);
 }
 
-void sub_08065A64(Entity* ent)
-{
+void sub_08065A64(Entity* this) {
     u32 uVar2;
-    
+
     uVar2 = -(gLinkState.flags.all & 0x80) >> 0x1f;
-    if (uVar2 != ent->field_0x69) 
-    {
-        if (uVar2 == 0)
-        {
-            sub_08078778(ent);
-        }
-        else
-        {
-            sub_080787A8(ent, ent->field_0x68);
+    if (uVar2 != this->field_0x69) {
+        if (uVar2 == 0) {
+            sub_08078778(this);
+        } else {
+            sub_080787A8(this, this->field_0x68);
         }
     }
-    ent->field_0x69 = uVar2;
+    this->field_0x69 = uVar2;
 }
 
-void sub_08065AA4(Entity* ent)
-{ 
-    if (ent->interactType != 0)
-    {
-        if (gLinkState.flags.all & 0x80)
-        {
-            if (ent->interactType == 2)
-            {
-                ent->action = 4;
-                sub_0806F118(ent);
+void sub_08065AA4(Entity* this) {
+    if (this->interactType != 0) {
+        if (gLinkState.flags.all & 0x80) {
+            if (this->interactType == 2) {
+                this->action = 4;
+                sub_0806F118(this);
+            } else {
+                this->action = 3;
+                sub_0805E3A0(this, 2);
+                sub_08065A50(this);
             }
-            else
-            {
-                ent->action = 3;
-                sub_0805E3A0(ent, 2);
-                sub_08065A50(ent);
-            }
-            sub_080045C4(ent, &gLinkEntity);
-            LoadAnimation(ent, sub_0806F5A4());
-        }
-        else
-        {
-            sub_08065A50(ent);
+            sub_080045C4(this, &gLinkEntity);
+            LoadAnimation(this, sub_0806F5A4());
+        } else {
+            sub_08065A50(this);
             sub_080791D0();
         }
         PlaySFX(0xD3);
-        ent->interactType = 0;
+        this->interactType = 0;
     }
 }
 
-void sub_08065B1C(Entity* ent)
-{
-    if (ent->action == 0)
-    {
-        ent->action += 1;
-        ent->spriteSettings.b.ss0 = 1;
-        LoadAnimation(ent, 7);
-    }
-    else
-    {
-        sub_080042B8(ent);
+void sub_08065B1C(Entity* this) {
+    if (this->action == 0) {
+        this->action += 1;
+        this->spriteSettings.b.ss0 = 1;
+        LoadAnimation(this, 7);
+    } else {
+        sub_080042B8(this);
     }
 }
