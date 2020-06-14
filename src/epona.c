@@ -82,7 +82,7 @@ void sub_08065AA4(Entity* this) {
                 sub_0805E3A0(this, 2);
                 sub_08065A50(this);
             }
-            
+
             LoadAnimation(this, sub_0806F5A4(sub_080045C4(this, &gLinkEntity)));
         } else {
             sub_08065A50(this);
