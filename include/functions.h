@@ -5,7 +5,7 @@
 #include "global.h"
 #include "entity.h"
 
-//Identified
+// Identified
 extern u32 Random(void);
 extern void PlaySFX(u32);
 extern void UpdateSpriteOrderAndFlip(Entity*);
@@ -19,7 +19,7 @@ extern void DeleteEntity(Entity*);
 extern u32 __modsi3(u32, u32);
 extern void DoFade(u32, u32);
 
-//Unidentified
+// Unidentified
 extern void sub_0806ED78(Entity*);
 extern void sub_0806920C(Entity*);
 extern void sub_080042B8(Entity*);
