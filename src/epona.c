@@ -2,14 +2,28 @@
 #include "entity.h"
 #include "textbox.h"
 #include "link.h"
-#include "functions.h"
+
+extern void sub_0806ED78(Entity*);
+extern u32 sub_0801E99C(Entity*);
+extern void LoadAnimation(Entity*, u32);
+extern void sub_080042B8(Entity*);
+extern void sub_08065AA4(Entity*);
+extern u32 UpdateFuseInteraction(void);
+extern void ShowNPCDialogue(Entity*, u64*);
+extern void sub_08078778(Entity*);
+extern void sub_080787A8(Entity*, u32);
+extern void sub_0806F118(Entity*);
+extern void sub_0805E3A0(Entity*, u8);
+extern u32 sub_080045C4(Entity*, Entity*);
+extern u32 sub_0806F5A4(void);
+extern void sub_080791D0(void);
+extern void PlaySFX(u32);
 
 extern TextBox gTextBox;
 extern LinkState gLinkState;
 extern Entity gLinkEntity;
 
 void sub_08065A64(Entity* this);
-void sub_08065AA4(Entity*);
 
 extern void (*gUnk_0811006C[])(Entity*);
 extern u64 gUnk_08110080[];
@@ -82,7 +96,8 @@ void sub_08065AA4(Entity* this) {
                 sub_0805E3A0(this, 2);
                 sub_08065A50(this);
             }
-            LoadAnimation(this, sub_0806F5A4(sub_080045C4(this, &gLinkEntity)));
+            sub_080045C4(this, &gLinkEntity);
+            LoadAnimation(this, sub_0806F5A4());
         } else {
             sub_08065A50(this);
             sub_080791D0();
