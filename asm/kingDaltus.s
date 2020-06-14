@@ -117,7 +117,7 @@ _080666B4:
 	cmp r0, #0
 	bne _080666C4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080666C4:
 	adds r2, r4, #0
 	adds r2, #0x39
@@ -249,7 +249,7 @@ sub_08066780: @ 0x08066780
 	b _080667AC
 _080667A6:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080667AC:
 	pop {pc}
 	.align 2, 0

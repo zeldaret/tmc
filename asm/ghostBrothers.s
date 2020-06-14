@@ -406,7 +406,7 @@ _08065EA4:
 	bl DeleteThisEntity
 _08065EB0:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08065EB8: .4byte gUnk_02018EB0
@@ -469,7 +469,7 @@ _08065F1C:
 sub_08065F20: @ 0x08065F20
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r1, r4, #0
 	adds r1, #0x39
 	movs r0, #0
@@ -547,7 +547,7 @@ sub_08065F90: @ 0x08065F90
 	b _08065FBC
 _08065FB6:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08065FBC:
 	pop {pc}
 	.align 2, 0

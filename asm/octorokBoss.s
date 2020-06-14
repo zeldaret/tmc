@@ -1571,7 +1571,7 @@ _08035DB0:
 	bl DeleteThisEntity
 _08035DC4:
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, [r5, #0x50]
 	adds r0, #0x7c
 	ldrb r1, [r0]

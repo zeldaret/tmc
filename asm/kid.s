@@ -108,7 +108,7 @@ _0806217A:
 	b _0806218A
 _08062184:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806218A:
 	adds r0, r4, #0
 	bl sub_0806ED78
@@ -562,7 +562,7 @@ _080624D8:
 _080624E8: .4byte gLinkEntity
 _080624EC:
 	adds r0, r7, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080624F2:
 	adds r0, r7, #0
 	bl sub_0800451C

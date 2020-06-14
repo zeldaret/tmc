@@ -3332,7 +3332,7 @@ sub_0807E40C: @ 0x0807E40C
 	adds r4, r1, #0
 	ldr r0, [r4]
 	ldrh r0, [r0, #2]
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	str r0, [r4, #0x14]
 	ldr r2, _0807E428 @ =gUnk_02033280
 	ldrb r1, [r2, #7]

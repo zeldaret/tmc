@@ -111,7 +111,7 @@ _0806938E:
 sub_08069390: @ 0x08069390
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, _080693C0 @ =gTextBox
 	ldrb r0, [r0]
 	movs r1, #0x7f
@@ -245,7 +245,7 @@ sub_0806948C: @ 0x0806948C
 	bl sub_08069480
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	str r0, [r4, #0x14]
 	ldr r2, _080694AC @ =gUnk_02033280
 	ldrb r1, [r2, #7]
@@ -264,7 +264,7 @@ sub_080694B0: @ 0x080694B0
 	lsls r0, r0, #0x18
 	lsrs r5, r0, #0x18
 	adds r0, r5, #0
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _080694CE
 	adds r0, r4, #0
@@ -297,7 +297,7 @@ sub_080694EC: @ 0x080694EC
 	strb r0, [r4, #0x14]
 	movs r5, #2
 	movs r0, #0x2f
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08069502
 	movs r5, #8
@@ -333,7 +333,7 @@ sub_08069514: @ 0x08069514
 	b _08069540
 _0806953A:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08069540:
 	pop {pc}
 	.align 2, 0

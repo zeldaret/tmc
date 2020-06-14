@@ -485,7 +485,7 @@ sub_08060D78: @ 0x08060D78
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08060DB2:
 	ldrb r1, [r5]
 	movs r0, #0x18
@@ -508,7 +508,7 @@ _08060DCE:
 sub_08060DD0: @ 0x08060DD0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -561,7 +561,7 @@ _08060E32:
 sub_08060E34: @ 0x08060E34
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -640,7 +640,7 @@ _08060ECC: .4byte 0x0080FF00
 _08060ED0: .4byte 0x00800100
 _08060ED4:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08060EDA:
 	pop {r4, pc}
 
@@ -661,7 +661,7 @@ sub_08060EDC: @ 0x08060EDC
 	cmp r0, #0
 	bne _08060F00
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08060F7C
 _08060F00:
 	ldr r1, _08060F30 @ =gLinkEntity
@@ -994,7 +994,7 @@ _0806116C:
 sub_08061170: @ 0x08061170
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080AF1EC
 	cmp r0, #0
@@ -1167,7 +1167,7 @@ _080612E8:
 	b _08061356
 _08061302:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1232,7 +1232,7 @@ _0806136C:
 	b _08061460
 _08061376:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1275,7 +1275,7 @@ _0806139C:
 _080613CC: .4byte gUnk_0810AC5D
 _080613D0:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2321,7 +2321,7 @@ _08061B6E:
 	cmp r0, #2
 	bne _08061B7E
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08061B7E:
 	adds r0, r4, #0
 	bl sub_0806FD3C

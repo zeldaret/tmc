@@ -169,7 +169,7 @@ _080A2688:
 _080A2698: .4byte 0x000001B9
 _080A269C:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r0, [r0]
@@ -181,7 +181,7 @@ _080A269C:
 	b _080A273C
 _080A26B4:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, _080A2764 @ =gTextBox
 	ldrb r1, [r0]
 	adds r0, r7, #0

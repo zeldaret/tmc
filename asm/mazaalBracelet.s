@@ -516,7 +516,7 @@ sub_0803A548: @ 0x0803A548
 	adds r4, r0, #0
 	bl sub_0803B5C0
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r2, _0803A588 @ =gUnk_080CED6C
 	ldr r0, [r4, #0x50]
 	ldrb r0, [r0, #0xf]
@@ -1668,7 +1668,7 @@ sub_0803ADF4: @ 0x0803ADF4
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08004274
 	adds r0, r4, #0
@@ -1712,7 +1712,7 @@ sub_0803AE48: @ 0x0803AE48
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	beq _0803AE82
@@ -1775,7 +1775,7 @@ sub_0803AEC4: @ 0x0803AEC4
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08004274
 	adds r0, r4, #0
@@ -2050,7 +2050,7 @@ _0803B0D0: .4byte gUnk_080CED6C
 sub_0803B0D4: @ 0x0803B0D4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08004274
 	adds r0, r4, #0
@@ -2110,7 +2110,7 @@ sub_0803B144: @ 0x0803B144
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, [r4, #0x54]
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
@@ -2178,7 +2178,7 @@ sub_0803B1B8: @ 0x0803B1B8
 	adds r0, r5, #0
 	bl sub_08004274
 	ldr r0, [r5, #0x54]
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0803B1D4:
 	adds r0, r5, #0
 	adds r0, #0x45
@@ -2663,7 +2663,7 @@ sub_0803B55C: @ 0x0803B55C
 	ldr r5, [r0, #0x74]
 	ldr r4, [r0, #0x54]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x10

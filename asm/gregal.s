@@ -380,7 +380,7 @@ sub_0806CD70: @ 0x0806CD70
 	b _0806CDA4
 _0806CD9E:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806CDA4:
 	pop {r4, pc}
 	.align 2, 0

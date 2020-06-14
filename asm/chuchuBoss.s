@@ -3248,7 +3248,7 @@ _08027532:
 	movs r0, #0
 	strb r0, [r1]
 	adds r0, r6, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start sub_08027548

@@ -200,6 +200,6 @@ sub_0806BCFC: @ 0x0806BCFC
 _0806BD48: .4byte gUnk_08113140
 _0806BD4C:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806BD52:
 	pop {r4, pc}

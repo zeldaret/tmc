@@ -20,7 +20,7 @@ sub_0806DD44: @ 0x0806DD44
 	bl InitAnimationForceUpdate
 _0806DD5A:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r4, #0x59
 	ldrb r0, [r4]
 	cmp r0, #0xfe

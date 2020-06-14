@@ -408,7 +408,7 @@ sub_0803958C: @ 0x0803958C
 	cmp r0, #0
 	beq _080395C0
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r1, r4, #0
 	adds r1, #0x78
 	ldrh r0, [r1]
@@ -534,7 +534,7 @@ _08039686:
 sub_08039688: @ 0x08039688
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	subs r1, r0, #1
 	strb r1, [r4, #0xe]
@@ -585,7 +585,7 @@ sub_080396E4: @ 0x080396E4
 	adds r4, r0, #0
 	bl sub_080AEFE0
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r1, r4, #0
 	adds r1, #0x78
 	ldrh r0, [r1]
@@ -604,7 +604,7 @@ _08039708:
 sub_0803970C: @ 0x0803970C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

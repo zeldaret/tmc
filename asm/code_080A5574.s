@@ -2367,7 +2367,7 @@ _080A67E6:
 	b _080A6822
 _080A67F4:
 	movs r0, #0xe
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _080A6822
 	movs r5, #0x71
@@ -2527,7 +2527,7 @@ _080A693A:
 	movs r5, #0xa
 _080A6942:
 	adds r0, r5, #0
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _080A6976
 	adds r0, r5, #0
@@ -5369,7 +5369,7 @@ _080A7F56:
 	adds r0, #1
 	strh r0, [r4, #0x32]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080A7F7A:
 	pop {r4, pc}
 	.align 2, 0
@@ -8683,7 +8683,7 @@ _080A983C:
 	bl sub_080A99F0
 _080A9848:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r5, r4, #0
 	adds r5, #0x78
 	ldrh r0, [r5]
@@ -9429,7 +9429,7 @@ sub_080A9D80: @ 0x080A9D80
 	ldr r0, _080A9DA0 @ =0x0000FFFE
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _080A9D9C: .4byte 0xFFFF0000
@@ -9607,7 +9607,7 @@ sub_080A9EBC: @ 0x080A9EBC
 	adds r0, r4, #0
 	bl sub_080AF090
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r5, r4, #0
 	adds r5, #0x42
 	b _080A9F4A
@@ -9725,14 +9725,14 @@ _080A9FB8:
 	bl sub_080AA320
 _080A9FC8:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_080A9FD0
 sub_080A9FD0: @ 0x080A9FD0
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r2, r5, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -9845,7 +9845,7 @@ _080AA0A2:
 	b _080AA108
 _080AA0B8:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -9980,7 +9980,7 @@ _080AA1C4:
 	adds r0, r6, #0
 	bl sub_0806F69C
 	adds r0, r6, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r3, r4}
 	mov r8, r3
 	mov sb, r4
@@ -10783,7 +10783,7 @@ _080AA7DA:
 	cmp r0, #0
 	beq _080AA812
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r5, r4, #0
 	adds r5, #0x5a
 	ldrb r1, [r5]
@@ -10869,7 +10869,7 @@ sub_080AA878: @ 0x080AA878
 	cmp r0, #0
 	bne _080AA88E
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080AA88E:
 	adds r0, r4, #0
 	bl sub_080AA9E0
@@ -10979,7 +10979,7 @@ _080AA920:
 	cmp r0, #0
 	bne _080AA99A
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r1, [r5]
 	movs r0, #1
 	ands r0, r1

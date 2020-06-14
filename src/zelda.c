@@ -17,7 +17,7 @@ void DeleteThisEntity(void);
 extern Entity* GetEntityByType(u32, u32);
 extern void sub_080686C4(Entity*, Entity*);
 extern void InitAnimationForceUpdate(Entity*, u32);
-extern void sub_080042B8(Entity*);
+extern void UpdateAnimationSingleFrame(Entity*);
 extern void sub_0806F62C(Entity*, u32, u32);
 extern u32 sub_08003FC4(Entity*, u32);
 extern void PlaySFX(u32);
@@ -142,7 +142,7 @@ void sub_08066E80(Entity* ent, u8* param_2) {
             InitAnimationForceUpdate(ent, 0x16);
             break;
         case 1:
-            sub_080042B8(ent);
+            UpdateAnimationSingleFrame(ent);
             if (ent->frames.all & 1) {
                 param_2[0x18]++;
                 ent->field_0x20 = 0x20000;
@@ -154,7 +154,7 @@ void sub_08066E80(Entity* ent, u8* param_2) {
             sub_0806F62C(ent, 0x100, 0x80);
             sub_08003FC4(ent, 0x2000);
             if (!(ent->frames.all & 1)) {
-                sub_080042B8(ent);
+                UpdateAnimationSingleFrame(ent);
             }
             if (ent->field_0x20 < 0) {
                 param_2[0x18]++;
@@ -162,14 +162,14 @@ void sub_08066E80(Entity* ent, u8* param_2) {
             break;
         case 3:
             sub_0806F62C(ent, 0x100, 0x80);
-            sub_080042B8(ent);
+            UpdateAnimationSingleFrame(ent);
             if (sub_08003FC4(ent, 0x2000) == 0) {
                 param_2[0x18]++;
                 InitAnimationForceUpdate(ent, 0x1E);
             }
             break;
         case 4:
-            sub_080042B8(ent);
+            UpdateAnimationSingleFrame(ent);
             if (ent->frames.b.f3) {
                 gUnk_02033280[7] |= 1;
                 return;

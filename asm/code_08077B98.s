@@ -365,7 +365,7 @@ UpdateItemAnim: @ 0x08077E24
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, _08077E38 @ =gLinkEntity
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08077E54
 	pop {r4, pc}
@@ -3951,7 +3951,7 @@ _0807991E:
 	cmp r0, #0
 	bne _0807992E
 	ldr r0, _08079934 @ =gLinkEntity
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0807992E:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -4216,7 +4216,7 @@ _08079AF0:
 	cmp r0, r3
 	bne _08079B10
 	ldr r0, _08079B1C @ =gLinkEntity
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08079B10:
 	ldr r0, _08079B20 @ =gLinkState
 	strb r4, [r0]
@@ -7284,7 +7284,7 @@ _0807B218: .4byte 0x000002C2
 sub_0807B21C: @ 0x0807B21C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	bge _0807B236
@@ -7323,7 +7323,7 @@ _0807B260: .4byte 0xFFFF8000
 sub_0807B264: @ 0x0807B264
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xf]
 	adds r0, #2
 	strb r0, [r4, #0xf]
@@ -7369,7 +7369,7 @@ sub_0807B2B8: @ 0x0807B2B8
 	ldr r1, _0807B2F0 @ =0xFFFFE000
 	bl sub_08003FC4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	beq _0807B2EC

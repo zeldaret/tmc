@@ -267,7 +267,7 @@ _08029A90: .4byte gUnk_03003DBC
 sub_08029A94: @ 0x08029A94
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0802A098
 	pop {r4, pc}
@@ -308,7 +308,7 @@ _08029ADC: .4byte 0x0000019D
 sub_08029AE0: @ 0x08029AE0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0802A16C
 	adds r0, r4, #0

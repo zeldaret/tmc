@@ -133,7 +133,7 @@ _0809D018:
 	bl DeleteThisEntity
 _0809D026:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -590,7 +590,7 @@ _0809D3A8:
 	adds r0, r5, #0
 	bl sub_08003FC4
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r4, [r5, #0x54]
 	cmp r4, #0
 	beq _0809D454
@@ -893,7 +893,7 @@ _0809D62E:
 	adds r0, r5, #0
 	bl sub_08003FC4
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r5, #0
 	bl sub_080040A8
 	cmp r0, #0
@@ -978,7 +978,7 @@ _0809D6A2:
 	bl InitAnimationForceUpdate
 _0809D6EC:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _0809D6FE
 _0809D6F4:
 	movs r0, #3

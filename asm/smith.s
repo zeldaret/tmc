@@ -208,7 +208,7 @@ _08066144:
 	cmp r0, #0
 	bne _08066154
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08066154:
 	adds r0, r4, #0
 	adds r0, #0x39
@@ -277,7 +277,7 @@ sub_080661BC: @ 0x080661BC
 	cmp r0, #0xc
 	bne _080661F4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -312,7 +312,7 @@ sub_08066200: @ 0x08066200
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_08066218
@@ -420,6 +420,6 @@ sub_08066298: @ 0x08066298
 _080662CC: .4byte gUnk_08110354
 _080662D0:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080662D6:
 	pop {r4, pc}

@@ -387,7 +387,7 @@ _0806B94E:
 	beq _0806B962
 _0806B95A:
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _0806B968
 _0806B962:
 	adds r0, r5, #0
@@ -431,7 +431,7 @@ _0806B97E:
 	adds r1, r4, #0
 	bl PositionRelative
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806B9B8: .4byte gUnk_08112F80

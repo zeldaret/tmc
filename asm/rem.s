@@ -37,7 +37,7 @@ sub_0806A370: @ 0x0806A370
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0806ED78
 	adds r0, r4, #0

@@ -25,7 +25,7 @@ void sub_08065864(Entity* this) {
 }
 
 void sub_08065880(Entity* this) {
-    sub_080042B8(this);
+    UpdateAnimationSingleFrame(this);
 }
 
 void sub_08065888(Entity* this) {
@@ -75,6 +75,6 @@ void sub_08065960(Entity* this) {
         this->spriteSettings.b.ss0 = 1;
         InitAnimationForceUpdate(this, 0xC);
     } else {
-        sub_080042B8(this);
+        UpdateAnimationSingleFrame(this);
     }
 }

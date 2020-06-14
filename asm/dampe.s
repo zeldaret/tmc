@@ -68,7 +68,7 @@ _0806BE1C:
 	b _0806BE3A
 _0806BE26:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl UpdateFuseInteraction
 	cmp r0, #0
@@ -113,7 +113,7 @@ sub_0806BE54: @ 0x0806BE54
 	b _0806BE80
 _0806BE7A:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806BE80:
 	pop {pc}
 	.align 2, 0

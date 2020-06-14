@@ -88,7 +88,7 @@ _080635B2:
 	beq _080635D0
 _080635B8:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -212,7 +212,7 @@ _080636A4:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _080636D4
 _080636BA:
 	adds r0, r4, #0
@@ -282,6 +282,6 @@ sub_0806370C: @ 0x0806370C
 	b _0806373E
 _08063738:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806373E:
 	pop {pc}

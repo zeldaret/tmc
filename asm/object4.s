@@ -252,7 +252,7 @@ _080821F2:
 	b _08082208
 _08082202:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08082208:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

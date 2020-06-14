@@ -1308,7 +1308,7 @@ _08042EE6:
 	strh r0, [r5, #0xa]
 _08042EEA:
 	adds r0, r6, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08042EF0:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1319,7 +1319,7 @@ sub_08042EF4: @ 0x08042EF4
 	mov r7, r8
 	push {r7}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08043C98
 	cmp r0, #0
@@ -1430,7 +1430,7 @@ _08042FD4: .4byte 0x0000019B
 sub_08042FD8: @ 0x08042FD8
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r5, #0
 	bl sub_08043C98
 	cmp r0, #0
@@ -2140,7 +2140,7 @@ _080434C4:
 	strb r0, [r2, #0x10]
 _08043514:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _0804351C: .4byte gUnk_080FD450
@@ -2195,7 +2195,7 @@ sub_0804355C: @ 0x0804355C
 	strb r0, [r4, #0xd]
 _08043578:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_08043580

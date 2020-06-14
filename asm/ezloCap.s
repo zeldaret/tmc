@@ -28,7 +28,7 @@ _0806D888:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -316,7 +316,7 @@ sub_0806DAAC: @ 0x0806DAAC
 	bl sub_0806DA3C
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	str r0, [r4, #0x14]
 	ldr r2, _0806DACC @ =gUnk_02033280
 	ldrb r1, [r2, #7]

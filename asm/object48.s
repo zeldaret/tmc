@@ -31,7 +31,7 @@ _0808E7B2:
 	cmp r0, #0x3f
 	bhi _0808E7D2
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0808E7D2:
 	pop {r4, pc}
 	.align 2, 0

@@ -54,5 +54,5 @@ sub_08097D90: @ 0x08097D90
 	thumb_func_start sub_08097DCC
 sub_08097DCC: @ 0x08097DCC
 	push {lr}
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {pc}

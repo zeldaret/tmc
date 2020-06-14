@@ -247,7 +247,7 @@ _08082AAA:
 _08082AAC:
 	strb r0, [r5, #0xe]
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08082AB4:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -265,7 +265,7 @@ sub_08082AB8: @ 0x08082AB8
 	bl DeleteThisEntity
 _08082ACC:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0
 	bne _08082B5C
@@ -553,7 +553,7 @@ _08082D0C:
 	adds r0, r5, #0
 	bl sub_08003FC4
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08082D1C:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -738,7 +738,7 @@ _08082E44:
 	bl DeleteThisEntity
 _08082E5E:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08082E68: .4byte gUnk_02033280
@@ -747,7 +747,7 @@ _08082E68: .4byte gUnk_02033280
 sub_08082E6C: @ 0x08082E6C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

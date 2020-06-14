@@ -141,7 +141,7 @@ sub_0809DA64: @ 0x0809DA64
 	bl InitAnimationForceUpdate
 _0809DAAC:
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_0809DAB4
@@ -186,7 +186,7 @@ _0809DB02:
 	adds r0, r4, #0
 	bl sub_0809E210
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _0809DB10: .4byte gRoomControls
@@ -208,7 +208,7 @@ sub_0809DB14: @ 0x0809DB14
 	bl DeleteThisEntity
 _0809DB36:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -469,7 +469,7 @@ sub_0809DD0C: @ 0x0809DD0C
 	bl PlaySFX
 _0809DD2A:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -504,7 +504,7 @@ _0809DD64:
 	adds r0, r4, #0
 	bl sub_0809E29C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_0809DD78
@@ -540,7 +540,7 @@ _0809DDA8:
 	bl sub_0809E29C
 _0809DDB4:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_0809DDBC
@@ -560,7 +560,7 @@ sub_0809DDBC: @ 0x0809DDBC
 	bl PlaySFX
 _0809DDD8:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _0809DDE0: .4byte 0x0000015B
@@ -597,7 +597,7 @@ sub_0809DDE4: @ 0x0809DDE4
 	bl DeleteThisEntity
 _0809DE2A:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _0809DE34: .4byte gRoomControls
@@ -773,7 +773,7 @@ _0809DF96:
 	strb r0, [r4, #0xe]
 _0809DF98:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_0809DFA0
@@ -850,7 +850,7 @@ _0809E028:
 	adds r0, r4, #0
 	bl sub_0809E1F0
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0809E034:
 	pop {r4, pc}
 	.align 2, 0
@@ -905,7 +905,7 @@ sub_0809E088: @ 0x0809E088
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_0809E0A0

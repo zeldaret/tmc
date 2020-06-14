@@ -75,7 +75,7 @@ sub_0809A78C: @ 0x0809A78C
 sub_0809A7F4: @ 0x0809A7F4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0809AA00
 	ldrb r0, [r4, #0xe]
@@ -117,7 +117,7 @@ _0809A840:
 sub_0809A844: @ 0x0809A844
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0809AA00
 	ldrb r0, [r4, #0xf]
@@ -211,7 +211,7 @@ _0809A8E2:
 	bl SetGlobalFlag
 _0809A8FC:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0809A902:
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0

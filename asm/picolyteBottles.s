@@ -470,7 +470,7 @@ sub_0806E250: @ 0x0806E250
 	movs r0, #0
 	str r0, [r4, #0x14]
 	movs r0, #0x31
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0806E266
 	movs r0, #1

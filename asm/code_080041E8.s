@@ -137,8 +137,8 @@ InitAnimationForceUpdate: @ 0x080042AC
 	strb r2, [r0, #0x1f]
 	b _080042C0
 
-	thumb_func_start sub_080042B8
-sub_080042B8: @ 0x080042B8
+	thumb_func_start UpdateAnimationSingleFrame
+UpdateAnimationSingleFrame: @ 0x080042B8
 	movs r1, #1
 
 	non_word_aligned_thumb_func_start sub_080042BA

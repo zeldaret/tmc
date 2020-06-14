@@ -284,7 +284,7 @@ sub_080601D4: @ 0x080601D4
 	b _080601F2
 _080601E6:
 	movs r0, #0x17
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	rsbs r1, r0, #0
 	orrs r1, r0
 	lsrs r1, r1, #0x1f

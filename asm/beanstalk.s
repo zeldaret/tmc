@@ -307,7 +307,7 @@ _08089F34: .4byte gUnk_08120E78
 sub_08089F38: @ 0x08089F38
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -352,7 +352,7 @@ sub_08089F70: @ 0x08089F70
 	bl PlaySFX
 _08089F8E:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

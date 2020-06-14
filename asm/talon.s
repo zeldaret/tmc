@@ -224,7 +224,7 @@ sub_080656A4: @ 0x080656A4
 	bl InitAnimationForceUpdate
 _080656C8:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _080656D0: .4byte gTextBox

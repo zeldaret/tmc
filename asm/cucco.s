@@ -98,7 +98,7 @@ _0806E552:
 	adds r0, r5, #0
 	bl sub_0806E65C
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806E560: .4byte gUnk_081145C8
@@ -164,7 +164,7 @@ _0806E5D4:
 	adds r0, r4, #0
 	bl sub_0806E65C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -215,7 +215,7 @@ _0806E638:
 	adds r0, r4, #0
 	bl sub_0806E65C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -321,7 +321,7 @@ sub_0806E6E0: @ 0x0806E6E0
 	b _0806E70C
 _0806E706:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806E70C:
 	pop {pc}
 	.align 2, 0

@@ -1,7 +1,7 @@
 #include "entity.h"
 #include "global.h"
 
-extern void sub_080042B8();
+extern void UpdateAnimationSingleFrame();
 extern void (*gUnk_08123384[])(Entity*);
 
 extern void UpdateSpriteOrderAndFlip(Entity*);
@@ -21,5 +21,5 @@ void sub_08097D90(Entity* ent) {
 }
 
 void sub_08097DCC(Entity* ent) {
-    sub_080042B8(ent);
+    UpdateAnimationSingleFrame(ent);
 }

@@ -144,7 +144,7 @@ _080324B4:
 	strb r0, [r4, #0xe]
 _080324C2:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080324C8:
 	pop {r4, pc}
 	.align 2, 0
@@ -157,7 +157,7 @@ sub_080324CC: @ 0x080324CC
 	cmp r0, #0
 	bne _080324F8
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -196,9 +196,9 @@ sub_080324FC: @ 0x080324FC
 	bl InitAnimationForceUpdate
 _08032524:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xf]
 	subs r1, r0, #1
 	strb r1, [r4, #0xf]
@@ -266,7 +266,7 @@ _080325A4:
 	b _080325C2
 _080325AC:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrh r1, [r5]
 	movs r0, #7
 	ands r0, r1

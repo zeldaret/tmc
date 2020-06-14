@@ -556,7 +556,7 @@ sub_08068F4C: @ 0x08068F4C
 	b _08068F78
 _08068F72:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08068F78:
 	adds r2, r4, #0
 	adds r2, #0x5a

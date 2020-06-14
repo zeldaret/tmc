@@ -104,7 +104,7 @@ _0805FEC6:
 	bl InitAnimationForceUpdate
 _0805FED8:
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -244,7 +244,7 @@ sub_0805FFA0: @ 0x0805FFA0
 	b _0805FFD4
 _0805FFCE:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0805FFD4:
 	pop {r4, pc}
 	.align 2, 0

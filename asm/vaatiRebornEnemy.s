@@ -435,7 +435,7 @@ _0803D3FA:
 	bl sub_080AEFB4
 _0803D400:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, r6, r7, pc}
 
 	thumb_func_start sub_0803D408
@@ -609,7 +609,7 @@ _0803D54E:
 	bl InitAnimationForceUpdate
 _0803D558:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_0803D560
@@ -745,7 +745,7 @@ _0803D64E:
 	strb r0, [r4, #0xe]
 _0803D650:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_0803D658
@@ -826,7 +826,7 @@ _0803D6C8:
 	strb r0, [r4, #0xf]
 _0803D6EE:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _0803D6F8: .4byte gLinkEntity
@@ -984,7 +984,7 @@ _0803D81C:
 	bl sub_080AEFB4
 _0803D828:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0803D82E:
 	pop {r4, r5, r6, pc}
 
@@ -1090,7 +1090,7 @@ _0803D8EC:
 	strb r0, [r5, #0xe]
 _0803D8EE:
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0803D8F4:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1313,7 +1313,7 @@ _0803DA72:
 	movs r2, #0
 	bl PositionRelative
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -1430,7 +1430,7 @@ _0803DB54:
 	movs r2, #0
 	bl PositionRelative
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_0803DB88
@@ -1537,7 +1537,7 @@ sub_0803DC0C: @ 0x0803DC0C
 	adds r1, r4, #0
 	bl PositionRelative
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _0803DC54: .4byte gUnk_080D04C8

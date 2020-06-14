@@ -82,7 +82,7 @@ _08094ACE:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08094AE4: .4byte gUnk_08114F30
@@ -303,7 +303,7 @@ _08094C74:
 	adds r1, r4, #0
 	bl CopyPosition
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _08094C84: .4byte gUnk_08114F30
@@ -484,7 +484,7 @@ _08094DAC:
 	bl InitAnimationForceUpdate
 _08094DCE:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08094DD4:
 	pop {r4, pc}
 	.align 2, 0
@@ -937,7 +937,7 @@ _0809514C:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -1144,7 +1144,7 @@ _080952F0:
 	bl CopyPosition
 _080952FE:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r3, [r4, #0x50]
 	cmp r3, #0
 	beq _08095328
@@ -1799,7 +1799,7 @@ _080957F8:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -1853,7 +1853,7 @@ _0809586C:
 	cmp r0, #0
 	beq _08095880
 	ldrb r0, [r5, #0xb]
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _08095880
 	bl DeleteThisEntity
@@ -2042,7 +2042,7 @@ _080959F2:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2459,7 +2459,7 @@ _08095D06:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

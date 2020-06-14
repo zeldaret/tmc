@@ -165,7 +165,7 @@ _08098E20:
 	bl sub_08077B20
 _08098E24:
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08098E2C: .4byte gLinkEntity
@@ -174,7 +174,7 @@ _08098E30: .4byte gLinkState
 	thumb_func_start sub_08098E34
 sub_08098E34: @ 0x08098E34
 	push {lr}
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {pc}
 
 	thumb_func_start sub_08098E3C
@@ -210,7 +210,7 @@ _08098E5E:
 	movs r3, #0
 	bl sub_0805EC9C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08098E84: .4byte gUnk_08123690

@@ -74,7 +74,7 @@ sub_08023000: @ 0x08023000
 	adds r4, r0, #0
 	cmp r1, #0x80
 	bne _0802300E
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08023014
 _0802300E:
 	adds r0, r4, #0

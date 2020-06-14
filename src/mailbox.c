@@ -5,7 +5,7 @@ extern void sub_0806ED78(Entity*);
 extern void InitAnimationForceUpdate();
 extern void sub_08063280();
 extern void TextboxNoOverlapFollow(u32);
-extern void sub_080042B8();
+extern void UpdateAnimationSingleFrame();
 extern void CreateFx();
 
 extern void (*gMailboxBehaviors[4])(Entity*);
@@ -70,7 +70,7 @@ void sub_08063280(Entity* ent)
     u8 var;    // r2@1
 
     e = ent;
-    sub_080042B8();
+    UpdateAnimationSingleFrame();
     var = e->frames.all & 0x7F;
     e->frames.all = e->frames.all ^ var;
     if (var == 2)

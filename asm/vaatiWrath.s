@@ -187,7 +187,7 @@ _0804148C: .4byte gRoomControls
 sub_08041490: @ 0x08041490
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xd]
 	cmp r0, #5
 	bls _080414A0
@@ -358,7 +358,7 @@ sub_080415E8: @ 0x080415E8
 	adds r4, r0, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -382,7 +382,7 @@ sub_08041618: @ 0x08041618
 	adds r4, r0, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080AEF88
 	ldr r0, _0804165C @ =gRoomControls
@@ -455,7 +455,7 @@ sub_080416A4: @ 0x080416A4
 	adds r4, r0, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -484,7 +484,7 @@ sub_080416DC: @ 0x080416DC
 	adds r5, r0, #0
 	bl sub_08042004
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r5, #0
 	bl sub_0804212C
 	adds r0, r5, #0
@@ -640,7 +640,7 @@ _0804181A:
 	adds r0, r5, #0
 	bl sub_08042004
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_08041828
@@ -651,7 +651,7 @@ sub_08041828: @ 0x08041828
 	adds r0, r4, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r2, _08041868 @ =gRoomControls
 	ldrh r0, [r2, #8]
 	adds r0, #0x48
@@ -693,7 +693,7 @@ sub_08041880: @ 0x08041880
 	adds r4, r0, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	ldr r0, _080418D4 @ =gRoomControls
@@ -764,7 +764,7 @@ sub_08041904: @ 0x08041904
 	adds r4, r0, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r3, r4, #0
 	adds r3, #0x79
 	ldrb r0, [r3]
@@ -826,7 +826,7 @@ sub_0804197C: @ 0x0804197C
 	adds r4, r0, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x7b
 	ldrb r0, [r0]
@@ -932,7 +932,7 @@ _08041A60:
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #4]
 	bl sub_08004274
@@ -969,7 +969,7 @@ _08041A60:
 	b _08041AF0
 _08041ABC:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
 	bl sub_08004274
@@ -1000,7 +1000,7 @@ _08041AF0:
 sub_08041AF4: @ 0x08041AF4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
 	bl sub_08004274
@@ -1250,7 +1250,7 @@ _08041CF6:
 _08041D08: .4byte 0x00001651
 _08041D0C:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08041D12:
 	pop {r4, pc}
 
@@ -2025,7 +2025,7 @@ sub_080422C0: @ 0x080422C0
 	push {r7}
 	adds r5, r0, #0
 	mov r8, r1
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, [r5, #0x64]
 	ldr r0, [r0, #8]
 	bl sub_08004274

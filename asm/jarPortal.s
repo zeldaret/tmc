@@ -151,7 +151,7 @@ _0808BF7A:
 _0808BF90: .4byte 0x00017FFF
 _0808BF94:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	movs r1, #0x36
 	ldrsh r0, [r4, r1]
 	cmp r0, #0
@@ -165,7 +165,7 @@ _0808BF94:
 	b _0808BFD6
 _0808BFB0:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	movs r0, #0x36
 	ldrsh r1, [r4, r0]
 	cmp r1, #0
@@ -325,7 +325,7 @@ _0808C0CE:
 _0808C0E4: .4byte 0x00017FFF
 _0808C0E8:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	movs r1, #0x36
 	ldrsh r0, [r4, r1]
 	cmp r0, #0
@@ -339,7 +339,7 @@ _0808C0E8:
 	b _0808C126
 _0808C104:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	movs r1, #0x36
 	ldrsh r0, [r4, r1]
 	cmp r0, #0

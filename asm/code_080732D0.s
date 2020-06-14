@@ -10,7 +10,7 @@
 sub_080732D0: @ 0x080732D0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080002B8
 	cmp r0, #0x28
@@ -54,7 +54,7 @@ _08073328:
 sub_0807332C: @ 0x0807332C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, _08073344 @ =gLinkState
 	adds r0, #0x39
 	ldrb r0, [r0]
@@ -130,7 +130,7 @@ _080733B8: .4byte gUnk_03001000
 sub_080733BC: @ 0x080733BC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrh r1, [r4, #0x2e]
 	movs r0, #0xf
 	ands r0, r1
@@ -354,7 +354,7 @@ _08073516:
 	bl PlaySFX
 _08073576:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08073580: .4byte gLinkState
@@ -579,7 +579,7 @@ _0807371C: .4byte gUnk_0811BC28
 _08073720: .4byte gArea
 _08073724:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _0807372E
 _0807372C:
 	strh r0, [r6, #8]
@@ -604,7 +604,7 @@ _08073736:
 	cmp r0, r1
 	bne _08073760
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08073762
 	.align 2, 0
 _0807375C: .4byte gUnk_0811BC30
@@ -665,7 +665,7 @@ _080737BA:
 sub_080737BC: @ 0x080737BC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	ldr r0, [r4, #0x34]
@@ -759,7 +759,7 @@ _08073860:
 	str r0, [r4, #0x20]
 _0807387A:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -820,7 +820,7 @@ _080738F0:
 	adds r0, r4, #0
 	bl sub_08003FC4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08073900: .4byte 0xFFFFE800
@@ -1188,7 +1188,7 @@ sub_08073B8C: @ 0x08073B8C
 	cmp r0, #0
 	bne _08073BB8
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08073BB8:
 	ldrb r1, [r4, #0x10]
 	movs r0, #0x7f
@@ -1276,7 +1276,7 @@ _08073C58:
 	orrs r0, r1
 	strb r0, [r2, #0x10]
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08073C66:
 	pop {pc}
 
@@ -1560,7 +1560,7 @@ _08073E90:
 	bl sub_0806F948
 _08073E9E:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0807B068
 	movs r0, #0x10
@@ -1787,7 +1787,7 @@ _08074048:
 	movs r3, #0
 	bl sub_0805EC9C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_08074060
@@ -1845,7 +1845,7 @@ _080740C8: .4byte gLinkState
 _080740CC: .4byte 0x0000080C
 _080740D0:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080740D6:
 	pop {r4, pc}
 
@@ -1853,7 +1853,7 @@ _080740D6:
 sub_080740D8: @ 0x080740D8
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
 	bne _080740EA
@@ -3519,7 +3519,7 @@ _08074D20:
 	adds r0, r5, #0
 	bl sub_08003FC4
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 
@@ -3866,7 +3866,7 @@ _08074F88: .4byte 0x00000737
 sub_08074F8C: @ 0x08074F8C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r3, r4, #0
 	adds r3, #0x5a
 	ldrb r0, [r3]
@@ -3918,7 +3918,7 @@ _08074FEA:
 sub_08074FEC: @ 0x08074FEC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -4005,7 +4005,7 @@ _08075088: .4byte 0x0000080C
 sub_0807508C: @ 0x0807508C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
@@ -4099,7 +4099,7 @@ _08075138: .4byte 0x00000734
 sub_0807513C: @ 0x0807513C
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r4, r5, #0
 	adds r4, #0x5a
 	ldrb r0, [r4]
@@ -4164,7 +4164,7 @@ _080751B0: .4byte 0x000003C9
 sub_080751B4: @ 0x080751B4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

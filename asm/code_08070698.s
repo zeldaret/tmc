@@ -165,7 +165,7 @@ sub_08070794: @ 0x08070794
 	cmp r0, #2
 	bne _080707F8
 	ldr r0, _080707F4 @ =gLinkEntity
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08070800
 	.align 2, 0
 _080707F0: .4byte gLinkState
@@ -495,7 +495,7 @@ _08070A94:
 	b _08070BE4
 _08070A9E:
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08070BE4
 	.align 2, 0
 _08070AA8: .4byte gLinkState
@@ -643,7 +643,7 @@ _08070BBC:
 	cmp r0, #0
 	bne _08070BC8
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08070BC8:
 	adds r0, r4, #0
 	adds r0, #0x26
@@ -770,7 +770,7 @@ _08070C7E:
 sub_08070CB4: @ 0x08070CB4
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -907,7 +907,7 @@ _08070DC0: .4byte gLinkState
 sub_08070DC4: @ 0x08070DC4
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080085B0
 	bl sub_08079E08
@@ -1084,7 +1084,7 @@ _08070F20: .4byte 0x00000C18
 sub_08070F24: @ 0x08070F24
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, _08070F4C @ =gTextBox
 	ldrb r1, [r0]
 	movs r0, #0x7f
@@ -1211,7 +1211,7 @@ _0807101C: .4byte gLinkState
 sub_08071020: @ 0x08071020
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r0, [r0]
@@ -1226,7 +1226,7 @@ _08071036:
 sub_08071038: @ 0x08071038
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	bl sub_08078EFC
 	cmp r0, #0
 	bne _08071078
@@ -1357,7 +1357,7 @@ sub_08071130: @ 0x08071130
 	cmp r0, #0
 	bne _08071158
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1467,7 +1467,7 @@ sub_08071208: @ 0x08071208
 	cmp r0, #0
 	bne _08071228
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08071228:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -1576,7 +1576,7 @@ _080712EC: .4byte 0x0000044C
 sub_080712F0: @ 0x080712F0
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	movs r5, #0
 	ldr r3, _08071314 @ =gLinkState
 	ldr r0, [r3, #0x30]
@@ -1750,7 +1750,7 @@ _08071444:
 	adds r0, r4, #0
 	bl sub_08073904
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r2, _080714A0 @ =gLinkState
 	ldrb r0, [r2, #2]
 	cmp r0, #0
@@ -1885,7 +1885,7 @@ _08071542:
 	cmp r0, #0
 	bne _08071566
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _0807156A
 	.align 2, 0
 _0807155C: .4byte gArea
@@ -1934,7 +1934,7 @@ sub_080715AC: @ 0x080715AC
 	cmp r0, #0
 	bne _080715CC
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, _080715D0 @ =gLinkState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
@@ -2163,7 +2163,7 @@ _08071754:
 	movs r3, #0
 	bl sub_0805EC9C
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r3}
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
@@ -2408,7 +2408,7 @@ _08071938:
 sub_0807193C: @ 0x0807193C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2539,7 +2539,7 @@ _08071A24:
 _08071A40: .4byte 0x000003C7
 _08071A44:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08071A4A:
 	pop {r4, pc}
 
@@ -2547,7 +2547,7 @@ _08071A4A:
 sub_08071A4C: @ 0x08071A4C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x80
@@ -2641,7 +2641,7 @@ sub_08071AF0: @ 0x08071AF0
 	movs r1, #0
 	strh r1, [r0]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xa]
 	cmp r0, #1
 	bne _08071B44
@@ -2860,7 +2860,7 @@ _08071CA8: .4byte 0xFEDBF2FE
 sub_08071CAC: @ 0x08071CAC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2905,7 +2905,7 @@ _08071D00: .4byte 0x00000C1B
 sub_08071D04: @ 0x08071D04
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r0, [r0]
@@ -2967,7 +2967,7 @@ _08071D7C: .4byte gUnk_030010A0
 sub_08071D80: @ 0x08071D80
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r5, _08071DB4 @ =gLinkState
 	movs r0, #1
 	strb r0, [r5, #0x14]
@@ -3063,7 +3063,7 @@ sub_08071E04: @ 0x08071E04
 _08071E34: .4byte gLinkState
 _08071E38:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	bl sub_08079B24
 	cmp r0, #0
 	bne _08071E4E
@@ -3177,7 +3177,7 @@ _08071F12:
 sub_08071F14: @ 0x08071F14
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x80
@@ -3376,7 +3376,7 @@ _08072094: .4byte gLinkState
 sub_08072098: @ 0x08072098
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	beq _080720B4
@@ -3488,7 +3488,7 @@ _08072158:
 sub_08072168: @ 0x08072168
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	movs r2, #0xc
 	rsbs r2, r2, #0
 	adds r0, r4, #0
@@ -3620,7 +3620,7 @@ sub_08072260: @ 0x08072260
 	strh r0, [r1]
 	bl sub_08079E08
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -3742,7 +3742,7 @@ sub_08072354: @ 0x08072354
 	movs r1, #0
 	bl sub_0806F854
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08079744
 	movs r1, #0x80
@@ -3793,7 +3793,7 @@ _080723CC: .4byte 0xFFFFFBFF
 sub_080723D0: @ 0x080723D0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -3900,7 +3900,7 @@ sub_08072490: @ 0x08072490
 	cmp r0, #0xff
 	beq _080724AE
 	adds r0, r1, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	bl sub_08079E08
 	b _080724C2
 _080724AE:
@@ -3978,7 +3978,7 @@ _08072538:
 	cmp r0, #0
 	bne _08072588
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08072588
 	.align 2, 0
 _08072548: .4byte gLinkState
@@ -4055,7 +4055,7 @@ _080725D4: .4byte gLinkState
 _080725D8: .4byte gLinkEntity
 _080725DC:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08072604
 _080725E4:
 	ldr r2, _08072624 @ =gLinkState
@@ -4414,7 +4414,7 @@ _08072886:
 	str r1, [r0, #0x30]
 _0807289A:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080728A0:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -4692,7 +4692,7 @@ _08072ABC:
 	b _08072ACA
 _08072AC4:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08072ACA:
 	pop {pc}
 
@@ -4889,7 +4889,7 @@ _08072C44: .4byte gLinkState
 sub_08072C48: @ 0x08072C48
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	movs r1, #0x80
@@ -5025,7 +5025,7 @@ _08072D50: .4byte gLinkState
 sub_08072D54: @ 0x08072D54
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	movs r2, #0xc
 	rsbs r2, r2, #0
 	adds r0, r4, #0
@@ -5259,7 +5259,7 @@ sub_08072F14: @ 0x08072F14
 	b _08072F32
 _08072F2C:
 	adds r0, r1, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08072F32:
 	pop {pc}
 
@@ -5547,7 +5547,7 @@ _08073178:
 	b _080731A4
 _0807317E:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

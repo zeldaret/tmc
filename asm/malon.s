@@ -63,7 +63,7 @@ sub_08065864: @ 0x08065864
 	thumb_func_start sub_08065880
 sub_08065880: @ 0x08065880
 	push {lr}
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {pc}
 
 	thumb_func_start sub_08065888
@@ -198,7 +198,7 @@ sub_08065960: @ 0x08065960
 	b _0806598C
 _08065986:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806598C:
 	pop {pc}
 	.align 2, 0

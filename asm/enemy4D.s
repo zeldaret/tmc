@@ -364,7 +364,7 @@ sub_0803ED7C: @ 0x0803ED7C
 	cmp r0, #0
 	bne _0803ED94
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _0803EDD0
 _0803ED94:
 	ldrb r0, [r2, #0xe]

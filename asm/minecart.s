@@ -636,7 +636,7 @@ _08091BD8:
 	cmp r1, r0
 	bne _08091BFC
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08091C04
 	.align 2, 0
 _08091BF8: .4byte gLinkEntity
@@ -835,7 +835,7 @@ _08091D5C: .4byte gRoomControls
 _08091D60: .4byte 0x00004022
 _08091D64:
 	adds r0, r6, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r3, _08091D8C @ =gLinkEntity
 	adds r0, r6, #0
 	adds r0, #0x29
@@ -865,7 +865,7 @@ sub_08091D90: @ 0x08091D90
 	cmp r0, #0
 	bge _08091DA0
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08091DA0:
 	adds r0, r4, #0
 	adds r0, #0x5a

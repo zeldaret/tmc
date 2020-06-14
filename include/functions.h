@@ -18,21 +18,21 @@ extern void InitializeAnimation(Entity*, u32);
 extern void DeleteEntity(Entity*);
 extern u32 __modsi3(u32, u32);
 extern void DoFade(u32, u32);
+extern void UpdateAnimationSingleFrame(Entity*);
 
 // Unidentified
 extern void sub_0806ED78(Entity*);
 extern void sub_0806920C(Entity*);
-extern void sub_080042B8(Entity*);
 extern u32 sub_0805ACC0(Entity*);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_0806924C(Entity*);
 extern void sub_080AEF88(Entity*);
+extern Entity* sub_080873AC(Entity*, u32, u32);
 extern void sub_08078778(Entity*);
 extern void sub_080787A8(Entity*, u32);
 extern void sub_0806F118(Entity*);
 extern void sub_080791D0();
 extern void sub_08087380();
-extern Entity* sub_080873AC(Entity*, u32, u32);
 extern void sub_08004274();
 extern void sub_0805EC9C();
 extern void sub_0805EC60();

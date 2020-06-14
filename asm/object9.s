@@ -36,7 +36,7 @@ _08083894:
 	cmp r0, #0x32
 	bne _080838AA
 	movs r0, #0x32
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	movs r2, #0
 	cmp r0, #0
 	beq _080838AC

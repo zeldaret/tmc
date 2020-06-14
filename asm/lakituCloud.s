@@ -140,7 +140,7 @@ _0803CDA4: .4byte 0x0000FFFE
 sub_0803CDA8: @ 0x0803CDA8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r1, [r4, #0x15]
 	movs r0, #0x80
 	ands r0, r1

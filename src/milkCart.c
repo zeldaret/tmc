@@ -4,7 +4,7 @@
 extern void _call_via_r1(Entity*, u32);
 extern void sub_0806ED78();
 extern void InitAnimationForceUpdate();
-extern void sub_080042B8();
+extern void UpdateAnimationSingleFrame();
 
 extern void (*gMilkCartBehaviors[2])(Entity*);
 
@@ -22,5 +22,5 @@ void sub_08065B6C(Entity* ent) {
 }
 
 void sub_08065B9C(Entity* ent) {
-    sub_080042B8(ent);
+    UpdateAnimationSingleFrame(ent);
 }

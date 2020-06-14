@@ -139,7 +139,7 @@ _080678D0:
 	b _08067900
 _080678EA:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r1, [r5]
 	movs r0, #0x80
 	ands r0, r1
@@ -210,7 +210,7 @@ _0806796C:
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08067978:
 	pop {r4, pc}
 	.align 2, 0
@@ -219,7 +219,7 @@ _08067978:
 sub_0806797C: @ 0x0806797C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -237,7 +237,7 @@ _08067998:
 sub_0806799C: @ 0x0806799C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, _080679C0 @ =gTextBox
 	ldrb r1, [r0]
 	movs r0, #0x7f
@@ -278,7 +278,7 @@ _080679E6:
 	b _08067A0A
 _080679EE:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08067BD4
 	adds r0, r4, #0
@@ -294,7 +294,7 @@ _08067A0A:
 sub_08067A0C: @ 0x08067A0C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -350,7 +350,7 @@ _08067A76:
 sub_08067A78: @ 0x08067A78
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -851,7 +851,7 @@ sub_08067DFC: @ 0x08067DFC
 	b _08067E28
 _08067E22:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08067E28:
 	pop {pc}
 	.align 2, 0

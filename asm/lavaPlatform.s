@@ -124,7 +124,7 @@ _08092322:
 	cmp r0, #0
 	bne _0809233E
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0809233E:
 	pop {r4, pc}
 	.align 2, 0

@@ -153,7 +153,7 @@ _08069C3C: .4byte gRoomControls
 sub_08069C40: @ 0x08069C40
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08069F90
 	cmp r0, #0
@@ -301,7 +301,7 @@ sub_08069D54: @ 0x08069D54
 	cmp r0, #0
 	beq _08069DD8
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080AEF88
 	ldrh r1, [r4, #0x2a]
@@ -377,7 +377,7 @@ _08069DF6:
 sub_08069DF8: @ 0x08069DF8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08069F90
 	cmp r0, #0
@@ -435,7 +435,7 @@ sub_08069E50: @ 0x08069E50
 	adds r0, r4, #0
 	bl sub_0806A028
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r6, r4, #0
 	adds r6, #0x58
 	ldrb r0, [r6]
@@ -496,7 +496,7 @@ _08069EDC:
 	thumb_func_start sub_08069EE0
 sub_08069EE0: @ 0x08069EE0
 	push {lr}
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {pc}
 
 	thumb_func_start sub_08069EE8

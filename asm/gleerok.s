@@ -1193,7 +1193,7 @@ _0802D94C:
 	cmp r0, #0
 	bne _0802D95E
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _0802DB7E
 _0802D95E:
 	movs r1, #0xc0
@@ -1243,7 +1243,7 @@ _0802D9A2:
 	b _0802DB7E
 _0802D9B8:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2977,7 +2977,7 @@ _0802E6CA:
 	b _0802E6E8
 _0802E6E2:
 	adds r0, r1, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0802E6E8:
 	movs r6, #0
 _0802E6EA:

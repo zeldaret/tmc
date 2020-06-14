@@ -14,7 +14,7 @@ extern void CreateFx();
 extern void sub_08062CA4();
 extern void sub_0807DDAC();
 extern void sub_0807DDE4();
-extern u32 sub_0801E7F4();
+extern u32 CheckKinstoneFused();
 extern void ShowNPCDialogue();
 
 extern void (*gStampBehaviors1[4])(Entity*);
@@ -35,7 +35,7 @@ extern void CreateFx();
 extern void sub_08062CA4();
 extern void sub_0807DDAC();
 extern void sub_0807DDE4();
-extern u32 sub_0801E7F4();
+extern u32 CheckKinstoneFused();
 extern void ShowNPCDialogue();
 
 extern void (*gStampBehaviors1[4])(Entity*);
@@ -103,7 +103,7 @@ void sub_08062CA4(Entity* ent) {
 void sub_08062CBC(Entity* ent) {
     u32 uVar1;
 
-    uVar1 = sub_0801E7F4(44);
+    uVar1 = CheckKinstoneFused(44);
     ShowNPCDialogue(ent, &gUnk_0810C2E4 + ((-uVar1 | uVar1) >> 31) * 2);
 }
 

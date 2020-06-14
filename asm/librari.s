@@ -68,7 +68,7 @@ _0806B238:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _0806B25C
 _0806B24E:
 	adds r0, r4, #0
@@ -203,7 +203,7 @@ sub_0806B32C: @ 0x0806B32C
 	b _0806B358
 _0806B352:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806B358:
 	pop {pc}
 	.align 2, 0

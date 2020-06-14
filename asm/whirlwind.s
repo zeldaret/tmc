@@ -252,7 +252,7 @@ _08092E90: .4byte 0x00000153
 sub_08092E94: @ 0x08092E94
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r1, _08092ED0 @ =gLinkEntity
 	adds r0, r4, #0
 	movs r2, #0xc

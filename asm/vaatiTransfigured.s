@@ -442,7 +442,7 @@ _0803FAAC:
 	bl sub_080AEF88
 _0803FAB8:
 	adds r0, r7, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	add sp, #4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -451,7 +451,7 @@ _0803FAC4: .4byte 0x0000FFF9
 	thumb_func_start sub_0803FAC8
 sub_0803FAC8: @ 0x0803FAC8
 	push {lr}
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {pc}
 
 	thumb_func_start sub_0803FAD0
@@ -773,7 +773,7 @@ _0803FD32:
 	strb r0, [r1]
 _0803FD48:
 	adds r0, r7, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0803FD4E:
 	pop {r4, r5, r6, r7, pc}
 
@@ -942,7 +942,7 @@ _0803FE80:
 	bl sub_08040AD4
 _0803FE86:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -1067,7 +1067,7 @@ _0803FF6E:
 	bl sub_08040AD4
 _0803FF74:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_0803FF7C
@@ -1192,7 +1192,7 @@ _0804005C:
 	bl sub_08040AD4
 _08040062:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -1238,7 +1238,7 @@ _080400B4:
 	bl sub_0804A7D4
 _080400BA:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08040126
 _080400C2:
 	ldrb r0, [r4, #0xf]
@@ -1287,7 +1287,7 @@ _080400C2:
 	bl PlaySFX
 _08040120:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08040126:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -1350,7 +1350,7 @@ _0804017C:
 	cmp r0, #0
 	bne _0804019E
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _080401A6
 _0804019E:
 	adds r0, r4, #0
@@ -1599,7 +1599,7 @@ _08040366:
 	bl InitAnimationForceUpdate
 _08040382:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -1677,7 +1677,7 @@ _0804040A:
 	adds r1, r4, #0
 	bl CopyPosition
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 

@@ -236,7 +236,7 @@ sub_080ADAA8: @ 0x080ADAA8
 	b _080ADAD2
 _080ADACC:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080ADAD2:
 	pop {r4, pc}
 
@@ -440,7 +440,7 @@ _080ADC48:
 	b _080ADC5C
 _080ADC56:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080ADC5C:
 	pop {r4, pc}
 	.align 2, 0
@@ -463,7 +463,7 @@ sub_080ADC60: @ 0x080ADC60
 	b _080ADC82
 _080ADC7C:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080ADC82:
 	pop {pc}
 

@@ -779,7 +779,7 @@ _0806F304:
 	b _0806F320
 _0806F30C:
 	adds r0, r4, #0
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	b _0806F320
 _0806F314:
 	adds r0, r4, #0

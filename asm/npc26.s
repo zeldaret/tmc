@@ -91,7 +91,7 @@ _08066A08:
 	cmp r0, #0
 	bne _08066A18
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08066A18:
 	adds r2, r4, #0
 	adds r2, #0x39

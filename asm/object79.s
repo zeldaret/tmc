@@ -107,7 +107,7 @@ sub_0809803C: @ 0x0809803C
 	ldrb r5, [r4, #0xa]
 	cmp r5, #0
 	bne _08098070
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	beq _08098082
@@ -161,7 +161,7 @@ _080980A8:
 	cmp r0, #0
 	bne _080980D8
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r2, r4, #0
 	adds r2, #0x7e
 	ldrh r0, [r2]

@@ -4,10 +4,6 @@
 #include "link.h"
 #include "functions.h"
 
-extern TextBox gTextBox;
-extern LinkState gLinkState;
-extern Entity gLinkEntity;
-
 void sub_08065A64(Entity* this);
 void sub_08065AA4(Entity*);
 
@@ -30,12 +26,12 @@ void sub_080659B8(Entity* this) {
 }
 
 void sub_080659F0(Entity* this) {
-    sub_080042B8(this);
+    UpdateAnimationSingleFrame(this);
     sub_08065AA4(this);
 }
 
 void sub_08065A00(Entity* this) {
-    sub_080042B8(this);
+    UpdateAnimationSingleFrame(this);
     sub_08065AA4(this);
 }
 
@@ -98,6 +94,6 @@ void sub_08065B1C(Entity* this) {
         this->spriteSettings.b.ss0 = 1;
         InitAnimationForceUpdate(this, 7);
     } else {
-        sub_080042B8(this);
+        UpdateAnimationSingleFrame(this);
     }
 }

@@ -298,7 +298,7 @@ _08020DB0:
 sub_08020DB4: @ 0x08020DB4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -351,7 +351,7 @@ _08020E1A:
 	adds r0, r4, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08020E26:
 	pop {r4, pc}
 
@@ -359,7 +359,7 @@ _08020E26:
 sub_08020E28: @ 0x08020E28
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -385,7 +385,7 @@ sub_08020E48: @ 0x08020E48
 	b _08020E76
 _08020E5C:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -402,7 +402,7 @@ _08020E76:
 sub_08020E78: @ 0x08020E78
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -486,7 +486,7 @@ _08020F26:
 sub_08020F28: @ 0x08020F28
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -577,7 +577,7 @@ _08020FCC:
 	b _08020FE2
 _08020FDC:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08020FE2:
 	pop {pc}
 
@@ -585,7 +585,7 @@ _08020FE2:
 sub_08020FE4: @ 0x08020FE4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -608,7 +608,7 @@ _0802100C:
 sub_08021010: @ 0x08021010
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -673,7 +673,7 @@ _08021088:
 	b _080210A4
 _08021090:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r5]
 	cmp r0, #4
 	bne _080210A4
@@ -690,7 +690,7 @@ _080210A4:
 sub_080210A8: @ 0x080210A8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -721,7 +721,7 @@ _080210E2:
 sub_080210E4: @ 0x080210E4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -812,7 +812,7 @@ _08021190:
 	b _0802119E
 _08021198:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0802119E:
 	pop {pc}
 
@@ -828,7 +828,7 @@ sub_080211A0: @ 0x080211A0
 	b _080211CE
 _080211B4:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -845,7 +845,7 @@ _080211CE:
 sub_080211D0: @ 0x080211D0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0802159C
 	adds r0, r4, #0
@@ -864,7 +864,7 @@ _080211F2:
 sub_080211F4: @ 0x080211F4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08021600
 	adds r0, r4, #0
@@ -926,7 +926,7 @@ sub_0802124C: @ 0x0802124C
 	b _08021272
 _0802126C:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08021272:
 	pop {r4, pc}
 
@@ -1278,7 +1278,7 @@ _080214E8:
 _080214F0: .4byte gUnk_020000B0
 _080214F4:
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080214FA:
 	pop {r4, r5, pc}
 

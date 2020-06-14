@@ -135,7 +135,7 @@ _0806AC9A:
 	bl InitializeAnimation
 _0806ACBA:
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 

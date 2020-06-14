@@ -328,7 +328,7 @@ _0806850C:
 _0806851C: .4byte gLinkEntity
 _08068520:
 	mov r0, r8
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08068526:
 	mov r0, r8
 	bl sub_0800451C

@@ -793,7 +793,7 @@ _08088194:
 	b _08088262
 _0808819E:
 	ldrh r0, [r1, #4]
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	b _08088262
 _080881A6:
 	ldrh r0, [r1, #4]
@@ -815,16 +815,16 @@ _080881BC: @ jump table
 	.4byte _08088252 @ case 5
 _080881D4:
 	movs r0, #0x20
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x10
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x19
 _080881EA:
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	b _08088262
 _080881F0:
 	adds r0, r2, #0
@@ -836,39 +836,39 @@ _080881F0:
 	b _080881EA
 _080881FE:
 	movs r0, #0x54
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x56
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x3d
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	b _08088262
 _0808821A:
 	movs r0, #0x3b
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x4a
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0xd
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	b _08088262
 _08088236:
 	movs r0, #0x49
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x55
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x3c
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	b _08088262
 _08088252:
 	adds r0, r2, #0

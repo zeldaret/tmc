@@ -101,7 +101,7 @@ _080695E6:
 sub_080695E8: @ 0x080695E8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, _08069618 @ =gTextBox
 	ldrb r0, [r0]
 	movs r1, #0x7f
@@ -133,7 +133,7 @@ sub_0806961C: @ 0x0806961C
 	cmp r0, #2
 	bne _08069630
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08069630:
 	adds r0, r4, #0
 	bl sub_0806FD3C

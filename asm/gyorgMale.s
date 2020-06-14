@@ -165,7 +165,7 @@ sub_08046910: @ 0x08046910
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _0804692C: .4byte gUnk_080D1B1C
@@ -397,7 +397,7 @@ _08046ABA:
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x7c
 	ldrb r0, [r0]
@@ -704,7 +704,7 @@ _08046D0A:
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0]
 	adds r0, #0x6c
@@ -1030,7 +1030,7 @@ _08046F82:
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r1, r4, #0
 	adds r1, #0x7e
 	ldrh r0, [r1]
@@ -1576,7 +1576,7 @@ _0804738A:
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x45
 	ldrb r1, [r0]
@@ -2109,7 +2109,7 @@ sub_08047778: @ 0x08047778
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08047794: .4byte gUnk_080D1BDC
@@ -2644,7 +2644,7 @@ sub_08047B84: @ 0x08047B84
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08047BA0: .4byte gUnk_080D1BF4

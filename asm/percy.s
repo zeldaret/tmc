@@ -187,7 +187,7 @@ sub_0806B504: @ 0x0806B504
 	adds r5, r0, #0
 	movs r4, #1
 	movs r0, #0x21
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0806B518
 	movs r4, #3

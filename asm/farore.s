@@ -133,7 +133,7 @@ sub_08064A60: @ 0x08064A60
 	b _08064A8C
 _08064A86:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08064A8C:
 	pop {pc}
 	.align 2, 0

@@ -194,7 +194,7 @@ sub_080375A4: @ 0x080375A4
 	b _080375F4
 _080375D2:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080AEF88
 	cmp r0, #0
@@ -259,9 +259,9 @@ sub_08037624: @ 0x08037624
 	b _0803768E
 _08037652:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080AEF88
 	cmp r0, #0
@@ -291,7 +291,7 @@ _0803768E:
 sub_08037690: @ 0x08037690
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -341,7 +341,7 @@ sub_080376D0: @ 0x080376D0
 	adds r1, r4, #0
 	bl sub_0806FA6C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -377,7 +377,7 @@ _0803773A:
 sub_0803773C: @ 0x0803773C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

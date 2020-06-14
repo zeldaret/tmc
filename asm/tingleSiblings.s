@@ -203,7 +203,7 @@ _08064EBE:
 _08064EC2:
 	movs r0, #0x5a
 _08064EC4:
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _08064ED8
 	movs r0, #0xc
@@ -224,7 +224,7 @@ _08064ED8:
 sub_08064EE8: @ 0x08064EE8
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]

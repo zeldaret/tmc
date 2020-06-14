@@ -447,7 +447,7 @@ _08080CD4:
 _08080CEC: .4byte gUnk_080C9CBC
 _08080CF0:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0x18]
 	lsls r0, r0, #0x1e
 	cmp r0, #0
@@ -1079,7 +1079,7 @@ _0808126A:
 sub_0808126C: @ 0x0808126C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0808153C
 	pop {r4, pc}

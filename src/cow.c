@@ -4,7 +4,7 @@
 
 extern void sub_0806ED78(Entity*);
 extern void sub_0806920C(Entity*);
-extern void sub_080042B8(Entity*);
+extern void UpdateAnimationSingleFrame(Entity*);
 extern u32 sub_0805ACC0(Entity*);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_0806924C(Entity*);
@@ -67,7 +67,7 @@ void sub_08069018(Entity* ent) {
         InitAnimationForceUpdate(ent, ent->animationState);
     }
 
-    sub_080042B8(ent);
+    UpdateAnimationSingleFrame(ent);
     var0 = --ent->field_0xf;
     if (var0 == 0) {
         if (ent->parameter3 == 0) {
@@ -99,7 +99,7 @@ void sub_08069068(Entity* ent) {
     }
 
     sub_080AEF88(ent);
-    sub_080042B8(ent);
+    UpdateAnimationSingleFrame(ent);
 
     {
         s32 x = ent->x.HALF.HI;
@@ -138,7 +138,7 @@ void sub_08069068(Entity* ent) {
 }
 
 void sub_08069124(Entity* ent) {
-    sub_080042B8(ent);
+    UpdateAnimationSingleFrame(ent);
     gUnk_08111928[ent->previousActionFlag](ent);
     sub_0806924C(ent);
 }
@@ -234,6 +234,6 @@ void sub_080692A0(Entity* ent) {
         ent->spriteSettings.b.ss0 = 1;
         InitAnimationForceUpdate(ent, 15);
     } else {
-        sub_080042B8(ent);
+        UpdateAnimationSingleFrame(ent);
     }
 }
