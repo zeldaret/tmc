@@ -5,12 +5,12 @@
 #include "global.h"
 #include "entity.h"
 
-//Identified
+// Identified
 extern u32 Random(void);
 extern void PlaySFX(u32);
 extern void UpdateSpriteOrderAndFlip(Entity*);
 extern void InitAnimationForceUpdate(Entity*, u32);
-extern void ShowNPCDialogue();
+extern void ShowNPCDialogue(Entity*, u32*);
 extern u32 UpdateFuseInteraction();
 extern void CopyPosition(Entity*, Entity*);
 extern void PositionRelative(Entity*, Entity*, u32, u32);
@@ -19,7 +19,7 @@ extern void DeleteEntity(Entity*);
 extern u32 __modsi3(u32, u32);
 extern void DoFade(u32, u32);
 
-//Unidentified
+// Unidentified
 extern void sub_0806ED78(Entity*);
 extern void sub_0806920C(Entity*);
 extern void sub_080042B8(Entity*);
@@ -45,6 +45,12 @@ extern void sub_0807DD64(Entity*);
 extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern void sub_0806D02C(Entity*);
+extern u32 sub_0806F5A4(u32);
+extern u32 sub_080045C4(Entity*, Entity*);
+extern void sub_08078784(Entity*, u32);
+extern void sub_0807DD50(Entity*);
+extern void sub_0807DD94(Entity*, u32);
+extern Entity* sub_0805EB00(u32, u32, u32);
 extern Entity* sub_0805EB2C(u32, u32, u32, u32, u32);
 
 extern u32 sub_080045C4(Entity*, Entity*);
