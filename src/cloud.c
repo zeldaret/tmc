@@ -2,19 +2,16 @@
 #include "entity.h"
 #include "room.h"
 #include "link.h"
+#include "functions.h"
+#include "flags.h"
 
 extern void sub_0809F7BC(Entity*);
-extern void PlaySFX(u32);
 extern void sub_0809F814(u32);
 extern void sub_0809F7F4(Entity*);
-extern void SetGlobalFlag(u32);
 extern void LoadRoomEntityList();
 extern void DeleteThisEntity();
-extern u32 CheckRoomFlag(u32);
 extern void sub_08078A90(u32);
 extern void sub_08078B48(void);
-extern u32 SetLocalFlag(u32);
-extern u32 Random(void);
 extern void sub_0806F69C(Entity*);
 extern void (*gUnk_08124798[])(Entity*);
 extern void (*gUnk_081247A0[])(Entity*);
@@ -26,8 +23,6 @@ extern void sub_0807BB68(u32*, u32, u32);
 extern u8 gUnk_02034490;
 extern u32 gUnk_030010A0;
 extern void* gUnk_080DD750;
-extern Entity gLinkEntity;
-extern LinkState gLinkState;
 extern u8 gUnk_081247C0[];
 extern u16 gUnk_081247C8[];
 extern u32 gUnk_081247D0;

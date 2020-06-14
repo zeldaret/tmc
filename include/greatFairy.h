@@ -1,24 +1,6 @@
 #ifndef GREATFAIRY_H
 #define GREATFAIRY_H
 
-extern u32 __modsi3(u32, u32);
-extern void InitializeAnimation(Entity*, u32);
-extern void sub_08087380();
-extern u32 CheckRoomFlag();
-extern Entity* sub_080873AC(Entity*, u32, u32);
-extern void PositionRelative();
-extern void CopyPosition();
-extern void DoFade();
-extern void PlaySFX();
-extern void sub_08004274();
-extern void sub_0805EC9C();
-extern void sub_0805EC60();
-extern void sub_080873D0();
-extern void DeleteEntity();
-extern void sub_080045D4();
-extern void sub_0806F69C();
-extern u32 Random();
-
 extern void (*gGreatFairy[11])(Entity*);
 extern void (*gGreatFairyBehaviors[6])(Entity*);
 extern void (*gGreatFairyWings[3])(Entity*);

@@ -1,11 +1,9 @@
 #include "entity.h"
 #include "global.h"
+#include "functions.h"
 
 extern void sub_080042B8();
 extern void (*gUnk_08123384[])(Entity*);
-
-extern void UpdateSpriteOrderAndFlip(Entity*);
-extern void LoadAnimation();
 
 void sub_08097D78(Entity* ent) {
     gUnk_08123384[ent->action](ent);

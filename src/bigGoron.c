@@ -1,20 +1,12 @@
 #include "global.h"
 #include "entity.h"
+#include "functions.h"
+#include "link.h"
 
 extern void (*gUnk_081140D4[])(Entity*);
 
 extern u16 gUnk_081140CC[];
-extern Entity gLinkEntity;
 extern u32 gUnk_030010A0;
-extern void sub_0805E3A0(Entity*, u32);
-extern void sub_0806D0B0(Entity*);
-extern void sub_0807DD64(Entity*);
-extern void sub_0807DDAC(Entity*, u32);
-extern void sub_0807DDE4(Entity*);
-extern u32 Random(void);
-extern void PlaySFX(u32);
-extern void sub_0806D02C(Entity*);
-extern Entity* sub_0805EB2C(u32, u32, u32, u32, u32);
 
 void sub_0806CF18(Entity* this) {
     gUnk_081140D4[this->entityType.parameter1](this);
