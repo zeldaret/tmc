@@ -198,7 +198,7 @@ sub_08065680: @ 0x08065680
 	adds r0, #0x6a
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080656A0:
 	pop {r4, pc}
 	.align 2, 0
@@ -221,7 +221,7 @@ sub_080656A4: @ 0x080656A4
 	adds r0, #0x6a
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080656C8:
 	adds r0, r4, #0
 	bl sub_080042B8
@@ -307,7 +307,7 @@ sub_0806574C: @ 0x0806574C
 	cmp r2, r1
 	beq _08065772
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08065772:
 	ldrb r1, [r5]
 	adds r0, r4, #0

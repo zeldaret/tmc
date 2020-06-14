@@ -246,14 +246,14 @@ sub_080A13B4: @ 0x080A13B4
 	cmp r1, r0
 	blt _080A13D8
 	ldr r0, _080A13D4 @ =0x0000300C
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	movs r0, #1
 	b _080A13E0
 	.align 2, 0
 _080A13D4: .4byte 0x0000300C
 _080A13D8:
 	ldr r0, _080A13E4 @ =0x00003005
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	movs r0, #0
 _080A13E0:
 	str r0, [r4, #0x14]
@@ -557,7 +557,7 @@ sub_080A1608: @ 0x080A1608
 	adds r4, #4
 _080A1618:
 	adds r0, r4, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r4, _080A1640 @ =gTextBox
 	movs r1, #0
 	movs r0, #1

@@ -426,7 +426,7 @@ sub_08080CB4: @ 0x08080CB4
 	beq _08080CF0
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0x5c
 	beq _08080CD4

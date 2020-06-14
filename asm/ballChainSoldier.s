@@ -107,7 +107,7 @@ sub_0803E580: @ 0x0803E580
 	ldrb r1, [r5, #0x14]
 	lsls r1, r1, #2
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r5, #0
 	bl sub_0803E86C
 _0803E5E4:
@@ -272,7 +272,7 @@ sub_0803E6E0: @ 0x0803E6E0
 	ldrb r1, [r4, #0x14]
 	adds r1, #0x20
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803E718:
 	pop {r4, pc}
 	.align 2, 0
@@ -620,7 +620,7 @@ _0803E988:
 	adds r4, r0, r1
 	adds r0, r3, #0
 	adds r1, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803E9A2:
 	pop {r4, r5, r6, pc}
 
@@ -647,7 +647,7 @@ sub_0803E9A4: @ 0x0803E9A4
 	ands r1, r0
 	adds r1, r4, r1
 	adds r0, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803E9D2:
 	pop {r4, pc}
 

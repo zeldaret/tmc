@@ -57,7 +57,7 @@ _08060446:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 
 	thumb_func_start sub_0806045C
@@ -79,7 +79,7 @@ sub_0806045C: @ 0x0806045C
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	movs r0, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	b _080604C0
 _08060488:
 	adds r0, r4, #0
@@ -91,7 +91,7 @@ _08060488:
 	strb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0806049E:
 	adds r0, r4, #0
 	movs r1, #0x18
@@ -230,7 +230,7 @@ _08060582:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080605EC
 	.align 2, 0
 _080605B4: .4byte gLinkEntity
@@ -249,7 +249,7 @@ _080605B8:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080605EC
 	.align 2, 0
 _080605E0: .4byte gLinkEntity
@@ -738,7 +738,7 @@ sub_0806097C: @ 0x0806097C
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080609A8
 _080609A2:
 	adds r0, r2, #0

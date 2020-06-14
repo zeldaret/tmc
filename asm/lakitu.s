@@ -259,7 +259,7 @@ sub_0803C8E4: @ 0x0803C8E4
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803C914:
 	pop {r4, pc}
 	.align 2, 0
@@ -284,7 +284,7 @@ sub_0803C918: @ 0x0803C918
 	ldrb r1, [r4, #0x14]
 	adds r1, #0xc
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0803C94E
 _0803C946:
 	adds r0, r4, #0
@@ -313,7 +313,7 @@ sub_0803C950: @ 0x0803C950
 	strb r0, [r4, #0x18]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803C97A:
 	pop {r4, pc}
 
@@ -358,7 +358,7 @@ _0803C9C2:
 	strb r1, [r2]
 	ldr r0, [r4, #0x54]
 	ldrb r1, [r4, #0x14]
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803C9D2:
 	pop {r4, pc}
 
@@ -388,7 +388,7 @@ _0803C9F6:
 	ldrb r1, [r2, #0x14]
 	adds r1, #4
 	adds r0, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803CA08:
 	pop {pc}
 	.align 2, 0
@@ -410,7 +410,7 @@ sub_0803CA0C: @ 0x0803CA0C
 	ldrb r1, [r4, #0x14]
 	adds r1, #0x14
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]
@@ -486,10 +486,10 @@ _0803CAAA:
 	strb r4, [r5, #0x14]
 	adds r1, r4, r6
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, [r5, #0x54]
 	adds r1, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803CACA:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -544,7 +544,7 @@ _0803CB1A:
 	ldr r0, [r4, #0x54]
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #1
 _0803CB32:
 	pop {r4, r5, pc}
@@ -568,7 +568,7 @@ sub_0803CB34: @ 0x0803CB34
 	ldrb r1, [r4, #0x14]
 	adds r1, #8
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 _0803CB60: .4byte gLinkEntity
@@ -653,7 +653,7 @@ _0803CBC6:
 	ldrb r1, [r3, #0x14]
 	adds r1, #0x10
 	adds r0, r3, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 	.align 2, 0
 

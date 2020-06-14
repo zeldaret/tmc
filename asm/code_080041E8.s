@@ -129,8 +129,8 @@ _0800429C:
 	strb r2, [r0, r1]
 	bx r3
 
-	thumb_func_start LoadAnimation
-LoadAnimation: @ 0x080042AC
+	thumb_func_start InitAnimationForceUpdate
+InitAnimationForceUpdate: @ 0x080042AC
 	push {lr}
 	bl InitializeAnimation
 	movs r2, #0xff

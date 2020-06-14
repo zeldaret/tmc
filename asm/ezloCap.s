@@ -533,12 +533,12 @@ sub_0806DC58: @ 0x0806DC58
 	ldrb r0, [r0]
 	bl sub_0806DBF4
 	movs r1, #0
-	bl sub_08054414
+	bl ForceEquipItem
 	adds r4, #0x69
 	ldrb r0, [r4]
 	bl sub_0806DBF4
 	movs r1, #1
-	bl sub_08054414
+	bl ForceEquipItem
 	pop {r4, pc}
 	.align 2, 0
 

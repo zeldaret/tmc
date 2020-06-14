@@ -2467,7 +2467,7 @@ sub_08053A1C: @ 0x08053A1C
 	movs r0, #8
 	strh r0, [r1, #8]
 	ldr r0, _08053A54 @ =0x00000F07
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _08053A58 @ =gTextBox
 	movs r0, #1
 	strb r0, [r1, #6]
@@ -3519,7 +3519,7 @@ sub_08054288: @ 0x08054288
 	lsls r0, r0, #3
 	adds r0, r0, r1
 	ldrh r0, [r0, #6]
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	pop {pc}
 	.align 2, 0
 _08054298: .4byte gUnk_080FD5B4

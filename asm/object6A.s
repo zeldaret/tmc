@@ -72,7 +72,7 @@ sub_08094A90: @ 0x08094A90
 	strb r0, [r4, #0x19]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0807DD64
 _08094ACE:
@@ -255,7 +255,7 @@ sub_08094BE0: @ 0x08094BE0
 	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08094C22:
 	add sp, #4
 	pop {r4, pc}
@@ -297,7 +297,7 @@ _08094C44:
 	strb r0, [r4, #0x19]
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08094C74:
 	adds r0, r5, #0
 	adds r1, r4, #0
@@ -481,7 +481,7 @@ _08094DAC:
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08094DCE:
 	adds r0, r4, #0
 	bl sub_080042B8
@@ -929,7 +929,7 @@ sub_08095120: @ 0x08095120
 	bl sub_0807DD64
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0809514C:
 	adds r0, r4, #0
 	movs r1, #0
@@ -955,7 +955,7 @@ sub_08095164: @ 0x08095164
 	cmp r0, #0
 	beq _08095182
 	movs r1, #3
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08095182:
 	add sp, #4
 	pop {pc}
@@ -980,7 +980,7 @@ sub_08095188: @ 0x08095188
 	bl sub_0807DD64
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080951B4:
 	adds r0, r4, #0
 	movs r1, #0
@@ -1101,7 +1101,7 @@ sub_08095288: @ 0x08095288
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080952AA:
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0
@@ -1223,7 +1223,7 @@ sub_08095364: @ 0x08095364
 	strh r0, [r6, #0x24]
 	adds r0, r6, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0809539E:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -1791,7 +1791,7 @@ sub_080957DC: @ 0x080957DC
 	bl sub_0807DD64
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080957F8:
 	adds r0, r4, #0
 	movs r1, #0

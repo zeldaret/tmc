@@ -112,7 +112,7 @@ _08061C32:
 	ldrb r0, [r4, #0xb]
 	ldr r1, _08061C5C @ =0x00000A01
 	adds r0, r0, r1
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _08061C58:
 	pop {r4, pc}
 	.align 2, 0

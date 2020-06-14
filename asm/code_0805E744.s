@@ -2695,7 +2695,7 @@ _0805FB28:
 	lsls r0, r0, #8
 	ldrb r1, [r1, #0x15]
 	adds r0, r0, r1
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	b _0805FBA4
 	.align 2, 0
 _0805FB40: .4byte gUnk_02000080

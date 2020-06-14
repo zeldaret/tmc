@@ -709,7 +709,7 @@ _0802D58C:
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0802D63C
 _0802D5A8:
 	ldr r0, _0802D5E8 @ =gUnk_080CD884
@@ -746,7 +746,7 @@ _0802D5E8: .4byte gUnk_080CD884
 _0802D5EC:
 	adds r0, r4, #0
 	movs r1, #0x2c
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0802D63C
 _0802D5F6:
 	adds r2, r4, #0
@@ -763,7 +763,7 @@ _0802D5F6:
 	bl CopyPosition
 	adds r0, r4, #0
 	movs r1, #0x2d
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0802D63C
 _0802D61A:
 	adds r2, r4, #0
@@ -2906,7 +2906,7 @@ _0802E64C:
 	cmp r0, r1
 	beq _0802E6E8
 	adds r0, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0802E6E8
 _0802E662:
 	ldr r2, [sp, #8]
@@ -2973,7 +2973,7 @@ _0802E6CA:
 	beq _0802E6E2
 	adds r0, r1, #0
 	adds r1, r7, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0802E6E8
 _0802E6E2:
 	adds r0, r1, #0

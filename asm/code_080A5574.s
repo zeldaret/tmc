@@ -3025,7 +3025,7 @@ _080A6D38:
 	strb r0, [r2]
 	bl sub_080A7114
 	ldr r0, _080A6D48 @ =0x00000704
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	b _080A6D54
 	.align 2, 0
 _080A6D48: .4byte 0x00000704
@@ -5072,7 +5072,7 @@ sub_080A7D44: @ 0x080A7D44
 	bl sub_08078AA8
 	b _080A7D56
 _080A7D52:
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _080A7D56:
 	pop {pc}
 
@@ -5327,7 +5327,7 @@ sub_080A7F00: @ 0x080A7F00
 	ldrb r1, [r0, #0x14]
 	adds r1, #0x18
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080A7F26:
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
@@ -8441,7 +8441,7 @@ _080A9632:
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080A9756
 _080A9660:
 	ldrb r0, [r4, #0x19]
@@ -9414,7 +9414,7 @@ sub_080A9D6C: @ 0x080A9D6C
 	ldrb r1, [r1, #0x14]
 	strb r1, [r0, #0x14]
 	ldrb r1, [r0, #0x14]
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 
 	thumb_func_start sub_080A9D80
@@ -10267,7 +10267,7 @@ sub_080AA3E0: @ 0x080AA3E0
 _080AA3F4:
 	adds r0, r3, #0
 	adds r1, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 	.align 2, 0
 
@@ -10655,7 +10655,7 @@ sub_080AA6C0: @ 0x080AA6C0
 	ldrb r1, [r4, #0xa]
 	adds r1, #0x10
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0x2a
 	movs r1, #3
 	movs r2, #0
@@ -10729,7 +10729,7 @@ _080AA774:
 	ldrb r1, [r4, #0xa]
 	adds r1, #0x10
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _080AA788 @ =0x00000101
 	bl sub_08004488
 _080AA784:
@@ -10776,7 +10776,7 @@ _080AA7CC:
 	adds r1, r2, #0
 	adds r1, #8
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080AA7DA:
 	adds r0, r4, #0
 	bl sub_0806F520
@@ -10820,7 +10820,7 @@ _080AA828:
 	ldrb r1, [r4, #0xa]
 	adds r1, #0x10
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080AA832:
 	pop {r4, r5, pc}
 
@@ -10851,7 +10851,7 @@ _080AA848:
 	strb r2, [r0]
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_080AAA68
 	pop {r4, pc}
@@ -10945,7 +10945,7 @@ _080AA90A:
 	ldrb r1, [r4, #0xa]
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080AA920:
 	ldrb r0, [r7, #0x14]
 	lsrs r0, r0, #1
@@ -11025,7 +11025,7 @@ sub_080AA9AC: @ 0x080AA9AC
 	strb r2, [r1]
 	ldrb r1, [r0, #0xa]
 	adds r1, #0xc
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 
 	thumb_func_start sub_080AA9C4

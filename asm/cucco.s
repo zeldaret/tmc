@@ -60,7 +60,7 @@ sub_0806E4EC: @ 0x0806E4EC
 	strb r0, [r5, #0xe]
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0806E50E:
 	ldrb r0, [r5, #0xe]
 	subs r0, #1
@@ -137,7 +137,7 @@ _0806E590:
 	str r0, [r4, #0x20]
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0806E5AA:
 	movs r1, #0xa0
 	lsls r1, r1, #6
@@ -198,7 +198,7 @@ _0806E612:
 	ands r1, r5
 	adds r1, #2
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0806E622:
 	adds r0, r4, #0
 	adds r0, #0x5a
@@ -317,7 +317,7 @@ sub_0806E6E0: @ 0x0806E6E0
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806E70C
 _0806E706:
 	adds r0, r2, #0

@@ -67,7 +67,7 @@ sub_08070698: @ 0x08070698
 	bl sub_080AE008
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	adds r0, #0x38
 	ldrb r0, [r0]
@@ -2726,7 +2726,7 @@ sub_08071B60: @ 0x08071B60
 	lsrs r1, r1, #1
 	adds r1, #0x3c
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08071BA8:
 	pop {r4, r5, pc}
 	.align 2, 0

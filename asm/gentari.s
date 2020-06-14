@@ -62,7 +62,7 @@ _0805FD72:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _0805FDBC
@@ -105,7 +105,7 @@ sub_0805FDC0: @ 0x0805FDC0
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0805FDF4
 _0805FDEE:
 	adds r0, r4, #0

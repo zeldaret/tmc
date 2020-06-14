@@ -526,6 +526,6 @@ sub_08038C84: @ 0x08038C84
 _08038C98:
 	adds r0, r3, #0
 	adds r1, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 	.align 2, 0

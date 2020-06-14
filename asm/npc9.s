@@ -78,7 +78,7 @@ sub_08062B48: @ 0x08062B48
 	cmp r0, #0
 	beq _08062B6A
 	ldr r0, _08062B6C @ =0x00000A01
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldrb r0, [r4, #0xc]
 	adds r0, #1
 	strb r0, [r4, #0xc]

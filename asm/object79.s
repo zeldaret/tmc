@@ -76,7 +76,7 @@ sub_08097FB4: @ 0x08097FB4
 	bl sub_080AE008
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08098032
 	.align 2, 0
 _08098014: .4byte gUnk_0812341C
@@ -118,7 +118,7 @@ sub_0809803C: @ 0x0809803C
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0xbc
 	lsls r0, r0, #1
 	bl PlaySFX

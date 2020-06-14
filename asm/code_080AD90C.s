@@ -211,7 +211,7 @@ sub_080ADA6C: @ 0x080ADA6C
 	ldrb r1, [r4, #0x14]
 	lsrs r1, r1, #1
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 _080ADAA4: .4byte gUnk_08132B28
@@ -271,7 +271,7 @@ _080ADAFC:
 	adds r1, #4
 _080ADB0C:
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080ADC08
 	.align 2, 0
 _080ADB14: .4byte gLinkEntity
@@ -426,7 +426,7 @@ sub_080ADC14: @ 0x080ADC14
 	lsrs r1, r1, #1
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080ADC5C
 	.align 2, 0
 _080ADC40: .4byte gLinkState

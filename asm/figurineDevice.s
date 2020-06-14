@@ -464,7 +464,7 @@ _08087F24:
 	movs r0, #3
 	bl SetRoomFlag
 	ldr r0, _08087F50 @ =0x0000431A
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _08087F54 @ =gTextBox
 	movs r0, #1
 	strb r0, [r1, #6]
@@ -1205,7 +1205,7 @@ _080884D0:
 	ldr r1, _080884F8 @ =0x00004327
 _080884D2:
 	adds r0, r1, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _080884FC @ =gTextBox
 	movs r0, #1
 	strb r0, [r1, #6]
@@ -1249,7 +1249,7 @@ _08088524: .4byte 0x00004314
 _08088528:
 	ldr r0, _0808853C @ =0x00004311
 _0808852A:
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r0, _08088540 @ =gTextBox
 	movs r1, #1
 	strb r1, [r0, #6]
@@ -1272,7 +1272,7 @@ sub_08088544: @ 0x08088544
 	subs r1, #7
 _08088554:
 	adds r0, r1, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r0, _08088570 @ =gTextBox
 	movs r1, #1
 	strb r1, [r0, #6]
@@ -1304,7 +1304,7 @@ _08088594:
 	ldr r1, _080885A8 @ =0x0000430B
 _08088596:
 	adds r0, r1, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r0, _080885AC @ =gTextBox
 	movs r1, #1
 	strb r1, [r0, #6]
@@ -1329,7 +1329,7 @@ sub_080885B0: @ 0x080885B0
 	movs r0, #5
 	bl ModRupees
 	ldr r0, _080885E0 @ =0x00004326
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _080885E4 @ =gTextBox
 	movs r0, #1
 	strb r0, [r1, #6]

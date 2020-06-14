@@ -863,7 +863,7 @@ sub_08029EEC: @ 0x08029EEC
 	beq _08029F0A
 	strb r1, [r3, #0x14]
 	adds r0, r3, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08029F0A:
 	pop {pc}
 

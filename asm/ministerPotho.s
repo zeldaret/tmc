@@ -47,7 +47,7 @@ sub_080667E4: @ 0x080667E4
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_08078778
 	pop {r4, pc}
@@ -155,7 +155,7 @@ _080668A2:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _080668EC
@@ -241,7 +241,7 @@ sub_08066948: @ 0x08066948
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08066974
 _0806696E:
 	adds r0, r2, #0

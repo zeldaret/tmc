@@ -65,7 +65,7 @@ sub_0809A78C: @ 0x0809A78C
 	bl UpdateSpriteOrderAndFlip
 	ldrb r1, [r4, #0xf]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0809A958
 	pop {r4, r5, pc}
@@ -103,12 +103,12 @@ _0809A810:
 	strb r2, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0809A840
 _0809A838:
 	ldrb r1, [r4, #0xf]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0809A840:
 	pop {r4, pc}
 	.align 2, 0
@@ -156,7 +156,7 @@ _0809A87C:
 	strb r2, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #3
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	movs r1, #0x78
 	bl sub_0805E4E0

@@ -194,7 +194,7 @@ _0804916E:
 	strh r1, [r0]
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080491E4:
 	pop {r4, r5, pc}
 	.align 2, 0

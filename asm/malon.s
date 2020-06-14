@@ -56,7 +56,7 @@ sub_08065864: @ 0x08065864
 	orrs r1, r3
 	strb r1, [r0, #0x18]
 	movs r1, #0xc
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 	.align 2, 0
 
@@ -111,7 +111,7 @@ sub_080658BC: @ 0x080658BC
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _080658FC
@@ -194,7 +194,7 @@ sub_08065960: @ 0x08065960
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #0xc
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806598C
 _08065986:
 	adds r0, r2, #0

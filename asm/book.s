@@ -75,7 +75,7 @@ _0809B424:
 	ldrb r1, [r4, #0xa]
 	adds r1, #0x39
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldrb r1, [r4, #0xb]
 	cmp r1, #1
 	beq _0809B46C

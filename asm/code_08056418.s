@@ -15981,7 +15981,7 @@ _0805DF78:
 	movs r0, #0x1e
 	strb r0, [r1, #0xe]
 	ldr r0, _0805DF94 @ =0x0000164F
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _0805DF92:
 	pop {pc}
 	.align 2, 0

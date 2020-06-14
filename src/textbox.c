@@ -24,7 +24,7 @@ void sub_08056360(void)
     return;
 }
 
-void TextboxTryNoOverlap(u32 index)
+void TextboxNoOverlapFollow(u32 index)
 
 {
     if (gRoomControls.cameraTarget != NULL) {

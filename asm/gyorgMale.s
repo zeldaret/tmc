@@ -148,7 +148,7 @@ sub_08046898: @ 0x08046898
 	strh r4, [r0]
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0804690C:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -387,7 +387,7 @@ sub_08046A9C: @ 0x08046A9C
 	bne _08046ABA
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08046ABA:
 	ldr r1, _08046AE4 @ =gUnk_080D1B38
 	ldrb r0, [r4, #0xd]
@@ -694,7 +694,7 @@ sub_08046CEC: @ 0x08046CEC
 	bne _08046D0A
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08046D0A:
 	ldr r1, _08046D40 @ =gUnk_080D1B4C
 	ldrb r0, [r4, #0xd]
@@ -1020,7 +1020,7 @@ sub_08046F64: @ 0x08046F64
 	bne _08046F82
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08046F82:
 	ldr r1, _08046FE4 @ =gUnk_080D1B94
 	ldrb r0, [r4, #0xd]
@@ -1566,7 +1566,7 @@ sub_0804736C: @ 0x0804736C
 	bne _0804738A
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0804738A:
 	ldr r0, _080473B4 @ =gUnk_080D1BC0
 	ldrb r1, [r4, #0xd]
@@ -2781,7 +2781,7 @@ _08047C74:
 	bl PlaySFX
 	adds r0, r5, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08047D10
 	.align 2, 0
 _08047CB8: .4byte gUnk_080D1C00

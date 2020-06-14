@@ -122,7 +122,7 @@ _080829A4:
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #7
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0xf3
 	bl PlaySFX
 	b _080829E2
@@ -138,7 +138,7 @@ _080829CC:
 	strh r0, [r4, #0x32]
 	adds r0, r4, #0
 	movs r1, #0x14
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080829E2:
 	pop {r4, r5, pc}
 
@@ -192,7 +192,7 @@ _08082A30:
 	beq _08082A9C
 	adds r0, r5, #0
 	adds r1, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08082AB4
 _08082A4A:
 	movs r0, #0x80
@@ -230,7 +230,7 @@ _08082A78:
 _08082A8C:
 	ldrb r1, [r5, #0xf]
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08082AB4
 	.align 2, 0
 _08082A98: .4byte gUnk_0811F16C
@@ -314,7 +314,7 @@ _08082B18:
 	strb r0, [r1, #0xb]
 	adds r0, r4, #0
 	movs r1, #0x1c
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08082B98
 _08082B36:
 	ldr r1, _08082B58 @ =gUnk_0811F178
@@ -324,7 +324,7 @@ _08082B36:
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldrb r0, [r4, #0xe]
 	cmp r0, #2
 	bls _08082B98
@@ -362,7 +362,7 @@ _08082B5C:
 	ldrb r1, [r4, #0xe]
 	adds r1, #0x1b
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08082B98:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -418,7 +418,7 @@ sub_08082B9C: @ 0x08082B9C
 	bl sub_080AE008
 	adds r0, r6, #0
 	movs r1, #0xc
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r6, #0
 	adds r0, #0x82
 	strh r4, [r0]
@@ -491,7 +491,7 @@ _08082C88:
 	beq _08082D0C
 	adds r0, r5, #0
 	movs r1, #0x17
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08082D1C
 _08082C9C:
 	adds r0, r5, #0
@@ -501,7 +501,7 @@ _08082C9C:
 	beq _08082D0C
 	adds r0, r5, #0
 	movs r1, #0x18
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08082D1C
 _08082CB0:
 	adds r0, r5, #0
@@ -523,7 +523,7 @@ _08082CB0:
 	ldrb r4, [r4]
 	adds r1, r1, r4
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08082D1C
 	.align 2, 0
 _08082CE0: .4byte gUnk_0811F18C
@@ -535,7 +535,7 @@ _08082CE4:
 	beq _08082D0C
 	adds r0, r5, #0
 	movs r1, #0x13
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08082D1C
 _08082CF8:
 	adds r0, r5, #0
@@ -545,7 +545,7 @@ _08082CF8:
 	beq _08082D0C
 	adds r0, r5, #0
 	movs r1, #0x1a
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08082D1C
 _08082D0C:
 	movs r1, #0x80
@@ -688,7 +688,7 @@ _08082DF2:
 	strb r0, [r1]
 	adds r0, r4, #0
 	movs r1, #0x1b
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08082E10
 _08082E0A:
 	ldr r0, [r3, #8]
@@ -764,7 +764,7 @@ sub_08082E6C: @ 0x08082E6C
 	strb r1, [r0]
 	adds r0, r4, #0
 	movs r1, #0x17
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08082E98:
 	pop {r4, pc}
 	.align 2, 0

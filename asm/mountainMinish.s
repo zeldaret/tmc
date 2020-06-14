@@ -101,7 +101,7 @@ _08067EC4:
 	movs r1, #0x90
 	lsls r1, r1, #5
 	adds r0, r0, r1
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _08067EE4:
 	pop {r4, pc}
 	.align 2, 0

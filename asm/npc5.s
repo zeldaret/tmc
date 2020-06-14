@@ -112,7 +112,7 @@ _08060A76:
 	lsls r1, r1, #0x19
 	lsrs r1, r1, #0x19
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	bl Random
 	movs r1, #0x7f
 	ands r0, r1
@@ -604,7 +604,7 @@ sub_08060E70: @ 0x08060E70
 	adds r0, #0x6c
 	strb r3, [r0]
 	adds r0, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08060E92:
 	pop {pc}
 
@@ -626,7 +626,7 @@ sub_08060E94: @ 0x08060E94
 	ldrb r1, [r4, #0x14]
 	lsrs r1, r1, #1
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	bl Random
 	movs r1, #0x7f
 	ands r0, r1
@@ -681,7 +681,7 @@ _08060F00:
 	adds r1, r2, #0
 	adds r1, #0x20
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldrb r0, [r4, #0x14]
 	adds r0, #1
 	b _08060F42
@@ -691,7 +691,7 @@ _08060F34:
 	adds r1, r2, #0
 	adds r1, #0x28
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldrb r0, [r4, #0x14]
 	subs r0, #1
 _08060F42:
@@ -1162,7 +1162,7 @@ _080612E8:
 	lsrs r1, r1, #1
 	adds r1, #0x40
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #1
 	b _08061356
 _08061302:
@@ -1190,7 +1190,7 @@ _0806131A:
 	ldrb r0, [r0]
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r2, r4, #0
 	adds r2, #0x41
 _0806133A:
@@ -1328,7 +1328,7 @@ _0806141E:
 _0806143A:
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08061460
 	.align 2, 0
 _08061444: .4byte gUnk_0810AC5D
@@ -2313,7 +2313,7 @@ sub_08061B58: @ 0x08061B58
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08061B6E:
 	ldr r0, _08061B88 @ =gUnk_030010A0
 	adds r0, #0x2c

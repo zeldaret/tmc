@@ -962,7 +962,7 @@ sub_08096A78: @ 0x08096A78
 	lsrs r1, r1, #1
 	adds r1, #8
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_08004168
 	ldrh r0, [r4, #0x32]

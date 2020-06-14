@@ -93,7 +93,7 @@ _08068762:
 	movs r1, #0x90
 	lsls r1, r1, #5
 	adds r0, r0, r1
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _0806877E:
 	pop {r4, pc}
 

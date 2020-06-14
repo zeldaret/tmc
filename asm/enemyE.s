@@ -78,7 +78,7 @@ sub_08023000: @ 0x08023000
 	b _08023014
 _0802300E:
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08023014:
 	movs r2, #0x80
 	adds r0, r4, #0

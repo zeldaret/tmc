@@ -595,7 +595,7 @@ _080281CA:
 	strb r1, [r0]
 	movs r0, #0xaf
 	lsls r0, r0, #3
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	b _080281DE
 _080281D6:
 	movs r0, #1
@@ -646,7 +646,7 @@ sub_08028224: @ 0x08028224
 	movs r2, #1
 	bl sub_080A7C18
 	ldr r0, _08028238 @ =0x00000579
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	pop {pc}
 	.align 2, 0
 _08028238: .4byte 0x00000579

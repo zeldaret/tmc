@@ -77,7 +77,7 @@ sub_0809CF54: @ 0x0809CF54
 	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0x95
 	movs r1, #1
 	movs r2, #0
@@ -165,7 +165,7 @@ sub_0809D048: @ 0x0809D048
 	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0x17
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 
@@ -269,7 +269,7 @@ sub_0809D10C: @ 0x0809D10C
 	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0x17
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 
@@ -450,7 +450,7 @@ _0809D234:
 	bl sub_0805E3A0
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _0809D2AC @ =0x00000123
 	bl PlaySFX
 	movs r0, #0x68
@@ -765,7 +765,7 @@ sub_0809D498: @ 0x0809D498
 	strb r0, [r6]
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	bl sub_08078B48
 	adds r7, r4, #0
 	b _0809D62E
@@ -975,7 +975,7 @@ _0809D6A2:
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #0xe0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0809D6EC:
 	adds r0, r4, #0
 	bl sub_080042B8

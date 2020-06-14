@@ -89,7 +89,7 @@ _08069B72:
 	bl sub_0805E3A0
 	adds r0, r5, #0
 	movs r1, #0xa
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldrb r0, [r5, #0x10]
 	ands r4, r0
 	cmp r4, #0
@@ -236,7 +236,7 @@ sub_08069CB8: @ 0x08069CB8
 	beq _08069CF6
 	ldrb r1, [r5]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08069CF6:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -281,7 +281,7 @@ _08069D3C:
 	cmp r2, r1
 	beq _08069D4E
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08069D4E:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -459,7 +459,7 @@ _08069E88:
 	cmp r2, r1
 	beq _08069EA0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08069EA0:
 	movs r0, #0x36
 	bl GetInventoryValue
@@ -469,7 +469,7 @@ _08069EA0:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #0x29
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_080788E0
 	movs r0, #0xd1
@@ -586,7 +586,7 @@ sub_08069F6C: @ 0x08069F6C
 	cmp r1, r0
 	beq _08069F8C
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08069F8C:
 	pop {r4, pc}
 	.align 2, 0

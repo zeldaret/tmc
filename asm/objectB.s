@@ -206,7 +206,7 @@ _08083D14:
 	adds r1, #1
 _08083D16:
 	adds r0, r1, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _08083D24 @ =gTextBox
 	ldrb r0, [r4, #0xb]
 	str r0, [r1, #0x10]

@@ -38,7 +38,7 @@ sub_08092050: @ 0x08092050
 	bl sub_0809223C
 	adds r0, r6, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08092148
 _0809207A:
 	ldrb r0, [r6, #0xd]
@@ -124,7 +124,7 @@ _0809207A:
 	bl SetTile
 	adds r0, r6, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08092148
 	.align 2, 0
 _08092130: .4byte gRoomControls
@@ -191,7 +191,7 @@ sub_08092164: @ 0x08092164
 	bl sub_0809223C
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080921B6:
 	pop {r4, pc}
 

@@ -199,7 +199,7 @@ sub_0806B32C: @ 0x0806B32C
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #9
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806B358
 _0806B352:
 	adds r0, r2, #0

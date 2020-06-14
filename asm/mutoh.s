@@ -68,7 +68,7 @@ _08067030:
 	adds r1, r0, #0
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _0806707C

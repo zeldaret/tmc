@@ -16,7 +16,7 @@ u32 sub_0806EDC4(Entity* ent);
 void DeleteThisEntity(void);
 extern Entity* GetEntityByType(u32, u32);
 extern void sub_080686C4(Entity*, Entity*);
-extern void LoadAnimation(Entity*, u32);
+extern void InitAnimationForceUpdate(Entity*, u32);
 extern void sub_080042B8(Entity*);
 extern void sub_0806F62C(Entity*, u32, u32);
 extern u32 sub_08003FC4(Entity*, u32);
@@ -111,27 +111,27 @@ void sub_08066DE4(Entity* ent) {
 }
 
 void sub_08066E08(Entity* ent) {
-    LoadAnimation(ent, 0x50);
+    InitAnimationForceUpdate(ent, 0x50);
     ent->field_0x80 = ent->field_0x58;
 }
 
 void sub_08066E20(Entity* ent) {
-    LoadAnimation(ent, 0x44);
+    InitAnimationForceUpdate(ent, 0x44);
     ent->field_0x80 = ent->field_0x58;
 }
 
 void sub_08066E38(Entity* ent) {
-    LoadAnimation(ent, 0x48);
+    InitAnimationForceUpdate(ent, 0x48);
     ent->field_0x80 = ent->field_0x58;
 }
 
 void sub_08066E50(Entity* ent) {
-    LoadAnimation(ent, 0x4C);
+    InitAnimationForceUpdate(ent, 0x4C);
     ent->field_0x80 = ent->field_0x58;
 }
 
 void sub_08066E68(Entity* ent) {
-    LoadAnimation(ent, 0x54);
+    InitAnimationForceUpdate(ent, 0x54);
     ent->field_0x80 = ent->field_0x58;
 }
 
@@ -139,7 +139,7 @@ void sub_08066E80(Entity* ent, u8* param_2) {
     switch (param_2[0x18]) {
         case 0:
             param_2[0x18]++;
-            LoadAnimation(ent, 0x16);
+            InitAnimationForceUpdate(ent, 0x16);
             break;
         case 1:
             sub_080042B8(ent);
@@ -165,7 +165,7 @@ void sub_08066E80(Entity* ent, u8* param_2) {
             sub_080042B8(ent);
             if (sub_08003FC4(ent, 0x2000) == 0) {
                 param_2[0x18]++;
-                LoadAnimation(ent, 0x1E);
+                InitAnimationForceUpdate(ent, 0x1E);
             }
             break;
         case 4:

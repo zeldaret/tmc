@@ -6,249 +6,6 @@
 
 	.text
 
-
-	thumb_func_start sub_080689C0
-sub_080689C0: @ 0x080689C0
-	push {r4, lr}
-	adds r4, r0, #0
-	ldrb r1, [r4, #0x10]
-	movs r0, #2
-	ands r0, r1
-	cmp r0, #0
-	beq _080689E4
-	ldr r0, _080689E0 @ =gUnk_081115D0
-	ldrb r1, [r4, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r0
-	ldr r1, [r1]
-	adds r0, r4, #0
-	bl _call_via_r1
-	b _080689FA
-	.align 2, 0
-_080689E0: .4byte gUnk_081115D0
-_080689E4:
-	ldr r0, _08068A18 @ =gUnk_081115C0
-	ldrb r1, [r4, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r0
-	ldr r1, [r1]
-	adds r0, r4, #0
-	bl _call_via_r1
-	adds r0, r4, #0
-	bl sub_0806ED78
-_080689FA:
-	adds r2, r4, #0
-	adds r2, #0x5a
-	ldrb r1, [r2]
-	movs r0, #1
-	ands r0, r1
-	cmp r0, #0
-	beq _08068A16
-	movs r0, #0xfe
-	ands r0, r1
-	strb r0, [r2]
-	adds r0, r4, #0
-	movs r1, #0
-	bl sub_08068BEC
-_08068A16:
-	pop {r4, pc}
-	.align 2, 0
-_08068A18: .4byte gUnk_081115C0
-
-	thumb_func_start sub_08068A1C
-sub_08068A1C: @ 0x08068A1C
-	push {r4, lr}
-	adds r4, r0, #0
-	ldrb r0, [r4, #0xa]
-	strb r0, [r4, #0xb]
-	ldr r0, _08068A34 @ =gUnk_030010A0
-	adds r0, #0x2c
-	ldrb r0, [r0]
-	cmp r0, #0
-	beq _08068A38
-	movs r1, #6
-	movs r0, #3
-	b _08068A42
-	.align 2, 0
-_08068A34: .4byte gUnk_030010A0
-_08068A38:
-	adds r0, r4, #0
-	bl sub_08078778
-	movs r1, #2
-	movs r0, #1
-_08068A42:
-	strb r0, [r4, #0xc]
-	adds r0, r4, #0
-	bl InitializeAnimation
-	pop {r4, pc}
-
-	thumb_func_start sub_08068A4C
-sub_08068A4C: @ 0x08068A4C
-	push {r4, lr}
-	adds r4, r0, #0
-	movs r1, #0x28
-	movs r2, #0x28
-	bl sub_0806ED9C
-	adds r1, r0, #0
-	cmp r1, #0
-	bge _08068A62
-	movs r1, #2
-	b _08068A78
-_08068A62:
-	ldrb r0, [r4, #0xf]
-	cmp r0, #0
-	bne _08068A6E
-	movs r0, #0x10
-	strb r0, [r4, #0xf]
-	b _08068A78
-_08068A6E:
-	subs r0, #1
-	strb r0, [r4, #0xf]
-	adds r0, r4, #0
-	adds r0, #0x58
-	ldrb r1, [r0]
-_08068A78:
-	adds r0, r4, #0
-	bl sub_0806F078
-	cmp r0, #0
-	bne _08068A88
-	adds r0, r4, #0
-	bl sub_08004274
-_08068A88:
-	adds r1, r4, #0
-	adds r1, #0x39
-	movs r0, #0
-	ldrsb r0, [r1, r0]
-	cmp r0, #0
-	beq _08068AA2
-	movs r0, #0
-	strb r0, [r1]
-	movs r0, #2
-	strb r0, [r4, #0xc]
-	movs r0, #0
-	bl TextboxTryNoOverlap
-_08068AA2:
-	pop {r4, pc}
-
-	thumb_func_start sub_08068AA4
-sub_08068AA4: @ 0x08068AA4
-	push {lr}
-	adds r2, r0, #0
-	movs r0, #1
-	strb r0, [r2, #0xc]
-	ldrb r0, [r2, #0xa]
-	cmp r0, #0
-	beq _08068AD4
-	ldrb r0, [r2, #0xb]
-	adds r1, r0, #1
-	movs r0, #7
-	ands r1, r0
-	strb r1, [r2, #0xb]
-	cmp r1, #0
-	bne _08068AC4
-	adds r0, r1, #1
-	strb r0, [r2, #0xb]
-_08068AC4:
-	ldr r0, _08068AD8 @ =gUnk_081115DC
-	ldrb r1, [r2, #0xb]
-	lsls r1, r1, #1
-	adds r1, r1, r0
-	ldrh r1, [r1]
-	adds r0, r2, #0
-	bl sub_0801D2B4
-_08068AD4:
-	pop {pc}
-	.align 2, 0
-_08068AD8: .4byte gUnk_081115DC
-
-	thumb_func_start sub_08068ADC
-sub_08068ADC: @ 0x08068ADC
-	push {r4, lr}
-	adds r4, r0, #0
-	ldr r0, _08068AF8 @ =gUnk_030010A0
-	adds r0, #0x2c
-	ldrb r0, [r0]
-	cmp r0, #2
-	bne _08068AF0
-	adds r0, r4, #0
-	bl sub_08004274
-_08068AF0:
-	adds r0, r4, #0
-	bl sub_0806FD3C
-	pop {r4, pc}
-	.align 2, 0
-_08068AF8: .4byte gUnk_030010A0
-
-	thumb_func_start sub_08068AFC
-sub_08068AFC: @ 0x08068AFC
-	push {r4, lr}
-	adds r4, r0, #0
-	movs r2, #1
-	movs r0, #1
-	strb r0, [r4, #0xc]
-	ldrb r1, [r4, #0x18]
-	subs r0, #5
-	ands r0, r1
-	orrs r0, r2
-	strb r0, [r4, #0x18]
-	adds r0, r4, #0
-	bl sub_0801E99C
-	adds r1, r4, #0
-	adds r1, #0x68
-	strb r0, [r1]
-	ldrb r1, [r1]
-	adds r0, r4, #0
-	bl sub_08078784
-	adds r0, r4, #0
-	bl sub_0807DD50
-	pop {r4, pc}
-
-	thumb_func_start sub_08068B2C
-sub_08068B2C: @ 0x08068B2C
-	push {r4, lr}
-	adds r4, r0, #0
-	adds r2, r4, #0
-	adds r2, #0x39
-	movs r1, #0
-	ldrsb r1, [r2, r1]
-	cmp r1, #2
-	bne _08068B64
-	movs r0, #0
-	strb r1, [r4, #0xc]
-	strb r0, [r2]
-	ldr r1, _08068B60 @ =gLinkEntity
-	adds r0, r4, #0
-	bl sub_080045C4
-	bl sub_0806F5A4
-	adds r1, r0, #0
-	adds r0, r4, #0
-	bl LoadAnimation
-	adds r0, r4, #0
-	bl sub_0806F118
-	b _08068B6C
-	.align 2, 0
-_08068B60: .4byte gLinkEntity
-_08068B64:
-	adds r0, r4, #0
-	movs r1, #0
-	bl sub_0807DD94
-_08068B6C:
-	pop {r4, pc}
-	.align 2, 0
-
-	thumb_func_start sub_08068B70
-sub_08068B70: @ 0x08068B70
-	push {r4, lr}
-	adds r4, r0, #0
-	bl UpdateFuseInteraction
-	cmp r0, #0
-	beq _08068B80
-	movs r0, #1
-	strb r0, [r4, #0xc]
-_08068B80:
-	pop {r4, pc}
-	.align 2, 0
-
 	thumb_func_start sub_08068B84
 sub_08068B84: @ 0x08068B84
 	push {r4, lr}
@@ -260,7 +17,7 @@ sub_08068B84: @ 0x08068B84
 	cmp r0, #0
 	beq _08068B9A
 	movs r1, #0
-	bl sub_08054414
+	bl ForceEquipItem
 _08068B9A:
 	ldr r0, _08068BB0 @ =gUnk_081115EC
 	ldrb r1, [r4, #0xe]
@@ -297,11 +54,11 @@ sub_08068BD0: @ 0x08068BD0
 	adds r0, #0x69
 	ldrb r0, [r0]
 	movs r1, #0
-	bl sub_08054414
+	bl ForceEquipItem
 	adds r4, #0x6a
 	ldrb r0, [r4]
 	movs r1, #1
-	bl sub_08054414
+	bl ForceEquipItem
 	pop {r4, pc}
 	.align 2, 0
 
@@ -795,7 +552,7 @@ sub_08068F4C: @ 0x08068F4C
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08068F78
 _08068F72:
 	adds r0, r4, #0

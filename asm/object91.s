@@ -580,7 +580,7 @@ _0809C82A:
 	cmp r0, #0xff
 	bne _0809C84A
 	ldr r0, _0809C850 @ =0x00000B43
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	movs r0, #1
 	strb r0, [r5, #0xd]
 	movs r0, #8

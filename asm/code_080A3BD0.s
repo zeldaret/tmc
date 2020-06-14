@@ -2975,7 +2975,7 @@ _080A52EC:
 	orrs r1, r0
 	lsrs r1, r1, #0x1f
 	ldrb r0, [r2]
-	bl sub_08054414
+	bl ForceEquipItem
 _080A530A:
 	movs r0, #0x6a
 	bl PlaySFX

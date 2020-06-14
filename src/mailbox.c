@@ -2,9 +2,9 @@
 #include "entity.h"
 
 extern void sub_0806ED78(Entity*);
-extern void LoadAnimation();
+extern void InitAnimationForceUpdate();
 extern void sub_08063280();
-extern void TextboxTryNoOverlap(u32);
+extern void TextboxNoOverlapFollow(u32);
 extern void sub_080042B8();
 extern void CreateFx();
 
@@ -22,7 +22,7 @@ void sub_08063210(Entity* ent)
 
 {
     ent->action = 1;
-    LoadAnimation(ent, 0);
+    InitAnimationForceUpdate(ent, 0);
     return;
 }
 
@@ -39,7 +39,7 @@ void sub_08063220(Entity* ent)
     }
 
     if (ent->field_0x58 != bVar1) {
-        LoadAnimation(ent);
+        InitAnimationForceUpdate(ent);
     } else {
         sub_08063280(ent, bVar1);
     }
@@ -51,7 +51,7 @@ void sub_08063254(Entity* ent)
     sub_08063280(ent);
     if ((ent->frames.all & 0x80) != 0) {
         ent->action = 3;
-        TextboxTryNoOverlap(0);
+        TextboxNoOverlapFollow(0);
     }
     return;
 }

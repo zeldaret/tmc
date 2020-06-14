@@ -7,7 +7,7 @@ extern void sub_08078778(Entity*);
 extern void sub_0805E47C(Entity*);
 extern void sub_08004274(Entity*);
 extern void sub_0806ED78(Entity*);
-extern void TextboxTryNoOverlap(u32);
+extern void TextboxNoOverlapFollow(u32);
 extern void sub_0805E584();
 extern void sub_0807DD64();
 extern void CreateFx();
@@ -28,7 +28,7 @@ extern void sub_08078778(Entity*);
 extern void sub_0805E47C(Entity*);
 extern void sub_08004274(Entity*);
 extern void sub_0806ED78(Entity*);
-extern void TextboxTryNoOverlap(u32);
+extern void TextboxNoOverlapFollow(u32);
 extern void sub_0805E584();
 extern void sub_0807DD64();
 extern void CreateFx();
@@ -73,7 +73,7 @@ void sub_08062C24(Entity* ent) {
     sub_08004274(ent);
     if ((ent->frames.all & 128) != 0) {
         InitializeAnimation(ent, 4);
-        TextboxTryNoOverlap(2561);
+        TextboxNoOverlapFollow(2561);
         ent->action++;
     }
 }

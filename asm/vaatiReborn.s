@@ -169,7 +169,7 @@ _0806B76C:
 _0806B7A6:
 	adds r0, r6, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806B7B8
 _0806B7B0:
 	adds r0, r6, #0
@@ -227,7 +227,7 @@ _0806B80C:
 	adds r1, r4, #0
 	bl CopyPosition
 	ldr r0, _0806B828 @ =0x00001634
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldrb r0, [r5, #0xd]
 	adds r0, #1
 	strb r0, [r5, #0xd]
@@ -343,7 +343,7 @@ _0806B8FA:
 	ldrb r1, [r5, #0xd]
 	subs r1, #1
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806B91E
 _0806B906:
 	adds r0, r5, #0

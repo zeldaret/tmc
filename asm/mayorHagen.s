@@ -63,7 +63,7 @@ _0806CDE8:
 	adds r1, r0, #0
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _0806CE58
@@ -89,7 +89,7 @@ _0806CE3E:
 	adds r0, #0x69
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0806CE58:
 	pop {r4, pc}
 	.align 2, 0
@@ -182,7 +182,7 @@ sub_0806CEE8: @ 0x0806CEE8
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #8
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806CF14
 _0806CF0E:
 	adds r0, r2, #0

@@ -194,7 +194,7 @@ sub_0806BCFC: @ 0x0806BCFC
 	bl sub_0806BC58
 	adds r0, r4, #0
 	movs r1, #3
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806BD52
 	.align 2, 0
 _0806BD48: .4byte gUnk_08113140

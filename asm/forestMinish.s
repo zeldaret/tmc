@@ -182,7 +182,7 @@ _08060120:
 	beq _08060132
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08060132:
 	adds r0, r4, #0
 	adds r0, #0x82

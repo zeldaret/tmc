@@ -40,7 +40,7 @@ _08062E88:
 	ldrb r1, [r4, #0x14]
 	lsrs r1, r1, #1
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	adds r0, #0x58
 	ldrb r1, [r0]

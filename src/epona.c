@@ -5,7 +5,7 @@
 
 extern void sub_0806ED78(Entity*);
 extern u32 sub_0801E99C(Entity*);
-extern void LoadAnimation(Entity*, u32);
+extern void InitAnimationForceUpdate(Entity*, u32);
 extern void sub_080042B8(Entity*);
 extern void sub_08065AA4(Entity*);
 extern u32 UpdateFuseInteraction(void);
@@ -40,7 +40,7 @@ void sub_080659B8(Entity* this) {
     this->animationState = 6;
     this->field_0x69 = -1;
     this->field_0x68 = sub_0801E99C(this);
-    LoadAnimation(this, this->animationState / 2);
+    InitAnimationForceUpdate(this, this->animationState / 2);
 }
 
 void sub_080659F0(Entity* this) {
@@ -56,14 +56,14 @@ void sub_08065A00(Entity* this) {
 void sub_08065A10(Entity* this) {
     if ((gTextBox.doTextBox & 0x7F) == 0) {
         this->action = 1;
-        LoadAnimation(this, this->animationState / 2);
+        InitAnimationForceUpdate(this, this->animationState / 2);
     }
 }
 
 void sub_08065A34(Entity* this) {
     if (UpdateFuseInteraction() != 0) {
         this->action = 1;
-        LoadAnimation(this, this->animationState / 2);
+        InitAnimationForceUpdate(this, this->animationState / 2);
     }
 }
 
@@ -97,7 +97,7 @@ void sub_08065AA4(Entity* this) {
                 sub_08065A50(this);
             }
             sub_080045C4(this, &gLinkEntity);
-            LoadAnimation(this, sub_0806F5A4());
+            InitAnimationForceUpdate(this, sub_0806F5A4());
         } else {
             sub_08065A50(this);
             sub_080791D0();
@@ -111,7 +111,7 @@ void sub_08065B1C(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
         this->spriteSettings.b.ss0 = 1;
-        LoadAnimation(this, 7);
+        InitAnimationForceUpdate(this, 7);
     } else {
         sub_080042B8(this);
     }

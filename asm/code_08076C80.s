@@ -1892,7 +1892,7 @@ sub_08077AEC: @ 0x08077AEC
 	cmp r1, #2
 	beq _08077B12
 	movs r0, #0xf
-	bl sub_08054414
+	bl ForceEquipItem
 _08077B12:
 	pop {pc}
 	.align 2, 0

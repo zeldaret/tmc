@@ -147,7 +147,7 @@ sub_0806305C: @ 0x0806305C
 	bl sub_0805EC9C
 	adds r0, r4, #0
 	movs r1, #0x10
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r4, #0x80
 	movs r0, #0x10
 	strh r0, [r4]
@@ -295,7 +295,7 @@ _08063186:
 	bl sub_0805EC9C
 	adds r0, r4, #0
 	movs r1, #0x11
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r1, r4, #0
 	adds r1, #0x80
 	movs r0, #0x11

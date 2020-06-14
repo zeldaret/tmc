@@ -85,7 +85,7 @@ sub_08066358: @ 0x08066358
 	movs r5, #0
 	strb r5, [r1]
 	movs r0, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldrb r1, [r4, #0xb]
 	movs r0, #0x10
 	ands r0, r1

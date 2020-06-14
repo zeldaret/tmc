@@ -170,7 +170,7 @@ _080446C8:
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0804474A
 	.align 2, 0
 _08044724: .4byte gUnk_080D1620
@@ -190,7 +190,7 @@ _08044728:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0804474A:
 	pop {r4, r5, r6, pc}
 

@@ -129,7 +129,7 @@ sub_0803CD6C: @ 0x0803CD6C
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0803CE14
 	pop {r4, pc}
@@ -213,7 +213,7 @@ sub_0803CE14: @ 0x0803CE14
 	lsrs r1, r1, #3
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803CE38:
 	pop {r4, pc}
 	.align 2, 0

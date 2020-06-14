@@ -56,7 +56,7 @@ _0806B3F4:
 	beq _0806B40E
 	movs r0, #0
 	strb r0, [r1]
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _0806B40E:
 	adds r0, r4, #0
 	bl sub_0806ED78

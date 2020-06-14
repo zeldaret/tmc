@@ -59,7 +59,7 @@ _0806C182:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _0806C1D2
@@ -100,7 +100,7 @@ sub_0806C1D4: @ 0x0806C1D4
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806C200
 _0806C1FA:
 	adds r0, r2, #0

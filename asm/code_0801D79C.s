@@ -1272,7 +1272,7 @@ sub_0801E0E0: @ 0x0801E0E0
 _0801E0F8: .4byte gUnk_02022740
 _0801E0FC:
 	adds r0, r2, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _0801E102:
 	pop {pc}
 

@@ -384,7 +384,7 @@ _08035456:
 	ldr r0, [r2]
 	ldr r0, [r0, #0xc]
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080354DC
 	.align 2, 0
 _080354AC: .4byte gUnk_030010A0
@@ -406,7 +406,7 @@ _080354B0:
 	ldr r0, [r3]
 	ldr r0, [r0, #0xc]
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080354DC:
 	adds r0, r5, #0
 	movs r1, #0x87
@@ -1026,7 +1026,7 @@ _08035990:
 	adds r1, r1, r0
 	ldrb r1, [r1]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080359A0:
 	adds r0, r4, #0
 	bl sub_08035B94

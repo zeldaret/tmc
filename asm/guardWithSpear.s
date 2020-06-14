@@ -131,7 +131,7 @@ sub_08063DC8: @ 0x08063DC8
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08063E4C
 	.align 2, 0
 _08063DF4: .4byte gLinkEntity

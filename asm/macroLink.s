@@ -144,7 +144,7 @@ _0808CBDA:
 	strh r5, [r3, #0x12]
 	adds r0, r3, #0
 	adds r1, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0808CBE4:
 	pop {r4, r5, pc}
 	.align 2, 0

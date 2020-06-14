@@ -902,7 +902,7 @@ _0802122C:
 	ldrb r1, [r0]
 	adds r1, r1, r2
 	adds r0, r3, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08021244:
 	pop {r4, pc}
 	.align 2, 0

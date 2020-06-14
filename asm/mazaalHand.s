@@ -27,7 +27,7 @@ sub_08035164: @ 0x08035164
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803518C:
 	adds r0, r4, #0
 	bl sub_08035194

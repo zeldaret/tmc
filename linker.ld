@@ -508,6 +508,7 @@ SECTIONS {
 		asm/mountainMinish.o(.text);
 		asm/zeldaFollower.o(.text);
 		asm/melari.o(.text);
+		src/bladeBrothers.o(.text);
 		asm/bladeBrothers.o(.text);
 		src/cow.o(.text);
 		asm/goron.o(.text);
@@ -540,6 +541,7 @@ SECTIONS {
 		asm/bigGoron.o(.text);
 		asm/ezloCap.o(.text);
 		asm/npc4E.o(.text);
+		src/clothesRack.o(.text);
 		asm/clothesRack.o(.text);
 		asm/picolyteBottles.o(.text);
 		asm/smallTownMinish.o(.text);

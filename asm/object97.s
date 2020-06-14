@@ -59,7 +59,7 @@ sub_0809D9D8: @ 0x0809D9D8
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	movs r1, #6
 	bl sub_0805EB64
@@ -100,7 +100,7 @@ sub_0809DA2C: @ 0x0809DA2C
 	str r0, [r1, #0x34]
 	adds r0, r1, #0
 	movs r1, #3
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0809DA5C:
 	pop {pc}
 	.align 2, 0
@@ -138,7 +138,7 @@ sub_0809DA64: @ 0x0809DA64
 	strb r0, [r5, #0xf]
 	adds r0, r5, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0809DAAC:
 	adds r0, r5, #0
 	bl sub_080042B8
@@ -246,7 +246,7 @@ sub_0809DB58: @ 0x0809DB58
 	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0x3c
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 
@@ -433,7 +433,7 @@ sub_0809DC80: @ 0x0809DC80
 	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #3
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	movs r1, #6
 	bl sub_0805EB64
@@ -665,7 +665,7 @@ sub_0809DE50: @ 0x0809DE50
 	adds r0, r0, r1
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0x97
 	movs r1, #1
 	movs r2, #0
@@ -722,7 +722,7 @@ _0809DF16:
 	ldrb r1, [r0]
 	adds r1, #2
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _0809DF60 @ =0x00000123
 	bl PlaySFX
 	ldr r5, [r4, #0x54]
@@ -758,7 +758,7 @@ _0809DF64:
 	ldrb r1, [r0]
 	adds r1, #2
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _0809DF8C @ =0x00000123
 	bl PlaySFX
 	ldr r0, _0809DF90 @ =0x000001F3
@@ -891,7 +891,7 @@ sub_0809E050: @ 0x0809E050
 	bl sub_0807DD64
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 _0809E084: .4byte 0x0000FFF0

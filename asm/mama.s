@@ -163,7 +163,7 @@ _0806C4CC:
 	lsls r0, r1, #1
 	strb r0, [r4, #0x14]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #1
 _0806C4D8:
 	str r0, [r5, #0x14]

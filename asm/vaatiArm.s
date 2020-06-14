@@ -350,7 +350,7 @@ _08042740:
 	adds r0, r6, #0
 	movs r1, #7
 _080427EE:
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0xaf
 	lsls r0, r0, #1
 	bl PlaySFX
@@ -668,7 +668,7 @@ _08042A2C:
 	bl sub_08043BC8
 	adds r0, r4, #0
 	movs r1, #7
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08042A3A:
 	pop {r4, r5, pc}
 
@@ -790,7 +790,7 @@ sub_08042AEC: @ 0x08042AEC
 	strb r4, [r0]
 	adds r0, r5, #0
 	movs r1, #0xe
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, [r5, #0x64]
 	ldr r0, [r0, #4]
 	adds r0, #0x3f
@@ -1105,7 +1105,7 @@ _08042D5E:
 	str r1, [r4, #0x68]
 	adds r0, r4, #0
 	movs r1, #0xd
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08042D68:
 	pop {r4, pc}
 	.align 2, 0
@@ -1195,7 +1195,7 @@ _08042DC4:
 	strb r0, [r1]
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, [r5, #0x64]
 	ldr r0, [r0, #4]
 	adds r0, #0x3f
@@ -1352,7 +1352,7 @@ _08042F3C:
 	strb r0, [r4, #0xd]
 	adds r0, r4, #0
 	movs r1, #0xf
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _08042FD4 @ =0x0000019B
 	bl PlaySFX
 _08042F4E:
@@ -1479,7 +1479,7 @@ _08043036:
 	strb r0, [r5, #0xe]
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08043046:
 	pop {r4, r5, r6, pc}
 
@@ -1600,7 +1600,7 @@ _08043114:
 	strh r0, [r2, #0xa]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08043128:
 	pop {r4, pc}
 	.align 2, 0
@@ -1628,7 +1628,7 @@ sub_08043130: @ 0x08043130
 	bne _080431E0
 	adds r0, r6, #0
 	movs r1, #0xd
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080431E0
 _08043160:
 	ldrb r0, [r6, #0xe]
@@ -1756,7 +1756,7 @@ _08043230:
 	strh r0, [r2, #0x20]
 	adds r0, r4, #0
 	movs r1, #0xe
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0804324E:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1984,7 +1984,7 @@ _080433E8:
 	bl sub_08043BC8
 	adds r0, r4, #0
 	movs r1, #7
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r1, r4, #0
 	adds r1, #0x7e
 	ldrb r0, [r1]
@@ -2064,7 +2064,7 @@ _08043472:
 	strb r0, [r3, #0xd]
 	adds r0, r3, #0
 	movs r1, #0x10
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0804348C:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -3028,7 +3028,7 @@ sub_08043B9C: @ 0x08043B9C
 	cmp r1, r0
 	beq _08043BC0
 	adds r0, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08043BC0:
 	pop {pc}
 	.align 2, 0
@@ -3097,7 +3097,7 @@ _08043C2E:
 	cmp r0, r1
 	beq _08043C3E
 	adds r0, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08043C3E:
 	pop {pc}
 
@@ -3230,7 +3230,7 @@ sub_08043D08: @ 0x08043D08
 	strb r1, [r5, #0xd]
 	adds r0, r5, #0
 	movs r1, #0xd
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, [r5, #0x64]
 	ldr r4, [r0, #0x10]
 	ldrb r1, [r4, #0x10]
@@ -3455,7 +3455,7 @@ sub_08043EB8: @ 0x08043EB8
 	strb r0, [r2]
 	adds r0, r7, #0
 	movs r1, #0xd
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, [r7, #0x64]
 	ldr r3, [r0, #4]
 	ldrb r0, [r3, #0x10]
@@ -3651,7 +3651,7 @@ _0804401C:
 	bls _0804401C
 	adds r0, r4, #0
 	movs r1, #7
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r1, [r4, #0x64]
 	ldr r0, [r1, #0x14]
 	ldr r1, [r1, #0x10]

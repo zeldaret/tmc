@@ -64,7 +64,7 @@ _08081674:
 	bl sub_080AE008
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _08081698 @ =0x00000129
 	bl PlaySFX
 	b _0808170C

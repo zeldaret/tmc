@@ -112,7 +112,7 @@ sub_0806C36C: @ 0x0806C36C
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806C398
 _0806C392:
 	adds r0, r2, #0

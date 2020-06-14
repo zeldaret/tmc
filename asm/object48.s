@@ -222,7 +222,7 @@ _0808E90E:
 	lsls r1, r1, #0x18
 	lsrs r1, r1, #0x18
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0808E940:
 	ldrb r0, [r4, #0x18]
 	movs r1, #4
@@ -306,7 +306,7 @@ _0808E9BC:
 	beq _0808E9D8
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0808E9D8:
 	ldrb r0, [r5, #0x18]
 	movs r1, #4
@@ -1239,6 +1239,6 @@ sub_0808EFF0: @ 0x0808EFF0
 _0808F094: .4byte gUnk_08121D54
 _0808F098:
 	mov r0, ip
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0808F09E:
 	pop {r4, r5, pc}

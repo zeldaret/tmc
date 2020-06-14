@@ -104,7 +104,7 @@ _08089DAC:
 	adds r1, r1, r0
 	ldrb r1, [r1]
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08089DC6:
 	ldr r1, _08089E08 @ =gUnk_08120E14
 	ldrb r0, [r5, #0xa]
@@ -324,7 +324,7 @@ sub_08089F38: @ 0x08089F38
 _08089F5A:
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0x10
 	strb r0, [r4, #0xe]
 	ldrb r0, [r4, #0xd]

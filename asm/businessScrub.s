@@ -535,7 +535,7 @@ sub_08028CE8: @ 0x08028CE8
 	cmp r0, #0
 	beq _08028D3C
 	ldr r0, _08028D38 @ =0x00002904
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	movs r0, #0
 	bl sub_08078A90
 	b _08028DCC
@@ -609,7 +609,7 @@ _08028DB6:
 	b _08028DE2
 _08028DC0:
 	ldr r0, _08028DE4 @ =0x00002903
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	movs r0, #0
 	bl sub_08078A90
 _08028DCC:
@@ -648,7 +648,7 @@ sub_08028DE8: @ 0x08028DE8
 _08028E08: .4byte gLinkEntity
 _08028E0C:
 	ldr r0, _08028E3C @ =0x00002902
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	movs r1, #0
 	movs r0, #4
 	strb r0, [r4, #0xc]
@@ -841,7 +841,7 @@ _08028F7A:
 	bl sub_08078A90
 _08028F84:
 	adds r0, r4, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _08028F94 @ =gTextBox
 	ldrh r0, [r6, #2]
 	str r0, [r1, #0x10]

@@ -2587,7 +2587,7 @@ _0807DEB0:
 	beq _0807DEC2
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0807DEC2:
 	adds r0, r4, #0
 	adds r0, #0x82
@@ -4090,7 +4090,7 @@ sub_0807E930: @ 0x0807E930
 	adds r1, #0x80
 	strh r2, [r1]
 	ldrh r1, [r3, #2]
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 
 	thumb_func_start sub_0807E944
@@ -4149,7 +4149,7 @@ _0807E990:
 	strb r0, [r2, #0x18]
 	ldr r0, [r2]
 	ldrh r0, [r0, #2]
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	b _0807E9C2
 _0807E9AE:
 	ldr r0, _0807E9CC @ =gTextBox
@@ -4304,7 +4304,7 @@ sub_0807EAB4: @ 0x0807EAB4
 	push {lr}
 	ldr r0, [r1]
 	ldrh r0, [r0, #2]
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	pop {pc}
 
 	thumb_func_start sub_0807EAC0
@@ -4323,7 +4323,7 @@ sub_0807EAD0: @ 0x0807EAD0
 	adds r4, r1, #0
 	ldr r0, [r4]
 	ldrh r0, [r0, #2]
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _0807EAEC @ =gTextBox
 	movs r0, #1
 	strb r0, [r1, #6]
@@ -4346,13 +4346,13 @@ sub_0807EAF0: @ 0x0807EAF0
 	ldr r1, [r1]
 	adds r1, r1, r0
 	ldrh r0, [r1, #2]
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	b _0807EB16
 	.align 2, 0
 _0807EB0C: .4byte gUnk_02033280
 _0807EB10:
 	movs r0, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _0807EB16:
 	pop {pc}
 
@@ -5439,7 +5439,7 @@ _0807F280:
 _0807F28C:
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_08054414
+	bl ForceEquipItem
 	pop {r4, r5, pc}
 	.align 2, 0
 _0807F298: .4byte 0x0000FFFF
@@ -5634,7 +5634,7 @@ sub_0807F3D8: @ 0x0807F3D8
 	ldr r1, [r1, #4]
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	adds r0, #0x58
 	ldrb r0, [r0]

@@ -455,7 +455,7 @@ sub_0806F078: @ 0x0806F078
 	cmp r0, #0
 	beq _0806F096
 	adds r0, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806F09C
 _0806F096:
 	adds r0, r2, #0
@@ -821,7 +821,7 @@ _0806F34E:
 	bl TextboxNoOverlap
 	b _0806F35E
 _0806F35A:
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _0806F35E:
 	pop {r3}
 	mov r8, r3

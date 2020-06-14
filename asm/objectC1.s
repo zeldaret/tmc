@@ -163,7 +163,7 @@ _080A2688:
 	movs r0, #0xff
 	ands r1, r0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080A273C
 	.align 2, 0
 _080A2698: .4byte 0x000001B9

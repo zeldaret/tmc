@@ -97,7 +97,7 @@ _080374F2:
 	strb r0, [r4, #0x14]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_08037810
 	cmp r0, #0
@@ -231,7 +231,7 @@ sub_080375F8: @ 0x080375F8
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08037622:
 	pop {r4, pc}
 
@@ -433,7 +433,7 @@ sub_08037794: @ 0x08037794
 	movs r1, #0x26
 	strb r1, [r2]
 	ldrb r1, [r0, #0x14]
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 
 	thumb_func_start sub_080377B0
@@ -481,7 +481,7 @@ _080377FE:
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_08037810
@@ -552,7 +552,7 @@ sub_08037810: @ 0x08037810
 	strh r0, [r3]
 	ldrb r1, [r5, #0x14]
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #1
 	b _080378AE
 	.align 2, 0
@@ -603,7 +603,7 @@ sub_080378B0: @ 0x080378B0
 	ldrb r1, [r4, #0x14]
 	adds r1, #8
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #1
 	b _08037912
 	.align 2, 0
@@ -700,7 +700,7 @@ sub_0803797C: @ 0x0803797C
 	strb r0, [r5, #0x14]
 	adds r1, r0, #4
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080379BA:
 	pop {r4, r5, pc}
 
@@ -726,7 +726,7 @@ sub_080379BC: @ 0x080379BC
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 
 	thumb_func_start sub_080379EC
@@ -783,7 +783,7 @@ sub_08037A14: @ 0x08037A14
 	ldrb r1, [r4, #0x14]
 	adds r1, #0xc
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 
@@ -843,7 +843,7 @@ _08037A84:
 	ldrb r1, [r4, #0x14]
 	adds r1, #0x10
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 

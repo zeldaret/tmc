@@ -17,7 +17,7 @@ sub_0806DD44: @ 0x0806DD44
 	strb r0, [r4, #0xc]
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0806DD5A:
 	adds r0, r4, #0
 	bl sub_080042B8

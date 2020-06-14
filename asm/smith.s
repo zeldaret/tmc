@@ -41,7 +41,7 @@ _08065FF0:
 	adds r5, r5, r0
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 _0806600C:
@@ -171,7 +171,7 @@ sub_080660EC: @ 0x080660EC
 	strb r0, [r1]
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08066112:
 	pop {r4, pc}
 	.align 2, 0
@@ -220,7 +220,7 @@ _08066154:
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	movs r0, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _0806616C:
 	pop {r4, pc}
 	.align 2, 0
@@ -293,7 +293,7 @@ sub_080661BC: @ 0x080661BC
 	strh r0, [r1]
 	ldrh r1, [r1]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080661FC
 _080661F4:
 	adds r0, r4, #0
@@ -414,7 +414,7 @@ sub_08066298: @ 0x08066298
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080662D6
 	.align 2, 0
 _080662CC: .4byte gUnk_08110354

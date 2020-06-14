@@ -17,7 +17,7 @@ extern void sub_080791D0();
 extern void (*gUnk_08111914[])(Entity*);
 extern void (*gUnk_08111928[])(Entity*);
 extern u32 gUnk_08111938[];
-extern void LoadAnimation();
+extern void InitAnimationForceUpdate();
 extern void PlaySFX(u32);
 extern u32 Random();
 extern u32 UpdateFuseInteraction(Entity*);
@@ -55,7 +55,7 @@ void sub_08068FC0(Entity* ent) {
     }
     ent->field_0x6c = sub_0801E99C(ent);
 
-    LoadAnimation(ent, ent->animationState + 4);
+    InitAnimationForceUpdate(ent, ent->animationState + 4);
 }
 
 void sub_08069018(Entity* ent) {
@@ -64,7 +64,7 @@ void sub_08069018(Entity* ent) {
     if (ent->previousActionFlag == 0) {
         ent->previousActionFlag++;
         ent->field_0xf = (Random() & 0x3F) + 0x3C;
-        LoadAnimation(ent, ent->animationState);
+        InitAnimationForceUpdate(ent, ent->animationState);
     }
 
     sub_080042B8(ent);
@@ -95,7 +95,7 @@ void sub_08069068(Entity* ent) {
         ent->direction = anim <<= 3;
 
         ent->field_0xf = (Random() & 0x3F) + 0x3C;
-        LoadAnimation(ent, ent->animationState + 4);
+        InitAnimationForceUpdate(ent, ent->animationState + 4);
     }
 
     sub_080AEF88(ent);
@@ -148,13 +148,13 @@ void sub_08069148(Entity* ent) {
     var0 += 3;
     ent->field_0xf = var0;
     ent->previousActionFlag = 1;
-    LoadAnimation(ent, ent->animationState + 8);
+    InitAnimationForceUpdate(ent, ent->animationState + 8);
 }
 
 void sub_08069168(Entity* ent) {
     if ((s8)ent->frames.all < 0) {
         ent->previousActionFlag = 2;
-        LoadAnimation(ent, ent->animationState + 12);
+        InitAnimationForceUpdate(ent, ent->animationState + 12);
     }
 }
 
@@ -166,14 +166,14 @@ void sub_08069188(Entity* ent) {
     if (((s8)--ent->field_0xf) != 0)
         return;
     ent->previousActionFlag = 3;
-    LoadAnimation(ent, ent->animationState + 16);
+    InitAnimationForceUpdate(ent, ent->animationState + 16);
 }
 
 void sub_080691BC(Entity* ent) {
     if ((s8)ent->frames.all < 0) {
         ent->action = 1;
         ent->previousActionFlag = 0;
-        LoadAnimation(ent, ent->animationState + 4);
+        InitAnimationForceUpdate(ent, ent->animationState + 4);
     }
 }
 
@@ -232,7 +232,7 @@ void sub_080692A0(Entity* ent) {
     if (ent->action == 0) {
         ent->action++;
         ent->spriteSettings.b.ss0 = 1;
-        LoadAnimation(ent, 15);
+        InitAnimationForceUpdate(ent, 15);
     } else {
         sub_080042B8(ent);
     }

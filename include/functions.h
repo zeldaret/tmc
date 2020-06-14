@@ -9,7 +9,7 @@
 extern u32 Random(void);
 extern void PlaySFX(u32);
 extern void UpdateSpriteOrderAndFlip(Entity*);
-extern void LoadAnimation(Entity*, u32);
+extern void InitAnimationForceUpdate(Entity*, u32);
 extern void ShowNPCDialogue();
 extern u32 UpdateFuseInteraction();
 extern void CopyPosition(Entity*, Entity*);

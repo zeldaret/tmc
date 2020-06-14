@@ -100,7 +100,7 @@ _08063342:
 	ldrb r0, [r4, #0xe]
 	ldr r1, _08063368 @ =0x00000A01
 	adds r0, r0, r1
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldrb r0, [r4, #0xc]
 	adds r0, #1
 	strb r0, [r4, #0xc]

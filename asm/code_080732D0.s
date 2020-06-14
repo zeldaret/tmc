@@ -5273,7 +5273,7 @@ sub_08075A0C: @ 0x08075A0C
 _08075A3E:
 	movs r0, #0xf
 	adds r1, r6, #0
-	bl sub_08054414
+	bl ForceEquipItem
 	ldr r0, _08075A64 @ =gLinkState
 	ldr r1, [r0, #0x30]
 	ldr r2, _08075A68 @ =0xFF7FFFFF
@@ -5281,7 +5281,7 @@ _08075A3E:
 	str r1, [r0, #0x30]
 	movs r0, #0xf
 	adds r1, r6, #0
-	bl sub_08054414
+	bl ForceEquipItem
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_08077E78
@@ -5305,7 +5305,7 @@ _08075A6C:
 	movs r0, #0x10
 	strb r0, [r4, #1]
 	adds r1, r6, #0
-	bl sub_08054414
+	bl ForceEquipItem
 	ldrb r1, [r5, #0x14]
 	movs r0, #6
 	ands r0, r1
@@ -5435,7 +5435,7 @@ _08075B86:
 	bne _08075BB8
 	movs r0, #0xf
 	adds r1, r4, #0
-	bl sub_08054414
+	bl ForceEquipItem
 	ldr r0, [r5, #0x30]
 	ldr r1, _08075BB4 @ =0xFF7FFFFF
 	ands r0, r1

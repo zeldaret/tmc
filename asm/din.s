@@ -58,7 +58,7 @@ _080647C2:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08064824
 	.align 2, 0
 _080647FC: .4byte gLinkEntity
@@ -78,7 +78,7 @@ _0806480A:
 	adds r0, #0x68
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08064824:
 	pop {r4, pc}
 	.align 2, 0
@@ -129,7 +129,7 @@ sub_08064860: @ 0x08064860
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806488C
 _08064886:
 	adds r0, r2, #0
