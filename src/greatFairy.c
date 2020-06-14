@@ -2,8 +2,6 @@
 #include "entity.h"
 #include "room.h"
 #include "screen.h"
-#include "functions.h"
-#include "flags.h"
 #include "greatFairy.h"
 
 // Main

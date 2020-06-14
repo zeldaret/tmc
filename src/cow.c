@@ -1,13 +1,26 @@
 #include "global.h"
 #include "entity.h"
 #include "link.h"
-#include "functions.h"
 
+extern void sub_0806ED78(Entity*);
+extern void sub_0806920C(Entity*);
+extern void sub_080042B8(Entity*);
+extern u32 sub_0805ACC0(Entity*);
+extern u32 sub_0801E99C(Entity*);
+extern void sub_0806924C(Entity*);
+extern void sub_080AEF88(Entity*);
+extern void ShowNPCDialogue(Entity*, u32*);
+extern void sub_08078778(Entity*);
+extern void sub_080787A8(Entity*, u32);
+extern void sub_0806F118(Entity*);
+extern void sub_080791D0();
 extern void (*gUnk_08111914[])(Entity*);
 extern void (*gUnk_08111928[])(Entity*);
 extern u32 gUnk_08111938[];
-
-
+extern void LoadAnimation();
+extern void PlaySFX(u32);
+extern u32 Random();
+extern u32 UpdateFuseInteraction(Entity*);
 extern LinkState gLinkState;
 
 void sub_08068F98(Entity* ent) {

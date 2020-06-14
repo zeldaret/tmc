@@ -1,3 +1,4 @@
+
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
@@ -9,8 +10,8 @@ extern u32 Random(void);
 extern void PlaySFX(u32);
 extern void UpdateSpriteOrderAndFlip(Entity*);
 extern void LoadAnimation(Entity*, u32);
-extern void ShowNPCDialogue(Entity*, u32*);
-extern u32 UpdateFuseInteraction(Entity*);
+extern void ShowNPCDialogue();
+extern u32 UpdateFuseInteraction();
 extern void CopyPosition(Entity*, Entity*);
 extern void PositionRelative(Entity*, Entity*, u32, u32);
 extern void InitializeAnimation(Entity*, u32);
@@ -45,5 +46,15 @@ extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern void sub_0806D02C(Entity*);
 extern Entity* sub_0805EB2C(u32, u32, u32, u32, u32);
+
+extern u32 sub_080045C4(Entity*, Entity*);
+extern u32 sub_0801E99C(Entity*);
+extern void sub_0805E3A0(Entity*, u32);
+extern Entity* sub_0805EB00(u32, u32, u32);
+extern u32 sub_0806F5A4(u32);
+extern void sub_08078778(Entity*);
+extern void sub_08078784(Entity*, u32);
+extern void sub_0807DD50(Entity*);
+extern void sub_0807DD94(Entity*, u32);
 
 #endif
