@@ -18,4 +18,6 @@ typedef struct {
 
 extern TextBox gTextBox;
 
+void TextboxNoOverlap(u32 index, Entity* ent);
+
 #endif

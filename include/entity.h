@@ -28,7 +28,7 @@ union SplitHWord {
     struct {
         u8 LO, HI;
     } PACKED HALF;
-};
+} PACKED;
 
 typedef struct Entity {
     u32* field_0x0;
@@ -130,7 +130,7 @@ typedef struct Entity {
     u32* otherEntity;
     u8 field_0x68;
     u8 field_0x69;
-    u16 field_0x6a;
+    union SplitHWord field_0x6a;
     u8 field_0x6c;
     u8 field_0x6d;
     u8 filler4[6];
