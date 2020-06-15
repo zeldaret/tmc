@@ -491,7 +491,7 @@ SECTIONS {
 		asm/tingleSiblings.o(.text);
 		asm/stockwell.o(.text);
 		src/talon.o(.text);
-		asm/malon.o(.text);
+		src/malon.o(.text);
 		src/epona.o(.text);
 		src/milkCart.o(.text);
 		asm/ghostBrothers.o(.text);
@@ -512,7 +512,7 @@ SECTIONS {
 		asm/melari.o(.text);
 		src/bladeBrothers.o(.text);
 		src/cow.o(.text);
-		asm/goron.o(.text);
+		src/goron.o(.text);
 		asm/goronMerchant.o(.text);
 		asm/gorman.o(.text);
 		asm/dog.o(.text);
