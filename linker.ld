@@ -513,7 +513,7 @@ SECTIONS {
 		src/bladeBrothers.o(.text);
 		asm/bladeBrothers.o(.text);
 		src/cow.o(.text);
-		asm/goron.o(.text);
+		src/goron.o(.text);
 		asm/goronMerchant.o(.text);
 		asm/gorman.o(.text);
 		asm/dog.o(.text);
