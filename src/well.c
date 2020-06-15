@@ -11,7 +11,7 @@ extern Entity gLinkEntity;
 extern RoomControls gRoomControls;
 extern void (*gUnk_08124C08[])(Entity*);
 
-void sub_080A0E98(Entity* ent) {
+void Well(Entity* ent) {
     gUnk_08124C08[ent->action](ent);
 }
 

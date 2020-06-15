@@ -5,7 +5,7 @@
 #include "greatFairy.h"
 
 // Main
-void sub_08086A90(Entity* ent) {
+void GreatFairy(Entity* ent) {
     u8 bVar1;
 
     if (ent->action == 0) {

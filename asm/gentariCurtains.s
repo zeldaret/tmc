@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08092038
-sub_08092038: @ 0x08092038
+	thumb_func_start GentariCurtain
+GentariCurtain: @ 0x08092038
 	push {lr}
 	ldr r2, _0809204C @ =gUnk_0812260C
 	ldrb r1, [r0, #0xc]

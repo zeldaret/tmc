@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808161C
-sub_0808161C: @ 0x0808161C
+	thumb_func_start DeathFx
+DeathFx: @ 0x0808161C
 	push {lr}
 	ldr r2, _08081630 @ =gUnk_0811EBFC
 	ldrb r1, [r0, #0xc]

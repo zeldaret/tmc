@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08099734
-sub_08099734: @ 0x08099734
+	thumb_func_start BigIceBlock
+BigIceBlock: @ 0x08099734
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xa]

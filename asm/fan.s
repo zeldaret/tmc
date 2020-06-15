@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809ED18
-sub_0809ED18: @ 0x0809ED18
+	thumb_func_start Fan
+Fan: @ 0x0809ED18
 	push {lr}
 	ldr r2, _0809ED2C @ =gUnk_081243D4
 	ldrb r1, [r0, #0xc]

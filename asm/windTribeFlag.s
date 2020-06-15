@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809CEC8
-sub_0809CEC8: @ 0x0809CEC8
+	thumb_func_start WindTribeFlag
+WindTribeFlag: @ 0x0809CEC8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

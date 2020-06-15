@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08098EE0
-sub_08098EE0: @ 0x08098EE0
+	thumb_func_start BigPushableLever
+BigPushableLever: @ 0x08098EE0
 	push {lr}
 	ldr r2, _08098EF4 @ =gUnk_081236DC
 	ldrb r1, [r0, #0xc]

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080891DC
-sub_080891DC: @ 0x080891DC
+	thumb_func_start PushableStatue
+PushableStatue: @ 0x080891DC
 	push {lr}
 	ldr r2, _080891F0 @ =gUnk_08120C98
 	ldrb r1, [r0, #0xc]

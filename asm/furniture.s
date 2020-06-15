@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080905A0
-sub_080905A0: @ 0x080905A0
+	thumb_func_start Furniture
+Furniture: @ 0x080905A0
 	push {lr}
 	ldr r2, _080905B4 @ =gUnk_08122218
 	ldrb r1, [r0, #0xc]

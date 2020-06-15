@@ -2,8 +2,7 @@
 #include "entity.h"
 #include "enemy.h"
 
-void (*const gEnemyFunctions[])(Entity* ent) =
-{
+void (*const gEnemyFunctions[])(Entity* ent) = {
     Octorok,
     Chuchu,
     Leever,

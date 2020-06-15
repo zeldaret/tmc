@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A2448
-sub_080A2448: @ 0x080A2448
+	thumb_func_start EnemyItem
+EnemyItem: @ 0x080A2448
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r0, #0x86

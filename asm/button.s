@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08081AC8
-sub_08081AC8: @ 0x08081AC8
+	thumb_func_start Button
+Button: @ 0x08081AC8
 	push {lr}
 	ldr r2, _08081ADC @ =gUnk_0811EE38
 	ldrb r1, [r0, #0xc]

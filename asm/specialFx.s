@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080844C8
-sub_080844C8: @ 0x080844C8
+	thumb_func_start SpecialFx
+SpecialFx: @ 0x080844C8
 	push {lr}
 	ldr r2, _080844DC @ =gUnk_0811FAC0
 	ldrb r1, [r0, #0xc]

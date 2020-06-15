@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808B448
-sub_0808B448: @ 0x0808B448
+	thumb_func_start WarpPoint
+WarpPoint: @ 0x0808B448
 	push {lr}
 	adds r2, r0, #0
 	adds r0, #0x70

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809A774
-sub_0809A774: @ 0x0809A774
+	thumb_func_start MacroBook
+MacroBook: @ 0x0809A774
 	push {lr}
 	ldr r2, _0809A788 @ =gUnk_08123C80
 	ldrb r1, [r0, #0xc]

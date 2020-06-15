@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808B294
-sub_0808B294: @ 0x0808B294
+	thumb_func_start Bollard
+Bollard: @ 0x0808B294
 	push {lr}
 	ldr r2, _0808B2A8 @ =gUnk_08121300
 	ldrb r1, [r0, #0xc]

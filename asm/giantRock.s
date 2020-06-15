@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08090FB8
-sub_08090FB8: @ 0x08090FB8
+	thumb_func_start GiantRock
+GiantRock: @ 0x08090FB8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

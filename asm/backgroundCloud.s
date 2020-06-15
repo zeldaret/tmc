@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808F640
-sub_0808F640: @ 0x0808F640
+	thumb_func_start BackgroundCloud
+BackgroundCloud: @ 0x0808F640
 	push {lr}
 	ldr r2, _0808F654 @ =gUnk_08121EA4
 	ldrb r1, [r0, #0xc]

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08090EA8
-sub_08090EA8: @ 0x08090EA8
+	thumb_func_start MinishSizedEntrance
+MinishSizedEntrance: @ 0x08090EA8
 	push {lr}
 	ldr r2, _08090EBC @ =gUnk_08122254
 	ldrb r1, [r0, #0xc]

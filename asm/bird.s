@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809CF24
-sub_0809CF24: @ 0x0809CF24
+	thumb_func_start Bird
+Bird: @ 0x0809CF24
 	push {lr}
 	ldr r2, _0809CF38 @ =gUnk_08123EC0
 	ldrb r1, [r0, #0xa]

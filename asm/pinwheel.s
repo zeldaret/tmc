@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A23A0
-sub_080A23A0: @ 0x080A23A0
+	thumb_func_start Pinwheel
+Pinwheel: @ 0x080A23A0
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x45

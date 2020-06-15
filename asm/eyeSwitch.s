@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808868C
-sub_0808868C: @ 0x0808868C
+	thumb_func_start EyeSwitch
+EyeSwitch: @ 0x0808868C
 	push {lr}
 	ldr r2, _080886A0 @ =gUnk_08120B20
 	ldrb r1, [r0, #0xc]

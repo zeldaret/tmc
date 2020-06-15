@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A20FC
-sub_080A20FC: @ 0x080A20FC
+	thumb_func_start Windcrest
+Windcrest: @ 0x080A20FC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

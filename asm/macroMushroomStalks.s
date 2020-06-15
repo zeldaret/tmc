@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0808C91C
-sub_0808C91C: @ 0x0808C91C
+	thumb_func_start MacroMushromStalks
+MacroMushromStalks: @ 0x0808C91C
 	push {lr}
 	ldr r2, _0808C930 @ =gUnk_08121668
 	ldrb r1, [r0, #0xc]

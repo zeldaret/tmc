@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A2164
-sub_080A2164: @ 0x080A2164
+	thumb_func_start LitArea
+LitArea: @ 0x080A2164
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

@@ -14,7 +14,7 @@ extern void (*gUnk_081206C4[99])(Entity*);
 extern u32 gUnk_080FD1A8;
 
 // Main
-void sub_080869C4(Entity* ent) {
+void Object1A(Entity* ent) {
     gUnk_081206C4[ent->action](ent);
 }
 

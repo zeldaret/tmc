@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A08AC
-sub_080A08AC: @ 0x080A08AC
+	thumb_func_start JailBars
+JailBars: @ 0x080A08AC
 	push {lr}
 	ldr r2, _080A08C0 @ =gUnk_08124950
 	ldrb r1, [r0, #0xc]

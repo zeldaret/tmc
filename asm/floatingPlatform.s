@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080860C0
-sub_080860C0: @ 0x080860C0
+	thumb_func_start FloatingPlatform
+FloatingPlatform: @ 0x080860C0
 	push {lr}
 	ldr r2, _080860D4 @ =gUnk_08120650
 	ldrb r1, [r0, #0xc]

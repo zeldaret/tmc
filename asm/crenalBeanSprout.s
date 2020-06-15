@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809631C
-sub_0809631C: @ 0x0809631C
+	thumb_func_start CrenalBeanSprout
+CrenalBeanSprout: @ 0x0809631C
 	push {lr}
 	ldr r2, _08096330 @ =gUnk_08123168
 	ldrb r1, [r0, #0xc]

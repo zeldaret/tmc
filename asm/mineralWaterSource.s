@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08097370
-sub_08097370: @ 0x08097370
+	thumb_func_start MineralWaterSource
+MineralWaterSource: @ 0x08097370
 	push {lr}
 	ldr r2, _08097384 @ =gUnk_08123298
 	ldrb r1, [r0, #0xc]

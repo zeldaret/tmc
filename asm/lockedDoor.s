@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08083320
-sub_08083320: @ 0x08083320
+	thumb_func_start LockedDoor
+LockedDoor: @ 0x08083320
 	push {lr}
 	ldr r2, _08083334 @ =gUnk_0811F65C
 	ldrb r1, [r0, #0xc]

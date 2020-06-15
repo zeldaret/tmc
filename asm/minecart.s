@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080916CC
-sub_080916CC: @ 0x080916CC
+	thumb_func_start Minecart
+Minecart: @ 0x080916CC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080916E8 @ =gUnk_081223A8

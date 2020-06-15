@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08088A50
-sub_08088A50: @ 0x08088A50
+	thumb_func_start BigBarrel
+BigBarrel: @ 0x08088A50
 	push {lr}
 	ldr r2, _08088A64 @ =gUnk_08120C34
 	ldrb r1, [r0, #0xa]

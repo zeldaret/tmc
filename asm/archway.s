@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08090F70
-sub_08090F70: @ 0x08090F70
+	thumb_func_start Archway
+Archway: @ 0x08090F70
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809CC5C
-sub_0809CC5C: @ 0x0809CC5C
+	thumb_func_start BakerOven
+BakerOven: @ 0x0809CC5C
 	push {lr}
 	ldr r2, _0809CC70 @ =gUnk_08123E20
 	ldrb r1, [r0, #0xc]

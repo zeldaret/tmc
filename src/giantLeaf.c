@@ -9,7 +9,7 @@ extern RoomControls gRoomControls;
 extern s16 gUnk_08121750[];
 extern s16 gUnk_0812176A[];
 
-void sub_0808D5DC(Entity* ent) {
+void GiantLeaf(Entity* ent) {
     if (ent->action == 0) {
         ent->action = 1;
         ent->spriteSettings.b.ss0 = 1;

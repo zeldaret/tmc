@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809F288
-sub_0809F288: @ 0x0809F288
+	thumb_func_start PalaceArchway
+PalaceArchway: @ 0x0809F288
 	push {lr}
 	ldr r2, _0809F29C @ =gUnk_081246EC
 	ldrb r1, [r0, #0xc]

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809BEB4
-sub_0809BEB4: @ 0x0809BEB4
+	thumb_func_start FrozenWaterElement
+FrozenWaterElement: @ 0x0809BEB4
 	push {lr}
 	ldr r2, _0809BEC8 @ =gUnk_08123DB4
 	ldrb r1, [r0, #0xc]

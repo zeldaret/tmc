@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08097D78
-sub_08097D78: @ 0x08097D78
+	thumb_func_start Bell
+Bell: @ 0x08097D78
 	push {lr}
 	ldr r2, _08097D8C @ =gUnk_08123384
 	ldrb r1, [r0, #0xc]

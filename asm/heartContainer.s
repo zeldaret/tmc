@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808E688
-sub_0808E688: @ 0x0808E688
+	thumb_func_start HeartContainer
+HeartContainer: @ 0x0808E688
 	push {lr}
 	ldr r2, _0808E69C @ =gUnk_08121C48
 	ldrb r1, [r0, #0xc]

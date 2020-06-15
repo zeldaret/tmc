@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08098CF4
-sub_08098CF4: @ 0x08098CF4
+	thumb_func_start BigVortex
+BigVortex: @ 0x08098CF4
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xa]

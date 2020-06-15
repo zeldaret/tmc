@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808A4F4
-sub_0808A4F4: @ 0x0808A4F4
+	thumb_func_start PushableRock
+PushableRock: @ 0x0808A4F4
 	push {lr}
 	ldr r2, _0808A508 @ =gUnk_08121078
 	ldrb r1, [r0, #0xc]

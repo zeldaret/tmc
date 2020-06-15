@@ -551,8 +551,8 @@ _08080E00:
 	.align 2, 0
 _08080E04: .4byte gUnk_030010A0
 
-	thumb_func_start sub_08080E08
-sub_08080E08: @ 0x08080E08
+	thumb_func_start ItemOnGround
+ItemOnGround: @ 0x08080E08
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x41

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809E824
-sub_0809E824: @ 0x0809E824
+	thumb_func_start TreeHidingPortal
+TreeHidingPortal: @ 0x0809E824
 	push {lr}
 	ldr r2, _0809E838 @ =gUnk_08124354
 	ldrb r1, [r0, #0xc]

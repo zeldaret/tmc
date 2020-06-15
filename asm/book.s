@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809B3AC
-sub_0809B3AC: @ 0x0809B3AC
+	thumb_func_start Book
+Book: @ 0x0809B3AC
 	push {lr}
 	ldr r2, _0809B3C0 @ =gUnk_08123D7C
 	ldrb r1, [r0, #0xc]

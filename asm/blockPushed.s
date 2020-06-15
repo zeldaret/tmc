@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08082E9C
-sub_08082E9C: @ 0x08082E9C
+	thumb_func_start BlockPushed
+BlockPushed: @ 0x08082E9C
 	push {lr}
 	ldr r2, _08082EB0 @ =gUnk_0811F624
 	ldrb r1, [r0, #0xc]

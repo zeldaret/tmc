@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08092CA0
-sub_08092CA0: @ 0x08092CA0
+	thumb_func_start Whirlwind
+Whirlwind: @ 0x08092CA0
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x45

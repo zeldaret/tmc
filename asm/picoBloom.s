@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08098A78
-sub_08098A78: @ 0x08098A78
+	thumb_func_start PicoBloom
+PicoBloom: @ 0x08098A78
 	push {lr}
 	ldr r2, _08098A8C @ =gUnk_08123568
 	ldrb r1, [r0, #0xc]

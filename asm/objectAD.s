@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A048C
-sub_080A048C: @ 0x080A048C
+	thumb_func_start ObjectAD
+ObjectAD: @ 0x080A048C
 	push {lr}
 	ldr r2, _080A04A0 @ =gUnk_081248BC
 	ldrb r1, [r0, #0xc]

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A066C
-sub_080A066C: @ 0x080A066C
+	thumb_func_start MetalDoor
+MetalDoor: @ 0x080A066C
 	push {lr}
 	ldr r2, _080A0680 @ =gUnk_0812493C
 	ldrb r1, [r0, #0xc]

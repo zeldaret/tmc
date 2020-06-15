@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808220C
-sub_0808220C: @ 0x0808220C
+	thumb_func_start Pot
+Pot: @ 0x0808220C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08082228 @ =gUnk_0811F090

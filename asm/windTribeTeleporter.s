@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A0F24
-sub_080A0F24: @ 0x080A0F24
+	thumb_func_start WindTribeTeleporter
+WindTribeTeleporter: @ 0x080A0F24
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080A0F40 @ =gUnk_08124C10

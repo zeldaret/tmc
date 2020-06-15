@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_080866C0
-sub_080866C0: @ 0x080866C0
+	thumb_func_start HouseDoorExterior
+HouseDoorExterior: @ 0x080866C0
 	push {lr}
 	ldr r2, _080866D4 @ =gUnk_081206B4
 	ldrb r1, [r0, #0xb]

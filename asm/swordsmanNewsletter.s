@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080933C0
-sub_080933C0: @ 0x080933C0
+	thumb_func_start SwordsmanNewsletter
+SwordsmanNewsletter: @ 0x080933C0
 	push {lr}
 	ldr r2, _080933D4 @ =gUnk_081228B0
 	ldrb r1, [r0, #0xc]

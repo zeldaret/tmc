@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808BE84
-sub_0808BE84: @ 0x0808BE84
+	thumb_func_start JarPortal
+JarPortal: @ 0x0808BE84
 	push {lr}
 	ldr r2, _0808BE98 @ =gUnk_08121488
 	ldrb r1, [r0, #0xc]

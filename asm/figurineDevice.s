@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08087BAC
-sub_08087BAC: @ 0x08087BAC
+	thumb_func_start FigurineDevice
+FigurineDevice: @ 0x08087BAC
 	push {lr}
 	ldr r2, _08087BC0 @ =gUnk_08120A94
 	ldrb r1, [r0, #0xc]

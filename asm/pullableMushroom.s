@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808A9FC
-sub_0808A9FC: @ 0x0808A9FC
+	thumb_func_start PullableMushroom
+PullableMushroom: @ 0x0808A9FC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0808AA18 @ =gUnk_081211A4

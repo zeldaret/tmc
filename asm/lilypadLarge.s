@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080854EC
-sub_080854EC: @ 0x080854EC
+	thumb_func_start LilypadLarge
+LilypadLarge: @ 0x080854EC
 	push {lr}
 	ldr r2, _08085500 @ =gUnk_08120608
 	ldrb r1, [r0, #0xc]

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08083DD8
-sub_08083DD8: @ 0x08083DD8
+	thumb_func_start ChestSpawner
+ChestSpawner: @ 0x08083DD8
 	push {lr}
 	ldr r2, _08083DEC @ =gUnk_0811F7E8
 	ldrb r1, [r0, #0xa]

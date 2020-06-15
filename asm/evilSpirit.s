@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08086284
-sub_08086284: @ 0x08086284
+	thumb_func_start EvilSpirit
+EvilSpirit: @ 0x08086284
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080862B4 @ =gUnk_08120668

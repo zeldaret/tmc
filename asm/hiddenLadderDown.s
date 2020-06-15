@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08091EF4
-sub_08091EF4: @ 0x08091EF4
+	thumb_func_start HiddenLadderDown
+HiddenLadderDown: @ 0x08091EF4
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

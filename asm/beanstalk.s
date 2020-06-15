@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08089D04
-sub_08089D04: @ 0x08089D04
+	thumb_func_start Beanstalk
+Beanstalk: @ 0x08089D04
 	push {lr}
 	ldr r2, _08089D18 @ =gUnk_08120DF4
 	ldrb r1, [r0, #0xc]

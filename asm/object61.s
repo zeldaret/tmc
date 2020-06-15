@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08093428
-sub_08093428: @ 0x08093428
+	thumb_func_start Object61
+Object61: @ 0x08093428
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, _0809345C @ =gLinkState

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809FF68
-sub_0809FF68: @ 0x0809FF68
+	thumb_func_start WaterfallOpening
+WaterfallOpening: @ 0x0809FF68
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0xc]

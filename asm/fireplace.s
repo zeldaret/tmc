@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809B6F0
-sub_0809B6F0: @ 0x0809B6F0
+	thumb_func_start Fireplace
+Fireplace: @ 0x0809B6F0
 	push {lr}
 	ldr r2, _0809B704 @ =gUnk_08123D98
 	ldrb r1, [r0, #0xc]

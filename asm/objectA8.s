@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809F9DC
-sub_0809F9DC: @ 0x0809F9DC
+	thumb_func_start ObjectA8
+ObjectA8: @ 0x0809F9DC
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x41

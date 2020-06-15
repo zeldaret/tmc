@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809E9FC
-sub_0809E9FC: @ 0x0809E9FC
+	thumb_func_start LightableSwitch
+LightableSwitch: @ 0x0809E9FC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0809EA18 @ =gUnk_081243B4

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809225C
-sub_0809225C: @ 0x0809225C
+	thumb_func_start LavaPlatform
+LavaPlatform: @ 0x0809225C
 	push {lr}
 	adds r1, r0, #0
 	ldrb r0, [r1, #0xa]

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808DB54
-sub_0808DB54: @ 0x0808DB54
+	thumb_func_start LadderUp
+LadderUp: @ 0x0808DB54
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
