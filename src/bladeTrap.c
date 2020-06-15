@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "entityData.h"
+#include "room.h"
 
 extern void sub_080A2CC0();
 extern void sub_0806F69C();

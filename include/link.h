@@ -46,6 +46,10 @@ typedef struct {
     u8 unk6;
     u8 filler15[75];
     u8 unk7;
+    u32 filler16[7];
+    u8 filler17[3];
+    u8 unk71;
+    u32 unk8;
 } LinkState;
 
 typedef struct {

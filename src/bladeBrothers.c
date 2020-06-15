@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "link.h"
-
+#include "room.h"
 typedef struct {
     /*0x00*/ u8 filler[0x2C];
     /*0x2C*/ u8 unk;
@@ -38,6 +38,13 @@ extern void PositionRelative(Entity*, Entity*, u32, u32);
 extern void PlaySFX(u32);
 extern u32 GetInventoryValue(u32);
 extern void sub_080A7C18(u32, u32, u32);
+extern u32 CheckLocalFlag(u32);
+extern void TextboxNoOverlap(u32, Entity*);
+extern void LoadRoomEntityList();
+extern void ModHealth(s32);
+extern void InitAnimationForceUpdate(Entity*, u32);
+extern void UpdateAnimationSingleFrame(Entity*);
+extern void sub_08068BEC(Entity*, u32);
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -50,6 +57,19 @@ extern u32* gUnk_081115EC[];
 extern struct_02002A40 gUnk_02002A40;
 extern u8 gUnk_08111623[];
 extern u8 gUnk_0811162B[];
+extern u16 gUnk_08111664[];
+extern u16 gUnk_0811167A[];
+extern u16 gUnk_08111690[];
+extern u16 gUnk_081116A6[];
+extern u16 gUnk_081116BC[];
+extern u16 gUnk_081116D2[];
+extern u16 gUnk_081116E8[];
+extern u16 gUnk_081116FE[];
+extern u16 gUnk_08111714[];
+extern u32 gUnk_08111740[];
+extern u16 gUnk_0811172A[];
+extern u32 gUnk_0300402B;
+extern EntityData gUnk_080F3494;
 
 void sub_080689C0(Entity* this) {
 
@@ -213,48 +233,208 @@ void sub_08068C28(Entity* this) {
     }
 }
 
-void sub_08068C6C(Entity *this)
-{
-  sub_080A7C18(gUnk_0811162B[this->parameter3] & 0xffffff7f,0,0);
+void sub_08068C6C(Entity* this) {
+    sub_080A7C18(gUnk_0811162B[this->parameter3] & 0xffffff7f, 0, 0);
 }
 
-void sub_08068C8C(Entity *param_1,Entity *param_2)
-{
+void sub_08068C8C(Entity* param_1, Entity* param_2) {
     u8* arr = gUnk_0811162B + 0xd;
-    
+
     *(u32*)&param_2->animationState = *(u32*)(arr + param_1->parameter3 * 4);
 }
 
-void sub_08068CA0(Entity *param_1,Entity *param_2)
+void sub_08068CA0(Entity* param_1, Entity* param_2) {
+    u8 bVar1;
+    u32 uVar2;
+
+    bVar1 = (param_1->entityType).parameter1;
+    if (bVar1 == 1) {
+        *(u32*)&param_2->animationState = bVar1;
+        uVar2 = GetInventoryValue(0x48); // spin attack
+        if (uVar2 == 0) {
+            *(u32*)&param_2->animationState = 0;
+        }
+        uVar2 = GetInventoryValue(0x4b); // rock breaker
+        if (uVar2 == 0) {
+            *(u32*)&param_2->animationState = 0;
+        }
+        uVar2 = GetInventoryValue(0x4a); // dash attack
+        if (uVar2 == 0) {
+            *(u32*)&param_2->animationState = 0;
+        }
+        uVar2 = GetInventoryValue(0x4e); // down thrust
+        if (uVar2 != 0) {
+            return;
+        }
+    } else {
+        uVar2 = GetInventoryValue(gUnk_0811162B[param_1->parameter3] & -0x81);
+        if (uVar2 != 0) {
+            uVar2 = 1;
+        }
+    }
+    *(u32*)&param_2->animationState = uVar2;
+}
+
+void sub_08068CFC(Entity* param_1, Entity* param_2, u32 param_3, u32 param_4)
+
 {
-  u8 bVar1;
-  u32 uVar2;
-  
-  bVar1 = (param_1->entityType).parameter1;
-  if (bVar1 == 1) {
-    *(u32 *)&param_2->animationState = bVar1;
-    uVar2 = GetInventoryValue(0x48); //spin attack
+    u8 bVar1;
+    u8 itemID;
+    u32 uVar2;
+
+    *(u32*)&param_2->animationState = 0;
+    bVar1 = param_1->parameter3;
+    if (bVar1 > 10)
+        return;
+
+    switch (bVar1) {
+        case 0:
+        default:
+            goto switchD_08068d12_caseD_0;
+        case 1:
+            itemID = 0x2;
+            break;
+        case 2:
+            itemID = 0x15;
+            break;
+        case 3:
+            itemID = 0x14;
+            break;
+        case 5:
+            uVar2 = CheckLocalFlag(3);
+            goto LABEL1;
+            break;
+        case 6:
+            if (gUnk_02002A40.stats.maxHealth < 0x50)
+                return;
+            goto switchD_08068d12_caseD_0;
+        case 7:
+            uVar2 = GetInventoryValue(0x48); // spin attack
+            if (uVar2 == 0) {
+                return;
+            }
+            uVar2 = GetInventoryValue(0x49); // roll attack
+            if (uVar2 == 0) {
+                return;
+            }
+            uVar2 = GetInventoryValue(0x4a); // dash attack
+            if (uVar2 == 0) {
+                return;
+            }
+            uVar2 = GetInventoryValue(0x4b); // rock breaker
+            if (uVar2 == 0) {
+                return;
+            }
+            uVar2 = GetInventoryValue(0x4c); // sword beam
+            if (uVar2 == 0) {
+                return;
+            }
+            uVar2 = GetInventoryValue(0x4e); // down thrust
+            if (uVar2 == 0) {
+                return;
+            }
+            itemID = 0x4f; // peril beam
+            break;
+        case 10:
+            itemID = 0x4d; // great spin
+    }
+    uVar2 = GetInventoryValue(itemID);
+LABEL1:
     if (uVar2 == 0) {
-      *(u32 *)&param_2->animationState = 0;
+        return;
     }
-    uVar2 = GetInventoryValue(0x4b); //rock breaker
-    if (uVar2 == 0) {
-      *(u32 *)&param_2->animationState = 0;
+switchD_08068d12_caseD_0:
+    *(u32*)&param_2->animationState = 1;
+}
+
+void sub_08068DB8(Entity* this) {
+    TextboxNoOverlap(gUnk_08111664[this->parameter3], this);
+}
+
+void sub_08068DD0(Entity* this) {
+    TextboxNoOverlap(gUnk_0811167A[this->parameter3], this);
+}
+
+void sub_08068DE8(Entity* this) {
+    TextboxNoOverlap(gUnk_08111690[this->parameter3], this);
+}
+
+void sub_08068E00(Entity* this) {
+    TextboxNoOverlap(gUnk_081116A6[this->parameter3], this);
+}
+
+void sub_08068E18(Entity* this) {
+    TextboxNoOverlap(gUnk_081116BC[this->parameter3], this);
+}
+
+void sub_08068E30(Entity* this) {
+    TextboxNoOverlap(gUnk_081116D2[this->parameter3], this);
+}
+
+void sub_08068E48(Entity* this) {
+    TextboxNoOverlap(gUnk_081116E8[this->parameter3], this);
+}
+
+void sub_08068E60(Entity* this) {
+    TextboxNoOverlap(gUnk_081116FE[this->parameter3], this);
+}
+
+void sub_08068E78(Entity* this) {
+    TextboxNoOverlap(gUnk_08111714[this->parameter3], this);
+}
+
+void sub_08068E90(Entity* this) {
+    LinkState* s = &gLinkState;
+    *(u16*)&s->unk8 = (1 << (gUnk_08111740[this->parameter3] - 1)) | *(u16*)&s->unk8;
+}
+
+void sub_08068EB4(void) {
+    gLinkState.unk71 = 0;
+}
+
+void sub_08068EC4(Entity* param_1, Entity* param_2) {
+    if (gUnk_08111740[param_1->parameter3] == gLinkState.unk71) {
+        *(u16*)&param_2->flags = gUnk_0811172A[param_1->parameter3];
+        *(u32*)&param_2->animationState = 1;
+    } else {
+        *(u32*)&param_2->animationState = 0;
     }
-    uVar2 = GetInventoryValue(0x4a); //dash attack
-    if (uVar2 == 0) {
-      *(u32 *)&param_2->animationState = 0;
+}
+
+void sub_08068F00(Entity* this) {
+    if (this->parameter3 == 1) {
+        LoadRoomEntityList(&gUnk_080F3494);
     }
-    uVar2 = GetInventoryValue(0x4e); //down thrust
-    if (uVar2 != 0) {
-      return;
+}
+
+void sub_08068F14(Entity* this) {
+    if (this->parameter3 == 5) {
+        ModHealth(160);
     }
-  }
-  else {
-    uVar2 = GetInventoryValue(gUnk_0811162B[param_1->parameter3] & -0x81);
-    if (uVar2 != 0) {
-      uVar2 = 1;
+    if (this->parameter3 == 6) {
+        ModHealth(-160);
+        ModHealth(2);
     }
-  }
-  *(u32*)&param_2->animationState = uVar2;
+}
+
+void sub_08068F3C(Entity* this) {
+    if (this->parameter3 == 6) {
+        ModHealth(160);
+    }
+}
+
+void sub_08068F4C(Entity* this) {
+
+    if (this->action == 0) {
+        this->action += 1;
+        this->spriteSettings.b.ss0 = 0;
+        this->spriteSettings.b.ss0 = 1;
+        InitAnimationForceUpdate(this, 4);
+    } else {
+        UpdateAnimationSingleFrame(this);
+    }
+    if ((this->frames.all & 1) != 0) {
+        this->frames.all &= 0xfe;
+        sub_08068BEC(this, 0);
+    }
 }

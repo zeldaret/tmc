@@ -46,6 +46,18 @@ typedef struct {
 	u32 greatFairyState;
 } RoomVars;
 
+//Packets used to store which entities to load in a room
+typedef struct {
+    u8 entityType;
+    u8 field_0x1;
+    u8 entitySubtype;
+    u8 entityParameter1;
+    u32 entityParameter2;
+    u16 xPos;
+    u16 yPos;
+    u32 spritePtr;
+} EntityData;
+
 extern RoomControls gRoomControls;
 extern RoomVars gRoomVars;
 #endif

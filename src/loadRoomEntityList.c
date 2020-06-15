@@ -1,5 +1,5 @@
 #include "global.h"
-#include "entityData.h"
+#include "room.h"
 
 void extern CreateEntity(EntityData*);
 
