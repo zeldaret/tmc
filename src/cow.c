@@ -46,12 +46,12 @@ void sub_08068FC0(Entity* ent) {
         *(u16*)&ent->field_0x68 = x;
 
         y = ent->y.HALF.HI;
-        ent->field_0x6a = y;
+        ent->field_0x6a.HWORD = y;
     } else {
         u32 var1 = r2 >> 16;
         // 0x68+0x69 probably a SplitWord
         *(u16*)&ent->field_0x68 = var1;
-        ent->field_0x6a = r2;
+        ent->field_0x6a.HWORD = r2;
     }
     ent->field_0x6c = sub_0801E99C(ent);
 
@@ -116,7 +116,7 @@ void sub_08069068(Entity* ent) {
     }
     {
         s32 y = ent->y.HALF.HI;
-        s16* y2 = &ent->field_0x6a;
+        s16* y2 = &ent->field_0x6a.HWORD;
         y -= *y2;
         if (y > 16) {
             ent->y.HALF.HI = *y2 + 16;

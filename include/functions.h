@@ -19,6 +19,7 @@ extern void DeleteEntity(Entity*);
 extern u32 __modsi3(u32, u32);
 extern void DoFade(u32, u32);
 extern void UpdateAnimationSingleFrame(Entity*);
+extern u32 GetInventoryValue(u32);
 
 // Unidentified
 extern void sub_0806ED78(Entity*);
@@ -52,15 +53,10 @@ extern void sub_0807DD50(Entity*);
 extern void sub_0807DD94(Entity*, u32);
 extern Entity* sub_0805EB00(u32, u32, u32);
 extern Entity* sub_0805EB2C(u32, u32, u32, u32, u32);
-
-extern u32 sub_080045C4(Entity*, Entity*);
-extern u32 sub_0801E99C(Entity*);
-extern void sub_0805E3A0(Entity*, u32);
-extern Entity* sub_0805EB00(u32, u32, u32);
-extern u32 sub_0806F5A4(u32);
-extern void sub_08078778(Entity*);
-extern void sub_08078784(Entity*, u32);
-extern void sub_0807DD50(Entity*);
-extern void sub_0807DD94(Entity*, u32);
-
+extern u32 sub_0806FDEC(Entity*, u32*);
+extern s32 sub_0806ED9C(Entity*, u32, u32);
+extern s32* sub_0807DAD0(Entity*, u8*);
+extern void sub_0806FF60(Entity*, u32, u32);
+extern void sub_0806FF88(Entity*, u32, u32);
+extern void sub_0807000C(Entity*);
 #endif
