@@ -31,7 +31,7 @@ _0802A82C: .4byte gUnk_080012C8
 _0802A830:
 	ldr r4, _0802A848 @ =gUnk_080CD0F0
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

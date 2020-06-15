@@ -12,7 +12,7 @@ Spark: @ 0x0802B2AC
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _0802B2C4 @ =gUnk_080CD234
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

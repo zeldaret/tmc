@@ -143,7 +143,7 @@ sub_0808E764: @ 0x0808E764
 	movs r0, #0x62
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	bl DeleteThisEntity
 _0808E79A:
 	pop {r4, pc}

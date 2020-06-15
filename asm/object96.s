@@ -195,7 +195,7 @@ _0809D8E8:
 	ldrb r0, [r6, #0xd]
 	ldrb r1, [r5, #0xb]
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	ldrh r0, [r6, #0x1c]
 	cmp r0, #0
 	beq _0809D906

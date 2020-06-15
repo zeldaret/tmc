@@ -12,7 +12,7 @@ Keese: @ 0x08021D64
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _08021D7C @ =gUnk_080CB69C
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

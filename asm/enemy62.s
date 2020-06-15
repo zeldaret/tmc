@@ -19,7 +19,7 @@ Enemy62: @ 0x08048D98
 _08048DA8:
 	ldr r4, _08048E00 @ =gUnk_080D22D8
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

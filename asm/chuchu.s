@@ -81,7 +81,7 @@ _0801EE9E:
 	strb r4, [r0]
 	ldr r4, _0801EED0 @ =gUnk_080CA21C
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

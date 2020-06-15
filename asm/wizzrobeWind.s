@@ -12,7 +12,7 @@ WizzrobeWind: @ 0x0802F4A0
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r5, _0802F4C8 @ =gUnk_080CDF50
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r5
 	ldr r1, [r0]

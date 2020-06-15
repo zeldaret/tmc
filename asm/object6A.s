@@ -812,7 +812,7 @@ _08095040:
 	movs r0, #0x1c
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	movs r0, #0x5b
 	bl SetGlobalFlag
 	movs r0, #0x3c
@@ -897,7 +897,7 @@ _080950F0:
 	movs r0, #0x5b
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	bl DeleteThisEntity
 _0809510A:
 	ldrb r4, [r5, #0xa]

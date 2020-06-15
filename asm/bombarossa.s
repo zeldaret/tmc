@@ -12,7 +12,7 @@ Bombarossa: @ 0x080333B8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080333D0 @ =gUnk_080CEB38
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

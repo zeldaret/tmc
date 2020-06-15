@@ -334,7 +334,7 @@ sub_080652B0: @ 0x080652B0
 	movs r0, #0x36
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 _080652DA:
 	pop {pc}
 	.align 2, 0

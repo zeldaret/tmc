@@ -1352,7 +1352,7 @@ _080885E8:
 	movs r0, #0x3e
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	movs r0, #0x59
 	bl SetGlobalFlag
 _0808860A:

@@ -33,7 +33,7 @@ _080292C4:
 _080292CE:
 	ldr r4, _080292F4 @ =gUnk_080CCC00
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

@@ -17,7 +17,7 @@ sub_0804AA30: @ 0x0804AA30
 	ands r0, r1
 	strb r0, [r6]
 	adds r0, r4, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	ldrb r2, [r6]
 	movs r1, #0x80
 	orrs r1, r2

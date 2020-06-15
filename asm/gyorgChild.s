@@ -30,7 +30,7 @@ GyorgChild: @ 0x08048640
 _08048664:
 	ldr r4, _08048680 @ =gUnk_080D1E6C
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

@@ -368,7 +368,7 @@ _08084086:
 	ldrb r0, [r1, #2]
 	ldrb r1, [r1, #3]
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	b _080840A4
 _0808409C:
 	adds r1, #8

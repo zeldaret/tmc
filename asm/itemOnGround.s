@@ -1337,7 +1337,7 @@ _08081438:
 	ldrb r0, [r4, #0xa]
 	ldrb r1, [r4, #0xb]
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	movs r0, #1
 _0808144C:
 	pop {r4, pc}

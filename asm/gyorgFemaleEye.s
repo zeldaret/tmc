@@ -19,7 +19,7 @@ GyorgFemaleEye: @ 0x08048988
 _08048998:
 	ldr r4, _080489B0 @ =gUnk_080D1F64
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

@@ -26,7 +26,7 @@ VaatiProjectile: @ 0x0803E08C
 _0803E0AA:
 	ldr r4, _0803E0C0 @ =gUnk_080D0648
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

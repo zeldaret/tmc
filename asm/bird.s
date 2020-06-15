@@ -296,7 +296,7 @@ _0809D14C:
 	movs r0, #0x17
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	ldr r0, _0809D174 @ =gUnk_02002A40
 	ldr r1, [r0, #0x40]
 	movs r2, #0x80

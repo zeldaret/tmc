@@ -25,7 +25,7 @@ sub_08029870: @ 0x08029870
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _08029888 @ =gUnk_080CCD60
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

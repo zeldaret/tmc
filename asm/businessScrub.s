@@ -573,7 +573,7 @@ _08028D5C:
 _08028D70:
 	ldrb r0, [r6, #8]
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	movs r0, #6
 	strb r0, [r5, #0xc]
 	movs r0, #4
@@ -593,14 +593,14 @@ _08028D9C:
 	ldrb r0, [r6, #8]
 	ldrb r1, [r6, #9]
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	movs r0, #4
 	b _08028DB6
 _08028DAA:
 	ldrb r0, [r6, #8]
 	ldrb r1, [r6, #9]
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	movs r0, #8
 _08028DB6:
 	strb r0, [r5, #0xe]

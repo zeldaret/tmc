@@ -12,7 +12,7 @@ VaatiEyesMacro: @ 0x0802EC6C
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r5, _0802EC94 @ =gUnk_080CDE34
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r5
 	ldr r1, [r0]

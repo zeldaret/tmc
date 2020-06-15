@@ -364,6 +364,7 @@ SECTIONS {
 		asm/armos.o(.text);
 		asm/eyegore.o(.text);
 		asm/rope.o(.text);
+		src/smallPesto.o(.text);
 		asm/smallPesto.o(.text);
 		asm/acroBandits.o(.text);
 		src/bladeTrap.o(.text);
@@ -613,8 +614,8 @@ SECTIONS {
 		src/object1A.o(.text);
 		src/greatFairy.o(.text);
 		asm/greatFairy.o(.text);
-		asm/object1C.o(.text);
-		asm/object1D.o(.text);
+		src/object1C.o(.text);
+		src/object1D.o(.text);
 		asm/object1E.o(.text);
 		asm/object1F.o(.text);
 		asm/object20.o(.text);
@@ -754,6 +755,7 @@ SECTIONS {
 		asm/objectA5.o(.text);
 		asm/objectA6.o(.text);
 		asm/objectA7.o(.text);
+		src/objectA8.o(.text);
 		asm/objectA8.o(.text);
 		asm/objectA9.o(.text);
 		asm/waterfallOpening.o(.text);

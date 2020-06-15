@@ -4886,8 +4886,8 @@ _080A7BCE:
 	.align 2, 0
 _080A7BFC: .4byte gLinkState
 
-	thumb_func_start sub_080A7C00
-sub_080A7C00: @ 0x080A7C00
+	thumb_func_start CreateItemEntity
+CreateItemEntity: @ 0x080A7C00
 	push {r4, lr}
 	bl GiveItemWithCutscene
 	adds r4, r0, #0
@@ -4999,13 +4999,13 @@ _080A7CB0:
 	ldrb r0, [r4, #2]
 	ldrb r1, [r4, #3]
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	b _080A7CDC
 _080A7CD2:
 	movs r0, #0x60
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 _080A7CDC:
 	movs r0, #0x74
 	adds r1, r5, #0
@@ -5484,7 +5484,7 @@ sub_080A8030: @ 0x080A8030
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A8048 @ =gUnk_081295D0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -5670,7 +5670,7 @@ sub_080A8190: @ 0x080A8190
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A81A8 @ =gUnk_0812960C
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -5860,7 +5860,7 @@ sub_080A82F8: @ 0x080A82F8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A8310 @ =gUnk_08129650
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -6039,7 +6039,7 @@ sub_080A843C: @ 0x080A843C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A8454 @ =gUnk_081296F0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -6368,7 +6368,7 @@ sub_080A86BC: @ 0x080A86BC
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A86D4 @ =gUnk_08129718
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -6508,7 +6508,7 @@ sub_080A87C8: @ 0x080A87C8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A87E0 @ =gUnk_08129740
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -6869,7 +6869,7 @@ _080A8A64:
 sub_080A8A68: @ 0x080A8A68
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	cmp r0, #0
 	beq _080A8A78
 	bl DeleteThisEntity
@@ -7028,7 +7028,7 @@ _080A8B94:
 sub_080A8B98: @ 0x080A8B98
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	cmp r0, #0
 	beq _080A8BA8
 	bl DeleteThisEntity
@@ -7173,7 +7173,7 @@ _080A8CA8:
 sub_080A8CAC: @ 0x080A8CAC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	cmp r0, #0
 	beq _080A8CBC
 	bl DeleteThisEntity
@@ -7319,7 +7319,7 @@ sub_080A8DC0: @ 0x080A8DC0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A8DD8 @ =gUnk_08129954
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -7988,7 +7988,7 @@ sub_080A9300: @ 0x080A9300
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A9318 @ =gUnk_081299D0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -8378,7 +8378,7 @@ sub_080A95DC: @ 0x080A95DC
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A95F4 @ =gUnk_08129ABC
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -8909,7 +8909,7 @@ sub_080A9A00: @ 0x080A9A00
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A9A18 @ =gUnk_08129AE0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -9311,7 +9311,7 @@ sub_080A9CA8: @ 0x080A9CA8
 _080A9CB8:
 	ldr r4, _080A9CD0 @ =gUnk_08129B58
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -9440,7 +9440,7 @@ sub_080A9DA4: @ 0x080A9DA4
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A9DBC @ =gUnk_08129BEC
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -9554,7 +9554,7 @@ _080A9E60:
 _080A9E78:
 	ldr r4, _080A9E90 @ =gUnk_08129C7C
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -10276,7 +10276,7 @@ sub_080AA400: @ 0x080AA400
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AA418 @ =gUnk_08129FB8
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -10612,7 +10612,7 @@ sub_080AA68C: @ 0x080AA68C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AA6A4 @ =gUnk_0812A014
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -11188,7 +11188,7 @@ sub_080AAAE8: @ 0x080AAAE8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AAB00 @ =gUnk_0812A3C0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -11331,7 +11331,7 @@ sub_080AABF0: @ 0x080AABF0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AAC08 @ =gUnk_0812A418
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -12236,7 +12236,7 @@ sub_080AB2A8: @ 0x080AB2A8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AB2C0 @ =gUnk_0812A4C8
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -12548,7 +12548,7 @@ sub_080AB510: @ 0x080AB510
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AB528 @ =gUnk_0812A58C
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -13437,7 +13437,7 @@ sub_080ABB8C: @ 0x080ABB8C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080ABBA4 @ =gUnk_0812A7D4
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -13903,7 +13903,7 @@ sub_080ABF24: @ 0x080ABF24
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080ABF3C @ =gUnk_0812A84C
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -13973,7 +13973,7 @@ sub_080ABFB0: @ 0x080ABFB0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080ABFC8 @ =gUnk_0812A954
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -15180,7 +15180,7 @@ sub_080AC8A8: @ 0x080AC8A8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AC8C0 @ =gUnk_0812A9D8
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -15382,7 +15382,7 @@ sub_080ACA34: @ 0x080ACA34
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080ACA4C @ =gUnk_0812AA5C
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

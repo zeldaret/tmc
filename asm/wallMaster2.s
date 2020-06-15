@@ -12,7 +12,7 @@ WallMaster2: @ 0x0802CC3C
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r5, _0802CC64 @ =gUnk_080CD6FC
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r5
 	ldr r1, [r0]

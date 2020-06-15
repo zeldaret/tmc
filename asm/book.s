@@ -303,7 +303,7 @@ _0809B5D0:
 	adds r0, #0x39
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	bl DeleteThisEntity
 _0809B5EA:
 	pop {r4, pc}
