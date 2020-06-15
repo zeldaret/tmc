@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802D018
-sub_0802D018: @ 0x0802D018
+	thumb_func_start Gleerok
+Gleerok: @ 0x0802D018
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _0802D030 @ =gUnk_080CD748

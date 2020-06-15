@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080323BC
-sub_080323BC: @ 0x080323BC
+	thumb_func_start Keaton
+Keaton: @ 0x080323BC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080323D8 @ =gUnk_080CE7B0

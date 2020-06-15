@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08037EC8
-sub_08037EC8: @ 0x08037EC8
+	thumb_func_start TektiteGolden
+TektiteGolden: @ 0x08037EC8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08037EE4 @ =gUnk_080CF4A0

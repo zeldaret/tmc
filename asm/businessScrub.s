@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802890C
-sub_0802890C: @ 0x0802890C
+	thumb_func_start BusinessScrub
+BusinessScrub: @ 0x0802890C
 	push {lr}
 	ldr r1, _08028918 @ =gUnk_080CC9C8
 	bl EnemyFunctionHandler

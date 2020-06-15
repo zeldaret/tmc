@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802BB6C
-sub_0802BB6C: @ 0x0802BB6C
+	thumb_func_start Helmasaur
+Helmasaur: @ 0x0802BB6C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xa]

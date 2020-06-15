@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08022B88
-sub_08022B88: @ 0x08022B88
+	thumb_func_start Moldorm
+Moldorm: @ 0x08022B88
 	push {lr}
 	ldr r2, _08022B9C @ =gUnk_080CBB90
 	ldrb r1, [r0, #0xa]

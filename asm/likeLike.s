@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08027D6C
-sub_08027D6C: @ 0x08027D6C
+	thumb_func_start LikeLike
+LikeLike: @ 0x08027D6C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08027D88 @ =gUnk_080CC6FC

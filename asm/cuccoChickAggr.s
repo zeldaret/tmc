@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08022918
-sub_08022918: @ 0x08022918
+	thumb_func_start CuccoChickAggr
+CuccoChickAggr: @ 0x08022918
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _08022930 @ =gUnk_080CBB64

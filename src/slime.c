@@ -28,7 +28,7 @@ extern void (*gUnk_080D16A4[])(Entity*);
 extern u8 gUnk_080D16D0;
 extern EntityHandler gUnk_03003DB8;
 
-void sub_08044F50(Entity* this)
+void Slime(Entity* this)
 
 {
     EnemyFunctionHandler(this, &gUnk_080D16A4);

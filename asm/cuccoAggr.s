@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08038CA4
-sub_08038CA4: @ 0x08038CA4
+	thumb_func_start CuccoAggr
+CuccoAggr: @ 0x08038CA4
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_080012DC

@@ -7,7 +7,7 @@ extern void sub_0806F69C();
 extern void sub_08004488();
 extern Entity* sub_0804B128();
 
-void sub_08032358(Entity* ent) {
+void BladeTrap(Entity* ent) {
     u16 uVar1;
     Entity* pEVar2;
     u16* puVar3;

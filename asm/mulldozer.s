@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08032C74
-sub_08032C74: @ 0x08032C74
+	thumb_func_start Mulldozer
+Mulldozer: @ 0x08032C74
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08032C90 @ =gUnk_080CEA1C

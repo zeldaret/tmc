@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080351BC
-sub_080351BC: @ 0x080351BC
+	thumb_func_start OctorokBoss
+OctorokBoss: @ 0x080351BC
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080351D4 @ =gUnk_080CF040

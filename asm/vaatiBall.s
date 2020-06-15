@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080445DC
-sub_080445DC: @ 0x080445DC
+	thumb_func_start VaatiBall
+VaatiBall: @ 0x080445DC
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r5, [r4, #0x50]

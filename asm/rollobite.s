@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08020638
-sub_08020638: @ 0x08020638
+	thumb_func_start Rollobite
+Rollobite: @ 0x08020638
 	push {lr}
 	ldr r1, _08020644 @ =gUnk_080CA66C
 	bl EnemyFunctionHandler

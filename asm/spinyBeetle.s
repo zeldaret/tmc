@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803379C
-sub_0803379C: @ 0x0803379C
+	thumb_func_start SpinyBeetle
+SpinyBeetle: @ 0x0803379C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080337B8 @ =gUnk_080CEBEC

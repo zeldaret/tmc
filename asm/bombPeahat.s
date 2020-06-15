@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802A804
-sub_0802A804: @ 0x0802A804
+	thumb_func_start BombPeahat
+BombPeahat: @ 0x0802A804
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xa]

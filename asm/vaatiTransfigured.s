@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803F770
-sub_0803F770: @ 0x0803F770
+	thumb_func_start VaatiTransfigured
+VaatiTransfigured: @ 0x0803F770
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xa]

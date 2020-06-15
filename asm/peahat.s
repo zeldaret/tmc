@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0801FF5C
-sub_0801FF5C: @ 0x0801FF5C
+	thumb_func_start Peahat
+Peahat: @ 0x0801FF5C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xa]

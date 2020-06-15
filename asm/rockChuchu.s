@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802222C
-sub_0802222C: @ 0x0802222C
+	thumb_func_start RockChuchu
+RockChuchu: @ 0x0802222C
 	push {lr}
 	ldr r1, _08022238 @ =gUnk_080CB948
 	bl EnemyFunctionHandler

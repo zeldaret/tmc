@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08045394
-sub_08045394: @ 0x08045394
+	thumb_func_start FireballGuy
+FireballGuy: @ 0x08045394
 	push {lr}
 	ldr r1, _080453A0 @ =gUnk_080D17E8
 	bl EnemyFunctionHandler

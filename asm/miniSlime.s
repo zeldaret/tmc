@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08045200
-sub_08045200: @ 0x08045200
+	thumb_func_start MiniSlime
+MiniSlime: @ 0x08045200
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0804521C @ =gUnk_080D17C0

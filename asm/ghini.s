@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803EFDC
-sub_0803EFDC: @ 0x0803EFDC
+	thumb_func_start Ghini
+Ghini: @ 0x0803EFDC
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r5, _0803F004 @ =gUnk_080D0924

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08048640
-sub_08048640: @ 0x08048640
+	thumb_func_start GyorgChild
+GyorgChild: @ 0x08048640
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r0, _0804867C @ =gUnk_030010A0

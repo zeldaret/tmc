@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0801FC08
-sub_0801FC08: @ 0x0801FC08
+	thumb_func_start Leever
+Leever: @ 0x0801FC08
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0801FC24 @ =gUnk_080CA49C

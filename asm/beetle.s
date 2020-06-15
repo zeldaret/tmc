@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08021758
-sub_08021758: @ 0x08021758
+	thumb_func_start Beetle
+Beetle: @ 0x08021758
 	push {lr}
 	ldr r1, _08021764 @ =gUnk_080CB590
 	bl EnemyFunctionHandler

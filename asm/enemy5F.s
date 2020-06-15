@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080482C4
-sub_080482C4: @ 0x080482C4
+	thumb_func_start Enemy5F
+Enemy5F: @ 0x080482C4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, [r4, #0x50]

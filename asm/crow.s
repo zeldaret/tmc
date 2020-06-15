@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080327F4
-sub_080327F4: @ 0x080327F4
+	thumb_func_start Crow
+Crow: @ 0x080327F4
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _0803280C @ =gUnk_080CE978

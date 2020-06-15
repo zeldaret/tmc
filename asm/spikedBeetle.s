@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802B5F0
-sub_0802B5F0: @ 0x0802B5F0
+	thumb_func_start SpikedBeetle
+SpikedBeetle: @ 0x0802B5F0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0802B60C @ =gUnk_080CD2D8

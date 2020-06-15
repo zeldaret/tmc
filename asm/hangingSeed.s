@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080216D4
-sub_080216D4: @ 0x080216D4
+	thumb_func_start HangingSeed
+HangingSeed: @ 0x080216D4
 	push {lr}
 	ldr r1, _080216E0 @ =gUnk_080CB570
 	bl EnemyFunctionHandler

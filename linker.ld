@@ -422,6 +422,7 @@ SECTIONS {
 		asm/enemy64.o(.text);
 		asm/treeItem.o(.text);
 		asm/enemy66.o(.text);
+		/* END enemies */
 		asm/code_08049CD4.o(.text);
 		asm/sub_0804AA30.o(.text);
 		src/createEnemy.o(.text);
@@ -551,6 +552,7 @@ SECTIONS {
 		asm/fusionMenuNPC.o(.text);
 		asm/phonograph.o(.text);
 		asm/npc58.o(.text);
+		/* END npcs */
 		asm/code_0806EC20.o(.text);
 		src/createNPC.o(.text);
 		asm/code_0806ED78.o(.text);
@@ -778,6 +780,7 @@ SECTIONS {
 		asm/objectBF.o(.text);
 		asm/enemyItem.o(.text);
 		asm/objectC1.o(.text);
+		/* END objects */
 		asm/sub_080A276C.o(.text);
 		asm/sub_080A2838.o(.text);
 		asm/sub_080A285C.o(.text);
@@ -815,6 +818,8 @@ SECTIONS {
         asm/intr.o(.text);
         /* data */
         data/data_8.o(.rodata);
+		src/enemy.o(.rodata);
+		data/data_9.o(.rodata);
     } >rom
 
     /* DWARF 2 sections */

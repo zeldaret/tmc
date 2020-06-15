@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080388B4
-sub_080388B4: @ 0x080388B4
+	thumb_func_start ScissorsBeetle
+ScissorsBeetle: @ 0x080388B4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080388D0 @ =gUnk_080CF600

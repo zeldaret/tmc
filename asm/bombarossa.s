@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080333B8
-sub_080333B8: @ 0x080333B8
+	thumb_func_start Bombarossa
+Bombarossa: @ 0x080333B8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080333D0 @ =gUnk_080CEB38

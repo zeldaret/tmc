@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803E08C
-sub_0803E08C: @ 0x0803E08C
+	thumb_func_start VaatiProjectile
+VaatiProjectile: @ 0x0803E08C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_0803E4A0

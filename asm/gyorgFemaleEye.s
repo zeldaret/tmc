@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08048988
-sub_08048988: @ 0x08048988
+	thumb_func_start GyorgFemaleEye
+GyorgFemaleEye: @ 0x08048988
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r0, [r5, #0x50]

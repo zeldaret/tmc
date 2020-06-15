@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08033ED4
-sub_08033ED4: @ 0x08033ED4
+	thumb_func_start MazaalHead
+MazaalHead: @ 0x08033ED4
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _08033EEC @ =gUnk_080CEC88

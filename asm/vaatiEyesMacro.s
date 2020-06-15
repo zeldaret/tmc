@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802EC6C
-sub_0802EC6C: @ 0x0802EC6C
+	thumb_func_start VaatiEyesMacro
+VaatiEyesMacro: @ 0x0802EC6C
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r5, _0802EC94 @ =gUnk_080CDE34

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08035164
-sub_08035164: @ 0x08035164
+	thumb_func_start MazaalHand
+MazaalHand: @ 0x08035164
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

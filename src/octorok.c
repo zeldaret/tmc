@@ -24,7 +24,7 @@ extern void (*gUnk_080CA158[4])(Entity*);
 
 extern u8 gUnk_080CA170[8];
 // Main
-void sub_0801EAB0(Entity* ent) {
+void Octorok(Entity* ent) {
     EnemyFunctionHandler(ent, gOctorok);
     SetChildOffset(ent, 0, 1, -16);
 }

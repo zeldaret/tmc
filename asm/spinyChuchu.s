@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08022414
-sub_08022414: @ 0x08022414
+	thumb_func_start SpinyChuchu
+SpinyChuchu: @ 0x08022414
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08022430 @ =gUnk_080CBA28

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08025CA0
-sub_08025CA0: @ 0x08025CA0
+	thumb_func_start ChuchuBoss
+ChuchuBoss: @ 0x08025CA0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _08025CB8 @ =gUnk_080CC19C

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08030198
-sub_08030198: @ 0x08030198
+	thumb_func_start Armos
+Armos: @ 0x08030198
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080301B8 @ =gUnk_080CE124

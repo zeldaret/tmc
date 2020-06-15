@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080456D8
-sub_080456D8: @ 0x080456D8
+	thumb_func_start Enemy5A
+Enemy5A: @ 0x080456D8
 	push {lr}
 	ldr r1, _080456E4 @ =gUnk_080D1888
 	bl EnemyFunctionHandler

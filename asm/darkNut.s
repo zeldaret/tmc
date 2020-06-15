@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08020B80
-sub_08020B80: @ 0x08020B80
+	thumb_func_start DarkNut
+DarkNut: @ 0x08020B80
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08020B9C @ =gUnk_080CAA98

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802B4D8
-sub_0802B4D8: @ 0x0802B4D8
+	thumb_func_start Chaser
+Chaser: @ 0x0802B4D8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_080012DC

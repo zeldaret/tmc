@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080481C0
-sub_080481C0: @ 0x080481C0
+	thumb_func_start Curtain
+Curtain: @ 0x080481C0
 	push {lr}
 	ldr r1, _080481CC @ =gUnk_080D1CC8
 	bl EnemyFunctionHandler

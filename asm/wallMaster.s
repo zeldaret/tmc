@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802A408
-sub_0802A408: @ 0x0802A408
+	thumb_func_start WallMaster
+WallMaster: @ 0x0802A408
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r5, _0802A430 @ =gUnk_080CD07C

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080292A0
-sub_080292A0: @ 0x080292A0
+	thumb_func_start RupeeLike
+RupeeLike: @ 0x080292A0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xb]

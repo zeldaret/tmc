@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08031374
-sub_08031374: @ 0x08031374
+	thumb_func_start Rope
+Rope: @ 0x08031374
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08031390 @ =gUnk_080CE448

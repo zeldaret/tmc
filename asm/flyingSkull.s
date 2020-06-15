@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08039BA0
-sub_08039BA0: @ 0x08039BA0
+	thumb_func_start FlyingSkull
+FlyingSkull: @ 0x08039BA0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_080012DC

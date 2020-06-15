@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803704C
-sub_0803704C: @ 0x0803704C
+	thumb_func_start FlyingPot
+FlyingPot: @ 0x0803704C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_080012DC

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803C160
-sub_0803C160: @ 0x0803C160
+	thumb_func_start BowMoblin
+BowMoblin: @ 0x0803C160
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0803C17C @ =gUnk_080CFF78

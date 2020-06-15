@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802C660
-sub_0802C660: @ 0x0802C660
+	thumb_func_start Bobomb
+Bobomb: @ 0x0802C660
 	push {lr}
 	ldr r1, _0802C66C @ =gUnk_080CD5D4
 	bl EnemyFunctionHandler

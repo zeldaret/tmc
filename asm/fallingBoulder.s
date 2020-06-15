@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802C228
-sub_0802C228: @ 0x0802C228
+	thumb_func_start FallingBoulder
+FallingBoulder: @ 0x0802C228
 	push {lr}
 	ldr r1, _0802C234 @ =gUnk_080CD540
 	bl EnemyFunctionHandler

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802FDD4
-sub_0802FDD4: @ 0x0802FDD4
+	thumb_func_start WizzrobeIce
+WizzrobeIce: @ 0x0802FDD4
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r5, _0802FDFC @ =gUnk_080CE074

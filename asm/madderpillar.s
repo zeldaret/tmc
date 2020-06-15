@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08029858
-sub_08029858: @ 0x08029858
+	thumb_func_start Madderpillar
+Madderpillar: @ 0x08029858
 	push {lr}
 	ldr r2, _0802986C @ =gUnk_080CCD44
 	ldrb r1, [r0, #0xa]

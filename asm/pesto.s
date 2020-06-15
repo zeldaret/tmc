@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08023F28
-sub_08023F28: @ 0x08023F28
+	thumb_func_start Pesto
+Pesto: @ 0x08023F28
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _08023F40 @ =gUnk_080CBEC4

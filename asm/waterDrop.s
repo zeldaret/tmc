@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802A238
-sub_0802A238: @ 0x0802A238
+	thumb_func_start WaterDrop
+WaterDrop: @ 0x0802A238
 	push {lr}
 	ldr r2, _0802A24C @ =gUnk_080CD030
 	ldrb r1, [r0, #0xc]

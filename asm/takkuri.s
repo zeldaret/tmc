@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803BB7C
-sub_0803BB7C: @ 0x0803BB7C
+	thumb_func_start Takkuri
+Takkuri: @ 0x0803BB7C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _0803BB94 @ =gUnk_080CFF3C

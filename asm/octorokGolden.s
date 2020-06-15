@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08037C3C
-sub_08037C3C: @ 0x08037C3C
+	thumb_func_start OctorokGolden
+OctorokGolden: @ 0x08037C3C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_080012DC

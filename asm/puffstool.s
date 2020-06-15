@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08024FE8
-sub_08024FE8: @ 0x08024FE8
+	thumb_func_start Puffstool
+Puffstool: @ 0x08024FE8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08025004 @ =gUnk_080CBF9C

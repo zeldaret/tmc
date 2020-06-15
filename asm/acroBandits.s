@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08031864
-sub_08031864: @ 0x08031864
+	thumb_func_start AcroBandit
+AcroBandit: @ 0x08031864
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_080012DC

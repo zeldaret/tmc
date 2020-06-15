@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802823C
-sub_0802823C: @ 0x0802823C
+	thumb_func_start SpearMoblin
+SpearMoblin: @ 0x0802823C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08028268 @ =gUnk_080CC790

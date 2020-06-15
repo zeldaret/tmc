@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08023038
-sub_08023038: @ 0x08023038
+	thumb_func_start Moldworm
+Moldworm: @ 0x08023038
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	ldrh r5, [r4, #0x2e]

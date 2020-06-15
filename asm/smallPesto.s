@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08031664
-sub_08031664: @ 0x08031664
+	thumb_func_start SmallPesto
+SmallPesto: @ 0x08031664
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _0803167C @ =gUnk_080CE530

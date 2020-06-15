@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0801EE18
-sub_0801EE18: @ 0x0801EE18
+	thumb_func_start Chuchu
+Chuchu: @ 0x0801EE18
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_080012DC

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08021D64
-sub_08021D64: @ 0x08021D64
+	thumb_func_start Keese
+Keese: @ 0x08021D64
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _08021D7C @ =gUnk_080CB69C

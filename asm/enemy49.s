@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803CE80
-sub_0803CE80: @ 0x0803CE80
+	thumb_func_start Enemy49
+Enemy49: @ 0x0803CE80
 	push {lr}
 	ldr r2, _0803CE94 @ =gUnk_080D0448
 	ldrb r1, [r0, #0xc]

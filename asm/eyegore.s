@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08030A2C
-sub_08030A2C: @ 0x08030A2C
+	thumb_func_start Eyegore
+Eyegore: @ 0x08030A2C
 	push {lr}
 	ldr r1, _08030A38 @ =gUnk_080CE288
 	bl EnemyFunctionHandler

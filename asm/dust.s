@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08044118
-sub_08044118: @ 0x08044118
+	thumb_func_start Dust
+Dust: @ 0x08044118
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _08044130 @ =gUnk_080D1588

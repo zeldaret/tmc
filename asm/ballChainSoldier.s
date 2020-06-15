@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803E528
-sub_0803E528: @ 0x0803E528
+	thumb_func_start BallChainSoldier
+BallChainSoldier: @ 0x0803E528
 	push {lr}
 	ldr r1, _0803E534 @ =gUnk_080D06E0
 	bl EnemyFunctionHandler

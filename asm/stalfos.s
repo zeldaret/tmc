@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080392AC
-sub_080392AC: @ 0x080392AC
+	thumb_func_start Stalfos
+Stalfos: @ 0x080392AC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080392C8 @ =gUnk_080CF8A4

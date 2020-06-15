@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803746C
-sub_0803746C: @ 0x0803746C
+	thumb_func_start Gibdo
+Gibdo: @ 0x0803746C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08037488 @ =gUnk_080CF294

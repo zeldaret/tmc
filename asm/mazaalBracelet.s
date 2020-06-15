@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803A154
-sub_0803A154: @ 0x0803A154
+	thumb_func_start MazaalBracelet
+MazaalBracelet: @ 0x0803A154
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _0803A16C @ =gUnk_080CFC14

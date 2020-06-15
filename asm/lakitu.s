@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803C738
-sub_0803C738: @ 0x0803C738
+	thumb_func_start Lakitu
+Lakitu: @ 0x0803C738
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0803C754 @ =gUnk_080D0110

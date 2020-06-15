@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08038430
-sub_08038430: @ 0x08038430
+	thumb_func_start CloudPiranha
+CloudPiranha: @ 0x08038430
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0803844C @ =gUnk_080CF4F0
