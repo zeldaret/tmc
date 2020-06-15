@@ -72,7 +72,7 @@ CheckLocalFlagByOffset: @ 0x0807CB10
 	ldr r0, _0807CB20 @ =gGlobalFlags
 	adds r2, r2, r1
 	adds r1, r2, #0
-	bl sub_0801D5A8
+	bl ReadBit
 	pop {pc}
 	.align 2, 0
 _0807CB20: .4byte gGlobalFlags

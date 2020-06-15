@@ -1803,8 +1803,8 @@ _0801D5A2:
 	.align 2, 0
 _0801D5A4: .4byte 0x99999999
 
-	thumb_func_start sub_0801D5A8
-sub_0801D5A8: @ 0x0801D5A8
+	thumb_func_start ReadBit
+ReadBit: @ 0x0801D5A8
 	lsrs r2, r1, #3
 	adds r0, r0, r2
 	ldrb r0, [r0]

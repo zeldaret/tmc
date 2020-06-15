@@ -1758,7 +1758,7 @@ _080A495A:
 _080A4962:
 	adds r0, r3, #0
 	adds r0, #0xce
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	beq _080A4970
 	movs r4, #1

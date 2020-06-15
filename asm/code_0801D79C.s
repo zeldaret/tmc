@@ -2204,7 +2204,7 @@ CheckKinstoneFused: @ 0x0801E7F4
 	cmp r0, #0x63
 	bhi _0801E80C
 	ldr r0, _0801E808 @ =gUnk_02002C81
-	bl sub_0801D5A8
+	bl ReadBit
 	b _0801E80E
 	.align 2, 0
 _0801E808: .4byte gUnk_02002C81
@@ -2221,7 +2221,7 @@ sub_0801E810: @ 0x0801E810
 	cmp r0, #0x63
 	bhi _0801E828
 	ldr r0, _0801E824 @ =gUnk_02002C8E
-	bl sub_0801D5A8
+	bl ReadBit
 	b _0801E82A
 	.align 2, 0
 _0801E824: .4byte gUnk_02002C8E

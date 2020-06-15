@@ -1,10 +1,16 @@
 #include "global.h"
 #include "entity.h"
+#include "link.h"
 
 typedef struct {
     /*0x00*/ u8 filler[0x2C];
     /*0x2C*/ u8 unk;
 } struct_030010A0;
+
+typedef struct {
+    u8 filler[0xa8];
+    Stats stats;
+} struct_02002A40;
 
 extern void sub_0806ED78(Entity*);
 extern void sub_08068BEC(Entity*, u32);
@@ -25,6 +31,13 @@ extern void InitAnimationForceUpdate(Entity*, u32);
 extern void sub_0806F118(Entity*);
 extern void sub_0807DD94(Entity*, u32);
 extern u32 UpdateFuseInteraction();
+extern void ForceEquipItem(u8, u8);
+extern void sub_0805ED14(u32*);
+extern Entity* CreateFx(Entity*, u32, u32);
+extern void PositionRelative(Entity*, Entity*, u32, u32);
+extern void PlaySFX(u32);
+extern u32 GetInventoryValue(u32);
+extern void sub_080A7C18(u32, u32, u32);
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -32,6 +45,11 @@ extern void (*gUnk_081115D0[])(Entity*);
 extern struct_030010A0 gUnk_030010A0;
 extern u16 gUnk_081115DC[];
 extern Entity gLinkEntity;
+extern u8 gUnk_08111618[];
+extern u32* gUnk_081115EC[];
+extern struct_02002A40 gUnk_02002A40;
+extern u8 gUnk_08111623[];
+extern u8 gUnk_0811162B[];
 
 void sub_080689C0(Entity* this) {
 
@@ -139,4 +157,104 @@ void sub_08068B70(Entity* this) {
     if (UpdateFuseInteraction()) {
         this->action = 1;
     }
+}
+
+void sub_08068B84(Entity* this) {
+    u8 p;
+
+    if (gUnk_08111618) {}
+    if (p = this->parameter3, gUnk_08111618[p]) {
+        ForceEquipItem(gUnk_08111618[this->parameter3], 0);
+    }
+    sub_0805ED14(gUnk_081115EC[this->parameter3]);
+}
+
+void sub_08068BB4(Entity* this) {
+    u32 item = gUnk_02002A40.stats.itemOnA;
+
+    this->field_0x69 = item;
+    item = gUnk_02002A40.stats.itemOnB;
+    *(&this->field_0x69 + 1) = item;
+}
+
+void sub_08068BD0(Entity* this) {
+    ForceEquipItem(this->field_0x69, 0);
+    ForceEquipItem(*(u8*)(&this->field_0x69 + 1), 1);
+}
+
+void sub_08068BEC(Entity* this, u32 unused) {
+    Entity* target;
+
+    target = CreateFx(this, 0x44, 0);
+    if (target) {
+        target->ticks.b0 = 1;
+        PositionRelative(this, target, 0, -0x100000);
+        PlaySFX(0xfa);
+    }
+}
+
+void sub_08068C28(Entity* this) {
+    u8 bVar1;
+    u32 uVar2;
+
+    this->parameter3 = gUnk_08111623[(this->entityType).parameter1];
+    if ((this->entityType).parameter1 == 1) {
+        if (GetInventoryValue(0x48)) {      // spin attack
+            if (!GetInventoryValue(0x4b)) { // rock breaker
+                this->parameter3 = 1;
+            } else {
+                if (!GetInventoryValue(0x4a)) { // dash attack
+                    this->parameter3 = 2;
+                } else {
+                    this->parameter3 = 3;
+                }
+            }
+        }
+    }
+}
+
+void sub_08068C6C(Entity *this)
+{
+  sub_080A7C18(gUnk_0811162B[this->parameter3] & 0xffffff7f,0,0);
+}
+
+void sub_08068C8C(Entity *param_1,Entity *param_2)
+{
+    u8* arr = gUnk_0811162B + 0xd;
+    
+    *(u32*)&param_2->animationState = *(u32*)(arr + param_1->parameter3 * 4);
+}
+
+void sub_08068CA0(Entity *param_1,Entity *param_2)
+{
+  u8 bVar1;
+  u32 uVar2;
+  
+  bVar1 = (param_1->entityType).parameter1;
+  if (bVar1 == 1) {
+    *(u32 *)&param_2->animationState = bVar1;
+    uVar2 = GetInventoryValue(0x48); //spin attack
+    if (uVar2 == 0) {
+      *(u32 *)&param_2->animationState = 0;
+    }
+    uVar2 = GetInventoryValue(0x4b); //rock breaker
+    if (uVar2 == 0) {
+      *(u32 *)&param_2->animationState = 0;
+    }
+    uVar2 = GetInventoryValue(0x4a); //dash attack
+    if (uVar2 == 0) {
+      *(u32 *)&param_2->animationState = 0;
+    }
+    uVar2 = GetInventoryValue(0x4e); //down thrust
+    if (uVar2 != 0) {
+      return;
+    }
+  }
+  else {
+    uVar2 = GetInventoryValue(gUnk_0811162B[param_1->parameter3] & -0x81);
+    if (uVar2 != 0) {
+      uVar2 = 1;
+    }
+  }
+  *(u32*)&param_2->animationState = uVar2;
 }

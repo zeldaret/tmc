@@ -4,16 +4,6 @@
 	.syntax unified
 
 	.text
-	
-	thumb_func_start CheckRoomFlag
-CheckRoomFlag: @ 0x0807CC3C
-	push {lr}
-	adds r1, r0, #0
-	ldr r0, _0807CC48 @ =gUnk_02034364
-	bl sub_0801D5A8
-	pop {pc}
-	.align 2, 0
-_0807CC48: .4byte gUnk_02034364
 
 	thumb_func_start CheckLocalFlagsByOffset
 CheckLocalFlagsByOffset: @ 0x0807CC4C
@@ -22,7 +12,7 @@ CheckLocalFlagsByOffset: @ 0x0807CC4C
 	ldr r0, _0807CC5C @ =gGlobalFlags
 	adds r3, r3, r1
 	adds r1, r3, #0
-	bl sub_08000F10
+	bl CheckBits
 	pop {pc}
 	.align 2, 0
 _0807CC5C: .4byte gGlobalFlags
@@ -57,7 +47,7 @@ CheckRoomFlags: @ 0x0807CC88
 	adds r2, r1, #0
 	ldr r0, _0807CC98 @ =gUnk_02034364
 	adds r1, r3, #0
-	bl sub_08000F10
+	bl CheckBits
 	pop {pc}
 	.align 2, 0
 _0807CC98: .4byte gUnk_02034364

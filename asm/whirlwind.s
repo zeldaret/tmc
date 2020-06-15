@@ -19,7 +19,7 @@ Whirlwind: @ 0x08092CA0
 	beq _08092CC0
 	ldr r0, _08092CD4 @ =gUnk_020342F8
 	subs r1, #1
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	bne _08092CC0
 	bl DeleteThisEntity

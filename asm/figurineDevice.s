@@ -1027,7 +1027,7 @@ _0808837C:
 	beq _0808839C
 	ldr r0, _08088398 @ =gUnk_02002B0E
 	adds r1, r4, #0
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	bne _0808839C
 	movs r5, #1
@@ -1059,7 +1059,7 @@ _080883B6:
 	beq _080883D8
 	ldr r0, _080883D4 @ =gUnk_02002B0E
 	adds r1, r4, #0
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	beq _080883D8
 	movs r5, #0

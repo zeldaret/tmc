@@ -946,7 +946,7 @@ sub_08017530: @ 0x08017530
 	beq _08017550
 	ldr r0, _080175D8 @ =gUnk_020342F8
 	subs r1, #1
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	bne _08017550
 	bl DeleteThisEntity

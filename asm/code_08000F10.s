@@ -5,8 +5,8 @@
 
 	.text
 
-	thumb_func_start sub_08000F10
-sub_08000F10: @ 0x08000F10
+	thumb_func_start CheckBits
+CheckBits: @ 0x08000F10
 	ldr r3, _08000F50 @ =gUnk_03005E60
 	bx r3
 

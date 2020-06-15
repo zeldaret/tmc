@@ -1844,7 +1844,7 @@ sub_0809584C: @ 0x0809584C
 	beq _0809586C
 	ldr r0, _080958D0 @ =gUnk_020342F8
 	subs r1, #1
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	bne _0809586C
 	bl DeleteThisEntity

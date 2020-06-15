@@ -19,7 +19,7 @@ Pinwheel: @ 0x080A23A0
 	beq _080A23C0
 	ldr r0, _080A23D4 @ =gUnk_020342F8
 	subs r1, #1
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	bne _080A23C0
 	bl DeleteThisEntity

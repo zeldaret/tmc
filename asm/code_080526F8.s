@@ -1394,7 +1394,7 @@ sub_08053178: @ 0x08053178
 	bne _080531DC
 	ldr r0, _080531F4 @ =gUnk_02002AA0
 	ldrb r1, [r5, #1]
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	bne _080531DC
 	movs r0, #1

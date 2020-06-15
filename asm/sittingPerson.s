@@ -197,7 +197,7 @@ _08063896:
 _080638A4:
 	ldr r0, _080638F8 @ =gUnk_02002B0E
 	adds r1, r4, #0
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	beq _080638B2
 	adds r5, #1

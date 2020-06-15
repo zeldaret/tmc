@@ -581,7 +581,7 @@ SECTIONS {
 		asm/sub_0807CA18.o(.text);
 		asm/getInventoryValue.o(.text);
 		asm/code_0807CAA0.o(.text);
-		src/getProgressFlag.o(.text);
+		src/flags.o(.text);
 		asm/code_0807CC3C.o(.text);
 		src/room.o(.text);
 		/* objects */
