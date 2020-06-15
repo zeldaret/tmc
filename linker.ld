@@ -518,6 +518,7 @@ SECTIONS {
 		asm/dog.o(.text);
 		asm/syrup.o(.text);
 		asm/rem.o(.text);
+		src/townMinish.o(.text);
 		asm/townMinish.o(.text);
 		asm/librari.o(.text);
 		asm/percy.o(.text);
