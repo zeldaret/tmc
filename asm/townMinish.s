@@ -6,68 +6,6 @@
 
 	.text
 
-
-	thumb_func_start sub_0806ABC8
-sub_0806ABC8: @ 0x0806ABC8
-	push {r4, lr}
-	adds r4, r0, #0
-	ldrb r1, [r4, #0x10]
-	movs r0, #2
-	ands r0, r1
-	cmp r0, #0
-	bne _0806ABF4
-	ldr r0, _0806ABF0 @ =gUnk_081126E8
-	ldrb r1, [r4, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r0
-	ldr r1, [r1]
-	adds r0, r4, #0
-	bl _call_via_r1
-	adds r0, r4, #0
-	bl sub_0806ED78
-	b _0806ABFA
-	.align 2, 0
-_0806ABF0: .4byte gUnk_081126E8
-_0806ABF4:
-	adds r0, r4, #0
-	bl sub_0806ACC4
-_0806ABFA:
-	pop {r4, pc}
-
-	thumb_func_start sub_0806ABFC
-sub_0806ABFC: @ 0x0806ABFC
-	push {r4, lr}
-	adds r4, r0, #0
-	ldrb r1, [r4, #0xa]
-	lsls r1, r1, #4
-	ldr r0, _0806AC38 @ =gUnk_08112674
-	adds r1, r1, r0
-	adds r0, r4, #0
-	bl sub_0806FDEC
-	cmp r0, #0
-	beq _0806AC36
-	adds r0, r4, #0
-	movs r1, #2
-	bl InitializeAnimation
-	movs r1, #0
-	movs r0, #1
-	strb r0, [r4, #0xc]
-	ldrb r0, [r4, #0xe]
-	adds r2, r4, #0
-	adds r2, #0x6a
-	strb r0, [r2]
-	lsls r0, r0, #1
-	strb r0, [r4, #0x14]
-	ldrb r0, [r4, #0x14]
-	lsls r0, r0, #2
-	subs r2, #1
-	strb r0, [r2]
-	strb r1, [r4, #0xe]
-_0806AC36:
-	pop {r4, pc}
-	.align 2, 0
-_0806AC38: .4byte gUnk_08112674
-
 	thumb_func_start sub_0806AC3C
 sub_0806AC3C: @ 0x0806AC3C
 	push {r4, r5, lr}
