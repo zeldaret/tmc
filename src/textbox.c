@@ -3,7 +3,6 @@
 #include "entity.h"
 #include "textbox.h"
 
-void TextboxNoOverlap(u32 index, Entity* ent);
 void sub_0801D630();
 void ShowTextbox();
 void TextboxAtPosition();
