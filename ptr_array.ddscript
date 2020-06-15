@@ -1,2 +1,0 @@
-$ptr :4 int:4 checkptr:1
-.4byte $*ptr
