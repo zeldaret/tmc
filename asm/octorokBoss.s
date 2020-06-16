@@ -1503,7 +1503,7 @@ _08035D28:
 _08035D38:
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	ldr r0, [r4]
 	ldrb r0, [r0, #1]
 	subs r0, #2
@@ -1512,7 +1512,7 @@ _08035D38:
 	bne _08035D8A
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	ldr r4, [r5, #0x50]
 	adds r0, r4, #0
 	adds r0, #0x74

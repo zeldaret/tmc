@@ -328,7 +328,7 @@ _0802EEC8:
 _0802EED6:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	ldr r1, _0802EF14 @ =gLinkEntity
 	adds r0, r4, #0
 	bl sub_080045C4
@@ -387,7 +387,7 @@ _0802EF2C:
 _0802EF4A:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	movs r0, #0
 	strh r0, [r4, #0x36]
 	pop {r4, pc}

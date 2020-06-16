@@ -143,7 +143,7 @@ sub_08098DC4: @ 0x08098DC4
 	strb r4, [r0]
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	ldr r1, _08098E30 @ =gLinkState
 	movs r0, #0x1f
 	strb r0, [r1, #0xc]

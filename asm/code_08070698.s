@@ -1128,7 +1128,7 @@ sub_08070F50: @ 0x08070F50
 	beq _08070F9A
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA30
+	bl PositionEntityOnTop
 	ldrh r0, [r4, #0x12]
 	ldrb r1, [r4, #0x1e]
 	bl sub_080700C8

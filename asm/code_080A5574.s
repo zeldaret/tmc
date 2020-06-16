@@ -5359,7 +5359,7 @@ _080A7F56:
 	strb r0, [r2]
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	adds r0, r4, #0
 	bl sub_080A7F9C
 	ldrb r0, [r4, #0xa]
@@ -11399,14 +11399,14 @@ sub_080AAC44: @ 0x080AAC44
 	bne _080AAC84
 	ldr r0, _080AAC80 @ =gLinkEntity
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	b _080AAC8C
 	.align 2, 0
 _080AAC80: .4byte gLinkEntity
 _080AAC84:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _080AAC8C:
 	bl sub_08077B2C
 	ldr r2, _080AACB4 @ =gLinkState
@@ -11595,7 +11595,7 @@ _080AADCC:
 	strb r0, [r1]
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _080AADE0:
 	ldrb r1, [r5, #0xa]
 	cmp r1, #0
@@ -11664,7 +11664,7 @@ _080AAE60: .4byte gLinkEntity
 _080AAE64:
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	ldrb r1, [r5, #0x10]
 	movs r0, #0x7f
 	ands r0, r1
@@ -12021,7 +12021,7 @@ _080AB0AA:
 	strb r0, [r5, #0xa]
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 _080AB124:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -14061,7 +14061,7 @@ _080AC058:
 	strb r0, [r1]
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	ldrh r0, [r4, #0x36]
 	subs r0, #0x14
 	strh r0, [r4, #0x36]
@@ -14084,7 +14084,7 @@ sub_080AC074: @ 0x080AC074
 _080AC084:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	ldrh r0, [r4, #0x36]
 	subs r0, #0x14
 	strh r0, [r4, #0x36]

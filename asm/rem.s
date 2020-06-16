@@ -607,7 +607,7 @@ _0806A860:
 	cmp r1, #0
 	beq _0806A88A
 	adds r0, r4, #0
-	bl sub_0806FA30
+	bl PositionEntityOnTop
 _0806A88A:
 	pop {r4, pc}
 	.align 2, 0
@@ -696,7 +696,7 @@ sub_0806A914: @ 0x0806A914
 	bl CopyPosition
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _0806A938:
 	pop {r4, r5, pc}
 	.align 2, 0

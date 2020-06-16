@@ -1154,7 +1154,7 @@ sub_0804A4E4: @ 0x0804A4E4
 	strb r0, [r1]
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	ldrb r0, [r7]
 	ands r4, r0
 	cmp r4, #0

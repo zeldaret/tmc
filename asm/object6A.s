@@ -1189,7 +1189,7 @@ sub_08095330: @ 0x08095330
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _0809535E:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1255,7 +1255,7 @@ sub_080953A4: @ 0x080953A4
 	strb r0, [r4, #0x19]
 	adds r0, r4, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	adds r0, r4, #0
 	bl sub_0807DD64
 _080953E0:
@@ -1820,7 +1820,7 @@ sub_08095810: @ 0x08095810
 	bl CopyPosition
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	ldr r1, _08095848 @ =gUnk_08011940
 	adds r0, r4, #0
 	bl StartCutscene
@@ -2603,7 +2603,7 @@ _08095DF4:
 	strb r0, [r4, #0x19]
 	adds r0, r4, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _08095E30:
 	ldrb r2, [r4, #0xb]
 	movs r0, #0x80
@@ -3004,7 +3004,7 @@ _08096110:
 	strb r0, [r4, #0x19]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	adds r1, r4, #0
 	adds r1, #0x38
 	movs r0, #2

@@ -73,7 +73,7 @@ _080217A8:
 	strb r0, [r2]
 	ldr r0, _080217EC @ =gLinkEntity
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	ldr r0, _080217F0 @ =0x0000FFFF
 	strh r0, [r4, #0x36]
 	adds r1, r4, #0
@@ -639,7 +639,7 @@ _08021C04:
 	strb r0, [r1]
 	ldr r0, _08021C50 @ =gLinkEntity
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	ldr r2, _08021C54 @ =gUnk_080CB5E4
 	ldrb r1, [r4, #0xf]
 	adds r0, r1, #1

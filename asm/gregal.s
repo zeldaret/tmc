@@ -60,7 +60,7 @@ _0806CB2C:
 	bl CopyPosition
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _0806CB4E:
 	adds r0, r5, #0
 	bl sub_0807DD64

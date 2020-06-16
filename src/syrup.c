@@ -59,7 +59,7 @@ void sub_0806A26C(Entity *this)
     Entity *pEVar1;
     pEVar1 = CreateObject(0xf,0x2f,0);
     if (pEVar1 != NULL) {
-        sub_0806FA30(this, pEVar1);
+        PositionEntityOnTop(this, pEVar1);
         if (uVar2 = Random(), uVar2)
         {
             unk = -unk; // wtf?!

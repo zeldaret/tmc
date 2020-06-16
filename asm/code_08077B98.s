@@ -2434,7 +2434,7 @@ _08078DE0:
 	strh r0, [r4, #0x32]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	ldr r0, _08078E34 @ =gLinkState
 	ldrb r0, [r0, #5]
 	cmp r0, #4

@@ -20,7 +20,7 @@ extern void (*gUnk_08124798[])(Entity*);
 extern void (*gUnk_081247A0[])(Entity*);
 extern void (*gUnk_081247AC[])(Entity*);
 extern Entity* CreateObject(u32, u32, u32);
-extern void sub_0806FA30(Entity*, Entity*);
+extern void PositionEntityOnTop(Entity*, Entity*);
 extern void sub_0807BB68(u32*, u32, u32);
 
 extern u8 gUnk_02034490;
@@ -164,7 +164,7 @@ Entity* sub_0809F770(Entity* this) {
 
     cloud = CreateObject(163, 1, 0);
     if (cloud != NULL) {
-        sub_0806FA30(this, cloud);
+        PositionEntityOnTop(this, cloud);
         uVar1 = Random();
         cloud->x.HALF.HI = ((cloud->x.HALF.HI - 16) + (uVar1 >> 0)) & 31;
         cloud->y.HALF.HI = ((cloud->y.HALF.HI - 16) + (uVar1 >> 8)) & 31;

@@ -484,7 +484,7 @@ _0808F41A:
 _0808F42E:
 	ldr r0, [r4, #0x54]
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	b _0808F494
 _0808F438:
 	ldr r0, [r4, #0x50]
@@ -531,7 +531,7 @@ _0808F486:
 	bl sub_08004274
 	ldr r0, [r4, #0x54]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 _0808F494:
 	pop {r4, pc}
 	.align 2, 0
@@ -632,7 +632,7 @@ sub_0808F554: @ 0x0808F554
 	adds r5, r0, #0
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	adds r1, r5, #0
 	adds r1, #0x63
 	ldrb r0, [r1]

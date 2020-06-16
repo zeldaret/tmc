@@ -561,9 +561,7 @@ SECTIONS {
 		asm/code_0806ED78.o(.text);
 		src/sub_0806F9EC.o(.text);
 		src/sub_0806FA04.o(.text);
-		src/copyPosition.o(.text);
-		src/sub_0806FA30.o(.text);
-		src/positionRelative.o(.text);
+		src/position.o(.text);
 		asm/code_0806FA6C.o(.text);
 		src/sub_08070680.o(.text);
 		asm/code_08070698.o(.text);

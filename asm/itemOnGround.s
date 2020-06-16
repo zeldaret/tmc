@@ -535,7 +535,7 @@ _08080DB4:
 	adds r2, #1
 	strb r0, [r2]
 	adds r0, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	b _08080E00
 _08080DEE:
 	ldr r0, _08080E04 @ =gUnk_030010A0

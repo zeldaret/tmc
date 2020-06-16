@@ -4,6 +4,7 @@
 
 #include "global.h"
 #include "entity.h"
+#include "position.h"
 
 // Identified
 extern u32 Random(void);
@@ -23,7 +24,6 @@ extern u32 CheckKinstoneFused(u32);
 extern void ForceEquipItem(u8, u8);
 extern void LoadRoomEntityList();
 void ModHealth(s32);
-void PositionRelative(Entity*, Entity*, u32, u32);
 void CopyPosition(Entity*, Entity*);
 extern u32* StartCutscene(Entity*, u8*);
 
@@ -66,7 +66,7 @@ extern void sub_0806FF88(Entity*, u32, u32);
 extern void sub_0807000C(Entity*);
 extern void sub_0805E47C(Entity*);
 extern void sub_0805E584(Entity*);
-extern void sub_0806FAB0(Entity*, Entity*);
+extern void ResolveEntityOnTop(Entity*, Entity*);
 extern void sub_0806ED78(Entity*);
 extern void sub_08068BEC(Entity*, u32);
 extern void sub_08078778(Entity*);

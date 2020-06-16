@@ -81,13 +81,13 @@ void sub_08069428(Entity* this, s32 offsetX, bool32 createFx65) {
     Entity* fx = CreateFx(this, 4, 0);
     if (fx) {
         PositionRelative(this, fx, offsetX, 0xFFF00000);
-        sub_0806FAB0(this, fx);
+        ResolveEntityOnTop(this, fx);
     }
     if (createFx65 != 0) {
         fx = CreateFx(this, 65, 0);
         if (fx) {
             PositionRelative(this, fx, offsetX, 0xFFF00000);
-            sub_0806FAB0(this, fx);
+            ResolveEntityOnTop(this, fx);
         }
     }
 }

@@ -721,7 +721,7 @@ _08099706:
 	bl sub_08004274
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	ldrh r0, [r4, #0x32]
 	adds r0, #1
 	strh r0, [r4, #0x32]

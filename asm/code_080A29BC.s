@@ -286,7 +286,7 @@ _080A2BB4:
 	bl PositionRelative
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	adds r0, r5, #0
 	adds r0, #0x62
 	ldrb r0, [r0]
@@ -499,7 +499,7 @@ sub_080A2D2C: @ 0x080A2D2C
 	bl CopyPosition
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	str r5, [r4, #0x50]
 	adds r0, r4, #0
 	adds r0, #0x62

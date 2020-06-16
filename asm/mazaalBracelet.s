@@ -3213,7 +3213,7 @@ _0803B950:
 	bl InitializeAnimation
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	pop {r4, pc}
 
 	thumb_func_start sub_0803B978

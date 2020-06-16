@@ -339,7 +339,7 @@ sub_080376D0: @ 0x080376D0
 	strb r0, [r2, #0xa]
 	ldr r0, _08037728 @ =gLinkEntity
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	adds r2, r4, #0

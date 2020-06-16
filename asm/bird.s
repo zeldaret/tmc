@@ -94,7 +94,7 @@ sub_0809CF54: @ 0x0809CF54
 	bl PositionRelative
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _0809CFD8:
 	pop {r4, r5, pc}
 	.align 2, 0

@@ -1631,7 +1631,7 @@ _08034A98:
 _08034ABA:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 _08034AC2:
 	pop {r4, pc}
 

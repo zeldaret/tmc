@@ -17,7 +17,7 @@
 	beq _0806A2AE
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA30
+	bl PositionEntityOnTop
 	bl Random
 	adds r5, r0, #0
 	ldr r2, _0806A2B0 @ =gUnk_081121DC

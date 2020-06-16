@@ -459,7 +459,7 @@ _080847F0:
 	strh r0, [r5, #0x36]
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	adds r0, r5, #0
 	bl sub_080845DC
 	pop {r4, r5, pc}

@@ -5900,7 +5900,7 @@ sub_0807F714: @ 0x0807F714
 	orrs r0, r2
 	strb r0, [r1, #0x19]
 	adds r0, r1, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	pop {pc}
 	.align 2, 0
 _0807F734: .4byte gUnk_08114F30
