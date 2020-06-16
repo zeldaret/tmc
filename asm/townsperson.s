@@ -49,7 +49,7 @@ sub_08061BC8: @ 0x08061BC8
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08061BF8
 	movs r0, #2
@@ -199,7 +199,7 @@ sub_08061CEC: @ 0x08061CEC
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08061D62
 	movs r2, #1
@@ -687,7 +687,7 @@ sub_08062088: @ 0x08062088
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _080620C2
 	ldrb r0, [r4, #0xc]

@@ -1,7 +1,6 @@
 #include "global.h"
 #include "entity.h"
 #include "room.h"
-
 extern void sub_080A2CC0();
 extern void sub_0806F69C();
 extern void sub_08004488();
@@ -20,7 +19,7 @@ void BladeTrap(Entity* ent) {
     if ((ent->direction & 0x80) == 0) {
         sub_0806F69C(ent);
     }
-    (u32) puVar3 = &(ent->heldObjectPtr);
+    puVar3 = (u16*)&(ent->heldObjectPtr);
     uVar1 = *puVar3;
     *puVar3 = uVar1 - 1;
     if ((u16)(*puVar3) == 0) {

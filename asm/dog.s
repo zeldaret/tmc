@@ -517,7 +517,7 @@ sub_08069EF0: @ 0x08069EF0
 	ldr r0, _08069F20 @ =gUnk_08111D58
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08069F28
 	movs r0, #1

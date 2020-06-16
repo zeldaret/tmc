@@ -9,8 +9,8 @@ extern void sub_0806ED78(Entity *);
 extern void (*gUnk_081126E8[])();
 extern void sub_0806ACC4(Entity *);
 
-extern u32 sub_0806FDEC(Entity *, SpriteLoadThing *);
-extern SpriteLoadThing gUnk_08112674[];
+extern u32 LoadExtraSpriteData(Entity *, SpriteLoadData *);
+extern SpriteLoadData gUnk_08112674[];
 
 void sub_0806ABC8(Entity *this)
 {
@@ -27,8 +27,8 @@ void sub_0806ABFC(Entity *this)
 {
     u8 animationState;
 
-    SpriteLoadThing* spriteLoadThing = &gUnk_08112674[this->entityType.parameter1 << 2];
-    if (!sub_0806FDEC(this, spriteLoadThing))
+    SpriteLoadData* SpriteLoadData = &gUnk_08112674[this->entityType.parameter1 << 2];
+    if (!LoadExtraSpriteData(this, SpriteLoadData))
     {
         return;
     }

@@ -515,8 +515,8 @@ _0806FDDC:
 _0806FDEA:
 	pop {r4, pc}
 
-	thumb_func_start sub_0806FDEC
-sub_0806FDEC: @ 0x0806FDEC
+	thumb_func_start LoadExtraSpriteData
+LoadExtraSpriteData: @ 0x0806FDEC
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}

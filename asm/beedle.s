@@ -44,7 +44,7 @@ sub_080632E0: @ 0x080632E0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08063310 @ =gUnk_0810C8D4
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806330E
 	adds r0, r4, #0
@@ -205,7 +205,7 @@ sub_08063410: @ 0x08063410
 	cmp r5, #0
 	bne _08063442
 	ldr r1, _08063464 @ =gUnk_0810C8D4
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08063462
 	ldrb r0, [r4, #0xc]

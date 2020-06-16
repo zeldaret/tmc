@@ -516,7 +516,9 @@ SECTIONS {
 		asm/goronMerchant.o(.text);
 		asm/gorman.o(.text);
 		asm/dog.o(.text);
+		src/syrup.o(.text);
 		asm/syrup.o(.text);
+		src/rem.o(.text);
 		asm/rem.o(.text);
 		src/townMinish.o(.text);
 		asm/townMinish.o(.text);

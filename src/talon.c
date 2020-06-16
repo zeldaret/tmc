@@ -23,7 +23,7 @@ void sub_08065534(Entity* this) {
 }
 
 void sub_08065570(Entity* this) {
-    if (sub_0806FDEC(this, &gUnk_0810FEB0) != 0) {
+    if (LoadExtraSpriteData(this, &gUnk_0810FEB0) != 0) {
         InitializeAnimation(this, 0);
         sub_08078778(this);
         this->action = 1;
@@ -63,7 +63,7 @@ void sub_0806559C(Entity* this) {
 }
 
 void sub_08065608(Entity* this) {
-    if (sub_0806FDEC(this, &gUnk_0810FEB0) != 0) {
+    if (LoadExtraSpriteData(this, &gUnk_0810FEB0) != 0) {
         this->action = 1;
         this->spriteSettings.b.ss0 = 1;
         this->field_0x68 = sub_0801E99C(this);
@@ -152,7 +152,7 @@ void sub_080657A8(Entity* this) {
 
 void sub_080657DC(Entity* this) {
     if (this->action == 0) {
-        if (sub_0806FDEC(this, &gUnk_0810FEB0) != 0) {
+        if (LoadExtraSpriteData(this, &gUnk_0810FEB0) != 0) {
             this->action++;
             this->spriteSettings.b.ss0 = 1;
             InitializeAnimation(this, 6);

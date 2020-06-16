@@ -42,7 +42,7 @@ sub_080620F4: @ 0x080620F4
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806212A
 	movs r1, #0
@@ -158,7 +158,7 @@ _080621CE:
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	bne _080621E4
 	b _080622F2
@@ -1262,7 +1262,7 @@ sub_08062A60: @ 0x08062A60
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08062AB6
 	ldrb r0, [r4, #0xc]

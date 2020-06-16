@@ -93,7 +93,7 @@ _0806458A:
 	ldr r0, _080645D0 @ =gUnk_0810F874
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806463C
 	ldrb r0, [r4, #0xc]

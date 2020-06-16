@@ -20,4 +20,5 @@ extern TextBox gTextBox;
 
 void TextboxNoOverlap(u32 index, Entity* ent);
 
+void extern TextboxNoOverlapFollow(u32 index);
 #endif

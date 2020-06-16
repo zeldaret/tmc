@@ -102,7 +102,7 @@ sub_0806C454: @ 0x0806C454
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0806C470 @ =gUnk_08113754
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806C474
 	adds r0, r4, #0

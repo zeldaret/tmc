@@ -35,7 +35,7 @@ sub_0806B3CC: @ 0x0806B3CC
 	bne _0806B3F4
 	ldr r1, _0806B418 @ =gUnk_08112E1C
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806B414
 	movs r0, #1
@@ -84,7 +84,7 @@ _0806B430:
 _0806B436:
 	ldr r1, _0806B46C @ =gUnk_08112E1C
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806B4EC
 	movs r2, #1
@@ -335,7 +335,7 @@ sub_0806B624: @ 0x0806B624
 	bne _0806B65C
 	ldr r1, _0806B658 @ =gUnk_08112E1C
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806B662
 	ldrb r0, [r4, #0xc]

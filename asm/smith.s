@@ -159,7 +159,7 @@ sub_080660EC: @ 0x080660EC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08066114 @ =gUnk_08110354
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08066112
 	movs r0, #1
@@ -237,7 +237,7 @@ sub_08066178: @ 0x08066178
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080661AC @ =gUnk_08110354
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _080661A8
 	movs r2, #1
@@ -399,7 +399,7 @@ sub_08066298: @ 0x08066298
 	bne _080662D0
 	ldr r1, _080662CC @ =gUnk_08110354
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _080662D6
 	ldrb r0, [r4, #0xc]

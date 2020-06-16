@@ -1,7 +1,11 @@
 #include "global.h"
 #include "entity.h"
+#include "functions.h"
+#include "flags.h"
 #include "link.h"
 #include "room.h"
+#include "textbox.h"
+
 typedef struct {
     /*0x00*/ u8 filler[0x2C];
     /*0x2C*/ u8 unk;
@@ -12,39 +16,6 @@ typedef struct {
     Stats stats;
 } struct_02002A40;
 
-extern void sub_0806ED78(Entity*);
-extern void sub_08068BEC(Entity*, u32);
-extern void sub_08078778(Entity*);
-extern void InitializeAnimation(Entity*, u32);
-extern s32 sub_0806ED9C(Entity*, u32, u32);
-extern s32 sub_0806F078(Entity*, s32);
-extern void sub_08004274(Entity*);
-extern void TextboxNoOverlapFollow(u32);
-extern void sub_0801D2B4(Entity*, u32);
-extern void sub_0806FD3C(Entity*);
-extern u32 sub_0801E99C(Entity*);
-extern void sub_08078784(Entity*, u8);
-extern void sub_0807DD50(Entity*);
-extern void sub_080045C4(Entity*, Entity*);
-extern u32 sub_0806F5A4(void);
-extern void InitAnimationForceUpdate(Entity*, u32);
-extern void sub_0806F118(Entity*);
-extern void sub_0807DD94(Entity*, u32);
-extern u32 UpdateFuseInteraction();
-extern void ForceEquipItem(u8, u8);
-extern void sub_0805ED14(u32*);
-extern Entity* CreateFx(Entity*, u32, u32);
-extern void PositionRelative(Entity*, Entity*, u32, u32);
-extern void PlaySFX(u32);
-extern u32 GetInventoryValue(u32);
-extern void sub_080A7C18(u32, u32, u32);
-extern u32 CheckLocalFlag(u32);
-extern void TextboxNoOverlap(u32, Entity*);
-extern void LoadRoomEntityList();
-extern void ModHealth(s32);
-extern void InitAnimationForceUpdate(Entity*, u32);
-extern void UpdateAnimationSingleFrame(Entity*);
-extern void sub_08068BEC(Entity*, u32);
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -164,8 +135,7 @@ void FUN_08068b2c(Entity* this) {
     if (this->interactType == '\x02') {
         this->action = 2;
         this->interactType = '\0';
-        sub_080045C4(this, &gLinkEntity);
-        uVar1 = sub_0806F5A4();
+        uVar1 = sub_0806F5A4(sub_080045C4(this, &gLinkEntity));
         InitAnimationForceUpdate(this, uVar1);
         sub_0806F118(this);
     } else {
@@ -347,18 +317,22 @@ switchD_08068d12_caseD_0:
     *(u32*)&param_2->animationState = 1;
 }
 
+//Introduction dialoague
 void sub_08068DB8(Entity* this) {
     TextboxNoOverlap(gUnk_08111664[this->parameter3], this);
 }
 
+//Ask to teach dialoague
 void sub_08068DD0(Entity* this) {
     TextboxNoOverlap(gUnk_0811167A[this->parameter3], this);
 }
 
+//Technique Dialogue
 void sub_08068DE8(Entity* this) {
     TextboxNoOverlap(gUnk_08111690[this->parameter3], this);
 }
 
+//Posession dialogue
 void sub_08068E00(Entity* this) {
     TextboxNoOverlap(gUnk_081116A6[this->parameter3], this);
 }

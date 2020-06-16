@@ -8,6 +8,6 @@ typedef struct {
   u16 palette;
   u8 animIndex;
   u8 unk;
-} SpriteLoadThing;
+} SpriteLoadData;
 
 #endif

@@ -35,7 +35,7 @@ _0806717E:
 	ldr r0, _080671EC @ =gUnk_08110CA8
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08067224
 	movs r0, #1
@@ -247,7 +247,7 @@ sub_0806732C: @ 0x0806732C
 	ldr r0, _08067374 @ =gUnk_08110CA8
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806737E
 	ldrb r0, [r4, #0xc]

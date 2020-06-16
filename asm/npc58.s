@@ -15,7 +15,7 @@ sub_0806EAF4: @ 0x0806EAF4
 	bne _0806EB48
 	ldr r1, _0806EBA0 @ =gUnk_081146D0
 	adds r0, r6, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806EBA8
 	ldrb r0, [r6, #0xc]
