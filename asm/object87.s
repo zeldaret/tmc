@@ -959,7 +959,7 @@ sub_0809A648: @ 0x0809A648
 	adds r1, r1, r7
 	mov r8, r1
 	strb r0, [r1]
-	ldr r6, _0809A6E8 @ =gUnk_080C9160
+	ldr r6, _0809A6E8 @ =gSineTable
 	ldrb r0, [r1]
 	lsls r0, r0, #1
 	adds r0, r0, r6
@@ -1002,7 +1002,7 @@ sub_0809A648: @ 0x0809A648
 	str r1, [r7, #0x30]
 	b _0809A6F0
 	.align 2, 0
-_0809A6E8: .4byte gUnk_080C9160
+_0809A6E8: .4byte gSineTable
 _0809A6EC:
 	bl DeleteThisEntity
 _0809A6F0:

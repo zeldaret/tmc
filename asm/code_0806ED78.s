@@ -1183,7 +1183,7 @@ sub_0806F5BC: @ 0x0806F5BC
 	ands r0, r2
 	cmp r0, #0
 	bne _0806F620
-	ldr r0, _0806F628 @ =gUnk_080C9160
+	ldr r0, _0806F628 @ =gSineTable
 	mov r8, r0
 	lsls r4, r2, #3
 	lsls r0, r2, #4
@@ -1226,7 +1226,7 @@ _0806F620:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0806F628: .4byte gUnk_080C9160
+_0806F628: .4byte gSineTable
 
 	thumb_func_start sub_0806F62C
 sub_0806F62C: @ 0x0806F62C
@@ -1237,7 +1237,7 @@ sub_0806F62C: @ 0x0806F62C
 	adds r6, r0, #0
 	adds r5, r1, #0
 	adds r4, r2, #0
-	ldr r0, _0806F698 @ =gUnk_080C9160
+	ldr r0, _0806F698 @ =gSineTable
 	mov sb, r0
 	lsls r4, r4, #0x18
 	lsrs r4, r4, #0x18
@@ -1281,7 +1281,7 @@ sub_0806F62C: @ 0x0806F62C
 	mov sb, r4
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0806F698: .4byte gUnk_080C9160
+_0806F698: .4byte gSineTable
 
 	thumb_func_start sub_0806F69C
 sub_0806F69C: @ 0x0806F69C
@@ -1292,7 +1292,7 @@ sub_0806F69C: @ 0x0806F69C
 	ands r0, r1
 	cmp r0, #0
 	bne _0806F6FE
-	ldr r5, _0806F700 @ =gUnk_080C9160
+	ldr r5, _0806F700 @ =gSineTable
 	ldrb r0, [r6, #0x15]
 	lsls r0, r0, #4
 	adds r0, r0, r5
@@ -1333,7 +1333,7 @@ sub_0806F69C: @ 0x0806F69C
 _0806F6FE:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0806F700: .4byte gUnk_080C9160
+_0806F700: .4byte gSineTable
 
 	thumb_func_start sub_0806F704
 sub_0806F704: @ 0x0806F704

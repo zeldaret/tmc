@@ -2742,7 +2742,7 @@ _08043980:
 	ldrb r0, [r2, #0xc]
 	adds r0, r4, r0
 	lsls r4, r0, #8
-	ldr r3, _08043A0C @ =gUnk_080C9160
+	ldr r3, _08043A0C @ =gSineTable
 	ldrb r1, [r2, #5]
 	adds r0, r1, #0
 	adds r0, #0x40
@@ -2805,7 +2805,7 @@ _080439BC:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08043A0C: .4byte gUnk_080C9160
+_08043A0C: .4byte gSineTable
 
 	thumb_func_start sub_08043A10
 sub_08043A10: @ 0x08043A10

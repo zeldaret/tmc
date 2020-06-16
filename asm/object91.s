@@ -1015,7 +1015,7 @@ sub_0809CB70: @ 0x0809CB70
 	adds r6, r0, #0
 	adds r4, r1, #0
 	adds r5, r2, #0
-	ldr r0, _0809CBE0 @ =gUnk_080C9160
+	ldr r0, _0809CBE0 @ =gSineTable
 	mov sb, r0
 	lsls r0, r4, #1
 	add r0, sb
@@ -1061,7 +1061,7 @@ sub_0809CB70: @ 0x0809CB70
 	mov sb, r4
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0809CBE0: .4byte gUnk_080C9160
+_0809CBE0: .4byte gSineTable
 
 	thumb_func_start sub_0809CBE4
 sub_0809CBE4: @ 0x0809CBE4

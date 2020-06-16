@@ -348,7 +348,7 @@ _0801FE82:
 	ldr r0, [r0]
 	ldr r5, [r0, #0x2c]
 	ldr r4, [r0, #0x30]
-	ldr r1, _0801FED0 @ =gUnk_080C9160
+	ldr r1, _0801FED0 @ =gSineTable
 	lsls r0, r6, #4
 	adds r0, r0, r1
 	movs r2, #0
@@ -384,7 +384,7 @@ _0801FEC4:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0801FECC: .4byte gUnk_020000B0
-_0801FED0: .4byte gUnk_080C9160
+_0801FED0: .4byte gSineTable
 
 	thumb_func_start sub_0801FED4
 sub_0801FED4: @ 0x0801FED4

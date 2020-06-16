@@ -2062,7 +2062,7 @@ sub_080AE800: @ 0x080AE800
 	ands r0, r1
 	cmp r0, #0
 	bne _080AE8AE
-	ldr r0, _080AE858 @ =gUnk_080C9160
+	ldr r0, _080AE858 @ =gSineTable
 	adds r0, #0x80
 	movs r1, #0
 	ldrsh r0, [r0, r1]
@@ -2073,7 +2073,7 @@ sub_080AE800: @ 0x080AE800
 	subs r0, r0, r1
 	b _080AE8AC
 	.align 2, 0
-_080AE858: .4byte gUnk_080C9160
+_080AE858: .4byte gSineTable
 _080AE85C:
 	cmp r0, #4
 	bne _080AE8AE
@@ -2094,7 +2094,7 @@ _080AE85C:
 	ands r0, r1
 	cmp r0, #0
 	bne _080AE8AE
-	ldr r0, _080AE898 @ =gUnk_080C9160
+	ldr r0, _080AE898 @ =gSineTable
 	adds r0, #0x80
 	movs r1, #0
 	ldrsh r0, [r0, r1]
@@ -2105,9 +2105,9 @@ _080AE85C:
 	subs r0, r0, r1
 	b _080AE8AC
 	.align 2, 0
-_080AE898: .4byte gUnk_080C9160
+_080AE898: .4byte gSineTable
 _080AE89C:
-	ldr r0, _080AE8C4 @ =gUnk_080C9160
+	ldr r0, _080AE8C4 @ =gSineTable
 	adds r0, #0x80
 	movs r1, #0
 	ldrsh r0, [r0, r1]
@@ -2130,7 +2130,7 @@ _080AE8AE:
 	movs r0, #0
 	b _080AE8D2
 	.align 2, 0
-_080AE8C4: .4byte gUnk_080C9160
+_080AE8C4: .4byte gSineTable
 _080AE8C8: .4byte 0x00003333
 _080AE8CC: .4byte 0x00006665
 _080AE8D0:
@@ -2168,7 +2168,7 @@ _080AE904:
 	orrs r1, r2
 	cmp r1, #0
 	bne _080AE928
-	ldr r1, _080AE924 @ =gUnk_080C9160
+	ldr r1, _080AE924 @ =gSineTable
 	mov r0, r8
 	adds r0, #0x40
 	lsls r0, r0, #1
@@ -2182,7 +2182,7 @@ _080AE904:
 	str r0, [r4, #0x30]
 	b _080AE98A
 	.align 2, 0
-_080AE924: .4byte gUnk_080C9160
+_080AE924: .4byte gSineTable
 _080AE928:
 	mov r2, ip
 	cmp r2, #2
@@ -2215,7 +2215,7 @@ _080AE95C:
 	ands r0, r2
 	cmp r0, #0
 	bne _080AE97E
-	ldr r1, _080AE9B4 @ =gUnk_080C9160
+	ldr r1, _080AE9B4 @ =gSineTable
 	mov r0, r8
 	adds r0, #0x40
 	lsls r0, r0, #1
@@ -2233,7 +2233,7 @@ _080AE97E:
 	ands r0, r2
 	cmp r0, #0
 	bne _080AE99E
-	ldr r1, _080AE9B4 @ =gUnk_080C9160
+	ldr r1, _080AE9B4 @ =gSineTable
 _080AE98A:
 	mov r2, r8
 	lsls r0, r2, #1
@@ -2258,7 +2258,7 @@ _080AE99E:
 	movs r0, #0
 	b _080AE9C2
 	.align 2, 0
-_080AE9B4: .4byte gUnk_080C9160
+_080AE9B4: .4byte gSineTable
 _080AE9B8: .4byte 0x00003333
 _080AE9BC: .4byte 0x00006665
 _080AE9C0:
@@ -2310,7 +2310,7 @@ sub_080AE9CC: @ 0x080AE9CC
 	ands r0, r1
 	cmp r0, #0
 	bne _080AEA90
-	ldr r1, _080AEA30 @ =gUnk_080C9160
+	ldr r1, _080AEA30 @ =gSineTable
 	lsls r0, r7, #1
 	adds r0, r0, r1
 	movs r1, #0
@@ -2322,7 +2322,7 @@ sub_080AE9CC: @ 0x080AE9CC
 	add r0, sb
 	b _080AEA8E
 	.align 2, 0
-_080AEA30: .4byte gUnk_080C9160
+_080AEA30: .4byte gSineTable
 _080AEA34:
 	movs r0, #0x80
 	lsls r0, r0, #7
@@ -2345,7 +2345,7 @@ _080AEA34:
 	ands r0, r1
 	cmp r0, #0
 	bne _080AEA90
-	ldr r1, _080AEA78 @ =gUnk_080C9160
+	ldr r1, _080AEA78 @ =gSineTable
 	lsls r0, r7, #1
 	adds r0, r0, r1
 	movs r1, #0
@@ -2357,9 +2357,9 @@ _080AEA34:
 	add r0, sb
 	b _080AEA8E
 	.align 2, 0
-_080AEA78: .4byte gUnk_080C9160
+_080AEA78: .4byte gSineTable
 _080AEA7C:
-	ldr r1, _080AEAA8 @ =gUnk_080C9160
+	ldr r1, _080AEAA8 @ =gSineTable
 	lsls r0, r7, #1
 	adds r0, r0, r1
 	movs r1, #0
@@ -2383,7 +2383,7 @@ _080AEA90:
 	movs r0, #0
 	b _080AEAB6
 	.align 2, 0
-_080AEAA8: .4byte gUnk_080C9160
+_080AEAA8: .4byte gSineTable
 _080AEAAC: .4byte 0x00003333
 _080AEAB0: .4byte 0x00006665
 _080AEAB4:
@@ -2423,7 +2423,7 @@ _080AEAEC:
 	orrs r1, r2
 	cmp r1, #0
 	bne _080AEB10
-	ldr r1, _080AEB0C @ =gUnk_080C9160
+	ldr r1, _080AEB0C @ =gSineTable
 	mov r0, r8
 	adds r0, #0x40
 	lsls r0, r0, #1
@@ -2437,7 +2437,7 @@ _080AEAEC:
 	str r0, [r4, #0x30]
 	b _080AEB72
 	.align 2, 0
-_080AEB0C: .4byte gUnk_080C9160
+_080AEB0C: .4byte gSineTable
 _080AEB10:
 	mov r2, ip
 	cmp r2, #0x20
@@ -2470,7 +2470,7 @@ _080AEB44:
 	ands r0, r2
 	cmp r0, #0
 	bne _080AEB66
-	ldr r1, _080AEB9C @ =gUnk_080C9160
+	ldr r1, _080AEB9C @ =gSineTable
 	mov r0, r8
 	adds r0, #0x40
 	lsls r0, r0, #1
@@ -2488,7 +2488,7 @@ _080AEB66:
 	ands r0, r2
 	cmp r0, #0
 	bne _080AEB86
-	ldr r1, _080AEB9C @ =gUnk_080C9160
+	ldr r1, _080AEB9C @ =gSineTable
 _080AEB72:
 	mov r2, r8
 	lsls r0, r2, #1
@@ -2513,7 +2513,7 @@ _080AEB86:
 	movs r0, #0
 	b _080AEBAA
 	.align 2, 0
-_080AEB9C: .4byte gUnk_080C9160
+_080AEB9C: .4byte gSineTable
 _080AEBA0: .4byte 0x00003333
 _080AEBA4: .4byte 0x00006665
 _080AEBA8:
@@ -2562,7 +2562,7 @@ sub_080AEBB4: @ 0x080AEBB4
 	ands r0, r1
 	cmp r0, #0
 	bne _080AEC7C
-	ldr r1, _080AEC18 @ =gUnk_080C9160
+	ldr r1, _080AEC18 @ =gSineTable
 	adds r0, r7, #0
 	adds r0, #0x40
 	lsls r0, r0, #1
@@ -2576,7 +2576,7 @@ sub_080AEBB4: @ 0x080AEBB4
 	subs r0, r0, r1
 	b _080AEC7A
 	.align 2, 0
-_080AEC18: .4byte gUnk_080C9160
+_080AEC18: .4byte gSineTable
 _080AEC1C:
 	cmp r0, #0x40
 	bne _080AEC7C
@@ -2597,7 +2597,7 @@ _080AEC1C:
 	ands r0, r1
 	cmp r0, #0
 	bne _080AEC7C
-	ldr r1, _080AEC60 @ =gUnk_080C9160
+	ldr r1, _080AEC60 @ =gSineTable
 	adds r0, r7, #0
 	adds r0, #0x40
 	lsls r0, r0, #1
@@ -2611,9 +2611,9 @@ _080AEC1C:
 	subs r0, r0, r1
 	b _080AEC7A
 	.align 2, 0
-_080AEC60: .4byte gUnk_080C9160
+_080AEC60: .4byte gSineTable
 _080AEC64:
-	ldr r1, _080AEC94 @ =gUnk_080C9160
+	ldr r1, _080AEC94 @ =gSineTable
 	adds r0, r7, #0
 	adds r0, #0x40
 	lsls r0, r0, #1
@@ -2639,7 +2639,7 @@ _080AEC7C:
 	movs r0, #0
 	b _080AECA2
 	.align 2, 0
-_080AEC94: .4byte gUnk_080C9160
+_080AEC94: .4byte gSineTable
 _080AEC98: .4byte 0x00003333
 _080AEC9C: .4byte 0x00006665
 _080AECA0:
@@ -2679,7 +2679,7 @@ _080AECD8:
 	orrs r1, r2
 	cmp r1, #0
 	bne _080AECFC
-	ldr r1, _080AECF8 @ =gUnk_080C9160
+	ldr r1, _080AECF8 @ =gSineTable
 	mov r0, r8
 	adds r0, #0x40
 	lsls r0, r0, #1
@@ -2693,7 +2693,7 @@ _080AECD8:
 	str r0, [r4, #0x30]
 	b _080AED5E
 	.align 2, 0
-_080AECF8: .4byte gUnk_080C9160
+_080AECF8: .4byte gSineTable
 _080AECFC:
 	mov r2, ip
 	cmp r2, #0x40
@@ -2726,7 +2726,7 @@ _080AED30:
 	ands r0, r2
 	cmp r0, #0
 	bne _080AED52
-	ldr r1, _080AED88 @ =gUnk_080C9160
+	ldr r1, _080AED88 @ =gSineTable
 	mov r0, r8
 	adds r0, #0x40
 	lsls r0, r0, #1
@@ -2744,7 +2744,7 @@ _080AED52:
 	ands r0, r2
 	cmp r0, #0
 	bne _080AED72
-	ldr r1, _080AED88 @ =gUnk_080C9160
+	ldr r1, _080AED88 @ =gSineTable
 _080AED5E:
 	mov r2, r8
 	lsls r0, r2, #1
@@ -2769,7 +2769,7 @@ _080AED72:
 	movs r0, #0
 	b _080AED96
 	.align 2, 0
-_080AED88: .4byte gUnk_080C9160
+_080AED88: .4byte gSineTable
 _080AED8C: .4byte 0x00003333
 _080AED90: .4byte 0x00006665
 _080AED94:
@@ -2821,7 +2821,7 @@ sub_080AEDA0: @ 0x080AEDA0
 	ands r0, r1
 	cmp r0, #0
 	bne _080AEE64
-	ldr r1, _080AEE04 @ =gUnk_080C9160
+	ldr r1, _080AEE04 @ =gSineTable
 	lsls r0, r7, #1
 	adds r0, r0, r1
 	movs r1, #0
@@ -2833,7 +2833,7 @@ sub_080AEDA0: @ 0x080AEDA0
 	add r0, sb
 	b _080AEE62
 	.align 2, 0
-_080AEE04: .4byte gUnk_080C9160
+_080AEE04: .4byte gSineTable
 _080AEE08:
 	movs r0, #0x80
 	lsls r0, r0, #3
@@ -2856,7 +2856,7 @@ _080AEE08:
 	ands r0, r1
 	cmp r0, #0
 	bne _080AEE64
-	ldr r1, _080AEE4C @ =gUnk_080C9160
+	ldr r1, _080AEE4C @ =gSineTable
 	lsls r0, r7, #1
 	adds r0, r0, r1
 	movs r1, #0
@@ -2868,9 +2868,9 @@ _080AEE08:
 	add r0, sb
 	b _080AEE62
 	.align 2, 0
-_080AEE4C: .4byte gUnk_080C9160
+_080AEE4C: .4byte gSineTable
 _080AEE50:
-	ldr r1, _080AEE7C @ =gUnk_080C9160
+	ldr r1, _080AEE7C @ =gSineTable
 	lsls r0, r7, #1
 	adds r0, r0, r1
 	movs r1, #0
@@ -2894,7 +2894,7 @@ _080AEE64:
 	movs r0, #0
 	b _080AEE8A
 	.align 2, 0
-_080AEE7C: .4byte gUnk_080C9160
+_080AEE7C: .4byte gSineTable
 _080AEE80: .4byte 0x00003333
 _080AEE84: .4byte 0x00006665
 _080AEE88:
@@ -2934,7 +2934,7 @@ _080AEEC0:
 	orrs r1, r2
 	cmp r1, #0
 	bne _080AEEE4
-	ldr r1, _080AEEE0 @ =gUnk_080C9160
+	ldr r1, _080AEEE0 @ =gSineTable
 	mov r0, r8
 	adds r0, #0x40
 	lsls r0, r0, #1
@@ -2948,7 +2948,7 @@ _080AEEC0:
 	str r0, [r4, #0x30]
 	b _080AEF46
 	.align 2, 0
-_080AEEE0: .4byte gUnk_080C9160
+_080AEEE0: .4byte gSineTable
 _080AEEE4:
 	mov r2, ip
 	cmp r2, #4
@@ -2981,7 +2981,7 @@ _080AEF18:
 	ands r0, r2
 	cmp r0, #0
 	bne _080AEF3A
-	ldr r1, _080AEF70 @ =gUnk_080C9160
+	ldr r1, _080AEF70 @ =gSineTable
 	mov r0, r8
 	adds r0, #0x40
 	lsls r0, r0, #1
@@ -2999,7 +2999,7 @@ _080AEF3A:
 	ands r0, r2
 	cmp r0, #0
 	bne _080AEF5A
-	ldr r1, _080AEF70 @ =gUnk_080C9160
+	ldr r1, _080AEF70 @ =gSineTable
 _080AEF46:
 	mov r2, r8
 	lsls r0, r2, #1
@@ -3024,7 +3024,7 @@ _080AEF5A:
 	movs r0, #0
 	b _080AEF7E
 	.align 2, 0
-_080AEF70: .4byte gUnk_080C9160
+_080AEF70: .4byte gSineTable
 _080AEF74: .4byte 0x00003333
 _080AEF78: .4byte 0x00006665
 _080AEF7C:

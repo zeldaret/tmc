@@ -8329,7 +8329,7 @@ _080A9578:
 _080A9586:
 	ldrb r1, [r3, #0x15]
 	lsls r1, r1, #1
-	ldr r0, _080A95B8 @ =gUnk_080C9160
+	ldr r0, _080A95B8 @ =gSineTable
 	adds r1, r1, r0
 	movs r4, #0
 	ldrsh r2, [r1, r4]
@@ -8353,7 +8353,7 @@ _080A9586:
 _080A95B6:
 	pop {r4, pc}
 	.align 2, 0
-_080A95B8: .4byte gUnk_080C9160
+_080A95B8: .4byte gSineTable
 
 	thumb_func_start sub_080A95BC
 sub_080A95BC: @ 0x080A95BC
@@ -11303,7 +11303,7 @@ sub_080AABB0: @ 0x080AABB0
 	bl CopyPosition
 	ldrb r1, [r5, #0x14]
 	lsls r1, r1, #1
-	ldr r0, _080AABEC @ =gUnk_080C9160
+	ldr r0, _080AABEC @ =gSineTable
 	adds r1, r1, r0
 	ldrb r2, [r4, #0xe]
 	lsls r2, r2, #8
@@ -11324,7 +11324,7 @@ sub_080AABB0: @ 0x080AABB0
 	str r0, [r4, #0x30]
 	pop {r4, r5, pc}
 	.align 2, 0
-_080AABEC: .4byte gUnk_080C9160
+_080AABEC: .4byte gSineTable
 
 	thumb_func_start sub_080AABF0
 sub_080AABF0: @ 0x080AABF0
@@ -11974,7 +11974,7 @@ _080AB0AA:
 	adds r1, r4, #0
 	movs r2, #0
 	bl sub_0806FA90
-	ldr r3, _080AB128 @ =gUnk_080C9160
+	ldr r3, _080AB128 @ =gSineTable
 	adds r2, r5, #0
 	adds r2, #0x7c
 	ldrb r0, [r2]
@@ -12025,7 +12025,7 @@ _080AB0AA:
 _080AB124:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080AB128: .4byte gUnk_080C9160
+_080AB128: .4byte gSineTable
 
 	thumb_func_start sub_080AB12C
 sub_080AB12C: @ 0x080AB12C
@@ -14771,7 +14771,7 @@ _080AC5A6:
 	adds r0, #0x79
 	ldrb r2, [r0]
 	lsls r2, r2, #8
-	ldr r3, _080AC5E0 @ =gUnk_080C9160
+	ldr r3, _080AC5E0 @ =gSineTable
 	ldrb r0, [r5, #0x15]
 	lsls r0, r0, #1
 	adds r0, r0, r3
@@ -14796,7 +14796,7 @@ _080AC5A6:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080AC5DC: .4byte gUnk_080FD448
-_080AC5E0: .4byte gUnk_080C9160
+_080AC5E0: .4byte gSineTable
 
 	thumb_func_start sub_080AC5E4
 sub_080AC5E4: @ 0x080AC5E4
@@ -15081,7 +15081,7 @@ _080AC7E6:
 	adds r0, #0x79
 	ldrb r2, [r0]
 	lsls r2, r2, #8
-	ldr r3, _080AC880 @ =gUnk_080C9160
+	ldr r3, _080AC880 @ =gSineTable
 	mov sb, r3
 	ldrb r1, [r7, #0x15]
 	lsls r0, r1, #1
@@ -15151,7 +15151,7 @@ _080AC7E6:
 	mov sb, r4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080AC880: .4byte gUnk_080C9160
+_080AC880: .4byte gSineTable
 
 	thumb_func_start sub_080AC884
 sub_080AC884: @ 0x080AC884
@@ -15278,7 +15278,7 @@ sub_080AC954: @ 0x080AC954
 _080AC964:
 	ldr r0, [r5, #0x50]
 	ldrb r3, [r0, #0x14]
-	ldr r4, _080AC9C4 @ =gUnk_080C9160
+	ldr r4, _080AC9C4 @ =gSineTable
 	lsls r1, r3, #1
 	adds r1, r1, r4
 	movs r2, #0
@@ -15321,7 +15321,7 @@ _080AC964:
 _080AC9C0:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080AC9C4: .4byte gUnk_080C9160
+_080AC9C4: .4byte gSineTable
 _080AC9C8: .4byte gLinkEntity
 
 	thumb_func_start sub_080AC9CC

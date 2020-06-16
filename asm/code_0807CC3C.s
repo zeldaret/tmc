@@ -5,78 +5,6 @@
 
 	.text
 
-	thumb_func_start CheckLocalFlagsByOffset
-CheckLocalFlagsByOffset: @ 0x0807CC4C
-	push {lr}
-	adds r3, r0, #0
-	ldr r0, _0807CC5C @ =gGlobalFlags
-	adds r3, r3, r1
-	adds r1, r3, #0
-	bl CheckBits
-	pop {pc}
-	.align 2, 0
-_0807CC5C: .4byte gGlobalFlags
-
-	thumb_func_start CheckLocalFlags
-CheckLocalFlags: @ 0x0807CC60
-	push {lr}
-	adds r3, r0, #0
-	adds r2, r1, #0
-	ldr r0, _0807CC74 @ =gArea
-	ldrh r0, [r0, #4]
-	adds r1, r3, #0
-	bl CheckLocalFlagsByOffset
-	pop {pc}
-	.align 2, 0
-_0807CC74: .4byte gArea
-
-	thumb_func_start CheckGlobalFlags
-CheckGlobalFlags: @ 0x0807CC78
-	push {lr}
-	adds r3, r0, #0
-	adds r2, r1, #0
-	movs r0, #0
-	adds r1, r3, #0
-	bl CheckLocalFlagsByOffset
-	pop {pc}
-
-	thumb_func_start CheckRoomFlags
-CheckRoomFlags: @ 0x0807CC88
-	push {lr}
-	adds r3, r0, #0
-	adds r2, r1, #0
-	ldr r0, _0807CC98 @ =gUnk_02034364
-	adds r1, r3, #0
-	bl CheckBits
-	pop {pc}
-	.align 2, 0
-_0807CC98: .4byte gUnk_02034364
-
-	thumb_func_start SetLocalFlagByOffset
-SetLocalFlagByOffset: @ 0x0807CC9C
-	push {lr}
-	adds r2, r0, #0
-	cmp r1, #0
-	beq _0807CCAC
-	ldr r0, _0807CCB0 @ =gGlobalFlags
-	adds r1, r2, r1
-	bl sub_0801D5BC
-_0807CCAC:
-	pop {pc}
-	.align 2, 0
-_0807CCB0: .4byte gGlobalFlags
-
-	thumb_func_start SetLocalFlag
-SetLocalFlag: @ 0x0807CCB4
-	push {lr}
-	adds r1, r0, #0
-	ldr r0, _0807CCC4 @ =gArea
-	ldrh r0, [r0, #4]
-	bl SetLocalFlagByOffset
-	pop {pc}
-	.align 2, 0
-_0807CCC4: .4byte gArea
-
 	thumb_func_start SetFlag
 SetFlag: @ 0x0807CCC8
 	push {lr}
@@ -123,7 +51,7 @@ SetRoomFlag: @ 0x0807CD10
 	push {lr}
 	adds r1, r0, #0
 	ldr r0, _0807CD1C @ =gUnk_02034364
-	bl sub_0801D5BC
+	bl WriteBit
 	pop {pc}
 	.align 2, 0
 _0807CD1C: .4byte gUnk_02034364

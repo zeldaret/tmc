@@ -793,7 +793,7 @@ sub_08060FD0: @ 0x08060FD0
 	bl sub_080045DA
 	lsls r7, r7, #8
 	lsls r6, r6, #8
-	ldr r3, _08061058 @ =gUnk_080C9160
+	ldr r3, _08061058 @ =gSineTable
 	lsls r1, r0, #1
 	adds r1, r1, r3
 	movs r5, #0
@@ -842,7 +842,7 @@ _08061040:
 	movs r0, #0
 	b _08061084
 	.align 2, 0
-_08061058: .4byte gUnk_080C9160
+_08061058: .4byte gSineTable
 _0806105C: .4byte gUnk_0200D654
 _08061060: .4byte gUnk_02027EB4
 _08061064:

@@ -206,7 +206,7 @@ sub_080A2AF4: @ 0x080A2AF4
 	asrs r7, r7, #0x10
 	movs r0, #0xff
 	ands r7, r0
-	ldr r0, _080A2B7C @ =gUnk_080C9160
+	ldr r0, _080A2B7C @ =gSineTable
 	mov r8, r0
 	lsls r0, r7, #1
 	add r0, r8
@@ -249,7 +249,7 @@ _080A2B74:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A2B7C: .4byte gUnk_080C9160
+_080A2B7C: .4byte gSineTable
 
 	thumb_func_start sub_080A2B80
 sub_080A2B80: @ 0x080A2B80

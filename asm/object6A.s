@@ -1507,7 +1507,7 @@ _080955B8:
 	movs r0, #0x40
 	strh r0, [r5]
 _080955CE:
-	ldr r3, _0809561C @ =gUnk_080C9160
+	ldr r3, _0809561C @ =gSineTable
 	movs r2, #0x6e
 	adds r2, r2, r4
 	mov ip, r2
@@ -1547,7 +1547,7 @@ _080955CE:
 	mov r1, ip
 	b _08095630
 	.align 2, 0
-_0809561C: .4byte gUnk_080C9160
+_0809561C: .4byte gSineTable
 _08095620:
 	movs r0, #0x24
 	ldrsh r1, [r4, r0]

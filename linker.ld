@@ -824,6 +824,8 @@ SECTIONS {
         data/data_8.o(.rodata);
 		src/object.o(.rodata);
 		data/data_81.o(.rodata);
+		src/trig.o(.rodata);
+		data/data_82.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_9.o(.rodata);
     } >rom
