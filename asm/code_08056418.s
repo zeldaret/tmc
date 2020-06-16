@@ -9312,7 +9312,7 @@ _0805AC00:
 	bne _0805AC1A
 	adds r0, r7, #0
 	adds r1, r5, #0
-	bl sub_0801D5D4
+	bl ClearBit
 	b _0805ACA6
 _0805AC1A:
 	ldrh r0, [r4, #0xe]

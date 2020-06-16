@@ -1831,8 +1831,8 @@ WriteBit: @ 0x0801D5BC
 	ands r0, r2
 	bx lr
 
-	thumb_func_start sub_0801D5D4
-sub_0801D5D4: @ 0x0801D5D4
+	thumb_func_start ClearBit
+ClearBit: @ 0x0801D5D4
 	lsrs r2, r1, #3
 	adds r3, r0, r2
 	movs r2, #7
