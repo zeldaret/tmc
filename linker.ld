@@ -327,6 +327,7 @@ SECTIONS {
 		asm/darkNut.o(.text);
 		asm/hangingSeed.o(.text);
 		asm/beetle.o(.text);
+		src/keese.o(.text);
 		asm/keese.o(.text);
 		asm/doorMimic.o(.text);
 		asm/rockChuchu.o(.text);

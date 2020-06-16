@@ -80,7 +80,8 @@ typedef struct Entity {
     u8 spriteAnimation[3];
     struct {
         u8 b0 : 3;
-        u8 b1 : 5;
+        u8 b1 : 3;
+        u8 b2 : 2;
     } PACKED ticks;
     u16 collisions;
     union SplitWord x;
@@ -135,7 +136,7 @@ typedef struct Entity {
     u8 field_0x6d;
     u8 filler4[6];
     u32* heldObjectPtr;
-    u8 filler3[2];
+    u16 field_0x78;
     u16 itemCooldown;
     u32 field_0x7c;
     u16 field_0x80;
