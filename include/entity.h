@@ -109,7 +109,7 @@ typedef struct Entity {
     struct Entity* parent;
     struct Entity* attachedEntity;
     u8 field_0x58;
-    u8 field_0x59;
+    u8 animTime;
     union {
         u8 all;
         struct {

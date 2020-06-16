@@ -737,7 +737,7 @@ SECTIONS {
 		asm/object91.o(.text);
 		asm/bakerOven.o(.text);
 		asm/object93.o(.text);
-		asm/windTribeFlag.o(.text);
+		src/windTribeFlag.o(.text);
 		asm/bird.o(.text);
 		asm/object96.o(.text);
 		asm/object97.o(.text);
@@ -777,7 +777,7 @@ SECTIONS {
 		asm/windTribeTeleporter.o(.text);
 		asm/objectB9.o(.text);
 		asm/objectBA.o(.text);
-		asm/windcrest.o(.text);
+		src/windcrest.o(.text);
 		asm/litArea.o(.text);
 		asm/objectBD.o(.text);
 		asm/pinwheel.o(.text);
