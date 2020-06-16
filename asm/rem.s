@@ -6,32 +6,6 @@
 
 	.text
 
-	thumb_func_start sub_0806A3D8
-sub_0806A3D8: @ 0x0806A3D8
-	push {r4, lr}
-	adds r4, r0, #0
-	movs r0, #1
-	strb r0, [r4, #0xc]
-	movs r0, #0xb4
-	strb r0, [r4, #0xe]
-	adds r0, r4, #0
-	movs r1, #2
-	bl sub_0805E3A0
-	adds r0, r4, #0
-	bl sub_0806A8C8
-	ldr r1, _0806A40C @ =gUnk_08012F0C
-	adds r0, r4, #0
-	bl sub_0807DAD0
-	adds r1, r4, #0
-	adds r1, #0x84
-	str r0, [r1]
-	adds r0, r4, #0
-	movs r1, #0
-	bl sub_0807DD94
-	pop {r4, pc}
-	.align 2, 0
-_0806A40C: .4byte gUnk_08012F0C
-
 	thumb_func_start sub_0806A410
 sub_0806A410: @ 0x0806A410
 	push {lr}

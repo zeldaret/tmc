@@ -56,7 +56,7 @@ sub_08065080: @ 0x08065080
 	bl sub_08078850
 	ldr r1, _080650C8 @ =gUnk_080142B0
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r4, #0x84
 	str r0, [r4]
 	pop {r4, pc}

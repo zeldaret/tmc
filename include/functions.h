@@ -25,6 +25,7 @@ extern void LoadRoomEntityList();
 void ModHealth(s32);
 void PositionRelative(Entity*, Entity*, u32, u32);
 void CopyPosition(Entity*, Entity*);
+extern u32* StartCutscene(Entity*, u8*);
 
 // Unidentified
 extern void sub_0806ED78(Entity*);
@@ -60,7 +61,6 @@ extern Entity* sub_0805EB00(u32, u32, u32);
 extern Entity* sub_0805EB2C(u32, u32, u32, u32, u32);
 extern u32 LoadExtraSpriteData(Entity*, u32*);
 extern s32 sub_0806ED9C(Entity*, u32, u32);
-extern s32* sub_0807DAD0(Entity*, u8*);
 extern void sub_0806FF60(Entity*, u32, u32);
 extern void sub_0806FF88(Entity*, u32, u32);
 extern void sub_0807000C(Entity*);

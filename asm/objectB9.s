@@ -481,7 +481,7 @@ _080A1582:
 	mov r0, r8
 	ldr r1, [r0, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]

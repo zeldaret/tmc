@@ -4253,7 +4253,7 @@ _08075252:
 	bl CopyPosition
 	adds r0, r4, #0
 	adds r1, r6, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 _08075270:
 	ldr r4, _08075298 @ =gLinkEntity
 	movs r1, #0xe

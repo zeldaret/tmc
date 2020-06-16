@@ -436,7 +436,7 @@ sub_0806DB84: @ 0x0806DB84
 	bl PositionRelative
 	ldr r1, _0806DBEC @ =gUnk_08016030
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -456,7 +456,7 @@ _0806DBB6:
 	bl PositionRelative
 	ldr r1, _0806DBF0 @ =gUnk_0801606C
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]

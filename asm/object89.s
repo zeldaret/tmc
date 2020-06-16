@@ -87,7 +87,7 @@ _0809AB70:
 	strb r0, [r1]
 	ldr r1, _0809ABA0 @ =gUnk_08012DD8
 	adds r0, r5, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r5, #0
 	adds r1, #0x84
 	str r0, [r1]

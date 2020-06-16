@@ -144,7 +144,7 @@ sub_08045C3C: @ 0x08045C3C
 	bl sub_08095C48
 	ldr r1, _08045CA0 @ =gUnk_08015AC4
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r0, r4, #0
 	bl sub_0807DD50
 	pop {r4, pc}

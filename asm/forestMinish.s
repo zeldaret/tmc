@@ -52,7 +52,7 @@ _0805FFF2:
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r0, r4, #0
 	bl sub_0807DD50
 	b _0806008C

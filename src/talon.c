@@ -108,7 +108,7 @@ void sub_080656D4(Entity* this) {
     } else {
         if (this->interactType != 0) {
             if (GetInventoryValue(0x37) != 0) { // keyLonLon
-                sub_0807DAD0(this, &gUnk_0800B41C);
+                StartCutscene(this, &gUnk_0800B41C);
                 goto label2;
             } else {
                 this->field_0x69 = this->action;

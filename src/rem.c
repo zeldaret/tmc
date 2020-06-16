@@ -7,9 +7,14 @@ extern void sub_0807DDE4(Entity*);
 extern void UpdateAnimationSingleFrame(Entity*);
 extern void sub_0806ED78(Entity*);
 extern void PlaySFX(u32);
+extern void sub_0805E3A0(Entity*, u32);
+extern void sub_0806A8C8(Entity*);
+extern void sub_0807DD94(Entity*, u32);
 
 extern void (*gUnk_08112260[])(Entity*);
 extern void (*gUnk_08112278[])(Entity*);
+
+extern void gUnk_08012F0C;
 
 void sub_0806A358(Entity* this) {
     gUnk_08112260[this->entityType.parameter1](this);
@@ -34,4 +39,17 @@ void sub_0806a370(Entity* this) {
             PlaySFX(0x219);
         }
     }
+}
+
+void sub_0806A3D8(Entity *this)
+{
+  u32 *uVar1;
+  
+  this->action = 1;
+  this->parameter3 = 0xb4;
+  sub_0805E3A0(this, 2);
+  sub_0806A8C8(this);
+  uVar1 = StartCutscene(this,&gUnk_08012F0C);
+  *(u32 *)&this->cutsceneBeh = (u32)uVar1;
+  sub_0807DD94(this, 0);
 }

@@ -879,7 +879,7 @@ _0809D5E6:
 	cmp r4, #0
 	beq _0809D62E
 	ldr r1, _0809D668 @ =gUnk_0800B0AC
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]

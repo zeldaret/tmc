@@ -2014,8 +2014,8 @@ sub_0807DAC4: @ 0x0807DAC4
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0807DAD0
-sub_0807DAD0: @ 0x0807DAD0
+	thumb_func_start StartCutscene
+StartCutscene: @ 0x0807DAD0
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	adds r6, r1, #0

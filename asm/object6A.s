@@ -99,7 +99,7 @@ sub_08094AE8: @ 0x08094AE8
 	cmp r4, #0
 	beq _08094B08
 	ldr r1, [r5, #4]
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -206,7 +206,7 @@ sub_08094B94: @ 0x08094B94
 	strh r0, [r4, #0x36]
 	ldr r1, _08094BDC @ =gUnk_0800AEDC
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -1075,7 +1075,7 @@ sub_08095244: @ 0x08095244
 	bl PositionRelative
 	ldr r1, _08095284 @ =gUnk_0801183C
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -1307,7 +1307,7 @@ sub_08095420: @ 0x08095420
 	bl PositionRelative
 	ldr r1, [r6, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -1340,7 +1340,7 @@ sub_0809545C: @ 0x0809545C
 	bl PositionRelative
 	ldr r1, [r6, #4]
 	adds r0, r5, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r5, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -1376,7 +1376,7 @@ sub_080954AC: @ 0x080954AC
 	bl CopyPosition
 	ldr r1, _080954D8 @ =gUnk_08015B14
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -1823,7 +1823,7 @@ sub_08095810: @ 0x08095810
 	bl sub_0806FAB0
 	ldr r1, _08095848 @ =gUnk_08011940
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -1986,7 +1986,7 @@ sub_08095954: @ 0x08095954
 	strh r0, [r4, #0x36]
 	ldr r1, _080959B4 @ =gUnk_08012C48
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -2083,7 +2083,7 @@ sub_08095A1C: @ 0x08095A1C
 	strb r0, [r1]
 	ldr r1, [r5, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -2512,7 +2512,7 @@ sub_08095D54: @ 0x08095D54
 	strb r0, [r1]
 	ldr r1, [r5, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -2538,7 +2538,7 @@ sub_08095D8C: @ 0x08095D8C
 	bl CopyPosition
 	ldr r1, [r6, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -2658,7 +2658,7 @@ sub_08095E7C: @ 0x08095E7C
 	bl CopyPosition
 	ldr r1, [r6, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -2975,7 +2975,7 @@ sub_080960C4: @ 0x080960C4
 	bl sub_0806FAD8
 	ldr r1, [r6, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -3011,7 +3011,7 @@ _08096110:
 	strb r0, [r1]
 	ldr r1, [r6, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]

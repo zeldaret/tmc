@@ -302,7 +302,7 @@ _08034E8A:
 	strb r0, [r4, #0xc]
 	ldr r1, _08034EB4 @ =gUnk_08012E20
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
