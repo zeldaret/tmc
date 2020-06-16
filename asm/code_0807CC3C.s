@@ -7988,7 +7988,7 @@ _080806E2:
 	cmp r0, #0
 	beq _08080720
 	adds r0, r5, #0
-	bl sub_08080840
+	bl DoExitTransition
 	movs r0, #1
 	b _0808072A
 	.align 2, 0
@@ -8161,8 +8161,8 @@ _0808083C:
 _0808083E:
 	pop {r4, r5, pc}
 
-	thumb_func_start sub_08080840
-sub_08080840: @ 0x08080840
+	thumb_func_start DoExitTransition
+DoExitTransition: @ 0x08080840
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, _0808085C @ =gUnk_030010A0

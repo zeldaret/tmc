@@ -7386,7 +7386,7 @@ sub_0807B2B8: @ 0x0807B2B8
 	lsls r0, r0, #2
 	ldr r1, _0807B2F4 @ =gUnk_0813AD88
 	adds r0, r0, r1
-	bl sub_08080840
+	bl DoExitTransition
 _0807B2EC:
 	pop {r4, pc}
 	.align 2, 0

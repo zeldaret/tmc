@@ -806,7 +806,7 @@ _080738A2:
 	lsls r0, r0, #2
 	ldr r1, _080738E8 @ =gUnk_0813AD88
 	adds r0, r0, r1
-	bl sub_08080840
+	bl DoExitTransition
 	b _080738F0
 	.align 2, 0
 _080738DC: .4byte gUnk_030010A0

@@ -100,7 +100,7 @@ _08090F1C:
 	beq _08090F62
 	ldrb r0, [r4, #0xe]
 	bl sub_0804B128
-	bl sub_08080840
+	bl DoExitTransition
 _08090F62:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

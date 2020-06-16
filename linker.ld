@@ -533,7 +533,7 @@ SECTIONS {
 		asm/drLeft.o(.text);
 		asm/kingGustaf.o(.text);
 		asm/gina.o(.text);
-		asm/simon.o(.text);
+		src/simon.o(.text);
 		asm/anju.o(.text);
 		asm/mama.o(.text);
 		src/emma.o(.text);

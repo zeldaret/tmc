@@ -3643,7 +3643,7 @@ sub_080A71F4: @ 0x080A71F4
 	push {lr}
 	cmp r0, #0
 	beq _080A71FE
-	bl sub_08080840
+	bl DoExitTransition
 _080A71FE:
 	bl sub_0805E89C
 	bl sub_0805E974

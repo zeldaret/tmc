@@ -2205,7 +2205,7 @@ _080717B0:
 	cmp r0, #6
 	bne _080717C0
 	ldr r0, _080717BC @ =gUnk_0813AB58
-	bl sub_08080840
+	bl DoExitTransition
 	b _080717CA
 	.align 2, 0
 _080717BC: .4byte gUnk_0813AB58

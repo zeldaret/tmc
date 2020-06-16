@@ -3331,7 +3331,7 @@ sub_08043DB0: @ 0x08043DB0
 	cmp r0, #0
 	beq _08043EAC
 	ldr r0, _08043E50 @ =gUnk_080D13EC
-	bl sub_08080840
+	bl DoExitTransition
 	ldr r4, _08043E54 @ =gUnk_030010A0
 	adds r0, r4, #0
 	adds r0, #0x39

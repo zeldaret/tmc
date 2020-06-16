@@ -1,7 +1,7 @@
-#include "global.h"
-
 #ifndef ENTITY_H
 #define ENTITY_H
+
+#include "global.h"
 
 typedef struct {
     void* entity1;
@@ -144,5 +144,7 @@ typedef struct Entity {
     u16 field_0x86;
 
 } Entity;
+
+#define COORD_TO_TILE(entity) ((((entity->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3fU) | (((entity->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
 
 #endif

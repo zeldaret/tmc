@@ -447,7 +447,7 @@ sub_0802A734: @ 0x0802A734
 	lsls r0, r0, #2
 	adds r0, r0, r1
 	ldr r0, [r0]
-	bl sub_08080840
+	bl DoExitTransition
 	b _0802A780
 	.align 2, 0
 _0802A760: .4byte gUnk_0813AB1C

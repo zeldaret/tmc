@@ -1837,7 +1837,7 @@ sub_08034C00: @ 0x08034C00
 	cmp r0, #0x3c
 	bls _08034C54
 	ldr r0, _08034C50 @ =gUnk_080CED88
-	bl sub_08080840
+	bl DoExitTransition
 	b _08034C5A
 	.align 2, 0
 _08034C44: .4byte gLinkState
@@ -1846,7 +1846,7 @@ _08034C4C: .4byte gUnk_030010A0
 _08034C50: .4byte gUnk_080CED88
 _08034C54:
 	ldr r0, _08034C5C @ =gUnk_080CED9C
-	bl sub_08080840
+	bl DoExitTransition
 _08034C5A:
 	pop {r4, pc}
 	.align 2, 0

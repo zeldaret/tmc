@@ -3266,7 +3266,7 @@ _08057D18:
 	bne _08057D3A
 	ldrb r0, [r4, #6]
 	bl sub_0804B128
-	bl sub_08080840
+	bl DoExitTransition
 _08057D3A:
 	adds r4, #8
 	ldrh r0, [r4]
@@ -15569,7 +15569,7 @@ sub_0805DC70: @ 0x0805DC70
 	push {lr}
 	bl sub_0805E5A8
 	ldr r0, _0805DC80 @ =gUnk_0813AC48
-	bl sub_08080840
+	bl DoExitTransition
 	pop {pc}
 	.align 2, 0
 _0805DC80: .4byte gUnk_0813AC48

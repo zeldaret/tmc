@@ -400,7 +400,7 @@ sub_08034F58: @ 0x08034F58
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, _08034F6C @ =gUnk_0813ABA8
-	bl sub_08080840
+	bl DoExitTransition
 	adds r0, r4, #0
 	bl DeleteEntity
 	pop {r4, pc}

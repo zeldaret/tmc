@@ -436,7 +436,7 @@ sub_0803E398: @ 0x0803E398
 	bgt _0803E3C8
 	bl sub_0805E5A8
 	ldr r0, _0803E3D0 @ =gUnk_0813AB94
-	bl sub_08080840
+	bl DoExitTransition
 _0803E3C8:
 	pop {r4, pc}
 	.align 2, 0

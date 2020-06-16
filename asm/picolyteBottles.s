@@ -420,7 +420,7 @@ sub_0806E1E0: @ 0x0806E1E0
 sub_0806E1FC: @ 0x0806E1FC
 	push {lr}
 	ldr r0, _0806E208 @ =gUnk_0813AD4C
-	bl sub_08080840
+	bl DoExitTransition
 	pop {pc}
 	.align 2, 0
 _0806E208: .4byte gUnk_0813AD4C

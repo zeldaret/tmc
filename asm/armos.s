@@ -1013,7 +1013,7 @@ _0803088E:
 	orrs r0, r1
 	strb r0, [r2]
 	ldr r0, [r5, #0x7c]
-	bl sub_08080840
+	bl DoExitTransition
 	ldr r0, _08030938 @ =gUnk_030010A0
 	adds r1, r5, #0
 	adds r1, #0x80
