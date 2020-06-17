@@ -1,1 +1,0 @@
-{T_07}  Hyrule Castle${T_07}  Hyrule Castle\n{T_09}  Hyrule Town     {T_0A}  Minish Woods$Crenel Wall\n(Watch out for falling rocks)$Dangerous - No Climbing$Syrup the Witch's Hut$No bomb throwing!${T_07}  Hyrule Town\n{T_09}  Castor Wilds  {T_0A}  Minish Woods$Hyrule Town${T_07}  Royal Valley\n{T_09}  Mount Crenel${T_07}  Cast
