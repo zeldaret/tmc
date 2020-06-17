@@ -1,0 +1,121 @@
+@ PLACEHOLDER FROM pret/pokeruby
+'$'         = 00
+'\n'        = 0A
+' '         = 20
+'!'         = 21
+'\''         = 27
+','         = 2C
+'-'         = 2D
+'.'         = 2E
+'/'         = 2F
+'0'         = 30
+'1'         = 31
+'2'         = 32
+'3'         = 33
+'4'         = 34
+'5'         = 35
+'6'         = 36
+'7'         = 37
+'8'         = 38
+'9'         = 39
+':'         = 3A
+';'         = 3B
+'<'         = 3C
+'='         = 3D
+'>'         = 3E
+'?'         = 3F
+'@'         = 40
+'A'         = 41
+'B'         = 42
+'C'         = 43
+'D'         = 44
+'E'         = 45
+'F'         = 46
+'G'         = 47
+'H'         = 48
+'I'         = 49
+'J'         = 4A
+'K'         = 4B
+'L'         = 4C
+'M'         = 4D
+'N'         = 4E
+'O'         = 4F
+'P'         = 50
+'Q'         = 51
+'R'         = 52
+'S'         = 53
+'T'         = 54
+'U'         = 55
+'V'         = 56
+'W'         = 57
+'X'         = 58
+'Y'         = 59
+'Z'         = 5A
+'['         = 5B
+@ '\'         = 5C
+']'         = 5D
+'a'         = 61
+'b'         = 62
+'c'         = 63
+'d'         = 64
+'e'         = 65
+'f'         = 66
+'g'         = 67
+'h'         = 68
+'i'         = 69
+'j'         = 6A
+'k'         = 6B
+'l'         = 6C
+'m'         = 6D
+'n'         = 6E
+'o'         = 6F
+'p'         = 70
+'q'         = 71
+'r'         = 72
+'s'         = 73
+'t'         = 74
+'u'         = 75
+'v'         = 76
+'w'         = 77
+'x'         = 78
+'y'         = 79
+'z'         = 7A
+
+@ string placeholders
+PLAYER         = 06 00
+STR_VAR_1      = 06 01
+
+@ Title??
+T_07 = 0F 07
+T_08 = 0F 08
+T_09 = 0F 09
+T_0A = 0F 0A
+T_0B = 0F 0B
+T_0C = 0F 0C
+T_0D = 0F 0D
+T_0E = 0F 0E
+T_0F = 0F 0F
+T_10 = 0F 10
+
+@ more text functions
+
+COLOR = 02 @ use a color listed below right after
+ACCEPT = 05 1D 06
+REJECT = 05 1F 10
+REJECT2 = 05 1F 13
+REJECT3 = 05 1D 07
+UNK_1 = 03 02 1A
+UNK_2 = 03 02 03
+UNK_3 = 03 01 E5
+UNK_4 = 03 01 B7
+@ colors
+
+WHITE = 00
+GREEN = 01
+RED = 02
+YELLOW = 03
+@ sound and music
+
+
+SE_UNK = 04 12
+SE_UNK2 = 04 13

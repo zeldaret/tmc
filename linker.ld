@@ -829,6 +829,8 @@ SECTIONS {
 		data/data_82.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_9.o(.rodata);
+		data/strings.o(.rodata);
+		data/data_91.o(.rodata);
     } >rom
 
     /* DWARF 2 sections */
