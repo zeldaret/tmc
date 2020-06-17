@@ -3,7 +3,10 @@
 '\n'        = 0A
 ' '         = 20
 '!'         = 21
-'\''         = 27
+QT          = 22
+'\''        = 27
+'('         = 28
+')'         = 29
 ','         = 2C
 '-'         = 2D
 '.'         = 2E
@@ -80,6 +83,8 @@
 'x'         = 78
 'y'         = 79
 'z'         = 7A
+'é'          = E9
+'&'         = 0F 0D
 
 @ string placeholders
 PLAYER         = 06 00
@@ -104,10 +109,12 @@ ACCEPT = 05 1D 06
 REJECT = 05 1F 10
 REJECT2 = 05 1F 13
 REJECT3 = 05 1D 07
+SELECT = 05 FF
 UNK_1 = 03 02 1A
 UNK_2 = 03 02 03
 UNK_3 = 03 01 E5
 UNK_4 = 03 01 B7
+UNK_5 = 08 FF
 @ colors
 
 WHITE = 00
