@@ -9,10 +9,10 @@ void GreatFairy(Entity* this) {
     u8 bVar1;
 
     if (this->action == 0) {
-        bVar1 = __modsi3((this->entityType).parameter1, 11);
-        (this->entityType).parameter2 = bVar1;
+        bVar1 = __modsi3((this->entityType).form, 11);
+        (this->entityType).parameter = bVar1;
     }
-    GreatFairy_Main[(this->entityType).parameter2](this);
+    GreatFairy_Main[(this->entityType).parameter](this);
 }
 
 // Behaviors
@@ -32,7 +32,7 @@ void GreatFairy_CallBehavior(Entity* this) {
 // Init
 void GreatFairy_Init(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->parameter3 = 0;
+    this->actionDelay = 0;
     this->cutsceneBeh.HWORD = 290;
 }
 
@@ -86,9 +86,9 @@ LABEL_17:
 LABEL_16:
     ripple = GreatFairy_CreateForm(this, RIPPLE, 0);
     if (ripple) {
-        PositionRelative(this, ripple, (s32)GreatFairy_RippleOffsets[this->parameter3] << 16,
-                         (s32)GreatFairy_RippleOffsets[this->parameter3 + 1] << 16);
-        this->parameter3 += 2;
+        PositionRelative(this, ripple, (s32)GreatFairy_RippleOffsets[this->actionDelay] << 16,
+                         (s32)GreatFairy_RippleOffsets[this->actionDelay + 1] << 16);
+        this->actionDelay += 2;
     }
 }
 
@@ -114,7 +114,7 @@ void GreatFairy_SpawningUpdate(Entity* this) {
             DoFade(6, 4);
             PlaySFX(325);
             this->action = 4;
-            this->parameter3 = 0x3c;
+            this->actionDelay = 0x3c;
             var = this->spriteSettings.raw & ~0x3;
             this->spriteSettings.raw = (this->spriteSettings.raw & var) | 1;
         }
@@ -125,14 +125,14 @@ void GreatFairy_MiniUpdate(Entity* this) {
     Entity* target;
 
     GetNextFrame(this);
-    if (this->parameter3 != 0) {
-        --this->parameter3;
+    if (this->actionDelay != 0) {
+        --this->actionDelay;
     } else {
         target = GreatFairy_CreateForm(this, WINGS, 0);
         if (target != NULL) {
             PositionRelative(this, target, 0, -0x140000);
             this->action = 5;
-            this->parameter3 = 120;
+            this->actionDelay = 120;
             this->field_0xf = 0;
         }
     }
@@ -142,8 +142,8 @@ void GreatFairy_MiniUpdate(Entity* this) {
 void GreatFairy_FinalUpdate(Entity* this) {
     Entity* target;
 
-    if (this->parameter3 != 0) {
-        --this->parameter3;
+    if (this->actionDelay != 0) {
+        --this->actionDelay;
     } else {
         if ((this->field_0xf == 0) && (target = GreatFairy_CreateForm(this, FORM9, 0), target != NULL)) {
             PositionRelative(this, target, 0, -0x4C0000);
@@ -264,7 +264,7 @@ void GreatFairy_MiniAffineInit2(Entity* this) {
 
     if (this->height.HALF.HI == -20) {
         this->action = 2;
-        this->parameter3 = 90;
+        this->actionDelay = 90;
         this->nonPlanarMovement = 4096;
         this->spriteOrder.b0 = 3;
         sub_0805EC9C(this, 256, 256, 0);
@@ -275,7 +275,7 @@ void GreatFairy_MiniAffineInit2(Entity* this) {
 void GreatFairy_MiniAffineUpdate(Entity* this) {
     s32 iVar2;
 
-    if (--this->parameter3 == 0) {
+    if (--this->actionDelay == 0) {
         gRoomVars.greatFairyState |= 1;
         this->action = 3;
         sub_0805EC60(this);
@@ -332,7 +332,7 @@ void GreatFairy_BigRippleCallBehavior(Entity* this) {
 
 void GreatFairy_BigRippleInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->parameter3 = 120;
+    this->actionDelay = 120;
     this->spriteSettings.b.ss0 = 1;
     this->ticks.b0 = 5;
     PlaySFX(249);
@@ -342,8 +342,8 @@ void GreatFairy_BigRippleUpdate(Entity* this) {
     Entity* target;
 
     GetNextFrame(this);
-    if (this->parameter3 != 0) {
-        --this->parameter3;
+    if (this->actionDelay != 0) {
+        --this->actionDelay;
     } else {
         target = GreatFairy_CreateForm(this, MINI, 0);
         if (target != NULL) {
@@ -373,7 +373,7 @@ void GreatFairy_EnergyUpdate(Entity* this) {
 }
 
 void sub_08087114(Entity* this) {
-    if ((this->entityType).parameter2 == 0) {
+    if ((this->entityType).parameter == 0) {
         GreatFairy_Form1Behaviors[this->action](this);
     } else {
         GreatFairy_Form2Behaviors[this->action](this);
@@ -409,16 +409,16 @@ void nullsub_516() {
 void sub_080871A8(Entity* this) {
     u32 bVar1;
 
-    if (--this->parameter3 == 0) {
+    if (--this->actionDelay == 0) {
         this->action = 3;
-        this->parameter3 = 60;
+        this->actionDelay = 60;
         gRoomVars.greatFairyState |= 4;
     }
 }
 
 void sub_080871D0(Entity* this) {
 
-    if (--this->parameter3 == 0) {
+    if (--this->actionDelay == 0) {
         gRoomVars.greatFairyState |= 8;
         DeleteEntity(this);
     }
@@ -448,21 +448,21 @@ void sub_080871F8(Entity* this) {
 void sub_08087240(Entity* this) {
     if ((gRoomVars.greatFairyState & 4) != 0) {
         this->action = 3;
-        this->parameter3 = 20;
+        this->actionDelay = 20;
         this->direction = 16;
     }
 }
 
 void sub_08087264(Entity* this) {
-    if (this->parameter3 != 0) {
-        this->parameter3--;
+    if (this->actionDelay != 0) {
+        this->actionDelay--;
         sub_0806F69C(this);
     }
 }
 
 void sub_0808727C(Entity* this) {
 
-    if (--this->parameter3 == 0) {
+    if (--this->actionDelay == 0) {
         DeleteEntity(this);
     }
 }

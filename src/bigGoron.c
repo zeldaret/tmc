@@ -17,7 +17,7 @@ extern void sub_0806D02C(Entity*);
 extern Entity* sub_0805EB2C(u32, u32, u32, u32, u32);
 
 void BigGoron(Entity* this) {
-    gUnk_081140D4[this->entityType.parameter1](this);
+    gUnk_081140D4[this->entityType.form](this);
 }
 
 #ifdef NON_MATCHING
@@ -55,11 +55,11 @@ void sub_0806CF30(Entity* this) {
             }
         }
     } else {
-        bVar1 = this->parameter3 -= 1;
+        bVar1 = this->actionDelay -= 1;
         if (bVar1 == 0) {
             uVar2 = Random();
             PlaySFX(gUnk_081140CC[uVar2 & 3]);
-            this->parameter3 = ((u8)uVar2 & 7) * 10 + 128;
+            this->actionDelay = ((u8)uVar2 & 7) * 10 + 128;
         }
     }
     sub_0806D02C(this);

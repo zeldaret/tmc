@@ -11,7 +11,7 @@ void CopyPosition(Entity*, Entity*);
 void sub_08068680(Entity*, Entity*);
 void sub_08068694(Entity*, Entity*);
 extern void SetGlobalFlag(u32);
-extern Entity* CreateNPC(u32 subtype, u32 parameter1, u32 parameter2);
+extern Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);
 u32 sub_0806EDC4(Entity* ent);
 void DeleteThisEntity(void);
 extern Entity* GetEntityByType(u32, u32);

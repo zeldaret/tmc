@@ -68,7 +68,7 @@ void sub_08044FF8(Entity* this) {
 
     this->action = 2;
     bVar1 = Random();
-    this->parameter3 = (bVar1 & 31) + 30;
+    this->actionDelay = (bVar1 & 31) + 30;
     this->cutsceneBeh.HALF.LO = this->currentHealth;
 }
 
@@ -79,12 +79,12 @@ void sub_08045018(Entity* this) {
     u32 randValue;
 
     GetNextFrame(this);
-    param3 = this->parameter3 -= 1;
+    param3 = this->actionDelay -= 1;
     if (param3 == 0) {
         this->action = 3;
-        this->parameter3 = 1;
+        this->actionDelay = 1;
         if (0 < this->nonPlanarMovement) {
-            this->parameter3 = sub_0806FA04(4096, this->nonPlanarMovement) >> 8;
+            this->actionDelay = sub_0806FA04(4096, this->nonPlanarMovement) >> 8;
         }
         iVar3 = sub_08049FA0(this);
         if ((iVar3 == 0) && (randValue = Random(), (randValue & 3) != 0)) {
@@ -101,7 +101,7 @@ void sub_08045088(Entity* this) {
 
     sub_080AEF88();
     GetNextFrame(this);
-    bVar1 = this->parameter3 -= 1;
+    bVar1 = this->actionDelay -= 1;
     if (bVar1 == 0) {
         this->action = 1;
     }
@@ -125,13 +125,13 @@ void sub_080450A8(Entity* this)
     Entity* local_2c[4];
 
     ppEVar6 = local_2c;
-    bVar1 = (&gUnk_080D16D0)[(this->entityType).parameter1];
+    bVar1 = (&gUnk_080D16D0)[(this->entityType).form];
     divisor = (u32)bVar1;
     if ((int)gUnk_03003DB8.entityCount < (int)(72 - divisor)) {
         uVar7 = divisor;
         if (bVar1 != 0) {
             do {
-                uVar2 = CreateEnemy(87, this->entityType.parameter1);
+                uVar2 = CreateEnemy(87, this->entityType.form);
                 *ppEVar6 = uVar2;
                 ppEVar6 = ppEVar6 + 1;
                 uVar7 = uVar7 - 1;
@@ -147,7 +147,7 @@ void sub_080450A8(Entity* this)
                 local_r6_72->attachedEntity = local_2c[iVar3];
                 iVar4 = Div(iVar4 + divisor + -1, divisor);
                 local_r6_72->parent = local_2c[iVar4];
-                (local_r6_72->entityType).parameter2 = 1;
+                (local_r6_72->entityType).parameter = 1;
                 local_r6_72->height.WORD = 0;
                 local_r6_72->hurtBlinkTime = 240;
                 sub_08045178(this, local_r6_72, *pcVar8, pcVar8[1]);

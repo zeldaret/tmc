@@ -27,7 +27,7 @@ void sub_0806ABFC(Entity *this)
 {
     u8 animationState;
 
-    SpriteLoadData* SpriteLoadData = &gUnk_08112674[this->entityType.parameter1 << 2];
+    SpriteLoadData* SpriteLoadData = &gUnk_08112674[this->entityType.form << 2];
     if (!LoadExtraSpriteData(this, SpriteLoadData))
     {
         return;
@@ -35,13 +35,13 @@ void sub_0806ABFC(Entity *this)
 
     InitializeAnimation(this, 2);
     this->action = 1;
-    this->field_0x6a.HALF.LO = this->parameter3;
+    this->field_0x6a.HALF.LO = this->actionDelay;
 
     this->animationState = this->field_0x6a.HALF.LO << 1;
     animationState = this->animationState;
     this->field_0x69 = animationState << 2;
 
-    this->parameter3 = 0;
+    this->actionDelay = 0;
 }
 
 // Not matching yet, not 100% sure it's functionally identical

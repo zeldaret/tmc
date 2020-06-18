@@ -29,7 +29,7 @@ void sub_0806A1F8(Entity *this)
   Entity *iVar1;
   SpriteLoadData *paVar2;
 
-  (this->entityType).parameter1 == 0 ? (paVar2 = &gUnk_081121B4) : (paVar2 = &gUnk_081121C4);
+  (this->entityType).form == 0 ? (paVar2 = &gUnk_081121B4) : (paVar2 = &gUnk_081121C4);
 
   iVar1 = LoadExtraSpriteData(this,paVar2);
   if (iVar1) {

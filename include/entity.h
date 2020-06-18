@@ -12,8 +12,8 @@ typedef struct {
 typedef struct {
     u8 type;
     u8 subtype;
-    u8 parameter1;
-    u8 parameter2;
+    u8 form;
+    u8 parameter;
 } EntityType;
 
 union SplitWord {
@@ -36,7 +36,7 @@ typedef struct Entity {
     EntityType entityType;
     u8 action;
     u8 previousActionFlag;
-    u8 parameter3;
+    u8 actionDelay;
     u8 field_0xf;
     u8 flags;
     u8 scriptedScene : 4;

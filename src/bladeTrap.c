@@ -12,7 +12,7 @@ void BladeTrap(Entity* ent) {
     u16* puVar3;
     if (ent->action == 0) {
         ent->action = 1;
-        pEVar2 = sub_0804B128((u8)(ent->entityType).parameter1);
+        pEVar2 = sub_0804B128((u8)(ent->entityType).form);
         ent->attachedEntity = pEVar2;
         sub_080A2CC0((EntityData*)ent, &ent->attachedEntity, &ent->heldObjectPtr);
     }

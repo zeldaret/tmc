@@ -25,12 +25,12 @@
 // if (entity != NULL) {
 // (entity->entityType).type = type;
 // (entity->entityType).subtype = param_1->entitySubtype;
-// (entity->entityType).parameter1 = param_1->entityParameter1;
+// (entity->entityType).form = param_1->entityform;
 // sub_0804AEB0(entity,param_1);
 // if ((param_1->field_0x1 & 240) != 16) {
-// (entity->entityType).parameter2 = *(u8 *)&param_1->entityParameter2;
+// (entity->entityType).parameter = *(u8 *)&param_1->entityparameter;
 // /* i suspect this is where the entity's behavior is defined. Not sure. */
-// entity->parameter3 = (u8)((u32)param_1->entityParameter2 >> 8);
+// entity->actionDelay = (u8)((u32)param_1->entityparameter >> 8);
 // if ((type != 9) && (sub_0804AF0C(entity,param_1), entity->field_0x4 != NULL)) {
 // if ((param_1->entityType & 16) == 0) {
 // if ((param_1->entityType & 32) != 0) {

@@ -33,7 +33,7 @@ void sub_08068FC0(Entity* ent) {
     u32 r2;
 
     ent->action = 1;
-    ent->animationState = ent->entityType.parameter2;
+    ent->animationState = ent->entityType.parameter;
     ent->nonPlanarMovement = 0x40;
 
     ent->field_0x6d = 0xFF;
@@ -70,7 +70,7 @@ void sub_08069018(Entity* ent) {
     UpdateAnimationSingleFrame(ent);
     var0 = --ent->field_0xf;
     if (var0 == 0) {
-        if (ent->parameter3 == 0) {
+        if (ent->actionDelay == 0) {
             ent->action = 2;
         } else {
             ent->action = 3;
@@ -186,7 +186,7 @@ void sub_080691E0(Entity* ent) {
 
 // Show dialogue
 void sub_080691F8(Entity* ent) {
-    u32 var0 = ent->entityType.parameter1;
+    u32 var0 = ent->entityType.form;
     u32* var1 = gUnk_08111938 + (var0 * 2);
     ShowNPCDialogue(ent, var1);
 }

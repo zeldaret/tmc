@@ -36,9 +36,9 @@ void sub_0806559C(Entity* this) {
     s32 offset;
     s32 result;
 
-    this->parameter3++;
-    if (this->parameter3 >= 9) {
-        this->parameter3 = 0;
+    this->actionDelay++;
+    if (this->actionDelay >= 9) {
+        this->actionDelay = 0;
         result = sub_0806ED9C(this, 0x20, 0x20);
         if (result < 0) {
             offset = this->animationState + 4;

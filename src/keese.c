@@ -71,7 +71,7 @@ void sub_08021DF0(Entity *this)
 {
   
   sub_0804A720(this);
-  if ((this->entityType).parameter1 != 0) {
+  if ((this->entityType).form != 0) {
     this->ticks.b1 = 1;
     this->height.HALF.HI = -0x10;
   }
@@ -103,7 +103,7 @@ void sub_08021E4C(Entity *this)
 
 void sub_08021EA4(Entity *this)
 {
-  if (--this->parameter3 == 0) {
+  if (--this->actionDelay == 0) {
     sub_08021EF0(this);
   }
 }
@@ -112,8 +112,8 @@ void sub_08021EBC(Entity *this)
 {
     s32 iVar1;
     
-    if (this->parameter3 != 0) {
-        this->parameter3--;
+    if (this->actionDelay != 0) {
+        this->actionDelay--;
     }
     else {
         iVar1 = sub_0806FCB8(this, gLinkEntity.x.HALF.HI, gLinkEntity.y.HALF.HI, 0x70);

@@ -11,7 +11,7 @@ Entity* CreateEnemy(u32 subtype, u32 param1) {
     if (enemy != NULL) {
         (enemy->entityType).type = 3;
         (enemy->entityType).subtype = subtype;
-        (enemy->entityType).parameter1 = param1;
+        (enemy->entityType).form = param1;
         sub_0805EA2C(enemy, 4);
     }
     return enemy;

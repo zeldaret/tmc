@@ -10,7 +10,7 @@ extern void (*gCat[9])(Entity*);
 void Cat(Entity* ent) {
     gCat[ent->action](ent);
     sub_08067C44(ent);
-    if (((ent->flags & 128) == 0) && ((ent->entityType).parameter1 != 5)) {
+    if (((ent->flags & 128) == 0) && ((ent->entityType).form != 5)) {
         sub_0806ED78(ent);
     }
 }

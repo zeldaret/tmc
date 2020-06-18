@@ -27,7 +27,7 @@ void ObjectA8(Entity *this)
     case 0x1f:
       this->action = 5;
       this->attachedEntity = &gLinkEntity;
-      CreateItemEntity((this->entityType).parameter1, 0, 0);
+      CreateItemEntity((this->entityType).form, 0, 0);
       DeleteThisEntity();
     }
   }

@@ -50,7 +50,7 @@ void sub_08065A34(Entity* this) {
 }
 
 void sub_08065A50(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08110080[this->entityType.parameter1 * 2]);
+    ShowNPCDialogue(this, &gUnk_08110080[this->entityType.form * 2]);
 }
 
 void sub_08065A64(Entity* this) {

@@ -36,6 +36,6 @@ void sub_080A2124(Entity *this)
 void Windcrest_Unlock(Entity *this)
 {
   PlaySFX(0x72);
-  gUnk_02002A40.windcrests = gUnk_02002A40.windcrests | 1 << (this->entityType.parameter2 + 0x18);
+  gUnk_02002A40.windcrests = gUnk_02002A40.windcrests | 1 << (this->entityType.parameter + 0x18);
   CreateFx(this, 0x46, 0);
 }

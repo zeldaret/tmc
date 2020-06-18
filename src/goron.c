@@ -39,7 +39,7 @@ void sub_08069328(Entity* this) {
         this->action = 2;
         sub_0805E47C(this);
         InitAnimationForceUpdate(this, 8);
-        TextboxNoOverlapFollow(this->parameter3 + (0x90 << 5));
+        TextboxNoOverlapFollow(this->actionDelay + (0x90 << 5));
     }
 }
 
@@ -112,7 +112,7 @@ void sub_080694B0(Entity* this) {
 
 extern u64 gUnk_08111A94[]; //array of unknown 64 bit structure type
 void sub_080694D8(Entity* this) {
-    ShowNPCDialogue(this, (u32*)&gUnk_08111A94[this->entityType.parameter1]);
+    ShowNPCDialogue(this, (u32*)&gUnk_08111A94[this->entityType.form]);
 }
 
 void sub_080694EC(Entity* this) {

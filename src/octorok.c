@@ -44,7 +44,7 @@ void sub_0801EAE8(Entity* ent) {
 
 // Death
 void sub_0801EB0C(Entity* ent) {
-    if ((ent->entityType).parameter1 == 0) {
+    if ((ent->entityType).form == 0) {
         sub_0804A7D4(ent);
     } else {
         CreateDeathFx(ent, 241, 0);
@@ -96,7 +96,7 @@ void sub_0801EB9C(Entity* ent) {
 #ifdef NON_MATCHING
 void sub_0801EBC8(Entity* ent) {
     sub_0804A720();
-    ent->animationState = (ent->entityType).parameter1 == 2 ? (ent->entityType).parameter1 : Random() & 3;
+    ent->animationState = (ent->entityType).form == 2 ? (ent->entityType).form : Random() & 3;
     ent->filler[0] = 18;
     sub_0801ECFC(ent);
     InitializeAnimation(ent, ent->animationState);
@@ -112,11 +112,11 @@ void sub_0801EBF4(Entity* ent) {
     u8 bVar1;
     u32 uVar2;
 
-    bVar1 = ent->parameter3 -= 1;
+    bVar1 = ent->actionDelay -= 1;
     if (bVar1 == 0) {
         ent->action = 2;
         uVar2 = Random();
-        ent->parameter3 = gUnk_080CA170[uVar2 & 3];
+        ent->actionDelay = gUnk_080CA170[uVar2 & 3];
         sub_0801ED14(ent);
     }
     GetNextFrame(ent);
