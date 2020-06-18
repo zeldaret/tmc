@@ -541,7 +541,7 @@ CastorWildsStatue_Fusion: @ 0x08067750
 _08067784: .4byte 0x0000017B
 _08067788:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806778E:
 	pop {r4, pc}
 

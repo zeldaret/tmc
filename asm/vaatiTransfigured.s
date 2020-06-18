@@ -1771,7 +1771,7 @@ _080404BC:
 	adds r1, r4, #0
 	bl CopyPosition
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 _080404CC: .4byte 0x00000149
@@ -1904,7 +1904,7 @@ _080405A8:
 	bl PlaySFX
 _080405BE:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080405C4:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
@@ -1969,7 +1969,7 @@ _08040638:
 	adds r1, r4, #0
 	bl CopyPosition
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_08040648

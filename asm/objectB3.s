@@ -73,7 +73,7 @@ _080A0A5E:
 	bl sub_0801D2B4
 _080A0AB0:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 _080A0AB8: .4byte gUnk_08124A20
@@ -114,7 +114,7 @@ sub_080A0AF0: @ 0x080A0AF0
 	movs r1, #0
 	bl sub_0807DDAC
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x58
 	ldrb r0, [r0]

@@ -152,7 +152,7 @@ _08063DF8:
 	b _08063E1E
 _08063E18:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08063E1E:
 	adds r2, r4, #0
 	adds r2, #0x39
@@ -297,7 +297,7 @@ sub_08063F20: @ 0x08063F20
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r2, r4, #0
 	adds r2, #0x39
 	movs r0, #0

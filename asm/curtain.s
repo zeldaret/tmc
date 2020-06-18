@@ -111,7 +111,7 @@ sub_08048268: @ 0x08048268
 	cmp r0, #0
 	beq _08048292
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -131,7 +131,7 @@ _08048292:
 sub_08048294: @ 0x08048294
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

@@ -347,6 +347,7 @@ SECTIONS {
 		asm/madderpillar.o(.text);
 		asm/waterDrop.o(.text);
 		asm/wallMaster.o(.text);
+		src/bombPeahat.o(.text);
 		asm/bombPeahat.o(.text);
 		asm/spark.o(.text);
 		asm/chaser.o(.text);
@@ -829,6 +830,11 @@ SECTIONS {
 		data/data_82.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_9.o(.rodata);
+		src/item.o(.rodata);
+		data/data_901.o(.rodata);
+		src/greatFairy.o(.rodata);
+		data/greatFairyAnimations.o(.rodata);
+		data/data_902.o(.rodata);
 		data/strings.o(.rodata);
 		data/data_91.o(.rodata);
     } >rom

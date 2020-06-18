@@ -35,5 +35,5 @@ sub_0809CEA8: @ 0x0809CEA8
 	thumb_func_start sub_0809CEC0
 sub_0809CEC0: @ 0x0809CEC0
 	push {lr}
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}

@@ -46,7 +46,7 @@ sub_08086054: @ 0x08086054
 	cmp r0, #0
 	bne _08086064
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08086064:
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0

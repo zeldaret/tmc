@@ -1037,7 +1037,7 @@ _08070260:
 	b _0807037A
 _08070268:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r5, #0
 	bl sub_0806F69C
 	ldrb r0, [r5, #0xa]
@@ -1169,7 +1169,7 @@ _0807037A:
 sub_0807037C: @ 0x0807037C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x80
@@ -1185,7 +1185,7 @@ _08070394:
 sub_08070398: @ 0x08070398
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	movs r1, #0x80
@@ -1203,7 +1203,7 @@ _080703B8:
 sub_080703BC: @ 0x080703BC
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r1, #0x2e
 	ldrsh r0, [r4, r1]
 	ldr r2, _08070404 @ =gRoomControls

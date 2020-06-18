@@ -16,7 +16,7 @@ extern void InitializeAnimationAnimation();
 extern void sub_0804A720();
 extern u32 Random();
 extern void sub_0801ED14();
-extern void sub_08004274();
+extern void GetNextFrame();
 
 extern void(*gOctorok[2]);
 extern void (*gOctorokIdle[4])(Entity*);
@@ -119,5 +119,5 @@ void sub_0801EBF4(Entity* ent) {
         ent->parameter3 = gUnk_080CA170[uVar2 & 3];
         sub_0801ED14(ent);
     }
-    sub_08004274(ent);
+    GetNextFrame(ent);
 }

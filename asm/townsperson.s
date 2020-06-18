@@ -171,7 +171,7 @@ sub_08061CB4: @ 0x08061CB4
 	b _08061CCE
 _08061CC8:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08061CCE:
 	adds r2, r4, #0
 	adds r2, #0x59
@@ -304,7 +304,7 @@ _08061DB0:
 	strb r0, [r2]
 _08061DD4:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r0, #0
 	ldrsb r0, [r4, r0]
 	cmp r0, #0
@@ -342,7 +342,7 @@ _08061E20: .4byte gLinkEntity
 sub_08061E24: @ 0x08061E24
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, _08061E4C @ =gTextBox
 	ldrb r1, [r0]
 	movs r0, #0x7f

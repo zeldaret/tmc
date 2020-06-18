@@ -276,7 +276,7 @@ sub_080207F4: @ 0x080207F4
 sub_08020820: @ 0x08020820
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -442,7 +442,7 @@ sub_08020938: @ 0x08020938
 	cmp r0, #0
 	bne _08020950
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08020950:
 	movs r1, #0xa0
 	lsls r1, r1, #6
@@ -488,7 +488,7 @@ _0802099C:
 sub_080209A0: @ 0x080209A0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -551,7 +551,7 @@ _08020A14:
 	cmp r0, #0
 	bne _08020A24
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08020A24:
 	pop {r4, pc}
 	.align 2, 0
@@ -559,7 +559,7 @@ _08020A24:
 	thumb_func_start sub_08020A28
 sub_08020A28: @ 0x08020A28
 	push {lr}
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}
 
 	thumb_func_start sub_08020A30

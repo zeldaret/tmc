@@ -6,42 +6,6 @@
 
 	.text
 
-
-	thumb_func_start BombPeahat
-BombPeahat: @ 0x0802A804
-	push {r4, r5, lr}
-	adds r5, r0, #0
-	ldrb r0, [r5, #0xa]
-	cmp r0, #2
-	bne _0802A830
-	adds r0, r5, #0
-	bl sub_080012DC
-	adds r1, r0, #0
-	cmp r1, #0
-	beq _0802A830
-	ldr r0, _0802A82C @ =gUnk_080012C8
-	lsls r1, r1, #2
-	adds r1, r1, r0
-	ldr r1, [r1]
-	adds r0, r5, #0
-	bl _call_via_r1
-	b _0802A844
-	.align 2, 0
-_0802A82C: .4byte gUnk_080012C8
-_0802A830:
-	ldr r4, _0802A848 @ =gUnk_080CD0F0
-	adds r0, r5, #0
-	bl GetNextFunction
-	lsls r0, r0, #2
-	adds r0, r0, r4
-	ldr r1, [r0]
-	adds r0, r5, #0
-	bl _call_via_r1
-_0802A844:
-	pop {r4, r5, pc}
-	.align 2, 0
-_0802A848: .4byte gUnk_080CD0F0
-
 	thumb_func_start sub_0802A84C
 sub_0802A84C: @ 0x0802A84C
 	push {r4, lr}
@@ -588,7 +552,7 @@ sub_0802AC08: @ 0x0802AC08
 	bl sub_0802ADDC
 _0802AC36:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -596,7 +560,7 @@ _0802AC36:
 sub_0802AC40: @ 0x0802AC40
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r5, r4, #0
@@ -950,7 +914,7 @@ _0802AED0: .4byte gUnk_080CD158
 sub_0802AED4: @ 0x0802AED4
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r5, r4, #0
 	adds r5, #0x81
 	ldrb r0, [r5]
@@ -1008,20 +972,20 @@ sub_0802AF28: @ 0x0802AF28
 	orrs r0, r1
 	strb r0, [r2]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_0802AF50
 sub_0802AF50: @ 0x0802AF50
 	push {lr}
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}
 
 	thumb_func_start sub_0802AF58
 sub_0802AF58: @ 0x0802AF58
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x29
 	ldrb r1, [r4]
 	movs r0, #0x39
@@ -1048,7 +1012,7 @@ sub_0802AF74: @ 0x0802AF74
 	strb r0, [r2, #0xe]
 _0802AF8A:
 	adds r0, r2, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}
 	.align 2, 0
 
@@ -1062,7 +1026,7 @@ sub_0802AF94: @ 0x0802AF94
 sub_0802AF9C: @ 0x0802AF9C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -1478,6 +1442,6 @@ _0802B294:
 	strb r0, [r2]
 _0802B2A2:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0

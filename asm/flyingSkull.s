@@ -622,7 +622,7 @@ _0803A044: .4byte gRoomControls
 sub_0803A048: @ 0x0803A048
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x34]
 	ldr r1, _0803A078 @ =0xFFFF0000
 	adds r0, r0, r1
@@ -651,7 +651,7 @@ _0803A07C: .4byte gLinkEntity
 sub_0803A080: @ 0x0803A080
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -668,7 +668,7 @@ _0803A098:
 sub_0803A09C: @ 0x0803A09C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AEFE0
 	ldrh r0, [r4, #0x2a]

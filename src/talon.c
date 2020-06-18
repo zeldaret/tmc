@@ -53,7 +53,7 @@ void sub_0806559C(Entity* this) {
     if (this->field_0x58 != offset) {
         InitializeAnimation(this, offset);
     } else {
-        sub_08004274(this);
+        GetNextFrame(this);
     }
     sub_0806ED78(this);
     if (this->interactType != 0) {
@@ -158,6 +158,6 @@ void Talon_Fusion(Entity* this) {
             InitializeAnimation(this, 6);
         }
     } else {
-        sub_08004274(this);
+        GetNextFrame(this);
     }
 }

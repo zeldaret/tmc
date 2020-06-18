@@ -91,7 +91,7 @@ _0802B56A:
 sub_0802B56C: @ 0x0802B56C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x41
 	ldrb r1, [r0]
@@ -140,7 +140,7 @@ _0802B5C4:
 sub_0802B5C8: @ 0x0802B5C8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

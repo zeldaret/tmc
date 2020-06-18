@@ -102,7 +102,7 @@ _08093ECC: .4byte gUnk_08122950
 sub_08093ED0: @ 0x08093ED0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -137,7 +137,7 @@ _08093F0A:
 	cmp r0, #0
 	bne _08093FB0
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -159,7 +159,7 @@ _08093F0A:
 	b _08093F8E
 _08093F40:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r1, r5, #0
 	adds r1, #0x5a
 	ldrb r0, [r1]
@@ -200,7 +200,7 @@ _08093F8E:
 _08093F94: .4byte gLinkEntity
 _08093F98:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

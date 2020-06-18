@@ -72,7 +72,7 @@ _080A09F8:
 	bl DeleteThisEntity
 _080A0A22:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 _080A0A2C: .4byte gUnk_02027EB4

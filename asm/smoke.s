@@ -126,7 +126,7 @@ sub_0808A484: @ 0x0808A484
 sub_0808A4D0: @ 0x0808A4D0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r0, r4, #0

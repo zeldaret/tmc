@@ -107,7 +107,7 @@ sub_0809CD0C: @ 0x0809CD0C
 	cmp r0, #0
 	beq _0809CDAC
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r1, r4, #0
 	adds r1, #0x5a
 	ldrb r2, [r1]

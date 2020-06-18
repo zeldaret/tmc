@@ -528,7 +528,7 @@ _0808F456:
 	str r0, [r1, #0x54]
 _0808F486:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x54]
 	adds r1, r4, #0
 	bl CopyPositionAndSpriteOffset
@@ -669,7 +669,7 @@ _0808F588:
 	bl DeleteThisEntity
 _0808F5A4:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0808F5E8
 _0808F5AC:
 	movs r0, #1

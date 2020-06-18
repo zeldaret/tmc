@@ -78,7 +78,7 @@ _0806CB66:
 	adds r0, r5, #0
 	bl sub_0807DDE4
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806CB7C: .4byte gUnk_08113D84
@@ -132,7 +132,7 @@ sub_0806CBB4: @ 0x0806CBB4
 	bl InitializeAnimation
 _0806CBD6:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r1, [r4, #0x50]
 	cmp r1, #0
 	beq _0806CC06
@@ -223,7 +223,7 @@ _0806CC80:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0806CCB0
 _0806CC96:
 	adds r0, r4, #0

@@ -83,5 +83,5 @@ _08091ED6:
 	bl DeleteThisEntity
 _08091EEC:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}

@@ -5,7 +5,7 @@
 extern void InitializeAnimation(Entity*, u32);
 extern void sub_08078778(Entity*);
 extern void sub_0805E47C(Entity*);
-extern void sub_08004274(Entity*);
+extern void GetNextFrame(Entity*);
 extern void sub_0806ED78(Entity*);
 extern void TextboxNoOverlapFollow(u32);
 extern void sub_0805E584();
@@ -26,7 +26,7 @@ extern u32 gUnk_0810C2E4;
 extern void InitializeAnimation(Entity*, u32);
 extern void sub_08078778(Entity*);
 extern void sub_0805E47C(Entity*);
-extern void sub_08004274(Entity*);
+extern void GetNextFrame(Entity*);
 extern void sub_0806ED78(Entity*);
 extern void TextboxNoOverlapFollow(u32);
 extern void sub_0805E584();
@@ -60,7 +60,7 @@ void sub_08062BD4(Entity* ent) {
 }
 
 void sub_08062BF8(Entity* ent) {
-    sub_08004274(ent);
+    GetNextFrame(ent);
     if (ent->interactType != 0) {
         ent->interactType = 0;
         ent->action++;
@@ -70,7 +70,7 @@ void sub_08062BF8(Entity* ent) {
 }
 
 void sub_08062C24(Entity* ent) {
-    sub_08004274(ent);
+    GetNextFrame(ent);
     if ((ent->frames.all & 128) != 0) {
         InitializeAnimation(ent, 4);
         TextboxNoOverlapFollow(2561);
@@ -97,7 +97,7 @@ void sub_08062C7C(Entity* ent) {
 void sub_08062CA4(Entity* ent) {
     sub_0807DDAC(ent, 0);
     sub_0807DDE4(ent);
-    sub_08004274(ent);
+    GetNextFrame(ent);
 }
 
 void sub_08062CBC(Entity* ent) {

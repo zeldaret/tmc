@@ -737,7 +737,7 @@ _0802FA20:
 	strb r0, [r5]
 _0802FA3E:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0802FA44:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

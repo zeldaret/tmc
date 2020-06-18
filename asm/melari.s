@@ -157,7 +157,7 @@ _080687EA:
 	adds r0, r5, #0
 	bl sub_0807DDE4
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0806880E
 _08068800:
 	adds r0, r5, #0
@@ -376,7 +376,7 @@ Melari_Fusion: @ 0x0806897C
 _080689B0: .4byte gUnk_08111520
 _080689B4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080689BA:
 	pop {r4, pc}
 

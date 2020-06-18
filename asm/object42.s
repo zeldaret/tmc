@@ -149,7 +149,7 @@ _0808DE2A:
 	cmp r0, #0
 	beq _0808DEA0
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0808DEA4
 	.align 2, 0
 _0808DE8C: .4byte gLinkState

@@ -629,7 +629,7 @@ sub_08029D14: @ 0x08029D14
 	b _08029D70
 _08029D42:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -686,7 +686,7 @@ _08029DA8: .4byte gUnk_080FD2A0
 sub_08029DAC: @ 0x08029DAC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1031,7 +1031,7 @@ sub_08029FE4: @ 0x08029FE4
 	adds r1, r1, r0
 	strh r1, [r5, #0x32]
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r1, #0xff
 	cmp r4, #0
 	beq _0802A032

@@ -718,7 +718,7 @@ _080996CE:
 	strb r0, [r1]
 _08099706:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
 	bl CopyPositionAndSpriteOffset

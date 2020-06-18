@@ -467,7 +467,7 @@ sub_08045A28: @ 0x08045A28
 	cmp r0, #0
 	bne _08045A3E
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08045A3E:
 	adds r6, r5, #0
 	adds r6, #0x5a

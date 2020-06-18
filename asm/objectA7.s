@@ -29,6 +29,6 @@ ObjectA7: @ 0x0809F9AC
 	bl InitializeAnimation
 _0809F9D2:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0

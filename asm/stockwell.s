@@ -166,7 +166,7 @@ _0806517C:
 _0806519C: .4byte gUnk_0810FDB8
 _080651A0:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080651A6:
 	pop {r3}
 	mov r8, r3
@@ -176,7 +176,7 @@ _080651A6:
 sub_080651AC: @ 0x080651AC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, _080651D4 @ =gTextBox
 	ldrb r0, [r0]
 	movs r1, #0x7f
@@ -200,7 +200,7 @@ _080651D4: .4byte gTextBox
 sub_080651D8: @ 0x080651D8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r1, _080651F4 @ =gUnk_0810FDC8
 	ldrb r0, [r4, #0xd]
 	lsls r0, r0, #2
@@ -416,7 +416,7 @@ _08065364: .4byte gRoomVars
 	thumb_func_start sub_08065368
 sub_08065368: @ 0x08065368
 	push {lr}
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}
 
 	thumb_func_start sub_08065370

@@ -3702,7 +3702,7 @@ _080440BC:
 	bl InitializeAnimation
 _080440C4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_080440CC
@@ -3741,5 +3741,5 @@ _08044108:
 	bl InitializeAnimation
 _08044110:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}

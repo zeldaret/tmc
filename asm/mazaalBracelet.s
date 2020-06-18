@@ -358,7 +358,7 @@ _0803A3FA:
 	b _0803A546
 _0803A418:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -399,7 +399,7 @@ _0803A44E:
 	b _0803A546
 _0803A468:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -469,7 +469,7 @@ _0803A4CC:
 	b _0803A546
 _0803A4FA:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -631,7 +631,7 @@ sub_0803A60C: @ 0x0803A60C
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -959,7 +959,7 @@ sub_0803A86C: @ 0x0803A86C
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1040,7 +1040,7 @@ sub_0803A90C: @ 0x0803A90C
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0803B55C
 	adds r0, r4, #0
@@ -1092,7 +1092,7 @@ sub_0803A978: @ 0x0803A978
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0803B55C
 	ldrb r0, [r4, #0xe]
@@ -1378,7 +1378,7 @@ sub_0803ABB4: @ 0x0803ABB4
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0803B55C
 	ldr r0, [r4, #0x54]
@@ -1464,7 +1464,7 @@ sub_0803AC60: @ 0x0803AC60
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	bne _0803ACB4
@@ -1670,7 +1670,7 @@ sub_0803ADF4: @ 0x0803ADF4
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1777,7 +1777,7 @@ sub_0803AEC4: @ 0x0803AEC4
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1829,7 +1829,7 @@ _0803AF4C: .4byte gUnk_080CED6C
 sub_0803AF50: @ 0x0803AF50
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2052,7 +2052,7 @@ sub_0803B0D4: @ 0x0803B0D4
 	adds r4, r0, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2136,7 +2136,7 @@ _0803B178:
 sub_0803B17C: @ 0x0803B17C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2176,7 +2176,7 @@ sub_0803B1B8: @ 0x0803B1B8
 	cmp r0, #0
 	bne _0803B1D4
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r5, #0x54]
 	bl UpdateAnimationSingleFrame
 _0803B1D4:
@@ -2313,7 +2313,7 @@ _0803B2CE:
 sub_0803B2D0: @ 0x0803B2D0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2489,7 +2489,7 @@ sub_0803B3F4: @ 0x0803B3F4
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -3317,7 +3317,7 @@ _0803BA34:
 	strb r0, [r4, #0x19]
 _0803BA40:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0803BA46:
 	adds r0, r4, #0
 	movs r1, #0x10
@@ -3345,7 +3345,7 @@ sub_0803BA6C: @ 0x0803BA6C
 	movs r1, #0xa
 	bl sub_0803BA8C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 

@@ -279,7 +279,7 @@ _0806229A:
 _080622C8: .4byte gLinkEntity
 _080622CC:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, _080622E0 @ =gTextBox
 	ldrb r1, [r0]
 	movs r0, #0x7f
@@ -1291,7 +1291,7 @@ _08062AA2:
 _08062AAC: .4byte gUnk_0810BDC4
 _08062AB0:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08062AB6:
 	pop {r4, pc}
 

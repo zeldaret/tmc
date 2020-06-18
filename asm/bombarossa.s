@@ -67,7 +67,7 @@ _0803340E:
 	asrs r0, r0, #0x18
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	beq _08033440

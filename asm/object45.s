@@ -47,7 +47,7 @@ sub_0808E448: @ 0x0808E448
 	bl DeleteThisEntity
 _0808E45A:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r0, [r0]

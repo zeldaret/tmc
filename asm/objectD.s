@@ -134,7 +134,7 @@ _08084424: .4byte 0x0000010D
 sub_08084428: @ 0x08084428
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

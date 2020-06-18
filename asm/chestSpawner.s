@@ -313,7 +313,7 @@ sub_08084024: @ 0x08084024
 	adds r4, r0, #0
 	bl sub_0800445C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

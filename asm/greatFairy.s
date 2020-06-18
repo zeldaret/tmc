@@ -12,7 +12,7 @@ sub_080872F8: @ 0x080872F8
 	adds r4, r0, #0
 	bl sub_0806F69C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r2, r4, #0
 	adds r2, #0x68
 	ldrh r0, [r2]
@@ -74,8 +74,8 @@ _0808735C:
 _08087378: .4byte gUnk_081207AC
 _0808737C: .4byte gSineTable
 
-	thumb_func_start sub_08087380
-sub_08087380: @ 0x08087380
+	thumb_func_start GreatFairy_InitializeAnimation
+GreatFairy_InitializeAnimation: @ 0x08087380
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #1
@@ -96,8 +96,8 @@ sub_08087380: @ 0x08087380
 	bl sub_0805E3A0
 	pop {r4, pc}
 
-	thumb_func_start sub_080873AC
-sub_080873AC: @ 0x080873AC
+	thumb_func_start GreatFairy_CreateForm
+GreatFairy_CreateForm: @ 0x080873AC
 	push {r4, r5, r6, lr}
 	adds r5, r1, #0
 	adds r6, r2, #0
@@ -128,7 +128,7 @@ _080873DE:
 	adds r0, r4, #0
 	movs r1, #8
 	movs r2, #0
-	bl sub_080873AC
+	bl GreatFairy_CreateForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080873F8

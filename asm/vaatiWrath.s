@@ -591,7 +591,7 @@ sub_080417AC: @ 0x080417AC
 	ldr r0, [r5, #0x64]
 	ldr r4, [r0, #4]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	adds r0, r1, #0
@@ -935,10 +935,10 @@ _08041A60:
 	bl UpdateAnimationSingleFrame
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #4]
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
@@ -972,7 +972,7 @@ _08041ABC:
 	bl UpdateAnimationSingleFrame
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -1003,13 +1003,13 @@ sub_08041AF4: @ 0x08041AF4
 	bl UpdateAnimationSingleFrame
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0
 	beq _08041B12
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #4]
-	bl sub_08004274
+	bl GetNextFrame
 _08041B12:
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0
@@ -1224,7 +1224,7 @@ sub_08041CD0: @ 0x08041CD0
 	adds r4, r0, #0
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1260,7 +1260,7 @@ sub_08041D14: @ 0x08041D14
 	adds r4, r0, #0
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, _08041D3C @ =gTextBox
 	ldrb r1, [r0]
 	movs r0, #0x7f
@@ -1315,7 +1315,7 @@ sub_08041D84: @ 0x08041D84
 	adds r5, r0, #0
 	ldr r0, [r5, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r5, #0xe]
 	cmp r0, #0
 	beq _08041D9C
@@ -1398,7 +1398,7 @@ sub_08041E20: @ 0x08041E20
 	bl sub_08041E78
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, _08041E4C @ =gUnk_03000FD0
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -2028,11 +2028,11 @@ sub_080422C0: @ 0x080422C0
 	bl UpdateAnimationSingleFrame
 	ldr r0, [r5, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r5, #0x64]
 	ldr r7, [r0, #4]
 	adds r0, r7, #0
-	bl sub_08004274
+	bl GetNextFrame
 	mov r0, r8
 	adds r0, #1
 	adds r6, r7, #0
@@ -2223,7 +2223,7 @@ _08042450:
 	cmp r0, #0
 	bne _0804245C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0804245C:
 	ldr r0, [r4, #0x58]
 	ldr r1, _0804249C @ =0x008000FF
@@ -2346,5 +2346,5 @@ _08042532:
 	adds r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}

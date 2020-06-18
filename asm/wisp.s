@@ -226,7 +226,7 @@ _080336CE:
 	adds r0, r4, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_080336DC

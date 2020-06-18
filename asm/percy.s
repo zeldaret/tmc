@@ -47,7 +47,7 @@ sub_0806B3CC: @ 0x0806B3CC
 	bl sub_08078778
 _0806B3F4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r1, r4, #0
 	adds r1, #0x39
 	movs r0, #0
@@ -356,6 +356,6 @@ Percy_Fusion: @ 0x0806B624
 _0806B658: .4byte gUnk_08112E1C
 _0806B65C:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806B662:
 	pop {r4, pc}

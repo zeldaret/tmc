@@ -881,7 +881,7 @@ Dog_Fusion: @ 0x0806A194
 	b _0806A1D4
 _0806A1CE:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806A1D4:
 	pop {r4, pc}
 	.align 2, 0

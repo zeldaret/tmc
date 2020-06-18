@@ -148,7 +148,7 @@ sub_080452E4: @ 0x080452E4
 sub_080452FC: @ 0x080452FC
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r5, #0xe]
 	subs r0, #1
 	strb r0, [r5, #0xe]
@@ -208,7 +208,7 @@ sub_08045374: @ 0x08045374
 	adds r4, r0, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

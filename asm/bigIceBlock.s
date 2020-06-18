@@ -793,7 +793,7 @@ _08099D6A:
 	strb r0, [r1]
 _08099DA2:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _08099DB4
 _08099DAA:
 	ldrb r1, [r4, #0x18]

@@ -160,7 +160,7 @@ _08064BA8:
 	bl InitializeAnimation
 _08064BC6:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _08064C28
 _08064BCE:
 	movs r0, #3
@@ -370,6 +370,6 @@ Sturgeon_Fusion: @ 0x08064D18
 _08064D4C: .4byte gUnk_0810FA38
 _08064D50:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08064D56:
 	pop {r4, pc}

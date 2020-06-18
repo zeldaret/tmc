@@ -365,7 +365,7 @@ _0809D19C:
 	b _0809D1EE
 _0809D1E8:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0809D1EE:
 	pop {r4, pc}
 

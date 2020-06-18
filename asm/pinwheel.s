@@ -91,5 +91,5 @@ _080A243A:
 	thumb_func_start sub_080A243C
 sub_080A243C: @ 0x080A243C
 	push {lr}
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}

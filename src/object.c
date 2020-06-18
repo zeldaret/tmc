@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "object.h"
-
+//clang-format off
 void (*const gObjectFunctions[])(Entity*) = {
     ItemOnGround,
     DeathFx,
@@ -198,3 +198,4 @@ void (*const gObjectFunctions[])(Entity*) = {
     EnemyItem,
     ObjectC1,
 };
+//clang-format on

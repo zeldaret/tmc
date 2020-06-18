@@ -104,7 +104,7 @@ _0803BC1E:
 	strh r0, [r1]
 _0803BC2C:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_0803BC34
@@ -119,7 +119,7 @@ sub_0803BC34: @ 0x0803BC34
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F520
 	cmp r0, #0
@@ -241,7 +241,7 @@ _0803BD2C:
 	adds r0, r4, #0
 	bl sub_0803BEE8
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r0, #1
 	bl sub_08049DF4
 	cmp r0, #0
@@ -319,7 +319,7 @@ _0803BDC8:
 	adds r0, r4, #0
 	bl sub_0803BF48
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0803BDD4:
 	pop {r4, pc}
 	.align 2, 0
@@ -704,7 +704,7 @@ _0803C09C:
 	bl sub_0803BF48
 _0803C0A2:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 

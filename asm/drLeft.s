@@ -30,7 +30,7 @@ _0806BFA2:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806BFD8
 	b _0806BFD4

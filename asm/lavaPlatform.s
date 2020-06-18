@@ -305,7 +305,7 @@ _08092482:
 	cmp r0, #0x8c
 	bhi _080924DC
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r3, r4, #0
 	adds r3, #0x5a
 	ldrb r1, [r3]
@@ -405,7 +405,7 @@ _08092544:
 	movs r5, #0
 _08092546:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]

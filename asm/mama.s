@@ -79,7 +79,7 @@ _0806C420:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0806C450
 _0806C436:
 	adds r0, r4, #0
@@ -226,6 +226,6 @@ Mama_Fusion: @ 0x0806C510
 	b _0806C54E
 _0806C548:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806C54E:
 	pop {r4, pc}

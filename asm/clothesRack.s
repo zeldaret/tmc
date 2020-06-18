@@ -159,5 +159,5 @@ _0806DEC4: .4byte gRoomControls
 	thumb_func_start sub_0806DEC8
 sub_0806DEC8: @ 0x0806DEC8
 	push {lr}
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}

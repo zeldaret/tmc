@@ -242,7 +242,7 @@ _080839FA:
 	bl sub_080ADDD8
 _08083A2C:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08083A32:
 	pop {r4, pc}
 	.align 2, 0

@@ -1287,7 +1287,7 @@ _0802D9F8:
 	b _0802DB7E
 _0802DA0E:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2334,7 +2334,7 @@ sub_0802E1D0: @ 0x0802E1D0
 	cmp r0, #0
 	bne _0802E1F6
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0802E1F6:
 	ldrb r0, [r4]
 	movs r2, #0x3f
@@ -2690,7 +2690,7 @@ _0802E490:
 	bl sub_0802EA68
 _0802E4A6:
 	adds r0, r7, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r7, #0
 	adds r0, #0x84
 	ldr r0, [r0]
@@ -2704,7 +2704,7 @@ _0802E4A6:
 sub_0802E4C0: @ 0x0802E4C0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

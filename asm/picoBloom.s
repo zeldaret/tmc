@@ -73,7 +73,7 @@ _08098AE6:
 sub_08098AE8: @ 0x08098AE8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #1

@@ -188,7 +188,7 @@ _0802C35A:
 	strb r0, [r4, #0x18]
 _0802C36A:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r0, #0x2e
 	ldrsh r1, [r4, r0]
 	ldr r2, _0802C3C4 @ =gRoomControls

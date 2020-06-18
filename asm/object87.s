@@ -355,7 +355,7 @@ sub_0809A1B8: @ 0x0809A1B8
 	push {r5, r6, r7}
 	sub sp, #0x38
 	adds r7, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r7, #0xa]
 	cmp r0, #9
 	bls _0809A1D2
@@ -932,7 +932,7 @@ sub_0809A648: @ 0x0809A648
 	mov r7, r8
 	push {r7}
 	adds r7, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r7, #0xe]
 	subs r0, #1
 	strb r0, [r7, #0xe]

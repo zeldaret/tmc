@@ -17,7 +17,7 @@ void WindTribeFlag(Entity *this)
     InitializeAnimation(this,0);
   }
   else {
-    sub_08004274(this);
+    GetNextFrame(this);
   }
   if (this->animTime == 0xff) {
     this->animTime = (Random() & 0xf) + 0x10;

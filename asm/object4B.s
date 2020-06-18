@@ -62,7 +62,7 @@ _0808F7D0:
 sub_0808F7D4: @ 0x0808F7D4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -92,7 +92,7 @@ _0808F80A:
 sub_0808F80C: @ 0x0808F80C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -145,11 +145,11 @@ sub_0808F858: @ 0x0808F858
 	cmp r0, #0
 	bne _0808F88A
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0808F88A
 _0808F884:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0808F88A:
 	movs r1, #0x32
 	ldrsh r0, [r4, r1]
@@ -205,7 +205,7 @@ _0808F8EC: .4byte 0x0000012B
 sub_0808F8F0: @ 0x0808F8F0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -225,7 +225,7 @@ _0808F912:
 sub_0808F914: @ 0x0808F914
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -249,7 +249,7 @@ _0808F93C:
 sub_0808F940: @ 0x0808F940
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

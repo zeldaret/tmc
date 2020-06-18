@@ -12,7 +12,7 @@ sub_0801EC2C: @ 0x0801EC2C
 	adds r5, r0, #0
 	bl sub_080AEF88
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r5, #0xe]
 	subs r0, #1
 	strb r0, [r5, #0xe]
@@ -50,7 +50,7 @@ _0801EC7E:
 sub_0801EC80: @ 0x0801EC80
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r5, r4, #0
 	adds r5, #0x5a
 	ldrb r1, [r5]

@@ -2,7 +2,7 @@
 #include "entity.h"
 
 extern u32 GetNextFunction(Entity*);
-extern u32 sub_08004274(Entity*);
+extern u32 GetNextFrame(Entity*);
 extern u32 sub_0806F520(Entity*);
 extern void sub_0806F4E8(Entity*);
 extern u32 sub_0806F3E4();
@@ -30,7 +30,7 @@ void sub_0803169C(Entity *this)
 {
   s32 iVar1;
   
-  sub_08004274(this);
+  GetNextFrame(this);
   iVar1 = sub_0806F520(this);
   if (iVar1 == 0) {
     this->action = 1;

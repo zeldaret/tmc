@@ -174,7 +174,7 @@ sub_08048ED0: @ 0x08048ED0
 	adds r4, r0, #0
 	bl sub_08048F50
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -226,7 +226,7 @@ sub_08048F30: @ 0x08048F30
 	adds r4, r0, #0
 	bl sub_08048F50
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x80

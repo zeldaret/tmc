@@ -15,7 +15,7 @@ extern void sub_0804A720(Entity*);
 extern void InitializeAnimation(Entity*, u32);
 extern void sub_08044FF8(Entity*);
 extern u32 Random(void);
-extern void sub_08004274(Entity*);
+extern void GetNextFrame(Entity*);
 extern u32 sub_0806FA04(u32, u32);
 extern u32 sub_08049FA0(Entity*);
 extern u32 sub_08049EE4(Entity*);
@@ -78,7 +78,7 @@ void sub_08045018(Entity* this) {
     u32 iVar3;
     u32 randValue;
 
-    sub_08004274(this);
+    GetNextFrame(this);
     param3 = this->parameter3 -= 1;
     if (param3 == 0) {
         this->action = 3;
@@ -100,7 +100,7 @@ void sub_08045088(Entity* this) {
     u8 bVar1;
 
     sub_080AEF88();
-    sub_08004274(this);
+    GetNextFrame(this);
     bVar1 = this->parameter3 -= 1;
     if (bVar1 == 0) {
         this->action = 1;

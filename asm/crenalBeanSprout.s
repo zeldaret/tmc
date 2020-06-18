@@ -304,7 +304,7 @@ _08096570:
 _0809657C: .4byte gLinkState
 _08096580:
 	adds r0, r6, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08096586:
 	ldr r0, [r6, #0x50]
 	adds r0, #0x29
@@ -369,7 +369,7 @@ _080965D6:
 _080965FC: .4byte gLinkState
 _08096600:
 	adds r0, r6, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08096606:
 	ldr r0, _08096664 @ =gLinkEntity
 	ldrb r0, [r0, #0x14]
@@ -580,7 +580,7 @@ sub_08096780: @ 0x08096780
 	cmp r4, r0
 	bne _080967DC
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r2, _080967D8 @ =gLinkState
 	ldrb r0, [r2, #0xb]
 	movs r1, #0x80

@@ -197,6 +197,6 @@ Mutoh_Fusion: @ 0x08067118
 _0806714C: .4byte gUnk_08110C00
 _08067150:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08067156:
 	pop {r4, pc}

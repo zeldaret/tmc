@@ -136,7 +136,7 @@ _0806338C: .4byte gTextBox
 sub_08063390: @ 0x08063390
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -235,7 +235,7 @@ _0806344E:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08063462:
 	pop {r4, r5, pc}
 	.align 2, 0

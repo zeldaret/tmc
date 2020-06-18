@@ -276,7 +276,7 @@ _0802A60E:
 sub_0802A610: @ 0x0802A610
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0802A7D0
 	adds r3, r4, #0
@@ -394,7 +394,7 @@ _0802A6EE:
 	strh r0, [r4, #0x36]
 _0802A6F0:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r3, r4, #0
 	adds r3, #0x5a
 	ldrb r1, [r3]

@@ -1002,7 +1002,7 @@ sub_080A310C: @ 0x080A310C
 	b _080A3200
 _080A312A:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x6c]
 	subs r0, #1
 	str r0, [r4, #0x6c]
@@ -1011,7 +1011,7 @@ _080A312A:
 	cmp r0, r1
 	beq _080A31FC
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	ldrb r0, [r4, #0xe]

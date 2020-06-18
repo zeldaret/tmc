@@ -548,7 +548,7 @@ sub_0808ADF0: @ 0x0808ADF0
 	b _0808AE80
 _0808AE1E:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0808AE80
 _0808AE26:
 	adds r1, r2, #1
@@ -576,7 +576,7 @@ _0808AE48:
 	b _0808AE80
 _0808AE54:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -647,7 +647,7 @@ sub_0808AEB0: @ 0x0808AEB0
 	cmp r0, #0
 	beq _0808AF20
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	cmp r6, #0x3f
 	bhi _0808AF08
 	ldr r0, _0808AF18 @ =gLinkEntity
@@ -900,7 +900,7 @@ sub_0808B0BC: @ 0x0808B0BC
 	b _0808B162
 _0808B0D6:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0808B162
 _0808B0DE:
 	ldr r6, _0808B148 @ =gLinkEntity

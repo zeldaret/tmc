@@ -177,7 +177,7 @@ _0808B58E:
 sub_0808B590: @ 0x0808B590
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0808B7C8
 	cmp r0, #0
@@ -479,7 +479,7 @@ _0808B7BE:
 	strb r0, [r4, #0x18]
 _0808B7C0:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_0808B7C8

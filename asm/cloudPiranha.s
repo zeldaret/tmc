@@ -586,7 +586,7 @@ _0803887E:
 	bl InitializeAnimation
 _08038890:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r1, r4, #0
 	adds r1, #0x82
 	ldrb r0, [r1]

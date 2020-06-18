@@ -239,7 +239,7 @@ nullsub_503: @ 0x0806A5BC
 sub_0806A5C0: @ 0x0806A5C0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -289,7 +289,7 @@ _0806A60A:
 	bl PlaySFX
 _0806A628:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_0806A630
@@ -313,7 +313,7 @@ _0806A646:
 	cmp r0, #0
 	beq _0806A65A
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806A65A:
 	adds r1, r4, #0
 	adds r1, #0x5a
@@ -559,7 +559,7 @@ _0806A814:
 	b _0806A82A
 _0806A824:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806A82A:
 	add sp, #8
 	pop {r4, pc}
@@ -591,7 +591,7 @@ _0806A84E:
 	bl DeleteThisEntity
 _0806A860:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r1, r4, #0
 	adds r1, #0x5a
 	ldrb r0, [r1]
@@ -630,7 +630,7 @@ sub_0806A890: @ 0x0806A890
 	bl sub_0805E3A0
 _0806A8AE:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

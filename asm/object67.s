@@ -335,7 +335,7 @@ sub_08094398: @ 0x08094398
 	b _08094420
 _080943A8:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	movs r1, #0x80

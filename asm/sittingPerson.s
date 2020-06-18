@@ -125,7 +125,7 @@ _08063804:
 	strb r0, [r5]
 _08063828:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806382E:
 	pop {r4, r5, pc}
 
@@ -406,7 +406,7 @@ _08063A40:
 	strb r0, [r5]
 _08063A56:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08063A5C:
 	pop {r4, r5, pc}
 	.align 2, 0

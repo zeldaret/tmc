@@ -144,7 +144,7 @@ _08020042:
 	movs r0, #0x78
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08020068:
 	adds r0, r4, #0
 	adds r0, #0x43
@@ -378,7 +378,7 @@ _0802020C:
 	adds r0, r4, #0
 	bl sub_080AEFE0
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _0802021C: .4byte gUnk_020000B0
@@ -518,7 +518,7 @@ sub_08020308: @ 0x08020308
 	movs r0, #0x78
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0802034E
 _08020332:
 	movs r0, #1
@@ -572,7 +572,7 @@ _0802038A:
 	adds r0, r4, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _080203BE
 _08020398:
 	movs r1, #0xe0
@@ -687,7 +687,7 @@ _08020466:
 sub_08020468: @ 0x08020468
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -750,7 +750,7 @@ _080204DC:
 sub_080204E0: @ 0x080204E0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -840,7 +840,7 @@ sub_0802053C: @ 0x0802053C
 sub_08020590: @ 0x08020590
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r1, r0, #1
 	strb r1, [r4, #0xe]

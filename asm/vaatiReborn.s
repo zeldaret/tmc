@@ -391,7 +391,7 @@ _0806B95A:
 	b _0806B968
 _0806B962:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806B968:
 	pop {r4, r5, pc}
 	.align 2, 0

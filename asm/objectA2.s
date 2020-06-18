@@ -19,7 +19,7 @@ ObjectA2: @ 0x0809F2F8
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 _0809F314: .4byte gUnk_081246F4

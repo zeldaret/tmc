@@ -200,7 +200,7 @@ _08028A72:
 sub_08028A74: @ 0x08028A74
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xd]
 	cmp r0, #4
 	bls _08028A84
@@ -451,7 +451,7 @@ _08028C66:
 	bl sub_0802925C
 _08028C76:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0800445C
 	pop {r4, pc}
@@ -498,7 +498,7 @@ _08028CC8:
 	bl sub_080290E0
 _08028CD2:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0800445C
 	adds r0, r4, #0
@@ -664,7 +664,7 @@ _08028E0C:
 	adds r0, r4, #0
 	bl sub_0800445C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08028E3A:
 	pop {r4, pc}
 	.align 2, 0
@@ -699,7 +699,7 @@ _08028E72:
 	adds r0, r4, #0
 	bl sub_0800445C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _08028E80: .4byte gTextBox
@@ -1275,7 +1275,7 @@ sub_08029270: @ 0x08029270
 	b _0802929C
 _08029296:
 	adds r0, r2, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0802929C:
 	pop {pc}
 	.align 2, 0

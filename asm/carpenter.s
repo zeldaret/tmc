@@ -88,7 +88,7 @@ _080671F4:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _08067224
 _0806720A:
 	adds r0, r4, #0
@@ -273,6 +273,6 @@ Carpenter_Fusion: @ 0x0806732C
 _08067374: .4byte gUnk_08110CA8
 _08067378:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806737E:
 	pop {r4, pc}

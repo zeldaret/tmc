@@ -402,10 +402,10 @@ sub_08032F48: @ 0x08032F48
 	cmp r0, #2
 	bne _08032F5A
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08032F5A:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 

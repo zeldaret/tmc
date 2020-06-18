@@ -41,7 +41,7 @@ _08094A78:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -643,7 +643,7 @@ _08094ED4:
 _08094F04: .4byte 0xFFFFE000
 _08094F08:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1014,7 +1014,7 @@ _080951E8:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r1, #0x36
 	ldrsh r0, [r4, r1]
 	cmp r0, #0
@@ -1265,7 +1265,7 @@ _080953E0:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0xd
 	bne _08095412
@@ -1592,7 +1592,7 @@ _08095664:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_0809567C
@@ -1652,7 +1652,7 @@ _080956D4:
 	bge _080956D4
 _080956E2:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r5, #0xb]
 	ldr r1, _08095724 @ =gUnk_030010A0
 	ldr r1, [r1]
@@ -1743,7 +1743,7 @@ sub_0809577C: @ 0x0809577C
 	bl InitializeAnimation
 _08095796:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1916,7 +1916,7 @@ _080958EC:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1954,7 +1954,7 @@ _0809593C:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -2630,7 +2630,7 @@ _08095E56:
 	adds r0, r4, #0
 	bl sub_08003FC4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080040A8
 	cmp r0, #0
@@ -2908,7 +2908,7 @@ _0809606C:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -2933,7 +2933,7 @@ _080960A0:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
 	beq _080960C0
@@ -3042,7 +3042,7 @@ sub_08096168: @ 0x08096168
 	bl InitializeAnimation
 _0809618C:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r0, #0x24
 	ldrsh r1, [r4, r0]
 	ldrb r2, [r4, #0x15]

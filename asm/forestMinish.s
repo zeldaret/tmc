@@ -556,6 +556,6 @@ ForestMinish_Fusion: @ 0x080603B4
 _080603F0: .4byte gUnk_0810A348
 _080603F4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080603FA:
 	pop {r4, pc}

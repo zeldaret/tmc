@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_08076C80
-sub_08076C80: @ 0x08076C80
+	thumb_func_start PacciCane
+PacciCane: @ 0x08076C80
 	push {lr}
 	ldr r3, _08076C94 @ =gUnk_0811BDE0
 	ldrb r2, [r0, #4]
@@ -64,8 +64,8 @@ _08076CE8:
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08076CEC
-sub_08076CEC: @ 0x08076CEC
+	thumb_func_start Shield
+Shield: @ 0x08076CEC
 	push {lr}
 	ldr r3, _08076D00 @ =gUnk_0811BDE8
 	ldrb r2, [r0, #4]
@@ -175,8 +175,8 @@ _08076DC8:
 	.align 2, 0
 _08076DCC: .4byte gLinkState
 
-	thumb_func_start sub_08076DD0
-sub_08076DD0: @ 0x08076DD0
+	thumb_func_start GustJar
+GustJar: @ 0x08076DD0
 	push {lr}
 	ldr r2, _08076DEC @ =gLinkState
 	adds r2, #0xa8
@@ -590,8 +590,8 @@ _08077110:
 	.align 2, 0
 _08077114: .4byte gLinkEntity
 
-	thumb_func_start sub_08077118
-sub_08077118: @ 0x08077118
+	thumb_func_start MoleMitts
+MoleMitts: @ 0x08077118
 	push {lr}
 	ldr r3, _0807712C @ =gUnk_0811BE04
 	ldrb r2, [r0, #4]
@@ -1099,8 +1099,8 @@ _08077518:
 _0807751A:
 	pop {r4, r5, r6, r7, pc}
 
-	thumb_func_start sub_0807751C
-sub_0807751C: @ 0x0807751C
+	thumb_func_start JarEmpty
+JarEmpty: @ 0x0807751C
 	push {lr}
 	ldr r3, _08077530 @ =gUnk_0811BE28
 	ldrb r2, [r0, #4]

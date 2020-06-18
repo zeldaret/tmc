@@ -251,7 +251,7 @@ sub_080218CC: @ 0x080218CC
 	str r0, [r5, #0x20]
 _08021916:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r2, r5, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -375,7 +375,7 @@ _08021A0C: .4byte 0x0000012D
 sub_08021A10: @ 0x08021A10
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r1, _08021A60 @ =gLinkEntity
 	adds r0, r4, #0
 	movs r2, #0x78
@@ -463,7 +463,7 @@ _08021AC8:
 	adds r0, r4, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08021AD4:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -472,7 +472,7 @@ _08021AD4:
 sub_08021AD8: @ 0x08021AD8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -658,7 +658,7 @@ _08021C04:
 	subs r0, #1
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08021C4E:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -669,7 +669,7 @@ _08021C54: .4byte gUnk_080CB5E4
 sub_08021C58: @ 0x08021C58
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -737,7 +737,7 @@ sub_08021CD0: @ 0x08021CD0
 	cmp r0, #0
 	bne _08021CE6
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08021CE6:
 	adds r0, r4, #0
 	movs r1, #1

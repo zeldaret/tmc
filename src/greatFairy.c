@@ -5,23 +5,23 @@
 #include "greatFairy.h"
 
 // Main
-void GreatFairy(Entity* ent) {
+void GreatFairy(Entity* this) {
     u8 bVar1;
 
-    if (ent->action == 0) {
-        bVar1 = __modsi3((ent->entityType).parameter1, 11);
-        (ent->entityType).parameter2 = bVar1;
+    if (this->action == 0) {
+        bVar1 = __modsi3((this->entityType).parameter1, 11);
+        (this->entityType).parameter2 = bVar1;
     }
-    gGreatFairy[(ent->entityType).parameter2](ent);
+    GreatFairy_Main[(this->entityType).parameter2](this);
 }
 
 // Behaviors
-void sub_08086ABC(Entity* ent) {
-    gGreatFairyBehaviors[ent->action](ent);
+void GreatFairy_CallBehavior(Entity* this) {
+    GreatFairy_Behaviors[this->action](this);
 
     if ((gLinkEntity.y.HALF.HI - gRoomControls.roomOriginY) < 168) {
 
-        gRoomControls.cameraTarget = ent;
+        gRoomControls.cameraTarget = this;
         gRoomControls.unk5 = 2;
     } else {
         gRoomControls.cameraTarget = &gLinkEntity;
@@ -30,26 +30,23 @@ void sub_08086ABC(Entity* ent) {
 }
 
 // Init
-void sub_08086AF8(Entity* ent) {
-    sub_08087380();
-    ent->parameter3 = 0;
-    ent->cutsceneBeh.HWORD = 290;
+void GreatFairy_Init(Entity* this) {
+    GreatFairy_InitializeAnimation(this);
+    this->parameter3 = 0;
+    this->cutsceneBeh.HWORD = 290;
 }
 
-// Dormant update
-void sub_08086B10(Entity* ent) {
+// TODO: turn this into a switch statement
+void GreatFairy_DormantUpdate(Entity* this) {
     u16* pFrame;    // r1@2
     s32 frame;      // r1@4
     Entity* ripple; // r5@16
-    u32 event;
 
-    event = CheckRoomFlag(0);
-    if (event == 0) {
-        return;
-    }
-    pFrame = &ent->cutsceneBeh.HWORD;
+    if (!CheckRoomFlag(0)) return;
+
+    pFrame = &this->cutsceneBeh.HWORD;
     if (*pFrame != 0) {
-        *pFrame = *pFrame - 1;
+        --*pFrame;
     }
     frame = *pFrame;
 
@@ -84,340 +81,324 @@ void sub_08086B10(Entity* ent) {
     }
 
 LABEL_17:
-    ent->action = 2;
+    this->action = 2;
     return;
 LABEL_16:
-    ripple = sub_080873AC(ent, 6, 0);
+    ripple = GreatFairy_CreateForm(this, RIPPLE, 0);
     if (ripple) {
-        PositionRelative(ent, ripple, (s32)gGreatFairyRippleOffsets[ent->parameter3] << 16,
-                         (s32)gGreatFairyRippleOffsets[ent->parameter3 + 1] << 16);
-        ent->parameter3 += 2;
+        PositionRelative(this, ripple, (s32)GreatFairy_RippleOffsets[this->parameter3] << 16,
+                         (s32)GreatFairy_RippleOffsets[this->parameter3 + 1] << 16);
+        this->parameter3 += 2;
     }
 }
 
-// Create Great Fairy
-void sub_08086BA0(Entity* ent) {
-    Entity* gf;
+void GreatFairy_CreateBigRipple(Entity* this) {
+    Entity* ripple;
 
-    gf = sub_080873AC(ent, 7, 0);
-    if (gf != NULL) {
-        PositionRelative(ent, gf, 0, 0x80000);
-        ent->action = 3;
+    ripple = GreatFairy_CreateForm(this, BIGRIPPLE, 0);
+    if (ripple != NULL) {
+        PositionRelative(this, ripple, 0, 0x80000);
+        this->action = 3;
     }
 }
 
-// Great Fairy spawn-in update
-void sub_08086BC4(Entity* ent) {
+// Great Fairy spawning in update
+void GreatFairy_SpawningUpdate(Entity* this) {
     Entity* mini;
     u32 var;
 
     if (gRoomVars.greatFairyState & 1) {
-        mini = sub_080873AC(ent, 2, 0);
+        mini = GreatFairy_CreateForm(this, WAKE, 0); //???
         if (mini != NULL) {
-            CopyPosition(ent, mini);
+            CopyPosition(this, mini);
             DoFade(6, 4);
             PlaySFX(325);
-            ent->action = 4;
-            ent->parameter3 = 0x3c;
-            var = ent->spriteSettings.raw & ~0x3;
-            ent->spriteSettings.raw = (ent->spriteSettings.raw & var) | 1;
+            this->action = 4;
+            this->parameter3 = 0x3c;
+            var = this->spriteSettings.raw & ~0x3;
+            this->spriteSettings.raw = (this->spriteSettings.raw & var) | 1;
         }
     }
 }
 
-// Mini Great Fairy update
-void sub_08086C18(Entity* ent) {
+void GreatFairy_MiniUpdate(Entity* this) {
     Entity* target;
 
-    sub_08004274(ent);
-    if (ent->parameter3 != 0) {
-        ent->parameter3 = ent->parameter3 - 1;
+    GetNextFrame(this);
+    if (this->parameter3 != 0) {
+        --this->parameter3;
     } else {
-        target = sub_080873AC(ent, 1, 0);
+        target = GreatFairy_CreateForm(this, WINGS, 0);
         if (target != NULL) {
-            PositionRelative(ent, target, 0, -0x140000);
-            ent->action = 5;
-            ent->parameter3 = 120;
-            ent->field_0xf = 0;
+            PositionRelative(this, target, 0, -0x140000);
+            this->action = 5;
+            this->parameter3 = 120;
+            this->field_0xf = 0;
         }
     }
 }
 
-// Final Great Fairy update
-void sub_08086C58(Entity* ent) {
+// This is the great fairy's "normal" form
+void GreatFairy_FinalUpdate(Entity* this) {
     Entity* target;
 
-    if (ent->parameter3 != 0) {
-        ent->parameter3 = ent->parameter3 - 1;
+    if (this->parameter3 != 0) {
+        --this->parameter3;
     } else {
-        if ((ent->field_0xf == 0) && (target = sub_080873AC(ent, 9, 0), target != NULL)) {
-            PositionRelative(ent, target, 0, -0x4C0000);
-            target->parent = ent;
-            ent->field_0xf = 1;
+        if ((this->field_0xf == 0) && (target = GreatFairy_CreateForm(this, FORM9, 0), target != NULL)) {
+            PositionRelative(this, target, 0, -0x4C0000);
+            target->parent = this;
+            this->field_0xf = 1;
         }
     }
-    sub_08004274(ent);
+    GetNextFrame(this);
 }
 
-// Wings
-void sub_08086C9C(Entity* ent) {
-    gGreatFairyWings[ent->action](ent);
+void GreatFairy_WingsCallBehavior(Entity* this) {
+    GreatFairy_WingsBehaviors[this->action](this);
 }
 
-void sub_08086CB4(Entity* ent) {
-    sub_08087380();
-    ent->ticks.b0 = 5;
-    ent->spriteSettings.b.ss0 = 1;
-    ent->spriteOrder.b1 = 1;
+void GreatFairy_WingsInit(Entity* this) {
+    GreatFairy_InitializeAnimation(this);
+    this->ticks.b0 = 5;
+    this->spriteSettings.b.ss0 = 1;
+    this->spriteOrder.b1 = 1;
     gScreen.controls.windowOutsideControl = 3904;
     gScreen.controls.mosaicSize = 2057;
-    ent->nonPlanarMovement = 1024;
-    sub_0805EC9C(ent, 1024, 256, 0);
+    this->nonPlanarMovement = 1024;
+    sub_0805EC9C(this, 1024, 256, 0);
 }
 
-// Wings init
-void sub_08086D18(Entity* ent) {
+void GreatFairy_WingsUpdate(Entity* this) {
     s32 iVar1;
 
-    iVar1 = (u16)ent->nonPlanarMovement - 32;
-    ent->nonPlanarMovement = (short)iVar1;
+    iVar1 = this->nonPlanarMovement -= 32;
     if (iVar1 * 65536 >> 16 == 256) {
-        ent->action = 2;
-        sub_0805EC60(ent);
-        gRoomVars.greatFairyState = gRoomVars.greatFairyState | 32;
-        gUnk_02033280 = gUnk_02033280 | 4;
+        this->action = 2;
+        sub_0805EC60(this);
+        gRoomVars.greatFairyState |= 32;
+        gUnk_02033280 |= 4;
     } else {
-        sub_0805EC9C(ent, ent->nonPlanarMovement, 256, 0);
+        sub_0805EC9C(this, this->nonPlanarMovement, 256, 0);
     }
 }
 
-void nullsub_116(void) {
+void nullsub_116(Entity* this) {}
+
+//The wake that appears beneath the Great Fairy as she stands in the water
+void GreatFairy_WakeCallBehavior(Entity* this) {
+    GreatFairy_WakeBehaviors[this->action](this);
 }
 
-// Wake
-void sub_08086D6C(Entity* ent) {
-    gGreatFairyWake[ent->action](ent);
+void GreatFairy_WakeInit(Entity* this) {
+    GreatFairy_InitializeAnimation(this);
+    this->spriteSettings.b.ss0 = 1;
+    this->ticks.b0 = 6;
 }
 
-// Wake init
-void sub_08086D84(Entity* ent) {
-    sub_08087380();
-    ent->spriteSettings.b.ss0 = 1;
-    ent->ticks.b0 = 6;
+void GreatFairy_WakeUpdate(Entity* this) {
+    GetNextFrame(this);
 }
 
-// Wake update
-void sub_08086DAC(Entity* ent) {
-    sub_08004274(ent);
+//The miniature sprite that emerges from the water when Great Fairy is spawned
+void GreatFairy_MiniCallBehavior(Entity* this) {
+    GreatFairy_MiniBehaviors[this->action](this);
 }
 
-// Mini great fairy
-void sub_08086DB4(Entity* ent) {
-    gGreatFairyMini[ent->action](ent);
-}
+void GreatFairy_MiniInit(Entity* this) {
+    Entity* aff;
 
-// Mini great fairy init
-void sub_08086DCC(Entity* ent) {
-    Entity* wake;
-
-    wake = sub_080873AC(ent, 4, 0);
-    if (wake != NULL) {
-        CopyPosition(ent, wake);
-        wake->parent = ent;
-        sub_08087380(ent);
-        ent->spriteSettings.b.ss0 = 1;
-        ent->field_0xf = 0;
+    aff = GreatFairy_CreateForm(this, MINIAFFINE, 0);
+    if (aff != NULL) {
+        CopyPosition(this, aff);
+        aff->parent = this;
+        GreatFairy_InitializeAnimation(this);
+        this->spriteSettings.b.ss0 = 1;
+        this->field_0xf = 0;
     }
 }
 
-// Mini great fairy pre-drip
-void sub_08086E04(Entity* ent) {
+// Spawns a droplet of water once it reaches a certain height
+void GreatFairy_MiniRisingUpdate(Entity* this) {
     Entity* target;
 
-    sub_08004274(ent);
-    ent->height.WORD = ent->height.WORD + -0x8000;
-    if (ent->height.HALF.HI == -20) {
-        ent->action = 2;
+    GetNextFrame(this);
+    this->height.WORD -= 0x8000;
+    if (this->height.HALF.HI == -20) {
+        this->action = 2;
         PlaySFX(321);
     } else {
-        if (((ent->height.HALF.HI == -10) && (ent->field_0xf == 0)) &&
-            (target = sub_080873AC(ent, 5, 0), target != NULL)) {
-            PositionRelative(ent, target, 0, 0x40000);
-            ent->field_0xf = 1;
+        if (((this->height.HALF.HI == -10) && (this->field_0xf == 0)) &&
+            (target = GreatFairy_CreateForm(this, DROPLET, 0), target != NULL)) {
+            PositionRelative(this, target, 0, 0x40000);
+            this->field_0xf = 1;
         }
     }
 }
 
-void sub_08086E64(Entity* ent) {
-    sub_08004274(ent);
-    sub_080873D0(ent);
+// Deletes itself
+void GreatFairy_MiniRemoveMe(Entity* this) {
+    GetNextFrame(this);
+    sub_080873D0(this);
     if ((gRoomVars.greatFairyState & 1) != 0) {
-        DeleteEntity(ent);
+        DeleteEntity(this);
     }
 }
 
-// Mini great fairy behaviors
-void sub_08086E8C(Entity* ent) {
-    gGreatFairyMiniAnim[ent->action](ent);
+//Same as mini Great Fairy except it is able to stretch
+void GreatFairy_MiniAffineCallBehavior(Entity* this) {
+    GreatFairy_MiniAffineBehaviors[this->action](this);
 }
 
-void sub_08086EA4(Entity* ent) {
-    sub_08087380();
-    ent->ticks.b0 = 6;
-    ent->spriteSettings.b.ss0 = 1;
+void GreatFairy_MiniAffineInit(Entity* this) {
+    GreatFairy_InitializeAnimation(this);
+    this->ticks.b0 = 6;
+    this->spriteSettings.b.ss0 = 1;
 }
 
-// Mini great fairy translate
-void sub_08086ED0(Entity* ent) {
-    Entity* parent = ent->parent;
+// Getting ready for affine transformation
+void GreatFairy_MiniAffineInit2(Entity* this) {
+    Entity* parent = this->parent;
 
-    CopyPosition(parent, ent);
+    CopyPosition(parent, this);
 
-    if (ent->height.HALF.HI == -20) {
-        ent->action = 2;
-        ent->parameter3 = 90;
-        ent->nonPlanarMovement = 4096;
-        ent->spriteOrder.b0 = 3;
-        sub_0805EC9C(ent, 256, 256, 0);
+    if (this->height.HALF.HI == -20) {
+        this->action = 2;
+        this->parameter3 = 90;
+        this->nonPlanarMovement = 4096;
+        this->spriteOrder.b0 = 3;
+        sub_0805EC9C(this, 256, 256, 0);
     }
 }
 
 // Mini great fairy stretch
-void sub_08086F10(Entity* ent) {
+void GreatFairy_MiniAffineUpdate(Entity* this) {
     s32 iVar2;
 
-    if (--ent->parameter3 == 0) {
-        gRoomVars.greatFairyState = gRoomVars.greatFairyState | 1;
-        ent->action = 3;
-        sub_0805EC60(ent);
+    if (--this->parameter3 == 0) {
+        gRoomVars.greatFairyState |= 1;
+        this->action = 3;
+        sub_0805EC60(this);
     } else {
-        iVar2 = (u16)ent->nonPlanarMovement - 24;
-        ent->nonPlanarMovement = iVar2;
-        sub_0805EC9C(ent, 256, iVar2 * 65536 >> 20, 0);
+        iVar2 = this->nonPlanarMovement -= 24;
+        sub_0805EC9C(this, 256, iVar2 * 65536 >> 20, 0);
     }
 }
 
-// Drip
-void sub_08086F54(Entity* ent) {
-    gGreatFairyDrip[ent->action](ent);
+//The droplet that falls off of the mini Great Fairy emerging from the water
+void GreatFairy_DropletCallBehavior(Entity* this) {
+    GreatFairy_DropletBehaviors[this->action](this);
 }
 
-// Drip init
-void sub_08086F6C(Entity* ent) {
-    sub_08087380();
-    ent->spriteSettings.b.ss0 = 1;
-    ent->height.HALF.HI = 0;
-    ent->ticks.b0 = 5;
+
+void GreatFairy_DropletInit(Entity* this) {
+    GreatFairy_InitializeAnimation(this);
+    this->spriteSettings.b.ss0 = 1;
+    this->height.HALF.HI = 0;
+    this->ticks.b0 = 5;
     PlaySFX(320);
 }
 
-// Drip update
-void sub_08086FA0(Entity* ent) {
-    sub_08004274(ent);
-    if ((ent->frames.all & 128) != 0) {
-        DeleteEntity(ent);
+void GreatFairy_DropletUpdate(Entity* this) {
+    GetNextFrame(this);
+    if ((this->frames.all & 128) != 0) {
+        DeleteEntity(this);
     }
 }
 
-// Ripple
-void sub_08086FC0(Entity* ent) {
-    gGreatFairyRipple[ent->action](ent);
+// Ripples that appear before the great fairy emerges
+void GreatFairy_RippleCallBehavior(Entity* this) {
+    GreatFairy_RippleBehaviors[this->action](this);
 }
 
-// Ripple init
-void sub_08086FD8(Entity* ent) {
-    sub_08087380();
-    ent->spriteSettings.b.ss0 = 1;
-    ent->ticks.b0 = 6;
+void GreatFairy_RippleInit(Entity* this) {
+    GreatFairy_InitializeAnimation(this);
+    this->spriteSettings.b.ss0 = 1;
+    this->ticks.b0 = 6;
 }
 
-// Ripple update
-void sub_08087000(Entity* ent) {
+void GreatFairy_RippleUpdate(Entity* this) {
     if ((gRoomVars.greatFairyState & 2) != 0) {
-        DeleteEntity(ent);
+        DeleteEntity(this);
     } else {
-        sub_08004274(ent);
+        GetNextFrame(this);
     }
 }
 
-// Big ripple
-void sub_08087024(Entity* ent) {
-    gGreatFairyBigRipple[ent->action](ent);
+// Big ripple that appears in the spot where the fairy emerges from
+void GreatFairy_BigRippleCallBehavior(Entity* this) {
+    GreatFairy_BigRippleBehaviors[this->action](this);
 }
 
-// Big ripple init
-void sub_0808703C(Entity* ent) {
-    sub_08087380();
-    ent->parameter3 = 120;
-    ent->spriteSettings.b.ss0 = 1;
-    ent->ticks.b0 = 5;
+void GreatFairy_BigRippleInit(Entity* this) {
+    GreatFairy_InitializeAnimation(this);
+    this->parameter3 = 120;
+    this->spriteSettings.b.ss0 = 1;
+    this->ticks.b0 = 5;
     PlaySFX(249);
 }
 
-// Big ripple update
-void sub_0808706C(Entity* ent) {
+void GreatFairy_BigRippleUpdate(Entity* this) {
     Entity* target;
 
-    sub_08004274(ent);
-    if (ent->parameter3 != 0) {
-        ent->parameter3--;
+    GetNextFrame(this);
+    if (this->parameter3 != 0) {
+        --this->parameter3;
     } else {
-        target = sub_080873AC(ent, 3, 0);
+        target = GreatFairy_CreateForm(this, MINI, 0);
         if (target != NULL) {
-            PositionRelative(ent, target, 0, -0x80000);
-            gRoomVars.greatFairyState = gRoomVars.greatFairyState | 2;
-            DeleteEntity(ent);
+            PositionRelative(this, target, 0, -0x80000);
+            gRoomVars.greatFairyState |= 2;
+            DeleteEntity(this);
         }
     }
 }
 
-// Energy
-void GreatFairyEnergy(Entity* ent) {
-    gGreatFairyEnergy[ent->action](ent);
+// Energy bands that surround the mini Great Fairy as it is transforming
+void GreatFairy_EnergyCallBehavior(Entity* this) {
+    GreatFairy_EnergyBehaviors[this->action](this);
 }
 
-// Energy init
-void sub_080870CC(Entity* ent) {
-    sub_08087380();
-    ent->spriteSettings.b.ss0 = 1;
-    ent->ticks.b0 = 5;
+void GreatFairy_EnergyInit(Entity* this) {
+    GreatFairy_InitializeAnimation(this);
+    this->spriteSettings.b.ss0 = 1;
+    this->ticks.b0 = 5;
 }
 
-// Energy update
-void sub_080870F4(Entity* ent) {
-    sub_08004274(ent);
-    if ((ent->frames.all & 128) != 0) {
-        DeleteEntity(ent);
+void GreatFairy_EnergyUpdate(Entity* this) {
+    GetNextFrame(this);
+    if ((this->frames.all & 128) != 0) {
+        DeleteEntity(this);
     }
 }
 
-void sub_08087114(Entity* ent) {
-    if ((ent->entityType).parameter2 == 0) {
-        gGreatFairyInteract1[ent->action](ent);
+void sub_08087114(Entity* this) {
+    if ((this->entityType).parameter2 == 0) {
+        GreatFairy_Form1Behaviors[this->action](this);
     } else {
-        gGreatFairyInteract2[ent->action](ent);
-        sub_08004274(ent);
+        GreatFairy_Form2Behaviors[this->action](this);
+        GetNextFrame(this);
     }
 }
 
 #ifdef NON_MATCHING
-void sub_08087150(Entity* ent) {
+void sub_08087150(Entity* this) {
     u8 var;
     u32 var2;
 
-    sub_08087380(ent);
-    ent->spriteSettings.b.ss0 = 1;
-    ent->spriteOrientation &= 63;
-    ent->spriteOrder.b0 = 0;
-    ent->ticks.b0 = 3;
-    ent->nonPlanarMovement = 128;
-    ent->direction = 16;
+    GreatFairy_InitializeAnimation(this);
+    this->spriteSettings.b.ss0 = 1;
+    this->spriteOrientation &= 63;
+    this->spriteOrder.b0 = 0;
+    this->ticks.b0 = 3;
+    this->nonPlanarMovement = 128;
+    this->direction = 16;
     var = gUnk_0812079C[0];
-    ent->palette = ((var & 15) * 16) | ent->direction;
+    this->palette = ((var & 15) * 16) | this->direction;
 }
 #else
 NAKED
-void sub_08087150(Entity* ent) {
+void sub_08087150(Entity* this) {
     asm(".include \"asm/greatFairy/sub_08087150.inc\"");
 }
 #endif
@@ -425,89 +406,178 @@ void sub_08087150(Entity* ent) {
 void nullsub_516() {
 }
 
-void sub_080871A8(Entity* ent) {
+void sub_080871A8(Entity* this) {
     u32 bVar1;
 
-    bVar1 = ent->parameter3 -= 1;
-
-    if (bVar1 == 0) {
-        ent->action = 3;
-        ent->parameter3 = 60;
-        gRoomVars.greatFairyState = gRoomVars.greatFairyState | 4;
+    if (--this->parameter3 == 0) {
+        this->action = 3;
+        this->parameter3 = 60;
+        gRoomVars.greatFairyState |= 4;
     }
 }
 
-void sub_080871D0(Entity* ent) {
-    u8 bVar1;
+void sub_080871D0(Entity* this) {
 
-    bVar1 = ent->parameter3 -= 1;
-    if (bVar1 == 0) {
-        gRoomVars.greatFairyState = gRoomVars.greatFairyState | 8;
-        DeleteEntity(ent);
+    if (--this->parameter3 == 0) {
+        gRoomVars.greatFairyState |= 8;
+        DeleteEntity(this);
     }
 }
 
 #ifdef NON_MATCHING
-void sub_080871F8(Entity* ent) {
+void sub_080871F8(Entity* this) {
     s32 bVar1;
 
-    if (((ent->attachedEntity->x.HALF.HI == (ent->x).HALF.HI) &&
-         ((Entity*)ent->attachedEntity)->y.HALF.HI + -32 == (ent->y).HALF.HI)) {
-        ent->action = 2;
+    if (((this->attachedEntity->x.HALF.HI == (this->x).HALF.HI) &&
+         ((Entity*)this->attachedEntity)->y.HALF.HI + -32 == (this->y).HALF.HI)) {
+        this->action = 2;
     } else {
-        bVar1 = (ent->x).HALF.HI;
+        bVar1 = (this->x).HALF.HI;
         sub_080045D4();
-        ent->direction = bVar1;
-        sub_0806F69C(ent);
+        this->direction = bVar1;
+        sub_0806F69C(this);
     }
 }
 #else
 NAKED
-void sub_080871F8(Entity* ent) {
+void sub_080871F8(Entity* this) {
     asm(".include \"asm/greatFairy/sub_080871F8.inc\"");
 }
 #endif
 
-void sub_08087240(Entity* ent) {
+void sub_08087240(Entity* this) {
     if ((gRoomVars.greatFairyState & 4) != 0) {
-        ent->action = 3;
-        ent->parameter3 = 20;
-        ent->direction = 16;
+        this->action = 3;
+        this->parameter3 = 20;
+        this->direction = 16;
     }
 }
 
-void sub_08087264(Entity* ent) {
-    if (ent->parameter3 != 0) {
-        ent->parameter3--;
-        sub_0806F69C(ent);
+void sub_08087264(Entity* this) {
+    if (this->parameter3 != 0) {
+        this->parameter3--;
+        sub_0806F69C(this);
     }
 }
 
-void sub_0808727C(Entity* ent) {
+void sub_0808727C(Entity* this) {
 
-    if (--ent->parameter3 == 0) {
-        DeleteEntity(ent);
+    if (--this->parameter3 == 0) {
+        DeleteEntity(this);
     }
 }
 
-void sub_08087294(Entity* ent) {
-    gUnk_081207A4[ent->action](ent);
+void sub_08087294(Entity* this) {
+    gUnk_081207A4[this->action](this);
 }
 
 #ifdef NON_MATCHING
-void sub_080872AC(Entity* ent) {
-    ent->spriteSettings.b.ss0 = 1;
-    ent->spriteOrientation.b2 = 1;
-    ent->spriteOrder.b0 = 0;
-    ent->field_0x68 = (u16)(ent->x).HALF.HI;
-    ent->field_0x6a = (u16)(ent->y).HALF.HI;
-    ent->direction = (u8)Random() & 0x1F;
-    ent->nonPlanarMovement = 32;
-    sub_08087380(ent);
+void sub_080872AC(Entity* this) {
+    this->spriteSettings.b.ss0 = 1;
+    this->spriteOrientation.b2 = 1;
+    this->spriteOrder.b0 = 0;
+    this->field_0x68 = (u16)(this->x).HALF.HI;
+    this->field_0x6a = (u16)(this->y).HALF.HI;
+    this->direction = (u8)Random() & 0x1F;
+    this->nonPlanarMovement = 32;
+    GreatFairy_InitializeAnimation(this);
 }
 #else
 NAKED
-void sub_080872AC(Entity* ent) {
+void sub_080872AC(Entity* this) {
     asm(".include \"asm/greatFairy/sub_080872AC.inc\"");
 }
 #endif
+
+//clang-format off
+void (*const GreatFairy_Main[])(Entity*) = {
+    GreatFairy_CallBehavior, 
+    GreatFairy_WingsCallBehavior,
+    GreatFairy_WakeCallBehavior,
+    GreatFairy_MiniCallBehavior,
+    GreatFairy_MiniAffineCallBehavior,     
+    GreatFairy_DropletCallBehavior, 
+    GreatFairy_RippleCallBehavior, 
+    GreatFairy_BigRippleCallBehavior,
+    GreatFairy_EnergyCallBehavior, 
+    sub_08087114, 
+    sub_08087294 
+};
+
+void (*const GreatFairy_Behaviors[])(Entity*) = {
+    GreatFairy_Init,
+    GreatFairy_DormantUpdate,
+    GreatFairy_CreateBigRipple,
+    GreatFairy_SpawningUpdate,
+    GreatFairy_MiniUpdate,
+    GreatFairy_FinalUpdate
+};
+
+const s16 GreatFairy_RippleOffsets[10] = {
+       0,   0,
+     -32,  -8,
+      16,  20,
+      24, -12,
+     -16,  24
+};
+
+
+void (*const GreatFairy_WingsBehaviors[])(Entity*) =  {
+    GreatFairy_WingsInit,
+    GreatFairy_WingsUpdate,
+    nullsub_116
+};
+
+void (*const GreatFairy_WakeBehaviors[])(Entity*) = {
+    GreatFairy_WakeInit,
+    GreatFairy_WakeUpdate
+};
+
+void (*const GreatFairy_MiniBehaviors[])(Entity*) = {
+    GreatFairy_MiniInit,
+    GreatFairy_MiniRisingUpdate,
+    GreatFairy_MiniRemoveMe
+};
+
+void (*const GreatFairy_MiniAffineBehaviors[])(Entity*) = {
+    GreatFairy_MiniAffineInit,
+    GreatFairy_MiniAffineInit2,
+    GreatFairy_MiniAffineUpdate,
+    DeleteEntity
+};
+
+void (*const GreatFairy_DropletBehaviors[])(Entity*) = {
+    GreatFairy_DropletInit,
+    GreatFairy_DropletUpdate
+};
+
+void (*const GreatFairy_RippleBehaviors[])(Entity*) = {
+    GreatFairy_RippleInit,
+    GreatFairy_RippleUpdate
+};
+
+void (*const GreatFairy_BigRippleBehaviors[])(Entity*) = {
+    GreatFairy_BigRippleInit,
+    GreatFairy_BigRippleUpdate
+};
+
+void (*const GreatFairy_EnergyBehaviors[])(Entity*) = {
+    GreatFairy_EnergyInit,
+    GreatFairy_EnergyUpdate
+};
+void (*const GreatFairy_Form1Behaviors[])(Entity*) = {
+    sub_08087150,
+    nullsub_516,
+    sub_080871A8,
+    sub_080871D0
+};
+
+void (*const GreatFairy_Form2Behaviors[])(Entity*) = {
+    sub_08087150,
+    sub_080871F8,
+    sub_08087240,
+    sub_08087264,
+    sub_0808727C
+};
+
+//clang-format on

@@ -162,7 +162,7 @@ _0801FD28:
 sub_0801FD2C: @ 0x0801FD2C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -211,7 +211,7 @@ sub_0801FD80: @ 0x0801FD80
 	adds r4, r0, #0
 	bl sub_0801FED4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r1, r4, #0
 	adds r1, #0x74
 	ldrh r0, [r1]
@@ -238,7 +238,7 @@ sub_0801FDB4: @ 0x0801FDB4
 	adds r4, r0, #0
 	bl sub_0801FED4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

@@ -85,7 +85,7 @@ _08067EB4:
 	cmp r0, #0
 	bne _08067EC4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08067EC4:
 	adds r1, r4, #0
 	adds r1, #0x39
@@ -263,7 +263,7 @@ _0806801A:
 	cmp r1, #0xff
 	beq _0806802C
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806802C:
 	adds r1, r5, #0
 	adds r1, #0x5b
@@ -582,6 +582,6 @@ MountainMinish_Fusion: @ 0x08068270
 _080682A4: .4byte gUnk_08111358
 _080682A8:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080682AE:
 	pop {r4, pc}

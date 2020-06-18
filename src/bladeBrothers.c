@@ -91,7 +91,7 @@ void sub_08068A4C(Entity* this) {
     }
     iVar2 = sub_0806F078(this, uVar1);
     if (iVar2 == 0) {
-        sub_08004274(this);
+        GetNextFrame(this);
     }
     if (this->interactType != 0) {
         this->interactType = 0;
@@ -116,7 +116,7 @@ void sub_08068AA4(Entity* this) {
 
 void sub_08068ADC(Entity* this) {
     if (gUnk_030010A0.unk == 2) {
-        sub_08004274(this);
+        GetNextFrame(this);
     }
     sub_0806FD3C(this);
 }

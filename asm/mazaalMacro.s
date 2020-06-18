@@ -132,7 +132,7 @@ _08034D48: .4byte gRoomControls
 sub_08034D4C: @ 0x08034D4C
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r6, r5, #0
 	adds r6, #0x78
 	ldrh r0, [r6]

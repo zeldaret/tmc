@@ -1683,7 +1683,7 @@ sub_08034B0C: @ 0x08034B0C
 	b _08034B34
 _08034B1A:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1759,7 +1759,7 @@ _08034B9C: .4byte gUnk_080CED84
 sub_08034BA0: @ 0x08034BA0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

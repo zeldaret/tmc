@@ -204,6 +204,6 @@ HurdyGurdyMan_Fusion: @ 0x0806E458
 _0806E494: .4byte gUnk_081144F0
 _0806E498:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806E49E:
 	pop {r4, pc}

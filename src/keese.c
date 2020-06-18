@@ -12,7 +12,7 @@ extern void sub_0804A720(Entity*);
 extern u32 Random();
 extern void UpdateSpriteOrderAndFlip(Entity*);
 extern void sub_08021EF0(Entity*);
-extern void sub_08004274(Entity*);
+extern void GetNextFrame(Entity*);
 extern void sub_080AEFB4(Entity*);
 extern void sub_08021F24(Entity*);
 extern u32 sub_0806FCB8(Entity*, s32, s32, u32);
@@ -91,7 +91,7 @@ void sub_08021E4C(Entity *this)
   if (this->itemCooldown != 0) {
     (this->itemCooldown)--;
   }
-  sub_08004274(this);
+  GetNextFrame(this);
   if ((this->frames.b.f3) != 0) {
     sub_08021F24(this);
   }

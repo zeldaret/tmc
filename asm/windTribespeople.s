@@ -454,6 +454,6 @@ WindTribespeople_Fusion: @ 0x0806CA94
 _0806CAD0: .4byte gUnk_08113A1C
 _0806CAD4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806CADA:
 	pop {r4, pc}

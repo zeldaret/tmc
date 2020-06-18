@@ -227,7 +227,7 @@ _0806ADEA:
 	cmp r0, #0xff
 	beq _0806ADFA
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806ADFA:
 	pop {r4, r5, pc}
 
@@ -735,6 +735,6 @@ TownMinish_Fusion: @ 0x0806B184
 _0806B1C0: .4byte gUnk_08112674
 _0806B1C4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806B1CA:
 	pop {r4, pc}

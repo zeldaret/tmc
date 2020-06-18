@@ -503,7 +503,7 @@ _080285EE:
 	bl sub_080AEF88
 _080285FA:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08028600:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -856,7 +856,7 @@ _08028890:
 	adds r0, r4, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 _080288A0: .4byte gUnk_080CC944

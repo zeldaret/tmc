@@ -47,4 +47,16 @@
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) >= (b) ? (a) : (b))
 
+struct Coords16
+{
+    s16 x;
+    s16 y;
+} PACKED;
+
+struct UCoords16
+{
+    u16 x;
+    u16 y;
+};
+
 #endif // GUARD_GLOBAL_H

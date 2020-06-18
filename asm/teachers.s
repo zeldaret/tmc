@@ -235,6 +235,6 @@ Teachers_Fusion: @ 0x0806C738
 _0806C774: .4byte gUnk_08113910
 _0806C778:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806C77E:
 	pop {r4, pc}

@@ -132,7 +132,7 @@ _08092D92:
 	cmp r0, #0
 	beq _08092E84
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r6, _08092E04 @ =gLinkState
 	ldr r0, [r6, #0x30]
 	movs r3, #0x80
