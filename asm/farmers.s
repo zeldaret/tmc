@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806BBE4
-sub_0806BBE4: @ 0x0806BBE4
+	thumb_func_start Farmers
+Farmers: @ 0x0806BBE4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -74,8 +74,8 @@ sub_0806BC58: @ 0x0806BC58
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806BC64
-sub_0806BC64: @ 0x0806BC64
+	thumb_func_start Farmers_Head
+Farmers_Head: @ 0x0806BC64
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -160,8 +160,8 @@ sub_0806BCE8: @ 0x0806BCE8
 	.align 2, 0
 _0806BCF8: .4byte gUnk_08113158
 
-	thumb_func_start sub_0806BCFC
-sub_0806BCFC: @ 0x0806BCFC
+	thumb_func_start Farmers_Fusion
+Farmers_Fusion: @ 0x0806BCFC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

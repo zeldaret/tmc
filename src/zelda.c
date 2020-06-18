@@ -31,7 +31,7 @@ extern void (*gUnk_08110BD8[])(Entity* ent);
 extern u8 gUnk_02033280[];
 extern u16 gUnk_08110BE0[];
 
-void sub_08066CB4(Entity* ent) {
+void Zelda(Entity* ent) {
     gUnk_08110BD8[ent->action](ent);
 }
 

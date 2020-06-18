@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_08062E20
-sub_08062E20: @ 0x08062E20
+	thumb_func_start Wheaton
+Wheaton: @ 0x08062E20
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

@@ -829,8 +829,8 @@ sub_08067DDC: @ 0x08067DDC
 	.align 2, 0
 _08067DF8: .4byte gUnk_08110EF0
 
-	thumb_func_start sub_08067DFC
-sub_08067DFC: @ 0x08067DFC
+	thumb_func_start Cat_Fusion
+Cat_Fusion: @ 0x08067DFC
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

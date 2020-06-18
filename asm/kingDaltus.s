@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_080665E4
-sub_080665E4: @ 0x080665E4
+	thumb_func_start KingDaltus
+KingDaltus: @ 0x080665E4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -227,8 +227,8 @@ _0806676A:
 	.align 2, 0
 _0806677C: .4byte gUnk_081104F8
 
-	thumb_func_start sub_08066780
-sub_08066780: @ 0x08066780
+	thumb_func_start KingDaltus_Fusion
+KingDaltus_Fusion: @ 0x08066780
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

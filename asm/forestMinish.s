@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0805FFD8
-sub_0805FFD8: @ 0x0805FFD8
+	thumb_func_start ForestMinish
+ForestMinish: @ 0x0805FFD8
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r5, [r4, #0xc]
@@ -110,8 +110,8 @@ sub_08060090: @ 0x08060090
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_080600A8
-sub_080600A8: @ 0x080600A8
+	thumb_func_start ForestMinish_Head
+ForestMinish_Head: @ 0x080600A8
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -523,8 +523,8 @@ _080603B0:
 _080603B2:
 	pop {r4, pc}
 
-	thumb_func_start sub_080603B4
-sub_080603B4: @ 0x080603B4
+	thumb_func_start ForestMinish_Fusion
+ForestMinish_Fusion: @ 0x080603B4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

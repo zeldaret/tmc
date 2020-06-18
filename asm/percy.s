@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806B3AC
-sub_0806B3AC: @ 0x0806B3AC
+	thumb_func_start Percy
+Percy: @ 0x0806B3AC
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -326,8 +326,8 @@ sub_0806B60C: @ 0x0806B60C
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806B624
-sub_0806B624: @ 0x0806B624
+	thumb_func_start Percy_Fusion
+Percy_Fusion: @ 0x0806B624
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

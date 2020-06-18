@@ -7,7 +7,7 @@ extern Entity gLinkEntity;
 extern void (*gUnk_0810FF5C[])(Entity* this);
 extern void (*gUnk_0810FF64[])(Entity* this);
 
-void sub_0806581C(Entity* this) {
+void Malon(Entity* this) {
     if (this->flags & 0x2) {
         gUnk_0810FF64[this->action](this);
     } else {
@@ -69,7 +69,7 @@ void sub_08065914(Entity* this) {
     }
 }
 
-void sub_08065960(Entity* this) {
+void Malon_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
         this->spriteSettings.b.ss0 = 1;

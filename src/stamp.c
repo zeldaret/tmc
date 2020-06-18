@@ -44,7 +44,7 @@ extern void (*gStampBehaviors2[2])(Entity*);
 extern TextBox gTextBox;
 extern u32 gUnk_0810C2E4;
 
-void sub_08062B98(Entity* ent) {
+void Stamp(Entity* ent) {
     if ((ent->flags & 2) != 0) {
         gStampBehaviors2[ent->action](ent);
     } else {

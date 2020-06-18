@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08063740
-sub_08063740: @ 0x08063740
+	thumb_func_start SittingPerson
+SittingPerson: @ 0x08063740
 	push {lr}
 	ldr r2, _08063754 @ =gUnk_0810CBD8
 	ldrb r1, [r0, #0xc]
@@ -295,8 +295,8 @@ _08063958:
 _0806396C: .4byte gUnk_02002A40
 _08063970: .4byte gUnk_0810CC08
 
-	thumb_func_start sub_08063974
-sub_08063974: @ 0x08063974
+	thumb_func_start SittingPerson_Head
+SittingPerson_Head: @ 0x08063974
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r5, [r4, #0xa]
@@ -351,8 +351,8 @@ sub_080639D0: @ 0x080639D0
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_080639E8
-sub_080639E8: @ 0x080639E8
+	thumb_func_start SittingPerson_Fusion
+SittingPerson_Fusion: @ 0x080639E8
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

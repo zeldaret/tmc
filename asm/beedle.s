@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080632A8
-sub_080632A8: @ 0x080632A8
+	thumb_func_start Beedle
+Beedle: @ 0x080632A8
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -174,8 +174,8 @@ sub_080633C8: @ 0x080633C8
 _080633DE:
 	pop {r4, pc}
 
-	thumb_func_start sub_080633E0
-sub_080633E0: @ 0x080633E0
+	thumb_func_start Beedle_Head
+Beedle_Head: @ 0x080633E0
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a

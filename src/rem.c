@@ -16,7 +16,7 @@ extern void (*gUnk_08112278[])(Entity*);
 
 extern void gUnk_08012F0C;
 
-void sub_0806A358(Entity* this) {
+void Rem(Entity* this) {
     gUnk_08112260[this->entityType.parameter1](this);
 }
 

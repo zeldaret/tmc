@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806E710
-sub_0806E710: @ 0x0806E710
+	thumb_func_start CuccoChick
+CuccoChick: @ 0x0806E710
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0806E72C @ =gUnk_081145D4
@@ -211,8 +211,8 @@ sub_0806E884: @ 0x0806E884
 	.align 2, 0
 _0806E890: .4byte 0x00000DB6
 
-	thumb_func_start sub_0806E894
-sub_0806E894: @ 0x0806E894
+	thumb_func_start CuccoChick_Fusion
+CuccoChick_Fusion: @ 0x0806E894
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

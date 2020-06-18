@@ -10,7 +10,7 @@ extern void sub_0807DD50(Entity*);
 extern void sub_0807DD94(Entity*, u32);
 extern void DoExitTransition(u32*);
 
-void sub_0806C550(Entity* param_1)
+void Emma(Entity* param_1)
 
 {
     if (param_1->action == 0) {

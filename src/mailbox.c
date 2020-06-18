@@ -10,7 +10,7 @@ extern void CreateFx();
 
 extern void (*gMailboxBehaviors[4])(Entity*);
 
-void sub_080631E8(Entity* this) {
+void Mailbox(Entity* this) {
     gMailboxBehaviors[this->action](this);
 
     if (this->action != 0) {

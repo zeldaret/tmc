@@ -23,7 +23,7 @@ extern u32 Random();
 extern u32 UpdateFuseInteraction(Entity*);
 extern LinkState gLinkState;
 
-void sub_08068F98(Entity* ent) {
+void Cow(Entity* ent) {
     gUnk_08111914[ent->action](ent);
     sub_0806ED78(ent);
     sub_0806920C(ent);
@@ -228,7 +228,7 @@ void sub_0806924C(Entity* ent) {
     }
 }
 
-void sub_080692A0(Entity* ent) {
+void Cow_Fusion(Entity* ent) {
     if (ent->action == 0) {
         ent->action++;
         ent->spriteSettings.b.ss0 = 1;

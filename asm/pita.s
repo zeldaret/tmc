@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08062E60
-sub_08062E60: @ 0x08062E60
+	thumb_func_start Pita
+Pita: @ 0x08062E60
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

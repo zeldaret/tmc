@@ -10,7 +10,7 @@ void sub_08065AA4(Entity*);
 extern void (*gUnk_0811006C[])(Entity*);
 extern u32 gUnk_08110080[];
 
-void sub_08065990(Entity* this) {
+void Epona(Entity* this) {
     gUnk_0811006C[this->action](this);
     sub_08065A64(this);
     sub_0806ED78(this);
@@ -88,7 +88,7 @@ void sub_08065AA4(Entity* this) {
     }
 }
 
-void sub_08065B1C(Entity* this) {
+void Epona_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
         this->spriteSettings.b.ss0 = 1;

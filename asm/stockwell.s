@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08065054
-sub_08065054: @ 0x08065054
+	thumb_func_start Stockwell
+Stockwell: @ 0x08065054
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0806507C @ =gUnk_0810FDA4

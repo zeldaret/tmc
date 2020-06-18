@@ -241,8 +241,8 @@ sub_0806ADFC: @ 0x0806ADFC
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806AE0C
-sub_0806AE0C: @ 0x0806AE0C
+	thumb_func_start TownMinish_Head
+TownMinish_Head: @ 0x0806AE0C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -702,8 +702,8 @@ _0806B16A:
 _0806B17C: .4byte gUnk_02002A40
 _0806B180: .4byte gUnk_08112C60
 
-	thumb_func_start sub_0806B184
-sub_0806B184: @ 0x0806B184
+	thumb_func_start TownMinish_Fusion
+TownMinish_Fusion: @ 0x0806B184
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

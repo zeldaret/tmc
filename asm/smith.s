@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08065FC0
-sub_08065FC0: @ 0x08065FC0
+	thumb_func_start Smith
+Smith: @ 0x08065FC0
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -120,8 +120,8 @@ _080660A0:
 	.align 2, 0
 _080660A4: .4byte gUnk_08110380
 
-	thumb_func_start sub_080660A8
-sub_080660A8: @ 0x080660A8
+	thumb_func_start Smith_Head
+Smith_Head: @ 0x080660A8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r0, #0x5a
@@ -390,8 +390,8 @@ sub_08066288: @ 0x08066288
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_08066298
-sub_08066298: @ 0x08066298
+	thumb_func_start Smith_Fusion
+Smith_Fusion: @ 0x08066298
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

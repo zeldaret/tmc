@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806C39C
-sub_0806C39C: @ 0x0806C39C
+	thumb_func_start Mama
+Mama: @ 0x0806C39C
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r5, [r4, #0xc]
@@ -117,8 +117,8 @@ _0806C474:
 _0806C476:
 	pop {r4, pc}
 
-	thumb_func_start sub_0806C478
-sub_0806C478: @ 0x0806C478
+	thumb_func_start Mama_Head
+Mama_Head: @ 0x0806C478
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -196,8 +196,8 @@ sub_0806C4F8: @ 0x0806C4F8
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806C510
-sub_0806C510: @ 0x0806C510
+	thumb_func_start Mama_Fusion
+Mama_Fusion: @ 0x0806C510
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

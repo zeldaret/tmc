@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806B9D0
-sub_0806B9D0: @ 0x0806B9D0
+	thumb_func_start MoblinLady
+MoblinLady: @ 0x0806B9D0
 	push {lr}
 	adds r1, r0, #0
 	ldrb r0, [r1, #0xc]

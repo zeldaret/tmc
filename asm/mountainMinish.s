@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08067E2C
-sub_08067E2C: @ 0x08067E2C
+	thumb_func_start MountainMinish
+MountainMinish: @ 0x08067E2C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -484,8 +484,8 @@ sub_080681D8: @ 0x080681D8
 	bx lr
 	.align 2, 0
 
-	thumb_func_start sub_080681E0
-sub_080681E0: @ 0x080681E0
+	thumb_func_start MountainMinish_Head
+MountainMinish_Head: @ 0x080681E0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r0, #0x5a
@@ -552,8 +552,8 @@ _08068268:
 	bl sub_0807000C
 	pop {r4, r5, pc}
 
-	thumb_func_start sub_08068270
-sub_08068270: @ 0x08068270
+	thumb_func_start MountainMinish_Fusion
+MountainMinish_Fusion: @ 0x08068270
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

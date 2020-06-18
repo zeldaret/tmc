@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806CDA8
-sub_0806CDA8: @ 0x0806CDA8
+	thumb_func_start MayorHagen
+MayorHagen: @ 0x0806CDA8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0xc]
@@ -164,8 +164,8 @@ _0806CED6:
 	.align 2, 0
 _0806CEE4: .4byte gUnk_08113F48
 
-	thumb_func_start sub_0806CEE8
-sub_0806CEE8: @ 0x0806CEE8
+	thumb_func_start MayorHagen_Fusion
+MayorHagen_Fusion: @ 0x0806CEE8
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

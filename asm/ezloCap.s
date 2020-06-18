@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806D86C
-sub_0806D86C: @ 0x0806D86C
+	thumb_func_start EzloCap
+EzloCap: @ 0x0806D86C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -194,8 +194,8 @@ _0806D9C6:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806D9D0
-sub_0806D9D0: @ 0x0806D9D0
+	thumb_func_start NPC4E
+NPC4E: @ 0x0806D9D0
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -594,8 +594,8 @@ sub_0806DCC0: @ 0x0806DCC0
 	.align 2, 0
 _0806DCD0: .4byte gUnk_030010A0
 
-	thumb_func_start sub_0806DCD4
-sub_0806DCD4: @ 0x0806DCD4
+	thumb_func_start NPC4E_Fusion
+NPC4E_Fusion: @ 0x0806DCD4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

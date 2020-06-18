@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08066FD8
-sub_08066FD8: @ 0x08066FD8
+	thumb_func_start Mutoh
+Mutoh: @ 0x08066FD8
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x84
@@ -90,8 +90,8 @@ _0806707C:
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08067080
-sub_08067080: @ 0x08067080
+	thumb_func_start Mutoh_Head
+Mutoh_Head: @ 0x08067080
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -167,8 +167,8 @@ sub_08067100: @ 0x08067100
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_08067118
-sub_08067118: @ 0x08067118
+	thumb_func_start Mutoh_Fusion
+Mutoh_Fusion: @ 0x08067118
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

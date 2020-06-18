@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08067380
-sub_08067380: @ 0x08067380
+	thumb_func_start CastorWildsStatue
+CastorWildsStatue: @ 0x08067380
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -511,8 +511,8 @@ _08067748:
 	.align 2, 0
 _0806774C: .4byte gUnk_02033280
 
-	thumb_func_start sub_08067750
-sub_08067750: @ 0x08067750
+	thumb_func_start CastorWildsStatue_Fusion
+CastorWildsStatue_Fusion: @ 0x08067750
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

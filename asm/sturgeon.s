@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08064A90
-sub_08064A90: @ 0x08064A90
+	thumb_func_start Sturgeon
+Sturgeon: @ 0x08064A90
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -245,8 +245,8 @@ _08064C68:
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08064C6C
-sub_08064C6C: @ 0x08064C6C
+	thumb_func_start Sturgeon_Head
+Sturgeon_Head: @ 0x08064C6C
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -340,8 +340,8 @@ sub_08064D10: @ 0x08064D10
 	bx lr
 	.align 2, 0
 
-	thumb_func_start sub_08064D18
-sub_08064D18: @ 0x08064D18
+	thumb_func_start Sturgeon_Fusion
+Sturgeon_Fusion: @ 0x08064D18
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

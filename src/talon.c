@@ -14,7 +14,7 @@ extern u8 gUnk_0810FED8[];
 
 void sub_0806574C(Entity* this);
 
-void sub_08065534(Entity* this) {
+void Talon(Entity* this) {
     if (this->flags & 2) {
         gUnk_0810FEC4[this->action](this);
     } else {
@@ -143,14 +143,14 @@ void sub_08065780(Entity* this, u16* param_2) {
     param_2[8] = gUnk_0810FED8[rand >> 8 & 7];
 }
 
-void sub_080657A8(Entity* this) {
+void Talon_Head(Entity* this) {
     sub_0806FF60(this, 0, ((this->frames.all & 7) + 0xB));
     sub_0806FF60(this, 1, this->animationList);
     sub_0806FF88(this, 1, 0);
     sub_0807000C(this);
 }
 
-void sub_080657DC(Entity* this) {
+void Talon_Fusion(Entity* this) {
     if (this->action == 0) {
         if (LoadExtraSpriteData(this, &gUnk_0810FEB0) != 0) {
             this->action++;

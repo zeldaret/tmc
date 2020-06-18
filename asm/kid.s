@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080620C8
-sub_080620C8: @ 0x080620C8
+	thumb_func_start Kid
+Kid: @ 0x080620C8
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -973,8 +973,8 @@ _08062828: .4byte 0x0000064B
 _0806282C: .4byte 0x0000064C
 _08062830: .4byte 0x0000064D
 
-	thumb_func_start sub_08062834
-sub_08062834: @ 0x08062834
+	thumb_func_start Kid_Head
+Kid_Head: @ 0x08062834
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
 	ldrb r4, [r5, #0xa]
@@ -1249,8 +1249,8 @@ sub_08062A48: @ 0x08062A48
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_08062A60
-sub_08062A60: @ 0x08062A60
+	thumb_func_start Kid_Fusion
+Kid_Fusion: @ 0x08062A60
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

@@ -8,7 +8,7 @@ extern void UpdateAnimationSingleFrame();
 
 extern void (*gMilkCartBehaviors[2])(Entity*);
 
-void sub_08065B4C(Entity* ent) {
+void MilkCart(Entity* ent) {
     gMilkCartBehaviors[ent->action](ent);
     sub_0806ED78(ent);
 }

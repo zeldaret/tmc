@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08067158
-sub_08067158: @ 0x08067158
+	thumb_func_start Carpenter
+Carpenter: @ 0x08067158
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r0, #0x84
@@ -106,8 +106,8 @@ _08067224:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08067228
-sub_08067228: @ 0x08067228
+	thumb_func_start Carpenter_Head
+Carpenter_Head: @ 0x08067228
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xa]
@@ -235,8 +235,8 @@ sub_08067314: @ 0x08067314
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806732C
-sub_0806732C: @ 0x0806732C
+	thumb_func_start Carpenter_Fusion
+Carpenter_Fusion: @ 0x0806732C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

@@ -16,7 +16,7 @@ extern void PlaySFX(u32);
 extern void sub_0806D02C(Entity*);
 extern Entity* sub_0805EB2C(u32, u32, u32, u32, u32);
 
-void sub_0806CF18(Entity* this) {
+void BigGoron(Entity* this) {
     gUnk_081140D4[this->entityType.parameter1](this);
 }
 

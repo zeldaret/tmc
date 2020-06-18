@@ -42,7 +42,7 @@ extern u16 gUnk_0811172A[];
 extern u32 gUnk_0300402B;
 extern EntityData gUnk_080F3494;
 
-void sub_080689C0(Entity* this) {
+void BladeBrothers(Entity* this) {
 
     if ((this->flags & 2) != 0) {
         gUnk_081115D0[this->action](this);
@@ -397,7 +397,7 @@ void sub_08068F3C(Entity* this) {
     }
 }
 
-void sub_08068F4C(Entity* this) {
+void BladeBrothers_Fusion(Entity* this) {
 
     if (this->action == 0) {
         this->action += 1;

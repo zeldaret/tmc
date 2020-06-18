@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08063CF8
-sub_08063CF8: @ 0x08063CF8
+	thumb_func_start Guard
+Guard: @ 0x08063CF8
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -358,8 +358,8 @@ _08063FA6:
 	.align 2, 0
 _08063FA8: .4byte gTextBox
 
-	thumb_func_start sub_08063FAC
-sub_08063FAC: @ 0x08063FAC
+	thumb_func_start Guard_Head
+Guard_Head: @ 0x08063FAC
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
 	adds r0, #0x5a

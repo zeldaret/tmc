@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806E278
-sub_0806E278: @ 0x0806E278
+	thumb_func_start SmallTownMinish
+SmallTownMinish: @ 0x0806E278
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

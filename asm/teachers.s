@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806C5A8
-sub_0806C5A8: @ 0x0806C5A8
+	thumb_func_start Teachers
+Teachers: @ 0x0806C5A8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldrb r4, [r5, #0xc]
@@ -119,8 +119,8 @@ sub_0806C674: @ 0x0806C674
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806C68C
-sub_0806C68C: @ 0x0806C68C
+	thumb_func_start Teachers_Head
+Teachers_Head: @ 0x0806C68C
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -202,8 +202,8 @@ _0806C71C:
 _0806C730: .4byte gUnk_02002A40
 _0806C734: .4byte gUnk_08113930
 
-	thumb_func_start sub_0806C738
-sub_0806C738: @ 0x0806C738
+	thumb_func_start Teachers_Fusion
+Teachers_Fusion: @ 0x0806C738
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

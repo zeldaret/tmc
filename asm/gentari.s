@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0805FD24
-sub_0805FD24: @ 0x0805FD24
+	thumb_func_start Gentari
+Gentari: @ 0x0805FD24
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -84,8 +84,8 @@ _0805FDBC:
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0805FDC0
-sub_0805FDC0: @ 0x0805FDC0
+	thumb_func_start Gentari_Fusion
+Gentari_Fusion: @ 0x0805FDC0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -114,8 +114,8 @@ _0805FDF4:
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0805FDF8
-sub_0805FDF8: @ 0x0805FDF8
+	thumb_func_start Festari
+Festari: @ 0x0805FDF8
 	push {lr}
 	ldr r2, _0805FE0C @ =gUnk_08109BBC
 	ldrb r1, [r0, #0xc]

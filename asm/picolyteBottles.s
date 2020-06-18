@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806DED0
-sub_0806DED0: @ 0x0806DED0
+	thumb_func_start PicolyteBottle
+PicolyteBottle: @ 0x0806DED0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0806DEF8 @ =gUnk_081142BC

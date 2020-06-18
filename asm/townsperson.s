@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08061B8C
-sub_08061B8C: @ 0x08061B8C
+	thumb_func_start Townsperson
+Townsperson: @ 0x08061B8C
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -118,8 +118,8 @@ _08061C58:
 	.align 2, 0
 _08061C5C: .4byte 0x00000A01
 
-	thumb_func_start sub_08061C60
-sub_08061C60: @ 0x08061C60
+	thumb_func_start Townsperson_Head
+Townsperson_Head: @ 0x08061C60
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r0, #0x58
@@ -674,8 +674,8 @@ _08062084:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_08062088
-sub_08062088: @ 0x08062088
+	thumb_func_start Townsperson_Fusion
+Townsperson_Fusion: @ 0x08062088
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

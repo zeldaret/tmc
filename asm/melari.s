@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080686D4
-sub_080686D4: @ 0x080686D4
+	thumb_func_start Melari
+Melari: @ 0x080686D4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -233,8 +233,8 @@ sub_08068884: @ 0x08068884
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806889C
-sub_0806889C: @ 0x0806889C
+	thumb_func_start Melari_Head
+Melari_Head: @ 0x0806889C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r0, #0x5a
@@ -346,8 +346,8 @@ sub_08068964: @ 0x08068964
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806897C
-sub_0806897C: @ 0x0806897C
+	thumb_func_start Melari_Fusion
+Melari_Fusion: @ 0x0806897C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

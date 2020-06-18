@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08066978
-sub_08066978: @ 0x08066978
+	thumb_func_start NPC26
+NPC26: @ 0x08066978
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]

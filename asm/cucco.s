@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806E4A0
-sub_0806E4A0: @ 0x0806E4A0
+	thumb_func_start Cucco
+Cucco: @ 0x0806E4A0
 	push {lr}
 	ldr r2, _0806E4B4 @ =gUnk_081145B4
 	ldrb r1, [r0, #0xc]
@@ -299,8 +299,8 @@ _0806E6D4: .4byte gUnk_02002A40
 _0806E6D8: .4byte 0x000001C1
 _0806E6DC: .4byte gUnk_081145D0
 
-	thumb_func_start sub_0806E6E0
-sub_0806E6E0: @ 0x0806E6E0
+	thumb_func_start Cucco_Fusion
+Cucco_Fusion: @ 0x0806E6E0
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

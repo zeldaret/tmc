@@ -12,7 +12,7 @@ extern void sub_0806ACC4(Entity *);
 extern u32 LoadExtraSpriteData(Entity *, SpriteLoadData *);
 extern SpriteLoadData gUnk_08112674[];
 
-void sub_0806ABC8(Entity *this)
+void TownMinish(Entity *this)
 {
     if ((this->flags & 2) == 0) {
         (*gUnk_081126E8[this->action])(this);

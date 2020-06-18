@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806A2B4
-sub_0806A2B4: @ 0x0806A2B4
+	thumb_func_start Syrup_Head
+Syrup_Head: @ 0x0806A2B4
 	push {r4, r5, r6, lr}
 	mov r6, sb
 	mov r5, r8

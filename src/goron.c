@@ -7,7 +7,7 @@ extern void (*gUnk_08111A80[])(Entity*);
 extern void (*gUnk_08111A8C[])(Entity*);
 extern u8 gUnk_02033280[];
 
-void sub_080692D0(Entity* this) {
+void Goron(Entity* this) {
     if (this->flags & 2) {
         gUnk_08111A8C[this->action](this);
     } else {
@@ -124,7 +124,7 @@ void sub_080694EC(Entity* this) {
     this->field_0x80 = anim;
 }
 
-void sub_08069514(Entity* this) {
+void Goron_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
         this->spriteSettings.b.ss0 = 1;

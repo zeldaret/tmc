@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08064508
-sub_08064508: @ 0x08064508
+	thumb_func_start Maid
+Maid: @ 0x08064508
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -24,8 +24,8 @@ _0806451E:
 _08064522:
 	pop {pc}
 
-	thumb_func_start sub_08064524
-sub_08064524: @ 0x08064524
+	thumb_func_start Maid_Head
+Maid_Head: @ 0x08064524
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a

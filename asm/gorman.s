@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08069784
-sub_08069784: @ 0x08069784
+	thumb_func_start Gorman
+Gorman: @ 0x08069784
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -453,8 +453,8 @@ _08069AE4:
 	str r0, [r2, #0x14]
 	pop {pc}
 
-	thumb_func_start sub_08069AE8
-sub_08069AE8: @ 0x08069AE8
+	thumb_func_start Gorman_Head
+Gorman_Head: @ 0x08069AE8
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a

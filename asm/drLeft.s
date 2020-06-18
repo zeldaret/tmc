@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806BF80
-sub_0806BF80: @ 0x0806BF80
+	thumb_func_start DrLeft
+DrLeft: @ 0x0806BF80
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xa]

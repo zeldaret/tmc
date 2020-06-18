@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08062F70
-sub_08062F70: @ 0x08062F70
+	thumb_func_start MinishEzlo
+MinishEzlo: @ 0x08062F70
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -67,8 +67,8 @@ _08062FE4:
 _08062FE8: .4byte gUnk_0810C48C
 _08062FEC: .4byte 0x000001CF
 
-	thumb_func_start sub_08062FF0
-sub_08062FF0: @ 0x08062FF0
+	thumb_func_start MinishEzlo_Head
+MinishEzlo_Head: @ 0x08062FF0
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r0, #0x5b

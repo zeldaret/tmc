@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806CADC
-sub_0806CADC: @ 0x0806CADC
+	thumb_func_start Gregal
+Gregal: @ 0x0806CADC
 	push {lr}
 	ldr r2, _0806CAF0 @ =gUnk_08113D8C
 	ldrb r1, [r0, #0xa]
@@ -355,8 +355,8 @@ sub_0806CD58: @ 0x0806CD58
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806CD70
-sub_0806CD70: @ 0x0806CD70
+	thumb_func_start Gregal_Fusion
+Gregal_Fusion: @ 0x0806CD70
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

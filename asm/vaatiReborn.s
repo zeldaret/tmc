@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806B664
-sub_0806B664: @ 0x0806B664
+	thumb_func_start VaatiReborn
+VaatiReborn: @ 0x0806B664
 	push {lr}
 	ldr r2, _0806B678 @ =gUnk_08112F78
 	ldrb r1, [r0, #0xc]
