@@ -47,10 +47,10 @@ void sub_0806559C(Entity* this) {
             offset = result;
         }
     } else {
-        offset = this->field_0x58;
+        offset = this->animIndex;
     }
 
-    if (this->field_0x58 != offset) {
+    if (this->animIndex != offset) {
         InitializeAnimation(this, offset);
     } else {
         GetNextFrame(this);
@@ -128,11 +128,11 @@ void sub_080656D4(Entity* this) {
 void sub_0806574C(Entity* this) {
     u32 j;
 
-    j = (this->field_0x58 & ~3) + sub_0806F5A4(sub_080045C4(this, &gLinkEntity));
-    if (this->field_0x58 != j) {
+    j = (this->animIndex & ~3) + sub_0806F5A4(sub_080045C4(this, &gLinkEntity));
+    if (this->animIndex != j) {
         InitAnimationForceUpdate(this, j);
     }
-    this->field_0x6a.HALF.LO = this->field_0x58;
+    this->field_0x6a.HALF.LO = this->animIndex;
 }
 
 void sub_08065780(Entity* this, u16* param_2) {
@@ -145,7 +145,7 @@ void sub_08065780(Entity* this, u16* param_2) {
 
 void Talon_Head(Entity* this) {
     sub_0806FF60(this, 0, ((this->frames.all & 7) + 0xB));
-    sub_0806FF60(this, 1, this->animationList);
+    sub_0806FF60(this, 1, this->frameIndex);
     sub_0806FF88(this, 1, 0);
     sub_0807000C(this);
 }

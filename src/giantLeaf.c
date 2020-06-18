@@ -15,7 +15,7 @@ void GiantLeaf(Entity* ent) {
         ent->spriteSettings.b.ss0 = 1;
         ent->spriteOrder.b3 = 3;
         ent->ticks.b0 = 7;
-        ent->animationList = ent->entityType.form;
+        ent->frameIndex = ent->entityType.form;
         sub_0808D618(ent);
     }
 }

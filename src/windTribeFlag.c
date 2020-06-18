@@ -19,7 +19,7 @@ void WindTribeFlag(Entity *this)
   else {
     GetNextFrame(this);
   }
-  if (this->animTime == 0xff) {
-    this->animTime = (Random() & 0xf) + 0x10;
+  if (this->frameDuration == 0xff) {
+    this->frameDuration = (Random() & 0xf) + 0x10;
   }
 }

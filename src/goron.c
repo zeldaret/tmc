@@ -32,7 +32,7 @@ void sub_08069328(Entity* this) {
             this->animationState = action;
         }
     }
-    if (this->field_0x58 != this->animationState) {
+    if (this->animIndex != this->animationState) {
         InitAnimationForceUpdate(this, this->animationState);
     }
     if (this->interactType != 0) {
@@ -62,7 +62,7 @@ void sub_08069428(Entity* this, s32 offsetX, bool32 createFx65);
 
 void sub_080693D0(Entity* this) {
     sub_0807DD94(this, 0);
-    if (this->field_0x58 == 8) {
+    if (this->animIndex == 8) {
         u32 var0 = this->field_0x82 & 0xF;
         bool32 createFx65 = ((-var0) | var0) >> 0x1F; // = !var0
 

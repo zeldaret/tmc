@@ -28,7 +28,7 @@ void sub_0806a370(Entity* this) {
     sub_0807DDE4(this);
     UpdateAnimationSingleFrame(this);
     sub_0806ED78(this);
-    if (this->field_0x58 == 0xf) {
+    if (this->animIndex == 0xf) {
         pbVar1 = &this->frames.all;
         if (*pbVar1 == 1) {
             *pbVar1 = 0;

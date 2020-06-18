@@ -86,7 +86,7 @@ void sub_08068A4C(Entity* this) {
             this->field_0xf = 0x10;
         } else {
             this->field_0xf--;
-            uVar1 = (u32)this->field_0x58;
+            uVar1 = (u32)this->animIndex;
         }
     }
     iVar2 = sub_0806F078(this, uVar1);

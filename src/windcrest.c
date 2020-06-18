@@ -21,7 +21,7 @@ void Windcrest(Entity *this)
 {
   if (this->action == 0) {
     this->action++;
-    this->animationList = 0;
+    this->frameIndex = 0;
     sub_0807DD64(this);
   }
   sub_0807DDAC(this, 0);

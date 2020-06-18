@@ -2,6 +2,7 @@
 #define ENTITY_H
 
 #include "global.h"
+#include "sprite.h"
 
 typedef struct {
     void* entity1;
@@ -73,8 +74,8 @@ typedef struct Entity {
         u8 b2 : 3;
     } PACKED spriteOrientation;
     u8 filler[2];
-    u8 animationList;
-    u8 field_1f;
+    u8 frameIndex;
+    u8 lastFrameIndex;
     s32 field_0x20;
     s16 nonPlanarMovement;
     u8 spriteAnimation[3];
@@ -109,8 +110,8 @@ typedef struct Entity {
     u8 field_0x4f;
     struct Entity* parent;
     struct Entity* attachedEntity;
-    u8 field_0x58;
-    u8 animTime;
+    u8 animIndex;
+    u8 frameDuration;
     union {
         u8 all;
         struct {
@@ -120,11 +121,8 @@ typedef struct Entity {
             u8 f3 : 1;
         } PACKED b;
     } PACKED frames;
-    u8 gfx;
-    u8 field_0x5c;
-    u8 field_0x5d;
-    u8 field_0x5e;
-    u8 field_0x5f;
+    u8 frameSpriteSettings;
+    Frame* animPtr;
     u16 spriteVramOffset;
     u8 spriteOffsetX;
     u8 spriteOffsetY;
