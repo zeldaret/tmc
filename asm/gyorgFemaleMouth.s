@@ -79,7 +79,7 @@ _08049010: .4byte gUnk_080D28CC
 _08049014: .4byte gRoomControls
 _08049018:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0804901E:
 	movs r0, #2
 	ands r0, r5

@@ -271,7 +271,7 @@ _08027F5A:
 	adds r0, r4, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _08027F7C
 _08027F68:
 	movs r0, #6
@@ -338,7 +338,7 @@ sub_08027FB4: @ 0x08027FB4
 	strb r0, [r3]
 _08027FD6:
 	adds r0, r2, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}
 	.align 2, 0
 
@@ -346,7 +346,7 @@ _08027FD6:
 sub_08027FE0: @ 0x08027FE0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -385,7 +385,7 @@ _08028028:
 sub_0802802C: @ 0x0802802C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

@@ -208,7 +208,7 @@ _080A10A2:
 	lsls r0, r0, #2
 	ldr r1, _080A10B8 @ =gUnk_0813ADEC
 	adds r0, r0, r1
-	bl sub_08080840
+	bl DoExitTransition
 	b _080A10D4
 	.align 2, 0
 _080A10B4: .4byte gRoomControls

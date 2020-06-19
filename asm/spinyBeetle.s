@@ -393,7 +393,7 @@ sub_08033A7C: @ 0x08033A7C
 	b _08033AC8
 _08033A90:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -434,9 +434,9 @@ sub_08033ACC: @ 0x08033ACC
 	b _08033B42
 _08033AE0:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
 	beq _08033AF8
@@ -500,7 +500,7 @@ sub_08033B44: @ 0x08033B44
 	b _08033C82
 _08033B62:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

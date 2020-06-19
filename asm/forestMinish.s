@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0805FFD8
-sub_0805FFD8: @ 0x0805FFD8
+	thumb_func_start ForestMinish
+ForestMinish: @ 0x0805FFD8
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r5, [r4, #0xc]
@@ -25,7 +25,7 @@ _0805FFEC:
 _0805FFF2:
 	ldr r1, _0806003C @ =gUnk_0810A348
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806008C
 	movs r2, #1
@@ -52,7 +52,7 @@ _0805FFF2:
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r0, r4, #0
 	bl sub_0807DD50
 	b _0806008C
@@ -110,8 +110,8 @@ sub_08060090: @ 0x08060090
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_080600A8
-sub_080600A8: @ 0x080600A8
+	thumb_func_start ForestMinish_Head
+ForestMinish_Head: @ 0x080600A8
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -523,8 +523,8 @@ _080603B0:
 _080603B2:
 	pop {r4, pc}
 
-	thumb_func_start sub_080603B4
-sub_080603B4: @ 0x080603B4
+	thumb_func_start ForestMinish_Fusion
+ForestMinish_Fusion: @ 0x080603B4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -532,7 +532,7 @@ sub_080603B4: @ 0x080603B4
 	bne _080603F4
 	ldr r1, _080603F0 @ =gUnk_0810A348
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _080603FA
 	ldrb r0, [r4, #0xc]
@@ -556,6 +556,6 @@ sub_080603B4: @ 0x080603B4
 _080603F0: .4byte gUnk_0810A348
 _080603F4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080603FA:
 	pop {r4, pc}

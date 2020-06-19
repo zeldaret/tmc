@@ -93,8 +93,8 @@ InitializeAnimation: @ 0x08004260
 	str r1, [r0, #0x5c]
 	b _0800432A
 
-	thumb_func_start sub_08004274
-sub_08004274: @ 0x08004274
+	thumb_func_start GetNextFrame
+GetNextFrame: @ 0x08004274
 	movs r1, #1
 
 	non_word_aligned_thumb_func_start InitializeAnimationAnimation

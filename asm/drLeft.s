@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806BF80
-sub_0806BF80: @ 0x0806BF80
+	thumb_func_start DrLeft
+DrLeft: @ 0x0806BF80
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xa]
@@ -30,7 +30,7 @@ _0806BFA2:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806BFD8
 	b _0806BFD4

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08064A90
-sub_08064A90: @ 0x08064A90
+	thumb_func_start Sturgeon
+Sturgeon: @ 0x08064A90
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -35,7 +35,7 @@ _08064ABC:
 	bne _08064AE4
 	ldr r1, _08064AE0 @ =gUnk_0810FA38
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08064B42
 	movs r0, #1
@@ -97,7 +97,7 @@ sub_08064B44: @ 0x08064B44
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08064B80 @ =gUnk_0810FA38
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08064B7E
 	adds r0, r4, #0
@@ -160,7 +160,7 @@ _08064BA8:
 	bl InitializeAnimation
 _08064BC6:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _08064C28
 _08064BCE:
 	movs r0, #3
@@ -245,8 +245,8 @@ _08064C68:
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08064C6C
-sub_08064C6C: @ 0x08064C6C
+	thumb_func_start Sturgeon_Head
+Sturgeon_Head: @ 0x08064C6C
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -340,8 +340,8 @@ sub_08064D10: @ 0x08064D10
 	bx lr
 	.align 2, 0
 
-	thumb_func_start sub_08064D18
-sub_08064D18: @ 0x08064D18
+	thumb_func_start Sturgeon_Fusion
+Sturgeon_Fusion: @ 0x08064D18
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -349,7 +349,7 @@ sub_08064D18: @ 0x08064D18
 	bne _08064D50
 	ldr r1, _08064D4C @ =gUnk_0810FA38
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08064D56
 	ldrb r0, [r4, #0xc]
@@ -370,6 +370,6 @@ sub_08064D18: @ 0x08064D18
 _08064D4C: .4byte gUnk_0810FA38
 _08064D50:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08064D56:
 	pop {r4, pc}

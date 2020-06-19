@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806BDAC
-sub_0806BDAC: @ 0x0806BDAC
+	thumb_func_start Dampe
+Dampe: @ 0x0806BDAC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -91,8 +91,8 @@ sub_0806BE3C: @ 0x0806BE3C
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806BE54
-sub_0806BE54: @ 0x0806BE54
+	thumb_func_start Dampe_Fusion
+Dampe_Fusion: @ 0x0806BE54
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

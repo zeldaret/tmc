@@ -274,7 +274,7 @@ sub_0809B56C: @ 0x0809B56C
 	cmp r1, #0
 	beq _0809B5B0
 	adds r0, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _0809B5B0:
 	pop {r4, pc}
 	.align 2, 0

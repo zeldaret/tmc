@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08062E60
-sub_08062E60: @ 0x08062E60
+	thumb_func_start Pita
+Pita: @ 0x08062E60
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -21,7 +21,7 @@ sub_08062E60: @ 0x08062E60
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	ldr r0, _08062EB4 @ =gUnk_0810C428
 	str r0, [r4, #0x48]
 	adds r0, r4, #0

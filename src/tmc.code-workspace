@@ -3,5 +3,11 @@
 		{
 			"path": ".."
 		}
-	]
+	],
+	"settings": {
+		"files.associations": {
+			"algorithm": "cpp",
+			"ios": "c"
+		}
+	}
 }

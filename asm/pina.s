@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08063A60
-sub_08063A60: @ 0x08063A60
+	thumb_func_start Pina
+Pina: @ 0x08063A60
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -329,8 +329,8 @@ sub_08063CAC: @ 0x08063CAC
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_08063CC4
-sub_08063CC4: @ 0x08063CC4
+	thumb_func_start Pina_Fusion
+Pina_Fusion: @ 0x08063CC4
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

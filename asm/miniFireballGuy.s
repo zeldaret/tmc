@@ -106,7 +106,7 @@ sub_08045654: @ 0x08045654
 	adds r4, r0, #0
 	bl sub_080AEFE0
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r4, #0

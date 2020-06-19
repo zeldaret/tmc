@@ -219,8 +219,8 @@ _0805FF94:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0805FFA0
-sub_0805FFA0: @ 0x0805FFA0
+	thumb_func_start Festari_Fusion
+Festari_Fusion: @ 0x0805FFA0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08067380
-sub_08067380: @ 0x08067380
+	thumb_func_start CastorWildsStatue
+CastorWildsStatue: @ 0x08067380
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -365,7 +365,7 @@ _080675EC:
 	strb r0, [r3, #0x19]
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _08067646:
 	subs r6, #1
 	adds r5, #2
@@ -418,7 +418,7 @@ _08067656:
 	strb r0, [r3, #0x19]
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _080676B0:
 	subs r6, #1
 	adds r5, #2
@@ -511,8 +511,8 @@ _08067748:
 	.align 2, 0
 _0806774C: .4byte gUnk_02033280
 
-	thumb_func_start sub_08067750
-sub_08067750: @ 0x08067750
+	thumb_func_start CastorWildsStatue_Fusion
+CastorWildsStatue_Fusion: @ 0x08067750
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -541,7 +541,7 @@ sub_08067750: @ 0x08067750
 _08067784: .4byte 0x0000017B
 _08067788:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806778E:
 	pop {r4, pc}
 

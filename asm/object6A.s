@@ -41,7 +41,7 @@ _08094A78:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -99,7 +99,7 @@ sub_08094AE8: @ 0x08094AE8
 	cmp r4, #0
 	beq _08094B08
 	ldr r1, [r5, #4]
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -206,7 +206,7 @@ sub_08094B94: @ 0x08094B94
 	strh r0, [r4, #0x36]
 	ldr r1, _08094BDC @ =gUnk_0800AEDC
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -643,7 +643,7 @@ _08094ED4:
 _08094F04: .4byte 0xFFFFE000
 _08094F08:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1014,7 +1014,7 @@ _080951E8:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r1, #0x36
 	ldrsh r0, [r4, r1]
 	cmp r0, #0
@@ -1075,7 +1075,7 @@ sub_08095244: @ 0x08095244
 	bl PositionRelative
 	ldr r1, _08095284 @ =gUnk_0801183C
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -1189,7 +1189,7 @@ sub_08095330: @ 0x08095330
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _0809535E:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1255,7 +1255,7 @@ sub_080953A4: @ 0x080953A4
 	strb r0, [r4, #0x19]
 	adds r0, r4, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	adds r0, r4, #0
 	bl sub_0807DD64
 _080953E0:
@@ -1265,7 +1265,7 @@ _080953E0:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0xd
 	bne _08095412
@@ -1307,7 +1307,7 @@ sub_08095420: @ 0x08095420
 	bl PositionRelative
 	ldr r1, [r6, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -1340,7 +1340,7 @@ sub_0809545C: @ 0x0809545C
 	bl PositionRelative
 	ldr r1, [r6, #4]
 	adds r0, r5, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r5, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -1376,7 +1376,7 @@ sub_080954AC: @ 0x080954AC
 	bl CopyPosition
 	ldr r1, _080954D8 @ =gUnk_08015B14
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -1507,7 +1507,7 @@ _080955B8:
 	movs r0, #0x40
 	strh r0, [r5]
 _080955CE:
-	ldr r3, _0809561C @ =gUnk_080C9160
+	ldr r3, _0809561C @ =gSineTable
 	movs r2, #0x6e
 	adds r2, r2, r4
 	mov ip, r2
@@ -1547,7 +1547,7 @@ _080955CE:
 	mov r1, ip
 	b _08095630
 	.align 2, 0
-_0809561C: .4byte gUnk_080C9160
+_0809561C: .4byte gSineTable
 _08095620:
 	movs r0, #0x24
 	ldrsh r1, [r4, r0]
@@ -1592,7 +1592,7 @@ _08095664:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_0809567C
@@ -1652,7 +1652,7 @@ _080956D4:
 	bge _080956D4
 _080956E2:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r5, #0xb]
 	ldr r1, _08095724 @ =gUnk_030010A0
 	ldr r1, [r1]
@@ -1743,7 +1743,7 @@ sub_0809577C: @ 0x0809577C
 	bl InitializeAnimation
 _08095796:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1820,10 +1820,10 @@ sub_08095810: @ 0x08095810
 	bl CopyPosition
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	ldr r1, _08095848 @ =gUnk_08011940
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -1916,7 +1916,7 @@ _080958EC:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1954,7 +1954,7 @@ _0809593C:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -1986,7 +1986,7 @@ sub_08095954: @ 0x08095954
 	strh r0, [r4, #0x36]
 	ldr r1, _080959B4 @ =gUnk_08012C48
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -2083,7 +2083,7 @@ sub_08095A1C: @ 0x08095A1C
 	strb r0, [r1]
 	ldr r1, [r5, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -2512,7 +2512,7 @@ sub_08095D54: @ 0x08095D54
 	strb r0, [r1]
 	ldr r1, [r5, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -2538,7 +2538,7 @@ sub_08095D8C: @ 0x08095D8C
 	bl CopyPosition
 	ldr r1, [r6, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -2603,7 +2603,7 @@ _08095DF4:
 	strb r0, [r4, #0x19]
 	adds r0, r4, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _08095E30:
 	ldrb r2, [r4, #0xb]
 	movs r0, #0x80
@@ -2630,7 +2630,7 @@ _08095E56:
 	adds r0, r4, #0
 	bl sub_08003FC4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080040A8
 	cmp r0, #0
@@ -2658,7 +2658,7 @@ sub_08095E7C: @ 0x08095E7C
 	bl CopyPosition
 	ldr r1, [r6, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -2908,7 +2908,7 @@ _0809606C:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -2933,7 +2933,7 @@ _080960A0:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
 	beq _080960C0
@@ -2975,7 +2975,7 @@ sub_080960C4: @ 0x080960C4
 	bl sub_0806FAD8
 	ldr r1, [r6, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -3004,14 +3004,14 @@ _08096110:
 	strb r0, [r4, #0x19]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	adds r1, r4, #0
 	adds r1, #0x38
 	movs r0, #2
 	strb r0, [r1]
 	ldr r1, [r6, #4]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -3042,7 +3042,7 @@ sub_08096168: @ 0x08096168
 	bl InitializeAnimation
 _0809618C:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r0, #0x24
 	ldrsh r1, [r4, r0]
 	ldrb r2, [r4, #0x15]

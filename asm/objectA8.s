@@ -396,7 +396,7 @@ sub_0809FD94: @ 0x0809FD94
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	ldr r6, [r5, #0x54]
-	ldr r2, _0809FE24 @ =gUnk_080C9160
+	ldr r2, _0809FE24 @ =gSineTable
 	ldrb r0, [r5, #0xe]
 	lsls r0, r0, #1
 	adds r0, r0, r2
@@ -468,7 +468,7 @@ _0809FDD6:
 	movs r0, #3
 	b _0809FE3A
 	.align 2, 0
-_0809FE24: .4byte gUnk_080C9160
+_0809FE24: .4byte gSineTable
 _0809FE28: .4byte 0x0000FFFF
 _0809FE2C:
 	adds r2, r5, #0

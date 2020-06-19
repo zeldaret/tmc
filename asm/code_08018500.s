@@ -1230,7 +1230,7 @@ sub_08018E68: @ 0x08018E68
 	cmp r0, #0
 	bne _08018E82
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	movs r1, #5
 	bl sub_08008790
@@ -1375,7 +1375,7 @@ sub_08018F6C: @ 0x08018F6C
 	b _08018F9A
 _08018F8A:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r0, [r0]

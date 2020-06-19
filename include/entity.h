@@ -1,7 +1,8 @@
-#include "global.h"
-
 #ifndef ENTITY_H
 #define ENTITY_H
+
+#include "global.h"
+#include "sprite.h"
 
 typedef struct {
     void* entity1;
@@ -12,8 +13,8 @@ typedef struct {
 typedef struct {
     u8 type;
     u8 subtype;
-    u8 parameter1;
-    u8 parameter2;
+    u8 form;
+    u8 parameter;
 } EntityType;
 
 union SplitWord {
@@ -36,7 +37,7 @@ typedef struct Entity {
     EntityType entityType;
     u8 action;
     u8 previousActionFlag;
-    u8 parameter3;
+    u8 actionDelay;
     u8 field_0xf;
     u8 flags;
     u8 scriptedScene : 4;
@@ -69,18 +70,19 @@ typedef struct Entity {
     u8 palette;
     struct {
         u8 b0 : 4;
-        u8 b1 : 1;
-        u8 b2 : 3;
+        u8 b1 : 2;
+        u8 b2 : 2;
     } PACKED spriteOrientation;
     u8 filler[2];
-    u8 animationList;
-    u8 field_1f;
+    u8 frameIndex;
+    u8 lastFrameIndex;
     s32 field_0x20;
     s16 nonPlanarMovement;
     u8 spriteAnimation[3];
     struct {
         u8 b0 : 3;
-        u8 b1 : 5;
+        u8 b1 : 3;
+        u8 b2 : 2;
     } PACKED ticks;
     u16 collisions;
     union SplitWord x;
@@ -108,8 +110,8 @@ typedef struct Entity {
     u8 field_0x4f;
     struct Entity* parent;
     struct Entity* attachedEntity;
-    u8 field_0x58;
-    u8 field_0x59;
+    u8 animIndex;
+    u8 frameDuration;
     union {
         u8 all;
         struct {
@@ -119,11 +121,8 @@ typedef struct Entity {
             u8 f3 : 1;
         } PACKED b;
     } PACKED frames;
-    u8 gfx;
-    u8 field_0x5c;
-    u8 field_0x5d;
-    u8 field_0x5e;
-    u8 field_0x5f;
+    u8 frameSpriteSettings;
+    Frame* animPtr;
     u16 spriteVramOffset;
     u8 spriteOffsetX;
     u8 spriteOffsetY;
@@ -144,5 +143,7 @@ typedef struct Entity {
     u16 field_0x86;
 
 } Entity;
+
+#define COORD_TO_TILE(entity) ((((entity->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3fU) | (((entity->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
 
 #endif

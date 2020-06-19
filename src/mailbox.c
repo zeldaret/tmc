@@ -10,7 +10,7 @@ extern void CreateFx();
 
 extern void (*gMailboxBehaviors[4])(Entity*);
 
-void sub_080631E8(Entity* this) {
+void Mailbox(Entity* this) {
     gMailboxBehaviors[this->action](this);
 
     if (this->action != 0) {
@@ -33,7 +33,7 @@ void sub_08063220(Entity* this) {
         bVar1 = 0;
     }
 
-    if (this->field_0x58 != bVar1) {
+    if (this->animIndex != bVar1) {
         InitAnimationForceUpdate(this);
     } else {
         sub_08063280(this, bVar1);

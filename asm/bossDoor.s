@@ -206,7 +206,7 @@ sub_0808C348: @ 0x0808C348
 	bl PlaySFX
 _0808C36A:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0808C382
 	.align 2, 0
 _0808C374: .4byte gUnk_030010A0

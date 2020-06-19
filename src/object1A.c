@@ -25,9 +25,9 @@ void sub_080869DC(Entity* ent) {
     ent->spriteSettings.b.ss0 = 0;
     ent->boundingBox = &gUnk_080FD1A8;
     ent->field_0x3c = ent->field_0x3c | 16;
-    itemEntity = CreateObject(0, ent->entityType.parameter1, 0);
+    itemEntity = CreateObject(0, ent->entityType.form, 0);
     if (itemEntity != NULL) {
-        itemEntity->parameter3 = 10;
+        itemEntity->actionDelay = 10;
         itemEntity->parent = ent;
         ent->attachedEntity = itemEntity;
         CopyPosition(ent, itemEntity);

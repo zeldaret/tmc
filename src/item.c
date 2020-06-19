@@ -1,0 +1,38 @@
+#include "global.h"
+#include "entity.h"
+#include "item.h"
+
+void (*const gItemFunctions[])(ItemBehavior*, u32) = {
+    CellOverwriteSet,
+    Sword,
+    Sword,
+    Sword,
+    Sword,
+    Sword,
+    Sword,
+    Bomb,
+    Bomb,
+    Bow,
+    Bow,
+    sub_08075D14,
+    sub_08075D14,
+    Shield,
+    Shield,
+    Lantern,
+    Lantern,
+    GustJar,
+    PacciCane,
+    MoleMitts,
+    RocsCape,
+    sub_08076800,
+    CellOverwriteSet,
+    Ocarina,
+    CellOverwriteSet,
+    CellOverwriteSet,
+    CellOverwriteSet,
+    TryPickupObject,
+    JarEmpty,
+    JarEmpty,
+    JarEmpty,
+    JarEmpty,
+};

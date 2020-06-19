@@ -1816,8 +1816,8 @@ ReadBit: @ 0x0801D5A8
 	bx lr
 	.align 2, 0
 
-	thumb_func_start sub_0801D5BC
-sub_0801D5BC: @ 0x0801D5BC
+	thumb_func_start WriteBit
+WriteBit: @ 0x0801D5BC
 	lsrs r2, r1, #3
 	adds r3, r0, r2
 	movs r2, #7
@@ -1831,8 +1831,8 @@ sub_0801D5BC: @ 0x0801D5BC
 	ands r0, r2
 	bx lr
 
-	thumb_func_start sub_0801D5D4
-sub_0801D5D4: @ 0x0801D5D4
+	thumb_func_start ClearBit
+ClearBit: @ 0x0801D5D4
 	lsrs r2, r1, #3
 	adds r3, r0, r2
 	movs r2, #7

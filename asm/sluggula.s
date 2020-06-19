@@ -143,7 +143,7 @@ sub_08023C8C: @ 0x08023C8C
 	adds r4, r0, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_08023E54
 	ldrb r0, [r4, #0xe]
@@ -295,7 +295,7 @@ _08023D94:
 	b _08023E0A
 _08023DC0:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -355,7 +355,7 @@ sub_08023E10: @ 0x08023E10
 	bl InitializeAnimation
 _08023E36:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

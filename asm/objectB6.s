@@ -37,6 +37,6 @@ _080A0E76:
 	subs r0, r0, r1
 	strb r0, [r2]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080662D8
-sub_080662D8: @ 0x080662D8
+	thumb_func_start NPC23
+NPC23: @ 0x080662D8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080662F4 @ =gUnk_081104C8
@@ -128,7 +128,7 @@ _080663B8:
 	bl sub_08066490
 _080663C0:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_08066570
 	pop {r4, r5, pc}
@@ -187,7 +187,7 @@ _08066428:
 _0806642E:
 	bl sub_08078B48
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -212,7 +212,7 @@ sub_0806643C: @ 0x0806643C
 	strb r4, [r0, #0x15]
 _08066462:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806646C: .4byte gRoomControls

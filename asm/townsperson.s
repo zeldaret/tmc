@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08061B8C
-sub_08061B8C: @ 0x08061B8C
+	thumb_func_start Townsperson
+Townsperson: @ 0x08061B8C
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -49,7 +49,7 @@ sub_08061BC8: @ 0x08061BC8
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08061BF8
 	movs r0, #2
@@ -118,8 +118,8 @@ _08061C58:
 	.align 2, 0
 _08061C5C: .4byte 0x00000A01
 
-	thumb_func_start sub_08061C60
-sub_08061C60: @ 0x08061C60
+	thumb_func_start Townsperson_Head
+Townsperson_Head: @ 0x08061C60
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r0, #0x58
@@ -171,7 +171,7 @@ sub_08061CB4: @ 0x08061CB4
 	b _08061CCE
 _08061CC8:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08061CCE:
 	adds r2, r4, #0
 	adds r2, #0x59
@@ -199,7 +199,7 @@ sub_08061CEC: @ 0x08061CEC
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08061D62
 	movs r2, #1
@@ -304,7 +304,7 @@ _08061DB0:
 	strb r0, [r2]
 _08061DD4:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r0, #0
 	ldrsb r0, [r4, r0]
 	cmp r0, #0
@@ -342,7 +342,7 @@ _08061E20: .4byte gLinkEntity
 sub_08061E24: @ 0x08061E24
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, _08061E4C @ =gTextBox
 	ldrb r1, [r0]
 	movs r0, #0x7f
@@ -549,7 +549,7 @@ sub_08061F94: @ 0x08061F94
 	cmp r1, #0
 	beq _08061FAC
 	adds r0, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _08061FAC:
 	pop {r4, pc}
 	.align 2, 0
@@ -674,8 +674,8 @@ _08062084:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_08062088
-sub_08062088: @ 0x08062088
+	thumb_func_start Townsperson_Fusion
+Townsperson_Fusion: @ 0x08062088
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -687,7 +687,7 @@ sub_08062088: @ 0x08062088
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _080620C2
 	ldrb r0, [r4, #0xc]

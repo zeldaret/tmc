@@ -191,7 +191,7 @@ sub_080225A0: @ 0x080225A0
 	cmp r0, #1
 	bne _080225B2
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080225B2:
 	adds r0, r4, #0
 	bl sub_08001318
@@ -217,7 +217,7 @@ sub_080225BC: @ 0x080225BC
 	b _080225E4
 _080225DE:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080225E4:
 	pop {r4, pc}
 	.align 2, 0
@@ -334,7 +334,7 @@ _0802268C:
 	bl UpdateSpriteOrderAndFlip
 _080226BE:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -422,7 +422,7 @@ _08022770:
 	bl sub_080AEF88
 _08022776:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0802277C:
 	pop {r4, pc}
 	.align 2, 0
@@ -431,7 +431,7 @@ _0802277C:
 sub_08022780: @ 0x08022780
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -454,7 +454,7 @@ _080227AA:
 sub_080227AC: @ 0x080227AC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -516,7 +516,7 @@ sub_0802281C: @ 0x0802281C
 	lsls r1, r1, #5
 	bl sub_08003FC4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -540,7 +540,7 @@ _08022852:
 sub_08022854: @ 0x08022854
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -575,7 +575,7 @@ _08022898:
 sub_0802289C: @ 0x0802289C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

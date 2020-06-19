@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806B664
-sub_0806B664: @ 0x0806B664
+	thumb_func_start VaatiReborn
+VaatiReborn: @ 0x0806B664
 	push {lr}
 	ldr r2, _0806B678 @ =gUnk_08112F78
 	ldrb r1, [r0, #0xc]
@@ -391,7 +391,7 @@ _0806B95A:
 	b _0806B968
 _0806B962:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806B968:
 	pop {r4, r5, pc}
 	.align 2, 0

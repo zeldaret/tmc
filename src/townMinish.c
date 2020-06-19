@@ -9,10 +9,10 @@ extern void sub_0806ED78(Entity *);
 extern void (*gUnk_081126E8[])();
 extern void sub_0806ACC4(Entity *);
 
-extern u32 sub_0806FDEC(Entity *, SpriteLoadThing *);
-extern SpriteLoadThing gUnk_08112674[];
+extern u32 LoadExtraSpriteData(Entity *, SpriteLoadData *);
+extern SpriteLoadData gUnk_08112674[];
 
-void sub_0806ABC8(Entity *this)
+void TownMinish(Entity *this)
 {
     if ((this->flags & 2) == 0) {
         (*gUnk_081126E8[this->action])(this);
@@ -27,21 +27,21 @@ void sub_0806ABFC(Entity *this)
 {
     u8 animationState;
 
-    SpriteLoadThing* spriteLoadThing = &gUnk_08112674[this->entityType.parameter1 << 2];
-    if (!sub_0806FDEC(this, spriteLoadThing))
+    SpriteLoadData* SpriteLoadData = &gUnk_08112674[this->entityType.form << 2];
+    if (!LoadExtraSpriteData(this, SpriteLoadData))
     {
         return;
     }
 
     InitializeAnimation(this, 2);
     this->action = 1;
-    this->field_0x6a.HALF.LO = this->parameter3;
+    this->field_0x6a.HALF.LO = this->actionDelay;
 
     this->animationState = this->field_0x6a.HALF.LO << 1;
     animationState = this->animationState;
     this->field_0x69 = animationState << 2;
 
-    this->parameter3 = 0;
+    this->actionDelay = 0;
 }
 
 // Not matching yet, not 100% sure it's functionally identical

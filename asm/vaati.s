@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08066A5C
-sub_08066A5C: @ 0x08066A5C
+	thumb_func_start Vaati
+Vaati: @ 0x08066A5C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08066A90 @ =gUnk_08110734

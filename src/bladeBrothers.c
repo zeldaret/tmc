@@ -1,7 +1,11 @@
 #include "global.h"
 #include "entity.h"
+#include "functions.h"
+#include "flags.h"
 #include "link.h"
 #include "room.h"
+#include "textbox.h"
+
 typedef struct {
     /*0x00*/ u8 filler[0x2C];
     /*0x2C*/ u8 unk;
@@ -12,39 +16,6 @@ typedef struct {
     Stats stats;
 } struct_02002A40;
 
-extern void sub_0806ED78(Entity*);
-extern void sub_08068BEC(Entity*, u32);
-extern void sub_08078778(Entity*);
-extern void InitializeAnimation(Entity*, u32);
-extern s32 sub_0806ED9C(Entity*, u32, u32);
-extern s32 sub_0806F078(Entity*, s32);
-extern void sub_08004274(Entity*);
-extern void TextboxNoOverlapFollow(u32);
-extern void sub_0801D2B4(Entity*, u32);
-extern void sub_0806FD3C(Entity*);
-extern u32 sub_0801E99C(Entity*);
-extern void sub_08078784(Entity*, u8);
-extern void sub_0807DD50(Entity*);
-extern void sub_080045C4(Entity*, Entity*);
-extern u32 sub_0806F5A4(void);
-extern void InitAnimationForceUpdate(Entity*, u32);
-extern void sub_0806F118(Entity*);
-extern void sub_0807DD94(Entity*, u32);
-extern u32 UpdateFuseInteraction();
-extern void ForceEquipItem(u8, u8);
-extern void sub_0805ED14(u32*);
-extern Entity* CreateFx(Entity*, u32, u32);
-extern void PositionRelative(Entity*, Entity*, u32, u32);
-extern void PlaySFX(u32);
-extern u32 GetInventoryValue(u32);
-extern void sub_080A7C18(u32, u32, u32);
-extern u32 CheckLocalFlag(u32);
-extern void TextboxNoOverlap(u32, Entity*);
-extern void LoadRoomEntityList();
-extern void ModHealth(s32);
-extern void InitAnimationForceUpdate(Entity*, u32);
-extern void UpdateAnimationSingleFrame(Entity*);
-extern void sub_08068BEC(Entity*, u32);
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -71,7 +42,7 @@ extern u16 gUnk_0811172A[];
 extern u32 gUnk_0300402B;
 extern EntityData gUnk_080F3494;
 
-void sub_080689C0(Entity* this) {
+void BladeBrothers(Entity* this) {
 
     if ((this->flags & 2) != 0) {
         gUnk_081115D0[this->action](this);
@@ -89,7 +60,7 @@ void sub_08068A1C(Entity* this) {
     u8 bVar1;
     int offset;
 
-    (this->entityType).parameter2 = (this->entityType).parameter1;
+    (this->entityType).parameter = (this->entityType).form;
     if (gUnk_030010A0.unk != 0) {
         offset = 6;
         bVar1 = 3;
@@ -115,12 +86,12 @@ void sub_08068A4C(Entity* this) {
             this->field_0xf = 0x10;
         } else {
             this->field_0xf--;
-            uVar1 = (u32)this->field_0x58;
+            uVar1 = (u32)this->animIndex;
         }
     }
     iVar2 = sub_0806F078(this, uVar1);
     if (iVar2 == 0) {
-        sub_08004274(this);
+        GetNextFrame(this);
     }
     if (this->interactType != 0) {
         this->interactType = 0;
@@ -133,19 +104,19 @@ void sub_08068AA4(Entity* this) {
     u8 bVar1;
 
     this->action = 1;
-    if (this->entityType.parameter1 != 0) {
-        this->entityType.parameter2++;
-        this->entityType.parameter2 &= 7;
-        if (this->entityType.parameter2 == 0) {
-            this->entityType.parameter2 += 1;
+    if (this->entityType.form != 0) {
+        this->entityType.parameter++;
+        this->entityType.parameter &= 7;
+        if (this->entityType.parameter == 0) {
+            this->entityType.parameter += 1;
         }
-        sub_0801D2B4(this, gUnk_081115DC[this->entityType.parameter2]);
+        sub_0801D2B4(this, gUnk_081115DC[this->entityType.parameter]);
     }
 }
 
 void sub_08068ADC(Entity* this) {
     if (gUnk_030010A0.unk == 2) {
-        sub_08004274(this);
+        GetNextFrame(this);
     }
     sub_0806FD3C(this);
 }
@@ -164,8 +135,7 @@ void FUN_08068b2c(Entity* this) {
     if (this->interactType == '\x02') {
         this->action = 2;
         this->interactType = '\0';
-        sub_080045C4(this, &gLinkEntity);
-        uVar1 = sub_0806F5A4();
+        uVar1 = sub_0806F5A4(sub_080045C4(this, &gLinkEntity));
         InitAnimationForceUpdate(this, uVar1);
         sub_0806F118(this);
     } else {
@@ -183,10 +153,10 @@ void sub_08068B84(Entity* this) {
     u8 p;
 
     if (gUnk_08111618) {}
-    if (p = this->parameter3, gUnk_08111618[p]) {
-        ForceEquipItem(gUnk_08111618[this->parameter3], 0);
+    if (p = this->actionDelay, gUnk_08111618[p]) {
+        ForceEquipItem(gUnk_08111618[this->actionDelay], 0);
     }
-    sub_0805ED14(gUnk_081115EC[this->parameter3]);
+    sub_0805ED14(gUnk_081115EC[this->actionDelay]);
 }
 
 void sub_08068BB4(Entity* this) {
@@ -217,16 +187,16 @@ void sub_08068C28(Entity* this) {
     u8 bVar1;
     u32 uVar2;
 
-    this->parameter3 = gUnk_08111623[(this->entityType).parameter1];
-    if ((this->entityType).parameter1 == 1) {
+    this->actionDelay = gUnk_08111623[(this->entityType).form];
+    if ((this->entityType).form == 1) {
         if (GetInventoryValue(0x48)) {      // spin attack
             if (!GetInventoryValue(0x4b)) { // rock breaker
-                this->parameter3 = 1;
+                this->actionDelay = 1;
             } else {
                 if (!GetInventoryValue(0x4a)) { // dash attack
-                    this->parameter3 = 2;
+                    this->actionDelay = 2;
                 } else {
-                    this->parameter3 = 3;
+                    this->actionDelay = 3;
                 }
             }
         }
@@ -234,20 +204,20 @@ void sub_08068C28(Entity* this) {
 }
 
 void sub_08068C6C(Entity* this) {
-    sub_080A7C18(gUnk_0811162B[this->parameter3] & 0xffffff7f, 0, 0);
+    sub_080A7C18(gUnk_0811162B[this->actionDelay] & 0xffffff7f, 0, 0);
 }
 
 void sub_08068C8C(Entity* param_1, Entity* param_2) {
     u8* arr = gUnk_0811162B + 0xd;
 
-    *(u32*)&param_2->animationState = *(u32*)(arr + param_1->parameter3 * 4);
+    *(u32*)&param_2->animationState = *(u32*)(arr + param_1->actionDelay * 4);
 }
 
 void sub_08068CA0(Entity* param_1, Entity* param_2) {
     u8 bVar1;
     u32 uVar2;
 
-    bVar1 = (param_1->entityType).parameter1;
+    bVar1 = (param_1->entityType).form;
     if (bVar1 == 1) {
         *(u32*)&param_2->animationState = bVar1;
         uVar2 = GetInventoryValue(0x48); // spin attack
@@ -267,7 +237,7 @@ void sub_08068CA0(Entity* param_1, Entity* param_2) {
             return;
         }
     } else {
-        uVar2 = GetInventoryValue(gUnk_0811162B[param_1->parameter3] & -0x81);
+        uVar2 = GetInventoryValue(gUnk_0811162B[param_1->actionDelay] & -0x81);
         if (uVar2 != 0) {
             uVar2 = 1;
         }
@@ -283,7 +253,7 @@ void sub_08068CFC(Entity* param_1, Entity* param_2, u32 param_3, u32 param_4)
     u32 uVar2;
 
     *(u32*)&param_2->animationState = 0;
-    bVar1 = param_1->parameter3;
+    bVar1 = param_1->actionDelay;
     if (bVar1 > 10)
         return;
 
@@ -347,45 +317,49 @@ switchD_08068d12_caseD_0:
     *(u32*)&param_2->animationState = 1;
 }
 
+//Introduction dialoague
 void sub_08068DB8(Entity* this) {
-    TextboxNoOverlap(gUnk_08111664[this->parameter3], this);
+    TextboxNoOverlap(gUnk_08111664[this->actionDelay], this);
 }
 
+//Ask to teach dialoague
 void sub_08068DD0(Entity* this) {
-    TextboxNoOverlap(gUnk_0811167A[this->parameter3], this);
+    TextboxNoOverlap(gUnk_0811167A[this->actionDelay], this);
 }
 
+//Technique Dialogue
 void sub_08068DE8(Entity* this) {
-    TextboxNoOverlap(gUnk_08111690[this->parameter3], this);
+    TextboxNoOverlap(gUnk_08111690[this->actionDelay], this);
 }
 
+//Posession dialogue
 void sub_08068E00(Entity* this) {
-    TextboxNoOverlap(gUnk_081116A6[this->parameter3], this);
+    TextboxNoOverlap(gUnk_081116A6[this->actionDelay], this);
 }
 
 void sub_08068E18(Entity* this) {
-    TextboxNoOverlap(gUnk_081116BC[this->parameter3], this);
+    TextboxNoOverlap(gUnk_081116BC[this->actionDelay], this);
 }
 
 void sub_08068E30(Entity* this) {
-    TextboxNoOverlap(gUnk_081116D2[this->parameter3], this);
+    TextboxNoOverlap(gUnk_081116D2[this->actionDelay], this);
 }
 
 void sub_08068E48(Entity* this) {
-    TextboxNoOverlap(gUnk_081116E8[this->parameter3], this);
+    TextboxNoOverlap(gUnk_081116E8[this->actionDelay], this);
 }
 
 void sub_08068E60(Entity* this) {
-    TextboxNoOverlap(gUnk_081116FE[this->parameter3], this);
+    TextboxNoOverlap(gUnk_081116FE[this->actionDelay], this);
 }
 
 void sub_08068E78(Entity* this) {
-    TextboxNoOverlap(gUnk_08111714[this->parameter3], this);
+    TextboxNoOverlap(gUnk_08111714[this->actionDelay], this);
 }
 
 void sub_08068E90(Entity* this) {
     LinkState* s = &gLinkState;
-    *(u16*)&s->unk8 = (1 << (gUnk_08111740[this->parameter3] - 1)) | *(u16*)&s->unk8;
+    *(u16*)&s->unk8 = (1 << (gUnk_08111740[this->actionDelay] - 1)) | *(u16*)&s->unk8;
 }
 
 void sub_08068EB4(void) {
@@ -393,8 +367,8 @@ void sub_08068EB4(void) {
 }
 
 void sub_08068EC4(Entity* param_1, Entity* param_2) {
-    if (gUnk_08111740[param_1->parameter3] == gLinkState.unk71) {
-        *(u16*)&param_2->flags = gUnk_0811172A[param_1->parameter3];
+    if (gUnk_08111740[param_1->actionDelay] == gLinkState.unk71) {
+        *(u16*)&param_2->flags = gUnk_0811172A[param_1->actionDelay];
         *(u32*)&param_2->animationState = 1;
     } else {
         *(u32*)&param_2->animationState = 0;
@@ -402,28 +376,28 @@ void sub_08068EC4(Entity* param_1, Entity* param_2) {
 }
 
 void sub_08068F00(Entity* this) {
-    if (this->parameter3 == 1) {
+    if (this->actionDelay == 1) {
         LoadRoomEntityList(&gUnk_080F3494);
     }
 }
 
 void sub_08068F14(Entity* this) {
-    if (this->parameter3 == 5) {
+    if (this->actionDelay == 5) {
         ModHealth(160);
     }
-    if (this->parameter3 == 6) {
+    if (this->actionDelay == 6) {
         ModHealth(-160);
         ModHealth(2);
     }
 }
 
 void sub_08068F3C(Entity* this) {
-    if (this->parameter3 == 6) {
+    if (this->actionDelay == 6) {
         ModHealth(160);
     }
 }
 
-void sub_08068F4C(Entity* this) {
+void BladeBrothers_Fusion(Entity* this) {
 
     if (this->action == 0) {
         this->action += 1;

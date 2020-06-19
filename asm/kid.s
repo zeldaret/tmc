@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080620C8
-sub_080620C8: @ 0x080620C8
+	thumb_func_start Kid
+Kid: @ 0x080620C8
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -42,7 +42,7 @@ sub_080620F4: @ 0x080620F4
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806212A
 	movs r1, #0
@@ -158,7 +158,7 @@ _080621CE:
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	bne _080621E4
 	b _080622F2
@@ -279,7 +279,7 @@ _0806229A:
 _080622C8: .4byte gLinkEntity
 _080622CC:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, _080622E0 @ =gTextBox
 	ldrb r1, [r0]
 	movs r0, #0x7f
@@ -973,8 +973,8 @@ _08062828: .4byte 0x0000064B
 _0806282C: .4byte 0x0000064C
 _08062830: .4byte 0x0000064D
 
-	thumb_func_start sub_08062834
-sub_08062834: @ 0x08062834
+	thumb_func_start Kid_Head
+Kid_Head: @ 0x08062834
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
 	ldrb r4, [r5, #0xa]
@@ -1249,8 +1249,8 @@ sub_08062A48: @ 0x08062A48
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_08062A60
-sub_08062A60: @ 0x08062A60
+	thumb_func_start Kid_Fusion
+Kid_Fusion: @ 0x08062A60
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -1262,7 +1262,7 @@ sub_08062A60: @ 0x08062A60
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08062AB6
 	ldrb r0, [r4, #0xc]
@@ -1291,7 +1291,7 @@ _08062AA2:
 _08062AAC: .4byte gUnk_0810BDC4
 _08062AB0:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08062AB6:
 	pop {r4, pc}
 

@@ -2865,7 +2865,7 @@ sub_0805FC74: @ 0x0805FC74
 	cmp r0, r1
 	beq _0805FD1C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	ldrb r0, [r4, #0xe]

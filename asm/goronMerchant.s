@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08069544
-sub_08069544: @ 0x08069544
+	thumb_func_start GoronMerchant
+GoronMerchant: @ 0x08069544
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]

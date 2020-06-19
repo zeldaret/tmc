@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08062F70
-sub_08062F70: @ 0x08062F70
+	thumb_func_start MinishEzlo
+MinishEzlo: @ 0x08062F70
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -16,7 +16,7 @@ sub_08062F70: @ 0x08062F70
 	bne _08062FA0
 	ldr r1, _08062FE8 @ =gUnk_0810C48C
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08062FE4
 	ldrb r0, [r4, #0xc]
@@ -37,7 +37,7 @@ _08062FA0:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5b
 	ldrb r1, [r4]
 	movs r0, #0x10
@@ -67,8 +67,8 @@ _08062FE4:
 _08062FE8: .4byte gUnk_0810C48C
 _08062FEC: .4byte 0x000001CF
 
-	thumb_func_start sub_08062FF0
-sub_08062FF0: @ 0x08062FF0
+	thumb_func_start MinishEzlo_Head
+MinishEzlo_Head: @ 0x08062FF0
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r0, #0x5b

@@ -73,7 +73,7 @@ _08087884: .4byte gUnk_08120A54
 sub_08087888: @ 0x08087888
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]

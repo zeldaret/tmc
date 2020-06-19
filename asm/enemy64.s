@@ -1311,7 +1311,7 @@ sub_080499F0: @ 0x080499F0
 	ldrsh r2, [r4, r3]
 	subs r1, r1, r2
 	bl sub_080045DA
-	ldr r3, _08049A88 @ =gUnk_080C9160
+	ldr r3, _08049A88 @ =gSineTable
 	lsls r1, r0, #1
 	adds r1, r1, r3
 	movs r2, #0
@@ -1340,7 +1340,7 @@ _08049A82:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08049A84: .4byte gLinkEntity
-_08049A88: .4byte gUnk_080C9160
+_08049A88: .4byte gSineTable
 
 	thumb_func_start sub_08049A8C
 sub_08049A8C: @ 0x08049A8C

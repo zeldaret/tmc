@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806E91C
-sub_0806E91C: @ 0x0806E91C
+	thumb_func_start Phonograph
+Phonograph: @ 0x0806E91C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xc]

@@ -4,6 +4,8 @@
 #include "global.h"
 #include "entity.h"
 
+extern u32 GetNextFunction(Entity*);
+
 extern void Octorok(Entity*);
 extern void Chuchu(Entity*);
 extern void Leever(Entity*);

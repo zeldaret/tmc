@@ -4,88 +4,6 @@
 	.syntax unified
 
 	.text
-	
-	thumb_func_start sub_0806FA6C
-sub_0806FA6C: @ 0x0806FA6C
-	push {lr}
-	adds r2, r0, #0
-	adds r2, #0x62
-	ldrb r2, [r2]
-	adds r3, r1, #0
-	adds r3, #0x62
-	strb r2, [r3]
-	adds r2, r0, #0
-	adds r2, #0x63
-	ldrb r2, [r2]
-	adds r3, #1
-	strb r2, [r3]
-	movs r2, #0
-	movs r3, #0
-	bl PositionRelative
-	pop {pc}
-	.align 2, 0
-
-	thumb_func_start sub_0806FA90
-sub_0806FA90: @ 0x0806FA90
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	adds r4, #0x62
-	ldrb r4, [r4]
-	movs r5, #0x62
-	strb r4, [r5, r1]
-	adds r4, r0, #0
-	adds r4, #0x63
-	ldrb r4, [r4]
-	movs r5, #0x63
-	strb r4, [r5, r1]
-	lsls r2, r2, #0x10
-	lsls r3, r3, #0x10
-	bl PositionRelative
-	pop {r4, r5, pc}
-
-	thumb_func_start sub_0806FAB0
-sub_0806FAB0: @ 0x0806FAB0
-	ldr r2, _0806FAD4 @ =gUnk_08114F78
-	adds r0, #0x29
-	ldrb r0, [r0]
-	lsls r0, r0, #0x1d
-	lsrs r0, r0, #0x1d
-	adds r0, r0, r2
-	ldrb r0, [r0]
-	adds r1, #0x29
-	movs r2, #7
-	ands r2, r0
-	ldrb r3, [r1]
-	movs r0, #8
-	rsbs r0, r0, #0
-	ands r0, r3
-	orrs r0, r2
-	strb r0, [r1]
-	bx lr
-	.align 2, 0
-_0806FAD4: .4byte gUnk_08114F78
-
-	thumb_func_start sub_0806FAD8
-sub_0806FAD8: @ 0x0806FAD8
-	ldr r2, _0806FAFC @ =gUnk_08114F80
-	adds r0, #0x29
-	ldrb r0, [r0]
-	lsls r0, r0, #0x1d
-	lsrs r0, r0, #0x1d
-	adds r0, r0, r2
-	ldrb r0, [r0]
-	adds r1, #0x29
-	movs r2, #7
-	ands r2, r0
-	ldrb r3, [r1]
-	movs r0, #8
-	rsbs r0, r0, #0
-	ands r0, r3
-	orrs r0, r2
-	strb r0, [r1]
-	bx lr
-	.align 2, 0
-_0806FAFC: .4byte gUnk_08114F80
 
 	thumb_func_start sub_0806FB00
 sub_0806FB00: @ 0x0806FB00
@@ -515,8 +433,8 @@ _0806FDDC:
 _0806FDEA:
 	pop {r4, pc}
 
-	thumb_func_start sub_0806FDEC
-sub_0806FDEC: @ 0x0806FDEC
+	thumb_func_start LoadExtraSpriteData
+LoadExtraSpriteData: @ 0x0806FDEC
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -1119,7 +1037,7 @@ _08070260:
 	b _0807037A
 _08070268:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r5, #0
 	bl sub_0806F69C
 	ldrb r0, [r5, #0xa]
@@ -1251,7 +1169,7 @@ _0807037A:
 sub_0807037C: @ 0x0807037C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x80
@@ -1267,7 +1185,7 @@ _08070394:
 sub_08070398: @ 0x08070398
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	movs r1, #0x80
@@ -1285,7 +1203,7 @@ _080703B8:
 sub_080703BC: @ 0x080703BC
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r1, #0x2e
 	ldrsh r0, [r4, r1]
 	ldr r2, _08070404 @ =gRoomControls

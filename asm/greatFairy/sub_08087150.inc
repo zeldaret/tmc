@@ -8,7 +8,7 @@
 	
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08087380
+	bl GreatFairy_InitializeAnimation
 	ldrb r1, [r4, #0x18]
 	movs r0, #4
 	rsbs r0, r0, #0

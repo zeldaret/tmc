@@ -151,7 +151,7 @@ _0802CD50: .4byte 0x0000FFFE
 sub_0802CD54: @ 0x0802CD54
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r5, #0
 	bl sub_0802CFD8
 	adds r1, r5, #0
@@ -276,7 +276,7 @@ _0802CE3C:
 	strh r0, [r1]
 _0802CE58:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0802CFD8
 	pop {r4, pc}
@@ -319,7 +319,7 @@ _0802CEAC:
 	adds r0, r4, #0
 	bl sub_0802CFD8
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r3, r4, #0
 	adds r3, #0x5a
 	ldrb r1, [r3]
@@ -370,7 +370,7 @@ sub_0802CEF4: @ 0x0802CEF4
 	lsls r0, r0, #2
 	adds r0, r0, r1
 	ldr r0, [r0]
-	bl sub_08080840
+	bl DoExitTransition
 	b _0802CF5A
 	.align 2, 0
 _0802CF20: .4byte gUnk_0813AB1C

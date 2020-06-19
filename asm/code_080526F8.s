@@ -1406,7 +1406,7 @@ _080531DC:
 	ldr r0, _080531F4 @ =gUnk_02002AA0
 	ldr r1, _080531EC @ =gArea
 	ldrb r1, [r1, #1]
-	bl sub_0801D5BC
+	bl WriteBit
 _080531E6:
 	pop {r4, r5, pc}
 	.align 2, 0

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806C39C
-sub_0806C39C: @ 0x0806C39C
+	thumb_func_start Mama
+Mama: @ 0x0806C39C
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r5, [r4, #0xc]
@@ -79,7 +79,7 @@ _0806C420:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0806C450
 _0806C436:
 	adds r0, r4, #0
@@ -102,7 +102,7 @@ sub_0806C454: @ 0x0806C454
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0806C470 @ =gUnk_08113754
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806C474
 	adds r0, r4, #0
@@ -117,8 +117,8 @@ _0806C474:
 _0806C476:
 	pop {r4, pc}
 
-	thumb_func_start sub_0806C478
-sub_0806C478: @ 0x0806C478
+	thumb_func_start Mama_Head
+Mama_Head: @ 0x0806C478
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -196,8 +196,8 @@ sub_0806C4F8: @ 0x0806C4F8
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806C510
-sub_0806C510: @ 0x0806C510
+	thumb_func_start Mama_Fusion
+Mama_Fusion: @ 0x0806C510
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -226,6 +226,6 @@ sub_0806C510: @ 0x0806C510
 	b _0806C54E
 _0806C548:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806C54E:
 	pop {r4, pc}

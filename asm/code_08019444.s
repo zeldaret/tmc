@@ -10,7 +10,7 @@
 sub_08019444: @ 0x08019444
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	movs r1, #0x80
@@ -181,7 +181,7 @@ sub_08019580: @ 0x08019580
 	cmp r0, r1
 	beq _08019638
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	ldrb r0, [r4, #0xe]
@@ -3887,7 +3887,7 @@ sub_0801B188: @ 0x0801B188
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r2, [r4, #0xc]
 	cmp r2, #3
 	beq _0801B24E

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080632A8
-sub_080632A8: @ 0x080632A8
+	thumb_func_start Beedle
+Beedle: @ 0x080632A8
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -44,7 +44,7 @@ sub_080632E0: @ 0x080632E0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08063310 @ =gUnk_0810C8D4
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806330E
 	adds r0, r4, #0
@@ -136,7 +136,7 @@ _0806338C: .4byte gTextBox
 sub_08063390: @ 0x08063390
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -174,8 +174,8 @@ sub_080633C8: @ 0x080633C8
 _080633DE:
 	pop {r4, pc}
 
-	thumb_func_start sub_080633E0
-sub_080633E0: @ 0x080633E0
+	thumb_func_start Beedle_Head
+Beedle_Head: @ 0x080633E0
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -205,7 +205,7 @@ sub_08063410: @ 0x08063410
 	cmp r5, #0
 	bne _08063442
 	ldr r1, _08063464 @ =gUnk_0810C8D4
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08063462
 	ldrb r0, [r4, #0xc]
@@ -235,7 +235,7 @@ _0806344E:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08063462:
 	pop {r4, r5, pc}
 	.align 2, 0

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08062CF0
-sub_08062CF0: @ 0x08062CF0
+	thumb_func_start Marcy
+Marcy: @ 0x08062CF0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

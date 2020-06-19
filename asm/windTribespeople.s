@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806C780
-sub_0806C780: @ 0x0806C780
+	thumb_func_start WindTribespeople
+WindTribespeople: @ 0x0806C780
 	push {lr}
 	ldr r2, _0806C794 @ =gUnk_08113A7C
 	ldrb r1, [r0, #0xc]
@@ -29,7 +29,7 @@ sub_0806C798: @ 0x0806C798
 	ldr r0, _0806C7D0 @ =gUnk_08113A1C
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806C7CE
 	movs r2, #1
@@ -146,8 +146,8 @@ sub_0806C870: @ 0x0806C870
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806C888
-sub_0806C888: @ 0x0806C888
+	thumb_func_start WindTribespeople_Head
+WindTribespeople_Head: @ 0x0806C888
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -421,8 +421,8 @@ _0806CA8A:
 _0806CA8C: .4byte gUnk_08113B38
 _0806CA90: .4byte gUnk_02033280
 
-	thumb_func_start sub_0806CA94
-sub_0806CA94: @ 0x0806CA94
+	thumb_func_start WindTribespeople_Fusion
+WindTribespeople_Fusion: @ 0x0806CA94
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -433,7 +433,7 @@ sub_0806CA94: @ 0x0806CA94
 	ldr r0, _0806CAD0 @ =gUnk_08113A1C
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806CADA
 	ldrb r0, [r4, #0xc]
@@ -454,6 +454,6 @@ sub_0806CA94: @ 0x0806CA94
 _0806CAD0: .4byte gUnk_08113A1C
 _0806CAD4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806CADA:
 	pop {r4, pc}

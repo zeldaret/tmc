@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08063524
-sub_08063524: @ 0x08063524
+	thumb_func_start Brocco
+Brocco: @ 0x08063524
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -257,8 +257,8 @@ sub_080636F4: @ 0x080636F4
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806370C
-sub_0806370C: @ 0x0806370C
+	thumb_func_start Brocco_Fusion
+Brocco_Fusion: @ 0x0806370C
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

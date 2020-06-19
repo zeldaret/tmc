@@ -512,7 +512,7 @@ _08056844:
 	ldrh r1, [r5, #0x22]
 	movs r2, #0x1f
 	ands r1, r2
-	bl sub_0801D5BC
+	bl WriteBit
 	b _08056942
 	.align 2, 0
 _08056854: .4byte gUnk_0200005C
@@ -1976,7 +1976,7 @@ sub_0805732C: @ 0x0805732C
 	movs r3, #0
 	mov ip, r2
 	mov r8, r1
-	ldr r0, _08057398 @ =gUnk_080C9160
+	ldr r0, _08057398 @ =gSineTable
 	mov sb, r0
 	movs r2, #0xff
 	ldr r1, _0805739C @ =gScreen
@@ -2012,7 +2012,7 @@ _08057354:
 	.align 2, 0
 _08057390: .4byte gUnk_03003DE4
 _08057394: .4byte gUnk_02017AA0
-_08057398: .4byte gUnk_080C9160
+_08057398: .4byte gSineTable
 _0805739C: .4byte gScreen
 _080573A0: .4byte 0x0400001C
 _080573A4: .4byte 0xA2600001
@@ -2052,7 +2052,7 @@ sub_080573AC: @ 0x080573AC
 	ldrh r2, [r2, #0x2e]
 	adds r0, r0, r2
 	strh r0, [r5, #0x30]
-	ldr r2, _08057444 @ =gUnk_080C9160
+	ldr r2, _08057444 @ =gSineTable
 	ldr r4, _08057448 @ =gUnk_030010A0
 	ldr r1, [r4]
 	ldrb r0, [r4]
@@ -2096,7 +2096,7 @@ _08057434: .4byte gRoomControls
 _08057438: .4byte 0xFFFFE000
 _0805743C: .4byte 0xFFFFF000
 _08057440: .4byte gScreen
-_08057444: .4byte gUnk_080C9160
+_08057444: .4byte gSineTable
 _08057448: .4byte gUnk_030010A0
 _0805744C: .4byte gUnk_08107C30
 
@@ -3266,7 +3266,7 @@ _08057D18:
 	bne _08057D3A
 	ldrb r0, [r4, #6]
 	bl sub_0804B128
-	bl sub_08080840
+	bl DoExitTransition
 _08057D3A:
 	adds r4, #8
 	ldrh r0, [r4]
@@ -5179,7 +5179,7 @@ sub_08058BC8: @ 0x08058BC8
 	strh r1, [r0, #0xc]
 	movs r5, #0
 	mov r6, sp
-	ldr r0, _08058CA4 @ =gUnk_080C9160
+	ldr r0, _08058CA4 @ =gSineTable
 	mov r8, r0
 	adds r7, r1, #0
 _08058C0A:
@@ -5256,7 +5256,7 @@ _08058C0A:
 	.align 2, 0
 _08058C9C: .4byte gUnk_03003DE4
 _08058CA0: .4byte gUnk_02017AA0
-_08058CA4: .4byte gUnk_080C9160
+_08058CA4: .4byte gSineTable
 _08058CA8: .4byte gUnk_02017BA0
 _08058CAC: .4byte gScreen
 
@@ -7873,7 +7873,7 @@ sub_0805A114: @ 0x0805A114
 	mov r8, r2
 	mov sb, r1
 	ldr r2, _0805A15C @ =gScreen
-	ldr r0, _0805A160 @ =gUnk_080C9160
+	ldr r0, _0805A160 @ =gSineTable
 	mov ip, r0
 _0805A13A:
 	movs r1, #0x30
@@ -7893,7 +7893,7 @@ _0805A13A:
 _0805A154: .4byte gUnk_03003DE4
 _0805A158: .4byte gUnk_02017AA0
 _0805A15C: .4byte gScreen
-_0805A160: .4byte gUnk_080C9160
+_0805A160: .4byte gSineTable
 _0805A164: .4byte _0805A168
 _0805A168: @ jump table
 	.4byte _0805A190 @ case 0
@@ -9312,7 +9312,7 @@ _0805AC00:
 	bne _0805AC1A
 	adds r0, r7, #0
 	adds r1, r5, #0
-	bl sub_0801D5D4
+	bl ClearBit
 	b _0805ACA6
 _0805AC1A:
 	ldrh r0, [r4, #0xe]
@@ -9326,7 +9326,7 @@ _0805AC1A:
 	bhi _0805ACA6
 	adds r0, r7, #0
 	adds r1, r5, #0
-	bl sub_0801D5BC
+	bl WriteBit
 	cmp r0, #0
 	bne _0805ACA6
 	ldr r0, [r4, #8]
@@ -11129,7 +11129,7 @@ _0805B9F8:
 	ldrb r0, [r5, #0xf]
 	adds r0, #0x10
 	strb r0, [r5, #0xf]
-	ldr r1, _0805BA28 @ =gUnk_080C9160
+	ldr r1, _0805BA28 @ =gSineTable
 	ldrb r0, [r5, #0xf]
 	lsls r0, r0, #1
 	adds r0, r0, r1
@@ -11142,7 +11142,7 @@ _0805B9F8:
 	b _0805BA42
 	.align 2, 0
 _0805BA24: .4byte gUnk_030010A0
-_0805BA28: .4byte gUnk_080C9160
+_0805BA28: .4byte gSineTable
 _0805BA2C:
 	movs r0, #0
 	str r0, [r5, #0x20]
@@ -15265,7 +15265,7 @@ sub_0805DA08: @ 0x0805DA08
 	movs r3, #0
 	mov r8, r2
 	mov sb, r1
-	ldr r0, _0805DA80 @ =gUnk_080C9160
+	ldr r0, _0805DA80 @ =gSineTable
 	mov ip, r0
 	movs r2, #0xff
 	ldr r1, _0805DA84 @ =gScreen
@@ -15306,7 +15306,7 @@ _0805DA34:
 	.align 2, 0
 _0805DA78: .4byte gUnk_03003DE4
 _0805DA7C: .4byte gUnk_02017AA0
-_0805DA80: .4byte gUnk_080C9160
+_0805DA80: .4byte gSineTable
 _0805DA84: .4byte gScreen
 _0805DA88: .4byte 0x0400001C
 _0805DA8C: .4byte 0xA2600001
@@ -15569,7 +15569,7 @@ sub_0805DC70: @ 0x0805DC70
 	push {lr}
 	bl sub_0805E5A8
 	ldr r0, _0805DC80 @ =gUnk_0813AC48
-	bl sub_08080840
+	bl DoExitTransition
 	pop {pc}
 	.align 2, 0
 _0805DC80: .4byte gUnk_0813AC48

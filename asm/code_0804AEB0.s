@@ -115,7 +115,7 @@ _0804AF64:
 	strh r0, [r4, #0x32]
 	ldr r1, [r2, #0xc]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	cmp r0, #0
 	bne _0804AF88
 	adds r0, r4, #0

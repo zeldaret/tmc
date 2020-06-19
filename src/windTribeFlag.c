@@ -1,0 +1,25 @@
+#include "global.h"
+#include "entity.h"
+#include "functions.h"
+
+void WindTribeFlag(Entity *this)
+{
+  if (this->action == 0) {
+    this->action++;
+    this->collisionLayer = 2;
+    if ((this->entityType).form == 0) {
+      this->spriteSettings.b.ss6 = 0;
+    }
+    else {
+      this->spriteSettings.b.ss6 = 1;
+    }
+    UpdateSpriteOrderAndFlip(this);
+    InitializeAnimation(this,0);
+  }
+  else {
+    GetNextFrame(this);
+  }
+  if (this->frameDuration == 0xff) {
+    this->frameDuration = (Random() & 0xf) + 0x10;
+  }
+}

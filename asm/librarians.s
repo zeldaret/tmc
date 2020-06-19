@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806B9F0
-sub_0806B9F0: @ 0x0806B9F0
+	thumb_func_start Librarians
+Librarians: @ 0x0806B9F0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -35,7 +35,7 @@ _0806BA18:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 _0806BA30: .4byte gUnk_08114F30

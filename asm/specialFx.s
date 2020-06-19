@@ -153,7 +153,7 @@ _080845D8: .4byte gUnk_0811F960
 sub_080845DC: @ 0x080845DC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x80
@@ -198,7 +198,7 @@ _08084626:
 sub_08084630: @ 0x08084630
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -263,7 +263,7 @@ _080846A4:
 	bl DeleteThisEntity
 _080846A8:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_080846B0
@@ -333,7 +333,7 @@ _08084718:
 sub_0808471C: @ 0x0808471C
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -401,7 +401,7 @@ sub_08084784: @ 0x08084784
 sub_08084798: @ 0x08084798
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -459,7 +459,7 @@ _080847F0:
 	strh r0, [r5, #0x36]
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	adds r0, r5, #0
 	bl sub_080845DC
 	pop {r4, r5, pc}

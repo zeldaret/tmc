@@ -478,7 +478,7 @@ sub_080A3F68: @ 0x080A3F68
 	ldr r0, _080A3FBC @ =gUnk_02022740
 	ldrb r1, [r0, #3]
 	adds r0, r4, #0
-	bl sub_0801D5BC
+	bl WriteBit
 	ldr r0, _080A3FC0 @ =0xFFFFFED6
 	adds r1, r4, r0
 	ldrb r0, [r1]
@@ -727,7 +727,7 @@ sub_080A414C: @ 0x080A414C
 	movs r1, #0xff
 	mov r8, r1
 	adds r7, r4, #0
-	ldr r6, _080A421C @ =gUnk_080C9160
+	ldr r6, _080A421C @ =gSineTable
 	rsbs r0, r0, #0
 	adds r4, r0, #0
 	subs r4, #0x45
@@ -814,7 +814,7 @@ _080A4200:
 _080A4210: .4byte gUnk_03001010
 _080A4214: .4byte gUnk_02000080
 _080A4218: .4byte 0x00000B21
-_080A421C: .4byte gUnk_080C9160
+_080A421C: .4byte gSineTable
 _080A4220: .4byte gUnk_02002B6B
 _080A4224: .4byte 0x0000FFFF
 _080A4228: .4byte gUnk_02002A40
@@ -1468,7 +1468,7 @@ _080A4744: .4byte gUnk_02000080
 _080A4748:
 	ldr r0, _080A477C @ =gUnk_02002B0E
 	ldrb r1, [r4, #0x1c]
-	bl sub_0801D5BC
+	bl WriteBit
 	adds r1, r4, #0
 	adds r1, #0x21
 	strb r0, [r1]

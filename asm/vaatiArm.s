@@ -2742,7 +2742,7 @@ _08043980:
 	ldrb r0, [r2, #0xc]
 	adds r0, r4, r0
 	lsls r4, r0, #8
-	ldr r3, _08043A0C @ =gUnk_080C9160
+	ldr r3, _08043A0C @ =gSineTable
 	ldrb r1, [r2, #5]
 	adds r0, r1, #0
 	adds r0, #0x40
@@ -2805,7 +2805,7 @@ _080439BC:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08043A0C: .4byte gUnk_080C9160
+_08043A0C: .4byte gSineTable
 
 	thumb_func_start sub_08043A10
 sub_08043A10: @ 0x08043A10
@@ -3331,7 +3331,7 @@ sub_08043DB0: @ 0x08043DB0
 	cmp r0, #0
 	beq _08043EAC
 	ldr r0, _08043E50 @ =gUnk_080D13EC
-	bl sub_08080840
+	bl DoExitTransition
 	ldr r4, _08043E54 @ =gUnk_030010A0
 	adds r0, r4, #0
 	adds r0, #0x39
@@ -3702,7 +3702,7 @@ _080440BC:
 	bl InitializeAnimation
 _080440C4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_080440CC
@@ -3741,5 +3741,5 @@ _08044108:
 	bl InitializeAnimation
 _08044110:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}

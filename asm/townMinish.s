@@ -103,7 +103,7 @@ _0806ACE4:
 	ldr r0, _0806AD24 @ =gUnk_08112674
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	bne _0806ACF8
 	b _0806ADFA
@@ -227,7 +227,7 @@ _0806ADEA:
 	cmp r0, #0xff
 	beq _0806ADFA
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806ADFA:
 	pop {r4, r5, pc}
 
@@ -241,8 +241,8 @@ sub_0806ADFC: @ 0x0806ADFC
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806AE0C
-sub_0806AE0C: @ 0x0806AE0C
+	thumb_func_start TownMinish_Head
+TownMinish_Head: @ 0x0806AE0C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -702,8 +702,8 @@ _0806B16A:
 _0806B17C: .4byte gUnk_02002A40
 _0806B180: .4byte gUnk_08112C60
 
-	thumb_func_start sub_0806B184
-sub_0806B184: @ 0x0806B184
+	thumb_func_start TownMinish_Fusion
+TownMinish_Fusion: @ 0x0806B184
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -714,7 +714,7 @@ sub_0806B184: @ 0x0806B184
 	ldr r0, _0806B1C0 @ =gUnk_08112674
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806B1CA
 	ldrb r0, [r4, #0xc]
@@ -735,6 +735,6 @@ sub_0806B184: @ 0x0806B184
 _0806B1C0: .4byte gUnk_08112674
 _0806B1C4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806B1CA:
 	pop {r4, pc}

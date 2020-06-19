@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08064990
-sub_08064990: @ 0x08064990
+	thumb_func_start Farore
+Farore: @ 0x08064990
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -111,8 +111,8 @@ _08064A4E:
 _08064A58: .4byte gUnk_02002A40
 _08064A5C: .4byte 0x00000141
 
-	thumb_func_start sub_08064A60
-sub_08064A60: @ 0x08064A60
+	thumb_func_start Farore_Fusion
+Farore_Fusion: @ 0x08064A60
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

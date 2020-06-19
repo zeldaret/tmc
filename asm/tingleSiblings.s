@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08064D58
-sub_08064D58: @ 0x08064D58
+	thumb_func_start TingleSiblings
+TingleSiblings: @ 0x08064D58
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -377,8 +377,8 @@ _08065016:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 
-	thumb_func_start sub_0806501C
-sub_0806501C: @ 0x0806501C
+	thumb_func_start TingleSiblings_Fusion
+TingleSiblings_Fusion: @ 0x0806501C
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08064890
-sub_08064890: @ 0x08064890
+	thumb_func_start Nayru
+Nayru: @ 0x08064890
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -111,8 +111,8 @@ _0806494E:
 _08064958: .4byte gUnk_02002A40
 _0806495C: .4byte 0x00000141
 
-	thumb_func_start sub_08064960
-sub_08064960: @ 0x08064960
+	thumb_func_start Nayru_Fusion
+Nayru_Fusion: @ 0x08064960
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

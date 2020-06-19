@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080603FC
-sub_080603FC: @ 0x080603FC
+	thumb_func_start Postman
+Postman: @ 0x080603FC
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -720,8 +720,8 @@ _08060970:
 _08060974: .4byte gLinkEntity
 _08060978: .4byte gUnk_0810AA70
 
-	thumb_func_start sub_0806097C
-sub_0806097C: @ 0x0806097C
+	thumb_func_start Postman_Fusion
+Postman_Fusion: @ 0x0806097C
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

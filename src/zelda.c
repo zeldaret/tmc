@@ -11,7 +11,7 @@ void CopyPosition(Entity*, Entity*);
 void sub_08068680(Entity*, Entity*);
 void sub_08068694(Entity*, Entity*);
 extern void SetGlobalFlag(u32);
-extern Entity* CreateNPC(u32 subtype, u32 parameter1, u32 parameter2);
+extern Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);
 u32 sub_0806EDC4(Entity* ent);
 void DeleteThisEntity(void);
 extern Entity* GetEntityByType(u32, u32);
@@ -31,7 +31,7 @@ extern void (*gUnk_08110BD8[])(Entity* ent);
 extern u8 gUnk_02033280[];
 extern u16 gUnk_08110BE0[];
 
-void sub_08066CB4(Entity* ent) {
+void Zelda(Entity* ent) {
     gUnk_08110BD8[ent->action](ent);
 }
 
@@ -112,27 +112,27 @@ void sub_08066DE4(Entity* ent) {
 
 void sub_08066E08(Entity* ent) {
     InitAnimationForceUpdate(ent, 0x50);
-    ent->field_0x80 = ent->field_0x58;
+    ent->field_0x80 = ent->animIndex;
 }
 
 void sub_08066E20(Entity* ent) {
     InitAnimationForceUpdate(ent, 0x44);
-    ent->field_0x80 = ent->field_0x58;
+    ent->field_0x80 = ent->animIndex;
 }
 
 void sub_08066E38(Entity* ent) {
     InitAnimationForceUpdate(ent, 0x48);
-    ent->field_0x80 = ent->field_0x58;
+    ent->field_0x80 = ent->animIndex;
 }
 
 void sub_08066E50(Entity* ent) {
     InitAnimationForceUpdate(ent, 0x4C);
-    ent->field_0x80 = ent->field_0x58;
+    ent->field_0x80 = ent->animIndex;
 }
 
 void sub_08066E68(Entity* ent) {
     InitAnimationForceUpdate(ent, 0x54);
-    ent->field_0x80 = ent->field_0x58;
+    ent->field_0x80 = ent->animIndex;
 }
 
 void sub_08066E80(Entity* ent, u8* param_2) {
@@ -175,7 +175,7 @@ void sub_08066E80(Entity* ent, u8* param_2) {
                 return;
             }
     }
-    ent->field_0x80 = ent->field_0x58;
+    ent->field_0x80 = ent->animIndex;
     gUnk_02033280[6] = 0;
 }
 

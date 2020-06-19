@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08064790
-sub_08064790: @ 0x08064790
+	thumb_func_start Din
+Din: @ 0x08064790
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -111,8 +111,8 @@ _0806484E:
 _08064858: .4byte gUnk_02002A40
 _0806485C: .4byte 0x00000141
 
-	thumb_func_start sub_08064860
-sub_08064860: @ 0x08064860
+	thumb_func_start Din_Fusion
+Din_Fusion: @ 0x08064860
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

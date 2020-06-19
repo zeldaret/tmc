@@ -70,7 +70,7 @@ _0809E490:
 	strb r0, [r4, #0x18]
 	adds r0, r6, #0
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	mov r2, sb
 	ldrb r0, [r2]
 	ldrb r1, [r7]
@@ -99,7 +99,7 @@ _0809E4D0:
 _0809E4DA:
 	strb r0, [r5]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

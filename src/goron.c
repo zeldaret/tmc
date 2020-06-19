@@ -7,7 +7,7 @@ extern void (*gUnk_08111A80[])(Entity*);
 extern void (*gUnk_08111A8C[])(Entity*);
 extern u8 gUnk_02033280[];
 
-void sub_080692D0(Entity* this) {
+void Goron(Entity* this) {
     if (this->flags & 2) {
         gUnk_08111A8C[this->action](this);
     } else {
@@ -32,14 +32,14 @@ void sub_08069328(Entity* this) {
             this->animationState = action;
         }
     }
-    if (this->field_0x58 != this->animationState) {
+    if (this->animIndex != this->animationState) {
         InitAnimationForceUpdate(this, this->animationState);
     }
     if (this->interactType != 0) {
         this->action = 2;
         sub_0805E47C(this);
         InitAnimationForceUpdate(this, 8);
-        TextboxNoOverlapFollow(this->parameter3 + (0x90 << 5));
+        TextboxNoOverlapFollow(this->actionDelay + (0x90 << 5));
     }
 }
 
@@ -62,7 +62,7 @@ void sub_08069428(Entity* this, s32 offsetX, bool32 createFx65);
 
 void sub_080693D0(Entity* this) {
     sub_0807DD94(this, 0);
-    if (this->field_0x58 == 8) {
+    if (this->animIndex == 8) {
         u32 var0 = this->field_0x82 & 0xF;
         bool32 createFx65 = ((-var0) | var0) >> 0x1F; // = !var0
 
@@ -81,13 +81,13 @@ void sub_08069428(Entity* this, s32 offsetX, bool32 createFx65) {
     Entity* fx = CreateFx(this, 4, 0);
     if (fx) {
         PositionRelative(this, fx, offsetX, 0xFFF00000);
-        sub_0806FAB0(this, fx);
+        ResolveEntityOnTop(this, fx);
     }
     if (createFx65 != 0) {
         fx = CreateFx(this, 65, 0);
         if (fx) {
             PositionRelative(this, fx, offsetX, 0xFFF00000);
-            sub_0806FAB0(this, fx);
+            ResolveEntityOnTop(this, fx);
         }
     }
 }
@@ -112,7 +112,7 @@ void sub_080694B0(Entity* this) {
 
 extern u64 gUnk_08111A94[]; //array of unknown 64 bit structure type
 void sub_080694D8(Entity* this) {
-    ShowNPCDialogue(this, (u32*)&gUnk_08111A94[this->entityType.parameter1]);
+    ShowNPCDialogue(this, (u32*)&gUnk_08111A94[this->entityType.form]);
 }
 
 void sub_080694EC(Entity* this) {
@@ -124,7 +124,7 @@ void sub_080694EC(Entity* this) {
     this->field_0x80 = anim;
 }
 
-void sub_08069514(Entity* this) {
+void Goron_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
         this->spriteSettings.b.ss0 = 1;

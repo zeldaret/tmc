@@ -401,7 +401,7 @@ _08023324:
 sub_08023330: @ 0x08023330
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -590,7 +590,7 @@ sub_080234A4: @ 0x080234A4
 	adds r1, #1
 	strb r1, [r0]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x7f
 	ldrb r0, [r0]
@@ -981,7 +981,7 @@ sub_0802376C: @ 0x0802376C
 	orrs r1, r0
 	strb r1, [r4, #0x18]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0802379A:
 	adds r0, r5, #0
 	adds r0, #0x7c

@@ -51,8 +51,8 @@ typedef struct {
     u8 entityType;
     u8 field_0x1;
     u8 entitySubtype;
-    u8 entityParameter1;
-    u32 entityParameter2;
+    u8 entityform;
+    u32 entityparameter;
     u16 xPos;
     u16 yPos;
     u32 spritePtr;

@@ -1769,7 +1769,7 @@ sub_0801E49C: @ 0x0801E49C
 	subs r3, #0x40
 	movs r2, #0xff
 	ands r3, r2
-	ldr r1, _0801E5EC @ =gUnk_080C9160
+	ldr r1, _0801E5EC @ =gSineTable
 	adds r0, r3, #0
 	adds r0, #0x40
 	lsls r0, r0, #1
@@ -1916,7 +1916,7 @@ _0801E5D6:
 	.align 2, 0
 _0801E5E4: .4byte 0x0000FFFF
 _0801E5E8: .4byte gUnk_02018EE0
-_0801E5EC: .4byte gUnk_080C9160
+_0801E5EC: .4byte gSineTable
 _0801E5F0: .4byte gUnk_03003DE4
 _0801E5F4: .4byte gUnk_02017AA0
 _0801E5F8:
@@ -2417,7 +2417,7 @@ _0801E97C:
 	beq _0801E990
 	ldr r0, _0801E998 @ =gUnk_02002C8E
 	adds r1, r5, #0
-	bl sub_0801D5BC
+	bl WriteBit
 _0801E990:
 	adds r5, #1
 	cmp r5, #0x64

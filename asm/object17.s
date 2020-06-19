@@ -91,13 +91,13 @@ sub_08086234: @ 0x08086234
 	cmp r0, #0
 	bne _0808625E
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0808625E
 	.align 2, 0
 _08086254: .4byte gUnk_030010A0
 _08086258:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0808625E:
 	adds r0, r4, #0
 	bl sub_0806F3E4

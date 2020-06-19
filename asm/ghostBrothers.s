@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08065BA4
-sub_08065BA4: @ 0x08065BA4
+	thumb_func_start GhostBrothers
+GhostBrothers: @ 0x08065BA4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -525,8 +525,8 @@ _08065F74:
 _08065F88: .4byte gUnk_02002A40
 _08065F8C: .4byte gUnk_08110280
 
-	thumb_func_start sub_08065F90
-sub_08065F90: @ 0x08065F90
+	thumb_func_start GhostBrothers_Fusion
+GhostBrothers_Fusion: @ 0x08065F90
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

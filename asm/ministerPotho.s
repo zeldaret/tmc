@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_080667B0
-sub_080667B0: @ 0x080667B0
+	thumb_func_start MinisterPotho
+MinisterPotho: @ 0x080667B0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -223,8 +223,8 @@ _08066932:
 	.align 2, 0
 _08066944: .4byte gUnk_08110650
 
-	thumb_func_start sub_08066948
-sub_08066948: @ 0x08066948
+	thumb_func_start MinisterPotho_Fusion
+MinisterPotho_Fusion: @ 0x08066948
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]

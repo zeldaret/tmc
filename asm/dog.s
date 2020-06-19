@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08069B1C
-sub_08069B1C: @ 0x08069B1C
+	thumb_func_start Dog
+Dog: @ 0x08069B1C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08069B40 @ =gUnk_08111D88
@@ -517,7 +517,7 @@ sub_08069EF0: @ 0x08069EF0
 	ldr r0, _08069F20 @ =gUnk_08111D58
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08069F28
 	movs r0, #1
@@ -539,8 +539,8 @@ _08069F28:
 _08069F2A:
 	pop {r4, pc}
 
-	thumb_func_start sub_08069F2C
-sub_08069F2C: @ 0x08069F2C
+	thumb_func_start Dog_Head
+Dog_Head: @ 0x08069F2C
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -851,8 +851,8 @@ _0806A17A:
 _0806A18C: .4byte gLinkState
 _0806A190: .4byte gUnk_08111FD8
 
-	thumb_func_start sub_0806A194
-sub_0806A194: @ 0x0806A194
+	thumb_func_start Dog_Fusion
+Dog_Fusion: @ 0x0806A194
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -881,7 +881,7 @@ sub_0806A194: @ 0x0806A194
 	b _0806A1D4
 _0806A1CE:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806A1D4:
 	pop {r4, pc}
 	.align 2, 0

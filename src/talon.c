@@ -14,7 +14,7 @@ extern u8 gUnk_0810FED8[];
 
 void sub_0806574C(Entity* this);
 
-void sub_08065534(Entity* this) {
+void Talon(Entity* this) {
     if (this->flags & 2) {
         gUnk_0810FEC4[this->action](this);
     } else {
@@ -23,7 +23,7 @@ void sub_08065534(Entity* this) {
 }
 
 void sub_08065570(Entity* this) {
-    if (sub_0806FDEC(this, &gUnk_0810FEB0) != 0) {
+    if (LoadExtraSpriteData(this, &gUnk_0810FEB0) != 0) {
         InitializeAnimation(this, 0);
         sub_08078778(this);
         this->action = 1;
@@ -36,9 +36,9 @@ void sub_0806559C(Entity* this) {
     s32 offset;
     s32 result;
 
-    this->parameter3++;
-    if (this->parameter3 >= 9) {
-        this->parameter3 = 0;
+    this->actionDelay++;
+    if (this->actionDelay >= 9) {
+        this->actionDelay = 0;
         result = sub_0806ED9C(this, 0x20, 0x20);
         if (result < 0) {
             offset = this->animationState + 4;
@@ -47,13 +47,13 @@ void sub_0806559C(Entity* this) {
             offset = result;
         }
     } else {
-        offset = this->field_0x58;
+        offset = this->animIndex;
     }
 
-    if (this->field_0x58 != offset) {
+    if (this->animIndex != offset) {
         InitializeAnimation(this, offset);
     } else {
-        sub_08004274(this);
+        GetNextFrame(this);
     }
     sub_0806ED78(this);
     if (this->interactType != 0) {
@@ -63,7 +63,7 @@ void sub_0806559C(Entity* this) {
 }
 
 void sub_08065608(Entity* this) {
-    if (sub_0806FDEC(this, &gUnk_0810FEB0) != 0) {
+    if (LoadExtraSpriteData(this, &gUnk_0810FEB0) != 0) {
         this->action = 1;
         this->spriteSettings.b.ss0 = 1;
         this->field_0x68 = sub_0801E99C(this);
@@ -108,7 +108,7 @@ void sub_080656D4(Entity* this) {
     } else {
         if (this->interactType != 0) {
             if (GetInventoryValue(0x37) != 0) { // keyLonLon
-                sub_0807DAD0(this, &gUnk_0800B41C);
+                StartCutscene(this, &gUnk_0800B41C);
                 goto label2;
             } else {
                 this->field_0x69 = this->action;
@@ -128,11 +128,11 @@ void sub_080656D4(Entity* this) {
 void sub_0806574C(Entity* this) {
     u32 j;
 
-    j = (this->field_0x58 & ~3) + sub_0806F5A4(sub_080045C4(this, &gLinkEntity));
-    if (this->field_0x58 != j) {
+    j = (this->animIndex & ~3) + sub_0806F5A4(sub_080045C4(this, &gLinkEntity));
+    if (this->animIndex != j) {
         InitAnimationForceUpdate(this, j);
     }
-    this->field_0x6a.HALF.LO = this->field_0x58;
+    this->field_0x6a.HALF.LO = this->animIndex;
 }
 
 void sub_08065780(Entity* this, u16* param_2) {
@@ -143,21 +143,21 @@ void sub_08065780(Entity* this, u16* param_2) {
     param_2[8] = gUnk_0810FED8[rand >> 8 & 7];
 }
 
-void sub_080657A8(Entity* this) {
+void Talon_Head(Entity* this) {
     sub_0806FF60(this, 0, ((this->frames.all & 7) + 0xB));
-    sub_0806FF60(this, 1, this->animationList);
+    sub_0806FF60(this, 1, this->frameIndex);
     sub_0806FF88(this, 1, 0);
     sub_0807000C(this);
 }
 
-void sub_080657DC(Entity* this) {
+void Talon_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (sub_0806FDEC(this, &gUnk_0810FEB0) != 0) {
+        if (LoadExtraSpriteData(this, &gUnk_0810FEB0) != 0) {
             this->action++;
             this->spriteSettings.b.ss0 = 1;
             InitializeAnimation(this, 6);
         }
     } else {
-        sub_08004274(this);
+        GetNextFrame(this);
     }
 }

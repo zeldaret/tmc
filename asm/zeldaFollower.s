@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080682B0
-sub_080682B0: @ 0x080682B0
+	thumb_func_start ZeldaFollower
+ZeldaFollower: @ 0x080682B0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

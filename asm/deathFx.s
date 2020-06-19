@@ -139,7 +139,7 @@ _0808171C: .4byte gUnk_0811EC20
 sub_08081720: @ 0x08081720
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

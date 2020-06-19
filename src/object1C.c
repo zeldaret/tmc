@@ -13,7 +13,7 @@ void Object1C(Entity *this)
   }
   iVar1 = CheckRectOnScreen(this->field_0x80, this->field_0x82, 0x10, 0x10);
   if (iVar1 == 0) {
-    this->parent->field_0x20 &= ~(1 << this->entityType.parameter2);
+    this->parent->field_0x20 &= ~(1 << this->entityType.parameter);
     DeleteThisEntity();
   }
 }

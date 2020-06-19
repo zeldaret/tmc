@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806B3AC
-sub_0806B3AC: @ 0x0806B3AC
+	thumb_func_start Percy
+Percy: @ 0x0806B3AC
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -35,7 +35,7 @@ sub_0806B3CC: @ 0x0806B3CC
 	bne _0806B3F4
 	ldr r1, _0806B418 @ =gUnk_08112E1C
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806B414
 	movs r0, #1
@@ -47,7 +47,7 @@ sub_0806B3CC: @ 0x0806B3CC
 	bl sub_08078778
 _0806B3F4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r1, r4, #0
 	adds r1, #0x39
 	movs r0, #0
@@ -84,7 +84,7 @@ _0806B430:
 _0806B436:
 	ldr r1, _0806B46C @ =gUnk_08112E1C
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806B4EC
 	movs r2, #1
@@ -326,8 +326,8 @@ sub_0806B60C: @ 0x0806B60C
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806B624
-sub_0806B624: @ 0x0806B624
+	thumb_func_start Percy_Fusion
+Percy_Fusion: @ 0x0806B624
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -335,7 +335,7 @@ sub_0806B624: @ 0x0806B624
 	bne _0806B65C
 	ldr r1, _0806B658 @ =gUnk_08112E1C
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806B662
 	ldrb r0, [r4, #0xc]
@@ -356,6 +356,6 @@ sub_0806B624: @ 0x0806B624
 _0806B658: .4byte gUnk_08112E1C
 _0806B65C:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806B662:
 	pop {r4, pc}

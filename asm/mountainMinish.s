@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08067E2C
-sub_08067E2C: @ 0x08067E2C
+	thumb_func_start MountainMinish
+MountainMinish: @ 0x08067E2C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -39,7 +39,7 @@ sub_08067E60: @ 0x08067E60
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08067E84 @ =gUnk_08111358
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08067E80
 	movs r0, #1
@@ -85,7 +85,7 @@ _08067EB4:
 	cmp r0, #0
 	bne _08067EC4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08067EC4:
 	adds r1, r4, #0
 	adds r1, #0x39
@@ -136,7 +136,7 @@ _08067F0E:
 _08067F10:
 	ldr r1, _08067F50 @ =gUnk_08111358
 	adds r0, r5, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	bne _08067F1E
 	b _080680F0
@@ -263,7 +263,7 @@ _0806801A:
 	cmp r1, #0xff
 	beq _0806802C
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806802C:
 	adds r1, r5, #0
 	adds r1, #0x5b
@@ -484,8 +484,8 @@ sub_080681D8: @ 0x080681D8
 	bx lr
 	.align 2, 0
 
-	thumb_func_start sub_080681E0
-sub_080681E0: @ 0x080681E0
+	thumb_func_start MountainMinish_Head
+MountainMinish_Head: @ 0x080681E0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r0, #0x5a
@@ -552,8 +552,8 @@ _08068268:
 	bl sub_0807000C
 	pop {r4, r5, pc}
 
-	thumb_func_start sub_08068270
-sub_08068270: @ 0x08068270
+	thumb_func_start MountainMinish_Fusion
+MountainMinish_Fusion: @ 0x08068270
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -561,7 +561,7 @@ sub_08068270: @ 0x08068270
 	bne _080682A8
 	ldr r1, _080682A4 @ =gUnk_08111358
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _080682AE
 	ldrb r0, [r4, #0xc]
@@ -582,6 +582,6 @@ sub_08068270: @ 0x08068270
 _080682A4: .4byte gUnk_08111358
 _080682A8:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080682AE:
 	pop {r4, pc}

@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806EAF4
-sub_0806EAF4: @ 0x0806EAF4
+	thumb_func_start NPC58
+NPC58: @ 0x0806EAF4
 	push {r4, r5, r6, r7, lr}
 	adds r6, r0, #0
 	ldrb r0, [r6, #0xc]
@@ -15,7 +15,7 @@ sub_0806EAF4: @ 0x0806EAF4
 	bne _0806EB48
 	ldr r1, _0806EBA0 @ =gUnk_081146D0
 	adds r0, r6, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806EBA8
 	ldrb r0, [r6, #0xc]
@@ -95,8 +95,8 @@ _0806EBA8:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806EBAC
-sub_0806EBAC: @ 0x0806EBAC
+	thumb_func_start NPC58_Head
+NPC58_Head: @ 0x0806EBAC
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0xff

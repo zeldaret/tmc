@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08069784
-sub_08069784: @ 0x08069784
+	thumb_func_start Gorman
+Gorman: @ 0x08069784
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -48,7 +48,7 @@ sub_080697C4: @ 0x080697C4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080697E8 @ =gUnk_08111C3C
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _080697E4
 	movs r0, #1
@@ -112,7 +112,7 @@ sub_08069838: @ 0x08069838
 	cmp r5, #0
 	bne _08069862
 	ldr r1, _08069884 @ =gUnk_08111C3C
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08069880
 	ldrb r0, [r4, #0xc]
@@ -453,8 +453,8 @@ _08069AE4:
 	str r0, [r2, #0x14]
 	pop {pc}
 
-	thumb_func_start sub_08069AE8
-sub_08069AE8: @ 0x08069AE8
+	thumb_func_start Gorman_Head
+Gorman_Head: @ 0x08069AE8
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a

@@ -20,7 +20,7 @@ extern void (*gUnk_08124798[])(Entity*);
 extern void (*gUnk_081247A0[])(Entity*);
 extern void (*gUnk_081247AC[])(Entity*);
 extern Entity* CreateObject(u32, u32, u32);
-extern void sub_0806FA30(Entity*, Entity*);
+extern void PositionEntityOnTop(Entity*, Entity*);
 extern void sub_0807BB68(u32*, u32, u32);
 
 extern u8 gUnk_02034490;
@@ -33,11 +33,11 @@ extern u16 gUnk_081247C8[];
 extern u32 gUnk_081247D0;
 
 void Cloud(Entity* this) {
-    gUnk_08124798[(this->entityType).parameter1](this);
+    gUnk_08124798[(this->entityType).form](this);
 }
 
 void sub_0809F4DC(Entity* this) {
-    if ((this->entityType).parameter2 == 0) {
+    if ((this->entityType).parameter == 0) {
         gUnk_081247A0[this->action](this);
     } else {
         gUnk_081247AC[this->action](this);
@@ -46,7 +46,7 @@ void sub_0809F4DC(Entity* this) {
 
 void sub_0809F514(Entity* this) {
     this->action = 1;
-    this->parameter3 = 120;
+    this->actionDelay = 120;
     this->spriteSettings.b.ss0 = 0;
     *(u8*)&this->field_0x68 = 12;
     gRoomControls.cameraTarget = this;
@@ -56,9 +56,9 @@ void sub_0809F514(Entity* this) {
 
 void sub_0809F548(Entity* this) {
 
-    if (--this->parameter3 == 0) {
+    if (--this->actionDelay == 0) {
         this->action = 2;
-        this->parameter3 = 90;
+        this->actionDelay = 90;
         PlaySFX(285);
         sub_0809F814((((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 63) |
                      (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 63) << 6);
@@ -71,7 +71,7 @@ void sub_0809F548(Entity* this) {
 }
 
 void sub_0809F5B0(Entity* this) {
-    if (--this->parameter3 == 0) {
+    if (--this->actionDelay == 0) {
         PlaySFX(115);
         SetGlobalFlag(36);
         LoadRoomEntityList(&gUnk_080DD750);
@@ -88,10 +88,10 @@ void sub_0809F5DC(Entity* this) {
 void sub_0809F5F0(Entity* this) {
     u32 iVar1;
 
-    iVar1 = CheckRoomFlag(this->parameter3);
+    iVar1 = CheckRoomFlag(this->actionDelay);
     if (iVar1 != 0) {
         this->action = 2;
-        this->parameter3 = 120;
+        this->actionDelay = 120;
         sub_08078A90(3);
         sub_08078B48();
         gRoomControls.cameraTarget = this;
@@ -101,12 +101,12 @@ void sub_0809F5F0(Entity* this) {
 void sub_0809F61C(Entity* this) {
 
     if ((gRoomControls.unk6 & 4) == 0) {
-        if (this->parameter3 == 30) {
-            SetLocalFlag(this->entityType.parameter2);
+        if (this->actionDelay == 30) {
+            SetLocalFlag(this->entityType.parameter);
         }
-        if (--this->parameter3 == 0) {
+        if (--this->actionDelay == 0) {
             this->action = 3;
-            this->parameter3 = 120;
+            this->actionDelay = 120;
             PlaySFX(285);
             sub_0809F814((((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 63) |
                          (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 63) << 6);
@@ -121,8 +121,8 @@ void sub_0809F61C(Entity* this) {
 
 void sub_0809F69C(Entity* this) {
 
-    if (--this->parameter3 == 0) {
-        this->parameter3 = 30;
+    if (--this->actionDelay == 0) {
+        this->actionDelay = 30;
         this->action = 4;
         gRoomControls.cameraTarget = &gLinkEntity;
         PlaySFX(115);
@@ -131,7 +131,7 @@ void sub_0809F69C(Entity* this) {
 
 void sub_0809F6CC(Entity* this) {
 
-    if (((gRoomControls.unk6 & 4) == 0) && (--this->parameter3 == 0)) {
+    if (((gRoomControls.unk6 & 4) == 0) && (--this->actionDelay == 0)) {
         gLinkState.unk7 = 1;
         DeleteThisEntity();
     }
@@ -143,7 +143,7 @@ void sub_0809F700(Entity* this) {
 
     if (this->action == 0) {
         this->action = 1;
-        this->parameter3 = (Random() & 30) + 8;
+        this->actionDelay = (Random() & 30) + 8;
         this->flags = this->flags | 12;
     }
     if ((gUnk_030010A0 & 3) == 0) {
@@ -152,7 +152,7 @@ void sub_0809F700(Entity* this) {
         this->spriteOffsetY = gUnk_081247C0[uVar2 >> 4 & 7];
     }
     sub_0806F69C(this);
-    if (--this->parameter3 == 0) {
+    if (--this->actionDelay == 0) {
         DeleteThisEntity();
     }
 }
@@ -164,7 +164,7 @@ Entity* sub_0809F770(Entity* this) {
 
     cloud = CreateObject(163, 1, 0);
     if (cloud != NULL) {
-        sub_0806FA30(this, cloud);
+        PositionEntityOnTop(this, cloud);
         uVar1 = Random();
         cloud->x.HALF.HI = ((cloud->x.HALF.HI - 16) + (uVar1 >> 0)) & 31;
         cloud->y.HALF.HI = ((cloud->y.HALF.HI - 16) + (uVar1 >> 8)) & 31;

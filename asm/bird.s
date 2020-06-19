@@ -94,7 +94,7 @@ sub_0809CF54: @ 0x0809CF54
 	bl PositionRelative
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _0809CFD8:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -365,7 +365,7 @@ _0809D19C:
 	b _0809D1EE
 _0809D1E8:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0809D1EE:
 	pop {r4, pc}
 
@@ -879,7 +879,7 @@ _0809D5E6:
 	cmp r4, #0
 	beq _0809D62E
 	ldr r1, _0809D668 @ =gUnk_0800B0AC
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]

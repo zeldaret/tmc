@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806B1CC
-sub_0806B1CC: @ 0x0806B1CC
+	thumb_func_start Librari
+Librari: @ 0x0806B1CC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -181,8 +181,8 @@ _0806B316:
 	.align 2, 0
 _0806B328: .4byte gUnk_08112D50
 
-	thumb_func_start sub_0806B32C
-sub_0806B32C: @ 0x0806B32C
+	thumb_func_start Librari_Fusion
+Librari_Fusion: @ 0x0806B32C
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -208,8 +208,8 @@ _0806B358:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806B35C
-sub_0806B35C: @ 0x0806B35C
+	thumb_func_start Percy_Head
+Percy_Head: @ 0x0806B35C
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5b

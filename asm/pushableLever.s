@@ -94,7 +94,7 @@ _08098300: .4byte gLinkEntity
 sub_08098304: @ 0x08098304
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

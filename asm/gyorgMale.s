@@ -3091,7 +3091,7 @@ _08047F00:
 	subs r4, r3, r0
 	movs r0, #0xff
 	ands r4, r0
-	ldr r2, _08047F64 @ =gUnk_080C9160
+	ldr r2, _08047F64 @ =gSineTable
 	lsls r0, r4, #1
 	adds r0, r0, r2
 	movs r7, #0
@@ -3138,7 +3138,7 @@ _08047F58:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _08047F60: .4byte gLinkEntity
-_08047F64: .4byte gUnk_080C9160
+_08047F64: .4byte gSineTable
 
 	thumb_func_start sub_08047F68
 sub_08047F68: @ 0x08047F68
@@ -3356,7 +3356,7 @@ _080480BA:
 	ldrsh r2, [r4, r7]
 	subs r1, r1, r2
 	bl sub_080045DA
-	ldr r3, _0804812C @ =gUnk_080C9160
+	ldr r3, _0804812C @ =gSineTable
 	lsls r1, r0, #1
 	adds r1, r1, r3
 	movs r2, #0
@@ -3383,7 +3383,7 @@ _08048124:
 	strb r0, [r5]
 	b _08048138
 	.align 2, 0
-_0804812C: .4byte gUnk_080C9160
+_0804812C: .4byte gSineTable
 _08048130:
 	ldrb r1, [r4, #0x10]
 	movs r0, #0x80
