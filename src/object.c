@@ -89,7 +89,7 @@ void (*const gObjectFunctions[])(Entity*) = {
     Object53,
     PullableLever,
     Minecart,
-    Object56,
+    ThoughtBubble,
     HiddenLadderDown,
     GentariCurtain,
     LavaPlatform,

@@ -1276,10 +1276,10 @@ gUnk_08122538:: @ 08122538
 gUnk_08122540:: @ 08122540
 	.incbin "baserom.gba", 0x122540, 0x0000050
 
-gUnk_08122590:: @ 08122590
+ThoughtBubble_SFX:: @ 08122590
 	.incbin "baserom.gba", 0x122590, 0x0000008
 
-gUnk_08122598:: @ 08122598
+ThoughtBubble_Behaviors:: @ 08122598
 	.incbin "baserom.gba", 0x122598, 0x0000008
 
 gUnk_081225A0:: @ 081225A0

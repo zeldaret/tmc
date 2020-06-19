@@ -70,8 +70,8 @@ typedef struct Entity {
     u8 palette;
     struct {
         u8 b0 : 4;
-        u8 b1 : 1;
-        u8 b2 : 3;
+        u8 b1 : 2;
+        u8 b2 : 2;
     } PACKED spriteOrientation;
     u8 filler[2];
     u8 frameIndex;

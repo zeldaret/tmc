@@ -9,8 +9,8 @@ void GreatFairy(Entity* this) {
     u8 bVar1;
 
     if (this->action == 0) {
-        bVar1 = __modsi3((this->entityType).form, 11);
-        (this->entityType).parameter = bVar1;
+        bVar1 = __modsi3(this->entityType.form, 11);
+        this->entityType.parameter = bVar1;
     }
     GreatFairy_Main[(this->entityType).parameter](this);
 }
@@ -281,7 +281,7 @@ void GreatFairy_MiniAffineUpdate(Entity* this) {
         sub_0805EC60(this);
     } else {
         iVar2 = this->nonPlanarMovement -= 24;
-        sub_0805EC9C(this, 256, iVar2 * 65536 >> 20, 0);
+        sub_0805EC9C(this, 256, iVar2 * 0x10000 >> 20, 0);
     }
 }
 
@@ -301,7 +301,7 @@ void GreatFairy_DropletInit(Entity* this) {
 
 void GreatFairy_DropletUpdate(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 128) != 0) {
+    if (this->frames.b.f3) {
         DeleteEntity(this);
     }
 }
@@ -367,7 +367,7 @@ void GreatFairy_EnergyInit(Entity* this) {
 
 void GreatFairy_EnergyUpdate(Entity* this) {
     GetNextFrame(this);
-    if ((this->frames.all & 128) != 0) {
+    if (this->frames.b.f3) {
         DeleteEntity(this);
     }
 }
@@ -403,8 +403,7 @@ void sub_08087150(Entity* this) {
 }
 #endif
 
-void nullsub_516() {
-}
+void nullsub_516(Entity* this) {}
 
 void sub_080871A8(Entity* this) {
     u32 bVar1;

@@ -677,7 +677,7 @@ SECTIONS {
 		asm/object53.o(.text);
 		asm/pullableLever.o(.text);
 		asm/minecart.o(.text);
-		asm/object56.o(.text);
+		src/thoughtBubble.o(.text);
 		asm/hiddenLadderDown.o(.text);
 		asm/gentariCurtains.o(.text);
 		asm/lavaPlatform.o(.text);

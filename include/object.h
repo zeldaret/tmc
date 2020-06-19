@@ -90,7 +90,7 @@ extern void Object52(Entity*);
 extern void Object53(Entity*);
 extern void PullableLever(Entity*);
 extern void Minecart(Entity*);
-extern void Object56(Entity*);
+extern void ThoughtBubble(Entity*);
 extern void HiddenLadderDown(Entity*);
 extern void GentariCurtain(Entity*);
 extern void LavaPlatform(Entity*);

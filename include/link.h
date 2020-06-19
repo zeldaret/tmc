@@ -19,7 +19,9 @@ typedef struct {
     u8 hurtBlinkSpeed;
     u8 filler4[4];
     u16 filler5[3];
-    u8 filler6[8];
+    u8 filler6[2];
+    u8 field_0x1c;
+    u8 filler9[2];
     u16 filler7[2];
     u8 swimState;
     u8 filler8[5];
@@ -51,6 +53,7 @@ typedef struct {
     u8 unk71;
     u32 unk8;
 } LinkState;
+
 
 typedef struct {
     u8 walletType;
