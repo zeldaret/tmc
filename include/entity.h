@@ -135,9 +135,9 @@ typedef struct Entity {
     u8 field_0x6d;
     u8 filler4[6];
     u32* heldObjectPtr;
-    u8 filler3[2];
+    u16 field_0x78;
     u16 itemCooldown;
-    u32 field_0x7c;
+    union SplitWord field_0x7c;
     u16 field_0x80;
     u16 field_0x82;
     union SplitHWord cutsceneBeh;
