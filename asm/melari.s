@@ -245,7 +245,7 @@ Melari_Head: @ 0x0806889C
 	ldrb r2, [r5, #0x1e]
 	adds r0, r5, #0
 	movs r1, #1
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	movs r0, #0x20
 	ands r0, r4
 	cmp r0, #0
@@ -256,32 +256,32 @@ Melari_Head: @ 0x0806889C
 	adds r0, r5, #0
 	movs r1, #0
 	adds r2, r4, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #2
 	movs r2, #0xff
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	b _08068906
 _080688E2:
 	adds r0, r5, #0
 	movs r1, #0
 	movs r2, #0xff
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	movs r0, #0xe1
 	rsbs r0, r0, #0
 	ands r4, r0
 	adds r0, r5, #0
 	movs r1, #2
 	adds r2, r4, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #2
-	bl sub_0806FFD8
+	bl SetSpriteSubEntryOffsetData2
 _08068906:
 	adds r0, r5, #0
 	bl sub_0807000C

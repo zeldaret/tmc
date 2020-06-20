@@ -129,7 +129,7 @@ Smith_Head: @ 0x080660A8
 	ldrb r2, [r5, #0x1e]
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	movs r0, #0x40
 	ands r4, r0
 	cmp r4, #0
@@ -137,18 +137,18 @@ Smith_Head: @ 0x080660A8
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0x16
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	b _080660D8
 _080660CE:
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0xff
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 _080660D8:
 	adds r0, r5, #0
 	movs r1, #0
 	movs r2, #1
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r5, #0
 	bl sub_0807000C
 	pop {r4, r5, pc}

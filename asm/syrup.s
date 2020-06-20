@@ -42,7 +42,7 @@ Syrup_Head: @ 0x0806A2B4
 	adds r2, #0x10
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	ldr r0, _0806A354 @ =gUnk_08112204
 	adds r4, r4, r0
 	ldrb r2, [r4]
@@ -52,26 +52,26 @@ Syrup_Head: @ 0x0806A2B4
 	adds r0, r5, #0
 	movs r1, #1
 	mov r2, r8
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r6, #0x1c
 	adds r0, r5, #0
 	movs r1, #2
 	adds r2, r6, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	movs r0, #0x1a
 	add sb, r0
 	adds r0, r5, #0
 	movs r1, #3
 	mov r2, sb
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #3
-	bl sub_0806FFD8
+	bl SetSpriteSubEntryOffsetData2
 	adds r0, r5, #0
 	bl sub_0807000C
 	pop {r3, r4}

@@ -632,8 +632,8 @@ sub_0806FF48: @ 0x0806FF48
 	.align 2, 0
 _0806FF5C: .4byte gUnk_020000C0
 
-	thumb_func_start sub_0806FF60
-sub_0806FF60: @ 0x0806FF60
+	thumb_func_start SetExtraSpriteFrame
+SetExtraSpriteFrame: @ 0x0806FF60
 	push {lr}
 	adds r3, r2, #0
 	adds r0, #0x28
@@ -656,8 +656,8 @@ _0806FF82:
 	.align 2, 0
 _0806FF84: .4byte gUnk_020000C0
 
-	thumb_func_start sub_0806FF88
-sub_0806FF88: @ 0x0806FF88
+	thumb_func_start SetSpriteSubEntryOffsetData1
+SetSpriteSubEntryOffsetData1: @ 0x0806FF88
 	push {r4, r5, lr}
 	adds r5, r1, #0
 	adds r0, #0x28
@@ -700,8 +700,8 @@ sub_0806FFBC: @ 0x0806FFBC
 	.align 2, 0
 _0806FFD4: .4byte gUnk_020000C0
 
-	thumb_func_start sub_0806FFD8
-sub_0806FFD8: @ 0x0806FFD8
+	thumb_func_start SetSpriteSubEntryOffsetData2
+SetSpriteSubEntryOffsetData2: @ 0x0806FFD8
 	push {r4, r5, lr}
 	adds r5, r1, #0
 	adds r0, #0x28

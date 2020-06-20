@@ -104,11 +104,11 @@ _0806301E:
 	subs r2, #1
 	adds r0, r4, #0
 	adds r1, r6, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	ldrb r2, [r4, #0x1e]
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r7, #0
@@ -116,7 +116,7 @@ _0806301E:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r4, #0
 	bl sub_0807000C
 	pop {r4, r5, r6, r7, pc}

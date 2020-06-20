@@ -109,11 +109,9 @@ void sub_0801EBC8(Entity* ent) {
 #endif
 
 void sub_0801EBF4(Entity* ent) {
-    u8 bVar1;
     u32 uVar2;
 
-    bVar1 = ent->actionDelay -= 1;
-    if (bVar1 == 0) {
+    if (--ent->actionDelay == 0) {
         ent->action = 2;
         uVar2 = Random();
         ent->actionDelay = gUnk_080CA170[uVar2 & 3];

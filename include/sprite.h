@@ -23,4 +23,9 @@ typedef struct {
         } PACKED b;
     } PACKED frameSettings;
 } Frame;
+
+typedef struct {
+    u8 numGfxTiles;
+    u16 gfxTileIndex;
+} FrameGfxData;
 #endif

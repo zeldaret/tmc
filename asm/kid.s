@@ -1028,19 +1028,19 @@ _080628A6:
 	adds r0, r5, #0
 	movs r1, #0
 	adds r2, r6, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	adds r2, r7, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #2
 	adds r2, r4, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #2
@@ -1058,24 +1058,24 @@ _080628E8:
 	subs r2, #1
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	adds r2, r6, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #2
 	adds r2, r7, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #2
 	movs r2, #1
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0
 _08062916:
-	bl sub_0806FFD8
+	bl SetSpriteSubEntryOffsetData2
 	adds r0, r5, #0
 	bl sub_0807000C
 	b _08062946
@@ -1083,15 +1083,15 @@ _08062922:
 	adds r0, r5, #0
 	movs r1, #0
 	adds r2, r6, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	adds r2, r7, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r5, #0
 	bl sub_0807000C
 _08062946:

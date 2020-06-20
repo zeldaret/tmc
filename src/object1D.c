@@ -15,4 +15,4 @@ void sub_080874F8(Entity* this)
   DeleteThisEntity();
 }
 
-void nullsub_117(){}
+void nullsub_117(Entity* this){}

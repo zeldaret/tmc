@@ -20,13 +20,8 @@ void LoadRoom(void)
     sub_0804B128(0);
     LoadRoomEntityList();
 
-    iVar1 = CheckGlobalFlag(21);
-    if (iVar1 != 0) {
-        dat = sub_0804B128(2);
-        sub_0804B058(dat);
-    }
+    if (CheckGlobalFlag(21)) sub_0804B058(sub_0804B128(2));
     sub_0804B128(3);
     sub_0804B1AC();
     sub_0801AC98();
-    return;
 }

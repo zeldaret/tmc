@@ -137,7 +137,7 @@ Townsperson_Head: @ 0x08061C60
 	adds r2, r1, r2
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	ldrb r2, [r4, #0x1e]
 	ldrb r0, [r4, #0xa]
 	lsls r0, r0, #2
@@ -146,11 +146,11 @@ Townsperson_Head: @ 0x08061C60
 	adds r2, r2, r0
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r4, #0
 	bl sub_0807000C
 	pop {r4, r5, pc}

@@ -540,6 +540,7 @@ SECTIONS {
 		asm/mama.o(.text);
 		src/emma.o(.text);
 		asm/teachers.o(.text);
+		src/windTribespeople.o(.text);
 		asm/windTribespeople.o(.text);
 		asm/gregal.o(.text);
 		asm/mayorHagen.o(.text);

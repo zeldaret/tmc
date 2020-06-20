@@ -107,25 +107,25 @@ NPC58_Head: @ 0x0806EBAC
 	ldrsh r2, [r0, r1]
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	adds r0, #0x6a
 	movs r1, #0
 	ldrsh r2, [r0, r1]
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	adds r0, #0x6c
 	movs r1, #0
 	ldrsh r2, [r0, r1]
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	movs r1, #3
 	movs r2, #0xa
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	movs r2, #0xc
 	rsbs r2, r2, #0
 	adds r0, r4, #0

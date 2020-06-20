@@ -39,14 +39,14 @@ void OcarinaUse(ItemBehavior* itemBeh, s32 inputFlags) {
         var = gLinkEntity.spriteSettings.raw & ~0x40;
         gLinkEntity.spriteSettings.raw &= var;
 
-        gLinkEntity.flags = gLinkEntity.flags & 127;
+        gLinkEntity.flags &= 127;
         gLinkEntity.itemCooldown = 2;
-        gLinkState.flags.all = (gLinkState.flags.all | 0x10000000);
+        gLinkState.flags.all |= 0x10000000;
         gLinkState.filler8[0] = 255;
         gUnk_02034490 = 1;
         bVar1 = (8 >> inputFlags);
-        gLinkState.unk3 = bVar1 | gLinkState.unk3;
-        gLinkState.keepFacing = bVar1 | gLinkState.keepFacing;
+        gLinkState.unk3 |= bVar1;
+        gLinkState.keepFacing |= bVar1;
         sub_08078F60();
         sub_08077D38(itemBeh, inputFlags);
         PlaySFX(534);

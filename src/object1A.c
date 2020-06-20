@@ -24,7 +24,7 @@ void sub_080869DC(Entity* ent) {
     ent->action = 1;
     ent->spriteSettings.b.ss0 = 0;
     ent->boundingBox = &gUnk_080FD1A8;
-    ent->field_0x3c = ent->field_0x3c | 16;
+    ent->field_0x3c |= 16;
     itemEntity = CreateObject(0, ent->entityType.form, 0);
     if (itemEntity != NULL) {
         itemEntity->actionDelay = 10;

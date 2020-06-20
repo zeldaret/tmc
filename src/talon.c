@@ -144,9 +144,9 @@ void sub_08065780(Entity* this, u16* param_2) {
 }
 
 void Talon_Head(Entity* this) {
-    sub_0806FF60(this, 0, ((this->frames.all & 7) + 0xB));
-    sub_0806FF60(this, 1, this->frameIndex);
-    sub_0806FF88(this, 1, 0);
+    SetExtraSpriteFrame(this, 0, ((this->frames.all & 7) + 0xB));
+    SetExtraSpriteFrame(this, 1, this->frameIndex);
+    SetSpriteSubEntryOffsetData1(this, 1, 0);
     sub_0807000C(this);
 }
 

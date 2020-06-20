@@ -59,7 +59,6 @@ void sub_08063280(Entity* this, u32 unused) {
     e = this;
     UpdateAnimationSingleFrame();
     var = e->frames.all & 0x7F;
-    e->frames.all = e->frames.all ^ var;
-    if (var == 2)
-        CreateFx(e, 49, 0);
+    e->frames.all ^= var;
+    if (var == 2) CreateFx(e, 49, 0);
 }

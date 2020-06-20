@@ -144,6 +144,6 @@ typedef struct Entity {
 
 } Entity;
 
-#define COORD_TO_TILE(entity) ((((entity->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3fU) | (((entity->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
+#define COORD_TO_TILE(entity) ((((entity->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3fU) | (((entity->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3fU) * 64)
 
 #endif

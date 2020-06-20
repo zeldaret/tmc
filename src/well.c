@@ -19,8 +19,7 @@ void sub_080A0EB0(Entity* ent) {
     u32 tilePos;
 
     ent->action = 1;
-    tilePos = (((ent->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3F) |
-              ((((ent->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3F) * 64);
+    tilePos = COORD_TO_TILE(ent);
     ent->field_0x80 = tilePos;
     SetTile(16509, ent->field_0x80, 1);
 }
@@ -29,7 +28,7 @@ void sub_080A0EF0(Entity* ent) {
     s32 tileIndex;
 
     tileIndex = GetTileType(ent->field_0x80, 1);
-    if (tileIndex != 16509) {
+    if (tileIndex != 0x407D) {
         sub_08078B48();
         gLinkEntity.x.WORD = ent->x.WORD;
         gLinkEntity.y.HALF.HI = ent->y.HALF.HI + 4;
