@@ -325,7 +325,7 @@ SECTIONS {
 		asm/peahat.o(.text);
 		asm/rollobite.o(.text);
 		asm/darkNut.o(.text);
-		asm/hangingSeed.o(.text);
+		src/hangingSeed.o(.text);
 		asm/beetle.o(.text);
 		src/keese.o(.text);
 		asm/keese.o(.text);
