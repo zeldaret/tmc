@@ -136,7 +136,7 @@ typedef struct Entity {
     u32* heldObjectPtr;
     u16 field_0x78;
     u16 itemCooldown;
-    u32 field_0x7c;
+    union SplitWord field_0x7c;
     u16 field_0x80;
     u16 field_0x82;
     union SplitHWord cutsceneBeh;
@@ -144,6 +144,6 @@ typedef struct Entity {
 
 } Entity;
 
-#define COORD_TO_TILE(entity) ((((entity->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3fU) | (((entity->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3fU) * 64)
+#define COORD_TO_TILE(entity) ((((entity->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3fU) | (((entity->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
 
 #endif
