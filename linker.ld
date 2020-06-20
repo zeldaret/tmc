@@ -600,6 +600,7 @@ SECTIONS {
 		asm/object9.o(.text);
 		asm/objectA.o(.text);
 		asm/objectB.o(.text);
+		src/chestSpawner.o(.text);
 		asm/chestSpawner.o(.text);
 		asm/objectD.o(.text);
 		asm/objectE.o(.text);
@@ -663,6 +664,7 @@ SECTIONS {
 		asm/object44.o(.text);
 		asm/object45.o(.text);
 		asm/giantBookLadder.o(.text);
+		src/heartContainer.o(.text);
 		asm/heartContainer.o(.text);
 		asm/object48.o(.text);
 		asm/object49.o(.text);

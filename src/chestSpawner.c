@@ -1,0 +1,37 @@
+#include "global.h"
+#include "entity.h"
+
+extern void sub_080842D8(Entity*);
+extern void sub_08078828(Entity*);
+extern u32 CheckLocalFlag(u32);
+extern void InitializeAnimation(Entity*, u32);
+extern u32 CheckFlags(u32);
+extern void sub_08083E20(Entity*);
+
+extern void (*const gUnk_0811F7E8[])(Entity*);
+extern void (*const gUnk_0811F808[])(Entity*);
+extern void (*const gUnk_0811F818[])(Entity*);
+
+extern u32 gUnk_0811F8B0;
+void ChestSpawner(Entity* this)
+{
+  gUnk_0811F7E8[this->entityType.form](this);
+}
+
+void sub_08083DF0(Entity* this) {
+    gUnk_0811F808[this->action](this);
+}
+
+void sub_08083E08(Entity *this)
+{
+  gUnk_0811F818[this->action](this);
+}
+
+void sub_08083E20(Entity *this)
+{
+  this->action = 3;
+  this->spriteSettings.b.ss0 = 1;
+  this->spriteOrder.b1 = 0;
+  sub_080842D8(this);
+  sub_08078828(this);
+}

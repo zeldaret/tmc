@@ -6,69 +6,6 @@
 
 	.text
 
-
-	thumb_func_start ChestSpawner
-ChestSpawner: @ 0x08083DD8
-	push {lr}
-	ldr r2, _08083DEC @ =gUnk_0811F7E8
-	ldrb r1, [r0, #0xa]
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	bl _call_via_r1
-	pop {pc}
-	.align 2, 0
-_08083DEC: .4byte gUnk_0811F7E8
-
-	thumb_func_start sub_08083DF0
-sub_08083DF0: @ 0x08083DF0
-	push {lr}
-	ldr r2, _08083E04 @ =gUnk_0811F808
-	ldrb r1, [r0, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	bl _call_via_r1
-	pop {pc}
-	.align 2, 0
-_08083E04: .4byte gUnk_0811F808
-
-	thumb_func_start sub_08083E08
-sub_08083E08: @ 0x08083E08
-	push {lr}
-	ldr r2, _08083E1C @ =gUnk_0811F818
-	ldrb r1, [r0, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	bl _call_via_r1
-	pop {pc}
-	.align 2, 0
-_08083E1C: .4byte gUnk_0811F818
-
-	thumb_func_start sub_08083E20
-sub_08083E20: @ 0x08083E20
-	push {r4, lr}
-	adds r4, r0, #0
-	movs r0, #3
-	strb r0, [r4, #0xc]
-	ldrb r1, [r4, #0x18]
-	subs r0, #7
-	ands r0, r1
-	movs r1, #1
-	orrs r0, r1
-	strb r0, [r4, #0x18]
-	ldrb r1, [r4, #0x19]
-	movs r0, #0xd
-	rsbs r0, r0, #0
-	ands r0, r1
-	strb r0, [r4, #0x19]
-	adds r0, r4, #0
-	bl sub_080842D8
-	adds r0, r4, #0
-	bl sub_08078828
-	pop {r4, pc}
-
 	thumb_func_start sub_08083E4C
 sub_08083E4C: @ 0x08083E4C
 	push {r4, lr}
