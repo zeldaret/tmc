@@ -136,7 +136,7 @@ typedef struct Entity {
     u32* heldObjectPtr;
     u16 field_0x78;
     u16 itemCooldown;
-    union SplitWord field_0x7c;
+    u32 field_0x7c;
     u16 field_0x80;
     u16 field_0x82;
     union SplitHWord cutsceneBeh;

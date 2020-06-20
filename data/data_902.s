@@ -1360,7 +1360,7 @@ gUnk_08122794:: @ 08122794
 gUnk_0812279C:: @ 0812279C
 	.incbin "baserom.gba", 0x12279C, 0x0000008
 
-MaskActionFuncs:: @ 081227A4
+gUnk_081227A4:: @ 081227A4
 	.incbin "baserom.gba", 0x1227A4, 0x0000010
 
 gUnk_081227B4:: @ 081227B4
