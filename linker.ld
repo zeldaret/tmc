@@ -684,7 +684,7 @@ SECTIONS {
 		asm/lavaPlatform.o(.text);
 		asm/object5A.o(.text);
 		asm/object5B.o(.text);
-		src/mask.o(.text);
+		asm/mask.o(.text);
 		asm/houseDoorInterior.o(.text);
 		asm/whirlwind.o(.text);
 		asm/objectBlockingStairs.o(.text);
