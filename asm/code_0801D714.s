@@ -5,8 +5,8 @@
 
 	.text
 
-	thumb_func_start sub_0801D714
-sub_0801D714: @ 0x0801D714
+	thumb_func_start LoadPalettesByPaletteGroupIndex
+LoadPalettesByPaletteGroupIndex: @ 0x0801D714
 	push {r4, lr}
 	ldr r1, _0801D748 @ =gUnk_080FF850
 	lsls r0, r0, #2

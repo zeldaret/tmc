@@ -647,7 +647,7 @@ _08058D30: .4byte gRoomControls
 sub_08058D34: @ 0x08058D34
 	push {r4, lr}
 	movs r0, #0x28
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	ldr r0, _08058DAC @ =gUnk_02017700
 	movs r2, #0x90
 	lsls r2, r2, #2

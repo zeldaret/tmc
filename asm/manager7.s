@@ -85,7 +85,7 @@ _08057DD6:
 	ldr r0, _08057E00 @ =gUnk_081081E4
 	adds r0, r5, r0
 	ldrb r0, [r0]
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	b _08057E24
 	.align 2, 0
 _08057DF8: .4byte gUnk_02034490
@@ -169,7 +169,7 @@ sub_08057E7C: @ 0x08057E7C
 	ldr r0, _08057EB8 @ =gUnk_081081E4
 	adds r0, r4, r0
 	ldrb r0, [r0]
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	lsls r1, r4, #6
 	ldr r0, _08057EBC @ =gUnk_081080A4
 	adds r1, r1, r0

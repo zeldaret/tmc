@@ -1594,9 +1594,9 @@ sub_08053320: @ 0x08053320
 _08053362:
 	bl sub_08053390
 	movs r0, #0xb
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	movs r0, #0xc
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	movs r0, #0
 	movs r1, #0
 	bl sub_0801D79C
@@ -2215,7 +2215,7 @@ sub_08053800: @ 0x08053800
 	strb r2, [r1, #7]
 	adds r0, r5, #0
 	adds r0, #0x8a
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	adds r0, r5, #0
 	adds r0, #0x3a
 	bl sub_0801D7EC

@@ -2344,7 +2344,7 @@ sub_080A67C4: @ 0x080A67C4
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r0, #0xba
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	adds r5, r4, #0
 	adds r5, #0x5f
 	cmp r4, #0xb

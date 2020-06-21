@@ -2378,7 +2378,7 @@ sub_0804C918: @ 0x0804C918
 	adds r2, r5, #0
 	bl sub_08000E96
 	movs r0, #0x19
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	pop {r4, r5, pc}
 	.align 2, 0
 _0804C940: .4byte gUnk_086D4460

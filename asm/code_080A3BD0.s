@@ -17,7 +17,7 @@ sub_080A3BD0: @ 0x080A3BD0
 	strb r1, [r0]
 	bl sub_080A4D34
 	movs r0, #0xcb
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	movs r0, #0x75
 	bl sub_0801D7EC
 	bl sub_080A4494
@@ -2242,7 +2242,7 @@ sub_080A4D34: @ 0x080A4D34
 	push {lr}
 	bl sub_08053320
 	movs r0, #0xb5
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	ldr r1, _080A4D50 @ =gUnk_02002A40
 	adds r2, r1, #0
 	adds r2, #0xaa
@@ -2371,7 +2371,7 @@ sub_080A4DB8: @ 0x080A4DB8
 	ldrb r0, [r4]
 	cmp r0, #0
 	beq _080A4E4A
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 _080A4E4A:
 	ldrb r0, [r4, #1]
 	cmp r0, #0

@@ -21,7 +21,7 @@ sub_080AD89C: @ 0x080AD89C
 	strb r0, [r4, #0x10]
 	ldrb r0, [r4, #0x10]
 	adds r0, #5
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 _080AD8BC:
 	ldrb r1, [r4, #0x12]
 	movs r0, #0x1f

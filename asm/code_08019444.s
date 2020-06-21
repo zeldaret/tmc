@@ -499,7 +499,7 @@ _0801981A:
 	b _0801982E
 _08019824:
 	ldrh r0, [r4]
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	bl sub_080533CC
 _0801982E:
 	adds r4, #0xc

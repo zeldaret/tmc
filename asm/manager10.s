@@ -547,7 +547,7 @@ sub_08059994: @ 0x08059994
 	cmp r0, #0
 	beq _080599AE
 	movs r0, #0x5b
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	ldr r0, _080599B0 @ =gArea
 	ldr r1, _080599B4 @ =0x00000864
 	adds r0, r0, r1
