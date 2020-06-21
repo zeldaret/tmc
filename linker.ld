@@ -704,7 +704,7 @@ SECTIONS {
 		asm/crenalBeanSprout.o(.text);
 		asm/minecartDoor.o(.text);
 		asm/objectOnPillar.o(.text);
-		asm/mineralWaterSource.o(.text);
+		src/mineralWaterSource.o(.text);
 		asm/minishSizedArchway.o(.text);
 		asm/object70.o(.text);
 		asm/pushableGrave.o(.text);

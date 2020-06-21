@@ -1828,10 +1828,10 @@ gUnk_08123274:: @ 08123274
 gUnk_0812327C:: @ 0812327C
 	.incbin "baserom.gba", 0x12327C, 0x000001C
 
-gUnk_08123298:: @ 08123298
+MineralWaterSourceActionFuncs:: @ 08123298
 	.incbin "baserom.gba", 0x123298, 0x0000008
 
-gUnk_081232A0:: @ 081232A0
+MineralWaterSourceParameters:: @ 081232A0
 	.incbin "baserom.gba", 0x1232A0, 0x0000004
 
 gUnk_081232A4:: @ 081232A4
