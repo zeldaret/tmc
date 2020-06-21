@@ -7,7 +7,7 @@ extern void sub_0808E714(Entity*);
 
 extern void (*const gUnk_08121C48[])(Entity*);
 
-extern u32 gUnk_08121C58;
+extern BoundingBox gUnk_08121C58;
 
 void HeartContainer(Entity* this) {
     gUnk_08121C48[this->action](this);

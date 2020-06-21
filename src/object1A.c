@@ -11,7 +11,7 @@ extern u32 Random(void);
 
 extern void (*gUnk_081206C4[99])(Entity*);
 
-extern u32 gUnk_080FD1A8;
+extern BoundingBox gUnk_080FD1A8;
 
 // Main
 void Object1A(Entity* ent) {

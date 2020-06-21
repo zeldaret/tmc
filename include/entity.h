@@ -17,6 +17,13 @@ typedef struct {
     u8 parameter;
 } EntityType;
 
+typedef struct {
+    u8 unknown[6];
+    u8 field_0x6;
+    u8 field_0x7;
+    u8 unknown2[4];
+} BoundingBox;
+
 union SplitWord {
     s32 WORD;
     struct {
@@ -103,7 +110,7 @@ typedef struct Entity {
     u8 field_0x44;
     u8 currentHealth;
     s16 field_0x46;
-    u32* boundingBox;
+    BoundingBox* boundingBox;
     u8 field_0x4c;
     u8 field_0x4d;
     u8 field_0x4e;
