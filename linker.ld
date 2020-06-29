@@ -279,16 +279,16 @@ SECTIONS {
         /* handwritten assembly */
         asm/crt0.o(.text);
         asm/code_08000108.o(.text);
-        data/data_1.o(.rodata);
+        data/data_08000360.o(.rodata);
         asm/code_08000E44.o(.text);
         asm/libgcc.o(.text);
         asm/code_08000F10.o(.text);
-        data/data_2.o(.rodata);
+        data/data_08000F54.o(.rodata);
         asm/code_080011C4.o(.text);
-        data/data_4.o(.rodata);
+        data/data_080029B4.o(.rodata);
         asm/code_08003FC4.o(.text);
 		asm/code_080043E8.o(.text);
-        data/data_6.o(.rodata);
+        data/data_08007DF4.o(.rodata);
         asm/code_0800857C.o(.text);
 		asm/sub_08016AE4.o(.text);
 
@@ -506,6 +506,7 @@ SECTIONS {
 		asm/manager2B.o(.text);
 		asm/manager2C.o(.text);
 		asm/manager2D.o(.text);
+		src/manager2E.o(.text);
 		asm/manager2E.o(.text);
 		asm/manager2F.o(.text);
 		asm/manager30.o(.text);
@@ -882,22 +883,24 @@ SECTIONS {
         /* handwritten assembly in arm mode */
         asm/intr.o(.text);
         /* data */
-        data/data_8.o(.rodata);
+        data/data_080B2A70.o(.rodata);
 		src/object.o(.rodata);
-		data/data_81.o(.rodata);
+		data/data_080B3054.o(.rodata);
 		src/npc.o(.rodata);
-		data/data_811.o(.rodata);
+		data/data_080B3740.o(.rodata);
 		src/trig.o(.rodata);
-		data/data_82.o(.rodata);
+		data/data_080C93E0.o(.rodata);
 		src/enemy.o(.rodata);
-		data/data_9.o(.rodata);
+		data/data_080D3D94.o(.rodata);
+		data/areaPropertyLists.o(.rodata);
+		data/data_080D5360.o(.rodata);
 		src/item.o(.rodata);
-		data/data_901.o(.rodata);
+		data/data_0811BD44.o(.rodata);
 		src/greatFairy.o(.rodata);
 		data/greatFairyAnimations.o(.rodata);
-		data/data_902.o(.rodata);
+		data/data_081208A0.o(.rodata);
 		data/strings.o(.rodata);
-		data/data_91.o(.rodata);
+		data/data_089FC6C4.o(.rodata);
     } >rom
 
     /* DWARF 2 sections */

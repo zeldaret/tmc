@@ -6,32 +6,6 @@
 
 	.text
 
-	thumb_func_start sub_0805D250
-sub_0805D250: @ 0x0805D250
-	push {lr}
-	ldr r2, _0805D264 @ =gUnk_08108D3C
-	ldrb r1, [r0, #0xa]
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	bl _call_via_r1
-	pop {pc}
-	.align 2, 0
-_0805D264: .4byte gUnk_08108D3C
-
-	thumb_func_start sub_0805D268
-sub_0805D268: @ 0x0805D268
-	push {lr}
-	ldr r2, _0805D27C @ =gUnk_08108D44
-	ldrb r1, [r0, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	bl _call_via_r1
-	pop {pc}
-	.align 2, 0
-_0805D27C: .4byte gUnk_08108D44
-
 	thumb_func_start sub_0805D280
 sub_0805D280: @ 0x0805D280
 	push {r4, lr}
