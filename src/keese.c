@@ -88,8 +88,8 @@ void sub_08021E4C(Entity *this)
   if (this->field_0x78 != 0) {
     this->field_0x78--;
   }
-  if (this->itemCooldown != 0) {
-    (this->itemCooldown)--;
+  if (this->field_0x7a != 0) {
+    (this->field_0x7a)--;
   }
   GetNextFrame(this);
   if ((this->frames.b.f3) != 0) {
@@ -129,6 +129,6 @@ void sub_08021EF0(Entity *this)
   
   this->action = 1;
   this->field_0x78 = gUnk_080CB6D6[Random() & 0xf];
-  this->itemCooldown = 0x3c;
+  this->field_0x7a = 0x3c;
   InitializeAnimation(this, 0);
 }

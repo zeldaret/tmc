@@ -80,7 +80,8 @@ typedef struct Entity {
         u8 b1 : 2;
         u8 b2 : 2;
     } PACKED spriteOrientation;
-    u8 filler[2];
+    u8 filler[1];
+    u8 field_0x1d;
     u8 frameIndex;
     u8 lastFrameIndex;
     s32 field_0x20;
@@ -140,9 +141,10 @@ typedef struct Entity {
     u8 field_0x6c;
     u8 field_0x6d;
     u8 filler4[6];
-    u32* heldObjectPtr;
+    u16 field_0x74;
+    u8 filler5[2];
     u16 field_0x78;
-    u16 itemCooldown;
+    u16 field_0x7a;
     union SplitWord field_0x7c;
     u16 field_0x80;
     u16 field_0x82;

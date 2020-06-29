@@ -70,7 +70,7 @@ void sub_080929A4(Entity *this) {
     this->field_0x7c.HALF.HI = COORD_TO_TILE(this);
     this->field_0x7c.HALF.LO = sub_080001DA(this->field_0x7c.HALF.HI, 1);
 
-    this->itemCooldown = sub_080002E0(this->field_0x7c.HALF.HI, 1);
+    this->field_0x7a = sub_080002E0(this->field_0x7c.HALF.HI, 1);
 
     SetTile(0x4022, this->field_0x7c.HALF.HI, 1);
 }
@@ -98,7 +98,7 @@ void sub_08092A94(Entity *this) {
     // Presumably, make the mask fall
     SetTile((u16)this->field_0x7c.HALF.LO, this->field_0x7c.HALF.HI, 1);
     
-    sub_08000148(this->itemCooldown, this->field_0x7c.HALF.HI, 1);
+    sub_08000148(this->field_0x7a, this->field_0x7c.HALF.HI, 1);
 
     this->action = 2;
 
