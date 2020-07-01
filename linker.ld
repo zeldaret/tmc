@@ -732,7 +732,7 @@ SECTIONS {
 		asm/pushableFurniture.o(.text);
 		asm/furniture.o(.text);
 		asm/minishSizedEntrance.o(.text);
-		asm/archway.o(.text);
+		src/archway.o(.text);
 		asm/giantRock.o(.text);
 		asm/object51.o(.text);
 		asm/object52.o(.text);
