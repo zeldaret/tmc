@@ -644,7 +644,7 @@ sub_08029770: @ 0x08029770
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #0x73
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	cmp r0, #0
 	beq _080297E8
 	movs r0, #2

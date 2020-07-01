@@ -101,7 +101,7 @@ _0808CF82:
 	adds r4, r4, r0
 	ldrh r1, [r4]
 	adds r0, r5, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	ldrh r1, [r4, #2]
 	adds r0, r5, #0
 	bl sub_0801D040

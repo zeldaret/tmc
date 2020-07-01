@@ -412,6 +412,7 @@ SECTIONS {
 		asm/slime.o(.text);
 		asm/miniSlime.o(.text);
 		asm/fireballGuy.o(.text);
+		src/miniFireballGuy.o(.text);
 		asm/miniFireballGuy.o(.text);
 		asm/enemy5A.o(.text);
 		asm/businessScrubPrologue.o(.text);
@@ -731,6 +732,7 @@ SECTIONS {
 		asm/object4B.o(.text);
 		asm/pushableFurniture.o(.text);
 		asm/furniture.o(.text);
+		src/minishSizedEntrance.o(.text);
 		asm/minishSizedEntrance.o(.text);
 		asm/archway.o(.text);
 		asm/giantRock.o(.text);

@@ -5247,7 +5247,7 @@ _080A7E78:
 _080A7E92:
 	ldrh r1, [r5]
 	adds r0, r4, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 _080A7E9A:
 	cmp r0, #0
 	bne _080A7EA2

@@ -989,7 +989,7 @@ sub_08029078: @ 0x08029078
 	strb r0, [r2]
 	adds r0, r4, #0
 	movs r1, #0x72
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	cmp r0, #0
 	bne _080290AE
 	adds r0, r4, #0
