@@ -60,7 +60,7 @@ void sub_080929A4(Entity *this) {
     this->action = 1;
     this->field_0x20 = 0x18000;
 
-    this->field_0x78 = ((Random() & 7) << 10) | 0x2000;
+    this->field_0x78.HWORD = ((Random() & 7) << 10) | 0x2000;
     
     this->field_0xf = this->actionDelay >> 1;
     this->actionDelay = 0;
@@ -129,7 +129,7 @@ void sub_08092B0C(Entity *this) {
         sub_0805457C(this, 3);
     }
     else {
-        sub_080044EC(this, this->field_0x78);
+        sub_080044EC(this, this->field_0x78.HWORD);
 
         if (this->height.HALF.HI == 0) {
             this->actionDelay++;

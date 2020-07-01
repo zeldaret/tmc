@@ -82,7 +82,7 @@ void sub_0803CD6C(Entity *this) {
     this->attachedEntity = lakitu;
     this->parent = lakitu;
 
-    this->field_0x78 = this->x.HALF.HI;
+    this->field_0x78.HWORD = this->x.HALF.HI;
     this->field_0x7a = this->y.HALF.HI;
 
     InitAnimationForceUpdate(this, 4);
@@ -146,7 +146,7 @@ void sub_0803CE3C(Entity *this) {
 
     this->field_0x3a &= 0xfb;
 
-    this->x.HALF.HI = this->field_0x78;
+    this->x.HALF.HI = this->field_0x78.HWORD;
     this->y.HALF.HI = this->field_0x7a;
 
     this->attachedEntity = this->parent;

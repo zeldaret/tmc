@@ -142,8 +142,8 @@ typedef struct Entity {
     u8 field_0x6d;
     u8 filler4[6];
     u16 field_0x74;
-    u8 filler5[2];
-    u16 field_0x78;
+    u16 field_0x76;
+    union SplitHWord field_0x78;
     u16 field_0x7a;
     union SplitWord field_0x7c;
     u16 field_0x80;

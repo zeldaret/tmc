@@ -394,7 +394,7 @@ SECTIONS {
 		asm/takkuri.o(.text);
 		src/bowMoblin.o(.text);
 		asm/bowMoblin.o(.text);
-		asm/lakitu.o(.text);
+		src/lakitu.o(.text);
 		src/lakituCloud.o(.text);
 		asm/enemy49.o(.text);
 		asm/vaatiRebornEnemy.o(.text);

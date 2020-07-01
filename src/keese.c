@@ -4,9 +4,9 @@
 #include "link.h"
 
 extern void sub_0804AA30(Entity*, void *);
-extern u32 sub_0806F520(void);
+extern u32 sub_0806F520(Entity*);
 extern void sub_0806F4E8(Entity*);
-extern u32 sub_0806F3E4(void);
+extern u32 sub_0806F3E4(Entity*);
 extern void sub_0804A7D4(Entity*);
 extern void sub_0804A720(Entity*);
 extern u32 Random();
@@ -45,7 +45,7 @@ void sub_08021d98(Entity *this)
 
 void sub_08021DA8(Entity *this)
 {
-  if (sub_0806F520()) {
+  if (sub_0806F520(this)) {
     gUnk_080CB6C4[this->previousActionFlag](this);
   }
 }
@@ -62,7 +62,7 @@ void sub_08021DD4(Entity *this)
 
 void sub_08021DDC(Entity *this)
 {
-  if (sub_0806F3E4()) {
+  if (sub_0806F3E4(this)) {
     sub_0804A7D4(this);
   }
 }
@@ -85,8 +85,8 @@ void sub_08021DF0(Entity *this)
 
 void sub_08021E4C(Entity *this)
 {
-  if (this->field_0x78 != 0) {
-    this->field_0x78--;
+  if (this->field_0x78.HWORD != 0) {
+    this->field_0x78.HWORD--;
   }
   if (this->field_0x7a != 0) {
     (this->field_0x7a)--;
@@ -128,7 +128,7 @@ void sub_08021EF0(Entity *this)
   u32 uVar1;
   
   this->action = 1;
-  this->field_0x78 = gUnk_080CB6D6[Random() & 0xf];
+  this->field_0x78.HWORD = gUnk_080CB6D6[Random() & 0xf];
   this->field_0x7a = 0x3c;
   InitializeAnimation(this, 0);
 }
