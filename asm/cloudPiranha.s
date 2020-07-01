@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08038430
-sub_08038430: @ 0x08038430
+	thumb_func_start CloudPiranha
+CloudPiranha: @ 0x08038430
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0803844C @ =gUnk_080CF4F0
@@ -392,7 +392,7 @@ sub_080386B8: @ 0x080386B8
 	cmp r1, #0
 	beq _08038720
 	adds r0, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _08038720:
 	pop {r4, pc}
 	.align 2, 0
@@ -499,7 +499,7 @@ _080387D8:
 	cmp r1, #0
 	beq _080387EE
 	adds r0, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _080387EE:
 	pop {r4, pc}
 
@@ -586,7 +586,7 @@ _0803887E:
 	bl InitializeAnimation
 _08038890:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r1, r4, #0
 	adds r1, #0x82
 	ldrb r0, [r1]

@@ -7,12 +7,12 @@
 	.text
 
 
-	thumb_func_start sub_08023F28
-sub_08023F28: @ 0x08023F28
+	thumb_func_start Pesto
+Pesto: @ 0x08023F28
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _08023F40 @ =gUnk_080CBEC4
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -114,7 +114,7 @@ sub_08023FE0: @ 0x08023FE0
 	thumb_func_start sub_08023FE8
 sub_08023FE8: @ 0x08023FE8
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_08023FF0
@@ -163,7 +163,7 @@ sub_08024038: @ 0x08024038
 	strb r1, [r0, #0xd]
 	movs r1, #0x3c
 	strb r1, [r0, #0x1d]
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}
 
 	thumb_func_start sub_08024048
@@ -172,7 +172,7 @@ sub_08024048: @ 0x08024048
 	adds r4, r0, #0
 	bl sub_0806F4E8
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_08024058
@@ -207,7 +207,7 @@ sub_08024060: @ 0x08024060
 	strb r0, [r3, #0x19]
 _0802408C:
 	adds r0, r3, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}
 	.align 2, 0
 _08024094: .4byte gLinkEntity
@@ -1426,7 +1426,7 @@ _080249CE:
 	adds r0, r4, #0
 	bl sub_080AEFB4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_080249DC
@@ -1864,7 +1864,7 @@ sub_08024D00: @ 0x08024D00
 	subs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _08024D20
 _08024D1A:
 	adds r0, r4, #0

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080456D8
-sub_080456D8: @ 0x080456D8
+	thumb_func_start Enemy5A
+Enemy5A: @ 0x080456D8
 	push {lr}
 	ldr r1, _080456E4 @ =gUnk_080D1888
 	bl EnemyFunctionHandler
@@ -467,7 +467,7 @@ sub_08045A28: @ 0x08045A28
 	cmp r0, #0
 	bne _08045A3E
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08045A3E:
 	adds r6, r5, #0
 	adds r6, #0x5a

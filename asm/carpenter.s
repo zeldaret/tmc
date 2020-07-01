@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08067158
-sub_08067158: @ 0x08067158
+	thumb_func_start Carpenter
+Carpenter: @ 0x08067158
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r0, #0x84
@@ -35,7 +35,7 @@ _0806717E:
 	ldr r0, _080671EC @ =gUnk_08110CA8
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08067224
 	movs r0, #1
@@ -88,7 +88,7 @@ _080671F4:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _08067224
 _0806720A:
 	adds r0, r4, #0
@@ -106,8 +106,8 @@ _08067224:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08067228
-sub_08067228: @ 0x08067228
+	thumb_func_start Carpenter_Head
+Carpenter_Head: @ 0x08067228
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xa]
@@ -121,11 +121,11 @@ sub_08067228: @ 0x08067228
 	ands r2, r0
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	ldrb r2, [r4, #0x1e]
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	adds r0, #0x5b
 	ldrb r0, [r0]
@@ -133,15 +133,15 @@ sub_08067228: @ 0x08067228
 	ands r2, r0
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #2
-	bl sub_0806FFD8
+	bl SetSpriteSubEntryOffsetData2
 	adds r0, r4, #0
 	bl sub_0807000C
 	b _080672AC
@@ -154,15 +154,15 @@ _0806727E:
 	ands r2, r0
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	ldrb r2, [r4, #0x1e]
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r4, #0
 	bl sub_0807000C
 _080672AC:
@@ -217,7 +217,7 @@ _08067300: .4byte gUnk_08110CE8
 sub_08067304: @ 0x08067304
 	push {lr}
 	ldr r1, _08067310 @ =gUnk_08110D00
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _08067310: .4byte gUnk_08110D00
@@ -235,8 +235,8 @@ sub_08067314: @ 0x08067314
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806732C
-sub_0806732C: @ 0x0806732C
+	thumb_func_start Carpenter_Fusion
+Carpenter_Fusion: @ 0x0806732C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -247,7 +247,7 @@ sub_0806732C: @ 0x0806732C
 	ldr r0, _08067374 @ =gUnk_08110CA8
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806737E
 	ldrb r0, [r4, #0xc]
@@ -273,6 +273,6 @@ sub_0806732C: @ 0x0806732C
 _08067374: .4byte gUnk_08110CA8
 _08067378:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806737E:
 	pop {r4, pc}

@@ -1,12 +1,12 @@
 #include "global.h"
-#include "entityData.h"
+#include "room.h"
 
-void extern CreateEntity(EntityData *);
+void extern CreateEntity(EntityData*);
 
-void LoadRoomEntityList(EntityData *listPtr) {
-	if (listPtr != NULL) {
-		while (listPtr->entityType != 0xFF) {
-			CreateEntity(listPtr++);
-		}
-	}
+void LoadRoomEntityList(EntityData* listPtr) {
+    if (listPtr != NULL) {
+        while (listPtr->entityType != 0xFF) {
+            CreateEntity(listPtr++);
+        }
+    }
 }

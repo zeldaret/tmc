@@ -6,94 +6,6 @@
 
 	.text
 
-
-	thumb_func_start sub_0806A358
-sub_0806A358: @ 0x0806A358
-	push {lr}
-	ldr r2, _0806A36C @ =gUnk_08112260
-	ldrb r1, [r0, #0xa]
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	bl _call_via_r1
-	pop {pc}
-	.align 2, 0
-_0806A36C: .4byte gUnk_08112260
-
-	thumb_func_start sub_0806A370
-sub_0806A370: @ 0x0806A370
-	push {r4, lr}
-	adds r4, r0, #0
-	ldr r1, _0806A3D0 @ =gUnk_08112278
-	ldrb r0, [r4, #0xc]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r1, [r0]
-	adds r0, r4, #0
-	bl _call_via_r1
-	adds r0, r4, #0
-	movs r1, #0
-	bl sub_0807DDAC
-	adds r0, r4, #0
-	bl sub_0807DDE4
-	adds r0, r4, #0
-	bl sub_080042B8
-	adds r0, r4, #0
-	bl sub_0806ED78
-	adds r0, r4, #0
-	adds r0, #0x58
-	ldrb r0, [r0]
-	cmp r0, #0xf
-	bne _0806A3CC
-	adds r4, #0x5a
-	ldrb r0, [r4]
-	cmp r0, #1
-	bne _0806A3BC
-	movs r0, #0
-	strb r0, [r4]
-	movs r0, #0x86
-	lsls r0, r0, #2
-	bl PlaySFX
-_0806A3BC:
-	ldrb r0, [r4]
-	cmp r0, #2
-	bne _0806A3CC
-	movs r0, #0
-	strb r0, [r4]
-	ldr r0, _0806A3D4 @ =0x00000219
-	bl PlaySFX
-_0806A3CC:
-	pop {r4, pc}
-	.align 2, 0
-_0806A3D0: .4byte gUnk_08112278
-_0806A3D4: .4byte 0x00000219
-
-	thumb_func_start sub_0806A3D8
-sub_0806A3D8: @ 0x0806A3D8
-	push {r4, lr}
-	adds r4, r0, #0
-	movs r0, #1
-	strb r0, [r4, #0xc]
-	movs r0, #0xb4
-	strb r0, [r4, #0xe]
-	adds r0, r4, #0
-	movs r1, #2
-	bl sub_0805E3A0
-	adds r0, r4, #0
-	bl sub_0806A8C8
-	ldr r1, _0806A40C @ =gUnk_08012F0C
-	adds r0, r4, #0
-	bl sub_0807DAD0
-	adds r1, r4, #0
-	adds r1, #0x84
-	str r0, [r1]
-	adds r0, r4, #0
-	movs r1, #0
-	bl sub_0807DD94
-	pop {r4, pc}
-	.align 2, 0
-_0806A40C: .4byte gUnk_08012F0C
-
 	thumb_func_start sub_0806A410
 sub_0806A410: @ 0x0806A410
 	push {lr}
@@ -327,7 +239,7 @@ nullsub_503: @ 0x0806A5BC
 sub_0806A5C0: @ 0x0806A5C0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -377,7 +289,7 @@ _0806A60A:
 	bl PlaySFX
 _0806A628:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_0806A630
@@ -401,7 +313,7 @@ _0806A646:
 	cmp r0, #0
 	beq _0806A65A
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806A65A:
 	adds r1, r4, #0
 	adds r1, #0x5a
@@ -647,7 +559,7 @@ _0806A814:
 	b _0806A82A
 _0806A824:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806A82A:
 	add sp, #8
 	pop {r4, pc}
@@ -679,7 +591,7 @@ _0806A84E:
 	bl DeleteThisEntity
 _0806A860:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r1, r4, #0
 	adds r1, #0x5a
 	ldrb r0, [r1]
@@ -695,7 +607,7 @@ _0806A860:
 	cmp r1, #0
 	beq _0806A88A
 	adds r0, r4, #0
-	bl sub_0806FA30
+	bl PositionEntityOnTop
 _0806A88A:
 	pop {r4, pc}
 	.align 2, 0
@@ -718,7 +630,7 @@ sub_0806A890: @ 0x0806A890
 	bl sub_0805E3A0
 _0806A8AE:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -784,7 +696,7 @@ sub_0806A914: @ 0x0806A914
 	bl CopyPosition
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _0806A938:
 	pop {r4, r5, pc}
 	.align 2, 0

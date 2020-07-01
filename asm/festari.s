@@ -52,7 +52,7 @@ sub_0805FE48: @ 0x0805FE48
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r5, #0
 	bl sub_0806F118
 	b _0805FF14
@@ -101,10 +101,10 @@ _0805FEC6:
 	beq _0805FED8
 	adds r0, r5, #0
 	adds r1, r3, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0805FED8:
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -219,8 +219,8 @@ _0805FF94:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0805FFA0
-sub_0805FFA0: @ 0x0805FFA0
+	thumb_func_start Festari_Fusion
+Festari_Fusion: @ 0x0805FFA0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -240,11 +240,11 @@ sub_0805FFA0: @ 0x0805FFA0
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #8
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0805FFD4
 _0805FFCE:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0805FFD4:
 	pop {r4, pc}
 	.align 2, 0

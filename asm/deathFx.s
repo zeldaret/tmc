@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808161C
-sub_0808161C: @ 0x0808161C
+	thumb_func_start DeathFx
+DeathFx: @ 0x0808161C
 	push {lr}
 	ldr r2, _08081630 @ =gUnk_0811EBFC
 	ldrb r1, [r0, #0xc]
@@ -64,7 +64,7 @@ _08081674:
 	bl sub_080AE008
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _08081698 @ =0x00000129
 	bl PlaySFX
 	b _0808170C
@@ -139,7 +139,7 @@ _0808171C: .4byte gUnk_0811EC20
 sub_08081720: @ 0x08081720
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -173,7 +173,7 @@ _0808175E:
 sub_08081760: @ 0x08081760
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

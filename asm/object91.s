@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809C3C8
-sub_0809C3C8: @ 0x0809C3C8
+	thumb_func_start Object91
+Object91: @ 0x0809C3C8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0809C3E8 @ =gUnk_08123DD4
@@ -580,7 +580,7 @@ _0809C82A:
 	cmp r0, #0xff
 	bne _0809C84A
 	ldr r0, _0809C850 @ =0x00000B43
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	movs r0, #1
 	strb r0, [r5, #0xd]
 	movs r0, #8
@@ -1015,7 +1015,7 @@ sub_0809CB70: @ 0x0809CB70
 	adds r6, r0, #0
 	adds r4, r1, #0
 	adds r5, r2, #0
-	ldr r0, _0809CBE0 @ =gUnk_080C9160
+	ldr r0, _0809CBE0 @ =gSineTable
 	mov sb, r0
 	lsls r0, r4, #1
 	add r0, sb
@@ -1061,7 +1061,7 @@ sub_0809CB70: @ 0x0809CB70
 	mov sb, r4
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0809CBE0: .4byte gUnk_080C9160
+_0809CBE0: .4byte gSineTable
 
 	thumb_func_start sub_0809CBE4
 sub_0809CBE4: @ 0x0809CBE4

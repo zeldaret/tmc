@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08092ED4
-sub_08092ED4: @ 0x08092ED4
+	thumb_func_start ObjectBlockingStairs
+ObjectBlockingStairs: @ 0x08092ED4
 	push {lr}
 	ldr r2, _08092EE8 @ =gUnk_0812283C
 	ldrb r1, [r0, #0xc]

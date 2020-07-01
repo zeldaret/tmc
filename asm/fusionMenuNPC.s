@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806E8CC
-sub_0806E8CC: @ 0x0806E8CC
+	thumb_func_start FusionMenuNPC
+FusionMenuNPC: @ 0x0806E8CC
 	push {lr}
 	adds r3, r0, #0
 	ldr r2, _0806E8EC @ =gNPCFunctions
@@ -31,8 +31,8 @@ _0806E8F4:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806E8F8
-sub_0806E8F8: @ 0x0806E8F8
+	thumb_func_start FusionMenuNPC_Head
+FusionMenuNPC_Head: @ 0x0806E8F8
 	push {lr}
 	adds r3, r0, #0
 	ldr r2, _0806E918 @ =gNPCFunctions

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08097DD4
-sub_08097DD4: @ 0x08097DD4
+	thumb_func_start MacroDecoration
+MacroDecoration: @ 0x08097DD4
 	push {lr}
 	ldr r2, _08097DE8 @ =gUnk_081233B8
 	ldrb r1, [r0, #0xc]

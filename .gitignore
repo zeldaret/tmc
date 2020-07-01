@@ -35,6 +35,7 @@
 *.swo
 *.swp
 *.til
+*.code-workspace
 .fuse_hidden*
 .idea/
 Thumbs.db

@@ -7,12 +7,12 @@
 	.text
 
 
-	thumb_func_start sub_08021FA8
-sub_08021FA8: @ 0x08021FA8
+	thumb_func_start DoorMimic
+DoorMimic: @ 0x08021FA8
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r5, _08021FD4 @ =gUnk_080CB734
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r5
 	ldr r1, [r0]
@@ -183,7 +183,7 @@ _080220EC:
 sub_080220F0: @ 0x080220F0
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -274,7 +274,7 @@ sub_08022198: @ 0x08022198
 	adds r4, r0, #0
 	bl sub_0800445C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

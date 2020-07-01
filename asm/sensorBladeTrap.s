@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802B9D4
-sub_0802B9D4: @ 0x0802B9D4
+	thumb_func_start SensorBladeTrap
+SensorBladeTrap: @ 0x0802B9D4
 	push {lr}
 	ldr r2, _0802B9E8 @ =gUnk_080CD3C4
 	ldrb r1, [r0, #0xc]

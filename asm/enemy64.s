@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0804905C
-sub_0804905C: @ 0x0804905C
+	thumb_func_start Enemy64
+Enemy64: @ 0x0804905C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xc]
@@ -194,7 +194,7 @@ _0804916E:
 	strh r1, [r0]
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080491E4:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -212,7 +212,7 @@ sub_080491EC: @ 0x080491EC
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08049208: .4byte gUnk_080D2988
@@ -312,7 +312,7 @@ sub_080492A8: @ 0x080492A8
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _080492C4: .4byte gUnk_080D2990
@@ -685,7 +685,7 @@ sub_08049574: @ 0x08049574
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08049590: .4byte gUnk_080D29A8
@@ -866,7 +866,7 @@ sub_080496CC: @ 0x080496CC
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _080496E8: .4byte gUnk_080D29C0
@@ -1311,7 +1311,7 @@ sub_080499F0: @ 0x080499F0
 	ldrsh r2, [r4, r3]
 	subs r1, r1, r2
 	bl sub_080045DA
-	ldr r3, _08049A88 @ =gUnk_080C9160
+	ldr r3, _08049A88 @ =gSineTable
 	lsls r1, r0, #1
 	adds r1, r1, r3
 	movs r2, #0
@@ -1340,7 +1340,7 @@ _08049A82:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08049A84: .4byte gLinkEntity
-_08049A88: .4byte gUnk_080C9160
+_08049A88: .4byte gSineTable
 
 	thumb_func_start sub_08049A8C
 sub_08049A8C: @ 0x08049A8C

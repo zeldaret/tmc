@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08048F8C
-sub_08048F8C: @ 0x08048F8C
+	thumb_func_start GyorgFemaleMouth
+GyorgFemaleMouth: @ 0x08048F8C
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	ldr r0, [r4, #0x50]
@@ -79,7 +79,7 @@ _08049010: .4byte gUnk_080D28CC
 _08049014: .4byte gRoomControls
 _08049018:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0804901E:
 	movs r0, #2
 	ands r0, r5

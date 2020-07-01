@@ -1,1 +1,1 @@
-Entity * CreateEnemy(u8, u8);
+Entity* CreateEnemy(u8, u8);

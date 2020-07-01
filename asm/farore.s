@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08064990
-sub_08064990: @ 0x08064990
+	thumb_func_start Farore
+Farore: @ 0x08064990
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -58,7 +58,7 @@ _080649C2:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08064A24
 	.align 2, 0
 _080649FC: .4byte gLinkEntity
@@ -78,7 +78,7 @@ _08064A0A:
 	adds r0, #0x68
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08064A24:
 	pop {r4, pc}
 	.align 2, 0
@@ -111,8 +111,8 @@ _08064A4E:
 _08064A58: .4byte gUnk_02002A40
 _08064A5C: .4byte 0x00000141
 
-	thumb_func_start sub_08064A60
-sub_08064A60: @ 0x08064A60
+	thumb_func_start Farore_Fusion
+Farore_Fusion: @ 0x08064A60
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -129,11 +129,11 @@ sub_08064A60: @ 0x08064A60
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08064A8C
 _08064A86:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08064A8C:
 	pop {pc}
 	.align 2, 0

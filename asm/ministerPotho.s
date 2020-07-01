@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_080667B0
-sub_080667B0: @ 0x080667B0
+	thumb_func_start MinisterPotho
+MinisterPotho: @ 0x080667B0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -47,7 +47,7 @@ sub_080667E4: @ 0x080667E4
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_08078778
 	pop {r4, pc}
@@ -83,7 +83,7 @@ _08066834:
 	cmp r0, #0
 	bne _08066844
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08066844:
 	adds r2, r4, #0
 	adds r2, #0x39
@@ -155,7 +155,7 @@ _080668A2:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _080668EC
@@ -223,8 +223,8 @@ _08066932:
 	.align 2, 0
 _08066944: .4byte gUnk_08110650
 
-	thumb_func_start sub_08066948
-sub_08066948: @ 0x08066948
+	thumb_func_start MinisterPotho_Fusion
+MinisterPotho_Fusion: @ 0x08066948
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -241,11 +241,11 @@ sub_08066948: @ 0x08066948
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08066974
 _0806696E:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08066974:
 	pop {pc}
 	.align 2, 0

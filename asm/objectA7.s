@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809F9AC
-sub_0809F9AC: @ 0x0809F9AC
+	thumb_func_start ObjectA7
+ObjectA7: @ 0x0809F9AC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -29,6 +29,6 @@ sub_0809F9AC: @ 0x0809F9AC
 	bl InitializeAnimation
 _0809F9D2:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0

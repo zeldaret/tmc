@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08064508
-sub_08064508: @ 0x08064508
+	thumb_func_start Maid
+Maid: @ 0x08064508
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -24,8 +24,8 @@ _0806451E:
 _08064522:
 	pop {pc}
 
-	thumb_func_start sub_08064524
-sub_08064524: @ 0x08064524
+	thumb_func_start Maid_Head
+Maid_Head: @ 0x08064524
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -50,15 +50,15 @@ _08064548:
 	subs r2, #1
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	movs r1, #1
 	adds r2, r5, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r4, #0
 	bl sub_0807000C
 	pop {r4, r5, pc}
@@ -93,7 +93,7 @@ _0806458A:
 	ldr r0, _080645D0 @ =gUnk_0810F874
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806463C
 	ldrb r0, [r4, #0xc]
@@ -217,7 +217,7 @@ sub_08064688: @ 0x08064688
 	lsls r1, r1, #3
 	ldr r2, _080646A0 @ =gUnk_0810F894
 	adds r1, r1, r2
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806469C: .4byte gUnk_02002A40

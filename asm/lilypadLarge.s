@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080854EC
-sub_080854EC: @ 0x080854EC
+	thumb_func_start LilypadLarge
+LilypadLarge: @ 0x080854EC
 	push {lr}
 	ldr r2, _08085500 @ =gUnk_08120608
 	ldrb r1, [r0, #0xc]
@@ -340,7 +340,7 @@ _08085770:
 	movs r4, #0x80
 	lsls r4, r4, #2
 _08085774:
-	ldr r6, _080858A8 @ =gUnk_080C9160
+	ldr r6, _080858A8 @ =gSineTable
 	ldrb r0, [r7, #0x15]
 	lsls r0, r0, #4
 	adds r0, r0, r6
@@ -444,7 +444,7 @@ _0808581A:
 	bl sub_0806F9EC
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
-	ldr r5, _080858A8 @ =gUnk_080C9160
+	ldr r5, _080858A8 @ =gSineTable
 	ldrb r1, [r7, #0x15]
 	lsls r1, r1, #4
 	adds r1, r1, r5
@@ -493,7 +493,7 @@ _08085884:
 	str r0, [r7, #0x7c]
 	b _080858E0
 	.align 2, 0
-_080858A8: .4byte gUnk_080C9160
+_080858A8: .4byte gSineTable
 _080858AC: .4byte 0xFFFF0000
 _080858B0: .4byte gUnk_030010A0
 _080858B4: .4byte 0x00000FFF

@@ -17,7 +17,7 @@
 	beq _0809F7B6
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FA30
+	bl PositionEntityOnTop
 	bl Random
 	ldrh r2, [r4, #0x2e]
 	subs r2, #0x10

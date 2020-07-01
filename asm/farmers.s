@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806BBE4
-sub_0806BBE4: @ 0x0806BBE4
+	thumb_func_start Farmers
+Farmers: @ 0x0806BBE4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -21,7 +21,7 @@ sub_0806BBE4: @ 0x0806BBE4
 	ldr r0, _0806BC28 @ =gUnk_08113140
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806BC54
 	ldrb r0, [r4, #0xc]
@@ -61,7 +61,7 @@ _0806BC40:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806BC54:
 	pop {r4, pc}
 	.align 2, 0
@@ -74,8 +74,8 @@ sub_0806BC58: @ 0x0806BC58
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806BC64
-sub_0806BC64: @ 0x0806BC64
+	thumb_func_start Farmers_Head
+Farmers_Head: @ 0x0806BC64
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -84,15 +84,15 @@ sub_0806BC64: @ 0x0806BC64
 	ands r2, r0
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	ldrb r2, [r4, #0x1e]
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r4, #0
 	bl sub_0807000C
 	pop {r4, pc}
@@ -155,13 +155,13 @@ sub_0806BCE8: @ 0x0806BCE8
 	lsls r1, r1, #3
 	ldr r2, _0806BCF8 @ =gUnk_08113158
 	adds r1, r1, r2
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806BCF8: .4byte gUnk_08113158
 
-	thumb_func_start sub_0806BCFC
-sub_0806BCFC: @ 0x0806BCFC
+	thumb_func_start Farmers_Fusion
+Farmers_Fusion: @ 0x0806BCFC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -174,7 +174,7 @@ sub_0806BCFC: @ 0x0806BCFC
 	ldr r0, _0806BD48 @ =gUnk_08113140
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806BD52
 	ldrb r0, [r4, #0xc]
@@ -194,12 +194,12 @@ sub_0806BCFC: @ 0x0806BCFC
 	bl sub_0806BC58
 	adds r0, r4, #0
 	movs r1, #3
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806BD52
 	.align 2, 0
 _0806BD48: .4byte gUnk_08113140
 _0806BD4C:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806BD52:
 	pop {r4, pc}

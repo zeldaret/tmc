@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08048D98
-sub_08048D98: @ 0x08048D98
+	thumb_func_start Enemy62
+Enemy62: @ 0x08048D98
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	ldr r6, [r5, #0x50]
@@ -19,7 +19,7 @@ sub_08048D98: @ 0x08048D98
 _08048DA8:
 	ldr r4, _08048E00 @ =gUnk_080D22D8
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -174,7 +174,7 @@ sub_08048ED0: @ 0x08048ED0
 	adds r4, r0, #0
 	bl sub_08048F50
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -226,7 +226,7 @@ sub_08048F30: @ 0x08048F30
 	adds r4, r0, #0
 	bl sub_08048F50
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x80

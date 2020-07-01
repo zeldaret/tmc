@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08038CA4
-sub_08038CA4: @ 0x08038CA4
+	thumb_func_start CuccoAggr
+CuccoAggr: @ 0x08038CA4
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_080012DC
@@ -27,7 +27,7 @@ _08038CC4: .4byte gUnk_080012C8
 _08038CC8:
 	ldr r4, _08038CF4 @ =gUnk_080CF778
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -267,7 +267,7 @@ _08038E70:
 	bl sub_08039260
 _08038EA2:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -287,7 +287,7 @@ sub_08038EAC: @ 0x08038EAC
 	adds r0, r4, #0
 	bl sub_080390F8
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_08038ED0
@@ -306,7 +306,7 @@ sub_08038EE0: @ 0x08038EE0
 	adds r4, r0, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_08039298
 	movs r1, #0xe0
@@ -338,7 +338,7 @@ sub_08038F20: @ 0x08038F20
 	adds r4, r0, #0
 	bl sub_08039298
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -368,7 +368,7 @@ sub_08038F44: @ 0x08038F44
 	adds r0, r4, #0
 	bl sub_080044EC
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_08039298
 	adds r1, r4, #0
@@ -432,7 +432,7 @@ _08038FE0:
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _08039018
 	.align 2, 0
 _08038FF4: .4byte 0x0000FFFF
@@ -441,7 +441,7 @@ _08038FFC:
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0803917C
 	cmp r0, #0

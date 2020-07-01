@@ -72,7 +72,7 @@ CheckLocalFlagByOffset: @ 0x0807CB10
 	ldr r0, _0807CB20 @ =gGlobalFlags
 	adds r2, r2, r1
 	adds r1, r2, #0
-	bl sub_0801D5A8
+	bl ReadBit
 	pop {pc}
 	.align 2, 0
 _0807CB20: .4byte gGlobalFlags
@@ -151,55 +151,3 @@ _0807CBCA:
 	adds r0, r1, #0
 	pop {pc}
 	.align 2, 0
-
-	thumb_func_start CheckLocalFlag
-CheckLocalFlag: @ 0x0807CBD0
-	push {lr}
-	adds r1, r0, #0
-	ldr r0, _0807CBE0 @ =gArea
-	ldrh r0, [r0, #4]
-	bl CheckLocalFlagByOffset
-	pop {pc}
-	.align 2, 0
-_0807CBE0: .4byte gArea
-
-	thumb_func_start CheckFlags
-CheckFlags: @ 0x0807CBE4
-	push {lr}
-	ldr r3, _0807CC14 @ =0x000003FF
-	ands r3, r0
-	movs r1, #0xf0
-	lsls r1, r1, #6
-	ands r1, r0
-	lsrs r1, r1, #0xa
-	adds r2, r1, #1
-	movs r1, #0xc0
-	lsls r1, r1, #8
-	ands r1, r0
-	lsrs r1, r1, #0xe
-	cmp r1, #1
-	beq _0807CC22
-	cmp r1, #1
-	blo _0807CC18
-	cmp r1, #2
-	bne _0807CC2C
-	adds r0, r3, #0
-	adds r1, r2, #0
-	bl CheckRoomFlags
-	b _0807CC2E
-	.align 2, 0
-_0807CC14: .4byte 0x000003FF
-_0807CC18:
-	adds r0, r3, #0
-	adds r1, r2, #0
-	bl CheckLocalFlags
-	b _0807CC2E
-_0807CC22:
-	adds r0, r3, #0
-	adds r1, r2, #0
-	bl CheckGlobalFlags
-	b _0807CC2E
-_0807CC2C:
-	movs r0, #0
-_0807CC2E:
-	pop {pc}

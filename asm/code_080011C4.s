@@ -139,7 +139,7 @@ EnemyFunctionHandler: @ 0x0800129E
 	b _080012BA
 _080012B2:
 	adds r0, r4, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	adds r1, r5, #0
 _080012BA:
 	lsls r0, r0, #2
@@ -1153,8 +1153,8 @@ gUnk_0800275C::
 	.byte 0x60, 0x06, 0x60, 0x06, 0x60, 0x06, 0x60, 0x06, 0x60, 0x06, 0x60, 0x06, 0x00, 0x06, 0x06, 0x06
 	.byte 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06, 0x06
 
-	thumb_func_start sub_0800279C
-sub_0800279C: @ 0x0800279C
+	thumb_func_start GetNextFunction
+GetNextFunction: @ 0x0800279C
 	movs r1, #0x3a
 	ldrb r3, [r0, r1]
 	movs r2, #4
@@ -1233,7 +1233,7 @@ _08002812:
 	tst r3, r4
 	bne _0800283E
 	push {r0, r1, r2, r3}
-	ldr r4, _08002978 @ =gUnk_080C9160
+	ldr r4, _08002978 @ =gSineTable
 	ldrh r0, [r4, r2]
 	cmp r0, #0
 	beq _08002834
@@ -1251,7 +1251,7 @@ _0800283E:
 	tst r3, r4
 	bne _08002860
 	push {r0, r1, r2, r3}
-	ldr r4, _0800297C @ =gUnk_080C91E0
+	ldr r4, _0800297C @ =gCosineTable
 	ldrh r0, [r4, r2]
 	cmp r0, #0
 	beq _08002856
@@ -1430,8 +1430,8 @@ _08002968:
 _0800296C: .4byte 0x00000100
 _08002970: .4byte gUnk_0800275C
 _08002974: .4byte 0x0000EE00
-_08002978: .4byte gUnk_080C9160
-_0800297C: .4byte gUnk_080C91E0
+_08002978: .4byte gSineTable
+_0800297C: .4byte gCosineTable
 _08002980: .4byte 0x00000E00
 _08002984: .4byte 0x0000020E
 _08002988: .4byte 0x000004E0

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A0B90
-sub_080A0B90: @ 0x080A0B90
+	thumb_func_start ObjectB4
+ObjectB4: @ 0x080A0B90
 	push {lr}
 	ldr r2, _080A0BA4 @ =gUnk_08124B20
 	ldrb r1, [r0, #0xa]
@@ -159,7 +159,7 @@ _080A0CA0:
 	strh r0, [r4, #0x32]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _080A0CC0:
 	movs r0, #0xb4
 	movs r1, #3
@@ -174,7 +174,7 @@ _080A0CC0:
 	strh r0, [r4, #0x32]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _080A0CE0:
 	pop {r4, r5, pc}
 	.align 2, 0

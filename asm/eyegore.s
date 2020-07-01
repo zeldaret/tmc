@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08030A2C
-sub_08030A2C: @ 0x08030A2C
+	thumb_func_start Eyegore
+Eyegore: @ 0x08030A2C
 	push {lr}
 	ldr r1, _08030A38 @ =gUnk_080CE288
 	bl EnemyFunctionHandler
@@ -339,7 +339,7 @@ sub_08030C70: @ 0x08030C70
 _08030C94: .4byte gUnk_080CE2BC
 _08030C98:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -368,7 +368,7 @@ _08030CCC:
 sub_08030CD0: @ 0x08030CD0
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -445,7 +445,7 @@ _08030D66:
 sub_08030D68: @ 0x08030D68
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -539,7 +539,7 @@ _08030E1C:
 sub_08030E20: @ 0x08030E20
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

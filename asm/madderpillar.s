@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08029858
-sub_08029858: @ 0x08029858
+	thumb_func_start Madderpillar
+Madderpillar: @ 0x08029858
 	push {lr}
 	ldr r2, _0802986C @ =gUnk_080CCD44
 	ldrb r1, [r0, #0xa]
@@ -25,7 +25,7 @@ sub_08029870: @ 0x08029870
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _08029888 @ =gUnk_080CCD60
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -267,7 +267,7 @@ _08029A90: .4byte gUnk_03003DBC
 sub_08029A94: @ 0x08029A94
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0802A098
 	pop {r4, pc}
@@ -308,7 +308,7 @@ _08029ADC: .4byte 0x0000019D
 sub_08029AE0: @ 0x08029AE0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0802A16C
 	adds r0, r4, #0
@@ -629,7 +629,7 @@ sub_08029D14: @ 0x08029D14
 	b _08029D70
 _08029D42:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -686,7 +686,7 @@ _08029DA8: .4byte gUnk_080FD2A0
 sub_08029DAC: @ 0x08029DAC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -863,7 +863,7 @@ sub_08029EEC: @ 0x08029EEC
 	beq _08029F0A
 	strb r1, [r3, #0x14]
 	adds r0, r3, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08029F0A:
 	pop {pc}
 
@@ -1031,7 +1031,7 @@ sub_08029FE4: @ 0x08029FE4
 	adds r1, r1, r0
 	strh r1, [r5, #0x32]
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r1, #0xff
 	cmp r4, #0
 	beq _0802A032

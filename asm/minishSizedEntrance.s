@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08090EA8
-sub_08090EA8: @ 0x08090EA8
+	thumb_func_start MinishSizedEntrance
+MinishSizedEntrance: @ 0x08090EA8
 	push {lr}
 	ldr r2, _08090EBC @ =gUnk_08122254
 	ldrb r1, [r0, #0xc]
@@ -100,7 +100,7 @@ _08090F1C:
 	beq _08090F62
 	ldrb r0, [r4, #0xe]
 	bl sub_0804B128
-	bl sub_08080840
+	bl DoExitTransition
 _08090F62:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

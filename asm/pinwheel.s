@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A23A0
-sub_080A23A0: @ 0x080A23A0
+	thumb_func_start Pinwheel
+Pinwheel: @ 0x080A23A0
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x45
@@ -19,7 +19,7 @@ sub_080A23A0: @ 0x080A23A0
 	beq _080A23C0
 	ldr r0, _080A23D4 @ =gUnk_020342F8
 	subs r1, #1
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	bne _080A23C0
 	bl DeleteThisEntity
@@ -91,5 +91,5 @@ _080A243A:
 	thumb_func_start sub_080A243C
 sub_080A243C: @ 0x080A243C
 	push {lr}
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}

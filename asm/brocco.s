@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08063524
-sub_08063524: @ 0x08063524
+	thumb_func_start Brocco
+Brocco: @ 0x08063524
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -55,7 +55,7 @@ sub_0806355C: @ 0x0806355C
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_08078778
 	pop {r4, pc}
@@ -81,14 +81,14 @@ sub_08063584: @ 0x08063584
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080635B2:
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
 	beq _080635D0
 _080635B8:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -113,11 +113,11 @@ _080635D0:
 	adds r1, r0, #0
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldrb r0, [r4, #0xe]
 	ldr r1, _08063604 @ =0x00000A01
 	adds r0, r0, r1
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _080635FC:
 	adds r0, r4, #0
 	bl sub_0806ED78
@@ -140,7 +140,7 @@ sub_08063608: @ 0x08063608
 	strb r1, [r2, #0xf]
 	adds r0, r2, #0
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08063626:
 	pop {pc}
 	.align 2, 0
@@ -199,7 +199,7 @@ _08063662:
 	adds r1, r0, #0
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _080636D4
@@ -212,7 +212,7 @@ _080636A4:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _080636D4
 _080636BA:
 	adds r0, r4, #0
@@ -225,7 +225,7 @@ _080636BA:
 	adds r0, #0x69
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080636D4:
 	pop {r4, pc}
 	.align 2, 0
@@ -238,7 +238,7 @@ sub_080636D8: @ 0x080636D8
 	lsls r1, r1, #3
 	ldr r2, _080636F0 @ =gUnk_0810CAAC
 	adds r1, r1, r2
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _080636EC: .4byte gUnk_02002A40
@@ -257,8 +257,8 @@ sub_080636F4: @ 0x080636F4
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806370C
-sub_0806370C: @ 0x0806370C
+	thumb_func_start Brocco_Fusion
+Brocco_Fusion: @ 0x0806370C
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -278,10 +278,10 @@ sub_0806370C: @ 0x0806370C
 	strh r0, [r2, #0x32]
 	adds r0, r2, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806373E
 _08063738:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806373E:
 	pop {pc}

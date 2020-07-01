@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808386C
-sub_0808386C: @ 0x0808386C
+	thumb_func_start Object9
+Object9: @ 0x0808386C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, _080838C8 @ =gLinkState
@@ -36,7 +36,7 @@ _08083894:
 	cmp r0, #0x32
 	bne _080838AA
 	movs r0, #0x32
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	movs r2, #0
 	cmp r0, #0
 	beq _080838AC
@@ -242,7 +242,7 @@ _080839FA:
 	bl sub_080ADDD8
 _08083A2C:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08083A32:
 	pop {r4, pc}
 	.align 2, 0

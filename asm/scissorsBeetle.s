@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080388B4
-sub_080388B4: @ 0x080388B4
+	thumb_func_start ScissorsBeetle
+ScissorsBeetle: @ 0x080388B4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080388D0 @ =gUnk_080CF600
@@ -326,7 +326,7 @@ sub_08038B08: @ 0x08038B08
 	b _08038B5E
 _08038B18:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -368,7 +368,7 @@ sub_08038B64: @ 0x08038B64
 	adds r4, r0, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xf]
 	subs r0, #1
 	strb r0, [r4, #0xf]
@@ -390,7 +390,7 @@ _08038B8C:
 sub_08038B90: @ 0x08038B90
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
@@ -526,6 +526,6 @@ sub_08038C84: @ 0x08038C84
 _08038C98:
 	adds r0, r3, #0
 	adds r1, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 	.align 2, 0

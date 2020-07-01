@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806C2C4
-sub_0806C2C4: @ 0x0806C2C4
+	thumb_func_start Anju
+Anju: @ 0x0806C2C4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -94,8 +94,8 @@ sub_0806C354: @ 0x0806C354
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806C36C
-sub_0806C36C: @ 0x0806C36C
+	thumb_func_start Anju_Fusion
+Anju_Fusion: @ 0x0806C36C
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -112,11 +112,11 @@ sub_0806C36C: @ 0x0806C36C
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806C398
 _0806C392:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806C398:
 	pop {pc}
 	.align 2, 0

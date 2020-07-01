@@ -25,7 +25,7 @@ _08019188:
 	bl DeleteThisEntity
 _0801919C:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x74]
 	cmp r0, #0x17
 	bhi _080191BA

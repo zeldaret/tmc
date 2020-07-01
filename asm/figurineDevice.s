@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08087BAC
-sub_08087BAC: @ 0x08087BAC
+	thumb_func_start FigurineDevice
+FigurineDevice: @ 0x08087BAC
 	push {lr}
 	ldr r2, _08087BC0 @ =gUnk_08120A94
 	ldrb r1, [r0, #0xc]
@@ -277,7 +277,7 @@ _08087DB8: .4byte 0x00000111
 sub_08087DBC: @ 0x08087DBC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r2, r4, #0
 	adds r2, #0x7a
 	ldrb r0, [r2]
@@ -464,7 +464,7 @@ _08087F24:
 	movs r0, #3
 	bl SetRoomFlag
 	ldr r0, _08087F50 @ =0x0000431A
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _08087F54 @ =gTextBox
 	movs r0, #1
 	strb r0, [r1, #6]
@@ -793,7 +793,7 @@ _08088194:
 	b _08088262
 _0808819E:
 	ldrh r0, [r1, #4]
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	b _08088262
 _080881A6:
 	ldrh r0, [r1, #4]
@@ -815,16 +815,16 @@ _080881BC: @ jump table
 	.4byte _08088252 @ case 5
 _080881D4:
 	movs r0, #0x20
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x10
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x19
 _080881EA:
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	b _08088262
 _080881F0:
 	adds r0, r2, #0
@@ -836,39 +836,39 @@ _080881F0:
 	b _080881EA
 _080881FE:
 	movs r0, #0x54
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x56
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x3d
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	b _08088262
 _0808821A:
 	movs r0, #0x3b
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x4a
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0xd
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	b _08088262
 _08088236:
 	movs r0, #0x49
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x55
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _08088266
 	movs r0, #0x3c
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	b _08088262
 _08088252:
 	adds r0, r2, #0
@@ -1027,7 +1027,7 @@ _0808837C:
 	beq _0808839C
 	ldr r0, _08088398 @ =gUnk_02002B0E
 	adds r1, r4, #0
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	bne _0808839C
 	movs r5, #1
@@ -1059,7 +1059,7 @@ _080883B6:
 	beq _080883D8
 	ldr r0, _080883D4 @ =gUnk_02002B0E
 	adds r1, r4, #0
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	beq _080883D8
 	movs r5, #0
@@ -1205,7 +1205,7 @@ _080884D0:
 	ldr r1, _080884F8 @ =0x00004327
 _080884D2:
 	adds r0, r1, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _080884FC @ =gTextBox
 	movs r0, #1
 	strb r0, [r1, #6]
@@ -1249,7 +1249,7 @@ _08088524: .4byte 0x00004314
 _08088528:
 	ldr r0, _0808853C @ =0x00004311
 _0808852A:
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r0, _08088540 @ =gTextBox
 	movs r1, #1
 	strb r1, [r0, #6]
@@ -1272,7 +1272,7 @@ sub_08088544: @ 0x08088544
 	subs r1, #7
 _08088554:
 	adds r0, r1, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r0, _08088570 @ =gTextBox
 	movs r1, #1
 	strb r1, [r0, #6]
@@ -1304,7 +1304,7 @@ _08088594:
 	ldr r1, _080885A8 @ =0x0000430B
 _08088596:
 	adds r0, r1, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r0, _080885AC @ =gTextBox
 	movs r1, #1
 	strb r1, [r0, #6]
@@ -1329,7 +1329,7 @@ sub_080885B0: @ 0x080885B0
 	movs r0, #5
 	bl ModRupees
 	ldr r0, _080885E0 @ =0x00004326
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _080885E4 @ =gTextBox
 	movs r0, #1
 	strb r0, [r1, #6]
@@ -1352,7 +1352,7 @@ _080885E8:
 	movs r0, #0x3e
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	movs r0, #0x59
 	bl SetGlobalFlag
 _0808860A:

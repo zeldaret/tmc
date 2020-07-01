@@ -7,12 +7,12 @@
 	.text
 
 
-	thumb_func_start sub_08025CA0
-sub_08025CA0: @ 0x08025CA0
+	thumb_func_start ChuchuBoss
+ChuchuBoss: @ 0x08025CA0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _08025CB8 @ =gUnk_080CC19C
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -58,7 +58,7 @@ sub_08025CD4: @ 0x08025CD4
 	strb r3, [r0, #3]
 	ldr r0, [r4, #0x54]
 	movs r1, #9
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08025D9C
 _08025CFE:
 	adds r5, r4, #0
@@ -228,7 +228,7 @@ _08025DF2:
 	bne _08025E4C
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08025E58
 	.align 2, 0
 _08025E48: .4byte gUnk_080CC1B8
@@ -1095,7 +1095,7 @@ sub_080264AC: @ 0x080264AC
 	beq _080264D2
 	ldr r0, [r4, #0x54]
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_08027D20
 _080264D2:
@@ -1178,7 +1178,7 @@ sub_0802653C: @ 0x0802653C
 	bl sub_08027548
 	ldr r0, [r4, #0x54]
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _0802657C @ =gUnk_02034490
 	strb r5, [r0]
 _08026572:
@@ -1488,7 +1488,7 @@ sub_08026774: @ 0x08026774
 	strb r0, [r1, #3]
 	ldr r0, [r4, #0x54]
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080267C6:
 	adds r0, r4, #0
 	bl sub_080277F8
@@ -1519,7 +1519,7 @@ sub_080267D0: @ 0x080267D0
 	bl sub_08027B98
 	ldr r0, [r4, #0x54]
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08026802:
 	add sp, #4
 	pop {r4, pc}
@@ -1611,7 +1611,7 @@ _08026888:
 	bl sub_08027870
 	ldr r0, [r4, #0x54]
 	movs r1, #3
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _080268C4 @ =0x000001A1
 	bl PlaySFX
 _080268BE:
@@ -1654,7 +1654,7 @@ sub_080268EC: @ 0x080268EC
 	beq _08026912
 	ldr r0, [r4, #0x54]
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_08027D20
 _08026912:
@@ -1680,7 +1680,7 @@ sub_08026914: @ 0x08026914
 	bl sub_08027548
 	ldr r0, [r4, #0x54]
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08026942:
 	adds r0, r4, #0
 	bl sub_080277F8
@@ -1841,7 +1841,7 @@ _08026A3E:
 	beq _08026A7E
 	adds r0, r5, #0
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08026A7E
 _08026A6C:
 	adds r0, r5, #0
@@ -1851,7 +1851,7 @@ _08026A6C:
 	beq _08026A7E
 	adds r0, r5, #0
 	movs r1, #5
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08026A7E:
 	lsls r0, r4, #0x18
 	cmp r0, #0
@@ -2141,7 +2141,7 @@ _08026C9C:
 	beq _08026CCC
 	adds r0, r4, #0
 	movs r1, #8
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08026CCC
 _08026CBA:
 	adds r0, r4, #0
@@ -2151,7 +2151,7 @@ _08026CBA:
 	beq _08026CCC
 	adds r0, r4, #0
 	movs r1, #7
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08026CCC:
 	adds r0, r5, #0
 	adds r0, #0x7c
@@ -2417,7 +2417,7 @@ _08026EA0:
 	strb r6, [r0, #3]
 	ldr r0, [r4, #0x54]
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	str r6, [sp]
 	adds r0, r4, #0
 	movs r1, #0x80
@@ -2605,7 +2605,7 @@ _08026FFE:
 	beq _0802705C
 	adds r0, r1, #0
 	movs r1, #8
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0802705C
 	.align 2, 0
 _08027044: .4byte 0x00000155
@@ -2618,7 +2618,7 @@ _08027048:
 	beq _0802705C
 	adds r0, r1, #0
 	movs r1, #7
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0802705C:
 	adds r0, r4, #0
 	bl sub_08027870
@@ -3196,7 +3196,7 @@ _080274AE:
 	beq _08027532
 	adds r0, r6, #0
 	movs r1, #0xc
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08027532
 _080274E0:
 	adds r0, r6, #0
@@ -3206,7 +3206,7 @@ _080274E0:
 	beq _08027532
 	adds r0, r6, #0
 	movs r1, #0xb
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08027532
 _080274F4:
 	adds r0, r6, #0
@@ -3216,7 +3216,7 @@ _080274F4:
 	beq _08027532
 	adds r0, r6, #0
 	movs r1, #0xa
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08027532
 _08027508:
 	ldr r0, [r6, #0x54]
@@ -3248,7 +3248,7 @@ _08027532:
 	movs r0, #0
 	strb r0, [r1]
 	adds r0, r6, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start sub_08027548

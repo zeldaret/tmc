@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809CF24
-sub_0809CF24: @ 0x0809CF24
+	thumb_func_start Bird
+Bird: @ 0x0809CF24
 	push {lr}
 	ldr r2, _0809CF38 @ =gUnk_08123EC0
 	ldrb r1, [r0, #0xa]
@@ -77,7 +77,7 @@ sub_0809CF54: @ 0x0809CF54
 	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0x95
 	movs r1, #1
 	movs r2, #0
@@ -94,7 +94,7 @@ sub_0809CF54: @ 0x0809CF54
 	bl PositionRelative
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _0809CFD8:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -133,7 +133,7 @@ _0809D018:
 	bl DeleteThisEntity
 _0809D026:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -165,7 +165,7 @@ sub_0809D048: @ 0x0809D048
 	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0x17
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 
@@ -269,7 +269,7 @@ sub_0809D10C: @ 0x0809D10C
 	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0x17
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 
@@ -296,7 +296,7 @@ _0809D14C:
 	movs r0, #0x17
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	ldr r0, _0809D174 @ =gUnk_02002A40
 	ldr r1, [r0, #0x40]
 	movs r2, #0x80
@@ -365,7 +365,7 @@ _0809D19C:
 	b _0809D1EE
 _0809D1E8:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0809D1EE:
 	pop {r4, pc}
 
@@ -450,7 +450,7 @@ _0809D234:
 	bl sub_0805E3A0
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _0809D2AC @ =0x00000123
 	bl PlaySFX
 	movs r0, #0x68
@@ -590,7 +590,7 @@ _0809D3A8:
 	adds r0, r5, #0
 	bl sub_08003FC4
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r4, [r5, #0x54]
 	cmp r4, #0
 	beq _0809D454
@@ -765,7 +765,7 @@ sub_0809D498: @ 0x0809D498
 	strb r0, [r6]
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	bl sub_08078B48
 	adds r7, r4, #0
 	b _0809D62E
@@ -879,7 +879,7 @@ _0809D5E6:
 	cmp r4, #0
 	beq _0809D62E
 	ldr r1, _0809D668 @ =gUnk_0800B0AC
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -893,7 +893,7 @@ _0809D62E:
 	adds r0, r5, #0
 	bl sub_08003FC4
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r5, #0
 	bl sub_080040A8
 	cmp r0, #0
@@ -975,10 +975,10 @@ _0809D6A2:
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #0xe0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0809D6EC:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _0809D6FE
 _0809D6F4:
 	movs r0, #3

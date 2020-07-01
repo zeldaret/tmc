@@ -1394,7 +1394,7 @@ sub_08053178: @ 0x08053178
 	bne _080531DC
 	ldr r0, _080531F4 @ =gUnk_02002AA0
 	ldrb r1, [r5, #1]
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	bne _080531DC
 	movs r0, #1
@@ -1406,7 +1406,7 @@ _080531DC:
 	ldr r0, _080531F4 @ =gUnk_02002AA0
 	ldr r1, _080531EC @ =gArea
 	ldrb r1, [r1, #1]
-	bl sub_0801D5BC
+	bl WriteBit
 _080531E6:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1594,9 +1594,9 @@ sub_08053320: @ 0x08053320
 _08053362:
 	bl sub_08053390
 	movs r0, #0xb
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	movs r0, #0xc
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	movs r0, #0
 	movs r1, #0
 	bl sub_0801D79C
@@ -2215,7 +2215,7 @@ sub_08053800: @ 0x08053800
 	strb r2, [r1, #7]
 	adds r0, r5, #0
 	adds r0, #0x8a
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	adds r0, r5, #0
 	adds r0, #0x3a
 	bl sub_0801D7EC
@@ -2467,7 +2467,7 @@ sub_08053A1C: @ 0x08053A1C
 	movs r0, #8
 	strh r0, [r1, #8]
 	ldr r0, _08053A54 @ =0x00000F07
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _08053A58 @ =gTextBox
 	movs r0, #1
 	strb r0, [r1, #6]
@@ -3519,7 +3519,7 @@ sub_08054288: @ 0x08054288
 	lsls r0, r0, #3
 	adds r0, r0, r1
 	ldrh r0, [r0, #6]
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	pop {pc}
 	.align 2, 0
 _08054298: .4byte gUnk_080FD5B4

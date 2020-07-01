@@ -7,12 +7,12 @@
 	.text
 
 
-	thumb_func_start sub_0803CCB8
-sub_0803CCB8: @ 0x0803CCB8
+	thumb_func_start LakituCloud
+LakituCloud: @ 0x0803CCB8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _0803CCD0 @ =gUnk_080D0418
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -129,7 +129,7 @@ sub_0803CD6C: @ 0x0803CD6C
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0803CE14
 	pop {r4, pc}
@@ -140,7 +140,7 @@ _0803CDA4: .4byte 0x0000FFFE
 sub_0803CDA8: @ 0x0803CDA8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r1, [r4, #0x15]
 	movs r0, #0x80
 	ands r0, r1
@@ -213,7 +213,7 @@ sub_0803CE14: @ 0x0803CE14
 	lsrs r1, r1, #3
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803CE38:
 	pop {r4, pc}
 	.align 2, 0

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809ED18
-sub_0809ED18: @ 0x0809ED18
+	thumb_func_start Fan
+Fan: @ 0x0809ED18
 	push {lr}
 	ldr r2, _0809ED2C @ =gUnk_081243D4
 	ldrb r1, [r0, #0xc]
@@ -471,7 +471,7 @@ sub_0809F08C: @ 0x0809F08C
 	strb r0, [r4, #0xf]
 _0809F09A:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]

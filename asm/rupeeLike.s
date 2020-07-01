@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080292A0
-sub_080292A0: @ 0x080292A0
+	thumb_func_start RupeeLike
+RupeeLike: @ 0x080292A0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xb]
@@ -33,7 +33,7 @@ _080292C4:
 _080292CE:
 	ldr r4, _080292F4 @ =gUnk_080CCC00
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -176,7 +176,7 @@ sub_080293DC: @ 0x080293DC
 	adds r4, r0, #0
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	ldrh r0, [r4, #0x32]
 	adds r0, #1
 	strh r0, [r4, #0x32]
@@ -556,9 +556,9 @@ _080296C4:
 sub_080296C8: @ 0x080296C8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x54]
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_080296D8

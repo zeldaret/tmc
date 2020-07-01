@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802C660
-sub_0802C660: @ 0x0802C660
+	thumb_func_start Bobomb
+Bobomb: @ 0x0802C660
 	push {lr}
 	ldr r1, _0802C66C @ =gUnk_080CD5D4
 	bl EnemyFunctionHandler
@@ -213,7 +213,7 @@ _0802C7F6:
 	cmp r0, #0
 	beq _0802C816
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0802C816:
 	pop {r4, pc}
 	.align 2, 0
@@ -373,7 +373,7 @@ sub_0802C8D8: @ 0x0802C8D8
 sub_0802C91C: @ 0x0802C91C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
@@ -488,7 +488,7 @@ sub_0802C9D0: @ 0x0802C9D0
 	adds r0, r4, #0
 	bl InitializeAnimation
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_0802CA10
@@ -514,7 +514,7 @@ _0802CA34:
 	adds r0, r4, #0
 	bl sub_0802CC18
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0802CA66
 _0802CA42:
 	adds r1, r4, #0
@@ -532,7 +532,7 @@ _0802CA42:
 	adds r0, r4, #0
 	bl sub_0802CC18
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0802CA66:
 	pop {r4, pc}
 	.align 2, 0
@@ -555,7 +555,7 @@ _0802CA84:
 	adds r0, r4, #0
 	bl sub_0802CC18
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0802CA90:
 	pop {r4, pc}
 	.align 2, 0
@@ -662,7 +662,7 @@ _0802CB30:
 	strb r0, [r1]
 _0802CB5C:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0802CB62:
 	pop {r4, pc}
 

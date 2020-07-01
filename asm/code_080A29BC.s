@@ -206,7 +206,7 @@ sub_080A2AF4: @ 0x080A2AF4
 	asrs r7, r7, #0x10
 	movs r0, #0xff
 	ands r7, r0
-	ldr r0, _080A2B7C @ =gUnk_080C9160
+	ldr r0, _080A2B7C @ =gSineTable
 	mov r8, r0
 	lsls r0, r7, #1
 	add r0, r8
@@ -249,7 +249,7 @@ _080A2B74:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A2B7C: .4byte gUnk_080C9160
+_080A2B7C: .4byte gSineTable
 
 	thumb_func_start sub_080A2B80
 sub_080A2B80: @ 0x080A2B80
@@ -286,7 +286,7 @@ _080A2BB4:
 	bl PositionRelative
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	adds r0, r5, #0
 	adds r0, #0x62
 	ldrb r0, [r0]
@@ -499,7 +499,7 @@ sub_080A2D2C: @ 0x080A2D2C
 	bl CopyPosition
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	str r5, [r4, #0x50]
 	adds r0, r4, #0
 	adds r0, #0x62
@@ -1002,7 +1002,7 @@ sub_080A310C: @ 0x080A310C
 	b _080A3200
 _080A312A:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x6c]
 	subs r0, #1
 	str r0, [r4, #0x6c]
@@ -1011,7 +1011,7 @@ _080A312A:
 	cmp r0, r1
 	beq _080A31FC
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	ldrb r0, [r4, #0xe]

@@ -2344,7 +2344,7 @@ sub_080A67C4: @ 0x080A67C4
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r0, #0xba
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	adds r5, r4, #0
 	adds r5, #0x5f
 	cmp r4, #0xb
@@ -2367,7 +2367,7 @@ _080A67E6:
 	b _080A6822
 _080A67F4:
 	movs r0, #0xe
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _080A6822
 	movs r5, #0x71
@@ -2527,7 +2527,7 @@ _080A693A:
 	movs r5, #0xa
 _080A6942:
 	adds r0, r5, #0
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _080A6976
 	adds r0, r5, #0
@@ -3025,7 +3025,7 @@ _080A6D38:
 	strb r0, [r2]
 	bl sub_080A7114
 	ldr r0, _080A6D48 @ =0x00000704
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	b _080A6D54
 	.align 2, 0
 _080A6D48: .4byte 0x00000704
@@ -3643,7 +3643,7 @@ sub_080A71F4: @ 0x080A71F4
 	push {lr}
 	cmp r0, #0
 	beq _080A71FE
-	bl sub_08080840
+	bl DoExitTransition
 _080A71FE:
 	bl sub_0805E89C
 	bl sub_0805E974
@@ -4886,8 +4886,8 @@ _080A7BCE:
 	.align 2, 0
 _080A7BFC: .4byte gLinkState
 
-	thumb_func_start sub_080A7C00
-sub_080A7C00: @ 0x080A7C00
+	thumb_func_start CreateItemEntity
+CreateItemEntity: @ 0x080A7C00
 	push {r4, lr}
 	bl GiveItemWithCutscene
 	adds r4, r0, #0
@@ -4999,13 +4999,13 @@ _080A7CB0:
 	ldrb r0, [r4, #2]
 	ldrb r1, [r4, #3]
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	b _080A7CDC
 _080A7CD2:
 	movs r0, #0x60
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 _080A7CDC:
 	movs r0, #0x74
 	adds r1, r5, #0
@@ -5072,7 +5072,7 @@ sub_080A7D44: @ 0x080A7D44
 	bl sub_08078AA8
 	b _080A7D56
 _080A7D52:
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _080A7D56:
 	pop {pc}
 
@@ -5327,7 +5327,7 @@ sub_080A7F00: @ 0x080A7F00
 	ldrb r1, [r0, #0x14]
 	adds r1, #0x18
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080A7F26:
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
@@ -5359,7 +5359,7 @@ _080A7F56:
 	strb r0, [r2]
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	adds r0, r4, #0
 	bl sub_080A7F9C
 	ldrb r0, [r4, #0xa]
@@ -5369,7 +5369,7 @@ _080A7F56:
 	adds r0, #1
 	strh r0, [r4, #0x32]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080A7F7A:
 	pop {r4, pc}
 	.align 2, 0
@@ -5484,7 +5484,7 @@ sub_080A8030: @ 0x080A8030
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A8048 @ =gUnk_081295D0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -5546,7 +5546,7 @@ sub_080A8088: @ 0x080A8088
 sub_080A80A0: @ 0x080A80A0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	cmp r0, #0
@@ -5588,7 +5588,7 @@ sub_080A80F4: @ 0x080A80F4
 	adds r4, r0, #0
 	bl sub_0806F69C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r4, #0
@@ -5604,7 +5604,7 @@ _080A8116:
 sub_080A8118: @ 0x080A8118
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	movs r1, #0xa0
@@ -5670,7 +5670,7 @@ sub_080A8190: @ 0x080A8190
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A81A8 @ =gUnk_0812960C
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -5729,7 +5729,7 @@ _080A81F8: .4byte 0x0000FFFE
 sub_080A81FC: @ 0x080A81FC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	ldrh r0, [r4, #0x2a]
@@ -5767,7 +5767,7 @@ _080A8246:
 sub_080A8248: @ 0x080A8248
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	movs r1, #0xc0
@@ -5806,7 +5806,7 @@ sub_080A827C: @ 0x080A827C
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r4, #0
@@ -5822,7 +5822,7 @@ _080A82B2:
 sub_080A82B4: @ 0x080A82B4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	movs r1, #0xc0
@@ -5860,7 +5860,7 @@ sub_080A82F8: @ 0x080A82F8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A8310 @ =gUnk_08129650
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -6039,7 +6039,7 @@ sub_080A843C: @ 0x080A843C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A8454 @ =gUnk_081296F0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -6143,7 +6143,7 @@ _080A8500: .4byte 0x0000018D
 sub_080A8504: @ 0x080A8504
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	cmp r0, #0
@@ -6230,7 +6230,7 @@ _080A85B6:
 sub_080A85B8: @ 0x080A85B8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	cmp r0, #0
@@ -6272,7 +6272,7 @@ _080A860E:
 sub_080A8610: @ 0x080A8610
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x80
@@ -6288,7 +6288,7 @@ _080A8628:
 sub_080A862C: @ 0x080A862C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	movs r1, #0xa0
@@ -6368,7 +6368,7 @@ sub_080A86BC: @ 0x080A86BC
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A86D4 @ =gUnk_08129718
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -6508,7 +6508,7 @@ sub_080A87C8: @ 0x080A87C8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A87E0 @ =gUnk_08129740
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -6851,7 +6851,7 @@ _080A8A44:
 sub_080A8A48: @ 0x080A8A48
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -6869,7 +6869,7 @@ _080A8A64:
 sub_080A8A68: @ 0x080A8A68
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	cmp r0, #0
 	beq _080A8A78
 	bl DeleteThisEntity
@@ -6968,7 +6968,7 @@ _080A8B1A:
 	bl InitializeAnimation
 _080A8B2E:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080A8B34:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -6977,7 +6977,7 @@ _080A8B34:
 sub_080A8B38: @ 0x080A8B38
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	adds r2, r0, #0
@@ -7010,7 +7010,7 @@ _080A8B74:
 sub_080A8B78: @ 0x080A8B78
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -7028,7 +7028,7 @@ _080A8B94:
 sub_080A8B98: @ 0x080A8B98
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	cmp r0, #0
 	beq _080A8BA8
 	bl DeleteThisEntity
@@ -7113,7 +7113,7 @@ _080A8C16:
 	bl InitializeAnimation
 _080A8C42:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080A8C48:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -7122,7 +7122,7 @@ _080A8C48:
 sub_080A8C4C: @ 0x080A8C4C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	adds r2, r0, #0
@@ -7155,7 +7155,7 @@ _080A8C88:
 sub_080A8C8C: @ 0x080A8C8C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -7173,7 +7173,7 @@ _080A8CA8:
 sub_080A8CAC: @ 0x080A8CAC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	cmp r0, #0
 	beq _080A8CBC
 	bl DeleteThisEntity
@@ -7258,7 +7258,7 @@ _080A8D2A:
 	bl InitializeAnimation
 _080A8D56:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080A8D5C:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -7267,7 +7267,7 @@ _080A8D5C:
 sub_080A8D60: @ 0x080A8D60
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	adds r2, r0, #0
@@ -7300,7 +7300,7 @@ _080A8D9C:
 sub_080A8DA0: @ 0x080A8DA0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -7319,7 +7319,7 @@ sub_080A8DC0: @ 0x080A8DC0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A8DD8 @ =gUnk_08129954
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -7583,7 +7583,7 @@ sub_080A8FB8: @ 0x080A8FB8
 	b _080A9054
 _080A8FE8:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	ldrb r0, [r4, #0xa]
@@ -7637,7 +7637,7 @@ _080A9054:
 sub_080A9058: @ 0x080A9058
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xa]
 	cmp r0, #2
 	bne _080A9098
@@ -7688,7 +7688,7 @@ _080A90BA:
 sub_080A90BC: @ 0x080A90BC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x80
@@ -7988,7 +7988,7 @@ sub_080A9300: @ 0x080A9300
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A9318 @ =gUnk_081299D0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -8156,7 +8156,7 @@ sub_080A942C: @ 0x080A942C
 	bl DeleteThisEntity
 _080A9440:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_080A9448
@@ -8329,7 +8329,7 @@ _080A9578:
 _080A9586:
 	ldrb r1, [r3, #0x15]
 	lsls r1, r1, #1
-	ldr r0, _080A95B8 @ =gUnk_080C9160
+	ldr r0, _080A95B8 @ =gSineTable
 	adds r1, r1, r0
 	movs r4, #0
 	ldrsh r2, [r1, r4]
@@ -8349,17 +8349,17 @@ _080A9586:
 	subs r0, r0, r1
 	str r0, [r3, #0x30]
 	adds r0, r3, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080A95B6:
 	pop {r4, pc}
 	.align 2, 0
-_080A95B8: .4byte gUnk_080C9160
+_080A95B8: .4byte gSineTable
 
 	thumb_func_start sub_080A95BC
 sub_080A95BC: @ 0x080A95BC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -8378,7 +8378,7 @@ sub_080A95DC: @ 0x080A95DC
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A95F4 @ =gUnk_08129ABC
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -8441,7 +8441,7 @@ _080A9632:
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080A9756
 _080A9660:
 	ldrb r0, [r4, #0x19]
@@ -8683,7 +8683,7 @@ _080A983C:
 	bl sub_080A99F0
 _080A9848:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r5, r4, #0
 	adds r5, #0x78
 	ldrh r0, [r5]
@@ -8788,7 +8788,7 @@ _080A9908:
 	bl sub_080A99F0
 _080A9916:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r4, #0
@@ -8857,7 +8857,7 @@ _080A9998:
 	b _080A99EE
 _080A99A0:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -8909,7 +8909,7 @@ sub_080A9A00: @ 0x080A9A00
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A9A18 @ =gUnk_08129AE0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -9311,7 +9311,7 @@ sub_080A9CA8: @ 0x080A9CA8
 _080A9CB8:
 	ldr r4, _080A9CD0 @ =gUnk_08129B58
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -9414,7 +9414,7 @@ sub_080A9D6C: @ 0x080A9D6C
 	ldrb r1, [r1, #0x14]
 	strb r1, [r0, #0x14]
 	ldrb r1, [r0, #0x14]
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 
 	thumb_func_start sub_080A9D80
@@ -9429,7 +9429,7 @@ sub_080A9D80: @ 0x080A9D80
 	ldr r0, _080A9DA0 @ =0x0000FFFE
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _080A9D9C: .4byte 0xFFFF0000
@@ -9440,7 +9440,7 @@ sub_080A9DA4: @ 0x080A9DA4
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080A9DBC @ =gUnk_08129BEC
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -9502,7 +9502,7 @@ sub_080A9DFC: @ 0x080A9DFC
 sub_080A9E14: @ 0x080A9E14
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	ldrh r0, [r4, #0x2a]
@@ -9554,7 +9554,7 @@ _080A9E60:
 _080A9E78:
 	ldr r4, _080A9E90 @ =gUnk_08129C7C
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -9607,7 +9607,7 @@ sub_080A9EBC: @ 0x080A9EBC
 	adds r0, r4, #0
 	bl sub_080AF090
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r5, r4, #0
 	adds r5, #0x42
 	b _080A9F4A
@@ -9725,14 +9725,14 @@ _080A9FB8:
 	bl sub_080AA320
 _080A9FC8:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_080A9FD0
 sub_080A9FD0: @ 0x080A9FD0
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r2, r5, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -9845,7 +9845,7 @@ _080AA0A2:
 	b _080AA108
 _080AA0B8:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -9980,7 +9980,7 @@ _080AA1C4:
 	adds r0, r6, #0
 	bl sub_0806F69C
 	adds r0, r6, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r3, r4}
 	mov r8, r3
 	mov sb, r4
@@ -10267,7 +10267,7 @@ sub_080AA3E0: @ 0x080AA3E0
 _080AA3F4:
 	adds r0, r3, #0
 	adds r1, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 	.align 2, 0
 
@@ -10276,7 +10276,7 @@ sub_080AA400: @ 0x080AA400
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AA418 @ =gUnk_08129FB8
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -10612,7 +10612,7 @@ sub_080AA68C: @ 0x080AA68C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AA6A4 @ =gUnk_0812A014
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -10655,7 +10655,7 @@ sub_080AA6C0: @ 0x080AA6C0
 	ldrb r1, [r4, #0xa]
 	adds r1, #0x10
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0x2a
 	movs r1, #3
 	movs r2, #0
@@ -10729,7 +10729,7 @@ _080AA774:
 	ldrb r1, [r4, #0xa]
 	adds r1, #0x10
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _080AA788 @ =0x00000101
 	bl sub_08004488
 _080AA784:
@@ -10776,14 +10776,14 @@ _080AA7CC:
 	adds r1, r2, #0
 	adds r1, #8
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080AA7DA:
 	adds r0, r4, #0
 	bl sub_0806F520
 	cmp r0, #0
 	beq _080AA812
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r5, r4, #0
 	adds r5, #0x5a
 	ldrb r1, [r5]
@@ -10820,7 +10820,7 @@ _080AA828:
 	ldrb r1, [r4, #0xa]
 	adds r1, #0x10
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080AA832:
 	pop {r4, r5, pc}
 
@@ -10851,7 +10851,7 @@ _080AA848:
 	strb r2, [r0]
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_080AAA68
 	pop {r4, pc}
@@ -10869,7 +10869,7 @@ sub_080AA878: @ 0x080AA878
 	cmp r0, #0
 	bne _080AA88E
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080AA88E:
 	adds r0, r4, #0
 	bl sub_080AA9E0
@@ -10945,7 +10945,7 @@ _080AA90A:
 	ldrb r1, [r4, #0xa]
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080AA920:
 	ldrb r0, [r7, #0x14]
 	lsrs r0, r0, #1
@@ -10979,7 +10979,7 @@ _080AA920:
 	cmp r0, #0
 	bne _080AA99A
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r1, [r5]
 	movs r0, #1
 	ands r0, r1
@@ -11025,14 +11025,14 @@ sub_080AA9AC: @ 0x080AA9AC
 	strb r2, [r1]
 	ldrb r1, [r0, #0xa]
 	adds r1, #0xc
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 
 	thumb_func_start sub_080AA9C4
 sub_080AA9C4: @ 0x080AA9C4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -11188,7 +11188,7 @@ sub_080AAAE8: @ 0x080AAAE8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AAB00 @ =gUnk_0812A3C0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -11233,7 +11233,7 @@ sub_080AAB24: @ 0x080AAB24
 sub_080AAB38: @ 0x080AAB38
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	beq _080AAB4C
@@ -11258,7 +11258,7 @@ _080AAB62:
 sub_080AAB64: @ 0x080AAB64
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	ldrh r0, [r4, #0x2a]
@@ -11290,7 +11290,7 @@ _080AABA2:
 	adds r0, r4, #0
 	bl sub_080AABB0
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_080AABB0
@@ -11303,7 +11303,7 @@ sub_080AABB0: @ 0x080AABB0
 	bl CopyPosition
 	ldrb r1, [r5, #0x14]
 	lsls r1, r1, #1
-	ldr r0, _080AABEC @ =gUnk_080C9160
+	ldr r0, _080AABEC @ =gSineTable
 	adds r1, r1, r0
 	ldrb r2, [r4, #0xe]
 	lsls r2, r2, #8
@@ -11324,14 +11324,14 @@ sub_080AABB0: @ 0x080AABB0
 	str r0, [r4, #0x30]
 	pop {r4, r5, pc}
 	.align 2, 0
-_080AABEC: .4byte gUnk_080C9160
+_080AABEC: .4byte gSineTable
 
 	thumb_func_start sub_080AABF0
 sub_080AABF0: @ 0x080AABF0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AAC08 @ =gUnk_0812A418
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -11399,14 +11399,14 @@ sub_080AAC44: @ 0x080AAC44
 	bne _080AAC84
 	ldr r0, _080AAC80 @ =gLinkEntity
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	b _080AAC8C
 	.align 2, 0
 _080AAC80: .4byte gLinkEntity
 _080AAC84:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _080AAC8C:
 	bl sub_08077B2C
 	ldr r2, _080AACB4 @ =gLinkState
@@ -11595,7 +11595,7 @@ _080AADCC:
 	strb r0, [r1]
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _080AADE0:
 	ldrb r1, [r5, #0xa]
 	cmp r1, #0
@@ -11664,7 +11664,7 @@ _080AAE60: .4byte gLinkEntity
 _080AAE64:
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	ldrb r1, [r5, #0x10]
 	movs r0, #0x7f
 	ands r0, r1
@@ -11905,7 +11905,7 @@ _080AB030: .4byte gLinkEntity
 sub_080AB034: @ 0x080AB034
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5b
 	ldrb r1, [r0]
@@ -11974,7 +11974,7 @@ _080AB0AA:
 	adds r1, r4, #0
 	movs r2, #0
 	bl sub_0806FA90
-	ldr r3, _080AB128 @ =gUnk_080C9160
+	ldr r3, _080AB128 @ =gSineTable
 	adds r2, r5, #0
 	adds r2, #0x7c
 	ldrb r0, [r2]
@@ -12021,11 +12021,11 @@ _080AB0AA:
 	strb r0, [r5, #0xa]
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 _080AB124:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080AB128: .4byte gUnk_080C9160
+_080AB128: .4byte gSineTable
 
 	thumb_func_start sub_080AB12C
 sub_080AB12C: @ 0x080AB12C
@@ -12236,7 +12236,7 @@ sub_080AB2A8: @ 0x080AB2A8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AB2C0 @ =gUnk_0812A4C8
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -12413,7 +12413,7 @@ _080AB3F4:
 sub_080AB414: @ 0x080AB414
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r0, r4, #0
@@ -12448,7 +12448,7 @@ _080AB458:
 sub_080AB45C: @ 0x080AB45C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -12472,7 +12472,7 @@ _080AB486:
 sub_080AB488: @ 0x080AB488
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x80
@@ -12548,7 +12548,7 @@ sub_080AB510: @ 0x080AB510
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AB528 @ =gUnk_0812A58C
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -12626,7 +12626,7 @@ _080AB598: .4byte 0x0000FFFC
 sub_080AB59C: @ 0x080AB59C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	cmp r0, #0
@@ -12645,7 +12645,7 @@ _080AB5BC:
 sub_080AB5C4: @ 0x080AB5C4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AF090
 	adds r0, r4, #0
@@ -12813,7 +12813,7 @@ _080AB6F8:
 sub_080AB6FC: @ 0x080AB6FC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -12836,7 +12836,7 @@ _080AB724:
 sub_080AB728: @ 0x080AB728
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r2, [r4, #0x50]
 	ldr r1, [r2, #0x2c]
 	ldr r0, [r4, #0x74]
@@ -13194,7 +13194,7 @@ _080AB9D0:
 	bl DeleteThisEntity
 _080AB9D4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_080AB9DC
@@ -13429,7 +13429,7 @@ _080ABB7C:
 	strh r0, [r4, #0x32]
 _080ABB84:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start sub_080ABB8C
@@ -13437,7 +13437,7 @@ sub_080ABB8C: @ 0x080ABB8C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080ABBA4 @ =gUnk_0812A7D4
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -13678,7 +13678,7 @@ _080ABD60:
 	adds r0, r4, #0
 	bl sub_080AF090
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -13686,7 +13686,7 @@ _080ABD60:
 sub_080ABD70: @ 0x080ABD70
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r2, r5, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -13894,7 +13894,7 @@ _080ABF14:
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -13903,7 +13903,7 @@ sub_080ABF24: @ 0x080ABF24
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080ABF3C @ =gUnk_0812A84C
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -13950,7 +13950,7 @@ _080ABF78:
 	bl DeleteThisEntity
 _080ABF88:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080A7EB0
 	cmp r0, #0
@@ -13973,7 +13973,7 @@ sub_080ABFB0: @ 0x080ABFB0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080ABFC8 @ =gUnk_0812A954
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -14061,7 +14061,7 @@ _080AC058:
 	strb r0, [r1]
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	ldrh r0, [r4, #0x36]
 	subs r0, #0x14
 	strh r0, [r4, #0x36]
@@ -14084,7 +14084,7 @@ sub_080AC074: @ 0x080AC074
 _080AC084:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	ldrh r0, [r4, #0x36]
 	subs r0, #0x14
 	strh r0, [r4, #0x36]
@@ -14105,7 +14105,7 @@ _080AC084:
 	bl PlaySFX
 _080AC0B2:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -14165,7 +14165,7 @@ _080AC116:
 	bl DeleteThisEntity
 _080AC126:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080A7EB0
 	cmp r0, #0
@@ -14198,7 +14198,7 @@ _080AC164: .4byte gLinkEntity
 sub_080AC168: @ 0x080AC168
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x34]
 	ldr r1, _080AC1C0 @ =0xFFFF8000
 	adds r0, r0, r1
@@ -14274,7 +14274,7 @@ _080AC1FC: .4byte gUnk_0812A98A
 sub_080AC200: @ 0x080AC200
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -14771,7 +14771,7 @@ _080AC5A6:
 	adds r0, #0x79
 	ldrb r2, [r0]
 	lsls r2, r2, #8
-	ldr r3, _080AC5E0 @ =gUnk_080C9160
+	ldr r3, _080AC5E0 @ =gSineTable
 	ldrb r0, [r5, #0x15]
 	lsls r0, r0, #1
 	adds r0, r0, r3
@@ -14796,7 +14796,7 @@ _080AC5A6:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080AC5DC: .4byte gUnk_080FD448
-_080AC5E0: .4byte gUnk_080C9160
+_080AC5E0: .4byte gSineTable
 
 	thumb_func_start sub_080AC5E4
 sub_080AC5E4: @ 0x080AC5E4
@@ -15081,7 +15081,7 @@ _080AC7E6:
 	adds r0, #0x79
 	ldrb r2, [r0]
 	lsls r2, r2, #8
-	ldr r3, _080AC880 @ =gUnk_080C9160
+	ldr r3, _080AC880 @ =gSineTable
 	mov sb, r3
 	ldrb r1, [r7, #0x15]
 	lsls r0, r1, #1
@@ -15151,7 +15151,7 @@ _080AC7E6:
 	mov sb, r4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080AC880: .4byte gUnk_080C9160
+_080AC880: .4byte gSineTable
 
 	thumb_func_start sub_080AC884
 sub_080AC884: @ 0x080AC884
@@ -15180,7 +15180,7 @@ sub_080AC8A8: @ 0x080AC8A8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080AC8C0 @ =gUnk_0812A9D8
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -15278,7 +15278,7 @@ sub_080AC954: @ 0x080AC954
 _080AC964:
 	ldr r0, [r5, #0x50]
 	ldrb r3, [r0, #0x14]
-	ldr r4, _080AC9C4 @ =gUnk_080C9160
+	ldr r4, _080AC9C4 @ =gSineTable
 	lsls r1, r3, #1
 	adds r1, r1, r4
 	movs r2, #0
@@ -15298,7 +15298,7 @@ _080AC964:
 	adds r1, r5, #0
 	bl PositionRelative
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r5, #0xe]
 	subs r0, #1
 	strb r0, [r5, #0xe]
@@ -15321,7 +15321,7 @@ _080AC964:
 _080AC9C0:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080AC9C4: .4byte gUnk_080C9160
+_080AC9C4: .4byte gSineTable
 _080AC9C8: .4byte gLinkEntity
 
 	thumb_func_start sub_080AC9CC
@@ -15330,7 +15330,7 @@ sub_080AC9CC: @ 0x080AC9CC
 	adds r4, r0, #0
 	bl sub_080AF090
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080A7EB0
 	cmp r0, #0
@@ -15366,7 +15366,7 @@ sub_080ACA14: @ 0x080ACA14
 	adds r4, r0, #0
 	bl sub_080AF090
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x80
@@ -15382,7 +15382,7 @@ sub_080ACA34: @ 0x080ACA34
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080ACA4C @ =gUnk_0812AA5C
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -15485,7 +15485,7 @@ sub_080ACAF0: @ 0x080ACAF0
 	adds r4, r0, #0
 	bl sub_080AF090
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080A7EB0
 	cmp r0, #0
@@ -15506,7 +15506,7 @@ sub_080ACB10: @ 0x080ACB10
 	bl DeleteThisEntity
 _080ACB22:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080ACB90
 	adds r0, r4, #0

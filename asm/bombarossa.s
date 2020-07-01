@@ -7,12 +7,12 @@
 	.text
 
 
-	thumb_func_start sub_080333B8
-sub_080333B8: @ 0x080333B8
+	thumb_func_start Bombarossa
+Bombarossa: @ 0x080333B8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _080333D0 @ =gUnk_080CEB38
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -67,7 +67,7 @@ _0803340E:
 	asrs r0, r0, #0x18
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	beq _08033440

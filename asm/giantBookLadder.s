@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808E4A8
-sub_0808E4A8: @ 0x0808E4A8
+	thumb_func_start GiantBookLadder
+GiantBookLadder: @ 0x0808E4A8
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	ldrb r2, [r4, #0xa]

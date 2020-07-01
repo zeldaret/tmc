@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809E500
-sub_0809E500: @ 0x0809E500
+	thumb_func_start MacroAcorn
+MacroAcorn: @ 0x0809E500
 	push {lr}
 	ldr r2, _0809E514 @ =gUnk_081242C8
 	ldrb r1, [r0, #0xc]

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806CADC
-sub_0806CADC: @ 0x0806CADC
+	thumb_func_start Gregal
+Gregal: @ 0x0806CADC
 	push {lr}
 	ldr r2, _0806CAF0 @ =gUnk_08113D8C
 	ldrb r1, [r0, #0xa]
@@ -60,7 +60,7 @@ _0806CB2C:
 	bl CopyPosition
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _0806CB4E:
 	adds r0, r5, #0
 	bl sub_0807DD64
@@ -78,7 +78,7 @@ _0806CB66:
 	adds r0, r5, #0
 	bl sub_0807DDE4
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806CB7C: .4byte gUnk_08113D84
@@ -132,7 +132,7 @@ sub_0806CBB4: @ 0x0806CBB4
 	bl InitializeAnimation
 _0806CBD6:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r1, [r4, #0x50]
 	cmp r1, #0
 	beq _0806CC06
@@ -210,7 +210,7 @@ _0806CC40:
 	adds r1, r0, #0
 	adds r1, #8
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _0806CCB0
@@ -223,7 +223,7 @@ _0806CC80:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0806CCB0
 _0806CC96:
 	adds r0, r4, #0
@@ -236,7 +236,7 @@ _0806CC96:
 	adds r0, #0x69
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0806CCB0:
 	pop {r4, pc}
 	.align 2, 0
@@ -355,8 +355,8 @@ sub_0806CD58: @ 0x0806CD58
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806CD70
-sub_0806CD70: @ 0x0806CD70
+	thumb_func_start Gregal_Fusion
+Gregal_Fusion: @ 0x0806CD70
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -376,11 +376,11 @@ sub_0806CD70: @ 0x0806CD70
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806CDA4
 _0806CD9E:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806CDA4:
 	pop {r4, pc}
 	.align 2, 0

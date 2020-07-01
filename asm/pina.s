@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08063A60
-sub_08063A60: @ 0x08063A60
+	thumb_func_start Pina
+Pina: @ 0x08063A60
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -55,7 +55,7 @@ sub_08063A98: @ 0x08063A98
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_08078778
 	pop {r4, pc}
@@ -79,7 +79,7 @@ sub_08063AC0: @ 0x08063AC0
 	bne _08063AEE
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #1
 	strb r0, [r4, #0xf]
 _08063AEE:
@@ -88,7 +88,7 @@ _08063AEE:
 	beq _08063B0C
 _08063AF4:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -113,11 +113,11 @@ _08063B0C:
 	adds r1, r0, #0
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldrb r0, [r4, #0xe]
 	ldr r1, _08063B40 @ =0x00000A01
 	adds r0, r0, r1
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _08063B38:
 	adds r0, r4, #0
 	bl sub_0806ED78
@@ -140,7 +140,7 @@ sub_08063B44: @ 0x08063B44
 	strb r1, [r2, #0xf]
 	adds r0, r2, #0
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08063B62:
 	pop {pc}
 	.align 2, 0
@@ -199,7 +199,7 @@ _08063B9E:
 	adds r1, r0, #0
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _08063C10
@@ -212,7 +212,7 @@ _08063BE0:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08063C10
 _08063BF6:
 	adds r0, r4, #0
@@ -225,7 +225,7 @@ _08063BF6:
 	adds r0, #0x69
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08063C10:
 	pop {r4, pc}
 	.align 2, 0
@@ -239,7 +239,7 @@ sub_08063C14: @ 0x08063C14
 	cmp r0, #0
 	beq _08063C28
 	movs r1, #8
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08063C28:
 	pop {pc}
 	.align 2, 0
@@ -253,7 +253,7 @@ sub_08063C2C: @ 0x08063C2C
 	cmp r0, #0
 	beq _08063C40
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08063C40:
 	pop {pc}
 	.align 2, 0
@@ -267,7 +267,7 @@ sub_08063C44: @ 0x08063C44
 	cmp r0, #0
 	beq _08063C58
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08063C58:
 	pop {pc}
 	.align 2, 0
@@ -281,7 +281,7 @@ sub_08063C5C: @ 0x08063C5C
 	cmp r0, #0
 	beq _08063C70
 	movs r1, #9
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08063C70:
 	pop {pc}
 	.align 2, 0
@@ -310,7 +310,7 @@ sub_08063C90: @ 0x08063C90
 	lsls r1, r1, #3
 	ldr r2, _08063CA8 @ =gUnk_0810CE04
 	adds r1, r1, r2
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _08063CA4: .4byte gUnk_02002A40
@@ -329,8 +329,8 @@ sub_08063CAC: @ 0x08063CAC
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_08063CC4
-sub_08063CC4: @ 0x08063CC4
+	thumb_func_start Pina_Fusion
+Pina_Fusion: @ 0x08063CC4
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -350,10 +350,10 @@ sub_08063CC4: @ 0x08063CC4
 	strh r0, [r2, #0x32]
 	adds r0, r2, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08063CF6
 _08063CF0:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08063CF6:
 	pop {pc}

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808A850
-sub_0808A850: @ 0x0808A850
+	thumb_func_start Object30
+Object30: @ 0x0808A850
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0808A86C @ =gUnk_08121188
@@ -151,7 +151,7 @@ _0808A954:
 	ldrb r1, [r4, #0xb]
 	movs r0, #0x5c
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	bl DeleteThisEntity
 _0808A962:
 	pop {r4, pc}

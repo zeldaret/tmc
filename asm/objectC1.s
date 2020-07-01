@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A2560
-sub_080A2560: @ 0x080A2560
+	thumb_func_start ObjectC1
+ObjectC1: @ 0x080A2560
 	push {lr}
 	ldr r2, _080A2574 @ =gUnk_08125084
 	ldrb r1, [r0, #0xc]
@@ -163,13 +163,13 @@ _080A2688:
 	movs r0, #0xff
 	ands r1, r0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080A273C
 	.align 2, 0
 _080A2698: .4byte 0x000001B9
 _080A269C:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r0, [r0]
@@ -181,7 +181,7 @@ _080A269C:
 	b _080A273C
 _080A26B4:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, _080A2764 @ =gTextBox
 	ldrb r1, [r0]
 	adds r0, r7, #0
@@ -253,7 +253,7 @@ _080A273C:
 	beq _080A2762
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0806FA30
+	bl PositionEntityOnTop
 	ldrh r0, [r4, #0x12]
 	ldrb r1, [r4, #0x1e]
 	bl sub_080700C8

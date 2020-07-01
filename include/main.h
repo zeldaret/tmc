@@ -1,17 +1,17 @@
 #ifndef MAIN_H
 #define MAIN_H
-typedef struct { //0x03001000
-	u8 field_0x0;
-	u8 field_0x1;
-	u8 field_0x2;
-	u8 field_0x3;
-	u8 field_0x4;
-	u16 field_0x6;
-	u8 field_0x8;
-	u8 field_0x9;
-	u8 field_0xa;
-	u8 field_0xb;
-	u32 ticks;
+typedef struct { // 0x03001000
+    u8 field_0x0;
+    u8 field_0x1;
+    u8 field_0x2;
+    u8 field_0x3;
+    u8 field_0x4;
+    u16 field_0x6;
+    u8 field_0x8;
+    u8 field_0x9;
+    u8 field_0xa;
+    u8 field_0xb;
+    u32 ticks;
 } MainStruct;
 
 extern s32 sub_08055F70();

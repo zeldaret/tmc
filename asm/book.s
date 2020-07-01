@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809B3AC
-sub_0809B3AC: @ 0x0809B3AC
+	thumb_func_start Book
+Book: @ 0x0809B3AC
 	push {lr}
 	ldr r2, _0809B3C0 @ =gUnk_08123D7C
 	ldrb r1, [r0, #0xc]
@@ -75,7 +75,7 @@ _0809B424:
 	ldrb r1, [r4, #0xa]
 	adds r1, #0x39
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldrb r1, [r4, #0xb]
 	cmp r1, #1
 	beq _0809B46C
@@ -274,7 +274,7 @@ sub_0809B56C: @ 0x0809B56C
 	cmp r1, #0
 	beq _0809B5B0
 	adds r0, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 _0809B5B0:
 	pop {r4, pc}
 	.align 2, 0
@@ -303,7 +303,7 @@ _0809B5D0:
 	adds r0, #0x39
 	movs r1, #0
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	bl DeleteThisEntity
 _0809B5EA:
 	pop {r4, pc}

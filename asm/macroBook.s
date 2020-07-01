@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809A774
-sub_0809A774: @ 0x0809A774
+	thumb_func_start MacroBook
+MacroBook: @ 0x0809A774
 	push {lr}
 	ldr r2, _0809A788 @ =gUnk_08123C80
 	ldrb r1, [r0, #0xc]
@@ -65,7 +65,7 @@ sub_0809A78C: @ 0x0809A78C
 	bl UpdateSpriteOrderAndFlip
 	ldrb r1, [r4, #0xf]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0809A958
 	pop {r4, r5, pc}
@@ -75,7 +75,7 @@ sub_0809A78C: @ 0x0809A78C
 sub_0809A7F4: @ 0x0809A7F4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0809AA00
 	ldrb r0, [r4, #0xe]
@@ -103,12 +103,12 @@ _0809A810:
 	strb r2, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0809A840
 _0809A838:
 	ldrb r1, [r4, #0xf]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0809A840:
 	pop {r4, pc}
 	.align 2, 0
@@ -117,7 +117,7 @@ _0809A840:
 sub_0809A844: @ 0x0809A844
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0809AA00
 	ldrb r0, [r4, #0xf]
@@ -156,7 +156,7 @@ _0809A87C:
 	strb r2, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #3
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	movs r1, #0x78
 	bl sub_0805E4E0
@@ -211,7 +211,7 @@ _0809A8E2:
 	bl SetGlobalFlag
 _0809A8FC:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0809A902:
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0

@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806C0B0
-sub_0806C0B0: @ 0x0806C0B0
+	thumb_func_start KingGustaf
+KingGustaf: @ 0x0806C0B0
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808A6F4
-sub_0808A6F4: @ 0x0808A6F4
+	thumb_func_start HittableLever
+HittableLever: @ 0x0808A6F4
 	push {lr}
 	adds r2, r0, #0
 	adds r0, #0x3d

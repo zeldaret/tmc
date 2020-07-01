@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08097F84
-sub_08097F84: @ 0x08097F84
+	thumb_func_start Object79
+Object79: @ 0x08097F84
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, _08097FAC @ =gLinkState
@@ -76,7 +76,7 @@ sub_08097FB4: @ 0x08097FB4
 	bl sub_080AE008
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08098032
 	.align 2, 0
 _08098014: .4byte gUnk_0812341C
@@ -107,7 +107,7 @@ sub_0809803C: @ 0x0809803C
 	ldrb r5, [r4, #0xa]
 	cmp r5, #0
 	bne _08098070
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	beq _08098082
@@ -118,7 +118,7 @@ sub_0809803C: @ 0x0809803C
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0xbc
 	lsls r0, r0, #1
 	bl PlaySFX
@@ -161,7 +161,7 @@ _080980A8:
 	cmp r0, #0
 	bne _080980D8
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r2, r4, #0
 	adds r2, #0x7e
 	ldrh r0, [r2]

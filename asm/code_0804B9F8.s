@@ -748,7 +748,7 @@ sub_0804BE50: @ 0x0804BE50
 	bl SetLocalFlag
 _0804BE62:
 	movs r0, #0x2f
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804BE78
 	ldr r0, _0804BE74 @ =gUnk_080D8B24
@@ -758,7 +758,7 @@ _0804BE62:
 _0804BE74: .4byte gUnk_080D8B24
 _0804BE78:
 	movs r0, #0x2b
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804BE90
 	ldr r0, _0804BE8C @ =gUnk_080D8AC4
@@ -768,7 +768,7 @@ _0804BE78:
 _0804BE8C: .4byte gUnk_080D8AC4
 _0804BE90:
 	movs r0, #0x26
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804BEA8
 	ldr r0, _0804BEA4 @ =gUnk_080D8A74
@@ -778,7 +778,7 @@ _0804BE90:
 _0804BEA4: .4byte gUnk_080D8A74
 _0804BEA8:
 	movs r0, #0x2a
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804BEC0
 	ldr r0, _0804BEBC @ =gUnk_080D8A34
@@ -788,7 +788,7 @@ _0804BEA8:
 _0804BEBC: .4byte gUnk_080D8A34
 _0804BEC0:
 	movs r0, #0x25
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804BED8
 	ldr r0, _0804BED4 @ =gUnk_080D8A04
@@ -801,7 +801,7 @@ _0804BED8:
 	bl LoadRoomEntityList
 _0804BEDE:
 	movs r0, #0x25
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804BEF2
 	ldr r0, _0804BF20 @ =gUnk_080D8BBC
@@ -810,7 +810,7 @@ _0804BEDE:
 	bl sub_0807BB68
 _0804BEF2:
 	movs r0, #0x26
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804BF06
 	ldr r0, _0804BF28 @ =gUnk_080D8BFA
@@ -819,7 +819,7 @@ _0804BEF2:
 	bl sub_0807BB68
 _0804BF06:
 	movs r0, #0x2f
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804BF1A
 	ldr r0, _0804BF30 @ =gUnk_080D8C68
@@ -1376,7 +1376,7 @@ sub_0804C334: @ 0x0804C334
 	movs r0, #0x1e
 	bl SetGlobalFlag
 	movs r0, #0x5b
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804C34C
 	ldr r0, _0804C374 @ =gUnk_080D9CC8
@@ -2378,7 +2378,7 @@ sub_0804C918: @ 0x0804C918
 	adds r2, r5, #0
 	bl sub_08000E96
 	movs r0, #0x19
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	pop {r4, r5, pc}
 	.align 2, 0
 _0804C940: .4byte gUnk_086D4460
@@ -2778,7 +2778,7 @@ sub_0804CB10: @ 0x0804CB10
 sub_0804CB14: @ 0x0804CB14
 	push {lr}
 	movs r0, #0x41
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804CB26
 	ldr r0, _0804CB28 @ =gUnk_080DDE88
@@ -6471,7 +6471,7 @@ sub_0804DE00: @ 0x0804DE00
 	push {r4, r5, r6, lr}
 	bl sub_080530C8
 	movs r0, #0xb
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804DE32
 	movs r0, #0x19
@@ -6611,14 +6611,14 @@ _0804DF2E:
 	bl LoadRoomEntityList
 _0804DF48:
 	movs r0, #0x28
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _0804DF58
 	ldr r0, _0804DF8C @ =gUnk_080EE8FC
 	bl LoadRoomEntityList
 _0804DF58:
 	movs r0, #0x33
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804DF68
 	ldr r0, _0804DF90 @ =gUnk_080EE91C
@@ -6644,7 +6644,7 @@ _0804DF98:
 	bl LoadRoomEntityList
 _0804DF9E:
 	movs r0, #0x1b
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804E02A
 	ldr r0, _0804DFF8 @ =gUnk_02002A40
@@ -6741,7 +6741,7 @@ _0804E07A:
 	cmp r0, #4
 	bls _0804E0B0
 	movs r0, #0xb
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _0804E0B0
 	movs r0, #0x2b
@@ -7515,7 +7515,7 @@ sub_0804E614: @ 0x0804E614
 sub_0804E618: @ 0x0804E618
 	push {lr}
 	movs r0, #0x21
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804E67A
 	movs r0, #0x42
@@ -8037,7 +8037,7 @@ sub_0804E9D0: @ 0x0804E9D0
 	bl LoadRoomEntityList
 _0804E9EC:
 	movs r0, #0x12
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804E9FC
 	ldr r0, _0804EAC8 @ =gUnk_080F3C94
@@ -8401,7 +8401,7 @@ _0804EC5E:
 	bl LoadRoomEntityList
 _0804EC64:
 	movs r0, #0x4e
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804EC74
 	ldr r0, _0804EC8C @ =gUnk_080F4F10
@@ -8987,7 +8987,7 @@ sub_0804F0C0: @ 0x0804F0C0
 	bl SetLocalFlag
 _0804F0D6:
 	movs r0, #0xf
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804F0E6
 	ldr r0, _0804F118 @ =gUnk_080F61BC
@@ -9465,7 +9465,7 @@ _0804F3EC:
 	bl LoadRoomEntityList
 _0804F406:
 	movs r0, #0x29
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _0804F42A
 	ldr r0, _0804F44C @ =gUnk_080F7860
@@ -10214,7 +10214,7 @@ sub_0804FA68: @ 0x0804FA68
 	movs r0, #0
 	bl sub_0805ADD8
 	movs r0, #0x21
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804FA8E
 	movs r0, #0x80
@@ -10658,7 +10658,7 @@ nullsub_433: @ 0x0804FC48
 sub_0804FC4C: @ 0x0804FC4C
 	push {lr}
 	movs r0, #0xe
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _0804FC5E
 	ldr r1, _0804FC64 @ =gRoomVars
@@ -10739,7 +10739,7 @@ sub_0804FCA4: @ 0x0804FCA4
 sub_0804FCA8: @ 0x0804FCA8
 	push {lr}
 	movs r0, #0x14
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804FCBA
 	ldr r0, _0804FCCC @ =gUnk_080F9FA8
@@ -10926,7 +10926,7 @@ sub_0804FD54: @ 0x0804FD54
 sub_0804FD58: @ 0x0804FD58
 	push {lr}
 	movs r0, #0x21
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _0804FD6A
 	ldr r0, _0804FD6C @ =gUnk_080FA5D0

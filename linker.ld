@@ -116,7 +116,7 @@ SECTIONS {
         . = 0x000342F8; gUnk_020342F8 = .;
         . = 0x00034330; gUnk_02034330 = .;
         . = 0x00034350; gRoomVars = .;
-        . = 0x00034364; gUnk_02034364 = .;
+        . = 0x00034364; gRoomFlags = .;
         . = 0x00034398; gUnk_02034398 = .;
         . = 0x00034480; gUnk_02034480 = .;
         . = 0x00034490; gUnk_02034490 = .;
@@ -279,16 +279,16 @@ SECTIONS {
         /* handwritten assembly */
         asm/crt0.o(.text);
         asm/code_08000108.o(.text);
-        data/data_1.o(.rodata);
+        data/data_08000360.o(.rodata);
         asm/code_08000E44.o(.text);
         asm/libgcc.o(.text);
         asm/code_08000F10.o(.text);
-        data/data_2.o(.rodata);
+        data/data_08000F54.o(.rodata);
         asm/code_080011C4.o(.text);
-        data/data_4.o(.rodata);
+        data/data_080029B4.o(.rodata);
         asm/code_08003FC4.o(.text);
 		asm/code_080043E8.o(.text);
-        data/data_6.o(.rodata);
+        data/data_08007DF4.o(.rodata);
         asm/code_0800857C.o(.text);
 		asm/sub_08016AE4.o(.text);
 
@@ -325,8 +325,9 @@ SECTIONS {
 		asm/peahat.o(.text);
 		asm/rollobite.o(.text);
 		asm/darkNut.o(.text);
-		asm/hangingSeed.o(.text);
+		src/hangingSeed.o(.text);
 		asm/beetle.o(.text);
+		src/keese.o(.text);
 		asm/keese.o(.text);
 		asm/doorMimic.o(.text);
 		asm/rockChuchu.o(.text);
@@ -346,6 +347,7 @@ SECTIONS {
 		asm/madderpillar.o(.text);
 		asm/waterDrop.o(.text);
 		asm/wallMaster.o(.text);
+		src/bombPeahat.o(.text);
 		asm/bombPeahat.o(.text);
 		asm/spark.o(.text);
 		asm/chaser.o(.text);
@@ -364,6 +366,7 @@ SECTIONS {
 		asm/armos.o(.text);
 		asm/eyegore.o(.text);
 		asm/rope.o(.text);
+		src/smallPesto.o(.text);
 		asm/smallPesto.o(.text);
 		asm/acroBandits.o(.text);
 		src/bladeTrap.o(.text);
@@ -389,6 +392,7 @@ SECTIONS {
 		asm/flyingSkull.o(.text);
 		asm/mazaalBracelet.o(.text);
 		asm/takkuri.o(.text);
+		src/bowMoblin.o(.text);
 		asm/bowMoblin.o(.text);
 		asm/lakitu.o(.text);
 		asm/lakituCloud.o(.text);
@@ -422,6 +426,7 @@ SECTIONS {
 		asm/enemy64.o(.text);
 		asm/treeItem.o(.text);
 		asm/enemy66.o(.text);
+		/* END enemies */
 		asm/code_08049CD4.o(.text);
 		asm/sub_0804AA30.o(.text);
 		src/createEnemy.o(.text);
@@ -456,6 +461,64 @@ SECTIONS {
 		asm/code_08055FF4.o(.text);
 		src/textbox.o(.text);
 		asm/code_08056418.o(.text);
+		asm/manager1.o(.text);
+		asm/manager2.o(.text);
+		asm/manager3.o(.text);
+		asm/manager4.o(.text);
+		asm/manager5.o(.text);
+		asm/manager6.o(.text);
+		asm/manager7.o(.text);
+		asm/manager8.o(.text);
+		asm/manager9.o(.text);
+		asm/managerA.o(.text);
+		asm/managerB.o(.text);
+		asm/managerC.o(.text);
+		asm/managerD.o(.text);
+		asm/managerE.o(.text);
+		asm/managerF.o(.text);
+		asm/manager10.o(.text);
+		asm/manager11.o(.text);
+		asm/manager12.o(.text);
+		asm/manager13.o(.text);
+		asm/manager14.o(.text);
+		asm/manager15.o(.text);
+		asm/manager16.o(.text);
+		asm/manager17.o(.text);
+		asm/manager18.o(.text);
+		asm/manager19.o(.text);
+		asm/manager1A.o(.text);
+		asm/manager1B.o(.text);
+		asm/manager1C.o(.text);
+		asm/manager1D.o(.text);
+		asm/manager1E.o(.text);
+		asm/manager1F.o(.text);
+		asm/manager20.o(.text);
+		asm/manager21.o(.text);
+		asm/manager22.o(.text);
+		asm/manager23.o(.text);
+		asm/manager24.o(.text);
+		asm/manager25.o(.text);
+		asm/manager26.o(.text);
+		src/manager27.o(.text);
+		asm/manager28.o(.text);
+		asm/manager29.o(.text);
+		asm/manager2A.o(.text);
+		asm/manager2B.o(.text);
+		asm/manager2C.o(.text);
+		asm/manager2D.o(.text);
+		src/manager2E.o(.text);
+		asm/manager2E.o(.text);
+		asm/manager2F.o(.text);
+		asm/manager30.o(.text);
+		asm/manager31.o(.text);
+		asm/manager32.o(.text);
+		asm/manager33.o(.text);
+		asm/manager34.o(.text);
+		asm/manager35.o(.text);
+		asm/manager36.o(.text);
+		asm/manager37.o(.text);
+		asm/manager38.o(.text);
+		asm/manager39.o(.text);
 		src/sub_0805E374.o(.text);
 		src/sub_0805E3A0.o(.text);
 		asm/code_0805E3B0.o(.text);
@@ -488,8 +551,8 @@ SECTIONS {
 		asm/sturgeon.o(.text);
 		asm/tingleSiblings.o(.text);
 		asm/stockwell.o(.text);
-		asm/talon.o(.text);
-		asm/malon.o(.text);
+		src/talon.o(.text);
+		src/malon.o(.text);
 		src/epona.o(.text);
 		src/milkCart.o(.text);
 		asm/ghostBrothers.o(.text);
@@ -499,7 +562,7 @@ SECTIONS {
 		asm/ministerPotho.o(.text);
 		asm/npc26.o(.text);
 		asm/vaati.o(.text);
-		asm/zelda.o(.text);
+		src/zelda.o(.text);
 		asm/mutoh.o(.text);
 		asm/carpenter.o(.text);
 		asm/castorWildsStatue.o(.text);
@@ -508,14 +571,17 @@ SECTIONS {
 		asm/mountainMinish.o(.text);
 		asm/zeldaFollower.o(.text);
 		asm/melari.o(.text);
-		asm/bladeBrothers.o(.text);
-		asm/cow.o(.text);
-		asm/goron.o(.text);
+		src/bladeBrothers.o(.text);
+		src/cow.o(.text);
+		src/goron.o(.text);
 		asm/goronMerchant.o(.text);
 		asm/gorman.o(.text);
 		asm/dog.o(.text);
+		src/syrup.o(.text);
 		asm/syrup.o(.text);
+		src/rem.o(.text);
 		asm/rem.o(.text);
+		src/townMinish.o(.text);
 		asm/townMinish.o(.text);
 		asm/librari.o(.text);
 		asm/percy.o(.text);
@@ -528,11 +594,12 @@ SECTIONS {
 		asm/drLeft.o(.text);
 		asm/kingGustaf.o(.text);
 		asm/gina.o(.text);
-		asm/simon.o(.text);
+		src/simon.o(.text);
 		asm/anju.o(.text);
 		asm/mama.o(.text);
 		src/emma.o(.text);
 		asm/teachers.o(.text);
+		src/windTribespeople.o(.text);
 		asm/windTribespeople.o(.text);
 		asm/gregal.o(.text);
 		asm/mayorHagen.o(.text);
@@ -540,6 +607,7 @@ SECTIONS {
 		asm/bigGoron.o(.text);
 		asm/ezloCap.o(.text);
 		asm/npc4E.o(.text);
+		src/clothesRack.o(.text);
 		asm/clothesRack.o(.text);
 		asm/picolyteBottles.o(.text);
 		asm/smallTownMinish.o(.text);
@@ -549,15 +617,16 @@ SECTIONS {
 		asm/fusionMenuNPC.o(.text);
 		asm/phonograph.o(.text);
 		asm/npc58.o(.text);
+		/* END npcs */
 		asm/code_0806EC20.o(.text);
 		src/createNPC.o(.text);
 		asm/code_0806ED78.o(.text);
 		src/sub_0806F9EC.o(.text);
 		src/sub_0806FA04.o(.text);
-		src/copyPosition.o(.text);
-		src/sub_0806FA30.o(.text);
-		src/positionRelative.o(.text);
+		src/position.o(.text);
 		asm/code_0806FA6C.o(.text);
+		src/sub_08070680.o(.text);
+		asm/code_08070698.o(.text);
 		asm/stairsInteract.o(.text);
 		asm/code_080732D0.o(.text);
 		asm/ocarina.o(.text);
@@ -574,7 +643,7 @@ SECTIONS {
 		asm/sub_0807CA18.o(.text);
 		asm/getInventoryValue.o(.text);
 		asm/code_0807CAA0.o(.text);
-		src/getProgressFlag.o(.text);
+		src/flags.o(.text);
 		asm/code_0807CC3C.o(.text);
 		src/room.o(.text);
 		/* objects */
@@ -590,6 +659,7 @@ SECTIONS {
 		asm/object9.o(.text);
 		asm/objectA.o(.text);
 		asm/objectB.o(.text);
+		src/chestSpawner.o(.text);
 		asm/chestSpawner.o(.text);
 		asm/objectD.o(.text);
 		asm/objectE.o(.text);
@@ -607,8 +677,8 @@ SECTIONS {
 		src/object1A.o(.text);
 		src/greatFairy.o(.text);
 		asm/greatFairy.o(.text);
-		asm/object1C.o(.text);
-		asm/object1D.o(.text);
+		src/object1C.o(.text);
+		src/object1D.o(.text);
 		asm/object1E.o(.text);
 		asm/object1F.o(.text);
 		asm/object20.o(.text);
@@ -653,6 +723,7 @@ SECTIONS {
 		asm/object44.o(.text);
 		asm/object45.o(.text);
 		asm/giantBookLadder.o(.text);
+		src/heartContainer.o(.text);
 		asm/heartContainer.o(.text);
 		asm/object48.o(.text);
 		asm/object49.o(.text);
@@ -668,13 +739,13 @@ SECTIONS {
 		asm/object53.o(.text);
 		asm/pullableLever.o(.text);
 		asm/minecart.o(.text);
-		asm/object56.o(.text);
+		src/thoughtBubble.o(.text);
 		asm/hiddenLadderDown.o(.text);
 		asm/gentariCurtains.o(.text);
 		asm/lavaPlatform.o(.text);
 		asm/object5A.o(.text);
 		asm/object5B.o(.text);
-		asm/mask.o(.text);
+		src/mask.o(.text);
 		asm/houseDoorInterior.o(.text);
 		asm/whirlwind.o(.text);
 		asm/objectBlockingStairs.o(.text);
@@ -692,7 +763,7 @@ SECTIONS {
 		asm/crenalBeanSprout.o(.text);
 		asm/minecartDoor.o(.text);
 		asm/objectOnPillar.o(.text);
-		asm/mineralWaterSource.o(.text);
+		src/mineralWaterSource.o(.text);
 		asm/minishSizedArchway.o(.text);
 		asm/object70.o(.text);
 		asm/pushableGrave.o(.text);
@@ -728,7 +799,7 @@ SECTIONS {
 		asm/object91.o(.text);
 		asm/bakerOven.o(.text);
 		asm/object93.o(.text);
-		asm/windTribeFlag.o(.text);
+		src/windTribeFlag.o(.text);
 		asm/bird.o(.text);
 		asm/object96.o(.text);
 		asm/object97.o(.text);
@@ -748,6 +819,7 @@ SECTIONS {
 		asm/objectA5.o(.text);
 		asm/objectA6.o(.text);
 		asm/objectA7.o(.text);
+		src/objectA8.o(.text);
 		asm/objectA8.o(.text);
 		asm/objectA9.o(.text);
 		asm/waterfallOpening.o(.text);
@@ -767,13 +839,14 @@ SECTIONS {
 		asm/windTribeTeleporter.o(.text);
 		asm/objectB9.o(.text);
 		asm/objectBA.o(.text);
-		asm/windcrest.o(.text);
+		src/windcrest.o(.text);
 		asm/litArea.o(.text);
 		asm/objectBD.o(.text);
 		asm/pinwheel.o(.text);
 		asm/objectBF.o(.text);
 		asm/enemyItem.o(.text);
 		asm/objectC1.o(.text);
+		/* END objects */
 		asm/sub_080A276C.o(.text);
 		asm/sub_080A2838.o(.text);
 		asm/sub_080A285C.o(.text);
@@ -810,7 +883,24 @@ SECTIONS {
         /* handwritten assembly in arm mode */
         asm/intr.o(.text);
         /* data */
-        data/data_8.o(.rodata);
+        data/data_080B2A70.o(.rodata);
+		src/object.o(.rodata);
+		data/data_080B3054.o(.rodata);
+		src/npc.o(.rodata);
+		data/data_080B3740.o(.rodata);
+		src/trig.o(.rodata);
+		data/data_080C93E0.o(.rodata);
+		src/enemy.o(.rodata);
+		data/data_080D3D94.o(.rodata);
+		data/areaPropertyLists.o(.rodata);
+		data/data_080D5360.o(.rodata);
+		src/item.o(.rodata);
+		data/data_0811BD44.o(.rodata);
+		src/greatFairy.o(.rodata);
+		data/greatFairyAnimations.o(.rodata);
+		data/data_081208A0.o(.rodata);
+		data/strings.o(.rodata);
+		data/data_089FC6C4.o(.rodata);
     } >rom
 
     /* DWARF 2 sections */

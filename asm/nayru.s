@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08064890
-sub_08064890: @ 0x08064890
+	thumb_func_start Nayru
+Nayru: @ 0x08064890
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -58,7 +58,7 @@ _080648C2:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08064924
 	.align 2, 0
 _080648FC: .4byte gLinkEntity
@@ -78,7 +78,7 @@ _0806490A:
 	adds r0, #0x68
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08064924:
 	pop {r4, pc}
 	.align 2, 0
@@ -111,8 +111,8 @@ _0806494E:
 _08064958: .4byte gUnk_02002A40
 _0806495C: .4byte 0x00000141
 
-	thumb_func_start sub_08064960
-sub_08064960: @ 0x08064960
+	thumb_func_start Nayru_Fusion
+Nayru_Fusion: @ 0x08064960
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -129,11 +129,11 @@ sub_08064960: @ 0x08064960
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806498C
 _08064986:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806498C:
 	pop {pc}
 	.align 2, 0

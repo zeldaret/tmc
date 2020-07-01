@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08097D78
-sub_08097D78: @ 0x08097D78
+	thumb_func_start Bell
+Bell: @ 0x08097D78
 	push {lr}
 	ldr r2, _08097D8C @ =gUnk_08123384
 	ldrb r1, [r0, #0xc]
@@ -47,12 +47,12 @@ sub_08097D90: @ 0x08097D90
 	bl UpdateSpriteOrderAndFlip
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 
 	thumb_func_start sub_08097DCC
 sub_08097DCC: @ 0x08097DCC
 	push {lr}
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {pc}

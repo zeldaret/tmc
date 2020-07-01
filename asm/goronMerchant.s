@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08069544
-sub_08069544: @ 0x08069544
+	thumb_func_start GoronMerchant
+GoronMerchant: @ 0x08069544
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -60,7 +60,7 @@ _0806959E:
 	strb r0, [r1, #0xc]
 	adds r0, r1, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 	.align 2, 0
 
@@ -93,7 +93,7 @@ _080695D2:
 	beq _080695E6
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080695E6:
 	pop {r4, pc}
 
@@ -101,7 +101,7 @@ _080695E6:
 sub_080695E8: @ 0x080695E8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, _08069618 @ =gTextBox
 	ldrb r0, [r0]
 	movs r1, #0x7f
@@ -117,7 +117,7 @@ sub_080695E8: @ 0x080695E8
 	bl sub_0805E584
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08069614:
 	pop {r4, pc}
 	.align 2, 0
@@ -133,7 +133,7 @@ sub_0806961C: @ 0x0806961C
 	cmp r0, #2
 	bne _08069630
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08069630:
 	adds r0, r4, #0
 	bl sub_0806FD3C

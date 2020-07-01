@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08064D58
-sub_08064D58: @ 0x08064D58
+	thumb_func_start TingleSiblings
+TingleSiblings: @ 0x08064D58
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -44,7 +44,7 @@ sub_08064D90: @ 0x08064D90
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #1
 	strb r0, [r4, #0xf]
 	pop {r4, pc}
@@ -65,9 +65,9 @@ sub_08064DA0: @ 0x08064DA0
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _08064DC8:
 	pop {r4, pc}
 	.align 2, 0
@@ -79,7 +79,7 @@ sub_08064DCC: @ 0x08064DCC
 	bl sub_08064EE8
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	pop {r4, pc}
@@ -131,7 +131,7 @@ _08064E1A:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _08064E6A
@@ -203,7 +203,7 @@ _08064EBE:
 _08064EC2:
 	movs r0, #0x5a
 _08064EC4:
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _08064ED8
 	movs r0, #0xc
@@ -224,7 +224,7 @@ _08064ED8:
 sub_08064EE8: @ 0x08064EE8
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -377,8 +377,8 @@ _08065016:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 
-	thumb_func_start sub_0806501C
-sub_0806501C: @ 0x0806501C
+	thumb_func_start TingleSiblings_Fusion
+TingleSiblings_Fusion: @ 0x0806501C
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -400,7 +400,7 @@ sub_0806501C: @ 0x0806501C
 	movs r1, #0xa
 _08065042:
 	adds r0, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08065050
 _0806504A:
 	adds r0, r2, #0

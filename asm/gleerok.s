@@ -7,12 +7,12 @@
 	.text
 
 
-	thumb_func_start sub_0802D018
-sub_0802D018: @ 0x0802D018
+	thumb_func_start Gleerok
+Gleerok: @ 0x0802D018
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _0802D030 @ =gUnk_080CD748
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -709,7 +709,7 @@ _0802D58C:
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0802D63C
 _0802D5A8:
 	ldr r0, _0802D5E8 @ =gUnk_080CD884
@@ -746,7 +746,7 @@ _0802D5E8: .4byte gUnk_080CD884
 _0802D5EC:
 	adds r0, r4, #0
 	movs r1, #0x2c
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0802D63C
 _0802D5F6:
 	adds r2, r4, #0
@@ -763,7 +763,7 @@ _0802D5F6:
 	bl CopyPosition
 	adds r0, r4, #0
 	movs r1, #0x2d
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0802D63C
 _0802D61A:
 	adds r2, r4, #0
@@ -1193,7 +1193,7 @@ _0802D94C:
 	cmp r0, #0
 	bne _0802D95E
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _0802DB7E
 _0802D95E:
 	movs r1, #0xc0
@@ -1243,7 +1243,7 @@ _0802D9A2:
 	b _0802DB7E
 _0802D9B8:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1287,7 +1287,7 @@ _0802D9F8:
 	b _0802DB7E
 _0802DA0E:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2334,7 +2334,7 @@ sub_0802E1D0: @ 0x0802E1D0
 	cmp r0, #0
 	bne _0802E1F6
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0802E1F6:
 	ldrb r0, [r4]
 	movs r2, #0x3f
@@ -2690,7 +2690,7 @@ _0802E490:
 	bl sub_0802EA68
 _0802E4A6:
 	adds r0, r7, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r7, #0
 	adds r0, #0x84
 	ldr r0, [r0]
@@ -2704,7 +2704,7 @@ _0802E4A6:
 sub_0802E4C0: @ 0x0802E4C0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2815,7 +2815,7 @@ _0802E580:
 	add r4, sb
 	ldrb r0, [r4, #0x19]
 	lsls r0, r0, #4
-	ldr r1, _0802E644 @ =gUnk_080C9160
+	ldr r1, _0802E644 @ =gSineTable
 	adds r0, r0, r1
 	movs r2, #0
 	ldrsh r0, [r0, r2]
@@ -2832,7 +2832,7 @@ _0802E580:
 	adds r1, r0, #0
 	ldrb r0, [r4, #1]
 	lsls r0, r0, #4
-	ldr r2, _0802E644 @ =gUnk_080C9160
+	ldr r2, _0802E644 @ =gSineTable
 	adds r0, r0, r2
 	movs r2, #0
 	ldrsh r0, [r0, r2]
@@ -2852,7 +2852,7 @@ _0802E580:
 	ldrb r0, [r4, #0x19]
 	lsls r0, r0, #4
 	adds r0, #0x80
-	ldr r1, _0802E644 @ =gUnk_080C9160
+	ldr r1, _0802E644 @ =gSineTable
 	adds r0, r0, r1
 	movs r2, #0
 	ldrsh r0, [r0, r2]
@@ -2893,7 +2893,7 @@ _0802E580:
 	adds r7, #3
 	b _0802E64C
 	.align 2, 0
-_0802E644: .4byte gUnk_080C9160
+_0802E644: .4byte gSineTable
 _0802E648:
 	lsrs r0, r1, #0x1a
 	adds r7, r7, r0
@@ -2906,7 +2906,7 @@ _0802E64C:
 	cmp r0, r1
 	beq _0802E6E8
 	adds r0, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0802E6E8
 _0802E662:
 	ldr r2, [sp, #8]
@@ -2973,11 +2973,11 @@ _0802E6CA:
 	beq _0802E6E2
 	adds r0, r1, #0
 	adds r1, r7, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0802E6E8
 _0802E6E2:
 	adds r0, r1, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0802E6E8:
 	movs r6, #0
 _0802E6EA:

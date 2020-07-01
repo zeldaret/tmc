@@ -4,210 +4,6 @@
 	.syntax unified
 
 	.text
-	
-	thumb_func_start CheckRoomFlag
-CheckRoomFlag: @ 0x0807CC3C
-	push {lr}
-	adds r1, r0, #0
-	ldr r0, _0807CC48 @ =gUnk_02034364
-	bl sub_0801D5A8
-	pop {pc}
-	.align 2, 0
-_0807CC48: .4byte gUnk_02034364
-
-	thumb_func_start CheckLocalFlagsByOffset
-CheckLocalFlagsByOffset: @ 0x0807CC4C
-	push {lr}
-	adds r3, r0, #0
-	ldr r0, _0807CC5C @ =gGlobalFlags
-	adds r3, r3, r1
-	adds r1, r3, #0
-	bl sub_08000F10
-	pop {pc}
-	.align 2, 0
-_0807CC5C: .4byte gGlobalFlags
-
-	thumb_func_start CheckLocalFlags
-CheckLocalFlags: @ 0x0807CC60
-	push {lr}
-	adds r3, r0, #0
-	adds r2, r1, #0
-	ldr r0, _0807CC74 @ =gArea
-	ldrh r0, [r0, #4]
-	adds r1, r3, #0
-	bl CheckLocalFlagsByOffset
-	pop {pc}
-	.align 2, 0
-_0807CC74: .4byte gArea
-
-	thumb_func_start CheckGlobalFlags
-CheckGlobalFlags: @ 0x0807CC78
-	push {lr}
-	adds r3, r0, #0
-	adds r2, r1, #0
-	movs r0, #0
-	adds r1, r3, #0
-	bl CheckLocalFlagsByOffset
-	pop {pc}
-
-	thumb_func_start CheckRoomFlags
-CheckRoomFlags: @ 0x0807CC88
-	push {lr}
-	adds r3, r0, #0
-	adds r2, r1, #0
-	ldr r0, _0807CC98 @ =gUnk_02034364
-	adds r1, r3, #0
-	bl sub_08000F10
-	pop {pc}
-	.align 2, 0
-_0807CC98: .4byte gUnk_02034364
-
-	thumb_func_start SetLocalFlagByOffset
-SetLocalFlagByOffset: @ 0x0807CC9C
-	push {lr}
-	adds r2, r0, #0
-	cmp r1, #0
-	beq _0807CCAC
-	ldr r0, _0807CCB0 @ =gGlobalFlags
-	adds r1, r2, r1
-	bl sub_0801D5BC
-_0807CCAC:
-	pop {pc}
-	.align 2, 0
-_0807CCB0: .4byte gGlobalFlags
-
-	thumb_func_start SetLocalFlag
-SetLocalFlag: @ 0x0807CCB4
-	push {lr}
-	adds r1, r0, #0
-	ldr r0, _0807CCC4 @ =gArea
-	ldrh r0, [r0, #4]
-	bl SetLocalFlagByOffset
-	pop {pc}
-	.align 2, 0
-_0807CCC4: .4byte gArea
-
-	thumb_func_start SetFlag
-SetFlag: @ 0x0807CCC8
-	push {lr}
-	adds r1, r0, #0
-	cmp r1, #0
-	beq _0807CD02
-	ldr r2, _0807CCF0 @ =0x000003FF
-	ands r2, r1
-	movs r0, #0xc0
-	lsls r0, r0, #8
-	ands r0, r1
-	lsrs r0, r0, #0xe
-	cmp r0, #1
-	beq _0807CCFC
-	cmp r0, #1
-	blo _0807CCF4
-	cmp r0, #2
-	bne _0807CD02
-	adds r0, r2, #0
-	bl SetRoomFlag
-	b _0807CD02
-	.align 2, 0
-_0807CCF0: .4byte 0x000003FF
-_0807CCF4:
-	adds r0, r2, #0
-	bl SetLocalFlag
-	b _0807CD02
-_0807CCFC:
-	adds r0, r2, #0
-	bl SetGlobalFlag
-_0807CD02:
-	pop {pc}
-
-	thumb_func_start SetGlobalFlag
-SetGlobalFlag: @ 0x0807CD04
-	push {lr}
-	adds r1, r0, #0
-	movs r0, #0
-	bl SetLocalFlagByOffset
-	pop {pc}
-
-	thumb_func_start SetRoomFlag
-SetRoomFlag: @ 0x0807CD10
-	push {lr}
-	adds r1, r0, #0
-	ldr r0, _0807CD1C @ =gUnk_02034364
-	bl sub_0801D5BC
-	pop {pc}
-	.align 2, 0
-_0807CD1C: .4byte gUnk_02034364
-
-	thumb_func_start ClearLocalFlagByOffset
-ClearLocalFlagByOffset: @ 0x0807CD20
-	push {lr}
-	adds r2, r0, #0
-	ldr r0, _0807CD30 @ =gGlobalFlags
-	adds r2, r2, r1
-	adds r1, r2, #0
-	bl sub_0801D5D4
-	pop {pc}
-	.align 2, 0
-_0807CD30: .4byte gGlobalFlags
-
-	thumb_func_start ClearLocalFlag
-ClearLocalFlag: @ 0x0807CD34
-	push {lr}
-	adds r1, r0, #0
-	ldr r0, _0807CD44 @ =gArea
-	ldrh r0, [r0, #4]
-	bl ClearLocalFlagByOffset
-	pop {pc}
-	.align 2, 0
-_0807CD44: .4byte gArea
-
-	thumb_func_start ClearFlag
-ClearFlag: @ 0x0807CD48
-	push {lr}
-	ldr r2, _0807CD6C @ =0x000003FF
-	ands r2, r0
-	movs r1, #0xc0
-	lsls r1, r1, #8
-	ands r1, r0
-	lsrs r1, r1, #0xe
-	cmp r1, #1
-	beq _0807CD78
-	cmp r1, #1
-	blo _0807CD70
-	cmp r1, #2
-	bne _0807CD7E
-	adds r0, r2, #0
-	bl ClearRoomFlag
-	b _0807CD7E
-	.align 2, 0
-_0807CD6C: .4byte 0x000003FF
-_0807CD70:
-	adds r0, r2, #0
-	bl ClearLocalFlag
-	b _0807CD7E
-_0807CD78:
-	adds r0, r2, #0
-	bl ClearGlobalFlag
-_0807CD7E:
-	pop {pc}
-
-	thumb_func_start ClearGlobalFlag
-ClearGlobalFlag: @ 0x0807CD80
-	push {lr}
-	adds r1, r0, #0
-	movs r0, #0
-	bl ClearLocalFlagByOffset
-	pop {pc}
-
-	thumb_func_start ClearRoomFlag
-ClearRoomFlag: @ 0x0807CD8C
-	push {lr}
-	adds r1, r0, #0
-	ldr r0, _0807CD98 @ =gUnk_02034364
-	bl sub_0801D5D4
-	pop {pc}
-	.align 2, 0
-_0807CD98: .4byte gUnk_02034364
 
 	thumb_func_start sub_0807CD9C
 sub_0807CD9C: @ 0x0807CD9C
@@ -2024,8 +1820,8 @@ sub_0807DAC4: @ 0x0807DAC4
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0807DAD0
-sub_0807DAD0: @ 0x0807DAD0
+	thumb_func_start StartCutscene
+StartCutscene: @ 0x0807DAD0
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	adds r6, r1, #0
@@ -2587,7 +2383,7 @@ _0807DEB0:
 	beq _0807DEC2
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0807DEC2:
 	adds r0, r4, #0
 	adds r0, #0x82
@@ -3332,7 +3128,7 @@ sub_0807E40C: @ 0x0807E40C
 	adds r4, r1, #0
 	ldr r0, [r4]
 	ldrh r0, [r0, #2]
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	str r0, [r4, #0x14]
 	ldr r2, _0807E428 @ =gUnk_02033280
 	ldrb r1, [r2, #7]
@@ -4090,7 +3886,7 @@ sub_0807E930: @ 0x0807E930
 	adds r1, #0x80
 	strh r2, [r1]
 	ldrh r1, [r3, #2]
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 
 	thumb_func_start sub_0807E944
@@ -4149,7 +3945,7 @@ _0807E990:
 	strb r0, [r2, #0x18]
 	ldr r0, [r2]
 	ldrh r0, [r0, #2]
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	b _0807E9C2
 _0807E9AE:
 	ldr r0, _0807E9CC @ =gTextBox
@@ -4304,7 +4100,7 @@ sub_0807EAB4: @ 0x0807EAB4
 	push {lr}
 	ldr r0, [r1]
 	ldrh r0, [r0, #2]
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	pop {pc}
 
 	thumb_func_start sub_0807EAC0
@@ -4323,7 +4119,7 @@ sub_0807EAD0: @ 0x0807EAD0
 	adds r4, r1, #0
 	ldr r0, [r4]
 	ldrh r0, [r0, #2]
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _0807EAEC @ =gTextBox
 	movs r0, #1
 	strb r0, [r1, #6]
@@ -4346,13 +4142,13 @@ sub_0807EAF0: @ 0x0807EAF0
 	ldr r1, [r1]
 	adds r1, r1, r0
 	ldrh r0, [r1, #2]
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	b _0807EB16
 	.align 2, 0
 _0807EB0C: .4byte gUnk_02033280
 _0807EB10:
 	movs r0, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _0807EB16:
 	pop {pc}
 
@@ -5439,7 +5235,7 @@ _0807F280:
 _0807F28C:
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_08054414
+	bl ForceEquipItem
 	pop {r4, r5, pc}
 	.align 2, 0
 _0807F298: .4byte 0x0000FFFF
@@ -5634,7 +5430,7 @@ sub_0807F3D8: @ 0x0807F3D8
 	ldr r1, [r1, #4]
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	adds r0, #0x58
 	ldrb r0, [r0]
@@ -6085,7 +5881,7 @@ _0807F704: .4byte gLinkState
 sub_0807F708: @ 0x0807F708
 	push {lr}
 	ldr r1, [r1, #4]
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 
@@ -6104,7 +5900,7 @@ sub_0807F714: @ 0x0807F714
 	orrs r0, r2
 	strb r0, [r1, #0x19]
 	adds r0, r1, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	pop {pc}
 	.align 2, 0
 _0807F734: .4byte gUnk_08114F30
@@ -8192,7 +7988,7 @@ _080806E2:
 	cmp r0, #0
 	beq _08080720
 	adds r0, r5, #0
-	bl sub_08080840
+	bl DoExitTransition
 	movs r0, #1
 	b _0808072A
 	.align 2, 0
@@ -8365,8 +8161,8 @@ _0808083C:
 _0808083E:
 	pop {r4, r5, pc}
 
-	thumb_func_start sub_08080840
-sub_08080840: @ 0x08080840
+	thumb_func_start DoExitTransition
+DoExitTransition: @ 0x08080840
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, _0808085C @ =gUnk_030010A0

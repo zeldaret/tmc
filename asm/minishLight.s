@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809F828
-sub_0809F828: @ 0x0809F828
+	thumb_func_start MinishLight
+MinishLight: @ 0x0809F828
 	push {lr}
 	ldr r2, _0809F83C @ =gUnk_081247F8
 	ldrb r1, [r0, #0xc]

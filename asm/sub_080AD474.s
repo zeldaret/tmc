@@ -57,7 +57,7 @@ _080AD49C:
 	movs r1, #3
 _080AD4D2:
 	adds r0, r1, #0
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	ldrb r0, [r4, #7]
 	cmp r0, #0
 	bne _080AD524

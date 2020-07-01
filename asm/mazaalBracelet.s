@@ -7,12 +7,12 @@
 	.text
 
 
-	thumb_func_start sub_0803A154
-sub_0803A154: @ 0x0803A154
+	thumb_func_start MazaalBracelet
+MazaalBracelet: @ 0x0803A154
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _0803A16C @ =gUnk_080CFC14
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -126,7 +126,7 @@ _0803A210:
 	bl InitializeAnimation
 	ldr r0, [r4, #0x54]
 	movs r1, #9
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _0803A248 @ =0x00000127
 	bl PlaySFX
 _0803A23E:
@@ -358,7 +358,7 @@ _0803A3FA:
 	b _0803A546
 _0803A418:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -399,7 +399,7 @@ _0803A44E:
 	b _0803A546
 _0803A468:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -415,7 +415,7 @@ _0803A468:
 	strb r0, [r4, #0x18]
 	ldr r0, [r4, #0x54]
 	movs r1, #8
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0xb7
 	lsls r0, r0, #1
 	bl PlaySFX
@@ -443,7 +443,7 @@ _0803A4B2:
 	strb r0, [r4, #0xd]
 	ldr r0, [r4, #0x54]
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0803A546
 _0803A4CC:
 	adds r0, r4, #0
@@ -469,7 +469,7 @@ _0803A4CC:
 	b _0803A546
 _0803A4FA:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -516,7 +516,7 @@ sub_0803A548: @ 0x0803A548
 	adds r4, r0, #0
 	bl sub_0803B5C0
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r2, _0803A588 @ =gUnk_080CED6C
 	ldr r0, [r4, #0x50]
 	ldrb r0, [r0, #0xf]
@@ -631,7 +631,7 @@ sub_0803A60C: @ 0x0803A60C
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -647,7 +647,7 @@ sub_0803A60C: @ 0x0803A60C
 	strb r0, [r4, #0x18]
 	ldr r0, [r4, #0x54]
 	movs r1, #8
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803A658:
 	pop {r4, pc}
 	.align 2, 0
@@ -883,7 +883,7 @@ sub_0803A7CC: @ 0x0803A7CC
 	strb r0, [r4, #0xc]
 	ldr r0, [r4, #0x54]
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0803A812
 	.align 2, 0
 _0803A808: .4byte gUnk_080CED6C
@@ -959,7 +959,7 @@ sub_0803A86C: @ 0x0803A86C
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1011,7 +1011,7 @@ sub_0803A8B8: @ 0x0803A8B8
 	bl InitializeAnimation
 	ldr r0, [r4, #0x54]
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _0803A908 @ =0x00000153
 	bl PlaySFX
 	pop {r4, pc}
@@ -1040,7 +1040,7 @@ sub_0803A90C: @ 0x0803A90C
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0803B55C
 	adds r0, r4, #0
@@ -1065,7 +1065,7 @@ sub_0803A90C: @ 0x0803A90C
 	bl InitializeAnimation
 	ldr r0, [r4, #0x54]
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803A970:
 	pop {r4, pc}
 	.align 2, 0
@@ -1092,7 +1092,7 @@ sub_0803A978: @ 0x0803A978
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0803B55C
 	ldrb r0, [r4, #0xe]
@@ -1131,7 +1131,7 @@ _0803A9C2:
 	bl InitializeAnimation
 	ldr r0, [r4, #0x54]
 	movs r1, #3
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803A9F8:
 	pop {r4, pc}
 	.align 2, 0
@@ -1207,7 +1207,7 @@ _0803AA6E:
 	strh r1, [r0]
 	ldr r0, [r4, #0x54]
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803AA8E:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1263,7 +1263,7 @@ sub_0803AA98: @ 0x0803AA98
 	strb r0, [r1]
 	adds r0, r2, #0
 	movs r1, #5
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0xb7
 	lsls r0, r0, #1
 	bl PlaySFX
@@ -1351,7 +1351,7 @@ sub_0803AB5C: @ 0x0803AB5C
 	bl InitializeAnimation
 	ldr r0, [r4, #0x54]
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803ABAC:
 	pop {r4, pc}
 	.align 2, 0
@@ -1378,7 +1378,7 @@ sub_0803ABB4: @ 0x0803ABB4
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0803B55C
 	ldr r0, [r4, #0x54]
@@ -1402,7 +1402,7 @@ sub_0803ABB4: @ 0x0803ABB4
 	bl InitializeAnimation
 	ldr r0, [r4, #0x54]
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803AC14:
 	pop {r4, pc}
 	.align 2, 0
@@ -1464,7 +1464,7 @@ sub_0803AC60: @ 0x0803AC60
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	bne _0803ACB4
@@ -1638,7 +1638,7 @@ sub_0803ADAC: @ 0x0803ADAC
 	bl InitializeAnimation
 	ldr r0, [r4, #0x54]
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	bl sub_0803B798
 	b _0803ADF2
 _0803ADEC:
@@ -1668,9 +1668,9 @@ sub_0803ADF4: @ 0x0803ADF4
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1712,7 +1712,7 @@ sub_0803AE48: @ 0x0803AE48
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	beq _0803AE82
@@ -1775,9 +1775,9 @@ sub_0803AEC4: @ 0x0803AEC4
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1829,7 +1829,7 @@ _0803AF4C: .4byte gUnk_080CED6C
 sub_0803AF50: @ 0x0803AF50
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1845,7 +1845,7 @@ sub_0803AF50: @ 0x0803AF50
 	strb r0, [r4, #0x18]
 	ldr r0, [r4, #0x54]
 	movs r1, #8
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803AF7A:
 	pop {r4, pc}
 
@@ -1993,7 +1993,7 @@ _0803B064:
 	strb r0, [r2, #0xc]
 	ldr r0, [r2, #0x54]
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803B070:
 	pop {pc}
 	.align 2, 0
@@ -2040,7 +2040,7 @@ sub_0803B074: @ 0x0803B074
 	bl InitializeAnimation
 	ldr r0, [r4, #0x54]
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803B0CC:
 	pop {r4, pc}
 	.align 2, 0
@@ -2050,9 +2050,9 @@ _0803B0D0: .4byte gUnk_080CED6C
 sub_0803B0D4: @ 0x0803B0D4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2097,7 +2097,7 @@ _0803B11E:
 	strb r1, [r0]
 	ldr r0, [r2, #0x54]
 	movs r1, #9
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _0803B140 @ =0x0000014F
 	bl PlaySFX
 	pop {pc}
@@ -2110,7 +2110,7 @@ sub_0803B144: @ 0x0803B144
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, [r4, #0x54]
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
@@ -2136,7 +2136,7 @@ _0803B178:
 sub_0803B17C: @ 0x0803B17C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2176,9 +2176,9 @@ sub_0803B1B8: @ 0x0803B1B8
 	cmp r0, #0
 	bne _0803B1D4
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r5, #0x54]
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0803B1D4:
 	adds r0, r5, #0
 	adds r0, #0x45
@@ -2313,7 +2313,7 @@ _0803B2CE:
 sub_0803B2D0: @ 0x0803B2D0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2458,7 +2458,7 @@ sub_0803B398: @ 0x0803B398
 	bl InitializeAnimation
 	ldr r0, [r4, #0x54]
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0803B3F2
 	.align 2, 0
 _0803B3E8: .4byte gUnk_080CED6C
@@ -2489,7 +2489,7 @@ sub_0803B3F4: @ 0x0803B3F4
 	adds r0, #4
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -2663,7 +2663,7 @@ sub_0803B55C: @ 0x0803B55C
 	ldr r5, [r0, #0x74]
 	ldr r4, [r0, #0x54]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x10
@@ -3120,7 +3120,7 @@ sub_0803B870: @ 0x0803B870
 	strb r0, [r1]
 	adds r0, r4, #0
 	movs r1, #7
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0xb7
 	lsls r0, r0, #1
 	bl PlaySFX
@@ -3213,7 +3213,7 @@ _0803B950:
 	bl InitializeAnimation
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	pop {r4, pc}
 
 	thumb_func_start sub_0803B978
@@ -3317,7 +3317,7 @@ _0803BA34:
 	strb r0, [r4, #0x19]
 _0803BA40:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0803BA46:
 	adds r0, r4, #0
 	movs r1, #0x10
@@ -3345,7 +3345,7 @@ sub_0803BA6C: @ 0x0803BA6C
 	movs r1, #0xa
 	bl sub_0803BA8C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 

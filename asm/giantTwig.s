@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08093760
-sub_08093760: @ 0x08093760
+	thumb_func_start GiantTwig
+GiantTwig: @ 0x08093760
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xa]

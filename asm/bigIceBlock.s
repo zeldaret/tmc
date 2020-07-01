@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08099734
-sub_08099734: @ 0x08099734
+	thumb_func_start BigIceBlock
+BigIceBlock: @ 0x08099734
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xa]
@@ -754,7 +754,7 @@ _08099D40:
 	bl InitializeAnimation
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	ldrh r0, [r4, #0x32]
 	adds r0, #1
 	strh r0, [r4, #0x32]
@@ -793,7 +793,7 @@ _08099D6A:
 	strb r0, [r1]
 _08099DA2:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _08099DB4
 _08099DAA:
 	ldrb r1, [r4, #0x18]

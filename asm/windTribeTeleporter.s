@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A0F24
-sub_080A0F24: @ 0x080A0F24
+	thumb_func_start WindTribeTeleporter
+WindTribeTeleporter: @ 0x080A0F24
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080A0F40 @ =gUnk_08124C10
@@ -208,7 +208,7 @@ _080A10A2:
 	lsls r0, r0, #2
 	ldr r1, _080A10B8 @ =gUnk_0813ADEC
 	adds r0, r0, r1
-	bl sub_08080840
+	bl DoExitTransition
 	b _080A10D4
 	.align 2, 0
 _080A10B4: .4byte gRoomControls

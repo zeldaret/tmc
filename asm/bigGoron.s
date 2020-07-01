@@ -630,7 +630,7 @@ sub_0806D4C0: @ 0x0806D4C0
 	bl CopyPosition
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	adds r0, r4, #0
 	movs r1, #2
 	bl sub_0805E3A0

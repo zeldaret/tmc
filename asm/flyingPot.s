@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803704C
-sub_0803704C: @ 0x0803704C
+	thumb_func_start FlyingPot
+FlyingPot: @ 0x0803704C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_080012DC
@@ -27,7 +27,7 @@ _0803706C: .4byte gUnk_080012C8
 _08037070:
 	ldr r4, _08037088 @ =gUnk_080CF244
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

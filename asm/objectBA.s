@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A16DC
-sub_080A16DC: @ 0x080A16DC
+	thumb_func_start ObjectBA
+ObjectBA: @ 0x080A16DC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080A1700 @ =gUnk_08124ED0
@@ -794,7 +794,7 @@ _080A1D04:
 _080A1D14:
 	adds r3, r4, #0
 	adds r3, #0x70
-	ldr r5, _080A1D68 @ =gUnk_080C9160
+	ldr r5, _080A1D68 @ =gSineTable
 	ldrb r0, [r6]
 	lsls r0, r0, #1
 	adds r0, r0, r5
@@ -836,7 +836,7 @@ _080A1D4E:
 	strh r1, [r2, #0x30]
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A1D68: .4byte gUnk_080C9160
+_080A1D68: .4byte gSineTable
 _080A1D6C: .4byte gScreen
 
 	thumb_func_start sub_080A1D70

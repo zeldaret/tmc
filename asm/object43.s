@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808DED0
-sub_0808DED0: @ 0x0808DED0
+	thumb_func_start Object43
+Object43: @ 0x0808DED0
 	push {lr}
 	ldr r2, _0808DEE4 @ =gUnk_081217BC
 	ldrb r1, [r0, #0xc]
@@ -200,7 +200,7 @@ _0808E038:
 	b _0808E1B6
 _0808E03E:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	beq _0808E084
@@ -441,7 +441,7 @@ sub_0808E208: @ 0x0808E208
 	adds r4, r0, #0
 	bl sub_08079BD8
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, _0808E240 @ =gLinkState
 	ldrb r0, [r0, #0x1b]
 	cmp r0, #0
@@ -486,7 +486,7 @@ _0808E260:
 sub_0808E264: @ 0x0808E264
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #0x80

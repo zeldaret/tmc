@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809F2F8
-sub_0809F2F8: @ 0x0809F2F8
+	thumb_func_start ObjectA2
+ObjectA2: @ 0x0809F2F8
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0809F314 @ =gUnk_081246F4
@@ -19,7 +19,7 @@ sub_0809F2F8: @ 0x0809F2F8
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 _0809F314: .4byte gUnk_081246F4

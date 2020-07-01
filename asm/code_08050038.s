@@ -678,7 +678,7 @@ _08050546:
 	movs r0, #5
 	bl sub_080503A8
 	movs r0, #9
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	movs r4, #0
 _08050586:
 	movs r0, #0x48
@@ -3990,7 +3990,7 @@ sub_08052010: @ 0x08052010
 	bl sub_0801D630
 	bl sub_080A4D34
 	movs r0, #0xa
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	movs r0, #0
 	movs r1, #0
 	bl sub_0801D79C

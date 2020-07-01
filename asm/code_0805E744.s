@@ -1058,7 +1058,7 @@ sub_0805EE88: @ 0x0805EE88
 	ands r1, r0
 	lsrs r0, r1, #2
 	adds r0, #0x2f
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 _0805EEAC:
 	pop {pc}
 	.align 2, 0
@@ -2695,7 +2695,7 @@ _0805FB28:
 	lsls r0, r0, #8
 	ldrb r1, [r1, #0x15]
 	adds r0, r0, r1
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	b _0805FBA4
 	.align 2, 0
 _0805FB40: .4byte gUnk_02000080
@@ -2865,7 +2865,7 @@ sub_0805FC74: @ 0x0805FC74
 	cmp r0, r1
 	beq _0805FD1C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	ldrb r0, [r4, #0xe]

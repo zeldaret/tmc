@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080911EC
-sub_080911EC: @ 0x080911EC
+	thumb_func_start PullableLever
+PullableLever: @ 0x080911EC
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x72
@@ -540,7 +540,7 @@ _080915DC:
 	lsrs r3, r0, #0x10
 _080915E0:
 	lsls r2, r3, #0x18
-	ldr r3, _0809163C @ =gUnk_080C9160
+	ldr r3, _0809163C @ =gSineTable
 	mov r1, r8
 	lsls r0, r1, #4
 	adds r0, r0, r3
@@ -582,7 +582,7 @@ _080915E0:
 	bl SetFlag
 	b _08091656
 	.align 2, 0
-_0809163C: .4byte gUnk_080C9160
+_0809163C: .4byte gSineTable
 _08091640:
 	ldrb r0, [r5, #0xf]
 	subs r0, #1

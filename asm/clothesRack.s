@@ -6,20 +6,6 @@
 
 	.text
 
-
-	thumb_func_start sub_0806DD78
-sub_0806DD78: @ 0x0806DD78
-	push {lr}
-	ldr r2, _0806DD8C @ =gUnk_0811423C
-	ldrb r1, [r0, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	bl _call_via_r1
-	pop {pc}
-	.align 2, 0
-_0806DD8C: .4byte gUnk_0811423C
-
 	thumb_func_start sub_0806DD90
 sub_0806DD90: @ 0x0806DD90
 	push {r4, r5, r6, r7, lr}
@@ -173,5 +159,5 @@ _0806DEC4: .4byte gRoomControls
 	thumb_func_start sub_0806DEC8
 sub_0806DEC8: @ 0x0806DEC8
 	push {lr}
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}

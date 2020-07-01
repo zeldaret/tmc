@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A0554
-sub_080A0554: @ 0x080A0554
+	thumb_func_start FloatingBlock
+FloatingBlock: @ 0x080A0554
 	push {lr}
 	adds r3, r0, #0
 	ldrb r0, [r3, #0xc]

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08085194
-sub_08085194: @ 0x08085194
+	thumb_func_start Railtrack
+Railtrack: @ 0x08085194
 	push {lr}
 	ldr r2, _080851A8 @ =gUnk_081205D0
 	ldrb r1, [r0, #0xc]

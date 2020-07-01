@@ -3,7 +3,6 @@
 #include "entity.h"
 #include "textbox.h"
 
-void TextboxNoOverlap(u32 index,Entity *ent);
 void sub_0801D630();
 void ShowTextbox();
 void TextboxAtPosition();
@@ -24,19 +23,18 @@ void sub_08056360(void)
     return;
 }
 
-void TextboxTryNoOverlap(u32 index)
+void TextboxNoOverlapFollow(u32 index)
 
 {
     if (gRoomControls.cameraTarget != NULL) {
         TextboxNoOverlap(index, gRoomControls.cameraTarget);
-    }
-    else {
+    } else {
         ShowTextbox(index);
     }
     return;
 }
 
-void TextboxNoOverlap(u32 index,Entity *ent)
+void TextboxNoOverlap(u32 index, Entity* ent)
 
 {
     s16 y;
@@ -46,29 +44,26 @@ void TextboxNoOverlap(u32 index,Entity *ent)
 
     y = ent->y.HALF.HI;
     h = ent->height.HALF.HI;
-    
+
     if (88 < ((y + h) - gRoomControls.roomScrollY)) {
         gTextBox.textWindowPosY = 1;
     }
     return;
 }
 
-void sub_080563C8(u32 param_1,u32 param_2)
-{
-    TextboxAtPosition(param_1,1,param_2);
+void sub_080563C8(u32 param_1, u32 param_2) {
+    TextboxAtPosition(param_1, 1, param_2);
     return;
 }
 
-void TextboxAtPosition(u32 index,u32 x,u32 y)
-{
+void TextboxAtPosition(u32 index, u32 x, u32 y) {
     ShowTextbox(index);
     gTextBox.textWindowPosX = x;
     gTextBox.textWindowPosY = y;
     return;
 }
 
-void ShowTextbox(u32 index,u32 param_2,u32 *dest)
-{
+void ShowTextbox(u32 index, u32 param_2, u32* dest) {
     sub_0801D630(&gTextBox, 32, dest);
     gTextBox.textIndex = index;
     gTextBox.textSpeed = 99;
@@ -80,13 +75,12 @@ void ShowTextbox(u32 index,u32 param_2,u32 *dest)
     return;
 }
 
-void sub_08056418(void)
-{
+void sub_08056418(void) {
 
-    sub_0801D630(&gTextBox,32);
-    sub_0801D630(&gUnk_02022780,168);
-    sub_0801D630(&gUnk_02036A40,8);
-    sub_0801D630(&gUnk_02036A38,8);
-    sub_0801D630(&gUnk_02000040,4);
+    sub_0801D630(&gTextBox, 32);
+    sub_0801D630(&gUnk_02022780, 168);
+    sub_0801D630(&gUnk_02036A40, 8);
+    sub_0801D630(&gUnk_02036A38, 8);
+    sub_0801D630(&gUnk_02000040, 4);
     return;
 }

@@ -1272,7 +1272,7 @@ sub_0801E0E0: @ 0x0801E0E0
 _0801E0F8: .4byte gUnk_02022740
 _0801E0FC:
 	adds r0, r2, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _0801E102:
 	pop {pc}
 
@@ -1769,7 +1769,7 @@ sub_0801E49C: @ 0x0801E49C
 	subs r3, #0x40
 	movs r2, #0xff
 	ands r3, r2
-	ldr r1, _0801E5EC @ =gUnk_080C9160
+	ldr r1, _0801E5EC @ =gSineTable
 	adds r0, r3, #0
 	adds r0, #0x40
 	lsls r0, r0, #1
@@ -1916,7 +1916,7 @@ _0801E5D6:
 	.align 2, 0
 _0801E5E4: .4byte 0x0000FFFF
 _0801E5E8: .4byte gUnk_02018EE0
-_0801E5EC: .4byte gUnk_080C9160
+_0801E5EC: .4byte gSineTable
 _0801E5F0: .4byte gUnk_03003DE4
 _0801E5F4: .4byte gUnk_02017AA0
 _0801E5F8:
@@ -2196,15 +2196,15 @@ _0801E7F0:
 _0801E7F2:
 	pop {pc}
 
-	thumb_func_start sub_0801E7F4
-sub_0801E7F4: @ 0x0801E7F4
+	thumb_func_start CheckKinstoneFused
+CheckKinstoneFused: @ 0x0801E7F4
 	push {lr}
 	adds r1, r0, #0
 	subs r0, r1, #1
 	cmp r0, #0x63
 	bhi _0801E80C
 	ldr r0, _0801E808 @ =gUnk_02002C81
-	bl sub_0801D5A8
+	bl ReadBit
 	b _0801E80E
 	.align 2, 0
 _0801E808: .4byte gUnk_02002C81
@@ -2221,7 +2221,7 @@ sub_0801E810: @ 0x0801E810
 	cmp r0, #0x63
 	bhi _0801E828
 	ldr r0, _0801E824 @ =gUnk_02002C8E
-	bl sub_0801D5A8
+	bl ReadBit
 	b _0801E82A
 	.align 2, 0
 _0801E824: .4byte gUnk_02002C8E
@@ -2330,7 +2330,7 @@ sub_0801E8D4: @ 0x0801E8D4
 	movs r5, #0xa
 _0801E8D8:
 	adds r0, r5, #0
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0801E990
 	adds r0, r5, #0
@@ -2417,7 +2417,7 @@ _0801E97C:
 	beq _0801E990
 	ldr r0, _0801E998 @ =gUnk_02002C8E
 	adds r1, r5, #0
-	bl sub_0801D5BC
+	bl WriteBit
 _0801E990:
 	adds r5, #1
 	cmp r5, #0x64
@@ -2478,7 +2478,7 @@ _0801E9F6:
 	cmp r5, #0xff
 	beq _0801EA14
 	adds r0, r5, #0
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0801EA10
 _0801EA0A:
@@ -2498,7 +2498,7 @@ _0801EA1C:
 	cmp r5, #0xf2
 	beq _0801E9D6
 	adds r0, r5, #0
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0801EA34
 	movs r5, #0xf1
@@ -2552,7 +2552,7 @@ _0801EA84:
 	adds r0, r5, r0
 	ldrb r4, [r0]
 	adds r0, r4, #0
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	bne _0801EA9C
 	adds r0, r4, #0

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08062AD8
-sub_08062AD8: @ 0x08062AD8
+	thumb_func_start NPC9
+NPC9: @ 0x08062AD8
 	push {lr}
 	ldr r2, _08062AEC @ =gUnk_0810C290
 	ldrb r1, [r0, #0xc]
@@ -43,7 +43,7 @@ sub_08062AF0: @ 0x08062AF0
 sub_08062B14: @ 0x08062B14
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r1, r4, #0
 	adds r1, #0x39
 	movs r0, #0
@@ -69,7 +69,7 @@ _08062B40:
 sub_08062B48: @ 0x08062B48
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -78,7 +78,7 @@ sub_08062B48: @ 0x08062B48
 	cmp r0, #0
 	beq _08062B6A
 	ldr r0, _08062B6C @ =0x00000A01
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldrb r0, [r4, #0xc]
 	adds r0, #1
 	strb r0, [r4, #0xc]

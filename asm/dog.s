@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08069B1C
-sub_08069B1C: @ 0x08069B1C
+	thumb_func_start Dog
+Dog: @ 0x08069B1C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08069B40 @ =gUnk_08111D88
@@ -89,7 +89,7 @@ _08069B72:
 	bl sub_0805E3A0
 	adds r0, r5, #0
 	movs r1, #0xa
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldrb r0, [r5, #0x10]
 	ands r4, r0
 	cmp r4, #0
@@ -153,7 +153,7 @@ _08069C3C: .4byte gRoomControls
 sub_08069C40: @ 0x08069C40
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08069F90
 	cmp r0, #0
@@ -236,7 +236,7 @@ sub_08069CB8: @ 0x08069CB8
 	beq _08069CF6
 	ldrb r1, [r5]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08069CF6:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -281,7 +281,7 @@ _08069D3C:
 	cmp r2, r1
 	beq _08069D4E
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08069D4E:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -301,7 +301,7 @@ sub_08069D54: @ 0x08069D54
 	cmp r0, #0
 	beq _08069DD8
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080AEF88
 	ldrh r1, [r4, #0x2a]
@@ -377,7 +377,7 @@ _08069DF6:
 sub_08069DF8: @ 0x08069DF8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08069F90
 	cmp r0, #0
@@ -435,7 +435,7 @@ sub_08069E50: @ 0x08069E50
 	adds r0, r4, #0
 	bl sub_0806A028
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r6, r4, #0
 	adds r6, #0x58
 	ldrb r0, [r6]
@@ -459,7 +459,7 @@ _08069E88:
 	cmp r2, r1
 	beq _08069EA0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08069EA0:
 	movs r0, #0x36
 	bl GetInventoryValue
@@ -469,7 +469,7 @@ _08069EA0:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #0x29
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_080788E0
 	movs r0, #0xd1
@@ -496,7 +496,7 @@ _08069EDC:
 	thumb_func_start sub_08069EE0
 sub_08069EE0: @ 0x08069EE0
 	push {lr}
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {pc}
 
 	thumb_func_start sub_08069EE8
@@ -517,7 +517,7 @@ sub_08069EF0: @ 0x08069EF0
 	ldr r0, _08069F20 @ =gUnk_08111D58
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08069F28
 	movs r0, #1
@@ -539,8 +539,8 @@ _08069F28:
 _08069F2A:
 	pop {r4, pc}
 
-	thumb_func_start sub_08069F2C
-sub_08069F2C: @ 0x08069F2C
+	thumb_func_start Dog_Head
+Dog_Head: @ 0x08069F2C
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -558,15 +558,15 @@ _08069F46:
 	subs r2, #1
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	ldrb r2, [r4, #0x1e]
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r4, #0
 	bl sub_0807000C
 	pop {r4, pc}
@@ -586,7 +586,7 @@ sub_08069F6C: @ 0x08069F6C
 	cmp r1, r0
 	beq _08069F8C
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08069F8C:
 	pop {r4, pc}
 	.align 2, 0
@@ -733,7 +733,7 @@ sub_0806A080: @ 0x0806A080
 	ldr r3, _0806A0A0 @ =gUnk_08111E34
 	adds r2, r2, r3
 	adds r1, r1, r2
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806A09C: .4byte gUnk_02002A40
@@ -851,8 +851,8 @@ _0806A17A:
 _0806A18C: .4byte gLinkState
 _0806A190: .4byte gUnk_08111FD8
 
-	thumb_func_start sub_0806A194
-sub_0806A194: @ 0x0806A194
+	thumb_func_start Dog_Fusion
+Dog_Fusion: @ 0x0806A194
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -881,7 +881,7 @@ sub_0806A194: @ 0x0806A194
 	b _0806A1D4
 _0806A1CE:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806A1D4:
 	pop {r4, pc}
 	.align 2, 0

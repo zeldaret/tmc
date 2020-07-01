@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080609E8
-sub_080609E8: @ 0x080609E8
+	thumb_func_start NPC5
+NPC5: @ 0x080609E8
 	push {lr}
 	ldr r2, _080609FC @ =gUnk_0810AC1C
 	ldrb r1, [r0, #0xa]
@@ -112,7 +112,7 @@ _08060A76:
 	lsls r1, r1, #0x19
 	lsrs r1, r1, #0x19
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	bl Random
 	movs r1, #0x7f
 	ands r0, r1
@@ -485,7 +485,7 @@ sub_08060D78: @ 0x08060D78
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08060DB2:
 	ldrb r1, [r5]
 	movs r0, #0x18
@@ -508,7 +508,7 @@ _08060DCE:
 sub_08060DD0: @ 0x08060DD0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -561,7 +561,7 @@ _08060E32:
 sub_08060E34: @ 0x08060E34
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -604,7 +604,7 @@ sub_08060E70: @ 0x08060E70
 	adds r0, #0x6c
 	strb r3, [r0]
 	adds r0, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08060E92:
 	pop {pc}
 
@@ -626,7 +626,7 @@ sub_08060E94: @ 0x08060E94
 	ldrb r1, [r4, #0x14]
 	lsrs r1, r1, #1
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	bl Random
 	movs r1, #0x7f
 	ands r0, r1
@@ -640,7 +640,7 @@ _08060ECC: .4byte 0x0080FF00
 _08060ED0: .4byte 0x00800100
 _08060ED4:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08060EDA:
 	pop {r4, pc}
 
@@ -661,7 +661,7 @@ sub_08060EDC: @ 0x08060EDC
 	cmp r0, #0
 	bne _08060F00
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08060F7C
 _08060F00:
 	ldr r1, _08060F30 @ =gLinkEntity
@@ -681,7 +681,7 @@ _08060F00:
 	adds r1, r2, #0
 	adds r1, #0x20
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldrb r0, [r4, #0x14]
 	adds r0, #1
 	b _08060F42
@@ -691,7 +691,7 @@ _08060F34:
 	adds r1, r2, #0
 	adds r1, #0x28
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldrb r0, [r4, #0x14]
 	subs r0, #1
 _08060F42:
@@ -793,7 +793,7 @@ sub_08060FD0: @ 0x08060FD0
 	bl sub_080045DA
 	lsls r7, r7, #8
 	lsls r6, r6, #8
-	ldr r3, _08061058 @ =gUnk_080C9160
+	ldr r3, _08061058 @ =gSineTable
 	lsls r1, r0, #1
 	adds r1, r1, r3
 	movs r5, #0
@@ -842,7 +842,7 @@ _08061040:
 	movs r0, #0
 	b _08061084
 	.align 2, 0
-_08061058: .4byte gUnk_080C9160
+_08061058: .4byte gSineTable
 _0806105C: .4byte gUnk_0200D654
 _08061060: .4byte gUnk_02027EB4
 _08061064:
@@ -994,7 +994,7 @@ _0806116C:
 sub_08061170: @ 0x08061170
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080AF1EC
 	cmp r0, #0
@@ -1162,12 +1162,12 @@ _080612E8:
 	lsrs r1, r1, #1
 	adds r1, #0x40
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #1
 	b _08061356
 _08061302:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1190,7 +1190,7 @@ _0806131A:
 	ldrb r0, [r0]
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r2, r4, #0
 	adds r2, #0x41
 _0806133A:
@@ -1232,7 +1232,7 @@ _0806136C:
 	b _08061460
 _08061376:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1275,7 +1275,7 @@ _0806139C:
 _080613CC: .4byte gUnk_0810AC5D
 _080613D0:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1328,7 +1328,7 @@ _0806141E:
 _0806143A:
 	ldrb r1, [r0]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08061460
 	.align 2, 0
 _08061444: .4byte gUnk_0810AC5D
@@ -2313,7 +2313,7 @@ sub_08061B58: @ 0x08061B58
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08061B6E:
 	ldr r0, _08061B88 @ =gUnk_030010A0
 	adds r0, #0x2c
@@ -2321,7 +2321,7 @@ _08061B6E:
 	cmp r0, #2
 	bne _08061B7E
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08061B7E:
 	adds r0, r4, #0
 	bl sub_0806FD3C

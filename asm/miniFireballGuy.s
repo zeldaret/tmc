@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080455AC
-sub_080455AC: @ 0x080455AC
+	thumb_func_start MiniFireballGuy
+MiniFireballGuy: @ 0x080455AC
 	push {lr}
 	ldr r1, _080455B8 @ =gUnk_080D1868
 	bl EnemyFunctionHandler
@@ -106,7 +106,7 @@ sub_08045654: @ 0x08045654
 	adds r4, r0, #0
 	bl sub_080AEFE0
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r4, #0

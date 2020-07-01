@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802A238
-sub_0802A238: @ 0x0802A238
+	thumb_func_start WaterDrop
+WaterDrop: @ 0x0802A238
 	push {lr}
 	ldr r2, _0802A24C @ =gUnk_080CD030
 	ldrb r1, [r0, #0xc]
@@ -108,7 +108,7 @@ _0802A2FA:
 sub_0802A2FC: @ 0x0802A2FC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

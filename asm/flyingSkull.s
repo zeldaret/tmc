@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08039BA0
-sub_08039BA0: @ 0x08039BA0
+	thumb_func_start FlyingSkull
+FlyingSkull: @ 0x08039BA0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_080012DC
@@ -27,7 +27,7 @@ _08039BC0: .4byte gUnk_080012C8
 _08039BC4:
 	ldr r4, _08039BDC @ =gUnk_080CFB84
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -622,7 +622,7 @@ _0803A044: .4byte gRoomControls
 sub_0803A048: @ 0x0803A048
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x34]
 	ldr r1, _0803A078 @ =0xFFFF0000
 	adds r0, r0, r1
@@ -651,7 +651,7 @@ _0803A07C: .4byte gLinkEntity
 sub_0803A080: @ 0x0803A080
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -668,7 +668,7 @@ _0803A098:
 sub_0803A09C: @ 0x0803A09C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AEFE0
 	ldrh r0, [r4, #0x2a]

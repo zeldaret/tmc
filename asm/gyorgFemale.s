@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08046134
-sub_08046134: @ 0x08046134
+	thumb_func_start GyorgFemale
+GyorgFemale: @ 0x08046134
 	push {lr}
 	ldr r2, _08046148 @ =gUnk_080D1A64
 	ldrb r1, [r0, #0xc]

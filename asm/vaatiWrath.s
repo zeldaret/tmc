@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08041330
-sub_08041330: @ 0x08041330
+	thumb_func_start VaatiWrath
+VaatiWrath: @ 0x08041330
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xa]
@@ -176,7 +176,7 @@ _0804144A:
 	strb r0, [r1]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08041486:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -187,7 +187,7 @@ _0804148C: .4byte gRoomControls
 sub_08041490: @ 0x08041490
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xd]
 	cmp r0, #5
 	bls _080414A0
@@ -358,7 +358,7 @@ sub_080415E8: @ 0x080415E8
 	adds r4, r0, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -382,7 +382,7 @@ sub_08041618: @ 0x08041618
 	adds r4, r0, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080AEF88
 	ldr r0, _0804165C @ =gRoomControls
@@ -455,7 +455,7 @@ sub_080416A4: @ 0x080416A4
 	adds r4, r0, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -484,7 +484,7 @@ sub_080416DC: @ 0x080416DC
 	adds r5, r0, #0
 	bl sub_08042004
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r5, #0
 	bl sub_0804212C
 	adds r0, r5, #0
@@ -591,7 +591,7 @@ sub_080417AC: @ 0x080417AC
 	ldr r0, [r5, #0x64]
 	ldr r4, [r0, #4]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	adds r0, r1, #0
@@ -602,7 +602,7 @@ sub_080417AC: @ 0x080417AC
 	strb r0, [r4]
 	adds r0, r5, #0
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0804181A
 _080417DA:
 	cmp r0, #2
@@ -640,7 +640,7 @@ _0804181A:
 	adds r0, r5, #0
 	bl sub_08042004
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_08041828
@@ -651,7 +651,7 @@ sub_08041828: @ 0x08041828
 	adds r0, r4, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r2, _08041868 @ =gRoomControls
 	ldrh r0, [r2, #8]
 	adds r0, #0x48
@@ -693,7 +693,7 @@ sub_08041880: @ 0x08041880
 	adds r4, r0, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	ldr r0, _080418D4 @ =gRoomControls
@@ -764,7 +764,7 @@ sub_08041904: @ 0x08041904
 	adds r4, r0, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r3, r4, #0
 	adds r3, #0x79
 	ldrb r0, [r3]
@@ -826,7 +826,7 @@ sub_0804197C: @ 0x0804197C
 	adds r4, r0, #0
 	bl sub_08042004
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x7b
 	ldrb r0, [r0]
@@ -859,7 +859,7 @@ _080419A6:
 	bl sub_0801D2B4
 	adds r0, r4, #0
 	movs r1, #5
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #4]
 	movs r1, #1
@@ -916,7 +916,7 @@ sub_08041A00: @ 0x08041A00
 	bl sub_0801D2B4
 	adds r0, r4, #0
 	movs r1, #8
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #4]
 	movs r1, #0x10
@@ -932,13 +932,13 @@ _08041A60:
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #4]
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
@@ -961,7 +961,7 @@ _08041A60:
 	bl sub_08080964
 	adds r0, r4, #0
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
 	movs r1, #0x16
@@ -969,10 +969,10 @@ _08041A60:
 	b _08041AF0
 _08041ABC:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -1000,16 +1000,16 @@ _08041AF0:
 sub_08041AF4: @ 0x08041AF4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0
 	beq _08041B12
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #4]
-	bl sub_08004274
+	bl GetNextFrame
 _08041B12:
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0
@@ -1032,7 +1032,7 @@ _08041B12:
 	strb r0, [r2]
 	adds r0, r4, #0
 	movs r1, #9
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08041BCE
 _08041B44:
 	ldr r0, [r4, #0x34]
@@ -1141,7 +1141,7 @@ sub_08041BE8: @ 0x08041BE8
 	strb r0, [r6, #0x11]
 	adds r0, r6, #0
 	movs r1, #0xa
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, [r6, #0x64]
 	ldr r7, [r0, #4]
 	str r5, [r7, #0x64]
@@ -1224,7 +1224,7 @@ sub_08041CD0: @ 0x08041CD0
 	adds r4, r0, #0
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -1244,13 +1244,13 @@ _08041CF6:
 	movs r0, #0x3c
 	strb r0, [r4, #0xe]
 	ldr r0, _08041D08 @ =0x00001651
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	b _08041D12
 	.align 2, 0
 _08041D08: .4byte 0x00001651
 _08041D0C:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08041D12:
 	pop {r4, pc}
 
@@ -1260,7 +1260,7 @@ sub_08041D14: @ 0x08041D14
 	adds r4, r0, #0
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, _08041D3C @ =gTextBox
 	ldrb r1, [r0]
 	movs r0, #0x7f
@@ -1315,7 +1315,7 @@ sub_08041D84: @ 0x08041D84
 	adds r5, r0, #0
 	ldr r0, [r5, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r5, #0xe]
 	cmp r0, #0
 	beq _08041D9C
@@ -1375,7 +1375,7 @@ _08041DEC:
 	bl sub_0801D2B4
 	adds r0, r5, #0
 	movs r1, #0xb
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08041E0C:
 	ldrb r0, [r5, #0xf]
 	adds r0, #1
@@ -1398,7 +1398,7 @@ sub_08041E20: @ 0x08041E20
 	bl sub_08041E78
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, _08041E4C @ =gUnk_03000FD0
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -1978,7 +1978,7 @@ sub_08042264: @ 0x08042264
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, [r4, #0x64]
 	ldr r1, [r0, #4]
 	movs r0, #1
@@ -1998,7 +1998,7 @@ sub_0804228C: @ 0x0804228C
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, [r4, #0x64]
 	ldr r1, [r0, #4]
 	movs r0, #1
@@ -2025,14 +2025,14 @@ sub_080422C0: @ 0x080422C0
 	push {r7}
 	adds r5, r0, #0
 	mov r8, r1
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, [r5, #0x64]
 	ldr r0, [r0, #8]
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r5, #0x64]
 	ldr r7, [r0, #4]
 	adds r0, r7, #0
-	bl sub_08004274
+	bl GetNextFrame
 	mov r0, r8
 	adds r0, #1
 	adds r6, r7, #0
@@ -2059,7 +2059,7 @@ _08042306:
 	strb r4, [r6]
 	adds r0, r5, #0
 	movs r1, #3
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08042354
 _0804231A:
 	movs r0, #0x80
@@ -2068,7 +2068,7 @@ _0804231A:
 	beq _08042354
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0
 	strb r0, [r7, #0xd]
 	adds r0, r7, #0
@@ -2114,7 +2114,7 @@ sub_0804235C: @ 0x0804235C
 	strh r0, [r1]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #4]
 	strb r5, [r0, #0xd]
@@ -2223,7 +2223,7 @@ _08042450:
 	cmp r0, #0
 	bne _0804245C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0804245C:
 	ldr r0, [r4, #0x58]
 	ldr r1, _0804249C @ =0x008000FF
@@ -2346,5 +2346,5 @@ _08042532:
 	adds r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}

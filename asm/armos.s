@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08030198
-sub_08030198: @ 0x08030198
+	thumb_func_start Armos
+Armos: @ 0x08030198
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080301B8 @ =gUnk_080CE124
@@ -108,7 +108,7 @@ sub_08030240: @ 0x08030240
 	cmp r0, #0
 	bne _08030260
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08030260:
 	adds r0, r4, #0
 	bl sub_08001242
@@ -364,7 +364,7 @@ sub_08030430: @ 0x08030430
 	cmp r1, r0
 	ble _0803044A
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0803044A:
 	adds r0, r4, #0
 	bl sub_080309A8
@@ -1013,7 +1013,7 @@ _0803088E:
 	orrs r0, r1
 	strb r0, [r2]
 	ldr r0, [r5, #0x7c]
-	bl sub_08080840
+	bl DoExitTransition
 	ldr r0, _08030938 @ =gUnk_030010A0
 	adds r1, r5, #0
 	adds r1, #0x80
@@ -1088,7 +1088,7 @@ _0803099E:
 sub_080309A8: @ 0x080309A8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldr r0, [r0]

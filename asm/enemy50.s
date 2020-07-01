@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08040B2C
-sub_08040B2C: @ 0x08040B2C
+	thumb_func_start Enemy50
+Enemy50: @ 0x08040B2C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xa]
@@ -33,7 +33,7 @@ _08040B4E:
 _08040B5C:
 	ldr r4, _08040B80 @ =gUnk_080D0DC4
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -204,7 +204,7 @@ _08040CA8: .4byte gUnk_080D0DC4
 sub_08040CAC: @ 0x08040CAC
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_08001328
 	ldrb r0, [r4, #0xa]
@@ -365,7 +365,7 @@ _08040DE0: .4byte gLinkEntity
 sub_08040DE4: @ 0x08040DE4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F4E8
 	pop {r4, pc}
@@ -374,7 +374,7 @@ sub_08040DE4: @ 0x08040DE4
 sub_08040DF4: @ 0x08040DF4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F3E4
 	cmp r0, #0
@@ -487,7 +487,7 @@ _08040EC4:
 sub_08040EC8: @ 0x08040EC8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -528,7 +528,7 @@ sub_08040F0C: @ 0x08040F0C
 	adds r0, r4, #0
 	bl sub_0803F58C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -544,7 +544,7 @@ _08040F36:
 sub_08040F38: @ 0x08040F38
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	movs r1, #1
 	bl sub_08049F84
@@ -592,7 +592,7 @@ _08040F94:
 sub_08040F98: @ 0x08040F98
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0803F5A8
 	cmp r0, #0
@@ -653,7 +653,7 @@ _08041014:
 sub_08041018: @ 0x08041018
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -678,7 +678,7 @@ sub_08041044: @ 0x08041044
 	adds r4, r0, #0
 	bl sub_0803F738
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -703,7 +703,7 @@ _08041074:
 sub_08041078: @ 0x08041078
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -779,7 +779,7 @@ _0804110A:
 sub_0804110C: @ 0x0804110C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08089D04
-sub_08089D04: @ 0x08089D04
+	thumb_func_start Beanstalk
+Beanstalk: @ 0x08089D04
 	push {lr}
 	ldr r2, _08089D18 @ =gUnk_08120DF4
 	ldrb r1, [r0, #0xc]
@@ -104,7 +104,7 @@ _08089DAC:
 	adds r1, r1, r0
 	ldrb r1, [r1]
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08089DC6:
 	ldr r1, _08089E08 @ =gUnk_08120E14
 	ldrb r0, [r5, #0xa]
@@ -307,7 +307,7 @@ _08089F34: .4byte gUnk_08120E78
 sub_08089F38: @ 0x08089F38
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -324,7 +324,7 @@ sub_08089F38: @ 0x08089F38
 _08089F5A:
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0x10
 	strb r0, [r4, #0xe]
 	ldrb r0, [r4, #0xd]
@@ -352,7 +352,7 @@ sub_08089F70: @ 0x08089F70
 	bl PlaySFX
 _08089F8E:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -424,7 +424,7 @@ _0808A00E:
 sub_0808A010: @ 0x0808A010
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -522,7 +522,7 @@ sub_0808A0C0: @ 0x0808A0C0
 	cmp r0, #0
 	bne _0808A0D6
 	adds r0, r2, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0808A0D6:
 	pop {pc}
 
@@ -666,7 +666,7 @@ _0808A1DC:
 	strb r0, [r5, #0xe]
 _0808A1DE:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

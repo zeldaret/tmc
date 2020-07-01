@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08096AD4
-sub_08096AD4: @ 0x08096AD4
+	thumb_func_start MinecartDoor
+MinecartDoor: @ 0x08096AD4
 	push {lr}
 	ldr r2, _08096AE8 @ =gUnk_0812323C
 	ldrb r1, [r0, #0xc]

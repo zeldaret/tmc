@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809CC5C
-sub_0809CC5C: @ 0x0809CC5C
+	thumb_func_start BakerOven
+BakerOven: @ 0x0809CC5C
 	push {lr}
 	ldr r2, _0809CC70 @ =gUnk_08123E20
 	ldrb r1, [r0, #0xc]
@@ -107,7 +107,7 @@ sub_0809CD0C: @ 0x0809CD0C
 	cmp r0, #0
 	beq _0809CDAC
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r1, r4, #0
 	adds r1, #0x5a
 	ldrb r2, [r1]

@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806DD44
-sub_0806DD44: @ 0x0806DD44
+	thumb_func_start NPC4F
+NPC4F: @ 0x0806DD44
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -17,10 +17,10 @@ sub_0806DD44: @ 0x0806DD44
 	strb r0, [r4, #0xc]
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0806DD5A:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r4, #0x59
 	ldrb r0, [r4]
 	cmp r0, #0xfe

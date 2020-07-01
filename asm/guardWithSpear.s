@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08063CF8
-sub_08063CF8: @ 0x08063CF8
+	thumb_func_start Guard
+Guard: @ 0x08063CF8
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -67,7 +67,7 @@ sub_08063D44: @ 0x08063D44
 	ldr r0, _08063DA4 @ =gUnk_0810F524
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08063DC6
 	adds r0, r4, #0
@@ -131,7 +131,7 @@ sub_08063DC8: @ 0x08063DC8
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08063E4C
 	.align 2, 0
 _08063DF4: .4byte gLinkEntity
@@ -152,7 +152,7 @@ _08063DF8:
 	b _08063E1E
 _08063E18:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08063E1E:
 	adds r2, r4, #0
 	adds r2, #0x39
@@ -228,7 +228,7 @@ sub_08063E90: @ 0x08063E90
 	ldr r0, _08063EC8 @ =gUnk_0810F524
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08063F1E
 	ldrb r0, [r4, #0xc]
@@ -297,7 +297,7 @@ sub_08063F20: @ 0x08063F20
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r2, r4, #0
 	adds r2, #0x39
 	movs r0, #0
@@ -358,8 +358,8 @@ _08063FA6:
 	.align 2, 0
 _08063FA8: .4byte gTextBox
 
-	thumb_func_start sub_08063FAC
-sub_08063FAC: @ 0x08063FAC
+	thumb_func_start Guard_Head
+Guard_Head: @ 0x08063FAC
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
 	adds r0, #0x5a
@@ -403,23 +403,23 @@ _08063FF6:
 	subs r4, #1
 	adds r0, r6, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r6, #0
 	movs r1, #1
 	adds r2, r5, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r6, #0
 	movs r1, #2
 	adds r2, r4, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r6, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r6, #0
 	movs r1, #1
 	movs r2, #2
-	bl sub_0806FFD8
+	bl SetSpriteSubEntryOffsetData2
 	adds r0, r6, #0
 	bl sub_0807000C
 	pop {r4, r5, r6, pc}
@@ -995,7 +995,7 @@ _08064454:
 _08064460:
 	adds r1, r0, r1
 	adds r0, r3, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806446C: .4byte gUnk_0810D0A4

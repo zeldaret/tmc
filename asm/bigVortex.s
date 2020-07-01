@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08098CF4
-sub_08098CF4: @ 0x08098CF4
+	thumb_func_start BigVortex
+BigVortex: @ 0x08098CF4
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xa]
@@ -67,7 +67,7 @@ _08098D5A:
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_08098D6C
@@ -143,7 +143,7 @@ sub_08098DC4: @ 0x08098DC4
 	strb r4, [r0]
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	ldr r1, _08098E30 @ =gLinkState
 	movs r0, #0x1f
 	strb r0, [r1, #0xc]
@@ -165,7 +165,7 @@ _08098E20:
 	bl sub_08077B20
 _08098E24:
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08098E2C: .4byte gLinkEntity
@@ -174,7 +174,7 @@ _08098E30: .4byte gLinkState
 	thumb_func_start sub_08098E34
 sub_08098E34: @ 0x08098E34
 	push {lr}
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {pc}
 
 	thumb_func_start sub_08098E3C
@@ -194,7 +194,7 @@ sub_08098E3C: @ 0x08098E3C
 	strb r0, [r4, #0x18]
 	ldrb r1, [r4, #0xa]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08098E5E:
 	ldrb r1, [r4, #0xa]
 	movs r0, #2
@@ -210,7 +210,7 @@ _08098E5E:
 	movs r3, #0
 	bl sub_0805EC9C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08098E84: .4byte gUnk_08123690

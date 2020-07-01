@@ -7,13 +7,12 @@ void ModRupees(s32 rupeeDelta)
 
 {
     s32 newRupeeCount;
-    Stats *s = &gStats;
+    Stats* s = &gStats;
 
     newRupeeCount = s->rupees + rupeeDelta;
     if (newRupeeCount < 0) {
         newRupeeCount = 0;
-    }
-    else {
+    } else {
         if (newRupeeCount > gWalletSizes[s->walletType * 2]) {
             newRupeeCount = gWalletSizes[s->walletType * 2];
         }

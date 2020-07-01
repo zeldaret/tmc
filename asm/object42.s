@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808DD7C
-sub_0808DD7C: @ 0x0808DD7C
+	thumb_func_start Object42
+Object42: @ 0x0808DD7C
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xa]
@@ -149,7 +149,7 @@ _0808DE2A:
 	cmp r0, #0
 	beq _0808DEA0
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0808DEA4
 	.align 2, 0
 _0808DE8C: .4byte gLinkState

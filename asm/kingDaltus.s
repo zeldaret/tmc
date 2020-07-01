@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_080665E4
-sub_080665E4: @ 0x080665E4
+	thumb_func_start KingDaltus
+KingDaltus: @ 0x080665E4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -30,7 +30,7 @@ sub_080665E4: @ 0x080665E4
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 _0806661E:
@@ -82,7 +82,7 @@ sub_08066654: @ 0x08066654
 	bl sub_08078784
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 
@@ -117,7 +117,7 @@ _080666B4:
 	cmp r0, #0
 	bne _080666C4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080666C4:
 	adds r2, r4, #0
 	adds r2, #0x39
@@ -227,8 +227,8 @@ _0806676A:
 	.align 2, 0
 _0806677C: .4byte gUnk_081104F8
 
-	thumb_func_start sub_08066780
-sub_08066780: @ 0x08066780
+	thumb_func_start KingDaltus_Fusion
+KingDaltus_Fusion: @ 0x08066780
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -245,11 +245,11 @@ sub_08066780: @ 0x08066780
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #6
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080667AC
 _080667A6:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080667AC:
 	pop {pc}
 	.align 2, 0

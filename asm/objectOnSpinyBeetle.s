@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08098544
-sub_08098544: @ 0x08098544
+	thumb_func_start ObjectOnSpinyBeetle
+ObjectOnSpinyBeetle: @ 0x08098544
 	push {lr}
 	ldr r2, _08098558 @ =gUnk_0812350C
 	ldrb r1, [r0, #0xc]

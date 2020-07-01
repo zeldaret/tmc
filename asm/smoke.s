@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808A3F4
-sub_0808A3F4: @ 0x0808A3F4
+	thumb_func_start Smoke
+Smoke: @ 0x0808A3F4
 	push {lr}
 	ldr r2, _0808A408 @ =gUnk_08121060
 	ldrb r1, [r0, #0xa]
@@ -126,7 +126,7 @@ sub_0808A484: @ 0x0808A484
 sub_0808A4D0: @ 0x0808A4D0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r0, r4, #0

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08031374
-sub_08031374: @ 0x08031374
+	thumb_func_start Rope
+Rope: @ 0x08031374
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08031390 @ =gUnk_080CE448
@@ -222,7 +222,7 @@ _080314FA:
 sub_080314FC: @ 0x080314FC
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
 	beq _08031510
@@ -332,7 +332,7 @@ _080315D4:
 	cmp r0, #0
 	beq _080315EE
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0803163C
 	cmp r0, #0

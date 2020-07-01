@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803EAEC
-sub_0803EAEC: @ 0x0803EAEC
+	thumb_func_start Enemy4D
+Enemy4D: @ 0x0803EAEC
 	push {lr}
 	ldr r1, _0803EAF8 @ =gUnk_080D0880
 	bl EnemyFunctionHandler
@@ -113,7 +113,7 @@ sub_0803EB44: @ 0x0803EB44
 	ldrb r1, [r4, #0x14]
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0803EE8C
 _0803EBB2:
@@ -316,7 +316,7 @@ sub_0803ED04: @ 0x0803ED04
 	ldrb r1, [r4, #0x14]
 	adds r1, #0x20
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803ED3C:
 	pop {r4, pc}
 	.align 2, 0
@@ -364,7 +364,7 @@ sub_0803ED7C: @ 0x0803ED7C
 	cmp r0, #0
 	bne _0803ED94
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _0803EDD0
 _0803ED94:
 	ldrb r0, [r2, #0xe]

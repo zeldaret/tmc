@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803E08C
-sub_0803E08C: @ 0x0803E08C
+	thumb_func_start VaatiProjectile
+VaatiProjectile: @ 0x0803E08C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_0803E4A0
@@ -26,7 +26,7 @@ sub_0803E08C: @ 0x0803E08C
 _0803E0AA:
 	ldr r4, _0803E0C0 @ =gUnk_080D0648
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -276,7 +276,7 @@ _0803E280:
 	bl sub_0806F69C
 _0803E29C:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 _0803E2A4: .4byte gUnk_020000B0
@@ -302,7 +302,7 @@ _0803E2B8:
 	strb r0, [r1, #0xc]
 _0803E2C8:
 	adds r0, r1, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}
 
 	thumb_func_start sub_0803E2D0
@@ -337,7 +337,7 @@ sub_0803E2D0: @ 0x0803E2D0
 	bl InitializeAnimation
 _0803E30C:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0803E312:
 	pop {r4, pc}
 
@@ -359,7 +359,7 @@ sub_0803E314: @ 0x0803E314
 	strb r0, [r4, #0x15]
 _0803E332:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 _0803E33C: .4byte gLinkEntity
@@ -436,7 +436,7 @@ sub_0803E398: @ 0x0803E398
 	bgt _0803E3C8
 	bl sub_0805E5A8
 	ldr r0, _0803E3D0 @ =gUnk_0813AB94
-	bl sub_08080840
+	bl DoExitTransition
 _0803E3C8:
 	pop {r4, pc}
 	.align 2, 0
@@ -459,7 +459,7 @@ _0803E3E4:
 	movs r2, #0
 	bl PositionRelative
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 _0803E3F8: .4byte 0xFFFF0000

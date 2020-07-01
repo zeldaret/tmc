@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080603FC
-sub_080603FC: @ 0x080603FC
+	thumb_func_start Postman
+Postman: @ 0x080603FC
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -57,14 +57,14 @@ _08060446:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 
 	thumb_func_start sub_0806045C
 sub_0806045C: @ 0x0806045C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080604DC
 	adds r0, r4, #0
@@ -79,7 +79,7 @@ sub_0806045C: @ 0x0806045C
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	movs r0, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	b _080604C0
 _08060488:
 	adds r0, r4, #0
@@ -91,7 +91,7 @@ _08060488:
 	strb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0806049E:
 	adds r0, r4, #0
 	movs r1, #0x18
@@ -118,7 +118,7 @@ _080604C0:
 sub_080604C8: @ 0x080604C8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080604DC
 	movs r0, #1
@@ -230,7 +230,7 @@ _08060582:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080605EC
 	.align 2, 0
 _080605B4: .4byte gLinkEntity
@@ -249,7 +249,7 @@ _080605B8:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080605EC
 	.align 2, 0
 _080605E0: .4byte gLinkEntity
@@ -265,7 +265,7 @@ _080605EC:
 	b _08060634
 _080605F6:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, _08060614 @ =gTextBox
 	ldrb r1, [r0]
 	movs r0, #0x7f
@@ -281,7 +281,7 @@ _080605F6:
 _08060614: .4byte gTextBox
 _08060618:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl UpdateFuseInteraction
 	adds r5, r4, #0
@@ -391,7 +391,7 @@ _080606E8:
 	ldr r0, _080606FC @ =gUnk_0810AA30
 	adds r1, r1, r0
 	adds r0, r2, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _080606F8: .4byte gUnk_02002A40
@@ -720,8 +720,8 @@ _08060970:
 _08060974: .4byte gLinkEntity
 _08060978: .4byte gUnk_0810AA70
 
-	thumb_func_start sub_0806097C
-sub_0806097C: @ 0x0806097C
+	thumb_func_start Postman_Fusion
+Postman_Fusion: @ 0x0806097C
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -738,11 +738,11 @@ sub_0806097C: @ 0x0806097C
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080609A8
 _080609A2:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080609A8:
 	pop {pc}
 	.align 2, 0

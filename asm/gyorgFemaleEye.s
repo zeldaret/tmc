@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08048988
-sub_08048988: @ 0x08048988
+	thumb_func_start GyorgFemaleEye
+GyorgFemaleEye: @ 0x08048988
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r0, [r5, #0x50]
@@ -19,7 +19,7 @@ sub_08048988: @ 0x08048988
 _08048998:
 	ldr r4, _080489B0 @ =gUnk_080D1F64
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -253,7 +253,7 @@ _08048B82:
 sub_08048B84: @ 0x08048B84
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -368,7 +368,7 @@ _08048C34:
 	bl PlaySFX
 _08048C6C:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -422,7 +422,7 @@ _08048CBC:
 	bl InitializeAnimationAnimation
 _08048CE4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08048CEA:
 	pop {r4, r5, r6, pc}
 
@@ -430,7 +430,7 @@ _08048CEA:
 sub_08048CEC: @ 0x08048CEC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

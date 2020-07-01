@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802B4D8
-sub_0802B4D8: @ 0x0802B4D8
+	thumb_func_start Chaser
+Chaser: @ 0x0802B4D8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_080012DC
@@ -27,7 +27,7 @@ _0802B4F8: .4byte gUnk_080012C8
 _0802B4FC:
 	ldr r4, _0802B514 @ =gUnk_080CD27C
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -91,7 +91,7 @@ _0802B56A:
 sub_0802B56C: @ 0x0802B56C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x41
 	ldrb r1, [r0]
@@ -140,7 +140,7 @@ _0802B5C4:
 sub_0802B5C8: @ 0x0802B5C8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

@@ -6,170 +6,6 @@
 
 	.text
 
-
-	thumb_func_start sub_0802A804
-sub_0802A804: @ 0x0802A804
-	push {r4, r5, lr}
-	adds r5, r0, #0
-	ldrb r0, [r5, #0xa]
-	cmp r0, #2
-	bne _0802A830
-	adds r0, r5, #0
-	bl sub_080012DC
-	adds r1, r0, #0
-	cmp r1, #0
-	beq _0802A830
-	ldr r0, _0802A82C @ =gUnk_080012C8
-	lsls r1, r1, #2
-	adds r1, r1, r0
-	ldr r1, [r1]
-	adds r0, r5, #0
-	bl _call_via_r1
-	b _0802A844
-	.align 2, 0
-_0802A82C: .4byte gUnk_080012C8
-_0802A830:
-	ldr r4, _0802A848 @ =gUnk_080CD0F0
-	adds r0, r5, #0
-	bl sub_0800279C
-	lsls r0, r0, #2
-	adds r0, r0, r4
-	ldr r1, [r0]
-	adds r0, r5, #0
-	bl _call_via_r1
-_0802A844:
-	pop {r4, r5, pc}
-	.align 2, 0
-_0802A848: .4byte gUnk_080CD0F0
-
-	thumb_func_start sub_0802A84C
-sub_0802A84C: @ 0x0802A84C
-	push {r4, lr}
-	adds r4, r0, #0
-	ldrb r0, [r4, #0xa]
-	cmp r0, #2
-	beq _0802A878
-	cmp r0, #3
-	beq _0802A894
-	ldr r0, _0802A874 @ =gUnk_080CD108
-	ldrb r1, [r4, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r0
-	ldr r1, [r1]
-	adds r0, r4, #0
-	bl _call_via_r1
-	adds r0, r4, #0
-	bl sub_0802AD54
-	b _0802A8A4
-	.align 2, 0
-_0802A874: .4byte gUnk_080CD108
-_0802A878:
-	ldr r0, _0802A890 @ =gUnk_080CD120
-	ldrb r1, [r4, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r0
-	ldr r1, [r1]
-	adds r0, r4, #0
-	bl _call_via_r1
-	adds r0, r4, #0
-	bl sub_0802B048
-	b _0802A8A4
-	.align 2, 0
-_0802A890: .4byte gUnk_080CD120
-_0802A894:
-	ldr r0, _0802A8A8 @ =gUnk_080CD134
-	ldrb r1, [r4, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r0
-	ldr r1, [r1]
-	adds r0, r4, #0
-	bl _call_via_r1
-_0802A8A4:
-	pop {r4, pc}
-	.align 2, 0
-_0802A8A8: .4byte gUnk_080CD134
-
-	thumb_func_start sub_0802A8AC
-sub_0802A8AC: @ 0x0802A8AC
-	push {lr}
-	adds r1, r0, #0
-	adds r2, r1, #0
-	adds r2, #0x81
-	movs r0, #0
-	strb r0, [r2]
-	ldrb r0, [r1, #0xa]
-	cmp r0, #1
-	bhi _0802A8C6
-	adds r0, r1, #0
-	movs r1, #0
-	bl InitializeAnimation
-_0802A8C6:
-	pop {pc}
-
-	thumb_func_start sub_0802A8C8
-sub_0802A8C8: @ 0x0802A8C8
-	push {lr}
-	ldr r2, _0802A8DC @ =gUnk_080CD140
-	ldrb r1, [r0, #0xd]
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	bl _call_via_r1
-	pop {pc}
-	.align 2, 0
-_0802A8DC: .4byte gUnk_080CD140
-
-	thumb_func_start sub_0802A8E0
-sub_0802A8E0: @ 0x0802A8E0
-	movs r1, #1
-	strb r1, [r0, #0xd]
-	movs r1, #0x3c
-	strb r1, [r0, #0x1d]
-	bx lr
-	.align 2, 0
-
-	thumb_func_start sub_0802A8EC
-sub_0802A8EC: @ 0x0802A8EC
-	push {lr}
-	bl sub_0806F4E8
-	pop {pc}
-
-	thumb_func_start sub_0802A8F4
-sub_0802A8F4: @ 0x0802A8F4
-	push {lr}
-	bl sub_0806F3E4
-	pop {pc}
-
-	thumb_func_start sub_0802A8FC
-sub_0802A8FC: @ 0x0802A8FC
-	push {lr}
-	adds r2, r0, #0
-	ldr r0, _0802A914 @ =gLinkState
-	ldrb r0, [r0, #0x1c]
-	movs r1, #0xf
-	ands r1, r0
-	cmp r1, #0
-	bne _0802A912
-	adds r0, r2, #0
-	adds r0, #0x45
-	strb r1, [r0]
-_0802A912:
-	pop {pc}
-	.align 2, 0
-_0802A914: .4byte gLinkState
-
-	thumb_func_start nullsub_143
-nullsub_143: @ 0x0802A918
-	bx lr
-	.align 2, 0
-
-	thumb_func_start sub_0802A91C
-sub_0802A91C: @ 0x0802A91C
-	adds r0, #0x45
-	movs r1, #0
-	strb r1, [r0]
-	bx lr
-
 	thumb_func_start sub_0802A924
 sub_0802A924: @ 0x0802A924
 	push {r4, r5, r6, r7, lr}
@@ -588,7 +424,7 @@ sub_0802AC08: @ 0x0802AC08
 	bl sub_0802ADDC
 _0802AC36:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -596,7 +432,7 @@ _0802AC36:
 sub_0802AC40: @ 0x0802AC40
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r5, r4, #0
@@ -950,7 +786,7 @@ _0802AED0: .4byte gUnk_080CD158
 sub_0802AED4: @ 0x0802AED4
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r5, r4, #0
 	adds r5, #0x81
 	ldrb r0, [r5]
@@ -1008,20 +844,20 @@ sub_0802AF28: @ 0x0802AF28
 	orrs r0, r1
 	strb r0, [r2]
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_0802AF50
 sub_0802AF50: @ 0x0802AF50
 	push {lr}
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}
 
 	thumb_func_start sub_0802AF58
 sub_0802AF58: @ 0x0802AF58
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r4, #0x29
 	ldrb r1, [r4]
 	movs r0, #0x39
@@ -1048,7 +884,7 @@ sub_0802AF74: @ 0x0802AF74
 	strb r0, [r2, #0xe]
 _0802AF8A:
 	adds r0, r2, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {pc}
 	.align 2, 0
 
@@ -1062,7 +898,7 @@ sub_0802AF94: @ 0x0802AF94
 sub_0802AF9C: @ 0x0802AF9C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -1478,6 +1314,6 @@ _0802B294:
 	strb r0, [r2]
 _0802B2A2:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0

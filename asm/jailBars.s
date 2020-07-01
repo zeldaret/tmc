@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080A08AC
-sub_080A08AC: @ 0x080A08AC
+	thumb_func_start JailBars
+JailBars: @ 0x080A08AC
 	push {lr}
 	ldr r2, _080A08C0 @ =gUnk_08124950
 	ldrb r1, [r0, #0xc]
@@ -83,7 +83,7 @@ _080A0934: .4byte 0x0000010B
 sub_080A0938: @ 0x080A0938
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

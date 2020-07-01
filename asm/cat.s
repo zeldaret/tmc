@@ -139,7 +139,7 @@ _080678D0:
 	b _08067900
 _080678EA:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r1, [r5]
 	movs r0, #0x80
 	ands r0, r1
@@ -210,7 +210,7 @@ _0806796C:
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08067978:
 	pop {r4, pc}
 	.align 2, 0
@@ -219,7 +219,7 @@ _08067978:
 sub_0806797C: @ 0x0806797C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -237,7 +237,7 @@ _08067998:
 sub_0806799C: @ 0x0806799C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, _080679C0 @ =gTextBox
 	ldrb r1, [r0]
 	movs r0, #0x7f
@@ -278,7 +278,7 @@ _080679E6:
 	b _08067A0A
 _080679EE:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08067BD4
 	adds r0, r4, #0
@@ -294,7 +294,7 @@ _08067A0A:
 sub_08067A0C: @ 0x08067A0C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -350,7 +350,7 @@ _08067A76:
 sub_08067A78: @ 0x08067A78
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -497,7 +497,7 @@ sub_08067B80: @ 0x08067B80
 	strb r0, [r1]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r5, #0
 	bl sub_08067DDC
 	ldr r0, _08067BC4 @ =gLinkEntity
@@ -567,7 +567,7 @@ sub_08067C18: @ 0x08067C18
 	push {lr}
 	movs r1, #6
 	strb r1, [r0, #0xc]
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 
 	thumb_func_start sub_08067C24
@@ -584,7 +584,7 @@ sub_08067C24: @ 0x08067C24
 	bl sub_08067DDC
 	adds r0, r4, #0
 	movs r1, #7
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	
 	thumb_func_start sub_08067C44
@@ -641,7 +641,7 @@ _08067CA6:
 	bne _08067CDA
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08067CEC
 	.align 2, 0
 _08067CB4: .4byte gLinkEntity
@@ -669,12 +669,12 @@ _08067CD6:
 _08067CDA:
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08067CEC
 _08067CE4:
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08067CEC:
 	movs r0, #0
 	ldrsb r0, [r5, r0]
@@ -806,7 +806,7 @@ sub_08067DCC: @ 0x08067DCC
 	adds r2, r0, #0
 	adds r2, #0x71
 	strb r1, [r2]
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 	.align 2, 0
 
@@ -829,8 +829,8 @@ sub_08067DDC: @ 0x08067DDC
 	.align 2, 0
 _08067DF8: .4byte gUnk_08110EF0
 
-	thumb_func_start sub_08067DFC
-sub_08067DFC: @ 0x08067DFC
+	thumb_func_start Cat_Fusion
+Cat_Fusion: @ 0x08067DFC
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -847,11 +847,11 @@ sub_08067DFC: @ 0x08067DFC
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #5
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08067E28
 _08067E22:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08067E28:
 	pop {pc}
 	.align 2, 0

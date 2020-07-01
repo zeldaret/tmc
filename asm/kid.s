@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080620C8
-sub_080620C8: @ 0x080620C8
+	thumb_func_start Kid
+Kid: @ 0x080620C8
 	push {lr}
 	adds r2, r0, #0
 	ldrb r1, [r2, #0x10]
@@ -42,7 +42,7 @@ sub_080620F4: @ 0x080620F4
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806212A
 	movs r1, #0
@@ -55,7 +55,7 @@ sub_080620F4: @ 0x080620F4
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_08078778
 _0806212A:
@@ -79,7 +79,7 @@ sub_08062130: @ 0x08062130
 	bl sub_0806EDC4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08062152:
 	ldrb r0, [r4, #0xf]
 	adds r1, r0, #1
@@ -104,11 +104,11 @@ _08062152:
 _0806217A:
 	ldrb r1, [r4, #0xe]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806218A
 _08062184:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806218A:
 	adds r0, r4, #0
 	bl sub_0806ED78
@@ -120,7 +120,7 @@ sub_08062194: @ 0x08062194
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	movs r1, #0
 	movs r0, #1
 	strb r0, [r4, #0xc]
@@ -158,7 +158,7 @@ _080621CE:
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	bne _080621E4
 	b _080622F2
@@ -279,7 +279,7 @@ _0806229A:
 _080622C8: .4byte gLinkEntity
 _080622CC:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, _080622E0 @ =gTextBox
 	ldrb r1, [r0]
 	movs r0, #0x7f
@@ -553,7 +553,7 @@ _080624C4:
 _080624D8:
 	adds r0, r7, #0
 	mov r1, sb
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0x1e
 	mov r1, r8
 	strb r0, [r1]
@@ -562,7 +562,7 @@ _080624D8:
 _080624E8: .4byte gLinkEntity
 _080624EC:
 	adds r0, r7, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080624F2:
 	adds r0, r7, #0
 	bl sub_0800451C
@@ -768,7 +768,7 @@ _08062678:
 	lsls r0, r0, #3
 	adds r1, r1, r0
 	adds r0, r2, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 _08062690:
 	pop {pc}
 	.align 2, 0
@@ -973,8 +973,8 @@ _08062828: .4byte 0x0000064B
 _0806282C: .4byte 0x0000064C
 _08062830: .4byte 0x0000064D
 
-	thumb_func_start sub_08062834
-sub_08062834: @ 0x08062834
+	thumb_func_start Kid_Head
+Kid_Head: @ 0x08062834
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
 	ldrb r4, [r5, #0xa]
@@ -1028,19 +1028,19 @@ _080628A6:
 	adds r0, r5, #0
 	movs r1, #0
 	adds r2, r6, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	adds r2, r7, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #2
 	adds r2, r4, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #2
@@ -1058,24 +1058,24 @@ _080628E8:
 	subs r2, #1
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	adds r2, r6, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #2
 	adds r2, r7, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #2
 	movs r2, #1
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0
 _08062916:
-	bl sub_0806FFD8
+	bl SetSpriteSubEntryOffsetData2
 	adds r0, r5, #0
 	bl sub_0807000C
 	b _08062946
@@ -1083,15 +1083,15 @@ _08062922:
 	adds r0, r5, #0
 	movs r1, #0
 	adds r2, r6, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	adds r2, r7, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r5, #0
 	bl sub_0807000C
 _08062946:
@@ -1249,8 +1249,8 @@ sub_08062A48: @ 0x08062A48
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_08062A60
-sub_08062A60: @ 0x08062A60
+	thumb_func_start Kid_Fusion
+Kid_Fusion: @ 0x08062A60
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -1262,7 +1262,7 @@ sub_08062A60: @ 0x08062A60
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08062AB6
 	ldrb r0, [r4, #0xc]
@@ -1291,7 +1291,7 @@ _08062AA2:
 _08062AAC: .4byte gUnk_0810BDC4
 _08062AB0:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08062AB6:
 	pop {r4, pc}
 

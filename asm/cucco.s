@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806E4A0
-sub_0806E4A0: @ 0x0806E4A0
+	thumb_func_start Cucco
+Cucco: @ 0x0806E4A0
 	push {lr}
 	ldr r2, _0806E4B4 @ =gUnk_081145B4
 	ldrb r1, [r0, #0xc]
@@ -60,7 +60,7 @@ sub_0806E4EC: @ 0x0806E4EC
 	strb r0, [r5, #0xe]
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0806E50E:
 	ldrb r0, [r5, #0xe]
 	subs r0, #1
@@ -98,7 +98,7 @@ _0806E552:
 	adds r0, r5, #0
 	bl sub_0806E65C
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806E560: .4byte gUnk_081145C8
@@ -137,7 +137,7 @@ _0806E590:
 	str r0, [r4, #0x20]
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0806E5AA:
 	movs r1, #0xa0
 	lsls r1, r1, #6
@@ -164,7 +164,7 @@ _0806E5D4:
 	adds r0, r4, #0
 	bl sub_0806E65C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -198,7 +198,7 @@ _0806E612:
 	ands r1, r5
 	adds r1, #2
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0806E622:
 	adds r0, r4, #0
 	adds r0, #0x5a
@@ -215,7 +215,7 @@ _0806E638:
 	adds r0, r4, #0
 	bl sub_0806E65C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -299,8 +299,8 @@ _0806E6D4: .4byte gUnk_02002A40
 _0806E6D8: .4byte 0x000001C1
 _0806E6DC: .4byte gUnk_081145D0
 
-	thumb_func_start sub_0806E6E0
-sub_0806E6E0: @ 0x0806E6E0
+	thumb_func_start Cucco_Fusion
+Cucco_Fusion: @ 0x0806E6E0
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -317,11 +317,11 @@ sub_0806E6E0: @ 0x0806E6E0
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806E70C
 _0806E706:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806E70C:
 	pop {pc}
 	.align 2, 0

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08092038
-sub_08092038: @ 0x08092038
+	thumb_func_start GentariCurtain
+GentariCurtain: @ 0x08092038
 	push {lr}
 	ldr r2, _0809204C @ =gUnk_0812260C
 	ldrb r1, [r0, #0xc]
@@ -38,7 +38,7 @@ sub_08092050: @ 0x08092050
 	bl sub_0809223C
 	adds r0, r6, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08092148
 _0809207A:
 	ldrb r0, [r6, #0xd]
@@ -124,7 +124,7 @@ _0809207A:
 	bl SetTile
 	adds r0, r6, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08092148
 	.align 2, 0
 _08092130: .4byte gRoomControls
@@ -159,7 +159,7 @@ _08092160:
 sub_08092164: @ 0x08092164
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -191,7 +191,7 @@ sub_08092164: @ 0x08092164
 	bl sub_0809223C
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080921B6:
 	pop {r4, pc}
 

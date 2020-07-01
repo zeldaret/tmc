@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809D784
-sub_0809D784: @ 0x0809D784
+	thumb_func_start Object96
+Object96: @ 0x0809D784
 	push {lr}
 	ldr r1, _0809D7A0 @ =gUnk_081240B0
 	ldrb r3, [r0, #0xc]
@@ -195,7 +195,7 @@ _0809D8E8:
 	ldrb r0, [r6, #0xd]
 	ldrb r1, [r5, #0xb]
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	ldrh r0, [r6, #0x1c]
 	cmp r0, #0
 	beq _0809D906

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809225C
-sub_0809225C: @ 0x0809225C
+	thumb_func_start LavaPlatform
+LavaPlatform: @ 0x0809225C
 	push {lr}
 	adds r1, r0, #0
 	ldrb r0, [r1, #0xa]
@@ -70,7 +70,7 @@ sub_0809229C: @ 0x0809229C
 	ldr r0, [r4, #0x54]
 	ldrb r1, [r0, #0x14]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0xbf
 	lsls r0, r0, #1
 	bl sub_08004488
@@ -124,7 +124,7 @@ _08092322:
 	cmp r0, #0
 	bne _0809233E
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0809233E:
 	pop {r4, pc}
 	.align 2, 0
@@ -305,7 +305,7 @@ _08092482:
 	cmp r0, #0x8c
 	bhi _080924DC
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r3, r4, #0
 	adds r3, #0x5a
 	ldrb r1, [r3]
@@ -405,7 +405,7 @@ _08092544:
 	movs r5, #0
 _08092546:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]

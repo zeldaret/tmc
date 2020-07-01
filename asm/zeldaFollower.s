@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080682B0
-sub_080682B0: @ 0x080682B0
+	thumb_func_start ZeldaFollower
+ZeldaFollower: @ 0x080682B0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -36,7 +36,7 @@ sub_080682B0: @ 0x080682B0
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	movs r1, #0
 	bl sub_0806854C
@@ -320,7 +320,7 @@ _080684EE:
 _0806850C:
 	mov r0, r8
 	mov r1, sb
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0x1e
 	strb r0, [r4]
 	b _08068526
@@ -328,7 +328,7 @@ _0806850C:
 _0806851C: .4byte gLinkEntity
 _08068520:
 	mov r0, r8
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08068526:
 	mov r0, r8
 	bl sub_0800451C
@@ -534,7 +534,7 @@ sub_08068694: @ 0x08068694
 	ldrb r1, [r4, #0x14]
 	lsrs r1, r1, #1
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 

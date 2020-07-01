@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080916CC
-sub_080916CC: @ 0x080916CC
+	thumb_func_start Minecart
+Minecart: @ 0x080916CC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080916E8 @ =gUnk_081223A8
@@ -115,7 +115,7 @@ _0809171A:
 	ldrb r0, [r6, #0xb]
 	adds r1, r1, r0
 	adds r0, r6, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _080917D8 @ =0x00004022
 	movs r2, #0x2e
 	ldrsh r1, [r6, r2]
@@ -163,7 +163,7 @@ sub_080917DC: @ 0x080917DC
 	ldrb r0, [r4, #0xb]
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _0809180C @ =0x0000013B
 	bl PlaySFX
 	b _080918A0
@@ -599,7 +599,7 @@ _08091B2C:
 	ldrb r1, [r5, #0x14]
 	adds r1, #0xc
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0x78
 	bl PlaySFX
 	ldr r0, _08091BB4 @ =0x00000139
@@ -636,14 +636,14 @@ _08091BD8:
 	cmp r1, r0
 	bne _08091BFC
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08091C04
 	.align 2, 0
 _08091BF8: .4byte gLinkEntity
 _08091BFC:
 	ldrb r1, [r5, #0x14]
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08091C04:
 	pop {r3}
 	mov r8, r3
@@ -807,7 +807,7 @@ sub_08091CC8: @ 0x08091CC8
 	ldrb r1, [r6, #0x14]
 	adds r1, #0x10
 	adds r0, r6, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, _08091D60 @ =0x00004022
 	movs r3, #0x2e
 	ldrsh r1, [r6, r3]
@@ -835,7 +835,7 @@ _08091D5C: .4byte gRoomControls
 _08091D60: .4byte 0x00004022
 _08091D64:
 	adds r0, r6, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r3, _08091D8C @ =gLinkEntity
 	adds r0, r6, #0
 	adds r0, #0x29
@@ -865,7 +865,7 @@ sub_08091D90: @ 0x08091D90
 	cmp r0, #0
 	bge _08091DA0
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08091DA0:
 	adds r0, r4, #0
 	adds r0, #0x5a

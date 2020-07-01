@@ -427,8 +427,8 @@ InitializeAnimation: @ 0x08004260
 	str r1, [r0, #0x5c]
 	b _0800432A
 
-	thumb_func_start sub_08004274
-sub_08004274: @ 0x08004274
+	thumb_func_start GetNextFrame
+GetNextFrame: @ 0x08004274
 	movs r1, #1
 
 	non_word_aligned_thumb_func_start InitializeAnimationAnimation
@@ -463,16 +463,16 @@ _0800429C:
 	strb r2, [r0, r1]
 	bx r3
 
-	thumb_func_start LoadAnimation
-LoadAnimation: @ 0x080042AC
+	thumb_func_start InitAnimationForceUpdate
+InitAnimationForceUpdate: @ 0x080042AC
 	push {lr}
 	bl InitializeAnimation
 	movs r2, #0xff
 	strb r2, [r0, #0x1f]
 	b _080042C0
 
-	thumb_func_start sub_080042B8
-sub_080042B8: @ 0x080042B8
+	thumb_func_start UpdateAnimationSingleFrame
+UpdateAnimationSingleFrame: @ 0x080042B8
 	movs r1, #1
 
 	non_word_aligned_thumb_func_start sub_080042BA

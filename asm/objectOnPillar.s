@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08096E10
-sub_08096E10: @ 0x08096E10
+	thumb_func_start ObjectOnPillar
+ObjectOnPillar: @ 0x08096E10
 	push {lr}
 	ldr r2, _08096E24 @ =gUnk_08123250
 	ldrb r1, [r0, #0xc]

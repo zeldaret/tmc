@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806D86C
-sub_0806D86C: @ 0x0806D86C
+	thumb_func_start EzloCap
+EzloCap: @ 0x0806D86C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -28,7 +28,7 @@ _0806D888:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -194,8 +194,8 @@ _0806D9C6:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806D9D0
-sub_0806D9D0: @ 0x0806D9D0
+	thumb_func_start NPC4E
+NPC4E: @ 0x0806D9D0
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -316,7 +316,7 @@ sub_0806DAAC: @ 0x0806DAAC
 	bl sub_0806DA3C
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x18
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	str r0, [r4, #0x14]
 	ldr r2, _0806DACC @ =gUnk_02033280
 	ldrb r1, [r2, #7]
@@ -436,7 +436,7 @@ sub_0806DB84: @ 0x0806DB84
 	bl PositionRelative
 	ldr r1, _0806DBEC @ =gUnk_08016030
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -456,7 +456,7 @@ _0806DBB6:
 	bl PositionRelative
 	ldr r1, _0806DBF0 @ =gUnk_0801606C
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -533,12 +533,12 @@ sub_0806DC58: @ 0x0806DC58
 	ldrb r0, [r0]
 	bl sub_0806DBF4
 	movs r1, #0
-	bl sub_08054414
+	bl ForceEquipItem
 	adds r4, #0x69
 	ldrb r0, [r4]
 	bl sub_0806DBF4
 	movs r1, #1
-	bl sub_08054414
+	bl ForceEquipItem
 	pop {r4, pc}
 	.align 2, 0
 
@@ -594,8 +594,8 @@ sub_0806DCC0: @ 0x0806DCC0
 	.align 2, 0
 _0806DCD0: .4byte gUnk_030010A0
 
-	thumb_func_start sub_0806DCD4
-sub_0806DCD4: @ 0x0806DCD4
+	thumb_func_start NPC4E_Fusion
+NPC4E_Fusion: @ 0x0806DCD4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

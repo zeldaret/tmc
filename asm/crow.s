@@ -7,12 +7,12 @@
 	.text
 
 
-	thumb_func_start sub_080327F4
-sub_080327F4: @ 0x080327F4
+	thumb_func_start Crow
+Crow: @ 0x080327F4
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _0803280C @ =gUnk_080CE978
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -110,7 +110,7 @@ _08032896:
 	strb r0, [r1]
 _080328AE:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -126,7 +126,7 @@ sub_080328B8: @ 0x080328B8
 	adds r0, r4, #0
 	bl _call_via_r1
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F520
 	cmp r0, #0
@@ -231,7 +231,7 @@ sub_0803298C: @ 0x0803298C
 	adds r4, r0, #0
 	bl sub_08032AB0
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r0, #1
 	bl sub_08049DF4
 	cmp r0, #0
@@ -318,7 +318,7 @@ _08032A3A:
 	adds r0, r4, #0
 	bl sub_08032B10
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08032A46:
 	pop {r4, pc}
 
@@ -613,6 +613,6 @@ _08032C64:
 	bl sub_08032B10
 _08032C6A:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, r6, pc}
 	.align 2, 0

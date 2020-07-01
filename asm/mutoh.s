@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08066FD8
-sub_08066FD8: @ 0x08066FD8
+	thumb_func_start Mutoh
+Mutoh: @ 0x08066FD8
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x84
@@ -32,7 +32,7 @@ _08066FF8:
 _08066FFE:
 	ldr r1, _0806702C @ =gUnk_08110C00
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806707C
 	movs r2, #1
@@ -68,7 +68,7 @@ _08067030:
 	adds r1, r0, #0
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _0806707C
@@ -90,8 +90,8 @@ _0806707C:
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08067080
-sub_08067080: @ 0x08067080
+	thumb_func_start Mutoh_Head
+Mutoh_Head: @ 0x08067080
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -101,15 +101,15 @@ sub_08067080: @ 0x08067080
 	ands r2, r0
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	ldrb r2, [r4, #0x1e]
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r4, #0
 	bl sub_0807000C
 	pop {r4, pc}
@@ -148,7 +148,7 @@ sub_080670E4: @ 0x080670E4
 	lsls r1, r1, #3
 	ldr r2, _080670FC @ =gUnk_08110C10
 	adds r1, r1, r2
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _080670F8: .4byte gUnk_02002A40
@@ -167,8 +167,8 @@ sub_08067100: @ 0x08067100
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_08067118
-sub_08067118: @ 0x08067118
+	thumb_func_start Mutoh_Fusion
+Mutoh_Fusion: @ 0x08067118
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -176,7 +176,7 @@ sub_08067118: @ 0x08067118
 	bne _08067150
 	ldr r1, _0806714C @ =gUnk_08110C00
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08067156
 	ldrb r0, [r4, #0xc]
@@ -197,6 +197,6 @@ sub_08067118: @ 0x08067118
 _0806714C: .4byte gUnk_08110C00
 _08067150:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08067156:
 	pop {r4, pc}

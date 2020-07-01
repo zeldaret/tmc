@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802890C
-sub_0802890C: @ 0x0802890C
+	thumb_func_start BusinessScrub
+BusinessScrub: @ 0x0802890C
 	push {lr}
 	ldr r1, _08028918 @ =gUnk_080CC9C8
 	bl EnemyFunctionHandler
@@ -200,7 +200,7 @@ _08028A72:
 sub_08028A74: @ 0x08028A74
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xd]
 	cmp r0, #4
 	bls _08028A84
@@ -451,7 +451,7 @@ _08028C66:
 	bl sub_0802925C
 _08028C76:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0800445C
 	pop {r4, pc}
@@ -498,7 +498,7 @@ _08028CC8:
 	bl sub_080290E0
 _08028CD2:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0800445C
 	adds r0, r4, #0
@@ -535,7 +535,7 @@ sub_08028CE8: @ 0x08028CE8
 	cmp r0, #0
 	beq _08028D3C
 	ldr r0, _08028D38 @ =0x00002904
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	movs r0, #0
 	bl sub_08078A90
 	b _08028DCC
@@ -573,7 +573,7 @@ _08028D5C:
 _08028D70:
 	ldrb r0, [r6, #8]
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	movs r0, #6
 	strb r0, [r5, #0xc]
 	movs r0, #4
@@ -593,14 +593,14 @@ _08028D9C:
 	ldrb r0, [r6, #8]
 	ldrb r1, [r6, #9]
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	movs r0, #4
 	b _08028DB6
 _08028DAA:
 	ldrb r0, [r6, #8]
 	ldrb r1, [r6, #9]
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	movs r0, #8
 _08028DB6:
 	strb r0, [r5, #0xe]
@@ -609,7 +609,7 @@ _08028DB6:
 	b _08028DE2
 _08028DC0:
 	ldr r0, _08028DE4 @ =0x00002903
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	movs r0, #0
 	bl sub_08078A90
 _08028DCC:
@@ -648,7 +648,7 @@ sub_08028DE8: @ 0x08028DE8
 _08028E08: .4byte gLinkEntity
 _08028E0C:
 	ldr r0, _08028E3C @ =0x00002902
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	movs r1, #0
 	movs r0, #4
 	strb r0, [r4, #0xc]
@@ -664,7 +664,7 @@ _08028E0C:
 	adds r0, r4, #0
 	bl sub_0800445C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08028E3A:
 	pop {r4, pc}
 	.align 2, 0
@@ -699,7 +699,7 @@ _08028E72:
 	adds r0, r4, #0
 	bl sub_0800445C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _08028E80: .4byte gTextBox
@@ -841,7 +841,7 @@ _08028F7A:
 	bl sub_08078A90
 _08028F84:
 	adds r0, r4, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _08028F94 @ =gTextBox
 	ldrh r0, [r6, #2]
 	str r0, [r1, #0x10]
@@ -1275,7 +1275,7 @@ sub_08029270: @ 0x08029270
 	b _0802929C
 _08029296:
 	adds r0, r2, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0802929C:
 	pop {pc}
 	.align 2, 0

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802B5F0
-sub_0802B5F0: @ 0x0802B5F0
+	thumb_func_start SpikedBeetle
+SpikedBeetle: @ 0x0802B5F0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0802B60C @ =gUnk_080CD2D8
@@ -159,7 +159,7 @@ sub_0802B72C: @ 0x0802B72C
 sub_0802B744: @ 0x0802B744
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	movs r1, #1
 	bl sub_08049FDC
@@ -253,7 +253,7 @@ _0802B7F8: .4byte gUnk_080CD314
 sub_0802B7FC: @ 0x0802B7FC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -281,7 +281,7 @@ sub_0802B820: @ 0x0802B820
 	strb r0, [r4, #0xe]
 _0802B830:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

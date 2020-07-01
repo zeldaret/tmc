@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08083B88
-sub_08083B88: @ 0x08083B88
+	thumb_func_start ObjectB
+ObjectB: @ 0x08083B88
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08083BDC @ =gUnk_0811F7D8
@@ -206,7 +206,7 @@ _08083D14:
 	adds r1, #1
 _08083D16:
 	adds r0, r1, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _08083D24 @ =gTextBox
 	ldrb r0, [r4, #0xb]
 	str r0, [r1, #0x10]

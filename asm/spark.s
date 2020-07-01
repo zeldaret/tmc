@@ -7,12 +7,12 @@
 	.text
 
 
-	thumb_func_start sub_0802B2AC
-sub_0802B2AC: @ 0x0802B2AC
+	thumb_func_start Spark
+Spark: @ 0x0802B2AC
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _0802B2C4 @ =gUnk_080CD234
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -107,7 +107,7 @@ sub_0802B33C: @ 0x0802B33C
 sub_0802B35C: @ 0x0802B35C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_080AEF88
 	movs r3, #0

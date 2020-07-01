@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803C738
-sub_0803C738: @ 0x0803C738
+	thumb_func_start Lakitu
+Lakitu: @ 0x0803C738
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0803C754 @ =gUnk_080D0110
@@ -81,7 +81,7 @@ _0803C7A2:
 	movs r0, #0x10
 	eors r0, r1
 	lsls r1, r0, #3
-	ldr r3, _0803C818 @ =gUnk_080C9160
+	ldr r3, _0803C818 @ =gSineTable
 	lsls r0, r0, #4
 	adds r0, r0, r3
 	movs r5, #0
@@ -123,7 +123,7 @@ _0803C80C:
 	bl sub_0804AA30
 	pop {r4, r5, pc}
 	.align 2, 0
-_0803C818: .4byte gUnk_080C9160
+_0803C818: .4byte gSineTable
 _0803C81C: .4byte gUnk_080D0110
 
 	thumb_func_start sub_0803C820
@@ -240,7 +240,7 @@ _0803C8E0:
 sub_0803C8E4: @ 0x0803C8E4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -259,7 +259,7 @@ sub_0803C8E4: @ 0x0803C8E4
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803C914:
 	pop {r4, pc}
 	.align 2, 0
@@ -284,7 +284,7 @@ sub_0803C918: @ 0x0803C918
 	ldrb r1, [r4, #0x14]
 	adds r1, #0xc
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0803C94E
 _0803C946:
 	adds r0, r4, #0
@@ -297,7 +297,7 @@ _0803C94E:
 sub_0803C950: @ 0x0803C950
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -313,7 +313,7 @@ sub_0803C950: @ 0x0803C950
 	strb r0, [r4, #0x18]
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803C97A:
 	pop {r4, pc}
 
@@ -321,7 +321,7 @@ _0803C97A:
 sub_0803C97C: @ 0x0803C97C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -358,7 +358,7 @@ _0803C9C2:
 	strb r1, [r2]
 	ldr r0, [r4, #0x54]
 	ldrb r1, [r4, #0x14]
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803C9D2:
 	pop {r4, pc}
 
@@ -388,7 +388,7 @@ _0803C9F6:
 	ldrb r1, [r2, #0x14]
 	adds r1, #4
 	adds r0, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803CA08:
 	pop {pc}
 	.align 2, 0
@@ -410,7 +410,7 @@ sub_0803CA0C: @ 0x0803CA0C
 	ldrb r1, [r4, #0x14]
 	adds r1, #0x14
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]
@@ -420,7 +420,7 @@ sub_0803CA0C: @ 0x0803CA0C
 	strb r0, [r2]
 _0803CA3E:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0803CC08
 	pop {r4, pc}
@@ -486,10 +486,10 @@ _0803CAAA:
 	strb r4, [r5, #0x14]
 	adds r1, r4, r6
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r0, [r5, #0x54]
 	adds r1, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803CACA:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -544,7 +544,7 @@ _0803CB1A:
 	ldr r0, [r4, #0x54]
 	ldrb r1, [r4, #0x14]
 	adds r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #1
 _0803CB32:
 	pop {r4, r5, pc}
@@ -568,7 +568,7 @@ sub_0803CB34: @ 0x0803CB34
 	ldrb r1, [r4, #0x14]
 	adds r1, #8
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {r4, pc}
 	.align 2, 0
 _0803CB60: .4byte gLinkEntity
@@ -653,7 +653,7 @@ _0803CBC6:
 	ldrb r1, [r3, #0x14]
 	adds r1, #0x10
 	adds r0, r3, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 	.align 2, 0
 

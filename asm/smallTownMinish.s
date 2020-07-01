@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806E278
-sub_0806E278: @ 0x0806E278
+	thumb_func_start SmallTownMinish
+SmallTownMinish: @ 0x0806E278
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -75,7 +75,7 @@ _0806E2EC:
 	adds r0, r0, r2
 	adds r1, r1, r0
 	adds r0, r3, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806E300: .4byte gUnk_02002A40

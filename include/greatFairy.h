@@ -2,15 +2,15 @@
 #define GREATFAIRY_H
 
 extern u32 __modsi3(u32, u32);
-extern void InitializeAnimation(Entity *, u32);
-extern void sub_08087380();
+extern void InitializeAnimation(Entity*, u32);
+extern void GreatFairy_InitializeAnimation(Entity*);
 extern u32 CheckRoomFlag();
-extern Entity *sub_080873AC(Entity*, u32, u32);
+extern Entity* GreatFairy_CreateForm(Entity*, u32, u32);
 extern void PositionRelative();
 extern void CopyPosition();
 extern void DoFade();
 extern void PlaySFX();
-extern void sub_08004274();
+extern void GetNextFrame();
 extern void sub_0805EC9C();
 extern void sub_0805EC60();
 extern void sub_080873D0();
@@ -19,24 +19,38 @@ extern void sub_080045D4();
 extern void sub_0806F69C();
 extern u32 Random();
 
-extern void (*gGreatFairy[11])(Entity *);
-extern void (*gGreatFairyBehaviors[6])(Entity *);
-extern void (*gGreatFairyWings[3])(Entity *);
-extern void (*gGreatFairyWake[2])(Entity *);
-extern void (*gGreatFairyMini[3])(Entity *);
-extern void (*gGreatFairyMiniAnim[3])(Entity *);
-extern void (*gGreatFairyDrip[2])(Entity *);
-extern void (*gGreatFairyRipple[2])(Entity *);
-extern void (*gGreatFairyBigRipple[2])(Entity *);
-extern void (*gGreatFairyEnergy[2])(Entity *);
-extern void (*gGreatFairyInteract1[4])(Entity *);
-extern void (*gGreatFairyInteract2[5])(Entity *);
-extern void (*gUnk_081207A4[2])(Entity *);
+
+enum {
+    BEHAVIORS,
+    WINGS,
+    WAKE,
+    MINI,
+    MINIAFFINE,
+    DROPLET,
+    RIPPLE,
+    BIGRIPPLE,
+    FORM8,
+    FORM9,
+};
+
+extern void (*const GreatFairy_Main[])(Entity*);
+extern void (*const GreatFairy_Behaviors[])(Entity*);
+extern void (*const GreatFairy_WingsBehaviors[])(Entity*);
+extern void (*const GreatFairy_WakeBehaviors[])(Entity*);
+extern void (*const GreatFairy_MiniBehaviors[])(Entity*);
+extern void (*const GreatFairy_MiniAffineBehaviors[])(Entity*);
+extern void (*const GreatFairy_DropletBehaviors[])(Entity*);
+extern void (*const GreatFairy_RippleBehaviors[])(Entity*);
+extern void (*const GreatFairy_BigRippleBehaviors[])(Entity*);
+extern void (*const GreatFairy_EnergyBehaviors[])(Entity*);
+extern void (*const GreatFairy_Form1Behaviors[])(Entity*);
+extern void (*const GreatFairy_Form2Behaviors[])(Entity*);
+extern void (*const gUnk_081207A4[])(Entity*);
 
 extern u32 gUnk_0810C2E4;
 extern RoomControls gRoomControls;
 extern Entity gLinkEntity;
-extern s16 gGreatFairyRippleOffsets[10];
+extern const s16 GreatFairy_RippleOffsets[10];
 extern u32 gUnk_02034350;
 extern RoomVars gRoomVars;
 extern Screen gScreen;

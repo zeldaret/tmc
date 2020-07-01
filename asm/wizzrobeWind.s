@@ -7,12 +7,12 @@
 	.text
 
 
-	thumb_func_start sub_0802F4A0
-sub_0802F4A0: @ 0x0802F4A0
+	thumb_func_start WizzrobeWind
+WizzrobeWind: @ 0x0802F4A0
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r5, _0802F4C8 @ =gUnk_080CDF50
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r5
 	ldr r1, [r0]
@@ -737,7 +737,7 @@ _0802FA20:
 	strb r0, [r5]
 _0802FA3E:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0802FA44:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

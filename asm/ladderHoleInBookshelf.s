@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08093FB4
-sub_08093FB4: @ 0x08093FB4
+	thumb_func_start LadderHoleInBookshelf
+LadderHoleInBookshelf: @ 0x08093FB4
 	push {lr}
 	ldr r2, _08093FC8 @ =gUnk_081229B4
 	ldrb r1, [r0, #0xc]

@@ -426,7 +426,7 @@ sub_08080CB4: @ 0x08080CB4
 	beq _08080CF0
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0x5c
 	beq _08080CD4
@@ -447,7 +447,7 @@ _08080CD4:
 _08080CEC: .4byte gUnk_080C9CBC
 _08080CF0:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0x18]
 	lsls r0, r0, #0x1e
 	cmp r0, #0
@@ -535,7 +535,7 @@ _08080DB4:
 	adds r2, #1
 	strb r0, [r2]
 	adds r0, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	b _08080E00
 _08080DEE:
 	ldr r0, _08080E04 @ =gUnk_030010A0
@@ -551,8 +551,8 @@ _08080E00:
 	.align 2, 0
 _08080E04: .4byte gUnk_030010A0
 
-	thumb_func_start sub_08080E08
-sub_08080E08: @ 0x08080E08
+	thumb_func_start ItemOnGround
+ItemOnGround: @ 0x08080E08
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x41
@@ -1079,7 +1079,7 @@ _0808126A:
 sub_0808126C: @ 0x0808126C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0808153C
 	pop {r4, pc}
@@ -1337,7 +1337,7 @@ _08081438:
 	ldrb r0, [r4, #0xa]
 	ldrb r1, [r4, #0xb]
 	movs r2, #0
-	bl sub_080A7C00
+	bl CreateItemEntity
 	movs r0, #1
 _0808144C:
 	pop {r4, pc}

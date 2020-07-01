@@ -98,13 +98,13 @@ _08054406:
 	beq _08054410
 _0805440A:
 	adds r0, r5, #0
-	bl sub_08054414
+	bl ForceEquipItem
 _08054410:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08054414
-sub_08054414: @ 0x08054414
+	thumb_func_start ForceEquipItem
+ForceEquipItem: @ 0x08054414
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	subs r0, r4, #1
@@ -3450,7 +3450,7 @@ sub_08055DC0: @ 0x08055DC0
 	cmp r0, #0
 	bne _08055DDC
 	ldr r0, _08055DE4 @ =0x00000A01
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _08055DE8 @ =gUnk_02000080
 	ldrb r0, [r1, #6]
 	adds r0, #1

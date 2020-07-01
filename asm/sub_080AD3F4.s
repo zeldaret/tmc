@@ -34,7 +34,7 @@ sub_080AD3F4: @ 0x080AD3F4
 	movs r1, #1
 _080AD42C:
 	adds r0, r1, #0
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	ldr r0, _080AD454 @ =gScreen
 	ldrh r1, [r0]
 	movs r3, #0x80

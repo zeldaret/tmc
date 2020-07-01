@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806DED0
-sub_0806DED0: @ 0x0806DED0
+	thumb_func_start PicolyteBottle
+PicolyteBottle: @ 0x0806DED0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0806DEF8 @ =gUnk_081142BC
@@ -363,14 +363,14 @@ _0806E172:
 	movs r0, #0
 	str r0, [r5, #0x14]
 	ldr r0, _0806E190 @ =0x0000421B
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	b _0806E1C0
 	.align 2, 0
 _0806E18C: .4byte 0x000003E7
 _0806E190: .4byte 0x0000421B
 _0806E194:
 	ldr r0, _0806E1A4 @ =0x00004218
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _0806E1A8 @ =gTextBox
 	ldrh r0, [r4]
 	str r0, [r1, #0x10]
@@ -387,7 +387,7 @@ _0806E1AC:
 	adds r4, #0x76
 	strh r1, [r4]
 	ldr r0, _0806E1D4 @ =0x0000421C
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _0806E1C0:
 	ldr r1, _0806E1D8 @ =gUnk_030010A0
 	ldrh r0, [r4]
@@ -420,7 +420,7 @@ sub_0806E1E0: @ 0x0806E1E0
 sub_0806E1FC: @ 0x0806E1FC
 	push {lr}
 	ldr r0, _0806E208 @ =gUnk_0813AD4C
-	bl sub_08080840
+	bl DoExitTransition
 	pop {pc}
 	.align 2, 0
 _0806E208: .4byte gUnk_0813AD4C
@@ -433,7 +433,7 @@ sub_0806E20C: @ 0x0806E20C
 	cmp r0, #0
 	beq _0806E230
 	ldr r0, _0806E228 @ =0x0000421F
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldr r1, _0806E22C @ =gTextBox
 	ldrh r0, [r4, #6]
 	str r0, [r1, #0x10]
@@ -444,7 +444,7 @@ _0806E228: .4byte 0x0000421F
 _0806E22C: .4byte gTextBox
 _0806E230:
 	ldr r0, _0806E238 @ =0x00004220
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _0806E236:
 	pop {r4, pc}
 	.align 2, 0
@@ -470,7 +470,7 @@ sub_0806E250: @ 0x0806E250
 	movs r0, #0
 	str r0, [r4, #0x14]
 	movs r0, #0x31
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0806E266
 	movs r0, #1

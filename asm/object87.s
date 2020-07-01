@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08099EFC
-sub_08099EFC: @ 0x08099EFC
+	thumb_func_start Object87
+Object87: @ 0x08099EFC
 	push {lr}
 	ldr r2, _08099F10 @ =gUnk_08123840
 	ldrb r1, [r0, #0xc]
@@ -355,7 +355,7 @@ sub_0809A1B8: @ 0x0809A1B8
 	push {r5, r6, r7}
 	sub sp, #0x38
 	adds r7, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r7, #0xa]
 	cmp r0, #9
 	bls _0809A1D2
@@ -932,7 +932,7 @@ sub_0809A648: @ 0x0809A648
 	mov r7, r8
 	push {r7}
 	adds r7, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r7, #0xe]
 	subs r0, #1
 	strb r0, [r7, #0xe]
@@ -959,7 +959,7 @@ sub_0809A648: @ 0x0809A648
 	adds r1, r1, r7
 	mov r8, r1
 	strb r0, [r1]
-	ldr r6, _0809A6E8 @ =gUnk_080C9160
+	ldr r6, _0809A6E8 @ =gSineTable
 	ldrb r0, [r1]
 	lsls r0, r0, #1
 	adds r0, r0, r6
@@ -1002,7 +1002,7 @@ sub_0809A648: @ 0x0809A648
 	str r1, [r7, #0x30]
 	b _0809A6F0
 	.align 2, 0
-_0809A6E8: .4byte gUnk_080C9160
+_0809A6E8: .4byte gSineTable
 _0809A6EC:
 	bl DeleteThisEntity
 _0809A6F0:

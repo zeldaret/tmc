@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808CAE4
-sub_0808CAE4: @ 0x0808CAE4
+	thumb_func_start MacroLink
+MacroLink: @ 0x0808CAE4
 	push {lr}
 	ldr r2, _0808CAF8 @ =gUnk_08121680
 	ldrb r1, [r0, #0xa]
@@ -144,7 +144,7 @@ _0808CBDA:
 	strh r5, [r3, #0x12]
 	adds r0, r3, #0
 	adds r1, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0808CBE4:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -296,7 +296,7 @@ sub_0808CD00: @ 0x0808CD00
 	adds r4, r0, #0
 	bl sub_0808CC88
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
@@ -331,7 +331,7 @@ sub_0808CD44: @ 0x0808CD44
 	adds r4, r0, #0
 	bl sub_0808CC88
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
@@ -372,7 +372,7 @@ sub_0808CD88: @ 0x0808CD88
 	cmp r0, #0
 	beq _0808CDB8
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	movs r1, #0x2e
@@ -457,7 +457,7 @@ _0808CE34: .4byte gUnk_081216B4
 sub_0808CE38: @ 0x0808CE38
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	movs r1, #0x32
@@ -483,7 +483,7 @@ _0808CE64: .4byte gUnk_02018EB0
 sub_0808CE68: @ 0x0808CE68
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	movs r1, #0x32
@@ -509,7 +509,7 @@ _0808CE94: .4byte gUnk_02018EB0
 sub_0808CE98: @ 0x0808CE98
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	movs r0, #0x32
@@ -530,7 +530,7 @@ _0808CEBC: .4byte gUnk_02018EB0
 sub_0808CEC0: @ 0x0808CEC0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	movs r1, #0x32

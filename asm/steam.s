@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08098168
-sub_08098168: @ 0x08098168
+	thumb_func_start Steam
+Steam: @ 0x08098168
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r5, [r4, #0xc]

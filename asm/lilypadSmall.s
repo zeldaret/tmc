@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08097A5C
-sub_08097A5C: @ 0x08097A5C
+	thumb_func_start LilypadSmall
+LilypadSmall: @ 0x08097A5C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xc]

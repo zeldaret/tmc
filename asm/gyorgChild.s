@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08048640
-sub_08048640: @ 0x08048640
+	thumb_func_start GyorgChild
+GyorgChild: @ 0x08048640
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r0, _0804867C @ =gUnk_030010A0
@@ -30,7 +30,7 @@ sub_08048640: @ 0x08048640
 _08048664:
 	ldr r4, _08048680 @ =gUnk_080D1E6C
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -389,7 +389,7 @@ sub_08048904: @ 0x08048904
 	adds r4, r0, #0
 	bl sub_0806F69C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0x14]
 	lsrs r0, r0, #1
 	cmp r0, #1

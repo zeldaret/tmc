@@ -6,7 +6,7 @@ u32 sub_080A554C(u32 param_1)
 
 {
     u32 uVar1;
-    
+
     if (param_1 != 0) {
         uVar1 = 0;
         do {

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08089B00
-sub_08089B00: @ 0x08089B00
+	thumb_func_start Object2A
+Object2A: @ 0x08089B00
 	push {lr}
 	ldr r2, _08089B14 @ =gUnk_08120DD0
 	ldrb r1, [r0, #0xc]
@@ -98,7 +98,7 @@ _08089B9E:
 sub_08089BA0: @ 0x08089BA0
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r5, #0xa]
 	cmp r0, #4
 	bhi _08089BD0

@@ -6,68 +6,6 @@
 
 	.text
 
-
-	thumb_func_start sub_0806ABC8
-sub_0806ABC8: @ 0x0806ABC8
-	push {r4, lr}
-	adds r4, r0, #0
-	ldrb r1, [r4, #0x10]
-	movs r0, #2
-	ands r0, r1
-	cmp r0, #0
-	bne _0806ABF4
-	ldr r0, _0806ABF0 @ =gUnk_081126E8
-	ldrb r1, [r4, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r0
-	ldr r1, [r1]
-	adds r0, r4, #0
-	bl _call_via_r1
-	adds r0, r4, #0
-	bl sub_0806ED78
-	b _0806ABFA
-	.align 2, 0
-_0806ABF0: .4byte gUnk_081126E8
-_0806ABF4:
-	adds r0, r4, #0
-	bl sub_0806ACC4
-_0806ABFA:
-	pop {r4, pc}
-
-	thumb_func_start sub_0806ABFC
-sub_0806ABFC: @ 0x0806ABFC
-	push {r4, lr}
-	adds r4, r0, #0
-	ldrb r1, [r4, #0xa]
-	lsls r1, r1, #4
-	ldr r0, _0806AC38 @ =gUnk_08112674
-	adds r1, r1, r0
-	adds r0, r4, #0
-	bl sub_0806FDEC
-	cmp r0, #0
-	beq _0806AC36
-	adds r0, r4, #0
-	movs r1, #2
-	bl InitializeAnimation
-	movs r1, #0
-	movs r0, #1
-	strb r0, [r4, #0xc]
-	ldrb r0, [r4, #0xe]
-	adds r2, r4, #0
-	adds r2, #0x6a
-	strb r0, [r2]
-	lsls r0, r0, #1
-	strb r0, [r4, #0x14]
-	ldrb r0, [r4, #0x14]
-	lsls r0, r0, #2
-	subs r2, #1
-	strb r0, [r2]
-	strb r1, [r4, #0xe]
-_0806AC36:
-	pop {r4, pc}
-	.align 2, 0
-_0806AC38: .4byte gUnk_08112674
-
 	thumb_func_start sub_0806AC3C
 sub_0806AC3C: @ 0x0806AC3C
 	push {r4, r5, lr}
@@ -135,7 +73,7 @@ _0806AC9A:
 	bl InitializeAnimation
 _0806ACBA:
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -165,7 +103,7 @@ _0806ACE4:
 	ldr r0, _0806AD24 @ =gUnk_08112674
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	bne _0806ACF8
 	b _0806ADFA
@@ -289,7 +227,7 @@ _0806ADEA:
 	cmp r0, #0xff
 	beq _0806ADFA
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806ADFA:
 	pop {r4, r5, pc}
 
@@ -303,8 +241,8 @@ sub_0806ADFC: @ 0x0806ADFC
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806AE0C
-sub_0806AE0C: @ 0x0806AE0C
+	thumb_func_start TownMinish_Head
+TownMinish_Head: @ 0x0806AE0C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -326,22 +264,22 @@ sub_0806AE0C: @ 0x0806AE0C
 	adds r2, #0x1c
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	b _0806AE46
 _0806AE3C:
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #0xff
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 _0806AE46:
 	ldrb r2, [r4, #0x1e]
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r4, #0
 	bl sub_0807000C
 	b _0806AEA4
@@ -366,15 +304,15 @@ _0806AE72:
 _0806AE82:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	ldrb r2, [r4, #0x1e]
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r4, #0
 	bl sub_0807000C
 _0806AEA4:
@@ -555,7 +493,7 @@ _0806AFCC:
 	adds r0, r0, r2
 	adds r1, r1, r0
 	adds r0, r3, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806AFE0: .4byte gUnk_02002A40
@@ -764,8 +702,8 @@ _0806B16A:
 _0806B17C: .4byte gUnk_02002A40
 _0806B180: .4byte gUnk_08112C60
 
-	thumb_func_start sub_0806B184
-sub_0806B184: @ 0x0806B184
+	thumb_func_start TownMinish_Fusion
+TownMinish_Fusion: @ 0x0806B184
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -776,7 +714,7 @@ sub_0806B184: @ 0x0806B184
 	ldr r0, _0806B1C0 @ =gUnk_08112674
 	adds r1, r1, r0
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806B1CA
 	ldrb r0, [r4, #0xc]
@@ -797,6 +735,6 @@ sub_0806B184: @ 0x0806B184
 _0806B1C0: .4byte gUnk_08112674
 _0806B1C4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806B1CA:
 	pop {r4, pc}

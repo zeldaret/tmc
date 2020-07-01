@@ -158,7 +158,7 @@ _0804ABA4:
 	ldr r0, _0804AC0C @ =gUnk_080D4138
 	adds r4, r4, r0
 	ldrb r0, [r4]
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	ldrb r0, [r4, #1]
 	bl sub_0801D7EC
 	ldr r0, _0804AC10 @ =gUnk_02017700

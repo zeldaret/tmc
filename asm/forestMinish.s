@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0805FFD8
-sub_0805FFD8: @ 0x0805FFD8
+	thumb_func_start ForestMinish
+ForestMinish: @ 0x0805FFD8
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r5, [r4, #0xc]
@@ -25,7 +25,7 @@ _0805FFEC:
 _0805FFF2:
 	ldr r1, _0806003C @ =gUnk_0810A348
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806008C
 	movs r2, #1
@@ -52,7 +52,7 @@ _0805FFF2:
 	adds r0, r0, r1
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r0, r4, #0
 	bl sub_0807DD50
 	b _0806008C
@@ -110,8 +110,8 @@ sub_08060090: @ 0x08060090
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_080600A8
-sub_080600A8: @ 0x080600A8
+	thumb_func_start ForestMinish_Head
+ForestMinish_Head: @ 0x080600A8
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5a
@@ -133,15 +133,15 @@ _080600BA:
 _080600CA:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	ldrb r2, [r4, #0x1e]
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r4, #0
 	bl sub_0807000C
 	pop {r4, pc}
@@ -182,7 +182,7 @@ _08060120:
 	beq _08060132
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08060132:
 	adds r0, r4, #0
 	adds r0, #0x82
@@ -284,7 +284,7 @@ sub_080601D4: @ 0x080601D4
 	b _080601F2
 _080601E6:
 	movs r0, #0x17
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	rsbs r1, r0, #0
 	orrs r1, r0
 	lsrs r1, r1, #0x1f
@@ -306,7 +306,7 @@ sub_08060208: @ 0x08060208
 	lsls r1, r1, #5
 	ldr r2, _08060218 @ =gUnk_08109DC8
 	adds r1, r1, r2
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _08060218: .4byte gUnk_08109DC8
@@ -339,7 +339,7 @@ _08060244:
 	adds r0, r0, r2
 	adds r1, r1, r0
 	adds r0, r5, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {r4, r5, pc}
 	.align 2, 0
 _08060258: .4byte gUnk_08109DC8
@@ -351,7 +351,7 @@ sub_0806025C: @ 0x0806025C
 	lsls r1, r1, #5
 	ldr r2, _0806026C @ =gUnk_08109DC8
 	adds r1, r1, r2
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _0806026C: .4byte gUnk_08109DC8
@@ -523,8 +523,8 @@ _080603B0:
 _080603B2:
 	pop {r4, pc}
 
-	thumb_func_start sub_080603B4
-sub_080603B4: @ 0x080603B4
+	thumb_func_start ForestMinish_Fusion
+ForestMinish_Fusion: @ 0x080603B4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -532,7 +532,7 @@ sub_080603B4: @ 0x080603B4
 	bne _080603F4
 	ldr r1, _080603F0 @ =gUnk_0810A348
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _080603FA
 	ldrb r0, [r4, #0xc]
@@ -556,6 +556,6 @@ sub_080603B4: @ 0x080603B4
 _080603F0: .4byte gUnk_0810A348
 _080603F4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080603FA:
 	pop {r4, pc}

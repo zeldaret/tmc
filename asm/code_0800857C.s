@@ -689,7 +689,7 @@ sub_08008AA0: @ 0x08008AA0
 	cmp r2, #0xff
 	beq _08008AC4
 	lsls r2, r2, #4
-	ldr r3, _08008B44 @ =gUnk_080C9160
+	ldr r3, _08008B44 @ =gSineTable
 	ldrsh r4, [r3, r2]
 	adds r3, #0x80
 	ldrsh r5, [r3, r2]
@@ -775,7 +775,7 @@ sub_08008B2E: @ 0x08008B2E
 _08008B38: .4byte 0x00000180
 _08008B3C: .4byte 0xFFFFFE80
 _08008B40: .4byte gLinkState
-_08008B44: .4byte gUnk_080C9160
+_08008B44: .4byte gSineTable
 _08008B48: .4byte gLinkState
 _08008B4C: .4byte gUnk_02000020
 _08008B50: .4byte 0x00004000

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0808B294
-sub_0808B294: @ 0x0808B294
+	thumb_func_start Bollard
+Bollard: @ 0x0808B294
 	push {lr}
 	ldr r2, _0808B2A8 @ =gUnk_08121300
 	ldrb r1, [r0, #0xc]
@@ -86,7 +86,7 @@ _0808B320: .4byte 0x000001A5
 sub_0808B324: @ 0x0808B324
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -140,7 +140,7 @@ _0808B388: .4byte 0x000001A5
 sub_0808B38C: @ 0x0808B38C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

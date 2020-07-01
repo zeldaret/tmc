@@ -33,6 +33,6 @@
 	movs r0, #0x20
 	strh r0, [r4, #0x24]
 	adds r0, r4, #0
-	bl sub_08087380
+	bl GreatFairy_InitializeAnimation
 	pop {r4, pc}
 	.syntax divided

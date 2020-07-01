@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08066978
-sub_08066978: @ 0x08066978
+	thumb_func_start NPC26
+NPC26: @ 0x08066978
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -55,7 +55,7 @@ sub_080669B8: @ 0x080669B8
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_08078778
 	pop {r4, pc}
@@ -91,7 +91,7 @@ _08066A08:
 	cmp r0, #0
 	bne _08066A18
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08066A18:
 	adds r2, r4, #0
 	adds r2, #0x39

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806B664
-sub_0806B664: @ 0x0806B664
+	thumb_func_start VaatiReborn
+VaatiReborn: @ 0x0806B664
 	push {lr}
 	ldr r2, _0806B678 @ =gUnk_08112F78
 	ldrb r1, [r0, #0xc]
@@ -169,7 +169,7 @@ _0806B76C:
 _0806B7A6:
 	adds r0, r6, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806B7B8
 _0806B7B0:
 	adds r0, r6, #0
@@ -227,7 +227,7 @@ _0806B80C:
 	adds r1, r4, #0
 	bl CopyPosition
 	ldr r0, _0806B828 @ =0x00001634
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldrb r0, [r5, #0xd]
 	adds r0, #1
 	strb r0, [r5, #0xd]
@@ -343,7 +343,7 @@ _0806B8FA:
 	ldrb r1, [r5, #0xd]
 	subs r1, #1
 	adds r0, r5, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806B91E
 _0806B906:
 	adds r0, r5, #0
@@ -387,11 +387,11 @@ _0806B94E:
 	beq _0806B962
 _0806B95A:
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _0806B968
 _0806B962:
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0806B968:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -431,7 +431,7 @@ _0806B97E:
 	adds r1, r4, #0
 	bl PositionRelative
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806B9B8: .4byte gUnk_08112F80

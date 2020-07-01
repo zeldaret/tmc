@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08065BA4
-sub_08065BA4: @ 0x08065BA4
+	thumb_func_start GhostBrothers
+GhostBrothers: @ 0x08065BA4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -108,7 +108,7 @@ _08065C42:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _08065CCA
@@ -232,7 +232,7 @@ sub_08065D18: @ 0x08065D18
 	bl sub_0805E3A0
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	ldr r1, _08065D70 @ =gScreen
 	adds r2, r1, #0
 	adds r2, #0x66
@@ -279,7 +279,7 @@ _08065DA8:
 	adds r0, #1
 	strb r0, [r1, #0xc]
 	movs r0, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _08065DB4:
 	pop {pc}
 	.align 2, 0
@@ -318,7 +318,7 @@ _08065DE4:
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #4
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08065EB0
 	.align 2, 0
 _08065E04: .4byte gTextBox
@@ -340,7 +340,7 @@ _08065E08:
 	strb r0, [r1, #1]
 	adds r0, r4, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08065EB0
 	.align 2, 0
 _08065E30: .4byte gUnk_02018EB0
@@ -352,7 +352,7 @@ _08065E34:
 	cmp r0, #0
 	bne _08065EB0
 	movs r0, #0
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	ldrb r0, [r4, #0xd]
 	adds r0, #1
 	strb r0, [r4, #0xd]
@@ -406,7 +406,7 @@ _08065EA4:
 	bl DeleteThisEntity
 _08065EB0:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08065EB8: .4byte gUnk_02018EB0
@@ -469,7 +469,7 @@ _08065F1C:
 sub_08065F20: @ 0x08065F20
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r1, r4, #0
 	adds r1, #0x39
 	movs r0, #0
@@ -478,7 +478,7 @@ sub_08065F20: @ 0x08065F20
 	beq _08065F5E
 	movs r0, #0
 	strb r0, [r1]
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 	adds r2, r4, #0
 	adds r2, #0x58
 	ldrb r0, [r2]
@@ -495,7 +495,7 @@ sub_08065F20: @ 0x08065F20
 _08065F56:
 	ldrb r1, [r2]
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08065F5E:
 	pop {r4, pc}
 	.align 2, 0
@@ -519,14 +519,14 @@ _08065F74:
 	adds r0, r0, r2
 	adds r1, r1, r0
 	adds r0, r3, #0
-	bl sub_0806F1AC
+	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
 _08065F88: .4byte gUnk_02002A40
 _08065F8C: .4byte gUnk_08110280
 
-	thumb_func_start sub_08065F90
-sub_08065F90: @ 0x08065F90
+	thumb_func_start GhostBrothers_Fusion
+GhostBrothers_Fusion: @ 0x08065F90
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -543,11 +543,11 @@ sub_08065F90: @ 0x08065F90
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08065FBC
 _08065FB6:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08065FBC:
 	pop {pc}
 	.align 2, 0

@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0803F770
-sub_0803F770: @ 0x0803F770
+	thumb_func_start VaatiTransfigured
+VaatiTransfigured: @ 0x0803F770
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xa]
@@ -213,7 +213,7 @@ _0803F902:
 	bls _0803F8E0
 	adds r0, r5, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0803F910:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -442,7 +442,7 @@ _0803FAAC:
 	bl sub_080AEF88
 _0803FAB8:
 	adds r0, r7, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	add sp, #4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -451,7 +451,7 @@ _0803FAC4: .4byte 0x0000FFF9
 	thumb_func_start sub_0803FAC8
 sub_0803FAC8: @ 0x0803FAC8
 	push {lr}
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {pc}
 
 	thumb_func_start sub_0803FAD0
@@ -773,7 +773,7 @@ _0803FD32:
 	strb r0, [r1]
 _0803FD48:
 	adds r0, r7, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0803FD4E:
 	pop {r4, r5, r6, r7, pc}
 
@@ -942,7 +942,7 @@ _0803FE80:
 	bl sub_08040AD4
 _0803FE86:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -1067,7 +1067,7 @@ _0803FF6E:
 	bl sub_08040AD4
 _0803FF74:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_0803FF7C
@@ -1192,7 +1192,7 @@ _0804005C:
 	bl sub_08040AD4
 _08040062:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -1238,7 +1238,7 @@ _080400B4:
 	bl sub_0804A7D4
 _080400BA:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08040126
 _080400C2:
 	ldrb r0, [r4, #0xf]
@@ -1287,7 +1287,7 @@ _080400C2:
 	bl PlaySFX
 _08040120:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08040126:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -1314,7 +1314,7 @@ sub_08040130: @ 0x08040130
 	orrs r1, r2
 	strb r1, [r3]
 	ldrb r1, [r0, #0xe]
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 	.align 2, 0
 
@@ -1350,7 +1350,7 @@ _0804017C:
 	cmp r0, #0
 	bne _0804019E
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _080401A6
 _0804019E:
 	adds r0, r4, #0
@@ -1367,7 +1367,7 @@ _080401A6:
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _080401D2
 _080401C0:
 	ldrb r0, [r4, #0xe]
@@ -1377,7 +1377,7 @@ _080401C0:
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _080401D2:
 	ldrb r0, [r5, #0xc]
 	cmp r0, #3
@@ -1412,7 +1412,7 @@ sub_080401E0: @ 0x080401E0
 	ldrb r1, [r4, #0xb]
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08040260
 _08040212:
 	adds r2, r4, #0
@@ -1449,7 +1449,7 @@ _08040212:
 	strb r5, [r0]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08040260:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1554,7 +1554,7 @@ _08040302:
 	strb r1, [r5]
 	adds r0, r4, #0
 	movs r1, #8
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08040382
 _0804032E:
 	adds r0, r4, #0
@@ -1572,12 +1572,12 @@ _0804032E:
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08040382
 _08040354:
 	adds r0, r4, #0
 	movs r1, #7
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	movs r0, #0x11
 	strb r0, [r5]
 	movs r0, #0x50
@@ -1596,10 +1596,10 @@ _08040366:
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #8
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08040382:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -1652,7 +1652,7 @@ sub_080403CC: @ 0x080403CC
 	orrs r1, r2
 	strb r1, [r3]
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	pop {pc}
 	.align 2, 0
 
@@ -1677,7 +1677,7 @@ _0804040A:
 	adds r1, r4, #0
 	bl CopyPosition
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -1771,7 +1771,7 @@ _080404BC:
 	adds r1, r4, #0
 	bl CopyPosition
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 _080404CC: .4byte 0x00000149
@@ -1904,7 +1904,7 @@ _080405A8:
 	bl PlaySFX
 _080405BE:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080405C4:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
@@ -1969,7 +1969,7 @@ _08040638:
 	adds r1, r4, #0
 	bl CopyPosition
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_08040648

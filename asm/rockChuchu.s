@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802222C
-sub_0802222C: @ 0x0802222C
+	thumb_func_start RockChuchu
+RockChuchu: @ 0x0802222C
 	push {lr}
 	ldr r1, _08022238 @ =gUnk_080CB948
 	bl EnemyFunctionHandler
@@ -205,7 +205,7 @@ _080223D4:
 	strb r0, [r4, #0xe]
 _080223DA:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 

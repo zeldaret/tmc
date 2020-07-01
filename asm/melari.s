@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080686D4
-sub_080686D4: @ 0x080686D4
+	thumb_func_start Melari
+Melari: @ 0x080686D4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -39,7 +39,7 @@ sub_08068708: @ 0x08068708
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0806872C @ =gUnk_08111520
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _08068728
 	movs r0, #1
@@ -93,7 +93,7 @@ _08068762:
 	movs r1, #0x90
 	lsls r1, r1, #5
 	adds r0, r0, r1
-	bl TextboxTryNoOverlap
+	bl TextboxNoOverlapFollow
 _0806877E:
 	pop {r4, pc}
 
@@ -116,7 +116,7 @@ _08068794:
 _0806879A:
 	ldr r1, _080687CC @ =gUnk_08111520
 	adds r0, r5, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _0806887A
 	movs r2, #1
@@ -157,7 +157,7 @@ _080687EA:
 	adds r0, r5, #0
 	bl sub_0807DDE4
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0806880E
 _08068800:
 	adds r0, r5, #0
@@ -233,8 +233,8 @@ sub_08068884: @ 0x08068884
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806889C
-sub_0806889C: @ 0x0806889C
+	thumb_func_start Melari_Head
+Melari_Head: @ 0x0806889C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r0, #0x5a
@@ -245,7 +245,7 @@ sub_0806889C: @ 0x0806889C
 	ldrb r2, [r5, #0x1e]
 	adds r0, r5, #0
 	movs r1, #1
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	movs r0, #0x20
 	ands r0, r4
 	cmp r0, #0
@@ -256,32 +256,32 @@ sub_0806889C: @ 0x0806889C
 	adds r0, r5, #0
 	movs r1, #0
 	adds r2, r4, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #2
 	movs r2, #0xff
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	b _08068906
 _080688E2:
 	adds r0, r5, #0
 	movs r1, #0
 	movs r2, #0xff
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	movs r0, #0xe1
 	rsbs r0, r0, #0
 	ands r4, r0
 	adds r0, r5, #0
 	movs r1, #2
 	adds r2, r4, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #2
-	bl sub_0806FFD8
+	bl SetSpriteSubEntryOffsetData2
 _08068906:
 	adds r0, r5, #0
 	bl sub_0807000C
@@ -346,8 +346,8 @@ sub_08068964: @ 0x08068964
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806897C
-sub_0806897C: @ 0x0806897C
+	thumb_func_start Melari_Fusion
+Melari_Fusion: @ 0x0806897C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -355,7 +355,7 @@ sub_0806897C: @ 0x0806897C
 	bne _080689B4
 	ldr r1, _080689B0 @ =gUnk_08111520
 	adds r0, r4, #0
-	bl sub_0806FDEC
+	bl LoadExtraSpriteData
 	cmp r0, #0
 	beq _080689BA
 	ldrb r0, [r4, #0xc]
@@ -376,7 +376,7 @@ sub_0806897C: @ 0x0806897C
 _080689B0: .4byte gUnk_08111520
 _080689B4:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _080689BA:
 	pop {r4, pc}
 

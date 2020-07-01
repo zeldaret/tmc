@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806C13C
-sub_0806C13C: @ 0x0806C13C
+	thumb_func_start Gina
+Gina: @ 0x0806C13C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -59,7 +59,7 @@ _0806C182:
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _0806C1D2
@@ -82,8 +82,8 @@ _0806C1BE:
 _0806C1D2:
 	pop {r4, pc}
 
-	thumb_func_start sub_0806C1D4
-sub_0806C1D4: @ 0x0806C1D4
+	thumb_func_start Gina_Fusion
+Gina_Fusion: @ 0x0806C1D4
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -100,11 +100,11 @@ sub_0806C1D4: @ 0x0806C1D4
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806C200
 _0806C1FA:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806C200:
 	pop {pc}
 	.align 2, 0

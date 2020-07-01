@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0806BD54
-sub_0806BD54: @ 0x0806BD54
+	thumb_func_start Carlov
+Carlov: @ 0x0806BD54
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]

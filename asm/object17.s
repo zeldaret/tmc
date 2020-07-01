@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080861AC
-sub_080861AC: @ 0x080861AC
+	thumb_func_start Object17
+Object17: @ 0x080861AC
 	push {lr}
 	ldr r2, _080861C0 @ =gUnk_08120660
 	ldrb r1, [r0, #0xc]
@@ -91,13 +91,13 @@ sub_08086234: @ 0x08086234
 	cmp r0, #0
 	bne _0808625E
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0808625E
 	.align 2, 0
 _08086254: .4byte gUnk_030010A0
 _08086258:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _0808625E:
 	adds r0, r4, #0
 	bl sub_0806F3E4

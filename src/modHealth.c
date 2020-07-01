@@ -6,7 +6,7 @@ s32 ModHealth(s32 deltaHealth)
 
 {
     s32 newHealth;
-    
+
     newHealth = gStats.health + deltaHealth;
     if (newHealth < 0) {
         newHealth = 0;

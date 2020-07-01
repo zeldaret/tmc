@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806B1CC
-sub_0806B1CC: @ 0x0806B1CC
+	thumb_func_start Librari
+Librari: @ 0x0806B1CC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -68,7 +68,7 @@ _0806B238:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _0806B25C
 _0806B24E:
 	adds r0, r4, #0
@@ -181,8 +181,8 @@ _0806B316:
 	.align 2, 0
 _0806B328: .4byte gUnk_08112D50
 
-	thumb_func_start sub_0806B32C
-sub_0806B32C: @ 0x0806B32C
+	thumb_func_start Librari_Fusion
+Librari_Fusion: @ 0x0806B32C
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -199,17 +199,17 @@ sub_0806B32C: @ 0x0806B32C
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #9
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806B358
 _0806B352:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806B358:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806B35C
-sub_0806B35C: @ 0x0806B35C
+	thumb_func_start Percy_Head
+Percy_Head: @ 0x0806B35C
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x5b
@@ -219,7 +219,7 @@ sub_0806B35C: @ 0x0806B35C
 	adds r2, #0x13
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r0, [r0]
@@ -228,19 +228,19 @@ sub_0806B35C: @ 0x0806B35C
 	adds r2, #0xb
 	adds r0, r4, #0
 	movs r1, #1
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	ldrb r2, [r4, #0x1e]
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_0806FF60
+	bl SetExtraSpriteFrame
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #1
-	bl sub_0806FF88
+	bl SetSpriteSubEntryOffsetData1
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0
-	bl sub_0806FFD8
+	bl SetSpriteSubEntryOffsetData2
 	adds r0, r4, #0
 	bl sub_0807000C
 	pop {r4, pc}

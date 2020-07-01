@@ -353,7 +353,7 @@ _08077E0A:
 	strh r1, [r0, #0x12]
 	lsls r1, r2, #0x18
 	lsrs r1, r1, #0x18
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_08077E54
 	pop {r4, pc}
@@ -365,7 +365,7 @@ UpdateItemAnim: @ 0x08077E24
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, _08077E38 @ =gLinkEntity
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_08077E54
 	pop {r4, pc}
@@ -2434,7 +2434,7 @@ _08078DE0:
 	strh r0, [r4, #0x32]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0806FAB0
+	bl ResolveEntityOnTop
 	ldr r0, _08078E34 @ =gLinkState
 	ldrb r0, [r0, #5]
 	cmp r0, #4
@@ -2609,7 +2609,7 @@ sub_08078F24: @ 0x08078F24
 	.align 2, 0
 _08078F38: .4byte gLinkState
 _08078F3C:
-	ldr r2, _08078F5C @ =gUnk_080C9160
+	ldr r2, _08078F5C @ =gSineTable
 	lsls r0, r3, #4
 	adds r0, r0, r2
 	ldrh r1, [r0]
@@ -2627,7 +2627,7 @@ _08078F3C:
 _08078F5A:
 	pop {r4, pc}
 	.align 2, 0
-_08078F5C: .4byte gUnk_080C9160
+_08078F5C: .4byte gSineTable
 
 	thumb_func_start sub_08078F60
 sub_08078F60: @ 0x08078F60
@@ -2771,7 +2771,7 @@ _08079042:
 	ands r2, r0
 	adds r0, r4, #0
 	adds r1, r2, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08079062:
 	pop {r4, r5, r6, pc}
 
@@ -3951,7 +3951,7 @@ _0807991E:
 	cmp r0, #0
 	bne _0807992E
 	ldr r0, _08079934 @ =gLinkEntity
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0807992E:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -4216,7 +4216,7 @@ _08079AF0:
 	cmp r0, r3
 	bne _08079B10
 	ldr r0, _08079B1C @ =gLinkEntity
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08079B10:
 	ldr r0, _08079B20 @ =gLinkState
 	strb r4, [r0]
@@ -7284,7 +7284,7 @@ _0807B218: .4byte 0x000002C2
 sub_0807B21C: @ 0x0807B21C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	bge _0807B236
@@ -7323,11 +7323,11 @@ _0807B260: .4byte 0xFFFF8000
 sub_0807B264: @ 0x0807B264
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xf]
 	adds r0, #2
 	strb r0, [r4, #0xf]
-	ldr r1, _0807B2B4 @ =gUnk_080C9160
+	ldr r1, _0807B2B4 @ =gSineTable
 	ldrb r0, [r4, #0xf]
 	lsls r0, r0, #1
 	adds r0, r0, r1
@@ -7360,7 +7360,7 @@ sub_0807B264: @ 0x0807B264
 _0807B2B0:
 	pop {r4, pc}
 	.align 2, 0
-_0807B2B4: .4byte gUnk_080C9160
+_0807B2B4: .4byte gSineTable
 
 	thumb_func_start sub_0807B2B8
 sub_0807B2B8: @ 0x0807B2B8
@@ -7369,7 +7369,7 @@ sub_0807B2B8: @ 0x0807B2B8
 	ldr r1, _0807B2F0 @ =0xFFFFE000
 	bl sub_08003FC4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	beq _0807B2EC
@@ -7386,7 +7386,7 @@ sub_0807B2B8: @ 0x0807B2B8
 	lsls r0, r0, #2
 	ldr r1, _0807B2F4 @ =gUnk_0813AD88
 	adds r0, r0, r1
-	bl sub_08080840
+	bl DoExitTransition
 _0807B2EC:
 	pop {r4, pc}
 	.align 2, 0

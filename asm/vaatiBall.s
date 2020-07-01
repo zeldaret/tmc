@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080445DC
-sub_080445DC: @ 0x080445DC
+	thumb_func_start VaatiBall
+VaatiBall: @ 0x080445DC
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r5, [r4, #0x50]
@@ -170,7 +170,7 @@ _080446C8:
 	strh r0, [r4, #0x36]
 	adds r0, r4, #0
 	movs r1, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0804474A
 	.align 2, 0
 _08044724: .4byte gUnk_080D1620
@@ -190,7 +190,7 @@ _08044728:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #1
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _0804474A:
 	pop {r4, r5, r6, pc}
 
@@ -252,7 +252,7 @@ _080447A8:
 	cmp r0, #1
 	beq _080447B6
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _080447DC
 _080447B6:
 	ldrb r0, [r4, #0xe]
@@ -272,7 +272,7 @@ _080447D0:
 	adds r0, r4, #0
 	bl sub_0806F69C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080447DC:
 	pop {r4, pc}
 	.align 2, 0
@@ -557,7 +557,7 @@ _080449E8:
 	strb r0, [r4, #0x10]
 _080449EA:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r3}
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
@@ -568,7 +568,7 @@ sub_080449F8: @ 0x080449F8
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	ldr r4, [r5, #0x50]
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xc]
 	cmp r0, #1
 	beq _08044A90
@@ -714,7 +714,7 @@ sub_08044B04: @ 0x08044B04
 	push {r7}
 	adds r4, r0, #0
 	ldr r6, [r4, #0x50]
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r6, #0xc]
 	cmp r0, #1
 	bne _08044B26

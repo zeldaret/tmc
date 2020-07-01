@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08092CA0
-sub_08092CA0: @ 0x08092CA0
+	thumb_func_start Whirlwind
+Whirlwind: @ 0x08092CA0
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r0, #0x45
@@ -19,7 +19,7 @@ sub_08092CA0: @ 0x08092CA0
 	beq _08092CC0
 	ldr r0, _08092CD4 @ =gUnk_020342F8
 	subs r1, #1
-	bl sub_0801D5A8
+	bl ReadBit
 	cmp r0, #0
 	bne _08092CC0
 	bl DeleteThisEntity
@@ -132,7 +132,7 @@ _08092D92:
 	cmp r0, #0
 	beq _08092E84
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r6, _08092E04 @ =gLinkState
 	ldr r0, [r6, #0x30]
 	movs r3, #0x80
@@ -252,7 +252,7 @@ _08092E90: .4byte 0x00000153
 sub_08092E94: @ 0x08092E94
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r1, _08092ED0 @ =gLinkEntity
 	adds r0, r4, #0
 	movs r2, #0xc

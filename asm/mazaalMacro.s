@@ -7,12 +7,12 @@
 	.text
 
 
-	thumb_func_start sub_08034C60
-sub_08034C60: @ 0x08034C60
+	thumb_func_start MazaalMacro
+MazaalMacro: @ 0x08034C60
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r4, _08034C78 @ =gUnk_080CEE90
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]
@@ -132,7 +132,7 @@ _08034D48: .4byte gRoomControls
 sub_08034D4C: @ 0x08034D4C
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r6, r5, #0
 	adds r6, #0x78
 	ldrh r0, [r6]
@@ -302,7 +302,7 @@ _08034E8A:
 	strb r0, [r4, #0xc]
 	ldr r1, _08034EB4 @ =gUnk_08012E20
 	adds r0, r4, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]
@@ -400,7 +400,7 @@ sub_08034F58: @ 0x08034F58
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, _08034F6C @ =gUnk_0813ABA8
-	bl sub_08080840
+	bl DoExitTransition
 	adds r0, r4, #0
 	bl DeleteEntity
 	pop {r4, pc}

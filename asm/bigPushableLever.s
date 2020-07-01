@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08098EE0
-sub_08098EE0: @ 0x08098EE0
+	thumb_func_start BigPushableLever
+BigPushableLever: @ 0x08098EE0
 	push {lr}
 	ldr r2, _08098EF4 @ =gUnk_081236DC
 	ldrb r1, [r0, #0xc]
@@ -98,7 +98,7 @@ _08098F8C: .4byte gLinkEntity
 sub_08098F90: @ 0x08098F90
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

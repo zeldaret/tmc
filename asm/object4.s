@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08082040
-sub_08082040: @ 0x08082040
+	thumb_func_start Object4
+Object4: @ 0x08082040
 	push {lr}
 	ldr r2, _08082054 @ =gUnk_0811EE5C
 	ldrb r1, [r0, #0xc]
@@ -248,11 +248,11 @@ _080821F2:
 	beq _08082202
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _08082208
 _08082202:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08082208:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

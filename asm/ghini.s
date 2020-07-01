@@ -7,12 +7,12 @@
 	.text
 
 
-	thumb_func_start sub_0803EFDC
-sub_0803EFDC: @ 0x0803EFDC
+	thumb_func_start Ghini
+Ghini: @ 0x0803EFDC
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r5, _0803F004 @ =gUnk_080D0924
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r5
 	ldr r1, [r0]
@@ -150,7 +150,7 @@ _0803F0F0: .4byte gUnk_080D0924
 sub_0803F0F4: @ 0x0803F0F4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_08001328
 	adds r0, r4, #0
@@ -286,7 +286,7 @@ _0803F1F8: .4byte gLinkEntity
 sub_0803F1FC: @ 0x0803F1FC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F4E8
 	pop {r4, pc}
@@ -295,7 +295,7 @@ sub_0803F1FC: @ 0x0803F1FC
 sub_0803F20C: @ 0x0803F20C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0806F3E4
 	cmp r0, #0
@@ -438,7 +438,7 @@ _0803F322:
 sub_0803F324: @ 0x0803F324
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -460,7 +460,7 @@ sub_0803F340: @ 0x0803F340
 	adds r0, r4, #0
 	bl sub_0803F58C
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -476,7 +476,7 @@ _0803F36A:
 sub_0803F36C: @ 0x0803F36C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	movs r1, #1
 	bl sub_08049F84
@@ -546,7 +546,7 @@ _0803F3F6:
 	adds r0, r4, #0
 	bl sub_080AEFB4
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	b _0803F41C
 	.align 2, 0
 _0803F40C: .4byte gUnk_080D0970
@@ -564,7 +564,7 @@ _0803F41C:
 sub_0803F420: @ 0x0803F420
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -582,7 +582,7 @@ sub_0803F43C: @ 0x0803F43C
 	adds r4, r0, #0
 	bl sub_0803F738
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -611,7 +611,7 @@ _0803F474:
 sub_0803F478: @ 0x0803F478
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

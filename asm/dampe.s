@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0806BDAC
-sub_0806BDAC: @ 0x0806BDAC
+	thumb_func_start Dampe
+Dampe: @ 0x0806BDAC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -55,7 +55,7 @@ _0806BDE6:
 	adds r1, r0, #0
 	adds r1, #4
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_0806F118
 	b _0806BE3A
@@ -68,7 +68,7 @@ _0806BE1C:
 	b _0806BE3A
 _0806BE26:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl UpdateFuseInteraction
 	cmp r0, #0
@@ -91,8 +91,8 @@ sub_0806BE3C: @ 0x0806BE3C
 	bl sub_08078784
 	pop {r4, pc}
 
-	thumb_func_start sub_0806BE54
-sub_0806BE54: @ 0x0806BE54
+	thumb_func_start Dampe_Fusion
+Dampe_Fusion: @ 0x0806BE54
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xc]
@@ -109,11 +109,11 @@ sub_0806BE54: @ 0x0806BE54
 	strb r0, [r2, #0x18]
 	adds r0, r2, #0
 	movs r1, #2
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	b _0806BE80
 _0806BE7A:
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _0806BE80:
 	pop {pc}
 	.align 2, 0

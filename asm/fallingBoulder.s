@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802C228
-sub_0802C228: @ 0x0802C228
+	thumb_func_start FallingBoulder
+FallingBoulder: @ 0x0802C228
 	push {lr}
 	ldr r1, _0802C234 @ =gUnk_080CD540
 	bl EnemyFunctionHandler
@@ -188,7 +188,7 @@ _0802C35A:
 	strb r0, [r4, #0x18]
 _0802C36A:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	movs r0, #0x2e
 	ldrsh r1, [r4, r0]
 	ldr r2, _0802C3C4 @ =gRoomControls

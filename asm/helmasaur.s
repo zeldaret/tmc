@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802BB6C
-sub_0802BB6C: @ 0x0802BB6C
+	thumb_func_start Helmasaur
+Helmasaur: @ 0x0802BB6C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xa]
@@ -417,7 +417,7 @@ sub_0802BE48: @ 0x0802BE48
 	b _0802BE7E
 _0802BE64:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	bl sub_0802C1CC
 	adds r0, r4, #0
@@ -535,7 +535,7 @@ sub_0802BF3C: @ 0x0802BF3C
 	adds r4, r0, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

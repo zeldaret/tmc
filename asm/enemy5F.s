@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080482C4
-sub_080482C4: @ 0x080482C4
+	thumb_func_start Enemy5F
+Enemy5F: @ 0x080482C4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, [r4, #0x50]
@@ -68,7 +68,7 @@ sub_08048330: @ 0x08048330
 	adds r4, r0, #0
 	bl sub_080485D8
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -188,7 +188,7 @@ sub_080483F8: @ 0x080483F8
 	b _08048436
 _0804841C:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -242,7 +242,7 @@ sub_08048478: @ 0x08048478
 	adds r4, r0, #0
 	bl sub_080485FC
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xe]
 	adds r2, r0, #0
 	cmp r2, #0
@@ -299,7 +299,7 @@ sub_080484E8: @ 0x080484E8
 	adds r4, r0, #0
 	bl sub_080485FC
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
 	beq _08048528
@@ -396,7 +396,7 @@ sub_080485A0: @ 0x080485A0
 	adds r4, r0, #0
 	bl sub_080485FC
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]

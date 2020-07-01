@@ -10,7 +10,7 @@
 sub_080732D0: @ 0x080732D0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_080002B8
 	cmp r0, #0x28
@@ -54,7 +54,7 @@ _08073328:
 sub_0807332C: @ 0x0807332C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldr r0, _08073344 @ =gLinkState
 	adds r0, #0x39
 	ldrb r0, [r0]
@@ -130,7 +130,7 @@ _080733B8: .4byte gUnk_03001000
 sub_080733BC: @ 0x080733BC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrh r1, [r4, #0x2e]
 	movs r0, #0xf
 	ands r0, r1
@@ -354,7 +354,7 @@ _08073516:
 	bl PlaySFX
 _08073576:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08073580: .4byte gLinkState
@@ -579,7 +579,7 @@ _0807371C: .4byte gUnk_0811BC28
 _08073720: .4byte gArea
 _08073724:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _0807372E
 _0807372C:
 	strh r0, [r6, #8]
@@ -604,7 +604,7 @@ _08073736:
 	cmp r0, r1
 	bne _08073760
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08073762
 	.align 2, 0
 _0807375C: .4byte gUnk_0811BC30
@@ -665,7 +665,7 @@ _080737BA:
 sub_080737BC: @ 0x080737BC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0806F69C
 	ldr r0, [r4, #0x34]
@@ -759,7 +759,7 @@ _08073860:
 	str r0, [r4, #0x20]
 _0807387A:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 
@@ -806,7 +806,7 @@ _080738A2:
 	lsls r0, r0, #2
 	ldr r1, _080738E8 @ =gUnk_0813AD88
 	adds r0, r0, r1
-	bl sub_08080840
+	bl DoExitTransition
 	b _080738F0
 	.align 2, 0
 _080738DC: .4byte gUnk_030010A0
@@ -820,7 +820,7 @@ _080738F0:
 	adds r0, r4, #0
 	bl sub_08003FC4
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
 _08073900: .4byte 0xFFFFE800
@@ -1188,7 +1188,7 @@ sub_08073B8C: @ 0x08073B8C
 	cmp r0, #0
 	bne _08073BB8
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08073BB8:
 	ldrb r1, [r4, #0x10]
 	movs r0, #0x7f
@@ -1276,7 +1276,7 @@ _08073C58:
 	orrs r0, r1
 	strb r0, [r2, #0x10]
 	adds r0, r2, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _08073C66:
 	pop {pc}
 
@@ -1560,7 +1560,7 @@ _08073E90:
 	bl sub_0806F948
 _08073E9E:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	bl sub_0807B068
 	movs r0, #0x10
@@ -1787,7 +1787,7 @@ _08074048:
 	movs r3, #0
 	bl sub_0805EC9C
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 
 	thumb_func_start sub_08074060
@@ -1845,7 +1845,7 @@ _080740C8: .4byte gLinkState
 _080740CC: .4byte 0x0000080C
 _080740D0:
 	adds r0, r4, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 _080740D6:
 	pop {r4, pc}
 
@@ -1853,7 +1853,7 @@ _080740D6:
 sub_080740D8: @ 0x080740D8
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
 	bne _080740EA
@@ -3519,7 +3519,7 @@ _08074D20:
 	adds r0, r5, #0
 	bl sub_08003FC4
 	adds r0, r5, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 
@@ -3866,7 +3866,7 @@ _08074F88: .4byte 0x00000737
 sub_08074F8C: @ 0x08074F8C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r3, r4, #0
 	adds r3, #0x5a
 	ldrb r0, [r3]
@@ -3918,7 +3918,7 @@ _08074FEA:
 sub_08074FEC: @ 0x08074FEC
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]
@@ -4005,7 +4005,7 @@ _08075088: .4byte 0x0000080C
 sub_0807508C: @ 0x0807508C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r4, #0
@@ -4099,7 +4099,7 @@ _08075138: .4byte 0x00000734
 sub_0807513C: @ 0x0807513C
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r4, r5, #0
 	adds r4, #0x5a
 	ldrb r0, [r4]
@@ -4164,7 +4164,7 @@ _080751B0: .4byte 0x000003C9
 sub_080751B4: @ 0x080751B4
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -4253,7 +4253,7 @@ _08075252:
 	bl CopyPosition
 	adds r0, r4, #0
 	adds r1, r6, #0
-	bl sub_0807DAD0
+	bl StartCutscene
 _08075270:
 	ldr r4, _08075298 @ =gLinkEntity
 	movs r1, #0xe
@@ -4321,7 +4321,7 @@ _080752E4: .4byte gUnk_02033280
 	thumb_func_start sub_080752E8
 sub_080752E8: @ 0x080752E8
 	push {lr}
-	ldr r3, _080752FC @ =gItemBehaviors
+	ldr r3, _080752FC @ =gItemFunctions
 	ldrb r2, [r0, #1]
 	lsls r2, r2, #2
 	adds r2, r2, r3
@@ -4329,10 +4329,10 @@ sub_080752E8: @ 0x080752E8
 	bl _call_via_r2
 	pop {pc}
 	.align 2, 0
-_080752FC: .4byte gItemBehaviors
+_080752FC: .4byte gItemFunctions
 
-	thumb_func_start sub_08075300
-sub_08075300: @ 0x08075300
+	thumb_func_start CellOverwriteSet
+CellOverwriteSet: @ 0x08075300
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
@@ -4342,8 +4342,8 @@ sub_08075300: @ 0x08075300
 	bl sub_08077E78
 	pop {r4, r5, pc}
 
-	thumb_func_start sub_08075314
-sub_08075314: @ 0x08075314
+	thumb_func_start Sword
+Sword: @ 0x08075314
 	push {lr}
 	ldr r2, _08075330 @ =gLinkState
 	adds r2, #0xa8
@@ -5231,8 +5231,8 @@ _080759E8: .4byte gLinkState
 _080759EC: .4byte gLinkEntity
 _080759F0: .4byte 0xF7FFFFFF
 
-	thumb_func_start sub_080759F4
-sub_080759F4: @ 0x080759F4
+	thumb_func_start Lantern
+Lantern: @ 0x080759F4
 	push {lr}
 	ldr r3, _08075A08 @ =gUnk_0811BD68
 	ldrb r2, [r0, #4]
@@ -5273,7 +5273,7 @@ sub_08075A0C: @ 0x08075A0C
 _08075A3E:
 	movs r0, #0xf
 	adds r1, r6, #0
-	bl sub_08054414
+	bl ForceEquipItem
 	ldr r0, _08075A64 @ =gLinkState
 	ldr r1, [r0, #0x30]
 	ldr r2, _08075A68 @ =0xFF7FFFFF
@@ -5281,7 +5281,7 @@ _08075A3E:
 	str r1, [r0, #0x30]
 	movs r0, #0xf
 	adds r1, r6, #0
-	bl sub_08054414
+	bl ForceEquipItem
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_08077E78
@@ -5305,7 +5305,7 @@ _08075A6C:
 	movs r0, #0x10
 	strb r0, [r4, #1]
 	adds r1, r6, #0
-	bl sub_08054414
+	bl ForceEquipItem
 	ldrb r1, [r5, #0x14]
 	movs r0, #6
 	ands r0, r1
@@ -5435,7 +5435,7 @@ _08075B86:
 	bne _08075BB8
 	movs r0, #0xf
 	adds r1, r4, #0
-	bl sub_08054414
+	bl ForceEquipItem
 	ldr r0, [r5, #0x30]
 	ldr r1, _08075BB4 @ =0xFF7FFFFF
 	ands r0, r1
@@ -5724,8 +5724,8 @@ _08075DD8:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08075DDC
-sub_08075DDC: @ 0x08075DDC
+	thumb_func_start Bow
+Bow: @ 0x08075DDC
 	push {lr}
 	ldr r3, _08075DF0 @ =gUnk_0811BD80
 	ldrb r2, [r0, #4]
@@ -5989,8 +5989,8 @@ _08075FD8:
 	.align 2, 0
 _08075FDC: .4byte gLinkState
 
-	thumb_func_start sub_08075FE0
-sub_08075FE0: @ 0x08075FE0
+	thumb_func_start Bomb
+Bomb: @ 0x08075FE0
 	push {lr}
 	ldr r3, _08075FF4 @ =gUnk_0811BD98
 	ldrb r2, [r0, #4]
@@ -6221,8 +6221,8 @@ _080761A0:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start sub_080761A8
-sub_080761A8: @ 0x080761A8
+	thumb_func_start TryPickupObject
+TryPickupObject: @ 0x080761A8
 	push {lr}
 	ldr r3, _080761BC @ =gUnk_0811BDB4
 	ldrb r2, [r0, #4]
@@ -6819,8 +6819,8 @@ _0807663A:
 	.align 2, 0
 _0807663C: .4byte gLinkState
 
-	thumb_func_start sub_08076640
-sub_08076640: @ 0x08076640
+	thumb_func_start RocsCape
+RocsCape: @ 0x08076640
 	push {r4, r5, lr}
 	adds r3, r0, #0
 	adds r4, r1, #0

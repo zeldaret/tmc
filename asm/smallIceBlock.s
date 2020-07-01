@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080991A4
-sub_080991A4: @ 0x080991A4
+	thumb_func_start SmallIceBlock
+SmallIceBlock: @ 0x080991A4
 	push {lr}
 	adds r2, r0, #0
 	ldrb r0, [r2, #0xa]
@@ -718,10 +718,10 @@ _080996CE:
 	strb r0, [r1]
 _08099706:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
-	bl sub_0806FA6C
+	bl CopyPositionAndSpriteOffset
 	ldrh r0, [r4, #0x32]
 	adds r0, #1
 	strh r0, [r4, #0x32]

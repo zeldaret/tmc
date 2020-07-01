@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0802823C
-sub_0802823C: @ 0x0802823C
+	thumb_func_start SpearMoblin
+SpearMoblin: @ 0x0802823C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08028268 @ =gUnk_080CC790
@@ -503,7 +503,7 @@ _080285EE:
 	bl sub_080AEF88
 _080285FA:
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08028600:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -856,7 +856,7 @@ _08028890:
 	adds r0, r4, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl sub_08004274
+	bl GetNextFrame
 	pop {r4, pc}
 	.align 2, 0
 _080288A0: .4byte gUnk_080CC944

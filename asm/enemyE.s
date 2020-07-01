@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_08022FA4
-sub_08022FA4: @ 0x08022FA4
+	thumb_func_start EnemyE
+EnemyE: @ 0x08022FA4
 	push {lr}
 	ldr r1, _08022FB0 @ =gUnk_080CBBC8
 	bl EnemyFunctionHandler
@@ -74,11 +74,11 @@ sub_08023000: @ 0x08023000
 	adds r4, r0, #0
 	cmp r1, #0x80
 	bne _0802300E
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	b _08023014
 _0802300E:
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 _08023014:
 	movs r2, #0x80
 	adds r0, r4, #0

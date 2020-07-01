@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_080381AC
-sub_080381AC: @ 0x080381AC
+	thumb_func_start RopeGolden
+RopeGolden: @ 0x080381AC
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_080012DC
@@ -27,7 +27,7 @@ _080381CC: .4byte gUnk_080012C8
 _080381D0:
 	ldr r4, _080381F4 @ =gUnk_080CF4C8
 	adds r0, r5, #0
-	bl sub_0800279C
+	bl GetNextFunction
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	ldr r1, [r0]

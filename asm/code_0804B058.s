@@ -862,7 +862,7 @@ sub_0804B5D8: @ 0x0804B5D8
 sub_0804B5DC: @ 0x0804B5DC
 	push {r4, r5, r6, lr}
 	movs r0, #0x2c
-	bl sub_0801E7F4
+	bl CheckKinstoneFused
 	cmp r0, #0
 	beq _0804B5EE
 	ldr r0, _0804B618 @ =gUnk_080D6340

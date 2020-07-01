@@ -41,7 +41,7 @@ _0801C398:
 	lsrs r0, r0, #1
 	strb r0, [r5, #4]
 	movs r0, #0xc
-	bl sub_0801D714
+	bl LoadPalettesByPaletteGroupIndex
 	movs r0, #0x10
 	bl sub_0801D7EC
 	ldr r4, _0801C478 @ =gUnk_02034CB0

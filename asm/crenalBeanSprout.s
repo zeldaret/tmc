@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start sub_0809631C
-sub_0809631C: @ 0x0809631C
+	thumb_func_start CrenalBeanSprout
+CrenalBeanSprout: @ 0x0809631C
 	push {lr}
 	ldr r2, _08096330 @ =gUnk_08123168
 	ldrb r1, [r0, #0xc]
@@ -304,7 +304,7 @@ _08096570:
 _0809657C: .4byte gLinkState
 _08096580:
 	adds r0, r6, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08096586:
 	ldr r0, [r6, #0x50]
 	adds r0, #0x29
@@ -369,7 +369,7 @@ _080965D6:
 _080965FC: .4byte gLinkState
 _08096600:
 	adds r0, r6, #0
-	bl sub_08004274
+	bl GetNextFrame
 _08096606:
 	ldr r0, _08096664 @ =gLinkEntity
 	ldrb r0, [r0, #0x14]
@@ -547,7 +547,7 @@ sub_08096740: @ 0x08096740
 sub_08096758: @ 0x08096758
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080042B8
+	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
 	adds r0, #0x5a
 	ldrb r1, [r0]
@@ -580,7 +580,7 @@ sub_08096780: @ 0x08096780
 	cmp r4, r0
 	bne _080967DC
 	adds r0, r5, #0
-	bl sub_08004274
+	bl GetNextFrame
 	ldr r2, _080967D8 @ =gLinkState
 	ldrb r0, [r2, #0xb]
 	movs r1, #0x80
@@ -962,7 +962,7 @@ sub_08096A78: @ 0x08096A78
 	lsrs r1, r1, #1
 	adds r1, #8
 	adds r0, r4, #0
-	bl LoadAnimation
+	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	bl sub_08004168
 	ldrh r0, [r4, #0x32]
