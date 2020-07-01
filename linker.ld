@@ -535,7 +535,7 @@ SECTIONS {
 		asm/npc9.o(.text);
 		src/stamp.o(.text);
 		asm/marcy.o(.text);
-		asm/wheaton.o(.text);
+		src/wheaton.o(.text);
 		asm/pita.o(.text);
 		asm/minishEzlo.o(.text);
 		src/mailbox.o(.text);
