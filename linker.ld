@@ -394,8 +394,8 @@ SECTIONS {
 		asm/takkuri.o(.text);
 		src/bowMoblin.o(.text);
 		asm/bowMoblin.o(.text);
-		asm/lakitu.o(.text);
-		asm/lakituCloud.o(.text);
+		src/lakitu.o(.text);
+		src/lakituCloud.o(.text);
 		asm/enemy49.o(.text);
 		asm/vaatiRebornEnemy.o(.text);
 		asm/vaatiProjectile.o(.text);
@@ -536,7 +536,7 @@ SECTIONS {
 		asm/npc9.o(.text);
 		src/stamp.o(.text);
 		asm/marcy.o(.text);
-		asm/wheaton.o(.text);
+		src/wheaton.o(.text);
 		asm/pita.o(.text);
 		asm/minishEzlo.o(.text);
 		src/mailbox.o(.text);

@@ -24,7 +24,7 @@ void Ocarina(ItemBehavior* pItemBeh, u32 inputFlags)
     // u32 *ocarinaStates = &gOcarinaStates;
     //_call_via_r2(pItemBeh, inputFlags,(ocarinaStates)[pItemBeh->stateID]);
     gOcarinaStates[pItemBeh->stateID](pItemBeh, inputFlags);
-    gLinkEntity.itemCooldown = gLinkEntity.itemCooldown + 1;
+    gLinkEntity.field_0x7a = gLinkEntity.field_0x7a + 1;
 }
 
 void OcarinaUse(ItemBehavior* itemBeh, s32 inputFlags) {
@@ -40,7 +40,7 @@ void OcarinaUse(ItemBehavior* itemBeh, s32 inputFlags) {
         gLinkEntity.spriteSettings.raw &= var;
 
         gLinkEntity.flags &= 127;
-        gLinkEntity.itemCooldown = 2;
+        gLinkEntity.field_0x7a = 2;
         gLinkState.flags.all |= 0x10000000;
         gLinkState.filler8[0] = 255;
         gUnk_02034490 = 1;
