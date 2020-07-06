@@ -5029,7 +5029,7 @@ sub_080A7CFC: @ 0x080A7CFC
 	lsls r4, r4, #3
 	movs r6, #0
 	movs r0, #3
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080A7D38

@@ -810,7 +810,7 @@ SECTIONS {
 		asm/macroAcorn.o(.text);
 		asm/object9B.o(.text);
 		asm/treeHidingPortal.o(.text);
-		asm/lightableSwitch.o(.text);
+		src/lightableSwitch.o(.text);
 		asm/object9E.o(.text);
 		asm/fan.o(.text);
 		asm/objectA0.o(.text);

@@ -120,8 +120,8 @@ _0804B120:
 	.align 2, 0
 _0804B124: .4byte gUnk_080D50FC
 
-	thumb_func_start sub_0804B128
-sub_0804B128: @ 0x0804B128
+	thumb_func_start GetCurrentRoomProperty
+GetCurrentRoomProperty: @ 0x0804B128
 	push {lr}
 	adds r2, r0, #0
 	ldr r0, _0804B138 @ =gUnk_02017654

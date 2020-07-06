@@ -145,7 +145,7 @@ sub_08057174: @ 0x08057174
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xa]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r3, r0, #0
 	ldrb r0, [r3]
 	cmp r0, #0xff

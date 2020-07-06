@@ -440,7 +440,7 @@ sub_08040E3C: @ 0x08040E3C
 	bne _08040E86
 	strb r5, [r4, #0xc]
 	ldrb r0, [r4, #0xe]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	str r0, [r4, #0x54]
 	b _08040E8C
 _08040E86:

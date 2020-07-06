@@ -152,7 +152,7 @@ sub_080586EC: @ 0x080586EC
 	bl DeleteThisEntity
 _0805870A:
 	ldrb r0, [r7, #0xb]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0805875C

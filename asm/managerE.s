@@ -48,7 +48,7 @@ _08058E9E:
 	bl PlaySFX
 _08058EB4:
 	ldrb r0, [r4, #0xa]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	bl LoadRoomEntityList
 	bl DeleteThisEntity
 	b _08058EC8

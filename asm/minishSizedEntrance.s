@@ -52,7 +52,7 @@ _08090F1C:
 	cmp r0, #0
 	beq _08090F62
 	ldrb r0, [r4, #0xe]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	bl DoExitTransition
 _08090F62:
 	pop {r4, r5, r6, pc}

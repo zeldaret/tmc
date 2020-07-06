@@ -617,7 +617,7 @@ sub_0809963C: @ 0x0809963C
 	ldrb r0, [r5, #0xb]
 	cmp r0, #0
 	beq _08099684
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r4, r0, #0
 	ldrh r0, [r4]
 	bl CheckFlags

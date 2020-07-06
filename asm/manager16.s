@@ -15,7 +15,7 @@ sub_0805AB4C: @ 0x0805AB4C
 	push {r5, r6, r7}
 	adds r6, r0, #0
 	ldrb r0, [r6, #0xa]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _0805AB68
@@ -245,7 +245,7 @@ _0805AD06:
 	cmp r0, r5
 	ble _0805AD2C
 	ldrb r0, [r4, #0xa]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r3, r0, #0
 	cmp r3, #0
 	bne _0805ACD0

@@ -43,7 +43,7 @@ _080866FE:
 	adds r0, r6, #0
 	adds r0, #0x6c
 	ldrb r0, [r0]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r5, r0, #0
 	movs r0, #0
 	mov r8, r0

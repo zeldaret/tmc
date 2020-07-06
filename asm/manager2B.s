@@ -38,7 +38,7 @@ _0805D046:
 	cmp r0, #0x43
 	bhi _0805D0B0
 	ldrb r0, [r6, #0xa]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r5, r0, #0
 	movs r7, #0
 	movs r0, #0x36

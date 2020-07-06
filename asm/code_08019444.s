@@ -3472,7 +3472,7 @@ _0801AE70:
 	bl sub_0805BB74
 _0801AE8C:
 	movs r0, #5
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	cmp r0, #0
 	beq _0801AE9A
 	bl _call_via_r0
