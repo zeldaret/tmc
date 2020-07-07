@@ -29,7 +29,6 @@
 // sub_0804AEB0(entity,param_1);
 // if ((param_1->field_0x1 & 240) != 16) {
 // (entity->entityType).parameter = *(u8 *)&param_1->entityparameter;
-// /* i suspect this is where the entity's behavior is defined. Not sure. */
 // entity->actionDelay = (u8)((u32)param_1->entityparameter >> 8);
 // if ((type != 9) && (sub_0804AF0C(entity,param_1), entity->field_0x4 != NULL)) {
 // if ((param_1->entityType & 16) == 0) {

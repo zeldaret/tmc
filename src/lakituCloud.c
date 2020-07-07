@@ -1,13 +1,8 @@
 #include "global.h"
 #include "entity.h"
+#include "link.h"
 
-extern Entity gLinkEntity;
-
-extern void UpdateAnimationSingleFrame(Entity *);
-extern void InitAnimationForceUpdate(Entity *, s32);
 extern u32 GetNextFunction(Entity *);
-extern void ModHealth(s32);
-extern void CreateFx(Entity *, u16, u16);
 
 extern void (* const gUnk_080D0418[])(Entity *);
 extern void (* const gUnk_080D0430[])(Entity *);

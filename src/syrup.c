@@ -4,10 +4,8 @@
 
 
 extern void sub_0807DD50(Entity*);
-extern Entity* LoadExtraSpriteData(Entity*, SpriteLoadData*);
 extern void sub_0806ED78(Entity*);
 extern void sub_0805E3A0(Entity*, u32);
-extern void InitializeAnimation(Entity*, u32);
 
 extern void (*gUnk_081121D4[])(Entity*);
 
@@ -26,7 +24,7 @@ void Syrup(Entity *this)
 
 void sub_0806A1F8(Entity *this)
 {
-  Entity *iVar1;
+    u32 iVar1;
   SpriteLoadData *paVar2;
 
   (this->entityType).form == 0 ? (paVar2 = &gUnk_081121B4) : (paVar2 = &gUnk_081121C4);

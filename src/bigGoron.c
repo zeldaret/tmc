@@ -1,10 +1,10 @@
 #include "global.h"
 #include "entity.h"
+#include "link.h"
 
 extern void (*gUnk_081140D4[])(Entity*);
 
 extern u16 gUnk_081140CC[];
-extern Entity gLinkEntity;
 extern u32 gUnk_030010A0;
 extern void sub_0805E3A0(Entity*, u32);
 extern void sub_0806D0B0(Entity*);

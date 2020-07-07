@@ -1,11 +1,9 @@
 #include "global.h"
 #include "entity.h"
+#include "flags.h"
 
 extern void sub_080842D8(Entity*);
 extern void sub_08078828(Entity*);
-extern u32 CheckLocalFlag(u32);
-extern void InitializeAnimation(Entity*, u32);
-extern u32 CheckFlags(u32);
 extern void sub_08083E20(Entity*);
 
 extern void (*const gUnk_0811F7E8[])(Entity*);

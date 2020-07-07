@@ -9,28 +9,19 @@
 // Identified - to be sorted into header files
 extern u32 Random(void);
 extern void PlaySFX(u32);
-extern void UpdateSpriteOrderAndFlip(Entity*);
-extern void InitAnimationForceUpdate(Entity*, u32);
 extern void ShowNPCDialogue(Entity*, u32*);
 extern u32 UpdateFuseInteraction();
-extern void InitializeAnimation(Entity*, u32);
 extern void DeleteEntity(Entity*);
 extern u32 __modsi3(u32, u32);
 extern void DoFade(u32, u32);
-extern void UpdateAnimationSingleFrame(Entity*);
 extern u32 GetInventoryValue(u32);
-extern Entity* CreateFx(Entity*, u32, u32);
 extern u32 CheckKinstoneFused(u32);
 extern void ForceEquipItem(u8, u8);
 extern void LoadRoomEntityList();
-void ModHealth(s32);
 void CopyPosition(Entity*, Entity*);
 extern u32* StartCutscene(Entity*, u8*);
-extern void GetNextFrame(Entity*);
-extern u32 LoadExtraSpriteData(Entity*, u32*);
 extern void ResolveEntityOnTop(Entity*, Entity*);
-extern void SetExtraSpriteFrame(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
+
 
 // Unidentified
 extern void sub_0806ED78(Entity*);

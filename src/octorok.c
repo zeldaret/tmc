@@ -9,14 +9,12 @@ extern void sub_0804A7D4();
 extern void CreateDeathFx();
 extern void sub_0801ECFC();
 extern u32 sub_0806F520();
-extern void InitializeAnimation();
 extern void sub_0806F4E8();
 extern void sub_0806F3E4();
 extern void InitializeAnimationAnimation();
 extern void sub_0804A720();
 extern u32 Random();
 extern void sub_0801ED14();
-extern void GetNextFrame();
 
 extern void(*gOctorok[2]);
 extern void (*gOctorokIdle[4])(Entity*);

@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "npc.h"
 #include "textbox.h"
+#include "flags.h"
 
 typedef struct {
     u8 filler[8];
@@ -14,19 +15,13 @@ extern void sub_0806C7D4(Entity*);
 extern void sub_0806F118(Entity*);
 extern void sub_0807DD94(Entity*, u32);
 extern void sub_0807DD80(Entity*, u32*);
-extern u32 CheckGlobalFlag(u32);
-extern u32 CheckLocalFlag(u32);
-extern u32 CheckRoomFlag(u32);
 extern u32 sub_0801E99C();
-extern void InitializeAnimation(Entity*, u32);
-extern u32 UpdateFuseInteraction();
 extern void sub_08078784(Entity*, u32);
 extern void SetExtraSpriteFrame(Entity*, u32, u32);
 extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
 extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
 extern void sub_0807000C(Entity*);
 extern void ShowNPCDialogue(Entity*, u16*);
-extern void TextboxNoOverlap(u32, Entity*);
 
 extern void (*const gUnk_08113A7C[])(Entity*);
 extern void (*const gUnk_08113A8C[])(Entity*, Entity*);
@@ -80,7 +75,7 @@ void sub_0806C834(Entity* this) {
 }
 
 void sub_0806C85C(Entity* this) {
-    if (UpdateFuseInteraction() != 0) {
+    if (UpdateFuseInteraction(this) != 0) {
         this->action = 1;
     }
 }

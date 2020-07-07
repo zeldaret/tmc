@@ -2,7 +2,6 @@
 #include "entity.h"
 
 extern u32 GetNextFunction(Entity*);
-extern u32 GetNextFrame(Entity*);
 extern u32 sub_0806F520(Entity*);
 extern void sub_0806F4E8(Entity*);
 extern u32 sub_0806F3E4();

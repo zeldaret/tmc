@@ -153,6 +153,23 @@ typedef struct Entity {
 
 } Entity;
 
-#define COORD_TO_TILE(entity) ((((entity->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3fU) | (((entity->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
+#define COORD_TO_TILE(entity)                                           \
+    ((((entity->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
+     (((entity->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
+
+extern void InitializeAnimation(Entity*, u32);
+extern void InitAnimationForceUpdate(Entity*, u32);
+extern void UpdateAnimationSingleFrame(Entity*);
+extern void UpdateSpriteOrderAndFlip(Entity*);
+extern void GetNextFrame(Entity*);
+extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
+extern void SetExtraSpriteFrame(Entity*, u32, u32);
+extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
+
+extern Entity* CreateEnemy(u32 subtype, u32 form);
+extern Entity* CreateObject(u32 subtype, u32 form, u32 parameter);
+extern Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);
+extern Entity* CreateObjectWithParent(Entity* parent, u32 subtype, u32 form, u32 parameter);
+extern Entity* CreateFx(Entity* parent, u32 form, u32 parameter);
 
 #endif

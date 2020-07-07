@@ -450,7 +450,7 @@ SECTIONS {
 		asm/initializeLink.o(.text);
 		src/sub_08052620.o(.text);
 		src/sub_08052638.o(.text);
-		src/bitGetters.o(.text);
+		src/area.o(.text);
 		src/modHealth.o(.text);
 		src/modRupees.o(.text);
 		asm/code_080526F8.o(.text);

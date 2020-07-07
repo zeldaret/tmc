@@ -4,12 +4,6 @@
 #ifndef NPC_H
 #define NPC_H
 
-typedef struct {
-    u16 palette;
-    u8 animIndex;
-    u8 unk;
-} SpriteLoadData;
-
 extern void Gentari(Entity*);
 extern void Gentari_Fusion(Entity*);
 extern void Festari(Entity*);
@@ -174,5 +168,8 @@ extern void FusionMenuNPC_Head(Entity*);
 extern void Phonograph(Entity*);
 extern void NPC58(Entity*);
 extern void NPC58_Head(Entity*);
+
+
+extern u32 UpdateFuseInteraction(Entity*);
 
 #endif

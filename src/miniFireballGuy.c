@@ -5,10 +5,8 @@ extern void EnemyFunctionHandler(Entity*, void (*const func[])(Entity*));
 extern void sub_0804AA30(Entity*, void (*const func[][])(Entity*));
 extern void sub_0804A7D4(Entity*);
 extern void sub_0804A720(Entity*);
-extern void InitializeAnimation(Entity*, u32);
 extern void sub_08045678(Entity*);
 extern void sub_080AEFE0(void);
-extern void GetNextFrame(Entity*);
 extern u32 sub_08003FC4(Entity*, u32);
 extern void sub_08045678(Entity*);
 

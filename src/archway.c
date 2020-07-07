@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
+#include "sprite.h"
 
-extern void UpdateSpriteOrderAndFlip();
 extern u32 CheckIsDungeon();
 
 void Archway(Entity *this)

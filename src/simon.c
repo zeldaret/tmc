@@ -16,7 +16,6 @@ typedef struct {
 
 extern void DoExitTransition(void *);
 extern void SetTileType(u32, u32, u32);
-extern void CreateObjectWithParent(Entity*, u32, u32, u32);
 extern void DoExitTransition(void *);
 extern void DoFade(u32, u32);
 

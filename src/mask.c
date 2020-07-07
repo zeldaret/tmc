@@ -16,8 +16,6 @@ extern void ClearFlag(u16);
 
 extern void SetTile(u32, u16, u32);
 
-extern void CreateFx(Entity *, u16, u16);
-
 extern void sub_08000148(u16, u16, u32);
 extern s16 sub_080001DA(u16, u32);
 extern u16 sub_080002E0(u16, u32);

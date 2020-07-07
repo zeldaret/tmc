@@ -1,7 +1,6 @@
 #include "global.h"
 #include "entity.h"
 
-extern Entity* CreateObject();
 extern void CopyPosition();
 extern void sub_08086A6C();
 extern s32 sub_080044EC();

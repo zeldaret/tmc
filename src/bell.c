@@ -1,11 +1,7 @@
 #include "entity.h"
 #include "global.h"
 
-extern void UpdateAnimationSingleFrame();
 extern void (*gUnk_08123384[])(Entity*);
-
-extern void UpdateSpriteOrderAndFlip(Entity*);
-extern void InitAnimationForceUpdate();
 
 void Bell(Entity* ent) {
     gUnk_08123384[ent->action](ent);

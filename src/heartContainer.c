@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
+#include "flags.h"
 
-extern u32 CheckFlags(u32);
 extern void DeleteThisEntity();
 extern void sub_0808E714(Entity*);
 
