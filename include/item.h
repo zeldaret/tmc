@@ -16,7 +16,7 @@ typedef struct {
     u8 unk5;
 } ItemBehavior;
 
-void extern CellOverwriteSet(ItemBehavior*, u32);
+void extern DebugItem(ItemBehavior*, u32);
 void extern Sword(ItemBehavior*, u32);
 void extern Sword(ItemBehavior*, u32);
 void extern Sword(ItemBehavior*, u32);
@@ -38,11 +38,11 @@ void extern PacciCane(ItemBehavior*, u32);
 void extern MoleMitts(ItemBehavior*, u32);
 void extern RocsCape(ItemBehavior*, u32);
 void extern sub_08076800(ItemBehavior*, u32);
-void extern CellOverwriteSet(ItemBehavior*, u32);
+void extern DebugItem(ItemBehavior*, u32);
 void Ocarina(ItemBehavior*, u32);
-void extern CellOverwriteSet(ItemBehavior*, u32);
-void extern CellOverwriteSet(ItemBehavior*, u32);
-void extern CellOverwriteSet(ItemBehavior*, u32);
+void extern DebugItem(ItemBehavior*, u32);
+void extern DebugItem(ItemBehavior*, u32);
+void extern DebugItem(ItemBehavior*, u32);
 void extern TryPickupObject(ItemBehavior*, u32);
 void extern JarEmpty(ItemBehavior*, u32);
 void extern JarEmpty(ItemBehavior*, u32);

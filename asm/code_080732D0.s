@@ -4331,8 +4331,8 @@ sub_080752E8: @ 0x080752E8
 	.align 2, 0
 _080752FC: .4byte gItemFunctions
 
-	thumb_func_start CellOverwriteSet
-CellOverwriteSet: @ 0x08075300
+	thumb_func_start DebugItem
+DebugItem: @ 0x08075300
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0

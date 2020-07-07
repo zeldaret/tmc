@@ -434,8 +434,8 @@ _08056324:
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08056328
-sub_08056328: @ 0x08056328
+	thumb_func_start NulledItem
+NulledItem: @ 0x08056328
 	push {lr}
 	bl DeleteThisEntity
 	pop {pc}
