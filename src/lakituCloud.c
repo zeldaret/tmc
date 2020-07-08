@@ -9,9 +9,12 @@ extern u32 GetNextFunction(Entity *);
 extern void ModHealth(s32);
 extern void CreateFx(Entity *, u16, u16);
 
-extern void (* const gUnk_080D0418[])(Entity *);
-extern void (* const gUnk_080D0430[])(Entity *);
-extern void (* const gUnk_080D043C[])(Entity *);
+extern void sub_0804A7D4(Entity *);
+extern void sub_08001242(Entity *);
+
+extern void (*const gUnk_080D0418[6])(Entity *);
+extern void (*const gUnk_080D0430[3])(Entity *);
+extern void (*const gUnk_080D043C[3])(Entity *);
 
 extern bool32 sub_0806F3E4(Entity *);
 extern bool32 sub_0806F520(Entity *);
@@ -153,3 +156,24 @@ void sub_0803CE3C(Entity *this) {
 
     sub_0803CE14(this);
 }
+
+void (*const gUnk_080D0418[])(Entity *) = {
+    sub_0803CCD4,
+    sub_0803CCD4,
+    sub_0803CCEC,
+    sub_0804A7D4,
+    sub_08001242,
+    sub_0803CCFC,
+};
+
+void (*const gUnk_080D0430[])(Entity *) = {
+    sub_0803CD6C,
+    sub_0803CDA8,
+    sub_0803CDD8,
+};
+
+void (*const gUnk_080D043C[])(Entity *) = {
+    sub_0803CD2C,
+    sub_0803CD38,
+    sub_0803CD40,
+};

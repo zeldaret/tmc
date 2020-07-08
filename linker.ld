@@ -890,6 +890,10 @@ SECTIONS {
 		data/data_080B3740.o(.rodata);
 		src/trig.o(.rodata);
 		data/data_080C93E0.o(.rodata);
+		src/lakitu.o(.rodata);
+		data/data_080D0154.o(.rodata);
+		src/lakituCloud.o(.rodata);
+		data/data_080D0448.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
