@@ -1159,7 +1159,7 @@ sub_08041BE8: @ 0x08041BE8
 	bl sub_080AE068
 	ldr r1, _08041CC0 @ =0x000001F5
 	adds r0, r7, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	ldr r1, _08041CC4 @ =0x0000016B
 	adds r0, r7, #0
 	bl sub_0801D2B4

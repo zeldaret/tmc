@@ -1,13 +1,8 @@
 #include "global.h"
 #include "entity.h"
+#include "link.h"
 
-extern Entity gLinkEntity;
-
-extern void UpdateAnimationSingleFrame(Entity *);
-extern void InitAnimationForceUpdate(Entity *, s32);
 extern u32 GetNextFunction(Entity *);
-extern void ModHealth(s32);
-extern void CreateFx(Entity *, u16, u16);
 
 extern void sub_0804A7D4(Entity *);
 extern void sub_08001242(Entity *);
@@ -22,7 +17,7 @@ extern bool32 sub_0806F520(Entity *);
 extern void sub_0800449C(Entity *, u32);
 extern void sub_0803CE14(Entity *);
 extern void sub_0803CE3C(Entity *);
-extern Entity *sub_0804B128(u8);
+extern Entity *GetCurrentRoomProperty(u8);
 extern void sub_0806F4E8(Entity *);
 extern void sub_0806F69C(Entity *);
 extern void sub_08079D84(void);
@@ -81,7 +76,7 @@ void sub_0803CD6C(Entity *this) {
     this->height.HALF.HI = -2;
 
     // Set parent to lakitu
-    lakitu = sub_0804B128(this->entityType.form);
+    lakitu = GetCurrentRoomProperty(this->entityType.form);
     this->attachedEntity = lakitu;
     this->parent = lakitu;
 

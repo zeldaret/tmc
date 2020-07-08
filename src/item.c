@@ -2,8 +2,10 @@
 #include "entity.h"
 #include "item.h"
 
+
+// TODO - How does this relate to PlayerItemFunctions? Is this just a lookup table?
 void (*const gItemFunctions[])(ItemBehavior*, u32) = {
-    CellOverwriteSet,
+    DebugItem,
     Sword,
     Sword,
     Sword,
@@ -25,11 +27,11 @@ void (*const gItemFunctions[])(ItemBehavior*, u32) = {
     MoleMitts,
     RocsCape,
     sub_08076800,
-    CellOverwriteSet,
+    DebugItem,
     Ocarina,
-    CellOverwriteSet,
-    CellOverwriteSet,
-    CellOverwriteSet,
+    DebugItem,
+    DebugItem,
+    DebugItem,
     TryPickupObject,
     JarEmpty,
     JarEmpty,

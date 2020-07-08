@@ -2,6 +2,7 @@
 #define SPRITE_H
 
 #include "global.h"
+#include "entity.h"
 
 typedef struct {
     u8 index;
@@ -28,4 +29,11 @@ typedef struct {
     u8 numGfxTiles;
     u16 gfxTileIndex;
 } FrameGfxData;
+
+typedef struct {
+    u16 palette;
+    u8 animIndex;
+    u8 unk;
+} SpriteLoadData;
+
 #endif

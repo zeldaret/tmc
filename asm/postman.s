@@ -44,7 +44,7 @@ sub_08060428: @ 0x08060428
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	beq _08060444
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r1, r0, #0
 	b _08060446
 _08060444:

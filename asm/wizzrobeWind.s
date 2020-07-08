@@ -123,7 +123,7 @@ sub_0802F55C: @ 0x0802F55C
 	adds r0, #0x80
 	strb r2, [r0]
 	ldrb r0, [r4, #0xe]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	str r0, [r4, #0x54]
 	adds r0, r4, #0
 	bl sub_0802FA48

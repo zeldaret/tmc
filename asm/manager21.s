@@ -20,7 +20,7 @@ sub_0805B820: @ 0x0805B820
 	str r1, [r5, #0x20]
 _0805B834:
 	ldrb r0, [r5, #0xa]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r4, r0, #0
 	movs r7, #0
 	ldrh r0, [r4]

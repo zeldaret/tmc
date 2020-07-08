@@ -674,7 +674,7 @@ _080837FC:
 _08083808:
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	pop {r4, r5, pc}
 	.align 2, 0
 

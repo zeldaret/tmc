@@ -38,7 +38,7 @@ LilypadSmall: @ 0x08097A5C
 	orrs r0, r1
 	strb r0, [r2]
 	ldrb r0, [r5, #0xb]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	str r0, [r5, #0x54]
 	adds r1, r5, #0
 	adds r1, #0x54

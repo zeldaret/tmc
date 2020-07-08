@@ -735,10 +735,10 @@ _0809C948:
 	ldr r4, _0809C984 @ =0x00000115
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	ldr r0, [r5, #0x50]
 	adds r1, r4, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	adds r0, r5, #0
 	movs r1, #0xef
 	bl sub_0801D2B4

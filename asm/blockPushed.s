@@ -33,7 +33,7 @@ sub_08082EB4: @ 0x08082EB4
 	bl sub_080AE068
 	ldr r1, _08082EE4 @ =0x000001C1
 	adds r0, r4, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	cmp r0, #0
 	bne _08082EE8
 	ldrb r1, [r4, #0x18]

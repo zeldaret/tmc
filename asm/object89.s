@@ -349,14 +349,14 @@ sub_0809AD68: @ 0x0809AD68
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xa]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	bl LoadRoomEntityList
 	movs r0, #0x17
 	bl GetInventoryValue
 	cmp r0, #0
 	beq _0809AD8A
 	ldrb r0, [r4, #0xb]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	bl LoadRoomEntityList
 _0809AD8A:
 	pop {r4, pc}

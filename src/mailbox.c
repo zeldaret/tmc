@@ -1,12 +1,9 @@
 #include "global.h"
 #include "entity.h"
+#include "textbox.h"
 
 extern void sub_0806ED78(Entity*);
-extern void InitAnimationForceUpdate();
 extern void sub_08063280();
-extern void TextboxNoOverlapFollow(u32);
-extern void UpdateAnimationSingleFrame();
-extern void CreateFx();
 
 extern void (*gMailboxBehaviors[4])(Entity*);
 
@@ -34,7 +31,7 @@ void sub_08063220(Entity* this) {
     }
 
     if (this->animIndex != bVar1) {
-        InitAnimationForceUpdate(this);
+        InitAnimationForceUpdate(this, bVar1);
     } else {
         sub_08063280(this, bVar1);
     }
@@ -57,7 +54,7 @@ void sub_08063280(Entity* this, u32 unused) {
     u8 var;    // r2@1
 
     e = this;
-    UpdateAnimationSingleFrame();
+    UpdateAnimationSingleFrame(e);
     var = e->frames.all & 0x7F;
     e->frames.all ^= var;
     if (var == 2) CreateFx(e, 49, 0);

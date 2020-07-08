@@ -302,7 +302,7 @@ _080675BC:
 	adds r1, r1, r0
 	ldr r1, [r1]
 	adds r0, r2, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 _080675CC:
 	pop {pc}
 	.align 2, 0

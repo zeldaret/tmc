@@ -9,6 +9,3 @@ gUnk_080B2A70:: @ 080B2A70
 
 gUnk_080B2CD8:: @ 080B2CD8
 	.incbin "baserom.gba", 0x0B2CD8, 0x0000010
-
-gUnk_080B2CE8:: @ 080B2CE8
-	.incbin "baserom.gba", 0x0B2CE8, 0x0000064

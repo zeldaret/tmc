@@ -5029,7 +5029,7 @@ sub_080A7CFC: @ 0x080A7CFC
 	lsls r4, r4, #3
 	movs r6, #0
 	movs r0, #3
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080A7D38
@@ -5247,7 +5247,7 @@ _080A7E78:
 _080A7E92:
 	ldrh r1, [r5]
 	adds r0, r4, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 _080A7E9A:
 	cmp r0, #0
 	bne _080A7EA2

@@ -44,7 +44,7 @@ sub_080860D8: @ 0x080860D8
 	orrs r0, r1
 	strb r0, [r2]
 	ldrb r0, [r4, #0xb]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	str r0, [r4, #0x54]
 	adds r1, r4, #0
 	adds r1, #0x54

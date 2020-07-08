@@ -22,7 +22,6 @@ extern void (*gUnk_081115D0[])(Entity*);
 
 extern struct_030010A0 gUnk_030010A0;
 extern u16 gUnk_081115DC[];
-extern Entity gLinkEntity;
 extern u8 gUnk_08111618[];
 extern u32* gUnk_081115EC[];
 extern struct_02002A40 gUnk_02002A40;

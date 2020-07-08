@@ -163,7 +163,7 @@ _080302BA:
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	beq _080302C6
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	str r0, [r4, #0x7c]
 _080302C6:
 	adds r0, r4, #0

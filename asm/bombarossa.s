@@ -41,7 +41,7 @@ sub_080333D4: @ 0x080333D4
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	beq _0803340E
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	str r0, [r4, #0x54]
 	adds r1, r4, #0
 	adds r1, #0x54

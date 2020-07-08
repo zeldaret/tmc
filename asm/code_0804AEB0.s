@@ -169,7 +169,7 @@ sub_0804AFDC: @ 0x0804AFDC
 	push {r4, lr}
 	movs r4, #1
 	movs r0, #6
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	cmp r0, #0
 	beq _0804AFF0
 	bl _call_via_r0

@@ -7,7 +7,6 @@ extern s32 sub_080012DC(Entity*);
 extern u32 GetNextFunction(Entity*);
 extern void sub_0802AD54(Entity*);
 extern void sub_0802B048(Entity*);
-extern void InitializeAnimation(Entity*, u32);
 extern void sub_0806F4E8(Entity*);
 extern void sub_0806F3E4(Entity*);
 

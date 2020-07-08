@@ -2,7 +2,6 @@
 #include "entity.h"
 
 extern void EnemyFunctionHandler(Entity*, void (*const funcs[])(Entity*));
-extern void CreateFx(Entity*, u32, u32);
 extern void DeleteThisEntity();
 
 extern void (*const gUnk_080CB570[])(Entity*);

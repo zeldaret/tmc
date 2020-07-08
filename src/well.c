@@ -1,14 +1,13 @@
 #include "global.h"
 #include "entity.h"
 #include "room.h"
+#include "link.h"
 
 void SetTile(u32 tileIndex, s32 tilePosition, s32 layerIndex);
 s32 GetTileType(s32 tilePosition, s32 layerIndex);
 void sub_08078B48();
 void DeleteThisEntity();
 
-extern Entity gLinkEntity;
-extern RoomControls gRoomControls;
 extern void (*gUnk_08124C08[])(Entity*);
 
 void Well(Entity* ent) {

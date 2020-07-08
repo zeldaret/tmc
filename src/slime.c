@@ -12,15 +12,12 @@ extern void SetChildOffset(Entity*, u32, u32, u32);
 extern void sub_0804AA30(Entity*, void*);
 extern void sub_0804A9FC(Entity*, u32);
 extern void sub_0804A720(Entity*);
-extern void InitializeAnimation(Entity*, u32);
 extern void sub_08044FF8(Entity*);
 extern u32 Random(void);
-extern void GetNextFrame(Entity*);
 extern u32 sub_0806FA04(u32, u32);
 extern u32 sub_08049FA0(Entity*);
 extern u32 sub_08049EE4(Entity*);
 extern u32 sub_080AEF88(void);
-extern Entity* CreateEnemy(u32, u32);
 
 extern void (*gUnk_080D16BC[])(Entity*);
 extern void (*gUnk_080D16A4[])(Entity*);

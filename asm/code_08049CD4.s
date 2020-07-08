@@ -1394,7 +1394,7 @@ _0804A6E8:
 _0804A702:
 	ldrh r1, [r5]
 	adds r0, r4, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 _0804A70A:
 	cmp r0, #0
 	bne _0804A712

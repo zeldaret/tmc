@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "room.h"
+#include "flags.h"
 
 extern void sub_0805EA78(Entity*, u32);
 extern void sub_0805E3A0(Entity*, u32);
@@ -10,14 +11,10 @@ extern Entity* sub_0805EB9C(u32, u32);
 void CopyPosition(Entity*, Entity*);
 void sub_08068680(Entity*, Entity*);
 void sub_08068694(Entity*, Entity*);
-extern void SetGlobalFlag(u32);
-extern Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);
 u32 sub_0806EDC4(Entity* ent);
 void DeleteThisEntity(void);
 extern Entity* GetEntityByType(u32, u32);
 extern void sub_080686C4(Entity*, Entity*);
-extern void InitAnimationForceUpdate(Entity*, u32);
-extern void UpdateAnimationSingleFrame(Entity*);
 extern void sub_0806F62C(Entity*, u32, u32);
 extern u32 sub_08003FC4(Entity*, u32);
 extern void PlaySFX(u32);

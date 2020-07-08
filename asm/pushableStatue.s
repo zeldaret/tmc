@@ -619,7 +619,7 @@ _08089680:
 	adds r0, r2, #0
 	movs r1, #0xe9
 _08089684:
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	pop {pc}
 	.align 2, 0
 

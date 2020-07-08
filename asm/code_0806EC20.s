@@ -103,7 +103,7 @@ _0806ECC0:
 	b _0806ECD0
 _0806ECCA:
 	adds r0, r4, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 _0806ECD0:
 	ldrh r0, [r5, #4]
 	lsls r0, r0, #0x16

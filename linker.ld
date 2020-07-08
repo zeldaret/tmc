@@ -303,6 +303,8 @@ SECTIONS {
 		asm/bowUse.o(.text);
 		asm/sub_08019410.o(.text);
 		asm/code_08019444.o(.text);
+		asm/cellOverwriteSet.o(.text);
+		asm/code_0801C1D4.o(.text);
 		asm/drawUI.o(.text);
 		asm/code_0801C370.o(.text);
 		asm/drawRupees.o(.text);
@@ -412,6 +414,7 @@ SECTIONS {
 		asm/slime.o(.text);
 		asm/miniSlime.o(.text);
 		asm/fireballGuy.o(.text);
+		src/miniFireballGuy.o(.text);
 		asm/miniFireballGuy.o(.text);
 		asm/enemy5A.o(.text);
 		asm/businessScrubPrologue.o(.text);
@@ -447,7 +450,7 @@ SECTIONS {
 		asm/initializeLink.o(.text);
 		src/sub_08052620.o(.text);
 		src/sub_08052638.o(.text);
-		src/bitGetters.o(.text);
+		src/area.o(.text);
 		src/modHealth.o(.text);
 		src/modRupees.o(.text);
 		asm/code_080526F8.o(.text);
@@ -590,7 +593,7 @@ SECTIONS {
 		asm/librarians.o(.text);
 		asm/farmers.o(.text);
 		asm/carlov.o(.text);
-		asm/dampe.o(.text);
+		src/dampe.o(.text);
 		asm/drLeft.o(.text);
 		asm/kingGustaf.o(.text);
 		asm/gina.o(.text);
@@ -639,7 +642,7 @@ SECTIONS {
 		src/sub_0807B930.o(.text);
 		asm/code_0807B9B8.o(.text);
 		src/sub_0807C998.o(.text);
-		src/sub_0801D754.o(.text);
+		src/sub_0801D754.o(.text); /* ??? */
 		asm/sub_0807CA18.o(.text);
 		asm/getInventoryValue.o(.text);
 		asm/code_0807CAA0.o(.text);
@@ -731,8 +734,9 @@ SECTIONS {
 		asm/object4B.o(.text);
 		asm/pushableFurniture.o(.text);
 		asm/furniture.o(.text);
+		src/minishSizedEntrance.o(.text);
 		asm/minishSizedEntrance.o(.text);
-		asm/archway.o(.text);
+		src/archway.o(.text);
 		asm/giantRock.o(.text);
 		asm/object51.o(.text);
 		asm/object52.o(.text);
@@ -808,7 +812,7 @@ SECTIONS {
 		asm/macroAcorn.o(.text);
 		asm/object9B.o(.text);
 		asm/treeHidingPortal.o(.text);
-		asm/lightableSwitch.o(.text);
+		src/lightableSwitch.o(.text);
 		asm/object9E.o(.text);
 		asm/fan.o(.text);
 		asm/objectA0.o(.text);
@@ -884,6 +888,7 @@ SECTIONS {
         asm/intr.o(.text);
         /* data */
         data/data_080B2A70.o(.rodata);
+		data/playerItemFunctions.o(.rodata);
 		src/object.o(.rodata);
 		data/data_080B3054.o(.rodata);
 		src/npc.o(.rodata);

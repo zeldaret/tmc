@@ -16,7 +16,7 @@ sub_08057CB4: @ 0x08057CB4
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	ldrb r0, [r4, #0xa]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	str r0, [r4, #0x20]
 	cmp r0, #0
 	bne _08057CD6
@@ -72,7 +72,7 @@ _08057D18:
 	cmp r0, #0
 	bne _08057D3A
 	ldrb r0, [r4, #6]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	bl DoExitTransition
 _08057D3A:
 	adds r4, #8

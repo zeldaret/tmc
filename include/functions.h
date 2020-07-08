@@ -6,29 +6,22 @@
 #include "entity.h"
 #include "position.h"
 
-// Identified
+// Identified - to be sorted into header files
 extern u32 Random(void);
 extern void PlaySFX(u32);
-extern void UpdateSpriteOrderAndFlip(Entity*);
-extern void InitAnimationForceUpdate(Entity*, u32);
 extern void ShowNPCDialogue(Entity*, u32*);
 extern u32 UpdateFuseInteraction();
-extern void InitializeAnimation(Entity*, u32);
 extern void DeleteEntity(Entity*);
 extern u32 __modsi3(u32, u32);
 extern void DoFade(u32, u32);
-extern void UpdateAnimationSingleFrame(Entity*);
 extern u32 GetInventoryValue(u32);
-extern Entity* CreateFx(Entity*, u32, u32);
 extern u32 CheckKinstoneFused(u32);
 extern void ForceEquipItem(u8, u8);
 extern void LoadRoomEntityList();
-void ModHealth(s32);
 void CopyPosition(Entity*, Entity*);
 extern u32* StartCutscene(Entity*, u8*);
-extern void GetNextFrame(Entity*);
-extern u32 LoadExtraSpriteData(Entity*, u32*);
 extern void ResolveEntityOnTop(Entity*, Entity*);
+
 
 // Unidentified
 extern void sub_0806ED78(Entity*);
@@ -60,8 +53,6 @@ extern void sub_0807DD94(Entity*, u32);
 extern Entity* sub_0805EB00(u32, u32, u32);
 extern Entity* sub_0805EB2C(u32, u32, u32, u32, u32);
 extern s32 sub_0806ED9C(Entity*, u32, u32);
-extern void SetExtraSpriteFrame(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
 extern void sub_0807000C(Entity*);
 extern void sub_0805E47C(Entity*);
 extern void sub_0805E584(Entity*);

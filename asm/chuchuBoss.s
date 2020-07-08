@@ -1944,7 +1944,7 @@ _08026B2C:
 	strh r0, [r4, #0x2e]
 	adds r0, r4, #0
 	movs r1, #0x3e
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	ldrb r0, [r6, #0xb]
 	cmp r0, #0
 	bne _08026B46
@@ -4338,7 +4338,7 @@ sub_08027D20: @ 0x08027D20
 	strb r0, [r1]
 	adds r0, r4, #0
 	movs r1, #0x3e
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	ldrb r0, [r5, #0xb]
 	cmp r0, #0
 	bne _08027D5E

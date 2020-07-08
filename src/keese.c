@@ -10,13 +10,10 @@ extern u32 sub_0806F3E4(Entity*);
 extern void sub_0804A7D4(Entity*);
 extern void sub_0804A720(Entity*);
 extern u32 Random();
-extern void UpdateSpriteOrderAndFlip(Entity*);
 extern void sub_08021EF0(Entity*);
-extern void GetNextFrame(Entity*);
 extern void sub_080AEFB4(Entity*);
 extern void sub_08021F24(Entity*);
 extern u32 sub_0806FCB8(Entity*, s32, s32, u32);
-extern void InitializeAnimation(Entity*, u32);
 
 extern void (*gUnk_080CB69C[])(Entity*);
 extern void (*gUnk_080CB6B4[])(Entity*);

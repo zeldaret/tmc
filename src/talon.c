@@ -4,11 +4,9 @@
 #include "functions.h"
 #include "link.h"
 
-extern Entity gLinkEntity;
-
 extern void (*gUnk_0810FEC4[])(Entity* this);
 extern void (*gUnk_0810FEBC[])(Entity* this);
-extern u32 gUnk_0810FEB0;
+extern SpriteLoadData gUnk_0810FEB0;
 extern u8 gUnk_0800B41C;
 extern u8 gUnk_0810FED8[];
 

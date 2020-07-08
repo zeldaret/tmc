@@ -60,4 +60,7 @@ typedef struct {
 
 extern RoomControls gRoomControls;
 extern RoomVars gRoomVars;
+
+extern void SetTileType(u32, u32, u32);
+
 #endif
