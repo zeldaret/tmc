@@ -925,8 +925,8 @@ _08018C10:
 _08018C14: .4byte gUnk_080FEAC8
 _08018C18: .4byte gUnk_080FE320
 
-	thumb_func_start sub_08018C1C
-sub_08018C1C: @ 0x08018C1C
+	thumb_func_start CreateMinishEntrance
+CreateMinishEntrance: @ 0x08018C1C
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}

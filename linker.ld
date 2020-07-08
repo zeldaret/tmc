@@ -811,6 +811,7 @@ SECTIONS {
 		asm/object99.o(.text);
 		asm/macroAcorn.o(.text);
 		asm/object9B.o(.text);
+		src/treeHidingPortal.o(.text);
 		asm/treeHidingPortal.o(.text);
 		src/lightableSwitch.o(.text);
 		asm/object9E.o(.text);

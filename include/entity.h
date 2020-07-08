@@ -157,6 +157,10 @@ typedef struct Entity {
     ((((entity->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
      (((entity->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
 
+#define COORD_TO_TILE_OFFSET(entity, xOff, yOff)                               \
+    ((((entity->x.HALF.HI - xOff - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
+     (((entity->y.HALF.HI - yOff - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
+
 extern void InitializeAnimation(Entity*, u32);
 extern void InitAnimationForceUpdate(Entity*, u32);
 extern void UpdateAnimationSingleFrame(Entity*);
@@ -172,4 +176,5 @@ extern Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);
 extern Entity* CreateObjectWithParent(Entity* parent, u32 subtype, u32 form, u32 parameter);
 extern Entity* CreateFx(Entity* parent, u32 form, u32 parameter);
 
+extern void DeleteThisEntity();
 #endif
