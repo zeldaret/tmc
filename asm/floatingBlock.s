@@ -33,7 +33,7 @@ FloatingBlock: @ 0x080A0554
 	adds r0, #0x38
 	strb r2, [r0]
 	adds r0, r3, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _080A0588:
 	pop {pc}
 	.align 2, 0

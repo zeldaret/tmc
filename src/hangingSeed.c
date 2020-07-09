@@ -32,8 +32,8 @@ void sub_08021720(Entity *this)
   this->action = 1;
   this->spriteSettings.b.draw = 1;
   this->frameIndex = (this->entityType).form;
-  this->spriteOrder.b3 = 1;
-  this->ticks.b0 = 3;
+  this->spriteRendering.b3 = 1;
+  this->spritePriority.b0 = 3;
 }
 
 void nullsub_08(Entity* this){}

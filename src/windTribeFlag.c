@@ -13,7 +13,7 @@ void WindTribeFlag(Entity *this)
     else {
       this->spriteSettings.b.flipX = 1;
     }
-    UpdateSpriteOrderAndFlip(this);
+    UpdateSpriteForCollisionLayer(this);
     InitializeAnimation(this,0);
   }
   else {

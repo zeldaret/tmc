@@ -17,8 +17,8 @@ void Object86(Entity* this) {
 
 void sub_08099DD0(Entity* this) {
     this->collisionLayer = 1;
-    this->spriteOrder.b3 = 3;
-    this->ticks.b0 = 7;
+    this->spriteRendering.b3 = 3;
+    this->spritePriority.b0 = 7;
     this->previousActionFlag = 0;
     if (GetInventoryValue(0x46)) {
         this->action = 4;

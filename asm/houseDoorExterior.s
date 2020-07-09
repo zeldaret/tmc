@@ -108,7 +108,7 @@ _08086718:
 	ldrb r0, [r5, #5]
 	strb r0, [r4, #0xd]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	ldr r0, [r6, #0x68]
 	orrs r0, r7
 	str r0, [r6, #0x68]

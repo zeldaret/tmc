@@ -80,7 +80,7 @@ _0803930C:
 	b _0803933A
 _08039334:
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _0803933A:
 	pop {r4, pc}
 

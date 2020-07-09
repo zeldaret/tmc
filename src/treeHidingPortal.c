@@ -29,7 +29,7 @@ void sub_0809E83C(Entity* this) {
     }
     this->action = 1;
     this->collisionLayer = 2;
-    UpdateSpriteOrderAndFlip(this);
+    UpdateSpriteForCollisionLayer(this);
 }
 
 void sub_0809E86C(Entity* this) {
@@ -76,7 +76,7 @@ void sub_0809E918(Entity* this) {
             fx->x.HALF.HI += i[0];
             fx->y.HALF.HI += i[1];
             fx->collisionLayer = 2;
-            UpdateSpriteOrderAndFlip(fx);
+            UpdateSpriteForCollisionLayer(fx);
         }
         i += sizeof(s16);
     }

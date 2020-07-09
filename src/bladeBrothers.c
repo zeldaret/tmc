@@ -176,7 +176,7 @@ void sub_08068BEC(Entity* this, u32 unused) {
 
     target = CreateFx(this, 0x44, 0);
     if (target) {
-        target->ticks.b0 = 1;
+        target->spritePriority.b0 = 1;
         PositionRelative(this, target, 0, -0x100000);
         PlaySFX(0xfa);
     }

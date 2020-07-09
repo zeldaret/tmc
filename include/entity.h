@@ -72,7 +72,7 @@ typedef struct Entity {
     /*    */     u8 alphaBlend : 2; // 4-8
     /*    */     u8 b2         : 2; //0x10
     /*    */     u8 b3         : 2; //0x40
-    /*    */ } PACKED spriteOrder;
+    /*    */ } PACKED spriteRendering;
     /*0x1a*/ u8 palette;
     /*0x1b*/ struct {
     /*    */     u8 b0    : 4;
@@ -90,7 +90,7 @@ typedef struct Entity {
     /*    */     u8 b0 : 3; // 1-4
     /*    */     u8 b1 : 3; //   8
     /*    */     u8 b2 : 2; //0x40
-    /*    */ } PACKED ticks;
+    /*    */ } PACKED spritePriority;
     /*0x2a*/ u16 collisions;
     /*0x2c*/ union SplitWord x;
     /*0x30*/ union SplitWord y;
@@ -163,7 +163,7 @@ typedef struct Entity {
 extern void InitializeAnimation(Entity*, u32);
 extern void InitAnimationForceUpdate(Entity*, u32);
 extern void UpdateAnimationSingleFrame(Entity*);
-extern void UpdateSpriteOrderAndFlip(Entity*);
+extern void UpdateSpriteForCollisionLayer(Entity*);
 extern void GetNextFrame(Entity*);
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 extern void SetExtraSpriteFrame(Entity*, u32, u32);

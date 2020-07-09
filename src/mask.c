@@ -103,7 +103,7 @@ void sub_08092A94(Entity *this) {
     this->height.HALF.HI -= 0x20;
     this->y.HALF.HI += 0x20;
 
-    this->spriteOrder.b3 = 2;
+    this->spriteRendering.b3 = 2;
 }
 
 // Probably falling down

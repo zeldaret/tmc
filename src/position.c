@@ -28,7 +28,7 @@ void PositionRelative(Entity* source, Entity* target, s32 offsetX, s32 offsetY) 
 
     target->height = source->height; // ldr
     target->collisionLayer = source->collisionLayer;
-    UpdateSpriteOrderAndFlip(target);
+    UpdateSpriteForCollisionLayer(target);
 }
 
 void CopyPositionAndSpriteOffset(Entity *param_1,Entity *param_2)
@@ -47,10 +47,10 @@ void sub_0806FA90(Entity *param_1,Entity *param_2, s32 offsetX, s32 offsetY)
 
 void ResolveEntityOnTop(Entity *param_1,Entity *param_2)
 {
-    param_2->ticks.b0 = gUnk_08114F78[param_1->ticks.b0];
+    param_2->spritePriority.b0 = gUnk_08114F78[param_1->spritePriority.b0];
 }
 
 void sub_0806FAD8(Entity *param_1,Entity *param_2)
 {
-  param_2->ticks.b0 = gUnk_08114F80[param_1->ticks.b0];
+  param_2->spritePriority.b0 = gUnk_08114F80[param_1->spritePriority.b0];
 }

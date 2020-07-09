@@ -16,8 +16,8 @@ void MinishSizedEntrance(Entity* this)
 void sub_08090EC0(Entity *this)
 {
   this->action = 1;
-  this->spriteOrder.b3 = 3;
-  this->ticks.b0 = 7;
+  this->spriteRendering.b3 = 3;
+  this->spritePriority.b0 = 7;
   this->frameIndex = (this->entityType).parameter;
   if (CheckIsDungeon()) {
     this->frameIndex += 4;

@@ -90,7 +90,7 @@ void sub_08018DE8(Entity *this)
             this->attachedEntity->previousActionFlag = 4;
             this->flags = this->flags | 0x80;
             this->action = 2;
-            this->ticks.b0 = 2;
+            this->spritePriority.b0 = 2;
             this->attachedEntity->spriteSettings.b.draw = 1;
             sub_08018FA0(this);
             break;

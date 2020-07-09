@@ -270,7 +270,7 @@ void sub_0803CA0C(Entity *this) {
     if (sub_08003FC4(this, 0x1800) == 0 && this->animIndex <= 19) {
         InitAnimationForceUpdate(this, this->animationState + 20);
 
-        this->ticks.b1 = 0;
+        this->spritePriority.b1 = 0;
     }
 
     UpdateAnimationSingleFrame(this);
@@ -370,7 +370,7 @@ void sub_0803CBAC(Entity *this) {
     this->action = 7;
     this->spriteSettings.b.draw = 1;
 
-    this->ticks.b1 = 1;
+    this->spritePriority.b1 = 1;
 
     this->flags2 &= 0x7b;
 

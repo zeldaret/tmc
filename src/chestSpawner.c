@@ -29,7 +29,7 @@ void sub_08083E20(Entity *this)
 {
   this->action = 3;
   this->spriteSettings.b.draw = 1;
-  this->spriteOrder.alphaBlend = 0;
+  this->spriteRendering.alphaBlend = 0;
   sub_080842D8(this);
   sub_08078828(this);
 }

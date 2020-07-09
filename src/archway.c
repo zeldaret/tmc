@@ -18,10 +18,10 @@ void Archway(Entity *this)
         this->spriteSettings.raw = v1 | 1;
         this->frameIndex = this->entityType.parameter;
         this->collisionLayer = 2;
-        UpdateSpriteOrderAndFlip(this);
+        UpdateSpriteForCollisionLayer(this);
         v3 = CheckIsDungeon();
     if (v3 != 0) {
-      this->ticks.b0 = (this->ticks.b0 & 0xf8) | 1;
+      this->spritePriority.b0 = (this->spritePriority.b0 & 0xf8) | 1;
     }
   }
 }

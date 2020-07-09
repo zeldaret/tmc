@@ -364,7 +364,7 @@ _080219C2:
 	movs r1, #0
 	bl InitializeAnimation
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _08021A04:
 	pop {r4, pc}
 	.align 2, 0

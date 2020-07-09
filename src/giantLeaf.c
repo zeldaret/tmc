@@ -13,8 +13,8 @@ void GiantLeaf(Entity* ent) {
     if (ent->action == 0) {
         ent->action = 1;
         ent->spriteSettings.b.draw = 1;
-        ent->spriteOrder.b3 = 3;
-        ent->ticks.b0 = 7;
+        ent->spriteRendering.b3 = 3;
+        ent->spritePriority.b0 = 7;
         ent->frameIndex = ent->entityType.form;
         sub_0808D618(ent);
     }

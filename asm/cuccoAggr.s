@@ -240,7 +240,7 @@ sub_08038E18: @ 0x08038E18
 	adds r0, r4, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _08038E70:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1

@@ -38,7 +38,7 @@ void sub_0809EA34(Entity* this) {
     this->flags2 = 10;
     this->boundingBox = &gUnk_080FD150;
     sub_0809EAD8(this);
-    UpdateSpriteOrderAndFlip(this);
+    UpdateSpriteForCollisionLayer(this);
     sub_0809EABC(this);
 }
 
@@ -110,7 +110,7 @@ void sub_0809EB80(Entity* this) {
     this->flags2 = 10;
     this->boundingBox = &gUnk_080FD150;
     sub_0809EAD8(this);
-    UpdateSpriteOrderAndFlip(this);
+    UpdateSpriteForCollisionLayer(this);
     if (CheckFlags(this->cutsceneBeh.HWORD) != 0) {
         this->action = 3;
         this->frameIndex = 2;

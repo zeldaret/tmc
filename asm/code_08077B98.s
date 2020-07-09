@@ -3397,7 +3397,7 @@ _080794F4:
 	bne _080794F4
 _08079514:
 	ldr r0, _0807951C @ =gLinkEntity
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	pop {r4, r5, pc}
 	.align 2, 0
 _0807951C: .4byte gLinkEntity

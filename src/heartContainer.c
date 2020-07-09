@@ -30,7 +30,7 @@ void sub_0808E6E4(Entity* this) {
     if (CheckFlags(this->field_0x86)) {
         this->action = 2;
         this->spriteSettings.b.draw = 1;
-        this->spriteOrder.b0 = 3;
+        this->spriteRendering.b0 = 3;
         sub_0808E714(this);
     }
 }

@@ -63,7 +63,7 @@ Entity * sub_080A2A64(Entity *parent)
   
   pEVar1 = CreateFx(parent, 0x20, 0);
   if (pEVar1 != NULL) {
-    pEVar1->ticks.b0 = 7;
+    pEVar1->spritePriority.b0 = 7;
   }
   return pEVar1;
 }

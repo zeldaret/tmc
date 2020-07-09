@@ -3153,7 +3153,7 @@ sub_08074A48: @ 0x08074A48
 	movs r0, #1
 	strb r0, [r1, #0xe]
 	adds r0, r1, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	ldrh r1, [r5, #0x22]
 	adds r0, r4, #0
 	adds r0, #0x38

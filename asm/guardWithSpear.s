@@ -280,7 +280,7 @@ _08063EFE:
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r4, #0
 	bl sub_0807DD64
 	adds r0, r4, #0

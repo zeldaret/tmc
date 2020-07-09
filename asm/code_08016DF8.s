@@ -1567,7 +1567,7 @@ sub_08017940: @ 0x08017940
 	adds r0, #0x38
 	strb r1, [r0]
 	adds r0, r2, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _080179CC:
 	movs r1, #0
 	ldr r0, _080179E8 @ =gLinkEntity

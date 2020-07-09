@@ -340,7 +340,7 @@ _0802C48C:
 	orrs r0, r1
 	strb r0, [r2]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _0802C4AA:
 	pop {r4, r5, r6, r7, pc}
 

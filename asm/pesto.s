@@ -306,7 +306,7 @@ _08024132:
 	strh r0, [r4, #0x36]
 _08024136:
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	bl CheckIsDungeon
 	cmp r0, #0
 	beq _08024150

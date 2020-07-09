@@ -411,7 +411,7 @@ _0802EF5E:
 	strb r0, [r1]
 	str r6, [r4, #0x50]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r6, #0
 	adds r1, r4, #0
 	bl CopyPosition

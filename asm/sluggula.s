@@ -291,7 +291,7 @@ _08023D94:
 	movs r0, #0x84
 	bl sub_08004488
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	b _08023E0A
 _08023DC0:
 	adds r0, r4, #0
