@@ -729,6 +729,7 @@ SECTIONS {
 		src/heartContainer.o(.text);
 		asm/heartContainer.o(.text);
 		asm/object48.o(.text);
+		src/object49.o(.text);
 		asm/object49.o(.text);
 		asm/backgroundCloud.o(.text);
 		asm/object4B.o(.text);
@@ -789,7 +790,7 @@ SECTIONS {
 		asm/bigPushableLever.o(.text);
 		asm/smallIceBlock.o(.text);
 		asm/bigIceBlock.o(.text);
-		asm/object86.o(.text);
+		src/object86.o(.text);
 		asm/object87.o(.text);
 		asm/macroBook.o(.text);
 		asm/object89.o(.text);
@@ -858,6 +859,7 @@ SECTIONS {
 		src/createObject.o(.text);
 		src/createObjectWithParent.o(.text);
 		asm/createFx.o(.text);
+		src/code_080A29BC.o(.text);
 		asm/code_080A29BC.o(.text);
 		asm/playSFX.o(.text);
 		asm/code_080A3480.o(.text);
