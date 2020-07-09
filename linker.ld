@@ -299,6 +299,9 @@ SECTIONS {
 		asm/code_08016DF8.o(.text);
         /* C source compiled without interworking */
         asm/code_08018500.o(.text);
+		src/code_08018C58.o(.text);
+		src/item11.o(.text);
+		asm/item11.o(.text);
 		asm/createBowEntity.o(.text);
 		asm/bowUse.o(.text);
 		asm/sub_08019410.o(.text);
@@ -567,6 +570,7 @@ SECTIONS {
 		asm/vaati.o(.text);
 		src/zelda.o(.text);
 		asm/mutoh.o(.text);
+		src/carpenter.o(.text);
 		asm/carpenter.o(.text);
 		asm/castorWildsStatue.o(.text);
 		src/cat.o(.text);

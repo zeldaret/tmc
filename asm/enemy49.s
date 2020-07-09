@@ -291,7 +291,7 @@ _0803D08A:
 	ldr r0, _0803D0A8 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r5, #0x15]
 	b _0803D0AE
 	.align 2, 0

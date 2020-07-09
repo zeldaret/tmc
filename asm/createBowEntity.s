@@ -5,6 +5,19 @@
 	.syntax unified
 
 	.text
+	
+	thumb_func_start sub_08018FCC
+sub_08018FCC: @ 0x08018FCC
+	push {lr}
+	ldr r2, _08018FE0 @ =gUnk_080B3E30
+	ldrb r1, [r0, #0xc]
+	lsls r1, r1, #2
+	adds r1, r1, r2
+	ldr r1, [r1]
+	bl _call_via_r1
+	pop {pc}
+	.align 2, 0
+_08018FE0: .4byte gUnk_080B3E30
 
 	thumb_func_start sub_08018FE4
 sub_08018FE4: @ 0x08018FE4

@@ -125,7 +125,7 @@ sub_08063DC8: @ 0x08063DC8
 	strb r0, [r4, #0xe]
 	ldr r1, _08063DF4 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	strb r0, [r4, #0x14]
 	ldrb r1, [r4, #0x14]
@@ -166,7 +166,7 @@ _08063E1E:
 	strb r1, [r2]
 	ldr r1, _08063E50 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
@@ -311,7 +311,7 @@ sub_08063F20: @ 0x08063F20
 	strb r1, [r2]
 	ldr r1, _08063F74 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
@@ -737,7 +737,7 @@ _08064256:
 	bne _0806428C
 	ldr r1, _080642B0 @ =gLinkEntity
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5B0
 	strb r0, [r5, #0x14]
 	lsls r0, r0, #0x18
@@ -882,7 +882,7 @@ _08064376:
 	bne _080643AC
 	ldr r1, _080643D0 @ =gLinkEntity
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5B0
 	strb r0, [r5, #0x14]
 	lsls r0, r0, #0x18

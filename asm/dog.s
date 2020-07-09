@@ -212,7 +212,7 @@ sub_08069CB8: @ 0x08069CB8
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r1, _08069CF8 @ =gLinkEntity
-	bl sub_080045C4
+	bl GetFacingDirection
 	ldr r2, _08069CFC @ =gUnk_08111DB0
 	ldrb r1, [r4, #0x14]
 	lsls r1, r1, #5

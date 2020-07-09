@@ -913,7 +913,7 @@ _08085BB4:
 	bl sub_08085CDC
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r5, #0x15]
 	movs r1, #0x80
 	lsls r1, r1, #1

@@ -222,7 +222,7 @@ _08087B1E:
 _08087B3C:
 	ldr r0, [r4, #0x4c]
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 _08087B44:
 	strb r0, [r4, #0x15]
 	movs r0, #0x80

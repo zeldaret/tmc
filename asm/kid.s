@@ -265,7 +265,7 @@ _0806229A:
 	bhi _080622F2
 	ldr r1, _080622C8 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	ldrb r1, [r5]
 	movs r2, #4

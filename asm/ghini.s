@@ -414,7 +414,7 @@ _0803F2D8:
 	ldr r0, _0803F304 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	b _0803F310
 	.align 2, 0
 _0803F304: .4byte gUnk_020000B0
@@ -536,7 +536,7 @@ _0803F3C4:
 	ldr r0, _0803F410 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596

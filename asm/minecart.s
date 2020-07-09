@@ -343,7 +343,7 @@ _08091970: .4byte 0x00000137
 _08091974:
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r5, #0x15]
 _0809197E:
 	ldr r3, _080919A8 @ =gLinkEntity

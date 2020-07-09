@@ -627,7 +627,7 @@ _08040FB2:
 	ldr r0, _08041008 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596

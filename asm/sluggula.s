@@ -437,7 +437,7 @@ _08023EC2:
 	ldr r0, _08023F00 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	ldrb r2, [r5, #0x15]
 	subs r1, r0, r2
 	cmp r1, #0

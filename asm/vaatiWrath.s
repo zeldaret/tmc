@@ -2297,7 +2297,7 @@ _080424C6:
 	bne _08042502
 	ldr r1, _08042504 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	ldr r1, _08042508 @ =gUnk_080D0EB0
 	adds r0, r0, r1
 	ldrb r0, [r0]

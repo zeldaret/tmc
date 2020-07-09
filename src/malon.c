@@ -41,7 +41,7 @@ void sub_080658BC(Entity* this) {
     if (this->interactType == 2) {
         this->action = 2;
         this->interactType = 0;
-        InitAnimationForceUpdate(this, sub_0806F5A4(sub_080045C4(this, &gLinkEntity)));
+        InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
         sub_0806F118(this);
     } else {
         sub_0807DD94(this, 0);

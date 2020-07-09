@@ -987,7 +987,7 @@ _0803337E:
 	ldr r0, _080333B0 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r1, #2
 	movs r0, #0x1c

@@ -91,7 +91,7 @@ sub_080637B8: @ 0x080637B8
 	strb r0, [r1]
 	ldr r1, _08063800 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	ldrb r0, [r4, #0x18]

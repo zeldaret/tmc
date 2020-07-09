@@ -3013,7 +3013,7 @@ sub_0807E30C: @ 0x0807E30C
 	beq _0807E348
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5B0
 	strb r0, [r5, #0x14]
 _0807E348:
@@ -3032,7 +3032,7 @@ _0807E348:
 	str r0, [r4, #0x14]
 	ldr r1, _0807E378 @ =gLinkEntity
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5B0
 	strb r0, [r5, #0x14]
 	b _0807E37E
@@ -4213,7 +4213,7 @@ sub_0807EB74: @ 0x0807EB74
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0807EB88 @ =gLinkEntity
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5B0
 	strb r0, [r4, #0x14]
 	pop {r4, pc}
@@ -4226,7 +4226,7 @@ sub_0807EB8C: @ 0x0807EB8C
 	adds r1, r0, #0
 	ldr r4, _0807EBA4 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5B0
 	movs r1, #0xfe
 	ands r0, r1

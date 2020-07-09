@@ -112,7 +112,7 @@ sub_0809DA64: @ 0x0809DA64
 	adds r5, r0, #0
 	ldr r4, [r5, #0x54]
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r5, #0
 	bl sub_0809E1C8
@@ -1108,7 +1108,7 @@ sub_0809E210: @ 0x0809E210
 	adds r1, r0, #0
 	ldr r4, _0809E230 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5B0
 	movs r1, #0xfe
 	ands r0, r1

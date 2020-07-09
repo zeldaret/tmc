@@ -1478,7 +1478,7 @@ sub_0802DB84: @ 0x0802DB84
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r1, _0802DBB0 @ =gLinkEntity
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r5, #0x15]
 	adds r1, r5, #0
 	adds r1, #0x84
@@ -1561,7 +1561,7 @@ sub_0802DC1C: @ 0x0802DC1C
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	ldr r1, _0802DC40 @ =gLinkEntity
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r3, r0, #0
 	adds r1, r5, #0
 	adds r1, #0x84
@@ -1672,7 +1672,7 @@ sub_0802DCE0: @ 0x0802DCE0
 	beq _0802DD44
 	ldr r1, _0802DD1C @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	ldr r2, [r5]
 	ldrb r1, [r2, #0x15]
@@ -2565,7 +2565,7 @@ _0802E3A4:
 	ldr r5, [r0]
 	ldr r1, _0802E408 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	lsls r0, r0, #3
 	movs r2, #0

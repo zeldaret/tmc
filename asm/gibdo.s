@@ -511,7 +511,7 @@ sub_08037810: @ 0x08037810
 	beq _080378AC
 	ldr r1, [r6]
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	ldrb r1, [r5, #0x15]
 	subs r0, r0, r1
 	adds r0, #6
@@ -530,7 +530,7 @@ sub_08037810: @ 0x08037810
 	strh r0, [r5, #0x24]
 	ldr r1, [r6]
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, #4
 	ands r0, r4
 	strb r0, [r5, #0x15]

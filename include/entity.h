@@ -139,7 +139,8 @@ typedef struct Entity {
     /*0x6a*/ union SplitHWord field_0x6a;
     /*0x6c*/ u8 field_0x6c;
     /*0x6d*/ u8 field_0x6d;
-    /*0x6e*/ u8 filler4[6];
+    /*0x6e*/ u8 filler4[2];
+    /*0x70*/ u32 field_0x70;
     /*0x74*/ u16 field_0x74;
     /*0x76*/ u16 field_0x76;
     /*0x78*/ union SplitHWord field_0x78;

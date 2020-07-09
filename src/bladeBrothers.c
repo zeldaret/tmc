@@ -134,7 +134,7 @@ void FUN_08068b2c(Entity* this) {
     if (this->interactType == '\x02') {
         this->action = 2;
         this->interactType = '\0';
-        uVar1 = sub_0806F5A4(sub_080045C4(this, &gLinkEntity));
+        uVar1 = sub_0806F5A4(GetFacingDirection(this, &gLinkEntity));
         InitAnimationForceUpdate(this, uVar1);
         sub_0806F118(this);
     } else {

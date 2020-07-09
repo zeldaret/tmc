@@ -127,7 +127,7 @@ sub_0801FCB0: @ 0x0801FCB0
 	ldr r0, _0801FD14 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r4, r0, #0
 	bl Random
 	ldr r2, _0801FD18 @ =gUnk_080CA4C8

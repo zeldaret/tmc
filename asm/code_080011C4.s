@@ -231,7 +231,7 @@ sub_0800132C: @ 0x0800132C
 	cmp r2, #0x11
 	blo _08001352
 _0800134E:
-	ldr r3, _08001378 @ =sub_080045C4
+	ldr r3, _08001378 @ =GetFacingDirection
 	bx r3
 _08001352:
 	movs r0, #0xff
@@ -245,7 +245,7 @@ _08001368: .4byte gUnk_080012C8
 _0800136C: .4byte gUnk_080012C8
 _08001370: .4byte sub_080AF18C
 _08001374: .4byte sub_080AF1BC
-_08001378: .4byte sub_080045C4
+_08001378: .4byte GetFacingDirection
 
 gUnk_0800137C:: @ 0800137C
 	.incbin "baserom.gba", 0x00137C, 0x0000004

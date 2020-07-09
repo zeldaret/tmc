@@ -273,7 +273,7 @@ sub_08061D64: @ 0x08061D64
 	strb r0, [r1]
 	ldr r1, _08061DAC @ =gLinkEntity
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	ldrb r1, [r4]
 	movs r2, #4
@@ -323,7 +323,7 @@ _08061DD4:
 	strb r0, [r1]
 	ldr r1, _08061E20 @ =gLinkEntity
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	ldrb r1, [r4]
 	movs r2, #4

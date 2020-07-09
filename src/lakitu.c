@@ -53,7 +53,7 @@ extern u32 sub_0806FCB8(Entity *, u32, u32, u32);
 extern u32 sub_080041A0(Entity *, Entity *, u32, u32);
 
 // sub_0803CA84
-extern u32 sub_080045C4(Entity *, Entity *);
+extern u32 GetFacingDirection(Entity *, Entity *);
 
 // sub_0803CAD0
 extern u8 sub_080045D4(s16, s16, u16, u16);
@@ -288,7 +288,7 @@ bool32 sub_0803CA4C(Entity *this) {
 }
 
 void sub_0803CA84(Entity *this, u32 unkParameter) {
-    u32 altAnimState = sub_080045C4(this, &gLinkEntity);
+    u32 altAnimState = GetFacingDirection(this, &gLinkEntity);
 
     if (((altAnimState - 3) & 7) > 2 || ((this->animationState  - (altAnimState >> 3)) & 3) > 1) {
         u32 intermediate = (altAnimState + 4) & 0x18;
@@ -334,7 +334,7 @@ void sub_0803CB34(Entity *this) {
     this->action = 5;
     this->damageType = 0xa6;
 
-    this->field_0x78.HALF.LO = sub_080045C4(this, &gLinkEntity);
+    this->field_0x78.HALF.LO = GetFacingDirection(this, &gLinkEntity);
 
     InitAnimationForceUpdate(this, this->animationState + 8);
 }

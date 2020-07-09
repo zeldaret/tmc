@@ -242,14 +242,14 @@ _0806FC9C:
 	thumb_func_start sub_0806FCA0
 sub_0806FCA0: @ 0x0806FCA0
 	push {lr}
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	pop {pc}
 
 	thumb_func_start sub_0806FCAC
 sub_0806FCAC: @ 0x0806FCAC
 	push {lr}
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5B0
 	pop {pc}
 

@@ -1147,7 +1147,7 @@ sub_08023894: @ 0x08023894
 	strh r0, [r4, #0x32]
 	ldr r0, [r5, #0x74]
 	adds r1, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, #4
 	movs r1, #0x18
 	ands r0, r1

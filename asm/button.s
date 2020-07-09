@@ -716,7 +716,7 @@ sub_08081FF8: @ 0x08081FF8
 	bne _08082036
 	adds r0, r1, #0
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r6, r0, #0
 	ldr r0, [r4, #0x54]
 	movs r1, #0x80

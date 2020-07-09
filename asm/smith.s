@@ -36,7 +36,7 @@ Smith: @ 0x08065FC0
 _08065FF0:
 	ldr r1, _08066020 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r5, r5, r0
 	adds r0, r4, #0

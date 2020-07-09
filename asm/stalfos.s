@@ -334,7 +334,7 @@ _0803950A:
 	strb r0, [r4, #0x15]
 	ldr r1, _0803952C @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, #4
 	movs r1, #0x18
 	ands r0, r1
@@ -681,7 +681,7 @@ _0803976A:
 	strh r0, [r4, #0x24]
 	ldr r1, [r5]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	ldrb r0, [r4, #0x15]
 	adds r0, #4
@@ -722,7 +722,7 @@ _080397DC:
 	strb r0, [r4, #0xe]
 	ldr r1, [r5]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	ldrb r1, [r4, #0x14]
 	adds r1, #0xc
@@ -849,7 +849,7 @@ sub_080398C0: @ 0x080398C0
 	beq _08039908
 	ldr r1, _08039904 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	b _08039928
 	.align 2, 0
 _08039900: .4byte gUnk_020000B0

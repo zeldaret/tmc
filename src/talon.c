@@ -126,7 +126,7 @@ void sub_080656D4(Entity* this) {
 void sub_0806574C(Entity* this) {
     u32 j;
 
-    j = (this->animIndex & ~3) + sub_0806F5A4(sub_080045C4(this, &gLinkEntity));
+    j = (this->animIndex & ~3) + sub_0806F5A4(GetFacingDirection(this, &gLinkEntity));
     if (this->animIndex != j) {
         InitAnimationForceUpdate(this, j);
     }

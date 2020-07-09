@@ -52,7 +52,7 @@ void sub_0806ABFC(Entity *this)
 
         Entity *link = &gLinkEntity;
         if (sub_080041A0(this, link, 0x18, 0x18)) {
-            unk = sub_080045C4(this, link) & (u8)0x1e;
+            unk = GetFacingDirection(this, link) & (u8)0x1e;
         }
         else {
             unk = this->animationState << 2;

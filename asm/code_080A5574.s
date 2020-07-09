@@ -7600,7 +7600,7 @@ _080A8FE8:
 	strb r0, [r4, #0xf]
 	ldr r1, _080A9048 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -10132,7 +10132,7 @@ sub_080AA2E0: @ 0x080AA2E0
 	beq _080AA31C
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	ldrb r1, [r5, #0x14]
 	lsls r1, r1, #2
 	adds r0, #4
@@ -11638,7 +11638,7 @@ _080AADE0:
 	strb r0, [r2]
 	ldr r1, _080AAE60 @ =gLinkEntity
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r5, #0x15]
 	adds r0, r5, #0
 	adds r0, #0x86
@@ -11706,7 +11706,7 @@ _080AAEA2:
 	strb r0, [r4, #0xf]
 	ldr r1, _080AAECC @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -13924,7 +13924,7 @@ sub_080ABF40: @ 0x080ABF40
 	strb r0, [r4, #0xc]
 	ldr r1, _080ABFA0 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	movs r1, #0
@@ -14120,7 +14120,7 @@ _080AC0B2:
 	strb r0, [r4, #0xc]
 	ldr r1, _080AC0EC @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	movs r0, #0xc0
 	lsls r0, r0, #1
@@ -14185,7 +14185,7 @@ _080AC13A:
 	bne _080AC160
 	ldr r1, _080AC164 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -14223,7 +14223,7 @@ sub_080AC168: @ 0x080AC168
 	strb r0, [r4, #0xf]
 	ldr r1, _080AC1C8 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	ldr r0, [r4, #0x50]
 	adds r0, #0x84
@@ -15313,7 +15313,7 @@ _080AC964:
 	strb r0, [r5, #0x10]
 	ldr r1, _080AC9C8 @ =gLinkEntity
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r5, #0x15]
 	movs r0, #0x97
 	lsls r0, r0, #1

@@ -393,7 +393,7 @@ sub_08049F84: @ 0x08049F84
 	cmp r1, #0
 	beq _08049F9C
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	b _08049F9E
 _08049F9C:
 	movs r0, #0xff
