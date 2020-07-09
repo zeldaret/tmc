@@ -127,7 +127,7 @@ void sub_080694EC(Entity* this) {
 void Goron_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        this->spriteSettings.b.ss0 = 1;
+        this->spriteSettings.b.draw = 1;
         InitAnimationForceUpdate(this, 2);
     } else {
         UpdateAnimationSingleFrame(this);

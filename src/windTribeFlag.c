@@ -8,10 +8,10 @@ void WindTribeFlag(Entity *this)
     this->action++;
     this->collisionLayer = 2;
     if ((this->entityType).form == 0) {
-      this->spriteSettings.b.ss6 = 0;
+      this->spriteSettings.b.flipX = 0;
     }
     else {
-      this->spriteSettings.b.ss6 = 1;
+      this->spriteSettings.b.flipX = 1;
     }
     UpdateSpriteOrderAndFlip(this);
     InitializeAnimation(this,0);

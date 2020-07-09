@@ -53,7 +53,7 @@ void nullsub_171() {
 
 void sub_08044FC8(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.ss0 = 1;
+    this->spriteSettings.b.draw = 1;
     this->nonPlanarMovement = 128;
     sub_0804A720(this);
     InitializeAnimation(this, 0);

@@ -30,7 +30,7 @@ void Stamp(Entity* ent) {
 
 void sub_08062BD4(Entity* ent) {
     ent->action = 1;
-    ent->spriteSettings.b.ss0 = 1;
+    ent->spriteSettings.b.draw = 1;
     InitializeAnimation(ent, 0);
     sub_08078778(ent);
 }

@@ -46,7 +46,7 @@ void sub_0809F4DC(Entity* this) {
 void sub_0809F514(Entity* this) {
     this->action = 1;
     this->actionDelay = 120;
-    this->spriteSettings.b.ss0 = 0;
+    this->spriteSettings.b.draw = 0;
     *(u8*)&this->field_0x68 = 12;
     gRoomControls.cameraTarget = this;
     gUnk_02034490 = 255;
@@ -80,7 +80,7 @@ void sub_0809F5B0(Entity* this) {
 
 void sub_0809F5DC(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.ss0 = 0;
+    this->spriteSettings.b.draw = 0;
     *(u8*)&this->field_0x68 = 12;
 }
 

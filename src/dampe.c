@@ -29,7 +29,7 @@ void Dampe(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
-            this->spriteSettings.b.ss0 = 1;
+            this->spriteSettings.b.draw = 1;
             sub_0805E3A0(this, 2);
             sub_0807DD50(this);
             return;
@@ -61,7 +61,7 @@ void sub_0806BE3C(Entity* this) {
 void Dampe_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action++;
-        this->spriteSettings.b.ss0 = 1;
+        this->spriteSettings.b.draw = 1;
         InitAnimationForceUpdate(this, 2);
     } else {
         UpdateAnimationSingleFrame(this);

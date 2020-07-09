@@ -229,7 +229,7 @@ void sub_0806924C(Entity* ent) {
 void Cow_Fusion(Entity* ent) {
     if (ent->action == 0) {
         ent->action++;
-        ent->spriteSettings.b.ss0 = 1;
+        ent->spriteSettings.b.draw = 1;
         InitAnimationForceUpdate(ent, 15);
     } else {
         UpdateAnimationSingleFrame(ent);

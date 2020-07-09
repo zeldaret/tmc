@@ -122,7 +122,7 @@ void sub_08068ADC(Entity* this) {
 
 void sub_08068AFC(Entity* this) {
     this->action = 1;
-    this->spriteSettings.b.ss0 = 1;
+    this->spriteSettings.b.draw = 1;
     *(u8*)&this->field_0x68 = sub_0801E99C(this);
     sub_08078784(this, *(u8*)&this->field_0x68);
     sub_0807DD50(this);
@@ -400,8 +400,8 @@ void BladeBrothers_Fusion(Entity* this) {
 
     if (this->action == 0) {
         this->action += 1;
-        this->spriteSettings.b.ss0 = 0;
-        this->spriteSettings.b.ss0 = 1;
+        this->spriteSettings.b.draw = 0;
+        this->spriteSettings.b.draw = 1;
         InitAnimationForceUpdate(this, 4);
     } else {
         UpdateAnimationSingleFrame(this);

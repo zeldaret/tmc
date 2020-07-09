@@ -48,14 +48,14 @@ void sub_08018CBC(Entity *this)
     this->field_0x44 = 6;
     this->boundingBox = &gUnk_080B3E18;
     this->attachedEntity->spriteOffsetX = 0;
-    this->attachedEntity->spriteSettings.b.ss0 = 0;
+    this->attachedEntity->spriteSettings.b.draw = 0;
   }
   else {
     if (gLinkState.field_0x1c == 0) {
       DeleteThisEntity();
     }
     this->action = 2;
-    this->spriteSettings.b.ss0 = 1;
+    this->spriteSettings.b.draw = 1;
     this->spriteTileSize = 0xa6;
     this->palette = 0x33;
     this->spriteVramOffset = 0;
@@ -91,7 +91,7 @@ void sub_08018DE8(Entity *this)
             this->flags = this->flags | 0x80;
             this->action = 2;
             this->ticks.b0 = 2;
-            this->attachedEntity->spriteSettings.b.ss0 = 1;
+            this->attachedEntity->spriteSettings.b.draw = 1;
             sub_08018FA0(this);
             break;
     }

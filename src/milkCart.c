@@ -12,7 +12,7 @@ void MilkCart(Entity* ent) {
 
 void sub_08065B6C(Entity* ent) {
     ent->action++;
-    ent->spriteSettings.b.ss0 = 1;
+    ent->spriteSettings.b.draw = 1;
     ent->y.HALF.LO += -0x8000;
     ent->animationState = 6;
     InitAnimationForceUpdate(ent, 3);

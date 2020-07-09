@@ -21,7 +21,7 @@ void sub_080869DC(Entity* ent) {
     Entity* itemEntity;
 
     ent->action = 1;
-    ent->spriteSettings.b.ss0 = 0;
+    ent->spriteSettings.b.draw = 0;
     ent->boundingBox = &gUnk_080FD1A8;
     ent->field_0x3c |= 16;
     itemEntity = CreateObject(0, ent->entityType.form, 0);

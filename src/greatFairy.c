@@ -161,8 +161,8 @@ void GreatFairy_WingsCallBehavior(Entity* this) {
 void GreatFairy_WingsInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
     this->ticks.b0 = 5;
-    this->spriteSettings.b.ss0 = 1;
-    this->spriteOrder.b1 = 1;
+    this->spriteSettings.b.draw = 1;
+    this->spriteOrder.alphaBlend = 1;
     gScreen.controls.windowOutsideControl = 3904;
     gScreen.controls.mosaicSize = 2057;
     this->nonPlanarMovement = 1024;
@@ -192,7 +192,7 @@ void GreatFairy_WakeCallBehavior(Entity* this) {
 
 void GreatFairy_WakeInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->spriteSettings.b.ss0 = 1;
+    this->spriteSettings.b.draw = 1;
     this->ticks.b0 = 6;
 }
 
@@ -213,7 +213,7 @@ void GreatFairy_MiniInit(Entity* this) {
         CopyPosition(this, aff);
         aff->parent = this;
         GreatFairy_InitializeAnimation(this);
-        this->spriteSettings.b.ss0 = 1;
+        this->spriteSettings.b.draw = 1;
         this->field_0xf = 0;
     }
 }
@@ -253,7 +253,7 @@ void GreatFairy_MiniAffineCallBehavior(Entity* this) {
 void GreatFairy_MiniAffineInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
     this->ticks.b0 = 6;
-    this->spriteSettings.b.ss0 = 1;
+    this->spriteSettings.b.draw = 1;
 }
 
 // Getting ready for affine transformation
@@ -293,7 +293,7 @@ void GreatFairy_DropletCallBehavior(Entity* this) {
 
 void GreatFairy_DropletInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->spriteSettings.b.ss0 = 1;
+    this->spriteSettings.b.draw = 1;
     this->height.HALF.HI = 0;
     this->ticks.b0 = 5;
     PlaySFX(320);
@@ -313,7 +313,7 @@ void GreatFairy_RippleCallBehavior(Entity* this) {
 
 void GreatFairy_RippleInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->spriteSettings.b.ss0 = 1;
+    this->spriteSettings.b.draw = 1;
     this->ticks.b0 = 6;
 }
 
@@ -333,7 +333,7 @@ void GreatFairy_BigRippleCallBehavior(Entity* this) {
 void GreatFairy_BigRippleInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
     this->actionDelay = 120;
-    this->spriteSettings.b.ss0 = 1;
+    this->spriteSettings.b.draw = 1;
     this->ticks.b0 = 5;
     PlaySFX(249);
 }
@@ -361,7 +361,7 @@ void GreatFairy_EnergyCallBehavior(Entity* this) {
 
 void GreatFairy_EnergyInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->spriteSettings.b.ss0 = 1;
+    this->spriteSettings.b.draw = 1;
     this->ticks.b0 = 5;
 }
 
@@ -387,7 +387,7 @@ void sub_08087150(Entity* this) {
     u32 var2;
 
     GreatFairy_InitializeAnimation(this);
-    this->spriteSettings.b.ss0 = 1;
+    this->spriteSettings.b.draw = 1;
     this->spriteOrientation &= 63;
     this->spriteOrder.b0 = 0;
     this->ticks.b0 = 3;
@@ -472,8 +472,8 @@ void sub_08087294(Entity* this) {
 
 #ifdef NON_MATCHING
 void sub_080872AC(Entity* this) {
-    this->spriteSettings.b.ss0 = 1;
-    this->spriteOrientation.b2 = 1;
+    this->spriteSettings.b.draw = 1;
+    this->spriteOrientation.flipY = 1;
     this->spriteOrder.b0 = 0;
     this->field_0x68 = (u16)(this->x).HALF.HI;
     this->field_0x6a = (u16)(this->y).HALF.HI;

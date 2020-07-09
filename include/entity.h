@@ -58,26 +58,26 @@ typedef struct Entity {
     /*0x18*/ union {
     /*    */     u8 raw;
     /*    */     struct {
-    /*    */         u8 ss0 : 2;
-    /*    */         u8 ss2 : 1;
-    /*    */         u8 ss3 : 1;
-    /*    */         u8 ss4 : 1;
-    /*    */         u8 ss5 : 1;
-    /*    */         u8 ss6 : 1;
-    /*    */         u8 ss7 : 1;
+    /*    */         u8 draw        : 2; // 1-2
+    /*    */         u8 ss2         : 1; //   4
+    /*    */         u8 ss3         : 1; //   8
+    /*    */         u8 bigShadow   : 1; //0x10
+    /*    */         u8 giantShadow : 1; //0x20
+    /*    */         u8 flipX       : 1; //0x40
+    /*    */         u8 flipY       : 1; //0x80
     /*    */     } PACKED b;
     /*    */ } PACKED spriteSettings;
     /*0x19*/ struct {
-    /*    */     u8 b0 : 2;
-    /*    */     u8 b1 : 2;
-    /*    */     u8 b2 : 2;
-    /*    */     u8 b3 : 2;
+    /*    */     u8 b0         : 2; // 1-2
+    /*    */     u8 alphaBlend : 2; // 4-8
+    /*    */     u8 b2         : 2; //0x10
+    /*    */     u8 b3         : 2; //0x40
     /*    */ } PACKED spriteOrder;
     /*0x1a*/ u8 palette;
     /*0x1b*/ struct {
-    /*    */     u8 b0 : 4;
-    /*    */     u8 b1 : 2;
-    /*    */     u8 b2 : 2;
+    /*    */     u8 b0    : 4;
+    /*    */     u8 flipX : 2; //0x10
+    /*    */     u8 flipY : 2; //0x40
     /*    */ } PACKED spriteOrientation;
     /*0x1c*/ u8 filler[1];
     /*0x1d*/ u8 field_0x1d;
@@ -87,9 +87,9 @@ typedef struct Entity {
     /*0x24*/ s16 nonPlanarMovement;
     /*0x26*/ u8 spriteAnimation[3];
     /*0x29*/ struct {
-    /*    */     u8 b0 : 3;
-    /*    */     u8 b1 : 3;
-    /*    */     u8 b2 : 2;
+    /*    */     u8 b0 : 3; // 1-4
+    /*    */     u8 b1 : 3; //   8
+    /*    */     u8 b2 : 2; //0x40
     /*    */ } PACKED ticks;
     /*0x2a*/ u16 collisions;
     /*0x2c*/ union SplitWord x;
@@ -124,8 +124,8 @@ typedef struct Entity {
     /*    */     struct {
     /*    */         u8 f0 : 1;
     /*    */         u8 f1 : 5;
-    /*    */         u8 f2 : 1;
-    /*    */         u8 f3 : 1;
+    /*    */         u8 f2 : 1; //0x40
+    /*    */         u8 f3 : 1; //0x80
     /*    */    } PACKED b;
     /*    */ } PACKED frames;
     /*0x5b*/ u8 frameSpriteSettings;

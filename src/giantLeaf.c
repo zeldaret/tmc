@@ -12,7 +12,7 @@ extern s16 gUnk_0812176A[];
 void GiantLeaf(Entity* ent) {
     if (ent->action == 0) {
         ent->action = 1;
-        ent->spriteSettings.b.ss0 = 1;
+        ent->spriteSettings.b.draw = 1;
         ent->spriteOrder.b3 = 3;
         ent->ticks.b0 = 7;
         ent->frameIndex = ent->entityType.form;

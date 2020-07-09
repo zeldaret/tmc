@@ -95,7 +95,7 @@ void sub_0808F1F8(Entity *this)
   this->spriteOrder.b0 = 3;
   this->action++;
   this->spriteOrder.b3 = this->parent->spriteOrder.b3;
-  this->spriteOrientation.b2 = this->parent->spriteOrientation.b2;
+  this->spriteOrientation.flipY = this->parent->spriteOrientation.flipY;
   this->ticks.b0 = 7;
   InitializeAnimation(this, 1);
   sub_0808F244(this);

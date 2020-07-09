@@ -52,7 +52,7 @@ void sub_0809E8BC(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 3;
         this->actionDelay = 0x3c;
-        this->spriteSettings.b.ss0 = 0;
+        this->spriteSettings.b.draw = 0;
         sub_0809E96C(this);
         sub_0809E918(this);
     }

@@ -43,7 +43,7 @@ void nullsub_23(Entity* this) {}
 void sub_08045618(Entity *this)
 {
   this->action = 1;
-  this->spriteSettings.b.ss0 = 1;
+  this->spriteSettings.b.draw = 1;
   this->nonPlanarMovement = 0x80;
   this->field_0x3c = this->field_0x3c | 0x10;
   sub_0804A720(this);

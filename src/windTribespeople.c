@@ -42,7 +42,7 @@ void sub_0806C798(Entity* this) {
     iVar1 = LoadExtraSpriteData(this, gUnk_08113A1C + (this->entityType.form * 4));
     if (iVar1 != 0) {
         this->action = 1;
-        this->spriteSettings.b.ss0 = 1;
+        this->spriteSettings.b.draw = 1;
         this->animationState = this->actionDelay;
         sub_0807DD50(this);
         sub_0806C7D4(this);

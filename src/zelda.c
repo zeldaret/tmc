@@ -34,7 +34,7 @@ void Zelda(Entity* ent) {
 
 void sub_08066CCC(Entity* ent) {
     ent->action = 1;
-    ent->spriteSettings.b.ss0 = 1;
+    ent->spriteSettings.b.draw = 1;
     sub_0805EA78(ent, 7);
     sub_0805E3A0(ent, 2);
     sub_0807DD50(ent);
@@ -54,7 +54,7 @@ void sub_08066D14(Entity* ent, u32* param_2) {
     parent = ent->parent;
     if (parent != NULL) {
         ent->animationState = parent->animationState;
-        ent->spriteSettings.b.ss0 = 1;
+        ent->spriteSettings.b.draw = 1;
         CopyPosition(parent, ent);
         sub_08068680(ent, ent->parent);
         param_2[5] = 1;
@@ -69,9 +69,9 @@ void sub_08066D4C(Entity* ent, u32* param_2) {
     parent = ent->parent;
     if (ent->parent != NULL) {
         CopyPosition(ent, parent);
-        ent->parent->spriteSettings.b.ss0 = 1;
+        ent->parent->spriteSettings.b.draw = 1;
         ent->parent->animationState = ent->animationState;
-        ent->spriteSettings.b.ss0 = 0;
+        ent->spriteSettings.b.draw = 0;
         ent->field_0x17 &= 0xFE;
         sub_08068694(ent, ent->parent);
         param_2[5] = 1;

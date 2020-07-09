@@ -18,11 +18,11 @@ void ThoughtBubble(Entity* this)
 void ThoughtBubble_Init(Entity *this)
 {
   this->action = 1;
-  this->spriteSettings.b.ss0 = 1;
+  this->spriteSettings.b.draw = 1;
   if (this->actionDelay == 0) {
     this->actionDelay = 0x2d;
   }
-  this->spriteOrientation.b2 = 1;
+  this->spriteOrientation.flipY = 1;
   InitializeAnimation(this, this->entityType.parameter);
   PlaySFX(ThoughtBubble_SFX[this->entityType.parameter]);
 }

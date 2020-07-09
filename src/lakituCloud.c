@@ -99,11 +99,11 @@ void sub_0803CDA8(Entity *this) {
 
 void sub_0803CDD8(Entity *this) {
     u8 one;
-    u8 ss0;
+    u8 draw;
 
-    ss0 = this->spriteSettings.b.ss0;
+    draw = this->spriteSettings.b.draw;
     one = 1;
-    this->spriteSettings.b.ss0 = ss0 ^ one;
+    this->spriteSettings.b.draw = draw ^ one;
 
     this->actionDelay--;
 
@@ -112,7 +112,7 @@ void sub_0803CDD8(Entity *this) {
         
         this->flags |= 0x80;
 
-        this->spriteSettings.b.ss0 = one;
+        this->spriteSettings.b.draw = one;
     }
 }
 

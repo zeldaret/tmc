@@ -180,7 +180,7 @@ void sub_0803C8BC(Entity *this) {
 
     if (sub_0803CA4C(this)) {
         this->action = 2;
-        this->spriteSettings.b.ss0 = 1;
+        this->spriteSettings.b.draw = 1;
     }
 }
 
@@ -218,7 +218,7 @@ void sub_0803C950(Entity *this) {
 
     if (this->frames.b.f3 != 0) {
         this->action = 1;
-        this->spriteSettings.b.ss0 = 0;
+        this->spriteSettings.b.draw = 0;
 
         InitAnimationForceUpdate(this, this->animationState);
     }
@@ -368,7 +368,7 @@ void sub_0803CBAC(Entity *this) {
     }
 
     this->action = 7;
-    this->spriteSettings.b.ss0 = 1;
+    this->spriteSettings.b.draw = 1;
 
     this->ticks.b1 = 1;
 

@@ -9,7 +9,7 @@ void Bell(Entity* ent) {
 
 void sub_08097D90(Entity* ent) {
     ent->action = 1;
-    ent->spriteSettings.b.ss0 = 1;
+    ent->spriteSettings.b.draw = 1;
     ent->collisionLayer = 1;
     ent->ticks.b0 = 0;
     UpdateSpriteOrderAndFlip(ent);
