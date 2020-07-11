@@ -6,20 +6,6 @@
 
 	.text
 
-
-	thumb_func_start Fan
-Fan: @ 0x0809ED18
-	push {lr}
-	ldr r2, _0809ED2C @ =gUnk_081243D4
-	ldrb r1, [r0, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	bl _call_via_r1
-	pop {pc}
-	.align 2, 0
-_0809ED2C: .4byte gUnk_081243D4
-
 	thumb_func_start sub_0809ED30
 sub_0809ED30: @ 0x0809ED30
 	push {r4, lr}

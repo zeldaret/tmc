@@ -819,7 +819,8 @@ SECTIONS {
 		src/treeHidingPortal.o(.text);
 		asm/treeHidingPortal.o(.text);
 		src/lightableSwitch.o(.text);
-		asm/object9E.o(.text);
+		src/object9E.o(.text);
+		src/fan.o(.text);
 		asm/fan.o(.text);
 		asm/objectA0.o(.text);
 		asm/palaceArchway.o(.text);
