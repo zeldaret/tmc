@@ -758,7 +758,7 @@ SECTIONS {
 		asm/houseDoorInterior.o(.text);
 		asm/whirlwind.o(.text);
 		asm/objectBlockingStairs.o(.text);
-		asm/swordsmanNewsletter.o(.text);
+		src/swordsmanNewsletter.o(.text);
 		asm/object61.o(.text);
 		asm/giantTwig.o(.text);
 		asm/object63.o(.text);
