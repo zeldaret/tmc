@@ -168,6 +168,7 @@ extern void GetNextFrame(Entity*);
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 extern void SetExtraSpriteFrame(Entity*, u32, u32);
 extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
+extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
 
 extern Entity* CreateEnemy(u32 subtype, u32 form);
 extern Entity* CreateObject(u32 subtype, u32 form, u32 parameter);

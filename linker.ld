@@ -551,6 +551,7 @@ SECTIONS {
 		asm/brocco.o(.text);
 		asm/sittingPerson.o(.text);
 		asm/pina.o(.text);
+		src/guard.o(.text);
 		asm/guardWithSpear.o(.text);
 		asm/castleMaid.o(.text);
 		asm/din.o(.text);
@@ -676,7 +677,7 @@ SECTIONS {
 		asm/object10.o(.text);
 		asm/object11.o(.text);
 		asm/object12.o(.text);
-		asm/railtrack.o(.text);
+		src/railtrack.o(.text);
 		asm/lilypadLarge.o(.text);
 		asm/object15.o(.text);
 		asm/floatingPlatform.o(.text);
