@@ -154,7 +154,7 @@ sub_0806C4A8: @ 0x0806C4A8
 	cmp r0, #0
 	beq _0806C4D8
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r1, r0, #0
 	cmp r1, #0
 	bge _0806C4CC

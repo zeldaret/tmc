@@ -6,30 +6,6 @@
 
 	.text
 
-	thumb_func_start sub_0805751C
-sub_0805751C: @ 0x0805751C
-	push {r4, lr}
-	adds r4, r0, #0
-	ldrb r1, [r4, #0xc]
-	cmp r1, #0
-	bne _0805753A
-	movs r0, #1
-	strb r0, [r4, #0xc]
-	ldr r0, _08057544 @ =gScreen
-	strh r1, [r0, #0x32]
-	strh r1, [r0, #0x1a]
-	ldr r1, _08057548 @ =sub_080576A0
-	adds r0, r4, #0
-	movs r2, #0
-	bl sub_08052D74
-_0805753A:
-	adds r0, r4, #0
-	bl sub_0805754C
-	pop {r4, pc}
-	.align 2, 0
-_08057544: .4byte gScreen
-_08057548: .4byte sub_080576A0
-
 	thumb_func_start sub_0805754C
 sub_0805754C: @ 0x0805754C
 	push {r4, r5, r6, lr}

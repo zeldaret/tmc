@@ -40,7 +40,7 @@ sub_0806ED9C: @ 0x0806ED9C
 	cmp r0, #0
 	beq _0806EDBC
 	adds r0, r5, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r6, r0, #0
 _0806EDBC:
 	adds r0, r6, #0
@@ -48,8 +48,8 @@ _0806EDBC:
 	.align 2, 0
 _0806EDC0: .4byte gLinkEntity
 
-	thumb_func_start sub_0806EDC4
-sub_0806EDC4: @ 0x0806EDC4
+	thumb_func_start GetAnimationState
+GetAnimationState: @ 0x0806EDC4
 	push {lr}
 	ldr r1, _0806EDD4 @ =gLinkEntity
 	bl GetFacingDirection

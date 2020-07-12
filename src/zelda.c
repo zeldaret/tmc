@@ -11,7 +11,7 @@ extern Entity* sub_0805EB9C(u32, u32);
 void CopyPosition(Entity*, Entity*);
 void sub_08068680(Entity*, Entity*);
 void sub_08068694(Entity*, Entity*);
-u32 sub_0806EDC4(Entity* ent);
+u32 GetAnimationState(Entity* ent);
 void DeleteThisEntity(void);
 extern Entity* GetEntityByType(u32, u32);
 extern void sub_080686C4(Entity*, Entity*);
@@ -89,7 +89,7 @@ void sub_08066D94(Entity* ent) {
     if (npc != NULL) {
         npc->animationState = gLinkEntity.animationState;
         npc->flags |= 0x20;
-        npc->animationState = sub_0806EDC4(ent);
+        npc->animationState = GetAnimationState(ent);
         roomID = gRoomControls.roomID;
         npc->field_0x74 = roomID;
         CopyPosition(ent, npc);

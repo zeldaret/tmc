@@ -467,7 +467,9 @@ SECTIONS {
 		asm/code_08055FF4.o(.text);
 		src/textbox.o(.text);
 		asm/code_08056418.o(.text);
+		src/manager1.o(.text);
 		asm/manager1.o(.text);
+		src/manager2.o(.text);
 		asm/manager2.o(.text);
 		asm/manager3.o(.text);
 		asm/manager4.o(.text);
@@ -562,7 +564,7 @@ SECTIONS {
 		src/epona.o(.text);
 		src/milkCart.o(.text);
 		asm/ghostBrothers.o(.text);
-		asm/smith.o(.text);
+		src/smith.o(.text);
 		asm/npc23.o(.text);
 		asm/kingDaltus.o(.text);
 		asm/ministerPotho.o(.text);

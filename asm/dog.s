@@ -171,7 +171,7 @@ sub_08069C40: @ 0x08069C40
 _08069C68: .4byte gLinkState
 _08069C6C:
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	strb r0, [r4, #0x14]
 	adds r0, r4, #0
 	bl sub_08069D00
@@ -426,7 +426,7 @@ sub_08069E44: @ 0x08069E44
 sub_08069E50: @ 0x08069E50
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	strb r0, [r4, #0x14]
 	adds r5, r4, #0
 	adds r5, #0x6b

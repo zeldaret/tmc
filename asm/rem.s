@@ -153,7 +153,7 @@ _0806A512:
 	adds r0, #0x6a
 	strh r2, [r0]
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl InitializeAnimation
@@ -169,7 +169,7 @@ _0806A52C:
 	movs r0, #2
 	strb r0, [r4, #0xd]
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl InitializeAnimation

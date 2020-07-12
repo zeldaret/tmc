@@ -166,7 +166,7 @@ _08064BCE:
 	movs r0, #3
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r1, r0, #0
 	cmp r1, #0
 	bge _08064BE0
@@ -187,7 +187,7 @@ _08064BFA:
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r1, r0, #0
 	cmp r1, #0
 	bge _08064C0C

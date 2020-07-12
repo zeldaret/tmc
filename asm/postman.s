@@ -769,7 +769,7 @@ CreateZeldaFollower: @ 0x080609AC
 	orrs r0, r1
 	strb r0, [r4, #0x10]
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	strb r0, [r4, #0x14]
 _080609E0:
 	pop {r4, pc}

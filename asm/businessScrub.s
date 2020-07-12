@@ -805,7 +805,7 @@ _08028F2C:
 	adds r0, r5, #0
 	bl sub_0804AA1C
 	adds r0, r5, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	lsls r0, r0, #3
 	strb r0, [r5, #0x15]
 	adds r0, r5, #0
