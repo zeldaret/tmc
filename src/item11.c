@@ -64,9 +64,9 @@ void sub_08018CBC(Entity *this)
     this->field_0x44 = gUnk_080B3DE0[(this->entityType).form * 2 + 1];
     this->field_0x40 = 0x1b;
     this->boundingBox = gUnk_080B3DE8[(this->entityType).form];
-    (u32 *)gLinkEntity.field_0x70 = this;
+    (u32 *)gLinkEntity.field_0x70.WORD = this;
     sub_08078CD0(&gLinkEntity);
-    (u32 *)gLinkEntity.field_0x70 = pEVar3;
+    (u32 *)gLinkEntity.field_0x70.WORD = pEVar3;
     InitializeAnimation(this, (this->entityType).form + 10);
     sub_08018FA0(this);
   }

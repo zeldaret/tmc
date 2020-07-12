@@ -112,7 +112,7 @@ void sub_0808F244(Entity *this)
   this->height.WORD = 0;
   *(u32 *)&this->field_0x74 = 0x80 - this->parent->height.HALF.HI;
   *(u32 *)&this->field_0x78 = 0x100 - this->parent->height.HALF.HI;
-  *(u32 *)&this->field_0x70 = *((u8 *)&this->parent->field_0x7c + 3);
+  *(u32 *)&this->field_0x70.WORD = *((u8 *)&this->parent->field_0x7c + 3);
   sub_0808F2B0(this);
   if ((this->parent->field_0x6d & 2) != 0) {
     DeleteThisEntity();
@@ -121,7 +121,7 @@ void sub_0808F244(Entity *this)
 
 void sub_0808F2B0(Entity *this)
 {
-  sub_0805EC9C(this, *(u32 *)&this->field_0x74, *(u32 *)&this->field_0x78, this->field_0x70);
+  sub_0805EC9C(this, *(u32 *)&this->field_0x74, *(u32 *)&this->field_0x78, this->field_0x70.WORD);
 }
 
 void sub_0808F2C0(Entity *this)
