@@ -608,7 +608,7 @@ SECTIONS {
 		asm/anju.o(.text);
 		asm/mama.o(.text);
 		src/emma.o(.text);
-		asm/teachers.o(.text);
+		src/teachers.o(.text);
 		src/windTribespeople.o(.text);
 		asm/windTribespeople.o(.text);
 		asm/gregal.o(.text);
@@ -704,7 +704,7 @@ SECTIONS {
 		asm/object2A.o(.text);
 		asm/object2B.o(.text);
 		asm/beanstalk.o(.text);
-		asm/smoke.o(.text);
+		src/smoke.o(.text);
 		asm/pushableRock.o(.text);
 		asm/hittableLever.o(.text);
 		asm/object30.o(.text);
