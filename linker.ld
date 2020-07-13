@@ -534,9 +534,9 @@ SECTIONS {
 		asm/code_0805E744.o(.text);
 		/* npcs */
 		src/gentari.o(.text);
-		asm/gentari.o(.text);
+		src/festari.o(.text);
 		asm/festari.o(.text);
-		asm/forestMinish.o(.text);
+		src/forestMinish.o(.text);
 		asm/postman.o(.text);
 		asm/npc5.o(.text);
 		asm/townsperson.o(.text);

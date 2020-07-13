@@ -74,6 +74,8 @@ typedef struct {
     u8 filler3[12];
 } Stats;
 
+extern u8 gBombBagSizes[];
+
 extern LinkState gLinkState;
 extern Stats gStats;
 extern Entity gLinkEntity;

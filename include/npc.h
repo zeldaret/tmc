@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "link.h"
 
 #ifndef NPC_H
 #define NPC_H
@@ -174,8 +175,14 @@ extern u32 UpdateFuseInteraction(Entity*);
 extern void ShowNPCDialogue(Entity*, u32*);
 
 typedef struct {
-    u8 filler[8];
-    u8 unk;
+    /*0x000*/ u8 filler[8];
+    /*0x008*/ u8 unk;
+    /*0x009*/ u8 filler2[0x47];
+    /*0x050*/ u32 unk2;
+    /*0x051*/ u8 filler3[0x54];
+    /*0x0a8*/ Stats stats;
+    /*0x0d0*/ u8 filler4[0x3c0];
+    /*0x490*/ u32 unk3;
 } struct_02002A40;
 
 extern struct_02002A40 gUnk_02002A40;
