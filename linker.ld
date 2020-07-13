@@ -537,6 +537,7 @@ SECTIONS {
 		src/festari.o(.text);
 		asm/festari.o(.text);
 		src/forestMinish.o(.text);
+		src/postman.o(.text);
 		asm/postman.o(.text);
 		asm/npc5.o(.text);
 		asm/townsperson.o(.text);
