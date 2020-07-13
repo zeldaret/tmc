@@ -9,8 +9,7 @@
 
 extern void sub_0805E3A0(Entity*, u32);
 extern void sub_0807DD50(Entity*);
-extern void GetFacingDirection(Entity*, Entity*);
-extern u32 sub_0806F5A4(void);
+extern u32 sub_0806F5A4(u32);
 extern void sub_0806F118(Entity*);
 extern void sub_0807DD94(Entity*, u32);
 extern u32 sub_0801E99C(void);
@@ -37,8 +36,7 @@ void Dampe(Entity* this) {
             if (this->interactType == 2) {
                 this->action = 2;
                 this->interactType = 0;
-                GetFacingDirection(this, &gLinkEntity);
-                InitAnimationForceUpdate(this, sub_0806F5A4() + 4);
+                InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)) + 4);
                 sub_0806F118(this);
             } else {
                 sub_0807DD94(this, 0);

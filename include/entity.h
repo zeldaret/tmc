@@ -160,6 +160,12 @@ typedef struct Entity {
     ((((entity->x.HALF.HI - xOff - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
      (((entity->y.HALF.HI - yOff - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
 
+extern Entity* CreateEnemy(u32 subtype, u32 form);
+extern Entity* CreateObject(u32 subtype, u32 form, u32 parameter);
+extern Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);
+extern Entity* CreateObjectWithParent(Entity* parent, u32 subtype, u32 form, u32 parameter);
+extern Entity* CreateFx(Entity* parent, u32 form, u32 parameter);
+
 extern void InitializeAnimation(Entity*, u32);
 extern void InitAnimationForceUpdate(Entity*, u32);
 extern void UpdateAnimationSingleFrame(Entity*);
@@ -170,11 +176,7 @@ extern void SetExtraSpriteFrame(Entity*, u32, u32);
 extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
 extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
 
-extern Entity* CreateEnemy(u32 subtype, u32 form);
-extern Entity* CreateObject(u32 subtype, u32 form, u32 parameter);
-extern Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);
-extern Entity* CreateObjectWithParent(Entity* parent, u32 subtype, u32 form, u32 parameter);
-extern Entity* CreateFx(Entity* parent, u32 form, u32 parameter);
+extern u32 GetFacingDirection(Entity*, Entity*);
 
 extern void DeleteThisEntity();
 #endif

@@ -533,6 +533,7 @@ SECTIONS {
 		asm/getEmptyEntity.o(.text);
 		asm/code_0805E744.o(.text);
 		/* npcs */
+		src/gentari.o(.text);
 		asm/gentari.o(.text);
 		asm/festari.o(.text);
 		asm/forestMinish.o(.text);
