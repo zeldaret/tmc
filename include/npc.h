@@ -171,5 +171,14 @@ extern void NPC58_Head(Entity*);
 
 
 extern u32 UpdateFuseInteraction(Entity*);
+extern void ShowNPCDialogue(Entity*, u32*);
+
+typedef struct {
+    u8 filler[8];
+    u8 unk;
+} struct_02002A40;
+
+extern struct_02002A40 gUnk_02002A40;
+
 
 #endif

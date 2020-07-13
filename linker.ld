@@ -572,7 +572,7 @@ SECTIONS {
 		asm/npc26.o(.text);
 		asm/vaati.o(.text);
 		src/zelda.o(.text);
-		asm/mutoh.o(.text);
+		src/mutoh.o(.text);
 		src/carpenter.o(.text);
 		asm/carpenter.o(.text);
 		asm/castorWildsStatue.o(.text);

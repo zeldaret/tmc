@@ -4,11 +4,6 @@
 #include "textbox.h"
 #include "flags.h"
 
-typedef struct {
-    u8 filler[8];
-    u8 unk;
-} struct_02002A40;
-
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 extern void sub_0807DD50(Entity*);
 extern void sub_0806C7D4(Entity*);
@@ -21,15 +16,13 @@ extern void SetExtraSpriteFrame(Entity*, u32, u32);
 extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
 extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
 extern void sub_0807000C(Entity*);
-extern void ShowNPCDialogue(Entity*, u16*);
 
 extern void (*const gUnk_08113A7C[])(Entity*);
 extern void (*const gUnk_08113A8C[])(Entity*, Entity*);
 
 extern SpriteLoadData gUnk_08113A1C[];
 extern u32 gUnk_08014A80;
-extern u16 gUnk_08113ABC[];
-extern struct_02002A40 gUnk_02002A40;
+extern u32 gUnk_08113ABC[];
 extern u16 gUnk_08113B0C[];
 
 void WindTribespeople(Entity* this) {
@@ -129,7 +122,7 @@ void sub_0806C90C(Entity *param_1,Entity *param_2)
 
 void sub_0806C928(Entity *this)
 {
-  ShowNPCDialogue(this, gUnk_08113ABC + (gUnk_02002A40.unk * 4));
+  ShowNPCDialogue(this, &gUnk_08113ABC[gUnk_02002A40.unk * 2]);
 }
 
 void sub_0806C944(Entity *this)
