@@ -607,7 +607,7 @@ SECTIONS {
 		asm/kingGustaf.o(.text);
 		asm/gina.o(.text);
 		src/npc/simon.o(.text);
-		asm/anju.o(.text);
+		src/npc/anju.o(.text);
 		asm/mama.o(.text);
 		src/npc/emma.o(.text);
 		src/npc/teachers.o(.text);
