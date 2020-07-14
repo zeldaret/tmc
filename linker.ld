@@ -375,7 +375,7 @@ SECTIONS {
 		asm/smallPesto.o(.text);
 		asm/acroBandits.o(.text);
 		src/enemy/bladeTrap.o(.text);
-		asm/keaton.o(.text);
+		src/enemy/keaton.o(.text);
 		asm/crow.o(.text);
 		asm/mulldozer.o(.text);
 		asm/bombarossa.o(.text);
