@@ -867,8 +867,8 @@ _080ADF7C:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 
-	thumb_func_start sub_080ADF80
-sub_080ADF80: @ 0x080ADF80
+	thumb_func_start LoadFixedGFX
+LoadFixedGFX: @ 0x080ADF80
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}

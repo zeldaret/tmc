@@ -265,7 +265,7 @@ sub_0805E000: @ 0x0805E000
 	movs r5, #1
 	strb r5, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	ldr r0, _0805E068 @ =gUnk_030010A0
 	adds r0, #0x38
 	ldrb r1, [r0]

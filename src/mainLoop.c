@@ -1,7 +1,7 @@
 #include "global.h"
 #include "main.h"
 
-#ifdef NON_MATCHING
+#if 0
 
 typedef struct {
     u8 interruptFlag;
@@ -52,6 +52,7 @@ void MainLoop(void) {
     bool32 codeInputted;
     u8 cVar1;
     u32 uVar2;
+    MainStruct *s;
 
     sub_08055F70();
     sub_080A3204();
@@ -66,45 +67,42 @@ void MainLoop(void) {
     sub_08056418();
     sub_080ADD30();
     gRand = 0x1234567;
-    sub_0801D630(&gUnk_03001000, 16);
+    s = &gUnk_03001000;
+    sub_0801D630(s, 16);
     sub_08056010(0);
-    do {
+    while (1) {
         ReadKeyInput();
         codeInputted = sub_08055FF4();
         if (codeInputted) {
             sub_080560A8();
         }
-        if ((gUnk_03001000.field_0x1 == 0) || (gUnk_03001000.field_0x1 != 1)) {
-            if (gUnk_03001000.field_0x8 != '\0') {
-                while (codeInputted) {
+        if ((s->field_0x1 != 0) || (s->field_0x1 == 1)) {
+            sub_08056260();
+        } else if (s->field_0x8 != 0) {
+                while (--s->field_0x8) {
                     VBlankInterruptWait();
-                    cVar1 = gUnk_03001000.field_0x8 + -1;
-                    codeInputted = gUnk_03001000.field_0x8 != '\x01';
-                    gUnk_03001000.field_0x8 = cVar1;
                 }
             }
-            if (gUnk_03001000.countdown != '\0') {
-                gUnk_03001000.countdown = gUnk_03001000.countdown + -1;
-                uVar2 = gUnk_03001000.field_0xa;
-                while (0 < uVar2) {
+            if (s->countdown != 0) {
+                s->countdown--;
+                uVar2 = s->field_0xa;
+                while (uVar2 > 0) {
                     VBlankIntrWait();
-                    uVar2 = uVar2 - 1;
+                    uVar2--;
                 }
             }
-            gUnk_03001000.ticks = gUnk_03001000.ticks + 1;
-            gUnk_08100CBC[gUnk_03001000.loadType]();
+            s->ticks++;
+            gUnk_08100CBC[s->loadType]();
             sub_08056458();
             sub_08050154();
             sub_080A3480();
-        } else {
-            sub_08056260();
         }
         sub_08016E78();
-    } while (TRUE);
 }
-#else
+
+#endif
+
 NAKED
 void MainLoop(void) {
     asm(".include \"asm/non_matching/mainLoop.inc\"");
 }
-#endif

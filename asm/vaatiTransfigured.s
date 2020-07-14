@@ -1488,7 +1488,7 @@ _0804029E:
 	bne _08040382
 	ldr r1, _080402DC @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	lsls r0, r0, #1
 	ldr r1, _080402E0 @ =gUnk_080D0B18
 	adds r0, r0, r1

@@ -180,7 +180,7 @@ sub_0805CA6C: @ 0x0805CA6C
 	adds r6, r0, #0
 	movs r5, #0
 	ldrb r0, [r6, #0xb]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _0805CACE

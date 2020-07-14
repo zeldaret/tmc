@@ -268,7 +268,7 @@ _0803E280:
 	cmp r1, #0
 	beq _0803E29C
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -355,7 +355,7 @@ sub_0803E314: @ 0x0803E314
 	strb r0, [r4, #0xc]
 	ldr r1, _0803E33C @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 _0803E332:
 	adds r0, r4, #0

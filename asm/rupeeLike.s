@@ -268,7 +268,7 @@ sub_08029474: @ 0x08029474
 	strb r0, [r4, #0xe]
 	ldr r1, _080294BC @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	lsls r0, r0, #0x18
 	lsrs r0, r0, #0x1c
@@ -314,7 +314,7 @@ sub_080294D4: @ 0x080294D4
 	strb r0, [r4, #0xe]
 	ldr r1, _08029518 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -644,7 +644,7 @@ sub_08029770: @ 0x08029770
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #0x73
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	cmp r0, #0
 	beq _080297E8
 	movs r0, #2

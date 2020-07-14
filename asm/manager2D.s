@@ -34,7 +34,7 @@ sub_0805D1FC: @ 0x0805D1FC
 	movs r0, #3
 	strb r0, [r1]
 	adds r0, r2, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _0805D236:
 	adds r0, r4, #0
 	bl sub_0805E900

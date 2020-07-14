@@ -291,7 +291,7 @@ sub_08084074: @ 0x08084074
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #3
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080840A4

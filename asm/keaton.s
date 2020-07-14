@@ -319,7 +319,7 @@ sub_080325E8: @ 0x080325E8
 	beq _0803264C
 	ldr r1, [r5]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r3, r4, #0
 	adds r3, #0x5a
 	ldrb r2, [r3]

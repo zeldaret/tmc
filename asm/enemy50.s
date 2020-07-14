@@ -440,7 +440,7 @@ sub_08040E3C: @ 0x08040E3C
 	bne _08040E86
 	strb r5, [r4, #0xc]
 	ldrb r0, [r4, #0xe]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	str r0, [r4, #0x54]
 	b _08040E8C
 _08040E86:
@@ -627,7 +627,7 @@ _08040FB2:
 	ldr r0, _08041008 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596

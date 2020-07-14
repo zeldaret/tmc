@@ -17,7 +17,7 @@ sub_0805CFC0: @ 0x0805CFC0
 	strb r0, [r1, #0xc]
 _0805CFCE:
 	movs r0, #3
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0805CFEE

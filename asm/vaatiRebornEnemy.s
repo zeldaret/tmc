@@ -794,7 +794,7 @@ _0803D68E:
 	bne _0803D6C8
 	ldr r1, _0803D6F8 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, #2
 	movs r1, #0x1c
 	ands r0, r1
@@ -938,7 +938,7 @@ _0803D78E:
 	strb r0, [r4, #0xf]
 	ldr r1, _0803D7E0 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	movs r1, #0x10
 	ands r0, r1
 	movs r1, #8

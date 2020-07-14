@@ -694,7 +694,7 @@ _08017352:
 	bl sub_0805E3B0
 	cmp r0, #0
 	bne _08017398
-	ldr r1, _08017390 @ =gUnk_080B2CE8
+	ldr r1, _08017390 @ =gPlayerItemFunctions
 	ldrb r0, [r4, #9]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -719,7 +719,7 @@ _08017352:
 	subs r0, #1
 	b _08017396
 	.align 2, 0
-_08017390: .4byte gUnk_080B2CE8
+_08017390: .4byte gPlayerItemFunctions
 _08017394:
 	adds r0, #1
 _08017396:
@@ -1567,7 +1567,7 @@ sub_08017940: @ 0x08017940
 	adds r0, #0x38
 	strb r1, [r0]
 	adds r0, r2, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _080179CC:
 	movs r1, #0
 	ldr r0, _080179E8 @ =gLinkEntity

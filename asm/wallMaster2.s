@@ -135,7 +135,7 @@ sub_0802CCE0: @ 0x0802CCE0
 	adds r0, #0x7c
 	strh r5, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r4, #0
 	movs r1, #0
 	bl InitializeAnimation
@@ -248,7 +248,7 @@ sub_0802CDE8: @ 0x0802CDE8
 	ldr r0, _0802CE38 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -311,7 +311,7 @@ sub_0802CE68: @ 0x0802CE68
 	bne _0802CEAC
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	bl sub_0806F69C

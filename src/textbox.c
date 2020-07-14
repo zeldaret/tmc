@@ -7,8 +7,6 @@ void sub_0801D630();
 void ShowTextbox();
 void TextboxAtPosition();
 
-extern TextBox gTextBox;
-extern RoomControls gRoomControls;
 extern u32 gUnk_02022780;
 extern u32 gUnk_02036A40;
 extern u32 gUnk_02036A38;

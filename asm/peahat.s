@@ -415,7 +415,7 @@ _0802024C:
 	ldr r0, _0802027C @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r4, r0, #0
 	bl Random
 	ldr r2, _08020280 @ =gUnk_080CA5D4
@@ -478,7 +478,7 @@ _080202C8:
 	ldr r0, _080202F4 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596

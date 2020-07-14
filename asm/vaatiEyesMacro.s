@@ -331,7 +331,7 @@ _0802EED6:
 	bl CopyPositionAndSpriteOffset
 	ldr r1, _0802EF14 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, #1
 	movs r1, #0x1e
 	ands r0, r1
@@ -411,7 +411,7 @@ _0802EF5E:
 	strb r0, [r1]
 	str r6, [r4, #0x50]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r6, #0
 	adds r1, r4, #0
 	bl CopyPosition
@@ -461,7 +461,7 @@ sub_0802EFB8: @ 0x0802EFB8
 _0802EFD2:
 	ldr r0, _0802F01C @ =gLinkEntity
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r5, r0, #4
 	movs r0, #0x18
 	ands r5, r0

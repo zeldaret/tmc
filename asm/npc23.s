@@ -381,7 +381,7 @@ sub_08066570: @ 0x08066570
 	beq _080665DE
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r3, r0, #0
 	movs r6, #1
 	movs r1, #0x18

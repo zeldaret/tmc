@@ -83,7 +83,7 @@ sub_08098B28: @ 0x08098B28
 	adds r7, #0x38
 	strb r4, [r7]
 	adds r0, r5, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r2, r5, #0
 	adds r2, #0x29
 	ldrb r1, [r2]

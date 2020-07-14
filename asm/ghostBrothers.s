@@ -104,7 +104,7 @@ _08065C42:
 	strb r0, [r2]
 	ldr r1, _08065C70 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0

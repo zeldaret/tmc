@@ -1061,7 +1061,7 @@ _08032018:
 	ldr r0, _0803205C @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -1149,7 +1149,7 @@ _080320D4:
 	strb r0, [r6]
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	bl sub_080322E8
@@ -1159,7 +1159,7 @@ _080320D4:
 _0803210E:
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	bl sub_080322E8

@@ -28,7 +28,7 @@ sub_0805E0C0: @ 0x0805E0C0
 	strb r1, [r5, #0xc]
 	strb r0, [r5, #0xe]
 	ldrb r0, [r5, #0xa]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _0805E0EC

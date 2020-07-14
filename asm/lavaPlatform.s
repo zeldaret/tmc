@@ -66,7 +66,7 @@ sub_0809229C: @ 0x0809229C
 	orrs r0, r1
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	ldr r0, [r4, #0x54]
 	ldrb r1, [r0, #0x14]
 	adds r0, r4, #0
@@ -460,7 +460,7 @@ sub_080925A4: @ 0x080925A4
 	push {r4, r5, r6, r7, lr}
 	adds r6, r0, #0
 	ldrb r0, [r6, #0xb]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r5, r0, #0
 	ldrb r0, [r5, #9]
 	cmp r0, #0xff
@@ -502,7 +502,7 @@ _080925B8:
 	ldr r0, [r5]
 	str r0, [r4, #0x78]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r1, r4, #0
 	adds r1, #0x78
 	adds r2, r4, #0

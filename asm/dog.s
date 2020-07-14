@@ -171,7 +171,7 @@ sub_08069C40: @ 0x08069C40
 _08069C68: .4byte gLinkState
 _08069C6C:
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	strb r0, [r4, #0x14]
 	adds r0, r4, #0
 	bl sub_08069D00
@@ -212,7 +212,7 @@ sub_08069CB8: @ 0x08069CB8
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r1, _08069CF8 @ =gLinkEntity
-	bl sub_080045C4
+	bl GetFacingDirection
 	ldr r2, _08069CFC @ =gUnk_08111DB0
 	ldrb r1, [r4, #0x14]
 	lsls r1, r1, #5
@@ -426,7 +426,7 @@ sub_08069E44: @ 0x08069E44
 sub_08069E50: @ 0x08069E50
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	strb r0, [r4, #0x14]
 	adds r5, r4, #0
 	adds r5, #0x6b

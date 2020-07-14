@@ -306,7 +306,7 @@ _08024132:
 	strh r0, [r4, #0x36]
 _08024136:
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	bl CheckIsDungeon
 	cmp r0, #0
 	beq _08024150
@@ -504,7 +504,7 @@ sub_080242A0: @ 0x080242A0
 	ldr r0, _080242E4 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	movs r1, #1
@@ -937,7 +937,7 @@ _0802460C:
 _08024612:
 	ldr r1, [r5, #0x54]
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r5, #0x15]
 	adds r0, r5, #0
 	movs r1, #0
@@ -1493,7 +1493,7 @@ _08024A40:
 	beq _08024A9E
 	ldr r1, [r4, #0x54]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -1507,7 +1507,7 @@ _08024A5E:
 	ldr r0, _08024A80 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -1523,7 +1523,7 @@ _08024A84:
 	ldr r0, _08024AD4 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 _08024A9C:
 	movs r6, #1

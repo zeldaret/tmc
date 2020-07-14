@@ -373,7 +373,7 @@ _08035456:
 	movs r1, #0x84
 	lsls r1, r1, #1
 	adds r0, r5, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	adds r0, r5, #0
 	movs r1, #0xef
 	bl sub_0801D2B4
@@ -395,7 +395,7 @@ _080354B0:
 	strb r0, [r1]
 	ldr r1, _080354F4 @ =0x00000109
 	adds r0, r5, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	adds r0, r5, #0
 	movs r1, #0xf0
 	bl sub_0801D2B4

@@ -27,7 +27,7 @@ GiantRock: @ 0x08090FB8
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]

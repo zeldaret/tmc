@@ -162,7 +162,7 @@ _080525C2:
 	adds r0, #0x38
 	strb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r4, #0
 	movs r1, #1
 	bl sub_0805EA2C

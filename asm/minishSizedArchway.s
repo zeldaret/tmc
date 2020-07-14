@@ -23,7 +23,7 @@ MinishSizedArchway: @ 0x080973E4
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	bl CheckIsDungeon
 	cmp r0, #0
 	beq _0809741E

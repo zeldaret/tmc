@@ -393,7 +393,7 @@ sub_08049F84: @ 0x08049F84
 	cmp r1, #0
 	beq _08049F9C
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	b _08049F9E
 _08049F9C:
 	movs r0, #0xff
@@ -1290,7 +1290,7 @@ _0804A612:
 	strb r0, [r1]
 _0804A638:
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r5, r4, #0
 	adds r5, #0x6d
 	ldrb r1, [r5]
@@ -1394,7 +1394,7 @@ _0804A6E8:
 _0804A702:
 	ldrh r1, [r5]
 	adds r0, r4, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 _0804A70A:
 	cmp r0, #0
 	bne _0804A712

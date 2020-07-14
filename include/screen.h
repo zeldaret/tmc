@@ -22,7 +22,8 @@ typedef struct {
     u16 bg2xOffset;
     u16 bg2yOffset;
     u16 unk;
-    u32 unk2;
+    u16 unk2;
+    u16 unk3;
     u16 bg3Control;
     u16 bg3xOffset;
     u16 bg3yOffset;
@@ -66,5 +67,7 @@ typedef struct {
     BgAffSettings affine;
     BgControls controls;
 } Screen;
+
+extern Screen gScreen;
 
 #endif

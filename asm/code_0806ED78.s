@@ -40,7 +40,7 @@ sub_0806ED9C: @ 0x0806ED9C
 	cmp r0, #0
 	beq _0806EDBC
 	adds r0, r5, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r6, r0, #0
 _0806EDBC:
 	adds r0, r6, #0
@@ -48,11 +48,11 @@ _0806EDBC:
 	.align 2, 0
 _0806EDC0: .4byte gLinkEntity
 
-	thumb_func_start sub_0806EDC4
-sub_0806EDC4: @ 0x0806EDC4
+	thumb_func_start GetAnimationState
+GetAnimationState: @ 0x0806EDC4
 	push {lr}
 	ldr r1, _0806EDD4 @ =gLinkEntity
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	pop {pc}
 	.align 2, 0
@@ -74,7 +74,7 @@ sub_0806EDD8: @ 0x0806EDD8
 	beq _0806EDFC
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r7, r0, #0
 _0806EDFC:
 	adds r0, r7, #0
@@ -129,7 +129,7 @@ _0806EE4C:
 	strh r0, [r1]
 	ldr r1, _0806EE6C @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r4, #0
 	adds r1, #0x3e
@@ -979,7 +979,7 @@ _0806F444:
 	ldrh r4, [r3]
 	adds r0, r5, #0
 	mov r1, sp
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r2, r0, #0
 	adds r0, r5, #0
 	adds r1, r4, #0

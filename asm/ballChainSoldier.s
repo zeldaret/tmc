@@ -479,7 +479,7 @@ sub_0803E86C: @ 0x0803E86C
 	ldr r0, _0803E8C4 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, #4
 	movs r1, #0x18
 	ands r0, r1
@@ -669,7 +669,7 @@ sub_0803E9D4: @ 0x0803E9D4
 	ldr r0, _0803EA0C @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, #4
 	movs r1, #0x18
 	ands r0, r1

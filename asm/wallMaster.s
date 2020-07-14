@@ -156,7 +156,7 @@ sub_0802A4E4: @ 0x0802A4E4
 	adds r1, #0x78
 	strh r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r4, #0
 	bl sub_0802A7D0
 	pop {r4, pc}

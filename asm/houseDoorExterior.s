@@ -43,7 +43,7 @@ _080866FE:
 	adds r0, r6, #0
 	adds r0, #0x6c
 	ldrb r0, [r0]
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r5, r0, #0
 	movs r0, #0
 	mov r8, r0
@@ -108,7 +108,7 @@ _08086718:
 	ldrb r0, [r5, #5]
 	strb r0, [r4, #0xd]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	ldr r0, [r6, #0x68]
 	orrs r0, r7
 	str r0, [r6, #0x68]

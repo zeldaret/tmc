@@ -11,7 +11,7 @@ typedef struct { // 0x03001000
     u8 field_0x9;
     u8 field_0xa;
     u8 field_0xb;
-    u32 ticks;
+    u32 spritePriority;
 } MainStruct;
 
 extern s32 sub_08055F70();

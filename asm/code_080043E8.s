@@ -269,8 +269,8 @@ sub_080045B4: @ 0x080045B4
 	ldr r3, _08004690 @ =gUnk_030060F0
 	bx r3
 
-	thumb_func_start sub_080045C4
-sub_080045C4: @ 0x080045C4
+	thumb_func_start GetFacingDirection
+GetFacingDirection: @ 0x080045C4
 	push {r4, r5}
 	movs r4, #0x32
 	movs r5, #0x2e

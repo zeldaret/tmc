@@ -82,7 +82,7 @@ _0809FFCE:
 	movs r1, #0xc6
 	lsls r1, r1, #1
 	adds r0, r4, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	movs r0, #0xf6
 	bl PlaySFX
 	b _080A005A
@@ -105,7 +105,7 @@ _080A0006:
 	bl sub_080AE068
 	ldr r1, _080A0034 @ =0x0000018D
 	adds r0, r4, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	b _080A005A
 	.align 2, 0
 _080A0034: .4byte 0x0000018D

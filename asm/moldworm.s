@@ -1147,7 +1147,7 @@ sub_08023894: @ 0x08023894
 	strh r0, [r4, #0x32]
 	ldr r0, [r5, #0x74]
 	adds r1, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, #4
 	movs r1, #0x18
 	ands r0, r1
@@ -1275,7 +1275,7 @@ sub_08023990: @ 0x08023990
 	adds r0, #0x38
 	strb r1, [r0]
 	adds r0, r5, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r5, #0
 	movs r1, #0x16
 	bl InitializeAnimation

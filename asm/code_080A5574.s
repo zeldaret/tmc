@@ -5029,7 +5029,7 @@ sub_080A7CFC: @ 0x080A7CFC
 	lsls r4, r4, #3
 	movs r6, #0
 	movs r0, #3
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080A7D38
@@ -5202,7 +5202,7 @@ _080A7E14:
 	ldr r0, [r5, #4]
 	str r0, [r4, #0x48]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _080A7E4A:
 	movs r0, #1
 _080A7E4C:
@@ -5247,7 +5247,7 @@ _080A7E78:
 _080A7E92:
 	ldrh r1, [r5]
 	adds r0, r4, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 _080A7E9A:
 	cmp r0, #0
 	bne _080A7EA2
@@ -7600,7 +7600,7 @@ _080A8FE8:
 	strb r0, [r4, #0xf]
 	ldr r1, _080A9048 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -10132,7 +10132,7 @@ sub_080AA2E0: @ 0x080AA2E0
 	beq _080AA31C
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	ldrb r1, [r5, #0x14]
 	lsls r1, r1, #2
 	adds r0, #4
@@ -10441,7 +10441,7 @@ sub_080AA534: @ 0x080AA534
 	adds r2, #0x38
 	movs r1, #3
 	strb r1, [r2]
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	pop {pc}
 
 	thumb_func_start sub_080AA544
@@ -11638,7 +11638,7 @@ _080AADE0:
 	strb r0, [r2]
 	ldr r1, _080AAE60 @ =gLinkEntity
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r5, #0x15]
 	adds r0, r5, #0
 	adds r0, #0x86
@@ -11706,7 +11706,7 @@ _080AAEA2:
 	strb r0, [r4, #0xf]
 	ldr r1, _080AAECC @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -13924,7 +13924,7 @@ sub_080ABF40: @ 0x080ABF40
 	strb r0, [r4, #0xc]
 	ldr r1, _080ABFA0 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	movs r1, #0
@@ -14120,7 +14120,7 @@ _080AC0B2:
 	strb r0, [r4, #0xc]
 	ldr r1, _080AC0EC @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	movs r0, #0xc0
 	lsls r0, r0, #1
@@ -14185,7 +14185,7 @@ _080AC13A:
 	bne _080AC160
 	ldr r1, _080AC164 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -14223,7 +14223,7 @@ sub_080AC168: @ 0x080AC168
 	strb r0, [r4, #0xf]
 	ldr r1, _080AC1C8 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	ldr r0, [r4, #0x50]
 	adds r0, #0x84
@@ -15257,7 +15257,7 @@ sub_080AC928: @ 0x080AC928
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r4, #0
 	movs r1, #0
 	bl InitializeAnimation
@@ -15313,7 +15313,7 @@ _080AC964:
 	strb r0, [r5, #0x10]
 	ldr r1, _080AC9C8 @ =gLinkEntity
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r5, #0x15]
 	movs r0, #0x97
 	lsls r0, r0, #1
@@ -16380,7 +16380,7 @@ _080AD188:
 	bl PlaySFX
 _080AD196:
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	movs r0, #3
 	strb r0, [r5, #0xd]
 	ldrb r2, [r4, #0x19]

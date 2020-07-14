@@ -1159,7 +1159,7 @@ sub_08041BE8: @ 0x08041BE8
 	bl sub_080AE068
 	ldr r1, _08041CC0 @ =0x000001F5
 	adds r0, r7, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	ldr r1, _08041CC4 @ =0x0000016B
 	adds r0, r7, #0
 	bl sub_0801D2B4
@@ -2297,7 +2297,7 @@ _080424C6:
 	bne _08042502
 	ldr r1, _08042504 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	ldr r1, _08042508 @ =gUnk_080D0EB0
 	adds r0, r0, r1
 	ldrb r0, [r0]

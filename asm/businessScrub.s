@@ -805,7 +805,7 @@ _08028F2C:
 	adds r0, r5, #0
 	bl sub_0804AA1C
 	adds r0, r5, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	lsls r0, r0, #3
 	strb r0, [r5, #0x15]
 	adds r0, r5, #0
@@ -989,7 +989,7 @@ sub_08029078: @ 0x08029078
 	strb r0, [r2]
 	adds r0, r4, #0
 	movs r1, #0x72
-	bl sub_080ADF80
+	bl LoadFixedGFX
 	cmp r0, #0
 	bne _080290AE
 	adds r0, r4, #0

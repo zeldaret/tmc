@@ -24,7 +24,7 @@ sub_0806AC3C: @ 0x0806AC3C
 	beq _0806AC70
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r2, r0, #0
 	movs r0, #0x1e
 	ands r2, r0
@@ -163,7 +163,7 @@ _0806AD44:
 	strb r1, [r5]
 	ldr r1, _0806ADAC @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r1, #8

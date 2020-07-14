@@ -333,7 +333,7 @@ sub_08091444: @ 0x08091444
 	adds r0, r4, #0
 	bl InitializeAnimation
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	pop {r4, pc}
 
 	thumb_func_start sub_08091470
@@ -447,7 +447,7 @@ sub_08091504: @ 0x08091504
 	adds r0, r4, #0
 	bl InitializeAnimation
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	pop {r4, pc}
 
 	thumb_func_start sub_0809153C

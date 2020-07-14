@@ -76,7 +76,7 @@ sub_08062130: @ 0x08062130
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl InitAnimationForceUpdate
@@ -265,7 +265,7 @@ _0806229A:
 	bhi _080622F2
 	ldr r1, _080622C8 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	ldrb r1, [r5]
 	movs r2, #4

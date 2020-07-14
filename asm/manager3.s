@@ -170,7 +170,7 @@ _080577F2:
 	mov r1, r8
 	strb r1, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _08057808:
 	pop {r3}
 	mov r8, r3

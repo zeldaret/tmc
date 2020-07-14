@@ -509,7 +509,7 @@ _08088DEC:
 _08088E1E:
 	strb r1, [r4, #0xb]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	b _08088E6E
 _08088E28:
 	ldrb r0, [r4, #0xb]

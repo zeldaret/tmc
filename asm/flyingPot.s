@@ -448,7 +448,7 @@ sub_0803737C: @ 0x0803737C
 	strb r0, [r4, #0xe]
 	ldr r1, _080373AC @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 _080373A6:
 	pop {r4, pc}

@@ -433,7 +433,7 @@ sub_08020E98: @ 0x08020E98
 	bne _08020ECA
 	ldr r0, [r5]
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	bl sub_080AEF88
@@ -471,7 +471,7 @@ _08020EF6:
 _08020F08: .4byte gUnk_020000B0
 _08020F0C:
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	bl sub_080AEF88
@@ -1177,7 +1177,7 @@ sub_08021424: @ 0x08021424
 	ldr r0, _08021450 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	ldrb r0, [r5, #0x14]
 	bl sub_08021274
@@ -1293,7 +1293,7 @@ sub_080214FC: @ 0x080214FC
 	ldr r0, _08021538 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r2, r0, #0
 	adds r0, r4, #0
 	adds r0, #0x5a

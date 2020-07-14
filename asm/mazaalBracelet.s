@@ -682,7 +682,7 @@ _0803A688:
 	strb r1, [r4, #0xe]
 	ldr r1, _0803A6A4 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	movs r0, #0xa0
 	lsls r0, r0, #2
@@ -2719,7 +2719,7 @@ sub_0803B5C0: @ 0x0803B5C0
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0803B5E8 @ =gLinkEntity
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r2, r0, #0
 	cmp r2, #9
 	bhi _0803B5D2

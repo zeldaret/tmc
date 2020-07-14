@@ -147,7 +147,7 @@ sub_08063390: @ 0x08063390
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl InitializeAnimation

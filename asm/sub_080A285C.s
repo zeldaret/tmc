@@ -65,7 +65,7 @@ _080A28BA:
 	b _080A28CA
 _080A28C4:
 	adds r0, r4, #0
-	bl sub_080ADF80
+	bl LoadFixedGFX
 _080A28CA:
 	cmp r0, #0
 	bne _080A28D2

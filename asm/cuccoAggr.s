@@ -240,7 +240,7 @@ sub_08038E18: @ 0x08038E18
 	adds r0, r4, #0
 	bl sub_080AEF88
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _08038E70:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -357,7 +357,7 @@ sub_08038F44: @ 0x08038F44
 	adds r4, r0, #0
 	ldr r0, _08038F8C @ =gLinkEntity
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	bl sub_080390F8
@@ -422,7 +422,7 @@ _08038FB8:
 	bne _08038FE0
 	ldr r1, _08038FF8 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -614,7 +614,7 @@ sub_08039140: @ 0x08039140
 	strb r0, [r4, #0xe]
 	ldr r1, _08039174 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	ldr r0, _08039178 @ =0x0000FFFC
 	strh r0, [r4, #0x36]

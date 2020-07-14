@@ -319,7 +319,7 @@ sub_08022B44: @ 0x08022B44
 	str r0, [r4, #0x20]
 	ldr r1, _08022B84 @ =gLinkEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	strb r1, [r4, #0x15]
 	movs r0, #0xf

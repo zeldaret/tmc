@@ -462,7 +462,7 @@ _08028594:
 	strb r1, [r4, #0xe]
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r5, r0, #0
 	ldrb r0, [r4, #0x15]
 	adds r1, r5, #0
@@ -641,7 +641,7 @@ _080286FC:
 	beq _08028724
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, #4
 	movs r1, #0x18
 	ands r0, r1

@@ -78,7 +78,7 @@ sub_08058E34: @ 0x08058E34
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	beq _08058E58
-	bl sub_0804B128
+	bl GetCurrentRoomProperty
 	bl LoadRoomEntityList
 _08058E58:
 	adds r0, r4, #0
