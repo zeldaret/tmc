@@ -21,6 +21,8 @@ extern void LoadRoomEntityList();
 void CopyPosition(Entity*, Entity*);
 extern u32* StartCutscene(Entity*, u8*);
 extern void ResolveEntityOnTop(Entity*, Entity*);
+extern void EnemyFunctionHandler(Entity*, void (*const funcs[])(Entity*));
+extern void SetChildOffset(Entity*, u32, u32, u32);
 
 
 // Unidentified
@@ -29,7 +31,8 @@ extern void sub_0806920C(Entity*);
 extern u32 sub_0805ACC0(Entity*);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_0806924C(Entity*);
-extern void sub_080AEF88(Entity*);
+extern u32 sub_080AEF88(Entity*);
+extern Entity* sub_080873AC(Entity*, u32, u32);
 extern void sub_08078778(Entity*);
 extern void sub_080787A8(Entity*, u32);
 extern void sub_0806F118(Entity*);
@@ -71,4 +74,13 @@ extern void sub_0807DD94(Entity*, u32);
 extern void sub_0805ED14(u32*);
 extern void sub_080A7C18(u32, u32, u32);
 extern void sub_08068BEC(Entity*, u32);
+extern void sub_0804AA30(Entity*, void (*const funcs[])(Entity*));
+extern void sub_0804A9FC(Entity*, u32);
+extern void sub_0804A720(Entity*);
+extern u32 sub_080AEFE0(Entity*);
+extern u32 sub_08049FA0(Entity*);
+extern u32 sub_08049FDC(Entity*, u32);
+extern u32 sub_080041A0(Entity *, Entity *, u32, u32);
+extern u32 sub_08049EE4(Entity*);
+extern Entity *sub_0804A98C(Entity *, u32, u32);
 #endif
