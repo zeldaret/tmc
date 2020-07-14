@@ -582,7 +582,7 @@ SECTIONS {
 		asm/cat.o(.text);
 		asm/mountainMinish.o(.text);
 		asm/zeldaFollower.o(.text);
-		asm/melari.o(.text);
+		src/npc/melari.o(.text);
 		src/npc/bladeBrothers.o(.text);
 		src/npc/cow.o(.text);
 		src/npc/goron.o(.text);
