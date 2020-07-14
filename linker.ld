@@ -542,7 +542,7 @@ SECTIONS {
 		asm/npc5.o(.text);
 		src/npc/townsperson.o(.text);
 		asm/kid.o(.text);
-		asm/npc9.o(.text);
+		src/npc/npc9.o(.text);
 		src/npc/stamp.o(.text);
 		asm/marcy.o(.text);
 		src/npc/wheaton.o(.text);
