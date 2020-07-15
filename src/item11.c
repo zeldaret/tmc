@@ -59,7 +59,7 @@ void sub_08018CBC(Entity *this)
     this->spriteTileSize = 0xa6;
     this->palette = 0x33;
     this->spriteVramOffset = 0;
-    (this->entityType).form = gLinkState.filler9[0] - 1;
+    (this->entityType).form = gLinkState.field_0x1d[0] - 1;
     this->actionDelay = gUnk_080B3DE0[(this->entityType).form * 2];
     this->field_0x44 = gUnk_080B3DE0[(this->entityType).form * 2 + 1];
     this->field_0x40 = 0x1b;

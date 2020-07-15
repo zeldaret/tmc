@@ -7,27 +7,27 @@
 #include "entity.h"
 
 typedef struct {
-    /*0x00*/ u8 filler[2];
+    /*0x00*/ u8 field_0x0[2];
     /*0x02*/ u8 jumpStatus;
-    /*0x03*/ u8 filler2[2];
+    /*0x03*/ u8 field_0x3[2];
     /*0x05*/ u8 heldObject;
     /*0x06*/ u8 pushedObject;
-    /*0x07*/ u8 unk;
-    /*0x08*/ u16 unk2;
-    /*0x0a*/ u8 unk3;
+    /*0x07*/ u8 field_0x7;
+    /*0x08*/ u16 field_0x8;
+    /*0x0a*/ u8 field_0xa;
     /*0x0b*/ u8 keepFacing;
     /*0x0c*/ u8 linkAction;
-    /*0x0d*/ u8 filler3[2];
+    /*0x0d*/ u8 field_0xd[2];
     /*0x0f*/ u8 hurtBlinkSpeed;
-    /*0x10*/ u8 filler4[4];
-    /*0x14*/ u16 filler5[3];
-    /*0x1a*/ u8 filler6[2];
+    /*0x10*/ u8 field_0x10[4];
+    /*0x14*/ u16 field_0x14[3];
+    /*0x1a*/ u8 field_0x1a[2];
     /*0x1c*/ u8 field_0x1c;
-    /*0x1d*/ u8 filler9[5];
-    /*0x22*/ u16 filler7[2];
+    /*0x1d*/ u8 field_0x1d[5];
+    /*0x22*/ u16 field_0x22[2];
     /*0x26*/ u8 swimState;
-    /*0x27*/ u8 filler8[5];
-    /*0x2c*/ u8* unk4;
+    /*0x27*/ u8 field_0x27[5];
+    /*0x2c*/ u8* field_0x2c;
     /*0x30*/ union {
     /*    */     u32 all;
     /*    */     struct {
@@ -41,19 +41,21 @@ typedef struct {
     /*    */         u32 filler11b : 16;
     /*    */     } PACKED b;
     /*    */ } flags;
-    /*0x34*/ u8 filler12[6];
-    /*0x3a*/ u16 unk5;
-    /*0x3c*/ u8 filler13[2];
+    /*0x34*/ u8 field_0x34[6];
+    /*0x3a*/ u16 field_0x3a;
+    /*0x3c*/ u8 field_0x3c[2];
     /*0x3e*/ u8 swordGoldParticle : 1;
     /*    */ u8 swordBlueParticle : 1;
     /*    */ u8 filler14 : 6;
-    /*0x3f*/ u8 unk6;
-    /*0x40*/ u8 filler15[75];
-    /*0x8b*/ u8 unk7;
-    /*0x8c*/ u32 filler16[7];
-    /*0xa8*/ u8 filler17[3];
-    /*0xab*/ u8 unk71;
-    /*0xac*/ u32 unk8;
+    /*0x3f*/ u8 field_0x3f;
+    /*0x40*/ u8 field_0x40[75];
+    /*0x8b*/ u8 field_0x8b;
+    /*0x8c*/ u32 field_0x8c;
+    /*0x90*/ union SplitWord field_0x90;
+    /*0x94*/ u32 field_0x94[5];
+    /*0xa8*/ u8 field_0xa8[3];
+    /*0xab*/ u8 field_0xab;
+    /*0xac*/ u32 field_0xac;
 } LinkState;
 
 
@@ -73,6 +75,14 @@ typedef struct {
     u16 rupees;
     u8 filler3[12];
 } Stats;
+
+typedef struct {
+    /*0x0*/ u8 field_0x0;
+    /*0x1*/ u8 behaviorID;
+    /*0x2*/ u8 field_0x2[2];
+    /*0x4*/ u8 stateID;
+    /*0x5*/ u8 field_0x5[10];
+} ItemBehavior;
 
 extern u8 gBombBagSizes[];
 

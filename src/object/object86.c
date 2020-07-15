@@ -76,6 +76,6 @@ void sub_08099ECC(Entity *this)
   this->previousActionFlag = 1;
   CopyPosition(this, &gLinkEntity);
   gLinkState.linkAction = 3;
-  gLinkState.filler12[4] = 0;
+  gLinkState.field_0x34[4] = 0;
   gLinkState.flags.all |= 0x8000;
 }
