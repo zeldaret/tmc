@@ -849,7 +849,7 @@ SECTIONS {
 		asm/floatingBlock.o(.text);
 		src/object/objectAF.o(.text);
 		src/object/metalDoor.o(.text);
-		asm/jailBars.o(.text);
+		src/object/jailBars.o(.text);
 		asm/objectB2.o(.text);
 		asm/objectB3.o(.text);
 		asm/objectB4.o(.text);
