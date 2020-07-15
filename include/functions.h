@@ -5,6 +5,7 @@
 #include "global.h"
 #include "entity.h"
 #include "position.h"
+#include "link.h"
 
 // Identified - to be sorted into header files
 extern u32 Random(void);
@@ -22,8 +23,12 @@ void CopyPosition(Entity*, Entity*);
 extern u32* StartCutscene(Entity*, u8*);
 extern void ResolveEntityOnTop(Entity*, Entity*);
 extern void EnemyFunctionHandler(Entity*, void (*const funcs[])(Entity*));
-extern void SetChildOffset(Entity*, u32, u32, u32);
 extern u32 GetAnimationState(Entity*);
+extern void SetChildOffset(Entity*, s32, s32, s32);
+extern u32 GetFacingDirection(Entity*, Entity*);
+extern Entity* CreatePlayerItem(u32, u32, u32, u32);
+extern Entity* GetEmptyEntity(void);
+extern u32 GetTileTypeByPos(s32 x, s32 y, u32 layer);
 
 // Unidentified
 extern void sub_0806ED78(Entity*);
@@ -49,7 +54,6 @@ extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern void sub_0806D02C(Entity*);
 extern u32 sub_0806F5A4(u32);
-extern u32 GetFacingDirection(Entity*, Entity*);
 extern void sub_08078784(Entity*, u32);
 extern void sub_0807DD50(Entity*);
 extern void sub_0807DD94(Entity*, u32);
@@ -68,7 +72,6 @@ extern void sub_0801D2B4(Entity*, u32);
 extern void sub_0806FD3C(Entity*);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_0807DD50(Entity*);
-extern u32 GetFacingDirection(Entity*, Entity*);
 extern void sub_0806F118(Entity*);
 extern void sub_0807DD94(Entity*, u32);
 extern void sub_0805ED14(u32*);
@@ -84,4 +87,13 @@ extern u32 sub_080041A0(Entity *, Entity *, u32, u32);
 extern u32 sub_08049EE4(Entity*);
 extern Entity *sub_0804A98C(Entity *, u32, u32);
 extern u32 sub_080544DC(u8);
+extern void sub_08077E54(Entity*);
+extern void sub_080042BA(Entity*);
+extern void sub_0801D630(void*, u32);
+extern void sub_08077F24(ItemBehavior*, u32);
+extern void sub_08079184();
+extern void sub_08077F50(ItemBehavior *beh, u32 arg1);
+extern void sub_0807AA80(Entity*);
+extern s32 sub_0807887C(Entity*, u32, u32);
+extern s32 sub_08078904();
 #endif

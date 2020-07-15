@@ -16027,7 +16027,7 @@ sub_080ACECC: @ 0x080ACECC
 	movs r0, #0x10
 	movs r2, #0
 	movs r3, #0
-	bl sub_08077CB8
+	bl CreatePlayerItem
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080ACF0C

@@ -3130,7 +3130,7 @@ sub_08071EB0: @ 0x08071EB0
 	bl sub_08077B2C
 	adds r0, r4, #0
 	movs r1, #0xe
-	bl sub_08077C3C
+	bl CreatePlayerBomb
 	cmp r0, #0
 	beq _08071F12
 	ldr r3, _08071EE4 @ =gLinkState

@@ -34,7 +34,7 @@ void OcarinaUse(ItemBehavior* itemBeh, s32 inputFlags) {
     if (gLinkState.linkAction == 24) {
         sub_08077E78(itemBeh, inputFlags);
     } else {
-        itemBeh->unk4 |= 15;
+        itemBeh->field_0x5[4] |= 15;
         gLinkEntity.animationState = 4;
         var = gLinkEntity.spriteSettings.raw & ~0x40;
         gLinkEntity.spriteSettings.raw &= var;
@@ -42,10 +42,10 @@ void OcarinaUse(ItemBehavior* itemBeh, s32 inputFlags) {
         gLinkEntity.flags &= 127;
         gLinkEntity.field_0x7a = 2;
         gLinkState.flags.all |= 0x10000000;
-        gLinkState.filler8[0] = 255;
+        gLinkState.field_0x27[0] = 255;
         gUnk_02034490 = 1;
         bVar1 = (8 >> inputFlags);
-        gLinkState.unk3 |= bVar1;
+        gLinkState.field_0xa |= bVar1;
         gLinkState.keepFacing |= bVar1;
         sub_08078F60();
         sub_08077D38(itemBeh, inputFlags);

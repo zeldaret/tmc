@@ -4597,7 +4597,7 @@ _080754F2:
 	bne _08075538
 	adds r0, r4, #0
 	movs r1, #0xf
-	bl sub_08077C3C
+	bl CreatePlayerBomb
 	cmp r5, #0xf
 	bne _08075530
 	adds r1, r7, #0
@@ -4976,7 +4976,7 @@ _080757D4:
 	beq _08075816
 	adds r0, r4, #0
 	movs r1, #0x14
-	bl sub_08077C3C
+	bl CreatePlayerBomb
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08075816
@@ -6040,7 +6040,7 @@ _08076036:
 	bls _08076076
 	adds r0, r6, #0
 	movs r1, #2
-	bl sub_08077C3C
+	bl CreatePlayerBomb
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08076076
@@ -6174,7 +6174,7 @@ _08076138:
 _0807614A:
 	adds r0, r4, #0
 	movs r1, #0x13
-	bl sub_08077C3C
+	bl CreatePlayerBomb
 	adds r3, r0, #0
 	cmp r3, #0
 	bne _08076162
@@ -7319,7 +7319,7 @@ _080769CC:
 	bl sub_08077DF4
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl sub_08077C3C
+	bl CreatePlayerBomb
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _08076A70
