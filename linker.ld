@@ -326,7 +326,7 @@ SECTIONS {
 		src/enemy/octorok.o(.text);
 		asm/octorok.o(.text);
 		asm/chuchu.o(.text);
-		asm/leever.o(.text);
+		src/enemy/leever.o(.text);
 		asm/peahat.o(.text);
 		asm/rollobite.o(.text);
 		asm/darkNut.o(.text);
@@ -850,6 +850,7 @@ SECTIONS {
 		src/object/objectAF.o(.text);
 		src/object/metalDoor.o(.text);
 		src/object/jailBars.o(.text);
+		src/object/objectB2.o(.text);
 		asm/objectB2.o(.text);
 		asm/objectB3.o(.text);
 		asm/objectB4.o(.text);
