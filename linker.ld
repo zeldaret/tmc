@@ -549,7 +549,7 @@ SECTIONS {
 		asm/pita.o(.text);
 		asm/minishEzlo.o(.text);
 		src/npc/mailbox.o(.text);
-		asm/beedle.o(.text);
+		src/npc/beedle.o(.text);
 		asm/brocco.o(.text);
 		asm/sittingPerson.o(.text);
 		asm/pina.o(.text);

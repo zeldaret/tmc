@@ -23,7 +23,7 @@ extern u32* StartCutscene(Entity*, u8*);
 extern void ResolveEntityOnTop(Entity*, Entity*);
 extern void EnemyFunctionHandler(Entity*, void (*const funcs[])(Entity*));
 extern void SetChildOffset(Entity*, u32, u32, u32);
-
+extern u32 GetAnimationState(Entity*);
 
 // Unidentified
 extern void sub_0806ED78(Entity*);
@@ -83,4 +83,5 @@ extern u32 sub_08049FDC(Entity*, u32);
 extern u32 sub_080041A0(Entity *, Entity *, u32, u32);
 extern u32 sub_08049EE4(Entity*);
 extern Entity *sub_0804A98C(Entity *, u32, u32);
+extern u32 sub_080544DC(u8);
 #endif
