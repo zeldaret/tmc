@@ -23,7 +23,7 @@ void CopyPosition(Entity*, Entity*);
 extern u32* StartCutscene(Entity*, u8*);
 extern void ResolveEntityOnTop(Entity*, Entity*);
 extern void EnemyFunctionHandler(Entity*, void (*const funcs[])(Entity*));
-extern void SetChildOffset(Entity*, u32, u32, u32);
+extern void SetChildOffset(Entity*, s32, s32, s32);
 extern u32 GetFacingDirection(Entity*, Entity*);
 Entity* CreatePlayerItem(u32, u32, u32, u32);
 extern Entity* GetEmptyEntity(void);
