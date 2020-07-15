@@ -50,7 +50,9 @@ typedef struct {
     /*0x3f*/ u8 field_0x3f;
     /*0x40*/ u8 field_0x40[75];
     /*0x8b*/ u8 field_0x8b;
-    /*0x8c*/ u32 field_0x8c[7];
+    /*0x8c*/ u32 field_0x8c;
+    /*0x90*/ union SplitWord field_0x90;
+    /*0x94*/ u32 field_0x94[5];
     /*0xa8*/ u8 field_0xa8[3];
     /*0xab*/ u8 field_0xab;
     /*0xac*/ u32 field_0xac;
@@ -73,6 +75,14 @@ typedef struct {
     u16 rupees;
     u8 filler3[12];
 } Stats;
+
+typedef struct {
+    /*0x0*/ u8 field_0x0;
+    /*0x1*/ u8 behaviorID;
+    /*0x2*/ u8 field_0x2[2];
+    /*0x4*/ u8 stateID;
+    /*0x5*/ u8 field_0x5[10];
+} ItemBehavior;
 
 extern u8 gBombBagSizes[];
 

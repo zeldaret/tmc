@@ -1006,7 +1006,7 @@ _0806F444:
 	movs r1, #0
 	movs r2, #0
 	movs r3, #0
-	bl sub_08077CB8
+	bl CreatePlayerItem
 	cmp r0, #0
 	beq _0806F4B4
 	str r5, [r0, #0x54]

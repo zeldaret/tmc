@@ -644,7 +644,11 @@ SECTIONS {
 		asm/ocarina.o(.text);
 		asm/code_08076C80.o(.text);
 		asm/respawnLink.o(.text);
+		src/code_08077B98.o(.text);
+		src/code_08077DF4.o(.text);
 		asm/code_08077B98.o(.text);
+		src/code_08078778.o(.text);
+		asm/code_08078778.o(.text);
 		src/sub_0807B7D8.o(.text);
 		src/sub_0807B820.o(.text);
 		src/sub_0807B8A8.o(.text);
