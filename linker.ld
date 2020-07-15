@@ -375,7 +375,7 @@ SECTIONS {
 		asm/smallPesto.o(.text);
 		asm/acroBandits.o(.text);
 		src/enemy/bladeTrap.o(.text);
-		asm/keaton.o(.text);
+		src/enemy/keaton.o(.text);
 		asm/crow.o(.text);
 		asm/mulldozer.o(.text);
 		asm/bombarossa.o(.text);
@@ -607,7 +607,7 @@ SECTIONS {
 		asm/kingGustaf.o(.text);
 		asm/gina.o(.text);
 		src/npc/simon.o(.text);
-		asm/anju.o(.text);
+		src/npc/anju.o(.text);
 		asm/mama.o(.text);
 		src/npc/emma.o(.text);
 		src/npc/teachers.o(.text);
