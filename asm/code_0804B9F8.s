@@ -3176,7 +3176,7 @@ sub_0804CD48: @ 0x0804CD48
 	bl SetLocalFlag
 	movs r0, #5
 	movs r1, #0
-	bl sub_080A7138
+	bl MenuFadeIn
 	ldr r0, _0804CD94 @ =gUnk_02000070
 	strb r4, [r0]
 	ldr r0, _0804CD98 @ =gUnk_03000FD0

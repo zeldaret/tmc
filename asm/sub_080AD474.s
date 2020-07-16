@@ -40,7 +40,7 @@ _080AD49C:
 	strh r0, [r5, #8]
 	movs r0, #7
 	strb r0, [r5, #4]
-	bl sub_0805E60C
+	bl EraseAllEntities
 	movs r0, #0
 	bl sub_0801CFA8
 	bl sub_080ADD30

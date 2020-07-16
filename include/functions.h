@@ -29,6 +29,8 @@ extern u32 GetFacingDirection(Entity*, Entity*);
 extern Entity* CreatePlayerItem(u32, u32, u32, u32);
 extern Entity* GetEmptyEntity(void);
 extern u32 GetTileTypeByPos(s32 x, s32 y, u32 layer);
+extern void _DmaZero(void* src, u32 count);
+extern void EraseAllEntities(void);
 
 // Unidentified
 extern void sub_0806ED78(Entity*);
@@ -96,4 +98,11 @@ extern void sub_08077F50(ItemBehavior *beh, u32 arg1);
 extern void sub_0807AA80(Entity*);
 extern s32 sub_0807887C(Entity*, u32, u32);
 extern s32 sub_08078904();
+extern void sub_0805E5A8(void);
+extern void sub_0805E5C0(void);
+extern void sub_080AD90C(void);
+extern void sub_080AD9B0(void);
+extern void sub_080AD918(void);
+extern void sub_0801E104(void);
+extern void MenuFadeIn(u32, u32);
 #endif

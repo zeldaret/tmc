@@ -3540,8 +3540,8 @@ sub_080A7124: @ 0x080A7124
 	.align 2, 0
 _080A7134: .4byte gUnk_02032EC0
 
-	thumb_func_start sub_080A7138
-sub_080A7138: @ 0x080A7138
+	thumb_func_start MenuFadeIn
+MenuFadeIn: @ 0x080A7138
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	adds r6, r1, #0
@@ -3608,7 +3608,7 @@ _080A71B8:
 	strb r2, [r3, #0xf]
 _080A71BA:
 	adds r0, r4, #0
-	bl sub_080A7138
+	bl MenuFadeIn
 	pop {r4, pc}
 	.align 2, 0
 
@@ -3617,7 +3617,7 @@ sub_080A71C4: @ 0x080A71C4
 	push {r4, r5, lr}
 	adds r4, r2, #0
 	adds r5, r3, #0
-	bl sub_080A7138
+	bl MenuFadeIn
 	ldr r0, _080A71D8 @ =gUnk_02032EC0
 	strh r4, [r0, #8]
 	strh r5, [r0, #0xa]

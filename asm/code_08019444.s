@@ -434,7 +434,7 @@ sub_080197A0: @ 0x080197A0
 	push {lr}
 	movs r0, #2
 	movs r1, #0xb
-	bl sub_080A7138
+	bl MenuFadeIn
 	pop {pc}
 
 	thumb_func_start sub_080197AC

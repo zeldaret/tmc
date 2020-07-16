@@ -1178,7 +1178,7 @@ sub_0801E044: @ 0x0801E044
 	bne _0801E06A
 	movs r0, #4
 	movs r1, #0
-	bl sub_080A7138
+	bl MenuFadeIn
 	ldr r0, _0801E070 @ =gUnk_02022740
 	movs r1, #4
 	strb r1, [r0]

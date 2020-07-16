@@ -85,7 +85,7 @@ sub_08054920: @ 0x08054920
 	ldr r0, _08054950 @ =gUnk_02032EC0
 	ldrb r1, [r0, #3]
 	movs r0, #0xa
-	bl sub_080A7138
+	bl MenuFadeIn
 	b _08054962
 	.align 2, 0
 _08054948: .4byte gUnk_080C9CBC

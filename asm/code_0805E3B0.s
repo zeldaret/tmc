@@ -354,8 +354,8 @@ sub_0805E5F8: @ 0x0805E5F8
 	.align 2, 0
 _0805E608: .4byte gUnk_03005F40
 
-	thumb_func_start sub_0805E60C
-sub_0805E60C: @ 0x0805E60C
+	thumb_func_start EraseAllEntities
+EraseAllEntities: @ 0x0805E60C
 	push {lr}
 	bl sub_0805E89C
 	ldr r0, _0805E654 @ =gUnk_03003DC0

@@ -433,7 +433,7 @@ SECTIONS {
 		asm/code_08049CD4.o(.text);
 		asm/sub_0804AA30.o(.text);
 		src/createEnemy.o(.text);
-		src/sub_0804AA84.o(.text);
+		src/code_0804AA84.o(.text);
 		asm/code_0804AA84.o(.text);
 		src/loadRoomEntityList.o(.text);
 		asm/createEntity.o(.text);

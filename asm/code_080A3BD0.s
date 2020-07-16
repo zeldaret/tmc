@@ -264,7 +264,7 @@ sub_080A3DB8: @ 0x080A3DB8
 	cmp r0, #0
 	beq _080A3DE8
 	ldrb r1, [r1, #4]
-	bl sub_080A7138
+	bl MenuFadeIn
 	b _080A3DF8
 	.align 2, 0
 _080A3DDC: .4byte gMenu
@@ -2288,7 +2288,7 @@ sub_080A4D88: @ 0x080A4D88
 	bl _DmaZero
 	movs r0, #1
 	movs r1, #0
-	bl sub_080A7138
+	bl MenuFadeIn
 	movs r0, #0x80
 	bl sub_080A3248
 	pop {pc}

@@ -5472,7 +5472,7 @@ sub_0807F420: @ 0x0807F420
 	lsls r2, r2, #0x18
 	lsrs r2, r2, #0x18
 	adds r1, r2, #0
-	bl sub_080A7138
+	bl MenuFadeIn
 	pop {pc}
 
 	thumb_func_start sub_0807F434

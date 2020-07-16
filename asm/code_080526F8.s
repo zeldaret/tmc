@@ -1712,7 +1712,7 @@ sub_08053434: @ 0x08053434
 	bl sub_08053460
 	movs r0, #5
 	movs r1, #6
-	bl sub_080A7138
+	bl MenuFadeIn
 _0805345A:
 	pop {pc}
 	.align 2, 0

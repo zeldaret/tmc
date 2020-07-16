@@ -634,7 +634,7 @@ sub_080504F4: @ 0x080504F4
 	movs r1, #0x80
 	bl _DmaZero
 	bl sub_08056418
-	bl sub_0805E60C
+	bl EraseAllEntities
 	bl sub_08080668
 	bl sub_080ADD30
 	movs r0, #0
@@ -3331,7 +3331,7 @@ sub_08051A14: @ 0x08051A14
 	movs r1, #0xed
 	lsls r1, r1, #2
 	bl _DmaZero
-	bl sub_0805E60C
+	bl EraseAllEntities
 	bl sub_080197AC
 	bl sub_08080668
 	bl sub_080ADD30
@@ -3881,7 +3881,7 @@ sub_08051F40: @ 0x08051F40
 	beq _08051F68
 	lsrs r1, r1, #4
 	movs r0, #2
-	bl sub_080A7138
+	bl MenuFadeIn
 	b _08051F76
 	.align 2, 0
 _08051F60: .4byte gUnk_080FCA20
