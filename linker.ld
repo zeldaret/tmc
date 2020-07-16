@@ -333,7 +333,6 @@ SECTIONS {
 		src/enemy/hangingSeed.o(.text);
 		asm/beetle.o(.text);
 		src/enemy/keese.o(.text);
-		asm/keese.o(.text);
 		asm/doorMimic.o(.text);
 		asm/rockChuchu.o(.text);
 		asm/spinyChuchu.o(.text);
