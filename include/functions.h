@@ -89,7 +89,7 @@ extern Entity *sub_0804A98C(Entity *, u32, u32);
 extern u32 sub_080544DC(u8);
 extern void sub_08077E54(Entity*);
 extern void sub_080042BA(Entity*);
-extern void sub_0801D630(void*, u32);
+extern void _DmaZero(void*, u32);
 extern void sub_08077F24(ItemBehavior*, u32);
 extern void sub_08079184();
 extern void sub_08077F50(ItemBehavior *beh, u32 arg1);

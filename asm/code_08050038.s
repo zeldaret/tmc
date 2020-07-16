@@ -460,7 +460,7 @@ sub_08050384: @ 0x08050384
 	ldr r0, _080503A0 @ =gUnk_02034CB0
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r1, _080503A4 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
@@ -490,10 +490,10 @@ sub_080503BC: @ 0x080503BC
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _080503E0 @ =gUnk_02021F30
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	pop {r4, pc}
 	.align 2, 0
 _080503D8: .4byte gUnk_02032EC0
@@ -583,7 +583,7 @@ sub_08050450: @ 0x08050450
 	strh r0, [r1, #0x24]
 	ldr r0, _080504E8 @ =gUnk_02000080
 	movs r1, #0x30
-	bl sub_0801D630
+	bl _DmaZero
 _0805048A:
 	bl sub_080507FC
 	ldr r1, _080504EC @ =gUnk_080FC8B0
@@ -632,7 +632,7 @@ sub_080504F4: @ 0x080504F4
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
 	movs r1, #0x80
-	bl sub_0801D630
+	bl _DmaZero
 	bl sub_08056418
 	bl sub_0805E60C
 	bl sub_08080668
@@ -642,11 +642,11 @@ sub_080504F4: @ 0x080504F4
 	ldr r0, _080505DC @ =gUnk_0200AF00
 	movs r1, #0xcd
 	lsls r1, r1, #2
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r4, _080505E0 @ =gUnk_02019EE0
 	ldr r1, _080505E4 @ =0x00000E28
 	adds r0, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #7
 	strb r0, [r4, #3]
 	movs r0, #0x80
@@ -662,7 +662,7 @@ _08050546:
 	movs r1, #0xed
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #8
 	strb r0, [r4, #2]
 	movs r0, #0
@@ -887,7 +887,7 @@ _08050732:
 	ldr r0, [r5, #8]
 	movs r1, #0x80
 	lsls r1, r1, #2
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08050784 @ =0x000004B4
 	adds r1, r6, #0
 	muls r1, r0, r1
@@ -1387,7 +1387,7 @@ sub_08050AFC: @ 0x08050AFC
 	movs r1, #0x80
 	lsls r1, r1, #4
 	adds r0, r5, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08050B34 @ =gUnk_02019EE0
 	adds r0, #8
 	adds r4, r4, r0
@@ -1717,7 +1717,7 @@ sub_08050DB8: @ 0x08050DB8
 	ldr r0, _08050DDC @ =gUnk_020344B0
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #0xc
 	bl sub_080503A8
 	ldr r1, _08050DE0 @ =gUnk_02000080
@@ -3240,7 +3240,7 @@ sub_0805194C: @ 0x0805194C
 	adds r3, #0xc
 	adds r4, r4, r3
 	adds r0, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #1
 	strb r0, [r4, #2]
 	strb r0, [r4, #3]
@@ -3291,7 +3291,7 @@ sub_080519B0: @ 0x080519B0
 	ldr r4, _08051A08 @ =gUnk_030010A0
 	adds r0, r4, #0
 	movs r1, #0xb0
-	bl sub_0801D630
+	bl _DmaZero
 	bl sub_08049CD4
 	bl sub_080300AC
 	bl sub_0807CA18
@@ -3326,11 +3326,11 @@ sub_08051A14: @ 0x08051A14
 	str r0, [r1, #4]
 	ldr r0, _08051A74 @ =gUnk_03000000
 	ldr r1, _08051A78 @ =0x00000B74
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08051A7C @ =gUnk_02032EC0
 	movs r1, #0xed
 	lsls r1, r1, #2
-	bl sub_0801D630
+	bl _DmaZero
 	bl sub_0805E60C
 	bl sub_080197AC
 	bl sub_08080668
@@ -3984,10 +3984,10 @@ sub_08052010: @ 0x08052010
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08052080 @ =gUnk_020344B0
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	bl sub_080A4D34
 	movs r0, #0xa
 	bl LoadPalettesByPaletteGroupIndex
@@ -3999,10 +3999,10 @@ sub_08052010: @ 0x08052010
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
 	movs r1, #0x20
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08052084 @ =gUnk_02000080
 	movs r1, #0x30
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r1, _08052088 @ =gScreen
 	ldrh r2, [r1]
 	movs r3, #0x80

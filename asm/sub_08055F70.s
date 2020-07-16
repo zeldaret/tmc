@@ -23,7 +23,7 @@ sub_08055F70: @ 0x08055F70
 	ldr r2, _08055FD4 @ =0x0003FFD0
 	ldr r0, _08055FD8 @ =gUnk_02000030
 	adds r1, r2, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08055FDC @ =gUnk_080B2CD8
 	ldr r3, _08055FE0 @ =sub_080B197C
 	subs r2, r0, r3

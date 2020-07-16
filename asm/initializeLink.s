@@ -8,11 +8,11 @@ InitializeLink: @ 0x080524A8
 	bl sub_080784C8
 	ldr r0, _08052510 @ =gUnk_03000B80
 	movs r1, #0x70
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r6, _08052514 @ =gLinkState
 	adds r0, r6, #0
 	movs r1, #0xb0
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #1
 	rsbs r0, r0, #0
 	adds r1, r6, #0
@@ -22,7 +22,7 @@ InitializeLink: @ 0x080524A8
 	ldr r4, _08052518 @ =gLinkEntity
 	adds r0, r4, #0
 	movs r1, #0x88
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0805251C @ =gRoomControls
 	str r4, [r0, #0x30]
 	ldr r1, _08052520 @ =gUnk_080FCAC8

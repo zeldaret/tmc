@@ -216,7 +216,7 @@ sub_08058760: @ 0x08058760
 	adds r0, r4, #0
 	adds r0, #0x20
 	movs r1, #0x20
-	bl sub_0801D630
+	bl _DmaZero
 	adds r0, r4, #0
 	movs r1, #8
 	bl sub_0805EA2C

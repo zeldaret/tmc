@@ -30,7 +30,7 @@ extern void sub_0804FFE4(void);
 extern void sub_0804FF84(u32);
 extern void sub_08056418(void);
 extern void sub_080ADD30(void);
-extern void sub_0801D630(void*, u32);
+extern void _DmaZero(void*, u32);
 extern void sub_08056010(u32);
 extern void ReadKeyInput();
 extern u32 sub_08055FF4();
@@ -68,7 +68,7 @@ void MainLoop(void) {
     sub_080ADD30();
     gRand = 0x1234567;
     s = &gUnk_03001000;
-    sub_0801D630(s, 16);
+    _DmaZero(s, 16);
     sub_08056010(0);
     while (1) {
         ReadKeyInput();

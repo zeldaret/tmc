@@ -1773,14 +1773,14 @@ sub_0807DA70: @ 0x0807DA70
 	ldr r4, _0807DA94 @ =gUnk_02033280
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0807DA98 @ =gUnk_02036570
 	movs r1, #0x90
 	lsls r1, r1, #3
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0807DA9C @ =gUnk_02022750
 	movs r1, #0x24
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #8
 	strb r0, [r4, #8]
 	pop {r4, pc}
@@ -1816,7 +1816,7 @@ _0807DAC2:
 sub_0807DAC4: @ 0x0807DAC4
 	push {lr}
 	movs r1, #0x24
-	bl sub_0801D630
+	bl _DmaZero
 	pop {pc}
 	.align 2, 0
 
@@ -1880,7 +1880,7 @@ StartPlayerScript: @ 0x0807DB2C
 	ldr r4, _0807DB5C @ =gUnk_02022750
 	adds r0, r4, #0
 	movs r1, #0x24
-	bl sub_0801D630
+	bl _DmaZero
 	str r5, [r4]
 	ldr r0, _0807DB60 @ =gLinkEntity
 	adds r0, #0x84
@@ -1927,7 +1927,7 @@ sub_0807DB88: @ 0x0807DB88
 	adds r4, r0, #0
 	adds r5, r1, #0
 	movs r1, #0x24
-	bl sub_0801D630
+	bl _DmaZero
 	str r5, [r4]
 	pop {r4, r5, pc}
 
@@ -7919,11 +7919,11 @@ sub_08080668: @ 0x08080668
 	ldr r5, _080806A4 @ =gRoomControls
 	adds r0, r5, #0
 	movs r1, #0x38
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r4, _080806A8 @ =gUnk_03004030
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _080806AC @ =0x0000FFFF
 	strh r0, [r5, #0x22]
 	movs r0, #0xff
@@ -7935,10 +7935,10 @@ sub_08080668: @ 0x08080668
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _080806B8 @ =gUnk_02002F00
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	pop {r4, r5, pc}
 	.align 2, 0
 _080806A4: .4byte gRoomControls

@@ -297,7 +297,7 @@ _0805BB28:
 	movs r2, #0x80
 	lsls r2, r2, #4
 	movs r0, #0xf
-	bl sub_0801D5EC
+	bl _DmaFill16
 	ldr r0, _0805BB58 @ =gScreen
 	ldr r1, _0805BB5C @ =0x00001E0C
 	strh r1, [r0, #0x2c]

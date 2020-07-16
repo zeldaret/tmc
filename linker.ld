@@ -315,9 +315,9 @@ SECTIONS {
 		asm/drawHealth.o(.text);
 		asm/sub_0801C824.o(.text);
 		asm/code_0801C85C.o(.text);
-		src/sub_0801D5EC.o(.text);
+		src/_dmaFill16.o(.text);
 		src/_dmaFill32.o(.text);
-		asm/sub_0801D630.o(.text);
+		src/_dmaZero.o(.text);
 		asm/sub_0801D66C.o(.text);
 		src/input.o(.text);
 		asm/code_0801D714.o(.text);

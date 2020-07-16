@@ -30,7 +30,7 @@ _080AD3A2:
 	ldr r0, _080AD3B8 @ =gUnk_02032EC0
 	movs r1, #0xed
 	lsls r1, r1, #2
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #0
 	bl IntroSetTransition
 	b _080AD3EA

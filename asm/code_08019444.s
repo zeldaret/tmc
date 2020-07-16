@@ -3466,7 +3466,7 @@ _0801AE70:
 	movs r2, #0x80
 	lsls r2, r2, #4
 	movs r0, #0xf
-	bl sub_0801D5EC
+	bl _DmaFill16
 	movs r0, #1
 	rsbs r0, r0, #0
 	bl sub_0805BB74

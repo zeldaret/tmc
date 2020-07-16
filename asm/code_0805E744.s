@@ -252,7 +252,7 @@ sub_0805E900: @ 0x0805E900
 	bl sub_0805EA98
 	adds r0, r4, #0
 	movs r1, #0x40
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r1, _0805E928 @ =gUnk_020354B4
 	ldrb r0, [r1]
 	subs r0, #1
@@ -1594,7 +1594,7 @@ _0805F2D0:
 	bne _0805F2F0
 	adds r0, r5, #0
 	movs r1, #0xc
-	bl sub_0801D630
+	bl _DmaZero
 	ldrb r0, [r4]
 	movs r1, #1
 	orrs r0, r1
@@ -1624,7 +1624,7 @@ _0805F308:
 	cmp r0, r2
 	bne _0805F318
 	movs r1, #0xc
-	bl sub_0801D630
+	bl _DmaZero
 	b _0805F320
 	.align 2, 0
 _0805F314: .4byte gUnk_02036540
@@ -1787,7 +1787,7 @@ sub_0805F440: @ 0x0805F440
 	adds r4, r0, #0
 	adds r5, r1, #0
 	movs r1, #0x30
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0805F45C @ =0x0000FFFF
 	cmp r5, r0
 	bls _0805F460
@@ -1965,7 +1965,7 @@ _0805F596:
 _0805F59E:
 	ldr r0, _0805F5C8 @ =gUnk_02034330
 	movs r1, #0x18
-	bl sub_0801D630
+	bl _DmaZero
 _0805F5A6:
 	mov r0, sb
 	mov r1, sp
@@ -2562,11 +2562,11 @@ sub_0805FA04: @ 0x0805FA04
 	ldr r0, _0805FA78 @ =gUnk_02034CB0
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0805FA7C @ =gUnk_02001A40
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0805FA80 @ =gScreen
 	movs r2, #0
 	movs r1, #0x94
@@ -2585,11 +2585,11 @@ sub_0805FA04: @ 0x0805FA04
 	ldr r0, _0805FA88 @ =gUnk_02032EC0
 	movs r1, #0xed
 	lsls r1, r1, #2
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r4, _0805FA8C @ =gUnk_02000080
 	adds r0, r4, #0
 	movs r1, #0x30
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #0x80
 	lsls r0, r0, #0x12
 	ldrb r0, [r0, #7]

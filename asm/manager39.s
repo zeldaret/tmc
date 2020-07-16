@@ -120,7 +120,7 @@ sub_0805E1D8: @ 0x0805E1D8
 	push {lr}
 	ldr r0, _0805E1F0 @ =gUnk_02034DF0
 	movs r1, #0x80
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r1, _0805E1F4 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
@@ -138,7 +138,7 @@ sub_0805E1F8: @ 0x0805E1F8
 	adds r5, r1, #0
 	ldr r0, _0805E234 @ =gUnk_02034DF0
 	movs r1, #0x80
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0805E238 @ =gUnk_08108E60
 	mov r1, sp
 	movs r2, #9

@@ -5,8 +5,8 @@
 
 	.text
 	
-	thumb_func_start sub_0801D630
-sub_0801D630: @ 0x0801D630
+	thumb_func_start _DmaZero
+_DmaZero: @ 0x0801D630
 	push {r4, lr}
 	adds r3, r0, #0
 	adds r2, r1, #0
@@ -28,7 +28,7 @@ _0801D64A:
 _0801D654:
 	movs r0, #0
 	adds r1, r3, #0
-	bl sub_0801D5EC
+	bl _DmaFill16
 	b _0801D668
 _0801D65E:
 	strb r4, [r3]

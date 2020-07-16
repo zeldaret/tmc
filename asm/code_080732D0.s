@@ -4198,7 +4198,7 @@ sub_080751E8: @ 0x080751E8
 	ldr r4, _08075230 @ =gUnk_02022750
 	adds r0, r4, #0
 	movs r1, #0x24
-	bl sub_0801D630
+	bl _DmaZero
 	str r6, [r4]
 	ldr r0, _08075234 @ =gLinkEntity
 	adds r0, #0x84

@@ -28,7 +28,7 @@ sub_0805B048: @ 0x0805B048
 	adds r0, r4, #0
 	adds r0, #0x20
 	movs r1, #0x20
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	ldr r2, _0805B08C @ =gRoomControls

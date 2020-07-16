@@ -54,7 +54,7 @@ sub_0804AAD4: @ 0x0804AAD4
 	ldr r4, _0804AAFC @ =gUnk_02018EB0
 	adds r0, r4, #0
 	movs r1, #0x28
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #0
 	str r0, [r4, #0x14]
 	bl sub_0805E60C

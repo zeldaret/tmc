@@ -63,7 +63,7 @@ void sub_08077E78(void* arg0, u32 bits)
   not = ~not;
   gLinkState.field_0xa &= not;
   gLinkState.keepFacing &= not;
-  sub_0801D630(arg0, 0x1c);
+  _DmaZero(arg0, 0x1c);
 }
 
 u32 sub_08077EC8(Unk_struct* arg0)

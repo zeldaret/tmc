@@ -842,7 +842,7 @@ sub_0806F364: @ 0x0806F364
 	adds r1, r2, r3
 	adds r0, r0, r1
 	movs r1, #0x10
-	bl sub_0801D630
+	bl _DmaZero
 	pop {pc}
 	.align 2, 0
 _0806F384: .4byte gArea

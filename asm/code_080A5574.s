@@ -2458,7 +2458,7 @@ _080A6886:
 	ldr r0, _080A68D0 @ =gUnk_02019EE0
 	movs r1, #0x80
 	lsls r1, r1, #3
-	bl sub_0801D630
+	bl _DmaZero
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A68AC: .4byte gUnk_02032EC0
@@ -2806,7 +2806,7 @@ sub_080A6B04: @ 0x080A6B04
 	ldr r1, _080A6C08 @ =gUnk_02001A40
 	movs r2, #0x80
 	lsls r2, r2, #5
-	bl sub_0801D5EC
+	bl _DmaFill16
 	ldr r0, _080A6C0C @ =gLinkState
 	ldr r0, [r0, #0x30]
 	movs r1, #8
@@ -3323,7 +3323,7 @@ sub_080A6F6C: @ 0x080A6F6C
 	ldr r0, _080A6FA8 @ =gUnk_020350F0
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #0xff
 	ands r0, r4
 	cmp r0, #0
@@ -3392,7 +3392,7 @@ _080A6FFA:
 	ldr r0, _080A7038 @ =gUnk_020350F0
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #0xff
 	ands r0, r4
 	cmp r0, #0
@@ -3429,7 +3429,7 @@ sub_080A7040: @ 0x080A7040
 	movs r1, #0xc0
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _080A7098 @ =0xFFFFFE00
 	adds r4, r4, r0
 	ldr r1, _080A709C @ =0x0600E000
@@ -3472,7 +3472,7 @@ sub_080A70AC: @ 0x080A70AC
 	movs r1, #0xc0
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	adds r2, r4, #0
 	subs r2, #0x34
 	movs r0, #0x7f
@@ -3535,7 +3535,7 @@ sub_080A7124: @ 0x080A7124
 	ldr r0, _080A7134 @ =gUnk_02032EC0
 	movs r1, #0xed
 	lsls r1, r1, #2
-	bl sub_0801D630
+	bl _DmaZero
 	pop {pc}
 	.align 2, 0
 _080A7134: .4byte gUnk_02032EC0
@@ -3552,7 +3552,7 @@ sub_080A7138: @ 0x080A7138
 	movs r1, #0xed
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	strb r5, [r4, #2]
 	strb r6, [r4, #3]
 	ldr r0, _080A7160 @ =gUnk_03001000
@@ -3783,18 +3783,18 @@ sub_080A7328: @ 0x080A7328
 	bl sub_0805E89C
 	ldr r0, _080A738C @ =gUnk_02000080
 	movs r1, #0x30
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _080A7390 @ =gRoomControls
 	movs r1, #0x38
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _080A7394 @ =gUnk_03000420
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r4, _080A7398 @ =gUnk_02033280
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #8
 	strb r0, [r4, #8]
 	movs r0, #1
@@ -4959,7 +4959,7 @@ sub_080A7C7C: @ 0x080A7C7C
 	push {lr}
 	ldr r0, _080A7C88 @ =gUnk_02017660
 	movs r1, #0x40
-	bl sub_0801D630
+	bl _DmaZero
 	pop {pc}
 	.align 2, 0
 _080A7C88: .4byte gUnk_02017660
