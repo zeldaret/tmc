@@ -559,6 +559,7 @@ SECTIONS {
 		asm/nayru.o(.text);
 		asm/farore.o(.text);
 		asm/sturgeon.o(.text);
+		src/npc/tingleSiblings.o(.text);
 		asm/tingleSiblings.o(.text);
 		asm/stockwell.o(.text);
 		src/npc/talon.o(.text);
