@@ -120,7 +120,7 @@ _080A0038:
 	bne _080A005A
 	movs r0, #3
 	strb r0, [r4, #0xd]
-	ldr r1, _080A0064 @ =gUnk_02000080
+	ldr r1, _080A0064 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
@@ -131,7 +131,7 @@ _080A005A:
 	bl sub_080A00B0
 	b _080A00AA
 	.align 2, 0
-_080A0064: .4byte gUnk_02000080
+_080A0064: .4byte gMenu
 _080A0068:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0

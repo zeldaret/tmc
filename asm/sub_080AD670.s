@@ -23,7 +23,7 @@ sub_080AD670: @ 0x080AD670
 	mov r0, sp
 	strh r2, [r0, #0x10]
 	mov r2, sp
-	ldr r0, _080AD6A4 @ =gUnk_02000080
+	ldr r0, _080AD6A4 @ =gMenu
 	ldr r0, [r0, #0x2c]
 	strh r0, [r1, #0xc]
 	strh r0, [r2, #0xe]
@@ -34,5 +34,5 @@ sub_080AD670: @ 0x080AD670
 	add sp, #0x14
 	pop {pc}
 	.align 2, 0
-_080AD6A4: .4byte gUnk_02000080
+_080AD6A4: .4byte gMenu
 _080AD6A8: .4byte gBgControls

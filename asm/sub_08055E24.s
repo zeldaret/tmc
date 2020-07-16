@@ -8,7 +8,7 @@
 	thumb_func_start sub_08055E24
 sub_08055E24: @ 0x08055E24
 	push {r4, lr}
-	ldr r4, _08055E5C @ =gUnk_02000080
+	ldr r4, _08055E5C @ =gMenu
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
@@ -31,7 +31,7 @@ sub_08055E24: @ 0x08055E24
 	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
-_08055E5C: .4byte gUnk_02000080
+_08055E5C: .4byte gMenu
 _08055E60: .4byte gUnk_02000070
 _08055E64: .4byte gUnk_080FF400
 

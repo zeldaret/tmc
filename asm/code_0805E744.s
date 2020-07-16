@@ -2586,7 +2586,7 @@ sub_0805FA04: @ 0x0805FA04
 	movs r1, #0xed
 	lsls r1, r1, #2
 	bl _DmaZero
-	ldr r4, _0805FA8C @ =gUnk_02000080
+	ldr r4, _0805FA8C @ =gMenu
 	adds r0, r4, #0
 	movs r1, #0x30
 	bl _DmaZero
@@ -2609,7 +2609,7 @@ _0805FA7C: .4byte gUnk_02001A40
 _0805FA80: .4byte gScreen
 _0805FA84: .4byte 0x00001E0F
 _0805FA88: .4byte gUnk_02032EC0
-_0805FA8C: .4byte gUnk_02000080
+_0805FA8C: .4byte gMenu
 _0805FA90: .4byte 0x00001144
 _0805FA94: .4byte gUnk_03001000
 
@@ -2641,23 +2641,23 @@ _0805FAB8:
 	beq _0805FAE8
 	b _0805FB4A
 _0805FACA:
-	ldr r1, _0805FAD4 @ =gUnk_02000080
+	ldr r1, _0805FAD4 @ =gMenu
 	ldrb r0, [r1, #0x11]
 	subs r0, #1
 	strb r0, [r1, #0x11]
 	b _0805FBA4
 	.align 2, 0
-_0805FAD4: .4byte gUnk_02000080
+_0805FAD4: .4byte gMenu
 _0805FAD8:
-	ldr r1, _0805FAE4 @ =gUnk_02000080
+	ldr r1, _0805FAE4 @ =gMenu
 	ldrb r0, [r1, #0x11]
 	adds r0, #1
 	strb r0, [r1, #0x11]
 	b _0805FBA4
 	.align 2, 0
-_0805FAE4: .4byte gUnk_02000080
+_0805FAE4: .4byte gMenu
 _0805FAE8:
-	ldr r0, _0805FB04 @ =gUnk_02000080
+	ldr r0, _0805FB04 @ =gMenu
 	ldrb r1, [r0, #0x10]
 	movs r2, #1
 	eors r1, r2
@@ -2671,7 +2671,7 @@ _0805FAE8:
 	strh r1, [r0, #0x2c]
 	b _0805FBA4
 	.align 2, 0
-_0805FB04: .4byte gUnk_02000080
+_0805FB04: .4byte gMenu
 _0805FB08: .4byte gScreen
 _0805FB0C: .4byte 0x00001F0C
 _0805FB10:
@@ -2688,7 +2688,7 @@ _0805FB24: .4byte 0x00001E0C
 _0805FB28:
 	movs r2, #0x80
 	lsls r2, r2, #0x12
-	ldr r1, _0805FB40 @ =gUnk_02000080
+	ldr r1, _0805FB40 @ =gMenu
 	ldrb r0, [r1, #0x16]
 	strb r0, [r2, #7]
 	ldrb r0, [r1, #0x14]
@@ -2698,7 +2698,7 @@ _0805FB28:
 	bl TextboxNoOverlapFollow
 	b _0805FBA4
 	.align 2, 0
-_0805FB40: .4byte gUnk_02000080
+_0805FB40: .4byte gMenu
 _0805FB44:
 	bl sub_08056418
 	b _0805FBA4
@@ -2717,7 +2717,7 @@ _0805FB5A:
 _0805FB5E:
 	movs r1, #0
 _0805FB60:
-	ldr r4, _0805FB74 @ =gUnk_02000080
+	ldr r4, _0805FB74 @ =gMenu
 	ldrb r0, [r4, #0x11]
 	cmp r0, #1
 	beq _0805FB8E
@@ -2727,7 +2727,7 @@ _0805FB60:
 	beq _0805FB7E
 	b _0805FBA4
 	.align 2, 0
-_0805FB74: .4byte gUnk_02000080
+_0805FB74: .4byte gMenu
 _0805FB78:
 	cmp r0, #2
 	beq _0805FB96
@@ -2753,7 +2753,7 @@ _0805FB96:
 	bl __modsi3
 	strb r0, [r4, #0x16]
 _0805FBA4:
-	ldr r4, _0805FBBC @ =gUnk_02000080
+	ldr r4, _0805FBBC @ =gMenu
 	ldrb r0, [r4, #0x11]
 	adds r0, #3
 	movs r1, #3
@@ -2764,7 +2764,7 @@ _0805FBA4:
 	strh r0, [r1, #0x32]
 	pop {r4, pc}
 	.align 2, 0
-_0805FBBC: .4byte gUnk_02000080
+_0805FBBC: .4byte gMenu
 _0805FBC0: .4byte gScreen
 
 	thumb_func_start sub_0805FBC4

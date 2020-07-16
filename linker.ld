@@ -16,7 +16,7 @@ SECTIONS {
         . = 0x00000050; gTextBox = .;
         . = 0x0000005C; gUnk_0200005C = .;
         . = 0x00000070; gUnk_02000070 = .;
-        . = 0x00000080; gUnk_02000080 = .;
+        . = 0x00000080; gMenu = .;
         . = 0x00000090; gUnk_02000090 = .;
         . = 0x000000B0; gUnk_020000B0 = .;
         . = 0x000000C0; gUnk_020000C0 = .;
@@ -456,6 +456,7 @@ SECTIONS {
 		asm/code_080526F8.o(.text);
 		asm/modBombs.o(.text);
 		asm/modArrows.o(.text);
+		src/code_0805436C.o(.text);
 		asm/code_0805436C.o(.text);
 		src/sub_08055E08.o(.text);
 		asm/sub_08055E24.o(.text);

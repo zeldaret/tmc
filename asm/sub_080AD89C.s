@@ -8,7 +8,7 @@
 	thumb_func_start sub_080AD89C
 sub_080AD89C: @ 0x080AD89C
 	push {r4, lr}
-	ldr r4, _080AD8E4 @ =gUnk_02000080
+	ldr r4, _080AD8E4 @ =gMenu
 	ldrb r1, [r4, #0x12]
 	movs r0, #7
 	ands r0, r1
@@ -44,6 +44,6 @@ _080AD8BC:
 _080AD8E0:
 	pop {r4, pc}
 	.align 2, 0
-_080AD8E4: .4byte gUnk_02000080
+_080AD8E4: .4byte gMenu
 _080AD8E8: .4byte gScreen
 _080AD8EC: .4byte gUnk_081320FC

@@ -9,7 +9,7 @@
 	thumb_func_start sub_080AD6AC
 sub_080AD6AC: @ 0x080AD6AC
 	push {r4, r5, r6, lr}
-	ldr r4, _080AD6C0 @ =gUnk_02000080
+	ldr r4, _080AD6C0 @ =gMenu
 	ldrb r0, [r4, #6]
 	cmp r0, #1
 	beq _080AD724
@@ -19,7 +19,7 @@ sub_080AD6AC: @ 0x080AD6AC
 	beq _080AD6CA
 	b _080AD76A
 	.align 2, 0
-_080AD6C0: .4byte gUnk_02000080
+_080AD6C0: .4byte gMenu
 _080AD6C4:
 	cmp r0, #2
 	beq _080AD758

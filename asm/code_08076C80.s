@@ -1887,7 +1887,7 @@ sub_08077AEC: @ 0x08077AEC
 	ands r0, r1
 	str r0, [r2, #0x30]
 	movs r0, #0x10
-	bl sub_0805436C
+	bl IsItemEquipped
 	adds r1, r0, #0
 	cmp r1, #2
 	beq _08077B12

@@ -771,7 +771,7 @@ sub_0806D5D4: @ 0x0806D5D4
 	push {lr}
 	bl sub_08053500
 	movs r0, #0xd
-	bl sub_0805436C
+	bl IsItemEquipped
 	adds r1, r0, #0
 	cmp r1, #2
 	beq _0806D5F0

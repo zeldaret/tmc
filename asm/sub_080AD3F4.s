@@ -11,7 +11,7 @@ sub_080AD3F4: @ 0x080AD3F4
 	push {r4, r5, lr}
 	bl sub_080AD84C
 	adds r1, r0, #0
-	ldr r4, _080AD450 @ =gUnk_02000080
+	ldr r4, _080AD450 @ =gMenu
 	ldrb r0, [r4, #5]
 	cmp r0, #0
 	bne _080AD458
@@ -49,7 +49,7 @@ _080AD42C:
 	movs r1, #0
 	b _080AD45E
 	.align 2, 0
-_080AD450: .4byte gUnk_02000080
+_080AD450: .4byte gMenu
 _080AD454: .4byte gScreen
 _080AD458:
 	cmp r1, #1

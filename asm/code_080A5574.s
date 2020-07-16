@@ -10,7 +10,7 @@
 sub_080A5574: @ 0x080A5574
 	push {lr}
 	ldr r1, _080A558C @ =gUnk_08128BF8
-	ldr r0, _080A5590 @ =gUnk_02000080
+	ldr r0, _080A5590 @ =gMenu
 	ldrb r0, [r0, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -20,12 +20,12 @@ sub_080A5574: @ 0x080A5574
 	pop {pc}
 	.align 2, 0
 _080A558C: .4byte gUnk_08128BF8
-_080A5590: .4byte gUnk_02000080
+_080A5590: .4byte gMenu
 
 	thumb_func_start sub_080A5594
 sub_080A5594: @ 0x080A5594
 	push {r4, r5, r6, r7, lr}
-	ldr r4, _080A5620 @ =gUnk_02000080
+	ldr r4, _080A5620 @ =gMenu
 	ldr r0, _080A5624 @ =gUnk_08128C00
 	str r0, [r4, #0xc]
 	ldr r0, _080A5628 @ =gUnk_08128C04
@@ -94,7 +94,7 @@ _080A560A:
 	movs r5, #4
 	b _080A5646
 	.align 2, 0
-_080A5620: .4byte gUnk_02000080
+_080A5620: .4byte gMenu
 _080A5624: .4byte gUnk_08128C00
 _080A5628: .4byte gUnk_08128C04
 _080A562C: .4byte gUnk_080FD5B4
@@ -112,10 +112,10 @@ _080A563C:
 _080A5644:
 	movs r5, #1
 _080A5646:
-	ldr r0, _080A5698 @ =gUnk_02000080
+	ldr r0, _080A5698 @ =gMenu
 	strb r5, [r0, #0x10]
 _080A564A:
-	ldr r0, _080A5698 @ =gUnk_02000080
+	ldr r0, _080A5698 @ =gMenu
 	ldr r1, _080A569C @ =gUnk_02002A40
 	adds r1, #0xa9
 	ldrb r1, [r1]
@@ -133,7 +133,7 @@ _080A5666:
 	adds r4, #1
 	cmp r4, #0x4f
 	bls _080A565A
-	ldr r4, _080A5698 @ =gUnk_02000080
+	ldr r4, _080A5698 @ =gMenu
 	strb r5, [r4, #0x12]
 	movs r0, #0x3e
 	bl GetInventoryValue
@@ -146,14 +146,14 @@ _080A5666:
 	movs r0, #0x3f
 	strb r0, [r4, #0x13]
 _080A5688:
-	ldr r1, _080A5698 @ =gUnk_02000080
+	ldr r1, _080A5698 @ =gMenu
 	movs r0, #1
 	strb r0, [r1, #0x14]
 	strb r0, [r1, #0x15]
 	bl sub_080A7114
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A5698: .4byte gUnk_02000080
+_080A5698: .4byte gMenu
 _080A569C: .4byte gUnk_02002A40
 
 	thumb_func_start sub_080A56A0
@@ -164,7 +164,7 @@ sub_080A56A0: @ 0x080A56A0
 	bne _080A56AC
 	b _080A57F0
 _080A56AC:
-	ldr r2, _080A56D0 @ =gUnk_02000080
+	ldr r2, _080A56D0 @ =gMenu
 	ldr r0, _080A56D4 @ =gUnk_08128C00
 	str r0, [r2, #0xc]
 	ldrb r0, [r2, #3]
@@ -182,7 +182,7 @@ _080A56AC:
 	beq _080A56F6
 	b _080A56F8
 	.align 2, 0
-_080A56D0: .4byte gUnk_02000080
+_080A56D0: .4byte gMenu
 _080A56D4: .4byte gUnk_08128C00
 _080A56D8: .4byte gUnk_08128C14
 _080A56DC: .4byte gUnk_03000FF0
@@ -206,13 +206,13 @@ _080A56F6:
 _080A56F8:
 	cmp r3, #0xff
 	beq _080A570C
-	ldr r0, _080A5708 @ =gUnk_02000080
+	ldr r0, _080A5708 @ =gMenu
 	strb r3, [r0, #3]
 	movs r0, #0x69
 	bl PlaySFX
 	b _080A575E
 	.align 2, 0
-_080A5708: .4byte gUnk_02000080
+_080A5708: .4byte gMenu
 _080A570C:
 	ldrh r0, [r0, #2]
 	cmp r0, #1
@@ -233,7 +233,7 @@ _080A5724:
 	beq _080A574C
 	b _080A574E
 _080A572E:
-	ldr r0, _080A5744 @ =gUnk_02000080
+	ldr r0, _080A5744 @ =gMenu
 	adds r0, #0x10
 	adds r0, r3, r0
 	ldrb r0, [r0]
@@ -245,7 +245,7 @@ _080A572E:
 	movs r1, #7
 	b _080A5752
 	.align 2, 0
-_080A5744: .4byte gUnk_02000080
+_080A5744: .4byte gMenu
 _080A5748:
 	movs r1, #9
 	b _080A5752
@@ -260,7 +260,7 @@ _080A5752:
 	movs r0, #0x6a
 	bl PlaySFX
 _080A575E:
-	ldr r0, _080A5780 @ =gUnk_02000080
+	ldr r0, _080A5780 @ =gMenu
 	ldrb r1, [r0, #3]
 	adds r2, r0, #0
 	cmp r1, #0
@@ -278,7 +278,7 @@ _080A576C:
 	movs r0, #0x10
 	b _080A578C
 	.align 2, 0
-_080A5780: .4byte gUnk_02000080
+_080A5780: .4byte gMenu
 _080A5784: .4byte gUnk_0200AF00
 _080A5788:
 	ldr r1, _080A57AC @ =gUnk_0200AF00
@@ -357,7 +357,7 @@ sub_080A57F4: @ 0x080A57F4
 	ldr r3, _080A5898 @ =gUnk_08128C14
 	mov sb, r3
 _080A581A:
-	ldr r0, _080A589C @ =gUnk_02000080
+	ldr r0, _080A589C @ =gMenu
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #3
 	mov r1, sb
@@ -387,7 +387,7 @@ _080A5846:
 	mov r7, sb
 	adds r7, #5
 _080A5854:
-	ldr r0, _080A589C @ =gUnk_02000080
+	ldr r0, _080A589C @ =gMenu
 	adds r0, #0x10
 	mov r1, r8
 	adds r6, r1, r0
@@ -420,7 +420,7 @@ _080A5854:
 _080A5890: .4byte gUnk_03001010
 _080A5894: .4byte gUnk_08128C94
 _080A5898: .4byte gUnk_08128C14
-_080A589C: .4byte gUnk_02000080
+_080A589C: .4byte gMenu
 _080A58A0: .4byte gUnk_03001000
 _080A58A4: .4byte 0x000001FB
 _080A58A8:
@@ -467,7 +467,7 @@ _080A58E8:
 	mov r1, r8
 	cmp r1, #0xf
 	bls _080A5854
-	ldr r4, _080A5984 @ =gUnk_02000080
+	ldr r4, _080A5984 @ =gMenu
 	ldrb r0, [r4, #0x12]
 	cmp r0, #0
 	beq _080A5920
@@ -537,7 +537,7 @@ _080A5976:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A5980: .4byte gUnk_080FDFD8
-_080A5984: .4byte gUnk_02000080
+_080A5984: .4byte gMenu
 _080A5988: .4byte gUnk_03001010
 _080A598C: .4byte gUnk_02002A40
 
@@ -545,7 +545,7 @@ _080A598C: .4byte gUnk_02002A40
 sub_080A5990: @ 0x080A5990
 	push {lr}
 	ldr r1, _080A59A4 @ =gUnk_08128D14
-	ldr r0, _080A59A8 @ =gUnk_02000080
+	ldr r0, _080A59A8 @ =gMenu
 	ldrb r0, [r0, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -554,12 +554,12 @@ sub_080A5990: @ 0x080A5990
 	pop {pc}
 	.align 2, 0
 _080A59A4: .4byte gUnk_08128D14
-_080A59A8: .4byte gUnk_02000080
+_080A59A8: .4byte gMenu
 
 	thumb_func_start sub_080A59AC
 sub_080A59AC: @ 0x080A59AC
 	push {lr}
-	ldr r1, _080A59C4 @ =gUnk_02000080
+	ldr r1, _080A59C4 @ =gMenu
 	movs r0, #0
 	strb r0, [r1, #3]
 	movs r1, #0
@@ -568,7 +568,7 @@ sub_080A59AC: @ 0x080A59AC
 	bl sub_080A7114
 	pop {pc}
 	.align 2, 0
-_080A59C4: .4byte gUnk_02000080
+_080A59C4: .4byte gMenu
 
 	thumb_func_start sub_080A59C8
 sub_080A59C8: @ 0x080A59C8
@@ -576,7 +576,7 @@ sub_080A59C8: @ 0x080A59C8
 	bl sub_080A51F4
 	cmp r0, #0
 	beq _080A5A52
-	ldr r1, _080A59EC @ =gUnk_02000080
+	ldr r1, _080A59EC @ =gMenu
 	ldrb r2, [r1, #3]
 	movs r3, #0
 	ldr r0, _080A59F0 @ =gUnk_03000FF0
@@ -589,7 +589,7 @@ sub_080A59C8: @ 0x080A59C8
 	beq _080A5A0A
 	b _080A5A0C
 	.align 2, 0
-_080A59EC: .4byte gUnk_02000080
+_080A59EC: .4byte gMenu
 _080A59F0: .4byte gUnk_03000FF0
 _080A59F4:
 	cmp r0, #0x40
@@ -666,7 +666,7 @@ _080A5A76:
 	movs r0, #9
 	movs r1, #0
 	bl sub_08050318
-	ldr r1, _080A5A8C @ =gUnk_02000080
+	ldr r1, _080A5A8C @ =gMenu
 	movs r0, #0x3c
 	strh r0, [r1, #8]
 _080A5A84:
@@ -675,12 +675,12 @@ _080A5A84:
 _080A5A8A:
 	pop {pc}
 	.align 2, 0
-_080A5A8C: .4byte gUnk_02000080
+_080A5A8C: .4byte gMenu
 
 	thumb_func_start sub_080A5A90
 sub_080A5A90: @ 0x080A5A90
 	push {lr}
-	ldr r2, _080A5AA4 @ =gUnk_02000080
+	ldr r2, _080A5AA4 @ =gMenu
 	ldrh r0, [r2, #8]
 	cmp r0, #0
 	beq _080A5AA8
@@ -690,7 +690,7 @@ sub_080A5A90: @ 0x080A5A90
 	strh r0, [r2, #8]
 	b _080A5AD2
 	.align 2, 0
-_080A5AA4: .4byte gUnk_02000080
+_080A5AA4: .4byte gMenu
 _080A5AA8:
 	ldr r0, _080A5ABC @ =gUnk_03000FF0
 	ldrh r1, [r0, #2]
@@ -722,7 +722,7 @@ _080A5AD4: .4byte gUnk_02034490
 sub_080A5AD8: @ 0x080A5AD8
 	push {lr}
 	ldr r1, _080A5AEC @ =gUnk_08128D24
-	ldr r0, _080A5AF0 @ =gUnk_02000080
+	ldr r0, _080A5AF0 @ =gMenu
 	ldrb r0, [r0, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -731,12 +731,12 @@ sub_080A5AD8: @ 0x080A5AD8
 	pop {pc}
 	.align 2, 0
 _080A5AEC: .4byte gUnk_08128D24
-_080A5AF0: .4byte gUnk_02000080
+_080A5AF0: .4byte gMenu
 
 	thumb_func_start sub_080A5AF4
 sub_080A5AF4: @ 0x080A5AF4
 	push {r4, lr}
-	ldr r0, _080A5B18 @ =gUnk_02000080
+	ldr r0, _080A5B18 @ =gMenu
 	movs r4, #0
 	strb r4, [r0, #3]
 	movs r0, #2
@@ -752,7 +752,7 @@ sub_080A5AF4: @ 0x080A5AF4
 	strh r0, [r1, #0x18]
 	b _080A5B28
 	.align 2, 0
-_080A5B18: .4byte gUnk_02000080
+_080A5B18: .4byte gMenu
 _080A5B1C: .4byte gScreen
 _080A5B20: .4byte 0x0000FFFC
 _080A5B24:
@@ -771,7 +771,7 @@ sub_080A5B34: @ 0x080A5B34
 	bl sub_080A51F4
 	cmp r0, #0
 	beq _080A5BB6
-	ldr r1, _080A5B58 @ =gUnk_02000080
+	ldr r1, _080A5B58 @ =gMenu
 	ldrb r4, [r1, #3]
 	movs r5, #0
 	ldr r0, _080A5B5C @ =gUnk_03000FF0
@@ -785,7 +785,7 @@ sub_080A5B34: @ 0x080A5B34
 	beq _080A5B74
 	b _080A5B76
 	.align 2, 0
-_080A5B58: .4byte gUnk_02000080
+_080A5B58: .4byte gMenu
 _080A5B5C: .4byte gUnk_03000FF0
 _080A5B60:
 	cmp r0, #0x10
@@ -865,7 +865,7 @@ _080A5BEC: .4byte gUnk_02034490
 sub_080A5BF0: @ 0x080A5BF0
 	push {r4, r5, lr}
 	ldr r1, _080A5C30 @ =gUnk_08128D30
-	ldr r0, _080A5C34 @ =gUnk_02000080
+	ldr r0, _080A5C34 @ =gMenu
 	ldrb r0, [r0, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -895,7 +895,7 @@ _080A5C2E:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A5C30: .4byte gUnk_08128D30
-_080A5C34: .4byte gUnk_02000080
+_080A5C34: .4byte gMenu
 _080A5C38: .4byte gUnk_03001000
 _080A5C3C: .4byte gUnk_02017830
 _080A5C40: .4byte gUnk_0200B644
@@ -903,7 +903,7 @@ _080A5C40: .4byte gUnk_0200B644
 	thumb_func_start sub_080A5C44
 sub_080A5C44: @ 0x080A5C44
 	push {r4, lr}
-	ldr r1, _080A5C88 @ =gUnk_02000080
+	ldr r1, _080A5C88 @ =gMenu
 	ldr r0, _080A5C8C @ =gUnk_08128D38
 	str r0, [r1, #0xc]
 	ldrb r0, [r1, #3]
@@ -933,7 +933,7 @@ sub_080A5C44: @ 0x080A5C44
 	strh r0, [r2, #0x18]
 	pop {r4, pc}
 	.align 2, 0
-_080A5C88: .4byte gUnk_02000080
+_080A5C88: .4byte gMenu
 _080A5C8C: .4byte gUnk_08128D38
 _080A5C90: .4byte gArea
 _080A5C94: .4byte gUnk_08128D43
@@ -950,7 +950,7 @@ sub_080A5C9C: @ 0x080A5C9C
 	lsls r0, r0, #2
 	ldr r1, _080A5CC8 @ =gUnk_080C9C6C
 	adds r3, r0, r1
-	ldr r1, _080A5CCC @ =gUnk_02000080
+	ldr r1, _080A5CCC @ =gMenu
 	ldrb r2, [r1, #3]
 	ldr r0, _080A5CD0 @ =gUnk_03000FF0
 	ldrh r0, [r0, #2]
@@ -962,7 +962,7 @@ sub_080A5C9C: @ 0x080A5C9C
 	.align 2, 0
 _080A5CC4: .4byte gArea
 _080A5CC8: .4byte gUnk_080C9C6C
-_080A5CCC: .4byte gUnk_02000080
+_080A5CCC: .4byte gMenu
 _080A5CD0: .4byte gUnk_03000FF0
 _080A5CD4:
 	cmp r2, #0
@@ -1029,7 +1029,7 @@ sub_080A5D1C: @ 0x080A5D1C
 	strh r0, [r5, #8]
 	movs r0, #0x34
 	strh r0, [r5]
-	ldr r0, _080A5EA8 @ =gUnk_02000080
+	ldr r0, _080A5EA8 @ =gMenu
 	ldrb r1, [r0, #3]
 	lsls r0, r1, #1
 	adds r0, r0, r1
@@ -1196,7 +1196,7 @@ _080A5E98: .4byte gArea
 _080A5E9C: .4byte gUnk_080C9C6C
 _080A5EA0: .4byte gUnk_08128D3C
 _080A5EA4: .4byte gUnk_03001010
-_080A5EA8: .4byte gUnk_02000080
+_080A5EA8: .4byte gMenu
 _080A5EAC: .4byte gUnk_03001000
 _080A5EB0: .4byte 0x000001FB
 _080A5EB4: .4byte gUnk_080FDFD8
@@ -1210,14 +1210,14 @@ _080A5EC0:
 	b _080A5EEE
 _080A5ECA:
 	movs r4, #0x7d
-	ldr r0, _080A5ED8 @ =gUnk_02000080
+	ldr r0, _080A5ED8 @ =gMenu
 	ldrb r0, [r0, #3]
 	cmp r8, r0
 	beq _080A5EF0
 	movs r4, #0x7e
 	b _080A5EF0
 	.align 2, 0
-_080A5ED8: .4byte gUnk_02000080
+_080A5ED8: .4byte gMenu
 _080A5EDC:
 	movs r4, #0x80
 	b _080A5EF0
@@ -1378,7 +1378,7 @@ _080A6004: .4byte 0x84000008
 sub_080A6008: @ 0x080A6008
 	push {lr}
 	ldr r1, _080A601C @ =gUnk_08128D58
-	ldr r0, _080A6020 @ =gUnk_02000080
+	ldr r0, _080A6020 @ =gMenu
 	ldrb r0, [r0, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -1387,7 +1387,7 @@ sub_080A6008: @ 0x080A6008
 	pop {pc}
 	.align 2, 0
 _080A601C: .4byte gUnk_08128D58
-_080A6020: .4byte gUnk_02000080
+_080A6020: .4byte gMenu
 
 	thumb_func_start sub_080A6024
 sub_080A6024: @ 0x080A6024
@@ -1412,7 +1412,7 @@ sub_080A6044: @ 0x080A6044
 	bl sub_080A51F4
 	cmp r0, #0
 	beq _080A60C2
-	ldr r0, _080A60CC @ =gUnk_02000080
+	ldr r0, _080A60CC @ =gMenu
 	ldr r1, _080A60D0 @ =gUnk_08128D51
 	str r1, [r0, #0xc]
 	ldr r1, _080A60D4 @ =gUnk_03001010
@@ -1451,7 +1451,7 @@ _080A607E:
 	adds r0, r7, r3
 	adds r0, r4, r0
 	ldrb r1, [r0]
-	ldr r0, _080A60CC @ =gUnk_02000080
+	ldr r0, _080A60CC @ =gMenu
 	mov r3, sb
 	strb r3, [r0, #1]
 	adds r0, r2, #0
@@ -1473,7 +1473,7 @@ _080A60C2:
 	mov sb, r4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A60CC: .4byte gUnk_02000080
+_080A60CC: .4byte gMenu
 _080A60D0: .4byte gUnk_08128D51
 _080A60D4: .4byte gUnk_03001010
 _080A60D8: .4byte gUnk_02002A40
@@ -1483,7 +1483,7 @@ _080A60DC: .4byte 0x0000012B
 sub_080A60E0: @ 0x080A60E0
 	push {r4, lr}
 	ldr r1, _080A6100 @ =gUnk_08128DB0
-	ldr r4, _080A6104 @ =gUnk_02000080
+	ldr r4, _080A6104 @ =gMenu
 	ldrb r0, [r4, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -1495,12 +1495,12 @@ sub_080A60E0: @ 0x080A60E0
 	pop {r4, pc}
 	.align 2, 0
 _080A6100: .4byte gUnk_08128DB0
-_080A6104: .4byte gUnk_02000080
+_080A6104: .4byte gMenu
 
 	thumb_func_start sub_080A6108
 sub_080A6108: @ 0x080A6108
 	push {lr}
-	ldr r0, _080A6120 @ =gUnk_02000080
+	ldr r0, _080A6120 @ =gMenu
 	ldr r1, _080A6124 @ =gUnk_08128DB8
 	str r1, [r0, #0xc]
 	ldr r0, _080A6128 @ =gUnk_08128DBC
@@ -1509,7 +1509,7 @@ sub_080A6108: @ 0x080A6108
 	bl sub_080A7114
 	pop {pc}
 	.align 2, 0
-_080A6120: .4byte gUnk_02000080
+_080A6120: .4byte gMenu
 _080A6124: .4byte gUnk_08128DB8
 _080A6128: .4byte gUnk_08128DBC
 
@@ -1519,7 +1519,7 @@ sub_080A612C: @ 0x080A612C
 	bl sub_080A51F4
 	cmp r0, #0
 	beq _080A6178
-	ldr r1, _080A614C @ =gUnk_02000080
+	ldr r1, _080A614C @ =gMenu
 	ldrb r2, [r1, #3]
 	ldr r0, _080A6150 @ =gUnk_03000FF0
 	ldrh r0, [r0, #2]
@@ -1530,7 +1530,7 @@ sub_080A612C: @ 0x080A612C
 	subs r2, #1
 	b _080A6156
 	.align 2, 0
-_080A614C: .4byte gUnk_02000080
+_080A614C: .4byte gMenu
 _080A6150: .4byte gUnk_03000FF0
 _080A6154:
 	adds r2, #1
@@ -1572,7 +1572,7 @@ sub_080A617C: @ 0x080A617C
 	mov r8, r0
 	mov r2, r8
 	strh r2, [r6, #2]
-	ldr r4, _080A6264 @ =gUnk_02000080
+	ldr r4, _080A6264 @ =gMenu
 	ldrb r1, [r4, #3]
 	lsls r0, r1, #3
 	subs r0, r0, r1
@@ -1670,7 +1670,7 @@ _080A6250:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A6260: .4byte gUnk_03001010
-_080A6264: .4byte gUnk_02000080
+_080A6264: .4byte gMenu
 _080A6268: .4byte gUnk_03001000
 _080A626C: .4byte gUnk_08128D70
 
@@ -1678,7 +1678,7 @@ _080A626C: .4byte gUnk_08128D70
 sub_080A6270: @ 0x080A6270
 	push {lr}
 	ldr r1, _080A6288 @ =gUnk_08128DCC
-	ldr r0, _080A628C @ =gUnk_02000080
+	ldr r0, _080A628C @ =gMenu
 	ldrb r0, [r0, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -1688,14 +1688,14 @@ sub_080A6270: @ 0x080A6270
 	pop {pc}
 	.align 2, 0
 _080A6288: .4byte gUnk_08128DCC
-_080A628C: .4byte gUnk_02000080
+_080A628C: .4byte gMenu
 
 	thumb_func_start sub_080A6290
 sub_080A6290: @ 0x080A6290
 	push {r4, lr}
 	ldr r0, _080A62C4 @ =gUnk_08128DD8
 	bl sub_080A70AC
-	ldr r4, _080A62C8 @ =gUnk_02000080
+	ldr r4, _080A62C8 @ =gMenu
 	ldr r0, _080A62CC @ =gUnk_08128DD4
 	str r0, [r4, #0xc]
 	movs r0, #0x81
@@ -1716,7 +1716,7 @@ sub_080A6290: @ 0x080A6290
 	pop {r4, pc}
 	.align 2, 0
 _080A62C4: .4byte gUnk_08128DD8
-_080A62C8: .4byte gUnk_02000080
+_080A62C8: .4byte gMenu
 _080A62CC: .4byte gUnk_08128DD4
 _080A62D0: .4byte gScreen
 _080A62D4: .4byte 0x0000FFFC
@@ -1729,7 +1729,7 @@ sub_080A62E0: @ 0x080A62E0
 	bl sub_080A51F4
 	cmp r0, #0
 	beq _080A6372
-	ldr r0, _080A6310 @ =gUnk_02000080
+	ldr r0, _080A6310 @ =gMenu
 	ldrb r3, [r0, #3]
 	lsls r1, r3, #3
 	ldr r0, _080A6314 @ =gUnk_08128DE8
@@ -1748,7 +1748,7 @@ sub_080A62E0: @ 0x080A62E0
 	beq _080A6354
 	b _080A635A
 	.align 2, 0
-_080A6310: .4byte gUnk_02000080
+_080A6310: .4byte gMenu
 _080A6314: .4byte gUnk_08128DE8
 _080A6318: .4byte gUnk_03000FF0
 _080A631C:
@@ -1791,24 +1791,24 @@ _080A6358:
 _080A635A:
 	cmp r4, #0
 	blt _080A6368
-	ldr r0, _080A6374 @ =gUnk_02000080
+	ldr r0, _080A6374 @ =gMenu
 	strb r4, [r0, #3]
 	movs r0, #0x69
 	bl PlaySFX
 _080A6368:
-	ldr r0, _080A6374 @ =gUnk_02000080
+	ldr r0, _080A6374 @ =gMenu
 	ldrb r0, [r0, #3]
 	movs r1, #0
 	bl sub_080A6FB4
 _080A6372:
 	pop {r4, pc}
 	.align 2, 0
-_080A6374: .4byte gUnk_02000080
+_080A6374: .4byte gMenu
 
 	thumb_func_start sub_080A6378
 sub_080A6378: @ 0x080A6378
 	push {r4, r5, r6, lr}
-	ldr r0, _080A6420 @ =gUnk_02000080
+	ldr r0, _080A6420 @ =gMenu
 	adds r4, r0, #0
 	adds r4, #0x2c
 	ldrb r0, [r4]
@@ -1863,7 +1863,7 @@ _080A63E4:
 	ldr r0, _080A6430 @ =0x000001FB
 	bl sub_080ADA14
 _080A63EA:
-	ldr r3, _080A6420 @ =gUnk_02000080
+	ldr r3, _080A6420 @ =gMenu
 	ldrb r0, [r3, #3]
 	lsls r0, r0, #3
 	ldr r1, _080A6434 @ =gUnk_08128DE8
@@ -1888,7 +1888,7 @@ _080A63EA:
 	bl sub_080A6498
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080A6420: .4byte gUnk_02000080
+_080A6420: .4byte gMenu
 _080A6424: .4byte gUnk_03001010
 _080A6428: .4byte gUnk_030010A0
 _080A642C: .4byte gLinkState
@@ -1906,7 +1906,7 @@ sub_080A6438: @ 0x080A6438
 	strh r1, [r2, #6]
 	strh r1, [r2, #8]
 	ldr r0, _080A6488 @ =gUnk_02002A40
-	ldr r1, _080A648C @ =gUnk_02000080
+	ldr r1, _080A648C @ =gMenu
 	ldrh r0, [r0, #0x20]
 	ldrh r5, [r1, #0x10]
 	ands r5, r0
@@ -1940,7 +1940,7 @@ _080A6482:
 	.align 2, 0
 _080A6484: .4byte gUnk_03001010
 _080A6488: .4byte gUnk_02002A40
-_080A648C: .4byte gUnk_02000080
+_080A648C: .4byte gMenu
 _080A6490: .4byte gUnk_08128F58
 _080A6494: .4byte 0x000001FB
 
@@ -1998,7 +1998,7 @@ sub_080A64FC: @ 0x080A64FC
 	push {r4, lr}
 	bl sub_080AD90C
 	ldr r1, _080A652C @ =gUnk_08128E70
-	ldr r4, _080A6530 @ =gUnk_02000080
+	ldr r4, _080A6530 @ =gMenu
 	ldrb r0, [r4, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2017,7 +2017,7 @@ _080A6522:
 	pop {r4, pc}
 	.align 2, 0
 _080A652C: .4byte gUnk_08128E70
-_080A6530: .4byte gUnk_02000080
+_080A6530: .4byte gMenu
 
 	thumb_func_start sub_080A6534
 sub_080A6534: @ 0x080A6534
@@ -2048,7 +2048,7 @@ sub_080A6534: @ 0x080A6534
 	adds r0, r2, #0
 	orrs r0, r1
 	strh r0, [r3, #0x20]
-	ldr r1, _080A65A8 @ =gUnk_02000080
+	ldr r1, _080A65A8 @ =gMenu
 	ldrh r0, [r1, #0x10]
 	ands r2, r0
 	strh r2, [r1, #0x12]
@@ -2068,7 +2068,7 @@ _080A6598: .4byte gUnk_020176A0
 _080A659C: .4byte gUnk_08128F4C
 _080A65A0: .4byte gUnk_02032EC0
 _080A65A4: .4byte gUnk_02002A40
-_080A65A8: .4byte gUnk_02000080
+_080A65A8: .4byte gMenu
 
 	thumb_func_start sub_080A65AC
 sub_080A65AC: @ 0x080A65AC
@@ -2077,7 +2077,7 @@ sub_080A65AC: @ 0x080A65AC
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A6600
-	ldr r4, _080A65E8 @ =gUnk_02000080
+	ldr r4, _080A65E8 @ =gMenu
 	adds r1, r4, #0
 	adds r1, #0x2c
 	ldrb r0, [r1]
@@ -2101,7 +2101,7 @@ _080A65DA:
 	b _080A6600
 	.align 2, 0
 _080A65E4: .4byte gUnk_03000FD0
-_080A65E8: .4byte gUnk_02000080
+_080A65E8: .4byte gMenu
 _080A65EC:
 	ldr r0, _080A6604 @ =gUnk_03000FF0
 	ldrh r0, [r0, #2]
@@ -2122,7 +2122,7 @@ _080A6604: .4byte gUnk_03000FF0
 sub_080A6608: @ 0x080A6608
 	push {r4, lr}
 	ldr r1, _080A6640 @ =gUnk_08128E78
-	ldr r4, _080A6644 @ =gUnk_02000080
+	ldr r4, _080A6644 @ =gMenu
 	ldrb r0, [r4, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2147,7 +2147,7 @@ sub_080A6608: @ 0x080A6608
 	pop {r4, pc}
 	.align 2, 0
 _080A6640: .4byte gUnk_08128E78
-_080A6644: .4byte gUnk_02000080
+_080A6644: .4byte gMenu
 _080A6648: .4byte gUnk_08128E94
 _080A664C: .4byte gScreen
 
@@ -2158,7 +2158,7 @@ sub_080A6650: @ 0x080A6650
 	bl sub_080A70AC
 	ldr r0, _080A6674 @ =gUnk_02034490
 	ldrb r0, [r0, #6]
-	ldr r1, _080A6678 @ =gUnk_02000080
+	ldr r1, _080A6678 @ =gMenu
 	strb r0, [r1, #3]
 	bl sub_080A67C4
 	bl sub_080A68D4
@@ -2168,12 +2168,12 @@ sub_080A6650: @ 0x080A6650
 	.align 2, 0
 _080A6670: .4byte gUnk_08128E84
 _080A6674: .4byte gUnk_02034490
-_080A6678: .4byte gUnk_02000080
+_080A6678: .4byte gMenu
 
 	thumb_func_start sub_080A667C
 sub_080A667C: @ 0x080A667C
 	push {lr}
-	ldr r2, _080A669C @ =gUnk_02000080
+	ldr r2, _080A669C @ =gMenu
 	ldr r0, _080A66A0 @ =gUnk_08128E80
 	str r0, [r2, #0xc]
 	ldrb r0, [r2, #3]
@@ -2189,7 +2189,7 @@ sub_080A667C: @ 0x080A667C
 	beq _080A66B4
 	b _080A66C2
 	.align 2, 0
-_080A669C: .4byte gUnk_02000080
+_080A669C: .4byte gMenu
 _080A66A0: .4byte gUnk_08128E80
 _080A66A4: .4byte gUnk_08128E94
 _080A66A8: .4byte gUnk_03000FF0
@@ -2228,7 +2228,7 @@ sub_080A66D0: @ 0x080A66D0
 	strh r0, [r6, #6]
 	movs r0, #0x78
 	strh r0, [r6]
-	ldr r4, _080A6780 @ =gUnk_02000080
+	ldr r4, _080A6780 @ =gMenu
 	ldrb r0, [r4, #3]
 	lsls r0, r0, #3
 	ldr r1, _080A6784 @ =gUnk_08128E94
@@ -2273,7 +2273,7 @@ _080A6738:
 	mov sl, r0
 	ldrb r5, [r5, #3]
 	mov sb, r5
-	ldr r1, _080A6780 @ =gUnk_02000080
+	ldr r1, _080A6780 @ =gMenu
 	ldrh r0, [r1, #0xa]
 	mov r8, r0
 	ldr r2, _080A677C @ =gUnk_03001010
@@ -2305,7 +2305,7 @@ _080A676E:
 	b _080A6796
 	.align 2, 0
 _080A677C: .4byte gUnk_03001010
-_080A6780: .4byte gUnk_02000080
+_080A6780: .4byte gMenu
 _080A6784: .4byte gUnk_08128E94
 _080A6788: .4byte 0x000001FB
 _080A678C: .4byte gUnk_02019EE0
@@ -2451,7 +2451,7 @@ _080A6886:
 	ldr r1, _080A68C4 @ =0x0400000E
 	ldr r2, _080A68C8 @ =0xA2600001
 	bl sub_0805622C
-	ldr r1, _080A68CC @ =gUnk_02000080
+	ldr r1, _080A68CC @ =gMenu
 	ldrb r0, [r4, #2]
 	lsrs r0, r0, #1
 	strh r0, [r1, #0xa]
@@ -2469,7 +2469,7 @@ _080A68BC: .4byte 0x00001E0A
 _080A68C0: .4byte 0x00001E0B
 _080A68C4: .4byte 0x0400000E
 _080A68C8: .4byte 0xA2600001
-_080A68CC: .4byte gUnk_02000080
+_080A68CC: .4byte gMenu
 _080A68D0: .4byte gUnk_02019EE0
 
 	thumb_func_start sub_080A68D4
@@ -2568,7 +2568,7 @@ sub_080A698C: @ 0x080A698C
 	adds r4, r0, #0
 	cmp r4, #0
 	ble _080A69D4
-	ldr r2, _080A69D8 @ =gUnk_02000080
+	ldr r2, _080A69D8 @ =gMenu
 	adds r2, #0x2d
 	ldrb r0, [r2]
 	lsls r0, r0, #3
@@ -2599,7 +2599,7 @@ sub_080A698C: @ 0x080A698C
 _080A69D4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080A69D8: .4byte gUnk_02000080
+_080A69D8: .4byte gMenu
 _080A69DC: .4byte gUnk_02019EE0
 
 	thumb_func_start sub_080A69E0
@@ -2617,7 +2617,7 @@ sub_080A69E0: @ 0x080A69E0
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _080A6A06
-	ldr r0, _080A6A0C @ =gUnk_02000080
+	ldr r0, _080A6A0C @ =gMenu
 	ldrb r1, [r0, #3]
 	ldrb r2, [r3, #4]
 	cmp r1, r2
@@ -2627,7 +2627,7 @@ _080A6A06:
 	rsbs r0, r0, #0
 	b _080A6A74
 	.align 2, 0
-_080A6A0C: .4byte gUnk_02000080
+_080A6A0C: .4byte gMenu
 _080A6A10:
 	ldrb r1, [r0, #3]
 	cmp r1, #7
@@ -2728,7 +2728,7 @@ sub_080A6AB8: @ 0x080A6AB8
 	push {r4, lr}
 	bl sub_080AD90C
 	ldr r1, _080A6AF4 @ =gUnk_08128F1C
-	ldr r4, _080A6AF8 @ =gUnk_02000080
+	ldr r4, _080A6AF8 @ =gMenu
 	ldrb r0, [r4, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2753,7 +2753,7 @@ sub_080A6AB8: @ 0x080A6AB8
 	pop {r4, pc}
 	.align 2, 0
 _080A6AF4: .4byte gUnk_08128F1C
-_080A6AF8: .4byte gUnk_02000080
+_080A6AF8: .4byte gMenu
 _080A6AFC: .4byte gUnk_08128E94
 _080A6B00: .4byte gScreen
 
@@ -2784,7 +2784,7 @@ sub_080A6B04: @ 0x080A6B04
 	adds r1, r5, #0
 	bl sub_080A6A80
 	ldrb r4, [r0, #4]
-	ldr r7, _080A6BFC @ =gUnk_02000080
+	ldr r7, _080A6BFC @ =gMenu
 	strb r4, [r7, #3]
 	adds r1, r7, #0
 	adds r1, #0x2b
@@ -2855,7 +2855,7 @@ _080A6B84:
 _080A6BD2:
 	strh r0, [r7, #0xa]
 _080A6BD4:
-	ldr r1, _080A6BFC @ =gUnk_02000080
+	ldr r1, _080A6BFC @ =gMenu
 	movs r0, #0x1e
 	strh r0, [r1, #8]
 	movs r0, #1
@@ -2870,7 +2870,7 @@ _080A6BD4:
 _080A6BF0: .4byte gUnk_02022740
 _080A6BF4: .4byte gUnk_080C9CBC
 _080A6BF8: .4byte gUnk_080FE320
-_080A6BFC: .4byte gUnk_02000080
+_080A6BFC: .4byte gMenu
 _080A6C00: .4byte 0x0000475F
 _080A6C04: .4byte 0x00005001
 _080A6C08: .4byte gUnk_02001A40
@@ -2886,7 +2886,7 @@ sub_080A6C1C: @ 0x080A6C1C
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A6C6A
-	ldr r0, _080A6C38 @ =gUnk_02000080
+	ldr r0, _080A6C38 @ =gMenu
 	ldrh r0, [r0, #8]
 	cmp r0, #0
 	beq _080A6C3C
@@ -2895,7 +2895,7 @@ sub_080A6C1C: @ 0x080A6C1C
 	b _080A6C62
 	.align 2, 0
 _080A6C34: .4byte gUnk_03000FD0
-_080A6C38: .4byte gUnk_02000080
+_080A6C38: .4byte gMenu
 _080A6C3C:
 	bl sub_080A66D0
 	ldr r0, _080A6C58 @ =gUnk_03000FF0
@@ -2915,7 +2915,7 @@ _080A6C5C:
 	ldr r0, _080A6C6C @ =0x00000103
 	bl PlaySFX
 _080A6C62:
-	ldr r1, _080A6C70 @ =gUnk_02000080
+	ldr r1, _080A6C70 @ =gMenu
 	ldrh r0, [r1, #8]
 	subs r0, #1
 	strh r0, [r1, #8]
@@ -2923,14 +2923,14 @@ _080A6C6A:
 	pop {pc}
 	.align 2, 0
 _080A6C6C: .4byte 0x00000103
-_080A6C70: .4byte gUnk_02000080
+_080A6C70: .4byte gMenu
 
 	thumb_func_start sub_080A6C74
 sub_080A6C74: @ 0x080A6C74
 	push {r4, lr}
 	bl sub_080AD90C
 	ldr r1, _080A6CA0 @ =gUnk_08128F24
-	ldr r4, _080A6CA4 @ =gUnk_02000080
+	ldr r4, _080A6CA4 @ =gMenu
 	ldrb r0, [r4, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2946,7 +2946,7 @@ _080A6C94:
 	pop {r4, pc}
 	.align 2, 0
 _080A6CA0: .4byte gUnk_08128F24
-_080A6CA4: .4byte gUnk_02000080
+_080A6CA4: .4byte gMenu
 
 	thumb_func_start sub_080A6CA8
 sub_080A6CA8: @ 0x080A6CA8
@@ -2957,7 +2957,7 @@ sub_080A6CA8: @ 0x080A6CA8
 	bl sub_080A6290
 	movs r0, #0
 	bl sub_080A6D74
-	ldr r1, _080A6CD4 @ =gUnk_02000080
+	ldr r1, _080A6CD4 @ =gMenu
 	strb r0, [r1, #3]
 	movs r0, #1
 	bl sub_080A7114
@@ -2966,7 +2966,7 @@ sub_080A6CA8: @ 0x080A6CA8
 	bl DoFade
 	pop {pc}
 	.align 2, 0
-_080A6CD4: .4byte gUnk_02000080
+_080A6CD4: .4byte gMenu
 
 	thumb_func_start sub_080A6CD8
 sub_080A6CD8: @ 0x080A6CD8
@@ -2975,7 +2975,7 @@ sub_080A6CD8: @ 0x080A6CD8
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A6D6E
-	ldr r1, _080A6D0C @ =gUnk_02000080
+	ldr r1, _080A6D0C @ =gMenu
 	movs r0, #1
 	strb r0, [r1]
 	movs r4, #0
@@ -2995,7 +2995,7 @@ sub_080A6CD8: @ 0x080A6CD8
 	b _080A6D54
 	.align 2, 0
 _080A6D08: .4byte gUnk_03000FD0
-_080A6D0C: .4byte gUnk_02000080
+_080A6D0C: .4byte gMenu
 _080A6D10: .4byte gUnk_03000FF0
 _080A6D14:
 	cmp r0, #8
@@ -3039,7 +3039,7 @@ _080A6D54:
 _080A6D58:
 	adds r0, r4, #0
 	bl sub_080A6D74
-	ldr r1, _080A6D70 @ =gUnk_02000080
+	ldr r1, _080A6D70 @ =gMenu
 	ldrb r2, [r1, #3]
 	cmp r0, r2
 	beq _080A6D6E
@@ -3049,7 +3049,7 @@ _080A6D58:
 _080A6D6E:
 	pop {r4, pc}
 	.align 2, 0
-_080A6D70: .4byte gUnk_02000080
+_080A6D70: .4byte gMenu
 
 	thumb_func_start sub_080A6D74
 sub_080A6D74: @ 0x080A6D74
@@ -3058,7 +3058,7 @@ sub_080A6D74: @ 0x080A6D74
 	ldr r0, _080A6DA4 @ =gUnk_02002A40
 	ldr r0, [r0, #0x40]
 	lsrs r2, r0, #0x18
-	ldr r0, _080A6DA8 @ =gUnk_02000080
+	ldr r0, _080A6DA8 @ =gMenu
 	ldrb r1, [r0, #3]
 	cmp r3, #0
 	bne _080A6DAC
@@ -3080,7 +3080,7 @@ _080A6D92:
 	b _080A6DC6
 	.align 2, 0
 _080A6DA4: .4byte gUnk_02002A40
-_080A6DA8: .4byte gUnk_02000080
+_080A6DA8: .4byte gMenu
 _080A6DAC:
 	cmp r2, #0
 	beq _080A6DC6
@@ -3113,13 +3113,13 @@ sub_080A6DD0: @ 0x080A6DD0
 	beq _080A6DF0
 	b _080A6DF6
 _080A6DE0:
-	ldr r1, _080A6DEC @ =gUnk_02000080
+	ldr r1, _080A6DEC @ =gMenu
 	movs r0, #2
 	strb r0, [r1]
 	movs r0, #3
 	b _080A6DF2
 	.align 2, 0
-_080A6DEC: .4byte gUnk_02000080
+_080A6DEC: .4byte gMenu
 _080A6DF0:
 	movs r0, #1
 _080A6DF2:
@@ -3130,7 +3130,7 @@ _080A6DF6:
 	thumb_func_start sub_080A6DF8
 sub_080A6DF8: @ 0x080A6DF8
 	push {lr}
-	ldr r0, _080A6E14 @ =gUnk_02000080
+	ldr r0, _080A6E14 @ =gMenu
 	ldrb r0, [r0]
 	cmp r0, #2
 	bne _080A6E18
@@ -3141,7 +3141,7 @@ sub_080A6DF8: @ 0x080A6DF8
 	bl DoFade
 	b _080A6E3A
 	.align 2, 0
-_080A6E14: .4byte gUnk_02000080
+_080A6E14: .4byte gMenu
 _080A6E18:
 	bl sub_080791D0
 	ldr r0, _080A6E3C @ =gLinkEntity
@@ -3169,7 +3169,7 @@ sub_080A6E44: @ 0x080A6E44
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A6E60
-	ldr r0, _080A6E68 @ =gUnk_02000080
+	ldr r0, _080A6E68 @ =gMenu
 	ldrb r1, [r0, #3]
 	lsls r0, r1, #2
 	adds r0, r0, r1
@@ -3181,7 +3181,7 @@ _080A6E60:
 	pop {pc}
 	.align 2, 0
 _080A6E64: .4byte gUnk_03000FD0
-_080A6E68: .4byte gUnk_02000080
+_080A6E68: .4byte gMenu
 _080A6E6C: .4byte gUnk_08128024
 
 	thumb_func_start sub_080A6E70
@@ -3194,7 +3194,7 @@ sub_080A6E70: @ 0x080A6E70
 	movs r0, #0x80
 	lsls r0, r0, #3
 	strh r0, [r1, #8]
-	ldr r1, _080A6ED4 @ =gUnk_02000080
+	ldr r1, _080A6ED4 @ =gMenu
 	adds r4, r1, #0
 	adds r4, #0x2c
 	ldrb r0, [r4]
@@ -3235,7 +3235,7 @@ _080A6EC8:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A6ED0: .4byte gUnk_03001010
-_080A6ED4: .4byte gUnk_02000080
+_080A6ED4: .4byte gMenu
 _080A6ED8: .4byte 0x000001FB
 _080A6EDC: .4byte gUnk_02002A40
 
@@ -3315,7 +3315,7 @@ _080A6F60:
 sub_080A6F6C: @ 0x080A6F6C
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r1, _080A6FA4 @ =gUnk_02000080
+	ldr r1, _080A6FA4 @ =gMenu
 	ldrh r0, [r1, #0x2e]
 	cmp r0, r4
 	beq _080A6F9A
@@ -3341,7 +3341,7 @@ _080A6F9A:
 	strh r0, [r1, #0xc]
 	pop {r4, pc}
 	.align 2, 0
-_080A6FA4: .4byte gUnk_02000080
+_080A6FA4: .4byte gMenu
 _080A6FA8: .4byte gUnk_020350F0
 _080A6FAC: .4byte gUnk_08128FA8
 _080A6FB0: .4byte gScreen
@@ -3384,7 +3384,7 @@ _080A6FF0:
 	ldrh r4, [r0]
 	ldr r5, _080A7030 @ =gUnk_08128FD8
 _080A6FFA:
-	ldr r1, _080A7034 @ =gUnk_02000080
+	ldr r1, _080A7034 @ =gMenu
 	ldrh r0, [r1, #0x2e]
 	cmp r0, r4
 	beq _080A7024
@@ -3412,7 +3412,7 @@ _080A7024:
 	.align 2, 0
 _080A702C: .4byte gUnk_08128FF0
 _080A7030: .4byte gUnk_08128FD8
-_080A7034: .4byte gUnk_02000080
+_080A7034: .4byte gMenu
 _080A7038: .4byte gUnk_020350F0
 _080A703C: .4byte gScreen
 
@@ -3420,7 +3420,7 @@ _080A703C: .4byte gScreen
 sub_080A7040: @ 0x080A7040
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r1, _080A7090 @ =gUnk_02000080
+	ldr r1, _080A7090 @ =gMenu
 	ldrh r0, [r1, #0x2e]
 	cmp r0, r5
 	beq _080A708C
@@ -3456,7 +3456,7 @@ _080A7082:
 _080A708C:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080A7090: .4byte gUnk_02000080
+_080A7090: .4byte gMenu
 _080A7094: .4byte gUnk_02022130
 _080A7098: .4byte 0xFFFFFE00
 _080A709C: .4byte 0x0600E000
@@ -3520,14 +3520,14 @@ _080A7110: .4byte gUnk_0200AF34
 
 	thumb_func_start sub_080A7114
 sub_080A7114: @ 0x080A7114
-	ldr r1, _080A7120 @ =gUnk_02000080
+	ldr r1, _080A7120 @ =gMenu
 	movs r2, #0
 	strb r0, [r1, #5]
 	strb r2, [r1, #6]
 	strb r2, [r1, #7]
 	bx lr
 	.align 2, 0
-_080A7120: .4byte gUnk_02000080
+_080A7120: .4byte gMenu
 
 	thumb_func_start sub_080A7124
 sub_080A7124: @ 0x080A7124
@@ -3781,7 +3781,7 @@ sub_080A7328: @ 0x080A7328
 	cmp r0, #0
 	bne _080A7384
 	bl sub_0805E89C
-	ldr r0, _080A738C @ =gUnk_02000080
+	ldr r0, _080A738C @ =gMenu
 	movs r1, #0x30
 	bl _DmaZero
 	ldr r0, _080A7390 @ =gRoomControls
@@ -3816,7 +3816,7 @@ _080A7384:
 	pop {r4, pc}
 	.align 2, 0
 _080A7388: .4byte gUnk_03000FD0
-_080A738C: .4byte gUnk_02000080
+_080A738C: .4byte gMenu
 _080A7390: .4byte gRoomControls
 _080A7394: .4byte gUnk_03000420
 _080A7398: .4byte gUnk_02033280

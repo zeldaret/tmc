@@ -5250,7 +5250,7 @@ sub_08075A0C: @ 0x08075A0C
 	adds r4, r0, #0
 	adds r5, r1, #0
 	ldrb r0, [r4, #1]
-	bl sub_0805436C
+	bl IsItemEquipped
 	adds r6, r0, #0
 	ldr r1, _08075A64 @ =gLinkState
 	ldrb r0, [r1, #5]
@@ -5421,7 +5421,7 @@ sub_08075B54: @ 0x08075B54
 	b _08075C80
 _08075B70:
 	ldrb r0, [r6, #1]
-	bl sub_0805436C
+	bl IsItemEquipped
 	adds r4, r0, #0
 	adds r0, r6, #0
 	bl sub_08077F10

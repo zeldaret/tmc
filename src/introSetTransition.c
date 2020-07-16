@@ -14,15 +14,14 @@ typedef struct {
 
 extern u32 DoFade(u32, u32);
 extern void _DmaZero(u32*, u32, u32);
-extern u32 gUnk_02000080;
 extern TransitionStruct gUnk_03001000;
-extern Menu gUnk_02032EC0;
+extern MenuControls gUnk_02032EC0;
 
 u32 IntroSetTransition(u8 transition, u32 param_2, u32 param_3)
 
 {
     gUnk_02032EC0.transitionType = transition;
     gUnk_03001000.functionIndex = 2;
-    _DmaZero(&gUnk_02000080, 48, param_3);
+    _DmaZero((u32 *)&gMenu, 48, param_3);
     return DoFade(7, 8);
 }

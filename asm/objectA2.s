@@ -164,21 +164,21 @@ _0809F41C:
 	movs r1, #0x43
 	movs r2, #0
 	bl CreateFx
-	ldr r1, _0809F434 @ =gUnk_02000080
+	ldr r1, _0809F434 @ =gMenu
 	movs r0, #1
 	strb r0, [r1]
 	b _0809F442
 	.align 2, 0
-_0809F434: .4byte gUnk_02000080
+_0809F434: .4byte gMenu
 _0809F438:
-	ldr r1, _0809F444 @ =gUnk_02000080
+	ldr r1, _0809F444 @ =gMenu
 	movs r0, #1
 	strb r0, [r1, #4]
 	bl DeleteThisEntity
 _0809F442:
 	pop {pc}
 	.align 2, 0
-_0809F444: .4byte gUnk_02000080
+_0809F444: .4byte gMenu
 
 	thumb_func_start sub_0809F448
 sub_0809F448: @ 0x0809F448
