@@ -192,7 +192,7 @@ void sub_08061E90(Entity* this, Entity* arg1) {
 
     if (arg1->spriteSettings.raw == 0) {
         arg1->spriteSettings.raw++;
-        arg1->spriteTileSize = (Random() & 0x3f) + 0x20;
+        arg1->spriteIndex = (Random() & 0x3f) + 0x20;
         animIndex = Random() & 0x18;
         switch (this->direction) {
             case 0x0:
@@ -227,23 +227,23 @@ void sub_08061E90(Entity* this, Entity* arg1) {
     iVar4 = this->x.HALF.HI - *(s16*)&this->field_0x6a.HWORD;
     if (0x10 < iVar4) {
         this->x.HALF.HI = this->field_0x6a.HWORD + 0x10;
-        arg1->spriteTileSize = 1;
+        arg1->spriteIndex = 1;
     }
     if (iVar4 < -0x10) {
         this->x.HALF.HI = *(s16*)&this->field_0x6a.HWORD - 0x10;
-        arg1->spriteTileSize = 1;
+        arg1->spriteIndex = 1;
     }
 
     iVar4 = this->y.HALF.HI - *(s16*)&this->field_0x6c;
     if (0x10 < iVar4) {
         this->y.HALF.HI = *(s16*)&this->field_0x6c + 0x10;
-        arg1->spriteTileSize = 1;
+        arg1->spriteIndex = 1;
     }
     if (iVar4 < -0x10) {
         this->y.HALF.HI = *(s16*)&this->field_0x6c - 0x10;
-        arg1->spriteTileSize = 1;
+        arg1->spriteIndex = 1;
     }
-    if (--arg1->spriteTileSize != 0) {
+    if (--arg1->spriteIndex != 0) {
         gUnk_02033280[6] = 0;
     }
 }

@@ -14,6 +14,8 @@ extern void sub_08021EF0(Entity*);
 extern void sub_080AEFB4(Entity*);
 extern void sub_08021F24(Entity*);
 extern u32 sub_0806FCB8(Entity*, s32, s32, u32);
+extern u32 sub_08049FA0(Entity*);
+extern u32 sub_08049EE4(Entity*);
 
 extern void (*gUnk_080CB69C[])(Entity*);
 extern void (*gUnk_080CB6B4[])(Entity*);
@@ -21,9 +23,7 @@ extern void (*gUnk_080CB6C4[])(Entity*);
 
 extern u8 gUnk_080CB6D0[];
 extern u16 gUnk_080CB6D6[];
-
-
-extern u8 gUnk_080CB6D0[];
+extern u8 gUnk_080CB6F6[];
 
 void Keese(Entity *this)
 {
@@ -128,4 +128,29 @@ void sub_08021EF0(Entity *this)
   this->field_0x78.HWORD = gUnk_080CB6D6[Random() & 0xf];
   this->field_0x7a = 0x3c;
   InitializeAnimation(this, 0);
+}
+
+void sub_08021F24(Entity *this)
+{
+    u32 bVar1;
+    
+    if (this->field_0x78.HWORD == 0) {
+        this->action = 2;
+        this->actionDelay = gUnk_080CB6F6[Random() & 0xf];
+        InitializeAnimation(this, 1);
+    }
+    else if (!this->field_0x7a && !(sub_0806FCB8(this, gLinkEntity.x.HALF.HI, gLinkEntity.y.HALF.HI, 0x70))) {
+        this->action = 3;
+        this->actionDelay = 0x1e;
+        InitializeAnimation(this, 1);
+    }
+    else {
+        if (sub_08049FA0(this) != 0) {
+            this->direction = Random() & 0x1f;
+        }
+        else {
+            this->direction = sub_08049EE4(this);
+        }
+        InitializeAnimation(this, 0);
+    }
 }

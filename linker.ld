@@ -319,7 +319,7 @@ SECTIONS {
 		src/_dmaFill32.o(.text);
 		asm/sub_0801D630.o(.text);
 		asm/sub_0801D66C.o(.text);
-		asm/readKeyInput.o(.text);
+		src/input.o(.text);
 		asm/code_0801D714.o(.text);
 		asm/code_0801D79C.o(.text);
 		/* enemies */
@@ -333,7 +333,6 @@ SECTIONS {
 		src/enemy/hangingSeed.o(.text);
 		asm/beetle.o(.text);
 		src/enemy/keese.o(.text);
-		asm/keese.o(.text);
 		asm/doorMimic.o(.text);
 		asm/rockChuchu.o(.text);
 		asm/spinyChuchu.o(.text);
@@ -560,6 +559,7 @@ SECTIONS {
 		asm/nayru.o(.text);
 		asm/farore.o(.text);
 		asm/sturgeon.o(.text);
+		src/npc/tingleSiblings.o(.text);
 		asm/tingleSiblings.o(.text);
 		asm/stockwell.o(.text);
 		src/npc/talon.o(.text);
