@@ -45,12 +45,10 @@ void sub_080632E0(Entity* this) {
     }
 }
 
-#ifdef NON_MATCHING
 void sub_08063314(Entity* this) {
     u32 offset;
 
-    this->field_0xf++;
-    if (((this->field_0xf & 0xF) == 0) && (offset = sub_080633C8(this), this->animIndex != offset)) {
+    if (((++this->field_0xf & 0xF) == 0) && (offset = sub_080633C8(this), this->animIndex != offset)) {
         InitializeAnimation(this, offset);
     }
     if (this->interactType != '\0') {
@@ -59,12 +57,6 @@ void sub_08063314(Entity* this) {
     }
     sub_0806ED78(this);
 }
-#else
-NAKED
-void sub_08063314(Entity* this) {
-    asm(".include \"asm/non_matching/beedle/sub_08063314.inc\"");
-}
-#endif
 
 void sub_0806336C(Entity* this) {
     if ((gTextBox.doTextBox & 0x7F) == 0) {
