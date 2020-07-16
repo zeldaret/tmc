@@ -50,7 +50,7 @@ typedef struct Entity {
     /*0x10*/ u8 flags;
     /*0x11*/ u8 scriptedScene : 4;
     /*    */ u8 scriptedScene2 : 4;
-    /*0x12*/ s16 spriteTileSize;
+    /*0x12*/ s16 spriteIndex;
     /*0x14*/ u8 animationState;
     /*0x15*/ u8 direction;
     /*0x16*/ u8 possibleBool;

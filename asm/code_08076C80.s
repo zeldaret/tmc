@@ -56,7 +56,7 @@ _08076CD2:
 	beq _08076CE2
 	adds r0, r4, #0
 	movs r1, #0x12
-	bl sub_08077C3C
+	bl CreatePlayerBomb
 _08076CE2:
 	adds r0, r4, #0
 	bl UpdateItemAnim
@@ -281,7 +281,7 @@ _08076E7A:
 	movs r1, #0
 	movs r2, #0
 	movs r3, #0
-	bl sub_08077CB8
+	bl CreatePlayerItem
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08076EC6
@@ -446,7 +446,7 @@ _08076FAC:
 	movs r1, #0
 	movs r2, #0
 	movs r3, #0
-	bl sub_08077CB8
+	bl CreatePlayerItem
 	cmp r0, #0
 	bne _08076FF6
 	b _08077110
@@ -521,7 +521,7 @@ _08077060:
 	movs r0, #0x11
 	movs r1, #0
 	movs r3, #0
-	bl sub_08077CB8
+	bl CreatePlayerItem
 _0807708C:
 	ldr r0, _080770B0 @ =gLinkState
 	ldr r0, [r0, #0x30]

@@ -319,21 +319,20 @@ SECTIONS {
 		src/_dmaFill32.o(.text);
 		asm/sub_0801D630.o(.text);
 		asm/sub_0801D66C.o(.text);
-		asm/readKeyInput.o(.text);
+		src/input.o(.text);
 		asm/code_0801D714.o(.text);
 		asm/code_0801D79C.o(.text);
 		/* enemies */
 		src/enemy/octorok.o(.text);
 		asm/octorok.o(.text);
 		asm/chuchu.o(.text);
-		asm/leever.o(.text);
+		src/enemy/leever.o(.text);
 		asm/peahat.o(.text);
 		asm/rollobite.o(.text);
 		asm/darkNut.o(.text);
 		src/enemy/hangingSeed.o(.text);
 		asm/beetle.o(.text);
 		src/enemy/keese.o(.text);
-		asm/keese.o(.text);
 		asm/doorMimic.o(.text);
 		asm/rockChuchu.o(.text);
 		asm/spinyChuchu.o(.text);
@@ -375,7 +374,7 @@ SECTIONS {
 		asm/smallPesto.o(.text);
 		asm/acroBandits.o(.text);
 		src/enemy/bladeTrap.o(.text);
-		asm/keaton.o(.text);
+		src/enemy/keaton.o(.text);
 		asm/crow.o(.text);
 		asm/mulldozer.o(.text);
 		asm/bombarossa.o(.text);
@@ -549,7 +548,7 @@ SECTIONS {
 		asm/pita.o(.text);
 		asm/minishEzlo.o(.text);
 		src/npc/mailbox.o(.text);
-		asm/beedle.o(.text);
+		src/npc/beedle.o(.text);
 		asm/brocco.o(.text);
 		asm/sittingPerson.o(.text);
 		asm/pina.o(.text);
@@ -560,6 +559,7 @@ SECTIONS {
 		asm/nayru.o(.text);
 		asm/farore.o(.text);
 		asm/sturgeon.o(.text);
+		src/npc/tingleSiblings.o(.text);
 		asm/tingleSiblings.o(.text);
 		asm/stockwell.o(.text);
 		src/npc/talon.o(.text);
@@ -582,7 +582,7 @@ SECTIONS {
 		asm/cat.o(.text);
 		asm/mountainMinish.o(.text);
 		asm/zeldaFollower.o(.text);
-		asm/melari.o(.text);
+		src/npc/melari.o(.text);
 		src/npc/bladeBrothers.o(.text);
 		src/npc/cow.o(.text);
 		src/npc/goron.o(.text);
@@ -644,7 +644,11 @@ SECTIONS {
 		asm/ocarina.o(.text);
 		asm/code_08076C80.o(.text);
 		asm/respawnLink.o(.text);
+		src/code_08077B98.o(.text);
+		src/code_08077DF4.o(.text);
 		asm/code_08077B98.o(.text);
+		src/code_08078778.o(.text);
+		asm/code_08078778.o(.text);
 		src/sub_0807B7D8.o(.text);
 		src/sub_0807B820.o(.text);
 		src/sub_0807B8A8.o(.text);
@@ -843,9 +847,10 @@ SECTIONS {
 		asm/fourElements.o(.text);
 		asm/objectAD.o(.text);
 		asm/floatingBlock.o(.text);
-		asm/objectAF.o(.text);
+		src/object/objectAF.o(.text);
 		src/object/metalDoor.o(.text);
-		asm/jailBars.o(.text);
+		src/object/jailBars.o(.text);
+		src/object/objectB2.o(.text);
 		asm/objectB2.o(.text);
 		asm/objectB3.o(.text);
 		asm/objectB4.o(.text);

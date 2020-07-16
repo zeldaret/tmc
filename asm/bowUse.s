@@ -316,7 +316,7 @@ _080193C2:
 	movs r0, #4
 	movs r1, #1
 	movs r3, #9
-	bl sub_08077CB8
+	bl CreatePlayerItem
 	cmp r0, #0
 	beq _080193FA
 	ldr r2, _0801940C @ =gLinkState

@@ -578,7 +578,7 @@ _080A2E9C:
 	movs r0, #0x15
 	movs r1, #0
 	movs r2, #0
-	bl sub_08077CB8
+	bl CreatePlayerItem
 	adds r1, r0, #0
 	str r1, [r4, #0x54]
 	cmp r1, #0
@@ -966,7 +966,7 @@ _080A31D6:
 	movs r0, #0x15
 	movs r1, #1
 	movs r2, #0
-	bl sub_08077CB8
+	bl CreatePlayerItem
 	str r0, [r4, #0x54]
 	cmp r0, #0
 	beq _080A3200

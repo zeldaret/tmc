@@ -358,15 +358,15 @@ void sub_08068E78(Entity* this) {
 
 void sub_08068E90(Entity* this) {
     LinkState* s = &gLinkState;
-    *(u16*)&s->unk8 = (1 << (gUnk_08111740[this->actionDelay] - 1)) | *(u16*)&s->unk8;
+    *(u16*)&s->field_0xac = (1 << (gUnk_08111740[this->actionDelay] - 1)) | *(u16*)&s->field_0xac;
 }
 
 void sub_08068EB4(void) {
-    gLinkState.unk71 = 0;
+    gLinkState.field_0xab = 0;
 }
 
 void sub_08068EC4(Entity* param_1, Entity* param_2) {
-    if (gUnk_08111740[param_1->actionDelay] == gLinkState.unk71) {
+    if (gUnk_08111740[param_1->actionDelay] == gLinkState.field_0xab) {
         *(u16*)&param_2->flags = gUnk_0811172A[param_1->actionDelay];
         *(u32*)&param_2->animationState = 1;
     } else {

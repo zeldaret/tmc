@@ -131,7 +131,7 @@ void sub_0809F69C(Entity* this) {
 void sub_0809F6CC(Entity* this) {
 
     if (((gRoomControls.unk6 & 4) == 0) && (--this->actionDelay == 0)) {
-        gLinkState.unk7 = 1;
+        gLinkState.field_0x8b = 1;
         DeleteThisEntity();
     }
 }
