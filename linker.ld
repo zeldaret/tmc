@@ -319,7 +319,7 @@ SECTIONS {
 		src/_dmaFill32.o(.text);
 		asm/sub_0801D630.o(.text);
 		asm/sub_0801D66C.o(.text);
-		asm/readKeyInput.o(.text);
+		src/input.o(.text);
 		asm/code_0801D714.o(.text);
 		asm/code_0801D79C.o(.text);
 		/* enemies */
