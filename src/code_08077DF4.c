@@ -18,7 +18,7 @@ void sub_08077DF4(Entity *ent, u32 arg1)
   if ((arg1 & 0xff) > 0xb8) {
     arg1 += (ent->entityType).form >> 1;
   }
-  gLinkEntity.spriteTileSize = (short)(arg1 >> 8);
+  gLinkEntity.spriteIndex = (short)(arg1 >> 8);
   InitAnimationForceUpdate(&gLinkEntity, (u8)arg1);
   sub_08077E54(ent);
 }
@@ -38,7 +38,7 @@ void sub_08077E3C(Entity *ent)
 void sub_08077E54(Entity *ent)
 {
   ent->action = gLinkEntity.animIndex;
-  *(u8 *)&ent->spriteTileSize = gLinkEntity.frameIndex;
+  *(u8 *)&ent->spriteIndex = gLinkEntity.frameIndex;
   ent->previousActionFlag = gLinkEntity.frameDuration;
   ent->actionDelay = gLinkEntity.frames.all;
 }
