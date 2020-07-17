@@ -110,27 +110,23 @@ TOOLDIRS := $(filter-out tools/agbcc tools/binutils,$(wildcard tools/*))
 TOOLBASE = $(TOOLDIRS:tools/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),tools/$(tool)/$(tool)$(EXE))
 
-.PHONY: all rom tools clean-tools mostlyclean clean compare tidy $(TOOLDIRS)
+.PHONY: all setup clean-tools mostlyclean clean tidy $(TOOLDIRS)
 
 MAKEFLAGS += --no-print-directory
 
 AUTO_GEN_TARGETS :=
 
-all: tools rom
-
-rom: $(ROM)
-ifeq ($(COMPARE),1)
+all: $(ROM)
 	@$(SHA1) tmc.sha1
-endif
 
-tools: $(TOOLDIRS)
+# kept for backwards compat
+compare: $(ROM)
+	@$(SHA1) tmc.sha1
+
+setup: $(TOOLDIRS)
 
 $(TOOLDIRS):
 	@$(MAKE) -C $@
-
-# For contributors to make sure a change didn't affect the contents of the ROM.
-compare:
-	@$(MAKE) COMPARE=1
 
 mostlyclean: tidy
 	rm -f sound/direct_sound_samples/*.bin
