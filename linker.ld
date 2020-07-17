@@ -641,6 +641,7 @@ SECTIONS {
 		asm/stairsInteract.o(.text);
 		asm/code_080732D0.o(.text);
 		asm/ocarina.o(.text);
+		src/item.o(.text);
 		asm/code_08076C80.o(.text);
 		asm/respawnLink.o(.text);
 		src/code_08077B98.o(.text);

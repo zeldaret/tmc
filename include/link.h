@@ -82,6 +82,7 @@ typedef struct {
     /*0x2*/ u8 field_0x2[2];
     /*0x4*/ u8 stateID;
     /*0x5*/ u8 field_0x5[10];
+    /*0xf*/ u8 field_0xf;
 } ItemBehavior;
 
 extern u8 gBombBagSizes[];

@@ -19,20 +19,6 @@ extern void sub_080045D4();
 extern void sub_0806F69C();
 extern u32 Random();
 
-
-enum {
-    BEHAVIORS,
-    WINGS,
-    WAKE,
-    MINI,
-    MINIAFFINE,
-    DROPLET,
-    RIPPLE,
-    BIGRIPPLE,
-    FORM8,
-    FORM9,
-};
-
 extern void (*const GreatFairy_Main[])(Entity*);
 extern void (*const GreatFairy_Behaviors[])(Entity*);
 extern void (*const GreatFairy_WingsBehaviors[])(Entity*);
