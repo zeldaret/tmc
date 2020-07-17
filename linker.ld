@@ -597,7 +597,7 @@ SECTIONS {
 		asm/librari.o(.text);
 		asm/percy.o(.text);
 		asm/vaatiReborn.o(.text);
-		asm/moblinLady.o(.text);
+		src/npc/moblinLady.o(.text);
 		asm/librarians.o(.text);
 		asm/farmers.o(.text);
 		asm/carlov.o(.text);
@@ -613,7 +613,7 @@ SECTIONS {
 		src/npc/windTribespeople.o(.text);
 		asm/windTribespeople.o(.text);
 		asm/gregal.o(.text);
-		asm/mayorHagen.o(.text);
+		src/npc/mayorHagen.o(.text);
 		src/npc/bigGoron.o(.text);
 		asm/bigGoron.o(.text);
 		asm/ezloCap.o(.text);
