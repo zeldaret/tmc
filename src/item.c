@@ -52,9 +52,10 @@ extern void sub_08077BB8(ItemBehavior*);
 extern void CreatePlayerBomb(ItemBehavior*, u32);
 extern u32 sub_08077EFC();
 
+extern void (*const gOcarinaStates[4])(ItemBehavior*, u32);
 extern void (*const gUnk_0811BDE0[])(ItemBehavior* beh, u32);
 extern void (*const gUnk_0811BDE8[])(ItemBehavior* beh, u32);
-extern void (*const gOcarinaStates[4])(ItemBehavior*, u32);
+extern void (*const gUnk_0811BDF4[])(ItemBehavior* beh, u32);
 
 extern u8 gUnk_02034490;
 #if 0
@@ -138,4 +139,22 @@ void sub_08076D34(ItemBehavior* beh, u32 arg1) {
         gLinkState.field_0x3[0] = 0;
         sub_08077E78(beh, arg1);
     }
+}
+
+void sub_08076D94(ItemBehavior *beh, u32 arg1)
+{
+  if (sub_08077EFC(beh)) {
+    gLinkState.field_0x3[0] |= 1;
+    UpdateItemAnim(beh);
+  }
+  else {
+    gLinkState.field_0x3[0] = 0;
+    sub_08077E78(beh, arg1);
+  }
+}
+
+void GustJar(ItemBehavior *beh, u32 arg1)
+{
+    gLinkState.field_0xa8[0] = 3;
+    gUnk_0811BDF4[beh->stateID](beh, arg1);
 }

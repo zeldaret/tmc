@@ -6,54 +6,6 @@
 
 	.text
 
-	thumb_func_start sub_08076D94
-sub_08076D94: @ 0x08076D94
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	adds r5, r1, #0
-	bl sub_08077EFC
-	adds r1, r0, #0
-	cmp r1, #0
-	beq _08076DBC
-	ldr r2, _08076DB8 @ =gLinkState
-	ldrb r1, [r2, #3]
-	movs r0, #1
-	orrs r0, r1
-	strb r0, [r2, #3]
-	adds r0, r4, #0
-	bl UpdateItemAnim
-	b _08076DC8
-	.align 2, 0
-_08076DB8: .4byte gLinkState
-_08076DBC:
-	ldr r0, _08076DCC @ =gLinkState
-	strb r1, [r0, #3]
-	adds r0, r4, #0
-	adds r1, r5, #0
-	bl sub_08077E78
-_08076DC8:
-	pop {r4, r5, pc}
-	.align 2, 0
-_08076DCC: .4byte gLinkState
-
-	thumb_func_start GustJar
-GustJar: @ 0x08076DD0
-	push {lr}
-	ldr r2, _08076DEC @ =gLinkState
-	adds r2, #0xa8
-	movs r3, #3
-	strb r3, [r2]
-	ldr r3, _08076DF0 @ =gUnk_0811BDF4
-	ldrb r2, [r0, #4]
-	lsls r2, r2, #2
-	adds r2, r2, r3
-	ldr r2, [r2]
-	bl _call_via_r2
-	pop {pc}
-	.align 2, 0
-_08076DEC: .4byte gLinkState
-_08076DF0: .4byte gUnk_0811BDF4
-
 	thumb_func_start sub_08076DF4
 sub_08076DF4: @ 0x08076DF4
 	push {r4, r5, r6, r7, lr}
