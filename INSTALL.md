@@ -37,14 +37,11 @@ To set up the repository:
 	sh install.sh ../tmc
 
 	cd ../tmc
+	make tools
 
 To build **tmc.gba**:
 
 	make -j$(nproc)
-
-To confirm it matches the official ROM image while building, do this instead:
-
-	make compare -j$(nproc)
 
 If only `.c` or `.s` files were changed, turn off the dependency scanning temporarily. Changes to any other files will be ignored and the build will either fail or not reflect those changes.
 
