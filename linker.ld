@@ -442,7 +442,6 @@ SECTIONS {
 		src/loadRoom.o(.text);
 		asm/code_0804B058.o(.text);
 		src/room.o(.text);
-		asm/upperInn.o(.text);
 		asm/code_0804B9F8.o(.text);
 		src/sub_08050008.o(.text);
 		src/sub_08050024.o(.text);

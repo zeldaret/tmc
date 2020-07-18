@@ -398,77 +398,116 @@ u32 sub_0804B7A8(void) {
 
 extern void* gUnk_08010A5C[];
 
-void sub_0804B7E8(void)
-{
-  if (CheckLocalFlag(0x91)) {
-    ClearLocalFlag(0x91);
-    DoFade(5, 0x100);
-    gLinkEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
-    gLinkEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-    sub_080751E8(1, 2, &gUnk_08010A5C);
-  }
+void sub_0804B7E8(void) {
+    if (CheckLocalFlag(0x91)) {
+        ClearLocalFlag(0x91);
+        DoFade(5, 0x100);
+        gLinkEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
+        gLinkEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
+        sub_080751E8(1, 2, &gUnk_08010A5C);
+    }
 }
 
 extern u32 gUnk_080D6B18[];
 
-u32 sub_0804B82C(void)
-{
-  u32 index;
-  
-  if (CheckLocalFlag(0x91) != 0) {
-    index = Random() & 1;
-    ClearLocalFlag(2);
-  }
-  else {
-      index = 0;
-      SetLocalFlag(2);
-  }
-  gRoomVars.field_0x78 = gUnk_080D6B18[index];
-  return 1;
+u32 sub_0804B82C(void) {
+    u32 index;
+
+    if (CheckLocalFlag(0x91) != 0) {
+        index = Random() & 1;
+        ClearLocalFlag(2);
+    } else {
+        index = 0;
+        SetLocalFlag(2);
+    }
+    gRoomVars.field_0x78 = gUnk_080D6B18[index];
+    return 1;
 }
 
-void sub_0804B86C(void)
-{
-  if (CheckLocalFlag(0x91) != 0) {
-    ClearLocalFlag(0x91);
-    DoFade(5, 0x100);
-    gLinkEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
-    gLinkEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-    sub_080751E8(1, 2, &gUnk_08010A5C);
-  }
+void sub_0804B86C(void) {
+    if (CheckLocalFlag(0x91) != 0) {
+        ClearLocalFlag(0x91);
+        DoFade(5, 0x100);
+        gLinkEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
+        gLinkEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
+        sub_080751E8(1, 2, &gUnk_08010A5C);
+    }
 }
 
 extern u32 gUnk_080D6BB8[];
 
-u32 sub_0804B8B0(void)
-{
-  s32 index;
-  
-  if (CheckLocalFlag(0x91) != 0) {
-    index = (s32)Random() % 3;
-    ClearLocalFlag(3);
-  }
-  else {
-    index = 0;
-    SetLocalFlag(3);
-  }
-  gRoomVars.field_0x78 = gUnk_080D6BB8[index];
-  return 1;
+u32 sub_0804B8B0(void) {
+    s32 index;
+
+    if (CheckLocalFlag(0x91) != 0) {
+        index = (s32)Random() % 3;
+        ClearLocalFlag(3);
+    } else {
+        index = 0;
+        SetLocalFlag(3);
+    }
+    gRoomVars.field_0x78 = gUnk_080D6BB8[index];
+    return 1;
 }
 
 extern void* gUnk_08010A5C[];
 
-void sub_0804B8F0(void)
-{
-  if (CheckLocalFlag(0x91)) {
-    ClearLocalFlag(0x91);
-    DoFade(5 ,0x100);
-    gLinkEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x60;
-    gLinkEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-    sub_080751E8(1,2, &gUnk_08010A5C);
-  }
+void sub_0804B8F0(void) {
+    if (CheckLocalFlag(0x91)) {
+        ClearLocalFlag(0x91);
+        DoFade(5, 0x100);
+        gLinkEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x60;
+        gLinkEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
+        sub_080751E8(1, 2, &gUnk_08010A5C);
+    }
 }
 
 u32 sub_0804B934() {
     return 1;
+}
+
+extern EntityData* UpperInn_Oracles;
+extern EntityData* UpperInn_NoFarore;
+extern EntityData* UpperInn_NoNayru;
+extern EntityData* UpperInn_NoDin;
+extern EntityData* UpperInn_Farore;
+extern EntityData* UpperInn_Nayru;
+extern EntityData* UpperInn_Din;
+
+void sub_0804B938(void) {
+    int iVar1;
+
+    if (gUnk_02002A40.field_0x8 < 4) {
+        return;
+    }
+
+    if (CheckGlobalFlag(0x2b)) {
+        if (!CheckGlobalFlag(0x2f)) {
+            if (!CheckGlobalFlag(0x30)) {
+                LoadRoomEntityList(&UpperInn_NoDin);
+            } else {
+                LoadRoomEntityList(&UpperInn_Nayru);
+            }
+        } else {
+            LoadRoomEntityList(&UpperInn_Farore);
+        }
+    } else if (CheckGlobalFlag(0x2c)) {
+        if (CheckGlobalFlag(0x2e)) {
+            LoadRoomEntityList(&UpperInn_Farore);
+        } else if (!CheckGlobalFlag(0x30)) {
+            LoadRoomEntityList(&UpperInn_NoNayru);
+        } else {
+            LoadRoomEntityList(&UpperInn_Din);
+        }
+    } else if (CheckGlobalFlag(0x2d)) {
+        if (CheckGlobalFlag(0x2e)) {
+            LoadRoomEntityList(&UpperInn_Nayru);
+        } else if (CheckGlobalFlag(0x2f)) {
+            LoadRoomEntityList(&UpperInn_Din);
+        } else {
+            LoadRoomEntityList(&UpperInn_NoFarore);
+        }
+    } else {
+        LoadRoomEntityList(&UpperInn_Oracles);
+    }
 }
