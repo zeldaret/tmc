@@ -441,6 +441,7 @@ SECTIONS {
 		src/sub_0804AFF4.o(.text);
 		src/loadRoom.o(.text);
 		asm/code_0804B058.o(.text);
+		src/room.o(.text);
 		asm/upperInn.o(.text);
 		asm/code_0804B9F8.o(.text);
 		src/sub_08050008.o(.text);
@@ -661,7 +662,7 @@ SECTIONS {
 		asm/code_0807CAA0.o(.text);
 		src/flags.o(.text);
 		asm/code_0807CC3C.o(.text);
-		src/room.o(.text);
+		src/code_0808091C.o(.text);
 		/* objects */
 		asm/itemOnGround.o(.text);
 		asm/deathFx.o(.text);
