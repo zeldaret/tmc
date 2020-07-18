@@ -283,7 +283,7 @@ void sub_0806200C(Entity* this) {
     u32 index;
 
     index = 0;
-    if ((CheckGlobalFlag(0x29) != 0) && (CheckLocalFlag(0x6b))) {
+    if ((CheckGlobalFlag(MIZUKAKI_START) != 0) && (CheckLocalFlag(0x6b))) {
 
         // hyrule bestiary
         if (GetInventoryValue(0x39) == 2) {

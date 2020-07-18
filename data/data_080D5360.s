@@ -499,25 +499,25 @@ gUnk_080D6BC4:: @ 080D6BC4
 gUnk_080D6BE4:: @ 080D6BE4
 	.incbin "baserom.gba", 0x0D6BE4, 0x0000010
 
-gUnk_080D6BF4:: @ 080D6BF4
+UpperInn_Oracles:: @ 080D6BF4
 	.incbin "baserom.gba", 0x0D6BF4, 0x0000040
 
-gUnk_080D6C34:: @ 080D6C34
+UpperInn_NoFarore:: @ 080D6C34
 	.incbin "baserom.gba", 0x0D6C34, 0x0000030
 
-gUnk_080D6C64:: @ 080D6C64
+UpperInn_NoDin:: @ 080D6C64
 	.incbin "baserom.gba", 0x0D6C64, 0x0000030
 
-gUnk_080D6C94:: @ 080D6C94
+UpperInn_NoNayru:: @ 080D6C94
 	.incbin "baserom.gba", 0x0D6C94, 0x0000030
 
-gUnk_080D6CC4:: @ 080D6CC4
+UpperInn_Din:: @ 080D6CC4
 	.incbin "baserom.gba", 0x0D6CC4, 0x0000020
 
-gUnk_080D6CE4:: @ 080D6CE4
+UpperInn_Nayru:: @ 080D6CE4
 	.incbin "baserom.gba", 0x0D6CE4, 0x0000020
 
-gUnk_080D6D04:: @ 080D6D04
+UpperInn_Farore:: @ 080D6D04
 	.incbin "baserom.gba", 0x0D6D04, 0x0000020
 
 gUnk_080D6D24:: @ 080D6D24

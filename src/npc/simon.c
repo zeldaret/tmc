@@ -49,7 +49,7 @@ void Simon_CreateChest(Entity *this)
 
 void sub_0806C280(void)
 {
-  SetGlobalFlag(0x50);
+  SetGlobalFlag(MAROYA_WAKEUP);
   DoExitTransition(&gUnk_0813AD74);
   gUnk_030010A0.unk = 6;
 }

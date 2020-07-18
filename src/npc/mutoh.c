@@ -67,7 +67,7 @@ void sub_080670B4(Entity *this)
   
   uVar2 = 0;
   if (GetInventoryValue(0x11) == 0) {
-    uVar1 = CheckGlobalFlag(0x15);
+    uVar1 = CheckGlobalFlag(TABIDACHI);
     uVar2 = (-uVar1 | uVar1) >> 0x1f;
   }
   TextboxNoOverlap(gUnk_08110C0C[uVar2],this);

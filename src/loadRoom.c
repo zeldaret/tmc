@@ -1,8 +1,8 @@
 #include "global.h"
 #include "room.h"
+#include "flags.h"
 
 void LoadRoomEntityList(EntityData* dat);
-s32 CheckGlobalFlag(u32 flag);
 extern EntityData* GetCurrentRoomProperty(u32 unk);
 extern void sub_0804B058(EntityData* dat);
 extern void sub_0804B1AC(EntityData* dat);
@@ -21,7 +21,7 @@ void LoadRoom(void) {
     LoadRoomEntityList(GetCurrentRoomProperty(1));
     LoadRoomEntityList(GetCurrentRoomProperty(0));
 
-    if (CheckGlobalFlag(21))
+    if (CheckGlobalFlag(TABIDACHI))
         sub_0804B058(GetCurrentRoomProperty(2));
 
     sub_0804B1AC(GetCurrentRoomProperty(3));
@@ -51,42 +51,38 @@ void sub_0804B058(EntityData* dat) {
     }
 }
 
-void sub_0804B0B0(u32 arg0, u32 arg1)
-{
-  LoadRoomEntityList(GetRoomProperty(arg0, arg1, 1));
+void sub_0804B0B0(u32 arg0, u32 arg1) {
+    LoadRoomEntityList(GetRoomProperty(arg0, arg1, 1));
 }
 
-void SetCurrentRoomPropertyList(u32 arg0, u32 arg1)
-{
+void SetCurrentRoomPropertyList(u32 arg0, u32 arg1) {
     u32** arr;
-  gUnk_02017654 = 0;
-  arr = &gUnk_080D50FC;
-  if (arr[arg0] != 0) {
-    gUnk_02017654 = arr[arg0][arg1];
-  }
+    gUnk_02017654 = 0;
+    arr = &gUnk_080D50FC;
+    if (arr[arg0] != 0) {
+        gUnk_02017654 = arr[arg0][arg1];
+    }
 }
 
-void sub_0804B0E8(u32 arg0, u32 arg1)
-{
-  void (* func)();
-    
-  func = (void (*)())GetRoomProperty(arg0, arg1, 4);
-  if (func != NULL) {
-    func();
-  }
+void sub_0804B0E8(u32 arg0, u32 arg1) {
+    void (*func)();
+
+    func = (void (*)())GetRoomProperty(arg0, arg1, 4);
+    if (func != NULL) {
+        func();
+    }
 }
 
 // returns multiple types of data?
-void* GetRoomProperty(u32 arg0, u32 arg1, u32 arg2)
-{
+void* GetRoomProperty(u32 arg0, u32 arg1, u32 arg2) {
     u32 temp;
-    u32** arr;  
+    u32** arr;
     temp = 0;
     arr = &gUnk_080D50FC;
     if (arr[arg0] != NULL) {
         temp = arr[arg0][arg1];
         if (temp != 0) {
-            temp = *(u32 *)(arg2 * 4 + temp);
+            temp = *(u32*)(arg2 * 4 + temp);
         }
     }
     return (void*)temp;

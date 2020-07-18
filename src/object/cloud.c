@@ -72,7 +72,7 @@ void sub_0809F548(Entity* this) {
 void sub_0809F5B0(Entity* this) {
     if (--this->actionDelay == 0) {
         PlaySFX(115);
-        SetGlobalFlag(36);
+        SetGlobalFlag(KUMOTATSUMAKI);
         LoadRoomEntityList(&gUnk_080DD750);
         DeleteThisEntity();
     }

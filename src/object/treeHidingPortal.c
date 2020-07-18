@@ -35,7 +35,7 @@ void sub_0809E83C(Entity* this) {
 void sub_0809E86C(Entity* this) {
 
     if (sub_0800419C(this, &gLinkEntity, 0x30, 0x30)) {
-        if (CheckGlobalFlag(0x14)) {
+        if (CheckGlobalFlag(EZERO_1ST)) {
             if (((gUnk_030010A0 & 3) == 0)) {
                 sub_080A2B80(this);
             }
