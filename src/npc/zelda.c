@@ -84,7 +84,7 @@ void sub_08066D94(Entity* ent) {
     u32 roomID;
     Entity* npc;
 
-    SetGlobalFlag(0x1C);
+    SetGlobalFlag(ZELDA_CHASE);
     npc = CreateNPC(0x2E, 0, 0);
     if (npc != NULL) {
         npc->animationState = gLinkEntity.animationState;

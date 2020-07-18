@@ -130,6 +130,6 @@ enum {
     /*0x62*/ MAZE_CLEAR,          /* Cleared Castle maze         */
     /*0x63*/ TINY_ENTRANCE,       /* Ezlo described entrances    */
     /*0x64*/ CASTLE_BGM,          /* Castle intro BGM            */
-} FLAG;
+};
 
 #endif

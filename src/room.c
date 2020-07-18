@@ -165,7 +165,7 @@ void sub_0804B4E4(void) {
     sub_080580B0(0x22);
     // white sword
     if (GetInventoryValue(0x2))
-        SetGlobalFlag(0x56);
+        SetGlobalFlag(WHITE_SWORD_END);
 }
 
 void sub_0804B500() {
@@ -361,7 +361,7 @@ void sub_0804B738(void) {
         LoadRoomEntityList(&gUnk_080D6714);
     }
     // flippers
-    if (!GetInventoryValue(0x46) && CheckGlobalFlag(0x29) && CheckLocalFlag(0x6a)) {
+    if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START) && CheckLocalFlag(0x6a)) {
         LoadRoomEntityList(&gUnk_080D6734);
     } else {
         LoadRoomEntityList(&gUnk_080D66F4);
@@ -481,9 +481,9 @@ void sub_0804B938(void) {
         return;
     }
 
-    if (CheckGlobalFlag(0x2b)) {
-        if (!CheckGlobalFlag(0x2f)) {
-            if (!CheckGlobalFlag(0x30)) {
+    if (CheckGlobalFlag(RENTED_HOUSE_DIN)) {
+        if (!CheckGlobalFlag(NEW_HOUSE_NAYRU)) {
+            if (!CheckGlobalFlag(NEW_HOUSE_FARORE)) {
                 LoadRoomEntityList(&UpperInn_NoDin);
             } else {
                 LoadRoomEntityList(&UpperInn_Nayru);
@@ -491,18 +491,18 @@ void sub_0804B938(void) {
         } else {
             LoadRoomEntityList(&UpperInn_Farore);
         }
-    } else if (CheckGlobalFlag(0x2c)) {
-        if (CheckGlobalFlag(0x2e)) {
+    } else if (CheckGlobalFlag(RENTED_HOUSE_NAYRU)) {
+        if (CheckGlobalFlag(NEW_HOUSE_DIN)) {
             LoadRoomEntityList(&UpperInn_Farore);
-        } else if (!CheckGlobalFlag(0x30)) {
+        } else if (!CheckGlobalFlag(NEW_HOUSE_FARORE)) {
             LoadRoomEntityList(&UpperInn_NoNayru);
         } else {
             LoadRoomEntityList(&UpperInn_Din);
         }
-    } else if (CheckGlobalFlag(0x2d)) {
-        if (CheckGlobalFlag(0x2e)) {
+    } else if (CheckGlobalFlag(RENTED_HOUSE_FARORE)) {
+        if (CheckGlobalFlag(NEW_HOUSE_DIN)) {
             LoadRoomEntityList(&UpperInn_Nayru);
-        } else if (CheckGlobalFlag(0x2f)) {
+        } else if (CheckGlobalFlag(NEW_HOUSE_NAYRU)) {
             LoadRoomEntityList(&UpperInn_Din);
         } else {
             LoadRoomEntityList(&UpperInn_NoFarore);

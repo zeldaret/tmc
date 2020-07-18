@@ -155,7 +155,7 @@ void sub_080601D4(Entity* this) {
     u32 temp;
     u32 uVar2;
 
-    if (CheckGlobalFlag(4) == 0) {
+    if (CheckGlobalFlag(LV3_CLEAR) == 0) {
         uVar2 = 2;
     } else {
         temp = CheckKinstoneFused(0x17);
@@ -202,9 +202,9 @@ void sub_08060270(Entity *this)
   //flippers
   if (GetInventoryValue(0x46) == 0) {
     index = 1;
-    if (CheckGlobalFlag(0x29) == 0) {
+    if (CheckGlobalFlag(MIZUKAKI_START) == 0) {
       index = 0;
-      SetGlobalFlag(0x29);
+      SetGlobalFlag(MIZUKAKI_START);
     }
   }
   else {
@@ -266,19 +266,19 @@ u32 sub_08060354(void)
   s32 iVar2;
   
   iVar2 = gUnk_02002A40.unk2 - gUnk_02002A40.unk3;
-  if (CheckGlobalFlag(0x3b) == 0) {
+  if (CheckGlobalFlag(DRUG_1) == 0) {
     if (4 < iVar2) {
       return 0x8444;
     }
   }
   else {
-    if (CheckGlobalFlag(0x3c) == 0) {
+    if (CheckGlobalFlag(DRUG_2) == 0) {
       if (iVar2 > 9) {
         return 0x8444;
       }
     }
     else {
-      if (CheckGlobalFlag(0x3d) == 0) {
+      if (CheckGlobalFlag(DRUG_3) == 0) {
         if (iVar2 > 14) {
         return 0x8444;
       }

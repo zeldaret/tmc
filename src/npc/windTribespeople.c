@@ -52,7 +52,7 @@ void sub_0806C7D4(Entity* this) {
         sub_0806F118(this);
     } else {
         sub_0807DD94(this, 0);
-        if ((this->entityType.parameter == 3) && (!CheckGlobalFlag(0x58)) && (CheckLocalFlag(0x63)) &&
+        if ((this->entityType.parameter == 3) && (!CheckGlobalFlag(WARP_EVENT_END)) && (CheckLocalFlag(0x63)) &&
             (CheckRoomFlag(0))) {
             (this->entityType).parameter = 7;
             sub_0807DD80(this, &gUnk_08014A80);
@@ -130,7 +130,7 @@ void sub_0806C944(Entity *this)
   int iVar1;
   int iVar2;
   
-  iVar1 = CheckGlobalFlag(0x58);
+  iVar1 = CheckGlobalFlag(WARP_EVENT_END);
   if (iVar1 == 0) {
     iVar2 = 0;
   }
