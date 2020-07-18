@@ -2815,12 +2815,12 @@ sub_08053CC8: @ 0x08053CC8
 	ldrb r0, [r4, #4]
 	ldrb r1, [r4, #5]
 	movs r2, #1
-	bl sub_0804B0FC
+	bl GetRoomProperty
 	bl LoadRoomEntityList
 	ldrb r0, [r4, #4]
 	ldrb r1, [r4, #5]
 	movs r2, #2
-	bl sub_0804B0FC
+	bl GetRoomProperty
 	bl LoadRoomEntityList
 	movs r5, #1
 	strb r5, [r6, #6]
@@ -2946,12 +2946,12 @@ sub_08053DB4: @ 0x08053DB4
 	ldrb r0, [r4, #4]
 	ldrb r1, [r4, #5]
 	movs r2, #1
-	bl sub_0804B0FC
+	bl GetRoomProperty
 	bl LoadRoomEntityList
 	ldrb r0, [r4, #4]
 	ldrb r1, [r4, #5]
 	movs r2, #2
-	bl sub_0804B0FC
+	bl GetRoomProperty
 	bl LoadRoomEntityList
 	movs r0, #0x78
 	strh r0, [r5, #8]

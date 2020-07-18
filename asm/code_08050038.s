@@ -3807,7 +3807,7 @@ sub_08051E84: @ 0x08051E84
 	strh r0, [r1, #4]
 	ldrb r0, [r4]
 	ldrb r1, [r4, #1]
-	bl sub_0804B0C0
+	bl SetCurrentRoomPropertyList
 	ldrb r0, [r4]
 	ldrb r1, [r4, #1]
 	bl sub_08052FD8

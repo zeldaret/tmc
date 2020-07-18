@@ -592,7 +592,7 @@ _0801DBF0:
 	ldrb r0, [r6]
 	ldrb r1, [r6, #1]
 	movs r2, #3
-	bl sub_0804B0FC
+	bl GetRoomProperty
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _0801DC04
@@ -845,7 +845,7 @@ _0801DDE4:
 	ldrb r0, [r4]
 	ldrb r1, [r4, #1]
 	movs r2, #3
-	bl sub_0804B0FC
+	bl GetRoomProperty
 	adds r6, r0, #0
 	adds r0, r4, #0
 	bl sub_0801DF10

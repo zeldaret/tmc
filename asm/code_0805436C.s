@@ -123,7 +123,7 @@ sub_08054974: @ 0x08054974
 	adds r6, r1, r0
 	ldrb r0, [r6, #2]
 	ldrb r1, [r6, #3]
-	bl sub_0804B0C0
+	bl SetCurrentRoomPropertyList
 	ldr r4, _080549B4 @ =gRoomControls
 	ldrb r0, [r6, #2]
 	strb r0, [r4, #4]

@@ -105,4 +105,5 @@ extern void sub_080AD9B0(void);
 extern void sub_080AD918(void);
 extern void sub_0801E104(void);
 extern void MenuFadeIn(u32, u32);
+extern void sub_080A57F4(void);
 #endif
