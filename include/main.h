@@ -24,7 +24,7 @@ extern void sub_0804FFE4();
 extern s32 sub_0804FF84(s32);
 extern s32 sub_08056418(s32);
 extern void sub_080ADD30(s32);
-extern s32 sub_0801D630(s32, u32, u32);
+extern s32 _DmaZero(s32, u32, u32);
 extern s32 sub_08056010(s32);
 extern s32 sub_08016E78(s32);
 extern s32 ReadKeyInput();

@@ -482,7 +482,7 @@ _0808EB1C:
 	movs r2, #0x38
 	b _0808EB68
 _0808EB26:
-	ldr r3, _0808EB3C @ =gUnk_02000080
+	ldr r3, _0808EB3C @ =gMenu
 	adds r0, r3, #0
 	adds r0, #0x10
 	ldrb r1, [r5, #0xa]
@@ -494,7 +494,7 @@ _0808EB26:
 	movs r2, #0x28
 	b _0808EB68
 	.align 2, 0
-_0808EB3C: .4byte gUnk_02000080
+_0808EB3C: .4byte gMenu
 _0808EB40:
 	cmp r1, #0
 	blt _0808EB68
@@ -588,17 +588,17 @@ _0808EBD8: @ jump table
 	.4byte _0808EC00 @ case 4
 	.4byte _0808EC14 @ case 5
 _0808EBF0:
-	ldr r0, _0808EBF8 @ =gUnk_02000080
+	ldr r0, _0808EBF8 @ =gMenu
 	ldrb r0, [r0, #1]
 	adds r1, r0, #4
 	b _0808EC1E
 	.align 2, 0
-_0808EBF8: .4byte gUnk_02000080
+_0808EBF8: .4byte gMenu
 _0808EBFC:
 	movs r1, #2
 	b _0808EC1E
 _0808EC00:
-	ldr r0, _0808EC10 @ =gUnk_02000080
+	ldr r0, _0808EC10 @ =gMenu
 	ldrb r0, [r0, #1]
 	movs r1, #6
 	cmp r0, #0
@@ -606,7 +606,7 @@ _0808EC00:
 	movs r1, #7
 	b _0808EC1E
 	.align 2, 0
-_0808EC10: .4byte gUnk_02000080
+_0808EC10: .4byte gMenu
 _0808EC14:
 	movs r1, #4
 	b _0808EC1E
@@ -707,7 +707,7 @@ _0808ECB8:
 sub_0808ECBC: @ 0x0808ECBC
 	push {r4, lr}
 	adds r3, r0, #0
-	ldr r0, _0808ECD8 @ =gUnk_02000080
+	ldr r0, _0808ECD8 @ =gMenu
 	ldrb r4, [r0, #1]
 	ldr r0, _0808ECDC @ =gUnk_02032EC0
 	ldrb r0, [r0, #2]
@@ -719,7 +719,7 @@ sub_0808ECBC: @ 0x0808ECBC
 	beq _0808ECEA
 	b _0808ED04
 	.align 2, 0
-_0808ECD8: .4byte gUnk_02000080
+_0808ECD8: .4byte gMenu
 _0808ECDC: .4byte gUnk_02032EC0
 _0808ECE0:
 	cmp r0, #6
@@ -803,7 +803,7 @@ sub_0808ED64: @ 0x0808ED64
 	ldrb r0, [r0, #2]
 	cmp r0, #1
 	bne _0808ED8A
-	ldr r1, _0808ED94 @ =gUnk_02000080
+	ldr r1, _0808ED94 @ =gMenu
 	ldrb r0, [r1, #0x11]
 	cmp r0, #5
 	beq _0808ED8A
@@ -820,7 +820,7 @@ _0808ED8A:
 	pop {pc}
 	.align 2, 0
 _0808ED90: .4byte gUnk_02032EC0
-_0808ED94: .4byte gUnk_02000080
+_0808ED94: .4byte gMenu
 
 	thumb_func_start sub_0808ED98
 sub_0808ED98: @ 0x0808ED98
@@ -840,7 +840,7 @@ sub_0808ED98: @ 0x0808ED98
 	.align 2, 0
 _0808EDB4: .4byte gUnk_02032EC0
 _0808EDB8:
-	ldr r0, _0808EDF8 @ =gUnk_02000080
+	ldr r0, _0808EDF8 @ =gMenu
 	ldrb r0, [r0, #0x13]
 	cmp r0, #5
 	bls _0808EDC2
@@ -874,7 +874,7 @@ _0808EDCE:
 	bl sub_0808EF6C
 	pop {pc}
 	.align 2, 0
-_0808EDF8: .4byte gUnk_02000080
+_0808EDF8: .4byte gMenu
 _0808EDFC: .4byte gUnk_08121D10
 
 	thumb_func_start sub_0808EE00
@@ -924,7 +924,7 @@ _0808EE56:
 	adds r0, r4, #0
 	adds r0, #0x6a
 	strh r1, [r0]
-	ldr r1, _0808EE8C @ =gUnk_02000080
+	ldr r1, _0808EE8C @ =gMenu
 	ldrb r0, [r1, #0x11]
 	movs r2, #9
 	cmp r0, #5
@@ -948,7 +948,7 @@ _0808EE6E:
 	strb r0, [r2]
 	pop {r4, r5, pc}
 	.align 2, 0
-_0808EE8C: .4byte gUnk_02000080
+_0808EE8C: .4byte gMenu
 _0808EE90: .4byte gUnk_02019EE0
 
 	thumb_func_start nullsub_522
@@ -1017,7 +1017,7 @@ _0808EEF4:
 	strb r0, [r2, #0x18]
 	ldrb r1, [r2, #0xa]
 	subs r1, #0x13
-	ldr r0, _0808EF20 @ =gUnk_02000080
+	ldr r0, _0808EF20 @ =gMenu
 	ldrb r0, [r0, #1]
 	movs r3, #3
 	cmp r0, r1
@@ -1033,7 +1033,7 @@ _0808EF12:
 _0808EF1E:
 	pop {pc}
 	.align 2, 0
-_0808EF20: .4byte gUnk_02000080
+_0808EF20: .4byte gMenu
 
 	thumb_func_start sub_0808EF24
 sub_0808EF24: @ 0x0808EF24

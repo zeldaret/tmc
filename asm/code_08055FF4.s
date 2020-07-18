@@ -156,7 +156,7 @@ _08056112:
 	ldr r4, _0805612C @ =gUnk_02000010
 	adds r0, r4, #0
 	movs r1, #0x20
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08056130 @ =0x4D435A33
 	str r0, [r4]
 _08056124:

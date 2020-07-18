@@ -35,7 +35,7 @@
 	ldr r4, _08055F04 @ =gUnk_03001000
 	adds r0, r4, #0
 	movs r1, #0x10
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #0
 	bl sub_08056010
 	adds r6, r4, #0

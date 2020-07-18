@@ -199,7 +199,7 @@ _08059034:
 	strb r0, [r4, #0xc]
 	ldrb r1, [r4, #0xd]
 	movs r0, #5
-	bl sub_080A7138
+	bl MenuFadeIn
 	b _08059060
 	.align 2, 0
 _0805904C: .4byte gLinkEntity

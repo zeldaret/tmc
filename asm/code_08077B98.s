@@ -642,7 +642,7 @@ sub_080784C8: @ 0x080784C8
 	movs r1, #0xc4
 	lsls r1, r1, #1
 	adds r0, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _080784E0 @ =gUnk_0811C000
 	str r0, [r4, #4]
 	pop {r4, pc}

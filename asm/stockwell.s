@@ -382,7 +382,7 @@ sub_08065314: @ 0x08065314
 	strb r0, [r2, #0xd]
 	movs r0, #3
 	movs r1, #3
-	bl sub_080A7138
+	bl MenuFadeIn
 _08065332:
 	pop {pc}
 	.align 2, 0

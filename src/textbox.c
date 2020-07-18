@@ -3,7 +3,7 @@
 #include "entity.h"
 #include "textbox.h"
 
-void sub_0801D630();
+void _DmaZero();
 void ShowTextbox();
 void TextboxAtPosition();
 
@@ -62,7 +62,7 @@ void TextboxAtPosition(u32 index, u32 x, u32 y) {
 }
 
 void ShowTextbox(u32 index, u32 param_2, u32* dest) {
-    sub_0801D630(&gTextBox, 32, dest);
+    _DmaZero(&gTextBox, 32, dest);
     gTextBox.textIndex = index;
     gTextBox.textSpeed = 99;
     gTextBox.textWindowWidth = 26;
@@ -75,10 +75,10 @@ void ShowTextbox(u32 index, u32 param_2, u32* dest) {
 
 void sub_08056418(void) {
 
-    sub_0801D630(&gTextBox, 32);
-    sub_0801D630(&gUnk_02022780, 168);
-    sub_0801D630(&gUnk_02036A40, 8);
-    sub_0801D630(&gUnk_02036A38, 8);
-    sub_0801D630(&gUnk_02000040, 4);
+    _DmaZero(&gTextBox, 32);
+    _DmaZero(&gUnk_02022780, 168);
+    _DmaZero(&gUnk_02036A40, 8);
+    _DmaZero(&gUnk_02036A38, 8);
+    _DmaZero(&gUnk_02000040, 4);
     return;
 }

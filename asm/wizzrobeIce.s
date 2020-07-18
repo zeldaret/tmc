@@ -383,7 +383,7 @@ sub_080300AC: @ 0x080300AC
 	ldr r4, _080300C0 @ =gUnk_0300110C
 	adds r0, r4, #0
 	movs r1, #0x44
-	bl sub_0801D630
+	bl _DmaZero
 	adds r4, #0x42
 	movs r0, #0xff
 	strh r0, [r4]
@@ -406,7 +406,7 @@ sub_080300C4: @ 0x080300C4
 	strh r1, [r0]
 	subs r0, #0x40
 	movs r1, #0x40
-	bl sub_0801D630
+	bl _DmaZero
 _080300E2:
 	pop {pc}
 	.align 2, 0

@@ -95,7 +95,7 @@ sub_0806D0B0: @ 0x0806D0B0
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r5, #0
-	bl sub_0801D630
+	bl _DmaZero
 	cmp r4, #0
 	beq _0806D0DA
 	adds r0, r4, #0
@@ -771,7 +771,7 @@ sub_0806D5D4: @ 0x0806D5D4
 	push {lr}
 	bl sub_08053500
 	movs r0, #0xd
-	bl sub_0805436C
+	bl IsItemEquipped
 	adds r1, r0, #0
 	cmp r1, #2
 	beq _0806D5F0

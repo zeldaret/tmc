@@ -77,7 +77,7 @@ sub_08070698: @ 0x08070698
 	bl sub_08016A30
 _08070726:
 	movs r0, #0x10
-	bl sub_0805436C
+	bl IsItemEquipped
 	cmp r0, #2
 	beq _08070734
 	bl sub_08077728

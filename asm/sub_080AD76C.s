@@ -9,7 +9,7 @@
 	thumb_func_start sub_080AD76C
 sub_080AD76C: @ 0x080AD76C
 	push {lr}
-	ldr r1, _080AD780 @ =gUnk_02000080
+	ldr r1, _080AD780 @ =gMenu
 	ldrb r0, [r1, #6]
 	cmp r0, #1
 	beq _080AD7B4
@@ -19,7 +19,7 @@ sub_080AD76C: @ 0x080AD76C
 	beq _080AD78A
 	b _080AD80E
 	.align 2, 0
-_080AD780: .4byte gUnk_02000080
+_080AD780: .4byte gMenu
 _080AD784:
 	cmp r0, #2
 	beq _080AD7DC
@@ -95,7 +95,7 @@ _080AD80E:
 	bl sub_080AD84C
 	cmp r0, #0
 	beq _080AD82A
-	ldr r0, _080AD830 @ =gUnk_02000080
+	ldr r0, _080AD830 @ =gMenu
 	ldrb r1, [r0, #5]
 	adds r1, #1
 	strb r1, [r0, #5]
@@ -105,4 +105,4 @@ _080AD82A:
 	pop {pc}
 	.align 2, 0
 _080AD82C: .4byte gUnk_03000FD0
-_080AD830: .4byte gUnk_02000080
+_080AD830: .4byte gMenu

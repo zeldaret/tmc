@@ -295,7 +295,7 @@ _08019678: .4byte gUnk_080B4400
 sub_0801967C: @ 0x0801967C
 	push {lr}
 	ldr r1, _08019690 @ =gUnk_080B4458
-	ldr r0, _08019694 @ =gUnk_02000080
+	ldr r0, _08019694 @ =gMenu
 	ldrb r0, [r0, #6]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -304,7 +304,7 @@ sub_0801967C: @ 0x0801967C
 	pop {pc}
 	.align 2, 0
 _08019690: .4byte gUnk_080B4458
-_08019694: .4byte gUnk_02000080
+_08019694: .4byte gMenu
 
 	thumb_func_start sub_08019698
 sub_08019698: @ 0x08019698
@@ -434,7 +434,7 @@ sub_080197A0: @ 0x080197A0
 	push {lr}
 	movs r0, #2
 	movs r1, #0xb
-	bl sub_080A7138
+	bl MenuFadeIn
 	pop {pc}
 
 	thumb_func_start sub_080197AC
@@ -3466,7 +3466,7 @@ _0801AE70:
 	movs r2, #0x80
 	lsls r2, r2, #4
 	movs r0, #0xf
-	bl sub_0801D5EC
+	bl _DmaFill16
 	movs r0, #1
 	rsbs r0, r0, #0
 	bl sub_0805BB74
@@ -4054,7 +4054,7 @@ sub_0801B2CC: @ 0x0801B2CC
 	bl sub_08078930
 _0801B2DE:
 	movs r0, #8
-	bl sub_0805436C
+	bl IsItemEquipped
 	cmp r0, #1
 	beq _0801B2F6
 	cmp r0, #1
@@ -4765,7 +4765,7 @@ sub_0801B804: @ 0x0801B804
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r0, #0xc
-	bl sub_0805436C
+	bl IsItemEquipped
 	cmp r0, #1
 	beq _0801B820
 	cmp r0, #1

@@ -996,7 +996,7 @@ sub_0801CFA8: @ 0x0801CFA8
 	adds r5, r0, #0
 	ldr r0, _0801CFCC @ =gUnk_02001A00
 	movs r1, #0x40
-	bl sub_0801D630
+	bl _DmaZero
 	movs r4, #0
 _0801CFB6:
 	adds r0, r4, #0
@@ -1451,7 +1451,7 @@ sub_0801D2C8: @ 0x0801D2C8
 	lsls r1, r4, #5
 	adds r1, r1, r2
 	movs r2, #0x20
-	bl sub_0801D5EC
+	bl _DmaFill16
 	b _0801D33C
 	.align 2, 0
 _0801D2F8: .4byte gUnk_0200B644

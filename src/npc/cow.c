@@ -183,7 +183,7 @@ void sub_080691E0(Entity* ent) {
 }
 
 // Show dialogue
-void sub_080691F8(Entity* ent) {
+void Cow_ShowDialogue(Entity* ent) {
     u32 var0 = ent->entityType.form;
     u32* var1 = gUnk_08111938 + (var0 * 2);
     ShowNPCDialogue(ent, var1);
@@ -215,10 +215,10 @@ void sub_0806924C(Entity* ent) {
                 ent->action = 4;
                 sub_0806F118(ent);
             } else {
-                sub_080691F8(ent);
+                Cow_ShowDialogue(ent);
             }
         } else {
-            sub_080691F8(ent);
+            Cow_ShowDialogue(ent);
             sub_080791D0();
         }
         PlaySFX(212);

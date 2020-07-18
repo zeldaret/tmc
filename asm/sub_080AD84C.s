@@ -27,7 +27,7 @@ _080AD86C:
 	movs r2, #9
 	ands r2, r0
 _080AD874:
-	ldr r1, _080AD88C @ =gUnk_02000080
+	ldr r1, _080AD88C @ =gMenu
 	ldrh r0, [r1, #8]
 	subs r0, #1
 	strh r0, [r1, #8]
@@ -38,7 +38,7 @@ _080AD874:
 	b _080AD89A
 	.align 2, 0
 _080AD888: .4byte gUnk_03000FF0
-_080AD88C: .4byte gUnk_02000080
+_080AD88C: .4byte gMenu
 _080AD890:
 	cmp r2, #0
 	bne _080AD898

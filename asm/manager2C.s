@@ -44,7 +44,7 @@ _0805D184:
 	ldr r4, _0805D1F8 @ =gUnk_030010AC
 	adds r0, r4, #0
 	movs r1, #0x20
-	bl sub_0801D630
+	bl _DmaZero
 	subs r4, #0xc
 	movs r1, #0
 	movs r0, #1

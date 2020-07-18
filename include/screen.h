@@ -5,6 +5,7 @@
 
 typedef struct {
     u16 lcdControl2;
+    u16 unk2;
     u32 unk;
     u16 lcdControl1;
 } LcdControls;

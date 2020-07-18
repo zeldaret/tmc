@@ -822,14 +822,14 @@ sub_0807BFD0: @ 0x0807BFD0
 	adds r0, r7, #0
 	adds r1, r6, #0
 	mov r2, r8
-	bl sub_0801D5EC
+	bl _DmaFill16
 	movs r5, #0
 	strh r5, [r6]
 	ldr r4, _0807C0C0 @ =gUnk_02010654
 	adds r0, r7, #0
 	adds r1, r4, #0
 	mov r2, r8
-	bl sub_0801D5EC
+	bl _DmaFill16
 	strh r5, [r4]
 	ldr r2, _0807C0C4 @ =gRoomControls
 	ldr r0, _0807C0C8 @ =gArea
@@ -873,7 +873,7 @@ _0807C04E:
 	adds r0, r7, #0
 	adds r1, r6, #0
 	mov r2, r8
-	bl sub_0801D5EC
+	bl _DmaFill16
 	movs r2, #0
 	ldr r3, _0807C0D8 @ =0x000007FF
 	adds r4, r7, #0
@@ -899,7 +899,7 @@ _0807C078:
 	ldr r4, _0807C0B8 @ =0x0000FFFF
 	adds r0, r4, #0
 	adds r1, r6, #0
-	bl sub_0801D5EC
+	bl _DmaFill16
 	movs r2, #0
 	ldr r3, _0807C0D8 @ =0x000007FF
 _0807C096:
@@ -948,19 +948,19 @@ sub_0807C0DC: @ 0x0807C0DC
 	lsls r6, r6, #6
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0801D630
+	bl _DmaZero
 	adds r0, r5, r6
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0807C160 @ =gUnk_02019EE0
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0807C164 @ =gUnk_02002F00
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0807C168 @ =gArea
 	ldr r1, _0807C16C @ =0x0000085C
 	adds r0, r0, r1
@@ -999,7 +999,7 @@ _0807C174: .4byte 0x0000FFFF
 _0807C178:
 	adds r0, r2, #4
 	adds r1, r6, #0
-	bl sub_0801D630
+	bl _DmaZero
 	movs r3, #1
 	mov sb, r3
 _0807C184:
@@ -1167,7 +1167,7 @@ _0807C2E4:
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r4, _0807C350 @ =gUnk_02002F00
 	adds r5, r4, r6
 	adds r0, r4, #0
@@ -1179,7 +1179,7 @@ _0807C2E4:
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0801D630
+	bl _DmaZero
 _0807C326:
 	mov r1, sb
 	cmp r1, #0
@@ -1406,10 +1406,10 @@ sub_0807C4F8: @ 0x0807C4F8
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0807C59C @ =gUnk_02002F00
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r5, _0807C5A0 @ =gUnk_02022830
 	ldr r0, _0807C5A4 @ =gArea
 	ldr r1, _0807C5A8 @ =0x0000085C
@@ -1455,7 +1455,7 @@ _0807C54A:
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r4, _0807C59C @ =gUnk_02002F00
 	adds r5, r4, r6
 	adds r0, r4, #0
@@ -1467,7 +1467,7 @@ _0807C54A:
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0801D630
+	bl _DmaZero
 _0807C592:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -1694,7 +1694,7 @@ _0807C710:
 _0807C726:
 	adds r0, r4, #0
 	movs r1, #0x40
-	bl sub_0801D630
+	bl _DmaZero
 	adds r4, #0x40
 	adds r5, #1
 	cmp r5, r7
@@ -1984,7 +1984,7 @@ _0807C92E:
 _0807C946:
 	adds r0, r4, #0
 	movs r1, #0x80
-	bl sub_0801D630
+	bl _DmaZero
 	adds r4, #0x80
 	adds r5, #1
 	cmp r5, r6

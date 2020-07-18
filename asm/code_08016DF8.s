@@ -601,7 +601,7 @@ _08017268:
 	strb r5, [r0]
 	ldr r0, _080172EC @ =gUnk_03003BE0
 	movs r1, #0x8c
-	bl sub_0801D630
+	bl _DmaZero
 	adds r2, r4, #0
 	adds r2, #0x3f
 	ldrb r0, [r2]
@@ -1080,7 +1080,7 @@ sub_08017640: @ 0x08017640
 	movs r1, #0x80
 	lsls r1, r1, #1
 	adds r0, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08017664 @ =gUnk_02018EA0
 	str r4, [r0]
 	str r4, [r4]

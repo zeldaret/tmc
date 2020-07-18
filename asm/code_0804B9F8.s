@@ -3176,7 +3176,7 @@ sub_0804CD48: @ 0x0804CD48
 	bl SetLocalFlag
 	movs r0, #5
 	movs r1, #0
-	bl sub_080A7138
+	bl MenuFadeIn
 	ldr r0, _0804CD94 @ =gUnk_02000070
 	strb r4, [r0]
 	ldr r0, _0804CD98 @ =gUnk_03000FD0
@@ -11466,10 +11466,10 @@ sub_0804FFE4: @ 0x0804FFE4
 	ldr r4, _08050000 @ =gUnk_03000FD0
 	adds r0, r4, #0
 	movs r1, #0x1c
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08050004 @ =gUnk_020354C0
 	movs r1, #0x80
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #1
 	rsbs r0, r0, #0
 	str r0, [r4, #4]

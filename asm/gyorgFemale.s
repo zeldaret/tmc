@@ -112,10 +112,10 @@ sub_0804614C: @ 0x0804614C
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08046250 @ =gUnk_02002F00
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	adds r0, r6, #0
 	movs r1, #0
 	bl sub_0804660C
@@ -445,10 +445,10 @@ sub_08046498: @ 0x08046498
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _080464BC @ =gUnk_02002F00
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	adds r0, r5, #0
 	bl sub_080464C0
 	pop {r4, r5, pc}
@@ -486,7 +486,7 @@ _080464DE:
 	ldr r0, _0804650C @ =gUnk_02019EE0
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r1, _08046514 @ =gUnk_02000070
 	movs r0, #1
 	strb r0, [r1]

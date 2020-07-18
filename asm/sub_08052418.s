@@ -14,7 +14,7 @@ sub_08052418: @ 0x08052418
 	ldr r0, _08052494 @ =gUnk_02021F30
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08052498 @ =gUnk_020227E8
 	movs r1, #0xf
 	str r1, [r0]

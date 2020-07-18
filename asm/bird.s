@@ -675,7 +675,7 @@ _0809D454:
 	str r1, [r0, #0x40]
 	movs r0, #9
 	movs r1, #0
-	bl sub_080A7138
+	bl MenuFadeIn
 _0809D478:
 	ldr r4, [r5, #0x54]
 	cmp r4, #0

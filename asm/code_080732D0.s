@@ -4198,7 +4198,7 @@ sub_080751E8: @ 0x080751E8
 	ldr r4, _08075230 @ =gUnk_02022750
 	adds r0, r4, #0
 	movs r1, #0x24
-	bl sub_0801D630
+	bl _DmaZero
 	str r6, [r4]
 	ldr r0, _08075234 @ =gLinkEntity
 	adds r0, #0x84
@@ -5250,7 +5250,7 @@ sub_08075A0C: @ 0x08075A0C
 	adds r4, r0, #0
 	adds r5, r1, #0
 	ldrb r0, [r4, #1]
-	bl sub_0805436C
+	bl IsItemEquipped
 	adds r6, r0, #0
 	ldr r1, _08075A64 @ =gLinkState
 	ldrb r0, [r1, #5]
@@ -5421,7 +5421,7 @@ sub_08075B54: @ 0x08075B54
 	b _08075C80
 _08075B70:
 	ldrb r0, [r6, #1]
-	bl sub_0805436C
+	bl IsItemEquipped
 	adds r4, r0, #0
 	adds r0, r6, #0
 	bl sub_08077F10

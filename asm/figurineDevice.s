@@ -173,7 +173,7 @@ _08087CCA:
 	bl SetRoomFlag
 	movs r0, #7
 	movs r1, #0xff
-	bl sub_080A7138
+	bl MenuFadeIn
 	b _08087D1A
 _08087CFA:
 	movs r0, #5
@@ -332,7 +332,7 @@ _08087E10:
 	bl SetRoomFlag
 	ldrb r1, [r4, #0xf]
 	movs r0, #7
-	bl sub_080A7138
+	bl MenuFadeIn
 	b _08087E5A
 _08087E3C:
 	movs r0, #2

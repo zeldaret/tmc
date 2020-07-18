@@ -9,7 +9,7 @@
 	thumb_func_start sub_080AD474
 sub_080AD474: @ 0x080AD474
 	push {r4, r5, r6, lr}
-	ldr r5, _080AD490 @ =gUnk_02000080
+	ldr r5, _080AD490 @ =gMenu
 	ldrb r0, [r5, #0x12]
 	adds r0, #1
 	strb r0, [r5, #0x12]
@@ -24,7 +24,7 @@ _080AD486:
 	beq _080AD49C
 	b _080AD5C8
 	.align 2, 0
-_080AD490: .4byte gUnk_02000080
+_080AD490: .4byte gMenu
 _080AD494:
 	cmp r0, #2
 	bne _080AD49A
@@ -40,7 +40,7 @@ _080AD49C:
 	strh r0, [r5, #8]
 	movs r0, #7
 	strb r0, [r5, #4]
-	bl sub_0805E60C
+	bl EraseAllEntities
 	movs r0, #0
 	bl sub_0801CFA8
 	bl sub_080ADD30
@@ -185,7 +185,7 @@ _080AD5E0:
 	bl PlaySFX
 _080AD5EC:
 	bl sub_080AD644
-	ldr r0, _080AD638 @ =gUnk_02000080
+	ldr r0, _080AD638 @ =gMenu
 	ldrh r1, [r0, #8]
 	movs r0, #0x20
 	ands r0, r1
@@ -201,7 +201,7 @@ _080AD5EC:
 	movs r1, #0
 	bl sub_080ADA14
 _080AD610:
-	ldr r2, _080AD638 @ =gUnk_02000080
+	ldr r2, _080AD638 @ =gMenu
 	movs r0, #0x80
 	lsls r0, r0, #0x12
 	ldrb r1, [r0, #7]
@@ -219,6 +219,6 @@ _080AD632:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080AD634: .4byte 0x80080000
-_080AD638: .4byte gUnk_02000080
+_080AD638: .4byte gMenu
 _080AD63C: .4byte gUnk_03001010
 _080AD640: .4byte 0x000001FF

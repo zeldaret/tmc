@@ -4,6 +4,19 @@
 #include "screen.h"
 #include "greatFairy.h"
 
+enum {
+    BEHAVIORS,
+    WINGS,
+    WAKE,
+    MINI,
+    MINIAFFINE,
+    DROPLET,
+    RIPPLE,
+    BIGRIPPLE,
+    FORM8,
+    FORM9,
+};
+
 // Main
 void GreatFairy(Entity* this) {
     u8 bVar1;
@@ -36,7 +49,6 @@ void GreatFairy_Init(Entity* this) {
     this->cutsceneBeh.HWORD = 290;
 }
 
-// TODO: turn this into a switch statement
 void GreatFairy_DormantUpdate(Entity* this) {
     u16* pFrame;    // r1@2
     s32 frame;      // r1@4
@@ -48,47 +60,24 @@ void GreatFairy_DormantUpdate(Entity* this) {
     if (*pFrame != 0) {
         --*pFrame;
     }
-    frame = *pFrame;
-
-    if (frame == 0x96) {
-        goto LABEL_16;
-    }
-
-    if (frame < 0x97) {
-        if (frame != 0) {
-            if (frame == 0x82) {
-                goto LABEL_16;
-            } else {
-                return;
-            }
-        }
-        goto LABEL_17;
-    } else {
-        if (frame == 0xd2) {
-            goto LABEL_16;
-        }
-        if (frame < 0xd3) {
-            if (frame == 0xaa) {
-                goto LABEL_16;
-            } else
-                return;
-        }
-        if (frame == 289) {
-            goto LABEL_16;
-        } else {
-            return;
-        }
-    }
-
-LABEL_17:
-    this->action = 2;
-    return;
-LABEL_16:
-    ripple = GreatFairy_CreateForm(this, RIPPLE, 0);
-    if (ripple) {
-        PositionRelative(this, ripple, (s32)GreatFairy_RippleOffsets[this->actionDelay] << 16,
+    switch (*pFrame) {
+        case 0x96:
+        case 0x82:
+            goto e;
+        case 0x0:
+            this->action = 2;
+            break;
+e:
+        case 0xd2:
+        case 0xaa:
+        case 0x121:
+            ripple = GreatFairy_CreateForm(this, RIPPLE, 0);
+            if (ripple) {
+                PositionRelative(this, ripple, (s32)GreatFairy_RippleOffsets[this->actionDelay] << 16,
                          (s32)GreatFairy_RippleOffsets[this->actionDelay + 1] << 16);
-        this->actionDelay += 2;
+                this->actionDelay += 2;
+                break;
+        }
     }
 }
 
