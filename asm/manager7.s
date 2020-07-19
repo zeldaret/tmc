@@ -81,7 +81,7 @@ _08057DD6:
 	ldr r1, [r2, #4]
 	movs r2, #0x80
 	lsls r2, r2, #5
-	bl sub_08000E96
+	bl LoadAssetAsync
 	ldr r0, _08057E00 @ =gUnk_081081E4
 	adds r0, r5, r0
 	ldrb r0, [r0]
@@ -100,7 +100,7 @@ _08057E04:
 	ldr r1, [r1, #4]
 	movs r2, #0x80
 	lsls r2, r2, #5
-	bl sub_08000E96
+	bl LoadAssetAsync
 	b _08057E24
 	.align 2, 0
 _08057E1C: .4byte gUnk_085A2E80

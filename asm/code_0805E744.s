@@ -2483,7 +2483,7 @@ _0805F962:
 	ldr r0, _0805F990 @ =gUnk_02036AD8
 	mov r1, sl
 	movs r2, #0xe0
-	bl sub_08000E96
+	bl LoadAssetAsync
 	pop {r3, r4, r5}
 	mov r8, r3
 	mov sb, r4

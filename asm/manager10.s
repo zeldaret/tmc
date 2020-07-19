@@ -342,7 +342,7 @@ _08059800:
 	ldr r1, _08059820 @ =0x0600E800
 	adds r0, r4, #0
 	adds r2, r5, #0
-	bl sub_08000E96
+	bl LoadAssetAsync
 	b _08059838
 	.align 2, 0
 _0805981C: .4byte gUnk_02001A40

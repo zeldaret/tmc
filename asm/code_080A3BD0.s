@@ -1983,7 +1983,7 @@ _080A4B2C: .4byte gUnk_081281A8
 _080A4B30: .4byte 0x06014000
 _080A4B34:
 	ldr r1, _080A4B40 @ =0x06014000
-	bl sub_08000E96
+	bl LoadAssetAsync
 _080A4B3A:
 	pop {r3}
 	mov r8, r3

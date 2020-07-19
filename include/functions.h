@@ -31,6 +31,8 @@ extern Entity* GetEmptyEntity(void);
 extern u32 GetTileTypeByPos(s32 x, s32 y, u32 layer);
 extern void _DmaZero(void* src, u32 count);
 extern void EraseAllEntities(void);
+extern void SetTile(u32, u32, u32);
+extern void SetDirtTile(u32);
 
 // Unidentified
 extern void sub_0806ED78(Entity*);
@@ -112,4 +114,23 @@ extern void sub_080575C8(u32);
 extern void sub_08057688(void);
 extern void sub_080580B0(u32);
 extern void sub_080751E8(u32, u32, void*);
+extern void sub_08052CA4(u32, u32, u32, u32);
+extern void sub_08052878(void);
+extern void sub_0808091C(u32*, u32);
+extern void sub_0805BC4C(void);
+extern void sub_0807BB68(u32*, u32, u32);
+extern void sub_08054570(void);
+extern void sub_08059278(void);
+extern void sub_0804C128(u32);
+extern void sub_08058324(u32);
+extern void sub_0804C2F0(void);
+extern void sub_0801AFE4(void);
+extern u32 sub_08060354(void);
+extern void sub_08057E64(void);
+extern void LoadAssetAsync(void*, u32, u32);
+extern void LoadPalettesByPaletteGroupIndex(u32);
+extern void sub_0809F814(u32);
+extern void sub_080300E8(void);
+extern void sub_0801DA90(u32);
+extern void sub_08058D34(void);
 #endif

@@ -560,7 +560,7 @@ sub_080592EC: @ 0x080592EC
 	ands r1, r2
 	lsls r1, r1, #6
 	orrs r0, r1
-	bl sub_08059340
+	bl SetDirtTile
 	pop {pc}
 
 	thumb_func_start sub_0805930C
@@ -592,8 +592,8 @@ _0805933A:
 	.align 2, 0
 _0805933C: .4byte gRoomControls
 
-	thumb_func_start sub_08059340
-sub_08059340: @ 0x08059340
+	thumb_func_start SetDirtTile
+SetDirtTile: @ 0x08059340
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x1d
