@@ -33,6 +33,7 @@ extern void _DmaZero(void* src, u32 count);
 extern void EraseAllEntities(void);
 extern void SetTile(u32, u32, u32);
 extern void SetDirtTile(u32);
+extern void LoadRoomTileEntities(); //tba
 
 // Unidentified
 extern void sub_0806ED78(Entity*);
@@ -133,4 +134,23 @@ extern void sub_0809F814(u32);
 extern void sub_080300E8(void);
 extern void sub_0801DA90(u32);
 extern void sub_08058D34(void);
+extern void sub_0807AABC(Entity*);
+extern void sub_08078A90(u32);
+extern void sub_080530C8(void);
+extern void sub_0805B4D0(u32);
+extern void sub_0804D0B4(void);
+extern void sub_0805308C(u32);
+extern void sub_0805AF60();
+extern void sub_0805D3C8(u32);
+extern void sub_080534AC();
+extern void sub_0807BA8C(u32, u32);
+extern void sub_0804D9B0();
+extern void sub_0807BB98(u32, u32, u32, u32);
+extern void sub_08059D18(void);
+extern void sub_0801D000(u32);
+extern void sub_08018C58(u32);
+extern void sub_0804E150(void);
+extern void sub_080AF284(void);
+extern void sub_080A71C4(u32, u32, u32, u32);
+extern void sub_08054564();
 #endif

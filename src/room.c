@@ -5,6 +5,7 @@
 #include "functions.h"
 #include "flags.h"
 #include "link.h"
+#include "screen.h"
 
 typedef struct {
     u8 field_0x0[8];
@@ -12,6 +13,19 @@ typedef struct {
     u8 field_0x9;
     u8 field_0xa[6];
     union SplitWord field_0x10;
+    u8 field_0x14[0xc];
+    u16 field_0x20;
+    u16 field_0x22;
+    u8 field_0x24[0x14];
+    u8 field_0x38;
+    u8 field_0x39;
+    u16 field_0x3a;
+    u8 field_0x3c;
+    u8 filler[6];
+    u16 field_0x44;
+    u16 field_0x46;
+    u16 field_0x48;
+    u16 field_0x4a;
 } struct_030010A0;
 
 typedef struct {
@@ -578,7 +592,7 @@ void sub_0804BA44(void) {
 extern u32 gUnk_080D7348;
 
 u32 sub_0804BA9C(void) {
-    if (CheckGlobalFlag(0x51)) {
+    if (CheckGlobalFlag(ENDING)) {
         gRoomVars.field_0x6c = &gUnk_080D7348;
         gRoomVars.field_0x74 = 0;
     }
@@ -588,12 +602,12 @@ u32 sub_0804BA9C(void) {
 extern EntityData gUnk_080D7328;
 
 void sub_0804BAC0(void) {
-    if (!CheckGlobalFlag(3)) {
+    if (!CheckGlobalFlag(LV2_CLEAR)) {
         LoadRoomEntityList(&gUnk_080D7328);
     }
-    if (CheckGlobalFlag(0x64)) {
+    if (CheckGlobalFlag(CASTLE_BGM)) {
         gArea.pMusicIndex = 0x1b;
-    } else if (CheckGlobalFlag(0x51)) {
+    } else if (CheckGlobalFlag(ENDING)) {
         gArea.pMusicIndex = gArea.musicIndex;
     }
 }
@@ -601,7 +615,7 @@ void sub_0804BAC0(void) {
 extern u32 gUnk_080D7410;
 
 u32 sub_0804BB18(void) {
-    if (CheckGlobalFlag(0x51)) {
+    if (CheckGlobalFlag(ENDING)) {
         gRoomVars.field_0x6c = &gUnk_080D7410;
         gRoomVars.field_0x74 = 0;
     }
@@ -612,14 +626,14 @@ extern EntityData gUnk_080D73B0;
 extern EntityData gUnk_080D73E0;
 
 void sub_0804BB3C(void) {
-    if (!CheckGlobalFlag(0x51)) {
-        if (!CheckGlobalFlag(3)) {
+    if (!CheckGlobalFlag(ENDING)) {
+        if (!CheckGlobalFlag(LV2_CLEAR)) {
             LoadRoomEntityList(&gUnk_080D73B0);
         }
-        if (!CheckGlobalFlag(2) && CheckGlobalFlag(0x15)) {
+        if (!CheckGlobalFlag(LV1_CLEAR) && CheckGlobalFlag(TABIDACHI)) {
             LoadRoomEntityList(&gUnk_080D73E0);
         }
-        if (CheckGlobalFlag(0x64)) {
+        if (CheckGlobalFlag(CASTLE_BGM)) {
             gArea.pMusicIndex = gArea.musicIndex;
         }
     } else {
@@ -637,17 +651,17 @@ extern EntityData gUnk_080D75D8;
 extern EntityData gUnk_080D7618;
 
 void sub_0804BBA0(void) {
-    if (CheckGlobalFlag(100)) {
+    if (CheckGlobalFlag(CASTLE_BGM)) {
         gArea.pMusicIndex = gArea.musicIndex;
     }
 
-    if (CheckGlobalFlag(0x51)) {
+    if (CheckGlobalFlag(ENDING)) {
         LoadRoomEntityList(&gUnk_080D7618);
         gArea.pMusicIndex = gArea.musicIndex;
-    } else if (CheckGlobalFlag(0x15) == 0) {
+    } else if (CheckGlobalFlag(TABIDACHI) == 0) {
         LoadRoomEntityList(&gUnk_080D74C8);
         gArea.pMusicIndex = 0x1b;
-    } else if (CheckGlobalFlag(2) == 0) {
+    } else if (CheckGlobalFlag(LV1_CLEAR) == 0) {
         LoadRoomEntityList(&gUnk_080D7588);
     } else {
         LoadRoomEntityList(&gUnk_080D75D8);
@@ -669,7 +683,7 @@ void sub_0804bc38(void) {
 u32 sub_0804BC50(void) {
     if (!CheckLocalFlag(0x9f)) {
         gUnk_030010A0.field_0xa[5] = 5;
-        ClearGlobalFlag(0x1c);
+        ClearGlobalFlag(ZELDA_CHASE);
     }
     return 1;
 }
@@ -683,10 +697,10 @@ void sub_0804BC70(void) {
         gLinkEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x40;
         sub_080751E8(0, 6, &gUnk_08009E88);
     }
-    if (!CheckGlobalFlag(0x15)) {
+    if (!CheckGlobalFlag(TABIDACHI)) {
         sub_08052878();
     } else {
-        if (CheckGlobalFlag(100)) {
+        if (CheckGlobalFlag(CASTLE_BGM)) {
             gArea.pMusicIndex = 0x1b;
         }
     }
@@ -1050,11 +1064,11 @@ void sub_0804C018(void) {
     SetTile(0x4072, 0xa47, 1);
     SetTile(0x4072, 0xc47, 1);
 
-    if (CheckGlobalFlag(0x62))
+    if (CheckGlobalFlag(MAZE_CLEAR))
         if (gUnk_030010A0.field_0x10.WORD == 0x2780078)
             PlaySFX(0x72);
 
-    ClearGlobalFlag(0x62);
+    ClearGlobalFlag(MAZE_CLEAR);
 }
 
 u32 sub_0804C104() {
@@ -1121,7 +1135,7 @@ void sub_0804C2F0(void) {
 
     sub_08058324(2);
 
-    if (CheckGlobalFlag(0x29) && !CheckGlobalFlag(0x2a))
+    if (CheckGlobalFlag(MIZUKAKI_START) && !CheckGlobalFlag(MIZUKAKI_HARIFALL))
         LoadRoomEntityList(&gUnk_080D9800);
 }
 
@@ -1147,7 +1161,7 @@ extern EntityData gUnk_080D9C38;
 
 void sub_0804C334(void) {
 
-    SetGlobalFlag(0x1e);
+    SetGlobalFlag(DASHBOOTS);
 
     if (CheckKinstoneFused(0x5b))
         LoadRoomEntityList(&gUnk_080D9CC8);
@@ -1351,24 +1365,24 @@ void sub_0804C490(void) {
     else
         LoadRoomEntityList(&gUnk_080DAB64);
 
-    if (!CheckGlobalFlag(0x54))
+    if (!CheckGlobalFlag(DRUG_COUNT))
         goto a;
 
     if (sub_08060354()) {
         SetRoomFlag(0);
-        if (!CheckGlobalFlag(0x3b))
+        if (!CheckGlobalFlag(DRUG_1))
             uVar1 = 0x3200;
-        else if (!CheckGlobalFlag(0x3c))
+        else if (!CheckGlobalFlag(DRUG_2))
             uVar1 = 0x4600;
         else
             uVar1 = 0x4880;
     } else {
     a:
-        if (CheckGlobalFlag(0x3d))
+        if (CheckGlobalFlag(DRUG_3))
             uVar1 = 0x4900;
-        else if (CheckGlobalFlag(0x3c))
+        else if (CheckGlobalFlag(DRUG_2))
             uVar1 = 0x4a00;
-        else if (CheckGlobalFlag(0x3b))
+        else if (CheckGlobalFlag(DRUG_1))
             uVar1 = 0x5200;
         else
             uVar1 = 0x9200;
@@ -1411,7 +1425,7 @@ extern EntityData gUnk_080DAEE8;
 
 void sub_0804C5E0(void) {
 
-    if (CheckGlobalFlag(0x56))
+    if (CheckGlobalFlag(WHITE_SWORD_END))
         LoadRoomEntityList(&gUnk_080DAEE8);
 
     sub_0801AFE4();
@@ -1425,7 +1439,7 @@ extern EntityData gUnk_080DAF80;
 
 void sub_0804C600(void) {
 
-    if (CheckGlobalFlag(0x56))
+    if (CheckGlobalFlag(WHITE_SWORD_END))
         LoadRoomEntityList(&gUnk_080DAF80);
 
     sub_0801AFE4();
@@ -1439,7 +1453,7 @@ extern EntityData gUnk_080DB018;
 
 void sub_0804C620(void) {
 
-    if (CheckGlobalFlag(0x56))
+    if (CheckGlobalFlag(WHITE_SWORD_END))
         LoadRoomEntityList(&gUnk_080DB018);
 
     sub_0801AFE4();
@@ -1576,8 +1590,8 @@ void sub_0804C728() {
 extern u32 gUnk_080DB910;
 
 u32 sub_0804C730(void) {
-    if (CheckGlobalFlag(0x29) && !CheckLocalFlag(0x73)) {
-        gRoomVars.field_0x70 = (u32)&gUnk_080DB910;
+    if (CheckGlobalFlag(MIZUKAKI_START) && !CheckLocalFlag(0x73)) {
+        gRoomVars.field_0x70 = &gUnk_080DB910;
     }
     return 1;
 }
@@ -1589,7 +1603,7 @@ void sub_0804C758(void) {
 
     LoadRoomEntityList(&gUnk_080DB8F0);
     // flippers
-    if (!GetInventoryValue(0x46) && CheckGlobalFlag(0x29)) {
+    if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START)) {
         LoadRoomEntityList(&gUnk_080DB820);
     }
     sub_0801AFE4();
@@ -1941,7 +1955,7 @@ extern EntityData gUnk_080DD294;
 
 void sub_0804CA10(void) {
 
-    if (!CheckGlobalFlag(0x56)) {
+    if (!CheckGlobalFlag(WHITE_SWORD_END)) {
         LoadRoomEntityList(&gUnk_080DD214);
     }
     if (!CheckLocalFlag(0x7f)) {
@@ -1986,7 +2000,7 @@ extern EntityData gUnk_080DD840;
 
 void sub_0804CAA0(void) {
 
-    if (CheckGlobalFlag(0x24)) {
+    if (CheckGlobalFlag(KUMOTATSUMAKI)) {
         sub_0809F814(0x6de);
     }
     if (CheckLocalFlag(0xf3)) {
@@ -2053,7 +2067,7 @@ extern EntityData gUnk_080DE008;
 void sub_0804CB50(void) {
 
     sub_080300E8();
-    if (CheckGlobalFlag(4) && !CheckLocalFlag(3)) {
+    if (CheckGlobalFlag(LV3_CLEAR) && !CheckLocalFlag(3)) {
         LoadRoomEntityList(&gUnk_080DE008);
     }
 }
@@ -2264,7 +2278,7 @@ void sub_0804CD48(void) {
         *(u16*)0x5000000 = 0x7fff;
         sub_0801DA90(1);
     }
-    if (CheckGlobalFlag(2)) {
+    if (CheckGlobalFlag(LV1_CLEAR)) {
         LoadRoomEntityList(&gUnk_080DF94C);
     } else {
         PlaySFX(0x80100000);
@@ -2296,7 +2310,2698 @@ u32 sub_0804CDF4() {
 extern EntityData gUnk_080DFB78;
 
 void sub_0804CDF8(void) {
-    if (CheckGlobalFlag(2) && !CheckLocalFlagByOffset(0x100, 1)) {
+    if (CheckGlobalFlag(LV1_CLEAR) && !CheckLocalFlagByOffset(0x100, 1)) {
         LoadRoomEntityList(&gUnk_080DFB78);
     }
 }
+
+u32 sub_0804CE20() {
+    return 1;
+}
+
+void nullsub_259() {
+}
+
+u32 sub_0804CE28() {
+    return 1;
+}
+
+void nullsub_260() {
+}
+
+u32 sub_0804CE30() {
+    return 1;
+}
+
+void nullsub_261() {
+}
+
+u32 sub_0804CE38() {
+    return 1;
+}
+
+void nullsub_262() {
+}
+
+u32 sub_0804CE40() {
+    return 1;
+}
+
+void nullsub_263() {
+}
+
+u32 sub_0804CE48() {
+    return 1;
+}
+
+void nullsub_264() {
+}
+
+u32 sub_0804CE50() {
+    return 1;
+}
+
+void nullsub_265() {
+}
+
+u32 sub_0804CE58() {
+    return 1;
+}
+
+void nullsub_266() {
+}
+
+u32 sub_0804CE60() {
+    return 1;
+}
+
+void nullsub_267() {
+}
+
+u32 sub_0804CE68() {
+    return 1;
+}
+
+void nullsub_268() {
+}
+
+u32 sub_0804CE70() {
+    return 1;
+}
+
+void nullsub_269() {
+}
+
+u32 sub_0804CE78() {
+    return 1;
+}
+
+void nullsub_270() {
+}
+
+extern u32 gUnk_080E103C;
+
+u32 sub_0804CE80(void) {
+    if (CheckGlobalFlag(LV2_CLEAR)) {
+        gRoomVars.field_0x70 = &gUnk_080E103C;
+    }
+    return 1;
+}
+
+void nullsub_271() {
+}
+
+u32 sub_0804CEA4() {
+    return 1;
+}
+
+void nullsub_272() {
+}
+
+u32 sub_0804CEAC() {
+    return 1;
+}
+
+void nullsub_273() {
+}
+
+u32 sub_0804CEB4() {
+    return 1;
+}
+
+void nullsub_274() {
+}
+
+u32 sub_0804CEBC() {
+    return 1;
+}
+
+void nullsub_275() {
+}
+
+u32 sub_0804CEC4() {
+    return 1;
+}
+
+void nullsub_276() {
+}
+
+u32 sub_0804CECC() {
+    return 1;
+}
+
+void nullsub_277() {
+}
+
+u32 sub_0804CED4() {
+    return 1;
+}
+
+extern EntityData gUnk_080E1814;
+
+extern u32 gUnk_0200B650;
+
+void sub_0804CED8(void) {
+
+    if (CheckGlobalFlag(LV2_CLEAR)) {
+        gUnk_0200B650 = 0;
+        gScreen.lcd.lcdControl2 &= 0xfdff;
+        sub_0807AABC(&gLinkEntity);
+        LoadRoomEntityList(&gUnk_080E1814);
+    } else {
+        PlaySFX(0x80100000);
+        gArea.musicIndex = gArea.pMusicIndex;
+    }
+}
+
+u32 sub_0804CF38() {
+    return 1;
+}
+
+void nullsub_278() {
+}
+
+u32 sub_0804CF40() {
+    return 1;
+}
+
+void sub_0804CF44(void) {
+    gUnk_030010A0.field_0x38 = 0;
+    gUnk_030010A0.field_0x39 = 0x5a;
+}
+
+u32 sub_0804CF5C() {
+    return 1;
+}
+
+void sub_0804CF60() {
+    sub_080300E8();
+}
+
+u32 sub_0804CF68() {
+    return 1;
+}
+
+void nullsub_39() {
+}
+
+u32 sub_0804CF70() {
+    return 1;
+}
+
+void sub_0804CF74() {
+    sub_080300E8();
+}
+
+u32 sub_0804CF7C() {
+    return 1;
+}
+
+void nullsub_40() {
+}
+
+u32 sub_0804CF84() {
+    return 1;
+}
+
+void nullsub_41() {
+}
+
+u32 sub_0804CF8C() {
+    return 1;
+}
+
+void nullsub_42() {
+}
+
+u32 sub_0804CF94() {
+    return 1;
+}
+
+void nullsub_43() {
+}
+
+u32 sub_0804CF9C() {
+    return 1;
+}
+
+void nullsub_44() {
+}
+
+u32 sub_0804CFA4() {
+    return 1;
+}
+
+void nullsub_45() {
+}
+
+u32 sub_0804CFAC() {
+    return 1;
+}
+
+void sub_0804CFB0(void) {
+
+    if (!CheckFlags(0x31)) {
+        if (gUnk_030010A0.field_0x38 == 0) {
+            PlaySFX(0x80100000);
+        } else {
+            if (gUnk_030010A0.field_0x39 == 0) {
+                PlaySFX(0x80050000);
+                sub_08078A90(3);
+            }
+        }
+        gArea.musicIndex = gArea.pMusicIndex;
+    }
+}
+
+u32 sub_0804D008() {
+    return 1;
+}
+
+void nullsub_279() {
+}
+
+u32 sub_0804D010() {
+    return 1;
+}
+
+void nullsub_280() {
+}
+
+u32 sub_0804D018() {
+    return 1;
+}
+
+void nullsub_281() {
+}
+
+u32 sub_0804D020() {
+    return 1;
+}
+
+void nullsub_282() {
+}
+
+u32 sub_0804D028() {
+    return 1;
+}
+
+void nullsub_283() {
+}
+
+u32 sub_0804D030() {
+    return 1;
+}
+
+void nullsub_284() {
+}
+
+u32 sub_0804D038() {
+    return 1;
+}
+
+void nullsub_285() {
+}
+
+u32 sub_0804D040() {
+    return 1;
+}
+
+void nullsub_286() {
+}
+
+u32 sub_0804D048() {
+    return 1;
+}
+
+void nullsub_287() {
+}
+
+u32 sub_0804D050() {
+    return 1;
+}
+
+void nullsub_288() {
+}
+
+u32 sub_0804D058() {
+    return 1;
+}
+
+void nullsub_289() {
+}
+
+u32 sub_0804D060() {
+    return 1;
+}
+
+void nullsub_290() {
+}
+
+u32 sub_0804D068() {
+    return 1;
+}
+
+void nullsub_291() {
+}
+
+u32 sub_0804D070() {
+    return 1;
+}
+
+extern EntityData gUnk_080E3850;
+
+void sub_0804D074(void) {
+
+    SetGlobalFlag(LV3_CLEAR);
+    sub_080530C8();
+    sub_0805B4D0(3);
+    // wind ocarina
+    if (!GetInventoryValue(0x17) && CheckLocalFlag(0x45)) {
+        LoadRoomEntityList(&gUnk_080E3850);
+    }
+}
+
+u32 sub_0804D0A8() {
+    return 1;
+}
+
+void sub_0804D0AC() {
+    sub_0804D0B4();
+}
+
+void sub_0804D0B4(void) {
+
+    if (!CheckLocalFlag(0x29)) {
+        SetLocalFlag(0x29);
+        SetLocalFlag(0x4b);
+        SetLocalFlag(0x4e);
+    }
+}
+
+u32 sub_0804D0D4() {
+    return 1;
+}
+
+void nullsub_46() {
+}
+
+u32 sub_0804D0DC() {
+    return 1;
+}
+
+void nullsub_47() {
+}
+
+u32 sub_0804D0E4() {
+    return 1;
+}
+
+void nullsub_48() {
+}
+
+u32 sub_0804D0EC() {
+    return 1;
+}
+
+void nullsub_49() {
+}
+
+u32 sub_0804D0F4() {
+    return 1;
+}
+
+void nullsub_50() {
+}
+
+u32 sub_0804D0FC() {
+    return 1;
+}
+
+void nullsub_51() {
+}
+
+u32 sub_0804D104() {
+    return 1;
+}
+
+void nullsub_52() {
+}
+
+u32 sub_0804D10C() {
+    return 1;
+}
+
+void nullsub_53() {
+}
+
+u32 sub_0804D114() {
+    return 1;
+}
+
+void nullsub_54() {
+}
+
+u32 sub_0804D11C() {
+    return 1;
+}
+
+void nullsub_55() {
+}
+
+u32 sub_0804D124() {
+    return 1;
+}
+
+void nullsub_56() {
+}
+
+u32 sub_0804D12C() {
+    return 1;
+}
+
+void nullsub_57() {
+}
+
+u32 sub_0804D134() {
+    return 1;
+}
+
+void nullsub_58() {
+}
+
+u32 sub_0804D13C() {
+    return 1;
+}
+
+extern EntityData gUnk_080E49F4;
+
+void sub_0804D140(void) {
+
+    sub_0805308C(0x100);
+    if (CheckGlobalFlag(LV4_CLEAR)) {
+        LoadRoomEntityList(&gUnk_080E49F4);
+    } else {
+        PlaySFX(0x80100000);
+        gArea.musicIndex = gArea.pMusicIndex;
+    }
+}
+
+u32 sub_0804D180() {
+    return 1;
+}
+
+void nullsub_292() {
+}
+
+u32 sub_0804D188() {
+    return 1;
+}
+
+extern EntityData gUnk_080E4BD8;
+
+void sub_0804D18C(void) {
+    if (!CheckLocalFlag(0x48)) {
+        ClearLocalFlag(0x46);
+        LoadRoomEntityList(&gUnk_080E4BD8);
+    }
+}
+
+u32 sub_0804D1AC() {
+    return 1;
+}
+
+extern EntityData gUnk_080E4CF8;
+extern EntityData gUnk_080E4CD8;
+
+void sub_0804D1B0(void) {
+
+    sub_0804D0B4();
+    if (CheckLocalFlag(0x6c)) {
+        LoadRoomEntityList(&gUnk_080E4CD8);
+    } else {
+        LoadRoomEntityList(&gUnk_080E4CF8);
+    }
+    if (!CheckLocalFlag(0x4b)) {
+        ClearLocalFlag(0x49);
+    }
+}
+
+u32 sub_0804D1E8() {
+    return 1;
+}
+
+void nullsub_293() {
+}
+
+u32 sub_0804D1F0() {
+    return 1;
+}
+
+void nullsub_294() {
+}
+
+u32 sub_0804D1F8() {
+    return 1;
+}
+
+void nullsub_295() {
+}
+
+u32 sub_0804D200() {
+    return 1;
+}
+
+void nullsub_296() {
+}
+
+u32 sub_0804D208() {
+    return 1;
+}
+
+void nullsub_297() {
+}
+
+u32 sub_0804D210() {
+    return 1;
+}
+
+void nullsub_298() {
+}
+
+u32 sub_0804D218() {
+    return 1;
+}
+
+void nullsub_299() {
+}
+
+u32 sub_0804D220() {
+    return 1;
+}
+
+void nullsub_300() {
+}
+
+u32 sub_0804D228() {
+    return 1;
+}
+
+extern EntityData gUnk_080E5660;
+extern EntityData gUnk_080E5680;
+
+void sub_0804D22C(void) {
+
+    if (!CheckLocalFlag(0x59)) {
+        LoadRoomEntityList(&gUnk_080E5660);
+    } else {
+        LoadRoomEntityList(&gUnk_080E5680);
+    }
+}
+
+u32 sub_0804D250() {
+    return 1;
+}
+
+void nullsub_301() {
+}
+
+u32 sub_0804D258() {
+    return 1;
+}
+
+void nullsub_302() {
+}
+
+u32 sub_0804D260() {
+    return 1;
+}
+
+void nullsub_303() {
+}
+
+u32 sub_0804D268() {
+    return 1;
+}
+
+void nullsub_304() {
+}
+
+u32 sub_0804D270() {
+    return 1;
+}
+
+void nullsub_305() {
+}
+
+u32 sub_0804D278() {
+    return 1;
+}
+
+extern EntityData gUnk_080E5E3C;
+extern EntityData gUnk_080E5E5C;
+
+void sub_0804D27C(void) {
+    sub_0804D0B4();
+    if (!CheckLocalFlag(0x4b)) {
+        LoadRoomEntityList(&gUnk_080E5E3C);
+    } else {
+        LoadRoomEntityList(&gUnk_080E5E5C);
+    }
+}
+
+u32 sub_0804D2A4() {
+    return 1;
+}
+
+void nullsub_306() {
+}
+
+u32 sub_0804D2AC() {
+    return 1;
+}
+
+void nullsub_307() {
+}
+
+u32 sub_0804D2B4() {
+    return 1;
+}
+
+void nullsub_308() {
+}
+
+u32 sub_0804D2BC() {
+    return 1;
+}
+
+void nullsub_309() {
+}
+
+u32 sub_0804D2C4() {
+    return 1;
+}
+
+void nullsub_310() {
+}
+
+u32 sub_0804D2CC() {
+    return 1;
+}
+
+void nullsub_311() {
+}
+
+u32 sub_0804D2D4() {
+    return 1;
+}
+
+void nullsub_312() {
+}
+
+u32 sub_0804D2DC() {
+    return 1;
+}
+
+void nullsub_313() {
+}
+
+u32 sub_0804D2E4() {
+    return 1;
+}
+
+extern EntityData gUnk_080E693C;
+
+void sub_0804D2E8(void) {
+
+    if (!CheckLocalFlag(0x32)) {
+        LoadRoomEntityList(&gUnk_080E693C);
+    }
+}
+
+u32 sub_0804D300() {
+    return 1;
+}
+
+void nullsub_314() {
+}
+
+u32 sub_0804D308() {
+    return 1;
+}
+
+void nullsub_315() {
+}
+
+u32 sub_0804D310() {
+    return 1;
+}
+
+void nullsub_316() {
+}
+
+u32 sub_0804D318() {
+    return 1;
+}
+
+void nullsub_317() {
+}
+
+u32 sub_0804D320() {
+    return 1;
+}
+
+void nullsub_318() {
+}
+
+u32 sub_0804D328() {
+    return 1;
+}
+
+void nullsub_319() {
+}
+
+u32 sub_0804D330() {
+    return 1;
+}
+
+void sub_0804D334() {
+    sub_08054570();
+}
+
+u32 sub_0804D33C() {
+    return 1;
+}
+
+extern EntityData gUnk_080E718C;
+extern EntityData gUnk_080E71AC;
+
+void sub_0804D340(void) {
+
+    SetTileType(0x312, 0x108, 1);
+    sub_08054570();
+    if (!CheckLocalFlag(0xc4)) {
+        LoadRoomEntityList(&gUnk_080E718C);
+    }
+    if (!CheckLocalFlag(0xc5)) {
+        LoadRoomEntityList(&gUnk_080E71AC);
+    }
+}
+
+u32 sub_0804D380() {
+    return 1;
+}
+
+extern EntityData gUnk_080E7314;
+extern EntityData gUnk_080E72C4;
+extern EntityData gUnk_080E72E4;
+
+void sub_0804D384(void) {
+
+    sub_0805AF60(0);
+    if (CheckGlobalFlag(LV5_CLEAR)) {
+        LoadRoomEntityList(&gUnk_080E7314);
+    }
+    if (!CheckLocalFlag(0x7b)) {
+        LoadRoomEntityList(&gUnk_080E72C4);
+    } else {
+        SetGlobalFlag(LV5_CLEAR);
+        // wind element
+        if (!GetInventoryValue(0x43)) {
+            sub_08078A90(3);
+            LoadRoomEntityList(&gUnk_080E72E4);
+            gArea.musicIndex = gArea.pMusicIndex;
+            PlaySFX(0x80100000);
+        }
+    }
+}
+
+u32 sub_0804D3F8() {
+    return 1;
+}
+
+void sub_0804D3FC() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D408() {
+    return 1;
+}
+
+void sub_0804D40C() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D418() {
+    return 1;
+}
+
+void sub_0804D41C() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D428() {
+    return 1;
+}
+
+void sub_0804D42C() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D438() {
+    return 1;
+}
+
+void sub_0804D43C() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D448() {
+    return 1;
+}
+
+void sub_0804D44C() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D458() {
+    return 1;
+}
+
+void sub_0804D45C() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D468() {
+    return 1;
+}
+
+void sub_0804D46C() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D478() {
+    return 1;
+}
+
+void sub_0804D47C() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D488() {
+    return 1;
+}
+
+void sub_0804D48C() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D498() {
+    return 1;
+}
+
+void sub_0804D49C() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D4A8() {
+    return 1;
+}
+
+void sub_0804D4AC() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D4B8() {
+    return 1;
+}
+
+void sub_0804D4BC() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D4C8() {
+    return 1;
+}
+
+void sub_0804D4CC() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D4D8() {
+    return 1;
+}
+
+void sub_0804D4DC() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D4E8() {
+    return 1;
+}
+
+void sub_0804D4EC() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D4F8() {
+    return 1;
+}
+
+void sub_0804D4FC() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D508() {
+    return 1;
+}
+
+void sub_0804D50C() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D518() {
+    return 1;
+}
+
+void sub_0804D51C() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D528() {
+    return 1;
+}
+
+void sub_0804D52C() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D538() {
+    return 1;
+}
+
+void nullsub_59() {
+}
+
+u32 sub_0804D540() {
+    return 1;
+}
+
+void sub_0804D544() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D550() {
+    return 1;
+}
+
+void sub_0804D554() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D560() {
+    return 1;
+}
+
+void sub_0804D564() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D570() {
+    return 1;
+}
+
+void sub_0804D574() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D580() {
+    return 1;
+}
+
+void sub_0804D584() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D590() {
+    return 1;
+}
+
+void nullsub_60() {
+}
+
+u32 sub_0804D598() {
+    return 1;
+}
+
+void nullsub_61() {
+}
+
+u32 sub_0804D5A0() {
+    return 1;
+}
+
+void nullsub_62() {
+}
+
+u32 sub_0804D5A8() {
+    return 1;
+}
+
+void nullsub_63() {
+}
+
+u32 sub_0804D5B0() {
+    return 1;
+}
+
+void nullsub_64() {
+}
+
+u32 sub_0804D5B8() {
+    return 1;
+}
+
+void nullsub_65() {
+}
+
+u32 sub_0804D5C0() {
+    return 1;
+}
+
+void sub_0804D5C4() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D5D0() {
+    return 1;
+}
+
+void sub_0804D5D4() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D5E0() {
+    return 1;
+}
+
+void sub_0804D5E4() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D5F0() {
+    return 1;
+}
+
+void sub_0804D5F4() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D600() {
+    return 1;
+}
+
+void nullsub_66() {
+}
+
+u32 sub_0804D608() {
+    return 1;
+}
+
+void nullsub_67() {
+}
+
+u32 sub_0804D610() {
+    return 1;
+}
+
+void nullsub_68() {
+}
+
+u32 sub_0804D618() {
+    return 1;
+}
+
+void nullsub_69() {
+}
+
+u32 sub_0804D620() {
+    return 1;
+}
+
+void nullsub_70() {
+}
+
+u32 sub_0804D628() {
+    return 1;
+}
+
+void nullsub_71() {
+}
+
+u32 sub_0804D630() {
+    return 1;
+}
+
+void sub_0804D634() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D640() {
+    return 1;
+}
+
+extern EntityData gUnk_080EA09C;
+
+void sub_0804D644(void) {
+    sub_0805AF60(0);
+    if (!CheckLocalFlag(0x70)) {
+        LoadRoomEntityList(&gUnk_080EA09C);
+    }
+}
+
+u32 sub_0804D664() {
+    return 1;
+}
+
+void sub_0804D668() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D674() {
+    return 1;
+}
+
+void sub_0804D678() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D684() {
+    return 1;
+}
+
+void sub_0804D688() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D694() {
+    return 1;
+}
+
+void sub_0804D698() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D6A4() {
+    return 1;
+}
+
+void sub_0804D6A8() {
+    sub_0805AF60(0);
+}
+
+u32 sub_0804D6B4() {
+    return 1;
+}
+
+void nullsub_72() {
+}
+
+u32 sub_0804D6BC() {
+    return 1;
+}
+
+void nullsub_73() {
+}
+
+u32 sub_0804D6C4() {
+    return 1;
+}
+
+void sub_0804D6C8(void) {
+    PlaySFX(0x80100000);
+    gArea.musicIndex = gArea.pMusicIndex;
+}
+
+u32 sub_0804D6EC() {
+    return 1;
+}
+
+void sub_0804D6F0(void) {
+    sub_0805D3C8(0);
+
+    if ((gUnk_030010A0.field_0x38 & 1) && gUnk_030010A0.field_0x39) {
+        if (gUnk_030010A0.field_0x3c == 1) {
+            gLinkEntity.x.HALF.HI = gUnk_030010A0.field_0x48;
+            gLinkEntity.y.HALF.HI = gUnk_030010A0.field_0x4a + 8;
+        } else {
+            if (gUnk_030010A0.field_0x3c) {
+                return;
+            }
+            gLinkEntity.x.HALF.HI = gUnk_030010A0.field_0x44;
+            gLinkEntity.y.HALF.HI = gUnk_030010A0.field_0x46 + 8;
+        }
+    }
+}
+
+u32 sub_0804D754() {
+    return 1;
+}
+
+void sub_0804D758() {
+    sub_0805B4D0(6);
+}
+
+u32 sub_0804D764() {
+    return 1;
+}
+
+void nullsub_74() {
+}
+
+u32 sub_0804D76C() {
+    return 1;
+}
+
+void nullsub_75() {
+}
+
+u32 sub_0804D774() {
+    sub_080534AC();
+    return 1;
+}
+
+extern EntityData gUnk_080EAD68;
+extern EntityData gUnk_080EADB8;
+
+void sub_0804D780(void) {
+
+    sub_0805B4D0(4);
+    if (!CheckLocalFlag(0x77)) {
+        LoadRoomEntityList(&gUnk_080EAD68);
+    } else if (!CheckLocalFlag(0x79)) {
+        LoadRoomEntityList(&gUnk_080EADB8);
+        SetTileType(0x4072, 0x145, 1);
+        SetTileType(0x4072, 0x149, 1);
+        gArea.pMusicIndex = 0;
+    }
+}
+
+extern u16 gUnk_080EAE00;
+
+void sub_0804D7EC(void) {
+    u16 temp;
+    u16* tilePos;
+
+    tilePos = &gUnk_080EAE00;
+    while (*tilePos != 0) {
+        temp = *tilePos;
+        tilePos++;
+        SetTileType(0x4072, temp, 1);
+    }
+}
+
+void sub_0804D810(void) {
+    u16 uVar1;
+    u16* puVar2;
+
+    puVar2 = &gUnk_080EAE00;
+    while (*puVar2 != 0) {
+        uVar1 = *puVar2;
+        puVar2++;
+        sub_0807BA8C(uVar1, 1);
+    }
+}
+
+u32 sub_0804D830() {
+    return 1;
+}
+
+extern EntityData gUnk_080EAE60;
+extern EntityData gUnk_080EAEC0;
+extern EntityData gUnk_080EAF20;
+
+void sub_0804D834(void) {
+    gArea.areaMetadata = 0x40;
+    gArea.locationIndex = 0;
+    if (CheckGlobalFlag(ENDING)) {
+        if (!CheckLocalFlag(0x7f)) {
+            LoadRoomEntityList(&gUnk_080EAEC0);
+            SetLocalFlag(0x7f);
+            gArea.pMusicIndex = 0x11;
+        } else {
+            LoadRoomEntityList(&gUnk_080EAF20);
+            gArea.pMusicIndex = gArea.musicIndex;
+        }
+    } else {
+        if (CheckLocalFlag(0x79)) {
+            gArea.pMusicIndex = gArea.musicIndex;
+        }
+        if (!CheckLocalFlag(1)) {
+            LoadRoomEntityList(&gUnk_080EAE60);
+        }
+    }
+    ClearGlobalFlag(0x5d);
+}
+
+u32 sub_0804D8CC() {
+    return 1;
+}
+
+void nullsub_320() {
+}
+
+u32 sub_0804D8D4() {
+    return 1;
+}
+
+void nullsub_321() {
+}
+
+u32 sub_0804D8DC() {
+    return 1;
+}
+
+void nullsub_322() {
+}
+
+u32 sub_0804D8E4() {
+    return 1;
+}
+
+void nullsub_323() {
+}
+
+u32 sub_0804D8EC() {
+    return 1;
+}
+
+void nullsub_324() {
+}
+
+u32 sub_0804D8F4() {
+    return 1;
+}
+
+void nullsub_325() {
+}
+
+u32 sub_0804D8FC() {
+    return 1;
+}
+
+void nullsub_326() {
+}
+
+extern u32 gUnk_080EB604;
+extern u32 gUnk_080EB5D4;
+
+u32 sub_0804D904(void) {
+
+    if (CheckGlobalFlag(ENDING)) {
+        gRoomVars.field_0x6c = &gUnk_080EB604;
+        gRoomVars.field_0x74 = 0;
+        gArea.musicIndex = gArea.pMusicIndex = 0x11;
+    } else if (CheckLocalFlag(0x79)) {
+        gRoomVars.field_0x6c = NULL;
+        if (!CheckLocalFlag(0x7a)) {
+            SetGlobalFlag(ZELDA_CHASE);
+            gRoomVars.field_0x6c = &gUnk_080EB5D4;
+            gRoomVars.field_0x88 = sub_0804D9B0;
+            gRoomVars.field_0x74 = 0;
+        }
+    }
+    return 1;
+}
+
+void sub_0804D97C(void) {
+    if (CheckGlobalFlag(ENDING)) {
+        gArea.pMusicIndex = gArea.musicIndex;
+    }
+
+    if (CheckLocalFlag(0x79)) {
+        sub_0804D9B0();
+    }
+}
+
+extern EntityData gUnk_080EB684;
+
+void sub_0804D9B0(void) {
+    sub_0807BB98(0x797, 1, 5, 1);
+    sub_0807BB98(0x357, 1, 5, 1);
+    sub_0807BB98(0x55f, 1, 2, 1);
+    LoadRoomEntityList(&gUnk_080EB684);
+    gArea.pMusicIndex = gArea.musicIndex;
+}
+
+u32 sub_0804DA04() {
+    return 1;
+}
+
+void nullsub_327() {
+}
+
+u32 sub_0804DA0C() {
+    return 1;
+}
+
+void nullsub_328() {
+}
+
+u32 sub_0804DA14() {
+    return 1;
+}
+
+void nullsub_329() {
+}
+
+u32 sub_0804DA1C() {
+    return 1;
+}
+
+void nullsub_330() {
+}
+
+u32 sub_0804DA24() {
+    return 1;
+}
+
+void nullsub_331() {
+}
+
+u32 sub_0804DA2C(void) {
+    if (!CheckLocalFlag(0x77)) {
+        gRoomVars.field_0x6c = 0;
+        gRoomVars.field_0x74 = 0;
+    }
+    return 1;
+}
+
+extern EntityData gUnk_080EB9F4;
+extern EntityData gUnk_080EBAA4;
+extern EntityData gUnk_080EBAF4;
+
+void sub_0804DA48(void) {
+    if (!CheckLocalFlag(0x77)) {
+        LoadRoomEntityList(&gUnk_080EB9F4);
+    } else {
+        if (!CheckLocalFlag(0x78)) {
+            LoadRoomEntityList(&gUnk_080EBAA4);
+            SetLocalFlag(0x75);
+        }
+        if (CheckLocalFlag(0x7b)) {
+            LoadRoomEntityList(&gUnk_080EBAF4);
+            SetLocalFlag(0x76);
+        }
+    }
+}
+
+u32 sub_0804DA98() {
+    return 1;
+}
+
+void nullsub_332() {
+}
+
+u32 sub_0804DAA0() {
+    return 1;
+}
+
+void nullsub_333() {
+}
+
+u32 sub_0804DAA8() {
+    return 1;
+}
+
+void nullsub_334() {
+}
+
+u32 sub_0804DAB0() {
+    return 1;
+}
+
+void nullsub_335() {
+}
+
+u32 sub_0804DAB8() {
+    return 1;
+}
+
+void nullsub_336() {
+}
+
+u32 sub_0804DAC0() {
+    return 1;
+}
+void nullsub_337() {
+}
+
+u32 sub_0804DAC8() {
+    return 1;
+}
+
+void nullsub_338() {
+}
+
+u32 sub_0804DAD0() {
+    return 1;
+}
+
+extern EntityData gUnk_080EC2CC;
+
+void sub_0804DAD4(void) {
+    if (CheckLocalFlag(0x86) && !CheckLocalFlag(0x4c)) {
+        LoadRoomEntityList(&gUnk_080EC2CC);
+    }
+}
+
+u32 sub_0804DAF8() {
+    return 1;
+}
+
+void nullsub_339() {
+}
+
+u32 sub_0804DB00() {
+    return 1;
+}
+
+extern EntityData gUnk_080EC4E8;
+
+void sub_0804DB04(void) {
+    if (CheckLocalFlag(0x86) && !CheckLocalFlag(0x4d)) {
+        LoadRoomEntityList(&gUnk_080EC4E8);
+    }
+}
+
+u32 sub_0804DB28() {
+    return 1;
+}
+
+void nullsub_340() {
+}
+
+u32 sub_0804DB30() {
+    return 1;
+}
+
+void nullsub_341() {
+}
+
+u32 sub_0804DB38() {
+    return 1;
+}
+
+extern EntityData gUnk_080EC820;
+
+void sub_0804DB3C(void) {
+    if (CheckLocalFlag(0x86) && !CheckLocalFlag(0x53)) {
+        LoadRoomEntityList(&gUnk_080EC820);
+    }
+}
+
+u32 sub_0804DB60() {
+    return 1;
+}
+
+void nullsub_342() {
+}
+
+u32 sub_0804DB68() {
+    return 1;
+}
+
+extern EntityData gUnk_080ECA60;
+
+void sub_0804DB6C(void) {
+    if (CheckLocalFlag(0x86) && !CheckLocalFlag(0x56)) {
+        LoadRoomEntityList(&gUnk_080ECA60);
+    }
+}
+
+u32 sub_0804DB90() {
+    return 1;
+}
+
+void nullsub_343() {
+}
+
+u32 sub_0804DB98() {
+    return 1;
+}
+
+void nullsub_344() {
+}
+
+u32 sub_0804DBA0() {
+    return 1;
+}
+
+void nullsub_345() {
+}
+
+u32 sub_0804DBA8() {
+    return 1;
+}
+
+void nullsub_346() {
+}
+
+u32 sub_0804DBB0() {
+    return 1;
+}
+
+void nullsub_347() {
+}
+
+u32 sub_0804DBB8() {
+    return 1;
+}
+
+void nullsub_348() {
+}
+
+u32 sub_0804DBC0(void) {
+    if (CheckLocalFlag(0x79)) {
+        gRoomVars.field_0x74 = 0;
+    }
+    return 1;
+}
+
+extern EntityData gUnk_080ECFCC;
+
+void sub_0804DBDC(void) {
+    if (CheckLocalFlag(0x79)) {
+        sub_0807BB98(0x90, 1, 1, 5);
+        LoadRoomEntityList(&gUnk_080ECFCC);
+        gArea.pMusicIndex = gArea.musicIndex;
+    }
+}
+
+u32 sub_0804DC18() {
+    return 1;
+}
+
+void nullsub_349() {
+}
+
+u32 sub_0804DC20() {
+    return 1;
+}
+
+void nullsub_350() {
+}
+
+extern u32 gUnk_080ED1E4;
+
+u32 sub_0804DC28(void) {
+    if (CheckGlobalFlag(ENDING)) {
+        gRoomVars.field_0x6c = &gUnk_080ED1E4;
+        gRoomVars.field_0x74 = 0;
+    }
+    return 1;
+}
+
+void sub_0804DC4C(void) {
+    if (CheckGlobalFlag(ENDING)) {
+        gArea.pMusicIndex = gArea.musicIndex;
+    }
+}
+
+u32 sub_0804DC70() {
+    return 1;
+}
+
+void nullsub_351() {
+}
+
+u32 sub_0804DC78() {
+    return 1;
+}
+
+void nullsub_352() {
+}
+
+u32 sub_0804DC80() {
+    return 1;
+}
+
+void nullsub_353() {
+}
+
+u32 sub_0804DC88() {
+    return 1;
+}
+
+void nullsub_354() {
+}
+
+u32 sub_0804DC90() {
+    return 1;
+}
+
+void nullsub_355() {
+}
+
+u32 sub_0804DC98() {
+    return 1;
+}
+
+void nullsub_356() {
+}
+
+u32 sub_0804DCA0() {
+    return 1;
+}
+
+void nullsub_357() {
+}
+
+u32 sub_0804DCA8() {
+    return 1;
+}
+
+void nullsub_358() {
+}
+
+u32 sub_0804DCB0() {
+    return 1;
+}
+
+void nullsub_359() {
+}
+
+u32 sub_0804DCB8() {
+    return 1;
+}
+
+void nullsub_360() {
+}
+
+u32 sub_0804DCC0() {
+    return 1;
+}
+
+void nullsub_361() {
+}
+
+u32 sub_0804DCC8() {
+    return 1;
+}
+
+void nullsub_362() {
+}
+
+u32 sub_0804DCD0() {
+    return 1;
+}
+
+void nullsub_363() {
+}
+
+u32 sub_0804DCD8() {
+    return 1;
+}
+
+void nullsub_364() {
+}
+
+u32 sub_0804DCE0() {
+    return 1;
+}
+
+void nullsub_365() {
+}
+
+u32 sub_0804DCE8() {
+    return 1;
+}
+
+void nullsub_366() {
+}
+
+u32 sub_0804DCF0() {
+    return 1;
+}
+
+void nullsub_367() {
+}
+
+u32 sub_0804DCF8() {
+    return 1;
+}
+
+void nullsub_368() {
+}
+
+u32 sub_0804DD00() {
+    return 1;
+}
+
+void nullsub_369() {
+}
+
+u32 sub_0804DD08() {
+    return 1;
+}
+
+void nullsub_370() {
+}
+
+u32 sub_0804DD10() {
+    return 1;
+}
+
+void nullsub_371() {
+}
+
+u32 sub_0804DD18(void) {
+    if (CheckLocalFlag(0x79)) {
+        gRoomVars.field_0x74 = 0;
+        gRoomVars.field_0x6c = 0;
+    }
+    return 1;
+}
+
+extern EntityData gUnk_080EE314;
+
+void sub_0804DD34(void) {
+    if (CheckLocalFlag(0x79)) {
+        sub_0807BB98(3, 2, 5, 1);
+        LoadRoomEntityList(&gUnk_080EE314);
+        gArea.pMusicIndex = gArea.musicIndex;
+    }
+}
+
+u32 sub_0804DD70() {
+    return 1;
+}
+
+void nullsub_372() {
+}
+
+u32 sub_0804DD78(void) {
+    if (CheckLocalFlag(0x79)) {
+        gRoomVars.field_0x74 = 0;
+    }
+    return 1;
+}
+
+extern EntityData gUnk_080EE5DC;
+
+void sub_0804DD94(void) {
+    if (CheckLocalFlag(0x79)) {
+        sub_0807BB98(0x392, 2, 2, 5);
+        LoadRoomEntityList(&gUnk_080EE5DC);
+        gArea.pMusicIndex = gArea.musicIndex;
+    }
+}
+
+u32 sub_0804DDD4() {
+    return 1;
+}
+
+void nullsub_373() {
+}
+
+u32 sub_0804DDDC() {
+    return 1;
+}
+
+extern EntityData gUnk_080EE71C;
+
+void sub_0804DDE0(void) {
+    if (CheckLocalFlag(1)) {
+        LoadRoomEntityList(&gUnk_080EE71C);
+    }
+}
+
+u32 sub_0804DDF8() {
+    return 1;
+}
+
+void nullsub_374() {
+}
+
+NAKED
+u32 sub_0804DE00(void) {
+    asm(".include \"asm/non_matching/sub_0804DE00.inc\"");
+}
+
+extern EntityData gUnk_080EEB6C;
+extern EntityData gUnk_080EEB8C;
+extern EntityData gUnk_080EE88C;
+extern EntityData gUnk_080EE8FC;
+extern EntityData gUnk_080EE91C;
+extern EntityData gUnk_080EECBC;
+extern EntityData gUnk_080EE93C;
+extern EntityData gUnk_080EE95C;
+extern EntityData gUnk_080EE97C;
+extern EntityData gUnk_080EE9BC;
+extern EntityData gUnk_080EE99C;
+extern EntityData gUnk_080EE9DC;
+extern EntityData gUnk_080EEA3C;
+extern EntityData gUnk_080EEA1C;
+extern EntityData gUnk_080EE9FC;
+extern EntityData gUnk_080EEA5C;
+extern EntityData gUnk_080EEABC;
+extern EntityData gUnk_080EEA7C;
+extern EntityData gUnk_080EEA9C;
+extern EntityData gUnk_080EEBAC;
+
+void LoadHyruleTown(void) {
+
+    sub_08054570();
+    sub_08059D18();
+    SetTileType(0x176, 0x66b, 1);
+    if (gUnk_02002A40.field_0x8 == 1) {
+        sub_0801D000(0);
+    } else {
+        sub_08018C58(0xdb4);
+        if (!CheckLocalFlagByOffset(0x200, 0x84)) {
+            LoadRoomEntityList(&gUnk_080EEB6C);
+        }
+        if (!CheckLocalFlagByOffset(0x200, 0x85)) {
+            LoadRoomEntityList(&gUnk_080EEB8C);
+        }
+        // kinstone bag
+        if ((!GetInventoryValue(0x67)) && CheckGlobalFlag(LV1_CLEAR)) {
+            LoadRoomEntityList(&gUnk_080EE88C);
+        }
+        if (!CheckKinstoneFused(0x28)) {
+            LoadRoomEntityList(&gUnk_080EE8FC);
+        }
+        if (CheckKinstoneFused(0x33)) {
+            LoadRoomEntityList(&gUnk_080EE91C);
+        }
+        if (CheckGlobalFlag(MACHI_MACHIHOKORI)) {
+            LoadRoomEntityList(&gUnk_080EE93C);
+        } else {
+            LoadRoomEntityList(&gUnk_080EECBC);
+        }
+        if (CheckKinstoneFused(0x1b) && (gUnk_02002A40.field_0x8 > 3)) {
+            if (!CheckGlobalFlag(NEW_HOUSE_DIN) && !CheckGlobalFlag(NEW_HOUSE_NAYRU) && !CheckGlobalFlag(NEW_HOUSE_FARORE)) {
+                if (!CheckGlobalFlag(RENTED_HOUSE_DIN) && !CheckGlobalFlag(RENTED_HOUSE_NAYRU) && !CheckGlobalFlag(RENTED_HOUSE_FARORE)) {
+                    LoadRoomEntityList(&gUnk_080EE95C);
+                } else {
+                    if (!CheckGlobalFlag(TATEKAKE_HOUSE)) {
+                        LoadRoomEntityList(&gUnk_080EE97C);
+                    } else {
+                        LoadRoomEntityList(&gUnk_080EE9BC);
+                    }
+                }
+            } else {
+                LoadRoomEntityList(&gUnk_080EE99C);
+            }
+        }
+        if (CheckGlobalFlag(RENTED_HOUSE_DIN)) {
+            LoadRoomEntityList(&gUnk_080EE9FC);
+        } else if (CheckGlobalFlag(RENTED_HOUSE_NAYRU)) {
+            LoadRoomEntityList(&gUnk_080EEA1C);
+        } else if (CheckGlobalFlag(RENTED_HOUSE_FARORE)) {
+            LoadRoomEntityList(&gUnk_080EEA3C);
+        } else {
+            LoadRoomEntityList(&gUnk_080EE9DC);
+        }
+        if ((gUnk_02002A40.field_0x8 > 4) && !CheckKinstoneFused(0xb) &&
+            (CheckGlobalFlag(RENTED_HOUSE_DIN) || CheckGlobalFlag(RENTED_HOUSE_NAYRU) || CheckGlobalFlag(RENTED_HOUSE_FARORE))) {
+            LoadRoomEntityList(&gUnk_080EEA5C);
+        }
+        // rocs cape
+        if (!CheckLocalFlag(0xd0) && GetInventoryValue(0x14)) {
+            LoadRoomEntityList(&gUnk_080EEABC);
+        }
+        if ((gUnk_02002A40.field_0x8 > 3) && CheckGlobalFlag(INLOCK)) {
+            LoadRoomEntityList(&gUnk_080EEA7C);
+        }
+        if ((gUnk_02002A40.field_0x8 < 6) && !CheckGlobalFlag(MIZUKAKI_START)) {
+            LoadRoomEntityList(&gUnk_080EEA9C);
+        }
+        if ((gUnk_02002A40.windcrests & 0x8000000) == 0) {
+            LoadRoomEntityList(&gUnk_080EEBAC);
+        }
+        sub_0804E150();
+    }
+}
+
+extern EntityData gUnk_080EEBAC;
+
+void sub_0804E130(void)
+{
+  if ((gUnk_02002A40.windcrests & 0x8000000) == 0) {
+    LoadRoomEntityList(&gUnk_080EEBAC);
+  }
+}
+
+NAKED
+void sub_0804E150(void) {
+    asm(".include \"asm/non_matching/sub_0804E150.inc\"");
+}
+
+u32 sub_0804E1F4() {
+    return 1;
+}
+
+void nullsub_76() {}
+
+u32 sub_0804E1FC() {
+    return 1;
+}
+
+void nullsub_77() {}
+
+u32 sub_0804E204() {
+    return 1;
+}
+
+void nullsub_78() {}
+
+u32 sub_0804E20C() {
+    return 1;
+}
+
+void nullsub_79() {}
+
+u32 sub_0804E214() {
+    return 1;
+}
+
+void nullsub_080() {}
+
+u32 sub_0804E21C() {
+    return 1;
+}
+
+void nullsub_081() {}
+
+u32 sub_0804E224() {
+    return 1;
+}
+
+void nullsub_082() {}
+
+u32 sub_0804E22C() {
+    return 1;
+}
+
+void nullsub_083() {}
+
+u32 sub_0804E234() {
+    return 1;
+}
+
+void nullsub_084() {}
+
+u32 sub_0804E23C() {
+    return 1;
+}
+
+void nullsub_085() {
+}
+
+u32 sub_0804E244() {
+    return 1;
+}
+
+void nullsub_086() {}
+
+u32 sub_0804E24C() {
+    return 1;
+}
+
+void nullsub_087() {}
+
+u32 sub_0804E254() {
+    return 1;
+}
+
+void nullsub_088() {}
+
+extern u32 gUnk_080F09A0;
+
+u32 sub_0804E25C(void)
+{
+  
+  //four sword
+  if (GetInventoryValue(0x6)) {
+    gRoomVars.field_0x70 = &gUnk_080F09A0;
+  }
+  return 1;
+}
+
+extern EntityData gUnk_080F0650;
+extern EntityData gUnk_080F0800;
+extern EntityData gUnk_080F08F0;
+extern EntityData gUnk_080F0850;
+extern EntityData gUnk_080F0870;
+extern EntityData gUnk_080F0890;
+extern EntityData gUnk_080F0920;
+
+void sub_0804E27C(void)
+{
+
+  if (!CheckGlobalFlag(0x15)) {
+    LoadRoomEntityList(&gUnk_080F0650);
+    gArea.pMusicIndex = 0x13;
+    SetGlobalFlag(100);
+  }
+  else {
+    if (CheckGlobalFlag(100)) {
+      gArea.pMusicIndex = 0x1b;
+    }
+  }
+  if (!CheckLocalFlag(0x9c)) {
+    LoadRoomEntityList(&gUnk_080F0800);
+    SetTileType(0x4072, 600, 1);
+    SetTileType(0x4072, 0x298, 1);
+    SetTileType(0x4072, 0x266, 1);
+    SetTileType(0x4072, 0x2a6, 1);
+  }
+  else {
+      // four sword
+    if (!GetInventoryValue(0x6)) {
+      LoadRoomEntityList(&gUnk_080F08F0);
+      SetTileType(0x4072, 0x9e, 1);
+      SetTileType(0x4072, 0x9f, 1);
+      SetTileType(0x4072, 0xa0, 1);
+    }
+    LoadRoomEntityList(&gUnk_080F0850);
+    // water element
+    if (!GetInventoryValue(0x42)) {
+      LoadRoomEntityList(&gUnk_080F0870);
+    }
+    else {
+      LoadRoomEntityList(&gUnk_080F0890);
+    }
+    SetTileType(0x4072, 600, 1);
+    SetTileType(0x4072, 0x298, 1);
+    if (CheckLocalFlag(0x10)) {
+      LoadRoomEntityList(&gUnk_080F0920);
+      ClearLocalFlag(0x10);
+    }
+  }
+  sub_080AF284();
+}
+
+u32 sub_0804E3B8() {
+    ClearLocalFlag(1);
+    return 1;
+}
+
+NAKED
+void sub_0804E3C4() {
+    asm(".include \"asm/non_matching/sub_0804E3C4.inc\"");
+}
+
+u32 sub_0804E45C() {
+    return 1;
+}
+
+extern EntityData gUnk_080F1C68;
+extern EntityData gUnk_080F1C88;
+
+void sub_0804E460(void)
+{
+  if (!CheckGlobalFlag(0x4a)) {
+    LoadRoomEntityList(&gUnk_080F1C68);
+  }
+  else {
+    LoadRoomEntityList(&gUnk_080F1C88);
+  }
+}
+
+u32 sub_0804E484() {
+    return 1;
+}
+
+extern EntityData gUnk_080F1D90;
+extern EntityData gUnk_080F1DB0;
+extern EntityData gUnk_080F1DD0;
+
+void sub_0804E488(void)
+{
+    if (CheckGlobalFlag(0x2e)) {
+        LoadRoomEntityList(&gUnk_080F1D90);
+    } else if (CheckGlobalFlag(0x2f)) {
+        LoadRoomEntityList(&gUnk_080F1DB0);
+    } else if (CheckGlobalFlag(0x30)) {
+        LoadRoomEntityList(&gUnk_080F1DD0);
+    }
+}
+
+u32 sub_0804E4D0() {
+    return 1;
+}
+
+void nullsub_375() {}
+
+u32 sub_0804E4D8() {
+    return 1;
+}
+
+void nullsub_376() {}
+
+u32 sub_0804E4E0() {
+    return 1;
+}
+
+extern EntityData gUnk_080F2174;
+extern EntityData gUnk_080F2194;
+extern EntityData gUnk_080F21B4;
+
+void sub_0804E4E4(void)
+{
+  
+  LoadRoomEntityList(&gUnk_080F2174);
+  // picori legend book
+  if (!GetInventoryValue(0x3a) && CheckGlobalFlag(0x2a)) {
+    LoadRoomEntityList(&gUnk_080F2194);
+  }
+  if (gUnk_030010A0.field_0xa[5] == 1) {
+    LoadRoomEntityList(&gUnk_080F21B4);
+  }
+}
+
+u32 sub_0804E528() {
+    return 1;
+}
+
+extern EntityData gUnk_080F23BC;
+extern EntityData gUnk_080F238C;
+extern EntityData gUnk_080F236C;
+
+void sub_0804E52C(void)
+{
+  
+  if (gUnk_02002A40.field_0x8 > 7) {
+    LoadRoomEntityList(&gUnk_080F23BC);
+  }
+  // flippers
+  if (!GetInventoryValue(0x46) && CheckGlobalFlag(0x29)) {
+    LoadRoomEntityList(&gUnk_080F238C);
+  }
+  else {
+    LoadRoomEntityList(&gUnk_080F236C);
+  }
+}
+
+u32 sub_0804E570() {
+    return 1;
+}
+
+extern EntityData gUnk_080F2570;
+extern EntityData gUnk_080F2590;
+extern EntityData gUnk_080F25C0;
+extern EntityData gUnk_080F2600;
+
+void sub_0804E574(void)
+{
+    switch (gUnk_02002A40.field_0x8) {
+        case 0:
+        case 2:
+        case 4:
+            LoadRoomEntityList(&gUnk_080F2570);
+            break;
+        case 1:
+        case 3:
+            break;
+        case 5:
+            // flippers
+            if (!GetInventoryValue(0x46)) {
+                if (!CheckGlobalFlag(0x29)) {
+                    LoadRoomEntityList(&gUnk_080F2570);
+                    break;
+                }
+                if (!GetInventoryValue(0x39)) {
+                    LoadRoomEntityList(&gUnk_080F25C0);
+                }
+            } else {
+                LoadRoomEntityList(&gUnk_080F2590);
+            }
+            break;
+        case 8:
+        case 9:
+            LoadRoomEntityList(&gUnk_080F2600);
+        case 6:
+        case 7:
+            LoadRoomEntityList(&gUnk_080F2590);
+    }
+}
+
+u32 sub_0804E614() {
+    return 1;
+}
+
+extern EntityData gUnk_080F2718;
+extern EntityData gUnk_080F2860;
+extern EntityData gUnk_080F2758;
+extern EntityData gUnk_080F27D8;
+extern EntityData gUnk_080F2798;
+
+void sub_0804E618(void)
+{
+  if (CheckKinstoneFused(0x21)) {
+    if (!CheckLocalFlag(0x42)) {
+      if (!CheckLocalFlag(0x43)) {
+        LoadRoomEntityList(&gUnk_080F2718);
+        LoadRoomTileEntities(&gUnk_080F2860);
+      }
+      else {
+        LoadRoomEntityList(&gUnk_080F2758);
+      }
+    }
+    else if (!CheckLocalFlag(0x3f)) {
+        LoadRoomEntityList(&gUnk_080F27D8);
+      }
+      else {
+        LoadRoomEntityList(&gUnk_080F2798);
+      }
+  }
+}
+
+u32 sub_0804E680() {
+    return 1;
+}
+
+extern EntityData gUnk_080F28D4;
+extern EntityData gUnk_080F28F4;
+extern EntityData gUnk_080F2914;
+
+void sub_0804E684(void)
+{
+    if (CheckGlobalFlag(0x2b)) {
+        LoadRoomEntityList(&gUnk_080F28D4);
+    } else if (CheckGlobalFlag(0x2c)) {
+        LoadRoomEntityList(&gUnk_080F28F4);
+    } else if (CheckGlobalFlag(0x2d)) {
+        LoadRoomEntityList(&gUnk_080F2914);
+    }
+}
+
+u32 sub_0804E6CC9() {
+    return 1;
+}
+
+void nullsub_377() {}
+
+u32 sub_0804E6D4() {
+    return 1;
+}
+
+void nullsub_378() {}
+
+u32 sub_0804E6DC() {
+    return 1;
+}
+
+void nullsub_379() {}
+
+u32 sub_0804E6E4() {
+    return 1;
+}
+
+extern EntityData gUnk_080F2E2C;
+
+void sub_0804E6E8(void)
+{
+  if (!CheckGlobalFlag(0x49)) {
+    gArea.musicIndex = gArea.pMusicIndex;
+    PlaySFX(0x800b0036);
+  }
+  if (!CheckGlobalFlag(0x13)) {
+    LoadRoomEntityList(&gUnk_080F2E2C);
+  }
+}
+
+u32 sub_0804E728() {
+    return 1;
+}
+
+extern EntityData gUnk_080F2E94;
+extern EntityData gUnk_080F2EC4;
+
+void sub_0804E72C(void)
+{
+  if (!CheckGlobalFlag(0x49)) {
+    gArea.musicIndex = gArea.pMusicIndex;
+    PlaySFX(0x800b0036);
+  }
+  if (!CheckGlobalFlag(0x13)) {
+    LoadRoomEntityList(&gUnk_080F2E94);
+  }
+  else {
+    LoadRoomEntityList(&gUnk_080F2EC4);
+  }
+}
+
+u32 sub_0804E778() {
+    return 1;
+}
+
+extern EntityData gUnk_080F2FD4;
+
+void sub_0804E77C(void)
+{
+    // graveyard key
+  if (!CheckLocalFlag(0x69) || GetInventoryValue(0x3c) > 1) {
+    LoadRoomEntityList(&gUnk_080F2FD4);
+  }
+}
+
+u32 sub_0804E7A0() {
+    return 1;
+}
+
+extern EntityData gUnk_080F30CC;
+
+void sub_0804E7A4(void)
+{
+    // dog food
+  if ((GetInventoryValue(0x36) == 1) && !CheckGlobalFlag(0x5b) &&
+     (gLinkState.flags.all & 0x80) == 0) {
+    LoadRoomEntityList(&gUnk_080F30CC);
+  }
+}
+
+u32 sub_0804E7D8() {
+    return 1;
+}
+
+extern EntityData gUnk_080F31D8;
+extern u8 gUnk_02000070;
+extern u32 gUnk_08009B30;
+
+void sub_0804E7DC(void)
+{
+
+  if (!CheckGlobalFlag(0x13) && !CheckLocalFlag(0x46)) {
+    sub_080A71C4(5, 1, 4, 4);
+    gUnk_02000070 = 0;
+    DoFade(5, 0x100);
+    sub_080751E8(0, 6, &gUnk_08009B30);
+  }
+  if (!CheckGlobalFlag(0x49)) {
+    gArea.musicIndex = gArea.pMusicIndex;
+    PlaySFX(0x800b0036);
+  }
+  if ((gLinkState.flags.all & 8) == 0) {
+    LoadRoomEntityList(&gUnk_080F31D8);
+  }
+}
+
+extern u32 gUnk_08009E58;
+
+void sub_0804E864(void)
+{
+  gLinkEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x90;
+  gLinkEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
+  sub_080751E8(1, 6, &gUnk_08009E58);
+  ModHealth(0xa0);
+}
+
+u32 sub_0804E894() {
+    return 1;
+}
+
+extern EntityData gUnk_080F3260;
+
+void sub_0804E898(void)
+{
+  // pacci cane
+  if (GetInventoryValue(0x12)) {
+    LoadRoomEntityList(&gUnk_080F3260);
+    SetTileType(0x4072, 0x202, 1);
+    SetTileType(0x4072, 0x242, 1);
+    SetTileType(0x4072, 0x204, 1);
+    SetTileType(0x4072, 0x244, 1);
+  }
+}
+
+u32 sub_0804E8EC() {
+    return 1;
+}
+
+void sub_0804E8F0() {
+    sub_08054564();
+}
+
+u32 sub_0804E8F8() {
+    return 1;
+}
+
+extern EntityData gUnk_080F36FC;
+extern EntityData gUnk_080F3604;
+
+void sub_0804E8FC(void)
+{
+  if (!CheckGlobalFlag(0x1d)) {
+    LoadRoomEntityList(&gUnk_080F36FC);
+  }
+  else if (gUnk_02002A40.field_0x8 < 4) {
+      LoadRoomEntityList(&gUnk_080F3604);
+    }
+}
+
+u32 sub_0804E92C() {
+    return 1;
+}
+
+extern EntityData gUnk_080F37D0;
+
+void sub_0804E930(void)
+{
+  if (CheckGlobalFlag(0x1d)) {
+    LoadRoomEntityList(&gUnk_080F37D0);
+  }
+}
+
+u32 sub_0804E948 () {
+    return 1;
+}
+
+void nullsub_380() {}
+
+u32 sub_0804E950() {
+    return 1;
+}
+
+extern EntityData gUnk_080F3A48;
+
+void sub_0804E954(void)
+{
+  // flippers, history of masks 
+  if (!GetInventoryValue(0x46) && CheckGlobalFlag(0x29) && !GetInventoryValue(0x3b)) {
+    LoadRoomEntityList(&gUnk_080F3A48);
+  }
+  gUnk_030010A0.field_0x20 = 0xf28;
+  gUnk_030010A0.field_0x22 = 0x82d;
+}
+
+extern u32 gUnk_080F3D44;
+extern u32 gUnk_080F3EA4;
+
+u32 sub_0804E998(void)
+{
+  if (CheckGlobalFlag(5) && !CheckLocalFlag(4)) {
+    gRoomVars.field_0x74 = &gUnk_080F3EA4;
+  }
+  else {
+    gRoomVars.field_0x74 = &gUnk_080F3D44;
+  }
+  return 1;
+}
+
+extern EntityData gUnk_080F3C64;
+extern EntityData gUnk_080F3C94;
+extern EntityData gUnk_080F3C44;
+
+void sub_0804E9D0(void)
+{
+  if (CheckGlobalFlag(5) && !CheckLocalFlag(4)) {
+    LoadRoomEntityList(&gUnk_080F3C64);
+  }
+  if (CheckKinstoneFused(0x12)) {
+    LoadRoomEntityList(&gUnk_080F3C94);
+  }
+  if ((gUnk_02002A40.field_0x8 > 3) && CheckGlobalFlag(0x5c)) {
+    LoadRoomEntityList(&gUnk_080F3C44);
+  }
+  SetTile(0x4091, 0x590, 1);
+  SetTile(0x4091, 0x591, 1);
+  SetTile(0x4091, 0x592, 1);
+  SetTile(0x4091, 0x593, 1);
+  SetTile(0x4091, 0x594, 1);
+  SetTile(0x4091, 0x5d0, 1);
+  SetTile(0x4091, 0x610, 1);
+  SetTile(0x4091, 0x650, 1);
+  SetTile(0x4091, 0x5d4, 1);
+  SetTile(0x4091, 0x614, 1);
+  SetTile(0x4091, 0x654, 1);
+  SetTile(0x4091, 0x690, 1);
+  SetTile(0x4091, 0x691, 1);
+  SetTile(0x4091, 0x692, 1);
+  SetTile(0x4091, 0x693, 1);
+  SetTile(0x4091, 0x694, 1);
+}
+
+u32 sub_0804EB04() {
+    return 1;
+}
+
+void nullsub_381() {
+}
+
+u32 sub_0804EB0C() {
+    return 1;
+}
+
+void nullsub_382() {}
+
+u32 sub_0804EB14() {
+    return 1;
+}
+
+void nullsub_383() {}
+
+u32 sub_0804EB1() {
+    return 1;
+}
+
+void nullsub_384() {}
+
+u32 sub_0804EB24() {
+    return 1;
+}
+
+void nullsub_385() {}
+
+u32 sub_0804EB2C() {
+    return 1;
+}
+
+void nullsub_386() {}
+
+u32 sub_0804EB34() {
+    return 1;
+}
+
+void nullsub_387() {}
+
+u32 sub_0804EB3C() {
+    return 1;
+}
+
+void nullsub_388() {}
+
+u32 sub_0804EB44() {
+    return 1;
+}
+
+void nullsub_389() {}
+
+u32 sub_0804EB4C() {
+    return 1;
+}
+
+void nullsub_390() {}

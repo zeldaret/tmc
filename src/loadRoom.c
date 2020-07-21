@@ -5,7 +5,7 @@
 void LoadRoomEntityList(EntityData* dat);
 extern EntityData* GetCurrentRoomProperty(u32 unk);
 extern void sub_0804B058(EntityData* dat);
-extern void sub_0804B1AC(EntityData* dat);
+extern void LoadRoomTileEntities(EntityData* dat);
 extern void sub_0801AC98();
 extern u32 sub_08049D1C(u32);
 extern Entity* CreateEntity(EntityData*);
@@ -24,7 +24,7 @@ void LoadRoom(void) {
     if (CheckGlobalFlag(TABIDACHI))
         sub_0804B058(GetCurrentRoomProperty(2));
 
-    sub_0804B1AC(GetCurrentRoomProperty(3));
+    LoadRoomTileEntities(GetCurrentRoomProperty(3));
     sub_0801AC98();
 }
 

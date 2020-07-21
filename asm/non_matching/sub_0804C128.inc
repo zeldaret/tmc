@@ -126,7 +126,7 @@ _0804C206:
 	bl SetTileType
 _0804C228:
 	ldr r0, _0804C248 @ =gUnk_080D9328
-	bl sub_0804B1AC
+	bl LoadRoomTileEntities
 	movs r0, #0x62
 	bl SetGlobalFlag
 	bl sub_0804C290
