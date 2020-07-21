@@ -153,4 +153,10 @@ extern void sub_0804E150(void);
 extern void sub_080AF284(void);
 extern void sub_080A71C4(u32, u32, u32, u32);
 extern void sub_08054564();
+extern void sub_0801DD58(u32, u32);
+extern void sub_0804ED18();
+extern void sub_080AF2E4(void);
+extern void sub_0805ADD8(u32);
+extern void sub_0804F578(void);
+extern void sub_08059994(void);
 #endif
