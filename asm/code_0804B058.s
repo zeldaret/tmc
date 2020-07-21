@@ -78,8 +78,8 @@ _0804B198:
 _0804B1A4: .4byte gUnk_02017660
 _0804B1A8: .4byte gUnk_020176A0
 
-	thumb_func_start sub_0804B1AC
-sub_0804B1AC: @ 0x0804B1AC
+	thumb_func_start LoadRoomTileEntities
+LoadRoomTileEntities: @ 0x0804B1AC
 	push {r4, lr}
 	adds r4, r0, #0
 	cmp r4, #0

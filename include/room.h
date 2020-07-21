@@ -44,9 +44,14 @@ typedef struct {
 	u8 filler4[48];
 	u8 filler5[28];
 	u32 greatFairyState;
-    u8 field_0x68[9];
+    u32* field_0x6c;
+    u32* field_0x70;
+    u32* field_0x74;
     u32 field_0x78;
+    u8 field_0x79[10];
+    void* field_0x88;
 } RoomVars;
+
 
 //Packets used to store which entities to load in a room
 typedef struct {

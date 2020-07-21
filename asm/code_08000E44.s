@@ -59,8 +59,8 @@ sub_08000E92: @ 0x08000E92
 	movs r3, #1
 	b _08000E98
 
-	non_word_aligned_thumb_func_start sub_08000E96
-sub_08000E96: @ 0x08000E96
+	non_word_aligned_thumb_func_start LoadAssetAsync
+LoadAssetAsync: @ 0x08000E96
 	movs r3, #0
 _08000E98:
 	push {r4, r5}

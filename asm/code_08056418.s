@@ -1468,7 +1468,7 @@ sub_08056F70: @ 0x08056F70
 	ldr r1, _08056F84 @ =0x0600D040
 	movs r2, #0xd0
 	lsls r2, r2, #4
-	bl sub_08000E96
+	bl LoadAssetAsync
 	pop {pc}
 	.align 2, 0
 _08056F80: .4byte gUnk_02000D00

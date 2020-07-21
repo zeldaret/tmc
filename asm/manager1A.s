@@ -424,7 +424,7 @@ sub_0805B328: @ 0x0805B328
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r2, r4, #0
-	bl sub_08000E96
+	bl LoadAssetAsync
 	ldr r1, _0805B380 @ =gScreen
 	ldr r0, _0805B384 @ =0x00001E07
 	strh r0, [r1, #0x2c]
