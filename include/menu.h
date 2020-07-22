@@ -20,14 +20,14 @@ typedef struct {
 typedef struct {
     u8 field_0x0;
     u16 field_0x1;
-    u8 field_0x2;
-    u8 secret;
+    u8 field_0x3;
+    u8 menuType;
     u8 overlayType;
     u8 storyPanelIndex;
     u16 transitionTimer;
     u8 field_0xa[8];
-    u8 field_0x12;
-    u8 field_0x13[22];
+    u8 field_0x11;
+    u8 field_0x12[0x16];
     u32 field_0x2c;
 } Menu;
 

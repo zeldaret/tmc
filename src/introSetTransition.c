@@ -61,9 +61,9 @@ void sub_080AD3F4(void)
   u32 uVar2;
   
   iVar1 = sub_080AD84C();
-  if (gMenu.secret == 0) {
+  if (gMenu.menuType == 0) {
     sub_0801DA90(1);
-    gMenu.secret = 1;
+    gMenu.menuType = 1;
     gMenu.transitionTimer = 0x78;
     sub_0801D7EC(0x10);
     sub_0801D7EC(1);
@@ -107,13 +107,13 @@ void sub_080AD474(void)
     int iVar2;
     u32 uVar3;
 
-    gMenu.field_0x12++;
-    switch (gMenu.secret) {
+    gMenu.field_0x11++;
+    switch (gMenu.menuType) {
         case 0:
-            gMenu.secret = 1;
+            gMenu.menuType = 1;
             gMenu.overlayType = 0;
             gMenu.transitionTimer = 0x1e;
-            gMenu.field_0x2 = 7;
+            gMenu.field_0x3 = 7;
             EraseAllEntities();
             sub_080ADD30(sub_0801CFA8(0));
             gUnk_02024490 = 1;
@@ -164,7 +164,7 @@ void sub_080AD474(void)
             gMenu.transitionTimer--;
             if (gMenu.transitionTimer == 0) {
                 gMenu.transitionTimer = 0xe10;
-                gMenu.secret++;
+                gMenu.menuType++;
             }
             sub_080AD644();
             break;
@@ -187,8 +187,8 @@ void sub_080AD474(void)
                 sub_080ADA14(0x1ff,0);
             }
     }
-    if (gMenu.field_0x2 != ((struct_02000000*)0x2000000)->gameLanguage) {
-        gMenu.field_0x2 = ((struct_02000000*)0x2000000)->gameLanguage;
+    if (gMenu.field_0x3 != ((struct_02000000*)0x2000000)->gameLanguage) {
+        gMenu.field_0x3 = ((struct_02000000*)0x2000000)->gameLanguage;
         sub_0801D7EC(3);
     }
     sub_080AD89C();

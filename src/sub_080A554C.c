@@ -21,6 +21,6 @@ u32 sub_080A554C(u32 arg0)
 
 void sub_080A5574(void)
 {
-  gUnk_08128BF8[gMenu.secret]();
+  gUnk_08128BF8[gMenu.menuType]();
   sub_080A57F4();
 }
