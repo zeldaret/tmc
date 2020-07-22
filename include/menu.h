@@ -24,10 +24,12 @@ typedef struct {
     u8 secret;
     u8 overlayType;
     u8 storyPanelIndex;
-    u8 field_0x7;
-    u8 transitionTimer;
+    u16 transitionTimer;
+    u8 field_0xa[8];
+    u8 field_0x12;
+    u8 field_0x13[22];
+    u32 field_0x2c;
 } Menu;
 
 extern Menu gMenu;
-
 #endif

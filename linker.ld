@@ -883,9 +883,6 @@ SECTIONS {
 		src/sub_080A554C.o(.text);
 		asm/code_080A5574.o(.text);
 		src/introSetTransition.o(.text);
-		asm/sub_080AD380.o(.text);
-		asm/sub_080AD3F4.o(.text);
-		asm/sub_080AD474.o(.text);
 		src/sub_080AD644.o(.text);
 		asm/sub_080AD670.o(.text);
 		asm/sub_080AD6Ac.o(.text);

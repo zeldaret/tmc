@@ -6,6 +6,7 @@
 #include "flags.h"
 #include "link.h"
 #include "screen.h"
+#include "main.h"
 
 typedef struct {
     u8 field_0x0[8];
@@ -37,21 +38,8 @@ typedef struct {
     Stats stats;
 } struct_02002A40;
 
-typedef struct {
-    u8 interruptFlag;
-    u8 field_0x1;
-    u8 funcIndex;
-    u8 field_0x3;
-    u8 transition;
-    u8 field_0x5;
-    u8 muteAudio;
-    u8 field_0x8;
-    u8 countdown;
-} Main;
-
 extern struct_030010A0 gUnk_030010A0;
 extern struct_02002A40 gUnk_02002A40;
-extern Main gUnk_03001000;
 
 void sub_0804B3C4(u32 arg0) {
     sub_0804B29C(arg0);
