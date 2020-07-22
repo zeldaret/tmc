@@ -4451,13 +4451,13 @@ extern EntityData gUnk_080F0920;
 void sub_0804E27C(void)
 {
 
-  if (!CheckGlobalFlag(0x15)) {
+  if (!CheckGlobalFlag(TABIDACHI)) {
     LoadRoomEntityList(&gUnk_080F0650);
     gArea.pMusicIndex = 0x13;
-    SetGlobalFlag(100);
+    SetGlobalFlag(CASTLE_BGM);
   }
   else {
-    if (CheckGlobalFlag(100)) {
+    if (CheckGlobalFlag(CASTLE_BGM)) {
       gArea.pMusicIndex = 0x1b;
     }
   }
@@ -4513,7 +4513,7 @@ extern EntityData gUnk_080F1C88;
 
 void sub_0804E460(void)
 {
-  if (!CheckGlobalFlag(0x4a)) {
+  if (!CheckGlobalFlag(POWERGLOVE_HINT)) {
     LoadRoomEntityList(&gUnk_080F1C68);
   }
   else {
@@ -4531,11 +4531,11 @@ extern EntityData gUnk_080F1DD0;
 
 void sub_0804E488(void)
 {
-    if (CheckGlobalFlag(0x2e)) {
+    if (CheckGlobalFlag(NEW_HOUSE_DIN)) {
         LoadRoomEntityList(&gUnk_080F1D90);
-    } else if (CheckGlobalFlag(0x2f)) {
+    } else if (CheckGlobalFlag(NEW_HOUSE_NAYRU)) {
         LoadRoomEntityList(&gUnk_080F1DB0);
-    } else if (CheckGlobalFlag(0x30)) {
+    } else if (CheckGlobalFlag(NEW_HOUSE_FARORE)) {
         LoadRoomEntityList(&gUnk_080F1DD0);
     }
 }
@@ -4565,7 +4565,7 @@ void sub_0804E4E4(void)
   
   LoadRoomEntityList(&gUnk_080F2174);
   // picori legend book
-  if (!GetInventoryValue(0x3a) && CheckGlobalFlag(0x2a)) {
+  if (!GetInventoryValue(0x3a) && CheckGlobalFlag(MIZUKAKI_HARIFALL)) {
     LoadRoomEntityList(&gUnk_080F2194);
   }
   if (gUnk_030010A0.field_0xa[5] == 1) {
@@ -4588,7 +4588,7 @@ void sub_0804E52C(void)
     LoadRoomEntityList(&gUnk_080F23BC);
   }
   // flippers
-  if (!GetInventoryValue(0x46) && CheckGlobalFlag(0x29)) {
+  if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START)) {
     LoadRoomEntityList(&gUnk_080F238C);
   }
   else {
@@ -4619,7 +4619,7 @@ void sub_0804E574(void)
         case 5:
             // flippers
             if (!GetInventoryValue(0x46)) {
-                if (!CheckGlobalFlag(0x29)) {
+                if (!CheckGlobalFlag(MIZUKAKI_START)) {
                     LoadRoomEntityList(&gUnk_080F2570);
                     break;
                 }
@@ -4680,11 +4680,11 @@ extern EntityData gUnk_080F2914;
 
 void sub_0804E684(void)
 {
-    if (CheckGlobalFlag(0x2b)) {
+    if (CheckGlobalFlag(RENTED_HOUSE_DIN)) {
         LoadRoomEntityList(&gUnk_080F28D4);
-    } else if (CheckGlobalFlag(0x2c)) {
+    } else if (CheckGlobalFlag(RENTED_HOUSE_NAYRU)) {
         LoadRoomEntityList(&gUnk_080F28F4);
-    } else if (CheckGlobalFlag(0x2d)) {
+    } else if (CheckGlobalFlag(RENTED_HOUSE_FARORE)) {
         LoadRoomEntityList(&gUnk_080F2914);
     }
 }
@@ -4715,11 +4715,11 @@ extern EntityData gUnk_080F2E2C;
 
 void sub_0804E6E8(void)
 {
-  if (!CheckGlobalFlag(0x49)) {
+  if (!CheckGlobalFlag(OUTDOOR)) {
     gArea.musicIndex = gArea.pMusicIndex;
     PlaySFX(0x800b0036);
   }
-  if (!CheckGlobalFlag(0x13)) {
+  if (!CheckGlobalFlag(START)) {
     LoadRoomEntityList(&gUnk_080F2E2C);
   }
 }
@@ -4733,11 +4733,11 @@ extern EntityData gUnk_080F2EC4;
 
 void sub_0804E72C(void)
 {
-  if (!CheckGlobalFlag(0x49)) {
+  if (!CheckGlobalFlag(OUTDOOR)) {
     gArea.musicIndex = gArea.pMusicIndex;
     PlaySFX(0x800b0036);
   }
-  if (!CheckGlobalFlag(0x13)) {
+  if (!CheckGlobalFlag(START)) {
     LoadRoomEntityList(&gUnk_080F2E94);
   }
   else {
@@ -4768,7 +4768,7 @@ extern EntityData gUnk_080F30CC;
 void sub_0804E7A4(void)
 {
     // dog food
-  if ((GetInventoryValue(0x36) == 1) && !CheckGlobalFlag(0x5b) &&
+  if ((GetInventoryValue(0x36) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) &&
      (gLinkState.flags.all & 0x80) == 0) {
     LoadRoomEntityList(&gUnk_080F30CC);
   }
@@ -4785,13 +4785,13 @@ extern u32 gUnk_08009B30;
 void sub_0804E7DC(void)
 {
 
-  if (!CheckGlobalFlag(0x13) && !CheckLocalFlag(0x46)) {
+  if (!CheckGlobalFlag(START) && !CheckLocalFlag(0x46)) {
     sub_080A71C4(5, 1, 4, 4);
     gUnk_02000070 = 0;
     DoFade(5, 0x100);
     sub_080751E8(0, 6, &gUnk_08009B30);
   }
-  if (!CheckGlobalFlag(0x49)) {
+  if (!CheckGlobalFlag(OUTDOOR)) {
     gArea.musicIndex = gArea.pMusicIndex;
     PlaySFX(0x800b0036);
   }
@@ -4845,7 +4845,7 @@ extern EntityData gUnk_080F3604;
 
 void sub_0804E8FC(void)
 {
-  if (!CheckGlobalFlag(0x1d)) {
+  if (!CheckGlobalFlag(INLOCK)) {
     LoadRoomEntityList(&gUnk_080F36FC);
   }
   else if (gUnk_02002A40.field_0x8 < 4) {
@@ -4861,7 +4861,7 @@ extern EntityData gUnk_080F37D0;
 
 void sub_0804E930(void)
 {
-  if (CheckGlobalFlag(0x1d)) {
+  if (CheckGlobalFlag(INLOCK)) {
     LoadRoomEntityList(&gUnk_080F37D0);
   }
 }
@@ -4881,7 +4881,7 @@ extern EntityData gUnk_080F3A48;
 void sub_0804E954(void)
 {
   // flippers, history of masks 
-  if (!GetInventoryValue(0x46) && CheckGlobalFlag(0x29) && !GetInventoryValue(0x3b)) {
+  if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START) && !GetInventoryValue(0x3b)) {
     LoadRoomEntityList(&gUnk_080F3A48);
   }
   gUnk_030010A0.field_0x20 = 0xf28;
@@ -4893,7 +4893,7 @@ extern u32 gUnk_080F3EA4;
 
 u32 sub_0804E998(void)
 {
-  if (CheckGlobalFlag(5) && !CheckLocalFlag(4)) {
+  if (CheckGlobalFlag(LV4_CLEAR) && !CheckLocalFlag(4)) {
     gRoomVars.field_0x74 = &gUnk_080F3EA4;
   }
   else {
@@ -4908,13 +4908,13 @@ extern EntityData gUnk_080F3C44;
 
 void sub_0804E9D0(void)
 {
-  if (CheckGlobalFlag(5) && !CheckLocalFlag(4)) {
+  if (CheckGlobalFlag(LV4_CLEAR) && !CheckLocalFlag(4)) {
     LoadRoomEntityList(&gUnk_080F3C64);
   }
   if (CheckKinstoneFused(0x12)) {
     LoadRoomEntityList(&gUnk_080F3C94);
   }
-  if ((gUnk_02002A40.field_0x8 > 3) && CheckGlobalFlag(0x5c)) {
+  if ((gUnk_02002A40.field_0x8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
     LoadRoomEntityList(&gUnk_080F3C44);
   }
   SetTile(0x4091, 0x590, 1);
@@ -5042,7 +5042,7 @@ extern u32 gUnk_080F4EB0;
 
 u32 sub_0804EBDC(void)
 {
-  if (CheckGlobalFlag(0x51)) {
+  if (CheckGlobalFlag(ENDING)) {
     gRoomVars.field_0x6c = &gUnk_080F4EB0;
     gRoomVars.field_0x74 = NULL;
   }
@@ -5058,10 +5058,10 @@ extern EntityData gUnk_080F4E10;
 
 void sub_0804EC00(void)
 {
-  if (CheckGlobalFlag(0x51)) {
+  if (CheckGlobalFlag(ENDING)) {
     gArea.pMusicIndex = gArea.musicIndex;
   }
-  if (!CheckGlobalFlag(0x14)) {
+  if (!CheckGlobalFlag(EZERO_1ST)) {
     LoadRoomEntityList(&gUnk_080F4D50);
   }
   if (!CheckLocalFlag(0x3e)) {
@@ -5100,7 +5100,7 @@ extern u32 gUnk_080F5348;
 
 u32 sub_0804ECBC(void)
 {
-  if (CheckGlobalFlag(0x51)) {
+  if (CheckGlobalFlag(ENDING)) {
     gRoomVars.field_0x6c = &gUnk_080F5348;
     gRoomVars.field_0x88 = sub_0804ED18;
     gRoomVars.field_0x74 = NULL;
@@ -5134,7 +5134,7 @@ u32 sub_0804ED30() {
 void sub_0804ED34(void)
 {
   sub_080AF2E4();
-  if (CheckGlobalFlag(0x5d)) {
+  if (CheckGlobalFlag(SEIIKI_BGM)) {
     gArea.pMusicIndex = 0x31;
   }
 }
@@ -5191,7 +5191,7 @@ void sub_0804ED5C(void)
   if (CheckLocalFlag(0x7c)) {
     LoadRoomEntityList(&gUnk_080F55B8);
   }
-  if (CheckGlobalFlag(0x5d)) {
+  if (CheckGlobalFlag(SEIIKI_BGM)) {
     gArea.pMusicIndex = 0x31;
   }
 }
@@ -5207,7 +5207,7 @@ void sub_0804EE78(void)
   if (!CheckLocalFlag(0x78) && CheckLocalFlag(0x7c)) {
     LoadRoomEntityList(&gUnk_080F5660);
   }
-  if (CheckGlobalFlag(0x5d)) {
+  if (CheckGlobalFlag(SEIIKI_BGM)) {
     gArea.pMusicIndex = 0x31;
   }
 }
@@ -5251,7 +5251,7 @@ void sub_0804EEBC(void)
       }
     }
   }
-  if (GetInventoryValue(0x9) || CheckGlobalFlag(4)) {
+  if (GetInventoryValue(0x9) || CheckGlobalFlag(LV3_CLEAR)) {
     LoadRoomEntityList(&gUnk_080F5868);
     if (!CheckLocalFlag(0x56)) {
       LoadRoomEntityList(&gUnk_080F5828);
@@ -5291,7 +5291,7 @@ void nullsub_398() {}
 
 u32 sub_0804EFDC(void)
 {
-  if (CheckGlobalFlag(0x50)) {
+  if (CheckGlobalFlag(MAROYA_WAKEUP)) {
     gUnk_030010A0.field_0xa[5] = 5;
   }
   return 1;
@@ -5305,7 +5305,7 @@ void sub_0804EFF8(void)
   if (gUnk_02002A40.field_0x8 > 7) {
     LoadRoomEntityList(&gUnk_080F5DD0);
   }
-  if (CheckGlobalFlag(0x50)) {
+  if (CheckGlobalFlag(MAROYA_WAKEUP)) {
       sub_080751E8(1, 2, &gUnk_08011C50);
   }
 }
@@ -5359,8 +5359,8 @@ void nullsub_400() {}
 
 u32 sub_0804F09C(void)
 {
-  if (CheckGlobalFlag(0x24) && CheckLocalFlagByOffset(0x100, 0xdc)) {
-    SetGlobalFlag(0x58);
+  if (CheckGlobalFlag(KUMOTATSUMAKI) && CheckLocalFlagByOffset(0x100, 0xdc)) {
+    SetGlobalFlag(WARP_EVENT_END);
   }
   return 1;
 }
@@ -5375,7 +5375,7 @@ void sub_0804F0C0(void)
   if (CheckKinstoneFused(0xf)) {
     LoadRoomEntityList(&gUnk_080F61BC);
   }
-  if (!CheckGlobalFlag(0x58)) {
+  if (!CheckGlobalFlag(WARP_EVENT_END)) {
     SetTileType(0x4072, 0x4c7, 1);
     SetTileType(0x4072, 0x507, 1);
   }
@@ -5391,7 +5391,7 @@ extern EntityData gUnk_080F6324;
 
 void sub_0804F12C(void)
 {
-  if (!CheckGlobalFlag(0x58)) {
+  if (!CheckGlobalFlag(WARP_EVENT_END)) {
     LoadRoomEntityList(&gUnk_080F62E4);
   }
   else {
@@ -5434,7 +5434,7 @@ extern EntityData gUnk_080F66AC;
 void sub_0804F190(void)
 {  
   sub_0805B4D0(5);
-  if (CheckGlobalFlag(6) && !CheckLocalFlagByOffset(0x100, 5)) {
+  if (CheckGlobalFlag(LV5_CLEAR) && !CheckLocalFlagByOffset(0x100, 5)) {
     LoadRoomEntityList(&gUnk_080F66AC);
   }
   sub_08052CA4(8, 0, 0x1e8, 0x158);
@@ -5514,7 +5514,7 @@ u32 sub_0804F23C(void)
   if (!CheckLocalFlag(0x6d)) {
     DoFade(7, 0x100);
   }
-  SetGlobalFlag(0x49);
+  SetGlobalFlag(OUTDOOR);
   return 1;
 }
 
@@ -5527,9 +5527,9 @@ void sub_0804F25C(void)
   sub_0805ADD8(0);
   if (!CheckLocalFlag(0x6d)) {
     LoadRoomEntityList(&gUnk_080F70A8);
-    ClearGlobalFlag(0x1c);
+    ClearGlobalFlag(ZELDA_CHASE);
   }
-  if (!CheckGlobalFlag(0x15)) {
+  if (!CheckGlobalFlag(TABIDACHI)) {
     gArea.pMusicIndex = 0x10;
   }
   if ((gUnk_02002A40.windcrests & 0x40000000) == 0) {
@@ -5608,14 +5608,14 @@ void sub_0804F3B0(void)
 
   sub_0805ADD8(0);
   if (CheckLocalFlagByOffset(0x200, 0x8f)) {
-    if (!CheckGlobalFlag(0x1d)) {
+    if (!CheckGlobalFlag(INLOCK)) {
       LoadRoomEntityList(&gUnk_080F77C0);
     }
   }
   else if (GetInventoryValue(0x40)) {
       LoadRoomEntityList(&gUnk_080F77F0);
     }
-  if (CheckGlobalFlag(0x15) && !GetInventoryValue(0x40)) {
+  if (CheckGlobalFlag(TABIDACHI) && !GetInventoryValue(0x40)) {
     LoadRoomEntityList(&gUnk_080F7810);
   }
   if (!CheckKinstoneFused(0x29)) {
@@ -5623,7 +5623,7 @@ void sub_0804F3B0(void)
     SetTile(0x4072, 0xd88, 1);
     SetTile(0x4096, 0xdc8, 1);
   }
-  if ((gUnk_02002A40.field_0x8 > 3) && CheckGlobalFlag(0x5c)) {
+  if ((gUnk_02002A40.field_0x8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
     LoadRoomEntityList(&gUnk_080F78A0);
   }
 }
@@ -5635,17 +5635,17 @@ extern void sub_0804F4E4();
 
 u32 sub_0804F468(void)
 {
-  if (CheckGlobalFlag(0x15) && !GetInventoryValue(0x11)) {
+  if (CheckGlobalFlag(TABIDACHI) && !GetInventoryValue(0x11)) {
     gRoomVars.field_0x6c = &gUnk_080F7CD0;
     gRoomVars.field_0x88 = sub_0804F5E8;
   }
-  if (CheckGlobalFlag(3) && GetInventoryValue(0x3) && !CheckLocalFlag(0x8c)) {
+  if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x8c)) {
     gRoomVars.field_0x6c = &gUnk_080F7C80;
     gRoomVars.field_0x88 = sub_0804F4E4;
     gRoomVars.field_0x74 = NULL;
   }
-  if (CheckGlobalFlag(0x15)) {
-    ClearGlobalFlag(100);
+  if (CheckGlobalFlag(TABIDACHI)) {
+    ClearGlobalFlag(CASTLE_BGM);
   }
   return 1;
 }
@@ -5668,7 +5668,7 @@ void sub_0804F4F4(void)
     SetTileType(0x174, 0x7a6, 1);
     SetTileType(0x174, 0x7a7, 1);
   }
-  if (!CheckGlobalFlag(0x15)) {
+  if (!CheckGlobalFlag(TABIDACHI)) {
     gArea.pMusicIndex = 0x13;
   }
 }
@@ -5850,7 +5850,7 @@ extern EntityData gUnk_080F806C;
 void sub_0804FA00(void) {
   
   sub_0805ADD8(0);
-  if ((gUnk_02002A40.field_0x8 > 3) && CheckGlobalFlag(0x5c)) {
+  if ((gUnk_02002A40.field_0x8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
     LoadRoomEntityList(&gUnk_080F806C);
   }
 }
@@ -5865,7 +5865,7 @@ void sub_0804FA30(void)
 {
   
   sub_0805ADD8(0);
-  if (CheckGlobalFlag(3) && GetInventoryValue(0x3) &&
+  if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) &&
      !CheckLocalFlag(0x9c)) {
     LoadRoomEntityList(&gUnk_080F82E0);
   }
@@ -5896,7 +5896,7 @@ extern EntityData gUnk_080F85D8;
 void sub_0804FA98(void)
 {
 
-  if (CheckGlobalFlag(0x57)) {
+  if (CheckGlobalFlag(SOUGEN_06_HASHIGO)) {
     LoadRoomEntityList(&gUnk_080F85D8);
   }
   else {
@@ -6395,7 +6395,7 @@ extern u32 gUnk_080FAD48;
 
 u32 sub_0804FDE0(void)
 {
-  if (CheckGlobalFlag(0x51)) {
+  if (CheckGlobalFlag(ENDING)) {
     gRoomVars.field_0x6c = &gUnk_080FAD48;
     gRoomVars.field_0x74 = NULL;
   }
@@ -6406,7 +6406,7 @@ extern EntityData gUnk_080FACB8;
 
 void sub_0804FE04(void)
 {
-  if (CheckGlobalFlag(0x51)) {
+  if (CheckGlobalFlag(ENDING)) {
     gArea.pMusicIndex = gArea.musicIndex;
   }
   else {
@@ -6437,14 +6437,14 @@ void sub_0804FE58(void)
 {
   
   sub_0805B4D0(1);
-  if (CheckGlobalFlag(3) && !CheckLocalFlag(2)) {
+  if (CheckGlobalFlag(LV2_CLEAR) && !CheckLocalFlag(LV1_CLEAR)) {
     LoadRoomEntityList(&gUnk_080FAFE4);
   }
   if ((gUnk_02002A40.windcrests & 0x1000000) == 0) {
     LoadRoomEntityList(&gUnk_080FB004);
   }
   if (GetInventoryValue(0x2)) {
-    SetGlobalFlag(0x56);
+    SetGlobalFlag(WHITE_SWORD_END);
   }
 }
 
