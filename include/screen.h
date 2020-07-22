@@ -70,6 +70,7 @@ typedef struct {
     BgControls controls;
 } Screen;
 
+extern BgControls gBgControls;
 extern Screen gScreen;
 
 #endif

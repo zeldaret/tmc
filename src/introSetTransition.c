@@ -7,7 +7,15 @@
 
 extern void (*const gUnk_081320F0[])();
 
-extern u8 gUnk_03000FD0;
+typedef struct {
+    u8 field_0x0;
+    u8 field_0x1;
+    u8 field_0x2;
+    u8 field_0x3;
+    u32 field_0x4;
+} struct_03000FD0;
+
+extern struct_03000FD0 gUnk_03000FD0;
 
 typedef struct {
     char header[4];
@@ -45,7 +53,7 @@ void sub_080AD380()
         gUnk_081320F0[gUnk_02032EC0.transitionType]();
         break;
       case 2:
-        if (gUnk_03000FD0 != 0) {
+        if (gUnk_03000FD0.field_0x0 != 0) {
           return;
         }
         sub_0801DA90(1);
@@ -90,17 +98,13 @@ void sub_080AD3F4(void)
   }
 }
 
-typedef struct {
-    u16 field_0x0;
-    u16 field_0x2;
-    u16 field_0x4[2];
-    u16 field_0x8;
-} struct_03001010;
+// typedef struct {
+//     u16 field_0x0[5];
+// } struct_03001010;
 
-extern struct_03001010 gUnk_03001010;
+extern u16 gUnk_03001010[5];
 
 extern u8 gUnk_02024490;
-extern u8 gUnk_03000FD0;
 
 void sub_080AD474(void)
 {
@@ -146,11 +150,11 @@ void sub_080AD474(void)
                 sub_080AD670();
             }
             sub_080A3210();
-            PlaySFX(3);
+            PlaySFX(3); //fanfare
             DoFade(6, 8);
             break;
         case 1:
-            if (gUnk_03000FD0 != 0) {
+            if (gUnk_03000FD0.field_0x0 != 0) {
                 return;
             }
             if (((struct_02000000*)0x2000000)->gameLanguage == 0) {
@@ -182,8 +186,8 @@ void sub_080AD474(void)
             }
             sub_080AD644();
             if ((gMenu.transitionTimer & 0x20) == 0) {
-                gUnk_03001010.field_0x8 = 0xe000;
-                gUnk_03001010.field_0x2 = 0x84;
+                gUnk_03001010[4] = 0xe000;
+                gUnk_03001010[1] = 0x84;
                 sub_080ADA14(0x1ff,0);
             }
     }
@@ -194,4 +198,68 @@ void sub_080AD474(void)
     sub_080AD89C();
     sub_0805E5C0();
     sub_080AD9B0();
+}
+
+void sub_080AD644(void) {
+
+    gUnk_03001010[2] = 0;
+    gUnk_03001010[3] = 0;
+    gUnk_03001010[4] = 57376;
+    gUnk_03001010[0] = 120;
+    gUnk_03001010[1] = 152;
+    sub_080ADA14(511, 1);
+    return;
+}
+
+void sub_080AD670(void)
+{
+    struct BgAffineSrcData aff;
+    aff.texY = 0x8000;
+    aff.texX = 0x8000;
+    aff.scrX = 0x78;
+    aff.scrY = 0x48;
+    aff.alpha = 0;
+    aff.sy = aff.sx = gMenu.field_0x2c;
+    BgAffineSet(&aff, (struct BgAffineDstData*)&gBgControls, 1);
+}
+
+void sub_080AD6AC(void)
+{
+    Entity *pEVar2;
+
+    switch (gMenu.overlayType) {
+        case 0:
+            if (gUnk_03000FD0.field_0x0 == 0) {
+                if ((gMenu.field_0x11 & 1) == 0) {
+                    gScreen.bg2.bg0Control++;
+                }
+
+                if ((sub_080AD84C() == 2) || (gScreen.bg2.bg0Control == 0)) {
+                    gMenu.overlayType++;
+                    gScreen.bg2.bg0Control = 0;
+                    gScreen.bg1.unk = 0xc09;
+                    gUnk_03000FD0.field_0x4 = 0x40;
+                    DoFade(6,0x10);
+                    PlaySFX(0xf8);
+                }
+            }
+            break;
+        case 1:
+            if (gUnk_03000FD0.field_0x0 == '\0') {
+                gUnk_03000FD0.field_0x4 = -1;
+                gMenu.overlayType++;
+                gMenu.transitionTimer = 0x5a;
+                pEVar2 = CreateObject(0xb4,0,0);
+                if (pEVar2 != NULL) {
+                    pEVar2->x.HALF.HI = 0;
+                    pEVar2->y.HALF.HI = 0x48;
+                }
+            }
+            break;
+        case 2:
+            if (sub_080AD84C()) {
+                gMenu.menuType++;
+                gMenu.transitionTimer = 0x3c;
+            }
+    }
 }
