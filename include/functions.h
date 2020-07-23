@@ -176,4 +176,11 @@ extern void sub_080A3B74(void);
 extern void sub_080A4054(void);
 extern void sub_0801C1D4(void);
 extern void sub_0801C208(void);
+extern void sub_080A4D34(void);
+extern u32 sub_080A4494(void);
+extern void sub_080A4528(void);
+extern void sub_080A4398(void);
+extern void sub_0801E738(u32);
+extern void sub_080A70AC(void*);
+extern void sub_080A7114(u32);
 #endif

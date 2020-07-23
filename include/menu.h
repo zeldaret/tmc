@@ -19,8 +19,10 @@ typedef struct {
 
 typedef struct {
     u8 field_0x0;
-    u16 field_0x1;
+    u8 field_0x1;
+    u8 field_0x2;
     u8 field_0x3;
+    u8 field_0x4;
     u8 menuType;
     u8 overlayType;
     u8 storyPanelIndex;

@@ -117,7 +117,7 @@ void sub_080AD474(void)
             gMenu.menuType = 1;
             gMenu.overlayType = 0;
             gMenu.transitionTimer = 0x1e;
-            gMenu.field_0x3 = 7;
+            gMenu.field_0x4 = 7;
             EraseAllEntities();
             sub_080ADD30(sub_0801CFA8(0));
             gUnk_02024490 = 1;
@@ -191,8 +191,8 @@ void sub_080AD474(void)
                 sub_080ADA14(0x1ff,0);
             }
     }
-    if (gMenu.field_0x3 != ((struct_02000000*)0x2000000)->gameLanguage) {
-        gMenu.field_0x3 = ((struct_02000000*)0x2000000)->gameLanguage;
+    if (gMenu.field_0x4 != ((struct_02000000*)0x2000000)->gameLanguage) {
+        gMenu.field_0x4 = ((struct_02000000*)0x2000000)->gameLanguage;
         sub_0801D7EC(3);
     }
     sub_080AD89C();
