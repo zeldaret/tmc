@@ -25,20 +25,6 @@ typedef struct {
     u8 unknown2[4];
 } BoundingBox;
 
-union SplitWord {
-    s32 WORD;
-    struct {
-        s16 LO, HI;
-    } HALF;
-};
-
-union SplitHWord {
-    u16 HWORD;
-    struct {
-        u8 LO, HI;
-    } PACKED HALF;
-} PACKED;
-
 typedef struct Entity {
     /*0x00*/ u32* field_0x0;
     /*0x04*/ u32* field_0x4;

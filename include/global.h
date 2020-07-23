@@ -59,4 +59,18 @@ struct UCoords16
     u16 y;
 };
 
+union SplitWord {
+    s32 WORD;
+    struct {
+        s16 LO, HI;
+    } HALF;
+};
+
+union SplitHWord {
+    u16 HWORD;
+    struct {
+        u8 LO, HI;
+    } PACKED HALF;
+} PACKED;
+
 #endif // GUARD_GLOBAL_H
