@@ -832,7 +832,7 @@ SECTIONS {
 		src/object/fan.o(.text);
 		asm/fan.o(.text);
 		asm/objectA0.o(.text);
-		asm/palaceArchway.o(.text);
+		src/object/palaceArchway.o(.text);
 		asm/objectA2.o(.text);
 		src/object/cloud.o(.text);
 		asm/minishLight.o(.text);
@@ -878,7 +878,7 @@ SECTIONS {
 		asm/code_080A29BC.o(.text);
 		asm/playSFX.o(.text);
 		asm/code_080A3480.o(.text);
-		asm/drawKinstoneMenu.o(.text);
+		src/sub_080A3B84.o(.text);
 		asm/code_080A3BD0.o(.text);
 		src/sub_080A554C.o(.text);
 		asm/code_080A5574.o(.text);
