@@ -586,6 +586,7 @@ SECTIONS {
 		src/npc/bladeBrothers.o(.text);
 		src/npc/cow.o(.text);
 		src/npc/goron.o(.text);
+		src/npc/goronMerchant.o(.text);
 		asm/goronMerchant.o(.text);
 		asm/gorman.o(.text);
 		asm/dog.o(.text);
@@ -596,6 +597,7 @@ SECTIONS {
 		src/npc/townMinish.o(.text);
 		asm/townMinish.o(.text);
 		src/npc/librari.o(.text);
+		src/npc/percy.o(.text);
 		asm/percy.o(.text);
 		asm/vaatiReborn.o(.text);
 		src/npc/moblinLady.o(.text);

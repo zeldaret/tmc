@@ -36,7 +36,9 @@ typedef struct {
 typedef struct {
 	u8 filler[6];
 	u8 itemForSaleIndex;
-	u16 unk;
+	u8 field_0x7;
+    u8 field_0x8;
+    u8 field_0x9;
 	u8 unk2;
 	u16 filler2[3];
 	u32 roomFlags;

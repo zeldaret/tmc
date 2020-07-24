@@ -14,6 +14,9 @@ typedef struct {
     u8 textWindowPosY;
     u16 textIndex;
     u16 unk2; // HI?
+    u16 field_0xc;
+    u16 field_0xe;
+    u32 field_0x10;
 } TextBox;
 
 extern TextBox gTextBox;
