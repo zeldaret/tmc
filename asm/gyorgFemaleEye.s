@@ -391,7 +391,7 @@ _08048C6C:
 	bl InitializeAnimation
 	adds r0, r4, #0
 	movs r1, #7
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	adds r1, r6, #0
 	ldrb r4, [r4, #0xa]
 	lsls r1, r4
@@ -419,7 +419,7 @@ _08048CBC:
 	movs r1, #0x1c
 	ands r1, r0
 	adds r0, r4, #0
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 _08048CE4:
 	adds r0, r4, #0
 	bl GetNextFrame

@@ -19,14 +19,14 @@ void sub_080A0EB0(Entity* ent) {
 
     ent->action = 1;
     tilePos = COORD_TO_TILE(ent);
-    ent->field_0x80 = tilePos;
-    SetTile(16509, ent->field_0x80, 1);
+    ent->field_0x80.HWORD = tilePos;
+    SetTile(16509, ent->field_0x80.HWORD, 1);
 }
 
 void sub_080A0EF0(Entity* ent) {
     s32 tileIndex;
 
-    tileIndex = GetTileType(ent->field_0x80, 1);
+    tileIndex = GetTileType(ent->field_0x80.HWORD, 1);
     if (tileIndex != 0x407D) {
         sub_08078B48();
         gLinkEntity.x.WORD = ent->x.WORD;

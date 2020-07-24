@@ -211,7 +211,7 @@ sub_0802F284: @ 0x0802F284
 	bls _0802F298
 	adds r0, r4, #0
 	movs r1, #2
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	b _0802F29E
 _0802F298:
 	adds r0, r4, #0

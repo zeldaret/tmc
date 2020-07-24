@@ -44,7 +44,7 @@ void sub_0802A84C(Entity* this) {
 }
 
 void sub_0802A8AC(Entity *this) {
-    *((u8 *)&this->field_0x80 + 1) = 0;
+    this->field_0x80.HALF.HI = 0;
     if (this->entityType.form < 2) {
         InitializeAnimation(this, 0);
     }

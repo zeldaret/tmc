@@ -94,7 +94,7 @@ extern Entity gLinkEntity;
 
 extern u32 GetInventoryValue(u32);
 extern s32 ModHealth(s32);
-
+extern void ModRupees(s32);
 #endif
 
 // clang-format on

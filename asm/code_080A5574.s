@@ -9785,7 +9785,7 @@ _080AA052:
 _080AA05E:
 	ldrh r0, [r5, #0x12]
 	ldrb r1, [r5, #0x1e]
-	bl sub_080700C8
+	bl GetSpriteSubEntryOffsetDataPointer
 	adds r3, r0, #0
 	ldrb r1, [r5, #0x14]
 	movs r0, #4
@@ -9989,7 +9989,7 @@ _080AA1EC:
 	bne _080AA26C
 	ldrh r0, [r4, #0x12]
 	ldrb r1, [r4, #0x1e]
-	bl sub_080700C8
+	bl GetSpriteSubEntryOffsetDataPointer
 	adds r3, r0, #0
 	ldrb r1, [r4, #0x14]
 	movs r0, #4

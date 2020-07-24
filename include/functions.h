@@ -34,6 +34,11 @@ extern void EraseAllEntities(void);
 extern void SetTile(u32, u32, u32);
 extern void SetDirtTile(u32);
 extern void LoadRoomTileEntities(); //tba
+extern Entity* CreateDeathFx(Entity*, u32, u32);
+extern void UpdateAnimationVariableFrames(Entity*, u32);
+extern void CopyPositionAndSpriteOffset(Entity*, Entity*);
+extern u8* GetSpriteSubEntryOffsetDataPointer(u32, u32);
+extern u32 LoadFixedGFX(Entity*, u32);
 
 // Unidentified
 extern void sub_0806ED78(Entity*);
@@ -183,4 +188,14 @@ extern void sub_080A4398(void);
 extern void sub_0801E738(u32);
 extern void sub_080A70AC(void*);
 extern void sub_080A7114(u32);
+extern void sub_08001242(void);
+extern void sub_08003FC4(Entity*, u32);
+extern u8 sub_080043E8(Entity*);
+extern void sub_08001290(Entity*, u32);
+extern void sub_08004488(u32);
+extern void sub_08004596(Entity*, u32);
+extern u32 sub_0807953C(void);
+extern void sub_08077B2C(void);
+extern void sub_080A29BC(Entity*);
+extern void sub_080AE068(Entity*);
 #endif

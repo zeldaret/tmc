@@ -412,7 +412,7 @@ sub_0802805C: @ 0x0802805C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r1, #2
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	bl sub_0807953C
 	cmp r0, #0
 	beq _0802807E
@@ -454,7 +454,7 @@ _0802809C:
 	bl PositionRelative
 	ldrh r0, [r5, #0x12]
 	ldrb r1, [r5, #0x1e]
-	bl sub_080700C8
+	bl GetSpriteSubEntryOffsetDataPointer
 	ldrb r1, [r0]
 	adds r2, r4, #0
 	adds r2, #0x62

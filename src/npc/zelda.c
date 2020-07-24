@@ -109,27 +109,27 @@ void sub_08066DE4(Entity* ent) {
 
 void sub_08066E08(Entity* ent) {
     InitAnimationForceUpdate(ent, 0x50);
-    ent->field_0x80 = ent->animIndex;
+    ent->field_0x80.HWORD = ent->animIndex;
 }
 
 void sub_08066E20(Entity* ent) {
     InitAnimationForceUpdate(ent, 0x44);
-    ent->field_0x80 = ent->animIndex;
+    ent->field_0x80.HWORD = ent->animIndex;
 }
 
 void sub_08066E38(Entity* ent) {
     InitAnimationForceUpdate(ent, 0x48);
-    ent->field_0x80 = ent->animIndex;
+    ent->field_0x80.HWORD = ent->animIndex;
 }
 
 void sub_08066E50(Entity* ent) {
     InitAnimationForceUpdate(ent, 0x4C);
-    ent->field_0x80 = ent->animIndex;
+    ent->field_0x80.HWORD = ent->animIndex;
 }
 
 void sub_08066E68(Entity* ent) {
     InitAnimationForceUpdate(ent, 0x54);
-    ent->field_0x80 = ent->animIndex;
+    ent->field_0x80.HWORD = ent->animIndex;
 }
 
 void sub_08066E80(Entity* ent, u8* param_2) {
@@ -172,7 +172,7 @@ void sub_08066E80(Entity* ent, u8* param_2) {
                 return;
             }
     }
-    ent->field_0x80 = ent->animIndex;
+    ent->field_0x80.HWORD = ent->animIndex;
     gUnk_02033280[6] = 0;
 }
 

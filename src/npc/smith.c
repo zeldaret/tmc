@@ -157,8 +157,8 @@ void sub_080661BC(Entity *this)
   if (this->animIndex == 0xc) {
     UpdateAnimationSingleFrame(this);
     if ((this->frames.b.f3) != 0) {
-      this->field_0x80 = GetAnimationState(this) + 8;
-      InitAnimationForceUpdate(this, this->field_0x80);
+      this->field_0x80.HWORD = GetAnimationState(this) + 8;
+      InitAnimationForceUpdate(this, this->field_0x80.HWORD);
     }
   }
   else {

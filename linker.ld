@@ -345,7 +345,7 @@ SECTIONS {
 		asm/likeLike.o(.text);
 		asm/spearMoblin.o(.text);
 		asm/businessScrub.o(.text);
-		asm/rupeeLike.o(.text);
+		src/enemy/rupeeLike.o(.text);
 		asm/madderpillar.o(.text);
 		asm/waterDrop.o(.text);
 		asm/wallMaster.o(.text);
@@ -385,6 +385,7 @@ SECTIONS {
 		asm/flyingPot.o(.text);
 		asm/gibdo.o(.text);
 		asm/octorokGolden.o(.text);
+		src/enemy/tektiteGolden.o(.text);
 		asm/tektiteGolden.o(.text);
 		asm/ropeGolden.o(.text);
 		asm/cloudPiranha.o(.text);

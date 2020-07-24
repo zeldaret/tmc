@@ -133,7 +133,7 @@ _08037D1C:
 _08037D26:
 	adds r0, r4, #0
 	movs r1, #2
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	adds r0, r4, #0
 	bl sub_080AEF88
 	cmp r0, #0
@@ -158,7 +158,7 @@ sub_08037D54: @ 0x08037D54
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	adds r2, r4, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]

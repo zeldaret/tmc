@@ -59,7 +59,13 @@ typedef struct Entity {
     /*    */     u8 b2         : 2; //0x10
     /*    */     u8 b3         : 2; //0x40
     /*    */ } PACKED spriteRendering;
-    /*0x1a*/ u8 palette;
+    /*0x1a*/ union {
+    /*    */    u8 raw;
+    /*    */    struct {
+    /*    */        u8 b0 : 4;
+    /*    */        u8 b4 : 4;
+    /*    */    } PACKED b;
+    /*    */} PACKED palette;
     /*0x1b*/ struct {
     /*    */     u8 b0    : 4;
     /*    */     u8 flipX : 2; //0x10
@@ -132,8 +138,8 @@ typedef struct Entity {
     /*0x78*/ union SplitHWord field_0x78;
     /*0x7a*/ u16 field_0x7a;
     /*0x7c*/ union SplitWord field_0x7c;
-    /*0x80*/ u16 field_0x80;
-    /*0x82*/ u16 field_0x82;
+    /*0x80*/ union SplitHWord field_0x80;
+    /*0x82*/ union SplitHWord field_0x82;
     /*0x84*/ union SplitHWord cutsceneBeh;
     /*0x86*/ u16 field_0x86;
 } Entity;

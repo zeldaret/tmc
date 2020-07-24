@@ -671,7 +671,7 @@ SetSpriteSubEntryOffsetData1: @ 0x0806FF88
 	adds r4, r4, r2
 	ldrh r0, [r5, #2]
 	ldrb r1, [r5, #1]
-	bl sub_080700C8
+	bl GetSpriteSubEntryOffsetDataPointer
 	ldrb r1, [r5, #6]
 	ldrb r2, [r0]
 	adds r1, r1, r2
@@ -715,7 +715,7 @@ SetSpriteSubEntryOffsetData2: @ 0x0806FFD8
 	adds r4, r4, r2
 	ldrh r0, [r5, #2]
 	ldrb r1, [r5, #1]
-	bl sub_080700C8
+	bl GetSpriteSubEntryOffsetDataPointer
 	ldrb r1, [r5, #6]
 	ldrb r2, [r0, #2]
 	adds r1, r1, r2
@@ -826,8 +826,8 @@ _080700C4:
 _080700C6:
 	pop {pc}
 
-	thumb_func_start sub_080700C8
-sub_080700C8: @ 0x080700C8
+	thumb_func_start GetSpriteSubEntryOffsetDataPointer
+GetSpriteSubEntryOffsetDataPointer: @ 0x080700C8
 	lsls r0, r0, #1
 	ldr r2, _080700E4 @ =gUnk_089FB780
 	adds r0, r0, r2

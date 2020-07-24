@@ -63,7 +63,7 @@ void sub_08069428(Entity* this, s32 offsetX, bool32 createFx65);
 void sub_080693D0(Entity* this) {
     sub_0807DD94(this, 0);
     if (this->animIndex == 8) {
-        u32 var0 = this->field_0x82 & 0xF;
+        u32 var0 = this->field_0x82.HWORD & 0xF;
         bool32 createFx65 = ((-var0) | var0) >> 0x1F; // = !var0
 
         if (this->frames.all == 1) {
@@ -121,7 +121,7 @@ void sub_080694EC(Entity* this) {
     anim = 2;
     if (!CheckKinstoneFused(47)) anim = 8;
     InitAnimationForceUpdate(this, anim);
-    this->field_0x80 = anim;
+    this->field_0x80.HWORD = anim;
 }
 
 void Goron_Fusion(Entity* this) {
