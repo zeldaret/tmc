@@ -595,7 +595,7 @@ SECTIONS {
 		asm/rem.o(.text);
 		src/npc/townMinish.o(.text);
 		asm/townMinish.o(.text);
-		asm/librari.o(.text);
+		src/npc/librari.o(.text);
 		asm/percy.o(.text);
 		asm/vaatiReborn.o(.text);
 		src/npc/moblinLady.o(.text);
