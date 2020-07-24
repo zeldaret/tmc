@@ -238,7 +238,7 @@ sub_0802BD10: @ 0x0802BD10
 	ands r1, r2
 	strb r1, [r0, #0x10]
 	movs r1, #2
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	pop {pc}
 	.align 2, 0
 
@@ -380,7 +380,7 @@ sub_0802BE18: @ 0x0802BE18
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
 	strb r0, [r4, #0xe]

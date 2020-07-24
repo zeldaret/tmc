@@ -150,7 +150,7 @@ _080382B8: .4byte gLinkEntity
 _080382BC:
 	adds r0, r4, #0
 	movs r1, #2
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	adds r0, r4, #0
 	bl sub_080AEF88
 	cmp r0, #0
@@ -192,7 +192,7 @@ sub_08038304: @ 0x08038304
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	movs r1, #2
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	adds r0, r4, #0
 	bl sub_080AEF88
 	cmp r0, #0

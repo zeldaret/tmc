@@ -30,15 +30,15 @@ extern u32 gRoomFlags;
 
 enum {
     NONE,
-    /*0x01*/ LV0_CLEAR,           /* Simulation Lv. 0            */
-    /*0x02*/ LV1_CLEAR,           /* Simulation Lv. 1            */
-    /*0x03*/ LV2_CLEAR,           /* Simulation Lv. 2            */
-    /*0x04*/ LV3_CLEAR,           /* Simulation Lv. 3            */
-    /*0x05*/ LV4_CLEAR,           /* Simulation Lv. 4            */
-    /*0x06*/ LV5_CLEAR,           /* Simulation Lv. 5            */
-    /*0x07*/ LV6_CLEAR,           /* Simulation Lv. 6            */
-    /*0x08*/ LV7_CLEAR,           /* Simulation Lv. 7            */
-    /*0x09*/ LV8_CLEAR,           /* Simulation Lv. 8            */
+    /*0x01*/ LV0_CLEAR,           /*                             */
+    /*0x02*/ LV1_CLEAR,           /*                             */
+    /*0x03*/ LV2_CLEAR,           /*                             */
+    /*0x04*/ LV3_CLEAR,           /*                             */
+    /*0x05*/ LV4_CLEAR,           /*                             */
+    /*0x06*/ LV5_CLEAR,           /*                             */
+    /*0x07*/ LV6_CLEAR,           /*                             */
+    /*0x08*/ LV7_CLEAR,           /*                             */
+    /*0x09*/ LV8_CLEAR,           /*                             */
     /*0x0a*/ MACHI_SET_1,         /* Defeated Big Green Chuchu   */
     /*0x0b*/ MACHI_SET_2,         /* Defeated Gleerok            */
     /*0x0c*/ MACHI_SET_3,         /*                             */

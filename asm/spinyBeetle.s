@@ -662,7 +662,7 @@ sub_08033C94: @ 0x08033C94
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #3
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	adds r1, r4, #0
 	adds r1, #0x79
 	ldrb r0, [r1]

@@ -345,7 +345,7 @@ SECTIONS {
 		asm/likeLike.o(.text);
 		asm/spearMoblin.o(.text);
 		asm/businessScrub.o(.text);
-		asm/rupeeLike.o(.text);
+		src/enemy/rupeeLike.o(.text);
 		asm/madderpillar.o(.text);
 		asm/waterDrop.o(.text);
 		asm/wallMaster.o(.text);
@@ -385,6 +385,7 @@ SECTIONS {
 		asm/flyingPot.o(.text);
 		asm/gibdo.o(.text);
 		asm/octorokGolden.o(.text);
+		src/enemy/tektiteGolden.o(.text);
 		asm/tektiteGolden.o(.text);
 		asm/ropeGolden.o(.text);
 		asm/cloudPiranha.o(.text);
@@ -832,7 +833,7 @@ SECTIONS {
 		src/object/fan.o(.text);
 		asm/fan.o(.text);
 		asm/objectA0.o(.text);
-		asm/palaceArchway.o(.text);
+		src/object/palaceArchway.o(.text);
 		asm/objectA2.o(.text);
 		src/object/cloud.o(.text);
 		asm/minishLight.o(.text);
@@ -878,17 +879,11 @@ SECTIONS {
 		asm/code_080A29BC.o(.text);
 		asm/playSFX.o(.text);
 		asm/code_080A3480.o(.text);
-		asm/drawKinstoneMenu.o(.text);
+		src/sub_080A3B84.o(.text);
 		asm/code_080A3BD0.o(.text);
 		src/sub_080A554C.o(.text);
 		asm/code_080A5574.o(.text);
 		src/introSetTransition.o(.text);
-		asm/sub_080AD380.o(.text);
-		asm/sub_080AD3F4.o(.text);
-		asm/sub_080AD474.o(.text);
-		src/sub_080AD644.o(.text);
-		asm/sub_080AD670.o(.text);
-		asm/sub_080AD6Ac.o(.text);
 		asm/sub_080AD76C.o(.text);
 		src/sub_080AD834.o(.text);
 		asm/sub_080AD84C.o(.text);

@@ -2269,7 +2269,7 @@ _08095BAC:
 	strb r0, [r5, #0x18]
 	ldrh r0, [r2, #0x12]
 	ldrb r1, [r2, #0x1e]
-	bl sub_080700C8
+	bl GetSpriteSubEntryOffsetDataPointer
 	ldrb r1, [r0]
 	adds r2, r5, #0
 	adds r2, #0x62

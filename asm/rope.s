@@ -324,7 +324,7 @@ sub_080315BC: @ 0x080315BC
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #2
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	b _080315FC
 _080315D4:
 	adds r0, r4, #0

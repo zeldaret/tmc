@@ -256,7 +256,7 @@ _080A273C:
 	bl PositionEntityOnTop
 	ldrh r0, [r4, #0x12]
 	ldrb r1, [r4, #0x1e]
-	bl sub_080700C8
+	bl GetSpriteSubEntryOffsetDataPointer
 	ldrb r1, [r0]
 	adds r2, r5, #0
 	adds r2, #0x62

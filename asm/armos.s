@@ -237,7 +237,7 @@ sub_08030338: @ 0x08030338
 _0803034C:
 	adds r0, r4, #0
 	movs r1, #3
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldr r0, [r0]

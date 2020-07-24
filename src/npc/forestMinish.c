@@ -90,9 +90,9 @@ void sub_080600F0(Entity* this) {
     u32 uVar1;
     u32 uVar2;
 
-    uVar2 = this->field_0x80;
-    if (this->field_0x80 < 8) {
-        if ((this->field_0x82 & 1) != 0) {
+    uVar2 = this->field_0x80.HWORD;
+    if (this->field_0x80.HWORD < 8) {
+        if ((this->field_0x82.HWORD & 1) != 0) {
             uVar2 = (uVar2 & 0xfc) + (this->field_0xf >> 1);
         } else {
             uVar2 = (uVar2 & 0xfc) + (this->animationState >> 1);
@@ -102,7 +102,7 @@ void sub_080600F0(Entity* this) {
     if (uVar2 != this->animIndex) {
         InitAnimationForceUpdate(this, uVar2);
     }
-    if ((this->field_0x82 & 4) != 0) {
+    if ((this->field_0x82.HWORD & 4) != 0) {
         uVar1 = 2;
     } else {
         uVar1 = 1;

@@ -41,7 +41,7 @@ void sub_0806A1F8(Entity *this)
 void sub_0806A234(Entity *this)
 {
     sub_0807DD94(this, 0);
-    if ((this->field_0x82 & 4) != 0) {
+    if ((this->field_0x82.HWORD & 4) != 0) {
         if ((gUnk_030010A0 & 7) == 0) {
             sub_0806A26C(this);
         }

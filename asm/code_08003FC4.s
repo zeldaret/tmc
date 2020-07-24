@@ -431,8 +431,8 @@ InitializeAnimation: @ 0x08004260
 GetNextFrame: @ 0x08004274
 	movs r1, #1
 
-	non_word_aligned_thumb_func_start InitializeAnimationAnimation
-InitializeAnimationAnimation: @ 0x08004276
+	non_word_aligned_thumb_func_start UpdateAnimationVariableFrames
+UpdateAnimationVariableFrames: @ 0x08004276
 	movs r3, #0x59
 	ldrb r2, [r0, r3]
 	subs r2, r2, r1
@@ -478,7 +478,7 @@ UpdateAnimationSingleFrame: @ 0x080042B8
 	non_word_aligned_thumb_func_start sub_080042BA
 sub_080042BA: @ 0x080042BA
 	push {lr}
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 _080042C0:
 	pop {r1}
 	mov lr, r1
