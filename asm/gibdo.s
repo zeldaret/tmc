@@ -328,7 +328,7 @@ sub_080376D0: @ 0x080376D0
 	bl sub_080379EC
 	cmp r0, #0
 	bne _0803773A
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r2, _08037724 @ =gLinkState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80

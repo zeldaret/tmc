@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_08077B2C
-sub_08077B2C: @ 0x08077B2C
+	thumb_func_start ResetLink
+ResetLink: @ 0x08077B2C
 	push {r4, r5, lr}
 	movs r4, #0
 	ldr r5, _08077B88 @ =gUnk_03000B80

@@ -6,65 +6,6 @@
 
 	.text
 
-
-	thumb_func_start Percy
-Percy: @ 0x0806B3AC
-	push {lr}
-	adds r2, r0, #0
-	ldrb r1, [r2, #0x10]
-	movs r0, #2
-	ands r0, r1
-	cmp r0, #0
-	beq _0806B3C2
-	adds r0, r2, #0
-	bl sub_0806B41C
-	b _0806B3C8
-_0806B3C2:
-	adds r0, r2, #0
-	bl sub_0806B3CC
-_0806B3C8:
-	pop {pc}
-	.align 2, 0
-
-	thumb_func_start sub_0806B3CC
-sub_0806B3CC: @ 0x0806B3CC
-	push {r4, lr}
-	adds r4, r0, #0
-	ldrb r0, [r4, #0xc]
-	cmp r0, #0
-	bne _0806B3F4
-	ldr r1, _0806B418 @ =gUnk_08112E1C
-	adds r0, r4, #0
-	bl LoadExtraSpriteData
-	cmp r0, #0
-	beq _0806B414
-	movs r0, #1
-	strb r0, [r4, #0xc]
-	adds r0, r4, #0
-	movs r1, #0
-	bl InitializeAnimation
-	adds r0, r4, #0
-	bl sub_08078778
-_0806B3F4:
-	adds r0, r4, #0
-	bl GetNextFrame
-	adds r1, r4, #0
-	adds r1, #0x39
-	movs r0, #0
-	ldrsb r0, [r1, r0]
-	cmp r0, #0
-	beq _0806B40E
-	movs r0, #0
-	strb r0, [r1]
-	bl TextboxNoOverlapFollow
-_0806B40E:
-	adds r0, r4, #0
-	bl sub_0806ED78
-_0806B414:
-	pop {r4, pc}
-	.align 2, 0
-_0806B418: .4byte gUnk_08112E1C
-
 	thumb_func_start sub_0806B41C
 sub_0806B41C: @ 0x0806B41C
 	push {r4, lr}

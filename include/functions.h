@@ -195,7 +195,13 @@ extern void sub_08001290(Entity*, u32);
 extern void sub_08004488(u32);
 extern void sub_08004596(Entity*, u32);
 extern u32 sub_0807953C(void);
-extern void sub_08077B2C(void);
+extern void ResetLink(void);
 extern void sub_080A29BC(Entity*);
 extern void sub_080AE068(Entity*);
+extern Entity* sub_0805E8D4(void);
+extern void sub_0805EA2C(Entity*, u32);
+extern u32 sub_0800445C(Entity*);
+extern void sub_0807A108(void);
+extern void sub_0801766C(Entity*);
+extern void sub_08004168(Entity*);
 #endif

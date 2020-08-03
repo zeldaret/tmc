@@ -123,7 +123,7 @@ _080732B8:
 	movs r0, #0
 	str r0, [r1, #0x30]
 	bl sub_0807A108
-	bl sub_08077B2C
+	bl ResetLink
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080732CC: .4byte gRoomControls
