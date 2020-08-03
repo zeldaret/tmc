@@ -1,9 +1,9 @@
-struct Input {
-    u16 unk0;
-    u16 unk1;
-    u16 unk2;
-    u8 unk3;
-    u8 unk4;
-};
+typedef struct {
+    u16 heldKeys;
+    u16 newKeys;
+    u16 unk4;
+    u8 unk6;
+    u8 unk7;
+} Input;
 
-// void ReadKeyInput(void);
+extern Input gUnk_03000FF0;

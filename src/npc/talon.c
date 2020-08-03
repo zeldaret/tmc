@@ -64,15 +64,15 @@ void sub_08065608(Entity* this) {
     if (LoadExtraSpriteData(this, &gUnk_0810FEB0) != 0) {
         this->action = 1;
         this->spriteSettings.b.draw = 1;
-        this->field_0x68 = sub_0801E99C(this);
-        sub_08078784(this, this->field_0x68);
+        this->field_0x68.HALF.LO = sub_0801E99C(this);
+        sub_08078784(this, this->field_0x68.HALF.LO);
         sub_0807DD50(this);
     }
 }
 
 void sub_08065648(Entity* this) {
     if (this->interactType == 2) {
-        this->field_0x69 = this->action;
+        this->field_0x68.HALF.HI = this->action;
         this->action = 4;
         this->interactType = 0;
         sub_0806F118(this);
@@ -83,14 +83,14 @@ void sub_08065648(Entity* this) {
 
 void sub_08065680(Entity* this) {
     if (UpdateFuseInteraction() != 0) {
-        this->action = this->field_0x69;
+        this->action = this->field_0x68.HALF.HI;
         InitAnimationForceUpdate(this, this->field_0x6a.HALF.LO);
     }
 }
 
 void sub_080656A4(Entity* this) {
     if ((gTextBox.doTextBox & 0x7F) == 0) {
-        this->action = this->field_0x69;
+        this->action = this->field_0x68.HALF.HI;
         InitAnimationForceUpdate(this, this->field_0x6a.HALF.LO);
     }
     UpdateAnimationSingleFrame(this);
@@ -98,7 +98,7 @@ void sub_080656A4(Entity* this) {
 
 void sub_080656D4(Entity* this) {
     if (this->interactType == 2) {
-        this->field_0x69 = this->action;
+        this->field_0x68.HALF.HI = this->action;
         this->action = 4;
         this->interactType = 0;
         sub_0806F118(this);
@@ -109,7 +109,7 @@ void sub_080656D4(Entity* this) {
                 StartCutscene(this, &gUnk_0800B41C);
                 goto label2;
             } else {
-                this->field_0x69 = this->action;
+                this->field_0x68.HALF.HI = this->action;
                 this->action = 3;
                 this->interactType = 0;
                 TextboxNoOverlap(*(u32*)(*(u32*)&this->cutsceneBeh.HWORD + 4), this);

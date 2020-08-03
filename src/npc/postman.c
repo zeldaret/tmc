@@ -125,11 +125,11 @@ void sub_08060528(Entity *this)
         case 0:
             this->action = 1;
             this->spriteSettings.b.draw = TRUE;
-            this->field_0x68 = 0;
-            this->field_0x69 = 0;
+            this->field_0x68.HALF.LO = 0;
+            this->field_0x68.HALF.HI = 0;
             this->field_0x6a.HWORD = 0;
-            this->field_0x6d = 0;
-            this->field_0x6c = sub_0801E99C(this);
+            this->field_0x6c.HALF.HI = 0;
+            this->field_0x6c.HALF.LO = sub_0801E99C(this);
             sub_0807DD50(this);
             break;
         case 1:
@@ -170,7 +170,7 @@ void sub_08060528(Entity *this)
     if ((s16)this->field_0x6a.HWORD > 0x12b) {
       this->field_0x6a.HWORD = 0;
       this->field_0x20 = 0x20000;
-      this->field_0x6d = 1;
+      this->field_0x6c.HALF.HI = 1;
       sub_080788E0(this);
       sub_08004488(0x7c);
     }
@@ -179,8 +179,8 @@ void sub_08060528(Entity *this)
     }
   }
   sub_08003FC4(this, 0x1800);
-  if (((this->field_0x6d != 0) && (this->field_0x20 == 0)) && this->height.WORD == 0) {
-    this->field_0x6d = 0;
+  if (((this->field_0x6c.HALF.HI != 0) && (this->field_0x20 == 0)) && this->height.WORD == 0) {
+    this->field_0x6c.HALF.HI = 0;
     sub_080606C0(this);
   }
   if ((-1 < this->height.WORD) &&
@@ -192,15 +192,15 @@ void sub_08060528(Entity *this)
 
 void sub_080606C0(Entity *this)
 {
-  this->field_0x6c = sub_0801E99C(this);
-  sub_08078784(this, this->field_0x6c);
+  this->field_0x6c.HALF.LO = sub_0801E99C(this);
+  sub_08078784(this, this->field_0x6c.HALF.LO);
 }
 
 void sub_080606D8(Entity* this)
 {
   s32 iVar1;
   
-  iVar1 = gUnk_02002A40.unk - 2;
+  iVar1 = gUnk_02002A40.unk8 - 2;
   if (iVar1 < 0) {
     iVar1 = 0;
   }
@@ -211,8 +211,8 @@ void sub_080606D8(Entity* this)
 void sub_08060700(Entity *arg0, u32 arg1)
 {
   sub_0807DEDC(arg0,arg1,
-               gUnk_0810A918[gUnk_0810A66C[arg0->field_0x69][arg0->field_0x68] * 4 + gRoomControls.roomOriginX],
-              gUnk_0810A918[gUnk_0810A66C[arg0->field_0x69][arg0->field_0x68] * 4 + gRoomControls.roomOriginY + 2]);
+               gUnk_0810A918[gUnk_0810A66C[arg0->field_0x68.HALF.HI][arg0->field_0x68.HALF.LO] * 4 + gRoomControls.roomOriginX],
+              gUnk_0810A918[gUnk_0810A66C[arg0->field_0x68.HALF.HI][arg0->field_0x68.HALF.LO] * 4 + gRoomControls.roomOriginY + 2]);
   gUnk_02033280.unk |= 1;
 }
 #endif
@@ -222,6 +222,6 @@ NAKED void sub_08060700(Entity *arg0, u32 arg1) {
 
 void sub_0806075C(Entity *this)
 {
-  this->field_0x68 = 0xb;
-  this->field_0x69 = 0xff;
+  this->field_0x68.HALF.LO = 0xb;
+  this->field_0x68.HALF.HI = 0xff;
 }

@@ -459,23 +459,16 @@ void sub_08087294(Entity* this) {
     gUnk_081207A4[this->action](this);
 }
 
-#ifdef NON_MATCHING
 void sub_080872AC(Entity* this) {
     this->spriteSettings.b.draw = 1;
     this->spriteOrientation.flipY = 1;
-    this->spriteRendering.b0 = 0;
-    this->field_0x68 = (u16)(this->x).HALF.HI;
-    this->field_0x6a = (u16)(this->y).HALF.HI;
+    this->spriteRendering.b3 = 0;
+    this->field_0x68.HWORD = this->x.HALF.HI;
+    this->field_0x6a.HWORD = this->y.HALF.HI;
     this->direction = (u8)Random() & 0x1F;
     this->nonPlanarMovement = 32;
     GreatFairy_InitializeAnimation(this);
 }
-#else
-NAKED
-void sub_080872AC(Entity* this) {
-    asm(".include \"asm/greatFairy/sub_080872AC.inc\"");
-}
-#endif
 
 //clang-format off
 void (*const GreatFairy_Main[])(Entity*) = {

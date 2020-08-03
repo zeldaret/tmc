@@ -83,7 +83,7 @@ void* sub_08077C54(UnkItemStruct* unk)
     item->entityType.type = 8;
     item->flags = 0xa0;
     item->parent = (Entity*)unk;
-    item->field_0x68 = unk->field_0x1;
+    item->field_0x68.HALF.LO = unk->field_0x1;
     sub_0805EA2C(item, 2);
   }
   return item;
@@ -111,7 +111,7 @@ Entity * CreatePlayerItem(u32 subtype, u32 form, u32 parameter, u32 unk)
     (ent->entityType).subtype = subtype;
     (ent->entityType).form = form;
     (ent->entityType).parameter = parameter;
-    ent->field_0x68 = unk;
+    ent->field_0x68.HALF.LO = unk;
     sub_0805EA2C(ent, 2);
   }
   return ent;
@@ -128,7 +128,7 @@ Entity * sub_08077CF8(u32 subtype, u32 form, u32 parameter, u32 unk)
     (ent->entityType).subtype = subtype;
     (ent->entityType).form = form;
     (ent->entityType).parameter = parameter;
-    ent->field_0x68 = unk;
+    ent->field_0x68.HALF.LO = unk;
     sub_0805EA2C(ent, 2);
   }
   return ent;

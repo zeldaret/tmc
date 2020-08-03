@@ -27,7 +27,7 @@ typedef struct {
 
 typedef struct Entity {
     /*0x00*/ u32* field_0x0;
-    /*0x04*/ u32* field_0x4;
+    /*0x04*/ struct Entity* field_0x4;
     /*0x08*/ EntityType entityType;
     /*0x0c*/ u8 action;
     /*0x0d*/ u8 previousActionFlag;
@@ -124,13 +124,11 @@ typedef struct Entity {
     /*0x5c*/ Frame* animPtr;
     /*0x60*/ u16 spriteVramOffset;
     /*0x62*/ u8 spriteOffsetX;
-    /*0x64*/ u8 spriteOffsetY;
+    /*0x63*/ u8 spriteOffsetY;
     /*0x64*/ u32* otherEntity;
-    /*0x68*/ u8 field_0x68;
-    /*0x69*/ u8 field_0x69;
+    /*0x68*/ union SplitHWord field_0x68;
     /*0x6a*/ union SplitHWord field_0x6a;
-    /*0x6c*/ u8 field_0x6c;
-    /*0x6d*/ u8 field_0x6d;
+    /*0x6c*/ union SplitHWord field_0x6c;
     /*0x6e*/ u8 filler4[2];
     /*0x70*/ union SplitWord field_0x70;
     /*0x74*/ u16 field_0x74;
@@ -171,4 +169,7 @@ extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
 extern u32 GetFacingDirection(Entity*, Entity*);
 
 extern void DeleteThisEntity();
+
+extern Entity gUnk_03003DA0;
+
 #endif

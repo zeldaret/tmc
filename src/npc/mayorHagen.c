@@ -28,8 +28,8 @@ void MayorHagen(Entity *this)
     switch (this->action) {
         case 0:
                 this->action = 1;
-                this->field_0x69 = 0;
-                this->field_0x68 = sub_0801E99C(this);
+                this->field_0x68.HALF.HI = 0;
+                this->field_0x68.HALF.LO = sub_0801E99C(this);
                 sub_0805E3A0(this, 2);
                 sub_0807DD50(this);
             break;
@@ -38,7 +38,7 @@ void MayorHagen(Entity *this)
             if (v == 2) {
                 this->action = v;
                 this->interactType = 0;
-                this->field_0x69 = this->animIndex;
+                this->field_0x68.HALF.HI = this->animIndex;
                 InitAnimationForceUpdate(this,4 + sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
                 sub_0806F118(this);
                 break;
@@ -50,7 +50,7 @@ void MayorHagen(Entity *this)
         case 2:
             if (UpdateFuseInteraction(this)) {
                 this->action = 1;
-                InitAnimationForceUpdate(this, this->field_0x69);
+                InitAnimationForceUpdate(this, this->field_0x68.HALF.HI);
             }
     }
 }
@@ -65,7 +65,7 @@ void sub_0806CE80(Entity *this)
 {
     u32 v;
     u32 v2;
-    v = gUnk_02002A40.filler[8];
+    v = gUnk_02002A40.unk8;
    if (v == 5) {
        //flippers
        if (GetInventoryValue(0x46) == 0) {

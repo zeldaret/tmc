@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
+#include "npc.h"
 #include "structures.h"
 #include "link.h"
 
