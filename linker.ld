@@ -744,7 +744,6 @@ SECTIONS {
 		asm/object45.o(.text);
 		asm/giantBookLadder.o(.text);
 		src/object/heartContainer.o(.text);
-		asm/heartContainer.o(.text);
 		asm/object48.o(.text);
 		src/object/object49.o(.text);
 		asm/object49.o(.text);
@@ -921,6 +920,8 @@ SECTIONS {
 		src/object/greatFairy.o(.rodata);
 		data/greatFairyAnimations.o(.rodata);
 		data/data_081208A0.o(.rodata);
+		src/object/heartContainer.o(.rodata);
+		data/data_08121C58.o(.rodata);
 		data/strings.o(.rodata);
 		data/data_089FC6C4.o(.rodata);
     } >rom
