@@ -247,7 +247,7 @@ sub_08073468: @ 0x08073468
 	movs r3, #0
 	bl CreateObjectWithParent
 _080734AC:
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r0, [r4, #0x20]
 	cmp r0, #0
 	bgt _080734C0
@@ -1639,7 +1639,7 @@ sub_08073F04: @ 0x08073F04
 	rsbs r1, r1, #0
 	ands r0, r1
 	str r0, [r2, #0x30]
-	bl sub_08077B2C
+	bl ResetLink
 	pop {pc}
 	.align 2, 0
 _08073F48: .4byte gLinkState
@@ -2025,7 +2025,7 @@ sub_08074200: @ 0x08074200
 	ldrb r0, [r4, #0xc]
 	cmp r0, #3
 	beq _08074226
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r1, _08074228 @ =gLinkState
 	movs r0, #3
 	strb r0, [r1, #0xc]
@@ -2270,7 +2270,7 @@ sub_080743A4: @ 0x080743A4
 	strb r1, [r0, #0x10]
 	adds r0, #0x42
 	strb r3, [r0]
-	bl sub_08077B2C
+	bl ResetLink
 	pop {pc}
 	.align 2, 0
 _080743D0: .4byte gLinkState
@@ -2873,7 +2873,7 @@ _08074840:
 _08074862:
 	ldr r0, _080748B0 @ =0x000001A5
 	bl PlaySFX
-	bl sub_08077B2C
+	bl ResetLink
 _0807486C:
 	ldr r5, _080748AC @ =gLinkState
 	adds r4, r5, #0
@@ -3040,7 +3040,7 @@ sub_0807496C: @ 0x0807496C
 	adds r1, #0x38
 	movs r0, #3
 	strb r0, [r1]
-	bl sub_08077B2C
+	bl ResetLink
 _080749A2:
 	pop {r4, pc}
 	.align 2, 0
@@ -3124,7 +3124,7 @@ _08074A34:
 	strh r0, [r5, #8]
 	strb r1, [r4, #0x15]
 _08074A3C:
-	bl sub_08077B2C
+	bl ResetLink
 _08074A40:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -3367,7 +3367,7 @@ _08074BF4: .4byte gLinkState
 sub_08074BF8: @ 0x08074BF8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08077B2C
+	bl ResetLink
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]

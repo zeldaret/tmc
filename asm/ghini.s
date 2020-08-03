@@ -986,7 +986,7 @@ _0803F734: .4byte 0x0000FFFE
 sub_0803F738: @ 0x0803F738
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r2, _0803F768 @ =gLinkState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80

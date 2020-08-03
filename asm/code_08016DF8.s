@@ -296,7 +296,7 @@ _0801702E:
 	ands r0, r1
 	cmp r0, #0
 	beq _08017046
-	bl sub_08077B2C
+	bl ResetLink
 _08017046:
 	ldr r0, [r4, #0x30]
 	movs r1, #0x80
@@ -521,7 +521,7 @@ sub_080171F0: @ 0x080171F0
 	ldrb r0, [r4, #0x1a]
 	cmp r0, #0
 	beq _08017202
-	bl sub_08077B2C
+	bl ResetLink
 _08017202:
 	ldrb r0, [r4, #0x14]
 	cmp r0, #0
@@ -2415,7 +2415,7 @@ _08017FC2:
 	adds r1, #0x3d
 	movs r0, #0xf8
 	strb r0, [r1]
-	bl sub_08077B2C
+	bl ResetLink
 	movs r0, #1
 	b _08018020
 _08018002:

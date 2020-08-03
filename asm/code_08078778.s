@@ -1497,7 +1497,7 @@ _08079374:
 	ldrb r0, [r4, #2]
 	cmp r0, #0
 	bne _080793CA
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r0, [r4, #0x30]
 	movs r1, #8
 	ands r0, r1

@@ -11392,7 +11392,7 @@ _080AAC84:
 	adds r1, r4, #0
 	bl ResolveEntityOnTop
 _080AAC8C:
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r2, _080AACB4 @ =gLinkState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80
@@ -11863,7 +11863,7 @@ _080AAFE0:
 _080AAFFC: .4byte gLinkEntity
 _080AB000: .4byte gLinkState
 _080AB004:
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r2, _080AB02C @ =gLinkState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80

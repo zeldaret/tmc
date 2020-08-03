@@ -710,6 +710,7 @@ SECTIONS {
 		asm/pushableStatue.o(.text);
 		asm/object28.o(.text);
 		asm/object29.o(.text);
+		src/object/object2A.o(.text);
 		asm/object2A.o(.text);
 		asm/object2B.o(.text);
 		asm/beanstalk.o(.text);
@@ -759,6 +760,7 @@ SECTIONS {
 		asm/object52.o(.text);
 		asm/object53.o(.text);
 		asm/pullableLever.o(.text);
+		src/object/minecart.o(.text);
 		asm/minecart.o(.text);
 		src/object/thoughtBubble.o(.text);
 		asm/hiddenLadderDown.o(.text);

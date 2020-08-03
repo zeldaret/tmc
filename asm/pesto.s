@@ -2096,7 +2096,7 @@ _08024E9A:
 _08024EC8: .4byte gUnk_02002A40
 _08024ECC:
 	ldr r6, _08024F48 @ =gLinkEntity
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r2, _08024F4C @ =gLinkState
 	ldr r0, [r2, #0x30]
 	movs r1, #0x80

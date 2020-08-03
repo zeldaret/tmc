@@ -133,7 +133,7 @@ _080818F0:
 	movs r0, #1
 	strb r0, [r4, #0xd]
 	bl sub_08078B48
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r1, _08081924 @ =gLinkState
 	movs r0, #4
 	strb r0, [r1, #5]

@@ -161,7 +161,7 @@ void sub_0802953C(Entity* this) {
     if (((this->field_0xf > 0x2d) || (gUnk_02002A40.stats.rupees == 0)) && (this->actionDelay == 0)) {
         sub_080296D8(this);
     } else {
-        sub_08077B2C();
+        ResetLink();
         gLinkState.field_0x1a[0] |= 0x80;
         PositionRelative(this, &gLinkEntity, 0, 0x10000);
         pbVar3 = GetSpriteSubEntryOffsetDataPointer((u16)this->spriteIndex, this->frameIndex);

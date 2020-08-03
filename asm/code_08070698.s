@@ -178,7 +178,7 @@ _080707F8:
 _08070800:
 	ldr r0, _08070814 @ =gLinkEntity
 	bl sub_0806F948
-	bl sub_08077B2C
+	bl ResetLink
 	adds r0, r5, #0
 	bl sub_08077698
 	b _08070BE4
@@ -307,7 +307,7 @@ _080708E4:
 	ldrb r0, [r0, #6]
 	cmp r0, #0
 	bne _08070902
-	bl sub_08077B2C
+	bl ResetLink
 _08070902:
 	ldr r0, [r4, #0x30]
 	ands r0, r6
@@ -757,7 +757,7 @@ _08070C7E:
 	rsbs r0, r0, #0
 	ands r0, r1
 	strb r0, [r2]
-	bl sub_08077B2C
+	bl ResetLink
 	bl sub_0807A108
 	movs r0, #0x7b
 	bl PlaySFX
@@ -896,7 +896,7 @@ _08070DA2:
 	movs r0, #0xa6
 	lsls r0, r0, #1
 	bl PlaySFX
-	bl sub_08077B2C
+	bl ResetLink
 	bl sub_08078F60
 	pop {r4, pc}
 	.align 2, 0
@@ -1200,7 +1200,7 @@ _08071004:
 _08071008:
 	movs r0, #1
 	strb r0, [r4, #0xd]
-	bl sub_08077B2C
+	bl ResetLink
 	bl sub_08078F60
 	pop {r4, pc}
 	.align 2, 0
@@ -1303,7 +1303,7 @@ sub_080710A8: @ 0x080710A8
 	ands r3, r0
 	cmp r3, #0
 	bne _080710FA
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r0, [r5, #0x30]
 	movs r1, #8
 	ands r0, r1
@@ -1567,7 +1567,7 @@ _080712E0:
 _080712E2:
 	strh r0, [r5, #8]
 _080712E4:
-	bl sub_08077B2C
+	bl ResetLink
 	pop {r4, r5, pc}
 	.align 2, 0
 _080712EC: .4byte 0x0000044C
@@ -2329,7 +2329,7 @@ _0807189C: .4byte gUnk_0811BAD4
 sub_080718A0: @ 0x080718A0
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r0, _080718EC @ =gUnk_03000B80
 	adds r0, #0x63
 	movs r1, #0
@@ -2846,7 +2846,7 @@ _08071C5A:
 	strb r3, [r2, #6]
 	adds r0, r4, #0
 	bl sub_0800451C
-	bl sub_08077B2C
+	bl ResetLink
 	movs r0, #0x87
 	bl PlaySFX
 _08071C9C:
@@ -3127,7 +3127,7 @@ _08071EAC: .4byte gUnk_0811BB48
 sub_08071EB0: @ 0x08071EB0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08077B2C
+	bl ResetLink
 	adds r0, r4, #0
 	movs r1, #0xe
 	bl CreatePlayerBomb
@@ -3367,7 +3367,7 @@ sub_08072064: @ 0x08072064
 	lsls r0, r0, #8
 	orrs r1, r0
 	strh r1, [r2, #8]
-	bl sub_08077B2C
+	bl ResetLink
 	pop {pc}
 	.align 2, 0
 _08072094: .4byte gLinkState
@@ -3478,7 +3478,7 @@ _08072154:
 	lsls r0, r0, #1
 _08072158:
 	strh r0, [r2, #8]
-	bl sub_08077B2C
+	bl ResetLink
 	adds r0, r4, #0
 	bl sub_08072168
 	pop {r4, pc}
@@ -3723,7 +3723,7 @@ _08072332:
 	ldr r1, _08072350 @ =0x00000401
 	orrs r0, r1
 	str r0, [r5, #0x30]
-	bl sub_08077B2C
+	bl ResetLink
 	movs r0, #0x92
 	lsls r0, r0, #1
 	bl PlaySFX
@@ -4132,7 +4132,7 @@ _0807266E:
 	movs r0, #1
 	strb r0, [r4, #0xd]
 	strb r1, [r4, #0xe]
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r3, [r5, #0x30]
 	movs r0, #0x80
 	ands r0, r3
@@ -4626,7 +4626,7 @@ _08072A14:
 	orrs r1, r2
 	ldrb r2, [r6]
 	bl SetTile
-	bl sub_08077B2C
+	bl ResetLink
 	adds r0, r5, #0
 	bl sub_08072A60
 	movs r0, #0x81
@@ -5015,7 +5015,7 @@ _08072D30:
 	movs r0, #5
 	strb r0, [r4, #0xe]
 	strb r1, [r4, #0xf]
-	bl sub_08077B2C
+	bl ResetLink
 _08072D4E:
 	pop {r4, pc}
 	.align 2, 0

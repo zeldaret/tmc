@@ -3046,7 +3046,7 @@ _0803B820: .4byte gLinkEntity
 sub_0803B824: @ 0x0803B824
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r2, _0803B864 @ =gLinkState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80

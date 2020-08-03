@@ -1317,7 +1317,7 @@ _08085EBE:
 	beq _08085EE8
 	bl DeleteEntity
 _08085EE8:
-	bl sub_08077B2C
+	bl ResetLink
 	pop {pc}
 	.align 2, 0
 _08085EF0: .4byte gLinkEntity

@@ -439,7 +439,7 @@ _0802808E:
 	.align 2, 0
 _08028098: .4byte gUnk_02002A40
 _0802809C:
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r2, _08028104 @ =gLinkState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80

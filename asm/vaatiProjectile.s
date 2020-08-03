@@ -507,7 +507,7 @@ _0803E442:
 sub_0803E444: @ 0x0803E444
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_08077B2C
+	bl ResetLink
 	ldr r2, _0803E478 @ =gLinkState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80

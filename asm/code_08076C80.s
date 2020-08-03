@@ -1716,6 +1716,6 @@ _08077B1C: .4byte 0xFF7FFFFF
 	thumb_func_start sub_08077B20
 sub_08077B20: @ 0x08077B20
 	push {lr}
-	bl sub_08077B2C
+	bl ResetLink
 	bl sub_08077AEC
 	pop {pc}

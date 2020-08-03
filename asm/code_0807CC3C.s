@@ -7062,7 +7062,7 @@ sub_0807FF6C: @ 0x0807FF6C
 	strh r1, [r0]
 	adds r0, #4
 	strh r1, [r0]
-	bl sub_08077B2C
+	bl ResetLink
 	bl sub_080791D0
 	ldr r0, _0807FFCC @ =gUnk_03004030
 	ldrb r0, [r0, #8]
