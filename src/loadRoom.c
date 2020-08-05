@@ -39,7 +39,7 @@ void sub_0804B058(EntityData* dat) {
                 if (sub_08049D1C(uVar2) != 0) {
                     ent = CreateEntity(dat);
                     if ((ent != NULL) && ((ent->entityType).type == 3)) {
-                        ent->field_0x6c = uVar2 | 0x80;
+                        ent->field_0x6c.HALF.LO = uVar2 | 0x80;
                     }
                 }
             } else {

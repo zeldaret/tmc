@@ -59,6 +59,9 @@ union SplitWord {
     struct {
         s16 LO, HI;
     } HALF;
+    struct {
+        u8 byte0, byte1, byte2, byte3;
+    } BYTES;
 };
 
 union SplitHWord {

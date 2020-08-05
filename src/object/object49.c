@@ -114,7 +114,7 @@ void sub_0808F244(Entity *this)
   *(u32 *)&this->field_0x78 = 0x100 - this->parent->height.HALF.HI;
   *(u32 *)&this->field_0x70.WORD = *((u8 *)&this->parent->field_0x7c + 3);
   sub_0808F2B0(this);
-  if ((this->parent->field_0x6d & 2) != 0) {
+  if ((this->parent->field_0x6c.HALF.HI & 2) != 0) {
     DeleteThisEntity();
   }
 }

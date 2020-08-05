@@ -745,7 +745,7 @@ SECTIONS {
 		asm/object45.o(.text);
 		asm/giantBookLadder.o(.text);
 		src/object/heartContainer.o(.text);
-		asm/object48.o(.text);
+		src/object/object48.o(.text);
 		src/object/object49.o(.text);
 		asm/object49.o(.text);
 		asm/backgroundCloud.o(.text);

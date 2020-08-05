@@ -47,7 +47,7 @@ void sub_0809F514(Entity* this) {
     this->action = 1;
     this->actionDelay = 120;
     this->spriteSettings.b.draw = 0;
-    *(u8*)&this->field_0x68 = 12;
+    this->field_0x68.HALF.LO = 12;
     gRoomControls.cameraTarget = this;
     gUnk_02034490 = 255;
     sub_0809F7BC(this);
@@ -81,7 +81,7 @@ void sub_0809F5B0(Entity* this) {
 void sub_0809F5DC(Entity* this) {
     this->action = 1;
     this->spriteSettings.b.draw = 0;
-    *(u8*)&this->field_0x68 = 12;
+    this->field_0x68.HALF.LO = 12;
 }
 
 void sub_0809F5F0(Entity* this) {
@@ -195,14 +195,8 @@ void sub_0809F7BC(Entity* this) {
 }
 
 void sub_0809F7F4(Entity* this) {
-    u8 cVar1;
-    u8* puVar2;
-
-    puVar2 = (u8*)&this->field_0x68;
-    *puVar2 -= 1;
-
-    if (*puVar2 == 0) {
-        *puVar2 = 12;
+    if (--this->field_0x68.HALF.LO == 0) {
+        this->field_0x68.HALF.LO = 12;
         PlaySFX(388);
     }
 }

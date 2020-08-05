@@ -38,7 +38,7 @@ void ForestMinish(Entity* this) {
             if (LoadExtraSpriteData(this, &gUnk_0810A348)) {
                 this->action = 1;
                 this->spriteSettings.b.draw = TRUE;
-                this->field_0x69 = this->animationState = this->actionDelay << 1;
+                this->field_0x68.HALF.HI = this->animationState = this->actionDelay << 1;
                 this->actionDelay = 0;
                 sub_0805E3A0(this, 2);
                 StartCutscene(this, gUnk_08109D18[this->entityType.parameter]);
@@ -66,8 +66,8 @@ void ForestMinish(Entity* this) {
 }
 
 void sub_08060090(Entity* this) {
-    this->field_0x68 = sub_0801E99C(this);
-    sub_08078784(this, this->field_0x68);
+    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    sub_08078784(this, this->field_0x68.HALF.LO);
 }
 
 void ForestMinish_Head(Entity* this) {
@@ -129,8 +129,8 @@ void sub_08060158(Entity *this)
     this->actionDelay = 2;
     iVar4 = sub_0806EDD8(this, 0x20, 0x20);
     if (iVar4 < 0) {
-      this->animationState = this->field_0x69;
-      iVar4 = this->field_0x69 << 2;
+      this->animationState = this->field_0x68.HALF.HI;
+      iVar4 = this->field_0x68.HALF.HI << 2;
     }
     temp = (this->animationState >> 1) * 0x20 + (iVar4 >> 1) * 2;
     bVar1 = gUnk_08109C98[temp];
@@ -257,7 +257,7 @@ void sub_08060318(void)
 
 void sub_08060340(void)
 {
-  gUnk_02002A40.unk3 = gUnk_02002A40.unk2;
+  gUnk_02002A40.unk490 = gUnk_02002A40.unk50;
 }
 
 u32 sub_08060354(void)
@@ -265,7 +265,7 @@ u32 sub_08060354(void)
   u32 iVar1;
   s32 iVar2;
   
-  iVar2 = gUnk_02002A40.unk2 - gUnk_02002A40.unk3;
+  iVar2 = gUnk_02002A40.unk50 - gUnk_02002A40.unk490;
   if (CheckGlobalFlag(DRUG_1) == 0) {
     if (4 < iVar2) {
       return 0x8444;

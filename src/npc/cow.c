@@ -34,7 +34,7 @@ void sub_08068FC0(Entity* ent) {
     ent->animationState = ent->entityType.parameter;
     ent->nonPlanarMovement = 0x40;
 
-    ent->field_0x6d = 0xFF;
+    ent->field_0x6c.HALF.HI = 0xFF;
 
     r2 = sub_0805ACC0(ent);
     if (r2 == 0) {
@@ -51,7 +51,7 @@ void sub_08068FC0(Entity* ent) {
         *(u16*)&ent->field_0x68 = var1;
         ent->field_0x6a.HWORD = r2;
     }
-    ent->field_0x6c = sub_0801E99C(ent);
+    ent->field_0x6c.HALF.LO = sub_0801E99C(ent);
 
     InitAnimationForceUpdate(ent, ent->animationState + 4);
 }
@@ -194,15 +194,15 @@ void sub_0806920C(Entity* ent) {
     u32 var0 = gLinkState.flags.all & 0x80;
     u32 var1 = -var0 >> 0x1F;
 
-    if (var1 != ent->field_0x6d) {
+    if (var1 != ent->field_0x6c.HALF.HI) {
         if (var1 == 0) {
             sub_08078778(ent);
         } else {
-            sub_080787A8(ent, ent->field_0x6c);
+            sub_080787A8(ent, ent->field_0x6c.HALF.LO);
         }
     }
 
-    ent->field_0x6d = var1;
+    ent->field_0x6c.HALF.HI = var1;
 }
 
 // Check if player interacting
