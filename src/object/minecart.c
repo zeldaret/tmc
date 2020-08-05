@@ -155,7 +155,7 @@ void sub_080919AC(Entity *this)
       CopyPosition(this,&gLinkEntity);
       gLinkEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
       if (!sub_08091DDC(this)) {
-        if ((gUnk_030010A0.field_0x0 & 0xf) == 0) {
+        if ((gScreenTransition.field_0x0 & 0xf) == 0) {
           PlaySFX(0x138);
         }
 

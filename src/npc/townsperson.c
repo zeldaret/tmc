@@ -4,6 +4,7 @@
 #include "link.h"
 #include "textbox.h"
 #include "flags.h"
+#include "structures.h"
 
 typedef struct {
     u8 frame1;
@@ -123,7 +124,7 @@ void sub_08061CEC(Entity* this) {
         this->action = 1;
         this->spriteSettings.b.draw = TRUE;
         this->animationState = this->actionDelay;
-        this->field_0x69 = 0xff;
+        this->field_0x68.HALF.HI = 0xff;
         uVar2 = sub_0805ACC0(this);
         if (uVar2 == 0) {
             this->field_0x6a.HWORD = this->x.HALF.HI;
@@ -132,7 +133,7 @@ void sub_08061CEC(Entity* this) {
             this->field_0x6a.HWORD = (uVar2 >> 0x10);
         }
         *(u16*)&this->field_0x6c = uVar2;
-        this->field_0x68 = sub_0801E99C(this);
+        this->field_0x68.HALF.LO = sub_0801E99C(this);
         sub_0807DD64(this);
         sub_08061D64(this);
     }
@@ -143,7 +144,7 @@ void sub_08061D64(Entity* this) {
         this->action = 3;
         this->interactType = 0;
         sub_0806F118(this);
-        this->field_0x69 = this->animIndex;
+        this->field_0x68.HALF.HI = this->animIndex;
         InitializeAnimation(this, (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
     } else {
         sub_0807DDAC(this, 0);
@@ -156,7 +157,7 @@ void sub_08061D64(Entity* this) {
             this->action = 2;
             this->interactType = 0;
             sub_08062048(this);
-            this->field_0x69 = this->animIndex;
+            this->field_0x68.HALF.HI = this->animIndex;
             InitializeAnimation(this, (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
         }
     }
@@ -166,7 +167,7 @@ void sub_08061E24(Entity* this) {
     GetNextFrame(this);
     if ((gTextBox.doTextBox & 0x7f) == 0) {
         this->action = 1;
-        InitializeAnimation(this, this->field_0x69);
+        InitializeAnimation(this, this->field_0x68.HALF.HI);
     }
 }
 
@@ -174,13 +175,13 @@ void sub_08061E50(Entity* this) {
 
     if (UpdateFuseInteraction(this) != 0) {
         this->action = 1;
-        InitializeAnimation(this, this->field_0x69);
+        InitializeAnimation(this, this->field_0x68.HALF.HI);
     }
 }
 
 void sub_08061E70(Entity* this) {
     if ((this->entityType).subtype == 6) {
-        sub_08078784(this, this->field_0x68);
+        sub_08078784(this, this->field_0x68.HALF.LO);
     } else {
         sub_08078778(this);
     }
@@ -300,7 +301,7 @@ void sub_08062048(Entity *this)
   int iVar1;
   
   if ((this->entityType).subtype == 6) {
-    iVar1 = gUnk_02002A40.unk - 2;
+    iVar1 = gUnk_02002A40.unk8 - 2;
     if (iVar1 < 0) {
       iVar1 = 0;
     }

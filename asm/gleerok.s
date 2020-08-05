@@ -364,7 +364,7 @@ _0802D2D0:
 	movs r2, #0x40
 	bl sub_0802EA68
 _0802D2E4:
-	ldr r5, _0802D338 @ =gUnk_030010A0
+	ldr r5, _0802D338 @ =gScreenTransition
 	ldr r0, [r5]
 	movs r1, #0x1f
 	ands r0, r1
@@ -405,7 +405,7 @@ _0802D32E:
 _0802D334:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0802D338: .4byte gUnk_030010A0
+_0802D338: .4byte gScreenTransition
 
 	thumb_func_start sub_0802D33C
 sub_0802D33C: @ 0x0802D33C
@@ -957,7 +957,7 @@ _0802D77A:
 sub_0802D77C: @ 0x0802D77C
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r0, _0802D7B0 @ =gUnk_030010A0
+	ldr r0, _0802D7B0 @ =gScreenTransition
 	ldr r4, [r0]
 	movs r0, #1
 	ands r4, r0
@@ -981,7 +981,7 @@ sub_0802D77C: @ 0x0802D77C
 _0802D7AC:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0802D7B0: .4byte gUnk_030010A0
+_0802D7B0: .4byte gScreenTransition
 
 	thumb_func_start sub_0802D7B4
 sub_0802D7B4: @ 0x0802D7B4
@@ -1230,7 +1230,7 @@ _0802D99C:
 	bl DeleteThisEntity
 	b _0802DB7E
 _0802D9A2:
-	ldr r0, _0802D9F4 @ =gUnk_030010A0
+	ldr r0, _0802D9F4 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -1272,9 +1272,9 @@ _0802D9CE:
 	str r1, [r0]
 	b _0802D99C
 	.align 2, 0
-_0802D9F4: .4byte gUnk_030010A0
+_0802D9F4: .4byte gScreenTransition
 _0802D9F8:
-	ldr r0, _0802DA50 @ =gUnk_030010A0
+	ldr r0, _0802DA50 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -1319,7 +1319,7 @@ _0802DA24:
 	str r1, [r0]
 	b _0802D99C
 	.align 2, 0
-_0802DA50: .4byte gUnk_030010A0
+_0802DA50: .4byte gScreenTransition
 _0802DA54:
 	adds r0, r4, #0
 	adds r0, #0x74
@@ -2607,7 +2607,7 @@ _0802E400:
 	.align 2, 0
 _0802E408: .4byte gLinkEntity
 _0802E40C:
-	ldr r0, _0802E42C @ =gUnk_030010A0
+	ldr r0, _0802E42C @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #0xf
 	ands r0, r1
@@ -2623,7 +2623,7 @@ _0802E422:
 _0802E428:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0802E42C: .4byte gUnk_030010A0
+_0802E42C: .4byte gScreenTransition
 
 	thumb_func_start sub_0802E430
 sub_0802E430: @ 0x0802E430

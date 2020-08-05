@@ -6,25 +6,13 @@
 #include "room.h"
 #include "textbox.h"
 
-typedef struct {
-    /*0x00*/ u8 filler[0x2C];
-    /*0x2C*/ u8 unk;
-} struct_030010A0;
-
-typedef struct {
-    u8 filler[0xa8];
-    Stats stats;
-} struct_02002A40;
-
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
 
-extern struct_030010A0 gUnk_030010A0;
 extern u16 gUnk_081115DC[];
 extern u8 gUnk_08111618[];
 extern u32* gUnk_081115EC[];
-extern struct_02002A40 gUnk_02002A40;
 extern u8 gUnk_08111623[];
 extern u8 gUnk_0811162B[];
 extern u16 gUnk_08111664[];
@@ -60,7 +48,7 @@ void sub_08068A1C(Entity* this) {
     int offset;
 
     (this->entityType).parameter = (this->entityType).form;
-    if (gUnk_030010A0.unk != 0) {
+    if (gScreenTransition.field_0x24[8] != 0) {
         offset = 6;
         bVar1 = 3;
 
@@ -114,7 +102,7 @@ void sub_08068AA4(Entity* this) {
 }
 
 void sub_08068ADC(Entity* this) {
-    if (gUnk_030010A0.unk == 2) {
+    if (gScreenTransition.field_0x24[8] == 2) {
         GetNextFrame(this);
     }
     sub_0806FD3C(this);
@@ -123,8 +111,8 @@ void sub_08068ADC(Entity* this) {
 void sub_08068AFC(Entity* this) {
     this->action = 1;
     this->spriteSettings.b.draw = 1;
-    *(u8*)&this->field_0x68 = sub_0801E99C(this);
-    sub_08078784(this, *(u8*)&this->field_0x68);
+    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    sub_08078784(this, this->field_0x68.HALF.LO);
     sub_0807DD50(this);
 }
 
@@ -161,14 +149,14 @@ void sub_08068B84(Entity* this) {
 void sub_08068BB4(Entity* this) {
     u32 item = gUnk_02002A40.stats.itemOnA;
 
-    this->field_0x69 = item;
+    this->field_0x68.HALF.HI = item;
     item = gUnk_02002A40.stats.itemOnB;
-    *(&this->field_0x69 + 1) = item;
+    *(&this->field_0x68.HALF.HI + 1) = item;
 }
 
 void sub_08068BD0(Entity* this) {
-    ForceEquipItem(this->field_0x69, 0);
-    ForceEquipItem(*(u8*)(&this->field_0x69 + 1), 1);
+    ForceEquipItem(this->field_0x68.HALF.HI, 0);
+    ForceEquipItem(*(u8*)(&this->field_0x68.HALF.HI + 1), 1);
 }
 
 void sub_08068BEC(Entity* this, u32 unused) {

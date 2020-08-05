@@ -4,6 +4,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "screen.h"
+#include "structures.h"
 
 extern void (*const gUnk_081320F0[])();
 
@@ -16,14 +17,6 @@ typedef struct {
 } struct_03000FD0;
 
 extern struct_03000FD0 gUnk_03000FD0;
-
-typedef struct {
-    char header[4];
-    u8 saveFile;
-    u8 field_0x5;
-    u8 brightnessPref;
-    u8 gameLanguage;
-} struct_02000000;
 
 typedef struct {
     u8 filler[5];
@@ -111,7 +104,7 @@ void sub_080AD474(void)
     int iVar2;
     u32 uVar3;
 
-    gMenu.field_0x11++;
+    gMenu.field_0x12++;
     switch (gMenu.menuType) {
         case 0:
             gMenu.menuType = 1;
@@ -230,7 +223,7 @@ void sub_080AD6AC(void)
     switch (gMenu.overlayType) {
         case 0:
             if (gUnk_03000FD0.field_0x0 == 0) {
-                if ((gMenu.field_0x11 & 1) == 0) {
+                if ((gMenu.field_0x12 & 1) == 0) {
                     gScreen.bg2.bg0Control++;
                 }
 

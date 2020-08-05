@@ -317,7 +317,7 @@ sub_0808B684: @ 0x0808B684
 	lsrs r2, r0, #0x18
 	cmp r2, #0
 	bne _0808B6E8
-	ldr r3, _0808B6E4 @ =gUnk_030010A0
+	ldr r3, _0808B6E4 @ =gScreenTransition
 	movs r0, #1
 	strb r0, [r3, #8]
 	strb r2, [r3, #9]
@@ -355,7 +355,7 @@ sub_0808B684: @ 0x0808B684
 	strb r0, [r3, #9]
 	b _0808B736
 	.align 2, 0
-_0808B6E4: .4byte gUnk_030010A0
+_0808B6E4: .4byte gScreenTransition
 _0808B6E8:
 	movs r0, #0x60
 	ands r0, r1

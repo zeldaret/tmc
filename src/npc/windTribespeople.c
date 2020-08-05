@@ -3,6 +3,7 @@
 #include "npc.h"
 #include "textbox.h"
 #include "flags.h"
+#include "structures.h"
 
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 extern void sub_0807DD50(Entity*);
@@ -78,8 +79,8 @@ void sub_0806C870(Entity *this)
   u8 bVar1;
   
   bVar1 = sub_0801E99C();
-  this->field_0x68 = bVar1;
-  sub_08078784(this, this->field_0x68);
+  this->field_0x68.HALF.LO = bVar1;
+  sub_08078784(this, this->field_0x68.HALF.LO);
 }
 
 void WindTribespeople_Head(Entity *this)
@@ -122,7 +123,7 @@ void sub_0806C90C(Entity *param_1,Entity *param_2)
 
 void sub_0806C928(Entity *this)
 {
-  ShowNPCDialogue(this, &gUnk_08113ABC[gUnk_02002A40.unk * 2]);
+  ShowNPCDialogue(this, &gUnk_08113ABC[gUnk_02002A40.unk8 * 2]);
 }
 
 void sub_0806C944(Entity *this)

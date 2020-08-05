@@ -251,7 +251,7 @@ _0805B20C:
 	thumb_func_start sub_0805B210
 sub_0805B210: @ 0x0805B210
 	push {r4, r5, lr}
-	ldr r2, _0805B248 @ =gUnk_030010A0
+	ldr r2, _0805B248 @ =gScreenTransition
 	movs r1, #1
 	strb r1, [r2, #8]
 	strb r1, [r2, #9]
@@ -279,7 +279,7 @@ sub_0805B210: @ 0x0805B210
 	movs r0, #6
 	b _0805B256
 	.align 2, 0
-_0805B248: .4byte gUnk_030010A0
+_0805B248: .4byte gScreenTransition
 _0805B24C: .4byte gUnk_08108764
 _0805B250: .4byte gLinkState
 _0805B254:

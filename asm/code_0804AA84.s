@@ -248,7 +248,7 @@ sub_0804AD6C: @ 0x0804AD6C
 	push {r4, r5, r6, lr}
 	mov r6, r8
 	push {r6}
-	ldr r3, _0804ADD0 @ =gUnk_030010A0
+	ldr r3, _0804ADD0 @ =gScreenTransition
 	movs r1, #0
 	movs r6, #1
 	strb r6, [r3, #8]
@@ -293,6 +293,6 @@ sub_0804AD6C: @ 0x0804AD6C
 	mov r8, r3
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0804ADD0: .4byte gUnk_030010A0
+_0804ADD0: .4byte gScreenTransition
 _0804ADD4: .4byte gArea
 _0804ADD8: .4byte gUnk_080D4140

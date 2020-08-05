@@ -53,7 +53,7 @@ sub_08016B6C: @ 0x08016B6C
 	ldrb r0, [r5]
 	cmp r0, #0
 	bne _08016BA6
-	bl sub_08016CF4
+	bl UpdateBackgroundRegisters
 	ldr r0, _08016BCC @ =gUnk_03000FBC
 	str r0, [r4]
 	ldr r0, _08016BD0 @ =gUnk_02022730

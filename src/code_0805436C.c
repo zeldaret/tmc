@@ -17,11 +17,11 @@ typedef struct {
 typedef struct {
     u8 filler[0x2e];
     u8 unk;
-} struct_030010A0;
+} ScreenTransition;
 
 extern struct_02002A40 gUnk_02002A40;
 extern struct_080FD5B4 gUnk_080FD5B4[];
-extern struct_030010A0 gUnk_030010A0;
+extern ScreenTransition gScreenTransition;
 
 extern u8 gUnk_0200AF13;
 extern u8 gUnk_0200AF14;
@@ -154,7 +154,7 @@ void sub_08054524(void) {
 
     bVar1 = gArea.locationIndex;
     if (gArea.locationIndex == 0) {
-        bVar1 = gUnk_030010A0.unk;
+        bVar1 = gScreenTransition.unk;
     }
     if (bVar1 > 0x16) {
         bVar1 = 0;

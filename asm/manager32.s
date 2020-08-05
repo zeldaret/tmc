@@ -17,7 +17,7 @@ sub_0805D7A4: @ 0x0805D7A4
 	ldr r1, [r0]
 	adds r0, r4, #0
 	bl _call_via_r1
-	ldr r0, _0805D7D8 @ =gUnk_030010A0
+	ldr r0, _0805D7D8 @ =gScreenTransition
 	ldr r0, [r0]
 	lsls r0, r0, #4
 	str r0, [r4, #0x24]
@@ -30,7 +30,7 @@ sub_0805D7A4: @ 0x0805D7A4
 	pop {r4, pc}
 	.align 2, 0
 _0805D7D4: .4byte gUnk_08108D7C
-_0805D7D8: .4byte gUnk_030010A0
+_0805D7D8: .4byte gScreenTransition
 
 	thumb_func_start sub_0805D7DC
 sub_0805D7DC: @ 0x0805D7DC

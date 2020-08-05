@@ -82,7 +82,7 @@ _080413BC: .4byte gUnk_080D0E2C
 sub_080413C0: @ 0x080413C0
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
-	ldr r7, _080413F8 @ =gUnk_030010A0
+	ldr r7, _080413F8 @ =gScreenTransition
 	adds r0, r7, #0
 	adds r0, #0x38
 	ldrb r0, [r0]
@@ -107,14 +107,14 @@ sub_080413C0: @ 0x080413C0
 	strb r6, [r4, #0xd]
 	b _08041404
 	.align 2, 0
-_080413F8: .4byte gUnk_030010A0
+_080413F8: .4byte gScreenTransition
 _080413FC:
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	movs r0, #0x3c
 	strb r0, [r4, #0xe]
 _08041404:
-	ldr r0, _0804141C @ =gUnk_030010A0
+	ldr r0, _0804141C @ =gScreenTransition
 	adds r1, r0, #0
 	adds r1, #0x40
 	ldrh r1, [r1]
@@ -126,7 +126,7 @@ _08041404:
 	bl sub_08042004
 	b _0804144A
 	.align 2, 0
-_0804141C: .4byte gUnk_030010A0
+_0804141C: .4byte gScreenTransition
 _08041420:
 	adds r0, r4, #0
 	bl sub_08041ED4
@@ -315,7 +315,7 @@ _08041592:
 	strb r0, [r4, #0xd]
 	movs r0, #0x1e
 	strb r0, [r4, #0xe]
-	ldr r1, _080415BC @ =gUnk_030010A0
+	ldr r1, _080415BC @ =gScreenTransition
 	adds r1, #0x38
 	ldrb r2, [r1]
 	movs r0, #1
@@ -330,7 +330,7 @@ _08041592:
 	strb r1, [r0]
 	b _080415E6
 	.align 2, 0
-_080415BC: .4byte gUnk_030010A0
+_080415BC: .4byte gScreenTransition
 _080415C0: .4byte gRoomControls
 _080415C4: .4byte gLinkEntity
 _080415C8: .4byte gLinkState
@@ -540,7 +540,7 @@ _08041748:
 	adds r2, r1, #0
 	cmp r2, #2
 	bne _080417AA
-	ldr r0, _0804179C @ =gUnk_030010A0
+	ldr r0, _0804179C @ =gScreenTransition
 	adds r0, #0x39
 	ldrb r1, [r0]
 	movs r0, #3
@@ -572,7 +572,7 @@ _08041748:
 	bl InitializeAnimation
 	b _080417AA
 	.align 2, 0
-_0804179C: .4byte gUnk_030010A0
+_0804179C: .4byte gScreenTransition
 _080417A0: .4byte gRoomControls
 _080417A4:
 	strb r2, [r5, #0xc]
@@ -1580,7 +1580,7 @@ _08041F88: .4byte gUnk_03003DBC
 _08041F8C:
 	ldr r7, [r5, #0x64]
 	movs r4, #0
-	ldr r0, _08041FC0 @ =gUnk_030010A0
+	ldr r0, _08041FC0 @ =gScreenTransition
 	adds r0, #0x39
 	ldrb r0, [r0]
 	asrs r0, r6
@@ -1603,7 +1603,7 @@ _08041FB6:
 	str r4, [r7, #0x14]
 	b _08041FC6
 	.align 2, 0
-_08041FC0: .4byte gUnk_030010A0
+_08041FC0: .4byte gScreenTransition
 _08041FC4:
 	str r4, [r7, #0x18]
 _08041FC6:
@@ -1895,7 +1895,7 @@ _080421C0:
 	ands r0, r5
 	cmp r0, #0
 	beq _080421F4
-	ldr r0, _080421F0 @ =gUnk_030010A0
+	ldr r0, _080421F0 @ =gScreenTransition
 	adds r0, #0x39
 	ldrb r1, [r0]
 	movs r0, #0xc
@@ -1907,7 +1907,7 @@ _080421C0:
 	strb r5, [r6]
 	b _08042212
 	.align 2, 0
-_080421F0: .4byte gUnk_030010A0
+_080421F0: .4byte gScreenTransition
 _080421F4:
 	adds r1, r4, #0
 	adds r1, #0x7e
@@ -2133,7 +2133,7 @@ sub_0804235C: @ 0x0804235C
 	thumb_func_start sub_080423A4
 sub_080423A4: @ 0x080423A4
 	push {r4, lr}
-	ldr r0, _080423CC @ =gUnk_030010A0
+	ldr r0, _080423CC @ =gScreenTransition
 	adds r4, r0, #0
 	adds r4, #0x38
 	ldrb r1, [r4]
@@ -2152,7 +2152,7 @@ sub_080423A4: @ 0x080423A4
 	str r0, [r1]
 	b _0804241C
 	.align 2, 0
-_080423CC: .4byte gUnk_030010A0
+_080423CC: .4byte gScreenTransition
 _080423D0: .4byte gUnk_02002A40
 _080423D4:
 	ldr r2, _08042420 @ =gLinkState

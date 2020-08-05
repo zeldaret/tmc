@@ -2418,7 +2418,7 @@ _080A4F38:
 	adds r1, #1
 	cmp r1, #0xd
 	ble _080A4F38
-	ldr r1, _080A4F94 @ =gUnk_030010A0
+	ldr r1, _080A4F94 @ =gScreenTransition
 	ldrh r0, [r1, #0x20]
 	ldrh r1, [r1, #0x22]
 	bl sub_080A6A80
@@ -2452,7 +2452,7 @@ _080A4F66:
 	pop {r4, pc}
 	.align 2, 0
 _080A4F90: .4byte gUnk_02034492
-_080A4F94: .4byte gUnk_030010A0
+_080A4F94: .4byte gScreenTransition
 _080A4F98: .4byte gUnk_02034490
 _080A4F9C: .4byte gUnk_08128A38
 

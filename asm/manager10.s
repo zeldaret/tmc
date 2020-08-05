@@ -192,7 +192,7 @@ _080596DC: .4byte gUnk_085A7320
 sub_080596E0: @ 0x080596E0
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	ldr r0, _08059730 @ =gUnk_030010A0
+	ldr r0, _08059730 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -230,7 +230,7 @@ _080596FC:
 	str r1, [r0]
 	b _08059764
 	.align 2, 0
-_08059730: .4byte gUnk_030010A0
+_08059730: .4byte gScreenTransition
 _08059734: .4byte gScreen
 _08059738: .4byte gUnk_08108390
 _0805973C: .4byte gUnk_0200B650

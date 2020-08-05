@@ -162,12 +162,12 @@ _080A1038:
 	bl PlaySFX
 	b _080A10D4
 _080A1056:
-	ldr r0, _080A1060 @ =gUnk_030010A0
+	ldr r0, _080A1060 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #7
 	b _080A10C2
 	.align 2, 0
-_080A1060: .4byte gUnk_030010A0
+_080A1060: .4byte gScreenTransition
 _080A1064:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -183,11 +183,11 @@ _080A1070:
 	strb r0, [r4, #0xe]
 	b _080A10D4
 _080A107C:
-	ldr r0, _080A1084 @ =gUnk_030010A0
+	ldr r0, _080A1084 @ =gScreenTransition
 	ldr r0, [r0]
 	b _080A10C2
 	.align 2, 0
-_080A1084: .4byte gUnk_030010A0
+_080A1084: .4byte gScreenTransition
 _080A1088:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -214,7 +214,7 @@ _080A10A2:
 _080A10B4: .4byte gRoomControls
 _080A10B8: .4byte gUnk_0813ADEC
 _080A10BC:
-	ldr r0, _080A10D8 @ =gUnk_030010A0
+	ldr r0, _080A10D8 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 _080A10C2:
@@ -230,7 +230,7 @@ _080A10C2:
 _080A10D4:
 	pop {r4, pc}
 	.align 2, 0
-_080A10D8: .4byte gUnk_030010A0
+_080A10D8: .4byte gScreenTransition
 _080A10DC: .4byte gLinkEntity
 
 	thumb_func_start sub_080A10E0
@@ -266,11 +266,11 @@ _080A110E:
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _080A1130
-	ldr r0, _080A1120 @ =gUnk_030010A0
+	ldr r0, _080A1120 @ =gScreenTransition
 	ldr r0, [r0]
 	b _080A1162
 	.align 2, 0
-_080A1120: .4byte gUnk_030010A0
+_080A1120: .4byte gScreenTransition
 _080A1124:
 	ldrb r0, [r2, #0xe]
 	subs r0, #1
@@ -286,12 +286,12 @@ _080A1130:
 	strb r0, [r2, #0xe]
 	b _080A11BA
 _080A113C:
-	ldr r0, _080A1144 @ =gUnk_030010A0
+	ldr r0, _080A1144 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	b _080A1162
 	.align 2, 0
-_080A1144: .4byte gUnk_030010A0
+_080A1144: .4byte gScreenTransition
 _080A1148:
 	ldrb r0, [r2, #0xe]
 	subs r0, #1
@@ -304,7 +304,7 @@ _080A1148:
 	strb r0, [r2, #0xd]
 	b _080A11BA
 _080A115C:
-	ldr r0, _080A1178 @ =gUnk_030010A0
+	ldr r0, _080A1178 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #7
 _080A1162:
@@ -319,14 +319,14 @@ _080A1162:
 	strb r1, [r0, #0x14]
 	b _080A11BA
 	.align 2, 0
-_080A1178: .4byte gUnk_030010A0
+_080A1178: .4byte gScreenTransition
 _080A117C: .4byte gLinkEntity
 _080A1180:
 	ldr r4, _080A11A0 @ =gLinkEntity
 	ldrb r3, [r4, #0x14]
 	cmp r3, #4
 	beq _080A11A8
-	ldr r0, _080A11A4 @ =gUnk_030010A0
+	ldr r0, _080A11A4 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -339,7 +339,7 @@ _080A1180:
 	b _080A11BA
 	.align 2, 0
 _080A11A0: .4byte gLinkEntity
-_080A11A4: .4byte gUnk_030010A0
+_080A11A4: .4byte gScreenTransition
 _080A11A8:
 	movs r0, #0
 	movs r1, #1

@@ -557,7 +557,7 @@ _0803E49E:
 sub_0803E4A0: @ 0x0803E4A0
 	push {lr}
 	adds r1, r0, #0
-	ldr r0, _0803E4B8 @ =gUnk_030010A0
+	ldr r0, _0803E4B8 @ =gScreenTransition
 	adds r0, #0x39
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -568,7 +568,7 @@ sub_0803E4A0: @ 0x0803E4A0
 	movs r0, #0
 	b _0803E4D6
 	.align 2, 0
-_0803E4B8: .4byte gUnk_030010A0
+_0803E4B8: .4byte gScreenTransition
 _0803E4BC:
 	adds r0, r1, #0
 	adds r0, #0x45

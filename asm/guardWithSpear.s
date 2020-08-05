@@ -227,7 +227,7 @@ _080641E6:
 	lsls r0, r0, #1
 	cmp r1, r0
 	ble _08064222
-	ldr r0, _080642B4 @ =gUnk_030010A0
+	ldr r0, _080642B4 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #6
 	bl __modsi3
@@ -304,7 +304,7 @@ _080642AC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080642B0: .4byte gLinkEntity
-_080642B4: .4byte gUnk_030010A0
+_080642B4: .4byte gScreenTransition
 
 	thumb_func_start sub_080642B8
 sub_080642B8: @ 0x080642B8
@@ -372,7 +372,7 @@ _08064306:
 	lsls r0, r0, #1
 	cmp r1, r0
 	ble _08064342
-	ldr r0, _080643D4 @ =gUnk_030010A0
+	ldr r0, _080643D4 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #6
 	bl __modsi3
@@ -449,7 +449,7 @@ _080643CC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080643D0: .4byte gLinkEntity
-_080643D4: .4byte gUnk_030010A0
+_080643D4: .4byte gScreenTransition
 
 	thumb_func_start sub_080643D8
 sub_080643D8: @ 0x080643D8

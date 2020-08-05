@@ -20,8 +20,8 @@ void sub_080659B8(Entity* this) {
     this->action = 1;
     this->spriteSettings.b.draw = 1;
     this->animationState = 6;
-    this->field_0x69 = -1;
-    this->field_0x68 = sub_0801E99C(this);
+    this->field_0x68.HALF.HI = -1;
+    this->field_0x68.HALF.LO = sub_0801E99C(this);
     InitAnimationForceUpdate(this, this->animationState / 2);
 }
 
@@ -57,14 +57,14 @@ void sub_08065A64(Entity* this) {
     u32 uVar2;
 
     uVar2 = -(gLinkState.flags.all & 0x80) >> 0x1f;
-    if (uVar2 != this->field_0x69) {
+    if (uVar2 != this->field_0x68.HALF.HI) {
         if (uVar2 == 0) {
             sub_08078778(this);
         } else {
-            sub_080787A8(this, this->field_0x68);
+            sub_080787A8(this, this->field_0x68.HALF.LO);
         }
     }
-    this->field_0x69 = uVar2;
+    this->field_0x68.HALF.HI = uVar2;
 }
 
 void sub_08065AA4(Entity* this) {

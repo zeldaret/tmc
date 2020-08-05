@@ -5,7 +5,7 @@
 extern void (*gUnk_081140D4[])(Entity*);
 
 extern u16 gUnk_081140CC[];
-extern u32 gUnk_030010A0;
+extern u32 gScreenTransition;
 extern void sub_0805E3A0(Entity*, u32);
 extern void sub_0806D0B0(Entity*);
 extern void sub_0807DD64(Entity*);
@@ -40,7 +40,7 @@ void sub_0806CF30(Entity* this) {
     if (this->previousActionFlag != 2) {
 
         if (this->previousActionFlag < 3) {
-            if ((gUnk_030010A0 & 3) == 0) {
+            if ((gScreenTransition & 3) == 0) {
                 iVar3 = this->x.HALF.HI;
                 if (gLinkEntity.x.HALF.HI < iVar3) {
                     if ((this->field_0x68 - 32) < iVar3) {

@@ -8,7 +8,7 @@ extern void (*const gUnk_081280C4[])();
 
 void DrawKinstoneMenu(void)
 {
-  gUnk_030010A0.field_0x24[8] = 2;
+  gScreenTransition.field_0x24[8] = 2;
   sub_080AD90C();
   gUnk_081280C4[gMenu.menuType]();
   sub_080A3B74();
@@ -18,7 +18,7 @@ void DrawKinstoneMenu(void)
   sub_0805E5C0();
   sub_080AD9B0();
   sub_080AD918();
-  gUnk_030010A0.field_0x24[8] = 0;
+  gScreenTransition.field_0x24[8] = 0;
 }
 
 extern void gUnk_081280DC;
@@ -29,7 +29,7 @@ void sub_080A3BD0(void)
   s32 iVar2;
   
   gMenu.field_0x1 = 1;
-  gMenu.field_0x12[0x17] = 0;
+  gMenu.unk2a = 0;
   sub_080A4D34();
   LoadPalettesByPaletteGroupIndex(0xcb);
   sub_0801D7EC(0x75);

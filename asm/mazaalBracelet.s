@@ -233,7 +233,7 @@ _0803A2CC:
 	adds r1, r4, #0
 	bl PositionRelative
 _0803A310:
-	ldr r0, _0803A350 @ =gUnk_030010A0
+	ldr r0, _0803A350 @ =gScreenTransition
 	adds r0, #0x38
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -263,7 +263,7 @@ _0803A310:
 	b _0803A360
 	.align 2, 0
 _0803A34C: .4byte 0xFFF00000
-_0803A350: .4byte gUnk_030010A0
+_0803A350: .4byte gScreenTransition
 _0803A354:
 	movs r0, #1
 	strb r0, [r4, #0xc]
@@ -3166,7 +3166,7 @@ _0803B90C: .4byte gUnk_080CFD20
 sub_0803B910: @ 0x0803B910
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _0803B940 @ =gUnk_030010A0
+	ldr r0, _0803B940 @ =gScreenTransition
 	adds r0, #0x38
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -3188,7 +3188,7 @@ sub_0803B910: @ 0x0803B910
 	bl sub_0803BA8C
 	b _0803B950
 	.align 2, 0
-_0803B940: .4byte gUnk_030010A0
+_0803B940: .4byte gScreenTransition
 _0803B944:
 	movs r0, #1
 	strb r0, [r4, #0xc]

@@ -98,7 +98,7 @@ _08091A22:
 	beq _08091A68
 	b _08091C04
 _08091A68:
-	ldr r0, _08091AD8 @ =gUnk_030010A0
+	ldr r0, _08091AD8 @ =gScreenTransition
 	ldr r0, [r0]
 	ands r0, r7
 	cmp r0, #0
@@ -152,7 +152,7 @@ _08091A92:
 	strb r0, [r5, #0x14]
 	b _08091BD8
 	.align 2, 0
-_08091AD8: .4byte gUnk_030010A0
+_08091AD8: .4byte gScreenTransition
 _08091ADC: .4byte gUnk_081223C8
 _08091AE0: .4byte gUnk_081223D8
 _08091AE4:

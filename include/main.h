@@ -45,7 +45,6 @@ extern UI gUnk_02032EC0;
 
 extern s32 sub_08055F70();
 extern s32 sub_080A3204(s32);
-extern s32 sub_0805616C(s32);
 extern s32 sub_0807CE90(s32);
 extern s32 sub_080560B8(s32);
 extern void sub_08056208(s32);

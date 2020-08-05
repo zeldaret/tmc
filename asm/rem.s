@@ -421,7 +421,7 @@ _0806A6E4:
 	strb r1, [r0]
 	b _0806A75A
 _0806A724:
-	ldr r0, _0806A780 @ =gUnk_030010A0
+	ldr r0, _0806A780 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -469,9 +469,9 @@ _0806A75A:
 	strb r1, [r0]
 	b _0806A82A
 	.align 2, 0
-_0806A780: .4byte gUnk_030010A0
+_0806A780: .4byte gScreenTransition
 _0806A784:
-	ldr r0, _0806A7C4 @ =gUnk_030010A0
+	ldr r0, _0806A7C4 @ =gScreenTransition
 	ldr r0, [r0]
 	lsrs r0, r0, #4
 	movs r1, #3
@@ -506,7 +506,7 @@ _0806A7BA:
 	strb r0, [r3]
 	b _0806A82A
 	.align 2, 0
-_0806A7C4: .4byte gUnk_030010A0
+_0806A7C4: .4byte gScreenTransition
 _0806A7C8:
 	adds r2, r4, #0
 	adds r2, #0x29
@@ -835,7 +835,7 @@ sub_0806AA18: @ 0x0806AA18
 	.align 2, 0
 _0806AA28: .4byte 0x00004408
 _0806AA2C:
-	ldr r0, _0806AA48 @ =gUnk_030010A0
+	ldr r0, _0806AA48 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -849,7 +849,7 @@ _0806AA3C:
 	bl TextboxNoOverlap
 	pop {pc}
 	.align 2, 0
-_0806AA48: .4byte gUnk_030010A0
+_0806AA48: .4byte gScreenTransition
 _0806AA4C: .4byte 0x0000440D
 
 	thumb_func_start sub_0806AA50

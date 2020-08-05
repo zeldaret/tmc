@@ -1269,7 +1269,7 @@ sub_0805524C: @ 0x0805524C
 	.align 2, 0
 _08055270: .4byte gMenu
 _08055274:
-	ldr r0, _080552A4 @ =gUnk_030010A0
+	ldr r0, _080552A4 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -1293,7 +1293,7 @@ _08055274:
 	strh r0, [r1]
 	b _080552D6
 	.align 2, 0
-_080552A4: .4byte gUnk_030010A0
+_080552A4: .4byte gScreenTransition
 _080552A8: .4byte gUnk_080FF204
 _080552AC: .4byte 0x0000FFFF
 _080552B0: .4byte gScreen

@@ -249,7 +249,7 @@ sub_08057A18: @ 0x08057A18
 	ldr r3, _08057A98 @ =gRoomControls
 	ldrb r0, [r3, #4]
 	strb r0, [r6, #9]
-	ldr r1, _08057A9C @ =gUnk_030010A0
+	ldr r1, _08057A9C @ =gScreenTransition
 	ldrb r0, [r5, #4]
 	strb r0, [r1, #0xc]
 	ldrb r0, [r5, #5]
@@ -303,7 +303,7 @@ _08057A86:
 	.align 2, 0
 _08057A94: .4byte gUnk_03004030
 _08057A98: .4byte gRoomControls
-_08057A9C: .4byte gUnk_030010A0
+_08057A9C: .4byte gScreenTransition
 _08057AA0: .4byte gLinkEntity
 _08057AA4: .4byte gUnk_02034480
 

@@ -4,6 +4,7 @@
 #include "room.h"
 #include "functions.h"
 #include "flags.h"
+#include "npc.h"
 #include "link.h"
 #include "screen.h"
 #include "main.h"
@@ -233,7 +234,7 @@ extern EntityData gUnk_080D6210;
 
 void sub_0804B5BC(void) {
 
-    if ((u16)gUnk_030010A0.field_0x10.HALF.HI > 0x40)
+    if ((u16)gScreenTransition.playerStartPos.HALF.y > 0x40)
         LoadRoomEntityList(&gUnk_080D6210);
 }
 
@@ -345,7 +346,7 @@ extern EntityData gUnk_080D6734;
 extern EntityData gUnk_080D66F4;
 
 void sub_0804B738(void) {
-    if (gUnk_02002A40.field_0x8 > 4) {
+    if (gUnk_02002A40.unk8 > 4) {
         LoadRoomEntityList(&gUnk_080D6714);
     }
     // flippers
@@ -363,7 +364,7 @@ u32 sub_0804B788() {
 extern EntityData gUnk_080D6924;
 
 void sub_0804B78C(void) {
-    if (gUnk_02002A40.field_0x8 > 7) {
+    if (gUnk_02002A40.unk8 > 7) {
         LoadRoomEntityList(&gUnk_080D6924);
     }
 }
@@ -465,7 +466,7 @@ extern EntityData UpperInn_Din;
 void sub_0804B938(void) {
     int iVar1;
 
-    if (gUnk_02002A40.field_0x8 < 4)
+    if (gUnk_02002A40.unk8 < 4)
         return;
 
     if (CheckGlobalFlag(RENTED_HOUSE_DIN)) {
@@ -515,7 +516,7 @@ u32 sub_0804BA08() {
 extern EntityData gUnk_080D7038;
 
 void sub_0804BA0C(void) {
-    if (gUnk_02002A40.field_0x8 < 8) {
+    if (gUnk_02002A40.unk8 < 8) {
         LoadRoomEntityList(&gUnk_080D7038);
     }
     if (gRoomVars.filler[0] == 0) {
@@ -535,13 +536,13 @@ extern EntityData gUnk_080D71F0;
 
 void sub_0804BA44(void) {
 
-    if (gUnk_02002A40.field_0x8 == 6)
+    if (gUnk_02002A40.unk8 == 6)
         LoadRoomEntityList(&gUnk_080D7140);
 
-    if (gUnk_02002A40.field_0x8 == 7)
+    if (gUnk_02002A40.unk8 == 7)
         LoadRoomEntityList(&gUnk_080D7170);
 
-    if ((gUnk_02002A40.field_0x8 < 8) || (LoadRoomEntityList(&gUnk_080D71A0), gUnk_02002A40.field_0x8 < 8))
+    if ((gUnk_02002A40.unk8 < 8) || (LoadRoomEntityList(&gUnk_080D71A0), gUnk_02002A40.unk8 < 8))
         LoadRoomEntityList(&gUnk_080D71D0);
     else
         LoadRoomEntityList(&gUnk_080D71F0);
@@ -640,7 +641,7 @@ void sub_0804bc38(void) {
 
 u32 sub_0804BC50(void) {
     if (!CheckLocalFlag(0x9f)) {
-        gUnk_030010A0.field_0xa[5] = 5;
+        gScreenTransition.field_0xf = 5;
         ClearGlobalFlag(ZELDA_CHASE);
     }
     return 1;
@@ -1023,7 +1024,7 @@ void sub_0804C018(void) {
     SetTile(0x4072, 0xc47, 1);
 
     if (CheckGlobalFlag(MAZE_CLEAR))
-        if (gUnk_030010A0.field_0x10.WORD == 0x2780078)
+        if (gScreenTransition.playerStartPos.WORD == 0x2780078) // todo: wtf
             PlaySFX(0x72);
 
     ClearGlobalFlag(MAZE_CLEAR);
@@ -1449,7 +1450,7 @@ extern EntityData gUnk_080DB238;
 
 void sub_0804C664(void) {
 
-    if (gUnk_02002A40.field_0x8 > 8)
+    if (gUnk_02002A40.unk8 > 8)
         LoadRoomEntityList(&gUnk_080DB238);
 
     sub_0801AFE4();
@@ -2120,10 +2121,10 @@ u32 sub_0804CC6C() {
 }
 
 void sub_0804CC70(void) {
-    if (gUnk_02002A40.filler[7] == 0) {
+    if (gUnk_02002A40.unk7 == 0) {
         goto a;
     }
-    if (gUnk_02002A40.filler[7] != 2) {
+    if (gUnk_02002A40.unk7 != 2) {
     a:
         SetTileType(0x90, 0x20b, 1);
         SetTileType(0x90, 0x411, 1);
@@ -2444,8 +2445,8 @@ u32 sub_0804CF40() {
 }
 
 void sub_0804CF44(void) {
-    gUnk_030010A0.field_0x38 = 0;
-    gUnk_030010A0.field_0x39 = 0x5a;
+    gScreenTransition.field_0x38 = 0;
+    gScreenTransition.field_0x39 = 0x5a;
 }
 
 u32 sub_0804CF5C() {
@@ -2520,10 +2521,10 @@ u32 sub_0804CFAC() {
 void sub_0804CFB0(void) {
 
     if (!CheckFlags(0x31)) {
-        if (gUnk_030010A0.field_0x38 == 0) {
+        if (gScreenTransition.field_0x38 == 0) {
             PlaySFX(0x80100000);
         } else {
-            if (gUnk_030010A0.field_0x39 == 0) {
+            if (gScreenTransition.field_0x39 == 0) {
                 PlaySFX(0x80050000);
                 sub_08078A90(3);
             }
@@ -3508,16 +3509,16 @@ u32 sub_0804D6EC() {
 void sub_0804D6F0(void) {
     sub_0805D3C8(0);
 
-    if ((gUnk_030010A0.field_0x38 & 1) && gUnk_030010A0.field_0x39) {
-        if (gUnk_030010A0.field_0x3c == 1) {
-            gLinkEntity.x.HALF.HI = gUnk_030010A0.field_0x48;
-            gLinkEntity.y.HALF.HI = gUnk_030010A0.field_0x4a + 8;
+    if ((gScreenTransition.field_0x38 & 1) && gScreenTransition.field_0x39) {
+        if (gScreenTransition.field_0x3c == 1) {
+            gLinkEntity.x.HALF.HI = gScreenTransition.field_0x48;
+            gLinkEntity.y.HALF.HI = gScreenTransition.field_0x4a + 8;
         } else {
-            if (gUnk_030010A0.field_0x3c) {
+            if (gScreenTransition.field_0x3c) {
                 return;
             }
-            gLinkEntity.x.HALF.HI = gUnk_030010A0.field_0x44;
-            gLinkEntity.y.HALF.HI = gUnk_030010A0.field_0x46 + 8;
+            gLinkEntity.x.HALF.HI = gScreenTransition.field_0x44;
+            gLinkEntity.y.HALF.HI = gScreenTransition.field_0x46 + 8;
         }
     }
 }
@@ -4233,7 +4234,7 @@ void LoadHyruleTown(void) {
     sub_08054570();
     sub_08059D18();
     SetTileType(0x176, 0x66b, 1);
-    if (gUnk_02002A40.field_0x8 == 1) {
+    if (gUnk_02002A40.unk8 == 1) {
         sub_0801D000(0);
     } else {
         sub_08018C58(0xdb4);
@@ -4258,7 +4259,7 @@ void LoadHyruleTown(void) {
         } else {
             LoadRoomEntityList(&gUnk_080EECBC);
         }
-        if (CheckKinstoneFused(0x1b) && (gUnk_02002A40.field_0x8 > 3)) {
+        if (CheckKinstoneFused(0x1b) && (gUnk_02002A40.unk8 > 3)) {
             if (!CheckGlobalFlag(NEW_HOUSE_DIN) && !CheckGlobalFlag(NEW_HOUSE_NAYRU) && !CheckGlobalFlag(NEW_HOUSE_FARORE)) {
                 if (!CheckGlobalFlag(RENTED_HOUSE_DIN) && !CheckGlobalFlag(RENTED_HOUSE_NAYRU) && !CheckGlobalFlag(RENTED_HOUSE_FARORE)) {
                     LoadRoomEntityList(&gUnk_080EE95C);
@@ -4282,7 +4283,7 @@ void LoadHyruleTown(void) {
         } else {
             LoadRoomEntityList(&gUnk_080EE9DC);
         }
-        if ((gUnk_02002A40.field_0x8 > 4) && !CheckKinstoneFused(0xb) &&
+        if ((gUnk_02002A40.unk8 > 4) && !CheckKinstoneFused(0xb) &&
             (CheckGlobalFlag(RENTED_HOUSE_DIN) || CheckGlobalFlag(RENTED_HOUSE_NAYRU) || CheckGlobalFlag(RENTED_HOUSE_FARORE))) {
             LoadRoomEntityList(&gUnk_080EEA5C);
         }
@@ -4290,10 +4291,10 @@ void LoadHyruleTown(void) {
         if (!CheckLocalFlag(0xd0) && GetInventoryValue(0x14)) {
             LoadRoomEntityList(&gUnk_080EEABC);
         }
-        if ((gUnk_02002A40.field_0x8 > 3) && CheckGlobalFlag(INLOCK)) {
+        if ((gUnk_02002A40.unk8 > 3) && CheckGlobalFlag(INLOCK)) {
             LoadRoomEntityList(&gUnk_080EEA7C);
         }
-        if ((gUnk_02002A40.field_0x8 < 6) && !CheckGlobalFlag(MIZUKAKI_START)) {
+        if ((gUnk_02002A40.unk8 < 6) && !CheckGlobalFlag(MIZUKAKI_START)) {
             LoadRoomEntityList(&gUnk_080EEA9C);
         }
         if ((gUnk_02002A40.windcrests & 0x8000000) == 0) {
@@ -4536,7 +4537,7 @@ void sub_0804E4E4(void)
   if (!GetInventoryValue(0x3a) && CheckGlobalFlag(MIZUKAKI_HARIFALL)) {
     LoadRoomEntityList(&gUnk_080F2194);
   }
-  if (gUnk_030010A0.field_0xa[5] == 1) {
+  if (gScreenTransition.field_0xf == 1) {
     LoadRoomEntityList(&gUnk_080F21B4);
   }
 }
@@ -4552,7 +4553,7 @@ extern EntityData gUnk_080F236C;
 void sub_0804E52C(void)
 {
   
-  if (gUnk_02002A40.field_0x8 > 7) {
+  if (gUnk_02002A40.unk8 > 7) {
     LoadRoomEntityList(&gUnk_080F23BC);
   }
   // flippers
@@ -4575,7 +4576,7 @@ extern EntityData gUnk_080F2600;
 
 void sub_0804E574(void)
 {
-    switch (gUnk_02002A40.field_0x8) {
+    switch (gUnk_02002A40.unk8) {
         case 0:
         case 2:
         case 4:
@@ -4816,7 +4817,7 @@ void sub_0804E8FC(void)
   if (!CheckGlobalFlag(INLOCK)) {
     LoadRoomEntityList(&gUnk_080F36FC);
   }
-  else if (gUnk_02002A40.field_0x8 < 4) {
+  else if (gUnk_02002A40.unk8 < 4) {
       LoadRoomEntityList(&gUnk_080F3604);
     }
 }
@@ -4852,8 +4853,8 @@ void sub_0804E954(void)
   if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START) && !GetInventoryValue(0x3b)) {
     LoadRoomEntityList(&gUnk_080F3A48);
   }
-  gUnk_030010A0.field_0x20 = 0xf28;
-  gUnk_030010A0.field_0x22 = 0x82d;
+  gScreenTransition.field_0x20 = 0xf28;
+  gScreenTransition.field_0x22 = 0x82d;
 }
 
 extern u32 gUnk_080F3D44;
@@ -4882,7 +4883,7 @@ void sub_0804E9D0(void)
   if (CheckKinstoneFused(0x12)) {
     LoadRoomEntityList(&gUnk_080F3C94);
   }
-  if ((gUnk_02002A40.field_0x8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
+  if ((gUnk_02002A40.unk8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
     LoadRoomEntityList(&gUnk_080F3C44);
   }
   SetTile(0x4091, 0x590, 1);
@@ -5260,7 +5261,7 @@ void nullsub_398() {}
 u32 sub_0804EFDC(void)
 {
   if (CheckGlobalFlag(MAROYA_WAKEUP)) {
-    gUnk_030010A0.field_0xa[5] = 5;
+    gScreenTransition.field_0xf = 5;
   }
   return 1;
 }
@@ -5270,7 +5271,7 @@ extern u32 gUnk_08011C50;
 
 void sub_0804EFF8(void)
 {  
-  if (gUnk_02002A40.field_0x8 > 7) {
+  if (gUnk_02002A40.unk8 > 7) {
     LoadRoomEntityList(&gUnk_080F5DD0);
   }
   if (CheckGlobalFlag(MAROYA_WAKEUP)) {
@@ -5302,7 +5303,7 @@ extern EntityData gUnk_080F5F78;
 void sub_0804F050(void)
 {
   
-  if (gUnk_02002A40.field_0x8 > 4) {
+  if (gUnk_02002A40.unk8 > 4) {
     LoadRoomEntityList(&gUnk_080F5F38);
   }
   if (!CheckLocalFlag(0x92)) {
@@ -5503,7 +5504,7 @@ void sub_0804F25C(void)
   if ((gUnk_02002A40.windcrests & 0x40000000) == 0) {
     LoadRoomEntityList(&gUnk_080F70D8);
   }
-  if (gUnk_02002A40.field_0x8 > 3) {
+  if (gUnk_02002A40.unk8 > 3) {
     LoadRoomEntityList(&gUnk_080F7088);
   }
 }
@@ -5549,7 +5550,7 @@ extern EntityData gUnk_080F7550;
 void sub_0804F330(void)
 {
   sub_0805ADD8(0);
-  if (gUnk_02002A40.field_0x8 > 3) {
+  if (gUnk_02002A40.unk8 > 3) {
     LoadRoomEntityList(&gUnk_080F7500);
   }
   if (GetInventoryValue(0x11) && !GetInventoryValue(0x12)) {
@@ -5591,7 +5592,7 @@ void sub_0804F3B0(void)
     SetTile(0x4072, 0xd88, 1);
     SetTile(0x4096, 0xdc8, 1);
   }
-  if ((gUnk_02002A40.field_0x8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
+  if ((gUnk_02002A40.unk8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
     LoadRoomEntityList(&gUnk_080F78A0);
   }
 }
@@ -5818,7 +5819,7 @@ extern EntityData gUnk_080F806C;
 void sub_0804FA00(void) {
   
   sub_0805ADD8(0);
-  if ((gUnk_02002A40.field_0x8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
+  if ((gUnk_02002A40.unk8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
     LoadRoomEntityList(&gUnk_080F806C);
   }
 }
@@ -6547,14 +6548,6 @@ u32 sub_0804FF7C() {
 
 void nullsub_106() {}
 
-typedef struct {
-    char header[4];
-    u8 saveFile;
-    u8 field_0x5;
-    u8 brightnessPref;
-} struct_02000000;
-
-extern struct_02000000 gUnk_02000000;
 
 void sub_0804FF84(u32 arg0)
 {

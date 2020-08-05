@@ -216,7 +216,7 @@ _08080AFA:
 	adds r0, r5, #0
 	adds r1, r6, #0
 	bl sub_080002A8
-	ldr r1, _08080B48 @ =gUnk_030010A0
+	ldr r1, _08080B48 @ =gScreenTransition
 	strh r0, [r1, #0xa]
 	cmp r4, #0x3f
 	beq _08080B50
@@ -228,7 +228,7 @@ _08080AFA:
 	blo _08080B5C
 	b _08080B50
 	.align 2, 0
-_08080B48: .4byte gUnk_030010A0
+_08080B48: .4byte gScreenTransition
 _08080B4C:
 	cmp r4, #0xf1
 	bne _08080B5C
@@ -538,7 +538,7 @@ _08080DB4:
 	bl ResolveEntityOnTop
 	b _08080E00
 _08080DEE:
-	ldr r0, _08080E04 @ =gUnk_030010A0
+	ldr r0, _08080E04 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #0xf
 	ands r0, r1
@@ -549,7 +549,7 @@ _08080DEE:
 _08080E00:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08080E04: .4byte gUnk_030010A0
+_08080E04: .4byte gScreenTransition
 
 	thumb_func_start ItemOnGround
 ItemOnGround: @ 0x08080E08

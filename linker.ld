@@ -174,7 +174,7 @@ SECTIONS {
         . = 0x00001000; gUnk_03001000 = .;
         . = 0x00001010; gUnk_03001010 = .;
         . = 0x00001020; gUnk_03001020 = .;
-        . = 0x000010A0; gUnk_030010A0 = .;
+        . = 0x000010A0; gScreenTransition = .;
         . = 0x000010AC; gUnk_030010AC = .;
         . = 0x000010D8; gUnk_030010D8 = .;
         . = 0x000010EC; gUnk_030010EC = .;
@@ -664,7 +664,9 @@ SECTIONS {
 		asm/getInventoryValue.o(.text);
 		asm/code_0807CAA0.o(.text);
 		src/flags.o(.text);
+		src/code_0807CC3C.o(.text);
 		asm/code_0807CC3C.o(.text);
+		src/code_080808D8.o(.text);
 		src/code_0808091C.o(.text);
 		/* objects */
 		asm/itemOnGround.o(.text);
@@ -693,7 +695,7 @@ SECTIONS {
 		asm/floatingPlatform.o(.text);
 		asm/object17.o(.text);
 		asm/evilSpirit.o(.text);
-		asm/houseDoorExterior.o(.text);
+		src/object/houseDoorExterior.o(.text);
 		src/object/object1A.o(.text);
 		src/object/greatFairy.o(.text);
 		asm/greatFairy.o(.text);
@@ -745,7 +747,7 @@ SECTIONS {
 		asm/object45.o(.text);
 		asm/giantBookLadder.o(.text);
 		src/object/heartContainer.o(.text);
-		asm/object48.o(.text);
+		src/object/object48.o(.text);
 		src/object/object49.o(.text);
 		asm/object49.o(.text);
 		asm/backgroundCloud.o(.text);
@@ -840,7 +842,7 @@ SECTIONS {
 		src/object/palaceArchway.o(.text);
 		asm/objectA2.o(.text);
 		src/object/cloud.o(.text);
-		asm/minishLight.o(.text);
+		src/object/minishLight.o(.text);
 		asm/objectA5.o(.text);
 		asm/objectA6.o(.text);
 		asm/objectA7.o(.text);

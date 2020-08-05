@@ -95,7 +95,7 @@ _080AD9AC: .4byte 0x00000427
 sub_080AD9B0: @ 0x080AD9B0
 	push {lr}
 	ldr r2, _080AD9F4 @ =gUnk_03000000
-	ldr r0, _080AD9F8 @ =gUnk_030010A0
+	ldr r0, _080AD9F8 @ =gScreenTransition
 	adds r0, #0x2f
 	ldrb r0, [r0]
 	movs r1, #0
@@ -129,7 +129,7 @@ _080AD9C2:
 	pop {pc}
 	.align 2, 0
 _080AD9F4: .4byte gUnk_03000000
-_080AD9F8: .4byte gUnk_030010A0
+_080AD9F8: .4byte gScreenTransition
 _080AD9FC: .4byte gRoomControls
 _080ADA00: .4byte gUnk_03006164
 

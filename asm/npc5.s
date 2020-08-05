@@ -2315,7 +2315,7 @@ sub_08061B58: @ 0x08061B58
 	movs r1, #2
 	bl InitAnimationForceUpdate
 _08061B6E:
-	ldr r0, _08061B88 @ =gUnk_030010A0
+	ldr r0, _08061B88 @ =gScreenTransition
 	adds r0, #0x2c
 	ldrb r0, [r0]
 	cmp r0, #2
@@ -2327,4 +2327,4 @@ _08061B7E:
 	bl sub_0806FD3C
 	pop {r4, pc}
 	.align 2, 0
-_08061B88: .4byte gUnk_030010A0
+_08061B88: .4byte gScreenTransition

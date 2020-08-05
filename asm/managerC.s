@@ -70,7 +70,7 @@ sub_080588CC: @ 0x080588CC
 	bl sub_08058CFC
 	adds r0, r4, #0
 	bl sub_08058A04
-	ldr r0, _080588E8 @ =gUnk_030010A0
+	ldr r0, _080588E8 @ =gScreenTransition
 	ldrb r0, [r0, #8]
 	cmp r0, #0
 	beq _080588EC
@@ -78,7 +78,7 @@ sub_080588CC: @ 0x080588CC
 	strb r0, [r4, #0xc]
 	b _080588F2
 	.align 2, 0
-_080588E8: .4byte gUnk_030010A0
+_080588E8: .4byte gScreenTransition
 _080588EC:
 	adds r0, r4, #0
 	bl sub_080588F8
@@ -413,7 +413,7 @@ _08058B58: .4byte gRoomControls
 	thumb_func_start sub_08058B5C
 sub_08058B5C: @ 0x08058B5C
 	push {r4, r5, lr}
-	ldr r3, _08058BB4 @ =gUnk_030010A0
+	ldr r3, _08058BB4 @ =gScreenTransition
 	movs r0, #0
 	movs r4, #1
 	strb r4, [r3, #8]
@@ -455,7 +455,7 @@ sub_08058B5C: @ 0x08058B5C
 	bl PlaySFX
 	pop {r4, r5, pc}
 	.align 2, 0
-_08058BB4: .4byte gUnk_030010A0
+_08058BB4: .4byte gScreenTransition
 _08058BB8: .4byte gRoomControls
 _08058BBC: .4byte gUnk_081082E8
 _08058BC0: .4byte gUnk_02002A40

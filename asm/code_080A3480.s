@@ -204,7 +204,7 @@ _080A35DC: .4byte gUnk_02021EE0
 	thumb_func_start sub_080A35E0
 sub_080A35E0: @ 0x080A35E0
 	push {lr}
-	ldr r1, _080A35FC @ =gUnk_030010A0
+	ldr r1, _080A35FC @ =gScreenTransition
 	ldr r0, [r1]
 	adds r0, #1
 	str r0, [r1]
@@ -217,7 +217,7 @@ sub_080A35E0: @ 0x080A35E0
 	bl _call_via_r0
 	pop {pc}
 	.align 2, 0
-_080A35FC: .4byte gUnk_030010A0
+_080A35FC: .4byte gScreenTransition
 _080A3600: .4byte gUnk_08127D00
 _080A3604: .4byte gUnk_03001000
 
@@ -437,7 +437,7 @@ _080A37C4:
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A385E
-	ldr r0, _080A37FC @ =gUnk_030010A0
+	ldr r0, _080A37FC @ =gScreenTransition
 	ldr r0, [r0]
 	ands r0, r1
 	cmp r0, #0
@@ -461,7 +461,7 @@ _080A37C4:
 	b _080A383C
 	.align 2, 0
 _080A37F8: .4byte gUnk_03000FD0
-_080A37FC: .4byte gUnk_030010A0
+_080A37FC: .4byte gScreenTransition
 _080A3800: .4byte gScreen
 _080A3804:
 	ldrh r0, [r4, #8]
@@ -472,7 +472,7 @@ _080A3804:
 	bne _080A385E
 	b _080A383C
 _080A3812:
-	ldr r0, _080A3844 @ =gUnk_030010A0
+	ldr r0, _080A3844 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -499,7 +499,7 @@ _080A383C:
 	strb r0, [r4, #6]
 	b _080A385E
 	.align 2, 0
-_080A3844: .4byte gUnk_030010A0
+_080A3844: .4byte gScreenTransition
 _080A3848: .4byte gScreen
 _080A384C:
 	ldr r1, _080A3860 @ =gUnk_03000FD0

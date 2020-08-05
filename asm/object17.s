@@ -84,7 +84,7 @@ sub_08086234: @ 0x08086234
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	beq _08086258
-	ldr r0, _08086254 @ =gUnk_030010A0
+	ldr r0, _08086254 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -94,7 +94,7 @@ sub_08086234: @ 0x08086234
 	bl GetNextFrame
 	b _0808625E
 	.align 2, 0
-_08086254: .4byte gUnk_030010A0
+_08086254: .4byte gScreenTransition
 _08086258:
 	adds r0, r4, #0
 	bl GetNextFrame

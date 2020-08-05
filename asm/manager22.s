@@ -130,7 +130,7 @@ _0805B9EC: .4byte 0x0000DFFF
 _0805B9F0: .4byte gLinkState
 _0805B9F4: .4byte gArea
 _0805B9F8:
-	ldr r0, _0805BA24 @ =gUnk_030010A0
+	ldr r0, _0805BA24 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -151,7 +151,7 @@ _0805B9F8:
 	bl sub_0801E154
 	b _0805BA42
 	.align 2, 0
-_0805BA24: .4byte gUnk_030010A0
+_0805BA24: .4byte gScreenTransition
 _0805BA28: .4byte gSineTable
 _0805BA2C:
 	movs r0, #0

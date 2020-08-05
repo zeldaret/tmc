@@ -44,8 +44,8 @@ void Anju(Entity *this)
 
 void sub_0806C354(Entity *this)
 {
-    this->field_0x68 = sub_0801E99C();
-    sub_08078784(this,this->field_0x68);
+    this->field_0x68.HALF.LO = sub_0801E99C();
+    sub_08078784(this, this->field_0x68.HALF.LO);
 }
 
 void Anju_Fusion(Entity *this)
