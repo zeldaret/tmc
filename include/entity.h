@@ -26,7 +26,8 @@ typedef struct {
 } BoundingBox;
 
 typedef struct Entity {
-    /*0x00*/ u32* field_0x0;
+    /*0x00*/ u16 unk0;
+    /*0x02*/ u8 filler2[0x2];
     /*0x04*/ struct Entity* field_0x4;
     /*0x08*/ EntityType entityType;
     /*0x0c*/ u8 action;

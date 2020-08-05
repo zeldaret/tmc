@@ -692,7 +692,7 @@ SECTIONS {
 		asm/floatingPlatform.o(.text);
 		asm/object17.o(.text);
 		asm/evilSpirit.o(.text);
-		asm/houseDoorExterior.o(.text);
+		src/object/houseDoorExterior.o(.text);
 		src/object/object1A.o(.text);
 		src/object/greatFairy.o(.text);
 		asm/greatFairy.o(.text);
