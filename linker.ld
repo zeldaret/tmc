@@ -840,7 +840,7 @@ SECTIONS {
 		src/object/palaceArchway.o(.text);
 		asm/objectA2.o(.text);
 		src/object/cloud.o(.text);
-		asm/minishLight.o(.text);
+		src/object/minishLight.o(.text);
 		asm/objectA5.o(.text);
 		asm/objectA6.o(.text);
 		asm/objectA7.o(.text);
