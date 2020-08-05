@@ -13,21 +13,48 @@ typedef struct {
     u8 gameLanguage;
 } struct_02000000;
 
-extern struct_02000000 gUnk_02000000;
+typedef struct {
+    u16 field_0x0;
+    u16 field_0x2;
+    u16 field_0x4;
+    u16 field_0x6;
+    u16 field_0x8;
+    u16 field_0xa;
+} struct_0807D1C4;
+
+#define gUnk_02000000 ((struct_02000000*)(0x2000000))
+//extern struct_02000000 gUnk_02000000;
 
 typedef struct {
-    u16 frameCount; // regular frame count? does anything reset it?
+    /*0x000*/ u8 filler0[0x6];
+    /*0x006*/ u8 unk6;
+    /*0x007*/ u8 unk7;
+    /*0x008*/ u8 unk8;
+    /*0x009*/ u8 field_0x9[0x34];
+    /*0x040*/ u32 windcrests;
+    /*0x044*/ u8 filler44[0xC];
+    /*0x050*/ u32 unk50;
+    /*0x054*/ u8 filler54[0x54];
+    /*0x0A8*/ Stats stats;
+    /*0x0D0*/ u8 filler4[0x3c0];
+    /*0x490*/ u32 unk490;
+} struct_02002A40;
+
+extern struct_02002A40 gUnk_02002A40;
+
+typedef struct {
+    u16 frameCount;    // regular frame count? does anything reset it?
     u8 field_0x2[6];
     bool8 transitioningOut;
     u8 transitionType; // transition when changing areas
-    u8 field_0xa;
+    u8 field_0xa;      // seems to be a tile type
     u8 field_0xb;
     u8 areaID;
     u8 roomID;
-    u8 animState;
+    u8 playerState;
     u8 field_0xf;
-    Coords startPos;
-    u16 collisionLayer;
+    Coords playerStartPos;
+    u16 playerLayer;
     u8 field_0x14[0xa];
     u16 field_0x20;
     u16 field_0x22;
@@ -41,6 +68,8 @@ typedef struct {
     u16 field_0x46;
     u16 field_0x48;
     u16 field_0x4a;
+    u8 field_0x4c[0x60];
+    u16 field_0xac;
 } ScreenTransition;
 
 extern ScreenTransition gScreenTransition;
@@ -53,9 +82,9 @@ typedef struct {
     u8 field_0xa;
     u8 areaID;
     u8 roomID;
-    u8 collisionLayer;
+    u8 playerLayer;
     u8 field_0xe;
-    u8 playerAnimState;
+    u8 playerState;
     u16 transitionSFX;
 } ScreenTransitionData;
 

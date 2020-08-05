@@ -4,6 +4,7 @@
 #include "link.h"
 #include "textbox.h"
 #include "flags.h"
+#include "structures.h"
 
 typedef struct {
     u8 frame1;

@@ -234,7 +234,7 @@ extern EntityData gUnk_080D6210;
 
 void sub_0804B5BC(void) {
 
-    if ((u16)gScreenTransition.startPos.HALF.y > 0x40)
+    if ((u16)gScreenTransition.playerStartPos.HALF.y > 0x40)
         LoadRoomEntityList(&gUnk_080D6210);
 }
 
@@ -1024,7 +1024,7 @@ void sub_0804C018(void) {
     SetTile(0x4072, 0xc47, 1);
 
     if (CheckGlobalFlag(MAZE_CLEAR))
-        if (gScreenTransition.startPos.WORD == 0x2780078) // todo: wtf
+        if (gScreenTransition.playerStartPos.WORD == 0x2780078) // todo: wtf
             PlaySFX(0x72);
 
     ClearGlobalFlag(MAZE_CLEAR);

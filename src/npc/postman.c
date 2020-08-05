@@ -3,6 +3,7 @@
 #include "npc.h"
 #include "textbox.h"
 #include "link.h"
+#include "structures.h"
 
 typedef struct {
     u8 filler[7];

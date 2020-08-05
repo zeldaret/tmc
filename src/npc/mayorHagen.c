@@ -6,6 +6,8 @@
 #include "sprite.h"
 #include "textbox.h"
 #include "npc.h"
+#include "structures.h"
+
 extern void sub_0807DD50(Entity*);
 extern u32 sub_0806F5A4(u32);
 extern void sub_0806F118(Entity*);

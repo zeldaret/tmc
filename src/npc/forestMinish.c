@@ -4,6 +4,7 @@
 #include "flags.h"
 #include "textbox.h"
 #include "link.h"
+#include "structures.h"
 
 extern void sub_0805E3A0(Entity*, u32);
 extern void StartCutscene(Entity*, void*);

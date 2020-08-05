@@ -663,8 +663,9 @@ SECTIONS {
 		asm/getInventoryValue.o(.text);
 		asm/code_0807CAA0.o(.text);
 		src/flags.o(.text);
-		asm/code_0807CC3C.o(.text);
 		src/code_0807CC3C.o(.text);
+		asm/code_0807CC3C.o(.text);
+		src/code_080808D8.o(.text);
 		src/code_0808091C.o(.text);
 		/* objects */
 		asm/itemOnGround.o(.text);

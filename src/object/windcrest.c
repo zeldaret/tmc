@@ -2,11 +2,6 @@
 #include "entity.h"
 #include "functions.h"
 
-typedef struct {
-    u8 filler[64];
-    u32 windcrests;
-} struct_02002A40;
-
 extern void sub_0807DD64(Entity*);
 extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
@@ -15,7 +10,6 @@ extern void PlaySFX(u32);
 extern Entity* CreateFx (Entity*, u32, u32);
 
 extern u8 gUnk_08125010;
-extern struct_02002A40 gUnk_02002A40;
 
 void Windcrest(Entity *this)
 {

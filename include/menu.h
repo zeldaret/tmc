@@ -27,7 +27,8 @@ typedef struct {
     u8 overlayType;
     u8 storyPanelIndex;
     u16 transitionTimer;
-    u8 fillerA[0x6];
+    u16 field_0xa;
+    u8 field_0xc[0x4];
     u8 unk10[2];
     u8 field_0x12;
     u8 unk13;
