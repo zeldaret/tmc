@@ -549,7 +549,7 @@ _08023440:
 	subs r0, #1
 	strb r0, [r1]
 _08023460:
-	ldr r0, _080234A0 @ =gUnk_030010A0
+	ldr r0, _080234A0 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -579,7 +579,7 @@ _08023460:
 _0802349C:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080234A0: .4byte gUnk_030010A0
+_080234A0: .4byte gScreenTransition
 
 	thumb_func_start sub_080234A4
 sub_080234A4: @ 0x080234A4

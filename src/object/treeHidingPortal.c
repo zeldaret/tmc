@@ -15,7 +15,7 @@ extern void CreateMinishEntrance(u32 tile);
 
 extern void (*const gUnk_08124354[])(Entity*);
 
-extern u32 gUnk_030010A0;
+extern u32 gScreenTransition;
 extern s16 gUnk_08124364[];
 
 void TreeHidingPortal(Entity* this) {
@@ -36,7 +36,7 @@ void sub_0809E86C(Entity* this) {
 
     if (sub_0800419C(this, &gLinkEntity, 0x30, 0x30)) {
         if (CheckGlobalFlag(EZERO_1ST)) {
-            if (((gUnk_030010A0 & 3) == 0)) {
+            if (((gScreenTransition & 3) == 0)) {
                 sub_080A2B80(this);
             }
         }

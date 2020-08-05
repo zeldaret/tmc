@@ -9,7 +9,7 @@
 typedef struct {
     /*0x00*/ u8 filler[0x2C];
     /*0x2C*/ u8 unk;
-} struct_030010A0;
+} ScreenTransition;
 
 typedef struct {
     u8 filler[0xa8];
@@ -20,7 +20,7 @@ typedef struct {
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
 
-extern struct_030010A0 gUnk_030010A0;
+extern ScreenTransition gScreenTransition;
 extern u16 gUnk_081115DC[];
 extern u8 gUnk_08111618[];
 extern u32* gUnk_081115EC[];
@@ -60,7 +60,7 @@ void sub_08068A1C(Entity* this) {
     int offset;
 
     (this->entityType).parameter = (this->entityType).form;
-    if (gUnk_030010A0.unk != 0) {
+    if (gScreenTransition.unk != 0) {
         offset = 6;
         bVar1 = 3;
 
@@ -114,7 +114,7 @@ void sub_08068AA4(Entity* this) {
 }
 
 void sub_08068ADC(Entity* this) {
-    if (gUnk_030010A0.unk == 2) {
+    if (gScreenTransition.unk == 2) {
         GetNextFrame(this);
     }
     sub_0806FD3C(this);

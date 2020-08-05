@@ -333,7 +333,7 @@ _0803540E:
 	cmp r4, #0
 	bne _0803540E
 _08035438:
-	ldr r1, _080354AC @ =gUnk_030010A0
+	ldr r1, _080354AC @ =gScreenTransition
 	ldr r0, [r1]
 	movs r1, #2
 	ands r0, r1
@@ -387,7 +387,7 @@ _08035456:
 	bl InitAnimationForceUpdate
 	b _080354DC
 	.align 2, 0
-_080354AC: .4byte gUnk_030010A0
+_080354AC: .4byte gScreenTransition
 _080354B0:
 	adds r1, r5, #0
 	adds r1, #0x3f
@@ -635,7 +635,7 @@ _08035616:
 	ldrb r0, [r1]
 	cmp r0, #0
 	bne _080356EC
-	ldr r0, _080356E8 @ =gUnk_030010A0
+	ldr r0, _080356E8 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #0xf
 	ands r0, r1
@@ -677,7 +677,7 @@ _080356B2:
 	b _080356F0
 	.align 2, 0
 _080356E4: .4byte gSineTable
-_080356E8: .4byte gUnk_030010A0
+_080356E8: .4byte gScreenTransition
 _080356EC:
 	subs r0, #1
 	strb r0, [r1]
@@ -1749,7 +1749,7 @@ _08035F16:
 	beq _08035F48
 	subs r0, #1
 	strb r0, [r1, #6]
-	ldr r0, _08035F74 @ =gUnk_030010A0
+	ldr r0, _08035F74 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -1781,7 +1781,7 @@ _08035F6C:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08035F74: .4byte gUnk_030010A0
+_08035F74: .4byte gScreenTransition
 _08035F78: .4byte gUnk_080CF0C4
 
 	thumb_func_start sub_08035F7C
@@ -2273,7 +2273,7 @@ _08036300:
 sub_08036304: @ 0x08036304
 	push {lr}
 	mov ip, r0
-	ldr r0, _08036328 @ =gUnk_030010A0
+	ldr r0, _08036328 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #2
 	ands r0, r1
@@ -2289,7 +2289,7 @@ sub_08036304: @ 0x08036304
 	strh r0, [r1]
 	b _08036350
 	.align 2, 0
-_08036328: .4byte gUnk_030010A0
+_08036328: .4byte gScreenTransition
 _0803632C:
 	mov r2, ip
 	adds r2, #0x84
@@ -2483,7 +2483,7 @@ _080364A4:
 	ands r1, r0
 	str r1, [r2, #0x30]
 _080364AA:
-	ldr r0, _080364C8 @ =gUnk_030010A0
+	ldr r0, _080364C8 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -2497,7 +2497,7 @@ _080364AA:
 	b _0803657A
 	.align 2, 0
 _080364C4: .4byte 0xFFFFF7FF
-_080364C8: .4byte gUnk_030010A0
+_080364C8: .4byte gScreenTransition
 _080364CC:
 	adds r0, r4, #0
 	adds r0, #0x7c
@@ -2726,7 +2726,7 @@ _08036678:
 	movs r0, #1
 	rsbs r0, r0, #0
 	bl sub_0805308C
-	ldr r0, _080366B0 @ =gUnk_030010A0
+	ldr r0, _080366B0 @ =gScreenTransition
 	ldr r1, [r0]
 	movs r0, #3
 	ands r0, r1
@@ -2748,7 +2748,7 @@ _080366A0:
 _080366AC:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080366B0: .4byte gUnk_030010A0
+_080366B0: .4byte gScreenTransition
 
 	thumb_func_start sub_080366B4
 sub_080366B4: @ 0x080366B4
@@ -2770,7 +2770,7 @@ sub_080366B4: @ 0x080366B4
 _080366D4:
 	subs r0, #1
 	strb r0, [r2]
-	ldr r0, _08036708 @ =gUnk_030010A0
+	ldr r0, _08036708 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -2795,7 +2795,7 @@ _080366D4:
 _08036706:
 	pop {r4, pc}
 	.align 2, 0
-_08036708: .4byte gUnk_030010A0
+_08036708: .4byte gScreenTransition
 
 	thumb_func_start sub_0803670C
 sub_0803670C: @ 0x0803670C
@@ -2816,7 +2816,7 @@ sub_0803670C: @ 0x0803670C
 	beq _08036746
 	subs r0, #1
 	strb r0, [r1, #6]
-	ldr r0, _08036760 @ =gUnk_030010A0
+	ldr r0, _08036760 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -2839,7 +2839,7 @@ _08036746:
 	pop {r4, pc}
 	.align 2, 0
 _0803675C: .4byte gUnk_080CF100
-_08036760: .4byte gUnk_030010A0
+_08036760: .4byte gScreenTransition
 
 	thumb_func_start sub_08036764
 sub_08036764: @ 0x08036764
@@ -2963,7 +2963,7 @@ _0803683A:
 	movs r0, #0
 	strb r0, [r1]
 _08036852:
-	ldr r0, _08036868 @ =gUnk_030010A0
+	ldr r0, _08036868 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #0x1f
 	ands r0, r1
@@ -2974,7 +2974,7 @@ _08036852:
 _08036864:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08036868: .4byte gUnk_030010A0
+_08036868: .4byte gScreenTransition
 _0803686C: .4byte 0x00000159
 
 	thumb_func_start sub_08036870
@@ -3953,7 +3953,7 @@ _08036FA8:
 sub_08036FAC: @ 0x08036FAC
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _08036FD0 @ =gUnk_030010A0
+	ldr r0, _08036FD0 @ =gScreenTransition
 	ldr r0, [r0]
 	ands r0, r1
 	cmp r0, #0
@@ -3969,7 +3969,7 @@ sub_08036FAC: @ 0x08036FAC
 	bl PlaySFX
 	b _08036FDE
 	.align 2, 0
-_08036FD0: .4byte gUnk_030010A0
+_08036FD0: .4byte gScreenTransition
 _08036FD4: .4byte 0x00000163
 _08036FD8:
 	ldr r0, _08036FE0 @ =0x000001B1

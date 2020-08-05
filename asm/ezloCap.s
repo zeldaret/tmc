@@ -584,7 +584,7 @@ _0806DCB6:
 
 	thumb_func_start sub_0806DCC0
 sub_0806DCC0: @ 0x0806DCC0
-	ldr r0, _0806DCD0 @ =gUnk_030010A0
+	ldr r0, _0806DCD0 @ =gScreenTransition
 	movs r1, #0xf9
 	lsls r1, r1, #3
 	strh r1, [r0, #0x20]
@@ -592,7 +592,7 @@ sub_0806DCC0: @ 0x0806DCC0
 	strh r1, [r0, #0x22]
 	bx lr
 	.align 2, 0
-_0806DCD0: .4byte gUnk_030010A0
+_0806DCD0: .4byte gScreenTransition
 
 	thumb_func_start NPC4E_Fusion
 NPC4E_Fusion: @ 0x0806DCD4

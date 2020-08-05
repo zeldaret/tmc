@@ -27,7 +27,7 @@ void GoronMerchant(Entity *this)
 
 void sub_08069584(Entity *this)
 {  
-  if (gUnk_030010A0.field_0x24[8] != 0) {
+  if (gScreenTransition.field_0x24[8] != 0) {
     this->action = 3;
     }
   else {
@@ -65,7 +65,7 @@ void sub_080695E8(Entity *this)
 
 void sub_0806961C(Entity *this)
 {
-  if (gUnk_030010A0.field_0x24[8] == 2) {
+  if (gScreenTransition.field_0x24[8] == 2) {
     UpdateAnimationSingleFrame(this);
   }
   sub_0806FD3C(this);

@@ -40,7 +40,7 @@ _0806CF6C:
 	bgt _0806D000
 	cmp r0, #0
 	blt _0806D000
-	ldr r0, _0806CFCC @ =gUnk_030010A0
+	ldr r0, _0806CFCC @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -83,7 +83,7 @@ _0806CFA8:
 	strh r0, [r5, #0x2e]
 	b _0806D000
 	.align 2, 0
-_0806CFCC: .4byte gUnk_030010A0
+_0806CFCC: .4byte gScreenTransition
 _0806CFD0: .4byte gLinkEntity
 _0806CFD4:
 	ldrb r0, [r5, #0xe]

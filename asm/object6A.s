@@ -545,7 +545,7 @@ sub_08094E30: @ 0x08094E30
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	bne _08094E88
-	ldr r0, _08094E80 @ =gUnk_030010A0
+	ldr r0, _08094E80 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #0x1f
 	ands r0, r1
@@ -577,7 +577,7 @@ _08094E5A:
 	strh r1, [r5, #0x32]
 	b _08094F94
 	.align 2, 0
-_08094E80: .4byte gUnk_030010A0
+_08094E80: .4byte gScreenTransition
 _08094E84: .4byte gRoomControls
 _08094E88:
 	cmp r0, #1
@@ -1654,7 +1654,7 @@ _080956E2:
 	adds r0, r5, #0
 	bl GetNextFrame
 	ldrb r0, [r5, #0xb]
-	ldr r1, _08095724 @ =gUnk_030010A0
+	ldr r1, _08095724 @ =gScreenTransition
 	ldr r1, [r1]
 	adds r0, r0, r1
 	movs r1, #0xf
@@ -1682,7 +1682,7 @@ _080956FE:
 	bl DeleteThisEntity
 	b _0809572C
 	.align 2, 0
-_08095724: .4byte gUnk_030010A0
+_08095724: .4byte gScreenTransition
 _08095728:
 	bl DeleteThisEntity
 _0809572C:

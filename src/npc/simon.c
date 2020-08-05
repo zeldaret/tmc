@@ -7,7 +7,7 @@
 typedef struct {
     u8 filler[9];
     u8 unk;
-} struct_030010A0;
+} ScreenTransition;
 
 typedef struct {
  u8 filler[4];
@@ -21,7 +21,7 @@ extern void DoFade(u32, u32);
 
 extern void gUnk_0813AD60;
 extern void gUnk_0813AD74;
-extern struct_030010A0 gUnk_030010A0;
+extern ScreenTransition gScreenTransition;
 
 void Simon(Entity *this)
 {
@@ -37,7 +37,7 @@ void Simon(Entity *this)
 void sub_0806C224(void)
 {
   DoExitTransition(&gUnk_0813AD60);
-  gUnk_030010A0.unk = 6;
+  gScreenTransition.unk = 6;
 }
 
 void Simon_CreateChest(Entity *this)
@@ -51,7 +51,7 @@ void sub_0806C280(void)
 {
   SetGlobalFlag(MAROYA_WAKEUP);
   DoExitTransition(&gUnk_0813AD74);
-  gUnk_030010A0.unk = 6;
+  gScreenTransition.unk = 6;
 }
 
 void sub_0806C2A0(u32 *param_1,struct_0806C2A0 *param_2)

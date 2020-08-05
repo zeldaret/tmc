@@ -391,7 +391,7 @@ _080170E8:
 	ldrb r0, [r0, #1]
 	cmp r0, #0
 	bne _08017112
-	ldr r0, _08017134 @ =gUnk_030010A0
+	ldr r0, _08017134 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #0x5a
 	bl __modsi3
@@ -414,7 +414,7 @@ _08017124: .4byte gTextBox
 _08017128: .4byte gRoomVars
 _0801712C: .4byte gUnk_02002A40
 _08017130: .4byte gUnk_0200AF00
-_08017134: .4byte gUnk_030010A0
+_08017134: .4byte gScreenTransition
 _08017138: .4byte 0x0000011F
 _0801713C:
 	adds r1, r0, #0

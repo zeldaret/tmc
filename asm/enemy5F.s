@@ -32,7 +32,7 @@ _080482E8: .4byte gUnk_080D1D48
 sub_080482EC: @ 0x080482EC
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _08048310 @ =gUnk_030010A0
+	ldr r0, _08048310 @ =gScreenTransition
 	adds r0, #0x38
 	ldrb r1, [r0]
 	movs r2, #1
@@ -47,7 +47,7 @@ sub_080482EC: @ 0x080482EC
 	bl InitializeAnimation
 	b _08048326
 	.align 2, 0
-_08048310: .4byte gUnk_030010A0
+_08048310: .4byte gScreenTransition
 _08048314:
 	strb r2, [r4, #0xc]
 	adds r0, r4, #0
@@ -90,7 +90,7 @@ sub_0804835C: @ 0x0804835C
 	push {r4, lr}
 	adds r4, r0, #0
 	bl sub_080485D8
-	ldr r0, _08048384 @ =gUnk_030010A0
+	ldr r0, _08048384 @ =gScreenTransition
 	adds r0, #0x39
 	ldrb r1, [r0]
 	movs r2, #3
@@ -108,7 +108,7 @@ sub_0804835C: @ 0x0804835C
 _08048382:
 	pop {r4, pc}
 	.align 2, 0
-_08048384: .4byte gUnk_030010A0
+_08048384: .4byte gScreenTransition
 
 	thumb_func_start sub_08048388
 sub_08048388: @ 0x08048388

@@ -23,7 +23,7 @@ extern void PositionEntityOnTop(Entity*, Entity*);
 extern void sub_0807BB68(u32*, u32, u32);
 
 extern u8 gUnk_02034490;
-extern u32 gUnk_030010A0;
+extern u32 gScreenTransition;
 extern void* gUnk_080DD750;
 extern Entity gLinkEntity;
 extern LinkState gLinkState;
@@ -62,7 +62,7 @@ void sub_0809F548(Entity* this) {
         sub_0809F814((((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 63) |
                      (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 63) << 6);
     } else {
-        if ((gUnk_030010A0 & 7) == 0) {
+        if ((gScreenTransition & 7) == 0) {
             sub_0809F7BC(this);
         }
         sub_0809F7F4(this);
@@ -110,7 +110,7 @@ void sub_0809F61C(Entity* this) {
             sub_0809F814((((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 63) |
                          (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 63) << 6);
         } else {
-            if ((gUnk_030010A0 & 7) == 0) {
+            if ((gScreenTransition & 7) == 0) {
                 sub_0809F7BC(this);
             }
             sub_0809F7F4(this);
@@ -145,7 +145,7 @@ void sub_0809F700(Entity* this) {
         this->actionDelay = (Random() & 30) + 8;
         this->flags = this->flags | 12;
     }
-    if ((gUnk_030010A0 & 3) == 0) {
+    if ((gScreenTransition & 3) == 0) {
         uVar2 = Random();
         this->spriteOffsetX = gUnk_081247C0[uVar2 & 7];
         this->spriteOffsetY = gUnk_081247C0[uVar2 >> 4 & 7];

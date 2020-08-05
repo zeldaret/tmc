@@ -17,12 +17,19 @@ typedef struct {
 extern struct_02002A40 gUnk_02002A40;
 
 typedef struct {
-    u8 field_0x0[8];
-    u8 field_0x8;
-    u8 field_0x9;
-    u8 field_0xa[6];
-    union SplitWord field_0x10;
-    u8 field_0x14[0xc];
+    u16 frameCount; // regular frame count? does anything reset it?
+    u8 field_0x2[6];
+    bool8 transitioningOut;
+    u8 transitionType; // transition when changing areas
+    u8 field_0xa;
+    u8 field_0xb;
+    u8 areaID;
+    u8 roomID;
+    u8 animState;
+    u8 field_0xf;
+    Coords startPos;
+    u16 collisionLayer;
+    u8 field_0x14[0xa];
     u16 field_0x20;
     u16 field_0x22;
     u8 field_0x24[0x14];
@@ -35,9 +42,22 @@ typedef struct {
     u16 field_0x46;
     u16 field_0x48;
     u16 field_0x4a;
-} struct_030010A0;
+} ScreenTransition;
 
-extern struct_030010A0 gUnk_030010A0;
+extern ScreenTransition gScreenTransition;
 
+typedef struct {
+    u16 transitionType;
+    u8 field_0x2[4];
+    s16 playerXPos;
+    s16 playerYPos;
+    u8 field_0xa;
+    u8 areaID;
+    u8 roomID;
+    u8 collisionLayer;
+    u8 field_0xe;
+    u8 playerAnimState;
+    u16 transitionSFX;
+} ScreenTransitionData;
 
 #endif

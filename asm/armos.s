@@ -1014,7 +1014,7 @@ _0803088E:
 	strb r0, [r2]
 	ldr r0, [r5, #0x7c]
 	bl DoExitTransition
-	ldr r0, _08030938 @ =gUnk_030010A0
+	ldr r0, _08030938 @ =gScreenTransition
 	adds r1, r5, #0
 	adds r1, #0x80
 	ldrb r1, [r1]
@@ -1027,7 +1027,7 @@ _08030928: .4byte gLinkState
 _0803092C: .4byte gRoomControls
 _08030930: .4byte 0x00004049
 _08030934: .4byte gLinkEntity
-_08030938: .4byte gUnk_030010A0
+_08030938: .4byte gScreenTransition
 _0803093C:
 	ldr r0, _0803094C @ =0x00004022
 	mov r3, r8

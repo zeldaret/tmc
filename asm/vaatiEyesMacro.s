@@ -60,7 +60,7 @@ sub_0802ECC0: @ 0x0802ECC0
 	adds r0, #0x45
 	ldrb r1, [r0]
 	adds r5, r0, #0
-	ldr r3, _0802ED00 @ =gUnk_030010A0
+	ldr r3, _0802ED00 @ =gScreenTransition
 	cmp r1, #0
 	bne _0802ECEE
 	adds r2, r3, #0
@@ -84,7 +84,7 @@ _0802ECEE:
 	adds r0, #0x3a
 	b _0802ED0E
 	.align 2, 0
-_0802ED00: .4byte gUnk_030010A0
+_0802ED00: .4byte gScreenTransition
 _0802ED04: .4byte gRoomControls
 _0802ED08:
 	ldrb r1, [r5]
@@ -187,15 +187,15 @@ sub_0802ED8C: @ 0x0802ED8C
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	bne _0802EDDC
-	ldr r0, _0802EDD8 @ =gUnk_030010A0
+	ldr r0, _0802EDD8 @ =gScreenTransition
 	adds r0, #0x3a
 	b _0802EDE0
 	.align 2, 0
 _0802EDD0: .4byte gUnk_03003DBC
 _0802EDD4: .4byte gRoomControls
-_0802EDD8: .4byte gUnk_030010A0
+_0802EDD8: .4byte gScreenTransition
 _0802EDDC:
-	ldr r0, _0802EE0C @ =gUnk_030010A0
+	ldr r0, _0802EE0C @ =gScreenTransition
 	adds r0, #0x3b
 _0802EDE0:
 	ldrb r0, [r0]
@@ -218,7 +218,7 @@ _0802EDE0:
 _0802EE0A:
 	pop {r4, pc}
 	.align 2, 0
-_0802EE0C: .4byte gUnk_030010A0
+_0802EE0C: .4byte gScreenTransition
 
 	thumb_func_start sub_0802EE10
 sub_0802EE10: @ 0x0802EE10

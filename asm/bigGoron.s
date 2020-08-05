@@ -570,7 +570,7 @@ _0806D45E:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 _0806D46C:
-	ldr r0, _0806D4A8 @ =gUnk_030010A0
+	ldr r0, _0806D4A8 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -599,7 +599,7 @@ _0806D46C:
 	strb r0, [r2]
 	b _0806D4BE
 	.align 2, 0
-_0806D4A8: .4byte gUnk_030010A0
+_0806D4A8: .4byte gScreenTransition
 _0806D4AC:
 	adds r1, r4, #0
 	adds r1, #0x63

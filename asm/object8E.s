@@ -90,7 +90,7 @@ _0809B8D8:
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0x1f
 	bhi _0809B914
-	ldr r5, _0809B90C @ =gUnk_030010A0
+	ldr r5, _0809B90C @ =gScreenTransition
 	ldr r0, [r5]
 	movs r1, #0x1f
 	ands r0, r1
@@ -113,7 +113,7 @@ _0809B8F0:
 	bl sub_0809B97C
 	b _0809B972
 	.align 2, 0
-_0809B90C: .4byte gUnk_030010A0
+_0809B90C: .4byte gScreenTransition
 _0809B910: .4byte 0x00000133
 _0809B914:
 	movs r0, #2
@@ -273,7 +273,7 @@ _0809BA40:
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
 	beq _0809BA7C
-	ldr r5, _0809BA74 @ =gUnk_030010A0
+	ldr r5, _0809BA74 @ =gScreenTransition
 	ldr r0, [r5]
 	movs r1, #0x1f
 	ands r0, r1
@@ -296,7 +296,7 @@ _0809BA58:
 	bl sub_0809B97C
 	b _0809BAC2
 	.align 2, 0
-_0809BA74: .4byte gUnk_030010A0
+_0809BA74: .4byte gScreenTransition
 _0809BA78: .4byte 0x00000133
 _0809BA7C:
 	movs r0, #2
@@ -436,7 +436,7 @@ _0809BB88:
 	ldrh r0, [r5]
 	cmp r0, #0xdf
 	bhi _0809BBC4
-	ldr r4, _0809BBBC @ =gUnk_030010A0
+	ldr r4, _0809BBBC @ =gScreenTransition
 	ldr r0, [r4]
 	movs r1, #0x1f
 	ands r0, r1
@@ -456,7 +456,7 @@ _0809BBA6:
 	b _0809BC68
 	.align 2, 0
 _0809BBB8: .4byte gScreen
-_0809BBBC: .4byte gUnk_030010A0
+_0809BBBC: .4byte gScreenTransition
 _0809BBC0: .4byte 0x00000133
 _0809BBC4:
 	movs r0, #2
@@ -631,7 +631,7 @@ _0809BD20:
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0
 	beq _0809BD64
-	ldr r6, _0809BD58 @ =gUnk_030010A0
+	ldr r6, _0809BD58 @ =gScreenTransition
 	ldr r0, [r6]
 	movs r1, #0x1f
 	ands r0, r1
@@ -656,7 +656,7 @@ _0809BD38:
 	strh r0, [r1]
 	b _0809BDAE
 	.align 2, 0
-_0809BD58: .4byte gUnk_030010A0
+_0809BD58: .4byte gScreenTransition
 _0809BD5C: .4byte 0x00000133
 _0809BD60: .4byte gScreen
 _0809BD64:
@@ -753,7 +753,7 @@ _0809BE0C:
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	beq _0809BE34
-	ldr r0, _0809BE2C @ =gUnk_030010A0
+	ldr r0, _0809BE2C @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #0x1f
 	ands r0, r1
@@ -763,7 +763,7 @@ _0809BE0C:
 	bl PlaySFX
 	b _0809BE70
 	.align 2, 0
-_0809BE2C: .4byte gUnk_030010A0
+_0809BE2C: .4byte gScreenTransition
 _0809BE30: .4byte 0x00000133
 _0809BE34:
 	movs r0, #2

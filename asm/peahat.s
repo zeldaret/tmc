@@ -469,7 +469,7 @@ _080202B4:
 	adds r0, #4
 	strh r0, [r4, #0x24]
 _080202C8:
-	ldr r0, _080202F0 @ =gUnk_030010A0
+	ldr r0, _080202F0 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -487,7 +487,7 @@ _080202E6:
 	bl sub_080AEFE0
 	b _080202FE
 	.align 2, 0
-_080202F0: .4byte gUnk_030010A0
+_080202F0: .4byte gScreenTransition
 _080202F4: .4byte gUnk_020000B0
 _080202F8:
 	adds r0, r4, #0

@@ -233,7 +233,7 @@ extern EntityData gUnk_080D6210;
 
 void sub_0804B5BC(void) {
 
-    if ((u16)gUnk_030010A0.field_0x10.HALF.HI > 0x40)
+    if ((u16)gScreenTransition.startPos.HALF.y > 0x40)
         LoadRoomEntityList(&gUnk_080D6210);
 }
 
@@ -640,7 +640,7 @@ void sub_0804bc38(void) {
 
 u32 sub_0804BC50(void) {
     if (!CheckLocalFlag(0x9f)) {
-        gUnk_030010A0.field_0xa[5] = 5;
+        gScreenTransition.field_0xf = 5;
         ClearGlobalFlag(ZELDA_CHASE);
     }
     return 1;
@@ -1023,7 +1023,7 @@ void sub_0804C018(void) {
     SetTile(0x4072, 0xc47, 1);
 
     if (CheckGlobalFlag(MAZE_CLEAR))
-        if (gUnk_030010A0.field_0x10.WORD == 0x2780078)
+        if (gScreenTransition.startPos.WORD == 0x2780078) // todo: wtf
             PlaySFX(0x72);
 
     ClearGlobalFlag(MAZE_CLEAR);
@@ -2444,8 +2444,8 @@ u32 sub_0804CF40() {
 }
 
 void sub_0804CF44(void) {
-    gUnk_030010A0.field_0x38 = 0;
-    gUnk_030010A0.field_0x39 = 0x5a;
+    gScreenTransition.field_0x38 = 0;
+    gScreenTransition.field_0x39 = 0x5a;
 }
 
 u32 sub_0804CF5C() {
@@ -2520,10 +2520,10 @@ u32 sub_0804CFAC() {
 void sub_0804CFB0(void) {
 
     if (!CheckFlags(0x31)) {
-        if (gUnk_030010A0.field_0x38 == 0) {
+        if (gScreenTransition.field_0x38 == 0) {
             PlaySFX(0x80100000);
         } else {
-            if (gUnk_030010A0.field_0x39 == 0) {
+            if (gScreenTransition.field_0x39 == 0) {
                 PlaySFX(0x80050000);
                 sub_08078A90(3);
             }
@@ -3508,16 +3508,16 @@ u32 sub_0804D6EC() {
 void sub_0804D6F0(void) {
     sub_0805D3C8(0);
 
-    if ((gUnk_030010A0.field_0x38 & 1) && gUnk_030010A0.field_0x39) {
-        if (gUnk_030010A0.field_0x3c == 1) {
-            gLinkEntity.x.HALF.HI = gUnk_030010A0.field_0x48;
-            gLinkEntity.y.HALF.HI = gUnk_030010A0.field_0x4a + 8;
+    if ((gScreenTransition.field_0x38 & 1) && gScreenTransition.field_0x39) {
+        if (gScreenTransition.field_0x3c == 1) {
+            gLinkEntity.x.HALF.HI = gScreenTransition.field_0x48;
+            gLinkEntity.y.HALF.HI = gScreenTransition.field_0x4a + 8;
         } else {
-            if (gUnk_030010A0.field_0x3c) {
+            if (gScreenTransition.field_0x3c) {
                 return;
             }
-            gLinkEntity.x.HALF.HI = gUnk_030010A0.field_0x44;
-            gLinkEntity.y.HALF.HI = gUnk_030010A0.field_0x46 + 8;
+            gLinkEntity.x.HALF.HI = gScreenTransition.field_0x44;
+            gLinkEntity.y.HALF.HI = gScreenTransition.field_0x46 + 8;
         }
     }
 }
@@ -4536,7 +4536,7 @@ void sub_0804E4E4(void)
   if (!GetInventoryValue(0x3a) && CheckGlobalFlag(MIZUKAKI_HARIFALL)) {
     LoadRoomEntityList(&gUnk_080F2194);
   }
-  if (gUnk_030010A0.field_0xa[5] == 1) {
+  if (gScreenTransition.field_0xf == 1) {
     LoadRoomEntityList(&gUnk_080F21B4);
   }
 }
@@ -4852,8 +4852,8 @@ void sub_0804E954(void)
   if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START) && !GetInventoryValue(0x3b)) {
     LoadRoomEntityList(&gUnk_080F3A48);
   }
-  gUnk_030010A0.field_0x20 = 0xf28;
-  gUnk_030010A0.field_0x22 = 0x82d;
+  gScreenTransition.field_0x20 = 0xf28;
+  gScreenTransition.field_0x22 = 0x82d;
 }
 
 extern u32 gUnk_080F3D44;
@@ -5260,7 +5260,7 @@ void nullsub_398() {}
 u32 sub_0804EFDC(void)
 {
   if (CheckGlobalFlag(MAROYA_WAKEUP)) {
-    gUnk_030010A0.field_0xa[5] = 5;
+    gScreenTransition.field_0xf = 5;
   }
   return 1;
 }

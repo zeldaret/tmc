@@ -3451,7 +3451,7 @@ sub_0801AE44: @ 0x0801AE44
 _0801AE5A:
 	bl sub_080809D4
 	bl sub_080805F8
-	ldr r0, _0801AEE4 @ =gUnk_030010A0
+	ldr r0, _0801AEE4 @ =gScreenTransition
 	adds r0, #0x2d
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -3513,7 +3513,7 @@ _0801AED0:
 	b _0801AF10
 	.align 2, 0
 _0801AEE0: .4byte gRoomControls
-_0801AEE4: .4byte gUnk_030010A0
+_0801AEE4: .4byte gScreenTransition
 _0801AEE8: .4byte gArea
 _0801AEEC: .4byte 0x0600F000
 _0801AEF0: .4byte gUnk_03004030
@@ -3567,7 +3567,7 @@ sub_0801AF48: @ 0x0801AF48
 	ldr r0, _0801AF7C @ =0x00003FFF
 	cmp r4, r0
 	bhi _0801AF7A
-	ldr r0, _0801AF80 @ =gUnk_030010A0
+	ldr r0, _0801AF80 @ =gScreenTransition
 	adds r0, #0x30
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -3589,7 +3589,7 @@ _0801AF7A:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0801AF7C: .4byte 0x00003FFF
-_0801AF80: .4byte gUnk_030010A0
+_0801AF80: .4byte gScreenTransition
 _0801AF84: .4byte gRoomVars
 _0801AF88: .4byte gUnk_0200B240
 

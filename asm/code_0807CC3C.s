@@ -2303,7 +2303,7 @@ _0807DE1E:
 	bl sub_0800445C
 	b _0807DDEC
 _0807DE26:
-	ldr r0, _0807DE40 @ =gUnk_030010A0
+	ldr r0, _0807DE40 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -2317,9 +2317,9 @@ _0807DE26:
 	strb r0, [r4, #0xf]
 	b _0807DDEC
 	.align 2, 0
-_0807DE40: .4byte gUnk_030010A0
+_0807DE40: .4byte gScreenTransition
 _0807DE44:
-	ldr r0, _0807DE68 @ =gUnk_030010A0
+	ldr r0, _0807DE68 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -2336,7 +2336,7 @@ _0807DE44:
 	strb r0, [r1]
 	b _0807DDEC
 	.align 2, 0
-_0807DE68: .4byte gUnk_030010A0
+_0807DE68: .4byte gScreenTransition
 _0807DE6C: .4byte gUnk_0811E510
 _0807DE70:
 	adds r0, r4, #0
@@ -6989,7 +6989,7 @@ _0807FF18: .4byte gUnk_02000070
 sub_0807FF1C: @ 0x0807FF1C
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _0807FF4C @ =gUnk_030010A0
+	ldr r0, _0807FF4C @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -7011,7 +7011,7 @@ sub_0807FF1C: @ 0x0807FF1C
 _0807FF48:
 	pop {pc}
 	.align 2, 0
-_0807FF4C: .4byte gUnk_030010A0
+_0807FF4C: .4byte gScreenTransition
 _0807FF50: .4byte gUnk_02000070
 
 	thumb_func_start sub_0807FF54
@@ -8165,7 +8165,7 @@ _0808083E:
 DoExitTransition: @ 0x08080840
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _0808085C @ =gUnk_030010A0
+	ldr r0, _0808085C @ =gScreenTransition
 	movs r1, #1
 	strb r1, [r0, #8]
 	adds r2, r0, #0
@@ -8177,7 +8177,7 @@ DoExitTransition: @ 0x08080840
 	strh r1, [r2, #4]
 	b _08080872
 	.align 2, 0
-_0808085C: .4byte gUnk_030010A0
+_0808085C: .4byte gScreenTransition
 _08080860: .4byte 0x000003FF
 _08080864:
 	ldr r0, _08080880 @ =gRoomControls
@@ -8234,50 +8234,3 @@ _080808B8:
 _080808CC: .4byte gRoomControls
 _080808D0: .4byte 0xFFFF8000
 _080808D4: .4byte gUnk_0811E7C4
-
-	thumb_func_start sub_080808D8
-sub_080808D8: @ 0x080808D8
-	ldr r1, _080808E0 @ =gUnk_030010A0
-	movs r0, #0
-	strb r0, [r1, #9]
-	bx lr
-	.align 2, 0
-_080808E0: .4byte gUnk_030010A0
-
-	thumb_func_start sub_080808E4
-sub_080808E4: @ 0x080808E4
-	push {r4, lr}
-	ldr r4, _080808F8 @ =gUnk_030010A0
-	ldrb r0, [r4, #0xc]
-	bl sub_08052638
-	cmp r0, #0
-	beq _080808FC
-	movs r0, #0
-	b _080808FE
-	.align 2, 0
-_080808F8: .4byte gUnk_030010A0
-_080808FC:
-	movs r0, #5
-_080808FE:
-	strb r0, [r4, #9]
-	pop {r4, pc}
-	.align 2, 0
-
-	thumb_func_start sub_08080904
-sub_08080904: @ 0x08080904
-	ldr r1, _0808090C @ =gUnk_030010A0
-	movs r0, #1
-	strb r0, [r1, #9]
-	bx lr
-	.align 2, 0
-_0808090C: .4byte gUnk_030010A0
-
-	thumb_func_start sub_08080910
-sub_08080910: @ 0x08080910
-	ldr r1, _08080918 @ =gUnk_030010A0
-	movs r0, #1
-	strb r0, [r1, #9]
-	bx lr
-	.align 2, 0
-_08080918: .4byte gUnk_030010A0
-

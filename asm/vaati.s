@@ -78,7 +78,7 @@ sub_08066ACC: @ 0x08066ACC
 	asrs r0, r0, #0x18
 	cmp r0, #0
 	beq _08066AF6
-	ldr r0, _08066B1C @ =gUnk_030010A0
+	ldr r0, _08066B1C @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -105,7 +105,7 @@ _08066AF6:
 	b _08066B66
 	.align 2, 0
 _08066B18: .4byte sub_08066B74
-_08066B1C: .4byte gUnk_030010A0
+_08066B1C: .4byte gScreenTransition
 _08066B20:
 	cmp r2, #3
 	beq _08066B40

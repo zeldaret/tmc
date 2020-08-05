@@ -1039,7 +1039,7 @@ _0801CFFC: .4byte 0x0000FFFF
 sub_0801D000: @ 0x0801D000
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _0801D024 @ =gUnk_030010A0
+	ldr r0, _0801D024 @ =gScreenTransition
 	movs r1, #0
 	cmp r2, #0
 	beq _0801D00E
@@ -1054,7 +1054,7 @@ _0801D00E:
 	bl sub_0801CFD0
 	b _0801D03A
 	.align 2, 0
-_0801D024: .4byte gUnk_030010A0
+_0801D024: .4byte gScreenTransition
 _0801D028:
 	ldr r3, _0801D03C @ =gUnk_02001A3C
 	ldrb r1, [r3]
