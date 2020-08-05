@@ -31,7 +31,7 @@ void sub_080455D4(Entity *this)
 void sub_080455E4(Entity *this)
 {
   if ((this != this->parent) && (this->parent != NULL)) {
-    this->field_0x6c = this->field_0x6c & 0x7f;
+    this->field_0x6c.HALF.LO &= 0x7f;
     this->parent->attachedEntity = this->attachedEntity;
     this->attachedEntity->parent = this->parent;
   }

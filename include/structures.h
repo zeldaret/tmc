@@ -6,15 +6,14 @@
 #include "link.h"
 
 typedef struct {
-    u8 filler[8];
-    u8 field_0x8;
-    u8 field_0x9[0x34];
-    u32 windcrests;
-    u8 field_0x44[0x64];
-    Stats stats;
-} struct_02002A40;
+    char header[4];
+    u8 saveFile;
+    u8 field_0x5;
+    u8 brightnessPref;
+    u8 gameLanguage;
+} struct_02000000;
 
-extern struct_02002A40 gUnk_02002A40;
+extern struct_02000000 gUnk_02000000;
 
 typedef struct {
     u8 field_0x0[8];
@@ -39,5 +38,14 @@ typedef struct {
 
 extern struct_030010A0 gUnk_030010A0;
 
+typedef struct {
+    /*0x00*/ u8 unk0;
+    /*0x01*/ u8 filler1[0x5];
+    /*0x06*/ u8 unk6;
+    /*0x07*/ u8 unk7;
+    /*0x08*/ s8 unk8[0x10]; // ?? unclear know how large this is
+} struct_02019EE0;
+
+extern struct_02019EE0 gUnk_02019EE0;
 
 #endif

@@ -123,8 +123,8 @@ void sub_08068ADC(Entity* this) {
 void sub_08068AFC(Entity* this) {
     this->action = 1;
     this->spriteSettings.b.draw = 1;
-    *(u8*)&this->field_0x68 = sub_0801E99C(this);
-    sub_08078784(this, *(u8*)&this->field_0x68);
+    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    sub_08078784(this, this->field_0x68.HALF.LO);
     sub_0807DD50(this);
 }
 
@@ -161,14 +161,14 @@ void sub_08068B84(Entity* this) {
 void sub_08068BB4(Entity* this) {
     u32 item = gUnk_02002A40.stats.itemOnA;
 
-    this->field_0x69 = item;
+    this->field_0x68.HALF.HI = item;
     item = gUnk_02002A40.stats.itemOnB;
-    *(&this->field_0x69 + 1) = item;
+    *(&this->field_0x68.HALF.HI + 1) = item;
 }
 
 void sub_08068BD0(Entity* this) {
-    ForceEquipItem(this->field_0x69, 0);
-    ForceEquipItem(*(u8*)(&this->field_0x69 + 1), 1);
+    ForceEquipItem(this->field_0x68.HALF.HI, 0);
+    ForceEquipItem(*(u8*)(&this->field_0x68.HALF.HI + 1), 1);
 }
 
 void sub_08068BEC(Entity* this, u32 unused) {

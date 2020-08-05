@@ -98,7 +98,7 @@ void sub_080660EC(Entity *this)
 {
     if (LoadExtraSpriteData(this, &gUnk_08110354) != 0) {
     this->action = 1;
-    this->field_0x68 = sub_0801E99C(this);
+    this->field_0x68.HALF.LO = sub_0801E99C(this);
     InitAnimationForceUpdate(this, 2);
   }
 }
@@ -140,7 +140,7 @@ void sub_08066178(Entity *this)
   if (LoadExtraSpriteData(this, &gUnk_08110354) != 0) {
     this->action = 1;
     this->spriteSettings.b.draw = 1;
-    this->field_0x68 = sub_0801E99C(this);
+    this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_0807DD50(this);
   }
 }
@@ -207,7 +207,7 @@ void sub_08066274(u32 arg0)
 
 void sub_08066288(Entity *arg0)
 {
-  sub_08078784(arg0, arg0->field_0x68);
+  sub_08078784(arg0, arg0->field_0x68.HALF.LO);
 }
 
 void Smith_Fusion(Entity *this)

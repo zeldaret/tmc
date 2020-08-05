@@ -31,10 +31,6 @@ extern void sub_0804A720(Entity *);
 extern void sub_0803CA84(Entity *, u32);
 extern bool32 sub_0803CA4C(Entity *);
 
-// Many functions
-extern void UpdateAnimationSingleFrame(Entity *);
-extern void InitAnimationForceUpdate(Entity *, u32);
-
 // sub_0803C918
 extern u32 sub_0803CB04(Entity *);
 

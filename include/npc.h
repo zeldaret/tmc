@@ -170,19 +170,22 @@ extern void Phonograph(Entity*);
 extern void NPC58(Entity*);
 extern void NPC58_Head(Entity*);
 
-
 extern u32 UpdateFuseInteraction(Entity*);
 extern void ShowNPCDialogue(Entity*, u32*);
 
 typedef struct {
-    /*0x000*/ u8 filler[8];
-    /*0x008*/ u8 unk;
-    /*0x009*/ u8 filler2[0x47];
-    /*0x050*/ u32 unk2;
-    /*0x051*/ u8 filler3[0x54];
-    /*0x0a8*/ Stats stats;
-    /*0x0d0*/ u8 filler4[0x3c0];
-    /*0x490*/ u32 unk3;
+    /*0x000*/ u8 filler0[0x6];
+    /*0x006*/ u8 unk6;
+    /*0x007*/ u8 unk7;
+    /*0x008*/ u8 unk8;
+    /*0x009*/ u8 field_0x9[0x34];
+    /*0x040*/ u32 windcrests;
+    /*0x044*/ u8 filler44[0xC];
+    /*0x050*/ u32 unk50;
+    /*0x054*/ u8 filler54[0x54];
+    /*0x0A8*/ Stats stats;
+    /*0x0D0*/ u8 filler4[0x3c0];
+    /*0x490*/ u32 unk490;
 } struct_02002A40;
 
 extern struct_02002A40 gUnk_02002A40;

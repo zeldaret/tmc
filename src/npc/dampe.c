@@ -52,8 +52,8 @@ void Dampe(Entity* this) {
 }
 
 void sub_0806BE3C(Entity* this) {
-    this->field_0x68 = sub_0801E99C();
-    sub_08078784(this, this->field_0x68);
+    this->field_0x68.HALF.LO = sub_0801E99C();
+    sub_08078784(this, this->field_0x68.HALF.LO);
 }
 
 void Dampe_Fusion(Entity* this) {

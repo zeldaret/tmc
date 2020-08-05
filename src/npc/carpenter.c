@@ -26,7 +26,7 @@ void Carpenter(Entity* this) {
             if (!LoadExtraSpriteData(this, gUnk_08110CA8 + this->entityType.form * 4))
                 break;
             this->action = 1;
-            this->field_0x69 = 0;
+            this->field_0x68.HALF.HI = 0;
             sub_0805E3A0(this, 2);
             sub_0807DD64(this);
 
@@ -34,7 +34,7 @@ void Carpenter(Entity* this) {
             if (this->interactType == 2) {
                 this->action = 2;
                 this->interactType = 0;
-                this->field_0x69 = this->animIndex;
+                this->field_0x68.HALF.HI = this->animIndex;
                 InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)) + 4 + (this->entityType.form * 8));
                 sub_0806F118(this);
             } else {
@@ -47,7 +47,7 @@ void Carpenter(Entity* this) {
             if (!UpdateFuseInteraction(this))
                 break;
             this->action = 1;
-            InitializeAnimation(this, this->field_0x69);
+            InitializeAnimation(this, this->field_0x68.HALF.HI);
             break;
     }
 }

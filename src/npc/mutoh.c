@@ -75,13 +75,13 @@ void sub_080670B4(Entity *this)
 
 void sub_080670E4(Entity *this)
 {
-  ShowNPCDialogue(this, &gUnk_08110C10[gUnk_02002A40.unk * 2]);
+  ShowNPCDialogue(this, &gUnk_08110C10[gUnk_02002A40.unk8 * 2]);
 }
 
 void sub_08067100(Entity *this)
 {
-  this->field_0x68 = sub_0801E99C(this);
-  sub_08078784(this, this->field_0x68);
+  this->field_0x68.HALF.LO = sub_0801E99C(this);
+  sub_08078784(this, this->field_0x68.HALF.LO);
 }
 
 void Mutoh_Fusion(Entity *this)

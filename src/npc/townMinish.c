@@ -39,7 +39,7 @@ void sub_0806ABFC(Entity *this)
 
     this->animationState = this->field_0x6a.HALF.LO << 1;
     animationState = this->animationState;
-    this->field_0x69 = animationState << 2;
+    this->field_0x68.HALF.HI = animationState << 2;
 
     this->actionDelay = 0;
 }
@@ -48,7 +48,7 @@ void sub_0806ABFC(Entity *this)
 /*void sub_0806AC3C(Entity *this) {
     if (this->field_0x58 <= 3) {
         s32 unk;
-        u8 field_0x69;
+        u8 field_0x68;
 
         Entity *link = &gLinkEntity;
         if (sub_080041A0(this, link, 0x18, 0x18)) {
@@ -58,24 +58,24 @@ void sub_0806ABFC(Entity *this)
             unk = this->animationState << 2;
         }
 
-        field_0x69 = this->field_0x69;
+        field_0x68.HALF.HI = this->field_0x68.HALF.HI;
 
-        if (unk != field_0x69) {
+        if (unk != field_0x68.HALF.HI) {
             s32 temp;
 
-            if (((unk - field_0x69) & 0x1f) <= 0xf) {
-                field_0x69--;
+            if (((unk - field_0x68.HALF.HI) & 0x1f) <= 0xf) {
+                field_0x68.HALF.HI--;
             }
             else {
-                field_0x69++;
+                field_0x68.HALF.HI++;
             }
 
-            temp = field_0x69;
-            this->field_0x69 = temp & 0x1f;
+            temp = field_0x68.HALF.HI;
+            this->field_0x68.HALF.HI = temp & 0x1f;
         }
 
-        if (!(this->field_0x69 & 7)) {
-            this->animationState = sub_0806F5B0(this->field_0x69);
+        if (!(this->field_0x68.HALF.HI & 7)) {
+            this->animationState = sub_0806F5B0(this->field_0x68.HALF.HI);
             UpdateSprite(this, (this->animationState >> 1) ^ 2);
         }
     }

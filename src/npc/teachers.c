@@ -30,7 +30,7 @@ void Teachers(Entity* this) {
                 this->action = 1;
                 this->spriteSettings.b.draw = TRUE;
                 this->animationState = this->actionDelay;
-                this->field_0x69 = 0;
+                this->field_0x68.HALF.HI = 0;
                 sub_0805E3A0(this, 2);
                 sub_0807DD50(this);
             }
@@ -39,7 +39,7 @@ void Teachers(Entity* this) {
             if (this->interactType == 2) {
                 this->action = 2;
                 this->interactType = 0;
-                this->field_0x69 = this->animIndex;
+                this->field_0x68.HALF.HI = this->animIndex;
                 InitializeAnimation(this,
                                     (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
                 sub_0806F118(this);
@@ -50,15 +50,15 @@ void Teachers(Entity* this) {
         case 2:
             if (UpdateFuseInteraction(this)) {
                 this->action = 1;
-                InitializeAnimation(this, this->field_0x69);
+                InitializeAnimation(this, this->field_0x68.HALF.HI);
             }
     }
 }
 
 void sub_0806C674(Entity *this)
 {
-    this->field_0x68 = sub_0801E99C();
-    sub_08078784(this, this->field_0x68);
+    this->field_0x68.HALF.LO = sub_0801E99C();
+    sub_08078784(this, this->field_0x68.HALF.LO);
 }
 
 void Teachers_Head(Entity *this)
