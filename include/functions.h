@@ -39,6 +39,7 @@ extern void UpdateAnimationVariableFrames(Entity*, u32);
 extern void CopyPositionAndSpriteOffset(Entity*, Entity*);
 extern u8* GetSpriteSubEntryOffsetDataPointer(u32, u32);
 extern u32 LoadFixedGFX(Entity*, u32);
+extern void ExecuteScriptCommandSet(Entity*, void *);
 
 // Unidentified
 extern void sub_0806ED78(Entity*);
@@ -204,5 +205,4 @@ extern u32 sub_0800445C(Entity*);
 extern void sub_0807A108(void);
 extern void sub_0801766C(Entity*);
 extern void sub_08004168(Entity*);
-extern void ExecuteScriptCommandSet(Entity*, void *);
 #endif
