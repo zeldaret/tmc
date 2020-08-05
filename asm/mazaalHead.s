@@ -74,7 +74,7 @@ sub_08033F3C: @ 0x08033F3C
 	ldrb r0, [r0]
 	cmp r0, #0x42
 	bhi _08033FFA
-	ldr r0, _08033F68 @ =gUnk_030010A0
+	ldr r0, _08033F68 @ =gScreenTransition
 	adds r0, #0x38
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -88,7 +88,7 @@ sub_08033F3C: @ 0x08033F3C
 	b _08033F70
 	.align 2, 0
 _08033F64: .4byte gUnk_03003DBC
-_08033F68: .4byte gUnk_030010A0
+_08033F68: .4byte gScreenTransition
 _08033F6C:
 	movs r0, #1
 	strb r0, [r4, #0xc]
@@ -122,7 +122,7 @@ _08033F70:
 	movs r2, #0
 	bl CreateObject
 	str r4, [r0, #0x50]
-	ldr r0, _08033FD0 @ =gUnk_030010A0
+	ldr r0, _08033FD0 @ =gScreenTransition
 	adds r0, #0x39
 	ldrb r1, [r0]
 	cmp r1, #0
@@ -138,7 +138,7 @@ _08033F70:
 	strb r0, [r4, #0x10]
 	b _08033FFA
 	.align 2, 0
-_08033FD0: .4byte gUnk_030010A0
+_08033FD0: .4byte gScreenTransition
 _08033FD4:
 	movs r0, #0x44
 	movs r1, #0
@@ -732,7 +732,7 @@ sub_0803443C: @ 0x0803443C
 	adds r1, #0x7d
 	movs r0, #0
 	strb r0, [r1]
-	ldr r0, _0803445C @ =gUnk_030010A0
+	ldr r0, _0803445C @ =gScreenTransition
 	adds r0, #0x39
 	ldrb r0, [r0]
 	cmp r0, #0x1e
@@ -741,7 +741,7 @@ sub_0803443C: @ 0x0803443C
 	bl sub_080344BC
 	b _08034472
 	.align 2, 0
-_0803445C: .4byte gUnk_030010A0
+_0803445C: .4byte gScreenTransition
 _08034460:
 	cmp r0, #0x3c
 	bhi _0803446C
@@ -1831,7 +1831,7 @@ sub_08034C00: @ 0x08034C00
 	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _08034C5A
-	ldr r0, _08034C4C @ =gUnk_030010A0
+	ldr r0, _08034C4C @ =gScreenTransition
 	adds r0, #0x39
 	ldrb r0, [r0]
 	cmp r0, #0x3c
@@ -1842,7 +1842,7 @@ sub_08034C00: @ 0x08034C00
 	.align 2, 0
 _08034C44: .4byte gLinkState
 _08034C48: .4byte gRoomControls
-_08034C4C: .4byte gUnk_030010A0
+_08034C4C: .4byte gScreenTransition
 _08034C50: .4byte gUnk_080CED88
 _08034C54:
 	ldr r0, _08034C5C @ =gUnk_080CED9C

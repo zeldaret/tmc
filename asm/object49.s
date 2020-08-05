@@ -173,7 +173,7 @@ sub_0808F498: @ 0x0808F498
 	bl sub_0806F3E4
 	cmp r0, #0
 	beq _0808F4C2
-	ldr r0, _0808F4E4 @ =gUnk_030010A0
+	ldr r0, _0808F4E4 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #0xf
 	ands r0, r1
@@ -200,7 +200,7 @@ _0808F4D4:
 	bl DeleteThisEntity
 	b _0808F550
 	.align 2, 0
-_0808F4E4: .4byte gUnk_030010A0
+_0808F4E4: .4byte gScreenTransition
 _0808F4E8: .4byte gLinkState
 _0808F4EC:
 	movs r0, #1

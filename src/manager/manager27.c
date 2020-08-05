@@ -3,16 +3,10 @@
 #include "flags.h"
 #include "functions.h"
 
-typedef struct {
-    u8 filler[0xAC];
-    u16 unk;
-} struct_030010A0;
-
 extern u32 sub_0805C920(Entity*);
 extern void LoadPalettesByPaletteGroupIndex(u32);
 extern void (*const gUnk_08108D10[])(Entity*);
 
-extern struct_030010A0 gUnk_030010A0;
 extern u8 gUnk_08108D20[];
 
 void Manager27(Entity *this)
@@ -20,10 +14,10 @@ void Manager27(Entity *this)
   
   gUnk_08108D10[this->action](this);
   if (CheckLocalFlagByOffset(0x300, this->entityType.form + 0x67)) {
-    gUnk_030010A0.unk |= (1 << (this->entityType).form);
+    gScreenTransition.field_0xac |= (1 << (this->entityType).form);
   }
   else {
-    gUnk_030010A0.unk &= ~(1 << (this->entityType).form);
+    gScreenTransition.field_0xac &= ~(1 << (this->entityType).form);
   }
 }
 

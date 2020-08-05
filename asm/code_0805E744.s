@@ -1043,7 +1043,7 @@ _0805EE82:
 	thumb_func_start sub_0805EE88
 sub_0805EE88: @ 0x0805EE88
 	push {lr}
-	ldr r1, _0805EEB0 @ =gUnk_030010A0
+	ldr r1, _0805EEB0 @ =gScreenTransition
 	adds r0, r1, #0
 	adds r0, #0x2f
 	ldrb r0, [r0]
@@ -1062,7 +1062,7 @@ sub_0805EE88: @ 0x0805EE88
 _0805EEAC:
 	pop {pc}
 	.align 2, 0
-_0805EEB0: .4byte gUnk_030010A0
+_0805EEB0: .4byte gScreenTransition
 
 	thumb_func_start sub_0805EEB4
 sub_0805EEB4: @ 0x0805EEB4

@@ -174,7 +174,7 @@ SECTIONS {
         . = 0x00001000; gUnk_03001000 = .;
         . = 0x00001010; gUnk_03001010 = .;
         . = 0x00001020; gUnk_03001020 = .;
-        . = 0x000010A0; gUnk_030010A0 = .;
+        . = 0x000010A0; gScreenTransition = .;
         . = 0x000010AC; gUnk_030010AC = .;
         . = 0x000010D8; gUnk_030010D8 = .;
         . = 0x000010EC; gUnk_030010EC = .;
@@ -663,7 +663,9 @@ SECTIONS {
 		asm/getInventoryValue.o(.text);
 		asm/code_0807CAA0.o(.text);
 		src/flags.o(.text);
+		src/code_0807CC3C.o(.text);
 		asm/code_0807CC3C.o(.text);
+		src/code_080808D8.o(.text);
 		src/code_0808091C.o(.text);
 		/* objects */
 		asm/itemOnGround.o(.text);

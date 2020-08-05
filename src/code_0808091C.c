@@ -6,7 +6,7 @@ extern void sub_0805E5A8();
 extern RoomControls gRoomControls;
 extern u32 gUnk_0200B650;
 extern u32 gUnk_02025EB0;
-extern u8 gUnk_030010A0[10];
+extern u8 gScreenTransition[10];
 
 extern void DoExitTransition(Entity*);
 extern void sub_080809D4();
@@ -15,7 +15,7 @@ void sub_0808091C(Entity* param_1, u32 param_2)
 
 {
     DoExitTransition(param_1);
-    gUnk_030010A0[9] = param_2;
+    gScreenTransition[9] = param_2;
     return;
 }
 

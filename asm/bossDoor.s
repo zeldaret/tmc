@@ -196,7 +196,7 @@ sub_0808C348: @ 0x0808C348
 	ands r0, r1
 	cmp r0, #0
 	bne _0808C37C
-	ldr r0, _0808C374 @ =gUnk_030010A0
+	ldr r0, _0808C374 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -209,7 +209,7 @@ _0808C36A:
 	bl GetNextFrame
 	b _0808C382
 	.align 2, 0
-_0808C374: .4byte gUnk_030010A0
+_0808C374: .4byte gScreenTransition
 _0808C378: .4byte 0x00000185
 _0808C37C:
 	adds r0, r4, #0

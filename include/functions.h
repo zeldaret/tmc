@@ -6,6 +6,7 @@
 #include "entity.h"
 #include "position.h"
 #include "link.h"
+#include "structures.h"
 
 // Identified - to be sorted into header files
 extern u32 Random(void);
@@ -205,4 +206,18 @@ extern u32 sub_0800445C(Entity*);
 extern void sub_0807A108(void);
 extern void sub_0801766C(Entity*);
 extern void sub_08004168(Entity*);
+extern u32 sub_08052638(u32);
+extern void sub_0805616C();
+extern u32 sub_0807CF08(u32, u8*);
+extern void sub_0807CF48(u32);
+extern u32 sub_0807CF10(u8 *);
+extern void sub_08056208();
+extern void sub_08050384();
+extern void sub_080B1520(u32);
+extern struct_0807D1C4* sub_0807D1C4(u32);
+extern u32 sub_0807D24C(u32, char*, u32);
+extern void sub_0807CF68(u32);
+extern void sub_0807D20C(u32, char*, u32);
+extern u32 sub_0807CF88(u32, u8*);
+extern u32 sub_0807D008(u32, void*);
 #endif

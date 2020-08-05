@@ -133,7 +133,7 @@ _080A171E:
 	strh r1, [r0]
 	adds r0, #2
 	strh r1, [r0]
-	ldr r0, _080A1838 @ =gUnk_030010A0
+	ldr r0, _080A1838 @ =gScreenTransition
 	adds r0, #0x39
 	mov r2, sb
 	strb r2, [r0]
@@ -173,7 +173,7 @@ _080A1828: .4byte gUnk_03003DBC
 _080A182C: .4byte gRoomControls
 _080A1830: .4byte gScreen
 _080A1834: .4byte 0x00001E07
-_080A1838: .4byte gUnk_030010A0
+_080A1838: .4byte gScreenTransition
 _080A183C: .4byte gLinkState
 _080A1840: .4byte 0x80100000
 _080A1844: .4byte gArea
@@ -598,7 +598,7 @@ sub_080A1B4C: @ 0x080A1B4C
 _080A1B80:
 	movs r6, #0
 	strh r7, [r5]
-	ldr r0, _080A1BF0 @ =gUnk_030010A0
+	ldr r0, _080A1BF0 @ =gScreenTransition
 	adds r0, #0x39
 	strb r6, [r0]
 	bl sub_08079F8C
@@ -650,7 +650,7 @@ _080A1BD0:
 	strh r0, [r2, #0x18]
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A1BF0: .4byte gUnk_030010A0
+_080A1BF0: .4byte gScreenTransition
 _080A1BF4: .4byte gLinkEntity
 _080A1BF8: .4byte gLinkState
 _080A1BFC: .4byte 0xFFFDFFFF

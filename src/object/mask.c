@@ -4,7 +4,7 @@
 #include "random.h"
 
 extern Entity gLinkEntity;
-extern u16 gUnk_030010A0[];
+extern u16 gScreenTransition[];
 
 extern void (*MaskActionFuncs[])(Entity *);
 
@@ -36,7 +36,7 @@ void sub_080929A4(Entity *this) {
 
             switch (this->entityType.parameter & 0xC0) {
                 case 0x40:
-                    field_0x0a = gUnk_030010A0[0x5];
+                    field_0x0a = gScreenTransition[0x5];
                     
                     switch (field_0x0a) {
                         case 0x44D ... 0x44F:

@@ -334,7 +334,7 @@ sub_080573AC: @ 0x080573AC
 	adds r0, r0, r2
 	strh r0, [r5, #0x30]
 	ldr r2, _08057444 @ =gSineTable
-	ldr r4, _08057448 @ =gUnk_030010A0
+	ldr r4, _08057448 @ =gScreenTransition
 	ldr r1, [r4]
 	ldrb r0, [r4]
 	adds r0, #0x40
@@ -378,7 +378,7 @@ _08057438: .4byte 0xFFFFE000
 _0805743C: .4byte 0xFFFFF000
 _08057440: .4byte gScreen
 _08057444: .4byte gSineTable
-_08057448: .4byte gUnk_030010A0
+_08057448: .4byte gScreenTransition
 _0805744C: .4byte gUnk_08107C30
 
 	thumb_func_start sub_08057450
@@ -417,7 +417,7 @@ _0805748A:
 	adds r0, r3, #0
 	adds r0, #0x22
 	ldrb r0, [r0]
-	ldr r5, _08057510 @ =gUnk_030010A0
+	ldr r5, _08057510 @ =gScreenTransition
 	cmp r0, #0
 	bne _080574BE
 	ldr r0, [r5]
@@ -480,6 +480,6 @@ _08057502:
 _08057504: .4byte gScreen
 _08057508: .4byte gRoomControls
 _0805750C: .4byte gUnk_02001A40
-_08057510: .4byte gUnk_030010A0
+_08057510: .4byte gScreenTransition
 _08057514: .4byte gUnk_08107C30
 _08057518: .4byte gUnk_085B4180

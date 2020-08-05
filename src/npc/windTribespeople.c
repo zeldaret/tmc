@@ -3,6 +3,7 @@
 #include "npc.h"
 #include "textbox.h"
 #include "flags.h"
+#include "structures.h"
 
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 extern void sub_0807DD50(Entity*);

@@ -13,7 +13,7 @@ typedef struct {
 typedef struct {
     u8 filler[8];
     u8 unk;
-} struct_030010A0;
+} ScreenTransition;
 
 typedef struct {
     u32 unk;
@@ -38,7 +38,7 @@ extern void (*const gUnk_0810F550[])(Entity*);
 extern u8 gUnk_03003DBC;
 extern SpriteLoadData gUnk_0810F524[];
 extern void* gUnk_0810F6BC[];
-extern struct_030010A0 gUnk_030010A0;
+extern ScreenTransition gScreenTransition;
 
 void Guard(Entity *this)
 {
@@ -175,7 +175,7 @@ void sub_08064030(Entity *arg0,Entity *arg1)
 
 void sub_08064044(void)
 {
-  gUnk_030010A0.unk = 1;
+  gScreenTransition.unk = 1;
 }
 
 void sub_08064050(Entity *arg0, struct_08064050 *arg1)

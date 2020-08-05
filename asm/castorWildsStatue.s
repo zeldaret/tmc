@@ -45,7 +45,7 @@ _080673BC: .4byte gUnk_08110E4C
 sub_080673C0: @ 0x080673C0
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _080673D4 @ =gUnk_030010A0
+	ldr r0, _080673D4 @ =gScreenTransition
 	adds r0, #0x2c
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -53,7 +53,7 @@ sub_080673C0: @ 0x080673C0
 	movs r0, #3
 	b _080673DA
 	.align 2, 0
-_080673D4: .4byte gUnk_030010A0
+_080673D4: .4byte gScreenTransition
 _080673D8:
 	movs r0, #1
 _080673DA:

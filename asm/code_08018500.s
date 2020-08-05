@@ -167,7 +167,7 @@ sub_0801862C: @ 0x0801862C
 	movs r2, #0
 	movs r0, #0x16
 	strb r0, [r1, #0xc]
-	ldr r5, _08018650 @ =gUnk_030010A0
+	ldr r5, _08018650 @ =gScreenTransition
 	adds r0, r5, #0
 	adds r0, #0x35
 	strb r2, [r0]
@@ -180,7 +180,7 @@ sub_0801862C: @ 0x0801862C
 	b _0801868C
 	.align 2, 0
 _0801864C: .4byte gLinkState
-_08018650: .4byte gUnk_030010A0
+_08018650: .4byte gScreenTransition
 _08018654: .4byte gUnk_02033AB8
 _08018658:
 	ldrb r0, [r4, #2]

@@ -394,7 +394,7 @@ _080300C0: .4byte gUnk_0300110C
 	thumb_func_start sub_080300C4
 sub_080300C4: @ 0x080300C4
 	push {lr}
-	ldr r2, _080300E4 @ =gUnk_030010A0
+	ldr r2, _080300E4 @ =gScreenTransition
 	adds r0, r2, #0
 	adds r0, #0xae
 	ldrh r0, [r0]
@@ -410,12 +410,12 @@ sub_080300C4: @ 0x080300C4
 _080300E2:
 	pop {pc}
 	.align 2, 0
-_080300E4: .4byte gUnk_030010A0
+_080300E4: .4byte gScreenTransition
 
 	thumb_func_start sub_080300E8
 sub_080300E8: @ 0x080300E8
 	push {lr}
-	ldr r1, _08030110 @ =gUnk_030010A0
+	ldr r1, _08030110 @ =gScreenTransition
 	adds r3, r1, #0
 	adds r3, #0xae
 	ldrh r0, [r3]
@@ -435,14 +435,14 @@ sub_080300E8: @ 0x080300E8
 _0803010C:
 	pop {pc}
 	.align 2, 0
-_08030110: .4byte gUnk_030010A0
+_08030110: .4byte gScreenTransition
 _08030114: .4byte gLinkEntity
 
 	thumb_func_start sub_08030118
 sub_08030118: @ 0x08030118
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _0803013C @ =gUnk_030010A0
+	ldr r0, _0803013C @ =gScreenTransition
 	adds r0, #0xac
 	ldrh r0, [r0]
 	asrs r0, r2
@@ -457,7 +457,7 @@ sub_08030118: @ 0x08030118
 	bl SetLocalFlagByOffset
 	b _0803014C
 	.align 2, 0
-_0803013C: .4byte gUnk_030010A0
+_0803013C: .4byte gScreenTransition
 _08030140:
 	movs r0, #0xc0
 	lsls r0, r0, #2
@@ -472,7 +472,7 @@ _0803014C:
 sub_08030150: @ 0x08030150
 	push {r4, r5, lr}
 	mov ip, r0
-	ldr r2, _08030194 @ =gUnk_030010A0
+	ldr r2, _08030194 @ =gScreenTransition
 	adds r5, r2, #0
 	adds r5, #0xac
 	mov r3, ip
@@ -504,4 +504,4 @@ sub_08030150: @ 0x08030150
 	strh r1, [r0]
 	pop {r4, r5, pc}
 	.align 2, 0
-_08030194: .4byte gUnk_030010A0
+_08030194: .4byte gScreenTransition

@@ -11,7 +11,7 @@ extern void (*gUnk_081121D4[])(Entity*);
 
 extern SpriteLoadData gUnk_081121C4;
 extern SpriteLoadData gUnk_081121B4;
-extern u32 gUnk_030010A0;
+extern u32 gScreenTransition;
 extern void sub_0807DD94(Entity*, u32);
 extern void sub_0806A26C(Entity*);
 extern void sub_080042BA(Entity*, u32);
@@ -42,7 +42,7 @@ void sub_0806A234(Entity *this)
 {
     sub_0807DD94(this, 0);
     if ((this->field_0x82.HWORD & 4) != 0) {
-        if ((gUnk_030010A0 & 7) == 0) {
+        if ((gScreenTransition & 7) == 0) {
             sub_0806A26C(this);
         }
     sub_080042BA(this, 2);

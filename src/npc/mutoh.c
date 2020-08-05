@@ -4,6 +4,7 @@
 #include "flags.h"
 #include "textbox.h"
 #include "npc.h"
+#include "structures.h"
 
 extern void sub_0805E3A0(Entity*, u32);
 extern void sub_0807DD50(Entity*);

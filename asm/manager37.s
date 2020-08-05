@@ -45,7 +45,7 @@ _0805DE7A:
 	movs r1, #0
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	ldr r2, _0805DEAC @ =gUnk_030010A0
+	ldr r2, _0805DEAC @ =gScreenTransition
 	adds r0, r2, #0
 	adds r0, #0x38
 	strb r1, [r0]
@@ -67,7 +67,7 @@ _0805DE7A:
 	str r1, [r0]
 	pop {r4, pc}
 	.align 2, 0
-_0805DEAC: .4byte gUnk_030010A0
+_0805DEAC: .4byte gScreenTransition
 _0805DEB0: .4byte gUnk_02002A40
 _0805DEB4: .4byte 0x00001194
 
@@ -266,7 +266,7 @@ sub_0805E000: @ 0x0805E000
 	strb r5, [r0]
 	adds r0, r4, #0
 	bl UpdateSpriteForCollisionLayer
-	ldr r0, _0805E068 @ =gUnk_030010A0
+	ldr r0, _0805E068 @ =gScreenTransition
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r5, #0
@@ -293,7 +293,7 @@ _0805E062:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0805E064: .4byte gRoomControls
-_0805E068: .4byte gUnk_030010A0
+_0805E068: .4byte gScreenTransition
 _0805E06C: .4byte gArea
 _0805E070: .4byte 0x00000864
 _0805E074: .4byte 0x80010000

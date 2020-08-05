@@ -26,7 +26,7 @@ InitializeLink: @ 0x080524A8
 	ldr r0, _0805251C @ =gRoomControls
 	str r4, [r0, #0x30]
 	ldr r1, _08052520 @ =gUnk_080FCAC8
-	ldr r5, _08052524 @ =gUnk_030010A0
+	ldr r5, _08052524 @ =gScreenTransition
 	ldrb r0, [r5, #0xf]
 	adds r0, r0, r1
 	ldrb r0, [r0]
@@ -56,7 +56,7 @@ _08052514: .4byte gLinkState
 _08052518: .4byte gLinkEntity
 _0805251C: .4byte gRoomControls
 _08052520: .4byte gUnk_080FCAC8
-_08052524: .4byte gUnk_030010A0
+_08052524: .4byte gScreenTransition
 _08052528: .4byte _0805252C
 _0805252C: @ jump table
 	.4byte _08052558 @ case 0
@@ -81,7 +81,7 @@ _08052564:
 	adds r0, #0x38
 	movs r1, #0x10
 	strb r1, [r0]
-	ldr r1, _08052580 @ =gUnk_030010A0
+	ldr r1, _08052580 @ =gScreenTransition
 	ldrb r0, [r1, #0xe]
 	lsls r0, r0, #2
 	strb r0, [r4, #0x15]
@@ -92,21 +92,21 @@ _08052576:
 	b _080525C2
 	.align 2, 0
 _0805257C: .4byte gLinkState
-_08052580: .4byte gUnk_030010A0
+_08052580: .4byte gScreenTransition
 _08052584:
 	ldr r1, _08052598 @ =gLinkState
 	adds r2, r1, #0
 	adds r2, #0x38
 	movs r0, #1
 	strb r0, [r2]
-	ldr r2, _0805259C @ =gUnk_030010A0
+	ldr r2, _0805259C @ =gScreenTransition
 	ldrb r0, [r2, #0xf]
 	adds r1, #0x39
 	strb r0, [r1]
 	b _080525C2
 	.align 2, 0
 _08052598: .4byte gLinkState
-_0805259C: .4byte gUnk_030010A0
+_0805259C: .4byte gScreenTransition
 _080525A0:
 	ldr r0, _080525A8 @ =gLinkState
 	adds r0, #0x38
@@ -128,7 +128,7 @@ _080525B8:
 _080525BE:
 	strb r1, [r0]
 _080525C0:
-	ldr r2, _08052618 @ =gUnk_030010A0
+	ldr r2, _08052618 @ =gScreenTransition
 _080525C2:
 	movs r0, #1
 	strb r0, [r4, #8]
@@ -170,5 +170,5 @@ _080525C2:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08052614: .4byte gLinkState
-_08052618: .4byte gUnk_030010A0
+_08052618: .4byte gScreenTransition
 _0805261C: .4byte gUnk_02002A40
