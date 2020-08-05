@@ -26,6 +26,14 @@ typedef struct {
 //extern struct_02000000 gUnk_02000000;
 
 typedef struct {
+    u8 filler0[0x4];
+    u8 field_0x4;
+    u8 field_0x5;
+} struct_02000010;
+
+extern struct_02000010 gUnk_02000010;
+
+typedef struct {
     /*0x000*/ u8 filler0[0x6];
     /*0x006*/ u8 unk6;
     /*0x007*/ u8 unk7;
