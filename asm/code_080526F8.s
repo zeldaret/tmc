@@ -2755,7 +2755,7 @@ sub_08053C60: @ 0x08053C60
 	ldr r0, _08053C80 @ =0x80100000
 	bl PlaySFX
 	movs r0, #3
-	bl sub_08056010
+	bl InitScreen
 	pop {pc}
 	.align 2, 0
 _08053C80: .4byte 0x80100000

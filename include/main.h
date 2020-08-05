@@ -14,10 +14,18 @@ typedef struct { // 0x03001000
     u32 spritePriority;
 } MainStruct;
 
+enum {
+    SCREEN_INTRO,
+    SCREEN_CHOOSE_FILE,
+    SCREEN_GAMEPLAY,
+    SCREEN_GAME_OVER,
+    SCREEN_CREDITS,
+};
+
 typedef struct {
     u8 interruptFlag;
     u8 field_0x1;
-    u8 loadType;
+    u8 screen;
     u8 funcIndex;
     u8 transition;
     u8 field_0x5;
@@ -45,8 +53,6 @@ extern Main gUnk_03001000;
 extern UI gUnk_02032EC0;
 
 
-
-extern void sub_08055F70(void);
 extern void sub_080A3204(void);
 extern void sub_0807CE90(void);
 extern void sub_080560B8(void);
@@ -55,11 +61,10 @@ extern void sub_0804FFE4(void);
 extern void sub_08056418(void);
 extern void sub_080ADD30(void);
 
-extern void sub_08056010(u32);
+extern void InitScreen(u32);
 extern void sub_08016E78(void);
 extern void ReadKeyInput(void);
-extern u32 sub_08055FF4(void);
-extern void sub_080560A8(void);
+extern void DoSoftReset(void);
 extern void sub_08056260(void);
 extern void VBlankIntrWait();
 extern s32 _call_via_r0(s32);

@@ -462,7 +462,6 @@ SECTIONS {
 		src/sub_08055E08.o(.text);
 		asm/sub_08055E24.o(.text);
 		src/mainLoop.o(.text);
-		asm/sub_08055F70.o(.text);
 		asm/code_08055FF4.o(.text);
 		src/textbox.o(.text);
 		asm/code_08056418.o(.text);
