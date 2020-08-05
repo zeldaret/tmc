@@ -19322,7 +19322,16 @@ gUnk_085BD440:: @ 085BD440
 	.incbin "baserom.gba", 0x5BD440, 0x00000E0
 
 gUnk_085BD520:: @ 085BD520
-	.incbin "baserom.gba", 0x5BD520, 0x00029D8
+	.incbin "baserom.gba", 0x5BD520, 0x0000100
+
+gUnk_085BD620:: @ 085BD620
+	.incbin "graphics/intro/capcom.gbapal"
+
+gUnk_085BD640:: @ 085BD640
+	.incbin "graphics/intro/nintendo.gbapal"
+
+gUnk_085BD660:: @ 085BD660
+	.incbin "baserom.gba", 0x5BD660, 0x0002898
 
 gUnk_085BFEF8:: @ 085BFEF8
 	.incbin "baserom.gba", 0x5BFEF8, 0x000002E
@@ -22535,7 +22544,13 @@ gUnk_088C065C:: @ 088C065C
 	.incbin "baserom.gba", 0x8C065C, 0x00002A4
 
 gUnk_088C0900:: @ 088C0900
-	.incbin "baserom.gba", 0x8C0900, 0x000598C
+	.incbin "baserom.gba", 0x8C0900, 0x0001980
+
+gUnk_088C2280:: @ 088C2280
+	.incbin "graphics/intro/nintendo_capcom.4bpp"
+
+gUnk_088C31E0:: @ 088C31E0
+	.incbin "baserom.gba", 0x8C31E0, 0x00030AC
 
 gUnk_088C628C:: @ 088C628C
 	.incbin "baserom.gba", 0x8C628C, 0x00003FC
