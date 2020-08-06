@@ -1,4 +1,7 @@
 #include "global.h"
+#include "entity.h"
+#include "structures.h"
+#include "functions.h"
 #include "room.h"
 
 extern void sub_0805E5A8();
@@ -6,16 +9,35 @@ extern void sub_0805E5A8();
 extern RoomControls gRoomControls;
 extern u32 gUnk_0200B650;
 extern u32 gUnk_02025EB0;
-extern u8 gScreenTransition[10];
 
-extern void DoExitTransition(Entity*);
+extern void DoExitTransition(ScreenTransitionData*);
 extern void sub_080809D4();
 
-void sub_0808091C(Entity* param_1, u32 param_2)
+void sub_080808D8(void) {
+    gScreenTransition.transitionType = 0;
+}
 
+void sub_080808E4(void) {
+
+    if (sub_08052638(gScreenTransition.areaID)) {
+        gScreenTransition.transitionType = 0;
+    } else {
+        gScreenTransition.transitionType = 5;
+    }
+}
+
+void sub_08080904(void) {
+    gScreenTransition.transitionType = 1;
+}
+
+void sub_08080910(void) {
+    gScreenTransition.transitionType = 1;
+}
+
+void sub_0808091C(ScreenTransitionData* param_1, u32 param_2)
 {
     DoExitTransition(param_1);
-    gScreenTransition[9] = param_2;
+    gScreenTransition.transitionType = param_2;
     return;
 }
 

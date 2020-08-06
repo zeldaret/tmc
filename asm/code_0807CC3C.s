@@ -5,38 +5,6 @@
 
 	.text
 
-	thumb_func_start sub_0807CF48
-sub_0807CF48: @ 0x0807CF48
-	push {r4, r5, lr}
-	bl sub_0807D1C4
-	adds r4, r0, #0
-	ldrh r0, [r4, #4]
-	ldr r5, _0807CF64 @ =gUnk_0811E4AC
-	adds r1, r5, #0
-	bl sub_0807D184
-	ldrh r0, [r4, #2]
-	adds r1, r5, #0
-	bl sub_0807D184
-	pop {r4, r5, pc}
-	.align 2, 0
-_0807CF64: .4byte gUnk_0811E4AC
-
-	thumb_func_start sub_0807CF68
-sub_0807CF68: @ 0x0807CF68
-	push {r4, r5, lr}
-	bl sub_0807D1C4
-	adds r4, r0, #0
-	ldr r5, _0807CF84 @ =gUnk_0811E4A4
-	ldrh r0, [r4, #4]
-	adds r1, r5, #0
-	bl sub_0807D184
-	ldrh r0, [r4, #2]
-	adds r1, r5, #0
-	bl sub_0807D184
-	pop {r4, r5, pc}
-	.align 2, 0
-_0807CF84: .4byte gUnk_0811E4A4
-
 	thumb_func_start sub_0807CF88
 sub_0807CF88: @ 0x0807CF88
 	push {r4, r5, r6, r7, lr}

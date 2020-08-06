@@ -6,61 +6,6 @@
 
 	.text
 
-
-	thumb_func_start ZeldaFollower
-ZeldaFollower: @ 0x080682B0
-	push {r4, lr}
-	adds r4, r0, #0
-	ldrb r0, [r4, #0xc]
-	adds r2, r0, #0
-	cmp r2, #0
-	bne _080682F4
-	adds r0, #1
-	strb r0, [r4, #0xc]
-	ldrb r1, [r4, #0x18]
-	movs r0, #4
-	rsbs r0, r0, #0
-	ands r0, r1
-	movs r1, #1
-	orrs r0, r1
-	strb r0, [r4, #0x18]
-	movs r0, #4
-	strb r0, [r4, #0x14]
-	adds r0, r4, #0
-	adds r0, #0x68
-	strb r2, [r0]
-	adds r0, #1
-	strb r2, [r0]
-	adds r0, r4, #0
-	movs r1, #2
-	bl sub_0805E3A0
-	adds r0, r4, #0
-	movs r1, #0
-	bl InitAnimationForceUpdate
-	adds r0, r4, #0
-	movs r1, #0
-	bl sub_0806854C
-_080682F4:
-	adds r0, r4, #0
-	adds r0, #0x68
-	ldrb r0, [r0]
-	lsls r0, r0, #0x18
-	asrs r0, r0, #0x18
-	cmp r0, #0
-	beq _0806830A
-	adds r0, r4, #0
-	bl sub_08068318
-	b _08068314
-_0806830A:
-	ldrb r1, [r4, #0x18]
-	movs r0, #4
-	rsbs r0, r0, #0
-	ands r0, r1
-	strb r0, [r4, #0x18]
-_08068314:
-	pop {r4, pc}
-	.align 2, 0
-
 	thumb_func_start sub_08068318
 sub_08068318: @ 0x08068318
 	push {r4, r5, r6, r7, lr}
