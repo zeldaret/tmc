@@ -112,7 +112,6 @@ void DeleteEntity(Entity* ent)
             sub_0804AA1C(ent);
         }
         ent->flags = ent->flags & 0x7f;
-        ent->spriteSettings = ent->spriteSettings;
         ent->spriteSettings.b.draw = 0;
         ent->field_0x3c = 0;
         ent->bitfield = 0;
