@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "functions.h"
 #include "room.h"
 #include "flags.h"
 
@@ -16,10 +17,8 @@ void DeleteThisEntity(void);
 extern Entity* GetEntityByType(u32, u32);
 extern void sub_080686C4(Entity*, Entity*);
 extern void sub_0806F62C(Entity*, u32, u32);
-extern u32 sub_08003FC4(Entity*, u32);
 extern void PlaySFX(u32);
 extern void SetTileType(u32, u32, u32);
-extern void sub_0807BA8C(u16, u32);
 
 extern Entity gLinkEntity;
 extern RoomControls gRoomControls;

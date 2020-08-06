@@ -661,7 +661,7 @@ sub_080A3980: @ 0x080A3980
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A398E
-	bl sub_080560A8
+	bl DoSoftReset
 _080A398E:
 	pop {pc}
 	.align 2, 0

@@ -26,6 +26,14 @@ typedef struct {
 //extern struct_02000000 gUnk_02000000;
 
 typedef struct {
+    u8 filler0[0x4];
+    u8 field_0x4;
+    u8 field_0x5;
+} struct_02000010;
+
+extern struct_02000010 gUnk_02000010;
+
+typedef struct {
     /*0x000*/ u8 filler0[0x6];
     /*0x006*/ u8 unk6;
     /*0x007*/ u8 unk7;
@@ -43,8 +51,8 @@ typedef struct {
 extern struct_02002A40 gUnk_02002A40;
 
 typedef struct {
-    u16 frameCount;    // regular frame count? does anything reset it?
-    u8 field_0x2[6];
+    u32 frameCount;    // regular frame count? does anything reset it?
+    u8 field_0x4[0x4];
     bool8 transitioningOut;
     u8 transitionType; // transition when changing areas
     u8 field_0xa;      // seems to be a tile type

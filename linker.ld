@@ -462,7 +462,6 @@ SECTIONS {
 		src/sub_08055E08.o(.text);
 		asm/sub_08055E24.o(.text);
 		src/mainLoop.o(.text);
-		asm/sub_08055F70.o(.text);
 		asm/code_08055FF4.o(.text);
 		src/textbox.o(.text);
 		asm/code_08056418.o(.text);
@@ -748,7 +747,6 @@ SECTIONS {
 		src/object/heartContainer.o(.text);
 		src/object/object48.o(.text);
 		src/object/object49.o(.text);
-		asm/object49.o(.text);
 		asm/backgroundCloud.o(.text);
 		asm/object4B.o(.text);
 		asm/pushableFurniture.o(.text);
