@@ -1,6 +1,6 @@
 # The Legend of Zelda: The Minish Cap
 
-**Progress:**  [⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜] 5%
+**Progress:**  [⬛⬛⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜] 10%
 
 ```diff
 - WARNING! -
