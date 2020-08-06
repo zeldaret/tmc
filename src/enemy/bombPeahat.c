@@ -8,7 +8,6 @@ extern u32 GetNextFunction(Entity*);
 extern void sub_0802AD54(Entity*);
 extern void sub_0802B048(Entity*);
 extern void sub_0806F4E8(Entity*);
-extern void sub_0806F3E4(Entity*);
 
 extern void (*const gUnk_080012C8[])(Entity*);
 extern void (*const gUnk_080CD0F0[])(Entity*);

@@ -73,7 +73,14 @@ typedef struct {
     u8 itemOnB;
     u8 filler2[10];
     u16 rupees;
-    u8 filler3[12];
+    u8 field_0x1a;
+    u8 field_0x1b;
+    u8 field_0x1c;
+    u8 field_0x1d;
+    u8 field_0x1e;
+    u8 field_0x1f;
+    u16 field_0x20;
+    u8 filler4[4];
 } Stats;
 
 typedef struct {

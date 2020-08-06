@@ -665,7 +665,7 @@ void sub_0804BC70(void) {
     }
 }
 
-extern u32 gUnk_0813AB80;
+extern ScreenTransitionData gUnk_0813AB80;
 
 void sub_0804BCDC() {
     sub_0808091C(&gUnk_0813AB80, 4);
