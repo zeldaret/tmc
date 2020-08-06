@@ -13,15 +13,14 @@ extern Entity gUnk_030011E8[7];
 Entity* sub_0805E744(void)
 
 {
-    Entity* pEVar1 = gUnk_030011E8;
-    int i = 0;
+    Entity* ent = gUnk_030011E8;
 
     do {
-        if (pEVar1->field_0x0 == NULL) {
-            return pEVar1;
+        if (ent->field_0x0 == NULL) {
+            return ent;
         }
-        pEVar1 = pEVar1 + 1;
-    } while (pEVar1 < &gUnk_030011E8[7]);
+    } while (ent++, ent < &gUnk_030011E8[7]);
+
     return NULL;
 }
 
@@ -129,13 +128,12 @@ void sub_0805E870(Entity*);
 void sub_0805E84C(void)
 
 {
-    Entity* pEVar1 = &gLinkEntity;
+    Entity* ent = &gLinkEntity;
     do {
-        if ((int)pEVar1->field_0x0 < 0) {
-            sub_0805E870(pEVar1);
+        if ((int)ent->field_0x0 < 0) {
+            sub_0805E870(ent);
         }
-        pEVar1 = pEVar1 + 1;
-    } while (pEVar1 < (&gLinkEntity + 80));
+    } while (ent++, ent < (&gLinkEntity + 80));
     return;
 }
 
@@ -159,20 +157,18 @@ extern EntityType gUnk_03003DB8;
 void sub_0805E89C(void)
 
 {
-    Entity* pEVar1;
+    Entity* ent;
     Entity* next;
     struct_03003D70* it;
 
     it = gUnk_03003D70;
-    if (it->field_0x4 != 0) {
+    if (it->field_0x4) {
         do {
-            next = it->field_0x4;
-            while (pEVar1 = next, (u32)pEVar1 != (u32)it) {
-                next = pEVar1->field_0x4;
-                sub_0805E79C(pEVar1);
+            for (ent = it->field_0x4; (u32)ent != (u32)it; ent = next) {
+                next = ent->field_0x4;
+                sub_0805E79C(ent);
             }
-            it++;
-        } while (it < (gUnk_03003D70 + 9));
+        } while (it++, it < (gUnk_03003D70 + 9));
         sub_0805E84C();
     }
 }
@@ -254,34 +250,30 @@ void sub_0805E9A8(void)
 
     it = gUnk_03003D70;
     do {
-        for (entry = (Entity*)it->field_0x4; (u32)entry != (u32)it; entry = entry->field_0x4) {
+        for (entry = it->field_0x4; (u32)entry != (u32)it; entry = entry->field_0x4) {
             entry->flags &= 0xfd;
             if ((entry->flags & 0x20) == 0) {
                 entry->flags |= 0x10;
             }
         }
-        it++;
-    } while (it < (gUnk_03003D70 + 9));
+    } while (it++, it < (gUnk_03003D70 + 9));
 }
 
 void sub_0805E9F4(void)
 
 {
-    Entity* pEVar1;
+    Entity* ent;
     Entity* next;
     struct_03003D70* it;
 
     it = gUnk_03003D70;
     do {
-        next = it->field_0x4;
-        while (pEVar1 = next, (u32)pEVar1 != (u32)it) {
-            next = pEVar1->field_0x4;
-            if ((pEVar1->flags & 0x10) != 0) {
-                sub_0805E79C(pEVar1);
-            }
+        for (ent = it->field_0x4; (u32)ent != (u32)it; ent = next) {
+            next = ent->field_0x4;
+            if (ent->flags & 0x10)
+                sub_0805E79C(ent);
         }
-        it++;
-    } while (it < (gUnk_03003D70 + 9));
+    } while (it++, it < (gUnk_03003D70 + 9));
 }
 
 extern void sub_0805E374(Entity*);
@@ -289,16 +281,16 @@ extern void sub_0805E374(Entity*);
 void sub_0805EA2C(Entity* ent, int kind)
 
 {
-    Entity* pEVar1;
-    struct_03003D70* pEVar2;
+    Entity* prev;
+    struct_03003D70* next;
 
-    pEVar2 = (gUnk_03003D70 + kind);
-    ent->field_0x4 = (Entity*)pEVar2;
-    pEVar1 = pEVar2->field_0x0;
-    ent->field_0x0 = pEVar1;
-    pEVar1->field_0x4 = ent;
-    pEVar2->field_0x0 = ent;
-    if ((ent->entityType).type != 9) {
+    next = (gUnk_03003D70 + kind);
+    ent->field_0x4 = (Entity*)next;
+    prev = next->field_0x0;
+    ent->field_0x0 = prev;
+    prev->field_0x4 = ent;
+    next->field_0x0 = ent;
+    if (ent->entityType.type != 9) {
         ent->spritePriority.b0 = 4;
         gUnk_03003DBC++;
     } else {
@@ -333,22 +325,19 @@ void sub_0805EA98(Entity* ent)
 int sub_0805EABC(Entity* ent)
 
 {
-    Entity* psVar1;
+    Entity* ent2;
     struct_03003D70 *it, *end;
 
     it = gUnk_03003D70;
     end = (gUnk_03003D70 + 9);
     do {
-        psVar1 = (Entity*)it->field_0x4;
-        while ((u32)psVar1 != (u32)it) {
-            if ((u32)psVar1 != (u32)ent && psVar1->entityType.type == ent->entityType.type &&
-                psVar1->entityType.subtype == ent->entityType.subtype) {
+        for (ent2 = (Entity*)it->field_0x4; (u32)ent2 != (u32)it; ent2 = ent2->field_0x4) {
+            if ((u32)ent2 != (u32)ent && ent2->entityType.type == ent->entityType.type &&
+                ent2->entityType.subtype == ent->entityType.subtype) {
                 return 1;
             }
-            psVar1 = psVar1->field_0x4;
         }
-        it++;
-    } while (it < end);
+    } while (it++, it < end);
 
     return 0;
 }
@@ -360,11 +349,9 @@ Entity* sub_0805EB00(int type, int subtype, int kind)
     struct_03003D70* node;
 
     node = &gUnk_03003D70[kind];
-    it = (Entity*)node->field_0x4;
-    while ((u32)it != (u32)node) {
-        if ((type == (it->entityType).type) && (subtype == (it->entityType).subtype))
+    for (it = node->field_0x4; (u32)it != (u32)node; it = it->field_0x4) {
+        if (type == it->entityType.type && subtype == it->entityType.subtype)
             return it;
-        it = it->field_0x4;
     }
     return NULL;
 }
@@ -376,12 +363,11 @@ Entity* sub_0805EB2C(int type, int subtype, int kind, int form, int parameter)
     struct_03003D70* node;
 
     node = &gUnk_03003D70[kind];
-    it = (Entity*)node->field_0x4;
-    while ((u32)it != (u32)node) {
+    node = &gUnk_03003D70[kind];
+    for (it = node->field_0x4; (u32)it != (u32)node; it = it->field_0x4) {
         if (type == it->entityType.type && subtype == it->entityType.subtype && form == it->entityType.form &&
             parameter == it->entityType.parameter)
             return it;
-        it = it->field_0x4;
     }
     return NULL;
 }
@@ -393,11 +379,9 @@ Entity* sub_0805EB64(Entity* ent, int kind)
     struct_03003D70* end;
 
     end = &gUnk_03003D70[kind];
-    it = ent->field_0x4;
-    while ((u32)it != (u32)end) {
+    for (it = ent->field_0x4; (u32)it != (u32)end; it = it->field_0x4) {
         if (it->entityType.type == ent->entityType.type && it->entityType.subtype == ent->entityType.subtype)
             return it;
-        it = it->field_0x4;
     }
     return NULL;
 }
@@ -411,14 +395,11 @@ Entity* sub_0805EB9C(int type, int subtype)
     it = gUnk_03003D70;
     end = (gUnk_03003D70 + 9);
     do {
-        it2 = (Entity*)it->field_0x4;
-        while ((u32)it2 != (u32)it) {
+        for (it2 = (Entity*)it->field_0x4; (u32)it2 != (u32)it; it2 = it2->field_0x4) {
             if ((type == (it2->entityType).type) && (subtype == (it2->entityType).subtype))
                 return it2;
-            it2 = it2->field_0x4;
         }
-        it++;
-    } while (it < end);
+    } while (it++, it < end);
 
     return 0;
 }
@@ -426,19 +407,17 @@ Entity* sub_0805EB9C(int type, int subtype)
 void sub_0805EBCC(void)
 
 {
-    Entity* pEVar1;
+    Entity* ent;
     Entity* next;
     struct_03003D70* it;
 
     it = gUnk_03003D70;
     do {
-        next = it->field_0x4;
-        while (pEVar1 = next, (u32)pEVar1 != (u32)it) {
-            next = pEVar1->field_0x4;
-            if (pEVar1->entityType.type == 3)
-                DeleteEntity(pEVar1);
+        for (ent = it->field_0x4; (u32)ent != (u32)it; ent = next) {
+            next = ent->field_0x4;
+            if (ent->entityType.type == 3)
+                DeleteEntity(ent);
         }
-        it++;
-    } while (it < (gUnk_03003D70 + 9));
+    } while (it++, it < (gUnk_03003D70 + 9));
     sub_0805E84C();
 }
