@@ -7,6 +7,9 @@
 extern void (*const gUnk_0811E478[])(u32);
 
 extern s16 gUnk_02021EE0[6];
+extern char gUnk_0811E484[];
+extern char gUnk_0811E4AC[];
+extern char gUnk_0811E4A4[];
 
 void sub_0807CD9C() {
     sub_080530C8();
@@ -69,8 +72,6 @@ s32 sub_0807CE54(void) {
     return uVar1;
 }
 
-extern char gUnk_0811E484[];
-
 u32 sub_0807CE90(void)
 {
   struct_0807D1C4 *puVar1;
@@ -122,4 +123,24 @@ u32 sub_0807CF30(void* arg0) {
 
 u32 sub_0807CF3C(void* arg0) {
     return sub_0807D008(5, arg0);
+}
+
+void sub_0807CF48(u32 arg0)
+{
+  struct_0807D1C4 *temp;
+  
+  temp = sub_0807D1C4(arg0);
+  sub_0807D184(temp->field_0x4, gUnk_0811E4AC);
+  sub_0807D184(temp->field_0x2, gUnk_0811E4AC);
+}
+
+void sub_0807CF68(u32 arg0)
+{
+  struct_0807D1C4 *temp;
+  char* str;
+
+  temp = sub_0807D1C4(arg0);
+  str = gUnk_0811E4A4;
+  sub_0807D184(temp->field_0x4, str);
+  sub_0807D184(temp->field_0x2, str);
 }

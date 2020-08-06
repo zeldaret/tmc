@@ -1,13 +1,11 @@
 #include "global.h"
 #include "entity.h"
+#include "functions.h"
 
 extern void EnemyFunctionHandler(Entity*, void (*const func[])(Entity*));
-extern void sub_0804AA30(Entity*, void (*const func[][])(Entity*));
 extern void sub_0804A7D4(Entity*);
 extern void sub_0804A720(Entity*);
 extern void sub_08045678(Entity*);
-extern void sub_080AEFE0(void);
-extern u32 sub_08003FC4(Entity*, u32);
 extern void sub_08045678(Entity*);
 
 extern void (*const gUnk_080D1868[])(Entity*);
@@ -25,7 +23,7 @@ void sub_080455BC(Entity *this)
 
 void sub_080455D4(Entity *this)
 {
-  sub_0804AA30(this, &gUnk_080D1868);
+  sub_0804AA30(this, gUnk_080D1868);
 }
 
 void sub_080455E4(Entity *this)
@@ -53,7 +51,7 @@ void sub_08045618(Entity *this)
 
 void sub_08045654(Entity *this)
 {
-  sub_080AEFE0();
+  sub_080AEFE0(this);
   GetNextFrame(this);
   if (sub_08003FC4(this, 0x1800) == 0) {
     sub_08045678(this);

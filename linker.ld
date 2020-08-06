@@ -376,7 +376,7 @@ SECTIONS {
 		asm/crow.o(.text);
 		asm/mulldozer.o(.text);
 		asm/bombarossa.o(.text);
-		asm/wisp.o(.text);
+		src/enemy/wisp.o(.text);
 		asm/spinyBeetle.o(.text);
 		asm/mazaalHead.o(.text);
 		asm/mazaalMacro.o(.text);
@@ -462,7 +462,6 @@ SECTIONS {
 		src/sub_08055E08.o(.text);
 		asm/sub_08055E24.o(.text);
 		src/mainLoop.o(.text);
-		asm/sub_08055F70.o(.text);
 		asm/code_08055FF4.o(.text);
 		src/textbox.o(.text);
 		asm/code_08056418.o(.text);
@@ -582,6 +581,7 @@ SECTIONS {
 		src/npc/cat.o(.text);
 		asm/cat.o(.text);
 		asm/mountainMinish.o(.text);
+		src/npc/zeldaFollower.o(.text);
 		asm/zeldaFollower.o(.text);
 		src/npc/melari.o(.text);
 		src/npc/bladeBrothers.o(.text);
@@ -666,7 +666,6 @@ SECTIONS {
 		src/flags.o(.text);
 		src/code_0807CC3C.o(.text);
 		asm/code_0807CC3C.o(.text);
-		src/code_080808D8.o(.text);
 		src/code_0808091C.o(.text);
 		/* objects */
 		asm/itemOnGround.o(.text);
@@ -749,7 +748,6 @@ SECTIONS {
 		src/object/heartContainer.o(.text);
 		src/object/object48.o(.text);
 		src/object/object49.o(.text);
-		asm/object49.o(.text);
 		asm/backgroundCloud.o(.text);
 		asm/object4B.o(.text);
 		asm/pushableFurniture.o(.text);

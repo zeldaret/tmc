@@ -2,26 +2,23 @@
 #include "entity.h"
 #include "readKeyInput.h"
 
-void StoreKeyInput(Input *pkeyInput, u32 ioKeyInput);
+static void StoreKeyInput(Input*, u32);
 
 void ReadKeyInput(void)
 {
-    u32 reg = ~*(u16*)0x04000130 & 0x3FF;
-    Input* input = &gUnk_03000FF0;
-    StoreKeyInput(input, reg);
+    u32 keyInput = ~REG_KEYINPUT & KEYS_MASK;
+    StoreKeyInput(&gUnk_03000FF0, keyInput);
 }
 
-void StoreKeyInput(Input *input, u32 ioKeyInput)
+static void StoreKeyInput(Input *input, u32 keyInput)
 {
-  u32 difference;
-  u32 temp = input->heldKeys;
-  
-  difference = ioKeyInput & ~temp;
+  u32 heldKeys = input->heldKeys;
+  u32 difference = keyInput & ~heldKeys;
   input->newKeys = difference;
-  if (ioKeyInput == temp) {
+  if (keyInput == heldKeys) {
     if (--input->unk7 == 0) {
       input->unk7 = 4;
-      input->unk4 = ioKeyInput;
+      input->unk4 = keyInput;
     }
     else {
       input->unk4 = 0;
@@ -31,5 +28,5 @@ void StoreKeyInput(Input *input, u32 ioKeyInput)
     input->unk7 = 0x14;
     input->unk4 = difference;
   }
-  input->heldKeys = ioKeyInput;
+  input->heldKeys = keyInput;
 }

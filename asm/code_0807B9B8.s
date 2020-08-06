@@ -1995,34 +1995,3 @@ _0807C956:
 	mov sb, r4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-
-	thumb_func_start sub_0807C960
-sub_0807C960: @ 0x0807C960
-	push {lr}
-	adds r2, r0, #0
-	movs r0, #1
-	rsbs r0, r0, #0
-	cmp r1, r0
-	beq _0807C994
-	ldr r0, _0807C984 @ =0x7FFFFFFF
-	ands r0, r1
-	ldr r1, _0807C988 @ =gUnk_08324AE4
-	adds r1, r0, r1
-	lsrs r0, r2, #0x18
-	cmp r0, #6
-	bne _0807C98C
-	adds r0, r1, #0
-	adds r1, r2, #0
-	bl LZ77UnCompVram
-	b _0807C994
-	.align 2, 0
-_0807C984: .4byte 0x7FFFFFFF
-_0807C988: .4byte gUnk_08324AE4
-_0807C98C:
-	adds r0, r1, #0
-	adds r1, r2, #0
-	bl LZ77UnCompWram
-_0807C994:
-	pop {pc}
-	.align 2, 0
-	

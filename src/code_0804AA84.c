@@ -1,25 +1,9 @@
 #include "global.h"
 #include "entity.h"
 #include "area.h"
+#include "main.h"
 #include "functions.h"
 #include "screen.h"
-
-typedef struct {
-    u8 interruptFlag;
-    u8 field_0x1;
-    u8 loadType;
-    u8 funcIndex;
-    u8 transition;
-    u16 field_0x5;
-    u8 muteAudio;
-    u8 field_0x8;
-    u8 countdown;
-    u8 field_0xa;
-    u8 field_0xb;
-    u8 ticks;
-    u8 field_0xe;
-    u8 field_0xf;
-} Main;
 
 typedef struct {
     u8 filler [18];
@@ -32,7 +16,6 @@ extern void (*const gUnk_080D4120[])();
 extern void (*const gUnk_080D412C[])();
 
 
-extern Main gUnk_03001000;
 extern struct_02018EB0 gUnk_02018EB0;
 extern u8 gUnk_03000FD0;
 

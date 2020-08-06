@@ -18,17 +18,10 @@ typedef struct {
 
 extern struct_03000FD0 gUnk_03000FD0;
 
-typedef struct {
-    u8 filler[5];
-    u8 field_0x5;
-} struct_02000010;
-
-extern struct_02000010 gUnk_02000010;
-
 u32 IntroSetTransition(u32 transition)
 {
     gUnk_02032EC0.transitionType = transition;
-    gUnk_03001000.field_0x3 = 2;
+    gUnk_03001000.funcIndex = 2;
     _DmaZero((u32 *)&gMenu, 48);
     DoFade(7, 8);
 }
@@ -36,7 +29,7 @@ u32 IntroSetTransition(u32 transition)
 void sub_080AD380()
 {
   sub_080AD90C();
-  switch (gUnk_03001000.field_0x3) {
+  switch (gUnk_03001000.funcIndex) {
       case 0:
         sub_08056418();
         _DmaZero(&gUnk_02032EC0, 0x3b4);
@@ -50,7 +43,7 @@ void sub_080AD380()
           return;
         }
         sub_0801DA90(1);
-        gUnk_03001000.field_0x3 = 1;
+        gUnk_03001000.funcIndex = 1;
         break;
   }
   sub_080AD918();
@@ -112,7 +105,8 @@ void sub_080AD474(void)
             gMenu.transitionTimer = 0x1e;
             gMenu.field_0x4 = 7;
             EraseAllEntities();
-            sub_080ADD30(sub_0801CFA8(0));
+            sub_0801CFA8(0);
+            sub_080ADD30();
             gUnk_02024490 = 1;
             sub_0801D7EC(2);
             if (((struct_02000000*)0x2000000)->gameLanguage == 0) {

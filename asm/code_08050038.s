@@ -593,7 +593,7 @@ sub_0805060C: @ 0x0805060C
 	cmp r0, #0
 	bne _0805061C
 	movs r0, #2
-	bl sub_08056010
+	bl InitScreen
 _0805061C:
 	pop {pc}
 	.align 2, 0
@@ -3486,7 +3486,7 @@ sub_08051D2C: @ 0x08051D2C
 	movs r1, #8
 	bl DoFade
 	movs r0, #3
-	bl sub_08056010
+	bl InitScreen
 	pop {pc}
 	.align 2, 0
 
@@ -4270,12 +4270,12 @@ _080523AC:
 	cmp r0, #0
 	bne _080523C8
 	movs r0, #2
-	bl sub_08056010
+	bl InitScreen
 	b _080523CC
 	.align 2, 0
 _080523C4: .4byte gUnk_03000FD0
 _080523C8:
-	bl sub_080560A8
+	bl DoSoftReset
 _080523CC:
 	pop {r4, pc}
 	.align 2, 0

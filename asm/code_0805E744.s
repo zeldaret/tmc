@@ -2089,7 +2089,7 @@ _0805FBC0: .4byte gScreen
 sub_0805FBC4: @ 0x0805FBC4
 	push {lr}
 	movs r0, #0
-	bl sub_08056010
+	bl InitScreen
 	pop {pc}
 	.align 2, 0
 
