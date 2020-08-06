@@ -6221,7 +6221,7 @@ _0807FB90: .4byte gLinkEntity
 sub_0807FB94: @ 0x0807FB94
 	push {lr}
 	movs r0, #4
-	bl sub_08056010
+	bl InitScreen
 	pop {pc}
 	.align 2, 0
 

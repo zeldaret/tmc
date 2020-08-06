@@ -1,12 +1,12 @@
 #include "global.h"
 #include "entity.h"
+#include "functions.h"
 #include "trig.h"
 #include "random.h"
 #include "link.h"
 
 // Lakitu
 extern void EnemyFunctionHandler(Entity *, void (*const funcs[])(Entity*));
-extern void SetChildOffset(Entity *, u32, u32, u32);
 
 // sub_0803C758
 extern void sub_0803CAD0(Entity *);
@@ -41,7 +41,6 @@ extern void sub_0803CB64(Entity *);
 extern void sub_0803CB34(Entity *);
 
 // sub_0803CA0C
-extern u32 sub_08003FC4(Entity *, u32);
 extern void sub_0803CC08(Entity *this);
 
 // sub_0803CA4C
@@ -51,12 +50,7 @@ extern u32 sub_080041A0(Entity *, Entity *, u32, u32);
 // sub_0803CA84
 extern u32 GetFacingDirection(Entity *, Entity *);
 
-// sub_0803CAD0
-extern u8 sub_080045D4(s16, s16, u16, u16);
-extern void sub_080AEFE0(Entity *);
-
 // sub_0803CB64
-extern void PositionRelative(Entity *, Entity *, u32, u32);
 extern void sub_08004488(u32);
 
 typedef struct {

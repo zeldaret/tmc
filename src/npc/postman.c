@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "functions.h"
 #include "npc.h"
 #include "textbox.h"
 #include "link.h"
@@ -28,7 +29,6 @@ extern void sub_080606D8(Entity*);
 extern void sub_0807DD94(Entity*, u32);
 extern void sub_080788E0(Entity*);
 extern void sub_08004488(u32);
-extern void sub_08003FC4(Entity*, u32);
 extern void sub_080606C0(Entity*);
 extern void sub_0800451C(Entity*);
 extern void sub_08078784(Entity*, u32);
