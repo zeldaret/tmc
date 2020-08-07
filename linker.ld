@@ -530,7 +530,7 @@ SECTIONS {
 		asm/code_0805E3B0.o(.text);
 		asm/getEmptyEntity.o(.text);
 		src/entity.o(.text);
-		asm/code_0805E744.o(.text);
+		asm/code_0805EC04.o(.text);
 		/* npcs */
 		src/npc/gentari.o(.text);
 		src/npc/festari.o(.text);
