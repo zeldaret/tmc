@@ -156,28 +156,21 @@ void sub_0809F700(Entity* this) {
     }
 }
 
-#ifdef NON_MATCHING
 Entity* sub_0809F770(Entity* this) {
     Entity* cloud;
-    s32 uVar1;
+    int uVar1;
 
     cloud = CreateObject(163, 1, 0);
-    if (cloud != NULL) {
+    if (cloud) {
         PositionEntityOnTop(this, cloud);
         uVar1 = Random();
-        cloud->x.HALF.HI = ((cloud->x.HALF.HI - 16) + (uVar1 >> 0)) & 31;
-        cloud->y.HALF.HI = ((cloud->y.HALF.HI - 16) + (uVar1 >> 8)) & 31;
-        cloud->animationList = (u8)(uVar1 >> 16) & 3;
-        cloud->direction = 255;
+        cloud->x.HALF.HI += ((uVar1 >> 0) & 31) - 16;
+        cloud->y.HALF.HI += ((uVar1 >> 8) & 31) - 16;
+        cloud->frameIndex = (uVar1 >> 16) & 3;
+        cloud->direction = 0xFF;
     }
     return cloud;
 }
-#else
-NAKED
-Entity* sub_0809F770(Entity* this) {
-    asm(".include \"asm/non_matching/cloud/sub_0809F770.inc\"");
-}
-#endif
 
 void sub_0809F7BC(Entity* this) {
     Entity* cloud;
