@@ -4,6 +4,23 @@
 #include "global.h"
 
 typedef struct {
+    u8 unk_00[0x0c];
+    u8 unk_0c;
+    u8 unk_0d[0x13];
+    u16 unk_20;
+    u16 unk_22;
+    u16 unk_24;
+    u16 unk_26;
+    u8 unk_28[0x10];
+    u8 unk_38;
+    u8 unk_39;
+    u8 unk_3a;
+    u8 unk_3b;
+    u16 unk_3c;
+    u16 unk_3e;
+} Manager;
+
+typedef struct {
     u16 field_0x00;
     u16 field_0x02;
     u8 field_0x04;
