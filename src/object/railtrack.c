@@ -12,8 +12,8 @@ extern void SetTile(u32, u32, u32);
 
 extern void (*const gUnk_081205D0[])(Entity*);
 
+extern s8 gUnk_080B4488[][2];
 extern u16 gUnk_081205E0[];
-extern s8 gUnk_080B4488[];
 
 void Railtrack(Entity* this) {
     gUnk_081205D0[this->action](this);
@@ -135,14 +135,30 @@ void sub_0808543C(Entity *this)
   u32 uVar2;
   s8 temp;
 
-  temp = gUnk_080B4488[(this->animationState >> 1) << 1];
+  temp = gUnk_080B4488[this->animationState / 2][0];
   uVar2 = COORD_TO_TILE(this);
   SetTile(this->field_0x74, uVar2 - temp, this->collisionLayer);
   SetTile(this->field_0x76, uVar2, this->collisionLayer);
   SetTile(this->field_0x78.HWORD, uVar2 + temp, this->collisionLayer);
 }
 
-NAKED
 u32 sub_080854A8(Entity *this) {
-    asm(".include \"asm/non_matching/railtrack/sub_080854A8.inc\"");
+    u16 var0;
+    u16* var1;
+    s8* var2;
+
+    var0 = gUnk_081205E0[this->animationState / 2];
+    var2 = gUnk_080B4488[this->animationState / 2];
+    var1 = (u16 *)this->field_0x70.WORD;
+    if (var0 != *(var1 - var2[0])) {
+        return TRUE;
+    }
+    if (var0 != *var1) {
+        return TRUE;
+    }
+    if (var0 != *(var1 + var2[0])) {
+        return TRUE;
+    }
+
+    return FALSE;
 }
