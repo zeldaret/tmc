@@ -41,7 +41,7 @@ sub_08097438: @ 0x08097438
 	beq _080974A2
 	adds r0, r4, #0
 	bl sub_08004168
-	ldr r1, _08097494 @ =gLinkEntity
+	ldr r1, _08097494 @ =gPlayerEntity
 	ldrb r0, [r1, #0x1b]
 	movs r2, #0xc0
 	orrs r0, r2
@@ -67,7 +67,7 @@ sub_08097438: @ 0x08097438
 	strb r0, [r3]
 	b _080974A2
 	.align 2, 0
-_08097494: .4byte gLinkEntity
+_08097494: .4byte gPlayerEntity
 _08097498:
 	adds r1, r4, #0
 	adds r1, #0x29
@@ -84,11 +84,11 @@ sub_080974A4: @ 0x080974A4
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _08097554
-	ldr r3, _08097540 @ =gLinkEntity
+	ldr r3, _08097540 @ =gPlayerEntity
 	ldr r0, [r3, #0x34]
 	cmp r0, #0
 	bne _080974E8
-	ldr r2, _08097544 @ =gLinkState
+	ldr r2, _08097544 @ =gPlayerState
 	ldrb r1, [r2, #0x1e]
 	movs r0, #0x40
 	ands r0, r1
@@ -105,7 +105,7 @@ sub_080974A4: @ 0x080974A4
 	cmp r0, #4
 	beq _080974FA
 _080974D6:
-	ldr r1, _08097540 @ =gLinkEntity
+	ldr r1, _08097540 @ =gPlayerEntity
 	ldr r0, [r1, #0x34]
 	cmp r0, #0
 	bne _080974E8
@@ -114,7 +114,7 @@ _080974D6:
 	movs r2, #0
 	bl CreateFx
 _080974E8:
-	ldr r2, _08097540 @ =gLinkEntity
+	ldr r2, _08097540 @ =gPlayerEntity
 	ldrb r1, [r2, #0x1b]
 	movs r0, #0x3f
 	ands r0, r1
@@ -123,12 +123,12 @@ _080974E8:
 	strb r0, [r2, #0x1b]
 	bl DeleteThisEntity
 _080974FA:
-	ldr r2, _08097540 @ =gLinkEntity
+	ldr r2, _08097540 @ =gPlayerEntity
 	ldr r0, [r2, #0x2c]
 	str r0, [r4, #0x2c]
 	ldr r0, [r2, #0x30]
 	str r0, [r4, #0x30]
-	ldr r0, _08097544 @ =gLinkState
+	ldr r0, _08097544 @ =gPlayerState
 	ldrb r0, [r0, #2]
 	cmp r0, #0
 	bne _08097584
@@ -158,8 +158,8 @@ _080974FA:
 	strb r0, [r3]
 	b _08097584
 	.align 2, 0
-_08097540: .4byte gLinkEntity
-_08097544: .4byte gLinkState
+_08097540: .4byte gPlayerEntity
+_08097544: .4byte gPlayerState
 _08097548:
 	adds r1, r4, #0
 	adds r1, #0x29
@@ -168,7 +168,7 @@ _08097548:
 	strb r0, [r1]
 	b _08097584
 _08097554:
-	ldr r2, _08097570 @ =gLinkEntity
+	ldr r2, _08097570 @ =gPlayerEntity
 	ldrb r0, [r2, #0xc]
 	cmp r0, #0x1e
 	beq _08097584
@@ -183,7 +183,7 @@ _08097554:
 	movs r0, #0x80
 	b _0809757C
 	.align 2, 0
-_08097570: .4byte gLinkEntity
+_08097570: .4byte gPlayerEntity
 _08097574:
 	ldrb r0, [r2, #0x1b]
 	movs r1, #0x3f

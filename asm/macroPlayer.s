@@ -7,8 +7,8 @@
 	.text
 
 
-	thumb_func_start MacroLink
-MacroLink: @ 0x0808CAE4
+	thumb_func_start MacroPlayer
+MacroPlayer: @ 0x0808CAE4
 	push {lr}
 	ldr r2, _0808CAF8 @ =gUnk_08121680
 	ldrb r1, [r0, #0xa]

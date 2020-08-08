@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "flags.h"
-#include "link.h"
+#include "player.h"
 #include "room.h"
 #include "textbox.h"
 
@@ -122,7 +122,7 @@ void FUN_08068b2c(Entity* this) {
     if (this->interactType == '\x02') {
         this->action = 2;
         this->interactType = '\0';
-        uVar1 = sub_0806F5A4(GetFacingDirection(this, &gLinkEntity));
+        uVar1 = sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
         InitAnimationForceUpdate(this, uVar1);
         sub_0806F118(this);
     } else {
@@ -345,16 +345,16 @@ void sub_08068E78(Entity* this) {
 }
 
 void sub_08068E90(Entity* this) {
-    LinkState* s = &gLinkState;
+    PlayerState* s = &gPlayerState;
     *(u16*)&s->field_0xac = (1 << (gUnk_08111740[this->actionDelay] - 1)) | *(u16*)&s->field_0xac;
 }
 
 void sub_08068EB4(void) {
-    gLinkState.field_0xab = 0;
+    gPlayerState.field_0xab = 0;
 }
 
 void sub_08068EC4(Entity* param_1, Entity* param_2) {
-    if (gUnk_08111740[param_1->actionDelay] == gLinkState.field_0xab) {
+    if (gUnk_08111740[param_1->actionDelay] == gPlayerState.field_0xab) {
         *(u16*)&param_2->flags = gUnk_0811172A[param_1->actionDelay];
         *(u32*)&param_2->animationState = 1;
     } else {

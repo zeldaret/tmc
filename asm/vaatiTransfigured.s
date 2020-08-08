@@ -1486,7 +1486,7 @@ _08040286:
 _0804029E:
 	cmp r2, #2
 	bne _08040382
-	ldr r1, _080402DC @ =gLinkEntity
+	ldr r1, _080402DC @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	lsls r0, r0, #1
@@ -1516,7 +1516,7 @@ _080402C6:
 	strb r0, [r4, #0x18]
 	b _08040382
 	.align 2, 0
-_080402DC: .4byte gLinkEntity
+_080402DC: .4byte gPlayerEntity
 _080402E0: .4byte gUnk_080D0B18
 _080402E4:
 	adds r5, r4, #0
@@ -2576,7 +2576,7 @@ _08040AB0:
 	ldrb r0, [r5]
 	cmp r0, #0x8a
 	bne _08040AC8
-	ldr r0, _08040AD0 @ =gLinkState
+	ldr r0, _08040AD0 @ =gPlayerState
 	adds r0, #0xa0
 	ldrb r0, [r0]
 	cmp r0, #5
@@ -2589,7 +2589,7 @@ _08040AC8:
 	pop {r4, r5, pc}
 	.align 2, 0
 _08040ACC: .4byte 0x00000127
-_08040AD0: .4byte gLinkState
+_08040AD0: .4byte gPlayerState
 
 	thumb_func_start sub_08040AD4
 sub_08040AD4: @ 0x08040AD4

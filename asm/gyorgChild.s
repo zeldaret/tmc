@@ -339,7 +339,7 @@ _080488AA:
 	cmp r0, #2
 	bne _080488D0
 _080488AE:
-	ldr r1, _080488C8 @ =gLinkEntity
+	ldr r1, _080488C8 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r0, #0x74
 	ldrh r0, [r0]
@@ -353,7 +353,7 @@ _080488AE:
 	ldrh r1, [r1, #0xc]
 	b _080488E8
 	.align 2, 0
-_080488C8: .4byte gLinkEntity
+_080488C8: .4byte gPlayerEntity
 _080488CC: .4byte gRoomControls
 _080488D0:
 	ldr r1, _080488FC @ =gRoomControls
@@ -363,7 +363,7 @@ _080488D0:
 	ldrh r1, [r1, #0xa]
 	adds r0, r0, r1
 	strh r0, [r4, #0x2e]
-	ldr r1, _08048900 @ =gLinkEntity
+	ldr r1, _08048900 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r0, #0x76
 	ldrh r0, [r0]
@@ -381,7 +381,7 @@ _080488FA:
 	pop {r4, pc}
 	.align 2, 0
 _080488FC: .4byte gRoomControls
-_08048900: .4byte gLinkEntity
+_08048900: .4byte gPlayerEntity
 
 	thumb_func_start sub_08048904
 sub_08048904: @ 0x08048904

@@ -100,7 +100,7 @@ _08049C28: .4byte 0x0000FFE0
 sub_08049C2C: @ 0x08049C2C
 	push {r4, r5, r6, lr}
 	adds r2, r0, #0
-	ldr r3, _08049CA4 @ =gLinkEntity
+	ldr r3, _08049CA4 @ =gPlayerEntity
 	ldrb r0, [r3, #0xc]
 	cmp r0, #6
 	bne _08049CA8
@@ -163,7 +163,7 @@ _08049C9E:
 	movs r0, #1
 	b _08049CAA
 	.align 2, 0
-_08049CA4: .4byte gLinkEntity
+_08049CA4: .4byte gPlayerEntity
 _08049CA8:
 	movs r0, #0
 _08049CAA:

@@ -115,13 +115,13 @@ _080818C0:
 	ldr r1, _080818E8 @ =gRoomVars
 	movs r0, #1
 	str r0, [r1, #0x68]
-	ldr r1, _080818EC @ =gLinkState
+	ldr r1, _080818EC @ =gPlayerState
 	movs r0, #7
 	strb r0, [r1, #0xc]
 	b _08081920
 	.align 2, 0
 _080818E8: .4byte gRoomVars
-_080818EC: .4byte gLinkState
+_080818EC: .4byte gPlayerState
 _080818F0:
 	adds r1, r4, #0
 	adds r1, #0x39
@@ -133,11 +133,11 @@ _080818F0:
 	movs r0, #1
 	strb r0, [r4, #0xd]
 	bl sub_08078B48
-	bl ResetLink
-	ldr r1, _08081924 @ =gLinkState
+	bl ResetPlayer
+	ldr r1, _08081924 @ =gPlayerState
 	movs r0, #4
 	strb r0, [r1, #5]
-	ldr r0, _08081928 @ =gLinkEntity
+	ldr r0, _08081928 @ =gPlayerEntity
 	str r4, [r0, #0x74]
 	ldr r0, _0808192C @ =gUnk_0200AF00
 	adds r0, #0x2f
@@ -147,8 +147,8 @@ _080818F0:
 _08081920:
 	pop {r4, pc}
 	.align 2, 0
-_08081924: .4byte gLinkState
-_08081928: .4byte gLinkEntity
+_08081924: .4byte gPlayerState
+_08081928: .4byte gPlayerEntity
 _0808192C: .4byte gUnk_0200AF00
 
 	thumb_func_start sub_08081930
@@ -160,7 +160,7 @@ sub_08081930: @ 0x08081930
 	adds r6, #0x2f
 	movs r0, #2
 	strb r0, [r6]
-	ldr r3, _0808196C @ =gLinkEntity
+	ldr r3, _0808196C @ =gPlayerEntity
 	ldrb r1, [r3, #0x18]
 	lsls r1, r1, #0x1e
 	lsrs r1, r1, #0x1e
@@ -169,7 +169,7 @@ sub_08081930: @ 0x08081930
 	ands r0, r2
 	orrs r0, r1
 	strb r0, [r4, #0x18]
-	ldr r5, _08081970 @ =gLinkState
+	ldr r5, _08081970 @ =gPlayerState
 	ldrb r0, [r5, #5]
 	cmp r0, #0
 	beq _0808195E
@@ -182,8 +182,8 @@ _0808195E:
 	b _080819AC
 	.align 2, 0
 _08081968: .4byte gUnk_0200AF00
-_0808196C: .4byte gLinkEntity
-_08081970: .4byte gLinkState
+_0808196C: .4byte gPlayerEntity
+_08081970: .4byte gPlayerState
 _08081974:
 	bl sub_080784E4
 	adds r1, r0, #0
@@ -203,7 +203,7 @@ _08081974:
 	cmp r0, #0
 	bne _080819AC
 _08081998:
-	ldr r0, _080819B0 @ =gLinkState
+	ldr r0, _080819B0 @ =gPlayerState
 	adds r0, #0x92
 	ldrh r1, [r0]
 	movs r0, #0x98
@@ -215,7 +215,7 @@ _08081998:
 _080819AC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080819B0: .4byte gLinkState
+_080819B0: .4byte gPlayerState
 
 	thumb_func_start sub_080819B4
 sub_080819B4: @ 0x080819B4
@@ -236,10 +236,10 @@ sub_080819B4: @ 0x080819B4
 _080819D0:
 	bl DeleteThisEntity
 _080819D4:
-	ldr r0, _08081A4C @ =gLinkState
+	ldr r0, _08081A4C @ =gPlayerState
 	movs r2, #0
 	strb r2, [r0, #5]
-	ldr r4, _08081A50 @ =gLinkEntity
+	ldr r4, _08081A50 @ =gPlayerEntity
 	str r2, [r4, #0x74]
 	ldr r1, _08081A54 @ =gUnk_0200AF00
 	ldr r3, _08081A48 @ =gRoomVars
@@ -294,8 +294,8 @@ _080819D4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08081A48: .4byte gRoomVars
-_08081A4C: .4byte gLinkState
-_08081A50: .4byte gLinkEntity
+_08081A4C: .4byte gPlayerState
+_08081A50: .4byte gPlayerEntity
 _08081A54: .4byte gUnk_0200AF00
 _08081A58: .4byte gRoomControls
 

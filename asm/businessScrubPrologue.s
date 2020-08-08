@@ -80,7 +80,7 @@ sub_08045BC8: @ 0x08045BC8
 	subs r0, #8
 	strh r0, [r1, #0x36]
 _08045C16:
-	ldr r0, _08045C30 @ =gLinkState
+	ldr r0, _08045C30 @ =gPlayerState
 	adds r0, #0x27
 	movs r1, #0xff
 	strb r1, [r0]
@@ -92,7 +92,7 @@ _08045C16:
 _08045C2C:
 	pop {r4, pc}
 	.align 2, 0
-_08045C30: .4byte gLinkState
+_08045C30: .4byte gPlayerState
 _08045C34: .4byte 0x000001BB
 
 	thumb_func_start nullsub_174
@@ -341,7 +341,7 @@ _08045E12:
 sub_08045E14: @ 0x08045E14
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _08045E2C @ =gLinkState
+	ldr r0, _08045E2C @ =gPlayerState
 	adds r0, #0x27
 	movs r1, #0xff
 	strb r1, [r0]
@@ -352,7 +352,7 @@ sub_08045E14: @ 0x08045E14
 	beq _08045E70
 	b _08045EBA
 	.align 2, 0
-_08045E2C: .4byte gLinkState
+_08045E2C: .4byte gPlayerState
 _08045E30:
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
@@ -667,7 +667,7 @@ _08046074: .4byte gUnk_080D1A3E
 sub_08046078: @ 0x08046078
 	push {r4, r5, r6, r7, lr}
 	adds r7, r0, #0
-	ldr r0, _08046114 @ =gLinkState
+	ldr r0, _08046114 @ =gPlayerState
 	adds r0, #0x27
 	movs r1, #0
 	strb r1, [r0]
@@ -737,7 +737,7 @@ _0804610C:
 	bl sub_0804AA1C
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08046114: .4byte gLinkState
+_08046114: .4byte gPlayerState
 _08046118: .4byte gUnk_080D1A4E
 _0804611C: .4byte gRoomControls
 _08046120: .4byte 0x000007A2

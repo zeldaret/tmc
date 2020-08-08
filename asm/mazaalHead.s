@@ -305,11 +305,11 @@ _08034114:
 	cmp r0, #0
 	beq _0803413E
 	ldr r1, _08034140 @ =gRoomControls
-	ldr r0, _08034144 @ =gLinkEntity
+	ldr r0, _08034144 @ =gPlayerEntity
 	str r0, [r1, #0x30]
 	adds r0, r3, #0
 	bl sub_08034420
-	ldr r0, _08034148 @ =gLinkState
+	ldr r0, _08034148 @ =gPlayerState
 	adds r0, #0x8b
 	movs r1, #1
 	strb r1, [r0]
@@ -320,8 +320,8 @@ _0803413E:
 	pop {r4, pc}
 	.align 2, 0
 _08034140: .4byte gRoomControls
-_08034144: .4byte gLinkEntity
-_08034148: .4byte gLinkState
+_08034144: .4byte gPlayerEntity
+_08034148: .4byte gPlayerState
 
 	thumb_func_start sub_0803414C
 sub_0803414C: @ 0x0803414C
@@ -1154,20 +1154,20 @@ sub_0803473C: @ 0x0803473C
 	ldrb r0, [r0, #0xc]
 	cmp r0, #0x28
 	bhi _080347B0
-	ldr r0, _08034760 @ =gLinkEntity
+	ldr r0, _08034760 @ =gPlayerEntity
 	movs r1, #0x2e
 	ldrsh r0, [r0, r1]
 	adds r2, r0, #0
 	subs r2, #0x60
 	b _08034776
 	.align 2, 0
-_08034760: .4byte gLinkEntity
+_08034760: .4byte gPlayerEntity
 _08034764:
 	ldr r0, [r3, #0x78]
 	ldrb r0, [r0, #0xc]
 	cmp r0, #0x28
 	bhi _080347B0
-	ldr r0, _08034790 @ =gLinkEntity
+	ldr r0, _08034790 @ =gPlayerEntity
 	movs r5, #0x2e
 	ldrsh r0, [r0, r5]
 	adds r2, r0, #0
@@ -1187,7 +1187,7 @@ _08034776:
 	movs r0, #8
 	b _080347A8
 	.align 2, 0
-_08034790: .4byte gLinkEntity
+_08034790: .4byte gPlayerEntity
 _08034794: .4byte gRoomControls
 _08034798:
 	adds r0, r2, #4
@@ -1210,7 +1210,7 @@ _080347B0:
 sub_080347B4: @ 0x080347B4
 	push {r4, r5, lr}
 	adds r2, r0, #0
-	ldr r0, _080347D8 @ =gLinkEntity
+	ldr r0, _080347D8 @ =gPlayerEntity
 	movs r1, #0x2e
 	ldrsh r3, [r0, r1]
 	ldr r0, _080347DC @ =gRoomControls
@@ -1227,7 +1227,7 @@ sub_080347B4: @ 0x080347B4
 	movs r0, #8
 	b _080347F0
 	.align 2, 0
-_080347D8: .4byte gLinkEntity
+_080347D8: .4byte gPlayerEntity
 _080347DC: .4byte gRoomControls
 _080347E0:
 	adds r0, r3, #4
@@ -1810,7 +1810,7 @@ _08034BFE:
 sub_08034C00: @ 0x08034C00
 	push {r4, lr}
 	adds r3, r0, #0
-	ldr r0, _08034C44 @ =gLinkState
+	ldr r0, _08034C44 @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -1840,7 +1840,7 @@ sub_08034C00: @ 0x08034C00
 	bl DoExitTransition
 	b _08034C5A
 	.align 2, 0
-_08034C44: .4byte gLinkState
+_08034C44: .4byte gPlayerState
 _08034C48: .4byte gRoomControls
 _08034C4C: .4byte gScreenTransition
 _08034C50: .4byte gUnk_080CED88

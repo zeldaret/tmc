@@ -75,7 +75,7 @@ _0805DEB4: .4byte 0x00001194
 sub_0805DEB8: @ 0x0805DEB8
 	push {r4, r5, lr}
 	adds r3, r0, #0
-	ldr r5, _0805DF44 @ =gLinkEntity
+	ldr r5, _0805DF44 @ =gPlayerEntity
 	movs r0, #0x2e
 	ldrsh r2, [r5, r0]
 	subs r2, #0x88
@@ -142,14 +142,14 @@ _0805DF3C:
 _0805DF42:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0805DF44: .4byte gLinkEntity
+_0805DF44: .4byte gPlayerEntity
 _0805DF48: .4byte gRoomControls
 
 	thumb_func_start sub_0805DF4C
 sub_0805DF4C: @ 0x0805DF4C
 	push {lr}
 	adds r1, r0, #0
-	ldr r2, _0805DF70 @ =gLinkEntity
+	ldr r2, _0805DF70 @ =gPlayerEntity
 	movs r0, #0
 	strb r0, [r2, #0x14]
 	movs r3, #0x36
@@ -166,7 +166,7 @@ sub_0805DF4C: @ 0x0805DF4C
 	strh r1, [r2, #0x32]
 	b _0805DF92
 	.align 2, 0
-_0805DF70: .4byte gLinkEntity
+_0805DF70: .4byte gPlayerEntity
 _0805DF74: .4byte gRoomControls
 _0805DF78:
 	ldrb r0, [r1, #0xe]

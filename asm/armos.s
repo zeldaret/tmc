@@ -46,7 +46,7 @@ sub_080301D4: @ 0x080301D4
 	cmp r0, #1
 	bne _080301EE
 	ldr r1, [r4, #0x4c]
-	ldr r0, _08030238 @ =gLinkEntity
+	ldr r0, _08030238 @ =gPlayerEntity
 	cmp r1, r0
 	bne _080301EE
 	adds r1, r4, #0
@@ -89,7 +89,7 @@ _08030228:
 	bl sub_0804AA30
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08030238: .4byte gLinkEntity
+_08030238: .4byte gPlayerEntity
 _0803023C: .4byte gUnk_080CE124
 
 	thumb_func_start sub_08030240
@@ -942,7 +942,7 @@ sub_0803086C: @ 0x0803086C
 	bne _08030880
 	b _0803099C
 _08030880:
-	ldr r0, _08030928 @ =gLinkState
+	ldr r0, _08030928 @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -1003,7 +1003,7 @@ _0803088E:
 	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _0803098A
-	ldr r2, _08030934 @ =gLinkEntity
+	ldr r2, _08030934 @ =gPlayerEntity
 	adds r2, #0x29
 	ldrb r1, [r2]
 	movs r0, #8
@@ -1023,10 +1023,10 @@ _0803088E:
 	movs r0, #1
 	b _0803099E
 	.align 2, 0
-_08030928: .4byte gLinkState
+_08030928: .4byte gPlayerState
 _0803092C: .4byte gRoomControls
 _08030930: .4byte 0x00004049
-_08030934: .4byte gLinkEntity
+_08030934: .4byte gPlayerEntity
 _08030938: .4byte gScreenTransition
 _0803093C:
 	ldr r0, _0803094C @ =0x00004022

@@ -232,7 +232,7 @@ sub_080889A8: @ 0x080889A8
 	bl sub_08017850
 	cmp r0, #0
 	beq _080889CA
-	ldr r1, _08088A40 @ =gLinkEntity
+	ldr r1, _08088A40 @ =gPlayerEntity
 	ldr r2, _08088A44 @ =gUnk_08120BEC
 	adds r0, r4, #0
 	adds r0, #0x72
@@ -243,7 +243,7 @@ sub_080889A8: @ 0x080889A8
 	strb r0, [r1]
 	movs r5, #1
 _080889CA:
-	ldr r0, _08088A48 @ =gLinkState
+	ldr r0, _08088A48 @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	lsls r1, r1, #0xf
@@ -302,7 +302,7 @@ _08088A3A:
 	adds r0, r5, #0
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08088A40: .4byte gLinkEntity
+_08088A40: .4byte gPlayerEntity
 _08088A44: .4byte gUnk_08120BEC
-_08088A48: .4byte gLinkState
+_08088A48: .4byte gPlayerState
 _08088A4C: .4byte gUnk_03004040

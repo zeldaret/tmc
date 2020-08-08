@@ -3,7 +3,7 @@
 
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 
 typedef struct {
     char header[4];

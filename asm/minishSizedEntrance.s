@@ -22,13 +22,13 @@ sub_08090F00: @ 0x08090F00
 	bne _08090F1C
 	bl DeleteThisEntity
 _08090F1C:
-	ldr r6, _08090F64 @ =gLinkState
+	ldr r6, _08090F64 @ =gPlayerState
 	ldr r0, [r6, #0x30]
 	movs r1, #0x80
 	ands r0, r1
 	cmp r0, #0
 	beq _08090F62
-	ldr r5, _08090F68 @ =gLinkEntity
+	ldr r5, _08090F68 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r1, r5, #0
 	movs r2, #4
@@ -57,6 +57,6 @@ _08090F1C:
 _08090F62:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08090F64: .4byte gLinkState
-_08090F68: .4byte gLinkEntity
+_08090F64: .4byte gPlayerState
+_08090F68: .4byte gPlayerEntity
 _08090F6C: .4byte gUnk_0812225C

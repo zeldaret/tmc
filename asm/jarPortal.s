@@ -248,7 +248,7 @@ _0808C050:
 	strb r0, [r2, #0x17]
 	cmp r5, #1
 	bne _0808C0A6
-	ldr r3, _0808C070 @ =gLinkState
+	ldr r3, _0808C070 @ =gPlayerState
 	ldr r0, [r3, #0x30]
 	movs r1, #0x20
 	ands r0, r1
@@ -261,7 +261,7 @@ _0808C050:
 	b _0808C082
 	.align 2, 0
 _0808C06C: .4byte gArea
-_0808C070: .4byte gLinkState
+_0808C070: .4byte gPlayerState
 _0808C074:
 	bl sub_08057810
 	cmp r0, #0

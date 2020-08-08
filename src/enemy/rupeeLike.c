@@ -4,7 +4,7 @@
 #include "functions.h"
 #include "npc.h"
 #include "structures.h"
-#include "link.h"
+#include "player.h"
 
 extern void sub_080293DC(Entity*);
 extern void sub_080296D8(Entity*);
@@ -61,7 +61,7 @@ void sub_08029318(Entity* this) {
             this->field_0xf = 0;
             this->field_0x82.HALF.HI = 0x41;
             this->flags2 &= 0xfc;
-            this->field_0x80.HALF.LO = gLinkEntity.spritePriority.b1;
+            this->field_0x80.HALF.LO = gPlayerEntity.spritePriority.b1;
             sub_08004488(0x104);
         } else {
             if (this->field_0x43 != 0) {
@@ -116,7 +116,7 @@ void sub_08029474(Entity* this) {
     if (this->frames.b.f3) {
         this->action = 3;
         this->actionDelay = 8;
-        bVar1 = GetFacingDirection(this, &gLinkEntity);
+        bVar1 = GetFacingDirection(this, &gPlayerEntity);
         this->direction = bVar1;
         this->animationState = (bVar1 << 0x18) >> 0x1c;
         InitializeAnimation(this, this->animationState);
@@ -133,7 +133,7 @@ void sub_080294D4(Entity* this) {
     if (sub_08049FDC(this, 1) != 0) {
         if (--this->actionDelay == 0) {
             this->actionDelay = 8;
-            sub_08004596(this, GetFacingDirection(this, &gLinkEntity));
+            sub_08004596(this, GetFacingDirection(this, &gPlayerEntity));
             sub_0802969C(this);
         }
         sub_080AEF88(this);
@@ -162,13 +162,13 @@ void sub_0802953C(Entity* this) {
     if (((this->field_0xf > 0x2d) || (gUnk_02002A40.stats.rupees == 0)) && (this->actionDelay == 0)) {
         sub_080296D8(this);
     } else {
-        ResetLink();
-        gLinkState.field_0x1a[0] |= 0x80;
-        PositionRelative(this, &gLinkEntity, 0, 0x10000);
+        ResetPlayer();
+        gPlayerState.field_0x1a[0] |= 0x80;
+        PositionRelative(this, &gPlayerEntity, 0, 0x10000);
         pbVar3 = GetSpriteSubEntryOffsetDataPointer((u16)this->spriteIndex, this->frameIndex);
-        gLinkEntity.spriteOffsetX = pbVar3[0];
-        gLinkEntity.spriteOffsetY = pbVar3[1] - 1;
-        gLinkEntity.spritePriority.b1 = 0;
+        gPlayerEntity.spriteOffsetX = pbVar3[0];
+        gPlayerEntity.spriteOffsetY = pbVar3[1] - 1;
+        gPlayerEntity.spritePriority.b1 = 0;
         if (--this->field_0x82.HALF.HI == 0) {
             this->field_0x82.HALF.HI = 0x41;
             if (gUnk_02002A40.stats.rupees != 0) {
@@ -230,16 +230,16 @@ void sub_080296C8(Entity* this) {
 }
 
 void sub_080296D8(Entity* this) {
-    gLinkState.jumpStatus = 0x41;
-    gLinkState.flags.all &= 0xffffffef;
-    gLinkEntity.flags |= 0x80;
-    gLinkEntity.field_0x20 = 0x18000;
-    gLinkEntity.hurtBlinkTime = 0xa6;
-    gLinkEntity.height.HALF.HI = -2;
-    gLinkEntity.direction = gLinkEntity.animationState << 2;
-    gLinkEntity.spritePriority.b1 = this->field_0x80.HALF.LO;
-    gLinkEntity.spriteOffsetY = 0;
-    gLinkEntity.nonPlanarMovement = 0x140;
+    gPlayerState.jumpStatus = 0x41;
+    gPlayerState.flags.all &= 0xffffffef;
+    gPlayerEntity.flags |= 0x80;
+    gPlayerEntity.field_0x20 = 0x18000;
+    gPlayerEntity.hurtBlinkTime = 0xa6;
+    gPlayerEntity.height.HALF.HI = -2;
+    gPlayerEntity.direction = gPlayerEntity.animationState << 2;
+    gPlayerEntity.spritePriority.b1 = this->field_0x80.HALF.LO;
+    gPlayerEntity.spriteOffsetY = 0;
+    gPlayerEntity.nonPlanarMovement = 0x140;
     this->action = 5;
     this->field_0xf = 0x3c;
     this->flags2 |= 3;

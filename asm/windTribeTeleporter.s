@@ -49,7 +49,7 @@ sub_080A0F44: @ 0x080A0F44
 	bl sub_080A11C0
 	cmp r0, #0
 	beq _080A0FA4
-	ldr r1, _080A0FAC @ =gLinkEntity
+	ldr r1, _080A0FAC @ =gPlayerEntity
 	ldrh r0, [r5, #0x2e]
 	movs r4, #0
 	strh r0, [r1, #0x2e]
@@ -72,7 +72,7 @@ _080A0FA4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080A0FA8: .4byte gUnk_080FD460
-_080A0FAC: .4byte gLinkEntity
+_080A0FAC: .4byte gPlayerEntity
 
 	thumb_func_start sub_080A0FB0
 sub_080A0FB0: @ 0x080A0FB0
@@ -87,7 +87,7 @@ sub_080A0FB0: @ 0x080A0FB0
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A0FFE
-	ldr r1, _080A0FF4 @ =gLinkEntity
+	ldr r1, _080A0FF4 @ =gPlayerEntity
 	ldrh r0, [r5, #0x2e]
 	movs r4, #0
 	strh r0, [r1, #0x2e]
@@ -105,7 +105,7 @@ sub_080A0FB0: @ 0x080A0FB0
 	strb r4, [r5, #0xd]
 	b _080A0FFE
 	.align 2, 0
-_080A0FF4: .4byte gLinkEntity
+_080A0FF4: .4byte gPlayerEntity
 _080A0FF8:
 	adds r0, r5, #0
 	adds r0, #0x68
@@ -221,7 +221,7 @@ _080A10C2:
 	ands r0, r1
 	cmp r0, #0
 	bne _080A10D4
-	ldr r0, _080A10DC @ =gLinkEntity
+	ldr r0, _080A10DC @ =gPlayerEntity
 	ldrb r1, [r0, #0x14]
 	adds r1, #2
 	movs r2, #6
@@ -231,7 +231,7 @@ _080A10D4:
 	pop {r4, pc}
 	.align 2, 0
 _080A10D8: .4byte gScreenTransition
-_080A10DC: .4byte gLinkEntity
+_080A10DC: .4byte gPlayerEntity
 
 	thumb_func_start sub_080A10E0
 sub_080A10E0: @ 0x080A10E0
@@ -311,7 +311,7 @@ _080A1162:
 	ands r0, r1
 	cmp r0, #0
 	bne _080A11BA
-	ldr r0, _080A117C @ =gLinkEntity
+	ldr r0, _080A117C @ =gPlayerEntity
 	ldrb r1, [r0, #0x14]
 	adds r1, #2
 	movs r2, #6
@@ -320,9 +320,9 @@ _080A1162:
 	b _080A11BA
 	.align 2, 0
 _080A1178: .4byte gScreenTransition
-_080A117C: .4byte gLinkEntity
+_080A117C: .4byte gPlayerEntity
 _080A1180:
-	ldr r4, _080A11A0 @ =gLinkEntity
+	ldr r4, _080A11A0 @ =gPlayerEntity
 	ldrb r3, [r4, #0x14]
 	cmp r3, #4
 	beq _080A11A8
@@ -338,27 +338,27 @@ _080A1180:
 	strb r0, [r4, #0x14]
 	b _080A11BA
 	.align 2, 0
-_080A11A0: .4byte gLinkEntity
+_080A11A0: .4byte gPlayerEntity
 _080A11A4: .4byte gScreenTransition
 _080A11A8:
 	movs r0, #0
 	movs r1, #1
 	strb r1, [r2, #0xc]
 	strb r0, [r2, #0xd]
-	ldr r0, _080A11BC @ =gLinkState
+	ldr r0, _080A11BC @ =gPlayerState
 	adds r0, #0x8b
 	strb r1, [r0]
 	bl UnfreezeTime
 _080A11BA:
 	pop {r4, pc}
 	.align 2, 0
-_080A11BC: .4byte gLinkState
+_080A11BC: .4byte gPlayerState
 
 	thumb_func_start sub_080A11C0
 sub_080A11C0: @ 0x080A11C0
 	push {lr}
 	adds r1, r0, #0
-	ldr r0, _080A11D8 @ =gLinkEntity
+	ldr r0, _080A11D8 @ =gPlayerEntity
 	movs r2, #0x36
 	ldrsh r0, [r0, r2]
 	cmp r0, #0
@@ -367,7 +367,7 @@ sub_080A11C0: @ 0x080A11C0
 	bl sub_08017850
 	b _080A11DE
 	.align 2, 0
-_080A11D8: .4byte gLinkEntity
+_080A11D8: .4byte gPlayerEntity
 _080A11DC:
 	movs r0, #0
 _080A11DE:

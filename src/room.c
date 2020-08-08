@@ -5,7 +5,7 @@
 #include "functions.h"
 #include "flags.h"
 #include "npc.h"
-#include "link.h"
+#include "player.h"
 #include "screen.h"
 #include "main.h"
 #include "structures.h"
@@ -218,7 +218,7 @@ void sub_0804B580(void) {
 
     sub_080575C8(0x20);
 
-    if (gLinkEntity.y.HALF.HI - gRoomControls.roomOriginY > 0x40)
+    if (gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY > 0x40)
         LoadRoomEntityList(&gUnk_080D6138);
 }
 
@@ -391,8 +391,8 @@ void sub_0804B7E8(void) {
     if (CheckLocalFlag(0x91)) {
         ClearLocalFlag(0x91);
         DoFade(5, 0x100);
-        gLinkEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
-        gLinkEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
+        gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
+        gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
         sub_080751E8(1, 2, &gUnk_08010A5C);
     }
 }
@@ -417,8 +417,8 @@ void sub_0804B86C(void) {
     if (CheckLocalFlag(0x91) != 0) {
         ClearLocalFlag(0x91);
         DoFade(5, 0x100);
-        gLinkEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
-        gLinkEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
+        gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
+        gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
         sub_080751E8(1, 2, &gUnk_08010A5C);
     }
 }
@@ -445,8 +445,8 @@ void sub_0804B8F0(void) {
     if (CheckLocalFlag(0x91)) {
         ClearLocalFlag(0x91);
         DoFade(5, 0x100);
-        gLinkEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x60;
-        gLinkEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
+        gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x60;
+        gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
         sub_080751E8(1, 2, &gUnk_08010A5C);
     }
 }
@@ -652,8 +652,8 @@ extern u32 gUnk_08009E88;
 void sub_0804BC70(void) {
     if (!CheckLocalFlag(0x9f)) {
         DoFade(5, 0x100);
-        gLinkEntity.x.HALF.HI = gRoomControls.roomOriginX + 0xb0;
-        gLinkEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x40;
+        gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0xb0;
+        gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x40;
         sub_080751E8(0, 6, &gUnk_08009E88);
     }
     if (!CheckGlobalFlag(TABIDACHI)) {
@@ -2057,7 +2057,7 @@ extern EntityData gUnk_080DE4C8;
 
 void sub_0804CBB0(void) {
 
-    if ((gLinkEntity.y.HALF.HI - gRoomControls.roomOriginY) < (gRoomControls.filler2[4] >> 1)) {
+    if ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) < (gRoomControls.filler2[4] >> 1)) {
         if (!CheckLocalFlag(0x17)) {
             LoadRoomEntityList(&gUnk_080DE4C8);
         }
@@ -2425,7 +2425,7 @@ void sub_0804CED8(void) {
     if (CheckGlobalFlag(LV2_CLEAR)) {
         gUnk_0200B650 = 0;
         gScreen.lcd.lcdControl2 &= 0xfdff;
-        sub_0807AABC(&gLinkEntity);
+        sub_0807AABC(&gPlayerEntity);
         LoadRoomEntityList(&gUnk_080E1814);
     } else {
         PlaySFX(0x80100000);
@@ -3511,14 +3511,14 @@ void sub_0804D6F0(void) {
 
     if ((gScreenTransition.field_0x38 & 1) && gScreenTransition.field_0x39) {
         if (gScreenTransition.field_0x3c == 1) {
-            gLinkEntity.x.HALF.HI = gScreenTransition.field_0x48;
-            gLinkEntity.y.HALF.HI = gScreenTransition.field_0x4a + 8;
+            gPlayerEntity.x.HALF.HI = gScreenTransition.field_0x48;
+            gPlayerEntity.y.HALF.HI = gScreenTransition.field_0x4a + 8;
         } else {
             if (gScreenTransition.field_0x3c) {
                 return;
             }
-            gLinkEntity.x.HALF.HI = gScreenTransition.field_0x44;
-            gLinkEntity.y.HALF.HI = gScreenTransition.field_0x46 + 8;
+            gPlayerEntity.x.HALF.HI = gScreenTransition.field_0x44;
+            gPlayerEntity.y.HALF.HI = gScreenTransition.field_0x46 + 8;
         }
     }
 }
@@ -4738,7 +4738,7 @@ void sub_0804E7A4(void)
 {
     // dog food
   if ((GetInventoryValue(0x36) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) &&
-     (gLinkState.flags.all & 0x80) == 0) {
+     (gPlayerState.flags.all & 0x80) == 0) {
     LoadRoomEntityList(&gUnk_080F30CC);
   }
 }
@@ -4764,7 +4764,7 @@ void sub_0804E7DC(void)
     gArea.musicIndex = gArea.pMusicIndex;
     PlaySFX(0x800b0036);
   }
-  if ((gLinkState.flags.all & 8) == 0) {
+  if ((gPlayerState.flags.all & 8) == 0) {
     LoadRoomEntityList(&gUnk_080F31D8);
   }
 }
@@ -4773,8 +4773,8 @@ extern u32 gUnk_08009E58;
 
 void sub_0804E864(void)
 {
-  gLinkEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x90;
-  gLinkEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
+  gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x90;
+  gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
   sub_080751E8(1, 6, &gUnk_08009E58);
   ModHealth(0xa0);
 }

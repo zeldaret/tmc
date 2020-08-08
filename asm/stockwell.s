@@ -352,7 +352,7 @@ sub_080652E4: @ 0x080652E4
 	strb r0, [r1, #0xe]
 	b _08065308
 _080652F4:
-	ldr r0, _0806530C @ =gLinkEntity
+	ldr r0, _0806530C @ =gPlayerEntity
 	ldrb r0, [r0, #0xc]
 	cmp r0, #8
 	beq _08065308
@@ -364,7 +364,7 @@ _080652F4:
 _08065308:
 	pop {pc}
 	.align 2, 0
-_0806530C: .4byte gLinkEntity
+_0806530C: .4byte gPlayerEntity
 _08065310: .4byte 0x00002C19
 
 	thumb_func_start sub_08065314

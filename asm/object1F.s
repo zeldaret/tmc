@@ -97,7 +97,7 @@ _080876E2:
 	adds r0, r0, r3
 	ldrb r0, [r0, #2]
 	str r0, [r2, #0x6c]
-	ldr r0, _08087768 @ =gLinkEntity
+	ldr r0, _08087768 @ =gPlayerEntity
 	adds r0, #0x38
 	ldrb r1, [r0]
 	mov r0, ip
@@ -116,7 +116,7 @@ _080876E2:
 	.align 2, 0
 _08087760: .4byte gUnk_08120A20
 _08087764: .4byte gUnk_08120A18
-_08087768: .4byte gLinkEntity
+_08087768: .4byte gPlayerEntity
 
 	thumb_func_start sub_0808776C
 sub_0808776C: @ 0x0808776C
@@ -127,12 +127,12 @@ sub_0808776C: @ 0x0808776C
 	beq _08087788
 	subs r0, #1
 	str r0, [r4, #0x6c]
-	ldr r0, _08087784 @ =gLinkState
+	ldr r0, _08087784 @ =gPlayerState
 	adds r0, #0x3d
 	ldrb r0, [r0]
 	b _08087798
 	.align 2, 0
-_08087784: .4byte gLinkState
+_08087784: .4byte gPlayerState
 _08087788:
 	adds r0, r4, #0
 	bl sub_080AEFE0

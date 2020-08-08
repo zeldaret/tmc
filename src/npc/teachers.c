@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 
 typedef struct {
     u8 filler[8];
@@ -41,7 +41,7 @@ void Teachers(Entity* this) {
                 this->interactType = 0;
                 this->field_0x68.HALF.HI = this->animIndex;
                 InitializeAnimation(this,
-                                    (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
+                                    (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
                 sub_0806F118(this);
             } else {
                 sub_0807DD94(this, 0);

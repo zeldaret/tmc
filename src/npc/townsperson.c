@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
-#include "link.h"
+#include "player.h"
 #include "textbox.h"
 #include "flags.h"
 #include "structures.h"
@@ -145,7 +145,7 @@ void sub_08061D64(Entity* this) {
         this->interactType = 0;
         sub_0806F118(this);
         this->field_0x68.HALF.HI = this->animIndex;
-        InitializeAnimation(this, (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
+        InitializeAnimation(this, (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
     } else {
         sub_0807DDAC(this, 0);
         sub_0807DDE4(this);
@@ -158,7 +158,7 @@ void sub_08061D64(Entity* this) {
             this->interactType = 0;
             sub_08062048(this);
             this->field_0x68.HALF.HI = this->animIndex;
-            InitializeAnimation(this, (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
+            InitializeAnimation(this, (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
         }
     }
 }

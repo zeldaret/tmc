@@ -175,7 +175,7 @@ sub_08087424: @ 0x08087424
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0808744E
-	ldr r0, _0808745C @ =gLinkEntity
+	ldr r0, _0808745C @ =gPlayerEntity
 	str r0, [r4, #0x50]
 	adds r1, r4, #0
 	bl CopyPosition
@@ -190,7 +190,7 @@ _0808744E:
 	beq _0808746C
 	b _08087474
 	.align 2, 0
-_0808745C: .4byte gLinkEntity
+_0808745C: .4byte gPlayerEntity
 _08087460:
 	ldr r0, _08087468 @ =gUnk_02002A40
 	adds r0, #0xad

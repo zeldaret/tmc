@@ -123,7 +123,7 @@ _08098DC2:
 sub_08098DC4: @ 0x08098DC4
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
-	ldr r6, _08098E2C @ =gLinkEntity
+	ldr r6, _08098E2C @ =gPlayerEntity
 	adds r1, r6, #0
 	movs r2, #8
 	movs r3, #8
@@ -144,7 +144,7 @@ sub_08098DC4: @ 0x08098DC4
 	adds r0, r5, #0
 	adds r1, r6, #0
 	bl ResolveEntityOnTop
-	ldr r1, _08098E30 @ =gLinkState
+	ldr r1, _08098E30 @ =gPlayerState
 	movs r0, #0x1f
 	strb r0, [r1, #0xc]
 	adds r0, r1, #0
@@ -168,8 +168,8 @@ _08098E24:
 	bl UpdateAnimationSingleFrame
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08098E2C: .4byte gLinkEntity
-_08098E30: .4byte gLinkState
+_08098E2C: .4byte gPlayerEntity
+_08098E30: .4byte gPlayerState
 
 	thumb_func_start sub_08098E34
 sub_08098E34: @ 0x08098E34

@@ -120,7 +120,7 @@ _08048A7C:
 	adds r1, r1, r0
 	ldr r0, [r5, #0x4c]
 	str r0, [r1]
-	ldr r2, _08048ACC @ =gLinkEntity
+	ldr r2, _08048ACC @ =gPlayerEntity
 	movs r6, #0x2e
 	ldrsh r0, [r2, r6]
 	movs r6, #0x2e
@@ -151,7 +151,7 @@ _08048A7C:
 	strb r0, [r2]
 	b _08048AD8
 	.align 2, 0
-_08048ACC: .4byte gLinkEntity
+_08048ACC: .4byte gPlayerEntity
 _08048AD0:
 	ldr r0, [r4, #0x64]
 	adds r0, #0x3c

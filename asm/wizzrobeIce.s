@@ -261,7 +261,7 @@ _0802FF9E:
 	strb r0, [r2, #0x18]
 	b _080300A2
 _0802FFB6:
-	ldr r1, _0802FFEC @ =gLinkEntity
+	ldr r1, _0802FFEC @ =gPlayerEntity
 	adds r0, r4, #0
 	movs r2, #0xa0
 	movs r3, #0xa0
@@ -285,7 +285,7 @@ _0802FFB6:
 	strb r0, [r2, #0x15]
 	b _080300A2
 	.align 2, 0
-_0802FFEC: .4byte gLinkEntity
+_0802FFEC: .4byte gPlayerEntity
 _0802FFF0:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -424,7 +424,7 @@ sub_080300E8: @ 0x080300E8
 	lsls r0, r0, #2
 	adds r1, #0x6c
 	adds r0, r0, r1
-	ldr r2, _08030114 @ =gLinkEntity
+	ldr r2, _08030114 @ =gPlayerEntity
 	ldrh r1, [r0]
 	strh r1, [r2, #0x2e]
 	ldrh r0, [r0, #2]
@@ -436,7 +436,7 @@ _0803010C:
 	pop {pc}
 	.align 2, 0
 _08030110: .4byte gScreenTransition
-_08030114: .4byte gLinkEntity
+_08030114: .4byte gPlayerEntity
 
 	thumb_func_start sub_08030118
 sub_08030118: @ 0x08030118

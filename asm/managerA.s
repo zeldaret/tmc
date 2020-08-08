@@ -84,7 +84,7 @@ _08058404:
 sub_08058408: @ 0x08058408
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	ldr r6, _0805843C @ =gLinkState
+	ldr r6, _0805843C @ =gPlayerState
 	ldr r5, [r6, #0x30]
 	movs r0, #8
 	ands r5, r0
@@ -108,7 +108,7 @@ sub_08058408: @ 0x08058408
 	beq _0805847C
 	b _08058450
 	.align 2, 0
-_0805843C: .4byte gLinkState
+_0805843C: .4byte gPlayerState
 _08058440:
 	adds r0, r4, #0
 	bl sub_080585DC
@@ -148,7 +148,7 @@ _08058488:
 	thumb_func_start sub_0805848C
 sub_0805848C: @ 0x0805848C
 	push {lr}
-	ldr r0, _080584A4 @ =gLinkState
+	ldr r0, _080584A4 @ =gPlayerState
 	adds r0, #0xa8
 	ldrb r0, [r0]
 	subs r0, #5
@@ -160,7 +160,7 @@ sub_0805848C: @ 0x0805848C
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_080584A4: .4byte gLinkState
+_080584A4: .4byte gPlayerState
 _080584A8: .4byte _080584AC
 _080584AC: @ jump table
 	.4byte _0805850C @ case 0
@@ -214,13 +214,13 @@ _08058528:
 	beq _08058584
 	b _080585A6
 _08058532:
-	ldr r2, _08058564 @ =gLinkState
+	ldr r2, _08058564 @ =gPlayerState
 	ldr r0, [r2, #0x30]
 	ldr r1, _08058568 @ =0x00001235
 	ands r0, r1
 	cmp r0, #0
 	bne _080585A6
-	ldr r0, _0805856C @ =gLinkEntity
+	ldr r0, _0805856C @ =gPlayerEntity
 	movs r1, #0x36
 	ldrsh r0, [r0, r1]
 	cmp r0, #0
@@ -238,9 +238,9 @@ _08058532:
 	strb r0, [r4, #0xe]
 	b _080585A6
 	.align 2, 0
-_08058564: .4byte gLinkState
+_08058564: .4byte gPlayerState
 _08058568: .4byte 0x00001235
-_0805856C: .4byte gLinkEntity
+_0805856C: .4byte gPlayerEntity
 _08058570:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -253,14 +253,14 @@ _08058570:
 	strb r0, [r4, #0xd]
 	b _080585A6
 _08058584:
-	ldr r0, _080585A8 @ =gLinkEntity
+	ldr r0, _080585A8 @ =gPlayerEntity
 	ldrb r0, [r0, #0xc]
 	cmp r0, #1
 	beq _08058590
 	cmp r0, #9
 	bne _080585A6
 _08058590:
-	ldr r0, _080585AC @ =gLinkState
+	ldr r0, _080585AC @ =gPlayerState
 	adds r0, #0x8b
 	movs r1, #1
 	strb r1, [r0]
@@ -271,8 +271,8 @@ _08058590:
 _080585A6:
 	pop {r4, pc}
 	.align 2, 0
-_080585A8: .4byte gLinkEntity
-_080585AC: .4byte gLinkState
+_080585A8: .4byte gPlayerEntity
+_080585AC: .4byte gPlayerState
 
 	thumb_func_start sub_080585B0
 sub_080585B0: @ 0x080585B0

@@ -70,7 +70,7 @@ _080576EC:
 _08057738: .4byte gArea
 _0805773C: .4byte gUnk_08107C6C
 _08057740:
-	ldr r2, _08057758 @ =gLinkState
+	ldr r2, _08057758 @ =gPlayerState
 	ldr r0, [r2, #0x30]
 	movs r1, #0x20
 	ands r0, r1
@@ -83,7 +83,7 @@ _08057740:
 	strb r0, [r5, #0x18]
 	b _0805776A
 	.align 2, 0
-_08057758: .4byte gLinkState
+_08057758: .4byte gPlayerState
 _0805775C:
 	bl sub_08057810
 	cmp r0, #0
@@ -180,7 +180,7 @@ _08057808:
 	thumb_func_start sub_08057810
 sub_08057810: @ 0x08057810
 	push {lr}
-	ldr r2, _08057848 @ =gLinkState
+	ldr r2, _08057848 @ =gPlayerState
 	ldr r0, [r2, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -208,7 +208,7 @@ sub_08057810: @ 0x08057810
 	movs r0, #1
 	b _08057852
 	.align 2, 0
-_08057848: .4byte gLinkState
+_08057848: .4byte gPlayerState
 _0805784C: .4byte gArea
 _08057850:
 	movs r0, #0

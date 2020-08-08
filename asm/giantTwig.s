@@ -170,7 +170,7 @@ sub_08093884: @ 0x08093884
 	ldrb r0, [r2, #0xa]
 	cmp r0, #0
 	bne _080938B8
-	ldr r0, _080938A8 @ =gLinkEntity
+	ldr r0, _080938A8 @ =gPlayerEntity
 	movs r3, #0x32
 	ldrsh r1, [r0, r3]
 	movs r3, #0x32
@@ -184,7 +184,7 @@ sub_08093884: @ 0x08093884
 	movs r0, #0x40
 	b _080938B4
 	.align 2, 0
-_080938A8: .4byte gLinkEntity
+_080938A8: .4byte gPlayerEntity
 _080938AC:
 	ldrb r0, [r2, #0x19]
 	movs r1, #0x3f
@@ -655,7 +655,7 @@ sub_08093C70: @ 0x08093C70
 	ldrh r0, [r3]
 	cmp r0, #0
 	beq _08093CE8
-	ldr r0, _08093CE0 @ =gLinkState
+	ldr r0, _08093CE0 @ =gPlayerState
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	beq _08093D5C
@@ -699,10 +699,10 @@ sub_08093C70: @ 0x08093C70
 	bl SetTile
 	b _08093D5C
 	.align 2, 0
-_08093CE0: .4byte gLinkState
+_08093CE0: .4byte gPlayerState
 _08093CE4: .4byte 0x00004022
 _08093CE8:
-	ldr r0, _08093D60 @ =gLinkState
+	ldr r0, _08093D60 @ =gPlayerState
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	bne _08093D5C
@@ -757,7 +757,7 @@ _08093CE8:
 _08093D5C:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08093D60: .4byte gLinkState
+_08093D60: .4byte gPlayerState
 _08093D64: .4byte 0x0000403D
 _08093D68: .4byte 0x00004027
 _08093D6C: .4byte 0x00004029

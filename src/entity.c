@@ -122,18 +122,18 @@ void DeleteEntity(Entity* ent)
     }
 }
 
-extern Entity gLinkEntity;
+extern Entity gPlayerEntity;
 void sub_0805E870(Entity*);
 
 void sub_0805E84C(void)
 
 {
-    Entity* ent = &gLinkEntity;
+    Entity* ent = &gPlayerEntity;
     do {
         if ((int)ent->field_0x0 < 0) {
             sub_0805E870(ent);
         }
-    } while (ent++, ent < (&gLinkEntity + 80));
+    } while (ent++, ent < (&gPlayerEntity + 80));
     return;
 }
 

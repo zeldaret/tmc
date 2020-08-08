@@ -300,7 +300,7 @@ _080977C8:
 	cmp r0, #0
 	bne _080977E4
 	ldr r0, _080977E8 @ =gRoomControls
-	ldr r1, _080977EC @ =gLinkEntity
+	ldr r1, _080977EC @ =gPlayerEntity
 	str r1, [r0, #0x30]
 	movs r1, #4
 	strb r1, [r0, #0xe]
@@ -308,7 +308,7 @@ _080977E4:
 	pop {r4, pc}
 	.align 2, 0
 _080977E8: .4byte gRoomControls
-_080977EC: .4byte gLinkEntity
+_080977EC: .4byte gPlayerEntity
 
 	thumb_func_start nullsub_528
 nullsub_528: @ 0x080977F0

@@ -5,7 +5,7 @@
 #include "global.h"
 #include "entity.h"
 #include "position.h"
-#include "link.h"
+#include "player.h"
 #include "structures.h"
 
 // Identified - to be sorted into header files
@@ -198,7 +198,7 @@ extern void sub_08001290(Entity*, u32);
 extern void sub_08004488(u32);
 extern void sub_08004596(Entity*, u32);
 extern u32 sub_0807953C(void);
-extern void ResetLink(void);
+extern void ResetPlayer(void);
 extern void sub_080A29BC(Entity*);
 extern void sub_080AE068(Entity*);
 extern Entity* sub_0805E8D4(void);

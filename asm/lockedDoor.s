@@ -569,15 +569,15 @@ _0808374A:
 	adds r0, r2, #0
 	adds r0, #0x72
 	ldrh r1, [r0]
-	ldr r0, _0808375C @ =gLinkEntity
+	ldr r0, _0808375C @ =gPlayerEntity
 	movs r2, #0x32
 	ldrsh r0, [r0, r2]
 	subs r0, #0xd
 	b _0808379E
 	.align 2, 0
-_0808375C: .4byte gLinkEntity
+_0808375C: .4byte gPlayerEntity
 _08083760:
-	ldr r0, _08083770 @ =gLinkEntity
+	ldr r0, _08083770 @ =gPlayerEntity
 	movs r1, #0x2e
 	ldrsh r0, [r0, r1]
 	adds r0, #0xb
@@ -585,9 +585,9 @@ _08083760:
 	adds r1, #0x70
 	b _08083780
 	.align 2, 0
-_08083770: .4byte gLinkEntity
+_08083770: .4byte gPlayerEntity
 _08083774:
-	ldr r0, _0808378C @ =gLinkEntity
+	ldr r0, _0808378C @ =gPlayerEntity
 	movs r1, #0x32
 	ldrsh r0, [r0, r1]
 	adds r0, #8
@@ -601,12 +601,12 @@ _08083780:
 	movs r0, #1
 	b _080837AE
 	.align 2, 0
-_0808378C: .4byte gLinkEntity
+_0808378C: .4byte gPlayerEntity
 _08083790:
 	adds r0, r2, #0
 	adds r0, #0x70
 	ldrh r1, [r0]
-	ldr r0, _080837A8 @ =gLinkEntity
+	ldr r0, _080837A8 @ =gPlayerEntity
 	movs r2, #0x2e
 	ldrsh r0, [r0, r2]
 	subs r0, #0xa
@@ -617,7 +617,7 @@ _0808379E:
 	movs r0, #1
 	b _080837AE
 	.align 2, 0
-_080837A8: .4byte gLinkEntity
+_080837A8: .4byte gPlayerEntity
 _080837AC:
 	movs r0, #0
 _080837AE:
