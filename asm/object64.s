@@ -187,7 +187,7 @@ _08093F72:
 	cmp r0, #0
 	beq _08093FB0
 	ldr r1, [r5, #0x50]
-	ldr r0, _08093F94 @ =gLinkEntity
+	ldr r0, _08093F94 @ =gPlayerEntity
 	cmp r1, r0
 	bne _08093F8E
 	movs r0, #0x7a
@@ -197,7 +197,7 @@ _08093F8E:
 	bl DeleteThisEntity
 	b _08093FB0
 	.align 2, 0
-_08093F94: .4byte gLinkEntity
+_08093F94: .4byte gPlayerEntity
 _08093F98:
 	adds r0, r5, #0
 	bl GetNextFrame

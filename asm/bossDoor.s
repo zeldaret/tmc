@@ -235,7 +235,7 @@ sub_0808C384: @ 0x0808C384
 	movs r1, #0
 	movs r2, #1
 	bl sub_08078AC0
-	ldr r1, _0808C3B8 @ =gLinkEntity
+	ldr r1, _0808C3B8 @ =gPlayerEntity
 	ldrb r0, [r4, #0xa]
 	lsls r0, r0, #3
 	strb r0, [r1, #0x15]
@@ -244,7 +244,7 @@ _0808C3B0:
 _0808C3B4:
 	pop {r4, pc}
 	.align 2, 0
-_0808C3B8: .4byte gLinkEntity
+_0808C3B8: .4byte gPlayerEntity
 
 	thumb_func_start sub_0808C3BC
 sub_0808C3BC: @ 0x0808C3BC

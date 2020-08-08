@@ -230,7 +230,7 @@ _08039D4A:
 sub_08039D4C: @ 0x08039D4C
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _08039D64 @ =gLinkState
+	ldr r0, _08039D64 @ =gPlayerState
 	ldrb r1, [r0, #0x1c]
 	movs r0, #0xf
 	ands r0, r1
@@ -241,7 +241,7 @@ sub_08039D4C: @ 0x08039D4C
 _08039D62:
 	pop {pc}
 	.align 2, 0
-_08039D64: .4byte gLinkState
+_08039D64: .4byte gPlayerState
 
 	thumb_func_start nullsub_166
 nullsub_166: @ 0x08039D68
@@ -349,13 +349,13 @@ _08039E28:
 _08039E30: .4byte 0x00004073
 _08039E34: .4byte gRoomControls
 _08039E38:
-	ldr r0, _08039E6C @ =gLinkState
+	ldr r0, _08039E6C @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
 	cmp r0, #0
 	bne _08039EC6
-	ldr r2, _08039E70 @ =gLinkEntity
+	ldr r2, _08039E70 @ =gPlayerEntity
 	movs r0, #0x2e
 	ldrsh r1, [r2, r0]
 	movs r6, #0x32
@@ -374,8 +374,8 @@ _08039E38:
 	strb r0, [r5, #0xe]
 	b _08039EC6
 	.align 2, 0
-_08039E6C: .4byte gLinkState
-_08039E70: .4byte gLinkEntity
+_08039E6C: .4byte gPlayerState
+_08039E70: .4byte gPlayerEntity
 _08039E74:
 	ldrb r1, [r5, #0xa]
 	subs r1, #2
@@ -448,7 +448,7 @@ sub_08039EE4: @ 0x08039EE4
 	strh r2, [r3, #0x2a]
 	ldr r0, _08039F40 @ =gUnk_080FD340
 	str r0, [r3, #0x48]
-	ldr r0, _08039F44 @ =gLinkEntity
+	ldr r0, _08039F44 @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	mov r1, ip
 	adds r1, #0x76
@@ -480,14 +480,14 @@ sub_08039EE4: @ 0x08039EE4
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08039F40: .4byte gUnk_080FD340
-_08039F44: .4byte gLinkEntity
+_08039F44: .4byte gPlayerEntity
 _08039F48: .4byte gRoomControls
 
 	thumb_func_start sub_08039F4C
 sub_08039F4C: @ 0x08039F4C
 	push {lr}
 	adds r3, r0, #0
-	ldr r0, _08039F74 @ =gLinkEntity
+	ldr r0, _08039F74 @ =gPlayerEntity
 	movs r1, #0x76
 	adds r1, r1, r3
 	mov ip, r1
@@ -506,7 +506,7 @@ sub_08039F4C: @ 0x08039F4C
 _08039F70:
 	pop {pc}
 	.align 2, 0
-_08039F74: .4byte gLinkEntity
+_08039F74: .4byte gPlayerEntity
 
 	thumb_func_start sub_08039F78
 sub_08039F78: @ 0x08039F78
@@ -637,7 +637,7 @@ sub_0803A048: @ 0x0803A048
 	strb r0, [r4, #0xc]
 	movs r0, #0xa
 	strb r0, [r4, #0xe]
-	ldr r1, _0803A07C @ =gLinkEntity
+	ldr r1, _0803A07C @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	strb r0, [r4, #0x15]
@@ -645,7 +645,7 @@ _0803A076:
 	pop {r4, pc}
 	.align 2, 0
 _0803A078: .4byte 0xFFFF0000
-_0803A07C: .4byte gLinkEntity
+_0803A07C: .4byte gPlayerEntity
 
 	thumb_func_start sub_0803A080
 sub_0803A080: @ 0x0803A080

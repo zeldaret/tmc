@@ -79,7 +79,7 @@ _08022280: @ jump table
 	.4byte _08022356 @ case 23
 	.4byte _080222F2 @ case 24
 _080222E4:
-	ldr r0, _08022340 @ =gLinkState
+	ldr r0, _08022340 @ =gPlayerState
 	adds r0, #0xac
 	ldrh r1, [r0]
 	movs r0, #8
@@ -124,7 +124,7 @@ _080222F2:
 	str r5, [r4, #0x54]
 	b _08022356
 	.align 2, 0
-_08022340: .4byte gLinkState
+_08022340: .4byte gPlayerState
 _08022344:
 	adds r0, r4, #0
 	adds r0, #0x3f

@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "flags.h"
-#include "link.h"
+#include "player.h"
 #include "room.h"
 
 extern void (*const gUnk_0811F090[])(Entity*);
@@ -83,7 +83,7 @@ void sub_08082310(Entity* this) {
                         this->direction = (tileType - 0x4001) * 8;
                         this->actionDelay = 32;
                         this->action = 4;
-                        if (gLinkState.flags.all & 0x80) {
+                        if (gPlayerState.flags.all & 0x80) {
                             this->nonPlanarMovement >>= 1;
                             this->actionDelay = 64;
                         }
@@ -98,7 +98,7 @@ void sub_08082310(Entity* this) {
                         if (sub_080002B8(this) == 13) {
                             CreateFx(this, 0, 0);
                         } else if (tileType == 0x4005) {
-                            gLinkState.field_0xab = 4;
+                            gPlayerState.field_0xab = 4;
                             SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
                         }
                         sub_08082850(this, NULL);
@@ -120,7 +120,7 @@ void sub_08082510(Entity* this) {
     this->boundingBox = &gUnk_080FD340;
     this->field_0x3c = 7;
     this->damageType = 1;
-    this->flags2 = gLinkEntity.flags2;
+    this->flags2 = gPlayerEntity.flags2;
     this->spriteOffsetY = 0;
     SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
     this->previousActionFlag++;
@@ -146,7 +146,7 @@ void sub_0808259C(Entity* this) {
             CreateFx(this, 12, 0);
             break;
         default:
-            sub_08082850(this, &gLinkEntity);
+            sub_08082850(this, &gPlayerEntity);
             return;
     }
 
@@ -158,7 +158,7 @@ void sub_080825E8(Entity* this) {
 }
 
 void sub_080825F0(Entity* this) {
-    if (gLinkState.heldObject == 0) {
+    if (gPlayerState.heldObject == 0) {
         sub_08082608(this);
     }
 }

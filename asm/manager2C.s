@@ -26,7 +26,7 @@ _0805D184:
 	bl CheckPlayerInRegion
 	cmp r0, #0
 	beq _0805D1EE
-	ldr r0, _0805D1F0 @ =gLinkEntity
+	ldr r0, _0805D1F0 @ =gPlayerEntity
 	movs r4, #0x32
 	ldrsh r1, [r0, r4]
 	ldr r3, _0805D1F4 @ =gRoomControls
@@ -71,6 +71,6 @@ _0805D184:
 _0805D1EE:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0805D1F0: .4byte gLinkEntity
+_0805D1F0: .4byte gPlayerEntity
 _0805D1F4: .4byte gRoomControls
 _0805D1F8: .4byte gUnk_030010AC

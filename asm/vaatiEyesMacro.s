@@ -329,7 +329,7 @@ _0802EED6:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
 	bl CopyPositionAndSpriteOffset
-	ldr r1, _0802EF14 @ =gLinkEntity
+	ldr r1, _0802EF14 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	adds r0, #1
@@ -356,7 +356,7 @@ _0802EF00:
 	strb r0, [r1]
 	pop {r4, pc}
 	.align 2, 0
-_0802EF14: .4byte gLinkEntity
+_0802EF14: .4byte gPlayerEntity
 _0802EF18: .4byte gUnk_080CDE70
 
 	thumb_func_start sub_0802EF1C
@@ -459,7 +459,7 @@ sub_0802EFB8: @ 0x0802EFB8
 	ands r5, r6
 	b _0802EFE0
 _0802EFD2:
-	ldr r0, _0802F01C @ =gLinkEntity
+	ldr r0, _0802F01C @ =gPlayerEntity
 	adds r1, r4, #0
 	bl GetFacingDirection
 	adds r5, r0, #4
@@ -496,7 +496,7 @@ _0802EFE0:
 	strb r0, [r4, #0x15]
 	b _0802F044
 	.align 2, 0
-_0802F01C: .4byte gLinkEntity
+_0802F01C: .4byte gPlayerEntity
 _0802F020: .4byte gRoomControls
 _0802F024: .4byte gUnk_080B4488
 _0802F028:

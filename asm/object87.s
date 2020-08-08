@@ -912,7 +912,7 @@ _0809A616:
 	cmp r0, r1
 	bne _0809A632
 	ldr r1, _0809A640 @ =gRoomControls
-	ldr r0, _0809A644 @ =gLinkEntity
+	ldr r0, _0809A644 @ =gPlayerEntity
 	str r0, [r1, #0x30]
 	bl DeleteThisEntity
 _0809A632:
@@ -924,7 +924,7 @@ _0809A632:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0809A640: .4byte gRoomControls
-_0809A644: .4byte gLinkEntity
+_0809A644: .4byte gPlayerEntity
 
 	thumb_func_start sub_0809A648
 sub_0809A648: @ 0x0809A648

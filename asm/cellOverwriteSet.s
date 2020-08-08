@@ -14,7 +14,7 @@ CellOverwriteSet: @ 0x0801BEF8
 	mov r5, r8
 	push {r5, r6, r7}
 	mov r8, r0
-	ldr r7, _0801BFF0 @ =gLinkEntity
+	ldr r7, _0801BFF0 @ =gPlayerEntity
 	ldrb r0, [r0, #0xc]
 	cmp r0, #0
 	bne _0801BF62
@@ -61,7 +61,7 @@ CellOverwriteSet: @ 0x0801BEF8
 	adds r0, #1
 	strb r0, [r1, #0xc]
 _0801BF62:
-	ldr r2, _0801BFFC @ =gLinkState
+	ldr r2, _0801BFFC @ =gPlayerState
 	mov sb, r2
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80
@@ -133,10 +133,10 @@ _0801BFDA:
 	strb r0, [r1]
 	b _0801C0D4
 	.align 2, 0
-_0801BFF0: .4byte gLinkEntity
+_0801BFF0: .4byte gPlayerEntity
 _0801BFF4: .4byte gUnk_080B7B6C
 _0801BFF8: .4byte gRoomControls
-_0801BFFC: .4byte gLinkState
+_0801BFFC: .4byte gPlayerState
 _0801C000: .4byte gUnk_03000FF0
 _0801C004:
 	ldrh r2, [r6, #2]

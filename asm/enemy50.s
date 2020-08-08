@@ -352,14 +352,14 @@ sub_08040DC8: @ 0x08040DC8
 	strb r1, [r0, #0xd]
 	movs r1, #0x3c
 	strb r1, [r0, #0x1d]
-	ldr r1, _08040DE0 @ =gLinkEntity
+	ldr r1, _08040DE0 @ =gPlayerEntity
 	ldrb r1, [r1, #0x14]
 	lsrs r1, r1, #2
 	adds r1, #5
 	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
-_08040DE0: .4byte gLinkEntity
+_08040DE0: .4byte gPlayerEntity
 
 	thumb_func_start sub_08040DE4
 sub_08040DE4: @ 0x08040DE4
@@ -723,7 +723,7 @@ _08041094:
 	adds r0, #8
 	strh r0, [r1]
 _080410A6:
-	ldr r2, _08041100 @ =gLinkEntity
+	ldr r2, _08041100 @ =gPlayerEntity
 	adds r0, r2, #0
 	adds r0, #0x45
 	ldrb r0, [r0]
@@ -768,7 +768,7 @@ _080410B6:
 	bl sub_0803F6EC
 	b _0804110A
 	.align 2, 0
-_08041100: .4byte gLinkEntity
+_08041100: .4byte gPlayerEntity
 _08041104:
 	adds r0, r4, #0
 	bl sub_0803F738
@@ -912,7 +912,7 @@ _08041200:
 	movs r0, #1
 	b _08041224
 _08041204:
-	ldr r0, _08041214 @ =gLinkState
+	ldr r0, _08041214 @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	lsls r1, r1, #0x10
@@ -921,7 +921,7 @@ _08041204:
 	beq _08041222
 	b _08041200
 	.align 2, 0
-_08041214: .4byte gLinkState
+_08041214: .4byte gPlayerState
 _08041218:
 	ldr r0, _08041228 @ =gArea
 	movs r1, #0xa

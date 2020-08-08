@@ -7,7 +7,7 @@ extern void sub_08080CB4(Entity*);
 
 extern void (*gUnk_08124824[])(Entity*);
 
-extern Entity gLinkEntity;
+extern Entity gPlayerEntity;
 
 void ObjectA8(Entity *this)
 {
@@ -26,7 +26,7 @@ void ObjectA8(Entity *this)
     case 0x1e:
     case 0x1f:
       this->action = 5;
-      this->attachedEntity = &gLinkEntity;
+      this->attachedEntity = &gPlayerEntity;
       CreateItemEntity((this->entityType).form, 0, 0);
       DeleteThisEntity();
     }

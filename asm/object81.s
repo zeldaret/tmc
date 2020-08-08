@@ -47,7 +47,7 @@ sub_08098C80: @ 0x08098C80
 	adds r0, r4, #0
 	adds r0, #0x80
 	strh r1, [r0]
-	ldr r0, _08098CCC @ =gLinkState
+	ldr r0, _08098CCC @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -60,7 +60,7 @@ sub_08098C80: @ 0x08098C80
 	b _08098CD6
 	.align 2, 0
 _08098CC8: .4byte gRoomControls
-_08098CCC: .4byte gLinkState
+_08098CCC: .4byte gPlayerState
 _08098CD0:
 	adds r0, r4, #0
 	adds r0, #0x38

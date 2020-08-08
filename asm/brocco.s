@@ -192,7 +192,7 @@ _08063662:
 	adds r1, r4, #0
 	adds r1, #0x69
 	strb r0, [r1]
-	ldr r1, _080636A0 @ =gLinkEntity
+	ldr r1, _080636A0 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	bl sub_0806F5A4
@@ -204,7 +204,7 @@ _08063662:
 	bl sub_0806F118
 	b _080636D4
 	.align 2, 0
-_080636A0: .4byte gLinkEntity
+_080636A0: .4byte gPlayerEntity
 _080636A4:
 	adds r0, r4, #0
 	movs r1, #0

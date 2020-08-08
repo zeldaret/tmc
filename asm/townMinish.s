@@ -14,7 +14,7 @@ sub_0806AC3C: @ 0x0806AC3C
 	ldrb r0, [r0]
 	cmp r0, #3
 	bhi _0806ACBA
-	ldr r4, _0806AC6C @ =gLinkEntity
+	ldr r4, _0806AC6C @ =gPlayerEntity
 	adds r0, r5, #0
 	adds r1, r4, #0
 	movs r2, #0x18
@@ -30,7 +30,7 @@ sub_0806AC3C: @ 0x0806AC3C
 	ands r2, r0
 	b _0806AC74
 	.align 2, 0
-_0806AC6C: .4byte gLinkEntity
+_0806AC6C: .4byte gPlayerEntity
 _0806AC70:
 	ldrb r0, [r5, #0x14]
 	lsls r2, r0, #2
@@ -161,7 +161,7 @@ _0806AD44:
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	strb r1, [r5]
-	ldr r1, _0806ADAC @ =gLinkEntity
+	ldr r1, _0806ADAC @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	bl sub_0806F5A4
@@ -178,7 +178,7 @@ _0806AD8A:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #1
 	bne _0806ADEA
-	ldr r0, _0806ADAC @ =gLinkEntity
+	ldr r0, _0806ADAC @ =gPlayerEntity
 	ldrb r3, [r0, #0x14]
 	lsrs r3, r3, #1
 	ldr r0, _0806ADB0 @ =gUnk_081126E4
@@ -192,7 +192,7 @@ _0806AD8A:
 	bl sub_08078850
 	b _0806ADEA
 	.align 2, 0
-_0806ADAC: .4byte gLinkEntity
+_0806ADAC: .4byte gPlayerEntity
 _0806ADB0: .4byte gUnk_081126E4
 _0806ADB4: .4byte gUnk_081126D4
 _0806ADB8:

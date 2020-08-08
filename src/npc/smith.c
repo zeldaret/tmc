@@ -49,7 +49,7 @@ void Smith(Entity *this)
       this->action = 4;
       this->interactType = 0;
       iVar4 = (this->animIndex == 0xc) ? 8 : 0;
-      iVar2 = sub_0806F5A4(GetFacingDirection(this, &gLinkEntity));
+      iVar2 = sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
       InitAnimationForceUpdate(this, iVar2 + iVar4);
       sub_0806F118(this);
     }

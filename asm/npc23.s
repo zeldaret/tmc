@@ -58,7 +58,7 @@ sub_080662F8: @ 0x080662F8
 	adds r1, r5, #0
 	adds r1, #0x82
 	strh r0, [r1]
-	ldr r0, _08066354 @ =gLinkEntity
+	ldr r0, _08066354 @ =gPlayerEntity
 	str r0, [r5, #0x50]
 	adds r0, r5, #0
 	adds r0, #0x84
@@ -70,7 +70,7 @@ sub_080662F8: @ 0x080662F8
 	bl sub_08078778
 	pop {r4, r5, pc}
 	.align 2, 0
-_08066354: .4byte gLinkEntity
+_08066354: .4byte gPlayerEntity
 
 	thumb_func_start sub_08066358
 sub_08066358: @ 0x08066358
@@ -151,7 +151,7 @@ sub_080663D4: @ 0x080663D4
 	subs r0, #8
 	cmp r1, r0
 	bne _08066410
-	ldr r0, _0806640C @ =gLinkEntity
+	ldr r0, _0806640C @ =gPlayerEntity
 	ldrb r0, [r0, #0xc]
 	cmp r0, #0xf
 	beq _0806642E
@@ -168,7 +168,7 @@ sub_080663D4: @ 0x080663D4
 	bl InitializeAnimation
 	b _0806642E
 	.align 2, 0
-_0806640C: .4byte gLinkEntity
+_0806640C: .4byte gPlayerEntity
 _08066410:
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0
@@ -207,7 +207,7 @@ sub_0806643C: @ 0x0806643C
 	movs r1, #0
 	movs r2, #0
 	bl sub_08078AC0
-	ldr r0, _08066470 @ =gLinkEntity
+	ldr r0, _08066470 @ =gPlayerEntity
 	strb r4, [r0, #0x14]
 	strb r4, [r0, #0x15]
 _08066462:
@@ -216,12 +216,12 @@ _08066462:
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806646C: .4byte gRoomControls
-_08066470: .4byte gLinkEntity
+_08066470: .4byte gPlayerEntity
 
 	thumb_func_start sub_08066474
 sub_08066474: @ 0x08066474
 	push {lr}
-	ldr r0, _08066488 @ =gLinkEntity
+	ldr r0, _08066488 @ =gPlayerEntity
 	ldrb r0, [r0, #0xc]
 	cmp r0, #0xf
 	beq _08066484
@@ -231,7 +231,7 @@ sub_08066474: @ 0x08066474
 _08066484:
 	pop {pc}
 	.align 2, 0
-_08066488: .4byte gLinkEntity
+_08066488: .4byte gPlayerEntity
 _0806648C: .4byte gUnk_02034490
 
 	thumb_func_start sub_08066490
@@ -306,7 +306,7 @@ sub_0806650C: @ 0x0806650C
 	push {r4, r5, r6, r7, lr}
 	adds r3, r0, #0
 	movs r4, #0
-	ldr r1, _0806652C @ =gLinkEntity
+	ldr r1, _0806652C @ =gPlayerEntity
 	ldrh r5, [r1, #0x2e]
 	adds r7, r5, #0
 	ldrh r2, [r1, #0x32]
@@ -319,7 +319,7 @@ sub_0806650C: @ 0x0806650C
 	movs r4, #4
 	b _0806654C
 	.align 2, 0
-_0806652C: .4byte gLinkEntity
+_0806652C: .4byte gPlayerEntity
 _08066530:
 	adds r0, r3, #0
 	adds r0, #0x7e
@@ -372,7 +372,7 @@ sub_08066570: @ 0x08066570
 	ldrb r0, [r5, #0xc]
 	cmp r0, #3
 	beq _080665DE
-	ldr r4, _080665E0 @ =gLinkEntity
+	ldr r4, _080665E0 @ =gPlayerEntity
 	adds r0, r5, #0
 	adds r1, r4, #0
 	movs r2, #0x50
@@ -417,4 +417,4 @@ _080665C8:
 _080665DE:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080665E0: .4byte gLinkEntity
+_080665E0: .4byte gPlayerEntity

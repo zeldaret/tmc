@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 
 extern void sub_0806ED78(Entity*);
 extern void sub_0806920C(Entity*);
@@ -19,7 +19,7 @@ extern u32 gUnk_08111938[];
 extern void PlaySFX(u32);
 extern u32 Random();
 extern u32 UpdateFuseInteraction(Entity*);
-extern LinkState gLinkState;
+extern PlayerState gPlayerState;
 
 void Cow(Entity* ent) {
     gUnk_08111914[ent->action](ent);
@@ -191,7 +191,7 @@ void Cow_ShowDialogue(Entity* ent) {
 
 void sub_0806920C(Entity* ent) {
     // TODO: figure out what bitfield flag this is
-    u32 var0 = gLinkState.flags.all & 0x80;
+    u32 var0 = gPlayerState.flags.all & 0x80;
     u32 var1 = -var0 >> 0x1F;
 
     if (var1 != ent->field_0x6c.HALF.HI) {
@@ -210,7 +210,7 @@ void sub_0806924C(Entity* ent) {
     s8 itype = ent->interactType;
     if (itype != 0) {
         // TODO: figure out what bitfield flag this is
-        if ((gLinkState.flags.all & 0x80) != 0) {
+        if ((gPlayerState.flags.all & 0x80) != 0) {
             if (itype == 2) {
                 ent->action = 4;
                 sub_0806F118(ent);

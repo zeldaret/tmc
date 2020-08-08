@@ -59,7 +59,7 @@ _0806B470:
 	movs r0, #0
 	strb r1, [r4, #0xc]
 	strb r0, [r2]
-	ldr r1, _0806B4C8 @ =gLinkEntity
+	ldr r1, _0806B4C8 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	bl sub_0806F5A4
@@ -85,15 +85,15 @@ _0806B4B2:
 	ldrh r3, [r3, #4]
 	adds r0, r4, #0
 	bl sub_0801DFB4
-	ldr r0, _0806B4D0 @ =gLinkState
+	ldr r0, _0806B4D0 @ =gPlayerState
 	adds r0, #0x8b
 	movs r1, #3
 	strb r1, [r0]
 	b _0806B4EC
 	.align 2, 0
-_0806B4C8: .4byte gLinkEntity
+_0806B4C8: .4byte gPlayerEntity
 _0806B4CC: .4byte gUnk_08001A7C
-_0806B4D0: .4byte gLinkState
+_0806B4D0: .4byte gPlayerState
 _0806B4D4:
 	adds r0, r4, #0
 	movs r1, #0
@@ -236,7 +236,7 @@ _0806B5E6:
 	bl SetRoomFlag
 	b _0806B600
 _0806B5EE:
-	ldr r0, _0806B5FC @ =gLinkEntity
+	ldr r0, _0806B5FC @ =gPlayerEntity
 	ldrb r0, [r0, #0xc]
 	cmp r0, #8
 	beq _0806B600
@@ -244,7 +244,7 @@ _0806B5EE:
 	strh r0, [r4, #0x10]
 	b _0806B606
 	.align 2, 0
-_0806B5FC: .4byte gLinkEntity
+_0806B5FC: .4byte gPlayerEntity
 _0806B600:
 	ldr r1, _0806B608 @ =gUnk_02033280
 	movs r0, #0

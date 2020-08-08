@@ -355,7 +355,7 @@ _08038F42:
 sub_08038F44: @ 0x08038F44
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _08038F8C @ =gLinkEntity
+	ldr r0, _08038F8C @ =gPlayerEntity
 	adds r1, r4, #0
 	bl GetFacingDirection
 	strb r0, [r4, #0x15]
@@ -383,7 +383,7 @@ sub_08038F44: @ 0x08038F44
 	bl sub_08039120
 	b _08038F9E
 	.align 2, 0
-_08038F8C: .4byte gLinkEntity
+_08038F8C: .4byte gPlayerEntity
 _08038F90:
 	movs r0, #0x1f
 	ands r2, r0
@@ -420,7 +420,7 @@ _08038FB8:
 	ands r0, r1
 	cmp r0, #0
 	bne _08038FE0
-	ldr r1, _08038FF8 @ =gLinkEntity
+	ldr r1, _08038FF8 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	adds r1, r0, #0
@@ -436,7 +436,7 @@ _08038FE0:
 	b _08039018
 	.align 2, 0
 _08038FF4: .4byte 0x0000FFFF
-_08038FF8: .4byte gLinkEntity
+_08038FF8: .4byte gPlayerEntity
 _08038FFC:
 	adds r0, r4, #0
 	bl sub_0806F69C
@@ -612,7 +612,7 @@ sub_08039140: @ 0x08039140
 	strb r0, [r4, #0xc]
 	bl Random
 	strb r0, [r4, #0xe]
-	ldr r1, _08039174 @ =gLinkEntity
+	ldr r1, _08039174 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	strb r0, [r4, #0x15]
@@ -629,7 +629,7 @@ sub_08039140: @ 0x08039140
 	bl InitializeAnimation
 	pop {r4, pc}
 	.align 2, 0
-_08039174: .4byte gLinkEntity
+_08039174: .4byte gPlayerEntity
 _08039178: .4byte 0x0000FFFC
 
 	thumb_func_start sub_0803917C

@@ -31,7 +31,7 @@
 	bne _08065FF0
 	movs r5, #8
 _08065FF0:
-	ldr r1, _08066020 @ =gLinkEntity
+	ldr r1, _08066020 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	bl sub_0806F5A4
@@ -51,7 +51,7 @@ _0806600C:
 	bl _call_via_r1
 	b _08066042
 	.align 2, 0
-_08066020: .4byte gLinkEntity
+_08066020: .4byte gPlayerEntity
 _08066024: .4byte gUnk_0811036C
 _08066028:
 	ldr r0, _08066058 @ =gUnk_08110360

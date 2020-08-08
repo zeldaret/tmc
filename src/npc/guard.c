@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 #include "flags.h"
 #include "textbox.h"
 #include "room.h"
@@ -93,7 +93,7 @@ void sub_08063DC8(Entity* this) {
     if ((this->entityType).form == 0xff) {
         this->action = 2;
         this->actionDelay = 0x1e;
-        this->animationState = sub_0806F5A4(GetFacingDirection(this, &gLinkEntity));
+        this->animationState = sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
         InitAnimationForceUpdate(this, this->animationState + 4);
     } else {
         sub_0806EE20(this);
@@ -106,7 +106,7 @@ void sub_08063DC8(Entity* this) {
         if (this->interactType != 0) {
             this->action = 3;
             this->interactType = 0;
-            InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
+            InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
             sub_08064428(this);
         }
     }
@@ -166,7 +166,7 @@ void sub_08063F20(Entity* this) {
     if (this->interactType != 0) {
         this->action++;
         this->interactType = 0;
-        InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)) + *(s8*)&this->field_0x70);
+        InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + *(s8*)&this->field_0x70);
         sub_08064428(this);
     }
 }

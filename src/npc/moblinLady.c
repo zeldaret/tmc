@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 #include "room.h"
 #include "flags.h"
 #include "sprite.h"

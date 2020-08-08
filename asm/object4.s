@@ -57,7 +57,7 @@ sub_08082058: @ 0x08082058
 sub_08082098: @ 0x08082098
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
-	ldr r0, _08082100 @ =gLinkState
+	ldr r0, _08082100 @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -65,7 +65,7 @@ sub_08082098: @ 0x08082098
 	bne _080820AC
 	bl DeleteThisEntity
 _080820AC:
-	ldr r5, _08082104 @ =gLinkEntity
+	ldr r5, _08082104 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl sub_08079BD8
 	ldrb r1, [r4, #0x1b]
@@ -106,8 +106,8 @@ _080820AC:
 	beq _0808212A
 	b _0808212E
 	.align 2, 0
-_08082100: .4byte gLinkState
-_08082104: .4byte gLinkEntity
+_08082100: .4byte gPlayerState
+_08082104: .4byte gPlayerEntity
 _08082108:
 	cmp r0, #0x16
 	beq _08082112
@@ -142,7 +142,7 @@ _0808212E:
 	adds r3, #8
 	b _080821EE
 _0808213E:
-	ldr r2, _0808215C @ =gLinkState
+	ldr r2, _0808215C @ =gPlayerState
 	ldrb r1, [r2, #2]
 	adds r6, r1, #0
 	cmp r6, #0
@@ -157,7 +157,7 @@ _0808213E:
 	adds r3, #0x19
 	b _080821F2
 	.align 2, 0
-_0808215C: .4byte gLinkState
+_0808215C: .4byte gPlayerState
 _08082160:
 	adds r0, r2, #0
 	adds r0, #0xa8

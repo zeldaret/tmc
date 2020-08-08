@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "flags.h"
-#include "link.h"
+#include "player.h"
 #include "room.h"
 
 extern void sub_0809E96C(Entity*);
@@ -34,7 +34,7 @@ void sub_0809E83C(Entity* this) {
 
 void sub_0809E86C(Entity* this) {
 
-    if (sub_0800419C(this, &gLinkEntity, 0x30, 0x30)) {
+    if (sub_0800419C(this, &gPlayerEntity, 0x30, 0x30)) {
         if (CheckGlobalFlag(EZERO_1ST)) {
             if (((gScreenTransition & 3) == 0)) {
                 sub_080A2B80(this);

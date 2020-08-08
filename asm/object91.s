@@ -945,7 +945,7 @@ sub_0809CAC8: @ 0x0809CAC8
 	bge _0809CB26
 	movs r0, #4
 	strb r0, [r2, #0xe]
-	ldr r0, _0809CB40 @ =gLinkEntity
+	ldr r0, _0809CB40 @ =gPlayerEntity
 	str r0, [r2, #0x30]
 	movs r0, #0x9b
 	bl SetLocalFlag
@@ -983,7 +983,7 @@ _0809CB38:
 	pop {r4, r5, pc}
 	.align 2, 0
 _0809CB3C: .4byte gRoomControls
-_0809CB40: .4byte gLinkEntity
+_0809CB40: .4byte gPlayerEntity
 _0809CB44: .4byte gScreenTransition
 _0809CB48: .4byte 0x00000163
 

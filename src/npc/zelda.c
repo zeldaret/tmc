@@ -20,7 +20,7 @@ extern void sub_0806F62C(Entity*, u32, u32);
 extern void PlaySFX(u32);
 extern void SetTileType(u32, u32, u32);
 
-extern Entity gLinkEntity;
+extern Entity gPlayerEntity;
 extern RoomControls gRoomControls;
 
 extern void (*gUnk_08110BD8[])(Entity* ent);
@@ -86,7 +86,7 @@ void sub_08066D94(Entity* ent) {
     SetGlobalFlag(ZELDA_CHASE);
     npc = CreateNPC(0x2E, 0, 0);
     if (npc != NULL) {
-        npc->animationState = gLinkEntity.animationState;
+        npc->animationState = gPlayerEntity.animationState;
         npc->flags |= 0x20;
         npc->animationState = GetAnimationState(ent);
         roomID = gRoomControls.roomID;

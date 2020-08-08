@@ -163,7 +163,7 @@ _08018628: .4byte gUnk_080B3D20
 	thumb_func_start sub_0801862C
 sub_0801862C: @ 0x0801862C
 	push {r4, r5, lr}
-	ldr r1, _0801864C @ =gLinkState
+	ldr r1, _0801864C @ =gPlayerState
 	movs r2, #0
 	movs r0, #0x16
 	strb r0, [r1, #0xc]
@@ -179,7 +179,7 @@ sub_0801862C: @ 0x0801862C
 	strh r0, [r5, #0x36]
 	b _0801868C
 	.align 2, 0
-_0801864C: .4byte gLinkState
+_0801864C: .4byte gPlayerState
 _08018650: .4byte gScreenTransition
 _08018654: .4byte gUnk_02033AB8
 _08018658:

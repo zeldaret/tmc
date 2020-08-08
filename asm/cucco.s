@@ -241,7 +241,7 @@ sub_0806E65C: @ 0x0806E65C
 	ldrsb r2, [r0, r2]
 	cmp r2, #0
 	beq _0806E6A6
-	ldr r0, _0806E688 @ =gLinkState
+	ldr r0, _0806E688 @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -255,7 +255,7 @@ sub_0806E65C: @ 0x0806E65C
 	bl sub_0806F118
 	b _0806E698
 	.align 2, 0
-_0806E688: .4byte gLinkState
+_0806E688: .4byte gPlayerState
 _0806E68C:
 	adds r0, r4, #0
 	bl sub_0806E6A8

@@ -21,7 +21,7 @@ PicolyteBottle: @ 0x0806DED0
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _0806DEF4
-	ldr r2, _0806DEFC @ =gLinkState
+	ldr r2, _0806DEFC @ =gPlayerState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80
 	orrs r0, r1
@@ -30,7 +30,7 @@ _0806DEF4:
 	pop {r4, pc}
 	.align 2, 0
 _0806DEF8: .4byte gUnk_081142BC
-_0806DEFC: .4byte gLinkState
+_0806DEFC: .4byte gPlayerState
 
 	thumb_func_start sub_0806DF00
 sub_0806DF00: @ 0x0806DF00

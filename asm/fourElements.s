@@ -214,12 +214,12 @@ sub_080A034C: @ 0x080A034C
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _080A038C
-	ldr r0, _080A0374 @ =gLinkEntity
+	ldr r0, _080A0374 @ =gPlayerEntity
 	movs r1, #0
 	bl sub_0805E3A0
 	b _080A038C
 	.align 2, 0
-_080A0374: .4byte gLinkEntity
+_080A0374: .4byte gPlayerEntity
 _080A0378:
 	movs r0, #0
 	movs r1, #0x3c
@@ -295,7 +295,7 @@ sub_080A03E8: @ 0x080A03E8
 	bne _080A041A
 	movs r0, #0x5a
 	bl sub_0805E510
-	ldr r0, _080A0420 @ =gLinkState
+	ldr r0, _080A0420 @ =gPlayerState
 	adds r0, #0x8b
 	movs r1, #1
 	strb r1, [r0]
@@ -307,7 +307,7 @@ _080A041A:
 	pop {pc}
 	.align 2, 0
 _080A041C: .4byte gTextBox
-_080A0420: .4byte gLinkState
+_080A0420: .4byte gPlayerState
 
 	thumb_func_start sub_080A0424
 sub_080A0424: @ 0x080A0424

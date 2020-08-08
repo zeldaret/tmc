@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "room.h"
-#include "link.h"
+#include "player.h"
 
 void SetTile(u32 tileIndex, s32 tilePosition, s32 layerIndex);
 s32 GetTileType(s32 tilePosition, s32 layerIndex);
@@ -29,8 +29,8 @@ void sub_080A0EF0(Entity* ent) {
     tileIndex = GetTileType(ent->field_0x80.HWORD, 1);
     if (tileIndex != 0x407D) {
         sub_08078B48();
-        gLinkEntity.x.WORD = ent->x.WORD;
-        gLinkEntity.y.HALF.HI = ent->y.HALF.HI + 4;
+        gPlayerEntity.x.WORD = ent->x.WORD;
+        gPlayerEntity.y.HALF.HI = ent->y.HALF.HI + 4;
         DeleteThisEntity();
     }
 }

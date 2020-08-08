@@ -30,7 +30,7 @@ _08082638:
 	bne _080826DC
 	movs r0, #1
 	strb r0, [r5, #0xc]
-	ldr r0, _080826A4 @ =gLinkState
+	ldr r0, _080826A4 @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -75,7 +75,7 @@ _08082658:
 	bl sub_08082850
 	b _080826DC
 	.align 2, 0
-_080826A4: .4byte gLinkState
+_080826A4: .4byte gPlayerState
 _080826A8: .4byte gRoomControls
 _080826AC:
 	movs r0, #0x80
@@ -133,7 +133,7 @@ sub_080826FC: @ 0x080826FC
 sub_0808270C: @ 0x0808270C
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
-	ldr r0, _08082768 @ =gLinkState
+	ldr r0, _08082768 @ =gPlayerState
 	ldrb r1, [r0, #0x1c]
 	movs r0, #0xf
 	ands r0, r1
@@ -177,7 +177,7 @@ _0808272A:
 	bl SetTile
 	b _08082776
 	.align 2, 0
-_08082768: .4byte gLinkState
+_08082768: .4byte gPlayerState
 _0808276C: .4byte gRoomControls
 _08082770:
 	adds r0, r5, #0
@@ -225,7 +225,7 @@ sub_08082778: @ 0x08082778
 	ldrb r2, [r2]
 	bl SetTile
 _080827C4:
-	ldr r0, _080827EC @ =gLinkState
+	ldr r0, _080827EC @ =gPlayerState
 	ldrb r1, [r0, #0x1c]
 	movs r0, #0xf
 	ands r0, r1
@@ -245,7 +245,7 @@ _080827DE:
 	b _080827F6
 	.align 2, 0
 _080827E8: .4byte gRoomControls
-_080827EC: .4byte gLinkState
+_080827EC: .4byte gPlayerState
 _080827F0:
 	adds r0, r5, #0
 	bl sub_0806F3E4
@@ -256,7 +256,7 @@ _080827F6:
 sub_080827F8: @ 0x080827F8
 	push {lr}
 	adds r1, r0, #0
-	ldr r0, _08082810 @ =gLinkState
+	ldr r0, _08082810 @ =gPlayerState
 	ldrb r0, [r0, #0x1c]
 	cmp r0, #0
 	bne _0808280C
@@ -266,7 +266,7 @@ sub_080827F8: @ 0x080827F8
 _0808280C:
 	pop {pc}
 	.align 2, 0
-_08082810: .4byte gLinkState
+_08082810: .4byte gPlayerState
 
 	thumb_func_start nullsub_512
 nullsub_512: @ 0x08082814

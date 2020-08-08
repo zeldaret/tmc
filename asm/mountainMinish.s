@@ -184,7 +184,7 @@ _08067F58:
 	adds r1, r5, #0
 	adds r1, #0x69
 	strb r0, [r1]
-	ldr r1, _08067F94 @ =gLinkEntity
+	ldr r1, _08067F94 @ =gPlayerEntity
 	adds r0, r5, #0
 	bl GetFacingDirection
 	bl sub_0806F5A4
@@ -195,7 +195,7 @@ _08067F58:
 	bl sub_0806F118
 	b _0806801A
 	.align 2, 0
-_08067F94: .4byte gLinkEntity
+_08067F94: .4byte gPlayerEntity
 _08067F98:
 	adds r0, r5, #0
 	movs r1, #0
@@ -213,7 +213,7 @@ _08067F98:
 	movs r0, #2
 	strb r0, [r5, #0xc]
 	strb r1, [r4]
-	ldr r1, _08067FD8 @ =gLinkEntity
+	ldr r1, _08067FD8 @ =gPlayerEntity
 	adds r0, r5, #0
 	bl GetFacingDirection
 	bl sub_0806F5A4
@@ -224,7 +224,7 @@ _08067F98:
 	bl sub_08068190
 	b _0806801A
 	.align 2, 0
-_08067FD8: .4byte gLinkEntity
+_08067FD8: .4byte gPlayerEntity
 _08067FDC:
 	ldr r0, _08067FFC @ =gTextBox
 	ldrb r1, [r0]

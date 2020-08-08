@@ -273,14 +273,14 @@ sub_0803F1E0: @ 0x0803F1E0
 	strb r1, [r0, #0xd]
 	movs r1, #0x3c
 	strb r1, [r0, #0x1d]
-	ldr r1, _0803F1F8 @ =gLinkEntity
+	ldr r1, _0803F1F8 @ =gPlayerEntity
 	ldrb r1, [r1, #0x14]
 	lsrs r1, r1, #2
 	adds r1, #5
 	bl InitializeAnimation
 	pop {pc}
 	.align 2, 0
-_0803F1F8: .4byte gLinkEntity
+_0803F1F8: .4byte gPlayerEntity
 
 	thumb_func_start sub_0803F1FC
 sub_0803F1FC: @ 0x0803F1FC
@@ -631,7 +631,7 @@ _0803F494:
 	adds r0, #0xc
 	strh r0, [r1]
 _0803F4A6:
-	ldr r2, _0803F500 @ =gLinkEntity
+	ldr r2, _0803F500 @ =gPlayerEntity
 	adds r0, r2, #0
 	adds r0, #0x45
 	ldrb r0, [r0]
@@ -676,7 +676,7 @@ _0803F4B6:
 	bl sub_0803F6EC
 	b _0803F50A
 	.align 2, 0
-_0803F500: .4byte gLinkEntity
+_0803F500: .4byte gPlayerEntity
 _0803F504:
 	adds r0, r4, #0
 	bl sub_0803F738
@@ -928,7 +928,7 @@ sub_0803F6C0: @ 0x0803F6C0
 	movs r1, #0xfe
 	ands r1, r2
 	strb r1, [r0]
-	ldr r4, _0803F6E8 @ =gLinkEntity
+	ldr r4, _0803F6E8 @ =gPlayerEntity
 	adds r1, r4, #0
 	adds r1, #0x3d
 	movs r0, #0xc
@@ -940,16 +940,16 @@ sub_0803F6C0: @ 0x0803F6C0
 	bl sub_0800449C
 	pop {r4, pc}
 	.align 2, 0
-_0803F6E8: .4byte gLinkEntity
+_0803F6E8: .4byte gPlayerEntity
 
 	thumb_func_start sub_0803F6EC
 sub_0803F6EC: @ 0x0803F6EC
 	push {lr}
-	ldr r2, _0803F72C @ =gLinkEntity
+	ldr r2, _0803F72C @ =gPlayerEntity
 	adds r0, r2, #0
 	adds r0, #0x45
 	ldrb r0, [r0]
-	ldr r3, _0803F730 @ =gLinkState
+	ldr r3, _0803F730 @ =gPlayerState
 	cmp r0, #0
 	beq _0803F720
 	ldrb r1, [r2, #0x10]
@@ -978,16 +978,16 @@ _0803F720:
 	str r0, [r3, #0x30]
 	pop {pc}
 	.align 2, 0
-_0803F72C: .4byte gLinkEntity
-_0803F730: .4byte gLinkState
+_0803F72C: .4byte gPlayerEntity
+_0803F730: .4byte gPlayerState
 _0803F734: .4byte 0x0000FFFE
 
 	thumb_func_start sub_0803F738
 sub_0803F738: @ 0x0803F738
 	push {r4, lr}
 	adds r4, r0, #0
-	bl ResetLink
-	ldr r2, _0803F768 @ =gLinkState
+	bl ResetPlayer
+	ldr r2, _0803F768 @ =gPlayerState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80
 	orrs r1, r0
@@ -995,7 +995,7 @@ sub_0803F738: @ 0x0803F738
 	ldrb r1, [r2, #0xa]
 	orrs r0, r1
 	strb r0, [r2, #0xa]
-	ldr r0, _0803F76C @ =gLinkEntity
+	ldr r0, _0803F76C @ =gPlayerEntity
 	adds r1, r4, #0
 	movs r2, #0
 	movs r3, #1
@@ -1006,5 +1006,5 @@ sub_0803F738: @ 0x0803F738
 	strb r0, [r4]
 	pop {r4, pc}
 	.align 2, 0
-_0803F768: .4byte gLinkState
-_0803F76C: .4byte gLinkEntity
+_0803F768: .4byte gPlayerState
+_0803F76C: .4byte gPlayerEntity

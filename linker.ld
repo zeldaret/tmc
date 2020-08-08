@@ -180,7 +180,7 @@ SECTIONS {
         . = 0x000010EC; gUnk_030010EC = .;
         . = 0x0000110C; gUnk_0300110C = .;
         . = 0x00001150; gRand = .;
-        . = 0x00001160; gLinkEntity = .;
+        . = 0x00001160; gPlayerEntity = .;
         . = 0x00001198; gUnk_03001198 = .;
         . = 0x000011E8; gUnk_030011E8 = .;
         . = 0x000015A0; gUnk_030015A0 = .;
@@ -201,7 +201,7 @@ SECTIONS {
         . = 0x00003DE4; gUnk_03003DE4 = .;
         . = 0x00003DF0; gUnk_03003DF0 = .;
         . = 0x00003DF8; gUnk_03003DF8 = .;
-        . = 0x00003F80; gLinkState = .;
+        . = 0x00003F80; gPlayerState = .;
         . = 0x00003FC0; gUnk_03003FC0 = .;
         . = 0x00004010; gUnk_03004010 = .;
         . = 0x00004020; gUnk_03004020 = .;
@@ -448,9 +448,7 @@ SECTIONS {
 		src/sub_08050024.o(.text);
 		asm/code_08050038.o(.text);
 		asm/sub_08052418.o(.text);
-		asm/initializeLink.o(.text);
-		src/sub_08052620.o(.text);
-		src/sub_08052638.o(.text);
+		src/initializePlayer.o(.text);
 		src/area.o(.text);
 		src/modHealth.o(.text);
 		src/modRupees.o(.text);
@@ -647,7 +645,7 @@ SECTIONS {
 		asm/ocarina.o(.text);
 		src/item.o(.text);
 		asm/code_08076C80.o(.text);
-		asm/respawnLink.o(.text);
+		asm/respawnPlayer.o(.text);
 		src/code_08077B98.o(.text);
 		src/code_08077DF4.o(.text);
 		asm/code_08077B98.o(.text);
@@ -735,7 +733,7 @@ SECTIONS {
 		asm/object75.o(.text); /* 75 and 76 are mislocated in base game */
 		asm/object76.o(.text);
 		asm/code_0808C964.o(.text);
-		asm/macroLink.o(.text);
+		asm/macroPlayer.o(.text);
 		asm/object3D.o(.text);
 		asm/object3E.o(.text);
 		src/object/giantLeaf.o(.text);

@@ -50,7 +50,7 @@ void sub_0806ABFC(Entity *this)
         s32 unk;
         u8 field_0x68;
 
-        Entity *link = &gLinkEntity;
+        Entity *link = &gPlayerEntity;
         if (sub_080041A0(this, link, 0x18, 0x18)) {
             unk = GetFacingDirection(this, link) & (u8)0x1e;
         }

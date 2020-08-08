@@ -299,7 +299,7 @@ _080547DA:
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805486A
-	ldr r0, _08054804 @ =gLinkEntity
+	ldr r0, _08054804 @ =gPlayerEntity
 	cmp r6, r0
 	bne _08054808
 	movs r0, #1
@@ -307,7 +307,7 @@ _080547DA:
 	.align 2, 0
 _080547FC: .4byte gRoomVars
 _08054800: .4byte gUnk_080FE1DD
-_08054804: .4byte gLinkEntity
+_08054804: .4byte gPlayerEntity
 _08054808:
 	movs r0, #0
 _0805480A:

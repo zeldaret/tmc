@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 
 extern u32 GetNextFunction(Entity *);
 
@@ -60,7 +60,7 @@ void sub_0803CD40(Entity *this) {
 
     ModHealth(-2);
 
-    sub_0800449C(&gLinkEntity, 122);
+    sub_0800449C(&gPlayerEntity, 122);
     sub_08079D84();
 
     sub_0803CE3C(this);
