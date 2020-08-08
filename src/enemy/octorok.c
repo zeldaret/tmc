@@ -62,7 +62,7 @@ void sub_0801EB2C(Entity* ent) {
 
 void sub_0801EB68(Entity* ent) {
     ent->previousActionFlag = 1;
-    ent->filler[1] = 60;
+    ent->field_0x1d = 60;
 }
 
 void sub_0801EB74(Entity* ent) {

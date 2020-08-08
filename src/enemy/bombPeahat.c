@@ -57,7 +57,7 @@ void sub_0802A8C8(Entity* this)
 void sub_0802A8E0(Entity *this)
 {
   this->previousActionFlag = 1;
-  this->filler[1] = 0x3c;
+  this->field_0x1d = 0x3c;
 }
 
 void sub_0802A8EC(Entity *this)

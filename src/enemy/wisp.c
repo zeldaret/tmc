@@ -85,7 +85,7 @@ void sub_08033674(Entity* this) {
     sub_0804A720(this);
     this->actionDelay = 0;
     this->action = 1;
-    this->filler[0] = 1;
+    this->field_0x1c = 1;
     this->field_0x80.HWORD = this->x.HALF.HI;
     this->field_0x82.HWORD = this->y.HALF.HI;
     sub_08033744(this);

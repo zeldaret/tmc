@@ -192,7 +192,7 @@ extern void sub_080A70AC(void*);
 extern void sub_080A7114(u32);
 extern void sub_08001242(void);
 extern u32 sub_08003FC4(Entity*, u32);
-extern u8 sub_080043E8(Entity*);
+extern u32 sub_080043E8(Entity*);
 extern void sub_08001290(Entity*, u32);
 extern void sub_08004488(u32);
 extern void sub_08004596(Entity*, u32);

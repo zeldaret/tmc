@@ -26,7 +26,7 @@ typedef struct {
 } BoundingBox;
 
 typedef struct Entity {
-    /*0x00*/ u32* field_0x0;
+    /*0x00*/ struct Entity* field_0x0;
     /*0x04*/ struct Entity* field_0x4;
     /*0x08*/ EntityType entityType;
     /*0x0c*/ u8 action;
@@ -47,8 +47,7 @@ typedef struct Entity {
     /*    */         u8 draw        : 2; // 1-2
     /*    */         u8 ss2         : 1; //   4
     /*    */         u8 ss3         : 1; //   8
-    /*    */         u8 bigShadow   : 1; //0x10
-    /*    */         u8 giantShadow : 1; //0x20
+    /*    */         u8 shadow      : 2; //0x10
     /*    */         u8 flipX       : 1; //0x40
     /*    */         u8 flipY       : 1; //0x80
     /*    */     } PACKED b;
@@ -71,7 +70,7 @@ typedef struct Entity {
     /*    */     u8 flipX : 2; //0x10
     /*    */     u8 flipY : 2; //0x40
     /*    */ } PACKED spriteOrientation;
-    /*0x1c*/ u8 filler[1];
+    /*0x1c*/ u8 field_0x1c;
     /*0x1d*/ u8 field_0x1d;
     /*0x1e*/ u8 frameIndex;
     /*0x1f*/ u8 lastFrameIndex;

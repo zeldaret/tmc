@@ -25,7 +25,7 @@ void RupeeLike(Entity* this) {
     u32 uVar1;
 
     if (this->entityType.parameter == 0) {
-        uVar1 = sub_080043E8(this);
+        uVar1 = (u8)sub_080043E8(this);
         if (uVar1 != 0) {
             if (this->action == 4) {
                 sub_080296D8(this);
