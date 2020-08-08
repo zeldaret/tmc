@@ -115,26 +115,22 @@ void sub_080324FC(Entity* this) {
     }
 }
 
-#if NON_MATCHING // r4-r5 register swap
 void sub_08032574(Entity* this) {
-    if (this->attachedEntity == NULL || !(this->attachedEntity->bitfield & 0x80)) {
-        (this->field_0x76)--;
-        if ((this->field_0x76 == 0) || (sub_080AEFE0(this) == 0)) {
-            sub_0803275C(this);
-        } else {
-            UpdateAnimationSingleFrame(this);
-            if (!(this->field_0x76 & 0x7)) {
-                sub_08032794(this);
-            }
-        }
+    if (this->attachedEntity && (this->attachedEntity->bitfield & 0x80)) {
+        sub_0803275C(this);
+        return;
+    }
+
+    if (--this->field_0x76 == 0 || !sub_080AEFE0(this)) {
+        sub_0803275C(this);
+        return;
+    }
+    
+    UpdateAnimationSingleFrame(this);
+    if ((this->field_0x76 & 0x7) == 0) {
+        sub_08032794(this);
     }
 }
-#else
-NAKED
-void sub_08032574(Entity* this) {
-    asm(".include \"asm/non_matching/keaton/sub_08032574.inc\"");
-}
-#endif
 
 void sub_080325C4(Entity* this) {
     this->actionDelay--;
