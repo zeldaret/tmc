@@ -32,7 +32,7 @@ _0805E6A0:
 	cmp r4, r1
 	blo _0805E68E
 _0805E6A6:
-	ldr r4, _0805E6CC @ =gLinkEntity
+	ldr r4, _0805E6CC @ =gPlayerEntity
 _0805E6A8:
 	ldr r0, [r4]
 	cmp r0, #0
@@ -51,7 +51,7 @@ _0805E6A8:
 	adds r0, r4, #0
 	b _0805E730
 	.align 2, 0
-_0805E6CC: .4byte gLinkEntity
+_0805E6CC: .4byte gPlayerEntity
 _0805E6D0: .4byte gUnk_03003DD0
 _0805E6D4:
 	adds r4, #0x88

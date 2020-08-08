@@ -149,7 +149,7 @@ sub_0805795C: @ 0x0805795C
 	ldrb r0, [r0, #8]
 	cmp r0, #0
 	beq _080579C8
-	ldr r1, _080579C0 @ =gLinkEntity
+	ldr r1, _080579C0 @ =gPlayerEntity
 	ldr r3, _080579C4 @ =gRoomControls
 	ldrh r2, [r1, #0x2e]
 	ldrh r0, [r3, #6]
@@ -192,10 +192,10 @@ sub_0805795C: @ 0x0805795C
 	b _08057A00
 	.align 2, 0
 _080579BC: .4byte gUnk_03004030
-_080579C0: .4byte gLinkEntity
+_080579C0: .4byte gPlayerEntity
 _080579C4: .4byte gRoomControls
 _080579C8:
-	ldr r3, _08057A0C @ =gLinkEntity
+	ldr r3, _08057A0C @ =gPlayerEntity
 	movs r1, #0x2e
 	ldrsh r0, [r3, r1]
 	ldr r2, _08057A10 @ =gRoomControls
@@ -230,7 +230,7 @@ _08057A00:
 	movs r0, #1
 	b _08057A16
 	.align 2, 0
-_08057A0C: .4byte gLinkEntity
+_08057A0C: .4byte gPlayerEntity
 _08057A10: .4byte gRoomControls
 _08057A14:
 	movs r0, #0
@@ -259,7 +259,7 @@ sub_08057A18: @ 0x08057A18
 	ldrb r0, [r5, #5]
 	strb r0, [r3, #5]
 	str r5, [r6]
-	ldr r4, _08057AA0 @ =gLinkEntity
+	ldr r4, _08057AA0 @ =gPlayerEntity
 	ldrh r1, [r4, #0x2e]
 	ldrh r0, [r3, #6]
 	subs r1, r1, r0
@@ -304,7 +304,7 @@ _08057A86:
 _08057A94: .4byte gUnk_03004030
 _08057A98: .4byte gRoomControls
 _08057A9C: .4byte gScreenTransition
-_08057AA0: .4byte gLinkEntity
+_08057AA0: .4byte gPlayerEntity
 _08057AA4: .4byte gUnk_02034480
 
 	thumb_func_start sub_08057AA8

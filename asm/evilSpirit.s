@@ -168,7 +168,7 @@ _080863B6:
 	movs r0, #0xc0
 	lsls r0, r0, #3
 	strh r0, [r6, #0x24]
-	ldr r2, _080863E8 @ =gLinkEntity
+	ldr r2, _080863E8 @ =gPlayerEntity
 	ldr r0, [r2, #0x2c]
 	ldr r1, [r6, #0x2c]
 	subs r0, r0, r1
@@ -190,13 +190,13 @@ _080863B6:
 	adds r0, r2, #3
 	b _080863EE
 	.align 2, 0
-_080863E8: .4byte gLinkEntity
+_080863E8: .4byte gPlayerEntity
 _080863EC:
 	subs r0, r2, #3
 _080863EE:
 	strb r0, [r6, #0x15]
 _080863F0:
-	ldr r0, _0808640C @ =gLinkEntity
+	ldr r0, _0808640C @ =gPlayerEntity
 	ldrb r1, [r0, #0x14]
 	movs r0, #2
 	ands r0, r1
@@ -210,7 +210,7 @@ _080863F0:
 	adds r1, #0x76
 	b _08086426
 	.align 2, 0
-_0808640C: .4byte gLinkEntity
+_0808640C: .4byte gPlayerEntity
 _08086410:
 	adds r0, r6, #0
 	adds r0, #0x7c
@@ -255,7 +255,7 @@ _08086440:
 	adds r2, #0x7f
 	movs r0, #1
 	strb r0, [r2]
-	ldr r0, _08086480 @ =gLinkEntity
+	ldr r0, _08086480 @ =gPlayerEntity
 	ldrb r1, [r0, #0x14]
 	movs r0, #2
 	ands r0, r1
@@ -271,7 +271,7 @@ _08086440:
 	strh r0, [r1]
 	b _080864BC
 	.align 2, 0
-_08086480: .4byte gLinkEntity
+_08086480: .4byte gPlayerEntity
 _08086484:
 	adds r1, r6, #0
 	adds r1, #0x7c
@@ -447,7 +447,7 @@ sub_08086594: @ 0x08086594
 	adds r2, #0x7f
 	movs r0, #1
 	strb r0, [r2]
-	ldr r0, _080865EC @ =gLinkEntity
+	ldr r0, _080865EC @ =gPlayerEntity
 	ldrb r1, [r0, #0x14]
 	movs r0, #2
 	ands r0, r1
@@ -461,7 +461,7 @@ sub_08086594: @ 0x08086594
 	adds r1, #0x76
 	b _0808662A
 	.align 2, 0
-_080865EC: .4byte gLinkEntity
+_080865EC: .4byte gPlayerEntity
 _080865F0:
 	adds r0, r7, #0
 	adds r0, #0x7c

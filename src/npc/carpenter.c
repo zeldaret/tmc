@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "sprite.h"
-#include "link.h"
+#include "player.h"
 
 extern void DeleteThisEntity();
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
@@ -35,7 +35,7 @@ void Carpenter(Entity* this) {
                 this->action = 2;
                 this->interactType = 0;
                 this->field_0x68.HALF.HI = this->animIndex;
-                InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)) + 4 + (this->entityType.form * 8));
+                InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 4 + (this->entityType.form * 8));
                 sub_0806F118(this);
             } else {
                 sub_0807DDAC(this, 0);

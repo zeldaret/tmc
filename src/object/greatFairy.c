@@ -32,12 +32,12 @@ void GreatFairy(Entity* this) {
 void GreatFairy_CallBehavior(Entity* this) {
     GreatFairy_Behaviors[this->action](this);
 
-    if ((gLinkEntity.y.HALF.HI - gRoomControls.roomOriginY) < 168) {
+    if ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) < 168) {
 
         gRoomControls.cameraTarget = this;
         gRoomControls.unk5 = 2;
     } else {
-        gRoomControls.cameraTarget = &gLinkEntity;
+        gRoomControls.cameraTarget = &gPlayerEntity;
         gRoomControls.unk5 = 2;
     }
 }

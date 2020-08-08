@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 
 s32 ModHealth(s32 deltaHealth)
 
@@ -15,6 +15,6 @@ s32 ModHealth(s32 deltaHealth)
         newHealth = (u32)gStats.maxHealth;
     }
     gStats.health = newHealth;
-    gLinkEntity.currentHealth = newHealth;
+    gPlayerEntity.currentHealth = newHealth;
     return newHealth;
 }

@@ -186,7 +186,7 @@ _08059028:
 	ldrb r2, [r4, #0xe]
 	cmp r2, #0x3c
 	bne _08059034
-	ldr r1, _0805904C @ =gLinkEntity
+	ldr r1, _0805904C @ =gPlayerEntity
 	ldrb r0, [r4, #0xf]
 	strb r0, [r1, #0x14]
 _08059034:
@@ -202,7 +202,7 @@ _08059034:
 	bl MenuFadeIn
 	b _08059060
 	.align 2, 0
-_0805904C: .4byte gLinkEntity
+_0805904C: .4byte gPlayerEntity
 _08059050:
 	ldrh r0, [r4, #0x3e]
 	bl SetFlag
@@ -505,12 +505,12 @@ sub_08059290: @ 0x08059290
 	movs r1, #1
 	strb r1, [r0, #0xc]
 	ldr r1, _0805929C @ =gRoomControls
-	ldr r0, _080592A0 @ =gLinkEntity
+	ldr r0, _080592A0 @ =gPlayerEntity
 	str r0, [r1, #0x30]
 	bx lr
 	.align 2, 0
 _0805929C: .4byte gRoomControls
-_080592A0: .4byte gLinkEntity
+_080592A0: .4byte gPlayerEntity
 
 	thumb_func_start sub_080592A4
 sub_080592A4: @ 0x080592A4
@@ -669,7 +669,7 @@ _080593CA:
 sub_080593CC: @ 0x080593CC
 	push {r4, lr}
 	adds r3, r0, #0
-	ldr r2, _08059418 @ =gLinkState
+	ldr r2, _08059418 @ =gPlayerState
 	ldr r0, [r2, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -680,7 +680,7 @@ sub_080593CC: @ 0x080593CC
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08059420
-	ldr r4, _0805941C @ =gLinkEntity
+	ldr r4, _0805941C @ =gPlayerEntity
 	ldrb r0, [r4, #0x14]
 	cmp r0, #0
 	bne _08059420
@@ -704,8 +704,8 @@ sub_080593CC: @ 0x080593CC
 	bl sub_0806FCB8
 	b _08059422
 	.align 2, 0
-_08059418: .4byte gLinkState
-_0805941C: .4byte gLinkEntity
+_08059418: .4byte gPlayerState
+_0805941C: .4byte gPlayerEntity
 _08059420:
 	movs r0, #0
 _08059422:
@@ -784,7 +784,7 @@ _080594B4: .4byte gRoomVars
 _080594B8: .4byte gUnk_08108380
 _080594BC:
 	ldr r1, _080594D4 @ =gUnk_08108380
-	ldr r0, _080594D8 @ =gLinkEntity
+	ldr r0, _080594D8 @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsrs r0, r0, #1
 	lsls r0, r0, #2
@@ -797,7 +797,7 @@ _080594D2:
 	pop {pc}
 	.align 2, 0
 _080594D4: .4byte gUnk_08108380
-_080594D8: .4byte gLinkEntity
+_080594D8: .4byte gPlayerEntity
 
 	thumb_func_start sub_080594DC
 sub_080594DC: @ 0x080594DC
@@ -856,7 +856,7 @@ sub_08059548: @ 0x08059548
 	push {lr}
 	movs r1, #6
 	bl sub_0805E3A0
-	ldr r0, _08059568 @ =gLinkEntity
+	ldr r0, _08059568 @ =gPlayerEntity
 	ldrb r0, [r0, #0xc]
 	cmp r0, #0x16
 	bne _0805955C
@@ -869,5 +869,5 @@ _0805955C:
 	strh r0, [r2]
 	pop {pc}
 	.align 2, 0
-_08059568: .4byte gLinkEntity
+_08059568: .4byte gPlayerEntity
 _0805956C: .4byte gUnk_03000FF0

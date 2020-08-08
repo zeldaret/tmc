@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "room.h"
-#include "link.h"
+#include "player.h"
 #include "flags.h"
 
 extern void sub_0809F7BC(Entity*);
@@ -25,8 +25,8 @@ extern void sub_0807BB68(u32*, u32, u32);
 extern u8 gUnk_02034490;
 extern u32 gScreenTransition;
 extern void* gUnk_080DD750;
-extern Entity gLinkEntity;
-extern LinkState gLinkState;
+extern Entity gPlayerEntity;
+extern PlayerState gPlayerState;
 extern u8 gUnk_081247C0[];
 extern u16 gUnk_081247C8[];
 extern u32 gUnk_081247D0;
@@ -123,7 +123,7 @@ void sub_0809F69C(Entity* this) {
     if (--this->actionDelay == 0) {
         this->actionDelay = 30;
         this->action = 4;
-        gRoomControls.cameraTarget = &gLinkEntity;
+        gRoomControls.cameraTarget = &gPlayerEntity;
         PlaySFX(115);
     }
 }
@@ -131,7 +131,7 @@ void sub_0809F69C(Entity* this) {
 void sub_0809F6CC(Entity* this) {
 
     if (((gRoomControls.unk6 & 4) == 0) && (--this->actionDelay == 0)) {
-        gLinkState.field_0x8b = 1;
+        gPlayerState.field_0x8b = 1;
         DeleteThisEntity();
     }
 }

@@ -236,7 +236,7 @@ void sub_0808F498(Entity* this) {
             DeleteThisEntity();
         }
 
-        if (gLinkState.field_0x1c != 1) {
+        if (gPlayerState.field_0x1c != 1) {
             DeleteThisEntity();
         }
     } else {

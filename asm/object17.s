@@ -29,7 +29,7 @@ sub_080861C4: @ 0x080861C4
 	strb r0, [r4, #0xc]
 	movs r0, #0x80
 	strh r0, [r4, #0x24]
-	ldr r0, _08086230 @ =gLinkEntity
+	ldr r0, _08086230 @ =gPlayerEntity
 	mov ip, r0
 	ldrb r1, [r0, #0x19]
 	lsrs r1, r1, #6
@@ -75,7 +75,7 @@ sub_080861C4: @ 0x080861C4
 	bl InitializeAnimation
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08086230: .4byte gLinkEntity
+_08086230: .4byte gPlayerEntity
 
 	thumb_func_start sub_08086234
 sub_08086234: @ 0x08086234
@@ -106,7 +106,7 @@ _0808625E:
 	bl DeleteThisEntity
 	b _0808627E
 _0808626E:
-	ldr r0, _08086280 @ =gLinkState
+	ldr r0, _08086280 @ =gPlayerState
 	ldrb r1, [r0, #0x1c]
 	movs r0, #0xf
 	ands r0, r1
@@ -116,4 +116,4 @@ _0808626E:
 _0808627E:
 	pop {r4, pc}
 	.align 2, 0
-_08086280: .4byte gLinkState
+_08086280: .4byte gPlayerState

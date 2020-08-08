@@ -330,9 +330,9 @@ _0809AD3A:
 	cmp r0, #0
 	bne _0809AD58
 	ldr r1, _0809AD5C @ =gRoomControls
-	ldr r0, _0809AD60 @ =gLinkEntity
+	ldr r0, _0809AD60 @ =gPlayerEntity
 	str r0, [r1, #0x30]
-	ldr r0, _0809AD64 @ =gLinkState
+	ldr r0, _0809AD64 @ =gPlayerState
 	adds r0, #0x8b
 	movs r1, #1
 	strb r1, [r0]
@@ -341,8 +341,8 @@ _0809AD58:
 	pop {r4, pc}
 	.align 2, 0
 _0809AD5C: .4byte gRoomControls
-_0809AD60: .4byte gLinkEntity
-_0809AD64: .4byte gLinkState
+_0809AD60: .4byte gPlayerEntity
+_0809AD64: .4byte gPlayerState
 
 	thumb_func_start sub_0809AD68
 sub_0809AD68: @ 0x0809AD68

@@ -35,7 +35,7 @@ extern void (*const gUnk_081207A4[])(Entity*);
 
 extern u32 gUnk_0810C2E4;
 extern RoomControls gRoomControls;
-extern Entity gLinkEntity;
+extern Entity gPlayerEntity;
 extern const s16 GreatFairy_RippleOffsets[10];
 extern u32 gUnk_02034350;
 extern RoomVars gRoomVars;

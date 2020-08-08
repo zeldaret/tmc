@@ -11,7 +11,7 @@
 Object79: @ 0x08097F84
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _08097FAC @ =gLinkState
+	ldr r0, _08097FAC @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -28,7 +28,7 @@ _08097F98:
 	bl _call_via_r1
 	pop {r4, pc}
 	.align 2, 0
-_08097FAC: .4byte gLinkState
+_08097FAC: .4byte gPlayerState
 _08097FB0: .4byte gUnk_08123410
 
 	thumb_func_start sub_08097FB4
@@ -111,7 +111,7 @@ sub_0809803C: @ 0x0809803C
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	beq _08098082
-	ldr r0, _0809806C @ =gLinkEntity
+	ldr r0, _0809806C @ =gPlayerEntity
 	strb r5, [r0, #0xf]
 	ldrb r0, [r4, #0xc]
 	adds r0, #1
@@ -124,7 +124,7 @@ sub_0809803C: @ 0x0809803C
 	bl PlaySFX
 	b _08098082
 	.align 2, 0
-_0809806C: .4byte gLinkEntity
+_0809806C: .4byte gPlayerEntity
 _08098070:
 	ldr r2, [r4, #0x50]
 	ldrb r1, [r4, #0xa]
@@ -147,7 +147,7 @@ sub_08098084: @ 0x08098084
 	lsls r0, r0, #0xd
 	cmp r1, r0
 	bls _080980A8
-	ldr r0, _080980A4 @ =gLinkState
+	ldr r0, _080980A4 @ =gPlayerState
 	ldr r1, [r0, #0x30]
 	movs r2, #0x80
 	orrs r1, r2
@@ -155,7 +155,7 @@ sub_08098084: @ 0x08098084
 	bl DeleteThisEntity
 	b _0809812E
 	.align 2, 0
-_080980A4: .4byte gLinkState
+_080980A4: .4byte gPlayerState
 _080980A8:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
@@ -231,7 +231,7 @@ _0809812E:
 sub_08098130: @ 0x08098130
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _08098160 @ =gLinkEntity
+	ldr r0, _08098160 @ =gPlayerEntity
 	adds r1, r4, #0
 	bl CopyPosition
 	adds r0, r4, #0
@@ -252,5 +252,5 @@ sub_08098130: @ 0x08098130
 	str r0, [r4, #0x30]
 	pop {r4, pc}
 	.align 2, 0
-_08098160: .4byte gLinkEntity
+_08098160: .4byte gPlayerEntity
 _08098164: .4byte 0xFFEC0000

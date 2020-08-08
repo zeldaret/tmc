@@ -179,7 +179,7 @@ sub_08092850: @ 0x08092850
 	ldrb r0, [r2, #0xa]
 	cmp r0, #0
 	bne _08092888
-	ldr r3, _08092878 @ =gLinkEntity
+	ldr r3, _08092878 @ =gPlayerEntity
 	movs r0, #0x32
 	ldrsh r1, [r3, r0]
 	movs r4, #0x32
@@ -196,7 +196,7 @@ _0809286E:
 	movs r0, #0x40
 	b _08092884
 	.align 2, 0
-_08092878: .4byte gLinkEntity
+_08092878: .4byte gPlayerEntity
 _0809287C:
 	ldrb r0, [r2, #0x19]
 	movs r1, #0x3f

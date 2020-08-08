@@ -159,13 +159,13 @@ sub_0805C7C4: @ 0x0805C7C4
 sub_0805C7CC: @ 0x0805C7CC
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _0805C7F0 @ =gLinkState
+	ldr r0, _0805C7F0 @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
 	cmp r0, #0
 	beq _0805C7FC
-	ldr r0, _0805C7F4 @ =gLinkEntity
+	ldr r0, _0805C7F4 @ =gPlayerEntity
 	movs r3, #0x32
 	ldrsh r1, [r0, r3]
 	ldrh r0, [r2, #0x2a]
@@ -175,13 +175,13 @@ sub_0805C7CC: @ 0x0805C7CC
 	movs r0, #1
 	b _0805C816
 	.align 2, 0
-_0805C7F0: .4byte gLinkState
-_0805C7F4: .4byte gLinkEntity
+_0805C7F0: .4byte gPlayerState
+_0805C7F4: .4byte gPlayerEntity
 _0805C7F8:
 	movs r0, #0
 	b _0805C816
 _0805C7FC:
-	ldr r0, _0805C810 @ =gLinkEntity
+	ldr r0, _0805C810 @ =gPlayerEntity
 	movs r3, #0x32
 	ldrsh r1, [r0, r3]
 	ldrh r0, [r2, #0x2a]
@@ -191,7 +191,7 @@ _0805C7FC:
 	movs r0, #3
 	b _0805C816
 	.align 2, 0
-_0805C810: .4byte gLinkEntity
+_0805C810: .4byte gPlayerEntity
 _0805C814:
 	movs r0, #2
 _0805C816:

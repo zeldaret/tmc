@@ -3,7 +3,7 @@
 #include "room.h"
 #include "random.h"
 
-extern Entity gLinkEntity;
+extern Entity gPlayerEntity;
 extern u16 gScreenTransition[];
 
 extern void (*MaskActionFuncs[])(Entity *);
@@ -76,20 +76,20 @@ void sub_080929A4(Entity *this) {
 // Probably related to knocking it down
 void sub_08092A94(Entity *this) {
     // Check for the first frame of bonking animation
-    if (gLinkEntity.action != 6) {
+    if (gPlayerEntity.action != 6) {
         return;
     }
 
-    if (gLinkEntity.animationState != 0) {
+    if (gPlayerEntity.animationState != 0) {
         return;
     }
 
     // Check if link is close enough to the mask
-    if (this->y.HALF.HI + 40 < gLinkEntity.y.HALF.HI) {
+    if (this->y.HALF.HI + 40 < gPlayerEntity.y.HALF.HI) {
         return;
     }
 
-    if (this->x.HALF.HI - gLinkEntity.x.HALF.HI >= this->field_0xf || this->x.HALF.HI - gLinkEntity.x.HALF.HI <= -this->field_0xf) {
+    if (this->x.HALF.HI - gPlayerEntity.x.HALF.HI >= this->field_0xf || this->x.HALF.HI - gPlayerEntity.x.HALF.HI <= -this->field_0xf) {
         return;
     }
 

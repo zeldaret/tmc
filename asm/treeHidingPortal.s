@@ -9,14 +9,14 @@
 	thumb_func_start sub_0809E9A0
 sub_0809E9A0: @ 0x0809E9A0
 	push {r4, r5, r6, lr}
-	ldr r5, _0809E9B0 @ =gLinkEntity
+	ldr r5, _0809E9B0 @ =gPlayerEntity
 	ldrb r2, [r5, #0xc]
 	cmp r2, #6
 	beq _0809E9B4
 	movs r0, #0
 	b _0809E9F0
 	.align 2, 0
-_0809E9B0: .4byte gLinkEntity
+_0809E9B0: .4byte gPlayerEntity
 _0809E9B4:
 	ldrb r0, [r5, #0x14]
 	ands r2, r0

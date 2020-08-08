@@ -36,7 +36,7 @@ void sub_080916EC(Entity* this) {
     struct_030010EC* unk = &gUnk_030010EC[this->actionDelay];
 
     *(struct_030010EC**)&this->cutsceneBeh.HWORD = unk;
-    if ((gRoomControls.roomID != unk->field_0x4) || (gLinkState.flags.all & 0x1000) != 0) {
+    if ((gRoomControls.roomID != unk->field_0x4) || (gPlayerState.flags.all & 0x1000) != 0) {
         DeleteThisEntity();
     }
     this->x.HALF.HI = gRoomControls.roomOriginX + ((unk->field_0x0 & 0x3f) << 4) + 8;
@@ -66,8 +66,8 @@ void sub_080917DC(Entity* this) {
         PlaySFX(0x13b);
     } else {
         if (sub_0800445C(this) != 0) {
-            if (((gLinkState.flags.all & 0x40080) == 0) && (gLinkState.field_0x1c == 0) &&
-                (gLinkState.heldObject == 0) && (gLinkState.jumpStatus == 0)) {
+            if (((gPlayerState.flags.all & 0x40080) == 0) && (gPlayerState.field_0x1c == 0) &&
+                (gPlayerState.heldObject == 0) && (gPlayerState.jumpStatus == 0)) {
                 this->actionDelay++;
             } else {
                 this->actionDelay = 0;
@@ -78,12 +78,12 @@ void sub_080917DC(Entity* this) {
         if ((this->entityType).parameter == 0) {
             if (8 < this->actionDelay) {
                 this->action = this->action + 1;
-                gLinkState.jumpStatus = 0x81;
-                gLinkState.flags.all |= 0x4000000;
-                gLinkEntity.field_0x20 = 0x20000;
-                gLinkEntity.nonPlanarMovement = 0x100;
-                gLinkEntity.flags &= 0x7f;
-                ResetLink();
+                gPlayerState.jumpStatus = 0x81;
+                gPlayerState.flags.all |= 0x4000000;
+                gPlayerEntity.field_0x20 = 0x20000;
+                gPlayerEntity.nonPlanarMovement = 0x100;
+                gPlayerEntity.flags &= 0x7f;
+                ResetPlayer();
                 sub_0807A108();
                 PlaySFX(0x7c);
             }
@@ -95,21 +95,21 @@ void sub_080917DC(Entity* this) {
 
 void sub_080918A4(Entity *this)
 {
-  if (sub_080041A0(this, &gLinkEntity, 2, 2) != 0) {
-    gLinkEntity.x.HALF.HI = this->x.HALF.HI;
-    gLinkEntity.y.HALF.HI = this->y.HALF.HI;
-    if (gLinkEntity.height.HALF.HI > -0x10) {
-      if ((s32)gLinkEntity.field_0x20 > -1) {
+  if (sub_080041A0(this, &gPlayerEntity, 2, 2) != 0) {
+    gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
+    gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
+    if (gPlayerEntity.height.HALF.HI > -0x10) {
+      if ((s32)gPlayerEntity.field_0x20 > -1) {
         return;
       }
-      gLinkEntity.animationState = this->animationState << 1;
-      gLinkState.flags.all = (gLinkState.flags.all ^ 0x4000000) | 0x1000;
+      gPlayerEntity.animationState = this->animationState << 1;
+      gPlayerState.flags.all = (gPlayerState.flags.all ^ 0x4000000) | 0x1000;
       this->action++;
       this->field_0xf = 1;
       this->flags |= 0x20;
       this->damageType = 0x97;
-      this->field_0x3c = (gLinkEntity.field_0x3c + 1) | 0x20;
-      this->flags2 = gLinkEntity.flags2;
+      this->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x20;
+      this->flags2 = gPlayerEntity.flags2;
       this->field_0x40 = 0x18;
       this->field_0x44 = 8;
       sub_0801766C(this);
@@ -118,10 +118,10 @@ void sub_080918A4(Entity *this)
     }
   }
   else {
-    gLinkEntity.direction = GetFacingDirection(&gLinkEntity, this);
+    gPlayerEntity.direction = GetFacingDirection(&gPlayerEntity, this);
   }
-  if (gLinkEntity.field_0x20 < 0) {
-    gLinkEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
+  if (gPlayerEntity.field_0x20 < 0) {
+    gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
   }
 }
 
@@ -131,25 +131,25 @@ void sub_080919AC(Entity *this)
     u32 uVar3;
 
     gRoomControls.unk5 = 7;
-    if ((gLinkState.flags.all & 0x1000) == 0) {
+    if ((gPlayerState.flags.all & 0x1000) == 0) {
         this->action = 1;
         return;
     }
 
-    if ((gLinkEntity.frames.all & 0xf) == 0) {
+    if ((gPlayerEntity.frames.all & 0xf) == 0) {
         this->flags = this->flags & 0x7f;
-        CopyPosition(this,&gLinkEntity);
-        if ((gLinkEntity.frames.all & 0xf0) == 0x10) {
+        CopyPosition(this,&gPlayerEntity);
+        if ((gPlayerEntity.frames.all & 0xf0) == 0x10) {
             this->spriteOffsetY = 1;
         } else {
             this->spriteOffsetY = 0;
         }
     } else {
         this->flags = this->flags | 0x80;
-        gLinkEntity.nonPlanarMovement = 0;
+        gPlayerEntity.nonPlanarMovement = 0;
         sub_0806F69C(this);
-        CopyPosition(this,&gLinkEntity);
-        gLinkEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
+        CopyPosition(this,&gPlayerEntity);
+        gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
         if (!sub_08091DDC(this)) {
             if ((gScreenTransition.frameCount & 0xf) == 0) {
                 PlaySFX(0x138);
@@ -175,13 +175,13 @@ void sub_080919AC(Entity *this)
                         this->flags2 = 0x80;
                         this->action = 6;
                         sub_08017744(this);
-                        gLinkState.jumpStatus = 0x41;
-                        gLinkState.flags.all = (gLinkState.flags.all ^ 0x1000) | 0x4000000;
-                        gLinkEntity.field_0x20 = 0x20000;
-                        gLinkEntity.nonPlanarMovement = 0x200;
-                        gLinkEntity.animationState = this->animationState << 1;
-                        gLinkEntity.direction = this->direction;
-                        gLinkEntity.flags |= 0x80;
+                        gPlayerState.jumpStatus = 0x41;
+                        gPlayerState.flags.all = (gPlayerState.flags.all ^ 0x1000) | 0x4000000;
+                        gPlayerEntity.field_0x20 = 0x20000;
+                        gPlayerEntity.nonPlanarMovement = 0x200;
+                        gPlayerEntity.animationState = this->animationState << 1;
+                        gPlayerEntity.direction = this->direction;
+                        gPlayerEntity.flags |= 0x80;
                         sub_08004168(this);
                         InitAnimationForceUpdate(this, this->animationState + 0xc);
                         PlaySFX(0x78);
@@ -197,14 +197,14 @@ void sub_080919AC(Entity *this)
                     case 0x6f:
                         if (uVar3 == sub_080002B8(this)) {
                             sub_08091C0C(this);
-                            gLinkEntity.animationState = this->animationState << 1;
+                            gPlayerEntity.animationState = this->animationState << 1;
                             return;
                         }
                         break;
                 }
             }
 
-            gLinkEntity.animationState = this->animationState << 1;
+            gPlayerEntity.animationState = this->animationState << 1;
             if (this->animIndex == this->animationState) {
                 UpdateAnimationSingleFrame(this);
             }

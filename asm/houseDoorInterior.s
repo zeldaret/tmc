@@ -116,12 +116,12 @@ _08092C20:
 	bl sub_0806ED9C
 	cmp r0, #0
 	blt _08092C78
-	ldr r1, _08092C6C @ =gLinkEntity
+	ldr r1, _08092C6C @ =gPlayerEntity
 	ldrh r0, [r5]
 	ldrb r1, [r1, #0x14]
 	cmp r0, r1
 	bne _08092C78
-	ldr r0, _08092C70 @ =gLinkState
+	ldr r0, _08092C70 @ =gPlayerState
 	adds r0, #0x90
 	ldrh r1, [r0]
 	ldrh r0, [r5, #2]
@@ -133,8 +133,8 @@ _08092C20:
 	b _08092C76
 	.align 2, 0
 _08092C68: .4byte gUnk_081227CC
-_08092C6C: .4byte gLinkEntity
-_08092C70: .4byte gLinkState
+_08092C6C: .4byte gPlayerEntity
+_08092C70: .4byte gPlayerState
 _08092C74:
 	movs r0, #8
 _08092C76:

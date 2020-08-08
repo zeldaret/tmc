@@ -23,7 +23,7 @@ sub_0809EE44: @ 0x0809EE44
 	bne _0809EE60
 	b _0809EF74
 _0809EE60:
-	ldr r4, _0809EEA4 @ =gLinkEntity
+	ldr r4, _0809EEA4 @ =gPlayerEntity
 	adds r0, r5, #0
 	adds r1, r4, #0
 	bl sub_0809EF78
@@ -56,7 +56,7 @@ _0809EE88:
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_0809EEA4: .4byte gLinkEntity
+_0809EEA4: .4byte gPlayerEntity
 _0809EEA8: .4byte gUnk_03003D80
 _0809EEAC: .4byte _0809EEB0
 _0809EEB0: @ jump table
@@ -98,7 +98,7 @@ _0809EF1E:
 	beq _0809EF52
 	b _0809EF56
 _0809EF26:
-	ldr r2, _0809EF44 @ =gLinkEntity
+	ldr r2, _0809EF44 @ =gPlayerEntity
 	movs r7, #0x2e
 	ldrsh r1, [r4, r7]
 	movs r7, #0x2e
@@ -113,7 +113,7 @@ _0809EF26:
 	beq _0809EF52
 	b _0809EF56
 	.align 2, 0
-_0809EF44: .4byte gLinkEntity
+_0809EF44: .4byte gPlayerEntity
 _0809EF48:
 	ldrb r0, [r5, #0xf]
 	cmp r0, #0

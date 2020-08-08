@@ -46,7 +46,7 @@ _0805D4D2:
 	lsls r0, r0, #6
 	orrs r1, r0
 	strh r1, [r6, #0x28]
-	ldr r4, _0805D518 @ =gLinkEntity
+	ldr r4, _0805D518 @ =gPlayerEntity
 	movs r0, #0x2e
 	ldrsh r1, [r4, r0]
 	ldr r2, _0805D51C @ =gRoomControls
@@ -66,10 +66,10 @@ _0805D4D2:
 	strh r1, [r6, #0x2c]
 	b _0805D628
 	.align 2, 0
-_0805D518: .4byte gLinkEntity
+_0805D518: .4byte gPlayerEntity
 _0805D51C: .4byte gRoomControls
 _0805D520:
-	ldr r4, _0805D568 @ =gLinkEntity
+	ldr r4, _0805D568 @ =gPlayerEntity
 	movs r1, #0x2e
 	ldrsh r0, [r4, r1]
 	ldr r3, _0805D56C @ =gRoomControls
@@ -104,7 +104,7 @@ _0805D520:
 	beq _0805D580
 	b _0805D5A4
 	.align 2, 0
-_0805D568: .4byte gLinkEntity
+_0805D568: .4byte gPlayerEntity
 _0805D56C: .4byte gRoomControls
 _0805D570: .4byte 0x00000317
 _0805D574:

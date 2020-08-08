@@ -37,7 +37,7 @@ sub_080677EC: @ 0x080677EC
 	adds r1, #0x2e
 	movs r0, #0xff
 	strb r0, [r1]
-	ldr r0, _0806783C @ =gLinkEntity
+	ldr r0, _0806783C @ =gPlayerEntity
 	movs r2, #0x2e
 	ldrsh r1, [r4, r2]
 	movs r2, #0x2e
@@ -49,7 +49,7 @@ sub_080677EC: @ 0x080677EC
 	orrs r0, r1
 	b _08067848
 	.align 2, 0
-_0806783C: .4byte gLinkEntity
+_0806783C: .4byte gPlayerEntity
 _08067840:
 	ldrb r1, [r4, #0x18]
 	movs r0, #0x41
@@ -500,7 +500,7 @@ sub_08067B80: @ 0x08067B80
 	bl InitAnimationForceUpdate
 	adds r0, r5, #0
 	bl sub_08067DDC
-	ldr r0, _08067BC4 @ =gLinkEntity
+	ldr r0, _08067BC4 @ =gPlayerEntity
 	movs r2, #0x2e
 	ldrsh r1, [r5, r2]
 	movs r2, #0x2e
@@ -512,7 +512,7 @@ sub_08067B80: @ 0x08067B80
 	orrs r0, r1
 	b _08067BD0
 	.align 2, 0
-_08067BC4: .4byte gLinkEntity
+_08067BC4: .4byte gPlayerEntity
 _08067BC8:
 	ldrb r1, [r5, #0x18]
 	movs r0, #0x41
@@ -533,7 +533,7 @@ sub_08067BD4: @ 0x08067BD4
 	movs r1, #0x2e
 	ldrsh r0, [r2, r1]
 	subs r0, #4
-	ldr r1, _08067BF8 @ =gLinkEntity
+	ldr r1, _08067BF8 @ =gPlayerEntity
 	movs r4, #0x2e
 	ldrsh r1, [r1, r4]
 	cmp r0, r1
@@ -543,12 +543,12 @@ sub_08067BD4: @ 0x08067BD4
 	ands r0, r3
 	b _08067C10
 	.align 2, 0
-_08067BF8: .4byte gLinkEntity
+_08067BF8: .4byte gPlayerEntity
 _08067BFC:
 	movs r1, #0x2e
 	ldrsh r0, [r2, r1]
 	adds r0, #4
-	ldr r1, _08067C14 @ =gLinkEntity
+	ldr r1, _08067C14 @ =gPlayerEntity
 	movs r4, #0x2e
 	ldrsh r1, [r1, r4]
 	cmp r0, r1
@@ -560,7 +560,7 @@ _08067C10:
 _08067C12:
 	pop {r4, pc}
 	.align 2, 0
-_08067C14: .4byte gLinkEntity
+_08067C14: .4byte gPlayerEntity
 
 	thumb_func_start sub_08067C18
 sub_08067C18: @ 0x08067C18
@@ -591,7 +591,7 @@ sub_08067C24: @ 0x08067C24
 sub_08067C44: @ 0x08067C44
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r0, _08067C6C @ =gLinkState
+	ldr r0, _08067C6C @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -608,7 +608,7 @@ sub_08067C44: @ 0x08067C44
 	bl sub_08078778
 	b _08067C7C
 	.align 2, 0
-_08067C6C: .4byte gLinkState
+_08067C6C: .4byte gPlayerState
 _08067C70:
 	adds r0, r4, #0
 	adds r0, #0x68
@@ -625,7 +625,7 @@ _08067C7C:
 	adds r5, r0, #0
 	cmp r1, #0
 	beq _08067D1C
-	ldr r1, _08067CB4 @ =gLinkEntity
+	ldr r1, _08067CB4 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl sub_0806FCA0
 	adds r2, r0, #0
@@ -644,7 +644,7 @@ _08067CA6:
 	bl InitAnimationForceUpdate
 	b _08067CEC
 	.align 2, 0
-_08067CB4: .4byte gLinkEntity
+_08067CB4: .4byte gPlayerEntity
 _08067CB8:
 	cmp r2, #1
 	bne _08067CC4

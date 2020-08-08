@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 #include "room.h"
 #include "flags.h"
 #include "sprite.h"
@@ -28,7 +28,7 @@ void Anju(Entity *this)
             if (this->interactType == 2) {
                 this->action = 2;
                 this->interactType = 0;
-                InitializeAnimation(this,(this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
+                InitializeAnimation(this,(this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
                 sub_0806F118(this);
             } else {
                 sub_0807DD94(this, 0);

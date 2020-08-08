@@ -174,7 +174,7 @@ _080A132E:
 	mov r0, sb
 	adds r0, #0x6a
 	strh r6, [r0]
-	ldr r0, _080A136C @ =gLinkState
+	ldr r0, _080A136C @ =gPlayerState
 	adds r0, #0x27
 	movs r1, #0xff
 	strb r1, [r0]
@@ -191,7 +191,7 @@ _080A132E:
 	bl sub_08050384
 	b _080A1376
 	.align 2, 0
-_080A136C: .4byte gLinkState
+_080A136C: .4byte gPlayerState
 _080A1370:
 	ldr r1, _080A1384 @ =gUnk_02033280
 	movs r0, #0

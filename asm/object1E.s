@@ -32,7 +32,7 @@ sub_08087528: @ 0x08087528
 	adds r4, r0, #0
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	ldr r0, _08087590 @ =gLinkEntity
+	ldr r0, _08087590 @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsrs r0, r0, #1
 	strb r0, [r4, #0x14]
@@ -81,7 +81,7 @@ _08087588:
 	bl sub_08087640
 	b _080875DC
 	.align 2, 0
-_08087590: .4byte gLinkEntity
+_08087590: .4byte gPlayerEntity
 _08087594:
 	ldr r0, _080875B4 @ =gArea
 	ldrb r0, [r0, #1]
@@ -151,7 +151,7 @@ _0808760E:
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	beq _08087638
-	ldr r0, _0808763C @ =gLinkEntity
+	ldr r0, _0808763C @ =gPlayerEntity
 	adds r0, #0x29
 	ldrb r1, [r0]
 	lsls r1, r1, #0x1d
@@ -172,7 +172,7 @@ _0808760E:
 _08087638:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0808763C: .4byte gLinkEntity
+_0808763C: .4byte gPlayerEntity
 
 	thumb_func_start sub_08087640
 sub_08087640: @ 0x08087640

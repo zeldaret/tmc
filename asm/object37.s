@@ -67,7 +67,7 @@ sub_0808BE2C: @ 0x0808BE2C
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0808BE6C
-	ldr r0, _0808BE80 @ =gLinkEntity
+	ldr r0, _0808BE80 @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsls r0, r0, #2
 	strb r0, [r1, #0x15]
@@ -85,4 +85,4 @@ _0808BE74:
 	.align 2, 0
 _0808BE78: .4byte gUnk_02002A40
 _0808BE7C: .4byte 0x0000024E
-_0808BE80: .4byte gLinkEntity
+_0808BE80: .4byte gPlayerEntity

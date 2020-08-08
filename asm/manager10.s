@@ -368,7 +368,7 @@ _08059840: .4byte gBG1Settings
 sub_08059844: @ 0x08059844
 	push {lr}
 	movs r3, #0
-	ldr r0, _08059864 @ =gLinkEntity
+	ldr r0, _08059864 @ =gPlayerEntity
 	movs r2, #0x2e
 	ldrsh r1, [r0, r2]
 	ldr r2, _08059868 @ =gRoomControls
@@ -383,14 +383,14 @@ _0805985E:
 	adds r0, r3, #0
 	pop {pc}
 	.align 2, 0
-_08059864: .4byte gLinkEntity
+_08059864: .4byte gPlayerEntity
 _08059868: .4byte gRoomControls
 
 	thumb_func_start sub_0805986C
 sub_0805986C: @ 0x0805986C
 	push {lr}
 	movs r2, #0
-	ldr r0, _0805988C @ =gLinkEntity
+	ldr r0, _0805988C @ =gPlayerEntity
 	movs r3, #0x2e
 	ldrsh r1, [r0, r3]
 	ldr r0, _08059890 @ =gRoomControls
@@ -405,7 +405,7 @@ _08059886:
 	adds r0, r2, #0
 	pop {pc}
 	.align 2, 0
-_0805988C: .4byte gLinkEntity
+_0805988C: .4byte gPlayerEntity
 _08059890: .4byte gRoomControls
 
 	thumb_func_start sub_08059894

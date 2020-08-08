@@ -234,7 +234,7 @@ _0802FCC6:
 	strb r0, [r2, #0x18]
 	b _0802FDCA
 _0802FCDE:
-	ldr r1, _0802FD14 @ =gLinkEntity
+	ldr r1, _0802FD14 @ =gPlayerEntity
 	adds r0, r4, #0
 	movs r2, #0xa0
 	movs r3, #0xa0
@@ -258,7 +258,7 @@ _0802FCDE:
 	strb r0, [r2, #0x15]
 	b _0802FDCA
 	.align 2, 0
-_0802FD14: .4byte gLinkEntity
+_0802FD14: .4byte gPlayerEntity
 _0802FD18:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1

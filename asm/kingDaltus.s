@@ -24,7 +24,7 @@ KingDaltus: @ 0x080665E4
 	movs r0, #0
 	strb r0, [r2]
 	strb r1, [r4, #0xc]
-	ldr r1, _08066630 @ =gLinkEntity
+	ldr r1, _08066630 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	bl sub_0806F5A4
@@ -43,7 +43,7 @@ _0806661E:
 	bl _call_via_r1
 	b _0806664E
 	.align 2, 0
-_08066630: .4byte gLinkEntity
+_08066630: .4byte gPlayerEntity
 _08066634: .4byte gUnk_081104EC
 _08066638:
 	ldr r0, _08066650 @ =gUnk_081104E0

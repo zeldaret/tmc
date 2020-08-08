@@ -503,7 +503,7 @@ _0807BD90:
 _0807BD96:
 	strh r0, [r2, #4]
 _0807BD98:
-	ldr r2, _0807BDB0 @ =gLinkEntity
+	ldr r2, _0807BDB0 @ =gPlayerEntity
 	ldrb r1, [r2, #0x11]
 	movs r0, #0x10
 	rsbs r0, r0, #0
@@ -515,7 +515,7 @@ _0807BD98:
 	movs r0, #1
 	b _0807BDB6
 	.align 2, 0
-_0807BDB0: .4byte gLinkEntity
+_0807BDB0: .4byte gPlayerEntity
 _0807BDB4:
 	movs r0, #0
 _0807BDB6:
@@ -1823,7 +1823,7 @@ sub_0807C810: @ 0x0807C810
 	push {r4, r5, r6, lr}
 	bl sub_0807BFD0
 	ldr r2, _0807C850 @ =gUnk_03004030
-	ldr r6, _0807C854 @ =gLinkEntity
+	ldr r6, _0807C854 @ =gPlayerEntity
 	ldr r4, _0807C858 @ =gRoomControls
 	ldr r3, [r2]
 	ldrh r1, [r3, #6]
@@ -1852,7 +1852,7 @@ sub_0807C810: @ 0x0807C810
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0807C850: .4byte gUnk_03004030
-_0807C854: .4byte gLinkEntity
+_0807C854: .4byte gPlayerEntity
 _0807C858: .4byte gRoomControls
 _0807C85C: .4byte gUnk_02000070
 

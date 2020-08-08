@@ -18,7 +18,7 @@ sub_0805DAE8: @ 0x0805DAE8
 	lsls r1, r1, #1
 	mov r8, r1
 	add r0, r8
-	ldr r3, _0805DB50 @ =gLinkEntity
+	ldr r3, _0805DB50 @ =gPlayerEntity
 	movs r4, #0x2e
 	ldrsh r1, [r3, r4]
 	subs r0, r0, r1
@@ -45,7 +45,7 @@ sub_0805DAE8: @ 0x0805DAE8
 	rsbs r0, r0, #0
 	cmp r1, r0
 	bge _0805DB88
-	ldr r0, _0805DB54 @ =gLinkState
+	ldr r0, _0805DB54 @ =gPlayerState
 	adds r0, #0xa8
 	ldrb r0, [r0]
 	cmp r0, #0x14
@@ -59,8 +59,8 @@ sub_0805DAE8: @ 0x0805DAE8
 	b _0805DB88
 	.align 2, 0
 _0805DB4C: .4byte gRoomControls
-_0805DB50: .4byte gLinkEntity
-_0805DB54: .4byte gLinkState
+_0805DB50: .4byte gPlayerEntity
+_0805DB54: .4byte gPlayerState
 _0805DB58:
 	ldrb r0, [r2, #0xe]
 	subs r0, #1

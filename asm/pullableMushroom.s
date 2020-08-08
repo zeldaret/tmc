@@ -603,7 +603,7 @@ _0808AE80:
 sub_0808AE84: @ 0x0808AE84
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _0808AEA8 @ =gLinkState
+	ldr r0, _0808AEA8 @ =gPlayerState
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	bne _0808AE94
@@ -620,7 +620,7 @@ _0808AE94:
 	bl _call_via_r1
 	pop {pc}
 	.align 2, 0
-_0808AEA8: .4byte gLinkState
+_0808AEA8: .4byte gPlayerState
 _0808AEAC: .4byte gUnk_081211DC
 
 	thumb_func_start sub_0808AEB0
@@ -634,7 +634,7 @@ sub_0808AEB0: @ 0x0808AEB0
 	adds r0, r4, #0
 	bl sub_0808B1F0
 	adds r6, r0, #0
-	ldr r5, _0808AF10 @ =gLinkState
+	ldr r5, _0808AF10 @ =gPlayerState
 	adds r2, r5, #0
 	adds r2, #0x90
 	ldr r1, _0808AF14 @ =gUnk_081211E4
@@ -650,7 +650,7 @@ sub_0808AEB0: @ 0x0808AEB0
 	bl GetNextFrame
 	cmp r6, #0x3f
 	bhi _0808AF08
-	ldr r0, _0808AF18 @ =gLinkEntity
+	ldr r0, _0808AF18 @ =gPlayerEntity
 	ldrb r2, [r4, #0x15]
 	movs r1, #0x40
 	bl sub_080044AE
@@ -670,15 +670,15 @@ _0808AF08:
 	strb r0, [r4, #0xf]
 	b _0808AFD0
 	.align 2, 0
-_0808AF10: .4byte gLinkState
+_0808AF10: .4byte gPlayerState
 _0808AF14: .4byte gUnk_081211E4
-_0808AF18: .4byte gLinkEntity
+_0808AF18: .4byte gPlayerEntity
 _0808AF1C: .4byte 0x0000012F
 _0808AF20:
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
 	beq _0808AFD0
-	ldr r2, _0808AF64 @ =gLinkEntity
+	ldr r2, _0808AF64 @ =gPlayerEntity
 	ldrb r0, [r2, #0xc]
 	cmp r0, #1
 	bne _0808AFD0
@@ -709,12 +709,12 @@ _0808AF20:
 	strb r0, [r4, #0xd]
 	b _0808AFD0
 	.align 2, 0
-_0808AF64: .4byte gLinkEntity
+_0808AF64: .4byte gPlayerEntity
 _0808AF68:
 	movs r6, #1
 	strb r6, [r4, #0xe]
 	str r6, [r4, #0x7c]
-	ldr r5, _0808AFC8 @ =gLinkEntity
+	ldr r5, _0808AFC8 @ =gPlayerEntity
 	ldrb r0, [r5, #0x14]
 	lsrs r0, r0, #1
 	movs r1, #2
@@ -757,7 +757,7 @@ _0808AFB6:
 	strh r0, [r5, #0x32]
 	b _0808AFD0
 	.align 2, 0
-_0808AFC8: .4byte gLinkEntity
+_0808AFC8: .4byte gPlayerEntity
 _0808AFCC:
 	ldrh r0, [r4, #0x2e]
 	strh r0, [r5, #0x2e]
@@ -792,7 +792,7 @@ sub_0808AFF0: @ 0x0808AFF0
 	ldr r1, [r0]
 	adds r0, r4, #0
 	bl _call_via_r1
-	ldr r0, _0808B058 @ =gLinkState
+	ldr r0, _0808B058 @ =gPlayerState
 	ldrb r1, [r0, #0x1c]
 	movs r0, #0xf
 	ands r0, r1
@@ -834,7 +834,7 @@ _0808B050:
 	pop {r4, r5, pc}
 	.align 2, 0
 _0808B054: .4byte gUnk_081211EC
-_0808B058: .4byte gLinkState
+_0808B058: .4byte gPlayerState
 
 	thumb_func_start sub_0808B05C
 sub_0808B05C: @ 0x0808B05C
@@ -843,7 +843,7 @@ sub_0808B05C: @ 0x0808B05C
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _0808B0AE
-	ldr r2, _0808B0B8 @ =gLinkEntity
+	ldr r2, _0808B0B8 @ =gPlayerEntity
 	ldrb r0, [r2, #0x14]
 	lsrs r0, r0, #1
 	movs r1, #2
@@ -882,7 +882,7 @@ _0808B0AE:
 	strb r0, [r4, #0xd]
 	pop {r4, pc}
 	.align 2, 0
-_0808B0B8: .4byte gLinkEntity
+_0808B0B8: .4byte gPlayerEntity
 
 	thumb_func_start sub_0808B0BC
 sub_0808B0BC: @ 0x0808B0BC
@@ -903,7 +903,7 @@ _0808B0D6:
 	bl GetNextFrame
 	b _0808B162
 _0808B0DE:
-	ldr r6, _0808B148 @ =gLinkEntity
+	ldr r6, _0808B148 @ =gPlayerEntity
 	ldrb r0, [r6, #0x14]
 	movs r1, #0xe
 	ands r1, r0
@@ -930,7 +930,7 @@ _0808B0DE:
 	ldrb r0, [r6, #0xc]
 	cmp r0, #1
 	bne _0808B162
-	ldr r4, _0808B150 @ =gLinkState
+	ldr r4, _0808B150 @ =gPlayerState
 	adds r0, r4, #0
 	adds r0, #0x26
 	ldrb r0, [r0]
@@ -955,9 +955,9 @@ _0808B0DE:
 	strb r0, [r1]
 	b _0808B162
 	.align 2, 0
-_0808B148: .4byte gLinkEntity
+_0808B148: .4byte gPlayerEntity
 _0808B14C: .4byte gUnk_08126EE4
-_0808B150: .4byte gLinkState
+_0808B150: .4byte gPlayerState
 _0808B154:
 	movs r0, #0x40
 	strh r0, [r5, #0x24]
@@ -994,7 +994,7 @@ _0808B188:
 	ands r0, r1
 	cmp r0, #0
 	beq _0808B1B8
-	ldr r5, _0808B1AC @ =gLinkEntity
+	ldr r5, _0808B1AC @ =gPlayerEntity
 	ldr r4, [r3, #0x50]
 	ldrb r1, [r3, #0x14]
 	lsls r2, r1, #1
@@ -1007,12 +1007,12 @@ _0808B188:
 	adds r1, r1, r0
 	b _0808B1CE
 	.align 2, 0
-_0808B1AC: .4byte gLinkEntity
+_0808B1AC: .4byte gPlayerEntity
 _0808B1B0: .4byte gUnk_081211FC
 _0808B1B4: .4byte gUnk_081211F5
 _0808B1B8:
 	ldr r5, [r3, #0x50]
-	ldr r4, _0808B1E4 @ =gLinkEntity
+	ldr r4, _0808B1E4 @ =gPlayerEntity
 	movs r0, #2
 	eors r0, r1
 	lsls r0, r0, #1
@@ -1035,7 +1035,7 @@ _0808B1CE:
 	strh r0, [r3, #0x32]
 	pop {r4, r5, pc}
 	.align 2, 0
-_0808B1E4: .4byte gLinkEntity
+_0808B1E4: .4byte gPlayerEntity
 _0808B1E8: .4byte gUnk_081211F4
 _0808B1EC: .4byte gUnk_081211FD
 

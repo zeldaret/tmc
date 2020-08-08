@@ -11,7 +11,7 @@
 	push {r7}
 	adds r4, r0, #0
 	mov r8, r1
-	ldr r3, _08077D94 @ =gLinkState
+	ldr r3, _08077D94 @ =gPlayerState
 	movs r7, #8
 	adds r1, r7, #0
 	mov r0, r8
@@ -23,7 +23,7 @@
 	ldrb r0, [r3, #0xb]
 	orrs r1, r0
 	strb r1, [r3, #0xb]
-	ldr r0, _08077D98 @ =gLinkEntity
+	ldr r0, _08077D98 @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	strb r0, [r4, #0xa]
 	ldrb r0, [r4, #4]
@@ -53,8 +53,8 @@ _08077D6A:
 	beq _08077DAC
 	b _08077DB4
 	.align 2, 0
-_08077D94: .4byte gLinkState
-_08077D98: .4byte gLinkEntity
+_08077D94: .4byte gPlayerState
+_08077D98: .4byte gPlayerEntity
 _08077D9C: .4byte gUnk_0811BE48
 _08077DA0:
 	cmp r2, #0x1b
@@ -86,7 +86,7 @@ _08077DCC:
 	ldrb r0, [r5, #7]
 	cmp r0, #0
 	beq _08077DE8
-	ldr r2, _08077DF0 @ =gLinkState
+	ldr r2, _08077DF0 @ =gPlayerState
 	movs r0, #8
 	mov r1, r8
 	asrs r0, r1
@@ -100,5 +100,5 @@ _08077DE8:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08077DF0: .4byte gLinkState
+_08077DF0: .4byte gPlayerState
     .syntax divided

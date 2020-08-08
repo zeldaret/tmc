@@ -350,7 +350,7 @@ _0809DC3C:
 	ldrb r0, [r4, #0xc]
 	adds r0, #1
 	strb r0, [r4, #0xc]
-	ldr r0, _0809DC64 @ =gLinkEntity
+	ldr r0, _0809DC64 @ =gPlayerEntity
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r4, #0
@@ -366,7 +366,7 @@ _0809DC5A:
 	bl sub_0809DB88
 	pop {r4, pc}
 	.align 2, 0
-_0809DC64: .4byte gLinkEntity
+_0809DC64: .4byte gPlayerEntity
 
 	thumb_func_start sub_0809DC68
 sub_0809DC68: @ 0x0809DC68
@@ -923,7 +923,7 @@ sub_0809E0A0: @ 0x0809E0A0
 	str r4, [r5, #0x54]
 	movs r0, #0
 	strb r0, [r5, #0xf]
-	ldr r0, _0809E0CC @ =gLinkEntity
+	ldr r0, _0809E0CC @ =gPlayerEntity
 	adds r1, r4, #0
 	bl CopyPosition
 	ldr r0, _0809E0D0 @ =0x0000FFF8
@@ -931,7 +931,7 @@ sub_0809E0A0: @ 0x0809E0A0
 _0809E0C8:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0809E0CC: .4byte gLinkEntity
+_0809E0CC: .4byte gPlayerEntity
 _0809E0D0: .4byte 0x0000FFF8
 
 	thumb_func_start sub_0809E0D4
@@ -956,7 +956,7 @@ sub_0809E0D4: @ 0x0809E0D4
 	.align 2, 0
 _0809E0F8: .4byte gUnk_02033280
 _0809E0FC:
-	ldr r1, _0809E124 @ =gLinkEntity
+	ldr r1, _0809E124 @ =gPlayerEntity
 _0809E0FE:
 	ldrb r0, [r6, #0x18]
 	adds r0, #1
@@ -975,7 +975,7 @@ _0809E0FE:
 	strb r4, [r0, #6]
 	b _0809E1BC
 	.align 2, 0
-_0809E124: .4byte gLinkEntity
+_0809E124: .4byte gPlayerEntity
 _0809E128: .4byte 0x00000123
 _0809E12C: .4byte gUnk_02033280
 _0809E130:
@@ -1106,21 +1106,21 @@ _0809E208:
 sub_0809E210: @ 0x0809E210
 	push {r4, lr}
 	adds r1, r0, #0
-	ldr r4, _0809E230 @ =gLinkEntity
+	ldr r4, _0809E230 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	bl sub_0806F5B0
 	movs r1, #0xfe
 	ands r0, r1
 	strb r0, [r4, #0x14]
-	ldr r1, _0809E234 @ =gLinkState
+	ldr r1, _0809E234 @ =gPlayerState
 	movs r0, #0x80
 	lsls r0, r0, #1
 	strh r0, [r1, #8]
 	pop {r4, pc}
 	.align 2, 0
-_0809E230: .4byte gLinkEntity
-_0809E234: .4byte gLinkState
+_0809E230: .4byte gPlayerEntity
+_0809E234: .4byte gPlayerState
 
 	thumb_func_start sub_0809E238
 sub_0809E238: @ 0x0809E238
@@ -1204,7 +1204,7 @@ sub_0809E2C4: @ 0x0809E2C4
 	lsls r1, r1, #2
 	ldr r0, _0809E328 @ =gUnk_08124178
 	adds r1, r1, r0
-	ldr r3, _0809E32C @ =gLinkEntity
+	ldr r3, _0809E32C @ =gPlayerEntity
 	movs r0, #0x2e
 	ldrsh r5, [r3, r0]
 	ldr r4, _0809E330 @ =gRoomControls
@@ -1253,7 +1253,7 @@ _0809E2EE:
 	b _0809E346
 	.align 2, 0
 _0809E328: .4byte gUnk_08124178
-_0809E32C: .4byte gLinkEntity
+_0809E32C: .4byte gPlayerEntity
 _0809E330: .4byte gRoomControls
 _0809E334: .4byte gUnk_08124158
 _0809E338:

@@ -449,7 +449,7 @@ sub_080847E0: @ 0x080847E0
 	bne _080847F0
 	bl DeleteThisEntity
 _080847F0:
-	ldr r4, _08084818 @ =gLinkEntity
+	ldr r4, _08084818 @ =gPlayerEntity
 	ldr r3, _0808481C @ =0xFFFD0000
 	adds r0, r4, #0
 	adds r1, r5, #0
@@ -465,6 +465,6 @@ _080847F0:
 	pop {r4, r5, pc}
 	.align 2, 0
 _08084814: .4byte gRoomControls
-_08084818: .4byte gLinkEntity
+_08084818: .4byte gPlayerEntity
 _0808481C: .4byte 0xFFFD0000
 _08084820: .4byte 0x0000FFFD

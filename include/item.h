@@ -3,7 +3,7 @@
 
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 
 void extern DebugItem(ItemBehavior*, u32);
 void extern Sword(ItemBehavior*, u32);

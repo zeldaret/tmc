@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 #include "flags.h"
 
 extern u32 sub_080041A0(Entity*, Entity*, u32, u32);
@@ -58,7 +58,7 @@ void sub_08099E58(Entity *this)
 
 void sub_08099E8C(Entity *this)
 {
-  if (sub_080041A0(this, &gLinkEntity, 0xc, 0xc)) {
+  if (sub_080041A0(this, &gPlayerEntity, 0xc, 0xc)) {
     if (this->previousActionFlag == 0) {
       sub_08099ECC(this);
       sub_0805E4E0(this, 0x1e);
@@ -74,8 +74,8 @@ void nullsub_534(Entity* this) {}
 void sub_08099ECC(Entity *this)
 {
   this->previousActionFlag = 1;
-  CopyPosition(this, &gLinkEntity);
-  gLinkState.linkAction = 3;
-  gLinkState.field_0x34[4] = 0;
-  gLinkState.flags.all |= 0x8000;
+  CopyPosition(this, &gPlayerEntity);
+  gPlayerState.playerAction = 3;
+  gPlayerState.field_0x34[4] = 0;
+  gPlayerState.flags.all |= 0x8000;
 }

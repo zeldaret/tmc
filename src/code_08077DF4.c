@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 #include "functions.h"
 
 typedef struct {
@@ -18,29 +18,29 @@ void sub_08077DF4(Entity *ent, u32 arg1)
   if ((arg1 & 0xff) > 0xb8) {
     arg1 += (ent->entityType).form >> 1;
   }
-  gLinkEntity.spriteIndex = (short)(arg1 >> 8);
-  InitAnimationForceUpdate(&gLinkEntity, (u8)arg1);
+  gPlayerEntity.spriteIndex = (short)(arg1 >> 8);
+  InitAnimationForceUpdate(&gPlayerEntity, (u8)arg1);
   sub_08077E54(ent);
 }
 
 void UpdateItemAnim(Entity *ent)
 {
-  UpdateAnimationSingleFrame(&gLinkEntity);
+  UpdateAnimationSingleFrame(&gPlayerEntity);
   sub_08077E54(ent);
 }
 
 void sub_08077E3C(Entity *ent)
 {
-  sub_080042BA(&gLinkEntity);
+  sub_080042BA(&gPlayerEntity);
   sub_08077E54(ent);
 }
 
 void sub_08077E54(Entity *ent)
 {
-  ent->action = gLinkEntity.animIndex;
-  *(u8 *)&ent->spriteIndex = gLinkEntity.frameIndex;
-  ent->previousActionFlag = gLinkEntity.frameDuration;
-  ent->actionDelay = gLinkEntity.frames.all;
+  ent->action = gPlayerEntity.animIndex;
+  *(u8 *)&ent->spriteIndex = gPlayerEntity.frameIndex;
+  ent->previousActionFlag = gPlayerEntity.frameDuration;
+  ent->actionDelay = gPlayerEntity.frames.all;
 }
 
 void sub_08077E78(void* arg0, u32 bits)
@@ -49,27 +49,27 @@ void sub_08077E78(void* arg0, u32 bits)
   u32 not;
   
     if (bits == 0) {
-        if (gLinkState.field_0x2c != NULL) {
-            ((Unk_bitfield *)gLinkState.field_0x2c)[0x11].b0 = 6;
-            gLinkState.field_0x2c = (u8 *)bits;
+        if (gPlayerState.field_0x2c != NULL) {
+            ((Unk_bitfield *)gPlayerState.field_0x2c)[0x11].b0 = 6;
+            gPlayerState.field_0x2c = (u8 *)bits;
         }
         else {
-            gLinkState.field_0x2c = (u8 *)bits;
+            gPlayerState.field_0x2c = (u8 *)bits;
         }
     }
 
   not = (8 >> bits);
-  gLinkState.field_0x3[1] &= ~((u8)((8 >> bits) << 4) | not);
+  gPlayerState.field_0x3[1] &= ~((u8)((8 >> bits) << 4) | not);
   not = ~not;
-  gLinkState.field_0xa &= not;
-  gLinkState.keepFacing &= not;
+  gPlayerState.field_0xa &= not;
+  gPlayerState.keepFacing &= not;
   _DmaZero(arg0, 0x1c);
 }
 
 u32 sub_08077EC8(Unk_struct* arg0)
 {
   
-  if ((gLinkState.field_0x1a[1] & 8) != 0) {
+  if ((gPlayerState.field_0x1a[1] & 8) != 0) {
     sub_08077DF4((Entity *)arg0,0x170);
     arg0->unk[7] = 0x28;
     arg0->unk[4] = 7;
@@ -83,12 +83,12 @@ u32 sub_08077EC8(Unk_struct* arg0)
 
 void sub_08077EFC(ItemBehavior* arg0)
 {
-  sub_08077F24(arg0, (u16)gLinkState.field_0x90.HALF.LO);
+  sub_08077F24(arg0, (u16)gPlayerState.field_0x90.HALF.LO);
 }
 
 void sub_08077F10(ItemBehavior* arg0)
 {
-  sub_08077F24(arg0, (u16)gLinkState.field_0x90.HALF.HI);
+  sub_08077F24(arg0, (u16)gPlayerState.field_0x90.HALF.HI);
 }
 
 NAKED
@@ -105,7 +105,7 @@ void sub_08077F50(ItemBehavior *beh, u32 arg1)
 u32 sub_08077F64(ItemBehavior* arg0, u32 unk)
 {
     u32 temp;
-    if (gLinkState.heldObject == 0) {
+    if (gPlayerState.heldObject == 0) {
         sub_08077F50(arg0, unk);
         temp = 0;
     }
@@ -119,15 +119,15 @@ void sub_08077F84(void)
 {
   Entity *obj;
   
-  if (((gLinkEntity.collisionLayer & 2) == 0) &&
-     GetTileTypeByPos(gLinkEntity.x.HALF.HI, gLinkEntity.y.HALF.HI - 0xc, 2) - 0x343U < 4) {
-    sub_0807AA80(&gLinkEntity);
-    gLinkState.jumpStatus |= 8;
+  if (((gPlayerEntity.collisionLayer & 2) == 0) &&
+     GetTileTypeByPos(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 0xc, 2) - 0x343U < 4) {
+    sub_0807AA80(&gPlayerEntity);
+    gPlayerState.jumpStatus |= 8;
     obj = CreateObject(0x44, 0, 0);
     if (obj != NULL) {
-      obj->x = gLinkEntity.x;
-      obj->y.HALF.HI = gLinkEntity.y.HALF.HI - 0xc;
-      gLinkEntity.y.HALF.HI -= 0xc;
+      obj->x = gPlayerEntity.x;
+      obj->y.HALF.HI = gPlayerEntity.y.HALF.HI - 0xc;
+      gPlayerEntity.y.HALF.HI -= 0xc;
     }
   }
 }

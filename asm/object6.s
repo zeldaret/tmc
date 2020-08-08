@@ -60,7 +60,7 @@ sub_0808292C: @ 0x0808292C
 	movs r1, #6
 	orrs r0, r1
 	strb r0, [r4, #0x11]
-	ldr r5, _080829C8 @ =gLinkEntity
+	ldr r5, _080829C8 @ =gPlayerEntity
 	ldrb r1, [r5, #0x19]
 	lsrs r1, r1, #6
 	lsls r1, r1, #6
@@ -127,7 +127,7 @@ _080829A4:
 	bl PlaySFX
 	b _080829E2
 	.align 2, 0
-_080829C8: .4byte gLinkEntity
+_080829C8: .4byte gPlayerEntity
 _080829CC:
 	movs r0, #0
 	strb r0, [r4, #0xe]
@@ -146,7 +146,7 @@ _080829E2:
 sub_080829E4: @ 0x080829E4
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r0, _08082A10 @ =gLinkEntity
+	ldr r0, _08082A10 @ =gPlayerEntity
 	ldrb r1, [r0, #0x1a]
 	lsls r1, r1, #0x1c
 	lsrs r1, r1, #0x1c
@@ -166,7 +166,7 @@ sub_080829E4: @ 0x080829E4
 	bl DeleteEntity
 	b _08082AB4
 	.align 2, 0
-_08082A10: .4byte gLinkEntity
+_08082A10: .4byte gPlayerEntity
 _08082A14: .4byte gTextBox
 _08082A18:
 	cmp r1, #5
@@ -256,7 +256,7 @@ _08082AB4:
 sub_08082AB8: @ 0x08082AB8
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r0, _08082B10 @ =gLinkState
+	ldr r0, _08082B10 @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r5, #0x80
 	ands r0, r5
@@ -297,7 +297,7 @@ _08082ACC:
 	str r1, [r4, #0x50]
 	b _08082B18
 	.align 2, 0
-_08082B10: .4byte gLinkState
+_08082B10: .4byte gPlayerState
 _08082B14:
 	ldr r0, [r4, #0x50]
 	str r0, [r1, #0x50]
@@ -379,7 +379,7 @@ sub_08082B9C: @ 0x08082B9C
 	movs r1, #2
 	orrs r0, r1
 	strb r0, [r6, #0x11]
-	ldr r5, _08082C34 @ =gLinkEntity
+	ldr r5, _08082C34 @ =gPlayerEntity
 	ldrb r0, [r5, #0x1a]
 	lsls r0, r0, #0x1c
 	lsrs r0, r0, #0x1c
@@ -442,7 +442,7 @@ _08082C2C:
 	bl sub_08082C5C
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08082C34: .4byte gLinkEntity
+_08082C34: .4byte gPlayerEntity
 
 	thumb_func_start sub_08082C38
 sub_08082C38: @ 0x08082C38

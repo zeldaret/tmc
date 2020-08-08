@@ -95,7 +95,7 @@ sub_0805E18C: @ 0x0805E18C
 	cmp r0, #0
 	bne _0805E1BA
 	strb r0, [r4, #0xb]
-	ldr r0, _0805E1D4 @ =gLinkState
+	ldr r0, _0805E1D4 @ =gPlayerState
 	adds r0, #0x8b
 	movs r1, #1
 	strb r1, [r0]
@@ -113,7 +113,7 @@ _0805E1CC:
 	pop {r4, pc}
 	.align 2, 0
 _0805E1D0: .4byte gUnk_03000FD0
-_0805E1D4: .4byte gLinkState
+_0805E1D4: .4byte gPlayerState
 
 	thumb_func_start sub_0805E1D8
 sub_0805E1D8: @ 0x0805E1D8
