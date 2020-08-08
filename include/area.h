@@ -17,6 +17,10 @@ typedef struct {
     u8 filler4[0x835];
     u32 musicIndex;
     u32 pMusicIndex;
+    u8 filler5[0x20];
+    u32 unk2;
+    u32 unk3;
+    u32 unk4;
 } Area;
 
 extern Area gArea;
