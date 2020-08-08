@@ -448,9 +448,7 @@ SECTIONS {
 		src/sub_08050024.o(.text);
 		asm/code_08050038.o(.text);
 		asm/sub_08052418.o(.text);
-		asm/initializeLink.o(.text);
-		src/sub_08052620.o(.text);
-		src/sub_08052638.o(.text);
+		src/initializeLink.o(.text);
 		src/area.o(.text);
 		src/modHealth.o(.text);
 		src/modRupees.o(.text);

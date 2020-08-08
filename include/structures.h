@@ -62,7 +62,8 @@ typedef struct {
     u8 playerState;
     u8 field_0xf;
     Coords playerStartPos;
-    u16 playerLayer;
+    u8 playerLayer;
+    u8 field_0x13;
     u8 field_0x14[0xa];
     u16 field_0x20;
     u16 field_0x22;
