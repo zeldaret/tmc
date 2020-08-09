@@ -73,7 +73,7 @@ void sub_08021DF0(Entity *this)
     this->height.HALF.HI = -0x10;
   }
   this->direction = Random() & 0x1f;
-  this->filler[0] = 1;
+  this->field_0x1c = 1;
   this->spritePriority.b0 = 3;
   this->collisionLayer = 3;
   UpdateSpriteForCollisionLayer(this);

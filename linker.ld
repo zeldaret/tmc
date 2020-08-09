@@ -475,7 +475,7 @@ SECTIONS {
 		asm/manager7.o(.text);
 		asm/manager8.o(.text);
 		asm/manager9.o(.text);
-		asm/managerA.o(.text);
+		src/manager/managerA.o(.text);
 		asm/managerB.o(.text);
 		asm/managerC.o(.text);
 		asm/managerD.o(.text);
@@ -672,6 +672,7 @@ SECTIONS {
 		asm/itemForSale.o(.text);
 		asm/button.o(.text);
 		asm/object4.o(.text);
+		src/object/pot.o(.text);
 		asm/pot.o(.text);
 		asm/object6.o(.text);
 		asm/blockPushed.o(.text);

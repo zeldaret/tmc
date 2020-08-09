@@ -35,7 +35,9 @@ typedef struct {
     /*    */         u32 noMinishCap : 1;
     /*    */         u32 pullingState : 1;
     /*    */         u32 windyState : 1;
-    /*    */         u32 filler10 : 4;
+    /*    */         u32 filler6 : 1;
+    /*    */         u32 unk7 : 1;
+    /*    */         u32 filler8 : 2;
     /*    */         u32 slipperyState : 1;
     /*    */         u32 filler11 : 5;
     /*    */         u32 filler11b : 16;

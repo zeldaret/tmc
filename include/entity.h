@@ -70,7 +70,7 @@ typedef struct Entity {
     /*    */     u8 flipX : 2; //0x10
     /*    */     u8 flipY : 2; //0x40
     /*    */ } PACKED spriteOrientation;
-    /*0x1c*/ u8 filler[1];
+    /*0x1c*/ u8 field_0x1c;
     /*0x1d*/ u8 field_0x1d;
     /*0x1e*/ u8 frameIndex;
     /*0x1f*/ u8 lastFrameIndex;
