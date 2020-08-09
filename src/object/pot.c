@@ -38,7 +38,7 @@ void sub_0808222C(Entity* this) {
     this->boundingBox = &gUnk_080FD338;
     this->nonPlanarMovement = 0x80;
     this->y.HALF.HI += 3;
-    this->possibleBool = 0;
+    this->field_0x16 = 0;
     this->flags |= 0x80;
     this->currentHealth = 1;
     this->field_0x3c = 7;

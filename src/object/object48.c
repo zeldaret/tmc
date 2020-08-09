@@ -9,7 +9,6 @@
 #include "readKeyInput.h"
 #include "structures.h"
 
-extern bool32 sub_080AE008(Entity*, int, int);
 extern int sub_0807A094(int);
 extern u32 sub_0801D754(const u8*, u8, u8);
 extern u32 sub_080041EC(int, int);

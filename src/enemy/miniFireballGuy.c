@@ -57,3 +57,20 @@ void sub_08045654(Entity *this)
     sub_08045678(this);
   }
 }
+
+void sub_08045678(Entity *this)
+{
+  
+  this->field_0x20 = 0x1c000;
+  if (this->actionDelay != 0) {
+    this->actionDelay--;
+  } else {
+    this->actionDelay = Random() & 3;
+    if ((sub_08049FA0(this) == 0) && (Random() & 3)) {
+      this->direction = (sub_08049EE4(this) - 4 + (Random() & 8)) & 0x18;
+    }
+    else {
+        this->direction = Random() & 0x18;
+    }
+  }
+}
