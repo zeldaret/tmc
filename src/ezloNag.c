@@ -39,7 +39,7 @@ extern void (*const gUnk_080C904C[])(Element*);
 
 extern u16 gUnk_080C9058[];
 
-void EzloReminder(Element* arg0) {
+void EzloNag(Element* arg0) {
     gUnk_080C904C[arg0->unk4](arg0);
 }
 
