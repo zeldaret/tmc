@@ -233,7 +233,7 @@ extern void sub_080784C8();
 extern void sub_08017640();
 extern void sub_0806FDA0(Entity*);
 extern void sub_080AE008(Entity*, u32, u32);
-extern void sub_08016A30(Entity*);
+extern u32 sub_08016A30(Entity*);
 extern u32 IsItemEquipped(u32);
 extern void sub_08077728();
 extern void sub_0807AEE4();
