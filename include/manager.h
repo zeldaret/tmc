@@ -4,14 +4,20 @@
 #include "global.h"
 
 typedef struct {
-    u8 unk_00[0x0c];
+    u8 unk_00[0x0a];
+    u8 unk_0a;
+    u8 unk_0b;
     u8 unk_0c;
-    u8 unk_0d[0x13];
+    u8 unk_0d;
+    u8 unk_0e;
+    u8 unk_0f[0x11];
     u16 unk_20;
     u16 unk_22;
     u16 unk_24;
     u16 unk_26;
-    u8 unk_28[0x10];
+    u8 unk_28[0x0D];
+    u8 unk_35;
+    u16 unk_36;
     u8 unk_38;
     u8 unk_39;
     u8 unk_3a;
