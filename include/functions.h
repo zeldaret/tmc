@@ -231,4 +231,15 @@ extern void sub_08033744(Entity*);
 extern void sub_0800417E(Entity*, u32);
 extern void sub_080784C8();
 extern void sub_08017640();
+extern void sub_0806FDA0(Entity*);
+extern void sub_080AE008(Entity*, u32, u32);
+extern void sub_08016A30(Entity*);
+extern u32 IsItemEquipped(u32);
+extern void sub_08077728();
+extern void sub_0807AEE4();
+extern u32 sub_08078EFC();
+extern void sub_0807921C();
+extern void sub_0807A1B8();
+extern void sub_08079938();
+extern void sub_0807ACCC(Entity*);
 #endif
