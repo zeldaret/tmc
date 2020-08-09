@@ -672,7 +672,6 @@ SECTIONS {
 		asm/button.o(.text);
 		asm/object4.o(.text);
 		src/object/pot.o(.text);
-		asm/pot.o(.text);
 		asm/object6.o(.text);
 		asm/blockPushed.o(.text);
 		asm/lockedDoor.o(.text);
