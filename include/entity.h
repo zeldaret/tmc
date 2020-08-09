@@ -39,7 +39,7 @@ typedef struct Entity {
     /*0x12*/ s16 spriteIndex;
     /*0x14*/ u8 animationState;
     /*0x15*/ u8 direction;
-    /*0x16*/ u8 possibleBool;
+    /*0x16*/ u8 field_0x16;
     /*0x17*/ u8 field_0x17;
     /*0x18*/ union {
     /*    */     u8 raw;
@@ -47,8 +47,7 @@ typedef struct Entity {
     /*    */         u8 draw        : 2; // 1-2
     /*    */         u8 ss2         : 1; //   4
     /*    */         u8 ss3         : 1; //   8
-    /*    */         u8 bigShadow   : 1; //0x10
-    /*    */         u8 giantShadow : 1; //0x20
+    /*    */         u8 shadow      : 2; //0x10-0x20
     /*    */         u8 flipX       : 1; //0x40
     /*    */         u8 flipY       : 1; //0x80
     /*    */     } PACKED b;

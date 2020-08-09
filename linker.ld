@@ -315,6 +315,8 @@ SECTIONS {
 		asm/drawHealth.o(.text);
 		asm/sub_0801C824.o(.text);
 		asm/code_0801C85C.o(.text);
+		src/ezloReminder.o(.text);
+		asm/code_0801CEC0.o(.text);
 		src/dma.o(.text);
 		asm/sub_0801D66C.o(.text);
 		src/input.o(.text);
