@@ -315,7 +315,7 @@ SECTIONS {
 		asm/drawHealth.o(.text);
 		asm/sub_0801C824.o(.text);
 		asm/code_0801C85C.o(.text);
-		src/ezloReminder.o(.text);
+		src/ezloNag.o(.text);
 		asm/code_0801CEC0.o(.text);
 		src/dma.o(.text);
 		asm/sub_0801D66C.o(.text);
@@ -418,7 +418,6 @@ SECTIONS {
 		asm/miniSlime.o(.text);
 		asm/fireballGuy.o(.text);
 		src/enemy/miniFireballGuy.o(.text);
-		asm/miniFireballGuy.o(.text);
 		asm/enemy5A.o(.text);
 		asm/businessScrubPrologue.o(.text);
 		asm/gyorgFemale.o(.text);
