@@ -18,12 +18,12 @@ ObjectB5: @ 0x080A0E28
 _080A0E36:
 	ldr r0, _080A0E48 @ =gRoomControls
 	str r1, [r0, #0x30]
-	ldr r0, _080A0E4C @ =gLinkEntity
+	ldr r0, _080A0E4C @ =gPlayerEntity
 	ldr r3, _080A0E50 @ =0xFFD80000
 	movs r2, #0
 	bl PositionRelative
 	pop {pc}
 	.align 2, 0
 _080A0E48: .4byte gRoomControls
-_080A0E4C: .4byte gLinkEntity
+_080A0E4C: .4byte gPlayerEntity
 _080A0E50: .4byte 0xFFD80000

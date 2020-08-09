@@ -1404,7 +1404,7 @@ _0800293A:
 CheckPlayerInRegion: @ 0x0800293E
 	push {r4, r5, r6, r7, lr}
 	ldr r4, _080029AC @ =gRoomControls
-	ldr r7, _080029B0 @ =gLinkEntity
+	ldr r7, _080029B0 @ =gPlayerEntity
 	ldrh r6, [r4, #6]
 	ldrh r5, [r7, #0x2e]
 	subs r5, r5, r6
@@ -1444,4 +1444,4 @@ _080029A0: .4byte 0x0000E040
 _080029A4: .4byte 0x00000E20
 _080029A8: .4byte gRoomControls
 _080029AC: .4byte gRoomControls
-_080029B0: .4byte gLinkEntity
+_080029B0: .4byte gPlayerEntity

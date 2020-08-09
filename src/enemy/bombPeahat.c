@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
-#include "link.h"
+#include "player.h"
 
 extern s32 sub_080012DC(Entity*);
 extern u32 GetNextFunction(Entity*);
@@ -57,7 +57,7 @@ void sub_0802A8C8(Entity* this)
 void sub_0802A8E0(Entity *this)
 {
   this->previousActionFlag = 1;
-  this->filler[1] = 0x3c;
+  this->field_0x1d = 0x3c;
 }
 
 void sub_0802A8EC(Entity *this)
@@ -72,8 +72,8 @@ void sub_0802A8F4(Entity *this)
 
 void sub_0802A8FC(Entity *this)
 {
-  if ((gLinkState.field_0x1c & 0xf) == 0) {
-    this->currentHealth = gLinkState.field_0x1c & 0xf;
+  if ((gPlayerState.field_0x1c & 0xf) == 0) {
+    this->currentHealth = gPlayerState.field_0x1c & 0xf;
   }
 }
 

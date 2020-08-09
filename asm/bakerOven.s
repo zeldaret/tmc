@@ -142,7 +142,7 @@ _0809CD56:
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
 	bne _0809CDAC
-	ldr r5, _0809CDB0 @ =gLinkEntity
+	ldr r5, _0809CDB0 @ =gPlayerEntity
 	adds r6, r5, #0
 	adds r6, #0x3d
 	movs r0, #0
@@ -182,7 +182,7 @@ _0809CD56:
 _0809CDAC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0809CDB0: .4byte gLinkEntity
+_0809CDB0: .4byte gPlayerEntity
 
 	thumb_func_start sub_0809CDB4
 sub_0809CDB4: @ 0x0809CDB4

@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
-#include "link.h"
+#include "player.h"
 
 extern void sub_0804AA30(Entity*, void *);
 extern u32 sub_0806F520(Entity*);
@@ -73,7 +73,7 @@ void sub_08021DF0(Entity *this)
     this->height.HALF.HI = -0x10;
   }
   this->direction = Random() & 0x1f;
-  this->filler[0] = 1;
+  this->field_0x1c = 1;
   this->spritePriority.b0 = 3;
   this->collisionLayer = 3;
   UpdateSpriteForCollisionLayer(this);
@@ -113,7 +113,7 @@ void sub_08021EBC(Entity *this)
         this->actionDelay--;
     }
     else {
-        iVar1 = sub_0806FCB8(this, gLinkEntity.x.HALF.HI, gLinkEntity.y.HALF.HI, 0x70);
+        iVar1 = sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70);
         if (iVar1 != 0) {
             sub_08021EF0(this);
         }
@@ -139,7 +139,7 @@ void sub_08021F24(Entity *this)
         this->actionDelay = gUnk_080CB6F6[Random() & 0xf];
         InitializeAnimation(this, 1);
     }
-    else if (!this->field_0x7a && !(sub_0806FCB8(this, gLinkEntity.x.HALF.HI, gLinkEntity.y.HALF.HI, 0x70))) {
+    else if (!this->field_0x7a && !(sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))) {
         this->action = 3;
         this->actionDelay = 0x1e;
         InitializeAnimation(this, 1);

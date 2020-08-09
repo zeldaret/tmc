@@ -332,7 +332,7 @@ _0803950A:
 	strb r0, [r4, #0xc]
 	movs r0, #0xff
 	strb r0, [r4, #0x15]
-	ldr r1, _0803952C @ =gLinkEntity
+	ldr r1, _0803952C @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	adds r0, #4
@@ -345,7 +345,7 @@ _0803950A:
 _0803952A:
 	pop {r4, pc}
 	.align 2, 0
-_0803952C: .4byte gLinkEntity
+_0803952C: .4byte gPlayerEntity
 
 	thumb_func_start sub_08039530
 sub_08039530: @ 0x08039530
@@ -847,13 +847,13 @@ sub_080398C0: @ 0x080398C0
 	bl sub_0806FCB8
 	cmp r0, #0
 	beq _08039908
-	ldr r1, _08039904 @ =gLinkEntity
+	ldr r1, _08039904 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	b _08039928
 	.align 2, 0
 _08039900: .4byte gUnk_020000B0
-_08039904: .4byte gLinkEntity
+_08039904: .4byte gPlayerEntity
 _08039908:
 	adds r0, r4, #0
 	bl sub_08049FA0

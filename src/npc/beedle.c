@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "textbox.h"
-#include "link.h"
+#include "player.h"
 #include "room.h"
 
 typedef struct {
@@ -118,8 +118,8 @@ void sub_0806346C(Entity* this) {
     s32 iVar2;
     s32 iVar3;
 
-    iVar3 = (gLinkEntity.x.HALF.HI - this->x.HALF.HI);
-    iVar2 = (gLinkEntity.y.HALF.HI - this->y.HALF.HI);
+    iVar3 = (gPlayerEntity.x.HALF.HI - this->x.HALF.HI);
+    iVar2 = (gPlayerEntity.y.HALF.HI - this->y.HALF.HI);
 
     iVar3 += 0x30;
     iVar2 += 0x18;
@@ -139,7 +139,7 @@ void sub_0806346C(Entity* this) {
     iVar3 >>= 4;
     iVar2 >>= 4;
 
-    bVar1 = gUnk_0810C8F0[(gLinkEntity.animationState >> 1) + iVar3 * 4 + iVar2 * 0x18];
+    bVar1 = gUnk_0810C8F0[(gPlayerEntity.animationState >> 1) + iVar3 * 4 + iVar2 * 0x18];
     if (bVar1 != this->entityType.parameter) {
         gUnk_0810C89C_struct* temp = &gUnk_0810C89C[bVar1];
         sub_08078850(this, 1, temp->unk_04, temp);

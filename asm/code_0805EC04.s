@@ -152,7 +152,7 @@ _0805ED10: .4byte 0x00000427
 
 	thumb_func_start sub_0805ED14
 sub_0805ED14: @ 0x0805ED14
-	ldr r2, _0805ED2C @ =gLinkState
+	ldr r2, _0805ED2C @ =gPlayerState
 	adds r1, r2, #0
 	adds r1, #0x9c
 	str r0, [r1]
@@ -164,12 +164,12 @@ sub_0805ED14: @ 0x0805ED14
 	strh r1, [r0]
 	bx lr
 	.align 2, 0
-_0805ED2C: .4byte gLinkState
+_0805ED2C: .4byte gPlayerState
 
 	thumb_func_start sub_0805ED30
 sub_0805ED30: @ 0x0805ED30
 	push {r4, lr}
-	ldr r2, _0805ED50 @ =gLinkState
+	ldr r2, _0805ED50 @ =gPlayerState
 	adds r0, r2, #0
 	adds r0, #0x9c
 	ldr r0, [r0]
@@ -185,7 +185,7 @@ sub_0805ED30: @ 0x0805ED30
 	movs r4, #0
 	b _0805ED62
 	.align 2, 0
-_0805ED50: .4byte gLinkState
+_0805ED50: .4byte gPlayerState
 _0805ED54:
 	cmp r0, #2
 	beq _0805ED5E
@@ -258,7 +258,7 @@ _0805EDC6:
 _0805EDCA:
 	adds r0, r1, #0
 	bl sub_0805EE04
-	ldr r3, _0805EDFC @ =gLinkState
+	ldr r3, _0805EDFC @ =gPlayerState
 	adds r1, r3, #0
 	adds r1, #0x90
 	ldrh r2, [r1]
@@ -279,7 +279,7 @@ _0805EDCA:
 	pop {r4, pc}
 	.align 2, 0
 _0805EDF8: .4byte gUnk_03000FF0
-_0805EDFC: .4byte gLinkState
+_0805EDFC: .4byte gPlayerState
 _0805EE00: .4byte gUnk_08109202
 
 	thumb_func_start sub_0805EE04
@@ -2110,7 +2110,7 @@ _0805FBE4: .4byte gUnk_08109AC8
 sub_0805FBE8: @ 0x0805FBE8
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r4, _0805FC68 @ =gLinkEntity
+	ldr r4, _0805FC68 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl CopyPosition
@@ -2167,7 +2167,7 @@ _0805FC36:
 	bl PlaySFX
 	pop {r4, r5, pc}
 	.align 2, 0
-_0805FC68: .4byte gLinkEntity
+_0805FC68: .4byte gPlayerEntity
 _0805FC6C: .4byte gUnk_08109AD0
 _0805FC70: .4byte 0x0000013F
 
@@ -2211,7 +2211,7 @@ _0805FCA4:
 	ands r1, r3
 	lsls r1, r1, #6
 	orrs r0, r1
-	ldr r1, _0805FD14 @ =gLinkEntity
+	ldr r1, _0805FD14 @ =gPlayerEntity
 	adds r1, #0x38
 	ldrb r1, [r1]
 	movs r2, #0x80
@@ -2246,7 +2246,7 @@ _0805FCF6:
 	b _0805FD20
 	.align 2, 0
 _0805FD10: .4byte gRoomControls
-_0805FD14: .4byte gLinkEntity
+_0805FD14: .4byte gPlayerEntity
 _0805FD18: .4byte gUnk_08003E44
 _0805FD1C:
 	bl DeleteThisEntity

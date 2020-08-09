@@ -3,7 +3,7 @@
 #include "functions.h"
 #include "npc.h"
 #include "textbox.h"
-#include "link.h"
+#include "player.h"
 #include "room.h"
 #include "structures.h"
 
@@ -145,14 +145,14 @@ void sub_08060528(Entity *this)
             this->action = 3;
             this->interactType = 0;
             sub_0806F118(this);
-            InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
+            InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
             }
             else {
                 if (this->interactType != 0) {
                     this->action = 2;
                     this->interactType = 0;
                     sub_080606D8(this);
-                    InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
+                    InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
                 }
                 else {
                     sub_0807DD94(this, 0);
@@ -192,7 +192,7 @@ void sub_08060528(Entity *this)
     sub_080606C0(this);
   }
   if ((-1 < this->height.WORD) &&
-     ((gLinkEntity.collisionLayer == 0 || (this->collisionLayer == gLinkEntity.collisionLayer)))) {
+     ((gPlayerEntity.collisionLayer == 0 || (this->collisionLayer == gPlayerEntity.collisionLayer)))) {
     sub_0806ED78(this);
   }
   sub_0800451C(this);

@@ -206,7 +206,7 @@ sub_080608E4: @ 0x080608E4
 	adds r0, r4, #0
 	adds r0, #0x38
 	ldrb r1, [r0]
-	ldr r6, _08060974 @ =gLinkEntity
+	ldr r6, _08060974 @ =gPlayerEntity
 	cmp r1, #1
 	bne _0806090A
 	adds r0, r6, #0
@@ -270,7 +270,7 @@ _08060918:
 _08060970:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08060974: .4byte gLinkEntity
+_08060974: .4byte gPlayerEntity
 _08060978: .4byte gUnk_0810AA70
 
 	thumb_func_start Postman_Fusion
@@ -314,7 +314,7 @@ CreateZeldaFollower: @ 0x080609AC
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _080609E0
-	ldr r0, _080609E4 @ =gLinkEntity
+	ldr r0, _080609E4 @ =gPlayerEntity
 	adds r1, r4, #0
 	bl CopyPosition
 	ldrb r1, [r4, #0x10]
@@ -327,4 +327,4 @@ CreateZeldaFollower: @ 0x080609AC
 _080609E0:
 	pop {r4, pc}
 	.align 2, 0
-_080609E4: .4byte gLinkEntity
+_080609E4: .4byte gPlayerEntity

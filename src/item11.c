@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 
 extern void DeleteThisEntity();
 extern void sub_08078CD0(Entity*);
@@ -31,14 +31,14 @@ void sub_08018CBC(Entity *this)
   u8 uVar2;
   Entity *pEVar3;
   
-  *(u32 *)&this->cutsceneBeh = this->x.WORD = gLinkEntity.x.WORD;
-  *(u32 *)&this->field_0x80 = this->y.WORD = gLinkEntity.y.WORD;
-  uVar2 = this->animationState = gLinkEntity.animationState & 0xe;
+  *(u32 *)&this->cutsceneBeh = this->x.WORD = gPlayerEntity.x.WORD;
+  *(u32 *)&this->field_0x80 = this->y.WORD = gPlayerEntity.y.WORD;
+  uVar2 = this->animationState = gPlayerEntity.animationState & 0xe;
   this->direction = (u8)(uVar2 << 2);
   this->nonPlanarMovement = 0x400;
   this->damageType = 0x96;
-  this->field_0x3c = (gLinkEntity.field_0x3c + 1) | 0x80;
-  this->flags2 = gLinkEntity.flags2;
+  this->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x80;
+  this->flags2 = gPlayerEntity.flags2;
   pEVar3 = this->attachedEntity;
   if (pEVar3 != NULL) {
     this->action = 1;
@@ -51,7 +51,7 @@ void sub_08018CBC(Entity *this)
     this->attachedEntity->spriteSettings.b.draw = 0;
   }
   else {
-    if (gLinkState.field_0x1c == 0) {
+    if (gPlayerState.field_0x1c == 0) {
       DeleteThisEntity();
     }
     this->action = 2;
@@ -59,14 +59,14 @@ void sub_08018CBC(Entity *this)
     this->spriteIndex = 0xa6;
     this->palette.raw = 0x33;
     this->spriteVramOffset = 0;
-    (this->entityType).form = gLinkState.field_0x1d[0] - 1;
+    (this->entityType).form = gPlayerState.field_0x1d[0] - 1;
     this->actionDelay = gUnk_080B3DE0[(this->entityType).form * 2];
     this->field_0x44 = gUnk_080B3DE0[(this->entityType).form * 2 + 1];
     this->field_0x40 = 0x1b;
     this->boundingBox = gUnk_080B3DE8[(this->entityType).form];
-    (u32 *)gLinkEntity.field_0x70.WORD = this;
-    sub_08078CD0(&gLinkEntity);
-    (u32 *)gLinkEntity.field_0x70.WORD = pEVar3;
+    (u32 *)gPlayerEntity.field_0x70.WORD = this;
+    sub_08078CD0(&gPlayerEntity);
+    (u32 *)gPlayerEntity.field_0x70.WORD = pEVar3;
     InitializeAnimation(this, (this->entityType).form + 10);
     sub_08018FA0(this);
   }
@@ -79,10 +79,10 @@ void sub_08018DE8(Entity *this)
     
     bVar1 = this->attachedEntity->field_0x3a & 4;
     if (bVar1 == 0) {
-        gLinkState.field_0x1c = bVar1;
+        gPlayerState.field_0x1c = bVar1;
         DeleteThisEntity();
     }
-    switch (gLinkState.field_0x1c) {
+    switch (gPlayerState.field_0x1c) {
         case 0:
             sub_08018F6C(this);
             break;
@@ -95,5 +95,5 @@ void sub_08018DE8(Entity *this)
             sub_08018FA0(this);
             break;
     }
-    sub_08078CD0(&gLinkEntity);
+    sub_08078CD0(&gPlayerEntity);
 }

@@ -173,7 +173,7 @@ _08018F9E:
 sub_08018FA0: @ 0x08018FA0
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _08018FC8 @ =gLinkEntity
+	ldr r0, _08018FC8 @ =gPlayerEntity
 	adds r0, #0x38
 	ldrb r0, [r0]
 	adds r1, r2, #0
@@ -191,4 +191,4 @@ _08018FBC:
 	bl PlaySFX
 	pop {pc}
 	.align 2, 0
-_08018FC8: .4byte gLinkEntity
+_08018FC8: .4byte gPlayerEntity

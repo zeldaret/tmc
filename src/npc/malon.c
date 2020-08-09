@@ -2,7 +2,7 @@
 #include "functions.h"
 #include "entity.h"
 
-extern Entity gLinkEntity;
+extern Entity gPlayerEntity;
 
 extern void (*gUnk_0810FF5C[])(Entity* this);
 extern void (*gUnk_0810FF64[])(Entity* this);
@@ -41,7 +41,7 @@ void sub_080658BC(Entity* this) {
     if (this->interactType == 2) {
         this->action = 2;
         this->interactType = 0;
-        InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
+        InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
         sub_0806F118(this);
     } else {
         sub_0807DD94(this, 0);

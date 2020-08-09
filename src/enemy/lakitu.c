@@ -3,7 +3,7 @@
 #include "functions.h"
 #include "trig.h"
 #include "random.h"
-#include "link.h"
+#include "player.h"
 
 // Lakitu
 extern void EnemyFunctionHandler(Entity *, void (*const funcs[])(Entity*));
@@ -268,8 +268,8 @@ void sub_0803CA0C(Entity *this) {
 }
 
 bool32 sub_0803CA4C(Entity *this) {
-    if (sub_0806FCB8(this, gLinkEntity.x.HALF.HI, gLinkEntity.y.HALF.HI, 0x28) == 0) {
-        if (sub_080041A0(this, &gLinkEntity, 0x70, 0x50)) {
+    if (sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x28) == 0) {
+        if (sub_080041A0(this, &gPlayerEntity, 0x70, 0x50)) {
             return 1;
         }
     }
@@ -278,7 +278,7 @@ bool32 sub_0803CA4C(Entity *this) {
 }
 
 void sub_0803CA84(Entity *this, u32 unkParameter) {
-    u32 altAnimState = GetFacingDirection(this, &gLinkEntity);
+    u32 altAnimState = GetFacingDirection(this, &gPlayerEntity);
 
     if (((altAnimState - 3) & 7) > 2 || ((this->animationState  - (altAnimState >> 3)) & 3) > 1) {
         u32 intermediate = (altAnimState + 4) & 0x18;
@@ -324,7 +324,7 @@ void sub_0803CB34(Entity *this) {
     this->action = 5;
     this->damageType = 0xa6;
 
-    this->field_0x78.HALF.LO = GetFacingDirection(this, &gLinkEntity);
+    this->field_0x78.HALF.LO = GetFacingDirection(this, &gPlayerEntity);
 
     InitAnimationForceUpdate(this, this->animationState + 8);
 }

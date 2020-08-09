@@ -18,7 +18,7 @@ sub_08057174: @ 0x08057174
 	bne _08057188
 	b _0805728A
 _08057188:
-	ldr r1, _080571E8 @ =gLinkEntity
+	ldr r1, _080571E8 @ =gPlayerEntity
 	movs r2, #0x2e
 	ldrsh r0, [r1, r2]
 	cmp r0, #0
@@ -69,7 +69,7 @@ _080571A8:
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_080571E8: .4byte gLinkEntity
+_080571E8: .4byte gPlayerEntity
 _080571EC: .4byte gRoomControls
 _080571F0: .4byte _080571F4
 _080571F4: @ jump table

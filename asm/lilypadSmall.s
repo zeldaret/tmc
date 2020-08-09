@@ -73,13 +73,13 @@ _08097ADA:
 sub_08097ADC: @ 0x08097ADC
 	push {r4, r5, lr}
 	adds r2, r0, #0
-	ldr r5, _08097B18 @ =gLinkState
+	ldr r5, _08097B18 @ =gPlayerState
 	ldr r0, [r5, #0x30]
 	movs r1, #0x80
 	ands r0, r1
 	cmp r0, #0
 	beq _08097B20
-	ldr r4, _08097B1C @ =gLinkEntity
+	ldr r4, _08097B1C @ =gPlayerEntity
 	adds r0, r2, #0
 	adds r1, r4, #0
 	movs r2, #8
@@ -99,8 +99,8 @@ sub_08097ADC: @ 0x08097ADC
 	movs r0, #1
 	b _08097B22
 	.align 2, 0
-_08097B18: .4byte gLinkState
-_08097B1C: .4byte gLinkEntity
+_08097B18: .4byte gPlayerState
+_08097B1C: .4byte gPlayerEntity
 _08097B20:
 	movs r0, #0
 _08097B22:

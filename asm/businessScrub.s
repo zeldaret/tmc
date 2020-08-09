@@ -631,7 +631,7 @@ _08028DE4: .4byte 0x00002903
 sub_08028DE8: @ 0x08028DE8
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _08028E08 @ =gLinkEntity
+	ldr r0, _08028E08 @ =gPlayerEntity
 	ldrb r0, [r0, #0xc]
 	cmp r0, #8
 	bne _08028E0C
@@ -645,7 +645,7 @@ sub_08028DE8: @ 0x08028DE8
 	strb r0, [r4]
 	b _08028E3A
 	.align 2, 0
-_08028E08: .4byte gLinkEntity
+_08028E08: .4byte gPlayerEntity
 _08028E0C:
 	ldr r0, _08028E3C @ =0x00002902
 	bl TextboxNoOverlapFollow

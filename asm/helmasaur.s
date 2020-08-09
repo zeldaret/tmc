@@ -152,7 +152,7 @@ sub_0802BC74: @ 0x0802BC74
 	strb r0, [r4, #0xd]
 	movs r0, #0x3c
 	strb r0, [r4, #0x1d]
-	ldr r0, _0802BC9C @ =gLinkEntity
+	ldr r0, _0802BC9C @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsrs r0, r0, #1
 	movs r1, #2
@@ -163,7 +163,7 @@ sub_0802BC74: @ 0x0802BC74
 	bl InitializeAnimation
 	pop {r4, pc}
 	.align 2, 0
-_0802BC9C: .4byte gLinkEntity
+_0802BC9C: .4byte gPlayerEntity
 
 	thumb_func_start sub_0802BCA0
 sub_0802BCA0: @ 0x0802BCA0

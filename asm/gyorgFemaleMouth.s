@@ -85,16 +85,16 @@ _0804901E:
 	ands r0, r5
 	cmp r0, #0
 	beq _08049038
-	ldr r0, _08049034 @ =gLinkEntity
+	ldr r0, _08049034 @ =gPlayerEntity
 	movs r2, #0x32
 	ldrsh r1, [r4, r2]
 	movs r2, #0x32
 	ldrsh r0, [r0, r2]
 	b _08049042
 	.align 2, 0
-_08049034: .4byte gLinkEntity
+_08049034: .4byte gPlayerEntity
 _08049038:
-	ldr r0, _08049054 @ =gLinkEntity
+	ldr r0, _08049054 @ =gPlayerEntity
 	movs r2, #0x2e
 	ldrsh r1, [r4, r2]
 	movs r2, #0x2e
@@ -111,5 +111,5 @@ _08049048:
 	str r0, [r4, #0x48]
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08049054: .4byte gLinkEntity
+_08049054: .4byte gPlayerEntity
 _08049058: .4byte gUnk_080D28AC

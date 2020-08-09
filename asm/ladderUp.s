@@ -136,14 +136,14 @@ _0808DC46:
 	beq _0808DC4E
 	b _0808DD72
 _0808DC4E:
-	ldr r0, _0808DCC8 @ =gLinkEntity
+	ldr r0, _0808DCC8 @ =gPlayerEntity
 	movs r2, #0x32
 	ldrsh r1, [r0, r2]
 	movs r3, #0x32
 	ldrsh r0, [r7, r3]
 	cmp r1, r0
 	bge _0808DCDC
-	ldr r0, _0808DCCC @ =gLinkState
+	ldr r0, _0808DCCC @ =gPlayerState
 	ldrb r0, [r0, #0x12]
 	cmp r0, #0x1e
 	bne _0808DC66
@@ -196,8 +196,8 @@ _0808DC74:
 	bl sub_0807BA8C
 	b _0808DD72
 	.align 2, 0
-_0808DCC8: .4byte gLinkEntity
-_0808DCCC: .4byte gLinkState
+_0808DCC8: .4byte gPlayerEntity
+_0808DCCC: .4byte gPlayerState
 _0808DCD0: .4byte 0x00004017
 _0808DCD4: .4byte 0x00004023
 _0808DCD8: .4byte gRoomControls

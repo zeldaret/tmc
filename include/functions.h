@@ -5,7 +5,7 @@
 #include "global.h"
 #include "entity.h"
 #include "position.h"
-#include "link.h"
+#include "player.h"
 #include "structures.h"
 
 // Identified - to be sorted into header files
@@ -41,6 +41,7 @@ extern void CopyPositionAndSpriteOffset(Entity*, Entity*);
 extern u8* GetSpriteSubEntryOffsetDataPointer(u32, u32);
 extern u32 LoadFixedGFX(Entity*, u32);
 extern void ExecuteScriptCommandSet(Entity*, void *);
+extern void _DmaFill32(u32, void*, u32);
 
 // Unidentified
 extern void sub_0806ED78(Entity*);
@@ -192,12 +193,12 @@ extern void sub_080A70AC(void*);
 extern void sub_080A7114(u32);
 extern void sub_08001242(void);
 extern u32 sub_08003FC4(Entity*, u32);
-extern u8 sub_080043E8(Entity*);
+extern u32 sub_080043E8(Entity*);
 extern void sub_08001290(Entity*, u32);
 extern void sub_08004488(u32);
 extern void sub_08004596(Entity*, u32);
 extern u32 sub_0807953C(void);
-extern void ResetLink(void);
+extern void ResetPlayer(void);
 extern void sub_080A29BC(Entity*);
 extern void sub_080AE068(Entity*);
 extern Entity* sub_0805E8D4(void);
@@ -228,4 +229,6 @@ extern u32 sub_0806F3E4(Entity*);
 extern void sub_0804A7D4(Entity*);
 extern void sub_08033744(Entity*);
 extern void sub_0800417E(Entity*, u32);
+extern void sub_080784C8();
+extern void sub_08017640();
 #endif

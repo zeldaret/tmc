@@ -1058,7 +1058,7 @@ sub_0806D7C4: @ 0x0806D7C4
 	sub sp, #4
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r1, _0806D800 @ =gLinkEntity
+	ldr r1, _0806D800 @ =gPlayerEntity
 	ldrh r0, [r1, #0x2e]
 	movs r2, #0
 	strh r0, [r4, #0x2e]
@@ -1084,7 +1084,7 @@ _0806D7FC:
 	add sp, #4
 	pop {r4, r5, pc}
 	.align 2, 0
-_0806D800: .4byte gLinkEntity
+_0806D800: .4byte gPlayerEntity
 
 	thumb_func_start sub_0806D804
 sub_0806D804: @ 0x0806D804
@@ -1115,7 +1115,7 @@ sub_0806D804: @ 0x0806D804
 	ands r0, r1
 	strb r0, [r2]
 _0806D83A:
-	ldr r0, _0806D854 @ =gLinkEntity
+	ldr r0, _0806D854 @ =gPlayerEntity
 	movs r1, #0x2e
 	ldrsh r2, [r0, r1]
 	movs r1, #0x32
@@ -1127,7 +1127,7 @@ _0806D83A:
 	add sp, #4
 	pop {r4, r5, pc}
 	.align 2, 0
-_0806D854: .4byte gLinkEntity
+_0806D854: .4byte gPlayerEntity
 
 	thumb_func_start sub_0806D858
 sub_0806D858: @ 0x0806D858

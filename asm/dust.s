@@ -282,7 +282,7 @@ sub_08044310: @ 0x08044310
 	adds r5, r0, #0
 	movs r4, #0xff
 	movs r6, #0xff
-	ldr r0, _08044334 @ =gLinkEntity
+	ldr r0, _08044334 @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsrs r1, r0, #1
 	movs r0, #3
@@ -295,7 +295,7 @@ sub_08044310: @ 0x08044310
 	beq _08044342
 	b _080443EA
 	.align 2, 0
-_08044334: .4byte gLinkEntity
+_08044334: .4byte gPlayerEntity
 _08044338:
 	cmp r1, #2
 	beq _08044392
@@ -492,7 +492,7 @@ _08044492:
 sub_08044498: @ 0x08044498
 	push {r4, r5, r6, lr}
 	mov ip, r0
-	ldr r6, _08044538 @ =gLinkEntity
+	ldr r6, _08044538 @ =gPlayerEntity
 	movs r1, #0x2e
 	ldrsh r0, [r6, r1]
 	ldr r3, _0804453C @ =gRoomControls
@@ -509,7 +509,7 @@ sub_08044498: @ 0x08044498
 	ands r0, r2
 	lsls r0, r0, #6
 	orrs r4, r0
-	ldr r0, _08044540 @ =gLinkState
+	ldr r0, _08044540 @ =gPlayerState
 	adds r0, #0x92
 	ldrh r0, [r0]
 	movs r1, #0xf0
@@ -567,13 +567,13 @@ _0804450C:
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0804454C
-	ldr r0, _08044538 @ =gLinkEntity
+	ldr r0, _08044538 @ =gPlayerEntity
 	bl CopyPosition
 	b _0804454C
 	.align 2, 0
-_08044538: .4byte gLinkEntity
+_08044538: .4byte gPlayerEntity
 _0804453C: .4byte gRoomControls
-_08044540: .4byte gLinkState
+_08044540: .4byte gPlayerState
 _08044544:
 	adds r2, #5
 	adds r3, #1
@@ -587,7 +587,7 @@ _0804454C:
 sub_08044550: @ 0x08044550
 	push {r4, r5, r6, r7, lr}
 	adds r6, r0, #0
-	ldr r0, _080445A8 @ =gLinkState
+	ldr r0, _080445A8 @ =gPlayerState
 	ldrb r1, [r0, #0x1c]
 	movs r0, #0xf
 	ands r0, r1
@@ -602,7 +602,7 @@ sub_08044550: @ 0x08044550
 	adds r0, #0x10
 	strh r0, [r6, #0x24]
 _08044570:
-	ldr r5, _080445AC @ =gLinkEntity
+	ldr r5, _080445AC @ =gPlayerEntity
 	ldrb r0, [r5, #0x14]
 	movs r4, #0xe
 	ands r4, r0
@@ -629,8 +629,8 @@ _08044570:
 	bl sub_0806F69C
 	b _080445BE
 	.align 2, 0
-_080445A8: .4byte gLinkState
-_080445AC: .4byte gLinkEntity
+_080445A8: .4byte gPlayerState
+_080445AC: .4byte gPlayerEntity
 _080445B0: .4byte gUnk_08126EE4
 _080445B4:
 	adds r0, r6, #0

@@ -552,11 +552,11 @@ _0808A0F6:
 	ble _0808A0FC
 	b _0808A202
 _0808A0FC:
-	ldr r0, _0808A118 @ =gLinkState
+	ldr r0, _0808A118 @ =gPlayerState
 	ldrb r0, [r0, #0x12]
 	cmp r0, #0x1e
 	bne _0808A1DA
-	ldr r1, _0808A11C @ =gLinkEntity
+	ldr r1, _0808A11C @ =gPlayerEntity
 	adds r0, r5, #0
 	movs r2, #0
 	movs r3, #8
@@ -565,8 +565,8 @@ _0808A0FC:
 	beq _0808A1DC
 	b _0808A1B0
 	.align 2, 0
-_0808A118: .4byte gLinkState
-_0808A11C: .4byte gLinkEntity
+_0808A118: .4byte gPlayerState
+_0808A11C: .4byte gPlayerEntity
 _0808A120:
 	ldrb r0, [r5, #0xe]
 	cmp r0, #0
@@ -826,7 +826,7 @@ sub_0808A2F0: @ 0x0808A2F0
 	adds r1, #0x72
 	strh r0, [r1]
 _0808A316:
-	ldr r3, _0808A38C @ =gLinkEntity
+	ldr r3, _0808A38C @ =gPlayerEntity
 	ldrb r1, [r3, #0x1b]
 	lsrs r1, r1, #6
 	lsls r1, r1, #6
@@ -844,7 +844,7 @@ _0808A316:
 	ands r0, r2
 	orrs r0, r1
 	strb r0, [r5, #0x19]
-	ldr r0, _0808A390 @ =gLinkState
+	ldr r0, _0808A390 @ =gPlayerState
 	ldrb r0, [r0, #0x12]
 	cmp r0, #0x1e
 	bne _0808A39C
@@ -884,8 +884,8 @@ _0808A316:
 	bl SetTile
 	b _0808A3EC
 	.align 2, 0
-_0808A38C: .4byte gLinkEntity
-_0808A390: .4byte gLinkState
+_0808A38C: .4byte gPlayerEntity
+_0808A390: .4byte gPlayerState
 _0808A394: .4byte 0x00004014
 _0808A398: .4byte gRoomControls
 _0808A39C:

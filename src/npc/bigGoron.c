@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 #include "structures.h"
 
 extern void (*gUnk_081140D4[])(Entity*);
@@ -37,10 +37,10 @@ void sub_0806CF30(Entity* this) {
         case 0:
         case 1:
             if (gScreenTransition.frameCount % 4 == 0) {
-                if (gLinkEntity.x.HALF.HI < this->x.HALF.HI && this->field_0x68.HWORD - 32 < this->x.HALF.HI) {
+                if (gPlayerEntity.x.HALF.HI < this->x.HALF.HI && this->field_0x68.HWORD - 32 < this->x.HALF.HI) {
                     this->x.HALF.HI--;
                 }
-                if (gLinkEntity.x.HALF.HI > this->x.HALF.HI && this->field_0x68.HWORD + 32 > this->x.HALF.HI) {
+                if (gPlayerEntity.x.HALF.HI > this->x.HALF.HI && this->field_0x68.HWORD + 32 > this->x.HALF.HI) {
                     this->x.HALF.HI++;
                 }
             }

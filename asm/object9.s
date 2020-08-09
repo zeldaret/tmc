@@ -11,7 +11,7 @@
 Object9: @ 0x0808386C
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _080838C8 @ =gLinkState
+	ldr r0, _080838C8 @ =gPlayerState
 	adds r0, #0x27
 	ldrb r1, [r0]
 	rsbs r0, r1, #0
@@ -57,7 +57,7 @@ _080838B6:
 	bl _call_via_r1
 	pop {r4, pc}
 	.align 2, 0
-_080838C8: .4byte gLinkState
+_080838C8: .4byte gPlayerState
 _080838CC: .4byte gUnk_02022740
 _080838D0: .4byte gTextBox
 _080838D4: .4byte gUnk_03003DF0
@@ -264,7 +264,7 @@ sub_08083A40: @ 0x08083A40
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	ldr r0, [r4, #0x54]
-	ldr r1, _08083A70 @ =gLinkEntity
+	ldr r1, _08083A70 @ =gPlayerEntity
 	movs r3, #0x2e
 	ldrsh r2, [r0, r3]
 	movs r3, #0x2e
@@ -277,7 +277,7 @@ sub_08083A40: @ 0x08083A40
 	movs r0, #8
 	b _08083A7C
 	.align 2, 0
-_08083A70: .4byte gLinkEntity
+_08083A70: .4byte gPlayerEntity
 _08083A74:
 	movs r1, #1
 	adds r2, r4, #0

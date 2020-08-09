@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 #include "functions.h"
 
 
@@ -23,8 +23,8 @@ extern struct_0811BE48 gUnk_0811BE48[];
 
 void sub_08077B98(UnkItemStruct* unk)
 {
-  if ((gLinkState.field_0x2c == NULL) || (gLinkState.field_0x2c[9] != 1)) {
-    gLinkState.field_0x2c = sub_08077C54(unk);
+  if ((gPlayerState.field_0x2c == NULL) || (gPlayerState.field_0x2c[9] != 1)) {
+    gPlayerState.field_0x2c = sub_08077C54(unk);
   }
 }
 
@@ -34,7 +34,7 @@ void sub_08077BB8(UnkItemStruct* unk)
   if (temp != NULL) {
     temp[0x10] = 0x20;
   }
-  gLinkState.field_0x2c = temp;
+  gPlayerState.field_0x2c = temp;
 }
 
 Entity* sub_08077BD4(ItemBehavior *beh)

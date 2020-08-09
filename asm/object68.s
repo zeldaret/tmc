@@ -57,7 +57,7 @@ _080947B8:
 	str r6, [r5, #0x54]
 	cmp r6, #0
 	beq _080947EE
-	ldr r0, _0809480C @ =gLinkEntity
+	ldr r0, _0809480C @ =gPlayerEntity
 	ldr r4, _08094810 @ =gUnk_08122A18
 	ldrb r3, [r0, #0x14]
 	movs r1, #6
@@ -88,7 +88,7 @@ _080947EE:
 	bl sub_08094980
 	b _080948C6
 	.align 2, 0
-_0809480C: .4byte gLinkEntity
+_0809480C: .4byte gPlayerEntity
 _08094810: .4byte gUnk_08122A18
 _08094814: .4byte 0x00004032
 _08094818: .4byte 0x00004033
@@ -103,7 +103,7 @@ _08094824:
 	str r6, [r5, #0x54]
 	cmp r6, #0
 	beq _0809485A
-	ldr r0, _08094898 @ =gLinkEntity
+	ldr r0, _08094898 @ =gPlayerEntity
 	ldr r4, _0809489C @ =gUnk_08122A18
 	ldrb r3, [r0, #0x14]
 	movs r1, #6
@@ -149,14 +149,14 @@ _0809485A:
 	bl sub_08094980
 	b _080948CA
 	.align 2, 0
-_08094898: .4byte gLinkEntity
+_08094898: .4byte gPlayerEntity
 _0809489C: .4byte gUnk_08122A18
 _080948A0: .4byte 0x0000403B
 _080948A4: .4byte 0x0000403C
 _080948A8: .4byte 0x00004061
 _080948AC: .4byte 0x00004022
 _080948B0:
-	ldr r0, _080948CC @ =gLinkEntity
+	ldr r0, _080948CC @ =gPlayerEntity
 	movs r1, #0x60
 	movs r2, #0
 	bl sub_080A2A20
@@ -171,7 +171,7 @@ _080948C6:
 _080948CA:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080948CC: .4byte gLinkEntity
+_080948CC: .4byte gPlayerEntity
 
 	thumb_func_start sub_080948D0
 sub_080948D0: @ 0x080948D0

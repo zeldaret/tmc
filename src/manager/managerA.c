@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 #include "manager.h"
 #include "flags.h"
 #include "area.h"
@@ -55,7 +55,7 @@ void sub_080585DC(Manager*);
 
 void sub_08058408(Manager* this){
     u32 tmp2;
-    tmp2 = (gLinkState.flags.all & 0x08);
+    tmp2 = (gPlayerState.flags.all & 0x08);
     if (tmp2 != 0) return;
     if (!CheckPlayerInRegion(this->unk_20, this->unk_22, this->unk_24, this->unk_26)) return;
     switch (this->unk_0a) {
@@ -63,7 +63,7 @@ void sub_08058408(Manager* this){
             return;
         case 2:
             sub_080585DC(this);
-            if ((gLinkState.flags.all & 0x80) == 0) return;
+            if ((gPlayerState.flags.all & 0x80) == 0) return;
         case 0:
         default:
             sub_080585DC(this);
@@ -85,7 +85,7 @@ void sub_08058408(Manager* this){
 
 
 u32 sub_0805848C(Manager* this) {
-    switch (gLinkState.field_0xa8[0]-5) {
+    switch (gPlayerState.field_0xa8[0]-5) {
         case 0:
         case 2:
         case 3:
@@ -122,11 +122,11 @@ extern void UnfreezeTime(void);
 void sub_08058514(Manager* this) {
     switch (this->unk_0d) {
         case 1:
-            if ((gLinkState.flags.all & 0x1235) != 0)
+            if ((gPlayerState.flags.all & 0x1235) != 0)
                 return;
-            if (gLinkEntity.height.HALF.HI != 0)
+            if (gPlayerEntity.height.HALF.HI != 0)
                 return;
-            gLinkState.jumpStatus = 0;
+            gPlayerState.jumpStatus = 0;
             sub_08078AA8(this->unk_36, this->unk_35);
             this->unk_0d++;
             this->unk_0e = 0x1E;
@@ -138,8 +138,8 @@ void sub_08058514(Manager* this) {
             }
             return;
         case 3:
-            if (gLinkEntity.action != 1 && gLinkEntity.action != 9) return;
-            gLinkState.field_0x8b = 1;
+            if (gPlayerEntity.action != 1 && gPlayerEntity.action != 9) return;
+            gPlayerState.field_0x8b = 1;
             UnfreezeTime();
             SetFlag(this->unk_3c);
             DeleteThisEntity();

@@ -63,7 +63,7 @@ void (*const gObjectFunctions[])(Entity*) = {
     /*0x39*/ BossDoor,
     /*0x3a*/ Object3A,
     /*0x3b*/ MacroMushromStalks,
-    /*0x3c*/ MacroLink,
+    /*0x3c*/ MacroPlayer,
     /*0x3d*/ Object3D,
     /*0x3e*/ Object3E,
     /*0x3f*/ GiantLeaf,

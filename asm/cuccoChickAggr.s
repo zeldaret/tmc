@@ -297,14 +297,14 @@ sub_08022B20: @ 0x08022B20
 	bl sub_08049DF4
 	cmp r0, #0
 	beq _08022B40
-	ldr r1, _08022B3C @ =gLinkEntity
+	ldr r1, _08022B3C @ =gPlayerEntity
 	adds r0, r4, #0
 	movs r2, #0x24
 	movs r3, #0x24
 	bl sub_080041A0
 	b _08022B42
 	.align 2, 0
-_08022B3C: .4byte gLinkEntity
+_08022B3C: .4byte gPlayerEntity
 _08022B40:
 	movs r0, #0
 _08022B42:
@@ -317,7 +317,7 @@ sub_08022B44: @ 0x08022B44
 	movs r0, #0xc0
 	lsls r0, r0, #8
 	str r0, [r4, #0x20]
-	ldr r1, _08022B84 @ =gLinkEntity
+	ldr r1, _08022B84 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl GetFacingDirection
 	adds r1, r0, #0
@@ -343,4 +343,4 @@ _08022B7A:
 	bl sub_08004488
 	pop {r4, pc}
 	.align 2, 0
-_08022B84: .4byte gLinkEntity
+_08022B84: .4byte gPlayerEntity

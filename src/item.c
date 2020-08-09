@@ -61,28 +61,28 @@ extern u8 gUnk_02034490;
 #if 0
 void Ocarina(ItemBehavior* beh, u32 inputFlags) {
     gOcarinaStates[beh->stateID](beh, inputFlags);
-    gLinkEntity.field_0x7a++;
+    gPlayerEntity.field_0x7a++;
 }
 
 void OcarinaUse(ItemBehavior *beh, u32 arg1)
 {
   u32 bVar1;
   
-  if (gLinkState.linkAction == 0x18) {
-    LinkChangeState(beh, arg1);
+  if (gPlayerState.playerAction == 0x18) {
+    PlayerChangeState(beh, arg1);
   }
   else {
     beh->field_0x5[4] = beh->field_0x5[4] | 0xf;
-    gLinkEntity.animationState = 4;
-    gLinkEntity.spriteSettings.b.flipX = 0;
-    gLinkEntity.flags &= 0x7f;
-    gLinkEntity.field_0x7a = 2;
-    gLinkState.flags.all |= 0x10000000;
-    gLinkState.field_0x27[0] = 0xff;
+    gPlayerEntity.animationState = 4;
+    gPlayerEntity.spriteSettings.b.flipX = 0;
+    gPlayerEntity.flags &= 0x7f;
+    gPlayerEntity.field_0x7a = 2;
+    gPlayerState.flags.all |= 0x10000000;
+    gPlayerState.field_0x27[0] = 0xff;
     gUnk_02034490 = 1;
     bVar1 = (8 >> arg1);
-    gLinkState.field_0xa |= bVar1;
-    gLinkState.keepFacing |= bVar1;
+    gPlayerState.field_0xa |= bVar1;
+    gPlayerState.keepFacing |= bVar1;
     sub_08078F60();
     sub_08077D38(beh, arg1);
     PlaySFX(0x216);
@@ -98,7 +98,7 @@ void PacciCane(ItemBehavior* beh, u32 arg1) {
 void sub_08076C98(ItemBehavior* beh, u32 arg1) {
     beh->field_0x5[4] |= 0xf;
     sub_08077D38(beh, arg1);
-    sub_0806F948(&gLinkEntity);
+    sub_0806F948(&gPlayerEntity);
     sub_08077BB8(beh);
 }
 
@@ -118,25 +118,25 @@ void Shield(ItemBehavior* beh, u32 arg1) {
 }
 
 void sub_08076D04(ItemBehavior* beh, u32 arg1) {
-    gLinkState.field_0x3[0] = 0x81;
+    gPlayerState.field_0x3[0] = 0x81;
     beh->field_0x5[4] = 2;
-    sub_0806F948(&gLinkEntity);
+    sub_0806F948(&gPlayerEntity);
     sub_08077D38(beh, arg1);
     sub_08077BB8(beh);
 }
 
 void sub_08076D34(ItemBehavior* beh, u32 arg1) {
     if (sub_08077EFC() != 0) {
-        gLinkState.field_0x3[0] |= 1;
+        gPlayerState.field_0x3[0] |= 1;
         UpdateItemAnim(beh);
         if (beh->field_0x5[9] != 0) {
             beh->stateID++;
             beh->field_0xf = 0;
-            gLinkState.field_0xa &= ~(u8)(8 >> arg1);
+            gPlayerState.field_0xa &= ~(u8)(8 >> arg1);
             PlaySFX(0x15d);
         }
     } else {
-        gLinkState.field_0x3[0] = 0;
+        gPlayerState.field_0x3[0] = 0;
         sub_08077E78(beh, arg1);
     }
 }
@@ -144,17 +144,17 @@ void sub_08076D34(ItemBehavior* beh, u32 arg1) {
 void sub_08076D94(ItemBehavior *beh, u32 arg1)
 {
   if (sub_08077EFC(beh)) {
-    gLinkState.field_0x3[0] |= 1;
+    gPlayerState.field_0x3[0] |= 1;
     UpdateItemAnim(beh);
   }
   else {
-    gLinkState.field_0x3[0] = 0;
+    gPlayerState.field_0x3[0] = 0;
     sub_08077E78(beh, arg1);
   }
 }
 
 void GustJar(ItemBehavior *beh, u32 arg1)
 {
-    gLinkState.field_0xa8[0] = 3;
+    gPlayerState.field_0xa8[0] = 3;
     gUnk_0811BDF4[beh->stateID](beh, arg1);
 }

@@ -158,7 +158,7 @@ sub_08083F14: @ 0x08083F14
 	.align 2, 0
 _08083F74: .4byte gScreen
 _08083F78:
-	ldr r5, _08083FA0 @ =gLinkEntity
+	ldr r5, _08083FA0 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r1, r5, #0
 	movs r2, #0x10
@@ -177,12 +177,12 @@ _08083F98:
 	strb r0, [r4, #0xd]
 	b _08083FE6
 	.align 2, 0
-_08083FA0: .4byte gLinkEntity
+_08083FA0: .4byte gPlayerEntity
 _08083FA4:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #5
 	beq _08083FB2
-	ldr r0, _08083FC8 @ =gLinkEntity
+	ldr r0, _08083FC8 @ =gPlayerEntity
 	ldrb r0, [r0, #0xc]
 	cmp r0, #1
 	bne _08083FE6
@@ -198,7 +198,7 @@ _08083FB2:
 	bl PlaySFX
 	b _08083FE6
 	.align 2, 0
-_08083FC8: .4byte gLinkEntity
+_08083FC8: .4byte gPlayerEntity
 _08083FCC:
 	ldr r1, _08083FE8 @ =gUnk_02034490
 	movs r0, #0

@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
-#include "link.h"
+#include "player.h"
 
 extern void sub_0805E3A0(Entity*, u32);
 extern u32 sub_0801E99C(Entity*);
@@ -26,7 +26,7 @@ void Gentari(Entity *this)
             if (this->interactType == 2) {
                 this->action = 2;
                 this->interactType = 0;
-                InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gLinkEntity)));
+                InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
                 sub_0806F118(this);
             } else {
                 sub_0807DD94(this, 0);

@@ -71,7 +71,7 @@ _080981DA:
 	adds r3, #0x68
 	cmp r0, #0
 	beq _08098222
-	ldr r0, _0809820C @ =gLinkEntity
+	ldr r0, _0809820C @ =gPlayerEntity
 	movs r2, #0x2e
 	ldrsh r1, [r0, r2]
 	ldr r0, _08098210 @ =gRoomControls
@@ -90,7 +90,7 @@ _080981DA:
 	b _08098220
 	.align 2, 0
 _08098208: .4byte 0x00000808
-_0809820C: .4byte gLinkEntity
+_0809820C: .4byte gPlayerEntity
 _08098210: .4byte gRoomControls
 _08098214:
 	ldrb r1, [r3]

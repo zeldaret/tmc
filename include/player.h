@@ -1,7 +1,7 @@
 // clang-format off
 
-#ifndef LINK_H
-#define LINK_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include "global.h"
 #include "entity.h"
@@ -16,7 +16,7 @@ typedef struct {
     /*0x08*/ u16 field_0x8;
     /*0x0a*/ u8 field_0xa;
     /*0x0b*/ u8 keepFacing;
-    /*0x0c*/ u8 linkAction;
+    /*0x0c*/ u8 playerAction;
     /*0x0d*/ u8 field_0xd[2];
     /*0x0f*/ u8 hurtBlinkSpeed;
     /*0x10*/ u8 field_0x10[4];
@@ -35,7 +35,9 @@ typedef struct {
     /*    */         u32 noMinishCap : 1;
     /*    */         u32 pullingState : 1;
     /*    */         u32 windyState : 1;
-    /*    */         u32 filler10 : 4;
+    /*    */         u32 filler6 : 1;
+    /*    */         u32 unk7 : 1;
+    /*    */         u32 filler8 : 2;
     /*    */         u32 slipperyState : 1;
     /*    */         u32 filler11 : 5;
     /*    */         u32 filler11b : 16;
@@ -56,7 +58,7 @@ typedef struct {
     /*0xa8*/ u8 field_0xa8[3];
     /*0xab*/ u8 field_0xab;
     /*0xac*/ u32 field_0xac;
-} LinkState;
+} PlayerState;
 
 
 typedef struct {
@@ -94,9 +96,9 @@ typedef struct {
 
 extern u8 gBombBagSizes[];
 
-extern LinkState gLinkState;
+extern PlayerState gPlayerState;
 extern Stats gStats;
-extern Entity gLinkEntity;
+extern Entity gPlayerEntity;
 
 
 extern u32 GetInventoryValue(u32);

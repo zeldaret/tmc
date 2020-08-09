@@ -193,7 +193,7 @@ _0802A392:
 sub_0802A39C: @ 0x0802A39C
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
-	ldr r4, _0802A3EC @ =gLinkEntity
+	ldr r4, _0802A3EC @ =gPlayerEntity
 	movs r0, #0x2e
 	ldrsh r1, [r4, r0]
 	ldr r2, _0802A3F0 @ =gRoomControls
@@ -232,7 +232,7 @@ sub_0802A39C: @ 0x0802A39C
 	ands r0, r1
 	b _0802A402
 	.align 2, 0
-_0802A3EC: .4byte gLinkEntity
+_0802A3EC: .4byte gPlayerEntity
 _0802A3F0: .4byte gRoomControls
 _0802A3F4: .4byte gScreen
 _0802A3F8: .4byte gUnk_02001A40

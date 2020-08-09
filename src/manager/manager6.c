@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "link.h"
+#include "player.h"
 #include "manager.h"
 
 extern void* GetCurrentRoomProperty(u8);
@@ -19,13 +19,13 @@ void sub_08057CB4(Entity * this) {
             return;
         }
     }
-    if (this->actionDelay == 0 || gLinkState.field_0x10[2] == 0x1e) {
+    if (this->actionDelay == 0 || gPlayerState.field_0x10[2] == 0x1e) {
         for (i = ((UnkManagerHelperStruct*) this->field_0x20);i->field_0x00 != 0xFFFF; i++) {
             tmp = (i->field_0x07.all & 0x3);
-            if (((tmp & (gLinkEntity.collisionLayer)) != 0) &&
-                (((gLinkState.flags.all & 0x80) != 0) || ((i->field_0x07.b.unk2) != 0)) &&
+            if (((tmp & (gPlayerEntity.collisionLayer)) != 0) &&
+                (((gPlayerState.flags.all & 0x80) != 0) || ((i->field_0x07.b.unk2) != 0)) &&
                 (CheckPlayerInRegion(i->field_0x00,i->field_0x02,i->field_0x04,i->field_0x05) != 0) &&
-                (gLinkEntity.height.HALF.HI == 0)) {
+                (gPlayerEntity.height.HALF.HI == 0)) {
                 DoExitTransition(GetCurrentRoomProperty(i->field_0x06));
             }
         }
