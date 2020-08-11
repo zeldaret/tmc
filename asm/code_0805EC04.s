@@ -1857,8 +1857,8 @@ _0805F9E2:
 	.align 2, 0
 _0805F9E4: .4byte 0x0000031A
 
-	thumb_func_start sub_0805F9E8
-sub_0805F9E8: @ 0x0805F9E8
+	thumb_func_start HandleDebugTextScreen
+HandleDebugTextScreen: @ 0x0805F9E8
 	push {lr}
 	ldr r1, _0805F9FC @ =gUnk_08109A30
 	ldr r0, _0805FA00 @ =gUnk_03001000

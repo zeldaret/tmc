@@ -242,4 +242,10 @@ extern void sub_0807921C();
 extern void sub_0807A1B8();
 extern void sub_08079938();
 extern void sub_0807ACCC(Entity*);
+extern void HandleIntroScreen(void);
+extern void HandleChooseFileScreen(void);
+extern void HandleGameplayScreen(void);
+extern void HandleGameOverScreen(void);
+extern void HandleCreditsScreen(void);
+extern void HandleDebugTextScreen(void);
 #endif

@@ -201,8 +201,8 @@ sub_080A35C8: @ 0x080A35C8
 	.align 2, 0
 _080A35DC: .4byte gUnk_02021EE0
 
-	thumb_func_start sub_080A35E0
-sub_080A35E0: @ 0x080A35E0
+	thumb_func_start HandleCreditsScreen
+HandleCreditsScreen: @ 0x080A35E0
 	push {lr}
 	ldr r1, _080A35FC @ =gScreenTransition
 	ldr r0, [r1]

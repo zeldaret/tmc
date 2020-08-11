@@ -405,8 +405,8 @@ _08050444: .4byte 0x000004B4
 _08050448: .4byte gUnk_02019EEC
 _0805044C: .4byte gUnk_02002A40
 
-	thumb_func_start sub_08050450
-sub_08050450: @ 0x08050450
+	thumb_func_start HandleChooseFileScreen
+HandleChooseFileScreen: @ 0x08050450
 	push {r4, lr}
 	bl sub_080AD90C
 	ldr r1, _080504D8 @ =gUnk_080FC8A4
@@ -3104,8 +3104,8 @@ sub_0805194C: @ 0x0805194C
 _08051980: .4byte gUnk_02019EE0
 _08051984: .4byte 0x000004B4
 
-	thumb_func_start sub_08051988
-sub_08051988: @ 0x08051988
+	thumb_func_start HandleGameplayScreen
+HandleGameplayScreen: @ 0x08051988
 	push {lr}
 	ldr r1, _080519A4 @ =gScreenTransition
 	ldr r0, [r1]
@@ -3875,8 +3875,8 @@ _08052088: .4byte gScreen
 _0805208C: .4byte 0x00001C01
 _08052090: .4byte 0x00001D05
 
-	thumb_func_start sub_08052094
-sub_08052094: @ 0x08052094
+	thumb_func_start HandleGameOverScreen
+HandleGameOverScreen: @ 0x08052094
 	push {r4, lr}
 	ldr r1, _080520BC @ =gUnk_080FCA70
 	ldr r4, _080520C0 @ =gUnk_03001000

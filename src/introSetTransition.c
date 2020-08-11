@@ -26,7 +26,7 @@ u32 IntroSetTransition(u32 transition)
     DoFade(7, 8);
 }
 
-void sub_080AD380()
+void HandleIntroScreen(void)
 {
   sub_080AD90C();
   switch (gUnk_03001000.funcIndex) {
