@@ -448,7 +448,7 @@ sub_0801D2B4: @ 0x0801D2B4
 sub_0801D2C8: @ 0x0801D2C8
 	push {r4, lr}
 	adds r3, r0, #0
-	ldr r2, _0801D2F8 @ =gUnk_0200B644
+	ldr r2, _0801D2F8 @ =gUsedPalettes
 	adds r4, r1, #0
 	adds r4, #0x10
 	movs r1, #1
@@ -460,7 +460,7 @@ sub_0801D2C8: @ 0x0801D2C8
 	bls _0801D33C
 	cmp r3, #0x15
 	bne _0801D300
-	ldr r2, _0801D2FC @ =gUnk_020176A0
+	ldr r2, _0801D2FC @ =gPaletteBuffer
 	adds r0, r2, #0
 	adds r0, #0x78
 	ldrh r0, [r0]
@@ -470,21 +470,21 @@ sub_0801D2C8: @ 0x0801D2C8
 	bl _DmaFill16
 	b _0801D33C
 	.align 2, 0
-_0801D2F8: .4byte gUnk_0200B644
-_0801D2FC: .4byte gUnk_020176A0
+_0801D2F8: .4byte gUsedPalettes
+_0801D2FC: .4byte gPaletteBuffer
 _0801D300:
 	cmp r3, #0x14
 	bhi _0801D31C
 	subs r0, r3, #6
 	lsls r0, r0, #5
-	ldr r1, _0801D318 @ =gUnk_020176A0
+	ldr r1, _0801D318 @ =gPaletteBuffer
 	adds r0, r0, r1
 	adds r1, r4, #0
 	movs r2, #1
-	bl sub_0801D754
+	bl LoadPalettes
 	b _0801D33C
 	.align 2, 0
-_0801D318: .4byte gUnk_020176A0
+_0801D318: .4byte gPaletteBuffer
 _0801D31C:
 	ldr r1, _0801D340 @ =gUnk_08133368
 	adds r0, r3, #0
@@ -497,16 +497,16 @@ _0801D31C:
 	ands r2, r1
 	ldr r1, _0801D344 @ =0x00FFFFFF
 	ands r0, r1
-	ldr r1, _0801D348 @ =gUnk_085A2E80
+	ldr r1, _0801D348 @ =gGlobalPalettes
 	adds r0, r0, r1
 	adds r1, r4, #0
-	bl sub_0801D754
+	bl LoadPalettes
 _0801D33C:
 	pop {r4, pc}
 	.align 2, 0
 _0801D340: .4byte gUnk_08133368
 _0801D344: .4byte 0x00FFFFFF
-_0801D348: .4byte gUnk_085A2E80
+_0801D348: .4byte gGlobalPalettes
 
 	thumb_func_start sub_0801D34C
 sub_0801D34C: @ 0x0801D34C
@@ -704,7 +704,7 @@ sub_0801D48C: @ 0x0801D48C
 	rsbs r0, r0, #0
 	cmp r5, r0
 	beq _0801D4F8
-	ldr r2, _0801D510 @ =gUnk_020176A0
+	ldr r2, _0801D510 @ =gPaletteBuffer
 	lsls r0, r3, #5
 	movs r1, #0x80
 	lsls r1, r1, #2
@@ -741,7 +741,7 @@ _0801D4C8:
 	cmp r5, r0
 	bne _0801D4C8
 _0801D4F8:
-	ldr r0, _0801D514 @ =gUnk_0200B644
+	ldr r0, _0801D514 @ =gUsedPalettes
 	ldr r1, [r0]
 	ldr r2, _0801D518 @ =0xFFFF0000
 	orrs r1, r2
@@ -752,8 +752,8 @@ _0801D4F8:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0801D50C: .4byte gUnk_02001A00
-_0801D510: .4byte gUnk_020176A0
-_0801D514: .4byte gUnk_0200B644
+_0801D510: .4byte gPaletteBuffer
+_0801D514: .4byte gUsedPalettes
 _0801D518: .4byte 0xFFFF0000
 
 	thumb_func_start sub_0801D51C

@@ -90,7 +90,7 @@ _080501DE:
 	ldr r2, [r0, #4]
 	ldr r1, _080501FC @ =gUnk_020354C0
 	movs r4, #0
-	ldr r7, _08050200 @ =gUnk_0200B644
+	ldr r7, _08050200 @ =gUsedPalettes
 	movs r6, #1
 _080501EA:
 	adds r0, r2, #0
@@ -103,7 +103,7 @@ _080501EA:
 	.align 2, 0
 _080501F8: .4byte gUnk_03000FD0
 _080501FC: .4byte gUnk_020354C0
-_08050200: .4byte gUnk_0200B644
+_08050200: .4byte gUsedPalettes
 _08050204:
 	strb r0, [r1]
 	strh r0, [r1, #2]
@@ -370,7 +370,7 @@ _080503FE:
 	lsls r0, r0, #0x12
 	strb r2, [r0, #5]
 	strb r1, [r0, #6]
-	ldr r1, _08050418 @ =gUnk_0200B644
+	ldr r1, _08050418 @ =gUsedPalettes
 	movs r0, #1
 	rsbs r0, r0, #0
 	str r0, [r1]
@@ -378,7 +378,7 @@ _080503FE:
 	.align 2, 0
 _08050410: .4byte 0x000004B4
 _08050414: .4byte gUnk_02019EEC
-_08050418: .4byte gUnk_0200B644
+_08050418: .4byte gUsedPalettes
 
 	thumb_func_start sub_0805041C
 sub_0805041C: @ 0x0805041C
@@ -527,7 +527,7 @@ _08050546:
 	movs r0, #5
 	bl sub_080503A8
 	movs r0, #9
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	movs r4, #0
 _08050586:
 	movs r0, #0x48
@@ -676,35 +676,35 @@ _080506AA:
 	lsls r0, r0, #1
 	adds r0, r0, r1
 	ldrh r4, [r0]
-	ldr r0, _080506F8 @ =gUnk_085A2E80
+	ldr r0, _080506F8 @ =gGlobalPalettes
 	adds r4, r4, r0
 	ldr r1, _080506FC @ =0x00011AA0
 	adds r0, r4, r1
 	movs r1, #0xb
 	movs r2, #1
-	bl sub_0801D754
+	bl LoadPalettes
 	ldr r1, _08050700 @ =0x00011BA0
 	adds r0, r4, r1
 	movs r1, #0xc
 	movs r2, #1
-	bl sub_0801D754
+	bl LoadPalettes
 	ldr r1, _08050704 @ =0x00011CA0
 	adds r0, r4, r1
 	movs r1, #0xd
 	movs r2, #1
-	bl sub_0801D754
+	bl LoadPalettes
 	ldr r0, _08050708 @ =0x00011DA0
 	adds r4, r4, r0
 	adds r0, r4, #0
 	movs r1, #0xe
 	movs r2, #1
-	bl sub_0801D754
+	bl LoadPalettes
 _080506EE:
 	pop {r4, pc}
 	.align 2, 0
 _080506F0: .4byte gUnk_02019EE0
 _080506F4: .4byte gUnk_080FC8DE
-_080506F8: .4byte gUnk_085A2E80
+_080506F8: .4byte gGlobalPalettes
 _080506FC: .4byte 0x00011AA0
 _08050700: .4byte 0x00011BA0
 _08050704: .4byte 0x00011CA0
@@ -3787,7 +3787,7 @@ sub_08051F9C: @ 0x08051F9C
 	ldr r1, _08051FE8 @ =gUnk_02000070
 	movs r0, #1
 	strb r0, [r1]
-	ldr r0, _08051FEC @ =gUnk_0200B644
+	ldr r0, _08051FEC @ =gUsedPalettes
 	str r6, [r0]
 	ldrh r0, [r5]
 	orrs r4, r0
@@ -3799,7 +3799,7 @@ sub_08051F9C: @ 0x08051F9C
 _08051FE0: .4byte gScreen
 _08051FE4: .4byte gRoomControls
 _08051FE8: .4byte gUnk_02000070
-_08051FEC: .4byte gUnk_0200B644
+_08051FEC: .4byte gUsedPalettes
 
 	thumb_func_start sub_08051FF0
 sub_08051FF0: @ 0x08051FF0
@@ -3839,7 +3839,7 @@ sub_08052010: @ 0x08052010
 	bl _DmaZero
 	bl sub_080A4D34
 	movs r0, #0xa
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	movs r0, #0
 	movs r1, #0
 	bl sub_0801D79C

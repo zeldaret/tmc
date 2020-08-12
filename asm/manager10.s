@@ -441,7 +441,7 @@ _080598AA:
 	adds r1, r0, r2
 	movs r2, #0x20
 	bl sub_0801D66C
-	ldr r2, _080598F0 @ =gUnk_0200B644
+	ldr r2, _080598F0 @ =gUsedPalettes
 	ldr r0, [r2]
 	ldr r1, _080598F4 @ =0x00207FFC
 	orrs r0, r1
@@ -453,7 +453,7 @@ _080598AA:
 	.align 2, 0
 _080598E8: .4byte gUnk_020176E0
 _080598EC: .4byte gUnk_02017700
-_080598F0: .4byte gUnk_0200B644
+_080598F0: .4byte gUsedPalettes
 _080598F4: .4byte 0x00207FFC
 
 	thumb_func_start sub_080598F8
@@ -547,7 +547,7 @@ sub_08059994: @ 0x08059994
 	cmp r0, #0
 	beq _080599AE
 	movs r0, #0x5b
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	ldr r0, _080599B0 @ =gArea
 	ldr r1, _080599B4 @ =0x00000864
 	adds r0, r0, r1

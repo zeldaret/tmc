@@ -1740,7 +1740,7 @@ extern struct_086D4460 gUnk_086D4460;
 void sub_0804C918(void) {
     LoadAssetAsync(&gUnk_086D4460.LO, 0x6000000, 0x4000);
     LoadAssetAsync(&gUnk_086D4460.HI, 0x6008000, 0x4000);
-    LoadPalettesByPaletteGroupIndex(0x19);
+    LoadPaletteGroup(0x19);
 }
 
 u32 sub_0804C948() {
@@ -2224,7 +2224,7 @@ extern EntityData gUnk_080DF94C;
 
 extern u8 gUnk_02000070;
 extern u8 gUnk_03000FD0;
-extern u32 gUnk_0200B644;
+extern u32 gUsedPalettes;
 
 void sub_0804CD48(void) {
 
@@ -2233,7 +2233,7 @@ void sub_0804CD48(void) {
         MenuFadeIn(5, 0);
         gUnk_02000070 = 0;
         gUnk_03000FD0 = 0;
-        gUnk_0200B644 = 0;
+        gUsedPalettes = 0;
         *(u16*)0x5000000 = 0x7fff;
         sub_0801DA90(1);
     }
@@ -6552,5 +6552,5 @@ void nullsub_106() {}
 void sub_0804FF84(u32 arg0)
 {
   ((struct_02000000 * )0x02000000)->brightnessPref = arg0;
-  gUnk_0200B644 = (u32)-1;
+  gUsedPalettes = (u32)-1;
 }

@@ -1021,7 +1021,7 @@ sub_080A4418: @ 0x080A4418
 	ands r2, r1
 	mvns r0, r2
 	ands r0, r1
-	ldr r1, _080A444C @ =gUnk_085A2E80
+	ldr r1, _080A444C @ =gGlobalPalettes
 	adds r1, r0, r1
 	cmp r2, #0
 	beq _080A4450
@@ -1032,7 +1032,7 @@ sub_080A4418: @ 0x080A4418
 	.align 2, 0
 _080A4444: .4byte 0x06010000
 _080A4448: .4byte gUnk_080CA06C
-_080A444C: .4byte gUnk_085A2E80
+_080A444C: .4byte gGlobalPalettes
 _080A4450:
 	ldr r0, _080A4460 @ =0x040000D4
 	str r1, [r0]
@@ -1252,7 +1252,7 @@ sub_080A4608: @ 0x080A4608
 	bl sub_080A3248
 	movs r0, #3
 	bl sub_080A4DA8
-	ldr r4, _080A46A0 @ =gUnk_020176A0
+	ldr r4, _080A46A0 @ =gPaletteBuffer
 	movs r1, #0xfb
 	lsls r1, r1, #1
 	adds r0, r4, r1
@@ -1320,7 +1320,7 @@ _080A4694:
 	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
-_080A46A0: .4byte gUnk_020176A0
+_080A46A0: .4byte gPaletteBuffer
 _080A46A4: .4byte gUnk_02034CB0
 _080A46A8: .4byte gUnk_02001A40
 _080A46AC: .4byte gScreen
@@ -1898,7 +1898,7 @@ _080A4ABE:
 	ldr r0, [r4]
 	movs r1, #0x16
 	movs r2, #9
-	bl sub_0801D754
+	bl LoadPalettes
 	ldr r0, [r4, #4]
 	ldr r2, [r4, #8]
 	cmp r2, #0
@@ -2174,7 +2174,7 @@ sub_080A4D34: @ 0x080A4D34
 	push {lr}
 	bl sub_08053320
 	movs r0, #0xb5
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	ldr r1, _080A4D50 @ =gUnk_02002A40
 	adds r2, r1, #0
 	adds r2, #0xaa
@@ -2303,7 +2303,7 @@ sub_080A4DB8: @ 0x080A4DB8
 	ldrb r0, [r4]
 	cmp r0, #0
 	beq _080A4E4A
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 _080A4E4A:
 	ldrb r0, [r4, #1]
 	cmp r0, #0

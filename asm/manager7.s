@@ -76,7 +76,7 @@ _08057DD6:
 	movs r0, #1
 	strb r0, [r1]
 	ldr r0, [r2]
-	ldr r1, _08057DFC @ =gUnk_085A2E80
+	ldr r1, _08057DFC @ =gGlobalPalettes
 	adds r0, r0, r1
 	ldr r1, [r2, #4]
 	movs r2, #0x80
@@ -85,17 +85,17 @@ _08057DD6:
 	ldr r0, _08057E00 @ =gUnk_081081E4
 	adds r0, r5, r0
 	ldrb r0, [r0]
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	b _08057E24
 	.align 2, 0
 _08057DF8: .4byte gUnk_02034490
-_08057DFC: .4byte gUnk_085A2E80
+_08057DFC: .4byte gGlobalPalettes
 _08057E00: .4byte gUnk_081081E4
 _08057E04:
 	lsls r1, r1, #3
 	adds r1, r1, r2
 	ldr r0, [r1]
-	ldr r2, _08057E1C @ =gUnk_085A2E80
+	ldr r2, _08057E1C @ =gGlobalPalettes
 	adds r0, r0, r2
 	ldr r1, [r1, #4]
 	movs r2, #0x80
@@ -103,7 +103,7 @@ _08057E04:
 	bl LoadAssetAsync
 	b _08057E24
 	.align 2, 0
-_08057E1C: .4byte gUnk_085A2E80
+_08057E1C: .4byte gGlobalPalettes
 _08057E20:
 	ldr r0, _08057E2C @ =gUnk_02034490
 	strb r3, [r0]
@@ -169,13 +169,13 @@ sub_08057E7C: @ 0x08057E7C
 	ldr r0, _08057EB8 @ =gUnk_081081E4
 	adds r0, r4, r0
 	ldrb r0, [r0]
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	lsls r1, r4, #6
 	ldr r0, _08057EBC @ =gUnk_081080A4
 	adds r1, r1, r0
 	movs r3, #0
 	ldr r2, _08057EC0 @ =0x040000D4
-	ldr r6, _08057EC4 @ =gUnk_085A2E80
+	ldr r6, _08057EC4 @ =gGlobalPalettes
 	ldr r5, _08057EC8 @ =0x84000400
 _08057E9C:
 	ldr r0, [r1]
@@ -197,6 +197,6 @@ _08057EB6:
 _08057EB8: .4byte gUnk_081081E4
 _08057EBC: .4byte gUnk_081080A4
 _08057EC0: .4byte 0x040000D4
-_08057EC4: .4byte gUnk_085A2E80
+_08057EC4: .4byte gGlobalPalettes
 _08057EC8: .4byte 0x84000400
 _08057ECC: .4byte gRoomVars

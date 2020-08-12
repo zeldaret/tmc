@@ -869,7 +869,7 @@ sub_080A5BF0: @ 0x080A5BF0
 	movs r2, #0xe
 	bl sub_0801D66C
 	strh r5, [r4, #0xe]
-	ldr r2, _080A5C40 @ =gUnk_0200B644
+	ldr r2, _080A5C40 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80
 	lsls r1, r1, #5
@@ -882,7 +882,7 @@ _080A5C30: .4byte gUnk_08128D30
 _080A5C34: .4byte gMenu
 _080A5C38: .4byte gUnk_03001000
 _080A5C3C: .4byte gUnk_02017830
-_080A5C40: .4byte gUnk_0200B644
+_080A5C40: .4byte gUsedPalettes
 
 	thumb_func_start sub_080A5C44
 sub_080A5C44: @ 0x080A5C44
@@ -2016,7 +2016,7 @@ sub_080A6534: @ 0x080A6534
 	ands r0, r1
 	movs r4, #0
 	strh r0, [r2]
-	ldr r0, _080A6598 @ =gUnk_020176A0
+	ldr r0, _080A6598 @ =gPaletteBuffer
 	adds r0, #0xa2
 	ldrh r1, [r0]
 	movs r0, #0
@@ -2048,7 +2048,7 @@ sub_080A6534: @ 0x080A6534
 	.align 2, 0
 _080A6590: .4byte gScreen
 _080A6594: .4byte 0x0000F7FF
-_080A6598: .4byte gUnk_020176A0
+_080A6598: .4byte gPaletteBuffer
 _080A659C: .4byte gUnk_08128F4C
 _080A65A0: .4byte gUnk_02032EC0
 _080A65A4: .4byte gUnk_02002A40
@@ -2328,7 +2328,7 @@ sub_080A67C4: @ 0x080A67C4
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r0, #0xba
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	adds r5, r4, #0
 	adds r5, #0x5f
 	cmp r4, #0xb
@@ -3680,7 +3680,7 @@ sub_080A7250: @ 0x080A7250
 	ldr r1, _080A72F0 @ =gUnk_03001020
 	movs r2, #0x7c
 	bl sub_0801D66C
-	ldr r0, _080A72F4 @ =gUnk_020176A0
+	ldr r0, _080A72F4 @ =gPaletteBuffer
 	ldr r1, _080A72F8 @ =gUnk_02024090
 	movs r2, #0x80
 	lsls r2, r2, #3
@@ -3743,7 +3743,7 @@ _080A72E4:
 _080A72E8: .4byte gUnk_03000FD0
 _080A72EC: .4byte gScreen
 _080A72F0: .4byte gUnk_03001020
-_080A72F4: .4byte gUnk_020176A0
+_080A72F4: .4byte gPaletteBuffer
 _080A72F8: .4byte gUnk_02024090
 _080A72FC: .4byte gUnk_02024490
 _080A7300: .4byte gUnk_02032F14

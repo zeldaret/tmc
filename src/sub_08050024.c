@@ -29,7 +29,7 @@ typedef struct {
 
 extern struct_03000000 gUnk_03000000;
 
-extern u32 gUnk_0200B644;
+extern u32 gUsedPalettes;
 
 extern void sub_0801E104();
 extern void DoFade(u32, u32);
@@ -75,7 +75,7 @@ void DoFade(u32 fadeType, u32 fadeSpeed)
     if ((fadeType & 1) == 0) {
       gUnk_03000FD0.fadeType &= 0xfffb;
       sub_08050008();
-      gUnk_0200B644 = 0xffffffff;
+      gUsedPalettes = 0xffffffff;
     }
   }
 }

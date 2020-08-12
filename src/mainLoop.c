@@ -5,7 +5,7 @@
 #include "readKeyInput.h"
 
 extern void sub_0804FF84(u32);
-extern u32 gUnk_020176A0;
+extern u32 gPaletteBuffer;
 extern void VBlankInterruptWait(void);
 extern void DisableInterruptsAndDMA(void);
 extern void sub_0801D66C(void*, u8*, int);
@@ -34,7 +34,7 @@ void MainLoop(void) {
     sub_08056208();
     gUnk_02000010.field_0x4 = 193;
     sub_0804FFE4();
-    DmaSet(3, 0x5000000U, &gUnk_020176A0, 0x84000080U);
+    DmaSet(3, 0x5000000U, &gPaletteBuffer, 0x84000080U);
     sub_0804FF84(1);
     sub_08056418();
     sub_080ADD30();

@@ -1089,7 +1089,7 @@ sub_0805AA58: @ 0x0805AA58
 	adds r0, r0, r1
 	movs r1, #5
 	movs r2, #1
-	bl sub_0801D754
+	bl LoadPalettes
 _0805AA8C:
 	ldrb r0, [r4, #0xf]
 	subs r0, #1

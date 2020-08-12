@@ -49,7 +49,7 @@ SECTIONS {
         . = 0x0000AF34; gUnk_0200AF34 = .;
         . = 0x0000B240; gUnk_0200B240 = .;
         . = 0x0000B640; gUnk_0200B640 = .;
-        . = 0x0000B644; gUnk_0200B644 = .;
+        . = 0x0000B644; gUsedPalettes = .;
         . = 0x0000B650; gUnk_0200B650 = .;
         . = 0x0000B654; gUnk_0200B654 = .;
         . = 0x0000D654; gUnk_0200D654 = .;
@@ -60,7 +60,7 @@ SECTIONS {
         . = 0x00016654; gUnk_02016654 = .;
         . = 0x00017654; gUnk_02017654 = .;
         . = 0x00017660; gUnk_02017660 = .;
-        . = 0x000176A0; gUnk_020176A0 = .;
+        . = 0x000176A0; gPaletteBuffer = .;
         . = 0x000176E0; gUnk_020176E0 = .;
         . = 0x00017700; gUnk_02017700 = .;
         . = 0x00017830; gUnk_02017830 = .;
@@ -320,7 +320,7 @@ SECTIONS {
 		src/dma.o(.text);
 		asm/sub_0801D66C.o(.text);
 		src/input.o(.text);
-		asm/code_0801D714.o(.text);
+		src/code_0801D714.o(.text);
 		asm/code_0801D79C.o(.text);
 		/* enemies */
 		src/enemy/octorok.o(.text);
@@ -888,10 +888,6 @@ SECTIONS {
 		src/sub_080A554C.o(.text);
 		asm/code_080A5574.o(.text);
 		src/introSetTransition.o(.text);
-		asm/sub_080AD76C.o(.text);
-		src/sub_080AD834.o(.text);
-		asm/sub_080AD84C.o(.text);
-		asm/sub_080AD89C.o(.text);
 		asm/sub_080AD8F0.o(.text);
 		asm/code_080AD90C.o(.text);
         /* library functions */
@@ -925,6 +921,8 @@ SECTIONS {
 		data/data_081208A0.o(.rodata);
 		src/object/heartContainer.o(.rodata);
 		data/data_08121C58.o(.rodata);
+		src/introSetTransition.o(.rodata);
+		data/data_081320FC.o(.rodata);
 		data/strings.o(.rodata);
 		data/data_089FC6C4.o(.rodata);
     } >rom

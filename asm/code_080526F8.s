@@ -158,19 +158,19 @@ sub_080527FC: @ 0x080527FC
 	adds r0, r4, #0
 	bl sub_0801AE44
 	ldr r0, _08052830 @ =gUnk_02024090
-	ldr r1, _08052834 @ =gUnk_020176A0
+	ldr r1, _08052834 @ =gPaletteBuffer
 	movs r2, #0x80
 	lsls r2, r2, #3
 	bl sub_0801D66C
-	ldr r1, _08052838 @ =gUnk_0200B644
+	ldr r1, _08052838 @ =gUsedPalettes
 	movs r0, #1
 	rsbs r0, r0, #0
 	str r0, [r1]
 	pop {r4, pc}
 	.align 2, 0
 _08052830: .4byte gUnk_02024090
-_08052834: .4byte gUnk_020176A0
-_08052838: .4byte gUnk_0200B644
+_08052834: .4byte gPaletteBuffer
+_08052838: .4byte gUsedPalettes
 
 	thumb_func_start sub_0805283C
 sub_0805283C: @ 0x0805283C
@@ -1594,9 +1594,9 @@ sub_08053320: @ 0x08053320
 _08053362:
 	bl sub_08053390
 	movs r0, #0xb
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	movs r0, #0xc
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	movs r0, #0
 	movs r1, #0
 	bl sub_0801D79C
@@ -1659,7 +1659,7 @@ sub_080533CC: @ 0x080533CC
 	strh r2, [r1]
 	ldrh r0, [r0, #2]
 	strh r0, [r1, #2]
-	ldr r2, _08053408 @ =gUnk_0200B644
+	ldr r2, _08053408 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #8
 	orrs r0, r1
@@ -1668,7 +1668,7 @@ sub_080533CC: @ 0x080533CC
 	.align 2, 0
 _08053400: .4byte gUnk_020178E0
 _08053404: .4byte 0xFFFFFE00
-_08053408: .4byte gUnk_0200B644
+_08053408: .4byte gUsedPalettes
 
 	thumb_func_start sub_0805340C
 sub_0805340C: @ 0x0805340C
@@ -2215,7 +2215,7 @@ sub_08053800: @ 0x08053800
 	strb r2, [r1, #7]
 	adds r0, r5, #0
 	adds r0, #0x8a
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	adds r0, r5, #0
 	adds r0, #0x3a
 	bl sub_0801D7EC

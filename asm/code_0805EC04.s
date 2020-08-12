@@ -376,7 +376,7 @@ sub_0805EE88: @ 0x0805EE88
 	ands r1, r0
 	lsrs r0, r1, #2
 	adds r0, #0x2f
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 _0805EEAC:
 	pop {pc}
 	.align 2, 0

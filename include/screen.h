@@ -63,11 +63,11 @@ typedef struct {
 } BgControls;
 
 typedef struct {
-    LcdControls lcd;
-    BgSettings bg1;
-    BgSettings bg2;
-    BgAffSettings affine;
-    BgControls controls;
+    /*0x00*/ LcdControls lcd;
+    /*0x0C*/ BgSettings bg1;
+    /*0x18*/ BgSettings bg2;
+    /*0x24*/ BgAffSettings affine;
+    /*0x3C*/ BgControls controls;
 } Screen;
 
 extern BgControls gBgControls;

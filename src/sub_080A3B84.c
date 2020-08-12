@@ -31,7 +31,7 @@ void sub_080A3BD0(void)
   gMenu.field_0x1 = 1;
   gMenu.unk2a = 0;
   sub_080A4D34();
-  LoadPalettesByPaletteGroupIndex(0xcb);
+  LoadPaletteGroup(0xcb);
   sub_0801D7EC(0x75);
   
   iVar1 = sub_080A4494();

@@ -70,13 +70,13 @@ _0804B190:
 	bl SetTileType
 _0804B198:
 	adds r4, #8
-	ldr r0, _0804B1A8 @ =gUnk_020176A0
+	ldr r0, _0804B1A8 @ =gPaletteBuffer
 	cmp r4, r0
 	blo _0804B170
 	pop {r4, pc}
 	.align 2, 0
 _0804B1A4: .4byte gUnk_02017660
-_0804B1A8: .4byte gUnk_020176A0
+_0804B1A8: .4byte gPaletteBuffer
 
 	thumb_func_start LoadRoomTileEntities
 LoadRoomTileEntities: @ 0x0804B1AC

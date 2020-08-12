@@ -3,10 +3,20 @@
 #include "main.h"
 #include "entity.h"
 #include "functions.h"
+#include "readKeyInput.h"
 #include "screen.h"
 #include "structures.h"
 
-extern void (*const gUnk_081320F0[])();
+static void sub_080AD3F4(void);
+static void sub_080AD474(void);
+static void sub_080AD670(void);
+static void sub_080AD834(void);
+
+static void (*const gUnk_081320F0[])(void) = {
+    sub_080AD3F4,
+    sub_080AD474,
+    sub_080AD834,
+};
 
 typedef struct {
     u8 field_0x0;
@@ -18,11 +28,13 @@ typedef struct {
 
 extern struct_03000FD0 gUnk_03000FD0;
 
+extern const u16 gUnk_081320FC[];
+
 u32 IntroSetTransition(u32 transition)
 {
     gUnk_02032EC0.transitionType = transition;
     gUnk_03001000.funcIndex = 2;
-    _DmaZero((u32 *)&gMenu, 48);
+    _DmaZero(&gMenu, sizeof(gMenu));
     DoFade(7, 8);
 }
 
@@ -49,7 +61,7 @@ void HandleIntroScreen(void)
   sub_080AD918();
 }
 
-void sub_080AD3F4(void)
+static void sub_080AD3F4(void)
 {
   u32 iVar1;
   u32 uVar2;
@@ -58,7 +70,7 @@ void sub_080AD3F4(void)
   if (gMenu.menuType == 0) {
     sub_0801DA90(1);
     gMenu.menuType = 1;
-    gMenu.transitionTimer = 0x78;
+    gMenu.transitionTimer = 120;
     sub_0801D7EC(0x10);
     sub_0801D7EC(1);
     if (((struct_02000000 *)0x2000000)->gameLanguage == 0) {
@@ -67,7 +79,7 @@ void sub_080AD3F4(void)
     else {
         uVar2 = 2;
     }
-    LoadPalettesByPaletteGroupIndex(uVar2);
+    LoadPaletteGroup(uVar2);
     gScreen.lcd.lcdControl2 |= 0x400;
     gScreen.bg2.bg0xOffset = 1;
     DoFade(6, 8);
@@ -92,7 +104,7 @@ extern u16 gUnk_03001010[5];
 
 extern u8 gUnk_02024490;
 
-void sub_080AD474(void)
+static void sub_080AD474(void)
 {
     int iVar2;
     u32 uVar3;
@@ -115,7 +127,7 @@ void sub_080AD474(void)
             else {
                 uVar3 = 4;
             }
-            LoadPalettesByPaletteGroupIndex(uVar3);
+            LoadPaletteGroup(uVar3);
             if (((struct_02000000*)0x2000000)->gameLanguage == 0) {
                 gScreen.controls.windowOutsideControl = 0x844;
                 gScreen.controls.mosaicSize = 0x909;
@@ -198,7 +210,7 @@ void sub_080AD644(void) {
     return;
 }
 
-void sub_080AD670(void)
+static void sub_080AD670(void)
 {
     struct BgAffineSrcData aff;
     aff.texY = 0x8000;
@@ -232,7 +244,7 @@ void sub_080AD6AC(void)
             }
             break;
         case 1:
-            if (gUnk_03000FD0.field_0x0 == '\0') {
+            if (gUnk_03000FD0.field_0x0 == 0) {
                 gUnk_03000FD0.field_0x4 = -1;
                 gMenu.overlayType++;
                 gMenu.transitionTimer = 0x5a;
@@ -248,5 +260,84 @@ void sub_080AD6AC(void)
                 gMenu.menuType++;
                 gMenu.transitionTimer = 0x3c;
             }
+    }
+}
+
+void sub_080AD76C(void) {
+    switch (gMenu.overlayType) {
+        case 0:
+            if (gUnk_03000FD0.field_0x0 == 0) {
+                gMenu.overlayType = 1;
+                gScreen.lcd.lcdControl2 |= 0x400;
+                PlaySFX(0xF6);
+            }
+            break;
+        case 1:
+            gMenu.field_0x2c += 16;
+            if (gMenu.field_0x2c > 256) {
+                gMenu.field_0x2c = 256;
+                gMenu.transitionTimer = 40;
+                gMenu.overlayType++;
+                DoFade(6, 16);
+            }
+            sub_080AD670();
+            break;
+        case 2:
+            if (--gMenu.transitionTimer == 0) {
+                gMenu.transitionTimer = 300;
+                gMenu.overlayType++;
+                CreateObject(0xBD, 0, 0);
+                DoFade(6, 16);
+                PlaySFX(0xF8);
+            }
+            break;
+        default:
+            if (gUnk_03000FD0.field_0x0 == 0 && sub_080AD84C()) {
+                gMenu.menuType++;
+                gMenu.transitionTimer = 60;
+            }
+            break;
+    }
+}
+
+static void sub_080AD834(void) {
+    if (gUnk_03000FD0.field_0x0 == 0) {
+        InitScreen(SCREEN_CHOOSE_FILE);
+    }
+}
+
+u32 sub_080AD84C(void) {
+    u32 newKeys;
+
+    if (gUnk_03000FD0.field_0x0 != 0) {
+        return 0;
+    }
+
+    if (gUnk_02000010.field_0x5 == 0) {
+        newKeys = 0;
+    } else {
+        newKeys = gUnk_03000FF0.newKeys & (A_BUTTON | START_BUTTON);
+    }
+
+    if (--gMenu.transitionTimer == 0) {
+        return 1;
+    }
+
+    if (newKeys) {
+        return 2;
+    }
+
+    return 0;
+}
+
+void sub_080AD89C(void) {
+    if ((gMenu.field_0x12 & 0x7) == 0) {
+        gMenu.unk10[0] = (gMenu.unk10[0] + 1) & 0x3;
+        LoadPaletteGroup(gMenu.unk10[0] + 5);
+    }
+
+    if ((gMenu.field_0x12 & 0x1F) == 0) {
+        gMenu.unk10[1] = (gMenu.unk10[1] + 1) & 0x7;
+        gScreen.controls.mosaicSize = gUnk_081320FC[gMenu.unk10[1]];
     }
 }

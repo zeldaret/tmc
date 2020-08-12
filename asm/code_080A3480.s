@@ -268,9 +268,9 @@ _080A365E:
 	movs r0, #0
 	bl sub_0801DA90
 	movs r0, #0xb
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	movs r0, #0xc
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	movs r0, #0
 	movs r1, #0
 	bl sub_0801D79C
@@ -348,7 +348,7 @@ sub_080A36F8: @ 0x080A36F8
 	ldr r0, _080A375C @ =gUnk_08127CEC
 	adds r4, r4, r0
 	ldrb r0, [r4]
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	ldrb r0, [r4, #1]
 	bl sub_0801D7EC
 	ldr r0, _080A3760 @ =gUnk_02021F30
@@ -703,7 +703,7 @@ _080A39C8:
 	bl sub_080A3210
 	bl sub_080A4D34
 	movs r0, #0xa
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	movs r0, #0
 	movs r1, #0
 	bl sub_0801D79C

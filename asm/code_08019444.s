@@ -499,7 +499,7 @@ _0801981A:
 	b _0801982E
 _08019824:
 	ldrh r0, [r4]
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	bl sub_080533CC
 _0801982E:
 	adds r4, #0xc
@@ -3793,7 +3793,7 @@ sub_0801B0EC: @ 0x0801B0EC
 	adds r4, r0, #0
 _0801B0F0:
 	ldr r1, [r4, #4]
-	ldr r0, _0801B110 @ =gUnk_085A2E80
+	ldr r0, _0801B110 @ =gGlobalPalettes
 	adds r5, r1, r0
 	ldrb r2, [r4, #2]
 	ldrh r3, [r4]
@@ -3805,10 +3805,10 @@ _0801B0F0:
 	beq _0801B114
 	lsrs r1, r3, #5
 	adds r0, r5, #0
-	bl sub_0801D754
+	bl LoadPalettes
 	b _0801B122
 	.align 2, 0
-_0801B110: .4byte gUnk_085A2E80
+_0801B110: .4byte gGlobalPalettes
 _0801B114:
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
