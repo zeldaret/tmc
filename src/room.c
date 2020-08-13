@@ -2223,7 +2223,6 @@ u32 sub_0804CD44() {
 extern EntityData gUnk_080DF94C;
 
 extern u8 gUnk_02000070;
-extern u8 gUnk_03000FD0;
 extern u32 gUsedPalettes;
 
 void sub_0804CD48(void) {
@@ -2232,7 +2231,7 @@ void sub_0804CD48(void) {
         SetLocalFlag(0x48);
         MenuFadeIn(5, 0);
         gUnk_02000070 = 0;
-        gUnk_03000FD0 = 0;
+        gFadeControl.active = 0;
         gUsedPalettes = 0;
         *(u16*)0x5000000 = 0x7fff;
         sub_0801DA90(1);

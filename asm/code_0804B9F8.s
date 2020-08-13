@@ -47,7 +47,7 @@ _0804FFE0: .4byte gPaletteBuffer
 	thumb_func_start sub_0804FFE4
 sub_0804FFE4: @ 0x0804FFE4
 	push {r4, lr}
-	ldr r4, _08050000 @ =gUnk_03000FD0
+	ldr r4, _08050000 @ =gFadeControl
 	adds r0, r4, #0
 	movs r1, #0x1c
 	bl _DmaZero
@@ -59,5 +59,5 @@ sub_0804FFE4: @ 0x0804FFE4
 	str r0, [r4, #4]
 	pop {r4, pc}
 	.align 2, 0
-_08050000: .4byte gUnk_03000FD0
+_08050000: .4byte gFadeControl
 _08050004: .4byte gUnk_020354C0

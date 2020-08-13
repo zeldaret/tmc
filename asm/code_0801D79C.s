@@ -298,7 +298,7 @@ sub_0801DA90: @ 0x0801DA90
 	strb r0, [r1]
 	ldr r0, _0801DAF0 @ =gUnk_03003DE0
 	strb r3, [r0]
-	ldr r0, _0801DAF4 @ =gUnk_03000FD0
+	ldr r0, _0801DAF4 @ =gFadeControl
 	strb r3, [r0]
 	ldr r5, _0801DAF8 @ =gScreen
 	adds r0, r5, #0
@@ -333,7 +333,7 @@ sub_0801DA90: @ 0x0801DA90
 	.align 2, 0
 _0801DAEC: .4byte gUnk_03001000
 _0801DAF0: .4byte gUnk_03003DE0
-_0801DAF4: .4byte gUnk_03000FD0
+_0801DAF4: .4byte gFadeControl
 _0801DAF8: .4byte gScreen
 _0801DAFC: .4byte 0x040000B0
 _0801DB00: .4byte 0x0000C5FF

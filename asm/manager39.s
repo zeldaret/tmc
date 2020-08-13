@@ -80,7 +80,7 @@ _0805E188: .4byte gArea
 sub_0805E18C: @ 0x0805E18C
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _0805E1D0 @ =gUnk_03000FD0
+	ldr r0, _0805E1D0 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0805E1CC
@@ -112,7 +112,7 @@ _0805E1BA:
 _0805E1CC:
 	pop {r4, pc}
 	.align 2, 0
-_0805E1D0: .4byte gUnk_03000FD0
+_0805E1D0: .4byte gFadeControl
 _0805E1D4: .4byte gPlayerState
 
 	thumb_func_start sub_0805E1D8

@@ -168,7 +168,7 @@ _0804ACC6:
 	thumb_func_start sub_0804ACC8
 sub_0804ACC8: @ 0x0804ACC8
 	push {lr}
-	ldr r0, _0804ACEC @ =gUnk_03000FD0
+	ldr r0, _0804ACEC @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0804ACE8
@@ -183,7 +183,7 @@ sub_0804ACC8: @ 0x0804ACC8
 _0804ACE8:
 	pop {pc}
 	.align 2, 0
-_0804ACEC: .4byte gUnk_03000FD0
+_0804ACEC: .4byte gFadeControl
 _0804ACF0: .4byte gArea
 _0804ACF4: .4byte gUnk_02032EDC
 

@@ -178,7 +178,7 @@ _0802D16C: .4byte gUnk_02034490
 sub_0802D170: @ 0x0802D170
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
-	ldr r0, _0802D1F0 @ =gUnk_03000FD0
+	ldr r0, _0802D1F0 @ =gFadeControl
 	ldrb r3, [r0]
 	cmp r3, #0
 	bne _0802D216
@@ -237,7 +237,7 @@ sub_0802D170: @ 0x0802D170
 	bl DoFade
 	b _0802D216
 	.align 2, 0
-_0802D1F0: .4byte gUnk_03000FD0
+_0802D1F0: .4byte gFadeControl
 _0802D1F4: .4byte gPlayerEntity
 _0802D1F8: .4byte gRoomControls
 _0802D1FC:

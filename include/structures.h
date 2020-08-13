@@ -107,4 +107,23 @@ typedef struct {
 
 extern struct_02019EE0 gUnk_02019EE0;
 
+typedef struct {
+    u8 active;
+    u8 field_0x1;
+    u8 field_0x2;
+    u8 field_0x3;
+    u32 field_0x4;
+    u16 fadeType; // fade in or out, are there others?
+    u16 fadeSpeed; // subtracted from duration
+    u16 fadeDuration;
+    u16 field_0xe;
+    s16 field_0x10;
+    s16 field_0x12;
+    s16 field_0x14;
+    u16 field_0x16;
+    u16 field_0x18;
+} struct_03000FD0;
+
+extern struct_03000FD0 gFadeControl;
+
 #endif

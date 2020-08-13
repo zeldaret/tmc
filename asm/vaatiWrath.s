@@ -1399,7 +1399,7 @@ sub_08041E20: @ 0x08041E20
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0, #8]
 	bl GetNextFrame
-	ldr r0, _08041E4C @ =gUnk_03000FD0
+	ldr r0, _08041E4C @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08041E48
@@ -1410,7 +1410,7 @@ sub_08041E20: @ 0x08041E20
 _08041E48:
 	pop {r4, pc}
 	.align 2, 0
-_08041E4C: .4byte gUnk_03000FD0
+_08041E4C: .4byte gFadeControl
 
 	thumb_func_start sub_08041E50
 sub_08041E50: @ 0x08041E50

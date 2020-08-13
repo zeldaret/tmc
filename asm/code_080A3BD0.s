@@ -9,7 +9,7 @@
 	thumb_func_start sub_080A3C6C
 sub_080A3C6C: @ 0x080A3C6C
 	push {r4, r5, lr}
-	ldr r0, _080A3C9C @ =gUnk_03000FD0
+	ldr r0, _080A3C9C @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080A3C78
@@ -35,7 +35,7 @@ _080A3C92:
 	str r2, [r5, #0x10]
 	b _080A3CDE
 	.align 2, 0
-_080A3C9C: .4byte gUnk_03000FD0
+_080A3C9C: .4byte gFadeControl
 _080A3CA0: .4byte gMenu
 _080A3CA4: .4byte 0x00001FFD
 _080A3CA8:
@@ -1354,7 +1354,7 @@ sub_080A46DC: @ 0x080A46DC
 	thumb_func_start sub_080A46EC
 sub_080A46EC: @ 0x080A46EC
 	push {lr}
-	ldr r0, _080A4714 @ =gUnk_03000FD0
+	ldr r0, _080A4714 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A4710
@@ -1372,7 +1372,7 @@ sub_080A46EC: @ 0x080A46EC
 _080A4710:
 	pop {pc}
 	.align 2, 0
-_080A4714: .4byte gUnk_03000FD0
+_080A4714: .4byte gFadeControl
 _080A4718: .4byte gUnk_080FC3E4
 _080A471C: .4byte gMenu
 
@@ -1543,7 +1543,7 @@ _080A4860: .4byte gMenu
 	thumb_func_start sub_080A4864
 sub_080A4864: @ 0x080A4864
 	push {r4, r5, r6, lr}
-	ldr r0, _080A4894 @ =gUnk_03000FD0
+	ldr r0, _080A4894 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A4926
@@ -1567,7 +1567,7 @@ sub_080A4864: @ 0x080A4864
 	beq _080A48D8
 	b _080A48DE
 	.align 2, 0
-_080A4894: .4byte gUnk_03000FD0
+_080A4894: .4byte gFadeControl
 _080A4898: .4byte gMenu
 _080A489C: .4byte gUnk_03000FF0
 _080A48A0:
@@ -2459,7 +2459,7 @@ _080A4F9C: .4byte gUnk_08128A38
 	thumb_func_start sub_080A4FA0
 sub_080A4FA0: @ 0x080A4FA0
 	push {lr}
-	ldr r0, _080A4FB4 @ =gUnk_03000FD0
+	ldr r0, _080A4FB4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A4FB0
@@ -2468,7 +2468,7 @@ sub_080A4FA0: @ 0x080A4FA0
 _080A4FB0:
 	pop {pc}
 	.align 2, 0
-_080A4FB4: .4byte gUnk_03000FD0
+_080A4FB4: .4byte gFadeControl
 
 	thumb_func_start sub_080A4FB8
 sub_080A4FB8: @ 0x080A4FB8
@@ -2773,7 +2773,7 @@ _080A51F0: .4byte gMenu
 sub_080A51F4: @ 0x080A51F4
 	push {lr}
 	movs r1, #1
-	ldr r0, _080A5210 @ =gUnk_03000FD0
+	ldr r0, _080A5210 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080A5202
@@ -2788,7 +2788,7 @@ _080A520C:
 	adds r0, r1, #0
 	pop {pc}
 	.align 2, 0
-_080A5210: .4byte gUnk_03000FD0
+_080A5210: .4byte gFadeControl
 _080A5214: .4byte gUnk_02034490
 
 	thumb_func_start sub_080A5218

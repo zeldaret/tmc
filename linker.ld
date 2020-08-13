@@ -169,7 +169,7 @@ SECTIONS {
         . = 0x00000F70; gBGAffSettings = .;
         . = 0x00000F88; gBgControls = .;
         . = 0x00000FBC; gUnk_03000FBC = .;
-        . = 0x00000FD0; gUnk_03000FD0 = .;
+        . = 0x00000FD0; gFadeControl = .;
         . = 0x00000FF0; gUnk_03000FF0 = .;
         . = 0x00001000; gUnk_03001000 = .;
         . = 0x00001010; gUnk_03001010 = .;

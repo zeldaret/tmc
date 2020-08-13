@@ -18,16 +18,6 @@ static void (*const gUnk_081320F0[])(void) = {
     sub_080AD834,
 };
 
-typedef struct {
-    u8 field_0x0;
-    u8 field_0x1;
-    u8 field_0x2;
-    u8 field_0x3;
-    u32 field_0x4;
-} struct_03000FD0;
-
-extern struct_03000FD0 gUnk_03000FD0;
-
 extern const u16 gUnk_081320FC[];
 
 u32 IntroSetTransition(u32 transition)
@@ -51,7 +41,7 @@ void HandleIntroScreen(void)
         gUnk_081320F0[gUnk_02032EC0.transitionType]();
         break;
       case 2:
-        if (gUnk_03000FD0.field_0x0 != 0) {
+        if (gFadeControl.active) {
           return;
         }
         sub_0801DA90(1);
@@ -153,7 +143,7 @@ static void sub_080AD474(void)
             DoFade(6, 8);
             break;
         case 1:
-            if (gUnk_03000FD0.field_0x0 != 0) {
+            if (gFadeControl.active) {
                 return;
             }
             if (((struct_02000000*)0x2000000)->gameLanguage == 0) {
@@ -228,7 +218,7 @@ void sub_080AD6AC(void)
 
     switch (gMenu.overlayType) {
         case 0:
-            if (gUnk_03000FD0.field_0x0 == 0) {
+            if (!gFadeControl.active) {
                 if ((gMenu.field_0x12 & 1) == 0) {
                     gScreen.bg2.bg0Control++;
                 }
@@ -237,15 +227,15 @@ void sub_080AD6AC(void)
                     gMenu.overlayType++;
                     gScreen.bg2.bg0Control = 0;
                     gScreen.bg1.unk = 0xc09;
-                    gUnk_03000FD0.field_0x4 = 0x40;
+                    gFadeControl.field_0x4 = 0x40;
                     DoFade(6,0x10);
                     PlaySFX(0xf8);
                 }
             }
             break;
         case 1:
-            if (gUnk_03000FD0.field_0x0 == 0) {
-                gUnk_03000FD0.field_0x4 = -1;
+            if (!gFadeControl.active) {
+                gFadeControl.field_0x4 = -1;
                 gMenu.overlayType++;
                 gMenu.transitionTimer = 0x5a;
                 pEVar2 = CreateObject(0xb4,0,0);
@@ -266,7 +256,7 @@ void sub_080AD6AC(void)
 void sub_080AD76C(void) {
     switch (gMenu.overlayType) {
         case 0:
-            if (gUnk_03000FD0.field_0x0 == 0) {
+            if (!gFadeControl.active) {
                 gMenu.overlayType = 1;
                 gScreen.lcd.lcdControl2 |= 0x400;
                 PlaySFX(0xF6);
@@ -292,7 +282,7 @@ void sub_080AD76C(void) {
             }
             break;
         default:
-            if (gUnk_03000FD0.field_0x0 == 0 && sub_080AD84C()) {
+            if (!gFadeControl.active && sub_080AD84C()) {
                 gMenu.menuType++;
                 gMenu.transitionTimer = 60;
             }
@@ -301,7 +291,7 @@ void sub_080AD76C(void) {
 }
 
 static void sub_080AD834(void) {
-    if (gUnk_03000FD0.field_0x0 == 0) {
+    if (!gFadeControl.active) {
         InitScreen(SCREEN_CHOOSE_FILE);
     }
 }
@@ -309,7 +299,7 @@ static void sub_080AD834(void) {
 u32 sub_080AD84C(void) {
     u32 newKeys;
 
-    if (gUnk_03000FD0.field_0x0 != 0) {
+    if (gFadeControl.active) {
         return 0;
     }
 

@@ -821,7 +821,7 @@ _080A5BB6:
 	thumb_func_start sub_080A5BB8
 sub_080A5BB8: @ 0x080A5BB8
 	push {lr}
-	ldr r0, _080A5BE4 @ =gUnk_03000FD0
+	ldr r0, _080A5BE4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A5BE2
@@ -841,7 +841,7 @@ sub_080A5BB8: @ 0x080A5BB8
 _080A5BE2:
 	pop {pc}
 	.align 2, 0
-_080A5BE4: .4byte gUnk_03000FD0
+_080A5BE4: .4byte gFadeControl
 _080A5BE8: .4byte gUnk_03001000
 _080A5BEC: .4byte gUnk_02034490
 
@@ -2057,7 +2057,7 @@ _080A65A8: .4byte gMenu
 	thumb_func_start sub_080A65AC
 sub_080A65AC: @ 0x080A65AC
 	push {r4, lr}
-	ldr r0, _080A65E4 @ =gUnk_03000FD0
+	ldr r0, _080A65E4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A6600
@@ -2084,7 +2084,7 @@ _080A65DA:
 	strh r0, [r4, #8]
 	b _080A6600
 	.align 2, 0
-_080A65E4: .4byte gUnk_03000FD0
+_080A65E4: .4byte gFadeControl
 _080A65E8: .4byte gMenu
 _080A65EC:
 	ldr r0, _080A6604 @ =gUnk_03000FF0
@@ -2866,7 +2866,7 @@ _080A6C18: .4byte gUnk_08128E94
 	thumb_func_start sub_080A6C1C
 sub_080A6C1C: @ 0x080A6C1C
 	push {lr}
-	ldr r0, _080A6C34 @ =gUnk_03000FD0
+	ldr r0, _080A6C34 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A6C6A
@@ -2878,7 +2878,7 @@ sub_080A6C1C: @ 0x080A6C1C
 	beq _080A6C5C
 	b _080A6C62
 	.align 2, 0
-_080A6C34: .4byte gUnk_03000FD0
+_080A6C34: .4byte gFadeControl
 _080A6C38: .4byte gMenu
 _080A6C3C:
 	bl sub_080A66D0
@@ -2955,7 +2955,7 @@ _080A6CD4: .4byte gMenu
 	thumb_func_start sub_080A6CD8
 sub_080A6CD8: @ 0x080A6CD8
 	push {r4, lr}
-	ldr r0, _080A6D08 @ =gUnk_03000FD0
+	ldr r0, _080A6D08 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A6D6E
@@ -2978,7 +2978,7 @@ sub_080A6CD8: @ 0x080A6CD8
 	beq _080A6D38
 	b _080A6D54
 	.align 2, 0
-_080A6D08: .4byte gUnk_03000FD0
+_080A6D08: .4byte gFadeControl
 _080A6D0C: .4byte gMenu
 _080A6D10: .4byte gUnk_03000FF0
 _080A6D14:
@@ -3149,7 +3149,7 @@ _080A6E40: .4byte gUnk_02034490
 	thumb_func_start sub_080A6E44
 sub_080A6E44: @ 0x080A6E44
 	push {lr}
-	ldr r0, _080A6E64 @ =gUnk_03000FD0
+	ldr r0, _080A6E64 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A6E60
@@ -3164,7 +3164,7 @@ sub_080A6E44: @ 0x080A6E44
 _080A6E60:
 	pop {pc}
 	.align 2, 0
-_080A6E64: .4byte gUnk_03000FD0
+_080A6E64: .4byte gFadeControl
 _080A6E68: .4byte gMenu
 _080A6E6C: .4byte gUnk_08128024
 
@@ -3672,7 +3672,7 @@ _080A724C: .4byte gUnk_0812901C
 	thumb_func_start sub_080A7250
 sub_080A7250: @ 0x080A7250
 	push {r4, lr}
-	ldr r0, _080A72E8 @ =gUnk_03000FD0
+	ldr r0, _080A72E8 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A72E4
@@ -3740,7 +3740,7 @@ sub_080A7250: @ 0x080A7250
 _080A72E4:
 	pop {r4, pc}
 	.align 2, 0
-_080A72E8: .4byte gUnk_03000FD0
+_080A72E8: .4byte gFadeControl
 _080A72EC: .4byte gScreen
 _080A72F0: .4byte gUnk_03001020
 _080A72F4: .4byte gPaletteBuffer
@@ -3760,7 +3760,7 @@ _080A7324: .4byte gUnk_0200B650
 	thumb_func_start sub_080A7328
 sub_080A7328: @ 0x080A7328
 	push {r4, lr}
-	ldr r0, _080A7388 @ =gUnk_03000FD0
+	ldr r0, _080A7388 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A7384
@@ -3799,7 +3799,7 @@ sub_080A7328: @ 0x080A7328
 _080A7384:
 	pop {r4, pc}
 	.align 2, 0
-_080A7388: .4byte gUnk_03000FD0
+_080A7388: .4byte gFadeControl
 _080A738C: .4byte gMenu
 _080A7390: .4byte gRoomControls
 _080A7394: .4byte gUnk_03000420
@@ -3811,7 +3811,7 @@ _080A73A4: .4byte gScreenTransition
 	thumb_func_start sub_080A73A8
 sub_080A73A8: @ 0x080A73A8
 	push {r4, r5, lr}
-	ldr r0, _080A7468 @ =gUnk_03000FD0
+	ldr r0, _080A7468 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080A73B4
@@ -3893,7 +3893,7 @@ _080A73B4:
 	bl DoFade
 	b _080A74AE
 	.align 2, 0
-_080A7468: .4byte gUnk_03000FD0
+_080A7468: .4byte gFadeControl
 _080A746C: .4byte gUnk_02017654
 _080A7470: .4byte gUnk_02032EC0
 _080A7474: .4byte gPlayerState
@@ -3930,7 +3930,7 @@ _080A74C4: .4byte gScreenTransition
 sub_080A74C8: @ 0x080A74C8
 	push {lr}
 	bl sub_080A74F4
-	ldr r0, _080A74E8 @ =gUnk_03000FD0
+	ldr r0, _080A74E8 @ =gFadeControl
 	ldrb r3, [r0]
 	cmp r3, #0
 	bne _080A74E6
@@ -3944,7 +3944,7 @@ sub_080A74C8: @ 0x080A74C8
 _080A74E6:
 	pop {pc}
 	.align 2, 0
-_080A74E8: .4byte gUnk_03000FD0
+_080A74E8: .4byte gFadeControl
 _080A74EC: .4byte gUnk_03001000
 _080A74F0: .4byte gUnk_02032EC0
 

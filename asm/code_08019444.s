@@ -382,7 +382,7 @@ _0801973C: .4byte gUnk_02018EB0
 	thumb_func_start sub_08019740
 sub_08019740: @ 0x08019740
 	push {lr}
-	ldr r0, _0801975C @ =gUnk_03000FD0
+	ldr r0, _0801975C @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08019758
@@ -396,7 +396,7 @@ sub_08019740: @ 0x08019740
 _08019758:
 	pop {pc}
 	.align 2, 0
-_0801975C: .4byte gUnk_03000FD0
+_0801975C: .4byte gFadeControl
 _08019760: .4byte gUnk_02018EB0
 
 	thumb_func_start sub_08019764
@@ -3726,7 +3726,7 @@ _0801B068:
 	bne _0801B0BA
 	cmp r3, #0
 	bne _0801B0B8
-	ldr r0, _0801B0B4 @ =gUnk_03000FD0
+	ldr r0, _0801B0B4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0801B08C
@@ -3753,7 +3753,7 @@ _0801B0AC:
 	b _0801B0BA
 	.align 2, 0
 _0801B0B0: .4byte gUnk_02000CC0
-_0801B0B4: .4byte gUnk_03000FD0
+_0801B0B4: .4byte gFadeControl
 _0801B0B8:
 	strh r1, [r4, #6]
 _0801B0BA:
