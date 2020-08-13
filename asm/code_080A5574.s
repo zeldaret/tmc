@@ -893,7 +893,7 @@ sub_080A5C44: @ 0x080A5C44
 	ldrb r0, [r1, #3]
 	bl sub_080A5CFC
 	movs r0, #0x81
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r4, _080A5C90 @ =gArea
 	ldrb r0, [r4, #3]
 	movs r1, #1
@@ -1683,7 +1683,7 @@ sub_080A6290: @ 0x080A6290
 	ldr r0, _080A62CC @ =gUnk_08128DD4
 	str r0, [r4, #0xc]
 	movs r0, #0x81
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r1, _080A62D0 @ =gScreen
 	ldr r0, _080A62D4 @ =0x0000FFFC
 	strh r0, [r1, #0x18]
@@ -2374,7 +2374,7 @@ _080A6802:
 	adds r5, #0x72
 _080A6822:
 	adds r0, r5, #0
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	lsls r1, r4, #3
 	ldr r0, _080A68B0 @ =gUnk_08128E94
 	adds r4, r1, r0

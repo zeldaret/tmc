@@ -168,7 +168,7 @@ extern void sub_0805ADD8(u32);
 extern void sub_0804F578(void);
 extern void sub_08059994(void);
 extern u32 sub_080AD84C();
-extern void sub_0801D7EC(u32);
+extern void LoadGfxGroup(u32);
 extern s32 sub_0801CFA8(u32);
 extern void sub_080A3210();
 extern void sub_080AD6AC();

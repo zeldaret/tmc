@@ -89,7 +89,7 @@ sub_0806D0B0: @ 0x0806D0B0
 	movs r1, #0
 	str r1, [r0]
 	movs r0, #0x30
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	bl sub_0806D110
 	ldr r5, _0806D0EC @ =gUnk_02002F00
 	movs r1, #0x80

@@ -350,7 +350,7 @@ sub_080A36F8: @ 0x080A36F8
 	ldrb r0, [r4]
 	bl LoadPaletteGroup
 	ldrb r0, [r4, #1]
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r0, _080A3760 @ =gUnk_02021F30
 	movs r1, #0x80
 	lsls r1, r1, #4
@@ -708,7 +708,7 @@ _080A39C8:
 	movs r1, #0
 	bl sub_0801D79C
 	movs r0, #4
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
 	movs r1, #0x20

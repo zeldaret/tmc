@@ -3,7 +3,7 @@
 extern void LoadPalettes(const u8*, int, int);
 
 extern u32 gUsedPalettes;
-extern u16 gPaletteBuffer[][16];
+extern u16 gPaletteBuffer[];
 
 typedef struct {
     u16 paletteId;
@@ -12,17 +12,17 @@ typedef struct {
 } PaletteGroup;
 
 extern const PaletteGroup* gPaletteGroups[];
-extern const u8 gGlobalPalettes[][32];
+extern const u8 gGlobalGfxAndPalettes[];
 
-void LoadPaletteGroup(u32 arg0) {
-    const PaletteGroup* paletteGroup = gPaletteGroups[arg0];
+void LoadPaletteGroup(u32 group) {
+    const PaletteGroup* paletteGroup = gPaletteGroups[group];
     while (1) {
         u32 destPaletteNum = paletteGroup->destPaletteNum;
         u32 numPalettes = paletteGroup->numPalettes & 0xF;
         if (numPalettes == 0) {
             numPalettes = 16;
         }
-        LoadPalettes(gGlobalPalettes[paletteGroup->paletteId], destPaletteNum, numPalettes);
+        LoadPalettes(&gGlobalGfxAndPalettes[paletteGroup->paletteId * 32], destPaletteNum, numPalettes);
         if ((paletteGroup->numPalettes & 0x80) == 0) {
             break;
         }
@@ -38,6 +38,6 @@ void LoadPalettes(const u8* src, int destPaletteNum, int numPalettes) {
         usedPalettesMask |= (usedPalettesMask << 1);
     }
     gUsedPalettes |= usedPalettesMask;
-    dest = gPaletteBuffer[destPaletteNum];
+    dest = &gPaletteBuffer[destPaletteNum * 16];
     DmaCopy32(3, src, dest, size);
 }

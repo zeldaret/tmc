@@ -497,7 +497,7 @@ _0801D31C:
 	ands r2, r1
 	ldr r1, _0801D344 @ =0x00FFFFFF
 	ands r0, r1
-	ldr r1, _0801D348 @ =gGlobalPalettes
+	ldr r1, _0801D348 @ =gGlobalGfxAndPalettes
 	adds r0, r0, r1
 	adds r1, r4, #0
 	bl LoadPalettes
@@ -506,7 +506,7 @@ _0801D33C:
 	.align 2, 0
 _0801D340: .4byte gUnk_08133368
 _0801D344: .4byte 0x00FFFFFF
-_0801D348: .4byte gGlobalPalettes
+_0801D348: .4byte gGlobalGfxAndPalettes
 
 	thumb_func_start sub_0801D34C
 sub_0801D34C: @ 0x0801D34C

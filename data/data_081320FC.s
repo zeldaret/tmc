@@ -10327,7 +10327,7 @@ gUnk_085A0464:: @ 085A0464
 gUnk_085A0806:: @ 085A0806
 	.incbin "baserom.gba", 0x5A0806, 0x000267A
 
-gGlobalPalettes:: @ 085A2E80
+gGlobalGfxAndPalettes:: @ 085A2E80
 	.incbin "baserom.gba", 0x5A2E80, 0x0001382
 
 gUnk_085A4202:: @ 085A4202

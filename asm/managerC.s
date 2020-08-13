@@ -661,7 +661,7 @@ sub_08058D34: @ 0x08058D34
 	orrs r0, r1
 	str r0, [r2]
 	movs r0, #0x16
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r1, _08058DB4 @ =gScreen
 	ldrh r0, [r1]
 	movs r3, #0
@@ -697,7 +697,7 @@ sub_08058D34: @ 0x08058D34
 	cmp r0, #0
 	beq _08058DA8
 	movs r0, #0x4a
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 _08058DA8:
 	pop {r4, pc}
 	.align 2, 0

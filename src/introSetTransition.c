@@ -64,22 +64,22 @@ void HandleIntroScreen(void)
 static void sub_080AD3F4(void)
 {
   u32 iVar1;
-  u32 uVar2;
+  u32 paletteGroup;
   
   iVar1 = sub_080AD84C();
   if (gMenu.menuType == 0) {
     sub_0801DA90(1);
     gMenu.menuType = 1;
     gMenu.transitionTimer = 120;
-    sub_0801D7EC(0x10);
-    sub_0801D7EC(1);
+    LoadGfxGroup(16);
+    LoadGfxGroup(1);
     if (((struct_02000000 *)0x2000000)->gameLanguage == 0) {
-      uVar2 = 1;
+      paletteGroup = 1;
     }
     else {
-        uVar2 = 2;
+        paletteGroup = 2;
     }
-    LoadPaletteGroup(uVar2);
+    LoadPaletteGroup(paletteGroup);
     gScreen.lcd.lcdControl2 |= 0x400;
     gScreen.bg2.bg0xOffset = 1;
     DoFade(6, 8);
@@ -107,7 +107,7 @@ extern u8 gUnk_02024490;
 static void sub_080AD474(void)
 {
     int iVar2;
-    u32 uVar3;
+    u32 paletteGroup;
 
     gMenu.field_0x12++;
     switch (gMenu.menuType) {
@@ -120,14 +120,14 @@ static void sub_080AD474(void)
             sub_0801CFA8(0);
             sub_080ADD30();
             gUnk_02024490 = 1;
-            sub_0801D7EC(2);
+            LoadGfxGroup(2);
             if (((struct_02000000*)0x2000000)->gameLanguage == 0) {
-                uVar3 = 3;
+                paletteGroup = 3;
             }
             else {
-                uVar3 = 4;
+                paletteGroup = 4;
             }
-            LoadPaletteGroup(uVar3);
+            LoadPaletteGroup(paletteGroup);
             if (((struct_02000000*)0x2000000)->gameLanguage == 0) {
                 gScreen.controls.windowOutsideControl = 0x844;
                 gScreen.controls.mosaicSize = 0x909;
@@ -192,7 +192,7 @@ static void sub_080AD474(void)
     }
     if (gMenu.field_0x4 != ((struct_02000000*)0x2000000)->gameLanguage) {
         gMenu.field_0x4 = ((struct_02000000*)0x2000000)->gameLanguage;
-        sub_0801D7EC(3);
+        LoadGfxGroup(3);
     }
     sub_080AD89C();
     sub_0805E5C0();

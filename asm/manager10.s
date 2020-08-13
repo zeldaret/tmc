@@ -330,7 +330,7 @@ _080597F4:
 	cmp r0, #0
 	blt _08059838
 	adds r0, #0x2b
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	b _08059838
 _08059800:
 	ldr r4, _0805981C @ =gUnk_02001A40

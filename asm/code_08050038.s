@@ -321,7 +321,7 @@ _080503A4: .4byte gScreen
 	thumb_func_start sub_080503A8
 sub_080503A8: @ 0x080503A8
 	push {lr}
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r1, _080503B8 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0x1a]
@@ -676,7 +676,7 @@ _080506AA:
 	lsls r0, r0, #1
 	adds r0, r0, r1
 	ldrh r4, [r0]
-	ldr r0, _080506F8 @ =gGlobalPalettes
+	ldr r0, _080506F8 @ =gGlobalGfxAndPalettes
 	adds r4, r4, r0
 	ldr r1, _080506FC @ =0x00011AA0
 	adds r0, r4, r1
@@ -704,7 +704,7 @@ _080506EE:
 	.align 2, 0
 _080506F0: .4byte gUnk_02019EE0
 _080506F4: .4byte gUnk_080FC8DE
-_080506F8: .4byte gGlobalPalettes
+_080506F8: .4byte gGlobalGfxAndPalettes
 _080506FC: .4byte 0x00011AA0
 _08050700: .4byte 0x00011BA0
 _08050704: .4byte 0x00011CA0
@@ -3844,7 +3844,7 @@ sub_08052010: @ 0x08052010
 	movs r1, #0
 	bl sub_0801D79C
 	movs r0, #4
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
 	movs r1, #0x20

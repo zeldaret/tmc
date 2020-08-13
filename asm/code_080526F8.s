@@ -1582,15 +1582,15 @@ sub_08053320: @ 0x08053320
 	lsls r1, r1, #5
 	bl _DmaZero
 	movs r0, #0x10
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	movs r0, #0x17
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r0, _0805338C @ =gRoomControls
 	ldrb r0, [r0, #4]
 	cmp r0, #4
 	bne _08053362
 	movs r0, #0x1a
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 _08053362:
 	bl sub_08053390
 	movs r0, #0xb
@@ -1619,13 +1619,13 @@ sub_08053390: @ 0x08053390
 	movs r1, #0x18
 _080533A0:
 	adds r0, r1, #0
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	movs r0, #0xa
 	bl GetInventoryValue
 	cmp r0, #0
 	beq _080533B6
 	movs r0, #0x1d
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 _080533B6:
 	movs r0, #0xc
 	bl GetInventoryValue
@@ -1635,7 +1635,7 @@ _080533B6:
 	movs r1, #0x1c
 _080533C4:
 	adds r0, r1, #0
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	pop {pc}
 
 	thumb_func_start sub_080533CC
@@ -2218,7 +2218,7 @@ sub_08053800: @ 0x08053800
 	bl LoadPaletteGroup
 	adds r0, r5, #0
 	adds r0, #0x3a
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r0, _08053888 @ =gUnk_02021F30
 	movs r1, #0x80
 	lsls r1, r1, #4

@@ -39,7 +39,7 @@ _0804ABA4:
 	ldrb r0, [r4]
 	bl LoadPaletteGroup
 	ldrb r0, [r4, #1]
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r0, _0804AC10 @ =gUnk_02017700
 	movs r2, #0x90
 	lsls r2, r2, #2

@@ -358,7 +358,7 @@ sub_08019698: @ 0x08019698
 	strh r0, [r1, #0x32]
 _08019700:
 	movs r0, #0x11
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	bl sub_080AD90C
 	bl sub_080AD9B0
 	bl sub_080AD918
@@ -3793,7 +3793,7 @@ sub_0801B0EC: @ 0x0801B0EC
 	adds r4, r0, #0
 _0801B0F0:
 	ldr r1, [r4, #4]
-	ldr r0, _0801B110 @ =gGlobalPalettes
+	ldr r0, _0801B110 @ =gGlobalGfxAndPalettes
 	adds r5, r1, r0
 	ldrb r2, [r4, #2]
 	ldrh r3, [r4]
@@ -3808,7 +3808,7 @@ _0801B0F0:
 	bl LoadPalettes
 	b _0801B122
 	.align 2, 0
-_0801B110: .4byte gGlobalPalettes
+_0801B110: .4byte gGlobalGfxAndPalettes
 _0801B114:
 	movs r0, #0xc0
 	lsls r0, r0, #0x13

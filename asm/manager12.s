@@ -378,7 +378,7 @@ _08059CE8:
 _08059CEC:
 	adds r6, r1, r0
 	ldr r0, [r6]
-	ldr r4, _08059D14 @ =gGlobalPalettes
+	ldr r4, _08059D14 @ =gGlobalGfxAndPalettes
 	adds r0, r0, r4
 	ldr r1, [r6, #4]
 	movs r5, #0x80
@@ -393,7 +393,7 @@ _08059CEC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08059D10: .4byte gUnk_08108468
-_08059D14: .4byte gGlobalPalettes
+_08059D14: .4byte gGlobalGfxAndPalettes
 
 	thumb_func_start sub_08059D18
 sub_08059D18: @ 0x08059D18

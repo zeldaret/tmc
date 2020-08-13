@@ -418,7 +418,7 @@ sub_0805B328: @ 0x0805B328
 	adds r0, r0, r1
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0]
-	ldr r1, _0805B378 @ =gGlobalPalettes
+	ldr r1, _0805B378 @ =gGlobalGfxAndPalettes
 	adds r0, r0, r1
 	ldr r1, _0805B37C @ =0x0600F000
 	movs r4, #0x80
@@ -445,7 +445,7 @@ _0805B372:
 	pop {r4, pc}
 	.align 2, 0
 _0805B374: .4byte gUnk_08108764
-_0805B378: .4byte gGlobalPalettes
+_0805B378: .4byte gGlobalGfxAndPalettes
 _0805B37C: .4byte 0x0600F000
 _0805B380: .4byte gScreen
 _0805B384: .4byte 0x00001E07

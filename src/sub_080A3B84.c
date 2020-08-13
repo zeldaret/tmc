@@ -32,7 +32,7 @@ void sub_080A3BD0(void)
   gMenu.unk2a = 0;
   sub_080A4D34();
   LoadPaletteGroup(0xcb);
-  sub_0801D7EC(0x75);
+  LoadGfxGroup(0x75);
   
   iVar1 = sub_080A4494();
   iVar2 = iVar1 + 7;
@@ -44,7 +44,7 @@ void sub_080A3BD0(void)
   iVar1 = max(iVar1, 0);
   iVar1 = min(iVar1, 6);
 
-  sub_0801D7EC(iVar1 + 0x76);
+  LoadGfxGroup(iVar1 + 0x76);
   gScreen.lcd.lcdControl2 |= 0x1e00;
   gScreen.bg1.unk = 0x1c01;
   gScreen.bg2.unk = 0x1d02;

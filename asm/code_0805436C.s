@@ -1169,7 +1169,7 @@ sub_08055184: @ 0x08055184
 	adds r4, r4, r0
 	movs r1, #0
 	ldrsh r0, [r4, r1]
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r2, _08055214 @ =gScreen
 	ldrh r0, [r4, #2]
 	movs r6, #0
@@ -1713,7 +1713,7 @@ sub_080555B8: @ 0x080555B8
 	ldrb r1, [r4, #3]
 	bl sub_0804B0E8
 	movs r0, #0x11
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldrb r0, [r5, #4]
 	movs r1, #0
 	movs r2, #0

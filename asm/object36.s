@@ -30,7 +30,7 @@ sub_0808BB30: @ 0x0808BB30
 	cmp r1, #0
 	beq _0808BB4C
 	movs r0, #0x4a
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	bl DeleteThisEntity
 	b _0808BBD4
 _0808BB4C:
@@ -229,7 +229,7 @@ _0808BCCA:
 	beq _0808BCFE
 	strb r6, [r5, #0xf]
 	movs r0, #0x4a
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	b _0808BCFE
 	.align 2, 0
 _0808BCDC: .4byte 0x0000FFFE
@@ -246,7 +246,7 @@ _0808BCE4:
 	beq _0808BCFE
 	strb r4, [r5, #0xf]
 	movs r0, #0x49
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 _0808BCFE:
 	pop {r4, r5, r6, pc}
 

@@ -1021,7 +1021,7 @@ sub_080A4418: @ 0x080A4418
 	ands r2, r1
 	mvns r0, r2
 	ands r0, r1
-	ldr r1, _080A444C @ =gGlobalPalettes
+	ldr r1, _080A444C @ =gGlobalGfxAndPalettes
 	adds r1, r0, r1
 	cmp r2, #0
 	beq _080A4450
@@ -1032,7 +1032,7 @@ sub_080A4418: @ 0x080A4418
 	.align 2, 0
 _080A4444: .4byte 0x06010000
 _080A4448: .4byte gUnk_080CA06C
-_080A444C: .4byte gGlobalPalettes
+_080A444C: .4byte gGlobalGfxAndPalettes
 _080A4450:
 	ldr r0, _080A4460 @ =0x040000D4
 	str r1, [r0]
@@ -2198,7 +2198,7 @@ _080A4D54:
 _080A4D66:
 	adds r0, r1, #0
 	adds r0, #0x56
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r1, _080A4D80 @ =gScreen
 	movs r0, #0
 	strh r0, [r1, #0x2e]
@@ -2308,7 +2308,7 @@ _080A4E4A:
 	ldrb r0, [r4, #1]
 	cmp r0, #0
 	beq _080A4E54
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 _080A4E54:
 	pop {r4, r5, pc}
 	.align 2, 0

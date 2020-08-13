@@ -43,7 +43,7 @@ _0801C398:
 	movs r0, #0xc
 	bl LoadPaletteGroup
 	movs r0, #0x10
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r4, _0801C478 @ =gUnk_02034CB0
 	movs r1, #0x80
 	lsls r1, r1, #4

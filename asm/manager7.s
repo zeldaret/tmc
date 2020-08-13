@@ -76,7 +76,7 @@ _08057DD6:
 	movs r0, #1
 	strb r0, [r1]
 	ldr r0, [r2]
-	ldr r1, _08057DFC @ =gGlobalPalettes
+	ldr r1, _08057DFC @ =gGlobalGfxAndPalettes
 	adds r0, r0, r1
 	ldr r1, [r2, #4]
 	movs r2, #0x80
@@ -89,13 +89,13 @@ _08057DD6:
 	b _08057E24
 	.align 2, 0
 _08057DF8: .4byte gUnk_02034490
-_08057DFC: .4byte gGlobalPalettes
+_08057DFC: .4byte gGlobalGfxAndPalettes
 _08057E00: .4byte gUnk_081081E4
 _08057E04:
 	lsls r1, r1, #3
 	adds r1, r1, r2
 	ldr r0, [r1]
-	ldr r2, _08057E1C @ =gGlobalPalettes
+	ldr r2, _08057E1C @ =gGlobalGfxAndPalettes
 	adds r0, r0, r2
 	ldr r1, [r1, #4]
 	movs r2, #0x80
@@ -103,7 +103,7 @@ _08057E04:
 	bl LoadAssetAsync
 	b _08057E24
 	.align 2, 0
-_08057E1C: .4byte gGlobalPalettes
+_08057E1C: .4byte gGlobalGfxAndPalettes
 _08057E20:
 	ldr r0, _08057E2C @ =gUnk_02034490
 	strb r3, [r0]
@@ -175,7 +175,7 @@ sub_08057E7C: @ 0x08057E7C
 	adds r1, r1, r0
 	movs r3, #0
 	ldr r2, _08057EC0 @ =0x040000D4
-	ldr r6, _08057EC4 @ =gGlobalPalettes
+	ldr r6, _08057EC4 @ =gGlobalGfxAndPalettes
 	ldr r5, _08057EC8 @ =0x84000400
 _08057E9C:
 	ldr r0, [r1]
@@ -197,6 +197,6 @@ _08057EB6:
 _08057EB8: .4byte gUnk_081081E4
 _08057EBC: .4byte gUnk_081080A4
 _08057EC0: .4byte 0x040000D4
-_08057EC4: .4byte gGlobalPalettes
+_08057EC4: .4byte gGlobalGfxAndPalettes
 _08057EC8: .4byte 0x84000400
 _08057ECC: .4byte gRoomVars
