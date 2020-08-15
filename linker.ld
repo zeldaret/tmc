@@ -677,7 +677,7 @@ SECTIONS {
 		asm/blockPushed.o(.text);
 		asm/lockedDoor.o(.text);
 		asm/object9.o(.text);
-		asm/objectA.o(.text);
+		src/object/objectA.o(.text);
 		asm/objectB.o(.text);
 		src/object/chestSpawner.o(.text);
 		asm/chestSpawner.o(.text);
