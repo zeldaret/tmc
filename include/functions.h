@@ -7,6 +7,7 @@
 #include "position.h"
 #include "player.h"
 #include "structures.h"
+#include "room.h"
 
 // Identified - to be sorted into header files
 extern u32 Random(void);
@@ -243,4 +244,8 @@ extern void sub_0807921C();
 extern void sub_0807A1B8();
 extern void sub_08079938();
 extern void sub_0807ACCC(Entity*);
+extern void sub_080A2BE4(Entity*, u32);
+extern u32 sub_08097ADC(Entity*);
+extern void sub_08097B24(Entity*);
+extern u32 sub_08079F8C(void);
 #endif
