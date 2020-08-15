@@ -218,7 +218,7 @@ _0805DFCA:
 	thumb_func_start sub_0805DFCC
 sub_0805DFCC: @ 0x0805DFCC
 	push {lr}
-	ldr r0, _0805DFE4 @ =gUnk_03000FD0
+	ldr r0, _0805DFE4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0805DFE0
@@ -228,7 +228,7 @@ sub_0805DFCC: @ 0x0805DFCC
 _0805DFE0:
 	pop {pc}
 	.align 2, 0
-_0805DFE4: .4byte gUnk_03000FD0
+_0805DFE4: .4byte gFadeControl
 
 	thumb_func_start sub_0805DFE8
 sub_0805DFE8: @ 0x0805DFE8
@@ -302,7 +302,7 @@ _0805E074: .4byte 0x80010000
 sub_0805E078: @ 0x0805E078
 	push {lr}
 	adds r1, r0, #0
-	ldr r0, _0805E090 @ =gUnk_03000FD0
+	ldr r0, _0805E090 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0805E08E
@@ -313,7 +313,7 @@ sub_0805E078: @ 0x0805E078
 _0805E08E:
 	pop {pc}
 	.align 2, 0
-_0805E090: .4byte gUnk_03000FD0
+_0805E090: .4byte gFadeControl
 
 	thumb_func_start sub_0805E094
 sub_0805E094: @ 0x0805E094

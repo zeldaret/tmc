@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "screen.h"
 
-extern void sub_0801D7EC(u32);
+extern void LoadGfxGroup(u32);
 extern void sub_08056250(void);
 extern void sub_080570B8(Entity*);
 void sub_080570F8(void);
@@ -23,7 +23,7 @@ void Manager1(Entity *this)
   bVar1 = gUnk_08107C40[((u8*)&this->field_0x20)[1]];
   if ((bVar1 != 0) && (*(u8 *)&this->field_0x20 != bVar1)) {
     ((u8*)&this->field_0x20)[0] = bVar1;
-    sub_0801D7EC(bVar1);
+    LoadGfxGroup(bVar1);
   }
 }
 
@@ -31,11 +31,11 @@ void sub_080570B8(Entity *this)
 {
   u8 *pbVar1;
   
-  sub_0801D7EC(((u8 *)&this->field_0x20)[0]);
+  LoadGfxGroup(((u8 *)&this->field_0x20)[0]);
   this->height.WORD = 0;
   pbVar1 = ((u8 *)&this->field_0x20 + 1);
   if (*pbVar1 == 3) {
-    gScreen.affine.bg3xOffset = 1;
+    gScreen.affine.unk4 = 1;
   }
   else {
     gUnk_08107C48[*pbVar1](this);
@@ -44,8 +44,8 @@ void sub_080570B8(Entity *this)
 
 void sub_080570F8(void)
 {
-  gScreen.lcd.lcdControl2 &= 0xf7ff;
-  gScreen.controls.windowOutsideControl = 0;
+  gScreen.lcd.displayControl &= 0xf7ff;
+  gScreen.controls.layerFXControl = 0;
   sub_08056250();
 }
 
@@ -56,9 +56,9 @@ void sub_08057118(Entity *this)
   ((u8 *)&this->field_0x20)[1] = 0;
   ((u8 *)&this->field_0x20)[2] = 0;
   this->action = 1;
-  gScreen.affine.unk2 = 0x1e04;
-  *(u16 *)&gScreen.lcd.lcdControl2 |= 0x800;
-  gScreen.controls.windowOutsideControl = 0x3648;
-  gScreen.controls.mosaicSize = 0x1000;
+  gScreen.affine.bg3Control = 0x1e04;
+  gScreen.lcd.displayControl |= 0x800;
+  gScreen.controls.layerFXControl = 0x3648;
+  gScreen.controls.alphaBlend = 0x1000;
   sub_08052D74(this, sub_080570B8, sub_080570F8);
 }

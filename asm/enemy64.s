@@ -1022,7 +1022,7 @@ sub_08049804: @ 0x08049804
 	push {r4, lr}
 	adds r4, r0, #0
 	bl sub_08049944
-	ldr r0, _0804987C @ =gUnk_03000FD0
+	ldr r0, _0804987C @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08049878
@@ -1077,7 +1077,7 @@ sub_08049804: @ 0x08049804
 _08049878:
 	pop {r4, pc}
 	.align 2, 0
-_0804987C: .4byte gUnk_03000FD0
+_0804987C: .4byte gFadeControl
 _08049880: .4byte gPlayerEntity
 _08049884: .4byte gRoomControls
 
@@ -1085,7 +1085,7 @@ _08049884: .4byte gRoomControls
 sub_08049888: @ 0x08049888
 	push {lr}
 	adds r1, r0, #0
-	ldr r0, _080498B0 @ =gUnk_03000FD0
+	ldr r0, _080498B0 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080498AE
@@ -1102,7 +1102,7 @@ sub_08049888: @ 0x08049888
 _080498AE:
 	pop {pc}
 	.align 2, 0
-_080498B0: .4byte gUnk_03000FD0
+_080498B0: .4byte gFadeControl
 
 	thumb_func_start sub_080498B4
 sub_080498B4: @ 0x080498B4

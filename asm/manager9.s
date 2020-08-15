@@ -185,10 +185,10 @@ sub_08058324: @ 0x08058324
 	str r0, [r1]
 	adds r0, r4, #0
 	adds r0, #0x86
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	adds r0, r4, #0
 	adds r0, #0x36
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	bl sub_080582D0
 	adds r0, r4, #0
 	bl sub_08058244

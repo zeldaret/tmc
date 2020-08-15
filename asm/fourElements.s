@@ -240,7 +240,7 @@ sub_080A0390: @ 0x080A0390
 	movs r0, #0
 	movs r1, #0x3c
 	bl sub_0805E4E0
-	ldr r0, _080A03B4 @ =gUnk_03000FD0
+	ldr r0, _080A03B4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A03B2
@@ -254,7 +254,7 @@ sub_080A0390: @ 0x080A0390
 _080A03B2:
 	pop {r4, pc}
 	.align 2, 0
-_080A03B4: .4byte gUnk_03000FD0
+_080A03B4: .4byte gFadeControl
 
 	thumb_func_start sub_080A03B8
 sub_080A03B8: @ 0x080A03B8

@@ -3343,7 +3343,7 @@ _0807E758: .4byte gUnk_02033280
 	thumb_func_start sub_0807E75C
 sub_0807E75C: @ 0x0807E75C
 	push {lr}
-	ldr r0, _0807E770 @ =gUnk_03000FD0
+	ldr r0, _0807E770 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _0807E76C
@@ -3353,7 +3353,7 @@ sub_0807E75C: @ 0x0807E75C
 _0807E76C:
 	pop {pc}
 	.align 2, 0
-_0807E770: .4byte gUnk_03000FD0
+_0807E770: .4byte gFadeControl
 _0807E774: .4byte gUnk_02033280
 
 	thumb_func_start sub_0807E778
@@ -3371,11 +3371,11 @@ sub_0807E788: @ 0x0807E788
 	push {lr}
 	ldr r0, [r1]
 	bl GetNextScriptCommandWordAfterCommandMetadata
-	ldr r1, _0807E798 @ =gUnk_03000FD0
+	ldr r1, _0807E798 @ =gFadeControl
 	str r0, [r1, #4]
 	pop {pc}
 	.align 2, 0
-_0807E798: .4byte gUnk_03000FD0
+_0807E798: .4byte gFadeControl
 
 	thumb_func_start sub_0807E79C
 sub_0807E79C: @ 0x0807E79C

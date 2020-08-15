@@ -84,7 +84,7 @@ sub_080575C8: @ 0x080575C8
 	lsls r0, r0, #0x13
 	strh r5, [r0]
 	adds r0, r4, #0
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r0, _08057668 @ =gRoomVars
 	strb r4, [r0, #0x10]
 	ldr r3, _0805766C @ =gRoomControls
@@ -183,7 +183,7 @@ sub_080576A0: @ 0x080576A0
 	adds r4, r0, #0
 	ldr r0, _080576BC @ =gRoomVars
 	ldrb r0, [r0, #0x10]
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	movs r0, #0
 	str r0, [r4, #0x38]
 	str r0, [r4, #0x3c]

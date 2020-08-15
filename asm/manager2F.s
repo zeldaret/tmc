@@ -88,7 +88,7 @@ _0805D46C: .4byte gScreen
 sub_0805D470: @ 0x0805D470
 	push {lr}
 	movs r0, #0x4c
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r2, _0805D4A0 @ =gScreen
 	ldr r0, _0805D4A4 @ =0x00001E07
 	strh r0, [r2, #0x2c]

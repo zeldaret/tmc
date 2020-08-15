@@ -2108,7 +2108,7 @@ _080717CA:
 sub_080717CC: @ 0x080717CC
 	push {lr}
 	adds r1, r0, #0
-	ldr r0, _080717E4 @ =gUnk_03000FD0
+	ldr r0, _080717E4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080717F4
@@ -2119,7 +2119,7 @@ sub_080717CC: @ 0x080717CC
 	strb r0, [r1, #0xe]
 	b _080717F4
 	.align 2, 0
-_080717E4: .4byte gUnk_03000FD0
+_080717E4: .4byte gFadeControl
 _080717E8:
 	adds r0, r1, #0
 	bl sub_080717F8

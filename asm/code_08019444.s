@@ -358,7 +358,7 @@ sub_08019698: @ 0x08019698
 	strh r0, [r1, #0x32]
 _08019700:
 	movs r0, #0x11
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	bl sub_080AD90C
 	bl sub_080AD9B0
 	bl sub_080AD918
@@ -382,7 +382,7 @@ _0801973C: .4byte gUnk_02018EB0
 	thumb_func_start sub_08019740
 sub_08019740: @ 0x08019740
 	push {lr}
-	ldr r0, _0801975C @ =gUnk_03000FD0
+	ldr r0, _0801975C @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08019758
@@ -396,7 +396,7 @@ sub_08019740: @ 0x08019740
 _08019758:
 	pop {pc}
 	.align 2, 0
-_0801975C: .4byte gUnk_03000FD0
+_0801975C: .4byte gFadeControl
 _08019760: .4byte gUnk_02018EB0
 
 	thumb_func_start sub_08019764
@@ -499,7 +499,7 @@ _0801981A:
 	b _0801982E
 _08019824:
 	ldrh r0, [r4]
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	bl sub_080533CC
 _0801982E:
 	adds r4, #0xc
@@ -3726,7 +3726,7 @@ _0801B068:
 	bne _0801B0BA
 	cmp r3, #0
 	bne _0801B0B8
-	ldr r0, _0801B0B4 @ =gUnk_03000FD0
+	ldr r0, _0801B0B4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0801B08C
@@ -3753,7 +3753,7 @@ _0801B0AC:
 	b _0801B0BA
 	.align 2, 0
 _0801B0B0: .4byte gUnk_02000CC0
-_0801B0B4: .4byte gUnk_03000FD0
+_0801B0B4: .4byte gFadeControl
 _0801B0B8:
 	strh r1, [r4, #6]
 _0801B0BA:
@@ -3793,7 +3793,7 @@ sub_0801B0EC: @ 0x0801B0EC
 	adds r4, r0, #0
 _0801B0F0:
 	ldr r1, [r4, #4]
-	ldr r0, _0801B110 @ =gUnk_085A2E80
+	ldr r0, _0801B110 @ =gGlobalGfxAndPalettes
 	adds r5, r1, r0
 	ldrb r2, [r4, #2]
 	ldrh r3, [r4]
@@ -3805,10 +3805,10 @@ _0801B0F0:
 	beq _0801B114
 	lsrs r1, r3, #5
 	adds r0, r5, #0
-	bl sub_0801D754
+	bl LoadPalettes
 	b _0801B122
 	.align 2, 0
-_0801B110: .4byte gUnk_085A2E80
+_0801B110: .4byte gGlobalGfxAndPalettes
 _0801B114:
 	movs r0, #0xc0
 	lsls r0, r0, #0x13

@@ -17,7 +17,6 @@ extern void (*const gUnk_080D412C[])();
 
 
 extern struct_02018EB0 gUnk_02018EB0;
-extern u8 gUnk_03000FD0;
 
 u32 sub_0804AA84(void)
 {
@@ -62,12 +61,12 @@ void sub_0804AB04(void)
 
 void sub_0804AB24(void)
 {
-  if (gUnk_03000FD0 == 0) {
-    gScreen.lcd.lcdControl2 = 0;
+  if (!gFadeControl.active) {
+    gScreen.lcd.displayControl = 0;
     sub_0801E104();
     gArea.filler[8] = 0;
     MenuFadeIn(6, 0);
-    gUnk_03000FD0 = 0;
+    gFadeControl.active = 0;
   }
 }
 

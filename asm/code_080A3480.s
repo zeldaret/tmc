@@ -201,8 +201,8 @@ sub_080A35C8: @ 0x080A35C8
 	.align 2, 0
 _080A35DC: .4byte gUnk_02021EE0
 
-	thumb_func_start sub_080A35E0
-sub_080A35E0: @ 0x080A35E0
+	thumb_func_start HandleCreditsScreen
+HandleCreditsScreen: @ 0x080A35E0
 	push {lr}
 	ldr r1, _080A35FC @ =gScreenTransition
 	ldr r0, [r1]
@@ -268,9 +268,9 @@ _080A365E:
 	movs r0, #0
 	bl sub_0801DA90
 	movs r0, #0xb
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	movs r0, #0xc
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	movs r0, #0
 	movs r1, #0
 	bl sub_0801D79C
@@ -337,7 +337,7 @@ _080A36F4: .4byte gMenu
 	thumb_func_start sub_080A36F8
 sub_080A36F8: @ 0x080A36F8
 	push {r4, r5, lr}
-	ldr r0, _080A3754 @ =gUnk_03000FD0
+	ldr r0, _080A3754 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A3752
@@ -348,9 +348,9 @@ sub_080A36F8: @ 0x080A36F8
 	ldr r0, _080A375C @ =gUnk_08127CEC
 	adds r4, r4, r0
 	ldrb r0, [r4]
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	ldrb r0, [r4, #1]
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r0, _080A3760 @ =gUnk_02021F30
 	movs r1, #0x80
 	lsls r1, r1, #4
@@ -380,7 +380,7 @@ _080A374A:
 _080A3752:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080A3754: .4byte gUnk_03000FD0
+_080A3754: .4byte gFadeControl
 _080A3758: .4byte gMenu
 _080A375C: .4byte gUnk_08127CEC
 _080A3760: .4byte gUnk_02021F30
@@ -433,7 +433,7 @@ _080A37B8: .4byte gUnk_02021F30
 _080A37BC: .4byte gUnk_081272E0
 _080A37C0: .4byte gScreen
 _080A37C4:
-	ldr r0, _080A37F8 @ =gUnk_03000FD0
+	ldr r0, _080A37F8 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A385E
@@ -460,7 +460,7 @@ _080A37C4:
 	bls _080A385E
 	b _080A383C
 	.align 2, 0
-_080A37F8: .4byte gUnk_03000FD0
+_080A37F8: .4byte gFadeControl
 _080A37FC: .4byte gScreenTransition
 _080A3800: .4byte gScreen
 _080A3804:
@@ -502,7 +502,7 @@ _080A383C:
 _080A3844: .4byte gScreenTransition
 _080A3848: .4byte gScreen
 _080A384C:
-	ldr r1, _080A3860 @ =gUnk_03000FD0
+	ldr r1, _080A3860 @ =gFadeControl
 	ldrb r0, [r1]
 	cmp r0, #0
 	bne _080A385E
@@ -513,7 +513,7 @@ _080A384C:
 _080A385E:
 	pop {r4, pc}
 	.align 2, 0
-_080A3860: .4byte gUnk_03000FD0
+_080A3860: .4byte gFadeControl
 
 	thumb_func_start sub_080A3864
 sub_080A3864: @ 0x080A3864
@@ -537,7 +537,7 @@ _080A3884: .4byte gMenu
 	thumb_func_start sub_080A3888
 sub_080A3888: @ 0x080A3888
 	push {lr}
-	ldr r1, _080A38A8 @ =gUnk_03000FD0
+	ldr r1, _080A38A8 @ =gFadeControl
 	ldr r0, _080A38AC @ =0xFFFF7FFF
 	str r0, [r1, #4]
 	movs r0, #5
@@ -549,7 +549,7 @@ sub_080A3888: @ 0x080A3888
 	bl sub_080A3954
 	pop {pc}
 	.align 2, 0
-_080A38A8: .4byte gUnk_03000FD0
+_080A38A8: .4byte gFadeControl
 _080A38AC: .4byte 0xFFFF7FFF
 _080A38B0: .4byte gMenu
 
@@ -572,7 +572,7 @@ sub_080A38D0: @ 0x080A38D0
 	push {r4, r5, r6, lr}
 	mov r6, r8
 	push {r6}
-	ldr r0, _080A391C @ =gUnk_03000FD0
+	ldr r0, _080A391C @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A3914
@@ -605,7 +605,7 @@ _080A3914:
 	mov r8, r3
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080A391C: .4byte gUnk_03000FD0
+_080A391C: .4byte gFadeControl
 _080A3920: .4byte gUnk_02021F30
 _080A3924: .4byte gScreen
 _080A3928: .4byte gUnk_020344B0
@@ -614,7 +614,7 @@ _080A392C: .4byte gMenu
 	thumb_func_start sub_080A3930
 sub_080A3930: @ 0x080A3930
 	push {lr}
-	ldr r0, _080A394C @ =gUnk_03000FD0
+	ldr r0, _080A394C @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A3948
@@ -627,7 +627,7 @@ sub_080A3930: @ 0x080A3930
 _080A3948:
 	pop {pc}
 	.align 2, 0
-_080A394C: .4byte gUnk_03000FD0
+_080A394C: .4byte gFadeControl
 _080A3950: .4byte gUnk_03001000
 
 	thumb_func_start sub_080A3954
@@ -657,7 +657,7 @@ _080A397C: .4byte gMenu
 	thumb_func_start sub_080A3980
 sub_080A3980: @ 0x080A3980
 	push {lr}
-	ldr r0, _080A3990 @ =gUnk_03000FD0
+	ldr r0, _080A3990 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A398E
@@ -665,7 +665,7 @@ sub_080A3980: @ 0x080A3980
 _080A398E:
 	pop {pc}
 	.align 2, 0
-_080A3990: .4byte gUnk_03000FD0
+_080A3990: .4byte gFadeControl
 
 	thumb_func_start sub_080A3994
 sub_080A3994: @ 0x080A3994
@@ -703,12 +703,12 @@ _080A39C8:
 	bl sub_080A3210
 	bl sub_080A4D34
 	movs r0, #0xa
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	movs r0, #0
 	movs r1, #0
 	bl sub_0801D79C
 	movs r0, #4
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
 	movs r1, #0x20
@@ -737,7 +737,7 @@ _080A3A2C: .4byte gScreen
 _080A3A30: .4byte 0x00001C01
 _080A3A34: .4byte 0x00001D05
 _080A3A38:
-	ldr r0, _080A3A50 @ =gUnk_03000FD0
+	ldr r0, _080A3A50 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080A3A42
@@ -750,7 +750,7 @@ _080A3A42:
 	strh r0, [r2, #8]
 	b _080A3B36
 	.align 2, 0
-_080A3A50: .4byte gUnk_03000FD0
+_080A3A50: .4byte gFadeControl
 _080A3A54:
 	ldrb r4, [r2, #3]
 	ldr r0, _080A3A68 @ =gUnk_03000FF0
