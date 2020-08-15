@@ -679,7 +679,7 @@ SECTIONS {
 		asm/blockPushed.o(.text);
 		asm/lockedDoor.o(.text);
 		asm/object9.o(.text);
-		asm/objectA.o(.text);
+		src/object/objectA.o(.text);
 		asm/objectB.o(.text);
 		src/object/chestSpawner.o(.text);
 		asm/chestSpawner.o(.text);
@@ -698,7 +698,6 @@ SECTIONS {
 		src/object/houseDoorExterior.o(.text);
 		src/object/object1A.o(.text);
 		src/object/greatFairy.o(.text);
-		asm/greatFairy.o(.text);
 		src/object/object1C.o(.text);
 		src/object/object1D.o(.text);
 		asm/object1E.o(.text);
@@ -801,7 +800,7 @@ SECTIONS {
 		asm/pushableLever.o(.text);
 		asm/macroShoes.o(.text);
 		asm/objectOnSpinyBeetle.o(.text);
-		asm/object7E.o(.text);
+		src/object/object7E.o(.text);
 		asm/picoBloom.o(.text);
 		asm/object80.o(.text);
 		asm/object81.o(.text);
