@@ -889,7 +889,7 @@ SECTIONS {
 		asm/code_080A3BD0.o(.text);
 		src/sub_080A554C.o(.text);
 		asm/code_080A5574.o(.text);
-		src/introSetTransition.o(.text);
+		src/intro.o(.text);
 		asm/sub_080AD8F0.o(.text);
 		asm/code_080AD90C.o(.text);
         /* library functions */
@@ -923,7 +923,7 @@ SECTIONS {
 		data/data_081208A0.o(.rodata);
 		src/object/heartContainer.o(.rodata);
 		data/data_08121C58.o(.rodata);
-		src/introSetTransition.o(.rodata);
+		src/intro.o(.rodata);
 		data/data_081320FC.o(.rodata);
 		data/strings.o(.rodata);
 		data/data_089FC6C4.o(.rodata);

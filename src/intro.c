@@ -57,7 +57,7 @@ static const u16 sLightRaysAlphaBlends[] = {
     BLDALPHA_BLEND(8, 10),
 };
 
-static u32 IntroSetTransition(u32 transition)
+static u32 AdvanceIntroSequence(u32 transition)
 {
     gUnk_02032EC0.transitionType = transition;
     gUnk_03001000.funcIndex = 2;
@@ -72,7 +72,7 @@ void HandleIntroScreen(void)
       case 0:
         sub_08056418();
         _DmaZero(&gUnk_02032EC0, 0x3b4);
-        IntroSetTransition(0);
+        AdvanceIntroSequence(0);
         break;
       case 1:
         sIntroSequenceHandlers[gUnk_02032EC0.transitionType]();
@@ -119,7 +119,7 @@ static void HandleNintendoCapcomLogos(void)
 
     if (advance == ADVANCE_KEY_PRESSED) {
         gUnk_02000010.listenForKeyPresses = 1;
-        IntroSetTransition(1);
+        AdvanceIntroSequence(1);
     }
 }
 
@@ -202,7 +202,7 @@ static void HandleTitlescreen(void)
                 else {
                     advance = ADVANCE_NONE;
                 }
-                IntroSetTransition(advance);
+                AdvanceIntroSequence(advance);
                 PlaySFX(0x80080000);
             }
             UpdatePressStartIcon();
