@@ -799,7 +799,7 @@ SECTIONS {
 		asm/pushableLever.o(.text);
 		asm/macroShoes.o(.text);
 		asm/objectOnSpinyBeetle.o(.text);
-		asm/object7E.o(.text);
+		src/object/object7E.o(.text);
 		asm/picoBloom.o(.text);
 		asm/object80.o(.text);
 		asm/object81.o(.text);
