@@ -40,4 +40,5 @@ typedef struct {
 } Menu;
 
 extern Menu gMenu;
+
 #endif

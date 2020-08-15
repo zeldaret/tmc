@@ -39,7 +39,7 @@ void MainLoop(void) {
     sub_08056418();
     sub_080ADD30();
     gRand = 0x1234567;
-    _DmaZero(&gUnk_03001000, 16);
+    _DmaZero(&gUnk_03001000, sizeof(gUnk_03001000));
     InitScreen(SCREEN_INTRO);
     while (1) {
         ReadKeyInput();

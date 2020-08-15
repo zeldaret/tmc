@@ -7,24 +7,61 @@
 #include "screen.h"
 #include "structures.h"
 
-static void sub_080AD3F4(void);
-static void sub_080AD474(void);
-static void sub_080AD670(void);
-static void sub_080AD834(void);
+typedef struct {
+    u8 filler0[0x4];
+    u8 gameLanguage;
+    u8 state;
+    u8 subState;
+    u8 filler7[0x1];
+    u16 timer;
+    u8 fillerA[0x6];
+    u8 lightRaysPaletteGroup;
+    u8 lightRaysAlphaBlendIndex;
+    u8 counter;
+    u8 filler13[0x19];
+    int swordBgScaleRatio;
+} IntroState;
 
-static void (*const gUnk_081320F0[])(void) = {
-    sub_080AD3F4,
-    sub_080AD474,
-    sub_080AD834,
+extern IntroState gIntroState;
+
+enum {
+    ADVANCE_NONE,
+    ADVANCE_TIMER_EXPIRED,
+    ADVANCE_KEY_PRESSED,
 };
 
-extern const u16 gUnk_081320FC[];
+static void HandleNintendoCapcomLogos(void);
+static void HandleTitlescreen(void);
+static void UpdateSwordBgAffineData(void);
+static void ExitTitlescreen(void);
+static void HandleJapaneseTitlescreenAnimationIntro(void);
+static void HandleTitlescreenAnimationIntro(void);
+static u32 GetAdvanceState(void);
+static void UpdateLightRays(void);
+static void UpdatePressStartIcon(void);
 
-u32 IntroSetTransition(u32 transition)
+static void (*const sIntroSequenceHandlers[])(void) = {
+    HandleNintendoCapcomLogos,
+    HandleTitlescreen,
+    ExitTitlescreen,
+};
+
+static const u16 sLightRaysAlphaBlends[] = {
+    BLDALPHA_BLEND(9, 9),
+    BLDALPHA_BLEND(8, 10),
+    BLDALPHA_BLEND(7, 11),
+    BLDALPHA_BLEND(6, 12),
+    BLDALPHA_BLEND(5, 13),
+    BLDALPHA_BLEND(6, 12),
+    BLDALPHA_BLEND(7, 11),
+    BLDALPHA_BLEND(8, 10),
+};
+
+static u32 IntroSetTransition(u32 transition)
 {
     gUnk_02032EC0.transitionType = transition;
     gUnk_03001000.funcIndex = 2;
-    _DmaZero(&gMenu, sizeof(gMenu));
+    _DmaZero(&gIntroState, sizeof(gIntroState));
     DoFade(7, 8);
 }
 
@@ -38,7 +75,7 @@ void HandleIntroScreen(void)
         IntroSetTransition(0);
         break;
       case 1:
-        gUnk_081320F0[gUnk_02032EC0.transitionType]();
+        sIntroSequenceHandlers[gUnk_02032EC0.transitionType]();
         break;
       case 2:
         if (gFadeControl.active) {
@@ -51,61 +88,57 @@ void HandleIntroScreen(void)
   sub_080AD918();
 }
 
-static void sub_080AD3F4(void)
+static void HandleNintendoCapcomLogos(void)
 {
-  u32 iVar1;
-  u32 paletteGroup;
+    u32 advance;
+    u32 paletteGroup;
   
-  iVar1 = sub_080AD84C();
-  if (gMenu.menuType == 0) {
-    sub_0801DA90(1);
-    gMenu.menuType = 1;
-    gMenu.transitionTimer = 120;
-    LoadGfxGroup(16);
-    LoadGfxGroup(1);
-    if (((struct_02000000 *)0x2000000)->gameLanguage == 0) {
-      paletteGroup = 1;
+    advance = GetAdvanceState();
+    if (gIntroState.state == 0) {
+        sub_0801DA90(1);
+        gIntroState.state = 1;
+        gIntroState.timer = 120;
+        LoadGfxGroup(16);
+        LoadGfxGroup(1);
+        if (((struct_02000000 *)0x2000000)->gameLanguage == 0) {
+            paletteGroup = 1;
+        }
+        else {
+            paletteGroup = 2;
+        }
+        LoadPaletteGroup(paletteGroup);
+        gScreen.lcd.lcdControl2 |= 0x400;
+        gScreen.bg2.bg0xOffset = 1;
+        DoFade(6, 8);
+        advance = ADVANCE_NONE;
+    } else {
+        if (advance == ADVANCE_TIMER_EXPIRED) {
+            advance = ADVANCE_KEY_PRESSED;
+        }
     }
-    else {
-        paletteGroup = 2;
-    }
-    LoadPaletteGroup(paletteGroup);
-    gScreen.lcd.lcdControl2 |= 0x400;
-    gScreen.bg2.bg0xOffset = 1;
-    DoFade(6, 8);
-    iVar1 = 0;
-  }
-  else {
-    if (iVar1 == 1) {
-      iVar1 = 2;
-    }
-  }
-  if (iVar1 == 2) {
-    gUnk_02000010.field_0x5 = 1;
-    IntroSetTransition(1);
-  }
-}
 
-// typedef struct {
-//     u16 field_0x0[5];
-// } struct_03001010;
+    if (advance == ADVANCE_KEY_PRESSED) {
+        gUnk_02000010.listenForKeyPresses = 1;
+        IntroSetTransition(1);
+    }
+}
 
 extern u16 gUnk_03001010[5];
 
 extern u8 gUnk_02024490;
 
-static void sub_080AD474(void)
+static void HandleTitlescreen(void)
 {
-    int iVar2;
+    int advance;
     u32 paletteGroup;
 
-    gMenu.field_0x12++;
-    switch (gMenu.menuType) {
+    gIntroState.counter++;
+    switch (gIntroState.state) {
         case 0:
-            gMenu.menuType = 1;
-            gMenu.overlayType = 0;
-            gMenu.transitionTimer = 0x1e;
-            gMenu.field_0x4 = 7;
+            gIntroState.state = 1;
+            gIntroState.subState = 0;
+            gIntroState.timer = 30;
+            gIntroState.gameLanguage = 7;
             EraseAllEntities();
             sub_0801CFA8(0);
             sub_080ADD30();
@@ -135,8 +168,8 @@ static void sub_080AD474(void)
                 gScreen.bg2.unk = 0x7C89;
                 gScreen.lcd.lcdControl2 |= 1;
                 gScreen.lcd.lcdControl2 |= 0x1300;
-                gMenu.field_0x2c = 0x10;
-                sub_080AD670();
+                gIntroState.swordBgScaleRatio = 0x10;
+                UpdateSwordBgAffineData();
             }
             sub_080A3210();
             PlaySFX(3); //fanfare
@@ -147,60 +180,58 @@ static void sub_080AD474(void)
                 return;
             }
             if (((struct_02000000*)0x2000000)->gameLanguage == 0) {
-                sub_080AD6AC();
+                HandleJapaneseTitlescreenAnimationIntro();
             }
             else {
-                sub_080AD76C();
+                HandleTitlescreenAnimationIntro();
             }
             break;
         case 2:
-            gMenu.transitionTimer--;
-            if (gMenu.transitionTimer == 0) {
-                gMenu.transitionTimer = 0xe10;
-                gMenu.menuType++;
+            if (--gIntroState.timer == 0) {
+                gIntroState.timer = 3600;
+                gIntroState.state++;
             }
-            sub_080AD644();
+            UpdatePressStartIcon();
             break;
         default:
-            iVar2 = sub_080AD84C();
-            if (iVar2 != 0) {
-                if (iVar2 == 2) {
+            advance = GetAdvanceState();
+            if (advance != ADVANCE_NONE) {
+                if (advance == ADVANCE_KEY_PRESSED) {
                     PlaySFX(0x6a);
                 }
                 else {
-                    iVar2 = 0;
+                    advance = ADVANCE_NONE;
                 }
-                IntroSetTransition(iVar2);
+                IntroSetTransition(advance);
                 PlaySFX(0x80080000);
             }
-            sub_080AD644();
-            if ((gMenu.transitionTimer & 0x20) == 0) {
+            UpdatePressStartIcon();
+            if ((gIntroState.timer & 0x20) == 0) {
                 gUnk_03001010[4] = 0xe000;
                 gUnk_03001010[1] = 0x84;
                 sub_080ADA14(0x1ff,0);
             }
     }
-    if (gMenu.field_0x4 != ((struct_02000000*)0x2000000)->gameLanguage) {
-        gMenu.field_0x4 = ((struct_02000000*)0x2000000)->gameLanguage;
+    if (gIntroState.gameLanguage != ((struct_02000000*)0x2000000)->gameLanguage) {
+        gIntroState.gameLanguage = ((struct_02000000*)0x2000000)->gameLanguage;
         LoadGfxGroup(3);
     }
-    sub_080AD89C();
+    UpdateLightRays();
     sub_0805E5C0();
     sub_080AD9B0();
 }
 
-void sub_080AD644(void) {
-
+static void UpdatePressStartIcon(void) {
     gUnk_03001010[2] = 0;
     gUnk_03001010[3] = 0;
-    gUnk_03001010[4] = 57376;
+    gUnk_03001010[4] = 0xE020;
     gUnk_03001010[0] = 120;
     gUnk_03001010[1] = 152;
     sub_080ADA14(511, 1);
     return;
 }
 
-static void sub_080AD670(void)
+static void UpdateSwordBgAffineData(void)
 {
     struct BgAffineSrcData aff;
     aff.texY = 0x8000;
@@ -208,27 +239,27 @@ static void sub_080AD670(void)
     aff.scrX = 0x78;
     aff.scrY = 0x48;
     aff.alpha = 0;
-    aff.sy = aff.sx = gMenu.field_0x2c;
+    aff.sy = aff.sx = gIntroState.swordBgScaleRatio;
     BgAffineSet(&aff, (struct BgAffineDstData*)&gBgControls, 1);
 }
 
-void sub_080AD6AC(void)
+static void HandleJapaneseTitlescreenAnimationIntro(void)
 {
     Entity *pEVar2;
 
-    switch (gMenu.overlayType) {
+    switch (gIntroState.subState) {
         case 0:
             if (!gFadeControl.active) {
-                if ((gMenu.field_0x12 & 1) == 0) {
+                if ((gIntroState.counter & 1) == 0) {
                     gScreen.bg2.bg0Control++;
                 }
 
-                if ((sub_080AD84C() == 2) || (gScreen.bg2.bg0Control == 0)) {
-                    gMenu.overlayType++;
+                if (GetAdvanceState() == ADVANCE_KEY_PRESSED || gScreen.bg2.bg0Control == 0) {
+                    gIntroState.subState++;
                     gScreen.bg2.bg0Control = 0;
                     gScreen.bg1.unk = 0xc09;
                     gFadeControl.field_0x4 = 0x40;
-                    DoFade(6,0x10);
+                    DoFade(6, 0x10);
                     PlaySFX(0xf8);
                 }
             }
@@ -236,8 +267,8 @@ void sub_080AD6AC(void)
         case 1:
             if (!gFadeControl.active) {
                 gFadeControl.field_0x4 = -1;
-                gMenu.overlayType++;
-                gMenu.transitionTimer = 0x5a;
+                gIntroState.subState++;
+                gIntroState.timer = 90;
                 pEVar2 = CreateObject(0xb4,0,0);
                 if (pEVar2 != NULL) {
                     pEVar2->x.HALF.HI = 0;
@@ -246,88 +277,91 @@ void sub_080AD6AC(void)
             }
             break;
         case 2:
-            if (sub_080AD84C()) {
-                gMenu.menuType++;
-                gMenu.transitionTimer = 0x3c;
+            if (GetAdvanceState() != ADVANCE_NONE) {
+                gIntroState.state++;
+                gIntroState.timer = 60;
             }
     }
 }
 
-void sub_080AD76C(void) {
-    switch (gMenu.overlayType) {
+static void HandleTitlescreenAnimationIntro(void) {
+    switch (gIntroState.subState) {
         case 0:
             if (!gFadeControl.active) {
-                gMenu.overlayType = 1;
+                gIntroState.subState = 1;
                 gScreen.lcd.lcdControl2 |= 0x400;
                 PlaySFX(0xF6);
             }
             break;
         case 1:
-            gMenu.field_0x2c += 16;
-            if (gMenu.field_0x2c > 256) {
-                gMenu.field_0x2c = 256;
-                gMenu.transitionTimer = 40;
-                gMenu.overlayType++;
+            gIntroState.swordBgScaleRatio += 0x10;
+            if (gIntroState.swordBgScaleRatio > 0x100) {
+                gIntroState.swordBgScaleRatio = 0x100;
+                gIntroState.timer = 40;
+                gIntroState.subState++;
                 DoFade(6, 16);
             }
-            sub_080AD670();
+            UpdateSwordBgAffineData();
             break;
         case 2:
-            if (--gMenu.transitionTimer == 0) {
-                gMenu.transitionTimer = 300;
-                gMenu.overlayType++;
+            if (--gIntroState.timer == 0) {
+                gIntroState.timer = 300;
+                gIntroState.subState++;
                 CreateObject(0xBD, 0, 0);
                 DoFade(6, 16);
                 PlaySFX(0xF8);
             }
             break;
         default:
-            if (!gFadeControl.active && sub_080AD84C()) {
-                gMenu.menuType++;
-                gMenu.transitionTimer = 60;
+            if (!gFadeControl.active && GetAdvanceState() != ADVANCE_NONE) {
+                gIntroState.state++;
+                gIntroState.timer = 60;
             }
             break;
     }
 }
 
-static void sub_080AD834(void) {
+static void ExitTitlescreen(void) {
     if (!gFadeControl.active) {
         InitScreen(SCREEN_CHOOSE_FILE);
     }
 }
 
-u32 sub_080AD84C(void) {
+static u32 GetAdvanceState(void) {
     u32 newKeys;
 
     if (gFadeControl.active) {
-        return 0;
+        return ADVANCE_NONE;
     }
 
-    if (gUnk_02000010.field_0x5 == 0) {
+    if (!gUnk_02000010.listenForKeyPresses) {
         newKeys = 0;
     } else {
         newKeys = gUnk_03000FF0.newKeys & (A_BUTTON | START_BUTTON);
     }
 
-    if (--gMenu.transitionTimer == 0) {
-        return 1;
+    if (--gIntroState.timer == 0) {
+        return ADVANCE_TIMER_EXPIRED;
     }
 
     if (newKeys) {
-        return 2;
+        return ADVANCE_KEY_PRESSED;
     }
 
-    return 0;
+    return ADVANCE_NONE;
 }
 
-void sub_080AD89C(void) {
-    if ((gMenu.field_0x12 & 0x7) == 0) {
-        gMenu.unk10[0] = (gMenu.unk10[0] + 1) & 0x3;
-        LoadPaletteGroup(gMenu.unk10[0] + 5);
+static void UpdateLightRays(void) {
+    // Periodically rotate the palette to give a shimmeriming effect.
+    if ((gIntroState.counter & 0x7) == 0) {
+        gIntroState.lightRaysPaletteGroup++;
+        gIntroState.lightRaysPaletteGroup &= 0x3;
+        LoadPaletteGroup(5 + gIntroState.lightRaysPaletteGroup);
     }
 
-    if ((gMenu.field_0x12 & 0x1F) == 0) {
-        gMenu.unk10[1] = (gMenu.unk10[1] + 1) & 0x7;
-        gScreen.controls.mosaicSize = gUnk_081320FC[gMenu.unk10[1]];
+    // Periodiccally update the transparency of the light rays.
+    if ((gIntroState.counter & 0x1F) == 0) {
+        gIntroState.lightRaysAlphaBlendIndex = (gIntroState.lightRaysAlphaBlendIndex + 1) & 0x7;
+        gScreen.controls.mosaicSize = sLightRaysAlphaBlends[gIntroState.lightRaysAlphaBlendIndex];
     }
 }

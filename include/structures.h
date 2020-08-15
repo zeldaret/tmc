@@ -28,7 +28,7 @@ typedef struct {
 typedef struct {
     u8 filler0[0x4];
     u8 field_0x4;
-    u8 field_0x5;
+    u8 listenForKeyPresses;
 } struct_02000010;
 
 extern struct_02000010 gUnk_02000010;
