@@ -44,7 +44,7 @@ void sub_080570B8(Entity *this)
 
 void sub_080570F8(void)
 {
-  gScreen.lcd.lcdControl2 &= 0xf7ff;
+  gScreen.lcd.displayControl &= 0xf7ff;
   gScreen.controls.layerFXControl = 0;
   sub_08056250();
 }
@@ -57,7 +57,7 @@ void sub_08057118(Entity *this)
   ((u8 *)&this->field_0x20)[2] = 0;
   this->action = 1;
   gScreen.affine.bg3Control = 0x1e04;
-  gScreen.lcd.lcdControl2 |= 0x800;
+  gScreen.lcd.displayControl |= 0x800;
   gScreen.controls.layerFXControl = 0x3648;
   gScreen.controls.alphaBlend = 0x1000;
   sub_08052D74(this, sub_080570B8, sub_080570F8);

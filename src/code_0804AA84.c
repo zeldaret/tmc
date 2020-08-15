@@ -62,7 +62,7 @@ void sub_0804AB04(void)
 void sub_0804AB24(void)
 {
   if (!gFadeControl.active) {
-    gScreen.lcd.lcdControl2 = 0;
+    gScreen.lcd.displayControl = 0;
     sub_0801E104();
     gArea.filler[8] = 0;
     MenuFadeIn(6, 0);

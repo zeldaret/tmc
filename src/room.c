@@ -2423,7 +2423,7 @@ void sub_0804CED8(void) {
 
     if (CheckGlobalFlag(LV2_CLEAR)) {
         gUnk_0200B650 = 0;
-        gScreen.lcd.lcdControl2 &= 0xfdff;
+        gScreen.lcd.displayControl &= 0xfdff;
         sub_0807AABC(&gPlayerEntity);
         LoadRoomEntityList(&gUnk_080E1814);
     } else {

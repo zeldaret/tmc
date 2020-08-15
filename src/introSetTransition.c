@@ -107,8 +107,8 @@ static void HandleNintendoCapcomLogos(void)
             paletteGroup = 2;
         }
         LoadPaletteGroup(paletteGroup);
-        gScreen.lcd.lcdControl2 |= 0x400;
-        gScreen.bg2.bg0Updated = 1;
+        gScreen.lcd.displayControl |= 0x400;
+        gScreen.bg.bg2yOffset = 1;
         DoFade(6, 8);
         advance = ADVANCE_NONE;
     } else {
@@ -154,20 +154,20 @@ static void HandleTitlescreen(void)
             if (((struct_02000000*)0x2000000)->gameLanguage == 0) {
                 gScreen.controls.layerFXControl = 0x844;
                 gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 9);
-                gScreen.bg2.bg0Control = 0x1c09;
+                gScreen.bg.bg1xOffset = 0x1c09;
                 gScreen.affine.bg2Control = 0x1d02;
                 gScreen.affine.bg3Control = 0x1e03;
-                gScreen.lcd.lcdControl2 |= 0x1e00;
-                gScreen.bg2.bg0yOffset = 0xff60;
+                gScreen.lcd.displayControl |= 0x1e00;
+                gScreen.bg.bg2xOffset = 0xff60;
             }
             else {
                 gScreen.controls.layerFXControl = 0x241;
                 gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 9);
-                gScreen.bg1.bg0Control = 0x1d02;
-                gScreen.bg2.bg0Control = 0x1E03;
+                gScreen.bg.bg0Control = 0x1d02;
+                gScreen.bg.bg1xOffset = 0x1E03;
                 gScreen.affine.bg2Control = 0x7C89;
-                gScreen.lcd.lcdControl2 |= 1;
-                gScreen.lcd.lcdControl2 |= 0x1300;
+                gScreen.lcd.displayControl |= 1;
+                gScreen.lcd.displayControl |= 0x1300;
                 gIntroState.swordBgScaleRatio = 0x10;
                 UpdateSwordBgAffineData();
             }
@@ -251,13 +251,13 @@ static void HandleJapaneseTitlescreenAnimationIntro(void)
         case 0:
             if (!gFadeControl.active) {
                 if ((gIntroState.counter & 1) == 0) {
-                    gScreen.bg2.bg0yOffset++;
+                    gScreen.bg.bg2xOffset++;
                 }
 
-                if (GetAdvanceState() == ADVANCE_KEY_PRESSED || gScreen.bg2.bg0yOffset == 0) {
+                if (GetAdvanceState() == ADVANCE_KEY_PRESSED || gScreen.bg.bg2xOffset == 0) {
                     gIntroState.subState++;
-                    gScreen.bg2.bg0yOffset = 0;
-                    gScreen.bg2.bg0Control = 0xc09;
+                    gScreen.bg.bg2xOffset = 0;
+                    gScreen.bg.bg1xOffset = 0xc09;
                     gFadeControl.field_0x4 = 0x40;
                     DoFade(6, 0x10);
                     PlaySFX(0xf8);
@@ -289,7 +289,7 @@ static void HandleTitlescreenAnimationIntro(void) {
         case 0:
             if (!gFadeControl.active) {
                 gIntroState.subState = 1;
-                gScreen.lcd.lcdControl2 |= 0x400;
+                gScreen.lcd.displayControl |= 0x400;
                 PlaySFX(0xF6);
             }
             break;

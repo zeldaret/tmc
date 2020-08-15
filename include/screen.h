@@ -4,19 +4,25 @@
 #include "global.h"
 
 typedef struct {
-    u16 lcdControl2;
-    u16 unk2;
+    u16 displayControl;
+    u8 filler2[0x2];
     u16 unk4;
     u16 unk6;
 } LcdControls;
 
 typedef struct {
     u16 bg0Control;
+    u16 bg1Control;
+    u16 bg2Control;
+    u16 bg3Control;
     u16 bg0xOffset;
     u16 bg0yOffset;
-    u16 bg0Updated;
-    u16 unk;
-    u16 unk2;
+    u16 bg1xOffset;
+    u16 bg1yOffset;
+    u16 bg2xOffset;
+    u16 bg2yOffset;
+    u16 bg3xOffset;
+    u16 bg3yOffset;
 } BgSettings;
 
 typedef struct {
@@ -64,8 +70,7 @@ typedef struct {
 
 typedef struct {
     /*0x00*/ LcdControls lcd;
-    /*0x08*/ BgSettings bg1;
-    /*0x14*/ BgSettings bg2;
+    /*0x08*/ BgSettings bg;
     /*0x20*/ BgAffSettings affine;
     /*0x38*/ BgControls controls;
 } Screen;
