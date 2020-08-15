@@ -698,7 +698,6 @@ SECTIONS {
 		src/object/houseDoorExterior.o(.text);
 		src/object/object1A.o(.text);
 		src/object/greatFairy.o(.text);
-		asm/greatFairy.o(.text);
 		src/object/object1C.o(.text);
 		src/object/object1D.o(.text);
 		asm/object1E.o(.text);

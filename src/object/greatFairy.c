@@ -3,6 +3,7 @@
 #include "room.h"
 #include "screen.h"
 #include "greatFairy.h"
+#include "structures.h"
 
 enum {
     BEHAVIORS,
@@ -371,19 +372,20 @@ void sub_08087114(Entity* this) {
 }
 
 #ifdef NON_MATCHING
-void sub_08087150(Entity* this) {
-    u8 var;
-    u32 var2;
+extern u8 gUnk_0812079C;
 
-    GreatFairy_InitializeAnimation(this);
-    this->spriteSettings.b.draw = 1;
-    this->spriteOrientation &= 63;
-    this->spriteRendering.b0 = 0;
-    this->spritePriority.b0 = 3;
-    this->nonPlanarMovement = 128;
-    this->direction = 16;
-    var = gUnk_0812079C[0];
-    this->palette = ((var & 15) * 16) | this->direction;
+void sub_08087150(Entity *this) {
+    u32 temp;
+
+  GreatFairy_InitializeAnimation();
+  this->spriteSettings.b.draw = TRUE;
+  this->spriteOrientation.flipY = 0;
+  this->spriteRendering.b0 = 0;
+  this->spritePriority.b0 = 3;
+  this->nonPlanarMovement = 0x80;
+  this->direction = 0x10;
+  temp = gUnk_0812079C;
+  this->palette.raw = ((temp & 0xf) << 4) | 0xf;
 }
 #else
 NAKED
@@ -412,26 +414,16 @@ void sub_080871D0(Entity* this) {
     }
 }
 
-#ifdef NON_MATCHING
-void sub_080871F8(Entity* this) {
-    s32 bVar1;
-
-    if (((this->attachedEntity->x.HALF.HI == (this->x).HALF.HI) &&
-         ((Entity*)this->attachedEntity)->y.HALF.HI + -32 == (this->y).HALF.HI)) {
+void sub_080871F8(Entity *this) {
+    Entity* temp = this->attachedEntity;
+  
+    if ((temp->x.HALF.HI == this->x.HALF.HI) && (temp->y.HALF.HI - 0x20 == this->y.HALF.HI)) {
         this->action = 2;
     } else {
-        bVar1 = (this->x).HALF.HI;
-        sub_080045D4();
-        this->direction = bVar1;
+        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, temp->x.HALF.HI, temp->y.HALF.HI - 0x20);
         sub_0806F69C(this);
     }
 }
-#else
-NAKED
-void sub_080871F8(Entity* this) {
-    asm(".include \"asm/greatFairy/sub_080871F8.inc\"");
-}
-#endif
 
 void sub_08087240(Entity* this) {
     if ((gRoomVars.greatFairyState & 4) != 0) {
@@ -468,6 +460,102 @@ void sub_080872AC(Entity* this) {
     this->direction = (u8)Random() & 0x1F;
     this->nonPlanarMovement = 32;
     GreatFairy_InitializeAnimation(this);
+}
+
+void sub_080872F8(Entity *this) {
+    s32 temp;
+    sub_0806F69C(this);
+    GetNextFrame(this);
+    if (((u16)(this->field_0x68.HWORD - this->x.HALF.HI) > 0xc) || ((u16)(this->field_0x6a.HWORD - this->y.HALF.HI) > 0xc)) {
+        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, (s16)this->field_0x68.HWORD, (s16)this->field_0x6a.HWORD);
+        this->direction = (this->direction + gUnk_081207AC[Random() & 3]) & 0x1f;
+    }
+    temp = gSineTable[this->actionDelay + 0x40];
+    this->height.HALF.HI = (temp >> 6) - 8;
+    this->actionDelay++;
+}
+
+void GreatFairy_InitializeAnimation(Entity *this)
+{
+  s32 temp;
+  
+  this->action = 1;
+  temp = this->entityType.form;
+  this->entityType.parameter = temp % 11;
+  this->collisionLayer = 2;
+  InitializeAnimation(this, this->entityType.parameter);
+  sub_0805E3A0(this, 2);
+}
+
+Entity* GreatFairy_CreateForm(Entity *this, u32 curForm, u32 parameter) {
+  s32 nextForm;
+  Entity *ent;
+  
+  nextForm = this->entityType.form;
+  nextForm /= 11;
+
+  ent = CreateObject(0x1b, (u8)nextForm * 11 + curForm, parameter);
+  return ent;
+}
+
+void sub_080873D0(Entity *this)
+{
+  Entity *ent;
+  
+    if (this->actionDelay != 0) {
+        this->actionDelay--;
+    } else {
+        ent = GreatFairy_CreateForm(this,8,0);
+        if (ent != NULL) {
+            CopyPosition(this, ent);
+            this->actionDelay = 0x30;
+        }
+    }
+}
+
+void sub_080873FC(void)
+{
+  Entity *ent;
+  
+  PlaySFX(0xf7);
+  gRoomControls.cameraTarget = NULL;
+
+  while (ent = sub_0805EB00(0x6, 0x1b, 0x6), ent != NULL) {
+    DeleteEntity(ent);
+  }
+}
+
+void sub_08087424(Entity *arg0, struct_08087424 *arg1)
+{
+    Entity *ent;
+  
+    sub_080791D0();
+    ent = CreateObject(0x64, 0, 0);
+    if (ent != NULL) {
+        ent->parent = &gPlayerEntity;
+        CopyPosition(&gPlayerEntity, ent);
+        sub_0805E3A0(ent, 2);
+    }
+
+    switch (arg1->unk4) {
+        case 0:
+            gUnk_02002A40.stats.arrowCount = arg1->unk4;
+            break;
+        case 1:
+            gUnk_02002A40.stats.bombCount = 0;
+            break;
+    }
+}
+
+void sub_0808747C(u32 arg0, u32 arg1)
+{
+  u32 iVar1;
+  
+  iVar1 = sub_0805EB2C(0x6, 0xf, 0x6, 0xb, 0x0);
+  if (iVar1 != 0) {
+    iVar1 = 1;
+  }
+  *(u32 *)(arg1 + 0x14) = iVar1;
 }
 
 //clang-format off

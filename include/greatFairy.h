@@ -15,10 +15,13 @@ extern void sub_0805EC9C();
 extern void sub_0805EC60();
 extern void sub_080873D0();
 extern void DeleteEntity();
-extern void sub_080045D4();
+extern u32 sub_080045D4();
 extern void sub_0806F69C();
 extern u32 Random();
-
+extern void sub_0805E3A0(Entity*, u32);
+extern Entity* sub_0805EB00(u32, u32, u32);
+extern void sub_080791D0();
+extern u32 sub_0805EB2C(u32, u32, u32, u32, u32);
 extern void (*const GreatFairy_Main[])(Entity*);
 extern void (*const GreatFairy_Behaviors[])(Entity*);
 extern void (*const GreatFairy_WingsBehaviors[])(Entity*);
@@ -42,5 +45,13 @@ extern RoomVars gRoomVars;
 extern Screen gScreen;
 extern u32 gUnk_02033280;
 extern u8 gUnk_0812079C[8];
+extern s16 gSineTable[];
+extern s8 gUnk_081207AC[];
+
+
+typedef struct {
+    s32 unk0;
+    s32 unk4;
+} struct_08087424;
 
 #endif
