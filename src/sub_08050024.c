@@ -46,9 +46,9 @@ void DoFade(u32 fadeType, u32 fadeSpeed)
   }
   if ((fadeType & 8) != 0) {
     gUnk_03000000.spritesOffset = 1;
-    gScreen.bg1.unk |= 0x40;
-    gScreen.bg2.unk |= 0x40;
-    gScreen.affine.unk2 |= 0x40;
+    gScreen.bg2.bg0Control |= 0x40;
+    gScreen.affine.bg2Control |= 0x40;
+    gScreen.affine.bg3Control |= 0x40;
   }
   if ((fadeType & 0x10) != 0) {
     sub_0801E1B8(gFadeControl.field_0x16, gFadeControl.field_0x18);

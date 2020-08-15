@@ -108,7 +108,7 @@ static void HandleNintendoCapcomLogos(void)
         }
         LoadPaletteGroup(paletteGroup);
         gScreen.lcd.lcdControl2 |= 0x400;
-        gScreen.bg2.bg0xOffset = 1;
+        gScreen.bg2.bg0Updated = 1;
         DoFade(6, 8);
         advance = ADVANCE_NONE;
     } else {
@@ -152,20 +152,20 @@ static void HandleTitlescreen(void)
             }
             LoadPaletteGroup(paletteGroup);
             if (((struct_02000000*)0x2000000)->gameLanguage == 0) {
-                gScreen.controls.windowOutsideControl = 0x844;
-                gScreen.controls.mosaicSize = 0x909;
-                gScreen.bg1.unk = 0x1c09;
-                gScreen.bg2.unk = 0x1d02;
-                gScreen.affine.unk2 = 0x1e03;
+                gScreen.controls.layerFXControl = 0x844;
+                gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 9);
+                gScreen.bg2.bg0Control = 0x1c09;
+                gScreen.affine.bg2Control = 0x1d02;
+                gScreen.affine.bg3Control = 0x1e03;
                 gScreen.lcd.lcdControl2 |= 0x1e00;
-                gScreen.bg2.bg0Control = 0xff60;
+                gScreen.bg2.bg0yOffset = 0xff60;
             }
             else {
-                gScreen.controls.windowOutsideControl = 0x241;
-                gScreen.controls.mosaicSize = 0x909;
-                gScreen.lcd.lcdControl1 = 0x1d02;
-                gScreen.bg1.unk = 0x1E03;
-                gScreen.bg2.unk = 0x7C89;
+                gScreen.controls.layerFXControl = 0x241;
+                gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 9);
+                gScreen.bg1.bg0Control = 0x1d02;
+                gScreen.bg2.bg0Control = 0x1E03;
+                gScreen.affine.bg2Control = 0x7C89;
                 gScreen.lcd.lcdControl2 |= 1;
                 gScreen.lcd.lcdControl2 |= 0x1300;
                 gIntroState.swordBgScaleRatio = 0x10;
@@ -251,13 +251,13 @@ static void HandleJapaneseTitlescreenAnimationIntro(void)
         case 0:
             if (!gFadeControl.active) {
                 if ((gIntroState.counter & 1) == 0) {
-                    gScreen.bg2.bg0Control++;
+                    gScreen.bg2.bg0yOffset++;
                 }
 
-                if (GetAdvanceState() == ADVANCE_KEY_PRESSED || gScreen.bg2.bg0Control == 0) {
+                if (GetAdvanceState() == ADVANCE_KEY_PRESSED || gScreen.bg2.bg0yOffset == 0) {
                     gIntroState.subState++;
-                    gScreen.bg2.bg0Control = 0;
-                    gScreen.bg1.unk = 0xc09;
+                    gScreen.bg2.bg0yOffset = 0;
+                    gScreen.bg2.bg0Control = 0xc09;
                     gFadeControl.field_0x4 = 0x40;
                     DoFade(6, 0x10);
                     PlaySFX(0xf8);
@@ -362,6 +362,6 @@ static void UpdateLightRays(void) {
     // Periodiccally update the transparency of the light rays.
     if ((gIntroState.counter & 0x1F) == 0) {
         gIntroState.lightRaysAlphaBlendIndex = (gIntroState.lightRaysAlphaBlendIndex + 1) & 0x7;
-        gScreen.controls.mosaicSize = sLightRaysAlphaBlends[gIntroState.lightRaysAlphaBlendIndex];
+        gScreen.controls.alphaBlend = sLightRaysAlphaBlends[gIntroState.lightRaysAlphaBlendIndex];
     }
 }

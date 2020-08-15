@@ -8,7 +8,6 @@ typedef struct {
     u16 unk2;
     u16 unk4;
     u16 unk6;
-    u16 lcdControl1;
 } LcdControls;
 
 typedef struct {
@@ -65,10 +64,10 @@ typedef struct {
 
 typedef struct {
     /*0x00*/ LcdControls lcd;
-    /*0x0C*/ BgSettings bg1;
-    /*0x18*/ BgSettings bg2;
-    /*0x24*/ BgAffSettings affine;
-    /*0x3C*/ BgControls controls;
+    /*0x08*/ BgSettings bg1;
+    /*0x14*/ BgSettings bg2;
+    /*0x20*/ BgAffSettings affine;
+    /*0x38*/ BgControls controls;
 } Screen;
 
 extern BgControls gBgControls;
