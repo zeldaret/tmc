@@ -675,7 +675,6 @@ SECTIONS {
 		asm/button.o(.text);
 		asm/object4.o(.text);
 		src/object/pot.o(.text);
-		asm/pot.o(.text);
 		asm/object6.o(.text);
 		asm/blockPushed.o(.text);
 		asm/lockedDoor.o(.text);
@@ -793,7 +792,7 @@ SECTIONS {
 		asm/object70.o(.text);
 		asm/pushableGrave.o(.text);
 		asm/object72.o(.text);
-		asm/lilypadSmall.o(.text);
+		src/object/lilypadSmall.o(.text);
 		asm/object74.o(.text);
 		src/object/bell.o(.text);
 		asm/macroDecorations.o(.text);

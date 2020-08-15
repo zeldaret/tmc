@@ -20,8 +20,8 @@ void sub_08070698(Entity *this)
   Entity *ent;
   
   gPlayerState.field_0x0[0] = 0xff;
-  gPlayerState.field_0x14[1] = gPlayerEntity.x.HALF.HI;
-  gPlayerState.field_0x14[2] = gPlayerEntity.y.HALF.HI;
+  gPlayerState.field_0x16[0] = gPlayerEntity.x.HALF.HI;
+  gPlayerState.field_0x16[1] = gPlayerEntity.y.HALF.HI;
   this->flags = this->flags | 0x80;
   this->spritePriority.b0 = 0xc;
   this->spritePriority.b1 = 1;
