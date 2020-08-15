@@ -5,8 +5,7 @@
 #include "readKeyInput.h"
 
 extern void sub_0804FF84(u32);
-extern u32 gUnk_020176A0;
-extern const void (*gUnk_08100CBC[])();
+extern u16 gPaletteBuffer[];
 extern void VBlankInterruptWait(void);
 extern void DisableInterruptsAndDMA(void);
 extern void sub_0801D66C(void*, u8*, int);
@@ -14,6 +13,15 @@ extern void sub_08016B34(void);
 
 static void sub_08055F70(void);
 static bool32 SoftResetKeysPressed(void);
+
+static void (*const sScreenHandlers[])(void) = {
+    [SCREEN_INTRO]       = HandleIntroScreen,
+    [SCREEN_CHOOSE_FILE] = HandleChooseFileScreen,
+    [SCREEN_GAMEPLAY]    = HandleGameplayScreen,
+    [SCREEN_GAME_OVER]   = HandleGameOverScreen,
+    [SCREEN_CREDITS]     = HandleCreditsScreen,
+    [SCREEN_DEBUG_TEXT]  = HandleDebugTextScreen,
+};
 
 void MainLoop(void) {
     int var0;
@@ -26,12 +34,12 @@ void MainLoop(void) {
     sub_08056208();
     gUnk_02000010.field_0x4 = 193;
     sub_0804FFE4();
-    DmaSet(3, 0x5000000U, &gUnk_020176A0, 0x84000080U);
+    DmaSet(3, 0x5000000U, gPaletteBuffer, 0x84000080U);
     sub_0804FF84(1);
     sub_08056418();
     sub_080ADD30();
     gRand = 0x1234567;
-    _DmaZero(&gUnk_03001000, 16);
+    _DmaZero(&gUnk_03001000, sizeof(gUnk_03001000));
     InitScreen(SCREEN_INTRO);
     while (1) {
         ReadKeyInput();
@@ -60,7 +68,7 @@ void MainLoop(void) {
                 }
 
                 gUnk_03001000.ticks++;
-                gUnk_08100CBC[gUnk_03001000.screen]();
+                sScreenHandlers[gUnk_03001000.screen]();
                 sub_08056458();
                 sub_08050154();
                 sub_080A3480();

@@ -37,16 +37,16 @@ _0804ABA4:
 	ldr r0, _0804AC0C @ =gUnk_080D4138
 	adds r4, r4, r0
 	ldrb r0, [r4]
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	ldrb r0, [r4, #1]
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r0, _0804AC10 @ =gUnk_02017700
 	movs r2, #0x90
 	lsls r2, r2, #2
 	adds r1, r0, r2
 	movs r2, #0x20
 	bl sub_0801D66C
-	ldr r2, _0804AC14 @ =gUnk_0200B644
+	ldr r2, _0804AC14 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80
 	lsls r1, r1, #0xe
@@ -75,7 +75,7 @@ _0804AC04: .4byte gArea
 _0804AC08: .4byte gUnk_02032EC0
 _0804AC0C: .4byte gUnk_080D4138
 _0804AC10: .4byte gUnk_02017700
-_0804AC14: .4byte gUnk_0200B644
+_0804AC14: .4byte gUsedPalettes
 _0804AC18: .4byte gUnk_080D4110
 
 	thumb_func_start sub_0804AC1C
@@ -168,7 +168,7 @@ _0804ACC6:
 	thumb_func_start sub_0804ACC8
 sub_0804ACC8: @ 0x0804ACC8
 	push {lr}
-	ldr r0, _0804ACEC @ =gUnk_03000FD0
+	ldr r0, _0804ACEC @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0804ACE8
@@ -183,7 +183,7 @@ sub_0804ACC8: @ 0x0804ACC8
 _0804ACE8:
 	pop {pc}
 	.align 2, 0
-_0804ACEC: .4byte gUnk_03000FD0
+_0804ACEC: .4byte gFadeControl
 _0804ACF0: .4byte gArea
 _0804ACF4: .4byte gUnk_02032EDC
 

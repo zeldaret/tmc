@@ -846,7 +846,7 @@ _0807C01C:
 	ldr r0, [r4]
 	ldr r0, [r0, #0x10]
 	bl sub_080197D4
-	ldr r1, _0807C0D0 @ =gUnk_020176A0
+	ldr r1, _0807C0D0 @ =gPaletteBuffer
 	adds r0, r1, #0
 	adds r0, #0x60
 	movs r2, #0xa8
@@ -854,7 +854,7 @@ _0807C01C:
 	adds r1, r1, r2
 	movs r2, #0x20
 	bl sub_0801D66C
-	ldr r2, _0807C0D4 @ =gUnk_0200B644
+	ldr r2, _0807C0D4 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80
 	lsls r1, r1, #0xe
@@ -927,8 +927,8 @@ _0807C0C0: .4byte gUnk_02010654
 _0807C0C4: .4byte gRoomControls
 _0807C0C8: .4byte gArea
 _0807C0CC: .4byte 0x0000085C
-_0807C0D0: .4byte gUnk_020176A0
-_0807C0D4: .4byte gUnk_0200B644
+_0807C0D0: .4byte gPaletteBuffer
+_0807C0D4: .4byte gUsedPalettes
 _0807C0D8: .4byte 0x000007FF
 
 	thumb_func_start sub_0807C0DC

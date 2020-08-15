@@ -660,7 +660,7 @@ sub_080ADDD8: @ 0x080ADDD8
 	adds r3, r1, r0
 	ldr r0, _080ADE00 @ =0x00FFFFFC
 	ands r0, r2
-	ldr r1, _080ADE04 @ =gUnk_085A2E80
+	ldr r1, _080ADE04 @ =gGlobalGfxAndPalettes
 	adds r0, r0, r1
 	str r0, [r3, #8]
 	movs r0, #1
@@ -672,7 +672,7 @@ sub_080ADDD8: @ 0x080ADDD8
 	.align 2, 0
 _080ADDFC: .4byte gUnk_02024494
 _080ADE00: .4byte 0x00FFFFFC
-_080ADE04: .4byte gUnk_085A2E80
+_080ADE04: .4byte gGlobalGfxAndPalettes
 _080ADE08: .4byte 0x0000FFFF
 _080ADE0C:
 	movs r0, #0xfe

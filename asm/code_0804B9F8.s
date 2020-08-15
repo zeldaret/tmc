@@ -9,7 +9,7 @@
 sub_0804FF98: @ 0x0804FF98
 	push {r4, r5, r6, r7, lr}
 	ldr r6, _0804FFD4 @ =gUnk_020354C0
-	ldr r1, _0804FFD8 @ =gUnk_0200B644
+	ldr r1, _0804FFD8 @ =gUsedPalettes
 	ldr r4, [r1]
 	movs r0, #0
 	str r0, [r1]
@@ -22,7 +22,7 @@ _0804FFAC:
 	ands r0, r4
 	cmp r0, #0
 	beq _0804FFC6
-	ldr r0, _0804FFE0 @ =gUnk_020176A0
+	ldr r0, _0804FFE0 @ =gPaletteBuffer
 	adds r0, r5, r0
 	movs r2, #0xa0
 	lsls r2, r2, #0x13
@@ -40,14 +40,14 @@ _0804FFD0:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0804FFD4: .4byte gUnk_020354C0
-_0804FFD8: .4byte gUnk_0200B644
+_0804FFD8: .4byte gUsedPalettes
 _0804FFDC: .4byte gUnk_03005E98
-_0804FFE0: .4byte gUnk_020176A0
+_0804FFE0: .4byte gPaletteBuffer
 
 	thumb_func_start sub_0804FFE4
 sub_0804FFE4: @ 0x0804FFE4
 	push {r4, lr}
-	ldr r4, _08050000 @ =gUnk_03000FD0
+	ldr r4, _08050000 @ =gFadeControl
 	adds r0, r4, #0
 	movs r1, #0x1c
 	bl _DmaZero
@@ -59,5 +59,5 @@ sub_0804FFE4: @ 0x0804FFE4
 	str r0, [r4, #4]
 	pop {r4, pc}
 	.align 2, 0
-_08050000: .4byte gUnk_03000FD0
+_08050000: .4byte gFadeControl
 _08050004: .4byte gUnk_020354C0

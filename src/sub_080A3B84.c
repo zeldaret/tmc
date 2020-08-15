@@ -31,8 +31,8 @@ void sub_080A3BD0(void)
   gMenu.field_0x1 = 1;
   gMenu.unk2a = 0;
   sub_080A4D34();
-  LoadPalettesByPaletteGroupIndex(0xcb);
-  sub_0801D7EC(0x75);
+  LoadPaletteGroup(0xcb);
+  LoadGfxGroup(0x75);
   
   iVar1 = sub_080A4494();
   iVar2 = iVar1 + 7;
@@ -44,14 +44,14 @@ void sub_080A3BD0(void)
   iVar1 = max(iVar1, 0);
   iVar1 = min(iVar1, 6);
 
-  sub_0801D7EC(iVar1 + 0x76);
-  gScreen.lcd.lcdControl2 |= 0x1e00;
-  gScreen.bg1.unk = 0x1c01;
-  gScreen.bg2.unk = 0x1d02;
-  gScreen.affine.unk2 = 0x1e0b;
-  gScreen.bg2.bg0xOffset = 1;
-  gScreen.affine.bg2xOffset = 1;
-  gScreen.affine.bg3xOffset = 1;
+  LoadGfxGroup(iVar1 + 0x76);
+  gScreen.lcd.displayControl |= 0x1e00;
+  gScreen.bg.bg1xOffset = 0x1c01;
+  gScreen.affine.bg2Control = 0x1d02;
+  gScreen.affine.bg3Control = 0x1e0b;
+  gScreen.bg.bg2yOffset = 1;
+  gScreen.affine.unk = 1;
+  gScreen.affine.unk4 = 1;
   sub_080A4528();
   sub_080A4398();
   sub_0801E738(0);

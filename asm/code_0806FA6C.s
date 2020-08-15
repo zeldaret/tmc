@@ -1468,7 +1468,7 @@ sub_080705AC: @ 0x080705AC
 	ands r0, r1
 	cmp r0, #0
 	beq _08070674
-	ldr r0, _08070618 @ =gUnk_03000FD0
+	ldr r0, _08070618 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08070674
@@ -1514,7 +1514,7 @@ sub_080705AC: @ 0x080705AC
 	b _08070632
 	.align 2, 0
 _08070614: .4byte gUnk_03000FF0
-_08070618: .4byte gUnk_03000FD0
+_08070618: .4byte gFadeControl
 _0807061C: .4byte gUnk_02034490
 _08070620: .4byte gTextBox
 _08070624: .4byte gUnk_02002A40

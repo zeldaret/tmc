@@ -36,8 +36,9 @@ typedef struct {
     u8 unk16;
     u8 filler17[0x13];
     u8 unk2a;
-    u32 field_0x2c;
+    int field_0x2c;
 } Menu;
 
 extern Menu gMenu;
+
 #endif

@@ -100,7 +100,7 @@ _0805D842:
 	ldr r0, _0805D854 @ =gUnk_08108D74
 	adds r0, r1, r0
 	ldrb r0, [r0]
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r1, _0805D858 @ =gScreen
 	ldr r0, _0805D85C @ =0x00001E04
 	strh r0, [r1, #0x2c]

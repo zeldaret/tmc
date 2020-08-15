@@ -152,8 +152,8 @@ void GreatFairy_WingsInit(Entity* this) {
     this->spritePriority.b0 = 5;
     this->spriteSettings.b.draw = 1;
     this->spriteRendering.alphaBlend = 1;
-    gScreen.controls.windowOutsideControl = 3904;
-    gScreen.controls.mosaicSize = 2057;
+    gScreen.controls.layerFXControl = 0xF40;
+    gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 8);
     this->nonPlanarMovement = 1024;
     sub_0805EC9C(this, 1024, 256, 0);
 }

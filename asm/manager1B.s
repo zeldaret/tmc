@@ -157,7 +157,7 @@ sub_0805B4D0: @ 0x0805B4D0
 	ldr r0, _0805B528 @ =gUnk_08108C5C
 	adds r0, r5, r0
 	ldrb r0, [r0]
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r4, _0805B52C @ =gScreen
 	ldr r0, _0805B530 @ =0x00001E07
 	strh r0, [r4, #0x2c]

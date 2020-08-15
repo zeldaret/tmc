@@ -10,7 +10,7 @@
 #include "structures.h"
 
 extern int sub_0807A094(int);
-extern u32 sub_0801D754(const u8*, u8, u8);
+extern void LoadPalettes(const u8*, int, int);
 extern u32 sub_080041EC(int, int);
 extern u32 sub_080045DA(int, int);
 
@@ -39,7 +39,7 @@ typedef struct {
 extern void (*const gUnk_08121C64[])(Entity*);
 extern void (*const gUnk_08121CCC[])(Entity*);
 extern const int gUnk_08133368[];
-extern const u8 gUnk_085A2E80[];
+extern const u8 gGlobalGfxAndPalettes[];
 extern const struct_08121CD4 gUnk_08121CD4[][4];
 extern const u8 gUnk_08121D10[];
 extern const u8 gUnk_08121D38[][8];
@@ -88,7 +88,7 @@ void sub_0808E818(Entity* this) {
         this->field_0x70.BYTES.byte0 = 4;
         this->animationState = 2;
         var1 = gUnk_08133368[sub_0807A094(1) - 22] & 0xFFFFFF;
-        sub_0801D754(&gUnk_085A2E80[var1], 31, 1);
+        LoadPalettes(&gGlobalGfxAndPalettes[var1], 31, 1);
     }
 
     if (gUnk_02032EC0.transitionType == 0) {

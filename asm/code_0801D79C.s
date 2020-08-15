@@ -4,142 +4,6 @@
 	.syntax unified
 
 	.text
-	
-	thumb_func_start sub_0801D79C
-sub_0801D79C: @ 0x0801D79C
-	ldr r3, _0801D7B4 @ =gUnk_020176A0
-	lsls r2, r0, #1
-	adds r2, r2, r3
-	strh r1, [r2]
-	ldr r2, _0801D7B8 @ =gUnk_0200B644
-	lsrs r0, r0, #4
-	movs r1, #1
-	lsls r1, r0
-	ldr r0, [r2]
-	orrs r0, r1
-	str r0, [r2]
-	bx lr
-	.align 2, 0
-_0801D7B4: .4byte gUnk_020176A0
-_0801D7B8: .4byte gUnk_0200B644
-
-	thumb_func_start sub_0801D7BC
-sub_0801D7BC: @ 0x0801D7BC
-	push {lr}
-	adds r2, r0, #0
-	cmp r1, #0
-	beq _0801D7D4
-	ldr r1, _0801D7CC @ =gScreen
-	ldr r0, _0801D7D0 @ =0x0000E0FF
-	b _0801D7D8
-	.align 2, 0
-_0801D7CC: .4byte gScreen
-_0801D7D0: .4byte 0x0000E0FF
-_0801D7D4:
-	ldr r1, _0801D7E4 @ =gScreen
-	ldr r0, _0801D7E8 @ =0x0000FFFF
-_0801D7D8:
-	strh r0, [r1, #6]
-	movs r0, #0
-	adds r1, r2, #0
-	bl sub_0801D79C
-	pop {pc}
-	.align 2, 0
-_0801D7E4: .4byte gScreen
-_0801D7E8: .4byte 0x0000FFFF
-
-	thumb_func_start sub_0801D7EC
-sub_0801D7EC: @ 0x0801D7EC
-	push {r4, r5, r6, lr}
-	ldr r1, _0801D814 @ =gUnk_08100AA8
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r4, [r0]
-	movs r6, #0x80
-	lsls r6, r6, #0x12
-	ldr r5, _0801D818 @ =0x040000D4
-_0801D7FC:
-	movs r2, #0
-	ldrb r1, [r4, #3]
-	movs r0, #0xf
-	ands r1, r0
-	cmp r1, #0xd
-	beq _0801D894
-	cmp r1, #0xd
-	bhi _0801D81C
-	cmp r1, #7
-	beq _0801D842
-	b _0801D836
-	.align 2, 0
-_0801D814: .4byte gUnk_08100AA8
-_0801D818: .4byte 0x040000D4
-_0801D81C:
-	cmp r1, #0xe
-	beq _0801D826
-	cmp r1, #0xf
-	beq _0801D82E
-	b _0801D836
-_0801D826:
-	ldrb r0, [r6, #7]
-	cmp r0, #1
-	bls _0801D83E
-	b _0801D842
-_0801D82E:
-	ldrb r0, [r6, #7]
-	cmp r0, #0
-	beq _0801D83E
-	b _0801D842
-_0801D836:
-	ldrb r0, [r6, #7]
-	cmp r1, r0
-	bne _0801D83E
-	movs r2, #1
-_0801D83E:
-	cmp r2, #0
-	beq _0801D888
-_0801D842:
-	ldr r0, [r4]
-	ldr r1, _0801D868 @ =0x00FFFFFF
-	ands r0, r1
-	ldr r1, _0801D86C @ =gUnk_085A2E80
-	adds r2, r0, r1
-	ldr r1, [r4, #4]
-	ldr r0, [r4, #8]
-	movs r3, #0x80
-	lsls r3, r3, #0x18
-	cmp r0, #0
-	bge _0801D87C
-	ldr r0, _0801D870 @ =0x05FFFFFF
-	cmp r1, r0
-	bls _0801D874
-	adds r0, r2, #0
-	bl LZ77UnCompVram
-	b _0801D888
-	.align 2, 0
-_0801D868: .4byte 0x00FFFFFF
-_0801D86C: .4byte gUnk_085A2E80
-_0801D870: .4byte 0x05FFFFFF
-_0801D874:
-	adds r0, r2, #0
-	bl LZ77UnCompWram
-	b _0801D888
-_0801D87C:
-	str r2, [r5]
-	str r1, [r5, #4]
-	lsrs r0, r0, #1
-	orrs r0, r3
-	str r0, [r5, #8]
-	ldr r0, [r5, #8]
-_0801D888:
-	ldrb r1, [r4, #3]
-	movs r0, #0x80
-	ands r1, r0
-	adds r4, #0xc
-	cmp r1, #0
-	bne _0801D7FC
-_0801D894:
-	pop {r4, r5, r6, pc}
-	.align 2, 0
 
 	thumb_func_start sub_0801D898
 sub_0801D898: @ 0x0801D898
@@ -434,7 +298,7 @@ sub_0801DA90: @ 0x0801DA90
 	strb r0, [r1]
 	ldr r0, _0801DAF0 @ =gUnk_03003DE0
 	strb r3, [r0]
-	ldr r0, _0801DAF4 @ =gUnk_03000FD0
+	ldr r0, _0801DAF4 @ =gFadeControl
 	strb r3, [r0]
 	ldr r5, _0801DAF8 @ =gScreen
 	adds r0, r5, #0
@@ -469,7 +333,7 @@ sub_0801DA90: @ 0x0801DA90
 	.align 2, 0
 _0801DAEC: .4byte gUnk_03001000
 _0801DAF0: .4byte gUnk_03003DE0
-_0801DAF4: .4byte gUnk_03000FD0
+_0801DAF4: .4byte gFadeControl
 _0801DAF8: .4byte gScreen
 _0801DAFC: .4byte 0x040000B0
 _0801DB00: .4byte 0x0000C5FF

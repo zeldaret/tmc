@@ -4,7 +4,7 @@
 #include "functions.h"
 
 extern u32 sub_0805C920(Entity*);
-extern void LoadPalettesByPaletteGroupIndex(u32);
+extern void LoadPaletteGroup(u32);
 extern void (*const gUnk_08108D10[])(Entity*);
 
 extern u8 gUnk_08108D20[];
@@ -58,7 +58,7 @@ void sub_0805C8B4(Entity *this)
     if (5 < ++this->field_0xf) {
       this->field_0xf = 0;
     }
-    LoadPalettesByPaletteGroupIndex(gUnk_08108D20[this->field_0xf]);
+    LoadPaletteGroup(gUnk_08108D20[this->field_0xf]);
     if (this->field_0xf == 0) {
       PlaySFX(0x11a);
     }

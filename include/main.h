@@ -20,6 +20,7 @@ enum {
     SCREEN_GAMEPLAY,
     SCREEN_GAME_OVER,
     SCREEN_CREDITS,
+    SCREEN_DEBUG_TEXT,
 };
 
 typedef struct {

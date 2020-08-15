@@ -647,21 +647,21 @@ _08058D30: .4byte gRoomControls
 sub_08058D34: @ 0x08058D34
 	push {r4, lr}
 	movs r0, #0x28
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	ldr r0, _08058DAC @ =gUnk_02017700
 	movs r2, #0x90
 	lsls r2, r2, #2
 	adds r1, r0, r2
 	movs r2, #0x20
 	bl sub_0801D66C
-	ldr r2, _08058DB0 @ =gUnk_0200B644
+	ldr r2, _08058DB0 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80
 	lsls r1, r1, #0xe
 	orrs r0, r1
 	str r0, [r2]
 	movs r0, #0x16
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r1, _08058DB4 @ =gScreen
 	ldrh r0, [r1]
 	movs r3, #0
@@ -697,12 +697,12 @@ sub_08058D34: @ 0x08058D34
 	cmp r0, #0
 	beq _08058DA8
 	movs r0, #0x4a
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 _08058DA8:
 	pop {r4, pc}
 	.align 2, 0
 _08058DAC: .4byte gUnk_02017700
-_08058DB0: .4byte gUnk_0200B644
+_08058DB0: .4byte gUsedPalettes
 _08058DB4: .4byte gScreen
 _08058DB8: .4byte 0x0000BC82
 _08058DBC: .4byte 0x00005E86
