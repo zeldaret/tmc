@@ -391,7 +391,6 @@ SECTIONS {
 		asm/gibdo.o(.text);
 		asm/octorokGolden.o(.text);
 		src/enemy/tektiteGolden.o(.text);
-		asm/tektiteGolden.o(.text);
 		asm/ropeGolden.o(.text);
 		asm/cloudPiranha.o(.text);
 		asm/scissorsBeetle.o(.text);
