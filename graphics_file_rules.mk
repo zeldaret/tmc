@@ -5,6 +5,3 @@ $(GFXDIR)/intro/nintendo_capcom.4bpp: %.4bpp: %.png
 
 $(GFXDIR)/font.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 2005
-
-$(GFXDIR)/kinstones.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 692
