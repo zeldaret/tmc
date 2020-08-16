@@ -6739,23 +6739,11 @@ gUnk_082D3629:: @ 082D3629
 gUnk_082D4138:: @ 082D4138
 	.incbin "baserom.gba", 0x2D4138, 0x000075C
 
-gUnk_082D4894:: @ 082D4894
-	.incbin "baserom.gba", 0x2D4894, 0x00004CD
+gUnk_082D4894::
+	.incbin "graphics/pot_portal.4bpp"
 
-gUnk_082D4D61:: @ 082D4D61
-	.incbin "baserom.gba", 0x2D4D61, 0x0000208
-
-gUnk_082D4F69:: @ 082D4F69
-	.incbin "baserom.gba", 0x2D4F69, 0x00004D7
-
-gUnk_082D5440:: @ 082D5440
-	.incbin "baserom.gba", 0x2D5440, 0x000012D
-
-gUnk_082D556D:: @ 082D556D
-	.incbin "baserom.gba", 0x2D556D, 0x00004ED
-
-gUnk_082D5A5A:: @ 082D5A5A
-	.incbin "baserom.gba", 0x2D5A5A, 0x00000FB
+gUnk_082D5A94::
+	.incbin "baserom.gba", 0x2D5A94, 0x00000C1
 
 gUnk_082D5B55:: @ 082D5B55
 	.incbin "baserom.gba", 0x2D5B55, 0x0007F92
