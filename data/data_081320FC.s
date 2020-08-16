@@ -11726,58 +11726,13 @@ gUnk_08692E80:: @ 08692E80
 	.incbin "baserom.gba", 0x692E80, 0x00000E0
 
 gUnk_08692F60:: @ 08692F60
-	.incbin "baserom.gba", 0x692F60, 0x0000BE9
+	.incbin "baserom.gba", 0x692F60, 0x0000040
 
-gUnk_08693B49:: @ 08693B49
-	.incbin "baserom.gba", 0x693B49, 0x00001F1
-
-gUnk_08693D3A:: @ 08693D3A
-	.incbin "baserom.gba", 0x693D3A, 0x000014C
-
-gUnk_08693E86:: @ 08693E86
-	.incbin "baserom.gba", 0x693E86, 0x00000C3
-
-gUnk_08693F49:: @ 08693F49
-	.incbin "baserom.gba", 0x693F49, 0x0001800
-
-gUnk_08695749:: @ 08695749
-	.incbin "baserom.gba", 0x695749, 0x0000347
-
-gUnk_08695A90:: @ 08695A90
-	.incbin "baserom.gba", 0x695A90, 0x0000383
-
-gUnk_08695E13:: @ 08695E13
-	.incbin "baserom.gba", 0x695E13, 0x0000327
-
-gUnk_0869613A:: @ 0869613A
-	.incbin "baserom.gba", 0x69613A, 0x000007C
-
-gUnk_086961B6:: @ 086961B6
-	.incbin "baserom.gba", 0x6961B6, 0x0000DAA
-
-gUnk_08696F60:: @ 08696F60
-	.incbin "baserom.gba", 0x696F60, 0x0000980
-
-gUnk_086978E0:: @ 086978E0
-	.incbin "baserom.gba", 0x6978E0, 0x0000668
-
-gUnk_08697F48:: @ 08697F48
-	.incbin "baserom.gba", 0x697F48, 0x0001998
-
-gUnk_086998E0:: @ 086998E0
-	.incbin "baserom.gba", 0x6998E0, 0x0006720
-
-gUnk_086A0000:: @ 086A0000
-	.incbin "baserom.gba", 0x6A0000, 0x000141A
-
-gUnk_086A141A:: @ 086A141A
-	.incbin "baserom.gba", 0x6A141A, 0x00004C6
-
-gUnk_086A18E0:: @ 086A18E0
-	.incbin "baserom.gba", 0x6A18E0, 0x0001180
+gUnk_08692FA0::
+	.incbin "graphics/font.4bpp"
 
 gUnk_086A2A60:: @ 086A2A60
-	.incbin "baserom.gba", 0x6A2A60, 0x0000480
+	.incbin "baserom.gba", 0x6A2A40, 0x00004A0
 
 gUnk_086A2EE0:: @ 086A2EE0
 	.incbin "baserom.gba", 0x6A2EE0, 0x0001423
