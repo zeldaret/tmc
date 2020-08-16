@@ -18,6 +18,7 @@ SECTIONS {
         . = 0x00000070; gUnk_02000070 = .;
         . = 0x00000080; gMenu = .;
         . = 0x00000080; gIntroState = .;
+        . = 0x00000080; gChooseFileState = .;
         . = 0x00000090; gUnk_02000090 = .;
         . = 0x000000B0; gUnk_020000B0 = .;
         . = 0x000000C0; gUnk_020000C0 = .;
@@ -72,7 +73,7 @@ SECTIONS {
         . = 0x00018EB0; gUnk_02018EB0 = .;
         . = 0x00018EE0; gUnk_02018EE0 = .;
         . = 0x00019EE0; gUnk_02019EE0 = .;
-        . = 0x00019EEC; gUnk_02019EEC = .;
+        . = 0x00019EEC; gSaveFiles = .;
         . = 0x00019F6C; gUnk_02019F6C = .;
         . = 0x0001AEE0; gUnk_0201AEE0 = .;
         . = 0x00021EE0; gUnk_02021EE0 = .;
@@ -450,6 +451,8 @@ SECTIONS {
 		src/sub_08050008.o(.text);
 		src/sub_08050024.o(.text);
 		asm/code_08050038.o(.text);
+		src/chooseFile.o(.text);
+		asm/chooseFile.o(.text);
 		asm/sub_08052418.o(.text);
 		src/initializePlayer.o(.text);
 		src/area.o(.text);

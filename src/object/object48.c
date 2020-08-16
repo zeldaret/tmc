@@ -458,7 +458,7 @@ void sub_0808EF24(Entity* this) {
     } else {
         this->spriteSettings.b.draw = 2;
         if (this->entityType.form == 21) {
-            var0 = ((struct_02000000 *)0x2000000)->field_0x5;
+            var0 = ((struct_02000000 *)0x2000000)->messageSpeed;
         } else {
             var0 = ((struct_02000000 *)0x2000000)->brightnessPref;
         }
