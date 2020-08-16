@@ -39,15 +39,16 @@ typedef struct {
 } Main;
 
 typedef struct {
-    u16 nextToLoad;
-    u8 transitionType;
-    u8 field_0x3;
-    u8 state;
-    u8 field_0x5;
-    u8 field_0x6;
-    u8 pauseFadeIn;
-    u16 isLoading;
-    u16 fadeInTime;
+    /*0x00*/ u16 nextToLoad;
+    /*0x02*/ u8 transitionType;
+    /*0x03*/ u8 field_0x3;
+    /*0x04*/ u8 state;
+    /*0x05*/ u8 field_0x5;
+    /*0x06*/ u8 field_0x6;
+    /*0x07*/ u8 pauseFadeIn;
+    /*0x08*/ u16 isLoading;
+    /*0x0A*/ u16 fadeInTime;
+    /*0x0C*/ u8 fillerC[0x3A8];
 } UI;
 
 extern Main gUnk_03001000;

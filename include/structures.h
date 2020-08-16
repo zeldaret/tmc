@@ -7,8 +7,8 @@
 
 typedef struct {
     char header[4];
-    u8 saveFile;
-    u8 field_0x5;
+    u8 saveFileId;
+    u8 messageSpeed;
     u8 brightnessPref;
     u8 gameLanguage;
 } struct_02000000;
@@ -34,7 +34,10 @@ typedef struct {
 extern struct_02000010 gUnk_02000010;
 
 typedef struct {
-    /*0x000*/ u8 filler0[0x6];
+    /*0x000*/ u8 filler0[0x2];
+    /*0x002*/ u8 messageSpeed;
+    /*0x003*/ u8 brightnessPref;
+    /*0x004*/ u8 filler4[0x2];
     /*0x006*/ u8 unk6;
     /*0x007*/ u8 unk7;
     /*0x008*/ u8 unk8;
@@ -44,11 +47,12 @@ typedef struct {
     /*0x050*/ u32 unk50;
     /*0x054*/ u8 filler54[0x54];
     /*0x0A8*/ Stats stats;
-    /*0x0D0*/ u8 filler4[0x3c0];
+    /*0x0D0*/ u8 fillerD0[0x3c0];
     /*0x490*/ u32 unk490;
-} struct_02002A40;
+    /*0x494*/ u8 filler494[0x20];
+} SaveFile;
 
-extern struct_02002A40 gUnk_02002A40;
+extern SaveFile gUnk_02002A40;
 
 typedef struct {
     u32 frameCount;    // regular frame count? does anything reset it?
@@ -99,10 +103,13 @@ typedef struct {
 
 typedef struct {
     /*0x00*/ u8 unk0;
-    /*0x01*/ u8 filler1[0x5];
+    /*0x01*/ u8 unk1;
+    /*0x02*/ u8 unk2;
+    /*0x03*/ u8 unk3;
+    /*0x04*/ u8 filler4[0x2];
     /*0x06*/ u8 unk6;
     /*0x07*/ u8 unk7;
-    /*0x08*/ s8 unk8[0x10]; // ?? unclear know how large this is
+    /*0x08*/ s8 unk8[0xE20];
 } struct_02019EE0;
 
 extern struct_02019EE0 gUnk_02019EE0;
@@ -125,5 +132,19 @@ typedef struct {
 } struct_03000FD0;
 
 extern struct_03000FD0 gFadeControl;
+
+typedef struct {
+    u8 unk0[0x24];
+    u8 ezloNagFuncIndex;
+    u8 filler25[0x30F];
+} struct_0200AF00;
+
+extern struct_0200AF00 gUnk_0200AF00;
+
+typedef struct {
+    u8 unk0;
+} struct_02024490;
+
+extern struct_02024490 gUnk_02024490;
 
 #endif

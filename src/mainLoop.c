@@ -34,7 +34,7 @@ void MainLoop(void) {
     sub_08056208();
     gUnk_02000010.field_0x4 = 193;
     sub_0804FFE4();
-    DmaSet(3, 0x5000000U, gPaletteBuffer, 0x84000080U);
+    DmaCopy32(3, BG_PLTT, gPaletteBuffer, BG_PLTT_SIZE);
     sub_0804FF84(1);
     sub_08056418();
     sub_080ADD30();
