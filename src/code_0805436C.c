@@ -7,7 +7,7 @@
 typedef struct {
     u8 filler[0xa8];
     Stats stats;
-} struct_02002A40;
+} SaveFile;
 
 typedef struct {
     u8 unk;
@@ -19,7 +19,7 @@ typedef struct {
     u8 unk;
 } ScreenTransition;
 
-extern struct_02002A40 gUnk_02002A40;
+extern SaveFile gUnk_02002A40;
 extern struct_080FD5B4 gUnk_080FD5B4[];
 extern ScreenTransition gScreenTransition;
 

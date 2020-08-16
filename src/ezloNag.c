@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "textbox.h"
+#include "structures.h"
 
 typedef struct {
     s8 unk0;
@@ -22,13 +23,6 @@ typedef struct {
     u8 unk12;
     u8 unk13;
 } Element;
-
-typedef struct {
-    u8 unk0[0x24];
-    u8 ezloNagFuncIndex;
-} struct_0200AF00;
-
-extern struct_0200AF00 gUnk_0200AF00;
 
 ///////////////////////////////////////////////////////////////
 

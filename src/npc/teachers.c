@@ -5,7 +5,7 @@
 typedef struct {
     u8 filler[8];
     u8 unk;
-} struct_02002A40;
+} SaveFile;
 
 extern SpriteLoadData gUnk_08113910[];
 extern void sub_0805E3A0(Entity*, u32);
@@ -20,7 +20,7 @@ extern u32 UpdateFuseInteraction(Entity*);
 extern void sub_0807000C(Entity*);
 extern void ShowNPCDialogue(Entity*, u16*);
 
-extern struct_02002A40 gUnk_02002A40;
+extern SaveFile gUnk_02002A40;
 extern u16 gUnk_08113930[];
 
 void Teachers(Entity* this) {

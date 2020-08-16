@@ -5,7 +5,7 @@
 typedef struct {
     u8 filler[8];
     u8 unk;
-} struct_02002A40;
+} SaveFile;
 
 extern u32 GetFacingDirection(Entity*, Entity*);
 extern u32 sub_0806F5A4(u32);
@@ -33,7 +33,7 @@ extern void (*const gUnk_0811036C[])(Entity*);
 
 extern u16 gUnk_08110380[];
 extern SpriteLoadData gUnk_08110354;
-extern struct_02002A40 gUnk_02002A40;
+extern SaveFile gUnk_02002A40;
 extern u32 gUnk_08110390[];
 extern u16 gUnk_081103D0[];
 extern u32 gUnk_081103E0;

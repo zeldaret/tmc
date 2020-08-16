@@ -215,7 +215,7 @@ void sub_0805E92C(u32 param_1)
 }
 
 extern Entity gUnk_020369F0;
-extern void sub_0801D66C(void* dst, void* src, size_t size); // dma copy
+extern void sub_0801D66C(const void* src, void* dest, size_t size); // dma copy
 extern void sub_0805E98C(void);
 
 void sub_0805E958(void)

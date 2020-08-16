@@ -35,10 +35,10 @@ u32 sub_0807CDE8(u32 arg0) {
         sub_0805616C();
         switch (arg0) {
             case 0:
-                temp = sub_0807CF08(gUnk_02000000->saveFile, gUnk_02002A40.filler0);
+                temp = sub_0807CF08(gUnk_02000000->saveFileId, gUnk_02002A40.filler0);
                 break;
             case 1:
-                sub_0807CF48(gUnk_02000000->saveFile);
+                sub_0807CF48(gUnk_02000000->saveFileId);
                 temp = 1;
                 break;
             case 2:
@@ -113,7 +113,7 @@ u32 sub_0807CF1C(u8* arg0) {
     return sub_0807CF88(5, arg0);
 }
 
-u32 sub_0807CF28(u32 arg0, void* arg1) {
+int sub_0807CF28(u32 arg0, SaveFile* arg1) {
     return sub_0807D008(arg0, arg1);
 }
 

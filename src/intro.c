@@ -22,6 +22,7 @@ typedef struct {
     int swordBgScaleRatio;
 } IntroState;
 
+// TODO: This occupies the same memory region as gMenu
 extern IntroState gIntroState;
 
 enum {
@@ -125,8 +126,6 @@ static void HandleNintendoCapcomLogos(void)
 
 extern u16 gUnk_03001010[5];
 
-extern u8 gUnk_02024490;
-
 static void HandleTitlescreen(void)
 {
     int advance;
@@ -142,7 +141,7 @@ static void HandleTitlescreen(void)
             EraseAllEntities();
             sub_0801CFA8(0);
             sub_080ADD30();
-            gUnk_02024490 = 1;
+            gUnk_02024490.unk0 = 1;
             LoadGfxGroup(2);
             if (((struct_02000000*)0x2000000)->gameLanguage == 0) {
                 paletteGroup = 3;
