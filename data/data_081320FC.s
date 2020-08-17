@@ -5525,13 +5525,13 @@ gUnk_08214B7E:: @ 08214B7E
 	.incbin "baserom.gba", 0x214B7E, 0x0000C81
 
 gUnk_082157FF:: @ 082157FF
-	.incbin "baserom.gba", 0x2157FF, 0x000377A
+	.incbin "baserom.gba", 0x2157FF, 0x0002CB5
 
-gUnk_08218F79:: @ 08218F79
-	.incbin "baserom.gba", 0x218F79, 0x000309F
+gUnk_082184B4::
+	.incbin "graphics/npc/postman.4bpp"
 
-gUnk_0821C018:: @ 0821C018
-	.incbin "baserom.gba", 0x21C018, 0x0002FE7
+gUnk_0821DCB4::
+	.incbin "baserom.gba", 0x21DCB4, 0x000134B
 
 gUnk_0821EFFF:: @ 0821EFFF
 	.incbin "baserom.gba", 0x21EFFF, 0x00000F1

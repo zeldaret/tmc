@@ -4,7 +4,10 @@ $(GFXDIR)/intro/nintendo_capcom.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -num_tiles 123
 
 $(GFXDIR)/font.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 2005
+	$(GFX) $< $@
 
 $(GFXDIR)/pot_portal.4bpp: %.4bpp: %.png
-	$(GFX) $< $@ -num_tiles 144
+	$(GFX) $< $@
+
+$(GFXDIR)/npc/postman.4bpp: %.4bpp: %.png
+	$(GFX) $< $@
