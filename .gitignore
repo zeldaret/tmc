@@ -63,3 +63,4 @@ types_*.taghl
 _Deparsed_XSubs.pm
 *.py
 *.sna
+__pycache__

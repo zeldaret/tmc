@@ -11,3 +11,6 @@ $(GFXDIR)/pot_portal.4bpp: %.4bpp: %.png
 
 $(GFXDIR)/npc/postman.4bpp: %.4bpp: %.png
 	$(GFX) $< $@
+
+$(GFXDIR)/npc/malon.4bpp: %.4bpp: %.png
+	$(GFX) $< $@
