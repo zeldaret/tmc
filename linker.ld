@@ -366,7 +366,7 @@ SECTIONS {
 		asm/wallMaster2.o(.text);
 		asm/gleerok.o(.text);
 		asm/vaatiEyesMacro.o(.text);
-		asm/tektite.o(.text);
+		src/enemy/tektite.o(.text);
 		asm/wizzrobeWind.o(.text);
 		asm/wizzrobeFire.o(.text);
 		asm/wizzrobeIce.o(.text);
@@ -391,7 +391,6 @@ SECTIONS {
 		asm/gibdo.o(.text);
 		asm/octorokGolden.o(.text);
 		src/enemy/tektiteGolden.o(.text);
-		asm/tektiteGolden.o(.text);
 		asm/ropeGolden.o(.text);
 		asm/cloudPiranha.o(.text);
 		asm/scissorsBeetle.o(.text);
