@@ -3,6 +3,13 @@
 
 #include "global.h"
 
+union SplitSHWord {
+    s16 SHWORD;
+    struct {
+        u8 LO, HI;
+    } PACKED HALF;
+} PACKED;
+
 typedef struct {
     u8 unk_00[0x0a];
     u8 unk_0a;
@@ -18,10 +25,8 @@ typedef struct {
     u8 unk_28[0x0D];
     u8 unk_35;
     u16 unk_36;
-    u8 unk_38;
-    u8 unk_39;
-    u8 unk_3a;
-    u8 unk_3b;
+    union SplitSHWord unk_38;
+    union SplitSHWord unk_3a;
     u16 unk_3c;
     u16 unk_3e;
 } Manager;

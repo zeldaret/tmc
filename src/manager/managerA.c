@@ -21,10 +21,10 @@ void sub_08058398(Manager* this) {
     if (CheckFlags(this->unk_3c) != 0) {
         DeleteThisEntity();
     }
-    this->unk_24 = this->unk_3a<<3;
-    this->unk_26 = this->unk_3b<<3;
-    this->unk_20 = this->unk_24 + (this->unk_38<<4);
-    this->unk_22 = this->unk_26 + (this->unk_39<<4);
+    this->unk_24 = this->unk_3a.HALF.LO<<3;
+    this->unk_26 = this->unk_3a.HALF.HI<<3;
+    this->unk_20 = this->unk_24 + (this->unk_38.HALF.LO<<4);
+    this->unk_22 = this->unk_26 + (this->unk_38.HALF.HI<<4);
     sub_0805E3A0(this, 0x06);
     if (this->unk_3e == 0) {
         this->unk_0c = 2;
