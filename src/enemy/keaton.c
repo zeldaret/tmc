@@ -104,7 +104,7 @@ void sub_080324FC(Entity* this) {
     if (this->field_0xf == 0) {
         this->action = 4;
         this->nonPlanarMovement = 0x1E0;
-        this->field_0x76 = 0x46;
+        this->field_0x76.HWORD = 0x46;
         this->field_0x78.HWORD = 0;
         *(((u8*)&this->field_0x7a) + 1) = 0;
         sub_080327C8(this);
@@ -121,13 +121,13 @@ void sub_08032574(Entity* this) {
         return;
     }
 
-    if (--this->field_0x76 == 0 || !sub_080AEFE0(this)) {
+    if (--this->field_0x76.HWORD == 0 || !sub_080AEFE0(this)) {
         sub_0803275C(this);
         return;
     }
     
     UpdateAnimationSingleFrame(this);
-    if ((this->field_0x76 & 0x7) == 0) {
+    if ((this->field_0x76.HWORD & 0x7) == 0) {
         sub_08032794(this);
     }
 }
@@ -184,12 +184,12 @@ void sub_0803269C(Entity* this, u32 param_2) {
 }
 
 void sub_080326FC(Entity* this) {
-    this->field_0x74 = gUnk_080CE7F0[Random() & 0xF];
+    this->field_0x74.HWORD = gUnk_080CE7F0[Random() & 0xF];
 }
 
 u32 sub_0803271C(Entity* this) {
-    this->field_0x74--;
-    if (this->field_0x74 == 0) {
+    this->field_0x74.HWORD--;
+    if (this->field_0x74.HWORD == 0) {
         sub_08032784(this);
         return 1;
     }

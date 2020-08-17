@@ -34,7 +34,7 @@ void sub_080A0684(Entity *this)
   this->spritePriority.b0 =  5;
   this->field_0x70.HALF.LO = this->x.HALF.HI;
   this->field_0x70.HALF.HI = this->y.HALF.HI;
-  this->field_0x74 = COORD_TO_TILE(this);
+  this->field_0x74.HWORD = COORD_TO_TILE(this);
 }
 
 void sub_080A0718(Entity *this)
@@ -99,17 +99,17 @@ void sub_080A07F0(Entity *this)
 
 void sub_080A080C(Entity *this)
 {
-  this->field_0x76 = sub_080001DA(this->field_0x74 - 1, this->collisionLayer);
-  this->field_0x78.HWORD = sub_080001DA(this->field_0x74, this->collisionLayer);
-  this->field_0x7a = sub_080001DA(this->field_0x74 + 1, this->collisionLayer);
-  SetTile(0x4022, this->field_0x74 - 1, this->collisionLayer);
-  SetTile(0x4022, this->field_0x74, this->collisionLayer);
-  SetTile(0x4022, this->field_0x74 + 1, this->collisionLayer);
+  this->field_0x76.HWORD = sub_080001DA(this->field_0x74.HWORD - 1, this->collisionLayer);
+  this->field_0x78.HWORD = sub_080001DA(this->field_0x74.HWORD, this->collisionLayer);
+  this->field_0x7a.HWORD = sub_080001DA(this->field_0x74.HWORD + 1, this->collisionLayer);
+  SetTile(0x4022, this->field_0x74.HWORD - 1, this->collisionLayer);
+  SetTile(0x4022, this->field_0x74.HWORD, this->collisionLayer);
+  SetTile(0x4022, this->field_0x74.HWORD + 1, this->collisionLayer);
 }
 
 void sub_080A0870(Entity *this)
 {  
-  SetTile(this->field_0x76, this->field_0x74 - 1, this->collisionLayer);
-  SetTile(this->field_0x78.HWORD, this->field_0x74, this->collisionLayer);
-  SetTile(this->field_0x7a, this->field_0x74 + 1, this->collisionLayer);
+  SetTile(this->field_0x76.HWORD, this->field_0x74.HWORD - 1, this->collisionLayer);
+  SetTile(this->field_0x78.HWORD, this->field_0x74.HWORD, this->collisionLayer);
+  SetTile(this->field_0x7a.HWORD, this->field_0x74.HWORD + 1, this->collisionLayer);
 }

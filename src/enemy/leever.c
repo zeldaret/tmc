@@ -34,7 +34,7 @@ void sub_0801FC28(Entity* this) {
 void sub_0801FC40(Entity* this) {
     if (this->bitfield == 0x80) {
         if (this->action == 3) {
-            this->field_0x74 = 1;
+            this->field_0x74.HWORD = 1;
         }
     } else {
         if (this->field_0x43 != 0) {
@@ -79,9 +79,9 @@ void sub_0801FD2C(Entity* this) {
     if (this->frames.b.f3 != 0) {
         this->action = 3;
         if (this->entityType.form == 0) {
-            this->field_0x74 = 0xb4;
+            this->field_0x74.HWORD = 0xb4;
         } else {
-            this->field_0x74 = 0x6e;
+            this->field_0x74.HWORD = 0x6e;
         }
         InitializeAnimation(this, 2);
     } else if (this->frames.b.f0 != 0) {
@@ -95,7 +95,7 @@ void sub_0801FD80(Entity* this) {
     sub_0801FED4(this);
     GetNextFrame(this);
 
-    if (--this->field_0x74 == 0) {
+    if (--this->field_0x74.HWORD == 0) {
         this->action = 4;
         this->flags &= 0x7f;
         InitializeAnimation(this, 1);
@@ -161,7 +161,7 @@ void sub_0801FED4(Entity* this) {
     s16 sVar2;
 
     if (sub_08049FDC(this, 1) == 0) {
-        this->field_0x74 = 1;
+        this->field_0x74.HWORD = 1;
     }
     sVar2 = (this->frames.all & 0xf) * 0x20;
     this->nonPlanarMovement = sVar2;

@@ -91,7 +91,7 @@ typedef struct Entity {
     /*0x3a*/ u8 field_0x3a;
     /*0x3b*/ u8 flags2;
     /*0x3c*/ u8 field_0x3c;
-    /*0x3d*/ u8 hurtBlinkTime;
+    /*0x3d*/ s8 hurtBlinkTime;
     /*0x3e*/ u8 field_0x3e;
     /*0x3f*/ u8 damageType;
     /*0x40*/ u8 field_0x40;
@@ -130,10 +130,10 @@ typedef struct Entity {
     /*0x6c*/ union SplitHWord field_0x6c;
     /*0x6e*/ u8 filler4[2];
     /*0x70*/ union SplitWord field_0x70;
-    /*0x74*/ u16 field_0x74;
-    /*0x76*/ u16 field_0x76;
+    /*0x74*/ union SplitHWord field_0x74;
+    /*0x76*/ union SplitHWord field_0x76;
     /*0x78*/ union SplitHWord field_0x78;
-    /*0x7a*/ u16 field_0x7a;
+    /*0x7a*/ union SplitHWord field_0x7a;
     /*0x7c*/ union SplitWord field_0x7c;
     /*0x80*/ union SplitHWord field_0x80;
     /*0x82*/ union SplitHWord field_0x82;
