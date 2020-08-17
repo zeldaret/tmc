@@ -607,7 +607,7 @@ SECTIONS {
 		src/npc/moblinLady.o(.text);
 		asm/librarians.o(.text);
 		asm/farmers.o(.text);
-		asm/carlov.o(.text);
+		src/npc/carlov.o(.text);
 		src/npc/dampe.o(.text);
 		asm/drLeft.o(.text);
 		asm/kingGustaf.o(.text);
