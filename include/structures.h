@@ -147,4 +147,10 @@ typedef struct {
 
 extern struct_02024490 gUnk_02024490;
 
+typedef struct {
+    u16 unk_00;
+    u8 unk_02[0xE];
+} struct_02034480;
+extern struct_02034480 gUnk_02034480;
+
 #endif

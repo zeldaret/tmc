@@ -43,4 +43,25 @@ typedef struct {
     } PACKED field_0x07;
 } UnkManagerHelperStruct;
 
+typedef struct {
+    u16 unk_00;
+    u8 source_roomID;
+    u8 unk_03;
+    u8 target_areaID;
+    u8 target_roomID;
+    u16 unk_06;
+} DiggingCaveEntrance;
+
+extern struct {
+    DiggingCaveEntrance* unk_00;
+    u16 unk_04;
+    u16 unk_06;
+    u8 unk_08;
+    u8 unk_09;
+    u8 unk_0a;
+    u8 unk_0b;
+} gUnk_03004030;
+
+extern DiggingCaveEntrance* gUnk_08107DC0[];
+
 #endif
