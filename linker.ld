@@ -366,7 +366,7 @@ SECTIONS {
 		asm/wallMaster2.o(.text);
 		asm/gleerok.o(.text);
 		asm/vaatiEyesMacro.o(.text);
-		asm/tektite.o(.text);
+		src/enemy/tektite.o(.text);
 		asm/wizzrobeWind.o(.text);
 		asm/wizzrobeFire.o(.text);
 		asm/wizzrobeIce.o(.text);

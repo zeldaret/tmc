@@ -31,11 +31,10 @@ void sub_08037F00(Entity* this) {
         this->actionDelay = 0x14;
         this->field_0xf = 0;
         this->field_0x80.HALF.LO = 0;
-        uVar1 = this->height.HALF.HI;
-        if (uVar1 != 0) {
+        if (this->height.HALF.HI != 0) {
             this->field_0x20 >>= 2;
         } else {
-            this->field_0x20 = uVar1;
+            this->field_0x20 = 0;
         }
 
         InitializeAnimation(this, 0);

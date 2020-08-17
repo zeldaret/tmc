@@ -254,5 +254,5 @@ extern int sub_0807CF28(u32, SaveFile*);
 extern u32 sub_080044EC(Entity*, u32);
 extern u32 sub_080002B8(Entity*);
 extern u32 sub_08049F84(Entity*, u32);
-
+extern void sub_0802F45C(Entity*);
 #endif
