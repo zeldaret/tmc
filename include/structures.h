@@ -83,6 +83,7 @@ typedef struct {
     u16 field_0x4a;
     u8 field_0x4c[0x60];
     u16 field_0xac;
+    u16 field_0xae;
 } ScreenTransition;
 
 extern ScreenTransition gScreenTransition;

@@ -370,6 +370,8 @@ SECTIONS {
 		asm/wizzrobeWind.o(.text);
 		asm/wizzrobeFire.o(.text);
 		asm/wizzrobeIce.o(.text);
+		src/code_080300AC.o(.text); /* ??? */
+		asm/code_080300AC.o(.text); /* ??? */
 		asm/armos.o(.text);
 		asm/eyegore.o(.text);
 		asm/rope.o(.text);
