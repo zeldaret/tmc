@@ -90,7 +90,7 @@ void sub_08066D94(Entity* ent) {
         npc->flags |= 0x20;
         npc->animationState = GetAnimationState(ent);
         roomID = gRoomControls.roomID;
-        npc->field_0x74 = roomID;
+        npc->field_0x74.HWORD = roomID;
         CopyPosition(ent, npc);
     }
     DeleteThisEntity();

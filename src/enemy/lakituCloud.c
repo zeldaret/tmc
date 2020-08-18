@@ -78,7 +78,7 @@ void sub_0803CD6C(Entity *this) {
     this->parent = lakitu;
 
     this->field_0x78.HWORD = this->x.HALF.HI;
-    this->field_0x7a = this->y.HALF.HI;
+    this->field_0x7a.HWORD = this->y.HALF.HI;
 
     InitAnimationForceUpdate(this, 4);
 
@@ -92,7 +92,7 @@ void sub_0803CDA8(Entity *this) {
         sub_0806F69C(this);
     }
 
-    if (--this->field_0x74 << 0x10 == 0) {
+    if (--this->field_0x74.HWORD << 0x10 == 0) {
         sub_0803CE14(this);
     }
 }
@@ -119,7 +119,7 @@ void sub_0803CDD8(Entity *this) {
 void sub_0803CE14(Entity *this) {
     u8 direction;
 
-    sub_080A2CC0(this, &this->attachedEntity, &this->field_0x74);
+    sub_080A2CC0(this, &this->attachedEntity, &this->field_0x74.HWORD);
 
     direction = this->direction;
     if (direction & 0x80) {
@@ -142,7 +142,7 @@ void sub_0803CE3C(Entity *this) {
     this->field_0x3a &= 0xfb;
 
     this->x.HALF.HI = this->field_0x78.HWORD;
-    this->y.HALF.HI = this->field_0x7a;
+    this->y.HALF.HI = this->field_0x7a.HWORD;
 
     this->attachedEntity = this->parent;
 

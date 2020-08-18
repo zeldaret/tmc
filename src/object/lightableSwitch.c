@@ -73,7 +73,7 @@ void sub_0809EAD8(Entity* this) {
     if (this->entityType.parameter != 0) {
 
         this->attachedEntity = GetCurrentRoomProperty(this->entityType.parameter);
-        sub_080A2CC0(this, &this->attachedEntity, &this->field_0x74);
+        sub_080A2CC0(this, &this->attachedEntity, &this->field_0x74.HWORD);
 
     } else {
         SetTile(0x4050, COORD_TO_TILE(this), this->collisionLayer);
@@ -88,7 +88,7 @@ void sub_0809EB30(Entity* this) {
         if ((this->direction & 0x80) == 0) {
             sub_0806F69C(this);
         }
-        puVar2 = &this->field_0x74;
+        puVar2 = &this->field_0x74.HWORD;
         if (!--*puVar2) {
             sub_080A2CC0(this, &this->attachedEntity, puVar2);
         }
