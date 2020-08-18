@@ -545,25 +545,24 @@ u32 sub_080322A4(Entity* this) {
     return 0;
 }
 
-#if NON_MATCHING
 void sub_080322E8(Entity* this) {
+    u8 tmp;
     if (this->field_0x78.HALF.LO) {
         if (--this->field_0x78.HALF.LO == 0) {
-            this->spriteSettings.b.flipX = this->spriteOrientation.flipX;
+            u32 flipX = this->spriteSettings.b.flipX;
+            this->spriteSettings.b.flipX = flipX ^ 1;
         }
     } else {
-        if ((this->direction & 0xf) &&
-            ((this->direction >> 4 ^ 1) != -((int)((u32)this->spriteSettings.raw << 0x19) >> 0x1f))) {
-            this->field_0x78.HALF.LO = 6;
+        tmp = this->direction;
+        if (tmp & 0xF) {
+            tmp >>= 4;
+            tmp ^= 1;
+            if (tmp != this->spriteSettings.b.flipX) {
+                this->field_0x78.HALF.LO = 6;
+            }
         }
     }
 }
-#else
-NAKED
-void sub_080322E8(Entity* this) {
-    asm(".include \"asm/non_matching/acroBandits/sub_080322E8.inc\"");
-}
-#endif
 
 void sub_08032338(Entity *this) {
     if ((((Entity*)this->field_0x7c.WORD)->actionDelay += 15) != 80)
