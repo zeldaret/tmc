@@ -45,7 +45,9 @@ typedef struct {
     /*0x040*/ u32 windcrests;
     /*0x044*/ u8 filler44[0xC];
     /*0x050*/ u32 unk50;
-    /*0x054*/ u8 filler54[0x54];
+    /*0x054*/ u8 filler54[0x2C];
+    /*0x080*/ u8 playerName[6];
+    /*0x086*/ u8 filler86[0x22];
     /*0x0A8*/ Stats stats;
     /*0x0D0*/ u8 fillerD0[0x3c0];
     /*0x490*/ u32 unk490;
@@ -135,7 +137,11 @@ typedef struct {
 extern struct_03000FD0 gFadeControl;
 
 typedef struct {
-    u8 unk0[0x24];
+    u8 filler0[0x1A];
+    u16 unk1A;
+    u8 filler1C[0x4];
+    u16 unk20;
+    u8 filler22[0x2];
     u8 ezloNagFuncIndex;
     u8 filler25[0x30F];
 } struct_0200AF00;
@@ -147,5 +153,11 @@ typedef struct {
 } struct_02024490;
 
 extern struct_02024490 gUnk_02024490;
+
+typedef struct {
+    u16 unk_00;
+    u8 unk_02[0xE];
+} struct_02034480;
+extern struct_02034480 gUnk_02034480;
 
 #endif

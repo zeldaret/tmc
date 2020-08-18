@@ -377,7 +377,7 @@ SECTIONS {
 		asm/rope.o(.text);
 		src/enemy/smallPesto.o(.text);
 		asm/smallPesto.o(.text);
-		asm/acroBandits.o(.text);
+		src/enemy/acroBandits.o(.text);
 		src/enemy/bladeTrap.o(.text);
 		src/enemy/keaton.o(.text);
 		asm/crow.o(.text);
@@ -475,7 +475,7 @@ SECTIONS {
 		src/manager/manager2.o(.text);
 		asm/manager2.o(.text);
 		asm/manager3.o(.text);
-		asm/manager4.o(.text);
+		src/manager/manager4.o(.text);
 		asm/manager5.o(.text);
 		src/manager/manager6.o(.text);
 		asm/manager7.o(.text);
@@ -485,7 +485,7 @@ SECTIONS {
 		asm/managerB.o(.text);
 		asm/managerC.o(.text);
 		asm/managerD.o(.text);
-		asm/managerE.o(.text);
+		src/manager/managerE.o(.text);
 		asm/managerF.o(.text);
 		asm/manager10.o(.text);
 		asm/manager11.o(.text);
@@ -609,7 +609,7 @@ SECTIONS {
 		src/npc/moblinLady.o(.text);
 		asm/librarians.o(.text);
 		asm/farmers.o(.text);
-		asm/carlov.o(.text);
+		src/npc/carlov.o(.text);
 		src/npc/dampe.o(.text);
 		asm/drLeft.o(.text);
 		asm/kingGustaf.o(.text);

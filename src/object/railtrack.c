@@ -33,7 +33,7 @@ void sub_080851AC(Entity* this) {
     this->animationState = this->entityType.parameter & 2;
     if ((this->entityType).form == 3) {
         uVar1 = CheckFlags(this->field_0x86);
-        this->field_0x7a = uVar1;
+        this->field_0x7a.HWORD = uVar1;
         if ((u16)(uVar1 & -1) != 0) {
             this->animationState = (this->animationState + 2) & 3;
             this->action = 3;
@@ -62,7 +62,7 @@ void sub_080852B4(Entity* this) {
     if (--this->field_0xf == 0) {
         this->action = 3;
         this->field_0xf = this->actionDelay;
-        this->field_0x7a = CheckFlags(this->field_0x86);
+        this->field_0x7a.HWORD = CheckFlags(this->field_0x86);
         this->animationState = (this->animationState + *(u8*)&this->field_0x7c) & 3;
         InitializeAnimation(this, this->animationState);
         sub_08085394(this);
@@ -114,7 +114,7 @@ void sub_08085394(Entity *this)
     iVar3 = this->animationState / 2;
     layerData = *(u16 **)&this->field_0x70;
     uVar4 = COORD_TO_TILE(this);
-    this->field_0x74 = layerData[gUnk_080B4488[iVar3]];
+    this->field_0x74.HWORD = layerData[gUnk_080B4488[iVar3]];
     pbVar5 = &this->collisionLayer;
     SetTile(uVar1, uVar4 - iVar3, *pbVar5);
     this->field_0x76 = layerData[0];
@@ -137,8 +137,8 @@ void sub_0808543C(Entity *this)
 
   temp = gUnk_080B4488[this->animationState / 2][0];
   uVar2 = COORD_TO_TILE(this);
-  SetTile(this->field_0x74, uVar2 - temp, this->collisionLayer);
-  SetTile(this->field_0x76, uVar2, this->collisionLayer);
+  SetTile(this->field_0x74.HWORD, uVar2 - temp, this->collisionLayer);
+  SetTile(this->field_0x76.HWORD, uVar2, this->collisionLayer);
   SetTile(this->field_0x78.HWORD, uVar2 + temp, this->collisionLayer);
 }
 

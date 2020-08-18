@@ -161,8 +161,8 @@ void sub_0803C87C(Entity *this) {
 
     this->spriteOffsetY = 0xff;
 
-    this->field_0x74 = this->x.HALF.HI;
-    this->field_0x76 = this->y.HALF.HI;
+    this->field_0x74.HWORD = this->x.HALF.HI;
+    this->field_0x76.HWORD = this->y.HALF.HI;
 }
 
 void sub_0803C8BC(Entity *this) {
@@ -294,8 +294,8 @@ void sub_0803CA84(Entity *this, u32 unkParameter) {
 }
 
 void sub_0803CAD0(Entity *this) {
-    if (sub_0806FCB8(this, this->field_0x74, this->field_0x76, 1) == 0) {
-        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, this->field_0x74, this->field_0x76);
+    if (sub_0806FCB8(this, this->field_0x74.HWORD, this->field_0x76.HWORD, 1) == 0) {
+        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, this->field_0x74.HWORD, this->field_0x76.HWORD);
 
         sub_080AEFE0(this);
     }

@@ -22,7 +22,7 @@ void BladeTrap(Entity* ent) {
 
     
 
-    puVar3 = &(ent->field_0x74);
+    puVar3 = &(ent->field_0x74.HWORD);
     uVar1 = *puVar3;
     *puVar3 = uVar1 - 1;
     if ((*puVar3) == 0) {

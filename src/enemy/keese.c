@@ -85,8 +85,8 @@ void sub_08021E4C(Entity *this)
   if (this->field_0x78.HWORD != 0) {
     this->field_0x78.HWORD--;
   }
-  if (this->field_0x7a != 0) {
-    (this->field_0x7a)--;
+  if (this->field_0x7a.HWORD != 0) {
+    (this->field_0x7a.HWORD)--;
   }
   GetNextFrame(this);
   if ((this->frames.b.f3) != 0) {
@@ -126,7 +126,7 @@ void sub_08021EF0(Entity *this)
   
   this->action = 1;
   this->field_0x78.HWORD = gUnk_080CB6D6[Random() & 0xf];
-  this->field_0x7a = 0x3c;
+  this->field_0x7a.HWORD = 0x3c;
   InitializeAnimation(this, 0);
 }
 
@@ -139,7 +139,7 @@ void sub_08021F24(Entity *this)
         this->actionDelay = gUnk_080CB6F6[Random() & 0xf];
         InitializeAnimation(this, 1);
     }
-    else if (!this->field_0x7a && !(sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))) {
+    else if (!this->field_0x7a.HWORD && !(sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x70))) {
         this->action = 3;
         this->actionDelay = 0x1e;
         InitializeAnimation(this, 1);
