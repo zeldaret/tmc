@@ -750,7 +750,7 @@ SECTIONS {
 		src/object/heartContainer.o(.text);
 		src/object/object48.o(.text);
 		src/object/object49.o(.text);
-		asm/backgroundCloud.o(.text);
+		src/object/backgroundCloud.o(.text);
 		asm/object4B.o(.text);
 		asm/pushableFurniture.o(.text);
 		asm/furniture.o(.text);
