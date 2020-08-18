@@ -822,7 +822,7 @@ SECTIONS {
 		asm/frozenWaterElement.o(.text);
 		asm/object90.o(.text);
 		asm/object91.o(.text);
-		asm/bakerOven.o(.text);
+		src/object/bakerOven.o(.text);
 		asm/object93.o(.text);
 		src/object/windTribeFlag.o(.text);
 		asm/bird.o(.text);
