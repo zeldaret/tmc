@@ -1146,7 +1146,7 @@ _0802D8DE:
 	cmp r0, #0
 	bne _0802D906
 	adds r0, r4, #0
-	bl sub_0801D230
+	bl UnloadOBJPalette
 	adds r0, r4, #0
 	movs r1, #0xc9
 	bl sub_0801D040
@@ -1155,7 +1155,7 @@ _0802D906:
 	subs r0, #1
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
-	bl sub_0801D230
+	bl UnloadOBJPalette
 	adds r0, r4, #0
 	movs r1, #0xca
 	bl sub_0801D040
@@ -1345,7 +1345,7 @@ _0802DA54:
 	cmp r0, #0
 	beq _0802DA96
 	adds r0, r4, #0
-	bl sub_0801D230
+	bl UnloadOBJPalette
 	ldrb r0, [r5]
 	adds r0, #1
 	adds r0, r0, r7

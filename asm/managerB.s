@@ -160,7 +160,7 @@ _0805870A:
 _08058718:
 	adds r0, r4, #0
 	adds r4, #0x10
-	bl CreateEntity
+	bl LoadRoomEntity
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _08058744

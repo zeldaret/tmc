@@ -4231,7 +4231,7 @@ extern EntityData gUnk_080EEBAC;
 void LoadHyruleTown(void) {
 
     sub_08054570();
-    sub_08059D18();
+    TryLoadPrologueHyruleTown();
     SetTileType(0x176, 0x66b, 1);
     if (gUnk_02002A40.unk8 == 1) {
         sub_0801D000(0);

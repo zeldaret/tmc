@@ -4,12 +4,12 @@
 
 // extern Entity * FindEntityBySubtype(u32, u32);
 // extern Entity * GetEmptyEntityByType();
-// extern void sub_0804AEB0(Entity *, EntityData *);
+// extern void RegisterRoomEntity(Entity *, EntityData *);
 // extern u32 sub_0804AF0C(Entity *, EntityData *);
 // extern void sub_08016A30(Entity *);
 // extern u32 gRoomControls;
 
-// Entity * CreateEntity(EntityData *param_1)
+// Entity * LoadRoomEntity(EntityData *param_1)
 // {
 // Entity *preexisting;
 // Entity *entity;
@@ -26,7 +26,7 @@
 // (entity->entityType).type = type;
 // (entity->entityType).subtype = param_1->entitySubtype;
 // (entity->entityType).form = param_1->entityform;
-// sub_0804AEB0(entity,param_1);
+// RegisterRoomEntity(entity,param_1);
 // if ((param_1->field_0x1 & 240) != 16) {
 // (entity->entityType).parameter = *(u8 *)&param_1->entityparameter;
 // entity->actionDelay = (u8)((u32)param_1->entityparameter >> 8);

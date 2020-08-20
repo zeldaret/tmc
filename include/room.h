@@ -29,7 +29,8 @@ typedef struct {
     u16 screenShakeTime;
     u16 filler2[6];
     u8 filler3[4];
-    u16 filler4[4];
+    union SplitWord bg3OffsetX;
+    union SplitWord bg3OffsetY;
     Entity* cameraTarget;
 } RoomControls;
 
@@ -57,11 +58,13 @@ typedef struct {
 
 //Packets used to store which entities to load in a room
 typedef struct {
-    u8 entityType;
-    u8 field_0x1;
-    u8 entitySubtype;
-    u8 entityform;
-    u32 entityparameter;
+    u8 type  : 4;
+    u8 layer : 4;
+    u8 flags : 4;
+    u8 unk   : 4;
+    u8 subtype;
+    u8 form;
+    u32 parameter;
     u16 xPos;
     u16 yPos;
     u32 spritePtr;

@@ -3629,9 +3629,9 @@ sub_080A71F4: @ 0x080A71F4
 	beq _080A71FE
 	bl DoExitTransition
 _080A71FE:
-	bl sub_0805E89C
+	bl DeleteAllEntities
 	bl sub_0805E974
-	bl sub_0805E89C
+	bl DeleteAllEntities
 	ldr r0, _080A7218 @ =gUnk_03001000
 	movs r2, #0
 	movs r1, #1
@@ -3764,7 +3764,7 @@ sub_080A7328: @ 0x080A7328
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A7384
-	bl sub_0805E89C
+	bl DeleteAllEntities
 	ldr r0, _080A738C @ =gMenu
 	movs r1, #0x30
 	bl _DmaZero
@@ -3817,7 +3817,7 @@ sub_080A73A8: @ 0x080A73A8
 	beq _080A73B4
 	b _080A74BC
 _080A73B4:
-	bl sub_0805E89C
+	bl DeleteAllEntities
 	bl sub_0805E974
 	ldr r1, _080A746C @ =gUnk_02017654
 	ldr r5, _080A7470 @ =gUnk_02032EC0
@@ -10586,7 +10586,7 @@ sub_080AA654: @ 0x080AA654
 	adds r0, #8
 	strh r0, [r4, #0xa]
 	adds r0, r4, #0
-	bl CreateEntity
+	bl LoadRoomEntity
 	pop {r4, r5, pc}
 	.align 2, 0
 _080AA688: .4byte gUnk_0812A004

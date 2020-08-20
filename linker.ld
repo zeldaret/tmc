@@ -442,7 +442,7 @@ SECTIONS {
 		src/code_0804AA84.o(.text);
 		asm/code_0804AA84.o(.text);
 		src/loadRoomEntityList.o(.text);
-		asm/createEntity.o(.text);
+		asm/loadRoomEntity.o(.text);
 		asm/code_0804AEB0.o(.text);
 		src/sub_0804AFF4.o(.text);
 		src/loadRoom.o(.text);

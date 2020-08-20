@@ -155,7 +155,7 @@ extern void sub_080534AC();
 extern void sub_0807BA8C(u32, u32);
 extern void sub_0804D9B0();
 extern void sub_0807BB98(u32, u32, u32, u32);
-extern void sub_08059D18(void);
+extern void TryLoadPrologueHyruleTown(void);
 extern void sub_0801D000(u32);
 extern void sub_08018C58(u32);
 extern void sub_0804E150(void);

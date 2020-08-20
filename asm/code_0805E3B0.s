@@ -357,7 +357,7 @@ _0805E608: .4byte gUnk_03005F40
 	thumb_func_start EraseAllEntities
 EraseAllEntities: @ 0x0805E60C
 	push {lr}
-	bl sub_0805E89C
+	bl DeleteAllEntities
 	ldr r0, _0805E654 @ =gUnk_03003DC0
 	movs r1, #0xc
 	bl _DmaZero
