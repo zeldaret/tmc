@@ -5,262 +5,6 @@
 
 	.text
 
-	thumb_func_start sub_08050940
-sub_08050940: @ 0x08050940
-	push {r4, r5, r6, lr}
-	ldr r3, _0805099C @ =gUnk_02019EE0
-	ldrb r0, [r3]
-	cmp r0, #0
-	beq _0805094C
-	b _08050A58
-_0805094C:
-	ldrb r4, [r3, #6]
-	ldr r0, _080509A0 @ =gUnk_03000FF0
-	ldrh r2, [r0, #2]
-	ldrh r1, [r0]
-	movs r0, #0x80
-	lsls r0, r0, #2
-	ands r0, r1
-	cmp r0, #0
-	beq _08050974
-	adds r0, r3, #0
-	adds r0, #8
-	adds r0, r4, r0
-	ldrb r0, [r0]
-	lsls r0, r0, #0x18
-	asrs r0, r0, #0x18
-	cmp r0, #1
-	bne _08050974
-	movs r0, #0xc1
-	rsbs r0, r0, #0
-	ands r2, r0
-_08050974:
-	movs r0, #0x80
-	lsls r0, r0, #0x12
-	ldrb r0, [r0, #7]
-	movs r6, #3
-	cmp r0, #1
-	bls _08050982
-	movs r6, #4
-_08050982:
-	ldr r0, _080509A4 @ =gUnk_02032EC0
-	ldrb r5, [r0, #2]
-	adds r1, r0, #0
-	cmp r2, #0x40
-	beq _080509B6
-	cmp r2, #0x40
-	bhi _080509A8
-	cmp r2, #1
-	beq _080509E0
-	cmp r2, #8
-	beq _080509E0
-	b _08050A10
-	.align 2, 0
-_0805099C: .4byte gUnk_02019EE0
-_080509A0: .4byte gUnk_03000FF0
-_080509A4: .4byte gUnk_02032EC0
-_080509A8:
-	cmp r2, #0x80
-	beq _080509BE
-	movs r0, #0x80
-	lsls r0, r0, #1
-	cmp r2, r0
-	beq _080509C8
-	b _08050A10
-_080509B6:
-	cmp r4, #0
-	ble _08050A10
-	subs r4, #1
-	b _08050A10
-_080509BE:
-	subs r0, r6, #1
-	cmp r0, r4
-	ble _08050A10
-	adds r4, #1
-	b _08050A10
-_080509C8:
-	ldr r0, _080509DC @ =gUnk_02019EE0
-	adds r0, #8
-	adds r0, r4, r0
-	ldrb r0, [r0]
-	lsls r0, r0, #0x18
-	asrs r0, r0, #0x18
-	cmp r0, #1
-	bne _08050A10
-	movs r5, #3
-	b _08050A10
-	.align 2, 0
-_080509DC: .4byte gUnk_02019EE0
-_080509E0:
-	adds r0, r4, #0
-	bl sub_0805041C
-	cmp r4, #3
-	bne _080509EE
-	movs r5, #2
-	b _08050A0E
-_080509EE:
-	ldr r0, _08050A04 @ =gUnk_02019EE0
-	adds r0, #8
-	adds r0, r4, r0
-	ldrb r0, [r0]
-	lsls r0, r0, #0x18
-	asrs r0, r0, #0x18
-	cmp r0, #0
-	beq _08050A08
-	cmp r0, #1
-	beq _08050A0C
-	b _08050A0E
-	.align 2, 0
-_08050A04: .4byte gUnk_02019EE0
-_08050A08:
-	movs r5, #1
-	b _08050A0E
-_08050A0C:
-	movs r5, #4
-_08050A0E:
-	ldr r1, _08050A5C @ =gUnk_02032EC0
-_08050A10:
-	ldrb r0, [r1, #2]
-	cmp r0, r5
-	beq _08050A22
-	adds r0, r5, #0
-	bl sub_080503BC
-	movs r0, #0x6a
-	bl PlaySFX
-_08050A22:
-	adds r0, r4, r6
-	adds r1, r6, #0
-	bl __modsi3
-	adds r4, r0, #0
-	ldr r5, _08050A60 @ =gUnk_02019EE0
-	ldrb r0, [r5, #6]
-	cmp r0, r4
-	beq _08050A42
-	strb r4, [r5, #6]
-	adds r0, r4, #0
-	bl sub_08050AFC
-	movs r0, #0x69
-	bl PlaySFX
-_08050A42:
-	adds r0, r5, #0
-	adds r0, #8
-	ldrb r5, [r5, #6]
-	adds r0, r0, r5
-	ldrb r0, [r0]
-	lsls r0, r0, #0x18
-	asrs r0, r0, #0x18
-	cmp r0, #1
-	bne _08050A58
-	bl sub_08050810
-_08050A58:
-	pop {r4, r5, r6, pc}
-	.align 2, 0
-_08050A5C: .4byte gUnk_02032EC0
-_08050A60: .4byte gUnk_02019EE0
-
-	thumb_func_start sub_08050A64
-sub_08050A64: @ 0x08050A64
-	push {r4, lr}
-	ldr r1, _08050AF0 @ =gUnk_02019EE0
-	adds r1, #8
-	adds r0, r0, r1
-	ldrb r0, [r0]
-	lsls r0, r0, #0x18
-	asrs r0, r0, #0x18
-	cmp r0, #1
-	bne _08050AEC
-	ldr r4, _08050AF4 @ =gUnk_03001010
-	movs r0, #0
-	strh r0, [r4, #4]
-	strh r0, [r4, #6]
-	movs r0, #0x80
-	lsls r0, r0, #3
-	strh r0, [r4, #8]
-	movs r0, #0x40
-	bl GetInventoryValue
-	cmp r0, #0
-	beq _08050A9E
-	movs r0, #0xa2
-	strh r0, [r4]
-	movs r0, #0x36
-	strh r0, [r4, #2]
-	ldr r0, _08050AF8 @ =0x00000145
-	movs r1, #0x24
-	bl sub_080ADA14
-_08050A9E:
-	movs r0, #0x41
-	bl GetInventoryValue
-	cmp r0, #0
-	beq _08050AB8
-	movs r0, #0x96
-	strh r0, [r4]
-	movs r0, #0x3d
-	strh r0, [r4, #2]
-	ldr r0, _08050AF8 @ =0x00000145
-	movs r1, #0x22
-	bl sub_080ADA14
-_08050AB8:
-	movs r0, #0x42
-	bl GetInventoryValue
-	cmp r0, #0
-	beq _08050AD2
-	movs r0, #0xae
-	strh r0, [r4]
-	movs r0, #0x3d
-	strh r0, [r4, #2]
-	ldr r0, _08050AF8 @ =0x00000145
-	movs r1, #0x23
-	bl sub_080ADA14
-_08050AD2:
-	movs r0, #0x43
-	bl GetInventoryValue
-	cmp r0, #0
-	beq _08050AEC
-	movs r0, #0xa2
-	strh r0, [r4]
-	movs r0, #0x44
-	strh r0, [r4, #2]
-	ldr r0, _08050AF8 @ =0x00000145
-	movs r1, #0x21
-	bl sub_080ADA14
-_08050AEC:
-	pop {r4, pc}
-	.align 2, 0
-_08050AF0: .4byte gUnk_02019EE0
-_08050AF4: .4byte gUnk_03001010
-_08050AF8: .4byte 0x00000145
-
-	thumb_func_start sub_08050AFC
-sub_08050AFC: @ 0x08050AFC
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	bl sub_0805041C
-	ldr r5, _08050B30 @ =gUnk_02021F30
-	movs r1, #0x80
-	lsls r1, r1, #4
-	adds r0, r5, #0
-	bl _DmaZero
-	ldr r0, _08050B34 @ =gUnk_02019EE0
-	adds r0, #8
-	adds r4, r4, r0
-	movs r0, #0
-	ldrsb r0, [r4, r0]
-	cmp r0, #1
-	bne _08050B28
-	movs r1, #0xa7
-	lsls r1, r1, #2
-	adds r0, r5, r1
-	bl sub_08050B3C
-_08050B28:
-	ldr r1, _08050B38 @ =gScreen
-	movs r0, #1
-	strh r0, [r1, #0x1a]
-	pop {r4, r5, pc}
-	.align 2, 0
-_08050B30: .4byte gUnk_02021F30
-_08050B34: .4byte gUnk_02019EE0
-_08050B38: .4byte gScreen
-
 	thumb_func_start sub_08050B3C
 sub_08050B3C: @ 0x08050B3C
 	push {r4, r5, r6, r7, lr}
@@ -284,7 +28,7 @@ _08050B5A:
 	ldrb r0, [r0]
 	lsrs r3, r0, #1
 	cmp r3, #0
-	beq _08050C0A
+	beq RETURN
 	cmp r2, r3
 	ble _08050B6C
 	adds r2, r3, #0
@@ -325,8 +69,8 @@ _08050B9A:
 	movs r7, #0xa
 	mov r8, r7
 	mov r0, r8
-	mov r7, ip
-	subs r0, r0, r7
+	mov r7, ip        @ var5
+	subs r0, r0, r7   @ 10 - var5
 	lsls r0, r0, #1
 	ldr r7, _08050C24 @ =gUnk_080FC914
 	mov ip, r7
@@ -360,7 +104,7 @@ _08050B9A:
 _08050BEE:
 	ldr r0, [sp, #4]
 	cmp r0, #0
-	beq _08050C0A
+	beq RETURN
 	ldr r2, [sp]
 	cmp r5, #9
 	ble _08050BFE
@@ -373,7 +117,7 @@ _08050BFE:
 	ldr r3, _08050C28 @ =0xFFFFF24D
 	adds r1, r2, r3
 	strh r1, [r0, #2]
-_08050C0A:
+RETURN:
 	add sp, #8
 	pop {r3, r4, r5}
 	mov r8, r3
