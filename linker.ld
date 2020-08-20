@@ -752,7 +752,7 @@ SECTIONS {
 		src/object/heartContainer.o(.text);
 		src/object/object48.o(.text);
 		src/object/object49.o(.text);
-		asm/backgroundCloud.o(.text);
+		src/object/backgroundCloud.o(.text);
 		asm/object4B.o(.text);
 		asm/pushableFurniture.o(.text);
 		asm/furniture.o(.text);
@@ -824,7 +824,7 @@ SECTIONS {
 		asm/frozenWaterElement.o(.text);
 		asm/object90.o(.text);
 		asm/object91.o(.text);
-		asm/bakerOven.o(.text);
+		src/object/bakerOven.o(.text);
 		asm/object93.o(.text);
 		src/object/windTribeFlag.o(.text);
 		asm/bird.o(.text);
