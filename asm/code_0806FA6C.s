@@ -127,15 +127,15 @@ _0806FBD4: .4byte gPlayerState
 sub_0806FBD8: @ 0x0806FBD8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806FBEC
+	bl UnloadBoundingBox
 	movs r0, #0xc
 	bl sub_0801D8E0
 	str r0, [r4, #0x48]
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806FBEC
-sub_0806FBEC: @ 0x0806FBEC
+	thumb_func_start UnloadBoundingBox
+UnloadBoundingBox: @ 0x0806FBEC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, [r4, #0x48]
@@ -447,7 +447,7 @@ LoadExtraSpriteData: @ 0x0806FDEC
 	b _0806FE74
 _0806FE02:
 	adds r0, r6, #0
-	bl sub_0801D230
+	bl UnloadOBJPalette
 	adds r0, r6, #0
 	adds r0, #0x28
 	ldrb r0, [r0]

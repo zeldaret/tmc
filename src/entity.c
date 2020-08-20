@@ -46,13 +46,12 @@ typedef struct {
 
 extern struct_03003DD0 gUnk_03003DD0;
 extern u32 _call_via_r0(u32*);
-extern u32 gUnk_03005F24;
+extern u32 _EntUpdate;
 extern void DeleteEntityAny(Entity*);
 
 void DeleteThisEntity(void) {
     DeleteEntityAny(gUnk_03003DD0.field_0x8);
-    _call_via_r0((u32*)&gUnk_03005F24);
-    return;
+    _call_via_r0((u32*)&_EntUpdate);
 }
 
 void DeleteEntity(Entity*);
@@ -71,15 +70,15 @@ void DeleteEntityAny(Entity* ent) {
 }
 
 extern void sub_080AE068();
-extern void sub_0801D230();
+extern void UnloadOBJPalette();
 extern void sub_0806FE84();
 extern void sub_080788E0();
 extern void sub_08078954();
 extern void sub_0805EC60();
 extern void sub_08017744();
 extern void sub_0805E92C();
-extern void sub_0807DB08();
-extern void sub_0806FBEC();
+extern void UnloadCutsceneData();
+extern void UnloadBoundingBox();
 extern void sub_0801DA0C();
 extern void sub_0804AA1C();
 extern void UnlinkEntity(); // Unlink
@@ -87,15 +86,15 @@ extern void UnlinkEntity(); // Unlink
 void DeleteEntity(Entity* ent) {
     if (ent->next) {
         sub_080AE068(ent);
-        sub_0801D230(ent);
+        UnloadOBJPalette(ent);
         sub_0806FE84(ent);
         sub_080788E0(ent);
         sub_08078954(ent);
         sub_0805EC60(ent);
         sub_08017744(ent);
         sub_0805E92C(ent);
-        sub_0807DB08(ent);
-        sub_0806FBEC(ent);
+        UnloadCutsceneData(ent);
+        UnloadBoundingBox(ent);
         sub_0801DA0C(ent->otherEntity);
         ent->otherEntity = NULL;
         if ((ent->entityType).type == 3) {
@@ -141,7 +140,7 @@ typedef struct LinkedList {
 extern LinkedList gEntityLists[9];
 extern EntityType gUnk_03003DB8;
 
-void sub_0805E89C(void) {
+void DeleteAllEntities(void) {
     Entity* ent;
     Entity* next;
     LinkedList* it;

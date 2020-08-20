@@ -197,7 +197,7 @@ _08034038:
 	ldr r2, [r0, #0x74]
 	strb r1, [r2, #0xd]
 	adds r0, r3, #0
-	bl sub_0801D230
+	bl UnloadOBJPalette
 	b _0803413E
 _08034056:
 	ldrb r0, [r3, #0xe]

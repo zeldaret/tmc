@@ -258,7 +258,7 @@ SECTIONS {
         . = 0x00005D90; gUnk_03005D90 = .;
         . = 0x00005E60; gUnk_03005E60 = .;
         . = 0x00005E98; gUnk_03005E98 = .;
-        . = 0x00005F24; gUnk_03005F24 = .;
+        . = 0x00005F24; _EntUpdate = .;
         . = 0x00005F40; gUnk_03005F40 = .;
         . = 0x00005FBC; gUnk_03005FBC = .;
         . = 0x00005FF0; gUnk_03005FF0 = .;
@@ -442,7 +442,7 @@ SECTIONS {
 		src/code_0804AA84.o(.text);
 		asm/code_0804AA84.o(.text);
 		src/loadRoomEntityList.o(.text);
-		asm/createEntity.o(.text);
+		asm/loadRoomEntity.o(.text);
 		asm/code_0804AEB0.o(.text);
 		src/sub_0804AFF4.o(.text);
 		src/loadRoom.o(.text);

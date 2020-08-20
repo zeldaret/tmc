@@ -358,8 +358,8 @@ _0801D22A:
 	.align 2, 0
 _0801D22C: .4byte gUnk_02001A00
 
-	thumb_func_start sub_0801D230
-sub_0801D230: @ 0x0801D230
+	thumb_func_start UnloadOBJPalette
+UnloadOBJPalette: @ 0x0801D230
 	push {lr}
 	adds r0, #0x27
 	ldrb r2, [r0]
@@ -438,7 +438,7 @@ sub_0801D2B4: @ 0x0801D2B4
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	bl sub_0801D230
+	bl UnloadOBJPalette
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0801D040

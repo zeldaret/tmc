@@ -395,8 +395,8 @@ _08059CEC:
 _08059D10: .4byte gUnk_08108468
 _08059D14: .4byte gGlobalGfxAndPalettes
 
-	thumb_func_start sub_08059D18
-sub_08059D18: @ 0x08059D18
+	thumb_func_start TryLoadPrologueHyruleTown
+TryLoadPrologueHyruleTown: @ 0x08059D18
 	push {r4, lr}
 	ldr r0, _08059D68 @ =gRoomControls
 	ldrb r0, [r0, #4]

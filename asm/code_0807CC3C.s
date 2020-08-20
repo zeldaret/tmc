@@ -1589,8 +1589,8 @@ sub_0807DAF0: @ 0x0807DAF0
 	bl sub_0807DB88
 	pop {r4, pc}
 
-	thumb_func_start sub_0807DB08
-sub_0807DB08: @ 0x0807DB08
+	thumb_func_start UnloadCutsceneData
+UnloadCutsceneData: @ 0x0807DB08
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]

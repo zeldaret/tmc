@@ -2409,7 +2409,7 @@ nullsub_482: @ 0x080539B8
 sub_080539BC: @ 0x080539BC
 	push {lr}
 	bl sub_080197AC
-	bl sub_0805E89C
+	bl DeleteAllEntities
 	movs r0, #0x22
 	movs r1, #0x11
 	movs r2, #0
@@ -3098,7 +3098,7 @@ sub_08053F20: @ 0x08053F20
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08053F74
-	bl sub_0805E89C
+	bl DeleteAllEntities
 	ldr r5, _08053F7C @ =gMenu
 	ldr r4, [r5, #0xc]
 	ldrb r0, [r4, #8]

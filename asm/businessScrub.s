@@ -928,7 +928,7 @@ sub_08028FFC: @ 0x08028FFC
 	adds r0, r4, #0
 	bl sub_080AE068
 	adds r0, r4, #0
-	bl sub_0801D230
+	bl UnloadOBJPalette
 	adds r1, r4, #0
 	adds r1, #0x60
 	movs r0, #0xe8

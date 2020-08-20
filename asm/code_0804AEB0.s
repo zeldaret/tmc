@@ -5,8 +5,8 @@
 
 	.text
 	
-	thumb_func_start sub_0804AEB0
-sub_0804AEB0: @ 0x0804AEB0
+	thumb_func_start RegisterRoomEntity
+RegisterRoomEntity: @ 0x0804AEB0
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	adds r6, r1, #0

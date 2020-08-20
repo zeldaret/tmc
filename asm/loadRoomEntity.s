@@ -5,8 +5,8 @@
 
 	.text
 	
-	thumb_func_start CreateEntity
-CreateEntity: @ 0x0804ADF8
+	thumb_func_start LoadRoomEntity
+LoadRoomEntity: @ 0x0804ADF8
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4]
@@ -37,7 +37,7 @@ _0804AE1C:
 	strb r0, [r5, #0xa]
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_0804AEB0
+	bl RegisterRoomEntity
 	ldrb r1, [r4, #1]
 	movs r7, #0xf0
 	adds r0, r7, #0
