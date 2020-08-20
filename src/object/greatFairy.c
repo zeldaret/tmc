@@ -521,7 +521,7 @@ void sub_080873FC(void) {
     PlaySFX(0xf7);
     gRoomControls.cameraTarget = NULL;
 
-    while (ent = sub_0805EB00(0x6, 0x1b, 0x6), ent != NULL) {
+    while (ent = FindEntityInListBySubtype(0x6, 0x1b, 0x6), ent != NULL) {
         DeleteEntity(ent);
     }
 }
@@ -550,7 +550,7 @@ void sub_08087424(Entity* arg0, struct_08087424* arg1) {
 void sub_0808747C(u32 arg0, u32 arg1) {
     u32 iVar1;
 
-    iVar1 = sub_0805EB2C(0x6, 0xf, 0x6, 0xb, 0x0);
+    iVar1 = FindEntityInListByForm(0x6, 0xf, 0x6, 0xb, 0x0);
     if (iVar1 != 0) {
         iVar1 = 1;
     }

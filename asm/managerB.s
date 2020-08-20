@@ -199,7 +199,7 @@ _0805875C:
 sub_08058760: @ 0x08058760
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08058794
@@ -219,7 +219,7 @@ sub_08058760: @ 0x08058760
 	bl _DmaZero
 	adds r0, r4, #0
 	movs r1, #8
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _08058794:
 	adds r0, r4, #0
 	pop {r4, r5, pc}

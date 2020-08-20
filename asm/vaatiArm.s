@@ -2531,7 +2531,7 @@ sub_080437DC: @ 0x080437DC
 	mov r7, r8
 	push {r7}
 	adds r6, r0, #0
-	ldr r0, _0804392C @ =gUnk_03003DBC
+	ldr r0, _0804392C @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x43
 	bls _080437EE
@@ -2688,7 +2688,7 @@ _080437FC:
 	movs r0, #1
 	b _08043936
 	.align 2, 0
-_0804392C: .4byte gUnk_03003DBC
+_0804392C: .4byte gEntCount
 _08043930: .4byte gUnk_080D135C
 _08043934:
 	movs r0, #0

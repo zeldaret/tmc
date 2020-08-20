@@ -566,14 +566,14 @@ sub_08035084: @ 0x08035084
 	ldrb r0, [r0, #0xa]
 	cmp r0, #0
 	bne _08035118
-	ldr r0, _080350A0 @ =gUnk_03003DBC
+	ldr r0, _080350A0 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x42
 	bls _080350A4
 	movs r0, #0
 	b _0803511A
 	.align 2, 0
-_080350A0: .4byte gUnk_03003DBC
+_080350A0: .4byte gEntCount
 _080350A4:
 	ldr r4, _080350D8 @ =gUnk_030010D8
 _080350A6:

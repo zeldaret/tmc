@@ -789,7 +789,7 @@ _08054EB4: .4byte gMenu
 sub_08054EB8: @ 0x08054EB8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _08054EF6
@@ -815,7 +815,7 @@ sub_08054EB8: @ 0x08054EB8
 	strh r0, [r3, #0x3e]
 	adds r0, r3, #0
 	movs r1, #6
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _08054EF6:
 	pop {r4, pc}
 	.align 2, 0
@@ -2571,7 +2571,7 @@ _08055C6C:
 	movs r1, #0x9e
 	movs r2, #6
 	movs r3, #0
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08055C8C

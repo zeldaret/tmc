@@ -3374,13 +3374,13 @@ sub_0801AD6C: @ 0x0801AD6C
 	adds r0, r0, r1
 	ldrb r1, [r0]
 	adds r0, r5, #0
-	bl sub_0805EA2C
+	bl AppendEntityToList
 	b _0801AE26
 	.align 2, 0
 _0801ADD4: .4byte gRoomControls
 _0801ADD8: .4byte gUnk_081091E4
 _0801ADDC:
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _0801AE26
@@ -3414,7 +3414,7 @@ _0801ADDC:
 	adds r0, r0, r1
 	ldrb r1, [r0]
 	adds r0, r3, #0
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _0801AE26:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

@@ -31,7 +31,7 @@ void sub_080A05F4(Entity* this) {
         this->action = 2;
         InitializeAnimation(this, 2);
     } else {
-        if (this->parent->field_0x4 == NULL) {
+        if (this->parent->next == NULL) {
             DeleteThisEntity();
         }
         sub_080A0640(this);

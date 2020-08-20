@@ -67,7 +67,7 @@ _0805B7FC:
 	adds r0, r0, r1
 	strh r0, [r4, #0x32]
 	adds r0, r5, #0
-	bl sub_0805E900
+	bl DeleteManager
 _0805B81A:
 	pop {r4, r5, pc}
 	.align 2, 0

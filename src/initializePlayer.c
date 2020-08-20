@@ -63,6 +63,6 @@ void InitializePlayer(void)
   pl->animationState = gScreenTransition.playerState;
   pl->collisionLayer = gScreenTransition.playerLayer;
   UpdateSpriteForCollisionLayer(pl);
-  sub_0805EA2C(pl, 1);
+  AppendEntityToList(pl, 1);
   sub_08017640();
 }

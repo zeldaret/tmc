@@ -13,7 +13,7 @@ ObjectA5: @ 0x0809F8A4
 	mov r7, r8
 	push {r7}
 	adds r6, r0, #0
-	ldr r0, _0809F904 @ =gUnk_03003DBC
+	ldr r0, _0809F904 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x42
 	bhi _0809F8FC
@@ -58,4 +58,4 @@ _0809F8FC:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0809F904: .4byte gUnk_03003DBC
+_0809F904: .4byte gEntCount

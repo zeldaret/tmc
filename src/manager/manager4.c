@@ -98,7 +98,7 @@ u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
 #endif
 
 extern void sub_0805E5A8(void);
-extern void sub_0805E900(Manager*);
+extern void DeleteManager(Manager*);
 extern void sub_08080930();
 
 void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
@@ -121,7 +121,7 @@ void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
         gUnk_03004030.unk_0b = entr->target_roomID | 0x80;
     }
     sub_08080930(entr->unk_03);
-    sub_0805E900(this);
+    DeleteManager(this);
 }
 
 DiggingCaveEntrance* sub_08057AA8(DiggingCaveEntrance* entr, int roomID){

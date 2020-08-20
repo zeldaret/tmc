@@ -4592,7 +4592,7 @@ _080754F2:
 	movs r0, #8
 	movs r1, #0xf
 	movs r2, #2
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	bne _08075538
 	adds r0, r4, #0
@@ -6017,7 +6017,7 @@ sub_08075FF8: @ 0x08075FF8
 	movs r0, #8
 	movs r1, #2
 	movs r2, #2
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	b _08076026
 	.align 2, 0
 _08076018: .4byte gPlayerState
@@ -6025,7 +6025,7 @@ _0807601C:
 	adds r5, #1
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_0805EB64
+	bl FindNextEntityOfSameSubtype
 _08076026:
 	adds r4, r0, #0
 	cmp r4, #0

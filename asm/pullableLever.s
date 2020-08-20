@@ -73,7 +73,7 @@ _08091260:
 sub_08091264: @ 0x08091264
 	push {r4, r5, r6, r7, lr}
 	adds r6, r0, #0
-	ldr r0, _080912C4 @ =gUnk_03003DBC
+	ldr r0, _080912C4 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x45
 	bhi _0809132C
@@ -117,7 +117,7 @@ sub_08091264: @ 0x08091264
 	ldr r0, _080912C8 @ =gUnk_080FD278
 	b _080912CE
 	.align 2, 0
-_080912C4: .4byte gUnk_03003DBC
+_080912C4: .4byte gEntCount
 _080912C8: .4byte gUnk_080FD278
 _080912CC:
 	ldr r0, _08091330 @ =gUnk_080FD270

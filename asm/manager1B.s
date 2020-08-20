@@ -10,7 +10,7 @@
 sub_0805B3B4: @ 0x0805B3B4
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_0805EABC
+	bl DoesSimilarEntityExist
 	cmp r0, #0
 	beq _0805B3C4
 	bl DeleteThisEntity

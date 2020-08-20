@@ -82,7 +82,7 @@ _0803D146:
 	bne _0803D158
 	b _0803D25A
 _0803D158:
-	ldr r0, _0803D25C @ =gUnk_03003DBC
+	ldr r0, _0803D25C @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x41
 	bhi _0803D25A
@@ -210,7 +210,7 @@ _0803D210:
 _0803D25A:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0803D25C: .4byte gUnk_03003DBC
+_0803D25C: .4byte gEntCount
 _0803D260: .4byte gUnk_080D04A8
 
 	thumb_func_start sub_0803D264

@@ -42,7 +42,7 @@ _0805C962:
 	adds r5, r0, #0
 	cmp r5, #1
 	ble _0805C9A8
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805C9A8
@@ -64,10 +64,10 @@ _0805C962:
 	stm r1!, {r3, r5}
 	adds r0, r2, #0
 	movs r1, #6
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _0805C9A8:
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 	b _0805C9B8
 _0805C9B0:
 	movs r1, #0

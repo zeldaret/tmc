@@ -82,6 +82,6 @@ sub_08058E34: @ 0x08058E34
 	bl LoadRoomEntityList
 _08058E58:
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 _08058E5E:
 	pop {r4, pc}

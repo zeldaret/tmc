@@ -30,7 +30,7 @@ _08059E7C: .4byte gUnk_081085A4
 sub_08059E80: @ 0x08059E80
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_0805EABC
+	bl DoesSimilarEntityExist
 	cmp r0, #0
 	beq _08059E90
 	bl DeleteThisEntity

@@ -281,7 +281,7 @@ sub_0805BB00: @ 0x0805BB00
 	ldrb r0, [r0, #0xc]
 	cmp r0, #0
 	bne _0805BB28
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0805BB28
@@ -291,7 +291,7 @@ sub_0805BB00: @ 0x0805BB00
 	strb r0, [r1, #9]
 	adds r0, r1, #0
 	movs r1, #0
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _0805BB28:
 	ldr r1, _0805BB54 @ =0x0600F000
 	movs r2, #0x80
@@ -342,7 +342,7 @@ _0805BB82:
 	strh r1, [r2, #0xc]
 	movs r0, #9
 	movs r1, #0x22
-	bl sub_0805EB9C
+	bl FindEntityBySubtype
 	cmp r0, #0
 	beq _0805BBAE
 	bl sub_0805B8EC

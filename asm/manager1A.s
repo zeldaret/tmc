@@ -456,7 +456,7 @@ _0805B38C: .4byte 0x0000FFF7
 sub_0805B390: @ 0x0805B390
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0805B3B0
@@ -467,7 +467,7 @@ sub_0805B390: @ 0x0805B390
 	strb r4, [r1, #0xa]
 	adds r0, r1, #0
 	movs r1, #6
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _0805B3B0:
 	pop {r4, pc}
 	.align 2, 0

@@ -30,7 +30,7 @@ sub_0805C6D0: @ 0x0805C6D0
 	cmp r4, #0
 	bne _0805C6EA
 	adds r0, r5, #0
-	bl sub_0805E900
+	bl DeleteManager
 	b _0805C79A
 _0805C6EA:
 	ldr r3, _0805C784 @ =gRoomControls
