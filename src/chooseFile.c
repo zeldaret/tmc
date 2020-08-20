@@ -1,6 +1,7 @@
 #include "global.h"
 #include "functions.h"
 #include "main.h"
+#include "player.h"
 #include "readKeyInput.h"
 #include "screen.h"
 
@@ -38,7 +39,9 @@ typedef struct {
 extern struct_020227E8 gUnk_020227E8;
 
 typedef struct {
-    u8 filler0[0x800];
+    u8 filler0[0x29C];
+    u16 unk29C;
+    u8 filler29E[0x562];
 } struct_02034CB0;
 
 extern struct_02034CB0 gUnk_02034CB0;
@@ -46,6 +49,7 @@ extern struct_02034CB0 gUnk_02021F30;
 extern SaveFile gSaveFiles[];
 extern u32 gUsedPalettes;
 extern u8 gUnk_02000D00[];
+extern u16 gUnk_03001010[5];
 
 static void sub_08050624(u32);
 static void sub_0805066C(void);
@@ -374,3 +378,190 @@ void sub_08050910(void) {
         gChooseFileState.subState = 0;
     }
 }
+
+void sub_08050940(void) {
+    int saveFileId;
+    u32 newKeys;
+    int var1;
+    u32 var2;
+
+    if (gUnk_02019EE0.unk0) {
+        return;
+    }
+
+    saveFileId = gUnk_02019EE0.unk6;
+    newKeys = gUnk_03000FF0.newKeys;
+    if ((gUnk_03000FF0.heldKeys & L_BUTTON) && gUnk_02019EE0.unk8[saveFileId] == 1) {
+        newKeys &= ~(DPAD_UP | DPAD_DOWN);
+    }
+
+    var1 = ((struct_02000000 *)0x2000000)->gameLanguage > 1 ? 4 : 3;
+    var2 = gUnk_02032EC0.transitionType;
+    switch (newKeys) {
+        case DPAD_UP:
+            if (saveFileId > 0) {
+                saveFileId--;
+            }
+            break;
+        case DPAD_DOWN:
+            if (var1 - 1 > saveFileId) {
+                saveFileId++;
+            }
+            break;
+        case R_BUTTON:
+            if (gUnk_02019EE0.unk8[saveFileId] == 1) {
+                var2 = 3;
+            }
+            break;
+        case A_BUTTON:
+        case START_BUTTON:
+            sub_0805041C(saveFileId);
+            if (saveFileId == 3) {
+                var2 = 2;
+            } else {
+                switch (gUnk_02019EE0.unk8[saveFileId]) {
+                    case 0:
+                        var2 = 1;
+                        break;
+                    case 1:
+                        var2 = 4;
+                        break;
+                }
+            }
+            break;
+    }
+
+    if (gUnk_02032EC0.transitionType != var2) {
+        sub_080503BC(var2);
+        PlaySFX(0x6A);
+    }
+
+    saveFileId = (saveFileId + var1) % var1;
+    if (gUnk_02019EE0.unk6 != saveFileId) {
+        gUnk_02019EE0.unk6 = saveFileId;
+        sub_08050AFC(saveFileId);
+        PlaySFX(0x69);
+    }
+
+    if (gUnk_02019EE0.unk8[gUnk_02019EE0.unk6] == 1) {
+        sub_08050810();
+    }
+}
+
+void sub_08050A64(u32 saveFileId) {
+    if (gUnk_02019EE0.unk8[saveFileId] != 1) {
+        return;
+    }
+
+    gUnk_03001010[2] = 0;
+    gUnk_03001010[3] = 0;
+    gUnk_03001010[4] = 0x400;
+
+    // Draw the save file's obtained elements.
+    if (GetInventoryValue(0x40)) {
+        gUnk_03001010[0] = 0xA2;
+        gUnk_03001010[1] = 0x36;
+        sub_080ADA14(0x145, 0x24);
+    }
+    if (GetInventoryValue(0x41)) {
+        gUnk_03001010[0] = 0x96;
+        gUnk_03001010[1] = 0x3D;
+        sub_080ADA14(0x145, 0x22);
+    }
+    if (GetInventoryValue(0x42)) {
+        gUnk_03001010[0] = 0xAE;
+        gUnk_03001010[1] = 0x3D;
+        sub_080ADA14(0x145, 0x23);
+    }
+    if (GetInventoryValue(0x43)) {
+        gUnk_03001010[0] = 0xA2;
+        gUnk_03001010[1] = 0x44;
+        sub_080ADA14(0x145, 0x21);
+    }
+}
+
+void sub_08050B3C(u16*);
+
+void sub_08050AFC(u32 saveFileId) {
+    sub_0805041C(saveFileId);
+    _DmaZero(&gUnk_02021F30, sizeof(gUnk_02021F30));
+    if (gUnk_02019EE0.unk8[saveFileId] == 1) {
+        sub_08050B3C(&gUnk_02021F30.unk29C);
+    }
+    gScreen.bg.bg2yOffset = 1;
+}
+
+// typedef struct {
+//     u16* unk0;
+//     u32 unk4;
+// } unk_08050B3C;
+
+// extern const u16 gUnk_080FC914[];
+
+// void sub_08050B3C(u16* arg0) {
+//     unk_08050B3C sp;
+//     int var0;
+//     int var1;
+//     int var2;
+//     int var3;
+//     int var4;
+//     int var5;
+//     int var6;
+//     int var7;
+//     u16* var8;
+
+//     sp.unk0 = arg0;
+//     var0 = gUnk_02002A40.stats.health * 2;
+//     if (var0 == 0) {
+//         var0 = 1;
+//     }
+
+//     var1 = gUnk_02002A40.stats.maxHealth * 2;
+//     if (var1 == 0) {
+//         return;
+//     }
+
+//     if (var0 > var1) {
+//         var0 = var1;
+//     }
+
+//     sp.unk4 = var0 & 0x3;
+//     var2 = var0 >> 2;
+//     var5 = var2;
+//     if (var2 > 10) {
+//         var5 = 10;
+//     }
+
+//     var6 = var2;
+//     var6 -= 10;
+//     var7 = var6;
+//     if (var6 < 0) {
+//         var7 = 0;
+//     }
+
+//     var1 = var1 >> 2;
+//     var4 = var1;
+//     if (var1 > 10) {
+//         var1 = 10;
+//     }
+
+//     var4 -= 10;
+//     sp.unk0[0] = 0xF24C;
+//     DmaCopy16(3, &gUnk_080FC914[10 - var5], &sp.unk0[1], var1 * 2);
+//     if (var4 > 0) {
+//         sp.unk0[0x20] = 0xF24C;
+//         DmaCopy16(3, &gUnk_080FC914[10 - var7], &sp.unk0[1], var4 * 2);
+//     }
+
+//     if (!sp.unk4) {
+//         return;
+//     }
+
+//     var8 = sp.unk0;
+//     if (var2 >= 10) {
+//         var2 = var6;
+//         var8 += 0x20;
+//     }
+
+//     var8[var2 + 1] = sp.unk4 - 0xDB3;
+// }
