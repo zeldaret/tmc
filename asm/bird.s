@@ -681,7 +681,7 @@ _0809D478:
 	cmp r4, #0
 	beq _0809D484
 	adds r0, r4, #0
-	bl sub_0805E79C
+	bl DeleteEntityAny
 _0809D484:
 	bl DeleteThisEntity
 _0809D488:
@@ -1002,7 +1002,7 @@ CreateBird: @ 0x0809D700
 	movs r1, #0x95
 	movs r2, #6
 	movs r3, #8
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _0809D732

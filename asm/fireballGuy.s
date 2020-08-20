@@ -126,7 +126,7 @@ sub_08045454: @ 0x08045454
 	ldrb r7, [r0]
 	movs r0, #0x48
 	subs r0, r0, r7
-	ldr r1, _0804551C @ =gUnk_03003DBC
+	ldr r1, _0804551C @ =gEntCount
 	ldrb r1, [r1]
 	cmp r0, r1
 	ble _0804550C
@@ -212,7 +212,7 @@ _0804550C:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _08045518: .4byte gUnk_080D180C
-_0804551C: .4byte gUnk_03003DBC
+_0804551C: .4byte gEntCount
 _08045520: .4byte gUnk_080D1810
 
 	thumb_func_start sub_08045524

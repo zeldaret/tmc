@@ -18,7 +18,7 @@
 	lsrs r2, r0, #0x18
 	cmp r2, #0
 	beq _08031D54
-	ldr r0, _08031D50 @ =gUnk_03003DBC
+	ldr r0, _08031D50 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x42
 	bhi _08031D66
@@ -115,7 +115,7 @@
 	bl InitializeAnimation
 	b _08031D66
 	.align 2, 0
-_08031D50: .4byte gUnk_03003DBC
+_08031D50: .4byte gEntCount
 _08031D54:
 	movs r0, #1
 	ands r0, r1

@@ -37,7 +37,7 @@ void sub_080869DC(Entity* ent) {
 void sub_08086A28(Entity* ent) {
     s32 iVar1;
 
-    if (ent->attachedEntity->field_0x4 == NULL) {
+    if (ent->attachedEntity->next == NULL) {
         ent->action = 2;
     } else {
         iVar1 = sub_080044EC(ent, 10240);

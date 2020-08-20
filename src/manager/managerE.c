@@ -7,7 +7,7 @@
 extern Entity* GetCurrentRoomProperty(u8);
 extern void LoadRoomEntityList(Entity*);
 extern void DeleteThisEntity(void);
-extern void sub_0805E900(Manager*);
+extern void DeleteManager(Manager*);
 extern void sub_08078A90(u32);
 extern void sub_08078B48(void);
 extern void PlaySFX(u32);
@@ -16,7 +16,7 @@ void sub_08058E60(Manager* this) {
     if (!this->unk_0c) {
         this->unk_0c = 1;
         if (CheckFlags(this->unk_3e)) {
-            sub_0805E900(this);
+            DeleteManager(this);
             return;
         }
     }

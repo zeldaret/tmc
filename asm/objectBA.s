@@ -40,7 +40,7 @@ sub_080A1704: @ 0x080A1704
 	beq _080A171E
 	bl DeleteThisEntity
 _080A171E:
-	ldr r0, _080A1828 @ =gUnk_03003DBC
+	ldr r0, _080A1828 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x45
 	bhi _080A181C
@@ -169,7 +169,7 @@ _080A181C:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A1828: .4byte gUnk_03003DBC
+_080A1828: .4byte gEntCount
 _080A182C: .4byte gRoomControls
 _080A1830: .4byte gScreen
 _080A1834: .4byte 0x00001E07

@@ -205,7 +205,7 @@ void sub_08029660(Entity* this) {
 }
 
 void sub_08029688(Entity* this) {
-    if (this->parent->field_0x4 == NULL) {
+    if (this->parent->next == NULL) {
         DeleteEntity(this);
     }
 }

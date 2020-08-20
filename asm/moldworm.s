@@ -221,7 +221,7 @@ nullsub_135: @ 0x080231B8
 sub_080231BC: @ 0x080231BC
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
-	ldr r0, _08023280 @ =gUnk_03003DBC
+	ldr r0, _08023280 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x3f
 	bhi _0802327E
@@ -308,7 +308,7 @@ sub_080231BC: @ 0x080231BC
 _0802327E:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08023280: .4byte gUnk_03003DBC
+_08023280: .4byte gEntCount
 
 	thumb_func_start nullsub_136
 nullsub_136: @ 0x08023284

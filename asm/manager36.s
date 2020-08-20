@@ -43,7 +43,7 @@ _0805DDE8:
 sub_0805DDEC: @ 0x0805DDEC
 	push {r4, r5, lr}
 	adds r5, r1, #0
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0805DE16
@@ -55,7 +55,7 @@ sub_0805DDEC: @ 0x0805DDEC
 	strb r0, [r4, #0xa]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805EA2C
+	bl AppendEntityToList
 	adds r0, r4, #0
 	movs r1, #6
 	bl sub_0805E3A0
@@ -72,10 +72,10 @@ sub_0805DE18: @ 0x0805DE18
 	movs r0, #9
 	movs r1, #0x36
 	movs r2, #6
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	cmp r0, #0
 	beq _0805DE34
-	bl sub_0805E79C
+	bl DeleteEntityAny
 _0805DE34:
 	add sp, #4
 	pop {pc}

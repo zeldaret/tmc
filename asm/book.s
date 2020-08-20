@@ -327,7 +327,7 @@ _0809B606:
 	movs r0, #7
 	movs r1, #0x1a
 	movs r2, #7
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0809B682

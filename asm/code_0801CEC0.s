@@ -561,7 +561,7 @@ _0801D390:
 	bne _0801D380
 _0801D3AC:
 	movs r1, #0
-	ldr r4, _0801D450 @ =gUnk_03003D70
+	ldr r4, _0801D450 @ =gEntityLists
 	mov ip, r4
 _0801D3B2:
 	lsls r0, r1, #3
@@ -647,7 +647,7 @@ _0801D444:
 	add sp, #0x10
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0801D450: .4byte gUnk_03003D70
+_0801D450: .4byte gEntityLists
 _0801D454: .4byte gUnk_020000C0
 
 	thumb_func_start sub_0801D458

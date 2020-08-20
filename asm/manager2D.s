@@ -37,7 +37,7 @@ sub_0805D1FC: @ 0x0805D1FC
 	bl UpdateSpriteForCollisionLayer
 _0805D236:
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 	pop {r4, r5, pc}
 	.align 2, 0
 _0805D240: .4byte 0x00004014

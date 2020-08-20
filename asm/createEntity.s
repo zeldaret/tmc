@@ -19,14 +19,14 @@ CreateEntity: @ 0x0804ADF8
 	bne _0804AE1C
 	ldrb r1, [r4, #2]
 	adds r0, r6, #0
-	bl sub_0805EB9C
+	bl FindEntityBySubtype
 	cmp r0, #0
 	beq _0804AE1C
 	movs r0, #0
 	b _0804AEAC
 _0804AE1C:
 	adds r0, r6, #0
-	bl sub_0805E768
+	bl GetEmptyEntityByType
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0804AEAA

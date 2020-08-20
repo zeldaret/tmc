@@ -152,7 +152,7 @@ sub_0805A394: @ 0x0805A394
 	movs r0, #3
 	movs r1, #0x13
 	movs r2, #4
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	beq _0805A3AA
 	ldrb r0, [r0, #0xa]

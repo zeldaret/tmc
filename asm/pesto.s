@@ -1666,7 +1666,7 @@ _08024BA0:
 	movs r0, #8
 	movs r1, #2
 	movs r2, #2
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08024BF0
@@ -1676,7 +1676,7 @@ _08024BA0:
 _08024BB6:
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_0805EB64
+	bl FindNextEntityOfSameSubtype
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08024BF0
@@ -1708,7 +1708,7 @@ _08024BF0:
 	movs r0, #6
 	movs r1, #5
 	movs r2, #6
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08024C3C
@@ -1718,7 +1718,7 @@ _08024BF0:
 _08024C0A:
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805EB64
+	bl FindNextEntityOfSameSubtype
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08024C3C

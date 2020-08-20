@@ -6,7 +6,7 @@
 extern void* GetCurrentRoomProperty(u8);
 extern u32 CheckPlayerInRegion(u16, u16, u8, u8);
 extern void DoExitTransition(void*);
-extern void sub_0805E900(Entity*);
+extern void DeleteManager(Entity*);
 
 void sub_08057CB4(Entity * this) {
     u32 tmp;
@@ -15,7 +15,7 @@ void sub_08057CB4(Entity * this) {
         this->action = 1;
         this->field_0x20 = (s32) GetCurrentRoomProperty(this->entityType.form);
         if (this->field_0x20 == 0) {
-            sub_0805E900(this);
+            DeleteManager(this);
             return;
         }
     }

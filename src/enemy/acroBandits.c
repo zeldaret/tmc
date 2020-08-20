@@ -21,7 +21,7 @@ extern void SetChildOffset(Entity*, s32, s32, s32);
 extern u32 Random(void);
 
 extern Entity* gUnk_020000B0;
-extern u8 gUnk_03003DBC;
+extern u8 gEntCount;
 extern void (*const gUnk_080012C8[])(Entity*);
 extern void (*const gUnk_080CE56C[])(Entity*);
 extern void (*const gUnk_080CE584[])(Entity*);
@@ -216,7 +216,7 @@ void sub_08031C58(Entity* this) {
 
     GetNextFrame(this);
     if (this->frames.b.f3) {
-        if (gUnk_03003DBC < 0x43) {
+        if (gEntCount < 0x43) {
             tmp = Random();
             tmp &= 3;
 

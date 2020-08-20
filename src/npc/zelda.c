@@ -4,11 +4,11 @@
 #include "room.h"
 #include "flags.h"
 
-extern void sub_0805EA78(Entity*, u32);
+extern void PrependEntityToList(Entity*, u32);
 extern void sub_0805E3A0(Entity*, u32);
 extern void sub_0807DD50(Entity*);
 extern void sub_0807DD94(Entity*, u32);
-extern Entity* sub_0805EB9C(u32, u32);
+extern Entity* FindEntityBySubtype(u32, u32);
 void CopyPosition(Entity*, Entity*);
 void sub_08068680(Entity*, Entity*);
 void sub_08068694(Entity*, Entity*);
@@ -34,7 +34,7 @@ void Zelda(Entity* ent) {
 void sub_08066CCC(Entity* ent) {
     ent->action = 1;
     ent->spriteSettings.b.draw = 1;
-    sub_0805EA78(ent, 7);
+    PrependEntityToList(ent, 7);
     sub_0805E3A0(ent, 2);
     sub_0807DD50(ent);
 }
@@ -44,7 +44,7 @@ void sub_08066CF8(Entity* ent) {
 }
 
 void sub_08066D04(Entity* ent) {
-    ent->parent = sub_0805EB9C(7, 0x2E);
+    ent->parent = FindEntityBySubtype(7, 0x2E);
 }
 
 void sub_08066D14(Entity* ent, u32* param_2) {
@@ -99,7 +99,7 @@ void sub_08066D94(Entity* ent) {
 void sub_08066DE4(Entity* ent) {
     Entity* pEVar1;
 
-    pEVar1 = sub_0805EB9C(7, 0x2E);
+    pEVar1 = FindEntityBySubtype(7, 0x2E);
     if (pEVar1 != NULL) {
         CopyPosition(ent, pEVar1);
         sub_080686C4(ent, pEVar1);

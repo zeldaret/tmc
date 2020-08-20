@@ -153,7 +153,7 @@ sub_08064180: @ 0x08064180
 	movs r0, #7
 	movs r1, #0x15
 	movs r2, #7
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	beq _08064194
 	bl DeleteEntity

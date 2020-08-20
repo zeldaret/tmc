@@ -355,7 +355,7 @@ sub_080A0464: @ 0x080A0464
 	movs r0, #6
 	movs r1, #0xac
 	movs r2, #6
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	beq _080A048A
 	movs r1, #0x2e

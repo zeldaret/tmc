@@ -19,7 +19,7 @@ extern void sub_0807000C(Entity*);
 extern void sub_080042BA(Entity*, u32);
 extern void sub_08060158(Entity*);
 extern u32 CheckKinstoneFused(u32);
-extern Entity* sub_0805EB00(u32, u32, u32);
+extern Entity* FindEntityInListBySubtype(u32, u32, u32);
 extern void sub_080A29BC(Entity* parent);
 extern void DeleteEntity(Entity*);
 extern u32 Random(void);
@@ -248,7 +248,7 @@ void sub_08060318(void)
   int i;
   
   for (i = 2; i >= 0; i--) {
-    ent = sub_0805EB00(8, 2, 2);
+    ent = FindEntityInListBySubtype(8, 2, 2);
     if (ent != NULL) {
       sub_080A29BC(ent);
       DeleteEntity(ent);

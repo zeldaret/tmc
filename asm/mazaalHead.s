@@ -70,7 +70,7 @@ _08033F38: .4byte gUnk_080CECB4
 sub_08033F3C: @ 0x08033F3C
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r0, _08033F64 @ =gUnk_03003DBC
+	ldr r0, _08033F64 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x42
 	bhi _08033FFA
@@ -87,7 +87,7 @@ sub_08033F3C: @ 0x08033F3C
 	strb r0, [r1]
 	b _08033F70
 	.align 2, 0
-_08033F64: .4byte gUnk_03003DBC
+_08033F64: .4byte gEntCount
 _08033F68: .4byte gScreenTransition
 _08033F6C:
 	movs r0, #1

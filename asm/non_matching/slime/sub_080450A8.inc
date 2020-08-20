@@ -18,7 +18,7 @@
 	ldrb r7, [r0]
 	movs r0, #0x48
 	subs r0, r0, r7
-	ldr r1, _08045170 @ =gUnk_03003DBC
+	ldr r1, _08045170 @ =gEntCount
 	ldrb r1, [r1]
 	cmp r0, r1
 	ble _08045160
@@ -104,6 +104,6 @@ _08045160:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0804516C: .4byte gUnk_080D16D0
-_08045170: .4byte gUnk_03003DBC
+_08045170: .4byte gEntCount
 _08045174: .4byte gUnk_080D16D4
 	.syntax divided

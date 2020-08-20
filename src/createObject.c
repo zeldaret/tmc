@@ -2,7 +2,7 @@
 #include "entity.h"
 
 extern Entity* GetEmptyEntity();
-extern void sub_0805EA2C(Entity*, u8);
+extern void AppendEntityToList(Entity*, u8);
 
 Entity* CreateObject(u32 subtype, u32 param1, u32 param2)
 
@@ -15,7 +15,7 @@ Entity* CreateObject(u32 subtype, u32 param1, u32 param2)
         (newEnt->entityType).subtype = subtype;
         (newEnt->entityType).form = param1;
         (newEnt->entityType).parameter = param2;
-        sub_0805EA2C(newEnt, 6);
+        AppendEntityToList(newEnt, 6);
     }
     return newEnt;
 }

@@ -665,7 +665,7 @@ sub_08052BF8: @ 0x08052BF8
 	adds r0, r2, #0
 	adds r0, #0x2e
 	strb r1, [r0]
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08052C30
@@ -676,7 +676,7 @@ sub_08052BF8: @ 0x08052BF8
 	strb r0, [r1, #0xa]
 	adds r0, r1, #0
 	movs r1, #0
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _08052C30:
 	pop {pc}
 	.align 2, 0
@@ -1115,7 +1115,7 @@ _08052F72:
 	ldrh r0, [r3, #0xc]
 	adds r0, r0, r5
 	strh r0, [r3, #0xc]
-	ldr r2, _08052FD4 @ =gUnk_03003D70
+	ldr r2, _08052FD4 @ =gEntityLists
 	adds r6, r2, #0
 	adds r6, #0x48
 _08052FA4:
@@ -1146,7 +1146,7 @@ _08052FCC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08052FD0: .4byte 0x0000085C
-_08052FD4: .4byte gUnk_03003D70
+_08052FD4: .4byte gEntityLists
 
 	thumb_func_start sub_08052FD8
 sub_08052FD8: @ 0x08052FD8
@@ -1377,7 +1377,7 @@ sub_08053178: @ 0x08053178
 	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080531DC
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _080531DC
@@ -1387,7 +1387,7 @@ sub_08053178: @ 0x08053178
 	strb r0, [r4, #9]
 	adds r0, r4, #0
 	movs r1, #8
-	bl sub_0805EA2C
+	bl AppendEntityToList
 	ldr r0, _080531F0 @ =gRoomVars
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -2013,7 +2013,7 @@ sub_0805368C: @ 0x0805368C
 	movs r0, #6
 	movs r1, #0x5d
 	movs r2, #6
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	beq _080536A6
 	bl DeleteEntity

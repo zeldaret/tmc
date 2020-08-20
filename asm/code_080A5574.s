@@ -4931,7 +4931,7 @@ _080A7C52:
 	strb r0, [r4, #8]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _080A7C72:
 	adds r0, r4, #0
 	pop {r4, r5, r6, r7, pc}
@@ -5288,7 +5288,7 @@ sub_080A7EE0: @ 0x080A7EE0
 	strb r5, [r4, #9]
 	adds r0, r4, #0
 	movs r1, #5
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _080A7EFC:
 	adds r0, r4, #0
 	pop {r4, r5, pc}
@@ -12015,7 +12015,7 @@ _080AB128: .4byte gSineTable
 sub_080AB12C: @ 0x080AB12C
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _080AB168 @ =gUnk_03003DBC
+	ldr r0, _080AB168 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x44
 	bhi _080AB16C
@@ -12040,7 +12040,7 @@ sub_080AB12C: @ 0x080AB12C
 	movs r0, #1
 	b _080AB16E
 	.align 2, 0
-_080AB168: .4byte gUnk_03003DBC
+_080AB168: .4byte gEntCount
 _080AB16C:
 	movs r0, #0
 _080AB16E:
@@ -14792,7 +14792,7 @@ sub_080AC5E4: @ 0x080AC5E4
 	ldrb r4, [r5, #0xa]
 	cmp r4, #0
 	bne _080AC668
-	ldr r0, _080AC664 @ =gUnk_03003DBC
+	ldr r0, _080AC664 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x43
 	bhi _080AC670
@@ -14845,9 +14845,9 @@ sub_080AC5E4: @ 0x080AC5E4
 	str r0, [r7, #0x54]
 	b _080AC6C8
 	.align 2, 0
-_080AC664: .4byte gUnk_03003DBC
+_080AC664: .4byte gEntCount
 _080AC668:
-	ldr r0, _080AC674 @ =gUnk_03003DBC
+	ldr r0, _080AC674 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x44
 	bls _080AC678
@@ -14855,7 +14855,7 @@ _080AC670:
 	movs r0, #0
 	b _080AC6E8
 	.align 2, 0
-_080AC674: .4byte gUnk_03003DBC
+_080AC674: .4byte gEntCount
 _080AC678:
 	adds r1, r5, #0
 	adds r1, #0x79

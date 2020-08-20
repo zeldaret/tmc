@@ -1277,7 +1277,7 @@ sub_08041D14: @ 0x08041D14
 	.align 2, 0
 _08041D3C: .4byte gTextBox
 _08041D40:
-	ldr r0, _08041D80 @ =gUnk_03003DBC
+	ldr r0, _08041D80 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x45
 	bhi _08041D7C
@@ -1307,7 +1307,7 @@ _08041D40:
 _08041D7C:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08041D80: .4byte gUnk_03003DBC
+_08041D80: .4byte gEntCount
 
 	thumb_func_start sub_08041D84
 sub_08041D84: @ 0x08041D84
@@ -1485,7 +1485,7 @@ _08041ED0: .4byte gUnk_080D0E90
 sub_08041ED4: @ 0x08041ED4
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r0, _08041F14 @ =gUnk_03003DBC
+	ldr r0, _08041F14 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x45
 	bhi _08041F18
@@ -1513,7 +1513,7 @@ sub_08041ED4: @ 0x08041ED4
 	movs r0, #1
 	b _08041F1A
 	.align 2, 0
-_08041F14: .4byte gUnk_03003DBC
+_08041F14: .4byte gEntCount
 _08041F18:
 	movs r0, #0
 _08041F1A:
@@ -1523,7 +1523,7 @@ _08041F1A:
 sub_08041F1C: @ 0x08041F1C
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _08041F6C @ =gUnk_03003DBC
+	ldr r0, _08041F6C @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x43
 	bhi _08041F70
@@ -1558,7 +1558,7 @@ sub_08041F1C: @ 0x08041F1C
 	movs r0, #1
 	b _08041F72
 	.align 2, 0
-_08041F6C: .4byte gUnk_03003DBC
+_08041F6C: .4byte gEntCount
 _08041F70:
 	movs r0, #0
 _08041F72:
@@ -1569,14 +1569,14 @@ sub_08041F74: @ 0x08041F74
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
 	adds r6, r1, #0
-	ldr r0, _08041F88 @ =gUnk_03003DBC
+	ldr r0, _08041F88 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x46
 	bls _08041F8C
 	movs r0, #0
 	b _08041FC8
 	.align 2, 0
-_08041F88: .4byte gUnk_03003DBC
+_08041F88: .4byte gEntCount
 _08041F8C:
 	ldr r7, [r5, #0x64]
 	movs r4, #0
@@ -1616,7 +1616,7 @@ _08041FC8:
 sub_08041FCC: @ 0x08041FCC
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _08041FFC @ =gUnk_03003DBC
+	ldr r0, _08041FFC @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x4c
 	bhi _08042000
@@ -1635,7 +1635,7 @@ sub_08041FCC: @ 0x08041FCC
 	movs r0, #1
 	b _08042002
 	.align 2, 0
-_08041FFC: .4byte gUnk_03003DBC
+_08041FFC: .4byte gEntCount
 _08042000:
 	movs r0, #0
 _08042002:

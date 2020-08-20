@@ -24,7 +24,7 @@ _08046148: .4byte gUnk_080D1A64
 sub_0804614C: @ 0x0804614C
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
-	ldr r0, _08046248 @ =gUnk_03003DBC
+	ldr r0, _08046248 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x3d
 	bhi _08046244
@@ -133,7 +133,7 @@ sub_0804614C: @ 0x0804614C
 _08046244:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08046248: .4byte gUnk_03003DBC
+_08046248: .4byte gEntCount
 _0804624C: .4byte gUnk_02019EE0
 _08046250: .4byte gUnk_02002F00
 _08046254: .4byte gPlayerEntity

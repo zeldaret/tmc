@@ -235,7 +235,7 @@ sub_08063C14: @ 0x08063C14
 	push {lr}
 	movs r0, #7
 	movs r1, #0x14
-	bl sub_0805EB9C
+	bl FindEntityBySubtype
 	cmp r0, #0
 	beq _08063C28
 	movs r1, #8
@@ -249,7 +249,7 @@ sub_08063C2C: @ 0x08063C2C
 	push {lr}
 	movs r0, #7
 	movs r1, #0x14
-	bl sub_0805EB9C
+	bl FindEntityBySubtype
 	cmp r0, #0
 	beq _08063C40
 	movs r1, #4
@@ -263,7 +263,7 @@ sub_08063C44: @ 0x08063C44
 	push {lr}
 	movs r0, #7
 	movs r1, #0x14
-	bl sub_0805EB9C
+	bl FindEntityBySubtype
 	cmp r0, #0
 	beq _08063C58
 	movs r1, #0
@@ -277,7 +277,7 @@ sub_08063C5C: @ 0x08063C5C
 	push {lr}
 	movs r0, #7
 	movs r1, #0x14
-	bl sub_0805EB9C
+	bl FindEntityBySubtype
 	cmp r0, #0
 	beq _08063C70
 	movs r1, #9
@@ -291,7 +291,7 @@ sub_08063C74: @ 0x08063C74
 	push {lr}
 	movs r0, #7
 	movs r1, #0x14
-	bl sub_0805EB9C
+	bl FindEntityBySubtype
 	cmp r0, #0
 	beq _08063C8C
 	movs r2, #0x18

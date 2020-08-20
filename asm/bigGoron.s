@@ -120,7 +120,7 @@ sub_0806D0F8: @ 0x0806D0F8
 	movs r0, #7
 	movs r1, #0x4c
 	movs r2, #7
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	beq _0806D10C
 	bl sub_0806D0B0
@@ -928,7 +928,7 @@ sub_0806D6D0: @ 0x0806D6D0
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D6EE
@@ -940,7 +940,7 @@ _0806D6EE:
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D706
@@ -961,7 +961,7 @@ sub_0806D70C: @ 0x0806D70C
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0806D728
@@ -972,7 +972,7 @@ _0806D728:
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0806D746
@@ -996,7 +996,7 @@ sub_0806D74C: @ 0x0806D74C
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D76A
@@ -1008,7 +1008,7 @@ _0806D76A:
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D782
@@ -1029,7 +1029,7 @@ sub_0806D788: @ 0x0806D788
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D7A6
@@ -1041,7 +1041,7 @@ _0806D7A6:
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D7BE
@@ -1070,7 +1070,7 @@ sub_0806D7C4: @ 0x0806D7C4
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	cmp r0, #0
 	beq _0806D7FC
 	movs r1, #0x2e
@@ -1098,7 +1098,7 @@ sub_0806D804: @ 0x0806D804
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D83A
