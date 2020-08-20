@@ -27,7 +27,7 @@ OtherEntity* GetEmptyManager();
 
 typedef void* (*Getter)(void);
 
-void* GetEmptyEntityAny(int type) {
+void* GetEmptyEntityByType(int type) {
     Getter getter = NULL;
     if (type == 9) {
         getter = (Getter)GetEmptyManager;
