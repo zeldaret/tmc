@@ -160,4 +160,9 @@ typedef struct {
 } struct_02034480;
 extern struct_02034480 gUnk_02034480;
 
+typedef struct {
+    u32 field_0x0;
+    u32 field_0x4;
+} Dialog;
+
 #endif

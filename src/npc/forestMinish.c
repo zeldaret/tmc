@@ -5,9 +5,9 @@
 #include "textbox.h"
 #include "player.h"
 #include "structures.h"
+#include "functions.h"
 
 extern void sub_0805E3A0(Entity*, u32);
-extern void StartCutscene(Entity*, void*);
 extern void sub_0807DD50(Entity*);
 extern void sub_0806F118(Entity*);
 extern void sub_0807DDAC(Entity*, u32);
@@ -16,7 +16,6 @@ extern void sub_080600F0(Entity*);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_08078784(Entity*, u32);
 extern void sub_0807000C(Entity*);
-extern void sub_080042BA(Entity*, u32);
 extern void sub_08060158(Entity*);
 extern u32 CheckKinstoneFused(u32);
 extern Entity* FindEntityInListBySubtype(u32, u32, u32);
@@ -26,10 +25,10 @@ extern u32 Random(void);
 extern void ModBombs(s32);
 
 extern SpriteLoadData gUnk_0810A348;
-extern void* gUnk_08109D18[];
+extern u8* gUnk_08109D18[];
 extern u8 gUnk_08109C98[];
 extern u16 gUnk_0810A354[];
-extern u32 gUnk_08109DC8[];
+extern Dialog gUnk_08109DC8[];
 extern u16 gUnk_0810A35A[];
 extern u16 gUnk_0810A362[];
 
@@ -165,141 +164,125 @@ void sub_080601D4(Entity* this) {
     TextboxNoOverlap(gUnk_0810A354[uVar2], this);
 }
 
-void sub_08060208(Entity *this)
-{
-  ShowNPCDialogue(this, &gUnk_08109DC8[this->entityType.parameter * 0x8]);
+void sub_08060208(Entity* this) {
+    ShowNPCDialogue(this, &gUnk_08109DC8[this->entityType.parameter * 0x4]);
 }
 
-void sub_0806021C(Entity *this)
-{
-  u32 uVar1;
-  u32 uVar2;
+void sub_0806021C(Entity* this) {
+    u32 uVar1;
+    u32 uVar2;
 
-  //jabber nut
-  uVar1 = GetInventoryValue(0x5B);
-  uVar2 = (-uVar1 | uVar1) >> 0x1f;
+    // jabber nut
+    uVar1 = GetInventoryValue(0x5B);
+    uVar2 = (-uVar1 | uVar1) >> 0x1f;
 
-  //earth element
-  if (GetInventoryValue(0x40)) {
-    uVar2 = 2;
-  }
-
-  //mole mitts
-  if (GetInventoryValue(0x13)) {
-    uVar2 = 3;
-  }
-  ShowNPCDialogue(this, gUnk_08109DC8 + this->entityType.parameter * 0x8 + uVar2 * 2);
-}
-
-void sub_0806025C(Entity *this)
-{
-  ShowNPCDialogue(this, &gUnk_08109DC8[this->entityType.parameter * 0x8]);
-}
-
-void sub_08060270(Entity *this)
-{
-  u32 index;
-
-  //flippers
-  if (GetInventoryValue(0x46) == 0) {
-    index = 1;
-    if (CheckGlobalFlag(MIZUKAKI_START) == 0) {
-      index = 0;
-      SetGlobalFlag(MIZUKAKI_START);
+    // earth element
+    if (GetInventoryValue(0x40)) {
+        uVar2 = 2;
     }
-  }
-  else {
-    index = 3;
-    if (CheckLocalFlag(0x76) == 0) {
-      index = 2;
-      SetLocalFlag(0x76);
+
+    // mole mitts
+    if (GetInventoryValue(0x13)) {
+        uVar2 = 3;
     }
-  }
-  TextboxNoOverlap(gUnk_0810A35A[index], this);
+    ShowNPCDialogue(this, gUnk_08109DC8 + this->entityType.parameter * 0x4 + uVar2);
 }
 
-void sub_080602BC(Entity *this)
-{
-  u32 index;
-  
-    //spin attack
+void sub_0806025C(Entity* this) {
+    ShowNPCDialogue(this, &gUnk_08109DC8[this->entityType.parameter * 0x4]);
+}
+
+void sub_08060270(Entity* this) {
+    u32 index;
+
+    // flippers
+    if (GetInventoryValue(0x46) == 0) {
+        index = 1;
+        if (CheckGlobalFlag(MIZUKAKI_START) == 0) {
+            index = 0;
+            SetGlobalFlag(MIZUKAKI_START);
+        }
+    } else {
+        index = 3;
+        if (CheckLocalFlag(0x76) == 0) {
+            index = 2;
+            SetLocalFlag(0x76);
+        }
+    }
+    TextboxNoOverlap(gUnk_0810A35A[index], this);
+}
+
+void sub_080602BC(Entity* this) {
+    u32 index;
+
+    // spin attack
     if (GetInventoryValue(0x48) != 0) {
-    index = (Random() & 1) + 2;
+        index = (Random() & 1) + 2;
+    } else {
+        if (gUnk_02002A40.stats.bombCount < gBombBagSizes[gUnk_02002A40.stats.bombBagType]) {
+            index = 1;
+        } else {
+            index = 0;
+        }
     }
-  else {
-    if (gUnk_02002A40.stats.bombCount < gBombBagSizes[gUnk_02002A40.stats.bombBagType]) {
-      index = 1;
-    }
-    else {
-        index = 0;
-    }
-  }
-  TextboxNoOverlap(gUnk_0810A362[index], this);
+    TextboxNoOverlap(gUnk_0810A362[index], this);
 }
 
-void sub_0806030C(Entity* this, u32 *arg1)
-{
+void sub_0806030C(Entity* this, u32* arg1) {
     ModBombs(*(arg1 + 1));
 }
 
-void sub_08060318(void)
-{
-  Entity *ent;
-  int i;
-  
-  for (i = 2; i >= 0; i--) {
-    ent = FindEntityInListBySubtype(8, 2, 2);
-    if (ent != NULL) {
-      sub_080A29BC(ent);
-      DeleteEntity(ent);
+void sub_08060318(void) {
+    Entity* ent;
+    int i;
+
+    for (i = 2; i >= 0; i--) {
+        ent = FindEntityInListBySubtype(8, 2, 2);
+        if (ent != NULL) {
+            sub_080A29BC(ent);
+            DeleteEntity(ent);
+        }
     }
-  }
 }
 
-void sub_08060340(void)
-{
-  gUnk_02002A40.unk490 = gUnk_02002A40.unk50;
+void sub_08060340(void) {
+    gUnk_02002A40.unk490 = gUnk_02002A40.unk50;
 }
 
-u32 sub_08060354(void)
-{
-  u32 iVar1;
-  s32 iVar2;
-  
-  iVar2 = gUnk_02002A40.unk50 - gUnk_02002A40.unk490;
-  if (CheckGlobalFlag(DRUG_1) == 0) {
-    if (4 < iVar2) {
-      return 0x8444;
+u32 sub_08060354(void) {
+    u32 iVar1;
+    s32 iVar2;
+
+    iVar2 = gUnk_02002A40.unk50 - gUnk_02002A40.unk490;
+    if (CheckGlobalFlag(DRUG_1) == 0) {
+        if (4 < iVar2) {
+            return 0x8444;
+        }
+    } else {
+        if (CheckGlobalFlag(DRUG_2) == 0) {
+            if (iVar2 > 9) {
+                return 0x8444;
+            }
+        } else {
+            if (CheckGlobalFlag(DRUG_3) == 0) {
+                if (iVar2 > 14) {
+                    return 0x8444;
+                }
+            }
+        }
     }
-  }
-  else {
-    if (CheckGlobalFlag(DRUG_2) == 0) {
-      if (iVar2 > 9) {
-        return 0x8444;
-      }
-    }
-    else {
-      if (CheckGlobalFlag(DRUG_3) == 0) {
-        if (iVar2 > 14) {
-        return 0x8444;
-      }
-      }
-    }
-  }
-  return 0;
+    return 0;
 }
 
-void ForestMinish_Fusion(Entity *this)
-{  
-  if (this->action == 0) {
-    if (LoadExtraSpriteData(this, &gUnk_0810A348)) {
-      this->action++;
-      this->spriteSettings.b.draw = TRUE;
-      sub_0805E3A0(this, 2);
-      InitializeAnimation(this, 6);
+void ForestMinish_Fusion(Entity* this) {
+    if (this->action == 0) {
+        if (LoadExtraSpriteData(this, &gUnk_0810A348)) {
+            this->action++;
+            this->spriteSettings.b.draw = TRUE;
+            sub_0805E3A0(this, 2);
+            InitializeAnimation(this, 6);
+        }
+    } else {
+        GetNextFrame(this);
     }
-  }
-  else {
-    GetNextFrame(this);
-  }
 }

@@ -8,7 +8,7 @@ void sub_08065A64(Entity* this);
 void sub_08065AA4(Entity*);
 
 extern void (*gUnk_0811006C[])(Entity*);
-extern u32 gUnk_08110080[];
+extern Dialog gUnk_08110080[];
 
 void Epona(Entity* this) {
     gUnk_0811006C[this->action](this);
@@ -50,7 +50,7 @@ void sub_08065A34(Entity* this) {
 }
 
 void sub_08065A50(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08110080[this->entityType.form * 2]);
+    ShowNPCDialogue(this, &gUnk_08110080[this->entityType.form]);
 }
 
 void sub_08065A64(Entity* this) {

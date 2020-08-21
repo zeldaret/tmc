@@ -4,7 +4,6 @@
 
 extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
-extern void sub_0806ED78(Entity*);
 extern void PlaySFX(u32);
 extern void sub_0806A8C8(Entity*);
 extern void sub_0807DD94(Entity*, u32);

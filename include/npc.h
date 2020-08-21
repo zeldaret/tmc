@@ -171,7 +171,6 @@ extern void NPC58(Entity*);
 extern void NPC58_Head(Entity*);
 
 extern u32 UpdateFuseInteraction(Entity*);
-extern void ShowNPCDialogue(Entity*, u32*);
 
 
 #endif

@@ -1,21 +1,19 @@
 #include "global.h"
 #include "entity.h"
 #include "player.h"
+#include "functions.h"
 
-extern void sub_0806ED78(Entity*);
 extern void sub_0806920C(Entity*);
 extern u32 sub_0805ACC0(Entity*);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_0806924C(Entity*);
-extern void sub_080AEF88(Entity*);
-extern void ShowNPCDialogue(Entity*, u32*);
 extern void sub_08078778(Entity*);
 extern void sub_080787A8(Entity*, u32);
 extern void sub_0806F118(Entity*);
 extern void sub_080791D0();
 extern void (*gUnk_08111914[])(Entity*);
 extern void (*gUnk_08111928[])(Entity*);
-extern u32 gUnk_08111938[];
+extern Dialog gUnk_08111938[];
 extern void PlaySFX(u32);
 extern u32 Random();
 extern u32 UpdateFuseInteraction(Entity*);
@@ -184,9 +182,7 @@ void sub_080691E0(Entity* ent) {
 
 // Show dialogue
 void Cow_ShowDialogue(Entity* ent) {
-    u32 var0 = ent->entityType.form;
-    u32* var1 = gUnk_08111938 + (var0 * 2);
-    ShowNPCDialogue(ent, var1);
+    ShowNPCDialogue(ent, &gUnk_08111938[ent->entityType.form]);
 }
 
 void sub_0806920C(Entity* ent) {
