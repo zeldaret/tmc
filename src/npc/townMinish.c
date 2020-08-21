@@ -1,35 +1,32 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
+#include "functions.h"
 
-extern void InitializeAnimation(Entity *, u32);
+extern void InitializeAnimation(Entity*, u32);
+extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 
-extern void sub_0806ED78(Entity *);
+extern void sub_0806ACC4(Entity*);
+extern void sub_0806ED78(Entity*);
+extern u32 sub_0806F5B0(u32);
 
-extern void (*gUnk_081126E8[])();
-extern void sub_0806ACC4(Entity *);
-
-extern u32 LoadExtraSpriteData(Entity *, SpriteLoadData *);
 extern SpriteLoadData gUnk_08112674[];
+extern void (*gUnk_081126E8[])();
 
-void TownMinish(Entity *this)
-{
+void TownMinish(Entity* this) {
     if ((this->flags & 2) == 0) {
-        (*gUnk_081126E8[this->action])(this);
+        gUnk_081126E8[this->action](this);
         sub_0806ED78(this);
-    }
-    else {
+    } else {
         sub_0806ACC4(this);
     }
 }
 
-void sub_0806ABFC(Entity *this)
-{
+void sub_0806ABFC(Entity* this) {
     u8 animationState;
 
     SpriteLoadData* SpriteLoadData = &gUnk_08112674[this->entityType.form << 2];
-    if (!LoadExtraSpriteData(this, SpriteLoadData))
-    {
+    if (!LoadExtraSpriteData(this, SpriteLoadData)) {
         return;
     }
 
@@ -44,41 +41,34 @@ void sub_0806ABFC(Entity *this)
     this->actionDelay = 0;
 }
 
-// Not matching yet, not 100% sure it's functionally identical
-/*void sub_0806AC3C(Entity *this) {
-    if (this->field_0x58 <= 3) {
+void sub_0806AC3C(Entity* this) {
+    if (this->animIndex <= 3) {
         s32 unk;
-        u8 field_0x68;
-
-        Entity *link = &gPlayerEntity;
+        Entity* link = &gPlayerEntity;
         if (sub_080041A0(this, link, 0x18, 0x18)) {
-            unk = GetFacingDirection(this, link) & (u8)0x1e;
-        }
-        else {
-            unk = this->animationState << 2;
+            unk = GetFacingDirection(this, link) & 0x1e;
+        } else {
+            unk = this->animationState * 4;
         }
 
-        field_0x68.HALF.HI = this->field_0x68.HALF.HI;
-
-        if (unk != field_0x68.HALF.HI) {
+        if (unk != this->field_0x68.HALF.HI) {
             s32 temp;
 
-            if (((unk - field_0x68.HALF.HI) & 0x1f) <= 0xf) {
-                field_0x68.HALF.HI--;
-            }
-            else {
-                field_0x68.HALF.HI++;
+            if (((unk - this->field_0x68.HALF.HI) & 0x1f) <= 0xf) {
+                this->field_0x68.HALF.HI--;
+            } else {
+                this->field_0x68.HALF.HI++;
             }
 
-            temp = field_0x68.HALF.HI;
-            this->field_0x68.HALF.HI = temp & 0x1f;
+            this->field_0x68.HALF.HI &= 0x1f;
         }
 
         if (!(this->field_0x68.HALF.HI & 7)) {
             this->animationState = sub_0806F5B0(this->field_0x68.HALF.HI);
-            UpdateSprite(this, (this->animationState >> 1) ^ 2);
+            InitializeAnimation(this, (this->animationState / 2) ^ 2);
         }
     }
 
-    sub_080042B8(this);
-}*/
+    UpdateAnimationSingleFrame(this);
+}
+
