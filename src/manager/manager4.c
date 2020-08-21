@@ -7,7 +7,7 @@
 extern void (*gUnk_08107C70[])(Manager*);
 
 void sub_08057854(Manager* this) {
-	    gUnk_08107C70[this->unk_0c](this);
+	    gUnk_08107C70[this->action](this);
 }
 
 extern void sub_080805F8(void);
@@ -47,7 +47,7 @@ void sub_0805786C(Manager* this) {
             tmp++;
         }
     }
-    this->unk_0c = 1;
+    this->action = 1;
 }
 
 extern u32 sub_0805795C(Manager*, DiggingCaveEntrance*);

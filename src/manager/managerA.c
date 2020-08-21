@@ -9,36 +9,36 @@
 extern void (*gUnk_081081F4[])(Manager*);
 
 void sub_08058380(Manager* this) {
-    gUnk_081081F4[this->unk_0c](this);
+    gUnk_081081F4[this->action](this);
 }
 
 
 
 extern void sub_0805E3A0(Manager*, u32);
 
-void sub_08058398(Manager* this) {
+void sub_08058398(ManagerA* this) {
     
     if (CheckFlags(this->unk_3c) != 0) {
         DeleteThisEntity();
     }
-    this->unk_24 = this->unk_3a.HALF.LO<<3;
-    this->unk_26 = this->unk_3a.HALF.HI<<3;
-    this->unk_20 = this->unk_24 + (this->unk_38.HALF.LO<<4);
-    this->unk_22 = this->unk_26 + (this->unk_38.HALF.HI<<4);
-    sub_0805E3A0(this, 0x06);
+    this->unk_24 = this->unk_3a<<3;
+    this->unk_26 = this->unk_3b<<3;
+    this->unk_20 = this->unk_24 + (this->unk_38<<4);
+    this->unk_22 = this->unk_26 + (this->unk_39<<4);
+    sub_0805E3A0(&this->manager, 0x06);
     if (this->unk_3e == 0) {
-        this->unk_0c = 2;
+        this->manager.action = 2;
     } else {
-        this->unk_0c = 1;
+        this->manager.action = 1;
     }
 }
 
 
-void sub_08058408(Manager*);
+void sub_08058408(ManagerA*);
 
-void sub_080583EC(Manager* this) {
+void sub_080583EC(ManagerA* this) {
     if (CheckFlags(this->unk_3e) != 0) {
-        this->unk_0c = 2;
+        this->manager.action = 2;
         sub_08058408(this);
     }
 }
@@ -50,15 +50,15 @@ extern void sub_08078AA8(u32, u32);
 extern void sub_080186C0(u16);
 extern void sub_08078B48(void);
 
-u32 sub_0805848C(Manager*);
-void sub_080585DC(Manager*);
+u32 sub_0805848C(ManagerA*);
+void sub_080585DC(ManagerA*);
 
-void sub_08058408(Manager* this){
+void sub_08058408(ManagerA* this){
     u32 tmp2;
     tmp2 = (gPlayerState.flags.all & 0x08);
     if (tmp2 != 0) return;
     if (!CheckPlayerInRegion(this->unk_20, this->unk_22, this->unk_24, this->unk_26)) return;
-    switch (this->unk_0a) {
+    switch (this->manager.unk_0a) {
         case 1:
             return;
         case 2:
@@ -71,20 +71,20 @@ void sub_08058408(Manager* this){
             sub_08078A90(3);
             sub_08078B48();
             sub_0805E544();
-            this->unk_0c = 3;
-            this->unk_0d = 0;
-            this->unk_0e = 0x1e;
+            this->manager.action = 3;
+            this->manager.unk_0d = 0;
+            this->manager.unk_0e = 0x1e;
             return;
         case 3:
-            this->unk_0c = 4;
-            this->unk_0d = tmp2;
+            this->manager.action = 4;
+            this->manager.unk_0d = tmp2;
             sub_080186C0(this->unk_36);
             return;
     }
 }
 
 
-u32 sub_0805848C(Manager* this) {
+u32 sub_0805848C(ManagerA* this) {
     switch (gPlayerState.field_0xa8[0]-5) {
         case 0:
         case 2:
@@ -119,8 +119,8 @@ u32 sub_0805848C(Manager* this) {
 
 extern void UnfreezeTime(void);
 
-void sub_08058514(Manager* this) {
-    switch (this->unk_0d) {
+void sub_08058514(ManagerA* this) {
+    switch (this->manager.unk_0d) {
         case 1:
             if ((gPlayerState.flags.all & 0x1235) != 0)
                 return;
@@ -128,13 +128,13 @@ void sub_08058514(Manager* this) {
                 return;
             gPlayerState.jumpStatus = 0;
             sub_08078AA8(this->unk_36, this->unk_35);
-            this->unk_0d++;
-            this->unk_0e = 0x1E;
+            this->manager.unk_0d++;
+            this->manager.unk_0e = 0x1E;
             return;
         case 0:
         case 2:
-            if (((--this->unk_0e)<<0x18) == 0) {
-                this->unk_0d++;
+            if (((--this->manager.unk_0e)<<0x18) == 0) {
+                this->manager.unk_0d++;
             }
             return;
         case 3:
@@ -152,7 +152,7 @@ void sub_08058514(Manager* this) {
 
 extern void sub_0801855C(void);
 
-void sub_080585B0(Manager* this) {
+void sub_080585B0(ManagerA* this) {
     if (gArea.filler4[0] != 0xFF) {
         DeleteThisEntity();
     }
@@ -161,7 +161,7 @@ void sub_080585B0(Manager* this) {
         DeleteThisEntity();
     }
 }
-void sub_080585DC(Manager* this) {
+void sub_080585DC(ManagerA* this) {
     if (CheckFlags(this->unk_3c)) {
         DeleteThisEntity();
     }

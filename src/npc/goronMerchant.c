@@ -92,13 +92,13 @@ void sub_08069660(Entity *this)
 
 void sub_08069684(void)
 {
-    Entity *mgr;
+    Manager *mgr;
     
     if (FindEntityInListBySubtype(9, 0x31, 8) == NULL) {
         mgr = GetEmptyManager();
         if (mgr != NULL) {
-            mgr->entityType.type = 9;
-            mgr->entityType.subtype = 0x31;
+            mgr->type = 9;
+            mgr->subtype = 0x31;
             AppendEntityToList(mgr, 8);
         }
     }
