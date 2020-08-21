@@ -21,7 +21,8 @@ typedef struct Manager {
     /*0x0c*/ u8 action;
     /*0x0d*/ u8 unk_0d;
     /*0x0e*/ u8 unk_0e;
-    /*0x0f*/ u8 unk_0f[0x5];
+    /*0x0f*/ u8 unk_0f;
+    /*0x10*/ u8 unk_10[0x4];
     /*0x14*/ struct Manager * parent;
     /*0x18*/ u8 unk_18[0x8];
     // union SplitHWord unk_20;

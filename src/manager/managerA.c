@@ -85,7 +85,7 @@ void sub_08058408(ManagerA* this){
 
 
 u32 sub_0805848C(ManagerA* this) {
-    switch (gPlayerState.field_0xa8[0]-5) {
+    switch (gPlayerState.field_0xa8-5) {
         case 0:
         case 2:
         case 3:

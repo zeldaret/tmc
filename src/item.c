@@ -155,6 +155,6 @@ void sub_08076D94(ItemBehavior *beh, u32 arg1)
 
 void GustJar(ItemBehavior *beh, u32 arg1)
 {
-    gPlayerState.field_0xa8[0] = 3;
+    gPlayerState.field_0xa8 = 3;
     gUnk_0811BDF4[beh->stateID](beh, arg1);
 }
