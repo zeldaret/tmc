@@ -4,6 +4,7 @@
 
 #include "global.h"
 #include "entity.h"
+#include "manager.h"
 #include "position.h"
 #include "player.h"
 #include "structures.h"
@@ -61,7 +62,7 @@ extern void sub_0805EC60();
 extern void sub_080873D0();
 extern u8 sub_080045D4(s16, s16, u16, u16);
 extern void sub_0806F69C(Entity*);
-extern void sub_0805E3A0(Entity*, u32);
+extern void sub_0805E3A0(void*, u32);
 extern void sub_0806D0B0(Entity*);
 extern void sub_0807DD64(Entity*);
 extern void sub_0807DDAC(Entity*, u32);
@@ -196,8 +197,8 @@ extern u32 sub_0807953C(void);
 extern void ResetPlayer(void);
 extern void sub_080A29BC(Entity*);
 extern void sub_080AE068(Entity*);
-extern Entity* GetEmptyManager(void);
-extern void AppendEntityToList(Entity*, u32);
+extern Manager* GetEmptyManager(void);
+extern void AppendEntityToList(void*, u32);
 extern u32 sub_0800445C(Entity*);
 extern void sub_0807A108(void);
 extern void sub_0801766C(Entity*);
@@ -217,7 +218,6 @@ extern void sub_0807D20C(u32, char*, u32);
 extern u32 sub_0807CF88(u32, u8*);
 extern u32 sub_0807D008(u32, void*);
 extern void sub_0807D184(u32, char*);
-extern void sub_0805E3A0(Entity*, u32);
 extern u32 sub_0806F520();
 extern void sub_0806F4E8();
 extern u32 sub_0806F3E4(Entity*);

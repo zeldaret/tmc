@@ -4,7 +4,6 @@
 #include "npc.h"
 #include "player.h"
 
-extern void sub_0805E3A0(Entity*, u32);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_08078784(Entity*, u32);
 extern void sub_0807DD50(Entity*);

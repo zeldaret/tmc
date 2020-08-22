@@ -8,7 +8,6 @@ extern void sub_0806ED78(Entity*);
 extern void sub_08068780(Entity*);
 extern void sub_08078778(Entity*);
 extern u32 Random(void);
-extern void sub_0805E3A0(Entity*, u32);
 extern void sub_0807DD50(Entity*);
 extern void sub_0806F118(Entity*);
 extern void sub_0807DDAC(Entity*, u32);

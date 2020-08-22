@@ -17,7 +17,6 @@ Entity* sub_08077C94(ItemBehavior*, u32);
 void* sub_08077C54(UnkItemStruct* unk);
 Entity* CreatePlayerBomb(ItemBehavior*, u32);
 extern Entity* sub_0805E744();
-extern void AppendEntityToList(Entity*, u32);
 
 extern struct_0811BE48 gUnk_0811BE48[];
 
