@@ -119,7 +119,7 @@ extern void sub_080AD918(void);
 extern void sub_0801E104(void);
 extern void MenuFadeIn(u32, u32);
 extern void sub_080A57F4(void);
-extern void sub_0804B29C(u32);
+extern void sub_0804B29C(void*);
 extern void sub_08030118(u32);
 extern void sub_080575C8(u32);
 extern void sub_08057688(void);
