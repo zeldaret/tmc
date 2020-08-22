@@ -4,7 +4,6 @@
 #include "functions.h"
 
 extern SpriteLoadData gUnk_08113910[];
-extern void sub_0805E3A0(Entity*, u32);
 extern void sub_0807DD50(Entity*);
 extern u32 GetFacingDirection(Entity*, Entity*);
 extern u32 sub_0806F5A4(u32);
