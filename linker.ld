@@ -409,6 +409,7 @@ SECTIONS {
 		asm/vaatiRebornEnemy.o(.text);
 		asm/vaatiProjectile.o(.text);
 		asm/ballChainSoldier.o(.text);
+		src/enemy/enemy4D.o(.text);
 		asm/enemy4D.o(.text);
 		asm/ghini.o(.text);
 		asm/vaatiTransfigured.o(.text);
@@ -465,7 +466,6 @@ SECTIONS {
 		src/code_0805436C.o(.text);
 		asm/code_0805436C.o(.text);
 		src/sub_08055E08.o(.text);
-		asm/sub_08055E24.o(.text);
 		src/mainLoop.o(.text);
 		asm/code_08055FF4.o(.text);
 		src/textbox.o(.text);

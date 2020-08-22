@@ -3,7 +3,6 @@
 #include "enemy.h"
 #include "player.h"
 
-extern void sub_0804AA30(Entity*, void *);
 extern u32 sub_0806F520(Entity*);
 extern void sub_0806F4E8(Entity*);
 extern u32 sub_0806F3E4(Entity*);
@@ -17,9 +16,9 @@ extern u32 sub_0806FCB8(Entity*, s32, s32, u32);
 extern u32 sub_08049FA0(Entity*);
 extern u32 sub_08049EE4(Entity*);
 
-extern void (*gUnk_080CB69C[])(Entity*);
-extern void (*gUnk_080CB6B4[])(Entity*);
-extern void (*gUnk_080CB6C4[])(Entity*);
+extern void (*const gUnk_080CB69C[])(Entity*);
+extern void (*const gUnk_080CB6B4[])(Entity*);
+extern void (*const gUnk_080CB6C4[])(Entity*);
 
 extern u8 gUnk_080CB6D0[];
 extern u16 gUnk_080CB6D6[];
@@ -37,7 +36,7 @@ void sub_08021D80(Entity *this)
 
 void sub_08021d98(Entity *this)
 {
-  sub_0804AA30(this, &gUnk_080CB69C);
+  sub_0804AA30(this, gUnk_080CB69C);
 }
 
 void sub_08021DA8(Entity *this)
