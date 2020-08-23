@@ -140,13 +140,13 @@ _08000224: .4byte gUnk_08000228
 gUnk_08000228::
 	.4byte gUnk_02025EB4
 gUnk_0800022C::
-	.4byte gUnk_0202AEB4
+	.4byte gMetatileTypesBottom
 	.4byte gUnk_02025EB4
-	.4byte gUnk_0202AEB4
+	.4byte gMetatileTypesBottom
 	.4byte gUnk_0200B654
-	.4byte gUnk_02010654
+	.4byte gMetatileTypesTop
 	.4byte gUnk_02025EB4
-	.4byte gUnk_0202AEB4
+	.4byte gMetatileTypesBottom
 gUnk_08000248::
 	.4byte gUnk_02027EB4
 	.4byte gUnk_02027EB4
@@ -154,13 +154,13 @@ gUnk_08000248::
 	.4byte gUnk_02027EB4
 gUnk_08000258::
 	.4byte gUnk_02028EB4
-	.4byte gUnk_0202AEB4
+	.4byte gMetatileTypesBottom
 	.4byte gUnk_02028EB4
-	.4byte gUnk_0202AEB4
+	.4byte gMetatileTypesBottom
 	.4byte gUnk_0200E654
-	.4byte gUnk_02010654
+	.4byte gMetatileTypesTop
 	.4byte gUnk_02028EB4
-	.4byte gUnk_0202AEB4
+	.4byte gMetatileTypesBottom
 gUnk_08000278::
 	.4byte gUnk_02030EB4
 	.4byte gUnk_02030EB4

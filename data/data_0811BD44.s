@@ -463,7 +463,7 @@ gUnk_0811E1FC:: @ 0811E1FC
 gUnk_0811E208:: @ 0811E208
 	.incbin "baserom.gba", 0x11E208, 0x000000C
 
-gUnk_0811E214:: @ 0811E214
+gAreas:: @ 0811E214
 	.incbin "baserom.gba", 0x11E214, 0x0000240
 
 gUnk_0811E454:: @ 0811E454
