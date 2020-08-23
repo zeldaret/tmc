@@ -2632,7 +2632,7 @@ _080A6A26:
 	bne _080A6A30
 	movs r2, #9
 _080A6A30:
-	ldr r1, _080A6A40 @ =gAreas
+	ldr r1, _080A6A40 @ =gAreaRoomHeaders
 	lsls r0, r2, #2
 	adds r0, r0, r1
 	ldr r0, [r0]
@@ -2640,7 +2640,7 @@ _080A6A30:
 	subs r6, r6, r0
 	b _080A6A48
 	.align 2, 0
-_080A6A40: .4byte gAreas
+_080A6A40: .4byte gAreaRoomHeaders
 _080A6A44:
 	ldr r0, _080A6A78 @ =0xFFFFFEF8
 	adds r7, r7, r0
@@ -3233,7 +3233,7 @@ sub_080A6EE0: @ 0x080A6EE0
 	adds r1, r1, r0
 	ldrh r3, [r1, #6]
 	ldrh r4, [r1, #8]
-	ldr r0, _080A6F38 @ =gAreas
+	ldr r0, _080A6F38 @ =gAreaRoomHeaders
 	ldrb r2, [r1, #0xb]
 	lsls r2, r2, #2
 	adds r2, r2, r0
@@ -3267,7 +3267,7 @@ sub_080A6EE0: @ 0x080A6EE0
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080A6F34: .4byte gUnk_08128024
-_080A6F38: .4byte gAreas
+_080A6F38: .4byte gAreaRoomHeaders
 _080A6F3C: .4byte gUnk_03001010
 
 	thumb_func_start sub_080A6F40

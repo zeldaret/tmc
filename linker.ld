@@ -920,6 +920,8 @@ SECTIONS {
 		data/data_08100CD4.o(.rodata);
 		src/item.o(.rodata);
 		data/data_0811BD44.o(.rodata);
+        data/room_headers.o(.rodata);
+        data/data_0811E454.o(.rodata);
 		src/object/greatFairy.o(.rodata);
 		data/greatFairyAnimations.o(.rodata);
 		data/data_081208A0.o(.rodata);
