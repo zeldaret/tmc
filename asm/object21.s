@@ -117,7 +117,7 @@ _08087A68:
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _08087A76:
 	ldrb r1, [r4, #0x10]
 	movs r0, #0x80
@@ -163,7 +163,7 @@ _08087AC0:
 	ldrh r0, [r4, #0x32]
 	adds r0, r0, r2
 	strh r0, [r4, #0x32]
-	ldr r0, _08087AEC @ =gLinkEntity
+	ldr r0, _08087AEC @ =gPlayerEntity
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r4, #0
@@ -176,7 +176,7 @@ _08087AC0:
 	.align 2, 0
 _08087AE4: .4byte gUnk_08120A8C
 _08087AE8: .4byte gUnk_08120A7A
-_08087AEC: .4byte gLinkEntity
+_08087AEC: .4byte gPlayerEntity
 _08087AF0:
 	adds r0, r4, #0
 	movs r1, #0x10
@@ -222,7 +222,7 @@ _08087B1E:
 _08087B3C:
 	ldr r0, [r4, #0x4c]
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 _08087B44:
 	strb r0, [r4, #0x15]
 	movs r0, #0x80

@@ -16,7 +16,7 @@ sub_08056458: @ 0x08056458
 	bne _08056470
 	ldr r0, _08056488 @ =gUnk_02022780
 	movs r1, #0xa8
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #1
 	bl sub_080564C8
 _08056470:
@@ -91,14 +91,14 @@ sub_080564EC: @ 0x080564EC
 	push {r4, lr}
 	ldr r0, _08056598 @ =gUnk_02036A40
 	movs r1, #8
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0805659C @ =gUnk_02024030
 	movs r1, #0x18
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r4, _080565A0 @ =gUnk_02022780
 	adds r0, r4, #0
 	movs r1, #0xa8
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _080565A4 @ =gTextBox
 	adds r1, r4, #0
 	movs r2, #0x20
@@ -572,11 +572,11 @@ _080568B2:
 	beq _080568D2
 	adds r0, r6, #0
 	movs r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r4, _08056910 @ =gUnk_02024030
 	adds r0, r4, #0
 	movs r1, #0x18
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #1
 	strb r0, [r4]
 	strb r0, [r6]
@@ -777,7 +777,7 @@ _08056A30:
 	movs r1, #3
 	strb r1, [r2]
 	movs r1, #0x18
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #0x6a
 	bl PlaySFX
 	adds r1, r6, #0
@@ -1468,7 +1468,7 @@ sub_08056F70: @ 0x08056F70
 	ldr r1, _08056F84 @ =0x0600D040
 	movs r2, #0xd0
 	lsls r2, r2, #4
-	bl sub_08000E96
+	bl LoadAssetAsync
 	pop {pc}
 	.align 2, 0
 _08056F80: .4byte gUnk_02000D00

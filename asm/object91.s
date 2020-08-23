@@ -463,7 +463,7 @@ _0809C74A:
 	ldrb r0, [r5, #0xf]
 	cmp r0, #0
 	beq _0809C7BC
-	ldr r0, _0809C7AC @ =gUnk_030010A0
+	ldr r0, _0809C7AC @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -502,7 +502,7 @@ _0809C7A0:
 	b _0809C7BC
 	.align 2, 0
 _0809C7A8: .4byte gUnk_08123DF8
-_0809C7AC: .4byte gUnk_030010A0
+_0809C7AC: .4byte gScreenTransition
 _0809C7B0: .4byte 0xFFFFD000
 _0809C7B4:
 	ldr r0, [r5, #0x50]
@@ -776,7 +776,7 @@ sub_0809C988: @ 0x0809C988
 	strb r0, [r2, #0xb]
 	b _0809C9DC
 _0809C9AC:
-	ldr r0, _0809C9C8 @ =gUnk_030010A0
+	ldr r0, _0809C9C8 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #8
 	ands r0, r1
@@ -791,7 +791,7 @@ _0809C9AC:
 	subs r0, #4
 	b _0809C9DA
 	.align 2, 0
-_0809C9C8: .4byte gUnk_030010A0
+_0809C9C8: .4byte gScreenTransition
 _0809C9CC:
 	adds r0, r2, #0
 	adds r0, #0x84
@@ -810,7 +810,7 @@ _0809C9DC:
 sub_0809C9E0: @ 0x0809C9E0
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
-	ldr r0, _0809CA04 @ =gUnk_030010A0
+	ldr r0, _0809CA04 @ =gScreenTransition
 	ldr r1, [r0]
 	movs r2, #2
 	ands r1, r2
@@ -826,7 +826,7 @@ sub_0809C9E0: @ 0x0809C9E0
 	subs r0, #8
 	b _0809CA16
 	.align 2, 0
-_0809CA04: .4byte gUnk_030010A0
+_0809CA04: .4byte gScreenTransition
 _0809CA08:
 	adds r2, r4, #0
 	adds r2, #0x84
@@ -945,7 +945,7 @@ sub_0809CAC8: @ 0x0809CAC8
 	bge _0809CB26
 	movs r0, #4
 	strb r0, [r2, #0xe]
-	ldr r0, _0809CB40 @ =gLinkEntity
+	ldr r0, _0809CB40 @ =gPlayerEntity
 	str r0, [r2, #0x30]
 	movs r0, #0x9b
 	bl SetLocalFlag
@@ -971,7 +971,7 @@ sub_0809CAC8: @ 0x0809CAC8
 	movs r0, #7
 	strb r0, [r5, #0xd]
 _0809CB26:
-	ldr r0, _0809CB44 @ =gUnk_030010A0
+	ldr r0, _0809CB44 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #0xf
 	ands r0, r1
@@ -983,8 +983,8 @@ _0809CB38:
 	pop {r4, r5, pc}
 	.align 2, 0
 _0809CB3C: .4byte gRoomControls
-_0809CB40: .4byte gLinkEntity
-_0809CB44: .4byte gUnk_030010A0
+_0809CB40: .4byte gPlayerEntity
+_0809CB44: .4byte gScreenTransition
 _0809CB48: .4byte 0x00000163
 
 	thumb_func_start sub_0809CB4C

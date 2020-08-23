@@ -73,7 +73,7 @@ sub_08098F14: @ 0x08098F14
 	bl sub_08079F8C
 	cmp r0, #0
 	beq _08098F84
-	ldr r2, _08098F88 @ =gLinkState
+	ldr r2, _08098F88 @ =gPlayerState
 	movs r0, #0x98
 	strb r0, [r2, #6]
 	movs r0, #5
@@ -82,7 +82,7 @@ sub_08098F14: @ 0x08098F14
 	movs r1, #1
 	orrs r0, r1
 	str r0, [r2, #0x30]
-	ldr r1, _08098F8C @ =gLinkEntity
+	ldr r1, _08098F8C @ =gPlayerEntity
 	strh r6, [r1, #0x2c]
 	strh r6, [r1, #0x30]
 	ldrb r0, [r1, #0x14]
@@ -91,8 +91,8 @@ sub_08098F14: @ 0x08098F14
 _08098F84:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08098F88: .4byte gLinkState
-_08098F8C: .4byte gLinkEntity
+_08098F88: .4byte gPlayerState
+_08098F8C: .4byte gPlayerEntity
 
 	thumb_func_start sub_08098F90
 sub_08098F90: @ 0x08098F90

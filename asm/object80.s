@@ -83,7 +83,7 @@ sub_08098B28: @ 0x08098B28
 	adds r7, #0x38
 	strb r4, [r7]
 	adds r0, r5, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r2, r5, #0
 	adds r2, #0x29
 	ldrb r1, [r2]
@@ -120,13 +120,13 @@ sub_08098BE0: @ 0x08098BE0
 sub_08098BE8: @ 0x08098BE8
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
-	ldr r6, _08098C28 @ =gLinkState
+	ldr r6, _08098C28 @ =gPlayerState
 	ldr r0, [r6, #0x30]
 	movs r1, #0x80
 	ands r0, r1
 	cmp r0, #0
 	beq _08098C26
-	ldr r4, _08098C2C @ =gLinkEntity
+	ldr r4, _08098C2C @ =gPlayerEntity
 	adds r0, r5, #0
 	adds r1, r4, #0
 	bl sub_08098C30
@@ -149,8 +149,8 @@ sub_08098BE8: @ 0x08098BE8
 _08098C26:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08098C28: .4byte gLinkState
-_08098C2C: .4byte gLinkEntity
+_08098C28: .4byte gPlayerState
+_08098C2C: .4byte gPlayerEntity
 
 	thumb_func_start sub_08098C30
 sub_08098C30: @ 0x08098C30

@@ -105,7 +105,7 @@ _080A0C46:
 	bl sub_0806FB38
 	cmp r0, #0
 	bne _080A0C58
-	ldr r0, _080A0CE4 @ =gUnk_02000080
+	ldr r0, _080A0CE4 @ =gMenu
 	ldrb r0, [r0, #5]
 	cmp r0, #1
 	bls _080A0CE0
@@ -178,7 +178,7 @@ _080A0CC0:
 _080A0CE0:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080A0CE4: .4byte gUnk_02000080
+_080A0CE4: .4byte gMenu
 
 	thumb_func_start sub_080A0CE8
 sub_080A0CE8: @ 0x080A0CE8
@@ -219,7 +219,7 @@ _080A0D28:
 	bl sub_0806FB38
 	cmp r0, #0
 	bne _080A0D3A
-	ldr r0, _080A0D68 @ =gUnk_02000080
+	ldr r0, _080A0D68 @ =gMenu
 	ldrb r0, [r0, #5]
 	cmp r0, #1
 	bls _080A0D66
@@ -249,7 +249,7 @@ _080A0D3A:
 _080A0D66:
 	pop {r4, pc}
 	.align 2, 0
-_080A0D68: .4byte gUnk_02000080
+_080A0D68: .4byte gMenu
 _080A0D6C: .4byte gUnk_08124B10
 
 	thumb_func_start sub_080A0D70

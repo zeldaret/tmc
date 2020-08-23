@@ -111,7 +111,7 @@ _08057B6A:
 	bne _08057B6A
 _08057B94:
 	adds r0, r5, #0
-	bl sub_0805E900
+	bl DeleteManager
 _08057B9A:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -238,7 +238,7 @@ _08057C88:
 	bl PlaySFX
 _08057C96:
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 _08057C9C:
 	pop {r4, pc}
 	.align 2, 0

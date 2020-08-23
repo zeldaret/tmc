@@ -212,7 +212,7 @@ _080314CC:
 	orrs r0, r1
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	movs r0, #0x84
 	bl sub_08004488
 _080314FA:
@@ -324,7 +324,7 @@ sub_080315BC: @ 0x080315BC
 	strb r0, [r4, #0xe]
 	adds r0, r4, #0
 	movs r1, #2
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	b _080315FC
 _080315D4:
 	adds r0, r4, #0

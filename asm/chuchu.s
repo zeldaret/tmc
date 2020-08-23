@@ -1475,7 +1475,7 @@ _0801F91C:
 	ldr r0, _0801F93C @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 _0801F92C:
 	adds r0, r4, #0

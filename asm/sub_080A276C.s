@@ -29,11 +29,11 @@ sub_080A276C: @ 0x080A276C
 	str r5, [r6, #0x50]
 	adds r0, r6, #0
 	movs r1, #6
-	bl sub_0805EA2C
+	bl AppendEntityToList
 	adds r0, r6, #0
 	movs r1, #6
-	bl sub_0805EA78
-	ldr r4, _080A2828 @ =gLinkEntity
+	bl PrependEntityToList
+	ldr r4, _080A2828 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r1, r6, #0
 	bl CopyPosition
@@ -57,7 +57,7 @@ sub_080A276C: @ 0x080A276C
 	ldrb r0, [r0]
 	adds r1, #2
 	strb r0, [r1]
-	ldr r1, _080A2834 @ =gLinkState
+	ldr r1, _080A2834 @ =gPlayerState
 	ldrb r0, [r1, #7]
 	adds r2, r6, #0
 	adds r2, #0x6b
@@ -100,7 +100,7 @@ _080A2820:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A2828: .4byte gLinkEntity
+_080A2828: .4byte gPlayerEntity
 _080A282C: .4byte gUnk_03003DC0
 _080A2830: .4byte gUnk_02034490
-_080A2834: .4byte gLinkState
+_080A2834: .4byte gPlayerState

@@ -44,7 +44,7 @@ sub_0808B89C: @ 0x0808B89C
 	adds r1, #0x38
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]
@@ -104,7 +104,7 @@ sub_0808B910: @ 0x0808B910
 	adds r1, r1, r2
 	ldr r1, [r1]
 	bl _call_via_r1
-	ldr r2, _0808B930 @ =gLinkState
+	ldr r2, _0808B930 @ =gPlayerState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80
 	orrs r0, r1
@@ -112,7 +112,7 @@ sub_0808B910: @ 0x0808B910
 	pop {pc}
 	.align 2, 0
 _0808B92C: .4byte gUnk_081213DC
-_0808B930: .4byte gLinkState
+_0808B930: .4byte gPlayerState
 
 	thumb_func_start sub_0808B934
 sub_0808B934: @ 0x0808B934

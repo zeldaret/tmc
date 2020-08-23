@@ -71,7 +71,7 @@ _0809B420:
 	strb r0, [r4, #0xb]
 _0809B424:
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	ldrb r1, [r4, #0xa]
 	adds r1, #0x39
 	adds r0, r4, #0
@@ -174,7 +174,7 @@ _0809B4C0:
 	strh r0, [r4, #0x24]
 	movs r0, #0x10
 	strb r0, [r4, #0x15]
-	ldr r2, _0809B510 @ =gLinkState
+	ldr r2, _0809B510 @ =gPlayerState
 	movs r0, #0x9e
 	strb r0, [r2, #6]
 	movs r0, #5
@@ -183,7 +183,7 @@ _0809B4C0:
 	movs r1, #1
 	orrs r0, r1
 	str r0, [r2, #0x30]
-	ldr r1, _0809B514 @ =gLinkEntity
+	ldr r1, _0809B514 @ =gPlayerEntity
 	strh r3, [r1, #0x2c]
 	strh r3, [r1, #0x30]
 	ldrb r0, [r1, #0x14]
@@ -193,8 +193,8 @@ _0809B4C0:
 	bl sub_08004488
 	b _0809B520
 	.align 2, 0
-_0809B510: .4byte gLinkState
-_0809B514: .4byte gLinkEntity
+_0809B510: .4byte gPlayerState
+_0809B514: .4byte gPlayerEntity
 _0809B518: .4byte 0x0000010F
 _0809B51C:
 	movs r0, #0x16
@@ -283,7 +283,7 @@ _0809B5B0:
 sub_0809B5B4: @ 0x0809B5B4
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _0809B5CC @ =gLinkState
+	ldr r0, _0809B5CC @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -293,7 +293,7 @@ sub_0809B5B4: @ 0x0809B5B4
 	bl sub_0800445C
 	b _0809B5EA
 	.align 2, 0
-_0809B5CC: .4byte gLinkState
+_0809B5CC: .4byte gPlayerState
 _0809B5D0:
 	adds r0, r4, #0
 	bl sub_08017850
@@ -327,7 +327,7 @@ _0809B606:
 	movs r0, #7
 	movs r1, #0x1a
 	movs r2, #7
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0809B682
@@ -396,14 +396,14 @@ _0809B684: .4byte gTextBox
 	thumb_func_start sub_0809B688
 sub_0809B688: @ 0x0809B688
 	push {lr}
-	ldr r1, _0809B6A8 @ =gLinkEntity
+	ldr r1, _0809B6A8 @ =gPlayerEntity
 	movs r2, #6
 	movs r3, #0xc
 	bl sub_080041A0
 	adds r1, r0, #0
 	cmp r1, #1
 	bne _0809B6A4
-	ldr r0, _0809B6AC @ =gLinkState
+	ldr r0, _0809B6AC @ =gPlayerState
 	ldrb r0, [r0, #0xd]
 	cmp r0, #0x10
 	beq _0809B6A4
@@ -412,8 +412,8 @@ _0809B6A4:
 	adds r0, r1, #0
 	pop {pc}
 	.align 2, 0
-_0809B6A8: .4byte gLinkEntity
-_0809B6AC: .4byte gLinkState
+_0809B6A8: .4byte gPlayerEntity
+_0809B6AC: .4byte gPlayerState
 
 	thumb_func_start sub_0809B6B0
 sub_0809B6B0: @ 0x0809B6B0

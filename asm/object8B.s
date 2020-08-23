@@ -72,7 +72,7 @@ _0809AFC4:
 	adds r0, #0x84
 	strb r6, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	movs r0, #0x8b
 	movs r1, #1
 	movs r2, #0
@@ -394,7 +394,7 @@ _0809B270:
 sub_0809B274: @ 0x0809B274
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r3, _0809B290 @ =gLinkEntity
+	ldr r3, _0809B290 @ =gPlayerEntity
 	adds r2, r4, #0
 	adds r2, #0x84
 	ldrb r0, [r2]
@@ -406,7 +406,7 @@ sub_0809B274: @ 0x0809B274
 	beq _0809B29A
 	b _0809B332
 	.align 2, 0
-_0809B290: .4byte gLinkEntity
+_0809B290: .4byte gPlayerEntity
 _0809B294:
 	cmp r0, #2
 	beq _0809B30C

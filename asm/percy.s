@@ -6,65 +6,6 @@
 
 	.text
 
-
-	thumb_func_start Percy
-Percy: @ 0x0806B3AC
-	push {lr}
-	adds r2, r0, #0
-	ldrb r1, [r2, #0x10]
-	movs r0, #2
-	ands r0, r1
-	cmp r0, #0
-	beq _0806B3C2
-	adds r0, r2, #0
-	bl sub_0806B41C
-	b _0806B3C8
-_0806B3C2:
-	adds r0, r2, #0
-	bl sub_0806B3CC
-_0806B3C8:
-	pop {pc}
-	.align 2, 0
-
-	thumb_func_start sub_0806B3CC
-sub_0806B3CC: @ 0x0806B3CC
-	push {r4, lr}
-	adds r4, r0, #0
-	ldrb r0, [r4, #0xc]
-	cmp r0, #0
-	bne _0806B3F4
-	ldr r1, _0806B418 @ =gUnk_08112E1C
-	adds r0, r4, #0
-	bl LoadExtraSpriteData
-	cmp r0, #0
-	beq _0806B414
-	movs r0, #1
-	strb r0, [r4, #0xc]
-	adds r0, r4, #0
-	movs r1, #0
-	bl InitializeAnimation
-	adds r0, r4, #0
-	bl sub_08078778
-_0806B3F4:
-	adds r0, r4, #0
-	bl GetNextFrame
-	adds r1, r4, #0
-	adds r1, #0x39
-	movs r0, #0
-	ldrsb r0, [r1, r0]
-	cmp r0, #0
-	beq _0806B40E
-	movs r0, #0
-	strb r0, [r1]
-	bl TextboxNoOverlapFollow
-_0806B40E:
-	adds r0, r4, #0
-	bl sub_0806ED78
-_0806B414:
-	pop {r4, pc}
-	.align 2, 0
-_0806B418: .4byte gUnk_08112E1C
-
 	thumb_func_start sub_0806B41C
 sub_0806B41C: @ 0x0806B41C
 	push {r4, lr}
@@ -118,9 +59,9 @@ _0806B470:
 	movs r0, #0
 	strb r1, [r4, #0xc]
 	strb r0, [r2]
-	ldr r1, _0806B4C8 @ =gLinkEntity
+	ldr r1, _0806B4C8 @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r1, #4
@@ -144,15 +85,15 @@ _0806B4B2:
 	ldrh r3, [r3, #4]
 	adds r0, r4, #0
 	bl sub_0801DFB4
-	ldr r0, _0806B4D0 @ =gLinkState
+	ldr r0, _0806B4D0 @ =gPlayerState
 	adds r0, #0x8b
 	movs r1, #3
 	strb r1, [r0]
 	b _0806B4EC
 	.align 2, 0
-_0806B4C8: .4byte gLinkEntity
+_0806B4C8: .4byte gPlayerEntity
 _0806B4CC: .4byte gUnk_08001A7C
-_0806B4D0: .4byte gLinkState
+_0806B4D0: .4byte gPlayerState
 _0806B4D4:
 	adds r0, r4, #0
 	movs r1, #0
@@ -295,7 +236,7 @@ _0806B5E6:
 	bl SetRoomFlag
 	b _0806B600
 _0806B5EE:
-	ldr r0, _0806B5FC @ =gLinkEntity
+	ldr r0, _0806B5FC @ =gPlayerEntity
 	ldrb r0, [r0, #0xc]
 	cmp r0, #8
 	beq _0806B600
@@ -303,7 +244,7 @@ _0806B5EE:
 	strh r0, [r4, #0x10]
 	b _0806B606
 	.align 2, 0
-_0806B5FC: .4byte gLinkEntity
+_0806B5FC: .4byte gPlayerEntity
 _0806B600:
 	ldr r1, _0806B608 @ =gUnk_02033280
 	movs r0, #0

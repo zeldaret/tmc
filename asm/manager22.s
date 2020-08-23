@@ -71,7 +71,7 @@ _0805B96C: .4byte 0x0000D7FF
 _0805B970: .4byte gUnk_03001000
 _0805B974: .4byte 0x0000DFFF
 _0805B978:
-	ldr r3, _0805B9A8 @ =gLinkEntity
+	ldr r3, _0805B9A8 @ =gPlayerEntity
 	movs r4, #0x2e
 	ldrsh r0, [r3, r4]
 	ldr r2, _0805B9AC @ =gRoomControls
@@ -94,7 +94,7 @@ _0805B978:
 	orrs r0, r1
 	b _0805B9BC
 	.align 2, 0
-_0805B9A8: .4byte gLinkEntity
+_0805B9A8: .4byte gPlayerEntity
 _0805B9AC: .4byte gRoomControls
 _0805B9B0: .4byte gScreen
 _0805B9B4:
@@ -105,7 +105,7 @@ _0805B9B4:
 _0805B9BC:
 	strh r0, [r2]
 	ldrb r4, [r5, #0xe]
-	ldr r0, _0805B9F0 @ =gLinkState
+	ldr r0, _0805B9F0 @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	lsls r1, r1, #0x10
@@ -127,10 +127,10 @@ _0805B9BC:
 	.align 2, 0
 _0805B9E8: .4byte gScreen
 _0805B9EC: .4byte 0x0000DFFF
-_0805B9F0: .4byte gLinkState
+_0805B9F0: .4byte gPlayerState
 _0805B9F4: .4byte gArea
 _0805B9F8:
-	ldr r0, _0805BA24 @ =gUnk_030010A0
+	ldr r0, _0805BA24 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -151,7 +151,7 @@ _0805B9F8:
 	bl sub_0801E154
 	b _0805BA42
 	.align 2, 0
-_0805BA24: .4byte gUnk_030010A0
+_0805BA24: .4byte gScreenTransition
 _0805BA28: .4byte gSineTable
 _0805BA2C:
 	movs r0, #0
@@ -167,7 +167,7 @@ _0805BA3C:
 	bl sub_0801E154
 _0805BA42:
 	strb r4, [r5, #0xe]
-	ldr r3, _0805BA70 @ =gLinkEntity
+	ldr r3, _0805BA70 @ =gPlayerEntity
 	movs r1, #0x2e
 	ldrsh r0, [r3, r1]
 	ldr r2, _0805BA74 @ =gRoomControls
@@ -189,7 +189,7 @@ _0805BA42:
 _0805BA6C:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0805BA70: .4byte gLinkEntity
+_0805BA70: .4byte gPlayerEntity
 _0805BA74: .4byte gRoomControls
 
 	thumb_func_start sub_0805BA78
@@ -281,7 +281,7 @@ sub_0805BB00: @ 0x0805BB00
 	ldrb r0, [r0, #0xc]
 	cmp r0, #0
 	bne _0805BB28
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0805BB28
@@ -291,13 +291,13 @@ sub_0805BB00: @ 0x0805BB00
 	strb r0, [r1, #9]
 	adds r0, r1, #0
 	movs r1, #0
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _0805BB28:
 	ldr r1, _0805BB54 @ =0x0600F000
 	movs r2, #0x80
 	lsls r2, r2, #4
 	movs r0, #0xf
-	bl sub_0801D5EC
+	bl _DmaFill16
 	ldr r0, _0805BB58 @ =gScreen
 	ldr r1, _0805BB5C @ =0x00001E0C
 	strh r1, [r0, #0x2c]
@@ -342,7 +342,7 @@ _0805BB82:
 	strh r1, [r2, #0xc]
 	movs r0, #9
 	movs r1, #0x22
-	bl sub_0805EB9C
+	bl FindEntityBySubtype
 	cmp r0, #0
 	beq _0805BBAE
 	bl sub_0805B8EC

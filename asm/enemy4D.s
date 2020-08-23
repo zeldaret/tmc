@@ -134,7 +134,7 @@ sub_0803EBB4: @ 0x0803EBB4
 	ldr r0, _0803EC10 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, #4
 	movs r1, #0x18
 	ands r0, r1
@@ -649,7 +649,7 @@ sub_0803EF74: @ 0x0803EF74
 	beq _0803EFA8
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	ldrb r1, [r4, #0x15]
 	subs r1, r1, r0
 	adds r1, #2

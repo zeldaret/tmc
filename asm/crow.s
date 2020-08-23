@@ -220,7 +220,7 @@ sub_08032928: @ 0x08032928
 	adds r1, #0x7a
 	strh r0, [r1]
 	adds r0, r6, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r6, #0
 	bl sub_08032AF4
 	pop {r4, r5, r6, pc}
@@ -368,7 +368,7 @@ sub_08032A48: @ 0x08032A48
 	movs r0, #3
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r4, #0
 	bl sub_08032AF4
 _08032AAE:

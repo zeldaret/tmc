@@ -33,7 +33,7 @@ sub_0805D02C: @ 0x0805D02C
 	beq _0805D046
 	bl DeleteThisEntity
 _0805D046:
-	ldr r0, _0805D0BC @ =gUnk_03003DBC
+	ldr r0, _0805D0BC @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x43
 	bhi _0805D0B0
@@ -91,7 +91,7 @@ _0805D0B0:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0805D0BC: .4byte gUnk_03003DBC
+_0805D0BC: .4byte gEntCount
 _0805D0C0: .4byte gRoomControls
 
 	thumb_func_start sub_0805D0C4
@@ -138,7 +138,7 @@ sub_0805D0FC: @ 0x0805D0FC
 	ldrh r0, [r4, #0x3e]
 	bl SetFlag
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 _0805D118:
 	pop {r4, pc}
 	.align 2, 0

@@ -28,7 +28,7 @@ sub_0805B048: @ 0x0805B048
 	adds r0, r4, #0
 	adds r0, #0x20
 	movs r1, #0x20
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	ldr r2, _0805B08C @ =gRoomControls
@@ -224,7 +224,7 @@ sub_0805B1CC: @ 0x0805B1CC
 	bl sub_0806FBFC
 	cmp r0, #0
 	beq _0805B20C
-	ldr r2, _0805B1FC @ =gLinkState
+	ldr r2, _0805B1FC @ =gPlayerState
 	ldr r1, [r2, #0x30]
 	movs r0, #5
 	ands r0, r1
@@ -236,7 +236,7 @@ sub_0805B1CC: @ 0x0805B1CC
 	str r1, [r2, #0x30]
 	b _0805B20C
 	.align 2, 0
-_0805B1FC: .4byte gLinkState
+_0805B1FC: .4byte gPlayerState
 _0805B200:
 	movs r0, #0x80
 	lsls r0, r0, #8
@@ -251,7 +251,7 @@ _0805B20C:
 	thumb_func_start sub_0805B210
 sub_0805B210: @ 0x0805B210
 	push {r4, r5, lr}
-	ldr r2, _0805B248 @ =gUnk_030010A0
+	ldr r2, _0805B248 @ =gScreenTransition
 	movs r1, #1
 	strb r1, [r2, #8]
 	strb r1, [r2, #9]
@@ -269,7 +269,7 @@ sub_0805B210: @ 0x0805B210
 	strb r0, [r2, #0xd]
 	ldrb r0, [r4, #3]
 	strb r0, [r2, #0x14]
-	ldr r0, _0805B250 @ =gLinkState
+	ldr r0, _0805B250 @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -279,9 +279,9 @@ sub_0805B210: @ 0x0805B210
 	movs r0, #6
 	b _0805B256
 	.align 2, 0
-_0805B248: .4byte gUnk_030010A0
+_0805B248: .4byte gScreenTransition
 _0805B24C: .4byte gUnk_08108764
-_0805B250: .4byte gLinkState
+_0805B250: .4byte gPlayerState
 _0805B254:
 	movs r0, #2
 _0805B256:
@@ -305,7 +305,7 @@ _0805B26E:
 	strh r0, [r5, #0x12]
 	b _0805B2AC
 _0805B278:
-	ldr r2, _0805B298 @ =gLinkEntity
+	ldr r2, _0805B298 @ =gPlayerEntity
 	ldr r3, _0805B29C @ =gRoomControls
 	ldrh r0, [r2, #0x2e]
 	ldrh r1, [r3, #6]
@@ -321,7 +321,7 @@ _0805B278:
 	strh r0, [r5, #0x12]
 	b _0805B2AC
 	.align 2, 0
-_0805B298: .4byte gLinkEntity
+_0805B298: .4byte gPlayerEntity
 _0805B29C: .4byte gRoomControls
 _0805B2A0:
 	ldrh r0, [r4, #4]
@@ -418,13 +418,13 @@ sub_0805B328: @ 0x0805B328
 	adds r0, r0, r1
 	ldr r0, [r0, #0xc]
 	ldr r0, [r0]
-	ldr r1, _0805B378 @ =gUnk_085A2E80
+	ldr r1, _0805B378 @ =gGlobalGfxAndPalettes
 	adds r0, r0, r1
 	ldr r1, _0805B37C @ =0x0600F000
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r2, r4, #0
-	bl sub_08000E96
+	bl LoadAssetAsync
 	ldr r1, _0805B380 @ =gScreen
 	ldr r0, _0805B384 @ =0x00001E07
 	strh r0, [r1, #0x2c]
@@ -445,7 +445,7 @@ _0805B372:
 	pop {r4, pc}
 	.align 2, 0
 _0805B374: .4byte gUnk_08108764
-_0805B378: .4byte gUnk_085A2E80
+_0805B378: .4byte gGlobalGfxAndPalettes
 _0805B37C: .4byte 0x0600F000
 _0805B380: .4byte gScreen
 _0805B384: .4byte 0x00001E07
@@ -456,7 +456,7 @@ _0805B38C: .4byte 0x0000FFF7
 sub_0805B390: @ 0x0805B390
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0805B3B0
@@ -467,7 +467,7 @@ sub_0805B390: @ 0x0805B390
 	strb r4, [r1, #0xa]
 	adds r0, r1, #0
 	movs r1, #6
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _0805B3B0:
 	pop {r4, pc}
 	.align 2, 0

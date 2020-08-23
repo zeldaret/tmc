@@ -5,27 +5,11 @@
 	.syntax unified
 
 	.text
-	
-	thumb_func_start sub_080A5574
-sub_080A5574: @ 0x080A5574
-	push {lr}
-	ldr r1, _080A558C @ =gUnk_08128BF8
-	ldr r0, _080A5590 @ =gUnk_02000080
-	ldrb r0, [r0, #5]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r0, [r0]
-	bl _call_via_r0
-	bl sub_080A57F4
-	pop {pc}
-	.align 2, 0
-_080A558C: .4byte gUnk_08128BF8
-_080A5590: .4byte gUnk_02000080
 
 	thumb_func_start sub_080A5594
 sub_080A5594: @ 0x080A5594
 	push {r4, r5, r6, r7, lr}
-	ldr r4, _080A5620 @ =gUnk_02000080
+	ldr r4, _080A5620 @ =gMenu
 	ldr r0, _080A5624 @ =gUnk_08128C00
 	str r0, [r4, #0xc]
 	ldr r0, _080A5628 @ =gUnk_08128C04
@@ -94,7 +78,7 @@ _080A560A:
 	movs r5, #4
 	b _080A5646
 	.align 2, 0
-_080A5620: .4byte gUnk_02000080
+_080A5620: .4byte gMenu
 _080A5624: .4byte gUnk_08128C00
 _080A5628: .4byte gUnk_08128C04
 _080A562C: .4byte gUnk_080FD5B4
@@ -112,10 +96,10 @@ _080A563C:
 _080A5644:
 	movs r5, #1
 _080A5646:
-	ldr r0, _080A5698 @ =gUnk_02000080
+	ldr r0, _080A5698 @ =gMenu
 	strb r5, [r0, #0x10]
 _080A564A:
-	ldr r0, _080A5698 @ =gUnk_02000080
+	ldr r0, _080A5698 @ =gMenu
 	ldr r1, _080A569C @ =gUnk_02002A40
 	adds r1, #0xa9
 	ldrb r1, [r1]
@@ -133,7 +117,7 @@ _080A5666:
 	adds r4, #1
 	cmp r4, #0x4f
 	bls _080A565A
-	ldr r4, _080A5698 @ =gUnk_02000080
+	ldr r4, _080A5698 @ =gMenu
 	strb r5, [r4, #0x12]
 	movs r0, #0x3e
 	bl GetInventoryValue
@@ -146,14 +130,14 @@ _080A5666:
 	movs r0, #0x3f
 	strb r0, [r4, #0x13]
 _080A5688:
-	ldr r1, _080A5698 @ =gUnk_02000080
+	ldr r1, _080A5698 @ =gMenu
 	movs r0, #1
 	strb r0, [r1, #0x14]
 	strb r0, [r1, #0x15]
 	bl sub_080A7114
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A5698: .4byte gUnk_02000080
+_080A5698: .4byte gMenu
 _080A569C: .4byte gUnk_02002A40
 
 	thumb_func_start sub_080A56A0
@@ -164,7 +148,7 @@ sub_080A56A0: @ 0x080A56A0
 	bne _080A56AC
 	b _080A57F0
 _080A56AC:
-	ldr r2, _080A56D0 @ =gUnk_02000080
+	ldr r2, _080A56D0 @ =gMenu
 	ldr r0, _080A56D4 @ =gUnk_08128C00
 	str r0, [r2, #0xc]
 	ldrb r0, [r2, #3]
@@ -182,7 +166,7 @@ _080A56AC:
 	beq _080A56F6
 	b _080A56F8
 	.align 2, 0
-_080A56D0: .4byte gUnk_02000080
+_080A56D0: .4byte gMenu
 _080A56D4: .4byte gUnk_08128C00
 _080A56D8: .4byte gUnk_08128C14
 _080A56DC: .4byte gUnk_03000FF0
@@ -206,13 +190,13 @@ _080A56F6:
 _080A56F8:
 	cmp r3, #0xff
 	beq _080A570C
-	ldr r0, _080A5708 @ =gUnk_02000080
+	ldr r0, _080A5708 @ =gMenu
 	strb r3, [r0, #3]
 	movs r0, #0x69
 	bl PlaySFX
 	b _080A575E
 	.align 2, 0
-_080A5708: .4byte gUnk_02000080
+_080A5708: .4byte gMenu
 _080A570C:
 	ldrh r0, [r0, #2]
 	cmp r0, #1
@@ -233,7 +217,7 @@ _080A5724:
 	beq _080A574C
 	b _080A574E
 _080A572E:
-	ldr r0, _080A5744 @ =gUnk_02000080
+	ldr r0, _080A5744 @ =gMenu
 	adds r0, #0x10
 	adds r0, r3, r0
 	ldrb r0, [r0]
@@ -245,7 +229,7 @@ _080A572E:
 	movs r1, #7
 	b _080A5752
 	.align 2, 0
-_080A5744: .4byte gUnk_02000080
+_080A5744: .4byte gMenu
 _080A5748:
 	movs r1, #9
 	b _080A5752
@@ -260,7 +244,7 @@ _080A5752:
 	movs r0, #0x6a
 	bl PlaySFX
 _080A575E:
-	ldr r0, _080A5780 @ =gUnk_02000080
+	ldr r0, _080A5780 @ =gMenu
 	ldrb r1, [r0, #3]
 	adds r2, r0, #0
 	cmp r1, #0
@@ -278,7 +262,7 @@ _080A576C:
 	movs r0, #0x10
 	b _080A578C
 	.align 2, 0
-_080A5780: .4byte gUnk_02000080
+_080A5780: .4byte gMenu
 _080A5784: .4byte gUnk_0200AF00
 _080A5788:
 	ldr r1, _080A57AC @ =gUnk_0200AF00
@@ -357,7 +341,7 @@ sub_080A57F4: @ 0x080A57F4
 	ldr r3, _080A5898 @ =gUnk_08128C14
 	mov sb, r3
 _080A581A:
-	ldr r0, _080A589C @ =gUnk_02000080
+	ldr r0, _080A589C @ =gMenu
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #3
 	mov r1, sb
@@ -387,7 +371,7 @@ _080A5846:
 	mov r7, sb
 	adds r7, #5
 _080A5854:
-	ldr r0, _080A589C @ =gUnk_02000080
+	ldr r0, _080A589C @ =gMenu
 	adds r0, #0x10
 	mov r1, r8
 	adds r6, r1, r0
@@ -420,7 +404,7 @@ _080A5854:
 _080A5890: .4byte gUnk_03001010
 _080A5894: .4byte gUnk_08128C94
 _080A5898: .4byte gUnk_08128C14
-_080A589C: .4byte gUnk_02000080
+_080A589C: .4byte gMenu
 _080A58A0: .4byte gUnk_03001000
 _080A58A4: .4byte 0x000001FB
 _080A58A8:
@@ -467,7 +451,7 @@ _080A58E8:
 	mov r1, r8
 	cmp r1, #0xf
 	bls _080A5854
-	ldr r4, _080A5984 @ =gUnk_02000080
+	ldr r4, _080A5984 @ =gMenu
 	ldrb r0, [r4, #0x12]
 	cmp r0, #0
 	beq _080A5920
@@ -537,7 +521,7 @@ _080A5976:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A5980: .4byte gUnk_080FDFD8
-_080A5984: .4byte gUnk_02000080
+_080A5984: .4byte gMenu
 _080A5988: .4byte gUnk_03001010
 _080A598C: .4byte gUnk_02002A40
 
@@ -545,7 +529,7 @@ _080A598C: .4byte gUnk_02002A40
 sub_080A5990: @ 0x080A5990
 	push {lr}
 	ldr r1, _080A59A4 @ =gUnk_08128D14
-	ldr r0, _080A59A8 @ =gUnk_02000080
+	ldr r0, _080A59A8 @ =gMenu
 	ldrb r0, [r0, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -554,12 +538,12 @@ sub_080A5990: @ 0x080A5990
 	pop {pc}
 	.align 2, 0
 _080A59A4: .4byte gUnk_08128D14
-_080A59A8: .4byte gUnk_02000080
+_080A59A8: .4byte gMenu
 
 	thumb_func_start sub_080A59AC
 sub_080A59AC: @ 0x080A59AC
 	push {lr}
-	ldr r1, _080A59C4 @ =gUnk_02000080
+	ldr r1, _080A59C4 @ =gMenu
 	movs r0, #0
 	strb r0, [r1, #3]
 	movs r1, #0
@@ -568,7 +552,7 @@ sub_080A59AC: @ 0x080A59AC
 	bl sub_080A7114
 	pop {pc}
 	.align 2, 0
-_080A59C4: .4byte gUnk_02000080
+_080A59C4: .4byte gMenu
 
 	thumb_func_start sub_080A59C8
 sub_080A59C8: @ 0x080A59C8
@@ -576,7 +560,7 @@ sub_080A59C8: @ 0x080A59C8
 	bl sub_080A51F4
 	cmp r0, #0
 	beq _080A5A52
-	ldr r1, _080A59EC @ =gUnk_02000080
+	ldr r1, _080A59EC @ =gMenu
 	ldrb r2, [r1, #3]
 	movs r3, #0
 	ldr r0, _080A59F0 @ =gUnk_03000FF0
@@ -589,7 +573,7 @@ sub_080A59C8: @ 0x080A59C8
 	beq _080A5A0A
 	b _080A5A0C
 	.align 2, 0
-_080A59EC: .4byte gUnk_02000080
+_080A59EC: .4byte gMenu
 _080A59F0: .4byte gUnk_03000FF0
 _080A59F4:
 	cmp r0, #0x40
@@ -666,7 +650,7 @@ _080A5A76:
 	movs r0, #9
 	movs r1, #0
 	bl sub_08050318
-	ldr r1, _080A5A8C @ =gUnk_02000080
+	ldr r1, _080A5A8C @ =gMenu
 	movs r0, #0x3c
 	strh r0, [r1, #8]
 _080A5A84:
@@ -675,12 +659,12 @@ _080A5A84:
 _080A5A8A:
 	pop {pc}
 	.align 2, 0
-_080A5A8C: .4byte gUnk_02000080
+_080A5A8C: .4byte gMenu
 
 	thumb_func_start sub_080A5A90
 sub_080A5A90: @ 0x080A5A90
 	push {lr}
-	ldr r2, _080A5AA4 @ =gUnk_02000080
+	ldr r2, _080A5AA4 @ =gMenu
 	ldrh r0, [r2, #8]
 	cmp r0, #0
 	beq _080A5AA8
@@ -690,7 +674,7 @@ sub_080A5A90: @ 0x080A5A90
 	strh r0, [r2, #8]
 	b _080A5AD2
 	.align 2, 0
-_080A5AA4: .4byte gUnk_02000080
+_080A5AA4: .4byte gMenu
 _080A5AA8:
 	ldr r0, _080A5ABC @ =gUnk_03000FF0
 	ldrh r1, [r0, #2]
@@ -722,7 +706,7 @@ _080A5AD4: .4byte gUnk_02034490
 sub_080A5AD8: @ 0x080A5AD8
 	push {lr}
 	ldr r1, _080A5AEC @ =gUnk_08128D24
-	ldr r0, _080A5AF0 @ =gUnk_02000080
+	ldr r0, _080A5AF0 @ =gMenu
 	ldrb r0, [r0, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -731,12 +715,12 @@ sub_080A5AD8: @ 0x080A5AD8
 	pop {pc}
 	.align 2, 0
 _080A5AEC: .4byte gUnk_08128D24
-_080A5AF0: .4byte gUnk_02000080
+_080A5AF0: .4byte gMenu
 
 	thumb_func_start sub_080A5AF4
 sub_080A5AF4: @ 0x080A5AF4
 	push {r4, lr}
-	ldr r0, _080A5B18 @ =gUnk_02000080
+	ldr r0, _080A5B18 @ =gMenu
 	movs r4, #0
 	strb r4, [r0, #3]
 	movs r0, #2
@@ -752,7 +736,7 @@ sub_080A5AF4: @ 0x080A5AF4
 	strh r0, [r1, #0x18]
 	b _080A5B28
 	.align 2, 0
-_080A5B18: .4byte gUnk_02000080
+_080A5B18: .4byte gMenu
 _080A5B1C: .4byte gScreen
 _080A5B20: .4byte 0x0000FFFC
 _080A5B24:
@@ -771,7 +755,7 @@ sub_080A5B34: @ 0x080A5B34
 	bl sub_080A51F4
 	cmp r0, #0
 	beq _080A5BB6
-	ldr r1, _080A5B58 @ =gUnk_02000080
+	ldr r1, _080A5B58 @ =gMenu
 	ldrb r4, [r1, #3]
 	movs r5, #0
 	ldr r0, _080A5B5C @ =gUnk_03000FF0
@@ -785,7 +769,7 @@ sub_080A5B34: @ 0x080A5B34
 	beq _080A5B74
 	b _080A5B76
 	.align 2, 0
-_080A5B58: .4byte gUnk_02000080
+_080A5B58: .4byte gMenu
 _080A5B5C: .4byte gUnk_03000FF0
 _080A5B60:
 	cmp r0, #0x10
@@ -837,7 +821,7 @@ _080A5BB6:
 	thumb_func_start sub_080A5BB8
 sub_080A5BB8: @ 0x080A5BB8
 	push {lr}
-	ldr r0, _080A5BE4 @ =gUnk_03000FD0
+	ldr r0, _080A5BE4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A5BE2
@@ -857,7 +841,7 @@ sub_080A5BB8: @ 0x080A5BB8
 _080A5BE2:
 	pop {pc}
 	.align 2, 0
-_080A5BE4: .4byte gUnk_03000FD0
+_080A5BE4: .4byte gFadeControl
 _080A5BE8: .4byte gUnk_03001000
 _080A5BEC: .4byte gUnk_02034490
 
@@ -865,7 +849,7 @@ _080A5BEC: .4byte gUnk_02034490
 sub_080A5BF0: @ 0x080A5BF0
 	push {r4, r5, lr}
 	ldr r1, _080A5C30 @ =gUnk_08128D30
-	ldr r0, _080A5C34 @ =gUnk_02000080
+	ldr r0, _080A5C34 @ =gMenu
 	ldrb r0, [r0, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -885,7 +869,7 @@ sub_080A5BF0: @ 0x080A5BF0
 	movs r2, #0xe
 	bl sub_0801D66C
 	strh r5, [r4, #0xe]
-	ldr r2, _080A5C40 @ =gUnk_0200B644
+	ldr r2, _080A5C40 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80
 	lsls r1, r1, #5
@@ -895,21 +879,21 @@ _080A5C2E:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A5C30: .4byte gUnk_08128D30
-_080A5C34: .4byte gUnk_02000080
+_080A5C34: .4byte gMenu
 _080A5C38: .4byte gUnk_03001000
 _080A5C3C: .4byte gUnk_02017830
-_080A5C40: .4byte gUnk_0200B644
+_080A5C40: .4byte gUsedPalettes
 
 	thumb_func_start sub_080A5C44
 sub_080A5C44: @ 0x080A5C44
 	push {r4, lr}
-	ldr r1, _080A5C88 @ =gUnk_02000080
+	ldr r1, _080A5C88 @ =gMenu
 	ldr r0, _080A5C8C @ =gUnk_08128D38
 	str r0, [r1, #0xc]
 	ldrb r0, [r1, #3]
 	bl sub_080A5CFC
 	movs r0, #0x81
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r4, _080A5C90 @ =gArea
 	ldrb r0, [r4, #3]
 	movs r1, #1
@@ -933,7 +917,7 @@ sub_080A5C44: @ 0x080A5C44
 	strh r0, [r2, #0x18]
 	pop {r4, pc}
 	.align 2, 0
-_080A5C88: .4byte gUnk_02000080
+_080A5C88: .4byte gMenu
 _080A5C8C: .4byte gUnk_08128D38
 _080A5C90: .4byte gArea
 _080A5C94: .4byte gUnk_08128D43
@@ -950,7 +934,7 @@ sub_080A5C9C: @ 0x080A5C9C
 	lsls r0, r0, #2
 	ldr r1, _080A5CC8 @ =gUnk_080C9C6C
 	adds r3, r0, r1
-	ldr r1, _080A5CCC @ =gUnk_02000080
+	ldr r1, _080A5CCC @ =gMenu
 	ldrb r2, [r1, #3]
 	ldr r0, _080A5CD0 @ =gUnk_03000FF0
 	ldrh r0, [r0, #2]
@@ -962,7 +946,7 @@ sub_080A5C9C: @ 0x080A5C9C
 	.align 2, 0
 _080A5CC4: .4byte gArea
 _080A5CC8: .4byte gUnk_080C9C6C
-_080A5CCC: .4byte gUnk_02000080
+_080A5CCC: .4byte gMenu
 _080A5CD0: .4byte gUnk_03000FF0
 _080A5CD4:
 	cmp r2, #0
@@ -1029,7 +1013,7 @@ sub_080A5D1C: @ 0x080A5D1C
 	strh r0, [r5, #8]
 	movs r0, #0x34
 	strh r0, [r5]
-	ldr r0, _080A5EA8 @ =gUnk_02000080
+	ldr r0, _080A5EA8 @ =gMenu
 	ldrb r1, [r0, #3]
 	lsls r0, r1, #1
 	adds r0, r0, r1
@@ -1196,7 +1180,7 @@ _080A5E98: .4byte gArea
 _080A5E9C: .4byte gUnk_080C9C6C
 _080A5EA0: .4byte gUnk_08128D3C
 _080A5EA4: .4byte gUnk_03001010
-_080A5EA8: .4byte gUnk_02000080
+_080A5EA8: .4byte gMenu
 _080A5EAC: .4byte gUnk_03001000
 _080A5EB0: .4byte 0x000001FB
 _080A5EB4: .4byte gUnk_080FDFD8
@@ -1210,14 +1194,14 @@ _080A5EC0:
 	b _080A5EEE
 _080A5ECA:
 	movs r4, #0x7d
-	ldr r0, _080A5ED8 @ =gUnk_02000080
+	ldr r0, _080A5ED8 @ =gMenu
 	ldrb r0, [r0, #3]
 	cmp r8, r0
 	beq _080A5EF0
 	movs r4, #0x7e
 	b _080A5EF0
 	.align 2, 0
-_080A5ED8: .4byte gUnk_02000080
+_080A5ED8: .4byte gMenu
 _080A5EDC:
 	movs r4, #0x80
 	b _080A5EF0
@@ -1378,7 +1362,7 @@ _080A6004: .4byte 0x84000008
 sub_080A6008: @ 0x080A6008
 	push {lr}
 	ldr r1, _080A601C @ =gUnk_08128D58
-	ldr r0, _080A6020 @ =gUnk_02000080
+	ldr r0, _080A6020 @ =gMenu
 	ldrb r0, [r0, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -1387,7 +1371,7 @@ sub_080A6008: @ 0x080A6008
 	pop {pc}
 	.align 2, 0
 _080A601C: .4byte gUnk_08128D58
-_080A6020: .4byte gUnk_02000080
+_080A6020: .4byte gMenu
 
 	thumb_func_start sub_080A6024
 sub_080A6024: @ 0x080A6024
@@ -1412,7 +1396,7 @@ sub_080A6044: @ 0x080A6044
 	bl sub_080A51F4
 	cmp r0, #0
 	beq _080A60C2
-	ldr r0, _080A60CC @ =gUnk_02000080
+	ldr r0, _080A60CC @ =gMenu
 	ldr r1, _080A60D0 @ =gUnk_08128D51
 	str r1, [r0, #0xc]
 	ldr r1, _080A60D4 @ =gUnk_03001010
@@ -1451,7 +1435,7 @@ _080A607E:
 	adds r0, r7, r3
 	adds r0, r4, r0
 	ldrb r1, [r0]
-	ldr r0, _080A60CC @ =gUnk_02000080
+	ldr r0, _080A60CC @ =gMenu
 	mov r3, sb
 	strb r3, [r0, #1]
 	adds r0, r2, #0
@@ -1473,7 +1457,7 @@ _080A60C2:
 	mov sb, r4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A60CC: .4byte gUnk_02000080
+_080A60CC: .4byte gMenu
 _080A60D0: .4byte gUnk_08128D51
 _080A60D4: .4byte gUnk_03001010
 _080A60D8: .4byte gUnk_02002A40
@@ -1483,7 +1467,7 @@ _080A60DC: .4byte 0x0000012B
 sub_080A60E0: @ 0x080A60E0
 	push {r4, lr}
 	ldr r1, _080A6100 @ =gUnk_08128DB0
-	ldr r4, _080A6104 @ =gUnk_02000080
+	ldr r4, _080A6104 @ =gMenu
 	ldrb r0, [r4, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -1495,12 +1479,12 @@ sub_080A60E0: @ 0x080A60E0
 	pop {r4, pc}
 	.align 2, 0
 _080A6100: .4byte gUnk_08128DB0
-_080A6104: .4byte gUnk_02000080
+_080A6104: .4byte gMenu
 
 	thumb_func_start sub_080A6108
 sub_080A6108: @ 0x080A6108
 	push {lr}
-	ldr r0, _080A6120 @ =gUnk_02000080
+	ldr r0, _080A6120 @ =gMenu
 	ldr r1, _080A6124 @ =gUnk_08128DB8
 	str r1, [r0, #0xc]
 	ldr r0, _080A6128 @ =gUnk_08128DBC
@@ -1509,7 +1493,7 @@ sub_080A6108: @ 0x080A6108
 	bl sub_080A7114
 	pop {pc}
 	.align 2, 0
-_080A6120: .4byte gUnk_02000080
+_080A6120: .4byte gMenu
 _080A6124: .4byte gUnk_08128DB8
 _080A6128: .4byte gUnk_08128DBC
 
@@ -1519,7 +1503,7 @@ sub_080A612C: @ 0x080A612C
 	bl sub_080A51F4
 	cmp r0, #0
 	beq _080A6178
-	ldr r1, _080A614C @ =gUnk_02000080
+	ldr r1, _080A614C @ =gMenu
 	ldrb r2, [r1, #3]
 	ldr r0, _080A6150 @ =gUnk_03000FF0
 	ldrh r0, [r0, #2]
@@ -1530,7 +1514,7 @@ sub_080A612C: @ 0x080A612C
 	subs r2, #1
 	b _080A6156
 	.align 2, 0
-_080A614C: .4byte gUnk_02000080
+_080A614C: .4byte gMenu
 _080A6150: .4byte gUnk_03000FF0
 _080A6154:
 	adds r2, #1
@@ -1572,7 +1556,7 @@ sub_080A617C: @ 0x080A617C
 	mov r8, r0
 	mov r2, r8
 	strh r2, [r6, #2]
-	ldr r4, _080A6264 @ =gUnk_02000080
+	ldr r4, _080A6264 @ =gMenu
 	ldrb r1, [r4, #3]
 	lsls r0, r1, #3
 	subs r0, r0, r1
@@ -1670,7 +1654,7 @@ _080A6250:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A6260: .4byte gUnk_03001010
-_080A6264: .4byte gUnk_02000080
+_080A6264: .4byte gMenu
 _080A6268: .4byte gUnk_03001000
 _080A626C: .4byte gUnk_08128D70
 
@@ -1678,7 +1662,7 @@ _080A626C: .4byte gUnk_08128D70
 sub_080A6270: @ 0x080A6270
 	push {lr}
 	ldr r1, _080A6288 @ =gUnk_08128DCC
-	ldr r0, _080A628C @ =gUnk_02000080
+	ldr r0, _080A628C @ =gMenu
 	ldrb r0, [r0, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -1688,18 +1672,18 @@ sub_080A6270: @ 0x080A6270
 	pop {pc}
 	.align 2, 0
 _080A6288: .4byte gUnk_08128DCC
-_080A628C: .4byte gUnk_02000080
+_080A628C: .4byte gMenu
 
 	thumb_func_start sub_080A6290
 sub_080A6290: @ 0x080A6290
 	push {r4, lr}
 	ldr r0, _080A62C4 @ =gUnk_08128DD8
 	bl sub_080A70AC
-	ldr r4, _080A62C8 @ =gUnk_02000080
+	ldr r4, _080A62C8 @ =gMenu
 	ldr r0, _080A62CC @ =gUnk_08128DD4
 	str r0, [r4, #0xc]
 	movs r0, #0x81
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r1, _080A62D0 @ =gScreen
 	ldr r0, _080A62D4 @ =0x0000FFFC
 	strh r0, [r1, #0x18]
@@ -1716,7 +1700,7 @@ sub_080A6290: @ 0x080A6290
 	pop {r4, pc}
 	.align 2, 0
 _080A62C4: .4byte gUnk_08128DD8
-_080A62C8: .4byte gUnk_02000080
+_080A62C8: .4byte gMenu
 _080A62CC: .4byte gUnk_08128DD4
 _080A62D0: .4byte gScreen
 _080A62D4: .4byte 0x0000FFFC
@@ -1729,7 +1713,7 @@ sub_080A62E0: @ 0x080A62E0
 	bl sub_080A51F4
 	cmp r0, #0
 	beq _080A6372
-	ldr r0, _080A6310 @ =gUnk_02000080
+	ldr r0, _080A6310 @ =gMenu
 	ldrb r3, [r0, #3]
 	lsls r1, r3, #3
 	ldr r0, _080A6314 @ =gUnk_08128DE8
@@ -1748,7 +1732,7 @@ sub_080A62E0: @ 0x080A62E0
 	beq _080A6354
 	b _080A635A
 	.align 2, 0
-_080A6310: .4byte gUnk_02000080
+_080A6310: .4byte gMenu
 _080A6314: .4byte gUnk_08128DE8
 _080A6318: .4byte gUnk_03000FF0
 _080A631C:
@@ -1791,24 +1775,24 @@ _080A6358:
 _080A635A:
 	cmp r4, #0
 	blt _080A6368
-	ldr r0, _080A6374 @ =gUnk_02000080
+	ldr r0, _080A6374 @ =gMenu
 	strb r4, [r0, #3]
 	movs r0, #0x69
 	bl PlaySFX
 _080A6368:
-	ldr r0, _080A6374 @ =gUnk_02000080
+	ldr r0, _080A6374 @ =gMenu
 	ldrb r0, [r0, #3]
 	movs r1, #0
 	bl sub_080A6FB4
 _080A6372:
 	pop {r4, pc}
 	.align 2, 0
-_080A6374: .4byte gUnk_02000080
+_080A6374: .4byte gMenu
 
 	thumb_func_start sub_080A6378
 sub_080A6378: @ 0x080A6378
 	push {r4, r5, r6, lr}
-	ldr r0, _080A6420 @ =gUnk_02000080
+	ldr r0, _080A6420 @ =gMenu
 	adds r4, r0, #0
 	adds r4, #0x2c
 	ldrb r0, [r4]
@@ -1834,7 +1818,7 @@ _080A6392:
 	ands r0, r1
 	cmp r0, #0
 	bne _080A63EA
-	ldr r4, _080A6428 @ =gUnk_030010A0
+	ldr r4, _080A6428 @ =gScreenTransition
 	ldrh r1, [r4, #0x20]
 	lsls r0, r1, #2
 	adds r0, r0, r1
@@ -1851,7 +1835,7 @@ _080A6392:
 	bl __divsi3
 	adds r0, #0xc
 	strh r0, [r5, #2]
-	ldr r0, _080A642C @ =gLinkState
+	ldr r0, _080A642C @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #8
 	ands r0, r1
@@ -1863,7 +1847,7 @@ _080A63E4:
 	ldr r0, _080A6430 @ =0x000001FB
 	bl sub_080ADA14
 _080A63EA:
-	ldr r3, _080A6420 @ =gUnk_02000080
+	ldr r3, _080A6420 @ =gMenu
 	ldrb r0, [r3, #3]
 	lsls r0, r0, #3
 	ldr r1, _080A6434 @ =gUnk_08128DE8
@@ -1888,10 +1872,10 @@ _080A63EA:
 	bl sub_080A6498
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080A6420: .4byte gUnk_02000080
+_080A6420: .4byte gMenu
 _080A6424: .4byte gUnk_03001010
-_080A6428: .4byte gUnk_030010A0
-_080A642C: .4byte gLinkState
+_080A6428: .4byte gScreenTransition
+_080A642C: .4byte gPlayerState
 _080A6430: .4byte 0x000001FB
 _080A6434: .4byte gUnk_08128DE8
 
@@ -1906,7 +1890,7 @@ sub_080A6438: @ 0x080A6438
 	strh r1, [r2, #6]
 	strh r1, [r2, #8]
 	ldr r0, _080A6488 @ =gUnk_02002A40
-	ldr r1, _080A648C @ =gUnk_02000080
+	ldr r1, _080A648C @ =gMenu
 	ldrh r0, [r0, #0x20]
 	ldrh r5, [r1, #0x10]
 	ands r5, r0
@@ -1940,7 +1924,7 @@ _080A6482:
 	.align 2, 0
 _080A6484: .4byte gUnk_03001010
 _080A6488: .4byte gUnk_02002A40
-_080A648C: .4byte gUnk_02000080
+_080A648C: .4byte gMenu
 _080A6490: .4byte gUnk_08128F58
 _080A6494: .4byte 0x000001FB
 
@@ -1998,7 +1982,7 @@ sub_080A64FC: @ 0x080A64FC
 	push {r4, lr}
 	bl sub_080AD90C
 	ldr r1, _080A652C @ =gUnk_08128E70
-	ldr r4, _080A6530 @ =gUnk_02000080
+	ldr r4, _080A6530 @ =gMenu
 	ldrb r0, [r4, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2017,7 +2001,7 @@ _080A6522:
 	pop {r4, pc}
 	.align 2, 0
 _080A652C: .4byte gUnk_08128E70
-_080A6530: .4byte gUnk_02000080
+_080A6530: .4byte gMenu
 
 	thumb_func_start sub_080A6534
 sub_080A6534: @ 0x080A6534
@@ -2032,7 +2016,7 @@ sub_080A6534: @ 0x080A6534
 	ands r0, r1
 	movs r4, #0
 	strh r0, [r2]
-	ldr r0, _080A6598 @ =gUnk_020176A0
+	ldr r0, _080A6598 @ =gPaletteBuffer
 	adds r0, #0xa2
 	ldrh r1, [r0]
 	movs r0, #0
@@ -2048,7 +2032,7 @@ sub_080A6534: @ 0x080A6534
 	adds r0, r2, #0
 	orrs r0, r1
 	strh r0, [r3, #0x20]
-	ldr r1, _080A65A8 @ =gUnk_02000080
+	ldr r1, _080A65A8 @ =gMenu
 	ldrh r0, [r1, #0x10]
 	ands r2, r0
 	strh r2, [r1, #0x12]
@@ -2064,20 +2048,20 @@ sub_080A6534: @ 0x080A6534
 	.align 2, 0
 _080A6590: .4byte gScreen
 _080A6594: .4byte 0x0000F7FF
-_080A6598: .4byte gUnk_020176A0
+_080A6598: .4byte gPaletteBuffer
 _080A659C: .4byte gUnk_08128F4C
 _080A65A0: .4byte gUnk_02032EC0
 _080A65A4: .4byte gUnk_02002A40
-_080A65A8: .4byte gUnk_02000080
+_080A65A8: .4byte gMenu
 
 	thumb_func_start sub_080A65AC
 sub_080A65AC: @ 0x080A65AC
 	push {r4, lr}
-	ldr r0, _080A65E4 @ =gUnk_03000FD0
+	ldr r0, _080A65E4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A6600
-	ldr r4, _080A65E8 @ =gUnk_02000080
+	ldr r4, _080A65E8 @ =gMenu
 	adds r1, r4, #0
 	adds r1, #0x2c
 	ldrb r0, [r1]
@@ -2100,8 +2084,8 @@ _080A65DA:
 	strh r0, [r4, #8]
 	b _080A6600
 	.align 2, 0
-_080A65E4: .4byte gUnk_03000FD0
-_080A65E8: .4byte gUnk_02000080
+_080A65E4: .4byte gFadeControl
+_080A65E8: .4byte gMenu
 _080A65EC:
 	ldr r0, _080A6604 @ =gUnk_03000FF0
 	ldrh r0, [r0, #2]
@@ -2122,7 +2106,7 @@ _080A6604: .4byte gUnk_03000FF0
 sub_080A6608: @ 0x080A6608
 	push {r4, lr}
 	ldr r1, _080A6640 @ =gUnk_08128E78
-	ldr r4, _080A6644 @ =gUnk_02000080
+	ldr r4, _080A6644 @ =gMenu
 	ldrb r0, [r4, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2147,7 +2131,7 @@ sub_080A6608: @ 0x080A6608
 	pop {r4, pc}
 	.align 2, 0
 _080A6640: .4byte gUnk_08128E78
-_080A6644: .4byte gUnk_02000080
+_080A6644: .4byte gMenu
 _080A6648: .4byte gUnk_08128E94
 _080A664C: .4byte gScreen
 
@@ -2158,7 +2142,7 @@ sub_080A6650: @ 0x080A6650
 	bl sub_080A70AC
 	ldr r0, _080A6674 @ =gUnk_02034490
 	ldrb r0, [r0, #6]
-	ldr r1, _080A6678 @ =gUnk_02000080
+	ldr r1, _080A6678 @ =gMenu
 	strb r0, [r1, #3]
 	bl sub_080A67C4
 	bl sub_080A68D4
@@ -2168,12 +2152,12 @@ sub_080A6650: @ 0x080A6650
 	.align 2, 0
 _080A6670: .4byte gUnk_08128E84
 _080A6674: .4byte gUnk_02034490
-_080A6678: .4byte gUnk_02000080
+_080A6678: .4byte gMenu
 
 	thumb_func_start sub_080A667C
 sub_080A667C: @ 0x080A667C
 	push {lr}
-	ldr r2, _080A669C @ =gUnk_02000080
+	ldr r2, _080A669C @ =gMenu
 	ldr r0, _080A66A0 @ =gUnk_08128E80
 	str r0, [r2, #0xc]
 	ldrb r0, [r2, #3]
@@ -2189,7 +2173,7 @@ sub_080A667C: @ 0x080A667C
 	beq _080A66B4
 	b _080A66C2
 	.align 2, 0
-_080A669C: .4byte gUnk_02000080
+_080A669C: .4byte gMenu
 _080A66A0: .4byte gUnk_08128E80
 _080A66A4: .4byte gUnk_08128E94
 _080A66A8: .4byte gUnk_03000FF0
@@ -2228,7 +2212,7 @@ sub_080A66D0: @ 0x080A66D0
 	strh r0, [r6, #6]
 	movs r0, #0x78
 	strh r0, [r6]
-	ldr r4, _080A6780 @ =gUnk_02000080
+	ldr r4, _080A6780 @ =gMenu
 	ldrb r0, [r4, #3]
 	lsls r0, r0, #3
 	ldr r1, _080A6784 @ =gUnk_08128E94
@@ -2273,7 +2257,7 @@ _080A6738:
 	mov sl, r0
 	ldrb r5, [r5, #3]
 	mov sb, r5
-	ldr r1, _080A6780 @ =gUnk_02000080
+	ldr r1, _080A6780 @ =gMenu
 	ldrh r0, [r1, #0xa]
 	mov r8, r0
 	ldr r2, _080A677C @ =gUnk_03001010
@@ -2305,7 +2289,7 @@ _080A676E:
 	b _080A6796
 	.align 2, 0
 _080A677C: .4byte gUnk_03001010
-_080A6780: .4byte gUnk_02000080
+_080A6780: .4byte gMenu
 _080A6784: .4byte gUnk_08128E94
 _080A6788: .4byte 0x000001FB
 _080A678C: .4byte gUnk_02019EE0
@@ -2344,7 +2328,7 @@ sub_080A67C4: @ 0x080A67C4
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r0, #0xba
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	adds r5, r4, #0
 	adds r5, #0x5f
 	cmp r4, #0xb
@@ -2390,7 +2374,7 @@ _080A6802:
 	adds r5, #0x72
 _080A6822:
 	adds r0, r5, #0
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	lsls r1, r4, #3
 	ldr r0, _080A68B0 @ =gUnk_08128E94
 	adds r4, r1, r0
@@ -2451,14 +2435,14 @@ _080A6886:
 	ldr r1, _080A68C4 @ =0x0400000E
 	ldr r2, _080A68C8 @ =0xA2600001
 	bl sub_0805622C
-	ldr r1, _080A68CC @ =gUnk_02000080
+	ldr r1, _080A68CC @ =gMenu
 	ldrb r0, [r4, #2]
 	lsrs r0, r0, #1
 	strh r0, [r1, #0xa]
 	ldr r0, _080A68D0 @ =gUnk_02019EE0
 	movs r1, #0x80
 	lsls r1, r1, #3
-	bl sub_0801D630
+	bl _DmaZero
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A68AC: .4byte gUnk_02032EC0
@@ -2469,13 +2453,13 @@ _080A68BC: .4byte 0x00001E0A
 _080A68C0: .4byte 0x00001E0B
 _080A68C4: .4byte 0x0400000E
 _080A68C8: .4byte 0xA2600001
-_080A68CC: .4byte gUnk_02000080
+_080A68CC: .4byte gMenu
 _080A68D0: .4byte gUnk_02019EE0
 
 	thumb_func_start sub_080A68D4
 sub_080A68D4: @ 0x080A68D4
 	push {r4, r5, r6, lr}
-	ldr r0, _080A690C @ =gLinkState
+	ldr r0, _080A690C @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #8
 	ands r0, r1
@@ -2484,7 +2468,7 @@ sub_080A68D4: @ 0x080A68D4
 	beq _080A68E6
 	movs r4, #0x65
 _080A68E6:
-	ldr r1, _080A6910 @ =gUnk_030010A0
+	ldr r1, _080A6910 @ =gScreenTransition
 	ldrh r0, [r1, #0x20]
 	ldrh r1, [r1, #0x22]
 	ldr r2, _080A6914 @ =0x000001FB
@@ -2501,8 +2485,8 @@ _080A68E6:
 	movs r5, #0
 	b _080A693A
 	.align 2, 0
-_080A690C: .4byte gLinkState
-_080A6910: .4byte gUnk_030010A0
+_080A690C: .4byte gPlayerState
+_080A6910: .4byte gScreenTransition
 _080A6914: .4byte 0x000001FB
 _080A6918: .4byte gUnk_02002A40
 _080A691C: .4byte gUnk_08128F58
@@ -2568,7 +2552,7 @@ sub_080A698C: @ 0x080A698C
 	adds r4, r0, #0
 	cmp r4, #0
 	ble _080A69D4
-	ldr r2, _080A69D8 @ =gUnk_02000080
+	ldr r2, _080A69D8 @ =gMenu
 	adds r2, #0x2d
 	ldrb r0, [r2]
 	lsls r0, r0, #3
@@ -2599,7 +2583,7 @@ sub_080A698C: @ 0x080A698C
 _080A69D4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080A69D8: .4byte gUnk_02000080
+_080A69D8: .4byte gMenu
 _080A69DC: .4byte gUnk_02019EE0
 
 	thumb_func_start sub_080A69E0
@@ -2617,7 +2601,7 @@ sub_080A69E0: @ 0x080A69E0
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _080A6A06
-	ldr r0, _080A6A0C @ =gUnk_02000080
+	ldr r0, _080A6A0C @ =gMenu
 	ldrb r1, [r0, #3]
 	ldrb r2, [r3, #4]
 	cmp r1, r2
@@ -2627,7 +2611,7 @@ _080A6A06:
 	rsbs r0, r0, #0
 	b _080A6A74
 	.align 2, 0
-_080A6A0C: .4byte gUnk_02000080
+_080A6A0C: .4byte gMenu
 _080A6A10:
 	ldrb r1, [r0, #3]
 	cmp r1, #7
@@ -2728,7 +2712,7 @@ sub_080A6AB8: @ 0x080A6AB8
 	push {r4, lr}
 	bl sub_080AD90C
 	ldr r1, _080A6AF4 @ =gUnk_08128F1C
-	ldr r4, _080A6AF8 @ =gUnk_02000080
+	ldr r4, _080A6AF8 @ =gMenu
 	ldrb r0, [r4, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2753,7 +2737,7 @@ sub_080A6AB8: @ 0x080A6AB8
 	pop {r4, pc}
 	.align 2, 0
 _080A6AF4: .4byte gUnk_08128F1C
-_080A6AF8: .4byte gUnk_02000080
+_080A6AF8: .4byte gMenu
 _080A6AFC: .4byte gUnk_08128E94
 _080A6B00: .4byte gScreen
 
@@ -2784,7 +2768,7 @@ sub_080A6B04: @ 0x080A6B04
 	adds r1, r5, #0
 	bl sub_080A6A80
 	ldrb r4, [r0, #4]
-	ldr r7, _080A6BFC @ =gUnk_02000080
+	ldr r7, _080A6BFC @ =gMenu
 	strb r4, [r7, #3]
 	adds r1, r7, #0
 	adds r1, #0x2b
@@ -2806,8 +2790,8 @@ sub_080A6B04: @ 0x080A6B04
 	ldr r1, _080A6C08 @ =gUnk_02001A40
 	movs r2, #0x80
 	lsls r2, r2, #5
-	bl sub_0801D5EC
-	ldr r0, _080A6C0C @ =gLinkState
+	bl _DmaFill16
+	ldr r0, _080A6C0C @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #8
 	ands r0, r1
@@ -2816,7 +2800,7 @@ sub_080A6B04: @ 0x080A6B04
 	beq _080A6B84
 	movs r2, #0x65
 _080A6B84:
-	ldr r1, _080A6C10 @ =gUnk_030010A0
+	ldr r1, _080A6C10 @ =gScreenTransition
 	ldrh r0, [r1, #0x20]
 	ldrh r1, [r1, #0x22]
 	ldr r4, _080A6C14 @ =0x000001FB
@@ -2855,7 +2839,7 @@ _080A6B84:
 _080A6BD2:
 	strh r0, [r7, #0xa]
 _080A6BD4:
-	ldr r1, _080A6BFC @ =gUnk_02000080
+	ldr r1, _080A6BFC @ =gMenu
 	movs r0, #0x1e
 	strh r0, [r1, #8]
 	movs r0, #1
@@ -2870,23 +2854,23 @@ _080A6BD4:
 _080A6BF0: .4byte gUnk_02022740
 _080A6BF4: .4byte gUnk_080C9CBC
 _080A6BF8: .4byte gUnk_080FE320
-_080A6BFC: .4byte gUnk_02000080
+_080A6BFC: .4byte gMenu
 _080A6C00: .4byte 0x0000475F
 _080A6C04: .4byte 0x00005001
 _080A6C08: .4byte gUnk_02001A40
-_080A6C0C: .4byte gLinkState
-_080A6C10: .4byte gUnk_030010A0
+_080A6C0C: .4byte gPlayerState
+_080A6C10: .4byte gScreenTransition
 _080A6C14: .4byte 0x000001FB
 _080A6C18: .4byte gUnk_08128E94
 
 	thumb_func_start sub_080A6C1C
 sub_080A6C1C: @ 0x080A6C1C
 	push {lr}
-	ldr r0, _080A6C34 @ =gUnk_03000FD0
+	ldr r0, _080A6C34 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A6C6A
-	ldr r0, _080A6C38 @ =gUnk_02000080
+	ldr r0, _080A6C38 @ =gMenu
 	ldrh r0, [r0, #8]
 	cmp r0, #0
 	beq _080A6C3C
@@ -2894,8 +2878,8 @@ sub_080A6C1C: @ 0x080A6C1C
 	beq _080A6C5C
 	b _080A6C62
 	.align 2, 0
-_080A6C34: .4byte gUnk_03000FD0
-_080A6C38: .4byte gUnk_02000080
+_080A6C34: .4byte gFadeControl
+_080A6C38: .4byte gMenu
 _080A6C3C:
 	bl sub_080A66D0
 	ldr r0, _080A6C58 @ =gUnk_03000FF0
@@ -2915,7 +2899,7 @@ _080A6C5C:
 	ldr r0, _080A6C6C @ =0x00000103
 	bl PlaySFX
 _080A6C62:
-	ldr r1, _080A6C70 @ =gUnk_02000080
+	ldr r1, _080A6C70 @ =gMenu
 	ldrh r0, [r1, #8]
 	subs r0, #1
 	strh r0, [r1, #8]
@@ -2923,14 +2907,14 @@ _080A6C6A:
 	pop {pc}
 	.align 2, 0
 _080A6C6C: .4byte 0x00000103
-_080A6C70: .4byte gUnk_02000080
+_080A6C70: .4byte gMenu
 
 	thumb_func_start sub_080A6C74
 sub_080A6C74: @ 0x080A6C74
 	push {r4, lr}
 	bl sub_080AD90C
 	ldr r1, _080A6CA0 @ =gUnk_08128F24
-	ldr r4, _080A6CA4 @ =gUnk_02000080
+	ldr r4, _080A6CA4 @ =gMenu
 	ldrb r0, [r4, #5]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2946,7 +2930,7 @@ _080A6C94:
 	pop {r4, pc}
 	.align 2, 0
 _080A6CA0: .4byte gUnk_08128F24
-_080A6CA4: .4byte gUnk_02000080
+_080A6CA4: .4byte gMenu
 
 	thumb_func_start sub_080A6CA8
 sub_080A6CA8: @ 0x080A6CA8
@@ -2957,7 +2941,7 @@ sub_080A6CA8: @ 0x080A6CA8
 	bl sub_080A6290
 	movs r0, #0
 	bl sub_080A6D74
-	ldr r1, _080A6CD4 @ =gUnk_02000080
+	ldr r1, _080A6CD4 @ =gMenu
 	strb r0, [r1, #3]
 	movs r0, #1
 	bl sub_080A7114
@@ -2966,16 +2950,16 @@ sub_080A6CA8: @ 0x080A6CA8
 	bl DoFade
 	pop {pc}
 	.align 2, 0
-_080A6CD4: .4byte gUnk_02000080
+_080A6CD4: .4byte gMenu
 
 	thumb_func_start sub_080A6CD8
 sub_080A6CD8: @ 0x080A6CD8
 	push {r4, lr}
-	ldr r0, _080A6D08 @ =gUnk_03000FD0
+	ldr r0, _080A6D08 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A6D6E
-	ldr r1, _080A6D0C @ =gUnk_02000080
+	ldr r1, _080A6D0C @ =gMenu
 	movs r0, #1
 	strb r0, [r1]
 	movs r4, #0
@@ -2994,8 +2978,8 @@ sub_080A6CD8: @ 0x080A6CD8
 	beq _080A6D38
 	b _080A6D54
 	.align 2, 0
-_080A6D08: .4byte gUnk_03000FD0
-_080A6D0C: .4byte gUnk_02000080
+_080A6D08: .4byte gFadeControl
+_080A6D0C: .4byte gMenu
 _080A6D10: .4byte gUnk_03000FF0
 _080A6D14:
 	cmp r0, #8
@@ -3039,7 +3023,7 @@ _080A6D54:
 _080A6D58:
 	adds r0, r4, #0
 	bl sub_080A6D74
-	ldr r1, _080A6D70 @ =gUnk_02000080
+	ldr r1, _080A6D70 @ =gMenu
 	ldrb r2, [r1, #3]
 	cmp r0, r2
 	beq _080A6D6E
@@ -3049,7 +3033,7 @@ _080A6D58:
 _080A6D6E:
 	pop {r4, pc}
 	.align 2, 0
-_080A6D70: .4byte gUnk_02000080
+_080A6D70: .4byte gMenu
 
 	thumb_func_start sub_080A6D74
 sub_080A6D74: @ 0x080A6D74
@@ -3058,7 +3042,7 @@ sub_080A6D74: @ 0x080A6D74
 	ldr r0, _080A6DA4 @ =gUnk_02002A40
 	ldr r0, [r0, #0x40]
 	lsrs r2, r0, #0x18
-	ldr r0, _080A6DA8 @ =gUnk_02000080
+	ldr r0, _080A6DA8 @ =gMenu
 	ldrb r1, [r0, #3]
 	cmp r3, #0
 	bne _080A6DAC
@@ -3080,7 +3064,7 @@ _080A6D92:
 	b _080A6DC6
 	.align 2, 0
 _080A6DA4: .4byte gUnk_02002A40
-_080A6DA8: .4byte gUnk_02000080
+_080A6DA8: .4byte gMenu
 _080A6DAC:
 	cmp r2, #0
 	beq _080A6DC6
@@ -3113,13 +3097,13 @@ sub_080A6DD0: @ 0x080A6DD0
 	beq _080A6DF0
 	b _080A6DF6
 _080A6DE0:
-	ldr r1, _080A6DEC @ =gUnk_02000080
+	ldr r1, _080A6DEC @ =gMenu
 	movs r0, #2
 	strb r0, [r1]
 	movs r0, #3
 	b _080A6DF2
 	.align 2, 0
-_080A6DEC: .4byte gUnk_02000080
+_080A6DEC: .4byte gMenu
 _080A6DF0:
 	movs r0, #1
 _080A6DF2:
@@ -3130,7 +3114,7 @@ _080A6DF6:
 	thumb_func_start sub_080A6DF8
 sub_080A6DF8: @ 0x080A6DF8
 	push {lr}
-	ldr r0, _080A6E14 @ =gUnk_02000080
+	ldr r0, _080A6E14 @ =gMenu
 	ldrb r0, [r0]
 	cmp r0, #2
 	bne _080A6E18
@@ -3141,10 +3125,10 @@ sub_080A6DF8: @ 0x080A6DF8
 	bl DoFade
 	b _080A6E3A
 	.align 2, 0
-_080A6E14: .4byte gUnk_02000080
+_080A6E14: .4byte gMenu
 _080A6E18:
 	bl sub_080791D0
-	ldr r0, _080A6E3C @ =gLinkEntity
+	ldr r0, _080A6E3C @ =gPlayerEntity
 	adds r1, r0, #0
 	adds r1, #0x58
 	ldrb r1, [r1]
@@ -3159,17 +3143,17 @@ _080A6E18:
 _080A6E3A:
 	pop {pc}
 	.align 2, 0
-_080A6E3C: .4byte gLinkEntity
+_080A6E3C: .4byte gPlayerEntity
 _080A6E40: .4byte gUnk_02034490
 
 	thumb_func_start sub_080A6E44
 sub_080A6E44: @ 0x080A6E44
 	push {lr}
-	ldr r0, _080A6E64 @ =gUnk_03000FD0
+	ldr r0, _080A6E64 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A6E60
-	ldr r0, _080A6E68 @ =gUnk_02000080
+	ldr r0, _080A6E68 @ =gMenu
 	ldrb r1, [r0, #3]
 	lsls r0, r1, #2
 	adds r0, r0, r1
@@ -3180,8 +3164,8 @@ sub_080A6E44: @ 0x080A6E44
 _080A6E60:
 	pop {pc}
 	.align 2, 0
-_080A6E64: .4byte gUnk_03000FD0
-_080A6E68: .4byte gUnk_02000080
+_080A6E64: .4byte gFadeControl
+_080A6E68: .4byte gMenu
 _080A6E6C: .4byte gUnk_08128024
 
 	thumb_func_start sub_080A6E70
@@ -3194,7 +3178,7 @@ sub_080A6E70: @ 0x080A6E70
 	movs r0, #0x80
 	lsls r0, r0, #3
 	strh r0, [r1, #8]
-	ldr r1, _080A6ED4 @ =gUnk_02000080
+	ldr r1, _080A6ED4 @ =gMenu
 	adds r4, r1, #0
 	adds r4, #0x2c
 	ldrb r0, [r4]
@@ -3235,7 +3219,7 @@ _080A6EC8:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A6ED0: .4byte gUnk_03001010
-_080A6ED4: .4byte gUnk_02000080
+_080A6ED4: .4byte gMenu
 _080A6ED8: .4byte 0x000001FB
 _080A6EDC: .4byte gUnk_02002A40
 
@@ -3315,7 +3299,7 @@ _080A6F60:
 sub_080A6F6C: @ 0x080A6F6C
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r1, _080A6FA4 @ =gUnk_02000080
+	ldr r1, _080A6FA4 @ =gMenu
 	ldrh r0, [r1, #0x2e]
 	cmp r0, r4
 	beq _080A6F9A
@@ -3323,7 +3307,7 @@ sub_080A6F6C: @ 0x080A6F6C
 	ldr r0, _080A6FA8 @ =gUnk_020350F0
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #0xff
 	ands r0, r4
 	cmp r0, #0
@@ -3341,7 +3325,7 @@ _080A6F9A:
 	strh r0, [r1, #0xc]
 	pop {r4, pc}
 	.align 2, 0
-_080A6FA4: .4byte gUnk_02000080
+_080A6FA4: .4byte gMenu
 _080A6FA8: .4byte gUnk_020350F0
 _080A6FAC: .4byte gUnk_08128FA8
 _080A6FB0: .4byte gScreen
@@ -3384,7 +3368,7 @@ _080A6FF0:
 	ldrh r4, [r0]
 	ldr r5, _080A7030 @ =gUnk_08128FD8
 _080A6FFA:
-	ldr r1, _080A7034 @ =gUnk_02000080
+	ldr r1, _080A7034 @ =gMenu
 	ldrh r0, [r1, #0x2e]
 	cmp r0, r4
 	beq _080A7024
@@ -3392,7 +3376,7 @@ _080A6FFA:
 	ldr r0, _080A7038 @ =gUnk_020350F0
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #0xff
 	ands r0, r4
 	cmp r0, #0
@@ -3412,7 +3396,7 @@ _080A7024:
 	.align 2, 0
 _080A702C: .4byte gUnk_08128FF0
 _080A7030: .4byte gUnk_08128FD8
-_080A7034: .4byte gUnk_02000080
+_080A7034: .4byte gMenu
 _080A7038: .4byte gUnk_020350F0
 _080A703C: .4byte gScreen
 
@@ -3420,7 +3404,7 @@ _080A703C: .4byte gScreen
 sub_080A7040: @ 0x080A7040
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r1, _080A7090 @ =gUnk_02000080
+	ldr r1, _080A7090 @ =gMenu
 	ldrh r0, [r1, #0x2e]
 	cmp r0, r5
 	beq _080A708C
@@ -3429,7 +3413,7 @@ sub_080A7040: @ 0x080A7040
 	movs r1, #0xc0
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _080A7098 @ =0xFFFFFE00
 	adds r4, r4, r0
 	ldr r1, _080A709C @ =0x0600E000
@@ -3456,7 +3440,7 @@ _080A7082:
 _080A708C:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080A7090: .4byte gUnk_02000080
+_080A7090: .4byte gMenu
 _080A7094: .4byte gUnk_02022130
 _080A7098: .4byte 0xFFFFFE00
 _080A709C: .4byte 0x0600E000
@@ -3472,7 +3456,7 @@ sub_080A70AC: @ 0x080A70AC
 	movs r1, #0xc0
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	adds r2, r4, #0
 	subs r2, #0x34
 	movs r0, #0x7f
@@ -3520,14 +3504,14 @@ _080A7110: .4byte gUnk_0200AF34
 
 	thumb_func_start sub_080A7114
 sub_080A7114: @ 0x080A7114
-	ldr r1, _080A7120 @ =gUnk_02000080
+	ldr r1, _080A7120 @ =gMenu
 	movs r2, #0
 	strb r0, [r1, #5]
 	strb r2, [r1, #6]
 	strb r2, [r1, #7]
 	bx lr
 	.align 2, 0
-_080A7120: .4byte gUnk_02000080
+_080A7120: .4byte gMenu
 
 	thumb_func_start sub_080A7124
 sub_080A7124: @ 0x080A7124
@@ -3535,13 +3519,13 @@ sub_080A7124: @ 0x080A7124
 	ldr r0, _080A7134 @ =gUnk_02032EC0
 	movs r1, #0xed
 	lsls r1, r1, #2
-	bl sub_0801D630
+	bl _DmaZero
 	pop {pc}
 	.align 2, 0
 _080A7134: .4byte gUnk_02032EC0
 
-	thumb_func_start sub_080A7138
-sub_080A7138: @ 0x080A7138
+	thumb_func_start MenuFadeIn
+MenuFadeIn: @ 0x080A7138
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	adds r6, r1, #0
@@ -3552,7 +3536,7 @@ sub_080A7138: @ 0x080A7138
 	movs r1, #0xed
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	strb r5, [r4, #2]
 	strb r6, [r4, #3]
 	ldr r0, _080A7160 @ =gUnk_03001000
@@ -3608,7 +3592,7 @@ _080A71B8:
 	strb r2, [r3, #0xf]
 _080A71BA:
 	adds r0, r4, #0
-	bl sub_080A7138
+	bl MenuFadeIn
 	pop {r4, pc}
 	.align 2, 0
 
@@ -3617,7 +3601,7 @@ sub_080A71C4: @ 0x080A71C4
 	push {r4, r5, lr}
 	adds r4, r2, #0
 	adds r5, r3, #0
-	bl sub_080A7138
+	bl MenuFadeIn
 	ldr r0, _080A71D8 @ =gUnk_02032EC0
 	strh r4, [r0, #8]
 	strh r5, [r0, #0xa]
@@ -3645,9 +3629,9 @@ sub_080A71F4: @ 0x080A71F4
 	beq _080A71FE
 	bl DoExitTransition
 _080A71FE:
-	bl sub_0805E89C
+	bl DeleteAllEntities
 	bl sub_0805E974
-	bl sub_0805E89C
+	bl DeleteAllEntities
 	ldr r0, _080A7218 @ =gUnk_03001000
 	movs r2, #0
 	movs r1, #1
@@ -3688,7 +3672,7 @@ _080A724C: .4byte gUnk_0812901C
 	thumb_func_start sub_080A7250
 sub_080A7250: @ 0x080A7250
 	push {r4, lr}
-	ldr r0, _080A72E8 @ =gUnk_03000FD0
+	ldr r0, _080A72E8 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A72E4
@@ -3696,7 +3680,7 @@ sub_080A7250: @ 0x080A7250
 	ldr r1, _080A72F0 @ =gUnk_03001020
 	movs r2, #0x7c
 	bl sub_0801D66C
-	ldr r0, _080A72F4 @ =gUnk_020176A0
+	ldr r0, _080A72F4 @ =gPaletteBuffer
 	ldr r1, _080A72F8 @ =gUnk_02024090
 	movs r2, #0x80
 	lsls r2, r2, #3
@@ -3734,11 +3718,11 @@ sub_080A7250: @ 0x080A7250
 	bl sub_0805E958
 	adds r1, r4, #0
 	subs r1, #0x54
-	ldr r0, _080A7314 @ =gUnk_030010A0
+	ldr r0, _080A7314 @ =gScreenTransition
 	adds r0, #0x2f
 	ldrb r0, [r0]
 	strb r0, [r1, #0xd]
-	ldr r0, _080A7318 @ =gLinkState
+	ldr r0, _080A7318 @ =gPlayerState
 	adds r0, #0x8b
 	ldrb r0, [r0]
 	strb r0, [r1, #0xc]
@@ -3756,10 +3740,10 @@ sub_080A7250: @ 0x080A7250
 _080A72E4:
 	pop {r4, pc}
 	.align 2, 0
-_080A72E8: .4byte gUnk_03000FD0
+_080A72E8: .4byte gFadeControl
 _080A72EC: .4byte gScreen
 _080A72F0: .4byte gUnk_03001020
-_080A72F4: .4byte gUnk_020176A0
+_080A72F4: .4byte gPaletteBuffer
 _080A72F8: .4byte gUnk_02024090
 _080A72FC: .4byte gUnk_02024490
 _080A7300: .4byte gUnk_02032F14
@@ -3767,8 +3751,8 @@ _080A7304: .4byte gUnk_02001A00
 _080A7308: .4byte gRoomControls
 _080A730C: .4byte gUnk_03000420
 _080A7310: .4byte gUnk_02033280
-_080A7314: .4byte gUnk_030010A0
-_080A7318: .4byte gLinkState
+_080A7314: .4byte gScreenTransition
+_080A7318: .4byte gPlayerState
 _080A731C: .4byte gUnk_02017654
 _080A7320: .4byte gUnk_02025EB0
 _080A7324: .4byte gUnk_0200B650
@@ -3776,25 +3760,25 @@ _080A7324: .4byte gUnk_0200B650
 	thumb_func_start sub_080A7328
 sub_080A7328: @ 0x080A7328
 	push {r4, lr}
-	ldr r0, _080A7388 @ =gUnk_03000FD0
+	ldr r0, _080A7388 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A7384
-	bl sub_0805E89C
-	ldr r0, _080A738C @ =gUnk_02000080
+	bl DeleteAllEntities
+	ldr r0, _080A738C @ =gMenu
 	movs r1, #0x30
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _080A7390 @ =gRoomControls
 	movs r1, #0x38
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _080A7394 @ =gUnk_03000420
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r4, _080A7398 @ =gUnk_02033280
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #8
 	strb r0, [r4, #8]
 	movs r0, #1
@@ -3809,37 +3793,37 @@ sub_080A7328: @ 0x080A7328
 	ldr r1, _080A73A0 @ =gUnk_02032EC0
 	movs r0, #2
 	strb r0, [r1]
-	ldr r0, _080A73A4 @ =gUnk_030010A0
+	ldr r0, _080A73A4 @ =gScreenTransition
 	adds r0, #0x30
 	strb r2, [r0]
 _080A7384:
 	pop {r4, pc}
 	.align 2, 0
-_080A7388: .4byte gUnk_03000FD0
-_080A738C: .4byte gUnk_02000080
+_080A7388: .4byte gFadeControl
+_080A738C: .4byte gMenu
 _080A7390: .4byte gRoomControls
 _080A7394: .4byte gUnk_03000420
 _080A7398: .4byte gUnk_02033280
 _080A739C: .4byte gUnk_02024490
 _080A73A0: .4byte gUnk_02032EC0
-_080A73A4: .4byte gUnk_030010A0
+_080A73A4: .4byte gScreenTransition
 
 	thumb_func_start sub_080A73A8
 sub_080A73A8: @ 0x080A73A8
 	push {r4, r5, lr}
-	ldr r0, _080A7468 @ =gUnk_03000FD0
+	ldr r0, _080A7468 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080A73B4
 	b _080A74BC
 _080A73B4:
-	bl sub_0805E89C
+	bl DeleteAllEntities
 	bl sub_0805E974
 	ldr r1, _080A746C @ =gUnk_02017654
 	ldr r5, _080A7470 @ =gUnk_02032EC0
 	ldr r0, [r5, #0x10]
 	str r0, [r1]
-	ldr r0, _080A7474 @ =gLinkState
+	ldr r0, _080A7474 @ =gPlayerState
 	ldrb r1, [r5, #0xc]
 	adds r0, #0x8b
 	strb r1, [r0]
@@ -3909,10 +3893,10 @@ _080A73B4:
 	bl DoFade
 	b _080A74AE
 	.align 2, 0
-_080A7468: .4byte gUnk_03000FD0
+_080A7468: .4byte gFadeControl
 _080A746C: .4byte gUnk_02017654
 _080A7470: .4byte gUnk_02032EC0
-_080A7474: .4byte gLinkState
+_080A7474: .4byte gPlayerState
 _080A7478: .4byte gUnk_02025EB0
 _080A747C: .4byte gUnk_0200B650
 _080A7480: .4byte gUnk_02033280
@@ -3933,20 +3917,20 @@ _080A74AE:
 	movs r2, #0
 	movs r0, #4
 	strb r0, [r1]
-	ldr r0, _080A74C4 @ =gUnk_030010A0
+	ldr r0, _080A74C4 @ =gScreenTransition
 	adds r0, #0x30
 	strb r2, [r0]
 _080A74BC:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A74C0: .4byte gUnk_02032EC0
-_080A74C4: .4byte gUnk_030010A0
+_080A74C4: .4byte gScreenTransition
 
 	thumb_func_start sub_080A74C8
 sub_080A74C8: @ 0x080A74C8
 	push {lr}
 	bl sub_080A74F4
-	ldr r0, _080A74E8 @ =gUnk_03000FD0
+	ldr r0, _080A74E8 @ =gFadeControl
 	ldrb r3, [r0]
 	cmp r3, #0
 	bne _080A74E6
@@ -3960,7 +3944,7 @@ sub_080A74C8: @ 0x080A74C8
 _080A74E6:
 	pop {pc}
 	.align 2, 0
-_080A74E8: .4byte gUnk_03000FD0
+_080A74E8: .4byte gFadeControl
 _080A74EC: .4byte gUnk_03001000
 _080A74F0: .4byte gUnk_02032EC0
 
@@ -4012,7 +3996,7 @@ sub_080A7544: @ 0x080A7544
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _080A7582
-	ldr r1, _080A7588 @ =gLinkEntity
+	ldr r1, _080A7588 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl sub_08078E84
 	ldr r1, [r4, #0x48]
@@ -4033,7 +4017,7 @@ _080A7582:
 	pop {r4, pc}
 	.align 2, 0
 _080A7584: .4byte gUnk_0812905C
-_080A7588: .4byte gLinkEntity
+_080A7588: .4byte gPlayerEntity
 
 	thumb_func_start sub_080A758C
 sub_080A758C: @ 0x080A758C
@@ -4042,7 +4026,7 @@ sub_080A758C: @ 0x080A758C
 	ldrb r0, [r5, #0xa]
 	cmp r0, #0
 	bne _080A75AC
-	ldr r1, _080A7654 @ =gLinkState
+	ldr r1, _080A7654 @ =gPlayerState
 	ldrb r0, [r1, #4]
 	cmp r0, #0
 	bne _080A75AC
@@ -4063,7 +4047,7 @@ _080A75BA:
 	movs r1, #1
 	movs r2, #3
 	bl sub_080AE008
-	ldr r1, _080A7658 @ =gLinkEntity
+	ldr r1, _080A7658 @ =gPlayerEntity
 	adds r0, r1, #0
 	adds r0, #0x3c
 	ldrb r0, [r0]
@@ -4103,7 +4087,7 @@ _080A75BA:
 	ldrb r0, [r5, #0xa]
 	cmp r0, #0
 	bne _080A76BC
-	ldr r2, _080A7654 @ =gLinkState
+	ldr r2, _080A7654 @ =gPlayerState
 	ldrb r1, [r2, #2]
 	movs r0, #0x20
 	ands r0, r1
@@ -4135,8 +4119,8 @@ _080A75BA:
 	movs r0, #0x1a
 	b _080A766A
 	.align 2, 0
-_080A7654: .4byte gLinkState
-_080A7658: .4byte gLinkEntity
+_080A7654: .4byte gPlayerState
+_080A7658: .4byte gPlayerEntity
 _080A765C:
 	adds r1, r5, #0
 	adds r1, #0x40
@@ -4167,7 +4151,7 @@ _080A767A:
 	adds r0, r5, #0
 	bl sub_080A76CC
 _080A7692:
-	ldr r0, _080A76B0 @ =gLinkState
+	ldr r0, _080A76B0 @ =gPlayerState
 	str r5, [r0, #0x2c]
 	adds r0, r5, #0
 	bl sub_08079BD8
@@ -4180,7 +4164,7 @@ _080A7692:
 	bl PlaySFX
 	b _080A76C2
 	.align 2, 0
-_080A76B0: .4byte gLinkState
+_080A76B0: .4byte gPlayerState
 _080A76B4: .4byte gUnk_0812906C
 _080A76B8: .4byte gUnk_08129068
 _080A76BC:
@@ -4201,7 +4185,7 @@ sub_080A76CC: @ 0x080A76CC
 	beq _080A76D8
 	b _080A77DC
 _080A76D8:
-	ldr r5, _080A771C @ =gLinkState
+	ldr r5, _080A771C @ =gPlayerState
 	ldr r0, [r5, #0x2c]
 	cmp r0, r4
 	beq _080A76E4
@@ -4235,7 +4219,7 @@ _080A76F2:
 	movs r0, #0xa
 	b _080A7726
 	.align 2, 0
-_080A771C: .4byte gLinkState
+_080A771C: .4byte gPlayerState
 _080A7720:
 	movs r0, #8
 	b _080A7726
@@ -4244,7 +4228,7 @@ _080A7724:
 _080A7726:
 	strb r0, [r1]
 _080A7728:
-	ldr r0, _080A7740 @ =gLinkEntity
+	ldr r0, _080A7740 @ =gPlayerEntity
 	adds r0, #0x5a
 	ldrb r1, [r0]
 	movs r0, #0x20
@@ -4256,7 +4240,7 @@ _080A7728:
 	bl PlaySFX
 	b _080A77C4
 	.align 2, 0
-_080A7740: .4byte gLinkEntity
+_080A7740: .4byte gPlayerEntity
 _080A7744:
 	ldr r0, [r5, #0x30]
 	movs r1, #0x80
@@ -4280,14 +4264,14 @@ _080A7762:
 _080A7768:
 	strb r0, [r1]
 _080A776A:
-	ldr r0, _080A77D0 @ =gLinkState
+	ldr r0, _080A77D0 @ =gPlayerState
 	adds r0, #0x3e
 	ldrb r0, [r0]
 	movs r2, #3
 	ands r2, r0
 	cmp r2, #0
 	beq _080A77C4
-	ldr r0, _080A77D4 @ =gLinkEntity
+	ldr r0, _080A77D4 @ =gPlayerEntity
 	adds r0, #0x5a
 	ldrb r1, [r0]
 	movs r0, #0x40
@@ -4327,16 +4311,16 @@ _080A77BE:
 	adds r0, r0, r1
 	strh r0, [r2, #0x2e]
 _080A77C4:
-	ldr r1, _080A77D4 @ =gLinkEntity
+	ldr r1, _080A77D4 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl sub_080A78B8
 	b _080A7806
 	.align 2, 0
-_080A77D0: .4byte gLinkState
-_080A77D4: .4byte gLinkEntity
+_080A77D0: .4byte gPlayerState
+_080A77D4: .4byte gPlayerEntity
 _080A77D8: .4byte gUnk_081292E2
 _080A77DC:
-	ldr r1, _080A7810 @ =gLinkState
+	ldr r1, _080A7810 @ =gPlayerState
 	ldrb r0, [r1, #4]
 	cmp r0, #0
 	beq _080A7814
@@ -4361,7 +4345,7 @@ _080A7806:
 	bl sub_080A7A84
 	b _080A7820
 	.align 2, 0
-_080A7810: .4byte gLinkState
+_080A7810: .4byte gPlayerState
 _080A7814:
 	movs r0, #0xff
 	strb r0, [r4, #0x1e]
@@ -4377,7 +4361,7 @@ _080A7820:
 sub_080A7824: @ 0x080A7824
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	ldr r5, _080A7860 @ =gLinkState
+	ldr r5, _080A7860 @ =gPlayerState
 	ldr r0, [r5, #0x2c]
 	cmp r0, r4
 	beq _080A7834
@@ -4392,7 +4376,7 @@ _080A7834:
 	str r0, [r5, #0x2c]
 	bl DeleteThisEntity
 _080A7846:
-	ldr r2, _080A7864 @ =gLinkEntity
+	ldr r2, _080A7864 @ =gPlayerEntity
 	adds r6, r2, #0
 	adds r6, #0x5a
 	ldrb r1, [r6]
@@ -4405,8 +4389,8 @@ _080A7846:
 	bl DeleteThisEntity
 	b _080A78B4
 	.align 2, 0
-_080A7860: .4byte gLinkState
-_080A7864: .4byte gLinkEntity
+_080A7860: .4byte gPlayerState
+_080A7864: .4byte gPlayerEntity
 _080A7868:
 	adds r0, r4, #0
 	adds r1, r2, #0
@@ -4457,7 +4441,7 @@ sub_080A78B8: @ 0x080A78B8
 	push {r7}
 	adds r4, r0, #0
 	adds r6, r1, #0
-	ldr r0, _080A78E8 @ =gLinkState
+	ldr r0, _080A78E8 @ =gPlayerState
 	ldrb r1, [r0, #0x1b]
 	movs r0, #0x20
 	ands r0, r1
@@ -4466,7 +4450,7 @@ sub_080A78B8: @ 0x080A78B8
 	ldrb r0, [r6, #0x1e]
 	subs r0, #0x6a
 	strb r0, [r4, #0x1e]
-	ldr r0, _080A78EC @ =gUnk_030010A0
+	ldr r0, _080A78EC @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #4
 	ands r0, r1
@@ -4477,8 +4461,8 @@ sub_080A78B8: @ 0x080A78B8
 	adds r1, #0xb1
 	b _080A78F2
 	.align 2, 0
-_080A78E8: .4byte gLinkState
-_080A78EC: .4byte gUnk_030010A0
+_080A78E8: .4byte gPlayerState
+_080A78EC: .4byte gScreenTransition
 _080A78F0:
 	ldrb r1, [r4, #0x1e]
 _080A78F2:
@@ -4498,7 +4482,7 @@ _080A78FC:
 	adds r0, r4, #0
 	bl sub_080042D0
 _080A7912:
-	ldr r2, _080A792C @ =gLinkState
+	ldr r2, _080A792C @ =gPlayerState
 	ldrb r1, [r2, #0x1b]
 	movs r0, #0x40
 	ands r0, r1
@@ -4511,7 +4495,7 @@ _080A7912:
 	ands r0, r1
 	b _080A7958
 	.align 2, 0
-_080A792C: .4byte gLinkState
+_080A792C: .4byte gPlayerState
 _080A7930:
 	ldrb r1, [r6, #0x14]
 	movs r0, #2
@@ -4673,7 +4657,7 @@ _080A7A4C:
 
 	thumb_func_start sub_080A7A54
 sub_080A7A54: @ 0x080A7A54
-	ldr r1, _080A7A7C @ =gLinkEntity
+	ldr r1, _080A7A7C @ =gPlayerEntity
 	ldrb r1, [r1, #0x1e]
 	subs r1, #0x6a
 	lsls r1, r1, #2
@@ -4693,14 +4677,14 @@ sub_080A7A54: @ 0x080A7A54
 	strb r0, [r2, #7]
 	bx lr
 	.align 2, 0
-_080A7A7C: .4byte gLinkEntity
+_080A7A7C: .4byte gPlayerEntity
 _080A7A80: .4byte gUnk_08129096
 
 	thumb_func_start sub_080A7A84
 sub_080A7A84: @ 0x080A7A84
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
-	ldr r6, _080A7AE0 @ =gLinkEntity
+	ldr r6, _080A7AE0 @ =gPlayerEntity
 	adds r0, r6, #0
 	adds r0, #0x5a
 	ldrb r0, [r0]
@@ -4718,7 +4702,7 @@ sub_080A7A84: @ 0x080A7A84
 	adds r0, r0, r2
 	movs r5, #0
 	ldrsb r5, [r0, r5]
-	ldr r2, _080A7AE8 @ =gLinkState
+	ldr r2, _080A7AE8 @ =gPlayerState
 	ldrb r1, [r2, #0x1b]
 	movs r0, #0xc0
 	ands r0, r1
@@ -4745,9 +4729,9 @@ _080A7AC4:
 	bl sub_08008796
 	b _080A7B8C
 	.align 2, 0
-_080A7AE0: .4byte gLinkEntity
+_080A7AE0: .4byte gPlayerEntity
 _080A7AE4: .4byte gUnk_08129072
-_080A7AE8: .4byte gLinkState
+_080A7AE8: .4byte gPlayerState
 _080A7AEC:
 	ldr r0, [r4, #0x34]
 	cmp r0, #0
@@ -4785,15 +4769,15 @@ _080A7AEC:
 	bl sub_080002B4
 	cmp r0, #0x2e
 	bne _080A7B4C
-	ldr r0, _080A7B44 @ =gLinkEntity
+	ldr r0, _080A7B44 @ =gPlayerEntity
 	ldr r1, _080A7B48 @ =0x00000119
 	bl sub_0800449C
 	b _080A7B54
 	.align 2, 0
-_080A7B44: .4byte gLinkEntity
+_080A7B44: .4byte gPlayerEntity
 _080A7B48: .4byte 0x00000119
 _080A7B4C:
-	ldr r0, _080A7B90 @ =gLinkEntity
+	ldr r0, _080A7B90 @ =gPlayerEntity
 	movs r1, #0x74
 	bl sub_0800449C
 _080A7B54:
@@ -4827,7 +4811,7 @@ _080A7B54:
 _080A7B8C:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A7B90: .4byte gLinkEntity
+_080A7B90: .4byte gPlayerEntity
 _080A7B94: .4byte gUnk_0812908E
 
 	thumb_func_start sub_080A7B98
@@ -4838,7 +4822,7 @@ sub_080A7B98: @ 0x080A7B98
 	mov r5, r8
 	push {r5, r6, r7}
 	adds r6, r0, #0
-	ldr r0, _080A7BFC @ =gLinkState
+	ldr r0, _080A7BFC @ =gPlayerState
 	adds r0, #0xac
 	ldrh r1, [r0]
 	movs r0, #8
@@ -4884,7 +4868,7 @@ _080A7BCE:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A7BFC: .4byte gLinkState
+_080A7BFC: .4byte gPlayerState
 
 	thumb_func_start CreateItemEntity
 CreateItemEntity: @ 0x080A7C00
@@ -4907,7 +4891,7 @@ sub_080A7C18: @ 0x080A7C18
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _080A7C32
-	ldr r0, _080A7C34 @ =gLinkEntity
+	ldr r0, _080A7C34 @ =gPlayerEntity
 	str r0, [r2, #0x50]
 	ldrb r1, [r2, #0xa]
 	adds r0, r2, #0
@@ -4916,7 +4900,7 @@ sub_080A7C18: @ 0x080A7C18
 _080A7C32:
 	pop {pc}
 	.align 2, 0
-_080A7C34: .4byte gLinkEntity
+_080A7C34: .4byte gPlayerEntity
 
 	thumb_func_start GiveItemWithCutscene
 GiveItemWithCutscene: @ 0x080A7C38
@@ -4947,7 +4931,7 @@ _080A7C52:
 	strb r0, [r4, #8]
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _080A7C72:
 	adds r0, r4, #0
 	pop {r4, r5, r6, r7, pc}
@@ -4959,7 +4943,7 @@ sub_080A7C7C: @ 0x080A7C7C
 	push {lr}
 	ldr r0, _080A7C88 @ =gUnk_02017660
 	movs r1, #0x40
-	bl sub_0801D630
+	bl _DmaZero
 	pop {pc}
 	.align 2, 0
 _080A7C88: .4byte gUnk_02017660
@@ -5202,7 +5186,7 @@ _080A7E14:
 	ldr r0, [r5, #4]
 	str r0, [r4, #0x48]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _080A7E4A:
 	movs r0, #1
 _080A7E4C:
@@ -5304,7 +5288,7 @@ sub_080A7EE0: @ 0x080A7EE0
 	strb r5, [r4, #9]
 	adds r0, r4, #0
 	movs r1, #5
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _080A7EFC:
 	adds r0, r4, #0
 	pop {r4, r5, pc}
@@ -5347,7 +5331,7 @@ _080A7F38:
 	cmp r0, #0
 	beq _080A7F56
 	ldr r1, [r4, #0x4c]
-	ldr r0, _080A7F7C @ =gLinkEntity
+	ldr r0, _080A7F7C @ =gPlayerEntity
 	cmp r1, r0
 	bne _080A7F56
 	adds r1, r4, #0
@@ -5373,7 +5357,7 @@ _080A7F56:
 _080A7F7A:
 	pop {r4, pc}
 	.align 2, 0
-_080A7F7C: .4byte gLinkEntity
+_080A7F7C: .4byte gPlayerEntity
 
 	thumb_func_start sub_080A7F80
 sub_080A7F80: @ 0x080A7F80
@@ -6409,7 +6393,7 @@ _080A8700:
 	ands r0, r1
 	cmp r0, #3
 	bne _080A8768
-	ldr r0, _080A875C @ =gLinkState
+	ldr r0, _080A875C @ =gPlayerState
 	ldrb r0, [r0, #0xf]
 	cmp r0, #0
 	beq _080A876E
@@ -6428,7 +6412,7 @@ _080A8700:
 	ands r1, r3
 	lsls r1, r1, #6
 	orrs r0, r1
-	ldr r1, _080A8764 @ =gLinkEntity
+	ldr r1, _080A8764 @ =gPlayerEntity
 	adds r1, #0x38
 	ldrb r1, [r1]
 	bl sub_080002E0
@@ -6446,9 +6430,9 @@ _080A8700:
 	bl DeleteThisEntity
 	b _080A876E
 	.align 2, 0
-_080A875C: .4byte gLinkState
+_080A875C: .4byte gPlayerState
 _080A8760: .4byte gRoomControls
-_080A8764: .4byte gLinkEntity
+_080A8764: .4byte gPlayerEntity
 _080A8768:
 	adds r0, r4, #0
 	bl DeleteEntity
@@ -6565,7 +6549,7 @@ sub_080A881C: @ 0x080A881C
 	ldrb r0, [r0]
 	cmp r0, #0x80
 	bne _080A884A
-	ldr r0, _080A8850 @ =gLinkState
+	ldr r0, _080A8850 @ =gPlayerState
 	movs r1, #0xf0
 	strb r1, [r0, #0xf]
 	movs r0, #2
@@ -6575,7 +6559,7 @@ _080A884A:
 	bl DeleteThisEntity
 	b _080A8866
 	.align 2, 0
-_080A8850: .4byte gLinkState
+_080A8850: .4byte gPlayerState
 _080A8854:
 	ldrb r0, [r1, #0xc]
 	cmp r0, #1
@@ -6729,7 +6713,7 @@ _080A8962:
 	ldrh r0, [r4, #0x36]
 	adds r0, #0xe
 	strh r0, [r4, #0x36]
-	ldr r1, _080A8984 @ =gLinkEntity
+	ldr r1, _080A8984 @ =gPlayerEntity
 	adds r0, r4, #0
 	movs r2, #0xe
 	movs r3, #0xe
@@ -6744,7 +6728,7 @@ _080A8962:
 _080A8982:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080A8984: .4byte gLinkEntity
+_080A8984: .4byte gPlayerEntity
 
 	thumb_func_start sub_080A8988
 sub_080A8988: @ 0x080A8988
@@ -7419,7 +7403,7 @@ _080A8E88:
 	bge _080A8E8E
 	b _080A8FAE
 _080A8E8E:
-	ldr r0, _080A8EC0 @ =gLinkEntity
+	ldr r0, _080A8EC0 @ =gPlayerEntity
 	movs r2, #0x2e
 	ldrsh r1, [r0, r2]
 	movs r3, #0x32
@@ -7434,7 +7418,7 @@ _080A8E8E:
 	adds r2, r0, #0
 	ldr r0, _080A8EC4 @ =0x000001FF
 	ands r2, r0
-	ldr r0, _080A8EC8 @ =gUnk_030010A0
+	ldr r0, _080A8EC8 @ =gScreenTransition
 	ldr r0, [r0]
 	ands r0, r6
 	cmp r0, #0
@@ -7442,9 +7426,9 @@ _080A8E8E:
 	adds r4, r4, r2
 	b _080A8ECE
 	.align 2, 0
-_080A8EC0: .4byte gLinkEntity
+_080A8EC0: .4byte gPlayerEntity
 _080A8EC4: .4byte 0x000001FF
-_080A8EC8: .4byte gUnk_030010A0
+_080A8EC8: .4byte gScreenTransition
 _080A8ECC:
 	subs r4, r4, r2
 _080A8ECE:
@@ -7598,9 +7582,9 @@ _080A8FE8:
 	bne _080A901C
 	movs r0, #0x1e
 	strb r0, [r4, #0xf]
-	ldr r1, _080A9048 @ =gLinkEntity
+	ldr r1, _080A9048 @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -7624,7 +7608,7 @@ _080A901C:
 	bl InitializeAnimation
 	b _080A9054
 	.align 2, 0
-_080A9048: .4byte gLinkEntity
+_080A9048: .4byte gPlayerEntity
 _080A904C:
 	adds r0, r4, #0
 	movs r1, #0x52
@@ -7797,7 +7781,7 @@ _080A917C:
 	cmp r0, #0
 	beq _080A9198
 	ldr r1, [r5, #0x4c]
-	ldr r0, _080A91A0 @ =gLinkEntity
+	ldr r0, _080A91A0 @ =gPlayerEntity
 	cmp r1, r0
 	bne _080A9198
 	adds r0, r5, #0
@@ -7807,7 +7791,7 @@ _080A9198:
 	bl DeleteEntity
 	b _080A91D8
 	.align 2, 0
-_080A91A0: .4byte gLinkEntity
+_080A91A0: .4byte gPlayerEntity
 _080A91A4:
 	ldr r1, _080A91DC @ =gUnk_08129998
 	ldrb r0, [r4, #0x14]
@@ -8529,7 +8513,7 @@ _080A96F8:
 	bl InitializeAnimation
 	b _080A9756
 _080A9718:
-	ldr r0, _080A9760 @ =gLinkEntity
+	ldr r0, _080A9760 @ =gPlayerEntity
 	adds r1, r4, #0
 	bl CopyPosition
 	ldr r0, _080A9764 @ =0xFF600000
@@ -8560,7 +8544,7 @@ _080A9756:
 	bl PlaySFX
 	pop {r4, r5, pc}
 	.align 2, 0
-_080A9760: .4byte gLinkEntity
+_080A9760: .4byte gPlayerEntity
 _080A9764: .4byte 0xFF600000
 _080A9768: .4byte 0x000001B5
 
@@ -9390,7 +9374,7 @@ sub_080A9D2C: @ 0x080A9D2C
 	movs r0, #2
 	rsbs r0, r0, #0
 	bl ModHealth
-	ldr r0, _080A9D68 @ =gLinkEntity
+	ldr r0, _080A9D68 @ =gPlayerEntity
 	movs r1, #0x7a
 	bl sub_0800449C
 	bl sub_08079D84
@@ -9403,7 +9387,7 @@ _080A9D56:
 _080A9D64:
 	pop {r4, pc}
 	.align 2, 0
-_080A9D68: .4byte gLinkEntity
+_080A9D68: .4byte gPlayerEntity
 
 	thumb_func_start sub_080A9D6C
 sub_080A9D6C: @ 0x080A9D6C
@@ -9801,7 +9785,7 @@ _080AA052:
 _080AA05E:
 	ldrh r0, [r5, #0x12]
 	ldrb r1, [r5, #0x1e]
-	bl sub_080700C8
+	bl GetSpriteSubEntryOffsetDataPointer
 	adds r3, r0, #0
 	ldrb r1, [r5, #0x14]
 	movs r0, #4
@@ -10005,7 +9989,7 @@ _080AA1EC:
 	bne _080AA26C
 	ldrh r0, [r4, #0x12]
 	ldrb r1, [r4, #0x1e]
-	bl sub_080700C8
+	bl GetSpriteSubEntryOffsetDataPointer
 	adds r3, r0, #0
 	ldrb r1, [r4, #0x14]
 	movs r0, #4
@@ -10132,7 +10116,7 @@ sub_080AA2E0: @ 0x080AA2E0
 	beq _080AA31C
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	ldrb r1, [r5, #0x14]
 	lsls r1, r1, #2
 	adds r0, #4
@@ -10441,7 +10425,7 @@ sub_080AA534: @ 0x080AA534
 	adds r2, #0x38
 	movs r1, #3
 	strb r1, [r2]
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	pop {pc}
 
 	thumb_func_start sub_080AA544
@@ -10602,7 +10586,7 @@ sub_080AA654: @ 0x080AA654
 	adds r0, #8
 	strh r0, [r4, #0xa]
 	adds r0, r4, #0
-	bl CreateEntity
+	bl LoadRoomEntity
 	pop {r4, r5, pc}
 	.align 2, 0
 _080AA688: .4byte gUnk_0812A004
@@ -10744,7 +10728,7 @@ sub_080AA78C: @ 0x080AA78C
 	ldrb r0, [r4, #0xd]
 	cmp r0, #0
 	bne _080AA7DA
-	ldr r0, _080AA7C8 @ =gLinkEntity
+	ldr r0, _080AA7C8 @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	lsrs r2, r0, #1
 	ldrb r0, [r4, #0xa]
@@ -10769,7 +10753,7 @@ sub_080AA78C: @ 0x080AA78C
 	bl sub_080AA6C0
 	b _080AA832
 	.align 2, 0
-_080AA7C8: .4byte gLinkEntity
+_080AA7C8: .4byte gPlayerEntity
 _080AA7CC:
 	movs r0, #1
 	strb r0, [r4, #0xd]
@@ -10897,7 +10881,7 @@ _080AA8B4: .4byte gUnk_0812A05C
 sub_080AA8B8: @ 0x080AA8B8
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
-	ldr r7, _080AA99C @ =gLinkEntity
+	ldr r7, _080AA99C @ =gPlayerEntity
 	adds r0, #0x84
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -10952,7 +10936,7 @@ _080AA920:
 	ldrb r2, [r4, #0xa]
 	cmp r0, r2
 	bne _080AA99A
-	ldr r1, _080AA9A4 @ =gLinkState
+	ldr r1, _080AA9A4 @ =gPlayerState
 	adds r0, r1, #0
 	adds r0, #0xa8
 	ldrb r0, [r0]
@@ -10964,7 +10948,7 @@ _080AA920:
 	ands r0, r1
 	cmp r0, #0
 	beq _080AA99A
-	ldr r0, _080AA99C @ =gLinkEntity
+	ldr r0, _080AA99C @ =gPlayerEntity
 	adds r0, #0x5a
 	ldrb r1, [r0]
 	adds r0, r2, #0
@@ -11009,9 +10993,9 @@ _080AA920:
 _080AA99A:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080AA99C: .4byte gLinkEntity
+_080AA99C: .4byte gPlayerEntity
 _080AA9A0: .4byte gUnk_0812A064
-_080AA9A4: .4byte gLinkState
+_080AA9A4: .4byte gPlayerState
 _080AA9A8: .4byte gUnk_0812A06C
 
 	thumb_func_start sub_080AA9AC
@@ -11053,16 +11037,16 @@ sub_080AA9E0: @ 0x080AA9E0
 	ands r0, r1
 	cmp r0, #0
 	beq _080AAA00
-	ldr r0, _080AA9FC @ =gLinkEntity
+	ldr r0, _080AA9FC @ =gPlayerEntity
 	movs r2, #0x2e
 	ldrsh r1, [r0, r2]
 	movs r2, #0x2e
 	ldrsh r0, [r5, r2]
 	b _080AAA0A
 	.align 2, 0
-_080AA9FC: .4byte gLinkEntity
+_080AA9FC: .4byte gPlayerEntity
 _080AAA00:
-	ldr r0, _080AAA24 @ =gLinkEntity
+	ldr r0, _080AAA24 @ =gPlayerEntity
 	movs r2, #0x32
 	ldrsh r1, [r0, r2]
 	movs r2, #0x32
@@ -11081,7 +11065,7 @@ _080AAA0A:
 	beq _080AAA30
 	b _080AAA40
 	.align 2, 0
-_080AAA24: .4byte gLinkEntity
+_080AAA24: .4byte gPlayerEntity
 _080AAA28: .4byte gUnk_0812A074
 _080AAA2C:
 	cmp r2, #3
@@ -11397,19 +11381,19 @@ sub_080AAC44: @ 0x080AAC44
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _080AAC84
-	ldr r0, _080AAC80 @ =gLinkEntity
+	ldr r0, _080AAC80 @ =gPlayerEntity
 	adds r1, r4, #0
 	bl ResolveEntityOnTop
 	b _080AAC8C
 	.align 2, 0
-_080AAC80: .4byte gLinkEntity
+_080AAC80: .4byte gPlayerEntity
 _080AAC84:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
 	bl ResolveEntityOnTop
 _080AAC8C:
-	bl sub_08077B2C
-	ldr r2, _080AACB4 @ =gLinkState
+	bl ResetPlayer
+	ldr r2, _080AACB4 @ =gPlayerState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80
 	orrs r1, r0
@@ -11418,7 +11402,7 @@ _080AAC8C:
 	orrs r0, r1
 	strb r0, [r2, #0xa]
 _080AACA0:
-	ldr r0, _080AACB8 @ =gLinkEntity
+	ldr r0, _080AACB8 @ =gPlayerEntity
 	adds r0, #0x45
 	ldrb r1, [r0]
 	cmp r1, #0
@@ -11428,8 +11412,8 @@ _080AACA0:
 	strb r1, [r0]
 	b _080AACCA
 	.align 2, 0
-_080AACB4: .4byte gLinkState
-_080AACB8: .4byte gLinkEntity
+_080AACB4: .4byte gPlayerState
+_080AACB8: .4byte gPlayerEntity
 _080AACBC:
 	ldr r0, _080AACDC @ =0x00000119
 	bl PlaySFX
@@ -11636,9 +11620,9 @@ _080AADE0:
 	ands r0, r1
 	orrs r0, r3
 	strb r0, [r2]
-	ldr r1, _080AAE60 @ =gLinkEntity
+	ldr r1, _080AAE60 @ =gPlayerEntity
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r5, #0x15]
 	adds r0, r5, #0
 	adds r0, #0x86
@@ -11660,7 +11644,7 @@ _080AADE0:
 	str r5, [r1, #0x50]
 	b _080AAE7C
 	.align 2, 0
-_080AAE60: .4byte gLinkEntity
+_080AAE60: .4byte gPlayerEntity
 _080AAE64:
 	ldr r0, [r5, #0x50]
 	adds r1, r5, #0
@@ -11704,9 +11688,9 @@ _080AAEA2:
 	bne _080AAEC2
 	movs r0, #4
 	strb r0, [r4, #0xf]
-	ldr r1, _080AAECC @ =gLinkEntity
+	ldr r1, _080AAECC @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -11715,7 +11699,7 @@ _080AAEC2:
 	bl sub_0806F69C
 	b _080AAEF6
 	.align 2, 0
-_080AAECC: .4byte gLinkEntity
+_080AAECC: .4byte gPlayerEntity
 _080AAED0:
 	ldr r0, [r4, #0x50]
 	cmp r0, #0
@@ -11832,7 +11816,7 @@ _080AAF94:
 	bne _080AAFCC
 	movs r0, #0x1e
 	strb r0, [r5, #0xe]
-	ldr r4, _080AAFFC @ =gLinkEntity
+	ldr r4, _080AAFFC @ =gPlayerEntity
 	adds r1, r4, #0
 	adds r1, #0x3d
 	movs r0, #8
@@ -11865,22 +11849,22 @@ _080AAFE0:
 	movs r0, #1
 	strb r0, [r5, #0xc]
 	strb r2, [r1]
-	ldr r0, _080AAFFC @ =gLinkEntity
+	ldr r0, _080AAFFC @ =gPlayerEntity
 	adds r0, #0x3d
 	movs r1, #0xf0
 	strb r1, [r0]
-	ldr r0, _080AB000 @ =gLinkState
+	ldr r0, _080AB000 @ =gPlayerState
 	strb r2, [r0, #0x1a]
 	adds r0, r5, #0
 	adds r0, #0x45
 	strb r2, [r0]
 	b _080AB028
 	.align 2, 0
-_080AAFFC: .4byte gLinkEntity
-_080AB000: .4byte gLinkState
+_080AAFFC: .4byte gPlayerEntity
+_080AB000: .4byte gPlayerState
 _080AB004:
-	bl sub_08077B2C
-	ldr r2, _080AB02C @ =gLinkState
+	bl ResetPlayer
+	ldr r2, _080AB02C @ =gPlayerState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80
 	orrs r1, r0
@@ -11888,7 +11872,7 @@ _080AB004:
 	ldrb r1, [r2, #0xa]
 	orrs r0, r1
 	strb r0, [r2, #0xa]
-	ldr r4, _080AB030 @ =gLinkEntity
+	ldr r4, _080AB030 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl CopyPosition
@@ -11898,8 +11882,8 @@ _080AB004:
 _080AB028:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080AB02C: .4byte gLinkState
-_080AB030: .4byte gLinkEntity
+_080AB02C: .4byte gPlayerState
+_080AB030: .4byte gPlayerEntity
 
 	thumb_func_start sub_080AB034
 sub_080AB034: @ 0x080AB034
@@ -12031,7 +12015,7 @@ _080AB128: .4byte gSineTable
 sub_080AB12C: @ 0x080AB12C
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _080AB168 @ =gUnk_03003DBC
+	ldr r0, _080AB168 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x44
 	bhi _080AB16C
@@ -12056,7 +12040,7 @@ sub_080AB12C: @ 0x080AB12C
 	movs r0, #1
 	b _080AB16E
 	.align 2, 0
-_080AB168: .4byte gUnk_03003DBC
+_080AB168: .4byte gEntCount
 _080AB16C:
 	movs r0, #0
 _080AB16E:
@@ -12369,7 +12353,7 @@ sub_080AB318: @ 0x080AB318
 	adds r1, r0, #0
 	ldr r0, _080AB3E4 @ =0x000001FF
 	ands r1, r0
-	ldr r0, _080AB3E8 @ =gUnk_030010A0
+	ldr r0, _080AB3E8 @ =gScreenTransition
 	ldr r0, [r0]
 	mov r2, r8
 	ands r0, r2
@@ -12387,7 +12371,7 @@ _080AB3D8: .4byte 0xFFFF0000
 _080AB3DC: .4byte gRoomControls
 _080AB3E0: .4byte 0x000001B5
 _080AB3E4: .4byte 0x000001FF
-_080AB3E8: .4byte gUnk_030010A0
+_080AB3E8: .4byte gScreenTransition
 _080AB3EC:
 	subs r4, r4, r1
 	cmp r4, #0x1f
@@ -13584,7 +13568,7 @@ sub_080ABC90: @ 0x080ABC90
 	movs r0, #2
 	rsbs r0, r0, #0
 	bl ModHealth
-	ldr r0, _080ABCC0 @ =gLinkEntity
+	ldr r0, _080ABCC0 @ =gPlayerEntity
 	movs r1, #0x7a
 	bl sub_0800449C
 	bl sub_08079D84
@@ -13596,7 +13580,7 @@ sub_080ABC90: @ 0x080ABC90
 _080ABCBE:
 	pop {r4, pc}
 	.align 2, 0
-_080ABCC0: .4byte gLinkEntity
+_080ABCC0: .4byte gPlayerEntity
 
 	thumb_func_start sub_080ABCC4
 sub_080ABCC4: @ 0x080ABCC4
@@ -13922,9 +13906,9 @@ sub_080ABF40: @ 0x080ABF40
 	bne _080ABF66
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	ldr r1, _080ABFA0 @ =gLinkEntity
+	ldr r1, _080ABFA0 @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	movs r1, #0
@@ -13959,7 +13943,7 @@ _080ABF88:
 _080ABF9C:
 	pop {r4, pc}
 	.align 2, 0
-_080ABFA0: .4byte gLinkEntity
+_080ABFA0: .4byte gPlayerEntity
 _080ABFA4: .4byte 0x00000199
 
 	thumb_func_start sub_080ABFA8
@@ -14118,9 +14102,9 @@ _080AC0B2:
 	bne _080AC0F0
 	movs r0, #2
 	strb r0, [r4, #0xc]
-	ldr r1, _080AC0EC @ =gLinkEntity
+	ldr r1, _080AC0EC @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	movs r0, #0xc0
 	lsls r0, r0, #1
@@ -14130,7 +14114,7 @@ _080AC0B2:
 	b _080AC0F8
 	.align 2, 0
 _080AC0E8: .4byte 0x00000149
-_080AC0EC: .4byte gLinkEntity
+_080AC0EC: .4byte gPlayerEntity
 _080AC0F0:
 	movs r0, #3
 	strb r0, [r4, #0xc]
@@ -14183,16 +14167,16 @@ _080AC13A:
 	ands r0, r1
 	cmp r0, #0
 	bne _080AC160
-	ldr r1, _080AC164 @ =gLinkEntity
+	ldr r1, _080AC164 @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
 _080AC160:
 	pop {r4, pc}
 	.align 2, 0
-_080AC164: .4byte gLinkEntity
+_080AC164: .4byte gPlayerEntity
 
 	thumb_func_start sub_080AC168
 sub_080AC168: @ 0x080AC168
@@ -14221,9 +14205,9 @@ sub_080AC168: @ 0x080AC168
 	adds r0, r5, r0
 	ldrb r0, [r0]
 	strb r0, [r4, #0xf]
-	ldr r1, _080AC1C8 @ =gLinkEntity
+	ldr r1, _080AC1C8 @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	ldr r0, [r4, #0x50]
 	adds r0, #0x84
@@ -14239,7 +14223,7 @@ sub_080AC168: @ 0x080AC168
 	.align 2, 0
 _080AC1C0: .4byte 0xFFFF8000
 _080AC1C4: .4byte gUnk_0812A982
-_080AC1C8: .4byte gLinkEntity
+_080AC1C8: .4byte gPlayerEntity
 _080AC1CC: .4byte gUnk_0812A98A
 _080AC1D0:
 	cmp r0, #2
@@ -14808,7 +14792,7 @@ sub_080AC5E4: @ 0x080AC5E4
 	ldrb r4, [r5, #0xa]
 	cmp r4, #0
 	bne _080AC668
-	ldr r0, _080AC664 @ =gUnk_03003DBC
+	ldr r0, _080AC664 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x43
 	bhi _080AC670
@@ -14861,9 +14845,9 @@ sub_080AC5E4: @ 0x080AC5E4
 	str r0, [r7, #0x54]
 	b _080AC6C8
 	.align 2, 0
-_080AC664: .4byte gUnk_03003DBC
+_080AC664: .4byte gEntCount
 _080AC668:
-	ldr r0, _080AC674 @ =gUnk_03003DBC
+	ldr r0, _080AC674 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x44
 	bls _080AC678
@@ -14871,7 +14855,7 @@ _080AC670:
 	movs r0, #0
 	b _080AC6E8
 	.align 2, 0
-_080AC674: .4byte gUnk_03003DBC
+_080AC674: .4byte gEntCount
 _080AC678:
 	adds r1, r5, #0
 	adds r1, #0x79
@@ -15257,7 +15241,7 @@ sub_080AC928: @ 0x080AC928
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r4, #0
 	movs r1, #0
 	bl InitializeAnimation
@@ -15311,9 +15295,9 @@ _080AC964:
 	movs r1, #0x80
 	orrs r0, r1
 	strb r0, [r5, #0x10]
-	ldr r1, _080AC9C8 @ =gLinkEntity
+	ldr r1, _080AC9C8 @ =gPlayerEntity
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r5, #0x15]
 	movs r0, #0x97
 	lsls r0, r0, #1
@@ -15322,7 +15306,7 @@ _080AC9C0:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080AC9C4: .4byte gSineTable
-_080AC9C8: .4byte gLinkEntity
+_080AC9C8: .4byte gPlayerEntity
 
 	thumb_func_start sub_080AC9CC
 sub_080AC9CC: @ 0x080AC9CC
@@ -15602,7 +15586,7 @@ _080ACBC8: .4byte 0x00000119
 sub_080ACBCC: @ 0x080ACBCC
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _080ACBFC @ =gLinkState
+	ldr r0, _080ACBFC @ =gPlayerState
 	ldrb r1, [r0, #0x1c]
 	movs r0, #0x7f
 	ands r0, r1
@@ -15623,7 +15607,7 @@ _080ACBE0:
 	strb r0, [r1]
 	pop {r4, pc}
 	.align 2, 0
-_080ACBFC: .4byte gLinkState
+_080ACBFC: .4byte gPlayerState
 _080ACC00: .4byte gUnk_0812AA80
 
 	thumb_func_start sub_080ACC04
@@ -15632,7 +15616,7 @@ sub_080ACC04: @ 0x080ACC04
 	adds r4, r0, #0
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	ldr r0, _080ACC54 @ =gLinkEntity
+	ldr r0, _080ACC54 @ =gPlayerEntity
 	adds r0, #0x3b
 	ldrb r0, [r0]
 	adds r1, r4, #0
@@ -15666,7 +15650,7 @@ sub_080ACC04: @ 0x080ACC04
 	bl sub_0801766C
 	pop {r4, pc}
 	.align 2, 0
-_080ACC54: .4byte gLinkEntity
+_080ACC54: .4byte gPlayerEntity
 _080ACC58: .4byte gUnk_0812AAD8
 
 	thumb_func_start sub_080ACC5C
@@ -15689,7 +15673,7 @@ sub_080ACC78: @ 0x080ACC78
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	ldrb r2, [r4, #0xa]
-	ldr r0, _080ACD20 @ =gUnk_030010A0
+	ldr r0, _080ACD20 @ =gScreenTransition
 	ldr r0, [r0]
 	adds r0, r2, r0
 	movs r1, #1
@@ -15772,7 +15756,7 @@ _080ACD08:
 	movs r0, #2
 	b _080ACD32
 	.align 2, 0
-_080ACD20: .4byte gUnk_030010A0
+_080ACD20: .4byte gScreenTransition
 _080ACD24: .4byte gUnk_0812AAAC
 _080ACD28:
 	ldr r0, _080ACD74 @ =gUnk_0812AABC
@@ -15860,7 +15844,7 @@ sub_080ACDB0: @ 0x080ACDB0
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _080ACDE8
-	ldr r2, _080ACDE0 @ =gLinkEntity
+	ldr r2, _080ACDE0 @ =gPlayerEntity
 	ldr r1, _080ACDE4 @ =gUnk_08126EE4
 	ldrb r0, [r4, #0x14]
 	adds r0, r0, r1
@@ -15880,7 +15864,7 @@ sub_080ACDB0: @ 0x080ACDB0
 	adds r0, r0, r2
 	b _080ACEB4
 	.align 2, 0
-_080ACDE0: .4byte gLinkEntity
+_080ACDE0: .4byte gPlayerEntity
 _080ACDE4: .4byte gUnk_08126EE4
 _080ACDE8:
 	ldrb r2, [r4, #0x14]
@@ -15993,7 +15977,7 @@ _080ACEB0:
 _080ACEB4:
 	strh r0, [r4, #0x32]
 _080ACEB6:
-	ldr r0, _080ACEC8 @ =gLinkEntity
+	ldr r0, _080ACEC8 @ =gPlayerEntity
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r4, #0
@@ -16002,7 +15986,7 @@ _080ACEB6:
 	movs r0, #0
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080ACEC8: .4byte gLinkEntity
+_080ACEC8: .4byte gPlayerEntity
 
 	thumb_func_start sub_080ACECC
 sub_080ACECC: @ 0x080ACECC
@@ -16027,7 +16011,7 @@ sub_080ACECC: @ 0x080ACECC
 	movs r0, #0x10
 	movs r2, #0
 	movs r3, #0
-	bl sub_08077CB8
+	bl CreatePlayerItem
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080ACF0C
@@ -16161,11 +16145,11 @@ _080ACFE8:
 	bl DeleteThisEntity
 	b _080AD03C
 _080ACFF8:
-	ldr r0, _080AD02C @ =gLinkState
+	ldr r0, _080AD02C @ =gPlayerState
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	beq _080AD00E
-	ldr r0, _080AD030 @ =gLinkEntity
+	ldr r0, _080AD030 @ =gPlayerEntity
 	adds r0, #0x79
 	ldrb r1, [r0]
 	movs r0, #0x7f
@@ -16188,8 +16172,8 @@ _080AD00E:
 	str r2, [r4, #0x20]
 	b _080AD03C
 	.align 2, 0
-_080AD02C: .4byte gLinkState
-_080AD030: .4byte gLinkEntity
+_080AD02C: .4byte gPlayerState
+_080AD030: .4byte gPlayerEntity
 _080AD034:
 	bl sub_08079184
 	bl DeleteThisEntity
@@ -16380,7 +16364,7 @@ _080AD188:
 	bl PlaySFX
 _080AD196:
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	movs r0, #3
 	strb r0, [r5, #0xd]
 	ldrb r2, [r4, #0x19]
@@ -16446,7 +16430,7 @@ _080AD202:
 	strb r0, [r5, #0x15]
 	b _080AD26E
 _080AD220:
-	ldr r1, _080AD240 @ =gLinkEntity
+	ldr r1, _080AD240 @ =gPlayerEntity
 	adds r0, r1, #0
 	adds r0, #0x5a
 	ldrb r0, [r0]
@@ -16460,9 +16444,9 @@ _080AD220:
 	bl sub_080AD27C
 	b _080AD26E
 	.align 2, 0
-_080AD240: .4byte gLinkEntity
+_080AD240: .4byte gPlayerEntity
 _080AD244:
-	ldr r0, _080AD270 @ =gLinkState
+	ldr r0, _080AD270 @ =gPlayerState
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	beq _080AD25A
@@ -16486,7 +16470,7 @@ _080AD25A:
 _080AD26E:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080AD270: .4byte gLinkState
+_080AD270: .4byte gPlayerState
 
 	thumb_func_start sub_080AD274
 sub_080AD274: @ 0x080AD274
@@ -16499,7 +16483,7 @@ sub_080AD27C: @ 0x080AD27C
 	push {r4, r5, lr}
 	adds r3, r0, #0
 	ldr r4, [r3, #0x54]
-	ldr r1, _080AD2AC @ =gLinkEntity
+	ldr r1, _080AD2AC @ =gPlayerEntity
 	movs r0, #0
 	str r0, [r1, #0x74]
 	adds r0, r3, #0
@@ -16521,7 +16505,7 @@ sub_080AD27C: @ 0x080AD27C
 	strb r0, [r4, #0xd]
 	b _080AD2C2
 	.align 2, 0
-_080AD2AC: .4byte gLinkEntity
+_080AD2AC: .4byte gPlayerEntity
 _080AD2B0:
 	adds r2, r3, #0
 	adds r2, #0x29

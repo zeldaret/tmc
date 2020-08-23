@@ -10,7 +10,7 @@ GetEmptyEntity: @ 0x0805E678
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
-	ldr r0, _0805E698 @ =gUnk_03003DBC
+	ldr r0, _0805E698 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x46
 	bhi _0805E6A6
@@ -25,14 +25,14 @@ _0805E68E:
 	adds r0, r4, #0
 	b _0805E730
 	.align 2, 0
-_0805E698: .4byte gUnk_03003DBC
+_0805E698: .4byte gEntCount
 _0805E69C: .4byte gUnk_030015A0
 _0805E6A0:
 	adds r4, #0x88
 	cmp r4, r1
 	blo _0805E68E
 _0805E6A6:
-	ldr r4, _0805E6CC @ =gLinkEntity
+	ldr r4, _0805E6CC @ =gPlayerEntity
 _0805E6A8:
 	ldr r0, [r4]
 	cmp r0, #0
@@ -47,11 +47,11 @@ _0805E6A8:
 	cmp r4, r0
 	beq _0805E6D4
 	adds r0, r4, #0
-	bl sub_0805E870
+	bl ClearDeletedEntity
 	adds r0, r4, #0
 	b _0805E730
 	.align 2, 0
-_0805E6CC: .4byte gLinkEntity
+_0805E6CC: .4byte gPlayerEntity
 _0805E6D0: .4byte gUnk_03003DD0
 _0805E6D4:
 	adds r4, #0x88
@@ -61,7 +61,7 @@ _0805E6D4:
 	movs r0, #0
 	mov ip, r0
 	movs r5, #0
-	ldr r2, _0805E73C @ =gUnk_03003D70
+	ldr r2, _0805E73C @ =gEntityLists
 	movs r0, #0x48
 	adds r0, r0, r2
 	mov r8, r0
@@ -100,7 +100,7 @@ _0805E718:
 	adds r0, r5, #0
 	bl DeleteEntity
 	adds r0, r5, #0
-	bl sub_0805E870
+	bl ClearDeletedEntity
 _0805E72E:
 	adds r0, r5, #0
 _0805E730:
@@ -109,5 +109,5 @@ _0805E730:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0805E738: .4byte gUnk_03003BE0
-_0805E73C: .4byte gUnk_03003D70
+_0805E73C: .4byte gEntityLists
 _0805E740: .4byte gUnk_03003DD0

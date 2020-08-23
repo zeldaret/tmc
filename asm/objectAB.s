@@ -85,7 +85,7 @@ sub_080A0158: @ 0x080A0158
 	adds r0, r4, #0
 	movs r1, #0x1e
 	bl sub_0805E4E0
-	ldr r1, _080A018C @ =gLinkEntity
+	ldr r1, _080A018C @ =gPlayerEntity
 	adds r0, r4, #0
 	movs r2, #0x10
 	movs r3, #0x10
@@ -97,7 +97,7 @@ sub_080A0158: @ 0x080A0158
 _080A018A:
 	pop {r4, pc}
 	.align 2, 0
-_080A018C: .4byte gLinkEntity
+_080A018C: .4byte gPlayerEntity
 
 	thumb_func_start sub_080A0190
 sub_080A0190: @ 0x080A0190
@@ -105,9 +105,9 @@ sub_080A0190: @ 0x080A0190
 	movs r4, #0
 	movs r1, #1
 	strb r1, [r0, #0xd]
-	ldr r1, _080A01B8 @ =gLinkEntity
+	ldr r1, _080A01B8 @ =gPlayerEntity
 	bl CopyPosition
-	ldr r2, _080A01BC @ =gLinkState
+	ldr r2, _080A01BC @ =gPlayerState
 	movs r0, #3
 	strb r0, [r2, #0xc]
 	adds r0, r2, #0
@@ -120,5 +120,5 @@ sub_080A0190: @ 0x080A0190
 	str r0, [r2, #0x30]
 	pop {r4, pc}
 	.align 2, 0
-_080A01B8: .4byte gLinkEntity
-_080A01BC: .4byte gLinkState
+_080A01B8: .4byte gPlayerEntity
+_080A01BC: .4byte gPlayerState

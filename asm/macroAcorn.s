@@ -44,7 +44,7 @@ _0809E52E:
 	ands r0, r2
 	cmp r0, #0
 	beq _0809E5A4
-	ldr r0, _0809E5A0 @ =gUnk_03003DBC
+	ldr r0, _0809E5A0 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x44
 	bhi _0809E5B4
@@ -85,7 +85,7 @@ _0809E52E:
 	bl CopyPosition
 	b _0809E5C4
 	.align 2, 0
-_0809E5A0: .4byte gUnk_03003DBC
+_0809E5A0: .4byte gEntCount
 _0809E5A4:
 	adds r2, r5, #1
 	movs r0, #0x9a

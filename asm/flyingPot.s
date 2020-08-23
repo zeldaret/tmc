@@ -231,7 +231,7 @@ _080371F6:
 sub_080371F8: @ 0x080371F8
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _08037210 @ =gLinkState
+	ldr r0, _08037210 @ =gPlayerState
 	ldrb r1, [r0, #0x1c]
 	movs r0, #0xf
 	ands r0, r1
@@ -242,7 +242,7 @@ sub_080371F8: @ 0x080371F8
 _0803720E:
 	pop {pc}
 	.align 2, 0
-_08037210: .4byte gLinkState
+_08037210: .4byte gPlayerState
 
 	thumb_func_start nullsub_161
 nullsub_161: @ 0x08037214
@@ -446,15 +446,15 @@ sub_0803737C: @ 0x0803737C
 	strb r0, [r4, #0xc]
 	movs r0, #0xa
 	strb r0, [r4, #0xe]
-	ldr r1, _080373AC @ =gLinkEntity
+	ldr r1, _080373AC @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 _080373A6:
 	pop {r4, pc}
 	.align 2, 0
 _080373A8: .4byte 0xFFFF0000
-_080373AC: .4byte gLinkEntity
+_080373AC: .4byte gPlayerEntity
 
 	thumb_func_start sub_080373B0
 sub_080373B0: @ 0x080373B0

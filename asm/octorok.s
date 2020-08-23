@@ -204,7 +204,7 @@ _0801EDC4:
 	ldr r0, _0801EDE8 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, #4
 _0801EDD0:
 	movs r1, #0x18
@@ -230,7 +230,7 @@ sub_0801EDEC: @ 0x0801EDEC
 	cmp r1, #0
 	beq _0801EE12
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, #4
 	movs r1, #0x18
 	ands r0, r1

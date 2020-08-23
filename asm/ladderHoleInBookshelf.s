@@ -29,7 +29,7 @@ sub_08093FCC: @ 0x08093FCC
 	adds r2, #0x38
 	movs r1, #2
 	strb r1, [r2]
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	pop {pc}
 
 	thumb_func_start sub_08093FE0
@@ -44,7 +44,7 @@ sub_08093FE0: @ 0x08093FE0
 	ldrb r0, [r3]
 	cmp r0, #2
 	bne _08094024
-	ldr r0, _08094020 @ =gLinkEntity
+	ldr r0, _08094020 @ =gPlayerEntity
 	ldrb r0, [r0, #0xc]
 	cmp r0, #0x1e
 	bgt _08094002
@@ -54,7 +54,7 @@ _08094002:
 	movs r0, #1
 	strb r0, [r3]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]
@@ -65,9 +65,9 @@ _08094002:
 	orrs r0, r1
 	b _08094060
 	.align 2, 0
-_08094020: .4byte gLinkEntity
+_08094020: .4byte gPlayerEntity
 _08094024:
-	ldr r0, _0809404C @ =gLinkEntity
+	ldr r0, _0809404C @ =gPlayerEntity
 	ldrb r2, [r0, #0xc]
 	cmp r2, #0x1e
 	bgt _08094050
@@ -76,7 +76,7 @@ _08094024:
 	movs r0, #2
 	strb r0, [r3]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]
@@ -87,7 +87,7 @@ _08094024:
 	orrs r0, r1
 	b _08094060
 	.align 2, 0
-_0809404C: .4byte gLinkEntity
+_0809404C: .4byte gPlayerEntity
 _08094050:
 	adds r2, r0, #0
 	adds r2, #0x38
@@ -106,7 +106,7 @@ _08094062:
 sub_08094064: @ 0x08094064
 	push {lr}
 	movs r2, #1
-	ldr r1, _08094080 @ =gLinkEntity
+	ldr r1, _08094080 @ =gPlayerEntity
 	movs r3, #0x2e
 	ldrsh r1, [r1, r3]
 	movs r3, #0x2e
@@ -120,4 +120,4 @@ _0809407C:
 	adds r0, r2, #0
 	pop {pc}
 	.align 2, 0
-_08094080: .4byte gLinkEntity
+_08094080: .4byte gPlayerEntity

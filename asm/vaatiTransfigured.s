@@ -102,7 +102,7 @@ sub_0803F818: @ 0x0803F818
 	bl CheckRoomFlag
 	cmp r0, #0
 	beq _0803F910
-	ldr r0, _0803F8FC @ =gUnk_03003DBC
+	ldr r0, _0803F8FC @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x50
 	bhi _0803F910
@@ -204,7 +204,7 @@ _0803F8E0:
 	strb r6, [r0, #0xe]
 	b _0803F902
 	.align 2, 0
-_0803F8FC: .4byte gUnk_03003DBC
+_0803F8FC: .4byte gEntCount
 _0803F900:
 	strb r1, [r0, #0xe]
 _0803F902:
@@ -1424,7 +1424,7 @@ _08040212:
 	movs r1, #4
 	orrs r0, r1
 	strb r0, [r2]
-	ldr r0, _08040264 @ =gUnk_03003DBC
+	ldr r0, _08040264 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x45
 	bhi _08040260
@@ -1453,7 +1453,7 @@ _08040212:
 _08040260:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08040264: .4byte gUnk_03003DBC
+_08040264: .4byte gEntCount
 
 	thumb_func_start sub_08040268
 sub_08040268: @ 0x08040268
@@ -1486,9 +1486,9 @@ _08040286:
 _0804029E:
 	cmp r2, #2
 	bne _08040382
-	ldr r1, _080402DC @ =gLinkEntity
+	ldr r1, _080402DC @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	lsls r0, r0, #1
 	ldr r1, _080402E0 @ =gUnk_080D0B18
 	adds r0, r0, r1
@@ -1516,7 +1516,7 @@ _080402C6:
 	strb r0, [r4, #0x18]
 	b _08040382
 	.align 2, 0
-_080402DC: .4byte gLinkEntity
+_080402DC: .4byte gPlayerEntity
 _080402E0: .4byte gUnk_080D0B18
 _080402E4:
 	adds r5, r4, #0
@@ -1883,7 +1883,7 @@ _08040582:
 	movs r0, #0x7f
 	ands r0, r1
 	strb r0, [r2]
-	ldr r0, _080405D0 @ =gUnk_03003DBC
+	ldr r0, _080405D0 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x46
 	bhi _080405A8
@@ -1912,7 +1912,7 @@ _080405C4:
 _080405CC:
 	pop {r4, pc}
 	.align 2, 0
-_080405D0: .4byte gUnk_03003DBC
+_080405D0: .4byte gEntCount
 _080405D4: .4byte 0x00000149
 
 	thumb_func_start sub_080405D8
@@ -2576,7 +2576,7 @@ _08040AB0:
 	ldrb r0, [r5]
 	cmp r0, #0x8a
 	bne _08040AC8
-	ldr r0, _08040AD0 @ =gLinkState
+	ldr r0, _08040AD0 @ =gPlayerState
 	adds r0, #0xa0
 	ldrb r0, [r0]
 	cmp r0, #5
@@ -2589,7 +2589,7 @@ _08040AC8:
 	pop {r4, r5, pc}
 	.align 2, 0
 _08040ACC: .4byte 0x00000127
-_08040AD0: .4byte gLinkState
+_08040AD0: .4byte gPlayerState
 
 	thumb_func_start sub_08040AD4
 sub_08040AD4: @ 0x08040AD4

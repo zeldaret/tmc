@@ -23,7 +23,7 @@ Object29: @ 0x08089848
 	ands r1, r0
 	adds r1, #1
 	adds r0, r4, #0
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	pop {r4, pc}
 	.align 2, 0
 _08089870: .4byte gUnk_08120D90
@@ -172,7 +172,7 @@ _08089964:
 	cmp r0, #2
 	bne _08089A76
 _08089984:
-	ldr r0, _08089998 @ =gLinkEntity
+	ldr r0, _08089998 @ =gPlayerEntity
 	movs r1, #0x36
 	ldrsh r2, [r0, r1]
 	movs r1, #0x24
@@ -183,7 +183,7 @@ _08089984:
 	movs r0, #1
 	b _0808999E
 	.align 2, 0
-_08089998: .4byte gLinkEntity
+_08089998: .4byte gPlayerEntity
 _0808999C:
 	movs r0, #0
 _0808999E:
@@ -226,7 +226,7 @@ _0808999E:
 	movs r0, #1
 	strb r0, [r1, #0xc]
 _080899EC:
-	ldr r1, _08089A78 @ =gLinkState
+	ldr r1, _08089A78 @ =gPlayerState
 	movs r0, #1
 	strb r0, [r1, #0x14]
 	ldrh r0, [r5, #0x32]
@@ -297,7 +297,7 @@ _08089A62:
 _08089A76:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08089A78: .4byte gLinkState
+_08089A78: .4byte gPlayerState
 
 	thumb_func_start sub_08089A7C
 sub_08089A7C: @ 0x08089A7C
@@ -310,7 +310,7 @@ sub_08089A7C: @ 0x08089A7C
 	ldrh r0, [r4, #0x32]
 	subs r0, r0, r1
 	strh r0, [r4, #0x32]
-	ldr r5, _08089AB0 @ =gLinkEntity
+	ldr r5, _08089AB0 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r1, r5, #0
 	movs r2, #0xf
@@ -318,7 +318,7 @@ sub_08089A7C: @ 0x08089A7C
 	bl sub_080041A0
 	cmp r0, #0
 	beq _08089AB8
-	ldr r2, _08089AB4 @ =gLinkState
+	ldr r2, _08089AB4 @ =gPlayerState
 	movs r0, #1
 	strb r0, [r2, #0x14]
 	ldr r0, [r2, #0x30]
@@ -327,8 +327,8 @@ sub_08089A7C: @ 0x08089A7C
 	str r0, [r2, #0x30]
 	b _08089AD0
 	.align 2, 0
-_08089AB0: .4byte gLinkEntity
-_08089AB4: .4byte gLinkState
+_08089AB0: .4byte gPlayerEntity
+_08089AB4: .4byte gPlayerState
 _08089AB8:
 	movs r2, #1
 	strb r2, [r4, #0xc]
@@ -355,17 +355,17 @@ _08089AD0:
 	thumb_func_start sub_08089AE0
 sub_08089AE0: @ 0x08089AE0
 	push {lr}
-	ldr r1, _08089AF8 @ =gLinkEntity
+	ldr r1, _08089AF8 @ =gPlayerEntity
 	movs r2, #0xf
 	movs r3, #0xf
 	bl sub_080041A0
 	cmp r0, #0
 	beq _08089AF6
-	ldr r1, _08089AFC @ =gLinkState
+	ldr r1, _08089AFC @ =gPlayerState
 	movs r0, #1
 	strb r0, [r1, #0x14]
 _08089AF6:
 	pop {pc}
 	.align 2, 0
-_08089AF8: .4byte gLinkEntity
-_08089AFC: .4byte gLinkState
+_08089AF8: .4byte gPlayerEntity
+_08089AFC: .4byte gPlayerState

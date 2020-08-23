@@ -256,7 +256,7 @@ sub_0808F940: @ 0x0808F940
 	lsls r0, r0, #0x18
 	cmp r0, #0
 	bne _0808F960
-	ldr r1, _0808F964 @ =gUnk_02000080
+	ldr r1, _0808F964 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
@@ -264,4 +264,4 @@ sub_0808F940: @ 0x0808F940
 _0808F960:
 	pop {r4, pc}
 	.align 2, 0
-_0808F964: .4byte gUnk_02000080
+_0808F964: .4byte gMenu

@@ -170,7 +170,7 @@ sub_0808D030: @ 0x0808D030
 	adds r0, r4, #0
 	subs r0, #0x20
 	ldr r1, _0808D05C @ =0x00000B74
-	bl sub_0801D630
+	bl _DmaZero
 	movs r1, #0xa8
 	lsls r1, r1, #2
 	adds r0, r1, #0

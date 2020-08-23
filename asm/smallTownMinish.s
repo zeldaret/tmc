@@ -33,7 +33,7 @@ _0806E2A8:
 	movs r1, #0
 	bl sub_0807DD94
 _0806E2B0:
-	ldr r0, _0806E2CC @ =gLinkState
+	ldr r0, _0806E2CC @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -47,7 +47,7 @@ _0806E2B0:
 	strb r1, [r4, #0x18]
 	b _0806E2DA
 	.align 2, 0
-_0806E2CC: .4byte gLinkState
+_0806E2CC: .4byte gPlayerState
 _0806E2D0:
 	ldrb r1, [r4, #0x18]
 	movs r0, #4

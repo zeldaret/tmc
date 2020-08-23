@@ -104,7 +104,7 @@ _0801921A:
 	ands r1, r3
 	lsls r1, r1, #6
 	orrs r0, r1
-	ldr r1, _0801928C @ =gLinkEntity
+	ldr r1, _0801928C @ =gPlayerEntity
 	adds r1, #0x38
 	ldrb r1, [r1]
 	movs r2, #0x80
@@ -141,7 +141,7 @@ _0801921A:
 	b _080192A2
 	.align 2, 0
 _08019288: .4byte gRoomControls
-_0801928C: .4byte gLinkEntity
+_0801928C: .4byte gPlayerEntity
 _08019290: .4byte gUnk_08003E44
 _08019294:
 	adds r0, r4, #0
@@ -238,7 +238,7 @@ _08019336:
 	strb r0, [r4, #0x18]
 	b _08019402
 _0801934A:
-	ldr r1, _0801938C @ =gLinkState
+	ldr r1, _0801938C @ =gPlayerState
 	ldr r0, [r1, #0x2c]
 	cmp r0, r4
 	bne _0801935E
@@ -259,7 +259,7 @@ _08019368:
 	ldrb r0, [r0]
 	cmp r0, #0xa
 	bne _08019398
-	ldr r0, _0801938C @ =gLinkState
+	ldr r0, _0801938C @ =gPlayerState
 	adds r2, r0, #0
 	adds r2, #0x21
 	ldrb r0, [r2]
@@ -272,7 +272,7 @@ _08019368:
 	strb r0, [r2]
 	b _08019398
 	.align 2, 0
-_0801938C: .4byte gLinkState
+_0801938C: .4byte gPlayerState
 _08019390:
 	adds r1, r4, #0
 	adds r1, #0x40
@@ -285,7 +285,7 @@ _08019398:
 	ldrb r1, [r4, #0x1e]
 	ldr r2, [r4, #0x78]
 	subs r1, r1, r2
-	ldr r0, _08019408 @ =gLinkEntity
+	ldr r0, _08019408 @ =gPlayerEntity
 	ldrb r0, [r0, #0x1e]
 	cmp r1, r0
 	beq _080193C2
@@ -301,7 +301,7 @@ _080193B8:
 	adds r0, r4, #0
 	bl sub_080042D0
 _080193C2:
-	ldr r0, _08019408 @ =gLinkEntity
+	ldr r0, _08019408 @ =gPlayerEntity
 	adds r0, #0x5a
 	ldrb r1, [r0]
 	movs r0, #1
@@ -316,10 +316,10 @@ _080193C2:
 	movs r0, #4
 	movs r1, #1
 	movs r3, #9
-	bl sub_08077CB8
+	bl CreatePlayerItem
 	cmp r0, #0
 	beq _080193FA
-	ldr r2, _0801940C @ =gLinkState
+	ldr r2, _0801940C @ =gPlayerState
 	ldrb r1, [r2, #4]
 	movs r0, #0x80
 	orrs r0, r1
@@ -328,12 +328,12 @@ _080193C2:
 	rsbs r0, r0, #0
 	bl ModArrows
 _080193FA:
-	ldr r1, _08019408 @ =gLinkEntity
+	ldr r1, _08019408 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl sub_08078E84
 _08019402:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _08019404: .4byte gUnk_02002A40
-_08019408: .4byte gLinkEntity
-_0801940C: .4byte gLinkState
+_08019408: .4byte gPlayerEntity
+_0801940C: .4byte gPlayerState

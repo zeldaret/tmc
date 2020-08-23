@@ -173,7 +173,7 @@ _08087CCA:
 	bl SetRoomFlag
 	movs r0, #7
 	movs r1, #0xff
-	bl sub_080A7138
+	bl MenuFadeIn
 	b _08087D1A
 _08087CFA:
 	movs r0, #5
@@ -332,7 +332,7 @@ _08087E10:
 	bl SetRoomFlag
 	ldrb r1, [r4, #0xf]
 	movs r0, #7
-	bl sub_080A7138
+	bl MenuFadeIn
 	b _08087E5A
 _08087E3C:
 	movs r0, #2
@@ -1216,7 +1216,7 @@ _080884D2:
 	movs r0, #5
 	str r0, [r1, #0x10]
 _080884EA:
-	ldr r1, _08088500 @ =gLinkEntity
+	ldr r1, _08088500 @ =gPlayerEntity
 	movs r0, #6
 	strb r0, [r1, #0x14]
 	pop {r4, pc}
@@ -1224,7 +1224,7 @@ _080884EA:
 _080884F4: .4byte 0x00004328
 _080884F8: .4byte 0x00004327
 _080884FC: .4byte gTextBox
-_08088500: .4byte gLinkEntity
+_08088500: .4byte gPlayerEntity
 
 	thumb_func_start sub_08088504
 sub_08088504: @ 0x08088504
@@ -1374,7 +1374,7 @@ sub_0808861C: @ 0x0808861C
 	movs r3, #8
 	bl CheckPlayerInRegion
 	str r0, [r4, #0x14]
-	ldr r1, _08088650 @ =gLinkEntity
+	ldr r1, _08088650 @ =gPlayerEntity
 	ldrb r0, [r1, #0x14]
 	cmp r0, #0
 	bne _0808863E
@@ -1393,7 +1393,7 @@ _08088642:
 	strb r0, [r2, #7]
 	pop {r4, pc}
 	.align 2, 0
-_08088650: .4byte gLinkEntity
+_08088650: .4byte gPlayerEntity
 _08088654: .4byte gUnk_02033280
 
 	thumb_func_start sub_08088658
@@ -1406,7 +1406,7 @@ sub_08088658: @ 0x08088658
 	movs r3, #8
 	bl CheckPlayerInRegion
 	str r0, [r4, #0x14]
-	ldr r0, _08088684 @ =gLinkEntity
+	ldr r0, _08088684 @ =gPlayerEntity
 	movs r1, #0x36
 	ldrsh r0, [r0, r1]
 	cmp r0, #0
@@ -1421,5 +1421,5 @@ _08088678:
 	strb r0, [r2, #7]
 	pop {r4, pc}
 	.align 2, 0
-_08088684: .4byte gLinkEntity
+_08088684: .4byte gPlayerEntity
 _08088688: .4byte gUnk_02033280

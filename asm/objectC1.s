@@ -44,7 +44,7 @@ _080A2598: .4byte gUnk_02034490
 sub_080A259C: @ 0x080A259C
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
-	ldr r5, _080A25DC @ =gLinkEntity
+	ldr r5, _080A25DC @ =gPlayerEntity
 	ldrb r1, [r5, #0x10]
 	movs r7, #0x7f
 	adds r0, r7, #0
@@ -74,7 +74,7 @@ sub_080A259C: @ 0x080A259C
 	beq _080A25E6
 	b _080A273C
 	.align 2, 0
-_080A25DC: .4byte gLinkEntity
+_080A25DC: .4byte gPlayerEntity
 _080A25E0:
 	cmp r0, #2
 	beq _080A26B4
@@ -133,7 +133,7 @@ _080A25E6:
 	adds r0, r4, #0
 	movs r1, #6
 	bl sub_0805E3A0
-	ldr r0, _080A2670 @ =gLinkState
+	ldr r0, _080A2670 @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #8
 	ands r0, r1
@@ -147,7 +147,7 @@ _080A25E6:
 	adds r1, #3
 	b _080A2688
 	.align 2, 0
-_080A2670: .4byte gLinkState
+_080A2670: .4byte gPlayerState
 _080A2674: .4byte 0x0000045B
 _080A2678:
 	ldrb r0, [r4, #0xa]
@@ -217,7 +217,7 @@ _080A26B4:
 	adds r0, r5, #0
 	adds r0, #0x3d
 	strb r1, [r0]
-	ldr r1, _080A2768 @ =gLinkState
+	ldr r1, _080A2768 @ =gPlayerState
 	adds r0, r4, #0
 	adds r0, #0x6b
 	ldrb r0, [r0]
@@ -256,7 +256,7 @@ _080A273C:
 	bl PositionEntityOnTop
 	ldrh r0, [r4, #0x12]
 	ldrb r1, [r4, #0x1e]
-	bl sub_080700C8
+	bl GetSpriteSubEntryOffsetDataPointer
 	ldrb r1, [r0]
 	adds r2, r5, #0
 	adds r2, #0x62
@@ -269,4 +269,4 @@ _080A2762:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A2764: .4byte gTextBox
-_080A2768: .4byte gLinkState
+_080A2768: .4byte gPlayerState

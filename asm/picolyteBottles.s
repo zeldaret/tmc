@@ -21,7 +21,7 @@ PicolyteBottle: @ 0x0806DED0
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _0806DEF4
-	ldr r2, _0806DEFC @ =gLinkState
+	ldr r2, _0806DEFC @ =gPlayerState
 	ldrb r1, [r2, #0x1a]
 	movs r0, #0x80
 	orrs r0, r1
@@ -30,7 +30,7 @@ _0806DEF4:
 	pop {r4, pc}
 	.align 2, 0
 _0806DEF8: .4byte gUnk_081142BC
-_0806DEFC: .4byte gLinkState
+_0806DEFC: .4byte gPlayerState
 
 	thumb_func_start sub_0806DF00
 sub_0806DF00: @ 0x0806DF00
@@ -65,7 +65,7 @@ sub_0806DF00: @ 0x0806DF00
 	adds r0, #2
 	movs r1, #0xa
 	strh r1, [r0]
-	ldr r0, _0806DF58 @ =gUnk_030010A0
+	ldr r0, _0806DF58 @ =gScreenTransition
 	strh r1, [r0, #6]
 	adds r0, r4, #0
 	bl sub_0806E014
@@ -73,7 +73,7 @@ sub_0806DF00: @ 0x0806DF00
 	bl sub_0807DD50
 	b _0806DF6E
 	.align 2, 0
-_0806DF58: .4byte gUnk_030010A0
+_0806DF58: .4byte gScreenTransition
 _0806DF5C:
 	ldr r0, _0806DF70 @ =gUnk_080FD150
 	str r0, [r4, #0x48]
@@ -389,7 +389,7 @@ _0806E1AC:
 	ldr r0, _0806E1D4 @ =0x0000421C
 	bl TextboxNoOverlapFollow
 _0806E1C0:
-	ldr r1, _0806E1D8 @ =gUnk_030010A0
+	ldr r1, _0806E1D8 @ =gScreenTransition
 	ldrh r0, [r4]
 	strh r0, [r1, #6]
 	ldr r2, _0806E1DC @ =gUnk_02033280
@@ -400,7 +400,7 @@ _0806E1C0:
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806E1D4: .4byte 0x0000421C
-_0806E1D8: .4byte gUnk_030010A0
+_0806E1D8: .4byte gScreenTransition
 _0806E1DC: .4byte gUnk_02033280
 
 	thumb_func_start sub_0806E1E0
@@ -428,7 +428,7 @@ _0806E208: .4byte gUnk_0813AD4C
 	thumb_func_start sub_0806E20C
 sub_0806E20C: @ 0x0806E20C
 	push {r4, lr}
-	ldr r4, _0806E224 @ =gUnk_030010A0
+	ldr r4, _0806E224 @ =gScreenTransition
 	ldrh r0, [r4, #6]
 	cmp r0, #0
 	beq _0806E230
@@ -439,7 +439,7 @@ sub_0806E20C: @ 0x0806E20C
 	str r0, [r1, #0x10]
 	b _0806E236
 	.align 2, 0
-_0806E224: .4byte gUnk_030010A0
+_0806E224: .4byte gScreenTransition
 _0806E228: .4byte 0x0000421F
 _0806E22C: .4byte gTextBox
 _0806E230:
@@ -453,7 +453,7 @@ _0806E238: .4byte 0x00004220
 	thumb_func_start sub_0806E23C
 sub_0806E23C: @ 0x0806E23C
 	push {lr}
-	ldr r1, _0806E24C @ =gUnk_030010A0
+	ldr r1, _0806E24C @ =gScreenTransition
 	ldrh r0, [r1, #6]
 	cmp r0, #0
 	beq _0806E24A
@@ -461,7 +461,7 @@ sub_0806E23C: @ 0x0806E23C
 _0806E24A:
 	pop {pc}
 	.align 2, 0
-_0806E24C: .4byte gUnk_030010A0
+_0806E24C: .4byte gScreenTransition
 
 	thumb_func_start sub_0806E250
 sub_0806E250: @ 0x0806E250

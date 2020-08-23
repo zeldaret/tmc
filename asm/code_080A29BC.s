@@ -4,125 +4,6 @@
 	.syntax unified
 
 	.text
-	
-	thumb_func_start sub_080A29BC
-sub_080A29BC: @ 0x080A29BC
-	push {lr}
-	movs r1, #2
-	movs r2, #0
-	bl CreateFx
-	pop {pc}
-
-	thumb_func_start sub_080A29C8
-sub_080A29C8: @ 0x080A29C8
-	push {r4, r5, r6, lr}
-	adds r4, r0, #0
-	adds r5, r1, #0
-	adds r6, r2, #0
-	movs r0, #0xf
-	movs r1, #2
-	movs r2, #0
-	bl CreateObject
-	adds r2, r0, #0
-	cmp r2, #0
-	beq _080A29F4
-	ldr r1, _080A29F8 @ =gRoomControls
-	ldrh r0, [r1, #6]
-	adds r0, r0, r4
-	strh r0, [r2, #0x2e]
-	ldrh r0, [r1, #8]
-	adds r0, r0, r5
-	strh r0, [r2, #0x32]
-	adds r0, r2, #0
-	adds r0, #0x38
-	strb r6, [r0]
-_080A29F4:
-	pop {r4, r5, r6, pc}
-	.align 2, 0
-_080A29F8: .4byte gRoomControls
-
-	thumb_func_start sub_080A29FC
-sub_080A29FC: @ 0x080A29FC
-	push {lr}
-	movs r1, #0x11
-	movs r2, #0
-	bl CreateFx
-	pop {pc}
-
-	thumb_func_start sub_080A2A08
-sub_080A2A08: @ 0x080A2A08
-	push {lr}
-	movs r1, #6
-	movs r2, #0
-	bl CreateFx
-	pop {pc}
-
-	thumb_func_start sub_080A2A14
-sub_080A2A14: @ 0x080A2A14
-	push {lr}
-	movs r1, #0xb
-	movs r2, #0
-	bl CreateFx
-	pop {pc}
-
-	thumb_func_start sub_080A2A20
-sub_080A2A20: @ 0x080A2A20
-	push {r4, lr}
-	adds r4, r1, #0
-	adds r3, r2, #0
-	movs r1, #0
-	adds r2, r4, #0
-	bl CreateObjectWithParent
-	adds r1, r0, #0
-	cmp r1, #0
-	beq _080A2A38
-	movs r0, #5
-	strb r0, [r1, #0xe]
-_080A2A38:
-	adds r0, r1, #0
-	pop {r4, pc}
-
-	thumb_func_start sub_080A2A3C
-sub_080A2A3C: @ 0x080A2A3C
-	push {r4, r5, r6, lr}
-	adds r4, r1, #0
-	adds r5, r2, #0
-	adds r6, r3, #0
-	movs r1, #0
-	adds r2, r4, #0
-	adds r3, r5, #0
-	bl CreateObjectWithParent
-	adds r1, r0, #0
-	cmp r1, #0
-	beq _080A2A5E
-	movs r0, #5
-	strb r0, [r1, #0xe]
-	adds r0, r1, #0
-	adds r0, #0x86
-	strh r6, [r0]
-_080A2A5E:
-	adds r0, r1, #0
-	pop {r4, r5, r6, pc}
-	.align 2, 0
-
-	thumb_func_start sub_080A2A64
-sub_080A2A64: @ 0x080A2A64
-	push {lr}
-	movs r1, #0x20
-	movs r2, #0
-	bl CreateFx
-	adds r2, r0, #0
-	cmp r2, #0
-	beq _080A2A80
-	adds r3, r2, #0
-	adds r3, #0x29
-	ldrb r0, [r3]
-	movs r1, #7
-	orrs r0, r1
-	strb r0, [r3]
-_080A2A80:
-	adds r0, r2, #0
-	pop {pc}
 
 	thumb_func_start sub_080A2A84
 sub_080A2A84: @ 0x080A2A84
@@ -341,13 +222,13 @@ _080A2C0E:
 	beq _080A2CBA
 	cmp r6, #0
 	beq _080A2CBA
-	ldr r0, _080A2C38 @ =gLinkEntity
+	ldr r0, _080A2C38 @ =gPlayerEntity
 	lsls r1, r1, #8
 	movs r2, #0
 	bl sub_080044AE
 	b _080A2CBA
 	.align 2, 0
-_080A2C38: .4byte gLinkEntity
+_080A2C38: .4byte gPlayerEntity
 _080A2C3C:
 	ldrh r5, [r4, #0x2e]
 	adds r0, r4, #0
@@ -362,13 +243,13 @@ _080A2C3C:
 	beq _080A2CBA
 	cmp r6, #0
 	beq _080A2CBA
-	ldr r0, _080A2C64 @ =gLinkEntity
+	ldr r0, _080A2C64 @ =gPlayerEntity
 	lsls r1, r1, #8
 	movs r2, #8
 	bl sub_080044AE
 	b _080A2CBA
 	.align 2, 0
-_080A2C64: .4byte gLinkEntity
+_080A2C64: .4byte gPlayerEntity
 _080A2C68:
 	ldrh r5, [r4, #0x32]
 	adds r0, r4, #0
@@ -383,13 +264,13 @@ _080A2C68:
 	beq _080A2CBA
 	cmp r6, #0
 	beq _080A2CBA
-	ldr r0, _080A2C90 @ =gLinkEntity
+	ldr r0, _080A2C90 @ =gPlayerEntity
 	lsls r1, r1, #8
 	movs r2, #0x10
 	bl sub_080044AE
 	b _080A2CBA
 	.align 2, 0
-_080A2C90: .4byte gLinkEntity
+_080A2C90: .4byte gPlayerEntity
 _080A2C94:
 	ldrh r5, [r4, #0x2e]
 	adds r0, r4, #0
@@ -404,14 +285,14 @@ _080A2C94:
 	beq _080A2CBA
 	cmp r6, #0
 	beq _080A2CBA
-	ldr r0, _080A2CBC @ =gLinkEntity
+	ldr r0, _080A2CBC @ =gPlayerEntity
 	lsls r1, r1, #8
 	movs r2, #0x18
 	bl sub_080044AE
 _080A2CBA:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_080A2CBC: .4byte gLinkEntity
+_080A2CBC: .4byte gPlayerEntity
 
 	thumb_func_start sub_080A2CC0
 sub_080A2CC0: @ 0x080A2CC0
@@ -541,7 +422,7 @@ _080A2D94: .4byte gUnk_081271D4
 sub_080A2D98: @ 0x080A2D98
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _080A2DD0 @ =gLinkState
+	ldr r0, _080A2DD0 @ =gPlayerState
 	str r4, [r0, #0x2c]
 	movs r2, #0
 	movs r0, #1
@@ -568,12 +449,12 @@ sub_080A2D98: @ 0x080A2D98
 	str r1, [r4, #0x7c]
 	b _080A2DDA
 	.align 2, 0
-_080A2DD0: .4byte gLinkState
+_080A2DD0: .4byte gPlayerState
 _080A2DD4: .4byte gUnk_081271DC
 _080A2DD8:
 	str r2, [r4, #0x70]
 _080A2DDA:
-	ldr r0, _080A2DFC @ =gLinkEntity
+	ldr r0, _080A2DFC @ =gPlayerEntity
 	ldrb r1, [r0, #0x14]
 	movs r0, #0xe
 	ands r0, r1
@@ -588,13 +469,13 @@ _080A2DDA:
 	bl sub_080A2E00
 	pop {r4, pc}
 	.align 2, 0
-_080A2DFC: .4byte gLinkEntity
+_080A2DFC: .4byte gPlayerEntity
 
 	thumb_func_start sub_080A2E00
 sub_080A2E00: @ 0x080A2E00
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
-	ldr r0, _080A2E90 @ =gLinkEntity
+	ldr r0, _080A2E90 @ =gPlayerEntity
 	mov ip, r0
 	mov r1, ip
 	adds r1, #0x3d
@@ -626,7 +507,7 @@ _080A2E1A:
 	strb r2, [r3]
 	strb r2, [r5]
 _080A2E40:
-	ldr r0, _080A2E94 @ =gLinkState
+	ldr r0, _080A2E94 @ =gPlayerState
 	ldrb r3, [r0, #3]
 	adds r7, r0, #0
 	cmp r3, #0
@@ -646,7 +527,7 @@ _080A2E40:
 	adds r0, r0, r1
 	ldr r0, [r0]
 	str r0, [r4, #0x48]
-	ldr r0, _080A2E90 @ =gLinkEntity
+	ldr r0, _080A2E90 @ =gPlayerEntity
 	adds r0, #0x3c
 	ldrb r0, [r0]
 	adds r0, #1
@@ -666,8 +547,8 @@ _080A2E40:
 	bl sub_080176E4
 	b _080A2F30
 	.align 2, 0
-_080A2E90: .4byte gLinkEntity
-_080A2E94: .4byte gLinkState
+_080A2E90: .4byte gPlayerEntity
+_080A2E94: .4byte gPlayerState
 _080A2E98: .4byte gUnk_08127240
 _080A2E9C:
 	adds r0, r4, #0
@@ -697,7 +578,7 @@ _080A2E9C:
 	movs r0, #0x15
 	movs r1, #0
 	movs r2, #0
-	bl sub_08077CB8
+	bl CreatePlayerItem
 	adds r1, r0, #0
 	str r1, [r4, #0x54]
 	cmp r1, #0
@@ -745,7 +626,7 @@ _080A2F20:
 _080A2F2C:
 	bl DeleteThisEntity
 _080A2F30:
-	ldr r6, _080A301C @ =gLinkEntity
+	ldr r6, _080A301C @ =gPlayerEntity
 	ldrh r0, [r6, #0x12]
 	cmp r0, #1
 	beq _080A2F3E
@@ -808,7 +689,7 @@ _080A2FA2:
 	ldrb r0, [r5]
 	cmp r0, #0xe
 	bne _080A303E
-	ldr r0, _080A301C @ =gLinkEntity
+	ldr r0, _080A301C @ =gPlayerEntity
 	adds r0, #0x5a
 	ldrb r1, [r0]
 	movs r0, #0x7f
@@ -827,7 +708,7 @@ _080A2FA2:
 	ldr r1, [r4, #0x7c]
 	adds r2, r1, r0
 	ldrb r0, [r2]
-	ldr r7, _080A3020 @ =gLinkState
+	ldr r7, _080A3020 @ =gPlayerState
 	cmp r0, #0xff
 	bne _080A2FEC
 	ldrb r1, [r7, #3]
@@ -854,7 +735,7 @@ _080A2FEC:
 	ands r0, r1
 	cmp r0, #0
 	beq _080A3028
-	ldr r0, _080A301C @ =gLinkEntity
+	ldr r0, _080A301C @ =gPlayerEntity
 	adds r0, #0x5a
 	ldrb r0, [r0]
 	movs r1, #0x7f
@@ -867,11 +748,11 @@ _080A2FEC:
 	bl sub_080042D0
 	b _080A303E
 	.align 2, 0
-_080A301C: .4byte gLinkEntity
-_080A3020: .4byte gLinkState
+_080A301C: .4byte gPlayerEntity
+_080A3020: .4byte gPlayerState
 _080A3024: .4byte gUnk_081271DC
 _080A3028:
-	ldr r0, _080A3060 @ =gLinkEntity
+	ldr r0, _080A3060 @ =gPlayerEntity
 	adds r0, #0x5a
 	ldrb r0, [r0]
 	movs r1, #0x7f
@@ -882,7 +763,7 @@ _080A3028:
 	adds r0, r4, #0
 	bl sub_080042D0
 _080A303E:
-	ldr r1, _080A3060 @ =gLinkEntity
+	ldr r1, _080A3060 @ =gPlayerEntity
 	adds r0, r1, #0
 	adds r0, #0x5a
 	ldrb r0, [r0]
@@ -898,7 +779,7 @@ _080A303E:
 	bl sub_08078E84
 	b _080A3068
 	.align 2, 0
-_080A3060: .4byte gLinkEntity
+_080A3060: .4byte gPlayerEntity
 _080A3064:
 	movs r0, #0xff
 	strb r0, [r4, #0x1e]
@@ -938,7 +819,7 @@ sub_080A3084: @ 0x080A3084
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _080A30F8
-	ldr r0, _080A30EC @ =gLinkEntity
+	ldr r0, _080A30EC @ =gPlayerEntity
 	adds r0, #0x3c
 	ldrb r0, [r0]
 	adds r0, #1
@@ -970,7 +851,7 @@ _080A30CC:
 	bl PlaySFX
 	b _080A30FC
 	.align 2, 0
-_080A30EC: .4byte gLinkEntity
+_080A30EC: .4byte gPlayerEntity
 _080A30F0: .4byte gUnk_08127278
 _080A30F4: .4byte 0x0000013F
 _080A30F8:
@@ -1039,7 +920,7 @@ _080A315C:
 	ands r1, r3
 	lsls r1, r1, #6
 	orrs r0, r1
-	ldr r1, _080A31F4 @ =gLinkEntity
+	ldr r1, _080A31F4 @ =gPlayerEntity
 	adds r1, #0x38
 	ldrb r1, [r1]
 	movs r2, #0x80
@@ -1085,7 +966,7 @@ _080A31D6:
 	movs r0, #0x15
 	movs r1, #1
 	movs r2, #0
-	bl sub_08077CB8
+	bl CreatePlayerItem
 	str r0, [r4, #0x54]
 	cmp r0, #0
 	beq _080A3200
@@ -1093,7 +974,7 @@ _080A31D6:
 	b _080A3200
 	.align 2, 0
 _080A31F0: .4byte gRoomControls
-_080A31F4: .4byte gLinkEntity
+_080A31F4: .4byte gPlayerEntity
 _080A31F8: .4byte gUnk_08003E44
 _080A31FC:
 	bl DeleteThisEntity
@@ -1114,7 +995,7 @@ sub_080A3210: @ 0x080A3210
 	ldr r4, _080A3230 @ =gUnk_02021EE0
 	adds r0, r4, #0
 	movs r1, #0x18
-	bl sub_0801D630
+	bl _DmaZero
 	bl sub_080A35C8
 	movs r0, #0x80
 	lsls r0, r0, #1

@@ -1110,7 +1110,7 @@ _0802B10E:
 	ldrb r0, [r4, #0xd]
 	cmp r0, #1
 	bne _0802B12E
-	ldr r0, _0802B188 @ =gLinkState
+	ldr r0, _0802B188 @ =gPlayerState
 	strb r1, [r0, #5]
 _0802B12E:
 	adds r0, r4, #0
@@ -1157,7 +1157,7 @@ _0802B16C:
 	strb r0, [r1]
 	b _0802B19E
 	.align 2, 0
-_0802B188: .4byte gLinkState
+_0802B188: .4byte gPlayerState
 _0802B18C: .4byte gUnk_080CD17C
 _0802B190:
 	adds r0, r4, #0

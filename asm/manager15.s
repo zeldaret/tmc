@@ -152,7 +152,7 @@ sub_0805A394: @ 0x0805A394
 	movs r0, #3
 	movs r1, #0x13
 	movs r2, #4
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	beq _0805A3AA
 	ldrb r0, [r0, #0xa]
@@ -676,7 +676,7 @@ _0805A76A:
 sub_0805A76C: @ 0x0805A76C
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	ldr r5, _0805A7D4 @ =gLinkEntity
+	ldr r5, _0805A7D4 @ =gPlayerEntity
 	adds r0, r5, #0
 	adds r0, #0x45
 	ldrb r0, [r0]
@@ -686,7 +686,7 @@ sub_0805A76C: @ 0x0805A76C
 	ldrsh r0, [r5, r1]
 	cmp r0, #0
 	bne _0805A7D0
-	ldr r0, _0805A7D8 @ =gLinkState
+	ldr r0, _0805A7D8 @ =gPlayerState
 	ldr r6, [r0, #0x2c]
 	cmp r6, #0
 	bne _0805A7D0
@@ -722,15 +722,15 @@ sub_0805A76C: @ 0x0805A76C
 _0805A7D0:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0805A7D4: .4byte gLinkEntity
-_0805A7D8: .4byte gLinkState
+_0805A7D4: .4byte gPlayerEntity
+_0805A7D8: .4byte gPlayerState
 _0805A7DC: .4byte gUnk_02034490
 _0805A7E0: .4byte gRoomControls
 
 	thumb_func_start sub_0805A7E4
 sub_0805A7E4: @ 0x0805A7E4
 	push {lr}
-	ldr r2, _0805A800 @ =gLinkState
+	ldr r2, _0805A800 @ =gPlayerState
 	ldrb r0, [r2, #0xc]
 	cmp r0, #0x12
 	beq _0805A7FE
@@ -745,7 +745,7 @@ sub_0805A7E4: @ 0x0805A7E4
 _0805A7FE:
 	pop {pc}
 	.align 2, 0
-_0805A800: .4byte gLinkState
+_0805A800: .4byte gPlayerState
 
 	thumb_func_start sub_0805A804
 sub_0805A804: @ 0x0805A804
@@ -1089,7 +1089,7 @@ sub_0805AA58: @ 0x0805AA58
 	adds r0, r0, r1
 	movs r1, #5
 	movs r2, #1
-	bl sub_0801D754
+	bl LoadPalettes
 _0805AA8C:
 	ldrb r0, [r4, #0xf]
 	subs r0, #1
@@ -1139,7 +1139,7 @@ sub_0805AADC: @ 0x0805AADC
 	lsls r0, r0, #1
 	adds r0, r0, r1
 	ldrh r0, [r0]
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	pop {pc}
 	.align 2, 0
 _0805AAEC: .4byte gUnk_08108648

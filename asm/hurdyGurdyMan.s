@@ -57,9 +57,9 @@ _0806E34C:
 	adds r1, r4, #0
 	adds r1, #0x69
 	strb r0, [r1]
-	ldr r1, _0806E3B0 @ =gLinkEntity
+	ldr r1, _0806E3B0 @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
@@ -82,15 +82,15 @@ _0806E398:
 	ldrh r3, [r3, #4]
 	adds r0, r4, #0
 	bl sub_0801DFB4
-	ldr r0, _0806E3B8 @ =gLinkState
+	ldr r0, _0806E3B8 @ =gPlayerState
 	adds r0, #0x8b
 	movs r1, #3
 	strb r1, [r0]
 	b _0806E3E0
 	.align 2, 0
-_0806E3B0: .4byte gLinkEntity
+_0806E3B0: .4byte gPlayerEntity
 _0806E3B4: .4byte gUnk_08001A7C
-_0806E3B8: .4byte gLinkState
+_0806E3B8: .4byte gPlayerState
 _0806E3BC:
 	adds r0, r4, #0
 	movs r1, #0

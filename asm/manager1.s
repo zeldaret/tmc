@@ -6,140 +6,6 @@
 
 	.text
 
-	thumb_func_start sub_08057064
-sub_08057064: @ 0x08057064
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	ldr r1, _080570AC @ =gUnk_08107C5C
-	ldrb r0, [r4, #0xc]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r1, [r0]
-	adds r0, r4, #0
-	bl _call_via_r1
-	ldr r1, _080570B0 @ =gUnk_08107C48
-	adds r5, r4, #0
-	adds r5, #0x21
-	ldrb r0, [r5]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r1, [r0]
-	adds r0, r4, #0
-	bl _call_via_r1
-	ldr r1, _080570B4 @ =gUnk_08107C40
-	ldrb r0, [r5]
-	adds r0, r0, r1
-	ldrb r1, [r0]
-	cmp r1, #0
-	beq _080570AA
-	adds r2, r4, #0
-	adds r2, #0x20
-	ldrb r0, [r2]
-	cmp r0, r1
-	beq _080570AA
-	strb r1, [r2]
-	adds r0, r1, #0
-	bl sub_0801D7EC
-_080570AA:
-	pop {r4, r5, pc}
-	.align 2, 0
-_080570AC: .4byte gUnk_08107C5C
-_080570B0: .4byte gUnk_08107C48
-_080570B4: .4byte gUnk_08107C40
-
-	thumb_func_start sub_080570B8
-sub_080570B8: @ 0x080570B8
-	push {r4, lr}
-	adds r4, r0, #0
-	adds r0, #0x20
-	ldrb r0, [r0]
-	bl sub_0801D7EC
-	movs r0, #0
-	str r0, [r4, #0x34]
-	adds r1, r4, #0
-	adds r1, #0x21
-	ldrb r0, [r1]
-	cmp r0, #3
-	bne _080570E0
-	ldr r1, _080570DC @ =gScreen
-	movs r0, #1
-	strh r0, [r1, #0x32]
-	b _080570F0
-	.align 2, 0
-_080570DC: .4byte gScreen
-_080570E0:
-	ldr r0, _080570F4 @ =gUnk_08107C48
-	ldrb r1, [r1]
-	lsls r1, r1, #2
-	adds r1, r1, r0
-	ldr r1, [r1]
-	adds r0, r4, #0
-	bl _call_via_r1
-_080570F0:
-	pop {r4, pc}
-	.align 2, 0
-_080570F4: .4byte gUnk_08107C48
-
-	thumb_func_start sub_080570F8
-sub_080570F8: @ 0x080570F8
-	push {lr}
-	ldr r1, _08057110 @ =gScreen
-	ldrh r2, [r1]
-	ldr r0, _08057114 @ =0x0000F7FF
-	ands r0, r2
-	movs r2, #0
-	strh r0, [r1]
-	adds r1, #0x66
-	strh r2, [r1]
-	bl sub_08056250
-	pop {pc}
-	.align 2, 0
-_08057110: .4byte gScreen
-_08057114: .4byte 0x0000F7FF
-
-	thumb_func_start sub_08057118
-sub_08057118: @ 0x08057118
-	push {r4, lr}
-	adds r3, r0, #0
-	movs r1, #0
-	strb r1, [r3, #0xe]
-	adds r0, #0x20
-	strb r1, [r0]
-	adds r0, #1
-	strb r1, [r0]
-	adds r0, #1
-	strb r1, [r0]
-	movs r0, #1
-	strb r0, [r3, #0xc]
-	ldr r1, _08057160 @ =gScreen
-	ldr r0, _08057164 @ =0x00001E04
-	strh r0, [r1, #0x2c]
-	ldrh r0, [r1]
-	movs r4, #0x80
-	lsls r4, r4, #4
-	adds r2, r4, #0
-	orrs r0, r2
-	strh r0, [r1]
-	adds r2, r1, #0
-	adds r2, #0x66
-	ldr r0, _08057168 @ =0x00003648
-	strh r0, [r2]
-	adds r1, #0x68
-	movs r0, #0x80
-	lsls r0, r0, #5
-	strh r0, [r1]
-	ldr r1, _0805716C @ =sub_080570B8
-	ldr r2, _08057170 @ =sub_080570F8
-	adds r0, r3, #0
-	bl sub_08052D74
-	pop {r4, pc}
-	.align 2, 0
-_08057160: .4byte gScreen
-_08057164: .4byte 0x00001E04
-_08057168: .4byte 0x00003648
-_0805716C: .4byte sub_080570B8
-_08057170: .4byte sub_080570F8
-
 	thumb_func_start sub_08057174
 sub_08057174: @ 0x08057174
 	push {r4, r5, r6, r7, lr}
@@ -152,7 +18,7 @@ sub_08057174: @ 0x08057174
 	bne _08057188
 	b _0805728A
 _08057188:
-	ldr r1, _080571E8 @ =gLinkEntity
+	ldr r1, _080571E8 @ =gPlayerEntity
 	movs r2, #0x2e
 	ldrsh r0, [r1, r2]
 	cmp r0, #0
@@ -203,7 +69,7 @@ _080571A8:
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_080571E8: .4byte gLinkEntity
+_080571E8: .4byte gPlayerEntity
 _080571EC: .4byte gRoomControls
 _080571F0: .4byte _080571F4
 _080571F4: @ jump table
@@ -468,7 +334,7 @@ sub_080573AC: @ 0x080573AC
 	adds r0, r0, r2
 	strh r0, [r5, #0x30]
 	ldr r2, _08057444 @ =gSineTable
-	ldr r4, _08057448 @ =gUnk_030010A0
+	ldr r4, _08057448 @ =gScreenTransition
 	ldr r1, [r4]
 	ldrb r0, [r4]
 	adds r0, #0x40
@@ -512,7 +378,7 @@ _08057438: .4byte 0xFFFFE000
 _0805743C: .4byte 0xFFFFF000
 _08057440: .4byte gScreen
 _08057444: .4byte gSineTable
-_08057448: .4byte gUnk_030010A0
+_08057448: .4byte gScreenTransition
 _0805744C: .4byte gUnk_08107C30
 
 	thumb_func_start sub_08057450
@@ -551,7 +417,7 @@ _0805748A:
 	adds r0, r3, #0
 	adds r0, #0x22
 	ldrb r0, [r0]
-	ldr r5, _08057510 @ =gUnk_030010A0
+	ldr r5, _08057510 @ =gScreenTransition
 	cmp r0, #0
 	bne _080574BE
 	ldr r0, [r5]
@@ -614,6 +480,6 @@ _08057502:
 _08057504: .4byte gScreen
 _08057508: .4byte gRoomControls
 _0805750C: .4byte gUnk_02001A40
-_08057510: .4byte gUnk_030010A0
+_08057510: .4byte gScreenTransition
 _08057514: .4byte gUnk_08107C30
 _08057518: .4byte gUnk_085B4180

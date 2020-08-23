@@ -61,7 +61,7 @@ _08094180:
 	cmp r0, r1
 	bne _08094198
 	ldr r1, _080941A0 @ =gRoomControls
-	ldr r0, _080941A4 @ =gLinkEntity
+	ldr r0, _080941A4 @ =gPlayerEntity
 	str r0, [r1, #0x30]
 	bl DeleteThisEntity
 _08094198:
@@ -69,7 +69,7 @@ _08094198:
 	b _08094394
 	.align 2, 0
 _080941A0: .4byte gRoomControls
-_080941A4: .4byte gLinkEntity
+_080941A4: .4byte gPlayerEntity
 _080941A8:
 	ldr r1, _08094228 @ =gUnk_081229D0
 	ldrb r0, [r4, #0xb]

@@ -24,7 +24,7 @@ _08046148: .4byte gUnk_080D1A64
 sub_0804614C: @ 0x0804614C
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
-	ldr r0, _08046248 @ =gUnk_03003DBC
+	ldr r0, _08046248 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x3d
 	bhi _08046244
@@ -112,20 +112,20 @@ sub_0804614C: @ 0x0804614C
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08046250 @ =gUnk_02002F00
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	adds r0, r6, #0
 	movs r1, #0
 	bl sub_0804660C
 	adds r0, r6, #0
 	bl sub_080464C0
-	ldr r0, _08046254 @ =gLinkEntity
+	ldr r0, _08046254 @ =gPlayerEntity
 	adds r1, r0, #0
 	adds r1, #0x38
 	strb r5, [r1]
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	ldr r1, _08046258 @ =sub_08046498
 	adds r0, r6, #0
 	movs r2, #0
@@ -133,10 +133,10 @@ sub_0804614C: @ 0x0804614C
 _08046244:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08046248: .4byte gUnk_03003DBC
+_08046248: .4byte gEntCount
 _0804624C: .4byte gUnk_02019EE0
 _08046250: .4byte gUnk_02002F00
-_08046254: .4byte gLinkEntity
+_08046254: .4byte gPlayerEntity
 _08046258: .4byte sub_08046498
 
 	thumb_func_start sub_0804625C
@@ -445,10 +445,10 @@ sub_08046498: @ 0x08046498
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _080464BC @ =gUnk_02002F00
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	adds r0, r5, #0
 	bl sub_080464C0
 	pop {r4, r5, pc}
@@ -486,7 +486,7 @@ _080464DE:
 	ldr r0, _0804650C @ =gUnk_02019EE0
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r1, _08046514 @ =gUnk_02000070
 	movs r0, #1
 	strb r0, [r1]
@@ -586,7 +586,7 @@ _080465C4: .4byte gUnk_080B3E80
 	thumb_func_start sub_080465C8
 sub_080465C8: @ 0x080465C8
 	push {r4, lr}
-	ldr r3, _080465FC @ =gLinkEntity
+	ldr r3, _080465FC @ =gPlayerEntity
 	movs r0, #0x2e
 	ldrsh r2, [r3, r0]
 	ldr r1, _08046600 @ =gRoomControls
@@ -606,16 +606,16 @@ sub_080465C8: @ 0x080465C8
 	ldrh r0, [r0]
 	cmp r0, #0
 	beq _080465F8
-	ldr r1, _08046608 @ =gLinkState
+	ldr r1, _08046608 @ =gPlayerState
 	movs r0, #1
 	strb r0, [r1, #0x14]
 _080465F8:
 	pop {r4, pc}
 	.align 2, 0
-_080465FC: .4byte gLinkEntity
+_080465FC: .4byte gPlayerEntity
 _08046600: .4byte gRoomControls
 _08046604: .4byte gUnk_02019EE0
-_08046608: .4byte gLinkState
+_08046608: .4byte gPlayerState
 
 	thumb_func_start sub_0804660C
 sub_0804660C: @ 0x0804660C
@@ -817,7 +817,7 @@ _0804674C:
 	adds r0, r1, #0
 	cmp r0, #0xff
 	beq _080467CC
-	ldr r2, _080467D8 @ =gLinkEntity
+	ldr r2, _080467D8 @ =gPlayerEntity
 	adds r0, r2, #0
 	adds r0, #0x3e
 	strb r1, [r0]
@@ -846,7 +846,7 @@ _0804674C:
 	movs r0, #1
 	strb r0, [r1]
 	adds r0, r2, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _080467CC:
 	adds r1, r4, #0
 	adds r1, #0x7c
@@ -854,7 +854,7 @@ _080467CC:
 	strb r0, [r1]
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080467D8: .4byte gLinkEntity
+_080467D8: .4byte gPlayerEntity
 
 	thumb_func_start sub_080467DC
 sub_080467DC: @ 0x080467DC

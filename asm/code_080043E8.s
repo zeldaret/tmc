@@ -64,7 +64,7 @@ sub_0800445C: @ 0x0800445C
 	bl sub_08079F8C
 	cmp r0, #0
 	beq _08004482
-	ldr r5, _080044D8 @ =gLinkEntity
+	ldr r5, _080044D8 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_08004484
@@ -113,7 +113,7 @@ _080044AC:
 	non_word_aligned_thumb_func_start sub_080044AE
 sub_080044AE: @ 0x080044AE
 	push {lr}
-	ldr r3, _080044E8 @ =gLinkEntity
+	ldr r3, _080044E8 @ =gPlayerEntity
 	cmp r0, r3
 	beq _080044CC
 	push {r0, r1, r2}
@@ -132,11 +132,11 @@ _080044CC:
 	bl sub_08079E58
 	b _080044C8
 	.align 2, 0
-_080044D8: .4byte gLinkEntity
+_080044D8: .4byte gPlayerEntity
 _080044DC: .4byte gUnk_03005FF0
 _080044E0: .4byte gUnk_02024048
 _080044E4: .4byte gUnk_02021F20
-_080044E8: .4byte gLinkEntity
+_080044E8: .4byte gPlayerEntity
 
 	thumb_func_start sub_080044EC
 sub_080044EC: @ 0x080044EC
@@ -269,8 +269,8 @@ sub_080045B4: @ 0x080045B4
 	ldr r3, _08004690 @ =gUnk_030060F0
 	bx r3
 
-	thumb_func_start sub_080045C4
-sub_080045C4: @ 0x080045C4
+	thumb_func_start GetFacingDirection
+GetFacingDirection: @ 0x080045C4
 	push {r4, r5}
 	movs r4, #0x32
 	movs r5, #0x2e

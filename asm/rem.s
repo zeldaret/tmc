@@ -153,7 +153,7 @@ _0806A512:
 	adds r0, #0x6a
 	strh r2, [r0]
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl InitializeAnimation
@@ -169,7 +169,7 @@ _0806A52C:
 	movs r0, #2
 	strb r0, [r4, #0xd]
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl InitializeAnimation
@@ -421,7 +421,7 @@ _0806A6E4:
 	strb r1, [r0]
 	b _0806A75A
 _0806A724:
-	ldr r0, _0806A780 @ =gUnk_030010A0
+	ldr r0, _0806A780 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -469,9 +469,9 @@ _0806A75A:
 	strb r1, [r0]
 	b _0806A82A
 	.align 2, 0
-_0806A780: .4byte gUnk_030010A0
+_0806A780: .4byte gScreenTransition
 _0806A784:
-	ldr r0, _0806A7C4 @ =gUnk_030010A0
+	ldr r0, _0806A7C4 @ =gScreenTransition
 	ldr r0, [r0]
 	lsrs r0, r0, #4
 	movs r1, #3
@@ -506,7 +506,7 @@ _0806A7BA:
 	strb r0, [r3]
 	b _0806A82A
 	.align 2, 0
-_0806A7C4: .4byte gUnk_030010A0
+_0806A7C4: .4byte gScreenTransition
 _0806A7C8:
 	adds r2, r4, #0
 	adds r2, #0x29
@@ -835,7 +835,7 @@ sub_0806AA18: @ 0x0806AA18
 	.align 2, 0
 _0806AA28: .4byte 0x00004408
 _0806AA2C:
-	ldr r0, _0806AA48 @ =gUnk_030010A0
+	ldr r0, _0806AA48 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -849,7 +849,7 @@ _0806AA3C:
 	bl TextboxNoOverlap
 	pop {pc}
 	.align 2, 0
-_0806AA48: .4byte gUnk_030010A0
+_0806AA48: .4byte gScreenTransition
 _0806AA4C: .4byte 0x0000440D
 
 	thumb_func_start sub_0806AA50
@@ -928,7 +928,7 @@ _0806AAD8:
 	str r6, [r0]
 	adds r0, r6, #0
 	movs r1, #7
-	bl sub_0805EA78
+	bl PrependEntityToList
 	movs r0, #0xc0
 	lsls r0, r0, #9
 	str r0, [r6, #0x20]
@@ -938,7 +938,7 @@ _0806AAEE:
 	adds r0, #0xac
 	ldr r0, [r0]
 	movs r1, #7
-	bl sub_0805EB64
+	bl FindNextEntityOfSameSubtype
 	adds r1, r0, #0
 	adds r0, r4, #0
 	adds r0, #0xb0
@@ -948,7 +948,7 @@ _0806AB02:
 	adds r0, #0xb0
 	ldr r0, [r0]
 	movs r1, #7
-	bl sub_0805EB64
+	bl FindNextEntityOfSameSubtype
 	adds r1, r0, #0
 	mov r0, r8
 	adds r0, #0xb4
@@ -1041,7 +1041,7 @@ sub_0806AB9C: @ 0x0806AB9C
 	movs r1, #0x37
 	movs r2, #7
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	cmp r0, #0
 	beq _0806ABBC
 	bl DeleteEntity

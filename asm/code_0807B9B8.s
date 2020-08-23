@@ -503,7 +503,7 @@ _0807BD90:
 _0807BD96:
 	strh r0, [r2, #4]
 _0807BD98:
-	ldr r2, _0807BDB0 @ =gLinkEntity
+	ldr r2, _0807BDB0 @ =gPlayerEntity
 	ldrb r1, [r2, #0x11]
 	movs r0, #0x10
 	rsbs r0, r0, #0
@@ -515,7 +515,7 @@ _0807BD98:
 	movs r0, #1
 	b _0807BDB6
 	.align 2, 0
-_0807BDB0: .4byte gLinkEntity
+_0807BDB0: .4byte gPlayerEntity
 _0807BDB4:
 	movs r0, #0
 _0807BDB6:
@@ -822,14 +822,14 @@ sub_0807BFD0: @ 0x0807BFD0
 	adds r0, r7, #0
 	adds r1, r6, #0
 	mov r2, r8
-	bl sub_0801D5EC
+	bl _DmaFill16
 	movs r5, #0
 	strh r5, [r6]
 	ldr r4, _0807C0C0 @ =gUnk_02010654
 	adds r0, r7, #0
 	adds r1, r4, #0
 	mov r2, r8
-	bl sub_0801D5EC
+	bl _DmaFill16
 	strh r5, [r4]
 	ldr r2, _0807C0C4 @ =gRoomControls
 	ldr r0, _0807C0C8 @ =gArea
@@ -846,7 +846,7 @@ _0807C01C:
 	ldr r0, [r4]
 	ldr r0, [r0, #0x10]
 	bl sub_080197D4
-	ldr r1, _0807C0D0 @ =gUnk_020176A0
+	ldr r1, _0807C0D0 @ =gPaletteBuffer
 	adds r0, r1, #0
 	adds r0, #0x60
 	movs r2, #0xa8
@@ -854,7 +854,7 @@ _0807C01C:
 	adds r1, r1, r2
 	movs r2, #0x20
 	bl sub_0801D66C
-	ldr r2, _0807C0D4 @ =gUnk_0200B644
+	ldr r2, _0807C0D4 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80
 	lsls r1, r1, #0xe
@@ -873,7 +873,7 @@ _0807C04E:
 	adds r0, r7, #0
 	adds r1, r6, #0
 	mov r2, r8
-	bl sub_0801D5EC
+	bl _DmaFill16
 	movs r2, #0
 	ldr r3, _0807C0D8 @ =0x000007FF
 	adds r4, r7, #0
@@ -899,7 +899,7 @@ _0807C078:
 	ldr r4, _0807C0B8 @ =0x0000FFFF
 	adds r0, r4, #0
 	adds r1, r6, #0
-	bl sub_0801D5EC
+	bl _DmaFill16
 	movs r2, #0
 	ldr r3, _0807C0D8 @ =0x000007FF
 _0807C096:
@@ -927,8 +927,8 @@ _0807C0C0: .4byte gUnk_02010654
 _0807C0C4: .4byte gRoomControls
 _0807C0C8: .4byte gArea
 _0807C0CC: .4byte 0x0000085C
-_0807C0D0: .4byte gUnk_020176A0
-_0807C0D4: .4byte gUnk_0200B644
+_0807C0D0: .4byte gPaletteBuffer
+_0807C0D4: .4byte gUsedPalettes
 _0807C0D8: .4byte 0x000007FF
 
 	thumb_func_start sub_0807C0DC
@@ -948,19 +948,19 @@ sub_0807C0DC: @ 0x0807C0DC
 	lsls r6, r6, #6
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0801D630
+	bl _DmaZero
 	adds r0, r5, r6
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0807C160 @ =gUnk_02019EE0
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0807C164 @ =gUnk_02002F00
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0807C168 @ =gArea
 	ldr r1, _0807C16C @ =0x0000085C
 	adds r0, r0, r1
@@ -999,11 +999,11 @@ _0807C174: .4byte 0x0000FFFF
 _0807C178:
 	adds r0, r2, #4
 	adds r1, r6, #0
-	bl sub_0801D630
+	bl _DmaZero
 	movs r3, #1
 	mov sb, r3
 _0807C184:
-	ldr r0, _0807C1B0 @ =gUnk_030010A0
+	ldr r0, _0807C1B0 @ =gScreenTransition
 	adds r0, #0x2d
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -1024,7 +1024,7 @@ _0807C184:
 	bl sub_0801D66C
 	b _0807C26C
 	.align 2, 0
-_0807C1B0: .4byte gUnk_030010A0
+_0807C1B0: .4byte gScreenTransition
 _0807C1B4: .4byte gUnk_02025EB4
 _0807C1B8: .4byte gUnk_0200B654
 _0807C1BC:
@@ -1167,7 +1167,7 @@ _0807C2E4:
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r4, _0807C350 @ =gUnk_02002F00
 	adds r5, r4, r6
 	adds r0, r4, #0
@@ -1179,7 +1179,7 @@ _0807C2E4:
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0801D630
+	bl _DmaZero
 _0807C326:
 	mov r1, sb
 	cmp r1, #0
@@ -1406,10 +1406,10 @@ sub_0807C4F8: @ 0x0807C4F8
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0807C59C @ =gUnk_02002F00
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r5, _0807C5A0 @ =gUnk_02022830
 	ldr r0, _0807C5A4 @ =gArea
 	ldr r1, _0807C5A8 @ =0x0000085C
@@ -1455,7 +1455,7 @@ _0807C54A:
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r4, _0807C59C @ =gUnk_02002F00
 	adds r5, r4, r6
 	adds r0, r4, #0
@@ -1467,7 +1467,7 @@ _0807C54A:
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0801D630
+	bl _DmaZero
 _0807C592:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -1694,7 +1694,7 @@ _0807C710:
 _0807C726:
 	adds r0, r4, #0
 	movs r1, #0x40
-	bl sub_0801D630
+	bl _DmaZero
 	adds r4, #0x40
 	adds r5, #1
 	cmp r5, r7
@@ -1807,7 +1807,7 @@ _0807C7C2:
 	movs r1, #1
 	strb r1, [r0]
 	ldr r0, [r4, #0x30]
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _0807C7FC:
 	ldrb r1, [r4, #0xf]
 	movs r0, #0xfb
@@ -1823,7 +1823,7 @@ sub_0807C810: @ 0x0807C810
 	push {r4, r5, r6, lr}
 	bl sub_0807BFD0
 	ldr r2, _0807C850 @ =gUnk_03004030
-	ldr r6, _0807C854 @ =gLinkEntity
+	ldr r6, _0807C854 @ =gPlayerEntity
 	ldr r4, _0807C858 @ =gRoomControls
 	ldr r3, [r2]
 	ldrh r1, [r3, #6]
@@ -1852,14 +1852,14 @@ sub_0807C810: @ 0x0807C810
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0807C850: .4byte gUnk_03004030
-_0807C854: .4byte gLinkEntity
+_0807C854: .4byte gPlayerEntity
 _0807C858: .4byte gRoomControls
 _0807C85C: .4byte gUnk_02000070
 
 	thumb_func_start sub_0807C860
 sub_0807C860: @ 0x0807C860
 	push {r4, lr}
-	ldr r0, _0807C88C @ =gUnk_030010A0
+	ldr r0, _0807C88C @ =gScreenTransition
 	adds r0, #0x2d
 	movs r1, #1
 	strb r1, [r0]
@@ -1879,14 +1879,14 @@ sub_0807C860: @ 0x0807C860
 	bl sub_0801D66C
 	pop {r4, pc}
 	.align 2, 0
-_0807C88C: .4byte gUnk_030010A0
+_0807C88C: .4byte gScreenTransition
 _0807C890: .4byte gUnk_02025EB4
 _0807C894: .4byte gUnk_0200B654
 
 	thumb_func_start sub_0807C898
 sub_0807C898: @ 0x0807C898
 	push {r4, r5, lr}
-	ldr r4, _0807C8AC @ =gUnk_030010A0
+	ldr r4, _0807C8AC @ =gScreenTransition
 	adds r4, #0x2d
 	movs r5, #0
 	movs r0, #2
@@ -1895,7 +1895,7 @@ sub_0807C898: @ 0x0807C898
 	strb r5, [r4]
 	pop {r4, r5, pc}
 	.align 2, 0
-_0807C8AC: .4byte gUnk_030010A0
+_0807C8AC: .4byte gScreenTransition
 
 	thumb_func_start sub_0807C8B0
 sub_0807C8B0: @ 0x0807C8B0
@@ -1984,7 +1984,7 @@ _0807C92E:
 _0807C946:
 	adds r0, r4, #0
 	movs r1, #0x80
-	bl sub_0801D630
+	bl _DmaZero
 	adds r4, #0x80
 	adds r5, #1
 	cmp r5, r6
@@ -1995,34 +1995,3 @@ _0807C956:
 	mov sb, r4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-
-	thumb_func_start sub_0807C960
-sub_0807C960: @ 0x0807C960
-	push {lr}
-	adds r2, r0, #0
-	movs r0, #1
-	rsbs r0, r0, #0
-	cmp r1, r0
-	beq _0807C994
-	ldr r0, _0807C984 @ =0x7FFFFFFF
-	ands r0, r1
-	ldr r1, _0807C988 @ =gUnk_08324AE4
-	adds r1, r0, r1
-	lsrs r0, r2, #0x18
-	cmp r0, #6
-	bne _0807C98C
-	adds r0, r1, #0
-	adds r1, r2, #0
-	bl LZ77UnCompVram
-	b _0807C994
-	.align 2, 0
-_0807C984: .4byte 0x7FFFFFFF
-_0807C988: .4byte gUnk_08324AE4
-_0807C98C:
-	adds r0, r1, #0
-	adds r1, r2, #0
-	bl LZ77UnCompWram
-_0807C994:
-	pop {pc}
-	.align 2, 0
-	

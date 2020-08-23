@@ -64,7 +64,7 @@ extern void JarPortal(Entity*);
 extern void BossDoor(Entity*);
 extern void Object3A(Entity*);
 extern void MacroMushromStalks(Entity*);
-extern void MacroLink(Entity*);
+extern void MacroPlayer(Entity*);
 extern void Object3D(Entity*);
 extern void Object3E(Entity*);
 extern void GiantLeaf(Entity*);

@@ -89,13 +89,13 @@ sub_0806D0B0: @ 0x0806D0B0
 	movs r1, #0
 	str r1, [r0]
 	movs r0, #0x30
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	bl sub_0806D110
 	ldr r5, _0806D0EC @ =gUnk_02002F00
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r5, #0
-	bl sub_0801D630
+	bl _DmaZero
 	cmp r4, #0
 	beq _0806D0DA
 	adds r0, r4, #0
@@ -120,7 +120,7 @@ sub_0806D0F8: @ 0x0806D0F8
 	movs r0, #7
 	movs r1, #0x4c
 	movs r2, #7
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	beq _0806D10C
 	bl sub_0806D0B0
@@ -570,7 +570,7 @@ _0806D45E:
 	adds r0, r4, #0
 	bl sub_0807DDE4
 _0806D46C:
-	ldr r0, _0806D4A8 @ =gUnk_030010A0
+	ldr r0, _0806D4A8 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -599,7 +599,7 @@ _0806D46C:
 	strb r0, [r2]
 	b _0806D4BE
 	.align 2, 0
-_0806D4A8: .4byte gUnk_030010A0
+_0806D4A8: .4byte gScreenTransition
 _0806D4AC:
 	adds r1, r4, #0
 	adds r1, #0x63
@@ -771,7 +771,7 @@ sub_0806D5D4: @ 0x0806D5D4
 	push {lr}
 	bl sub_08053500
 	movs r0, #0xd
-	bl sub_0805436C
+	bl IsItemEquipped
 	adds r1, r0, #0
 	cmp r1, #2
 	beq _0806D5F0
@@ -928,7 +928,7 @@ sub_0806D6D0: @ 0x0806D6D0
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D6EE
@@ -940,7 +940,7 @@ _0806D6EE:
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D706
@@ -961,7 +961,7 @@ sub_0806D70C: @ 0x0806D70C
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0806D728
@@ -972,7 +972,7 @@ _0806D728:
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0806D746
@@ -996,7 +996,7 @@ sub_0806D74C: @ 0x0806D74C
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D76A
@@ -1008,7 +1008,7 @@ _0806D76A:
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D782
@@ -1029,7 +1029,7 @@ sub_0806D788: @ 0x0806D788
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D7A6
@@ -1041,7 +1041,7 @@ _0806D7A6:
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D7BE
@@ -1058,7 +1058,7 @@ sub_0806D7C4: @ 0x0806D7C4
 	sub sp, #4
 	adds r4, r0, #0
 	adds r5, r1, #0
-	ldr r1, _0806D800 @ =gLinkEntity
+	ldr r1, _0806D800 @ =gPlayerEntity
 	ldrh r0, [r1, #0x2e]
 	movs r2, #0
 	strh r0, [r4, #0x2e]
@@ -1070,7 +1070,7 @@ sub_0806D7C4: @ 0x0806D7C4
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	cmp r0, #0
 	beq _0806D7FC
 	movs r1, #0x2e
@@ -1084,7 +1084,7 @@ _0806D7FC:
 	add sp, #4
 	pop {r4, r5, pc}
 	.align 2, 0
-_0806D800: .4byte gLinkEntity
+_0806D800: .4byte gPlayerEntity
 
 	thumb_func_start sub_0806D804
 sub_0806D804: @ 0x0806D804
@@ -1098,7 +1098,7 @@ sub_0806D804: @ 0x0806D804
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D83A
@@ -1115,7 +1115,7 @@ sub_0806D804: @ 0x0806D804
 	ands r0, r1
 	strb r0, [r2]
 _0806D83A:
-	ldr r0, _0806D854 @ =gLinkEntity
+	ldr r0, _0806D854 @ =gPlayerEntity
 	movs r1, #0x2e
 	ldrsh r2, [r0, r1]
 	movs r1, #0x32
@@ -1127,7 +1127,7 @@ _0806D83A:
 	add sp, #4
 	pop {r4, r5, pc}
 	.align 2, 0
-_0806D854: .4byte gLinkEntity
+_0806D854: .4byte gPlayerEntity
 
 	thumb_func_start sub_0806D858
 sub_0806D858: @ 0x0806D858

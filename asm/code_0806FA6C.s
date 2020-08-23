@@ -106,11 +106,11 @@ _0806FBB2:
 sub_0806FBB4: @ 0x0806FBB4
 	push {lr}
 	adds r1, r0, #0
-	ldr r0, _0806FBD0 @ =gUnk_030010A0
+	ldr r0, _0806FBD0 @ =gScreenTransition
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	bne _0806FBC8
-	ldr r0, _0806FBD4 @ =gLinkState
+	ldr r0, _0806FBD4 @ =gPlayerState
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	bne _0806FBCC
@@ -120,22 +120,22 @@ _0806FBC8:
 _0806FBCC:
 	pop {pc}
 	.align 2, 0
-_0806FBD0: .4byte gUnk_030010A0
-_0806FBD4: .4byte gLinkState
+_0806FBD0: .4byte gScreenTransition
+_0806FBD4: .4byte gPlayerState
 
 	thumb_func_start sub_0806FBD8
 sub_0806FBD8: @ 0x0806FBD8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806FBEC
+	bl UnloadBoundingBox
 	movs r0, #0xc
 	bl sub_0801D8E0
 	str r0, [r4, #0x48]
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0806FBEC
-sub_0806FBEC: @ 0x0806FBEC
+	thumb_func_start UnloadBoundingBox
+UnloadBoundingBox: @ 0x0806FBEC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, [r4, #0x48]
@@ -148,7 +148,7 @@ sub_0806FBEC: @ 0x0806FBEC
 sub_0806FBFC: @ 0x0806FBFC
 	push {r4, r5, r6, lr}
 	adds r5, r3, #0
-	ldr r4, _0806FC20 @ =gLinkEntity
+	ldr r4, _0806FC20 @ =gPlayerEntity
 	movs r6, #0x2e
 	ldrsh r3, [r4, r6]
 	subs r3, r3, r0
@@ -165,7 +165,7 @@ _0806FC1A:
 	adds r0, r1, #0
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0806FC20: .4byte gLinkEntity
+_0806FC20: .4byte gPlayerEntity
 
 	thumb_func_start sub_0806FC24
 sub_0806FC24: @ 0x0806FC24
@@ -242,14 +242,14 @@ _0806FC9C:
 	thumb_func_start sub_0806FCA0
 sub_0806FCA0: @ 0x0806FCA0
 	push {lr}
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	pop {pc}
 
 	thumb_func_start sub_0806FCAC
 sub_0806FCAC: @ 0x0806FCAC
 	push {lr}
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5B0
 	pop {pc}
 
@@ -353,7 +353,7 @@ sub_0806FD3C: @ 0x0806FD3C
 sub_0806FD54: @ 0x0806FD54
 	push {r4, lr}
 	adds r3, r0, #0
-	ldr r0, _0806FD6C @ =gLinkState
+	ldr r0, _0806FD6C @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #0x80
 	lsls r1, r1, #0x10
@@ -363,9 +363,9 @@ sub_0806FD54: @ 0x0806FD54
 	movs r0, #0
 	b _0806FD84
 	.align 2, 0
-_0806FD6C: .4byte gLinkState
+_0806FD6C: .4byte gPlayerState
 _0806FD70:
-	ldr r0, _0806FD88 @ =gLinkEntity
+	ldr r0, _0806FD88 @ =gPlayerEntity
 	movs r2, #0x2e
 	ldrsh r1, [r0, r2]
 	movs r4, #0x32
@@ -377,7 +377,7 @@ _0806FD70:
 _0806FD84:
 	pop {r4, pc}
 	.align 2, 0
-_0806FD88: .4byte gLinkEntity
+_0806FD88: .4byte gPlayerEntity
 
 	thumb_func_start sub_0806FD8C
 sub_0806FD8C: @ 0x0806FD8C
@@ -385,7 +385,7 @@ sub_0806FD8C: @ 0x0806FD8C
 	ldr r0, _0806FD9C @ =gUnk_020000C0
 	movs r1, #0xc0
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	pop {pc}
 	.align 2, 0
 _0806FD9C: .4byte gUnk_020000C0
@@ -447,7 +447,7 @@ LoadExtraSpriteData: @ 0x0806FDEC
 	b _0806FE74
 _0806FE02:
 	adds r0, r6, #0
-	bl sub_0801D230
+	bl UnloadOBJPalette
 	adds r0, r6, #0
 	adds r0, #0x28
 	ldrb r0, [r0]
@@ -534,7 +534,7 @@ _0806FE9E:
 	bls _0806FE9E
 	adds r0, r6, #0
 	movs r1, #0x40
-	bl sub_0801D630
+	bl _DmaZero
 _0806FEB4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -671,7 +671,7 @@ SetSpriteSubEntryOffsetData1: @ 0x0806FF88
 	adds r4, r4, r2
 	ldrh r0, [r5, #2]
 	ldrb r1, [r5, #1]
-	bl sub_080700C8
+	bl GetSpriteSubEntryOffsetDataPointer
 	ldrb r1, [r5, #6]
 	ldrb r2, [r0]
 	adds r1, r1, r2
@@ -715,7 +715,7 @@ SetSpriteSubEntryOffsetData2: @ 0x0806FFD8
 	adds r4, r4, r2
 	ldrh r0, [r5, #2]
 	ldrb r1, [r5, #1]
-	bl sub_080700C8
+	bl GetSpriteSubEntryOffsetDataPointer
 	ldrb r1, [r5, #6]
 	ldrb r2, [r0, #2]
 	adds r1, r1, r2
@@ -826,8 +826,8 @@ _080700C4:
 _080700C6:
 	pop {pc}
 
-	thumb_func_start sub_080700C8
-sub_080700C8: @ 0x080700C8
+	thumb_func_start GetSpriteSubEntryOffsetDataPointer
+GetSpriteSubEntryOffsetDataPointer: @ 0x080700C8
 	lsls r0, r0, #1
 	ldr r2, _080700E4 @ =gUnk_089FB780
 	adds r0, r0, r2
@@ -885,7 +885,7 @@ sub_08070100: @ 0x08070100
 	movs r0, #0xf0
 	lsls r0, r0, #1
 	str r0, [r5, #0x78]
-	ldr r2, _0807017C @ =gLinkEntity
+	ldr r2, _0807017C @ =gPlayerEntity
 	ldr r1, _08070180 @ =gUnk_0811B9A0
 	ldrb r0, [r5, #0x14]
 	adds r0, r0, r1
@@ -921,7 +921,7 @@ sub_08070100: @ 0x08070100
 	strb r3, [r5, #0xa]
 	b _0807018C
 	.align 2, 0
-_0807017C: .4byte gLinkEntity
+_0807017C: .4byte gPlayerEntity
 _08070180: .4byte gUnk_0811B9A0
 _08070184: .4byte gUnk_0811B9D0
 _08070188:
@@ -1062,7 +1062,7 @@ _08070280:
 	ands r1, r6
 	lsls r1, r1, #6
 	orrs r0, r1
-	ldr r1, _08070358 @ =gLinkEntity
+	ldr r1, _08070358 @ =gPlayerEntity
 	adds r1, #0x38
 	ldrb r1, [r1]
 	movs r2, #0x80
@@ -1148,7 +1148,7 @@ _08070280:
 	b _0807037A
 	.align 2, 0
 _08070354: .4byte gRoomControls
-_08070358: .4byte gLinkEntity
+_08070358: .4byte gPlayerEntity
 _0807035C: .4byte gUnk_08003E44
 _08070360: .4byte 0x00004020
 _08070364:
@@ -1368,13 +1368,13 @@ sub_080704D4: @ 0x080704D4
 sub_080704FC: @ 0x080704FC
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r5, _0807052C @ =gLinkEntity
+	ldr r5, _0807052C @ =gPlayerEntity
 	adds r0, r5, #0
 	adds r0, #0x5a
 	ldrb r2, [r0]
 	movs r0, #0x80
 	ands r0, r2
-	ldr r1, _08070530 @ =gLinkState
+	ldr r1, _08070530 @ =gPlayerState
 	cmp r0, #0
 	bne _08070518
 	ldr r0, [r1, #0x2c]
@@ -1391,8 +1391,8 @@ _08070522:
 	bl DeleteEntity
 	b _08070566
 	.align 2, 0
-_0807052C: .4byte gLinkEntity
-_08070530: .4byte gLinkState
+_0807052C: .4byte gPlayerEntity
+_08070530: .4byte gPlayerState
 _08070534:
 	movs r0, #0xf
 	ands r0, r2
@@ -1420,7 +1420,7 @@ _08070562:
 	movs r0, #0xff
 	strb r0, [r4, #0x1e]
 _08070566:
-	ldr r2, _08070580 @ =gLinkEntity
+	ldr r2, _08070580 @ =gPlayerEntity
 	ldrb r1, [r2, #0x14]
 	movs r0, #2
 	ands r0, r1
@@ -1433,7 +1433,7 @@ _08070566:
 	eors r2, r0
 	b _0807058A
 	.align 2, 0
-_08070580: .4byte gLinkEntity
+_08070580: .4byte gPlayerEntity
 _08070584:
 	ldrb r0, [r2, #0x18]
 	lsls r0, r0, #0x19
@@ -1454,7 +1454,7 @@ sub_0807059C: @ 0x0807059C
 	push {lr}
 	ldr r0, _080705A8 @ =gUnk_02034490
 	movs r1, #0x18
-	bl sub_0801D630
+	bl _DmaZero
 	pop {pc}
 	.align 2, 0
 _080705A8: .4byte gUnk_02034490
@@ -1468,7 +1468,7 @@ sub_080705AC: @ 0x080705AC
 	ands r0, r1
 	cmp r0, #0
 	beq _08070674
-	ldr r0, _08070618 @ =gUnk_03000FD0
+	ldr r0, _08070618 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08070674
@@ -1493,7 +1493,7 @@ sub_080705AC: @ 0x080705AC
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08070674
-	ldr r1, _08070628 @ =gLinkState
+	ldr r1, _08070628 @ =gPlayerState
 	adds r0, r1, #0
 	adds r0, #0x8b
 	ldrb r0, [r0]
@@ -1514,11 +1514,11 @@ sub_080705AC: @ 0x080705AC
 	b _08070632
 	.align 2, 0
 _08070614: .4byte gUnk_03000FF0
-_08070618: .4byte gUnk_03000FD0
+_08070618: .4byte gFadeControl
 _0807061C: .4byte gUnk_02034490
 _08070620: .4byte gTextBox
 _08070624: .4byte gUnk_02002A40
-_08070628: .4byte gLinkState
+_08070628: .4byte gPlayerState
 _0807062C: .4byte gUnk_03003DC0
 _08070630:
 	ldrb r0, [r2]

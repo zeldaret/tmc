@@ -17,7 +17,7 @@ sub_0805D1FC: @ 0x0805D1FC
 	ldr r3, _0805D248 @ =gRoomControls
 	ldrh r0, [r3, #8]
 	adds r0, #0xc8
-	ldr r2, _0805D24C @ =gLinkEntity
+	ldr r2, _0805D24C @ =gPlayerEntity
 	movs r5, #0x32
 	ldrsh r1, [r2, r5]
 	cmp r0, r1
@@ -34,13 +34,13 @@ sub_0805D1FC: @ 0x0805D1FC
 	movs r0, #3
 	strb r0, [r1]
 	adds r0, r2, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _0805D236:
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 	pop {r4, r5, pc}
 	.align 2, 0
 _0805D240: .4byte 0x00004014
 _0805D244: .4byte 0x000005C3
 _0805D248: .4byte gRoomControls
-_0805D24C: .4byte gLinkEntity
+_0805D24C: .4byte gPlayerEntity

@@ -102,7 +102,7 @@ _0808B4F8:
 	strb r2, [r4, #0xc]
 	movs r0, #0x60
 	strb r0, [r4, #0xf]
-	ldr r1, _0808B52C @ =gLinkEntity
+	ldr r1, _0808B52C @ =gPlayerEntity
 	ldrh r0, [r4, #0x2e]
 	strh r0, [r1, #0x2e]
 	ldrh r0, [r4, #0x32]
@@ -118,7 +118,7 @@ _0808B4F8:
 _0808B528:
 	pop {r4, pc}
 	.align 2, 0
-_0808B52C: .4byte gLinkEntity
+_0808B52C: .4byte gPlayerEntity
 
 	thumb_func_start sub_0808B530
 sub_0808B530: @ 0x0808B530
@@ -190,7 +190,7 @@ sub_0808B590: @ 0x0808B590
 	movs r0, #0x60
 	strb r0, [r4, #0xf]
 	bl sub_08077B20
-	ldr r1, _0808B5DC @ =gLinkEntity
+	ldr r1, _0808B5DC @ =gPlayerEntity
 	ldrh r0, [r4, #0x2e]
 	strh r0, [r1, #0x2e]
 	ldrh r0, [r4, #0x32]
@@ -209,7 +209,7 @@ sub_0808B590: @ 0x0808B590
 	bl PlaySFX
 	b _0808B5E6
 	.align 2, 0
-_0808B5DC: .4byte gLinkEntity
+_0808B5DC: .4byte gPlayerEntity
 _0808B5E0: .4byte 0x00000113
 _0808B5E4:
 	strb r0, [r4, #0xe]
@@ -230,14 +230,14 @@ sub_0808B5E8: @ 0x0808B5E8
 	strb r0, [r4, #0xc]
 	movs r0, #1
 	strb r0, [r4, #0xe]
-	ldr r1, _0808B60C @ =gLinkEntity
+	ldr r1, _0808B60C @ =gPlayerEntity
 	movs r0, #4
 	strb r0, [r1, #0x14]
 	movs r0, #0x10
 	strb r0, [r1, #0x15]
 	b _0808B67E
 	.align 2, 0
-_0808B60C: .4byte gLinkEntity
+_0808B60C: .4byte gPlayerEntity
 _0808B610:
 	movs r5, #0
 	movs r0, #0x60
@@ -277,7 +277,7 @@ _0808B64E:
 	ands r0, r1
 	cmp r0, #0
 	bne _0808B66E
-	ldr r0, _0808B668 @ =gLinkEntity
+	ldr r0, _0808B668 @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	cmp r0, #4
 	bne _0808B66C
@@ -287,14 +287,14 @@ _0808B64E:
 	bls _0808B66E
 	b _0808B672
 	.align 2, 0
-_0808B668: .4byte gLinkEntity
+_0808B668: .4byte gPlayerEntity
 _0808B66C:
 	movs r5, #1
 _0808B66E:
 	cmp r5, #0
 	beq _0808B67E
 _0808B672:
-	ldr r0, _0808B680 @ =gLinkEntity
+	ldr r0, _0808B680 @ =gPlayerEntity
 	ldrb r1, [r0, #0x14]
 	adds r1, #2
 	movs r2, #6
@@ -303,7 +303,7 @@ _0808B672:
 _0808B67E:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0808B680: .4byte gLinkEntity
+_0808B680: .4byte gPlayerEntity
 
 	thumb_func_start sub_0808B684
 sub_0808B684: @ 0x0808B684
@@ -317,7 +317,7 @@ sub_0808B684: @ 0x0808B684
 	lsrs r2, r0, #0x18
 	cmp r2, #0
 	bne _0808B6E8
-	ldr r3, _0808B6E4 @ =gUnk_030010A0
+	ldr r3, _0808B6E4 @ =gScreenTransition
 	movs r0, #1
 	strb r0, [r3, #8]
 	strb r2, [r3, #9]
@@ -355,7 +355,7 @@ sub_0808B684: @ 0x0808B684
 	strb r0, [r3, #9]
 	b _0808B736
 	.align 2, 0
-_0808B6E4: .4byte gUnk_030010A0
+_0808B6E4: .4byte gScreenTransition
 _0808B6E8:
 	movs r0, #0x60
 	ands r0, r1
@@ -386,7 +386,7 @@ _0808B710:
 	bne _0808B724
 	b _0808B72A
 _0808B718:
-	ldr r2, _0808B738 @ =gLinkEntity
+	ldr r2, _0808B738 @ =gPlayerEntity
 	ldrb r1, [r2, #0x18]
 	movs r0, #4
 	rsbs r0, r0, #0
@@ -397,7 +397,7 @@ _0808B724:
 	cmp r0, #0
 	beq _0808B736
 _0808B72A:
-	ldr r0, _0808B738 @ =gLinkEntity
+	ldr r0, _0808B738 @ =gPlayerEntity
 	ldrb r1, [r0, #0x14]
 	adds r1, #2
 	movs r2, #6
@@ -406,7 +406,7 @@ _0808B72A:
 _0808B736:
 	pop {pc}
 	.align 2, 0
-_0808B738: .4byte gLinkEntity
+_0808B738: .4byte gPlayerEntity
 
 	thumb_func_start sub_0808B73C
 sub_0808B73C: @ 0x0808B73C
@@ -431,7 +431,7 @@ sub_0808B73C: @ 0x0808B73C
 	movs r1, #1
 	bl InitializeAnimation
 _0808B766:
-	ldr r5, _0808B78C @ =gLinkEntity
+	ldr r5, _0808B78C @ =gPlayerEntity
 	movs r0, #0x2e
 	ldrsh r1, [r5, r0]
 	movs r0, #0x32
@@ -450,7 +450,7 @@ _0808B766:
 	strb r1, [r4, #0x18]
 	b _0808B7C0
 	.align 2, 0
-_0808B78C: .4byte gLinkEntity
+_0808B78C: .4byte gPlayerEntity
 _0808B790:
 	movs r0, #0x2e
 	ldrsh r1, [r5, r0]
@@ -486,7 +486,7 @@ _0808B7C0:
 sub_0808B7C8: @ 0x0808B7C8
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r2, _0808B824 @ =gLinkState
+	ldr r2, _0808B824 @ =gPlayerState
 	ldr r0, [r2, #0x30]
 	movs r1, #0x80
 	ands r0, r1
@@ -497,7 +497,7 @@ sub_0808B7C8: @ 0x0808B7C8
 	ldrb r0, [r0]
 	cmp r0, #0x12
 	beq _0808B82C
-	ldr r4, _0808B828 @ =gLinkEntity
+	ldr r4, _0808B828 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r0, #0x45
 	ldrb r0, [r0]
@@ -528,8 +528,8 @@ _0808B81E:
 	movs r0, #1
 	b _0808B82E
 	.align 2, 0
-_0808B824: .4byte gLinkState
-_0808B828: .4byte gLinkEntity
+_0808B824: .4byte gPlayerState
+_0808B828: .4byte gPlayerEntity
 _0808B82C:
 	movs r0, #0
 _0808B82E:

@@ -79,7 +79,7 @@ sub_08096E28: @ 0x08096E28
 	subs r1, #0x2b
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r4, #0
 	bl sub_080970F4
 	ldr r1, _08096EB8 @ =gUnk_08123264
@@ -164,7 +164,7 @@ sub_08096F30: @ 0x08096F30
 	bl sub_08097144
 	b _08096F62
 _08096F44:
-	ldr r0, _08096F64 @ =gLinkState
+	ldr r0, _08096F64 @ =gPlayerState
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	bne _08096F50
@@ -182,7 +182,7 @@ _08096F50:
 _08096F62:
 	pop {pc}
 	.align 2, 0
-_08096F64: .4byte gLinkState
+_08096F64: .4byte gPlayerState
 _08096F68: .4byte gUnk_0812326C
 
 	thumb_func_start sub_08096F6C
@@ -196,7 +196,7 @@ sub_08096F6C: @ 0x08096F6C
 	bne _08096F98
 	movs r0, #1
 	strh r0, [r1]
-	ldr r1, _08096FD8 @ =gLinkEntity
+	ldr r1, _08096FD8 @ =gPlayerEntity
 	ldrb r0, [r1, #0x14]
 	ldr r2, _08096FDC @ =gUnk_08123274
 	adds r0, r0, r2
@@ -214,7 +214,7 @@ _08096F98:
 	bl sub_080896B0
 	cmp r0, #0
 	beq _08096FD4
-	ldr r2, _08096FE0 @ =gLinkState
+	ldr r2, _08096FE0 @ =gPlayerState
 	movs r3, #0
 	movs r0, #0x10
 	strb r0, [r2, #0xc]
@@ -226,7 +226,7 @@ _08096F98:
 	movs r1, #1
 	orrs r0, r1
 	str r0, [r2, #0x30]
-	ldr r0, _08096FD8 @ =gLinkEntity
+	ldr r0, _08096FD8 @ =gPlayerEntity
 	strh r3, [r0, #0x2c]
 	strh r3, [r0, #0x30]
 	ldrb r0, [r0, #0x14]
@@ -239,9 +239,9 @@ _08096F98:
 _08096FD4:
 	pop {r4, pc}
 	.align 2, 0
-_08096FD8: .4byte gLinkEntity
+_08096FD8: .4byte gPlayerEntity
 _08096FDC: .4byte gUnk_08123274
-_08096FE0: .4byte gLinkState
+_08096FE0: .4byte gPlayerState
 
 	thumb_func_start sub_08096FE4
 sub_08096FE4: @ 0x08096FE4

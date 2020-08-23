@@ -192,7 +192,7 @@ _080596DC: .4byte gUnk_085A7320
 sub_080596E0: @ 0x080596E0
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	ldr r0, _08059730 @ =gUnk_030010A0
+	ldr r0, _08059730 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #7
 	ands r0, r1
@@ -230,7 +230,7 @@ _080596FC:
 	str r1, [r0]
 	b _08059764
 	.align 2, 0
-_08059730: .4byte gUnk_030010A0
+_08059730: .4byte gScreenTransition
 _08059734: .4byte gScreen
 _08059738: .4byte gUnk_08108390
 _0805973C: .4byte gUnk_0200B650
@@ -330,7 +330,7 @@ _080597F4:
 	cmp r0, #0
 	blt _08059838
 	adds r0, #0x2b
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	b _08059838
 _08059800:
 	ldr r4, _0805981C @ =gUnk_02001A40
@@ -338,11 +338,11 @@ _08059800:
 	lsls r5, r5, #4
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r1, _08059820 @ =0x0600E800
 	adds r0, r4, #0
 	adds r2, r5, #0
-	bl sub_08000E96
+	bl LoadAssetAsync
 	b _08059838
 	.align 2, 0
 _0805981C: .4byte gUnk_02001A40
@@ -368,7 +368,7 @@ _08059840: .4byte gBG1Settings
 sub_08059844: @ 0x08059844
 	push {lr}
 	movs r3, #0
-	ldr r0, _08059864 @ =gLinkEntity
+	ldr r0, _08059864 @ =gPlayerEntity
 	movs r2, #0x2e
 	ldrsh r1, [r0, r2]
 	ldr r2, _08059868 @ =gRoomControls
@@ -383,14 +383,14 @@ _0805985E:
 	adds r0, r3, #0
 	pop {pc}
 	.align 2, 0
-_08059864: .4byte gLinkEntity
+_08059864: .4byte gPlayerEntity
 _08059868: .4byte gRoomControls
 
 	thumb_func_start sub_0805986C
 sub_0805986C: @ 0x0805986C
 	push {lr}
 	movs r2, #0
-	ldr r0, _0805988C @ =gLinkEntity
+	ldr r0, _0805988C @ =gPlayerEntity
 	movs r3, #0x2e
 	ldrsh r1, [r0, r3]
 	ldr r0, _08059890 @ =gRoomControls
@@ -405,7 +405,7 @@ _08059886:
 	adds r0, r2, #0
 	pop {pc}
 	.align 2, 0
-_0805988C: .4byte gLinkEntity
+_0805988C: .4byte gPlayerEntity
 _08059890: .4byte gRoomControls
 
 	thumb_func_start sub_08059894
@@ -441,7 +441,7 @@ _080598AA:
 	adds r1, r0, r2
 	movs r2, #0x20
 	bl sub_0801D66C
-	ldr r2, _080598F0 @ =gUnk_0200B644
+	ldr r2, _080598F0 @ =gUsedPalettes
 	ldr r0, [r2]
 	ldr r1, _080598F4 @ =0x00207FFC
 	orrs r0, r1
@@ -453,7 +453,7 @@ _080598AA:
 	.align 2, 0
 _080598E8: .4byte gUnk_020176E0
 _080598EC: .4byte gUnk_02017700
-_080598F0: .4byte gUnk_0200B644
+_080598F0: .4byte gUsedPalettes
 _080598F4: .4byte 0x00207FFC
 
 	thumb_func_start sub_080598F8
@@ -547,7 +547,7 @@ sub_08059994: @ 0x08059994
 	cmp r0, #0
 	beq _080599AE
 	movs r0, #0x5b
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	ldr r0, _080599B0 @ =gArea
 	ldr r1, _080599B4 @ =0x00000864
 	adds r0, r0, r1

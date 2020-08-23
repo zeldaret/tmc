@@ -80,7 +80,7 @@ _0805E188: .4byte gArea
 sub_0805E18C: @ 0x0805E18C
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _0805E1D0 @ =gUnk_03000FD0
+	ldr r0, _0805E1D0 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0805E1CC
@@ -95,7 +95,7 @@ sub_0805E18C: @ 0x0805E18C
 	cmp r0, #0
 	bne _0805E1BA
 	strb r0, [r4, #0xb]
-	ldr r0, _0805E1D4 @ =gLinkState
+	ldr r0, _0805E1D4 @ =gPlayerState
 	adds r0, #0x8b
 	movs r1, #1
 	strb r1, [r0]
@@ -112,15 +112,15 @@ _0805E1BA:
 _0805E1CC:
 	pop {r4, pc}
 	.align 2, 0
-_0805E1D0: .4byte gUnk_03000FD0
-_0805E1D4: .4byte gLinkState
+_0805E1D0: .4byte gFadeControl
+_0805E1D4: .4byte gPlayerState
 
 	thumb_func_start sub_0805E1D8
 sub_0805E1D8: @ 0x0805E1D8
 	push {lr}
 	ldr r0, _0805E1F0 @ =gUnk_02034DF0
 	movs r1, #0x80
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r1, _0805E1F4 @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
@@ -138,7 +138,7 @@ sub_0805E1F8: @ 0x0805E1F8
 	adds r5, r1, #0
 	ldr r0, _0805E234 @ =gUnk_02034DF0
 	movs r1, #0x80
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0805E238 @ =gUnk_08108E60
 	mov r1, sp
 	movs r2, #9

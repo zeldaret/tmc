@@ -23,7 +23,7 @@
 /*0x0e*/ .4byte SwordSpin
 /*0x0f*/ .4byte SwordBeam
 /*0x10*/ .4byte sub_080ACBCC
-/*0x11*/ .4byte sub_08018C88
+/*0x11*/ .4byte Item11
 /*0x12*/ .4byte sub_080700E8
 /*0x13*/ .4byte sub_080ACF14
 /*0x14*/ .4byte sub_0805FBD0
@@ -50,7 +50,7 @@
 .4byte SwordSpin
 .4byte SwordBeam
 .4byte sub_080ACBCC
-.4byte sub_08018C88
+.4byte Item11
 .4byte sub_080700E8
 .4byte sub_080ACF14
 .4byte sub_0805FBD0

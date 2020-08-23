@@ -28,7 +28,7 @@ sub_080731D8: @ 0x080731D8
 	orrs r0, r7
 	strh r0, [r4, #0x2e]
 	strh r2, [r4, #0x2c]
-	ldr r6, _08073214 @ =gLinkState
+	ldr r6, _08073214 @ =gPlayerState
 	adds r0, r6, #0
 	adds r0, #0x38
 	ldrb r0, [r0]
@@ -38,7 +38,7 @@ sub_080731D8: @ 0x080731D8
 	strb r0, [r4, #0xd]
 	b _0807329A
 	.align 2, 0
-_08073214: .4byte gLinkState
+_08073214: .4byte gPlayerState
 _08073218:
 	ldrb r0, [r4, #0x18]
 	movs r1, #3
@@ -103,7 +103,7 @@ _08073294:
 	adds r0, r4, #0
 	bl sub_08066DE4
 _0807329A:
-	ldr r2, _080732AC @ =gLinkState
+	ldr r2, _080732AC @ =gPlayerState
 	ldr r0, [r2, #0x30]
 	movs r1, #8
 	ands r0, r1
@@ -112,7 +112,7 @@ _0807329A:
 	ldr r0, _080732B0 @ =0x00000404
 	b _080732B8
 	.align 2, 0
-_080732AC: .4byte gLinkState
+_080732AC: .4byte gPlayerState
 _080732B0: .4byte 0x00000404
 _080732B4:
 	movs r0, #0x82
@@ -123,7 +123,7 @@ _080732B8:
 	movs r0, #0
 	str r0, [r1, #0x30]
 	bl sub_0807A108
-	bl sub_08077B2C
+	bl ResetPlayer
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080732CC: .4byte gRoomControls

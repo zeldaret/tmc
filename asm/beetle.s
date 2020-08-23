@@ -41,7 +41,7 @@ sub_08021780: @ 0x08021780
 	beq _080217F4
 	b _080217FA
 _08021792:
-	ldr r0, _080217A4 @ =gLinkState
+	ldr r0, _080217A4 @ =gPlayerState
 	adds r0, #0xa8
 	ldrb r0, [r0]
 	cmp r0, #0x18
@@ -50,7 +50,7 @@ _08021792:
 	bl sub_08021768
 	b _080217FA
 	.align 2, 0
-_080217A4: .4byte gLinkState
+_080217A4: .4byte gPlayerState
 _080217A8:
 	movs r1, #0
 	movs r0, #5
@@ -71,7 +71,7 @@ _080217A8:
 	movs r1, #3
 	orrs r0, r1
 	strb r0, [r2]
-	ldr r0, _080217EC @ =gLinkEntity
+	ldr r0, _080217EC @ =gPlayerEntity
 	adds r1, r4, #0
 	bl CopyPositionAndSpriteOffset
 	ldr r0, _080217F0 @ =0x0000FFFF
@@ -85,7 +85,7 @@ _080217A8:
 	bl InitializeAnimation
 	b _080217FA
 	.align 2, 0
-_080217EC: .4byte gLinkEntity
+_080217EC: .4byte gPlayerEntity
 _080217F0: .4byte 0x0000FFFF
 _080217F4:
 	adds r0, r4, #0
@@ -364,7 +364,7 @@ _080219C2:
 	movs r1, #0
 	bl InitializeAnimation
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _08021A04:
 	pop {r4, pc}
 	.align 2, 0
@@ -376,7 +376,7 @@ sub_08021A10: @ 0x08021A10
 	push {r4, lr}
 	adds r4, r0, #0
 	bl GetNextFrame
-	ldr r1, _08021A60 @ =gLinkEntity
+	ldr r1, _08021A60 @ =gPlayerEntity
 	adds r0, r4, #0
 	movs r2, #0x78
 	movs r3, #0x50
@@ -409,7 +409,7 @@ sub_08021A10: @ 0x08021A10
 _08021A5E:
 	pop {r4, pc}
 	.align 2, 0
-_08021A60: .4byte gLinkEntity
+_08021A60: .4byte gPlayerEntity
 
 	thumb_func_start sub_08021A64
 sub_08021A64: @ 0x08021A64
@@ -542,7 +542,7 @@ _08021B60:
 sub_08021B64: @ 0x08021B64
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	ldr r0, _08021B88 @ =gLinkState
+	ldr r0, _08021B88 @ =gPlayerState
 	ldr r1, [r0, #0x30]
 	movs r2, #4
 	ands r1, r2
@@ -558,7 +558,7 @@ sub_08021B64: @ 0x08021B64
 	bl InitializeAnimation
 	b _08021C4E
 	.align 2, 0
-_08021B88: .4byte gLinkState
+_08021B88: .4byte gPlayerState
 _08021B8C:
 	movs r5, #1
 	adds r0, r6, #0
@@ -603,7 +603,7 @@ _08021BC8:
 	adds r0, r4, #0
 	adds r0, #0x87
 	strb r5, [r0]
-	ldr r2, _08021BEC @ =gLinkEntity
+	ldr r2, _08021BEC @ =gPlayerEntity
 	ldrb r1, [r2, #0x15]
 	adds r0, r1, #0
 	cmp r0, #0xff
@@ -611,7 +611,7 @@ _08021BC8:
 	movs r0, #0x10
 	b _08021BF6
 	.align 2, 0
-_08021BEC: .4byte gLinkEntity
+_08021BEC: .4byte gPlayerEntity
 _08021BF0:
 	ldrb r0, [r2, #0x14]
 	lsls r0, r0, #2
@@ -637,7 +637,7 @@ _08021C04:
 	ldrb r0, [r1]
 	adds r0, #1
 	strb r0, [r1]
-	ldr r0, _08021C50 @ =gLinkEntity
+	ldr r0, _08021C50 @ =gPlayerEntity
 	adds r1, r4, #0
 	bl CopyPositionAndSpriteOffset
 	ldr r2, _08021C54 @ =gUnk_080CB5E4
@@ -662,7 +662,7 @@ _08021C04:
 _08021C4E:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08021C50: .4byte gLinkEntity
+_08021C50: .4byte gPlayerEntity
 _08021C54: .4byte gUnk_080CB5E4
 
 	thumb_func_start sub_08021C58

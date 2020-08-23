@@ -4,107 +4,6 @@
 	.syntax unified
 
 	.text
-	
-	thumb_func_start sub_08055FF4
-sub_08055FF4: @ 0x08055FF4
-	push {lr}
-	movs r2, #0
-	ldr r0, _0805600C @ =gUnk_03000FF0
-	ldrh r1, [r0]
-	movs r0, #0xf
-	ands r0, r1
-	cmp r0, #0xf
-	bne _08056006
-	movs r2, #1
-_08056006:
-	adds r0, r2, #0
-	pop {pc}
-	.align 2, 0
-_0805600C: .4byte gUnk_03000FF0
-
-	thumb_func_start sub_08056010
-sub_08056010: @ 0x08056010
-	ldr r1, _0805601C @ =gUnk_03001000
-	movs r2, #0
-	strb r0, [r1, #2]
-	strb r2, [r1, #3]
-	strb r2, [r1, #4]
-	bx lr
-	.align 2, 0
-_0805601C: .4byte gUnk_03001000
-
-	thumb_func_start sub_08056020
-sub_08056020: @ 0x08056020
-	push {r4, lr}
-	ldr r2, _08056088 @ =0x04000208
-	movs r1, #0
-	strh r1, [r2]
-	ldr r0, _0805608C @ =0x04000200
-	strh r1, [r0]
-	ldr r0, _08056090 @ =0x04000004
-	strh r1, [r0]
-	ldr r0, _08056094 @ =0x04000202
-	strh r1, [r0]
-	strh r1, [r2]
-	ldr r1, _08056098 @ =0x040000B0
-	ldrh r2, [r1, #0xa]
-	ldr r4, _0805609C @ =0x0000C5FF
-	adds r0, r4, #0
-	ands r0, r2
-	strh r0, [r1, #0xa]
-	ldrh r2, [r1, #0xa]
-	ldr r3, _080560A0 @ =0x00007FFF
-	adds r0, r3, #0
-	ands r0, r2
-	strh r0, [r1, #0xa]
-	ldrh r0, [r1, #0xa]
-	adds r1, #0xc
-	ldrh r2, [r1, #0xa]
-	adds r0, r4, #0
-	ands r0, r2
-	strh r0, [r1, #0xa]
-	ldrh r2, [r1, #0xa]
-	adds r0, r3, #0
-	ands r0, r2
-	strh r0, [r1, #0xa]
-	ldrh r0, [r1, #0xa]
-	adds r1, #0xc
-	ldrh r2, [r1, #0xa]
-	adds r0, r4, #0
-	ands r0, r2
-	strh r0, [r1, #0xa]
-	ldrh r2, [r1, #0xa]
-	adds r0, r3, #0
-	ands r0, r2
-	strh r0, [r1, #0xa]
-	ldrh r0, [r1, #0xa]
-	ldr r0, _080560A4 @ =0x040000D4
-	ldrh r1, [r0, #0xa]
-	ands r4, r1
-	strh r4, [r0, #0xa]
-	ldrh r1, [r0, #0xa]
-	ands r3, r1
-	strh r3, [r0, #0xa]
-	ldrh r0, [r0, #0xa]
-	pop {r4, pc}
-	.align 2, 0
-_08056088: .4byte 0x04000208
-_0805608C: .4byte 0x04000200
-_08056090: .4byte 0x04000004
-_08056094: .4byte 0x04000202
-_08056098: .4byte 0x040000B0
-_0805609C: .4byte 0x0000C5FF
-_080560A0: .4byte 0x00007FFF
-_080560A4: .4byte 0x040000D4
-
-	thumb_func_start sub_080560A8
-sub_080560A8: @ 0x080560A8
-	push {lr}
-	bl sub_08056020
-	movs r0, #0xde
-	bl SoftReset
-	pop {pc}
-	.align 2, 0
 
 	thumb_func_start sub_080560B8
 sub_080560B8: @ 0x080560B8
@@ -156,7 +55,7 @@ _08056112:
 	ldr r4, _0805612C @ =gUnk_02000010
 	adds r0, r4, #0
 	movs r1, #0x20
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08056130 @ =0x4D435A33
 	str r0, [r4]
 _08056124:

@@ -52,7 +52,7 @@ sub_0806D8A0: @ 0x0806D8A0
 	bge _0806D8C2
 	rsbs r2, r2, #0
 _0806D8C2:
-	ldr r1, _0806D900 @ =gLinkEntity
+	ldr r1, _0806D900 @ =gPlayerEntity
 	movs r5, #0x2e
 	ldrsh r0, [r1, r5]
 	adds r2, r2, r0
@@ -82,7 +82,7 @@ _0806D8C2:
 	strb r1, [r4, #0x14]
 	pop {r4, r5, pc}
 	.align 2, 0
-_0806D900: .4byte gLinkEntity
+_0806D900: .4byte gPlayerEntity
 _0806D904: .4byte gUnk_08114134
 
 	thumb_func_start sub_0806D908
@@ -93,7 +93,7 @@ sub_0806D908: @ 0x0806D908
 	ldrsh r0, [r4, r1]
 	movs r2, #0x32
 	ldrsh r1, [r4, r2]
-	ldr r3, _0806D93C @ =gLinkEntity
+	ldr r3, _0806D93C @ =gPlayerEntity
 	movs r5, #0x2e
 	ldrsh r2, [r3, r5]
 	movs r5, #0x32
@@ -112,7 +112,7 @@ sub_0806D908: @ 0x0806D908
 	strb r1, [r4, #0x14]
 	pop {r4, r5, pc}
 	.align 2, 0
-_0806D93C: .4byte gLinkEntity
+_0806D93C: .4byte gPlayerEntity
 _0806D940: .4byte gUnk_08114144
 
 	thumb_func_start sub_0806D944
@@ -124,7 +124,7 @@ sub_0806D944: @ 0x0806D944
 	rsbs r3, r3, #0
 	ands r3, r0
 	strb r3, [r2, #0x18]
-	ldr r0, _0806D968 @ =gLinkEntity
+	ldr r0, _0806D968 @ =gPlayerEntity
 	ldr r1, [r2, #0x2c]
 	ldr r0, [r0, #0x2c]
 	cmp r1, r0
@@ -136,7 +136,7 @@ sub_0806D944: @ 0x0806D944
 _0806D964:
 	pop {pc}
 	.align 2, 0
-_0806D968: .4byte gLinkEntity
+_0806D968: .4byte gPlayerEntity
 
 	thumb_func_start sub_0806D96C
 sub_0806D96C: @ 0x0806D96C
@@ -170,7 +170,7 @@ _0806D9A0: .4byte 0xFFE80000
 	thumb_func_start sub_0806D9A4
 sub_0806D9A4: @ 0x0806D9A4
 	push {lr}
-	ldr r1, _0806D9BC @ =gLinkEntity
+	ldr r1, _0806D9BC @ =gPlayerEntity
 	ldr r2, [r0, #0x2c]
 	ldr r0, [r1, #0x2c]
 	adds r3, r1, #0
@@ -182,7 +182,7 @@ sub_0806D9A4: @ 0x0806D9A4
 	ands r0, r1
 	b _0806D9C6
 	.align 2, 0
-_0806D9BC: .4byte gLinkEntity
+_0806D9BC: .4byte gPlayerEntity
 _0806D9C0:
 	ldrb r0, [r3, #0x18]
 	movs r1, #0x40
@@ -584,7 +584,7 @@ _0806DCB6:
 
 	thumb_func_start sub_0806DCC0
 sub_0806DCC0: @ 0x0806DCC0
-	ldr r0, _0806DCD0 @ =gUnk_030010A0
+	ldr r0, _0806DCD0 @ =gScreenTransition
 	movs r1, #0xf9
 	lsls r1, r1, #3
 	strh r1, [r0, #0x20]
@@ -592,7 +592,7 @@ sub_0806DCC0: @ 0x0806DCC0
 	strh r1, [r0, #0x22]
 	bx lr
 	.align 2, 0
-_0806DCD0: .4byte gUnk_030010A0
+_0806DCD0: .4byte gScreenTransition
 
 	thumb_func_start NPC4E_Fusion
 NPC4E_Fusion: @ 0x0806DCD4

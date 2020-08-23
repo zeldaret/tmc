@@ -174,7 +174,7 @@ _080A132E:
 	mov r0, sb
 	adds r0, #0x6a
 	strh r6, [r0]
-	ldr r0, _080A136C @ =gLinkState
+	ldr r0, _080A136C @ =gPlayerState
 	adds r0, #0x27
 	movs r1, #0xff
 	strb r1, [r0]
@@ -191,7 +191,7 @@ _080A132E:
 	bl sub_08050384
 	b _080A1376
 	.align 2, 0
-_080A136C: .4byte gLinkState
+_080A136C: .4byte gPlayerState
 _080A1370:
 	ldr r1, _080A1384 @ =gUnk_02033280
 	movs r0, #0
@@ -222,7 +222,7 @@ _080A1392:
 	cmp r1, #0
 	beq _080A13A6
 	adds r0, r1, #0
-	bl sub_0805E79C
+	bl DeleteEntityAny
 _080A13A6:
 	subs r6, #1
 	adds r5, #1
@@ -475,7 +475,7 @@ sub_080A1550: @ 0x080A1550
 	cmp r0, #0
 	bne _080A1582
 	adds r0, r4, #0
-	bl sub_0805E79C
+	bl DeleteEntityAny
 	b _080A15FE
 _080A1582:
 	mov r0, r8

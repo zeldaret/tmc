@@ -171,7 +171,7 @@ _0808D1AE:
 _0808D1F4: .4byte 0x00004069
 _0808D1F8: .4byte gRoomControls
 _0808D1FC:
-	ldr r0, _0808D274 @ =gUnk_030010A0
+	ldr r0, _0808D274 @ =gScreenTransition
 	ldr r3, [r0]
 	movs r0, #3
 	ands r3, r0
@@ -233,7 +233,7 @@ _0808D24E:
 _0808D272:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0808D274: .4byte gUnk_030010A0
+_0808D274: .4byte gScreenTransition
 _0808D278: .4byte gScreen
 _0808D27C: .4byte gUnk_08121704
 
@@ -247,7 +247,7 @@ sub_0808D280: @ 0x0808D280
 	movs r1, #0x3e
 	movs r2, #6
 	movs r3, #9
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0808D2C4
@@ -287,7 +287,7 @@ sub_0808D2CC: @ 0x0808D2CC
 	movs r1, #0x3e
 	movs r2, #6
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0808D2F2
@@ -339,7 +339,7 @@ _0808D31C:
 	ldrsh r0, [r4, r1]
 	cmp r5, r0
 	beq _0808D350
-	ldr r0, _0808D358 @ =gUnk_030010A0
+	ldr r0, _0808D358 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #8
 	ands r0, r1
@@ -351,7 +351,7 @@ _0808D350:
 	pop {r4, r5, pc}
 	.align 2, 0
 _0808D354: .4byte gRoomControls
-_0808D358: .4byte gUnk_030010A0
+_0808D358: .4byte gScreenTransition
 _0808D35C: .4byte 0x0000010F
 
 	thumb_func_start sub_0808D360
@@ -585,7 +585,7 @@ _0808D514: .4byte 0x00004069
 sub_0808D518: @ 0x0808D518
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
-	ldr r0, _0808D58C @ =gUnk_030010A0
+	ldr r0, _0808D58C @ =gScreenTransition
 	ldr r2, [r0]
 	movs r0, #3
 	ands r2, r0
@@ -642,7 +642,7 @@ sub_0808D518: @ 0x0808D518
 _0808D58A:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0808D58C: .4byte gUnk_030010A0
+_0808D58C: .4byte gScreenTransition
 _0808D590: .4byte gScreen
 _0808D594: .4byte 0x00004069
 _0808D598: .4byte gRoomControls

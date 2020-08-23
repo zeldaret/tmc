@@ -5,6 +5,19 @@
 	.syntax unified
 
 	.text
+	
+	thumb_func_start sub_08018FCC
+sub_08018FCC: @ 0x08018FCC
+	push {lr}
+	ldr r2, _08018FE0 @ =gUnk_080B3E30
+	ldrb r1, [r0, #0xc]
+	lsls r1, r1, #2
+	adds r1, r1, r2
+	ldr r1, [r1]
+	bl _call_via_r1
+	pop {pc}
+	.align 2, 0
+_08018FE0: .4byte gUnk_080B3E30
 
 	thumb_func_start sub_08018FE4
 sub_08018FE4: @ 0x08018FE4
@@ -50,7 +63,7 @@ _0801902A:
 	ldrb r0, [r4, #0x14]
 	lsls r0, r0, #2
 	strb r0, [r4, #0x15]
-	ldr r2, _0801905C @ =gLinkEntity
+	ldr r2, _0801905C @ =gPlayerEntity
 	adds r0, r2, #0
 	adds r0, #0x3c
 	ldrb r0, [r0]
@@ -72,7 +85,7 @@ _0801902A:
 	movs r0, #1
 	b _08019062
 	.align 2, 0
-_0801905C: .4byte gLinkEntity
+_0801905C: .4byte gPlayerEntity
 _08019060:
 	movs r0, #0
 _08019062:
@@ -177,7 +190,7 @@ _080190FC:
 	ands r0, r2
 	orrs r0, r1
 	strb r0, [r4, #0x18]
-	ldr r0, _0801916C @ =gLinkState
+	ldr r0, _0801916C @ =gPlayerState
 	str r4, [r0, #0x2c]
 	adds r0, r4, #0
 	movs r1, #1
@@ -204,7 +217,7 @@ _080190FC:
 	b _08019172
 	.align 2, 0
 _08019168: .4byte gUnk_080B3E40
-_0801916C: .4byte gLinkState
+_0801916C: .4byte gPlayerState
 _08019170:
 	str r5, [r4, #0x78]
 _08019172:

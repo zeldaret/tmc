@@ -30,7 +30,7 @@ sub_0808BB30: @ 0x0808BB30
 	cmp r1, #0
 	beq _0808BB4C
 	movs r0, #0x4a
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	bl DeleteThisEntity
 	b _0808BBD4
 _0808BB4C:
@@ -83,7 +83,7 @@ _0808BB4C:
 	str r0, [r4, #0x48]
 	movs r0, #2
 	strb r0, [r4, #0x1e]
-	ldr r0, _0808BBDC @ =gLinkEntity
+	ldr r0, _0808BBDC @ =gPlayerEntity
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r4, #0
@@ -104,7 +104,7 @@ _0808BBD4:
 	pop {r4, pc}
 	.align 2, 0
 _0808BBD8: .4byte gUnk_080FD150
-_0808BBDC: .4byte gLinkEntity
+_0808BBDC: .4byte gPlayerEntity
 
 	thumb_func_start sub_0808BBE0
 sub_0808BBE0: @ 0x0808BBE0
@@ -229,7 +229,7 @@ _0808BCCA:
 	beq _0808BCFE
 	strb r6, [r5, #0xf]
 	movs r0, #0x4a
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	b _0808BCFE
 	.align 2, 0
 _0808BCDC: .4byte 0x0000FFFE
@@ -246,7 +246,7 @@ _0808BCE4:
 	beq _0808BCFE
 	strb r4, [r5, #0xf]
 	movs r0, #0x49
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 _0808BCFE:
 	pop {r4, r5, r6, pc}
 
@@ -283,10 +283,10 @@ _0808BD34:
 	ldrb r0, [r0]
 	cmp r0, #0x93
 	bne _0808BD74
-	ldr r4, _0808BD70 @ =gLinkEntity
+	ldr r4, _0808BD70 @ =gPlayerEntity
 	adds r0, r5, #0
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r5, #0x15]
 	adds r0, r5, #0
 	bl sub_0806F69C
@@ -304,7 +304,7 @@ _0808BD34:
 	bl sub_0808BD00
 	b _0808BDAE
 	.align 2, 0
-_0808BD70: .4byte gLinkEntity
+_0808BD70: .4byte gPlayerEntity
 _0808BD74:
 	ldrb r1, [r5, #0x10]
 	movs r0, #0x80

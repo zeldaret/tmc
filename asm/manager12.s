@@ -245,7 +245,7 @@ _08059B94:
 	ldr r1, _08059BE8 @ =0x06001800
 	movs r2, #0x80
 	lsls r2, r2, #4
-	bl sub_08000E96
+	bl LoadAssetAsync
 	b _08059C5E
 	.align 2, 0
 _08059BD8: .4byte 0x000004AB
@@ -378,25 +378,25 @@ _08059CE8:
 _08059CEC:
 	adds r6, r1, r0
 	ldr r0, [r6]
-	ldr r4, _08059D14 @ =gUnk_085A2E80
+	ldr r4, _08059D14 @ =gGlobalGfxAndPalettes
 	adds r0, r0, r4
 	ldr r1, [r6, #4]
 	movs r5, #0x80
 	lsls r5, r5, #5
 	adds r2, r5, #0
-	bl sub_08000E96
+	bl LoadAssetAsync
 	ldr r0, [r6, #8]
 	adds r0, r0, r4
 	ldr r1, [r6, #0xc]
 	adds r2, r5, #0
-	bl sub_08000E96
+	bl LoadAssetAsync
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08059D10: .4byte gUnk_08108468
-_08059D14: .4byte gUnk_085A2E80
+_08059D14: .4byte gGlobalGfxAndPalettes
 
-	thumb_func_start sub_08059D18
-sub_08059D18: @ 0x08059D18
+	thumb_func_start TryLoadPrologueHyruleTown
+TryLoadPrologueHyruleTown: @ 0x08059D18
 	push {r4, lr}
 	ldr r0, _08059D68 @ =gRoomControls
 	ldrb r0, [r0, #4]

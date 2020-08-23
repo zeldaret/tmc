@@ -45,7 +45,7 @@ _0805DE7A:
 	movs r1, #0
 	movs r0, #1
 	strb r0, [r4, #0xc]
-	ldr r2, _0805DEAC @ =gUnk_030010A0
+	ldr r2, _0805DEAC @ =gScreenTransition
 	adds r0, r2, #0
 	adds r0, #0x38
 	strb r1, [r0]
@@ -67,7 +67,7 @@ _0805DE7A:
 	str r1, [r0]
 	pop {r4, pc}
 	.align 2, 0
-_0805DEAC: .4byte gUnk_030010A0
+_0805DEAC: .4byte gScreenTransition
 _0805DEB0: .4byte gUnk_02002A40
 _0805DEB4: .4byte 0x00001194
 
@@ -75,7 +75,7 @@ _0805DEB4: .4byte 0x00001194
 sub_0805DEB8: @ 0x0805DEB8
 	push {r4, r5, lr}
 	adds r3, r0, #0
-	ldr r5, _0805DF44 @ =gLinkEntity
+	ldr r5, _0805DF44 @ =gPlayerEntity
 	movs r0, #0x2e
 	ldrsh r2, [r5, r0]
 	subs r2, #0x88
@@ -142,14 +142,14 @@ _0805DF3C:
 _0805DF42:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0805DF44: .4byte gLinkEntity
+_0805DF44: .4byte gPlayerEntity
 _0805DF48: .4byte gRoomControls
 
 	thumb_func_start sub_0805DF4C
 sub_0805DF4C: @ 0x0805DF4C
 	push {lr}
 	adds r1, r0, #0
-	ldr r2, _0805DF70 @ =gLinkEntity
+	ldr r2, _0805DF70 @ =gPlayerEntity
 	movs r0, #0
 	strb r0, [r2, #0x14]
 	movs r3, #0x36
@@ -166,7 +166,7 @@ sub_0805DF4C: @ 0x0805DF4C
 	strh r1, [r2, #0x32]
 	b _0805DF92
 	.align 2, 0
-_0805DF70: .4byte gLinkEntity
+_0805DF70: .4byte gPlayerEntity
 _0805DF74: .4byte gRoomControls
 _0805DF78:
 	ldrb r0, [r1, #0xe]
@@ -218,7 +218,7 @@ _0805DFCA:
 	thumb_func_start sub_0805DFCC
 sub_0805DFCC: @ 0x0805DFCC
 	push {lr}
-	ldr r0, _0805DFE4 @ =gUnk_03000FD0
+	ldr r0, _0805DFE4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0805DFE0
@@ -228,7 +228,7 @@ sub_0805DFCC: @ 0x0805DFCC
 _0805DFE0:
 	pop {pc}
 	.align 2, 0
-_0805DFE4: .4byte gUnk_03000FD0
+_0805DFE4: .4byte gFadeControl
 
 	thumb_func_start sub_0805DFE8
 sub_0805DFE8: @ 0x0805DFE8
@@ -265,8 +265,8 @@ sub_0805E000: @ 0x0805E000
 	movs r5, #1
 	strb r5, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
-	ldr r0, _0805E068 @ =gUnk_030010A0
+	bl UpdateSpriteForCollisionLayer
+	ldr r0, _0805E068 @ =gScreenTransition
 	adds r0, #0x38
 	ldrb r1, [r0]
 	adds r0, r5, #0
@@ -293,7 +293,7 @@ _0805E062:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0805E064: .4byte gRoomControls
-_0805E068: .4byte gUnk_030010A0
+_0805E068: .4byte gScreenTransition
 _0805E06C: .4byte gArea
 _0805E070: .4byte 0x00000864
 _0805E074: .4byte 0x80010000
@@ -302,7 +302,7 @@ _0805E074: .4byte 0x80010000
 sub_0805E078: @ 0x0805E078
 	push {lr}
 	adds r1, r0, #0
-	ldr r0, _0805E090 @ =gUnk_03000FD0
+	ldr r0, _0805E090 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0805E08E
@@ -313,7 +313,7 @@ sub_0805E078: @ 0x0805E078
 _0805E08E:
 	pop {pc}
 	.align 2, 0
-_0805E090: .4byte gUnk_03000FD0
+_0805E090: .4byte gFadeControl
 
 	thumb_func_start sub_0805E094
 sub_0805E094: @ 0x0805E094

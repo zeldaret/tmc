@@ -73,7 +73,7 @@ _08091260:
 sub_08091264: @ 0x08091264
 	push {r4, r5, r6, r7, lr}
 	adds r6, r0, #0
-	ldr r0, _080912C4 @ =gUnk_03003DBC
+	ldr r0, _080912C4 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x45
 	bhi _0809132C
@@ -117,7 +117,7 @@ sub_08091264: @ 0x08091264
 	ldr r0, _080912C8 @ =gUnk_080FD278
 	b _080912CE
 	.align 2, 0
-_080912C4: .4byte gUnk_03003DBC
+_080912C4: .4byte gEntCount
 _080912C8: .4byte gUnk_080FD278
 _080912CC:
 	ldr r0, _08091330 @ =gUnk_080FD270
@@ -215,7 +215,7 @@ _0809137C: .4byte gUnk_081222B0
 sub_08091380: @ 0x08091380
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
-	ldr r7, _0809142C @ =gLinkEntity
+	ldr r7, _0809142C @ =gPlayerEntity
 	adds r0, #0x75
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -267,7 +267,7 @@ _080913E0:
 	ldrb r3, [r4, #0xb]
 	cmp r0, r3
 	bne _0809142A
-	ldr r1, _08091434 @ =gLinkState
+	ldr r1, _08091434 @ =gPlayerState
 	adds r0, r1, #0
 	adds r0, #0xa8
 	ldrb r0, [r0]
@@ -279,7 +279,7 @@ _080913E0:
 	ands r0, r1
 	cmp r0, #0
 	beq _0809142A
-	ldr r0, _0809142C @ =gLinkEntity
+	ldr r0, _0809142C @ =gPlayerEntity
 	adds r0, #0x5a
 	ldrb r1, [r0]
 	adds r0, r5, #0
@@ -300,9 +300,9 @@ _080913E0:
 _0809142A:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0809142C: .4byte gLinkEntity
+_0809142C: .4byte gPlayerEntity
 _08091430: .4byte gUnk_081222B8
-_08091434: .4byte gLinkState
+_08091434: .4byte gPlayerState
 
 	thumb_func_start sub_08091438
 sub_08091438: @ 0x08091438
@@ -333,7 +333,7 @@ sub_08091444: @ 0x08091444
 	adds r0, r4, #0
 	bl InitializeAnimation
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	pop {r4, pc}
 
 	thumb_func_start sub_08091470
@@ -447,7 +447,7 @@ sub_08091504: @ 0x08091504
 	adds r0, r4, #0
 	bl InitializeAnimation
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	pop {r4, pc}
 
 	thumb_func_start sub_0809153C
@@ -458,7 +458,7 @@ sub_0809153C: @ 0x0809153C
 	push {r6, r7}
 	sub sp, #4
 	adds r5, r0, #0
-	ldr r6, _080915A8 @ =gLinkEntity
+	ldr r6, _080915A8 @ =gPlayerEntity
 	ldr r1, _080915AC @ =gUnk_081222C0
 	ldrb r0, [r5, #0xb]
 	adds r0, r0, r1
@@ -506,7 +506,7 @@ _08091596:
 	beq _080915BA
 	b _080915E0
 	.align 2, 0
-_080915A8: .4byte gLinkEntity
+_080915A8: .4byte gPlayerEntity
 _080915AC: .4byte gUnk_081222C0
 _080915B0:
 	cmp r0, #2

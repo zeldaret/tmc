@@ -6,85 +6,6 @@
 
 	.text
 
-
-	thumb_func_start TingleSiblings
-TingleSiblings: @ 0x08064D58
-	push {lr}
-	adds r2, r0, #0
-	ldrb r1, [r2, #0x10]
-	movs r0, #2
-	ands r0, r1
-	cmp r0, #0
-	beq _08064D6E
-	adds r0, r2, #0
-	bl sub_08064DE4
-	b _08064D74
-_08064D6E:
-	adds r0, r2, #0
-	bl sub_08064D78
-_08064D74:
-	pop {pc}
-	.align 2, 0
-
-	thumb_func_start sub_08064D78
-sub_08064D78: @ 0x08064D78
-	push {lr}
-	ldr r2, _08064D8C @ =gUnk_0810FBFC
-	ldrb r1, [r0, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	bl _call_via_r1
-	pop {pc}
-	.align 2, 0
-_08064D8C: .4byte gUnk_0810FBFC
-
-	thumb_func_start sub_08064D90
-sub_08064D90: @ 0x08064D90
-	push {r4, lr}
-	adds r4, r0, #0
-	movs r1, #2
-	bl InitAnimationForceUpdate
-	movs r0, #1
-	strb r0, [r4, #0xf]
-	pop {r4, pc}
-
-	thumb_func_start sub_08064DA0
-sub_08064DA0: @ 0x08064DA0
-	push {r4, lr}
-	adds r4, r0, #0
-	bl sub_08064EE8
-	adds r0, r4, #0
-	adds r0, #0x39
-	ldrb r0, [r0]
-	lsls r0, r0, #0x18
-	asrs r0, r0, #0x18
-	cmp r0, #0
-	beq _08064DC8
-	movs r0, #2
-	strb r0, [r4, #0xc]
-	adds r0, r4, #0
-	movs r1, #6
-	bl InitAnimationForceUpdate
-	movs r0, #0
-	bl TextboxNoOverlapFollow
-_08064DC8:
-	pop {r4, pc}
-	.align 2, 0
-
-	thumb_func_start sub_08064DCC
-sub_08064DCC: @ 0x08064DCC
-	push {r4, lr}
-	adds r4, r0, #0
-	bl sub_08064EE8
-	adds r0, r4, #0
-	movs r1, #2
-	bl InitAnimationForceUpdate
-	movs r0, #1
-	strb r0, [r4, #0xc]
-	pop {r4, pc}
-	.align 2, 0
-
 	thumb_func_start sub_08064DE4
 sub_08064DE4: @ 0x08064DE4
 	push {r4, r5, lr}
@@ -125,9 +46,9 @@ _08064E1A:
 	movs r0, #0
 	strb r1, [r4, #0xc]
 	strb r0, [r2]
-	ldr r1, _08064E48 @ =gLinkEntity
+	ldr r1, _08064E48 @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
@@ -136,7 +57,7 @@ _08064E1A:
 	bl sub_0806F118
 	b _08064E6A
 	.align 2, 0
-_08064E48: .4byte gLinkEntity
+_08064E48: .4byte gPlayerEntity
 _08064E4C:
 	adds r0, r4, #0
 	movs r1, #0

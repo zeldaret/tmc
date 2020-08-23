@@ -1,5 +1,5 @@
 #include "global.h"
-#include "link.h"
+#include "player.h"
 
 extern u16 gWalletSizes[4];
 

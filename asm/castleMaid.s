@@ -142,9 +142,9 @@ _080645EA:
 	movs r1, #0
 	strb r0, [r4, #0xc]
 	strb r1, [r2]
-	ldr r1, _08064628 @ =gLinkEntity
+	ldr r1, _08064628 @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
@@ -155,7 +155,7 @@ _080645EA:
 	bl _call_via_r0
 	b _0806463C
 	.align 2, 0
-_08064628: .4byte gLinkEntity
+_08064628: .4byte gPlayerEntity
 _0806462C:
 	ldr r0, _08064640 @ =gTextBox
 	ldrb r1, [r0]

@@ -60,7 +60,7 @@ sub_0802ECC0: @ 0x0802ECC0
 	adds r0, #0x45
 	ldrb r1, [r0]
 	adds r5, r0, #0
-	ldr r3, _0802ED00 @ =gUnk_030010A0
+	ldr r3, _0802ED00 @ =gScreenTransition
 	cmp r1, #0
 	bne _0802ECEE
 	adds r2, r3, #0
@@ -84,7 +84,7 @@ _0802ECEE:
 	adds r0, #0x3a
 	b _0802ED0E
 	.align 2, 0
-_0802ED00: .4byte gUnk_030010A0
+_0802ED00: .4byte gScreenTransition
 _0802ED04: .4byte gRoomControls
 _0802ED08:
 	ldrb r1, [r5]
@@ -161,11 +161,11 @@ _0802ED88: .4byte gUnk_080CDE5C
 sub_0802ED8C: @ 0x0802ED8C
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _0802EDD0 @ =gUnk_03003DBC
+	ldr r0, _0802EDD0 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x46
 	bhi _0802EE0A
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0802EE0A
@@ -176,7 +176,7 @@ sub_0802ED8C: @ 0x0802ED8C
 	str r4, [r1, #0x14]
 	adds r0, r1, #0
 	movs r1, #8
-	bl sub_0805EA2C
+	bl AppendEntityToList
 	movs r0, #0x25
 	movs r1, #2
 	bl CreateEnemy
@@ -187,15 +187,15 @@ sub_0802ED8C: @ 0x0802ED8C
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	bne _0802EDDC
-	ldr r0, _0802EDD8 @ =gUnk_030010A0
+	ldr r0, _0802EDD8 @ =gScreenTransition
 	adds r0, #0x3a
 	b _0802EDE0
 	.align 2, 0
-_0802EDD0: .4byte gUnk_03003DBC
+_0802EDD0: .4byte gEntCount
 _0802EDD4: .4byte gRoomControls
-_0802EDD8: .4byte gUnk_030010A0
+_0802EDD8: .4byte gScreenTransition
 _0802EDDC:
-	ldr r0, _0802EE0C @ =gUnk_030010A0
+	ldr r0, _0802EE0C @ =gScreenTransition
 	adds r0, #0x3b
 _0802EDE0:
 	ldrb r0, [r0]
@@ -218,7 +218,7 @@ _0802EDE0:
 _0802EE0A:
 	pop {r4, pc}
 	.align 2, 0
-_0802EE0C: .4byte gUnk_030010A0
+_0802EE0C: .4byte gScreenTransition
 
 	thumb_func_start sub_0802EE10
 sub_0802EE10: @ 0x0802EE10
@@ -246,7 +246,7 @@ _0802EE34: .4byte gUnk_080CDE64
 sub_0802EE38: @ 0x0802EE38
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r0, _0802EE84 @ =gUnk_03003DBC
+	ldr r0, _0802EE84 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x46
 	bhi _0802EE82
@@ -280,7 +280,7 @@ sub_0802EE38: @ 0x0802EE38
 _0802EE82:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0802EE84: .4byte gUnk_03003DBC
+_0802EE84: .4byte gEntCount
 _0802EE88: .4byte gUnk_080CDE6C
 
 	thumb_func_start sub_0802EE8C
@@ -329,9 +329,9 @@ _0802EED6:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
 	bl CopyPositionAndSpriteOffset
-	ldr r1, _0802EF14 @ =gLinkEntity
+	ldr r1, _0802EF14 @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, #1
 	movs r1, #0x1e
 	ands r0, r1
@@ -356,7 +356,7 @@ _0802EF00:
 	strb r0, [r1]
 	pop {r4, pc}
 	.align 2, 0
-_0802EF14: .4byte gLinkEntity
+_0802EF14: .4byte gPlayerEntity
 _0802EF18: .4byte gUnk_080CDE70
 
 	thumb_func_start sub_0802EF1C
@@ -411,7 +411,7 @@ _0802EF5E:
 	strb r0, [r1]
 	str r6, [r4, #0x50]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r6, #0
 	adds r1, r4, #0
 	bl CopyPosition
@@ -459,9 +459,9 @@ sub_0802EFB8: @ 0x0802EFB8
 	ands r5, r6
 	b _0802EFE0
 _0802EFD2:
-	ldr r0, _0802F01C @ =gLinkEntity
+	ldr r0, _0802F01C @ =gPlayerEntity
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r5, r0, #4
 	movs r0, #0x18
 	ands r5, r0
@@ -496,7 +496,7 @@ _0802EFE0:
 	strb r0, [r4, #0x15]
 	b _0802F044
 	.align 2, 0
-_0802F01C: .4byte gLinkEntity
+_0802F01C: .4byte gPlayerEntity
 _0802F020: .4byte gRoomControls
 _0802F024: .4byte gUnk_080B4488
 _0802F028:

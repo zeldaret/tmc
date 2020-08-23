@@ -22,7 +22,7 @@ sub_0805CB90: @ 0x0805CB90
 	adds r0, r4, #0
 	bl sub_0805CC3C
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 	b _0805CBCE
 _0805CBB8:
 	adds r0, r4, #0
@@ -32,7 +32,7 @@ _0805CBB8:
 	ldrh r0, [r4, #0x3e]
 	bl SetFlag
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 _0805CBCE:
 	pop {r4, pc}
 

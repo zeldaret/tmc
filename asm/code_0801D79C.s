@@ -4,142 +4,6 @@
 	.syntax unified
 
 	.text
-	
-	thumb_func_start sub_0801D79C
-sub_0801D79C: @ 0x0801D79C
-	ldr r3, _0801D7B4 @ =gUnk_020176A0
-	lsls r2, r0, #1
-	adds r2, r2, r3
-	strh r1, [r2]
-	ldr r2, _0801D7B8 @ =gUnk_0200B644
-	lsrs r0, r0, #4
-	movs r1, #1
-	lsls r1, r0
-	ldr r0, [r2]
-	orrs r0, r1
-	str r0, [r2]
-	bx lr
-	.align 2, 0
-_0801D7B4: .4byte gUnk_020176A0
-_0801D7B8: .4byte gUnk_0200B644
-
-	thumb_func_start sub_0801D7BC
-sub_0801D7BC: @ 0x0801D7BC
-	push {lr}
-	adds r2, r0, #0
-	cmp r1, #0
-	beq _0801D7D4
-	ldr r1, _0801D7CC @ =gScreen
-	ldr r0, _0801D7D0 @ =0x0000E0FF
-	b _0801D7D8
-	.align 2, 0
-_0801D7CC: .4byte gScreen
-_0801D7D0: .4byte 0x0000E0FF
-_0801D7D4:
-	ldr r1, _0801D7E4 @ =gScreen
-	ldr r0, _0801D7E8 @ =0x0000FFFF
-_0801D7D8:
-	strh r0, [r1, #6]
-	movs r0, #0
-	adds r1, r2, #0
-	bl sub_0801D79C
-	pop {pc}
-	.align 2, 0
-_0801D7E4: .4byte gScreen
-_0801D7E8: .4byte 0x0000FFFF
-
-	thumb_func_start sub_0801D7EC
-sub_0801D7EC: @ 0x0801D7EC
-	push {r4, r5, r6, lr}
-	ldr r1, _0801D814 @ =gUnk_08100AA8
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r4, [r0]
-	movs r6, #0x80
-	lsls r6, r6, #0x12
-	ldr r5, _0801D818 @ =0x040000D4
-_0801D7FC:
-	movs r2, #0
-	ldrb r1, [r4, #3]
-	movs r0, #0xf
-	ands r1, r0
-	cmp r1, #0xd
-	beq _0801D894
-	cmp r1, #0xd
-	bhi _0801D81C
-	cmp r1, #7
-	beq _0801D842
-	b _0801D836
-	.align 2, 0
-_0801D814: .4byte gUnk_08100AA8
-_0801D818: .4byte 0x040000D4
-_0801D81C:
-	cmp r1, #0xe
-	beq _0801D826
-	cmp r1, #0xf
-	beq _0801D82E
-	b _0801D836
-_0801D826:
-	ldrb r0, [r6, #7]
-	cmp r0, #1
-	bls _0801D83E
-	b _0801D842
-_0801D82E:
-	ldrb r0, [r6, #7]
-	cmp r0, #0
-	beq _0801D83E
-	b _0801D842
-_0801D836:
-	ldrb r0, [r6, #7]
-	cmp r1, r0
-	bne _0801D83E
-	movs r2, #1
-_0801D83E:
-	cmp r2, #0
-	beq _0801D888
-_0801D842:
-	ldr r0, [r4]
-	ldr r1, _0801D868 @ =0x00FFFFFF
-	ands r0, r1
-	ldr r1, _0801D86C @ =gUnk_085A2E80
-	adds r2, r0, r1
-	ldr r1, [r4, #4]
-	ldr r0, [r4, #8]
-	movs r3, #0x80
-	lsls r3, r3, #0x18
-	cmp r0, #0
-	bge _0801D87C
-	ldr r0, _0801D870 @ =0x05FFFFFF
-	cmp r1, r0
-	bls _0801D874
-	adds r0, r2, #0
-	bl LZ77UnCompVram
-	b _0801D888
-	.align 2, 0
-_0801D868: .4byte 0x00FFFFFF
-_0801D86C: .4byte gUnk_085A2E80
-_0801D870: .4byte 0x05FFFFFF
-_0801D874:
-	adds r0, r2, #0
-	bl LZ77UnCompWram
-	b _0801D888
-_0801D87C:
-	str r2, [r5]
-	str r1, [r5, #4]
-	lsrs r0, r0, #1
-	orrs r0, r3
-	str r0, [r5, #8]
-	ldr r0, [r5, #8]
-_0801D888:
-	ldrb r1, [r4, #3]
-	movs r0, #0x80
-	ands r1, r0
-	adds r4, #0xc
-	cmp r1, #0
-	bne _0801D7FC
-_0801D894:
-	pop {r4, r5, r6, pc}
-	.align 2, 0
 
 	thumb_func_start sub_0801D898
 sub_0801D898: @ 0x0801D898
@@ -339,7 +203,7 @@ _0801D9D8:
 	strh r0, [r3]
 	adds r0, r4, #0
 	mov r1, ip
-	bl sub_0801D630
+	bl _DmaZero
 	adds r0, r4, #0
 	b _0801DA02
 	.align 2, 0
@@ -418,7 +282,7 @@ sub_0801DA7C: @ 0x0801DA7C
 	ldr r0, _0801DA8C @ =gUnk_02035540
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl sub_0801D630
+	bl _DmaZero
 	pop {pc}
 	.align 2, 0
 _0801DA8C: .4byte gUnk_02035540
@@ -434,7 +298,7 @@ sub_0801DA90: @ 0x0801DA90
 	strb r0, [r1]
 	ldr r0, _0801DAF0 @ =gUnk_03003DE0
 	strb r3, [r0]
-	ldr r0, _0801DAF4 @ =gUnk_03000FD0
+	ldr r0, _0801DAF4 @ =gFadeControl
 	strb r3, [r0]
 	ldr r5, _0801DAF8 @ =gScreen
 	adds r0, r5, #0
@@ -459,17 +323,17 @@ sub_0801DA90: @ 0x0801DA90
 	bl sub_0801DB34
 	ldr r0, _0801DB08 @ =0x0600C000
 	movs r1, #0x20
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0801DB0C @ =gUnk_02034CB0
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	strh r4, [r5, #0xe]
 	pop {r4, r5, pc}
 	.align 2, 0
 _0801DAEC: .4byte gUnk_03001000
 _0801DAF0: .4byte gUnk_03003DE0
-_0801DAF4: .4byte gUnk_03000FD0
+_0801DAF4: .4byte gFadeControl
 _0801DAF8: .4byte gScreen
 _0801DAFC: .4byte 0x040000B0
 _0801DB00: .4byte 0x0000C5FF
@@ -505,7 +369,7 @@ sub_0801DB34: @ 0x0801DB34
 	ldr r4, _0801DB6C @ =gScreen
 	adds r0, r4, #0
 	movs r1, #0x7c
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0801DB70 @ =gUnk_02034CB0
 	str r0, [r4, #0x10]
 	ldr r0, _0801DB74 @ =0x00001F0C
@@ -542,12 +406,12 @@ _0801DB90: .4byte 0x0000FFFF
 
 	thumb_func_start sub_0801DB94
 sub_0801DB94: @ 0x0801DB94
-	ldr r0, _0801DB9C @ =gUnk_030010A0
+	ldr r0, _0801DB9C @ =gScreenTransition
 	ldrh r0, [r0, #0x1e]
 	lsrs r0, r0, #0xb
 	bx lr
 	.align 2, 0
-_0801DB9C: .4byte gUnk_030010A0
+_0801DB9C: .4byte gScreenTransition
 
 	thumb_func_start sub_0801DBA0
 sub_0801DBA0: @ 0x0801DBA0
@@ -560,10 +424,10 @@ sub_0801DBA0: @ 0x0801DBA0
 	adds r5, r1, #0
 	adds r1, r2, #0
 	adds r0, r5, #0
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #1
 	strb r0, [r5]
-	ldr r2, _0801DBE4 @ =gUnk_030010A0
+	ldr r2, _0801DBE4 @ =gScreenTransition
 	ldrh r0, [r2, #0x1c]
 	lsrs r0, r0, #4
 	movs r1, #0x7f
@@ -585,14 +449,14 @@ sub_0801DBA0: @ 0x0801DBA0
 	ldr r6, [r4]
 	b _0801DD3A
 	.align 2, 0
-_0801DBE4: .4byte gUnk_030010A0
+_0801DBE4: .4byte gScreenTransition
 _0801DBE8: .4byte gUnk_080C9C50
 _0801DBEC: .4byte gArea
 _0801DBF0:
 	ldrb r0, [r6]
 	ldrb r1, [r6, #1]
 	movs r2, #3
-	bl sub_0804B0FC
+	bl GetRoomProperty
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _0801DC04
@@ -736,7 +600,7 @@ _0801DCF8:
 	strb r0, [r5, #2]
 	adds r5, #3
 _0801DD16:
-	ldr r2, _0801DD54 @ =gUnk_030010A0
+	ldr r2, _0801DD54 @ =gScreenTransition
 	ldrh r0, [r6]
 	ldrh r1, [r2, #0x16]
 	cmp r0, r1
@@ -769,7 +633,7 @@ _0801DD42:
 	.align 2, 0
 _0801DD4C: .4byte gArea
 _0801DD50: .4byte gUnk_0811E214
-_0801DD54: .4byte gUnk_030010A0
+_0801DD54: .4byte gScreenTransition
 
 	thumb_func_start sub_0801DD58
 sub_0801DD58: @ 0x0801DD58
@@ -803,7 +667,7 @@ sub_0801DD88: @ 0x0801DD88
 	ldr r1, _0801DD9C @ =0x06006000
 	movs r2, #0x80
 	lsls r2, r2, #6
-	bl sub_08000E96
+	bl LoadAssetAsync
 	pop {pc}
 	.align 2, 0
 _0801DD98: .4byte gUnk_0201AEE0
@@ -835,7 +699,7 @@ _0801DDB8:
 	ldr r0, _0801DDE0 @ =gUnk_02019EE0
 	movs r1, #0x80
 	lsls r1, r1, #8
-	bl sub_0801D630
+	bl _DmaZero
 	b _0801DEE2
 	.align 2, 0
 _0801DDD8: .4byte gUnk_080C9C50
@@ -845,7 +709,7 @@ _0801DDE4:
 	ldrb r0, [r4]
 	ldrb r1, [r4, #1]
 	movs r2, #3
-	bl sub_0804B0FC
+	bl GetRoomProperty
 	adds r6, r0, #0
 	adds r0, r4, #0
 	bl sub_0801DF10
@@ -1104,7 +968,7 @@ sub_0801DFB4: @ 0x0801DFB4
 	ldr r7, _0801E004 @ =gUnk_02022740
 	adds r0, r7, #0
 	movs r1, #0x10
-	bl sub_0801D630
+	bl _DmaZero
 	strh r4, [r7, #6]
 	strh r5, [r7, #8]
 	strh r6, [r7, #0xa]
@@ -1178,7 +1042,7 @@ sub_0801E044: @ 0x0801E044
 	bne _0801E06A
 	movs r0, #4
 	movs r1, #0
-	bl sub_080A7138
+	bl MenuFadeIn
 	ldr r0, _0801E070 @ =gUnk_02022740
 	movs r1, #4
 	strb r1, [r0]
@@ -1345,7 +1209,7 @@ sub_0801E160: @ 0x0801E160
 	adds r0, r0, r4
 	movs r1, #0xa0
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	adds r0, r6, #0
 	mov r1, r8
 	mov r2, sb
@@ -1415,7 +1279,7 @@ sub_0801E1EC: @ 0x0801E1EC
 	adds r0, r0, r5
 	movs r1, #0xa0
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	adds r0, r4, #0
 	movs r1, #0
 	bl sub_0801E24C
@@ -1579,7 +1443,7 @@ sub_0801E31C: @ 0x0801E31C
 	adds r0, r0, r1
 	movs r1, #0xa0
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	cmp sl, sb
 	bge _0801E3DC
 	movs r6, #0
@@ -1764,7 +1628,7 @@ sub_0801E49C: @ 0x0801E49C
 	movs r2, #0xf0
 	lsls r2, r2, #3
 	ldr r1, _0801E5E8 @ =gUnk_02018EE0
-	bl sub_0801D5EC
+	bl _DmaFill16
 	adds r3, r5, #0
 	subs r3, #0x40
 	movs r2, #0xff
@@ -1874,7 +1738,7 @@ sub_0801E49C: @ 0x0801E49C
 	adds r0, r0, r6
 	movs r1, #0xa0
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r2, _0801E5E8 @ =gUnk_02018EE0
 	ldrb r1, [r5]
 	lsls r0, r1, #2

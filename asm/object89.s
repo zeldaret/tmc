@@ -44,7 +44,7 @@ _0809AB22:
 	adds r1, r4, #0
 	bl CopyPosition
 	str r4, [r5, #0x54]
-	ldr r2, _0809AB68 @ =gUnk_030010A0
+	ldr r2, _0809AB68 @ =gScreenTransition
 	adds r0, r2, #0
 	adds r0, #0x38
 	ldrb r1, [r0]
@@ -67,7 +67,7 @@ _0809AB52:
 	bl sub_080809D4
 	b _0809AB9C
 	.align 2, 0
-_0809AB68: .4byte gUnk_030010A0
+_0809AB68: .4byte gScreenTransition
 _0809AB6C: .4byte gRoomControls
 _0809AB70:
 	movs r0, #1
@@ -253,7 +253,7 @@ sub_0809ACA0: @ 0x0809ACA0
 	ldr r1, [r2, #0x54]
 	movs r0, #6
 	strb r0, [r1, #0xd]
-	ldr r0, _0809ACC8 @ =gUnk_030010A0
+	ldr r0, _0809ACC8 @ =gScreenTransition
 	adds r0, #0x38
 	movs r1, #0xf1
 	strb r1, [r0]
@@ -262,7 +262,7 @@ sub_0809ACA0: @ 0x0809ACA0
 _0809ACC4:
 	pop {pc}
 	.align 2, 0
-_0809ACC8: .4byte gUnk_030010A0
+_0809ACC8: .4byte gScreenTransition
 
 	thumb_func_start sub_0809ACCC
 sub_0809ACCC: @ 0x0809ACCC
@@ -330,9 +330,9 @@ _0809AD3A:
 	cmp r0, #0
 	bne _0809AD58
 	ldr r1, _0809AD5C @ =gRoomControls
-	ldr r0, _0809AD60 @ =gLinkEntity
+	ldr r0, _0809AD60 @ =gPlayerEntity
 	str r0, [r1, #0x30]
-	ldr r0, _0809AD64 @ =gLinkState
+	ldr r0, _0809AD64 @ =gPlayerState
 	adds r0, #0x8b
 	movs r1, #1
 	strb r1, [r0]
@@ -341,8 +341,8 @@ _0809AD58:
 	pop {r4, pc}
 	.align 2, 0
 _0809AD5C: .4byte gRoomControls
-_0809AD60: .4byte gLinkEntity
-_0809AD64: .4byte gLinkState
+_0809AD60: .4byte gPlayerEntity
+_0809AD64: .4byte gPlayerState
 
 	thumb_func_start sub_0809AD68
 sub_0809AD68: @ 0x0809AD68

@@ -95,7 +95,7 @@ _08090640:
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r7, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	b _080906E6
 _08090650:
 	ldrh r1, [r7, #0x32]
@@ -520,7 +520,7 @@ _08090A08:
 	beq _08090AB0
 	b _08090B60
 _08090A12:
-	ldr r2, _08090A34 @ =gLinkEntity
+	ldr r2, _08090A34 @ =gPlayerEntity
 	movs r0, #0x32
 	ldrsh r1, [r2, r0]
 	movs r3, #0x32
@@ -539,7 +539,7 @@ _08090A26:
 	strb r1, [r5, #0x19]
 	b _08090B60
 	.align 2, 0
-_08090A34: .4byte gLinkEntity
+_08090A34: .4byte gPlayerEntity
 _08090A38:
 	ldrb r0, [r5, #0x19]
 	movs r1, #0xc0
@@ -604,7 +604,7 @@ _08090A8C:
 	strb r0, [r5, #0x1e]
 	b _08090B60
 _08090AB0:
-	ldr r2, _08090B00 @ =gLinkEntity
+	ldr r2, _08090B00 @ =gPlayerEntity
 	movs r3, #0x32
 	ldrsh r1, [r2, r3]
 	movs r3, #0x32
@@ -612,7 +612,7 @@ _08090AB0:
 	adds r0, #8
 	cmp r1, r0
 	bge _08090B14
-	ldr r0, _08090B04 @ =gLinkState
+	ldr r0, _08090B04 @ =gPlayerState
 	ldrb r0, [r0, #0x12]
 	cmp r0, #0x1e
 	beq _08090B60
@@ -641,8 +641,8 @@ _08090AB0:
 	bl SetTile
 	b _08090B60
 	.align 2, 0
-_08090B00: .4byte gLinkEntity
-_08090B04: .4byte gLinkState
+_08090B00: .4byte gPlayerEntity
+_08090B04: .4byte gPlayerState
 _08090B08: .4byte 0x00004017
 _08090B0C: .4byte 0x00004026
 _08090B10: .4byte 0x0000403D
@@ -657,7 +657,7 @@ _08090B14:
 	movs r0, #1
 	strb r0, [r3]
 	adds r0, r2, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _08090B2C:
 	adds r0, r5, #0
 	bl GetTileTypeByEntity
@@ -1095,7 +1095,7 @@ sub_08090E64: @ 0x08090E64
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _08090EA0:
 	pop {r4, r5, pc}
 	.align 2, 0

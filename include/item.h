@@ -3,18 +3,7 @@
 
 #include "global.h"
 #include "entity.h"
-
-typedef struct {
-    u8 unk;
-    u8 behaviorID;
-    u8 unk2;
-    u8 unk3;
-    u8 stateID;
-    u8 filler[4];
-    u8 unk4;
-    u8 filler2[4];
-    u8 unk5;
-} ItemBehavior;
+#include "player.h"
 
 void extern DebugItem(ItemBehavior*, u32);
 void extern Sword(ItemBehavior*, u32);

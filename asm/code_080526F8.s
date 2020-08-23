@@ -158,19 +158,19 @@ sub_080527FC: @ 0x080527FC
 	adds r0, r4, #0
 	bl sub_0801AE44
 	ldr r0, _08052830 @ =gUnk_02024090
-	ldr r1, _08052834 @ =gUnk_020176A0
+	ldr r1, _08052834 @ =gPaletteBuffer
 	movs r2, #0x80
 	lsls r2, r2, #3
 	bl sub_0801D66C
-	ldr r1, _08052838 @ =gUnk_0200B644
+	ldr r1, _08052838 @ =gUsedPalettes
 	movs r0, #1
 	rsbs r0, r0, #0
 	str r0, [r1]
 	pop {r4, pc}
 	.align 2, 0
 _08052830: .4byte gUnk_02024090
-_08052834: .4byte gUnk_020176A0
-_08052838: .4byte gUnk_0200B644
+_08052834: .4byte gPaletteBuffer
+_08052838: .4byte gUsedPalettes
 
 	thumb_func_start sub_0805283C
 sub_0805283C: @ 0x0805283C
@@ -236,14 +236,14 @@ _080528B0: .4byte 0x00000864
 	thumb_func_start sub_080528B4
 sub_080528B4: @ 0x080528B4
 	push {lr}
-	ldr r0, _080528C4 @ =gUnk_030010A0
+	ldr r0, _080528C4 @ =gScreenTransition
 	ldrb r0, [r0, #5]
 	cmp r0, #0
 	bne _080528C8
 	movs r0, #0
 	b _080528E6
 	.align 2, 0
-_080528C4: .4byte gUnk_030010A0
+_080528C4: .4byte gScreenTransition
 _080528C8:
 	bl sub_0804FFE4
 	ldr r1, _080528E8 @ =gUnk_03001000
@@ -289,7 +289,7 @@ _08052918: .4byte 0x00000888
 	thumb_func_start sub_0805291C
 sub_0805291C: @ 0x0805291C
 	push {r4, lr}
-	ldr r4, _08052948 @ =gUnk_030010A0
+	ldr r4, _08052948 @ =gScreenTransition
 	ldrb r0, [r4, #8]
 	cmp r0, #0
 	beq _080529F4
@@ -298,7 +298,7 @@ sub_0805291C: @ 0x0805291C
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080529F4
-	ldr r0, _08052950 @ =gLinkState
+	ldr r0, _08052950 @ =gPlayerState
 	adds r0, #0xa8
 	ldrb r0, [r0]
 	cmp r0, #0x12
@@ -310,9 +310,9 @@ sub_0805291C: @ 0x0805291C
 	strb r0, [r4, #8]
 	b _080529F6
 	.align 2, 0
-_08052948: .4byte gUnk_030010A0
+_08052948: .4byte gScreenTransition
 _0805294C: .4byte gUnk_02002A40
-_08052950: .4byte gLinkState
+_08052950: .4byte gPlayerState
 _08052954:
 	ldrb r0, [r4, #9]
 	subs r0, #1
@@ -394,13 +394,13 @@ _080529F6:
 	thumb_func_start sub_080529F8
 sub_080529F8: @ 0x080529F8
 	push {r4, r5, r6, lr}
-	ldr r1, _08052A34 @ =gUnk_030010A0
+	ldr r1, _08052A34 @ =gScreenTransition
 	ldrh r4, [r1, #0xa]
 	ldr r2, _08052A38 @ =gUnk_080FCAD6
 	ldrh r0, [r2]
 	cmp r0, #0
 	beq _08052A48
-	ldr r3, _08052A3C @ =gLinkState
+	ldr r3, _08052A3C @ =gPlayerState
 	movs r6, #0
 	movs r0, #0x39
 	adds r0, r0, r3
@@ -426,9 +426,9 @@ _08052A30:
 	movs r0, #1
 	b _08052A4A
 	.align 2, 0
-_08052A34: .4byte gUnk_030010A0
+_08052A34: .4byte gScreenTransition
 _08052A38: .4byte gUnk_080FCAD6
-_08052A3C: .4byte gLinkState
+_08052A3C: .4byte gPlayerState
 _08052A40:
 	adds r2, #4
 	ldrh r0, [r2]
@@ -442,10 +442,10 @@ _08052A4A:
 	thumb_func_start sub_08052A4C
 sub_08052A4C: @ 0x08052A4C
 	push {r4, r5, lr}
-	ldr r2, _08052A88 @ =gUnk_030010A0
+	ldr r2, _08052A88 @ =gScreenTransition
 	movs r0, #1
 	strb r0, [r2, #8]
-	ldr r5, _08052A8C @ =gLinkEntity
+	ldr r5, _08052A8C @ =gPlayerEntity
 	ldr r3, _08052A90 @ =gRoomControls
 	ldrh r0, [r5, #0x2e]
 	ldrh r1, [r3, #6]
@@ -471,14 +471,14 @@ sub_08052A4C: @ 0x08052A4C
 	strb r0, [r2, #0xd]
 	pop {r4, r5, pc}
 	.align 2, 0
-_08052A88: .4byte gUnk_030010A0
-_08052A8C: .4byte gLinkEntity
+_08052A88: .4byte gScreenTransition
+_08052A8C: .4byte gPlayerEntity
 _08052A90: .4byte gRoomControls
 
 	thumb_func_start sub_08052A94
 sub_08052A94: @ 0x08052A94
 	push {lr}
-	ldr r0, _08052AAC @ =gUnk_030010A0
+	ldr r0, _08052AAC @ =gScreenTransition
 	ldrb r0, [r0, #9]
 	subs r0, #1
 	cmp r0, #8
@@ -489,7 +489,7 @@ sub_08052A94: @ 0x08052A94
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_08052AAC: .4byte gUnk_030010A0
+_08052AAC: .4byte gScreenTransition
 _08052AB0: .4byte _08052AB4
 _08052AB4: @ jump table
 	.4byte _08052AD8 @ case 0
@@ -552,7 +552,7 @@ sub_08052B24: @ 0x08052B24
 	ands r0, r1
 	cmp r0, #0
 	beq _08052B8A
-	ldr r2, _08052B94 @ =gLinkState
+	ldr r2, _08052B94 @ =gPlayerState
 	adds r0, r2, #0
 	adds r0, #0x8b
 	ldrb r0, [r0]
@@ -580,7 +580,7 @@ sub_08052B24: @ 0x08052B24
 	ldr r0, [r2, #0x2c]
 	cmp r0, #0
 	bne _08052B8A
-	ldr r1, _08052BA0 @ =gLinkEntity
+	ldr r1, _08052BA0 @ =gPlayerEntity
 	adds r0, r1, #0
 	adds r0, #0x7a
 	ldrh r0, [r0]
@@ -601,10 +601,10 @@ _08052B8A:
 	b _08052BB4
 	.align 2, 0
 _08052B90: .4byte gUnk_03000FF0
-_08052B94: .4byte gLinkState
+_08052B94: .4byte gPlayerState
 _08052B98: .4byte gUnk_02034490
 _08052B9C: .4byte gUnk_0200AF00
-_08052BA0: .4byte gLinkEntity
+_08052BA0: .4byte gPlayerEntity
 _08052BA4:
 	bl sub_0801862C
 	movs r0, #0x13
@@ -618,14 +618,14 @@ _08052BB4:
 	thumb_func_start sub_08052BB8
 sub_08052BB8: @ 0x08052BB8
 	push {lr}
-	ldr r0, _08052BE0 @ =gUnk_030010A0
+	ldr r0, _08052BE0 @ =gScreenTransition
 	adds r2, r0, #0
 	adds r2, #0x35
 	ldrb r1, [r2]
 	adds r3, r0, #0
 	cmp r1, #0
 	bne _08052BEC
-	ldr r0, _08052BE4 @ =gLinkEntity
+	ldr r0, _08052BE4 @ =gPlayerEntity
 	movs r2, #0x32
 	ldrsh r1, [r0, r2]
 	ldr r0, _08052BE8 @ =gRoomControls
@@ -638,8 +638,8 @@ sub_08052BB8: @ 0x08052BB8
 	movs r2, #1
 	b _08052BEE
 	.align 2, 0
-_08052BE0: .4byte gUnk_030010A0
-_08052BE4: .4byte gLinkEntity
+_08052BE0: .4byte gScreenTransition
+_08052BE4: .4byte gPlayerEntity
 _08052BE8: .4byte gRoomControls
 _08052BEC:
 	ldrb r2, [r2]
@@ -652,7 +652,7 @@ _08052BEE:
 	thumb_func_start sub_08052BF8
 sub_08052BF8: @ 0x08052BF8
 	push {lr}
-	ldr r2, _08052C34 @ =gUnk_030010A0
+	ldr r2, _08052C34 @ =gScreenTransition
 	adds r1, r2, #0
 	adds r1, #0x31
 	ldrb r0, [r1]
@@ -665,7 +665,7 @@ sub_08052BF8: @ 0x08052BF8
 	adds r0, r2, #0
 	adds r0, #0x2e
 	strb r1, [r0]
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08052C30
@@ -676,11 +676,11 @@ sub_08052BF8: @ 0x08052BF8
 	strb r0, [r1, #0xa]
 	adds r0, r1, #0
 	movs r1, #0
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _08052C30:
 	pop {pc}
 	.align 2, 0
-_08052C34: .4byte gUnk_030010A0
+_08052C34: .4byte gScreenTransition
 _08052C38: .4byte gArea
 
 	thumb_func_start sub_08052C3C
@@ -713,22 +713,22 @@ sub_08052C5C: @ 0x08052C5C
 	bl sub_08052620
 	cmp r0, #0
 	beq _08052C84
-	ldr r2, _08052C7C @ =gUnk_030010A0
-	ldr r1, _08052C80 @ =gLinkEntity
+	ldr r2, _08052C7C @ =gScreenTransition
+	ldr r1, _08052C80 @ =gPlayerEntity
 	ldrh r0, [r1, #0x2e]
 	strh r0, [r2, #0x20]
 	ldrh r0, [r1, #0x32]
 	strh r0, [r2, #0x22]
 	b _08052C98
 	.align 2, 0
-_08052C7C: .4byte gUnk_030010A0
-_08052C80: .4byte gLinkEntity
+_08052C7C: .4byte gScreenTransition
+_08052C80: .4byte gPlayerEntity
 _08052C84:
 	bl CheckIsDungeon
 	cmp r0, #0
 	beq _08052C98
-	ldr r2, _08052C9C @ =gUnk_030010A0
-	ldr r1, _08052CA0 @ =gLinkEntity
+	ldr r2, _08052C9C @ =gScreenTransition
+	ldr r1, _08052CA0 @ =gPlayerEntity
 	ldrh r0, [r1, #0x2e]
 	strh r0, [r2, #0x1c]
 	ldrh r0, [r1, #0x32]
@@ -736,8 +736,8 @@ _08052C84:
 _08052C98:
 	pop {pc}
 	.align 2, 0
-_08052C9C: .4byte gUnk_030010A0
-_08052CA0: .4byte gLinkEntity
+_08052C9C: .4byte gScreenTransition
+_08052CA0: .4byte gPlayerEntity
 
 	thumb_func_start sub_08052CA4
 sub_08052CA4: @ 0x08052CA4
@@ -750,7 +750,7 @@ sub_08052CA4: @ 0x08052CA4
 	lsls r4, r4, #1
 	ldr r1, [r0]
 	adds r1, r1, r4
-	ldr r4, _08052CCC @ =gUnk_030010A0
+	ldr r4, _08052CCC @ =gScreenTransition
 	ldrh r0, [r1]
 	adds r0, r0, r2
 	strh r0, [r4, #0x20]
@@ -760,7 +760,7 @@ sub_08052CA4: @ 0x08052CA4
 	pop {r4, pc}
 	.align 2, 0
 _08052CC8: .4byte gUnk_0811E214
-_08052CCC: .4byte gUnk_030010A0
+_08052CCC: .4byte gScreenTransition
 
 	thumb_func_start sub_08052CD0
 sub_08052CD0: @ 0x08052CD0
@@ -773,7 +773,7 @@ sub_08052CD0: @ 0x08052CD0
 	lsls r4, r4, #1
 	ldr r1, [r0]
 	adds r1, r1, r4
-	ldr r4, _08052CF8 @ =gUnk_030010A0
+	ldr r4, _08052CF8 @ =gScreenTransition
 	ldrh r0, [r1]
 	adds r0, r0, r2
 	strh r0, [r4, #0x1c]
@@ -783,7 +783,7 @@ sub_08052CD0: @ 0x08052CD0
 	pop {r4, pc}
 	.align 2, 0
 _08052CF4: .4byte gUnk_0811E214
-_08052CF8: .4byte gUnk_030010A0
+_08052CF8: .4byte gScreenTransition
 
 	thumb_func_start sub_08052CFC
 sub_08052CFC: @ 0x08052CFC
@@ -791,7 +791,7 @@ sub_08052CFC: @ 0x08052CFC
 	ldr r4, _08052D44 @ =gArea
 	ldr r1, _08052D48 @ =0x00000894
 	adds r0, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08052D4C @ =gRoomControls
 	ldrb r1, [r0, #4]
 	lsls r1, r1, #2
@@ -996,7 +996,7 @@ sub_08052EA0: @ 0x08052EA0
 	ldr r4, _08052EE4 @ =gRoomVars
 	adds r0, r4, #0
 	movs r1, #0xcc
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #0xff
 	strb r0, [r4, #0x10]
 	strb r0, [r4, #0x11]
@@ -1115,7 +1115,7 @@ _08052F72:
 	ldrh r0, [r3, #0xc]
 	adds r0, r0, r5
 	strh r0, [r3, #0xc]
-	ldr r2, _08052FD4 @ =gUnk_03003D70
+	ldr r2, _08052FD4 @ =gEntityLists
 	adds r6, r2, #0
 	adds r6, #0x48
 _08052FA4:
@@ -1146,7 +1146,7 @@ _08052FCC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08052FD0: .4byte 0x0000085C
-_08052FD4: .4byte gUnk_03003D70
+_08052FD4: .4byte gEntityLists
 
 	thumb_func_start sub_08052FD8
 sub_08052FD8: @ 0x08052FD8
@@ -1178,7 +1178,7 @@ sub_08052FF4: @ 0x08052FF4
 	ldr r5, _08053074 @ =gUnk_020342CC
 	adds r0, r5, #0
 	movs r1, #0x20
-	bl sub_0801D630
+	bl _DmaZero
 	str r5, [r5, #0x20]
 	ldr r0, _08053078 @ =gUnk_0811E214
 	lsls r6, r6, #2
@@ -1343,7 +1343,7 @@ _08053154:
 	ldrb r2, [r0, #1]
 	cmp r2, #0
 	beq _0805316C
-	ldr r0, _08053174 @ =gUnk_030010A0
+	ldr r0, _08053174 @ =gScreenTransition
 	adds r0, #0x2e
 	ldrb r1, [r0]
 	eors r1, r2
@@ -1356,7 +1356,7 @@ _0805316E:
 	pop {pc}
 	.align 2, 0
 _08053170: .4byte gArea
-_08053174: .4byte gUnk_030010A0
+_08053174: .4byte gScreenTransition
 
 	thumb_func_start sub_08053178
 sub_08053178: @ 0x08053178
@@ -1364,7 +1364,7 @@ sub_08053178: @ 0x08053178
 	bl sub_08053144
 	cmp r0, #0
 	beq _080531E6
-	ldr r0, _080531E8 @ =gUnk_030010A0
+	ldr r0, _080531E8 @ =gScreenTransition
 	ldr r5, _080531EC @ =gArea
 	ldrb r1, [r5, #1]
 	adds r0, #0x2e
@@ -1377,7 +1377,7 @@ sub_08053178: @ 0x08053178
 	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _080531DC
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _080531DC
@@ -1387,7 +1387,7 @@ sub_08053178: @ 0x08053178
 	strb r0, [r4, #9]
 	adds r0, r4, #0
 	movs r1, #8
-	bl sub_0805EA2C
+	bl AppendEntityToList
 	ldr r0, _080531F0 @ =gRoomVars
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -1410,7 +1410,7 @@ _080531DC:
 _080531E6:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080531E8: .4byte gUnk_030010A0
+_080531E8: .4byte gScreenTransition
 _080531EC: .4byte gArea
 _080531F0: .4byte gRoomVars
 _080531F4: .4byte gUnk_02002AA0
@@ -1418,8 +1418,8 @@ _080531F4: .4byte gUnk_02002AA0
 	thumb_func_start sub_080531F8
 sub_080531F8: @ 0x080531F8
 	push {r4, r5, lr}
-	ldr r1, _0805323C @ =gLinkState
-	ldr r4, _08053240 @ =gLinkEntity
+	ldr r1, _0805323C @ =gPlayerState
+	ldr r4, _08053240 @ =gPlayerEntity
 	ldrh r0, [r4, #0x2e]
 	strh r0, [r1, #0x16]
 	ldrh r0, [r4, #0x32]
@@ -1449,8 +1449,8 @@ sub_080531F8: @ 0x080531F8
 _08053238:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0805323C: .4byte gLinkState
-_08053240: .4byte gLinkEntity
+_0805323C: .4byte gPlayerState
+_08053240: .4byte gPlayerEntity
 _08053244: .4byte gUnk_030010AC
 _08053248: .4byte gUnk_02002AC8
 _0805324C: .4byte gRoomControls
@@ -1458,10 +1458,10 @@ _0805324C: .4byte gRoomControls
 	thumb_func_start sub_08053250
 sub_08053250: @ 0x08053250
 	push {r4, lr}
-	ldr r0, _0805328C @ =gUnk_030010A0
+	ldr r0, _0805328C @ =gScreenTransition
 	movs r1, #0
 	strb r1, [r0, #0xf]
-	ldr r3, _08053290 @ =gLinkEntity
+	ldr r3, _08053290 @ =gPlayerEntity
 	ldr r4, _08053294 @ =gRoomControls
 	ldrh r1, [r3, #0x2e]
 	ldrh r2, [r4, #6]
@@ -1486,8 +1486,8 @@ sub_08053250: @ 0x08053250
 	bl sub_0801D66C
 	pop {r4, pc}
 	.align 2, 0
-_0805328C: .4byte gUnk_030010A0
-_08053290: .4byte gLinkEntity
+_0805328C: .4byte gScreenTransition
+_08053290: .4byte gPlayerEntity
 _08053294: .4byte gRoomControls
 _08053298: .4byte gUnk_02002AC8
 
@@ -1541,7 +1541,7 @@ sub_080532E4: @ 0x080532E4
 	movs r3, #0xa5
 	lsls r3, r3, #1
 	adds r2, r0, r3
-	ldr r1, _0805331C @ =gUnk_030010A0
+	ldr r1, _0805331C @ =gScreenTransition
 	movs r0, #0x58
 	strb r0, [r1, #0x16]
 	movs r0, #0x21
@@ -1561,7 +1561,7 @@ sub_080532E4: @ 0x080532E4
 	bx lr
 	.align 2, 0
 _08053318: .4byte gUnk_0811E214
-_0805331C: .4byte gUnk_030010A0
+_0805331C: .4byte gScreenTransition
 
 	thumb_func_start sub_08053320
 sub_08053320: @ 0x08053320
@@ -1570,33 +1570,33 @@ sub_08053320: @ 0x08053320
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08053380 @ =gUnk_02021F30
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08053384 @ =gUnk_020344B0
 	adds r1, r4, #0
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _08053388 @ =gUnk_02001A40
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl sub_0801D630
+	bl _DmaZero
 	movs r0, #0x10
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	movs r0, #0x17
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r0, _0805338C @ =gRoomControls
 	ldrb r0, [r0, #4]
 	cmp r0, #4
 	bne _08053362
 	movs r0, #0x1a
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 _08053362:
 	bl sub_08053390
 	movs r0, #0xb
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	movs r0, #0xc
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	movs r0, #0
 	movs r1, #0
 	bl sub_0801D79C
@@ -1619,13 +1619,13 @@ sub_08053390: @ 0x08053390
 	movs r1, #0x18
 _080533A0:
 	adds r0, r1, #0
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	movs r0, #0xa
 	bl GetInventoryValue
 	cmp r0, #0
 	beq _080533B6
 	movs r0, #0x1d
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 _080533B6:
 	movs r0, #0xc
 	bl GetInventoryValue
@@ -1635,7 +1635,7 @@ _080533B6:
 	movs r1, #0x1c
 _080533C4:
 	adds r0, r1, #0
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	pop {pc}
 
 	thumb_func_start sub_080533CC
@@ -1659,7 +1659,7 @@ sub_080533CC: @ 0x080533CC
 	strh r2, [r1]
 	ldrh r0, [r0, #2]
 	strh r0, [r1, #2]
-	ldr r2, _08053408 @ =gUnk_0200B644
+	ldr r2, _08053408 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #8
 	orrs r0, r1
@@ -1668,7 +1668,7 @@ sub_080533CC: @ 0x080533CC
 	.align 2, 0
 _08053400: .4byte gUnk_020178E0
 _08053404: .4byte 0xFFFFFE00
-_08053408: .4byte gUnk_0200B644
+_08053408: .4byte gUsedPalettes
 
 	thumb_func_start sub_0805340C
 sub_0805340C: @ 0x0805340C
@@ -1712,7 +1712,7 @@ sub_08053434: @ 0x08053434
 	bl sub_08053460
 	movs r0, #5
 	movs r1, #6
-	bl sub_080A7138
+	bl MenuFadeIn
 _0805345A:
 	pop {pc}
 	.align 2, 0
@@ -1878,7 +1878,7 @@ _0805358C: .4byte 0x0000FFFF
 sub_08053590: @ 0x08053590
 	push {lr}
 	ldr r1, _080535A4 @ =gUnk_080FCBB4
-	ldr r0, _080535A8 @ =gUnk_02000080
+	ldr r0, _080535A8 @ =gMenu
 	ldrb r0, [r0, #6]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -1887,12 +1887,12 @@ sub_08053590: @ 0x08053590
 	pop {pc}
 	.align 2, 0
 _080535A4: .4byte gUnk_080FCBB4
-_080535A8: .4byte gUnk_02000080
+_080535A8: .4byte gMenu
 
 	thumb_func_start sub_080535AC
 sub_080535AC: @ 0x080535AC
 	push {lr}
-	ldr r2, _080535DC @ =gUnk_02000080
+	ldr r2, _080535DC @ =gMenu
 	movs r1, #1
 	strb r1, [r2, #6]
 	movs r0, #0x78
@@ -1913,7 +1913,7 @@ sub_080535AC: @ 0x080535AC
 	bl DoFade
 	pop {pc}
 	.align 2, 0
-_080535DC: .4byte gUnk_02000080
+_080535DC: .4byte gMenu
 _080535E0: .4byte gUnk_02032EC0
 _080535E4: .4byte gUnk_02000070
 _080535E8: .4byte gScreen
@@ -1923,19 +1923,19 @@ _080535F0: .4byte gUnk_080FCB94
 	thumb_func_start sub_080535F4
 sub_080535F4: @ 0x080535F4
 	push {lr}
-	ldr r0, _0805360C @ =gUnk_03000FD0
+	ldr r0, _0805360C @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08053608
 	bl sub_0805E5B4
-	ldr r1, _08053610 @ =gUnk_02000080
+	ldr r1, _08053610 @ =gMenu
 	movs r0, #2
 	strb r0, [r1, #6]
 _08053608:
 	pop {pc}
 	.align 2, 0
-_0805360C: .4byte gUnk_03000FD0
-_08053610: .4byte gUnk_02000080
+_0805360C: .4byte gFadeControl
+_08053610: .4byte gMenu
 
 	thumb_func_start nullsub_481
 nullsub_481: @ 0x08053614
@@ -1945,7 +1945,7 @@ nullsub_481: @ 0x08053614
 	thumb_func_start sub_08053618
 sub_08053618: @ 0x08053618
 	push {lr}
-	ldr r1, _08053630 @ =gUnk_02000080
+	ldr r1, _08053630 @ =gMenu
 	ldrh r0, [r1, #8]
 	subs r0, #1
 	strh r0, [r1, #8]
@@ -1956,7 +1956,7 @@ sub_08053618: @ 0x08053618
 _0805362C:
 	pop {pc}
 	.align 2, 0
-_08053630: .4byte gUnk_02000080
+_08053630: .4byte gMenu
 
 	thumb_func_start sub_08053634
 sub_08053634: @ 0x08053634
@@ -1999,13 +1999,13 @@ _08053678: .4byte gRoomControls
 
 	thumb_func_start sub_0805367C
 sub_0805367C: @ 0x0805367C
-	ldr r1, _08053688 @ =gUnk_02000080
+	ldr r1, _08053688 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
 	bx lr
 	.align 2, 0
-_08053688: .4byte gUnk_02000080
+_08053688: .4byte gMenu
 
 	thumb_func_start sub_0805368C
 sub_0805368C: @ 0x0805368C
@@ -2013,7 +2013,7 @@ sub_0805368C: @ 0x0805368C
 	movs r0, #6
 	movs r1, #0x5d
 	movs r2, #6
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	beq _080536A6
 	bl DeleteEntity
@@ -2051,7 +2051,7 @@ sub_080536B8: @ 0x080536B8
 sub_080536D4: @ 0x080536D4
 	push {lr}
 	ldr r1, _080536E8 @ =gUnk_080FCCFC
-	ldr r0, _080536EC @ =gUnk_02000080
+	ldr r0, _080536EC @ =gMenu
 	ldrb r0, [r0, #6]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2060,13 +2060,13 @@ sub_080536D4: @ 0x080536D4
 	pop {pc}
 	.align 2, 0
 _080536E8: .4byte gUnk_080FCCFC
-_080536EC: .4byte gUnk_02000080
+_080536EC: .4byte gMenu
 
 	thumb_func_start sub_080536F0
 sub_080536F0: @ 0x080536F0
 	push {lr}
 	ldr r1, _08053704 @ =gUnk_080FCD38
-	ldr r0, _08053708 @ =gUnk_02000080
+	ldr r0, _08053708 @ =gMenu
 	ldrb r0, [r0, #6]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2075,12 +2075,12 @@ sub_080536F0: @ 0x080536F0
 	pop {pc}
 	.align 2, 0
 _08053704: .4byte gUnk_080FCD38
-_08053708: .4byte gUnk_02000080
+_08053708: .4byte gMenu
 
 	thumb_func_start sub_0805370C
 sub_0805370C: @ 0x0805370C
 	push {lr}
-	ldr r1, _08053730 @ =gUnk_02000080
+	ldr r1, _08053730 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
@@ -2095,7 +2095,7 @@ sub_0805370C: @ 0x0805370C
 	bl DoFade
 	pop {pc}
 	.align 2, 0
-_08053730: .4byte gUnk_02000080
+_08053730: .4byte gMenu
 _08053734: .4byte gUnk_02000070
 _08053738: .4byte gUnk_080FCC54
 
@@ -2103,7 +2103,7 @@ _08053738: .4byte gUnk_080FCC54
 sub_0805373C: @ 0x0805373C
 	push {lr}
 	ldr r1, _08053750 @ =gUnk_080FCD40
-	ldr r0, _08053754 @ =gUnk_02000080
+	ldr r0, _08053754 @ =gMenu
 	ldrb r0, [r0, #6]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2112,12 +2112,12 @@ sub_0805373C: @ 0x0805373C
 	pop {pc}
 	.align 2, 0
 _08053750: .4byte gUnk_080FCD40
-_08053754: .4byte gUnk_02000080
+_08053754: .4byte gMenu
 
 	thumb_func_start sub_08053758
 sub_08053758: @ 0x08053758
 	push {r4, lr}
-	ldr r1, _080537DC @ =gUnk_02000080
+	ldr r1, _080537DC @ =gMenu
 	movs r2, #0
 	movs r3, #1
 	strb r3, [r1, #6]
@@ -2177,7 +2177,7 @@ sub_08053758: @ 0x08053758
 	bl DoFade
 	pop {r4, pc}
 	.align 2, 0
-_080537DC: .4byte gUnk_02000080
+_080537DC: .4byte gMenu
 _080537E0: .4byte gUnk_02032EC0
 _080537E4: .4byte gUnk_02025EB0
 _080537E8: .4byte gUnk_0200B650
@@ -2190,11 +2190,11 @@ _080537FC: .4byte 0x00001DC1
 	thumb_func_start sub_08053800
 sub_08053800: @ 0x08053800
 	push {r4, r5, lr}
-	ldr r0, _0805387C @ =gUnk_03000FD0
+	ldr r0, _0805387C @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0805387A
-	ldr r1, _08053880 @ =gUnk_02000080
+	ldr r1, _08053880 @ =gMenu
 	ldrb r5, [r1, #0x10]
 	lsls r4, r5, #1
 	adds r4, r4, r5
@@ -2215,14 +2215,14 @@ sub_08053800: @ 0x08053800
 	strb r2, [r1, #7]
 	adds r0, r5, #0
 	adds r0, #0x8a
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	adds r0, r5, #0
 	adds r0, #0x3a
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r0, _08053888 @ =gUnk_02021F30
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0805388C @ =0x00000F01
 	adds r5, r5, r0
 	ldr r1, [r4]
@@ -2248,8 +2248,8 @@ sub_08053800: @ 0x08053800
 _0805387A:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0805387C: .4byte gUnk_03000FD0
-_08053880: .4byte gUnk_02000080
+_0805387C: .4byte gFadeControl
+_08053880: .4byte gMenu
 _08053884: .4byte gUnk_080FCCB4
 _08053888: .4byte gUnk_02021F30
 _0805388C: .4byte 0x00000F01
@@ -2258,11 +2258,11 @@ _08053890: .4byte gScreen
 	thumb_func_start sub_08053894
 sub_08053894: @ 0x08053894
 	push {r4, lr}
-	ldr r0, _080538B4 @ =gUnk_03000FD0
+	ldr r0, _080538B4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080538F8
-	ldr r1, _080538B8 @ =gUnk_02000080
+	ldr r1, _080538B8 @ =gMenu
 	ldrh r0, [r1, #8]
 	subs r0, #1
 	strh r0, [r1, #8]
@@ -2274,10 +2274,10 @@ sub_08053894: @ 0x08053894
 	strh r0, [r4, #0xa]
 	b _080538E4
 	.align 2, 0
-_080538B4: .4byte gUnk_03000FD0
-_080538B8: .4byte gUnk_02000080
+_080538B4: .4byte gFadeControl
+_080538B8: .4byte gMenu
 _080538BC:
-	ldr r0, _080538FC @ =gUnk_030010A0
+	ldr r0, _080538FC @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -2310,17 +2310,17 @@ _080538E4:
 _080538F8:
 	pop {r4, pc}
 	.align 2, 0
-_080538FC: .4byte gUnk_030010A0
+_080538FC: .4byte gScreenTransition
 _08053900: .4byte gScreen
 
 	thumb_func_start sub_08053904
 sub_08053904: @ 0x08053904
 	push {r4, lr}
-	ldr r0, _08053924 @ =gUnk_03000FD0
+	ldr r0, _08053924 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08053968
-	ldr r1, _08053928 @ =gUnk_02000080
+	ldr r1, _08053928 @ =gMenu
 	ldrh r0, [r1, #8]
 	subs r0, #1
 	strh r0, [r1, #8]
@@ -2332,10 +2332,10 @@ sub_08053904: @ 0x08053904
 	strh r0, [r4, #0xa]
 	b _08053954
 	.align 2, 0
-_08053924: .4byte gUnk_03000FD0
-_08053928: .4byte gUnk_02000080
+_08053924: .4byte gFadeControl
+_08053928: .4byte gMenu
 _0805392C:
-	ldr r0, _0805396C @ =gUnk_030010A0
+	ldr r0, _0805396C @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -2368,13 +2368,13 @@ _08053954:
 _08053968:
 	pop {r4, pc}
 	.align 2, 0
-_0805396C: .4byte gUnk_030010A0
+_0805396C: .4byte gScreenTransition
 _08053970: .4byte gScreen
 
 	thumb_func_start sub_08053974
 sub_08053974: @ 0x08053974
 	push {lr}
-	ldr r0, _080539AC @ =gUnk_03000FD0
+	ldr r0, _080539AC @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080539A8
@@ -2389,16 +2389,16 @@ sub_08053974: @ 0x08053974
 	lsls r1, r1, #1
 	movs r0, #5
 	bl DoFade
-	ldr r1, _080539B4 @ =gUnk_02000080
+	ldr r1, _080539B4 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
 _080539A8:
 	pop {pc}
 	.align 2, 0
-_080539AC: .4byte gUnk_03000FD0
+_080539AC: .4byte gFadeControl
 _080539B0: .4byte gUnk_080FCBC4
-_080539B4: .4byte gUnk_02000080
+_080539B4: .4byte gMenu
 
 	thumb_func_start nullsub_482
 nullsub_482: @ 0x080539B8
@@ -2409,7 +2409,7 @@ nullsub_482: @ 0x080539B8
 sub_080539BC: @ 0x080539BC
 	push {lr}
 	bl sub_080197AC
-	bl sub_0805E89C
+	bl DeleteAllEntities
 	movs r0, #0x22
 	movs r1, #0x11
 	movs r2, #0
@@ -2420,25 +2420,25 @@ sub_080539BC: @ 0x080539BC
 	bl sub_0804B0B0
 	ldr r0, _080539EC @ =gUnk_080FCC14
 	bl LoadRoomEntityList
-	ldr r1, _080539F0 @ =gUnk_02000080
+	ldr r1, _080539F0 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
 	pop {pc}
 	.align 2, 0
 _080539EC: .4byte gUnk_080FCC14
-_080539F0: .4byte gUnk_02000080
+_080539F0: .4byte gMenu
 
 	thumb_func_start sub_080539F4
 sub_080539F4: @ 0x080539F4
 	push {lr}
-	ldr r0, _08053A14 @ =gUnk_03000FD0
+	ldr r0, _08053A14 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08053A10
 	movs r0, #1
 	bl sub_0801DA90
-	ldr r0, _08053A18 @ =gUnk_02000080
+	ldr r0, _08053A18 @ =gMenu
 	ldrb r1, [r0, #6]
 	adds r1, #1
 	strb r1, [r0, #6]
@@ -2447,13 +2447,13 @@ sub_080539F4: @ 0x080539F4
 _08053A10:
 	pop {pc}
 	.align 2, 0
-_08053A14: .4byte gUnk_03000FD0
-_08053A18: .4byte gUnk_02000080
+_08053A14: .4byte gFadeControl
+_08053A18: .4byte gMenu
 
 	thumb_func_start sub_08053A1C
 sub_08053A1C: @ 0x08053A1C
 	push {r4, lr}
-	ldr r1, _08053A50 @ =gUnk_02000080
+	ldr r1, _08053A50 @ =gMenu
 	ldrh r0, [r1, #8]
 	subs r0, #1
 	strh r0, [r1, #8]
@@ -2478,7 +2478,7 @@ sub_08053A1C: @ 0x08053A1C
 _08053A4E:
 	pop {r4, pc}
 	.align 2, 0
-_08053A50: .4byte gUnk_02000080
+_08053A50: .4byte gMenu
 _08053A54: .4byte 0x00000F07
 _08053A58: .4byte gTextBox
 
@@ -2491,7 +2491,7 @@ sub_08053A5C: @ 0x08053A5C
 	ands r0, r1
 	cmp r0, #0
 	bne _08053A86
-	ldr r1, _08053A8C @ =gUnk_02000080
+	ldr r1, _08053A8C @ =gMenu
 	ldrh r0, [r1, #8]
 	subs r0, #1
 	strh r0, [r1, #8]
@@ -2508,12 +2508,12 @@ _08053A86:
 	pop {pc}
 	.align 2, 0
 _08053A88: .4byte gTextBox
-_08053A8C: .4byte gUnk_02000080
+_08053A8C: .4byte gMenu
 
 	thumb_func_start sub_08053A90
 sub_08053A90: @ 0x08053A90
 	push {lr}
-	ldr r0, _08053AA8 @ =gUnk_03000FD0
+	ldr r0, _08053AA8 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08053AA4
@@ -2524,14 +2524,14 @@ sub_08053A90: @ 0x08053A90
 _08053AA4:
 	pop {pc}
 	.align 2, 0
-_08053AA8: .4byte gUnk_03000FD0
+_08053AA8: .4byte gFadeControl
 _08053AAC: .4byte gUnk_02032EC0
 
 	thumb_func_start sub_08053AB0
 sub_08053AB0: @ 0x08053AB0
 	push {lr}
 	ldr r1, _08053AC4 @ =gUnk_080FCDD4
-	ldr r0, _08053AC8 @ =gUnk_02000080
+	ldr r0, _08053AC8 @ =gMenu
 	ldrb r0, [r0, #6]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2540,12 +2540,12 @@ sub_08053AB0: @ 0x08053AB0
 	pop {pc}
 	.align 2, 0
 _08053AC4: .4byte gUnk_080FCDD4
-_08053AC8: .4byte gUnk_02000080
+_08053AC8: .4byte gMenu
 
 	thumb_func_start sub_08053ACC
 sub_08053ACC: @ 0x08053ACC
 	push {lr}
-	ldr r1, _08053AF4 @ =gUnk_02000080
+	ldr r1, _08053AF4 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
@@ -2561,19 +2561,19 @@ sub_08053ACC: @ 0x08053ACC
 	bl DoFade
 	pop {pc}
 	.align 2, 0
-_08053AF4: .4byte gUnk_02000080
+_08053AF4: .4byte gMenu
 _08053AF8: .4byte gUnk_02000070
 _08053AFC: .4byte gUnk_080FCD84
 
 	thumb_func_start sub_08053B00
 sub_08053B00: @ 0x08053B00
-	ldr r1, _08053B0C @ =gUnk_02000080
+	ldr r1, _08053B0C @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
 	bx lr
 	.align 2, 0
-_08053B0C: .4byte gUnk_02000080
+_08053B0C: .4byte gMenu
 
 	thumb_func_start sub_08053B10
 sub_08053B10: @ 0x08053B10
@@ -2582,7 +2582,7 @@ sub_08053B10: @ 0x08053B10
 	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08053B34
-	ldr r0, _08053B38 @ =gUnk_02000080
+	ldr r0, _08053B38 @ =gMenu
 	ldrb r1, [r0, #5]
 	adds r1, #1
 	strb r1, [r0, #5]
@@ -2595,7 +2595,7 @@ sub_08053B10: @ 0x08053B10
 _08053B34:
 	pop {pc}
 	.align 2, 0
-_08053B38: .4byte gUnk_02000080
+_08053B38: .4byte gMenu
 
 	thumb_func_start sub_08053B3C
 sub_08053B3C: @ 0x08053B3C
@@ -2616,7 +2616,7 @@ sub_08053B3C: @ 0x08053B3C
 sub_08053B58: @ 0x08053B58
 	push {lr}
 	ldr r1, _08053B6C @ =gUnk_080FCEB0
-	ldr r0, _08053B70 @ =gUnk_02000080
+	ldr r0, _08053B70 @ =gMenu
 	ldrb r0, [r0, #6]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2625,12 +2625,12 @@ sub_08053B58: @ 0x08053B58
 	pop {pc}
 	.align 2, 0
 _08053B6C: .4byte gUnk_080FCEB0
-_08053B70: .4byte gUnk_02000080
+_08053B70: .4byte gMenu
 
 	thumb_func_start sub_08053B74
 sub_08053B74: @ 0x08053B74
 	push {lr}
-	ldr r1, _08053BA0 @ =gUnk_02000080
+	ldr r1, _08053BA0 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
@@ -2647,19 +2647,19 @@ sub_08053B74: @ 0x08053B74
 	bl DoFade
 	pop {pc}
 	.align 2, 0
-_08053BA0: .4byte gUnk_02000080
+_08053BA0: .4byte gMenu
 _08053BA4: .4byte gUnk_02000070
 _08053BA8: .4byte gUnk_080FCDE0
 
 	thumb_func_start sub_08053BAC
 sub_08053BAC: @ 0x08053BAC
-	ldr r1, _08053BB8 @ =gUnk_02000080
+	ldr r1, _08053BB8 @ =gMenu
 	ldrb r0, [r1, #6]
 	adds r0, #1
 	strb r0, [r1, #6]
 	bx lr
 	.align 2, 0
-_08053BB8: .4byte gUnk_02000080
+_08053BB8: .4byte gMenu
 
 	thumb_func_start sub_08053BBC
 sub_08053BBC: @ 0x08053BBC
@@ -2668,7 +2668,7 @@ sub_08053BBC: @ 0x08053BBC
 	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08053BE0
-	ldr r0, _08053BE4 @ =gUnk_02000080
+	ldr r0, _08053BE4 @ =gMenu
 	ldrb r1, [r0, #5]
 	adds r1, #1
 	strb r1, [r0, #5]
@@ -2681,7 +2681,7 @@ sub_08053BBC: @ 0x08053BBC
 _08053BE0:
 	pop {pc}
 	.align 2, 0
-_08053BE4: .4byte gUnk_02000080
+_08053BE4: .4byte gMenu
 
 	thumb_func_start sub_08053BE8
 sub_08053BE8: @ 0x08053BE8
@@ -2702,7 +2702,7 @@ sub_08053BE8: @ 0x08053BE8
 sub_08053C04: @ 0x08053C04
 	push {lr}
 	ldr r1, _08053C18 @ =gUnk_080FCEEC
-	ldr r0, _08053C1C @ =gUnk_02000080
+	ldr r0, _08053C1C @ =gMenu
 	ldrb r0, [r0, #6]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2711,12 +2711,12 @@ sub_08053C04: @ 0x08053C04
 	pop {pc}
 	.align 2, 0
 _08053C18: .4byte gUnk_080FCEEC
-_08053C1C: .4byte gUnk_02000080
+_08053C1C: .4byte gMenu
 
 	thumb_func_start sub_08053C20
 sub_08053C20: @ 0x08053C20
 	push {lr}
-	ldr r1, _08053C50 @ =gUnk_02000080
+	ldr r1, _08053C50 @ =gMenu
 	movs r2, #1
 	strb r2, [r1, #6]
 	movs r0, #0x78
@@ -2735,7 +2735,7 @@ sub_08053C20: @ 0x08053C20
 	bl PlaySFX
 	pop {pc}
 	.align 2, 0
-_08053C50: .4byte gUnk_02000080
+_08053C50: .4byte gMenu
 _08053C54: .4byte gUnk_02000070
 _08053C58: .4byte gUnk_080FCEBC
 
@@ -2755,25 +2755,25 @@ sub_08053C60: @ 0x08053C60
 	ldr r0, _08053C80 @ =0x80100000
 	bl PlaySFX
 	movs r0, #3
-	bl sub_08056010
+	bl InitScreen
 	pop {pc}
 	.align 2, 0
 _08053C80: .4byte 0x80100000
 
 	thumb_func_start sub_08053C84
 sub_08053C84: @ 0x08053C84
-	ldr r1, _08053C8C @ =gUnk_02000080
+	ldr r1, _08053C8C @ =gMenu
 	movs r0, #2
 	strb r0, [r1, #6]
 	bx lr
 	.align 2, 0
-_08053C8C: .4byte gUnk_02000080
+_08053C8C: .4byte gMenu
 
 	thumb_func_start sub_08053C90
 sub_08053C90: @ 0x08053C90
 	push {lr}
 	ldr r1, _08053CA4 @ =gUnk_080FCEF8
-	ldr r0, _08053CA8 @ =gUnk_02000080
+	ldr r0, _08053CA8 @ =gMenu
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2782,13 +2782,13 @@ sub_08053C90: @ 0x08053C90
 	pop {pc}
 	.align 2, 0
 _08053CA4: .4byte gUnk_080FCEF8
-_08053CA8: .4byte gUnk_02000080
+_08053CA8: .4byte gMenu
 
 	thumb_func_start sub_08053CAC
 sub_08053CAC: @ 0x08053CAC
 	push {lr}
 	ldr r1, _08053CC0 @ =gUnk_080FCFA4
-	ldr r0, _08053CC4 @ =gUnk_02000080
+	ldr r0, _08053CC4 @ =gMenu
 	ldrb r0, [r0, #6]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -2797,12 +2797,12 @@ sub_08053CAC: @ 0x08053CAC
 	pop {pc}
 	.align 2, 0
 _08053CC0: .4byte gUnk_080FCFA4
-_08053CC4: .4byte gUnk_02000080
+_08053CC4: .4byte gMenu
 
 	thumb_func_start sub_08053CC8
 sub_08053CC8: @ 0x08053CC8
 	push {r4, r5, r6, lr}
-	ldr r6, _08053D20 @ =gUnk_02000080
+	ldr r6, _08053D20 @ =gMenu
 	ldrb r4, [r6, #3]
 	lsls r4, r4, #4
 	ldr r0, _08053D24 @ =gUnk_080FCF04
@@ -2815,12 +2815,12 @@ sub_08053CC8: @ 0x08053CC8
 	ldrb r0, [r4, #4]
 	ldrb r1, [r4, #5]
 	movs r2, #1
-	bl sub_0804B0FC
+	bl GetRoomProperty
 	bl LoadRoomEntityList
 	ldrb r0, [r4, #4]
 	ldrb r1, [r4, #5]
 	movs r2, #2
-	bl sub_0804B0FC
+	bl GetRoomProperty
 	bl LoadRoomEntityList
 	movs r5, #1
 	strb r5, [r6, #6]
@@ -2841,7 +2841,7 @@ sub_08053CC8: @ 0x08053CC8
 _08053D1E:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08053D20: .4byte gUnk_02000080
+_08053D20: .4byte gMenu
 _08053D24: .4byte gUnk_080FCF04
 _08053D28: .4byte gScreen
 _08053D2C: .4byte 0x0000FEFF
@@ -2850,7 +2850,7 @@ _08053D30: .4byte gUnk_02000070
 	thumb_func_start sub_08053D34
 sub_08053D34: @ 0x08053D34
 	push {r4, lr}
-	ldr r1, _08053D88 @ =gUnk_02000080
+	ldr r1, _08053D88 @ =gMenu
 	ldrh r0, [r1, #0xa]
 	cmp r0, #0
 	beq _08053D72
@@ -2878,11 +2878,11 @@ _08053D5C:
 	movs r2, #1
 	bl SetTileType
 _08053D72:
-	ldr r0, _08053D8C @ =gUnk_03000FD0
+	ldr r0, _08053D8C @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08053D86
-	ldr r1, _08053D88 @ =gUnk_02000080
+	ldr r1, _08053D88 @ =gMenu
 	movs r0, #0x78
 	strh r0, [r1, #8]
 	ldrb r0, [r1, #6]
@@ -2891,13 +2891,13 @@ _08053D72:
 _08053D86:
 	pop {r4, pc}
 	.align 2, 0
-_08053D88: .4byte gUnk_02000080
-_08053D8C: .4byte gUnk_03000FD0
+_08053D88: .4byte gMenu
+_08053D8C: .4byte gFadeControl
 
 	thumb_func_start sub_08053D90
 sub_08053D90: @ 0x08053D90
 	push {lr}
-	ldr r1, _08053DB0 @ =gUnk_02000080
+	ldr r1, _08053DB0 @ =gMenu
 	ldrh r0, [r1, #8]
 	subs r0, #1
 	strh r0, [r1, #8]
@@ -2912,16 +2912,16 @@ sub_08053D90: @ 0x08053D90
 _08053DAC:
 	pop {pc}
 	.align 2, 0
-_08053DB0: .4byte gUnk_02000080
+_08053DB0: .4byte gMenu
 
 	thumb_func_start sub_08053DB4
 sub_08053DB4: @ 0x08053DB4
 	push {r4, r5, lr}
-	ldr r0, _08053E20 @ =gUnk_03000FD0
+	ldr r0, _08053E20 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08053E1C
-	ldr r5, _08053E24 @ =gUnk_02000080
+	ldr r5, _08053E24 @ =gMenu
 	ldr r4, [r5, #0xc]
 	ldrb r0, [r4, #4]
 	ldrb r1, [r4, #5]
@@ -2946,12 +2946,12 @@ sub_08053DB4: @ 0x08053DB4
 	ldrb r0, [r4, #4]
 	ldrb r1, [r4, #5]
 	movs r2, #1
-	bl sub_0804B0FC
+	bl GetRoomProperty
 	bl LoadRoomEntityList
 	ldrb r0, [r4, #4]
 	ldrb r1, [r4, #5]
 	movs r2, #2
-	bl sub_0804B0FC
+	bl GetRoomProperty
 	bl LoadRoomEntityList
 	movs r0, #0x78
 	strh r0, [r5, #8]
@@ -2963,19 +2963,19 @@ sub_08053DB4: @ 0x08053DB4
 _08053E1C:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08053E20: .4byte gUnk_03000FD0
-_08053E24: .4byte gUnk_02000080
+_08053E20: .4byte gFadeControl
+_08053E24: .4byte gMenu
 _08053E28: .4byte gUnk_02000070
 _08053E2C: .4byte gRoomControls
 
 	thumb_func_start sub_08053E30
 sub_08053E30: @ 0x08053E30
 	push {lr}
-	ldr r0, _08053E50 @ =gUnk_03000FD0
+	ldr r0, _08053E50 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08053E4E
-	ldr r1, _08053E54 @ =gUnk_02000080
+	ldr r1, _08053E54 @ =gMenu
 	ldrh r0, [r1, #8]
 	subs r0, #1
 	strh r0, [r1, #8]
@@ -2988,14 +2988,14 @@ sub_08053E30: @ 0x08053E30
 _08053E4E:
 	pop {pc}
 	.align 2, 0
-_08053E50: .4byte gUnk_03000FD0
-_08053E54: .4byte gUnk_02000080
+_08053E50: .4byte gFadeControl
+_08053E54: .4byte gMenu
 
 	thumb_func_start sub_08053E58
 sub_08053E58: @ 0x08053E58
 	push {lr}
 	ldr r1, _08053E6C @ =gUnk_080FD108
-	ldr r0, _08053E70 @ =gUnk_02000080
+	ldr r0, _08053E70 @ =gMenu
 	ldrb r0, [r0, #6]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -3004,13 +3004,13 @@ sub_08053E58: @ 0x08053E58
 	pop {pc}
 	.align 2, 0
 _08053E6C: .4byte gUnk_080FD108
-_08053E70: .4byte gUnk_02000080
+_08053E70: .4byte gMenu
 
 	thumb_func_start sub_08053E74
 sub_08053E74: @ 0x08053E74
 	push {r4, lr}
 	ldr r0, _08053EB0 @ =gUnk_080FCFB8
-	ldr r4, _08053EB4 @ =gUnk_02000080
+	ldr r4, _08053EB4 @ =gMenu
 	str r0, [r4, #0xc]
 	ldr r0, [r0]
 	bl LoadRoomEntityList
@@ -3037,7 +3037,7 @@ sub_08053E74: @ 0x08053E74
 	pop {r4, pc}
 	.align 2, 0
 _08053EB0: .4byte gUnk_080FCFB8
-_08053EB4: .4byte gUnk_02000080
+_08053EB4: .4byte gMenu
 _08053EB8: .4byte gScreen
 _08053EBC: .4byte 0x0000FEFF
 _08053EC0: .4byte gUnk_02000070
@@ -3045,11 +3045,11 @@ _08053EC0: .4byte gUnk_02000070
 	thumb_func_start sub_08053EC4
 sub_08053EC4: @ 0x08053EC4
 	push {r4, lr}
-	ldr r0, _08053EF4 @ =gUnk_03000FD0
+	ldr r0, _08053EF4 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08053EF0
-	ldr r4, _08053EF8 @ =gUnk_02000080
+	ldr r4, _08053EF8 @ =gMenu
 	ldrh r0, [r4, #0xa]
 	subs r0, #1
 	strh r0, [r4, #0xa]
@@ -3068,13 +3068,13 @@ sub_08053EC4: @ 0x08053EC4
 _08053EF0:
 	pop {r4, pc}
 	.align 2, 0
-_08053EF4: .4byte gUnk_03000FD0
-_08053EF8: .4byte gUnk_02000080
+_08053EF4: .4byte gFadeControl
+_08053EF8: .4byte gMenu
 
 	thumb_func_start sub_08053EFC
 sub_08053EFC: @ 0x08053EFC
 	push {lr}
-	ldr r1, _08053F1C @ =gUnk_02000080
+	ldr r1, _08053F1C @ =gMenu
 	ldrh r0, [r1, #8]
 	subs r0, #1
 	strh r0, [r1, #8]
@@ -3089,17 +3089,17 @@ sub_08053EFC: @ 0x08053EFC
 _08053F18:
 	pop {pc}
 	.align 2, 0
-_08053F1C: .4byte gUnk_02000080
+_08053F1C: .4byte gMenu
 
 	thumb_func_start sub_08053F20
 sub_08053F20: @ 0x08053F20
 	push {r4, r5, lr}
-	ldr r0, _08053F78 @ =gUnk_03000FD0
+	ldr r0, _08053F78 @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08053F74
-	bl sub_0805E89C
-	ldr r5, _08053F7C @ =gUnk_02000080
+	bl DeleteAllEntities
+	ldr r5, _08053F7C @ =gMenu
 	ldr r4, [r5, #0xc]
 	ldrb r0, [r4, #8]
 	ldrb r1, [r4, #9]
@@ -3133,19 +3133,19 @@ sub_08053F20: @ 0x08053F20
 _08053F74:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08053F78: .4byte gUnk_03000FD0
-_08053F7C: .4byte gUnk_02000080
+_08053F78: .4byte gFadeControl
+_08053F7C: .4byte gMenu
 _08053F80: .4byte gUnk_02000070
 _08053F84: .4byte gRoomControls
 
 	thumb_func_start sub_08053F88
 sub_08053F88: @ 0x08053F88
 	push {lr}
-	ldr r0, _08053FAC @ =gUnk_03000FD0
+	ldr r0, _08053FAC @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08053FAA
-	ldr r1, _08053FB0 @ =gUnk_02000080
+	ldr r1, _08053FB0 @ =gMenu
 	ldrh r0, [r1, #8]
 	subs r0, #1
 	strh r0, [r1, #8]
@@ -3159,14 +3159,14 @@ sub_08053F88: @ 0x08053F88
 _08053FAA:
 	pop {pc}
 	.align 2, 0
-_08053FAC: .4byte gUnk_03000FD0
-_08053FB0: .4byte gUnk_02000080
+_08053FAC: .4byte gFadeControl
+_08053FB0: .4byte gMenu
 
 	thumb_func_start sub_08053FB4
 sub_08053FB4: @ 0x08053FB4
 	push {lr}
 	ldr r1, _08053FC8 @ =gUnk_080FD138
-	ldr r0, _08053FCC @ =gUnk_02000080
+	ldr r0, _08053FCC @ =gMenu
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -3175,7 +3175,7 @@ sub_08053FB4: @ 0x08053FB4
 	pop {pc}
 	.align 2, 0
 _08053FC8: .4byte gUnk_080FD138
-_08053FCC: .4byte gUnk_02000080
+_08053FCC: .4byte gMenu
 
 	thumb_func_start GetSaleItemConfirmMessageID
 GetSaleItemConfirmMessageID: @ 0x08053FD0

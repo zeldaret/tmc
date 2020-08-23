@@ -403,7 +403,7 @@ sub_08020220: @ 0x08020220
 	movs r1, #4
 	subs r1, r1, r0
 	adds r0, r5, #0
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	b _08020292
 _0802024C:
 	movs r0, #3
@@ -415,7 +415,7 @@ _0802024C:
 	ldr r0, _0802027C @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r4, r0, #0
 	bl Random
 	ldr r2, _08020280 @ =gUnk_080CA5D4
@@ -437,7 +437,7 @@ _08020284:
 _0802028A:
 	adds r0, r5, #0
 	movs r1, #4
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 _08020292:
 	pop {r4, r5, pc}
 
@@ -469,7 +469,7 @@ _080202B4:
 	adds r0, #4
 	strh r0, [r4, #0x24]
 _080202C8:
-	ldr r0, _080202F0 @ =gUnk_030010A0
+	ldr r0, _080202F0 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -478,7 +478,7 @@ _080202C8:
 	ldr r0, _080202F4 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -487,7 +487,7 @@ _080202E6:
 	bl sub_080AEFE0
 	b _080202FE
 	.align 2, 0
-_080202F0: .4byte gUnk_030010A0
+_080202F0: .4byte gScreenTransition
 _080202F4: .4byte gUnk_020000B0
 _080202F8:
 	adds r0, r4, #0
@@ -495,7 +495,7 @@ _080202F8:
 _080202FE:
 	adds r0, r4, #0
 	movs r1, #4
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 	pop {r4, pc}
 
 	thumb_func_start sub_08020308
@@ -533,7 +533,7 @@ _08020340:
 	bl sub_080AEFE0
 	adds r0, r4, #0
 	movs r1, #4
-	bl InitializeAnimationAnimation
+	bl UpdateAnimationVariableFrames
 _0802034E:
 	pop {r4, pc}
 

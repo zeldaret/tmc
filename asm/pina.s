@@ -109,7 +109,7 @@ _08063B0C:
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r1, r0, #0
 	adds r1, #4
 	adds r0, r4, #0
@@ -192,9 +192,9 @@ _08063B9E:
 	adds r1, r4, #0
 	adds r1, #0x69
 	strb r0, [r1]
-	ldr r1, _08063BDC @ =gLinkEntity
+	ldr r1, _08063BDC @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r1, #4
@@ -204,7 +204,7 @@ _08063B9E:
 	bl sub_0806F118
 	b _08063C10
 	.align 2, 0
-_08063BDC: .4byte gLinkEntity
+_08063BDC: .4byte gPlayerEntity
 _08063BE0:
 	adds r0, r4, #0
 	movs r1, #0
@@ -235,7 +235,7 @@ sub_08063C14: @ 0x08063C14
 	push {lr}
 	movs r0, #7
 	movs r1, #0x14
-	bl sub_0805EB9C
+	bl FindEntityBySubtype
 	cmp r0, #0
 	beq _08063C28
 	movs r1, #8
@@ -249,7 +249,7 @@ sub_08063C2C: @ 0x08063C2C
 	push {lr}
 	movs r0, #7
 	movs r1, #0x14
-	bl sub_0805EB9C
+	bl FindEntityBySubtype
 	cmp r0, #0
 	beq _08063C40
 	movs r1, #4
@@ -263,7 +263,7 @@ sub_08063C44: @ 0x08063C44
 	push {lr}
 	movs r0, #7
 	movs r1, #0x14
-	bl sub_0805EB9C
+	bl FindEntityBySubtype
 	cmp r0, #0
 	beq _08063C58
 	movs r1, #0
@@ -277,7 +277,7 @@ sub_08063C5C: @ 0x08063C5C
 	push {lr}
 	movs r0, #7
 	movs r1, #0x14
-	bl sub_0805EB9C
+	bl FindEntityBySubtype
 	cmp r0, #0
 	beq _08063C70
 	movs r1, #9
@@ -291,7 +291,7 @@ sub_08063C74: @ 0x08063C74
 	push {lr}
 	movs r0, #7
 	movs r1, #0x14
-	bl sub_0805EB9C
+	bl FindEntityBySubtype
 	cmp r0, #0
 	beq _08063C8C
 	movs r2, #0x18

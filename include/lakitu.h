@@ -3,7 +3,7 @@
 
 // Lakitu
 extern void EnemyFunctionHandler(Entity *, void (*const funcs[])(Entity*));
-extern void SetChildOffset(Entity *, u32, u32, u32);
+extern void SetChildOffset(Entity *, s32, s32, s32);
 
 // sub_0803C784
 extern void sub_0804A9FC(Entity *, u32);
@@ -26,10 +26,10 @@ extern u32 sub_080041A0(Entity *, Entity *, u32, u32);
 
 // sub_0803CAD0
 extern u8 sub_080045D4(s16, s16, u16, u16);
-extern void sub_080AEFE0(Entity *);
+extern u32 sub_080AEFE0(Entity *);
 
 // Lakitu_SpawnLightning
-extern void PositionRelative(Entity *, Entity *, u32, u32);
+void PositionRelative(Entity*, Entity*, s32, s32);
 extern void sub_08004488(u32);
 
 // sub_0803CC08

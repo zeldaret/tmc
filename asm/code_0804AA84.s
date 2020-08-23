@@ -4,127 +4,6 @@
 	.syntax unified
 
 	.text
-	
-		thumb_func_start sub_0804AA84
-sub_0804AA84: @ 0x0804AA84
-	push {lr}
-	ldr r3, _0804AA98 @ =gArea
-	ldrb r0, [r3, #0x19]
-	cmp r0, #0
-	bne _0804AA9C
-	strb r0, [r3, #0x18]
-	strb r0, [r3, #0x19]
-	movs r0, #0
-	b _0804AAB0
-	.align 2, 0
-_0804AA98: .4byte gArea
-_0804AA9C:
-	ldr r2, _0804AAB4 @ =gUnk_03001000
-	movs r1, #0
-	movs r0, #4
-	strb r0, [r2, #4]
-	strb r1, [r3, #0xe]
-	strb r1, [r3, #0xf]
-	strh r1, [r3, #0x10]
-	bl sub_0805E5A8
-	movs r0, #1
-_0804AAB0:
-	pop {pc}
-	.align 2, 0
-_0804AAB4: .4byte gUnk_03001000
-
-	thumb_func_start sub_0804AAB8
-sub_0804AAB8: @ 0x0804AAB8
-	push {lr}
-	ldr r1, _0804AACC @ =gUnk_080D4120
-	ldr r0, _0804AAD0 @ =gArea
-	ldrb r0, [r0, #0xe]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r0, [r0]
-	bl _call_via_r0
-	pop {pc}
-	.align 2, 0
-_0804AACC: .4byte gUnk_080D4120
-_0804AAD0: .4byte gArea
-
-	thumb_func_start sub_0804AAD4
-sub_0804AAD4: @ 0x0804AAD4
-	push {r4, lr}
-	ldr r4, _0804AAFC @ =gUnk_02018EB0
-	adds r0, r4, #0
-	movs r1, #0x28
-	bl sub_0801D630
-	movs r0, #0
-	str r0, [r4, #0x14]
-	bl sub_0805E60C
-	ldr r4, _0804AB00 @ =gArea
-	ldrb r1, [r4, #0x17]
-	movs r0, #0x3d
-	movs r2, #0
-	bl CreateObject
-	ldrb r0, [r4, #0xe]
-	adds r0, #1
-	strb r0, [r4, #0xe]
-	pop {r4, pc}
-	.align 2, 0
-_0804AAFC: .4byte gUnk_02018EB0
-_0804AB00: .4byte gArea
-
-	thumb_func_start sub_0804AB04
-sub_0804AB04: @ 0x0804AB04
-	push {lr}
-	bl sub_0805E5C0
-	ldr r0, _0804AB20 @ =gArea
-	ldrh r0, [r0, #0x10]
-	cmp r0, #0
-	beq _0804AB1E
-	bl sub_080AD90C
-	bl sub_080AD9B0
-	bl sub_080AD918
-_0804AB1E:
-	pop {pc}
-	.align 2, 0
-_0804AB20: .4byte gArea
-
-	thumb_func_start sub_0804AB24
-sub_0804AB24: @ 0x0804AB24
-	push {r4, r5, lr}
-	ldr r5, _0804AB48 @ =gUnk_03000FD0
-	ldrb r1, [r5]
-	cmp r1, #0
-	bne _0804AB46
-	ldr r0, _0804AB4C @ =gScreen
-	movs r4, #0
-	strh r1, [r0]
-	bl sub_0801E104
-	ldr r0, _0804AB50 @ =gArea
-	strb r4, [r0, #0xe]
-	movs r0, #6
-	movs r1, #0
-	bl sub_080A7138
-	strb r4, [r5]
-_0804AB46:
-	pop {r4, r5, pc}
-	.align 2, 0
-_0804AB48: .4byte gUnk_03000FD0
-_0804AB4C: .4byte gScreen
-_0804AB50: .4byte gArea
-
-	thumb_func_start sub_0804AB54
-sub_0804AB54: @ 0x0804AB54
-	push {lr}
-	ldr r1, _0804AB68 @ =gUnk_080D412C
-	ldr r0, _0804AB6C @ =gArea
-	ldrb r0, [r0, #0xe]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r0, [r0]
-	bl _call_via_r0
-	pop {pc}
-	.align 2, 0
-_0804AB68: .4byte gUnk_080D412C
-_0804AB6C: .4byte gArea
 
 	thumb_func_start sub_0804AB70
 sub_0804AB70: @ 0x0804AB70
@@ -158,22 +37,22 @@ _0804ABA4:
 	ldr r0, _0804AC0C @ =gUnk_080D4138
 	adds r4, r4, r0
 	ldrb r0, [r4]
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	ldrb r0, [r4, #1]
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r0, _0804AC10 @ =gUnk_02017700
 	movs r2, #0x90
 	lsls r2, r2, #2
 	adds r1, r0, r2
 	movs r2, #0x20
 	bl sub_0801D66C
-	ldr r2, _0804AC14 @ =gUnk_0200B644
+	ldr r2, _0804AC14 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80
 	lsls r1, r1, #0xe
 	orrs r0, r1
 	str r0, [r2]
-	bl sub_0805E60C
+	bl EraseAllEntities
 	ldr r1, _0804AC18 @ =gUnk_080D4110
 	lsls r0, r5, #2
 	adds r0, r0, r1
@@ -196,7 +75,7 @@ _0804AC04: .4byte gArea
 _0804AC08: .4byte gUnk_02032EC0
 _0804AC0C: .4byte gUnk_080D4138
 _0804AC10: .4byte gUnk_02017700
-_0804AC14: .4byte gUnk_0200B644
+_0804AC14: .4byte gUsedPalettes
 _0804AC18: .4byte gUnk_080D4110
 
 	thumb_func_start sub_0804AC1C
@@ -289,7 +168,7 @@ _0804ACC6:
 	thumb_func_start sub_0804ACC8
 sub_0804ACC8: @ 0x0804ACC8
 	push {lr}
-	ldr r0, _0804ACEC @ =gUnk_03000FD0
+	ldr r0, _0804ACEC @ =gFadeControl
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0804ACE8
@@ -304,7 +183,7 @@ sub_0804ACC8: @ 0x0804ACC8
 _0804ACE8:
 	pop {pc}
 	.align 2, 0
-_0804ACEC: .4byte gUnk_03000FD0
+_0804ACEC: .4byte gFadeControl
 _0804ACF0: .4byte gArea
 _0804ACF4: .4byte gUnk_02032EDC
 
@@ -369,7 +248,7 @@ sub_0804AD6C: @ 0x0804AD6C
 	push {r4, r5, r6, lr}
 	mov r6, r8
 	push {r6}
-	ldr r3, _0804ADD0 @ =gUnk_030010A0
+	ldr r3, _0804ADD0 @ =gScreenTransition
 	movs r1, #0
 	movs r6, #1
 	strb r6, [r3, #8]
@@ -414,6 +293,6 @@ sub_0804AD6C: @ 0x0804AD6C
 	mov r8, r3
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0804ADD0: .4byte gUnk_030010A0
+_0804ADD0: .4byte gScreenTransition
 _0804ADD4: .4byte gArea
 _0804ADD8: .4byte gUnk_080D4140

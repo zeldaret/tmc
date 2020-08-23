@@ -11,7 +11,7 @@
 GyorgChild: @ 0x08048640
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r0, _0804867C @ =gUnk_030010A0
+	ldr r0, _0804867C @ =gScreenTransition
 	adds r0, #0x39
 	ldrb r2, [r0]
 	cmp r2, #0
@@ -38,7 +38,7 @@ _08048664:
 	bl _call_via_r1
 	pop {r4, r5, pc}
 	.align 2, 0
-_0804867C: .4byte gUnk_030010A0
+_0804867C: .4byte gScreenTransition
 _08048680: .4byte gUnk_080D1E6C
 
 	thumb_func_start sub_08048684
@@ -315,7 +315,7 @@ sub_0804882C: @ 0x0804882C
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r4, #0
 	adds r0, #0x7a
 	ldrb r0, [r0]
@@ -339,7 +339,7 @@ _080488AA:
 	cmp r0, #2
 	bne _080488D0
 _080488AE:
-	ldr r1, _080488C8 @ =gLinkEntity
+	ldr r1, _080488C8 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r0, #0x74
 	ldrh r0, [r0]
@@ -353,7 +353,7 @@ _080488AE:
 	ldrh r1, [r1, #0xc]
 	b _080488E8
 	.align 2, 0
-_080488C8: .4byte gLinkEntity
+_080488C8: .4byte gPlayerEntity
 _080488CC: .4byte gRoomControls
 _080488D0:
 	ldr r1, _080488FC @ =gRoomControls
@@ -363,7 +363,7 @@ _080488D0:
 	ldrh r1, [r1, #0xa]
 	adds r0, r0, r1
 	strh r0, [r4, #0x2e]
-	ldr r1, _08048900 @ =gLinkEntity
+	ldr r1, _08048900 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r0, #0x76
 	ldrh r0, [r0]
@@ -381,7 +381,7 @@ _080488FA:
 	pop {r4, pc}
 	.align 2, 0
 _080488FC: .4byte gRoomControls
-_08048900: .4byte gLinkEntity
+_08048900: .4byte gPlayerEntity
 
 	thumb_func_start sub_08048904
 sub_08048904: @ 0x08048904

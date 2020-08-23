@@ -71,9 +71,9 @@ _08064B00:
 	orrs r0, r1
 	strb r0, [r4, #0xc]
 	strb r3, [r2]
-	ldr r1, _08064B30 @ =gLinkEntity
+	ldr r1, _08064B30 @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
@@ -82,7 +82,7 @@ _08064B00:
 	bl sub_0806F118
 	b _08064B42
 	.align 2, 0
-_08064B30: .4byte gLinkEntity
+_08064B30: .4byte gPlayerEntity
 _08064B34:
 	adds r0, r4, #0
 	movs r1, #0
@@ -166,7 +166,7 @@ _08064BCE:
 	movs r0, #3
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r1, r0, #0
 	cmp r1, #0
 	bge _08064BE0
@@ -187,7 +187,7 @@ _08064BFA:
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r1, r0, #0
 	cmp r1, #0
 	bge _08064C0C
@@ -275,7 +275,7 @@ sub_08064C9C: @ 0x08064C9C
 	ldrb r0, [r2, #0xe]
 	cmp r0, #0
 	beq _08064CB8
-	ldr r0, _08064CBC @ =gUnk_030010A0
+	ldr r0, _08064CBC @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -286,7 +286,7 @@ sub_08064C9C: @ 0x08064C9C
 _08064CB8:
 	pop {pc}
 	.align 2, 0
-_08064CBC: .4byte gUnk_030010A0
+_08064CBC: .4byte gScreenTransition
 
 	thumb_func_start sub_08064CC0
 sub_08064CC0: @ 0x08064CC0

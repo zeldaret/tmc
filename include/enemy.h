@@ -4,8 +4,6 @@
 #include "global.h"
 #include "entity.h"
 
-extern u32 GetNextFunction(Entity*);
-
 extern void Octorok(Entity*);
 extern void Chuchu(Entity*);
 extern void Leever(Entity*);
@@ -109,4 +107,7 @@ extern void GyorgFemaleMouth(Entity*);
 extern void Enemy64(Entity*);
 extern void TreeItem(Entity*);
 extern void Enemy66(Entity*);
+
+extern u32 GetNextFunction(Entity*);
+extern void EnemyFunctionHandler(Entity*, void (*const func[])(Entity*));
 #endif

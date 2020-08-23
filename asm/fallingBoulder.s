@@ -166,7 +166,7 @@ sub_0802C334: @ 0x0802C334
 	bne _0802C36A
 	ldr r0, _0802C3C4 @ =gRoomControls
 	ldrh r1, [r0, #8]
-	ldr r2, _0802C3C8 @ =gLinkEntity
+	ldr r2, _0802C3C8 @ =gPlayerEntity
 	cmp r2, #0
 	bne _0802C34E
 	b _0802C4AA
@@ -230,7 +230,7 @@ _0802C36A:
 	b _0802C48C
 	.align 2, 0
 _0802C3C4: .4byte gRoomControls
-_0802C3C8: .4byte gLinkEntity
+_0802C3C8: .4byte gPlayerEntity
 _0802C3CC:
 	adds r0, r4, #0
 	adds r0, #0x7a
@@ -340,7 +340,7 @@ _0802C48C:
 	orrs r0, r1
 	strb r0, [r2]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _0802C4AA:
 	pop {r4, r5, r6, r7, pc}
 

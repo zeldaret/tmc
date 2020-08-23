@@ -27,7 +27,7 @@ sub_0806EC38: @ 0x0806EC38
 	movs r0, #7
 	movs r1, #0x58
 	movs r2, #7
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	beq _0806EC4C
 	bl DeleteEntity
@@ -163,7 +163,7 @@ _0806ECD0:
 	strb r1, [r0]
 	strb r1, [r4, #0x1e]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 _0806ED4A:
 	pop {r4, r5, pc}
 	.align 2, 0

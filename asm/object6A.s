@@ -59,7 +59,7 @@ sub_08094A90: @ 0x08094A90
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	ldr r1, _08094AE4 @ =gUnk_08114F30
 	ldrb r2, [r4, #0x19]
 	lsrs r0, r2, #6
@@ -199,7 +199,7 @@ sub_08094B94: @ 0x08094B94
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08094BD2
-	ldr r0, _08094BD4 @ =gLinkEntity
+	ldr r0, _08094BD4 @ =gPlayerEntity
 	adds r1, r4, #0
 	bl CopyPosition
 	ldr r0, _08094BD8 @ =0x0000FFD0
@@ -221,7 +221,7 @@ sub_08094B94: @ 0x08094B94
 _08094BD2:
 	pop {r4, pc}
 	.align 2, 0
-_08094BD4: .4byte gLinkEntity
+_08094BD4: .4byte gPlayerEntity
 _08094BD8: .4byte 0x0000FFD0
 _08094BDC: .4byte gUnk_0800AEDC
 
@@ -235,11 +235,11 @@ sub_08094BE0: @ 0x08094BE0
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #0x22
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08094C22
-	ldr r0, _08094C28 @ =gLinkEntity
+	ldr r0, _08094C28 @ =gPlayerEntity
 	adds r1, r4, #0
 	bl CopyPosition
 	ldr r0, _08094C2C @ =0x0000FFF4
@@ -252,7 +252,7 @@ sub_08094BE0: @ 0x08094BE0
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r4, #0
 	movs r1, #1
 	bl InitAnimationForceUpdate
@@ -260,7 +260,7 @@ _08094C22:
 	add sp, #4
 	pop {r4, pc}
 	.align 2, 0
-_08094C28: .4byte gLinkEntity
+_08094C28: .4byte gPlayerEntity
 _08094C2C: .4byte 0x0000FFF4
 
 	thumb_func_start sub_08094C30
@@ -390,7 +390,7 @@ sub_08094D10: @ 0x08094D10
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #3
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08094D2E
@@ -442,7 +442,7 @@ sub_08094D70: @ 0x08094D70
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #0x15
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08094D8E
@@ -527,7 +527,7 @@ sub_08094E0C: @ 0x08094E0C
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #4
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08094E2A
@@ -545,7 +545,7 @@ sub_08094E30: @ 0x08094E30
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	bne _08094E88
-	ldr r0, _08094E80 @ =gUnk_030010A0
+	ldr r0, _08094E80 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #0x1f
 	ands r0, r1
@@ -577,7 +577,7 @@ _08094E5A:
 	strh r1, [r5, #0x32]
 	b _08094F94
 	.align 2, 0
-_08094E80: .4byte gUnk_030010A0
+_08094E80: .4byte gScreenTransition
 _08094E84: .4byte gRoomControls
 _08094E88:
 	cmp r0, #1
@@ -773,7 +773,7 @@ _08094FF0:
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
 	bl sub_080788E0
-	ldr r0, _08095020 @ =gLinkState
+	ldr r0, _08095020 @ =gPlayerState
 	movs r1, #0xc
 	strb r1, [r0, #0xc]
 	adds r0, #0x38
@@ -783,7 +783,7 @@ _08094FF0:
 	bl sub_08078A90
 	b _08095086
 	.align 2, 0
-_08095020: .4byte gLinkState
+_08095020: .4byte gPlayerState
 _08095024:
 	movs r0, #0x36
 	bl GetInventoryValue
@@ -799,7 +799,7 @@ _08095024:
 	strb r0, [r4, #0x18]
 	b _08095086
 _08095040:
-	ldr r0, _0809506C @ =gLinkEntity
+	ldr r0, _0809506C @ =gPlayerEntity
 	ldrb r0, [r0, #0xc]
 	cmp r0, #0xc
 	beq _08095086
@@ -819,7 +819,7 @@ _08095040:
 	strb r0, [r4, #0xe]
 	b _08095086
 	.align 2, 0
-_0809506C: .4byte gLinkEntity
+_0809506C: .4byte gPlayerEntity
 _08095070:
 	ldrb r0, [r4, #0xe]
 	subs r0, #1
@@ -951,7 +951,7 @@ sub_08095164: @ 0x08095164
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #8
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	cmp r0, #0
 	beq _08095182
 	movs r1, #3
@@ -1209,7 +1209,7 @@ sub_08095364: @ 0x08095364
 	movs r4, #1
 	strb r4, [r0]
 	adds r0, r6, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	str r5, [r6, #0x54]
 	strb r4, [r6, #0xd]
 	ldr r0, _080953A0 @ =0x0000FFF0
@@ -1654,7 +1654,7 @@ _080956E2:
 	adds r0, r5, #0
 	bl GetNextFrame
 	ldrb r0, [r5, #0xb]
-	ldr r1, _08095724 @ =gUnk_030010A0
+	ldr r1, _08095724 @ =gScreenTransition
 	ldr r1, [r1]
 	adds r0, r0, r1
 	movs r1, #0xf
@@ -1682,7 +1682,7 @@ _080956FE:
 	bl DeleteThisEntity
 	b _0809572C
 	.align 2, 0
-_08095724: .4byte gUnk_030010A0
+_08095724: .4byte gScreenTransition
 _08095728:
 	bl DeleteThisEntity
 _0809572C:
@@ -1868,7 +1868,7 @@ _08095880:
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r5, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	ldr r1, _080958D4 @ =gUnk_08114F30
 	ldrb r2, [r5, #0x19]
 	lsrs r0, r2, #6
@@ -2103,7 +2103,7 @@ sub_08095A68: @ 0x08095A68
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #0x16
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08095A86
@@ -2225,7 +2225,7 @@ sub_08095B48: @ 0x08095B48
 	movs r0, #2
 	strb r0, [r1]
 	adds r0, r5, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	ldr r1, _08095BA8 @ =gUnk_08114F30
 	ldrb r2, [r5, #0x19]
 	lsrs r0, r2, #6
@@ -2269,7 +2269,7 @@ _08095BAC:
 	strb r0, [r5, #0x18]
 	ldrh r0, [r2, #0x12]
 	ldrb r1, [r2, #0x1e]
-	bl sub_080700C8
+	bl GetSpriteSubEntryOffsetDataPointer
 	ldrb r1, [r0]
 	adds r2, r5, #0
 	adds r2, #0x62
@@ -2503,7 +2503,7 @@ sub_08095D54: @ 0x08095D54
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08095D86
-	ldr r0, _08095D88 @ =gLinkEntity
+	ldr r0, _08095D88 @ =gPlayerEntity
 	adds r1, r4, #0
 	bl CopyPosition
 	adds r1, r4, #0
@@ -2519,7 +2519,7 @@ sub_08095D54: @ 0x08095D54
 _08095D86:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08095D88: .4byte gLinkEntity
+_08095D88: .4byte gPlayerEntity
 
 	thumb_func_start sub_08095D8C
 sub_08095D8C: @ 0x08095D8C
@@ -2771,7 +2771,7 @@ _08095F68:
 _08095F6A:
 	adds r0, r4, #0
 	bl sub_0801D2B4
-	ldr r0, _08095F90 @ =gLinkEntity
+	ldr r0, _08095F90 @ =gPlayerEntity
 	adds r0, #0x5a
 	ldrb r1, [r0]
 	movs r0, #1
@@ -2787,7 +2787,7 @@ _08095F6A:
 	movs r0, #0xb5
 	b _08095FA6
 	.align 2, 0
-_08095F90: .4byte gLinkEntity
+_08095F90: .4byte gPlayerEntity
 _08095F94: .4byte 0x000008BF
 _08095F98:
 	adds r1, r4, #0
@@ -2799,7 +2799,7 @@ _08095F98:
 	movs r0, #0xd6
 _08095FA6:
 	strb r0, [r4, #0xf]
-	ldr r0, _08096024 @ =gLinkEntity
+	ldr r0, _08096024 @ =gPlayerEntity
 	adds r1, r4, #0
 	bl CopyPosition
 	adds r2, r4, #0
@@ -2812,7 +2812,7 @@ _08095FA6:
 	orrs r0, r1
 	strb r0, [r2]
 _08095FC2:
-	ldr r5, _08096024 @ =gLinkEntity
+	ldr r5, _08096024 @ =gPlayerEntity
 	adds r2, r5, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -2844,7 +2844,7 @@ _08095FE0:
 _08095FFC:
 	bl DeleteThisEntity
 _08096000:
-	ldr r0, _08096024 @ =gLinkEntity
+	ldr r0, _08096024 @ =gPlayerEntity
 	ldrb r0, [r0, #0x1e]
 	ldrb r1, [r4, #0xe]
 	subs r0, r0, r1
@@ -2862,7 +2862,7 @@ _0809601E:
 	pop {r4, r5, pc}
 	.align 2, 0
 _08096020: .4byte 0x000008E3
-_08096024: .4byte gLinkEntity
+_08096024: .4byte gPlayerEntity
 
 	thumb_func_start sub_08096028
 sub_08096028: @ 0x08096028

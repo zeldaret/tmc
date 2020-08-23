@@ -52,16 +52,16 @@ _080647C2:
 	ldrb r1, [r0]
 	adds r0, #0x10
 	strb r1, [r0]
-	ldr r1, _080647FC @ =gLinkEntity
+	ldr r1, _080647FC @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl InitAnimationForceUpdate
 	b _08064824
 	.align 2, 0
-_080647FC: .4byte gLinkEntity
+_080647FC: .4byte gPlayerEntity
 _08064800:
 	adds r0, r4, #0
 	movs r1, #0

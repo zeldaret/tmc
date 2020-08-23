@@ -38,7 +38,7 @@ sub_0808DEE8: @ 0x0808DEE8
 	rsbs r0, r0, #0
 	ands r0, r1
 	strb r0, [r2]
-	ldr r3, _0808DF74 @ =gLinkEntity
+	ldr r3, _0808DF74 @ =gPlayerEntity
 	ldrb r1, [r3, #0x1b]
 	lsrs r1, r1, #6
 	lsls r1, r1, #6
@@ -92,7 +92,7 @@ sub_0808DEE8: @ 0x0808DEE8
 	strb r0, [r5, #0xe]
 	b _0808DFAA
 	.align 2, 0
-_0808DF74: .4byte gLinkEntity
+_0808DF74: .4byte gPlayerEntity
 _0808DF78:
 	ldrb r1, [r5, #0x18]
 	movs r0, #4
@@ -101,7 +101,7 @@ _0808DF78:
 	movs r1, #1
 	orrs r0, r1
 	strb r0, [r5, #0x18]
-	ldr r0, _0808DF9C @ =gLinkState
+	ldr r0, _0808DF9C @ =gPlayerState
 	adds r0, #0xac
 	ldrh r1, [r0]
 	movs r0, #0x80
@@ -112,7 +112,7 @@ _0808DF78:
 	movs r0, #0x28
 	b _0808DFA2
 	.align 2, 0
-_0808DF9C: .4byte gLinkState
+_0808DF9C: .4byte gPlayerState
 _0808DFA0:
 	movs r0, #0x50
 _0808DFA2:
@@ -129,7 +129,7 @@ sub_0808DFAC: @ 0x0808DFAC
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	beq _0808E00E
-	ldr r1, _0808DFF0 @ =gLinkState
+	ldr r1, _0808DFF0 @ =gPlayerState
 	adds r0, r1, #0
 	adds r0, #0x21
 	ldrb r0, [r0]
@@ -143,7 +143,7 @@ sub_0808DFAC: @ 0x0808DFAC
 _0808DFCC:
 	bl DeleteThisEntity
 _0808DFD0:
-	ldr r0, _0808DFF0 @ =gLinkState
+	ldr r0, _0808DFF0 @ =gPlayerState
 	adds r2, r0, #0
 	adds r2, #0x21
 	ldrb r0, [r2]
@@ -160,7 +160,7 @@ _0808DFD0:
 	ldr r7, _0808DFF4 @ =gUnk_081217D8
 	b _0808E038
 	.align 2, 0
-_0808DFF0: .4byte gLinkState
+_0808DFF0: .4byte gPlayerState
 _0808DFF4: .4byte gUnk_081217D8
 _0808DFF8:
 	cmp r0, #0
@@ -175,7 +175,7 @@ _0808E008:
 	bl DeleteThisEntity
 	b _0808E038
 _0808E00E:
-	ldr r5, _0808E02C @ =gLinkState
+	ldr r5, _0808E02C @ =gPlayerState
 	ldrb r0, [r5, #4]
 	cmp r0, #0
 	bne _0808E01A
@@ -190,7 +190,7 @@ _0808E01A:
 	ldr r7, _0808E030 @ =gUnk_081217D0
 	b _0808E038
 	.align 2, 0
-_0808E02C: .4byte gLinkState
+_0808E02C: .4byte gPlayerState
 _0808E030: .4byte gUnk_081217D0
 _0808E034:
 	bl DeleteThisEntity
@@ -210,7 +210,7 @@ _0808E03E:
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	bne _0808E068
-	ldr r0, _0808E080 @ =gLinkState
+	ldr r0, _0808E080 @ =gPlayerState
 	adds r0, #0xac
 	ldrh r1, [r0]
 	movs r0, #0x80
@@ -233,14 +233,14 @@ _0808E068:
 	strh r0, [r5]
 	b _0808E0E4
 	.align 2, 0
-_0808E080: .4byte gLinkState
+_0808E080: .4byte gPlayerState
 _0808E084:
 	adds r5, r4, #0
 	adds r5, #0x72
 	ldrh r0, [r5]
 	cmp r0, #0
 	beq _0808E0BC
-	ldr r0, _0808E0B8 @ =gUnk_030010A0
+	ldr r0, _0808E0B8 @ =gScreenTransition
 	ldr r1, [r0]
 	movs r0, #0x1f
 	ands r1, r0
@@ -260,7 +260,7 @@ _0808E084:
 	strb r1, [r0]
 	b _0808E0E4
 	.align 2, 0
-_0808E0B8: .4byte gUnk_030010A0
+_0808E0B8: .4byte gScreenTransition
 _0808E0BC:
 	ldr r0, _0808E140 @ =0x00000115
 	bl sub_08004488
@@ -282,7 +282,7 @@ _0808E0DA:
 	adds r5, r4, #0
 	adds r5, #0x6c
 _0808E0E4:
-	ldr r2, _0808E144 @ =gLinkEntity
+	ldr r2, _0808E144 @ =gPlayerEntity
 	ldrb r1, [r2, #0x19]
 	lsrs r1, r1, #6
 	lsls r1, r1, #6
@@ -331,7 +331,7 @@ _0808E136:
 	b _0808E162
 	.align 2, 0
 _0808E140: .4byte 0x00000115
-_0808E144: .4byte gLinkEntity
+_0808E144: .4byte gPlayerEntity
 _0808E148:
 	ldrh r0, [r5]
 	ldrh r1, [r4, #0x2e]
@@ -368,7 +368,7 @@ _0808E17A:
 	ldrb r0, [r4, #0xb]
 	cmp r0, #0
 	bne _0808E1BA
-	ldr r0, _0808E1AC @ =gLinkState
+	ldr r0, _0808E1AC @ =gPlayerState
 	ldrb r1, [r0, #0x1b]
 	movs r0, #0x40
 	ands r0, r1
@@ -387,7 +387,7 @@ _0808E17A:
 	strb r0, [r4, #0xc]
 	b _0808E1BA
 	.align 2, 0
-_0808E1AC: .4byte gLinkState
+_0808E1AC: .4byte gPlayerState
 _0808E1B0:
 	bl DeleteThisEntity
 	b _0808E1BA
@@ -412,7 +412,7 @@ sub_0808E1BC: @ 0x0808E1BC
 	movs r1, #1
 	orrs r0, r1
 	strb r0, [r4, #0x18]
-	ldr r0, _0808E204 @ =gLinkEntity
+	ldr r0, _0808E204 @ =gPlayerEntity
 	ldrb r0, [r0, #0x14]
 	strb r0, [r4, #0x14]
 	adds r0, r4, #0
@@ -433,7 +433,7 @@ sub_0808E1BC: @ 0x0808E1BC
 	bl InitializeAnimation
 	pop {r4, pc}
 	.align 2, 0
-_0808E204: .4byte gLinkEntity
+_0808E204: .4byte gPlayerEntity
 
 	thumb_func_start sub_0808E208
 sub_0808E208: @ 0x0808E208
@@ -442,11 +442,11 @@ sub_0808E208: @ 0x0808E208
 	bl sub_08079BD8
 	adds r0, r4, #0
 	bl GetNextFrame
-	ldr r0, _0808E240 @ =gLinkState
+	ldr r0, _0808E240 @ =gPlayerState
 	ldrb r0, [r0, #0x1b]
 	cmp r0, #0
 	beq _0808E248
-	ldr r0, _0808E244 @ =gUnk_030010A0
+	ldr r0, _0808E244 @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #3
 	ands r0, r1
@@ -463,8 +463,8 @@ sub_0808E208: @ 0x0808E208
 	strb r0, [r4, #0x1a]
 	b _0808E24C
 	.align 2, 0
-_0808E240: .4byte gLinkState
-_0808E244: .4byte gUnk_030010A0
+_0808E240: .4byte gPlayerState
+_0808E244: .4byte gScreenTransition
 _0808E248:
 	bl DeleteThisEntity
 _0808E24C:

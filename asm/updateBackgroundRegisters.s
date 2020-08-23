@@ -5,8 +5,8 @@
 
 	.text
 	
-	thumb_func_start sub_08016CF4
-sub_08016CF4: @ 0x08016CF4
+	thumb_func_start UpdateBackgroundRegisters
+UpdateBackgroundRegisters: @ 0x08016CF4
 	ldr r3, _08016DF0 @ =gScreen
 	ldrh r1, [r3]
 	ldrh r0, [r3, #6]

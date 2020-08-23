@@ -58,7 +58,13 @@ while (my $line = <$file>)
             }
             elsif ($dir eq 'data')
             {
-                $data += $size;
+                if ($basename =~ /(strings)/)
+                {
+                    $srcdata += $size;
+                }
+                else {
+                    $data += $size;
+                }
             }
         }
     }

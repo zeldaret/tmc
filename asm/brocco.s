@@ -109,7 +109,7 @@ _080635D0:
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
-	bl sub_0806EDC4
+	bl GetAnimationState
 	adds r1, r0, #0
 	adds r1, #4
 	adds r0, r4, #0
@@ -192,9 +192,9 @@ _08063662:
 	adds r1, r4, #0
 	adds r1, #0x69
 	strb r0, [r1]
-	ldr r1, _080636A0 @ =gLinkEntity
+	ldr r1, _080636A0 @ =gPlayerEntity
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	bl sub_0806F5A4
 	adds r1, r0, #0
 	adds r1, #4
@@ -204,7 +204,7 @@ _08063662:
 	bl sub_0806F118
 	b _080636D4
 	.align 2, 0
-_080636A0: .4byte gLinkEntity
+_080636A0: .4byte gPlayerEntity
 _080636A4:
 	adds r0, r4, #0
 	movs r1, #0

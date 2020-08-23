@@ -252,7 +252,7 @@ sub_0805E544: @ 0x0805E544
 	movs r3, #6
 	movs r0, #6
 	strb r0, [r1]
-	ldr r2, _0805E560 @ =gLinkEntity
+	ldr r2, _0805E560 @ =gPlayerEntity
 	ldrb r1, [r2, #0x11]
 	subs r0, #0x16
 	ands r0, r1
@@ -261,14 +261,14 @@ sub_0805E544: @ 0x0805E544
 	bx lr
 	.align 2, 0
 _0805E55C: .4byte gUnk_03003DC0
-_0805E560: .4byte gLinkEntity
+_0805E560: .4byte gPlayerEntity
 
 	thumb_func_start UnfreezeTime
 UnfreezeTime: @ 0x0805E564
 	ldr r1, _0805E57C @ =gUnk_03003DC0
 	movs r0, #0
 	strb r0, [r1]
-	ldr r2, _0805E580 @ =gLinkEntity
+	ldr r2, _0805E580 @ =gPlayerEntity
 	ldrb r1, [r2, #0x11]
 	subs r0, #0x10
 	ands r0, r1
@@ -278,7 +278,7 @@ UnfreezeTime: @ 0x0805E564
 	bx lr
 	.align 2, 0
 _0805E57C: .4byte gUnk_03003DC0
-_0805E580: .4byte gLinkEntity
+_0805E580: .4byte gPlayerEntity
 
 	thumb_func_start sub_0805E584
 sub_0805E584: @ 0x0805E584
@@ -336,7 +336,7 @@ sub_0805E5C0: @ 0x0805E5C0
 	ldr r1, _0805E5F4 @ =gUnk_03005F40
 	movs r0, #0
 	bl _call_via_r1
-	bl sub_0805E84C
+	bl ClearAllDeletedEntities
 	bl sub_0805EE88
 	pop {pc}
 	.align 2, 0
@@ -349,31 +349,31 @@ sub_0805E5F8: @ 0x0805E5F8
 	ldr r1, _0805E608 @ =gUnk_03005F40
 	movs r0, #1
 	bl _call_via_r1
-	bl sub_0805E84C
+	bl ClearAllDeletedEntities
 	pop {pc}
 	.align 2, 0
 _0805E608: .4byte gUnk_03005F40
 
-	thumb_func_start sub_0805E60C
-sub_0805E60C: @ 0x0805E60C
+	thumb_func_start EraseAllEntities
+EraseAllEntities: @ 0x0805E60C
 	push {lr}
-	bl sub_0805E89C
+	bl DeleteAllEntities
 	ldr r0, _0805E654 @ =gUnk_03003DC0
 	movs r1, #0xc
-	bl sub_0801D630
-	ldr r0, _0805E658 @ =gLinkEntity
+	bl _DmaZero
+	ldr r0, _0805E658 @ =gPlayerEntity
 	movs r1, #0xaa
 	lsls r1, r1, #6
-	bl sub_0801D630
+	bl _DmaZero
 	ldr r0, _0805E65C @ =gUnk_02033290
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl sub_0801D630
+	bl _DmaZero
 	bl sub_0805E98C
-	ldr r0, _0805E660 @ =gUnk_03003DBC
+	ldr r0, _0805E660 @ =gEntCount
 	movs r1, #0
 	strb r1, [r0]
-	ldr r0, _0805E664 @ =gUnk_020354B4
+	ldr r0, _0805E664 @ =gManagerCount
 	strb r1, [r0]
 	ldr r1, _0805E668 @ =gUnk_03000000
 	ldr r2, _0805E66C @ =0x00000427
@@ -389,10 +389,10 @@ sub_0805E60C: @ 0x0805E60C
 	pop {pc}
 	.align 2, 0
 _0805E654: .4byte gUnk_03003DC0
-_0805E658: .4byte gLinkEntity
+_0805E658: .4byte gPlayerEntity
 _0805E65C: .4byte gUnk_02033290
-_0805E660: .4byte gUnk_03003DBC
-_0805E664: .4byte gUnk_020354B4
+_0805E660: .4byte gEntCount
+_0805E664: .4byte gManagerCount
 _0805E668: .4byte gUnk_03000000
 _0805E66C: .4byte 0x00000427
 _0805E670: .4byte 0x00000426

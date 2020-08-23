@@ -68,7 +68,7 @@ _08001230:
 	beq _0800123E
 	strb r1, [r0, #0xe]
 	movs r1, #4
-	ldr r3, _0800135C @ =InitializeAnimationAnimation
+	ldr r3, _0800135C @ =UpdateAnimationVariableFrames
 	bx r3
 _0800123E:
 	ldr r3, _08001360 @ =sub_080043B4
@@ -231,21 +231,21 @@ sub_0800132C: @ 0x0800132C
 	cmp r2, #0x11
 	blo _08001352
 _0800134E:
-	ldr r3, _08001378 @ =sub_080045C4
+	ldr r3, _08001378 @ =GetFacingDirection
 	bx r3
 _08001352:
 	movs r0, #0xff
 	bx lr
 	.align 2, 0
 _08001358: .4byte gEnemyFunctions
-_0800135C: .4byte InitializeAnimationAnimation
+_0800135C: .4byte UpdateAnimationVariableFrames
 _08001360: .4byte sub_080043B4
 _08001364: .4byte 0x00001800
 _08001368: .4byte gUnk_080012C8
 _0800136C: .4byte gUnk_080012C8
 _08001370: .4byte sub_080AF18C
 _08001374: .4byte sub_080AF1BC
-_08001378: .4byte sub_080045C4
+_08001378: .4byte GetFacingDirection
 
 gUnk_0800137C:: @ 0800137C
 	.incbin "baserom.gba", 0x00137C, 0x0000004
@@ -1404,7 +1404,7 @@ _0800293A:
 CheckPlayerInRegion: @ 0x0800293E
 	push {r4, r5, r6, r7, lr}
 	ldr r4, _080029AC @ =gRoomControls
-	ldr r7, _080029B0 @ =gLinkEntity
+	ldr r7, _080029B0 @ =gPlayerEntity
 	ldrh r6, [r4, #6]
 	ldrh r5, [r7, #0x2e]
 	subs r5, r5, r6
@@ -1444,4 +1444,4 @@ _080029A0: .4byte 0x0000E040
 _080029A4: .4byte 0x00000E20
 _080029A8: .4byte gRoomControls
 _080029AC: .4byte gRoomControls
-_080029B0: .4byte gLinkEntity
+_080029B0: .4byte gPlayerEntity

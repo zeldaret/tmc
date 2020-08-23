@@ -742,7 +742,7 @@ _0802556C:
 	bne _08025580
 	adds r0, r2, #0
 	adds r1, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 _08025580:
 	adds r0, r4, #0
@@ -809,7 +809,7 @@ _080255FA:
 	subs r4, #7
 	adds r0, r6, #0
 	adds r1, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r0, r0, r4
 	movs r1, #0x1f
 	ands r0, r1

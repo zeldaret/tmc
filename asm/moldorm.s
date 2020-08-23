@@ -127,7 +127,7 @@ sub_08022C58: @ 0x08022C58
 	movs r0, #0x7f
 	ands r0, r1
 	strb r0, [r7, #0x10]
-	ldr r0, _08022D3C @ =gUnk_03003DBC
+	ldr r0, _08022D3C @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x44
 	bhi _08022D34
@@ -226,7 +226,7 @@ _08022D34:
 	mov sb, r4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08022D3C: .4byte gUnk_03003DBC
+_08022D3C: .4byte gEntCount
 
 	thumb_func_start sub_08022D40
 sub_08022D40: @ 0x08022D40

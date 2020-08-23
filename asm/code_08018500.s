@@ -58,7 +58,7 @@ sub_0801855C: @ 0x0801855C
 	ldr r4, _08018570 @ =gUnk_02033AB8
 	adds r0, r4, #0
 	movs r1, #0x14
-	bl sub_0801D630
+	bl _DmaZero
 	adds r5, r4, #0
 	ldr r4, _08018574 @ =gUnk_080B3D20
 	movs r6, #0
@@ -163,11 +163,11 @@ _08018628: .4byte gUnk_080B3D20
 	thumb_func_start sub_0801862C
 sub_0801862C: @ 0x0801862C
 	push {r4, r5, lr}
-	ldr r1, _0801864C @ =gLinkState
+	ldr r1, _0801864C @ =gPlayerState
 	movs r2, #0
 	movs r0, #0x16
 	strb r0, [r1, #0xc]
-	ldr r5, _08018650 @ =gUnk_030010A0
+	ldr r5, _08018650 @ =gScreenTransition
 	adds r0, r5, #0
 	adds r0, #0x35
 	strb r2, [r0]
@@ -179,8 +179,8 @@ sub_0801862C: @ 0x0801862C
 	strh r0, [r5, #0x36]
 	b _0801868C
 	.align 2, 0
-_0801864C: .4byte gLinkState
-_08018650: .4byte gUnk_030010A0
+_0801864C: .4byte gPlayerState
+_08018650: .4byte gScreenTransition
 _08018654: .4byte gUnk_02033AB8
 _08018658:
 	ldrb r0, [r4, #2]
@@ -475,7 +475,7 @@ _0801889A:
 	ldr r1, _080188AC @ =gUnk_080FECC8
 _080188A4:
 	adds r0, r0, r1
-	bl CreateEntity
+	bl LoadRoomEntity
 	b _080189E4
 	.align 2, 0
 _080188AC: .4byte gUnk_080FECC8
@@ -488,7 +488,7 @@ _080188B8:
 	lsls r0, r0, #4
 	ldr r1, _080188DC @ =gUnk_080FED18
 	adds r0, r0, r1
-	bl CreateEntity
+	bl LoadRoomEntity
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _080188CC
@@ -527,7 +527,7 @@ _080188FE:
 	lsls r0, r0, #4
 	ldr r1, _08018924 @ =gUnk_080FED58
 	adds r0, r0, r1
-	bl CreateEntity
+	bl LoadRoomEntity
 	ldr r2, _08018928 @ =gRoomVars
 	ldrb r0, [r5, #1]
 	lsls r0, r0, #2
@@ -549,7 +549,7 @@ _08018930:
 	lsls r0, r0, #4
 	ldr r1, _08018974 @ =gUnk_080FEE78
 	adds r0, r0, r1
-	bl CreateEntity
+	bl LoadRoomEntity
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08018958
@@ -612,13 +612,13 @@ _080189B4:
 	cmp r4, #0
 	beq _080189C4
 	ldr r0, _080189C0 @ =gUnk_080FEE58
-	bl CreateEntity
+	bl LoadRoomEntity
 	b _080189E4
 	.align 2, 0
 _080189C0: .4byte gUnk_080FEE58
 _080189C4:
 	ldr r0, _080189CC @ =gUnk_080FEE48
-	bl CreateEntity
+	bl LoadRoomEntity
 	b _080189E4
 	.align 2, 0
 _080189CC: .4byte gUnk_080FEE48
@@ -924,501 +924,3 @@ _08018C10:
 	.align 2, 0
 _08018C14: .4byte gUnk_080FEAC8
 _08018C18: .4byte gUnk_080FE320
-
-	thumb_func_start sub_08018C1C
-sub_08018C1C: @ 0x08018C1C
-	push {r4, r5, r6, r7, lr}
-	mov r7, r8
-	push {r7}
-	adds r5, r0, #0
-	ldr r6, _08018C54 @ =0x00000185
-	movs r0, #0
-_08018C28:
-	movs r4, #0
-	movs r1, #0x40
-	adds r1, r1, r5
-	mov r8, r1
-	adds r7, r0, #1
-_08018C32:
-	adds r0, r6, #0
-	adds r6, #1
-	adds r1, r5, r4
-	movs r2, #1
-	bl SetTileType
-	adds r4, #1
-	cmp r4, #4
-	bls _08018C32
-	mov r5, r8
-	adds r0, r7, #0
-	cmp r0, #3
-	bls _08018C28
-	pop {r3}
-	mov r8, r3
-	pop {r4, r5, r6, r7, pc}
-	.align 2, 0
-_08018C54: .4byte 0x00000185
-
-	thumb_func_start sub_08018C58
-sub_08018C58: @ 0x08018C58
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	movs r5, #0
-_08018C5E:
-	movs r1, #0x98
-	lsls r1, r1, #2
-	adds r0, r5, r1
-	adds r1, r4, #0
-	movs r2, #1
-	bl SetTileType
-	ldr r1, _08018C84 @ =0x00000261
-	adds r0, r5, r1
-	adds r1, r4, #1
-	movs r2, #1
-	bl SetTileType
-	adds r5, #2
-	adds r4, #0x40
-	cmp r5, #5
-	bls _08018C5E
-	pop {r4, r5, pc}
-	.align 2, 0
-_08018C84: .4byte 0x00000261
-
-	thumb_func_start sub_08018C88
-sub_08018C88: @ 0x08018C88
-	push {lr}
-	adds r2, r0, #0
-	adds r0, #0x45
-	ldrb r0, [r0]
-	cmp r0, #0
-	beq _08018CB4
-	adds r1, r2, #0
-	adds r1, #0x3d
-	movs r0, #0
-	strb r0, [r1]
-	ldr r1, _08018CB0 @ =gUnk_080B3DD0
-	ldrb r0, [r2, #0xc]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r1, [r0]
-	adds r0, r2, #0
-	bl _call_via_r1
-	b _08018CB8
-	.align 2, 0
-_08018CB0: .4byte gUnk_080B3DD0
-_08018CB4:
-	bl DeleteThisEntity
-_08018CB8:
-	pop {pc}
-	.align 2, 0
-
-	thumb_func_start sub_08018CBC
-sub_08018CBC: @ 0x08018CBC
-	push {r4, r5, r6, r7, lr}
-	adds r4, r0, #0
-	adds r1, r4, #0
-	adds r1, #0x84
-	ldr r5, _08018D50 @ =gLinkEntity
-	ldr r0, [r5, #0x2c]
-	str r0, [r4, #0x2c]
-	str r0, [r1]
-	subs r1, #4
-	ldr r0, [r5, #0x30]
-	str r0, [r4, #0x30]
-	str r0, [r1]
-	ldrb r1, [r5, #0x14]
-	movs r0, #0xe
-	ands r0, r1
-	strb r0, [r4, #0x14]
-	lsls r0, r0, #2
-	strb r0, [r4, #0x15]
-	movs r0, #0x80
-	lsls r0, r0, #3
-	strh r0, [r4, #0x24]
-	adds r1, r4, #0
-	adds r1, #0x3f
-	movs r0, #0x96
-	strb r0, [r1]
-	adds r0, r5, #0
-	adds r0, #0x3c
-	ldrb r0, [r0]
-	adds r0, #1
-	movs r2, #0x80
-	rsbs r2, r2, #0
-	adds r1, r2, #0
-	adds r2, r4, #0
-	adds r2, #0x3c
-	orrs r0, r1
-	strb r0, [r2]
-	adds r0, r5, #0
-	adds r0, #0x3b
-	ldrb r0, [r0]
-	adds r1, r4, #0
-	adds r1, #0x3b
-	strb r0, [r1]
-	ldr r6, [r4, #0x54]
-	cmp r6, #0
-	beq _08018D58
-	movs r0, #1
-	strb r0, [r4, #0xc]
-	ldrb r1, [r4, #0x10]
-	movs r0, #0x7f
-	ands r0, r1
-	strb r0, [r4, #0x10]
-	movs r0, #0x56
-	strb r0, [r4, #0xe]
-	adds r1, r4, #0
-	adds r1, #0x40
-	movs r0, #0x1c
-	strb r0, [r1]
-	adds r1, #4
-	movs r0, #6
-	strb r0, [r1]
-	ldr r0, _08018D54 @ =gUnk_080B3E18
-	str r0, [r4, #0x48]
-	ldr r0, [r4, #0x54]
-	adds r0, #0x62
-	movs r1, #0
-	strb r1, [r0]
-	ldr r2, [r4, #0x54]
-	ldrb r1, [r2, #0x18]
-	movs r0, #4
-	rsbs r0, r0, #0
-	ands r0, r1
-	strb r0, [r2, #0x18]
-	b _08018DD2
-	.align 2, 0
-_08018D50: .4byte gLinkEntity
-_08018D54: .4byte gUnk_080B3E18
-_08018D58:
-	ldr r7, _08018DDC @ =gLinkState
-	ldrb r0, [r7, #0x1c]
-	cmp r0, #0
-	bne _08018D64
-	bl DeleteThisEntity
-_08018D64:
-	movs r0, #2
-	strb r0, [r4, #0xc]
-	ldrb r1, [r4, #0x18]
-	subs r0, #6
-	ands r0, r1
-	movs r1, #1
-	orrs r0, r1
-	strb r0, [r4, #0x18]
-	movs r0, #0xa6
-	strh r0, [r4, #0x12]
-	movs r0, #0x33
-	strb r0, [r4, #0x1a]
-	adds r0, r4, #0
-	adds r0, #0x60
-	strh r6, [r0]
-	ldrb r0, [r7, #0x1d]
-	subs r0, #1
-	strb r0, [r4, #0xa]
-	ldr r1, _08018DE0 @ =gUnk_080B3DE0
-	ldrb r0, [r4, #0xa]
-	lsls r0, r0, #1
-	adds r0, r0, r1
-	ldrb r0, [r0]
-	strb r0, [r4, #0xe]
-	ldrb r0, [r4, #0xa]
-	lsls r0, r0, #1
-	adds r0, #1
-	adds r0, r0, r1
-	ldrb r1, [r0]
-	adds r0, r4, #0
-	adds r0, #0x44
-	strb r1, [r0]
-	adds r1, r4, #0
-	adds r1, #0x40
-	movs r0, #0x1b
-	strb r0, [r1]
-	ldr r1, _08018DE4 @ =gUnk_080B3DE8
-	ldrb r0, [r4, #0xa]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r0, [r0]
-	str r0, [r4, #0x48]
-	str r4, [r5, #0x70]
-	adds r0, r5, #0
-	bl sub_08078CD0
-	str r6, [r5, #0x70]
-	ldrb r1, [r4, #0xa]
-	adds r1, #0xa
-	adds r0, r4, #0
-	bl InitializeAnimation
-	adds r0, r4, #0
-	bl sub_08018FA0
-_08018DD2:
-	adds r0, r4, #0
-	bl sub_0801766C
-	pop {r4, r5, r6, r7, pc}
-	.align 2, 0
-_08018DDC: .4byte gLinkState
-_08018DE0: .4byte gUnk_080B3DE0
-_08018DE4: .4byte gUnk_080B3DE8
-
-	thumb_func_start sub_08018DE8
-sub_08018DE8: @ 0x08018DE8
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	ldr r0, [r4, #0x54]
-	adds r0, #0x3a
-	ldrb r1, [r0]
-	movs r5, #4
-	adds r0, r5, #0
-	ands r0, r1
-	lsls r0, r0, #0x18
-	lsrs r1, r0, #0x18
-	cmp r1, #0
-	bne _08018E08
-	ldr r0, _08018E18 @ =gLinkState
-	strb r1, [r0, #0x1c]
-	bl DeleteThisEntity
-_08018E08:
-	ldr r0, _08018E18 @ =gLinkState
-	ldrb r0, [r0, #0x1c]
-	cmp r0, #0
-	beq _08018E1C
-	cmp r0, #5
-	beq _08018E24
-	b _08018E5A
-	.align 2, 0
-_08018E18: .4byte gLinkState
-_08018E1C:
-	adds r0, r4, #0
-	bl sub_08018F6C
-	b _08018E5A
-_08018E24:
-	ldr r0, [r4, #0x54]
-	strb r5, [r0, #0xd]
-	ldrb r1, [r4, #0x10]
-	movs r0, #0x80
-	orrs r0, r1
-	strb r0, [r4, #0x10]
-	movs r2, #2
-	movs r0, #2
-	strb r0, [r4, #0xc]
-	adds r3, r4, #0
-	adds r3, #0x29
-	ldrb r1, [r3]
-	subs r0, #0xa
-	ands r0, r1
-	orrs r0, r2
-	strb r0, [r3]
-	ldr r2, [r4, #0x54]
-	ldrb r1, [r2, #0x18]
-	movs r0, #4
-	rsbs r0, r0, #0
-	ands r0, r1
-	movs r1, #1
-	orrs r0, r1
-	strb r0, [r2, #0x18]
-	adds r0, r4, #0
-	bl sub_08018FA0
-_08018E5A:
-	ldr r0, _08018E64 @ =gLinkEntity
-	bl sub_08078CD0
-	pop {r4, r5, pc}
-	.align 2, 0
-_08018E64: .4byte gLinkEntity
-
-	thumb_func_start sub_08018E68
-sub_08018E68: @ 0x08018E68
-	push {r4, r5, r6, lr}
-	adds r4, r0, #0
-	ldr r0, [r4, #0x54]
-	cmp r0, #0
-	bne _08018E82
-	adds r0, r4, #0
-	bl GetNextFrame
-	adds r0, r4, #0
-	movs r1, #5
-	bl sub_08008790
-	b _08018EA8
-_08018E82:
-	adds r0, #0x3a
-	ldrb r1, [r0]
-	movs r0, #4
-	ands r0, r1
-	cmp r0, #0
-	bne _08018E92
-	bl DeleteThisEntity
-_08018E92:
-	adds r0, r4, #0
-	adds r0, #0x41
-	ldrb r1, [r0]
-	movs r0, #0x80
-	ands r0, r1
-	cmp r0, #0
-	beq _08018EA8
-	adds r0, r4, #0
-	bl sub_08018F6C
-	b _08018F62
-_08018EA8:
-	ldrb r0, [r4, #0xe]
-	subs r0, #1
-	strb r0, [r4, #0xe]
-	lsls r0, r0, #0x18
-	lsrs r0, r0, #0x18
-	cmp r0, #0xff
-	beq _08018F46
-	adds r0, r4, #0
-	bl sub_0806F69C
-	ldrb r0, [r4, #0x15]
-	cmp r0, #8
-	beq _08018EEA
-	cmp r0, #8
-	bgt _08018ECC
-	cmp r0, #0
-	beq _08018ED6
-	b _08018EEE
-_08018ECC:
-	cmp r0, #0x10
-	beq _08018EDE
-	cmp r0, #0x18
-	beq _08018EE4
-	b _08018EEE
-_08018ED6:
-	movs r6, #0
-	movs r5, #4
-	rsbs r5, r5, #0
-	b _08018EEE
-_08018EDE:
-	movs r6, #0
-	movs r5, #4
-	b _08018EEE
-_08018EE4:
-	movs r6, #4
-	rsbs r6, r6, #0
-	b _08018EEC
-_08018EEA:
-	movs r6, #4
-_08018EEC:
-	movs r5, #0
-_08018EEE:
-	ldr r1, [r4, #0x54]
-	cmp r1, #0
-	beq _08018F00
-	ldrb r0, [r4, #0x15]
-	strb r0, [r1, #0x15]
-	ldr r1, [r4, #0x54]
-	adds r0, r4, #0
-	bl CopyPosition
-_08018F00:
-	ldrb r0, [r4, #0xb]
-	cmp r0, #0
-	bne _08018F0C
-	adds r0, r4, #0
-	bl sub_0800451C
-_08018F0C:
-	adds r0, r4, #0
-	adds r1, r6, #0
-	adds r2, r5, #0
-	bl sub_0800029C
-	ldr r1, _08018F64 @ =gUnk_080B3DF4
-	bl sub_08007DD6
-	cmp r0, #0
-	bne _08018F62
-	adds r0, r4, #0
-	adds r1, r6, #0
-	adds r2, r5, #0
-	bl sub_080002B4
-	cmp r0, #0x74
-	beq _08018F62
-	ldr r1, _08018F68 @ =gUnk_08003E44
-	movs r0, #0x2e
-	ldrsh r2, [r4, r0]
-	adds r2, r2, r6
-	movs r0, #0x32
-	ldrsh r3, [r4, r0]
-	adds r3, r3, r5
-	adds r0, r4, #0
-	bl sub_080040D8
-	cmp r0, #0
-	beq _08018F62
-_08018F46:
-	ldr r0, [r4, #0x54]
-	cmp r0, #0
-	bne _08018F56
-	ldrb r1, [r4, #0xa]
-	adds r1, #0xd
-	adds r0, r4, #0
-	bl InitializeAnimation
-_08018F56:
-	ldrb r0, [r4, #0xc]
-	adds r0, #1
-	strb r0, [r4, #0xc]
-	adds r0, r4, #0
-	bl sub_08018F6C
-_08018F62:
-	pop {r4, r5, r6, pc}
-	.align 2, 0
-_08018F64: .4byte gUnk_080B3DF4
-_08018F68: .4byte gUnk_08003E44
-
-	thumb_func_start sub_08018F6C
-sub_08018F6C: @ 0x08018F6C
-	push {r4, lr}
-	adds r4, r0, #0
-	ldr r1, [r4, #0x54]
-	cmp r1, #0
-	beq _08018F8A
-	movs r0, #5
-	strb r0, [r1, #0xd]
-	ldr r2, [r4, #0x54]
-	ldrb r1, [r2, #0x18]
-	subs r0, #9
-	ands r0, r1
-	movs r1, #1
-	orrs r0, r1
-	strb r0, [r2, #0x18]
-	b _08018F9A
-_08018F8A:
-	adds r0, r4, #0
-	bl GetNextFrame
-	adds r0, r4, #0
-	adds r0, #0x5a
-	ldrb r0, [r0]
-	cmp r0, #0
-	beq _08018F9E
-_08018F9A:
-	bl DeleteThisEntity
-_08018F9E:
-	pop {r4, pc}
-
-	thumb_func_start sub_08018FA0
-sub_08018FA0: @ 0x08018FA0
-	push {lr}
-	adds r2, r0, #0
-	ldr r0, _08018FC8 @ =gLinkEntity
-	adds r0, #0x38
-	ldrb r0, [r0]
-	adds r1, r2, #0
-	adds r1, #0x38
-	strb r0, [r1]
-	lsls r0, r0, #0x18
-	lsrs r0, r0, #0x18
-	cmp r0, #2
-	bne _08018FBC
-	movs r0, #1
-	strb r0, [r2, #0xb]
-_08018FBC:
-	ldrb r0, [r2, #0xa]
-	adds r0, #0xea
-	bl PlaySFX
-	pop {pc}
-	.align 2, 0
-_08018FC8: .4byte gLinkEntity
-
-	thumb_func_start sub_08018FCC
-sub_08018FCC: @ 0x08018FCC
-	push {lr}
-	ldr r2, _08018FE0 @ =gUnk_080B3E30
-	ldrb r1, [r0, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	bl _call_via_r1
-	pop {pc}
-	.align 2, 0
-_08018FE0: .4byte gUnk_080B3E30

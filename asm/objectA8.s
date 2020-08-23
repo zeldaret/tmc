@@ -138,7 +138,7 @@ sub_0809FB90: @ 0x0809FB90
 sub_0809FBA4: @ 0x0809FBA4
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _0809FBC8 @ =gLinkState
+	ldr r0, _0809FBC8 @ =gPlayerState
 	ldrb r1, [r0, #0x1c]
 	movs r0, #0xf
 	ands r0, r1
@@ -156,7 +156,7 @@ _0809FBC2:
 	strb r0, [r2, #0xc]
 	b _0809FBD2
 	.align 2, 0
-_0809FBC8: .4byte gLinkState
+_0809FBC8: .4byte gPlayerState
 _0809FBCC:
 	adds r0, r2, #0
 	bl sub_0806F4E8
@@ -167,7 +167,7 @@ _0809FBD2:
 sub_0809FBD4: @ 0x0809FBD4
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r0, _0809FBFC @ =gLinkState
+	ldr r0, _0809FBFC @ =gPlayerState
 	ldrb r1, [r0, #0x1c]
 	movs r0, #0xf
 	ands r0, r1
@@ -186,7 +186,7 @@ _0809FBF4:
 	strb r0, [r4, #0xc]
 	b _0809FC22
 	.align 2, 0
-_0809FBFC: .4byte gLinkState
+_0809FBFC: .4byte gPlayerState
 _0809FC00:
 	adds r0, r4, #0
 	bl sub_0806F3E4
@@ -198,7 +198,7 @@ _0809FC00:
 	strb r0, [r4, #0x10]
 	movs r0, #5
 	strb r0, [r4, #0xc]
-	ldr r0, _0809FC24 @ =gLinkEntity
+	ldr r0, _0809FC24 @ =gPlayerEntity
 	str r0, [r4, #0x54]
 	ldrb r0, [r4, #0xa]
 	movs r1, #0
@@ -206,7 +206,7 @@ _0809FC00:
 _0809FC22:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0809FC24: .4byte gLinkEntity
+_0809FC24: .4byte gPlayerEntity
 
 	thumb_func_start sub_0809FC28
 sub_0809FC28: @ 0x0809FC28
@@ -283,7 +283,7 @@ _0809FCAC:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	bne _0809FCF8
-	ldr r0, _0809FCFC @ =gUnk_030010A0
+	ldr r0, _0809FCFC @ =gScreenTransition
 	ldr r0, [r0]
 	movs r1, #1
 	ands r0, r1
@@ -314,7 +314,7 @@ _0809FCE0:
 _0809FCF8:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0809FCFC: .4byte gUnk_030010A0
+_0809FCFC: .4byte gScreenTransition
 
 	thumb_func_start sub_0809FD00
 sub_0809FD00: @ 0x0809FD00
@@ -338,7 +338,7 @@ _0809FD1C:
 	ldrh r0, [r4, #0x36]
 	subs r0, #1
 	strh r0, [r4, #0x36]
-	ldr r1, _0809FD48 @ =gLinkEntity
+	ldr r1, _0809FD48 @ =gPlayerEntity
 	adds r0, r4, #0
 	bl sub_080177A0
 	cmp r0, #0
@@ -351,7 +351,7 @@ _0809FD1C:
 _0809FD44:
 	pop {r4, pc}
 	.align 2, 0
-_0809FD48: .4byte gLinkEntity
+_0809FD48: .4byte gPlayerEntity
 
 	thumb_func_start sub_0809FD4C
 sub_0809FD4C: @ 0x0809FD4C
@@ -562,7 +562,7 @@ _0809FECA:
 
 	thumb_func_start sub_0809FECC
 sub_0809FECC: @ 0x0809FECC
-	ldr r1, _0809FEDC @ =gLinkEntity
+	ldr r1, _0809FEDC @ =gPlayerEntity
 	str r1, [r0, #0x54]
 	movs r2, #0
 	movs r1, #5
@@ -570,4 +570,4 @@ sub_0809FECC: @ 0x0809FECC
 	strb r2, [r0, #0xd]
 	bx lr
 	.align 2, 0
-_0809FEDC: .4byte gLinkEntity
+_0809FEDC: .4byte gPlayerEntity

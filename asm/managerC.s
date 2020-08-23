@@ -70,7 +70,7 @@ sub_080588CC: @ 0x080588CC
 	bl sub_08058CFC
 	adds r0, r4, #0
 	bl sub_08058A04
-	ldr r0, _080588E8 @ =gUnk_030010A0
+	ldr r0, _080588E8 @ =gScreenTransition
 	ldrb r0, [r0, #8]
 	cmp r0, #0
 	beq _080588EC
@@ -78,7 +78,7 @@ sub_080588CC: @ 0x080588CC
 	strb r0, [r4, #0xc]
 	b _080588F2
 	.align 2, 0
-_080588E8: .4byte gUnk_030010A0
+_080588E8: .4byte gScreenTransition
 _080588EC:
 	adds r0, r4, #0
 	bl sub_080588F8
@@ -157,7 +157,7 @@ _08058968:
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
 	beq _080589DE
-	ldr r0, _080589A4 @ =gLinkEntity
+	ldr r0, _080589A4 @ =gPlayerEntity
 	movs r2, #0x32
 	ldrsh r1, [r0, r2]
 	ldr r0, _080589A8 @ =gRoomControls
@@ -186,7 +186,7 @@ _08058986:
 	subs r0, r0, r1
 	b _080589B4
 	.align 2, 0
-_080589A4: .4byte gLinkEntity
+_080589A4: .4byte gPlayerEntity
 _080589A8: .4byte gRoomControls
 _080589AC:
 	cmp r2, #0x57
@@ -246,7 +246,7 @@ sub_08058A04: @ 0x08058A04
 	mov r7, r8
 	push {r7}
 	adds r4, r0, #0
-	ldr r6, _08058A68 @ =gLinkEntity
+	ldr r6, _08058A68 @ =gPlayerEntity
 	movs r0, #0x2e
 	ldrsh r1, [r6, r0]
 	ldr r7, _08058A6C @ =gRoomControls
@@ -278,7 +278,7 @@ sub_08058A04: @ 0x08058A04
 	ldrsh r2, [r6, r0]
 	cmp r2, #0
 	bne _08058A78
-	ldr r0, _08058A74 @ =gLinkState
+	ldr r0, _08058A74 @ =gPlayerState
 	movs r1, #3
 	strb r1, [r0, #0xc]
 	adds r0, #0x38
@@ -291,10 +291,10 @@ sub_08058A04: @ 0x08058A04
 	strh r0, [r6, #0x32]
 	b _08058AFC
 	.align 2, 0
-_08058A68: .4byte gLinkEntity
+_08058A68: .4byte gPlayerEntity
 _08058A6C: .4byte gRoomControls
 _08058A70: .4byte 0xFFFFFEE8
-_08058A74: .4byte gLinkState
+_08058A74: .4byte gPlayerState
 _08058A78:
 	mov r1, r8
 	cmp r1, #0x77
@@ -380,7 +380,7 @@ _08058B1A:
 	lsrs r0, r0, #3
 	lsls r0, r0, #3
 	adds r4, r4, r0
-	ldr r3, _08058B54 @ =gLinkEntity
+	ldr r3, _08058B54 @ =gPlayerEntity
 	movs r0, #0x2e
 	ldrsh r2, [r3, r0]
 	ldr r1, _08058B58 @ =gRoomControls
@@ -407,13 +407,13 @@ _08058B4E:
 _08058B50:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08058B54: .4byte gLinkEntity
+_08058B54: .4byte gPlayerEntity
 _08058B58: .4byte gRoomControls
 
 	thumb_func_start sub_08058B5C
 sub_08058B5C: @ 0x08058B5C
 	push {r4, r5, lr}
-	ldr r3, _08058BB4 @ =gUnk_030010A0
+	ldr r3, _08058BB4 @ =gScreenTransition
 	movs r0, #0
 	movs r4, #1
 	strb r4, [r3, #8]
@@ -455,7 +455,7 @@ sub_08058B5C: @ 0x08058B5C
 	bl PlaySFX
 	pop {r4, r5, pc}
 	.align 2, 0
-_08058BB4: .4byte gUnk_030010A0
+_08058BB4: .4byte gScreenTransition
 _08058BB8: .4byte gRoomControls
 _08058BBC: .4byte gUnk_081082E8
 _08058BC0: .4byte gUnk_02002A40
@@ -578,7 +578,7 @@ _08058CAC: .4byte gScreen
 sub_08058CB0: @ 0x08058CB0
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r2, _08058CD8 @ =gLinkEntity
+	ldr r2, _08058CD8 @ =gPlayerEntity
 	movs r0, #0x2e
 	ldrsh r1, [r2, r0]
 	ldr r3, _08058CDC @ =gRoomControls
@@ -596,7 +596,7 @@ sub_08058CB0: @ 0x08058CB0
 	movs r1, #0
 	b _08058CE8
 	.align 2, 0
-_08058CD8: .4byte gLinkEntity
+_08058CD8: .4byte gPlayerEntity
 _08058CDC: .4byte gRoomControls
 _08058CE0:
 	movs r1, #3
@@ -617,7 +617,7 @@ _08058CF8: .4byte gUnk_08108300
 	thumb_func_start sub_08058CFC
 sub_08058CFC: @ 0x08058CFC
 	push {r4, r5, lr}
-	ldr r5, _08058D2C @ =gLinkEntity
+	ldr r5, _08058D2C @ =gPlayerEntity
 	movs r1, #0x32
 	ldrsh r0, [r5, r1]
 	ldr r1, _08058D30 @ =gRoomControls
@@ -640,28 +640,28 @@ _08058D1A:
 _08058D28:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08058D2C: .4byte gLinkEntity
+_08058D2C: .4byte gPlayerEntity
 _08058D30: .4byte gRoomControls
 
 	thumb_func_start sub_08058D34
 sub_08058D34: @ 0x08058D34
 	push {r4, lr}
 	movs r0, #0x28
-	bl LoadPalettesByPaletteGroupIndex
+	bl LoadPaletteGroup
 	ldr r0, _08058DAC @ =gUnk_02017700
 	movs r2, #0x90
 	lsls r2, r2, #2
 	adds r1, r0, r2
 	movs r2, #0x20
 	bl sub_0801D66C
-	ldr r2, _08058DB0 @ =gUnk_0200B644
+	ldr r2, _08058DB0 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80
 	lsls r1, r1, #0xe
 	orrs r0, r1
 	str r0, [r2]
 	movs r0, #0x16
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 	ldr r1, _08058DB4 @ =gScreen
 	ldrh r0, [r1]
 	movs r3, #0
@@ -697,12 +697,12 @@ sub_08058D34: @ 0x08058D34
 	cmp r0, #0
 	beq _08058DA8
 	movs r0, #0x4a
-	bl sub_0801D7EC
+	bl LoadGfxGroup
 _08058DA8:
 	pop {r4, pc}
 	.align 2, 0
 _08058DAC: .4byte gUnk_02017700
-_08058DB0: .4byte gUnk_0200B644
+_08058DB0: .4byte gUsedPalettes
 _08058DB4: .4byte gScreen
 _08058DB8: .4byte 0x0000BC82
 _08058DBC: .4byte 0x00005E86

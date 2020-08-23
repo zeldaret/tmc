@@ -47,16 +47,28 @@
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) >= (b) ? (a) : (b))
 
-struct Coords16
-{
-    s16 x;
-    s16 y;
-} PACKED;
+typedef union {
+    s32 WORD;
+    struct {
+        s16 x, y;
+    } HALF;
+} Coords;
 
-struct UCoords16
-{
-    u16 x;
-    u16 y;
+union SplitWord {
+    s32 WORD;
+    struct {
+        s16 LO, HI;
+    } HALF;
+    struct {
+        u8 byte0, byte1, byte2, byte3;
+    } BYTES;
 };
+
+union SplitHWord {
+    u16 HWORD;
+    struct {
+        u8 LO, HI;
+    } PACKED HALF;
+} PACKED;
 
 #endif // GUARD_GLOBAL_H

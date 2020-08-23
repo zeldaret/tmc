@@ -66,7 +66,7 @@ _0802CC9A:
 	adds r0, r4, #0
 	movs r1, #1
 	bl InitializeAnimation
-	ldr r2, _0802CCD4 @ =gLinkEntity
+	ldr r2, _0802CCD4 @ =gPlayerEntity
 	ldrb r1, [r2, #0x10]
 	adds r0, r5, #0
 	ands r0, r1
@@ -86,7 +86,7 @@ _0802CCCA:
 	bl sub_0804AA30
 	pop {r4, r5, pc}
 	.align 2, 0
-_0802CCD4: .4byte gLinkEntity
+_0802CCD4: .4byte gPlayerEntity
 _0802CCD8: .4byte gUnk_080CD6FC
 
 	thumb_func_start nullsub_151
@@ -135,7 +135,7 @@ sub_0802CCE0: @ 0x0802CCE0
 	adds r0, #0x7c
 	strh r5, [r0]
 	adds r0, r4, #0
-	bl UpdateSpriteOrderAndFlip
+	bl UpdateSpriteForCollisionLayer
 	adds r0, r4, #0
 	movs r1, #0
 	bl InitializeAnimation
@@ -248,7 +248,7 @@ sub_0802CDE8: @ 0x0802CDE8
 	ldr r0, _0802CE38 @ =gUnk_020000B0
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	adds r1, r0, #0
 	adds r0, r4, #0
 	bl sub_08004596
@@ -286,7 +286,7 @@ _0802CE58:
 sub_0802CE68: @ 0x0802CE68
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r2, _0802CED4 @ =gLinkState
+	ldr r2, _0802CED4 @ =gPlayerState
 	ldrb r1, [r2, #0xa]
 	movs r0, #0x80
 	orrs r1, r0
@@ -299,7 +299,7 @@ sub_0802CE68: @ 0x0802CE68
 	lsls r1, r1, #1
 	orrs r0, r1
 	str r0, [r2, #0x30]
-	ldr r5, _0802CED8 @ =gLinkEntity
+	ldr r5, _0802CED8 @ =gPlayerEntity
 	movs r0, #0x2e
 	ldrsh r1, [r5, r0]
 	movs r0, #0x32
@@ -311,7 +311,7 @@ sub_0802CE68: @ 0x0802CE68
 	bne _0802CEAC
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_080045C4
+	bl GetFacingDirection
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
 	bl sub_0806F69C
@@ -335,8 +335,8 @@ _0802CEAC:
 	strb r0, [r4, #0xe]
 	b _0802CEF0
 	.align 2, 0
-_0802CED4: .4byte gLinkState
-_0802CED8: .4byte gLinkEntity
+_0802CED4: .4byte gPlayerState
+_0802CED8: .4byte gPlayerEntity
 _0802CEDC:
 	movs r0, #1
 	ands r0, r1
@@ -394,7 +394,7 @@ _0802CF28:
 	orrs r1, r0
 	strb r1, [r4, #0x18]
 _0802CF4A:
-	ldr r1, _0802CF60 @ =gLinkState
+	ldr r1, _0802CF60 @ =gPlayerState
 	ldrb r0, [r1, #0xa]
 	movs r2, #0x80
 	orrs r0, r2
@@ -406,7 +406,7 @@ _0802CF5A:
 	pop {r4, pc}
 	.align 2, 0
 _0802CF5C: .4byte 0xFFFE0000
-_0802CF60: .4byte gLinkState
+_0802CF60: .4byte gPlayerState
 
 	thumb_func_start sub_0802CF64
 sub_0802CF64: @ 0x0802CF64

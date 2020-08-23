@@ -114,7 +114,7 @@ _0805AC1A:
 	ands r0, r1
 	cmp r0, #0
 	beq _0805ACA6
-	ldr r0, _0805AC5C @ =gUnk_03003DBC
+	ldr r0, _0805AC5C @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x46
 	bhi _0805ACA6
@@ -140,7 +140,7 @@ _0805AC48:
 	bl CreateNPC
 	b _0805AC6A
 	.align 2, 0
-_0805AC5C: .4byte gUnk_03003DBC
+_0805AC5C: .4byte gEntCount
 _0805AC60:
 	ldrb r0, [r4]
 	ldrb r1, [r4, #1]

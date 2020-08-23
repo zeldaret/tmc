@@ -41,7 +41,7 @@ sub_0808E448: @ 0x0808E448
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x10
-	bl sub_0805436C
+	bl IsItemEquipped
 	cmp r0, #1
 	bls _0808E45A
 	bl DeleteThisEntity
