@@ -85,7 +85,7 @@ sub_0804525C: @ 0x0804525C
 	beq _08045298
 	adds r0, r4, #0
 	adds r1, r3, #0
-	bl sub_08058800
+	bl ReplaceMonitoredEntity
 _08045298:
 	adds r0, r4, #0
 	bl sub_0804A7D4

@@ -1161,7 +1161,7 @@ sub_0804A4E4: @ 0x0804A4E4
 	beq _0804A550
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_08058800
+	bl ReplaceMonitoredEntity
 _0804A550:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
