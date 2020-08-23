@@ -430,7 +430,8 @@ SECTIONS {
 		asm/treeItem.o(.text);
 		asm/enemy66.o(.text);
 		/* END enemies */
-		asm/code_08049CD4.o(.text);
+		src/code_08049CD4.o(.text);
+		asm/code_08049D30.o(.text);
 		asm/sub_0804AA30.o(.text);
 		src/createEnemy.o(.text);
 		src/sub_0804AA84.o(.text);

@@ -6,58 +6,6 @@
 
 	.text
 
-
-	thumb_func_start sub_08049CD4
-sub_08049CD4: @ 0x08049CD4
-	push {r4, lr}
-	movs r0, #1
-	rsbs r0, r0, #0
-	ldr r4, _08049CEC @ =gUnk_02024050
-	adds r1, r4, #0
-	movs r2, #0x40
-	bl _DmaFill32
-	ldr r0, _08049CF0 @ =gUnk_020354B0
-	str r4, [r0]
-	pop {r4, pc}
-	.align 2, 0
-_08049CEC: .4byte gUnk_02024050
-_08049CF0: .4byte gUnk_020354B0
-
-	thumb_func_start sub_08049CF4
-sub_08049CF4: @ 0x08049CF4
-	push {lr}
-	adds r0, #0x6c
-	ldrb r3, [r0]
-	movs r0, #0x80
-	ands r0, r3
-	cmp r0, #0
-	beq _08049D14
-	ldr r0, _08049D18 @ =gUnk_020354B0
-	ldr r2, [r0]
-	movs r0, #0x1f
-	ands r3, r0
-	movs r1, #1
-	lsls r1, r3
-	ldr r0, [r2, #4]
-	orrs r0, r1
-	str r0, [r2, #4]
-_08049D14:
-	pop {pc}
-	.align 2, 0
-_08049D18: .4byte gUnk_020354B0
-
-	thumb_func_start sub_08049D1C
-sub_08049D1C: @ 0x08049D1C
-	ldr r1, _08049D2C @ =gUnk_020354B0
-	ldr r1, [r1]
-	ldr r1, [r1, #4]
-	lsrs r1, r0
-	movs r0, #1
-	bics r0, r1
-	bx lr
-	.align 2, 0
-_08049D2C: .4byte gUnk_020354B0
-
 	thumb_func_start sub_08049D30
 sub_08049D30: @ 0x08049D30
 	push {r4, r5, r6, lr}
