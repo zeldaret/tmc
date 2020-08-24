@@ -917,6 +917,8 @@ SECTIONS {
 		data/data_080D5360.o(.rodata);
 		src/mainLoop.o(.rodata);
 		data/data_08100CD4.o(.rodata);
+		src/manager/managerB.o(.rodata);
+		data/data_0810821C.o(.rodata);
 		src/item.o(.rodata);
 		data/data_0811BD44.o(.rodata);
 		src/object/greatFairy.o(.rodata);
