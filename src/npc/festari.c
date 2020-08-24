@@ -10,7 +10,6 @@ extern void sub_0807DD50(Entity*);
 extern void sub_0806F118(Entity*);
 extern void ExecuteScriptCommandSet(Entity*, void *);
 extern void sub_0805FF2C(Entity*, void*);
-extern void sub_0806ED78(Entity*);
 
 extern void (*const gUnk_08109BBC[])(Entity*);
 

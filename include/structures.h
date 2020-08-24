@@ -23,7 +23,7 @@ typedef struct {
 } struct_0807D1C4;
 
 #define gUnk_02000000 ((struct_02000000*)(0x2000000))
-//extern struct_02000000 gUnk_02000000;
+// extern struct_02000000 gUnk_02000000;
 
 typedef struct {
     u8 filler0[0x4];
@@ -57,7 +57,7 @@ typedef struct {
 extern SaveFile gUnk_02002A40;
 
 typedef struct {
-    u32 frameCount;    // regular frame count? does anything reset it?
+    u32 frameCount; // regular frame count? does anything reset it?
     u8 field_0x4[0x4];
     bool8 transitioningOut;
     u8 transitionType; // transition when changing areas
@@ -123,7 +123,7 @@ typedef struct {
     u8 field_0x2;
     u8 field_0x3;
     u32 field_0x4;
-    u16 fadeType; // fade in or out, are there others?
+    u16 fadeType;  // fade in or out, are there others?
     u16 fadeSpeed; // subtracted from duration
     u16 fadeDuration;
     u16 field_0xe;
@@ -159,5 +159,19 @@ typedef struct {
     u8 unk_02[0xE];
 } struct_02034480;
 extern struct_02034480 gUnk_02034480;
+
+typedef struct {
+    u32 flag : 12;
+    u32 flagType : 4;
+    u32 type : 4;
+    u32 unk : 1;
+    union {
+        struct {
+            u16 a;
+            u16 b;
+        } indices;
+        void (*func)(Entity*);
+    } data;
+} Dialog;
 
 #endif

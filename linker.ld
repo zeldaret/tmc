@@ -601,7 +601,6 @@ SECTIONS {
 		src/npc/rem.o(.text);
 		asm/rem.o(.text);
 		src/npc/townMinish.o(.text);
-		asm/townMinish.o(.text);
 		src/npc/librari.o(.text);
 		src/npc/percy.o(.text);
 		asm/percy.o(.text);

@@ -4,7 +4,6 @@
 #include "textbox.h"
 #include "functions.h"
 
-extern void sub_0806ED78(Entity*);
 extern void sub_08068780(Entity*);
 extern void sub_08078778(Entity*);
 extern u32 Random(void);

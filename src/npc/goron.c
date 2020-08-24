@@ -3,9 +3,10 @@
 #include "functions.h"
 #include "textbox.h"
 
+extern u8 gUnk_02033280[];
 extern void (*gUnk_08111A80[])(Entity*);
 extern void (*gUnk_08111A8C[])(Entity*);
-extern u8 gUnk_02033280[];
+extern Dialog gUnk_08111A94[];
 
 void Goron(Entity* this) {
     if (this->flags & 2) {
@@ -72,7 +73,7 @@ void sub_080693D0(Entity* this) {
         }
         if (this->frames.all == 2) {
             this->frames.all = 0;
-            sub_08069428(this, 0x80<<12, createFx65);
+            sub_08069428(this, 0x80 << 12, createFx65);
         }
     }
 }
@@ -110,16 +111,16 @@ void sub_080694B0(Entity* this) {
     }
 }
 
-extern u64 gUnk_08111A94[]; //array of unknown 64 bit structure type
 void sub_080694D8(Entity* this) {
-    ShowNPCDialogue(this, (u32*)&gUnk_08111A94[this->entityType.form]);
+    ShowNPCDialogue(this, &gUnk_08111A94[this->entityType.form]);
 }
 
 void sub_080694EC(Entity* this) {
     u32 anim;
     this->animationState = 4;
     anim = 2;
-    if (!CheckKinstoneFused(47)) anim = 8;
+    if (!CheckKinstoneFused(47))
+        anim = 8;
     InitAnimationForceUpdate(this, anim);
     this->field_0x80.HWORD = anim;
 }
