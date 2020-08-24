@@ -56,9 +56,9 @@ SECTIONS {
         . = 0x0000B654; gUnk_0200B654 = .;
         . = 0x0000D654; gUnk_0200D654 = .;
         . = 0x0000E654; gUnk_0200E654 = .;
-        . = 0x00010654; gUnk_02010654 = .;
+        . = 0x00010654; gMetatileTypesTop = .;
         . = 0x00011654; gUnk_02011654 = .;
-        . = 0x00012654; gUnk_02012654 = .;
+        . = 0x00012654; gMetatilesTop = .;
         . = 0x00016654; gUnk_02016654 = .;
         . = 0x00017654; gUnk_02017654 = .;
         . = 0x00017660; gUnk_02017660 = .;
@@ -101,9 +101,9 @@ SECTIONS {
         . = 0x00025EB4; gUnk_02025EB4 = .;
         . = 0x00027EB4; gUnk_02027EB4 = .;
         . = 0x00028EB4; gUnk_02028EB4 = .;
-        . = 0x0002AEB4; gUnk_0202AEB4 = .;
+        . = 0x0002AEB4; gMetatileTypesBottom = .;
         . = 0x0002BEB4; gUnk_0202BEB4 = .;
-        . = 0x0002CEB4; gUnk_0202CEB4 = .;
+        . = 0x0002CEB4; gMetatilesBottom = .;
         . = 0x00030EB4; gUnk_02030EB4 = .;
         . = 0x00031EC0; gUnk_02031EC0 = .;
         . = 0x00032EC0; gUnk_02032EC0 = .;
@@ -921,6 +921,8 @@ SECTIONS {
 		data/data_0810821C.o(.rodata);
 		src/item.o(.rodata);
 		data/data_0811BD44.o(.rodata);
+        data/room_headers.o(.rodata);
+        data/data_0811E454.o(.rodata);
 		src/object/greatFairy.o(.rodata);
 		data/greatFairyAnimations.o(.rodata);
 		data/data_081208A0.o(.rodata);

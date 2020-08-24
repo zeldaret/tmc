@@ -742,7 +742,7 @@ _08052CA0: .4byte gPlayerEntity
 	thumb_func_start sub_08052CA4
 sub_08052CA4: @ 0x08052CA4
 	push {r4, lr}
-	ldr r4, _08052CC8 @ =gUnk_0811E214
+	ldr r4, _08052CC8 @ =gAreaRoomHeaders
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	lsls r4, r1, #2
@@ -759,13 +759,13 @@ sub_08052CA4: @ 0x08052CA4
 	strh r0, [r4, #0x22]
 	pop {r4, pc}
 	.align 2, 0
-_08052CC8: .4byte gUnk_0811E214
+_08052CC8: .4byte gAreaRoomHeaders
 _08052CCC: .4byte gScreenTransition
 
 	thumb_func_start sub_08052CD0
 sub_08052CD0: @ 0x08052CD0
 	push {r4, lr}
-	ldr r4, _08052CF4 @ =gUnk_0811E214
+	ldr r4, _08052CF4 @ =gAreaRoomHeaders
 	lsls r0, r0, #2
 	adds r0, r0, r4
 	lsls r4, r1, #2
@@ -782,7 +782,7 @@ sub_08052CD0: @ 0x08052CD0
 	strh r0, [r4, #0x1e]
 	pop {r4, pc}
 	.align 2, 0
-_08052CF4: .4byte gUnk_0811E214
+_08052CF4: .4byte gAreaRoomHeaders
 _08052CF8: .4byte gScreenTransition
 
 	thumb_func_start sub_08052CFC
@@ -871,7 +871,7 @@ _08052DA4: .4byte 0x0000088C
 	thumb_func_start sub_08052DA8
 sub_08052DA8: @ 0x08052DA8
 	push {r4, r5, r6, r7, lr}
-	ldr r1, _08052DF8 @ =gUnk_0811E214
+	ldr r1, _08052DF8 @ =gAreaRoomHeaders
 	ldr r0, _08052DFC @ =gRoomControls
 	ldrb r0, [r0, #4]
 	lsls r0, r0, #2
@@ -911,7 +911,7 @@ _08052DE8:
 	str r0, [r1]
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08052DF8: .4byte gUnk_0811E214
+_08052DF8: .4byte gAreaRoomHeaders
 _08052DFC: .4byte gRoomControls
 _08052E00: .4byte gUnk_02033ACC
 _08052E04: .4byte 0x0000FFFF
@@ -930,7 +930,7 @@ sub_08052E10: @ 0x08052E10
 	strh r0, [r5]
 	ldrh r0, [r1, #6]
 	strh r0, [r5, #2]
-	ldr r4, _08052E74 @ =gUnk_0810246C
+	ldr r4, _08052E74 @ =gAreaTilesets
 	lsls r2, r2, #2
 	adds r4, r2, r4
 	ldrh r0, [r1, #8]
@@ -946,7 +946,7 @@ sub_08052E10: @ 0x08052E10
 	adds r0, r3, r0
 	ldr r0, [r0]
 	str r0, [r5, #0xc]
-	ldr r0, _08052E7C @ =gUnk_0810309C
+	ldr r0, _08052E7C @ =gAreaMetatiles
 	adds r0, r2, r0
 	ldr r0, [r0]
 	str r0, [r5, #0x10]
@@ -971,9 +971,9 @@ sub_08052E10: @ 0x08052E10
 _08052E70:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08052E74: .4byte gUnk_0810246C
+_08052E74: .4byte gAreaTilesets
 _08052E78: .4byte gUnk_08107988
-_08052E7C: .4byte gUnk_0810309C
+_08052E7C: .4byte gAreaMetatiles
 _08052E80: .4byte gUnk_080B755C
 _08052E84: .4byte gUnk_0813A7F0
 _08052E88: .4byte gUnk_080D50FC
@@ -1180,7 +1180,7 @@ sub_08052FF4: @ 0x08052FF4
 	movs r1, #0x20
 	bl _DmaZero
 	str r5, [r5, #0x20]
-	ldr r0, _08053078 @ =gUnk_0811E214
+	ldr r0, _08053078 @ =gAreaRoomHeaders
 	lsls r6, r6, #2
 	adds r0, r6, r0
 	lsls r2, r4, #2
@@ -1196,7 +1196,7 @@ sub_08052FF4: @ 0x08052FF4
 	strh r1, [r5]
 	ldrh r1, [r0, #6]
 	strh r1, [r5, #2]
-	ldr r1, _0805307C @ =gUnk_0810246C
+	ldr r1, _0805307C @ =gAreaTilesets
 	adds r1, r6, r1
 	ldrh r0, [r0, #8]
 	ldr r1, [r1]
@@ -1210,7 +1210,7 @@ sub_08052FF4: @ 0x08052FF4
 	adds r2, r2, r0
 	ldr r0, [r2]
 	str r0, [r5, #0xc]
-	ldr r0, _08053084 @ =gUnk_0810309C
+	ldr r0, _08053084 @ =gAreaMetatiles
 	adds r0, r6, r0
 	ldr r0, [r0]
 	str r0, [r5, #0x10]
@@ -1223,10 +1223,10 @@ sub_08052FF4: @ 0x08052FF4
 _0805306C: .4byte gRoomControls
 _08053070: .4byte gScreen
 _08053074: .4byte gUnk_020342CC
-_08053078: .4byte gUnk_0811E214
-_0805307C: .4byte gUnk_0810246C
+_08053078: .4byte gAreaRoomHeaders
+_0805307C: .4byte gAreaTilesets
 _08053080: .4byte gUnk_08107988
-_08053084: .4byte gUnk_0810309C
+_08053084: .4byte gAreaMetatiles
 _08053088: .4byte gUnk_080B755C
 
 	thumb_func_start sub_0805308C
@@ -1533,7 +1533,7 @@ _080532E0:
 
 	thumb_func_start sub_080532E4
 sub_080532E4: @ 0x080532E4
-	ldr r0, _08053318 @ =gUnk_0811E214
+	ldr r0, _08053318 @ =gAreaRoomHeaders
 	movs r1, #0xb0
 	lsls r1, r1, #1
 	adds r0, r0, r1
@@ -1560,7 +1560,7 @@ sub_080532E4: @ 0x080532E4
 	strh r0, [r1, #0x1e]
 	bx lr
 	.align 2, 0
-_08053318: .4byte gUnk_0811E214
+_08053318: .4byte gAreaRoomHeaders
 _0805331C: .4byte gScreenTransition
 
 	thumb_func_start sub_08053320

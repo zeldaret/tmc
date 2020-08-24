@@ -491,7 +491,7 @@ _0801DC26:
 	ldr r3, [sp]
 	cmp r0, #0
 	bne _0801DCA6
-	ldr r0, _0801DC88 @ =gUnk_0811E214
+	ldr r0, _0801DC88 @ =gAreaRoomHeaders
 	ldrb r2, [r6]
 	lsls r2, r2, #2
 	adds r2, r2, r0
@@ -526,7 +526,7 @@ _0801DC26:
 	b _0801DC9E
 	.align 2, 0
 _0801DC84: .4byte 0x000007FF
-_0801DC88: .4byte gUnk_0811E214
+_0801DC88: .4byte gAreaRoomHeaders
 _0801DC8C:
 	ldrh r0, [r2]
 	ands r0, r7
@@ -562,7 +562,7 @@ _0801DCAE:
 	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _0801DD16
-	ldr r0, _0801DD50 @ =gUnk_0811E214
+	ldr r0, _0801DD50 @ =gAreaRoomHeaders
 	ldrb r2, [r6]
 	lsls r2, r2, #2
 	adds r2, r2, r0
@@ -632,12 +632,12 @@ _0801DD42:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0801DD4C: .4byte gArea
-_0801DD50: .4byte gUnk_0811E214
+_0801DD50: .4byte gAreaRoomHeaders
 _0801DD54: .4byte gScreenTransition
 
 	thumb_func_start sub_0801DD58
 sub_0801DD58: @ 0x0801DD58
-	ldr r2, _0801DD7C @ =gUnk_0811E214
+	ldr r2, _0801DD7C @ =gAreaRoomHeaders
 	lsls r0, r0, #2
 	adds r0, r0, r2
 	lsls r2, r1, #2
@@ -656,7 +656,7 @@ sub_0801DD58: @ 0x0801DD58
 	strh r0, [r1, #6]
 	bx lr
 	.align 2, 0
-_0801DD7C: .4byte gUnk_0811E214
+_0801DD7C: .4byte gAreaRoomHeaders
 _0801DD80: .4byte gArea
 _0801DD84: .4byte 0x0000085C
 
@@ -770,7 +770,7 @@ _0801DE46:
 	ldr r0, _0801DF04 @ =0x84000100
 	str r0, [r2, #8]
 	ldr r0, [r2, #8]
-	ldr r0, _0801DF08 @ =gUnk_0811E214
+	ldr r0, _0801DF08 @ =gAreaRoomHeaders
 	ldrb r2, [r4]
 	lsls r2, r2, #2
 	adds r2, r2, r0
@@ -850,7 +850,7 @@ _0801DEF8: .4byte 0x040000D4
 _0801DEFC: .4byte gUnk_08324AE4
 _0801DF00: .4byte gUnk_02019EE0
 _0801DF04: .4byte 0x84000100
-_0801DF08: .4byte gUnk_0811E214
+_0801DF08: .4byte gAreaRoomHeaders
 _0801DF0C: .4byte 0x000007FF
 
 	thumb_func_start sub_0801DF10

@@ -916,7 +916,7 @@ gUnk_08102451:: @ 08102451
 gUnk_08102468:: @ 08102468
 	.incbin "baserom.gba", 0x102468, 0x0000004
 
-gUnk_0810246C:: @ 0810246C
+gAreaTilesets:: @ 0810246C
 	.incbin "baserom.gba", 0x10246C, 0x0000048
 
 gUnk_081024B4:: @ 081024B4
@@ -1126,7 +1126,7 @@ gUnk_0810303C:: @ 0810303C
 gUnk_0810306C:: @ 0810306C
 	.incbin "baserom.gba", 0x10306C, 0x0000030
 
-gUnk_0810309C:: @ 0810309C
+gAreaMetatiles:: @ 0810309C
 	.incbin "baserom.gba", 0x10309C, 0x0000068
 
 gUnk_08103104:: @ 08103104
