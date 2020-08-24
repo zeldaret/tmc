@@ -167,7 +167,10 @@ extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
 
 extern u32 GetFacingDirection(Entity*, Entity*);
 
-extern void DeleteThisEntity();
+extern void DeleteThisEntity(void);
+extern void CopyPosition(Entity*, Entity*);
+extern void DeleteEntity(Entity*);
+extern void PositionRelative(Entity*, Entity*, s32, s32);
 
 extern Entity gUnk_03003DA0;
 

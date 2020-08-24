@@ -2057,7 +2057,7 @@ extern EntityData gUnk_080DE4C8;
 
 void sub_0804CBB0(void) {
 
-    if ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) < (gRoomControls.filler2[4] >> 1)) {
+    if ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) < (gRoomControls.height >> 1)) {
         if (!CheckLocalFlag(0x17)) {
             LoadRoomEntityList(&gUnk_080DE4C8);
         }
