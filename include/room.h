@@ -27,8 +27,10 @@ typedef struct {
     u8 screenShakeMagnitude;
     u8 unk7;
     u16 screenShakeTime;
-    u16 filler2[6];
-    u8 filler3[4];
+    u16 filler2[3];
+    u16 width;
+    u16 height;
+    u8 filler3[6];
     union SplitWord bg3OffsetX;
     union SplitWord bg3OffsetY;
     Entity* cameraTarget;

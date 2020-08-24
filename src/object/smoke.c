@@ -2,9 +2,7 @@
 #include "entity.h"
 
 extern u32 Random(void);
-extern void CopyPosition(Entity*, Entity*);
 extern void sub_0806F69C(Entity*);
-extern void DeleteEntity(Entity*);
 
 extern void (*const gUnk_08121060[])(Entity*);
 extern void (*const gUnk_08121070[])(Entity*);

@@ -418,9 +418,9 @@ SECTIONS {
 		asm/dust.o(.text);
 		asm/vaatiBall.o(.text);
 		src/enemy/slime.o(.text);
-		asm/slime.o(.text);
-		asm/miniSlime.o(.text);
-		asm/fireballGuy.o(.text);
+		asm/sub_080451CC.o(.text);
+		src/enemy/miniSlime.o(.text);
+		src/enemy/fireballGuy.o(.text);
 		src/enemy/miniFireballGuy.o(.text);
 		asm/enemy5A.o(.text);
 		asm/businessScrubPrologue.o(.text);
