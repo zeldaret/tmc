@@ -12,6 +12,8 @@ extern void sub_0806F118(Entity*);
 extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern void sub_080600F0(Entity*);
+extern s32 sub_0806EDD8(Entity*, u32, u32);
+extern u32 sub_0806F5B0(u32);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_08078784(Entity*, u32);
 extern void sub_0807000C(Entity*);
@@ -114,40 +116,36 @@ void sub_0806014C(Entity* this) {
     sub_08060158(this);
 }
 
-#if 0
-void sub_08060158(Entity *this)
-{
-  u8 bVar1;
-  u8 bVar2;
-  s32 iVar4;
-  u32 temp;
-  if (this->actionDelay != 0) {
-    this->actionDelay--;
-  }
-  else {
-    this->actionDelay = 2;
-    iVar4 = sub_0806EDD8(this, 0x20, 0x20);
-    if (iVar4 < 0) {
-      this->animationState = this->field_0x68.HALF.HI;
-      iVar4 = this->field_0x68.HALF.HI << 2;
-    }
-    temp = (this->animationState >> 1) * 0x20 + (iVar4 >> 1) * 2;
-    bVar1 = gUnk_08109C98[temp];
-    bVar2 = gUnk_08109C98[temp + 1];
-    if ((bVar2 & 0x80) != 0) {
-      this->animationState = sub_0806F5B0(iVar4);
-    }
-    this->frames.all = bVar1;
-    this->frameIndex = bVar2 & 0x7f;
-    this->frameSpriteSettings = 1;
-    this->animIndex = 0;
-    this->frameDuration = 0xf0;
-  }
-}
-#endif
-NAKED
 void sub_08060158(Entity* this) {
-    asm(".include \"asm/non_matching/forestMinish/sub_08060158.inc\"");
+    int index;
+    u8* idx3;
+    u8 tmp1, tmp2;
+
+    if (this->actionDelay) {
+        this->actionDelay--;
+    } else {
+        this->actionDelay = 2;
+        index = sub_0806EDD8(this, 0x20, 0x20);
+        if (index < 0) {
+            int state = this->field_0x68.HALF.HI;
+            this->animationState = state;
+            index = state * 4;
+        }
+
+        idx3 = gUnk_08109C98 + (this->animationState / 2) * 0x20 + (index >> 1) * 2;
+        tmp1 = idx3[0];
+        tmp2 = idx3[1];
+
+        if (tmp2 & 0x80) {
+            this->animationState = sub_0806F5B0(index);
+        }
+        tmp2 &= 0x7f;
+        this->frames.all = tmp1;
+        this->frameIndex = tmp2;
+        this->frameSpriteSettings = 1;
+        this->animIndex = 0;
+        this->frameDuration = 0xf0;
+    }
 }
 
 void sub_080601D4(Entity* this) {
