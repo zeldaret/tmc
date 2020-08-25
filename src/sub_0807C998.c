@@ -8,15 +8,15 @@ extern u8 gUnk_08324AE4;
 
 void sub_0807C960(void* dest, u32 offset)
 {
-    void* temp;
+    void* src;
 
   if (offset != -1) {
-      temp = &gUnk_08324AE4 + (offset & 0x7fffffff);
+      src = &gUnk_08324AE4 + (offset & 0x7fffffff);
     if ((u32)dest >> 0x18 == 6) {
-      LZ77UnCompVram(temp, (void *)dest);
+      LZ77UnCompVram(src, (void *)dest);
     }
     else {
-      LZ77UnCompWram(temp, (void *)dest);
+      LZ77UnCompWram(src, (void *)dest);
     }
   }
 }

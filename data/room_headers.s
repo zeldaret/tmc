@@ -154,7 +154,7 @@ gAreaRoomHeaders_CastorWildsDigCave:: @ 0811C7AE
 	room_header 0x00, 0x00, 0x3f0, 0x3c0, 0
 	.2byte 0xFFFF
 
-gAreaRoomHeaders_OuterFoW:: @ 0811C7BA
+gAreaRoomHeaders_OuterFortressOfWinds:: @ 0811C7BA
 	room_header 0x00, 0x00, 0x3b0, 0xd0, 0
 	room_header 0x00, 0x20, 0x3b0, 0x140, 0
 	room_header 0x00, 0x38, 0x3b0, 0xd0, 0
@@ -1044,7 +1044,7 @@ gAreaRoomHeaders:: @ 0811E214
 	.4byte gAreaRoomHeaders_FestivalTown            @ 0x15
 	.4byte gAreaRoomHeaders_VeilFallsDigCave        @ 0x16
 	.4byte gAreaRoomHeaders_CastorWildsDigCave      @ 0x17
-	.4byte gAreaRoomHeaders_OuterFoW                @ 0x18
+	.4byte gAreaRoomHeaders_OuterFortressOfWinds    @ 0x18
 	.4byte gAreaRoomHeaders_HyliaDigCaves           @ 0x19
 	.4byte gAreaRoomHeaders_VeilFallsTop            @ 0x1A
 	.4byte 0x0                                      @ 0x1B
