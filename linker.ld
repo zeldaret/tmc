@@ -416,7 +416,7 @@ SECTIONS {
 		asm/vaatiWrath.o(.text);
 		asm/vaatiArm.o(.text);
 		asm/dust.o(.text);
-		asm/vaatiBall.o(.text);
+		src/enemy/vaatiBall.o(.text);
 		src/enemy/slime.o(.text);
 		asm/sub_080451CC.o(.text);
 		src/enemy/miniSlime.o(.text);
