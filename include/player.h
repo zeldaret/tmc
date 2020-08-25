@@ -45,7 +45,9 @@ typedef struct {
     /*    */         u32 filler11b : 16;
     /*    */     } PACKED b;
     /*    */ } flags;
-    /*0x34*/ u8 field_0x34[6];
+    /*0x34*/ u8 field_0x34[4];
+    /*0x38*/ u8 field_0x38;
+    /*0x39*/ u8 field_0x39;
     /*0x3a*/ u16 field_0x3a;
     /*0x3c*/ u8 field_0x3c[2];
     /*0x3e*/ u8 swordGoldParticle : 1;
