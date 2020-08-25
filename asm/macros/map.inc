@@ -9,4 +9,16 @@
 	.2byte \tileset_id
 	.endm
 
+	.macro tileset_tiles src_offset, dest, size, compressed, terminator=0
+	.4byte (!(\terminator) << 0x1F) | (\src_offset)
+	.4byte \dest
+	.4byte (\compressed << 0x1F) | (\size)
+	.endm
+
+	.macro tileset_palette_set id, terminator=0
+	.4byte (!(\terminator) << 0x1F) | (\id)
+	.4byte 0x0
+	.4byte 0x0
+	.endm
+
 	.endif @ GUARD_ASM_MACROS_MAP_INC

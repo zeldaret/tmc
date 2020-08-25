@@ -7633,16 +7633,13 @@ gUnk_08324AE4:: @ 08324AE4
 	.incbin "baserom.gba", 0x324AE4, 0x000018F
 
 gUnk_08324C73:: @ 08324C73
-	.incbin "baserom.gba", 0x324C73, 0x00007FA
+	.incbin "baserom.gba", 0x324C73, 0x0000241
 
-gUnk_0832546D:: @ 0832546D
-	.incbin "baserom.gba", 0x32546D, 0x000041B
+gUnk_08324EB4:: @ 08324EB4
+	.incbin "data/tilesets/minish_woods/tiles_bottom.4bpp.lz"
 
-gUnk_08325888:: @ 08325888
-	.incbin "baserom.gba", 0x325888, 0x00010E9
-
-gUnk_08326971:: @ 08326971
-	.incbin "baserom.gba", 0x326971, 0x0002C90
+gUnk_08327B08:: @ 08327B08
+	.incbin "baserom.gba", 0x327B08, 0x0001AF9
 
 gUnk_08329601:: @ 08329601
 	.incbin "baserom.gba", 0x329601, 0x00053C2
