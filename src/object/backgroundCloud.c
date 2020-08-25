@@ -20,7 +20,7 @@ void sub_0808F658(Entity* this) {
     this->direction = 8;
     this->nonPlanarMovement = gUnk_08121EB0[(this->entityType).form];
     this->field_0x78.HWORD = gRoomControls.roomOriginX - 0x60;
-    this->field_0x7a.HWORD = gRoomControls.roomOriginX + gRoomControls.filler2[3] + 0x60;
+    this->field_0x7a.HWORD = gRoomControls.roomOriginX + gRoomControls.width + 0x60;
     this->animationState = 0;
     this->x.HALF.HI += (Random() & 0xf) << 4;
     this->actionDelay = 0;

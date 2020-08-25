@@ -1,11 +1,9 @@
 #include "global.h"
 #include "entity.h"
 
-extern void CopyPosition();
 extern void sub_08086A6C();
 extern s32 sub_080044EC();
 extern void sub_080AEF88();
-extern void DeleteThisEntity();
 extern u32 Random(void);
 
 extern void (*gUnk_081206C4[99])(Entity*);

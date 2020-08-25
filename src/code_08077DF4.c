@@ -29,9 +29,9 @@ void UpdateItemAnim(Entity *ent)
   sub_08077E54(ent);
 }
 
-void sub_08077E3C(Entity *ent)
+void sub_08077E3C(Entity *ent, u32 idx)
 {
-  sub_080042BA(&gPlayerEntity);
+  sub_080042BA(&gPlayerEntity, idx);
   sub_08077E54(ent);
 }
 
