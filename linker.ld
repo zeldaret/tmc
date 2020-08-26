@@ -326,7 +326,6 @@ SECTIONS {
 		asm/code_0801D79C.o(.text);
 		/* enemies */
 		src/enemy/octorok.o(.text);
-		asm/octorok.o(.text);
 		asm/chuchu.o(.text);
 		src/enemy/leever.o(.text);
 		asm/peahat.o(.text);
