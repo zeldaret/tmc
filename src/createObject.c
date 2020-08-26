@@ -31,9 +31,8 @@ Entity* CreateObjectWithParent(Entity* parentEnt, u32 subtype, u32 form, u32 par
     return ent;
 }
 
-Entity* CreateFx(Entity* parentEnt, u32 param1, u32 param2) {
-    asm("nop");
-    CreateObjectWithParent(parentEnt, 0, 0x60, 0);
+Entity* CreateFx(Entity* parentEnt, u32 form, u32 parameter) {
+    CreateObjectWithParent(parentEnt, 0xf, form, parameter);
 }
 
 void CreateDust(Entity* parent) {
