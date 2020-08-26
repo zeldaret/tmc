@@ -194,7 +194,7 @@ extern void sub_08004488(u32);
 extern void sub_08004596(Entity*, u32);
 extern u32 sub_0807953C(void);
 extern void ResetPlayer(void);
-extern void sub_080A29BC(Entity*);
+extern void CreateDust(Entity*);
 extern void sub_080AE068(Entity*);
 extern Manager* GetEmptyManager(void);
 extern void AppendEntityToList(void*, u32);

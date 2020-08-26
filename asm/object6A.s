@@ -211,7 +211,7 @@ sub_08094B94: @ 0x08094B94
 	adds r1, #0x84
 	str r0, [r1]
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 	ldrh r0, [r4, #0x36]
 	adds r0, #0x10
 	strh r0, [r4, #0x36]

@@ -880,9 +880,6 @@ SECTIONS {
 		asm/sub_080A2838.o(.text);
 		asm/sub_080A285C.o(.text);
 		src/createObject.o(.text);
-		src/createObjectWithParent.o(.text);
-		asm/createFx.o(.text);
-		src/code_080A29BC.o(.text);
 		asm/code_080A29BC.o(.text);
 		asm/playSFX.o(.text);
 		asm/code_080A3480.o(.text);

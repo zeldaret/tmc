@@ -469,7 +469,7 @@ _08017196:
 	cmp r1, #0
 	bne _080171A4
 	adds r0, r5, #0
-	bl sub_080A2B80
+	bl CreateSparkle
 _080171A4:
 	ldr r0, _080171B8 @ =gUnk_02002A40
 	adds r3, r0, #0

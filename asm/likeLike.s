@@ -312,7 +312,7 @@ sub_08027F84: @ 0x08027F84
 	movs r1, #0
 	bl InitializeAnimation
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 _08027FB0:
 	pop {r4, pc}
 	.align 2, 0
@@ -403,7 +403,7 @@ sub_0802802C: @ 0x0802802C
 	strb r2, [r4, #0x15]
 	strb r2, [r4, #0xe]
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 _0802805A:
 	pop {r4, pc}
 

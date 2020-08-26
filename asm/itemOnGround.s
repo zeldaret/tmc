@@ -545,7 +545,7 @@ _08080DEE:
 	cmp r0, #0
 	bne _08080E00
 	adds r0, r4, #0
-	bl sub_080A2B80
+	bl CreateSparkle
 _08080E00:
 	pop {r4, r5, pc}
 	.align 2, 0

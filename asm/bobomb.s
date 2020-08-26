@@ -409,7 +409,7 @@ _0802C964:
 	cmp r1, #8
 	bne _0802C972
 	adds r0, r4, #0
-	bl sub_080A29FC
+	bl CreateDustSmall
 _0802C972:
 	adds r0, r4, #0
 	bl sub_0802CC18

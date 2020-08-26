@@ -9,7 +9,7 @@
 sub_080A2A84: @ 0x080A2A84
 	push {r4, r5, r6, r7, lr}
 	adds r5, r1, #0
-	bl sub_080A2A64
+	bl CreateWaterTrace
 	adds r6, r0, #0
 	cmp r6, #0
 	beq _080A2AD2
@@ -132,8 +132,8 @@ _080A2B74:
 	.align 2, 0
 _080A2B7C: .4byte gSineTable
 
-	thumb_func_start sub_080A2B80
-sub_080A2B80: @ 0x080A2B80
+	thumb_func_start CreateSparkle
+CreateSparkle: @ 0x080A2B80
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r0, #0xf
@@ -331,38 +331,38 @@ _080A2CF8:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start sub_080A2CFC
-sub_080A2CFC: @ 0x080A2CFC
+	thumb_func_start CreateSpeechBubbleExclamationMark
+CreateSpeechBubbleExclamationMark: @ 0x080A2CFC
 	push {r4, lr}
 	adds r4, r1, #0
 	adds r3, r2, #0
 	movs r1, #0
 	adds r2, r4, #0
-	bl sub_080A2D2C
+	bl CreateSpeechBubble
 	pop {r4, pc}
 
-	thumb_func_start sub_080A2D0C
-sub_080A2D0C: @ 0x080A2D0C
+	thumb_func_start CreateSpeechBubbleQuestionMark
+CreateSpeechBubbleQuestionMark: @ 0x080A2D0C
 	push {r4, lr}
 	adds r4, r1, #0
 	adds r3, r2, #0
 	movs r1, #1
 	adds r2, r4, #0
-	bl sub_080A2D2C
+	bl CreateSpeechBubble
 	pop {r4, pc}
 
-	thumb_func_start sub_080A2D1C
-sub_080A2D1C: @ 0x080A2D1C
+	thumb_func_start CreateSpeechBubbleSleep
+CreateSpeechBubbleSleep: @ 0x080A2D1C
 	push {r4, lr}
 	adds r4, r1, #0
 	adds r3, r2, #0
 	movs r1, #2
 	adds r2, r4, #0
-	bl sub_080A2D2C
+	bl CreateSpeechBubble
 	pop {r4, pc}
 
-	thumb_func_start sub_080A2D2C
-sub_080A2D2C: @ 0x080A2D2C
+	thumb_func_start CreateSpeechBubble
+CreateSpeechBubble: @ 0x080A2D2C
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
 	adds r4, r1, #0

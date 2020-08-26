@@ -8153,7 +8153,7 @@ sub_080A9448: @ 0x080A9448
 	cmp r0, #0
 	bne _080A9464
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 	bl DeleteThisEntity
 	b _080A9486
 _080A9464:
@@ -13507,7 +13507,7 @@ _080ABC2A:
 	bl ModHealth
 _080ABC32:
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 	bl DeleteThisEntity
 	b _080ABC52
 _080ABC3E:

@@ -6,7 +6,7 @@
 
 extern void sub_0809E96C(Entity*);
 extern u32 sub_0800419C(Entity*, Entity*, u32, u32);
-extern void sub_080A2B80(Entity*);
+extern void CreateSparkle(Entity*);
 extern u32 sub_0809E9A0(void);
 extern void sub_08078A90(u32);
 extern void sub_0809E918(Entity*);
@@ -37,7 +37,7 @@ void sub_0809E86C(Entity* this) {
     if (sub_0800419C(this, &gPlayerEntity, 0x30, 0x30)) {
         if (CheckGlobalFlag(EZERO_1ST)) {
             if (((gScreenTransition & 3) == 0)) {
-                sub_080A2B80(this);
+                CreateSparkle(this);
             }
         }
     }

@@ -542,7 +542,7 @@ _08070BC8:
 	cmp r0, #0
 	bne _08070BE4
 	adds r0, r5, #0
-	bl sub_080A2A64
+	bl CreateWaterTrace
 _08070BE4:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
