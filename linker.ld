@@ -326,7 +326,7 @@ SECTIONS {
 		asm/code_0801D79C.o(.text);
 		/* enemies */
 		src/enemy/octorok.o(.text);
-		asm/chuchu.o(.text);
+		src/enemy/chuchu.o(.text);
 		src/enemy/leever.o(.text);
 		asm/peahat.o(.text);
 		asm/rollobite.o(.text);
@@ -906,6 +906,8 @@ SECTIONS {
 		data/data_080B3740.o(.rodata);
 		src/trig.o(.rodata);
 		data/data_080C93E0.o(.rodata);
+		src/enemy/chuchu.o(.rodata);
+		data/data_080CA2B4.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);

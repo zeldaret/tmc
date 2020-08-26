@@ -56,7 +56,7 @@ void nullsub_16(Entity* this) {
 }
 
 void sub_0802F1F0(Entity* this) {
-    sub_08001242();
+    sub_08001242(this);
     if (this->height.HALF.HI != 0) {
         sub_08003FC4(this, this->field_0x80.HWORD);
     }

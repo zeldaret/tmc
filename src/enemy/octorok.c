@@ -5,7 +5,6 @@
 extern void EnemyFunctionHandler();
 extern void SetChildOffset();
 extern void sub_0804AA30();
-extern void sub_0804A9FC();
 extern void sub_0804A7D4();
 extern void sub_0801ECFC();
 extern u32 sub_0806F520();
