@@ -1692,7 +1692,7 @@ _0809572C:
 	adds r0, #0x6c
 	adds r1, r4, #0
 	movs r2, #0x1c
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldrh r0, [r4, #0x14]
 	strh r0, [r5, #0x2e]
 	ldrh r0, [r4, #0x16]

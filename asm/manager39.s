@@ -142,7 +142,7 @@ sub_0805E1F8: @ 0x0805E1F8
 	ldr r0, _0805E238 @ =gUnk_08108E60
 	mov r1, sp
 	movs r2, #9
-	bl sub_0801D66C
+	bl _DmaCopy
 	mov r1, sp
 	lsrs r0, r4, #8
 	strb r0, [r1, #4]

@@ -161,7 +161,7 @@ sub_080527FC: @ 0x080527FC
 	ldr r1, _08052834 @ =gPaletteBuffer
 	movs r2, #0x80
 	lsls r2, r2, #3
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r1, _08052838 @ =gUsedPalettes
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -1258,7 +1258,7 @@ sub_080530B0: @ 0x080530B0
 	ldr r0, _080530C0 @ =gUnk_080FCAF8
 	ldr r1, _080530C4 @ =gUnk_030010EC
 	movs r2, #0x20
-	bl sub_0801D66C
+	bl _DmaCopy
 	pop {pc}
 	.align 2, 0
 _080530C0: .4byte gUnk_080FCAF8
@@ -1431,7 +1431,7 @@ sub_080531F8: @ 0x080531F8
 	ldr r1, _08053248 @ =gUnk_02002AC8
 	adds r0, r5, #0
 	movs r2, #0x20
-	bl sub_0801D66C
+	bl _DmaCopy
 	bl CheckIsDungeon
 	cmp r0, #0
 	beq _08053238
@@ -1483,7 +1483,7 @@ sub_08053250: @ 0x08053250
 	adds r0, #0xc
 	ldr r1, _08053298 @ =gUnk_02002AC8
 	movs r2, #0x20
-	bl sub_0801D66C
+	bl _DmaCopy
 	pop {r4, pc}
 	.align 2, 0
 _0805328C: .4byte gScreenTransition

@@ -2142,11 +2142,11 @@ _0801E86C:
 	adds r0, r6, #0
 	adds r1, r7, #0
 	adds r2, r4, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	mov r0, r8
 	mov r1, sb
 	adds r2, r4, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 _0801E890:
 	movs r3, #1
 	add sb, r3

@@ -1130,7 +1130,7 @@ sub_080A44E0: @ 0x080A44E0
 	adds r5, r5, r1
 	adds r1, r5, #0
 	mov r2, r8
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r6, #0
 	pop {r3}
 	mov r8, r3
@@ -1980,12 +1980,12 @@ sub_080A4BA0: @ 0x080A4BA0
 	ldr r0, _080A4C08 @ =gUnk_0812816C
 	mov r1, sp
 	movs r2, #0x18
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A4C0C @ =gUnk_08128184
 	add r4, sp, #0x48
 	adds r1, r4, #0
 	movs r2, #0xc
-	bl sub_0801D66C
+	bl _DmaCopy
 	lsls r1, r6, #1
 	adds r1, r1, r6
 	lsls r2, r1, #9
@@ -2127,7 +2127,7 @@ sub_080A4CBC: @ 0x080A4CBC
 	ldr r1, _080A4D14 @ =0x0600E000
 	adds r0, r4, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r6, #0
 	bl sub_080A4948
 	cmp r0, #0

@@ -8,7 +8,7 @@ extern void sub_0804FF84(u32);
 extern u16 gPaletteBuffer[];
 extern void VBlankInterruptWait(void);
 extern void DisableInterruptsAndDMA(void);
-extern void sub_0801D66C(void*, u8*, int);
+extern void _DmaCopy(void*, u8*, int);
 extern void sub_08016B34(void);
 
 static void sub_08055F70(void);
@@ -99,12 +99,12 @@ static void sub_08055F70(void) {
     _DmaZero(gUnk_02000030, size);
     size = (u32)gUnk_080B2CD8 - (u32)sub_080B197C;
     if (size != 0) {
-        sub_0801D66C(sub_080B197C, gUnk_030056F0, size);
+        _DmaCopy(sub_080B197C, gUnk_030056F0, size);
     }
 
     size = (u32)gUnk_080B2CD8_2 - (u32)gUnk_080B2CD8_3;
     if (size != 0) {
-        sub_0801D66C(gUnk_080B2CD8_3, gUnk_02038560, size);
+        _DmaCopy(gUnk_080B2CD8_3, gUnk_02038560, size);
     }
 
     sub_0801DA90(0);

@@ -54,7 +54,7 @@ _0807CA66:
 	bne _0807CA78
 	ldr r0, _0807CA80 @ =gUnk_0811E470
 	movs r2, #5
-	bl sub_0801D66C
+	bl _DmaCopy
 _0807CA78:
 	movs r0, #1
 	pop {pc}

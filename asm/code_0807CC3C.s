@@ -6978,14 +6978,14 @@ sub_08080108: @ 0x08080108
 	lsls r6, r6, #6
 	adds r0, r5, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r4, _0808017C @ =gUnk_0200B654
 	movs r0, #0xc0
 	lsls r0, r0, #6
 	adds r1, r4, r0
 	adds r0, r4, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	bl sub_08080368
 	ldr r1, _08080180 @ =gUnk_02034480
 	ldr r0, _08080184 @ =gUnk_0200B640
@@ -6995,7 +6995,7 @@ sub_08080108: @ 0x08080108
 	ldr r1, _0808018C @ =gUnk_020246B0
 	movs r2, #0xc0
 	lsls r2, r2, #5
-	bl sub_0801D66C
+	bl _DmaCopy
 	subs r5, #4
 	adds r0, r5, #0
 	bl sub_08080B60

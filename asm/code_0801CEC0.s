@@ -730,7 +730,7 @@ _0801D4C8:
 	adds r1, r7, #0
 	movs r2, #0x20
 	str r3, [sp]
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r6, #0x20
 	adds r4, #4
 	adds r7, #0x20

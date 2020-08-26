@@ -320,7 +320,6 @@ SECTIONS {
 		src/ezloNag.o(.text);
 		asm/code_0801CEC0.o(.text);
 		src/dma.o(.text);
-		asm/sub_0801D66C.o(.text);
 		src/input.o(.text);
 		src/code_0801D714.o(.text);
 		src/code_0801D79C.o(.text);
