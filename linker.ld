@@ -906,6 +906,8 @@ SECTIONS {
 		data/data_080B3740.o(.rodata);
 		src/trig.o(.rodata);
 		data/data_080C93E0.o(.rodata);
+		src/enemy/octorok.o(.rodata);
+		data/octorokAnimations.o(.rodata);
 		src/enemy/chuchu.o(.rodata);
 		data/data_080CA2B4.o(.rodata);
 		src/enemy.o(.rodata);
