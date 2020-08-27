@@ -320,15 +320,13 @@ SECTIONS {
 		src/ezloNag.o(.text);
 		asm/code_0801CEC0.o(.text);
 		src/dma.o(.text);
-		asm/sub_0801D66C.o(.text);
 		src/input.o(.text);
 		src/code_0801D714.o(.text);
 		src/code_0801D79C.o(.text);
 		asm/code_0801D79C.o(.text);
 		/* enemies */
 		src/enemy/octorok.o(.text);
-		asm/octorok.o(.text);
-		asm/chuchu.o(.text);
+		src/enemy/chuchu.o(.text);
 		src/enemy/leever.o(.text);
 		asm/peahat.o(.text);
 		asm/rollobite.o(.text);
@@ -880,9 +878,6 @@ SECTIONS {
 		asm/sub_080A2838.o(.text);
 		asm/sub_080A285C.o(.text);
 		src/createObject.o(.text);
-		src/createObjectWithParent.o(.text);
-		asm/createFx.o(.text);
-		src/code_080A29BC.o(.text);
 		asm/code_080A29BC.o(.text);
 		asm/playSFX.o(.text);
 		asm/code_080A3480.o(.text);
@@ -911,6 +906,8 @@ SECTIONS {
 		data/data_080B3740.o(.rodata);
 		src/trig.o(.rodata);
 		data/data_080C93E0.o(.rodata);
+		src/enemy/chuchu.o(.rodata);
+		data/data_080CA2B4.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);

@@ -14,7 +14,6 @@ extern void sub_0803CAD0(Entity *);
 // sub_0803C784
 extern void sub_0803CBAC(Entity *); // Also used in sub_0803C86C
 extern Entity *CreateFx(Entity*, u32, u32);
-extern void sub_0804A9FC(Entity *, u32);
 extern void sub_0804AA30(Entity *, void (*const funcs[])(Entity *));
 
 // sub_0803C820

@@ -234,7 +234,7 @@ _080641E6:
 	cmp r0, #0
 	bne _08064222
 	adds r0, r5, #0
-	bl sub_080A29FC
+	bl CreateDustSmall
 _08064222:
 	adds r4, r5, #0
 	adds r4, #0x71
@@ -299,7 +299,7 @@ _0806428C:
 	cmp r0, #0
 	bne _080642AC
 	adds r0, r5, #0
-	bl sub_080A29FC
+	bl CreateDustSmall
 _080642AC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -379,7 +379,7 @@ _08064306:
 	cmp r0, #0
 	bne _08064342
 	adds r0, r5, #0
-	bl sub_080A29FC
+	bl CreateDustSmall
 _08064342:
 	adds r4, r5, #0
 	adds r4, #0x71
@@ -444,7 +444,7 @@ _080643AC:
 	cmp r0, #0
 	bne _080643CC
 	adds r0, r5, #0
-	bl sub_080A29FC
+	bl CreateDustSmall
 _080643CC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

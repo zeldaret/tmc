@@ -262,7 +262,7 @@ void sub_08029770(Entity* this) {
         InitializeAnimation(this, 2);
         this->attachedEntity->spriteSettings.b.draw = TRUE;
         InitializeAnimation(this->attachedEntity, 6);
-        sub_080A29BC(this);
+        CreateDust(this);
     }
 }
 

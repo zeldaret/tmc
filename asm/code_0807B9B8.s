@@ -853,7 +853,7 @@ _0807C01C:
 	lsls r2, r2, #2
 	adds r1, r1, r2
 	movs r2, #0x20
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r2, _0807C0D4 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80
@@ -1015,13 +1015,13 @@ _0807C184:
 	movs r4, #0x80
 	lsls r4, r4, #6
 	adds r2, r4, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _0807C1B8 @ =gUnk_0200B654
 	movs r3, #0xc0
 	lsls r3, r3, #6
 	adds r1, r0, r3
 	adds r2, r4, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	b _0807C26C
 	.align 2, 0
 _0807C1B0: .4byte gScreenTransition
@@ -1040,34 +1040,34 @@ _0807C1BC:
 	adds r0, r4, #0
 	mov r1, r8
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r1, #0xc0
 	lsls r1, r1, #6
 	adds r6, r4, r1
 	adds r0, r6, #0
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	mov r0, r8
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r6, r4, r5
 	adds r0, r6, #0
 	mov r1, r8
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r2, #0x80
 	lsls r2, r2, #7
 	adds r4, r4, r2
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	mov r0, r8
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r4, _0807C27C @ =gUnk_0200B654
 	movs r3, #0xb0
 	lsls r3, r3, #8
@@ -1076,34 +1076,34 @@ _0807C1BC:
 	adds r0, r4, #0
 	mov r1, r8
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r0, #0xc0
 	lsls r0, r0, #6
 	adds r6, r4, r0
 	adds r0, r6, #0
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	mov r0, r8
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r6, r4, r5
 	adds r0, r6, #0
 	mov r1, r8
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r1, #0x80
 	lsls r1, r1, #7
 	adds r4, r4, r1
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	mov r0, r8
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 _0807C26C:
 	mov r2, sb
 	cmp r2, #0
@@ -1161,7 +1161,7 @@ _0807C2E4:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0807C5F4
@@ -1173,7 +1173,7 @@ _0807C2E4:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0807C5F4
@@ -1449,7 +1449,7 @@ _0807C54A:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0807C5F4
@@ -1461,7 +1461,7 @@ _0807C54A:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0807C5F4
@@ -1870,13 +1870,13 @@ sub_0807C860: @ 0x0807C860
 	movs r4, #0x80
 	lsls r4, r4, #6
 	adds r2, r4, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _0807C894 @ =gUnk_0200B654
 	movs r2, #0xc0
 	lsls r2, r2, #6
 	adds r1, r0, r2
 	adds r2, r4, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	pop {r4, pc}
 	.align 2, 0
 _0807C88C: .4byte gScreenTransition

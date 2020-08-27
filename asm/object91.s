@@ -470,7 +470,7 @@ _0809C74A:
 	cmp r0, #0
 	bne _0809C772
 	ldr r0, [r5, #0x54]
-	bl sub_080A2B80
+	bl CreateSparkle
 _0809C772:
 	adds r3, r5, #0
 	adds r3, #0x7e

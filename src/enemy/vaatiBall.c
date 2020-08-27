@@ -37,7 +37,7 @@ void VaatiBall(Entity* this) {
             this->flags &= 0x7f;
             this->currentHealth = -1;
             parent->field_0x80.HALF.LO--;
-            sub_080A29BC(this);
+            CreateDust(this);
             PlaySFX(0x1c3);
         }
     }

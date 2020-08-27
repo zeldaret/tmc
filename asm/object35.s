@@ -356,7 +356,7 @@ _0808BAEA:
 	strb r4, [r2, #0x1e]
 _0808BAFC:
 	adds r0, r2, #0
-	bl sub_080A29BC
+	bl CreateDust
 	pop {r4, pc}
 
 	thumb_func_start sub_0808BB04

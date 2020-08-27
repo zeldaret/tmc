@@ -933,7 +933,7 @@ sub_08033E1C: @ 0x08033E1C
 	rsbs r2, r2, #0
 	adds r0, r4, #0
 	movs r1, #0xa
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 	pop {r4, pc}
 	.align 2, 0
 _08033EA4: .4byte 0xFFF00000

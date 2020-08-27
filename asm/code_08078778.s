@@ -5117,7 +5117,7 @@ _0807AECC:
 	cmp r0, #0
 	bne _0807AEDE
 	adds r0, r4, #0
-	bl sub_080A2A64
+	bl CreateWaterTrace
 _0807AEDE:
 	pop {r4, pc}
 	.align 2, 0
@@ -5517,7 +5517,7 @@ sub_0807B1A8: @ 0x0807B1A8
 	cmp r0, #0
 	bne _0807B1D0
 	adds r0, r4, #0
-	bl sub_080A2B80
+	bl CreateSparkle
 _0807B1D0:
 	pop {r4, pc}
 	.align 2, 0

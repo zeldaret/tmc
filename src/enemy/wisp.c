@@ -109,7 +109,7 @@ void sub_080336DC(Entity* this) {
             this->y.HALF.HI = this->field_0x82.HWORD;
             break;
         case 0x18:
-            sub_080A29BC(this);
+            CreateDust(this);
             break;
         case 0xc:
             this->spriteSettings.b.draw = TRUE;

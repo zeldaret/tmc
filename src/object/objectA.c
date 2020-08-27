@@ -32,7 +32,7 @@ void ObjectA(Entity *this) {
     } else if (this->interactType != 0) {
       SetTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
       SetFlag(this->field_0x86);
-      sub_080A29BC(this);
+      CreateDust(this);
       sub_080526F8(-1);
       DeleteThisEntity();
     }

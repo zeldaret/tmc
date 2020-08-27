@@ -1806,14 +1806,14 @@ _0807DC82:
 	movs r1, #8
 	movs r2, #0x18
 	rsbs r2, r2, #0
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 	b _0807DD40
 _0807DC90:
 	adds r0, r5, #0
 	movs r1, #8
 	movs r2, #0x18
 	rsbs r2, r2, #0
-	bl sub_080A2D0C
+	bl CreateSpeechBubbleQuestionMark
 	b _0807DD40
 _0807DC9E:
 	adds r0, r6, #0
@@ -5183,7 +5183,7 @@ sub_0807F3F8: @ 0x0807F3F8
 	movs r2, #0x18
 	rsbs r2, r2, #0
 	movs r1, #8
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 	pop {pc}
 	.align 2, 0
 _0807F408: .4byte gPlayerEntity
@@ -5195,7 +5195,7 @@ sub_0807F40C: @ 0x0807F40C
 	movs r2, #0x18
 	rsbs r2, r2, #0
 	movs r1, #8
-	bl sub_080A2D0C
+	bl CreateSpeechBubbleQuestionMark
 	pop {pc}
 	.align 2, 0
 _0807F41C: .4byte gPlayerEntity
@@ -5936,7 +5936,7 @@ sub_0807F93C: @ 0x0807F93C
 	movs r3, #0xff
 	ands r1, r3
 	ands r2, r3
-	bl sub_080A2D1C
+	bl CreateSpeechBubbleSleep
 	pop {pc}
 	.align 2, 0
 
@@ -6978,14 +6978,14 @@ sub_08080108: @ 0x08080108
 	lsls r6, r6, #6
 	adds r0, r5, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r4, _0808017C @ =gUnk_0200B654
 	movs r0, #0xc0
 	lsls r0, r0, #6
 	adds r1, r4, r0
 	adds r0, r4, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	bl sub_08080368
 	ldr r1, _08080180 @ =gUnk_02034480
 	ldr r0, _08080184 @ =gUnk_0200B640
@@ -6995,7 +6995,7 @@ sub_08080108: @ 0x08080108
 	ldr r1, _0808018C @ =gUnk_020246B0
 	movs r2, #0xc0
 	lsls r2, r2, #5
-	bl sub_0801D66C
+	bl _DmaCopy
 	subs r5, #4
 	adds r0, r5, #0
 	bl sub_08080B60

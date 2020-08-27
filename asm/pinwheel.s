@@ -84,7 +84,7 @@ sub_080A2420: @ 0x080A2420
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 _080A243A:
 	pop {r4, pc}
 

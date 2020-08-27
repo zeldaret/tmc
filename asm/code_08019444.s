@@ -495,7 +495,7 @@ _08019810:
 _0801981A:
 	adds r0, r1, #0
 	adds r1, r3, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	b _0801982E
 _08019824:
 	ldrh r0, [r4]
@@ -3815,7 +3815,7 @@ _0801B114:
 	adds r1, r3, r0
 	lsls r2, r2, #5
 	adds r0, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 _0801B122:
 	ldr r0, [r4]
 	cmp r0, #0

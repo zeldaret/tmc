@@ -56,7 +56,7 @@ void sub_08037F58(Entity* this) {
 }
 
 void sub_08037F84(Entity* this) {
-    sub_08001242();
+    sub_08001242(this);
     if (this->height.HALF.HI != 0) {
         sub_08003FC4(this, 0x3000);
     }

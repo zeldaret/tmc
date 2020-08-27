@@ -29,18 +29,16 @@ extern Dialog gUnk_08110390[];
 extern u16 gUnk_081103D0[];
 extern u32 gUnk_081103E0;
 
-#if NON_MATCHING // reg-alloc
 void Smith(Entity* this) {
-    u32 iVar2;
-    u32 iVar4;
+    u32 index;
 
     if ((this->flags & 2) != 0) {
         if (this->interactType == 2) {
             this->action = 4;
             this->interactType = 0;
-            iVar4 = (this->animIndex == 0xc) ? 8 : 0;
-            iVar2 = sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
-            InitAnimationForceUpdate(this, iVar2 + iVar4);
+            index = (this->animIndex == 0xc) ? 8 : 0;
+            index += sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
+            InitAnimationForceUpdate(this, index);
             sub_0806F118(this);
         }
         gUnk_0811036C[this->action](this);
@@ -59,12 +57,6 @@ void Smith(Entity* this) {
         PlaySFX(gUnk_08110380[(Random() & 7)]);
     }
 }
-#else
-NAKED
-void Smith(Entity* this) {
-    asm(".include \"asm/non_matching/smith/smith.inc\"");
-}
-#endif
 
 void Smith_Head(Entity* this) {
     u8 bVar1;

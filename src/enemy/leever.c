@@ -4,7 +4,6 @@
 #include "functions.h"
 
 extern void SetChildOffset(Entity*, s32, s32, s32);
-extern void sub_0804A9FC(Entity*, u32);
 extern void sub_0804AA30(Entity*, void (*const func[])(Entity*));
 extern void sub_0804A7D4(Entity*);
 extern Entity* CreateDeathFx(Entity*, u32, u32);

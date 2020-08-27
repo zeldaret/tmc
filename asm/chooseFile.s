@@ -1204,7 +1204,7 @@ sub_08051458: @ 0x08051458
 	ldr r1, _0805147C @ =gUnk_02022030
 	movs r2, #0x80
 	lsls r2, r2, #3
-	bl sub_0801D66C
+	bl _DmaCopy
 	pop {pc}
 	.align 2, 0
 _08051474: .4byte gMenu
@@ -1364,7 +1364,7 @@ sub_08051574: @ 0x08051574
 	muls r1, r2, r1
 	adds r3, #0xc
 	adds r1, r1, r3
-	bl sub_0801D66C
+	bl _DmaCopy
 	bl sub_0805070C
 	pop {pc}
 	.align 2, 0
@@ -1742,7 +1742,7 @@ sub_08051874: @ 0x08051874
 	adds r3, r4, #0
 	adds r3, #0xc
 	adds r1, r1, r3
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r0, #0
 	bl sub_080503BC
 	b _080518DE
@@ -1895,7 +1895,7 @@ sub_080519B0: @ 0x080519B0
 	adds r1, r4, #0
 	adds r1, #0xc
 	movs r2, #0x20
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r0, #4
 	strb r0, [r4, #9]
 	bl sub_08053518

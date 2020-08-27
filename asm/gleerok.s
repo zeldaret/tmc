@@ -857,7 +857,7 @@ _0802D6C4:
 	rsbs r2, r2, #0
 	adds r0, r5, #0
 	movs r1, #0xc
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 _0802D6D8:
 	strb r6, [r5, #0x14]
 	b _0802D6EC

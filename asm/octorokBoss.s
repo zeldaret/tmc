@@ -1233,7 +1233,7 @@ _08035B18:
 	movs r2, #0x18
 	rsbs r2, r2, #0
 	movs r1, #0xc
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 _08035B2C:
 	pop {pc}
 	.align 2, 0
