@@ -915,7 +915,8 @@ SECTIONS {
 		src/mainLoop.o(.rodata);
 		data/data_08100CD4.o(.rodata);
         data/tileset_headers.o(.rodata);
-        data/data_081026AC.o(.rodata);
+        data/metatile_headers.o(.rodata);
+        data/data_081032DC.o(.rodata);
         src/manager/managerB.o(.rodata);
         data/data_0810821C.o(.rodata);
 		src/item.o(.rodata);

@@ -9,16 +9,36 @@
 	.2byte \tileset_id
 	.endm
 
-	.macro tileset_tiles src_offset, dest, size, compressed, terminator=0
+	.macro map_data src_offset, dest, size, compressed, terminator=0
 	.4byte (!(\terminator) << 0x1F) | (\src_offset)
 	.4byte \dest
 	.4byte (\compressed << 0x1F) | (\size)
+	.endm
+
+	.macro tileset_tiles src_offset, dest, size, compressed, terminator=0
+	map_data \src_offset, \dest, \size, \compressed, \terminator
 	.endm
 
 	.macro tileset_palette_set id, terminator=0
 	.4byte (!(\terminator) << 0x1F) | (\id)
 	.4byte 0x0
 	.4byte 0x0
+	.endm
+
+	.macro metatiles_bottom src_offset, size, compressed, terminator=0
+	map_data \src_offset, 0x0202CEB4, \size, \compressed, \terminator
+	.endm
+
+	.macro metatiles_top src_offset, size, compressed, terminator=0
+	map_data \src_offset, 0x02012654, \size, \compressed, \terminator
+	.endm
+
+	.macro metatile_types_bottom src_offset, size, compressed, terminator=0
+	map_data \src_offset, 0x0202AEB4, \size, \compressed, \terminator
+	.endm
+
+	.macro metatile_types_top src_offset, size, compressed, terminator=0
+	map_data \src_offset, 0x02010654, \size, \compressed, \terminator
 	.endm
 
 	.endif @ GUARD_ASM_MACROS_MAP_INC
