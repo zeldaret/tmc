@@ -328,7 +328,7 @@ SECTIONS {
 		src/enemy/octorok.o(.text);
 		src/enemy/chuchu.o(.text);
 		src/enemy/leever.o(.text);
-		asm/peahat.o(.text);
+		src/enemy/peahat.o(.text);
 		asm/rollobite.o(.text);
 		asm/darkNut.o(.text);
 		src/enemy/hangingSeed.o(.text);
@@ -909,6 +909,11 @@ SECTIONS {
 		src/enemy/octorok.o(.rodata);
 		data/octorokAnimations.o(.rodata);
 		src/enemy/chuchu.o(.rodata);
+		data/chuchuAnimations.o(.rodata);
+		src/enemy/leever.o(.rodata);
+		data/leeverAnimations.o(.rodata);
+		src/enemy/peahat.o(.rodata);
+		data/peahatAnimations.o(.rodata);
 		data/data_080CA2B4.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);

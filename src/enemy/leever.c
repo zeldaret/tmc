@@ -18,9 +18,10 @@ bool32 sub_0801FDE4(Entity*, s32, s32);
 extern void (*const gUnk_080CA49C[])(Entity*);
 extern void (*const gUnk_080CA4B4[])(Entity*);
 extern Entity* gUnk_020000B0;
-extern u8 gUnk_080CA4C8[];
-extern u16 gUnk_080CA4CA[];
+extern const u8 gUnk_080CA4C8[];
+extern const u16 gUnk_080CA4CA[];
 extern s16 gSineTable[];
+
 void Leever(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080CA49C);
     SetChildOffset(this, 0, 1, -0x10);
@@ -113,7 +114,7 @@ void sub_0801FDB4(Entity* this) {
 
 u32 sub_0801FDE4(Entity* ent, s32 x, s32 y) {
     u32 uVar3;
-    u16* puVar4;
+    const u16* puVar4;
 
     if (sub_080002D4(x, y, gUnk_020000B0->collisionLayer) != 0) {
         return 0;
@@ -176,3 +177,35 @@ void sub_0801FED4(Entity* this) {
     }
     sub_080AEF88(this);
 }
+
+// clang-format off
+void (*const gUnk_080CA49C[])(Entity*) = {
+    sub_0801FC28,
+    sub_0801FC40,
+    sub_08001324,
+    sub_0801FC7C,
+    sub_08001242,
+    sub_0801FC28,
+};
+
+void (*const gUnk_080CA4B4[])(Entity*) = {
+    sub_0801FC9C,
+    sub_0801FCB0,
+    sub_0801FD2C,
+    sub_0801FD80,
+    sub_0801FDB4,
+};
+
+const u8 gUnk_080CA4C8[] = {
+    0x06,
+    0xFA,
+};
+
+const u16 gUnk_080CA4CA[] = {
+    0x000A,
+    0x0009,
+    0x000C,
+    0x000B,
+    0xFFFF,
+};
+// clang-format on
