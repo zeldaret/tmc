@@ -914,7 +914,7 @@ SECTIONS {
 		data/leeverAnimations.o(.rodata);
 		src/enemy/peahat.o(.rodata);
 		data/peahatAnimations.o(.rodata);
-		data/data_080CA2B4.o(.rodata);
+		data/data_080CA66C.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
