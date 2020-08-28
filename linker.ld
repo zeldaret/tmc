@@ -917,7 +917,7 @@ SECTIONS {
 		data/rollobiteAnimations.o(.rodata);
 		src/enemy/darkNut.o(.rodata);
 		data/darkNutAnimations.o(.rodata);
-		data/data_080CAA98.o(.rodata);
+		data/data_080CB570.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
