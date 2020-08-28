@@ -330,7 +330,6 @@ SECTIONS {
 		src/enemy/leever.o(.text);
 		src/enemy/peahat.o(.text);
 		src/enemy/rollobite.o(.text);
-		asm/rollobite.o(.text);
 		asm/darkNut.o(.text);
 		src/enemy/hangingSeed.o(.text);
 		asm/beetle.o(.text);
@@ -917,7 +916,7 @@ SECTIONS {
 		data/peahatAnimations.o(.rodata);
 		src/enemy/rollobite.o(.rodata);
 		data/rollobiteAnimations.o(.rodata);
-		data/data_080CA66C.o(.rodata);
+		data/data_080CAA98.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
