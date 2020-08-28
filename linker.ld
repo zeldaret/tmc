@@ -857,7 +857,6 @@ SECTIONS {
 		src/object/metalDoor.o(.text);
 		src/object/jailBars.o(.text);
 		src/object/objectB2.o(.text);
-		asm/objectB2.o(.text);
 		asm/objectB3.o(.text);
 		asm/objectB4.o(.text);
 		asm/objectB5.o(.text);
