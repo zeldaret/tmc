@@ -326,19 +326,7 @@ void sub_08020590(Entity* this) {
         DeleteEntity(this);
     } else {
         if (this->actionDelay < 60)
-#if NON_MATCHING
             this->spriteSettings.b.draw ^= 1;
-#else
-            asm("ldrb r2, [r4, #0x18]\n\
-                lsl r1, r2, #0x1e\n\
-                lsr r1, r1, #0x1e\n\
-                mov r0, #1\n\
-                eor r1, r0\n\
-                sub r0, #5\n\
-                and r0, r2\n\
-                orr r0, r1\n\
-                strb r0, [r4, #0x18]");
-#endif
 
         this->height.WORD -= 0xc000;
         sub_0806F69C(this);

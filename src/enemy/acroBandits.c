@@ -411,9 +411,9 @@ void sub_08032008(Entity* this) {
                 }
             }
 
-            if (this->direction & 0xf) {
-                this->spriteSettings.b.flipX = !(!(this->direction & 0x10) ^ 1);
-            }
+            if (this->direction & 0xf)
+                this->spriteSettings.b.flipX = (this->direction >> 4 ^ 1);
+
 
             sub_080AEF88(this);
         } else {
