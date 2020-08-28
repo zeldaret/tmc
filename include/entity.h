@@ -100,7 +100,7 @@ typedef struct Entity {
     /*0x43*/ u8 field_0x43;
     /*0x44*/ u8 field_0x44;
     /*0x45*/ u8 currentHealth;
-    /*0x46*/ s16 field_0x46;
+    /*0x46*/ u16 field_0x46;
     /*0x48*/ BoundingBox* boundingBox;
     /*0x4c*/ u8 field_0x4c;
     /*0x4d*/ u8 field_0x4d;
