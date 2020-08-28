@@ -2,13 +2,6 @@
 	.include "constants/constants.inc"
 
 	.section .rodata
-	.align 2
-
-gUnk_080CB570:: @ 080CB570
-	.incbin "baserom.gba", 0x0CB570, 0x0000018
-
-gUnk_080CB588:: @ 080CB588
-	.incbin "baserom.gba", 0x0CB588, 0x0000008
 
 gUnk_080CB590:: @ 080CB590
 	.incbin "baserom.gba", 0x0CB590, 0x0000018
