@@ -3,15 +3,6 @@
 
 	.section .rodata
 
-gUnk_080CBBC8:: @ 080CBBC8
-	.incbin "baserom.gba", 0x0CBBC8, 0x0000014
-
-gUnk_080CBBDC:: @ 080CBBDC
-	.incbin "baserom.gba", 0x0CBBDC, 0x0000010
-
-gUnk_080CBBEC:: @ 080CBBEC
-	.incbin "baserom.gba", 0x0CBBEC, 0x000004C
-
 gUnk_080CBC38:: @ 080CBC38
 	.incbin "baserom.gba", 0x0CBC38, 0x0000018
 
