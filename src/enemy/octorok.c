@@ -14,17 +14,18 @@ extern void sub_0804A720();
 extern u32 Random();
 extern void sub_0801ED14();
 extern u32 sub_0801EDEC();
-extern Entity *sub_08049DF4(u32);
+extern Entity* sub_08049DF4(u32);
 
 extern void (*const gOctorok[6])(Entity*);
 extern void (*const gOctorokIdle[4])(Entity*);
-extern void (*const gUnk_080CA158[4])(Entity*);
+extern void (*const gUnk_080CA158[6])(Entity*);
 
 extern Entity* gUnk_020000B0;
-extern s8 gUnk_080CA17E[2];
-extern u8 gUnk_080CA170[8];
-extern u8 gUnk_080CA174[2];
-extern u8 gUnk_080CA176[8];
+extern const u8 gUnk_080CA170[4];
+extern const u8 gUnk_080CA174[2];
+extern const u8 gUnk_080CA176[8];
+extern const s8 gUnk_080CA17E[2];
+
 // Main
 void Octorok(Entity* this) {
     EnemyFunctionHandler(this, gOctorok);
@@ -82,7 +83,7 @@ void sub_0801EB84(Entity* this) {
     UpdateAnimationVariableFrames(this, 2);
 }
 
-void nullsub_3() {
+void nullsub_3(Entity* this) {
 }
 
 void sub_0801EB9C(Entity* this) {
@@ -137,7 +138,7 @@ void sub_0801EC80(Entity* this) {
     if (this->frames.all & 1) {
         Entity* ent = sub_0804A98C(this, 1, 0);
         if (ent) {
-            s8* off;
+            const s8* off;
             ent->direction = this->direction;
             off = &gUnk_080CA176[this->direction / 4];
             ent->x.HALF.HI += off[0];
@@ -187,14 +188,69 @@ void sub_0801ED14(Entity* this) {
     InitializeAnimation(this, this->animationState);
 }
 
-u32 sub_0801EDEC(Entity *this) {
+u32 sub_0801EDEC(Entity* this) {
     Entity* ent = sub_08049DF4(1);
-    
+
     if (ent == NULL)
         return 0;
-    
+
     if (((GetFacingDirection(this, ent) + 4) & 0x18) != this->direction)
         return 0;
-    
+
     return 1;
 }
+
+// clang-format off
+void (*const gOctorok[])(Entity*) = {
+    sub_0801EAD0,
+    sub_0801EAE8,
+    sub_08001324,
+    sub_0801EB0C,
+    sub_08001242,
+    sub_0801EB2C,
+};
+
+void (*const gOctorokIdle[])(Entity*) = {
+    sub_0801EBC8,
+    sub_0801EBF4,
+    sub_0801EC2C,
+    sub_0801EC80,
+};
+
+void (*const gUnk_080CA158[])(Entity*) = {
+    sub_0801EB68,
+    sub_0801EB74,
+    sub_0801EB7C,
+    sub_0801EB84,
+    nullsub_3,
+    sub_0801EB9C,
+};
+
+const u8 gUnk_080CA170[] = {
+    30,
+    60,
+    60,
+    90,
+};
+
+const u8 gUnk_080CA174[] = {
+    1,
+    0,
+};
+
+const u8 gUnk_080CA176[] = {
+    0x00,
+    0xFD,
+    0x04,
+    0x00,
+    0x00,
+    0x02,
+    0xFC,
+    0x00,
+};
+
+const s8 gUnk_080CA17E[] = {
+    0x04,
+    0xFC,
+};
+// clang-format on

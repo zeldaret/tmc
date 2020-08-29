@@ -44,12 +44,12 @@ typedef struct Entity {
     /*0x18*/ union {
     /*    */     u8 raw;
     /*    */     struct {
-    /*    */         u8 draw        : 2; // 1-2
-    /*    */         u8 ss2         : 1; //   4
-    /*    */         u8 ss3         : 1; //   8
-    /*    */         u8 shadow      : 2; //0x10-0x20
-    /*    */         u8 flipX       : 1; //0x40
-    /*    */         u8 flipY       : 1; //0x80
+    /*    */         u32 draw        : 2; // 1-2
+    /*    */         u32 ss2         : 1; //   4
+    /*    */         u32 ss3         : 1; //   8
+    /*    */         u32 shadow      : 2; //0x10-0x20
+    /*    */         u32 flipX       : 1; //0x40
+    /*    */         u32 flipY       : 1; //0x80
     /*    */     } PACKED b;
     /*    */ } PACKED spriteSettings;
     /*0x19*/ struct {
@@ -100,7 +100,7 @@ typedef struct Entity {
     /*0x43*/ u8 field_0x43;
     /*0x44*/ u8 field_0x44;
     /*0x45*/ u8 currentHealth;
-    /*0x46*/ s16 field_0x46;
+    /*0x46*/ u16 field_0x46;
     /*0x48*/ BoundingBox* boundingBox;
     /*0x4c*/ u8 field_0x4c;
     /*0x4d*/ u8 field_0x4d;
