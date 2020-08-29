@@ -924,7 +924,7 @@ SECTIONS {
 		data/keeseAnimations.o(.rodata);
 		src/enemy/doorMimic.o(.rodata);
 		data/doorMimicAnimations.o(.rodata);
-		data/data_080CB734.o(.rodata);
+		data/data_080CB948.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
