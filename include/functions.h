@@ -32,6 +32,7 @@ extern u32 GetFacingDirection(Entity*, Entity*);
 extern Entity* CreatePlayerItem(u32, u32, u32, u32);
 extern Entity* GetEmptyEntity(void);
 extern u32 GetTileTypeByPos(s32 x, s32 y, u32 layer);
+extern u32 GetTileType(u32 pos, u32 layer);
 extern void _DmaZero(void* src, u32 count);
 extern void EraseAllEntities(void);
 extern void SetTile(u32, u32, u32);
