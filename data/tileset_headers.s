@@ -6,9 +6,11 @@
 
 gAreaTileset_Unused_0:: @ 08100CE4
 gAreaMetatiles_Unused::
+gAreaRoomMap_Unused::
 	tileset_palette_set 0, 1
 
 gAreaTilesets_Unused:: @ 08100CF0
+gAreaRoomMaps_Unused::
 	.4byte gAreaTileset_Unused_0
 
 gTileset_MinishWoods_0:: @ 08100CF4

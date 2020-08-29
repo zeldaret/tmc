@@ -44,7 +44,7 @@ SECTIONS {
         . = 0x00002C9C; gGlobalFlags = .;
         . = 0x00002E9C; gUnk_02002E9C = .;
         . = 0x00002ECC; gUnk_02002ECC = .;
-        . = 0x00002F00; gUnk_02002F00 = .;
+        . = 0x00002F00; gMapDataTopSpecial = .;
         . = 0x00006F00; gUnk_02006F00 = .;
         . = 0x0000AF00; gUnk_0200AF00 = .;
         . = 0x0000AF13; gUnk_0200AF13 = .;
@@ -53,7 +53,7 @@ SECTIONS {
         . = 0x0000B640; gUnk_0200B640 = .;
         . = 0x0000B644; gUsedPalettes = .;
         . = 0x0000B650; gUnk_0200B650 = .;
-        . = 0x0000B654; gUnk_0200B654 = .;
+        . = 0x0000B654; gMapDataTop = .;
         . = 0x0000D654; gUnk_0200D654 = .;
         . = 0x0000E654; gUnk_0200E654 = .;
         . = 0x00010654; gMetatileTypesTop = .;
@@ -98,7 +98,7 @@ SECTIONS {
         . = 0x00024494; gUnk_02024494 = .;
         . = 0x000246B0; gUnk_020246B0 = .;
         . = 0x00025EB0; gUnk_02025EB0 = .;
-        . = 0x00025EB4; gUnk_02025EB4 = .;
+        . = 0x00025EB4; gMapDataBottom = .;
         . = 0x00027EB4; gUnk_02027EB4 = .;
         . = 0x00028EB4; gUnk_02028EB4 = .;
         . = 0x0002AEB4; gMetatileTypesBottom = .;
@@ -926,7 +926,8 @@ SECTIONS {
 		data/data_08100CD4.o(.rodata);
         data/tileset_headers.o(.rodata);
         data/metatile_headers.o(.rodata);
-        data/data_081032DC.o(.rodata);
+        data/map_headers.o(.rodata);
+        data/data_08107BC8.o(.rodata);
         src/manager/managerB.o(.rodata);
         data/data_0810821C.o(.rodata);
 		src/item.o(.rodata);

@@ -939,7 +939,7 @@ sub_08052E10: @ 0x08052E10
 	adds r0, r0, r1
 	ldr r0, [r0]
 	str r0, [r5, #8]
-	ldr r0, _08052E78 @ =gUnk_08107988
+	ldr r0, _08052E78 @ =gAreaRoomMaps
 	adds r0, r2, r0
 	ldr r0, [r0]
 	lsls r3, r3, #2
@@ -972,7 +972,7 @@ _08052E70:
 	pop {r4, r5, pc}
 	.align 2, 0
 _08052E74: .4byte gAreaTilesets
-_08052E78: .4byte gUnk_08107988
+_08052E78: .4byte gAreaRoomMaps
 _08052E7C: .4byte gAreaMetatiles
 _08052E80: .4byte gUnk_080B755C
 _08052E84: .4byte gUnk_0813A7F0
@@ -1204,7 +1204,7 @@ sub_08052FF4: @ 0x08052FF4
 	adds r0, r0, r1
 	ldr r0, [r0]
 	str r0, [r5, #8]
-	ldr r0, _08053080 @ =gUnk_08107988
+	ldr r0, _08053080 @ =gAreaRoomMaps
 	adds r0, r6, r0
 	ldr r0, [r0]
 	adds r2, r2, r0
@@ -1225,7 +1225,7 @@ _08053070: .4byte gScreen
 _08053074: .4byte gUnk_020342CC
 _08053078: .4byte gAreaRoomHeaders
 _0805307C: .4byte gAreaTilesets
-_08053080: .4byte gUnk_08107988
+_08053080: .4byte gAreaRoomMaps
 _08053084: .4byte gAreaMetatiles
 _08053088: .4byte gUnk_080B755C
 
