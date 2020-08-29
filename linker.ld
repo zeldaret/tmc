@@ -932,7 +932,7 @@ SECTIONS {
 		src/enemy/moldorm.o(.rodata);
 		src/enemy/enemyE.o(.rodata);
 		data/animations/enemyE.o(.rodata);
-		data/data_080CBB90.o(.rodata);
+		data/data_080CBC38.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
