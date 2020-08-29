@@ -33,13 +33,15 @@ typedef struct {
     /*0x30*/ union {
     /*    */     u32 all;
     /*    */     struct {
-    /*    */         u32 filler9 : 3;
+    /*    */         u32 filler9 : 2;
+    /*    */         u32 unk2 : 1;
     /*    */         u32 noMinishCap : 1;
     /*    */         u32 pullingState : 1;
     /*    */         u32 windyState : 1;
     /*    */         u32 filler6 : 1;
     /*    */         u32 unk7 : 1;
-    /*    */         u32 filler8 : 2;
+    /*    */         u32 unk8 : 1;
+    /*    */         u32 unk9 : 1;
     /*    */         u32 slipperyState : 1;
     /*    */         u32 filler11 : 5;
     /*    */         u32 filler11b : 16;
@@ -54,7 +56,9 @@ typedef struct {
     /*    */ u8 swordBlueParticle : 1;
     /*    */ u8 filler14 : 6;
     /*0x3f*/ u8 field_0x3f;
-    /*0x40*/ u8 field_0x40[75];
+    /*0x40*/ u8 field_0x40[64];
+    /*0x80*/ u16 field_0x80;
+    /*0x82*/ u8 field_0x82[9];
     /*0x8b*/ u8 field_0x8b;
     /*0x8c*/ u32 field_0x8c;
     /*0x90*/ union SplitWord field_0x90;
