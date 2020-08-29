@@ -335,7 +335,7 @@ SECTIONS {
 		src/enemy/beetle.o(.text);
 		src/enemy/keese.o(.text);
 		src/enemy/doorMimic.o(.text);
-		asm/rockChuchu.o(.text);
+		src/enemy/rockChuchu.o(.text);
 		asm/spinyChuchu.o(.text);
 		asm/cuccoChickAggr.o(.text);
 		asm/moldorm.o(.text);
@@ -924,6 +924,8 @@ SECTIONS {
 		data/animations/keese.o(.rodata);
 		src/enemy/doorMimic.o(.rodata);
 		data/animations/doorMimic.o(.rodata);
+		src/enemy/rockChuchu.o(.rodata);
+		data/animations/rockChuchu.o(.rodata);
 		data/data_080CB948.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
