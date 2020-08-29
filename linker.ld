@@ -929,7 +929,7 @@ SECTIONS {
 		src/enemy/spinyChuchu.o(.rodata);
 		data/animations/spinyChuchu.o(.rodata);
 		src/enemy/cuccoChickAggr.o(.rodata);
-		data/data_080CBB64.o(.rodata);
+		data/data_080CBB90.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
