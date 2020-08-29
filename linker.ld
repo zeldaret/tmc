@@ -926,7 +926,7 @@ SECTIONS {
 		data/animations/doorMimic.o(.rodata);
 		src/enemy/rockChuchu.o(.rodata);
 		data/animations/rockChuchu.o(.rodata);
-		data/data_080CB948.o(.rodata);
+		data/data_080CBA28.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
