@@ -334,7 +334,7 @@ SECTIONS {
 		src/enemy/hangingSeed.o(.text);
 		src/enemy/beetle.o(.text);
 		src/enemy/keese.o(.text);
-		asm/doorMimic.o(.text);
+		src/enemy/doorMimic.o(.text);
 		asm/rockChuchu.o(.text);
 		asm/spinyChuchu.o(.text);
 		asm/cuccoChickAggr.o(.text);
@@ -922,6 +922,8 @@ SECTIONS {
 		data/beetleAnimations.o(.rodata);
 		src/enemy/keese.o(.rodata);
 		data/keeseAnimations.o(.rodata);
+		src/enemy/doorMimic.o(.rodata);
+		data/doorMimicAnimations.o(.rodata);
 		data/data_080CB734.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
