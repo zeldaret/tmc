@@ -920,7 +920,7 @@ SECTIONS {
 		src/enemy/hangingSeed.o(.rodata);
 		src/enemy/beetle.o(.rodata);
 		data/beetleAnimations.o(.rodata);
-		data/data_080CB570.o(.rodata);
+		data/data_080CB69C.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
