@@ -928,7 +928,7 @@ SECTIONS {
 		data/animations/rockChuchu.o(.rodata);
 		src/enemy/spinyChuchu.o(.rodata);
 		data/animations/spinyChuchu.o(.rodata);
-		data/data_080CBA28.o(.rodata);
+		data/data_080CBB64.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
