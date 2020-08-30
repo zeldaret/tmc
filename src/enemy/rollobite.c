@@ -17,7 +17,6 @@ u32 sub_08020B6C(Entity*);
 extern void sub_080AE58C();
 extern void sub_080AE7E8();
 extern void sub_08078930();
-extern s32 GetTileType(s32 tilePosition, s32 layerIndex);
 
 void Rollobite(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080CA66C);
