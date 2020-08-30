@@ -29,7 +29,7 @@ sub_0805754C: @ 0x0805754C
 _08057570:
 	asrs r0, r0, #6
 	lsls r0, r0, #9
-	ldr r5, _080575C4 @ =gUnk_02002F00
+	ldr r5, _080575C4 @ =gMapDataTopSpecial
 	adds r1, r0, r5
 	str r1, [r4, #0x34]
 	ldr r0, [r2, #0x38]
@@ -71,7 +71,7 @@ _080575BA:
 	.align 2, 0
 _080575BC: .4byte gRoomControls
 _080575C0: .4byte gScreen
-_080575C4: .4byte gUnk_02002F00
+_080575C4: .4byte gMapDataTopSpecial
 
 	thumb_func_start sub_080575C8
 sub_080575C8: @ 0x080575C8
@@ -107,7 +107,7 @@ sub_080575C8: @ 0x080575C8
 _08057604:
 	asrs r0, r0, #6
 	lsls r0, r0, #9
-	ldr r4, _08057674 @ =gUnk_02002F00
+	ldr r4, _08057674 @ =gMapDataTopSpecial
 	adds r0, r0, r4
 	str r0, [r2, #0x34]
 	ldr r0, _08057678 @ =0x00001D49
@@ -158,7 +158,7 @@ _08057664: .4byte gUnk_0200B650
 _08057668: .4byte gRoomVars
 _0805766C: .4byte gRoomControls
 _08057670: .4byte gScreen
-_08057674: .4byte gUnk_02002F00
+_08057674: .4byte gMapDataTopSpecial
 _08057678: .4byte 0x00001D49
 _0805767C: .4byte 0x00001E49
 _08057680: .4byte 0x00003C48

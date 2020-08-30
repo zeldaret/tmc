@@ -395,14 +395,14 @@ _08080C7C: .4byte gUnk_0200B650
 sub_08080C80: @ 0x08080C80
 	push {r4, lr}
 	bl sub_080197D4
-	ldr r0, _08080CA8 @ =gUnk_02025EB4
+	ldr r0, _08080CA8 @ =gMapDataBottom
 	ldr r4, _08080CAC @ =gRoomControls
 	ldrh r1, [r4, #0x1e]
 	lsrs r1, r1, #4
 	ldrh r2, [r4, #0x20]
 	lsrs r2, r2, #4
 	bl sub_0807C8B0
-	ldr r0, _08080CB0 @ =gUnk_0200B654
+	ldr r0, _08080CB0 @ =gMapDataTop
 	ldrh r1, [r4, #0x1e]
 	lsrs r1, r1, #4
 	ldrh r2, [r4, #0x20]
@@ -410,9 +410,9 @@ sub_08080C80: @ 0x08080C80
 	bl sub_0807C8B0
 	pop {r4, pc}
 	.align 2, 0
-_08080CA8: .4byte gUnk_02025EB4
+_08080CA8: .4byte gMapDataBottom
 _08080CAC: .4byte gRoomControls
-_08080CB0: .4byte gUnk_0200B654
+_08080CB0: .4byte gMapDataTop
 
 	thumb_func_start sub_08080CB4
 sub_08080CB4: @ 0x08080CB4

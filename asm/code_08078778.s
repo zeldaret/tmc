@@ -5774,7 +5774,7 @@ _0807B3BC: .4byte gUnk_080B37A0
 _0807B3C0: .4byte gUnk_02019EE0
 _0807B3C4:
 	lsls r1, r1, #1
-	ldr r0, _0807B400 @ =gUnk_02002F00
+	ldr r0, _0807B400 @ =gMapDataTopSpecial
 _0807B3C8:
 	adds r3, r1, r0
 	mov r1, ip
@@ -5805,7 +5805,7 @@ _0807B3C8:
 	strb r0, [r1]
 	b _0807B430
 	.align 2, 0
-_0807B400: .4byte gUnk_02002F00
+_0807B400: .4byte gMapDataTopSpecial
 _0807B404: .4byte 0x00007004
 _0807B408: .4byte gRoomControls
 _0807B40C: .4byte gUnk_02000070
