@@ -188,7 +188,7 @@ _08058030: .4byte 0x80000020
 	thumb_func_start sub_08058034
 sub_08058034: @ 0x08058034
 	push {r4, r5, r6, lr}
-	ldr r6, _08058080 @ =gUnk_02002F00
+	ldr r6, _08058080 @ =gMapDataTopSpecial
 	movs r0, #0x80
 	lsls r0, r0, #7
 	adds r5, r6, r0
@@ -204,7 +204,7 @@ _08058040:
 	adds r4, #1
 	cmp r4, #3
 	bls _08058040
-	ldr r0, _08058080 @ =gUnk_02002F00
+	ldr r0, _08058080 @ =gMapDataTopSpecial
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r6, r0, r1
@@ -225,7 +225,7 @@ _08058066:
 	bls _08058066
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08058080: .4byte gUnk_02002F00
+_08058080: .4byte gMapDataTopSpecial
 
 	thumb_func_start sub_08058084
 sub_08058084: @ 0x08058084

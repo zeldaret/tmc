@@ -229,7 +229,7 @@ sub_0802409C: @ 0x0802409C
 	adds r0, r4, #0
 	bl InitializeAnimation
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 	pop {r4, pc}
 
 	thumb_func_start sub_080240B8

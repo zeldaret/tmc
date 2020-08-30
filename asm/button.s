@@ -538,7 +538,7 @@ _08081E9A:
 	ldr r2, _08081EF8 @ =gUnk_02019EE0
 	cmp r5, #2
 	bne _08081EB4
-	ldr r2, _08081EFC @ =gUnk_02002F00
+	ldr r2, _08081EFC @ =gMapDataTopSpecial
 _08081EB4:
 	movs r0, #0x3f
 	ands r0, r6
@@ -570,7 +570,7 @@ _08081EEC: .4byte 0x00003FFF
 _08081EF0: .4byte 0x00007004
 _08081EF4: .4byte 0x00006004
 _08081EF8: .4byte gUnk_02019EE0
-_08081EFC: .4byte gUnk_02002F00
+_08081EFC: .4byte gMapDataTopSpecial
 
 	thumb_func_start sub_08081F00
 sub_08081F00: @ 0x08081F00

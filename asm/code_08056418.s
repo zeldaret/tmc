@@ -102,7 +102,7 @@ sub_080564EC: @ 0x080564EC
 	ldr r0, _080565A4 @ =gTextBox
 	adds r1, r4, #0
 	movs r2, #0x20
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldrb r0, [r4, #2]
 	cmp r0, #0x63
 	bne _08056520

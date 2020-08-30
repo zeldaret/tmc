@@ -333,7 +333,7 @@ sub_08059124: @ 0x08059124
 	movs r2, #0x3a
 	ldrsh r1, [r4, r2]
 	ldrb r2, [r4, #0xb]
-	bl sub_080A29C8
+	bl CreateDustAt
 	ldrh r0, [r4, #0x38]
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x14

@@ -9,16 +9,56 @@
 	.2byte \tileset_id
 	.endm
 
-	.macro tileset_tiles src_offset, dest, size, compressed, terminator=0
+	.macro map_data src_offset, dest, size, compressed, terminator=0
 	.4byte (!(\terminator) << 0x1F) | (\src_offset)
 	.4byte \dest
 	.4byte (\compressed << 0x1F) | (\size)
+	.endm
+
+	.macro tileset_tiles src_offset, dest, size, compressed, terminator=0
+	map_data \src_offset, \dest, \size, \compressed, \terminator
 	.endm
 
 	.macro tileset_palette_set id, terminator=0
 	.4byte (!(\terminator) << 0x1F) | (\id)
 	.4byte 0x0
 	.4byte 0x0
+	.endm
+
+	.macro metatiles_bottom src_offset, size, compressed, terminator=0
+	map_data \src_offset, gMetatilesBottom, \size, \compressed, \terminator
+	.endm
+
+	.macro metatiles_top src_offset, size, compressed, terminator=0
+	map_data \src_offset, gMetatilesTop, \size, \compressed, \terminator
+	.endm
+
+	.macro metatile_types_bottom src_offset, size, compressed, terminator=0
+	map_data \src_offset, gMetatileTypesBottom, \size, \compressed, \terminator
+	.endm
+
+	.macro metatile_types_top src_offset, size, compressed, terminator=0
+	map_data \src_offset, gMetatileTypesTop, \size, \compressed, \terminator
+	.endm
+
+	.macro map_bottom src_offset, size, compressed, terminator=0
+	map_data \src_offset, gMapDataBottom, \size, \compressed, \terminator
+	.endm
+
+	.macro map_top src_offset, size, compressed, terminator=0
+	map_data \src_offset, gMapDataTop, \size, \compressed, \terminator
+	.endm
+
+	.macro map_top_special src_offset, size, compressed, terminator=0
+	map_data \src_offset, gMapDataTopSpecial, \size, \compressed, \terminator
+	.endm
+
+	.macro map_unknown src_offset, size, compressed, terminator=0
+	map_data \src_offset, gUnk_02027EB4, \size, \compressed, \terminator
+	.endm
+
+	.macro map_unknown_2 src_offset, size, compressed, terminator=0
+	map_data \src_offset, gUnk_02019EE0, \size, \compressed, \terminator
 	.endm
 
 	.endif @ GUARD_ASM_MACROS_MAP_INC

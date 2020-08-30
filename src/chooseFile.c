@@ -55,7 +55,7 @@ static void sub_08050624(u32);
 static void sub_0805066C(void);
 static void sub_080507FC(void);
 
-extern void sub_0801D66C(const void* src, void* dest, u32 size);
+extern void _DmaCopy(const void* src, void* dest, u32 size);
 extern void sub_08056FEC(u32, struct_020227E8*);
 extern void sub_0805F46C(u32, struct_080FC844*);
 extern void sub_0801C4A0(u32, u32);
@@ -83,7 +83,7 @@ void sub_08050318(u32 arg0, u32 arg1) {
     struct_080FC844 var0;
 
     sub_08050384();
-    sub_0801D66C(&gUnk_080FC844, &var0, sizeof(gUnk_080FC844));
+    _DmaCopy(&gUnk_080FC844, &var0, sizeof(gUnk_080FC844));
     sub_08056FEC(arg1, &gUnk_020227E8);
     var0.unk10 |= gUnk_080FC85C[arg0][0] << 0xC;
     sub_0805F46C(gUnk_080FC85C[arg0][1], &var0);
@@ -136,7 +136,7 @@ void sub_0805041C(u32 saveFileId) {
     if (saveFileId < 3) {
         ((struct_02000000 *)0x2000000)->saveFileId = saveFileId;
         saveFile = &gSaveFiles[saveFileId];
-        sub_0801D66C(saveFile, &gUnk_02002A40, sizeof(*saveFile));
+        _DmaCopy(saveFile, &gUnk_02002A40, sizeof(*saveFile));
     }
     sub_080503E4(saveFileId);
 }
@@ -281,7 +281,7 @@ void sub_0805070C(void) {
             for (j = 0; j < 6; j++) {
                 sub_0805F7DC(playerName[j], var0);
             }
-            sub_0801D66C(var0->unk8, (void*)(OBJ_VRAM0 + 0x4000 + i * 0x200), 0x200);
+            _DmaCopy(var0->unk8, (void*)(OBJ_VRAM0 + 0x4000 + i * 0x200), 0x200);
         }
         sub_0805F300(var0);
     }
@@ -307,7 +307,7 @@ void sub_08050790(void) {
                 sub_0805F7DC(var1, var0);
                 var1++;
             }
-            sub_0801D66C(gUnk_02000D00, (void*)(BG_VRAM + i * 0x400), 0x400);
+            _DmaCopy(gUnk_02000D00, (void*)(BG_VRAM + i * 0x400), 0x400);
         }
         sub_0805F300(var0);
     }

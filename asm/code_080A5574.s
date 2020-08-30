@@ -867,7 +867,7 @@ sub_080A5BF0: @ 0x080A5BF0
 	adds r0, r4, #2
 	adds r1, r4, #0
 	movs r2, #0xe
-	bl sub_0801D66C
+	bl _DmaCopy
 	strh r5, [r4, #0xe]
 	ldr r2, _080A5C40 @ =gUsedPalettes
 	ldr r0, [r2]
@@ -3420,7 +3420,7 @@ sub_080A7040: @ 0x080A7040
 	movs r2, #0x80
 	lsls r2, r2, #4
 	adds r0, r4, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r1, _080A70A0 @ =gUnk_08128D70
 	lsls r0, r5, #3
 	adds r4, r0, r1
@@ -3679,42 +3679,42 @@ sub_080A7250: @ 0x080A7250
 	ldr r0, _080A72EC @ =gScreen
 	ldr r1, _080A72F0 @ =gUnk_03001020
 	movs r2, #0x7c
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A72F4 @ =gPaletteBuffer
 	ldr r1, _080A72F8 @ =gUnk_02024090
 	movs r2, #0x80
 	lsls r2, r2, #3
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A72FC @ =gUnk_02024490
 	ldr r4, _080A7300 @ =gUnk_02032F14
 	movs r2, #0x85
 	lsls r2, r2, #2
 	adds r1, r4, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A7304 @ =gUnk_02001A00
 	movs r2, #0x85
 	lsls r2, r2, #2
 	adds r1, r4, r2
 	movs r2, #0x40
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A7308 @ =gRoomControls
 	adds r1, r4, #0
 	subs r1, #0x38
 	movs r2, #0x38
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A730C @ =gUnk_03000420
 	movs r2, #0x95
 	lsls r2, r2, #2
 	adds r1, r4, r2
 	movs r2, #0x80
 	lsls r2, r2, #1
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A7310 @ =gUnk_02033280
 	movs r2, #0xd5
 	lsls r2, r2, #2
 	adds r1, r4, r2
 	movs r2, #0xc
-	bl sub_0801D66C
+	bl _DmaCopy
 	bl sub_0805E958
 	adds r1, r4, #0
 	subs r1, #0x54
@@ -3838,36 +3838,36 @@ _080A73B4:
 	adds r0, r5, r1
 	ldr r1, _080A7480 @ =gUnk_02033280
 	movs r2, #0xc
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r1, #0xaa
 	lsls r1, r1, #2
 	adds r0, r5, r1
 	ldr r1, _080A7484 @ =gUnk_03000420
 	movs r2, #0x80
 	lsls r2, r2, #1
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r1, #0x9a
 	lsls r1, r1, #2
 	adds r0, r5, r1
 	ldr r1, _080A7488 @ =gUnk_02001A00
 	movs r2, #0x40
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r5, #0
 	adds r0, #0x54
 	ldr r1, _080A748C @ =gUnk_02024490
 	movs r2, #0x85
 	lsls r2, r2, #2
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r5, #0
 	adds r0, #0x1c
 	ldr r4, _080A7490 @ =gRoomControls
 	adds r1, r4, #0
 	movs r2, #0x38
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A7494 @ =gUnk_03001020
 	ldr r1, _080A7498 @ =gScreen
 	movs r2, #0x7c
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldrb r0, [r4, #4]
 	bl sub_08052D58
 	ldr r4, _080A749C @ =gArea
@@ -8153,7 +8153,7 @@ sub_080A9448: @ 0x080A9448
 	cmp r0, #0
 	bne _080A9464
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 	bl DeleteThisEntity
 	b _080A9486
 _080A9464:
@@ -10572,7 +10572,7 @@ sub_080AA654: @ 0x080AA654
 	ldr r0, _080AA688 @ =gUnk_0812A004
 	adds r1, r4, #0
 	movs r2, #0x10
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r1, #0x3f
 	adds r0, r5, #0
 	ands r0, r1
@@ -13189,7 +13189,7 @@ sub_080AB9DC: @ 0x080AB9DC
 	adds r1, r4, #0
 	adds r1, #0x68
 	movs r2, #0x1c
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldrh r1, [r4, #0x2e]
 	adds r0, r4, #0
 	adds r0, #0x84
@@ -13507,7 +13507,7 @@ _080ABC2A:
 	bl ModHealth
 _080ABC32:
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 	bl DeleteThisEntity
 	b _080ABC52
 _080ABC3E:

@@ -13,7 +13,6 @@ extern u32 sub_080322A4(Entity*);
 void sub_080322E8(Entity*);
 extern void sub_08032338(Entity*);
 extern Entity* sub_08049DF4(u32);
-extern void sub_0804A9FC(Entity*, u32);
 extern void sub_0804AA30(Entity*, void (*const funcs[])(Entity*));
 extern u32 sub_0806FCB8(Entity*, u32, u32, u32);
 extern u32 GetNextFunction(Entity*);
@@ -29,7 +28,7 @@ extern void (*const gUnk_080CE58C[])(Entity*);
 extern void (*const gUnk_080CE5C8[])(Entity*);
 extern u8 gUnk_080CE5B0[8];
 extern u8 gUnk_080CE5B8[8];
-extern union SplitHWord gUnk_080CE5C0[4];
+extern s8 gUnk_080CE5C0[8];
 extern u16 gUnk_080CE5F0[5];
 extern u8 gUnk_080CE5FA[20]; // Directions
 
@@ -209,15 +208,14 @@ void sub_08031C1C(Entity* this) {
     }
 }
 
-#if NON_MATCHING
+
 void sub_08031C58(Entity* this) {
-    u8 tmp;
     Entity *a, *b;
 
     GetNextFrame(this);
     if (this->frames.b.f3) {
         if (gEntCount < 0x43) {
-            tmp = Random();
+            u32 tmp = Random();
             tmp &= 3;
 
             a = CreateEnemy(0x2e, 1);
@@ -225,30 +223,30 @@ void sub_08031C58(Entity* this) {
             a->parent = NULL;
             a->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, a);
+            a->attachedEntity = CreateEnemy(0x2e, 1);
 
-            b = CreateEnemy(0x2e, 1);
-            a->attachedEntity = b;
+            b = a->attachedEntity;
             b->entityType.parameter = 1;
             b->parent = a;
             b->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, b);
+            b->attachedEntity = CreateEnemy(0x2e, 1);
 
-            a = CreateEnemy(0x2e, 1);
-            b->attachedEntity = a;
+            a = b->attachedEntity;
             a->entityType.parameter = 2;
             a->parent = b;
             a->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, a);
+            a->attachedEntity = CreateEnemy(0x2e, 1);
 
-            b = CreateEnemy(0x2e, 1);
-            a->attachedEntity = b;
+            b = a->attachedEntity;
             b->entityType.parameter = 3;
             b->parent = a;
             b->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, b);
+            b->attachedEntity = CreateEnemy(0x2e, 1);
 
-            a = CreateEnemy(0x2e, 1);
-            b->attachedEntity = a;
+            a = b->attachedEntity;
             a->entityType.parameter = 4;
             a->parent = b;
             a->attachedEntity = NULL;
@@ -267,12 +265,6 @@ void sub_08031C58(Entity* this) {
         }
     }
 }
-#else
-NAKED
-void sub_08031C58(Entity* this) {
-    asm(".include \"asm/non_matching/acroBandits/sub_08031C58.inc\"");
-}
-#endif
 
 void sub_08031D70(Entity* this) {
     GetNextFrame(this);
@@ -308,27 +300,17 @@ void sub_08031DC4(Entity* this) {
     }
 }
 
-#if NON_MATCHING
 u32 sub_08031E04(Entity* this) {
     Entity* ent;
-    union SplitHWord* tmp;
-    int x, y;
+    s8* tmp;
 
     ent = sub_08049DF4(1);
     if (ent == NULL)
         return 0;
 
     tmp = &gUnk_080CE5C0[this->frames.all & 6];
-    x = ent->x.HALF.HI + tmp->HALF.LO;
-    y = ent->y.HALF.HI + tmp->HALF.HI;
-    return sub_0806FCB8(this, x, y, 0x50);
+    return sub_0806FCB8(this, ent->x.HALF.HI + tmp[0], ent->y.HALF.HI + tmp[1], 0x50);
 }
-#else
-NAKED
-u32 sub_08031E04(Entity* this) {
-    asm(".include \"asm/non_matching/acroBandits/sub_08031E04.inc\"");
-}
-#endif
 
 void sub_08031E48(Entity* this, Entity* child) {
     CopyPosition(this, child);
@@ -429,9 +411,9 @@ void sub_08032008(Entity* this) {
                 }
             }
 
-            if (this->direction & 0xf) {
-                this->spriteSettings.b.flipX = !(!(this->direction & 0x10) ^ 1);
-            }
+            if (this->direction & 0xf)
+                this->spriteSettings.b.flipX = (this->direction >> 4 ^ 1);
+
 
             sub_080AEF88(this);
         } else {

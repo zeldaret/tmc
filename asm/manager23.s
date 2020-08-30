@@ -188,7 +188,7 @@ sub_0805BDB4: @ 0x0805BDB4
 	movs r2, #0x3a
 	ldrsh r1, [r4, r2]
 	ldrb r2, [r4, #0xb]
-	bl sub_080A29C8
+	bl CreateDustAt
 	ldrh r0, [r4, #0x3e]
 	bl ClearFlag
 	ldrh r0, [r4, #0x20]

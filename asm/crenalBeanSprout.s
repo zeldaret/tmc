@@ -603,7 +603,7 @@ sub_08096780: @ 0x08096780
 	strb r0, [r5, #0xc]
 	strb r1, [r5, #0xd]
 	adds r0, r5, #0
-	bl sub_080A29BC
+	bl CreateDust
 	b _080967E0
 	.align 2, 0
 _080967D4: .4byte gUnk_0812319C

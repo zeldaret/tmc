@@ -495,7 +495,7 @@ _08019810:
 _0801981A:
 	adds r0, r1, #0
 	adds r1, r3, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	b _0801982E
 _08019824:
 	ldrh r0, [r4]
@@ -3508,7 +3508,7 @@ _0801AED0:
 	ldr r0, [r1]
 	cmp r0, #0
 	beq _0801AF10
-	ldr r0, _0801AF08 @ =gUnk_02002F00
+	ldr r0, _0801AF08 @ =gMapDataTopSpecial
 	bl sub_0801AB08
 	b _0801AF10
 	.align 2, 0
@@ -3522,7 +3522,7 @@ _0801AEF8: .4byte 0x00000888
 _0801AEFC: .4byte gUnk_02025EB0
 _0801AF00: .4byte gUnk_02019EE0
 _0801AF04: .4byte gUnk_0200B650
-_0801AF08: .4byte gUnk_02002F00
+_0801AF08: .4byte gMapDataTopSpecial
 _0801AF0C:
 	bl sub_0807C4F8
 _0801AF10:
@@ -3815,7 +3815,7 @@ _0801B114:
 	adds r1, r3, r0
 	lsls r2, r2, #5
 	adds r0, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 _0801B122:
 	ldr r0, [r4]
 	cmp r0, #0

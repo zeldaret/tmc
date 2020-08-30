@@ -5,9 +5,12 @@
 	.align 2
 
 gAreaTileset_Unused_0:: @ 08100CE4
+gAreaMetatiles_Unused::
+gAreaRoomMap_Unused::
 	tileset_palette_set 0, 1
 
 gAreaTilesets_Unused:: @ 08100CF0
+gAreaRoomMaps_Unused::
 	.4byte gAreaTileset_Unused_0
 
 gTileset_MinishWoods_0:: @ 08100CF4
@@ -795,7 +798,7 @@ gAreaTileset_CastorDarknut_0:: @ 08101FA8
 	tileset_tiles 0x1DF4B4, 0x6008000, 0x4000, 1
 	tileset_palette_set 37, 1
 
-gAreaTilesets_CastorDarknut:: @ 08101FD8
+gAreaTilesets_FortressOfWinds:: @ 08101FD8
 	.4byte gAreaTileset_CastorDarknut_0
 
 gAreaTileset_FortressOfWindsTop_0:: @ 08101FDC
@@ -999,147 +1002,147 @@ gAreaTilesets_RoyalValleyGraves:: @ 08102468
 	.4byte gAreaTileset_RoyalValleyGraves_0
 
 gAreaTilesets:: @ 0810246C
-	.4byte gAreaTilesets_MinishWoods
-	.4byte gAreaTilesets_MinishVillage
-	.4byte gAreaTilesets_HyruleTown
-	.4byte gAreaTilesets_HyruleField
-	.4byte gAreaTilesets_CastorWilds
-	.4byte gAreaTilesets_Ruins
-	.4byte gAreaTilesets_MtCrenel
-	.4byte gAreaTilesets_CastleGarden
-	.4byte gAreaTilesets_CloudTops
-	.4byte gAreaTilesets_RoyalValley
-	.4byte gAreaTilesets_VeilFalls
-	.4byte gAreaTilesets_LakeHylia
-	.4byte gAreaTilesets_LakeWoodsCave
-	.4byte gAreaTilesets_Beanstalks
-	.4byte gAreaTilesets_MinishWoods
-	.4byte gAreaTilesets_HyruleDigCaves
-	.4byte gAreaTilesets_MelarisMine
-	.4byte gAreaTilesets_MinishPaths1
-	.4byte gAreaTilesets_CrenelMinishPaths
-	.4byte gAreaTilesets_DigCaves1
-	.4byte gAreaTilesets_CrenelDigCave
-	.4byte gAreaTilesets_FestivalTown
-	.4byte gAreaTilesets_VeilFallsDigCave
-	.4byte gAreaTilesets_CastorWildsDigCave
-	.4byte gAreaTilesets_OuterFortressOfWinds
-	.4byte gAreaTilesets_HyliaDigCaves
-	.4byte gAreaTilesets_VeilFallsTop
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_MinishHouseInteriors
-	.4byte gAreaTilesets_HouseInteriors1
-	.4byte gAreaTilesets_HouseInteriors2
-	.4byte gAreaTilesets_HouseInteriors3
-	.4byte gAreaTilesets_TreeInteriors
-	.4byte gAreaTilesets_Dojos
-	.4byte gAreaTilesets_CrenelCaves
-	.4byte gAreaTilesets_MinishCracks
-	.4byte gAreaTilesets_HouseInteriors4
-	.4byte gAreaTilesets_GreatFairies
-	.4byte gAreaTilesets_CastorCaves
-	.4byte gAreaTilesets_CastorDarknut
-	.4byte gAreaTilesets_ArmosInteriors
-	.4byte gAreaTilesets_TownMinishHoles
-	.4byte gAreaTilesets_MinishRafters
-	.4byte gAreaTilesets_GoronCave
-	.4byte gAreaTilesets_WindTribeTower
-	.4byte gAreaTilesets_WindTribeTowerRoof
-	.4byte gAreaTilesets_Caves
-	.4byte gAreaTilesets_VeilFallsCaves
-	.4byte gAreaTilesets_RoyalValleyGraves
-	.4byte gAreaTilesets_MinishCaves
-	.4byte gAreaTilesets_CastleGardenMinishHoles
-	.4byte gAreaTilesets_37
-	.4byte gAreaTilesets_EzloCutscene
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_40
-	.4byte gAreaTilesets_HyruleTownUnderground
-	.4byte gAreaTilesets_40
-	.4byte gAreaTilesets_40
-	.4byte gAreaTilesets_SimonsSimulation
-	.4byte gAreaTilesets_45
-	.4byte gAreaTilesets_45
-	.4byte gAreaTilesets_45
-	.4byte gAreaTilesets_DeepwoodShrine
-	.4byte gAreaTilesets_DeepwoodShrineBoss
-	.4byte gAreaTilesets_DeepwoodShrineEntry
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_DeepwoodShrine
-	.4byte gAreaTilesets_DeepwoodShrine
-	.4byte gAreaTilesets_DeepwoodShrineBoss
-	.4byte gAreaTilesets_CaveOfFlames
-	.4byte gAreaTilesets_CaveOfFlamesBoss
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_CaveOfFlames
-	.4byte gAreaTilesets_CaveOfFlames
-	.4byte gAreaTilesets_CastorDarknut
-	.4byte gAreaTilesets_FortressOfWindsTop
-	.4byte gAreaTilesets_InnerMazaal
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_CastorDarknut
-	.4byte gAreaTilesets_TempleOfDroplets
-	.4byte gAreaTilesets_61
-	.4byte gAreaTilesets_HyruleTownMinishCaves
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_TempleOfDroplets
-	.4byte gAreaTilesets_RoyalCrypt
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_RoyalCrypt
-	.4byte gAreaTilesets_PalaceOfWinds
-	.4byte gAreaTilesets_PalaceOfWindsBoss
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_PalaceOfWinds
-	.4byte gAreaTilesets_Sanctuary
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Sanctuary
-	.4byte gAreaTilesets_HyruleCastle
-	.4byte gAreaTilesets_SanctuaryEntrance
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_HyruleCastle
-	.4byte gAreaTilesets_DarkHyruleCastle
-	.4byte gAreaTilesets_DarkHyruleCastleOutside
-	.4byte gAreaTilesets_VaatisArms
-	.4byte gAreaTilesets_Vaati3
-	.4byte gAreaTilesets_Vaati2
-	.4byte gAreaTilesets_DarkHyruleCastleBridge
-	.4byte gAreaTilesets_Unused
-	.4byte gAreaTilesets_DarkHyruleCastle
+	.4byte gAreaTilesets_MinishWoods             @ 0x0
+	.4byte gAreaTilesets_MinishVillage           @ 0x1
+	.4byte gAreaTilesets_HyruleTown              @ 0x2
+	.4byte gAreaTilesets_HyruleField             @ 0x3
+	.4byte gAreaTilesets_CastorWilds             @ 0x4
+	.4byte gAreaTilesets_Ruins                   @ 0x5
+	.4byte gAreaTilesets_MtCrenel                @ 0x6
+	.4byte gAreaTilesets_CastleGarden            @ 0x7
+	.4byte gAreaTilesets_CloudTops               @ 0x8
+	.4byte gAreaTilesets_RoyalValley             @ 0x9
+	.4byte gAreaTilesets_VeilFalls               @ 0xA
+	.4byte gAreaTilesets_LakeHylia               @ 0xB
+	.4byte gAreaTilesets_LakeWoodsCave           @ 0xC
+	.4byte gAreaTilesets_Beanstalks              @ 0xD
+	.4byte gAreaTilesets_MinishWoods             @ 0xE
+	.4byte gAreaTilesets_HyruleDigCaves          @ 0xF
+	.4byte gAreaTilesets_MelarisMine             @ 0x10
+	.4byte gAreaTilesets_MinishPaths1            @ 0x11
+	.4byte gAreaTilesets_CrenelMinishPaths       @ 0x12
+	.4byte gAreaTilesets_DigCaves1               @ 0x13
+	.4byte gAreaTilesets_CrenelDigCave           @ 0x14
+	.4byte gAreaTilesets_FestivalTown            @ 0x15
+	.4byte gAreaTilesets_VeilFallsDigCave        @ 0x16
+	.4byte gAreaTilesets_CastorWildsDigCave      @ 0x17
+	.4byte gAreaTilesets_OuterFortressOfWinds    @ 0x18
+	.4byte gAreaTilesets_HyliaDigCaves           @ 0x19
+	.4byte gAreaTilesets_VeilFallsTop            @ 0x1A
+	.4byte gAreaTilesets_Unused                  @ 0x1B
+	.4byte gAreaTilesets_Unused                  @ 0x1C
+	.4byte gAreaTilesets_Unused                  @ 0x1D
+	.4byte gAreaTilesets_Unused                  @ 0x1E
+	.4byte gAreaTilesets_Unused                  @ 0x1F
+	.4byte gAreaTilesets_MinishHouseInteriors    @ 0x20
+	.4byte gAreaTilesets_HouseInteriors1         @ 0x21
+	.4byte gAreaTilesets_HouseInteriors2         @ 0x22
+	.4byte gAreaTilesets_HouseInteriors3         @ 0x23
+	.4byte gAreaTilesets_TreeInteriors           @ 0x24
+	.4byte gAreaTilesets_Dojos                   @ 0x25
+	.4byte gAreaTilesets_CrenelCaves             @ 0x26
+	.4byte gAreaTilesets_MinishCracks            @ 0x27
+	.4byte gAreaTilesets_HouseInteriors4         @ 0x28
+	.4byte gAreaTilesets_GreatFairies            @ 0x29
+	.4byte gAreaTilesets_CastorCaves             @ 0x2A
+	.4byte gAreaTilesets_FortressOfWinds         @ 0x2B
+	.4byte gAreaTilesets_ArmosInteriors          @ 0x2C
+	.4byte gAreaTilesets_TownMinishHoles         @ 0x2D
+	.4byte gAreaTilesets_MinishRafters           @ 0x2E
+	.4byte gAreaTilesets_GoronCave               @ 0x2F
+	.4byte gAreaTilesets_WindTribeTower          @ 0x30
+	.4byte gAreaTilesets_WindTribeTowerRoof      @ 0x31
+	.4byte gAreaTilesets_Caves                   @ 0x32
+	.4byte gAreaTilesets_VeilFallsCaves          @ 0x33
+	.4byte gAreaTilesets_RoyalValleyGraves       @ 0x34
+	.4byte gAreaTilesets_MinishCaves             @ 0x35
+	.4byte gAreaTilesets_CastleGardenMinishHoles @ 0x36
+	.4byte gAreaTilesets_37                      @ 0x37
+	.4byte gAreaTilesets_EzloCutscene            @ 0x38
+	.4byte gAreaTilesets_Unused                  @ 0x39
+	.4byte gAreaTilesets_Unused                  @ 0x3A
+	.4byte gAreaTilesets_Unused                  @ 0x3B
+	.4byte gAreaTilesets_Unused                  @ 0x3C
+	.4byte gAreaTilesets_Unused                  @ 0x3D
+	.4byte gAreaTilesets_Unused                  @ 0x3E
+	.4byte gAreaTilesets_Unused                  @ 0x3F
+	.4byte gAreaTilesets_40                      @ 0x40
+	.4byte gAreaTilesets_HyruleTownUnderground   @ 0x41
+	.4byte gAreaTilesets_40                      @ 0x42
+	.4byte gAreaTilesets_40                      @ 0x43
+	.4byte gAreaTilesets_SimonsSimulation        @ 0x44
+	.4byte gAreaTilesets_45                      @ 0x45
+	.4byte gAreaTilesets_45                      @ 0x46
+	.4byte gAreaTilesets_45                      @ 0x47
+	.4byte gAreaTilesets_DeepwoodShrine          @ 0x48
+	.4byte gAreaTilesets_DeepwoodShrineBoss      @ 0x49
+	.4byte gAreaTilesets_DeepwoodShrineEntry     @ 0x4A
+	.4byte gAreaTilesets_Unused                  @ 0x4B
+	.4byte gAreaTilesets_Unused                  @ 0x4C
+	.4byte gAreaTilesets_DeepwoodShrine          @ 0x4D
+	.4byte gAreaTilesets_DeepwoodShrine          @ 0x4E
+	.4byte gAreaTilesets_DeepwoodShrineBoss      @ 0x4F
+	.4byte gAreaTilesets_CaveOfFlames            @ 0x50
+	.4byte gAreaTilesets_CaveOfFlamesBoss        @ 0x51
+	.4byte gAreaTilesets_Unused                  @ 0x52
+	.4byte gAreaTilesets_Unused                  @ 0x53
+	.4byte gAreaTilesets_Unused                  @ 0x54
+	.4byte gAreaTilesets_Unused                  @ 0x55
+	.4byte gAreaTilesets_CaveOfFlames            @ 0x56
+	.4byte gAreaTilesets_CaveOfFlames            @ 0x57
+	.4byte gAreaTilesets_FortressOfWinds         @ 0x58
+	.4byte gAreaTilesets_FortressOfWindsTop      @ 0x59
+	.4byte gAreaTilesets_InnerMazaal             @ 0x5A
+	.4byte gAreaTilesets_Unused                  @ 0x5B
+	.4byte gAreaTilesets_Unused                  @ 0x5C
+	.4byte gAreaTilesets_Unused                  @ 0x5D
+	.4byte gAreaTilesets_Unused                  @ 0x5E
+	.4byte gAreaTilesets_FortressOfWinds         @ 0x5F
+	.4byte gAreaTilesets_TempleOfDroplets        @ 0x60
+	.4byte gAreaTilesets_61                      @ 0x61
+	.4byte gAreaTilesets_HyruleTownMinishCaves   @ 0x62
+	.4byte gAreaTilesets_Unused                  @ 0x63
+	.4byte gAreaTilesets_Unused                  @ 0x64
+	.4byte gAreaTilesets_Unused                  @ 0x65
+	.4byte gAreaTilesets_Unused                  @ 0x66
+	.4byte gAreaTilesets_TempleOfDroplets        @ 0x67
+	.4byte gAreaTilesets_RoyalCrypt              @ 0x68
+	.4byte gAreaTilesets_Unused                  @ 0x69
+	.4byte gAreaTilesets_Unused                  @ 0x6A
+	.4byte gAreaTilesets_Unused                  @ 0x6B
+	.4byte gAreaTilesets_Unused                  @ 0x6C
+	.4byte gAreaTilesets_Unused                  @ 0x6D
+	.4byte gAreaTilesets_Unused                  @ 0x6E
+	.4byte gAreaTilesets_RoyalCrypt              @ 0x6F
+	.4byte gAreaTilesets_PalaceOfWinds           @ 0x70
+	.4byte gAreaTilesets_PalaceOfWindsBoss       @ 0x71
+	.4byte gAreaTilesets_Unused                  @ 0x72
+	.4byte gAreaTilesets_Unused                  @ 0x73
+	.4byte gAreaTilesets_Unused                  @ 0x74
+	.4byte gAreaTilesets_Unused                  @ 0x75
+	.4byte gAreaTilesets_Unused                  @ 0x76
+	.4byte gAreaTilesets_PalaceOfWinds           @ 0x77
+	.4byte gAreaTilesets_Sanctuary               @ 0x78
+	.4byte gAreaTilesets_Unused                  @ 0x79
+	.4byte gAreaTilesets_Unused                  @ 0x7A
+	.4byte gAreaTilesets_Unused                  @ 0x7B
+	.4byte gAreaTilesets_Unused                  @ 0x7C
+	.4byte gAreaTilesets_Unused                  @ 0x7D
+	.4byte gAreaTilesets_Unused                  @ 0x7E
+	.4byte gAreaTilesets_Sanctuary               @ 0x7F
+	.4byte gAreaTilesets_HyruleCastle            @ 0x80
+	.4byte gAreaTilesets_SanctuaryEntrance       @ 0x81
+	.4byte gAreaTilesets_Unused                  @ 0x82
+	.4byte gAreaTilesets_Unused                  @ 0x83
+	.4byte gAreaTilesets_Unused                  @ 0x84
+	.4byte gAreaTilesets_Unused                  @ 0x85
+	.4byte gAreaTilesets_Unused                  @ 0x86
+	.4byte gAreaTilesets_HyruleCastle            @ 0x87
+	.4byte gAreaTilesets_DarkHyruleCastle        @ 0x88
+	.4byte gAreaTilesets_DarkHyruleCastleOutside @ 0x89
+	.4byte gAreaTilesets_VaatisArms              @ 0x8A
+	.4byte gAreaTilesets_Vaati3                  @ 0x8B
+	.4byte gAreaTilesets_Vaati2                  @ 0x8C
+	.4byte gAreaTilesets_DarkHyruleCastleBridge  @ 0x8D
+	.4byte gAreaTilesets_Unused                  @ 0x8E
+	.4byte gAreaTilesets_DarkHyruleCastle        @ 0x8F

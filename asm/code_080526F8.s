@@ -161,7 +161,7 @@ sub_080527FC: @ 0x080527FC
 	ldr r1, _08052834 @ =gPaletteBuffer
 	movs r2, #0x80
 	lsls r2, r2, #3
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r1, _08052838 @ =gUsedPalettes
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -939,7 +939,7 @@ sub_08052E10: @ 0x08052E10
 	adds r0, r0, r1
 	ldr r0, [r0]
 	str r0, [r5, #8]
-	ldr r0, _08052E78 @ =gUnk_08107988
+	ldr r0, _08052E78 @ =gAreaRoomMaps
 	adds r0, r2, r0
 	ldr r0, [r0]
 	lsls r3, r3, #2
@@ -972,7 +972,7 @@ _08052E70:
 	pop {r4, r5, pc}
 	.align 2, 0
 _08052E74: .4byte gAreaTilesets
-_08052E78: .4byte gUnk_08107988
+_08052E78: .4byte gAreaRoomMaps
 _08052E7C: .4byte gAreaMetatiles
 _08052E80: .4byte gUnk_080B755C
 _08052E84: .4byte gUnk_0813A7F0
@@ -1204,7 +1204,7 @@ sub_08052FF4: @ 0x08052FF4
 	adds r0, r0, r1
 	ldr r0, [r0]
 	str r0, [r5, #8]
-	ldr r0, _08053080 @ =gUnk_08107988
+	ldr r0, _08053080 @ =gAreaRoomMaps
 	adds r0, r6, r0
 	ldr r0, [r0]
 	adds r2, r2, r0
@@ -1225,7 +1225,7 @@ _08053070: .4byte gScreen
 _08053074: .4byte gUnk_020342CC
 _08053078: .4byte gAreaRoomHeaders
 _0805307C: .4byte gAreaTilesets
-_08053080: .4byte gUnk_08107988
+_08053080: .4byte gAreaRoomMaps
 _08053084: .4byte gAreaMetatiles
 _08053088: .4byte gUnk_080B755C
 
@@ -1258,7 +1258,7 @@ sub_080530B0: @ 0x080530B0
 	ldr r0, _080530C0 @ =gUnk_080FCAF8
 	ldr r1, _080530C4 @ =gUnk_030010EC
 	movs r2, #0x20
-	bl sub_0801D66C
+	bl _DmaCopy
 	pop {pc}
 	.align 2, 0
 _080530C0: .4byte gUnk_080FCAF8
@@ -1431,7 +1431,7 @@ sub_080531F8: @ 0x080531F8
 	ldr r1, _08053248 @ =gUnk_02002AC8
 	adds r0, r5, #0
 	movs r2, #0x20
-	bl sub_0801D66C
+	bl _DmaCopy
 	bl CheckIsDungeon
 	cmp r0, #0
 	beq _08053238
@@ -1483,7 +1483,7 @@ sub_08053250: @ 0x08053250
 	adds r0, #0xc
 	ldr r1, _08053298 @ =gUnk_02002AC8
 	movs r2, #0x20
-	bl sub_0801D66C
+	bl _DmaCopy
 	pop {r4, pc}
 	.align 2, 0
 _0805328C: .4byte gScreenTransition
