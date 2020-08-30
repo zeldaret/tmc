@@ -19,10 +19,7 @@ typedef struct {
 } EntityType;
 
 typedef struct {
-    u8 unknown[6];
-    u8 field_0x6;
-    u8 field_0x7;
-    u8 unknown2[4];
+    u8 unknown[8];
 } BoundingBox;
 
 typedef struct Entity {
