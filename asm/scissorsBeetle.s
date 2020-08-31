@@ -356,7 +356,7 @@ _08038B18:
 	movs r1, #0
 	bl sub_08038C84
 	ldr r0, _08038B60 @ =0x0000015B
-	bl EnqueSFX
+	bl EnqueueSFX
 _08038B5E:
 	pop {r4, pc}
 	.align 2, 0

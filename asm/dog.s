@@ -473,9 +473,9 @@ _08069EA0:
 	adds r0, r4, #0
 	bl sub_080788E0
 	movs r0, #0xd1
-	bl EnqueSFX
+	bl EnqueueSFX
 	movs r0, #0xcd
-	bl EnqueSFX
+	bl EnqueueSFX
 _08069EC8:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

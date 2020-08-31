@@ -154,7 +154,7 @@ _080250C2:
 _08025104:
 	movs r0, #0xc3
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 _0802510C:
 	ldr r1, _08025118 @ =gUnk_080CBF9C
 	adds r0, r4, #0

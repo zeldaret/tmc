@@ -334,7 +334,7 @@ _0802F6F0:
 	strb r0, [r4, #0x10]
 	movs r0, #0xab
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
@@ -389,7 +389,7 @@ _0802F76C:
 	strb r0, [r4, #0xe]
 	movs r0, #0xab
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 	adds r0, r4, #0
 	bl sub_0802F8E4
 	ldrb r1, [r4, #0x15]

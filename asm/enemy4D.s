@@ -234,7 +234,7 @@ sub_0803ED40: @ 0x0803ED40
 	movs r0, #0xf6
 	strb r0, [r1]
 	adds r0, #0x65
-	bl EnqueSFX
+	bl EnqueueSFX
 _0803ED74:
 	pop {pc}
 	.align 2, 0

@@ -114,7 +114,7 @@ sub_0809F1B0: @ 0x0809F1B0
 	adds r1, r5, #0
 	bl PositionRelative
 	movs r0, #0xec
-	bl EnqueSFX
+	bl EnqueueSFX
 	b _0809F21E
 	.align 2, 0
 _0809F208: .4byte gUnk_08124684

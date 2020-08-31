@@ -306,7 +306,7 @@ sub_0803E71C: @ 0x0803E71C
 	movs r0, #0xf6
 	strb r0, [r1]
 	adds r0, #0x65
-	bl EnqueSFX
+	bl EnqueueSFX
 _0803E756:
 	pop {pc}
 	.align 2, 0

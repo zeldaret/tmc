@@ -358,7 +358,7 @@ _0808C470:
 	strh r0, [r1, #0x32]
 _0808C494:
 	ldr r0, _0808C4A0 @ =0x0000010B
-	bl EnqueSFX
+	bl EnqueueSFX
 _0808C49A:
 	pop {r4, r5, pc}
 	.align 2, 0

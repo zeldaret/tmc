@@ -36,5 +36,5 @@ void sub_08089B18(Entity *this)
                 return;
             }
     }
-    EnqueSFX(0x124);
+    EnqueueSFX(0x124);
 }

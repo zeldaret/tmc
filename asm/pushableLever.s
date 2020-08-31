@@ -62,7 +62,7 @@ sub_08098294: @ 0x08098294
 	bl SetTile
 	movs r0, #0xb5
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 	adds r0, r4, #0
 	movs r1, #0x1e
 	bl sub_0805E4E0
@@ -315,7 +315,7 @@ _08098492:
 	bne _080984C2
 	movs r0, #0x82
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 _080984C2:
 	pop {r4, pc}
 	.align 2, 0

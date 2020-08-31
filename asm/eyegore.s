@@ -105,7 +105,7 @@ _08030AC0:
 	movs r0, #0x86
 	lsls r0, r0, #1
 _08030AE0:
-	bl EnqueSFX
+	bl EnqueueSFX
 	adds r0, r4, #0
 	bl sub_08031344
 	b _08030B0E
@@ -124,7 +124,7 @@ _08030AFA:
 	movs r0, #0xf
 	strb r0, [r1]
 	movs r0, #0xfe
-	bl EnqueSFX
+	bl EnqueueSFX
 	adds r0, r4, #0
 	bl sub_08031344
 _08030B0E:
@@ -563,7 +563,7 @@ sub_08030E3C: @ 0x08030E3C
 	lsls r1, r1, #9
 	str r1, [r0, #0x20]
 	ldr r0, _08030E54 @ =0x00000157
-	bl EnqueSFX
+	bl EnqueueSFX
 	pop {pc}
 	.align 2, 0
 _08030E54: .4byte 0x00000157
@@ -589,7 +589,7 @@ sub_08030E70: @ 0x08030E70
 	bl sub_08030E80
 	movs r0, #0xac
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 	pop {pc}
 
 	thumb_func_start sub_08030E80

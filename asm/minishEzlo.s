@@ -48,7 +48,7 @@ _08062FA0:
 	ands r0, r1
 	strb r0, [r4]
 	ldr r0, _08062FEC @ =0x000001CF
-	bl EnqueSFX
+	bl EnqueueSFX
 _08062FCC:
 	ldrb r1, [r4]
 	movs r0, #0x20
@@ -60,7 +60,7 @@ _08062FCC:
 	strb r0, [r4]
 	movs r0, #0x88
 	lsls r0, r0, #2
-	bl EnqueSFX
+	bl EnqueueSFX
 _08062FE4:
 	pop {r4, pc}
 	.align 2, 0

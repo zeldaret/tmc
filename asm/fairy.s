@@ -188,7 +188,7 @@ sub_0808D7B4: @ 0x0808D7B4
 	bl sub_0805E3A0
 	movs r0, #0x9b
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 	ldrb r0, [r4, #0xb]
 	cmp r0, #2
 	beq _0808D834

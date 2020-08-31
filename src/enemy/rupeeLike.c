@@ -62,7 +62,7 @@ void sub_08029318(Entity* this) {
             this->field_0x82.HALF.HI = 0x41;
             this->flags2 &= 0xfc;
             this->field_0x80.HALF.LO = gPlayerEntity.spritePriority.b1;
-            EnqueSFX(0x104);
+            EnqueueSFX(0x104);
         } else {
             if (this->field_0x43 != 0) {
                 sub_0804A9FC(this, 0x1c);

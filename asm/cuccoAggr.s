@@ -194,7 +194,7 @@ sub_08038DD8: @ 0x08038DD8
 	movs r1, #4
 	bl InitializeAnimation
 	ldr r0, _08038E14 @ =0x000001D9
-	bl EnqueSFX
+	bl EnqueueSFX
 	pop {pc}
 	.align 2, 0
 _08038E10: .4byte gUnk_080CF7BC
@@ -519,7 +519,7 @@ _0803906C:
 	movs r1, #0xeb
 	lsls r1, r1, #1
 	adds r0, r5, r1
-	bl EnqueSFX
+	bl EnqueueSFX
 	b _080390BC
 _080390AA:
 	movs r0, #4
@@ -743,7 +743,7 @@ sub_08039218: @ 0x08039218
 	bl InitializeAnimation
 _0803924C:
 	ldr r0, _0803925C @ =0x000001D9
-	bl EnqueSFX
+	bl EnqueueSFX
 	pop {pc}
 	.align 2, 0
 _08039254: .4byte gUnk_080CF824

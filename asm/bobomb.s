@@ -123,7 +123,7 @@ _0802C75E:
 	adds r0, r4, #0
 	bl sub_0802CB68
 	ldr r0, _0802C76C @ =0x0000014D
-	bl EnqueSFX
+	bl EnqueueSFX
 	b _0802C79E
 	.align 2, 0
 _0802C76C: .4byte 0x0000014D
@@ -638,7 +638,7 @@ _0802CB10:
 	bne _0802CB30
 	movs r0, #0x82
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 _0802CB30:
 	adds r0, r4, #0
 	bl sub_0802CC18
@@ -777,7 +777,7 @@ sub_0802CC18: @ 0x0802CC18
 	movs r0, #0x1c
 	strb r0, [r1]
 	ldr r0, _0802CC38 @ =0x0000014D
-	bl EnqueSFX
+	bl EnqueueSFX
 _0802CC34:
 	pop {pc}
 	.align 2, 0

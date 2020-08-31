@@ -69,7 +69,7 @@ void sub_0802244C(Entity* this) {
             if (this->action == 3) {
                 this->action = 4;
                 InitializeAnimation(this, 3);
-                EnqueSFX(0x194);
+                EnqueueSFX(0x194);
             }
         }
     } else {
@@ -132,7 +132,7 @@ void sub_08022654(Entity* this) {
             this->previousActionFlag = 2;
             this->spriteSettings.b.draw = 1;
             InitializeAnimation(this, 5);
-            EnqueSFX(0x7d);
+            EnqueueSFX(0x7d);
             UpdateSpriteForCollisionLayer(this);
             /* fallthrough */
         case 2:
@@ -180,7 +180,7 @@ void sub_08022780(Entity* this) {
     if (this->frames.all & 0x80) {
         this->action = 4;
         InitializeAnimation(this, 3);
-        EnqueSFX(0x194);
+        EnqueueSFX(0x194);
     }
 }
 
@@ -223,7 +223,7 @@ void sub_08022854(Entity* this) {
             this->action = 7;
             this->damageType = 0x5c;
             InitializeAnimation(this, 5);
-            EnqueSFX(0x7d);
+            EnqueueSFX(0x7d);
         }
     }
 }

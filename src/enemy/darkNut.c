@@ -90,7 +90,7 @@ void sub_08020BB8(Entity* this) {
             }
             this->action = 10;
             sub_08021218(this, 0xb, this->animationState);
-            EnqueSFX(0x15d);
+            EnqueueSFX(0x15d);
             sub_08021588(this);
             break;
         case 0x4c:
@@ -273,7 +273,7 @@ void sub_08021038(Entity* this) {
             pEVar2->parent = this;
             this->attachedEntity = pEVar2;
         }
-        EnqueSFX(270);
+        EnqueueSFX(270);
     }
 
     if (this->frames.all & 0x80) {
@@ -295,7 +295,7 @@ void sub_080210A8(Entity* this) {
     if (this->frames.all & 1) {
         this->frames.all = 0;
         sub_08021588(this);
-        EnqueSFX(349);
+        EnqueueSFX(349);
     } else if (this->frames.all & 0x80) {
         sub_08021390(this);
     }
@@ -313,7 +313,7 @@ void sub_080210E4(Entity* this) {
             this->attachedEntity = ent;
         }
 
-        EnqueSFX(270);
+        EnqueueSFX(270);
     }
 
     sub_08021644(this);
@@ -575,13 +575,13 @@ void sub_0802159C(Entity* this) {
             ent->parent = this;
             this->attachedEntity = ent;
         }
-        EnqueSFX(0x116);
+        EnqueueSFX(0x116);
     } else if (this->frames.all == 2) {
         this->frames.all = 0;
         sub_08021588(this);
     } else if (this->frames.all & 0x20) {
         this->frames.all &= ~0x20;
-        EnqueSFX(0x115);
+        EnqueueSFX(0x115);
     }
 }
 
@@ -596,7 +596,7 @@ void sub_08021600(Entity* this) {
             ent->parent = this;
             this->attachedEntity = ent;
         }
-        EnqueSFX(0x10e);
+        EnqueueSFX(0x10e);
     } else if (this->frames.all == 2) {
         this->frames.all = 0;
         sub_08021588(this);
@@ -606,7 +606,7 @@ void sub_08021600(Entity* this) {
 void sub_08021644(Entity* this) {
     if (this->frames.all & 0x20) {
         this->frames.all &= ~0x20;
-        EnqueSFX(0x7d);
+        EnqueueSFX(0x7d);
     }
 }
 

@@ -826,7 +826,7 @@ _08033238:
 	strh r0, [r4, #0x32]
 	movs r0, #0x86
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 _08033278:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

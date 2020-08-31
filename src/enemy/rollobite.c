@@ -183,7 +183,7 @@ void Rollobite_RolledUp(Entity* this) {
         sub_08078930(this);
     } else {
         if (unk == 1)
-            EnqueSFX(260);
+            EnqueueSFX(260);
 
         if ((this->direction & 0x80) == 0)
             sub_080AEFE0(this);

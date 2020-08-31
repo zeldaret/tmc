@@ -336,7 +336,7 @@ _0806B8C4:
 	adds r0, #1
 	strb r0, [r5, #0xd]
 	movs r0, #0xf4
-	bl EnqueSFX
+	bl EnqueueSFX
 	movs r0, #0
 	strb r0, [r5, #0xe]
 _0806B8FA:

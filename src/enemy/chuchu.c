@@ -213,7 +213,7 @@ void sub_0801F1B0(Entity* this) {
         if (this->frames.all & 1) {
             this->frames.all ^= 1;
             this->damageType = 90;
-            EnqueSFX(299);
+            EnqueueSFX(299);
         }
         sub_080AEFE0(this);
         if (sub_08003FC4(this, 0x4000) == 0)
@@ -400,7 +400,7 @@ void sub_0801F584(Entity* this) {
         if (this->frames.all & 0x1) {
             this->frames.all ^= 1;
             this->damageType = 91;
-            EnqueSFX(299);
+            EnqueueSFX(299);
         }
         sub_080AEFE0(this);
         if (sub_08003FC4(this, 0x4000) == 0)
@@ -548,7 +548,7 @@ void sub_0801F884(Entity* this) {
             ent->entityType.parameter = 64;
             this->action = 4;
             this->damageType = 165;
-            EnqueSFX(0x193);
+            EnqueueSFX(0x193);
         }
     }
 }
@@ -577,7 +577,7 @@ void sub_0801F940(Entity* this) {
     if (this->frames.all & 0x10) {
         if (this->frames.all & 1) {
             this->frames.all ^= 1;
-            EnqueSFX(299);
+            EnqueueSFX(299);
         }
         sub_080AEFE0(this);
         if (sub_08003FC4(this, 0x4000) == 0)

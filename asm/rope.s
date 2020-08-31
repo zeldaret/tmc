@@ -214,7 +214,7 @@ _080314CC:
 	adds r0, r4, #0
 	bl UpdateSpriteForCollisionLayer
 	movs r0, #0x84
-	bl EnqueSFX
+	bl EnqueueSFX
 _080314FA:
 	pop {r4, pc}
 

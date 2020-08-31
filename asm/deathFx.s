@@ -125,7 +125,7 @@ _08081702:
 	movs r0, #1
 	strb r0, [r4, #0xc]
 	movs r0, #0xff
-	bl EnqueSFX
+	bl EnqueueSFX
 _0808170C:
 	adds r0, r4, #0
 	movs r1, #3

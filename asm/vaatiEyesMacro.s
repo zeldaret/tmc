@@ -100,7 +100,7 @@ _0802ED0E:
 	beq _0802ED24
 	movs r0, #0xbd
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 _0802ED24:
 	ldrb r0, [r5]
 	strb r0, [r6]
@@ -123,7 +123,7 @@ _0802ED3E:
 	cmp r0, #0xff
 	beq _0802ED4E
 	movs r0, #0xe5
-	bl EnqueSFX
+	bl EnqueueSFX
 _0802ED4E:
 	movs r0, #0xff
 	strb r0, [r5]

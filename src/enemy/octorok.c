@@ -142,7 +142,7 @@ void Octorok_ShootNut(Entity* this) {
             ent->y.HALF.HI += off[1];
             ent->height.HALF.HI = -3;
             this->frames.all &= 0xfe;
-            EnqueSFX(0x18d);
+            EnqueueSFX(0x18d);
         }
     }
 

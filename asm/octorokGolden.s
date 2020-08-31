@@ -201,7 +201,7 @@ sub_08037D54: @ 0x08037D54
 	strh r0, [r2, #0x36]
 	movs r0, #0x92
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 	b _08037E0C
 	.align 2, 0
 _08037DBC: .4byte gUnk_080CF490

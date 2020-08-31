@@ -376,7 +376,7 @@ sub_080386B8: @ 0x080386B8
 	strb r0, [r2]
 	movs r0, #0x92
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 	adds r0, r4, #0
 	movs r1, #0x70
 	bl sub_0801D2B4
@@ -459,7 +459,7 @@ sub_08038754: @ 0x08038754
 	orrs r0, r1
 	strb r0, [r2]
 	ldr r0, _080387C0 @ =0x0000012B
-	bl EnqueSFX
+	bl EnqueueSFX
 	adds r0, r4, #0
 	movs r1, #0x71
 	bl sub_0801D2B4

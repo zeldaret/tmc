@@ -85,7 +85,7 @@ _08045C16:
 	movs r1, #0xff
 	strb r1, [r0]
 	ldr r0, _08045C34 @ =0x000001BB
-	bl EnqueSFX
+	bl EnqueueSFX
 	adds r0, r4, #0
 	movs r1, #2
 	bl sub_0805E3A0
@@ -480,7 +480,7 @@ _08045F00:
 	adds r0, r4, #0
 	bl sub_080954AC
 	ldr r0, _08045F34 @ =0x0000018D
-	bl EnqueSFX
+	bl EnqueueSFX
 	b _08045F4E
 	.align 2, 0
 _08045F34: .4byte 0x0000018D
@@ -698,7 +698,7 @@ _080460AE:
 	bge _0804608A
 	movs r0, #0xb7
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 	ldr r0, _08046120 @ =0x000007A2
 	movs r1, #1
 	bl sub_0807BA8C
@@ -725,7 +725,7 @@ _080460AE:
 	bl CopyPosition
 	movs r0, #0xc2
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 _08046102:
 	ldr r1, [r7, #0x54]
 	cmp r1, #0

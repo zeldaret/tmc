@@ -50,7 +50,7 @@ extern u32 sub_080041A0(Entity *, Entity *, u32, u32);
 extern u32 GetFacingDirection(Entity *, Entity *);
 
 // sub_0803CB64
-extern void EnqueSFX(u32);
+extern void EnqueueSFX(u32);
 
 typedef struct {
     s8 x;
@@ -343,7 +343,7 @@ void sub_0803CB64(Entity *this) {
 
     PositionRelative(this, cloud, offset->x << 16, offset->y << 16);
 
-    EnqueSFX(0x193);
+    EnqueueSFX(0x193);
 }
 
 void sub_0803CBAC(Entity *this) {

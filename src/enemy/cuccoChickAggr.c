@@ -49,7 +49,7 @@ void sub_08022988(Entity* this) {
 
             this->frameIndex = 1;
             this->field_0x20 = 0x10000;
-            EnqueSFX(0xd6);
+            EnqueueSFX(0xd6);
         }
 
         ProcessMovement(this);
@@ -75,7 +75,7 @@ void sub_080229F8(Entity* this) {
             sub_08022B44(this);
         } else {
             this->field_0x20 = 0x10000;
-            EnqueSFX(0xd6);
+            EnqueueSFX(0xd6);
         }
     }
 }
@@ -143,7 +143,7 @@ void sub_08022B44(Entity *this){
     if (this->direction & 0xf)
         this->spriteSettings.b.flipX = (this->direction >> 4)^1;
 
-    EnqueSFX(0xd6);
+    EnqueueSFX(0xd6);
 }
 
 

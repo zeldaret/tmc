@@ -6,7 +6,7 @@
 extern u32* GetLayerByIndex(u32);
 extern void sub_08085394(Entity*);
 extern void sub_0808543C(Entity*);
-extern void EnqueSFX(u32);
+extern void EnqueueSFX(u32);
 extern u32 sub_080854A8(Entity*);
 extern void SetTile(u32, u32, u32);
 
@@ -54,7 +54,7 @@ void sub_08085264(Entity* this) {
         this->animationState = (this->animationState + *(u8*)&this->field_0x7c) & 3;
         InitializeAnimation(this, this->animationState);
         sub_0808543C(this);
-        EnqueSFX(0x151);
+        EnqueueSFX(0x151);
     }
 }
 
@@ -66,7 +66,7 @@ void sub_080852B4(Entity* this) {
         this->animationState = (this->animationState + *(u8*)&this->field_0x7c) & 3;
         InitializeAnimation(this, this->animationState);
         sub_08085394(this);
-        EnqueSFX(0x151);
+        EnqueueSFX(0x151);
     }
 }
 
@@ -96,7 +96,7 @@ void sub_08085308(Entity* this) {
             this->animationState = (this->animationState + *(u8*)&this->field_0x7c) & 3;
             InitializeAnimation(this, this->animationState);
             sub_0808543C(this);
-            EnqueSFX(0x151);
+            EnqueueSFX(0x151);
         }
     }
 }

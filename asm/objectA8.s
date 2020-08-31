@@ -65,7 +65,7 @@ _0809FAE6:
 	bl sub_0805E3A0
 	movs r0, #0x9b
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 _0809FB30:
 	pop {pc}
 	.align 2, 0

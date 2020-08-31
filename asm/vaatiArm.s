@@ -3298,7 +3298,7 @@ _08043D92:
 	cmp r2, #4
 	bls _08043D92
 	movs r0, #0xfe
-	bl EnqueSFX
+	bl EnqueueSFX
 	pop {r4, r5, pc}
 	.align 2, 0
 _08043DAC: .4byte gUnk_080D13E9

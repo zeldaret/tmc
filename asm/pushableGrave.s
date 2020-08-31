@@ -293,7 +293,7 @@ _080977BC:
 	b _080977E4
 _080977C8:
 	movs r0, #0x72
-	bl EnqueSFX
+	bl EnqueueSFX
 	adds r0, r4, #0
 	bl sub_080977F4
 	ldrb r0, [r4, #0xa]

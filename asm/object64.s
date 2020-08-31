@@ -61,7 +61,7 @@ _08093E6A:
 	cmp r0, #0
 	bne _08093E90
 	ldrh r0, [r2]
-	bl EnqueSFX
+	bl EnqueueSFX
 _08093E90:
 	ldrb r1, [r4, #0xb]
 	movs r0, #0x20

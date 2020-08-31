@@ -232,7 +232,7 @@ sub_080834B4: @ 0x080834B4
 	ldrb r2, [r2]
 	bl SetTile
 	ldr r0, _080834E8 @ =0x0000010B
-	bl EnqueSFX
+	bl EnqueueSFX
 _080834E6:
 	pop {pc}
 	.align 2, 0
@@ -323,7 +323,7 @@ _0808357A:
 	adds r0, r4, #0
 	bl sub_08083814
 	ldr r0, _08083590 @ =0x0000010B
-	bl EnqueSFX
+	bl EnqueueSFX
 _0808358C:
 	pop {r4, pc}
 	.align 2, 0

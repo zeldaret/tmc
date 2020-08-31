@@ -117,7 +117,7 @@ _08029948:
 	movs r1, #0x7f
 	bl sub_0801D2B4
 	movs r0, #0xfe
-	bl EnqueSFX
+	bl EnqueueSFX
 	ldr r0, [r5, #0x54]
 	strb r4, [r0, #0xc]
 _08029970:
@@ -298,7 +298,7 @@ sub_08029AA4: @ 0x08029AA4
 	adds r0, r1, #0
 	bl sub_08029EEC
 	ldr r0, _08029ADC @ =0x0000019D
-	bl EnqueSFX
+	bl EnqueueSFX
 _08029ADA:
 	pop {pc}
 	.align 2, 0
@@ -335,7 +335,7 @@ sub_08029AE0: @ 0x08029AE0
 	bl sub_0801D2B4
 	movs r0, #0xc1
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 _08029B28:
 	pop {r4, pc}
 	.align 2, 0
@@ -491,7 +491,7 @@ sub_08029C2C: @ 0x08029C2C
 	movs r1, #0x7f
 	bl sub_0801D2B4
 	movs r0, #0x6c
-	bl EnqueSFX
+	bl EnqueueSFX
 _08029C4E:
 	pop {pc}
 
@@ -625,7 +625,7 @@ sub_08029D14: @ 0x08029D14
 	movs r1, #0x7f
 	bl sub_0801D2B4
 	movs r0, #0x6c
-	bl EnqueSFX
+	bl EnqueueSFX
 	b _08029D70
 _08029D42:
 	adds r0, r4, #0
@@ -648,7 +648,7 @@ _08029D42:
 	ldr r0, _08029D74 @ =gUnk_080FD298
 	str r0, [r4, #0x48]
 	movs r0, #0x6b
-	bl EnqueSFX
+	bl EnqueueSFX
 _08029D70:
 	pop {r4, pc}
 	.align 2, 0
@@ -1132,7 +1132,7 @@ _0802A0B8:
 	bl sub_08029EEC
 	movs r0, #0x82
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 _0802A0E4:
 	movs r0, #0x2e
 	ldrsh r1, [r4, r0]
@@ -1286,7 +1286,7 @@ _0802A1B0: @ jump table
 _0802A22C:
 	movs r0, #0x97
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 _0802A234:
 	pop {pc}
 	.align 2, 0

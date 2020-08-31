@@ -67,7 +67,7 @@ _08099F70:
 	bl InitializeAnimation
 	movs r0, #0x92
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 	b _0809A1B6
 _08099F82:
 	ldr r0, [r5, #0x50]

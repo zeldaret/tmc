@@ -366,7 +366,7 @@ _0802B8CC:
 	strb r0, [r4, #0xe]
 _0802B8D4:
 	ldr r0, _0802B8DC @ =0x0000012B
-	bl EnqueSFX
+	bl EnqueueSFX
 _0802B8DA:
 	pop {r4, pc}
 	.align 2, 0
@@ -419,7 +419,7 @@ _0802B91C:
 	adds r0, r3, #0
 	bl InitializeAnimation
 	ldr r0, _0802B944 @ =0x0000012B
-	bl EnqueSFX
+	bl EnqueueSFX
 _0802B940:
 	pop {r4, pc}
 	.align 2, 0

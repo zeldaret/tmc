@@ -102,7 +102,7 @@ void sub_080220F0(Entity* this) {
                 fx->y.HALF.HI += off->v;
             }
         }
-        EnqueSFX(260);
+        EnqueueSFX(260);
     } else if (this->frames.all & 1) {
         this->field_0x44 = 4;
     }

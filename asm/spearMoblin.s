@@ -350,7 +350,7 @@ _080284B4:
 	strb r0, [r4, #0x15]
 	movs r0, #0x8f
 	lsls r0, r0, #1
-	bl EnqueSFX
+	bl EnqueueSFX
 	b _0802850A
 _080284D2:
 	strb r1, [r4, #0xc]
@@ -477,7 +477,7 @@ _080285BC:
 	cmp r0, #0
 	bne _080285D6
 	movs r0, #0xf0
-	bl EnqueSFX
+	bl EnqueueSFX
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0x40

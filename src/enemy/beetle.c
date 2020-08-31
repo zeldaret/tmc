@@ -131,7 +131,7 @@ void sub_08021984(Entity* this) {
         this->height.HALF.HI = -0x80;
         this->spriteRendering.b3 = 1;
         this->spriteOrientation.flipY = 1;
-        EnqueSFX(0x12d);
+        EnqueueSFX(0x12d);
     }
 
     if (sub_08003FC4(this, 0x1800) == 0) {
@@ -198,7 +198,7 @@ void sub_08021AD8(Entity* this) {
                 return;
             }
             this->direction = (u8)tmp;
-            EnqueSFX(0x7c);
+            EnqueueSFX(0x7c);
         }
         sub_080AEFE0(this);
         if (!sub_08003FC4(this, 0x1800))

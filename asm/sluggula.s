@@ -266,7 +266,7 @@ _08023D6E:
 	cmp r0, #0
 	bne _08023E0A
 	ldr r0, _08023D90 @ =0x0000012D
-	bl EnqueSFX
+	bl EnqueueSFX
 	adds r0, r4, #0
 	movs r1, #4
 	bl InitializeAnimation
@@ -289,7 +289,7 @@ _08023D94:
 	orrs r0, r1
 	strb r0, [r4, #0x18]
 	movs r0, #0x84
-	bl EnqueSFX
+	bl EnqueueSFX
 	adds r0, r4, #0
 	bl UpdateSpriteForCollisionLayer
 	b _08023E0A

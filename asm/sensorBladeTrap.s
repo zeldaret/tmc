@@ -200,7 +200,7 @@ sub_0802BB10: @ 0x0802BB10
 	eors r1, r2
 	strb r1, [r0, #0x15]
 	movs r0, #0x74
-	bl EnqueSFX
+	bl EnqueueSFX
 	pop {pc}
 	.align 2, 0
 
