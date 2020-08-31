@@ -764,7 +764,7 @@ SECTIONS {
 		src/object/minecart.o(.text);
 		asm/minecart.o(.text);
 		src/object/thoughtBubble.o(.text);
-		asm/hiddenLadderDown.o(.text);
+		src/object/hiddenLadderDown.o(.text);
 		asm/gentariCurtains.o(.text);
 		asm/lavaPlatform.o(.text);
 		asm/object5A.o(.text);
