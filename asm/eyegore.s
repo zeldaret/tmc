@@ -105,7 +105,7 @@ _08030AC0:
 	movs r0, #0x86
 	lsls r0, r0, #1
 _08030AE0:
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r4, #0
 	bl sub_08031344
 	b _08030B0E
@@ -124,7 +124,7 @@ _08030AFA:
 	movs r0, #0xf
 	strb r0, [r1]
 	movs r0, #0xfe
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r4, #0
 	bl sub_08031344
 _08030B0E:
@@ -563,7 +563,7 @@ sub_08030E3C: @ 0x08030E3C
 	lsls r1, r1, #9
 	str r1, [r0, #0x20]
 	ldr r0, _08030E54 @ =0x00000157
-	bl sub_08004488
+	bl EnqueSFX
 	pop {pc}
 	.align 2, 0
 _08030E54: .4byte 0x00000157
@@ -589,7 +589,7 @@ sub_08030E70: @ 0x08030E70
 	bl sub_08030E80
 	movs r0, #0xac
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 	pop {pc}
 
 	thumb_func_start sub_08030E80
@@ -1171,7 +1171,7 @@ _080312E2:
 	cmp r0, #0
 	bne _0803131C
 	adds r0, r6, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	bne _0803131C
 	adds r2, r6, #0
@@ -1192,7 +1192,7 @@ _08031310:
 	b _0803131C
 _08031316:
 	adds r0, r6, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 _0803131C:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

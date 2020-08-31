@@ -292,7 +292,7 @@ _0802FD18:
 	bl SetTile
 	movs r0, #0xab
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 	ldrb r1, [r4, #0x15]
 	lsrs r1, r1, #3
 	adds r0, r4, #0
@@ -337,7 +337,7 @@ _0802FD94:
 	strb r0, [r4, #0xe]
 	movs r0, #0xab
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r4, #0
 	bl sub_0802F8E4
 	ldrb r1, [r4, #0x15]

@@ -260,7 +260,7 @@ _08067560:
 	ble _0806753A
 	movs r0, #0xa6
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 	movs r0, #0x28
 	movs r1, #4
 	bl sub_08080964

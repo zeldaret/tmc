@@ -17,7 +17,7 @@ u32 sub_080214FC();
 void sub_08021540();
 void sub_08021600();
 void sub_080213B0();
-u32 sub_08049F64();
+u32 PlayerInRange();
 u32 sub_0802169C();
 void sub_0802124C();
 void sub_08021644();
@@ -90,7 +90,7 @@ void sub_08020BB8(Entity* this) {
             }
             this->action = 10;
             sub_08021218(this, 0xb, this->animationState);
-            sub_08004488(0x15d);
+            EnqueSFX(0x15d);
             sub_08021588(this);
             break;
         case 0x4c:
@@ -150,7 +150,7 @@ void sub_08020DD4(Entity* this) {
     } else {
         if (--this->actionDelay == 0)
             sub_08021540(this);
-        sub_080AEF88(this);
+        ProcessMovement(this);
         UpdateAnimationSingleFrame(this);
     }
 }
@@ -178,13 +178,13 @@ void sub_08020E78(Entity* this) {
 }
 
 void sub_08020E98(Entity* this) {
-    if (sub_08049F64(this, 1, 0x38)) {
+    if (PlayerInRange(this, 1, 0x38)) {
         if (sub_0802169C(this, gUnk_020000B0)) {
             this->action = 8;
             sub_08021218(this, 7, this->animationState);
         } else {
             this->direction = GetFacingDirection(gUnk_020000B0, this);
-            if (sub_080AEF88(this) == 0) {
+            if (ProcessMovement(this) == 0) {
                 this->action = 8;
                 sub_08021218(this, 7, this->animationState);
             } else {
@@ -198,7 +198,7 @@ void sub_08020E98(Entity* this) {
             sub_08021414(this);
         } else {
             this->direction = GetFacingDirection(this, gUnk_020000B0);
-            sub_080AEF88(this);
+            ProcessMovement(this);
             sub_0802124C(this);
             sub_08021644(this);
         }
@@ -212,7 +212,7 @@ void sub_08020F28(Entity* this) {
 }
 
 void sub_08020F48(Entity* this) {
-    if (sub_08049F64(this, 1, 0x48)) {
+    if (PlayerInRange(this, 1, 0x48)) {
         if (sub_08021664(this, gUnk_020000B0)) {
             u32 uVar2 = sub_0804A044(this, gUnk_020000B0, 9);
             if (uVar2 == 0xff) {
@@ -273,7 +273,7 @@ void sub_08021038(Entity* this) {
             pEVar2->parent = this;
             this->attachedEntity = pEVar2;
         }
-        sub_08004488(270);
+        EnqueSFX(270);
     }
 
     if (this->frames.all & 0x80) {
@@ -295,7 +295,7 @@ void sub_080210A8(Entity* this) {
     if (this->frames.all & 1) {
         this->frames.all = 0;
         sub_08021588(this);
-        sub_08004488(349);
+        EnqueSFX(349);
     } else if (this->frames.all & 0x80) {
         sub_08021390(this);
     }
@@ -313,12 +313,12 @@ void sub_080210E4(Entity* this) {
             this->attachedEntity = ent;
         }
 
-        sub_08004488(270);
+        EnqueSFX(270);
     }
 
     sub_08021644(this);
     if ((this->frames.all & 0x10) &&
-        (!sub_080AEF88(this) || (this->attachedEntity && (this->attachedEntity->bitfield & 0x80)))) {
+        (!ProcessMovement(this) || (this->attachedEntity && (this->attachedEntity->bitfield & 0x80)))) {
         sub_080213D0(this, 0);
     } else {
         if (--this->field_0x76.HWORD == 0)
@@ -516,7 +516,7 @@ void sub_08021424(Entity* this) {
         sub_080212B0(this);
     } else {
         this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, x, y);
-        if (!sub_080AEF88(this)) {
+        if (!ProcessMovement(this)) {
             sub_080212B0(this);
         } else {
             UpdateAnimationSingleFrame(this);
@@ -575,13 +575,13 @@ void sub_0802159C(Entity* this) {
             ent->parent = this;
             this->attachedEntity = ent;
         }
-        sub_08004488(0x116);
+        EnqueSFX(0x116);
     } else if (this->frames.all == 2) {
         this->frames.all = 0;
         sub_08021588(this);
     } else if (this->frames.all & 0x20) {
         this->frames.all &= ~0x20;
-        sub_08004488(0x115);
+        EnqueSFX(0x115);
     }
 }
 
@@ -596,7 +596,7 @@ void sub_08021600(Entity* this) {
             ent->parent = this;
             this->attachedEntity = ent;
         }
-        sub_08004488(0x10e);
+        EnqueSFX(0x10e);
     } else if (this->frames.all == 2) {
         this->frames.all = 0;
         sub_08021588(this);
@@ -606,7 +606,7 @@ void sub_08021600(Entity* this) {
 void sub_08021644(Entity* this) {
     if (this->frames.all & 0x20) {
         this->frames.all &= ~0x20;
-        sub_08004488(0x7d);
+        EnqueSFX(0x7d);
     }
 }
 

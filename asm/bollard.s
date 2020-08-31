@@ -76,7 +76,7 @@ _0808B2F4:
 	ldrb r2, [r2]
 	bl SetTile
 	ldr r0, _0808B320 @ =0x000001A5
-	bl sub_08004488
+	bl EnqueSFX
 _0808B31C:
 	pop {r4, pc}
 	.align 2, 0
@@ -130,7 +130,7 @@ _0808B36C:
 	adds r0, r4, #0
 	bl sub_0808B3AC
 	ldr r0, _0808B388 @ =0x000001A5
-	bl sub_08004488
+	bl EnqueSFX
 _0808B384:
 	pop {r4, pc}
 	.align 2, 0

@@ -124,7 +124,7 @@ sub_080843F8: @ 0x080843F8
 	movs r2, #0
 	bl CreateFx
 	ldr r0, _08084424 @ =0x0000010D
-	bl sub_08004488
+	bl EnqueSFX
 _08084420:
 	pop {pc}
 	.align 2, 0
@@ -150,7 +150,7 @@ sub_08084428: @ 0x08084428
 	bl SetFlag
 	movs r0, #0x86
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 _08084454:
 	pop {r4, pc}
 	.align 2, 0

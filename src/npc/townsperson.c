@@ -222,7 +222,7 @@ void sub_08061E90(Entity* this, Entity* arg1) {
     if (animIndex != this->animIndex) {
         InitializeAnimation(this, animIndex);
     }
-    sub_080AEF88(this);
+    ProcessMovement(this);
     iVar4 = this->x.HALF.HI - *(s16*)&this->field_0x6a.HWORD;
     if (0x10 < iVar4) {
         this->x.HALF.HI = this->field_0x6a.HWORD + 0x10;

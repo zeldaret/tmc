@@ -463,7 +463,7 @@ sub_08089538: @ 0x08089538
 	movs r0, #0x20
 	strh r0, [r1]
 	adds r0, #0xef
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r5, #0
 	adds r0, #0x80
 	ldrh r0, [r0]

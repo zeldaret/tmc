@@ -360,7 +360,7 @@ sub_08097098: @ 0x08097098
 	movs r0, #0x20
 	strh r0, [r1]
 	adds r0, #0xef
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r6, #0
 	adds r0, #0x70
 	ldrh r0, [r0]
@@ -504,7 +504,7 @@ _080971B8:
 	ldrh r0, [r0]
 	bl SetFlag
 	ldr r0, _080971D8 @ =0x0000010B
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r4, #0
 	bl sub_080971E0
 	movs r0, #1

@@ -269,7 +269,7 @@ _08027F38:
 	strb r0, [r4, #0xe]
 _08027F5A:
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	adds r0, r4, #0
 	bl GetNextFrame
 	b _08027F7C
@@ -485,7 +485,7 @@ _080280F0:
 	bne _08028102
 	movs r0, #0x82
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 _08028102:
 	pop {r4, r5, pc}
 	.align 2, 0

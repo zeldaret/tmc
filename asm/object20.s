@@ -64,7 +64,7 @@ _08087836:
 	adds r0, r4, #0
 	bl sub_0801766C
 	movs r0, #0xfd
-	bl sub_08004488
+	bl EnqueSFX
 	pop {r4, pc}
 	.align 2, 0
 _08087884: .4byte gUnk_08120A54

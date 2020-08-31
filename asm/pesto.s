@@ -394,7 +394,7 @@ _080241D8:
 _080241E4:
 	adds r0, r4, #0
 	movs r1, #3
-	bl sub_08049F64
+	bl PlayerInRange
 	cmp r0, #0
 	beq _08024220
 	adds r0, r4, #0

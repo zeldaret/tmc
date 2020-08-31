@@ -110,7 +110,7 @@ _0808B4F8:
 	strb r2, [r1, #0x14]
 	movs r0, #0x89
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 	ldrb r1, [r4, #0xf]
 	adds r1, #0x10
 	adds r0, r4, #0
@@ -142,7 +142,7 @@ _0808B554:
 	movs r0, #0x3c
 	strb r0, [r4, #0xf]
 	adds r0, #0xd6
-	bl sub_08004488
+	bl EnqueSFX
 _0808B562:
 	pop {r4, pc}
 

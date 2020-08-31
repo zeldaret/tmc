@@ -6061,7 +6061,7 @@ sub_080A8470: @ 0x080A8470
 	cmp r0, #0x68
 	bne _080A848E
 	movs r0, #0x86
-	bl sub_08004488
+	bl EnqueSFX
 _080A848E:
 	adds r0, r4, #0
 	bl DeleteEntity
@@ -6115,7 +6115,7 @@ sub_080A84C8: @ 0x080A84C8
 	strb r0, [r1]
 _080A84F0:
 	ldr r0, _080A8500 @ =0x0000018D
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r4, #0
 	movs r1, #0x18
 	bl InitializeAnimation
@@ -6328,7 +6328,7 @@ sub_080A8680: @ 0x080A8680
 	strb r1, [r0, #0xf]
 	movs r0, #0x8c
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 	pop {pc}
 
 	thumb_func_start sub_080A86A0
@@ -6344,7 +6344,7 @@ sub_080A86A0: @ 0x080A86A0
 	strh r3, [r0, #0x24]
 	movs r0, #0xc7
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 	pop {pc}
 
 	thumb_func_start sub_080A86BC
@@ -6810,7 +6810,7 @@ _080A8A16:
 	movs r1, #1
 	bl InitializeAnimation
 	movs r0, #0x84
-	bl sub_08004488
+	bl EnqueSFX
 	movs r0, #3
 	strb r0, [r5, #0xc]
 	b _080A8A44
@@ -6893,7 +6893,7 @@ _080A8AAA:
 	adds r0, r2, #0
 	bl InitializeAnimation
 	ldr r0, _080A8AC4 @ =0x0000015F
-	bl sub_08004488
+	bl EnqueSFX
 _080A8AC2:
 	pop {pc}
 	.align 2, 0
@@ -7053,7 +7053,7 @@ _080A8BDA:
 	bl InitializeAnimation
 	movs r0, #0xaf
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 _080A8BF4:
 	pop {pc}
 	.align 2, 0
@@ -7198,7 +7198,7 @@ _080A8CEE:
 	bl InitializeAnimation
 	movs r0, #0xb0
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 _080A8D08:
 	pop {pc}
 	.align 2, 0
@@ -8110,7 +8110,7 @@ sub_080A93DC: @ 0x080A93DC
 	bl InitializeAnimation
 	movs r0, #0xc5
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r4, #0
 	bl sub_0806F69C
 	b _080A9424
@@ -8199,7 +8199,7 @@ sub_080A9488: @ 0x080A9488
 	lsrs r0, r0, #3
 	strb r0, [r4, #0x14]
 	movs r0, #0x74
-	bl sub_08004488
+	bl EnqueSFX
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
 	bl sub_080A94C0
@@ -9728,7 +9728,7 @@ sub_080A9FD0: @ 0x080A9FD0
 	ands r0, r1
 	strb r0, [r2]
 	ldr r0, _080AA038 @ =0x0000015D
-	bl sub_08004488
+	bl EnqueSFX
 _080A9FF2:
 	movs r0, #0x2e
 	ldrsh r1, [r5, r0]
@@ -9906,7 +9906,7 @@ _080AA136:
 	bl DeleteThisEntity
 _080AA14E:
 	movs r0, #0xf2
-	bl sub_08004488
+	bl EnqueSFX
 	movs r4, #1
 	strb r4, [r6, #0xc]
 	movs r0, #0xff
@@ -10715,7 +10715,7 @@ _080AA774:
 	adds r0, r4, #0
 	bl InitAnimationForceUpdate
 	ldr r0, _080AA788 @ =0x00000101
-	bl sub_08004488
+	bl EnqueSFX
 _080AA784:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -10780,7 +10780,7 @@ _080AA7DA:
 	strb r0, [r5]
 	movs r0, #0x80
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 _080AA806:
 	ldrb r1, [r5]
 	movs r0, #0x80
@@ -10989,7 +10989,7 @@ _080AA920:
 	strh r0, [r7, #0x32]
 	movs r0, #0x80
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 _080AA99A:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -13118,7 +13118,7 @@ sub_080AB950: @ 0x080AB950
 	cmp r0, #0
 	bne _080AB99C
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	ldrb r0, [r4, #0x15]
 	lsrs r0, r0, #3
 	ldr r1, _080AB994 @ =gUnk_0812A6C4
@@ -15575,7 +15575,7 @@ sub_080ACB90: @ 0x080ACB90
 	movs r2, #0x40
 	bl CreateFx
 	ldr r0, _080ACBC8 @ =0x00000119
-	bl sub_08004488
+	bl EnqueSFX
 	bl DeleteThisEntity
 _080ACBC6:
 	pop {r4, pc}

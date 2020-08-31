@@ -113,7 +113,7 @@ void sub_0802F300(Entity* this) {
     u32 rand;
 
     GetNextFrame(this);
-    sub_080AEF88(this);
+    ProcessMovement(this);
     temp = this->height.HALF.HI;
     rand = Random() & 0xf;
 

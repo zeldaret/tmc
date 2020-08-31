@@ -1173,7 +1173,7 @@ _080629B4:
 	strh r1, [r0]
 _080629D2:
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	movs r3, #0x2e
 	ldrsh r1, [r4, r3]
 	adds r2, r4, #0

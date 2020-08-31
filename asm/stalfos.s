@@ -153,7 +153,7 @@ _08039390:
 	strb r0, [r1, #0xb]
 	movs r0, #0xc3
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 	b _080393DC
 _080393CA:
 	adds r0, r1, #0
@@ -162,7 +162,7 @@ _080393CA:
 	strb r2, [r0]
 	movs r0, #0xc3
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 	str r4, [r5, #0x54]
 _080393DC:
 	adds r0, r5, #0
@@ -404,7 +404,7 @@ sub_0803958C: @ 0x0803958C
 	cmp r0, #0
 	bne _080395D4
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	beq _080395C0
 	adds r0, r4, #0
@@ -452,7 +452,7 @@ sub_080395D8: @ 0x080395D8
 	movs r0, #0x5a
 	strb r0, [r1]
 	movs r0, #0x7d
-	bl sub_08004488
+	bl EnqueSFX
 _08039602:
 	pop {r4, pc}
 
@@ -509,7 +509,7 @@ _0803963A:
 	adds r0, r2, #0
 	bl sub_080399C4
 	ldr r0, _0803966C @ =0x0000014B
-	bl sub_08004488
+	bl EnqueSFX
 _0803966A:
 	pop {pc}
 	.align 2, 0
@@ -764,7 +764,7 @@ _08039836:
 	adds r0, r2, #0
 	bl InitAnimationForceUpdate
 	ldr r0, _08039854 @ =0x0000012B
-	bl sub_08004488
+	bl EnqueSFX
 	pop {pc}
 	.align 2, 0
 _08039854: .4byte 0x0000012B
@@ -1018,7 +1018,7 @@ sub_08039A20: @ 0x08039A20
 	movs r0, #0x3c
 	strb r0, [r1]
 	movs r0, #0xfb
-	bl sub_08004488
+	bl EnqueSFX
 _08039A44:
 	pop {r4, pc}
 	.align 2, 0

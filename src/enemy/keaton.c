@@ -34,7 +34,7 @@ void sub_080323DC(Entity* this) {
 void sub_080323F4(Entity* this) {
     u32 var;
 
-    if ((u8)(this->action - 3) >= 2) {
+    if (this->action != 3 && this->action != 4) {
         this->action = 3;
         this->actionDelay = 0xC;
         var = ((this->field_0x3e + 4) & 0x18) ^ 0x10;
@@ -69,7 +69,7 @@ void sub_0803248C(Entity* this) {
             if (this->actionDelay == 0) {
                 sub_08032650(this);
             }
-            if (sub_080AEF88(this) == 0) {
+            if (ProcessMovement(this) == 0) {
                 this->actionDelay = 1;
             }
             UpdateAnimationSingleFrame(this);

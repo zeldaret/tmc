@@ -154,7 +154,7 @@ _080250C2:
 _08025104:
 	movs r0, #0xc3
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 _0802510C:
 	ldr r1, _08025118 @ =gUnk_080CBF9C
 	adds r0, r4, #0
@@ -1644,7 +1644,7 @@ sub_08025C44: @ 0x08025C44
 	b _08025C5E
 _08025C58:
 	adds r0, r2, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 _08025C5E:
 	pop {pc}
 

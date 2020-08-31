@@ -536,7 +536,7 @@ _08023440:
 	ldr r4, [r5, #0x2c]
 	ldr r6, [r5, #0x30]
 	adds r0, r5, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	ldr r0, [r5, #0x2c]
 	cmp r0, r4
 	bne _08023460

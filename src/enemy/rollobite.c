@@ -1,8 +1,8 @@
 #include "entity.h"
 #include "functions.h"
 
-extern void (*const gUnk_080CA66C[])(Entity*);
-extern void (*const gUnk_080CA684[])(Entity*);
+extern void (*const gRollobiteFunctions[])(Entity*);
+extern void (*const gRollobiteActions[])(Entity*);
 extern void (*const gUnk_080CA6A4[])(Entity*);
 extern void (*const gUnk_080CA6BC[])(Entity*);
 
@@ -11,57 +11,54 @@ extern const s8 gUnk_080CA6D4[];
 
 void sub_08020A30(Entity*);
 void sub_08020A7C(Entity*);
-u32 sub_08020AD0(Entity*);
-u32 sub_08020B6C(Entity*);
+bool32 Rollobite_TryToHoleUp(Entity*);
+bool32 Rollobite_IsRolledUp(Entity*);
 
 extern void sub_080AE58C();
 extern void sub_080AE7E8();
 extern void sub_08078930();
 
 void Rollobite(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CA66C);
+    EnemyFunctionHandler(this, gRollobiteFunctions);
 }
 
-void sub_08020648(Entity* this) {
-    sub_08020AD0(this);
-    gUnk_080CA684[this->action](this);
+void Rollobite_OnTick(Entity* this) {
+    Rollobite_TryToHoleUp(this);
+    gRollobiteActions[this->action](this);
 }
 
 void sub_08020668(Entity* this) {
     if (this->damageType == 34 && this->currentHealth != 0xff) {
         this->action = 4;
         this->field_0x20 = 0x20000;
-        this->direction = -1;
-        this->currentHealth = -1;
+        this->direction = 0xff;
+        this->currentHealth = 0xff;
         this->damageType = 35;
         InitializeAnimation(this, this->animationState + 8);
     }
 
     if (this->bitfield != 0x80) {
-        u8 tmp = this->action - 4;
-        if (tmp < 2) {
+        if (this->action == 4 || this->action == 5) {
             this->action = 4;
-            this->actionDelay = -76;
-            this->direction = -1;
+            this->actionDelay = 180;
+            this->direction = 0xff;
             InitializeAnimation(this, this->animationState + 0x10);
         }
     }
 
     if (this->bitfield == 0x93)
-        sub_08020648(this);
+        Rollobite_OnTick(this);
 }
 
 void sub_080206E0(Entity* this) {
-    if (sub_08020AD0(this)) {
+    if (Rollobite_TryToHoleUp(this)) {
         this->field_0x42 = 0;
+    } else if (Rollobite_IsRolledUp(this)) {
+        this->field_0x42--;
+        sub_080AE58C(this, this->field_0x3e, 10);
+        sub_080AE7E8(this, this->field_0x46, this->field_0x3e, 10);
     } else {
-        if (sub_08020B6C(this)) {
-            this->field_0x42--;
-            sub_080AE58C(this, this->field_0x3e, 10);
-            sub_080AE7E8(this, this->field_0x46, this->field_0x3e, 10);
-        } else {
-            sub_08001324(this);
-        }
+        sub_08001324(this);
     }
 }
 
@@ -69,7 +66,7 @@ void sub_08020734(Entity* this) {
     if (this->previousActionFlag < 3 && !sub_0806F520(this)) {
         this->action = 4;
         this->flags |= 0x80;
-        this->direction = -1;
+        this->direction = 0xff;
         InitializeAnimation(this, this->animationState + 0x10);
     } else {
         gUnk_080CA6A4[this->previousActionFlag](this);
@@ -94,6 +91,7 @@ void sub_08020798(Entity* this) {
 }
 
 void nullsub_6(Entity* this) {
+    /* ... */
 }
 
 void sub_080207A8(Entity* this) {
@@ -107,7 +105,7 @@ void sub_080207A8(Entity* this) {
     InitializeAnimation(this, this->animationState + 0x10);
 }
 
-void sub_080207F4(Entity* this) {
+void Rollobite_Initialize(Entity* this) {
     sub_0804A720(this);
     this->field_0x16 = 0x30;
     this->field_0x1c = 18;
@@ -116,11 +114,11 @@ void sub_080207F4(Entity* this) {
     sub_08020A30(this);
 }
 
-void sub_08020820(Entity* this) {
+void Rollobite_Walk(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x1) {
         this->frames.all &= ~0x1;
-        if (!sub_080AEF88(this))
+        if (!ProcessMovement(this))
             this->actionDelay = 1;
     }
 
@@ -164,12 +162,12 @@ void sub_08020904(Entity* this) {
     InitializeAnimation(this, this->animationState + 0x10);
 }
 
-void sub_08020920(Entity* this) {
+void Rollobite_Turn(Entity* this) {
     if (--this->actionDelay == 0)
         sub_08020A30(this);
 }
 
-void sub_08020938(Entity* this) {
+void Rollobite_RolledUp(Entity* this) {
     u32 unk;
 
     if ((this->frames.all & 0x80) == 0)
@@ -185,14 +183,14 @@ void sub_08020938(Entity* this) {
         sub_08078930(this);
     } else {
         if (unk == 1)
-            sub_08004488(260);
+            EnqueSFX(260);
 
         if ((this->direction & 0x80) == 0)
             sub_080AEFE0(this);
     }
 }
 
-void sub_080209A0(Entity* this) {
+void Rollobite_Unroll(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x80) {
         this->flags |= 0x80;
@@ -207,7 +205,7 @@ void sub_080209A0(Entity* this) {
     }
 }
 
-void sub_080209F4(Entity* this) {
+void Rollobite_LinedUp(Entity* this) {
     if (sub_08003FC4(this, 0x1c00) == 0) {
         this->action = 7;
         this->spritePriority.b0 = 7;
@@ -217,7 +215,7 @@ void sub_080209F4(Entity* this) {
         GetNextFrame(this);
 }
 
-void sub_08020A28(Entity* this) {
+void Rollobite_Holed(Entity* this) {
     GetNextFrame(this);
 }
 
@@ -251,8 +249,8 @@ void sub_08020A7C(Entity* this) {
     InitializeAnimation(this, this->animationState);
 }
 
-u32 sub_08020AD0(Entity* this) {
-    if (sub_08020B6C(this) && this->height.HALF.HI == 0) {
+bool32 Rollobite_TryToHoleUp(Entity* this) {
+    if (Rollobite_IsRolledUp(this) && this->height.HALF.HI == 0) {
         int tile = COORD_TO_TILE(this);
         int iVar1 = GetTileType(tile, this->collisionLayer);
         if ((iVar1 * 0x10000 - 0x710000U) >> 0x10 < 2) {
@@ -265,24 +263,24 @@ u32 sub_08020AD0(Entity* this) {
             this->field_0x20 = 0x20000;
             InitializeAnimation(this, this->animationState + 0x14);
             SetTile(0x4034, tile, this->collisionLayer);
-            return 1;
+            return TRUE;
         }
     }
-    return 0;
+    return FALSE;
 }
 
-u32 sub_08020B6C(Entity* this) {
-    u32 tmp = this->animIndex - 0x10;
-    if (tmp < 4) {
-        return 1;
+bool32 Rollobite_IsRolledUp(Entity* this) {
+    u32 tmp = this->animIndex;
+    if (16 <= tmp && tmp <= 19) {
+        return TRUE;
     } else {
-        return 0;
+        return FALSE;
     }
 }
 
 // clang-format off
-void (*const gUnk_080CA66C[])(Entity*) = {
-    sub_08020648,
+void (*const gRollobiteFunctions[])(Entity*) = {
+    Rollobite_OnTick,
     sub_08020668,
     sub_080206E0,
     sub_0804A7D4,
@@ -290,15 +288,15 @@ void (*const gUnk_080CA66C[])(Entity*) = {
     sub_08020734,
 };
 
-void (*const gUnk_080CA684[])(Entity*) = {
-    sub_080207F4,
-    sub_08020820,
+void (*const gRollobiteActions[])(Entity*) = {
+    Rollobite_Initialize,
+    Rollobite_Walk,
     sub_08020874,
-    sub_08020920,
-    sub_08020938,
-    sub_080209A0,
-    sub_080209F4,
-    sub_08020A28,
+    Rollobite_Turn,
+    Rollobite_RolledUp,
+    Rollobite_Unroll,
+    Rollobite_LinedUp,
+    Rollobite_Holed,
 };
 
 void (*const gUnk_080CA6A4[])(Entity*) = {
@@ -318,7 +316,6 @@ void (*const gUnk_080CA6BC[])(Entity*) = {
 };
 
 const u8 gUnk_080CA6CC[] = {
-    0,6,9,0,6,6,0,7
+    0, 6, 9, 0, 6, 6, 0, 7,
 };
 // clang-format on
-

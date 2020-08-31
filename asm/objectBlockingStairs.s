@@ -184,7 +184,7 @@ _08092FF2:
 	movs r1, #0x50
 	bl sub_0805E4E0
 	ldr r0, _0809303C @ =0x0000010F
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r6, #0
 	bl sub_08093248
 	b _080930E6
@@ -326,7 +326,7 @@ _08093104:
 	strb r0, [r4, #0x15]
 	strb r2, [r4, #0xe]
 	ldr r0, _08093164 @ =0x0000010F
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r4, #0
 	bl sub_08093248
 	b _08093174
@@ -620,7 +620,7 @@ _0809334A:
 	adds r1, r5, #0
 	bl sub_08093308
 	movs r0, #0x72
-	bl sub_08004488
+	bl EnqueSFX
 	pop {r4, r5, pc}
 	.align 2, 0
 

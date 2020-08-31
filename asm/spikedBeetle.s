@@ -196,7 +196,7 @@ _0802B780:
 	b _0802B7A0
 _0802B794:
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	bne _0802B7A2
 	movs r0, #1
@@ -366,7 +366,7 @@ _0802B8CC:
 	strb r0, [r4, #0xe]
 _0802B8D4:
 	ldr r0, _0802B8DC @ =0x0000012B
-	bl sub_08004488
+	bl EnqueSFX
 _0802B8DA:
 	pop {r4, pc}
 	.align 2, 0
@@ -419,7 +419,7 @@ _0802B91C:
 	adds r0, r3, #0
 	bl InitializeAnimation
 	ldr r0, _0802B944 @ =0x0000012B
-	bl sub_08004488
+	bl EnqueSFX
 _0802B940:
 	pop {r4, pc}
 	.align 2, 0

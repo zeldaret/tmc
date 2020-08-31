@@ -87,7 +87,7 @@ void sub_08045018(Entity* this) {
 }
 
 void sub_08045088(Entity* this) {
-    sub_080AEF88(this);
+    ProcessMovement(this);
     GetNextFrame(this);
     if (--this->actionDelay == 0) {
         this->action = 1;

@@ -8,27 +8,39 @@ extern void sub_0804AA30(Entity*, void (*const func[])(Entity*));
 extern void sub_0804A7D4(Entity*);
 extern Entity* CreateDeathFx(Entity*, u32, u32);
 extern void sub_0804A720(Entity*);
-bool32 sub_0801FE68(Entity*, s32);
-extern void sub_0801FED4(Entity*);
 extern u32 sub_080002D4(s32, s32, u32);
 extern u32 sub_080002BC(s32, s32, u32);
 extern u32 sub_08049FDC(Entity*, u32);
-bool32 sub_0801FDE4(Entity*, s32, s32);
 
-extern void (*const gUnk_080CA49C[])(Entity*);
-extern void (*const gUnk_080CA4B4[])(Entity*);
 extern Entity* gUnk_020000B0;
-extern const u8 gUnk_080CA4C8[];
-extern const u16 gUnk_080CA4CA[];
 extern s16 gSineTable[];
 
+bool32 Leever_PlayerInRange(Entity*, s32);
+void Leever_Move(Entity*);
+
+extern void (*const gLeeverFunctions[])(Entity*);
+extern void (*const gLeeverActions[])(Entity*);
+extern const s8 gLeeverDrift[];
+extern const u16 gUnk_080CA4CA[];
+
+enum {
+    LeeverAnimation_DigUp,
+    LeeverAnimation_DigDown,
+    LeeverAnimation_Attack,
+};
+
+enum {
+    LeeverForm_Red,
+    LeeverForm_Blue,
+};
+
 void Leever(Entity* this) {
-    EnemyFunctionHandler(this, gUnk_080CA49C);
+    EnemyFunctionHandler(this, gLeeverFunctions);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void sub_0801FC28(Entity* this) {
-    gUnk_080CA4B4[this->action](this);
+void Leever_OnTick(Entity* this) {
+    gLeeverActions[this->action](this);
 }
 
 void sub_0801FC40(Entity* this) {
@@ -41,30 +53,30 @@ void sub_0801FC40(Entity* this) {
             sub_0804A9FC(this, 0x1c);
         }
     }
-    sub_0804AA30(this, gUnk_080CA49C);
+    sub_0804AA30(this, gLeeverFunctions);
 }
 
 void sub_0801FC7C(Entity* this) {
-    if ((this->entityType).form == 0) {
+    if (this->entityType.form == LeeverForm_Red) {
         sub_0804A7D4(this);
     } else {
         CreateDeathFx(this, 0xf1, 0);
     }
 }
 
-void sub_0801FC9C(Entity* this) {
+void Leever_Initialize(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
     this->actionDelay = Random();
 }
 
-void sub_0801FCB0(Entity* this) {
+void Leever_Idle(Entity* this) {
     if (--this->actionDelay == 0) {
-        if (sub_0801FE68(this, Random() & 0x1f) != 0) {
+        if (Leever_PlayerInRange(this, Random() & 0x1f)) {
             this->action = 2;
             this->spriteSettings.b.draw = TRUE;
-            this->direction = (GetFacingDirection(this, gUnk_020000B0) + gUnk_080CA4C8[Random() & 1]) & 0x1f;
-            InitializeAnimation(this, 0);
+            this->direction = (GetFacingDirection(this, gUnk_020000B0) + gLeeverDrift[Random() & 1]) & 0x1f;
+            InitializeAnimation(this, LeeverAnimation_DigUp);
             UpdateSpriteForCollisionLayer(this);
         } else {
             this->actionDelay = (Random() & 0x18) + 8;
@@ -72,38 +84,36 @@ void sub_0801FCB0(Entity* this) {
     }
 }
 
-void sub_0801FD2C(Entity* this) {
-
+void Leever_DigUp(Entity* this) {
     GetNextFrame(this);
 
     if (this->frames.b.f3 != 0) {
         this->action = 3;
-        if (this->entityType.form == 0) {
-            this->field_0x74.HWORD = 0xb4;
+        if (this->entityType.form == LeeverForm_Red) {
+            this->field_0x74.HWORD = 180;
         } else {
-            this->field_0x74.HWORD = 0x6e;
+            this->field_0x74.HWORD = 110;
         }
-        InitializeAnimation(this, 2);
+        InitializeAnimation(this, LeeverAnimation_Attack);
     } else if (this->frames.b.f0 != 0) {
         this->frames.all &= 0xfe;
         this->flags |= 0x80;
     }
 }
 
-void sub_0801FD80(Entity* this) {
-
-    sub_0801FED4(this);
+void Leever_Attack(Entity* this) {
+    Leever_Move(this);
     GetNextFrame(this);
 
     if (--this->field_0x74.HWORD == 0) {
         this->action = 4;
         this->flags &= 0x7f;
-        InitializeAnimation(this, 1);
+        InitializeAnimation(this, LeeverAnimation_DigDown);
     }
 }
 
-void sub_0801FDB4(Entity* this) {
-    sub_0801FED4(this);
+void Leever_DigDown(Entity* this) {
+    Leever_Move(this);
     GetNextFrame(this);
     if ((this->frames.b.f3) != 0) {
         this->action = 1;
@@ -132,7 +142,7 @@ u32 sub_0801FDE4(Entity* ent, s32 x, s32 y) {
     }
 }
 
-bool32 sub_0801FE68(Entity* ent, s32 arg2) {
+bool32 Leever_PlayerInRange(Entity* ent, s32 arg2) {
     s32 sin, cos;
     s32 x, y;
     u32 i;
@@ -157,48 +167,46 @@ bool32 sub_0801FE68(Entity* ent, s32 arg2) {
 
 extern u32 sub_0800132C(Entity*, Entity*);
 
-void sub_0801FED4(Entity* this) {
-    s16 sVar2;
-
+void Leever_Move(Entity* this) {
     if (sub_08049FDC(this, 1) == 0) {
         this->field_0x74.HWORD = 1;
     }
-    sVar2 = (this->frames.all & 0xf) * 0x20;
-    this->nonPlanarMovement = sVar2;
-    if (this->entityType.form == 0) {
+
+    this->nonPlanarMovement = (this->frames.all & 0xf) * 0x20;
+    if (this->entityType.form == LeeverForm_Red) {
         if ((this->field_0xf++ & 0xf) == 0) {
             sub_08004596(this, sub_0800132C(this, gUnk_020000B0));
         }
     } else {
-        this->nonPlanarMovement = sVar2 + 0x40;
+        this->nonPlanarMovement += 0x40;
         if ((this->field_0xf++ & 0x7) == 0) {
             sub_08004596(this, sub_0800132C(this, gUnk_020000B0));
         }
     }
-    sub_080AEF88(this);
+
+    ProcessMovement(this);
 }
 
 // clang-format off
-void (*const gUnk_080CA49C[])(Entity*) = {
-    sub_0801FC28,
+void (*const gLeeverFunctions[])(Entity*) = {
+    Leever_OnTick,
     sub_0801FC40,
     sub_08001324,
     sub_0801FC7C,
     sub_08001242,
-    sub_0801FC28,
+    Leever_OnTick,
 };
 
-void (*const gUnk_080CA4B4[])(Entity*) = {
-    sub_0801FC9C,
-    sub_0801FCB0,
-    sub_0801FD2C,
-    sub_0801FD80,
-    sub_0801FDB4,
+void (*const gLeeverActions[])(Entity*) = {
+    Leever_Initialize,
+    Leever_Idle,
+    Leever_DigUp,
+    Leever_Attack,
+    Leever_DigDown,
 };
 
-const u8 gUnk_080CA4C8[] = {
-    0x06,
-    0xFA,
+const s8 gLeeverDrift[] = {
+    6, -6,
 };
 
 const u16 gUnk_080CA4CA[] = {

@@ -100,7 +100,7 @@ _0802ED0E:
 	beq _0802ED24
 	movs r0, #0xbd
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 _0802ED24:
 	ldrb r0, [r5]
 	strb r0, [r6]
@@ -123,7 +123,7 @@ _0802ED3E:
 	cmp r0, #0xff
 	beq _0802ED4E
 	movs r0, #0xe5
-	bl sub_08004488
+	bl EnqueSFX
 _0802ED4E:
 	movs r0, #0xff
 	strb r0, [r5]
@@ -528,7 +528,7 @@ sub_0802F04C: @ 0x0802F04C
 	movs r1, #0x32
 	ldrsh r6, [r4, r1]
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	bne _0802F06A
 	adds r0, r4, #0

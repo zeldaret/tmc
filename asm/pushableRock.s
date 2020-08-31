@@ -114,7 +114,7 @@ _0808A598:
 	adds r0, r4, #0
 	bl InitializeAnimation
 	ldr r0, _0808A5C8 @ =0x0000010F
-	bl sub_08004488
+	bl EnqueSFX
 	b _0808A5DE
 	.align 2, 0
 _0808A5C8: .4byte 0x0000010F

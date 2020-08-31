@@ -98,7 +98,7 @@ sub_080997CC: @ 0x080997CC
 	strb r1, [r4, #0xc]
 	strb r0, [r4, #0xe]
 	ldr r0, _080997F0 @ =0x000001B3
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r4, #0
 	bl sub_080997F4
 _080997EC:

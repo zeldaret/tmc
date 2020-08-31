@@ -27,7 +27,7 @@ extern u32 GetFacingDirection(Entity*, Entity*);
 extern void sub_080606D8(Entity*);
 extern void sub_0807DD94(Entity*, u32);
 extern void sub_080788E0(Entity*);
-extern void sub_08004488(u32);
+extern void EnqueSFX(u32);
 extern void sub_080606C0(Entity*);
 extern void sub_0800451C(Entity*);
 extern void sub_08078784(Entity*, u32);
@@ -178,7 +178,7 @@ void sub_08060528(Entity *this)
       this->field_0x20 = 0x20000;
       this->field_0x6c.HALF.HI = 1;
       sub_080788E0(this);
-      sub_08004488(0x7c);
+      EnqueSFX(0x7c);
     }
     else {
       this->field_0x6a.HWORD -= 1;

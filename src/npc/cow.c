@@ -94,7 +94,7 @@ void sub_08069068(Entity* ent) {
         InitAnimationForceUpdate(ent, ent->animationState + 4);
     }
 
-    sub_080AEF88(ent);
+    ProcessMovement(ent);
     UpdateAnimationSingleFrame(ent);
 
     {

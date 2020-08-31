@@ -7,7 +7,7 @@
 extern void sub_0809EB30(Entity*);
 extern void sub_0809EAD8(Entity*);
 extern void sub_0809EABC(Entity*);
-extern void sub_08004488(u32);
+extern void EnqueSFX(u32);
 extern void sub_080A2CC0(Entity*, Entity**, u16*);
 extern Entity* GetCurrentRoomProperty(u32);
 extern void SetTile(u32, u32, u32);
@@ -50,7 +50,7 @@ void sub_0809EA80(Entity* this) {
         } else {
             SetFlag(this->field_0x86);
         }
-        sub_08004488(0x110);
+        EnqueSFX(0x110);
     }
     sub_0809EABC(this);
 }
@@ -123,7 +123,7 @@ void sub_0809EBD8(Entity* this) {
         this->actionDelay = 0x10;
         this->frameIndex = 2;
         SetFlag(this->field_0x86);
-        sub_08004488(0x110);
+        EnqueSFX(0x110);
     }
 }
 
@@ -137,7 +137,7 @@ void sub_0809EC08(Entity* this) {
             this->action = 1;
             this->frameIndex = 3;
             ClearFlag(this->field_0x86);
-            sub_08004488(0x110);
+            EnqueSFX(0x110);
         }
     }
 }

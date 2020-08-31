@@ -303,7 +303,7 @@ sub_08069D54: @ 0x08069D54
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	ldrh r1, [r4, #0x2a]
 	movs r0, #0x2e
 	ldrsh r2, [r4, r0]
@@ -473,9 +473,9 @@ _08069EA0:
 	adds r0, r4, #0
 	bl sub_080788E0
 	movs r0, #0xd1
-	bl sub_08004488
+	bl EnqueSFX
 	movs r0, #0xcd
-	bl sub_08004488
+	bl EnqueSFX
 _08069EC8:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

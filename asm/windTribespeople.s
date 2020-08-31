@@ -147,7 +147,7 @@ sub_0806CA5C: @ 0x0806CA5C
 	cmp r0, #0xa
 	bne _0806CA7E
 	movs r0, #0xe8
-	bl sub_08004488
+	bl EnqueSFX
 _0806CA7E:
 	ldrh r0, [r4, #0x10]
 	cmp r0, #0

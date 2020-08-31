@@ -384,7 +384,7 @@ sub_08041618: @ 0x08041618
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	ldr r0, _0804165C @ =gRoomControls
 	ldrh r2, [r0, #8]
 	adds r0, r2, #0

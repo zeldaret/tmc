@@ -115,11 +115,11 @@ _08066B20:
 _08066B2A:
 	movs r0, #0x87
 	lsls r0, r0, #2
-	bl sub_08004488
+	bl EnqueSFX
 	b _08066B66
 _08066B34:
 	ldr r0, _08066B3C @ =0x0000021E
-	bl sub_08004488
+	bl EnqueSFX
 	b _08066B66
 	.align 2, 0
 _08066B3C: .4byte 0x0000021E
@@ -140,7 +140,7 @@ _08066B52:
 	adds r0, r4, #0
 	bl sub_0805DE18
 	ldr r0, _08066B70 @ =0x0000021D
-	bl sub_08004488
+	bl EnqueSFX
 _08066B66:
 	ldrb r1, [r5]
 	movs r0, #0x7f

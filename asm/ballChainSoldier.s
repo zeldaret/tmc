@@ -161,7 +161,7 @@ sub_0803E61C: @ 0x0803E61C
 	cmp r0, #0
 	bne _0803E654
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	bne _0803E654
 	adds r0, r4, #0
@@ -306,7 +306,7 @@ sub_0803E71C: @ 0x0803E71C
 	movs r0, #0xf6
 	strb r0, [r1]
 	adds r0, #0x65
-	bl sub_08004488
+	bl EnqueSFX
 _0803E756:
 	pop {pc}
 	.align 2, 0

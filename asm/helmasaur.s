@@ -533,7 +533,7 @@ _0802BF3A:
 sub_0802BF3C: @ 0x0802BF3C
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	adds r0, r4, #0
 	bl GetNextFrame
 	ldrb r0, [r4, #0xe]

@@ -675,7 +675,7 @@ sub_0803C6DC: @ 0x0803C6DC
 	strh r0, [r4, #0x24]
 _0803C6EA:
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	adds r0, r4, #0
 	bl GetNextFrame
 	pop {r4, pc}

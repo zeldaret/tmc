@@ -73,7 +73,7 @@ sub_0809229C: @ 0x0809229C
 	bl InitAnimationForceUpdate
 	movs r0, #0xbf
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 	ldr r0, [r4, #0x54]
 	movs r1, #3
 	bl InitializeAnimation
@@ -281,7 +281,7 @@ _08092434:
 	movs r1, #2
 	bl InitializeAnimation
 	ldr r0, _08092468 @ =0x0000017B
-	bl sub_08004488
+	bl EnqueSFX
 _08092462:
 	pop {r4, pc}
 	.align 2, 0
@@ -335,7 +335,7 @@ _080924B8:
 	strb r0, [r3]
 	movs r0, #0xbe
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 	b _080924DC
 _080924CC:
 	movs r0, #2
@@ -344,7 +344,7 @@ _080924CC:
 	beq _080924DC
 	strb r2, [r3]
 	ldr r0, _080924E0 @ =0x0000017D
-	bl sub_08004488
+	bl EnqueSFX
 _080924DC:
 	pop {r4, r5, pc}
 	.align 2, 0

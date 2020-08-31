@@ -84,7 +84,7 @@ sub_08098AE8: @ 0x08098AE8
 	ands r0, r1
 	strb r0, [r4]
 	ldr r0, _08098B0C @ =0x0000021B
-	bl sub_08004488
+	bl EnqueSFX
 _08098B08:
 	pop {r4, pc}
 	.align 2, 0

@@ -356,7 +356,7 @@ _08038B18:
 	movs r1, #0
 	bl sub_08038C84
 	ldr r0, _08038B60 @ =0x0000015B
-	bl sub_08004488
+	bl EnqueSFX
 _08038B5E:
 	pop {r4, pc}
 	.align 2, 0
@@ -366,7 +366,7 @@ _08038B60: .4byte 0x0000015B
 sub_08038B64: @ 0x08038B64
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	ldrb r0, [r4, #0xf]
@@ -392,7 +392,7 @@ sub_08038B90: @ 0x08038B90
 	adds r4, r0, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	adds r0, r4, #0
 	bl sub_0800445C
 	pop {r4, pc}

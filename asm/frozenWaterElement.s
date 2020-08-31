@@ -96,7 +96,7 @@ sub_0809BF1C: @ 0x0809BF1C
 	lsls r0, r0, #1
 	strh r0, [r1]
 	adds r0, #0x73
-	bl sub_08004488
+	bl EnqueSFX
 _0809BF6C:
 	pop {r4, pc}
 	.align 2, 0
@@ -129,7 +129,7 @@ _0809BFA0:
 	cmp r1, #0
 	bne _0809BFAE
 	ldr r0, _0809C09C @ =0x000001B3
-	bl sub_08004488
+	bl EnqueSFX
 _0809BFAE:
 	ldrh r0, [r5]
 	cmp r0, #0x77

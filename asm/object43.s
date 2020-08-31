@@ -263,7 +263,7 @@ _0808E084:
 _0808E0B8: .4byte gScreenTransition
 _0808E0BC:
 	ldr r0, _0808E140 @ =0x00000115
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r4, #0
 	movs r1, #0x12
 	movs r2, #0

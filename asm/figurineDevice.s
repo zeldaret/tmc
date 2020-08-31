@@ -266,7 +266,7 @@ _08087D60:
 	bl PositionRelative
 _08087DAA:
 	ldr r0, _08087DB8 @ =0x00000111
-	bl sub_08004488
+	bl EnqueSFX
 _08087DB0:
 	pop {r4, r5, pc}
 	.align 2, 0

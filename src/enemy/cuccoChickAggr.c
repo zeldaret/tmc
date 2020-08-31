@@ -49,10 +49,10 @@ void sub_08022988(Entity* this) {
 
             this->frameIndex = 1;
             this->field_0x20 = 0x10000;
-            sub_08004488(0xd6);
+            EnqueSFX(0xd6);
         }
 
-        sub_080AEF88(this);
+        ProcessMovement(this);
         if (sub_08003FC4(this, 0x2000) == 0) {
             if (--this->actionDelay == 0) {
                 sub_08022A88(this);
@@ -75,7 +75,7 @@ void sub_080229F8(Entity* this) {
             sub_08022B44(this);
         } else {
             this->field_0x20 = 0x10000;
-            sub_08004488(0xd6);
+            EnqueSFX(0xd6);
         }
     }
 }
@@ -88,7 +88,7 @@ void sub_08022A40(Entity* this) {
         this->frameIndex = 1;
     }
 
-    sub_080AEF88(this);
+    ProcessMovement(this);
     if (sub_08003FC4(this, 0x2000) == 0) {
         if (--this->actionDelay == 0) {
             sub_08022A88(this);
@@ -143,7 +143,7 @@ void sub_08022B44(Entity *this){
     if (this->direction & 0xf)
         this->spriteSettings.b.flipX = (this->direction >> 4)^1;
 
-    sub_08004488(0xd6);
+    EnqueSFX(0xd6);
 }
 
 

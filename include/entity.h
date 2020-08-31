@@ -169,6 +169,13 @@ extern void CopyPosition(Entity*, Entity*);
 extern void DeleteEntity(Entity*);
 extern void PositionRelative(Entity*, Entity*, s32, s32);
 
+#define DirectionRound(expr) ((expr) & 0x18)
+#define DirectionRoundUp(expr) DirectionRound((expr) + 4)
+#define DirectionIsHorizontal(expr) ((expr) & 0x08)
+#define DirectionIsVertical(expr) ((expr) & 0x10)
+#define DirectionTurnHorizontal(expr) (DirectionRoundUp(expr) ^ 0x08)
+#define DirectionTurnVertical(expr) (DirectionRoundUp(expr) ^ 0x10)
+
 extern Entity gUnk_03003DA0;
 
 #endif

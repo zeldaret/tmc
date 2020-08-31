@@ -190,7 +190,7 @@ _0809B4C0:
 	lsls r0, r0, #2
 	strb r0, [r1, #0x15]
 	ldr r0, _0809B518 @ =0x0000010F
-	bl sub_08004488
+	bl EnqueSFX
 	b _0809B520
 	.align 2, 0
 _0809B510: .4byte gPlayerState

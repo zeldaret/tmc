@@ -109,7 +109,7 @@ _08088728:
 	ands r0, r1
 	strb r0, [r4, #0x10]
 	ldr r0, _0808875C @ =0x00000111
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r4, #0
 	adds r0, #0x86
 	ldrh r0, [r0]

@@ -6,7 +6,7 @@
 extern u32 sub_08083734(Entity*, u32);
 extern void sub_080A080C(Entity*);
 extern void sub_0806F69C(Entity*);
-extern void sub_08004488(u32);
+extern void EnqueSFX(u32);
 extern void sub_080A0870(Entity*);
 extern void PlaySFX(u32);
 extern u32 sub_080001DA(u32, u32);
@@ -71,7 +71,7 @@ void sub_080A074C(Entity *this)
       ent->x.HALF.HI -= 0xc;
       ent->y.HALF.HI -= 0xc;
     }
-    sub_08004488(0x10b);
+    EnqueSFX(0x10b);
   }
 }
 

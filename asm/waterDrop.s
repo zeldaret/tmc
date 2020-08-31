@@ -85,7 +85,7 @@ sub_0802A2B4: @ 0x0802A2B4
 	orrs r0, r1
 	strb r0, [r2]
 	movs r0, #0x84
-	bl sub_08004488
+	bl EnqueSFX
 	b _0802A2E2
 _0802A2DC:
 	adds r0, r4, #0

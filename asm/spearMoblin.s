@@ -350,7 +350,7 @@ _080284B4:
 	strb r0, [r4, #0x15]
 	movs r0, #0x8f
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueSFX
 	b _0802850A
 _080284D2:
 	strb r1, [r4, #0xc]
@@ -477,7 +477,7 @@ _080285BC:
 	cmp r0, #0
 	bne _080285D6
 	movs r0, #0xf0
-	bl sub_08004488
+	bl EnqueSFX
 	adds r0, r4, #0
 	movs r1, #2
 	movs r2, #0x40
@@ -500,7 +500,7 @@ _080285EE:
 	cmp r0, #0x20
 	bls _080285FA
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 _080285FA:
 	adds r0, r4, #0
 	bl GetNextFrame
@@ -854,7 +854,7 @@ sub_08028858: @ 0x08028858
 	strh r0, [r4, #0x24]
 _08028890:
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	adds r0, r4, #0
 	bl GetNextFrame
 	pop {r4, pc}
