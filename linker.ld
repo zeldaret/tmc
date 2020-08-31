@@ -805,7 +805,7 @@ SECTIONS {
 		asm/picoBloom.o(.text);
 		asm/object80.o(.text);
 		asm/object81.o(.text);
-		asm/bigVortex.o(.text);
+		src/object/bigVortex.o(.text);
 		asm/bigPushableLever.o(.text);
 		asm/smallIceBlock.o(.text);
 		asm/bigIceBlock.o(.text);
