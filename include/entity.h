@@ -175,6 +175,8 @@ extern void PositionRelative(Entity*, Entity*, s32, s32);
 #define DirectionIsVertical(expr) ((expr) & 0x10)
 #define DirectionTurnHorizontal(expr) (DirectionRoundUp(expr) ^ 0x08)
 #define DirectionTurnVertical(expr) (DirectionRoundUp(expr) ^ 0x10)
+#define DirectionToAnimationState(expr) (DirectionRoundUp(expr) >> 3)
+#define DirectionFromAnimationState(expr) (expr << 3)
 
 extern Entity gUnk_03003DA0;
 

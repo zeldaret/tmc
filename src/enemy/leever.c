@@ -79,7 +79,7 @@ void Leever_Idle(Entity* this) {
             InitializeAnimation(this, LeeverAnimation_DigUp);
             UpdateSpriteForCollisionLayer(this);
         } else {
-            this->actionDelay = (Random() & 0x18) + 8;
+            this->actionDelay = DirectionRound(Random()) + 8;
         }
     }
 }

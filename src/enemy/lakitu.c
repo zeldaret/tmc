@@ -280,8 +280,7 @@ void sub_0803CA84(Entity *this, u32 unkParameter) {
     u32 altAnimState = GetFacingDirection(this, &gPlayerEntity);
 
     if (((altAnimState - 3) & 7) > 2 || ((this->animationState  - (altAnimState >> 3)) & 3) > 1) {
-        u32 intermediate = (altAnimState + 4) & 0x18;
-        altAnimState = intermediate >> 3;
+        altAnimState = DirectionRoundUp(altAnimState) >> 3;
 
         if (altAnimState != this->animationState) {
             this->animationState = altAnimState;

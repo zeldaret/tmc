@@ -78,9 +78,9 @@ void sub_080452FC(Entity *this) {
             cVar2 = sub_08049EE4(this);
             bVar3 = Random() & 8;
             bVar3 += 0xfc;
-            this->direction = (cVar2 + bVar3) & 0x18;
+            this->direction = DirectionRound(cVar2 + bVar3);
         } else {
-            this->direction = Random() & 0x18;
+            this->direction = DirectionRound(Random());
             sub_08045374(this);
         }
     }

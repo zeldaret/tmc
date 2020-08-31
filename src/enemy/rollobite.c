@@ -110,7 +110,7 @@ void Rollobite_Initialize(Entity* this) {
     this->field_0x16 = 0x30;
     this->field_0x1c = 18;
     this->cutsceneBeh.HALF.LO = 0;
-    this->direction = Random() & 0x18;
+    this->direction = DirectionRound(Random());
     sub_08020A30(this);
 }
 
@@ -197,7 +197,7 @@ void Rollobite_Unroll(Entity* this) {
         this->nonPlanarMovement = 0x100;
         this->damageType = 34;
         sub_08020A30(this);
-        this->direction = this->animationState << 3;
+        this->direction = DirectionFromAnimationState(this->animationState);
         InitializeAnimation(this, this->animationState);
     } else {
         if ((this->frames.all & 1) == 0)
@@ -236,10 +236,10 @@ void sub_08020A30(Entity* this) {
 
 void sub_08020A7C(Entity* this) {
     int tmp = Random();
-    u32 state = (this->direction + gUnk_080CA6D4[tmp % 3]) & 0x18;
+    u32 state = DirectionRound(this->direction + gUnk_080CA6D4[tmp % 3]);
 
     if (sub_08049FA0(this) == 0) {
-        int tmp = (sub_08049EE4(this) + 4) & 0x18;
+        int tmp = DirectionRoundUp(sub_08049EE4(this));
         if ((state ^ 0x10) == tmp)
             state ^= 0x10;
     }

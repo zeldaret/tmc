@@ -192,7 +192,7 @@ void sub_08061E90(Entity* this, Entity* arg1) {
     if (arg1->spriteSettings.raw == 0) {
         arg1->spriteSettings.raw++;
         arg1->spriteIndex = (Random() & 0x3f) + 0x20;
-        animIndex = Random() & 0x18;
+        animIndex = DirectionRound(Random());
         switch (this->direction) {
             case 0x0:
                 if (animIndex == 0x10) {

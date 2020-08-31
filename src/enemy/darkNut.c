@@ -62,7 +62,7 @@ void sub_08020BB8(Entity* this) {
             this->action = 11;
             this->actionDelay = gUnk_080CAB0C[this->entityType.form];
             this->damageType = 81;
-            sub_08021218(this, 8, (((this->field_0x3e ^ 0x10) + 4) & 0x18) >> 3);
+            sub_08021218(this, 8, DirectionToAnimationState(this->field_0x3e ^ 0x10));
             sub_08021588(this);
             sub_0804A9FC(this, 0x1c);
             break;
@@ -70,7 +70,7 @@ void sub_08020BB8(Entity* this) {
             this->action = 11;
             this->actionDelay = gUnk_080CAB10[this->entityType.form];
             this->damageType = 81;
-            sub_08021218(this, 8, (((this->field_0x3e ^ 0x10) + 4) & 0x18) >> 3);
+            sub_08021218(this, 8, DirectionToAnimationState(this->field_0x3e ^ 0x10));
             sub_08021588(this);
             sub_0804A9FC(this, 0x1c);
             break;
@@ -427,7 +427,7 @@ void sub_08021328(Entity* this) {
 
 void sub_0802134C(Entity* this) {
     this->action = 15;
-    this->direction = this->animationState << 3;
+    this->direction = DirectionFromAnimationState(this->animationState);
     this->nonPlanarMovement = 0x200;
     this->field_0x76.HWORD = 0x78;
     sub_08021218(this, 0xe, this->animationState);
@@ -534,7 +534,7 @@ u32 sub_080214FC(Entity* this) {
     if (4 < (direction - (this->frames.all & 0x1f)) - 2)
         return 0;
 
-    this->animationState = ((direction + 4) & 0x18) >> 3;
+    this->animationState = DirectionToAnimationState(direction);
     return 1;
 }
 
@@ -544,9 +544,9 @@ void sub_08021540(Entity* this) {
 
     rand = Random();
     if (!sub_08049FA0(this) && (rand & 1)) {
-        tmp2 = (sub_08049EE4(this) + 4) & 0x18;
+        tmp2 = DirectionRoundUp(sub_08049EE4(this));
     } else {
-        tmp2 = (rand >> 0x10) & 0x18;
+        tmp2 = DirectionRound(rand >> 0x10);
     }
     this->direction = tmp2;
 
