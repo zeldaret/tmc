@@ -340,7 +340,7 @@ SECTIONS {
 		src/enemy/cuccoChickAggr.o(.text);
 		src/enemy/moldorm.o(.text);
 		src/enemy/enemyE.o(.text);
-		asm/moldworm.o(.text);
+		src/enemy/moldworm.o(.text);
 		asm/sluggula.o(.text);
 		asm/pesto.o(.text);
 		asm/puffstool.o(.text);
@@ -932,6 +932,8 @@ SECTIONS {
 		src/enemy/moldorm.o(.rodata);
 		src/enemy/enemyE.o(.rodata);
 		data/animations/enemyE.o(.rodata);
+		src/enemy/moldworm.o(.rodata);
+		data/animations/moldworm.o(.rodata);
 		data/data_080CBC38.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);

@@ -177,6 +177,12 @@ extern void PositionRelative(Entity*, Entity*, s32, s32);
 #define DirectionToAnimationState(expr) (DirectionRoundUp(expr) >> 3)
 #define DirectionFromAnimationState(expr) (expr << 3)
 
+#define Direction8Round(expr) ((expr) & 0x1c)
+#define Direction8RoundUp(expr) Direction8Round((expr) + 2)
+#define Direction8TurnAround(expr) (Direction8RoundUp(expr) ^ 0x10)
+#define Direction8ToAnimationState(expr) (Direction8RoundUp(expr) >> 2)
+#define Direction8FromAnimationState(expr) (expr << 2)
+
 extern Entity gUnk_03003DA0;
 
 #endif
