@@ -934,7 +934,7 @@ SECTIONS {
 		data/animations/enemyE.o(.rodata);
 		src/enemy/moldworm.o(.rodata);
 		data/animations/moldworm.o(.rodata);
-		data/data_080CBC38.o(.rodata);
+		data/data_080CBDBC.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
