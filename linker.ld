@@ -938,7 +938,7 @@ SECTIONS {
 		data/animations/sluggula.o(.rodata);
 		src/enemy/pesto.o(.rodata);
 		data/animations/pesto.o(.rodata);
-		data/data_080CBEC4.o(.rodata);
+		data/data_080CBF9C.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
