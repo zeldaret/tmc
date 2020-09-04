@@ -342,7 +342,7 @@ SECTIONS {
 		src/enemy/enemyE.o(.text);
 		src/enemy/moldworm.o(.text);
 		src/enemy/sluggula.o(.text);
-		asm/pesto.o(.text);
+		src/enemy/pesto.o(.text);
 		asm/puffstool.o(.text);
 		asm/chuchuBoss.o(.text);
 		asm/likeLike.o(.text);
@@ -936,6 +936,8 @@ SECTIONS {
 		data/animations/moldworm.o(.rodata);
 		src/enemy/sluggula.o(.rodata);
 		data/animations/sluggula.o(.rodata);
+		src/enemy/pesto.o(.rodata);
+		data/animations/pesto.o(.rodata);
 		data/data_080CBEC4.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
