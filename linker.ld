@@ -940,7 +940,7 @@ SECTIONS {
 		data/animations/pesto.o(.rodata);
 		src/enemy/puffstool.o(.rodata);
 		data/animations/puffstool.o(.rodata);
-		data/data_080CBF9C.o(.rodata);
+		data/data_080CC19C.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
