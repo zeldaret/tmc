@@ -673,7 +673,7 @@ SECTIONS {
 		asm/itemOnGround.o(.text);
 		asm/deathFx.o(.text);
 		asm/itemForSale.o(.text);
-		asm/button.o(.text);
+		src/object/button.o(.text);
 		asm/object4.o(.text);
 		src/object/pot.o(.text);
 		asm/object6.o(.text);
