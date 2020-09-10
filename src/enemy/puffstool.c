@@ -440,14 +440,17 @@ bool32 sub_080257EC(Entity* this, u32 x, u32 y) {
     return FALSE;
 }
 
-#if NON_MATCHING
 bool32 sub_080258C4(Entity* this) {
     Entity* ent = sub_08049DF4(1);
     if (ent == NULL) {
         return FALSE;
     } else {
-        s32 iVar4 = (ent->x.HALF.HI - this->x.HALF.HI) * (ent->x.HALF.HI - this->x.HALF.HI);
-        s32 iVar1 = (ent->y.HALF.HI - this->y.HALF.HI) * (ent->y.HALF.HI - this->y.HALF.HI);
+        s32 iVar4;
+        s32 iVar1;
+        iVar4 = ent->x.HALF.HI - this->x.HALF.HI;
+        iVar4 = iVar4 * iVar4;
+        iVar1 = ent->y.HALF.HI - this->y.HALF.HI;
+        iVar1 = iVar1 * iVar1;
         iVar4 = iVar4 + iVar1;
         if (this->cutsceneBeh.HWORD == 0 && this->field_0x80.HALF.HI == 0 && 0x400 >= iVar4) {
             this->action = 9;
@@ -463,12 +466,6 @@ bool32 sub_080258C4(Entity* this) {
         }
     }
 }
-#else
-NAKED
-bool32 sub_080258C4(Entity* this) {
-    asm(".include \"asm/non_matching/puffstool/sub_080258C4.inc\"");
-}
-#endif
 
 #if NON_MATCHING
 bool32 sub_0802594C(Entity* this, u32 param_2) {
