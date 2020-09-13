@@ -2,7 +2,7 @@
 #include "functions.h"
 #include "player.h"
 
-extern u32 sub_08049F64(Entity*, u32, u32);
+extern u32 PlayerInRange(Entity*, u32, u32);
 
 u32 sub_08021D00();
 void sub_08021D44(Entity* this, u32 param_2);
@@ -86,7 +86,7 @@ void sub_08021888(Entity* this) {
         sub_08021818(this);
 }
 
-void sub_0802189C(Entity* this) {
+void Beetle_Initialize(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
     this->field_0x1c = 1;
@@ -131,7 +131,7 @@ void sub_08021984(Entity* this) {
         this->height.HALF.HI = -0x80;
         this->spriteRendering.b3 = 1;
         this->spriteOrientation.flipY = 1;
-        sub_08004488(0x12d);
+        EnqueueSFX(0x12d);
     }
 
     if (sub_08003FC4(this, 0x1800) == 0) {
@@ -178,7 +178,7 @@ void sub_08021A64(Entity* this) {
             }
             sub_08021D44(this, tmp);
         }
-        sub_080AEF88(this);
+        ProcessMovement(this);
         GetNextFrame(this);
     }
 }
@@ -198,7 +198,7 @@ void sub_08021AD8(Entity* this) {
                 return;
             }
             this->direction = (u8)tmp;
-            sub_08004488(0x7c);
+            EnqueueSFX(0x7c);
         }
         sub_080AEFE0(this);
         if (!sub_08003FC4(this, 0x1800))
@@ -292,7 +292,7 @@ u32 sub_08021D00(Entity* this) {
     if (((u8*)&this->field_0x86)[0]) {
         ((u8*)&this->field_0x86)[0]--;
         ret = 0;
-    } else if (sub_08049F64(this, 1, 0x10) == 0) {
+    } else if (PlayerInRange(this, 1, 0x10) == 0) {
         ret = 0;
     } else {
         this->action = 4;
@@ -305,11 +305,10 @@ u32 sub_08021D00(Entity* this) {
     return ret;
 }
 
-void sub_08021D44(Entity* this, u32 param_2) {
-    param_2 += 4;
-    param_2 &= 0x18;
-    this->direction = param_2;
-    if (param_2 & 8) {
+void sub_08021D44(Entity* this, u32 direction) {
+    direction = DirectionRoundUp(direction);
+    this->direction = direction;
+    if (DirectionIsHorizontal(direction)) {
         this->nonPlanarMovement = 0x180;
     } else {
         this->nonPlanarMovement = 0xc0;
@@ -328,7 +327,7 @@ void (*const gUnk_080CB590[])(Entity*) = {
 };
 
 void (*const gUnk_080CB5A8[])(Entity*) = {
-    sub_0802189C,
+    Beetle_Initialize,
     sub_080218B4,
     sub_08021A10,
     sub_08021A64,

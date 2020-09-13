@@ -109,7 +109,7 @@ sub_0802B35C: @ 0x0802B35C
 	adds r4, r0, #0
 	bl GetNextFrame
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	movs r3, #0
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0

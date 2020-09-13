@@ -172,7 +172,7 @@ _0803ECD8:
 	movs r1, #0x10
 	bl sub_0803E94C
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 _0803ED02:
 	pop {r4, r5, r6, pc}
 
@@ -234,7 +234,7 @@ sub_0803ED40: @ 0x0803ED40
 	movs r0, #0xf6
 	strb r0, [r1]
 	adds r0, #0x65
-	bl sub_08004488
+	bl EnqueueSFX
 _0803ED74:
 	pop {pc}
 	.align 2, 0

@@ -244,7 +244,7 @@ _08035356:
 	lsls r0, r0, #1
 	strh r0, [r5, #0x24]
 	adds r0, r5, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	adds r7, r5, #0
 	adds r7, #0x79
 	b _08035456
@@ -1952,7 +1952,7 @@ _080360A0:
 	b _080360BE
 _080360B2:
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	bne _080360BE
 	strb r0, [r5]
@@ -1991,7 +1991,7 @@ sub_080360E8: @ 0x080360E8
 	cmp r0, #0
 	bne _08036178
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	movs r2, #0
 	ldrb r0, [r4, #0x15]
 	cmp r0, #0
@@ -2884,7 +2884,7 @@ sub_08036764: @ 0x08036764
 sub_080367B0: @ 0x080367B0
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	ldrh r0, [r4, #0x2a]
 	cmp r0, #0
 	beq _0803683A
@@ -3005,7 +3005,7 @@ sub_08036870: @ 0x08036870
 	strb r0, [r3, #0x15]
 	strh r2, [r3, #0x2a]
 	adds r0, r3, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	b _080368D4
 _080368AA:
 	lsls r0, r1, #0x18

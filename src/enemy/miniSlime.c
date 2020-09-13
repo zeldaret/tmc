@@ -78,16 +78,16 @@ void sub_080452FC(Entity *this) {
             cVar2 = sub_08049EE4(this);
             bVar3 = Random() & 8;
             bVar3 += 0xfc;
-            this->direction = (cVar2 + bVar3) & 0x18;
+            this->direction = DirectionRound(cVar2 + bVar3);
         } else {
-            this->direction = Random() & 0x18;
+            this->direction = DirectionRound(Random());
             sub_08045374(this);
         }
     }
 }
 
 void sub_08045374(Entity* this) {
-    sub_080AEF88(this);
+    ProcessMovement(this);
     GetNextFrame(this);
     if (--this->actionDelay == 0)
         this->action = 1;

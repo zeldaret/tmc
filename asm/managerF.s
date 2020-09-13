@@ -747,7 +747,7 @@ _08059436:
 	strh r0, [r2, #0x32]
 	movs r0, #0xd8
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	bl DeleteThisEntity
 _08059476:
 	pop {r4, pc}

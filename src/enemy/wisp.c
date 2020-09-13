@@ -98,7 +98,7 @@ void sub_080336A8(Entity* this) {
     } else if (this->collisions != 0) {
         sub_0800417E(this, this->collisions);
     }
-    sub_080AEF88(this);
+    ProcessMovement(this);
     GetNextFrame(this);
 }
 

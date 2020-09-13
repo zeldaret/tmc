@@ -4,7 +4,6 @@
 
 extern u32 sub_080002D4(s32, s32, u32);
 extern s32 sub_080012DC(Entity*);
-extern void sub_08001324(Entity*);
 extern u32 sub_080044EC(Entity*, u32);
 extern u32 sub_08031E04(Entity*);
 extern void sub_08031E48(Entity*, Entity*);
@@ -344,7 +343,7 @@ void sub_08031EE8(Entity* this) {
     if (this->height.HALF.HI < 1) {
         draw = this->spriteSettings.b.draw;
         if (!draw)
-            sub_08004488(299);
+            EnqueueSFX(299);
 
         this->spriteSettings.b.draw = 1;
     }
@@ -415,7 +414,7 @@ void sub_08032008(Entity* this) {
                 this->spriteSettings.b.flipX = (this->direction >> 4 ^ 1);
 
 
-            sub_080AEF88(this);
+            ProcessMovement(this);
         } else {
             if (this->field_0x76.HALF.HI == 0) {
                 if (sub_0806FCB8(this, parent->x.HALF.HI, parent->y.HALF.HI, 1) == 0) {

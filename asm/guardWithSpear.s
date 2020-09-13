@@ -84,7 +84,7 @@ _080640E8:
 	bl InitializeAnimation
 _0806410A:
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	movs r0, #0x2e
 	ldrsh r1, [r4, r0]
 	adds r2, r4, #0
@@ -213,7 +213,7 @@ _080641E6:
 	movs r0, #0x32
 	ldrsh r4, [r5, r0]
 	adds r0, r5, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	movs r1, #0x32
 	ldrsh r0, [r5, r1]
 	adds r6, r5, #0
@@ -358,7 +358,7 @@ _08064306:
 	movs r0, #0x2e
 	ldrsh r4, [r5, r0]
 	adds r0, r5, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	movs r1, #0x2e
 	ldrsh r0, [r5, r1]
 	adds r6, r5, #0

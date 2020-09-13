@@ -3,7 +3,7 @@
 
 extern void sub_08086A6C();
 extern s32 sub_080044EC();
-extern void sub_080AEF88();
+extern void ProcessMovement();
 extern u32 Random(void);
 
 extern void (*gUnk_081206C4[99])(Entity*);
@@ -42,7 +42,7 @@ void sub_08086A28(Entity* ent) {
         if (iVar1 == 0) {
             ent->action = 2;
         }
-        sub_080AEF88(ent);
+        ProcessMovement(ent);
         CopyPosition(ent, ent->attachedEntity);
     }
 }

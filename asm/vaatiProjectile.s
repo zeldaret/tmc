@@ -251,7 +251,7 @@ sub_0803E258: @ 0x0803E258
 	adds r0, r4, #0
 	movs r1, #0
 	movs r2, #8
-	bl sub_08049F64
+	bl PlayerInRange
 	cmp r0, #0
 	beq _0803E280
 	movs r0, #2

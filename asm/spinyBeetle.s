@@ -831,7 +831,7 @@ _08033DCE:
 	cmp r0, #0x3e
 	bls _08033DE2
 	adds r0, r6, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 _08033DE2:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

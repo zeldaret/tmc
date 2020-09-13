@@ -4328,7 +4328,7 @@ _0801B4AC:
 	cmp r0, #0
 	bne _0801B4C0
 	movs r0, #0xfb
-	bl sub_08004488
+	bl EnqueueSFX
 _0801B4C0:
 	pop {r4, pc}
 	.align 2, 0

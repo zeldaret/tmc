@@ -769,7 +769,7 @@ sub_08008B22: @ 0x08008B22
 sub_08008B2E: @ 0x08008B2E
 	push {r0, lr}
 	adds r0, r2, #0
-	bl sub_08004488
+	bl EnqueueSFX
 	pop {r0, pc}
 	.align 2, 0
 _08008B38: .4byte 0x00000180

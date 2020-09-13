@@ -120,7 +120,7 @@ typedef struct Entity {
     /*0x5c*/ Frame* animPtr;
     /*0x60*/ u16 spriteVramOffset;
     /*0x62*/ u8 spriteOffsetX;
-    /*0x63*/ u8 spriteOffsetY;
+    /*0x63*/ s8 spriteOffsetY;
     /*0x64*/ u32* otherEntity;
     /*0x68*/ union SplitHWord field_0x68;
     /*0x6a*/ union SplitHWord field_0x6a;
@@ -168,6 +168,20 @@ extern void DeleteThisEntity(void);
 extern void CopyPosition(Entity*, Entity*);
 extern void DeleteEntity(Entity*);
 extern void PositionRelative(Entity*, Entity*, s32, s32);
+
+#define DirectionRound(expr) ((expr) & 0x18)
+#define DirectionRoundUp(expr) DirectionRound((expr) + 4)
+#define DirectionIsHorizontal(expr) ((expr) & 0x08)
+#define DirectionIsVertical(expr) ((expr) & 0x10)
+#define DirectionTurnAround(expr) (DirectionRoundUp(expr) ^ 0x10)
+#define DirectionToAnimationState(expr) (DirectionRoundUp(expr) >> 3)
+#define DirectionFromAnimationState(expr) (expr << 3)
+
+#define Direction8Round(expr) ((expr) & 0x1c)
+#define Direction8RoundUp(expr) Direction8Round((expr) + 2)
+#define Direction8TurnAround(expr) (Direction8RoundUp(expr) ^ 0x10)
+#define Direction8ToAnimationState(expr) (Direction8RoundUp(expr) >> 2)
+#define Direction8FromAnimationState(expr) (expr << 2)
 
 extern Entity gUnk_03003DA0;
 

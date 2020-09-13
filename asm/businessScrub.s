@@ -70,7 +70,7 @@ sub_08028934: @ 0x08028934
 	strh r0, [r1, #0x36]
 _08028982:
 	ldr r0, _0802898C @ =0x000001BB
-	bl sub_08004488
+	bl EnqueueSFX
 _08028988:
 	pop {r4, pc}
 	.align 2, 0

@@ -93,7 +93,7 @@ _0806E52C:
 	lsls r1, r1, #1
 	adds r1, r1, r4
 	ldrh r0, [r1]
-	bl sub_08004488
+	bl EnqueueSFX
 _0806E552:
 	adds r0, r5, #0
 	bl sub_0806E65C

@@ -439,7 +439,7 @@ _0803FAAC:
 	cmp r0, #0xff
 	beq _0803FAB8
 	adds r0, r7, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 _0803FAB8:
 	adds r0, r7, #0
 	bl UpdateAnimationSingleFrame
