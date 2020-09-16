@@ -45,6 +45,7 @@ extern u8* GetSpriteSubEntryOffsetDataPointer(u32, u32);
 extern u32 LoadFixedGFX(Entity*, u32);
 extern void ExecuteScriptCommandSet(Entity*, void *);
 extern void _DmaFill32(u32, void*, u32);
+extern Entity* CreateItemEntity(u32, u32, u32);
 
 // Unidentified
 extern u32 sub_0806ED78(Entity*);
@@ -259,4 +260,6 @@ extern void sub_0802F45C(Entity*);
 extern u32 sub_0800419C(Entity*, Entity*, u32, u32);
 extern void sub_08004542(Entity*);
 extern void sub_08077B20();
+extern u32 sub_080040A8(Entity*);
+extern u32 sub_08017850(Entity*);
 #endif

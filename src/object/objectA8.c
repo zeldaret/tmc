@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 
-extern void CreateItemEntity(u32, u32, u32);
+extern Entity* CreateItemEntity(u32, u32, u32);
 extern void DeleteThisEntity();
 extern void sub_08080CB4(Entity*);
 

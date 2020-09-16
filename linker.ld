@@ -824,6 +824,7 @@ SECTIONS {
 		src/object/bakerOven.o(.text);
 		asm/object93.o(.text);
 		src/object/windTribeFlag.o(.text);
+		src/object/bird.o(.text);
 		asm/bird.o(.text);
 		asm/object96.o(.text);
 		asm/object97.o(.text);
