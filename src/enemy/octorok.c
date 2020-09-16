@@ -10,7 +10,6 @@ extern u32 sub_0806F520();
 extern void sub_0806F4E8();
 extern void UpdateAnimationVariableFrames();
 extern void sub_0804A720();
-extern u32 Random();
 extern Entity* sub_08049DF4(u32);
 
 void Octorok_Pause();
@@ -233,7 +232,10 @@ const u8 gOctorokSpitChanceModifier[] = {
 };
 
 const u8 gOctorokNutOffset[] = {
-    0, -3, 4, 0, 0, 2, -4, 0,
+     0, -3,
+     4,  0,
+     0,  2,
+    -4,  0,
 };
 
 const s8 gUnk_080CA17E[] = {

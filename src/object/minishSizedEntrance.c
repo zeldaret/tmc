@@ -1,7 +1,6 @@
 #include "global.h"
 #include "entity.h"
 
-extern u32 Random();
 extern bool32 CheckIsDungeon();
 extern void sub_080AE068(Entity*);
 extern void LoadFixedGFX(Entity*, u32);

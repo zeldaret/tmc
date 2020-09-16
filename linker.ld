@@ -345,8 +345,8 @@ SECTIONS {
 		src/enemy/pesto.o(.text);
 		src/enemy/puffstool.o(.text);
 		asm/chuchuBoss.o(.text);
-		asm/likeLike.o(.text);
-		asm/spearMoblin.o(.text);
+		src/enemy/likeLike.o(.text);
+		src/enemy/spearMoblin.o(.text);
 		asm/businessScrub.o(.text);
 		src/enemy/rupeeLike.o(.text);
 		asm/madderpillar.o(.text);
@@ -941,7 +941,12 @@ SECTIONS {
 		data/animations/pesto.o(.rodata);
 		src/enemy/puffstool.o(.rodata);
 		data/animations/puffstool.o(.rodata);
-		data/data_080CC19C.o(.rodata);
+		src/enemy/chuchuBoss.o(.rodata);
+		data/animations/chuchuBoss.o(.rodata);
+		src/enemy/likeLike.o(.rodata);
+		data/animations/likeLike.o(.rodata);
+		src/enemy/spearMoblin.o(.rodata);
+		data/data_080CC6FC.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/areaPropertyLists.o(.rodata);
