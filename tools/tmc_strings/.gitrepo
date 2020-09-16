@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = git@github.com:HookedBehemoth/tmc_strings.git
+	branch = master
+	commit = e57a2501f882ec39653e4a0f3dd488dcf4082114
+	parent = 0cdc958fb480c6aa679521b9d7122194f062641f
+	method = merge
+	cmdver = 0.4.1

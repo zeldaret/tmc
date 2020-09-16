@@ -161,6 +161,7 @@ include songs.mk
 sound/%.bin: sound/%.aif ; $(AIF) $< $@
 sound/songs/%.s: sound/songs/%.mid
 	cd $(@D) && ../../$(MID) $(<F)
+translations/USA.bin: translations/USA.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x499E0
 
 ifeq ($(NODEP),1)
 $(C_BUILDDIR)/%.o: c_dep :=
