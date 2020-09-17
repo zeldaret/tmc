@@ -37,7 +37,7 @@ To set up the repository:
 	sh install.sh ../tmc
 
 	cd ../tmc
-	make tools
+	make setup
 
 To build **tmc.gba**:
 
