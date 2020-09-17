@@ -6,7 +6,7 @@
 [subrepo]
 	remote = git@github.com:HookedBehemoth/tmc_strings.git
 	branch = master
-	commit = e57a2501f882ec39653e4a0f3dd488dcf4082114
-	parent = 0cdc958fb480c6aa679521b9d7122194f062641f
+	commit = 3b16b1192f4a146b930eec1c366b31ab1a2714ed
+	parent = 868268e1400711b098e4e8e616c2c95e70932a0f
 	method = merge
 	cmdver = 0.4.1

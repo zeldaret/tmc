@@ -1,15 +1,15 @@
 export CC		:=	g++
 
-export CFLAGS	:=	-O2 -Wall -Werror -Wextra
+export CFLAGS	:=	-O2 -Wall -Werror -Wextra -DFMT_HEADER_ONLY
 export CXXFLAGS	:=	$(CFLAGS) -std=c++17
 
-export LIBS		:=	-lfmt
+export INCLUDES	:=	-I./
 
 export DIFF		:= diff
 export HEXDUMP	:= hexdump -C
 
 all:
-	$(CC) -o tmc_strings main.cpp $(CXXFLAGS) $(LIBS)
+	$(CC) -o tmc_strings main.cpp $(CXXFLAGS) $(INCLUDES)
 
 run: extract pack
 
