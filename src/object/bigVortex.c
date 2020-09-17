@@ -23,7 +23,7 @@ void sub_08098D1C(Entity* this) {
     this->action = 1;
     this->height.HALF.HI = -0x10;
 
-    temp = this->field_0x86;
+    temp = this->field_0x86.HWORD;
 
     if ((temp != 0) && !CheckFlags(temp)) {
         this->action = 1;
@@ -39,7 +39,7 @@ void sub_08098D1C(Entity* this) {
 void sub_08098D6C(Entity* this) {
     Entity* ent;
 
-    if (CheckFlags(this->field_0x86)) {
+    if (CheckFlags(this->field_0x86.HWORD)) {
         this->action = 2;
         this->actionDelay = 0x2d;
         ent = CreateFx(this, 0x43, 0);

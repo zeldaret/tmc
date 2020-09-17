@@ -23,7 +23,7 @@ void TreeHidingPortal(Entity* this) {
 }
 
 void sub_0809E83C(Entity* this) {
-    if (CheckFlags(this->field_0x86)) {
+    if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0809E96C(this);
         DeleteThisEntity();
     }
@@ -60,7 +60,7 @@ void sub_0809E8BC(Entity* this) {
 
 void sub_0809E8EC(Entity* this) {
     if (--this->actionDelay == 0) {
-        SetFlag(this->field_0x86);
+        SetFlag(this->field_0x86.HWORD);
         sub_08078A90(0);
         PlaySFX(0x73);
         DeleteThisEntity();

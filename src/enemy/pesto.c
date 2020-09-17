@@ -49,7 +49,7 @@ void sub_08023F44(Entity* this) {
 void sub_08023F5C(Entity* this) {
     if (this->damageType != 0x6e) {
         if (this->bitfield == 0x80) {
-            *(u8*)&this->field_0x86 = 0x30;
+            this->field_0x86.HALF.LO = 0x30;
 
             if ((this->field_0x82.HALF.HI & 0xf) == 3 && this->action == 6) {
                 switch (this->field_0x80.HALF.LO) {
@@ -155,8 +155,8 @@ void sub_080240B8(Entity* this) {
     this->field_0x80.HALF.HI = Random() & 0x40;
     this->field_0x82.HALF.LO = 0;
     this->field_0x82.HALF.HI = 0x80;
-    *((u8*)&this->field_0x86 + 0) = 0;
-    *((u8*)&this->field_0x86 + 1) = 0;
+    this->field_0x86.HALF.LO = 0;
+    this->field_0x86.HALF.HI = 0;
     this->actionDelay = 0;
     this->field_0xf = 0x20;
     this->field_0x3c |= 0x10;
@@ -727,19 +727,19 @@ void sub_08024C94(Entity* this) {
 bool32 sub_08024CC0(Entity* this) {
     bool32 uVar2;
 
-    uVar2 = 1;
+    uVar2 = TRUE;
     if (!sub_08024C48(this, 1)) {
-        uVar2 = 0;
+        uVar2 = FALSE;
     } else if (!sub_08049F1C(this, gUnk_020000B0, 0x50) || !sub_08049FDC(this, 3)) {
-        uVar2 = 0;
+        uVar2 = FALSE;
         sub_08024C7C(this);
     }
     return uVar2;
 }
 
 void sub_08024D00(Entity* this) {
-    if (*(u8*)&this->field_0x86) {
-        (*(u8*)&this->field_0x86)--;
+    if (this->field_0x86.HALF.LO) {
+        this->field_0x86.HALF.LO--;
         GetNextFrame(this);
     } else {
         sub_08024940(this);
@@ -804,9 +804,9 @@ void sub_08024E4C(Entity* this) {
             this->cutsceneBeh.HALF.LO += 1 + (Random() & 1);
         }
 
-        if (gUnk_02002A40.stats.health == 0 || *((u8*)&this->field_0x86 + 1) == 4) {
+        if (gUnk_02002A40.stats.health == 0 || this->field_0x86.HALF.HI == 4) {
             this->cutsceneBeh.HALF.LO = 0x30;
-            *((u8*)&this->field_0x86 + 1) = 0;
+            this->field_0x86.HALF.HI = 0;
             sub_08024F50(this);
             this->field_0x80.HALF.LO = 0;
             this->nonPlanarMovement = 0x40;
@@ -828,7 +828,7 @@ void sub_08024E4C(Entity* this) {
             player->animationState = 4;
             player->spritePriority.b1 = 0;
             if (this->field_0xf == 0) {
-                (*((u8*)&this->field_0x86 + 1))++;
+                (this->field_0x86.HALF.HI++;
                 player->hurtBlinkTime = 8;
                 ModHealth(-2);
                 sub_0800449C(player, 0x7a);

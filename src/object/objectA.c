@@ -20,7 +20,7 @@ void ObjectA(Entity *this) {
             uVar2 = 0x34;
         }
         this->field_0x70.HALF.LO = uVar2;
-        if (CheckFlags(this->field_0x86) != 0) {
+        if (CheckFlags(this->field_0x86.HWORD) != 0) {
             SetTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
             if ((gRoomControls.unk2 & 1) != 0) {
                 gUnk_02000070 = 0;
@@ -31,7 +31,7 @@ void ObjectA(Entity *this) {
         }
     } else if (this->interactType != 0) {
       SetTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
-      SetFlag(this->field_0x86);
+      SetFlag(this->field_0x86.HWORD);
       CreateDust(this);
       sub_080526F8(-1);
       DeleteThisEntity();

@@ -32,7 +32,7 @@ void sub_080851AC(Entity* this) {
     }
     this->animationState = this->entityType.parameter & 2;
     if ((this->entityType).form == 3) {
-        uVar1 = CheckFlags(this->field_0x86);
+        uVar1 = CheckFlags(this->field_0x86.HWORD);
         this->field_0x7a.HWORD = uVar1;
         if ((u16)(uVar1 & -1) != 0) {
             this->animationState = (this->animationState + 2) & 3;
@@ -45,11 +45,11 @@ void sub_080851AC(Entity* this) {
 }
 
 void sub_08085264(Entity* this) {
-    if (CheckFlags(this->field_0x86)) {
+    if (CheckFlags(this->field_0x86.HWORD)) {
         this->action = 2;
         this->field_0xf = 8;
         if (this->entityType.form == 1) {
-            ClearFlag(this->field_0x86);
+            ClearFlag(this->field_0x86.HWORD);
         }
         this->animationState = (this->animationState + *(u8*)&this->field_0x7c) & 3;
         InitializeAnimation(this, this->animationState);
@@ -62,7 +62,7 @@ void sub_080852B4(Entity* this) {
     if (--this->field_0xf == 0) {
         this->action = 3;
         this->field_0xf = this->actionDelay;
-        this->field_0x7a.HWORD = CheckFlags(this->field_0x86);
+        this->field_0x7a.HWORD = CheckFlags(this->field_0x86.HWORD);
         this->animationState = (this->animationState + *(u8*)&this->field_0x7c) & 3;
         InitializeAnimation(this, this->animationState);
         sub_08085394(this);
@@ -77,13 +77,13 @@ void sub_08085308(Entity* this) {
             case 1:
                 break;
             case 2:
-                if (CheckFlags(this->field_0x86) == 0) {
+                if (CheckFlags(this->field_0x86.HWORD) == 0) {
                     this->action = 1;
                     return;
                 }
                 break;
             case 3:
-                if (CheckFlags(this->field_0x86) == *(u16*)&this->field_0x7a) {
+                if (CheckFlags(this->field_0x86.HWORD) == *(u16*)&this->field_0x7a) {
                     this->field_0xf = 0xff;
                 } else {
                     this->field_0xf = 1;

@@ -349,7 +349,7 @@ SECTIONS {
 		src/enemy/spearMoblin.o(.text);
 		asm/businessScrub.o(.text);
 		src/enemy/rupeeLike.o(.text);
-		asm/madderpillar.o(.text);
+		src/enemy/madderpillar.o(.text);
 		asm/waterDrop.o(.text);
 		asm/wallMaster.o(.text);
 		src/enemy/bombPeahat.o(.text);

@@ -40,8 +40,8 @@ void sub_0809ED88(Entity *this)
 {
   sub_0809F08C();
   sub_0809EE44(this);
-  if (this->field_0x86 != 0) {
-    if (this->cutsceneBeh.HWORD == this->field_0x86) {
+  if (this->field_0x86.HWORD != 0) {
+    if (this->cutsceneBeh.HWORD == this->field_0x86.HWORD) {
       if (CheckFlags(this->cutsceneBeh.HWORD)) {
         return;
       }

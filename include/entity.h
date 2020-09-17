@@ -135,7 +135,7 @@ typedef struct Entity {
     /*0x80*/ union SplitHWord field_0x80;
     /*0x82*/ union SplitHWord field_0x82;
     /*0x84*/ union SplitHWord cutsceneBeh;
-    /*0x86*/ u16 field_0x86;
+    /*0x86*/ union SplitHWord field_0x86;
 } Entity;
 
 #define COORD_TO_TILE(entity)                                           \

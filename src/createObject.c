@@ -78,7 +78,7 @@ Entity* sub_080A2A3C(Entity* parent, u32 form, u32 subtype, u32 param_4) {
     ent = CreateObjectWithParent(parent, 0, form, subtype);
     if (ent != NULL) {
         ent->actionDelay = 5;
-        ent->field_0x86 = param_4;
+        ent->field_0x86.HWORD = param_4;
     }
     return ent;
 }

@@ -22,7 +22,7 @@ extern void DeleteManager(Manager20*);
 void sub_0805B7A0(Manager20* this) {
     Entity* tmp = CreateObject(this->manager.unk_0e, this->manager.unk_0a, this->manager.unk_0b);
     if (!tmp) return;
-    tmp->field_0x86 = this->unk_3e;
+    tmp->field_0x86.HWORD = this->unk_3e;
     if (CheckFlags(this->unk_3e)) {
         tmp->x.HALF.HI = this->unk_36 | (this->unk_37&0xF)<<8;//r1
         tmp->y.HALF.HI = this->unk_3c & 0xFFF;
