@@ -15,11 +15,7 @@ typedef struct {
 extern void (*const gUnk_080CB734[])(Entity*);
 extern void (*const gUnk_080CB74C[])(Entity*);
 
-#if NON_MATCHING
-extern const PosOffset gUnk_080CB764[];
-#else
 extern const s8 gUnk_080CB764[];
-#endif
 extern const PosOffset gUnk_080CB76C[4][6];
 extern const u16 gUnk_080CB79C[];
 extern const BoundingBox* const* const gUnk_080CB8A4[];
@@ -46,27 +42,15 @@ void sub_08022004(Entity* this) {
     DeleteThisEntity();
 }
 
-#if NON_MATCHING
 void sub_08022034(Entity* this) {
     this->action = 1;
     this->entityType.parameter = this->entityType.form & 3;
     this->spritePriority.b0 = 5;
-    this->field_0x78.HWORD = gUnk_080CB764[this->entityType.parameter].h + this->x.HALF.HI;
-    this->field_0x7a.HWORD = gUnk_080CB764[this->entityType.parameter].v + this->y.HALF.HI;
-    InitializeAnimation(this, this->entityType.parameter);
-    sub_080221C0(this);
-}
-#else
-void sub_08022034(Entity* this) {
-    this->action = 1;
-    this->entityType.parameter = this->entityType.form & 3;
-    this->spritePriority.b0 = 5;
-    this->field_0x78.HWORD = gUnk_080CB764[this->entityType.parameter * 2] + this->x.HALF.HI;
+    this->field_0x78.HWORD = gUnk_080CB764[this->entityType.parameter * 2 + 0] + this->x.HALF.HI;
     this->field_0x7a.HWORD = gUnk_080CB764[this->entityType.parameter * 2 + 1] + this->y.HALF.HI;
     InitializeAnimation(this, this->entityType.parameter);
     sub_080221C0(this);
 }
-#endif
 
 void sub_0802209C(Entity* this) {
     if (this->actionDelay == 0) {
@@ -151,21 +135,12 @@ void (*const gUnk_080CB74C[])(Entity*) = {
     sub_08022198,
 };
 
-#if NON_MATCHING
-const PosOffset gUnk_080CB764[] = {
-    {-0x08,  0x00},
-    {-0x10, -0x08},
-    {-0x08, -0x10},
-    { 0x00, -0x08},
-};
-#else
 const s8 gUnk_080CB764[] = {
     -0x08,  0x00,
     -0x10, -0x08,
     -0x08, -0x10,
      0x00, -0x08,
 };
-#endif
 
 const PosOffset gUnk_080CB76C[][6] = {
     {
