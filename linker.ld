@@ -351,7 +351,7 @@ SECTIONS {
 		src/enemy/rupeeLike.o(.text);
 		src/enemy/madderpillar.o(.text);
 		src/enemy/waterDrop.o(.text);
-		asm/wallMaster.o(.text);
+		src/enemy/wallMaster.o(.text);
 		src/enemy/bombPeahat.o(.text);
 		asm/bombPeahat.o(.text);
 		asm/spark.o(.text);
@@ -955,6 +955,8 @@ SECTIONS {
 		data/animations/madderpillar.o(.rodata);
 		src/enemy/waterDrop.o(.rodata);
 		data/animations/waterDrop.o(.rodata);
+		src/enemy/wallMaster.o(.rodata);
+		data/animations/wallMaster.o(.rodata);
 		data/data_080CC6FC.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
