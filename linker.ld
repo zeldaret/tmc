@@ -347,7 +347,7 @@ SECTIONS {
 		asm/chuchuBoss.o(.text);
 		src/enemy/likeLike.o(.text);
 		src/enemy/spearMoblin.o(.text);
-		asm/businessScrub.o(.text);
+		src/enemy/businessScrub.o(.text);
 		src/enemy/rupeeLike.o(.text);
 		src/enemy/madderpillar.o(.text);
 		asm/waterDrop.o(.text);
@@ -946,6 +946,9 @@ SECTIONS {
 		src/enemy/likeLike.o(.rodata);
 		data/animations/likeLike.o(.rodata);
 		src/enemy/spearMoblin.o(.rodata);
+		data/animations/spearMoblin.o(.rodata);
+		src/enemy/businessScrub.o(.rodata);
+		data/animations/businessScrub.o(.rodata);
 		data/data_080CC6FC.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
