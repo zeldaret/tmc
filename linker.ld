@@ -949,6 +949,10 @@ SECTIONS {
 		data/animations/spearMoblin.o(.rodata);
 		src/enemy/businessScrub.o(.rodata);
 		data/animations/businessScrub.o(.rodata);
+		src/enemy/rupeeLike.o(.rodata);
+		data/animations/rupeeLike.o(.rodata);
+		src/enemy/madderpillar.o(.rodata);
+		data/animations/madderpillar.o(.rodata);
 		data/data_080CC6FC.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
