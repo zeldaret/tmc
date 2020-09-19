@@ -353,7 +353,6 @@ SECTIONS {
 		src/enemy/waterDrop.o(.text);
 		src/enemy/wallMaster.o(.text);
 		src/enemy/bombPeahat.o(.text);
-		asm/bombPeahat.o(.text);
 		asm/spark.o(.text);
 		asm/chaser.o(.text);
 		asm/spikedBeetle.o(.text);
@@ -957,6 +956,8 @@ SECTIONS {
 		data/animations/waterDrop.o(.rodata);
 		src/enemy/wallMaster.o(.rodata);
 		data/animations/wallMaster.o(.rodata);
+		src/enemy/bombPeahat.o(.rodata);
+		data/animations/bombPeahat.o(.rodata);
 		data/data_080CC6FC.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
