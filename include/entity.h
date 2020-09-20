@@ -169,6 +169,13 @@ extern void CopyPosition(Entity*, Entity*);
 extern void DeleteEntity(Entity*);
 extern void PositionRelative(Entity*, Entity*, s32, s32);
 
+enum {
+    DirectionNorth  = 0x00,
+    DirectionEast   = 0x08,
+    DirectionSouth  = 0x10,
+    DirectionWest   = 0x18,
+};
+
 #define DirectionRound(expr) ((expr) & 0x18)
 #define DirectionRoundUp(expr) DirectionRound((expr) + 4)
 #define DirectionIsHorizontal(expr) ((expr) & 0x08)
