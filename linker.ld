@@ -355,7 +355,7 @@ SECTIONS {
 		src/enemy/bombPeahat.o(.text);
 		src/enemy/spark.o(.text);
 		src/enemy/chaser.o(.text);
-		asm/spikedBeetle.o(.text);
+		src/enemy/spikedBeetle.o(.text);
 		asm/sensorBladeTrap.o(.text);
 		asm/helmasaur.o(.text);
 		asm/fallingBoulder.o(.text);
@@ -962,6 +962,8 @@ SECTIONS {
 		data/animations/spark.o(.rodata);
 		src/enemy/chaser.o(.rodata);
 		data/animations/chaser.o(.rodata);
+		src/enemy/spikedBeetle.o(.rodata);
+		data/animations/spikedBeetle.o(.rodata);
 		data/data_080CC6FC.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
