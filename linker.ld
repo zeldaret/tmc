@@ -944,7 +944,7 @@ SECTIONS {
 		data/data_080CC19C.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
-		data/areaPropertyLists.o(.rodata);
+		data/entity_headers.o(.rodata);
 		data/data_080D5360.o(.rodata);
 		src/mainLoop.o(.rodata);
 		data/data_08100CD4.o(.rodata);

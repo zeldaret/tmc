@@ -33,7 +33,7 @@ _08049B9C:
 	ldrb r0, [r4]
 	cmp r0, #7
 	bhi _08049BB0
-	movs r0, #0x67
+	movs r0, #0x67 @ Kinstone Bag
 	bl GetInventoryValue
 	cmp r0, #0
 	bne _08049BB0
@@ -53,7 +53,7 @@ _08049BB0:
 	ble _08049BF0
 	cmp r1, #8
 	bne _08049C16
-	movs r0, #0x40
+	movs r0, #0x40 @ Small Fairy
 	movs r1, #0x60
 	movs r2, #0
 	bl CreateObject
@@ -72,7 +72,7 @@ _08049BF0:
 	ldr r0, _08049C24 @ =gUnk_080D2AB0
 	adds r0, r1, r0
 	ldrb r2, [r0]
-	movs r0, #0x96
+	movs r0, #0x96 @ Kinstone
 	movs r1, #7
 	bl CreateObject
 	adds r4, r0, #0
