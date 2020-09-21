@@ -358,7 +358,7 @@ SECTIONS {
 		src/enemy/spikedBeetle.o(.text);
 		src/enemy/sensorBladeTrap.o(.text);
 		src/enemy/helmasaur.o(.text);
-		asm/fallingBoulder.o(.text);
+		src/enemy/fallingBoulder.o(.text);
 		asm/bobomb.o(.text);
 		asm/wallMaster2.o(.text);
 		asm/gleerok.o(.text);
@@ -967,6 +967,8 @@ SECTIONS {
 		src/enemy/sensorBladeTrap.o(.rodata);
 		src/enemy/helmasaur.o(.rodata);
 		data/animations/helmasaur.o(.rodata);
+		src/enemy/fallingBoulder.o(.rodata);
+		data/animations/fallingBoulder.o(.rodata);
 		data/data_080CC6FC.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
