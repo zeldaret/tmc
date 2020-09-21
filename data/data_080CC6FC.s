@@ -3,69 +3,6 @@
 
 	.section .rodata
 
-gUnk_080CD3E4:: @ 080CD3E4
-	.incbin "baserom.gba", 0x0CD3E4, 0x0000018
-
-gUnk_080CD3FC:: @ 080CD3FC
-	.incbin "baserom.gba", 0x0CD3FC, 0x000000C
-
-gUnk_080CD408:: @ 080CD408
-	.incbin "baserom.gba", 0x0CD408, 0x0000024
-
-gUnk_080CD42C:: @ 080CD42C
-	.incbin "baserom.gba", 0x0CD42C, 0x000000C
-
-gUnk_080CD438:: @ 080CD438
-	.incbin "baserom.gba", 0x0CD438, 0x0000018
-
-gUnk_080CD450:: @ 080CD450
-	.incbin "baserom.gba", 0x0CD450, 0x000000C
-
-gUnk_080CD45C:: @ 080CD45C
-	.incbin "baserom.gba", 0x0CD45C, 0x0000008
-
-gUnk_080CD464:: @ 080CD464
-	.incbin "baserom.gba", 0x0CD464, 0x0000010
-
-gUnk_080CD474:: @ 080CD474
-	.incbin "baserom.gba", 0x0CD474, 0x0000011
-
-gUnk_080CD485:: @ 080CD485
-	.incbin "baserom.gba", 0x0CD485, 0x0000011
-
-gUnk_080CD496:: @ 080CD496
-	.incbin "baserom.gba", 0x0CD496, 0x0000011
-
-gUnk_080CD4A7:: @ 080CD4A7
-	.incbin "baserom.gba", 0x0CD4A7, 0x0000011
-
-gUnk_080CD4B8:: @ 080CD4B8
-	.incbin "baserom.gba", 0x0CD4B8, 0x0000011
-
-gUnk_080CD4C9:: @ 080CD4C9
-	.incbin "baserom.gba", 0x0CD4C9, 0x0000011
-
-gUnk_080CD4DA:: @ 080CD4DA
-	.incbin "baserom.gba", 0x0CD4DA, 0x0000011
-
-gUnk_080CD4EB:: @ 080CD4EB
-	.incbin "baserom.gba", 0x0CD4EB, 0x0000011
-
-gUnk_080CD4FC:: @ 080CD4FC
-	.incbin "baserom.gba", 0x0CD4FC, 0x0000004
-
-gUnk_080CD500:: @ 080CD500
-	.incbin "baserom.gba", 0x0CD500, 0x0000004
-
-gUnk_080CD504:: @ 080CD504
-	.incbin "baserom.gba", 0x0CD504, 0x0000004
-
-gUnk_080CD508:: @ 080CD508
-	.incbin "baserom.gba", 0x0CD508, 0x0000004
-
-gUnk_080CD50C:: @ 080CD50C
-	.incbin "baserom.gba", 0x0CD50C, 0x0000034
-
 gUnk_080CD540:: @ 080CD540
 	.incbin "baserom.gba", 0x0CD540, 0x0000018
 

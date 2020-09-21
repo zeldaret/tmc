@@ -138,13 +138,15 @@ typedef struct Entity {
     /*0x86*/ union SplitHWord field_0x86;
 } Entity;
 
-#define COORD_TO_TILE(entity)                                           \
-    ((((entity->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
-     (((entity->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
+#define TILE(x, y)                                      \
+    ((((x - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
+     (((y - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
 
-#define COORD_TO_TILE_OFFSET(entity, xOff, yOff)                               \
-    ((((entity->x.HALF.HI - xOff - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
-     (((entity->y.HALF.HI - yOff - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
+#define COORD_TO_TILE(entity) \
+    TILE(entity->x.HALF.HI, entity->y.HALF.HI)
+
+#define COORD_TO_TILE_OFFSET(entity, xOff, yOff) \
+    TILE(entity->x.HALF.HI - xOff, entity->y.HALF.HI - yOff)
 
 extern Entity* CreateEnemy(u32 subtype, u32 form);
 extern Entity* CreateObject(u32 subtype, u32 form, u32 parameter);
