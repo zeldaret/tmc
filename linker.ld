@@ -359,7 +359,7 @@ SECTIONS {
 		src/enemy/sensorBladeTrap.o(.text);
 		src/enemy/helmasaur.o(.text);
 		src/enemy/fallingBoulder.o(.text);
-		asm/bobomb.o(.text);
+		src/enemy/bobomb.o(.text);
 		asm/wallMaster2.o(.text);
 		asm/gleerok.o(.text);
 		asm/vaatiEyesMacro.o(.text);
@@ -969,6 +969,8 @@ SECTIONS {
 		data/animations/helmasaur.o(.rodata);
 		src/enemy/fallingBoulder.o(.rodata);
 		data/animations/fallingBoulder.o(.rodata);
+		src/enemy/bobomb.o(.rodata);
+		data/animations/bobomb.o(.rodata);
 		data/data_080CC6FC.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
