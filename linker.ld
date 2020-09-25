@@ -432,7 +432,7 @@ SECTIONS {
 		asm/enemy62.o(.text);
 		asm/gyorgFemaleMouth.o(.text);
 		asm/enemy64.o(.text);
-		asm/treeItem.o(.text);
+        src/enemy/treeItem.o(.text);
 		asm/enemy66.o(.text);
 		/* END enemies */
 		asm/code_08049CD4.o(.text);

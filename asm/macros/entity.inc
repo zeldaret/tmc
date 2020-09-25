@@ -2,35 +2,64 @@
 	.set GUARD_ASM_MACROS_ENTITY_INC, 1
 
 	.set ENTITY_TYPE_ENEMY, 0x3
-	.set ENTITY_OCTOROK, 0x0
-	.set ENTITY_CHUCHU, 0x1
-	.set ENTITY_TREE_ITEM, 0x65
+	.set ENTITY_TYPE_SIGN, 0x5
+	.set ENTITY_TYPE_OBJECT, 0x6
 
-	.macro entity_octorok x, y, bound_x, bound_y, bound_tile_width, bound_tile_height
-	.byte ENTITY_TYPE_ENEMY
+	.set OBJECT_ITEM, 0x0
+	.set OBJECT_MINISH_LILYPAD, 0x73
+
+	.set ENEMY_OCTOROK, 0x0
+	.set ENEMY_CHUCHU, 0x1
+	.set ENEMY_TREE_ITEM, 0x65
+
+	.macro object_minish_lilypad x, y, room_property, collision=0
+	.byte ENTITY_TYPE_OBJECT | ((\collision) << 4)
 	.byte 0x0F
-	.byte ENTITY_OCTOROK
+	.byte OBJECT_MINISH_LILYPAD
+	.byte 0x00
+	.byte \room_property
+	.byte 0x00, 0x00, 0x00
+	.2byte \x, \y
+	.2byte 0x0, 0x0
+	.endm
+
+	.macro object_item x, y, item, flag, collision=0
+	.byte ENTITY_TYPE_OBJECT | ((\collision) << 4)
+	.byte 0x0F
+	.byte OBJECT_ITEM
+	.byte \item
+	.byte 0x00
+	.byte 0x04 @ stationary item
+	.byte 0x00, 0x00
+	.2byte \x, \y
+	.2byte 0x0, \flag
+	.endm
+
+	.macro enemy_octorok x, y, bound_x, bound_y, bound_tile_width, bound_tile_height, collision=0
+	.byte ENTITY_TYPE_ENEMY | ((\collision) << 4)
+	.byte 0x0F
+	.byte ENEMY_OCTOROK
 	.byte 0x00, 0x00, 0x00
 	.byte \bound_tile_width, \bound_tile_height
 	.2byte \x, \y
 	.2byte \bound_x, \bound_y
 	.endm
 
-	.macro entity_chuchu x, y, bound_x, bound_y, bound_tile_width, bound_tile_height
-	.byte ENTITY_TYPE_ENEMY
+	.macro enemy_chuchu x, y, bound_x, bound_y, bound_tile_width, bound_tile_height, collision=0
+	.byte ENTITY_TYPE_ENEMY | ((\collision) << 4)
 	.byte 0x0F
-	.byte ENTITY_CHUCHU
+	.byte ENEMY_CHUCHU
 	.byte 0x00, 0x00, 0x00
 	.byte \bound_tile_width, \bound_tile_height
 	.2byte \x, \y
 	.2byte \bound_x, \bound_y
 	.endm
 
-	.macro entity_tree_item x, y, unused
-	.byte ENTITY_TYPE_ENEMY
+	.macro enemy_tree_item x, y, unknown, collision=0
+	.byte ENTITY_TYPE_ENEMY | ((\collision) << 4)
 	.byte 0x0F
-	.byte ENTITY_TREE_ITEM
-	.byte \unused, 0x00, 0x00, 0x00, 0x00
+	.byte ENEMY_TREE_ITEM
+	.byte \unknown, 0x00, 0x00, 0x00, 0x00
 	.2byte \x, \y
 	.2byte 0x00, 0x00
 	.endm
