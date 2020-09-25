@@ -18,11 +18,9 @@ extern BoundingBox gUnk_080FD340; // TODO: should be const
 
 extern u32 sub_08016A30(Entity*);
 extern u32 sub_080001DA(u32, u32);
-extern u32 GetTileTypeByEntity(Entity*);
 extern void sub_08078930(Entity*);
 extern u32 sub_080002B8(Entity*);
 extern void sub_08016A6C(Entity*);
-extern u32 sub_0800442E(Entity*);
 
 void Pot(Entity* this) {
     gUnk_0811F090[this->action](this);

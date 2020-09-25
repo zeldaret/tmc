@@ -186,7 +186,6 @@ void sub_08023330(Entity* this) {
     }
 }
 
-extern u32 GetTileTypeByEntity(Entity*);
 void sub_08023A68(Entity*);
 void sub_08023AB0(Entity*);
 

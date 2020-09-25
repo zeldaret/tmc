@@ -221,7 +221,7 @@ extern u32 sub_0807CF88(u32, u8*);
 extern u32 sub_0807D008(u32, void*);
 extern void sub_0807D184(u32, char*);
 extern u32 sub_0806F520();
-extern void sub_0806F4E8();
+extern void sub_0806F4E8(Entity*);
 extern u32 sub_0806F3E4(Entity*);
 extern void sub_0804A7D4(Entity*);
 extern void sub_08033744(Entity*);
@@ -262,4 +262,9 @@ extern void sub_08004542(Entity*);
 extern void sub_08077B20();
 extern u32 sub_080040A8(Entity*);
 extern u32 sub_08017850(Entity*);
+extern void sub_080809D4(void);
+extern void sub_08080CB4(Entity*);
+extern u32 GetTileTypeByEntity(Entity*);
+extern u32 sub_0800442E(Entity*);
+extern void sub_08081404(Entity*, u32);
 #endif

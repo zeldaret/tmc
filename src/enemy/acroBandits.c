@@ -316,8 +316,8 @@ void sub_08031E48(Entity* this, Entity* child) {
     child->field_0x6c.HALF.LO = this->field_0x6c.HALF.LO;
     child->field_0x70.HALF.LO = this->field_0x70.HALF.LO;
     child->field_0x70.HALF.HI = this->field_0x70.HALF.HI;
-    child->filler4[0] = this->filler4[0];
-    child->filler4[1] = this->filler4[1];
+    child->field_0x6e.HALF.LO = this->field_0x6e.HALF.LO;
+    child->field_0x6e.HALF.HI = this->field_0x6e.HALF.HI;
     child->field_0x7c.WORD = (s32)this;
 }
 

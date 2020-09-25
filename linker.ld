@@ -669,8 +669,9 @@ SECTIONS {
 		src/code_0807CC3C.o(.text);
 		asm/code_0807CC3C.o(.text);
 		src/code_0808091C.o(.text);
+        asm/code_0808091C.o(.text);
 		/* objects */
-		asm/itemOnGround.o(.text);
+        src/object/itemOnGround.o(.text);
 		asm/deathFx.o(.text);
 		asm/itemForSale.o(.text);
 		src/object/button.o(.text);

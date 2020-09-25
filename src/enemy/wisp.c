@@ -72,7 +72,7 @@ void sub_08033650(Entity* this) {
 }
 
 void sub_08033658(Entity* this) {
-    sub_0806F4E8();
+    sub_0806F4E8(this);
 }
 
 void sub_08033660(Entity* this) {

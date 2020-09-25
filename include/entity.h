@@ -99,10 +99,7 @@ typedef struct Entity {
     /*0x45*/ u8 currentHealth;
     /*0x46*/ u16 field_0x46;
     /*0x48*/ BoundingBox* boundingBox;
-    /*0x4c*/ u8 field_0x4c;
-    /*0x4d*/ u8 field_0x4d;
-    /*0x4e*/ u8 field_0x4e;
-    /*0x4f*/ u8 field_0x4f;
+    /*0x4c*/ struct Entity* field_0x4c;
     /*0x50*/ struct Entity* parent;
     /*0x54*/ struct Entity* attachedEntity;
     /*0x58*/ u8 animIndex;
@@ -125,7 +122,7 @@ typedef struct Entity {
     /*0x68*/ union SplitHWord field_0x68;
     /*0x6a*/ union SplitHWord field_0x6a;
     /*0x6c*/ union SplitHWord field_0x6c;
-    /*0x6e*/ u8 filler4[2];
+    /*0x6e*/ union SplitHWord field_0x6e;
     /*0x70*/ union SplitWord field_0x70;
     /*0x74*/ union SplitHWord field_0x74;
     /*0x76*/ union SplitHWord field_0x76;
