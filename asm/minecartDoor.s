@@ -150,7 +150,7 @@ sub_08096BBC: @ 0x08096BBC
 	ldrb r2, [r2]
 	bl SetTile
 	ldr r0, _08096BF4 @ =0x0000010B
-	bl sub_08004488
+	bl EnqueueSFX
 _08096BF2:
 	pop {r4, pc}
 	.align 2, 0
@@ -277,7 +277,7 @@ sub_08096CB0: @ 0x08096CB0
 	adds r0, r4, #0
 	bl sub_08083814
 	ldr r0, _08096CE8 @ =0x0000010B
-	bl sub_08004488
+	bl EnqueueSFX
 _08096CE6:
 	pop {r4, pc}
 	.align 2, 0

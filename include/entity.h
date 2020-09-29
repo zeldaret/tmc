@@ -99,10 +99,7 @@ typedef struct Entity {
     /*0x45*/ u8 currentHealth;
     /*0x46*/ u16 field_0x46;
     /*0x48*/ BoundingBox* boundingBox;
-    /*0x4c*/ u8 field_0x4c;
-    /*0x4d*/ u8 field_0x4d;
-    /*0x4e*/ u8 field_0x4e;
-    /*0x4f*/ u8 field_0x4f;
+    /*0x4c*/ struct Entity* field_0x4c;
     /*0x50*/ struct Entity* parent;
     /*0x54*/ struct Entity* attachedEntity;
     /*0x58*/ u8 animIndex;
@@ -120,12 +117,12 @@ typedef struct Entity {
     /*0x5c*/ Frame* animPtr;
     /*0x60*/ u16 spriteVramOffset;
     /*0x62*/ u8 spriteOffsetX;
-    /*0x63*/ u8 spriteOffsetY;
+    /*0x63*/ s8 spriteOffsetY;
     /*0x64*/ u32* otherEntity;
     /*0x68*/ union SplitHWord field_0x68;
     /*0x6a*/ union SplitHWord field_0x6a;
     /*0x6c*/ union SplitHWord field_0x6c;
-    /*0x6e*/ u8 filler4[2];
+    /*0x6e*/ union SplitHWord field_0x6e;
     /*0x70*/ union SplitWord field_0x70;
     /*0x74*/ union SplitHWord field_0x74;
     /*0x76*/ union SplitHWord field_0x76;
@@ -168,6 +165,20 @@ extern void DeleteThisEntity(void);
 extern void CopyPosition(Entity*, Entity*);
 extern void DeleteEntity(Entity*);
 extern void PositionRelative(Entity*, Entity*, s32, s32);
+
+#define DirectionRound(expr) ((expr) & 0x18)
+#define DirectionRoundUp(expr) DirectionRound((expr) + 4)
+#define DirectionIsHorizontal(expr) ((expr) & 0x08)
+#define DirectionIsVertical(expr) ((expr) & 0x10)
+#define DirectionTurnAround(expr) (DirectionRoundUp(expr) ^ 0x10)
+#define DirectionToAnimationState(expr) (DirectionRoundUp(expr) >> 3)
+#define DirectionFromAnimationState(expr) (expr << 3)
+
+#define Direction8Round(expr) ((expr) & 0x1c)
+#define Direction8RoundUp(expr) Direction8Round((expr) + 2)
+#define Direction8TurnAround(expr) (Direction8RoundUp(expr) ^ 0x10)
+#define Direction8ToAnimationState(expr) (Direction8RoundUp(expr) >> 2)
+#define Direction8FromAnimationState(expr) (expr << 2)
 
 extern Entity gUnk_03003DA0;
 

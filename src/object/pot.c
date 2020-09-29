@@ -18,11 +18,9 @@ extern BoundingBox gUnk_080FD340; // TODO: should be const
 
 extern u32 sub_08016A30(Entity*);
 extern u32 sub_080001DA(u32, u32);
-extern u32 GetTileTypeByEntity(Entity*);
 extern void sub_08078930(Entity*);
 extern u32 sub_080002B8(Entity*);
 extern void sub_08016A6C(Entity*);
-extern u32 sub_0800442E(Entity*);
 
 void Pot(Entity* this) {
     gUnk_0811F090[this->action](this);
@@ -92,7 +90,7 @@ void sub_08082310(Entity* this) {
                             this->actionDelay = 64;
                         }
                         SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
-                        sub_08004488(0x10F);
+                        EnqueueSFX(0x10F);
                         break;
                     case 0x4067:
                         SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);

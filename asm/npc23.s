@@ -183,7 +183,7 @@ _08066410:
 	strb r0, [r4, #0xd]
 _08066428:
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 _0806642E:
 	bl sub_08078B48
 	adds r0, r4, #0

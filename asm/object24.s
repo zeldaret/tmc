@@ -93,7 +93,7 @@ sub_0808886C: @ 0x0808886C
 	ldrh r0, [r0]
 	bl SetFlag
 	ldr r0, _080888B4 @ =0x0000016B
-	bl sub_08004488
+	bl EnqueueSFX
 	b _080888F2
 	.align 2, 0
 _080888B4: .4byte 0x0000016B
@@ -117,7 +117,7 @@ _080888D2:
 _080888DA:
 	movs r0, #0x86
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	b _080888F0
 _080888E4:
 	cmp r4, r0

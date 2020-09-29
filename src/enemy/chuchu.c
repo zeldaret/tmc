@@ -6,7 +6,7 @@ extern s32 sub_080012DC(Entity*);
 extern void sub_08001318(Entity*);
 extern void sub_080043A8(Entity*);
 extern u32 sub_08049F1C(Entity*, Entity*, u32);
-extern u32 sub_08049F64(Entity*, u32, u32);
+extern u32 PlayerInRange(Entity*, u32, u32);
 extern void sub_0804AA1C(Entity*);
 extern void sub_080AF160(Entity*);
 
@@ -25,7 +25,7 @@ void sub_0801FB14(Entity*);
 void sub_0801FB34(Entity*);
 void sub_0801FB68(Entity*);
 u32 sub_0801FBD0(Entity*);
-void sub_0801FBE4(Entity*);
+void Chuchu_JumpAtPlayer(Entity*);
 
 extern void (*const gUnk_080012C8[])(Entity*);
 extern void (*const gUnk_080CA21C[])(Entity*);
@@ -78,7 +78,7 @@ void Chuchu(Entity* this) {
     }
 }
 
-void sub_0801EEE4(Entity* this) {
+void Chuchu_OnTick(Entity* this) {
     switch (this->entityType.form) {
         case 0:
             sub_0801F3AC(this);
@@ -193,13 +193,13 @@ void sub_0801F12C(Entity* this) {
         if ((this->field_0xf++ & 7) == 0) {
             this->direction = sub_08049F84(this, 1);
         }
-        sub_080AEF88(this);
+        ProcessMovement(this);
         GetNextFrame(this);
         if (--this->actionDelay == 0) {
-            if (sub_08049F64(this, 1, 0x38)) {
+            if (PlayerInRange(this, 1, 0x38)) {
                 this->action = 4;
-                sub_0801FBE4(this);
-            } else if (sub_08049F64(this, 1, 0x48)) {
+                Chuchu_JumpAtPlayer(this);
+            } else if (PlayerInRange(this, 1, 0x48)) {
                 this->actionDelay = (Random() & 3) + 0xc;
             } else {
                 sub_0801F328(this);
@@ -213,7 +213,7 @@ void sub_0801F1B0(Entity* this) {
         if (this->frames.all & 1) {
             this->frames.all ^= 1;
             this->damageType = 90;
-            sub_08004488(299);
+            EnqueueSFX(299);
         }
         sub_080AEFE0(this);
         if (sub_08003FC4(this, 0x4000) == 0)
@@ -313,7 +313,7 @@ void sub_0801F3AC(Entity* this) {
         return;
 
     if (sub_08049FDC(this, 1)) {
-        if (this->field_0x82.HALF.LO || sub_08049F64(this, 1, 0x48)) {
+        if (this->field_0x82.HALF.LO || PlayerInRange(this, 1, 0x48)) {
             if (this->action == 1) {
                 this->action = 2;
                 this->spriteSettings.b.draw = 1;
@@ -377,10 +377,10 @@ void sub_0801F508(Entity* this) {
         sub_0801F730(this);
     } else {
         u8 tmp = ++this->actionDelay & 7;
-        if (tmp == 0 && sub_08049F64(this, 1, 0x38)) {
+        if (tmp == 0 && PlayerInRange(this, 1, 0x38)) {
             if (Random() & 1) {
                 this->action = 5;
-                sub_0801FBE4(this);
+                Chuchu_JumpAtPlayer(this);
             } else {
                 this->field_0x82.HALF.HI = 120;
                 sub_0801F730(this);
@@ -389,7 +389,7 @@ void sub_0801F508(Entity* this) {
             if (tmp == 4) {
                 this->direction = sub_08049F84(this, 1);
             }
-            sub_080AEF88(this);
+            ProcessMovement(this);
             GetNextFrame(this);
         }
     }
@@ -400,7 +400,7 @@ void sub_0801F584(Entity* this) {
         if (this->frames.all & 0x1) {
             this->frames.all ^= 1;
             this->damageType = 91;
-            sub_08004488(299);
+            EnqueueSFX(299);
         }
         sub_080AEFE0(this);
         if (sub_08003FC4(this, 0x4000) == 0)
@@ -493,7 +493,7 @@ void sub_0801F764(Entity* this) {
 
     if (sub_08049FDC(this, 1)) {
         if (this->action == 1) {
-            if (this->field_0x82.HALF.LO || sub_08049F64(this, 1, 0x48)) {
+            if (this->field_0x82.HALF.LO || PlayerInRange(this, 1, 0x48)) {
                 this->action = 2;
                 this->spriteSettings.b.draw = 1;
                 this->field_0x82.HALF.LO = 1;
@@ -520,7 +520,7 @@ void sub_0801F7FC(Entity* this) {
     if (sub_08049FDC(this, 1) == 0)
         return;
 
-    if (this->field_0x82.HALF.LO || sub_08049F64(this, 1, 0x48)) {
+    if (this->field_0x82.HALF.LO || PlayerInRange(this, 1, 0x48)) {
         this->action = 2;
         this->spriteSettings.b.draw = 1;
         this->field_0x82.HALF.LO = 1;
@@ -548,7 +548,7 @@ void sub_0801F884(Entity* this) {
             ent->entityType.parameter = 64;
             this->action = 4;
             this->damageType = 165;
-            sub_08004488(0x193);
+            EnqueueSFX(0x193);
         }
     }
 }
@@ -562,12 +562,12 @@ void sub_0801F8C0(Entity* this) {
         u8 tmp = ++this->actionDelay & 7;
         if (tmp == 0 && sub_08049F1C(this, gUnk_020000B0, 0x38)) {
             this->action = 5;
-            sub_0801FBE4(this);
+            Chuchu_JumpAtPlayer(this);
         } else {
             if (tmp == 4) {
                 this->direction = GetFacingDirection(this, gUnk_020000B0);
             }
-            sub_080AEF88(this);
+            ProcessMovement(this);
             GetNextFrame(this);
         }
     }
@@ -577,7 +577,7 @@ void sub_0801F940(Entity* this) {
     if (this->frames.all & 0x10) {
         if (this->frames.all & 1) {
             this->frames.all ^= 1;
-            sub_08004488(299);
+            EnqueueSFX(299);
         }
         sub_080AEFE0(this);
         if (sub_08003FC4(this, 0x4000) == 0)
@@ -704,7 +704,7 @@ u32 sub_0801FBD0(Entity* this) {
     }
 }
 
-void sub_0801FBE4(Entity* this) {
+void Chuchu_JumpAtPlayer(Entity* this) {
     this->nonPlanarMovement = 0x180;
     this->field_0x20 = 0x20000;
     this->direction = sub_08049F84(this, 1);
@@ -713,7 +713,7 @@ void sub_0801FBE4(Entity* this) {
 
 // clang-format off
 void (*const gUnk_080CA21C[])(Entity*) = {
-    sub_0801EEE4,
+    Chuchu_OnTick,
     sub_0801EF40,
     sub_0801F02C,
     sub_0801F048,

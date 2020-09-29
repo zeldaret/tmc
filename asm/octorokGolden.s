@@ -135,7 +135,7 @@ _08037D26:
 	movs r1, #2
 	bl UpdateAnimationVariableFrames
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	bne _08037D40
 	adds r0, r4, #0
@@ -201,7 +201,7 @@ sub_08037D54: @ 0x08037D54
 	strh r0, [r2, #0x36]
 	movs r0, #0x92
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	b _08037E0C
 	.align 2, 0
 _08037DBC: .4byte gUnk_080CF490

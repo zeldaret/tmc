@@ -81,7 +81,7 @@ _0806E782:
 	cmp r1, #0
 	beq _0806E7A8
 	movs r0, #0xd6
-	bl sub_08004488
+	bl EnqueueSFX
 _0806E7A8:
 	adds r0, r4, #0
 	bl sub_0806E838

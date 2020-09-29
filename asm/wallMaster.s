@@ -243,7 +243,7 @@ sub_0802A5B8: @ 0x0802A5B8
 	cmp r0, #0
 	bne _0802A60E
 	ldr r0, _0802A5E4 @ =0x0000012D
-	bl sub_08004488
+	bl EnqueueSFX
 	adds r0, r4, #0
 	movs r1, #0
 	bl InitializeAnimation

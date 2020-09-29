@@ -340,10 +340,10 @@ SECTIONS {
 		src/enemy/cuccoChickAggr.o(.text);
 		src/enemy/moldorm.o(.text);
 		src/enemy/enemyE.o(.text);
-		asm/moldworm.o(.text);
-		asm/sluggula.o(.text);
-		asm/pesto.o(.text);
-		asm/puffstool.o(.text);
+		src/enemy/moldworm.o(.text);
+		src/enemy/sluggula.o(.text);
+		src/enemy/pesto.o(.text);
+		src/enemy/puffstool.o(.text);
 		asm/chuchuBoss.o(.text);
 		asm/likeLike.o(.text);
 		asm/spearMoblin.o(.text);
@@ -407,6 +407,7 @@ SECTIONS {
 		asm/vaatiRebornEnemy.o(.text);
 		asm/vaatiProjectile.o(.text);
 		asm/ballChainSoldier.o(.text);
+		src/enemy/enemy4D.o(.text);
 		asm/enemy4D.o(.text);
 		asm/ghini.o(.text);
 		asm/vaatiTransfigured.o(.text);
@@ -431,7 +432,7 @@ SECTIONS {
 		asm/enemy62.o(.text);
 		asm/gyorgFemaleMouth.o(.text);
 		asm/enemy64.o(.text);
-		asm/treeItem.o(.text);
+        src/enemy/treeItem.o(.text);
 		asm/enemy66.o(.text);
 		/* END enemies */
 		asm/code_08049CD4.o(.text);
@@ -463,7 +464,6 @@ SECTIONS {
 		src/code_0805436C.o(.text);
 		asm/code_0805436C.o(.text);
 		src/sub_08055E08.o(.text);
-		asm/sub_08055E24.o(.text);
 		src/mainLoop.o(.text);
 		asm/code_08055FF4.o(.text);
 		src/textbox.o(.text);
@@ -501,7 +501,7 @@ SECTIONS {
 		asm/manager1D.o(.text);
 		asm/manager1E.o(.text);
 		asm/manager1F.o(.text);
-		asm/manager20.o(.text);
+		src/manager/manager20.o(.text);
 		asm/manager21.o(.text);
 		asm/manager22.o(.text);
 		asm/manager23.o(.text);
@@ -669,11 +669,12 @@ SECTIONS {
 		src/code_0807CC3C.o(.text);
 		asm/code_0807CC3C.o(.text);
 		src/code_0808091C.o(.text);
+        asm/code_0808091C.o(.text);
 		/* objects */
-		asm/itemOnGround.o(.text);
+        src/object/itemOnGround.o(.text);
 		asm/deathFx.o(.text);
 		asm/itemForSale.o(.text);
-		asm/button.o(.text);
+		src/object/button.o(.text);
 		asm/object4.o(.text);
 		src/object/pot.o(.text);
 		asm/object6.o(.text);
@@ -764,7 +765,7 @@ SECTIONS {
 		src/object/minecart.o(.text);
 		asm/minecart.o(.text);
 		src/object/thoughtBubble.o(.text);
-		asm/hiddenLadderDown.o(.text);
+		src/object/hiddenLadderDown.o(.text);
 		asm/gentariCurtains.o(.text);
 		asm/lavaPlatform.o(.text);
 		asm/object5A.o(.text);
@@ -805,7 +806,7 @@ SECTIONS {
 		asm/picoBloom.o(.text);
 		asm/object80.o(.text);
 		asm/object81.o(.text);
-		asm/bigVortex.o(.text);
+		src/object/bigVortex.o(.text);
 		asm/bigPushableLever.o(.text);
 		asm/smallIceBlock.o(.text);
 		asm/bigIceBlock.o(.text);
@@ -824,6 +825,7 @@ SECTIONS {
 		src/object/bakerOven.o(.text);
 		asm/object93.o(.text);
 		src/object/windTribeFlag.o(.text);
+		src/object/bird.o(.text);
 		asm/bird.o(.text);
 		asm/object96.o(.text);
 		asm/object97.o(.text);
@@ -932,10 +934,18 @@ SECTIONS {
 		src/enemy/moldorm.o(.rodata);
 		src/enemy/enemyE.o(.rodata);
 		data/animations/enemyE.o(.rodata);
-		data/data_080CBC38.o(.rodata);
+		src/enemy/moldworm.o(.rodata);
+		data/animations/moldworm.o(.rodata);
+		src/enemy/sluggula.o(.rodata);
+		data/animations/sluggula.o(.rodata);
+		src/enemy/pesto.o(.rodata);
+		data/animations/pesto.o(.rodata);
+		src/enemy/puffstool.o(.rodata);
+		data/animations/puffstool.o(.rodata);
+		data/data_080CC19C.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
-		data/areaPropertyLists.o(.rodata);
+		data/entity_headers.o(.rodata);
 		data/data_080D5360.o(.rodata);
 		src/mainLoop.o(.rodata);
 		data/data_08100CD4.o(.rodata);

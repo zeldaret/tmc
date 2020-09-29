@@ -230,7 +230,7 @@ _0808FAF2:
 	bne _0808FB0A
 	movs r0, #0x86
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 _0808FB0A:
 	ldrb r0, [r4, #0xa]
 	cmp r0, #2
@@ -271,7 +271,7 @@ _0808FB3E:
 	movs r0, #2
 	strb r0, [r4, #0xd]
 	movs r0, #0x80
-	bl sub_08004488
+	bl EnqueueSFX
 	adds r0, r4, #0
 	bl sub_0808FF20
 	b _0808FB64
@@ -598,7 +598,7 @@ _0808FDB4:
 	strb r0, [r4, #0xe]
 _0808FDB6:
 	ldr r0, _0808FDE0 @ =0x0000010F
-	bl sub_08004488
+	bl EnqueueSFX
 	adds r0, r4, #0
 	bl sub_08090254
 	ldr r1, _0808FDE4 @ =gUnk_080B4488

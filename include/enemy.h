@@ -110,4 +110,6 @@ extern void Enemy66(Entity*);
 
 extern u32 GetNextFunction(Entity*);
 extern void EnemyFunctionHandler(Entity*, void (*const func[])(Entity*));
+extern void sub_0804AA30(Entity*, void (*const func[])(Entity*));
+extern void sub_08001324(Entity*);
 #endif

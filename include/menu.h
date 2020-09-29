@@ -28,7 +28,7 @@ typedef struct {
     u8 storyPanelIndex;
     u16 transitionTimer;
     u16 field_0xa;
-    u8 field_0xc[0x4];
+    u8* field_0xc;
     u8 unk10[2];
     u8 field_0x12;
     u8 unk13;

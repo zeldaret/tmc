@@ -637,7 +637,7 @@ _08094ED4:
 	bl InitializeAnimation
 	movs r0, #0xbf
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	b _08094F94
 	.align 2, 0
 _08094F04: .4byte 0xFFFFE000
@@ -1992,7 +1992,7 @@ sub_08095954: @ 0x08095954
 	str r0, [r1]
 	movs r0, #0x92
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	adds r2, r5, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]

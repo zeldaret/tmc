@@ -3,7 +3,7 @@
 #include "functions.h"
 
 extern void sub_08001318(Entity*);
-extern u32 sub_08049F64(Entity*, u32, u32);
+extern u32 PlayerInRange(Entity*, u32, u32);
 extern void sub_0804A4E4(Entity*, Entity*);
 extern void sub_0804AA1C(Entity*);
 
@@ -69,7 +69,7 @@ void sub_0802244C(Entity* this) {
             if (this->action == 3) {
                 this->action = 4;
                 InitializeAnimation(this, 3);
-                sub_08004488(0x194);
+                EnqueueSFX(0x194);
             }
         }
     } else {
@@ -132,7 +132,7 @@ void sub_08022654(Entity* this) {
             this->previousActionFlag = 2;
             this->spriteSettings.b.draw = 1;
             InitializeAnimation(this, 5);
-            sub_08004488(0x7d);
+            EnqueueSFX(0x7d);
             UpdateSpriteForCollisionLayer(this);
             /* fallthrough */
         case 2:
@@ -169,7 +169,7 @@ void sub_080226EC(Entity* this) {
             this->direction = sub_08049F84(this, 1);
         }
 
-        sub_080AEF88(this);
+        ProcessMovement(this);
     }
 
     GetNextFrame(this);
@@ -180,7 +180,7 @@ void sub_08022780(Entity* this) {
     if (this->frames.all & 0x80) {
         this->action = 4;
         InitializeAnimation(this, 3);
-        sub_08004488(0x194);
+        EnqueueSFX(0x194);
     }
 }
 
@@ -223,7 +223,7 @@ void sub_08022854(Entity* this) {
             this->action = 7;
             this->damageType = 0x5c;
             InitializeAnimation(this, 5);
-            sub_08004488(0x7d);
+            EnqueueSFX(0x7d);
         }
     }
 }
@@ -240,7 +240,7 @@ void sub_0802289C(Entity* this) {
 
 u32 sub_080228CC(Entity* this) {
     if (this->field_0xf == 0) {
-        if (sub_08049F64(this, 1, 0x28))
+        if (PlayerInRange(this, 1, 0x28))
             return 1;
     } else {
         this->field_0xf--;
@@ -250,7 +250,7 @@ u32 sub_080228CC(Entity* this) {
 
 u32 sub_080228F0(Entity* this) {
     if (this->field_0x80.HALF.HI == 0) {
-        if (sub_08049F64(this, 1, 0x40))
+        if (PlayerInRange(this, 1, 0x40))
             return 1;
     } else {
         this->field_0x80.HALF.HI--;

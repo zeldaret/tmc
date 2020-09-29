@@ -85,8 +85,8 @@ sub_08004484: @ 0x08004484
 	ldr r2, _080044DC @ =gUnk_03005FF0
 	bx r2
 
-	thumb_func_start sub_08004488
-sub_08004488: @ 0x08004488
+	thumb_func_start EnqueueSFX
+EnqueueSFX: @ 0x08004488
 	ldr r1, _080044E0 @ =gUnk_02024048
 	ldrb r2, [r1]
 	cmp r2, #8

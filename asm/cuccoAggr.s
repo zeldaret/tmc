@@ -194,7 +194,7 @@ sub_08038DD8: @ 0x08038DD8
 	movs r1, #4
 	bl InitializeAnimation
 	ldr r0, _08038E14 @ =0x000001D9
-	bl sub_08004488
+	bl EnqueueSFX
 	pop {pc}
 	.align 2, 0
 _08038E10: .4byte gUnk_080CF7BC
@@ -238,7 +238,7 @@ sub_08038E18: @ 0x08038E18
 	ands r0, r1
 	strb r0, [r4, #0x15]
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	adds r0, r4, #0
 	bl UpdateSpriteForCollisionLayer
 _08038E70:
@@ -304,7 +304,7 @@ sub_08038ED0: @ 0x08038ED0
 sub_08038EE0: @ 0x08038EE0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	adds r0, r4, #0
 	bl GetNextFrame
 	adds r0, r4, #0
@@ -362,7 +362,7 @@ sub_08038F44: @ 0x08038F44
 	adds r0, r4, #0
 	bl sub_080390F8
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	movs r1, #0xc0
 	lsls r1, r1, #5
 	adds r0, r4, #0
@@ -519,7 +519,7 @@ _0803906C:
 	movs r1, #0xeb
 	lsls r1, r1, #1
 	adds r0, r5, r1
-	bl sub_08004488
+	bl EnqueueSFX
 	b _080390BC
 _080390AA:
 	movs r0, #4
@@ -743,7 +743,7 @@ sub_08039218: @ 0x08039218
 	bl InitializeAnimation
 _0803924C:
 	ldr r0, _0803925C @ =0x000001D9
-	bl sub_08004488
+	bl EnqueueSFX
 	pop {pc}
 	.align 2, 0
 _08039254: .4byte gUnk_080CF824

@@ -102,7 +102,7 @@ void sub_08045524(Entity *this) {
     tmp = sub_0804A024(this,1,8);
     if (tmp != 0xff && (Random() & 3) == 0) {
         this->actionDelay = Random() & 3;
-        this->direction = tmp & 0x18;
+        this->direction = DirectionRound(tmp);
     } else {
         if (this->actionDelay) {
             this->actionDelay--;
@@ -113,9 +113,9 @@ void sub_08045524(Entity *this) {
             tmp1 = sub_08049EE4(this);
             tmp2 = Random() & 8;
             tmp2 += 0xfc;
-            this->direction = (tmp1 + tmp2) & 0x18;
+            this->direction = DirectionRound(tmp1 + tmp2);
         } else {
-            this->direction = Random() & 0x18;
+            this->direction = DirectionRound(Random());
         }
     }
 }

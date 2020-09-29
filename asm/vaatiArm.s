@@ -1418,7 +1418,7 @@ _08042FC2:
 	ldr r0, [r0, #0xc]
 	ldrb r1, [r4, #0x15]
 	strb r1, [r0, #0x15]
-	bl sub_080AEF88
+	bl ProcessMovement
 _08042FCE:
 	pop {r3}
 	mov r8, r3
@@ -3298,7 +3298,7 @@ _08043D92:
 	cmp r2, #4
 	bls _08043D92
 	movs r0, #0xfe
-	bl sub_08004488
+	bl EnqueueSFX
 	pop {r4, r5, pc}
 	.align 2, 0
 _08043DAC: .4byte gUnk_080D13E9
