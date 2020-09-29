@@ -83,7 +83,7 @@ void ItemOnGround(Entity* this) {
 }
 
 void sub_08080F20(Entity* this) {
-    if (this->field_0x86 && CheckFlags(this->field_0x86)) {
+    if (this->field_0x86.HWORD && CheckFlags(this->field_0x86.HWORD)) {
         DeleteThisEntity();
     }
 
@@ -326,8 +326,8 @@ void sub_080813F0(Entity* this) {
 }
 
 void sub_08081404(Entity* this, u32 arg1) {
-    if (arg1 && this->field_0x86) {
-        SetFlag(this->field_0x86);
+    if (arg1 && this->field_0x86.HWORD) {
+        SetFlag(this->field_0x86.HWORD);
     }
 
     DeleteThisEntity();
