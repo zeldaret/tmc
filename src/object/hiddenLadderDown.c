@@ -20,7 +20,7 @@ void sub_08091F14(Entity* this) {
     this->animIndex = 0;
     this->field_0x70.HALF.LO = COORD_TO_TILE(this);
     puVar3 = &this->field_0x70.HALF.LO;
-    if (CheckFlags(this->field_0x86) != 0) {
+    if (CheckFlags(this->field_0x86.HWORD) != 0) {
         this->action = 2;
         this->spriteSettings.b.draw = TRUE;
         SetTileType(0x1a2, *puVar3 - 0x41, this->collisionLayer);
@@ -39,6 +39,6 @@ void sub_08092000(Entity* this) {
     if (GetTileType(*(u16*)&this->field_0x70.HALF.LO, this->collisionLayer) == 0x1a6) {
         this->action = 2;
         this->spriteSettings.b.draw = TRUE;
-        SetFlag(this->field_0x86);
+        SetFlag(this->field_0x86.HWORD);
     }
 }

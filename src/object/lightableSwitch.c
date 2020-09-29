@@ -45,10 +45,10 @@ void sub_0809EA34(Entity* this) {
 void sub_0809EA80(Entity* this) {
 
     if ((this->bitfield & 0x80) != 0) {
-        if (CheckFlags(this->field_0x86) != 0) {
-            ClearFlag(this->field_0x86);
+        if (CheckFlags(this->field_0x86.HWORD) != 0) {
+            ClearFlag(this->field_0x86.HWORD);
         } else {
-            SetFlag(this->field_0x86);
+            SetFlag(this->field_0x86.HWORD);
         }
         EnqueueSFX(0x110);
     }
@@ -59,7 +59,7 @@ void sub_0809EABC(Entity* this) {
     bool32 anySet;
     u32 f;
 
-    f = CheckFlags(this->field_0x86);
+    f = CheckFlags(this->field_0x86.HWORD);
     anySet = (-f | f) >> 0x1F;
     if (this->frameIndex != anySet) {
         this->frameIndex = anySet;
@@ -122,7 +122,7 @@ void sub_0809EBD8(Entity* this) {
         this->action = 2;
         this->actionDelay = 0x10;
         this->frameIndex = 2;
-        SetFlag(this->field_0x86);
+        SetFlag(this->field_0x86.HWORD);
         EnqueueSFX(0x110);
     }
 }
@@ -136,7 +136,7 @@ void sub_0809EC08(Entity* this) {
         if (--this->actionDelay == 0) {
             this->action = 1;
             this->frameIndex = 3;
-            ClearFlag(this->field_0x86);
+            ClearFlag(this->field_0x86.HWORD);
             EnqueueSFX(0x110);
         }
     }

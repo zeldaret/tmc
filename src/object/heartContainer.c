@@ -37,7 +37,7 @@ static void sub_0808E6A0(Entity* this) {
 }
 
 static void sub_0808E6E4(Entity* this) {
-    if (CheckFlags(this->field_0x86)) {
+    if (CheckFlags(this->field_0x86.HWORD)) {
         this->action = 2;
         this->spriteSettings.b.draw = 1;
         this->spriteRendering.b0 = 3;

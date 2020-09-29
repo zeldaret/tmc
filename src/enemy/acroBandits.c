@@ -16,7 +16,6 @@ extern void sub_0804AA30(Entity*, void (*const funcs[])(Entity*));
 extern u32 sub_0806FCB8(Entity*, u32, u32, u32);
 extern u32 GetNextFunction(Entity*);
 extern void SetChildOffset(Entity*, s32, s32, s32);
-extern u32 Random(void);
 
 extern Entity* gUnk_020000B0;
 extern u8 gEntCount;

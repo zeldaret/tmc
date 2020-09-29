@@ -135,16 +135,18 @@ typedef struct Entity {
     /*0x80*/ union SplitHWord field_0x80;
     /*0x82*/ union SplitHWord field_0x82;
     /*0x84*/ union SplitHWord cutsceneBeh;
-    /*0x86*/ u16 field_0x86;
+    /*0x86*/ union SplitHWord field_0x86;
 } Entity;
 
-#define COORD_TO_TILE(entity)                                           \
-    ((((entity->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
-     (((entity->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
+#define TILE(x, y)                                      \
+    ((((x - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
+     (((y - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
 
-#define COORD_TO_TILE_OFFSET(entity, xOff, yOff)                               \
-    ((((entity->x.HALF.HI - xOff - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
-     (((entity->y.HALF.HI - yOff - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
+#define COORD_TO_TILE(entity) \
+    TILE(entity->x.HALF.HI, entity->y.HALF.HI)
+
+#define COORD_TO_TILE_OFFSET(entity, xOff, yOff) \
+    TILE(entity->x.HALF.HI - xOff, entity->y.HALF.HI - yOff)
 
 extern Entity* CreateEnemy(u32 subtype, u32 form);
 extern Entity* CreateObject(u32 subtype, u32 form, u32 parameter);
@@ -168,6 +170,13 @@ extern void DeleteThisEntity(void);
 extern void CopyPosition(Entity*, Entity*);
 extern void DeleteEntity(Entity*);
 extern void PositionRelative(Entity*, Entity*, s32, s32);
+
+enum {
+    DirectionNorth  = 0x00,
+    DirectionEast   = 0x08,
+    DirectionSouth  = 0x10,
+    DirectionWest   = 0x18,
+};
 
 #define DirectionRound(expr) ((expr) & 0x18)
 #define DirectionRoundUp(expr) DirectionRound((expr) + 4)

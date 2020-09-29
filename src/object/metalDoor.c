@@ -77,7 +77,7 @@ void sub_080A074C(Entity *this)
 
 void sub_080A07BC(Entity *this)
 {
-  if (CheckFlags(this->field_0x86)) {
+  if (CheckFlags(this->field_0x86.HWORD)) {
     this->action = 4;
     this->actionDelay = 0xc;
     this->direction = 0x10;

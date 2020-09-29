@@ -4,6 +4,7 @@
 #include "screen.h"
 #include "greatFairy.h"
 #include "structures.h"
+#include "functions.h"
 
 enum {
     BEHAVIORS,
@@ -550,14 +551,14 @@ void sub_08087424(Entity* arg0, struct_08087424* arg1) {
 void sub_0808747C(u32 arg0, u32 arg1) {
     u32 iVar1;
 
-    iVar1 = FindEntityInListByForm(0x6, 0xf, 0x6, 0xb, 0x0);
+    iVar1 = (u32)FindEntityInListByForm(0x6, 0xf, 0x6, 0xb, 0x0);
     if (iVar1 != 0) {
         iVar1 = 1;
     }
     *(u32*)(arg1 + 0x14) = iVar1;
 }
 
-//clang-format off
+// clang-format off
 void (*const GreatFairy_Main[])(Entity*) = {
     GreatFairy_CallBehavior, 
     GreatFairy_WingsCallBehavior,
@@ -647,5 +648,4 @@ void (*const GreatFairy_Form2Behaviors[])(Entity*) = {
     sub_08087264,
     sub_0808727C
 };
-
-//clang-format on
+// clang-format on

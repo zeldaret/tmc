@@ -30,7 +30,7 @@ void sub_08089B18(Entity *this)
             CopyPosition(this->parent, this);
             break;
         case 4:
-            if (!CheckFlags(this->field_0x86)) {
+            if (!CheckFlags(this->field_0x86.HWORD)) {
                 this->spriteSettings.b.draw = FALSE;
                 this->previousActionFlag = 1;
                 return;

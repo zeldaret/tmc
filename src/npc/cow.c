@@ -15,7 +15,6 @@ extern void (*gUnk_08111914[])(Entity*);
 extern void (*gUnk_08111928[])(Entity*);
 extern Dialog gUnk_08111938[];
 extern void PlaySFX(u32);
-extern u32 Random();
 extern u32 UpdateFuseInteraction(Entity*);
 extern PlayerState gPlayerState;
 

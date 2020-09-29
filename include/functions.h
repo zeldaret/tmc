@@ -195,6 +195,7 @@ extern u32 sub_080043E8(Entity*);
 extern void sub_08001290(Entity*, u32);
 extern void EnqueueSFX(u32);
 extern void sub_08004596(Entity*, u32);
+extern u32 sub_080045B4(Entity*, u32, u32);
 extern u32 sub_0807953C(void);
 extern void ResetPlayer(void);
 extern void CreateDust(Entity*);

@@ -3,6 +3,7 @@
 #include "room.h"
 #include "player.h"
 #include "flags.h"
+#include "functions.h"
 
 extern void sub_0809F7BC(Entity*);
 extern void PlaySFX(u32);
@@ -13,7 +14,6 @@ extern void DeleteThisEntity();
 extern u32 CheckRoomFlag(u32);
 extern void sub_08078A90(u32);
 extern void sub_08078B48(void);
-extern u32 Random(void);
 extern void sub_0806F69C(Entity*);
 extern void (*gUnk_08124798[])(Entity*);
 extern void (*gUnk_081247A0[])(Entity*);
@@ -23,7 +23,6 @@ extern void PositionEntityOnTop(Entity*, Entity*);
 extern void sub_0807BB68(u32*, u32, u32);
 
 extern u8 gUnk_02034490;
-extern u32 gScreenTransition;
 extern void* gUnk_080DD750;
 extern Entity gPlayerEntity;
 extern PlayerState gPlayerState;
@@ -62,7 +61,7 @@ void sub_0809F548(Entity* this) {
         sub_0809F814((((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 63) |
                      (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 63) << 6);
     } else {
-        if ((gScreenTransition & 7) == 0) {
+        if ((gScreenTransition.frameCount & 7) == 0) {
             sub_0809F7BC(this);
         }
         sub_0809F7F4(this);
@@ -110,7 +109,7 @@ void sub_0809F61C(Entity* this) {
             sub_0809F814((((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 63) |
                          (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 63) << 6);
         } else {
-            if ((gScreenTransition & 7) == 0) {
+            if ((gScreenTransition.frameCount & 7) == 0) {
                 sub_0809F7BC(this);
             }
             sub_0809F7F4(this);
@@ -145,7 +144,7 @@ void sub_0809F700(Entity* this) {
         this->actionDelay = (Random() & 30) + 8;
         this->flags = this->flags | 12;
     }
-    if ((gScreenTransition & 3) == 0) {
+    if ((gScreenTransition.frameCount & 3) == 0) {
         uVar2 = Random();
         this->spriteOffsetX = gUnk_081247C0[uVar2 & 7];
         this->spriteOffsetY = gUnk_081247C0[uVar2 >> 4 & 7];

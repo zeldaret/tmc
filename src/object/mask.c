@@ -31,7 +31,7 @@ void Mask(Entity *this) {
 
 void sub_080929A4(Entity *this) {
     if (this->entityType.parameter & 0xC0) {
-        if (CheckFlags(this->field_0x86)) {
+        if (CheckFlags(this->field_0x86.HWORD)) {
             s32 field_0x0a;
 
             switch (this->entityType.parameter & 0xC0) {
@@ -45,7 +45,7 @@ void sub_080929A4(Entity *this) {
                             goto switchEnd;
                     }
 
-                    ClearFlag(this->field_0x86);
+                    ClearFlag(this->field_0x86.HWORD);
                     break;
                 case 0x80:
                     DeleteThisEntity();
@@ -117,7 +117,7 @@ void sub_08092B0C(Entity *this) {
             case 0x80:
                 EnqueueSFX(0x72);
             case 0x40:
-                SetFlag(this->field_0x86);
+                SetFlag(this->field_0x86.HWORD);
                 break;
                 
         }
