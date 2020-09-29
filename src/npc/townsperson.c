@@ -35,7 +35,6 @@ extern void sub_08062048(Entity*);
 extern void sub_08078784(Entity*, u32);
 extern void sub_08078778(Entity*);
 extern u32 sub_0806F5B0(u32);
-extern u32 Random(void);
 extern void ResolveEntityOnTop(Entity*, Entity*);
 extern void sub_08078850(Entity*, u32, u8, u32*);
 

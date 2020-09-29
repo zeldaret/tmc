@@ -22,7 +22,7 @@ void sub_08081AE0(Entity* this) {
     this->field_0x74.HWORD = (((this->x.HALF.HI - gRoomControls.roomOriginX)>>4) & 0x3F) |
     ((((this->y.HALF.HI - gRoomControls.roomOriginY)>>4) & 0x3F) << 6);
     this->field_0x70.HALF.HI = GetTileType(this->field_0x74.HWORD, this->collisionLayer);
-    if (this->entityType.form == 0 && CheckFlags(this->field_0x86)) {
+    if (this->entityType.form == 0 && CheckFlags(this->field_0x86.HWORD)) {
         this->action = 5;
         SetTileType(0x7A, this->field_0x74.HWORD, this->collisionLayer);
     } else {
@@ -92,7 +92,7 @@ void sub_08081C30(Entity* this) {
         }
     } else {
         this->action = 2;
-        ClearFlag(this->field_0x86);
+        ClearFlag(this->field_0x86.HWORD);
         SetTileType(0x77, this->field_0x74.HWORD, this->collisionLayer);
         PlaySFX(0x10C);
     }
@@ -257,7 +257,7 @@ u32 sub_08081F7C(Entity* this, u32 r7) {
             this->attachedEntity->spriteOffsetY = 0xfc;
     } else {
         if (this->actionDelay == 6) {
-            SetFlag(this->field_0x86);
+            SetFlag(this->field_0x86.HWORD);
             SetTileType(r7, this->field_0x74.HWORD, this->collisionLayer);
             sub_08081F24(this);
             PlaySFX(0x10C);

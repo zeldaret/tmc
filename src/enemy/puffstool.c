@@ -169,7 +169,7 @@ void sub_08025230(Entity* this) {
         if (sub_0802571C(this)) {
             this->action = 2;
             this->actionDelay = 240;
-            this->field_0x86 = COORD_TO_TILE(this);
+            this->field_0x86.HWORD = COORD_TO_TILE(this);
         }
     } else {
         this->field_0x78.HWORD--;
@@ -186,12 +186,12 @@ void sub_080252E0(Entity* this) {
     GetNextFrame(this);
 
     tile = COORD_TO_TILE(this);
-    if (tile == this->field_0x86) {
+    if (tile == this->field_0x86.HWORD) {
         if (--this->actionDelay == 0) {
             sub_080256B4(this);
         }
     } else {
-        this->field_0x86 = tile;
+        this->field_0x86.HWORD = tile;
         this->actionDelay = 240;
     }
 

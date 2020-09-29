@@ -106,6 +106,7 @@ typedef struct {
 } ItemBehavior;
 
 extern u8 gBombBagSizes[];
+extern u8 gQuiverSizes[];
 
 extern PlayerState gPlayerState;
 extern Stats gStats;

@@ -18,7 +18,7 @@ void JailBars(Entity *this)
 
 void sub_080A08C4(Entity *this)
 {
-  if (CheckFlags(this->field_0x86) == 0) {
+  if (CheckFlags(this->field_0x86.HWORD) == 0) {
     this->action = 1;
     sub_080A0960(this, 0);
   }
@@ -34,7 +34,7 @@ void sub_080A08C4(Entity *this)
 
 void sub_080A0910(Entity *this)
 {
-  if (CheckFlags(this->field_0x86) != 0) {
+  if (CheckFlags(this->field_0x86.HWORD) != 0) {
     this->action = 2;
     sub_080A0960(this, 1);
     PlaySFX(0x10b);

@@ -17,8 +17,9 @@ extern void (*const gUnk_080CCC00[])(Entity*);
 extern void (*const gUnk_080CCC18[])(Entity*);
 extern void (*const gUnk_080CCC3C[])(Entity*);
 
-extern u8 gUnk_080CCC34[];
-extern u8 gUnk_080CCC47[];
+extern const u8 gUnk_080CCC34[];
+extern const s8 gUnk_080CCC44[];
+extern const u8 gUnk_080CCC47[];
 extern BoundingBox gUnk_080FD260;
 
 void RupeeLike(Entity* this) {
@@ -145,8 +146,6 @@ void sub_080294D4(Entity* this) {
         InitializeAnimation(this->attachedEntity, 7);
     }
 }
-
-extern s8 gUnk_080CCC44[];
 
 void sub_0802953C(Entity* this) {
     u8* pbVar3;
@@ -280,3 +279,43 @@ void sub_080297F0(Entity* this) {
     this->spriteVramOffset = 9;
     InitializeAnimation(this, 0x54);
 }
+
+// clang-format off
+void (*const gUnk_080CCC00[])(Entity*) = {
+    sub_08029300,
+    sub_08029318,
+    sub_08001324,
+    sub_080293B4,
+    sub_08001242,
+    nullsub_141,
+};
+
+void (*const gUnk_080CCC18[])(Entity*) = {
+    sub_0802940C,
+    sub_0802944C,
+    sub_08029474,
+    sub_080294D4,
+    sub_0802953C,
+    sub_08029610,
+    sub_08029630,
+};
+
+const u8 gUnk_080CCC34[] = {
+    0x54, 0x55,
+    0x56, 0x55,
+    0x56, 0x57,
+};
+
+void (*const gUnk_080CCC3C[])(Entity*) = {
+    sub_08029660,
+    sub_08029688,
+};
+
+const s8 gUnk_080CCC44[] = {
+    -1, -5, -20,
+};
+
+const u8 gUnk_080CCC47[] = {
+    2, 1, 0,
+};
+// clang-format on

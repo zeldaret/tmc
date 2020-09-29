@@ -28,7 +28,7 @@ void Pot(Entity* this) {
 }
 
 void sub_0808222C(Entity* this) {
-    if (this->entityType.parameter == 1 && CheckFlags(this->field_0x86)) {
+    if (this->entityType.parameter == 1 && CheckFlags(this->field_0x86.HWORD)) {
         DeleteThisEntity();
     }
 
@@ -269,7 +269,7 @@ static void sub_08082850(Entity* this, Entity* parent) {
     }
 
     if (this->entityType.parameter == 1) {
-        SetFlag(this->field_0x86);
+        SetFlag(this->field_0x86.HWORD);
     }
 
     DeleteThisEntity();
@@ -290,7 +290,7 @@ u32 sub_0808288C(Entity* this, u32 form, u32 arg2, u32 arg3) {
             if (entity) {
                 if (arg3 == 2) {
                     entity->actionDelay = 5;
-                    entity->field_0x86 = this->field_0x86;
+                    entity->field_0x86.HWORD = this->field_0x86.HWORD;
                 } else {
                     entity->actionDelay = 0;
                 }

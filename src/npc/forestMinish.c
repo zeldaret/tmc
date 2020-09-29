@@ -21,7 +21,6 @@ extern void sub_08060158(Entity*);
 extern u32 CheckKinstoneFused(u32);
 extern Entity* FindEntityInListBySubtype(u32, u32, u32);
 extern void DeleteEntity(Entity*);
-extern u32 Random(void);
 extern void ModBombs(s32);
 
 extern SpriteLoadData gUnk_0810A348;
