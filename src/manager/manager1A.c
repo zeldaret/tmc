@@ -27,7 +27,7 @@ extern void (*const gUnk_08108668[])(Manager1A*);
 extern u8 gGlobalGfxAndPalettes[];
 
 void sub_0805B030(Manager1A* this) {
-	gUnk_08108668[this->manager.action](this);
+    gUnk_08108668[this->manager.action](this);
 }
 
 extern void sub_08052D74(void*, void*, void*);
@@ -35,16 +35,22 @@ extern u32 sub_0806FBFC(u32, u32, u32, u32);
 
 typedef struct struct_08108764 {
     u8 unk_00;
-    u8 unk_01;//area ID
-    u8 unk_02;//room ID
-    u8 unk_03;//layer
+    u8 unk_01;//area ID?
+    u8 unk_02;//room ID?
+    u8 unk_03;//layer?
     u16 unk_04;
     u16 unk_06;
     u8 unk_08;
     u8 unk_09;
     u8 unk_0a;
     u8 unk_0b;
-    void* unk_0c;
+    struct {
+        u32 unk_00;
+        u16 unk_04;
+        u16 unk_06;
+        u16 unk_08;
+        u16 unk_0a;
+    }* unk_0c;
     struct {
         u8 unk_00;
         u8 unk_01;
@@ -84,10 +90,10 @@ void sub_0805B048(Manager1A* this) {
     this->manager.unk_0b = tmp->unk_0c != 0;
     if (this->manager.unk_0b) {
         this->manager.unk_10 |= 0x20;
-        this->unk_34 = ((u16*)tmp->unk_0c)[2];
-        this->unk_36 = ((u16*)tmp->unk_0c)[3];
-        this->unk_30 = ((u16*)tmp->unk_0c)[4];
-        this->unk_32 = ((u16*)tmp->unk_0c)[5];
+        this->unk_34 = tmp->unk_0c->unk_04;
+        this->unk_36 = tmp->unk_0c->unk_06;
+        this->unk_30 = tmp->unk_0c->unk_08;
+        this->unk_32 = tmp->unk_0c->unk_0a;
         sub_0805BC4C();
         sub_0805B2B0(this);
         sub_0805B328(this);
@@ -199,7 +205,7 @@ void sub_0805B328(Manager1A* this) {
     struct_08108764 *tmp;
     if (!this->manager.unk_0b) return;
     tmp = &gUnk_08108764[this->manager.unk_0a];
-    LoadAssetAsync(&gGlobalGfxAndPalettes[*(u32*)tmp->unk_0c], 0x0600F000, 0x800);
+    LoadAssetAsync(&gGlobalGfxAndPalettes[tmp->unk_0c->unk_00], 0x0600F000, 0x800);
     gScreen.affine.bg3Control = 0x1E07;
     gScreen.lcd.displayControl |= 0x800;
     gScreen.affine.bg3xOffset = gRoomControls.bg3OffsetX.HALF.HI;
