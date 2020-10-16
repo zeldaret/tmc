@@ -139,7 +139,7 @@ extern void sub_0804C2F0(void);
 extern void sub_0801AFE4(void);
 extern u32 sub_08060354(void);
 extern void sub_08057E64(void);
-extern void LoadAssetAsync(void*, u32, u32);
+extern void LoadAssetAsync(const void*, u32, u32);
 extern void LoadPaletteGroup(u32);
 extern void sub_0809F814(u32);
 extern void sub_080300E8(void);
@@ -268,4 +268,5 @@ extern void sub_08080CB4(Entity*);
 extern u32 GetTileTypeByEntity(Entity*);
 extern u32 sub_0800442E(Entity*);
 extern void sub_08081404(Entity*, u32);
+extern void sub_0807B7D8(u32, u32, u32);
 #endif

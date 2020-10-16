@@ -473,9 +473,9 @@ SECTIONS {
 		asm/manager2.o(.text);
 		src/manager/manager3.o(.text);
 		src/manager/manager4.o(.text);
-		asm/manager5.o(.text);
+		src/manager/manager5.o(.text);
 		src/manager/manager6.o(.text);
-		asm/manager7.o(.text);
+		src/manager/manager7.o(.text);
 		src/manager/manager8.o(.text);
 		asm/manager9.o(.text);
 		src/manager/managerA.o(.text);
@@ -983,6 +983,9 @@ SECTIONS {
         data/metatile_headers.o(.rodata);
         data/map_headers.o(.rodata);
         data/data_08107BC8.o(.rodata);
+        src/manager/manager5.o(.rodata);
+        src/manager/manager7.o(.rodata);
+        data/data_081081EC.o(.rodata);
         src/manager/managerB.o(.rodata);
         data/data_0810821C.o(.rodata);
 		src/item.o(.rodata);
