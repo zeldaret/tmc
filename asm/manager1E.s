@@ -45,7 +45,7 @@ sub_0805B680: @ 0x0805B680
 	cmp r0, #0
 	beq _0805B6B8
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 	b _0805B6BE
 _0805B6B8:
 	adds r0, r4, #0
@@ -72,7 +72,7 @@ sub_0805B6C0: @ 0x0805B6C0
 	cmp r0, #0
 	bne _0805B6F2
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 	b _0805B6F2
 _0805B6EC:
 	ldrh r0, [r4, #0x3e]

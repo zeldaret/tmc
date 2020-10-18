@@ -2,14 +2,14 @@
 // #include "entityData.h"
 // #include "global.h"
 
-// extern Entity * sub_0805EB9C(u32, u32);
-// extern Entity * sub_0805E768();
-// extern void sub_0804AEB0(Entity *, EntityData *);
+// extern Entity * FindEntityBySubtype(u32, u32);
+// extern Entity * GetEmptyEntityByType();
+// extern void RegisterRoomEntity(Entity *, EntityData *);
 // extern u32 sub_0804AF0C(Entity *, EntityData *);
 // extern void sub_08016A30(Entity *);
 // extern u32 gRoomControls;
 
-// Entity * CreateEntity(EntityData *param_1)
+// Entity * LoadRoomEntity(EntityData *param_1)
 // {
 // Entity *preexisting;
 // Entity *entity;
@@ -17,16 +17,16 @@
 
 // type = param_1->entityType & 15;
 // if (((param_1->field_0x1 & 240) == 80) &&
-// (preexisting = sub_0805EB9C(type,param_1->entitySubtype), preexisting != NULL)) {
+// (preexisting = FindEntityBySubtype(type,param_1->entitySubtype), preexisting != NULL)) {
 // entity = NULL;
 // }
 // else {
-// entity = sub_0805E768(); //Get empty entity
+// entity = GetEmptyEntityByType(); //Get empty entity
 // if (entity != NULL) {
 // (entity->entityType).type = type;
 // (entity->entityType).subtype = param_1->entitySubtype;
 // (entity->entityType).form = param_1->entityform;
-// sub_0804AEB0(entity,param_1);
+// RegisterRoomEntity(entity,param_1);
 // if ((param_1->field_0x1 & 240) != 16) {
 // (entity->entityType).parameter = *(u8 *)&param_1->entityparameter;
 // entity->actionDelay = (u8)((u32)param_1->entityparameter >> 8);

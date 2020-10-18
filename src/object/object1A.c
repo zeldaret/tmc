@@ -1,12 +1,8 @@
 #include "global.h"
 #include "entity.h"
+#include "functions.h"
 
-extern void CopyPosition();
 extern void sub_08086A6C();
-extern s32 sub_080044EC();
-extern void sub_080AEF88();
-extern void DeleteThisEntity();
-extern u32 Random(void);
 
 extern void (*gUnk_081206C4[99])(Entity*);
 
@@ -35,16 +31,14 @@ void sub_080869DC(Entity* ent) {
 }
 
 void sub_08086A28(Entity* ent) {
-    s32 iVar1;
-
-    if (ent->attachedEntity->field_0x4 == NULL) {
+    if (ent->attachedEntity->next == NULL) {
         ent->action = 2;
     } else {
-        iVar1 = sub_080044EC(ent, 10240);
+        u32 iVar1 = sub_080044EC(ent, 10240);
         if (iVar1 == 0) {
             ent->action = 2;
         }
-        sub_080AEF88(ent);
+        ProcessMovement(ent);
         CopyPosition(ent, ent->attachedEntity);
     }
 }

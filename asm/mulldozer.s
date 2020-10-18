@@ -325,7 +325,7 @@ _08032EC0:
 	adds r0, r4, #0
 	bl sub_080331E8
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	pop {r4, pc}
 	.align 2, 0
 
@@ -333,7 +333,7 @@ _08032EC0:
 sub_08032ED0: @ 0x08032ED0
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	adds r0, r4, #0
 	bl sub_08032F48
 	ldrb r0, [r4, #0xf]
@@ -428,7 +428,7 @@ _08032F82:
 	adds r0, r4, #0
 	bl sub_08032F48
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	pop {r4, pc}
 
 	thumb_func_start sub_08032F90
@@ -826,7 +826,7 @@ _08033238:
 	strh r0, [r4, #0x32]
 	movs r0, #0x86
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 _08033278:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

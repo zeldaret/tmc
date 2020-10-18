@@ -8,11 +8,11 @@ extern void sub_0804B058(EntityData* dat);
 extern void LoadRoomTileEntities(EntityData* dat);
 extern void sub_0801AC98();
 extern u32 sub_08049D1C(u32);
-extern Entity* CreateEntity(EntityData*);
+extern Entity* LoadRoomEntity(EntityData*);
 extern void* GetRoomProperty(u32, u32, u32);
 
 extern u32 gUnk_02017654;
-extern u32* gUnk_080D50FC;
+extern u32* gAreaEntities;
 
 void LoadRoom(void) {
     s32 iVar1;
@@ -32,22 +32,22 @@ void sub_0804B058(EntityData* dat) {
     Entity* ent;
     u32 uVar2;
 
-    if ((dat != NULL) && (dat->entityType != 0xff)) {
+    if ((dat != NULL) && *(u8*)dat != 0xff) {
         uVar2 = 0;
         do {
-            if ((uVar2 < 0x20) && ((dat->entityType & 0xf) == 3)) {
+            if ((uVar2 < 0x20) && ((dat->type) == 3)) {
                 if (sub_08049D1C(uVar2) != 0) {
-                    ent = CreateEntity(dat);
+                    ent = LoadRoomEntity(dat);
                     if ((ent != NULL) && ((ent->entityType).type == 3)) {
                         ent->field_0x6c.HALF.LO = uVar2 | 0x80;
                     }
                 }
             } else {
-                CreateEntity(dat);
+                LoadRoomEntity(dat);
             }
             uVar2++;
             dat++;
-        } while (dat->entityType != 0xff);
+        } while (*(u8*)dat!= 0xff);
     }
 }
 
@@ -58,7 +58,7 @@ void sub_0804B0B0(u32 arg0, u32 arg1) {
 void SetCurrentRoomPropertyList(u32 arg0, u32 arg1) {
     u32** arr;
     gUnk_02017654 = 0;
-    arr = &gUnk_080D50FC;
+    arr = &gAreaEntities;
     if (arr[arg0] != 0) {
         gUnk_02017654 = arr[arg0][arg1];
     }
@@ -78,7 +78,7 @@ void* GetRoomProperty(u32 arg0, u32 arg1, u32 arg2) {
     u32 temp;
     u32** arr;
     temp = 0;
-    arr = &gUnk_080D50FC;
+    arr = &gAreaEntities;
     if (arr[arg0] != NULL) {
         temp = arr[arg0][arg1];
         if (temp != 0) {

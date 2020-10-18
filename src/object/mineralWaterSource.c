@@ -30,8 +30,8 @@ void MineralWaterSource_Init(Entity *this) {
     this->entityType.parameter = unknownParameters->field_0x00;
     this->field_0x40 = unknownParameters->field_0x03;
 
-    this->boundingBox->field_0x6 = unknownParameters->field_0x01;
-    this->boundingBox->field_0x7 = unknownParameters->field_0x02;
+    this->boundingBox->unknown[6] = unknownParameters->field_0x01;
+    this->boundingBox->unknown[7] = unknownParameters->field_0x02;
 
     this->flags |= 0x80;
 

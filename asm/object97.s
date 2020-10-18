@@ -62,7 +62,7 @@ sub_0809D9D8: @ 0x0809D9D8
 	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805EB64
+	bl FindNextEntityOfSameSubtype
 	cmp r0, #0
 	beq _0809DA1E
 	str r4, [r0, #0x50]
@@ -436,7 +436,7 @@ sub_0809DC80: @ 0x0809DC80
 	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	movs r1, #6
-	bl sub_0805EB64
+	bl FindNextEntityOfSameSubtype
 	cmp r0, #0
 	beq _0809DD00
 	str r4, [r0, #0x50]
@@ -740,7 +740,7 @@ _0809DF16:
 	bl CopyPosition
 _0809DF52:
 	adds r0, r5, #0
-	bl sub_0805E79C
+	bl DeleteEntityAny
 	movs r0, #0
 	str r0, [r4, #0x54]
 	b _0809DF98

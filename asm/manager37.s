@@ -124,7 +124,7 @@ _0805DF1A:
 	rsbs r2, r2, #0
 	adds r0, r5, #0
 	movs r1, #8
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0805DF3C

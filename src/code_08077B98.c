@@ -17,7 +17,6 @@ Entity* sub_08077C94(ItemBehavior*, u32);
 void* sub_08077C54(UnkItemStruct* unk);
 Entity* CreatePlayerBomb(ItemBehavior*, u32);
 extern Entity* sub_0805E744();
-extern void sub_0805EA2C(Entity*, u32);
 
 extern struct_0811BE48 gUnk_0811BE48[];
 
@@ -84,7 +83,7 @@ void* sub_08077C54(UnkItemStruct* unk)
     item->flags = 0xa0;
     item->parent = (Entity*)unk;
     item->field_0x68.HALF.LO = unk->field_0x1;
-    sub_0805EA2C(item, 2);
+    AppendEntityToList(item, 2);
   }
   return item;
 }
@@ -93,7 +92,7 @@ Entity* sub_08077C94(ItemBehavior* arg0, u32 arg1)
 {
   Entity* iVar1;
   
-  iVar1 = sub_0805EB00(8, gUnk_0811BE48[arg1].unk[3], 2);
+  iVar1 = FindEntityInListBySubtype(8, gUnk_0811BE48[arg1].unk[3], 2);
   if (iVar1 == NULL) {
     return NULL;
   }
@@ -112,7 +111,7 @@ Entity * CreatePlayerItem(u32 subtype, u32 form, u32 parameter, u32 unk)
     (ent->entityType).form = form;
     (ent->entityType).parameter = parameter;
     ent->field_0x68.HALF.LO = unk;
-    sub_0805EA2C(ent, 2);
+    AppendEntityToList(ent, 2);
   }
   return ent;
 }
@@ -129,7 +128,7 @@ Entity * sub_08077CF8(u32 subtype, u32 form, u32 parameter, u32 unk)
     (ent->entityType).form = form;
     (ent->entityType).parameter = parameter;
     ent->field_0x68.HALF.LO = unk;
-    sub_0805EA2C(ent, 2);
+    AppendEntityToList(ent, 2);
   }
   return ent;
 }

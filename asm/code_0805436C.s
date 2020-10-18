@@ -170,7 +170,7 @@ _080549CE:
 	ldrb r0, [r6, #2]
 	cmp r0, #2
 	bne _080549F4
-	bl sub_08059D18
+	bl TryLoadPrologueHyruleTown
 _080549F4:
 	ldr r0, _08054A10 @ =gUnk_02032EC0
 	ldrb r0, [r0, #3]
@@ -789,7 +789,7 @@ _08054EB4: .4byte gMenu
 sub_08054EB8: @ 0x08054EB8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _08054EF6
@@ -815,7 +815,7 @@ sub_08054EB8: @ 0x08054EB8
 	strh r0, [r3, #0x3e]
 	adds r0, r3, #0
 	movs r1, #6
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _08054EF6:
 	pop {r4, pc}
 	.align 2, 0
@@ -1880,7 +1880,7 @@ sub_08055710: @ 0x08055710
 	ldrb r1, [r1, #3]
 	bl sub_0804B0B0
 	ldr r0, _08055760 @ =gUnk_080FEE48
-	bl CreateEntity
+	bl LoadRoomEntity
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08055734
@@ -2385,7 +2385,7 @@ sub_08055AEC: @ 0x08055AEC
 	lsls r0, r0, #4
 	ldr r1, _08055B30 @ =gUnk_080FED18
 	adds r0, r0, r1
-	bl CreateEntity
+	bl LoadRoomEntity
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08055B14
@@ -2452,7 +2452,7 @@ sub_08055B70: @ 0x08055B70
 	lsls r0, r0, #4
 	ldr r1, _08055BA8 @ =gUnk_080FF378
 	adds r0, r0, r1
-	bl CreateEntity
+	bl LoadRoomEntity
 	adds r3, r0, #0
 	cmp r3, #0
 	beq _08055BA2
@@ -2571,7 +2571,7 @@ _08055C6C:
 	movs r1, #0x9e
 	movs r2, #6
 	movs r3, #0
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08055C8C

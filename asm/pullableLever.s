@@ -73,7 +73,7 @@ _08091260:
 sub_08091264: @ 0x08091264
 	push {r4, r5, r6, r7, lr}
 	adds r6, r0, #0
-	ldr r0, _080912C4 @ =gUnk_03003DBC
+	ldr r0, _080912C4 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x45
 	bhi _0809132C
@@ -117,7 +117,7 @@ sub_08091264: @ 0x08091264
 	ldr r0, _080912C8 @ =gUnk_080FD278
 	b _080912CE
 	.align 2, 0
-_080912C4: .4byte gUnk_03003DBC
+_080912C4: .4byte gEntCount
 _080912C8: .4byte gUnk_080FD278
 _080912CC:
 	ldr r0, _08091330 @ =gUnk_080FD270
@@ -296,7 +296,7 @@ _080913E0:
 	strb r5, [r1]
 	movs r0, #0xcf
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 _0809142A:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -575,7 +575,7 @@ _080915E0:
 	bhi _08091640
 	movs r0, #0x86
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	adds r0, r5, #0
 	adds r0, #0x86
 	ldrh r0, [r0]
@@ -593,7 +593,7 @@ _08091640:
 	movs r0, #0x10
 	strb r0, [r5, #0xf]
 	adds r0, #0xff
-	bl sub_08004488
+	bl EnqueueSFX
 _08091656:
 	add sp, #4
 	pop {r3, r4}

@@ -2,8 +2,6 @@
 #include "entity.h"
 
 extern void sub_080A0640(Entity*);
-extern void PositionRelative(Entity*, Entity*, s32, s32);
-extern void CopyPosition(Entity*, Entity*);
 
 extern void (*const gUnk_081248C4[])(Entity*);
 
@@ -31,7 +29,7 @@ void sub_080A05F4(Entity* this) {
         this->action = 2;
         InitializeAnimation(this, 2);
     } else {
-        if (this->parent->field_0x4 == NULL) {
+        if (this->parent->next == NULL) {
             DeleteThisEntity();
         }
         sub_080A0640(this);

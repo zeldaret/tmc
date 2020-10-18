@@ -3036,8 +3036,8 @@ _080AEF7E:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start sub_080AEF88
-sub_080AEF88: @ 0x080AEF88
+	thumb_func_start ProcessMovement
+ProcessMovement: @ 0x080AEF88
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x15]

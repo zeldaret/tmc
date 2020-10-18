@@ -5,6 +5,7 @@
 #include "textbox.h"
 #include "flags.h"
 #include "structures.h"
+#include "functions.h"
 
 typedef struct {
     u8 frame1;
@@ -21,8 +22,6 @@ typedef struct {
 extern void (*const gUnk_0810B774[])(Entity*);
 extern void (*const gUnk_0810B77C[])(Entity*);
 extern void sub_08061CB4(Entity*, u32);
-extern u32 sub_0806ED9C(Entity*, u32, u32);
-extern void sub_0806ED78(Entity*);
 extern u32 sub_0805ACC0(Entity*);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_0807DD64(Entity*);
@@ -36,8 +35,6 @@ extern void sub_08062048(Entity*);
 extern void sub_08078784(Entity*, u32);
 extern void sub_08078778(Entity*);
 extern u32 sub_0806F5B0(u32);
-extern void sub_080AEF88(Entity*);
-extern u32 Random(void);
 extern void ResolveEntityOnTop(Entity*, Entity*);
 extern void sub_08078850(Entity*, u32, u8, u32*);
 
@@ -50,7 +47,7 @@ extern u8 gUnk_0810B748[];
 extern u32 gUnk_0810B740[];
 extern u16 gUnk_0810B790[];
 extern u16 gUnk_0810B7BA[];
-extern u32 gUnk_0810B7C0[];
+extern Dialog gUnk_0810B7C0[];
 
 void Townsperson(Entity* this) {
     if ((this->flags & 2) != 0) {
@@ -194,7 +191,7 @@ void sub_08061E90(Entity* this, Entity* arg1) {
     if (arg1->spriteSettings.raw == 0) {
         arg1->spriteSettings.raw++;
         arg1->spriteIndex = (Random() & 0x3f) + 0x20;
-        animIndex = Random() & 0x18;
+        animIndex = DirectionRound(Random());
         switch (this->direction) {
             case 0x0:
                 if (animIndex == 0x10) {
@@ -224,7 +221,7 @@ void sub_08061E90(Entity* this, Entity* arg1) {
     if (animIndex != this->animIndex) {
         InitializeAnimation(this, animIndex);
     }
-    sub_080AEF88(this);
+    ProcessMovement(this);
     iVar4 = this->x.HALF.HI - *(s16*)&this->field_0x6a.HWORD;
     if (0x10 < iVar4) {
         this->x.HALF.HI = this->field_0x6a.HWORD + 0x10;
@@ -296,30 +293,27 @@ void sub_0806200C(Entity* this) {
     TextboxNoOverlap(gUnk_0810B7BA[index], this);
 }
 
-void sub_08062048(Entity *this)
-{
-  int iVar1;
-  
-  if ((this->entityType).subtype == 6) {
-    iVar1 = gUnk_02002A40.unk8 - 2;
-    if (iVar1 < 0) {
-      iVar1 = 0;
+void sub_08062048(Entity* this) {
+    int iVar1;
+
+    if ((this->entityType).subtype == 6) {
+        iVar1 = gUnk_02002A40.unk8 - 2;
+        if (iVar1 < 0) {
+            iVar1 = 0;
+        }
+        ShowNPCDialogue(this, gUnk_0810B7C0 + this->entityType.form * 0x8 + iVar1);
+    } else {
+        TextboxNoOverlap(0, this);
     }
-    ShowNPCDialogue(this, gUnk_0810B7C0 + this->entityType.form * 0x10 + iVar1 * 2);
-  }
-  else {
-    TextboxNoOverlap(0, this);
-  }
 }
 
-void Townsperson_Fusion(Entity *this)
-{  
-  if (this->action == 0) {
-    if (LoadExtraSpriteData(this, gUnk_0810B6EC[this->entityType.form]) == 0) {
-      return;
+void Townsperson_Fusion(Entity* this) {
+    if (this->action == 0) {
+        if (LoadExtraSpriteData(this, gUnk_0810B6EC[this->entityType.form]) == 0) {
+            return;
+        }
+        this->action++;
+        this->spriteSettings.b.draw = TRUE;
     }
-    this->action++;
-    this->spriteSettings.b.draw = TRUE;
-  }
-  sub_08061CB4(this, 6);
+    sub_08061CB4(this, 6);
 }

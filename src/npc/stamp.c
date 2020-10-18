@@ -1,24 +1,21 @@
 #include "global.h"
 #include "entity.h"
 #include "textbox.h"
+#include "functions.h"
 
 extern void sub_08078778(Entity*);
 extern void sub_0805E47C(Entity*);
-extern void sub_0806ED78(Entity*);
 extern void sub_0805E584();
 extern void sub_0807DD64();
 extern void sub_08062CA4();
 extern void sub_0807DDAC();
 extern void sub_0807DDE4();
 extern u32 CheckKinstoneFused();
-extern void ShowNPCDialogue();
 
 extern void (*gStampBehaviors1[4])(Entity*);
 extern void (*gStampBehaviors2[2])(Entity*);
 
-extern u32 gUnk_0810C2E4;
-
-
+extern Dialog gUnk_0810C2E4[2];
 
 void Stamp(Entity* ent) {
     if ((ent->flags & 2) != 0) {
@@ -80,7 +77,7 @@ void sub_08062CBC(Entity* ent) {
     u32 uVar1;
 
     uVar1 = CheckKinstoneFused(44);
-    ShowNPCDialogue(ent, &gUnk_0810C2E4 + ((-uVar1 | uVar1) >> 31) * 2);
+    ShowNPCDialogue(ent, &gUnk_0810C2E4[(-uVar1 | uVar1) >> 31]);
 }
 
 void sub_08062CE0(Entity* ent) {

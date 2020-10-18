@@ -70,7 +70,7 @@ _0807BA38: .4byte gRoomControls
 _0807BA3C: .4byte gUnk_02019EE0
 _0807BA40:
 	lsls r1, r1, #1
-	ldr r0, _0807BA7C @ =gUnk_02002F00
+	ldr r0, _0807BA7C @ =gMapDataTopSpecial
 _0807BA44:
 	adds r3, r1, r0
 	lsls r0, r7, #3
@@ -101,7 +101,7 @@ _0807BA44:
 _0807BA78:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0807BA7C: .4byte gUnk_02002F00
+_0807BA7C: .4byte gMapDataTopSpecial
 _0807BA80: .4byte 0x00007004
 _0807BA84: .4byte gRoomControls
 _0807BA88: .4byte gUnk_02000070
@@ -172,7 +172,7 @@ _0807BB14: .4byte gRoomControls
 _0807BB18: .4byte gUnk_02019EE0
 _0807BB1C:
 	lsls r1, r1, #1
-	ldr r0, _0807BB58 @ =gUnk_02002F00
+	ldr r0, _0807BB58 @ =gMapDataTopSpecial
 _0807BB20:
 	adds r3, r1, r0
 	lsls r0, r6, #3
@@ -203,7 +203,7 @@ _0807BB20:
 _0807BB54:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0807BB58: .4byte gUnk_02002F00
+_0807BB58: .4byte gMapDataTopSpecial
 _0807BB5C: .4byte 0x00007004
 _0807BB60: .4byte gRoomControls
 _0807BB64: .4byte gUnk_02000070
@@ -286,9 +286,9 @@ sub_0807BBE4: @ 0x0807BBE4
 	mov r6, sb
 	mov r5, r8
 	push {r5, r6, r7}
-	ldr r0, _0807BC28 @ =gUnk_0202AEB4
+	ldr r0, _0807BC28 @ =gMetatileTypesBottom
 	mov sl, r0
-	ldr r0, _0807BC2C @ =gUnk_02010654
+	ldr r0, _0807BC2C @ =gMetatileTypesTop
 	mov sb, r0
 	ldr r5, _0807BC30 @ =0xFFFFB000
 	add r5, sl
@@ -316,8 +316,8 @@ _0807BC14:
 	add r0, ip
 	b _0807BC4C
 	.align 2, 0
-_0807BC28: .4byte gUnk_0202AEB4
-_0807BC2C: .4byte gUnk_02010654
+_0807BC28: .4byte gMetatileTypesBottom
+_0807BC2C: .4byte gMetatileTypesTop
 _0807BC30: .4byte 0xFFFFB000
 _0807BC34: .4byte 0xFFFFD000
 _0807BC38: .4byte 0x00003FFF
@@ -815,7 +815,7 @@ sub_0807BFD0: @ 0x0807BFD0
 	bl sub_0801B170
 	bl sub_0807BFA8
 	ldr r7, _0807C0B8 @ =0x0000FFFF
-	ldr r6, _0807C0BC @ =gUnk_0202AEB4
+	ldr r6, _0807C0BC @ =gMetatileTypesBottom
 	movs r0, #0x80
 	lsls r0, r0, #5
 	mov r8, r0
@@ -825,7 +825,7 @@ sub_0807BFD0: @ 0x0807BFD0
 	bl _DmaFill16
 	movs r5, #0
 	strh r5, [r6]
-	ldr r4, _0807C0C0 @ =gUnk_02010654
+	ldr r4, _0807C0C0 @ =gMetatileTypesTop
 	adds r0, r7, #0
 	adds r1, r4, #0
 	mov r2, r8
@@ -853,7 +853,7 @@ _0807C01C:
 	lsls r2, r2, #2
 	adds r1, r1, r2
 	movs r2, #0x20
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r2, _0807C0D4 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80
@@ -894,7 +894,7 @@ _0807C078:
 	ble _0807C066
 	movs r2, #0x80
 	lsls r2, r2, #5
-	ldr r5, _0807C0C0 @ =gUnk_02010654
+	ldr r5, _0807C0C0 @ =gMetatileTypesTop
 	adds r6, r5, r2
 	ldr r4, _0807C0B8 @ =0x0000FFFF
 	adds r0, r4, #0
@@ -922,8 +922,8 @@ _0807C0A8:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0807C0B8: .4byte 0x0000FFFF
-_0807C0BC: .4byte gUnk_0202AEB4
-_0807C0C0: .4byte gUnk_02010654
+_0807C0BC: .4byte gMetatileTypesBottom
+_0807C0C0: .4byte gMetatileTypesTop
 _0807C0C4: .4byte gRoomControls
 _0807C0C8: .4byte gArea
 _0807C0CC: .4byte 0x0000085C
@@ -943,7 +943,7 @@ sub_0807C0DC: @ 0x0807C0DC
 	movs r0, #0xfc
 	ands r0, r1
 	strb r0, [r7, #0xf]
-	ldr r5, _0807C15C @ =gUnk_0200B654
+	ldr r5, _0807C15C @ =gMapDataTop
 	movs r6, #0x80
 	lsls r6, r6, #6
 	adds r0, r5, #0
@@ -958,7 +958,7 @@ sub_0807C0DC: @ 0x0807C0DC
 	lsls r4, r4, #8
 	adds r1, r4, #0
 	bl _DmaZero
-	ldr r0, _0807C164 @ =gUnk_02002F00
+	ldr r0, _0807C164 @ =gMapDataTopSpecial
 	adds r1, r4, #0
 	bl _DmaZero
 	ldr r0, _0807C168 @ =gArea
@@ -989,9 +989,9 @@ sub_0807C0DC: @ 0x0807C0DC
 	b _0807C184
 	.align 2, 0
 _0807C158: .4byte gRoomControls
-_0807C15C: .4byte gUnk_0200B654
+_0807C15C: .4byte gMapDataTop
 _0807C160: .4byte gUnk_02019EE0
-_0807C164: .4byte gUnk_02002F00
+_0807C164: .4byte gMapDataTopSpecial
 _0807C168: .4byte gArea
 _0807C16C: .4byte 0x0000085C
 _0807C170: .4byte gUnk_02025EB0
@@ -1008,29 +1008,29 @@ _0807C184:
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0807C1BC
-	ldr r0, _0807C1B4 @ =gUnk_02025EB4
+	ldr r0, _0807C1B4 @ =gMapDataBottom
 	movs r2, #0xc0
 	lsls r2, r2, #6
 	adds r1, r0, r2
 	movs r4, #0x80
 	lsls r4, r4, #6
 	adds r2, r4, #0
-	bl sub_0801D66C
-	ldr r0, _0807C1B8 @ =gUnk_0200B654
+	bl _DmaCopy
+	ldr r0, _0807C1B8 @ =gMapDataTop
 	movs r3, #0xc0
 	lsls r3, r3, #6
 	adds r1, r0, r3
 	adds r2, r4, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	b _0807C26C
 	.align 2, 0
 _0807C1B0: .4byte gScreenTransition
-_0807C1B4: .4byte gUnk_02025EB4
-_0807C1B8: .4byte gUnk_0200B654
+_0807C1B4: .4byte gMapDataBottom
+_0807C1B8: .4byte gMapDataTop
 _0807C1BC:
 	cmp r0, #2
 	bne _0807C26C
-	ldr r4, _0807C278 @ =gUnk_02025EB4
+	ldr r4, _0807C278 @ =gMapDataBottom
 	movs r0, #0xb0
 	lsls r0, r0, #8
 	adds r0, r0, r4
@@ -1040,35 +1040,35 @@ _0807C1BC:
 	adds r0, r4, #0
 	mov r1, r8
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r1, #0xc0
 	lsls r1, r1, #6
 	adds r6, r4, r1
 	adds r0, r6, #0
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	mov r0, r8
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r6, r4, r5
 	adds r0, r6, #0
 	mov r1, r8
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r2, #0x80
 	lsls r2, r2, #7
 	adds r4, r4, r2
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	mov r0, r8
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
-	ldr r4, _0807C27C @ =gUnk_0200B654
+	bl _DmaCopy
+	ldr r4, _0807C27C @ =gMapDataTop
 	movs r3, #0xb0
 	lsls r3, r3, #8
 	adds r3, r3, r4
@@ -1076,34 +1076,34 @@ _0807C1BC:
 	adds r0, r4, #0
 	mov r1, r8
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r0, #0xc0
 	lsls r0, r0, #6
 	adds r6, r4, r0
 	adds r0, r6, #0
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	mov r0, r8
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r6, r4, r5
 	adds r0, r6, #0
 	mov r1, r8
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r1, #0x80
 	lsls r1, r1, #7
 	adds r4, r4, r1
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	mov r0, r8
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 _0807C26C:
 	mov r2, sb
 	cmp r2, #0
@@ -1111,8 +1111,8 @@ _0807C26C:
 	bl sub_0807BBE4
 	b _0807C2A0
 	.align 2, 0
-_0807C278: .4byte gUnk_02025EB4
-_0807C27C: .4byte gUnk_0200B654
+_0807C278: .4byte gMapDataBottom
+_0807C27C: .4byte gMapDataTop
 _0807C280:
 	ldr r0, _0807C2CC @ =gUnk_02027EB4
 	ldrh r1, [r7, #0x1e]
@@ -1141,7 +1141,7 @@ _0807C2A0:
 	ldr r0, _0807C2DC @ =gUnk_02019EE0
 	adds r1, r4, #0
 	bl sub_0801AB08
-	ldr r0, _0807C2E0 @ =gUnk_02002F00
+	ldr r0, _0807C2E0 @ =gMapDataTopSpecial
 	adds r1, r5, #0
 	bl sub_0801AB08
 	b _0807C326
@@ -1151,7 +1151,7 @@ _0807C2D0: .4byte gUnk_0200D654
 _0807C2D4: .4byte gUnk_02025EB0
 _0807C2D8: .4byte gUnk_0200B650
 _0807C2DC: .4byte gUnk_02019EE0
-_0807C2E0: .4byte gUnk_02002F00
+_0807C2E0: .4byte gMapDataTopSpecial
 _0807C2E4:
 	ldr r4, _0807C34C @ =gUnk_02019EE0
 	movs r0, #0x80
@@ -1161,19 +1161,19 @@ _0807C2E4:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
 	bl _DmaZero
-	ldr r4, _0807C350 @ =gUnk_02002F00
+	ldr r4, _0807C350 @ =gMapDataTopSpecial
 	adds r5, r4, r6
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0807C5F4
@@ -1204,7 +1204,7 @@ _0807C33A:
 	mov pc, r0
 	.align 2, 0
 _0807C34C: .4byte gUnk_02019EE0
-_0807C350: .4byte gUnk_02002F00
+_0807C350: .4byte gMapDataTopSpecial
 _0807C354: .4byte _0807C358
 _0807C358: @ jump table
 	.4byte _0807C3BC @ case 0
@@ -1323,8 +1323,8 @@ sub_0807C460: @ 0x0807C460
 	mov r5, r8
 	push {r5, r6, r7}
 	sub sp, #8
-	ldr r7, _0807C4E8 @ =gUnk_02025EB4
-	ldr r6, _0807C4EC @ =gUnk_0200B654
+	ldr r7, _0807C4E8 @ =gMapDataBottom
+	ldr r6, _0807C4EC @ =gMapDataTop
 	ldr r0, _0807C4F0 @ =gRoomControls
 	ldrh r1, [r0, #0x1e]
 	lsrs r3, r1, #4
@@ -1390,8 +1390,8 @@ _0807C4DC:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0807C4E8: .4byte gUnk_02025EB4
-_0807C4EC: .4byte gUnk_0200B654
+_0807C4E8: .4byte gMapDataBottom
+_0807C4EC: .4byte gMapDataTop
 _0807C4F0: .4byte gRoomControls
 _0807C4F4: .4byte 0x00003FFF
 
@@ -1407,7 +1407,7 @@ sub_0807C4F8: @ 0x0807C4F8
 	lsls r4, r4, #8
 	adds r1, r4, #0
 	bl _DmaZero
-	ldr r0, _0807C59C @ =gUnk_02002F00
+	ldr r0, _0807C59C @ =gMapDataTopSpecial
 	adds r1, r4, #0
 	bl _DmaZero
 	ldr r5, _0807C5A0 @ =gUnk_02022830
@@ -1423,7 +1423,7 @@ _0807C524:
 	ldr r0, _0807C598 @ =gUnk_02019EE0
 	cmp r1, r0
 	beq _0807C534
-	ldr r0, _0807C59C @ =gUnk_02002F00
+	ldr r0, _0807C59C @ =gMapDataTopSpecial
 	cmp r1, r0
 	bne _0807C54A
 _0807C534:
@@ -1449,19 +1449,19 @@ _0807C54A:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
 	bl _DmaZero
-	ldr r4, _0807C59C @ =gUnk_02002F00
+	ldr r4, _0807C59C @ =gMapDataTopSpecial
 	adds r5, r4, r6
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0807C5F4
@@ -1473,7 +1473,7 @@ _0807C592:
 	.align 2, 0
 _0807C594: .4byte gRoomControls
 _0807C598: .4byte gUnk_02019EE0
-_0807C59C: .4byte gUnk_02002F00
+_0807C59C: .4byte gMapDataTopSpecial
 _0807C5A0: .4byte gUnk_02022830
 _0807C5A4: .4byte gArea
 _0807C5A8: .4byte 0x0000085C
@@ -1863,25 +1863,25 @@ sub_0807C860: @ 0x0807C860
 	adds r0, #0x2d
 	movs r1, #1
 	strb r1, [r0]
-	ldr r0, _0807C890 @ =gUnk_02025EB4
+	ldr r0, _0807C890 @ =gMapDataBottom
 	movs r2, #0xc0
 	lsls r2, r2, #6
 	adds r1, r0, r2
 	movs r4, #0x80
 	lsls r4, r4, #6
 	adds r2, r4, #0
-	bl sub_0801D66C
-	ldr r0, _0807C894 @ =gUnk_0200B654
+	bl _DmaCopy
+	ldr r0, _0807C894 @ =gMapDataTop
 	movs r2, #0xc0
 	lsls r2, r2, #6
 	adds r1, r0, r2
 	adds r2, r4, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	pop {r4, pc}
 	.align 2, 0
 _0807C88C: .4byte gScreenTransition
-_0807C890: .4byte gUnk_02025EB4
-_0807C894: .4byte gUnk_0200B654
+_0807C890: .4byte gMapDataBottom
+_0807C894: .4byte gMapDataTop
 
 	thumb_func_start sub_0807C898
 sub_0807C898: @ 0x0807C898

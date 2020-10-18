@@ -90,7 +90,7 @@ C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(C_BUILDDIR)/%.o,$(C_SRCS))
 ASM_SRCS := $(wildcard $(ASM_SUBDIR)/*.s)
 ASM_OBJS := $(patsubst $(ASM_SUBDIR)/%.s,$(ASM_BUILDDIR)/%.o,$(ASM_SRCS))
 
-DATA_ASM_SRCS := $(wildcard $(DATA_ASM_SUBDIR)/*.s)
+DATA_ASM_SRCS := $(wildcard $(DATA_ASM_SUBDIR)/*.s $(DATA_ASM_SUBDIR)/**/*.s)
 DATA_ASM_OBJS := $(patsubst $(DATA_ASM_SUBDIR)/%.s,$(DATA_ASM_BUILDDIR)/%.o,$(DATA_ASM_SRCS))
 
 SONG_SRCS := $(wildcard $(SONG_SUBDIR)/*.s)
@@ -161,6 +161,7 @@ include songs.mk
 sound/%.bin: sound/%.aif ; $(AIF) $< $@
 sound/songs/%.s: sound/songs/%.mid
 	cd $(@D) && ../../$(MID) $(<F)
+translations/USA.bin: translations/USA.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x499E0
 
 ifeq ($(NODEP),1)
 $(C_BUILDDIR)/%.o: c_dep :=

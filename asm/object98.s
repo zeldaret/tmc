@@ -35,7 +35,7 @@ _0809E372:
 	ldrb r2, [r4, #0xe]
 	movs r0, #0x48
 	subs r0, r0, r2
-	ldr r1, _0809E3E0 @ =gUnk_03003DBC
+	ldr r1, _0809E3E0 @ =gEntCount
 	ldrb r1, [r1]
 	cmp r0, r1
 	ble _0809E3D8
@@ -86,7 +86,7 @@ _0809E3D8:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0809E3E0: .4byte gUnk_03003DBC
+_0809E3E0: .4byte gEntCount
 
 	thumb_func_start sub_0809E3E4
 sub_0809E3E4: @ 0x0809E3E4

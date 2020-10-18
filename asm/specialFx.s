@@ -101,7 +101,7 @@ _0808456C:
 	cmp r0, #0
 	bne _08084582
 	ldrh r0, [r4, #2]
-	bl sub_08004488
+	bl EnqueueSFX
 _08084582:
 	ldrb r1, [r5, #0xb]
 	movs r0, #0x80

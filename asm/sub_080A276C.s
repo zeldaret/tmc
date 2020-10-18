@@ -29,10 +29,10 @@ sub_080A276C: @ 0x080A276C
 	str r5, [r6, #0x50]
 	adds r0, r6, #0
 	movs r1, #6
-	bl sub_0805EA2C
+	bl AppendEntityToList
 	adds r0, r6, #0
 	movs r1, #6
-	bl sub_0805EA78
+	bl PrependEntityToList
 	ldr r4, _080A2828 @ =gPlayerEntity
 	adds r0, r4, #0
 	adds r1, r6, #0

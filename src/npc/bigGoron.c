@@ -2,19 +2,18 @@
 #include "entity.h"
 #include "player.h"
 #include "structures.h"
+#include "functions.h"
 
 extern void (*gUnk_081140D4[])(Entity*);
 
 extern u16 gUnk_081140CC[];
-extern void sub_0805E3A0(Entity*, u32);
 extern void sub_0806D0B0(Entity*);
 extern void sub_0807DD64(Entity*);
 extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
-extern u32 Random(void);
 extern void PlaySFX(u32);
 extern void sub_0806D02C(Entity*);
-extern Entity* sub_0805EB2C(u32, u32, u32, u32, u32);
+extern Entity* FindEntityInListByForm(u32, u32, u32, u32, u32);
 
 void BigGoron(Entity* this) {
     gUnk_081140D4[this->entityType.form](this);
@@ -62,7 +61,7 @@ void sub_0806CF30(Entity* this) {
 void sub_0806D00C(Entity* this) {
     Entity* pEVar1;
 
-    pEVar1 = sub_0805EB2C(7, 76, 7, 0, 0);
+    pEVar1 = FindEntityInListByForm(7, 76, 7, 0, 0);
     if (pEVar1 != NULL) {
         this->parent = pEVar1;
     }

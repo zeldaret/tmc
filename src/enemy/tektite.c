@@ -56,7 +56,7 @@ void nullsub_16(Entity* this) {
 }
 
 void sub_0802F1F0(Entity* this) {
-    sub_08001242();
+    sub_08001242(this);
     if (this->height.HALF.HI != 0) {
         sub_08003FC4(this, this->field_0x80.HWORD);
     }
@@ -113,7 +113,7 @@ void sub_0802F300(Entity* this) {
     u32 rand;
 
     GetNextFrame(this);
-    sub_080AEF88(this);
+    ProcessMovement(this);
     temp = this->height.HALF.HI;
     rand = Random() & 0xf;
 

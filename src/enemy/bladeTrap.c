@@ -3,7 +3,7 @@
 #include "room.h"
 extern void sub_080A2CC0();
 extern void sub_0806F69C();
-extern void sub_08004488();
+extern void EnqueueSFX();
 extern Entity* GetCurrentRoomProperty();
 
 void BladeTrap(Entity* ent) {
@@ -22,12 +22,12 @@ void BladeTrap(Entity* ent) {
 
     
 
-    puVar3 = &(ent->field_0x74);
+    puVar3 = &(ent->field_0x74.HWORD);
     uVar1 = *puVar3;
     *puVar3 = uVar1 - 1;
     if ((*puVar3) == 0) {
         if ((u16)(ent->direction & 0x80) == 0) {
-            sub_08004488(0x74);
+            EnqueueSFX(0x74);
         }
         sub_080A2CC0((EntityData*)ent, &ent->attachedEntity, puVar3);
     }

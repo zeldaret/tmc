@@ -14,7 +14,6 @@ extern void sub_0803CAD0(Entity *);
 // sub_0803C784
 extern void sub_0803CBAC(Entity *); // Also used in sub_0803C86C
 extern Entity *CreateFx(Entity*, u32, u32);
-extern void sub_0804A9FC(Entity *, u32);
 extern void sub_0804AA30(Entity *, void (*const funcs[])(Entity *));
 
 // sub_0803C820
@@ -51,7 +50,7 @@ extern u32 sub_080041A0(Entity *, Entity *, u32, u32);
 extern u32 GetFacingDirection(Entity *, Entity *);
 
 // sub_0803CB64
-extern void sub_08004488(u32);
+extern void EnqueueSFX(u32);
 
 typedef struct {
     s8 x;
@@ -161,8 +160,8 @@ void sub_0803C87C(Entity *this) {
 
     this->spriteOffsetY = 0xff;
 
-    this->field_0x74 = this->x.HALF.HI;
-    this->field_0x76 = this->y.HALF.HI;
+    this->field_0x74.HWORD = this->x.HALF.HI;
+    this->field_0x76.HWORD = this->y.HALF.HI;
 }
 
 void sub_0803C8BC(Entity *this) {
@@ -281,8 +280,7 @@ void sub_0803CA84(Entity *this, u32 unkParameter) {
     u32 altAnimState = GetFacingDirection(this, &gPlayerEntity);
 
     if (((altAnimState - 3) & 7) > 2 || ((this->animationState  - (altAnimState >> 3)) & 3) > 1) {
-        u32 intermediate = (altAnimState + 4) & 0x18;
-        altAnimState = intermediate >> 3;
+        altAnimState = DirectionRoundUp(altAnimState) >> 3;
 
         if (altAnimState != this->animationState) {
             this->animationState = altAnimState;
@@ -294,8 +292,8 @@ void sub_0803CA84(Entity *this, u32 unkParameter) {
 }
 
 void sub_0803CAD0(Entity *this) {
-    if (sub_0806FCB8(this, this->field_0x74, this->field_0x76, 1) == 0) {
-        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, this->field_0x74, this->field_0x76);
+    if (sub_0806FCB8(this, this->field_0x74.HWORD, this->field_0x76.HWORD, 1) == 0) {
+        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, this->field_0x74.HWORD, this->field_0x76.HWORD);
 
         sub_080AEFE0(this);
     }
@@ -345,7 +343,7 @@ void sub_0803CB64(Entity *this) {
 
     PositionRelative(this, cloud, offset->x << 16, offset->y << 16);
 
-    sub_08004488(0x193);
+    EnqueueSFX(0x193);
 }
 
 void sub_0803CBAC(Entity *this) {

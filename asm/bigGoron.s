@@ -91,7 +91,7 @@ sub_0806D0B0: @ 0x0806D0B0
 	movs r0, #0x30
 	bl LoadGfxGroup
 	bl sub_0806D110
-	ldr r5, _0806D0EC @ =gUnk_02002F00
+	ldr r5, _0806D0EC @ =gMapDataTopSpecial
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r5, #0
@@ -110,7 +110,7 @@ _0806D0DA:
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806D0E8: .4byte gUnk_0200B650
-_0806D0EC: .4byte gUnk_02002F00
+_0806D0EC: .4byte gMapDataTopSpecial
 _0806D0F0: .4byte gScreen
 _0806D0F4: .4byte 0x00001D47
 
@@ -120,7 +120,7 @@ sub_0806D0F8: @ 0x0806D0F8
 	movs r0, #7
 	movs r1, #0x4c
 	movs r2, #7
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	beq _0806D10C
 	bl sub_0806D0B0
@@ -131,7 +131,7 @@ _0806D10C:
 	thumb_func_start sub_0806D110
 sub_0806D110: @ 0x0806D110
 	push {r4, r5, lr}
-	ldr r4, _0806D134 @ =gUnk_02002F00
+	ldr r4, _0806D134 @ =gMapDataTopSpecial
 	movs r0, #0x80
 	lsls r0, r0, #7
 	adds r5, r4, r0
@@ -147,7 +147,7 @@ sub_0806D110: @ 0x0806D110
 	bl sub_0806D138
 	pop {r4, r5, pc}
 	.align 2, 0
-_0806D134: .4byte gUnk_02002F00
+_0806D134: .4byte gMapDataTopSpecial
 
 	thumb_func_start sub_0806D138
 sub_0806D138: @ 0x0806D138
@@ -928,7 +928,7 @@ sub_0806D6D0: @ 0x0806D6D0
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D6EE
@@ -940,7 +940,7 @@ _0806D6EE:
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D706
@@ -961,7 +961,7 @@ sub_0806D70C: @ 0x0806D70C
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0806D728
@@ -972,7 +972,7 @@ _0806D728:
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0806D746
@@ -996,7 +996,7 @@ sub_0806D74C: @ 0x0806D74C
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D76A
@@ -1008,7 +1008,7 @@ _0806D76A:
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D782
@@ -1029,7 +1029,7 @@ sub_0806D788: @ 0x0806D788
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D7A6
@@ -1041,7 +1041,7 @@ _0806D7A6:
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #1
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D7BE
@@ -1070,7 +1070,7 @@ sub_0806D7C4: @ 0x0806D7C4
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	cmp r0, #0
 	beq _0806D7FC
 	movs r1, #0x2e
@@ -1098,7 +1098,7 @@ sub_0806D804: @ 0x0806D804
 	movs r1, #0x4c
 	movs r2, #7
 	movs r3, #2
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806D83A

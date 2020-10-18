@@ -31,7 +31,7 @@ void sub_0809ED54(Entity *this)
   
   if (((this->cutsceneBeh.HWORD == 0) || CheckFlags(this->cutsceneBeh.HWORD)) &&
      ((this->entityType.parameter != 1 ||
-      (--this->field_0x74 == 0)))) {
+      (--this->field_0x74.HWORD == 0)))) {
     sub_0809EE08(this);
   }
 }
@@ -40,8 +40,8 @@ void sub_0809ED88(Entity *this)
 {
   sub_0809F08C();
   sub_0809EE44(this);
-  if (this->field_0x86 != 0) {
-    if (this->cutsceneBeh.HWORD == this->field_0x86) {
+  if (this->field_0x86.HWORD != 0) {
+    if (this->cutsceneBeh.HWORD == this->field_0x86.HWORD) {
       if (CheckFlags(this->cutsceneBeh.HWORD)) {
         return;
       }
@@ -52,7 +52,7 @@ void sub_0809ED88(Entity *this)
     sub_0809EE24(this);
   }
   else if (((this->entityType).parameter == 1) &&
-       (--this->field_0x74 == 0)) {
+       (--this->field_0x74.HWORD == 0)) {
       sub_0809EE24(this);
     }
 }
@@ -69,7 +69,7 @@ void sub_0809EDE4(Entity *this)
 void sub_0809EE08(Entity *this)
 {
   this->action = 2;
-  this->field_0x74 = *((u8 *)&this->field_0x7c + 3) << 2;
+  this->field_0x74.HWORD = *((u8 *)&this->field_0x7c + 3) << 2;
   InitializeAnimation(this, this->entityType.form);
 }
 
@@ -82,5 +82,5 @@ void sub_0809EE24(Entity *this)
 void sub_0809EE34(Entity *this)
 {
   this->action = 1;
-  this->field_0x74 = this->actionDelay << 2;
+  this->field_0x74.HWORD = this->actionDelay << 2;
 }

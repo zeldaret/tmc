@@ -211,7 +211,7 @@ sub_08094B94: @ 0x08094B94
 	adds r1, #0x84
 	str r0, [r1]
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 	ldrh r0, [r4, #0x36]
 	adds r0, #0x10
 	strh r0, [r4, #0x36]
@@ -235,7 +235,7 @@ sub_08094BE0: @ 0x08094BE0
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #0x22
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08094C22
@@ -390,7 +390,7 @@ sub_08094D10: @ 0x08094D10
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #3
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08094D2E
@@ -442,7 +442,7 @@ sub_08094D70: @ 0x08094D70
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #0x15
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08094D8E
@@ -527,7 +527,7 @@ sub_08094E0C: @ 0x08094E0C
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #4
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08094E2A
@@ -637,7 +637,7 @@ _08094ED4:
 	bl InitializeAnimation
 	movs r0, #0xbf
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	b _08094F94
 	.align 2, 0
 _08094F04: .4byte 0xFFFFE000
@@ -951,7 +951,7 @@ sub_08095164: @ 0x08095164
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #8
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	cmp r0, #0
 	beq _08095182
 	movs r1, #3
@@ -1692,7 +1692,7 @@ _0809572C:
 	adds r0, #0x6c
 	adds r1, r4, #0
 	movs r2, #0x1c
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldrh r0, [r4, #0x14]
 	strh r0, [r5, #0x2e]
 	ldrh r0, [r4, #0x16]
@@ -1992,7 +1992,7 @@ sub_08095954: @ 0x08095954
 	str r0, [r1]
 	movs r0, #0x92
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	adds r2, r5, #0
 	adds r2, #0x5a
 	ldrb r1, [r2]
@@ -2103,7 +2103,7 @@ sub_08095A68: @ 0x08095A68
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #0x16
-	bl sub_0805EB2C
+	bl FindEntityInListByForm
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08095A86

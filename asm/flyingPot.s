@@ -342,7 +342,7 @@ _080372CC:
 	adds r0, r5, #0
 	movs r1, #1
 	movs r2, #0x40
-	bl sub_08049F64
+	bl PlayerInRange
 	cmp r0, #0
 	beq _080372E2
 	movs r0, #2

@@ -360,7 +360,7 @@ sub_0809AA00: @ 0x0809AA00
 	movs r0, #7
 	movs r1, #0x38
 	movs r2, #7
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	adds r4, r0, #0
 	adds r7, r5, #0
 	adds r7, #0x78
@@ -380,7 +380,7 @@ _0809AA30:
 _0809AA3A:
 	adds r0, r4, #0
 	movs r1, #7
-	bl sub_0805EB64
+	bl FindNextEntityOfSameSubtype
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _0809AA30

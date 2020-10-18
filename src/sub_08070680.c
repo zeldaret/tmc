@@ -51,9 +51,9 @@ void sub_08070698(Entity *this)
     if (gPlayerState.swimState != 0) {
       gPlayerState.swimState = 1;
       sub_08079938();
-      gPlayerState.field_0xa8[0] = 7;
+      gPlayerState.field_0xa8 = 7;
       sub_0807ACCC(this);
-      ent = sub_0805EB2C(0x6, 0xf, 0x6, 0xb, 0x0);
+      ent = FindEntityInListByForm(0x6, 0xf, 0x6, 0xb, 0x0);
       if (ent != NULL) {
         DeleteEntity(ent);
       }

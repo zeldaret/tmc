@@ -72,7 +72,7 @@ void sub_08033650(Entity* this) {
 }
 
 void sub_08033658(Entity* this) {
-    sub_0806F4E8();
+    sub_0806F4E8(this);
 }
 
 void sub_08033660(Entity* this) {
@@ -98,7 +98,7 @@ void sub_080336A8(Entity* this) {
     } else if (this->collisions != 0) {
         sub_0800417E(this, this->collisions);
     }
-    sub_080AEF88(this);
+    ProcessMovement(this);
     GetNextFrame(this);
 }
 
@@ -109,7 +109,7 @@ void sub_080336DC(Entity* this) {
             this->y.HALF.HI = this->field_0x82.HWORD;
             break;
         case 0x18:
-            sub_080A29BC(this);
+            CreateDust(this);
             break;
         case 0xc:
             this->spriteSettings.b.draw = TRUE;

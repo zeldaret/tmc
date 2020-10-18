@@ -10,7 +10,7 @@
 #include "main.h"
 #include "structures.h"
 
-void sub_0804B3C4(u32 arg0) {
+void sub_0804B3C4(void* arg0) {
     sub_0804B29C(arg0);
 }
 
@@ -2057,7 +2057,7 @@ extern EntityData gUnk_080DE4C8;
 
 void sub_0804CBB0(void) {
 
-    if ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) < (gRoomControls.filler2[4] >> 1)) {
+    if ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) < (gRoomControls.height >> 1)) {
         if (!CheckLocalFlag(0x17)) {
             LoadRoomEntityList(&gUnk_080DE4C8);
         }
@@ -4231,7 +4231,7 @@ extern EntityData gUnk_080EEBAC;
 void LoadHyruleTown(void) {
 
     sub_08054570();
-    sub_08059D18();
+    TryLoadPrologueHyruleTown();
     SetTileType(0x176, 0x66b, 1);
     if (gUnk_02002A40.unk8 == 1) {
         sub_0801D000(0);
@@ -4467,9 +4467,38 @@ u32 sub_0804E3B8() {
     return 1;
 }
 
-NAKED
+extern u8* gUnk_080F0D58[4];
+extern Entity* gUnk_080F0CB8[15];
+extern u8* gUnk_080F0E08[];
+extern struct {
+    u32 unk_00;
+    u32 unk_04;
+} gUnk_080F0E1C[];
+
 void sub_0804E3C4() {
-    asm(".include \"asm/non_matching/sub_0804E3C4.inc\"");
+    u32 r;
+    u32 index;
+    u32 tmp;
+    tmp = CheckGlobalFlag(LV4_CLEAR);
+    index = (-tmp | tmp) >> 0x1F;
+    if (CheckGlobalFlag(LV5_CLEAR)) {
+        index = 2;
+    }
+    if (CheckGlobalFlag(GAMECLEAR)) {
+        index = 3;
+    }
+    r = Random();
+    index = gUnk_080F0D58[index][r&0x1f];
+    LoadRoomEntityList(gUnk_080F0CB8[index & 0xF]);
+    index >>= 4;
+    r >>= 8;
+    index = gUnk_080F0E08[index][r&0x1F];
+    if (!CheckLocalFlag(0xC6)) {
+        SetLocalFlag(0xC6);
+        index = 0xE;
+    }
+    sub_0804B3C4(&gUnk_080F0E1C[index]);
+    PlaySFX(0x80100000);
 }
 
 u32 sub_0804E45C() {

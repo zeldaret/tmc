@@ -164,7 +164,7 @@ _0803A270: .4byte gUnk_080CFC3C
 sub_0803A274: @ 0x0803A274
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _0803A2C8 @ =gUnk_03003DBC
+	ldr r0, _0803A2C8 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x44
 	bhi _0803A360
@@ -200,7 +200,7 @@ sub_0803A274: @ 0x0803A274
 	bl PositionRelative
 	b _0803A310
 	.align 2, 0
-_0803A2C8: .4byte gUnk_03003DBC
+_0803A2C8: .4byte gEntCount
 _0803A2CC:
 	movs r0, #0x38
 	movs r1, #1

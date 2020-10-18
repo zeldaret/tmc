@@ -84,24 +84,12 @@ void sub_0806b2b4(Entity* this) {
     TextboxNoOverlap(gUnk_08112D50[index], this);
 }
 
-void Librari_Fusion(Entity *this)
-{
-  if (this->action == 0) {
-    this->action++;
-    this->spriteSettings.b.draw = TRUE;
-    InitAnimationForceUpdate(this, 9);
-  }
-  else {
-    UpdateAnimationSingleFrame(this);
-  }
-}
-
-void Percy_Head(Entity *this) // ???
-{
-  SetExtraSpriteFrame(this, 0, (this->frameSpriteSettings & 0x3f) + 0x13);
-  SetExtraSpriteFrame(this, 1, (this->frames.all & 0x7f) + 0xb);
-  SetExtraSpriteFrame(this, 2, this->frameIndex);
-  SetSpriteSubEntryOffsetData1(this, 2, 1);
-  SetSpriteSubEntryOffsetData2(this, 2, 0);
-  sub_0807000C(this);
+void Librari_Fusion(Entity* this) {
+    if (this->action == 0) {
+        this->action++;
+        this->spriteSettings.b.draw = TRUE;
+        InitAnimationForceUpdate(this, 9);
+    } else {
+        UpdateAnimationSingleFrame(this);
+    }
 }

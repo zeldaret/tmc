@@ -41,7 +41,7 @@ extern void (*const gUnk_0810F544[])(Entity*);
 extern void (*const gUnk_0810F550[])(Entity*);
 
 // entity count
-extern u8 gUnk_03003DBC;
+extern u8 gEntCount;
 extern SpriteLoadData gUnk_0810F524[];
 extern void* gUnk_0810F6BC[];
 extern ScreenTransition gScreenTransition;
@@ -63,7 +63,7 @@ void sub_08063D44(Entity* this) {
     Entity* ent;
     u32 temp, idx;
 
-    if (gUnk_03003DBC > 0x46)
+    if (gEntCount > 0x46)
         return;
 
     temp = this->entityType.subtype;

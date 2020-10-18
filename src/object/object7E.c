@@ -4,7 +4,7 @@
 
 void Object7E(Entity *this) {
     
-    if (this->parent->field_0x4 == NULL) {
+    if (this->parent->next == NULL) {
         DeleteThisEntity();
     }
     if (this->action == 0) {

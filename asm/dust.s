@@ -146,7 +146,7 @@ _080441F2:
 	beq _0804429A
 	adds r0, r6, #0
 	adds r2, r5, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r1, r4, #0
 	adds r1, #0x28
 	movs r0, #0xff

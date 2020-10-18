@@ -100,7 +100,7 @@ _0802ED0E:
 	beq _0802ED24
 	movs r0, #0xbd
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 _0802ED24:
 	ldrb r0, [r5]
 	strb r0, [r6]
@@ -123,7 +123,7 @@ _0802ED3E:
 	cmp r0, #0xff
 	beq _0802ED4E
 	movs r0, #0xe5
-	bl sub_08004488
+	bl EnqueueSFX
 _0802ED4E:
 	movs r0, #0xff
 	strb r0, [r5]
@@ -161,11 +161,11 @@ _0802ED88: .4byte gUnk_080CDE5C
 sub_0802ED8C: @ 0x0802ED8C
 	push {r4, lr}
 	adds r4, r0, #0
-	ldr r0, _0802EDD0 @ =gUnk_03003DBC
+	ldr r0, _0802EDD0 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x46
 	bhi _0802EE0A
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0802EE0A
@@ -176,7 +176,7 @@ sub_0802ED8C: @ 0x0802ED8C
 	str r4, [r1, #0x14]
 	adds r0, r1, #0
 	movs r1, #8
-	bl sub_0805EA2C
+	bl AppendEntityToList
 	movs r0, #0x25
 	movs r1, #2
 	bl CreateEnemy
@@ -191,7 +191,7 @@ sub_0802ED8C: @ 0x0802ED8C
 	adds r0, #0x3a
 	b _0802EDE0
 	.align 2, 0
-_0802EDD0: .4byte gUnk_03003DBC
+_0802EDD0: .4byte gEntCount
 _0802EDD4: .4byte gRoomControls
 _0802EDD8: .4byte gScreenTransition
 _0802EDDC:
@@ -246,7 +246,7 @@ _0802EE34: .4byte gUnk_080CDE64
 sub_0802EE38: @ 0x0802EE38
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r0, _0802EE84 @ =gUnk_03003DBC
+	ldr r0, _0802EE84 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x46
 	bhi _0802EE82
@@ -280,7 +280,7 @@ sub_0802EE38: @ 0x0802EE38
 _0802EE82:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0802EE84: .4byte gUnk_03003DBC
+_0802EE84: .4byte gEntCount
 _0802EE88: .4byte gUnk_080CDE6C
 
 	thumb_func_start sub_0802EE8C
@@ -528,7 +528,7 @@ sub_0802F04C: @ 0x0802F04C
 	movs r1, #0x32
 	ldrsh r6, [r4, r1]
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	bne _0802F06A
 	adds r0, r4, #0

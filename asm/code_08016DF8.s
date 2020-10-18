@@ -398,7 +398,7 @@ _080170E8:
 	cmp r0, #0
 	bne _08017112
 	ldr r0, _08017138 @ =0x0000011F
-	bl sub_08004488
+	bl EnqueueSFX
 _08017112:
 	ldr r0, _0801712C @ =gUnk_02002A40
 	adds r2, r0, #0
@@ -469,7 +469,7 @@ _08017196:
 	cmp r1, #0
 	bne _080171A4
 	adds r0, r5, #0
-	bl sub_080A2B80
+	bl CreateSparkle
 _080171A4:
 	ldr r0, _080171B8 @ =gUnk_02002A40
 	adds r3, r0, #0

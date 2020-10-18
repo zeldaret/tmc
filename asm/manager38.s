@@ -37,7 +37,7 @@ sub_0805E0C0: @ 0x0805E0C0
 _0805E0DE:
 	adds r0, r4, #0
 	adds r4, #0x10
-	bl CreateEntity
+	bl LoadRoomEntity
 	str r5, [r0, #0x50]
 	movs r1, #0xff
 	strb r1, [r0, #0xe]

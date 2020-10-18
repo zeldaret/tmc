@@ -412,7 +412,7 @@ sub_0805DA90: @ 0x0805DA90
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	adds r4, r1, #0
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0805DAB4
@@ -424,7 +424,7 @@ sub_0805DA90: @ 0x0805DA90
 	str r5, [r1, #0x14]
 	adds r0, r1, #0
 	movs r1, #8
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _0805DAB4:
 	ldr r0, _0805DAD8 @ =gArea
 	ldr r1, _0805DADC @ =0x0000088C
@@ -439,7 +439,7 @@ _0805DAB4:
 	strh r0, [r2]
 	bl sub_080528F0
 	ldr r0, [r4]
-	bl sub_0805E900
+	bl DeleteManager
 _0805DAD4:
 	pop {r4, r5, pc}
 	.align 2, 0

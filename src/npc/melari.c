@@ -4,17 +4,14 @@
 #include "textbox.h"
 #include "functions.h"
 
-extern void sub_0806ED78(Entity*);
 extern void sub_08068780(Entity*);
 extern void sub_08078778(Entity*);
-extern u32 Random(void);
-extern void sub_0805E3A0(Entity*, u32);
 extern void sub_0807DD50(Entity*);
 extern void sub_0806F118(Entity*);
 extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern u32 sub_080040A8(Entity*);
-extern void sub_08004488(u32);
+extern void EnqueueSFX(u32);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_08078784(Entity*, u32);
 extern void sub_0807000C(Entity*);
@@ -101,7 +98,7 @@ void sub_08068780(Entity* this) {
         if (sub_080040A8(this) == 0) {
             PlaySFX(gUnk_0811153E[(s32)Random() % 3]);
         } else {
-            sub_08004488(gUnk_08111538[(s32)Random() % 3]);
+            EnqueueSFX(gUnk_08111538[(s32)Random() % 3]);
         }
         ent = CreateFx(this, 0x3d, 0x20);
         if (ent != NULL) {

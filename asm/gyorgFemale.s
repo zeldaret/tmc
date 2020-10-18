@@ -24,7 +24,7 @@ _08046148: .4byte gUnk_080D1A64
 sub_0804614C: @ 0x0804614C
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
-	ldr r0, _08046248 @ =gUnk_03003DBC
+	ldr r0, _08046248 @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x3d
 	bhi _08046244
@@ -113,7 +113,7 @@ sub_0804614C: @ 0x0804614C
 	lsls r4, r4, #8
 	adds r1, r4, #0
 	bl _DmaZero
-	ldr r0, _08046250 @ =gUnk_02002F00
+	ldr r0, _08046250 @ =gMapDataTopSpecial
 	adds r1, r4, #0
 	bl _DmaZero
 	adds r0, r6, #0
@@ -133,9 +133,9 @@ sub_0804614C: @ 0x0804614C
 _08046244:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08046248: .4byte gUnk_03003DBC
+_08046248: .4byte gEntCount
 _0804624C: .4byte gUnk_02019EE0
-_08046250: .4byte gUnk_02002F00
+_08046250: .4byte gMapDataTopSpecial
 _08046254: .4byte gPlayerEntity
 _08046258: .4byte sub_08046498
 
@@ -446,7 +446,7 @@ sub_08046498: @ 0x08046498
 	lsls r4, r4, #8
 	adds r1, r4, #0
 	bl _DmaZero
-	ldr r0, _080464BC @ =gUnk_02002F00
+	ldr r0, _080464BC @ =gMapDataTopSpecial
 	adds r1, r4, #0
 	bl _DmaZero
 	adds r0, r5, #0
@@ -454,7 +454,7 @@ sub_08046498: @ 0x08046498
 	pop {r4, r5, pc}
 	.align 2, 0
 _080464B8: .4byte gUnk_02019EE0
-_080464BC: .4byte gUnk_02002F00
+_080464BC: .4byte gMapDataTopSpecial
 
 	thumb_func_start sub_080464C0
 sub_080464C0: @ 0x080464C0
@@ -475,7 +475,7 @@ _080464DE:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	movs r2, #0x40
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r0, #0x80
 	lsls r0, r0, #1
 	adds r5, r5, r0
@@ -505,7 +505,7 @@ sub_08046518: @ 0x08046518
 	mov r5, r8
 	push {r5, r6, r7}
 	sub sp, #8
-	ldr r1, _080465AC @ =gUnk_02010654
+	ldr r1, _080465AC @ =gMetatileTypesTop
 	ldr r2, _080465B0 @ =0xFFFFBCB0
 	adds r0, r1, r2
 	ldr r3, _080465B4 @ =0xFFFFECB0
@@ -541,7 +541,7 @@ _08046560:
 	strh r0, [r4]
 	ldrh r0, [r3]
 	lsls r0, r0, #1
-	ldr r7, _080465AC @ =gUnk_02010654
+	ldr r7, _080465AC @ =gMetatileTypesTop
 	adds r0, r0, r7
 	ldrh r1, [r0]
 	ldr r0, [sp, #4]
@@ -575,7 +575,7 @@ _08046560:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080465AC: .4byte gUnk_02010654
+_080465AC: .4byte gMetatileTypesTop
 _080465B0: .4byte 0xFFFFBCB0
 _080465B4: .4byte 0xFFFFECB0
 _080465B8: .4byte 0x00006658

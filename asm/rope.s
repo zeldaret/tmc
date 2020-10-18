@@ -214,7 +214,7 @@ _080314CC:
 	adds r0, r4, #0
 	bl UpdateSpriteForCollisionLayer
 	movs r0, #0x84
-	bl sub_08004488
+	bl EnqueueSFX
 _080314FA:
 	pop {r4, pc}
 
@@ -398,6 +398,6 @@ _08031652:
 _08031658:
 	strh r0, [r4, #0x24]
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	pop {r4, pc}
 	.align 2, 0

@@ -10,36 +10,33 @@ typedef struct OtherEntity {
 
 extern Entity gUnk_030011E8[7];
 
-Entity* sub_0805E744(void)
-
-{
+Entity* sub_0805E744(void) {
     Entity* ent = gUnk_030011E8;
 
     do {
-        if (ent->field_0x0 == NULL) {
+        if (ent->prev == NULL) {
             return ent;
         }
-    } while (ent++, ent < &gUnk_030011E8[7]);
+    } while (++ent < &gUnk_030011E8[7]);
 
     return NULL;
 }
 
 extern Entity* GetEmptyEntity();
-OtherEntity* sub_0805E8D4();
+OtherEntity* GetEmptyManager();
 
 typedef void* (*Getter)(void);
 
-void* sub_0805E768(int type)
-
-{
+void* GetEmptyEntityByType(int type) {
     Getter getter = NULL;
     if (type == 9) {
-        getter = (Getter)sub_0805E8D4;
+        getter = (Getter)GetEmptyManager;
     } else {
         getter = (Getter)GetEmptyEntity;
     }
     return getter();
 }
+
 typedef struct {
     int field_0x0;
     int field_0x4;
@@ -49,28 +46,23 @@ typedef struct {
 
 extern struct_03003DD0 gUnk_03003DD0;
 extern u32 _call_via_r0(u32*);
-extern u32 gUnk_03005F24;
-extern void sub_0805E79C(Entity*);
+extern u32 _EntUpdate;
+extern void DeleteEntityAny(Entity*);
 
-void DeleteThisEntity(void)
-
-{
-    sub_0805E79C(gUnk_03003DD0.field_0x8);
-    _call_via_r0((u32*)&gUnk_03005F24);
-    return;
+void DeleteThisEntity(void) {
+    DeleteEntityAny(gUnk_03003DD0.field_0x8);
+    _call_via_r0((u32*)&_EntUpdate);
 }
 
 void DeleteEntity(Entity*);
-void sub_0805E900(OtherEntity*);
+void DeleteManager(OtherEntity*);
 
 typedef void (*Deleter)(void*);
 
-void sub_0805E79C(Entity* ent)
-
-{
+void DeleteEntityAny(Entity* ent) {
     Deleter deleter = NULL;
     if (ent->entityType.type == 9) {
-        deleter = (Deleter)sub_0805E900;
+        deleter = (Deleter)DeleteManager;
     } else {
         deleter = (Deleter)DeleteEntity;
     }
@@ -78,36 +70,34 @@ void sub_0805E79C(Entity* ent)
 }
 
 extern void sub_080AE068();
-extern void sub_0801D230();
+extern void UnloadOBJPalette();
 extern void sub_0806FE84();
 extern void sub_080788E0();
 extern void sub_08078954();
 extern void sub_0805EC60();
 extern void sub_08017744();
 extern void sub_0805E92C();
-extern void sub_0807DB08();
-extern void sub_0806FBEC();
+extern void UnloadCutsceneData();
+extern void UnloadBoundingBox();
 extern void sub_0801DA0C();
 extern void sub_0804AA1C();
-extern void sub_0805EA98(); // Unlink
+extern void UnlinkEntity(); // Unlink
 
-void DeleteEntity(Entity* ent)
-
-{
-    if (ent->field_0x4) {
+void DeleteEntity(Entity* ent) {
+    if (ent->next) {
         sub_080AE068(ent);
-        sub_0801D230(ent);
+        UnloadOBJPalette(ent);
         sub_0806FE84(ent);
         sub_080788E0(ent);
         sub_08078954(ent);
         sub_0805EC60(ent);
         sub_08017744(ent);
         sub_0805E92C(ent);
-        sub_0807DB08(ent);
-        sub_0806FBEC(ent);
+        UnloadCutsceneData(ent);
+        UnloadBoundingBox(ent);
         sub_0801DA0C(ent->otherEntity);
         ent->otherEntity = NULL;
-        if ((ent->entityType).type == '\x03') {
+        if ((ent->entityType).type == 3) {
             sub_0804AA1C(ent);
         }
         ent->flags = ent->flags & 0x7f;
@@ -116,68 +106,60 @@ void DeleteEntity(Entity* ent)
         ent->bitfield = 0;
         ent->field_0x42 = 0;
         ent->currentHealth = 0;
-        sub_0805EA98(ent);
-        ent->field_0x4 = NULL;
-        ent->field_0x0 = (Entity*)0xffffffff;
+        UnlinkEntity(ent);
+        ent->next = NULL;
+        ent->prev = (Entity*)0xffffffff;
     }
 }
 
 extern Entity gPlayerEntity;
-void sub_0805E870(Entity*);
+void ClearDeletedEntity(Entity*);
 
-void sub_0805E84C(void)
-
-{
+void ClearAllDeletedEntities(void) {
     Entity* ent = &gPlayerEntity;
     do {
-        if ((int)ent->field_0x0 < 0) {
-            sub_0805E870(ent);
+        if ((int)ent->prev < 0) {
+            ClearDeletedEntity(ent);
         }
     } while (ent++, ent < (&gPlayerEntity + 80));
     return;
 }
 
-extern u8 gUnk_03003DBC;
+extern u8 gEntCount;
 
-void sub_0805E870(Entity* ent)
-
-{
+void ClearDeletedEntity(Entity* ent) {
     DmaClear32(3, ent, sizeof(Entity));
-    gUnk_03003DBC--;
+    gEntCount--;
 }
 
-typedef struct struct_03003D70 {
-    void* field_0x0;
-    void* field_0x4;
-} struct_03003D70;
+typedef struct LinkedList {
+    Entity* last;
+    Entity* first;
+} LinkedList;
 
-extern struct_03003D70 gUnk_03003D70[9];
+extern LinkedList gEntityLists[9];
 extern EntityType gUnk_03003DB8;
 
-void sub_0805E89C(void)
-
-{
+void DeleteAllEntities(void) {
     Entity* ent;
     Entity* next;
-    struct_03003D70* it;
+    LinkedList* it;
 
-    it = gUnk_03003D70;
-    if (it->field_0x4) {
+    it = &gEntityLists[0];
+    if (it->first) {
         do {
-            for (ent = it->field_0x4; (u32)ent != (u32)it; ent = next) {
-                next = ent->field_0x4;
-                sub_0805E79C(ent);
+            for (ent = it->first; (u32)ent != (u32)it; ent = next) {
+                next = ent->next;
+                DeleteEntityAny(ent);
             }
-        } while (it++, it < (gUnk_03003D70 + 9));
-        sub_0805E84C();
+        } while (++it < &gEntityLists[9]);
+        ClearAllDeletedEntities();
     }
 }
 
 extern OtherEntity gUnk_02033290;
 
-OtherEntity* sub_0805E8D4(void)
-
-{
+OtherEntity* GetEmptyManager(void) {
     OtherEntity* it;
     for (it = &gUnk_02033290; it < (&gUnk_02033290 + 32); it++) {
         if (it->prev == 0) {
@@ -188,25 +170,21 @@ OtherEntity* sub_0805E8D4(void)
 }
 
 extern void _DmaZero(void*, u32);
-extern u8 gUnk_020354B4;
+extern u8 gManagerCount;
 
-void sub_0805E900(OtherEntity* ent)
-
-{
+void DeleteManager(OtherEntity* ent) {
     if (!ent->next)
         return;
 
     sub_0805E92C(ent);
-    sub_0805EA98(ent);
-    _DmaZero(ent, 0x40);
-    gUnk_020354B4--;
+    UnlinkEntity(ent);
+    _DmaZero(ent, sizeof(OtherEntity));
+    gManagerCount--;
 }
 
 #include "area.h"
 
-void sub_0805E92C(u32 param_1)
-
-{
+void sub_0805E92C(u32 param_1) {
     if (param_1 == gArea.unk2) {
         gArea.unk2 = 0;
         gArea.unk3 = 0;
@@ -215,209 +193,178 @@ void sub_0805E92C(u32 param_1)
 }
 
 extern Entity gUnk_020369F0;
-extern void sub_0801D66C(const void* src, void* dest, size_t size); // dma copy
+extern void _DmaCopy(const void* src, void* dest, size_t size); // dma copy
 extern void sub_0805E98C(void);
 
-void sub_0805E958(void)
-
-{
-    sub_0801D66C(&gUnk_03003D70, &gUnk_020369F0, 0x48);
+void sub_0805E958(void) {
+    _DmaCopy(&gEntityLists, &gUnk_020369F0, 0x48);
     sub_0805E98C();
 }
 
-void sub_0805E974(void)
-
-{
-    sub_0801D66C(&gUnk_020369F0, &gUnk_03003D70, 0x48);
+void sub_0805E974(void) {
+    _DmaCopy(&gUnk_020369F0, &gEntityLists, 0x48);
 }
 
-void sub_0805E98C(void)
+void sub_0805E98C(void) {
+    LinkedList* list;
 
-{
-    struct_03003D70* it;
-
-    for (it = gUnk_03003D70; it < &gUnk_03003D70[9]; it++) {
-        it->field_0x0 = it;
-        it->field_0x4 = (Entity*)it;
+    for (list = gEntityLists; list < &gEntityLists[9]; list++) {
+        list->last = (Entity*)list;
+        list->first = (Entity*)list;
     }
 }
 
-void sub_0805E9A8(void)
+void sub_0805E9A8(void) {
+    Entity* i;
+    LinkedList* list;
 
-{
-    Entity* entry;
-    struct_03003D70* it;
-
-    it = gUnk_03003D70;
+    list = &gEntityLists[0];
     do {
-        for (entry = it->field_0x4; (u32)entry != (u32)it; entry = entry->field_0x4) {
-            entry->flags &= 0xfd;
-            if ((entry->flags & 0x20) == 0) {
-                entry->flags |= 0x10;
+        for (i = list->first; (u32)i != (u32)list; i = i->next) {
+            i->flags &= 0xfd;
+            if ((i->flags & 0x20) == 0) {
+                i->flags |= 0x10;
             }
         }
-    } while (it++, it < (gUnk_03003D70 + 9));
+    } while (++list < &gEntityLists[9]);
 }
 
-void sub_0805E9F4(void)
-
-{
+void sub_0805E9F4(void) {
     Entity* ent;
     Entity* next;
-    struct_03003D70* it;
+    LinkedList* list;
 
-    it = gUnk_03003D70;
+    list = &gEntityLists[0];
     do {
-        for (ent = it->field_0x4; (u32)ent != (u32)it; ent = next) {
-            next = ent->field_0x4;
+        for (ent = list->first; (u32)ent != (u32)list; ent = next) {
+            next = ent->next;
             if (ent->flags & 0x10)
-                sub_0805E79C(ent);
+                DeleteEntityAny(ent);
         }
-    } while (it++, it < (gUnk_03003D70 + 9));
+    } while (++list < &gEntityLists[9]);
 }
 
 extern void sub_0805E374(Entity*);
 
-void sub_0805EA2C(Entity* ent, int kind)
+void AppendEntityToList(Entity* ent, int listIndex) {
+    LinkedList* list;
 
-{
-    Entity* prev;
-    struct_03003D70* next;
-
-    next = (gUnk_03003D70 + kind);
-    ent->field_0x4 = (Entity*)next;
-    prev = next->field_0x0;
-    ent->field_0x0 = prev;
-    prev->field_0x4 = ent;
-    next->field_0x0 = ent;
+    list = &gEntityLists[listIndex];
+    ent->next = (Entity*)list;
+    ent->prev = list->last;
+    list->last->next = ent;
+    list->last = ent;
     if (ent->entityType.type != 9) {
         ent->spritePriority.b0 = 4;
-        gUnk_03003DBC++;
+        gEntCount++;
     } else {
-        gUnk_020354B4++;
+        gManagerCount++;
     }
     sub_0805E374(ent);
 }
 
-void sub_0805EA78(Entity* ent, int kind)
+void PrependEntityToList(Entity* ent, int listIndex) {
+    LinkedList* list;
 
-{
-    struct_03003D70* it;
-
-    sub_0805EA98(ent);
-    it = &gUnk_03003D70[kind];
-    ent->field_0x0 = (Entity*)it;
-    ent->field_0x4 = it->field_0x4;
-    ((Entity*)it->field_0x4)->field_0x0 = ent;
-    it->field_0x4 = ent;
+    UnlinkEntity(ent);
+    list = &gEntityLists[listIndex];
+    ent->prev = (Entity*)list;
+    ent->next = list->first;
+    list->first->prev = ent;
+    list->first = ent;
 }
 
-void sub_0805EA98(Entity* ent)
-
-{
+void UnlinkEntity(Entity* ent) {
     if (ent == gUnk_03003DD0.field_0x8) {
-        gUnk_03003DD0.field_0x8 = ent->field_0x0;
+        gUnk_03003DD0.field_0x8 = ent->prev;
     }
-    ent->field_0x0->field_0x4 = ent->field_0x4;
-    ent->field_0x4->field_0x0 = ent->field_0x0;
+    ent->prev->next = ent->next;
+    ent->next->prev = ent->prev;
 }
 
-int sub_0805EABC(Entity* ent)
+bool32 DoesSimilarEntityExist(Entity* ent) {
+    Entity* i;
+    LinkedList* list;
 
-{
-    Entity* ent2;
-    struct_03003D70 *it, *end;
-
-    it = gUnk_03003D70;
-    end = (gUnk_03003D70 + 9);
+    list = &gEntityLists[0];
     do {
-        for (ent2 = (Entity*)it->field_0x4; (u32)ent2 != (u32)it; ent2 = ent2->field_0x4) {
-            if ((u32)ent2 != (u32)ent && ent2->entityType.type == ent->entityType.type &&
-                ent2->entityType.subtype == ent->entityType.subtype) {
-                return 1;
+        for (i = list->first; (u32)i != (u32)list; i = i->next) {
+            if ((u32)i != (u32)ent && i->entityType.type == ent->entityType.type &&
+                i->entityType.subtype == ent->entityType.subtype) {
+                return TRUE;
             }
         }
-    } while (it++, it < end);
+    } while (++list < &gEntityLists[9]);
 
-    return 0;
+    return FALSE;
 }
 
-Entity* sub_0805EB00(int type, int subtype, int kind)
-
-{
+Entity* FindEntityInListBySubtype(int type, int subtype, int listIndex) {
     Entity* it;
-    struct_03003D70* node;
+    LinkedList* list;
 
-    node = &gUnk_03003D70[kind];
-    for (it = node->field_0x4; (u32)it != (u32)node; it = it->field_0x4) {
+    list = &gEntityLists[listIndex];
+    for (it = list->first; (u32)it != (u32)list; it = it->next) {
         if (type == it->entityType.type && subtype == it->entityType.subtype)
             return it;
     }
     return NULL;
 }
 
-Entity* sub_0805EB2C(int type, int subtype, int kind, int form, int parameter)
+Entity* FindEntityInListByForm(int type, int subtype, int listIndex, int form, int parameter) {
+    Entity* i;
+    LinkedList* list;
 
-{
-    Entity* it;
-    struct_03003D70* node;
-
-    node = &gUnk_03003D70[kind];
-    node = &gUnk_03003D70[kind];
-    for (it = node->field_0x4; (u32)it != (u32)node; it = it->field_0x4) {
-        if (type == it->entityType.type && subtype == it->entityType.subtype && form == it->entityType.form &&
-            parameter == it->entityType.parameter)
-            return it;
+    list = &gEntityLists[listIndex];
+    for (i = list->first; (u32)i != (u32)list; i = i->next) {
+        if (type == i->entityType.type
+            && subtype == i->entityType.subtype
+            && form == i->entityType.form
+            && parameter == i->entityType.parameter)
+            return i;
     }
     return NULL;
 }
 
-Entity* sub_0805EB64(Entity* ent, int kind)
+Entity* FindNextEntityOfSameSubtype(Entity* ent, int listIndex) {
+    Entity* i;
+    LinkedList* list;
 
-{
-    Entity* it;
-    struct_03003D70* end;
-
-    end = &gUnk_03003D70[kind];
-    for (it = ent->field_0x4; (u32)it != (u32)end; it = it->field_0x4) {
-        if (it->entityType.type == ent->entityType.type && it->entityType.subtype == ent->entityType.subtype)
-            return it;
+    list = &gEntityLists[listIndex];
+    for (i = ent->next; (u32)i != (u32)list; i = i->next) {
+        if (i->entityType.type == ent->entityType.type && i->entityType.subtype == ent->entityType.subtype)
+            return i;
     }
     return NULL;
 }
 
-Entity* sub_0805EB9C(int type, int subtype)
+Entity* FindEntityBySubtype(int type, int subtype) {
+    Entity* i;
+    LinkedList* list;
 
-{
-    Entity* it2;
-    struct_03003D70 *it, *end;
-
-    it = gUnk_03003D70;
-    end = (gUnk_03003D70 + 9);
+    list = &gEntityLists[0];
     do {
-        for (it2 = (Entity*)it->field_0x4; (u32)it2 != (u32)it; it2 = it2->field_0x4) {
-            if ((type == (it2->entityType).type) && (subtype == (it2->entityType).subtype))
-                return it2;
+        for (i = (Entity*)list->first; (u32)i != (u32)list; i = i->next) {
+            if ((type == (i->entityType).type) && (subtype == (i->entityType).subtype))
+                return i;
         }
-    } while (it++, it < end);
+    } while (++list < &gEntityLists[9]);
 
-    return 0;
+    return NULL;
 }
 
-void sub_0805EBCC(void)
-
-{
+void DeleteAllEnemies(void) {
     Entity* ent;
     Entity* next;
-    struct_03003D70* it;
+    LinkedList* list;
 
-    it = gUnk_03003D70;
+    list = &gEntityLists[0];
     do {
-        for (ent = it->field_0x4; (u32)ent != (u32)it; ent = next) {
-            next = ent->field_0x4;
+        for (ent = list->first; (u32)ent != (u32)list; ent = next) {
+            next = ent->next;
             if (ent->entityType.type == 3)
                 DeleteEntity(ent);
         }
-    } while (it++, it < (gUnk_03003D70 + 9));
-    sub_0805E84C();
+    } while (++list < &gEntityLists[9]);
+    ClearAllDeletedEntities();
 }

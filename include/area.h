@@ -8,10 +8,16 @@ typedef struct {
     u8 areaMetadata;
     u8 locationIndex;
     u8 unk;
+    u8 regret;
     u16 localFlagOffset;
     u8 filler[10];
     u16 field_0x10;
-    u8 filler3[7];
+    u16 field_0x12;
+    u16 field_0x14;
+    u8 field_0x16;
+    u8 field_0x17;
+    u8 field_0x18;
+    //u8 filler3[7];
     u8 fadeOut;
     u8 filler2[14];
     u8 filler4[0x835];

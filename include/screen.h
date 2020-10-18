@@ -21,8 +21,7 @@ typedef struct {
     u16 bg1yOffset;
     u16 bg2xOffset;
     u16 bg2yOffset;
-    u16 bg3xOffset;
-    u16 bg3yOffset;
+    void* unk_14;
 } BgSettings;
 
 typedef struct {
@@ -33,10 +32,10 @@ typedef struct {
     u16 unk2;
     u16 unk3;
     u16 bg3Control;
-    u16 bg3xOffset;
-    u16 bg3yOffset;
+    s16 bg3xOffset;
+    s16 bg3yOffset;
     u16 unk4;
-    u32 unk5;
+    void* unk5;
 } BgAffSettings;
 
 typedef struct {

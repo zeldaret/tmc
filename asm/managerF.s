@@ -158,7 +158,7 @@ _08058FE2:
 	cmp r0, #0
 	beq _08059060
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 	b _08059060
 _08058FF6:
 	ldrh r0, [r4, #0x3e]
@@ -272,7 +272,7 @@ _080590CC:
 	ldr r0, _080590DC @ =gUnk_080F4B88
 	bl LoadRoomEntityList
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 _080590D8:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -333,7 +333,7 @@ sub_08059124: @ 0x08059124
 	movs r2, #0x3a
 	ldrsh r1, [r4, r2]
 	ldrb r2, [r4, #0xb]
-	bl sub_080A29C8
+	bl CreateDustAt
 	ldrh r0, [r4, #0x38]
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x14
@@ -492,7 +492,7 @@ sub_08059278: @ 0x08059278
 	movs r0, #9
 	movs r1, #0xf
 	movs r2, #6
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	beq _0805928C
 	bl sub_08058ECC
@@ -747,7 +747,7 @@ _08059436:
 	strh r0, [r2, #0x32]
 	movs r0, #0xd8
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	bl DeleteThisEntity
 _08059476:
 	pop {r4, pc}

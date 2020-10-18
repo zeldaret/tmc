@@ -44,7 +44,7 @@ _080788BA:
 	movs r0, #6
 	movs r1, #9
 	movs r2, #6
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	bne _080788D6
 	movs r0, #9
@@ -5117,7 +5117,7 @@ _0807AECC:
 	cmp r0, #0
 	bne _0807AEDE
 	adds r0, r4, #0
-	bl sub_080A2A64
+	bl CreateWaterTrace
 _0807AEDE:
 	pop {r4, pc}
 	.align 2, 0
@@ -5517,7 +5517,7 @@ sub_0807B1A8: @ 0x0807B1A8
 	cmp r0, #0
 	bne _0807B1D0
 	adds r0, r4, #0
-	bl sub_080A2B80
+	bl CreateSparkle
 _0807B1D0:
 	pop {r4, pc}
 	.align 2, 0
@@ -5774,7 +5774,7 @@ _0807B3BC: .4byte gUnk_080B37A0
 _0807B3C0: .4byte gUnk_02019EE0
 _0807B3C4:
 	lsls r1, r1, #1
-	ldr r0, _0807B400 @ =gUnk_02002F00
+	ldr r0, _0807B400 @ =gMapDataTopSpecial
 _0807B3C8:
 	adds r3, r1, r0
 	mov r1, ip
@@ -5805,7 +5805,7 @@ _0807B3C8:
 	strb r0, [r1]
 	b _0807B430
 	.align 2, 0
-_0807B400: .4byte gUnk_02002F00
+_0807B400: .4byte gMapDataTopSpecial
 _0807B404: .4byte 0x00007004
 _0807B408: .4byte gRoomControls
 _0807B40C: .4byte gUnk_02000070

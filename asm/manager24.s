@@ -50,7 +50,7 @@ sub_0805BF30: @ 0x0805BF30
 	adds r0, r4, #0
 	bl sub_0805C02C
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 _0805BF74:
 	pop {r4, pc}
 	.align 2, 0
@@ -91,7 +91,7 @@ sub_0805BFA4: @ 0x0805BFA4
 	movs r0, #0x72
 	bl PlaySFX
 	adds r0, r4, #0
-	bl sub_0805E900
+	bl DeleteManager
 _0805BFC0:
 	pop {r4, pc}
 	.align 2, 0

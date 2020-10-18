@@ -653,7 +653,7 @@ sub_08058D34: @ 0x08058D34
 	lsls r2, r2, #2
 	adds r1, r0, r2
 	movs r2, #0x20
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r2, _08058DB0 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80

@@ -5,8 +5,8 @@
 
 	.text
 	
-	thumb_func_start sub_0804AEB0
-sub_0804AEB0: @ 0x0804AEB0
+	thumb_func_start RegisterRoomEntity
+RegisterRoomEntity: @ 0x0804AEB0
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	adds r6, r1, #0
@@ -26,7 +26,7 @@ sub_0804AEB0: @ 0x0804AEB0
 	adds r0, r4, r0
 	ldrb r1, [r0]
 	adds r0, r5, #0
-	bl sub_0805EA2C
+	bl AppendEntityToList
 	b _0804AEF6
 	.align 2, 0
 _0804AEDC: .4byte gUnk_081091E4
@@ -35,12 +35,12 @@ _0804AEE0:
 	bne _0804AEEE
 	adds r0, r5, #0
 	movs r1, #8
-	bl sub_0805EA2C
+	bl AppendEntityToList
 	b _0804AEF6
 _0804AEEE:
 	adds r0, r5, #0
 	adds r1, r2, #0
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _0804AEF6:
 	adds r1, r5, #0
 	adds r1, #0x78
@@ -50,7 +50,7 @@ _0804AEF6:
 _0804AF00:
 	adds r0, r6, #0
 	movs r2, #0x10
-	bl sub_0801D66C
+	bl _DmaCopy
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 

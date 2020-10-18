@@ -3691,14 +3691,14 @@ _08074E54:
 	movs r1, #8
 	movs r2, #0x18
 	rsbs r2, r2, #0
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 	b _08074EF0
 _08074E62:
 	adds r0, r4, #0
 	movs r1, #8
 	movs r2, #0x18
 	rsbs r2, r2, #0
-	bl sub_080A2D0C
+	bl CreateSpeechBubbleQuestionMark
 	b _08074EF0
 _08074E70:
 	ldrb r0, [r4, #0x18]
@@ -4261,7 +4261,7 @@ _08075270:
 	movs r2, #0x1c
 	rsbs r2, r2, #0
 	adds r0, r4, #0
-	bl sub_080A2D1C
+	bl CreateSpeechBubbleSleep
 	str r0, [r4, #0x6c]
 	cmp r0, #0
 	beq _0807528C
@@ -4280,7 +4280,7 @@ sub_0807529C: @ 0x0807529C
 	movs r2, #0x20
 	rsbs r2, r2, #0
 	movs r1, #8
-	bl sub_080A2D0C
+	bl CreateSpeechBubbleQuestionMark
 	pop {pc}
 	.align 2, 0
 
@@ -4592,7 +4592,7 @@ _080754F2:
 	movs r0, #8
 	movs r1, #0xf
 	movs r2, #2
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	cmp r0, #0
 	bne _08075538
 	adds r0, r4, #0
@@ -6017,7 +6017,7 @@ sub_08075FF8: @ 0x08075FF8
 	movs r0, #8
 	movs r1, #2
 	movs r2, #2
-	bl sub_0805EB00
+	bl FindEntityInListBySubtype
 	b _08076026
 	.align 2, 0
 _08076018: .4byte gPlayerState
@@ -6025,7 +6025,7 @@ _0807601C:
 	adds r5, #1
 	adds r0, r4, #0
 	movs r1, #2
-	bl sub_0805EB64
+	bl FindNextEntityOfSameSubtype
 _08076026:
 	adds r4, r0, #0
 	cmp r4, #0

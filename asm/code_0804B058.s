@@ -173,7 +173,7 @@ sub_0804B260: @ 0x0804B260
 	adds r0, r0, r1
 	ldr r1, _0804B278 @ =gUnk_02034398
 	movs r2, #0x20
-	bl sub_0801D66C
+	bl _DmaCopy
 	pop {pc}
 	.align 2, 0
 _0804B274: .4byte gUnk_080015BC
@@ -211,7 +211,7 @@ _0804B2A4:
 	adds r0, r2, #0
 	adds r1, r4, #0
 	movs r2, #8
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldrb r1, [r4, #6]
 	movs r0, #1
 	ands r0, r1
@@ -252,7 +252,7 @@ _0804B2FC:
 sub_0804B300: @ 0x0804B300
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0804B332
@@ -272,7 +272,7 @@ sub_0804B300: @ 0x0804B300
 	strh r0, [r1, #0x3e]
 	adds r0, r1, #0
 	movs r1, #6
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _0804B332:
 	pop {r4, pc}
 
@@ -304,7 +304,7 @@ _0804B35A:
 	bne _0804B380
 	movs r0, #1
 	strb r0, [r1, #1]
-	bl sub_0805E8D4
+	bl GetEmptyManager
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0804B380
@@ -314,7 +314,7 @@ _0804B35A:
 	strb r0, [r1, #9]
 	adds r0, r1, #0
 	movs r1, #6
-	bl sub_0805EA2C
+	bl AppendEntityToList
 _0804B380:
 	pop {r4, pc}
 	.align 2, 0

@@ -196,7 +196,7 @@ _080375D2:
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	bne _080375F4
 	ldrb r0, [r4, #0xf]
@@ -263,7 +263,7 @@ _08037652:
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	bne _0803767C
 	ldrb r0, [r4, #0xf]
@@ -316,7 +316,7 @@ _080376B6:
 	movs r0, #0x27
 	strb r0, [r1]
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 _080376CC:
 	pop {r4, pc}
 	.align 2, 0

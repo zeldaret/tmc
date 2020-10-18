@@ -358,8 +358,8 @@ _0801D22A:
 	.align 2, 0
 _0801D22C: .4byte gUnk_02001A00
 
-	thumb_func_start sub_0801D230
-sub_0801D230: @ 0x0801D230
+	thumb_func_start UnloadOBJPalette
+UnloadOBJPalette: @ 0x0801D230
 	push {lr}
 	adds r0, #0x27
 	ldrb r2, [r0]
@@ -438,7 +438,7 @@ sub_0801D2B4: @ 0x0801D2B4
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
-	bl sub_0801D230
+	bl UnloadOBJPalette
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0801D040
@@ -561,7 +561,7 @@ _0801D390:
 	bne _0801D380
 _0801D3AC:
 	movs r1, #0
-	ldr r4, _0801D450 @ =gUnk_03003D70
+	ldr r4, _0801D450 @ =gEntityLists
 	mov ip, r4
 _0801D3B2:
 	lsls r0, r1, #3
@@ -647,7 +647,7 @@ _0801D444:
 	add sp, #0x10
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0801D450: .4byte gUnk_03003D70
+_0801D450: .4byte gEntityLists
 _0801D454: .4byte gUnk_020000C0
 
 	thumb_func_start sub_0801D458
@@ -730,7 +730,7 @@ _0801D4C8:
 	adds r1, r7, #0
 	movs r2, #0x20
 	str r3, [sp]
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r6, #0x20
 	adds r4, #4
 	adds r7, #0x20

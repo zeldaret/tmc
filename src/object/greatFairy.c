@@ -4,6 +4,7 @@
 #include "screen.h"
 #include "greatFairy.h"
 #include "structures.h"
+#include "functions.h"
 
 enum {
     BEHAVIORS,
@@ -55,7 +56,8 @@ void GreatFairy_DormantUpdate(Entity* this) {
     s32 frame;      // r1@4
     Entity* ripple; // r5@16
 
-    if (!CheckRoomFlag(0)) return;
+    if (!CheckRoomFlag(0))
+        return;
 
     pFrame = &this->cutsceneBeh.HWORD;
     if (*pFrame != 0) {
@@ -68,17 +70,17 @@ void GreatFairy_DormantUpdate(Entity* this) {
         case 0x0:
             this->action = 2;
             break;
-e:
+        e:
         case 0xd2:
         case 0xaa:
         case 0x121:
             ripple = GreatFairy_CreateForm(this, RIPPLE, 0);
             if (ripple) {
                 PositionRelative(this, ripple, (s32)GreatFairy_RippleOffsets[this->actionDelay] << 16,
-                         (s32)GreatFairy_RippleOffsets[this->actionDelay + 1] << 16);
+                                 (s32)GreatFairy_RippleOffsets[this->actionDelay + 1] << 16);
                 this->actionDelay += 2;
                 break;
-        }
+            }
     }
 }
 
@@ -173,9 +175,10 @@ void GreatFairy_WingsUpdate(Entity* this) {
     }
 }
 
-void nullsub_116(Entity* this) {}
+void nullsub_116(Entity* this) {
+}
 
-//The wake that appears beneath the Great Fairy as she stands in the water
+// The wake that appears beneath the Great Fairy as she stands in the water
 void GreatFairy_WakeCallBehavior(Entity* this) {
     GreatFairy_WakeBehaviors[this->action](this);
 }
@@ -190,7 +193,7 @@ void GreatFairy_WakeUpdate(Entity* this) {
     GetNextFrame(this);
 }
 
-//The miniature sprite that emerges from the water when Great Fairy is spawned
+// The miniature sprite that emerges from the water when Great Fairy is spawned
 void GreatFairy_MiniCallBehavior(Entity* this) {
     GreatFairy_MiniBehaviors[this->action](this);
 }
@@ -235,7 +238,7 @@ void GreatFairy_MiniRemoveMe(Entity* this) {
     }
 }
 
-//Same as mini Great Fairy except it is able to stretch
+// Same as mini Great Fairy except it is able to stretch
 void GreatFairy_MiniAffineCallBehavior(Entity* this) {
     GreatFairy_MiniAffineBehaviors[this->action](this);
 }
@@ -275,11 +278,10 @@ void GreatFairy_MiniAffineUpdate(Entity* this) {
     }
 }
 
-//The droplet that falls off of the mini Great Fairy emerging from the water
+// The droplet that falls off of the mini Great Fairy emerging from the water
 void GreatFairy_DropletCallBehavior(Entity* this) {
     GreatFairy_DropletBehaviors[this->action](this);
 }
-
 
 void GreatFairy_DropletInit(Entity* this) {
     GreatFairy_InitializeAnimation(this);
@@ -374,18 +376,18 @@ void sub_08087114(Entity* this) {
 #ifdef NON_MATCHING
 extern u8 gUnk_0812079C;
 
-void sub_08087150(Entity *this) {
+void sub_08087150(Entity* this) {
     u32 temp;
 
-  GreatFairy_InitializeAnimation();
-  this->spriteSettings.b.draw = TRUE;
-  this->spriteOrientation.flipY = 0;
-  this->spriteRendering.b0 = 0;
-  this->spritePriority.b0 = 3;
-  this->nonPlanarMovement = 0x80;
-  this->direction = 0x10;
-  temp = gUnk_0812079C;
-  this->palette.raw = ((temp & 0xf) << 4) | 0xf;
+    GreatFairy_InitializeAnimation();
+    this->spriteSettings.b.draw = TRUE;
+    this->spriteOrientation.flipY = 0;
+    this->spriteRendering.b0 = 0;
+    this->spritePriority.b0 = 3;
+    this->nonPlanarMovement = 0x80;
+    this->direction = 0x10;
+    temp = gUnk_0812079C;
+    this->palette.raw = ((temp & 0xf) << 4) | 0xf;
 }
 #else
 NAKED
@@ -394,7 +396,8 @@ void sub_08087150(Entity* this) {
 }
 #endif
 
-void nullsub_516(Entity* this) {}
+void nullsub_516(Entity* this) {
+}
 
 void sub_080871A8(Entity* this) {
     u32 bVar1;
@@ -414,9 +417,9 @@ void sub_080871D0(Entity* this) {
     }
 }
 
-void sub_080871F8(Entity *this) {
+void sub_080871F8(Entity* this) {
     Entity* temp = this->attachedEntity;
-  
+
     if ((temp->x.HALF.HI == this->x.HALF.HI) && (temp->y.HALF.HI - 0x20 == this->y.HALF.HI)) {
         this->action = 2;
     } else {
@@ -462,12 +465,14 @@ void sub_080872AC(Entity* this) {
     GreatFairy_InitializeAnimation(this);
 }
 
-void sub_080872F8(Entity *this) {
+void sub_080872F8(Entity* this) {
     s32 temp;
     sub_0806F69C(this);
     GetNextFrame(this);
-    if (((u16)(this->field_0x68.HWORD - this->x.HALF.HI) > 0xc) || ((u16)(this->field_0x6a.HWORD - this->y.HALF.HI) > 0xc)) {
-        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, (s16)this->field_0x68.HWORD, (s16)this->field_0x6a.HWORD);
+    if (((u16)(this->field_0x68.HWORD - this->x.HALF.HI) > 0xc) ||
+        ((u16)(this->field_0x6a.HWORD - this->y.HALF.HI) > 0xc)) {
+        this->direction =
+            sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, (s16)this->field_0x68.HWORD, (s16)this->field_0x6a.HWORD);
         this->direction = (this->direction + gUnk_081207AC[Random() & 3]) & 0x1f;
     }
     temp = gSineTable[this->actionDelay + 0x40];
@@ -475,37 +480,35 @@ void sub_080872F8(Entity *this) {
     this->actionDelay++;
 }
 
-void GreatFairy_InitializeAnimation(Entity *this)
-{
-  s32 temp;
-  
-  this->action = 1;
-  temp = this->entityType.form;
-  this->entityType.parameter = temp % 11;
-  this->collisionLayer = 2;
-  InitializeAnimation(this, this->entityType.parameter);
-  sub_0805E3A0(this, 2);
+void GreatFairy_InitializeAnimation(Entity* this) {
+    s32 temp;
+
+    this->action = 1;
+    temp = this->entityType.form;
+    this->entityType.parameter = temp % 11;
+    this->collisionLayer = 2;
+    InitializeAnimation(this, this->entityType.parameter);
+    sub_0805E3A0(this, 2);
 }
 
-Entity* GreatFairy_CreateForm(Entity *this, u32 curForm, u32 parameter) {
-  s32 nextForm;
-  Entity *ent;
-  
-  nextForm = this->entityType.form;
-  nextForm /= 11;
+Entity* GreatFairy_CreateForm(Entity* this, u32 curForm, u32 parameter) {
+    s32 nextForm;
+    Entity* ent;
 
-  ent = CreateObject(0x1b, (u8)nextForm * 11 + curForm, parameter);
-  return ent;
+    nextForm = this->entityType.form;
+    nextForm /= 11;
+
+    ent = CreateObject(0x1b, (u8)nextForm * 11 + curForm, parameter);
+    return ent;
 }
 
-void sub_080873D0(Entity *this)
-{
-  Entity *ent;
-  
+void sub_080873D0(Entity* this) {
+    Entity* ent;
+
     if (this->actionDelay != 0) {
         this->actionDelay--;
     } else {
-        ent = GreatFairy_CreateForm(this,8,0);
+        ent = GreatFairy_CreateForm(this, 8, 0);
         if (ent != NULL) {
             CopyPosition(this, ent);
             this->actionDelay = 0x30;
@@ -513,22 +516,20 @@ void sub_080873D0(Entity *this)
     }
 }
 
-void sub_080873FC(void)
-{
-  Entity *ent;
-  
-  PlaySFX(0xf7);
-  gRoomControls.cameraTarget = NULL;
+void sub_080873FC(void) {
+    Entity* ent;
 
-  while (ent = sub_0805EB00(0x6, 0x1b, 0x6), ent != NULL) {
-    DeleteEntity(ent);
-  }
+    PlaySFX(0xf7);
+    gRoomControls.cameraTarget = NULL;
+
+    while (ent = FindEntityInListBySubtype(0x6, 0x1b, 0x6), ent != NULL) {
+        DeleteEntity(ent);
+    }
 }
 
-void sub_08087424(Entity *arg0, struct_08087424 *arg1)
-{
-    Entity *ent;
-  
+void sub_08087424(Entity* arg0, struct_08087424* arg1) {
+    Entity* ent;
+
     sub_080791D0();
     ent = CreateObject(0x64, 0, 0);
     if (ent != NULL) {
@@ -547,18 +548,17 @@ void sub_08087424(Entity *arg0, struct_08087424 *arg1)
     }
 }
 
-void sub_0808747C(u32 arg0, u32 arg1)
-{
-  u32 iVar1;
-  
-  iVar1 = sub_0805EB2C(0x6, 0xf, 0x6, 0xb, 0x0);
-  if (iVar1 != 0) {
-    iVar1 = 1;
-  }
-  *(u32 *)(arg1 + 0x14) = iVar1;
+void sub_0808747C(u32 arg0, u32 arg1) {
+    u32 iVar1;
+
+    iVar1 = (u32)FindEntityInListByForm(0x6, 0xf, 0x6, 0xb, 0x0);
+    if (iVar1 != 0) {
+        iVar1 = 1;
+    }
+    *(u32*)(arg1 + 0x14) = iVar1;
 }
 
-//clang-format off
+// clang-format off
 void (*const GreatFairy_Main[])(Entity*) = {
     GreatFairy_CallBehavior, 
     GreatFairy_WingsCallBehavior,
@@ -648,5 +648,4 @@ void (*const GreatFairy_Form2Behaviors[])(Entity*) = {
     sub_08087264,
     sub_0808727C
 };
-
-//clang-format on
+// clang-format on

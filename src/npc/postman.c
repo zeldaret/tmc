@@ -18,9 +18,7 @@ extern void sub_0806EE04(Entity*, void*, u32);
 extern void sub_080604DC(Entity*);
 extern s32 sub_0806ED9C(Entity*, u32, u32);
 extern void sub_0806EE20(Entity*);
-extern void sub_0806ED78(Entity*);
 extern u32 sub_080040A8(Entity*);
-extern void sub_0805E3A0(Entity*, u32);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_0807DD50(Entity*);
 extern void sub_0806F118(Entity*);
@@ -29,7 +27,7 @@ extern u32 GetFacingDirection(Entity*, Entity*);
 extern void sub_080606D8(Entity*);
 extern void sub_0807DD94(Entity*, u32);
 extern void sub_080788E0(Entity*);
-extern void sub_08004488(u32);
+extern void EnqueueSFX(u32);
 extern void sub_080606C0(Entity*);
 extern void sub_0800451C(Entity*);
 extern void sub_08078784(Entity*, u32);
@@ -44,7 +42,7 @@ extern Coords16 gUnk_0810A66C[];
 extern s8* gUnk_0810A918[];
 
 extern void (*const gUnk_0810AA24[])(Entity*);
-extern u32 gUnk_0810AA30[];
+extern Dialog gUnk_0810AA30[];
 extern struct_02033280 gUnk_02033280;
 
 void Postman(Entity* this) {
@@ -180,7 +178,7 @@ void sub_08060528(Entity *this)
       this->field_0x20 = 0x20000;
       this->field_0x6c.HALF.HI = 1;
       sub_080788E0(this);
-      sub_08004488(0x7c);
+      EnqueueSFX(0x7c);
     }
     else {
       this->field_0x6a.HWORD -= 1;
@@ -206,13 +204,13 @@ void sub_080606C0(Entity *this)
 
 void sub_080606D8(Entity* this)
 {
-  s32 iVar1;
+  s32 index;
   
-  iVar1 = gUnk_02002A40.unk8 - 2;
-  if (iVar1 < 0) {
-    iVar1 = 0;
+  index = gUnk_02002A40.unk8 - 2;
+  if (index < 0) {
+    index = 0;
   }
-  ShowNPCDialogue(this, &gUnk_0810AA30[iVar1 * 2]);
+  ShowNPCDialogue(this, &gUnk_0810AA30[index]);
 }
 
 void sub_08060700(Entity *entity, u32 arg1)

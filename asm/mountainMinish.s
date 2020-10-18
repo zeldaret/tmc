@@ -299,7 +299,7 @@ _08068068:
 	lsls r0, r0, #1
 	adds r0, r0, r4
 	ldrh r0, [r0]
-	bl sub_08004488
+	bl EnqueueSFX
 _0806807E:
 	ldrb r1, [r6]
 	movs r0, #2

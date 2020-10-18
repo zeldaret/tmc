@@ -1418,7 +1418,7 @@ _08042FC2:
 	ldr r0, [r0, #0xc]
 	ldrb r1, [r4, #0x15]
 	strb r1, [r0, #0x15]
-	bl sub_080AEF88
+	bl ProcessMovement
 _08042FCE:
 	pop {r3}
 	mov r8, r3
@@ -2531,7 +2531,7 @@ sub_080437DC: @ 0x080437DC
 	mov r7, r8
 	push {r7}
 	adds r6, r0, #0
-	ldr r0, _0804392C @ =gUnk_03003DBC
+	ldr r0, _0804392C @ =gEntCount
 	ldrb r0, [r0]
 	cmp r0, #0x43
 	bls _080437EE
@@ -2688,7 +2688,7 @@ _080437FC:
 	movs r0, #1
 	b _08043936
 	.align 2, 0
-_0804392C: .4byte gUnk_03003DBC
+_0804392C: .4byte gEntCount
 _08043930: .4byte gUnk_080D135C
 _08043934:
 	movs r0, #0
@@ -3298,7 +3298,7 @@ _08043D92:
 	cmp r2, #4
 	bls _08043D92
 	movs r0, #0xfe
-	bl sub_08004488
+	bl EnqueueSFX
 	pop {r4, r5, pc}
 	.align 2, 0
 _08043DAC: .4byte gUnk_080D13E9

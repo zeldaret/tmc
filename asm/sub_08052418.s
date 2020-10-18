@@ -30,7 +30,7 @@ sub_08052418: @ 0x08052418
 	adds r0, r4, #0
 	mov r1, sp
 	movs r2, #0x18
-	bl sub_0801D66C
+	bl _DmaCopy
 	lsls r2, r6, #1
 	adds r2, r2, r6
 	lsls r2, r2, #2
