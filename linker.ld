@@ -853,7 +853,7 @@ SECTIONS {
 		asm/objectAB.o(.text);
 		asm/fourElements.o(.text);
 		asm/objectAD.o(.text);
-		asm/floatingBlock.o(.text);
+		src/object/floatingBlock.o(.text);
 		src/object/objectAF.o(.text);
 		src/object/metalDoor.o(.text);
 		src/object/jailBars.o(.text);
@@ -869,7 +869,7 @@ SECTIONS {
 		src/object/windcrest.o(.text);
 		asm/litArea.o(.text);
 		asm/objectBD.o(.text);
-		asm/pinwheel.o(.text);
+		src/object/pinwheel.o(.text);
 		asm/objectBF.o(.text);
 		asm/enemyItem.o(.text);
 		asm/objectC1.o(.text);
