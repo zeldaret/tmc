@@ -361,7 +361,6 @@ SECTIONS {
 		src/enemy/fallingBoulder.o(.text);
 		src/enemy/bobomb.o(.text);
 		src/enemy/wallMaster2.o(.text);
-		asm/wallMaster2.o(.text);
 		asm/gleerok.o(.text);
 		asm/vaatiEyesMacro.o(.text);
 		src/enemy/tektite.o(.text);
