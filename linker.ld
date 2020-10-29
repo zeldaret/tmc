@@ -304,6 +304,7 @@ SECTIONS {
 		src/code_08018C58.o(.text);
 		src/item11.o(.text);
 		asm/item11.o(.text);
+		src/createBowEntity.o(.text);
 		asm/createBowEntity.o(.text);
 		asm/bowUse.o(.text);
 		asm/sub_08019410.o(.text);
@@ -373,7 +374,6 @@ SECTIONS {
 		asm/eyegore.o(.text);
 		asm/rope.o(.text);
 		src/enemy/smallPesto.o(.text);
-		asm/smallPesto.o(.text);
 		src/enemy/acroBandits.o(.text);
 		src/enemy/bladeTrap.o(.text);
 		src/enemy/keaton.o(.text);
