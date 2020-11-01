@@ -1,8 +1,8 @@
 #include "global.h"
+#include "entity.h"
 
-extern long (*gUnk_080B3E30[])(u8*);
+extern void (*const gUnk_080B3E30[])(Entity*);
 
-long sub_08018FCC(u8 *r0)
-{
-    return gUnk_080B3E30[(r0[0xC])](r0);
+void sub_08018FCC(Entity* this){
+    gUnk_080B3E30[(this->action)](this);
 }
