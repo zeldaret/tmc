@@ -5,7 +5,6 @@
 extern BoundingBox gUnk_080FD168;
 
 extern void SetTile(u32, u32, u32);
-extern void CopyPosition(Entity*, Entity*);
 
 void Object9E(Entity *this)
 {

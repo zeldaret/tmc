@@ -312,8 +312,8 @@ _08049F60:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08049F64
-sub_08049F64: @ 0x08049F64
+	thumb_func_start PlayerInRange
+PlayerInRange: @ 0x08049F64
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r0, r1, #0
@@ -1109,7 +1109,7 @@ sub_0804A4E4: @ 0x0804A4E4
 	beq _0804A550
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_08058800
+	bl ReplaceMonitoredEntity
 _0804A550:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

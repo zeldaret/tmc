@@ -20,7 +20,7 @@ _0805453A:
 	adds r0, r0, r1
 	ldr r1, _08054560 @ =gUnk_02034398
 	movs r2, #0x20
-	bl sub_0801D66C
+	bl _DmaCopy
 	pop {pc}
 	.align 2, 0
 _08054550: .4byte gArea

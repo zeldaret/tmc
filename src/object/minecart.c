@@ -50,7 +50,7 @@ void sub_080916EC(Entity* this) {
     this->field_0x3c = 0x47;
     this->field_0x40 = 0x44;
     this->flags2 = 0x80;
-    this->direction = this->animationState << 3;
+    this->direction = DirectionFromAnimationState(this->animationState);
     this->nonPlanarMovement = 0x700;
     this->spritePriority.b1 = 3;
     InitAnimationForceUpdate(this, this->entityType.parameter + 4 + this->animationState);

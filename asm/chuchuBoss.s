@@ -1374,7 +1374,7 @@ _0802670A:
 	bl PlaySFX
 _08026726:
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 _0802672C:
 	adds r0, r4, #0
 	adds r0, #0x76
@@ -1556,7 +1556,7 @@ sub_0802686C: @ 0x0802686C
 	cmp r5, #0
 	beq _08026888
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	b _080268BE
 _08026888:
 	movs r0, #0x10
@@ -2654,7 +2654,7 @@ _080270D4:
 	ldrb r0, [r0, #0xc]
 	strb r0, [r5, #0x15]
 	adds r0, r5, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 _080270E0:
 	adds r0, r6, #0
 	adds r0, #0x85
@@ -2714,7 +2714,7 @@ _08027110:
 	b _080271FE
 _0802714A:
 	adds r0, r5, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	b _080271FE
 _08027152:
 	adds r0, r6, #0

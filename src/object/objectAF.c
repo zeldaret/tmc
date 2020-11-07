@@ -2,8 +2,6 @@
 #include "entity.h"
 
 extern void sub_080A0640(Entity*);
-extern void PositionRelative(Entity*, Entity*, s32, s32);
-extern void CopyPosition(Entity*, Entity*);
 
 extern void (*const gUnk_081248C4[])(Entity*);
 

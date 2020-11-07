@@ -3691,14 +3691,14 @@ _08074E54:
 	movs r1, #8
 	movs r2, #0x18
 	rsbs r2, r2, #0
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 	b _08074EF0
 _08074E62:
 	adds r0, r4, #0
 	movs r1, #8
 	movs r2, #0x18
 	rsbs r2, r2, #0
-	bl sub_080A2D0C
+	bl CreateSpeechBubbleQuestionMark
 	b _08074EF0
 _08074E70:
 	ldrb r0, [r4, #0x18]
@@ -4261,7 +4261,7 @@ _08075270:
 	movs r2, #0x1c
 	rsbs r2, r2, #0
 	adds r0, r4, #0
-	bl sub_080A2D1C
+	bl CreateSpeechBubbleSleep
 	str r0, [r4, #0x6c]
 	cmp r0, #0
 	beq _0807528C
@@ -4280,7 +4280,7 @@ sub_0807529C: @ 0x0807529C
 	movs r2, #0x20
 	rsbs r2, r2, #0
 	movs r1, #8
-	bl sub_080A2D0C
+	bl CreateSpeechBubbleQuestionMark
 	pop {pc}
 	.align 2, 0
 

@@ -532,7 +532,7 @@ _0808424C:
 	movs r0, #0x72
 	bl PlaySFX
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 _08084258:
 	movs r0, #3
 	strb r0, [r4, #0xc]
@@ -596,7 +596,7 @@ _080842BA:
 	ldrb r1, [r1]
 	bl sub_0807BA8C
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 _080842D4:
 	pop {r4, pc}
 	.align 2, 0

@@ -6,7 +6,7 @@
 
 extern void sub_0809E96C(Entity*);
 extern u32 sub_0800419C(Entity*, Entity*, u32, u32);
-extern void sub_080A2B80(Entity*);
+extern void CreateSparkle(Entity*);
 extern u32 sub_0809E9A0(void);
 extern void sub_08078A90(u32);
 extern void sub_0809E918(Entity*);
@@ -23,7 +23,7 @@ void TreeHidingPortal(Entity* this) {
 }
 
 void sub_0809E83C(Entity* this) {
-    if (CheckFlags(this->field_0x86)) {
+    if (CheckFlags(this->field_0x86.HWORD)) {
         sub_0809E96C(this);
         DeleteThisEntity();
     }
@@ -37,7 +37,7 @@ void sub_0809E86C(Entity* this) {
     if (sub_0800419C(this, &gPlayerEntity, 0x30, 0x30)) {
         if (CheckGlobalFlag(EZERO_1ST)) {
             if (((gScreenTransition & 3) == 0)) {
-                sub_080A2B80(this);
+                CreateSparkle(this);
             }
         }
     }
@@ -60,7 +60,7 @@ void sub_0809E8BC(Entity* this) {
 
 void sub_0809E8EC(Entity* this) {
     if (--this->actionDelay == 0) {
-        SetFlag(this->field_0x86);
+        SetFlag(this->field_0x86.HWORD);
         sub_08078A90(0);
         PlaySFX(0x73);
         DeleteThisEntity();

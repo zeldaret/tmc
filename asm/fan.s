@@ -347,7 +347,7 @@ sub_0809F0E4: @ 0x0809F0E4
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r0, _0809F124 @ =0x00000183
-	bl sub_08004488
+	bl EnqueueSFX
 	ldrb r0, [r5, #0xa]
 	movs r1, #2
 	eors r1, r0

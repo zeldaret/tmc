@@ -160,7 +160,7 @@ void sub_08054524(void) {
         bVar1 = 0;
     }
 
-    sub_0801D66C(&gUnk_080015BC + gUnk_080FE1C6[bVar1] * 0x8, &gUnk_02034398, 0x20);
+    _DmaCopy(&gUnk_080015BC + gUnk_080FE1C6[bVar1] * 0x8, &gUnk_02034398, 0x20);
 }
 #else
 NAKED

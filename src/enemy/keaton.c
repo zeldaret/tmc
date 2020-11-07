@@ -34,12 +34,11 @@ void sub_080323DC(Entity* this) {
 void sub_080323F4(Entity* this) {
     u32 var;
 
-    if ((u8)(this->action - 3) >= 2) {
+    if (this->action != 3 && this->action != 4) {
         this->action = 3;
         this->actionDelay = 0xC;
-        var = ((this->field_0x3e + 4) & 0x18) ^ 0x10;
-        this->direction = var;
-        InitAnimationForceUpdate(this, var >> 3);
+        this->direction = DirectionTurnAround(this->field_0x3e);
+        InitAnimationForceUpdate(this, this->direction >> 3);
     } else if (this->bitfield == 0xCC) {
         if (this->field_0x43 == 0) {
             sub_0803275C(this);
@@ -69,7 +68,7 @@ void sub_0803248C(Entity* this) {
             if (this->actionDelay == 0) {
                 sub_08032650(this);
             }
-            if (sub_080AEF88(this) == 0) {
+            if (ProcessMovement(this) == 0) {
                 this->actionDelay = 1;
             }
             UpdateAnimationSingleFrame(this);
@@ -142,10 +141,10 @@ void sub_080325C4(Entity* this) {
 u32 sub_080325E8(Entity* this) {
     if (((sub_08049FA0(this) != 0) && (sub_08049FDC(this, 1) != 0)) &&
         (sub_080041A0(this, gUnk_020000B0, 0x68, 0x40) != 0)) {
-        if (((GetFacingDirection(this, gUnk_020000B0) - ((this->frames.all & 0x18)) + 2) & 0x1F) < 5) {
+        if (((GetFacingDirection(this, gUnk_020000B0) - (DirectionRound(this->frames.all)) + 2) & 0x1F) < 5) {
             this->action = 3;
             this->actionDelay = 0xC;
-            this->direction = this->frames.all & 0x18;
+            this->direction = DirectionRound(this->frames.all);
             return 1;
         }
     }
@@ -158,9 +157,9 @@ void sub_08032650(Entity* this) {
     uVar3 = Random();
     this->actionDelay = gUnk_080CE7E0[uVar3 & 0xf];
     if (!((sub_08049FA0(this) == 0) && ((uVar3 >> 8 & 1) == 0))) {
-        this->direction = (uVar3 >> 0x10) & 0x18;
+        this->direction = DirectionRound(uVar3 >> 0x10);
     } else {
-        this->direction = (sub_08049EE4(this) + 4) & 0x18;
+        this->direction = DirectionRoundUp(sub_08049EE4(this));
     }
     sub_0803269C(this, this->direction);
 }
@@ -169,13 +168,13 @@ void sub_0803269C(Entity* this, u32 param_2) {
     u32 uVar1;
 
     if (((param_2 - 3) & 7) < 3) {
-        uVar1 = ((param_2 + 4) & 0x18) >> 3;
+        uVar1 = DirectionToAnimationState(param_2);
         if (((this->animationState - uVar1) & 3) > 1) {
             this->animationState = uVar1;
             InitAnimationForceUpdate(this, (this->animIndex & 0xFC) + uVar1);
         }
     } else {
-        uVar1 = ((param_2 + 4) & 0x18) >> 3;
+        uVar1 = DirectionToAnimationState(param_2);
         if (uVar1 != this->animationState) {
             this->animationState = uVar1;
             InitAnimationForceUpdate(this, (this->animIndex & 0xFC) + uVar1);

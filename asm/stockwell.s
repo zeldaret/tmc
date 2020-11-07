@@ -233,7 +233,7 @@ sub_080651F8: @ 0x080651F8
 	rsbs r2, r2, #0
 	adds r0, r4, #0
 	movs r1, #8
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 	movs r0, #1
 	bl sub_08078A90
 _0806522A:
@@ -281,7 +281,7 @@ _08065264:
 	rsbs r2, r2, #0
 	adds r0, r4, #0
 	movs r1, #8
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 	b _0806528A
 _0806527E:
 	movs r0, #0
@@ -612,7 +612,7 @@ sub_080654DC: @ 0x080654DC
 	movs r2, #0x18
 	rsbs r2, r2, #0
 	movs r1, #8
-	bl sub_080A2D0C
+	bl CreateSpeechBubbleQuestionMark
 	pop {pc}
 	.align 2, 0
 
@@ -622,7 +622,7 @@ sub_080654EC: @ 0x080654EC
 	movs r2, #0x18
 	rsbs r2, r2, #0
 	movs r1, #8
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 	pop {pc}
 	.align 2, 0
 

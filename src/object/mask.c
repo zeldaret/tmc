@@ -20,7 +20,7 @@ extern void sub_08000148(u16, u16, u32);
 extern s16 sub_080001DA(u16, u32);
 extern u16 sub_080002E0(u16, u32);
 
-extern void sub_08004488(u32);
+extern void EnqueueSFX(u32);
 extern void sub_080044EC(Entity *, u16);
 extern void sub_0805457C(Entity *, s32);
 
@@ -31,7 +31,7 @@ void Mask(Entity *this) {
 
 void sub_080929A4(Entity *this) {
     if (this->entityType.parameter & 0xC0) {
-        if (CheckFlags(this->field_0x86)) {
+        if (CheckFlags(this->field_0x86.HWORD)) {
             s32 field_0x0a;
 
             switch (this->entityType.parameter & 0xC0) {
@@ -45,7 +45,7 @@ void sub_080929A4(Entity *this) {
                             goto switchEnd;
                     }
 
-                    ClearFlag(this->field_0x86);
+                    ClearFlag(this->field_0x86.HWORD);
                     break;
                 case 0x80:
                     DeleteThisEntity();
@@ -115,9 +115,9 @@ void sub_08092B0C(Entity *this) {
         switch (this->entityType.parameter & 0xC0)
         {
             case 0x80:
-                sub_08004488(0x72);
+                EnqueueSFX(0x72);
             case 0x40:
-                SetFlag(this->field_0x86);
+                SetFlag(this->field_0x86.HWORD);
                 break;
                 
         }

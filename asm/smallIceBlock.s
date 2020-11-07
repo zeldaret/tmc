@@ -104,7 +104,7 @@ sub_08099248: @ 0x08099248
 	strb r0, [r4, #0xc]
 	strb r1, [r4, #0xe]
 	ldr r0, _0809927C @ =0x000001B3
-	bl sub_08004488
+	bl EnqueueSFX
 	adds r0, r4, #0
 	bl sub_08099330
 	ldrb r0, [r4, #0xa]
@@ -200,7 +200,7 @@ sub_08099310: @ 0x08099310
 	bl sub_08099468
 	movs r0, #0xd9
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 _0809932E:
 	pop {r4, pc}
 
@@ -406,7 +406,7 @@ sub_080994B8: @ 0x080994B8
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	ldr r0, _08099530 @ =0x000001B1
-	bl sub_08004488
+	bl EnqueueSFX
 	adds r0, r5, #0
 	adds r0, #0x6c
 	ldrh r0, [r0]

@@ -1806,14 +1806,14 @@ _0807DC82:
 	movs r1, #8
 	movs r2, #0x18
 	rsbs r2, r2, #0
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 	b _0807DD40
 _0807DC90:
 	adds r0, r5, #0
 	movs r1, #8
 	movs r2, #0x18
 	rsbs r2, r2, #0
-	bl sub_080A2D0C
+	bl CreateSpeechBubbleQuestionMark
 	b _0807DD40
 _0807DC9E:
 	adds r0, r6, #0
@@ -5183,7 +5183,7 @@ sub_0807F3F8: @ 0x0807F3F8
 	movs r2, #0x18
 	rsbs r2, r2, #0
 	movs r1, #8
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 	pop {pc}
 	.align 2, 0
 _0807F408: .4byte gPlayerEntity
@@ -5195,7 +5195,7 @@ sub_0807F40C: @ 0x0807F40C
 	movs r2, #0x18
 	rsbs r2, r2, #0
 	movs r1, #8
-	bl sub_080A2D0C
+	bl CreateSpeechBubbleQuestionMark
 	pop {pc}
 	.align 2, 0
 _0807F41C: .4byte gPlayerEntity
@@ -5936,7 +5936,7 @@ sub_0807F93C: @ 0x0807F93C
 	movs r3, #0xff
 	ands r1, r3
 	ands r2, r3
-	bl sub_080A2D1C
+	bl CreateSpeechBubbleSleep
 	pop {pc}
 	.align 2, 0
 
@@ -6843,14 +6843,14 @@ sub_0807FFE4: @ 0x0807FFE4
 	ldr r0, [r0]
 	ldr r0, [r0]
 	bl sub_080197D4
-	ldr r4, _08080038 @ =gUnk_0200B654
+	ldr r4, _08080038 @ =gMapDataTop
 	ldrh r1, [r5, #0x1e]
 	lsrs r1, r1, #4
 	ldrh r2, [r5, #0x20]
 	lsrs r2, r2, #4
 	adds r0, r4, #0
 	bl sub_0807C8B0
-	ldr r0, _0808003C @ =gUnk_02002F00
+	ldr r0, _0808003C @ =gMapDataTopSpecial
 	subs r4, #4
 	adds r1, r4, #0
 	bl sub_0801AB08
@@ -6859,8 +6859,8 @@ sub_0807FFE4: @ 0x0807FFE4
 _0808002C: .4byte gUnk_0200B640
 _08080030: .4byte gUnk_08109194
 _08080034: .4byte gUnk_03004030
-_08080038: .4byte gUnk_0200B654
-_0808003C: .4byte gUnk_02002F00
+_08080038: .4byte gMapDataTop
+_0808003C: .4byte gMapDataTopSpecial
 
 	thumb_func_start sub_08080040
 sub_08080040: @ 0x08080040
@@ -6970,7 +6970,7 @@ sub_08080108: @ 0x08080108
 	push {r4, r5, r6, lr}
 	movs r1, #4
 	strb r1, [r0, #3]
-	ldr r5, _08080178 @ =gUnk_02025EB4
+	ldr r5, _08080178 @ =gMapDataBottom
 	movs r0, #0xc0
 	lsls r0, r0, #6
 	adds r1, r5, r0
@@ -6978,14 +6978,14 @@ sub_08080108: @ 0x08080108
 	lsls r6, r6, #6
 	adds r0, r5, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
-	ldr r4, _0808017C @ =gUnk_0200B654
+	bl _DmaCopy
+	ldr r4, _0808017C @ =gMapDataTop
 	movs r0, #0xc0
 	lsls r0, r0, #6
 	adds r1, r4, r0
 	adds r0, r4, #0
 	adds r2, r6, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	bl sub_08080368
 	ldr r1, _08080180 @ =gUnk_02034480
 	ldr r0, _08080184 @ =gUnk_0200B640
@@ -6995,7 +6995,7 @@ sub_08080108: @ 0x08080108
 	ldr r1, _0808018C @ =gUnk_020246B0
 	movs r2, #0xc0
 	lsls r2, r2, #5
-	bl sub_0801D66C
+	bl _DmaCopy
 	subs r5, #4
 	adds r0, r5, #0
 	bl sub_08080B60
@@ -7008,19 +7008,19 @@ sub_08080108: @ 0x08080108
 	ldr r0, _08080190 @ =gUnk_02019EE0
 	adds r1, r5, #0
 	bl sub_0801AB08
-	ldr r0, _08080194 @ =gUnk_02002F00
+	ldr r0, _08080194 @ =gMapDataTopSpecial
 	adds r1, r4, #0
 	bl sub_0801AB08
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08080178: .4byte gUnk_02025EB4
-_0808017C: .4byte gUnk_0200B654
+_08080178: .4byte gMapDataBottom
+_0808017C: .4byte gMapDataTop
 _08080180: .4byte gUnk_02034480
 _08080184: .4byte gUnk_0200B640
 _08080188: .4byte gUnk_02022830
 _0808018C: .4byte gUnk_020246B0
 _08080190: .4byte gUnk_02019EE0
-_08080194: .4byte gUnk_02002F00
+_08080194: .4byte gMapDataTopSpecial
 
 	thumb_func_start sub_08080198
 sub_08080198: @ 0x08080198
@@ -7169,11 +7169,11 @@ _080802A2:
 	ldr r0, [sp]
 	cmp r8, r0
 	bhs _08080328
-	ldr r4, _0808034C @ =gUnk_0200B654
+	ldr r4, _0808034C @ =gMapDataTop
 	add r4, sb
 	ldr r7, _08080350 @ =gUnk_0200E654
 	add r7, sb
-	ldr r3, _08080354 @ =gUnk_02025EB4
+	ldr r3, _08080354 @ =gMapDataBottom
 	add r3, sb
 	ldr r6, _08080358 @ =gUnk_02028EB4
 	add r6, sb
@@ -7253,9 +7253,9 @@ _08080336:
 	.align 2, 0
 _08080344: .4byte gUnk_02022830
 _08080348: .4byte gRoomControls
-_0808034C: .4byte gUnk_0200B654
+_0808034C: .4byte gMapDataTop
 _08080350: .4byte gUnk_0200E654
-_08080354: .4byte gUnk_02025EB4
+_08080354: .4byte gMapDataBottom
 _08080358: .4byte gUnk_02028EB4
 _0808035C: .4byte 0x00003FFF
 _08080360: .4byte 0x000005FF
@@ -7673,7 +7673,7 @@ sub_08080668: @ 0x08080668
 	lsls r4, r4, #8
 	adds r1, r4, #0
 	bl _DmaZero
-	ldr r0, _080806B8 @ =gUnk_02002F00
+	ldr r0, _080806B8 @ =gMapDataTopSpecial
 	adds r1, r4, #0
 	bl _DmaZero
 	pop {r4, r5, pc}
@@ -7683,7 +7683,7 @@ _080806A8: .4byte gUnk_03004030
 _080806AC: .4byte 0x0000FFFF
 _080806B0: .4byte gUnk_02034480
 _080806B4: .4byte gUnk_02019EE0
-_080806B8: .4byte gUnk_02002F00
+_080806B8: .4byte gMapDataTopSpecial
 
 	thumb_func_start sub_080806BC
 sub_080806BC: @ 0x080806BC

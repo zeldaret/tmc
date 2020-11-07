@@ -288,7 +288,7 @@ _08064710:
 	orrs r0, r1
 	str r0, [r5, #8]
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	movs r0, #0x2e
 	ldrsh r1, [r4, r0]
 	adds r2, r4, #0

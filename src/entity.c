@@ -193,16 +193,16 @@ void sub_0805E92C(u32 param_1) {
 }
 
 extern Entity gUnk_020369F0;
-extern void sub_0801D66C(const void* src, void* dest, size_t size); // dma copy
+extern void _DmaCopy(const void* src, void* dest, size_t size); // dma copy
 extern void sub_0805E98C(void);
 
 void sub_0805E958(void) {
-    sub_0801D66C(&gEntityLists, &gUnk_020369F0, 0x48);
+    _DmaCopy(&gEntityLists, &gUnk_020369F0, 0x48);
     sub_0805E98C();
 }
 
 void sub_0805E974(void) {
-    sub_0801D66C(&gUnk_020369F0, &gEntityLists, 0x48);
+    _DmaCopy(&gUnk_020369F0, &gEntityLists, 0x48);
 }
 
 void sub_0805E98C(void) {

@@ -113,7 +113,7 @@ _0808E340:
 	cmp r0, #0
 	beq _0808E34E
 	ldr r0, _0808E350 @ =0x0000018B
-	bl sub_08004488
+	bl EnqueueSFX
 _0808E34E:
 	pop {r4, pc}
 	.align 2, 0

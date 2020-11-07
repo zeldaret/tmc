@@ -299,7 +299,7 @@ _080303C0:
 	bl sub_08030834
 	movs r0, #0x95
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	b _0803042C
 	.align 2, 0
 _080303D0: .4byte gUnk_080FD2F0
@@ -450,7 +450,7 @@ _080304DE:
 	strb r2, [r3]
 	movs r0, #0x95
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 _080304F0:
 	pop {r4, pc}
 	.align 2, 0
@@ -502,7 +502,7 @@ _0803053E:
 	strb r0, [r3]
 	movs r0, #0x95
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 _08030552:
 	pop {pc}
 
@@ -597,7 +597,7 @@ _080305E4:
 	cmp r0, #0
 	bne _08030608
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	bne _0803064A
 	ldrb r0, [r4, #0x15]
@@ -624,7 +624,7 @@ _0803061E:
 	cmp r3, #0
 	bne _08030638
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	bne _0803064A
 	ldrb r0, [r4, #0x15]
@@ -1146,7 +1146,7 @@ _08030A02:
 sub_08030A04: @ 0x08030A04
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	adds r4, #0x5a
 	ldrb r1, [r4]
 	movs r0, #1
@@ -1157,7 +1157,7 @@ sub_08030A04: @ 0x08030A04
 	ands r0, r1
 	strb r0, [r4]
 	ldr r0, _08030A28 @ =0x00000101
-	bl sub_08004488
+	bl EnqueueSFX
 _08030A24:
 	pop {r4, pc}
 	.align 2, 0

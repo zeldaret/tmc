@@ -867,7 +867,7 @@ sub_080A5BF0: @ 0x080A5BF0
 	adds r0, r4, #2
 	adds r1, r4, #0
 	movs r2, #0xe
-	bl sub_0801D66C
+	bl _DmaCopy
 	strh r5, [r4, #0xe]
 	ldr r2, _080A5C40 @ =gUsedPalettes
 	ldr r0, [r2]
@@ -2632,7 +2632,7 @@ _080A6A26:
 	bne _080A6A30
 	movs r2, #9
 _080A6A30:
-	ldr r1, _080A6A40 @ =gUnk_0811E214
+	ldr r1, _080A6A40 @ =gAreaRoomHeaders
 	lsls r0, r2, #2
 	adds r0, r0, r1
 	ldr r0, [r0]
@@ -2640,7 +2640,7 @@ _080A6A30:
 	subs r6, r6, r0
 	b _080A6A48
 	.align 2, 0
-_080A6A40: .4byte gUnk_0811E214
+_080A6A40: .4byte gAreaRoomHeaders
 _080A6A44:
 	ldr r0, _080A6A78 @ =0xFFFFFEF8
 	adds r7, r7, r0
@@ -3233,7 +3233,7 @@ sub_080A6EE0: @ 0x080A6EE0
 	adds r1, r1, r0
 	ldrh r3, [r1, #6]
 	ldrh r4, [r1, #8]
-	ldr r0, _080A6F38 @ =gUnk_0811E214
+	ldr r0, _080A6F38 @ =gAreaRoomHeaders
 	ldrb r2, [r1, #0xb]
 	lsls r2, r2, #2
 	adds r2, r2, r0
@@ -3267,7 +3267,7 @@ sub_080A6EE0: @ 0x080A6EE0
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080A6F34: .4byte gUnk_08128024
-_080A6F38: .4byte gUnk_0811E214
+_080A6F38: .4byte gAreaRoomHeaders
 _080A6F3C: .4byte gUnk_03001010
 
 	thumb_func_start sub_080A6F40
@@ -3420,7 +3420,7 @@ sub_080A7040: @ 0x080A7040
 	movs r2, #0x80
 	lsls r2, r2, #4
 	adds r0, r4, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r1, _080A70A0 @ =gUnk_08128D70
 	lsls r0, r5, #3
 	adds r4, r0, r1
@@ -3679,42 +3679,42 @@ sub_080A7250: @ 0x080A7250
 	ldr r0, _080A72EC @ =gScreen
 	ldr r1, _080A72F0 @ =gUnk_03001020
 	movs r2, #0x7c
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A72F4 @ =gPaletteBuffer
 	ldr r1, _080A72F8 @ =gUnk_02024090
 	movs r2, #0x80
 	lsls r2, r2, #3
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A72FC @ =gUnk_02024490
 	ldr r4, _080A7300 @ =gUnk_02032F14
 	movs r2, #0x85
 	lsls r2, r2, #2
 	adds r1, r4, #0
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A7304 @ =gUnk_02001A00
 	movs r2, #0x85
 	lsls r2, r2, #2
 	adds r1, r4, r2
 	movs r2, #0x40
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A7308 @ =gRoomControls
 	adds r1, r4, #0
 	subs r1, #0x38
 	movs r2, #0x38
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A730C @ =gUnk_03000420
 	movs r2, #0x95
 	lsls r2, r2, #2
 	adds r1, r4, r2
 	movs r2, #0x80
 	lsls r2, r2, #1
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A7310 @ =gUnk_02033280
 	movs r2, #0xd5
 	lsls r2, r2, #2
 	adds r1, r4, r2
 	movs r2, #0xc
-	bl sub_0801D66C
+	bl _DmaCopy
 	bl sub_0805E958
 	adds r1, r4, #0
 	subs r1, #0x54
@@ -3838,36 +3838,36 @@ _080A73B4:
 	adds r0, r5, r1
 	ldr r1, _080A7480 @ =gUnk_02033280
 	movs r2, #0xc
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r1, #0xaa
 	lsls r1, r1, #2
 	adds r0, r5, r1
 	ldr r1, _080A7484 @ =gUnk_03000420
 	movs r2, #0x80
 	lsls r2, r2, #1
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r1, #0x9a
 	lsls r1, r1, #2
 	adds r0, r5, r1
 	ldr r1, _080A7488 @ =gUnk_02001A00
 	movs r2, #0x40
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r5, #0
 	adds r0, #0x54
 	ldr r1, _080A748C @ =gUnk_02024490
 	movs r2, #0x85
 	lsls r2, r2, #2
-	bl sub_0801D66C
+	bl _DmaCopy
 	adds r0, r5, #0
 	adds r0, #0x1c
 	ldr r4, _080A7490 @ =gRoomControls
 	adds r1, r4, #0
 	movs r2, #0x38
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldr r0, _080A7494 @ =gUnk_03001020
 	ldr r1, _080A7498 @ =gScreen
 	movs r2, #0x7c
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldrb r0, [r4, #4]
 	bl sub_08052D58
 	ldr r4, _080A749C @ =gArea
@@ -6061,7 +6061,7 @@ sub_080A8470: @ 0x080A8470
 	cmp r0, #0x68
 	bne _080A848E
 	movs r0, #0x86
-	bl sub_08004488
+	bl EnqueueSFX
 _080A848E:
 	adds r0, r4, #0
 	bl DeleteEntity
@@ -6115,7 +6115,7 @@ sub_080A84C8: @ 0x080A84C8
 	strb r0, [r1]
 _080A84F0:
 	ldr r0, _080A8500 @ =0x0000018D
-	bl sub_08004488
+	bl EnqueueSFX
 	adds r0, r4, #0
 	movs r1, #0x18
 	bl InitializeAnimation
@@ -6328,7 +6328,7 @@ sub_080A8680: @ 0x080A8680
 	strb r1, [r0, #0xf]
 	movs r0, #0x8c
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	pop {pc}
 
 	thumb_func_start sub_080A86A0
@@ -6344,7 +6344,7 @@ sub_080A86A0: @ 0x080A86A0
 	strh r3, [r0, #0x24]
 	movs r0, #0xc7
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	pop {pc}
 
 	thumb_func_start sub_080A86BC
@@ -6810,7 +6810,7 @@ _080A8A16:
 	movs r1, #1
 	bl InitializeAnimation
 	movs r0, #0x84
-	bl sub_08004488
+	bl EnqueueSFX
 	movs r0, #3
 	strb r0, [r5, #0xc]
 	b _080A8A44
@@ -6893,7 +6893,7 @@ _080A8AAA:
 	adds r0, r2, #0
 	bl InitializeAnimation
 	ldr r0, _080A8AC4 @ =0x0000015F
-	bl sub_08004488
+	bl EnqueueSFX
 _080A8AC2:
 	pop {pc}
 	.align 2, 0
@@ -7053,7 +7053,7 @@ _080A8BDA:
 	bl InitializeAnimation
 	movs r0, #0xaf
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 _080A8BF4:
 	pop {pc}
 	.align 2, 0
@@ -7198,7 +7198,7 @@ _080A8CEE:
 	bl InitializeAnimation
 	movs r0, #0xb0
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 _080A8D08:
 	pop {pc}
 	.align 2, 0
@@ -8110,7 +8110,7 @@ sub_080A93DC: @ 0x080A93DC
 	bl InitializeAnimation
 	movs r0, #0xc5
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	adds r0, r4, #0
 	bl sub_0806F69C
 	b _080A9424
@@ -8153,7 +8153,7 @@ sub_080A9448: @ 0x080A9448
 	cmp r0, #0
 	bne _080A9464
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 	bl DeleteThisEntity
 	b _080A9486
 _080A9464:
@@ -8199,7 +8199,7 @@ sub_080A9488: @ 0x080A9488
 	lsrs r0, r0, #3
 	strb r0, [r4, #0x14]
 	movs r0, #0x74
-	bl sub_08004488
+	bl EnqueueSFX
 	ldrb r1, [r4, #0x14]
 	adds r0, r4, #0
 	bl sub_080A94C0
@@ -9728,7 +9728,7 @@ sub_080A9FD0: @ 0x080A9FD0
 	ands r0, r1
 	strb r0, [r2]
 	ldr r0, _080AA038 @ =0x0000015D
-	bl sub_08004488
+	bl EnqueueSFX
 _080A9FF2:
 	movs r0, #0x2e
 	ldrsh r1, [r5, r0]
@@ -9906,7 +9906,7 @@ _080AA136:
 	bl DeleteThisEntity
 _080AA14E:
 	movs r0, #0xf2
-	bl sub_08004488
+	bl EnqueueSFX
 	movs r4, #1
 	strb r4, [r6, #0xc]
 	movs r0, #0xff
@@ -10572,7 +10572,7 @@ sub_080AA654: @ 0x080AA654
 	ldr r0, _080AA688 @ =gUnk_0812A004
 	adds r1, r4, #0
 	movs r2, #0x10
-	bl sub_0801D66C
+	bl _DmaCopy
 	movs r1, #0x3f
 	adds r0, r5, #0
 	ands r0, r1
@@ -10715,7 +10715,7 @@ _080AA774:
 	adds r0, r4, #0
 	bl InitAnimationForceUpdate
 	ldr r0, _080AA788 @ =0x00000101
-	bl sub_08004488
+	bl EnqueueSFX
 _080AA784:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -10780,7 +10780,7 @@ _080AA7DA:
 	strb r0, [r5]
 	movs r0, #0x80
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 _080AA806:
 	ldrb r1, [r5]
 	movs r0, #0x80
@@ -10989,7 +10989,7 @@ _080AA920:
 	strh r0, [r7, #0x32]
 	movs r0, #0x80
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 _080AA99A:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -13118,7 +13118,7 @@ sub_080AB950: @ 0x080AB950
 	cmp r0, #0
 	bne _080AB99C
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	ldrb r0, [r4, #0x15]
 	lsrs r0, r0, #3
 	ldr r1, _080AB994 @ =gUnk_0812A6C4
@@ -13189,7 +13189,7 @@ sub_080AB9DC: @ 0x080AB9DC
 	adds r1, r4, #0
 	adds r1, #0x68
 	movs r2, #0x1c
-	bl sub_0801D66C
+	bl _DmaCopy
 	ldrh r1, [r4, #0x2e]
 	adds r0, r4, #0
 	adds r0, #0x84
@@ -13507,7 +13507,7 @@ _080ABC2A:
 	bl ModHealth
 _080ABC32:
 	adds r0, r4, #0
-	bl sub_080A29BC
+	bl CreateDust
 	bl DeleteThisEntity
 	b _080ABC52
 _080ABC3E:
@@ -15575,7 +15575,7 @@ sub_080ACB90: @ 0x080ACB90
 	movs r2, #0x40
 	bl CreateFx
 	ldr r0, _080ACBC8 @ =0x00000119
-	bl sub_08004488
+	bl EnqueueSFX
 	bl DeleteThisEntity
 _080ACBC6:
 	pop {r4, pc}

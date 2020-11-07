@@ -10,7 +10,7 @@
 
 extern void sub_0807DD50(Entity *);
 extern void sub_0807DD94(Entity *,u32);
-extern void sub_08004488(u32);
+extern void EnqueueSFX(u32);
 extern void sub_08080964(u32,u32);
 
 
@@ -25,11 +25,11 @@ void Carlov(Entity *this)
     }
     if ((this->frames.all & 0x10) != 0) {
         this->frames.all = this->frames.all & 0xef;
-        sub_08004488(0x104);
+        EnqueueSFX(0x104);
         sub_08080964(0x10,0);
     }
     if ((this->frames.all & 0x20) != 0) {
         this->frames.all = this->frames.all & 0xdf;
-        sub_08004488(0x7c);
+        EnqueueSFX(0x7c);
     }
 }

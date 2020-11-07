@@ -6,119 +6,6 @@
 
 	.text
 
-
-	thumb_func_start Enemy4D
-Enemy4D: @ 0x0803EAEC
-	push {lr}
-	ldr r1, _0803EAF8 @ =gUnk_080D0880
-	bl EnemyFunctionHandler
-	pop {pc}
-	.align 2, 0
-_0803EAF8: .4byte gUnk_080D0880
-
-	thumb_func_start sub_0803EAFC
-sub_0803EAFC: @ 0x0803EAFC
-	push {lr}
-	ldr r2, _0803EB10 @ =gUnk_080D0898
-	ldrb r1, [r0, #0xc]
-	lsls r1, r1, #2
-	adds r1, r1, r2
-	ldr r1, [r1]
-	bl _call_via_r1
-	pop {pc}
-	.align 2, 0
-_0803EB10: .4byte gUnk_080D0898
-
-	thumb_func_start sub_0803EB14
-sub_0803EB14: @ 0x0803EB14
-	push {lr}
-	ldr r1, _0803EB20 @ =gUnk_080D0880
-	bl sub_0804AA30
-	pop {pc}
-	.align 2, 0
-_0803EB20: .4byte gUnk_080D0880
-
-	thumb_func_start sub_0803EB24
-sub_0803EB24: @ 0x0803EB24
-	push {r4, lr}
-	adds r4, r0, #0
-	bl sub_08001324
-
-	thumb_func_start sub_0803EB2C
-sub_0803EB2C: @ 0x0803EB2C
-	adds r0, r4, #0
-	bl sub_0803EAFC
-	pop {r4, pc}
-
-	thumb_func_start sub_0803EB34
-sub_0803EB34: @ 0x0803EB34
-	push {lr}
-	movs r1, #0xff
-	movs r2, #0x57
-	bl CreateDeathFx
-	pop {pc}
-
-	thumb_func_start nullsub_21
-nullsub_21: @ 0x0803EB40
-	bx lr
-	.align 2, 0
-
-	thumb_func_start sub_0803EB44
-sub_0803EB44: @ 0x0803EB44
-	push {r4, lr}
-	adds r4, r0, #0
-	bl sub_0804A720
-	adds r0, r4, #0
-	movs r1, #0x19
-	movs r2, #0
-	bl sub_0804A98C
-	cmp r0, #0
-	beq _0803EBB2
-	str r4, [r0, #0x50]
-	str r0, [r4, #0x54]
-	ldrb r1, [r4, #0x10]
-	movs r0, #0x80
-	movs r2, #0
-	orrs r0, r1
-	strb r0, [r4, #0x10]
-	ldrb r1, [r4, #0x18]
-	movs r0, #4
-	rsbs r0, r0, #0
-	ands r0, r1
-	movs r1, #1
-	orrs r0, r1
-	strb r0, [r4, #0x18]
-	movs r0, #2
-	strb r0, [r4, #0x14]
-	adds r0, r4, #0
-	adds r0, #0x7b
-	strb r2, [r0]
-	adds r0, #1
-	strb r2, [r0]
-	adds r1, r4, #0
-	adds r1, #0x7e
-	movs r0, #0x28
-	strb r0, [r1]
-	adds r1, #1
-	movs r0, #0xfe
-	strb r0, [r1]
-	ldrh r1, [r4, #0x2e]
-	adds r0, r4, #0
-	adds r0, #0x80
-	strh r1, [r0]
-	ldrh r0, [r4, #0x32]
-	adds r1, r4, #0
-	adds r1, #0x82
-	strh r0, [r1]
-	ldrb r1, [r4, #0x14]
-	lsls r1, r1, #2
-	adds r0, r4, #0
-	bl InitAnimationForceUpdate
-	adds r0, r4, #0
-	bl sub_0803EE8C
-_0803EBB2:
-	pop {r4, pc}
-
 	thumb_func_start sub_0803EBB4
 sub_0803EBB4: @ 0x0803EBB4
 	push {r4, lr}
@@ -285,7 +172,7 @@ _0803ECD8:
 	movs r1, #0x10
 	bl sub_0803E94C
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 _0803ED02:
 	pop {r4, r5, r6, pc}
 
@@ -347,7 +234,7 @@ sub_0803ED40: @ 0x0803ED40
 	movs r0, #0xf6
 	strb r0, [r1]
 	adds r0, #0x65
-	bl sub_08004488
+	bl EnqueueSFX
 _0803ED74:
 	pop {pc}
 	.align 2, 0

@@ -5,9 +5,7 @@
 
 extern void DeleteThisEntity();
 extern void sub_08080CB4(Entity*);
-extern int sub_08017850(Entity*);
-extern void CreateItemEntity(u32, u32, u32);
-
+extern u32 sub_08017850(Entity*);
 static void sub_0808E6A0(Entity*);
 static void sub_0808E6E4(Entity*);
 static void sub_0808E714(Entity*);
@@ -39,7 +37,7 @@ static void sub_0808E6A0(Entity* this) {
 }
 
 static void sub_0808E6E4(Entity* this) {
-    if (CheckFlags(this->field_0x86)) {
+    if (CheckFlags(this->field_0x86.HWORD)) {
         this->action = 2;
         this->spriteSettings.b.draw = 1;
         this->spriteRendering.b0 = 3;

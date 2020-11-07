@@ -333,7 +333,7 @@ sub_08059124: @ 0x08059124
 	movs r2, #0x3a
 	ldrsh r1, [r4, r2]
 	ldrb r2, [r4, #0xb]
-	bl sub_080A29C8
+	bl CreateDustAt
 	ldrh r0, [r4, #0x38]
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x14
@@ -747,7 +747,7 @@ _08059436:
 	strh r0, [r2, #0x32]
 	movs r0, #0xd8
 	lsls r0, r0, #1
-	bl sub_08004488
+	bl EnqueueSFX
 	bl DeleteThisEntity
 _08059476:
 	pop {r4, pc}

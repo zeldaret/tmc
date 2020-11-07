@@ -4,6 +4,7 @@
 #include "textbox.h"
 #include "flags.h"
 #include "structures.h"
+#include "functions.h"
 
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 extern void sub_0807DD50(Entity*);
@@ -23,7 +24,7 @@ extern void (*const gUnk_08113A8C[])(Entity*, Entity*);
 
 extern SpriteLoadData gUnk_08113A1C[];
 extern u32 gUnk_08014A80;
-extern u32 gUnk_08113ABC[];
+extern Dialog gUnk_08113ABC[];
 extern u16 gUnk_08113B0C[];
 
 void WindTribespeople(Entity* this) {
@@ -74,73 +75,65 @@ void sub_0806C85C(Entity* this) {
     }
 }
 
-void sub_0806C870(Entity *this)
-{
-  u8 bVar1;
-  
-  bVar1 = sub_0801E99C();
-  this->field_0x68.HALF.LO = bVar1;
-  sub_08078784(this, this->field_0x68.HALF.LO);
+void sub_0806C870(Entity* this) {
+    u8 bVar1;
+
+    bVar1 = sub_0801E99C(this);
+    this->field_0x68.HALF.LO = bVar1;
+    sub_08078784(this, this->field_0x68.HALF.LO);
 }
 
-void WindTribespeople_Head(Entity *this)
-{
-  u32 uVar1;
-  u32 uVar2;
-  u8 pbVar3;
-  
-  pbVar3 = (this->frames.all & 0x3F);
-  if (this->entityType.form == 4) {
-    SetExtraSpriteFrame(this, 0, 9);
-    SetExtraSpriteFrame(this, 1, pbVar3);
-    SetExtraSpriteFrame(this, 2, this->frameIndex);
-    SetSpriteSubEntryOffsetData2(this, 2, 0);
-    SetSpriteSubEntryOffsetData1(this, 2, 1);
-    sub_0807000C(this);
-  }
-  else {
-    if (this->frames.b.f2 != 0) {
-      uVar2 = 1;
-      uVar1 = 0;
+void WindTribespeople_Head(Entity* this) {
+    u32 uVar1;
+    u32 uVar2;
+    u8 pbVar3;
+
+    pbVar3 = (this->frames.all & 0x3F);
+    if (this->entityType.form == 4) {
+        SetExtraSpriteFrame(this, 0, 9);
+        SetExtraSpriteFrame(this, 1, pbVar3);
+        SetExtraSpriteFrame(this, 2, this->frameIndex);
+        SetSpriteSubEntryOffsetData2(this, 2, 0);
+        SetSpriteSubEntryOffsetData1(this, 2, 1);
+        sub_0807000C(this);
+    } else {
+        if (this->frames.b.f2 != 0) {
+            uVar2 = 1;
+            uVar1 = 0;
+        } else {
+            uVar2 = 0;
+            uVar1 = 1;
+        }
+        SetExtraSpriteFrame(this, uVar2, pbVar3);
+        SetExtraSpriteFrame(this, uVar1, this->frameIndex);
+        SetSpriteSubEntryOffsetData1(this, uVar1, uVar2);
+        sub_0807000C(this);
     }
-    else {
-      uVar2 = 0;
-      uVar1 = 1;
+}
+
+// body and head entities?
+void sub_0806C90C(Entity* param_1, Entity* param_2) {
+    *(u32*)&param_2->animationState = 0;
+    gUnk_08113A8C[param_1->entityType.parameter](param_1, param_2);
+}
+
+void sub_0806C928(Entity* this) {
+    ShowNPCDialogue(this, &gUnk_08113ABC[gUnk_02002A40.unk8]);
+}
+
+void sub_0806C944(Entity* this) {
+    int iVar1;
+    int iVar2;
+
+    iVar1 = CheckGlobalFlag(WARP_EVENT_END);
+    if (iVar1 == 0) {
+        iVar2 = 0;
+    } else {
+        iVar1 = CheckLocalFlag(0x63);
+        iVar2 = 2;
+        if (iVar1 != 0) {
+            iVar2 = 1;
+        }
     }
-    SetExtraSpriteFrame(this, uVar2, pbVar3);
-    SetExtraSpriteFrame(this, uVar1, this->frameIndex);
-    SetSpriteSubEntryOffsetData1(this, uVar1, uVar2);
-    sub_0807000C(this);
-  }
-}
-
-//body and head entities?
-void sub_0806C90C(Entity *param_1,Entity *param_2)
-{
-  *(u32 *)&param_2->animationState = 0;
-  gUnk_08113A8C[param_1->entityType.parameter](param_1, param_2);
-}
-
-void sub_0806C928(Entity *this)
-{
-  ShowNPCDialogue(this, &gUnk_08113ABC[gUnk_02002A40.unk8 * 2]);
-}
-
-void sub_0806C944(Entity *this)
-{
-  int iVar1;
-  int iVar2;
-  
-  iVar1 = CheckGlobalFlag(WARP_EVENT_END);
-  if (iVar1 == 0) {
-    iVar2 = 0;
-  }
-  else {
-    iVar1 = CheckLocalFlag(0x63);
-    iVar2 = 2;
-    if (iVar1 != 0) {
-      iVar2 = 1;
-    }
-  }
-  TextboxNoOverlap(gUnk_08113B0C[iVar2], this);
+    TextboxNoOverlap(gUnk_08113B0C[iVar2], this);
 }

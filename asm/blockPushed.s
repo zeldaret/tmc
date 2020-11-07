@@ -233,7 +233,7 @@ _08082FF0:
 	bl sub_080832D8
 _08083088:
 	ldr r0, _08083090 @ =0x0000010F
-	bl sub_08004488
+	bl EnqueueSFX
 _0808308E:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

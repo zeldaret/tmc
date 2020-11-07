@@ -26,7 +26,7 @@ _08000126:
 	ldr r0, [r0]
 	cmp r0, #0
 	beq _08000136
-	ldr r0, _080001FC @ =gUnk_02002F00
+	ldr r0, _080001FC @ =gMapDataTopSpecial
 	ldr r1, _08000200 @ =gUnk_020344F0
 	bl _call_via_r4
 _08000136:
@@ -126,7 +126,7 @@ _080001EC: .4byte gUnk_02025EB0
 _080001F0: .4byte gUnk_02019EE0
 _080001F4: .4byte gUnk_02021F70
 _080001F8: .4byte gUnk_0200B650
-_080001FC: .4byte gUnk_02002F00
+_080001FC: .4byte gMapDataTopSpecial
 _08000200: .4byte gUnk_020344F0
 _08000204: .4byte gUnk_08000248
 _08000208: .4byte gUnk_08000228
@@ -138,15 +138,15 @@ _0800021C: .4byte gUnk_080B3E80
 _08000220: .4byte gUnk_08000278
 _08000224: .4byte gUnk_08000228
 gUnk_08000228::
-	.4byte gUnk_02025EB4
+	.4byte gMapDataBottom
 gUnk_0800022C::
-	.4byte gUnk_0202AEB4
-	.4byte gUnk_02025EB4
-	.4byte gUnk_0202AEB4
-	.4byte gUnk_0200B654
-	.4byte gUnk_02010654
-	.4byte gUnk_02025EB4
-	.4byte gUnk_0202AEB4
+	.4byte gMetatileTypesBottom
+	.4byte gMapDataBottom
+	.4byte gMetatileTypesBottom
+	.4byte gMapDataTop
+	.4byte gMetatileTypesTop
+	.4byte gMapDataBottom
+	.4byte gMetatileTypesBottom
 gUnk_08000248::
 	.4byte gUnk_02027EB4
 	.4byte gUnk_02027EB4
@@ -154,13 +154,13 @@ gUnk_08000248::
 	.4byte gUnk_02027EB4
 gUnk_08000258::
 	.4byte gUnk_02028EB4
-	.4byte gUnk_0202AEB4
+	.4byte gMetatileTypesBottom
 	.4byte gUnk_02028EB4
-	.4byte gUnk_0202AEB4
+	.4byte gMetatileTypesBottom
 	.4byte gUnk_0200E654
-	.4byte gUnk_02010654
+	.4byte gMetatileTypesTop
 	.4byte gUnk_02028EB4
-	.4byte gUnk_0202AEB4
+	.4byte gMetatileTypesBottom
 gUnk_08000278::
 	.4byte gUnk_02030EB4
 	.4byte gUnk_02030EB4

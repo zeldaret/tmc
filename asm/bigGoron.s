@@ -91,7 +91,7 @@ sub_0806D0B0: @ 0x0806D0B0
 	movs r0, #0x30
 	bl LoadGfxGroup
 	bl sub_0806D110
-	ldr r5, _0806D0EC @ =gUnk_02002F00
+	ldr r5, _0806D0EC @ =gMapDataTopSpecial
 	movs r1, #0x80
 	lsls r1, r1, #6
 	adds r0, r5, #0
@@ -110,7 +110,7 @@ _0806D0DA:
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806D0E8: .4byte gUnk_0200B650
-_0806D0EC: .4byte gUnk_02002F00
+_0806D0EC: .4byte gMapDataTopSpecial
 _0806D0F0: .4byte gScreen
 _0806D0F4: .4byte 0x00001D47
 
@@ -131,7 +131,7 @@ _0806D10C:
 	thumb_func_start sub_0806D110
 sub_0806D110: @ 0x0806D110
 	push {r4, r5, lr}
-	ldr r4, _0806D134 @ =gUnk_02002F00
+	ldr r4, _0806D134 @ =gMapDataTopSpecial
 	movs r0, #0x80
 	lsls r0, r0, #7
 	adds r5, r4, r0
@@ -147,7 +147,7 @@ sub_0806D110: @ 0x0806D110
 	bl sub_0806D138
 	pop {r4, r5, pc}
 	.align 2, 0
-_0806D134: .4byte gUnk_02002F00
+_0806D134: .4byte gMapDataTopSpecial
 
 	thumb_func_start sub_0806D138
 sub_0806D138: @ 0x0806D138

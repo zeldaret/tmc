@@ -297,7 +297,7 @@ sub_08063C74: @ 0x08063C74
 	movs r2, #0x18
 	rsbs r2, r2, #0
 	movs r1, #8
-	bl sub_080A2CFC
+	bl CreateSpeechBubbleExclamationMark
 _08063C8C:
 	pop {pc}
 	.align 2, 0

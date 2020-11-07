@@ -282,7 +282,7 @@ sub_08064C9C: @ 0x08064C9C
 	cmp r0, #0
 	bne _08064CB8
 	adds r0, r2, #0
-	bl sub_080A29BC
+	bl CreateDust
 _08064CB8:
 	pop {pc}
 	.align 2, 0

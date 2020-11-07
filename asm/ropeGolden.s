@@ -152,7 +152,7 @@ _080382BC:
 	movs r1, #2
 	bl UpdateAnimationVariableFrames
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	bne _080382D6
 	adds r0, r4, #0
@@ -194,7 +194,7 @@ sub_08038304: @ 0x08038304
 	movs r1, #2
 	bl UpdateAnimationVariableFrames
 	adds r0, r4, #0
-	bl sub_080AEF88
+	bl ProcessMovement
 	cmp r0, #0
 	bne _08038334
 	adds r0, r4, #0

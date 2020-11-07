@@ -5,7 +5,87 @@
 #include "random.h"
 #include "player.h"
 
-#include "lakitu.h"
+extern void (*const LakituActionFuncs[])(Entity *);
+
+// Lakitu
+extern void EnemyFunctionHandler(Entity *, void (*const funcs[])(Entity*));
+
+// sub_0803C784
+extern void sub_0804AA30(Entity *, void (*const funcs[])(Entity *));
+
+// sub_0803C820
+extern u32 sub_0806F520(Entity *);
+
+// sub_0803C850
+extern void sub_0806F4E8(Entity *);
+
+// Lakitu_Initialize
+extern void sub_0804A720(Entity *);
+
+// Lakitu_Cloudless
+extern u32 sub_08003FC4(Entity *, u32);
+
+// sub_0803CA4C
+extern u32 sub_080041A0(Entity *, Entity *, u32, u32);
+
+// sub_0803CAD0
+extern u32 sub_080AEFE0(Entity *);
+
+// Lakitu_SpawnLightning
+void PositionRelative(Entity*, Entity*, s32, s32);
+extern void EnqueueSFX(u32);
+
+// sub_0803CC08
+extern void DeleteEntity(Entity *);
+
+// Part of function tables
+extern void sub_08001324(Entity *);
+extern void sub_0804A7D4(Entity *);
+extern void sub_08001242(Entity *);
+
+// Used in multiple functions
+extern Entity *CreateFx(Entity*, u32, u32);
+extern Entity *sub_0804A98C(Entity *positionEntity, u8 subtype, u8 form); // Creates a projectile positioned at the given entity
+extern void UpdateAnimationSingleFrame(Entity *);
+extern void InitAnimationForceUpdate(Entity *, u32);
+extern u32 sub_0806FCB8(Entity *, u32, u32, u32);
+extern u32 GetFacingDirection(Entity *, Entity *);
+
+
+// Forward references to functions in lakitu.c
+extern void sub_0803CAD0(Entity *);
+extern void sub_0803CBAC(Entity *);
+extern void sub_0803CA84(Entity *, u32);
+extern bool32 sub_0803CA4C(Entity *);
+extern bool32 sub_0803CB04(Entity *);
+extern void Lakitu_SpawnLightning(Entity *);
+extern void sub_0803CB34(Entity *);
+extern void sub_0803CC08(Entity *this);
+
+enum {
+    INIT,
+    HIDDEN,
+    END_HIDE,
+    IDLE,
+    BEGIN_HIDE,
+    LIGHTNING_THROW,
+    LIGHTNING_DELAY,
+    CLOUDLESS,
+};
+
+typedef struct {
+    s8 x;
+    s8 y;
+} PACKED OffsetCoords;
+
+// sub_0803CC08
+extern void DeleteEntity(Entity *);
+
+// Variables
+extern void (*const gUnk_080D0110[])(Entity *);
+extern void (*const gUnk_080D0128[])(Entity *);
+extern void (*const gUnk_080D0148[])(Entity *);
+extern const OffsetCoords gUnk_080D0154[];
 
 void Lakitu(Entity *this) {
     EnemyFunctionHandler(this, gUnk_080D0110);
@@ -223,8 +303,7 @@ void sub_0803CA84(Entity *this, u32 unkParameter) {
     u32 altAnimState = GetFacingDirection(this, &gPlayerEntity);
 
     if (((altAnimState - 3) & 7) > 2 || ((this->animationState  - (altAnimState >> 3)) & 3) > 1) {
-        u32 intermediate = (altAnimState + 4) & 0x18;
-        altAnimState = intermediate >> 3;
+        altAnimState = DirectionRoundUp(altAnimState) >> 3;
 
         if (altAnimState != this->animationState) {
             this->animationState = altAnimState;
@@ -287,7 +366,7 @@ void Lakitu_SpawnLightning(Entity *this) {
 
     PositionRelative(this, lightning, offset->x << 16, offset->y << 16);
 
-    sub_08004488(0x193);
+    EnqueueSFX(0x193);
 }
 
 void sub_0803CBAC(Entity *this) {

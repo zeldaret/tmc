@@ -33,26 +33,32 @@ typedef struct {
     /*0x30*/ union {
     /*    */     u32 all;
     /*    */     struct {
-    /*    */         u32 filler9 : 3;
+    /*    */         u32 filler9 : 2;
+    /*    */         u32 unk2 : 1;
     /*    */         u32 noMinishCap : 1;
     /*    */         u32 pullingState : 1;
     /*    */         u32 windyState : 1;
     /*    */         u32 filler6 : 1;
     /*    */         u32 unk7 : 1;
-    /*    */         u32 filler8 : 2;
+    /*    */         u32 unk8 : 1;
+    /*    */         u32 unk9 : 1;
     /*    */         u32 slipperyState : 1;
     /*    */         u32 filler11 : 5;
     /*    */         u32 filler11b : 16;
     /*    */     } PACKED b;
     /*    */ } flags;
-    /*0x34*/ u8 field_0x34[6];
+    /*0x34*/ u8 field_0x34[4];
+    /*0x38*/ u8 field_0x38;
+    /*0x39*/ u8 field_0x39;
     /*0x3a*/ u16 field_0x3a;
     /*0x3c*/ u8 field_0x3c[2];
     /*0x3e*/ u8 swordGoldParticle : 1;
     /*    */ u8 swordBlueParticle : 1;
     /*    */ u8 filler14 : 6;
     /*0x3f*/ u8 field_0x3f;
-    /*0x40*/ u8 field_0x40[75];
+    /*0x40*/ u8 field_0x40[64];
+    /*0x80*/ u16 field_0x80;
+    /*0x82*/ u8 field_0x82[9];
     /*0x8b*/ u8 field_0x8b;
     /*0x8c*/ u32 field_0x8c;
     /*0x90*/ union SplitWord field_0x90;
@@ -61,7 +67,8 @@ typedef struct {
     /*0xa9*/ u8 field_0xa9;
     /*0xaa*/ u8 field_0xaa;
     /*0xab*/ u8 field_0xab;
-    /*0xac*/ u32 field_0xac;
+    /*0xac*/ u16 field_0xac;
+    /*0xae*/ u16 field_0xae;
 } PlayerState;
 
 
@@ -99,6 +106,7 @@ typedef struct {
 } ItemBehavior;
 
 extern u8 gBombBagSizes[];
+extern u8 gQuiverSizes[];
 
 extern PlayerState gPlayerState;
 extern Stats gStats;
