@@ -346,6 +346,7 @@ SECTIONS {
 		asm/sluggula.o(.text);
 		asm/pesto.o(.text);
 		asm/puffstool.o(.text);
+		src/enemy/chuchuBoss.o(.text);
 		asm/chuchuBoss.o(.text);
 		asm/likeLike.o(.text);
 		asm/spearMoblin.o(.text);
