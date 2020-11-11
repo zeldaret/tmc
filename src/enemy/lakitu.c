@@ -5,15 +5,12 @@
 #include "random.h"
 #include "player.h"
 
+extern void (*const LakituActionFuncs[])(Entity *);
+
 // Lakitu
 extern void EnemyFunctionHandler(Entity *, void (*const funcs[])(Entity*));
 
-// sub_0803C758
-extern void sub_0803CAD0(Entity *);
-
 // sub_0803C784
-extern void sub_0803CBAC(Entity *); // Also used in sub_0803C86C
-extern Entity *CreateFx(Entity*, u32, u32);
 extern void sub_0804AA30(Entity *, void (*const funcs[])(Entity *));
 
 // sub_0803C820
@@ -22,35 +19,59 @@ extern u32 sub_0806F520(Entity *);
 // sub_0803C850
 extern void sub_0806F4E8(Entity *);
 
-// sub_0803C87C
-extern Entity *sub_0804A98C(Entity *, u32, u32);
+// Lakitu_Initialize
 extern void sub_0804A720(Entity *);
 
-// sub_0803C8BC and sub_0803C918
-extern void sub_0803CA84(Entity *, u32);
-extern bool32 sub_0803CA4C(Entity *);
-
-// sub_0803C918
-extern u32 sub_0803CB04(Entity *);
-
-// sub_0803C97C
-extern void sub_0803CB64(Entity *);
-
-// sub_0803C9D4 and sub_0803CB04
-extern void sub_0803CB34(Entity *);
-
-// sub_0803CA0C
-extern void sub_0803CC08(Entity *this);
+// Lakitu_Cloudless
+extern u32 sub_08003FC4(Entity *, u32);
 
 // sub_0803CA4C
-extern u32 sub_0806FCB8(Entity *, u32, u32, u32);
 extern u32 sub_080041A0(Entity *, Entity *, u32, u32);
 
-// sub_0803CA84
+// sub_0803CAD0
+extern u32 sub_080AEFE0(Entity *);
+
+// Lakitu_SpawnLightning
+void PositionRelative(Entity*, Entity*, s32, s32);
+extern void EnqueueSFX(u32);
+
+// sub_0803CC08
+extern void DeleteEntity(Entity *);
+
+// Part of function tables
+extern void sub_08001324(Entity *);
+extern void sub_0804A7D4(Entity *);
+extern void sub_08001242(Entity *);
+
+// Used in multiple functions
+extern Entity *CreateFx(Entity*, u32, u32);
+extern Entity *sub_0804A98C(Entity *positionEntity, u8 subtype, u8 form); // Creates a projectile positioned at the given entity
+extern void UpdateAnimationSingleFrame(Entity *);
+extern void InitAnimationForceUpdate(Entity *, u32);
+extern u32 sub_0806FCB8(Entity *, u32, u32, u32);
 extern u32 GetFacingDirection(Entity *, Entity *);
 
-// sub_0803CB64
-extern void EnqueueSFX(u32);
+
+// Forward references to functions in lakitu.c
+extern void sub_0803CAD0(Entity *);
+extern void sub_0803CBAC(Entity *);
+extern void sub_0803CA84(Entity *, u32);
+extern bool32 sub_0803CA4C(Entity *);
+extern bool32 sub_0803CB04(Entity *);
+extern void Lakitu_SpawnLightning(Entity *);
+extern void sub_0803CB34(Entity *);
+extern void sub_0803CC08(Entity *this);
+
+enum {
+    INIT,
+    HIDDEN,
+    END_HIDE,
+    IDLE,
+    BEGIN_HIDE,
+    LIGHTNING_THROW,
+    LIGHTNING_DELAY,
+    CLOUDLESS,
+};
 
 typedef struct {
     s8 x;
@@ -72,12 +93,12 @@ void Lakitu(Entity *this) {
     SetChildOffset(this, 0, 1, -16);
 }
 
-void sub_0803C758(Entity *this) {
+void Lakitu_DoAction(Entity *this) {
     if (this->action != 0 && this->action != 7) {
         sub_0803CAD0(this);
     }
 
-    gUnk_080D0128[this->action](this);
+    LakituActionFuncs[this->action](this);
 }
 
 void sub_0803C784(Entity *this) {
@@ -88,9 +109,9 @@ void sub_0803C784(Entity *this) {
     }
     else {
         if (this->damageType == 0x43) {
-            Entity *sound = CreateFx(this, 2, 0);
+            Entity *fx = CreateFx(this, 2, 0);
 
-            if (sound != 0) {
+            if (fx != NULL) {
                 u32 angle = (this->field_0x3e ^ 0x10) << 3;
                 s32 sine;
 
@@ -99,14 +120,14 @@ void sub_0803C784(Entity *this) {
                     sine += 0x1f;
                 }
 
-                sound->x.HALF.HI += sine >> 5;
+                fx->x.HALF.HI += sine >> 5;
 
                 sine = gSineTable[angle + 0x40];
                 if (sine < 0) {
                     sine += 0x1f;
                 }
 
-                sound->y.HALF.HI -= sine >> 5;
+                fx->y.HALF.HI -= sine >> 5;
             }
         }
     }
@@ -131,7 +152,7 @@ void sub_0803C844(Entity *this) {
 
 void sub_0803C850(Entity *this) {
     Entity *cloud = this->attachedEntity;
-    if (cloud != 0) {
+    if (cloud != NULL) {
         cloud->spriteOffsetX = this->spriteOffsetX;
     }
 
@@ -140,12 +161,12 @@ void sub_0803C850(Entity *this) {
 
 void sub_0803C86C(Entity *this) {
     sub_0803CBAC(this);
-    this->attachedEntity = 0;
+    this->attachedEntity = NULL;
 }
 
-void sub_0803C87C(Entity *this) {
+void Lakitu_Initialize(Entity *this) {
     Entity *cloud = sub_0804A98C(this, 17, 0);
-    if (cloud == 0) {
+    if (cloud == NULL) {
         return;
     }
 
@@ -154,7 +175,7 @@ void sub_0803C87C(Entity *this) {
 
     sub_0804A720(this);
 
-    this->action = 1;
+    this->action = HIDDEN;
 
     this->height.HALF.HI = -2;
 
@@ -164,7 +185,7 @@ void sub_0803C87C(Entity *this) {
     this->field_0x76.HWORD = this->y.HALF.HI;
 }
 
-void sub_0803C8BC(Entity *this) {
+void Lakitu_Hide(Entity *this) {
     sub_0803CA84(this, 0);
 
     if (sub_0803CA4C(this)) {
@@ -173,11 +194,11 @@ void sub_0803C8BC(Entity *this) {
     }
 }
 
-void sub_0803C8E4(Entity *this) {
+void Lakitu_EndHide(Entity *this) {
     UpdateAnimationSingleFrame(this);
 
     if (this->frames.b.f3) {
-        this->action = 3;
+        this->action = IDLE;
         this->actionDelay = 0x3c;
 
         this->damageType = 0x42;
@@ -186,13 +207,13 @@ void sub_0803C8E4(Entity *this) {
     }
 }
 
-void sub_0803C918(Entity *this) {
-    if (sub_0803CB04(this) != 0) {
+void Lakitu_Idle(Entity *this) {
+    if (sub_0803CB04(this)) {
         return;
     }
 
-    if (sub_0803CA4C(this) == 0) {
-        this->action = 4;
+    if (!sub_0803CA4C(this)) {
+        this->action = BEGIN_HIDE;
 
         this->damageType = 0x43;
         InitAnimationForceUpdate(this, this->animationState + 0xc);
@@ -202,7 +223,7 @@ void sub_0803C918(Entity *this) {
     }
 }
 
-void sub_0803C950(Entity *this) {
+void Lakitu_BeginHide(Entity *this) {
     UpdateAnimationSingleFrame(this);
 
     if (this->frames.b.f3 != 0) {
@@ -213,31 +234,33 @@ void sub_0803C950(Entity *this) {
     }
 }
 
-void sub_0803C97C(Entity *this) {
+void Lakitu_Lightning(Entity *this) {
     UpdateAnimationSingleFrame(this);
 
     if (this->frames.b.f3 == 0) {
         return;
     }
 
-    sub_0803CB64(this);
-    this->action = 6;
+    Lakitu_SpawnLightning(this);
+
+    this->action = LIGHTNING_DELAY;
     this->damageType = 0x42;
 
-    
-    if ((Random() & 1) && this->field_0x78.HALF.HI == 0) {
+    if ((Random() & 1) && !this->field_0x78.HALF.HI) {
         this->actionDelay = 0xf;
-        this->field_0x78.HALF.HI = 1;
+
+        this->field_0x78.HALF.HI = TRUE;
     }
     else {
         this->actionDelay = 0x1e;
-        this->field_0x78.HALF.HI = 0;
+
+        this->field_0x78.HALF.HI = FALSE;
 
         InitAnimationForceUpdate(this->attachedEntity, this->animationState);
     }
 }
 
-void sub_0803C9D4(Entity *this) {
+void Lakitu_LightningDelay(Entity *this) {
     this->actionDelay--;
 
     if (this->actionDelay != 0) {
@@ -248,14 +271,14 @@ void sub_0803C9D4(Entity *this) {
         sub_0803CB34(this);
     }
     else {
-        this->action = 3;
+        this->action = IDLE;
         this->actionDelay = 0xb4;
 
         InitAnimationForceUpdate(this, this->animationState + 4);
     }
 }
 
-void sub_0803CA0C(Entity *this) {
+void Lakitu_Cloudless(Entity *this) {
     if (sub_08003FC4(this, 0x1800) == 0 && this->animIndex <= 19) {
         InitAnimationForceUpdate(this, this->animationState + 20);
 
@@ -319,7 +342,7 @@ bool32 sub_0803CB04(Entity *this) {
 }
 
 void sub_0803CB34(Entity *this) {
-    this->action = 5;
+    this->action = LIGHTNING_THROW;
     this->damageType = 0xa6;
 
     this->field_0x78.HALF.LO = GetFacingDirection(this, &gPlayerEntity);
@@ -327,21 +350,21 @@ void sub_0803CB34(Entity *this) {
     InitAnimationForceUpdate(this, this->animationState + 8);
 }
 
-void sub_0803CB64(Entity *this) {
-    Entity *cloud;
+void Lakitu_SpawnLightning(Entity *this) {
+    Entity *lightning;
     const OffsetCoords *offset;
 
-    cloud = sub_0804A98C(this, 18, 0);
+    lightning = sub_0804A98C(this, 18, 0);
 
-    if (cloud == 0) {
+    if (lightning == NULL) {
         return;
     }
 
     offset = &gUnk_080D0154[this->animationState];
 
-    cloud->direction = this->field_0x78.HALF.LO;
+    lightning->direction = this->field_0x78.HALF.LO;
 
-    PositionRelative(this, cloud, offset->x << 16, offset->y << 16);
+    PositionRelative(this, lightning, offset->x << 16, offset->y << 16);
 
     EnqueueSFX(0x193);
 }
@@ -350,12 +373,12 @@ void sub_0803CBAC(Entity *this) {
     Entity *cloud;
 
     cloud = this->attachedEntity;
-    if (cloud != 0) {
+    if (cloud != NULL) {
         cloud->flags |= 0x80;
         cloud->damageType = 0x43;
     }
 
-    this->action = 7;
+    this->action = CLOUDLESS;
     this->spriteSettings.b.draw = 1;
 
     this->spritePriority.b1 = 1;
@@ -369,10 +392,10 @@ void sub_0803CBAC(Entity *this) {
 
 void sub_0803CC08(Entity *this) {
     Entity *cloud;
-    Entity *sound;
+    Entity *fx;
 
     cloud = this->attachedEntity;
-    if (cloud == 0) {
+    if (cloud == NULL) {
         return;
     }
 
@@ -388,30 +411,63 @@ void sub_0803CC08(Entity *this) {
         return;
     }
 
-    sound = CreateFx(this, 2, 0);
-    if (sound != 0) {
-        sound->x.HALF.HI += 6;
-        sound->y.HALF.HI += 6;
+    fx = CreateFx(this, 2, 0);
+    if (fx != NULL) {
+        fx->x.HALF.HI += 6;
+        fx->y.HALF.HI += 6;
     }
 
-    sound = CreateFx(this, 2, 0);
-    if (sound != 0) {
-        sound->x.HALF.HI -= 6;
-        sound->y.HALF.HI += 6;
+    fx = CreateFx(this, 2, 0);
+    if (fx != NULL) {
+        fx->x.HALF.HI -= 6;
+        fx->y.HALF.HI += 6;
     }
 
-    sound = CreateFx(this, 2, 0);
-    if (sound != 0) {
-        sound->x.HALF.HI += 6;
-        sound->y.HALF.HI -= 6;
+    fx = CreateFx(this, 2, 0);
+    if (fx != NULL) {
+        fx->x.HALF.HI += 6;
+        fx->y.HALF.HI -= 6;
     }
 
-    sound = CreateFx(this, 2, 0);
-    if (sound != 0) {
-        sound->x.HALF.HI -= 6;
-        sound->y.HALF.HI -= 6;
+    fx = CreateFx(this, 2, 0);
+    if (fx != NULL) {
+        fx->x.HALF.HI -= 6;
+        fx->y.HALF.HI -= 6;
     }
 
-    this->attachedEntity = 0;
+    this->attachedEntity = NULL;
     DeleteEntity(cloud);
 }
+
+void (*const gUnk_080D0110[])(Entity *) = {
+    Lakitu_DoAction,
+    sub_0803C784,
+    sub_08001324,
+    sub_0804A7D4,
+    sub_08001242,
+    sub_0803C820,
+};
+
+void (*const LakituActionFuncs[])(Entity *) = {
+    Lakitu_Initialize,
+    Lakitu_Hide,
+    Lakitu_EndHide,
+    Lakitu_Idle,
+    Lakitu_BeginHide,
+    Lakitu_Lightning,
+    Lakitu_LightningDelay,
+    Lakitu_Cloudless,
+};
+
+void (*const gUnk_080D0148[])(Entity *) = {
+    sub_0803C844,
+    sub_0803C850,
+    sub_0803C86C,
+};
+
+const OffsetCoords gUnk_080D0154[] = {
+    { 0x00, 0xEE },
+    { 0x12, 0x00 },
+    { 0x00, 0x08 },
+    { 0xEE, 0x00 },
+};

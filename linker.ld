@@ -345,6 +345,7 @@ SECTIONS {
 		src/enemy/sluggula.o(.text);
 		src/enemy/pesto.o(.text);
 		src/enemy/puffstool.o(.text);
+		src/enemy/chuchuBoss.o(.text);
 		asm/chuchuBoss.o(.text);
 		src/enemy/likeLike.o(.text);
 		src/enemy/spearMoblin.o(.text);
@@ -434,7 +435,8 @@ SECTIONS {
         src/enemy/treeItem.o(.text);
 		asm/enemy66.o(.text);
 		/* END enemies */
-		asm/code_08049CD4.o(.text);
+		src/code_08049CD4.o(.text);
+		asm/code_08049D30.o(.text);
 		asm/sub_0804AA30.o(.text);
 		src/createEnemy.o(.text);
 		src/code_0804AA84.o(.text);
@@ -974,6 +976,10 @@ SECTIONS {
 		data/animations/bobomb.o(.rodata);
 		src/enemy/wallMaster2.o(.rodata);
 		data/data_080CC6FC.o(.rodata);
+		src/enemy/lakitu.o(.rodata);
+		data/data_080D015C.o(.rodata);
+		src/enemy/lakituCloud.o(.rodata);
+		data/data_080D0448.o(.rodata);
 		src/enemy.o(.rodata);
 		data/data_080D3D94.o(.rodata);
 		data/entity_headers.o(.rodata);
