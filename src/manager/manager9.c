@@ -21,7 +21,13 @@ void sub_08058324();
 extern u32 gUnk_02006F00[];
 extern u8 gUnk_02001A40[];
 
-extern u16 gUnk_081081EC[];
+
+const u16 gUnk_081081EC[] = {
+	0x30,
+	0x30,
+	0x30,
+	0x38
+};
 
 void sub_080581D8(Manager9* this) {
     sub_08058210(this);

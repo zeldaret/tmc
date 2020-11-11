@@ -6,10 +6,22 @@
 #include "area.h"
 
 
-extern void (*gUnk_081081F4[])(Manager*);
+void sub_08058398(ManagerA*);
+void sub_080583EC(ManagerA*);
+void sub_08058408(ManagerA*);
+void sub_08058514(ManagerA*);
+void sub_080585B0(ManagerA*);
+    
+void (* const gUnk_081081F4[])(ManagerA*) = {
+    sub_08058398,
+    sub_080583EC,
+    sub_08058408,
+    sub_08058514,
+    sub_080585B0
+};
 
-void sub_08058380(Manager* this) {
-    gUnk_081081F4[this->action](this);
+void sub_08058380(ManagerA* this) {
+    gUnk_081081F4[this->manager.action](this);
 }
 
 

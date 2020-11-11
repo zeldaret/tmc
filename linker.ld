@@ -986,7 +986,9 @@ SECTIONS {
         data/data_08107BC8.o(.rodata);
         src/manager/manager5.o(.rodata);
         src/manager/manager7.o(.rodata);
-        data/data_081081EC.o(.rodata);
+	. = ALIGN(4);
+	src/manager/manager9.o(.rodata);
+	src/manager/managerA.o(.rodata);
         src/manager/managerB.o(.rodata);
         data/data_0810821C.o(.rodata);
 		src/item.o(.rodata);
