@@ -269,4 +269,5 @@ extern u32 GetTileTypeByEntity(Entity*);
 extern u32 sub_0800442E(Entity*);
 extern void sub_08081404(Entity*, u32);
 extern void sub_0807B7D8(u32, u32, u32);
+extern void sub_08052D74(void*, void*, void*);
 #endif
