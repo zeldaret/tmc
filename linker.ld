@@ -479,7 +479,7 @@ SECTIONS {
 		src/manager/manager6.o(.text);
 		src/manager/manager7.o(.text);
 		src/manager/manager8.o(.text);
-		asm/manager9.o(.text);
+		src/manager/manager9.o(.text);
 		src/manager/managerA.o(.text);
 		src/manager/managerB.o(.text);
 		asm/managerC.o(.text);
@@ -992,7 +992,9 @@ SECTIONS {
         data/data_08107BC8.o(.rodata);
         src/manager/manager5.o(.rodata);
         src/manager/manager7.o(.rodata);
-        data/data_081081EC.o(.rodata);
+	. = ALIGN(4);
+	src/manager/manager9.o(.rodata);
+	src/manager/managerA.o(.rodata);
         src/manager/managerB.o(.rodata);
         data/data_0810821C.o(.rodata);
 		src/item.o(.rodata);
