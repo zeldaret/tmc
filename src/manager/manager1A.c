@@ -6,7 +6,6 @@
 #include "screen.h"
 #include "functions.h"
 
-
 typedef struct {
     Manager manager;
     s16 unk_20;
@@ -35,9 +34,9 @@ extern u32 sub_0806FBFC(u32, u32, u32, u32);
 
 typedef struct struct_08108764 {
     u8 unk_00;
-    u8 unk_01;//area ID?
-    u8 unk_02;//room ID?
-    u8 unk_03;//layer?
+    u8 unk_01; // area ID?
+    u8 unk_02; // room ID?
+    u8 unk_03; // layer?
     u16 unk_04;
     u16 unk_06;
     u8 unk_08;
@@ -50,19 +49,19 @@ typedef struct struct_08108764 {
         u16 unk_06;
         u16 unk_08;
         u16 unk_0a;
-    }* unk_0c;
+    } * unk_0c;
     struct {
         u8 unk_00;
         u8 unk_01;
         u8 unk_02[2];
         u16 unk_04;
         u16 unk_06;
-    }* unk_10;
+    } * unk_10;
 } struct_08108764;
 
 extern struct_08108764 gUnk_08108764[];
 
-u32  sub_0805B1CC(Manager1A*);
+u32 sub_0805B1CC(Manager1A*);
 void sub_0805B210(Manager1A*);
 void sub_0805B2B0(Manager1A*);
 void sub_0805B328(Manager1A*);
@@ -99,14 +98,15 @@ void sub_0805B048(Manager1A* this) {
         sub_0805B328(this);
         sub_08052D74(this, sub_0805B328, 0);
     }
-    if (!tmp->unk_10) return;
+    if (!tmp->unk_10)
+        return;
     obj = CreateObject(0x28, tmp->unk_10->unk_00, tmp->unk_10->unk_01);
     if (obj) {
         obj->x.HALF.HI = tmp->unk_10->unk_04 + gRoomControls.roomOriginX;
         obj->y.HALF.HI = tmp->unk_10->unk_06 + gRoomControls.roomOriginY;
     }
-    if (this->manager.unk_0a != 0xa
-     || CheckLocalFlag(0x4B)) return;
+    if (this->manager.unk_0a != 0xa || CheckLocalFlag(0x4B))
+        return;
     obj = CreateObject(0x28, 3, 3);
     if (obj) {
         obj->x.HALF.HI = tmp->unk_10->unk_04 + gRoomControls.roomOriginX;
@@ -125,9 +125,11 @@ void sub_0805B168(Manager1A* this) {
         this->manager.unk_0d = 1;
         return;
     }
-    if (!this->manager.unk_0d) return;
+    if (!this->manager.unk_0d)
+        return;
     this->manager.unk_0d = 0;
-    if (this->unk_3f == gRoomControls.roomID) return;
+    if (this->unk_3f == gRoomControls.roomID)
+        return;
     if (this->manager.unk_0b) {
         gScreen.lcd.displayControl &= ~0x800;
     }
@@ -147,7 +149,7 @@ u32 sub_0805B1CC(Manager1A* this) {
 }
 
 void sub_0805B210(Manager1A* this) {
-    struct_08108764 *tmp;
+    struct_08108764* tmp;
     gScreenTransition.transitioningOut = 1;
     gScreenTransition.transitionType = 1;
     gScreenTransition.playerState = 4;
@@ -179,7 +181,8 @@ void sub_0805B210(Manager1A* this) {
 
 void sub_0805B2B0(Manager1A* this) {
     s32 tmp, tmp2;
-    if (!this->manager.unk_0b) return;
+    if (!this->manager.unk_0b)
+        return;
     tmp = (this->unk_30 - gRoomControls.roomScrollX) / 4;
     tmp2 = (this->unk_32 - gRoomControls.roomScrollY) / 4;
     if (tmp < -12) {
@@ -202,8 +205,9 @@ void sub_0805B2B0(Manager1A* this) {
 }
 
 void sub_0805B328(Manager1A* this) {
-    struct_08108764 *tmp;
-    if (!this->manager.unk_0b) return;
+    struct_08108764* tmp;
+    if (!this->manager.unk_0b)
+        return;
     tmp = &gUnk_08108764[this->manager.unk_0a];
     LoadAssetAsync(&gGlobalGfxAndPalettes[tmp->unk_0c->unk_00], 0x0600F000, 0x800);
     gScreen.affine.bg3Control = 0x1E07;
@@ -215,7 +219,8 @@ void sub_0805B328(Manager1A* this) {
 
 void sub_0805B390(u32 unk1) {
     Manager* tmp = GetEmptyManager();
-    if (!tmp) return;
+    if (!tmp)
+        return;
     tmp->type = 0x9;
     tmp->subtype = 0x1A;
     tmp->unk_0a = unk1;

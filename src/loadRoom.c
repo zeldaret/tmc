@@ -47,7 +47,7 @@ void sub_0804B058(EntityData* dat) {
             }
             uVar2++;
             dat++;
-        } while (*(u8*)dat!= 0xff);
+        } while (*(u8*)dat != 0xff);
     }
 }
 

@@ -4259,8 +4259,10 @@ void LoadHyruleTown(void) {
             LoadRoomEntityList(&gUnk_080EECBC);
         }
         if (CheckKinstoneFused(0x1b) && (gUnk_02002A40.unk8 > 3)) {
-            if (!CheckGlobalFlag(NEW_HOUSE_DIN) && !CheckGlobalFlag(NEW_HOUSE_NAYRU) && !CheckGlobalFlag(NEW_HOUSE_FARORE)) {
-                if (!CheckGlobalFlag(RENTED_HOUSE_DIN) && !CheckGlobalFlag(RENTED_HOUSE_NAYRU) && !CheckGlobalFlag(RENTED_HOUSE_FARORE)) {
+            if (!CheckGlobalFlag(NEW_HOUSE_DIN) && !CheckGlobalFlag(NEW_HOUSE_NAYRU) &&
+                !CheckGlobalFlag(NEW_HOUSE_FARORE)) {
+                if (!CheckGlobalFlag(RENTED_HOUSE_DIN) && !CheckGlobalFlag(RENTED_HOUSE_NAYRU) &&
+                    !CheckGlobalFlag(RENTED_HOUSE_FARORE)) {
                     LoadRoomEntityList(&gUnk_080EE95C);
                 } else {
                     if (!CheckGlobalFlag(TATEKAKE_HOUSE)) {
@@ -4283,7 +4285,8 @@ void LoadHyruleTown(void) {
             LoadRoomEntityList(&gUnk_080EE9DC);
         }
         if ((gUnk_02002A40.unk8 > 4) && !CheckKinstoneFused(0xb) &&
-            (CheckGlobalFlag(RENTED_HOUSE_DIN) || CheckGlobalFlag(RENTED_HOUSE_NAYRU) || CheckGlobalFlag(RENTED_HOUSE_FARORE))) {
+            (CheckGlobalFlag(RENTED_HOUSE_DIN) || CheckGlobalFlag(RENTED_HOUSE_NAYRU) ||
+             CheckGlobalFlag(RENTED_HOUSE_FARORE))) {
             LoadRoomEntityList(&gUnk_080EEA5C);
         }
         // rocs cape
@@ -4305,11 +4308,10 @@ void LoadHyruleTown(void) {
 
 extern EntityData gUnk_080EEBAC;
 
-void sub_0804E130(void)
-{
-  if ((gUnk_02002A40.windcrests & 0x8000000) == 0) {
-    LoadRoomEntityList(&gUnk_080EEBAC);
-  }
+void sub_0804E130(void) {
+    if ((gUnk_02002A40.windcrests & 0x8000000) == 0) {
+        LoadRoomEntityList(&gUnk_080EEBAC);
+    }
 }
 
 NAKED
@@ -4321,55 +4323,64 @@ u32 sub_0804E1F4() {
     return 1;
 }
 
-void nullsub_76() {}
+void nullsub_76() {
+}
 
 u32 sub_0804E1FC() {
     return 1;
 }
 
-void nullsub_77() {}
+void nullsub_77() {
+}
 
 u32 sub_0804E204() {
     return 1;
 }
 
-void nullsub_78() {}
+void nullsub_78() {
+}
 
 u32 sub_0804E20C() {
     return 1;
 }
 
-void nullsub_79() {}
+void nullsub_79() {
+}
 
 u32 sub_0804E214() {
     return 1;
 }
 
-void nullsub_080() {}
+void nullsub_080() {
+}
 
 u32 sub_0804E21C() {
     return 1;
 }
 
-void nullsub_081() {}
+void nullsub_081() {
+}
 
 u32 sub_0804E224() {
     return 1;
 }
 
-void nullsub_082() {}
+void nullsub_082() {
+}
 
 u32 sub_0804E22C() {
     return 1;
 }
 
-void nullsub_083() {}
+void nullsub_083() {
+}
 
 u32 sub_0804E234() {
     return 1;
 }
 
-void nullsub_084() {}
+void nullsub_084() {
+}
 
 u32 sub_0804E23C() {
     return 1;
@@ -4382,30 +4393,32 @@ u32 sub_0804E244() {
     return 1;
 }
 
-void nullsub_086() {}
+void nullsub_086() {
+}
 
 u32 sub_0804E24C() {
     return 1;
 }
 
-void nullsub_087() {}
+void nullsub_087() {
+}
 
 u32 sub_0804E254() {
     return 1;
 }
 
-void nullsub_088() {}
+void nullsub_088() {
+}
 
 extern u32 gUnk_080F09A0;
 
-u32 sub_0804E25C(void)
-{
-  
-  //four sword
-  if (GetInventoryValue(0x6)) {
-    gRoomVars.field_0x70 = &gUnk_080F09A0;
-  }
-  return 1;
+u32 sub_0804E25C(void) {
+
+    // four sword
+    if (GetInventoryValue(0x6)) {
+        gRoomVars.field_0x70 = &gUnk_080F09A0;
+    }
+    return 1;
 }
 
 extern EntityData gUnk_080F0650;
@@ -4416,50 +4429,46 @@ extern EntityData gUnk_080F0870;
 extern EntityData gUnk_080F0890;
 extern EntityData gUnk_080F0920;
 
-void sub_0804E27C(void)
-{
+void sub_0804E27C(void) {
 
-  if (!CheckGlobalFlag(TABIDACHI)) {
-    LoadRoomEntityList(&gUnk_080F0650);
-    gArea.pMusicIndex = 0x13;
-    SetGlobalFlag(CASTLE_BGM);
-  }
-  else {
-    if (CheckGlobalFlag(CASTLE_BGM)) {
-      gArea.pMusicIndex = 0x1b;
+    if (!CheckGlobalFlag(TABIDACHI)) {
+        LoadRoomEntityList(&gUnk_080F0650);
+        gArea.pMusicIndex = 0x13;
+        SetGlobalFlag(CASTLE_BGM);
+    } else {
+        if (CheckGlobalFlag(CASTLE_BGM)) {
+            gArea.pMusicIndex = 0x1b;
+        }
     }
-  }
-  if (!CheckLocalFlag(0x9c)) {
-    LoadRoomEntityList(&gUnk_080F0800);
-    SetTileType(0x4072, 600, 1);
-    SetTileType(0x4072, 0x298, 1);
-    SetTileType(0x4072, 0x266, 1);
-    SetTileType(0x4072, 0x2a6, 1);
-  }
-  else {
-      // four sword
-    if (!GetInventoryValue(0x6)) {
-      LoadRoomEntityList(&gUnk_080F08F0);
-      SetTileType(0x4072, 0x9e, 1);
-      SetTileType(0x4072, 0x9f, 1);
-      SetTileType(0x4072, 0xa0, 1);
+    if (!CheckLocalFlag(0x9c)) {
+        LoadRoomEntityList(&gUnk_080F0800);
+        SetTileType(0x4072, 600, 1);
+        SetTileType(0x4072, 0x298, 1);
+        SetTileType(0x4072, 0x266, 1);
+        SetTileType(0x4072, 0x2a6, 1);
+    } else {
+        // four sword
+        if (!GetInventoryValue(0x6)) {
+            LoadRoomEntityList(&gUnk_080F08F0);
+            SetTileType(0x4072, 0x9e, 1);
+            SetTileType(0x4072, 0x9f, 1);
+            SetTileType(0x4072, 0xa0, 1);
+        }
+        LoadRoomEntityList(&gUnk_080F0850);
+        // water element
+        if (!GetInventoryValue(0x42)) {
+            LoadRoomEntityList(&gUnk_080F0870);
+        } else {
+            LoadRoomEntityList(&gUnk_080F0890);
+        }
+        SetTileType(0x4072, 600, 1);
+        SetTileType(0x4072, 0x298, 1);
+        if (CheckLocalFlag(0x10)) {
+            LoadRoomEntityList(&gUnk_080F0920);
+            ClearLocalFlag(0x10);
+        }
     }
-    LoadRoomEntityList(&gUnk_080F0850);
-    // water element
-    if (!GetInventoryValue(0x42)) {
-      LoadRoomEntityList(&gUnk_080F0870);
-    }
-    else {
-      LoadRoomEntityList(&gUnk_080F0890);
-    }
-    SetTileType(0x4072, 600, 1);
-    SetTileType(0x4072, 0x298, 1);
-    if (CheckLocalFlag(0x10)) {
-      LoadRoomEntityList(&gUnk_080F0920);
-      ClearLocalFlag(0x10);
-    }
-  }
-  sub_080AF284();
+    sub_080AF284();
 }
 
 u32 sub_0804E3B8() {
@@ -4488,11 +4497,11 @@ void sub_0804E3C4() {
         index = 3;
     }
     r = Random();
-    index = gUnk_080F0D58[index][r&0x1f];
+    index = gUnk_080F0D58[index][r & 0x1f];
     LoadRoomEntityList(gUnk_080F0CB8[index & 0xF]);
     index >>= 4;
     r >>= 8;
-    index = gUnk_080F0E08[index][r&0x1F];
+    index = gUnk_080F0E08[index][r & 0x1F];
     if (!CheckLocalFlag(0xC6)) {
         SetLocalFlag(0xC6);
         index = 0xE;
@@ -4508,14 +4517,12 @@ u32 sub_0804E45C() {
 extern EntityData gUnk_080F1C68;
 extern EntityData gUnk_080F1C88;
 
-void sub_0804E460(void)
-{
-  if (!CheckGlobalFlag(POWERGLOVE_HINT)) {
-    LoadRoomEntityList(&gUnk_080F1C68);
-  }
-  else {
-    LoadRoomEntityList(&gUnk_080F1C88);
-  }
+void sub_0804E460(void) {
+    if (!CheckGlobalFlag(POWERGLOVE_HINT)) {
+        LoadRoomEntityList(&gUnk_080F1C68);
+    } else {
+        LoadRoomEntityList(&gUnk_080F1C88);
+    }
 }
 
 u32 sub_0804E484() {
@@ -4526,8 +4533,7 @@ extern EntityData gUnk_080F1D90;
 extern EntityData gUnk_080F1DB0;
 extern EntityData gUnk_080F1DD0;
 
-void sub_0804E488(void)
-{
+void sub_0804E488(void) {
     if (CheckGlobalFlag(NEW_HOUSE_DIN)) {
         LoadRoomEntityList(&gUnk_080F1D90);
     } else if (CheckGlobalFlag(NEW_HOUSE_NAYRU)) {
@@ -4541,13 +4547,15 @@ u32 sub_0804E4D0() {
     return 1;
 }
 
-void nullsub_375() {}
+void nullsub_375() {
+}
 
 u32 sub_0804E4D8() {
     return 1;
 }
 
-void nullsub_376() {}
+void nullsub_376() {
+}
 
 u32 sub_0804E4E0() {
     return 1;
@@ -4557,17 +4565,16 @@ extern EntityData gUnk_080F2174;
 extern EntityData gUnk_080F2194;
 extern EntityData gUnk_080F21B4;
 
-void sub_0804E4E4(void)
-{
-  
-  LoadRoomEntityList(&gUnk_080F2174);
-  // picori legend book
-  if (!GetInventoryValue(0x3a) && CheckGlobalFlag(MIZUKAKI_HARIFALL)) {
-    LoadRoomEntityList(&gUnk_080F2194);
-  }
-  if (gScreenTransition.field_0xf == 1) {
-    LoadRoomEntityList(&gUnk_080F21B4);
-  }
+void sub_0804E4E4(void) {
+
+    LoadRoomEntityList(&gUnk_080F2174);
+    // picori legend book
+    if (!GetInventoryValue(0x3a) && CheckGlobalFlag(MIZUKAKI_HARIFALL)) {
+        LoadRoomEntityList(&gUnk_080F2194);
+    }
+    if (gScreenTransition.field_0xf == 1) {
+        LoadRoomEntityList(&gUnk_080F21B4);
+    }
 }
 
 u32 sub_0804E528() {
@@ -4578,19 +4585,17 @@ extern EntityData gUnk_080F23BC;
 extern EntityData gUnk_080F238C;
 extern EntityData gUnk_080F236C;
 
-void sub_0804E52C(void)
-{
-  
-  if (gUnk_02002A40.unk8 > 7) {
-    LoadRoomEntityList(&gUnk_080F23BC);
-  }
-  // flippers
-  if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START)) {
-    LoadRoomEntityList(&gUnk_080F238C);
-  }
-  else {
-    LoadRoomEntityList(&gUnk_080F236C);
-  }
+void sub_0804E52C(void) {
+
+    if (gUnk_02002A40.unk8 > 7) {
+        LoadRoomEntityList(&gUnk_080F23BC);
+    }
+    // flippers
+    if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START)) {
+        LoadRoomEntityList(&gUnk_080F238C);
+    } else {
+        LoadRoomEntityList(&gUnk_080F236C);
+    }
 }
 
 u32 sub_0804E570() {
@@ -4602,8 +4607,7 @@ extern EntityData gUnk_080F2590;
 extern EntityData gUnk_080F25C0;
 extern EntityData gUnk_080F2600;
 
-void sub_0804E574(void)
-{
+void sub_0804E574(void) {
     switch (gUnk_02002A40.unk8) {
         case 0:
         case 2:
@@ -4646,25 +4650,21 @@ extern EntityData gUnk_080F2758;
 extern EntityData gUnk_080F27D8;
 extern EntityData gUnk_080F2798;
 
-void sub_0804E618(void)
-{
-  if (CheckKinstoneFused(0x21)) {
-    if (!CheckLocalFlag(0x42)) {
-      if (!CheckLocalFlag(0x43)) {
-        LoadRoomEntityList(&gUnk_080F2718);
-        LoadRoomTileEntities(&gUnk_080F2860);
-      }
-      else {
-        LoadRoomEntityList(&gUnk_080F2758);
-      }
+void sub_0804E618(void) {
+    if (CheckKinstoneFused(0x21)) {
+        if (!CheckLocalFlag(0x42)) {
+            if (!CheckLocalFlag(0x43)) {
+                LoadRoomEntityList(&gUnk_080F2718);
+                LoadRoomTileEntities(&gUnk_080F2860);
+            } else {
+                LoadRoomEntityList(&gUnk_080F2758);
+            }
+        } else if (!CheckLocalFlag(0x3f)) {
+            LoadRoomEntityList(&gUnk_080F27D8);
+        } else {
+            LoadRoomEntityList(&gUnk_080F2798);
+        }
     }
-    else if (!CheckLocalFlag(0x3f)) {
-        LoadRoomEntityList(&gUnk_080F27D8);
-      }
-      else {
-        LoadRoomEntityList(&gUnk_080F2798);
-      }
-  }
 }
 
 u32 sub_0804E680() {
@@ -4675,8 +4675,7 @@ extern EntityData gUnk_080F28D4;
 extern EntityData gUnk_080F28F4;
 extern EntityData gUnk_080F2914;
 
-void sub_0804E684(void)
-{
+void sub_0804E684(void) {
     if (CheckGlobalFlag(RENTED_HOUSE_DIN)) {
         LoadRoomEntityList(&gUnk_080F28D4);
     } else if (CheckGlobalFlag(RENTED_HOUSE_NAYRU)) {
@@ -4690,19 +4689,22 @@ u32 sub_0804E6CC9() {
     return 1;
 }
 
-void nullsub_377() {}
+void nullsub_377() {
+}
 
 u32 sub_0804E6D4() {
     return 1;
 }
 
-void nullsub_378() {}
+void nullsub_378() {
+}
 
 u32 sub_0804E6DC() {
     return 1;
 }
 
-void nullsub_379() {}
+void nullsub_379() {
+}
 
 u32 sub_0804E6E4() {
     return 1;
@@ -4710,15 +4712,14 @@ u32 sub_0804E6E4() {
 
 extern EntityData gUnk_080F2E2C;
 
-void sub_0804E6E8(void)
-{
-  if (!CheckGlobalFlag(OUTDOOR)) {
-    gArea.musicIndex = gArea.pMusicIndex;
-    PlaySFX(0x800b0036);
-  }
-  if (!CheckGlobalFlag(START)) {
-    LoadRoomEntityList(&gUnk_080F2E2C);
-  }
+void sub_0804E6E8(void) {
+    if (!CheckGlobalFlag(OUTDOOR)) {
+        gArea.musicIndex = gArea.pMusicIndex;
+        PlaySFX(0x800b0036);
+    }
+    if (!CheckGlobalFlag(START)) {
+        LoadRoomEntityList(&gUnk_080F2E2C);
+    }
 }
 
 u32 sub_0804E728() {
@@ -4728,18 +4729,16 @@ u32 sub_0804E728() {
 extern EntityData gUnk_080F2E94;
 extern EntityData gUnk_080F2EC4;
 
-void sub_0804E72C(void)
-{
-  if (!CheckGlobalFlag(OUTDOOR)) {
-    gArea.musicIndex = gArea.pMusicIndex;
-    PlaySFX(0x800b0036);
-  }
-  if (!CheckGlobalFlag(START)) {
-    LoadRoomEntityList(&gUnk_080F2E94);
-  }
-  else {
-    LoadRoomEntityList(&gUnk_080F2EC4);
-  }
+void sub_0804E72C(void) {
+    if (!CheckGlobalFlag(OUTDOOR)) {
+        gArea.musicIndex = gArea.pMusicIndex;
+        PlaySFX(0x800b0036);
+    }
+    if (!CheckGlobalFlag(START)) {
+        LoadRoomEntityList(&gUnk_080F2E94);
+    } else {
+        LoadRoomEntityList(&gUnk_080F2EC4);
+    }
 }
 
 u32 sub_0804E778() {
@@ -4748,12 +4747,11 @@ u32 sub_0804E778() {
 
 extern EntityData gUnk_080F2FD4;
 
-void sub_0804E77C(void)
-{
+void sub_0804E77C(void) {
     // graveyard key
-  if (!CheckLocalFlag(0x69) || GetInventoryValue(0x3c) > 1) {
-    LoadRoomEntityList(&gUnk_080F2FD4);
-  }
+    if (!CheckLocalFlag(0x69) || GetInventoryValue(0x3c) > 1) {
+        LoadRoomEntityList(&gUnk_080F2FD4);
+    }
 }
 
 u32 sub_0804E7A0() {
@@ -4762,13 +4760,11 @@ u32 sub_0804E7A0() {
 
 extern EntityData gUnk_080F30CC;
 
-void sub_0804E7A4(void)
-{
+void sub_0804E7A4(void) {
     // dog food
-  if ((GetInventoryValue(0x36) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) &&
-     (gPlayerState.flags.all & 0x80) == 0) {
-    LoadRoomEntityList(&gUnk_080F30CC);
-  }
+    if ((GetInventoryValue(0x36) == 1) && !CheckGlobalFlag(BIN_DOGFOOD) && (gPlayerState.flags.all & 0x80) == 0) {
+        LoadRoomEntityList(&gUnk_080F30CC);
+    }
 }
 
 u32 sub_0804E7D8() {
@@ -4779,32 +4775,30 @@ extern EntityData gUnk_080F31D8;
 extern u8 gUnk_02000070;
 extern u32 gUnk_08009B30;
 
-void sub_0804E7DC(void)
-{
+void sub_0804E7DC(void) {
 
-  if (!CheckGlobalFlag(START) && !CheckLocalFlag(0x46)) {
-    sub_080A71C4(5, 1, 4, 4);
-    gUnk_02000070 = 0;
-    DoFade(5, 0x100);
-    sub_080751E8(0, 6, &gUnk_08009B30);
-  }
-  if (!CheckGlobalFlag(OUTDOOR)) {
-    gArea.musicIndex = gArea.pMusicIndex;
-    PlaySFX(0x800b0036);
-  }
-  if ((gPlayerState.flags.all & 8) == 0) {
-    LoadRoomEntityList(&gUnk_080F31D8);
-  }
+    if (!CheckGlobalFlag(START) && !CheckLocalFlag(0x46)) {
+        sub_080A71C4(5, 1, 4, 4);
+        gUnk_02000070 = 0;
+        DoFade(5, 0x100);
+        sub_080751E8(0, 6, &gUnk_08009B30);
+    }
+    if (!CheckGlobalFlag(OUTDOOR)) {
+        gArea.musicIndex = gArea.pMusicIndex;
+        PlaySFX(0x800b0036);
+    }
+    if ((gPlayerState.flags.all & 8) == 0) {
+        LoadRoomEntityList(&gUnk_080F31D8);
+    }
 }
 
 extern u32 gUnk_08009E58;
 
-void sub_0804E864(void)
-{
-  gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x90;
-  gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-  sub_080751E8(1, 6, &gUnk_08009E58);
-  ModHealth(0xa0);
+void sub_0804E864(void) {
+    gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x90;
+    gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
+    sub_080751E8(1, 6, &gUnk_08009E58);
+    ModHealth(0xa0);
 }
 
 u32 sub_0804E894() {
@@ -4813,16 +4807,15 @@ u32 sub_0804E894() {
 
 extern EntityData gUnk_080F3260;
 
-void sub_0804E898(void)
-{
-  // pacci cane
-  if (GetInventoryValue(0x12)) {
-    LoadRoomEntityList(&gUnk_080F3260);
-    SetTileType(0x4072, 0x202, 1);
-    SetTileType(0x4072, 0x242, 1);
-    SetTileType(0x4072, 0x204, 1);
-    SetTileType(0x4072, 0x244, 1);
-  }
+void sub_0804E898(void) {
+    // pacci cane
+    if (GetInventoryValue(0x12)) {
+        LoadRoomEntityList(&gUnk_080F3260);
+        SetTileType(0x4072, 0x202, 1);
+        SetTileType(0x4072, 0x242, 1);
+        SetTileType(0x4072, 0x204, 1);
+        SetTileType(0x4072, 0x244, 1);
+    }
 }
 
 u32 sub_0804E8EC() {
@@ -4840,13 +4833,11 @@ u32 sub_0804E8F8() {
 extern EntityData gUnk_080F36FC;
 extern EntityData gUnk_080F3604;
 
-void sub_0804E8FC(void)
-{
-  if (!CheckGlobalFlag(INLOCK)) {
-    LoadRoomEntityList(&gUnk_080F36FC);
-  }
-  else if (gUnk_02002A40.unk8 < 4) {
-      LoadRoomEntityList(&gUnk_080F3604);
+void sub_0804E8FC(void) {
+    if (!CheckGlobalFlag(INLOCK)) {
+        LoadRoomEntityList(&gUnk_080F36FC);
+    } else if (gUnk_02002A40.unk8 < 4) {
+        LoadRoomEntityList(&gUnk_080F3604);
     }
 }
 
@@ -4856,18 +4847,18 @@ u32 sub_0804E92C() {
 
 extern EntityData gUnk_080F37D0;
 
-void sub_0804E930(void)
-{
-  if (CheckGlobalFlag(INLOCK)) {
-    LoadRoomEntityList(&gUnk_080F37D0);
-  }
+void sub_0804E930(void) {
+    if (CheckGlobalFlag(INLOCK)) {
+        LoadRoomEntityList(&gUnk_080F37D0);
+    }
 }
 
-u32 sub_0804E948 () {
+u32 sub_0804E948() {
     return 1;
 }
 
-void nullsub_380() {}
+void nullsub_380() {
+}
 
 u32 sub_0804E950() {
     return 1;
@@ -4875,61 +4866,57 @@ u32 sub_0804E950() {
 
 extern EntityData gUnk_080F3A48;
 
-void sub_0804E954(void)
-{
-  // flippers, history of masks 
-  if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START) && !GetInventoryValue(0x3b)) {
-    LoadRoomEntityList(&gUnk_080F3A48);
-  }
-  gScreenTransition.field_0x20 = 0xf28;
-  gScreenTransition.field_0x22 = 0x82d;
+void sub_0804E954(void) {
+    // flippers, history of masks
+    if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START) && !GetInventoryValue(0x3b)) {
+        LoadRoomEntityList(&gUnk_080F3A48);
+    }
+    gScreenTransition.field_0x20 = 0xf28;
+    gScreenTransition.field_0x22 = 0x82d;
 }
 
 extern u32 gUnk_080F3D44;
 extern u32 gUnk_080F3EA4;
 
-u32 sub_0804E998(void)
-{
-  if (CheckGlobalFlag(LV4_CLEAR) && !CheckLocalFlag(4)) {
-    gRoomVars.field_0x74 = &gUnk_080F3EA4;
-  }
-  else {
-    gRoomVars.field_0x74 = &gUnk_080F3D44;
-  }
-  return 1;
+u32 sub_0804E998(void) {
+    if (CheckGlobalFlag(LV4_CLEAR) && !CheckLocalFlag(4)) {
+        gRoomVars.field_0x74 = &gUnk_080F3EA4;
+    } else {
+        gRoomVars.field_0x74 = &gUnk_080F3D44;
+    }
+    return 1;
 }
 
 extern EntityData gUnk_080F3C64;
 extern EntityData gUnk_080F3C94;
 extern EntityData gUnk_080F3C44;
 
-void sub_0804E9D0(void)
-{
-  if (CheckGlobalFlag(LV4_CLEAR) && !CheckLocalFlag(4)) {
-    LoadRoomEntityList(&gUnk_080F3C64);
-  }
-  if (CheckKinstoneFused(0x12)) {
-    LoadRoomEntityList(&gUnk_080F3C94);
-  }
-  if ((gUnk_02002A40.unk8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
-    LoadRoomEntityList(&gUnk_080F3C44);
-  }
-  SetTile(0x4091, 0x590, 1);
-  SetTile(0x4091, 0x591, 1);
-  SetTile(0x4091, 0x592, 1);
-  SetTile(0x4091, 0x593, 1);
-  SetTile(0x4091, 0x594, 1);
-  SetTile(0x4091, 0x5d0, 1);
-  SetTile(0x4091, 0x610, 1);
-  SetTile(0x4091, 0x650, 1);
-  SetTile(0x4091, 0x5d4, 1);
-  SetTile(0x4091, 0x614, 1);
-  SetTile(0x4091, 0x654, 1);
-  SetTile(0x4091, 0x690, 1);
-  SetTile(0x4091, 0x691, 1);
-  SetTile(0x4091, 0x692, 1);
-  SetTile(0x4091, 0x693, 1);
-  SetTile(0x4091, 0x694, 1);
+void sub_0804E9D0(void) {
+    if (CheckGlobalFlag(LV4_CLEAR) && !CheckLocalFlag(4)) {
+        LoadRoomEntityList(&gUnk_080F3C64);
+    }
+    if (CheckKinstoneFused(0x12)) {
+        LoadRoomEntityList(&gUnk_080F3C94);
+    }
+    if ((gUnk_02002A40.unk8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
+        LoadRoomEntityList(&gUnk_080F3C44);
+    }
+    SetTile(0x4091, 0x590, 1);
+    SetTile(0x4091, 0x591, 1);
+    SetTile(0x4091, 0x592, 1);
+    SetTile(0x4091, 0x593, 1);
+    SetTile(0x4091, 0x594, 1);
+    SetTile(0x4091, 0x5d0, 1);
+    SetTile(0x4091, 0x610, 1);
+    SetTile(0x4091, 0x650, 1);
+    SetTile(0x4091, 0x5d4, 1);
+    SetTile(0x4091, 0x614, 1);
+    SetTile(0x4091, 0x654, 1);
+    SetTile(0x4091, 0x690, 1);
+    SetTile(0x4091, 0x691, 1);
+    SetTile(0x4091, 0x692, 1);
+    SetTile(0x4091, 0x693, 1);
+    SetTile(0x4091, 0x694, 1);
 }
 
 u32 sub_0804EB04() {
@@ -4943,107 +4930,115 @@ u32 sub_0804EB0C() {
     return 1;
 }
 
-void nullsub_382() {}
+void nullsub_382() {
+}
 
 u32 sub_0804EB14() {
     return 1;
 }
 
-void nullsub_383() {}
+void nullsub_383() {
+}
 
 u32 sub_0804EB1() {
     return 1;
 }
 
-void nullsub_384() {}
+void nullsub_384() {
+}
 
 u32 sub_0804EB24() {
     return 1;
 }
 
-void nullsub_385() {}
+void nullsub_385() {
+}
 
 u32 sub_0804EB2C() {
     return 1;
 }
 
-void nullsub_386() {}
+void nullsub_386() {
+}
 
 u32 sub_0804EB34() {
     return 1;
 }
 
-void nullsub_387() {}
+void nullsub_387() {
+}
 
 u32 sub_0804EB3C() {
     return 1;
 }
 
-void nullsub_388() {}
+void nullsub_388() {
+}
 
 u32 sub_0804EB44() {
     return 1;
 }
 
-void nullsub_389() {}
+void nullsub_389() {
+}
 
 u32 sub_0804EB4C() {
     return 1;
 }
 
-void nullsub_390() {}
-
-u32 sub_0804EB54(void)
-{
-  gArea.areaMetadata |= 0x48;
-  return 1;
+void nullsub_390() {
 }
 
-void nullsub_391() {}
-
-u32 sub_0804EB6C(void)
-{
-  gArea.areaMetadata |= 0x48;
-  return 1;
+u32 sub_0804EB54(void) {
+    gArea.areaMetadata |= 0x48;
+    return 1;
 }
 
-void nullsub_392() {}
-
-u32 sub_0804EB84(void)
-{
-  gArea.areaMetadata |= 0x48;
-  return 1;
+void nullsub_391() {
 }
 
-void nullsub_393() {}
-
-u32 sub_0804EB9C(void)
-{
-  sub_0801DD58(0x58, 5);
-  gArea.areaMetadata |= 0x48;
-  return 1;
+u32 sub_0804EB6C(void) {
+    gArea.areaMetadata |= 0x48;
+    return 1;
 }
 
-void nullsub_394() {}
-
-u32 sub_0804EBBC(void)
-{
-  sub_0801DD58(0x58, 6);
-  gArea.areaMetadata |= 0x48;
-  return 1;
+void nullsub_392() {
 }
 
-void nullsub_395() {}
+u32 sub_0804EB84(void) {
+    gArea.areaMetadata |= 0x48;
+    return 1;
+}
+
+void nullsub_393() {
+}
+
+u32 sub_0804EB9C(void) {
+    sub_0801DD58(0x58, 5);
+    gArea.areaMetadata |= 0x48;
+    return 1;
+}
+
+void nullsub_394() {
+}
+
+u32 sub_0804EBBC(void) {
+    sub_0801DD58(0x58, 6);
+    gArea.areaMetadata |= 0x48;
+    return 1;
+}
+
+void nullsub_395() {
+}
 
 extern u32 gUnk_080F4EB0;
 
-u32 sub_0804EBDC(void)
-{
-  if (CheckGlobalFlag(ENDING)) {
-    gRoomVars.field_0x6c = &gUnk_080F4EB0;
-    gRoomVars.field_0x74 = NULL;
-  }
-  return 1;
+u32 sub_0804EBDC(void) {
+    if (CheckGlobalFlag(ENDING)) {
+        gRoomVars.field_0x6c = &gUnk_080F4EB0;
+        gRoomVars.field_0x74 = NULL;
+    }
+    return 1;
 }
 
 extern EntityData gUnk_080F4D50;
@@ -5053,87 +5048,81 @@ extern EntityData gUnk_080F4DF0;
 extern EntityData gUnk_080F4F10;
 extern EntityData gUnk_080F4E10;
 
-void sub_0804EC00(void)
-{
-  if (CheckGlobalFlag(ENDING)) {
-    gArea.pMusicIndex = gArea.musicIndex;
-  }
-  if (!CheckGlobalFlag(EZERO_1ST)) {
-    LoadRoomEntityList(&gUnk_080F4D50);
-  }
-  if (!CheckLocalFlag(0x3e)) {
-    if (!CheckLocalFlag(0x3b)) {
-      LoadRoomEntityList(&gUnk_080F4DB0);
+void sub_0804EC00(void) {
+    if (CheckGlobalFlag(ENDING)) {
+        gArea.pMusicIndex = gArea.musicIndex;
     }
-    else {
-      LoadRoomEntityList(&gUnk_080F4DD0);
+    if (!CheckGlobalFlag(EZERO_1ST)) {
+        LoadRoomEntityList(&gUnk_080F4D50);
     }
-    LoadRoomEntityList(&gUnk_080F4DF0);
-  }
-  if (CheckKinstoneFused(0x4e)) {
-    LoadRoomEntityList(&gUnk_080F4F10);
-  }
-  if ((s32)gUnk_02002A40.windcrests > -1) {
-    LoadRoomEntityList(&gUnk_080F4E10);
-  }
+    if (!CheckLocalFlag(0x3e)) {
+        if (!CheckLocalFlag(0x3b)) {
+            LoadRoomEntityList(&gUnk_080F4DB0);
+        } else {
+            LoadRoomEntityList(&gUnk_080F4DD0);
+        }
+        LoadRoomEntityList(&gUnk_080F4DF0);
+    }
+    if (CheckKinstoneFused(0x4e)) {
+        LoadRoomEntityList(&gUnk_080F4F10);
+    }
+    if ((s32)gUnk_02002A40.windcrests > -1) {
+        LoadRoomEntityList(&gUnk_080F4E10);
+    }
 }
 
 extern EntityData gUnk_080F4E10;
 
-void sub_0804EC98(void)
-{
-  if ((s32)gUnk_02002A40.windcrests > -1) {
-    LoadRoomEntityList(&gUnk_080F4E10);
-  }
+void sub_0804EC98(void) {
+    if ((s32)gUnk_02002A40.windcrests > -1) {
+        LoadRoomEntityList(&gUnk_080F4E10);
+    }
 }
 
 u32 sub_0804ECB4() {
     return 1;
 }
 
-void nullsub_396() {}
+void nullsub_396() {
+}
 
 extern u32 gUnk_080F5348;
 
-u32 sub_0804ECBC(void)
-{
-  if (CheckGlobalFlag(ENDING)) {
-    gRoomVars.field_0x6c = &gUnk_080F5348;
-    gRoomVars.field_0x88 = sub_0804ED18;
-    gRoomVars.field_0x74 = NULL;
-  }
-  return 1;
+u32 sub_0804ECBC(void) {
+    if (CheckGlobalFlag(ENDING)) {
+        gRoomVars.field_0x6c = &gUnk_080F5348;
+        gRoomVars.field_0x88 = sub_0804ED18;
+        gRoomVars.field_0x74 = NULL;
+    }
+    return 1;
 }
 
 extern EntityData gUnk_080F5328;
 extern EntityData gUnk_080F5308;
 
-void sub_0804ECEC(void)
-{
+void sub_0804ECEC(void) {
     // white sword
-  if (GetInventoryValue(0x2)) {
-    LoadRoomEntityList(&gUnk_080F5328);
-    if (!CheckLocalFlag(0x14)) {
-      LoadRoomEntityList(&gUnk_080F5308);
+    if (GetInventoryValue(0x2)) {
+        LoadRoomEntityList(&gUnk_080F5328);
+        if (!CheckLocalFlag(0x14)) {
+            LoadRoomEntityList(&gUnk_080F5308);
+        }
     }
-  }
 }
 
-void sub_0804ED18(void)
-{
-  gArea.pMusicIndex = gArea.musicIndex;
+void sub_0804ED18(void) {
+    gArea.pMusicIndex = gArea.musicIndex;
 }
 
 u32 sub_0804ED30() {
     return 1;
 }
 
-void sub_0804ED34(void)
-{
-  sub_080AF2E4();
-  if (CheckGlobalFlag(SEIIKI_BGM)) {
-    gArea.pMusicIndex = 0x31;
-  }
+void sub_0804ED34(void) {
+    sub_080AF2E4();
+    if (CheckGlobalFlag(SEIIKI_BGM)) {
+        gArea.pMusicIndex = 0x31;
+    }
 }
 
 u32 sub_0804ED58() {
@@ -5149,48 +5138,42 @@ extern EntityData gUnk_080F5528;
 extern EntityData gUnk_080F5578;
 extern EntityData gUnk_080F55B8;
 
-void sub_0804ED5C(void)
-{
-  if (!CheckLocalFlag(0x79)) {
-    LoadRoomEntityList(&gUnk_080F54E8);
-  }
-  if (!CheckLocalFlag(0x7a)) {
-      // white sword, white sword 2, earth element, fire element
-    if (GetInventoryValue(0x2) && !GetInventoryValue(0x3) &&
-       GetInventoryValue(0x40) && GetInventoryValue(0x41)) {
-      LoadRoomEntityList(&gUnk_080F5508);
+void sub_0804ED5C(void) {
+    if (!CheckLocalFlag(0x79)) {
+        LoadRoomEntityList(&gUnk_080F54E8);
     }
-  }
-  else {
-    if (!CheckLocalFlag(0x7b)) {
-      if (GetInventoryValue(0x3) && !GetInventoryValue(0x4) &&
-         GetInventoryValue(0x42)) {
-        LoadRoomEntityList(&gUnk_080F5558);
-      }
-    }
-    else {
-      if (!CheckLocalFlag(0x7c)) {
-        if (!GetInventoryValue(0x6) && GetInventoryValue(0x43)) {
-          LoadRoomEntityList(&gUnk_080F5598);
+    if (!CheckLocalFlag(0x7a)) {
+        // white sword, white sword 2, earth element, fire element
+        if (GetInventoryValue(0x2) && !GetInventoryValue(0x3) && GetInventoryValue(0x40) && GetInventoryValue(0x41)) {
+            LoadRoomEntityList(&gUnk_080F5508);
         }
-      }
-      else {
-        LoadRoomEntityList(&gUnk_080F55D8);
-      }
+    } else {
+        if (!CheckLocalFlag(0x7b)) {
+            if (GetInventoryValue(0x3) && !GetInventoryValue(0x4) && GetInventoryValue(0x42)) {
+                LoadRoomEntityList(&gUnk_080F5558);
+            }
+        } else {
+            if (!CheckLocalFlag(0x7c)) {
+                if (!GetInventoryValue(0x6) && GetInventoryValue(0x43)) {
+                    LoadRoomEntityList(&gUnk_080F5598);
+                }
+            } else {
+                LoadRoomEntityList(&gUnk_080F55D8);
+            }
+        }
     }
-  }
-  if (CheckLocalFlag(0x7a)) {
-    LoadRoomEntityList(&gUnk_080F5528);
-  }
-  if (CheckLocalFlag(0x7b)) {
-    LoadRoomEntityList(&gUnk_080F5578);
-  }
-  if (CheckLocalFlag(0x7c)) {
-    LoadRoomEntityList(&gUnk_080F55B8);
-  }
-  if (CheckGlobalFlag(SEIIKI_BGM)) {
-    gArea.pMusicIndex = 0x31;
-  }
+    if (CheckLocalFlag(0x7a)) {
+        LoadRoomEntityList(&gUnk_080F5528);
+    }
+    if (CheckLocalFlag(0x7b)) {
+        LoadRoomEntityList(&gUnk_080F5578);
+    }
+    if (CheckLocalFlag(0x7c)) {
+        LoadRoomEntityList(&gUnk_080F55B8);
+    }
+    if (CheckGlobalFlag(SEIIKI_BGM)) {
+        gArea.pMusicIndex = 0x31;
+    }
 }
 
 u32 sub_0804EE74() {
@@ -5199,14 +5182,13 @@ u32 sub_0804EE74() {
 
 extern EntityData gUnk_080F5660;
 
-void sub_0804EE78(void)
-{
-  if (!CheckLocalFlag(0x78) && CheckLocalFlag(0x7c)) {
-    LoadRoomEntityList(&gUnk_080F5660);
-  }
-  if (CheckGlobalFlag(SEIIKI_BGM)) {
-    gArea.pMusicIndex = 0x31;
-  }
+void sub_0804EE78(void) {
+    if (!CheckLocalFlag(0x78) && CheckLocalFlag(0x7c)) {
+        LoadRoomEntityList(&gUnk_080F5660);
+    }
+    if (CheckGlobalFlag(SEIIKI_BGM)) {
+        gArea.pMusicIndex = 0x31;
+    }
 }
 
 u32 sub_0804EEB8() {
@@ -5226,47 +5208,44 @@ extern EntityData gUnk_080F5788;
 
 extern u8 gBombBagSizes[];
 
-void sub_0804EEBC(void)
-{
-  LoadRoomEntityList(&gUnk_080F5758);
-  if (!GetInventoryValue(0x36) && CheckLocalFlagByOffset(0x200, 0x8f)) {
-    LoadRoomEntityList(&gUnk_080F57E8);
-  }
-  if (!CheckLocalFlag(0x55)) {
-    LoadRoomEntityList(&gUnk_080F57A8);
-  }
-  else {
-    if (gBombBagSizes[gUnk_02002A40.stats.bombBagType] > 0x1d) {
-      LoadRoomEntityList(&gUnk_080F57C8);
+void sub_0804EEBC(void) {
+    LoadRoomEntityList(&gUnk_080F5758);
+    if (!GetInventoryValue(0x36) && CheckLocalFlagByOffset(0x200, 0x8f)) {
+        LoadRoomEntityList(&gUnk_080F57E8);
     }
-    if (!GetInventoryValue(0xb) && !GetInventoryValue(0xc)) {
-      LoadRoomEntityList(&gUnk_080F5888);
+    if (!CheckLocalFlag(0x55)) {
+        LoadRoomEntityList(&gUnk_080F57A8);
+    } else {
+        if (gBombBagSizes[gUnk_02002A40.stats.bombBagType] > 0x1d) {
+            LoadRoomEntityList(&gUnk_080F57C8);
+        }
+        if (!GetInventoryValue(0xb) && !GetInventoryValue(0xc)) {
+            LoadRoomEntityList(&gUnk_080F5888);
+        } else {
+            if (!CheckLocalFlag(0xcd)) {
+                LoadRoomEntityList(&gUnk_080F58A8);
+            }
+        }
     }
-    else {
-      if (!CheckLocalFlag(0xcd)) {
-        LoadRoomEntityList(&gUnk_080F58A8);
-      }
+    if (GetInventoryValue(0x9) || CheckGlobalFlag(LV3_CLEAR)) {
+        LoadRoomEntityList(&gUnk_080F5868);
+        if (!CheckLocalFlag(0x56)) {
+            LoadRoomEntityList(&gUnk_080F5828);
+        } else {
+            LoadRoomEntityList(&gUnk_080F5848);
+        }
     }
-  }
-  if (GetInventoryValue(0x9) || CheckGlobalFlag(LV3_CLEAR)) {
-    LoadRoomEntityList(&gUnk_080F5868);
-    if (!CheckLocalFlag(0x56)) {
-      LoadRoomEntityList(&gUnk_080F5828);
+    if (gUnk_02002A40.stats.filler2[5] == 0) {
+        LoadRoomEntityList(&gUnk_080F5788);
     }
-    else {
-      LoadRoomEntityList(&gUnk_080F5848);
-    }
-  }
-  if (gUnk_02002A40.stats.filler2[5] == 0) {
-    LoadRoomEntityList(&gUnk_080F5788);
-  }
 }
 
 u32 sub_0804EFB0() {
     return 1;
 }
 
-void nullsub_397() {}
+void nullsub_397() {
+}
 
 u32 sub_0804EFB8() {
     return 1;
@@ -5274,37 +5253,35 @@ u32 sub_0804EFB8() {
 
 extern EntityData gUnk_080F5B3C;
 
-void sub_0804EFBC(void)
-{
-  if (GetInventoryValue(0x38) == 1) {
-    LoadRoomEntityList(&gUnk_080F5B3C);
-  }
+void sub_0804EFBC(void) {
+    if (GetInventoryValue(0x38) == 1) {
+        LoadRoomEntityList(&gUnk_080F5B3C);
+    }
 }
 
 u32 sub_0804EFD4() {
     return 1;
 }
-void nullsub_398() {}
+void nullsub_398() {
+}
 
-u32 sub_0804EFDC(void)
-{
-  if (CheckGlobalFlag(MAROYA_WAKEUP)) {
-    gScreenTransition.field_0xf = 5;
-  }
-  return 1;
+u32 sub_0804EFDC(void) {
+    if (CheckGlobalFlag(MAROYA_WAKEUP)) {
+        gScreenTransition.field_0xf = 5;
+    }
+    return 1;
 }
 
 extern EntityData gUnk_080F5DD0;
 extern u32 gUnk_08011C50;
 
-void sub_0804EFF8(void)
-{  
-  if (gUnk_02002A40.unk8 > 7) {
-    LoadRoomEntityList(&gUnk_080F5DD0);
-  }
-  if (CheckGlobalFlag(MAROYA_WAKEUP)) {
-      sub_080751E8(1, 2, &gUnk_08011C50);
-  }
+void sub_0804EFF8(void) {
+    if (gUnk_02002A40.unk8 > 7) {
+        LoadRoomEntityList(&gUnk_080F5DD0);
+    }
+    if (CheckGlobalFlag(MAROYA_WAKEUP)) {
+        sub_080751E8(1, 2, &gUnk_08011C50);
+    }
 }
 
 u32 sub_0804F02C() {
@@ -5313,11 +5290,10 @@ u32 sub_0804F02C() {
 
 extern EntityData gUnk_080F5E68;
 
-void sub_0804F030(void)
-{
-  if (!CheckLocalFlagByOffset(0x100, 0xd1)) {
-    LoadRoomEntityList(&gUnk_080F5E68);
-  }
+void sub_0804F030(void) {
+    if (!CheckLocalFlagByOffset(0x100, 0xd1)) {
+        LoadRoomEntityList(&gUnk_080F5E68);
+    }
 }
 
 u32 sub_0804F04C() {
@@ -5328,55 +5304,53 @@ extern EntityData gUnk_080F5F38;
 extern EntityData gUnk_080F5F58;
 extern EntityData gUnk_080F5F78;
 
-void sub_0804F050(void)
-{
-  
-  if (gUnk_02002A40.unk8 > 4) {
-    LoadRoomEntityList(&gUnk_080F5F38);
-  }
-  if (!CheckLocalFlag(0x92)) {
-    LoadRoomEntityList(&gUnk_080F5F58);
-  }
-  else {
-    LoadRoomEntityList(&gUnk_080F5F78);
-  }
+void sub_0804F050(void) {
+
+    if (gUnk_02002A40.unk8 > 4) {
+        LoadRoomEntityList(&gUnk_080F5F38);
+    }
+    if (!CheckLocalFlag(0x92)) {
+        LoadRoomEntityList(&gUnk_080F5F58);
+    } else {
+        LoadRoomEntityList(&gUnk_080F5F78);
+    }
 }
 
 u32 sub_0804F08C() {
     return 1;
 }
 
-void nullsub_399() {}
+void nullsub_399() {
+}
 
 u32 sub_0804F094() {
     return 1;
 }
 
-void nullsub_400() {}
+void nullsub_400() {
+}
 
-u32 sub_0804F09C(void)
-{
-  if (CheckGlobalFlag(KUMOTATSUMAKI) && CheckLocalFlagByOffset(0x100, 0xdc)) {
-    SetGlobalFlag(WARP_EVENT_END);
-  }
-  return 1;
+u32 sub_0804F09C(void) {
+    if (CheckGlobalFlag(KUMOTATSUMAKI) && CheckLocalFlagByOffset(0x100, 0xdc)) {
+        SetGlobalFlag(WARP_EVENT_END);
+    }
+    return 1;
 }
 
 extern EntityData gUnk_080F61BC;
 
-void sub_0804F0C0(void)
-{
-  if (CheckLocalFlagByOffset(0x100, 0xdc)) {
-    SetLocalFlag(0x90);
-  }
-  if (CheckKinstoneFused(0xf)) {
-    LoadRoomEntityList(&gUnk_080F61BC);
-  }
-  if (!CheckGlobalFlag(WARP_EVENT_END)) {
-    SetTileType(0x4072, 0x4c7, 1);
-    SetTileType(0x4072, 0x507, 1);
-  }
-  sub_08052CA4(8, 0, 0x1e8, 0x158);
+void sub_0804F0C0(void) {
+    if (CheckLocalFlagByOffset(0x100, 0xdc)) {
+        SetLocalFlag(0x90);
+    }
+    if (CheckKinstoneFused(0xf)) {
+        LoadRoomEntityList(&gUnk_080F61BC);
+    }
+    if (!CheckGlobalFlag(WARP_EVENT_END)) {
+        SetTileType(0x4072, 0x4c7, 1);
+        SetTileType(0x4072, 0x507, 1);
+    }
+    sub_08052CA4(8, 0, 0x1e8, 0x158);
 }
 
 u32 sub_0804F128() {
@@ -5386,23 +5360,22 @@ u32 sub_0804F128() {
 extern EntityData gUnk_080F62E4;
 extern EntityData gUnk_080F6324;
 
-void sub_0804F12C(void)
-{
-  if (!CheckGlobalFlag(WARP_EVENT_END)) {
-    LoadRoomEntityList(&gUnk_080F62E4);
-  }
-  else {
-    if (CheckLocalFlag(99)) {
-      LoadRoomEntityList(&gUnk_080F6324);
+void sub_0804F12C(void) {
+    if (!CheckGlobalFlag(WARP_EVENT_END)) {
+        LoadRoomEntityList(&gUnk_080F62E4);
+    } else {
+        if (CheckLocalFlag(99)) {
+            LoadRoomEntityList(&gUnk_080F6324);
+        }
     }
-  }
 }
 
 u32 sub_0804F15C() {
     return 1;
 }
 
-void nullsub_401() {}
+void nullsub_401() {
+}
 
 u32 sub_0804F164() {
     return 1;
@@ -5411,15 +5384,13 @@ u32 sub_0804F164() {
 extern EntityData gUnk_080F6564;
 extern EntityData gUnk_080F6584;
 
-void sub_0804F168(void)
-{
+void sub_0804F168(void) {
 
-  if (!CheckLocalFlag(0xb1)) {
-    LoadRoomEntityList(&gUnk_080F6564);
-  }
-  else {
-    LoadRoomEntityList(&gUnk_080F6584);
-  }
+    if (!CheckLocalFlag(0xb1)) {
+        LoadRoomEntityList(&gUnk_080F6564);
+    } else {
+        LoadRoomEntityList(&gUnk_080F6584);
+    }
 }
 
 u32 sub_0804F18C() {
@@ -5428,75 +5399,84 @@ u32 sub_0804F18C() {
 
 extern EntityData gUnk_080F66AC;
 
-void sub_0804F190(void)
-{  
-  sub_0805B4D0(5);
-  if (CheckGlobalFlag(LV5_CLEAR) && !CheckLocalFlagByOffset(0x100, 5)) {
-    LoadRoomEntityList(&gUnk_080F66AC);
-  }
-  sub_08052CA4(8, 0, 0x1e8, 0x158);
-  gArea.areaMetadata |= 0x80;
+void sub_0804F190(void) {
+    sub_0805B4D0(5);
+    if (CheckGlobalFlag(LV5_CLEAR) && !CheckLocalFlagByOffset(0x100, 5)) {
+        LoadRoomEntityList(&gUnk_080F66AC);
+    }
+    sub_08052CA4(8, 0, 0x1e8, 0x158);
+    gArea.areaMetadata |= 0x80;
 }
 
 u32 sub_0804F1DC() {
     return 1;
 }
 
-void nullsub_402() {}
+void nullsub_402() {
+}
 
 u32 sub_0804F1E4() {
     return 1;
 }
 
-void nullsub_403() {}
+void nullsub_403() {
+}
 
 u32 sub_0804F1EC() {
     return 1;
 }
 
-void nullsub_404() {}
+void nullsub_404() {
+}
 
 u32 sub_0804F1F4() {
     return 1;
 }
 
-void nullsub_405() {}
+void nullsub_405() {
+}
 
 u32 sub_0804F1FC() {
     return 1;
 }
 
-void nullsub_406() {}
+void nullsub_406() {
+}
 
 u32 sub_0804F204() {
     return 1;
 }
 
-void nullsub_407() {}
+void nullsub_407() {
+}
 
 u32 sub_0804F20C() {
     return 1;
 }
 
-void nullsub_408() {}
+void nullsub_408() {
+}
 
 u32 sub_0804F214() {
     return 1;
 }
 
-void nullsub_409() {}
+void nullsub_409() {
+}
 
 u32 sub_0804F21C() {
     return 1;
 }
 
-void nullsub_410() {}
+void nullsub_410() {
+}
 
 u32 sub_0804F224() {
     return 1;
 }
 
-void nullsub_411() {}
+void nullsub_411() {
+}
 
 u32 sub_0804F22C() {
     return 1;
@@ -5506,44 +5486,41 @@ void sub_0804F230() {
     sub_0805ADD8(0);
 }
 
-u32 sub_0804F23C(void)
-{
-  if (!CheckLocalFlag(0x6d)) {
-    DoFade(7, 0x100);
-  }
-  SetGlobalFlag(OUTDOOR);
-  return 1;
+u32 sub_0804F23C(void) {
+    if (!CheckLocalFlag(0x6d)) {
+        DoFade(7, 0x100);
+    }
+    SetGlobalFlag(OUTDOOR);
+    return 1;
 }
 
 extern EntityData gUnk_080F70A8;
 extern EntityData gUnk_080F70D8;
 extern EntityData gUnk_080F7088;
 
-void sub_0804F25C(void)
-{
-  sub_0805ADD8(0);
-  if (!CheckLocalFlag(0x6d)) {
-    LoadRoomEntityList(&gUnk_080F70A8);
-    ClearGlobalFlag(ZELDA_CHASE);
-  }
-  if (!CheckGlobalFlag(TABIDACHI)) {
-    gArea.pMusicIndex = 0x10;
-  }
-  if ((gUnk_02002A40.windcrests & 0x40000000) == 0) {
-    LoadRoomEntityList(&gUnk_080F70D8);
-  }
-  if (gUnk_02002A40.unk8 > 3) {
-    LoadRoomEntityList(&gUnk_080F7088);
-  }
+void sub_0804F25C(void) {
+    sub_0805ADD8(0);
+    if (!CheckLocalFlag(0x6d)) {
+        LoadRoomEntityList(&gUnk_080F70A8);
+        ClearGlobalFlag(ZELDA_CHASE);
+    }
+    if (!CheckGlobalFlag(TABIDACHI)) {
+        gArea.pMusicIndex = 0x10;
+    }
+    if ((gUnk_02002A40.windcrests & 0x40000000) == 0) {
+        LoadRoomEntityList(&gUnk_080F70D8);
+    }
+    if (gUnk_02002A40.unk8 > 3) {
+        LoadRoomEntityList(&gUnk_080F7088);
+    }
 }
 
 extern EntityData gUnk_080F70D8;
 
-void sub_0804F2C8(void)
-{
-  if ((gUnk_02002A40.windcrests & 0x40000000) == 0) {
-    LoadRoomEntityList(&gUnk_080F70D8);
-  }
+void sub_0804F2C8(void) {
+    if ((gUnk_02002A40.windcrests & 0x40000000) == 0) {
+        LoadRoomEntityList(&gUnk_080F70D8);
+    }
 }
 
 u32 sub_0804F2E8() {
@@ -5564,30 +5541,28 @@ void sub_0804F2FC() {
 
 extern u32 gUnk_080F7680;
 
-u32 sub_0804f308(void)
-{
-  if (GetInventoryValue(0x11) && !GetInventoryValue(0x12)) {
-    gRoomVars.field_0x74 = &gUnk_080F7680;
-  }
-  return 1;
+u32 sub_0804f308(void) {
+    if (GetInventoryValue(0x11) && !GetInventoryValue(0x12)) {
+        gRoomVars.field_0x74 = &gUnk_080F7680;
+    }
+    return 1;
 }
 
 extern EntityData gUnk_080F7500;
 extern EntityData gUnk_080F7550;
 
-void sub_0804F330(void)
-{
-  sub_0805ADD8(0);
-  if (gUnk_02002A40.unk8 > 3) {
-    LoadRoomEntityList(&gUnk_080F7500);
-  }
-  if (GetInventoryValue(0x11) && !GetInventoryValue(0x12)) {
-    LoadRoomEntityList(&gUnk_080F7550);
-    SetTileType(0x4072, 0x311, 1);
-    SetTileType(0x4072, 0x351, 1);
-    SetTileType(0x4072, 0x3d9, 1);
-    SetTileType(0x4072, 0x419, 1);
-  }
+void sub_0804F330(void) {
+    sub_0805ADD8(0);
+    if (gUnk_02002A40.unk8 > 3) {
+        LoadRoomEntityList(&gUnk_080F7500);
+    }
+    if (GetInventoryValue(0x11) && !GetInventoryValue(0x12)) {
+        LoadRoomEntityList(&gUnk_080F7550);
+        SetTileType(0x4072, 0x311, 1);
+        SetTileType(0x4072, 0x351, 1);
+        SetTileType(0x4072, 0x3d9, 1);
+        SetTileType(0x4072, 0x419, 1);
+    }
 }
 
 u32 sub_0804F3AC() {
@@ -5600,29 +5575,27 @@ extern EntityData gUnk_080F7810;
 extern EntityData gUnk_080F7860;
 extern EntityData gUnk_080F78A0;
 
-void sub_0804F3B0(void)
-{
+void sub_0804F3B0(void) {
 
-  sub_0805ADD8(0);
-  if (CheckLocalFlagByOffset(0x200, 0x8f)) {
-    if (!CheckGlobalFlag(INLOCK)) {
-      LoadRoomEntityList(&gUnk_080F77C0);
+    sub_0805ADD8(0);
+    if (CheckLocalFlagByOffset(0x200, 0x8f)) {
+        if (!CheckGlobalFlag(INLOCK)) {
+            LoadRoomEntityList(&gUnk_080F77C0);
+        }
+    } else if (GetInventoryValue(0x40)) {
+        LoadRoomEntityList(&gUnk_080F77F0);
     }
-  }
-  else if (GetInventoryValue(0x40)) {
-      LoadRoomEntityList(&gUnk_080F77F0);
+    if (CheckGlobalFlag(TABIDACHI) && !GetInventoryValue(0x40)) {
+        LoadRoomEntityList(&gUnk_080F7810);
     }
-  if (CheckGlobalFlag(TABIDACHI) && !GetInventoryValue(0x40)) {
-    LoadRoomEntityList(&gUnk_080F7810);
-  }
-  if (!CheckKinstoneFused(0x29)) {
-    LoadRoomEntityList(&gUnk_080F7860);
-    SetTile(0x4072, 0xd88, 1);
-    SetTile(0x4096, 0xdc8, 1);
-  }
-  if ((gUnk_02002A40.unk8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
-    LoadRoomEntityList(&gUnk_080F78A0);
-  }
+    if (!CheckKinstoneFused(0x29)) {
+        LoadRoomEntityList(&gUnk_080F7860);
+        SetTile(0x4072, 0xd88, 1);
+        SetTile(0x4096, 0xdc8, 1);
+    }
+    if ((gUnk_02002A40.unk8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
+        LoadRoomEntityList(&gUnk_080F78A0);
+    }
 }
 
 extern u32 gUnk_080F7CD0;
@@ -5630,21 +5603,20 @@ extern void sub_0804F5E8();
 extern u32 gUnk_080F7C80;
 extern void sub_0804F4E4();
 
-u32 sub_0804F468(void)
-{
-  if (CheckGlobalFlag(TABIDACHI) && !GetInventoryValue(0x11)) {
-    gRoomVars.field_0x6c = &gUnk_080F7CD0;
-    gRoomVars.field_0x88 = sub_0804F5E8;
-  }
-  if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x8c)) {
-    gRoomVars.field_0x6c = &gUnk_080F7C80;
-    gRoomVars.field_0x88 = sub_0804F4E4;
-    gRoomVars.field_0x74 = NULL;
-  }
-  if (CheckGlobalFlag(TABIDACHI)) {
-    ClearGlobalFlag(CASTLE_BGM);
-  }
-  return 1;
+u32 sub_0804F468(void) {
+    if (CheckGlobalFlag(TABIDACHI) && !GetInventoryValue(0x11)) {
+        gRoomVars.field_0x6c = &gUnk_080F7CD0;
+        gRoomVars.field_0x88 = sub_0804F5E8;
+    }
+    if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x8c)) {
+        gRoomVars.field_0x6c = &gUnk_080F7C80;
+        gRoomVars.field_0x88 = sub_0804F4E4;
+        gRoomVars.field_0x74 = NULL;
+    }
+    if (CheckGlobalFlag(TABIDACHI)) {
+        ClearGlobalFlag(CASTLE_BGM);
+    }
+    return 1;
 }
 
 void sub_0804F4E4() {
@@ -5654,188 +5626,167 @@ void sub_0804F4E4() {
 
 extern EntityData gUnk_080F7D70;
 
-void sub_0804F4F4(void)
-{
-  sub_0804F4E4();
-  if (!CheckLocalFlag(0x8b)) {
-    LoadRoomEntityList(&gUnk_080F7D70);
-    SetTileType(0x174, 0x7a2, 1);
-    SetTileType(0x174, 0x7a3, 1);
-    SetTileType(0x174, 0x7a5, 1);
-    SetTileType(0x174, 0x7a6, 1);
-    SetTileType(0x174, 0x7a7, 1);
-  }
-  if (!CheckGlobalFlag(TABIDACHI)) {
-    gArea.pMusicIndex = 0x13;
-  }
+void sub_0804F4F4(void) {
+    sub_0804F4E4();
+    if (!CheckLocalFlag(0x8b)) {
+        LoadRoomEntityList(&gUnk_080F7D70);
+        SetTileType(0x174, 0x7a2, 1);
+        SetTileType(0x174, 0x7a3, 1);
+        SetTileType(0x174, 0x7a5, 1);
+        SetTileType(0x174, 0x7a6, 1);
+        SetTileType(0x174, 0x7a7, 1);
+    }
+    if (!CheckGlobalFlag(TABIDACHI)) {
+        gArea.pMusicIndex = 0x13;
+    }
 }
 
 extern EntityData gUnk_080F7DC0;
 
-void sub_0804F578(void)
-{
-  if (!CheckLocalFlag(0x8e)) {
-    LoadRoomEntityList(&gUnk_080F7DC0);
-  }
-  else {
-    SetTileType(0x37,0x94a,1);
-    SetTileType(0x37,0x94b,1);
-    SetTileType(0x37,0x94c,1);
-    SetTileType(0x37,0x98a,1);
-    SetTileType(0x37,0x98b,1);
-    SetTileType(0x37,0x98c,1);
-  }
+void sub_0804F578(void) {
+    if (!CheckLocalFlag(0x8e)) {
+        LoadRoomEntityList(&gUnk_080F7DC0);
+    } else {
+        SetTileType(0x37, 0x94a, 1);
+        SetTileType(0x37, 0x94b, 1);
+        SetTileType(0x37, 0x94c, 1);
+        SetTileType(0x37, 0x98a, 1);
+        SetTileType(0x37, 0x98b, 1);
+        SetTileType(0x37, 0x98c, 1);
+    }
 }
 
-void sub_0804F5E8(void)
-{
-  sub_0804F4E4();
-  SetTileType(0x1d3,0xbde,1);
-  SetTileType(0x1d6,0xbe2,1);
-  SetTileType(0x1d4,0xc1f,1);
-  SetTileType(0x1d5,0xc20,1);
-  SetTileType(0x1d6,0xc5e,1);
-  SetTileType(0x4072,0xb9b,1);
-  SetTileType(0x4072,0xbdb,1);
-  SetTileType(0x4072,0xaa4,1);
-  SetTileType(0x4072,0xae4,1);
+void sub_0804F5E8(void) {
+    sub_0804F4E4();
+    SetTileType(0x1d3, 0xbde, 1);
+    SetTileType(0x1d6, 0xbe2, 1);
+    SetTileType(0x1d4, 0xc1f, 1);
+    SetTileType(0x1d5, 0xc20, 1);
+    SetTileType(0x1d6, 0xc5e, 1);
+    SetTileType(0x4072, 0xb9b, 1);
+    SetTileType(0x4072, 0xbdb, 1);
+    SetTileType(0x4072, 0xaa4, 1);
+    SetTileType(0x4072, 0xae4, 1);
 }
 
-void sub_0804F680(Entity *parent, s32 x, s32 y)
-{
-  Entity *fx;
-  
-  fx = CreateFx(parent,2,0);
-  if (fx != NULL) {
-    fx->x.HALF.HI = gRoomControls.roomOriginX + x;
-    fx->y.HALF.HI = gRoomControls.roomOriginY + y;
-  }
+void sub_0804F680(Entity* parent, s32 x, s32 y) {
+    Entity* fx;
+
+    fx = CreateFx(parent, 2, 0);
+    if (fx != NULL) {
+        fx->x.HALF.HI = gRoomControls.roomOriginX + x;
+        fx->y.HALF.HI = gRoomControls.roomOriginY + y;
+    }
 }
 
-void sub_0804F6A8(Entity* arg0)
-{
-  sub_0804F680(arg0, 0x1d8, 0x108);
-  sub_0804F680(arg0, 0x218, 0x188);
+void sub_0804F6A8(Entity* arg0) {
+    sub_0804F680(arg0, 0x1d8, 0x108);
+    sub_0804F680(arg0, 0x218, 0x188);
 }
 
-void sub_0804F6C8(Entity* arg0)
-{
-  sub_0804F680(arg0, 0x1e8, 0x108);
-  sub_0804F680(arg0, 0x208, 0x188);
+void sub_0804F6C8(Entity* arg0) {
+    sub_0804F680(arg0, 0x1e8, 0x108);
+    sub_0804F680(arg0, 0x208, 0x188);
 }
 
-void sub_0804F6E8(Entity *arg0)
-{
-  sub_0804F680(arg0, 0x1f8, 0x108);
-  sub_0804F680(arg0, 0x258, 0x138);
-  sub_0804F680(arg0, 0x1f8, 0x188);
-  sub_0804F680(arg0, 0x198, 0x158);
+void sub_0804F6E8(Entity* arg0) {
+    sub_0804F680(arg0, 0x1f8, 0x108);
+    sub_0804F680(arg0, 0x258, 0x138);
+    sub_0804F680(arg0, 0x1f8, 0x188);
+    sub_0804F680(arg0, 0x198, 0x158);
 }
 
-void sub_0804F724(Entity *arg0)
-{
-  sub_0804F680(arg0, 0x208, 0x108);
-  sub_0804F680(arg0, 0x258, 0x148);
-  sub_0804F680(arg0, 0x1e8, 0x188);
-  sub_0804F680(arg0, 0x198, 0x148);
+void sub_0804F724(Entity* arg0) {
+    sub_0804F680(arg0, 0x208, 0x108);
+    sub_0804F680(arg0, 0x258, 0x148);
+    sub_0804F680(arg0, 0x1e8, 0x188);
+    sub_0804F680(arg0, 0x198, 0x148);
 }
 
-void sub_0804F760(Entity *arg0)
-{
-  sub_0804F680(arg0, 0x218, 0x108);
-  sub_0804F680(arg0, 0x258, 0x158);
-  sub_0804F680(arg0, 0x1d8, 0x188);
-  sub_0804F680(arg0, 0x198, 0x138);
+void sub_0804F760(Entity* arg0) {
+    sub_0804F680(arg0, 0x218, 0x108);
+    sub_0804F680(arg0, 0x258, 0x158);
+    sub_0804F680(arg0, 0x1d8, 0x188);
+    sub_0804F680(arg0, 0x198, 0x138);
 }
 
-void sub_0804F79C(Entity *parent)
-{
-  Entity *fx;
-  
-  fx = CreateFx(parent, 0x35, 0);
-  if (fx != NULL) {
-    fx->spriteRendering.b3 = 0;
-    fx->x.HALF.HI = gRoomControls.roomOriginX + 0x1b8;
-    fx->y.HALF.HI = gRoomControls.roomOriginY + 0x148;
-  }
-  fx = CreateFx(parent, 0x35, 0);
-  if (fx != NULL) {
-    fx->spriteRendering.b3 = 0;
-    fx->x.HALF.HI = gRoomControls.roomOriginX + 0x238;
-    fx->y.HALF.HI = gRoomControls.roomOriginY + 0x148;
-  }
+void sub_0804F79C(Entity* parent) {
+    Entity* fx;
+
+    fx = CreateFx(parent, 0x35, 0);
+    if (fx != NULL) {
+        fx->spriteRendering.b3 = 0;
+        fx->x.HALF.HI = gRoomControls.roomOriginX + 0x1b8;
+        fx->y.HALF.HI = gRoomControls.roomOriginY + 0x148;
+    }
+    fx = CreateFx(parent, 0x35, 0);
+    if (fx != NULL) {
+        fx->spriteRendering.b3 = 0;
+        fx->x.HALF.HI = gRoomControls.roomOriginX + 0x238;
+        fx->y.HALF.HI = gRoomControls.roomOriginY + 0x148;
+    }
 }
 
-void sub_0804F808(void)
-{
-  SetTileType(0x1d3, 0x41d, 1);
-  SetTileType(0x1d3, 0x621, 1);
+void sub_0804F808(void) {
+    SetTileType(0x1d3, 0x41d, 1);
+    SetTileType(0x1d3, 0x621, 1);
 }
 
-void sub_0804F830(void)
-{
-  SetTileType(0x1d4, 0x41e, 1);
-  SetTileType(0x1d4, 0x620, 1);
+void sub_0804F830(void) {
+    SetTileType(0x1d4, 0x41e, 1);
+    SetTileType(0x1d4, 0x620, 1);
 }
 
-void sub_0804F854(void)
-{
-  SetTileType(0x1d5, 0x41f, 1);
-  SetTileType(0x1d4, 0x4e5, 1);
-  SetTileType(0x1d5, 0x61f, 1);
-  SetTileType(0x1d4, 0x559, 1);
+void sub_0804F854(void) {
+    SetTileType(0x1d5, 0x41f, 1);
+    SetTileType(0x1d4, 0x4e5, 1);
+    SetTileType(0x1d5, 0x61f, 1);
+    SetTileType(0x1d4, 0x559, 1);
 }
 
-void sub_0804F89C(void)
-{
-  SetTileType(0x1d6, 0x420, 1);
-  SetTileType(0x1d5, 0x525, 1);
-  SetTileType(0x1d6, 0x61e, 1);
-  SetTileType(0x1d5, 0x519, 1);
+void sub_0804F89C(void) {
+    SetTileType(0x1d6, 0x420, 1);
+    SetTileType(0x1d5, 0x525, 1);
+    SetTileType(0x1d6, 0x61e, 1);
+    SetTileType(0x1d5, 0x519, 1);
 }
 
-void sub_0804F8E0(void)
-{
-  SetTileType(0x1d3, 0x421, 1);
-  SetTileType(0x1d6, 0x565, 1);
-  SetTileType(0x1d3, 0x61d, 1);
-  SetTileType(0x1d6, 0x4d9, 1);
+void sub_0804F8E0(void) {
+    SetTileType(0x1d3, 0x421, 1);
+    SetTileType(0x1d6, 0x565, 1);
+    SetTileType(0x1d3, 0x61d, 1);
+    SetTileType(0x1d6, 0x4d9, 1);
 }
 
-void sub_0804F928(void)
-{
-  sub_0807BA8C(0x41d, 1);
-  sub_0807BA8C(0x621, 1);
+void sub_0804F928(void) {
+    sub_0807BA8C(0x41d, 1);
+    sub_0807BA8C(0x621, 1);
 }
 
-void sub_0804F944(void)
-{
-  sub_0807BA8C(0x41e, 1);
-  sub_0807BA8C(0x620, 1);
+void sub_0804F944(void) {
+    sub_0807BA8C(0x41e, 1);
+    sub_0807BA8C(0x620, 1);
 }
 
-void sub_0804F960(void)
-{
-  sub_0807BA8C(0x41f, 1);
-  sub_0807BA8C(0x4e5, 1);
-  sub_0807BA8C(0x61f, 1);
-  sub_0807BA8C(0x559, 1);
+void sub_0804F960(void) {
+    sub_0807BA8C(0x41f, 1);
+    sub_0807BA8C(0x4e5, 1);
+    sub_0807BA8C(0x61f, 1);
+    sub_0807BA8C(0x559, 1);
 }
 
-void sub_0804F994(void)
-{
-  sub_0807BA8C(0x420, 1);
-  sub_0807BA8C(0x525, 1);
-  sub_0807BA8C(0x61e, 1);
-  sub_0807BA8C(0x519, 1);
+void sub_0804F994(void) {
+    sub_0807BA8C(0x420, 1);
+    sub_0807BA8C(0x525, 1);
+    sub_0807BA8C(0x61e, 1);
+    sub_0807BA8C(0x519, 1);
 }
 
-void sub_0804F9C8(void)
-{
-  sub_0807BA8C(0x421, 1);
-  sub_0807BA8C(0x565, 1);
-  sub_0807BA8C(0x61d, 1);
-  sub_0807BA8C(0x4d9, 1);
+void sub_0804F9C8(void) {
+    sub_0807BA8C(0x421, 1);
+    sub_0807BA8C(0x565, 1);
+    sub_0807BA8C(0x61d, 1);
+    sub_0807BA8C(0x4d9, 1);
 }
 
 u32 sub_0804F9FC() {
@@ -5845,11 +5796,11 @@ u32 sub_0804F9FC() {
 extern EntityData gUnk_080F806C;
 
 void sub_0804FA00(void) {
-  
-  sub_0805ADD8(0);
-  if ((gUnk_02002A40.unk8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
-    LoadRoomEntityList(&gUnk_080F806C);
-  }
+
+    sub_0805ADD8(0);
+    if ((gUnk_02002A40.unk8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
+        LoadRoomEntityList(&gUnk_080F806C);
+    }
 }
 
 u32 sub_0804FA2C() {
@@ -5858,14 +5809,12 @@ u32 sub_0804FA2C() {
 
 extern EntityData gUnk_080F82E0;
 
-void sub_0804FA30(void)
-{
-  
-  sub_0805ADD8(0);
-  if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) &&
-     !CheckLocalFlag(0x9c)) {
-    LoadRoomEntityList(&gUnk_080F82E0);
-  }
+void sub_0804FA30(void) {
+
+    sub_0805ADD8(0);
+    if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x9c)) {
+        LoadRoomEntityList(&gUnk_080F82E0);
+    }
 }
 
 u32 sub_0804FA64() {
@@ -5874,13 +5823,12 @@ u32 sub_0804FA64() {
 
 extern EntityData gUnk_080F8430;
 
-void sub_0804FA68(void)
-{
-  
-  sub_0805ADD8(0);
-  if (CheckKinstoneFused(0x21) && !CheckLocalFlagByOffset(0x200, 0x42)) {
-    LoadRoomEntityList(&gUnk_080F8430);
-  }
+void sub_0804FA68(void) {
+
+    sub_0805ADD8(0);
+    if (CheckKinstoneFused(0x21) && !CheckLocalFlagByOffset(0x200, 0x42)) {
+        LoadRoomEntityList(&gUnk_080F8430);
+    }
 }
 
 u32 sub_0804FA94() {
@@ -5890,166 +5838,185 @@ u32 sub_0804FA94() {
 extern EntityData gUnk_080F85F8;
 extern EntityData gUnk_080F85D8;
 
-void sub_0804FA98(void)
-{
+void sub_0804FA98(void) {
 
-  if (CheckGlobalFlag(SOUGEN_06_HASHIGO)) {
-    LoadRoomEntityList(&gUnk_080F85D8);
-  }
-  else {
-    LoadRoomEntityList(&gUnk_080F85F8);
-  }
-  if (!GetInventoryValue(0xc)) {
-    ClearLocalFlag(8);
-  }
+    if (CheckGlobalFlag(SOUGEN_06_HASHIGO)) {
+        LoadRoomEntityList(&gUnk_080F85D8);
+    } else {
+        LoadRoomEntityList(&gUnk_080F85F8);
+    }
+    if (!GetInventoryValue(0xc)) {
+        ClearLocalFlag(8);
+    }
 }
 
 u32 sub_0804FACC() {
     return 1;
 }
 
-void nullsub_412() {}
+void nullsub_412() {
+}
 
 u32 sub_0804FAD4() {
     return 1;
 }
 
-void nullsub_413() {}
+void nullsub_413() {
+}
 
 u32 sub_0804FADC() {
     return 1;
 }
 
-void nullsub_414() {}
+void nullsub_414() {
+}
 
 u32 sub_0804FAE4() {
     return 1;
 }
 
-void nullsub_415() {}
+void nullsub_415() {
+}
 
 u32 sub_0804FAEC() {
     return 1;
 }
 
-void nullsub_416() {}
+void nullsub_416() {
+}
 
 u32 sub_0804FAF4() {
     return 1;
 }
 
-void nullsub_417() {}
+void nullsub_417() {
+}
 
 u32 sub_0804FAFC() {
     return 1;
 }
 
-void nullsub_418() {}
+void nullsub_418() {
+}
 
 u32 sub_0804FB04() {
     return 1;
 }
 
-void nullsub_419() {}
+void nullsub_419() {
+}
 
 u32 sub_0804FB0C() {
     return 1;
 }
 
-void nullsub_420() {}
+void nullsub_420() {
+}
 
 u32 sub_0804FB14() {
     return 1;
 }
 
-void nullsub_421() {}
+void nullsub_421() {
+}
 
 u32 sub_0804FB1C() {
     return 1;
 }
 
-void nullsub_422() {}
+void nullsub_422() {
+}
 
 u32 sub_0804FB249() {
     return 1;
 }
 
-void nullsub_423() {}
+void nullsub_423() {
+}
 
 u32 sub_0804FB2C() {
     return 1;
 }
 
-void sub_0804FB30(void)
-{
-  if (CheckLocalFlag(0x11)) {
-    SetRoomFlag(0);
-    SetRoomFlag(1);
-    sub_0805308C(0x100);
-    if (!CheckLocalFlag(0x12)) {
-      SetTileType(0x73,0xcb,1);
+void sub_0804FB30(void) {
+    if (CheckLocalFlag(0x11)) {
+        SetRoomFlag(0);
+        SetRoomFlag(1);
+        sub_0805308C(0x100);
+        if (!CheckLocalFlag(0x12)) {
+            SetTileType(0x73, 0xcb, 1);
+        }
     }
-  }
 }
 
 u32 sub_0804FB68() {
     return 1;
 }
 
-void nullsub_089() {}
+void nullsub_089() {
+}
 
 u32 sub_0804FB70() {
     return 1;
 }
 
-void nullsub_90() {}
+void nullsub_90() {
+}
 
 u32 sub_0804FB78() {
     return 1;
 }
 
-void nullsub_91() {}
+void nullsub_91() {
+}
 
 u32 sub_0804FB80() {
     return 1;
 }
 
-void nullsub_92() {}
+void nullsub_92() {
+}
 
 u32 sub_0804FB88() {
     return 1;
 }
 
-void nullsub_93() {}
+void nullsub_93() {
+}
 
 u32 sub_0804FB90() {
     return 1;
 }
-void nullsub_94() {}
+void nullsub_94() {
+}
 
 u32 sub_0804FB98() {
     return 1;
 }
 
-void nullsub_95() {}
+void nullsub_95() {
+}
 
 u32 sub_0804FBA0() {
     return 1;
 }
 
-void nullsub_96() {}
+void nullsub_96() {
+}
 
 u32 sub_0804FBA8() {
     return 1;
 }
 
-void nullsub_97() {}
+void nullsub_97() {
+}
 
 u32 sub_0804FBB09() {
     return 1;
 }
 
-void nullsub_98() {}
+void nullsub_98() {
+}
 
 u32 sub_0804FBB8() {
     return 1;
@@ -6057,90 +6024,97 @@ u32 sub_0804FBB8() {
 
 extern EntityData gUnk_080F9304;
 
-void sub_0804FBBC(void)
-{
-  if ((gUnk_02002A40.windcrests & 0x2000000) == 0) {
-    LoadRoomEntityList(&gUnk_080F9304);
-  }
+void sub_0804FBBC(void) {
+    if ((gUnk_02002A40.windcrests & 0x2000000) == 0) {
+        LoadRoomEntityList(&gUnk_080F9304);
+    }
 }
 
 extern EntityData gUnk_080F9304;
 
-void sub_0804FBDC(void)
-{
-  if ((gUnk_02002A40.windcrests & 0x2000000) == 0) {
-    LoadRoomEntityList(&gUnk_080F9304);
-  }
+void sub_0804FBDC(void) {
+    if ((gUnk_02002A40.windcrests & 0x2000000) == 0) {
+        LoadRoomEntityList(&gUnk_080F9304);
+    }
 }
 
 u32 sub_0804FBFC() {
     return 1;
 }
 
-void nullsub_424() {}
+void nullsub_424() {
+}
 
 u32 sub_0804FC04() {
     return 1;
 }
 
-void nullsub_425() {}
+void nullsub_425() {
+}
 
 u32 sub_0804FC0C() {
     return 1;
 }
 
-void nullsub_426() {}
+void nullsub_426() {
+}
 
 u32 sub_0804FC14() {
     return 1;
 }
 
-void nullsub_427() {}
+void nullsub_427() {
+}
 
 u32 sub_0804FC1C() {
     return 1;
 }
 
-void nullsub_428() {}
+void nullsub_428() {
+}
 
 u32 sub_0804FC24() {
     return 1;
 }
 
-void nullsub_429() {}
+void nullsub_429() {
+}
 
 u32 sub_0804FC2C() {
     return 1;
 }
 
-void nullsub_430() {}
+void nullsub_430() {
+}
 
 u32 sub_0804FC34() {
     return 1;
 }
 
-void nullsub_431() {}
+void nullsub_431() {
+}
 
 u32 sub_0804FC3C() {
     return 1;
 }
 
-void nullsub_432() {}
+void nullsub_432() {
+}
 
 u32 sub_0804FC44() {
     return 1;
 }
 
-void nullsub_433() {}
+void nullsub_433() {
+}
 
 extern u32 gUnk_080F9BF8;
 
-u32 sub_0804FC4C(void)
-{
-  if (!CheckKinstoneFused(0xe)) {
-    gRoomVars.field_0x6c = &gUnk_080F9BF8;
-  }
-  return 1;
+u32 sub_0804FC4C(void) {
+    if (!CheckKinstoneFused(0xe)) {
+        gRoomVars.field_0x6c = &gUnk_080F9BF8;
+    }
+    return 1;
 }
 
 void sub_0804FC6C() {
@@ -6152,31 +6126,36 @@ u32 sub_0804FC7C() {
     return 1;
 }
 
-void nullsub_99() {}
+void nullsub_99() {
+}
 
 u32 sub_0804FC84() {
     return 1;
 }
 
-void nullsub_100() {}
+void nullsub_100() {
+}
 
 u32 sub_0804FC8C() {
     return 1;
 }
 
-void nullsub_101() {}
+void nullsub_101() {
+}
 
 u32 sub_0804FC94() {
     return 1;
 }
 
-void nullsub_102() {}
+void nullsub_102() {
+}
 
 u32 sub_0804FC9C() {
     return 1;
 }
 
-void nullsub_103() {}
+void nullsub_103() {
+}
 
 u32 sub_0804FCA4() {
     return 1;
@@ -6185,99 +6164,112 @@ u32 sub_0804FCA4() {
 extern EntityData gUnk_080F9FA8;
 extern EntityData gUnk_080F9F88;
 
-void sub_0804FCA8(void)
-{
-  if (CheckKinstoneFused(0x14)) {
-    LoadRoomEntityList(&gUnk_080F9FA8);
-  }
-  if (!GetInventoryValue(0x38)) {
-    LoadRoomEntityList(&gUnk_080F9F88);
-  }
+void sub_0804FCA8(void) {
+    if (CheckKinstoneFused(0x14)) {
+        LoadRoomEntityList(&gUnk_080F9FA8);
+    }
+    if (!GetInventoryValue(0x38)) {
+        LoadRoomEntityList(&gUnk_080F9F88);
+    }
 }
 
 u32 sub_0804FCD4() {
     return 1;
 }
 
-void nullsub_434() {}
+void nullsub_434() {
+}
 
 u32 sub_0804FCDC() {
     return 1;
 }
 
-void nullsub_435() {}
+void nullsub_435() {
+}
 
 u32 sub_0804FCE4() {
     return 1;
 }
 
-void nullsub_436() {}
+void nullsub_436() {
+}
 
 u32 sub_0804FCEC() {
     return 1;
 }
 
-void nullsub_437() {}
+void nullsub_437() {
+}
 
 u32 sub_0804FCF4() {
     return 1;
 }
 
-void nullsub_438() {}
+void nullsub_438() {
+}
 
 u32 sub_0804FCFC() {
     return 1;
 }
 
-void nullsub_439() {}
+void nullsub_439() {
+}
 
 u32 sub_0804FD04() {
     return 1;
 }
 
-void nullsub_440() {}
+void nullsub_440() {
+}
 
 u32 sub_0804FD0C() {
     return 1;
 }
 
-void nullsub_441() {}
+void nullsub_441() {
+}
 
 u32 sub_0804FD14() {
     return 1;
 }
 
-void nullsub_442() {}
+void nullsub_442() {
+}
 
 u32 sub_0804FD1C() {
     return 1;
 }
 
-void nullsub_443() {}
+void nullsub_443() {
+}
 
 u32 sub_0804FD24() {
     return 1;
 }
 
-void nullsub_444() {}
+void nullsub_444() {
+}
 
 u32 sub_0804FD2C() {
     return 1;
 }
 
-void nullsub_445() {}
+void nullsub_445() {
+}
 
 u32 sub_0804FD34() {
     return 1;
 }
 
-void nullsub_446() {}
+void nullsub_446() {
+}
 
 u32 sub_0804FD3C() {
     return 1;
 }
 
-void nullsub_447() {}
+void nullsub_447() {
+}
 
 u32 sub_0804FD44() {
     return 1;
@@ -6290,7 +6282,8 @@ u32 sub_0804FD4C() {
     return 1;
 }
 
-void nullsub_449() {}
+void nullsub_449() {
+}
 
 u32 sub_0804FD54() {
     return 1;
@@ -6298,119 +6291,129 @@ u32 sub_0804FD54() {
 
 extern EntityData gUnk_080FA5D0;
 
-void sub_0804FD58(void)
-{
-  if (!CheckKinstoneFused(0x21)) {
-    LoadRoomEntityList(&gUnk_080FA5D0);
-  }
+void sub_0804FD58(void) {
+    if (!CheckKinstoneFused(0x21)) {
+        LoadRoomEntityList(&gUnk_080FA5D0);
+    }
 }
 
 u32 sub_0804FD70() {
     return 1;
 }
-void nullsub_450() {}
+void nullsub_450() {
+}
 
 u32 sub_0804FD78() {
     return 1;
 }
 
-void nullsub_451() {}
+void nullsub_451() {
+}
 
 u32 sub_0804FD80() {
     return 1;
 }
 
-void nullsub_452() {}
+void nullsub_452() {
+}
 
 u32 sub_0804FD88() {
     return 1;
 }
 
-void nullsub_453() {}
+void nullsub_453() {
+}
 
 u32 sub_0804FD90() {
     return 1;
 }
 
-void nullsub_454() {}
+void nullsub_454() {
+}
 
 u32 sub_0804FD98() {
     return 1;
 }
 
-void nullsub_455() {}
+void nullsub_455() {
+}
 
 u32 sub_0804FDA0() {
     return 1;
 }
 
-void nullsub_456() {}
+void nullsub_456() {
+}
 
 u32 sub_0804FDA8() {
     return 1;
 }
 
-void nullsub_457() {}
+void nullsub_457() {
+}
 
 u32 sub_0804FDB0() {
     return 1;
 }
 
-void nullsub_458() {}
+void nullsub_458() {
+}
 
 u32 sub_0804FDB8() {
     return 1;
 }
 
-void nullsub_459() {}
+void nullsub_459() {
+}
 
 u32 sub_0804FDC0() {
     return 1;
 }
 
-void nullsub_460() {}
+void nullsub_460() {
+}
 
 u32 sub_0804FDC8() {
     return 1;
 }
 
-void nullsub_461() {}
+void nullsub_461() {
+}
 
 u32 sub_0804FDD0() {
     return 1;
 }
 
-void nullsub_462() {}
+void nullsub_462() {
+}
 
 u32 sub_0804FDD8() {
     return 1;
 }
 
-void nullsub_463() {}
+void nullsub_463() {
+}
 
 extern u32 gUnk_080FAD48;
 
-u32 sub_0804FDE0(void)
-{
-  if (CheckGlobalFlag(ENDING)) {
-    gRoomVars.field_0x6c = &gUnk_080FAD48;
-    gRoomVars.field_0x74 = NULL;
-  }
-  return 1;
+u32 sub_0804FDE0(void) {
+    if (CheckGlobalFlag(ENDING)) {
+        gRoomVars.field_0x6c = &gUnk_080FAD48;
+        gRoomVars.field_0x74 = NULL;
+    }
+    return 1;
 }
 
 extern EntityData gUnk_080FACB8;
 
-void sub_0804FE04(void)
-{
-  if (CheckGlobalFlag(ENDING)) {
-    gArea.pMusicIndex = gArea.musicIndex;
-  }
-  else {
-    LoadRoomEntityList(&gUnk_080FACB8);
-  }
-  sub_0805B4D0(0);
-  sub_08059994();
+void sub_0804FE04(void) {
+    if (CheckGlobalFlag(ENDING)) {
+        gArea.pMusicIndex = gArea.musicIndex;
+    } else {
+        LoadRoomEntityList(&gUnk_080FACB8);
+    }
+    sub_0805B4D0(0);
+    sub_08059994();
 }
 
 void sub_0804FE40() {
@@ -6421,7 +6424,8 @@ u32 sub_0804FE4C() {
     return 1;
 }
 
-void nullsub_104() {}
+void nullsub_104() {
+}
 
 u32 sub_0804FE54() {
     return 1;
@@ -6430,155 +6434,166 @@ u32 sub_0804FE54() {
 extern EntityData gUnk_080FAFE4;
 extern EntityData gUnk_080FB004;
 
-void sub_0804FE58(void)
-{
-  
-  sub_0805B4D0(1);
-  if (CheckGlobalFlag(LV2_CLEAR) && !CheckLocalFlag(LV1_CLEAR)) {
-    LoadRoomEntityList(&gUnk_080FAFE4);
-  }
-  if ((gUnk_02002A40.windcrests & 0x1000000) == 0) {
-    LoadRoomEntityList(&gUnk_080FB004);
-  }
-  if (GetInventoryValue(0x2)) {
-    SetGlobalFlag(WHITE_SWORD_END);
-  }
+void sub_0804FE58(void) {
+
+    sub_0805B4D0(1);
+    if (CheckGlobalFlag(LV2_CLEAR) && !CheckLocalFlag(LV1_CLEAR)) {
+        LoadRoomEntityList(&gUnk_080FAFE4);
+    }
+    if ((gUnk_02002A40.windcrests & 0x1000000) == 0) {
+        LoadRoomEntityList(&gUnk_080FB004);
+    }
+    if (GetInventoryValue(0x2)) {
+        SetGlobalFlag(WHITE_SWORD_END);
+    }
 }
 
 extern EntityData gUnk_080FB004;
 
-void sub_0804FEAC(void)
-{
-  if ((gUnk_02002A40.windcrests & 0x1000000) == 0) {
-    LoadRoomEntityList(&gUnk_080FB004);
-  }
+void sub_0804FEAC(void) {
+    if ((gUnk_02002A40.windcrests & 0x1000000) == 0) {
+        LoadRoomEntityList(&gUnk_080FB004);
+    }
 }
 
 u32 sub_0804FECC() {
     return 1;
 }
 
-void nullsub_464() {}
+void nullsub_464() {
+}
 
 u32 sub_0804FED4() {
     return 1;
 }
 
-void sub_0804FED8(void)
-{
-  SetTileType(0x176, 0x66f, 1);
+void sub_0804FED8(void) {
+    SetTileType(0x176, 0x66f, 1);
 }
 
 u32 sub_0804FEEC() {
     return 1;
 }
 
-void nullsub_465() {}
+void nullsub_465() {
+}
 
 u32 sub_0804FEF4() {
     return 1;
 }
 
-void nullsub_466() {}
+void nullsub_466() {
+}
 
 u32 sub_0804FEFC() {
     return 1;
 }
 
-void nullsub_467() {}
+void nullsub_467() {
+}
 
 u32 sub_0804FF04() {
     return 1;
 }
 
-void nullsub_468() {}
+void nullsub_468() {
+}
 
 u32 sub_0804FF0C() {
     return 1;
 }
 
-void nullsub_469() {}
+void nullsub_469() {
+}
 
 u32 sub_0804FF14() {
     return 1;
 }
 
-void nullsub_470() {}
+void nullsub_470() {
+}
 
 u32 sub_0804FF1C() {
     return 1;
 }
 
-void nullsub_471() {}
+void nullsub_471() {
+}
 
 u32 sub_0804FF24() {
     return 1;
 }
 
-void nullsub_472() {}
+void nullsub_472() {
+}
 
 u32 sub_0804FF2C() {
     return 1;
 }
 
-void nullsub_473() {}
+void nullsub_473() {
+}
 
 u32 sub_0804FF34() {
     return 1;
 }
 
-void nullsub_474() {}
+void nullsub_474() {
+}
 
 u32 sub_0804FF3C() {
     return 1;
 }
 
-void nullsub_475() {}
+void nullsub_475() {
+}
 
 u32 sub_0804FF44() {
     return 1;
 }
 
-void nullsub_476() {}
+void nullsub_476() {
+}
 
 u32 sub_0804FF4C() {
     return 1;
 }
 
-void nullsub_477() {}
+void nullsub_477() {
+}
 
 u32 sub_0804FF54() {
     return 1;
 }
 
-void nullsub_478() {}
+void nullsub_478() {
+}
 
 u32 sub_0804FF5C() {
     return 1;
 }
 
-void sub_0804FF60(void)
-{
-  if (!CheckLocalFlag(0x70)) {
-    SetLocalFlag(0x70);
-  }
+void sub_0804FF60(void) {
+    if (!CheckLocalFlag(0x70)) {
+        SetLocalFlag(0x70);
+    }
 }
 
 u32 sub_0804FF74() {
     return 1;
 }
 
-void nullsub_105() {}
+void nullsub_105() {
+}
 
 u32 sub_0804FF7C() {
     return 1;
 }
 
-void nullsub_106() {}
+void nullsub_106() {
+}
 
-
-void sub_0804FF84(u32 arg0)
-{
-  ((struct_02000000 * )0x02000000)->brightnessPref = arg0;
-  gUsedPalettes = (u32)-1;
+void sub_0804FF84(u32 arg0) {
+    ((struct_02000000*)0x02000000)->brightnessPref = arg0;
+    gUsedPalettes = (u32)-1;
 }

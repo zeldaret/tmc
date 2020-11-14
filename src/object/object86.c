@@ -42,39 +42,37 @@ void sub_08099E10(Entity* this) {
     }
 }
 
-void sub_08099E58(Entity *this)
-{
-  GetNextFrame(this);
-  if (this->frames.b.f3) {
-    this->frames.b.f3 = 0;
-    this->actionDelay++;
-    if (this->actionDelay == 3) {
-      this->action = 3;
-      this->frameIndex = 4;
+void sub_08099E58(Entity* this) {
+    GetNextFrame(this);
+    if (this->frames.b.f3) {
+        this->frames.b.f3 = 0;
+        this->actionDelay++;
+        if (this->actionDelay == 3) {
+            this->action = 3;
+            this->frameIndex = 4;
+        }
     }
-  }
 }
 
-void sub_08099E8C(Entity *this)
-{
-  if (sub_080041A0(this, &gPlayerEntity, 0xc, 0xc)) {
-    if (this->previousActionFlag == 0) {
-      sub_08099ECC(this);
-      sub_0805E4E0(this, 0x1e);
+void sub_08099E8C(Entity* this) {
+    if (sub_080041A0(this, &gPlayerEntity, 0xc, 0xc)) {
+        if (this->previousActionFlag == 0) {
+            sub_08099ECC(this);
+            sub_0805E4E0(this, 0x1e);
+        }
+        if (CheckLocalFlag(0x75)) {
+            sub_0805B390(0x7);
+        }
     }
-    if (CheckLocalFlag(0x75)) {
-      sub_0805B390(0x7);
-    }
-  }
 }
 
-void nullsub_534(Entity* this) {}
+void nullsub_534(Entity* this) {
+}
 
-void sub_08099ECC(Entity *this)
-{
-  this->previousActionFlag = 1;
-  CopyPosition(this, &gPlayerEntity);
-  gPlayerState.playerAction = 3;
-  gPlayerState.field_0x34[4] = 0;
-  gPlayerState.flags.all |= 0x8000;
+void sub_08099ECC(Entity* this) {
+    this->previousActionFlag = 1;
+    CopyPosition(this, &gPlayerEntity);
+    gPlayerState.playerAction = 3;
+    gPlayerState.field_0x34[4] = 0;
+    gPlayerState.flags.all |= 0x8000;
 }

@@ -54,7 +54,6 @@ typedef struct {
 extern Main gUnk_03001000;
 extern UI gUnk_02032EC0;
 
-
 extern void sub_080A3204(void);
 extern void sub_0807CE90(void);
 extern void sub_080560B8(void);

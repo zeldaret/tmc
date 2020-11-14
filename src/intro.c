@@ -48,52 +48,43 @@ static void (*const sIntroSequenceHandlers[])(void) = {
 };
 
 static const u16 sLightRaysAlphaBlends[] = {
-    BLDALPHA_BLEND(9, 9),
-    BLDALPHA_BLEND(8, 10),
-    BLDALPHA_BLEND(7, 11),
-    BLDALPHA_BLEND(6, 12),
-    BLDALPHA_BLEND(5, 13),
-    BLDALPHA_BLEND(6, 12),
-    BLDALPHA_BLEND(7, 11),
-    BLDALPHA_BLEND(8, 10),
+    BLDALPHA_BLEND(9, 9),  BLDALPHA_BLEND(8, 10), BLDALPHA_BLEND(7, 11), BLDALPHA_BLEND(6, 12),
+    BLDALPHA_BLEND(5, 13), BLDALPHA_BLEND(6, 12), BLDALPHA_BLEND(7, 11), BLDALPHA_BLEND(8, 10),
 };
 
-static u32 AdvanceIntroSequence(u32 transition)
-{
+static u32 AdvanceIntroSequence(u32 transition) {
     gUnk_02032EC0.transitionType = transition;
     gUnk_03001000.funcIndex = 2;
     _DmaZero(&gIntroState, sizeof(gIntroState));
     DoFade(7, 8);
 }
 
-void HandleIntroScreen(void)
-{
-  sub_080AD90C();
-  switch (gUnk_03001000.funcIndex) {
-      case 0:
-        sub_08056418();
-        _DmaZero(&gUnk_02032EC0, 0x3b4);
-        AdvanceIntroSequence(0);
-        break;
-      case 1:
-        sIntroSequenceHandlers[gUnk_02032EC0.transitionType]();
-        break;
-      case 2:
-        if (gFadeControl.active) {
-          return;
-        }
-        sub_0801DA90(1);
-        gUnk_03001000.funcIndex = 1;
-        break;
-  }
-  sub_080AD918();
+void HandleIntroScreen(void) {
+    sub_080AD90C();
+    switch (gUnk_03001000.funcIndex) {
+        case 0:
+            sub_08056418();
+            _DmaZero(&gUnk_02032EC0, 0x3b4);
+            AdvanceIntroSequence(0);
+            break;
+        case 1:
+            sIntroSequenceHandlers[gUnk_02032EC0.transitionType]();
+            break;
+        case 2:
+            if (gFadeControl.active) {
+                return;
+            }
+            sub_0801DA90(1);
+            gUnk_03001000.funcIndex = 1;
+            break;
+    }
+    sub_080AD918();
 }
 
-static void HandleNintendoCapcomLogos(void)
-{
+static void HandleNintendoCapcomLogos(void) {
     u32 advance;
     u32 paletteGroup;
-  
+
     advance = GetAdvanceState();
     if (gIntroState.state == 0) {
         sub_0801DA90(1);
@@ -101,10 +92,9 @@ static void HandleNintendoCapcomLogos(void)
         gIntroState.timer = 120;
         LoadGfxGroup(16);
         LoadGfxGroup(1);
-        if (((struct_02000000 *)0x2000000)->gameLanguage == 0) {
+        if (((struct_02000000*)0x2000000)->gameLanguage == 0) {
             paletteGroup = 1;
-        }
-        else {
+        } else {
             paletteGroup = 2;
         }
         LoadPaletteGroup(paletteGroup);
@@ -126,8 +116,7 @@ static void HandleNintendoCapcomLogos(void)
 
 extern u16 gUnk_03001010[5];
 
-static void HandleTitlescreen(void)
-{
+static void HandleTitlescreen(void) {
     int advance;
     u32 paletteGroup;
 
@@ -145,8 +134,7 @@ static void HandleTitlescreen(void)
             LoadGfxGroup(2);
             if (((struct_02000000*)0x2000000)->gameLanguage == 0) {
                 paletteGroup = 3;
-            }
-            else {
+            } else {
                 paletteGroup = 4;
             }
             LoadPaletteGroup(paletteGroup);
@@ -158,8 +146,7 @@ static void HandleTitlescreen(void)
                 gScreen.affine.bg3Control = 0x1e03;
                 gScreen.lcd.displayControl |= 0x1e00;
                 gScreen.bg.bg2xOffset = 0xff60;
-            }
-            else {
+            } else {
                 gScreen.controls.layerFXControl = 0x241;
                 gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 9);
                 gScreen.bg.bg0Control = 0x1d02;
@@ -171,7 +158,7 @@ static void HandleTitlescreen(void)
                 UpdateSwordBgAffineData();
             }
             sub_080A3210();
-            PlaySFX(3); //fanfare
+            PlaySFX(3); // fanfare
             DoFade(6, 8);
             break;
         case 1:
@@ -180,8 +167,7 @@ static void HandleTitlescreen(void)
             }
             if (((struct_02000000*)0x2000000)->gameLanguage == 0) {
                 HandleJapaneseTitlescreenAnimationIntro();
-            }
-            else {
+            } else {
                 HandleTitlescreenAnimationIntro();
             }
             break;
@@ -197,8 +183,7 @@ static void HandleTitlescreen(void)
             if (advance != ADVANCE_NONE) {
                 if (advance == ADVANCE_KEY_PRESSED) {
                     PlaySFX(0x6a);
-                }
-                else {
+                } else {
                     advance = ADVANCE_NONE;
                 }
                 AdvanceIntroSequence(advance);
@@ -208,7 +193,7 @@ static void HandleTitlescreen(void)
             if ((gIntroState.timer & 0x20) == 0) {
                 gUnk_03001010[4] = 0xe000;
                 gUnk_03001010[1] = 0x84;
-                sub_080ADA14(0x1ff,0);
+                sub_080ADA14(0x1ff, 0);
             }
     }
     if (gIntroState.gameLanguage != ((struct_02000000*)0x2000000)->gameLanguage) {
@@ -230,8 +215,7 @@ static void UpdatePressStartIcon(void) {
     return;
 }
 
-static void UpdateSwordBgAffineData(void)
-{
+static void UpdateSwordBgAffineData(void) {
     struct BgAffineSrcData aff;
     aff.texY = 0x8000;
     aff.texX = 0x8000;
@@ -242,9 +226,8 @@ static void UpdateSwordBgAffineData(void)
     BgAffineSet(&aff, (struct BgAffineDstData*)&gBgControls, 1);
 }
 
-static void HandleJapaneseTitlescreenAnimationIntro(void)
-{
-    Entity *pEVar2;
+static void HandleJapaneseTitlescreenAnimationIntro(void) {
+    Entity* pEVar2;
 
     switch (gIntroState.subState) {
         case 0:
@@ -268,7 +251,7 @@ static void HandleJapaneseTitlescreenAnimationIntro(void)
                 gFadeControl.field_0x4 = -1;
                 gIntroState.subState++;
                 gIntroState.timer = 90;
-                pEVar2 = CreateObject(0xb4,0,0);
+                pEVar2 = CreateObject(0xb4, 0, 0);
                 if (pEVar2 != NULL) {
                     pEVar2->x.HALF.HI = 0;
                     pEVar2->y.HALF.HI = 0x48;

@@ -20,8 +20,6 @@ void BladeTrap(Entity* ent) {
         sub_0806F69C(ent);
     }
 
-    
-
     puVar3 = &(ent->field_0x74.HWORD);
     uVar1 = *puVar3;
     *puVar3 = uVar1 - 1;

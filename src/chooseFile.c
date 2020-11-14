@@ -125,8 +125,8 @@ void sub_080503E4(u32 saveFileId) {
         brightnessPref = saveFile->brightnessPref;
     }
 
-    ((struct_02000000 *)0x2000000)->messageSpeed = messageSpeed;
-    ((struct_02000000 *)0x2000000)->brightnessPref = brightnessPref;
+    ((struct_02000000*)0x2000000)->messageSpeed = messageSpeed;
+    ((struct_02000000*)0x2000000)->brightnessPref = brightnessPref;
     gUsedPalettes = 0xFFFFFFFF;
 }
 
@@ -134,7 +134,7 @@ void sub_0805041C(u32 saveFileId) {
     SaveFile* saveFile;
 
     if (saveFileId < 3) {
-        ((struct_02000000 *)0x2000000)->saveFileId = saveFileId;
+        ((struct_02000000*)0x2000000)->saveFileId = saveFileId;
         saveFile = &gSaveFiles[saveFileId];
         _DmaCopy(saveFile, &gUnk_02002A40, sizeof(*saveFile));
     }
@@ -164,8 +164,8 @@ void HandleChooseFileScreen(void) {
     sub_0801C208();
     sub_080AD9B0();
     sub_080AD918();
-    if (gUnk_02019EE0.unk3 != ((struct_02000000 *)0x2000000)->gameLanguage) {
-        gUnk_02019EE0.unk3 = ((struct_02000000 *)0x2000000)->gameLanguage;
+    if (gUnk_02019EE0.unk3 != ((struct_02000000*)0x2000000)->gameLanguage) {
+        gUnk_02019EE0.unk3 = ((struct_02000000*)0x2000000)->gameLanguage;
         sub_080503A8(0x6);
         sub_080503A8(0xF);
     }
@@ -185,7 +185,7 @@ void sub_080504F4(void) {
     _DmaZero(&gUnk_0200AF00, sizeof(gUnk_0200AF00));
     _DmaZero(&gUnk_02019EE0, sizeof(gUnk_02019EE0));
     gUnk_02019EE0.unk3 = 7;
-    gUnk_02019EE0.unk6 = ((struct_02000000 *)0x2000000)->gameLanguage > 1 ? 3 : 0;
+    gUnk_02019EE0.unk6 = ((struct_02000000*)0x2000000)->gameLanguage > 1 ? 3 : 0;
     _DmaZero(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
     gUnk_02032EC0.transitionType = 8;
     sub_080503BC(0);
@@ -285,7 +285,6 @@ void sub_0805070C(void) {
         }
         sub_0805F300(var0);
     }
-
 }
 
 void sub_08050790(void) {
@@ -395,7 +394,7 @@ void sub_08050940(void) {
         newKeys &= ~(DPAD_UP | DPAD_DOWN);
     }
 
-    var1 = ((struct_02000000 *)0x2000000)->gameLanguage > 1 ? 4 : 3;
+    var1 = ((struct_02000000*)0x2000000)->gameLanguage > 1 ? 4 : 3;
     var2 = gUnk_02032EC0.transitionType;
     switch (newKeys) {
         case DPAD_UP:

@@ -50,4 +50,3 @@ void (*const gUnk_080CB588[])(Entity*) = {
     HangingSeed_Hang,
 };
 // clang-format on
-

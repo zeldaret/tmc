@@ -5,8 +5,7 @@
 extern void sub_08068318(Entity*);
 extern void sub_0806854C(Entity*, u32);
 
-void ZeldaFollower(Entity *this)
-{
+void ZeldaFollower(Entity* this) {
     if (this->action == 0) {
         this->action++;
         this->spriteSettings.b.draw = TRUE;

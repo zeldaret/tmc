@@ -8,9 +8,9 @@ extern BoundingBox gUnk_080FD170;
 
 extern u8 gUnk_02000070;
 
-void ObjectA(Entity *this) {
-  u32 uVar2;
-  
+void ObjectA(Entity* this) {
+    u32 uVar2;
+
     if (this->action == 0) {
         this->action = 1;
         this->boundingBox = &gUnk_080FD170;
@@ -30,10 +30,10 @@ void ObjectA(Entity *this) {
             sub_080787CC(this);
         }
     } else if (this->interactType != 0) {
-      SetTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
-      SetFlag(this->field_0x86.HWORD);
-      CreateDust(this);
-      sub_080526F8(-1);
-      DeleteThisEntity();
+        SetTileType(*(u16*)&this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
+        SetFlag(this->field_0x86.HWORD);
+        CreateDust(this);
+        sub_080526F8(-1);
+        DeleteThisEntity();
     }
 }

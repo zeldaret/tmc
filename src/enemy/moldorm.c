@@ -173,7 +173,7 @@ void sub_08022F14(Entity* this) {
 
         this->direction += this->field_0x78.HALF.LO;
         this->direction &= 0x1f;
-        
+
         this->animationState = ((this->direction + 2) & 0x1c) >> 2;
         this->frameIndex = this->animationState;
     }

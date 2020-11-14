@@ -15,12 +15,9 @@ static void sub_08055F70(void);
 static bool32 SoftResetKeysPressed(void);
 
 static void (*const sScreenHandlers[])(void) = {
-    [SCREEN_INTRO]       = HandleIntroScreen,
-    [SCREEN_CHOOSE_FILE] = HandleChooseFileScreen,
-    [SCREEN_GAMEPLAY]    = HandleGameplayScreen,
-    [SCREEN_GAME_OVER]   = HandleGameOverScreen,
-    [SCREEN_CREDITS]     = HandleCreditsScreen,
-    [SCREEN_DEBUG_TEXT]  = HandleDebugTextScreen,
+    [SCREEN_INTRO] = HandleIntroScreen,       [SCREEN_CHOOSE_FILE] = HandleChooseFileScreen,
+    [SCREEN_GAMEPLAY] = HandleGameplayScreen, [SCREEN_GAME_OVER] = HandleGameOverScreen,
+    [SCREEN_CREDITS] = HandleCreditsScreen,   [SCREEN_DEBUG_TEXT] = HandleDebugTextScreen,
 };
 
 void MainLoop(void) {
@@ -93,7 +90,7 @@ static void sub_08055F70(void) {
 
     DisableInterruptsAndDMA();
     RegisterRamReset(RESET_ALL & ~RESET_EWRAM);
-    *(vu16 *)BG_PLTT = 0x7FFF;
+    *(vu16*)BG_PLTT = 0x7FFF;
     REG_WAITCNT = WAITCNT_PREFETCH_ENABLE | WAITCNT_WS0_S_1 | WAITCNT_WS0_N_3;
     size = 0x3FFD0;
     _DmaZero(gUnk_02000030, size);

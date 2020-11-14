@@ -13,31 +13,30 @@ extern void (*gUnk_0812505C[])(Entity*);
 void Pinwheel(Entity* this) {
     u16 x = this->currentHealth;
     if ((x & 0x7f) != 0) {
-       if (ReadBit(&gUnk_020342F8,x-1) == 0) {
-           DeleteThisEntity();
-       }
+        if (ReadBit(&gUnk_020342F8, x - 1) == 0) {
+            DeleteThisEntity();
+        }
     }
     gUnk_0812505C[this->action](this);
 }
 
-void sub_080A23DC(Entity *this) {
+void sub_080A23DC(Entity* this) {
     this->field_0x68.HWORD = gUnk_08125050[this->entityType.parameter];
     this->spritePriority.b0 = 7;
-    if (CheckLocalFlag(this->field_0x68.HWORD) !=0) {
+    if (CheckLocalFlag(this->field_0x68.HWORD) != 0) {
         this->action = 2;
-    }
-    else {
+    } else {
         this->action = 1;
     }
-    InitializeAnimation(this,0);
+    InitializeAnimation(this, 0);
 }
 
-void sub_080A2420(Entity *this) {
-   if (CheckLocalFlag(this->field_0x68.HWORD) != 0) {
-       this->action = 2;
-       CreateDust(this);
-   }
+void sub_080A2420(Entity* this) {
+    if (CheckLocalFlag(this->field_0x68.HWORD) != 0) {
+        this->action = 2;
+        CreateDust(this);
+    }
 }
-void sub_080A243C(Entity *this) {
+void sub_080A243C(Entity* this) {
     GetNextFrame(this);
 }

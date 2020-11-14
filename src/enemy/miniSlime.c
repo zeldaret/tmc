@@ -65,7 +65,7 @@ void sub_080452E4(Entity* this) {
     this->actionDelay = (Random() & 0x1f) + 1;
 }
 
-void sub_080452FC(Entity *this) {
+void sub_080452FC(Entity* this) {
     u32 cVar2, bVar3;
     GetNextFrame(this);
     if (--this->actionDelay == 0) {

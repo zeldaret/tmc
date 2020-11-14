@@ -38,15 +38,14 @@ void sub_0806a370(Entity* this) {
     }
 }
 
-void sub_0806A3D8(Entity *this)
-{
-  u32 *uVar1;
-  
-  this->action = 1;
-  this->actionDelay = 0xb4;
-  sub_0805E3A0(this, 2);
-  sub_0806A8C8(this);
-  uVar1 = StartCutscene(this,&gUnk_08012F0C);
-  *(u32 *)&this->cutsceneBeh = (u32)uVar1;
-  sub_0807DD94(this, 0);
+void sub_0806A3D8(Entity* this) {
+    u32* uVar1;
+
+    this->action = 1;
+    this->actionDelay = 0xb4;
+    sub_0805E3A0(this, 2);
+    sub_0806A8C8(this);
+    uVar1 = StartCutscene(this, &gUnk_08012F0C);
+    *(u32*)&this->cutsceneBeh = (u32)uVar1;
+    sub_0807DD94(this, 0);
 }

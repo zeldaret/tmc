@@ -24,12 +24,13 @@ void sub_08055E08(void) {
 }
 
 void sub_08055E24(void) {
-  gMenu.overlayType++;
-  gUnk_02000070.unk0 = 1;
-  sub_0804B0B0(gMenu.field_0xc[2], gMenu.field_0xc[3]);
-  LoadRoomEntityList(&gUnk_080FF400);
-  sub_08055B70(gMenu.field_0x4, 0, 0, 0);
-  DoFade(4, 0x10);
+    gMenu.overlayType++;
+    gUnk_02000070.unk0 = 1;
+    sub_0804B0B0(gMenu.field_0xc[2], gMenu.field_0xc[3]);
+    LoadRoomEntityList(&gUnk_080FF400);
+    sub_08055B70(gMenu.field_0x4, 0, 0, 0);
+    DoFade(4, 0x10);
 }
 
-void nullsub_493(void) {}
+void nullsub_493(void) {
+}

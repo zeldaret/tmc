@@ -2,41 +2,12 @@
 #include "entity.h"
 #include "item.h"
 
-
 // TODO - How does this relate to PlayerItemFunctions? Is this just a lookup table?
 void (*const gItemFunctions[])(ItemBehavior*, u32) = {
-    DebugItem,
-    Sword,
-    Sword,
-    Sword,
-    Sword,
-    Sword,
-    Sword,
-    Bomb,
-    Bomb,
-    Bow,
-    Bow,
-    sub_08075D14,
-    sub_08075D14,
-    Shield,
-    Shield,
-    Lantern,
-    Lantern,
-    GustJar,
-    PacciCane,
-    MoleMitts,
-    RocsCape,
-    sub_08076800,
-    DebugItem,
-    Ocarina,
-    DebugItem,
-    DebugItem,
-    DebugItem,
-    TryPickupObject,
-    JarEmpty,
-    JarEmpty,
-    JarEmpty,
-    JarEmpty,
+    DebugItem, Sword,     Sword,     Sword,           Sword,        Sword,        Sword,     Bomb,
+    Bomb,      Bow,       Bow,       sub_08075D14,    sub_08075D14, Shield,       Shield,    Lantern,
+    Lantern,   GustJar,   PacciCane, MoleMitts,       RocsCape,     sub_08076800, DebugItem, Ocarina,
+    DebugItem, DebugItem, DebugItem, TryPickupObject, JarEmpty,     JarEmpty,     JarEmpty,  JarEmpty,
 };
 
 extern void sub_08077E78(ItemBehavior*, u32);
@@ -141,20 +112,17 @@ void sub_08076D34(ItemBehavior* beh, u32 arg1) {
     }
 }
 
-void sub_08076D94(ItemBehavior *beh, u32 arg1)
-{
-  if (sub_08077EFC(beh)) {
-    gPlayerState.field_0x3[0] |= 1;
-    UpdateItemAnim(beh);
-  }
-  else {
-    gPlayerState.field_0x3[0] = 0;
-    sub_08077E78(beh, arg1);
-  }
+void sub_08076D94(ItemBehavior* beh, u32 arg1) {
+    if (sub_08077EFC(beh)) {
+        gPlayerState.field_0x3[0] |= 1;
+        UpdateItemAnim(beh);
+    } else {
+        gPlayerState.field_0x3[0] = 0;
+        sub_08077E78(beh, arg1);
+    }
 }
 
-void GustJar(ItemBehavior *beh, u32 arg1)
-{
+void GustJar(ItemBehavior* beh, u32 arg1) {
     gPlayerState.field_0xa8 = 3;
     gUnk_0811BDF4[beh->stateID](beh, arg1);
 }

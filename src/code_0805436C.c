@@ -30,7 +30,6 @@ extern u8 gUnk_080FE1C6[];
 extern u32 gUnk_02034398;
 extern void (*const gUnk_080FE2A0[])();
 
-
 u32 IsItemEquipped(u32 itemID) {
     u32 ret;
 
@@ -268,7 +267,6 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
 }
 */
 
-void sub_08054870(void)
-{
-  gUnk_080FE2A0[gMenu.menuType]();
+void sub_08054870(void) {
+    gUnk_080FE2A0[gMenu.menuType]();
 }

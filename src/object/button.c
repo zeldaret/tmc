@@ -19,8 +19,8 @@ void sub_08081AE0(Entity* this) {
     if (this->cutsceneBeh.HWORD != 0) {
         this->collisionLayer = this->cutsceneBeh.HWORD;
     }
-    this->field_0x74.HWORD = (((this->x.HALF.HI - gRoomControls.roomOriginX)>>4) & 0x3F) |
-    ((((this->y.HALF.HI - gRoomControls.roomOriginY)>>4) & 0x3F) << 6);
+    this->field_0x74.HWORD = (((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3F) |
+                             ((((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3F) << 6);
     this->field_0x70.HALF.HI = GetTileType(this->field_0x74.HWORD, this->collisionLayer);
     if (this->entityType.form == 0 && CheckFlags(this->field_0x86.HWORD)) {
         this->action = 5;
@@ -36,7 +36,7 @@ void sub_08081AE0(Entity* this) {
 
 void sub_08081B84(Entity* this) {
     if (sub_08081E3C(this)) {
-        this->action=2;
+        this->action = 2;
         this->field_0x70.HALF.HI = GetTileType(this->field_0x74.HWORD, this->collisionLayer);
     }
 }
@@ -167,7 +167,7 @@ Entity* sub_08081D74(Entity* this) {
             }
         }
     }
-    this->attachedEntity=ent;
+    this->attachedEntity = ent;
     return ent;
 }
 
@@ -190,7 +190,8 @@ u32 sub_08081E3C(Entity* this) {
     tmp2 = GetTileType(this->field_0x74.HWORD, this->collisionLayer);
     tmp1 = gUnk_0811EE50;
     do {
-        if (*tmp1 == tmp2) return 1;
+        if (*tmp1 == tmp2)
+            return 1;
     } while (*++tmp1);
     return 0;
 }
@@ -203,10 +204,10 @@ extern u16 gMapDataTopSpecial[0x2000];
 void sub_08081E6C(Entity* this) {
     u32 r4;
     u16 *tmp, *r1;
-    u8 *tmp2;
+    u8* tmp2;
     u32 r6 = this->field_0x74.HWORD;
     u32 r5 = this->collisionLayer;
-    u32 tile = GetTileType(r6,r5);
+    u32 tile = GetTileType(r6, r5);
     if (tile < 0x4000)
         return;
     r1 = GetLayerByIndex(r5);
@@ -215,11 +216,11 @@ void sub_08081E6C(Entity* this) {
     r1 += 0x3002 + r4;
     tmp = tmp + (*r1 << 2);
     tmp2 = (r5 == 2 ? gMapDataTopSpecial : (u8*)&gUnk_02019EE0);
-    tmp2 += (((0x3f & r6)<<1)+((0xfc0 & r6)<<2))<<1;
+    tmp2 += (((0x3f & r6) << 1) + ((0xfc0 & r6) << 2)) << 1;
     if (sub_08081F00((u32*)tmp2, (u32*)tmp))
         return;
     SetTileType(r4, r6, r5);
-    SetTile(tile,r6,r5);
+    SetTile(tile, r6, r5);
 }
 #else
 NAKED
@@ -229,8 +230,10 @@ void sub_08081E6C(Entity* this) {
 #endif
 
 u32 sub_08081F00(u32* unk1, u32* unk2) {
-    if (*unk1 != *unk2) return 0;
-    if (unk1[0x40] != unk2[1]) return 0;
+    if (*unk1 != *unk2)
+        return 0;
+    if (unk1[0x40] != unk2[1])
+        return 0;
     return 1;
 }
 
@@ -251,9 +254,10 @@ void sub_08081F24(Entity* this) {
 
 u32 sub_08081F7C(Entity* this, u32 r7) {
     u16 tmp;
-    if (this->actionDelay == 0) return 1;
+    if (this->actionDelay == 0)
+        return 1;
     if (--this->actionDelay > 6) {
-        if(this->attachedEntity)
+        if (this->attachedEntity)
             this->attachedEntity->spriteOffsetY = 0xfc;
     } else {
         if (this->actionDelay == 6) {
@@ -275,12 +279,13 @@ extern void sub_080044AE(Entity*, u32, u32);
 void sub_08081FF8(Entity* this) {
     u32 direction;
     u32 i;
-    if (this->attachedEntity != &gPlayerEntity) return;
+    if (this->attachedEntity != &gPlayerEntity)
+        return;
     direction = GetFacingDirection(this->attachedEntity, this);
     sub_080044AE(this->attachedEntity, 0x200, direction);
     for (i = 0; i < 3; i++) {
         if (gUnk_03004040[i]) {
-            sub_080044AE(gUnk_03004040[i],0x200, direction);
+            sub_080044AE(gUnk_03004040[i], 0x200, direction);
         }
     }
 }

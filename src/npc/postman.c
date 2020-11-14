@@ -125,8 +125,7 @@ void sub_080604DC(Entity* this) {
     }
 }
 
-void sub_08060528(Entity *this)
-{
+void sub_08060528(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
@@ -140,23 +139,21 @@ void sub_08060528(Entity *this)
             break;
         case 1:
             if (this->interactType == 2) {
-            this->action = 3;
-            this->interactType = 0;
-            sub_0806F118(this);
-            InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-            }
-            else {
+                this->action = 3;
+                this->interactType = 0;
+                sub_0806F118(this);
+                InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
+            } else {
                 if (this->interactType != 0) {
                     this->action = 2;
                     this->interactType = 0;
                     sub_080606D8(this);
                     InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
-                }
-                else {
+                } else {
                     sub_0807DD94(this, 0);
                 }
             }
-            break; 
+            break;
         case 2:
             UpdateAnimationSingleFrame(this);
             if ((gTextBox.doTextBox & 0x7f) != 0) {
@@ -170,51 +167,47 @@ void sub_08060528(Entity *this)
                 break;
             }
             this->action = 1;
-  }
-  sub_080604DC(this);
-  if (0 < (s16)this->field_0x6a.HWORD) {
-    if ((s16)this->field_0x6a.HWORD > 0x12b) {
-      this->field_0x6a.HWORD = 0;
-      this->field_0x20 = 0x20000;
-      this->field_0x6c.HALF.HI = 1;
-      sub_080788E0(this);
-      EnqueueSFX(0x7c);
     }
-    else {
-      this->field_0x6a.HWORD -= 1;
+    sub_080604DC(this);
+    if (0 < (s16)this->field_0x6a.HWORD) {
+        if ((s16)this->field_0x6a.HWORD > 0x12b) {
+            this->field_0x6a.HWORD = 0;
+            this->field_0x20 = 0x20000;
+            this->field_0x6c.HALF.HI = 1;
+            sub_080788E0(this);
+            EnqueueSFX(0x7c);
+        } else {
+            this->field_0x6a.HWORD -= 1;
+        }
     }
-  }
-  sub_08003FC4(this, 0x1800);
-  if (((this->field_0x6c.HALF.HI != 0) && (this->field_0x20 == 0)) && this->height.WORD == 0) {
-    this->field_0x6c.HALF.HI = 0;
-    sub_080606C0(this);
-  }
-  if ((-1 < this->height.WORD) &&
-     ((gPlayerEntity.collisionLayer == 0 || (this->collisionLayer == gPlayerEntity.collisionLayer)))) {
-    sub_0806ED78(this);
-  }
-  sub_0800451C(this);
+    sub_08003FC4(this, 0x1800);
+    if (((this->field_0x6c.HALF.HI != 0) && (this->field_0x20 == 0)) && this->height.WORD == 0) {
+        this->field_0x6c.HALF.HI = 0;
+        sub_080606C0(this);
+    }
+    if ((-1 < this->height.WORD) &&
+        ((gPlayerEntity.collisionLayer == 0 || (this->collisionLayer == gPlayerEntity.collisionLayer)))) {
+        sub_0806ED78(this);
+    }
+    sub_0800451C(this);
 }
 
-void sub_080606C0(Entity *this)
-{
-  this->field_0x6c.HALF.LO = sub_0801E99C(this);
-  sub_08078784(this, this->field_0x6c.HALF.LO);
+void sub_080606C0(Entity* this) {
+    this->field_0x6c.HALF.LO = sub_0801E99C(this);
+    sub_08078784(this, this->field_0x6c.HALF.LO);
 }
 
-void sub_080606D8(Entity* this)
-{
-  s32 index;
-  
-  index = gUnk_02002A40.unk8 - 2;
-  if (index < 0) {
-    index = 0;
-  }
-  ShowNPCDialogue(this, &gUnk_0810AA30[index]);
+void sub_080606D8(Entity* this) {
+    s32 index;
+
+    index = gUnk_02002A40.unk8 - 2;
+    if (index < 0) {
+        index = 0;
+    }
+    ShowNPCDialogue(this, &gUnk_0810AA30[index]);
 }
 
-void sub_08060700(Entity *entity, u32 arg1)
-{
+void sub_08060700(Entity* entity, u32 arg1) {
     s8* var0 = gUnk_0810A918[(s8)entity->field_0x68.HALF.LO];
     Coords16* coords = &gUnk_0810A66C[var0[(s8)entity->field_0x68.HALF.HI]];
     u32 x = coords->x + gRoomControls.roomOriginX;
@@ -223,8 +216,7 @@ void sub_08060700(Entity *entity, u32 arg1)
     gUnk_02033280.unk |= 1;
 }
 
-void sub_0806075C(Entity *this)
-{
+void sub_0806075C(Entity* this) {
     this->field_0x68.HALF.LO = 0xb;
     this->field_0x68.HALF.HI = 0xff;
 }

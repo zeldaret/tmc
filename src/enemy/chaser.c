@@ -61,15 +61,14 @@ void sub_0802B56C(Entity* this) {
     }
 }
 
-void sub_0802B5C8(Entity *this) {
+void sub_0802B5C8(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x80) {
         this->action = 1;
         this->actionDelay = 30;
-        InitializeAnimation(this,0);
+        InitializeAnimation(this, 0);
     }
 }
-
 
 // clang-format off
 void (*const gUnk_080CD27C[])(Entity*) = {

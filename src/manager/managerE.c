@@ -27,7 +27,7 @@ void sub_08058E60(ManagerE* this) {
         sub_08078A90(0xff);
         sub_08078B48();
     }
-    if (this->unk_3a == 0){
+    if (this->unk_3a == 0) {
         if (this->unk_38 != 0) {
             PlaySFX(this->unk_38);
         }

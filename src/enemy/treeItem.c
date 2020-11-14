@@ -87,10 +87,8 @@ static bool32 ShouldSpawnTreeItem(Entity* this) {
     }
 
     playerState = gPlayerEntity.animationState;
-    if ((playerState == 0 && expectedStateY == 0) ||
-        (playerState == 4 && expectedStateY == 4) ||
-        (playerState == 6 && expectedStateX == 6) ||
-        (playerState == 2 && expectedStateX == 2)) {
+    if ((playerState == 0 && expectedStateY == 0) || (playerState == 4 && expectedStateY == 4) ||
+        (playerState == 6 && expectedStateX == 6) || (playerState == 2 && expectedStateX == 2)) {
         return TRUE;
     }
 

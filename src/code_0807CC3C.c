@@ -72,33 +72,32 @@ s32 sub_0807CE54(void) {
     return uVar1;
 }
 
-u32 sub_0807CE90(void)
-{
-  struct_0807D1C4 *puVar1;
-  int iVar2;
-  int iVar3;
-  
-  sub_080B1520(0x40);
-  puVar1 = sub_0807D1C4(4);
-  iVar3 = 0;
-  if (sub_0807D24C(puVar1->field_0x6, gUnk_0811E484, puVar1->field_0x0) == 0) {
-    iVar3 += 1;
-  }
-  if (sub_0807D24C(puVar1->field_0x8, gUnk_0811E484, puVar1->field_0x0) == 0) {
-    iVar3 += 2;
-  }
-  if (iVar3 != 0) {
-    if (iVar3 == 3) {
-      sub_0807CF68(5);
-      sub_0807CF68(3);
-      sub_0807CF68(2);
-      sub_0807CF68(1);
-      sub_0807CF68(0);
+u32 sub_0807CE90(void) {
+    struct_0807D1C4* puVar1;
+    int iVar2;
+    int iVar3;
+
+    sub_080B1520(0x40);
+    puVar1 = sub_0807D1C4(4);
+    iVar3 = 0;
+    if (sub_0807D24C(puVar1->field_0x6, gUnk_0811E484, puVar1->field_0x0) == 0) {
+        iVar3 += 1;
     }
-    sub_0807D20C(puVar1->field_0x8, gUnk_0811E484, puVar1->field_0x0);
-    sub_0807D20C(puVar1->field_0x6, gUnk_0811E484, puVar1->field_0x0);
-  }
-  return 1;
+    if (sub_0807D24C(puVar1->field_0x8, gUnk_0811E484, puVar1->field_0x0) == 0) {
+        iVar3 += 2;
+    }
+    if (iVar3 != 0) {
+        if (iVar3 == 3) {
+            sub_0807CF68(5);
+            sub_0807CF68(3);
+            sub_0807CF68(2);
+            sub_0807CF68(1);
+            sub_0807CF68(0);
+        }
+        sub_0807D20C(puVar1->field_0x8, gUnk_0811E484, puVar1->field_0x0);
+        sub_0807D20C(puVar1->field_0x6, gUnk_0811E484, puVar1->field_0x0);
+    }
+    return 1;
 }
 
 u32 sub_0807CF08(u32 arg0, u8* arg1) {
@@ -125,22 +124,20 @@ u32 sub_0807CF3C(void* arg0) {
     return sub_0807D008(5, arg0);
 }
 
-void sub_0807CF48(u32 arg0)
-{
-  struct_0807D1C4 *temp;
-  
-  temp = sub_0807D1C4(arg0);
-  sub_0807D184(temp->field_0x4, gUnk_0811E4AC);
-  sub_0807D184(temp->field_0x2, gUnk_0811E4AC);
+void sub_0807CF48(u32 arg0) {
+    struct_0807D1C4* temp;
+
+    temp = sub_0807D1C4(arg0);
+    sub_0807D184(temp->field_0x4, gUnk_0811E4AC);
+    sub_0807D184(temp->field_0x2, gUnk_0811E4AC);
 }
 
-void sub_0807CF68(u32 arg0)
-{
-  struct_0807D1C4 *temp;
-  char* str;
+void sub_0807CF68(u32 arg0) {
+    struct_0807D1C4* temp;
+    char* str;
 
-  temp = sub_0807D1C4(arg0);
-  str = gUnk_0811E4A4;
-  sub_0807D184(temp->field_0x4, str);
-  sub_0807D184(temp->field_0x2, str);
+    temp = sub_0807D1C4(arg0);
+    str = gUnk_0811E4A4;
+    sub_0807D184(temp->field_0x4, str);
+    sub_0807D184(temp->field_0x2, str);
 }

@@ -9,7 +9,7 @@ typedef struct {
     u8 unk_20;
     u8 unk_21;
     u8 unk_22;
-    u8 unk_23;//used
+    u8 unk_23; // used
     u16 unk_24;
     u16 unk_26;
     void* unk_28;
@@ -20,7 +20,7 @@ typedef struct {
     s16 unk_38;
     s16 unk_3a;
     u16 unk_3c;
-    u16 unk_3e;//used
+    u16 unk_3e; // used
 } Manager15;
 
 extern void (*const gUnk_081085D8[])(Manager*);
@@ -28,7 +28,6 @@ extern void (*const gUnk_081085D8[])(Manager*);
 void sub_0805A280(Manager* this) {
     gUnk_081085D8[this->unk_0a](this);
 }
-
 
 void sub_0805A89C(Manager15*);
 void sub_0805A8EC(Manager15*);
@@ -86,7 +85,7 @@ void sub_0805A370(Manager15* this) {
 
 void sub_0805A394(Manager15* this) {
     Entity* ent;
-    if ((ent = FindEntityInListBySubtype(0x3,0x13,0x4))) {
+    if ((ent = FindEntityInListBySubtype(0x3, 0x13, 0x4))) {
         if (ent->entityType.form != 4) {
             return;
         }
@@ -162,7 +161,7 @@ void sub_0805A4CC(Manager15* this, u32 unk_0) {
     if (tmp) {
         tmp->x.HALF.HI = this->unk_38 + gRoomControls.roomOriginX;
         tmp->y.HALF.HI = this->unk_3a + gRoomControls.roomOriginY - 0x30;
-        tmp->parent = (Entity*) this;
+        tmp->parent = (Entity*)this;
         this->manager.unk_0d = 0;
     }
 }
@@ -197,13 +196,15 @@ void sub_0805A500(Manager15* this) {
     sub_0805AA58(this);
     sub_0805A9CC(this);
     if (gRoomControls.unk2 == 1) {
-        gScreen.lcd.displayControl |= 0x80<<7;
+        gScreen.lcd.displayControl |= 0x80 << 7;
         this->manager.unk_0d = 1;
         return;
     }
-    if (!this->manager.unk_0d) return;
+    if (!this->manager.unk_0d)
+        return;
     this->manager.unk_0d = 0;
-    if (this->unk_20 == gRoomControls.roomID) return;
+    if (this->unk_20 == gRoomControls.roomID)
+        return;
     gScreen.lcd.displayControl &= 0xB7FF;
     DeleteThisEntity();
 }
@@ -211,7 +212,7 @@ void sub_0805A500(Manager15* this) {
 void sub_0805A5FC(Manager15* this) {
     if (CheckLocalFlag(0x34)) {
         this->manager.action = 2;
-        sub_0805A4CC(this,2);
+        sub_0805A4CC(this, 2);
     }
 }
 
@@ -225,7 +226,7 @@ void sub_0805A628(Manager15* this) {
     if (CheckLocalFlag(0x36)) {
         this->manager.action = 4;
         this->unk_23 = 3;
-        sub_0805A4CC(this,3);
+        sub_0805A4CC(this, 3);
     }
 }
 
@@ -235,8 +236,10 @@ void sub_0805A64C(Manager15* this) {
     }
 }
 
-void sub_0805A65C(Manager15* this) {}
-void sub_0805A660(Manager15* this) {}
+void sub_0805A65C(Manager15* this) {
+}
+void sub_0805A660(Manager15* this) {
+}
 
 extern void (*const gUnk_08108638[])(Manager15*);
 void sub_0805A68C(Manager15*);
@@ -259,7 +262,7 @@ void sub_0805A68C(Manager15* this) {
         if (this->unk_2c > 0x1000) {
             this->unk_2c--;
         }
-        gScreen.controls.alphaBlend=this->unk_2c;
+        gScreen.controls.alphaBlend = this->unk_2c;
     }
 }
 
@@ -295,10 +298,7 @@ extern void sub_0805E4E0(Manager*, u32);
 extern void sub_08077B20(void);
 
 void sub_0805A76C(Manager15* this) {
-    if ((gPlayerEntity.currentHealth != 0)
-     && (gPlayerEntity.height.HALF.HI == 0)
-     && (!gPlayerState.field_0x2c)
-    ) {
+    if ((gPlayerEntity.currentHealth != 0) && (gPlayerEntity.height.HALF.HI == 0) && (!gPlayerState.field_0x2c)) {
         switch (gPlayerState.field_0xa9) {
             case 1:
             case 0:
@@ -337,9 +337,10 @@ void sub_0805A804(Manager15* this) {
             sub_0805E3A0(this, 6);
             break;
         case 1:
-            if (CheckLocalFlag(this->unk_3e)) break;
+            if (CheckLocalFlag(this->unk_3e))
+                break;
             this->manager.action = 2;
-            sub_0805A4CC(this,4);
+            sub_0805A4CC(this, 4);
             break;
         case 2:
             if (this->manager.unk_0d) {
@@ -347,9 +348,10 @@ void sub_0805A804(Manager15* this) {
             }
             break;
         case 3:
-            if (!CheckLocalFlag(this->unk_3e)) break;
+            if (!CheckLocalFlag(this->unk_3e))
+                break;
             this->manager.action = 4;
-            sub_0805A4CC(this,4);
+            sub_0805A4CC(this, 4);
             break;
         case 4:
             if (this->manager.unk_0d) {
@@ -387,9 +389,11 @@ void sub_0805A8EC(Manager15* this) {
         gScreen.lcd.displayControl |= 0x4000;
         this->manager.unk_0d = 1;
     } else {
-        if (!this->manager.unk_0d) return;
+        if (!this->manager.unk_0d)
+            return;
         this->manager.unk_0d = 0;
-        if (this->unk_20 == gRoomControls.roomID) return;
+        if (this->unk_20 == gRoomControls.roomID)
+            return;
         gScreen.lcd.displayControl &= 0xB7FF;
         DeleteThisEntity();
     }
@@ -401,17 +405,25 @@ void sub_0805A94C(Manager15* this) {
     gScreen.affine.bg3yOffset = gRoomControls.roomScrollY - this->unk_26 + this->unk_36;
     tmp1 = -gScreen.affine.bg3xOffset;
     tmp2 = tmp1 + 0x100;
-    if (tmp1 < 0) tmp1 = 0;
-    if (tmp1 > 0xF0) tmp1 = 0xF0;
-    if (tmp2 < 0) tmp2 = 0;
-    if (tmp2 > 0xF0) tmp2 = 0xF0;
+    if (tmp1 < 0)
+        tmp1 = 0;
+    if (tmp1 > 0xF0)
+        tmp1 = 0xF0;
+    if (tmp2 < 0)
+        tmp2 = 0;
+    if (tmp2 > 0xF0)
+        tmp2 = 0xF0;
     gScreen.controls.window1HorizontalDimensions = (tmp1 << 8 | tmp2);
     tmp1 = -gScreen.affine.bg3yOffset;
     tmp2 = tmp1 + 0x100;
-    if (tmp1 < 0) tmp1 = 0;
-    if (tmp1 > 0xA0) tmp1 = 0xA0;
-    if (tmp2 < 0) tmp2 = 0;
-    if (tmp2 > 0xA0) tmp2 = 0xA0;
+    if (tmp1 < 0)
+        tmp1 = 0;
+    if (tmp1 > 0xA0)
+        tmp1 = 0xA0;
+    if (tmp2 < 0)
+        tmp2 = 0;
+    if (tmp2 > 0xA0)
+        tmp2 = 0xA0;
     gScreen.controls.window1VerticalDimensions = (tmp1 << 8 | tmp2);
 }
 
@@ -424,18 +436,24 @@ void sub_0805A9CC(Manager15* this) {
     gScreen.affine.bg3xOffset = gRoomControls.roomScrollX - this->unk_24 + this->unk_34;
     tmp1 = -gScreen.affine.bg3xOffset;
     tmp2 = tmp1 + 0x100;
-    if (tmp1 < 0) tmp1 = 0;
-    if (tmp1 > 0xF0) tmp1 = 0xF0;
-    if (tmp2 < 0) tmp2 = 0;
-    if (tmp2 > 0xF0) tmp2 = 0xF0;
+    if (tmp1 < 0)
+        tmp1 = 0;
+    if (tmp1 > 0xF0)
+        tmp1 = 0xF0;
+    if (tmp2 < 0)
+        tmp2 = 0;
+    if (tmp2 > 0xF0)
+        tmp2 = 0xF0;
     gScreen.controls.window1HorizontalDimensions = tmp1 << 8 | tmp2;
     tmp1 = gRoomControls.roomScrollY - this->unk_26 + this->unk_36;
     gScreen.affine.bg3yOffset = tmp1 & 0x3F;
-    if (tmp1 < 0) tmp1 += 0x3F;
+    if (tmp1 < 0)
+        tmp1 += 0x3F;
     tmp3 = (&gUnk_02001A40[(tmp1 >> 6 << 9)]);
-    gScreen.affine.unk5 = (u32) tmp3;
+    gScreen.affine.unk5 = (u32)tmp3;
     gScreen.controls.window1VerticalDimensions = 0xa0;
-    if (this->unk_28 == tmp3) return;
+    if (this->unk_28 == tmp3)
+        return;
     this->unk_28 = tmp3;
     gScreen.affine.unk4 = 1;
 }
@@ -446,9 +464,7 @@ void sub_0805A9CC(Manager15* this) {
 }
 #endif
 
-extern struct {
-    u8 unk_00[0x20];
-} gUnk_085A97A0[];
+extern struct { u8 unk_00[0x20]; } gUnk_085A97A0[];
 extern u16 gUnk_081085B8[];
 extern void LoadPalettes(const u8*, u32, u32);
 
@@ -457,7 +473,7 @@ void sub_0805AA58(Manager15* this) {
         this->manager.unk_0e = 8;
         this->unk_21 += 1;
         this->unk_21 &= 3;
-        LoadPalettes(gUnk_085A97A0[this->unk_21].unk_00,5,1);
+        LoadPalettes(gUnk_085A97A0[this->unk_21].unk_00, 5, 1);
     }
     if (--this->manager.unk_0f == 0) {
         this->manager.unk_0f = 0x10;
@@ -471,7 +487,6 @@ void sub_0805AAC8(Manager15* this) {
     sub_0805AAF0(this->unk_23);
     sub_0805A280(&this->manager);
 }
-
 
 extern u16 gUnk_08108648[];
 

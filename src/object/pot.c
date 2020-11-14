@@ -128,7 +128,6 @@ void sub_08082510(Entity* this) {
     this->previousActionFlag++;
 }
 
-
 void nullsub_511(Entity* this) {
 }
 
