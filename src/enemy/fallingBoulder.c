@@ -143,13 +143,13 @@ void sub_0802C4B0(Entity* this) {
 
     switch (sub_080001DA(this->field_0x7c.HALF_U.HI, this->collisionLayer)) {
         case 0x1ab ... 0x1af:
-        offset = 8;
+            offset = 8;
             break;
         case 0x1c4:
-        offset = 4;
+            offset = 4;
             break;
         default:
-        offset = 0;
+            offset = 0;
             break;
     }
 
@@ -208,7 +208,7 @@ void sub_0802C4B0(Entity* this) {
     }
 }
 
-void sub_0802C62C(Entity *this) {
+void sub_0802C62C(Entity* this) {
     this->action = 1;
     this->y.HALF.HI = this->field_0x82.HWORD;
     this->x.HALF.HI = this->field_0x80.HWORD;

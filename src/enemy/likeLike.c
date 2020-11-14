@@ -265,23 +265,10 @@ void sub_08028224(u32 param_1) {
     TextboxNoOverlapFollow(0x579);
 }
 
-
-void (*const gUnk_080CC6FC[])(Entity *) = {
-    sub_08027D8C,
-    sub_08027DA4,
-    sub_08001324,
-    sub_08027E40,
-    sub_08001242,
-    nullsub_139,
+void (*const gUnk_080CC6FC[])(Entity*) = {
+    sub_08027D8C, sub_08027DA4, sub_08001324, sub_08027E40, sub_08001242, nullsub_139,
 };
 
-void (*const gUnk_080CC714[])(Entity *) = {
-    sub_08027E70,
-    sub_08027EFC,
-    nullsub_12,
-    sub_08027F84,
-    sub_08027FB4,
-    sub_08027FE0,
-    sub_0802802C,
-    sub_0802805C,
+void (*const gUnk_080CC714[])(Entity*) = {
+    sub_08027E70, sub_08027EFC, nullsub_12, sub_08027F84, sub_08027FB4, sub_08027FE0, sub_0802802C, sub_0802805C,
 };

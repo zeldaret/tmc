@@ -93,40 +93,37 @@ void sub_080917DC(Entity* this) {
     }
 }
 
-void sub_080918A4(Entity *this)
-{
-  if (sub_080041A0(this, &gPlayerEntity, 2, 2) != 0) {
-    gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
-    gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
-    if (gPlayerEntity.height.HALF.HI > -0x10) {
-      if ((s32)gPlayerEntity.field_0x20 > -1) {
-        return;
-      }
-      gPlayerEntity.animationState = this->animationState << 1;
-      gPlayerState.flags.all = (gPlayerState.flags.all ^ 0x4000000) | 0x1000;
-      this->action++;
-      this->field_0xf = 1;
-      this->flags |= 0x20;
-      this->damageType = 0x97;
-      this->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x20;
-      this->flags2 = gPlayerEntity.flags2;
-      this->field_0x40 = 0x18;
-      this->field_0x44 = 8;
-      sub_0801766C(this);
-      sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
-      PlaySFX(0x137);
+void sub_080918A4(Entity* this) {
+    if (sub_080041A0(this, &gPlayerEntity, 2, 2) != 0) {
+        gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
+        gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
+        if (gPlayerEntity.height.HALF.HI > -0x10) {
+            if ((s32)gPlayerEntity.field_0x20 > -1) {
+                return;
+            }
+            gPlayerEntity.animationState = this->animationState << 1;
+            gPlayerState.flags.all = (gPlayerState.flags.all ^ 0x4000000) | 0x1000;
+            this->action++;
+            this->field_0xf = 1;
+            this->flags |= 0x20;
+            this->damageType = 0x97;
+            this->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x20;
+            this->flags2 = gPlayerEntity.flags2;
+            this->field_0x40 = 0x18;
+            this->field_0x44 = 8;
+            sub_0801766C(this);
+            sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
+            PlaySFX(0x137);
+        }
+    } else {
+        gPlayerEntity.direction = GetFacingDirection(&gPlayerEntity, this);
     }
-  }
-  else {
-    gPlayerEntity.direction = GetFacingDirection(&gPlayerEntity, this);
-  }
-  if (gPlayerEntity.field_0x20 < 0) {
-    gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
-  }
+    if (gPlayerEntity.field_0x20 < 0) {
+        gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
+    }
 }
 
-void sub_080919AC(Entity *this)
-{
+void sub_080919AC(Entity* this) {
     u32 iVar2;
     u32 uVar3;
 
@@ -138,7 +135,7 @@ void sub_080919AC(Entity *this)
 
     if ((gPlayerEntity.frames.all & 0xf) == 0) {
         this->flags = this->flags & 0x7f;
-        CopyPosition(this,&gPlayerEntity);
+        CopyPosition(this, &gPlayerEntity);
         if ((gPlayerEntity.frames.all & 0xf0) == 0x10) {
             this->spriteOffsetY = 1;
         } else {
@@ -148,7 +145,7 @@ void sub_080919AC(Entity *this)
         this->flags = this->flags | 0x80;
         gPlayerEntity.nonPlanarMovement = 0;
         sub_0806F69C(this);
-        CopyPosition(this,&gPlayerEntity);
+        CopyPosition(this, &gPlayerEntity);
         gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
         if (!sub_08091DDC(this)) {
             if ((gScreenTransition.frameCount & 0xf) == 0) {
@@ -160,7 +157,8 @@ void sub_080919AC(Entity *this)
                 this->field_0xf = 0x3c;
             }
 
-            uVar3 = sub_080002B4(this, gUnk_081223C8[this->animationState * 2], gUnk_081223C8[this->animationState * 2 + 1]);
+            uVar3 = sub_080002B4(this, gUnk_081223C8[this->animationState * 2],
+                                 gUnk_081223C8[this->animationState * 2 + 1]);
             iVar2 = sub_08007DD6(uVar3, gUnk_081223D8[this->animationState]);
             if (iVar2 == 0) {
                 this->direction = this->direction ^ 0x10;
@@ -207,8 +205,7 @@ void sub_080919AC(Entity *this)
             gPlayerEntity.animationState = this->animationState << 1;
             if (this->animIndex == this->animationState) {
                 UpdateAnimationSingleFrame(this);
-            }
-            else {
+            } else {
                 InitAnimationForceUpdate(this, this->animationState);
             }
         }

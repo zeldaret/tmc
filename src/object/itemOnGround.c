@@ -268,9 +268,7 @@ void sub_080812A8(Entity* this) {
 
 void sub_080812E8(Entity* this) {
     PlayerState* playerState = &gPlayerState;
-    if ((playerState->swimState & 0x80) &&
-        !(playerState->flags.all & 0x80) &&
-        sub_080177A0(this, &gPlayerEntity)) {
+    if ((playerState->swimState & 0x80) && !(playerState->flags.all & 0x80) && sub_080177A0(this, &gPlayerEntity)) {
         sub_080810FC(this);
     }
 }

@@ -6,8 +6,7 @@
 extern u8 gUnk_08114F78[];
 extern u8 gUnk_08114F80[];
 
-void CopyPosition(Entity* param_1, Entity* param_2)
-{
+void CopyPosition(Entity* param_1, Entity* param_2) {
     PositionRelative(param_1, param_2, 0, 0);
 }
 
@@ -31,26 +30,22 @@ void PositionRelative(Entity* source, Entity* target, s32 offsetX, s32 offsetY) 
     UpdateSpriteForCollisionLayer(target);
 }
 
-void CopyPositionAndSpriteOffset(Entity *param_1,Entity *param_2)
-{
-  param_2->spriteOffsetX = param_1->spriteOffsetX;
-  param_2->spriteOffsetY = param_1->spriteOffsetY;
-  PositionRelative(param_1, param_2, 0, 0);
+void CopyPositionAndSpriteOffset(Entity* param_1, Entity* param_2) {
+    param_2->spriteOffsetX = param_1->spriteOffsetX;
+    param_2->spriteOffsetY = param_1->spriteOffsetY;
+    PositionRelative(param_1, param_2, 0, 0);
 }
 
-void sub_0806FA90(Entity *param_1,Entity *param_2, s32 offsetX, s32 offsetY)
-{
-  param_2->spriteOffsetX = param_1->spriteOffsetX;
-  param_2->spriteOffsetY = param_1->spriteOffsetY;
-  PositionRelative(param_1,param_2, offsetX * 64 * 32 * 32, offsetY * 64 * 32 * 32);
+void sub_0806FA90(Entity* param_1, Entity* param_2, s32 offsetX, s32 offsetY) {
+    param_2->spriteOffsetX = param_1->spriteOffsetX;
+    param_2->spriteOffsetY = param_1->spriteOffsetY;
+    PositionRelative(param_1, param_2, offsetX * 64 * 32 * 32, offsetY * 64 * 32 * 32);
 }
 
-void ResolveEntityOnTop(Entity *param_1,Entity *param_2)
-{
+void ResolveEntityOnTop(Entity* param_1, Entity* param_2) {
     param_2->spritePriority.b0 = gUnk_08114F78[param_1->spritePriority.b0];
 }
 
-void sub_0806FAD8(Entity *param_1,Entity *param_2)
-{
-  param_2->spritePriority.b0 = gUnk_08114F80[param_1->spritePriority.b0];
+void sub_0806FAD8(Entity* param_1, Entity* param_2) {
+    param_2->spritePriority.b0 = gUnk_08114F80[param_1->spritePriority.b0];
 }

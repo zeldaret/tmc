@@ -15,8 +15,7 @@ extern void sub_0807DD94(Entity*, u32);
 extern u32 sub_0801E99C(void);
 extern void sub_08078784(Entity*, u32);
 
-void Anju(Entity *this)
-{
+void Anju(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
@@ -28,7 +27,8 @@ void Anju(Entity *this)
             if (this->interactType == 2) {
                 this->action = 2;
                 this->interactType = 0;
-                InitializeAnimation(this,(this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
+                InitializeAnimation(this,
+                                    (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
                 sub_0806F118(this);
             } else {
                 sub_0807DD94(this, 0);
@@ -42,20 +42,17 @@ void Anju(Entity *this)
     }
 }
 
-void sub_0806C354(Entity *this)
-{
+void sub_0806C354(Entity* this) {
     this->field_0x68.HALF.LO = sub_0801E99C();
     sub_08078784(this, this->field_0x68.HALF.LO);
 }
 
-void Anju_Fusion(Entity *this)
-{
-  if (this->action == 0) {
-    this->action++;
-    this->spriteSettings.b.draw = 1;
-    InitAnimationForceUpdate(this,6);
-  }
-  else {
-    UpdateAnimationSingleFrame(this);
-  }
+void Anju_Fusion(Entity* this) {
+    if (this->action == 0) {
+        this->action++;
+        this->spriteSettings.b.draw = 1;
+        InitAnimationForceUpdate(this, 6);
+    } else {
+        UpdateAnimationSingleFrame(this);
+    }
 }

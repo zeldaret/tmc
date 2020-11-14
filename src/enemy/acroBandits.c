@@ -206,7 +206,6 @@ void sub_08031C1C(Entity* this) {
     }
 }
 
-
 void sub_08031C58(Entity* this) {
     Entity *a, *b;
 
@@ -412,7 +411,6 @@ void sub_08032008(Entity* this) {
             if (this->direction & 0xf)
                 this->spriteSettings.b.flipX = (this->direction >> 4 ^ 1);
 
-
             ProcessMovement(this);
         } else {
             if (this->field_0x76.HALF.HI == 0) {
@@ -544,7 +542,7 @@ void sub_080322E8(Entity* this) {
     }
 }
 
-void sub_08032338(Entity *this) {
+void sub_08032338(Entity* this) {
     if ((((Entity*)this->field_0x7c.WORD)->actionDelay += 15) != 80)
         this->field_0x6c.HALF.LO = 0;
 }

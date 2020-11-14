@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 
-extern void (*MineralWaterSourceActionFuncs[])(Entity *);
+extern void (*MineralWaterSourceActionFuncs[])(Entity*);
 
 typedef struct {
     u8 field_0x00;
@@ -12,14 +12,14 @@ typedef struct {
 
 extern UnkStruct_MineralWater MineralWaterSourceParameters[];
 
-extern bool32 sub_0806FBD8(Entity *);
+extern bool32 sub_0806FBD8(Entity*);
 
-void MineralWaterSource(Entity *this) {
+void MineralWaterSource(Entity* this) {
     MineralWaterSourceActionFuncs[this->action](this);
 }
 
-void MineralWaterSource_Init(Entity *this) {
-    UnkStruct_MineralWater *unknownParameters;
+void MineralWaterSource_Init(Entity* this) {
+    UnkStruct_MineralWater* unknownParameters;
 
     if (!sub_0806FBD8(this)) {
         return;
@@ -42,6 +42,6 @@ void MineralWaterSource_Init(Entity *this) {
     this->action = 1;
 }
 
-void sub_080973DC(Entity *this) {
+void sub_080973DC(Entity* this) {
     this->bitfield = 0;
 }

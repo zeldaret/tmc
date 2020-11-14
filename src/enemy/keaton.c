@@ -124,7 +124,7 @@ void sub_08032574(Entity* this) {
         sub_0803275C(this);
         return;
     }
-    
+
     UpdateAnimationSingleFrame(this);
     if ((this->field_0x76.HWORD & 0x7) == 0) {
         sub_08032794(this);

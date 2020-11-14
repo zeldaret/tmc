@@ -6,7 +6,6 @@
 #include "room.h"
 #include "textbox.h"
 
-
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
 
@@ -304,22 +303,22 @@ switchD_08068d12_caseD_0:
     *(u32*)&param_2->animationState = 1;
 }
 
-//Introduction dialoague
+// Introduction dialoague
 void sub_08068DB8(Entity* this) {
     TextboxNoOverlap(gUnk_08111664[this->actionDelay], this);
 }
 
-//Ask to teach dialoague
+// Ask to teach dialoague
 void sub_08068DD0(Entity* this) {
     TextboxNoOverlap(gUnk_0811167A[this->actionDelay], this);
 }
 
-//Technique Dialogue
+// Technique Dialogue
 void sub_08068DE8(Entity* this) {
     TextboxNoOverlap(gUnk_08111690[this->actionDelay], this);
 }
 
-//Posession dialogue
+// Posession dialogue
 void sub_08068E00(Entity* this) {
     TextboxNoOverlap(gUnk_081116A6[this->actionDelay], this);
 }

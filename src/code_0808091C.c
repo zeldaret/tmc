@@ -36,8 +36,7 @@ void sub_08080910(void) {
     gScreenTransition.transitionType = 1;
 }
 
-void sub_0808091C(ScreenTransitionData* param_1, u32 param_2)
-{
+void sub_0808091C(ScreenTransitionData* param_1, u32 param_2) {
     DoExitTransition(param_1);
     gScreenTransition.transitionType = param_2;
     return;
@@ -54,8 +53,7 @@ void sub_08080930(void)
     return;
 }
 
-u32* GetLayerByIndex(u32 param_1)
-{
+u32* GetLayerByIndex(u32 param_1) {
 
     if (param_1 == 2) {
         return &gUnk_0200B650;
@@ -64,8 +62,7 @@ u32* GetLayerByIndex(u32 param_1)
     }
 }
 
-void sub_08080964(u16 time, u32 magnitude)
-{
+void sub_08080964(u16 time, u32 magnitude) {
     gRoomControls.screenShakeTime = time;
     gRoomControls.screenShakeMagnitude = magnitude & 7;
     return;

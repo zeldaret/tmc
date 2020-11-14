@@ -2,8 +2,8 @@
 #include "entity.h"
 #include "functions.h"
 
-void Object7E(Entity *this) {
-    
+void Object7E(Entity* this) {
+
     if (this->parent->next == NULL) {
         DeleteThisEntity();
     }

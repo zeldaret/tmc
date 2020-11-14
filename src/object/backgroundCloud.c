@@ -30,8 +30,7 @@ void sub_0808F658(Entity* this) {
 void sub_0808F6E0(Entity* this) {
     sub_0806F69C(this);
 
-    if ((s16)this->x.HALF.HI < (s16)this->field_0x78.HWORD ||
-        (s16)this->x.HALF.HI > (s16)this->field_0x7a.HWORD)
+    if ((s16)this->x.HALF.HI < (s16)this->field_0x78.HWORD || (s16)this->x.HALF.HI > (s16)this->field_0x7a.HWORD)
         this->action = 2;
 }
 

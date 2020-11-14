@@ -21,16 +21,17 @@ extern void DeleteManager(Manager20*);
 
 void sub_0805B7A0(Manager20* this) {
     Entity* tmp = CreateObject(this->manager.unk_0e, this->manager.unk_0a, this->manager.unk_0b);
-    if (!tmp) return;
+    if (!tmp)
+        return;
     tmp->field_0x86.HWORD = this->unk_3e;
     if (CheckFlags(this->unk_3e)) {
-        tmp->x.HALF.HI = this->unk_36 | (this->unk_37&0xF)<<8;//r1
+        tmp->x.HALF.HI = this->unk_36 | (this->unk_37 & 0xF) << 8; // r1
         tmp->y.HALF.HI = this->unk_3c & 0xFFF;
         tmp->collisionLayer = this->unk_3c >> 0xC;
     } else {
         tmp->x.HALF.HI = this->unk_38;
         tmp->y.HALF.HI = this->unk_3a;
-        tmp->collisionLayer = this->unk_37>>4;
+        tmp->collisionLayer = this->unk_37 >> 4;
     }
     tmp->x.HALF.HI += gRoomControls.roomOriginX;
     tmp->y.HALF.HI += gRoomControls.roomOriginY;

@@ -317,10 +317,8 @@ Entity* FindEntityInListByForm(int type, int subtype, int listIndex, int form, i
 
     list = &gEntityLists[listIndex];
     for (i = list->first; (u32)i != (u32)list; i = i->next) {
-        if (type == i->entityType.type
-            && subtype == i->entityType.subtype
-            && form == i->entityType.form
-            && parameter == i->entityType.parameter)
+        if (type == i->entityType.type && subtype == i->entityType.subtype && form == i->entityType.form &&
+            parameter == i->entityType.parameter)
             return i;
     }
     return NULL;

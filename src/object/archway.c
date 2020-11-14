@@ -4,8 +4,7 @@
 
 extern u32 CheckIsDungeon();
 
-void Archway(Entity *this)
-{
+void Archway(Entity* this) {
     u32 v1;
     u32 v2;
     u32 v3;
@@ -20,8 +19,8 @@ void Archway(Entity *this)
         this->collisionLayer = 2;
         UpdateSpriteForCollisionLayer(this);
         v3 = CheckIsDungeon();
-    if (v3 != 0) {
-      this->spritePriority.b0 = (this->spritePriority.b0 & 0xf8) | 1;
+        if (v3 != 0) {
+            this->spritePriority.b0 = (this->spritePriority.b0 & 0xf8) | 1;
+        }
     }
-  }
 }

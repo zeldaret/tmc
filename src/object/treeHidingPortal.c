@@ -82,7 +82,6 @@ void sub_0809E918(Entity* this) {
     }
 }
 
-void sub_0809E96C(Entity *this)
-{
-  CreateMinishEntrance(COORD_TO_TILE_OFFSET(this, 0x20, 0x8));
+void sub_0809E96C(Entity* this) {
+    CreateMinishEntrance(COORD_TO_TILE_OFFSET(this, 0x20, 0x8));
 }

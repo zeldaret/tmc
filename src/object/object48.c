@@ -179,7 +179,7 @@ void sub_0808EA28(Entity* this) {
     u32 var1;
 
     if (this->entityType.form == 3) {
-        if (((struct_02000000 *)0x2000000)->gameLanguage > 1) {
+        if (((struct_02000000*)0x2000000)->gameLanguage > 1) {
             this->spriteSettings.b.draw = 2;
         } else {
             this->spriteSettings.b.draw = 0;
@@ -298,7 +298,7 @@ void sub_0808EBB8(Entity* this) {
         case 0:
             break;
         case 1:
-            y = ((struct_02000000 *)0x2000000)->gameLanguage * 16 + 24;
+            y = ((struct_02000000*)0x2000000)->gameLanguage * 16 + 24;
             x = 112;
             break;
         case 2:
@@ -407,7 +407,7 @@ void sub_0808ED98(Entity* this) {
 void sub_0808EE00(Entity* this) {
     int var0, var1, var2;
 
-    var0 = ((struct_02000000 *)0x2000000)->gameLanguage != 0;
+    var0 = ((struct_02000000*)0x2000000)->gameLanguage != 0;
     var1 = this->entityType.form - 10;
     this->frameIndex = gUnk_08121D38[var0][var1];
     this->x.HALF.HI = gUnk_08121D18[var0][var1];
@@ -426,7 +426,6 @@ void sub_0808EE00(Entity* this) {
 }
 
 void nullsub_522(Entity* this) {
-
 }
 
 void sub_0808EE98(Entity* this) {
@@ -458,9 +457,9 @@ void sub_0808EF24(Entity* this) {
     } else {
         this->spriteSettings.b.draw = 2;
         if (this->entityType.form == 21) {
-            var0 = ((struct_02000000 *)0x2000000)->messageSpeed;
+            var0 = ((struct_02000000*)0x2000000)->messageSpeed;
         } else {
-            var0 = ((struct_02000000 *)0x2000000)->brightnessPref;
+            var0 = ((struct_02000000*)0x2000000)->brightnessPref;
         }
         this->frameIndex = this->lastFrameIndex + var0;
     }

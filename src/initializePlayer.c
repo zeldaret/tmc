@@ -13,17 +13,16 @@ extern Entity gPlayerEntity;
 
 extern u8 gUnk_080FCAC8[];
 
-void InitializePlayer(void)
-{
+void InitializePlayer(void) {
     Entity* pl;
 
     sub_080784C8();
-    _DmaZero((void *)&gUnk_03000B80, 0x70);
-    _DmaZero((void *)&gPlayerState, 0xb0);
+    _DmaZero((void*)&gUnk_03000B80, 0x70);
+    _DmaZero((void*)&gPlayerState, 0xb0);
 
     _DmaFill32(0xffffffff, &gPlayerState.field_0x40, 0x40);
     pl = &gPlayerEntity;
-    _DmaZero((void *)pl, 0x88);
+    _DmaZero((void*)pl, 0x88);
     gRoomControls.cameraTarget = pl;
     gPlayerState.playerAction = gUnk_080FCAC8[gScreenTransition.field_0xf];
     if (!CheckGlobalFlag(0x14)) {
@@ -54,15 +53,15 @@ void InitializePlayer(void)
         case 0xc:
             gPlayerState.field_0x34[4] = 4;
     }
-  pl->entityType.type = 1;
-  pl->flags |= 0xa0;
-  pl->spritePriority.b0 = 4;
-  pl->currentHealth = gUnk_02002A40.stats.health;
-  pl->x.HALF.HI = gScreenTransition.playerStartPos.HALF.x;
-  pl->y.HALF.HI = gScreenTransition.playerStartPos.HALF.y;
-  pl->animationState = gScreenTransition.playerState;
-  pl->collisionLayer = gScreenTransition.playerLayer;
-  UpdateSpriteForCollisionLayer(pl);
-  AppendEntityToList(pl, 1);
-  sub_08017640();
+    pl->entityType.type = 1;
+    pl->flags |= 0xa0;
+    pl->spritePriority.b0 = 4;
+    pl->currentHealth = gUnk_02002A40.stats.health;
+    pl->x.HALF.HI = gScreenTransition.playerStartPos.HALF.x;
+    pl->y.HALF.HI = gScreenTransition.playerStartPos.HALF.y;
+    pl->animationState = gScreenTransition.playerState;
+    pl->collisionLayer = gScreenTransition.playerLayer;
+    UpdateSpriteForCollisionLayer(pl);
+    AppendEntityToList(pl, 1);
+    sub_08017640();
 }

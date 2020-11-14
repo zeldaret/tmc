@@ -172,5 +172,4 @@ extern void NPC58_Head(Entity*);
 
 extern u32 UpdateFuseInteraction(Entity*);
 
-
 #endif

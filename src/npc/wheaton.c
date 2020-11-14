@@ -1,13 +1,13 @@
 #include "global.h"
 #include "entity.h"
 
-extern void sub_0805E3A0(Entity *, u32);
-extern void ResolveEntityOnTop(Entity *, Entity *);
+extern void sub_0805E3A0(Entity*, u32);
+extern void ResolveEntityOnTop(Entity*, Entity*);
 extern BoundingBox gUnk_0810C3C0;
-extern void sub_0807DD64(Entity *);
-extern void sub_0807DD94(Entity *, u32);
+extern void sub_0807DD64(Entity*);
+extern void sub_0807DD94(Entity*, u32);
 
-void Wheaton(Entity *this) {
+void Wheaton(Entity* this) {
     if (this->action == 0) {
         this->action++;
 
