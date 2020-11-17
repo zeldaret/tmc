@@ -1006,6 +1006,8 @@ SECTIONS {
         data/data_081208A0.o(.rodata);
         src/object/heartContainer.o(.rodata);
         data/data_08121C58.o(.rodata);
+        src/object/objectA2.o(.rodata);
+        data/data_08124712.o(.rodata);
         src/intro.o(.rodata);
         data/data_081320FC.o(.rodata);
         data/strings.o(.rodata);

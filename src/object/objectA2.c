@@ -4,17 +4,33 @@
 #include "structures.h"
 #include "functions.h"
 
-extern void (* const gUnk_081246F4[])(Entity*);
-extern const u8 gUnk_08124704[];
+void sub_0809F318(Entity*);
+void sub_0809F374(Entity*);
+void sub_0809F3E8(Entity*);
+void sub_0809F408(Entity*);
+void sub_0809F448(Entity*);
+
+void (* const gUnk_081246F4[])(Entity*) = {
+    sub_0809F318,
+    sub_0809F374,
+    sub_0809F3E8,
+    sub_0809F408
+};
+
+const u8 gUnk_08124704[] = {
+    0, 1, 2, 4
+};
 
 typedef struct {
     u8 unk_0;
     u8 unk_1;
 } PACKED struct_08124708;
 
-extern const struct_08124708 gUnk_08124708[];
+const struct_08124708 gUnk_08124708[5] = {
+    {0, 0x2F}, {1, 0x20}, {1, 0x16}, {2, 0x10}, {3, 0x01}
+};
 
-void sub_0809F448(Entity*);
+extern u32 sub_080045DA(s32, u32);
 
 void ObjectA2(Entity* this) {
     gUnk_081246F4[this->action](this);
@@ -83,15 +99,12 @@ void sub_0809F408(Entity* this) {
     }
 }
 
-extern u32 sub_080045DA(s32, u32);
-
 void sub_0809F448(Entity* this) {
     s32 tmp;
     int rand = Random();
     const struct_08124708 *tmp2 = &gUnk_08124708[this->field_0xf];
     this->field_0xf++;
     tmp = 0x280000 - this->x.WORD;
-    
     switch (tmp2->unk_0) {
         case 0:
             tmp = rand % 0x180000;
