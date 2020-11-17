@@ -842,7 +842,7 @@ SECTIONS {
         asm/fan.o(.text);
         asm/objectA0.o(.text);
         src/object/palaceArchway.o(.text);
-        asm/objectA2.o(.text);
+        src/object/objectA2.o(.text);
         src/object/cloud.o(.text);
         src/object/minishLight.o(.text);
         asm/objectA5.o(.text);
