@@ -424,7 +424,7 @@ SECTIONS {
         asm/enemy5A.o(.text);
         asm/businessScrubPrologue.o(.text);
         asm/gyorgFemale.o(.text);
-        asm/gyorgMale.o(.text);
+        src/enemy/gyorgMale.o(.text);
         asm/curtain.o(.text);
         asm/enemy5F.o(.text);
         asm/gyorgChild.o(.text);
