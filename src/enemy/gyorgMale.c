@@ -6,75 +6,76 @@
 #include "structures.h"
 #include "functions.h"
 
-extern void (* const gUnk_080D1AFC[8])(Entity*);
-extern void (* const gUnk_080D1B1C[7])(Entity*);
-extern void (* const gUnk_080D1B38[5])(Entity*);
-extern void (* const gUnk_080D1B4C[5])(Entity*);
-extern const u16 gUnk_080D1B60[8];
-extern const u8 gUnk_080D1B70[4];//or 3?
-extern const u16 gUnk_080D1B74[0x10];
-extern void (* const gUnk_080D1B94[0xA])(Entity*);
-extern const u16 gUnk_080D1BBC[2];
-extern void (* const gUnk_080D1BC0[7])(Entity*);
-extern void (* const gUnk_080D1BDC[5])(Entity*);
-extern const u16 gUnk_080D1BF0[2];
-extern void (* const gUnk_080D1BF4[3])(Entity*);
-extern const u8 gUnk_080D1C00[4];
-extern const u16 gUnk_080D1C04[0x20];
-extern const u8 gUnk_080D1C44[0xC];
-extern const u16 gUnk_080D1C50[8];
-extern const u16 gUnk_080D1C60[8];
+void (* const gUnk_080D1AFC[8])(Entity*);
+void (* const gUnk_080D1B1C[7])(Entity*);
+void (* const gUnk_080D1B38[5])(Entity*);
+void (* const gUnk_080D1B4C[5])(Entity*);
+const u16 gUnk_080D1B60[8];
+const s16 gUnk_080D1B70[2];//or 3?
+const u16 gUnk_080D1B74[0x10];
+void (* const gUnk_080D1B94[0xA])(Entity*);
+const u16 gUnk_080D1BBC[2];
+void (* const gUnk_080D1BC0[7])(Entity*);
+void (* const gUnk_080D1BDC[5])(Entity*);
+const s16 gUnk_080D1BF0[2];
+void (* const gUnk_080D1BF4[3])(Entity*);
+const s8 gUnk_080D1C00[4];
+const u16 gUnk_080D1C04[0x20];
+const u8 gUnk_080D1C44[0xC];
+const u16 gUnk_080D1C50[8];
+const u16 gUnk_080D1C60[8];
 
-void sub_08046898(Entity*);
-void sub_08046910(Entity*);
-void sub_08046930(Entity*);
-void sub_0804696C(Entity*);
-void sub_080469CC(Entity*);
-void sub_080469F4(Entity*);
-void sub_08046A30(Entity*);
-void sub_08046A54(Entity*);
-void sub_08046A78(Entity*);
-void sub_08046A9C(Entity*);
-void sub_08046AE8(Entity*);
-void sub_08046B18(Entity*);
-void sub_08046B8C(Entity*);
-void sub_08046C04(Entity*);
-void sub_08046C88(Entity*);
-void sub_08046CEC(Entity*);
-void sub_08046D44(Entity*);
-void sub_08046D98(Entity*);
-void sub_08046E0C(Entity*);
-void sub_08046E68(Entity*);
-void sub_08046EF4(Entity*);
-void sub_08046F64(Entity*);
-void sub_08046FE8(Entity*);
-void sub_0804702C(Entity*);
-void sub_080470B4(Entity*);
-void sub_08047140(Entity*);
-void sub_0804717C(Entity*);
-void sub_080471C8(Entity*);
-void sub_0804723C(Entity*);
-void sub_08047284(Entity*);
-void sub_080472BC(Entity*);
-void sub_08047310(Entity*);
-void sub_0804736C(Entity*);
-void sub_080473B8(Entity*);
-void sub_080473F0(Entity*);
-void sub_08047484(Entity*);
-void sub_08047508(Entity*);
-void sub_080475F4(Entity*);
-void sub_0804763C(Entity*);
-void sub_0804772C(Entity*);
-void sub_08047778(Entity*);
-void sub_08047798(Entity*);
-void sub_080477F0(Entity*);
-void sub_08047914(Entity*);
-void sub_08047978(Entity*);
-void sub_08047B08(Entity*);
-void sub_08047B84(Entity*);
-void sub_08047BA4(Entity*);
-void sub_08047BF0(Entity*);//
-void sub_08047D24(Entity*);
+void GyorgMale(Entity*);
+void sub_08046898(Entity*);//action 0
+void sub_08046910(Entity*);//action 1
+void sub_08046930(Entity*);//action 1 previousActionFlag 0
+void sub_0804696C(Entity*);//action 1 previousActionFlag 1
+void sub_080469CC(Entity*);//action 1 previousActionFlag 2
+void sub_080469F4(Entity*);//action 1 previousActionFlag 3
+void sub_08046A30(Entity*);//action 1 previousActionFlag 4
+void sub_08046A54(Entity*);//action 1 previousActionFlag 5
+void sub_08046A78(Entity*);//action 1 previousActionFlag 6
+void sub_08046A9C(Entity*);//action 2
+void sub_08046AE8(Entity*);//action 2 previousActionFlag 0
+void sub_08046B18(Entity*);//action 2 previousActionFlag 1
+void sub_08046B8C(Entity*);//action 2 previousActionFlag 2
+void sub_08046C04(Entity*);//action 2 previousActionFlag 3
+void sub_08046C88(Entity*);//action 2 previousActionFlag 4
+void sub_08046CEC(Entity*);//action 3
+void sub_08046D44(Entity*);//action 3 previousActionFlag 0
+void sub_08046D98(Entity*);//action 3 previousActionFlag 1
+void sub_08046E0C(Entity*);//action 3 previousActionFlag 2
+void sub_08046E68(Entity*);//action 3 previousActionFlag 3
+void sub_08046EF4(Entity*);//action 3 previousActionFlag 4
+void sub_08046F64(Entity*);//action 4
+void sub_08046FE8(Entity*);//action 4 previousActionFlag 0
+void sub_0804702C(Entity*);//action 4 previousActionFlag 1
+void sub_080470B4(Entity*);//action 4 previousActionFlag 2
+void sub_08047140(Entity*);//action 4 previousActionFlag 3
+void sub_0804717C(Entity*);//action 4 previousActionFlag 4
+void sub_080471C8(Entity*);//action 4 previousActionFlag 5
+void sub_0804723C(Entity*);//action 4 previousActionFlag 6
+void sub_08047284(Entity*);//action 4 previousActionFlag 7
+void sub_080472BC(Entity*);//action 4 previousActionFlag 8
+void sub_08047310(Entity*);//action 4 previousActionFlag 9
+void sub_0804736C(Entity*);//action 5
+void sub_080473B8(Entity*);//action 5 previousActionFlag 0
+void sub_080473F0(Entity*);//action 5 previousActionFlag 1
+void sub_08047484(Entity*);//action 5 previousActionFlag 2
+void sub_08047508(Entity*);//action 5 previousActionFlag 3
+void sub_080475F4(Entity*);//action 5 previousActionFlag 4
+void sub_0804763C(Entity*);//action 5 previousActionFlag 5
+void sub_0804772C(Entity*);//action 5 previousActionFlag 6
+void sub_08047778(Entity*);//action 6
+void sub_08047798(Entity*);//action 6 previousActionFlag 0
+void sub_080477F0(Entity*);//action 6 previousActionFlag 1
+void sub_08047914(Entity*);//action 6 previousActionFlag 2
+void sub_08047978(Entity*);//action 6 previousActionFlag 3
+void sub_08047B08(Entity*);//action 6 previousActionFlag 4
+void sub_08047B84(Entity*);//action 7
+void sub_08047BA4(Entity*);//action 7 previousActionFlag 0
+void sub_08047BF0(Entity*);//action 7 previousActionFlag 1, also called elsewhere
+void sub_08047D24(Entity*);//action 7 previousActionFlag 2
 void sub_08047D88(Entity*);//
 void sub_08047DF0(Entity*, u32);
 void sub_08047E48(Entity*);//
@@ -85,6 +86,17 @@ void sub_08048004(Entity*);//
 void sub_0804813C(Entity*);//
 u32 sub_08048158(u32);
 void sub_08048178(Entity*, u32);
+
+void (* const gUnk_080D1AFC[8])(Entity*) = {
+    sub_08046898,
+    sub_08046910,
+    sub_08046A9C,
+    sub_08046CEC,
+    sub_08046F64,
+    sub_0804736C,
+    sub_08047778,
+    sub_08047B84
+};
 
 void GyorgMale(Entity* this) {
     if (this->action) {
@@ -125,6 +137,16 @@ void sub_08046898(Entity* this) {
     this->field_0x70.HALF.HI = 0;
     InitAnimationForceUpdate(this, 0);
 }
+
+void (* const gUnk_080D1B1C[7])(Entity*) = {
+    sub_08046930,
+    sub_0804696C,
+    sub_080469CC,
+    sub_080469F4,
+    sub_08046A30,
+    sub_08046A54,
+    sub_08046A78
+};
 
 void sub_08046910(Entity* this) {
     gUnk_080D1B1C[this->previousActionFlag](this);
@@ -203,6 +225,14 @@ void sub_08046A78(Entity* this) {
         this->previousActionFlag = 0;
     }
 }
+
+void (* const gUnk_080D1B38[5])(Entity*) = {
+    sub_08046AE8,
+    sub_08046B18,
+    sub_08046B8C,
+    sub_08046C04,
+    sub_08046C88
+};
 
 void sub_08046A9C(Entity* this) {
     if (this->animIndex == 1) {
@@ -283,6 +313,14 @@ void sub_08046C88(Entity* this) {
     }
 }
 
+void (* const gUnk_080D1B4C[5])(Entity*) = {
+    sub_08046D44,
+    sub_08046D98,
+    sub_08046E0C,
+    sub_08046E68,
+    sub_08046EF4
+};
+
 void sub_08046CEC(Entity* this) {
     if (this->animIndex == 0) {
         if (this->frames.all == 1) {
@@ -297,6 +335,17 @@ void sub_08046CEC(Entity* this) {
         this->animationState = this->nonPlanarMovement;
     }
 }
+
+const u16 gUnk_080D1B60[8] = {
+    0x200,
+    0x184,
+    0x28C,
+    0x210,
+    0x200,
+    0x29C,
+    0x174,
+    0x210
+};
 
 void sub_08046D44(Entity* this) {
     const u16 * tmp;
@@ -336,6 +385,11 @@ void sub_08046E0C(Entity* this) {
     }
 }
 
+const s16 gUnk_080D1B70[2] = {
+    0x40,
+    -0x40
+};
+
 void sub_08046E68(Entity* this) {
     u32 tmp = ((Entity*) this->otherEntity)->next->animationState ^ 0x80;
     if (tmp != this->direction) {
@@ -351,10 +405,29 @@ void sub_08046E68(Entity* this) {
         this->previousActionFlag = 4;
         this->actionDelay = 0x3F;
         this->field_0xf = 1;
-        this->direction = (gUnk_080D1B70[(Random() & 1) << 1] + tmp) & 0xC0;
+        this->direction = (gUnk_080D1B70[Random() & 1] + tmp) & 0xC0;
         sub_08047D88(this);
     }
 }
+
+const u16 gUnk_080D1B74[0x10] = {
+    0x20,
+    0x40,
+    0x60,
+    0x80,
+    0xA0,
+    0xC0,
+    0xE0,
+    0x100,
+    0x100,
+    0xE0,
+    0xC0,
+    0xA0,
+    0x80,
+    0x60,
+    0x40,
+    0x20
+};
 
 void sub_08046EF4(Entity* this) {
     if (--this->actionDelay == 0) {
@@ -374,6 +447,19 @@ void sub_08046EF4(Entity* this) {
     }
     sub_08047E48(this);
 }
+
+void (* const gUnk_080D1B94[0xA])(Entity*) = {
+    sub_08046FE8,
+    sub_0804702C,
+    sub_080470B4,
+    sub_08047140,
+    sub_0804717C,
+    sub_080471C8,
+    sub_0804723C,
+    sub_08047284,
+    sub_080472BC,
+    sub_08047310
+};
 
 void sub_08046F64(Entity* this) {
     if (this->animIndex == 0) {
@@ -424,6 +510,11 @@ void sub_0804702C(Entity* this) {
         this->nonPlanarMovement = 0x280;
     }
 }
+
+const u16 gUnk_080D1BBC[2] = {
+    0x1A0,
+    0xE0
+};
 
 void sub_080470B4(Entity* this) {
     u32 tmp = 0x40;
@@ -529,6 +620,16 @@ void sub_08047310(Entity* this) {
     }
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
 }
+
+void (* const gUnk_080D1BC0[7])(Entity*) = {
+    sub_080473B8,
+    sub_080473F0,
+    sub_08047484,
+    sub_08047508,
+    sub_080475F4,
+    sub_0804763C,
+    sub_0804772C
+};
 
 void sub_0804736C(Entity* this) {
     if (this->animIndex == 1) {
@@ -710,6 +811,14 @@ void sub_0804772C(Entity* this) {
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
 }
 
+void (* const gUnk_080D1BDC[5])(Entity*) = {
+    sub_08047798,
+    sub_080477F0,
+    sub_08047914,
+    sub_08047978,
+    sub_08047B08
+};
+
 void sub_08047778(Entity* this) {
     gUnk_080D1BDC[this->previousActionFlag](this);
     UpdateAnimationSingleFrame(this);
@@ -727,6 +836,11 @@ void sub_08047798(Entity* this) {
     this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x348;
     sub_08047D88(this);
 }
+
+const s16 gUnk_080D1BF0[2] = {
+    0x80,
+    -0x80
+};
 
 void sub_080477F0(Entity* this) {
     if (this->nonPlanarMovement < 0x300) {
@@ -852,6 +966,12 @@ void sub_08047B08(Entity* this) {
     }
 }
 
+void (* const gUnk_080D1BF4[3])(Entity*) = {
+    sub_08047BA4,
+    sub_08047BF0,
+    sub_08047D24
+};
+
 void sub_08047B84(Entity* this) {
     gUnk_080D1BF4[this->previousActionFlag](this);
     UpdateAnimationSingleFrame(this);
@@ -869,6 +989,13 @@ void sub_08047BA4(Entity* this) {
     PlaySFX(0x1B5);
     sub_08047BF0(this);
 }
+
+const s8 gUnk_080D1C00[4] = {
+    0x40,
+    -0x40,
+    -0x40,
+    0x40
+};
 
 void sub_08047BF0(Entity* this) {
     Entity* tmp;
@@ -1004,6 +1131,17 @@ void sub_08047EA4(Entity* this, u32 unk1) {
     this->field_0x7a.HWORD = this->field_0x78.HWORD;
 }
 
+const u16 gUnk_080D1C04[0x20] = {
+    0, 1, 4, 9,
+    16, 25, 36, 49,
+    64, 81, 100, 121,
+    144, 169, 196, 225,
+    256, 289, 324, 361,
+    400, 441, 484, 529,
+    576, 625, 676, 729,
+    784, 841, 900, 961
+};
+
 u32 sub_08047F68(Entity* this) {
     s32 diffX, diffY;
     s32 distSquared, approx;
@@ -1087,9 +1225,38 @@ void sub_0804813C(Entity* this) {
     sub_080A1ED0(rand & 7, 1, (rand >> 8) & 3);
 }
 
+
+const u8 gUnk_080D1C44[0xC] = {
+    0, 2, 6, 0,
+    2, 4, 2, 4,
+    6, 0, 4, 6
+};
+
 u32 sub_08048158(u32 unk1) {
     return gUnk_080D1C44[(unk1 * 3) + ((signed)Random() % 3)];
 }
+
+const u16 gUnk_080D1C50[8] = {
+    0x200,
+    0x180,
+    0x2C0,
+    0x210,
+    0x200,
+    0x2A0,
+    0x140,
+    0x210
+};
+
+const u16 gUnk_080D1C60[8] = {
+    0x200,
+    0x150,
+    0x290,
+    0x210,
+    0x200,
+    0x2D0,
+    0x170,
+    0x210
+};
 
 void sub_08048178(Entity* this, u32 unk1) {
     const u16* tmp = ((((Entity*) this->otherEntity)->next->animationState >> 6 & 1) ? gUnk_080D1C60 + unk1: gUnk_080D1C50 + unk1);
