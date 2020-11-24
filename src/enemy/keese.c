@@ -13,7 +13,6 @@ extern void sub_0804A720(Entity*);
 extern void Keese_StartFly(Entity*);
 extern void sub_080AEFB4(Entity*);
 extern void sub_08021F24(Entity*);
-extern u32 sub_0806FCB8(Entity*, s32, s32, u32);
 extern u32 sub_08049FA0(Entity*);
 extern u32 sub_08049EE4(Entity*);
 

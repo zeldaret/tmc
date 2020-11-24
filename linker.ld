@@ -424,7 +424,7 @@ SECTIONS {
         asm/enemy5A.o(.text);
         asm/businessScrubPrologue.o(.text);
         asm/gyorgFemale.o(.text);
-        asm/gyorgMale.o(.text);
+        src/enemy/gyorgMale.o(.text);
         asm/curtain.o(.text);
         asm/enemy5F.o(.text);
         asm/gyorgChild.o(.text);
@@ -984,6 +984,8 @@ SECTIONS {
         data/data_080D015C.o(.rodata);
         src/enemy/lakituCloud.o(.rodata);
         data/data_080D0448.o(.rodata);
+        src/enemy/gyorgMale.o(.rodata);
+        data/data_080D1C70.o(.rodata);
         src/enemy.o(.rodata);
         data/data_080D3D94.o(.rodata);
         data/entity_headers.o(.rodata);

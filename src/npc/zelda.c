@@ -15,7 +15,6 @@ u32 GetAnimationState(Entity* ent);
 void DeleteThisEntity(void);
 extern Entity* GetEntityByType(u32, u32);
 extern void sub_080686C4(Entity*, Entity*);
-extern void sub_0806F62C(Entity*, u32, u32);
 extern void PlaySFX(u32);
 extern void SetTileType(u32, u32, u32);
 
