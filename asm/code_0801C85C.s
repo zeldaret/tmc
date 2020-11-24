@@ -375,7 +375,7 @@ sub_0801CB20: @ 0x0801CB20
 	bne _0801CB76
 	ldrh r1, [r1, #6]
 	lsls r1, r1, #4
-	ldr r0, _0801CB54 @ =gUnk_080029B4
+	ldr r0, _0801CB54 @ =gSpritePtrs
 	adds r1, r1, r0
 	ldrb r0, [r3, #0x10]
 	lsls r0, r0, #2
@@ -395,7 +395,7 @@ sub_0801CB20: @ 0x0801CB20
 	strb r0, [r3]
 	b _0801CB74
 	.align 2, 0
-_0801CB54: .4byte gUnk_080029B4
+_0801CB54: .4byte gSpritePtrs
 _0801CB58:
 	ldrb r0, [r3, #0x19]
 	cmp r0, r2

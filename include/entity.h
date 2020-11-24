@@ -50,10 +50,10 @@ typedef struct Entity {
     /*    */     } PACKED b;
     /*    */ } PACKED spriteSettings;
     /*0x19*/ struct {
-    /*    */     u8 b0         : 2; // 1-2
-    /*    */     u8 alphaBlend : 2; // 4-8
-    /*    */     u8 b2         : 2; //0x10
-    /*    */     u8 b3         : 2; //0x40
+    /*    */     u32 b0         : 2; // 1-2
+    /*    */     u32 alphaBlend : 2; // 4-8
+    /*    */     u32 b2         : 2; //0x10
+    /*    */     u32 b3         : 2; //0x40
     /*    */ } PACKED spriteRendering;
     /*0x1a*/ union {
     /*    */    u8 raw;
@@ -63,9 +63,9 @@ typedef struct Entity {
     /*    */    } PACKED b;
     /*    */} PACKED palette;
     /*0x1b*/ struct {
-    /*    */     u8 b0    : 4;
-    /*    */     u8 flipX : 2; //0x10
-    /*    */     u8 flipY : 2; //0x40
+    /*    */     u32 b0    : 1;
+    /*    */     u32 b1    : 5; //0x10
+    /*    */     u32 flipY : 2; //0x40
     /*    */ } PACKED spriteOrientation;
     /*0x1c*/ u8 field_0x1c;
     /*0x1d*/ u8 field_0x1d;

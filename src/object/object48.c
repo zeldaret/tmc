@@ -223,7 +223,7 @@ void sub_0808EABC(Entity* this) {
             }
             break;
         case 5:
-            switch (gMenu.unk10[this->entityType.form]) {
+            switch (gMenu.focusCoords[this->entityType.form]) {
                 case 0:
                     var0 = 42;
                     var1 = 40;
@@ -232,7 +232,7 @@ void sub_0808EABC(Entity* this) {
                 case 2:
                     var0 = 20;
                     var1 = 144;
-                    var1 -= (gMenu.unk16 - gMenu.unk10[this->entityType.form]) * 32;
+                    var1 -= (gMenu.unk16 - gMenu.focusCoords[this->entityType.form]) * 32;
                     break;
             }
             break;
@@ -376,9 +376,9 @@ void sub_0808ECBC(Entity* this) {
 
 void sub_0808ED64(Entity* this) {
     int y = 255;
-    if (gUnk_02032EC0.transitionType == 1 && gMenu.unk10[1] != 5) {
-        this->x.HALF.HI = gMenu.unk10[0] * 16 + 28;
-        y = gMenu.unk10[1] * 16 + 58;
+    if (gUnk_02032EC0.transitionType == 1 && gMenu.focusCoords[1] != 5) {
+        this->x.HALF.HI = gMenu.focusCoords[0] * 16 + 28;
+        y = gMenu.focusCoords[1] * 16 + 58;
     }
     this->y.HALF.HI = y;
 }
@@ -421,7 +421,7 @@ void sub_0808EE00(Entity* this) {
     }
 
     this->field_0x6a.HWORD = var2;
-    this->palette.b.b0 = gMenu.unk10[1] == 5 && var1 == gMenu.field_0x12 ? 11 : 9;
+    this->palette.b.b0 = gMenu.focusCoords[1] == 5 && var1 == gMenu.field_0x12 ? 11 : 9;
     gUnk_02019EE0.unk0 |= sub_0808EF6C(this);
 }
 

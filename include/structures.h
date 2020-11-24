@@ -174,4 +174,21 @@ typedef struct {
     } data;
 } Dialog;
 
+typedef struct {
+    u8 filler0[0x29C];
+    u16 unk29C;
+    u8 filler29E[0x562];
+} BGBuffer;
+extern BGBuffer gBG0Buffer;
+extern BGBuffer gBG1Buffer;
+static_assert(sizeof(BGBuffer) == 0x800);
+
+/*
+typedef struct {
+    u16 filler0[0x800];
+} BG3Buffer;
+extern BG3Buffer gBG3Buffer;
+static_assert(sizeof(BG3Buffer) == 0x1000);
+*/
+
 #endif

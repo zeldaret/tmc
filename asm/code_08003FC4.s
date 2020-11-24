@@ -414,18 +414,22 @@ _0800425C:
 	pop {r4}
 	bx lr
 
-	thumb_func_start InitializeAnimation
+	thumb_func_start InitializeAnimation	@ r0 = Entity*, r1 = Frame*
 InitializeAnimation: @ 0x08004260
-	movs r2, #0x58
+	movs r2, #0x58			@ anim idx
 	strb r1, [r0, r2]
-	ldrh r3, [r0, #0x12]
-	lsls r3, r3, #4
-	ldr r2, _0800439C @ =gUnk_080029B4
-	ldr r2, [r2, r3]
-	lsls r1, r1, #2
-	ldr r1, [r2, r1]
+
+	ldrh r3, [r0, #0x12]	@ Sprite idx
+	lsls r3, r3, #4			@ *= 16
+
+	ldr r2, _0800439C @ =gSpritePtrs
+
+	ldr r2, [r2, r3]		@ Load AnimData
+	lsls r1, r1, #2			@ *= 4
+
+	ldr r1, [r2, r1]		@ AnimData->???
 	str r1, [r0, #0x5c]
-	b _0800432A
+	b FrameZero
 
 	thumb_func_start GetNextFrame
 GetNextFrame: @ 0x08004274
@@ -434,31 +438,43 @@ GetNextFrame: @ 0x08004274
 	non_word_aligned_thumb_func_start UpdateAnimationVariableFrames
 UpdateAnimationVariableFrames: @ 0x08004276
 	movs r3, #0x59
-	ldrb r2, [r0, r3]
+	ldrb r2, [r0, r3]	@ Decrease frame timer
 	subs r2, r2, r1
-	beq _0800432A
-	ble _08004284
+
+	beq FrameZero		@ Frame timer is 0
+	ble FrameNeg		@ Frame timer is below 0
+
 	strb r2, [r0, r3]
+
 	bx lr
-_08004284:
-	ldr r1, [r0, #0x5c]
+
+FrameNeg:
+	ldr r1, [r0, #0x5c]	@ Load frame data
+
 _08004286:
 	ldrb r3, [r1, #1]
 	adds r2, r2, r3
-	bgt _0800429C
+
+	bgt _0800429C		@ Frame idx greater (?)
+
 	ldrb r3, [r1, #3]
 	adds r1, #4
-	lsrs r3, r3, #8
+	lsrs r3, r3, #8		@ Branch if != 0xFF
+
 	blo _08004286
+
 	ldrb r3, [r1]
 	lsls r3, r3, #2
 	subs r1, r1, r3
 	b _08004286
+
 _0800429C:
 	str r1, [r0, #0x5c]
+
 	push {r2, lr}
-	bl _0800432A
+	bl FrameZero
 	pop {r2, r3}
+
 	movs r1, #0x59
 	strb r2, [r0, r1]
 	bx r3
@@ -479,27 +495,34 @@ UpdateAnimationSingleFrame: @ 0x080042B8
 sub_080042BA: @ 0x080042BA
 	push {lr}
 	bl UpdateAnimationVariableFrames
+
 _080042C0:
 	pop {r1}
 	mov lr, r1
+
 	ldrb r1, [r0, #0x1e]
 	ldrb r3, [r0, #0x1f]
 	strb r1, [r0, #0x1f]
+
 	cmp r1, r3
 	beq _08004328
+
 	ldrh r2, [r0, #0x12]
 
 	thumb_func_start sub_080042D0
 sub_080042D0: @ 0x080042D0
 	cmp r1, #0xff
 	beq _08004328
+
 	lsls r2, r2, #4
 	lsls r3, r1, #2
-	ldr r1, _080043A0 @ =gUnk_080029B4
+	ldr r1, _080043A0 @ =gSpritePtrs
 	adds r1, r1, r2
 	ldr r2, [r1, #4]
+
 	cmp r2, #0
 	beq _08004328
+
 	ldr r1, [r1, #8]
 	adds r2, r2, r3
 	ldrb r3, [r2]
@@ -538,31 +561,41 @@ _08004326:
 	pop {r4, r5}
 _08004328:
 	bx lr
-_0800432A:
-	ldrb r3, [r0, #0x1e]
-	strb r3, [r0, #0x1f]
+
+FrameZero:	@ r0 = Entity*
+	ldrb r3, [r0, #0x1e]	@ Get frame idx
+	strb r3, [r0, #0x1f]	@ Set it to last frame idx
+	
 	ldr r1, [r0, #0x5c]
-	ldrb r3, [r1]
+	ldrb r3, [r1]			@ Store new frame idx
 	strb r3, [r0, #0x1e]
+
 	ldrb r3, [r1, #1]
 	movs r2, #0x59
 	strb r3, [r0, r2]
+
 	ldrb r3, [r1, #2]
 	movs r2, #0x5b
 	strb r3, [r0, r2]
+
 	ldrb r3, [r1, #3]
 	movs r2, #0x5a
 	strb r3, [r0, r2]
+
 	adds r1, #4
 	lsrs r3, r3, #8
+
 	blo _08004352
+
 	ldrb r3, [r1]
 	lsls r3, r3, #2
 	subs r1, r1, r3
+
 _08004352:
 	str r1, [r0, #0x5c]
 	bx lr
 	.align 2, 0
+
 _08004358: .4byte gUnk_081326EC
 _0800435C: .4byte gUnk_02024048
 _08004360: .4byte gUnk_02021F20
@@ -580,8 +613,8 @@ _0800438C: .4byte 0x0000EE00
 _08004390: .4byte 0x00001FFF
 _08004394: .4byte gUnk_08000228
 _08004398: .4byte 0x00004000
-_0800439C: .4byte gUnk_080029B4
-_080043A0: .4byte gUnk_080029B4
+_0800439C: .4byte gSpritePtrs
+_080043A0: .4byte gSpritePtrs
 _080043A4: .4byte gUnk_02024494
 
 	thumb_func_start sub_080043A8
@@ -589,8 +622,8 @@ sub_080043A8: @ 0x080043A8
 	movs r1, #0xb
 	b _080043B6
 
-	thumb_func_start sub_080043AC
-sub_080043AC: @ 0x080043AC
+	thumb_func_start CreateChestSpawner
+CreateChestSpawner: @ 0x080043AC
 	movs r1, #0xc
 	b _080043B6
 
@@ -599,31 +632,42 @@ sub_080043B0: @ 0x080043AC
 	movs r1, #0x52
 	b _080043B6
 
-	thumb_func_start sub_080043B4
-sub_080043B4: @ 0x080043B4
+	thumb_func_start CreateItemOnGround
+CreateItemOnGround: @ 0x080043B4
 	movs r1, #0
+
 _080043B6:
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0xf
 	movs r2, #0
 	bl CreateObject
+
 	cmp r0, #0
-	beq _080043E0
+	beq _080043E0		@ Branch if entity could not be created
+
 	movs r1, #0x48
-	ldr r1, [r4, r1]
+	ldr r1, [r4, r1]	@ Unused?
+
 	ldrh r3, [r4, #0x2e]
 	strh r3, [r0, #0x2e]
+
 	ldrh r3, [r4, #0x32]
 	strh r3, [r0, #0x32]
+
 	ldrh r3, [r4, #0x36]
 	strh r3, [r0, #0x36]
+
 	ldrb r3, [r4, #8]
-	cmp r3, #3
+	
+	cmp r3, #3			@ Is the spawner an enemy?
 	bne _080043E0
+	
 	movs r1, #1
-	strb r1, [r0, #0xb]
+	strb r1, [r0, #0xb]	@ Set base parameter
+
 _080043E0:
 	adds r0, r4, #0
 	bl DeleteEntity
+	
 	pop {r4, pc}

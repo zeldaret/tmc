@@ -26,7 +26,7 @@
 /*0x11*/ .4byte Item11
 /*0x12*/ .4byte sub_080700E8
 /*0x13*/ .4byte sub_080ACF14
-/*0x14*/ .4byte sub_0805FBD0
+/*0x14*/ .4byte Item14
 /*0x15*/ .4byte sub_080A306C
 /*0x16*/ .4byte SwordBeam
 /*0x17*/ .4byte NulledItem
@@ -53,7 +53,7 @@
 .4byte Item11
 .4byte sub_080700E8
 .4byte sub_080ACF14
-.4byte sub_0805FBD0
+.4byte Item14
 .4byte sub_080A306C
 .4byte SwordBeam
 .4byte NulledItem

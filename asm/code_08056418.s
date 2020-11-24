@@ -1071,7 +1071,7 @@ sub_08056C68: @ 0x08056C68
 	ldrb r1, [r5, #4]
 	adds r0, r0, r1
 	lsls r0, r0, #1
-	ldr r1, _08056CBC @ =gUnk_02034CB0
+	ldr r1, _08056CBC @ =gBG0Buffer
 	adds r1, r0, r1
 	ldrb r0, [r5, #7]
 	adds r0, #2
@@ -1101,7 +1101,7 @@ _08056CB4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _08056CB8: .4byte gUnk_02036A38
-_08056CBC: .4byte gUnk_02034CB0
+_08056CBC: .4byte gBG0Buffer
 
 	thumb_func_start sub_08056CC0
 sub_08056CC0: @ 0x08056CC0
@@ -1215,7 +1215,7 @@ sub_08056D70: @ 0x08056D70
 	ldrb r1, [r4, #4]
 	adds r0, r0, r1
 	lsls r0, r0, #1
-	ldr r1, _08056DBC @ =gUnk_02034CB0
+	ldr r1, _08056DBC @ =gBG0Buffer
 	adds r0, r0, r1
 	ldr r3, _08056DC0 @ =0x0000F07B
 	ldrb r1, [r4, #6]
@@ -1234,7 +1234,7 @@ _08056DB0:
 	.align 2, 0
 _08056DB4: .4byte gUnk_02022780
 _08056DB8: .4byte gUnk_02036A40
-_08056DBC: .4byte gUnk_02034CB0
+_08056DBC: .4byte gBG0Buffer
 _08056DC0: .4byte 0x0000F07B
 _08056DC4: .4byte gUnk_02036A38
 
@@ -1438,7 +1438,7 @@ sub_08056F1C: @ 0x08056F1C
 	ldrb r0, [r2, #4]
 	adds r1, r1, r0
 	lsls r1, r1, #1
-	ldr r0, _08056F68 @ =gUnk_02034CB0
+	ldr r0, _08056F68 @ =gBG0Buffer
 	adds r1, r1, r0
 	ldrb r0, [r2, #7]
 	adds r0, #1
@@ -1458,7 +1458,7 @@ _08056F58: .4byte gUnk_02022780
 _08056F5C: .4byte 0x0010FF00
 _08056F60: .4byte 0x00100200
 _08056F64: .4byte gUnk_02036A40
-_08056F68: .4byte gUnk_02034CB0
+_08056F68: .4byte gBG0Buffer
 _08056F6C: .4byte 0x0000F080
 
 	thumb_func_start sub_08056F70

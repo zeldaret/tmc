@@ -802,7 +802,7 @@ sub_0807007C: @ 0x0807007C
 	beq _080700C4
 	ldrh r0, [r2, #2]
 	lsls r0, r0, #4
-	ldr r1, _080700C0 @ =gUnk_080029B4
+	ldr r1, _080700C0 @ =gSpritePtrs
 	adds r3, r0, r1
 	ldr r1, [r3, #4]
 	cmp r1, #0
@@ -820,7 +820,7 @@ sub_0807007C: @ 0x0807007C
 	movs r0, #1
 	b _080700C6
 	.align 2, 0
-_080700C0: .4byte gUnk_080029B4
+_080700C0: .4byte gSpritePtrs
 _080700C4:
 	movs r0, #0
 _080700C6:

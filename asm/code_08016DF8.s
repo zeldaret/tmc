@@ -108,7 +108,7 @@ _08016E94:
 	cmp r1, #0
 	beq _08016ED6
 	ldr r2, _08016F14 @ =0x040000D4
-	ldr r0, _08016F18 @ =gUnk_02021F30
+	ldr r0, _08016F18 @ =gBG1Buffer
 	str r0, [r2]
 	ldrh r1, [r1]
 	movs r0, #0xf8
@@ -152,7 +152,7 @@ _08016F08: .4byte gUnk_03001000
 _08016F0C: .4byte gUnk_02000070
 _08016F10: .4byte gUnk_02025EB0
 _08016F14: .4byte 0x040000D4
-_08016F18: .4byte gUnk_02021F30
+_08016F18: .4byte gBG1Buffer
 _08016F1C: .4byte 0x84000170
 _08016F20: .4byte gUnk_0200B650
 _08016F24: .4byte gUnk_020344B0

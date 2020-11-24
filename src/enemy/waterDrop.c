@@ -6,7 +6,7 @@
 void sub_0802A39C(Entity*);
 void sub_0802A334(Entity*);
 
-extern u16 gUnk_02001A40[];
+extern u16 gBG3Buffer[];
 
 extern void (*const gUnk_080CD030[])(Entity*);
 extern const u8 gUnk_080CD03C[];
@@ -63,7 +63,7 @@ void sub_0802A2FC(Entity* this) {
 void sub_0802A334(Entity* this) {
     u32 x = (this->x.HALF.HI - gRoomControls.roomScrollX + gScreen.bg.bg1yOffset) >> 3;
     u32 y = (this->y.HALF.HI - gRoomControls.roomScrollY + gScreen.bg.bg2xOffset) >> 3;
-    if (gUnk_02001A40[(x & 0x1fU) + (y & 0x1fU) * 0x20 + 0x400]) {
+    if (gBG3Buffer[(x & 0x1fU) + (y & 0x1fU) * 0x20 + 0x400]) {
         this->collisionLayer = 2;
     } else {
         this->collisionLayer = 1;
@@ -74,7 +74,7 @@ void sub_0802A334(Entity* this) {
 void sub_0802A39C(Entity* this) {
     u32 x = (gPlayerEntity.x.HALF.HI - gRoomControls.roomScrollX + gScreen.bg.bg1yOffset) >> 3;
     u32 y = (gPlayerEntity.y.HALF.HI - gRoomControls.roomScrollY + gScreen.bg.bg2xOffset - 10) >> 3;
-    if (gUnk_02001A40[(x & 0x1fU) + (y & 0x1fU) * 0x20 + 0x400]) {
+    if (gBG3Buffer[(x & 0x1fU) + (y & 0x1fU) * 0x20 + 0x400]) {
         this->flags &= ~0x80;
     } else {
         this->flags |= 0x80;

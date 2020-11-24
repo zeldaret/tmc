@@ -980,7 +980,7 @@ _080512B8:
 	bl sub_08051480
 	b _08051322
 _080512C0:
-	ldr r2, _080512E4 @ =gUnk_02001A40
+	ldr r2, _080512E4 @ =gBG3Buffer
 	ldr r0, _080512E8 @ =gMenu
 	ldrb r1, [r0, #0x10]
 	lsls r1, r1, #1
@@ -997,7 +997,7 @@ _080512C0:
 	bl sub_08051480
 	b _08051322
 	.align 2, 0
-_080512E4: .4byte gUnk_02001A40
+_080512E4: .4byte gBG3Buffer
 _080512E8: .4byte gMenu
 _080512EC:
 	movs r3, #5
@@ -2576,7 +2576,7 @@ sub_08052010: @ 0x08052010
 	bl sub_08056418
 	movs r0, #1
 	bl sub_0801DA90
-	ldr r0, _0805207C @ =gUnk_02021F30
+	ldr r0, _0805207C @ =gBG1Buffer
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r1, r4, #0
@@ -2615,7 +2615,7 @@ sub_08052010: @ 0x08052010
 	strh r0, [r1, #0x26]
 	pop {r4, pc}
 	.align 2, 0
-_0805207C: .4byte gUnk_02021F30
+_0805207C: .4byte gBG1Buffer
 _08052080: .4byte gUnk_020344B0
 _08052084: .4byte gMenu
 _08052088: .4byte gScreen
