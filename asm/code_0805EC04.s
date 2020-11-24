@@ -4,56 +4,6 @@
 	.syntax unified
 
 	.text
-	
-	thumb_func_start sub_0805EC04
-sub_0805EC04: @ 0x0805EC04
-	push {r4, r5, r6, r7, lr}
-	adds r3, r0, #0
-	movs r2, #1
-	ldr r0, _0805EC4C @ =gUnk_03000000
-	movs r5, #1
-	movs r6, #0x3f
-	rsbs r6, r6, #0
-	movs r7, #4
-	rsbs r7, r7, #0
-	adds r4, r0, #0
-	adds r4, #8
-_0805EC1A:
-	ldr r0, _0805EC50 @ =0x00000426
-	adds r1, r4, r0
-	ldrb r0, [r1]
-	cmp r0, #0
-	bne _0805EC54
-	strb r5, [r1]
-	movs r0, #0x1f
-	ands r2, r0
-	lsls r2, r2, #1
-	ldrb r1, [r3, #0x1b]
-	adds r0, r6, #0
-	ands r0, r1
-	orrs r0, r2
-	strb r0, [r3, #0x1b]
-	ldrb r2, [r3, #0x19]
-	lsls r1, r2, #0x1e
-	lsrs r1, r1, #0x1e
-	orrs r1, r5
-	adds r0, r7, #0
-	ands r0, r2
-	orrs r0, r1
-	strb r0, [r3, #0x19]
-	movs r0, #1
-	b _0805EC5E
-	.align 2, 0
-_0805EC4C: .4byte gUnk_03000000
-_0805EC50: .4byte 0x00000426
-_0805EC54:
-	adds r4, #8
-	adds r2, #1
-	cmp r2, #0x1f
-	bls _0805EC1A
-	movs r0, #0
-_0805EC5E:
-	pop {r4, r5, r6, r7, pc}
 
 	thumb_func_start sub_0805EC60
 sub_0805EC60: @ 0x0805EC60
@@ -1877,7 +1827,7 @@ sub_0805FA04: @ 0x0805FA04
 	push {r4, r5, lr}
 	movs r0, #1
 	bl sub_0801DA90
-	ldr r0, _0805FA78 @ =gUnk_02034CB0
+	ldr r0, _0805FA78 @ =gBG0Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
 	bl _DmaZero
@@ -1922,7 +1872,7 @@ sub_0805FA04: @ 0x0805FA04
 	bl sub_08050008
 	pop {r4, r5, pc}
 	.align 2, 0
-_0805FA78: .4byte gUnk_02034CB0
+_0805FA78: .4byte gBG0Buffer
 _0805FA7C: .4byte gUnk_02001A40
 _0805FA80: .4byte gScreen
 _0805FA84: .4byte 0x00001E0F
