@@ -21,8 +21,6 @@ typedef struct {
 
 const struct_08124708 gUnk_08124708[5] = { { 0, 0x2F }, { 1, 0x20 }, { 1, 0x16 }, { 2, 0x10 }, { 3, 0x01 } };
 
-extern u32 sub_080045DA(s32, u32);
-
 void ObjectA2(Entity* this) {
     gUnk_081246F4[this->action](this);
     GetNextFrame(this);
