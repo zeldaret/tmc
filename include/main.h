@@ -50,6 +50,7 @@ typedef struct {
     /*0x0A*/ u16 fadeInTime;
     /*0x0C*/ u8 fillerC[0x3A8];
 } UI;
+static_assert(sizeof(UI) == 0x3b4);
 
 extern Main gUnk_03001000;
 extern UI gUnk_02032EC0;

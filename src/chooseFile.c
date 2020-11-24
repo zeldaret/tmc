@@ -38,14 +38,6 @@ typedef struct {
 
 extern struct_020227E8 gUnk_020227E8;
 
-typedef struct {
-    u8 filler0[0x29C];
-    u16 unk29C;
-    u8 filler29E[0x562];
-} struct_02034CB0;
-
-extern struct_02034CB0 gUnk_02034CB0;
-extern struct_02034CB0 gUnk_02021F30;
 extern SaveFile gSaveFiles[];
 extern u32 gUsedPalettes;
 extern u8 gUnk_02000D00[];
@@ -96,7 +88,7 @@ void sub_08050318(u32 arg0, u32 arg1) {
 
 void sub_08050384(void) {
     sub_0801C4A0(0, 0);
-    _DmaZero(&gUnk_02034CB0, sizeof(gUnk_02034CB0));
+    _DmaZero(&gBG0Buffer, sizeof(gBG0Buffer));
     gScreen.bg.bg3Control = 1;
 }
 
@@ -108,8 +100,8 @@ void sub_080503A8(u32 gfxGroup) {
 
 void sub_080503BC(u8 state) {
     gUnk_02032EC0.state = state;
-    _DmaZero(&gUnk_02034CB0, sizeof(gUnk_02034CB0));
-    _DmaZero(&gUnk_02021F30, sizeof(gUnk_02021F30));
+    _DmaZero(&gBG0Buffer, sizeof(gBG0Buffer));
+    _DmaZero(&gBG1Buffer, sizeof(gBG1Buffer));
 }
 
 void sub_080503E4(u32 saveFileId) {
@@ -483,9 +475,9 @@ void sub_08050B3C(u16*);
 
 void sub_08050AFC(u32 saveFileId) {
     sub_0805041C(saveFileId);
-    _DmaZero(&gUnk_02021F30, sizeof(gUnk_02021F30));
+    _DmaZero(&gBG1Buffer, sizeof(gBG1Buffer));
     if (gUnk_02019EE0.unk8[saveFileId] == 1) {
-        sub_08050B3C(&gUnk_02021F30.unk29C);
+        sub_08050B3C(&gBG1Buffer.unk29C);
     }
     gScreen.bg.bg2yOffset = 1;
 }

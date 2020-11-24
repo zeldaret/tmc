@@ -29,15 +29,17 @@ typedef struct {
     u16 transitionTimer;
     u16 field_0xa;
     u8* field_0xc;
-    u8 unk10[2];
+    u8 focusCoords[2];
     u8 field_0x12;
     u8 unk13;
-    u8 filler14[0x2];
+    u8 unk14;
+    u8 unk15;
     u8 unk16;
     u8 filler17[0x13];
     u8 unk2a;
     int field_0x2c;
 } Menu;
+static_assert(sizeof(Menu) == 0x30);
 
 extern Menu gMenu;
 

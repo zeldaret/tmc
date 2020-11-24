@@ -71,7 +71,7 @@ _08001230:
 	ldr r3, _0800135C @ =UpdateAnimationVariableFrames
 	bx r3
 _0800123E:
-	ldr r3, _08001360 @ =sub_080043B4
+	ldr r3, _08001360 @ =CreateItemOnGround
 	bx r3
 
 	non_word_aligned_thumb_func_start sub_08001242
@@ -154,7 +154,7 @@ gUnk_080012C8::
 	.4byte 0x00000000
 _080012CC: .4byte sub_08001214
 _080012D0: .4byte sub_080043A8
-_080012D4: .4byte sub_080043AC
+_080012D4: .4byte CreateChestSpawner
 _080012D8: .4byte sub_080043B0
 
 	thumb_func_start sub_080012DC
@@ -239,7 +239,7 @@ _08001352:
 	.align 2, 0
 _08001358: .4byte gEnemyFunctions
 _0800135C: .4byte UpdateAnimationVariableFrames
-_08001360: .4byte sub_080043B4
+_08001360: .4byte CreateItemOnGround
 _08001364: .4byte 0x00001800
 _08001368: .4byte gUnk_080012C8
 _0800136C: .4byte gUnk_080012C8

@@ -404,7 +404,7 @@ sub_08057450: @ 0x08057450
 _08057474:
 	asrs r0, r1, #6
 	lsls r0, r0, #9
-	ldr r1, _0805750C @ =gUnk_02001A40
+	ldr r1, _0805750C @ =gBG3Buffer
 	adds r1, r0, r1
 	str r1, [r4, #0x34]
 	ldr r0, [r3, #0x34]
@@ -479,7 +479,7 @@ _08057502:
 	.align 2, 0
 _08057504: .4byte gScreen
 _08057508: .4byte gRoomControls
-_0805750C: .4byte gUnk_02001A40
+_0805750C: .4byte gBG3Buffer
 _08057510: .4byte gScreenTransition
 _08057514: .4byte gUnk_08107C30
 _08057518: .4byte gUnk_085B4180

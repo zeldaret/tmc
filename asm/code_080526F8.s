@@ -1566,18 +1566,18 @@ _0805331C: .4byte gScreenTransition
 	thumb_func_start sub_08053320
 sub_08053320: @ 0x08053320
 	push {r4, lr}
-	ldr r0, _0805337C @ =gUnk_02034CB0
+	ldr r0, _0805337C @ =gBG0Buffer
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r1, r4, #0
 	bl _DmaZero
-	ldr r0, _08053380 @ =gUnk_02021F30
+	ldr r0, _08053380 @ =gBG1Buffer
 	adds r1, r4, #0
 	bl _DmaZero
 	ldr r0, _08053384 @ =gUnk_020344B0
 	adds r1, r4, #0
 	bl _DmaZero
-	ldr r0, _08053388 @ =gUnk_02001A40
+	ldr r0, _08053388 @ =gBG3Buffer
 	movs r1, #0x80
 	lsls r1, r1, #5
 	bl _DmaZero
@@ -1602,10 +1602,10 @@ _08053362:
 	bl sub_0801D79C
 	pop {r4, pc}
 	.align 2, 0
-_0805337C: .4byte gUnk_02034CB0
-_08053380: .4byte gUnk_02021F30
+_0805337C: .4byte gBG0Buffer
+_08053380: .4byte gBG1Buffer
 _08053384: .4byte gUnk_020344B0
-_08053388: .4byte gUnk_02001A40
+_08053388: .4byte gBG3Buffer
 _0805338C: .4byte gRoomControls
 
 	thumb_func_start sub_08053390
@@ -2219,7 +2219,7 @@ sub_08053800: @ 0x08053800
 	adds r0, r5, #0
 	adds r0, #0x3a
 	bl LoadGfxGroup
-	ldr r0, _08053888 @ =gUnk_02021F30
+	ldr r0, _08053888 @ =gBG1Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
 	bl _DmaZero
@@ -2251,7 +2251,7 @@ _0805387A:
 _0805387C: .4byte gFadeControl
 _08053880: .4byte gMenu
 _08053884: .4byte gUnk_080FCCB4
-_08053888: .4byte gUnk_02021F30
+_08053888: .4byte gBG1Buffer
 _0805388C: .4byte 0x00000F01
 _08053890: .4byte gScreen
 

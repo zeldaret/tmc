@@ -54,7 +54,7 @@ _0805AA04:
 _0805AA2C:
 	asr r0, r0, #6
 	lsl r0, r0, #9
-	ldr r1, _0805AA54 @ =gUnk_02001A40
+	ldr r1, _0805AA54 @ =gBG3Buffer
 	add r1, r0, r1
 	str r1, [r3, #0x34]
 	add r2, r3, #0
@@ -72,4 +72,4 @@ _0805AA4A:
 	.align 2, 0
 _0805AA4C: .4byte gScreen
 _0805AA50: .4byte gRoomControls
-_0805AA54: .4byte gUnk_02001A40
+_0805AA54: .4byte gBG3Buffer

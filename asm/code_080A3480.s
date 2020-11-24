@@ -351,7 +351,7 @@ sub_080A36F8: @ 0x080A36F8
 	bl LoadPaletteGroup
 	ldrb r0, [r4, #1]
 	bl LoadGfxGroup
-	ldr r0, _080A3760 @ =gUnk_02021F30
+	ldr r0, _080A3760 @ =gBG1Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
 	bl _DmaZero
@@ -383,7 +383,7 @@ _080A3752:
 _080A3754: .4byte gFadeControl
 _080A3758: .4byte gMenu
 _080A375C: .4byte gUnk_08127CEC
-_080A3760: .4byte gUnk_02021F30
+_080A3760: .4byte gBG1Buffer
 _080A3764: .4byte gScreen
 
 	thumb_func_start sub_080A3768
@@ -407,7 +407,7 @@ _080A3780:
 	beq _080A3812
 	b _080A384C
 _080A378A:
-	ldr r0, _080A37B8 @ =gUnk_02021F30
+	ldr r0, _080A37B8 @ =gBG1Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
 	bl _DmaZero
@@ -429,7 +429,7 @@ _080A378A:
 	strb r2, [r4, #0x18]
 	b _080A385E
 	.align 2, 0
-_080A37B8: .4byte gUnk_02021F30
+_080A37B8: .4byte gBG1Buffer
 _080A37BC: .4byte gUnk_081272E0
 _080A37C0: .4byte gScreen
 _080A37C4:
@@ -576,7 +576,7 @@ sub_080A38D0: @ 0x080A38D0
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _080A3914
-	ldr r0, _080A3920 @ =gUnk_02021F30
+	ldr r0, _080A3920 @ =gBG1Buffer
 	movs r6, #0x80
 	lsls r6, r6, #4
 	adds r1, r6, #0
@@ -606,7 +606,7 @@ _080A3914:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080A391C: .4byte gFadeControl
-_080A3920: .4byte gUnk_02021F30
+_080A3920: .4byte gBG1Buffer
 _080A3924: .4byte gScreen
 _080A3928: .4byte gUnk_020344B0
 _080A392C: .4byte gMenu

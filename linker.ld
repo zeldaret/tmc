@@ -26,7 +26,7 @@ SECTIONS {
         . = 0x00000D00; gUnk_02000D00 = .;
         . = 0x00001A00; gUnk_02001A00 = .;
         . = 0x00001A3C; gUnk_02001A3C = .;
-        . = 0x00001A40; gUnk_02001A40 = .;
+        . = 0x00001A40; gBG3Buffer = .;
         . = 0x00001B40; gUnk_02001B40 = .;
         . = 0x00002A40; gUnk_02002A40 = .;
         . = 0x00002AA0; gUnk_02002AA0 = .;
@@ -536,6 +536,9 @@ SECTIONS {
         src/entity.o(.text);
         src/code_0805EC04.o(.text);
         asm/code_0805EC04.o(.text);
+        src/code_0805F9A0.o(.text);
+        src/screenDebug.o(.text);
+        src/item14.o(.text);
         /* npcs */
         src/npc/gentari.o(.text);
         src/npc/festari.o(.text);

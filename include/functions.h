@@ -270,4 +270,15 @@ extern u32 sub_0800442E(Entity*);
 extern void sub_08081404(Entity*, u32);
 extern void sub_0807B7D8(u32, u32, u32);
 extern void sub_08052D74(void*, void*, void*);
+extern void sub_0800451C(Entity*);
+extern u32 sub_080002F0(u32, u32, u32);
+extern u32 sub_080040D8(Entity*, u8*, s32, s32);
+extern void sub_08053320();
+extern void sub_0801D79C(u32, u32);
+extern u32 sub_0805F8F8(u32);
+extern void sub_08002724(void*, u8*);
+extern void sub_080026C4(u8*, u8*, u8*, u32);
+extern void sub_080026F2(u8*, void*, u8*, u32);
+extern u32 sub_0805F7A0(u32);
+extern u32* sub_0805F25C(u32);
 #endif

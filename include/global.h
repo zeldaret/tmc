@@ -47,6 +47,8 @@
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) >= (b) ? (a) : (b))
 
+#define static_assert(cond) extern char assertion[(cond) ? 1 : -1]
+
 typedef union {
     s32 WORD;
     struct {
@@ -73,5 +75,7 @@ union SplitHWord {
         u8 LO, HI;
     } PACKED HALF;
 } PACKED;
+
+
 
 #endif // GUARD_GLOBAL_H
