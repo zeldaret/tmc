@@ -47,7 +47,8 @@ typedef struct {
     /*    */         u32 filler11b : 16;
     /*    */     } PACKED b;
     /*    */ } flags;
-    /*0x34*/ u8 field_0x34[4];
+    /*0x34*/ u8 field_0x34[2];
+    /*0x36*/ s16 field_0x36;
     /*0x38*/ u8 field_0x38;
     /*0x39*/ u8 field_0x39;
     /*0x3a*/ u16 field_0x3a;
@@ -62,7 +63,10 @@ typedef struct {
     /*0x8b*/ u8 field_0x8b;
     /*0x8c*/ u32 field_0x8c;
     /*0x90*/ union SplitWord field_0x90;
-    /*0x94*/ u32 field_0x94[5];
+    /*0x94*/ u32 field_0x94;
+    /*0x98*/ u16 field_0x98;
+    /*0x9a*/ u16 field_0x9a;
+    /*0x9c*/ u32 field_0x9c[3];
     /*0xa8*/ u8 field_0xa8;
     /*0xa9*/ u8 field_0xa9;
     /*0xaa*/ u8 field_0xaa;

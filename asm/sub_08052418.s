@@ -11,7 +11,7 @@ sub_08052418: @ 0x08052418
 	sub sp, #0x18
 	adds r6, r0, #0
 	adds r4, r1, #0
-	ldr r0, _08052494 @ =gUnk_02021F30
+	ldr r0, _08052494 @ =gBG1Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
 	bl _DmaZero
@@ -66,7 +66,7 @@ sub_08052418: @ 0x08052418
 	add sp, #0x18
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08052494: .4byte gUnk_02021F30
+_08052494: .4byte gBG1Buffer
 _08052498: .4byte gUnk_020227E8
 _0805249C: .4byte gUnk_080FCA8C
 _080524A0: .4byte gUnk_080FCAA4

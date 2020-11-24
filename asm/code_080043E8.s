@@ -52,9 +52,9 @@ sub_0800442E: @ 0x0800442E
 _08004448:
 	movs r0, #0
 	pop {r1, pc}
-_0800444C: .4byte sub_080043B4
+_0800444C: .4byte CreateItemOnGround
 _08004450: .4byte sub_080043A8
-_08004454: .4byte sub_080043AC
+_08004454: .4byte CreateChestSpawner
 _08004458: .4byte sub_080043B0
 
 	thumb_func_start sub_0800445C

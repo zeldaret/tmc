@@ -2787,7 +2787,7 @@ sub_080A6B04: @ 0x080A6B04
 	adds r1, r4, #0
 	bl sub_0801D79C
 	ldr r0, _080A6C04 @ =0x00005001
-	ldr r1, _080A6C08 @ =gUnk_02001A40
+	ldr r1, _080A6C08 @ =gBG3Buffer
 	movs r2, #0x80
 	lsls r2, r2, #5
 	bl _DmaFill16
@@ -2857,7 +2857,7 @@ _080A6BF8: .4byte gUnk_080FE320
 _080A6BFC: .4byte gMenu
 _080A6C00: .4byte 0x0000475F
 _080A6C04: .4byte 0x00005001
-_080A6C08: .4byte gUnk_02001A40
+_080A6C08: .4byte gBG3Buffer
 _080A6C0C: .4byte gPlayerState
 _080A6C10: .4byte gScreenTransition
 _080A6C14: .4byte 0x000001FB
@@ -12666,7 +12666,7 @@ _080AB60A:
 	b _080AB62E
 _080AB610:
 	adds r0, r4, #0
-	bl sub_080043B4
+	bl CreateItemOnGround
 	movs r0, #1
 	b _080AB630
 _080AB61A:
@@ -12676,7 +12676,7 @@ _080AB61A:
 	b _080AB630
 _080AB624:
 	adds r0, r4, #0
-	bl sub_080043AC
+	bl CreateChestSpawner
 	movs r0, #1
 	b _080AB630
 _080AB62E:

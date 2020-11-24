@@ -18,7 +18,7 @@ void sub_080582F8(u8*, u8*);
 void sub_08058324();
 
 extern u32 gUnk_02006F00[];
-extern u8 gUnk_02001A40[];
+extern u8 gBG3Buffer[];
 
 const u16 gUnk_081081EC[] = { 0x30, 0x30, 0x30, 0x38 };
 
@@ -40,7 +40,7 @@ void sub_08058210(Manager9* this) {
     if (this->unk_3c == tmp)
         return;
     this->unk_3c = tmp;
-    sub_080582A0(tmp, gUnk_02006F00, gUnk_02001A40);
+    sub_080582A0(tmp, gUnk_02006F00, gBG3Buffer);
     gScreen.bg.bg2yOffset = 1;
 }
 
@@ -91,9 +91,9 @@ void sub_08058324(u32 unk) {
     LoadPaletteGroup(unk + 0x86);
     LoadGfxGroup(unk + 0x36);
     sub_080582D0();
-    sub_080582A0(sub_08058244(unk), gUnk_02006F00, gUnk_02001A40);
+    sub_080582A0(sub_08058244(unk), gUnk_02006F00, gBG3Buffer);
     gScreen.bg.bg1xOffset = 0x1D47;
-    gScreen.bg.unk_14 = gUnk_02001A40;
+    gScreen.bg.unk_14 = gBG3Buffer;
     gScreen.bg.bg2yOffset = 1;
     gScreen.lcd.displayControl |= 0x200;
 }

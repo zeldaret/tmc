@@ -26,7 +26,7 @@ SECTIONS {
         . = 0x00000D00; gUnk_02000D00 = .;
         . = 0x00001A00; gUnk_02001A00 = .;
         . = 0x00001A3C; gUnk_02001A3C = .;
-        . = 0x00001A40; gUnk_02001A40 = .;
+        . = 0x00001A40; gBG3Buffer = .;
         . = 0x00001B40; gUnk_02001B40 = .;
         . = 0x00002A40; gUnk_02002A40 = .;
         . = 0x00002AA0; gUnk_02002AA0 = .;
@@ -79,7 +79,7 @@ SECTIONS {
         . = 0x00021EE0; gUnk_02021EE0 = .;
         . = 0x00021F00; gUnk_02021F00 = .;
         . = 0x00021F20; gUnk_02021F20 = .;
-        . = 0x00021F30; gUnk_02021F30 = .;
+        . = 0x00021F30; gBG1Buffer = .;
         . = 0x00021F70; gUnk_02021F70 = .;
         . = 0x00022030; gUnk_02022030 = .;
         . = 0x00022130; gUnk_02022130 = .;
@@ -126,7 +126,7 @@ SECTIONS {
         . = 0x000344A0; gUnk_020344A0 = .;
         . = 0x000344B0; gUnk_020344B0 = .;
         . = 0x000344F0; gUnk_020344F0 = .;
-        . = 0x00034CB0; gUnk_02034CB0 = .;
+        . = 0x00034CB0; gBG0Buffer = .;
         . = 0x00034CB2; gUnk_02034CB2 = .;
         . = 0x00034CF0; gUnk_02034CF0 = .;
         . = 0x00034D30; gUnk_02034D30 = .;
@@ -424,7 +424,7 @@ SECTIONS {
         asm/enemy5A.o(.text);
         asm/businessScrubPrologue.o(.text);
         asm/gyorgFemale.o(.text);
-        asm/gyorgMale.o(.text);
+        src/enemy/gyorgMale.o(.text);
         asm/curtain.o(.text);
         asm/enemy5F.o(.text);
         asm/gyorgChild.o(.text);
@@ -534,7 +534,11 @@ SECTIONS {
         asm/code_0805E3B0.o(.text);
         asm/getEmptyEntity.o(.text);
         src/entity.o(.text);
+        src/code_0805EC04.o(.text);
         asm/code_0805EC04.o(.text);
+        src/code_0805F9A0.o(.text);
+        src/screenDebug.o(.text);
+        src/item14.o(.text);
         /* npcs */
         src/npc/gentari.o(.text);
         src/npc/festari.o(.text);
@@ -980,6 +984,8 @@ SECTIONS {
         data/data_080D015C.o(.rodata);
         src/enemy/lakituCloud.o(.rodata);
         data/data_080D0448.o(.rodata);
+        src/enemy/gyorgMale.o(.rodata);
+        data/data_080D1C70.o(.rodata);
         src/enemy.o(.rodata);
         data/data_080D3D94.o(.rodata);
         data/entity_headers.o(.rodata);

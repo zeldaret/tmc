@@ -44,7 +44,7 @@ _0801C398:
 	bl LoadPaletteGroup
 	movs r0, #0x10
 	bl LoadGfxGroup
-	ldr r4, _0801C478 @ =gUnk_02034CB0
+	ldr r4, _0801C478 @ =gBG0Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
 	adds r0, r4, #0
@@ -122,7 +122,7 @@ _0801C398:
 	.align 2, 0
 _0801C470: .4byte gUnk_0200AF00
 _0801C474: .4byte gUnk_02002A40
-_0801C478: .4byte gUnk_02034CB0
+_0801C478: .4byte gBG0Buffer
 _0801C47C: .4byte gScreen
 _0801C480: .4byte 0x00001F0C
 _0801C484: .4byte gUnk_03000000

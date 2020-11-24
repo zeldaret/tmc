@@ -427,7 +427,7 @@ void sub_0805A94C(Manager15* this) {
     gScreen.controls.window1VerticalDimensions = (tmp1 << 8 | tmp2);
 }
 
-extern u8 gUnk_02001A40[];
+extern u8 gBG3Buffer[];
 
 #ifdef NON_MATCHING
 void sub_0805A9CC(Manager15* this) {
@@ -449,7 +449,7 @@ void sub_0805A9CC(Manager15* this) {
     gScreen.affine.bg3yOffset = tmp1 & 0x3F;
     if (tmp1 < 0)
         tmp1 += 0x3F;
-    tmp3 = (&gUnk_02001A40[(tmp1 >> 6 << 9)]);
+    tmp3 = (&gBG3Buffer[(tmp1 >> 6 << 9)]);
     gScreen.affine.unk5 = (u32)tmp3;
     gScreen.controls.window1VerticalDimensions = 0xa0;
     if (this->unk_28 == tmp3)
@@ -499,7 +499,7 @@ void sub_0805AAF0(u32 unk0) {
     gScreen.controls.layerFXControl = 0x3E48;
     gScreen.controls.alphaBlend = 0x1008;
     gScreen.affine.bg3Control = 0x1E04;
-    gScreen.affine.unk5 = &gUnk_02001A40;
+    gScreen.affine.unk5 = &gBG3Buffer;
     gScreen.affine.bg3xOffset = 0;
     gScreen.affine.bg3yOffset = 0;
     gScreen.affine.unk4 = 1;

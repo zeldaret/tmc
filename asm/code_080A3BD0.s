@@ -1266,11 +1266,11 @@ sub_080A4608: @ 0x080A4608
 	adds r1, r4, r2
 	ldrh r1, [r1]
 	bl sub_0801D79C
-	ldr r0, _080A46A4 @ =gUnk_02034CB0
+	ldr r0, _080A46A4 @ =gBG0Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
 	bl _DmaZero
-	ldr r0, _080A46A8 @ =gUnk_02001A40
+	ldr r0, _080A46A8 @ =gBG3Buffer
 	movs r1, #0x80
 	lsls r1, r1, #5
 	bl _DmaZero
@@ -1321,8 +1321,8 @@ _080A4694:
 	pop {r4, pc}
 	.align 2, 0
 _080A46A0: .4byte gPaletteBuffer
-_080A46A4: .4byte gUnk_02034CB0
-_080A46A8: .4byte gUnk_02001A40
+_080A46A4: .4byte gBG0Buffer
+_080A46A8: .4byte gBG3Buffer
 _080A46AC: .4byte gScreen
 _080A46B0: .4byte 0x00007898
 _080A46B4: .4byte gMenu
@@ -2118,7 +2118,7 @@ sub_080A4CBC: @ 0x080A4CBC
 	cmp r0, r6
 	beq _080A4CFE
 	strb r6, [r1, #0x1a]
-	ldr r4, _080A4D10 @ =gUnk_02021F30
+	ldr r4, _080A4D10 @ =gBG1Buffer
 	movs r5, #0x80
 	lsls r5, r5, #4
 	adds r0, r4, #0
@@ -2151,7 +2151,7 @@ _080A4CFE:
 	b _080A4D28
 	.align 2, 0
 _080A4D0C: .4byte gMenu
-_080A4D10: .4byte gUnk_02021F30
+_080A4D10: .4byte gBG1Buffer
 _080A4D14: .4byte 0x0600E000
 _080A4D18: .4byte gUnk_08128190
 _080A4D1C: .4byte gScreen
@@ -2241,12 +2241,12 @@ sub_080A4DB8: @ 0x080A4DB8
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl sub_08056250
-	ldr r0, _080A4E58 @ =gUnk_02034CB0
+	ldr r0, _080A4E58 @ =gBG0Buffer
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r1, r4, #0
 	bl _DmaZero
-	ldr r0, _080A4E5C @ =gUnk_02021F30
+	ldr r0, _080A4E5C @ =gBG1Buffer
 	adds r1, r4, #0
 	bl _DmaZero
 	ldr r0, _080A4E60 @ =gUnk_020344B0
@@ -2312,8 +2312,8 @@ _080A4E4A:
 _080A4E54:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080A4E58: .4byte gUnk_02034CB0
-_080A4E5C: .4byte gUnk_02021F30
+_080A4E58: .4byte gBG0Buffer
+_080A4E5C: .4byte gBG1Buffer
 _080A4E60: .4byte gUnk_020344B0
 _080A4E64: .4byte gUnk_0200AF34
 _080A4E68: .4byte gMenu
@@ -2577,7 +2577,7 @@ _080A507C: .4byte gUnk_02034490
 _080A5080:
 	movs r0, #3
 	bl sub_080A4E90
-	ldr r0, _080A5098 @ =gUnk_02034CB0
+	ldr r0, _080A5098 @ =gBG0Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
 	bl _DmaZero
@@ -2587,7 +2587,7 @@ _080A5080:
 _080A5096:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080A5098: .4byte gUnk_02034CB0
+_080A5098: .4byte gBG0Buffer
 _080A509C: .4byte gScreen
 
 	thumb_func_start sub_080A50A0

@@ -324,7 +324,7 @@ sub_0801DA90: @ 0x0801DA90
 	ldr r0, _0801DB08 @ =0x0600C000
 	movs r1, #0x20
 	bl _DmaZero
-	ldr r0, _0801DB0C @ =gUnk_02034CB0
+	ldr r0, _0801DB0C @ =gBG0Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
 	bl _DmaZero
@@ -339,7 +339,7 @@ _0801DAFC: .4byte 0x040000B0
 _0801DB00: .4byte 0x0000C5FF
 _0801DB04: .4byte 0x00007FFF
 _0801DB08: .4byte 0x0600C000
-_0801DB0C: .4byte gUnk_02034CB0
+_0801DB0C: .4byte gBG0Buffer
 
 	thumb_func_start sub_0801DB10
 sub_0801DB10: @ 0x0801DB10
@@ -370,11 +370,11 @@ sub_0801DB34: @ 0x0801DB34
 	adds r0, r4, #0
 	movs r1, #0x7c
 	bl _DmaZero
-	ldr r0, _0801DB70 @ =gUnk_02034CB0
+	ldr r0, _0801DB70 @ =gBG0Buffer
 	str r0, [r4, #0x10]
 	ldr r0, _0801DB74 @ =0x00001F0C
 	strh r0, [r4, #8]
-	ldr r0, _0801DB78 @ =gUnk_02021F30
+	ldr r0, _0801DB78 @ =gBG1Buffer
 	str r0, [r4, #0x1c]
 	ldr r0, _0801DB7C @ =0x00001C01
 	strh r0, [r4, #0x14]
@@ -382,7 +382,7 @@ sub_0801DB34: @ 0x0801DB34
 	str r0, [r4, #0x28]
 	ldr r0, _0801DB84 @ =0x00001D02
 	strh r0, [r4, #0x20]
-	ldr r0, _0801DB88 @ =gUnk_02001A40
+	ldr r0, _0801DB88 @ =gBG3Buffer
 	str r0, [r4, #0x34]
 	ldr r0, _0801DB8C @ =0x00001E03
 	strh r0, [r4, #0x2c]
@@ -394,13 +394,13 @@ sub_0801DB34: @ 0x0801DB34
 	pop {r4, pc}
 	.align 2, 0
 _0801DB6C: .4byte gScreen
-_0801DB70: .4byte gUnk_02034CB0
+_0801DB70: .4byte gBG0Buffer
 _0801DB74: .4byte 0x00001F0C
-_0801DB78: .4byte gUnk_02021F30
+_0801DB78: .4byte gBG1Buffer
 _0801DB7C: .4byte 0x00001C01
 _0801DB80: .4byte gUnk_020344B0
 _0801DB84: .4byte 0x00001D02
-_0801DB88: .4byte gUnk_02001A40
+_0801DB88: .4byte gBG3Buffer
 _0801DB8C: .4byte 0x00001E03
 _0801DB90: .4byte 0x0000FFFF
 

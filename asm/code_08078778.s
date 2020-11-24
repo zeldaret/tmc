@@ -813,7 +813,7 @@ sub_08078E84: @ 0x08078E84
 	adds r1, #1
 	strb r0, [r1]
 _08078EAC:
-	ldr r0, _08078ED4 @ =gUnk_080029B4
+	ldr r0, _08078ED4 @ =gSpritePtrs
 	ldrh r2, [r4, #0x12]
 	lsls r2, r2, #4
 	adds r0, #4
@@ -832,7 +832,7 @@ _08078EAC:
 	b _08078EE2
 	.align 2, 0
 _08078ED0: .4byte gPlayerEntity
-_08078ED4: .4byte gUnk_080029B4
+_08078ED4: .4byte gSpritePtrs
 _08078ED8:
 	adds r0, r4, #0
 	movs r1, #3
