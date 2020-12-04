@@ -4,27 +4,6 @@
 	.section .rodata
 	.align 2
 
-gUnk_0810821C:: @ 0810821C
-	.incbin "baserom.gba", 0x10821C, 0x000000C
-
-gUnk_08108228:: @ 08108228
-	.incbin "baserom.gba", 0x108228, 0x0000030
-
-gUnk_08108258:: @ 08108258
-	.incbin "baserom.gba", 0x108258, 0x0000030
-
-gUnk_08108288:: @ 08108288
-	.incbin "baserom.gba", 0x108288, 0x0000030
-
-gUnk_081082B8:: @ 081082B8
-	.incbin "baserom.gba", 0x1082B8, 0x0000030
-
-gUnk_081082E8:: @ 081082E8
-	.incbin "baserom.gba", 0x1082E8, 0x0000018
-
-gUnk_08108300:: @ 08108300
-	.incbin "baserom.gba", 0x108300, 0x0000008
-
 gUnk_08108308:: @ 08108308
 	.incbin "baserom.gba", 0x108308, 0x000000C
 

@@ -25,13 +25,13 @@ typedef struct {
     u16 unk_6;
 } struct_08108228;
 
-extern void (* const gUnk_0810821C[])(ManagerC*);
-extern const struct_08108228 gUnk_08108228[];
-extern const struct_08108228 gUnk_08108258[];
-extern const struct_08108228 gUnk_08108288[];
-extern const struct_08108228 gUnk_081082B8[];
-extern const u16 gUnk_081082E8[];
-extern const u16 gUnk_08108300[];
+void (* const gUnk_0810821C[])(ManagerC*);
+const struct_08108228 gUnk_08108228[6];
+const struct_08108228 gUnk_08108258[6];
+const struct_08108228 gUnk_08108288[6];
+const struct_08108228 gUnk_081082B8[6];
+const u16 gUnk_081082E8[0xC];
+const u16 gUnk_08108300[4];
 
 void sub_08058BC8(ManagerC*);
 void sub_08058CB0(ManagerC*);
@@ -40,7 +40,6 @@ void sub_08058A04(ManagerC*);
 void sub_080588F8(ManagerC*);
 u32 sub_08058B08(ManagerC*, u32, u32, const struct_08108228*);
 void sub_08058B5C(ManagerC*, u32);
-
 void sub_08058D34(void);
 
 extern void sub_0805622C(struct BgAffineDstData*, u32, u32);
@@ -55,6 +54,16 @@ extern struct BgAffineDstData gUnk_02017BA0[];
 extern u8 gUnk_02017700[];
 extern u8 gUnk_02000070;
 extern u32 gUsedPalettes;
+
+void sub_08058894(ManagerC*);
+void sub_080588CC(ManagerC*);
+void nullsub_108(ManagerC*);
+
+void (* const gUnk_0810821C[])(ManagerC*) = {
+    sub_08058894,
+    sub_080588CC,
+    nullsub_108
+};
 
 void sub_0805884C(ManagerC* this) {
     u32 tmp;
@@ -130,6 +139,42 @@ void sub_080588F8(ManagerC* this) {
     }
 }
 
+const struct_08108228 gUnk_08108228[6] = {
+    {0x40, 0x2A, 0x1C, 0x10},
+    {0x3C, 0x24, 0x1C, 0x12},
+    {0x3C, 0x1C, 0x1A, 0x18},
+    {0x38, 0x16, 0x1C, 0x16},
+    {0x34, 0x16, 0x1E, 0x0E},
+    {0x30, 0x16, 0x20, 0x0A}
+};
+
+const struct_08108228 gUnk_08108258[6] = {
+    {0x30, 0x88, 0x20, 0x0A},
+    {0x34, 0x7E, 0x1E, 0x12},
+    {0x38, 0x78, 0x1A, 0x16},
+    {0x3A, 0x70, 0x1A, 0x18},
+    {0x3C, 0x64, 0x1E, 0x1E},
+    {0x3E, 0x6A, 0x1C, 0x10}
+};
+
+const struct_08108228 gUnk_08108288[6] = {
+    {0x98, 0x2A, 0x1C, 0x10},
+    {0x98, 0x24, 0x1C, 0x12},
+    {0x9C, 0x1C, 0x1A, 0x18},
+    {0x9C, 0x16, 0x1C, 0x16},
+    {0xA0, 0x16, 0x1E, 0x0E},
+    {0xA0, 0x16, 0x20, 0x0A}
+};
+
+const struct_08108228 gUnk_081082B8[6] = {
+    {0xA0, 0x88, 0x20, 0x0A},
+    {0x9E, 0x7E, 0x1E, 0x12},
+    {0x9C, 0x78, 0x1A, 0x16},
+    {0x9A, 0x70, 0x1A, 0x18},
+    {0x98, 0x64, 0x1E, 0x1E},
+    {0x98, 0x6A, 0x1C, 0x10}
+};
+
 void sub_08058A04(ManagerC* this) {
     s32 tmp = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
     s32 tmp2 = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
@@ -182,6 +227,13 @@ u32 sub_08058B08(ManagerC* this, u32 unk1, u32 unk2, const struct_08108228* unk3
     }
 }
 
+const u16 gUnk_081082E8[0xC] = {
+    0xB8, 0x80, 0x0,
+    0xB8, 0x110, 0x2,
+    0x118, 0x80, 0x2,
+    0x118, 0x110, 0x0
+};
+
 void sub_08058B5C(ManagerC* this, u32 unk1) {
     gScreenTransition.transitioningOut = 1;
     gScreenTransition.transitionType = 0;
@@ -224,6 +276,10 @@ void sub_08058BC8(ManagerC* this) {
     gScreen.controls.bg2yPointLeastSig = ((union SplitWord *) &tmp->dy)->HALF.LO;
     gScreen.controls.bg2yPointMostSig = ((union SplitWord *) &tmp->dy)->HALF.HI;
 }
+
+const u16 gUnk_08108300[4] = {
+    0xA4, 0x4C, 0xF4, 0x9C
+};
 
 void sub_08058CB0(ManagerC* this) {
     u32 tmp = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
