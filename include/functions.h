@@ -288,4 +288,6 @@ extern void sub_080A1D70(Entity*, u32);
 extern void sub_0806F62C(Entity*, u32, u32);
 extern u32 sub_08079F8C(void);
 extern void sub_080A1ED0(u32, u32, u32);
+extern void DeleteManager(Manager*);
+extern bool32 CheckPlayerInRegion(u32 centerX, u32 centerY, u32 radiusX, u32 radiusY);
 #endif
