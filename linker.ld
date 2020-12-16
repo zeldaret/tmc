@@ -500,7 +500,7 @@ SECTIONS {
         asm/manager1B.o(.text);
         asm/manager1C.o(.text);
         asm/manager1D.o(.text);
-        asm/manager1E.o(.text);
+        src/manager/manager1E.o(.text);
         asm/manager1F.o(.text);
         src/manager/manager20.o(.text);
         asm/manager21.o(.text);
@@ -1004,6 +1004,8 @@ SECTIONS {
         src/manager/managerB.o(.rodata);
         src/manager/managerC.o(.rodata);
         data/data_08108308.o(.rodata);
+	src/manager/manager1E.o(.rodata);
+        data/data_08108C94.o(.rodata);
         src/item.o(.rodata);
         data/data_0811BD44.o(.rodata);
         data/room_headers.o(.rodata);
