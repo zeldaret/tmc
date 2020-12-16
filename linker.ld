@@ -529,6 +529,7 @@ SECTIONS {
         asm/manager37.o(.text);
         asm/manager38.o(.text);
         asm/manager39.o(.text);
+        asm/sub_0805E248.o(.text);
         src/sub_0805E374.o(.text);
         src/sub_0805E3A0.o(.text);
         asm/code_0805E3B0.o(.text);
