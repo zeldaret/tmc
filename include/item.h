@@ -5,38 +5,38 @@
 #include "entity.h"
 #include "player.h"
 
-void extern DebugItem(ItemBehavior*, u32);
-void extern Sword(ItemBehavior*, u32);
-void extern Sword(ItemBehavior*, u32);
-void extern Sword(ItemBehavior*, u32);
-void extern Sword(ItemBehavior*, u32);
-void extern Sword(ItemBehavior*, u32);
-void extern Sword(ItemBehavior*, u32);
-void extern Bomb(ItemBehavior*, u32);
-void extern Bomb(ItemBehavior*, u32);
-void extern Bow(ItemBehavior*, u32);
-void extern Bow(ItemBehavior*, u32);
-void extern sub_08075D14(ItemBehavior*, u32);
-void extern sub_08075D14(ItemBehavior*, u32);
-void extern Shield(ItemBehavior*, u32);
-void extern Shield(ItemBehavior*, u32);
-void extern Lantern(ItemBehavior*, u32);
-void extern Lantern(ItemBehavior*, u32);
-void extern GustJar(ItemBehavior*, u32);
-void extern PacciCane(ItemBehavior*, u32);
-void extern MoleMitts(ItemBehavior*, u32);
-void extern RocsCape(ItemBehavior*, u32);
-void extern sub_08076800(ItemBehavior*, u32);
-void extern DebugItem(ItemBehavior*, u32);
-void Ocarina(ItemBehavior*, u32);
-void extern DebugItem(ItemBehavior*, u32);
-void extern DebugItem(ItemBehavior*, u32);
-void extern DebugItem(ItemBehavior*, u32);
-void extern TryPickupObject(ItemBehavior*, u32);
-void extern JarEmpty(ItemBehavior*, u32);
-void extern JarEmpty(ItemBehavior*, u32);
-void extern JarEmpty(ItemBehavior*, u32);
-void extern JarEmpty(ItemBehavior*, u32);
+extern void DebugItem(ItemBehavior*, u32);
+extern void Sword(ItemBehavior*, u32);
+extern void Sword(ItemBehavior*, u32);
+extern void Sword(ItemBehavior*, u32);
+extern void Sword(ItemBehavior*, u32);
+extern void Sword(ItemBehavior*, u32);
+extern void Sword(ItemBehavior*, u32);
+extern void Bomb(ItemBehavior*, u32);
+extern void Bomb(ItemBehavior*, u32);
+extern void Bow(ItemBehavior*, u32);
+extern void Bow(ItemBehavior*, u32);
+extern void sub_08075D14(ItemBehavior*, u32);
+extern void sub_08075D14(ItemBehavior*, u32);
+extern void Shield(ItemBehavior*, u32);
+extern void Shield(ItemBehavior*, u32);
+extern void Lantern(ItemBehavior*, u32);
+extern void Lantern(ItemBehavior*, u32);
+extern void GustJar(ItemBehavior*, u32);
+extern void PacciCane(ItemBehavior*, u32);
+extern void MoleMitts(ItemBehavior*, u32);
+extern void RocsCape(ItemBehavior*, u32);
+extern void sub_08076800(ItemBehavior*, u32);
+extern void DebugItem(ItemBehavior*, u32);
+extern void Ocarina(ItemBehavior*, u32);
+extern void DebugItem(ItemBehavior*, u32);
+extern void DebugItem(ItemBehavior*, u32);
+extern void DebugItem(ItemBehavior*, u32);
+extern void TryPickupObject(ItemBehavior*, u32);
+extern void JarEmpty(ItemBehavior*, u32);
+extern void JarEmpty(ItemBehavior*, u32);
+extern void JarEmpty(ItemBehavior*, u32);
+extern void JarEmpty(ItemBehavior*, u32);
 
 /* On hold until naming conflicts are resolved */
 /*

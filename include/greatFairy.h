@@ -1,6 +1,8 @@
 #ifndef GREATFAIRY_H
 #define GREATFAIRY_H
 
+#include "screen.h"
+
 extern u32 __modsi3(u32, u32);
 extern void InitializeAnimation(Entity*, u32);
 extern void GreatFairy_InitializeAnimation(Entity*);
