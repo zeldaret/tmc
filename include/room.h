@@ -79,5 +79,6 @@ extern RoomControls gRoomControls;
 extern RoomVars gRoomVars;
 
 extern void SetTileType(u32, u32, u32);
+extern void sub_08080964(u32 time, u32 magnitude); // shake screen
 
 #endif
