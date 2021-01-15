@@ -42,7 +42,6 @@ extern SpriteLoadData* gUnk_0810B6EC[];
 extern u8 gUnk_0810B78C[];
 extern struct_0810B680 gUnk_0810B680[];
 extern u16 gUnk_0810B74A[];
-extern u8 gUnk_02033280[];
 extern u8 gUnk_0810B748[];
 extern u32 gUnk_0810B740[];
 extern u16 gUnk_0810B790[];
@@ -242,7 +241,7 @@ void sub_08061E90(Entity* this, Entity* arg1) {
         arg1->spriteIndex = 1;
     }
     if (--arg1->spriteIndex != 0) {
-        gUnk_02033280[6] = 0;
+        gUnk_02033280.unk_06 = 0;
     }
 }
 

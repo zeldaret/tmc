@@ -290,4 +290,22 @@ extern u32 sub_08079F8C(void);
 extern void sub_080A1ED0(u32, u32, u32);
 extern void DeleteManager(Manager*);
 extern bool32 CheckPlayerInRegion(u32 centerX, u32 centerY, u32 radiusX, u32 radiusY);
+extern u32 sub_0806F5B0(u32);
+extern void sub_0801DFB4(Entity*, u32, u32, u32);
+extern void sub_0801E00C();
+extern void sub_08050038(u32);
+extern void sub_080500F4(u32);
+extern void sub_08050110(u32, u32, u32, u32);
+extern u32 sub_08052734(); //has Dungeon Map?
+extern u32 sub_08052764(); //has Dungeon Compass?
+extern u32 sub_0805279C(); //has Dungeon Big Key?
+extern u32 sub_080527CC(); //num Dungeon small keys?
+extern u32 sub_08053FE0();
+extern void sub_08078790(Entity*, u32);
+extern void sub_080788E0(Entity*);
+extern void sub_08078AA8(u32, u32);
+extern void sub_08078B48(void);
+extern void sub_0807919C();
+extern void sub_0807CAA0(u32, u32);
+extern void sub_08080964(u16, u32);
 #endif

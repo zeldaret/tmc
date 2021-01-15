@@ -14,7 +14,6 @@ void sub_0802C1C0(Entity*);
 u32 sub_0802C020(Entity*);
 void sub_0802C058(Entity*, u32);
 bool32 sub_0802C06C(Entity*);
-void sub_08080964(u32, u32);
 void sub_0802C1CC(Entity*);
 bool32 sub_0802C0E8(Entity*);
 
