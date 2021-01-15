@@ -2,6 +2,7 @@
 #define TEXTBOX_H
 
 #include "global.h"
+#include "entity.h"
 
 typedef struct {
     u8 doTextBox;

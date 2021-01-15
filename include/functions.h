@@ -43,7 +43,7 @@ extern void UpdateAnimationVariableFrames(Entity*, u32);
 extern void CopyPositionAndSpriteOffset(Entity*, Entity*);
 extern u8* GetSpriteSubEntryOffsetDataPointer(u32, u32);
 extern u32 LoadFixedGFX(Entity*, u32);
-extern void ExecuteScriptCommandSet(Entity*, void*);
+extern void ExecuteScriptCommandSet();
 extern void _DmaFill32(u32, void*, u32);
 extern Entity* CreateItemEntity(u32, u32, u32);
 
@@ -102,7 +102,7 @@ extern u32 sub_08049FDC(Entity*, u32);
 extern u32 sub_080041A0(Entity*, Entity*, u32, u32);
 extern u32 sub_08049EE4(Entity*);
 extern Entity* sub_0804A98C(Entity*, u8, u8);
-extern u32 sub_080544DC(u8);
+extern u32 sub_080544DC(u32);
 extern void sub_08077E54(Entity*);
 extern void sub_080042BA(Entity*, u32);
 extern void _DmaZero(void*, u32);
