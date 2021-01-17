@@ -648,7 +648,7 @@ SECTIONS {
         src/sub_0806FA04.o(.text);
         src/position.o(.text);
         asm/code_0806FA6C.o(.text);
-        src/sub_08070680.o(.text);
+        src/player.o(.text);
         asm/code_08070698.o(.text);
         asm/stairsInteract.o(.text);
         asm/code_080732D0.o(.text);

@@ -62,7 +62,7 @@ u32* GetLayerByIndex(u32 param_1) {
     }
 }
 
-void sub_08080964(u16 time, u32 magnitude) {
+void sub_08080964(u32 time, u32 magnitude) {
     gRoomControls.screenShakeTime = time;
     gRoomControls.screenShakeMagnitude = magnitude & 7;
     return;

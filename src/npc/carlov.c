@@ -11,7 +11,6 @@
 extern void sub_0807DD50(Entity*);
 extern void sub_0807DD94(Entity*, u32);
 extern void EnqueueSFX(u32);
-extern void sub_08080964(u32, u32);
 
 void Carlov(Entity* this) {
     if (this->action == 0) {

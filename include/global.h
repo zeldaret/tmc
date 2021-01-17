@@ -49,6 +49,26 @@
 
 #define static_assert(cond) extern char assertion[(cond) ? 1 : -1]
 
+#if NON_MATCHING
+#define asmfunc(prologue, path)
+#else
+#define asmfunc(prologue, path) \
+    NAKED prologue {            \
+        asm(".include " #path); \
+    }
+#endif
+
+#if NON_MATCHING
+#define NONMATCH(prologue, path) prologue
+#define END_NONMATCH
+#else
+#define NONMATCH(path, prologue) \
+    NAKED prologue {             \
+        asm(".include " #path);  \
+        if (0)
+#define END_NONMATCH }
+#endif
+
 typedef union {
     s32 WORD;
     struct {
@@ -75,7 +95,5 @@ union SplitHWord {
         u8 LO, HI;
     } PACKED HALF;
 } PACKED;
-
-
 
 #endif // GUARD_GLOBAL_H
