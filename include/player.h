@@ -51,7 +51,8 @@ typedef struct {
     /*0x36*/ s16 field_0x36;
     /*0x38*/ u8 field_0x38;
     /*0x39*/ u8 field_0x39;
-    /*0x3a*/ u16 field_0x3a;
+    /*0x3a*/ u8 field_0x3a;
+    /*0x3b*/ u8 field_0x3b;
     /*0x3c*/ u8 field_0x3c[2];
     /*0x3e*/ u8 swordGoldParticle : 1;
     /*    */ u8 swordBlueParticle : 1;
@@ -90,8 +91,7 @@ typedef struct {
     u8 itemOnB;
     u8 filler2[10];
     u16 rupees;
-    u8 field_0x1a;
-    u8 field_0x1b;
+    u16 field_0x1a;
     u8 field_0x1c;
     u8 field_0x1d;
     u8 field_0x1e;

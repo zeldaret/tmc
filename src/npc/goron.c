@@ -3,7 +3,6 @@
 #include "functions.h"
 #include "textbox.h"
 
-extern u8 gUnk_02033280[];
 extern void (*gUnk_08111A80[])(Entity*);
 extern void (*gUnk_08111A8C[])(Entity*);
 extern Dialog gUnk_08111A94[];
@@ -99,7 +98,7 @@ u32 sub_08069480(Entity* this) {
 
 void sub_0806948C(Entity* this, u32* param_1) {
     param_1[5] = CheckKinstoneFused((sub_08069480(this) << 24) >> 24);
-    gUnk_02033280[7] |= 1;
+    gUnk_02033280.unk_07 |= 1;
 }
 
 void sub_080694B0(Entity* this) {

@@ -22,7 +22,6 @@ extern Entity gPlayerEntity;
 extern RoomControls gRoomControls;
 
 extern void (*gUnk_08110BD8[])(Entity* ent);
-extern u8 gUnk_02033280[];
 extern u16 gUnk_08110BE0[];
 
 void Zelda(Entity* ent) {
@@ -165,12 +164,12 @@ void sub_08066E80(Entity* ent, u8* param_2) {
         case 4:
             UpdateAnimationSingleFrame(ent);
             if (ent->frames.b.f3) {
-                gUnk_02033280[7] |= 1;
+                gUnk_02033280.unk_07 |= 1;
                 return;
             }
     }
     ent->field_0x80.HWORD = ent->animIndex;
-    gUnk_02033280[6] = 0;
+    gUnk_02033280.unk_06 = 0;
 }
 
 void sub_08066F94(void) {

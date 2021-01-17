@@ -14,6 +14,14 @@ typedef struct {
 } struct_02000000;
 
 typedef struct {
+    u8 unk_00;
+    u8 unk_01;
+    u8 unk_02[0xE];
+} struct_02000040;
+
+extern struct_02000040 gUnk_02000040;
+
+typedef struct {
     u16 field_0x0;
     u16 field_0x2;
     u16 field_0x4;
@@ -155,6 +163,16 @@ typedef struct {
 extern struct_02024490 gUnk_02024490;
 
 typedef struct {
+    u32 unk_00;
+    u16 unk_04;
+    u8 unk_06;
+    u8 unk_07;
+    u8 unk_08;
+} struct_02033280;
+
+extern struct_02033280 gUnk_02033280;
+
+typedef struct {
     u16 unk_00;
     u8 unk_02[0xE];
 } struct_02034480;
@@ -190,5 +208,8 @@ typedef struct {
 extern BG3Buffer gBG3Buffer;
 static_assert(sizeof(BG3Buffer) == 0x1000);
 */
+
+extern u8 gUnk_02022740[];
+extern u8 gUnk_02034490;
 
 #endif

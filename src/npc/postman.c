@@ -7,11 +7,6 @@
 #include "room.h"
 #include "structures.h"
 
-typedef struct {
-    u8 filler[7];
-    u8 unk;
-} struct_02033280;
-
 extern void sub_08060528(Entity*);
 extern void* GetCurrentRoomProperty(u32);
 extern void sub_0806EE04(Entity*, void*, u32);
@@ -43,7 +38,6 @@ extern s8* gUnk_0810A918[];
 
 extern void (*const gUnk_0810AA24[])(Entity*);
 extern Dialog gUnk_0810AA30[];
-extern struct_02033280 gUnk_02033280;
 
 void Postman(Entity* this) {
     if ((this->flags & 2) != 0) {
@@ -213,7 +207,7 @@ void sub_08060700(Entity* entity, u32 arg1) {
     u32 x = coords->x + gRoomControls.roomOriginX;
     u32 y = coords->y + gRoomControls.roomOriginY;
     sub_0807DEDC(entity, arg1, x, y);
-    gUnk_02033280.unk |= 1;
+    gUnk_02033280.unk_07 |= 1;
 }
 
 void sub_0806075C(Entity* this) {
