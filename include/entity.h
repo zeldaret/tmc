@@ -135,6 +135,16 @@ typedef struct Entity {
     /*0x86*/ union SplitHWord field_0x86;
 } Entity;
 
+typedef struct LinkedList {
+    Entity* last;
+    Entity* first;
+} LinkedList;
+
+extern LinkedList gEntityLists[9];
+extern LinkedList gUnk_03003D90;
+
+extern LinkedList gUnk_03003DA0;
+
 #define TILE(x, y)                                      \
     ((((x - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
      (((y - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
@@ -188,7 +198,5 @@ enum {
 #define Direction8TurnAround(expr) (Direction8RoundUp(expr) ^ 0x10)
 #define Direction8ToAnimationState(expr) (Direction8RoundUp(expr) >> 2)
 #define Direction8FromAnimationState(expr) (expr << 2)
-
-extern Entity gUnk_03003DA0;
 
 #endif

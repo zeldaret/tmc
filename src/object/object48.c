@@ -323,7 +323,7 @@ void sub_0808EBB8(Entity* this) {
 }
 
 static Entity* sub_0808EC80(int form) {
-    Entity* entityA = &gUnk_03003DA0;
+    Entity* entityA = (Entity*) &gUnk_03003DA0;
     Entity* entityB = entityA->next;
     while (entityB != entityA) {
         if ((entityB->entityType.type == 0x6 && entityB->entityType.subtype == 0x48) &&

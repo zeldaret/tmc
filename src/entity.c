@@ -132,12 +132,6 @@ void ClearDeletedEntity(Entity* ent) {
     gEntCount--;
 }
 
-typedef struct LinkedList {
-    Entity* last;
-    Entity* first;
-} LinkedList;
-
-extern LinkedList gEntityLists[9];
 extern EntityType gUnk_03003DB8;
 
 void DeleteAllEntities(void) {

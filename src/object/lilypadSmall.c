@@ -3,7 +3,6 @@
 #include "functions.h"
 #include "player.h"
 
-extern Entity* GetCurrentRoomProperty(u32);
 extern void sub_080A2CC0(Entity*, Entity**, u16*);
 
 extern u16 gUnk_08123318[];
