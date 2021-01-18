@@ -16,7 +16,7 @@ _0805C962:
         cmp     r0, r1
         bge     _0805C962
         add     r0, r4, #0
-        bl      sub_0805CA6C
+        bl      Manager28_FindMatchingEntities
         add     r5, r0, #0
         cmp     r5, #0x1
         ble     _0805C9A8

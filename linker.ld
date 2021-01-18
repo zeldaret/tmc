@@ -1009,6 +1009,8 @@ SECTIONS {
         data/data_08108308.o(.rodata);
 	src/manager/manager1E.o(.rodata);
         data/data_08108C94.o(.rodata);
+        src/manager/manager28.o(.rodata);
+        data/data_08108D30.o(.rodata);
         src/item.o(.rodata);
         data/data_0811BD44.o(.rodata);
         data/room_headers.o(.rodata);

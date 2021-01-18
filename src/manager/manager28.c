@@ -9,33 +9,46 @@ typedef struct {
     Entity* unk_20[8];
 } Manager28;
 
-extern void (* const gUnk_08108D28[])(Manager28*);
-
-void sub_0805C934(Manager28*);
-void sub_0805C94C(Manager28*);
+void Manager28_Main(Manager28*);
+void Manager28_Init(Manager28*);
 void sub_0805C9BC(Manager28*);
-u32 sub_0805CA6C(Manager28*);
-Entity* sub_0805CAF0(EntityData*);
-void sub_0805CB48(Manager28*);
+u32 Manager28_FindMatchingEntities(Manager28*);
+Entity* Manager28_FindMatchingEntity(EntityData*);
+void Manager28_RemoveDeletedEntities(Manager28*);
 
-void sub_0805C934(Manager28* this) {
+void (* const gUnk_08108D28[])(Manager28*) = {
+    Manager28_Init,
+    Manager28_Main
+};
+
+enum Manager28_Action {
+    Init = 0,
+    Main = 1
+};
+
+enum Manager28_InitState {
+    DoInit = 0,
+    DoNotInit = 1
+};
+
+void Manager28_Entry(Manager28* this) {
     gUnk_08108D28[this->manager.action](this);
 }
 
-NONMATCH("asm/non_matching/manager28/sub_0805C94C.inc", void sub_0805C94C(Manager28* this)) {
-    if (!this->manager.unk_0a) {
+NONMATCH("asm/non_matching/manager28/Manager28_Init.inc", void Manager28_Init(Manager28* this)) {
+    if (this->manager.unk_0a == DoInit) {
         s32 tmp2;
         int tmp4;
         for (tmp4 = 0; tmp4 < 8; tmp4++) {
             this->unk_20[tmp4] = 0;
         }
-        tmp2 = sub_0805CA6C(this);//maybe 2 params?
+        tmp2 = Manager28_FindMatchingEntities(this);
         if (tmp2 > 1) {
             Manager28* tmp3 = (Manager28*) GetEmptyManager();
             if (tmp3) {
                 tmp3->manager.type = 9;
                 tmp3->manager.subtype = 0x28;
-                tmp3->manager.unk_0a = 1;
+                tmp3->manager.unk_0a = DoNotInit;
                 tmp3->manager.unk_0e = tmp2;
                 for (tmp4 = 0; tmp4 < 8; tmp4++) {
                     tmp3->unk_20[tmp4] = this->unk_20[tmp4];
@@ -45,18 +58,18 @@ NONMATCH("asm/non_matching/manager28/sub_0805C94C.inc", void sub_0805C94C(Manage
         }
         DeleteManager(&this->manager);
     } else {
-        this->manager.action = 1;
+        this->manager.action = Main;
         this->manager.unk_0f = 0;
     }
 }
 END_NONMATCH
 
-void sub_0805C9BC(Manager28* this) {
+void Manager28_Main(Manager28* this) {
     s32 n;
     s32 i;
     s32 j;
     Entity* tmp;
-    sub_0805CB48(this);
+    Manager28_RemoveDeletedEntities(this);
     n = this->manager.unk_0e - 1;
     if ((this->manager.unk_0f++) & 1) {
         for (i = 0; i < n; i++) {
@@ -75,7 +88,7 @@ void sub_0805C9BC(Manager28* this) {
     }
 }
 
-u32 sub_0805CA6C(Manager28* this) {
+u32 Manager28_FindMatchingEntities(Manager28* this) {
     u32 re = 0;
     EntityData * tmp = GetCurrentRoomProperty(this->manager.unk_0b);
     if (!tmp) return 0;
@@ -83,7 +96,7 @@ u32 sub_0805CA6C(Manager28* this) {
         Entity* tmp2;
         u32 i;
         if (tmp->type != 3) continue;
-        tmp2 = sub_0805CAF0(tmp);
+        tmp2 = Manager28_FindMatchingEntity(tmp);
         if (!tmp2) continue;
         for (i = 0; i < re; i++) {
             if (this->unk_20[i] == tmp2) break;
@@ -95,7 +108,7 @@ u32 sub_0805CA6C(Manager28* this) {
     return re;
 }
 
-Entity* sub_0805CAF0(EntityData* unk1) {
+Entity* Manager28_FindMatchingEntity(EntityData* unk1) {
     u32 x, y;
     Entity* i;
     LinkedList* tmp;
@@ -114,12 +127,12 @@ Entity* sub_0805CAF0(EntityData* unk1) {
     return 0;
 }
 
-void sub_0805CB48(Manager28* this) {
+void Manager28_RemoveDeletedEntities(Manager28* this) {
     s32 i;
     for (i = 0; i < this->manager.unk_0e; i++) {
         if (this->unk_20[i]->next == 0) {
             if (this->manager.unk_0e-1 == i) {
-                this->unk_20[i] = this->unk_20[i]->next;
+                this->unk_20[i] = 0;
             } else {
                 this->unk_20[i] = this->unk_20[this->manager.unk_0e-1];
             }
