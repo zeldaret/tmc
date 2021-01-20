@@ -508,7 +508,7 @@ SECTIONS {
         asm/manager23.o(.text);
         asm/manager24.o(.text);
         asm/manager25.o(.text);
-        asm/manager26.o(.text);
+        src/manager/manager26.o(.text);
         src/manager/manager27.o(.text);
         src/manager/manager28.o(.text);
         asm/manager29.o(.text);
