@@ -13,15 +13,6 @@ typedef struct {
     u16 unk_2a;
 } Manager26;
 
-typedef struct {
-    u8 unk_00;
-    u8 unk_01;
-    u8 unk_02;
-    u8 unk_03;
-    u16 unk_04;
-    u16 unk_06;
-} UnkManager26HelperStruct;
-
 void sub_0805C6D0(Manager26*);
 void sub_0805C7A0(Manager26*);
 void sub_0805C7C4(Manager26*);
