@@ -5,9 +5,22 @@
 
 extern u32 sub_0805C920(Entity*);
 extern void LoadPaletteGroup(u32);
-extern void (*const gUnk_08108D10[])(Entity*);
 
-extern u8 gUnk_08108D20[];
+void sub_0805C874(Entity*);
+void sub_0805C894(Entity*);
+void sub_0805C8B4(Entity*);
+void sub_0805C908(Entity*);
+
+void (*const gUnk_08108D10[])(Entity*) = {
+    sub_0805C874,
+    sub_0805C894,
+    sub_0805C8B4,
+    sub_0805C908
+};
+
+const u8 gUnk_08108D20[] = {
+    0x6F, 0x70, 0x71, 0x72, 0x71, 0x70
+};
 
 void Manager27(Entity* this) {
 
@@ -33,7 +46,6 @@ void sub_0805C874(Entity* this) {
 }
 
 void sub_0805C894(Entity* this) {
-
     if (sub_0805C920(this)) {
         this->action = 2;
         this->actionDelay = 1;

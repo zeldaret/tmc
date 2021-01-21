@@ -22,9 +22,15 @@ typedef struct {
     u16 unk_06;
 } UnkManager26HelperStruct;
 
-extern void (* const gUnk_08108D04[])(Manager26*);
+void sub_0805C6D0(Manager26*);
+void sub_0805C7A0(Manager26*);
+void sub_0805C7C4(Manager26*);
 
-extern void * GetCurrentRoomProperty(u32);
+void (* const gUnk_08108D04[])(Manager26*) = {
+    sub_0805C6D0,
+    sub_0805C7A0,
+    sub_0805C7C4
+};
 
 void sub_0805C7CC(Manager26*);
 
