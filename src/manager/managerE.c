@@ -4,7 +4,6 @@
 #include "flags.h"
 #include "room.h"
 
-extern Entity* GetCurrentRoomProperty(u8);
 extern void LoadRoomEntityList(Entity*);
 extern void DeleteThisEntity(void);
 extern void DeleteManager(Manager*);

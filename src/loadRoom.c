@@ -3,7 +3,6 @@
 #include "flags.h"
 
 void LoadRoomEntityList(EntityData* dat);
-extern EntityData* GetCurrentRoomProperty(u32 unk);
 extern void sub_0804B058(EntityData* dat);
 extern void LoadRoomTileEntities(EntityData* dat);
 extern void sub_0801AC98();
