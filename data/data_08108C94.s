@@ -24,15 +24,3 @@ gUnk_08108CE8:: @ 08108CE8
 
 gUnk_08108CFC:: @ 08108CFC
 	.incbin "baserom.gba", 0x108CFC, 0x0000008
-
-gUnk_08108D04:: @ 08108D04
-	.incbin "baserom.gba", 0x108D04, 0x000000C
-
-gUnk_08108D10:: @ 08108D10
-	.incbin "baserom.gba", 0x108D10, 0x000000C
-
-gUnk_08108D1C:: @ 08108D1C
-	.incbin "baserom.gba", 0x108D1C, 0x0000004
-
-gUnk_08108D20:: @ 08108D20
-	.incbin "baserom.gba", 0x108D20, 0x0000008
