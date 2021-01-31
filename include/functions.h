@@ -321,5 +321,7 @@ extern void sub_08008790(Entity*, u32);
 extern u32 CheckIsDungeon();
 extern void sub_0804ACF8();
 extern void sub_08073904(Entity*);
+extern u32 sub_08056134(void);
+extern u32 sub_0807CF30(void*);
 extern void sub_08004484(Entity*, Entity*);
 #endif

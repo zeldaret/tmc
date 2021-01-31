@@ -11,6 +11,18 @@
 #define RESET_REGS 0x80
 #define RESET_ALL 0xFF
 
+#define SystemCall(x) { asm("svc " #x); }
+
+extern void SoundBiasReset();
+extern void SoundBiasSet();
+
+#define Stop()                                               \
+{                                                            \
+    SoundBiasReset();                                        \
+    SystemCall(3);                                           \
+    SoundBiasSet();                                          \
+}
+
 void SoftReset(u32 resetFlags);
 
 void RegisterRamReset(u32 resetFlags);

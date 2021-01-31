@@ -1,8 +1,12 @@
 #include "global.h"
 #include "functions.h"
+#include "structures.h"
 #include "main.h"
+#include "screen.h"
 #include "random.h"
 #include "readKeyInput.h"
+
+extern u8 gUnk_03003DE4;
 
 extern void sub_0804FF84(u32);
 extern u16 gPaletteBuffer[];
@@ -136,4 +140,129 @@ void DisableInterruptsAndDMA(void) {
 void DoSoftReset(void) {
     DisableInterruptsAndDMA();
     SoftReset(RESET_ALL & ~(RESET_EWRAM | RESET_SIO_REGS));
+}
+
+const int sDefaultSettings[] = { SIGNATURE, '\1\1\1\0', 'KNIL', '\0\0\0\0' };
+
+// single misplaced ldr
+NONMATCH("asm/non_matching/sub_080560B8.inc", void sub_080560B8(void)) {
+    u32 temp;
+    u32 b;
+
+    if (!sub_08056134()) {
+        switch ((s32)sub_0807CF30((void*)0x2000000)) {
+            case 1:
+                if (sub_08056134())
+                    break;
+            case 0:
+            case -1:
+            default:
+                _DmaCopy(&sDefaultSettings, (void*)0x2000000, 16);
+                sub_0807CF10((u8*)0x2000000);
+                break;
+        }
+    }
+
+    temp = gUnk_02000010.signature ^ SIGNATURE;
+    b = BOOLCAST(temp);
+
+    if ((gUnk_02000010.field_0x4 != 0) && (gUnk_02000010.field_0x4 != 0xc1)) {
+        b = 1;
+    }
+    if (b != 0) {
+        _DmaZero((u8*)&gUnk_02000010.signature, 0x20);
+        gUnk_02000010.signature = SIGNATURE;
+    }
+}
+END_NONMATCH
+
+u32 sub_08056134(void) {
+    if ((gUnk_02000000->signature != SIGNATURE) || (gUnk_02000000->saveFileId >= MAX_SAVE_FILES) ||
+        (gUnk_02000000->messageSpeed >= MAX_MSG_SPEED) || (gUnk_02000000->brightnessPref >= MAX_BRIGHTNESS) ||
+        (gUnk_02000000->gameLanguage != GAME_LANGUAGE) || (gUnk_02000000->_e != 0))
+        return FALSE;
+
+    return TRUE;
+}
+
+void sub_0805616C() {
+    PlaySFX(0x80040000);
+    gScreen._6d = gScreen._6c;
+    gScreen._6c = 0;
+
+    DmaStop(0);
+
+    DmaWait(0);
+    DmaWait(1);
+    DmaWait(2);
+    DmaWait(3);
+}
+
+void sub_08056208() {
+    PlaySFX(0x80060000);
+    gScreen._6c = gScreen._6d;
+    gScreen._6d = 0;
+}
+
+void sub_0805622C(u32 a1, u32 a2, u32 a3) {
+    gScreen._70 = a1;
+    gScreen._74 = a2;
+    gScreen._78 = a3;
+    gScreen._6c = 1;
+    gUnk_03003DE4 ^= 1;
+}
+
+void sub_08056250() {
+    gScreen._6c = 0;
+}
+
+void sub_08056260(void) {
+    u32 temp;
+    Main* temp2;
+
+    REG_DISPCNT = 0x80;
+    REG_KEYCNT = 0x8304;
+    REG_IME = 0;
+    temp = REG_IE;
+    REG_IE = 0x3000;
+    REG_IME = 1;
+    Stop();
+    REG_IME = 0;
+    REG_IE = temp;
+    REG_IME = 1;
+    temp2 = &gUnk_03001000;
+    asm("ldrb    r1, [r0, #0x1]");
+    temp2->field_0x1 = 0;
+}
+
+// Convert in-game AABB to screen coordinates and check if it's within the viewport
+u32 sub_080562CC(u32 x0, u32 y0, u32 x1, u32 y1) {
+    u32 result;
+    u32 x = ((gRoomControls.roomScrollX - gRoomControls.roomOriginX) - x0 + DISPLAY_WIDTH);
+    u32 y = ((gRoomControls.roomScrollY - gRoomControls.roomOriginY) - y0 + DISPLAY_HEIGHT);
+    u32 a = x1 + DISPLAY_WIDTH;
+    u32 b = y1 + DISPLAY_HEIGHT;
+    if ((x < a) && (y < b))
+        result = TRUE;
+    else
+        result = FALSE;
+    return result;
+}
+
+// Iterate over array of AABBs and check if any fit on screen
+u16 sub_08056300(u16* arr) {
+    u16* i;
+    for (i = arr; *i != 0xff; i += 5) {
+        if (sub_080562CC(i[1], i[2], i[3], i[4]) != 0)
+            return *i;
+    }
+    return 0xff;
+}
+
+void NulledItem() {
+    DeleteThisEntity();
+}
+
+void sub_08056330() {
+    DeleteThisEntity();
 }

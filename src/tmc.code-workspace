@@ -1,7 +1,9 @@
 {
     "folders" : [ { "path" : ".." } ], "settings" : {
         "files.associations" : {
-            "algorithm" : "cpp", "ios" : "c"
+            "algorithm": "cpp",
+            "ios": "c",
+            "functions.h": "c"
         }
     }
 }

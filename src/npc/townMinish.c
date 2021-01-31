@@ -299,7 +299,7 @@ void sub_0806B098(Entity* this) {
         idx = 1;
         if (CheckGlobalFlag(0x29)) {
             f = CheckGlobalFlag(0x2a);
-            idx = (-f | f) >> 0x1f;
+            idx = BOOLCAST(f);
         }
     }
     TextboxNoOverlap(gUnk_08112C50[(this->entityType.parameter - 7) * 3 + idx], this);

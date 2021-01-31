@@ -465,8 +465,7 @@ SECTIONS {
         src/code_0805436C.o(.text);
         asm/code_0805436C.o(.text);
         src/sub_08055E08.o(.text);
-        src/mainLoop.o(.text);
-        asm/code_08055FF4.o(.text);
+        src/main.o(.text);
         src/textbox.o(.text);
         asm/code_08056418.o(.text);
         src/manager/manager1.o(.text);
@@ -993,8 +992,7 @@ SECTIONS {
         data/data_080D3D94.o(.rodata);
         data/entity_headers.o(.rodata);
         data/data_080D5360.o(.rodata);
-        src/mainLoop.o(.rodata);
-        data/data_08100CD4.o(.rodata);
+        src/main.o(.rodata);
         data/tileset_headers.o(.rodata);
         data/metatile_headers.o(.rodata);
         data/map_headers.o(.rodata);

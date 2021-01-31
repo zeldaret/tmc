@@ -154,7 +154,7 @@ void sub_080601D4(Entity* this) {
         uVar2 = 2;
     } else {
         temp = CheckKinstoneFused(0x17);
-        uVar2 = (-temp | temp) >> 0x1f;
+        uVar2 = BOOLCAST(temp);
     }
     TextboxNoOverlap(gUnk_0810A354[uVar2], this);
 }
@@ -169,7 +169,7 @@ void sub_0806021C(Entity* this) {
 
     // jabber nut
     uVar1 = GetInventoryValue(0x5B);
-    uVar2 = (-uVar1 | uVar1) >> 0x1f;
+    uVar2 = BOOLCAST(uVar1);
 
     // earth element
     if (GetInventoryValue(0x40)) {

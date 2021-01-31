@@ -47,6 +47,7 @@
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) >= (b) ? (a) : (b))
 
+#define BOOLCAST(x) ((-x | x) >> 31)
 #define static_assert(cond) extern char assertion[(cond) ? 1 : -1]
 
 #if NON_MATCHING

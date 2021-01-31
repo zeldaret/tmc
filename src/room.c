@@ -4489,7 +4489,7 @@ void sub_0804E3C4() {
     u32 index;
     u32 tmp;
     tmp = CheckGlobalFlag(LV4_CLEAR);
-    index = (-tmp | tmp) >> 0x1F;
+    index = BOOLCAST(tmp);
     if (CheckGlobalFlag(LV5_CLEAR)) {
         index = 2;
     }

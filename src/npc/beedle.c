@@ -159,5 +159,5 @@ void sub_08063504(Entity* this, u32* param_2) {
     u32 uVar1;
 
     uVar1 = sub_080544DC(gUnk_0810C88C[this->entityType.parameter]);
-    param_2[5] = (-uVar1 | uVar1) >> 0x1F;
+    param_2[5] = BOOLCAST(uVar1);
 }

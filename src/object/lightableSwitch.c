@@ -59,7 +59,7 @@ void sub_0809EABC(Entity* this) {
     u32 f;
 
     f = CheckFlags(this->field_0x86.HWORD);
-    anySet = (-f | f) >> 0x1F;
+    anySet = BOOLCAST(f);
     if (this->frameIndex != anySet) {
         this->frameIndex = anySet;
     }
