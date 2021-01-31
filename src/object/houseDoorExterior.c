@@ -26,7 +26,6 @@ static u8 sub_08086954(Entity*);
 
 extern u32 sub_080562CC(u32, u32, u32, u32);
 extern void sub_08078AC0(u32, u32, u32);
-extern void* GetCurrentRoomProperty(u8);
 
 extern void (*const gUnk_081206B4[])(Entity*);
 extern BoundingBox gUnk_081206AC; // TODO: should be const

@@ -83,7 +83,6 @@ void ManagerB_WaitForDone(ManagerB* this) {
 ManagerBHelper* CreateHelper(Manager*);
 void ManagerBHelper_Monitor(ManagerBHelper*, Entity*, u32);
 
-extern EntityData* GetCurrentRoomProperty(u8);
 extern Entity* LoadRoomEntity(EntityData*);
 
 void ManagerB_LoadFight(Manager* this) {

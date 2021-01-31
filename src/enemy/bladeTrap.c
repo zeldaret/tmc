@@ -4,7 +4,6 @@
 extern void sub_080A2CC0();
 extern void sub_0806F69C();
 extern void EnqueueSFX();
-extern Entity* GetCurrentRoomProperty();
 
 void BladeTrap(Entity* ent) {
     u16 uVar1;

@@ -507,9 +507,9 @@ SECTIONS {
         asm/manager23.o(.text);
         asm/manager24.o(.text);
         asm/manager25.o(.text);
-        asm/manager26.o(.text);
+        src/manager/manager26.o(.text);
         src/manager/manager27.o(.text);
-        asm/manager28.o(.text);
+        src/manager/manager28.o(.text);
         asm/manager29.o(.text);
         asm/manager2A.o(.text);
         asm/manager2B.o(.text);
@@ -1007,6 +1007,10 @@ SECTIONS {
         data/data_08108308.o(.rodata);
 	src/manager/manager1E.o(.rodata);
         data/data_08108C94.o(.rodata);
+        src/manager/manager26.o(.rodata);
+        src/manager/manager27.o(.rodata);
+        src/manager/manager28.o(.rodata);
+        data/data_08108D30.o(.rodata);
         src/item.o(.rodata);
         data/data_0811BD44.o(.rodata);
         data/room_headers.o(.rodata);

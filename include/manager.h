@@ -124,4 +124,13 @@ extern struct {
 
 extern DiggingCaveEntrance* gUnk_08107DC0[];
 
+typedef struct {
+    u8 unk_00;
+    u8 unk_01;
+    u8 unk_02;
+    u8 unk_03;
+    u16 unk_04;
+    u16 unk_06;
+} UnkManager26HelperStruct;
+
 #endif
