@@ -23,6 +23,13 @@ enum {
     SCREEN_DEBUG_TEXT,
 };
 
+#define GAME_LANGUAGE       GAME_LANGUAGE_EN
+#define SIGNATURE           'MCZ3'
+#define GAME_LANGUAGE_EN    1
+#define MAX_MSG_SPEED       3
+#define MAX_SAVE_FILES      3
+#define MAX_BRIGHTNESS      3
+
 typedef struct {
     u8 interruptFlag;
     u8 field_0x1;

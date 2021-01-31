@@ -114,7 +114,7 @@ u32 sub_080696BC(Entity* this) {
     }
 
     temp = CheckGlobalFlag(0x3e);
-    uVar1 = (-temp | temp) >> 0x1f;
+    uVar1 = BOOLCAST(temp);
 
     if (CheckGlobalFlag(0x3f)) {
         uVar1 = 2;

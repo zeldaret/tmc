@@ -6,12 +6,16 @@
 #include "player.h"
 
 typedef struct {
-    char header[4];
+    int signature;
     u8 saveFileId;
     u8 messageSpeed;
     u8 brightnessPref;
     u8 gameLanguage;
+    u8 _8[6];
+    u8 _e;
 } struct_02000000;
+#define gUnk_02000000 ((struct_02000000*)(0x2000000))
+// extern struct_02000000 gUnk_02000000;
 
 typedef struct {
     u8 unk_00;
@@ -30,11 +34,8 @@ typedef struct {
     u16 field_0xa;
 } struct_0807D1C4;
 
-#define gUnk_02000000 ((struct_02000000*)(0x2000000))
-// extern struct_02000000 gUnk_02000000;
-
 typedef struct {
-    u8 filler0[0x4];
+    s32 signature;
     u8 field_0x4;
     u8 listenForKeyPresses;
 } struct_02000010;

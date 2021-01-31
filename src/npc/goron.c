@@ -64,7 +64,7 @@ void sub_080693D0(Entity* this) {
     sub_0807DD94(this, 0);
     if (this->animIndex == 8) {
         u32 var0 = this->field_0x82.HWORD & 0xF;
-        bool32 createFx65 = ((-var0) | var0) >> 0x1F; // = !var0
+        bool32 createFx65 = BOOLCAST(var0); // = !var0
 
         if (this->frames.all == 1) {
             this->frames.all = 0;

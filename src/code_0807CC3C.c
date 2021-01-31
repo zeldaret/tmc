@@ -42,7 +42,7 @@ u32 sub_0807CDE8(u32 arg0) {
                 temp = 1;
                 break;
             case 2:
-                temp = sub_0807CF10((u8*)gUnk_02000000->header);
+                temp = sub_0807CF10((u8*)&gUnk_02000000->signature);
                 break;
         }
         gMenu.field_0xa = temp;

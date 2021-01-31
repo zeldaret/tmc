@@ -2,6 +2,7 @@
 #include "room.h"
 #include "entity.h"
 #include "textbox.h"
+#include "structures.h"
 
 void _DmaZero();
 void ShowTextbox();
@@ -10,31 +11,31 @@ void TextboxAtPosition();
 extern u32 gUnk_02022780;
 extern u32 gUnk_02036A40;
 extern u32 gUnk_02036A38;
-extern u32 gUnk_02000040;
 
-void sub_08056360(void)
+s32 sub_08056338(void) {
+    s32 result;
 
-{
-    if ((gTextBox.doTextBox & 127) != 0) {
-        gTextBox.doTextBox = 136;
-    }
-    return;
+    result = -1;
+    if (((gTextBox.doTextBox & 0x7f) == 0) && (gUnk_02000040.unk_00 == 3))
+        result = gUnk_02000040.unk_01;
+    return result;
 }
 
-void TextboxNoOverlapFollow(u32 index)
+void sub_08056360(void) {
+    if ((gTextBox.doTextBox & 0x7f) != 0) {
+        gTextBox.doTextBox = 0x80 | 0x8;
+    }
+}
 
-{
+void TextboxNoOverlapFollow(u32 index) {
     if (gRoomControls.cameraTarget != NULL) {
         TextboxNoOverlap(index, gRoomControls.cameraTarget);
     } else {
         ShowTextbox(index);
     }
-    return;
 }
 
-void TextboxNoOverlap(u32 index, Entity* ent)
-
-{
+void TextboxNoOverlap(u32 index, Entity* ent) {
     s16 y;
     s16 h;
 
@@ -43,22 +44,19 @@ void TextboxNoOverlap(u32 index, Entity* ent)
     y = ent->y.HALF.HI;
     h = ent->height.HALF.HI;
 
-    if (88 < ((y + h) - gRoomControls.roomScrollY)) {
+    if (((y + h) - gRoomControls.roomScrollY) > 0x58) {
         gTextBox.textWindowPosY = 1;
     }
-    return;
 }
 
 void sub_080563C8(u32 param_1, u32 param_2) {
     TextboxAtPosition(param_1, 1, param_2);
-    return;
 }
 
 void TextboxAtPosition(u32 index, u32 x, u32 y) {
     ShowTextbox(index);
     gTextBox.textWindowPosX = x;
     gTextBox.textWindowPosY = y;
-    return;
 }
 
 void ShowTextbox(u32 index, u32 param_2, u32* dest) {
@@ -70,15 +68,12 @@ void ShowTextbox(u32 index, u32 param_2, u32* dest) {
     gTextBox.textWindowPosX = 1;
     gTextBox.textWindowPosY = 12;
     gTextBox.doTextBox = 1;
-    return;
 }
 
 void sub_08056418(void) {
-
     _DmaZero(&gTextBox, 32);
     _DmaZero(&gUnk_02022780, 168);
     _DmaZero(&gUnk_02036A40, 8);
     _DmaZero(&gUnk_02036A38, 8);
     _DmaZero(&gUnk_02000040, 4);
-    return;
 }

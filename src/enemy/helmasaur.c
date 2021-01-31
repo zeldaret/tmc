@@ -337,7 +337,7 @@ bool32 sub_0802C0E8(Entity* this) {
         u32 ret = FALSE;
         if (!sub_0806FC24(TILE(x, y), 9)) {
             u32 tmp = sub_080AE4CC(ent, x, y, 0);
-            ret = (-tmp | tmp) >> 0x1f;
+            ret = BOOLCAST(tmp);
         }
         return ret;
     }
