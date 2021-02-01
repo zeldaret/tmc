@@ -12,7 +12,6 @@ extern void sub_0804FF84(u32);
 extern u16 gPaletteBuffer[];
 extern void VBlankInterruptWait(void);
 extern void DisableInterruptsAndDMA(void);
-extern void _DmaCopy(void*, u8*, int);
 extern void sub_08016B34(void);
 
 static void sub_08055F70(void);

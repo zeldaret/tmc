@@ -3,7 +3,9 @@
         "files.associations" : {
             "algorithm": "cpp",
             "ios": "c",
-            "functions.h": "c"
+            "functions.h": "c",
+            "textbox.h": "c",
+            "structures.h": "c"
         }
     }
 }
