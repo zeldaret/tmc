@@ -47,7 +47,6 @@ static void sub_08050624(u32);
 static void sub_0805066C(void);
 static void sub_080507FC(void);
 
-extern void _DmaCopy(const void* src, void* dest, u32 size);
 extern void sub_08056FEC(u32, struct_020227E8*);
 extern void sub_0805F46C(u32, struct_080FC844*);
 extern void sub_0801C4A0(u32, u32);
