@@ -6,7 +6,9 @@
 
 typedef struct {
     Manager manager;
-    Entity* enemies[8];
+    struct {
+        Entity* enemies[8];
+    } d;
 } Manager28;
 
 void Manager28_Entry(Manager28*);
@@ -35,12 +37,12 @@ void Manager28_Entry(Manager28* this) {
     Manager28_ActionFuncs[this->manager.action](this);
 }
 
-NONMATCH("asm/non_matching/manager28/Manager28_Init.inc", void Manager28_Init(Manager28* this)) {
+void Manager28_Init(Manager28* this) {
     if (this->manager.unk_0a == DoInit) {
         s32 tmp2;
         int tmp4;
         for (tmp4 = 0; tmp4 < 8; tmp4++) {
-            this->enemies[tmp4] = 0;
+            this->d.enemies[tmp4] = 0;
         }
         tmp2 = Manager28_FindMatchingEntities(this);
         if (tmp2 > 1) {
@@ -50,9 +52,10 @@ NONMATCH("asm/non_matching/manager28/Manager28_Init.inc", void Manager28_Init(Ma
                 tmp3->manager.subtype = 0x28;
                 tmp3->manager.unk_0a = DoNotInit;
                 tmp3->manager.unk_0e = tmp2;
-                for (tmp4 = 0; tmp4 < 8; tmp4++) {
-                    tmp3->enemies[tmp4] = this->enemies[tmp4];
-                }
+                /* for (tmp4 = 0; tmp4 < 8; tmp4++) { */
+                /*     tmp3->enemies[tmp4] = this->enemies[tmp4]; */
+                /* } */
+                tmp3->d = this->d;
                 AppendEntityToList(tmp3, 6);
             }
         }
@@ -62,7 +65,6 @@ NONMATCH("asm/non_matching/manager28/Manager28_Init.inc", void Manager28_Init(Ma
         this->manager.unk_0f = 0;
     }
 }
-END_NONMATCH
 
 void Manager28_Main(Manager28* this) {
     s32 n;
@@ -73,16 +75,16 @@ void Manager28_Main(Manager28* this) {
     n = this->manager.unk_0e - 1;
     if ((this->manager.unk_0f++) & 1) {
         for (i = 0; i < n; i++) {
-            tmp = this->enemies[i];
+            tmp = this->d.enemies[i];
             for (j = i + 1; j < this->manager.unk_0e; j++) {
-                sub_08004484(tmp, this->enemies[j]);
+                sub_08004484(tmp, this->d.enemies[j]);
             }
         }
     } else {
         for (i = 0; i < n; i++) {
-            tmp = this->enemies[i];
+            tmp = this->d.enemies[i];
             for (j = i + 1; j < this->manager.unk_0e; j++) {
-                sub_08004484(this->enemies[j], tmp);
+                sub_08004484(this->d.enemies[j], tmp);
             }
         }
     }
@@ -99,10 +101,10 @@ u32 Manager28_FindMatchingEntities(Manager28* this) {
         tmp2 = Manager28_FindMatchingEntity(tmp);
         if (!tmp2) continue;
         for (i = 0; i < re; i++) {
-            if (this->enemies[i] == tmp2) break;
+            if (this->d.enemies[i] == tmp2) break;
         }
         if (i != re) continue;
-        this->enemies[re++] = tmp2;
+        this->d.enemies[re++] = tmp2;
         if (re == 8) return 8;
     }
     return re;
@@ -130,11 +132,11 @@ Entity* Manager28_FindMatchingEntity(EntityData* unk1) {
 void Manager28_RemoveDeletedEntities(Manager28* this) {
     s32 i;
     for (i = 0; i < this->manager.unk_0e; i++) {
-        if (this->enemies[i]->next == 0) {
+        if (this->d.enemies[i]->next == 0) {
             if (this->manager.unk_0e-1 == i) {
-                this->enemies[i] = 0;
+                this->d.enemies[i] = 0;
             } else {
-                this->enemies[i] = this->enemies[this->manager.unk_0e-1];
+                this->d.enemies[i] = this->d.enemies[this->manager.unk_0e-1];
             }
             this->manager.unk_0e--;
         }
