@@ -18,8 +18,29 @@ typedef struct {
 } MenuControls;
 
 typedef struct {
+    u8 key;
+    u8 value;
+} KeySetting;
+
+typedef struct {
+    u8 aButtonX;
+    u8 aButtonY;
+    u8 aButtonText;
+    u8 bButtonX;
+    u8 bButtonY;
+    u8 bButtonText;
+    u8 rButtonX;
+    u8 rButtonY;
+    u8 rButtonText;
+    KeySetting settingDict[0];
+    u8 eof;
+} PACKED KeyButtonLayout;
+
+extern void sub_080A70AC(const KeyButtonLayout*);
+
+typedef struct {
     u8 field_0x0;
-    u8 field_0x1;
+    u8 column_idx;
     u8 field_0x2;
     u8 field_0x3;
     u8 field_0x4;

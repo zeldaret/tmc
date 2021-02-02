@@ -359,7 +359,7 @@ sub_08019698: @ 0x08019698
 _08019700:
 	movs r0, #0x11
 	bl LoadGfxGroup
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_080AD9B0
 	bl sub_080AD918
 	movs r0, #4
@@ -402,7 +402,7 @@ _08019760: .4byte gUnk_02018EB0
 	thumb_func_start sub_08019764
 sub_08019764: @ 0x08019764
 	push {lr}
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_0805E5C0
 	bl sub_080AD9B0
 	bl sub_080AD918

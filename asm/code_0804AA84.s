@@ -120,7 +120,7 @@ _0804AC5E:
 	strh r0, [r2, #0x16]
 	ldrh r0, [r1, #0xc]
 	strh r0, [r2, #0x18]
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_080AD9B0
 	bl sub_080AD918
 	ldr r0, _0804AC98 @ =gUnk_02018EB0

@@ -114,14 +114,15 @@ typedef struct {
 } ScreenTransitionData;
 
 typedef struct {
-    /*0x00*/ u8 unk0;
+    /*0x00*/ u8 isTransitioning;
     /*0x01*/ u8 unk1;
     /*0x02*/ u8 unk2;
     /*0x03*/ u8 unk3;
     /*0x04*/ u8 filler4[0x2];
     /*0x06*/ u8 unk6;
     /*0x07*/ u8 unk7;
-    /*0x08*/ s8 unk8[0xE20];
+    /*0x08*/ s8 saveStatus[3];
+    /*0x0b*/ u8 unkB[0xE1D];
 } struct_02019EE0;
 
 extern struct_02019EE0 gUnk_02019EE0;
@@ -147,9 +148,9 @@ extern struct_03000FD0 gFadeControl;
 
 typedef struct {
     u8 filler0[0x1A];
-    u16 unk1A;
+    u16 rButtonX;
     u8 filler1C[0x4];
-    u16 unk20;
+    u16 rButtonY;
     u8 filler22[0x2];
     u8 ezloNagFuncIndex;
     u8 filler25[0x30F];
@@ -200,6 +201,7 @@ typedef struct {
 } BGBuffer;
 extern BGBuffer gBG0Buffer;
 extern BGBuffer gBG1Buffer;
+extern BGBuffer gBG2Buffer;
 static_assert(sizeof(BGBuffer) == 0x800);
 
 /*

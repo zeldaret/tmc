@@ -586,7 +586,7 @@ sub_080A38D0: @ 0x080A38D0
 	mov r8, r0
 	movs r5, #1
 	strh r5, [r4, #0x1a]
-	ldr r0, _080A3928 @ =gUnk_020344B0
+	ldr r0, _080A3928 @ =gBG2Buffer
 	adds r1, r6, #0
 	bl _DmaZero
 	strh r5, [r4, #0x26]
@@ -608,7 +608,7 @@ _080A3914:
 _080A391C: .4byte gFadeControl
 _080A3920: .4byte gBG1Buffer
 _080A3924: .4byte gScreen
-_080A3928: .4byte gUnk_020344B0
+_080A3928: .4byte gBG2Buffer
 _080A392C: .4byte gMenu
 
 	thumb_func_start sub_080A3930

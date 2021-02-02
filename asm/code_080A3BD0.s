@@ -1207,7 +1207,7 @@ _080A45A2:
 	thumb_func_start sub_080A45A4
 sub_080A45A4: @ 0x080A45A4
 	push {lr}
-	bl sub_080AD90C
+	bl FlushSprites
 	ldr r0, _080A45C4 @ =gUnk_02032EC0
 	ldrb r0, [r0, #3]
 	cmp r0, #0xff
@@ -2249,7 +2249,7 @@ sub_080A4DB8: @ 0x080A4DB8
 	ldr r0, _080A4E5C @ =gBG1Buffer
 	adds r1, r4, #0
 	bl _DmaZero
-	ldr r0, _080A4E60 @ =gUnk_020344B0
+	ldr r0, _080A4E60 @ =gBG2Buffer
 	adds r1, r4, #0
 	bl _DmaZero
 	ldr r0, _080A4E64 @ =gUnk_0200AF34
@@ -2314,7 +2314,7 @@ _080A4E54:
 	.align 2, 0
 _080A4E58: .4byte gBG0Buffer
 _080A4E5C: .4byte gBG1Buffer
-_080A4E60: .4byte gUnk_020344B0
+_080A4E60: .4byte gBG2Buffer
 _080A4E64: .4byte gUnk_0200AF34
 _080A4E68: .4byte gMenu
 _080A4E6C: .4byte 0x0000FFFF
@@ -2357,7 +2357,7 @@ sub_080A4EA0: @ 0x080A4EA0
 	.align 2, 0
 _080A4EB8: .4byte gUnk_02034490
 _080A4EBC:
-	bl sub_080AD90C
+	bl FlushSprites
 	ldr r1, _080A4F18 @ =gUnk_08128B30
 	ldrb r0, [r4, #0x11]
 	lsls r0, r0, #2

@@ -1980,7 +1980,7 @@ _080A64F8: .4byte 0x00003D3F
 	thumb_func_start sub_080A64FC
 sub_080A64FC: @ 0x080A64FC
 	push {r4, lr}
-	bl sub_080AD90C
+	bl FlushSprites
 	ldr r1, _080A652C @ =gUnk_08128E70
 	ldr r4, _080A6530 @ =gMenu
 	ldrb r0, [r4, #5]
@@ -2710,7 +2710,7 @@ _080A6AB6:
 	thumb_func_start sub_080A6AB8
 sub_080A6AB8: @ 0x080A6AB8
 	push {r4, lr}
-	bl sub_080AD90C
+	bl FlushSprites
 	ldr r1, _080A6AF4 @ =gUnk_08128F1C
 	ldr r4, _080A6AF8 @ =gMenu
 	ldrb r0, [r4, #5]
@@ -2912,7 +2912,7 @@ _080A6C70: .4byte gMenu
 	thumb_func_start sub_080A6C74
 sub_080A6C74: @ 0x080A6C74
 	push {r4, lr}
-	bl sub_080AD90C
+	bl FlushSprites
 	ldr r1, _080A6CA0 @ =gUnk_08128F24
 	ldr r4, _080A6CA4 @ =gMenu
 	ldrb r0, [r4, #5]
@@ -3955,7 +3955,7 @@ sub_080A74F4: @ 0x080A74F4
 	ldr r1, _080A7524 @ =gUnk_03001000
 	movs r0, #0
 	strb r0, [r1, #0xb]
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_0805E5C0
 	bl sub_0805E5F8
 	bl sub_0801C344

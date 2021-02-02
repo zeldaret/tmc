@@ -1574,7 +1574,7 @@ sub_08053320: @ 0x08053320
 	ldr r0, _08053380 @ =gBG1Buffer
 	adds r1, r4, #0
 	bl _DmaZero
-	ldr r0, _08053384 @ =gUnk_020344B0
+	ldr r0, _08053384 @ =gBG2Buffer
 	adds r1, r4, #0
 	bl _DmaZero
 	ldr r0, _08053388 @ =gBG3Buffer
@@ -1604,7 +1604,7 @@ _08053362:
 	.align 2, 0
 _0805337C: .4byte gBG0Buffer
 _08053380: .4byte gBG1Buffer
-_08053384: .4byte gUnk_020344B0
+_08053384: .4byte gBG2Buffer
 _08053388: .4byte gBG3Buffer
 _0805338C: .4byte gRoomControls
 

@@ -38,7 +38,7 @@ MID_BUILDDIR = $(OBJ_DIR)/$(MID_SUBDIR)
 ASFLAGS := -mcpu=arm7tdmi --defsym $(GAME_VERSION)=1 --defsym REVISION=$(REVISION) --defsym $(GAME_LANGUAGE)=1
 
 CC1             := tools/agbcc/bin/agbcc
-override CFLAGS += -Wimplicit -Wparentheses -Werror -Wno-multichar -O2
+override CFLAGS += -O2 -Wimplicit -Wparentheses -Werror -Wno-multichar
 # -fhex-asm
 
 ifeq ($(DINFO),1)

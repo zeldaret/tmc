@@ -57,7 +57,7 @@ sub_080548E8: @ 0x080548E8
 	adds r0, r0, r1
 	ldr r0, [r0]
 	bl _call_via_r0
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_0805E5C0
 	bl sub_080AD9B0
 	bl sub_080AD918

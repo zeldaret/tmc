@@ -5,7 +5,14 @@
             "ios": "c",
             "functions.h": "c",
             "textbox.h": "c",
-            "structures.h": "c"
+            "structures.h": "c",
+            "fileselect.h": "c",
+            "menu.h": "c",
+            "save.h": "c",
+            "main.h": "c",
+            "object.h": "c",
+            "filescreen.h": "c",
+            "screen.h": "c"
         }
     }
 }

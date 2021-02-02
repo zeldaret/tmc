@@ -4,15 +4,6 @@
 	.section .rodata
 	.align 2
 
-gUnk_08107BC8:: @ 08107BC8
-	.incbin "baserom.gba", 0x107BC8, 0x0000018
-
-gUnk_08107BE0:: @ 08107BE0
-	.incbin "baserom.gba", 0x107BE0, 0x0000014
-
-gUnk_08107BF4:: @ 08107BF4
-	.incbin "baserom.gba", 0x107BF4, 0x0000018
-
 gUnk_08107C0C:: @ 08107C0C
 	.incbin "baserom.gba", 0x107C0C, 0x0000003
 

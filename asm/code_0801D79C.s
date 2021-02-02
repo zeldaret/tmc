@@ -378,7 +378,7 @@ sub_0801DB34: @ 0x0801DB34
 	str r0, [r4, #0x1c]
 	ldr r0, _0801DB7C @ =0x00001C01
 	strh r0, [r4, #0x14]
-	ldr r0, _0801DB80 @ =gUnk_020344B0
+	ldr r0, _0801DB80 @ =gBG2Buffer
 	str r0, [r4, #0x28]
 	ldr r0, _0801DB84 @ =0x00001D02
 	strh r0, [r4, #0x20]
@@ -398,7 +398,7 @@ _0801DB70: .4byte gBG0Buffer
 _0801DB74: .4byte 0x00001F0C
 _0801DB78: .4byte gBG1Buffer
 _0801DB7C: .4byte 0x00001C01
-_0801DB80: .4byte gUnk_020344B0
+_0801DB80: .4byte gBG2Buffer
 _0801DB84: .4byte 0x00001D02
 _0801DB88: .4byte gBG3Buffer
 _0801DB8C: .4byte 0x00001E03

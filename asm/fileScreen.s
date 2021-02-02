@@ -5,428 +5,8 @@
 
 	.text
 
-	thumb_func_start sub_08050B3C
-sub_08050B3C: @ 0x08050B3C
-	push {r4, r5, r6, r7, lr}
-	mov r7, sl
-	mov r6, sb
-	mov r5, r8
-	push {r5, r6, r7}
-	sub sp, #8
-	str r0, [sp]
-	ldr r1, _08050C18 @ =gUnk_02002A40
-	adds r0, r1, #0
-	adds r0, #0xaa
-	ldrb r0, [r0]
-	lsrs r2, r0, #1
-	cmp r2, #0
-	bne _08050B5A
-	movs r2, #1
-_08050B5A:
-	adds r0, r1, #0
-	adds r0, #0xab
-	ldrb r0, [r0]
-	lsrs r3, r0, #1
-	cmp r3, #0
-	beq RETURN
-	cmp r2, r3
-	ble _08050B6C
-	adds r2, r3, #0
-_08050B6C:
-	movs r0, #3
-	ands r0, r2
-	str r0, [sp, #4]
-	adds r0, r2, #0
-	asrs r5, r0, #2
-	mov ip, r5
-	cmp r5, #0xa
-	ble _08050B80
-	movs r2, #0xa
-	mov ip, r2
-_08050B80:
-	adds r6, r5, #0
-	subs r6, #0xa
-	mov sb, r6
-	cmp r6, #0
-	bge _08050B8E
-	movs r7, #0
-	mov sb, r7
-_08050B8E:
-	adds r0, r3, #0
-	asrs r3, r0, #2
-	adds r0, r3, #0
-	cmp r3, #0xa
-	ble _08050B9A
-	movs r3, #0xa
-_08050B9A:
-	adds r4, r0, #0
-	subs r4, #0xa
-	ldr r2, [sp]
-	ldr r0, _08050C1C @ =0x0000F24C
-	mov sl, r0
-	strh r0, [r2]
-	ldr r1, _08050C20 @ =0x040000D4
-	movs r7, #0xa
-	mov r8, r7
-	mov r0, r8
-	mov r7, ip        @ var5
-	subs r0, r0, r7   @ 10 - var5
-	lsls r0, r0, #1
-	ldr r7, _08050C24 @ =gUnk_080FC914
-	mov ip, r7
-	add r0, ip
-	str r0, [r1]
-	adds r0, r2, #2
-	str r0, [r1, #4]
-	movs r0, #0x80
-	lsls r0, r0, #0x18
-	orrs r3, r0
-	str r3, [r1, #8]
-	ldr r0, [r1, #8]
-	cmp r4, #0
-	ble _08050BEE
-	adds r2, #0x40
-	mov r3, sl
-	strh r3, [r2]
-	mov r7, r8
-	mov r3, sb
-	subs r0, r7, r3
-	lsls r0, r0, #1
-	add r0, ip
-	str r0, [r1]
-	adds r0, r2, #2
-	str r0, [r1, #4]
-	movs r7, #0x80
-	lsls r7, r7, #0x18
-	orrs r4, r7
-	str r4, [r1, #8]
-	ldr r0, [r1, #8]
-_08050BEE:
-	ldr r0, [sp, #4]
-	cmp r0, #0
-	beq RETURN
-	ldr r2, [sp]
-	cmp r5, #9
-	ble _08050BFE
-	adds r5, r6, #0
-	adds r2, #0x40
-_08050BFE:
-	lsls r0, r5, #1
-	adds r0, r0, r2
-	ldr r2, [sp, #4]
-	ldr r3, _08050C28 @ =0xFFFFF24D
-	adds r1, r2, r3
-	strh r1, [r0, #2]
-RETURN:
-	add sp, #8
-	pop {r3, r4, r5}
-	mov r8, r3
-	mov sb, r4
-	mov sl, r5
-	pop {r4, r5, r6, r7, pc}
-	.align 2, 0
-_08050C18: .4byte gUnk_02002A40
-_08050C1C: .4byte 0x0000F24C
-_08050C20: .4byte 0x040000D4
-_08050C24: .4byte gUnk_080FC914
-_08050C28: .4byte 0xFFFFF24D
-
-	thumb_func_start sub_08050C2C
-sub_08050C2C: @ 0x08050C2C
-	push {lr}
-	ldr r1, _08050C48 @ =gUnk_080FC93C
-	ldr r0, _08050C4C @ =gMenu
-	ldrb r0, [r0, #5]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r0, [r0]
-	bl _call_via_r0
-	ldr r0, _08050C50 @ =gUnk_02019EE0
-	ldrb r0, [r0, #6]
-	bl sub_08050A64
-	pop {pc}
-	.align 2, 0
-_08050C48: .4byte gUnk_080FC93C
-_08050C4C: .4byte gMenu
-_08050C50: .4byte gUnk_02019EE0
-
-	thumb_func_start sub_08050C54
-sub_08050C54: @ 0x08050C54
-	push {r4, lr}
-	ldr r0, _08050C78 @ =gUnk_02019EE0
-	ldrb r0, [r0]
-	cmp r0, #0
-	beq _08050C60
-	b _08050D60
-_08050C60:
-	ldr r0, _08050C7C @ =gMenu
-	ldrb r4, [r0, #1]
-	ldr r0, _08050C80 @ =gUnk_03000FF0
-	ldrh r0, [r0, #2]
-	subs r0, #1
-	cmp r0, #0x1f
-	bhi _08050D44
-	lsls r0, r0, #2
-	ldr r1, _08050C84 @ =_08050C88
-	adds r0, r0, r1
-	ldr r0, [r0]
-	mov pc, r0
-	.align 2, 0
-_08050C78: .4byte gUnk_02019EE0
-_08050C7C: .4byte gMenu
-_08050C80: .4byte gUnk_03000FF0
-_08050C84: .4byte _08050C88
-_08050C88: @ jump table
-	.4byte _08050D08 @ case 0
-	.4byte _08050D30 @ case 1
-	.4byte _08050D44 @ case 2
-	.4byte _08050D44 @ case 3
-	.4byte _08050D44 @ case 4
-	.4byte _08050D44 @ case 5
-	.4byte _08050D44 @ case 6
-	.4byte _08050D08 @ case 7
-	.4byte _08050D44 @ case 8
-	.4byte _08050D44 @ case 9
-	.4byte _08050D44 @ case 10
-	.4byte _08050D44 @ case 11
-	.4byte _08050D44 @ case 12
-	.4byte _08050D44 @ case 13
-	.4byte _08050D44 @ case 14
-	.4byte _08050D42 @ case 15
-	.4byte _08050D44 @ case 16
-	.4byte _08050D44 @ case 17
-	.4byte _08050D44 @ case 18
-	.4byte _08050D44 @ case 19
-	.4byte _08050D44 @ case 20
-	.4byte _08050D44 @ case 21
-	.4byte _08050D44 @ case 22
-	.4byte _08050D44 @ case 23
-	.4byte _08050D44 @ case 24
-	.4byte _08050D44 @ case 25
-	.4byte _08050D44 @ case 26
-	.4byte _08050D44 @ case 27
-	.4byte _08050D44 @ case 28
-	.4byte _08050D44 @ case 29
-	.4byte _08050D44 @ case 30
-	.4byte _08050D3E @ case 31
-_08050D08:
-	cmp r4, #0
-	bne _08050D12
-	ldr r0, _08050D28 @ =0x80080000
-	bl PlaySFX
-_08050D12:
-	ldr r1, _08050D2C @ =gMenu
-	movs r0, #0xf
-	strh r0, [r1, #8]
-	movs r0, #1
-	bl sub_080A7114
-	movs r0, #0x6a
-	bl PlaySFX
-	b _08050D44
-	.align 2, 0
-_08050D28: .4byte 0x80080000
-_08050D2C: .4byte gMenu
-_08050D30:
-	movs r0, #0x6c
-	bl PlaySFX
-	movs r0, #0
-	bl sub_080503BC
-	b _08050D44
-_08050D3E:
-	subs r4, #1
-	b _08050D44
-_08050D42:
-	adds r4, #1
-_08050D44:
-	cmp r4, #0
-	bge _08050D4A
-	movs r4, #0
-_08050D4A:
-	cmp r4, #2
-	ble _08050D50
-	movs r4, #2
-_08050D50:
-	ldr r1, _08050D64 @ =gMenu
-	ldrb r0, [r1, #1]
-	cmp r0, r4
-	beq _08050D60
-	strb r4, [r1, #1]
-	movs r0, #0x69
-	bl PlaySFX
-_08050D60:
-	pop {r4, pc}
-	.align 2, 0
-_08050D64: .4byte gMenu
-
-	thumb_func_start sub_08050D68
-sub_08050D68: @ 0x08050D68
-	push {lr}
-	ldr r1, _08050D84 @ =gMenu
-	ldrh r0, [r1, #8]
-	cmp r0, #0
-	bne _08050D94
-	ldrb r0, [r1, #1]
-	cmp r0, #1
-	beq _08050D88
-	cmp r0, #1
-	ble _08050D80
-	cmp r0, #2
-	beq _08050D8C
-_08050D80:
-	movs r0, #7
-	b _08050D8E
-	.align 2, 0
-_08050D84: .4byte gMenu
-_08050D88:
-	movs r0, #5
-	b _08050D8E
-_08050D8C:
-	movs r0, #6
-_08050D8E:
-	bl sub_080503BC
-	b _08050D98
-_08050D94:
-	subs r0, #1
-	strh r0, [r1, #8]
-_08050D98:
-	pop {pc}
-	.align 2, 0
-
-	thumb_func_start sub_08050D9C
-sub_08050D9C: @ 0x08050D9C
-	push {lr}
-	ldr r1, _08050DB0 @ =gUnk_080FC944
-	ldr r0, _08050DB4 @ =gMenu
-	ldrb r0, [r0, #5]
-	lsls r0, r0, #2
-	adds r0, r0, r1
-	ldr r0, [r0]
-	bl _call_via_r0
-	pop {pc}
-	.align 2, 0
-_08050DB0: .4byte gUnk_080FC944
-_08050DB4: .4byte gMenu
-
-	thumb_func_start sub_08050DB8
-sub_08050DB8: @ 0x08050DB8
-	push {lr}
-	ldr r0, _08050DDC @ =gUnk_020344B0
-	movs r1, #0x80
-	lsls r1, r1, #4
-	bl _DmaZero
-	movs r0, #0xc
-	bl sub_080503A8
-	ldr r1, _08050DE0 @ =gMenu
-	movs r0, #0x80
-	lsls r0, r0, #0x12
-	ldrb r0, [r0, #7]
-	strb r0, [r1, #4]
-	movs r0, #1
-	bl sub_080A7114
-	pop {pc}
-	.align 2, 0
-_08050DDC: .4byte gUnk_020344B0
-_08050DE0: .4byte gMenu
-
-	thumb_func_start sub_08050DE4
-sub_08050DE4: @ 0x08050DE4
-	push {r4, lr}
-	ldr r0, _08050E0C @ =gUnk_02019EE0
-	ldrb r0, [r0]
-	cmp r0, #0
-	bne _08050E80
-	movs r1, #0x80
-	lsls r1, r1, #0x12
-	ldrb r4, [r1, #7]
-	ldr r0, _08050E10 @ =gUnk_03000FF0
-	ldrh r0, [r0, #2]
-	cmp r0, #8
-	beq _08050E26
-	cmp r0, #8
-	bgt _08050E14
-	cmp r0, #1
-	beq _08050E26
-	cmp r0, #2
-	beq _08050E50
-	b _08050E62
-	.align 2, 0
-_08050E0C: .4byte gUnk_02019EE0
-_08050E10: .4byte gUnk_03000FF0
-_08050E14:
-	cmp r0, #0x40
-	beq _08050E1E
-	cmp r0, #0x80
-	beq _08050E22
-	b _08050E62
-_08050E1E:
-	subs r4, #1
-	b _08050E62
-_08050E22:
-	adds r4, #1
-	b _08050E62
-_08050E26:
-	movs r0, #0x6a
-	bl PlaySFX
-	ldr r0, _08050E44 @ =gMenu
-	ldrb r0, [r0, #4]
-	cmp r0, r4
-	beq _08050E48
-	movs r0, #2
-	bl sub_080A7114
-	movs r0, #8
-	movs r1, #0
-	bl sub_08050318
-	b _08050E62
-	.align 2, 0
-_08050E44: .4byte gMenu
-_08050E48:
-	movs r0, #0
-	bl sub_080503BC
-	b _08050E62
-_08050E50:
-	ldr r0, _08050E84 @ =gMenu
-	ldrb r4, [r0, #4]
-	strb r4, [r1, #7]
-	movs r0, #0x6c
-	bl PlaySFX
-	movs r0, #0
-	bl sub_080503BC
-_08050E62:
-	cmp r4, #1
-	bgt _08050E68
-	movs r4, #2
-_08050E68:
-	cmp r4, #6
-	ble _08050E6E
-	movs r4, #6
-_08050E6E:
-	movs r1, #0x80
-	lsls r1, r1, #0x12
-	ldrb r0, [r1, #7]
-	cmp r0, r4
-	beq _08050E80
-	strb r4, [r1, #7]
-	movs r0, #0x69
-	bl PlaySFX
-_08050E80:
-	pop {r4, pc}
-	.align 2, 0
-_08050E84: .4byte gMenu
-
-	thumb_func_start sub_08050E88
-sub_08050E88: @ 0x08050E88
-	push {lr}
-	movs r0, #2
-	bl sub_0807CDA4
-	cmp r0, #0
-	beq _08050E9A
-	movs r0, #0
-	bl sub_080503BC
-_08050E9A:
-	pop {pc}
-
-	thumb_func_start sub_08050E9C
-sub_08050E9C: @ 0x08050E9C
+	thumb_func_start HandleFileOptions
+HandleFileOptions: @ 0x08050E9C
 	push {lr}
 	ldr r1, _08050EB0 @ =gUnk_080FC950
 	ldr r0, _08050EB4 @ =gMenu
@@ -581,7 +161,7 @@ _08050FBA:
 	bl sub_080A7114
 	ldr r0, _08050FCC @ =gUnk_02019EE0
 	ldrb r0, [r0, #6]
-	bl sub_0805041C
+	bl SetActiveSave
 	b _08050FF4
 	.align 2, 0
 _08050FCC: .4byte gUnk_02019EE0
@@ -599,7 +179,7 @@ _08050FE2:
 	beq _08050FF4
 	strb r2, [r4]
 	ldrb r0, [r6, #6]
-	bl sub_080503E4
+	bl LoadOptionsFromSave
 	movs r0, #0x69
 	bl PlaySFX
 _08050FF4:
@@ -669,12 +249,12 @@ _08051060:
 _08051068: .4byte gUnk_03000FF0
 _0805106C:
 	movs r0, #0
-	bl sub_080503BC
+	bl SetFileSelectState
 _08051072:
 	pop {pc}
 
-	thumb_func_start sub_08051074
-sub_08051074: @ 0x08051074
+	thumb_func_start HandleFileNew
+HandleFileNew: @ 0x08051074
 	push {lr}
 	ldr r1, _08051088 @ =gUnk_080FC960
 	ldr r0, _0805108C @ =gMenu
@@ -1189,7 +769,7 @@ _08051448:
 sub_0805144C: @ 0x0805144C
 	push {lr}
 	movs r0, #0
-	bl sub_080503BC
+	bl SetFileSelectState
 	pop {pc}
 	.align 2, 0
 
@@ -1372,8 +952,8 @@ _08051594: .4byte gUnk_02002A40
 _08051598: .4byte gUnk_02019EE0
 _0805159C: .4byte 0x000004B4
 
-	thumb_func_start sub_080515A0
-sub_080515A0: @ 0x080515A0
+	thumb_func_start HandleFileDelete
+HandleFileDelete: @ 0x080515A0
 	push {lr}
 	ldr r1, _080515BC @ =gUnk_080FC9BC
 	ldr r0, _080515C0 @ =gMenu
@@ -1480,7 +1060,7 @@ _08051694:
 _080516B0: .4byte gMenu
 _080516B4:
 	movs r0, #0
-	bl sub_080503BC
+	bl SetFileSelectState
 	movs r0, #0x6c
 	bl PlaySFX
 	b _080516C8
@@ -1518,15 +1098,15 @@ sub_080516E0: @ 0x080516E0
 	movs r0, #2
 	strh r0, [r1, #8]
 	movs r0, #0
-	bl sub_080503BC
+	bl SetFileSelectState
 _08051706:
 	pop {r4, pc}
 	.align 2, 0
 _08051708: .4byte gUnk_02019EE0
 _0805170C: .4byte gMenu
 
-	thumb_func_start sub_08051710
-sub_08051710: @ 0x08051710
+	thumb_func_start HandleFileCopy
+HandleFileCopy: @ 0x08051710
 	push {lr}
 	ldr r1, _0805172C @ =gUnk_080FC9C8
 	ldr r0, _08051730 @ =gMenu
@@ -1697,7 +1277,7 @@ _08051848:
 	movs r0, #0x6c
 	bl PlaySFX
 	movs r0, #0
-	bl sub_080503BC
+	bl SetFileSelectState
 _08051858:
 	adds r0, r4, #0
 	bl sub_080517B4
@@ -1744,7 +1324,7 @@ sub_08051874: @ 0x08051874
 	adds r1, r1, r3
 	bl _DmaCopy
 	movs r0, #0
-	bl sub_080503BC
+	bl SetFileSelectState
 	b _080518DE
 	.align 2, 0
 _080518B8: .4byte gUnk_02019EE0
@@ -1780,7 +1360,7 @@ sub_080518E4: @ 0x080518E4
 	cmp r0, #0
 	beq _08051910
 	movs r0, #0
-	bl sub_080503BC
+	bl SetFileSelectState
 	b _08051910
 	.align 2, 0
 _08051904: .4byte gMenu
@@ -1792,8 +1372,8 @@ _08051910:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_08051914
-sub_08051914: @ 0x08051914
+	thumb_func_start HandleFileStart
+HandleFileStart: @ 0x08051914
 	push {lr}
 	ldr r1, _08051940 @ =gMenu
 	ldrb r0, [r1, #5]
@@ -2014,7 +1594,7 @@ _08051B02:
 	bl sub_08000108
 	bl sub_0801C344
 	bl sub_0805E5F8
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_0801C208
 	bl sub_08078CB4
 	bl sub_080AD9B0
@@ -2115,7 +1695,7 @@ sub_08051BD0: @ 0x08051BD0
 _08051C02:
 	bl sub_08078B48
 _08051C06:
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_0805E5C0
 	bl sub_08080A40
 	bl sub_080175F4
@@ -2182,7 +1762,7 @@ sub_08051CA8: @ 0x08051CA8
 	bl sub_080175F4
 	bl sub_0801C344
 	bl sub_0805E5F8
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_0801C208
 	bl sub_08078CB4
 	bl sub_080AD9B0
@@ -2202,7 +1782,7 @@ _08051CEC: .4byte gFadeControl
 	thumb_func_start sub_08051CF0
 sub_08051CF0: @ 0x08051CF0
 	push {r4, r5, r6, lr}
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_0801C208
 	bl sub_080AD9B0
 	ldr r5, _08051D20 @ =gUnk_03001000
@@ -2449,7 +2029,7 @@ sub_08051F04: @ 0x08051F04
 	adds r0, r0, r1
 	ldr r0, [r0]
 	bl _call_via_r0
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_0805E5C0
 	bl sub_080AD9B0
 	bl sub_080AD918
@@ -2581,7 +2161,7 @@ sub_08052010: @ 0x08052010
 	lsls r4, r4, #4
 	adds r1, r4, #0
 	bl _DmaZero
-	ldr r0, _08052080 @ =gUnk_020344B0
+	ldr r0, _08052080 @ =gBG2Buffer
 	adds r1, r4, #0
 	bl _DmaZero
 	bl sub_080A4D34
@@ -2616,7 +2196,7 @@ sub_08052010: @ 0x08052010
 	pop {r4, pc}
 	.align 2, 0
 _0805207C: .4byte gBG1Buffer
-_08052080: .4byte gUnk_020344B0
+_08052080: .4byte gBG2Buffer
 _08052084: .4byte gMenu
 _08052088: .4byte gScreen
 _0805208C: .4byte 0x00001C01
@@ -2635,7 +2215,7 @@ HandleGameOverScreen: @ 0x08052094
 	ldrb r0, [r4, #3]
 	cmp r0, #0
 	beq _080520B8
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_080523D4
 	bl sub_080AD918
 _080520B8:
