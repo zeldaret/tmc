@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "textbox.h"
 #include "functions.h"
+#include "save.h"
 
 extern u32 GetFacingDirection(Entity*, Entity*);
 extern u32 sub_0806F5A4(u32);
@@ -149,10 +150,10 @@ void sub_08066218(Entity* this) {
 void sub_0806622C(Entity* this) {
     u32 index;
 
-    if (gUnk_02002A40.unk8 - 2 < 0) {
+    if (gSave.unk8 - 2 < 0) {
         index = 0;
     } else {
-        index = gUnk_02002A40.unk8 - 2;
+        index = gSave.unk8 - 2;
     }
     ShowNPCDialogue(this, &gUnk_08110390[index]);
 }

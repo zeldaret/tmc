@@ -6,6 +6,7 @@
 #include "player.h"
 #include "room.h"
 #include "structures.h"
+#include "save.h"
 
 extern void sub_08060528(Entity*);
 extern void* GetCurrentRoomProperty(u32);
@@ -194,7 +195,7 @@ void sub_080606C0(Entity* this) {
 void sub_080606D8(Entity* this) {
     s32 index;
 
-    index = gUnk_02002A40.unk8 - 2;
+    index = gSave.unk8 - 2;
     if (index < 0) {
         index = 0;
     }

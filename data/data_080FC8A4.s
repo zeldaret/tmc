@@ -4,18 +4,6 @@
 	.section .rodata
 	.align 2
 
-gUnk_080FC8D0:: @ 080FC8D0
-	.incbin "baserom.gba", 0x0FC8D0, 0x000000E
-
-gUnk_080FC8DE:: @ 080FC8DE
-	.incbin "baserom.gba", 0x0FC8DE, 0x000001E
-
-sFileSelectDefaultHandlers:: @ 080FC8FC
-	.incbin "baserom.gba", 0x0FC8FC, 0x0000007
-
-gUnk_080FC903:: @ 080FC903
-	.incbin "baserom.gba", 0x0FC903, 0x0000005
-
 gUnk_080FC908:: @ 080FC908
 	.incbin "baserom.gba", 0x0FC908, 0x000000C
 

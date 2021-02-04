@@ -5,6 +5,7 @@
 #include "functions.h"
 #include "readKeyInput.h"
 #include "area.h"
+#include "save.h"
 
 extern const void (*const gUnk_0811B9E0[])(Entity*);
 extern const void (*const gUnk_0811BA60[])(Entity*);
@@ -122,7 +123,7 @@ void sub_08070C3C(Entity* this) {
 void sub_08070CB4(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if ((this->frames.all & 0x80) != 0) {
-        if ((gUnk_02002A40.stats.health != 0) && ((gPlayerState.flags.all & 0x8000) != 0)) {
+        if ((gSave.stats.health != 0) && ((gPlayerState.flags.all & 0x8000) != 0)) {
             gPlayerState.flags.all &= ~(0x1 | 0x4);
             this->spriteSettings.b.draw = 0;
         } else {
@@ -496,7 +497,7 @@ void sub_08071380(Entity *this) {
     if ((gPlayerState.flags.all & 0x20) == 0)
         return;
 
-    if ((gUnk_03000FF0.newKeys & 0x102) == 0)
+    if ((gInput.newKeys & 0x102) == 0)
         return;
     
     if (CheckIsDungeon() || gArea.field_0x17 == 3) {

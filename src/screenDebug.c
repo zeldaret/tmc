@@ -12,7 +12,7 @@ typedef struct {
     u16 unk4;
 } VStruct;
 
-extern VStruct gUnk_03000FF0;
+extern VStruct gInput;
 extern u8 gBG3Buffer[];
 
 extern void (*const gUnk_08109A30[])();
@@ -46,7 +46,7 @@ void sub_0805FA04(void) {
 void sub_0805FA98(void) {
     int iVar1;
 
-    switch (gUnk_03000FF0.unk2) {
+    switch (gInput.unk2) {
         case 0x40:
             gMenu.focusCoords[1] -= 1;
             break;
@@ -71,7 +71,7 @@ void sub_0805FA98(void) {
             sub_08056418();
             break;
         default:
-            switch (gUnk_03000FF0.unk4) {
+            switch (gInput.unk4) {
                 case 0x20:
                     iVar1 = -1;
                     break;

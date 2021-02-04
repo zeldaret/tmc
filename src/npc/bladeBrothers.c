@@ -5,6 +5,7 @@
 #include "player.h"
 #include "room.h"
 #include "textbox.h"
+#include "save.h"
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -146,10 +147,10 @@ void sub_08068B84(Entity* this) {
 }
 
 void sub_08068BB4(Entity* this) {
-    u32 item = gUnk_02002A40.stats.itemOnA;
+    u32 item = gSave.stats.itemOnA;
 
     this->field_0x68.HALF.HI = item;
-    item = gUnk_02002A40.stats.itemOnB;
+    item = gSave.stats.itemOnB;
     *(&this->field_0x68.HALF.HI + 1) = item;
 }
 
@@ -261,7 +262,7 @@ void sub_08068CFC(Entity* param_1, Entity* param_2, u32 param_3, u32 param_4)
             goto LABEL1;
             break;
         case 6:
-            if (gUnk_02002A40.stats.maxHealth < 0x50)
+            if (gSave.stats.maxHealth < 0x50)
                 return;
             goto switchD_08068d12_caseD_0;
         case 7:

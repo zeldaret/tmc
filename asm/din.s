@@ -89,7 +89,7 @@ sub_08064828: @ 0x08064828
 	adds r4, r0, #0
 	bl sub_0801E99C
 	adds r5, r0, #0
-	ldr r6, _08064858 @ =gUnk_02002A40
+	ldr r6, _08064858 @ =gSave
 	adds r0, r4, #0
 	bl sub_08002632
 	ldr r2, _0806485C @ =0x00000141
@@ -108,7 +108,7 @@ _0806484E:
 	bl sub_08078784
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08064858: .4byte gUnk_02002A40
+_08064858: .4byte gSave
 _0806485C: .4byte 0x00000141
 
 	thumb_func_start Din_Fusion

@@ -8,6 +8,7 @@
 #include "npc.h"
 #include "structures.h"
 #include "functions.h"
+#include "save.h"
 
 extern void sub_0807DD50(Entity*);
 extern u32 sub_0806F5A4(u32);
@@ -62,7 +63,7 @@ void sub_0806CE5C(Entity* this) {
 void sub_0806CE80(Entity* this) {
     u32 v;
     u32 v2;
-    v = gUnk_02002A40.unk8;
+    v = gSave.unk8;
     if (v == 5) {
         // flippers
         if (GetInventoryValue(0x46) == 0) {

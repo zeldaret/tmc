@@ -61,7 +61,7 @@ _0806E2DA:
 sub_0806E2DC: @ 0x0806E2DC
 	push {lr}
 	adds r3, r0, #0
-	ldr r0, _0806E300 @ =gUnk_02002A40
+	ldr r0, _0806E300 @ =gSave
 	ldrb r0, [r0, #8]
 	subs r0, #2
 	cmp r0, #0
@@ -78,5 +78,5 @@ _0806E2EC:
 	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
-_0806E300: .4byte gUnk_02002A40
+_0806E300: .4byte gSave
 _0806E304: .4byte gUnk_08114308

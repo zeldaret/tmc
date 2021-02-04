@@ -77,7 +77,7 @@ _0805463C:
 	bne _08054642
 	b _0805474C
 _08054642:
-	ldr r0, _08054658 @ =gUnk_02002A40
+	ldr r0, _08054658 @ =gSave
 	adds r0, #0xb3
 	ldrb r1, [r0]
 	cmp r1, #0
@@ -87,7 +87,7 @@ _08054642:
 	.align 2, 0
 _08054650: .4byte gUnk_0800161C
 _08054654: .4byte gUnk_02034398
-_08054658: .4byte gUnk_02002A40
+_08054658: .4byte gSave
 _0805465C: .4byte gUnk_08001A1C
 _08054660:
 	lsls r1, r1, #5
@@ -97,7 +97,7 @@ _08054666:
 	mov r0, sp
 	adds r1, r4, #0
 	bl sub_08000F14
-	ldr r4, _08054740 @ =gUnk_02002A40
+	ldr r4, _08054740 @ =gSave
 	adds r0, r4, #0
 	adds r0, #0xaa
 	ldrb r0, [r0]
@@ -205,7 +205,7 @@ _08054726:
 	b _0805474E
 	.align 2, 0
 _0805473C: .4byte gUnk_0800143C
-_08054740: .4byte gUnk_02002A40
+_08054740: .4byte gSave
 _08054744: .4byte gUnk_08001A1C
 _08054748: .4byte gUnk_080FE1B4
 _0805474C:

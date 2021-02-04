@@ -727,7 +727,7 @@ sub_0806A080: @ 0x0806A080
 	lsls r1, r2, #2
 	adds r1, r1, r2
 	lsls r1, r1, #4
-	ldr r2, _0806A09C @ =gUnk_02002A40
+	ldr r2, _0806A09C @ =gSave
 	ldrb r2, [r2, #8]
 	lsls r2, r2, #3
 	ldr r3, _0806A0A0 @ =gUnk_08111E34
@@ -736,7 +736,7 @@ sub_0806A080: @ 0x0806A080
 	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
-_0806A09C: .4byte gUnk_02002A40
+_0806A09C: .4byte gSave
 _0806A0A0: .4byte gUnk_08111E34
 
 	thumb_func_start sub_0806A0A4
@@ -798,7 +798,7 @@ _0806A100:
 	bl SetLocalFlag
 _0806A120:
 	ldr r2, _0806A13C @ =gUnk_08111F74
-	ldr r0, _0806A140 @ =gUnk_02002A40
+	ldr r0, _0806A140 @ =gSave
 	ldrb r1, [r0, #8]
 	lsls r0, r1, #2
 	adds r0, r0, r1
@@ -811,7 +811,7 @@ _0806A120:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0806A13C: .4byte gUnk_08111F74
-_0806A140: .4byte gUnk_02002A40
+_0806A140: .4byte gSave
 
 	thumb_func_start sub_0806A144
 sub_0806A144: @ 0x0806A144

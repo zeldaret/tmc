@@ -7,6 +7,7 @@
 #include "screen.h"
 #include "trig.h"
 #include "functions.h"
+#include "save.h"
 
 
 typedef struct {
@@ -243,7 +244,7 @@ void sub_08058B5C(ManagerC* this, u32 unk1) {
     gScreenTransition.playerState = unk1 & 1 ? 4 : 0;
     gScreenTransition.playerStartPos.HALF.x = gUnk_081082E8[unk1*3];
     gScreenTransition.playerStartPos.HALF.y = gUnk_081082E8[unk1*3+1];
-    gUnk_02002A40.unk7 = gUnk_081082E8[unk1*3+2];
+    gSave.unk7 = gUnk_081082E8[unk1*3+2];
     PlaySFX(0x121);
 }
 

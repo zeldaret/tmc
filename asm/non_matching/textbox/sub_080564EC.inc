@@ -38,7 +38,7 @@ _08056520:
 	strb r0, [r3, #1]
 	adds r3, #2
 	movs r2, #0
-	ldr r0, _080565A8 @ =gUnk_02002A40
+	ldr r0, _080565A8 @ =gSave
 	adds r0, #0x80
 	ldrb r1, [r0]
 	cmp r1, #0
@@ -84,7 +84,7 @@ _08056598: .4byte gUnk_02036A40
 _0805659C: .4byte gUnk_02024030
 _080565A0: .4byte gUnk_02022780
 _080565A4: .4byte gTextBox
-_080565A8: .4byte gUnk_02002A40
+_080565A8: .4byte gSave
 _080565AC: .4byte gUnk_08107BE0
 _080565B0: .4byte gUnk_02000D00
     .syntax divided

@@ -85,14 +85,14 @@ _0805EDAC:
 _0805EDB4:
 	movs r0, #0
 	strb r0, [r2]
-	ldr r0, _0805EDF8 @ =gUnk_03000FF0
+	ldr r0, _0805EDF8 @ =gInput
 	ldrh r0, [r0]
 	bl sub_0805EE04
 	adds r1, r4, #0
 	adds r1, #0x90
 	strh r0, [r1]
 _0805EDC6:
-	ldr r0, _0805EDF8 @ =gUnk_03000FF0
+	ldr r0, _0805EDF8 @ =gInput
 	ldrh r1, [r0]
 _0805EDCA:
 	adds r0, r1, #0
@@ -117,7 +117,7 @@ _0805EDCA:
 	strb r0, [r3, #0xd]
 	pop {r4, pc}
 	.align 2, 0
-_0805EDF8: .4byte gUnk_03000FF0
+_0805EDF8: .4byte gInput
 _0805EDFC: .4byte gPlayerState
 _0805EE00: .4byte gUnk_08109202
 

@@ -18,11 +18,6 @@ typedef struct {
 } MenuControls;
 
 typedef struct {
-    u8 key;
-    u8 value;
-} KeySetting;
-
-typedef struct {
     u8 aButtonX;
     u8 aButtonY;
     u8 aButtonText;
@@ -32,8 +27,7 @@ typedef struct {
     u8 rButtonX;
     u8 rButtonY;
     u8 rButtonText;
-    KeySetting settingDict[0];
-    u8 eof;
+    u8 settingDict[0];
 } PACKED KeyButtonLayout;
 
 extern void sub_080A70AC(const KeyButtonLayout*);
@@ -56,7 +50,11 @@ typedef struct {
     u8 unk14;
     u8 unk15;
     u8 unk16;
-    u8 filler17[0x13];
+    // While struct offsets are usually loaded indirectly, this one is often loaded
+    // directly in the code. This happens when you take the address off the field with '&`.
+    // Perhaps they had a macro to cast this to different sized arrays.
+    u8 selectMtx;
+    u8 filler18[0x12];
     u8 unk2a;
     int field_0x2c;
 } Menu;

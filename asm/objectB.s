@@ -184,13 +184,13 @@ _08083CDC:
 	beq _08083D00
 	cmp r0, #0x63
 	bne _08083D16
-	ldr r0, _08083CFC @ =gUnk_02002A40
+	ldr r0, _08083CFC @ =gSave
 	adds r0, #0xa9
 	ldrb r0, [r0]
 	adds r1, r1, r0
 	b _08083D16
 	.align 2, 0
-_08083CFC: .4byte gUnk_02002A40
+_08083CFC: .4byte gSave
 _08083D00:
 	ldrb r0, [r4, #0xb]
 	cmp r0, #1
@@ -248,7 +248,7 @@ _08083D60:
 	bne _08083DD0
 	movs r0, #0xa0
 	bl ModHealth
-	ldr r0, _08083DA8 @ =gUnk_02002A40
+	ldr r0, _08083DA8 @ =gSave
 	adds r1, r0, #0
 	adds r1, #0xa9
 	ldrb r0, [r1]
@@ -261,7 +261,7 @@ _08083D60:
 	movs r0, #0
 	strb r0, [r1]
 _08083D88:
-	ldr r0, _08083DA8 @ =gUnk_02002A40
+	ldr r0, _08083DA8 @ =gSave
 	adds r1, r0, #0
 	adds r1, #0xab
 	ldrb r0, [r1]
@@ -278,21 +278,21 @@ _08083DA0:
 	bl ModHealth
 	b _08083DD0
 	.align 2, 0
-_08083DA8: .4byte gUnk_02002A40
+_08083DA8: .4byte gSave
 _08083DAC:
 	ldrb r0, [r4, #0xa]
 	bl sub_080544DC
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08083DC8
-	ldr r0, _08083DC4 @ =gUnk_02002A40
+	ldr r0, _08083DC4 @ =gSave
 	adds r0, r0, r1
 	adds r0, #0xb5
 	movs r1, #0x20
 	strb r1, [r0]
 	b _08083DD0
 	.align 2, 0
-_08083DC4: .4byte gUnk_02002A40
+_08083DC4: .4byte gSave
 _08083DC8:
 	ldrb r0, [r4, #0xa]
 	movs r1, #2

@@ -67,7 +67,7 @@ _0806B5AC:
 	bne _0806B600
 	movs r0, #3
 	strb r0, [r4, #0x18]
-	ldr r0, _0806B5D8 @ =gUnk_02002A40
+	ldr r0, _0806B5D8 @ =gSave
 	adds r0, #0xbb
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -79,7 +79,7 @@ _0806B5AC:
 	b _0806B5E6
 	.align 2, 0
 _0806B5D4: .4byte gTextBox
-_0806B5D8: .4byte gUnk_02002A40
+_0806B5D8: .4byte gSave
 _0806B5DC:
 	movs r0, #0x3f
 	movs r1, #0x64

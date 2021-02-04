@@ -3,13 +3,6 @@
 // copy, erase, start
 #define NUM_FILE_OPERATIONS 3
 
-// todo: does this belong with gUnk_02019EE0?
-typedef enum {
-    SAVE_EMPTY = 0,
-    SAVE_VALID = 1,
-    SAVE_DELETED = 0xFFFFFFFF,
-} SaveStatus;
-
 typedef enum {
     STATE_NONE,
     STATE_NEW,
@@ -21,10 +14,21 @@ typedef enum {
     STATE_START,
 } FileSelectState;
 
+// todo: does this belong with gUnk_02019EE0?
+typedef enum {
+    SAVE_EMPTY = 0,
+    SAVE_VALID = 1,
+    SAVE_DELETED = 0xFFFFFFFF,
+} SaveStatus;
+
+typedef enum {
+    RESULT_INVALID = 0,
+    RESULT_ASCII = 1,
+} CharResult;
+
 static void HandleFileScreenEnter(void);
 static void HandleFileScreenActive(void);
 static void HandleFileScreenExit(void);
-
 static void (*const sScreenHandlers[])(void) = {
     HandleFileScreenEnter,
     HandleFileScreenActive,
@@ -39,31 +43,51 @@ static void HandleFileView(void);
 extern void HandleFileCopy(void);
 extern void HandleFileDelete(void);
 extern void HandleFileStart(void);
-
 static void (*const sFileScreenSubHandlers[])(void) = {
     HandleFileSelect, HandleFileNew,  HandleFileLanguageSelect, HandleFileOptions,
     HandleFileView,   HandleFileCopy, HandleFileDelete,         HandleFileStart,
 };
 
-extern KeyButtonLayout gUnk_080FC8D0;
-// static const KeyButtonLayout gUnk_080FC8D0 = {
-//     0xFF, 0xD8, 0x0, 0xFF, 0xD8, 0x0, 0xE0, 0x10, 0xF, {{0x5, 0x0}, { 0x2, 0x0 }}, 0xFF
-// };
+static const KeyButtonLayout gUnk_080FC8D0 = {
+    .aButtonX = 0xFF,
+    .aButtonY = 0xD8,
+    .aButtonText = 0x0,
+    .bButtonX = 0xFF,
+    .bButtonY = 0xD8,
+    .bButtonText = 0x0,
+    .rButtonX = 0xE0,
+    .rButtonY = 0x10,
+    .rButtonText = 0xF,
+    .settingDict = { 0x5, 0x0, 0x2, 0x0, 0xFF },
+};
 
-// main "file selection" screen
-extern void (*const sFileSelectDefaultHandlers[])(void);
+static const u16 gUnk_080FC8DE[] = {
+    0x01, 0x00, 0x20, 0x40, 0x60, 0x80, 0xa0, 0xc0, 0xe0, 0xc0, 0xa0, 0x80, 0x60, 0x40, 0x20,
+};
 
-// handles submenus
-extern void (*const sFileScreenSubHandlers[])(void);
+static void sub_08050848(void);
+static void sub_0805086C(void);
+static void sub_08050940(void);
+static void (*const sFileSelectDefaultHandlers[])(void) = {
+    sub_08050848,
+    sub_0805086C,
+    sub_08050940,
+};
 
 extern void (*const gUnk_080FC944[])(void);
+extern void (*const gUnk_080FC950[])(void);
+extern void (*const gUnk_080FC960[])(void);
+extern void (*const gUnk_080FC9B0[])(void);
+extern void (*const gUnk_080FC9BC[])(void);
+extern void (*const gUnk_080FC9C8[])(void);
 
 static void sub_08050624(u32);
 static void sub_0805066C(void);
 static void HideButtonR(void);
 static void ShowButtonR(void);
+void sub_08051458();
 
-void sub_08050318(u32 arg0, u32 arg1) {
+void CreateDialogBox(u32 arg0, u32 arg1) {
     u32 sfx;
     struct_080FC844 var0;
 
@@ -106,7 +130,7 @@ void LoadOptionsFromSave(u32 idx) {
         messageSpeed = 1;
         brightnessPref = 1;
     } else {
-        SaveFile* saveFile = &gSaveFiles[idx];
+        SaveFile* saveFile = &gUnk_02019EE0.saves[idx];
         messageSpeed = saveFile->messageSpeed;
         brightnessPref = saveFile->brightnessPref;
     }
@@ -119,7 +143,7 @@ void LoadOptionsFromSave(u32 idx) {
 void SetActiveSave(u32 idx) {
     if (idx < NUM_SAVE_SLOTS) {
         gUnk_02000000->saveFileId = idx;
-        _DmaCopy(&gSaveFiles[idx], &gUnk_02002A40, sizeof(gSaveFiles[idx]));
+        _DmaCopy(&gUnk_02019EE0.saves[idx], &gSave, sizeof(gUnk_02019EE0.saves[idx]));
     }
     LoadOptionsFromSave(idx);
 }
@@ -206,7 +230,7 @@ static void HandleFileScreenExit(void) {
 }
 
 static void sub_08050624(u32 idx) {
-    SaveFile* saveFile = &gSaveFiles[idx];
+    SaveFile* saveFile = &gUnk_02019EE0.saves[idx];
     int status = sub_0807CF28(idx, saveFile);
     switch (status) {
         case SAVE_DELETED:
@@ -249,7 +273,7 @@ void sub_0805070C(void) {
     u32 i;
     int j;
     struct_02036540* var0;
-    u8* playerName;
+    char* playerName;
 
     var0 = sub_0805F2C8();
     if (var0) {
@@ -258,11 +282,11 @@ void sub_0805070C(void) {
         var0->unk1 = 1;
         var0->unk4 = 0x30;
         var0->unk8 = gUnk_02000D00;
-        for (i = 0; i < 3; i++) {
+        for (i = 0; i < NUM_SAVE_SLOTS; i++) {
             var0->unk6 = 0;
             _DmaZero(var0->unk8, 0x200);
-            playerName = gSaveFiles[i].playerName;
-            for (j = 0; j < 6; j++) {
+            playerName = &gUnk_02019EE0.saves[i].playerName[0];
+            for (j = 0; j < FILENAME_LENGTH; j++) {
                 sub_0805F7DC(playerName[j], var0);
             }
             // i is a struct of size 0x200
@@ -337,7 +361,7 @@ void sub_08050888(void) {
                 break;
             default:
                 sub_0805194C(gUnk_02019EE0.unk7);
-                sub_08050318(0, gUnk_02019EE0.unk7 + 1);
+                CreateDialogBox(0, gUnk_02019EE0.unk7 + 1);
                 gChooseFileState.timer = 30;
                 gChooseFileState.subState = 1;
                 break;
@@ -347,7 +371,7 @@ void sub_08050888(void) {
 
 void sub_080508E4(void) {
     if (gChooseFileState.timer == 0) {
-        if (gUnk_03000FF0.newKeys & (A_BUTTON | START_BUTTON)) {
+        if (gInput.newKeys & (A_BUTTON | START_BUTTON)) {
             gChooseFileState.subState = 2;
         }
     } else {
@@ -375,8 +399,8 @@ void sub_08050940(void) {
     }
 
     row_idx = gUnk_02019EE0.unk6;
-    keys = gUnk_03000FF0.newKeys;
-    if ((gUnk_03000FF0.heldKeys & L_BUTTON) && gUnk_02019EE0.saveStatus[row_idx] == SAVE_VALID) {
+    keys = gInput.newKeys;
+    if ((gInput.heldKeys & L_BUTTON) && gUnk_02019EE0.saveStatus[row_idx] == SAVE_VALID) {
         keys &= ~(DPAD_UP | DPAD_DOWN);
     }
 
@@ -493,12 +517,12 @@ NONMATCH("asm/non_matching/save/sub_08050B3C.inc", void sub_08050B3C(u16* arg0))
     u16* var8;
 
     sp.unk0 = arg0;
-    var0 = gUnk_02002A40.stats.health / 2;
+    var0 = gSave.stats.health / 2;
     if (var0 == 0) {
         var0 = 1;
     }
 
-    var1 = gUnk_02002A40.stats.maxHealth / 2;
+    var1 = gSave.stats.maxHealth / 2;
     if (var1 == 0) {
         return;
     }
@@ -554,8 +578,6 @@ void HandleFileView(void) {
     sub_08050A64(gUnk_02019EE0.unk6);
 }
 
-extern Input gUnk_03000FF0;
-
 void sub_08050C54(void) {
     s32 column_idx;
 
@@ -563,7 +585,7 @@ void sub_08050C54(void) {
         return;
 
     column_idx = gMenu.column_idx;
-    switch (gUnk_03000FF0.newKeys) {
+    switch (gInput.newKeys) {
         case A_BUTTON:
         case START_BUTTON:
             if (column_idx == 0) {
@@ -636,7 +658,7 @@ void sub_08050DE4(void) {
         return;
 
     row_idx = gUnk_02000000->gameLanguage;
-    switch (gUnk_03000FF0.newKeys) {
+    switch (gInput.newKeys) {
         case DPAD_UP:
             row_idx--;
             break;
@@ -648,7 +670,7 @@ void sub_08050DE4(void) {
             PlaySFX(0x6a);
             if (gMenu.field_0x4 != row_idx) {
                 sub_080A7114(2);
-                sub_08050318(8, 0);
+                CreateDialogBox(8, 0);
             } else {
                 SetFileSelectState(STATE_NONE);
             }
@@ -675,6 +697,499 @@ void sub_08050DE4(void) {
 }
 
 void sub_08050E88(void) {
-    if (sub_0807CDA4(SAVE_DONE))
+    if (sub_0807CDA4(2))
         SetFileSelectState(0);
+}
+
+void HandleFileOptions(void) {
+    gUnk_080FC950[gMenu.menuType]();
+}
+
+void sub_08050EB8(void) {
+    SaveFile* save;
+    sub_080503A8(0xe);
+    save = &gUnk_02019EE0.saves[gUnk_02019EE0.unk6];
+    gUnk_02019EE0.unk4 = save->messageSpeed;
+    gUnk_02019EE0.unk5 = save->brightnessPref;
+    gMenu.column_idx = 0;
+    gMenu.transitionTimer = 0xff;
+    sub_080A7114(1);
+}
+
+NONMATCH("asm/non_matching/fileScreen/sub_08050EF4.inc", void sub_08050EF4(void)) {
+    u8* p_option;
+    u32 option;
+    char column_idx;
+    int mode;
+
+    if (gUnk_02019EE0.isTransitioning)
+        return;
+
+    p_option = &gUnk_02019EE0.saves[gUnk_02019EE0.unk6].brightnessPref;
+    if (gMenu.column_idx == 0) {
+        p_option = &gUnk_02019EE0.saves[gUnk_02019EE0.unk6].messageSpeed;
+    }
+
+    mode = 0;
+    option = *p_option;
+    column_idx = gMenu.column_idx;
+    switch (gInput.newKeys) {
+        case DPAD_RIGHT:
+            if (*p_option < 2) {
+                option = *p_option + 1;
+            }
+            break;
+        case DPAD_LEFT:
+            if (*p_option != 0) {
+                option = *p_option - 1;
+            }
+            break;
+        case DPAD_UP:
+            column_idx = 0;
+            break;
+        case DPAD_DOWN:
+            column_idx = 1;
+            break;
+        case A_BUTTON:
+        case START_BUTTON:
+            mode = 2;
+            if (*(u16*)&gUnk_02019EE0.unk4 != *(u16*)&gUnk_02019EE0.saves[gUnk_02019EE0.unk6].messageSpeed)
+                mode = 3;
+            break;
+        case B_BUTTON:
+            mode = 2;
+            break;
+    }
+
+    switch (mode) {
+        case 3:
+            gUnk_02019EE0.saves[gUnk_02019EE0.unk6].messageSpeed = gUnk_02019EE0.unk4;
+            gUnk_02019EE0.saves[gUnk_02019EE0.unk6].brightnessPref = gUnk_02019EE0.unk5;
+            PlaySFX(0x6c);
+            sub_080A7114(mode);
+            SetActiveSave(gUnk_02019EE0.unk6);
+            break;
+        case 2:
+            CreateDialogBox(8, 0);
+            PlaySFX(0x6a);
+        default:
+        case 1:
+            sub_080A7114(mode);
+            SetActiveSave(gUnk_02019EE0.unk6);
+            break;
+        case 0:
+            if (gMenu.column_idx != column_idx) {
+                gMenu.column_idx = column_idx;
+                PlaySFX(0x69);
+            } else if (option != *p_option) {
+                *p_option = option;
+                LoadOptionsFromSave(gUnk_02019EE0.unk6);
+                PlaySFX(0x69);
+            }
+            break;
+    }
+}
+END_NONMATCH
+
+void sub_08050FFC(void) {
+    switch (sub_0807CDA4(0)) {
+        case SAVE_ERROR:
+            gMenu.transitionTimer = 0x1e;
+            sub_0805194C(gUnk_02019EE0.unk6);
+            CreateDialogBox(9, 0);
+        case SAVE_OK:
+            sub_080A7114(3);
+            break;
+    }
+}
+
+void sub_0805103C(void) {
+    // this gets optimized as a ldrb
+    switch (gMenu.transitionTimer % 256) {
+        case 0:
+            if (!(gInput.newKeys & (A_BUTTON | START_BUTTON)))
+                return;
+        default:
+            gMenu.transitionTimer--;
+            break;
+        case 255:
+            SetFileSelectState(STATE_NONE);
+            break;
+    }
+}
+
+void HandleFileNew(void) {
+    gUnk_080FC960[gMenu.menuType]();
+}
+
+void sub_08051090(void) {
+    sub_080503A8(8);
+    sub_08050790();
+    sub_0805070C();
+    sub_08051458();
+    gScreen.bg.bg2xOffset = 0xff;
+    gScreen.affine.bg2yOffset = 0xff;
+    sub_080A7114(1);
+}
+
+NONMATCH("asm/non_matching/fileScreen/sub_080610B8.inc", void sub_080610B8(void)) {
+}
+END_NONMATCH
+
+void sub_08051358(void) {
+    gMenu.field_0x12 = gUnk_02000000->gameLanguage == 0 ? 4 : 3;
+
+    if (gMenu.focusCoords[0] != 0x0b || gMenu.focusCoords[1] != 0x5) {
+        gMenu.focusCoords[1] = 0x5;
+        gMenu.focusCoords[0] = 0xb;
+        PlaySFX(0x67);
+    }
+}
+
+void sub_0805138C(void) {
+    gUnk_080FC9B0[gMenu.overlayType]();
+}
+
+void sub_080513A8(void) {
+    CreateDialogBox(5, 0);
+    gMenu.overlayType = 1;
+}
+
+void sub_080513C0(void) {
+    switch (sub_0807CDA4(0)) {
+        case 1:
+            gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk6] = 1;
+            sub_080A7114(3);
+            break;
+        case 0:
+            break;
+        case -1:
+            sub_0805194C(gUnk_02019EE0.unk6);
+            CreateDialogBox(6, 0);
+            gMenu.transitionTimer = 0x1e;
+            gMenu.overlayType = 2;
+            break;
+    }
+}
+
+void sub_0805141C(void) {
+    switch (gMenu.transitionTimer) {
+        case 0:
+            if (gInput.newKeys & (A_BUTTON | START_BUTTON)) {
+                sub_080A7114(3);
+            }
+            break;
+        default:
+            gMenu.transitionTimer--;
+            break;
+    }
+}
+
+void sub_0805144C(void) {
+    SetFileSelectState(STATE_NONE);
+}
+
+void sub_08051458(void) {
+    sub_080503A8(gMenu.column_idx + 9);
+    _DmaCopy(&gUnk_02001B40, &gUnk_02022030, 0x400);
+}
+
+u32 sub_080514BC(u32);
+void sub_08051574(u32);
+
+void sub_08051480(u32 c) {
+    CharResult result;
+    u32 idx;
+
+    result = sub_080514BC(c);
+    idx = gMenu.unk13;
+
+    if (result == RESULT_INVALID) {
+        return;
+    }
+
+    if (result != RESULT_ASCII) {
+        c = result;
+        idx--;
+    }
+
+    if (idx > FILENAME_LENGTH - 1) {
+        idx = FILENAME_LENGTH - 1;
+    }
+
+    gMenu.unk13 = idx + 1;
+    gSave.playerName[idx] = c;
+    sub_08051574(0x6b);
+}
+
+u32 sub_080514BC(u32 a1) {
+    u32 c;
+    u32 idx;
+
+    if (gUnk_02000000->gameLanguage != 0)
+        return 1;
+
+    switch (a1) {
+        case 0x0:
+        case 0xe:
+        case 0xf:
+            break;
+        default:
+            return 1;
+    }
+
+    idx = gMenu.unk13;
+    if (idx == 0) {
+        return 0;
+    }
+
+    c = gSave.playerName[idx - 1];
+    if (c - 0xa4 < 0x29) {
+        switch (a1) {
+            case 0x0:
+                if (c < 0xc3) {
+                    return c + 0x33;
+                } else {
+                    return c + 10;
+                }
+            case 0xE:
+                return c;
+            case 0xF:
+                if (c < 0xc3) {
+                    return 0;
+                } else {
+                    return c + 10;
+                }
+            default:
+                return c;
+        }
+    }
+
+    if (c - 0xcd < 10) {
+        switch (a1) {
+            case 0xf:
+                return c;
+            case 0x0:
+                return c + 0x29;
+            case 0xe:
+                return c - 10;
+        }
+    }
+
+    if (c - 0xd7 < 0x29) {
+        switch (a1) {
+            default:
+            case 0x0:
+                return c - 0x33;
+            case 0xe:
+                return c - 0x33;
+            case 0xf:
+                if (c > 0xf5) {
+                    return c - 0x29;
+                }
+        }
+    }
+
+    return 0;
+}
+
+void sub_08051574(u32 sfx) {
+    PlaySFX(sfx);
+    _DmaCopy(&gSave, &gUnk_02019EE0.saves[gUnk_02019EE0.unk6], sizeof(gUnk_02019EE0.saves[gUnk_02019EE0.unk6]));
+    sub_0805070C();
+}
+
+void HandleFileDelete(void) {
+    gUnk_080FC9BC[gMenu.menuType]();
+    sub_08050A64(gUnk_02019EE0.unk6);
+}
+
+void FUN_080515c8(void) {
+    sub_080A7114(1);
+}
+
+void sub_080515D4(void) {
+    u32 column_idx;
+
+    if (gUnk_02019EE0.isTransitioning)
+        return;
+
+    gMenu.transitionTimer = 4;
+    column_idx = gMenu.column_idx;
+    switch (gInput.newKeys) {
+        case B_BUTTON:
+            gMenu.column_idx = 0; // ??
+            column_idx = 0;
+        case A_BUTTON:
+        case START_BUTTON:
+            if (column_idx == 1) {
+                CreateDialogBox(4, 0);
+                sub_080A7114(2);
+                PlaySFX(0x6a);
+            } else {
+                SetFileSelectState(0);
+                PlaySFX(0x6c);
+            }
+            break;
+        case DPAD_LEFT:
+            column_idx = 0;
+            break;
+        case DPAD_RIGHT:
+            column_idx = 1;
+            break;
+    }
+
+    if (gMenu.column_idx != column_idx) {
+        gMenu.column_idx = column_idx;
+        PlaySFX(0x69);
+    }
+}
+
+void sub_080516E0(void) {
+    if (sub_0807CDA4(1)) {
+        sub_0805194C(gUnk_02019EE0.unk6);
+        sub_08050AFC(gUnk_02019EE0.unk6);
+        gMenu.transitionTimer = 2;
+        SetFileSelectState(0);
+    }
+}
+
+void HandleFileCopy(void) {
+    gUnk_080FC9C8[gMenu.menuType]();
+    sub_08050A64(gUnk_02019EE0.unk6);
+}
+
+// regalloc
+NONMATCH("asm/non_matching/fileScreen/sub_08051738.inc", void sub_08051738(void)) {
+    s32 temp;
+    u32 i;
+    s32 uVar3;
+
+    gUnk_02019EE0.unk7 = 4;
+    uVar3 = 0;
+    for (i = 0; i < 3; i++) {
+        if (gUnk_02019EE0.saveStatus[i] == 1) {
+            temp = gUnk_02019EE0.unk6 ^ i;
+            uVar3 = BOOLCAST(temp) & 4;
+        } else {
+            uVar3++;
+        }
+        (&gMenu.selectMtx)[i] = uVar3;
+    }
+    if (uVar3 == 0) {
+        gMenu.transitionTimer = 0x3c;
+        CreateDialogBox(1, 0);
+        sub_080A7114(3);
+    } else {
+        sub_080A7114(1);
+    }
+    uVar3++;
+    gMenu.unk16 = uVar3;
+    gMenu.unk13 = 4;
+    gMenu.unk14 = uVar3;
+}
+END_NONMATCH
+
+NONMATCH("asm/non_matching/fileScreen/sub_080517B4.inc", s32 sub_080517B4(s32 a1)) {
+    u32 i = gUnk_02019EE0.unk7;
+    if (a1 != 0) {
+        for (; i < 5; i += a1) {
+            if ((&gMenu.selectMtx)[i] != 0 && (&gMenu.selectMtx)[i] != 4)
+                return i;
+        }
+    }
+    return i;
+}
+END_NONMATCH
+
+void sub_080517EC(void) {
+    u32 temp;
+    s32 delta;
+
+    if (gUnk_02019EE0.isTransitioning)
+        return;
+
+    delta = 0;
+    switch (gInput.newKeys) {
+        case DPAD_UP:
+            delta = -1;
+            break;
+        case DPAD_DOWN:
+            delta = 1;
+            break;
+        case A_BUTTON:
+        case START_BUTTON:
+            if (gUnk_02019EE0.unk7 < 3) {
+                CreateDialogBox(2, 0);
+                sub_080A7114(2);
+                PlaySFX(0x6a);
+                break;
+            }
+            // fallthrough
+        case B_BUTTON:
+            gUnk_02019EE0.unk7 = 4;
+            PlaySFX(0x6c);
+            SetFileSelectState(0);
+            break;
+    }
+    temp = sub_080517B4(delta);
+    if (temp != gUnk_02019EE0.unk7) {
+        gUnk_02019EE0.unk7 = temp;
+        PlaySFX(0x69);
+    }
+}
+
+void sub_08051874(void) {
+    s32 temp;
+    gUnk_02000000->saveFileId = gUnk_02019EE0.unk7;
+    temp = sub_0807CDA4(0);
+    gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk7] = temp;
+    switch (temp) {
+        case 1:
+            _DmaCopy(&gSave, &gUnk_02019EE0.saves[gUnk_02019EE0.unk7],
+                     sizeof(gUnk_02019EE0.saves[gUnk_02019EE0.unk7]));
+            SetFileSelectState(0);
+            break;
+        case -1:
+            sub_0805194C(gUnk_02019EE0.unk7);
+            CreateDialogBox(3, 0);
+            gMenu.transitionTimer = 0x1e;
+            sub_080A7114(3);
+            break;
+    }
+}
+
+void sub_080518E4(void) {
+    switch (gMenu.transitionTimer) {
+        case 0:
+            if (gInput.newKeys & (A_BUTTON | START_BUTTON)) {
+                SetFileSelectState(0);
+            }
+            break;
+        default:
+            gMenu.transitionTimer--;
+            break;
+    }
+}
+
+void HandleFileStart(void) {
+    if (gMenu.menuType == 0) {
+        gMenu.menuType = 1;
+        gUnk_02000000->messageSpeed = gSave.messageSpeed;
+        gUnk_02000000->brightnessPref = gSave.brightnessPref;
+        gUnk_03001000.funcIndex = 2;
+        DoFade(5, 8);
+    }
+}
+
+void sub_0805194C(u32 save_idx) {
+    SaveFile* save;
+
+    gUnk_02019EE0.saveStatus[save_idx] = 0;
+    save = &gUnk_02019EE0.saves[save_idx];
+    _DmaZero(save, sizeof(*save));
+    save->messageSpeed = 1;
+    save->brightnessPref = 1;
+    save->stats.health = 24;
+    save->stats.maxHealth = 24;
 }

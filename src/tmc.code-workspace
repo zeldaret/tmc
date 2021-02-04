@@ -12,7 +12,9 @@
             "main.h": "c",
             "object.h": "c",
             "filescreen.h": "c",
-            "screen.h": "c"
+            "screen.h": "c",
+            "global.h": "c",
+            "player.h": "c"
         }
     }
 }

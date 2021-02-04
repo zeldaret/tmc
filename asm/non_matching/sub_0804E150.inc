@@ -1,14 +1,14 @@
     .syntax unified
 	push {r4, r5, lr}
 	ldr r4, _0804E160 @ =gUnk_080EED2C
-	ldr r0, _0804E164 @ =gUnk_02002A40
+	ldr r0, _0804E164 @ =gSave
 	movs r5, #1
 	ldrb r0, [r0, #8]
 	lsls r5, r0
 	b _0804E17C
 	.align 2, 0
 _0804E160: .4byte gUnk_080EED2C
-_0804E164: .4byte gUnk_02002A40
+_0804E164: .4byte gSave
 _0804E168:
 	ldrh r0, [r4]
 	ands r0, r5
@@ -29,14 +29,14 @@ _0804E17C:
 	cmp r0, #0
 	bne _0804E1BA
 	ldr r4, _0804E198 @ =gUnk_080EED7A
-	ldr r0, _0804E19C @ =gUnk_02002A40
+	ldr r0, _0804E19C @ =gSave
 	movs r5, #1
 	ldrb r0, [r0, #8]
 	lsls r5, r0
 	b _0804E1B4
 	.align 2, 0
 _0804E198: .4byte gUnk_080EED7A
-_0804E19C: .4byte gUnk_02002A40
+_0804E19C: .4byte gSave
 _0804E1A0:
 	ldrh r0, [r4]
 	ands r0, r5
@@ -58,14 +58,14 @@ _0804E1BA:
 	cmp r0, #0
 	bne _0804E1F2
 	ldr r4, _0804E1D0 @ =gUnk_080EED8C
-	ldr r0, _0804E1D4 @ =gUnk_02002A40
+	ldr r0, _0804E1D4 @ =gSave
 	movs r5, #1
 	ldrb r0, [r0, #8]
 	lsls r5, r0
 	b _0804E1EC
 	.align 2, 0
 _0804E1D0: .4byte gUnk_080EED8C
-_0804E1D4: .4byte gUnk_02002A40
+_0804E1D4: .4byte gSave
 _0804E1D8:
 	ldrh r0, [r4]
 	ands r0, r5

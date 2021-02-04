@@ -31,7 +31,7 @@
 	adds r2, r2, r1
 	strb r2, [r3]
 _08024E84:
-	ldr r0, _08024EC8 @ =gUnk_02002A40
+	ldr r0, _08024EC8 @ =gSave
 	adds r0, #0xaa
 	ldrb r0, [r0]
 	adds r2, r4, #0
@@ -65,7 +65,7 @@ _08024E9A:
 	bl sub_08024A14
 	b _08024F46
 	.align 2, 0
-_08024EC8: .4byte gUnk_02002A40
+_08024EC8: .4byte gSave
 _08024ECC:
 	ldr r6, _08024F48 @ =gPlayerEntity
 	bl ResetPlayer

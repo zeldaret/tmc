@@ -6,6 +6,7 @@
 #include "structures.h"
 #include "textbox.h"
 #include "functions.h"
+#include "save.h"
 
 void nullsub_507 (Entity*, ScriptExecutionContext*);
 void sub_0807E004(Entity*, ScriptExecutionContext*);
@@ -496,12 +497,12 @@ void sub_0807E30C(Entity* unk1, ScriptExecutionContext* unk2) {
 }
 
 void sub_0807E390(Entity* unk1, ScriptExecutionContext* unk2) {
-    unk2->unk_14 = (unk2->unk_00[1] <= gUnk_02002A40.stats.rupees);
+    unk2->unk_14 = (unk2->unk_00[1] <= gSave.stats.rupees);
     gUnk_02033280.unk_07 |= 1;
 }
 
 void sub_0807E3BC(Entity* unk1, ScriptExecutionContext* unk2) {
-    unk2->unk_14 = (unk2->unk_00[1] <= gUnk_02002A40.stats.field_0x1a);
+    unk2->unk_14 = (unk2->unk_00[1] <= gSave.stats.field_0x1a);
     gUnk_02033280.unk_07 |= 1;
 }
 
@@ -525,7 +526,7 @@ void sub_0807E42C(Entity* unk1, ScriptExecutionContext* unk2) {
         tmp2 = gRoomVars.field_0x7;
     }
     tmp3 = sub_08053FE0(tmp);
-    unk2->unk_14 = (tmp3 <= gUnk_02002A40.stats.rupees);
+    unk2->unk_14 = (tmp3 <= gSave.stats.rupees);
     if (unk2->unk_14) {
         ModRupees(-tmp3);
         sub_080A7C18(tmp, tmp2, 0);
@@ -1145,8 +1146,8 @@ void sub_0807F004(Entity* unk1, ScriptExecutionContext* unk2) {
 }
 
 void sub_0807F010(Entity* unk1, ScriptExecutionContext* unk2) {
-    gUnk_02002A40.stats.maxHealth = min(gUnk_02002A40.stats.maxHealth + 8, 0xA0);
-    gUnk_02002A40.stats.health = gUnk_02002A40.stats.maxHealth;
+    gSave.stats.maxHealth = min(gSave.stats.maxHealth + 8, 0xA0);
+    gSave.stats.health = gSave.stats.maxHealth;
 }
 
 void sub_0807F034(Entity* unk1, ScriptExecutionContext* unk2) {

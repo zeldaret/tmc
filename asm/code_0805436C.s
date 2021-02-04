@@ -1102,7 +1102,7 @@ sub_08055114: @ 0x08055114
 	push {r4, lr}
 	ldr r0, _08055150 @ =gUnk_080FF17C
 	bl LoadRoomEntityList
-	ldr r0, _08055154 @ =gUnk_02002A40
+	ldr r0, _08055154 @ =gSave
 	ldrb r0, [r0, #8]
 	cmp r0, #9
 	beq _0805512A
@@ -1127,7 +1127,7 @@ _0805512A:
 	pop {r4, pc}
 	.align 2, 0
 _08055150: .4byte gUnk_080FF17C
-_08055154: .4byte gUnk_02002A40
+_08055154: .4byte gSave
 _08055158: .4byte 0x00000DB4
 _0805515C: .4byte gMenu
 _08055160: .4byte gUnk_02000070
@@ -2024,7 +2024,7 @@ sub_08055834: @ 0x08055834
 	push {r4, lr}
 	ldr r0, _08055870 @ =gUnk_080FF2C0
 	bl LoadRoomEntityList
-	ldr r0, _08055874 @ =gUnk_02002A40
+	ldr r0, _08055874 @ =gSave
 	ldrb r0, [r0, #8]
 	cmp r0, #9
 	beq _0805584A
@@ -2049,7 +2049,7 @@ _0805584A:
 	pop {r4, pc}
 	.align 2, 0
 _08055870: .4byte gUnk_080FF2C0
-_08055874: .4byte gUnk_02002A40
+_08055874: .4byte gSave
 _08055878: .4byte 0x00000DB4
 _0805587C: .4byte gMenu
 _08055880: .4byte gUnk_02000070

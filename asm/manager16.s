@@ -78,7 +78,7 @@ _0805ABC8:
 	adds r0, r2, r1
 	lsls r0, r0, #4
 	adds r4, r0, r4
-	ldr r0, _0805ABF8 @ =gUnk_02002A40
+	ldr r0, _0805ABF8 @ =gSave
 	movs r5, #1
 	mov sl, r5
 	mov r7, sl
@@ -94,7 +94,7 @@ _0805ABC8:
 	.align 2, 0
 _0805ABF0: .4byte gArea
 _0805ABF4: .4byte gUnk_02031EC0
-_0805ABF8: .4byte gUnk_02002A40
+_0805ABF8: .4byte gSave
 _0805ABFC: .4byte gUnk_020342F8
 _0805AC00:
 	ldrh r0, [r4, #4]

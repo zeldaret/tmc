@@ -6,7 +6,7 @@
 	push {r5, r6, r7}
 	sub sp, #8
 	str r0, [sp]
-	ldr r1, _08050C18 @ =gUnk_02002A40
+	ldr r1, _08050C18 @ =gSave
 	adds r0, r1, #0
 	adds r0, #0xaa
 	ldrb r0, [r0]
@@ -117,7 +117,7 @@ RETURN:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08050C18: .4byte gUnk_02002A40
+_08050C18: .4byte gSave
 _08050C1C: .4byte 0x0000F24C
 _08050C20: .4byte 0x040000D4
 _08050C24: .4byte gUnk_080FC914

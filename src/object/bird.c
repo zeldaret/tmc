@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
+#include "save.h"
 
 extern void (*const gUnk_08123EC0[])(Entity*);
 extern void (*const gUnk_08123EEC[])(Entity*);
@@ -118,7 +119,7 @@ void sub_0809D130(Entity* this) {
         sub_0800445C(this);
     } else if (sub_08017850(this) != 0) {
         CreateItemEntity(0x17, 0, 0);
-        gUnk_02002A40.windcrests |= 0x10000000;
+        gSave.windcrests |= 0x10000000;
         DeleteThisEntity();
     }
 }

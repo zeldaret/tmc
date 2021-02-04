@@ -5,6 +5,7 @@
 #include "screen.h"
 #include "random.h"
 #include "readKeyInput.h"
+#include "save.h"
 
 extern void HandleIntroScreen(void);
 extern void HandleChooseFileScreen(void);
@@ -110,7 +111,7 @@ static void sub_08055F70(void) {
 #define SOFT_RESET_KEYS (A_BUTTON | B_BUTTON | SELECT_BUTTON | START_BUTTON)
 
 static bool32 SoftResetKeysPressed(void) {
-    return (gUnk_03000FF0.heldKeys & SOFT_RESET_KEYS) == SOFT_RESET_KEYS;
+    return (gInput.heldKeys & SOFT_RESET_KEYS) == SOFT_RESET_KEYS;
 }
 
 void InitScreen(u32 screen) {

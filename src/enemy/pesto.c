@@ -804,7 +804,7 @@ void sub_08024E4C(Entity* this) {
             this->cutsceneBeh.HALF.LO += 1 + (Random() & 1);
         }
 
-        if (gUnk_02002A40.stats.health == 0 || this->field_0x86.HALF.HI == 4) {
+        if (gSave.stats.health == 0 || this->field_0x86.HALF.HI == 4) {
             this->cutsceneBeh.HALF.LO = 0x30;
             this->field_0x86.HALF.HI = 0;
             sub_08024F50(this);

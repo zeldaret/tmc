@@ -6,7 +6,7 @@ static void StoreKeyInput(Input*, u32);
 
 void ReadKeyInput(void) {
     u32 keyInput = ~REG_KEYINPUT & KEYS_MASK;
-    StoreKeyInput(&gUnk_03000FF0, keyInput);
+    StoreKeyInput(&gInput, keyInput);
 }
 
 static void StoreKeyInput(Input* input, u32 keyInput) {

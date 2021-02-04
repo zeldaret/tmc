@@ -28,7 +28,7 @@ SECTIONS {
         . = 0x00001A3C; gUnk_02001A3C = .;
         . = 0x00001A40; gBG3Buffer = .;
         . = 0x00001B40; gUnk_02001B40 = .;
-        . = 0x00002A40; gUnk_02002A40 = .;
+        . = 0x00002A40; gSave = .;
         . = 0x00002AA0; gUnk_02002AA0 = .;
         . = 0x00002AC0; gUnk_02002AC0 = .;
         . = 0x00002AC8; gUnk_02002AC8 = .;
@@ -73,7 +73,6 @@ SECTIONS {
         . = 0x00018EB0; gUnk_02018EB0 = .;
         . = 0x00018EE0; gUnk_02018EE0 = .;
         . = 0x00019EE0; gUnk_02019EE0 = .;
-        . = 0x00019EEC; gSaveFiles = .;
         . = 0x00019F6C; gUnk_02019F6C = .;
         . = 0x0001AEE0; gUnk_0201AEE0 = .;
         . = 0x00021EE0; gUnk_02021EE0 = .;
@@ -176,7 +175,7 @@ SECTIONS {
         . = 0x00000F88; gBgControls = .;
         . = 0x00000FBC; gUnk_03000FBC = .;
         . = 0x00000FD0; gFadeControl = .;
-        . = 0x00000FF0; gUnk_03000FF0 = .;
+        . = 0x00000FF0; gInput = .;
         . = 0x00001000; gUnk_03001000 = .;
         . = 0x00001010; gUnk_03001010 = .;
         . = 0x00001020; gUnk_03001020 = .;

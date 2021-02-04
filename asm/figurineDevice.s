@@ -398,7 +398,7 @@ _08087EAC:
 	subs r0, #1
 	strb r0, [r4, #0xe]
 _08087EB6:
-	ldr r6, _08087ED4 @ =gUnk_03000FF0
+	ldr r6, _08087ED4 @ =gInput
 	ldrh r0, [r6, #2]
 	ands r1, r0
 	cmp r1, #0
@@ -412,7 +412,7 @@ _08087EB6:
 	bl sub_08050384
 	b _08087F4E
 	.align 2, 0
-_08087ED4: .4byte gUnk_03000FF0
+_08087ED4: .4byte gInput
 _08087ED8:
 	adds r2, r4, #0
 	adds r2, #0x81
@@ -560,7 +560,7 @@ _08087FEA:
 	adds r1, #0x81
 	ldrb r6, [r1]
 	adds r2, r6, r4
-	ldr r0, _0808801C @ =gUnk_02002A40
+	ldr r0, _0808801C @ =gSave
 	adds r0, #0xc2
 	ldrh r0, [r0]
 	cmp r2, r0
@@ -583,7 +583,7 @@ _08088014:
 	bl sub_08088034
 	b _08088032
 	.align 2, 0
-_0808801C: .4byte gUnk_02002A40
+_0808801C: .4byte gSave
 _08088020:
 	movs r3, #0x64
 	mov r0, ip
@@ -617,14 +617,14 @@ sub_0808804C: @ 0x0808804C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r4, #0
-	ldr r0, _08088060 @ =gUnk_02002A40
+	ldr r0, _08088060 @ =gSave
 	ldrb r0, [r0, #6]
 	cmp r0, #0
 	beq _08088064
 	movs r4, #9
 	b _080880D0
 	.align 2, 0
-_08088060: .4byte gUnk_02002A40
+_08088060: .4byte gSave
 _08088064:
 	movs r0, #6
 	bl CheckGlobalFlag
@@ -723,7 +723,7 @@ _0808810A:
 	lsrs r0, r0, #0x18
 	cmp r0, #4
 	bne _08088156
-	ldr r5, _0808815C @ =gUnk_02002A40
+	ldr r5, _0808815C @ =gSave
 	adds r0, r7, #0
 	adds r0, #0x80
 	ldrb r1, [r5, #9]
@@ -743,7 +743,7 @@ _0808813A:
 	bl CheckLocalFlag
 	cmp r0, #0
 	beq _08088156
-	ldr r0, _0808815C @ =gUnk_02002A40
+	ldr r0, _0808815C @ =gSave
 	adds r0, #0xb0
 	ldrb r1, [r4]
 	ldrb r0, [r0]
@@ -755,7 +755,7 @@ _08088156:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _08088158: .4byte gUnk_08120AAC
-_0808815C: .4byte gUnk_02002A40
+_0808815C: .4byte gSave
 
 	thumb_func_start sub_08088160
 sub_08088160: @ 0x08088160
@@ -894,7 +894,7 @@ sub_0808826C: @ 0x0808826C
 	movs r4, #0x64
 	adds r0, #0x80
 	ldrb r1, [r0]
-	ldr r0, _080882A4 @ =gUnk_02002A40
+	ldr r0, _080882A4 @ =gSave
 	adds r0, #0xb0
 	ldrb r0, [r0]
 	subs r0, r1, r0
@@ -917,7 +917,7 @@ _08088298:
 	strb r4, [r0]
 	pop {r4, r5, pc}
 	.align 2, 0
-_080882A4: .4byte gUnk_02002A40
+_080882A4: .4byte gSave
 
 	thumb_func_start sub_080882A8
 sub_080882A8: @ 0x080882A8
@@ -1075,7 +1075,7 @@ _080883DE:
 	cmp r5, #0
 	beq _08088414
 _080883E2:
-	ldr r0, _08088404 @ =gUnk_02002A40
+	ldr r0, _08088404 @ =gSave
 	adds r0, #0xb0
 	ldrb r1, [r0]
 	adds r1, #1
@@ -1091,7 +1091,7 @@ _080883E2:
 	bl SetRoomFlag
 	b _08088414
 	.align 2, 0
-_08088404: .4byte gUnk_02002A40
+_08088404: .4byte gSave
 _08088408:
 	movs r0, #0x5f
 	bl SetLocalFlag
@@ -1111,7 +1111,7 @@ _08088414:
 sub_08088424: @ 0x08088424
 	push {lr}
 	adds r1, r0, #0
-	ldr r0, _08088440 @ =gUnk_02002A40
+	ldr r0, _08088440 @ =gSave
 	adds r0, #0xb0
 	ldrb r0, [r0]
 	cmp r0, #0x31
@@ -1124,7 +1124,7 @@ sub_08088424: @ 0x08088424
 	movs r0, #0xf
 	b _08088474
 	.align 2, 0
-_08088440: .4byte gUnk_02002A40
+_08088440: .4byte gSave
 _08088444:
 	cmp r0, #0x4f
 	bhi _08088456
@@ -1180,7 +1180,7 @@ _0808849C:
 	.align 2, 0
 _080884A0: .4byte 0x00004325
 _080884A4:
-	ldr r1, _080884C0 @ =gUnk_02002A40
+	ldr r1, _080884C0 @ =gSave
 	adds r0, r1, #0
 	adds r0, #0xb0
 	ldrb r0, [r0]
@@ -1194,7 +1194,7 @@ _080884A4:
 	ldr r1, _080884C4 @ =0x00004329
 	b _080884D2
 	.align 2, 0
-_080884C0: .4byte gUnk_02002A40
+_080884C0: .4byte gSave
 _080884C4: .4byte 0x00004329
 _080884C8:
 	ldrb r0, [r1, #6]
@@ -1229,7 +1229,7 @@ _08088500: .4byte gPlayerEntity
 	thumb_func_start sub_08088504
 sub_08088504: @ 0x08088504
 	push {lr}
-	ldr r0, _08088518 @ =gUnk_02002A40
+	ldr r0, _08088518 @ =gSave
 	adds r0, #0xb0
 	ldrb r0, [r0]
 	cmp r0, #0x82
@@ -1239,7 +1239,7 @@ sub_08088504: @ 0x08088504
 	ldr r0, _0808851C @ =0x0000432F
 	b _0808852A
 	.align 2, 0
-_08088518: .4byte gUnk_02002A40
+_08088518: .4byte gSave
 _0808851C: .4byte 0x0000432F
 _08088520:
 	ldr r0, _08088524 @ =0x00004314
@@ -1263,7 +1263,7 @@ _08088540: .4byte gTextBox
 	thumb_func_start sub_08088544
 sub_08088544: @ 0x08088544
 	push {lr}
-	ldr r0, _08088568 @ =gUnk_02002A40
+	ldr r0, _08088568 @ =gSave
 	adds r0, #0xb0
 	ldrb r0, [r0]
 	ldr r1, _0808856C @ =0x00004315
@@ -1280,7 +1280,7 @@ _08088554:
 	strb r1, [r0, #7]
 	pop {pc}
 	.align 2, 0
-_08088568: .4byte gUnk_02002A40
+_08088568: .4byte gSave
 _0808856C: .4byte 0x00004315
 _08088570: .4byte gTextBox
 
@@ -1340,7 +1340,7 @@ sub_080885B0: @ 0x080885B0
 _080885E0: .4byte 0x00004326
 _080885E4: .4byte gTextBox
 _080885E8:
-	ldr r1, _08088618 @ =gUnk_02002A40
+	ldr r1, _08088618 @ =gSave
 	adds r0, r1, #0
 	adds r0, #0xb1
 	ldrb r0, [r0]
@@ -1362,7 +1362,7 @@ _0808860A:
 	bl ClearRoomFlag
 	pop {pc}
 	.align 2, 0
-_08088618: .4byte gUnk_02002A40
+_08088618: .4byte gSave
 
 	thumb_func_start sub_0808861C
 sub_0808861C: @ 0x0808861C

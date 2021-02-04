@@ -5,6 +5,7 @@
 #include "structures.h"
 #include "greatFairy.h"
 #include "functions.h"
+#include "save.h"
 
 enum {
     BEHAVIORS,
@@ -540,10 +541,10 @@ void sub_08087424(Entity* arg0, struct_08087424* arg1) {
 
     switch (arg1->unk4) {
         case 0:
-            gUnk_02002A40.stats.arrowCount = arg1->unk4;
+            gSave.stats.arrowCount = arg1->unk4;
             break;
         case 1:
-            gUnk_02002A40.stats.bombCount = 0;
+            gSave.stats.bombCount = 0;
             break;
     }
 }

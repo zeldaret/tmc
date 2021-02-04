@@ -4,6 +4,7 @@
 #include "functions.h"
 #include "textbox.h"
 #include "structures.h"
+#include "save.h"
 
 u32 sub_080564DC(void);
 u32 sub_080564EC(void);
@@ -154,7 +155,7 @@ NONMATCH("asm/non_matching/textbox/sub_080564EC.inc", u32 sub_080564EC(void)) {
     dest = gUnk_02022780._5e;
 
     for (i = 0; i < 6; ++i) {
-        c = gUnk_02002A40.playerName[i];
+        c = gSave.playerName[i];
         if (c == '\0')
             break;
         dest[i] = c;

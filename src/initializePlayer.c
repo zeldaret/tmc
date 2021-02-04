@@ -5,6 +5,7 @@
 #include "functions.h"
 #include "room.h"
 #include "flags.h"
+#include "save.h"
 
 extern u32 gUnk_03000B80;
 extern u32 gUnk_03003FC0;
@@ -56,7 +57,7 @@ void InitializePlayer(void) {
     pl->entityType.type = 1;
     pl->flags |= 0xa0;
     pl->spritePriority.b0 = 4;
-    pl->currentHealth = gUnk_02002A40.stats.health;
+    pl->currentHealth = gSave.stats.health;
     pl->x.HALF.HI = gScreenTransition.playerStartPos.HALF.x;
     pl->y.HALF.HI = gScreenTransition.playerStartPos.HALF.y;
     pl->animationState = gScreenTransition.playerState;

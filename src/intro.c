@@ -321,7 +321,7 @@ static u32 GetAdvanceState(void) {
     if (!gUnk_02000010.listenForKeyPresses) {
         newKeys = 0;
     } else {
-        newKeys = gUnk_03000FF0.newKeys & (A_BUTTON | START_BUTTON);
+        newKeys = gInput.newKeys & (A_BUTTON | START_BUTTON);
     }
 
     if (--gIntroState.timer == 0) {

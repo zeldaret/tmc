@@ -224,7 +224,7 @@ _080A3604: .4byte gUnk_03001000
 	thumb_func_start sub_080A3608
 sub_080A3608: @ 0x080A3608
 	push {r4, r5, lr}
-	ldr r0, _080A3640 @ =gUnk_02002A40
+	ldr r0, _080A3640 @ =gSave
 	movs r5, #0
 	movs r4, #1
 	strb r4, [r0, #6]
@@ -250,7 +250,7 @@ sub_080A3608: @ 0x080A3608
 	ldr r0, _080A364C @ =gUnk_08127998
 	b _080A365E
 	.align 2, 0
-_080A3640: .4byte gUnk_02002A40
+_080A3640: .4byte gSave
 _080A3644: .4byte gUnk_03001000
 _080A3648: .4byte gMenu
 _080A364C: .4byte gUnk_08127998
@@ -753,7 +753,7 @@ _080A3A42:
 _080A3A50: .4byte gFadeControl
 _080A3A54:
 	ldrb r4, [r2, #3]
-	ldr r0, _080A3A68 @ =gUnk_03000FF0
+	ldr r0, _080A3A68 @ =gInput
 	ldrh r0, [r0, #2]
 	cmp r0, #0x40
 	beq _080A3A72
@@ -763,7 +763,7 @@ _080A3A54:
 	beq _080A3A7A
 	b _080A3A9A
 	.align 2, 0
-_080A3A68: .4byte gUnk_03000FF0
+_080A3A68: .4byte gInput
 _080A3A6C:
 	cmp r0, #0x80
 	beq _080A3A76
@@ -782,7 +782,7 @@ _080A3A7A:
 _080A3A82:
 	movs r0, #8
 	movs r1, #0
-	bl sub_08050318
+	bl CreateDialogBox
 	movs r0, #2
 _080A3A8C:
 	ldr r1, _080A3AB4 @ =gMenu
@@ -827,7 +827,7 @@ _080A3ADC:
 	strh r0, [r4, #8]
 	movs r0, #9
 	movs r1, #0
-	bl sub_08050318
+	bl CreateDialogBox
 	movs r0, #3
 	strb r0, [r4, #6]
 	b _080A3B36
@@ -840,7 +840,7 @@ _080A3AEE:
 	strh r0, [r1, #8]
 	b _080A3B36
 _080A3AFC:
-	ldr r0, _080A3B10 @ =gUnk_03000FF0
+	ldr r0, _080A3B10 @ =gInput
 	ldrh r1, [r0, #2]
 	movs r0, #0xb
 	ands r0, r1
@@ -850,7 +850,7 @@ _080A3AFC:
 	strb r0, [r2, #6]
 	b _080A3B36
 	.align 2, 0
-_080A3B10: .4byte gUnk_03000FF0
+_080A3B10: .4byte gInput
 _080A3B14:
 	ldr r2, _080A3B38 @ =gScreen
 	ldrh r1, [r2]
@@ -879,7 +879,7 @@ _080A3B44: .4byte gMenu
 sub_080A3B48: @ 0x080A3B48
 	push {lr}
 	movs r1, #0
-	ldr r0, _080A3B6C @ =gUnk_02002A40
+	ldr r0, _080A3B6C @ =gSave
 	ldr r3, _080A3B70 @ =0x0000012B
 	adds r2, r0, r3
 	ldrb r0, [r2]
@@ -897,7 +897,7 @@ _080A3B66:
 	adds r0, r1, #0
 	pop {pc}
 	.align 2, 0
-_080A3B6C: .4byte gUnk_02002A40
+_080A3B6C: .4byte gSave
 _080A3B70: .4byte 0x0000012B
 
 	thumb_func_start sub_080A3B74

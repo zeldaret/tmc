@@ -496,7 +496,7 @@ _08064424: .4byte gUnk_0810F6D4
 sub_08064428: @ 0x08064428
 	push {lr}
 	adds r3, r0, #0
-	ldr r0, _0806444C @ =gUnk_02002A40
+	ldr r0, _0806444C @ =gSave
 	ldrb r0, [r0, #8]
 	subs r1, r0, #2
 	cmp r1, #0
@@ -513,7 +513,7 @@ _08064438:
 	ldr r1, _08064450 @ =gUnk_0810CF4C
 	b _08064460
 	.align 2, 0
-_0806444C: .4byte gUnk_02002A40
+_0806444C: .4byte gSave
 _08064450: .4byte gUnk_0810CF4C
 _08064454:
 	movs r0, #0x7f

@@ -6,8 +6,8 @@
 #include "menu.h"
 #include "npc.h"
 #include "position.h"
-#include "readKeyInput.h"
 #include "structures.h"
+#include "fileScreen.h"
 
 extern int sub_0807A094(int);
 extern void LoadPalettes(const u8*, int, int);
@@ -92,8 +92,8 @@ void sub_0808E818(Entity* this) {
     }
 
     if (gUnk_02032EC0.lastState == 0) {
-        if (gUnk_03000FF0.heldKeys & L_BUTTON) {
-            switch (gUnk_03000FF0.newKeys) {
+        if (gInput.heldKeys & L_BUTTON) {
+            switch (gInput.newKeys) {
                 case DPAD_UP:
                     this->animationState = 0;
                     break;
@@ -167,7 +167,7 @@ void sub_0808E988(Entity* this) {
 }
 
 void sub_0808E9F4(Entity* this) {
-    if (sub_0808E950() && gUnk_02002A40.unk6) {
+    if (sub_0808E950() && gSave.unk6) {
         this->spriteSettings.b.draw = 2;
     } else {
         this->spriteSettings.b.draw = 0;
@@ -323,7 +323,7 @@ void sub_0808EBB8(Entity* this) {
 }
 
 static Entity* sub_0808EC80(int form) {
-    Entity* entityA = (Entity*) &gUnk_03003DA0;
+    Entity* entityA = (Entity*)&gUnk_03003DA0;
     Entity* entityB = entityA->next;
     while (entityB != entityA) {
         if ((entityB->entityType.type == 0x6 && entityB->entityType.subtype == 0x48) &&

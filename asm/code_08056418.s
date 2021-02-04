@@ -19,7 +19,7 @@ sub_080566B8: @ 0x080566B8
 	strb r0, [r1]
 	b _0805674E
 _080566CC:
-	ldr r0, _08056740 @ =gUnk_03000FF0
+	ldr r0, _08056740 @ =gInput
 	ldrh r1, [r0]
 	movs r0, #2
 	ands r0, r1
@@ -81,7 +81,7 @@ _08056732:
 	strb r1, [r0]
 	b _0805674E
 	.align 2, 0
-_08056740: .4byte gUnk_03000FF0
+_08056740: .4byte gInput
 _08056744: .4byte gUnk_08107C0C
 _08056748: .4byte gUnk_02022780
 _0805674C:
@@ -422,7 +422,7 @@ sub_080569D4: @ 0x080569D4
 	ldr r0, _080569F0 @ =gUnk_02024030
 	movs r5, #3
 	ldrsb r5, [r0, r5]
-	ldr r0, _080569F4 @ =gUnk_03000FF0
+	ldr r0, _080569F4 @ =gInput
 	ldrh r0, [r0, #2]
 	cmp r0, #8
 	beq _08056A02
@@ -433,7 +433,7 @@ sub_080569D4: @ 0x080569D4
 	b _08056A6A
 	.align 2, 0
 _080569F0: .4byte gUnk_02024030
-_080569F4: .4byte gUnk_03000FF0
+_080569F4: .4byte gInput
 _080569F8:
 	cmp r0, #0x10
 	beq _08056A68
@@ -603,7 +603,7 @@ sub_08056B1C: @ 0x08056B1C
 	.align 2, 0
 _08056B44: .4byte gTextBox
 _08056B48:
-	ldr r0, _08056B68 @ =gUnk_03000FF0
+	ldr r0, _08056B68 @ =gInput
 	ldrh r1, [r0, #2]
 	ldr r0, _08056B6C @ =0x000001F3
 	ands r0, r1
@@ -619,7 +619,7 @@ _08056B48:
 	movs r0, #4
 	b _08056B78
 	.align 2, 0
-_08056B68: .4byte gUnk_03000FF0
+_08056B68: .4byte gInput
 _08056B6C: .4byte 0x000001F3
 _08056B70:
 	adds r1, r4, #0
@@ -665,7 +665,7 @@ sub_08056BA0: @ 0x08056BA0
 	beq _08056BCE
 	cmp r0, #2
 	beq _08056BC8
-	ldr r0, _08056BD4 @ =gUnk_03000FF0
+	ldr r0, _08056BD4 @ =gInput
 	ldrh r1, [r0, #2]
 	ldr r0, _08056BD8 @ =0x000001F3
 	ands r0, r1
@@ -678,7 +678,7 @@ _08056BCE:
 	pop {r4, pc}
 	.align 2, 0
 _08056BD0: .4byte gTextBox
-_08056BD4: .4byte gUnk_03000FF0
+_08056BD4: .4byte gInput
 _08056BD8: .4byte 0x000001F3
 
 	thumb_func_start sub_08056BDC

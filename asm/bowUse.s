@@ -279,7 +279,7 @@ _08019390:
 	movs r0, #0xe
 	strb r0, [r1]
 _08019398:
-	ldr r0, _08019404 @ =gUnk_02002A40
+	ldr r0, _08019404 @ =gSave
 	adds r0, #0xad
 	ldrb r5, [r0]
 	ldrb r1, [r4, #0x1e]
@@ -334,6 +334,6 @@ _080193FA:
 _08019402:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08019404: .4byte gUnk_02002A40
+_08019404: .4byte gSave
 _08019408: .4byte gPlayerEntity
 _0801940C: .4byte gPlayerState

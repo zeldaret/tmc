@@ -775,7 +775,7 @@ sub_0806D5D4: @ 0x0806D5D4
 	adds r1, r0, #0
 	cmp r1, #2
 	beq _0806D5F0
-	ldr r0, _0806D5FC @ =gUnk_02002A40
+	ldr r0, _0806D5FC @ =gSave
 	adds r0, #0xb4
 	adds r0, r1, r0
 	movs r1, #0
@@ -786,13 +786,13 @@ _0806D5F0:
 	bl sub_0807CAA0
 	pop {pc}
 	.align 2, 0
-_0806D5FC: .4byte gUnk_02002A40
+_0806D5FC: .4byte gSave
 
 	thumb_func_start sub_0806D600
 sub_0806D600: @ 0x0806D600
 	push {lr}
 	movs r2, #0
-	ldr r0, _0806D618 @ =gUnk_02002A40
+	ldr r0, _0806D618 @ =gSave
 	ldr r3, _0806D61C @ =0x00000494
 	adds r0, r0, r3
 	ldr r0, [r0]
@@ -803,7 +803,7 @@ _0806D612:
 	str r2, [r1, #0x14]
 	pop {pc}
 	.align 2, 0
-_0806D618: .4byte gUnk_02002A40
+_0806D618: .4byte gSave
 _0806D61C: .4byte 0x00000494
 
 	thumb_func_start sub_0806D620

@@ -4,6 +4,7 @@
 #include "structures.h"
 #include "player.h"
 #include "functions.h"
+#include "save.h"
 
 extern void (*const gUnk_080CEB74[])(Entity*);
 extern void (*const gUnk_080CEB8C[])(Entity*);
@@ -35,8 +36,8 @@ void sub_08033564(Entity* this) {
             this->flags &= 0x7f;
             this->field_0x7c.HALF.LO = 0x27c;
             gPlayerState.flags.all |= 0x4000;
-            gUnk_02002A40.stats.filler2[4] = this->entityType.form + 1;
-            gUnk_02002A40.stats.field_0x20 = 600;
+            gSave.stats.filler2[4] = this->entityType.form + 1;
+            gSave.stats.field_0x20 = 600;
             if (this->entityType.form == 0) {
                 break;
             }

@@ -10,7 +10,7 @@
 ModArrows: @ 0x08054330
 	push {lr}
 	adds r3, r0, #0
-	ldr r1, _08054354 @ =gUnk_02002A40
+	ldr r1, _08054354 @ =gSave
 	adds r0, r1, #0
 	adds r0, #0xad
 	ldrb r0, [r0]
@@ -26,7 +26,7 @@ ModArrows: @ 0x08054330
 	movs r3, #0
 	b _08054362
 	.align 2, 0
-_08054354: .4byte gUnk_02002A40
+_08054354: .4byte gSave
 _08054358: .4byte gQuiverSizes
 _0805435C:
 	cmp r2, r3
