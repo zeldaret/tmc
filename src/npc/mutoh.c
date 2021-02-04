@@ -6,6 +6,7 @@
 #include "npc.h"
 #include "structures.h"
 #include "functions.h"
+#include "save.h"
 
 extern void sub_0807DD50(Entity*);
 extern u32 GetFacingDirection(Entity*, Entity*);
@@ -72,7 +73,7 @@ void sub_080670B4(Entity* this) {
 }
 
 void sub_080670E4(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08110C10[gUnk_02002A40.unk8]);
+    ShowNPCDialogue(this, &gUnk_08110C10[gSave.unk8]);
 }
 
 void sub_08067100(Entity* this) {

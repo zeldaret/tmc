@@ -5,8 +5,8 @@
 
 	.text
 	
-	thumb_func_start sub_080AD90C
-sub_080AD90C: @ 0x080AD90C
+	thumb_func_start FlushSprites
+FlushSprites: @ 0x080AD90C
 	ldr r1, _080AD914 @ =gUnk_03000000
 	movs r0, #0
 	strb r0, [r1, #3]

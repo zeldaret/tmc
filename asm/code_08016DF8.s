@@ -128,7 +128,7 @@ _08016ED6:
 	cmp r1, #0
 	beq _08016EFC
 	ldr r2, _08016F14 @ =0x040000D4
-	ldr r0, _08016F24 @ =gUnk_020344B0
+	ldr r0, _08016F24 @ =gBG2Buffer
 	str r0, [r2]
 	ldrh r1, [r1]
 	movs r0, #0xf8
@@ -155,13 +155,13 @@ _08016F14: .4byte 0x040000D4
 _08016F18: .4byte gBG1Buffer
 _08016F1C: .4byte 0x84000170
 _08016F20: .4byte gUnk_0200B650
-_08016F24: .4byte gUnk_020344B0
+_08016F24: .4byte gBG2Buffer
 
 	thumb_func_start sub_08016F28
 sub_08016F28: @ 0x08016F28
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r0, _08016F44 @ =gUnk_02002A40
+	ldr r0, _08016F44 @ =gSave
 	adds r0, #0xba
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -173,7 +173,7 @@ sub_08016F28: @ 0x08016F28
 	orrs r1, r2
 	b _08016F54
 	.align 2, 0
-_08016F44: .4byte gUnk_02002A40
+_08016F44: .4byte gSave
 _08016F48: .4byte gPlayerState
 _08016F4C:
 	ldr r0, _08016F98 @ =gPlayerState
@@ -367,7 +367,7 @@ _080170C0:
 _080170CE:
 	ldr r3, _08017128 @ =gRoomVars
 	strb r1, [r3, #0xa]
-	ldr r2, _0801712C @ =gUnk_02002A40
+	ldr r2, _0801712C @ =gSave
 	adds r0, r2, #0
 	adds r0, #0xab
 	ldrb r0, [r0]
@@ -400,7 +400,7 @@ _080170E8:
 	ldr r0, _08017138 @ =0x0000011F
 	bl EnqueueSFX
 _08017112:
-	ldr r0, _0801712C @ =gUnk_02002A40
+	ldr r0, _0801712C @ =gSave
 	adds r2, r0, #0
 	adds r2, #0xb2
 	ldrb r1, [r2]
@@ -412,7 +412,7 @@ _08017112:
 	.align 2, 0
 _08017124: .4byte gTextBox
 _08017128: .4byte gRoomVars
-_0801712C: .4byte gUnk_02002A40
+_0801712C: .4byte gSave
 _08017130: .4byte gUnk_0200AF00
 _08017134: .4byte gScreenTransition
 _08017138: .4byte 0x0000011F
@@ -433,7 +433,7 @@ _08017150:
 	ldr r0, _0801716C @ =0x000001B3
 	bl PlaySFX
 _0801715A:
-	ldr r0, _08017170 @ =gUnk_02002A40
+	ldr r0, _08017170 @ =gSave
 	adds r3, r0, #0
 	adds r3, #0xb3
 	ldrb r1, [r3]
@@ -444,7 +444,7 @@ _0801715A:
 	b _080171A4
 	.align 2, 0
 _0801716C: .4byte 0x000001B3
-_08017170: .4byte gUnk_02002A40
+_08017170: .4byte gSave
 _08017174:
 	adds r2, r0, #0
 	adds r2, #0xc6
@@ -471,7 +471,7 @@ _08017196:
 	adds r0, r5, #0
 	bl CreateSparkle
 _080171A4:
-	ldr r0, _080171B8 @ =gUnk_02002A40
+	ldr r0, _080171B8 @ =gSave
 	adds r3, r0, #0
 	adds r3, #0xba
 	ldrb r1, [r3]
@@ -481,7 +481,7 @@ _080171A4:
 	strh r1, [r0]
 	b _080171EA
 	.align 2, 0
-_080171B8: .4byte gUnk_02002A40
+_080171B8: .4byte gSave
 _080171BC:
 	adds r2, r0, #0
 	adds r2, #0xc8
@@ -1397,7 +1397,7 @@ sub_08017874: @ 0x08017874
 	adds r0, r2, #0
 	adds r0, #0x44
 	ldrb r1, [r0]
-	ldr r0, _08017898 @ =gUnk_02002A40
+	ldr r0, _08017898 @ =gSave
 	adds r0, #0xb2
 	ldrb r0, [r0]
 	cmp r0, #0x2f
@@ -1406,7 +1406,7 @@ sub_08017874: @ 0x08017874
 	beq _080178A8
 	b _080178AE
 	.align 2, 0
-_08017898: .4byte gUnk_02002A40
+_08017898: .4byte gSave
 _0801789C:
 	adds r0, r1, #0
 	cmp r1, #0
@@ -1438,7 +1438,7 @@ _080178C6:
 	ldrb r0, [r2, #8]
 	cmp r0, #8
 	bne _080178F6
-	ldr r0, _080178E4 @ =gUnk_02002A40
+	ldr r0, _080178E4 @ =gSave
 	adds r0, #0xb2
 	ldrb r0, [r0]
 	cmp r0, #0x30
@@ -1447,7 +1447,7 @@ _080178C6:
 	beq _080178F4
 	b _080178F6
 	.align 2, 0
-_080178E4: .4byte gUnk_02002A40
+_080178E4: .4byte gSave
 _080178E8:
 	lsls r0, r1, #1
 	adds r0, r0, r1

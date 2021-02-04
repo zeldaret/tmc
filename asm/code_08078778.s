@@ -3221,7 +3221,7 @@ sub_0807A094: @ 0x0807A094
 	.align 2, 0
 _0807A0AC: .4byte gPlayerState
 _0807A0B0:
-	ldr r0, _0807A0F0 @ =gUnk_02002A40
+	ldr r0, _0807A0F0 @ =gSave
 	adds r1, r0, #0
 	adds r1, #0xb2
 	ldrb r1, [r1]
@@ -3254,7 +3254,7 @@ _0807A0D6:
 	beq _0807A0FA
 	b _0807A102
 	.align 2, 0
-_0807A0F0: .4byte gUnk_02002A40
+_0807A0F0: .4byte gSave
 _0807A0F4:
 	cmp r0, #0x31
 	beq _0807A0FE
@@ -3315,7 +3315,7 @@ _0807A154: .4byte gPlayerEntity
 	thumb_func_start sub_0807A158
 sub_0807A158: @ 0x0807A158
 	push {r4, lr}
-	ldr r4, _0807A178 @ =gUnk_02002A40
+	ldr r4, _0807A178 @ =gSave
 	adds r0, r4, #0
 	adds r0, #0xb4
 	ldrb r0, [r0]
@@ -3328,7 +3328,7 @@ sub_0807A158: @ 0x0807A158
 	bl sub_0805449C
 	b _0807A17E
 	.align 2, 0
-_0807A178: .4byte gUnk_02002A40
+_0807A178: .4byte gSave
 _0807A17C:
 	movs r0, #1
 _0807A17E:
@@ -5289,7 +5289,7 @@ sub_0807B014: @ 0x0807B014
 	ands r0, r1
 	cmp r0, #0
 	beq _0807B044
-	ldr r0, _0807B040 @ =gUnk_02002A40
+	ldr r0, _0807B040 @ =gSave
 	adds r1, r0, #0
 	adds r1, #0xaa
 	adds r0, #0xab
@@ -5301,7 +5301,7 @@ sub_0807B014: @ 0x0807B014
 	b _0807B066
 	.align 2, 0
 _0807B03C: .4byte gPlayerState
-_0807B040: .4byte gUnk_02002A40
+_0807B040: .4byte gSave
 _0807B044:
 	adds r0, r2, #0
 	adds r0, #0xac
@@ -5310,7 +5310,7 @@ _0807B044:
 	ands r0, r1
 	cmp r0, #0
 	beq _0807B064
-	ldr r0, _0807B060 @ =gUnk_02002A40
+	ldr r0, _0807B060 @ =gSave
 	adds r0, #0xaa
 	ldrb r0, [r0]
 	cmp r0, #8
@@ -5318,7 +5318,7 @@ _0807B044:
 	movs r0, #0x16
 	b _0807B066
 	.align 2, 0
-_0807B060: .4byte gUnk_02002A40
+_0807B060: .4byte gSave
 _0807B064:
 	movs r0, #0
 _0807B066:

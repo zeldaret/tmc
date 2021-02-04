@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "player.h"
 #include "functions.h"
+#include "save.h"
 
 extern SpriteLoadData gUnk_08113910[];
 extern void sub_0807DD50(Entity*);
@@ -78,7 +79,7 @@ void Teachers_Head(Entity* this) {
 void sub_0806C70C(Entity* this) {
     int offset;
 
-    offset = gUnk_02002A40.unk8 - 2;
+    offset = gSave.unk8 - 2;
     if (offset < 0)
         offset = 0;
 

@@ -5,6 +5,7 @@
 #include "flags.h"
 #include "structures.h"
 #include "functions.h"
+#include "save.h"
 
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 extern void sub_0807DD50(Entity*);
@@ -118,7 +119,7 @@ void sub_0806C90C(Entity* param_1, Entity* param_2) {
 }
 
 void sub_0806C928(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08113ABC[gUnk_02002A40.unk8]);
+    ShowNPCDialogue(this, &gUnk_08113ABC[gSave.unk8]);
 }
 
 void sub_0806C944(Entity* this) {

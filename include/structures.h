@@ -43,29 +43,6 @@ typedef struct {
 extern struct_02000010 gUnk_02000010;
 
 typedef struct {
-    /*0x000*/ u8 filler0[0x2];
-    /*0x002*/ u8 messageSpeed;
-    /*0x003*/ u8 brightnessPref;
-    /*0x004*/ u8 filler4[0x2];
-    /*0x006*/ u8 unk6;
-    /*0x007*/ u8 unk7;
-    /*0x008*/ u8 unk8;
-    /*0x009*/ u8 field_0x9[0x34];
-    /*0x040*/ u32 windcrests;
-    /*0x044*/ u8 filler44[0xC];
-    /*0x050*/ u32 unk50;
-    /*0x054*/ u8 filler54[0x2C];
-    /*0x080*/ u8 playerName[6];
-    /*0x086*/ u8 filler86[0x22];
-    /*0x0A8*/ Stats stats;
-    /*0x0D0*/ u8 fillerD0[0x3c0];
-    /*0x490*/ u32 unk490;
-    /*0x494*/ u8 filler494[0x20];
-} SaveFile;
-
-extern SaveFile gUnk_02002A40;
-
-typedef struct {
     u32 frameCount; // regular frame count? does anything reset it?
     u8 field_0x4[0x4];
     bool8 transitioningOut;
@@ -114,19 +91,6 @@ typedef struct {
 } ScreenTransitionData;
 
 typedef struct {
-    /*0x00*/ u8 unk0;
-    /*0x01*/ u8 unk1;
-    /*0x02*/ u8 unk2;
-    /*0x03*/ u8 unk3;
-    /*0x04*/ u8 filler4[0x2];
-    /*0x06*/ u8 unk6;
-    /*0x07*/ u8 unk7;
-    /*0x08*/ s8 unk8[0xE20];
-} struct_02019EE0;
-
-extern struct_02019EE0 gUnk_02019EE0;
-
-typedef struct {
     u8 active;
     u8 field_0x1;
     u8 field_0x2;
@@ -147,9 +111,9 @@ extern struct_03000FD0 gFadeControl;
 
 typedef struct {
     u8 filler0[0x1A];
-    u16 unk1A;
+    u16 rButtonX;
     u8 filler1C[0x4];
-    u16 unk20;
+    u16 rButtonY;
     u8 filler22[0x2];
     u8 ezloNagFuncIndex;
     u8 filler25[0x30F];
@@ -200,6 +164,7 @@ typedef struct {
 } BGBuffer;
 extern BGBuffer gBG0Buffer;
 extern BGBuffer gBG1Buffer;
+extern BGBuffer gBG2Buffer;
 static_assert(sizeof(BGBuffer) == 0x800);
 
 /*

@@ -47,7 +47,7 @@ sub_0808BE00: @ 0x0808BE00
 sub_0808BE2C: @ 0x0808BE2C
 	push {r4, lr}
 	adds r2, r0, #0
-	ldr r0, _0808BE78 @ =gUnk_02002A40
+	ldr r0, _0808BE78 @ =gSave
 	ldr r1, _0808BE7C @ =0x0000024E
 	adds r4, r0, r1
 	ldrb r0, [r4]
@@ -83,6 +83,6 @@ _0808BE6C:
 _0808BE74:
 	pop {r4, pc}
 	.align 2, 0
-_0808BE78: .4byte gUnk_02002A40
+_0808BE78: .4byte gSave
 _0808BE7C: .4byte 0x0000024E
 _0808BE80: .4byte gPlayerEntity

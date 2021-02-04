@@ -716,7 +716,7 @@ sub_0803C0AC: @ 0x0803C0AC
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0803C11C
-	ldr r0, _0803C0D4 @ =gUnk_02002A40
+	ldr r0, _0803C0D4 @ =gSave
 	adds r0, #0xc0
 	ldrh r1, [r0]
 	ldr r0, _0803C0D8 @ =0x000001F3
@@ -729,7 +729,7 @@ sub_0803C0AC: @ 0x0803C0AC
 	bl ModRupees
 	b _0803C118
 	.align 2, 0
-_0803C0D4: .4byte gUnk_02002A40
+_0803C0D4: .4byte gSave
 _0803C0D8: .4byte 0x000001F3
 _0803C0DC:
 	cmp r1, #0x63

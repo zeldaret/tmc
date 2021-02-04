@@ -141,7 +141,7 @@ HurdyGurdyMan_Head: @ 0x0806E3E4
 sub_0806E418: @ 0x0806E418
 	push {lr}
 	adds r2, r0, #0
-	ldr r0, _0806E438 @ =gUnk_02002A40
+	ldr r0, _0806E438 @ =gSave
 	ldrb r0, [r0, #8]
 	subs r0, #2
 	cmp r0, #0
@@ -155,7 +155,7 @@ _0806E428:
 	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
-_0806E438: .4byte gUnk_02002A40
+_0806E438: .4byte gSave
 _0806E43C: .4byte gUnk_081144FC
 
 	thumb_func_start sub_0806E440

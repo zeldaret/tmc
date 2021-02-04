@@ -7,7 +7,7 @@
 
 	thumb_func_start sub_0807F0D8
 sub_0807F0D8: @ 0x0807F0D8
-	ldr r0, _0807F0E8 @ =gUnk_03000FF0
+	ldr r0, _0807F0E8 @ =gInput
 	ldrh r2, [r0, #2]
 	rsbs r0, r2, #0
 	orrs r0, r2
@@ -15,7 +15,7 @@ sub_0807F0D8: @ 0x0807F0D8
 	str r0, [r1, #0x14]
 	bx lr
 	.align 2, 0
-_0807F0E8: .4byte gUnk_03000FF0
+_0807F0E8: .4byte gInput
 
 	thumb_func_start sub_0807F0EC
 sub_0807F0EC: @ 0x0807F0EC
@@ -1010,7 +1010,7 @@ sub_0807F7C4: @ 0x0807F7C4
 _0807F7D2:
 	bl sub_08053FE0
 	movs r2, #0
-	ldr r1, _0807F7F8 @ =gUnk_02002A40
+	ldr r1, _0807F7F8 @ =gSave
 	adds r1, #0xc0
 	ldrh r1, [r1]
 	cmp r0, r1
@@ -1026,7 +1026,7 @@ _0807F7E4:
 	pop {r4, pc}
 	.align 2, 0
 _0807F7F4: .4byte gRoomVars
-_0807F7F8: .4byte gUnk_02002A40
+_0807F7F8: .4byte gSave
 _0807F7FC: .4byte gUnk_02033280
 
 	thumb_func_start sub_0807F800
@@ -1562,7 +1562,7 @@ _0807FBF8: .4byte gUnk_02033280
 
 	thumb_func_start sub_0807FBFC
 sub_0807FBFC: @ 0x0807FBFC
-	ldr r3, _0807FC20 @ =gUnk_02002A40
+	ldr r3, _0807FC20 @ =gSave
 	adds r0, r3, #0
 	adds r0, #0xb2
 	movs r1, #0
@@ -1580,7 +1580,7 @@ sub_0807FBFC: @ 0x0807FBFC
 	strh r1, [r0]
 	bx lr
 	.align 2, 0
-_0807FC20: .4byte gUnk_02002A40
+_0807FC20: .4byte gSave
 
 	thumb_func_start sub_0807FC24
 sub_0807FC24: @ 0x0807FC24

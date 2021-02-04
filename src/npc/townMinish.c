@@ -4,6 +4,7 @@
 #include "functions.h"
 #include "textbox.h"
 #include "flags.h"
+#include "save.h"
 
 extern void InitializeAnimation(Entity*, u32);
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
@@ -244,7 +245,7 @@ void sub_0806AFA0(Entity* this) {
 }
 
 void sub_0806AFBC(Entity* this) {
-    int idx = gUnk_02002A40.unk8 - 2;
+    int idx = gSave.unk8 - 2;
     if (idx < 0)
         idx = 0;
 
@@ -329,7 +330,7 @@ void sub_0806B134(Entity* this) {
         idx = 0;
         SetGlobalFlag(0x4a);
     }
-    if (5 < gUnk_02002A40.unk8) {
+    if (5 < gSave.unk8) {
         idx = 3;
     }
     TextboxNoOverlap(gUnk_08112C60[idx], this);

@@ -1543,7 +1543,7 @@ _0804A864:
 	bne _0804A934
 	adds r0, r5, #0
 	bl sub_08049CF4
-	ldr r1, _0804A8E8 @ =gUnk_02002A40
+	ldr r1, _0804A8E8 @ =gSave
 	ldr r0, [r1, #0x50]
 	adds r0, #1
 	str r0, [r1, #0x50]
@@ -1594,7 +1594,7 @@ _0804A8CA:
 	bl DeleteEntity
 	b _0804A982
 	.align 2, 0
-_0804A8E8: .4byte gUnk_02002A40
+_0804A8E8: .4byte gSave
 _0804A8EC:
 	adds r0, r5, #0
 	adds r0, #0x41

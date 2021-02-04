@@ -1127,7 +1127,7 @@ sub_08071D04: @ 0x08071D04
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08071D3A
-	ldr r0, _08071D6C @ =gUnk_02002A40
+	ldr r0, _08071D6C @ =gSave
 	adds r0, r0, r1
 	adds r0, #0xb5
 	movs r1, #0x20
@@ -1162,7 +1162,7 @@ _08071D3A:
 	strb r3, [r1]
 	b _08071D7A
 	.align 2, 0
-_08071D6C: .4byte gUnk_02002A40
+_08071D6C: .4byte gSave
 _08071D70: .4byte gPlayerState
 _08071D74:
 	ldr r1, _08071D7C @ =gScreenTransition

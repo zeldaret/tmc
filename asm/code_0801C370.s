@@ -11,7 +11,7 @@ sub_0801C370: @ 0x0801C370
 	push {r4, r5, r6, lr}
 	cmp r0, #0
 	bne _0801C390
-	ldr r0, _0801C388 @ =gUnk_02002A40
+	ldr r0, _0801C388 @ =gSave
 	adds r1, r0, #0
 	adds r1, #0xaa
 	ldrb r1, [r1]
@@ -21,7 +21,7 @@ sub_0801C370: @ 0x0801C370
 	ldr r5, _0801C38C @ =gUnk_0200AF00
 	b _0801C398
 	.align 2, 0
-_0801C388: .4byte gUnk_02002A40
+_0801C388: .4byte gSave
 _0801C38C: .4byte gUnk_0200AF00
 _0801C390:
 	ldr r0, _0801C470 @ =gUnk_0200AF00
@@ -35,7 +35,7 @@ _0801C398:
 	bl _DmaZero
 	strb r6, [r5, #3]
 	strh r4, [r5, #0xe]
-	ldr r0, _0801C474 @ =gUnk_02002A40
+	ldr r0, _0801C474 @ =gSave
 	adds r0, #0xab
 	ldrb r0, [r0]
 	lsrs r0, r0, #1
@@ -121,7 +121,7 @@ _0801C398:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _0801C470: .4byte gUnk_0200AF00
-_0801C474: .4byte gUnk_02002A40
+_0801C474: .4byte gSave
 _0801C478: .4byte gBG0Buffer
 _0801C47C: .4byte gScreen
 _0801C480: .4byte 0x00001F0C

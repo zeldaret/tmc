@@ -5,17 +5,14 @@
 #include "screen.h"
 #include "random.h"
 #include "readKeyInput.h"
+#include "save.h"
 
-extern u8 gUnk_03003DE4;
-
-extern void sub_0804FF84(u32);
-extern u16 gPaletteBuffer[];
-extern void VBlankInterruptWait(void);
-extern void DisableInterruptsAndDMA(void);
-extern void sub_08016B34(void);
-
-static void sub_08055F70(void);
-static bool32 SoftResetKeysPressed(void);
+extern void HandleIntroScreen(void);
+extern void HandleChooseFileScreen(void);
+extern void HandleGameplayScreen(void);
+extern void HandleGameOverScreen(void);
+extern void HandleCreditsScreen(void);
+extern void HandleDebugTextScreen(void);
 
 static void (*const sScreenHandlers[])(void) = {
     [SCREEN_INTRO] = HandleIntroScreen,       [SCREEN_CHOOSE_FILE] = HandleChooseFileScreen,
@@ -27,8 +24,8 @@ void MainLoop(void) {
     int var0;
 
     sub_08055F70();
-    sub_080A3204();
-    sub_0805616C();
+    InitSound();
+    InitDMA();
     sub_0807CE90();
     sub_080560B8();
     sub_08056208();
@@ -114,7 +111,7 @@ static void sub_08055F70(void) {
 #define SOFT_RESET_KEYS (A_BUTTON | B_BUTTON | SELECT_BUTTON | START_BUTTON)
 
 static bool32 SoftResetKeysPressed(void) {
-    return (gUnk_03000FF0.heldKeys & SOFT_RESET_KEYS) == SOFT_RESET_KEYS;
+    return (gInput.heldKeys & SOFT_RESET_KEYS) == SOFT_RESET_KEYS;
 }
 
 void InitScreen(u32 screen) {
@@ -176,7 +173,7 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", void sub_080560B8(void)) {
 END_NONMATCH
 
 u32 sub_08056134(void) {
-    if ((gUnk_02000000->signature != SIGNATURE) || (gUnk_02000000->saveFileId >= MAX_SAVE_FILES) ||
+    if ((gUnk_02000000->signature != SIGNATURE) || (gUnk_02000000->saveFileId >= NUM_SAVE_SLOTS) ||
         (gUnk_02000000->messageSpeed >= MAX_MSG_SPEED) || (gUnk_02000000->brightnessPref >= MAX_BRIGHTNESS) ||
         (gUnk_02000000->gameLanguage != GAME_LANGUAGE) || (gUnk_02000000->_e != 0))
         return FALSE;
@@ -184,7 +181,7 @@ u32 sub_08056134(void) {
     return TRUE;
 }
 
-void sub_0805616C() {
+void InitDMA() {
     PlaySFX(0x80040000);
     gScreen._6d = gScreen._6c;
     gScreen._6c = 0;

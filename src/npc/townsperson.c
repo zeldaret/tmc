@@ -6,6 +6,7 @@
 #include "flags.h"
 #include "structures.h"
 #include "functions.h"
+#include "save.h"
 
 typedef struct {
     u8 frame1;
@@ -296,7 +297,7 @@ void sub_08062048(Entity* this) {
     int iVar1;
 
     if ((this->entityType).subtype == 6) {
-        iVar1 = gUnk_02002A40.unk8 - 2;
+        iVar1 = gSave.unk8 - 2;
         if (iVar1 < 0) {
             iVar1 = 0;
         }

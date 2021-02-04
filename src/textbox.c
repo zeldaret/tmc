@@ -4,54 +4,36 @@
 #include "functions.h"
 #include "textbox.h"
 #include "structures.h"
+#include "save.h"
 
-void ShowTextbox();
-void TextboxAtPosition();
+u32 sub_080564DC(void);
+u32 sub_080564EC(void);
+u32 sub_08056654(void);
+u32 sub_080565B4(void);
+u32 sub_080565F8(void);
+u32 sub_08056640(void);
 
-typedef struct {
-    u8 _0;
-    u8 _1;
-    u8 _2;
-    u8 _3[5];
-    u16 _8;
-    u8 _b[0x16];
-    u8 _20;
-    u8 _21;
-    u8 _22[0xa];
-    void* _2c;
-    u8 _30[0x23];
-    u8 _53;
-    u16 _54;
-    u8 _56[0x2];
-    void* _58;
-    u8 _5c;
-    u8 _5d;
-    u8 _5e[24];
-    u8 _76;
-    u8 _77[0x11];
-    u8 _88;
-    u8 _89;
-    u8 _8a;
-    u8 _8b[0xe];
-    u8 _99;
-    u8 _9a;
-    u8 _9b;
-    u8 _9c;
-    u8 _9d;
-    u8 _9e[0xa];
-} struct_02022780;
-extern struct_02022780 gUnk_02022780;
-static_assert(sizeof(struct_02022780) == 0xa8);
+u32 (*const gUnk_08107BC8[])(void) = { sub_080564DC, sub_080564EC, sub_08056654,
+                                       sub_080565B4, sub_080565F8, sub_08056640 };
 
-extern const s32 (*const gUnk_08107BC8[])();
-extern const void (*const gUnk_08107BF4[])(struct_02022780*);
+extern u8 gUnk_020227DC, gUnk_020227E8, gUnk_020227F0, gUnk_020227F8, gUnk_02022800;
+u8* const gUnk_08107BE0[] = { &gUnk_020227DC, &gUnk_020227E8, &gUnk_020227F0, &gUnk_020227F8, &gUnk_02022800 };
+
+void sub_08056684(struct_02022780*);
+void sub_080566B8(struct_02022780*);
+void sub_08056BA0(struct_02022780*);
+void sub_08056B1C(struct_02022780*);
+void sub_08056B7C(struct_02022780*);
+void sub_080569D4(struct_02022780*);
+
+void (*const gUnk_08107BF4[])(struct_02022780*) = { sub_08056684, sub_080566B8, sub_08056BA0,
+                                                    sub_08056B1C, sub_08056B7C, sub_080569D4 };
 
 extern u32 gUnk_02036A40;
 extern u32 gUnk_02036A38;
 extern u8 gUnk_02024030;
 extern u8 gUnk_020227A0;
 extern u8 gUnk_02000D00;
-extern u8 gUnk_08107BE0;
 
 s32 sub_08056338(void) {
     s32 result;
@@ -100,7 +82,7 @@ void TextboxAtPosition(u32 index, u32 x, u32 y) {
     gTextBox.textWindowPosY = y;
 }
 
-void ShowTextbox(u32 index, u32 param_2, u32* dest) {
+void ShowTextbox(u32 index) {
     _DmaZero(&gTextBox, 32);
     gTextBox.textIndex = index;
     gTextBox.textSpeed = 99;
@@ -158,10 +140,10 @@ NONMATCH("asm/non_matching/textbox/sub_080564EC.inc", u32 sub_080564EC(void)) {
     char* dest;
     u32 i;
     char c;
-    
-    _DmaZero((void *)&gUnk_02036A40, 8);
-    _DmaZero((void *)&gUnk_02024030, 0x18);
-    _DmaZero((void *)&gUnk_02022780, 0xa8);
+
+    _DmaZero((void*)&gUnk_02036A40, 8);
+    _DmaZero((void*)&gUnk_02024030, 0x18);
+    _DmaZero((void*)&gUnk_02022780, 0xa8);
     _DmaCopy(&gTextBox, &gUnk_02022780, 32);
     if (gUnk_02022780._2 == 0x63) {
         gUnk_02022780._2 = gUnk_02000000->messageSpeed;
@@ -173,8 +155,9 @@ NONMATCH("asm/non_matching/textbox/sub_080564EC.inc", u32 sub_080564EC(void)) {
     dest = gUnk_02022780._5e;
 
     for (i = 0; i < 6; ++i) {
-        c = gUnk_02002A40.playerName[i];
-        if (c == '\0') break;
+        c = gSave.playerName[i];
+        if (c == '\0')
+            break;
         dest[i] = c;
     }
 

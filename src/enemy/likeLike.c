@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "textbox.h"
+#include "save.h"
 
 extern bool32 sub_080544B4(u32);
 extern void sub_0807CAA0(u32, u32);
@@ -180,7 +181,7 @@ void sub_0802805C(Entity* this) {
         this->field_0xf = tmp3;
     }
 
-    if (this->field_0xf >= 0x19 || gUnk_02002A40.stats.health == 0) {
+    if (this->field_0xf >= 0x19 || gSave.stats.health == 0) {
         sub_0802810C(this);
     } else {
         ResetPlayer();
@@ -245,12 +246,12 @@ void sub_080281A0(Entity* this) {
 bool32 sub_080281E0(u32 param_1) {
     bool32 ret = FALSE;
     if (GetInventoryValue(param_1) == 1) {
-        if (sub_080544B4(gUnk_02002A40.stats.itemOnA)) {
-            gUnk_02002A40.stats.itemOnA = 0;
+        if (sub_080544B4(gSave.stats.itemOnA)) {
+            gSave.stats.itemOnA = 0;
         }
 
-        if (sub_080544B4(gUnk_02002A40.stats.itemOnB)) {
-            gUnk_02002A40.stats.itemOnB = 0;
+        if (sub_080544B4(gSave.stats.itemOnB)) {
+            gSave.stats.itemOnB = 0;
         }
 
         sub_0807CAA0(param_1, 0);

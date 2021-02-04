@@ -598,7 +598,7 @@ sub_0806F188: @ 0x0806F188
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0806F1A0
-	ldr r0, _0806F1A4 @ =gUnk_02002A40
+	ldr r0, _0806F1A4 @ =gSave
 	ldr r2, _0806F1A8 @ =0x000001C1
 	adds r0, r0, r2
 	adds r0, r1, r0
@@ -607,7 +607,7 @@ sub_0806F188: @ 0x0806F188
 _0806F1A0:
 	pop {pc}
 	.align 2, 0
-_0806F1A4: .4byte gUnk_02002A40
+_0806F1A4: .4byte gSave
 _0806F1A8: .4byte 0x000001C1
 
 	thumb_func_start ShowNPCDialogue

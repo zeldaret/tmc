@@ -5,6 +5,7 @@
 #include "trig.h"
 #include "structures.h"
 #include "functions.h"
+#include "fileScreen.h"
 
 void (* const gUnk_080D1AFC[8])(Entity*);
 void (* const gUnk_080D1B1C[7])(Entity*);

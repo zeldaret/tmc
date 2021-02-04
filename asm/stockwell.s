@@ -459,7 +459,7 @@ _080653AA:
 	cmp r5, #0x6f
 	bhi _0806543C
 	ldr r2, _080653C8 @ =gQuiverSizes
-	ldr r1, _080653CC @ =gUnk_02002A40
+	ldr r1, _080653CC @ =gSave
 	adds r0, r1, #0
 	adds r0, #0xaf
 	ldrb r0, [r0]
@@ -468,7 +468,7 @@ _080653AA:
 	b _080653FA
 	.align 2, 0
 _080653C8: .4byte gQuiverSizes
-_080653CC: .4byte gUnk_02002A40
+_080653CC: .4byte gSave
 _080653D0:
 	movs r0, #0xd
 	bl GetInventoryValue
@@ -485,7 +485,7 @@ _080653E4:
 _080653E8: .4byte 0x00002C0B
 _080653EC:
 	ldr r2, _08065408 @ =gBombBagSizes
-	ldr r1, _0806540C @ =gUnk_02002A40
+	ldr r1, _0806540C @ =gSave
 	adds r0, r1, #0
 	adds r0, #0xae
 	ldrb r0, [r0]
@@ -500,7 +500,7 @@ _080653FA:
 	b _080654C2
 	.align 2, 0
 _08065408: .4byte gBombBagSizes
-_0806540C: .4byte gUnk_02002A40
+_0806540C: .4byte gSave
 _08065410: .4byte 0x00002C0E
 _08065414:
 	movs r1, #0x55
@@ -515,7 +515,7 @@ _08065420:
 	mov sb, r1
 	b _0806543C
 _08065426:
-	ldr r0, _08065494 @ =gUnk_02002A40
+	ldr r0, _08065494 @ =gSave
 	adds r0, #0xc2
 	ldrh r1, [r0]
 	ldr r0, _08065498 @ =0x000003E6
@@ -531,7 +531,7 @@ _0806543C:
 	adds r0, r5, #0
 	bl sub_08053FE0
 	adds r6, r0, #0
-	ldr r7, _08065494 @ =gUnk_02002A40
+	ldr r7, _08065494 @ =gSave
 	adds r0, r7, #0
 	adds r0, #0xc0
 	ldrh r0, [r0]
@@ -569,7 +569,7 @@ _0806548A:
 	ldr r0, _080654A4 @ =0x00002C11
 	b _080654B6
 	.align 2, 0
-_08065494: .4byte gUnk_02002A40
+_08065494: .4byte gSave
 _08065498: .4byte 0x000003E6
 _0806549C: .4byte 0x00002C0E
 _080654A0: .4byte gRoomVars

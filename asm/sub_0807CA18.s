@@ -8,7 +8,7 @@
 	thumb_func_start sub_0807CA18
 sub_0807CA18: @ 0x0807CA18
 	push {lr}
-	ldr r0, _0807CA7C @ =gUnk_02002A40
+	ldr r0, _0807CA7C @ =gSave
 	mov ip, r0
 	ldrh r1, [r0]
 	movs r0, #0x80
@@ -59,5 +59,5 @@ _0807CA78:
 	movs r0, #1
 	pop {pc}
 	.align 2, 0
-_0807CA7C: .4byte gUnk_02002A40
+_0807CA7C: .4byte gSave
 _0807CA80: .4byte gUnk_0811E470

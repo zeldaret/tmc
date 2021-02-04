@@ -5,6 +5,7 @@
 #include "npc.h"
 #include "structures.h"
 #include "player.h"
+#include "save.h"
 
 extern void sub_080293DC(Entity*);
 extern void sub_080296D8(Entity*);
@@ -158,7 +159,7 @@ void sub_0802953C(Entity* this) {
     if (this->actionDelay != 0) {
         this->actionDelay--;
     }
-    if (((this->field_0xf > 0x2d) || (gUnk_02002A40.stats.rupees == 0)) && (this->actionDelay == 0)) {
+    if (((this->field_0xf > 0x2d) || (gSave.stats.rupees == 0)) && (this->actionDelay == 0)) {
         sub_080296D8(this);
     } else {
         ResetPlayer();
@@ -170,7 +171,7 @@ void sub_0802953C(Entity* this) {
         gPlayerEntity.spritePriority.b1 = 0;
         if (--this->field_0x82.HALF.HI == 0) {
             this->field_0x82.HALF.HI = 0x41;
-            if (gUnk_02002A40.stats.rupees != 0) {
+            if (gSave.stats.rupees != 0) {
                 ModRupees(gUnk_080CCC44[this->entityType.form]);
                 this->cutsceneBeh.HALF.LO = 1;
             }

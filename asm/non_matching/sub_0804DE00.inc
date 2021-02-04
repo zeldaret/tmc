@@ -21,7 +21,7 @@ _0804DE22:
 	bl SetGlobalFlag
 _0804DE32:
 	ldr r5, _0804DE50 @ =gAreaRoomEntities_HyruleTown
-	ldr r4, _0804DE54 @ =gUnk_02002A40
+	ldr r4, _0804DE54 @ =gSave
 	ldrb r0, [r4, #8]
 	lsls r0, r0, #2
 	adds r0, r0, r5
@@ -36,7 +36,7 @@ _0804DE32:
 	b _0804DECC
 	.align 2, 0
 _0804DE50: .4byte gAreaRoomEntities_HyruleTown
-_0804DE54: .4byte gUnk_02002A40
+_0804DE54: .4byte gSave
 _0804DE58: .4byte gUnk_02017654
 _0804DE5C:
 	movs r0, #0x1c

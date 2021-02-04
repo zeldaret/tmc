@@ -218,7 +218,7 @@ _080638B2:
 	movs r1, #1
 	bl sub_0807BA8C
 _080638D6:
-	ldr r0, _08063904 @ =gUnk_02002A40
+	ldr r0, _08063904 @ =gSave
 	ldrb r0, [r0, #8]
 	subs r1, r0, #6
 	cmp r1, #0
@@ -238,7 +238,7 @@ _080638E2:
 _080638F8: .4byte gUnk_02002B0E
 _080638FC: .4byte 0x00000A17
 _08063900: .4byte 0x00000A57
-_08063904: .4byte gUnk_02002A40
+_08063904: .4byte gSave
 _08063908: .4byte gUnk_0810CBE4
 
 	thumb_func_start sub_0806390C
@@ -275,7 +275,7 @@ sub_08063944: @ 0x08063944
 	adds r3, r0, #0
 	movs r0, #0
 	str r0, [r1, #0x14]
-	ldr r0, _0806396C @ =gUnk_02002A40
+	ldr r0, _0806396C @ =gSave
 	ldrb r0, [r0, #8]
 	subs r0, #2
 	cmp r0, #0
@@ -292,7 +292,7 @@ _08063958:
 	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
-_0806396C: .4byte gUnk_02002A40
+_0806396C: .4byte gSave
 _08063970: .4byte gUnk_0810CC08
 
 	thumb_func_start SittingPerson_Head

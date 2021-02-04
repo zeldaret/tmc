@@ -54,7 +54,7 @@ _0801C4FC:
 	adds r4, r3, #0
 	adds r4, #0x40
 	ldr r1, _0801C550 @ =gWalletSizes
-	ldr r2, _0801C554 @ =gUnk_02002A40
+	ldr r2, _0801C554 @ =gSave
 	adds r0, r2, #0
 	adds r0, #0xa8
 	ldrb r0, [r0]
@@ -88,12 +88,12 @@ _0801C4FC:
 	.align 2, 0
 _0801C54C: .4byte gUnk_02035160
 _0801C550: .4byte gWalletSizes
-_0801C554: .4byte gUnk_02002A40
+_0801C554: .4byte gSave
 _0801C558: .4byte 0x0000F070
 _0801C55C: .4byte gScreen
 _0801C560:
 	movs r4, #0
-	ldr r2, _0801C580 @ =gUnk_02002A40
+	ldr r2, _0801C580 @ =gSave
 _0801C564:
 	adds r5, r6, #0
 	adds r0, r2, #0
@@ -109,7 +109,7 @@ _0801C564:
 	strh r0, [r5, #0xe]
 	b _0801C588
 	.align 2, 0
-_0801C580: .4byte gUnk_02002A40
+_0801C580: .4byte gSave
 _0801C584:
 	subs r0, r1, #1
 	strh r0, [r6, #0xe]
@@ -133,7 +133,7 @@ _0801C5A4:
 	ldrh r3, [r4, #0xe]
 	movs r2, #0
 	ldr r1, _0801C5D8 @ =gWalletSizes
-	ldr r0, _0801C5DC @ =gUnk_02002A40
+	ldr r0, _0801C5DC @ =gSave
 	adds r0, #0xa8
 	ldrb r0, [r0]
 	lsls r0, r0, #2
@@ -157,4 +157,4 @@ _0801C5D0:
 	.align 2, 0
 _0801C5D4: .4byte gUnk_0200AF00
 _0801C5D8: .4byte gWalletSizes
-_0801C5DC: .4byte gUnk_02002A40
+_0801C5DC: .4byte gSave

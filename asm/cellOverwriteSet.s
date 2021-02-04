@@ -67,7 +67,7 @@ _0801BF62:
 	movs r0, #0x80
 	orrs r0, r1
 	strb r0, [r2, #0x1a]
-	ldr r6, _0801C000 @ =gUnk_03000FF0
+	ldr r6, _0801C000 @ =gInput
 	ldrh r1, [r6]
 	movs r3, #0x80
 	lsls r3, r3, #1
@@ -137,7 +137,7 @@ _0801BFF0: .4byte gPlayerEntity
 _0801BFF4: .4byte gUnk_080B7B6C
 _0801BFF8: .4byte gRoomControls
 _0801BFFC: .4byte gPlayerState
-_0801C000: .4byte gUnk_03000FF0
+_0801C000: .4byte gInput
 _0801C004:
 	ldrh r2, [r6, #2]
 	movs r6, #0x10
@@ -247,7 +247,7 @@ _0801C074:
 	strb r0, [r1, #0x1a]
 	bl DeleteThisEntity
 _0801C0D4:
-	ldr r0, _0801C1D0 @ =gUnk_03000FF0
+	ldr r0, _0801C1D0 @ =gInput
 	ldrh r1, [r0]
 	movs r0, #2
 	ands r0, r1
@@ -369,4 +369,4 @@ _0801C1BE:
 	.align 2, 0
 _0801C1C8: .4byte gUnk_080B7B6C
 _0801C1CC: .4byte gRoomControls
-_0801C1D0: .4byte gUnk_03000FF0
+_0801C1D0: .4byte gInput

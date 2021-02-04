@@ -6,6 +6,7 @@
 #include "player.h"
 #include "structures.h"
 #include "functions.h"
+#include "save.h"
 
 extern void sub_0807DD50(Entity*);
 extern void sub_0806F118(Entity*);
@@ -214,7 +215,7 @@ void sub_080602BC(Entity* this) {
     if (GetInventoryValue(0x48) != 0) {
         index = (Random() & 1) + 2;
     } else {
-        if (gUnk_02002A40.stats.bombCount < gBombBagSizes[gUnk_02002A40.stats.bombBagType]) {
+        if (gSave.stats.bombCount < gBombBagSizes[gSave.stats.bombBagType]) {
             index = 1;
         } else {
             index = 0;
@@ -241,14 +242,14 @@ void sub_08060318(void) {
 }
 
 void sub_08060340(void) {
-    gUnk_02002A40.unk490 = gUnk_02002A40.unk50;
+    gSave.unk490 = gSave.unk50;
 }
 
 u32 sub_08060354(void) {
     u32 iVar1;
     s32 iVar2;
 
-    iVar2 = gUnk_02002A40.unk50 - gUnk_02002A40.unk490;
+    iVar2 = gSave.unk50 - gSave.unk490;
     if (CheckGlobalFlag(DRUG_1) == 0) {
         if (4 < iVar2) {
             return 0x8444;
