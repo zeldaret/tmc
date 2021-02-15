@@ -2197,20 +2197,3 @@ sub_0807DF38: @ 0x0807DF38
 	.align 2, 0
 _0807DF48: .4byte gUnk_0200AF00
 _0807DF4C: .4byte gUnk_02034490
-
-	thumb_func_start sub_0807DF50
-sub_0807DF50: @ 0x0807DF50
-	push {lr}
-	ldr r0, _0807DF6C @ =gUnk_02034490
-	movs r1, #0
-	strb r1, [r0]
-	ldr r0, _0807DF70 @ =gUnk_0200AF00
-	strb r1, [r0, #1]
-	movs r0, #0
-	bl sub_0801C4A0
-	bl sub_080791D0
-	bl sub_08079184
-	pop {pc}
-	.align 2, 0
-_0807DF6C: .4byte gUnk_02034490
-_0807DF70: .4byte gUnk_0200AF00

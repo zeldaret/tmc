@@ -676,6 +676,7 @@ SECTIONS {
         src/flags.o(.text);
         src/save.o(.text);
         asm/code_0807CC3C.o(.text);
+        src/code_0807CC3C.o(.text);
         src/executeScriptCommandSet.o(.text);
         asm/code_0807F0D8.o(.text);
         src/code_0808091C.o(.text);
