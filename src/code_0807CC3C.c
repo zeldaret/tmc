@@ -7,21 +7,28 @@
 extern u8 gUnk_0811E514[];
 extern u8 gUnk_0811E510[];
 
-void sub_0807DF38(void);
 extern void sub_0801C4A0(u32);
 extern void sub_0807DB98(Entity*, ScriptExecutionContext*);
 extern void _call_via_r6(Entity*, ScriptExecutionContext*);
+
+void sub_0807DF38(void);
+void sub_0807DE80(Entity* entity);
+
+void sub_0807DD94(Entity* entity, u32 param_2) {
+    sub_0807DDAC(entity, param_2);
+    sub_0807DDE4(entity);
+    sub_0807DE80(entity);
+}
 
 /**
  *
  * @param entity
  * @param address this is the fuction called via r6
  */
-void sub_0807DDAC(Entity* entity, u32 address)
-{
-    ScriptExecutionContext **piVar1;
+void sub_0807DDAC(Entity* entity, u32 address) {
+    ScriptExecutionContext** piVar1;
 
-    piVar1 = (ScriptExecutionContext **)&entity->cutsceneBeh;
+    piVar1 = (ScriptExecutionContext**)&entity->cutsceneBeh;
     if (*piVar1) {
         ExecuteScriptCommandSet(entity, *piVar1);
         if (address) {

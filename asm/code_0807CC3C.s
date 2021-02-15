@@ -1959,15 +1959,3 @@ sub_0807DD80: @ 0x0807DD80
 	adds r0, r4, #0
 	bl sub_0807DD64
 	pop {r4, pc}
-
-	thumb_func_start sub_0807DD94
-sub_0807DD94: @ 0x0807DD94
-	push {r4, lr}
-	adds r4, r0, #0
-	bl sub_0807DDAC
-	adds r0, r4, #0
-	bl sub_0807DDE4
-	adds r0, r4, #0
-	bl sub_0807DE80
-	pop {r4, pc}
-	.align 2, 0
