@@ -9,6 +9,31 @@ extern u8 gUnk_0811E510[];
 
 void sub_0807DF38(void);
 extern void sub_0801C4A0(u32);
+extern void sub_0807DB98(Entity*, ScriptExecutionContext*);
+extern void _call_via_r6(Entity*, ScriptExecutionContext*);
+
+/**
+ *
+ * @param entity
+ * @param address this is the fuction called via r6
+ */
+void sub_0807DDAC(Entity* entity, u32 address)
+{
+    ScriptExecutionContext **piVar1;
+
+    piVar1 = (ScriptExecutionContext **)&entity->cutsceneBeh;
+    if (*piVar1) {
+        ExecuteScriptCommandSet(entity, *piVar1);
+        if (address) {
+            _call_via_r6(entity, *piVar1);
+        } else {
+            sub_0807DB98(entity, *piVar1);
+        }
+        if (!entity->next) {
+            DeleteThisEntity();
+        }
+    }
+}
 
 void sub_0807DDE4(Entity* entity) {
     u32 temp;

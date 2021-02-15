@@ -1971,33 +1971,3 @@ sub_0807DD94: @ 0x0807DD94
 	bl sub_0807DE80
 	pop {r4, pc}
 	.align 2, 0
-
-	thumb_func_start sub_0807DDAC
-sub_0807DDAC: @ 0x0807DDAC
-	push {r4, r5, r6, lr}
-	adds r5, r0, #0
-	adds r6, r1, #0
-	adds r4, r5, #0
-	adds r4, #0x84
-	ldr r1, [r4]
-	cmp r1, #0
-	beq _0807DDE0
-	bl ExecuteScriptCommandSet
-	cmp r6, #0
-	beq _0807DDCE
-	ldr r1, [r4]
-	adds r0, r5, #0
-	bl _call_via_r6
-	b _0807DDD6
-_0807DDCE:
-	ldr r1, [r4]
-	adds r0, r5, #0
-	bl sub_0807DB98
-_0807DDD6:
-	ldr r0, [r5, #4]
-	cmp r0, #0
-	bne _0807DDE0
-	bl DeleteThisEntity
-_0807DDE0:
-	pop {r4, r5, r6, pc}
-	.align 2, 0
