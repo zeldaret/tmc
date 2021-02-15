@@ -15,6 +15,11 @@ extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 void sub_0807DF38(void);
 void sub_0807DE80(Entity* entity);
 
+void sub_0807DD50(Entity* entity) {
+    sub_0807DD64(entity);
+    sub_0807DD94(entity, 0);
+}
+
 void sub_0807DD64(Entity* entity) {
     entity->field_0xf = entity->animationState;
     entity->animIndex = 0xff;

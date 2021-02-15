@@ -1920,14 +1920,3 @@ _0807DD48:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0807DD4C: .4byte 0x0000FFDF
-
-	thumb_func_start sub_0807DD50
-sub_0807DD50: @ 0x0807DD50
-	push {r4, lr}
-	adds r4, r0, #0
-	bl sub_0807DD64
-	adds r0, r4, #0
-	movs r1, #0
-	bl sub_0807DD94
-	pop {r4, pc}
-	.align 2, 0
