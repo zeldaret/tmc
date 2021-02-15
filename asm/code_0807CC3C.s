@@ -1931,20 +1931,3 @@ sub_0807DD50: @ 0x0807DD50
 	bl sub_0807DD94
 	pop {r4, pc}
 	.align 2, 0
-
-	thumb_func_start sub_0807DD64
-sub_0807DD64: @ 0x0807DD64
-	adds r3, r0, #0
-	ldrb r0, [r3, #0x14]
-	movs r2, #0
-	strb r0, [r3, #0xf]
-	adds r1, r3, #0
-	adds r1, #0x58
-	movs r0, #0xff
-	strb r0, [r1]
-	adds r0, r3, #0
-	adds r0, #0x80
-	strh r2, [r0]
-	adds r0, #2
-	strh r2, [r0]
-	bx lr

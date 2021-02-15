@@ -15,11 +15,16 @@ extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 void sub_0807DF38(void);
 void sub_0807DE80(Entity* entity);
 
-void sub_0807DD80(Entity *param_1)
+void sub_0807DD64(Entity* entity) {
+    entity->field_0xf = entity->animationState;
+    entity->animIndex = 0xff;
+    entity->field_0x80.HWORD = 0;
+    entity->field_0x82.HWORD = 0;
+}
 
-{
-    sub_0807DB88(*(Entity**)&param_1->cutsceneBeh);
-    sub_0807DD64(param_1);
+void sub_0807DD80(Entity* entity) {
+    sub_0807DB88(*(Entity**)&entity->cutsceneBeh);
+    sub_0807DD64(entity);
 }
 
 void sub_0807DD94(Entity* entity, u32 param_2) {
