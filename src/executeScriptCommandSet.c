@@ -832,7 +832,7 @@ void sub_0807E9F0(Entity* unk1, ScriptExecutionContext* unk2) {
     switch (gUnk_02022740[0]) {
         case 2:
             gPlayerState.field_0x8b = 3;
-            gUnk_02034490 = tmp;
+            gUnk_02034490[0] = tmp;
             unk2->unk_14 = tmp;
             break;
         case 1:

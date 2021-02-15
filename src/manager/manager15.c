@@ -3,6 +3,7 @@
 #include "screen.h"
 #include "manager.h"
 #include "functions.h"
+#include "structures.h"
 
 typedef struct {
     Manager manager;
@@ -293,7 +294,6 @@ void sub_0805A758(Manager15* this) {
     }
 }
 
-extern u8 gUnk_02034490;
 extern void sub_0805E4E0(Manager*, u32);
 extern void sub_08077B20(void);
 
@@ -308,7 +308,7 @@ void sub_0805A76C(Manager15* this) {
                     gPlayerEntity.animationState = 4;
                     sub_0805E4E0(&this->manager, 0x258);
                     sub_08078A90(0xFF);
-                    gUnk_02034490 = 1;
+                    gUnk_02034490[0] = 1;
                     gRoomControls.cameraTarget = 0;
                     sub_08077B20();
                 }
