@@ -7,6 +7,7 @@
 #include "room.h"
 #include "structures.h"
 #include "save.h"
+#include "script.h"
 
 extern void sub_08060528(Entity*);
 extern void* GetCurrentRoomProperty(u32);
@@ -27,7 +28,6 @@ extern void EnqueueSFX(u32);
 extern void sub_080606C0(Entity*);
 extern void sub_0800451C(Entity*);
 extern void sub_08078784(Entity*, u32);
-extern void sub_0807DEDC(Entity*, u32, u32, u32);
 
 typedef struct {
     s16 x;
@@ -202,12 +202,12 @@ void sub_080606D8(Entity* this) {
     ShowNPCDialogue(this, &gUnk_0810AA30[index]);
 }
 
-void sub_08060700(Entity* entity, u32 arg1) {
+void sub_08060700(Entity* entity, ScriptExecutionContext* context) {
     s8* var0 = gUnk_0810A918[(s8)entity->field_0x68.HALF.LO];
     Coords16* coords = &gUnk_0810A66C[var0[(s8)entity->field_0x68.HALF.HI]];
     u32 x = coords->x + gRoomControls.roomOriginX;
     u32 y = coords->y + gRoomControls.roomOriginY;
-    sub_0807DEDC(entity, arg1, x, y);
+    sub_0807DEDC(entity, context, x, y);
     gUnk_02033280.unk_07 |= 1;
 }
 
