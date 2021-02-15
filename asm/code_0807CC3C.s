@@ -1948,14 +1948,3 @@ sub_0807DD64: @ 0x0807DD64
 	adds r0, #2
 	strh r2, [r0]
 	bx lr
-
-	thumb_func_start sub_0807DD80
-sub_0807DD80: @ 0x0807DD80
-	push {r4, lr}
-	adds r4, r0, #0
-	adds r0, #0x84
-	ldr r0, [r0]
-	bl sub_0807DB88
-	adds r0, r4, #0
-	bl sub_0807DD64
-	pop {r4, pc}
