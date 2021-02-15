@@ -5,9 +5,46 @@
 #include "entity.h"
 
 extern u8 gUnk_0811E514[];
+extern u8 gUnk_0811E510[];
 
 void sub_0807DF38(void);
 extern void sub_0801C4A0(u32);
+
+void sub_0807DDE4(Entity* entity) {
+    u32 temp;
+    u32 switchVar;
+    u32 loopVar;
+
+    loopVar = entity->field_0x82.HWORD;
+    while (loopVar) {
+        switchVar = (~loopVar + 1) & loopVar;
+        loopVar = loopVar ^ switchVar;
+        switch (switchVar) {
+            case 2:
+                if (entity->entityType.type == 7) {
+                    sub_0806ED78(entity);
+                } else {
+                    sub_0800445C(entity);
+                }
+                break;
+            case 8:
+                if ((gScreenTransition.frameCount & 3) == 0) {
+                    temp = (entity->field_0xf + 2U) & 7;
+                    entity->animationState = temp;
+                    entity->field_0xf = temp;
+                }
+                break;
+            case 0x10:
+                if ((gScreenTransition.frameCount & 1) == 0) {
+                    entity->spriteOffsetX = gUnk_0811E510[Random() & 3];
+                }
+                break;
+            case 0x20:
+                sub_08003FC4(entity, 0x2000);
+                break;
+        }
+    }
+}
 
 void sub_0807DE80(Entity* entity) {
     u32 local1;
