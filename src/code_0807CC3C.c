@@ -26,6 +26,30 @@ extern u16 sub_080B18DC(u16, const char*);
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
 
+u32 sub_0807D128(u16* unk_1) {
+    u32 ret;
+    switch (((u32*)(unk_1))[1]) {
+        case 'MCZ3':
+            if (unk_1[0] + unk_1[1] == 0x10000) {
+                ret = 2;
+            } else {
+                ret = 0;
+            }
+            break;
+        case 'FleD':
+        case 'TINI':
+            ret = 0;
+            if ((unk_1[0] & unk_1[1]) == 0xffff) {
+                ret = 1;
+            }
+            break;
+        default:
+            ret = 0;
+            break;
+    }
+    return ret;
+}
+
 void sub_0807D184(u32 param_1, const char* param_2) {
     if (sub_0807D20C(param_1, param_2, 8) == 0) {
         sub_0807D20C(param_1 + 8, param_2, 8);
