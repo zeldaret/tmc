@@ -17,7 +17,14 @@ extern void sub_0801C4A0(u32);
 extern void sub_0807DB98(Entity*, ScriptExecutionContext*);
 extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 
+void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 extern u32* sub_0807DAA0();
+
+void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1) {
+    entity->flags = entity->flags | 2;
+    *(ScriptExecutionContext**)&entity->cutsceneBeh = context;
+    sub_0807DB88(context, unk1);
+}
 
 void UnloadCutsceneData(Entity* entity) {
     if ((entity->flags & 2)) {

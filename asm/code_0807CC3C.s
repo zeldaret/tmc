@@ -1575,17 +1575,3 @@ _0807DAEA:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0807DAF0
-sub_0807DAF0: @ 0x0807DAF0
-	push {r4, lr}
-	ldrb r4, [r0, #0x10]
-	movs r3, #2
-	orrs r3, r4
-	strb r3, [r0, #0x10]
-	adds r0, #0x84
-	str r1, [r0]
-	adds r0, r1, #0
-	adds r1, r2, #0
-	bl sub_0807DB88
-	pop {r4, pc}
-
