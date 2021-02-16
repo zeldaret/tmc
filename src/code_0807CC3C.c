@@ -7,10 +7,88 @@
 extern u8 gUnk_0811E514[];
 extern u8 gUnk_0811E510[];
 
+extern void CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
+extern void CreateSpeechBubbleQuestionMark(Entity*, u32, u32);
+extern void sub_0807DAC4(ScriptExecutionContext*);
+extern void DeleteThisEntity(void);
 extern void sub_0807DB88(Entity*);
 extern void sub_0801C4A0(u32);
 extern void sub_0807DB98(Entity*, ScriptExecutionContext*);
 extern void _call_via_r6(Entity*, ScriptExecutionContext*);
+
+void sub_0807DB98(Entity* entity, ScriptExecutionContext* context) {
+    u32 switchVar;
+
+    while (context->unk_08) {
+        switchVar = (~context->unk_08 + 1) & context->unk_08;
+        context->unk_08 ^= switchVar;
+        switch (switchVar) {
+            case 1:
+                entity->field_0x80.HWORD = 0;
+                break;
+            case 2:
+                entity->field_0x80.HWORD = 4;
+                break;
+            case 4:
+                break;
+            case 8:
+                entity->field_0x20 = 0x18000;
+                break;
+            case 0x10:
+                CreateSpeechBubbleExclamationMark(entity, 8, -0x18);
+                break;
+            case 0x20:
+                CreateSpeechBubbleQuestionMark(entity, 8, -0x18);
+                break;
+            case 0x40:
+                sub_0807DAC4(context);
+                DeleteThisEntity();
+            case 0x80:
+                entity->spriteSettings.b.draw = 1;
+                break;
+            case 0x100:
+                entity->spriteSettings.b.draw = 0;
+                break;
+            case 0x200:
+                entity->spriteOffsetY = 0;
+                entity->spriteOffsetX = 0;
+                entity->field_0x82.HWORD = 0;
+                break;
+            case 0x400:
+                entity->field_0x82.HWORD |= 2;
+                break;
+            case 0x800:
+                entity->field_0x82.HWORD &= 0xfffd;
+                break;
+            case 0x1000:
+                entity->field_0x82.HWORD &= 0xfffe;
+                break;
+            case 0x2000:
+                entity->field_0x82.HWORD |= 1;
+                break;
+            case 0x4000:
+                entity->field_0x82.HWORD |= 8;
+                break;
+            case 0x8000:
+                entity->field_0x82.HWORD ^= 4;
+                break;
+            case 0x10000:
+                entity->field_0x82.HWORD ^= 0x10;
+                break;
+            case 0x20000:
+                entity->spriteSettings.b.flipX ^= 1;
+                break;
+            case 0x40000:
+                entity->field_0x82.HWORD |= 0x20;
+                break;
+            case 0x80000:
+                entity->field_0x82.HWORD &= 0xffdf;
+                break;
+            default:
+                break;
+        }
+    }
+}
 
 void sub_0807DF38(void);
 void sub_0807DE80(Entity* entity);
