@@ -311,15 +311,3 @@ _0807D1BC:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0807D1C4
-sub_0807D1C4: @ 0x0807D1C4
-	adds r1, r0, #0
-	lsls r0, r1, #1
-	adds r0, r0, r1
-	lsls r0, r0, #2
-	ldr r1, _0807D1D4 @ =gUnk_0811E4BC
-	adds r0, r0, r1
-	bx lr
-	.align 2, 0
-_0807D1D4: .4byte gUnk_0811E4BC
-
