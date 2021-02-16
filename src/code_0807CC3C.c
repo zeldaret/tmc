@@ -14,6 +14,7 @@ extern u32 gUnk_02036570;
 extern void CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
 extern void CreateSpeechBubbleQuestionMark(Entity*, u32, u32);
 extern void DeleteThisEntity(void);
+extern u32 sub_080B180C(u32, const char*);
 extern void sub_0801C4A0(u32);
 extern void sub_0807DB98(Entity*, ScriptExecutionContext*);
 extern s32 __divsi3(s32, s32);
@@ -22,6 +23,21 @@ extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
 
+// this is wrong by basically one instruction in the wrong place
+NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D24C.inc", u32 sub_0807D24C(u32 unk_1, const char* unk_2, u32 unk_3)) {
+    unk_3 >>= 3;
+    unk_1 >>= 3;
+    while (unk_3-- > 0) {
+        if (sub_080B180C(unk_1, unk_2))
+            return 0;
+        unk_1++;
+        unk_2 += 4;
+    }
+    return 1;
+}
+END_NONMATCH
+
+// these three functions use gRoomControls, maybe once that is understood better, these can be decompiled easier
 NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D280.inc", void sub_0807D280(u32 unk_1, u32 unk_2)) {
 }
 END_NONMATCH
