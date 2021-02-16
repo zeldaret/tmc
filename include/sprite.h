@@ -2,7 +2,6 @@
 #define SPRITE_H
 
 #include "global.h"
-#include "entity.h"
 
 typedef struct {
     u8 index;
