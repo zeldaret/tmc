@@ -290,24 +290,3 @@ _0807D1A0:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0807D1A4
-sub_0807D1A4: @ 0x0807D1A4
-	push {lr}
-	adds r2, r0, #0
-	movs r3, #0
-	cmp r1, #0
-	beq _0807D1BC
-_0807D1AE:
-	ldrh r0, [r2]
-	eors r0, r1
-	adds r3, r3, r0
-	adds r2, #2
-	subs r1, #2
-	cmp r1, #0
-	bne _0807D1AE
-_0807D1BC:
-	lsls r0, r3, #0x10
-	lsrs r0, r0, #0x10
-	pop {pc}
-	.align 2, 0
-

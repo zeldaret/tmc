@@ -26,8 +26,20 @@ extern u16 sub_080B18DC(u16, const char*);
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
 
-struct_0807D1C4* sub_0807D1C4(u32 param_1) {
-    return (struct_0807D1C4*)(gUnk_0811E4BC + param_1 * 0xc);
+u16 sub_0807D1A4(u16* unk_1, u32 unk_2) {
+    u32 uVar1;
+
+    uVar1 = 0;
+    while (unk_2 != 0) {
+        uVar1 = uVar1 + (*unk_1 ^ unk_2);
+        unk_1 = unk_1 + 1;
+        unk_2 = unk_2 - 2;
+    }
+    return uVar1;
+}
+
+struct_0807D1C4* sub_0807D1C4(u32 unk_1) {
+    return (struct_0807D1C4*)(gUnk_0811E4BC + unk_1 * 0xc);
 }
 
 // these three are basically the same and wrong by basically one instruction in the wrong place
