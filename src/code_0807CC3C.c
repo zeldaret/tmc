@@ -6,6 +6,7 @@
 
 extern u8 gUnk_0811E514[];
 extern u8 gUnk_0811E510[];
+extern const char gUnk_0811E4B4[8];
 // the type is just a guess based on size and the fact that these are around a lot in this file
 extern ScriptExecutionContext gUnk_02022750;
 // might be ScriptExecutionContext[0x20]
@@ -19,11 +20,28 @@ extern void sub_0801C4A0(u32);
 extern void sub_0807DB98(Entity*, ScriptExecutionContext*);
 extern s32 __divsi3(s32, s32);
 extern void _call_via_r6(Entity*, ScriptExecutionContext*);
+extern u16 sub_080B18DC(u16, const char*);
 
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
 
+
 // this is wrong by basically one instruction in the wrong place
+NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D20C.inc",u32 sub_0807D20C(u32 unk_1, const char* unk_2, u32 unk_3)) {
+    unk_3 >>= 3;
+    unk_1 >>= 3;
+    while (unk_3-- > 0) {
+        if (sub_080B18DC(unk_1, unk_2)) {
+            sub_080B18DC(unk_1, gUnk_0811E4B4);
+            return 0;
+        }
+        unk_1++;
+        unk_2 += 8;
+    }
+    return 1;
+}
+END_NONMATCH
+
 NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D24C.inc", u32 sub_0807D24C(u32 unk_1, const char* unk_2, u32 unk_3)) {
     unk_3 >>= 3;
     unk_1 >>= 3;
@@ -31,7 +49,7 @@ NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D24C.inc", u32 sub_0807D24C(u32
         if (sub_080B180C(unk_1, unk_2))
             return 0;
         unk_1++;
-        unk_2 += 4;
+        unk_2 += 8;
     }
     return 1;
 }
