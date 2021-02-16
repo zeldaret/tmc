@@ -177,7 +177,7 @@ SECTIONS {
         . = 0x00000FD0; gFadeControl = .;
         . = 0x00000FF0; gInput = .;
         . = 0x00001000; gUnk_03001000 = .;
-        . = 0x00001010; gUnk_03001010 = .;
+        . = 0x00001010; gOamCmd = .;
         . = 0x00001020; gUnk_03001020 = .;
         . = 0x000010A0; gScreenTransition = .;
         . = 0x000010AC; gUnk_030010AC = .;
@@ -457,11 +457,7 @@ SECTIONS {
         asm/code_08050038.o(.text);
         src/fileScreen.o(.text);
         asm/fileScreen.o(.text);
-        asm/sub_08052418.o(.text);
-        src/initializePlayer.o(.text);
-        src/area.o(.text);
-        src/modHealth.o(.text);
-        src/modRupees.o(.text);
+        src/game.o(.text);
         asm/code_080526F8.o(.text);
         asm/modBombs.o(.text);
         asm/modArrows.o(.text);

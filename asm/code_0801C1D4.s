@@ -39,7 +39,7 @@ _0801C204: .4byte gUnk_080C8F8C
 sub_0801C208: @ 0x0801C208
 	push {r4, r5, lr}
 	movs r5, #0
-	ldr r4, _0801C250 @ =gUnk_03001010
+	ldr r4, _0801C250 @ =gOamCmd
 _0801C20E:
 	lsls r1, r5, #5
 	ldr r0, _0801C254 @ =gUnk_0200AF34
@@ -75,7 +75,7 @@ _0801C248:
 	bls _0801C20E
 	pop {r4, r5, pc}
 	.align 2, 0
-_0801C250: .4byte gUnk_03001010
+_0801C250: .4byte gOamCmd
 _0801C254: .4byte gUnk_0200AF34
 _0801C258: .4byte gUnk_080C8F8C
 

@@ -38,8 +38,9 @@ typedef struct {
 } struct_080FC844;
 
 typedef struct {
-    u8 filler0[0x4];
+    union SplitWord _0[8];
 } struct_020227E8;
+
 extern struct_020227E8 gUnk_020227E8;
 
 typedef struct {
@@ -56,16 +57,8 @@ typedef struct {
 } struct_02019EE0;
 extern struct_02019EE0 gUnk_02019EE0;
 
-struct OAMCommand {
-    u16 x;
-    u16 y;
-    u16 _4;
-    u16 _6;
-    u16 _8;
-} extern gUnk_03001010;
-
 extern void sub_08056FEC(u32, struct_020227E8*);
-extern void sub_0805F46C(u32, struct_080FC844*);
+extern void sub_0805F46C(u32, void*);
 extern void sub_0801C4A0(u32, u32);
 extern void sub_08080668(void);
 extern void sub_0805194C(u32);

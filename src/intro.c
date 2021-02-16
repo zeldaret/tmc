@@ -114,8 +114,6 @@ static void HandleNintendoCapcomLogos(void) {
     }
 }
 
-extern u16 gUnk_03001010[5];
-
 static void HandleTitlescreen(void) {
     int advance;
     u32 paletteGroup;
@@ -193,8 +191,8 @@ static void HandleTitlescreen(void) {
             }
             UpdatePressStartIcon();
             if ((gIntroState.timer & 0x20) == 0) {
-                gUnk_03001010[4] = 0xe000;
-                gUnk_03001010[1] = 0x84;
+                gOamCmd._8 = 0xe000;
+                gOamCmd.y = 0x84;
                 sub_080ADA14(0x1ff, 0);
             }
     }
@@ -208,11 +206,11 @@ static void HandleTitlescreen(void) {
 }
 
 static void UpdatePressStartIcon(void) {
-    gUnk_03001010[2] = 0;
-    gUnk_03001010[3] = 0;
-    gUnk_03001010[4] = 0xE020;
-    gUnk_03001010[0] = 120;
-    gUnk_03001010[1] = 152;
+    gOamCmd._4 = 0;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0xE020;
+    gOamCmd.x = 120;
+    gOamCmd.y = 152;
     sub_080ADA14(511, 1);
     return;
 }

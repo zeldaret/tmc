@@ -14,7 +14,8 @@
             "filescreen.h": "c",
             "screen.h": "c",
             "global.h": "c",
-            "player.h": "c"
+            "player.h": "c",
+            "typeinfo": "c"
         }
     }
 }

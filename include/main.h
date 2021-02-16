@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+
 typedef struct { // 0x03001000
     u8 field_0x0;
     u8 field_0x1;
@@ -13,6 +14,7 @@ typedef struct { // 0x03001000
     u8 field_0xb;
     u32 spritePriority;
 } MainStruct;
+
 #define SIGNATURE 'MCZ3'
 #define MAX_MSG_SPEED 3
 #define NUM_SAVE_SLOTS 3
@@ -75,6 +77,8 @@ static_assert(sizeof(UI) == 0x3b4);
 extern Main gUnk_03001000;
 extern UI gUnk_02032EC0;
 
+void InitScreen();
+
 extern void InitSound(void);
 extern void sub_0807CE90(void);
 extern void sub_080560B8(void);
@@ -103,5 +107,4 @@ extern void sub_08016B34(void);
 
 static void sub_08055F70(void);
 static bool32 SoftResetKeysPressed(void);
-
 #endif

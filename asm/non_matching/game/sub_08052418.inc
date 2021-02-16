@@ -1,12 +1,4 @@
-	.include "asm/macros.inc"
-	.include "constants/constants.inc"
-
-	.syntax unified
-
-	.text
-	
-	thumb_func_start sub_08052418
-sub_08052418: @ 0x08052418
+    .syntax unified
 	push {r4, r5, r6, lr}
 	sub sp, #0x18
 	adds r6, r0, #0
@@ -71,3 +63,4 @@ _08052498: .4byte gUnk_020227E8
 _0805249C: .4byte gUnk_080FCA8C
 _080524A0: .4byte gUnk_080FCAA4
 _080524A4: .4byte gScreen
+    .syntax divided
