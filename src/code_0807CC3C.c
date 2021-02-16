@@ -11,10 +11,14 @@ extern void CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
 extern void CreateSpeechBubbleQuestionMark(Entity*, u32, u32);
 extern void sub_0807DAC4(ScriptExecutionContext*);
 extern void DeleteThisEntity(void);
-extern void sub_0807DB88(Entity*);
 extern void sub_0801C4A0(u32);
 extern void sub_0807DB98(Entity*, ScriptExecutionContext*);
 extern void _call_via_r6(Entity*, ScriptExecutionContext*);
+
+void sub_0807DB88(ScriptExecutionContext* context, u32 unk1) {
+    _DmaZero(context, 0x24);
+    context->unk_00 = (u16*)unk1;
+}
 
 void sub_0807DB98(Entity* entity, ScriptExecutionContext* context) {
     u32 switchVar;
@@ -105,8 +109,8 @@ void sub_0807DD64(Entity* entity) {
     entity->field_0x82.HWORD = 0;
 }
 
-void sub_0807DD80(Entity* entity) {
-    sub_0807DB88(*(Entity**)&entity->cutsceneBeh);
+void sub_0807DD80(Entity* entity, u32 unk1) {
+    sub_0807DB88(*(ScriptExecutionContext**)&entity->cutsceneBeh, unk1);
     sub_0807DD64(entity);
 }
 

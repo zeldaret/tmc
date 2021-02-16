@@ -1658,12 +1658,3 @@ _0807DB84:
 	adds r0, r2, #0
 	pop {r4, r5, pc}
 
-	thumb_func_start sub_0807DB88
-sub_0807DB88: @ 0x0807DB88
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	adds r5, r1, #0
-	movs r1, #0x24
-	bl _DmaZero
-	str r5, [r4]
-	pop {r4, r5, pc}
