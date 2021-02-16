@@ -16,10 +16,15 @@ extern void CreateSpeechBubbleQuestionMark(Entity*, u32, u32);
 extern void DeleteThisEntity(void);
 extern void sub_0801C4A0(u32);
 extern void sub_0807DB98(Entity*, ScriptExecutionContext*);
+extern s32 __divsi3(s32, s32);
 extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
+
+NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D6D8.inc", void sub_0807D6D8(u32 unk_1, u32 unk_2)){
+}
+END_NONMATCH
 
 void sub_0807DA70(void) {
     _DmaZero(&gUnk_02033280, 0xc);
