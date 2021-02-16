@@ -6,6 +6,8 @@
 
 extern u8 gUnk_0811E514[];
 extern u8 gUnk_0811E510[];
+// the type is just a guess based on size and teh fact that these are around a lot in this file
+extern ScriptExecutionContext gUnk_02022750;
 
 extern void CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
 extern void CreateSpeechBubbleQuestionMark(Entity*, u32, u32);
@@ -16,6 +18,19 @@ extern void sub_0807DB98(Entity*, ScriptExecutionContext*);
 extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 
 extern u32* sub_0807DAA0();
+
+void StartPlayerScript(u32 unk1) {
+    Entity* player;
+
+    _DmaZero(&gUnk_02022750, 0x24);
+    gUnk_02022750.unk_00 = (u16*)unk1;
+    player = &gPlayerEntity;
+    *(ScriptExecutionContext**)&player->cutsceneBeh = &gUnk_02022750;
+    gPlayerState.playerAction = 0x1c;
+    gPlayerState.field_0x3a = 0;
+    gPlayerState.field_0x39 = 0;
+    gPlayerState.field_0x38 = 0;
+}
 
 u32* sub_0807DB68(Entity* entity, u32 unk1) {
     u32* puVar1;

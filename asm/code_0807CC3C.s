@@ -1610,32 +1610,3 @@ _0807DB28:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start StartPlayerScript
-StartPlayerScript: @ 0x0807DB2C
-	push {r4, r5, lr}
-	adds r5, r0, #0
-	ldr r4, _0807DB5C @ =gUnk_02022750
-	adds r0, r4, #0
-	movs r1, #0x24
-	bl _DmaZero
-	str r5, [r4]
-	ldr r0, _0807DB60 @ =gPlayerEntity
-	adds r0, #0x84
-	str r4, [r0]
-	ldr r2, _0807DB64 @ =gPlayerState
-	movs r1, #0
-	movs r0, #0x1c
-	strb r0, [r2, #0xc]
-	adds r0, r2, #0
-	adds r0, #0x3a
-	strb r1, [r0]
-	subs r0, #1
-	strb r1, [r0]
-	subs r0, #1
-	strb r1, [r0]
-	pop {r4, r5, pc}
-	.align 2, 0
-_0807DB5C: .4byte gUnk_02022750
-_0807DB60: .4byte gPlayerEntity
-_0807DB64: .4byte gPlayerState
-
