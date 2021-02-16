@@ -272,21 +272,3 @@ _0807D17E:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0807D184
-sub_0807D184: @ 0x0807D184
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	adds r5, r1, #0
-	movs r2, #8
-	bl sub_0807D20C
-	cmp r0, #0
-	bne _0807D1A0
-	adds r0, r4, #0
-	adds r0, #8
-	adds r1, r5, #0
-	movs r2, #8
-	bl sub_0807D20C
-_0807D1A0:
-	pop {r4, r5, pc}
-	.align 2, 0
-

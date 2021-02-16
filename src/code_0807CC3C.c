@@ -26,6 +26,12 @@ extern u16 sub_080B18DC(u16, const char*);
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
 
+void sub_0807D184(u32 param_1, const char* param_2) {
+    if (sub_0807D20C(param_1, param_2, 8) == 0) {
+        sub_0807D20C(param_1 + 8, param_2, 8);
+    }
+}
+
 u16 sub_0807D1A4(u16* unk_1, u32 unk_2) {
     u32 uVar1;
 
