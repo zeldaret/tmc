@@ -1504,25 +1504,3 @@ _0807DA62:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0807DA70
-sub_0807DA70: @ 0x0807DA70
-	push {r4, lr}
-	ldr r4, _0807DA94 @ =gUnk_02033280
-	adds r0, r4, #0
-	movs r1, #0xc
-	bl _DmaZero
-	ldr r0, _0807DA98 @ =gUnk_02036570
-	movs r1, #0x90
-	lsls r1, r1, #3
-	bl _DmaZero
-	ldr r0, _0807DA9C @ =gUnk_02022750
-	movs r1, #0x24
-	bl _DmaZero
-	movs r0, #8
-	strb r0, [r4, #8]
-	pop {r4, pc}
-	.align 2, 0
-_0807DA94: .4byte gUnk_02033280
-_0807DA98: .4byte gUnk_02036570
-_0807DA9C: .4byte gUnk_02022750
-

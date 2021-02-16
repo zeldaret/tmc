@@ -21,6 +21,13 @@ extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
 
+void sub_0807DA70(void) {
+    _DmaZero(&gUnk_02033280, 0xc);
+    _DmaZero(&gUnk_02036570, 0x480);
+    _DmaZero(&gUnk_02022750, 0x24);
+    gUnk_02033280.unk_08 = 8;
+}
+
 u32* sub_0807DAA0(void) {
     u32* puVar1;
 
