@@ -22,6 +22,10 @@ extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
 
+NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D280.inc", void sub_0807D280(u32 unk_1, u32 unk_2)) {
+}
+END_NONMATCH
+
 NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D46C.inc", void sub_0807D46C(u32 unk_1, u32 unk_2)) {
 }
 END_NONMATCH
