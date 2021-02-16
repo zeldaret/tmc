@@ -1639,22 +1639,3 @@ _0807DB5C: .4byte gUnk_02022750
 _0807DB60: .4byte gPlayerEntity
 _0807DB64: .4byte gPlayerState
 
-	thumb_func_start sub_0807DB68
-sub_0807DB68: @ 0x0807DB68
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	adds r5, r1, #0
-	bl sub_0807DAA0
-	adds r2, r0, #0
-	cmp r2, #0
-	beq _0807DB84
-	ldrb r1, [r4, #0x10]
-	movs r0, #2
-	orrs r0, r1
-	strb r0, [r4, #0x10]
-	str r2, [r4, #0x3c]
-	str r5, [r2]
-_0807DB84:
-	adds r0, r2, #0
-	pop {r4, r5, pc}
-

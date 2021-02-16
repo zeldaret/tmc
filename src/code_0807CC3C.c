@@ -15,6 +15,20 @@ extern void sub_0801C4A0(u32);
 extern void sub_0807DB98(Entity*, ScriptExecutionContext*);
 extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 
+extern u32* sub_0807DAA0();
+
+u32* sub_0807DB68(Entity* entity, u32 unk1) {
+    u32* puVar1;
+
+    puVar1 = sub_0807DAA0();
+    if (puVar1) {
+        entity->flags |= 2;
+        *(u32**)&entity->field_0x3c = puVar1;
+        *puVar1 = unk1;
+    }
+    return puVar1;
+}
+
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1) {
     _DmaZero(context, 0x24);
     context->unk_00 = (u16*)unk1;
