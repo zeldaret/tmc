@@ -18,7 +18,18 @@ extern void sub_0807DB98(Entity*, ScriptExecutionContext*);
 extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
+void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
 extern u32* sub_0807DAA0();
+
+u32* StartCutscene(Entity* param_1, u8* param_2) {
+    ScriptExecutionContext* puVar1;
+
+    puVar1 = (ScriptExecutionContext*)sub_0807DAA0();
+    if (puVar1) {
+        sub_0807DAF0(param_1, puVar1, (u32)param_2);
+    }
+    return (u32*)puVar1;
+}
 
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1) {
     entity->flags = entity->flags | 2;

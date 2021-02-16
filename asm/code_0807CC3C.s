@@ -1557,21 +1557,3 @@ sub_0807DAC4: @ 0x0807DAC4
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start StartCutscene
-StartCutscene: @ 0x0807DAD0
-	push {r4, r5, r6, lr}
-	adds r5, r0, #0
-	adds r6, r1, #0
-	bl sub_0807DAA0
-	adds r4, r0, #0
-	cmp r4, #0
-	beq _0807DAEA
-	adds r0, r5, #0
-	adds r1, r4, #0
-	adds r2, r6, #0
-	bl sub_0807DAF0
-_0807DAEA:
-	adds r0, r4, #0
-	pop {r4, r5, r6, pc}
-	.align 2, 0
-
