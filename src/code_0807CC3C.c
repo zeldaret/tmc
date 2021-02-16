@@ -19,6 +19,14 @@ extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 
 extern u32* sub_0807DAA0();
 
+void UnloadCutsceneData(Entity* entity) {
+    if ((entity->flags & 2)) {
+        entity->flags = entity->flags & 0xfd;
+        sub_0807DAC4(*(ScriptExecutionContext**)&entity->cutsceneBeh);
+        *(ScriptExecutionContext**)&entity->cutsceneBeh = NULL;
+    }
+}
+
 void StartPlayerScript(u32 unk1) {
     Entity* player;
 

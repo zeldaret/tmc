@@ -1589,24 +1589,3 @@ sub_0807DAF0: @ 0x0807DAF0
 	bl sub_0807DB88
 	pop {r4, pc}
 
-	thumb_func_start UnloadCutsceneData
-UnloadCutsceneData: @ 0x0807DB08
-	push {r4, r5, lr}
-	adds r4, r0, #0
-	ldrb r1, [r4, #0x10]
-	movs r0, #2
-	ands r0, r1
-	cmp r0, #0
-	beq _0807DB28
-	movs r0, #0xfd
-	ands r0, r1
-	movs r5, #0
-	strb r0, [r4, #0x10]
-	adds r4, #0x84
-	ldr r0, [r4]
-	bl sub_0807DAC4
-	str r5, [r4]
-_0807DB28:
-	pop {r4, r5, pc}
-	.align 2, 0
-
