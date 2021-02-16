@@ -6,8 +6,10 @@
 
 extern u8 gUnk_0811E514[];
 extern u8 gUnk_0811E510[];
-// the type is just a guess based on size and teh fact that these are around a lot in this file
+// the type is just a guess based on size and the fact that these are around a lot in this file
 extern ScriptExecutionContext gUnk_02022750;
+// might be ScriptExecutionContext[0x20]
+extern u32 gUnk_02036570;
 
 extern void CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
 extern void CreateSpeechBubbleQuestionMark(Entity*, u32, u32);
@@ -18,7 +20,19 @@ extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
-extern u32* sub_0807DAA0();
+
+u32* sub_0807DAA0(void) {
+    u32* puVar1;
+
+    puVar1 = &gUnk_02036570;
+    do {
+        if (*puVar1 == 0) {
+            return puVar1;
+        }
+        puVar1 = puVar1 + 9;
+    } while (puVar1 < &gUnk_02036570 + 0x480 / 4);
+    return NULL;
+}
 
 void sub_0807DAC4(ScriptExecutionContext* context) {
     _DmaZero(context, 0x24);

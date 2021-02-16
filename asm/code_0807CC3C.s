@@ -1526,26 +1526,3 @@ _0807DA94: .4byte gUnk_02033280
 _0807DA98: .4byte gUnk_02036570
 _0807DA9C: .4byte gUnk_02022750
 
-	thumb_func_start sub_0807DAA0
-sub_0807DAA0: @ 0x0807DAA0
-	push {lr}
-	ldr r1, _0807DABC @ =gUnk_02036570
-	movs r0, #0x90
-	lsls r0, r0, #3
-	adds r2, r1, r0
-_0807DAAA:
-	ldr r0, [r1]
-	cmp r0, #0
-	beq _0807DAC0
-	adds r1, #0x24
-	cmp r1, r2
-	blo _0807DAAA
-	movs r0, #0
-	b _0807DAC2
-	.align 2, 0
-_0807DABC: .4byte gUnk_02036570
-_0807DAC0:
-	adds r0, r1, #0
-_0807DAC2:
-	pop {pc}
-
