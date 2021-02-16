@@ -1549,11 +1549,3 @@ _0807DAC0:
 _0807DAC2:
 	pop {pc}
 
-	thumb_func_start sub_0807DAC4
-sub_0807DAC4: @ 0x0807DAC4
-	push {lr}
-	movs r1, #0x24
-	bl _DmaZero
-	pop {pc}
-	.align 2, 0
-

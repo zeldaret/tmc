@@ -11,7 +11,6 @@ extern ScriptExecutionContext gUnk_02022750;
 
 extern void CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
 extern void CreateSpeechBubbleQuestionMark(Entity*, u32, u32);
-extern void sub_0807DAC4(ScriptExecutionContext*);
 extern void DeleteThisEntity(void);
 extern void sub_0801C4A0(u32);
 extern void sub_0807DB98(Entity*, ScriptExecutionContext*);
@@ -20,6 +19,10 @@ extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
 extern u32* sub_0807DAA0();
+
+void sub_0807DAC4(ScriptExecutionContext* context) {
+    _DmaZero(context, 0x24);
+}
 
 u32* StartCutscene(Entity* param_1, u8* param_2) {
     ScriptExecutionContext* puVar1;
