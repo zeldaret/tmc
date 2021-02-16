@@ -25,9 +25,12 @@ extern u16 sub_080B18DC(u16, const char*);
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
 
+// these three are basically the same and wrong by basically one instruction in the wrong place
+NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D1D8.inc", u32 sub_0807D1D8(u32 unk_1, const char* unk_2, u32 unk_3)) {
+}
+END_NONMATCH
 
-// this is wrong by basically one instruction in the wrong place
-NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D20C.inc",u32 sub_0807D20C(u32 unk_1, const char* unk_2, u32 unk_3)) {
+NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D20C.inc", u32 sub_0807D20C(u32 unk_1, const char* unk_2, u32 unk_3)) {
     unk_3 >>= 3;
     unk_1 >>= 3;
     while (unk_3-- > 0) {
