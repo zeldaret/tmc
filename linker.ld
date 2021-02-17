@@ -908,7 +908,7 @@ SECTIONS {
         data/data_080B2A70.o(.rodata);
         data/playerItemFunctions.o(.rodata);
         src/object.o(.rodata);
-        data/data_080B3054.o(.rodata);
+        src/manager.o(.rodata);
         src/npc.o(.rodata);
         data/data_080B3740.o(.rodata);
         src/trig.o(.rodata);

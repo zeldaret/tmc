@@ -920,7 +920,7 @@ sub_08017508: @ 0x08017508
 	bl sub_0805E3B0
 	cmp r0, #0
 	bne _08017524
-	ldr r0, _0801752C @ =gUnk_080B3054
+	ldr r0, _0801752C @ =gManagerFunctions
 	ldrb r1, [r4, #9]
 	lsls r1, r1, #2
 	adds r1, r1, r0
@@ -932,7 +932,7 @@ _08017524:
 	pop {r0}
 	bx r0
 	.align 2, 0
-_0801752C: .4byte gUnk_080B3054
+_0801752C: .4byte gManagerFunctions
 
 	thumb_func_start sub_08017530
 sub_08017530: @ 0x08017530
