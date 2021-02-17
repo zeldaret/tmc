@@ -906,7 +906,7 @@ SECTIONS {
         asm/intr.o(.text);
         /* data */
         data/data_080B2A70.o(.rodata);
-        data/playerItemFunctions.o(.rodata);
+        src/playerItem.o(.rodata);
         src/object.o(.rodata);
         src/manager.o(.rodata);
         src/npc.o(.rodata);
