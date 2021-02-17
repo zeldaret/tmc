@@ -187,35 +187,3 @@ _0807D0E8:
 _0807D0EA:
 	pop {r4, r5, r6, r7, pc}
 
-	thumb_func_start sub_0807D0EC
-sub_0807D0EC: @ 0x0807D0EC
-	push {r4, r5, r6, lr}
-	adds r6, r0, #0
-	adds r4, r1, #0
-	movs r2, #8
-	bl sub_0807D1D8
-	cmp r0, #0
-	bne _0807D100
-	movs r5, #0
-	b _0807D10C
-_0807D100:
-	adds r0, r4, #0
-	bl sub_0807D128
-	adds r5, r0, #0
-	cmp r5, #0
-	bne _0807D124
-_0807D10C:
-	adds r0, r6, #0
-	adds r0, #8
-	adds r1, r4, #0
-	movs r2, #8
-	bl sub_0807D1D8
-	cmp r0, #0
-	beq _0807D124
-	adds r0, r4, #0
-	bl sub_0807D128
-	adds r5, r0, #0
-_0807D124:
-	adds r0, r5, #0
-	pop {r4, r5, r6, pc}
-

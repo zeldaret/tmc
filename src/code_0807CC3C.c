@@ -25,6 +25,23 @@ extern u16 sub_080B18DC(u16, const char*);
 
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
+u32 sub_0807D1D8(u32 unk_1, const char* unk_2, u32 unk_3);
+u32 sub_0807D128(u16* unk_1);
+u16 sub_0807D1A4(u16* unk_1, u32 unk_2);
+
+u32 sub_0807D0EC(u32 unk_1, const char* unk_2) {
+    u32 ret;
+
+    if (!sub_0807D1D8(unk_1, unk_2, 8)) {
+        ret = 0;
+    } else {
+        ret = sub_0807D128((u16*)unk_2);
+    }
+    if (!ret && sub_0807D1D8(unk_1 + 8, unk_2, 8)) {
+        ret = sub_0807D128((u16*)unk_2);
+    }
+    return ret;
+}
 
 u32 sub_0807D128(u16* unk_1) {
     u32 ret;
