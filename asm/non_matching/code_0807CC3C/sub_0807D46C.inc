@@ -342,3 +342,5 @@ _0807D6CC:
 	mov sb, r4
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
+
+	.syntax divided

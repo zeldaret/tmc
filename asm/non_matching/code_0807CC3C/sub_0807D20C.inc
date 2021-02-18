@@ -37,3 +37,5 @@ _0807D242:
 	movs r0, #1
 _0807D24A:
 	pop {r4, r5, r6, r7, pc}
+
+	.syntax divided

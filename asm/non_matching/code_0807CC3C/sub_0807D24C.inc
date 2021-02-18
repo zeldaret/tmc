@@ -32,3 +32,5 @@ _0807D274:
 _0807D27C:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
+
+	.syntax divided

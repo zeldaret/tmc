@@ -260,3 +260,5 @@ _0807D462:
 	mov sb, r4
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
+
+	.syntax divided
