@@ -3,6 +3,7 @@
 #include "functions.h"
 #include "script.h"
 #include "entity.h"
+#include "save.h"
 
 extern u8 gUnk_0811E514[];
 extern u8 gUnk_0811E510[];
@@ -28,6 +29,47 @@ void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
 u32 sub_0807D1D8(u32 unk_1, const char* unk_2, u32 unk_3);
 u32 sub_0807D128(u16* unk_1);
 u16 sub_0807D1A4(u16* unk_1, u32 unk_2);
+u32 sub_0807D0A0(u16* unk_1, u16* unk_2, u32 unk_3);
+u32 sub_0807D0EC(u32 unk_1, const char* unk_2);
+
+NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D008.inc", u32 sub_0807D008(u32 param_1, SaveFile* saveFile)) {
+    u32 set_0;
+    char auStack32[8];
+
+    struct_0807D1C4* thing;
+    u32 t1;
+    u32 t2;
+    u32 ret;
+    u32 temp;
+
+    thing = sub_0807D1C4(param_1);
+    t1 = sub_0807D0EC(thing->field_0x2, auStack32);
+    if (t1 == 2) {
+        if ((sub_0807D1D8(thing->field_0x6, (char*)saveFile, thing->field_0x0) == 0) ||
+            (sub_0807D0A0((u16*)auStack32, (u16*)saveFile, (u32)thing->field_0x0) == 0)) {
+            t1 = 0;
+        } else {
+            return 1;
+        }
+    }
+    t2 = sub_0807D0EC(thing->field_0x4, auStack32);
+    if (t2 == 2) {
+        if ((sub_0807D1D8(thing->field_0x8, (char*)saveFile, thing->field_0x0) != 0) &&
+            (sub_0807D0A0((u16*)auStack32, (u16*)saveFile, (u32)thing->field_0x0) != 0)) {
+            return 1;
+        }
+        t2 = 0;
+    }
+    set_0 = 0;
+    CpuSet(&set_0, saveFile, thing->field_0x0 >> 2 | CPU_SET_SRC_FIXED | CPU_SET_32BIT);
+    temp = t1 | t2;
+    ret = 0;
+    if (temp == 0) {
+        ret = -1;
+    }
+    return ret;
+}
+END_NONMATCH
 
 NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D0A0.inc", u32 sub_0807D0A0(u16* unk_1, u16* unk_2, u32 unk_3)) {
     u32 r0;
@@ -114,6 +156,7 @@ u16 sub_0807D1A4(u16* unk_1, u32 unk_2) {
     return uVar1;
 }
 
+// TODO properly type this array
 struct_0807D1C4* sub_0807D1C4(u32 unk_1) {
     return (struct_0807D1C4*)(gUnk_0811E4BC + unk_1 * 0xc);
 }
