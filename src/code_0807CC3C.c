@@ -29,6 +29,35 @@ u32 sub_0807D1D8(u32 unk_1, const char* unk_2, u32 unk_3);
 u32 sub_0807D128(u16* unk_1);
 u16 sub_0807D1A4(u16* unk_1, u32 unk_2);
 
+NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D0A0.inc", u32 sub_0807D0A0(u16* unk_1, u16* unk_2, u32 unk_3)) {
+    u32 r0;
+
+    u32* u32_1 = (u32*)unk_1;
+
+    u16 u0;
+    u32 u1;
+
+    u0 = sub_0807D1A4(unk_1 + 2, 4);
+    u0 = u0 + sub_0807D1A4(unk_2, unk_3);
+
+    u1 = unk_1[0];
+    if (u1 != u0) {
+        r0 = 0;
+    } else {
+        if (unk_1[1] == (-(u1 << 0x10) >> 0x10)) {
+            if (*(u32_1 + 1) != 'MCZ3') {
+                r0 = 0;
+            } else {
+                r0 = 1;
+            }
+        } else {
+            r0 = 0;
+        }
+    }
+    return r0;
+}
+END_NONMATCH
+
 u32 sub_0807D0EC(u32 unk_1, const char* unk_2) {
     u32 ret;
 
