@@ -32,6 +32,39 @@ u16 sub_0807D1A4(u16* unk_1, u32 unk_2);
 u32 sub_0807D0A0(u16* unk_1, u16* unk_2, u32 unk_3);
 u32 sub_0807D0EC(u32 unk_1, const char* unk_2);
 
+NONMATCH("asm/non_matching/code_0807CC3C/sub_0807CF88.inc", u32 sub_0807CF88(u32 arg0, u8* arg1)) {
+    u32 signature;
+    s16 local1[2];
+
+    u32 retval;
+    struct_0807D1C4* ptr;
+    u32 e0, e1;
+    u16 l1prep;
+
+    ptr = sub_0807D1C4(arg0);
+
+    signature = 'MCZ3';
+    l1prep = sub_0807D1A4((u16*)&signature, 4);
+    l1prep += sub_0807D1A4((u16*)arg1, ptr->field_0x0);
+    local1[0] = l1prep;
+    local1[1] = -(u32)l1prep;
+    e0 = sub_0807D20C(ptr->field_0x6, (const char*)arg1, ptr->field_0x0);
+    if (e0) {
+        e0 = sub_0807D184(ptr->field_0x2, (const char*)local1);
+    }
+    e1 = sub_0807D20C(ptr->field_0x8, (const char*)arg1, ptr->field_0x0);
+    if (e1) {
+        e1 = sub_0807D184(ptr->field_0x4, (const char*)local1);
+    }
+
+    retval = 0;
+    if (e0 || e1) {
+        retval = 1;
+    }
+    return retval;
+}
+END_NONMATCH
+
 NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D008.inc", u32 sub_0807D008(u32 param_1, SaveFile* saveFile)) {
     u32 set_0;
     char auStack32[8];
@@ -138,10 +171,14 @@ u32 sub_0807D128(u16* unk_1) {
     return ret;
 }
 
-void sub_0807D184(u32 param_1, const char* param_2) {
-    if (sub_0807D20C(param_1, param_2, 8) == 0) {
-        sub_0807D20C(param_1 + 8, param_2, 8);
+u32 sub_0807D184(u32 param_1, const char* param_2) {
+    u32 uVar1;
+
+    uVar1 = sub_0807D20C(param_1, param_2, 8);
+    if (uVar1 == 0) {
+        uVar1 = sub_0807D20C(param_1 + 8, param_2, 8);
     }
+    return uVar1;
 }
 
 u16 sub_0807D1A4(u16* unk_1, u32 unk_2) {

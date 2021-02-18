@@ -1,12 +1,11 @@
 	.include "asm/macros.inc"
+
 	.include "constants/constants.inc"
 
 	.syntax unified
 
 	.text
 
-	thumb_func_start sub_0807CF88
-sub_0807CF88: @ 0x0807CF88
 	push {r4, r5, r6, r7, lr}
 	sub sp, #8
 	adds r7, r1, #0
@@ -69,3 +68,4 @@ _0807CFFE:
 	.align 2, 0
 _0807D004: .4byte 0x4D435A33
 
+    .syntax divided
