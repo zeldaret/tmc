@@ -203,71 +203,71 @@ u32 sub_0807CF88(u32 arg0, u8* arg1) {
 }
 
 NONMATCH("asm/non_matching/save/sub_0807D008.inc", u32 sub_0807D008(u32 param_1, SaveFile* saveFile)) {
-        u32 set_0;
-        char auStack32[8];
+    u32 set_0;
+    char auStack32[8];
 
-        struct_0807D1C4* unk_s;
-        u32 t1;
-        u32 t2;
-        u32 ret;
-        u32 temp;
+    struct_0807D1C4* unk_s;
+    u32 t1;
+    u32 t2;
+    u32 ret;
+    u32 temp;
 
-        unk_s = sub_0807D1C4(param_1);
-        t1 = sub_0807D0EC(unk_s->field_0x2, auStack32);
-        if (t1 == 2) {
-            if ((sub_0807D1D8(unk_s->field_0x6, (char*)saveFile, unk_s->field_0x0) == 0) ||
-                (sub_0807D0A0((u16*)auStack32, (u16*)saveFile, (u32)unk_s->field_0x0) == 0)) {
-                t1 = 0;
-            } else {
-                return 1;
-            }
+    unk_s = sub_0807D1C4(param_1);
+    t1 = sub_0807D0EC(unk_s->field_0x2, auStack32);
+    if (t1 == 2) {
+        if ((sub_0807D1D8(unk_s->field_0x6, (char*)saveFile, unk_s->field_0x0) == 0) ||
+            (sub_0807D0A0((u16*)auStack32, (u16*)saveFile, (u32)unk_s->field_0x0) == 0)) {
+            t1 = 0;
+        } else {
+            return 1;
         }
-        t2 = sub_0807D0EC(unk_s->field_0x4, auStack32);
-        if (t2 == 2) {
-            if ((sub_0807D1D8(unk_s->field_0x8, (char*)saveFile, unk_s->field_0x0) != 0) &&
-                (sub_0807D0A0((u16*)auStack32, (u16*)saveFile, (u32)unk_s->field_0x0) != 0)) {
-                return 1;
-            }
-            t2 = 0;
-        }
-        set_0 = 0;
-        CpuSet(&set_0, saveFile, unk_s->field_0x0 >> 2 | CPU_SET_SRC_FIXED | CPU_SET_32BIT);
-        temp = t1 | t2;
-        ret = 0;
-        if (temp == 0) {
-            ret = -1;
-        }
-        return ret;
     }
+    t2 = sub_0807D0EC(unk_s->field_0x4, auStack32);
+    if (t2 == 2) {
+        if ((sub_0807D1D8(unk_s->field_0x8, (char*)saveFile, unk_s->field_0x0) != 0) &&
+            (sub_0807D0A0((u16*)auStack32, (u16*)saveFile, (u32)unk_s->field_0x0) != 0)) {
+            return 1;
+        }
+        t2 = 0;
+    }
+    set_0 = 0;
+    CpuSet(&set_0, saveFile, unk_s->field_0x0 >> 2 | CPU_SET_SRC_FIXED | CPU_SET_32BIT);
+    temp = t1 | t2;
+    ret = 0;
+    if (temp == 0) {
+        ret = -1;
+    }
+    return ret;
+}
 END_NONMATCH
 
 NONMATCH("asm/non_matching/save/sub_0807D0A0.inc", u32 sub_0807D0A0(u16* unk_1, u16* unk_2, u32 unk_3)) {
-        u32 r0;
+    u32 r0;
 
-        u32* u32_1 = (u32*)unk_1;
+    u32* u32_1 = (u32*)unk_1;
 
-        u16 u0;
-        u32 u1;
+    u16 u0;
+    u32 u1;
 
-        u0 = sub_0807D1A4(unk_1 + 2, 4);
-        u0 = u0 + sub_0807D1A4(unk_2, unk_3);
+    u0 = sub_0807D1A4(unk_1 + 2, 4);
+    u0 = u0 + sub_0807D1A4(unk_2, unk_3);
 
-        u1 = unk_1[0];
-        if (u1 != u0) {
-            r0 = 0;
-        } else {
-            if (unk_1[1] == (-(u1 << 0x10) >> 0x10)) {
-                if (*(u32_1 + 1) != 'MCZ3') {
-                    r0 = 0;
-                } else {
-                    r0 = 1;
-                }
-            } else {
+    u1 = unk_1[0];
+    if (u1 != u0) {
+        r0 = 0;
+    } else {
+        if (unk_1[1] == (-(u1 << 0x10) >> 0x10)) {
+            if (*(u32_1 + 1) != 'MCZ3') {
                 r0 = 0;
+            } else {
+                r0 = 1;
             }
+        } else {
+            r0 = 0;
         }
-        return r0;
     }
+    return r0;
+}
 END_NONMATCH
 
 u32 sub_0807D0EC(u32 unk_1, const char* unk_2) {
@@ -336,33 +336,33 @@ struct_0807D1C4* sub_0807D1C4(u32 unk_1) {
 
 // these three are basically the same and wrong by basically one instruction in the wrong place
 NONMATCH("asm/non_matching/save/sub_0807D1D8.inc", u32 sub_0807D1D8(u32 unk_1, const char* unk_2, u32 unk_3)) {
-    }
+}
 END_NONMATCH
 
 NONMATCH("asm/non_matching/save/sub_0807D20C.inc", u32 sub_0807D20C(u32 unk_1, const char* unk_2, u32 unk_3)) {
-        unk_3 >>= 3;
-        unk_1 >>= 3;
-        while (unk_3-- > 0) {
-            if (sub_080B18DC(unk_1, unk_2)) {
-                sub_080B18DC(unk_1, gUnk_0811E4B4);
-                return 0;
-            }
-            unk_1++;
-            unk_2 += 8;
+    unk_3 >>= 3;
+    unk_1 >>= 3;
+    while (unk_3-- > 0) {
+        if (sub_080B18DC(unk_1, unk_2)) {
+            sub_080B18DC(unk_1, gUnk_0811E4B4);
+            return 0;
         }
-        return 1;
+        unk_1++;
+        unk_2 += 8;
     }
+    return 1;
+}
 END_NONMATCH
 
 NONMATCH("asm/non_matching/save/sub_0807D24C.inc", u32 sub_0807D24C(u32 unk_1, const char* unk_2, u32 unk_3)) {
-        unk_3 >>= 3;
-        unk_1 >>= 3;
-        while (unk_3-- > 0) {
-            if (sub_080B180C(unk_1, unk_2))
-                return 0;
-            unk_1++;
-            unk_2 += 8;
-        }
-        return 1;
+    unk_3 >>= 3;
+    unk_1 >>= 3;
+    while (unk_3-- > 0) {
+        if (sub_080B180C(unk_1, unk_2))
+            return 0;
+        unk_1++;
+        unk_2 += 8;
     }
+    return 1;
+}
 END_NONMATCH

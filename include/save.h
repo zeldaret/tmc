@@ -11,7 +11,7 @@
 
 typedef enum {
     SAVE_BUSY = 0,
-    SAVE_OK  = 1,
+    SAVE_OK = 1,
     SAVE_ERROR = -1,
 } SaveResult;
 
