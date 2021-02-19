@@ -672,7 +672,7 @@ SECTIONS {
         src/flags.o(.text);
         src/save.o(.text);
         src/code_0807CC3C.o(.text);
-        src/executeScriptCommandSet.o(.text);
+        src/script.o(.text);
         asm/code_0807F0D8.o(.text);
         src/code_0808091C.o(.text);
         asm/code_0808091C.o(.text);
@@ -1018,7 +1018,7 @@ SECTIONS {
         data/room_headers.o(.rodata);
         src/save.o(.rodata);
         data/data_0811E454.o(.rodata);
-        src/executeScriptCommandSet.o(.rodata);
+        src/script.o(.rodata);
         data/data_0811E750.o(.rodata);
         src/object/greatFairy.o(.rodata);
         data/animations/greatFairy.o(.rodata);
