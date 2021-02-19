@@ -5,44 +5,6 @@
 
 	.text
 
-	thumb_func_start sub_080B1520
-sub_080B1520: @ 0x080B1520
-	push {lr}
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	movs r2, #0
-	cmp r0, #4
-	bne _080B153C
-	ldr r1, _080B1534 @ =gUnk_02036A50
-	ldr r0, _080B1538 @ =gUnk_08DE7D40
-	str r0, [r1]
-	b _080B1558
-	.align 2, 0
-_080B1534: .4byte gUnk_02036A50
-_080B1538: .4byte gUnk_08DE7D40
-_080B153C:
-	cmp r0, #0x40
-	bne _080B1550
-	ldr r1, _080B1548 @ =gUnk_02036A50
-	ldr r0, _080B154C @ =gUnk_08DE7D4C
-	str r0, [r1]
-	b _080B1558
-	.align 2, 0
-_080B1548: .4byte gUnk_02036A50
-_080B154C: .4byte gUnk_08DE7D4C
-_080B1550:
-	ldr r1, _080B1560 @ =gUnk_02036A50
-	ldr r0, _080B1564 @ =gUnk_08DE7D40
-	str r0, [r1]
-	movs r2, #1
-_080B1558:
-	adds r0, r2, #0
-	pop {r1}
-	bx r1
-	.align 2, 0
-_080B1560: .4byte gUnk_02036A50
-_080B1564: .4byte gUnk_08DE7D40
-
 	thumb_func_start sub_080B1568
 sub_080B1568: @ 0x080B1568
 	push {r4, r5, r6, lr}

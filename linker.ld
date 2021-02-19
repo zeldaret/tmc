@@ -899,6 +899,7 @@ SECTIONS {
         asm/m4a_asm.o(.text);
         asm/m4a.o(.text);
         asm/libagbsyscall.o(.text);
+        src/code_080B1520.o(.text);
         asm/code_080B1520.o(.text);
         *libc.a:memcpy.o(.text);
 
