@@ -5,7 +5,7 @@
 #include "entity.h"
 #include "save.h"
 
-typedef struct Thing{
+typedef struct Thing {
     u16 unk_1;
     u16 unk_2;
     u32 unk_3;
@@ -418,13 +418,13 @@ void sub_0807DD80(Entity* entity, u32 unk1) {
     sub_0807DD64(entity);
 }
 
-void sub_0807DD94(Entity* entity, void(*function)(Entity*, ScriptExecutionContext*)) {
+void sub_0807DD94(Entity* entity, void (*function)(Entity*, ScriptExecutionContext*)) {
     sub_0807DDAC(entity, function);
     sub_0807DDE4(entity);
     sub_0807DE80(entity);
 }
 
-void sub_0807DDAC(Entity* entity, void(*function)(Entity*, ScriptExecutionContext*)) {
+void sub_0807DDAC(Entity* entity, void (*function)(Entity*, ScriptExecutionContext*)) {
     ScriptExecutionContext** piVar1;
 
     piVar1 = (ScriptExecutionContext**)&entity->cutsceneBeh;
