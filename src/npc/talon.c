@@ -77,7 +77,7 @@ void sub_08065648(Entity* this) {
         this->interactType = 0;
         sub_0806F118(this);
     } else {
-        sub_0807DD94(this, 0);
+        sub_0807DD94(this, NULL);
     }
 }
 
@@ -118,7 +118,7 @@ void sub_080656D4(Entity* this) {
             }
         } else {
         label2:
-            sub_0807DD94(this, 0);
+            sub_0807DD94(this, NULL);
         }
     }
 }

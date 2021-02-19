@@ -418,21 +418,20 @@ void sub_0807DD80(Entity* entity, u32 unk1) {
     sub_0807DD64(entity);
 }
 
-void sub_0807DD94(Entity* entity, u32 param_2) {
-    sub_0807DDAC(entity, param_2);
+void sub_0807DD94(Entity* entity, void(*function)(Entity*, ScriptExecutionContext*)) {
+    sub_0807DDAC(entity, function);
     sub_0807DDE4(entity);
     sub_0807DE80(entity);
 }
 
-// TODO: make this a proper function pointer
-void sub_0807DDAC(Entity* entity, u32 address) {
+void sub_0807DDAC(Entity* entity, void(*function)(Entity*, ScriptExecutionContext*)) {
     ScriptExecutionContext** piVar1;
 
     piVar1 = (ScriptExecutionContext**)&entity->cutsceneBeh;
     if (*piVar1) {
         ExecuteScriptCommandSet(entity, *piVar1);
-        if (address) {
-            _call_via_r6(entity, *piVar1);
+        if (function) {
+            function(entity, *piVar1);
         } else {
             sub_0807DB98(entity, *piVar1);
         }

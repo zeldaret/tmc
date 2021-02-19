@@ -77,7 +77,7 @@ void sub_0806B41C(Entity* this) {
                 sub_0801DFB4(this, tmp[0], tmp[1], tmp[2]);
                 gPlayerState.field_0x8b = 3;
             } else {
-                sub_0807DD94(this, 0);
+                sub_0807DD94(this, NULL);
             }
             break;
         case 2:

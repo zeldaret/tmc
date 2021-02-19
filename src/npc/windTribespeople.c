@@ -11,7 +11,6 @@ extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 extern void sub_0807DD50(Entity*);
 extern void sub_0806C7D4(Entity*);
 extern void sub_0806F118(Entity*);
-extern void sub_0807DD94(Entity*, u32);
 extern void sub_0807DD80(Entity*, u32*);
 extern u32 sub_0801E99C();
 extern void sub_08078784(Entity*, u32);
@@ -54,7 +53,7 @@ void sub_0806C7D4(Entity* this) {
         this->interactType = '\0';
         sub_0806F118(this);
     } else {
-        sub_0807DD94(this, 0);
+        sub_0807DD94(this, NULL);
         if ((this->entityType.parameter == 3) && (!CheckGlobalFlag(WARP_EVENT_END)) && (CheckLocalFlag(0x63)) &&
             (CheckRoomFlag(0))) {
             (this->entityType).parameter = 7;

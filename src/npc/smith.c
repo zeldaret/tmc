@@ -12,8 +12,6 @@ extern void PlaySFX(u32);
 extern void sub_0807000C(Entity*);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_0807DD50(Entity*);
-extern void sub_0807DD94(Entity*, u32);
-extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern u32 UpdateFuseInteraction(Entity*);
 extern u32 GetAnimationState(Entity*);
@@ -118,7 +116,7 @@ void sub_08066178(Entity* this) {
 }
 
 void sub_080661B0(Entity* this) {
-    sub_0807DD94(this, 0);
+    sub_0807DD94(this, NULL);
 }
 
 void sub_080661BC(Entity* this) {
@@ -131,12 +129,12 @@ void sub_080661BC(Entity* this) {
             InitAnimationForceUpdate(this, this->field_0x80.HWORD);
         }
     } else {
-        sub_0807DD94(this, 0);
+        sub_0807DD94(this, NULL);
     }
 }
 
 void sub_08066200(Entity* this) {
-    sub_0807DDAC(this, 0);
+    sub_0807DDAC(this, NULL);
     sub_0807DDE4(this);
     UpdateAnimationSingleFrame(this);
 }

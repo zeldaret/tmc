@@ -108,7 +108,7 @@ void sub_08063410(Entity* this) {
     if (this->entityType.form != 0) {
         sub_0806346C(this);
     }
-    sub_0807DDAC(this, 0);
+    sub_0807DDAC(this, NULL);
     sub_0807DDE4(this);
     GetNextFrame(this);
 }

@@ -8,7 +8,6 @@ extern void sub_0805E47C(Entity*);
 extern void sub_0805E584();
 extern void sub_0807DD64();
 extern void sub_08062CA4();
-extern void sub_0807DDAC();
 extern void sub_0807DDE4();
 extern u32 CheckKinstoneFused();
 
@@ -68,7 +67,7 @@ void sub_08062C7C(Entity* ent) {
 }
 
 void sub_08062CA4(Entity* ent) {
-    sub_0807DDAC(ent, 0);
+    sub_0807DDAC(ent, NULL);
     sub_0807DDE4(ent);
     GetNextFrame(ent);
 }

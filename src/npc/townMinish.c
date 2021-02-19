@@ -111,7 +111,7 @@ void sub_0806ACC4(Entity* this) {
                 this->interactType = 0;
                 sub_0806F118(this);
             } else {
-                sub_0807DDAC(this, 0);
+                sub_0807DDAC(this, NULL);
                 sub_0806AEA8(this);
                 if (this->entityType.parameter == 10 && this->interactType) {
                     this->action = 2;

@@ -6,7 +6,6 @@
 
 extern void PrependEntityToList(Entity*, u32);
 extern void sub_0807DD50(Entity*);
-extern void sub_0807DD94(Entity*, u32);
 extern Entity* FindEntityBySubtype(u32, u32);
 void CopyPosition(Entity*, Entity*);
 void sub_08068680(Entity*, Entity*);
@@ -37,7 +36,7 @@ void sub_08066CCC(Entity* ent) {
 }
 
 void sub_08066CF8(Entity* ent) {
-    sub_0807DD94(ent, 0);
+    sub_0807DD94(ent, NULL);
 }
 
 void sub_08066D04(Entity* ent) {

@@ -2,11 +2,9 @@
 #include "functions.h"
 #include "entity.h"
 
-extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern void PlaySFX(u32);
 extern void sub_0806A8C8(Entity*);
-extern void sub_0807DD94(Entity*, u32);
 
 extern void (*gUnk_08112260[])(Entity*);
 extern void (*gUnk_08112278[])(Entity*);
@@ -21,7 +19,7 @@ void sub_0806a370(Entity* this) {
     u8* pbVar1;
 
     gUnk_08112278[this->action](this);
-    sub_0807DDAC(this, 0);
+    sub_0807DDAC(this, NULL);
     sub_0807DDE4(this);
     UpdateAnimationSingleFrame(this);
     sub_0806ED78(this);
@@ -47,5 +45,5 @@ void sub_0806A3D8(Entity* this) {
     sub_0806A8C8(this);
     uVar1 = StartCutscene(this, &gUnk_08012F0C);
     *(u32*)&this->cutsceneBeh = (u32)uVar1;
-    sub_0807DD94(this, 0);
+    sub_0807DD94(this, NULL);
 }

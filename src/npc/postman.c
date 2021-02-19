@@ -22,7 +22,6 @@ extern void sub_0806F118(Entity*);
 extern u32 sub_0806F5A4(u32);
 extern u32 GetFacingDirection(Entity*, Entity*);
 extern void sub_080606D8(Entity*);
-extern void sub_0807DD94(Entity*, u32);
 extern void sub_080788E0(Entity*);
 extern void EnqueueSFX(u32);
 extern void sub_080606C0(Entity*);
@@ -145,7 +144,7 @@ void sub_08060528(Entity* this) {
                     sub_080606D8(this);
                     InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
                 } else {
-                    sub_0807DD94(this, 0);
+                    sub_0807DD94(this, NULL);
                 }
             }
             break;

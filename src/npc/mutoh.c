@@ -12,7 +12,6 @@ extern void sub_0807DD50(Entity*);
 extern u32 GetFacingDirection(Entity*, Entity*);
 extern u32 sub_0806F5A4(u32);
 extern void sub_0806F118(Entity*);
-extern void sub_0807DD94(Entity*, u32);
 extern u32 UpdateFuseInteraction(Entity*);
 extern void sub_0807000C(Entity*);
 extern u32 sub_0801E99C(Entity*);
@@ -43,7 +42,7 @@ void Mutoh(Entity* this) {
                 InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 4);
                 sub_0806F118(this);
             } else {
-                sub_0807DD94(this, 0);
+                sub_0807DD94(this, NULL);
             }
             break;
         case 2:

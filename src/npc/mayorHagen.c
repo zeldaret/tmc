@@ -14,7 +14,6 @@ extern void sub_0807DD50(Entity*);
 extern u32 sub_0806F5A4(u32);
 extern void sub_0806F118(Entity*);
 extern void sub_08078784(Entity*, u32);
-extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern void sub_08078850();
 extern u32 gUnk_08113F44;
@@ -43,7 +42,7 @@ void MayorHagen(Entity* this) {
                 sub_0806F118(this);
                 break;
             }
-            sub_0807DDAC(this, 0);
+            sub_0807DDAC(this, NULL);
             sub_0807DDE4(this);
             UpdateAnimationSingleFrame(this);
             break;

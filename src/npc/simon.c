@@ -22,7 +22,7 @@ void Simon(Entity* this) {
         this->action++;
         sub_0807DD50(this);
     } else {
-        sub_0807DD94(this, 0);
+        sub_0807DD94(this, NULL);
     }
 }
 

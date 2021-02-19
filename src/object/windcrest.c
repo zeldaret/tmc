@@ -4,7 +4,6 @@
 #include "save.h"
 
 extern void sub_0807DD64(Entity*);
-extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern void sub_08078850(Entity*, u32, u32, u8*);
 extern void PlaySFX(u32);
@@ -18,7 +17,7 @@ void Windcrest(Entity* this) {
         this->frameIndex = 0;
         sub_0807DD64(this);
     }
-    sub_0807DDAC(this, 0);
+    sub_0807DDAC(this, NULL);
     sub_0807DDE4(this);
 }
 
