@@ -19,8 +19,22 @@ typedef struct {
 } EntityType;
 
 typedef struct {
-    u8 unknown[8];
+    s8 offset_x;
+    s8 offset_y;
+    u8 unk2[4];
+    u8 width;
+    u8 height;
 } BoundingBox;
+
+typedef struct {
+    s8 offset_x;
+    s8 offset_y;
+    u8 unknown[4];
+    u8 width;
+    u8 height;
+    u8 depth;
+    u8 unknown2[3];
+} BoundingBox3D;
 
 typedef struct Entity {
     /*0x00*/ struct Entity* prev;

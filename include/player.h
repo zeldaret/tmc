@@ -67,7 +67,8 @@ typedef struct {
     /*0x94*/ u32 field_0x94;
     /*0x98*/ u16 field_0x98;
     /*0x9a*/ u16 field_0x9a;
-    /*0x9c*/ u32 field_0x9c[3];
+    /*0x9c*/ u32 field_0x9c;
+    /*0xa0*/ u8 field_0xa0[8];
     /*0xa8*/ u8 field_0xa8;
     /*0xa9*/ u8 field_0xa9;
     /*0xaa*/ u8 field_0xaa;
@@ -78,26 +79,26 @@ typedef struct {
 
 
 typedef struct {
-    u8 walletType;
-    u8 heartPieces;
-    u8 health;
-    u8 maxHealth;
-    u8 bombCount;
-    u8 arrowCount;
-    u8 bombBagType;
-    u8 quiverType;
-    u8 filler[4];
-    u8 itemOnA;
-    u8 itemOnB;
-    u8 filler2[10];
-    u16 rupees;
-    u16 field_0x1a;
-    u8 field_0x1c;
-    u8 field_0x1d;
-    u8 field_0x1e;
-    u8 field_0x1f;
-    u16 field_0x20;
-    u8 filler4[4];
+    /*0x00*/ u8 walletType;
+    /*0x01*/ u8 heartPieces;
+    /*0x02*/ u8 health;
+    /*0x03*/ u8 maxHealth;
+    /*0x04*/ u8 bombCount;
+    /*0x05*/ u8 arrowCount;
+    /*0x06*/ u8 bombBagType;
+    /*0x07*/ u8 quiverType;
+    /*0x08*/ u8 filler[4];
+    /*0x0c*/ u8 itemOnA;
+    /*0x0d*/ u8 itemOnB;
+    /*0x0e*/ u8 bottles[4];
+    /*0x12*/ u8 floorType;
+    /*0x13*/ u8 filler3[5];
+    /*0x18*/ u16 rupees;
+    /*0x1a*/ u16 field_0x1a;
+    /*0x1c*/ u16 field_0x1c;
+    /*0x1e*/ u16 field_0x1e;
+    /*0x20*/ u16 field_0x20;
+    /*0x22*/ u8 filler4[4];
 } Stats;
 
 typedef struct {
@@ -108,6 +109,8 @@ typedef struct {
     /*0x5*/ u8 field_0x5[10];
     /*0xf*/ u8 field_0xf;
 } ItemBehavior;
+
+extern void (*const gPlayerItemFunctions[])(Entity*);
 
 extern u8 gBombBagSizes[];
 extern u8 gQuiverSizes[];

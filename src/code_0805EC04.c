@@ -101,7 +101,7 @@ void sub_0805ECEC(int param_1, u32 param_2, u32 param_3, u32 param_4) {
 }
 
 void sub_0805ED14(u32 param_1) {
-    gPlayerState.field_0x9c[0] = param_1;
+    gPlayerState.field_0x9c = param_1;
     gPlayerState.field_0x98 = 0;
     gPlayerState.field_0x9a = 0;
 }
