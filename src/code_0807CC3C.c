@@ -5,9 +5,15 @@
 #include "entity.h"
 #include "save.h"
 
+typedef struct Thing{
+    u16 unk_1;
+    u16 unk_2;
+    u32 unk_3;
+} Thing;
+
 extern u8 gUnk_0811E514[];
 extern u8 gUnk_0811E510[];
-extern u8 gUnk_0811E4BC[];
+extern struct_0807D1C4 gUnk_0811E4BC[];
 extern const char gUnk_0811E4B4[8];
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
 extern ScriptExecutionContext gScriptExecutionContextArray[0x20];
@@ -24,7 +30,7 @@ extern u16 sub_080B18DC(u16, const char*);
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
 u32 sub_0807D1D8(u32 unk_1, const char* unk_2, u32 unk_3);
-u32 sub_0807D128(u16* unk_1);
+u32 sub_0807D128(const Thing* unk_1);
 u16 sub_0807D1A4(u16* unk_1, u32 unk_2);
 u32 sub_0807D0A0(u16* unk_1, u16* unk_2, u32 unk_3);
 u32 sub_0807D0EC(u32 unk_1, const char* unk_2);
@@ -139,19 +145,19 @@ u32 sub_0807D0EC(u32 unk_1, const char* unk_2) {
     if (!sub_0807D1D8(unk_1, unk_2, 8)) {
         ret = 0;
     } else {
-        ret = sub_0807D128((u16*)unk_2);
+        ret = sub_0807D128((Thing*)unk_2);
     }
     if (!ret && sub_0807D1D8(unk_1 + 8, unk_2, 8)) {
-        ret = sub_0807D128((u16*)unk_2);
+        ret = sub_0807D128((Thing*)unk_2);
     }
     return ret;
 }
 
-u32 sub_0807D128(u16* unk_1) {
+u32 sub_0807D128(const Thing* thing) {
     u32 ret;
-    switch (((u32*)(unk_1))[1]) {
+    switch (thing->unk_3) {
         case 'MCZ3':
-            if (unk_1[0] + unk_1[1] == 0x10000) {
+            if (thing->unk_1 + thing->unk_2 == 0x10000) {
                 ret = 2;
             } else {
                 ret = 0;
@@ -160,7 +166,7 @@ u32 sub_0807D128(u16* unk_1) {
         case 'FleD':
         case 'TINI':
             ret = 0;
-            if ((unk_1[0] & unk_1[1]) == 0xffff) {
+            if ((thing->unk_1 & thing->unk_2) == 0xffff) {
                 ret = 1;
             }
             break;
@@ -193,9 +199,8 @@ u16 sub_0807D1A4(u16* unk_1, u32 unk_2) {
     return uVar1;
 }
 
-// TODO properly type this array
 struct_0807D1C4* sub_0807D1C4(u32 unk_1) {
-    return (struct_0807D1C4*)(gUnk_0811E4BC + unk_1 * 0xc);
+    return &gUnk_0811E4BC[unk_1];
 }
 
 // these three are basically the same and wrong by basically one instruction in the wrong place
@@ -268,12 +273,12 @@ void DestroyScriptExecutionContext(ScriptExecutionContext* context) {
     _DmaZero(context, sizeof(ScriptExecutionContext));
 }
 
-u32* StartCutscene(Entity* param_1, u8* param_2) {
+u32* StartCutscene(Entity* entity, u8* param_2) {
     ScriptExecutionContext* puVar1;
 
     puVar1 = CreateScriptExecutionContext();
     if (puVar1) {
-        sub_0807DAF0(param_1, puVar1, (u32)param_2);
+        sub_0807DAF0(entity, puVar1, (u32)param_2);
     }
     return (u32*)puVar1;
 }
@@ -306,19 +311,19 @@ void StartPlayerScript(u32 unk1) {
 }
 
 ScriptExecutionContext* sub_0807DB68(Entity* entity, u16* unk1) {
-    ScriptExecutionContext* puVar1;
+    ScriptExecutionContext* context;
 
-    puVar1 = CreateScriptExecutionContext();
-    if (puVar1) {
+    context = CreateScriptExecutionContext();
+    if (context) {
         entity->flags |= 2;
-        *(ScriptExecutionContext**)&entity->field_0x3c = puVar1;
-        puVar1->unk_00 = unk1;
+        *(ScriptExecutionContext**)&entity->field_0x3c = context;
+        context->unk_00 = unk1;
     }
-    return puVar1;
+    return context;
 }
 
 void sub_0807DB88(ScriptExecutionContext* context, u32 unk1) {
-    _DmaZero(context, 0x24);
+    _DmaZero(context, sizeof(ScriptExecutionContext));
     context->unk_00 = (u16*)unk1;
 }
 
@@ -419,11 +424,7 @@ void sub_0807DD94(Entity* entity, u32 param_2) {
     sub_0807DE80(entity);
 }
 
-/**
- *
- * @param entity
- * @param address this is the fuction called via r6
- */
+// TODO: make this a proper function pointer
 void sub_0807DDAC(Entity* entity, u32 address) {
     ScriptExecutionContext** piVar1;
 
