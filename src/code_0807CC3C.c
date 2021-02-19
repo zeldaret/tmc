@@ -38,9 +38,8 @@ void sub_0807DF38(void);
 void sub_0807DE80(Entity* entity);
 void sub_0807DB98(Entity*, ScriptExecutionContext*);
 
-NONMATCH("asm/non_matching/code_0807CC3C/sub_0807CF88.inc", u32 sub_0807CF88(u32 arg0, u8* arg1)) {
-    u32 signature;
-    s16 local1[2];
+u32 sub_0807CF88(u32 arg0, u8* arg1) {
+    Thing thing;
 
     u32 retval;
     struct_0807D1C4* ptr;
@@ -49,18 +48,18 @@ NONMATCH("asm/non_matching/code_0807CC3C/sub_0807CF88.inc", u32 sub_0807CF88(u32
 
     ptr = sub_0807D1C4(arg0);
 
-    signature = 'MCZ3';
-    l1prep = sub_0807D1A4((u16*)&signature, 4);
+    thing.unk_3 = 'MCZ3';
+    l1prep = sub_0807D1A4((u16*)&thing.unk_3, 4);
     l1prep += sub_0807D1A4((u16*)arg1, ptr->field_0x0);
-    local1[0] = l1prep;
-    local1[1] = -(u32)l1prep;
+    thing.unk_1 = l1prep;
+    thing.unk_2 = -(u32)l1prep;
     e0 = sub_0807D20C(ptr->field_0x6, (const char*)arg1, ptr->field_0x0);
     if (e0) {
-        e0 = sub_0807D184(ptr->field_0x2, (const char*)local1);
+        e0 = sub_0807D184(ptr->field_0x2, (const char*)&thing.unk_1);
     }
     e1 = sub_0807D20C(ptr->field_0x8, (const char*)arg1, ptr->field_0x0);
     if (e1) {
-        e1 = sub_0807D184(ptr->field_0x4, (const char*)local1);
+        e1 = sub_0807D184(ptr->field_0x4, (const char*)&thing.unk_1);
     }
 
     retval = 0;
@@ -69,7 +68,6 @@ NONMATCH("asm/non_matching/code_0807CC3C/sub_0807CF88.inc", u32 sub_0807CF88(u32
     }
     return retval;
 }
-END_NONMATCH
 
 NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D008.inc", u32 sub_0807D008(u32 param_1, SaveFile* saveFile)) {
     u32 set_0;
