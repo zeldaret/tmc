@@ -9,6 +9,7 @@
 #include "player.h"
 #include "structures.h"
 #include "room.h"
+#include "script.h"
 
 // Identified - to be sorted into header files
 extern u32 Random(void);
@@ -43,7 +44,6 @@ extern void UpdateAnimationVariableFrames(Entity*, u32);
 extern void CopyPositionAndSpriteOffset(Entity*, Entity*);
 extern u8* GetSpriteSubEntryOffsetDataPointer(u32, u32);
 extern u32 LoadFixedGFX(Entity*, u32);
-extern void ExecuteScriptCommandSet();
 extern void _DmaFill32(u32, void*, u32);
 extern Entity* CreateItemEntity(u32, u32, u32);
 void _DmaCopy(const void* src, void* dst, u32 size);
