@@ -304,7 +304,7 @@ void sub_08017338(Entity *this) {
 }
 
 // tiny regalloc
-NONMATCH("asm/non_matching/sub_080173A4.inc", void sub_080173A4(Entity* this)) {
+NONMATCH("asm/non_matching/arm_proxy/sub_080173A4.inc", void sub_080173A4(Entity* this)) {
     ItemFrame* entry;
 
     entry = &gUnk_08126DA8[this->entityType.subtype];
@@ -358,7 +358,7 @@ void sub_08017508(Entity* this) {
 }
 
 // regalloc
-NONMATCH("asm/non_matching/sub_08017530.inc", void sub_08017530(Entity* this)) {
+NONMATCH("asm/non_matching/arm_proxy/sub_08017530.inc", void sub_08017530(Entity* this)) {
     if ((this->currentHealth & 0x7f) &&
        !ReadBit(&gUnk_020342F8, this->currentHealth - 1)) {
         DeleteThisEntity();
@@ -419,7 +419,7 @@ void sub_08017640(void) {
 }
 
 // Loop declaration seems wrong
-NONMATCH("asm/non_matching/sub_0801766C.inc", u32 sub_0801766C(Entity* this)) {
+NONMATCH("asm/non_matching/arm_proxy/sub_0801766C.inc", u32 sub_0801766C(Entity* this)) {
     u32 uVar1;
     LinkedList2* puVar3;
     LinkedList2* puVar2;
@@ -462,7 +462,7 @@ NONMATCH("asm/non_matching/sub_0801766C.inc", u32 sub_0801766C(Entity* this)) {
 END_NONMATCH
 
 // same loop issue
-NONMATCH("asm/non_matching/sub_080176E4.inc", u32 sub_080176E4(Entity* this)) {
+NONMATCH("asm/non_matching/arm_proxy/sub_080176E4.inc", u32 sub_080176E4(Entity* this)) {
     u32 uVar1;
     LinkedList2* j;
     LinkedList2* i;
@@ -491,7 +491,7 @@ NONMATCH("asm/non_matching/sub_080176E4.inc", u32 sub_080176E4(Entity* this)) {
 END_NONMATCH
 
 // you guessed it
-NONMATCH("asm/non_matching/sub_08016DF8.inc", void sub_08017744(Entity* this)) {
+NONMATCH("asm/non_matching/arm_proxy/sub_08016DF8.inc", void sub_08017744(Entity* this)) {
     LinkedList2* i;
     for (i = &gUnk_03003C70[0]; i < &gUnk_03003C70[16]; ++i) {
         if (i->node == this) {
@@ -510,7 +510,7 @@ NONMATCH("asm/non_matching/sub_08016DF8.inc", void sub_08017744(Entity* this)) {
 END_NONMATCH
 
 // regalloc
-NONMATCH("asm/non_matching/sub_080177A0.inc", bool32 sub_080177A0(Entity* this, Entity* that)) {
+NONMATCH("asm/non_matching/arm_proxy/sub_080177A0.inc", bool32 sub_080177A0(Entity* this, Entity* that)) {
     u32 this_d;
     u32 depth;
     

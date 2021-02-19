@@ -301,7 +301,7 @@ SECTIONS {
         /* C source compiled with interworking */
         asm/code_08016B30.o(.text);
         asm/updateBackgroundRegisters.o(.text);
-        src/code_08016DF8.o(.text);
+        src/arm_proxy.o(.text);
         asm/code_08016DF8.o(.text);
         /* C source compiled without interworking */
         asm/code_08018500.o(.text);
