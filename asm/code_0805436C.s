@@ -61,8 +61,8 @@ sub_080548E8: @ 0x080548E8
 	bl sub_0805E5C0
 	bl sub_080AD9B0
 	bl sub_080AD918
-	bl sub_0807FC40
-	bl sub_0801B060
+	bl UpdateScroll
+	bl UpdateBgAnim
 	bl sub_08000108
 	pop {pc}
 	.align 2, 0
@@ -72,7 +72,7 @@ _0805491C: .4byte gMenu
 	thumb_func_start sub_08054920
 sub_08054920: @ 0x08054920
 	push {lr}
-	bl sub_08056418
+	bl MessageInitialize
 	bl sub_0806F38C
 	ldr r1, _08054948 @ =gUnk_080C9CBC
 	ldr r0, _0805494C @ =gUnk_02022740

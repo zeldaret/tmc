@@ -3783,7 +3783,7 @@ sub_080A7328: @ 0x080A7328
 	strb r0, [r4, #8]
 	movs r0, #1
 	bl sub_0801DA90
-	bl sub_08056418
+	bl MessageInitialize
 	bl sub_080ADD30
 	movs r0, #0
 	bl sub_0801CFA8

@@ -3708,8 +3708,8 @@ _0801B054:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0801B060
-sub_0801B060: @ 0x0801B060
+	thumb_func_start UpdateBgAnim
+UpdateBgAnim: @ 0x0801B060
 	push {r4, r5, lr}
 	movs r3, #0
 	ldr r4, _0801B0B0 @ =gUnk_02000CC0

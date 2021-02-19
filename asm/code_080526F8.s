@@ -1964,7 +1964,7 @@ sub_08053634: @ 0x08053634
 	ldr r1, _08053644 @ =gUnk_02032EC0
 	movs r0, #3
 	strb r0, [r1]
-	bl sub_08056418
+	bl MessageInitialize
 	pop {pc}
 	.align 2, 0
 _08053644: .4byte gUnk_02032EC0

@@ -185,7 +185,7 @@ static void HandleFileScreenEnter(void) {
     sub_0801DA90(1);
     sub_080A3210();
     _DmaZero((void*)VRAM, 0x80); // clear palettes
-    sub_08056418();
+    MessageInitialize();
     EraseAllEntities();
     sub_08080668();
     sub_080ADD30();

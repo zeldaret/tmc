@@ -32,7 +32,7 @@ void sub_0805FA04(void) {
     gScreen.affine.bg3yOffset = 0;
     gScreen.affine.bg3Control = 0x1e0f;
     gScreen.affine.unk4 = 1;
-    sub_08056418();
+    MessageInitialize();
     _DmaZero((void*)&gUnk_02032EC0, sizeof(UI));
     _DmaZero((void*)&gMenu, sizeof(Menu));
     gMenu.unk16 = gUnk_02000000->gameLanguage;
@@ -68,7 +68,7 @@ void sub_0805FA98(void) {
             TextboxNoOverlapFollow(gMenu.unk14 * 0x100 + gMenu.unk15);
             break;
         case 0x2:
-            sub_08056418();
+            MessageInitialize();
             break;
         default:
             switch (gInput.unk4) {

@@ -794,8 +794,8 @@ _0805F320:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0805F324
-sub_0805F324: @ 0x0805F324
+	thumb_func_start sub_GetFontStrWidth
+sub_GetFontStrWidth: @ 0xGetFontStrWidth
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -1028,7 +1028,7 @@ _0805F486:
 	str r0, [r4, #4]
 	mov r0, sp
 	movs r1, #1
-	bl sub_0805F324
+	bl sub_GetFontStrWidth
 	lsrs r2, r0, #0x18
 	ldrb r1, [r4, #0x16]
 	muls r2, r1, r2
@@ -1087,7 +1087,7 @@ _0805F554:
 	adds r1, r4, #0
 	adds r2, r7, #0
 	adds r3, r6, #0
-	bl sub_08056DC8
+	bl DispMessageFrame
 	adds r5, #2
 	mov r1, sb
 	ldrh r0, [r1, #0x10]
@@ -1161,7 +1161,7 @@ sub_0805F5CC: @ 0x0805F5CC
 	bl _DmaFill32
 	adds r0, r6, #0
 	movs r1, #0
-	bl sub_0805F324
+	bl sub_GetFontStrWidth
 	adds r2, r0, #0
 	ldrb r1, [r4, #0x13]
 	movs r0, #1

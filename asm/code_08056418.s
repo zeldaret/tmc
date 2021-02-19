@@ -179,7 +179,7 @@ _0805680A:
 _08056812:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0805F324
+	bl sub_GetFontStrWidth
 	adds r3, r0, #0
 	adds r4, r5, #0
 	adds r4, #0x56
@@ -752,8 +752,8 @@ sub_08056C54: @ 0x08056C54
 _08056C60: .4byte gTextBox
 _08056C64: .4byte gUnk_02022780
 
-	thumb_func_start sub_08056C68
-sub_08056C68: @ 0x08056C68
+	thumb_func_start DeleteWindow
+DeleteWindow: @ 0x08056C68
 	push {r4, r5, r6, lr}
 	ldr r5, _08056CB8 @ =gUnk_02036A38
 	ldrb r0, [r5, #1]
@@ -894,8 +894,8 @@ _08056D66:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08056D70
-sub_08056D70: @ 0x08056D70
+	thumb_func_start CreateWindow
+CreateWindow: @ 0x08056D70
 	push {r4, lr}
 	ldr r0, _08056DB4 @ =gUnk_02022780
 	adds r0, #0x9b
@@ -915,9 +915,9 @@ sub_08056D70: @ 0x08056D70
 	ldr r3, _08056DC0 @ =0x0000F07B
 	ldrb r1, [r4, #6]
 	ldrb r2, [r4, #7]
-	bl sub_08056DC8
-	bl sub_08056EC0
-	bl sub_08056F1C
+	bl DispMessageFrame
+	bl DispString
+	bl DispCursor
 	ldr r2, _08056DC4 @ =gUnk_02036A38
 	ldr r0, [r4]
 	ldr r1, [r4, #4]
@@ -933,8 +933,8 @@ _08056DBC: .4byte gBG0Buffer
 _08056DC0: .4byte 0x0000F07B
 _08056DC4: .4byte gUnk_02036A38
 
-	thumb_func_start sub_08056DC8
-sub_08056DC8: @ 0x08056DC8
+	thumb_func_start DispMessageFrame
+DispMessageFrame: @ 0x08056DC8
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
 	mov r6, r8
@@ -1066,8 +1066,8 @@ _08056EB6:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start sub_08056EC0
-sub_08056EC0: @ 0x08056EC0
+	thumb_func_start DispString
+DispString: @ 0x08056EC0
 	push {r4, r5, r6, r7, lr}
 	ldr r6, _08056F10 @ =gUnk_02036A40
 	ldrb r0, [r6, #6]
@@ -1116,8 +1116,8 @@ _08056F10: .4byte gUnk_02036A40
 _08056F14: .4byte gUnk_02034CB2
 _08056F18: .4byte gUnk_0202281E
 
-	thumb_func_start sub_08056F1C
-sub_08056F1C: @ 0x08056F1C
+	thumb_func_start DispCursor
+DispCursor: @ 0x08056F1C
 	push {lr}
 	ldr r0, _08056F58 @ =gUnk_02022780
 	adds r0, #0x98

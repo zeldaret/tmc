@@ -63,7 +63,7 @@ void HandleIntroScreen(void) {
     FlushSprites();
     switch (gUnk_03001000.funcIndex) {
         case 0:
-            sub_08056418();
+            MessageInitialize();
             _DmaZero(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
             AdvanceIntroSequence(0);
             break;

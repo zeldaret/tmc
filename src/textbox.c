@@ -93,7 +93,7 @@ void ShowTextbox(u32 index) {
     gTextBox.doTextBox = 1;
 }
 
-void sub_08056418(void) {
+void MessageInitialize(void) {
     _DmaZero(&gTextBox, 32);
     _DmaZero(&gUnk_02022780, 168);
     _DmaZero(&gUnk_02036A40, 8);
@@ -101,7 +101,7 @@ void sub_08056418(void) {
     _DmaZero(&gUnk_02000040, 4);
 }
 
-void sub_08056458(void) {
+void MessageUpdate(void) {
     int iVar1;
 
     if (gTextBox.doTextBox == 1) {
@@ -120,8 +120,8 @@ void sub_08056458(void) {
         gUnk_02022780._9d = 0;
         sub_08056F70();
     }
-    sub_08056C68();
-    sub_08056D70();
+    DeleteWindow();
+    CreateWindow();
 }
 
 void sub_080564C8(u32 a1) {

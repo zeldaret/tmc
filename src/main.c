@@ -33,7 +33,7 @@ void MainLoop(void) {
     sub_0804FFE4();
     DmaCopy32(3, BG_PLTT, gPaletteBuffer, BG_PLTT_SIZE);
     sub_0804FF84(1);
-    sub_08056418();
+    MessageInitialize();
     sub_080ADD30();
     gRand = 0x1234567;
     _DmaZero(&gUnk_03001000, sizeof(gUnk_03001000));
@@ -66,7 +66,7 @@ void MainLoop(void) {
 
                 gUnk_03001000.ticks++;
                 sScreenHandlers[gUnk_03001000.screen]();
-                sub_08056458();
+                MessageUpdate();
                 sub_08050154();
                 sub_080A3480();
                 break;

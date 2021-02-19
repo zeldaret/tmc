@@ -84,7 +84,7 @@ extern void sub_0807CE90(void);
 extern void sub_080560B8(void);
 extern void sub_08056208(void);
 extern void sub_0804FFE4(void);
-extern void sub_08056418(void);
+extern void MessageInitialize(void);
 extern void sub_080ADD30(void);
 
 extern void InitScreen(u32);
@@ -93,7 +93,7 @@ extern void ReadKeyInput(void);
 extern void DoSoftReset(void);
 extern void sub_08056260(void);
 extern void VBlankIntrWait();
-extern void sub_08056458(void);
+extern void MessageUpdate(void);
 extern void sub_08050154(void);
 extern void sub_080A3480(void);
 

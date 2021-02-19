@@ -1598,8 +1598,8 @@ _0807FC32:
 	.align 2, 0
 _0807FC3C: .4byte gRoomControls
 
-	thumb_func_start sub_0807FC40
-sub_0807FC40: @ 0x0807FC40
+	thumb_func_start UpdateScroll
+UpdateScroll: @ 0xUpdateScroll
 	push {lr}
 	ldr r0, _0807FC5C @ =gRoomControls
 	ldrb r2, [r0, #0xf]

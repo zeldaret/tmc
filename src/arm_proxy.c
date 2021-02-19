@@ -249,7 +249,7 @@ void sub_080171F0(void) {
 
     gPlayerEntity.bitfield &= ~0x80;
     if (gPlayerEntity.action != 0x14)
-        gPlayerState.flags.all = (gPlayerState.flags.all & ~0x10000) | (0x8000 * (gPlayerState.flags.all & 2));
+        gPlayerState.flags.all = (gPlayerState.flags.all & ~0x10000) | (0x10000 * (gPlayerState.flags.all & 2) / 2);
 
     gPlayerState.flags.all &= ~2;
     sub_080028E0(&gPlayerEntity);

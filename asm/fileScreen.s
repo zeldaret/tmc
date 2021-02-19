@@ -143,7 +143,7 @@ InitializeNewRoom: @ 0x08051AAC
 	strb r2, [r0, #8]
 	strb r2, [r0, #4]
 	strb r2, [r0, #5]
-	bl sub_08056418
+	bl MessageInitialize
 	bl sub_08052CFC
 	movs r0, #0
 	bl sub_0801C370
@@ -162,9 +162,9 @@ sub_08051AF0: @ 0x08051AF0
 	bl sub_0805BBBC
 	cmp r0, #0
 	bne _08051B02
-	bl sub_0807FC40
+	bl UpdateScroll
 _08051B02:
-	bl sub_0801B060
+	bl UpdateBgAnim
 	bl sub_08000108
 	bl sub_0801C344
 	bl sub_0805E5F8
@@ -273,8 +273,8 @@ _08051C06:
 	bl sub_0805E5C0
 	bl sub_08080A40
 	bl sub_080175F4
-	bl sub_0807FC40
-	bl sub_0801B060
+	bl UpdateScroll
+	bl UpdateBgAnim
 	bl sub_08000108
 	bl sub_08052C3C
 	bl sub_0801C344
@@ -607,8 +607,8 @@ sub_08051F04: @ 0x08051F04
 	bl sub_0805E5C0
 	bl sub_080AD9B0
 	bl sub_080AD918
-	bl sub_0807FC40
-	bl sub_0801B060
+	bl UpdateScroll
+	bl UpdateBgAnim
 	bl sub_0805E5F8
 	bl sub_08000108
 	pop {pc}
@@ -641,7 +641,7 @@ _08051F68:
 	strb r0, [r2]
 	movs r0, #0x10
 	bl sub_080500F4
-	bl sub_08056418
+	bl MessageInitialize
 _08051F76:
 	pop {pc}
 
@@ -727,7 +727,7 @@ _0805200C: .4byte gMenu
 sub_08052010: @ 0x08052010
 	push {r4, lr}
 	bl sub_080A3210
-	bl sub_08056418
+	bl MessageInitialize
 	movs r0, #1
 	bl sub_0801DA90
 	ldr r0, _0805207C @ =gBG1Buffer
