@@ -286,7 +286,7 @@ void sub_080171F0(void) {
     }
 }
 
-void sub_08017338(Entity *this) {
+void sub_08017338(Entity* this) {
     if (!(this->flags & 1) && !this->action && !this->previousActionFlag)
         sub_080173A4(this);
 
@@ -338,7 +338,7 @@ END_NONMATCH
 
 void sub_080174A4(Entity* this) {
     int iVar1;
-    
+
     if (((this->flags & 1) == 0) && (this->action == 0)) {
         sub_080A2838(this);
     }
@@ -359,8 +359,7 @@ void sub_08017508(Entity* this) {
 
 // regalloc
 NONMATCH("asm/non_matching/arm_proxy/sub_08017530.inc", void sub_08017530(Entity* this)) {
-    if ((this->currentHealth & 0x7f) &&
-       !ReadBit(&gUnk_020342F8, this->currentHealth - 1)) {
+    if ((this->currentHealth & 0x7f) && !ReadBit(&gUnk_020342F8, this->currentHealth - 1)) {
         DeleteThisEntity();
     }
     if ((this->action == 0) && ((this->flags & 1) == 0)) {
@@ -392,7 +391,7 @@ void sub_080175F4(void) {
     u32 temp;
 
     void (*func)(void);
-    
+
     temp = gUnk_03003DC0.unk0;
     if (gUnk_03003DC0.unk0 <= gUnk_03003DC0.unk1)
         temp = gUnk_03003DC0.unk1;
@@ -411,7 +410,7 @@ void sub_080175F4(void) {
 }
 
 void sub_08017640(void) {
-    _DmaZero(&gUnk_03003C70,0x100);
+    _DmaZero(&gUnk_03003C70, 0x100);
     gUnk_02018EA0 = (LinkedList2*)&gUnk_03003C70[0].last;
     gUnk_03003C70[0].last = &gUnk_03003C70[0].last;
     gUnk_03003C70[0].first = &gUnk_03003C70[0].last;
@@ -426,7 +425,7 @@ NONMATCH("asm/non_matching/arm_proxy/sub_0801766C.inc", u32 sub_0801766C(Entity*
     LinkedList2* pLVar2;
     LinkedList2* i;
     u8* pbVar4;
-    
+
     if (this->spritePriority.b2 != 0) {
         return 1;
     } else {
@@ -513,16 +512,18 @@ END_NONMATCH
 NONMATCH("asm/non_matching/arm_proxy/sub_080177A0.inc", bool32 sub_080177A0(Entity* this, Entity* that)) {
     u32 this_d;
     u32 depth;
-    
+
     if ((that->collisionLayer & this->collisionLayer) != 0) {
         BoundingBox* bb_this = this->boundingBox;
         BoundingBox* bb_that = that->boundingBox;
         u32 this_w = bb_this->width;
         u32 that_w = bb_that->width;
-        if ((((this->x.HALF.HI - that->x.HALF.HI) + bb_this->offset_x) - bb_that->offset_x) + this_w + that_w <= (this_w + that_w) * 2) {
+        if ((((this->x.HALF.HI - that->x.HALF.HI) + bb_this->offset_x) - bb_that->offset_x) + this_w + that_w <=
+            (this_w + that_w) * 2) {
             u32 this_h = bb_this->height;
             u32 that_h = bb_that->height;
-            if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + this_h + that_h <= (this_h + that_h) * 2) {
+            if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + this_h + that_h <=
+                (this_h + that_h) * 2) {
                 if ((this->field_0x3c & 0x10) != 0)
                     this_d = ((BoundingBox3D*)bb_this)->depth;
                 else

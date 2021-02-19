@@ -12,7 +12,7 @@ void sub_0807DAF0(Entity*, ScriptExecutionContext*, u16*);
 void sub_0807DB88(ScriptExecutionContext*, u16*);
 void sub_0807DE80(Entity*);
 void sub_0807DF38(void);
-void nullsub_507 (Entity*, ScriptExecutionContext*);
+void nullsub_507(Entity*, ScriptExecutionContext*);
 void sub_0807E004(Entity*, ScriptExecutionContext*);
 void sub_0807E014(Entity*, ScriptExecutionContext*);
 void sub_0807E024(Entity*, ScriptExecutionContext*);
@@ -71,7 +71,7 @@ void sub_0807E75C(Entity*, ScriptExecutionContext*);
 void sub_0807E778(Entity*, ScriptExecutionContext*);
 void sub_0807E788(Entity*, ScriptExecutionContext*);
 void sub_0807E79C(Entity*, ScriptExecutionContext*);
-void nullsub_508 (Entity*, ScriptExecutionContext*);
+void nullsub_508(Entity*, ScriptExecutionContext*);
 void sub_0807E7B0(Entity*, ScriptExecutionContext*);
 void sub_0807E7C4(Entity*, ScriptExecutionContext*);
 void sub_0807E7D8(Entity*, ScriptExecutionContext*);
@@ -118,7 +118,7 @@ void sub_0807EBC8(Entity*, ScriptExecutionContext*);
 void sub_0807EBD8(Entity*, ScriptExecutionContext*);
 void sub_0807EBF4(Entity*, ScriptExecutionContext*);
 void sub_0807EC08(Entity*, ScriptExecutionContext*);
-void nullsub_509 (Entity*, ScriptExecutionContext*);
+void nullsub_509(Entity*, ScriptExecutionContext*);
 void sub_0807EC1C(Entity*, ScriptExecutionContext*);
 void sub_0807EC44(Entity*, ScriptExecutionContext*);
 void sub_0807EC64(Entity*, ScriptExecutionContext*);
@@ -155,146 +155,29 @@ extern void CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
 extern void CreateSpeechBubbleQuestionMark(Entity*, u32, u32);
 extern void sub_0801C4A0(u32);
 
-void (* const gUnk_0811E524[])() = {
-    nullsub_507,
-    sub_0807E004,
-    sub_0807E014,
-    sub_0807E024,
-    sub_0807E050,
-    sub_0807E064,
-    sub_0807E078,
-    sub_0807E0A0,
-    sub_0807E0B8,
-    sub_0807E0CC,
-    sub_0807E0E0,
-    sub_0807E10C,
-    sub_0807E124,
-    sub_0807E148,
-    sub_0807E158,
-    sub_0807E188,
+void (*const gUnk_0811E524[])() = {
+    nullsub_507,  sub_0807E004, sub_0807E014, sub_0807E024, sub_0807E050, sub_0807E064, sub_0807E078, sub_0807E0A0,
+    sub_0807E0B8, sub_0807E0CC, sub_0807E0E0, sub_0807E10C, sub_0807E124, sub_0807E148, sub_0807E158, sub_0807E188,
     sub_0807E1D8,
-    sub_0807E4AC,//defined out of order
-    sub_0807E200,
-    sub_0807E220,
-    sub_0807E240,
-    sub_0807E260,
-    sub_0807E280,
-    sub_0807E2A8,
-    sub_0807E2E4,
-    sub_0807E30C,
-    sub_0807E390,
-    sub_0807E3BC,
-    sub_0807E3E8,
-    sub_0807E40C,
-    sub_0807E42C,
-    sub_0807E48C,
-    sub_0807E4CC,
-    sub_0807E4EC,
-    sub_0807E514,
-    sub_0807E538,
-    sub_0807E564,
-    sub_0807E584,
-    sub_0807E5A0,
-    sub_0807E5CC,
-    sub_0807E5F8,
-    sub_0807E610,
-    sub_0807E628,
-    sub_0807E634,
-    sub_0807E644,
-    sub_0807E650,
-    sub_0807E65C,
-    sub_0807E668,
-    sub_0807E674,
-    sub_0807E680,
-    sub_0807E690,
-    sub_0807E6AC,
-    sub_0807E6DC,
-    sub_0807E700,
-    sub_0807E72C,
-    sub_0807E75C,
-    sub_0807E778,
-    sub_0807E788,
-    sub_0807E79C,
-    nullsub_508,
-    sub_0807E7B0,
-    sub_0807E7C4,
-    sub_0807E7D8,
-    sub_0807E7EC,
-    sub_0807E800,
-    sub_0807E80C,
-    sub_0807E858,
-    sub_0807E864,
-    sub_0807E878,
-    sub_0807E888,
-    sub_0807E898,
-    sub_0807E8C4,
-    sub_0807E8D4,
-    sub_0807E8E4,
-    sub_0807E8E4,//duplicate
-    sub_0807E8E4,//duplicate
-    sub_0807E8E4,//duplicate
-    sub_0807E908,
-    sub_0807E914,
-    sub_0807E924,
-    sub_0807E930,
-    sub_0807E944,
-    sub_0807E974,
-    sub_0807E9D4,
-    sub_0807E9DC,
-    sub_0807E9E4,
-    sub_0807E9F0,
-    sub_0807EA4C,
-    sub_0807EA88,
-    sub_0807EA94,
-    sub_0807EAB4,
-    sub_0807EAC0,
-    sub_0807EAD0,
-    sub_0807EAF0,
-    sub_0807EB18,
-    sub_0807EB28,
-    sub_0807EB38,
-    sub_0807EB44,
-    sub_0807EB4C,
-    sub_0807EB74,
-    sub_0807EB8C,
-    sub_0807EBA8,
-    sub_0807EBB0,
-    sub_0807EBC0,
-    sub_0807EBC8,
-    sub_0807EBD8,
-    sub_0807EBF4,
-    sub_0807EC08,
-    nullsub_509,
-    sub_0807EC1C,
-    sub_0807EC64,
-    sub_0807EC94,
-    sub_0807ECC4,
-    sub_0807ECF4,
-    sub_0807ED24,
-    sub_0807EDD4,
-    sub_0807EE04,
-    sub_0807EE30,
-    sub_0807EEB4,
-    sub_0807EEF4,
-    sub_0807EF3C,
-    sub_0807EF80,
-    sub_0807EF90,
-    sub_0807EFA0,
-    sub_0807EFAC,
-    sub_0807EFD4,
-    sub_0807EFE4,
-    sub_0807EFF4,
-    sub_0807F004,
-    sub_0807F010,
-    sub_0807F034,
-    sub_0807F050,
-    sub_0807F060,
-    sub_0807F078,
-    sub_0807F088,
-    sub_0807F098,
-    sub_0807F0A4,
-    sub_0807F0B4,
-    sub_0807F0C8
+    sub_0807E4AC, // defined out of order
+    sub_0807E200, sub_0807E220, sub_0807E240, sub_0807E260, sub_0807E280, sub_0807E2A8, sub_0807E2E4, sub_0807E30C,
+    sub_0807E390, sub_0807E3BC, sub_0807E3E8, sub_0807E40C, sub_0807E42C, sub_0807E48C, sub_0807E4CC, sub_0807E4EC,
+    sub_0807E514, sub_0807E538, sub_0807E564, sub_0807E584, sub_0807E5A0, sub_0807E5CC, sub_0807E5F8, sub_0807E610,
+    sub_0807E628, sub_0807E634, sub_0807E644, sub_0807E650, sub_0807E65C, sub_0807E668, sub_0807E674, sub_0807E680,
+    sub_0807E690, sub_0807E6AC, sub_0807E6DC, sub_0807E700, sub_0807E72C, sub_0807E75C, sub_0807E778, sub_0807E788,
+    sub_0807E79C, nullsub_508,  sub_0807E7B0, sub_0807E7C4, sub_0807E7D8, sub_0807E7EC, sub_0807E800, sub_0807E80C,
+    sub_0807E858, sub_0807E864, sub_0807E878, sub_0807E888, sub_0807E898, sub_0807E8C4, sub_0807E8D4, sub_0807E8E4,
+    sub_0807E8E4, // duplicate
+    sub_0807E8E4, // duplicate
+    sub_0807E8E4, // duplicate
+    sub_0807E908, sub_0807E914, sub_0807E924, sub_0807E930, sub_0807E944, sub_0807E974, sub_0807E9D4, sub_0807E9DC,
+    sub_0807E9E4, sub_0807E9F0, sub_0807EA4C, sub_0807EA88, sub_0807EA94, sub_0807EAB4, sub_0807EAC0, sub_0807EAD0,
+    sub_0807EAF0, sub_0807EB18, sub_0807EB28, sub_0807EB38, sub_0807EB44, sub_0807EB4C, sub_0807EB74, sub_0807EB8C,
+    sub_0807EBA8, sub_0807EBB0, sub_0807EBC0, sub_0807EBC8, sub_0807EBD8, sub_0807EBF4, sub_0807EC08, nullsub_509,
+    sub_0807EC1C, sub_0807EC64, sub_0807EC94, sub_0807ECC4, sub_0807ECF4, sub_0807ED24, sub_0807EDD4, sub_0807EE04,
+    sub_0807EE30, sub_0807EEB4, sub_0807EEF4, sub_0807EF3C, sub_0807EF80, sub_0807EF90, sub_0807EFA0, sub_0807EFAC,
+    sub_0807EFD4, sub_0807EFE4, sub_0807EFF4, sub_0807F004, sub_0807F010, sub_0807F034, sub_0807F050, sub_0807F060,
+    sub_0807F078, sub_0807F088, sub_0807F098, sub_0807F0A4, sub_0807F0B4, sub_0807F0C8
 };
 
 extern const u16 gUnk_08016984;
@@ -599,16 +482,18 @@ void sub_0807DF50(void) {
 }
 
 void ExecuteScriptCommandSet(Entity* unk1, ScriptExecutionContext* unk2) {
-    if (!unk2->unk_00) return;
+    if (!unk2->unk_00)
+        return;
     if (unk2->unk_10) {
         unk2->unk_10--;
     } else {
-        struct_02033280 * tmp2 = &gUnk_02033280;
+        struct_02033280* tmp2 = &gUnk_02033280;
         tmp2->unk_07 = 0;
         do {
             u32 cmd = GetNextScriptCommandHalfword(unk2->unk_00);
             u16* tmp;
-            if (cmd == 0xFFFF) return;
+            if (cmd == 0xFFFF)
+                return;
             tmp2->unk_06 = cmd >> 0xA;
             tmp2->unk_04 = cmd & 0x3FF;
             tmp = unk2->unk_00;
@@ -622,7 +507,8 @@ void ExecuteScriptCommandSet(Entity* unk1, ScriptExecutionContext* unk2) {
     }
 }
 
-void nullsub_507(Entity* unk1, ScriptExecutionContext* unk2) {}
+void nullsub_507(Entity* unk1, ScriptExecutionContext* unk2) {
+}
 
 void sub_0807E004(Entity* unk1, ScriptExecutionContext* unk2) {
     gUnk_02033280.unk_07 |= 2;
@@ -660,7 +546,7 @@ void sub_0807E078(Entity* unk1, ScriptExecutionContext* unk2) {
 }
 
 void sub_0807E0A0(Entity* unk1, ScriptExecutionContext* unk2) {
-    unk2->unk_00 = (u16*) GetNextScriptCommandWordAfterCommandMetadata(unk2->unk_00);
+    unk2->unk_00 = (u16*)GetNextScriptCommandWordAfterCommandMetadata(unk2->unk_00);
     gUnk_02033280.unk_06 = 0;
 }
 
@@ -684,11 +570,13 @@ void sub_0807E0E0(Entity* unk1, ScriptExecutionContext* unk2) {
 }
 
 void sub_0807E10C(Entity* unk1, ScriptExecutionContext* unk2) {
-   ((void (*)(Entity*, ScriptExecutionContext*)) GetNextScriptCommandWordAfterCommandMetadata(unk2->unk_00))(unk1, unk2);
+    ((void (*)(Entity*, ScriptExecutionContext*))GetNextScriptCommandWordAfterCommandMetadata(unk2->unk_00))(unk1,
+                                                                                                             unk2);
 }
 
 void sub_0807E124(Entity* unk1, ScriptExecutionContext* unk2) {
-    void (* tmp)(Entity*, ScriptExecutionContext*) = (void (*)(Entity*, ScriptExecutionContext*)) GetNextScriptCommandWordAfterCommandMetadata(unk2->unk_00);
+    void (*tmp)(Entity*, ScriptExecutionContext*) =
+        (void (*)(Entity*, ScriptExecutionContext*))GetNextScriptCommandWordAfterCommandMetadata(unk2->unk_00);
     unk2->unk_04 = GetNextScriptCommandWord(unk2->unk_00 + 3);
     tmp(unk1, unk2);
 }
@@ -701,7 +589,8 @@ void sub_0807E158(Entity* unk1, ScriptExecutionContext* unk2) {
     u32 tmp = GetNextScriptCommandWordAfterCommandMetadata(unk2->unk_00);
     u32 tmp2 = 0;
     u32 tmp3 = gUnk_02033280.unk_00;
-    if ((tmp3 & tmp) == tmp) tmp2 = 1;
+    if ((tmp3 & tmp) == tmp)
+        tmp2 = 1;
     unk2->unk_14 = tmp2;
     gUnk_02033280.unk_00 = tmp3 & ~tmp;
     gUnk_02033280.unk_07 |= 1;
@@ -762,7 +651,7 @@ void sub_0807E280(Entity* unk1, ScriptExecutionContext* unk2) {
     width &= 0xFF;
     x = unk2->unk_00[1];
     y = unk2->unk_00[2];
-    unk2->unk_14 = CheckPlayerInRegion(x,y,width, height);
+    unk2->unk_14 = CheckPlayerInRegion(x, y, width, height);
     gUnk_02033280.unk_07 |= 1;
 }
 
@@ -772,7 +661,7 @@ void sub_0807E2A8(Entity* unk1, ScriptExecutionContext* unk2) {
     height = unk2->unk_00[1] >> 8;
     x = unk1->x.HALF.HI - gRoomControls.roomOriginX;
     y = unk1->y.HALF.HI - gRoomControls.roomOriginY;
-    unk2->unk_14 = CheckPlayerInRegion(x,y,width, height);
+    unk2->unk_14 = CheckPlayerInRegion(x, y, width, height);
     gUnk_02033280.unk_07 |= 1;
 }
 
@@ -787,9 +676,8 @@ void sub_0807E2E4(Entity* unk1, ScriptExecutionContext* unk2) {
 }
 
 void sub_0807E30C(Entity* unk1, ScriptExecutionContext* unk2) {
-    if ((unk2->unk_1A & 0xF) == 0
-     && (gPlayerState.flags.all & 0x80) == 0
-     && sub_080041A0(unk1, &gPlayerEntity, 0x28, 0x28)) {
+    if ((unk2->unk_1A & 0xF) == 0 && (gPlayerState.flags.all & 0x80) == 0 &&
+        sub_080041A0(unk1, &gPlayerEntity, 0x28, 0x28)) {
         unk1->animationState = sub_0806F5B0(GetFacingDirection(unk1, &gPlayerEntity));
     }
     unk2->unk_1A++;
@@ -994,7 +882,8 @@ void sub_0807E79C(Entity* unk1, ScriptExecutionContext* unk2) {
     sub_080500F4(gUnk_02033280.unk_08);
 }
 
-void nullsub_508(Entity* unk1, ScriptExecutionContext* unk2) {}
+void nullsub_508(Entity* unk1, ScriptExecutionContext* unk2) {
+}
 
 void sub_0807E7B0(Entity* unk1, ScriptExecutionContext* unk2) {
     DoFade(4, gUnk_02033280.unk_08);
@@ -1103,16 +992,19 @@ void sub_0807E944(Entity* unk1, ScriptExecutionContext* unk2) {
 void sub_0807E974(Entity* unk1, ScriptExecutionContext* unk2) {
     switch (unk2->unk_18) {
         default:
-            if (!--unk2->unk_19) return;
+            if (!--unk2->unk_19)
+                return;
             break;
         case 0:
-            if (!unk1->interactType) break;
+            if (!unk1->interactType)
+                break;
             unk1->interactType = 0;
             unk2->unk_18++;
             TextboxNoOverlapFollow(unk2->unk_00[1]);
             break;
         case 1:
-            if (gTextBox.doTextBox & 0x7F) break;
+            if (gTextBox.doTextBox & 0x7F)
+                break;
             unk2->unk_18 = 2;
             unk2->unk_19 = 0xF;
             break;
@@ -1152,7 +1044,7 @@ void sub_0807E9F0(Entity* unk1, ScriptExecutionContext* unk2) {
         sub_0807919C();
         gPlayerState.field_0x8b = 1;
     } else {
-        lbl:
+    lbl:
         gUnk_02033280.unk_06 = 0;
     }
 }
@@ -1193,7 +1085,7 @@ void sub_0807EAD0(Entity* unk1, ScriptExecutionContext* unk2) {
 
 void sub_0807EAF0(Entity* unk1, ScriptExecutionContext* unk2) {
     if (gUnk_02033280.unk_06 > unk2->unk_04) {
-        u16 * tmp = unk2->unk_00 + unk2->unk_04;
+        u16* tmp = unk2->unk_00 + unk2->unk_04;
         TextboxNoOverlapFollow(tmp[1]);
     } else {
         TextboxNoOverlapFollow(0);
@@ -1217,7 +1109,8 @@ void sub_0807EB44(Entity* unk1, ScriptExecutionContext* unk2) {
 }
 
 void sub_0807EB4C(Entity* unk1, ScriptExecutionContext* unk2) {
-    unk1->animationState = sub_0806F5B0(sub_080045B4(unk1, unk2->unk_00[1] + gRoomControls.roomOriginX, unk2->unk_00[2] + gRoomControls.roomOriginY));
+    unk1->animationState = sub_0806F5B0(
+        sub_080045B4(unk1, unk2->unk_00[1] + gRoomControls.roomOriginX, unk2->unk_00[2] + gRoomControls.roomOriginY));
 }
 
 void sub_0807EB74(Entity* unk1, ScriptExecutionContext* unk2) {
@@ -1259,7 +1152,8 @@ void sub_0807EC08(Entity* unk1, ScriptExecutionContext* unk2) {
     CopyPosition(&gPlayerEntity, unk1);
 }
 
-void nullsub_509(Entity* unk1, ScriptExecutionContext* unk2) {}
+void nullsub_509(Entity* unk1, ScriptExecutionContext* unk2) {
+}
 
 void sub_0807EC1C(Entity* unk1, ScriptExecutionContext* unk2) {
     if (!unk2->unk_18) {
@@ -1332,7 +1226,8 @@ void sub_0807ED24(Entity* unk1, ScriptExecutionContext* unk2) {
         tmp = unk2->unk_00[2];
         tmp3 = unk1->y.HALF.HI - gRoomControls.roomOriginY;
         unk2->unk_20.WORD = ((tmp - tmp3) << 0x10) / unk2->unk_12;
-        unk1->animationState = sub_0806F5B0(sub_080045B4(unk1, unk2->unk_00[1] + gRoomControls.roomOriginX, unk2->unk_00[2] + gRoomControls.roomOriginY));
+        unk1->animationState = sub_0806F5B0(sub_080045B4(unk1, unk2->unk_00[1] + gRoomControls.roomOriginX,
+                                                         unk2->unk_00[2] + gRoomControls.roomOriginY));
         unk2->unk_08 |= 2;
     } else {
         if (!--unk2->unk_12) {
@@ -1407,11 +1302,12 @@ void sub_0807EEF4(Entity* unk1, ScriptExecutionContext* unk2) {
 void sub_0807EF3C(Entity* unk1, ScriptExecutionContext* unk2) {
     if (!unk2->unk_18) {
         unk2->unk_18 = 1;
-        unk1->field_0x20 = ((s16) unk2->unk_00[1]) << 8;
+        unk1->field_0x20 = ((s16)unk2->unk_00[1]) << 8;
         unk2->unk_1C.HALF.LO = unk2->unk_00[2] << 8;
         sub_08003FC4(unk1, (u16)unk2->unk_1C.HALF.LO);
     } else {
-        if (!sub_08003FC4(unk1, (u16)unk2->unk_1C.HALF.LO)) return;
+        if (!sub_08003FC4(unk1, (u16)unk2->unk_1C.HALF.LO))
+            return;
     }
     gUnk_02033280.unk_06 = 0;
 }

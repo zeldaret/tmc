@@ -172,7 +172,6 @@ extern void NPC58_Head(Entity*);
 
 extern u32 UpdateFuseInteraction(Entity*);
 
-
 void (*const gNPCFunctions[128][3])(Entity*);
 
 #endif

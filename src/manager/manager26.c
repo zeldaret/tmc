@@ -17,16 +17,12 @@ void sub_0805C6D0(Manager26*);
 void sub_0805C7A0(Manager26*);
 void sub_0805C7C4(Manager26*);
 
-void (* const gUnk_08108D04[])(Manager26*) = {
-    sub_0805C6D0,
-    sub_0805C7A0,
-    sub_0805C7C4
-};
+void (*const gUnk_08108D04[])(Manager26*) = { sub_0805C6D0, sub_0805C7A0, sub_0805C7C4 };
 
 void sub_0805C7CC(Manager26*);
 
 void sub_0805C6B8(Manager26* this) {
-	gUnk_08108D04[this->manager.action](this);
+    gUnk_08108D04[this->manager.action](this);
 }
 
 void sub_0805C6D0(Manager26* this) {
@@ -46,7 +42,7 @@ void sub_0805C6D0(Manager26* this) {
             obj->actionDelay = tmp->unk_03;
             obj->x.HALF.HI = gRoomControls.roomOriginX + tmp->unk_04;
             obj->y.HALF.HI = gRoomControls.roomOriginY + tmp->unk_06;
-            obj->parent = (Entity*) this;
+            obj->parent = (Entity*)this;
             obj->collisionLayer = 1;
             obj->field_0x82.HALF.HI = this->manager.unk_0e;
             obj->field_0x82.HALF.LO = tmp->unk_00;
@@ -75,7 +71,7 @@ void sub_0805C7A0(Manager26* this) {
 }
 
 void sub_0805C7C4(Manager26* this) {
-	sub_0805C7CC(this);
+    sub_0805C7CC(this);
 }
 
 void sub_0805C7CC(Manager26* this) {

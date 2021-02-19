@@ -18,7 +18,7 @@ extern u8 gBG3Buffer[];
 extern void (*const gUnk_08109A30[])();
 
 void HandleDebugTextScreen() {
-  gUnk_08109A30[gUnk_03001000.funcIndex]();
+    gUnk_08109A30[gUnk_03001000.funcIndex]();
 }
 
 void sub_0805FA04(void) {

@@ -7,5 +7,5 @@ jobs:
     - uses: actions/checkout@v2
     - uses: DoozyX/clang-format-lint-action@v0.8
       with:
-        source: 'src, include'
+        source: './src ./include'
         clangFormatVersion: 10
