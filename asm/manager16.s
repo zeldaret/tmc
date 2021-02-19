@@ -126,7 +126,7 @@ _0805AC1A:
 	ldr r0, [r4, #8]
 	cmp r0, #0
 	beq _0805AC48
-	bl sub_0807DAA0
+	bl CreateScriptExecutionContext
 	mov sb, r0
 	cmp r0, #0
 	beq _0805ACA6

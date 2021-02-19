@@ -9,17 +9,14 @@ extern u8 gUnk_0811E514[];
 extern u8 gUnk_0811E510[];
 extern u8 gUnk_0811E4BC[];
 extern const char gUnk_0811E4B4[8];
-// the type is just a guess based on size and the fact that these are around a lot in this file
-extern ScriptExecutionContext gUnk_02022750;
-// might be ScriptExecutionContext[0x20]
-extern u32 gUnk_02036570;
+extern ScriptExecutionContext gPlayerScriptExecutionContext;
+extern ScriptExecutionContext gScriptExecutionContextArray[0x20];
 
 extern void CreateSpeechBubbleExclamationMark(Entity*, u32, u32);
 extern void CreateSpeechBubbleQuestionMark(Entity*, u32, u32);
 extern void DeleteThisEntity(void);
 extern u32 sub_080B180C(u32, const char*);
 extern void sub_0801C4A0(u32);
-extern void sub_0807DB98(Entity*, ScriptExecutionContext*);
 extern s32 __divsi3(s32, s32);
 extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 extern u16 sub_080B18DC(u16, const char*);
@@ -31,6 +28,9 @@ u32 sub_0807D128(u16* unk_1);
 u16 sub_0807D1A4(u16* unk_1, u32 unk_2);
 u32 sub_0807D0A0(u16* unk_1, u16* unk_2, u32 unk_3);
 u32 sub_0807D0EC(u32 unk_1, const char* unk_2);
+void sub_0807DF38(void);
+void sub_0807DE80(Entity* entity);
+void sub_0807DB98(Entity*, ScriptExecutionContext*);
 
 NONMATCH("asm/non_matching/code_0807CC3C/sub_0807CF88.inc", u32 sub_0807CF88(u32 arg0, u8* arg1)) {
     u32 signature;
@@ -246,32 +246,32 @@ END_NONMATCH
 
 void sub_0807DA70(void) {
     _DmaZero(&gUnk_02033280, 0xc);
-    _DmaZero(&gUnk_02036570, 0x480);
-    _DmaZero(&gUnk_02022750, 0x24);
+    _DmaZero(&gScriptExecutionContextArray, sizeof(gScriptExecutionContextArray));
+    _DmaZero(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
     gUnk_02033280.unk_08 = 8;
 }
 
-u32* sub_0807DAA0(void) {
-    u32* puVar1;
+ScriptExecutionContext* CreateScriptExecutionContext(void) {
+    ScriptExecutionContext* puVar1;
 
-    puVar1 = &gUnk_02036570;
+    puVar1 = gScriptExecutionContextArray;
     do {
-        if (*puVar1 == 0) {
+        if (puVar1->unk_00 == 0) {
             return puVar1;
         }
-        puVar1 = puVar1 + 9;
-    } while (puVar1 < &gUnk_02036570 + 0x480 / 4);
+        puVar1++;
+    } while (puVar1 < gScriptExecutionContextArray + ARRAY_COUNT(gScriptExecutionContextArray));
     return NULL;
 }
 
-void sub_0807DAC4(ScriptExecutionContext* context) {
-    _DmaZero(context, 0x24);
+void DestroyScriptExecutionContext(ScriptExecutionContext* context) {
+    _DmaZero(context, sizeof(ScriptExecutionContext));
 }
 
 u32* StartCutscene(Entity* param_1, u8* param_2) {
     ScriptExecutionContext* puVar1;
 
-    puVar1 = (ScriptExecutionContext*)sub_0807DAA0();
+    puVar1 = CreateScriptExecutionContext();
     if (puVar1) {
         sub_0807DAF0(param_1, puVar1, (u32)param_2);
     }
@@ -287,7 +287,7 @@ void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1) {
 void UnloadCutsceneData(Entity* entity) {
     if ((entity->flags & 2)) {
         entity->flags = entity->flags & 0xfd;
-        sub_0807DAC4(*(ScriptExecutionContext**)&entity->cutsceneBeh);
+        DestroyScriptExecutionContext(*(ScriptExecutionContext**)&entity->cutsceneBeh);
         *(ScriptExecutionContext**)&entity->cutsceneBeh = NULL;
     }
 }
@@ -295,24 +295,24 @@ void UnloadCutsceneData(Entity* entity) {
 void StartPlayerScript(u32 unk1) {
     Entity* player;
 
-    _DmaZero(&gUnk_02022750, 0x24);
-    gUnk_02022750.unk_00 = (u16*)unk1;
+    _DmaZero(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
+    gPlayerScriptExecutionContext.unk_00 = (u16*)unk1;
     player = &gPlayerEntity;
-    *(ScriptExecutionContext**)&player->cutsceneBeh = &gUnk_02022750;
+    *(ScriptExecutionContext**)&player->cutsceneBeh = &gPlayerScriptExecutionContext;
     gPlayerState.playerAction = 0x1c;
     gPlayerState.field_0x3a = 0;
     gPlayerState.field_0x39 = 0;
     gPlayerState.field_0x38 = 0;
 }
 
-u32* sub_0807DB68(Entity* entity, u32 unk1) {
-    u32* puVar1;
+ScriptExecutionContext* sub_0807DB68(Entity* entity, u16* unk1) {
+    ScriptExecutionContext* puVar1;
 
-    puVar1 = sub_0807DAA0();
+    puVar1 = CreateScriptExecutionContext();
     if (puVar1) {
         entity->flags |= 2;
-        *(u32**)&entity->field_0x3c = puVar1;
-        *puVar1 = unk1;
+        *(ScriptExecutionContext**)&entity->field_0x3c = puVar1;
+        puVar1->unk_00 = unk1;
     }
     return puVar1;
 }
@@ -347,7 +347,7 @@ void sub_0807DB98(Entity* entity, ScriptExecutionContext* context) {
                 CreateSpeechBubbleQuestionMark(entity, 8, -0x18);
                 break;
             case 0x40:
-                sub_0807DAC4(context);
+                DestroyScriptExecutionContext(context);
                 DeleteThisEntity();
             case 0x80:
                 entity->spriteSettings.b.draw = 1;
@@ -395,9 +395,6 @@ void sub_0807DB98(Entity* entity, ScriptExecutionContext* context) {
         }
     }
 }
-
-void sub_0807DF38(void);
-void sub_0807DE80(Entity* entity);
 
 void sub_0807DD50(Entity* entity) {
     sub_0807DD64(entity);
