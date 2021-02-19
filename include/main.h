@@ -46,7 +46,7 @@ enum {
 };
 
 typedef struct {
-    u8 interruptFlag;
+    vu8 interruptFlag;
     u8 field_0x1;
     u8 screen;
     u8 funcIndex;

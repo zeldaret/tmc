@@ -1,7 +1,6 @@
 #include "global.h"
 #include "entity.h"
 #include "object.h"
-//clang-format off
 
 void (*const gObjectFunctions[])(Entity*) = {
     /*0x00*/ ItemOnGround,
@@ -197,6 +196,5 @@ void (*const gObjectFunctions[])(Entity*) = {
     /*0xbe*/ Pinwheel,
     /*0xbf*/ ObjectBF,
     /*0xc0*/ EnemyItem,
-    /*0xc1*/ ObjectC1,
+    /*0xc1*/ ObjectC1
 };
-//clang-format on

@@ -82,19 +82,19 @@ u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
 
     if (bottleIndex > 3) {
         bottleIndex = 0;
-        if (gSave.stats.filler2[0] != 0x20) {
+        if (gSave.stats.bottles[0] != 0x20) {
             do {
                 bottleIndex++;
                 if (bottleIndex > 3) {
                     return bottleIndex;
                 }
-            } while (gSave.stats.filler2[bottleIndex] != 0x20);
+            } while (gSave.stats.bottles[bottleIndex] != 0x20);
         }
         if (bottleIndex > 3) {
             return bottleIndex;
         }
     }
-    gSave.stats.filler2[bottleIndex] = itemID;
+    gSave.stats.bottles[bottleIndex] = itemID;
     return bottleIndex;
 }
 
@@ -134,13 +134,13 @@ u32 sub_080544C8(u32 arg0) {
 }
 
 u32 sub_080544DC(u32 arg0) {
-    if (arg0 == gSave.stats.filler2[0]) {
+    if (arg0 == gSave.stats.bottles[0]) {
         return 1;
-    } else if (arg0 == gSave.stats.filler2[1]) {
+    } else if (arg0 == gSave.stats.bottles[1]) {
         return 2;
-    } else if (arg0 == gSave.stats.filler2[2]) {
+    } else if (arg0 == gSave.stats.bottles[2]) {
         return 3;
-    } else if (arg0 == gSave.stats.filler2[3]) {
+    } else if (arg0 == gSave.stats.bottles[3]) {
         return 4;
     } else {
         return 0;

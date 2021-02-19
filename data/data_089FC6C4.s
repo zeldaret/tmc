@@ -4,14 +4,44 @@
 	.section .rodata
 	.align 2
 
-gUnk_089FB770:: @ 089FB770
-	.incbin "baserom.gba", 0x9FB770, 0x0000010
-
-gUnk_089FB780:: @ 089FB780
-	.incbin "baserom.gba", 0x9FB780, 0x0000F44
-
 gUnk_089FC6C4:: @ 089FC6C4
-	.incbin "baserom.gba", 0x9FC6C4, 0x0000090
+@ replacing .incbin "baserom.gba", 0x009fc6c4, 0x90
+.4byte ply_fine
+.4byte ply_goto
+.4byte ply_patt
+.4byte ply_pend
+.4byte ply_rept
+.4byte ply_fine
+.4byte ply_fine
+.4byte ply_fine
+.4byte ply_fine
+.4byte ply_prio
+.4byte ply_tempo
+.4byte ply_keysh
+.4byte ply_voice
+.4byte ply_vol
+.4byte ply_pan
+.4byte ply_bend
+.4byte ply_bendr
+.4byte ply_lfos
+.4byte ply_lfodl
+.4byte ply_mod
+.4byte ply_modt
+.4byte ply_fine
+.4byte ply_fine
+.4byte ply_tune
+.4byte ply_fine
+.4byte ply_fine
+.4byte ply_fine
+.4byte ply_port
+.4byte ply_fine
+.4byte ply_endtie
+.4byte SampleFreqSet
+.4byte TrackStop
+.4byte FadeOutBody
+.4byte TrkVolPitSet
+.4byte RealClearChain
+.4byte SoundMainBTM
 
 gUnk_089FC754:: @ 089FC754
 	.incbin "baserom.gba", 0x9FC754, 0x00000B4
@@ -38,7 +68,19 @@ gUnk_089FC938:: @ 089FC938
 	.incbin "baserom.gba", 0x9FC938, 0x0000034
 
 gUnk_089FC96C:: @ 089FC96C
-	.incbin "baserom.gba", 0x9FC96C, 0x0000030
+@ replacing .incbin "baserom.gba", 0x009fc96c, 0x30
+.4byte ply_xxx
+.4byte ply_xwave
+.4byte ply_xtype
+.4byte ply_xxx
+.4byte ply_xatta
+.4byte ply_xdeca
+.4byte ply_xsust
+.4byte ply_xrele
+.4byte ply_xiecv
+.4byte ply_xiecl
+.4byte ply_xleng
+.4byte ply_xswee
 
 gUnk_089FC99C:: @ 089FC99C
 	.incbin "baserom.gba", 0x9FC99C, 0x0000060
