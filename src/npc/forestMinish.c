@@ -7,6 +7,7 @@
 #include "structures.h"
 #include "functions.h"
 #include "save.h"
+#include "script.h"
 
 extern void sub_0807DD50(Entity*);
 extern void sub_0806F118(Entity*);

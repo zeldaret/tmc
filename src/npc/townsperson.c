@@ -7,6 +7,7 @@
 #include "structures.h"
 #include "functions.h"
 #include "save.h"
+#include "script.h"
 
 typedef struct {
     u8 frame1;

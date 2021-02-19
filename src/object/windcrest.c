@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "save.h"
+#include "script.h"
 
 extern void sub_0807DD64(Entity*);
 extern void sub_0807DDE4(Entity*);

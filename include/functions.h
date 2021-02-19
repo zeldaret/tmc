@@ -9,7 +9,6 @@
 #include "player.h"
 #include "structures.h"
 #include "room.h"
-#include "script.h"
 
 // Identified - to be sorted into header files
 extern u32 Random(void);
@@ -24,7 +23,6 @@ extern u32 CheckKinstoneFused(u32);
 extern void ForceEquipItem(u8, u8);
 extern void LoadRoomEntityList();
 void CopyPosition(Entity*, Entity*);
-extern ScriptExecutionContext* StartCutscene(Entity*, u16*);
 extern void ResolveEntityOnTop(Entity*, Entity*);
 extern void EnemyFunctionHandler(Entity*, void (*const funcs[])(Entity*));
 extern u32 GetAnimationState(Entity*);
@@ -86,13 +84,11 @@ extern void sub_0806F69C(Entity*);
 extern void sub_0805E3A0(void*, u32);
 extern void sub_0806D0B0(Entity*);
 extern void sub_0807DD64(Entity*);
-extern void sub_0807DDAC(Entity*, void(*function)(Entity*, ScriptExecutionContext*));
 extern void sub_0807DDE4(Entity*);
 extern void sub_0806D02C(Entity*);
 extern u32 sub_0806F5A4(u32);
 extern void sub_08078784(Entity*, u32);
 extern void sub_0807DD50(Entity*);
-extern void sub_0807DD94(Entity*, void(*function)(Entity*, ScriptExecutionContext*));
 extern s32 sub_0806ED9C(Entity*, u32, u32);
 extern void sub_0807000C(Entity*);
 extern void sub_0805E47C(Entity*);

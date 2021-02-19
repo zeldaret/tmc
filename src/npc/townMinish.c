@@ -5,6 +5,7 @@
 #include "textbox.h"
 #include "flags.h"
 #include "save.h"
+#include "script.h"
 
 extern void InitializeAnimation(Entity*, u32);
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);

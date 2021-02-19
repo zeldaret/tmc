@@ -3,6 +3,7 @@
 #include "functions.h"
 #include "room.h"
 #include "flags.h"
+#include "script.h"
 
 typedef struct {
     u8 filler[4];

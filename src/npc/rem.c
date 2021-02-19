@@ -1,6 +1,7 @@
 #include "global.h"
 #include "functions.h"
 #include "entity.h"
+#include "script.h"
 
 extern void sub_0807DDE4(Entity*);
 extern void PlaySFX(u32);

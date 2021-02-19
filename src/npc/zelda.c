@@ -3,6 +3,7 @@
 #include "functions.h"
 #include "room.h"
 #include "flags.h"
+#include "script.h"
 
 extern void PrependEntityToList(Entity*, u32);
 extern void sub_0807DD50(Entity*);

@@ -30,4 +30,7 @@ extern void StartPlayerScript(u16*);
 
 extern void sub_0807DEDC(Entity*, ScriptExecutionContext*, u32, u32);
 
+extern ScriptExecutionContext* StartCutscene(Entity*, u16*);
+extern void sub_0807DDAC(Entity*, void(*function)(Entity*, ScriptExecutionContext*));
+extern void sub_0807DD94(Entity*, void(*function)(Entity*, ScriptExecutionContext*));
 #endif

@@ -3,6 +3,7 @@
 #include "flags.h"
 #include "functions.h"
 #include "room.h"
+#include "script.h"
 
 typedef struct {
     /*0x00*/ u16 unk0;

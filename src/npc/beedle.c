@@ -4,6 +4,7 @@
 #include "textbox.h"
 #include "player.h"
 #include "room.h"
+#include "script.h"
 
 typedef struct {
     u32 unk_00;

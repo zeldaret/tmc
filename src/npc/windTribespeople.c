@@ -6,6 +6,7 @@
 #include "structures.h"
 #include "functions.h"
 #include "save.h"
+#include "script.h"
 
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 extern void sub_0807DD50(Entity*);

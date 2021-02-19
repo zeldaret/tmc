@@ -4,6 +4,7 @@
 #include "flags.h"
 #include "textbox.h"
 #include "functions.h"
+#include "script.h"
 
 extern u16 gUnk_08112D48[];
 
@@ -24,7 +25,7 @@ void Librari(Entity* this) {
                 this->interactType = 0;
                 sub_0806F118(this);
             } else {
-                sub_0807DDAC(this, 0);
+                sub_0807DDAC(this, NULL);
                 sub_0807DDE4(this);
                 UpdateAnimationSingleFrame(this);
             }

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "functions.h"
 #include "entity.h"
+#include "script.h"
 
 extern Entity gPlayerEntity;
 
@@ -44,7 +45,7 @@ void sub_080658BC(Entity* this) {
         InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
         sub_0806F118(this);
     } else {
-        sub_0807DD94(this, 0);
+        sub_0807DD94(this, NULL);
     }
 }
 

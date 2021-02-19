@@ -3,6 +3,7 @@
 #include "npc.h"
 #include "textbox.h"
 #include "functions.h"
+#include "script.h"
 
 extern void sub_08068780(Entity*);
 extern void sub_08078778(Entity*);

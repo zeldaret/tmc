@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "textbox.h"
 #include "functions.h"
+#include "script.h"
 
 extern void sub_08078778(Entity*);
 extern void sub_0805E47C(Entity*);

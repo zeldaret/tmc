@@ -3,6 +3,7 @@
 #include "textbox.h"
 #include "functions.h"
 #include "player.h"
+#include "script.h"
 
 extern void (*gUnk_0810FEC4[])(Entity* this);
 extern void (*gUnk_0810FEBC[])(Entity* this);

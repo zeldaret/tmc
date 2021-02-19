@@ -4,6 +4,7 @@
 #include "textbox.h"
 #include "functions.h"
 #include "flags.h"
+#include "script.h"
 
 extern void sub_0806B41C(Entity*);
 extern void sub_0806B3CC(Entity*);

@@ -3,6 +3,7 @@
 #include "textbox.h"
 #include "functions.h"
 #include "save.h"
+#include "script.h"
 
 extern u32 GetFacingDirection(Entity*, Entity*);
 extern u32 sub_0806F5A4(u32);

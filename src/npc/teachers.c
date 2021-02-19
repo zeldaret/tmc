@@ -3,6 +3,7 @@
 #include "player.h"
 #include "functions.h"
 #include "save.h"
+#include "script.h"
 
 extern SpriteLoadData gUnk_08113910[];
 extern void sub_0807DD50(Entity*);

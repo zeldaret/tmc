@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "functions.h"
 #include "textbox.h"
+#include "script.h"
 
 extern void (*gUnk_08111A80[])(Entity*);
 extern void (*gUnk_08111A8C[])(Entity*);
@@ -61,7 +62,7 @@ void sub_080693C4(Entity* this) {
 void sub_08069428(Entity* this, s32 offsetX, bool32 createFx65);
 
 void sub_080693D0(Entity* this) {
-    sub_0807DD94(this, 0);
+    sub_0807DD94(this, NULL);
     if (this->animIndex == 8) {
         u32 var0 = this->field_0x82.HWORD & 0xF;
         bool32 createFx65 = BOOLCAST(var0); // = !var0

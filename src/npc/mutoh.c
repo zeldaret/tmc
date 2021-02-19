@@ -7,6 +7,7 @@
 #include "structures.h"
 #include "functions.h"
 #include "save.h"
+#include "script.h"
 
 extern void sub_0807DD50(Entity*);
 extern u32 GetFacingDirection(Entity*, Entity*);
