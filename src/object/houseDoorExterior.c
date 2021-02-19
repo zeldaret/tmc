@@ -64,7 +64,7 @@ void sub_080866D8(Entity* this) {
                 UpdateSpriteForCollisionLayer(entity);
                 *((u32*)(&this->field_0x68)) |= mask;
                 if (prop->unk8) {
-                    *((u32**)(&entity->cutsceneBeh)) = StartCutscene(entity, prop->unk8);
+                    *((ScriptExecutionContext **)(&entity->cutsceneBeh)) = StartCutscene(entity, (u16*)prop->unk8);
                 }
             }
         }

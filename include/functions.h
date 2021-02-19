@@ -24,7 +24,7 @@ extern u32 CheckKinstoneFused(u32);
 extern void ForceEquipItem(u8, u8);
 extern void LoadRoomEntityList();
 void CopyPosition(Entity*, Entity*);
-extern u32* StartCutscene(Entity*, u8*);
+extern ScriptExecutionContext* StartCutscene(Entity*, u16*);
 extern void ResolveEntityOnTop(Entity*, Entity*);
 extern void EnemyFunctionHandler(Entity*, void (*const funcs[])(Entity*));
 extern u32 GetAnimationState(Entity*);

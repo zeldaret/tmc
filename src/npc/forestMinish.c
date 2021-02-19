@@ -40,7 +40,7 @@ void ForestMinish(Entity* this) {
                 this->field_0x68.HALF.HI = this->animationState = this->actionDelay << 1;
                 this->actionDelay = 0;
                 sub_0805E3A0(this, 2);
-                StartCutscene(this, gUnk_08109D18[this->entityType.parameter]);
+                StartCutscene(this, (u16*)gUnk_08109D18[this->entityType.parameter]);
                 sub_0807DD50(this);
             }
             break;

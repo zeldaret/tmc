@@ -27,8 +27,8 @@ extern s32 __divsi3(s32, s32);
 extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 extern u16 sub_080B18DC(u16, const char*);
 
-void sub_0807DB88(ScriptExecutionContext* context, u32 unk1);
-void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1);
+void sub_0807DB88(ScriptExecutionContext* context, u16* unk1);
+void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u16* unk1);
 u32 sub_0807D1D8(u32 unk_1, const char* unk_2, u32 unk_3);
 u32 sub_0807D128(const Thing* unk_1);
 u16 sub_0807D1A4(u16* unk_1, u32 unk_2);
@@ -248,7 +248,7 @@ NONMATCH("asm/non_matching/code_0807CC3C/sub_0807D6D8.inc", void sub_0807D6D8(u3
 END_NONMATCH
 
 void sub_0807DA70(void) {
-    _DmaZero(&gUnk_02033280, 0xc);
+    _DmaZero(&gUnk_02033280, sizeof(gUnk_02033280));
     _DmaZero(&gScriptExecutionContextArray, sizeof(gScriptExecutionContextArray));
     _DmaZero(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
     gUnk_02033280.unk_08 = 8;
@@ -271,17 +271,17 @@ void DestroyScriptExecutionContext(ScriptExecutionContext* context) {
     _DmaZero(context, sizeof(ScriptExecutionContext));
 }
 
-u32* StartCutscene(Entity* entity, u8* param_2) {
+ScriptExecutionContext* StartCutscene(Entity* entity, u16* unk_2) {
     ScriptExecutionContext* puVar1;
 
     puVar1 = CreateScriptExecutionContext();
     if (puVar1) {
-        sub_0807DAF0(entity, puVar1, (u32)param_2);
+        sub_0807DAF0(entity, puVar1, unk_2);
     }
-    return (u32*)puVar1;
+    return puVar1;
 }
 
-void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u32 unk1) {
+void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u16* unk1) {
     entity->flags = entity->flags | 2;
     *(ScriptExecutionContext**)&entity->cutsceneBeh = context;
     sub_0807DB88(context, unk1);
@@ -320,9 +320,9 @@ ScriptExecutionContext* sub_0807DB68(Entity* entity, u16* unk1) {
     return context;
 }
 
-void sub_0807DB88(ScriptExecutionContext* context, u32 unk1) {
+void sub_0807DB88(ScriptExecutionContext* context, u16* unk1) {
     _DmaZero(context, sizeof(ScriptExecutionContext));
-    context->unk_00 = (u16*)unk1;
+    context->unk_00 = unk1;
 }
 
 void sub_0807DB98(Entity* entity, ScriptExecutionContext* context) {
@@ -411,7 +411,7 @@ void sub_0807DD64(Entity* entity) {
     entity->field_0x82.HWORD = 0;
 }
 
-void sub_0807DD80(Entity* entity, u32 unk1) {
+void sub_0807DD80(Entity* entity, u16* unk1) {
     sub_0807DB88(*(ScriptExecutionContext**)&entity->cutsceneBeh, unk1);
     sub_0807DD64(entity);
 }
