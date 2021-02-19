@@ -36,7 +36,7 @@ void sub_08033564(Entity* this) {
             this->flags &= 0x7f;
             this->field_0x7c.HALF.LO = 0x27c;
             gPlayerState.flags.all |= 0x4000;
-            gSave.stats.filler2[4] = this->entityType.form + 1;
+            gSave.stats.floorType = this->entityType.form + 1;
             gSave.stats.field_0x20 = 600;
             if (this->entityType.form == 0) {
                 break;

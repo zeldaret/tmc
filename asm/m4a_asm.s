@@ -463,7 +463,9 @@ _080AF706:
 	str r1, [r0, #0x2c]
 _080AF70A:
 	bx lr
-_080AF70C:
+
+	thumb_func_start ply_fine
+ply_fine: @ 0x080AF70C
 	push {r4, r5, lr}
 	adds r5, r1, #0
 	ldr r4, [r5, #0x20]
@@ -542,7 +544,9 @@ sub_080AF77A: @ 0x080AF77A
 	ldrb r3, [r2]
 	b _080AF75E
 	.align 2, 0
-_080AF784:
+
+	thumb_func_start ply_goto
+ply_goto:
 	push {lr}
 _080AF786:
 	ldr r2, [r1, #0x40]
@@ -573,9 +577,9 @@ ply_patt: @ 0x080AF7A4
 	ldrb r2, [r1, #2]
 	adds r2, #1
 	strb r2, [r1, #2]
-	b _080AF784
+	b ply_goto
 _080AF7BC:
-	b _080AF70C
+	b ply_fine
 	.align 2, 0
 
 	thumb_func_start ply_pend

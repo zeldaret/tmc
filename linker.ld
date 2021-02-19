@@ -301,6 +301,7 @@ SECTIONS {
         /* C source compiled with interworking */
         asm/code_08016B30.o(.text);
         asm/updateBackgroundRegisters.o(.text);
+        src/code_08016DF8.o(.text);
         asm/code_08016DF8.o(.text);
         /* C source compiled without interworking */
         asm/code_08018500.o(.text);
@@ -1030,6 +1031,7 @@ SECTIONS {
         src/intro.o(.rodata);
         data/data_081320FC.o(.rodata);
         data/strings.o(.rodata);
+        data/sprite_table.o(.rodata);
         data/data_089FC6C4.o(.rodata);
     } >rom
 
