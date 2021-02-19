@@ -23,8 +23,6 @@ extern void CreateSpeechBubbleQuestionMark(Entity*, u32, u32);
 extern void DeleteThisEntity(void);
 extern u32 sub_080B180C(u32, const char*);
 extern void sub_0801C4A0(u32);
-extern s32 __divsi3(s32, s32);
-extern void _call_via_r6(Entity*, ScriptExecutionContext*);
 extern u16 sub_080B18DC(u16, const char*);
 
 void sub_0807DB88(ScriptExecutionContext* context, u16* unk1);
@@ -255,15 +253,15 @@ void sub_0807DA70(void) {
 }
 
 ScriptExecutionContext* CreateScriptExecutionContext(void) {
-    ScriptExecutionContext* puVar1;
+    ScriptExecutionContext* context;
 
-    puVar1 = gScriptExecutionContextArray;
+    context = gScriptExecutionContextArray;
     do {
-        if (puVar1->unk_00 == 0) {
-            return puVar1;
+        if (context->unk_00 == 0) {
+            return context;
         }
-        puVar1++;
-    } while (puVar1 < gScriptExecutionContextArray + ARRAY_COUNT(gScriptExecutionContextArray));
+        context++;
+    } while (context < gScriptExecutionContextArray + ARRAY_COUNT(gScriptExecutionContextArray));
     return NULL;
 }
 
@@ -272,13 +270,13 @@ void DestroyScriptExecutionContext(ScriptExecutionContext* context) {
 }
 
 ScriptExecutionContext* StartCutscene(Entity* entity, u16* unk_2) {
-    ScriptExecutionContext* puVar1;
+    ScriptExecutionContext* context;
 
-    puVar1 = CreateScriptExecutionContext();
-    if (puVar1) {
-        sub_0807DAF0(entity, puVar1, unk_2);
+    context = CreateScriptExecutionContext();
+    if (context) {
+        sub_0807DAF0(entity, context, unk_2);
     }
-    return puVar1;
+    return context;
 }
 
 void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u16* unk1) {
