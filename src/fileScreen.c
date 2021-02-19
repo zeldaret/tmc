@@ -458,29 +458,29 @@ void sub_08050A64(u32 idx) {
         return;
     }
 
-    gUnk_03001010._4 = 0;
-    gUnk_03001010._6 = 0;
-    gUnk_03001010._8 = 0x400;
+    gOamCmd._4 = 0;
+    gOamCmd._6 = 0;
+    gOamCmd._8 = 0x400;
 
     // Draw the save file's obtained elements.
     if (GetInventoryValue(0x40)) {
-        gUnk_03001010.x = 0xA2;
-        gUnk_03001010.y = 0x36;
+        gOamCmd.x = 0xA2;
+        gOamCmd.y = 0x36;
         sub_080ADA14(0x145, 0x24);
     }
     if (GetInventoryValue(0x41)) {
-        gUnk_03001010.x = 0x96;
-        gUnk_03001010.y = 0x3D;
+        gOamCmd.x = 0x96;
+        gOamCmd.y = 0x3D;
         sub_080ADA14(0x145, 0x22);
     }
     if (GetInventoryValue(0x42)) {
-        gUnk_03001010.x = 0xAE;
-        gUnk_03001010.y = 0x3D;
+        gOamCmd.x = 0xAE;
+        gOamCmd.y = 0x3D;
         sub_080ADA14(0x145, 0x23);
     }
     if (GetInventoryValue(0x43)) {
-        gUnk_03001010.x = 0xA2;
-        gUnk_03001010.y = 0x44;
+        gOamCmd.x = 0xA2;
+        gOamCmd.y = 0x44;
         sub_080ADA14(0x145, 0x21);
     }
 }

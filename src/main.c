@@ -138,7 +138,27 @@ void DoSoftReset(void) {
     SoftReset(RESET_ALL & ~(RESET_EWRAM | RESET_SIO_REGS));
 }
 
-const int sDefaultSettings[] = { SIGNATURE, '\1\1\1\0', 'KNIL', '\0\0\0\0' };
+typedef struct {
+    int signature;
+    u8 saveFileId;
+    u8 messageSpeed;
+    u8 brightnessPref;
+    u8 gameLanguage;
+    u8 name[6];
+    u8 _e;
+    u8 _f;
+} test;
+
+const test sDefaultSettings = {
+    .signature = SIGNATURE,
+    .saveFileId = 0,
+    .messageSpeed = 1,
+    .brightnessPref = 1,
+    .gameLanguage = LANGUAGE_EN,
+    .name = "LINK",
+    ._e = 0,
+    ._f = 0,
+};
 
 // single misplaced ldr
 NONMATCH("asm/non_matching/sub_080560B8.inc", void sub_080560B8(void)) {
