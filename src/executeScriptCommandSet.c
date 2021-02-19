@@ -752,7 +752,7 @@ void sub_0807E898(Entity* unk1, ScriptExecutionContext* unk2) {
 }
 
 void sub_0807E8C4(Entity* unk1, ScriptExecutionContext* unk2) {
-    StartPlayerScript(GetNextScriptCommandWordAfterCommandMetadata(unk2->unk_00));
+    StartPlayerScript((u16*)GetNextScriptCommandWordAfterCommandMetadata(unk2->unk_00));
 }
 
 void sub_0807E8D4(Entity* unk1, ScriptExecutionContext* unk2) {

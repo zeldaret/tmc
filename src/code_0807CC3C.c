@@ -295,11 +295,11 @@ void UnloadCutsceneData(Entity* entity) {
     }
 }
 
-void StartPlayerScript(u32 unk1) {
+void StartPlayerScript(u16* unk1) {
     Entity* player;
 
     _DmaZero(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
-    gPlayerScriptExecutionContext.unk_00 = (u16*)unk1;
+    gPlayerScriptExecutionContext.unk_00 = unk1;
     player = &gPlayerEntity;
     *(ScriptExecutionContext**)&player->cutsceneBeh = &gPlayerScriptExecutionContext;
     gPlayerState.playerAction = 0x1c;
