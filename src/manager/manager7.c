@@ -1,6 +1,7 @@
 #include "global.h"
 #include "manager.h"
 #include "functions.h"
+#include "structures.h"
 #include "gba/gba.h"
 
 typedef struct {
@@ -18,7 +19,6 @@ extern void sub_08052D74();
 extern u32 sub_08056300(const u16*);
 extern void sub_0805E3A0();
 
-extern u8 gUnk_02034490;
 extern const u8 gGlobalGfxAndPalettes[];
 
 const u16 gUnk_08108050[0x2A] = { 0,     0,     0x20, 0xE0,  0xE0,  1,     0,     0x1D0, 0x80,  0x60,  2,
@@ -63,7 +63,7 @@ void Manager7_Main(Manager7* this) {
     tmp2 = &gUnk_081080A4[tmp << 4];
     switch (this->manager.unk_0e) {
         case 0:
-            gUnk_02034490 = 1;
+            gUnk_02034490[0] = 1;
             LoadAssetAsync(&gGlobalGfxAndPalettes[tmp2[0]], tmp2[1], 0x1000);
             LoadPaletteGroup(gUnk_081081E4[tmp]);
             this->manager.unk_0e++;
@@ -80,7 +80,7 @@ void Manager7_Main(Manager7* this) {
             this->manager.unk_0e++;
             break;
         case 8:
-            gUnk_02034490 = 0;
+            gUnk_02034490[0] = 0;
             this->manager.unk_0e++;
             break;
     }

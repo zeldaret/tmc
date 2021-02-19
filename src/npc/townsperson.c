@@ -7,6 +7,7 @@
 #include "structures.h"
 #include "functions.h"
 #include "save.h"
+#include "script.h"
 
 typedef struct {
     u8 frame1;
@@ -30,7 +31,6 @@ extern void sub_08061D64(Entity*);
 extern void sub_0806F118(Entity*);
 extern u32 sub_0806F5A4(u32);
 extern u32 GetFacingDirection(Entity*, Entity*);
-extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern void sub_08062048(Entity*);
 extern void sub_08078784(Entity*, u32);
@@ -144,7 +144,7 @@ void sub_08061D64(Entity* this) {
         this->field_0x68.HALF.HI = this->animIndex;
         InitializeAnimation(this, (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
     } else {
-        sub_0807DDAC(this, 0);
+        sub_0807DDAC(this, NULL);
         sub_0807DDE4(this);
         if (this->frameDuration == 0xff) {
             this->frameDuration = gUnk_0810B680[this->entityType.form].unk2;

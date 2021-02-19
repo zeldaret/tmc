@@ -84,7 +84,7 @@ SECTIONS {
         . = 0x00022130; gUnk_02022130 = .;
         . = 0x00022730; gUnk_02022730 = .;
         . = 0x00022740; gUnk_02022740 = .;
-        . = 0x00022750; gUnk_02022750 = .;
+        . = 0x00022750; gPlayerScriptExecutionContext = .;
         . = 0x00022780; gUnk_02022780 = .;
         . = 0x000227DC; gUnk_020227DC = .;
         . = 0x000227E8; gUnk_020227E8 = .;
@@ -144,7 +144,7 @@ SECTIONS {
         . = 0x00035540; gUnk_02035540 = .;
         . = 0x00035542; gUnk_02035542 = .;
         . = 0x00036540; gUnk_02036540 = .;
-        . = 0x00036570; gUnk_02036570 = .;
+        . = 0x00036570; gScriptExecutionContextArray = .;
         . = 0x000369F0; gUnk_020369F0 = .;
         . = 0x00036A38; gUnk_02036A38 = .;
         . = 0x00036A40; gUnk_02036A40 = .;
@@ -672,8 +672,8 @@ SECTIONS {
         asm/code_0807CAA0.o(.text);
         src/flags.o(.text);
         src/save.o(.text);
-        asm/code_0807CC3C.o(.text);
-        src/executeScriptCommandSet.o(.text);
+        src/code_0807CC3C.o(.text);
+        src/script.o(.text);
         asm/code_0807F0D8.o(.text);
         src/code_0808091C.o(.text);
         asm/code_0808091C.o(.text);
@@ -1019,7 +1019,7 @@ SECTIONS {
         data/room_headers.o(.rodata);
         src/save.o(.rodata);
         data/data_0811E454.o(.rodata);
-        src/executeScriptCommandSet.o(.rodata);
+        src/script.o(.rodata);
         data/data_0811E750.o(.rodata);
         src/object/greatFairy.o(.rodata);
         data/animations/greatFairy.o(.rodata);

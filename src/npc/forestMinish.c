@@ -7,10 +7,10 @@
 #include "structures.h"
 #include "functions.h"
 #include "save.h"
+#include "script.h"
 
 extern void sub_0807DD50(Entity*);
 extern void sub_0806F118(Entity*);
-extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern void sub_080600F0(Entity*);
 extern s32 sub_0806EDD8(Entity*, u32, u32);
@@ -41,7 +41,7 @@ void ForestMinish(Entity* this) {
                 this->field_0x68.HALF.HI = this->animationState = this->actionDelay << 1;
                 this->actionDelay = 0;
                 sub_0805E3A0(this, 2);
-                StartCutscene(this, gUnk_08109D18[this->entityType.parameter]);
+                StartCutscene(this, (u16*)gUnk_08109D18[this->entityType.parameter]);
                 sub_0807DD50(this);
             }
             break;
@@ -51,7 +51,7 @@ void ForestMinish(Entity* this) {
                 this->interactType = 0;
                 sub_0806F118(this);
             } else {
-                sub_0807DDAC(this, 0);
+                sub_0807DDAC(this, NULL);
                 sub_0807DDE4(this);
                 if (this->frameDuration != 0xf0) {
                     sub_080600F0(this);

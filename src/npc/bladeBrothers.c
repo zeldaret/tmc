@@ -6,6 +6,7 @@
 #include "room.h"
 #include "textbox.h"
 #include "save.h"
+#include "script.h"
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -126,7 +127,7 @@ void FUN_08068b2c(Entity* this) {
         InitAnimationForceUpdate(this, uVar1);
         sub_0806F118(this);
     } else {
-        sub_0807DD94(this, 0);
+        sub_0807DD94(this, NULL);
     }
 }
 

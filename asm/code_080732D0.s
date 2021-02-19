@@ -3437,7 +3437,7 @@ sub_08074C68: @ 0x08074C68
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldr r1, [r0]
-	ldr r0, _08074CA4 @ =gUnk_02022750
+	ldr r0, _08074CA4 @ =gPlayerScriptExecutionContext
 	cmp r1, r0
 	bne _08074CF2
 	movs r0, #1
@@ -3449,7 +3449,7 @@ sub_08074C68: @ 0x08074C68
 	b _08074CF2
 	.align 2, 0
 _08074CA0: .4byte gPlayerState
-_08074CA4: .4byte gUnk_02022750
+_08074CA4: .4byte gPlayerScriptExecutionContext
 _08074CA8:
 	ldrb r1, [r4, #0x18]
 	movs r0, #4
@@ -4195,7 +4195,7 @@ sub_080751E8: @ 0x080751E8
 	adds r7, r0, #0
 	adds r5, r1, #0
 	adds r6, r2, #0
-	ldr r4, _08075230 @ =gUnk_02022750
+	ldr r4, _08075230 @ =gPlayerScriptExecutionContext
 	adds r0, r4, #0
 	movs r1, #0x24
 	bl _DmaZero
@@ -4226,7 +4226,7 @@ sub_080751E8: @ 0x080751E8
 	ldr r6, _0807523C @ =gUnk_08009ECC
 	b _08075244
 	.align 2, 0
-_08075230: .4byte gUnk_02022750
+_08075230: .4byte gPlayerScriptExecutionContext
 _08075234: .4byte gPlayerEntity
 _08075238: .4byte gPlayerState
 _0807523C: .4byte gUnk_08009ECC

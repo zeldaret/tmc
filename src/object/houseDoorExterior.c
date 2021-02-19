@@ -3,6 +3,7 @@
 #include "flags.h"
 #include "functions.h"
 #include "room.h"
+#include "script.h"
 
 typedef struct {
     /*0x00*/ u16 unk0;
@@ -64,7 +65,7 @@ void sub_080866D8(Entity* this) {
                 UpdateSpriteForCollisionLayer(entity);
                 *((u32*)(&this->field_0x68)) |= mask;
                 if (prop->unk8) {
-                    *((u32**)(&entity->cutsceneBeh)) = StartCutscene(entity, prop->unk8);
+                    *((ScriptExecutionContext **)(&entity->cutsceneBeh)) = StartCutscene(entity, (u16*)prop->unk8);
                 }
             }
         }
@@ -116,7 +117,7 @@ static void sub_0808681C(Entity* this) {
     }
 
     if (this->flags & 0x2) {
-        ExecuteScriptCommandSet(this, *(u32**)&this->cutsceneBeh);
+        ExecuteScriptCommandSet(this, *(ScriptExecutionContext **)&this->cutsceneBeh);
         sub_080868EC(this, *(void**)&this->cutsceneBeh);
     }
 }
@@ -128,7 +129,7 @@ void sub_080868B0(Entity* this) {
         this->boundingBox = &gUnk_081206AC;
         this->actionDelay = 8;
     }
-    ExecuteScriptCommandSet(this, *(u32**)&this->cutsceneBeh);
+    ExecuteScriptCommandSet(this, *(ScriptExecutionContext **)&this->cutsceneBeh);
     sub_080868EC(this, *(void**)&this->cutsceneBeh);
 }
 

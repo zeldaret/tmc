@@ -3,6 +3,7 @@
 #include "textbox.h"
 #include "functions.h"
 #include "player.h"
+#include "script.h"
 
 extern void (*gUnk_0810FEC4[])(Entity* this);
 extern void (*gUnk_0810FEBC[])(Entity* this);
@@ -77,7 +78,7 @@ void sub_08065648(Entity* this) {
         this->interactType = 0;
         sub_0806F118(this);
     } else {
-        sub_0807DD94(this, 0);
+        sub_0807DD94(this, NULL);
     }
 }
 
@@ -106,7 +107,7 @@ void sub_080656D4(Entity* this) {
     } else {
         if (this->interactType != 0) {
             if (GetInventoryValue(0x37) != 0) { // keyLonLon
-                StartCutscene(this, &gUnk_0800B41C);
+                StartCutscene(this, (u16*)&gUnk_0800B41C);
                 goto label2;
             } else {
                 this->field_0x68.HALF.HI = this->action;
@@ -118,7 +119,7 @@ void sub_080656D4(Entity* this) {
             }
         } else {
         label2:
-            sub_0807DD94(this, 0);
+            sub_0807DD94(this, NULL);
         }
     }
 }

@@ -5,6 +5,7 @@
 #include "textbox.h"
 #include "room.h"
 #include "flags.h"
+#include "script.h"
 
 extern u32 sub_080696BC(Entity*);
 
@@ -70,7 +71,7 @@ void sub_0806963C(Entity* this) {
 }
 
 void sub_08069654(Entity* this) {
-    sub_0807DD94(this, 0);
+    sub_0807DD94(this, NULL);
 }
 
 void sub_08069660(Entity* this) {

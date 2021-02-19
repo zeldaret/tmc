@@ -177,6 +177,6 @@ static_assert(sizeof(BG3Buffer) == 0x1000);
 */
 
 extern u8 gUnk_02022740[];
-extern u8 gUnk_02034490;
+extern u8 gUnk_02034490[];
 
 #endif

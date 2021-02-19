@@ -3,6 +3,7 @@
 #include "functions.h"
 #include "room.h"
 #include "flags.h"
+#include "script.h"
 
 typedef struct {
     u8 filler[4];
@@ -22,7 +23,7 @@ void Simon(Entity* this) {
         this->action++;
         sub_0807DD50(this);
     } else {
-        sub_0807DD94(this, 0);
+        sub_0807DD94(this, NULL);
     }
 }
 
