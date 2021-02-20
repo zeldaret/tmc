@@ -5,18 +5,6 @@
 
 	.text
 
-	thumb_func_start sub_080B1698
-sub_080B1698: @ 0x080B1698
-	push {lr}
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	movs r2, #1
-	bl sub_080B16AC
-	lsls r0, r0, #0x10
-	lsrs r0, r0, #0x10
-	pop {r1}
-	bx r1
-
 	thumb_func_start sub_080B16AC
 sub_080B16AC: @ 0x080B16AC
 	push {r4, r5, r6, r7, lr}

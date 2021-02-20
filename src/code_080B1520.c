@@ -13,6 +13,8 @@ extern struct_08DE7D40* gUnk_02036A50;
 extern struct_08DE7D40 gUnk_08DE7D40;
 extern struct_08DE7D40 gUnk_08DE7D4C;
 
+u16 sub_080B16AC(u16, u32, u32);
+
 u32 sub_080B1520(u16 unk_1) {
     u32 ret;
 
@@ -85,4 +87,8 @@ u32 sub_080B15E8(u16 unk_1, u16* unk_2) {
         }
         return 0;
     }
+}
+
+u16 sub_080B1698(u16 unk_1, u32 unk_2){
+    return sub_080B16AC(unk_1, unk_2, 1);
 }
