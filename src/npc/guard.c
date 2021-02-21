@@ -68,7 +68,7 @@ void sub_08063D44(Entity* this) {
 
     temp = this->entityType.subtype;
     temp ^= 0x15;
-    idx = ((-temp | temp) >> 0x1f) * 4;
+    idx = BOOLCAST(temp) * 4;
     if (!LoadExtraSpriteData(this, &gUnk_0810F524[idx]))
         return;
 
@@ -132,7 +132,7 @@ void sub_08063E90(Entity* this) {
 
     temp = this->entityType.subtype;
     temp ^= 0x15;
-    idx = ((-temp | temp) >> 0x1f) * 4;
+    idx = BOOLCAST(temp) * 4;
     if (!LoadExtraSpriteData(this, &gUnk_0810F524[idx]))
         return;
 

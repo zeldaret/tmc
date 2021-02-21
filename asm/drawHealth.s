@@ -23,7 +23,7 @@ sub_0801C6B0: @ 0x0801C6B0
 	.align 2, 0
 _0801C6CC: .4byte gUnk_0200AF00
 _0801C6D0:
-	ldr r5, _0801C6F8 @ =gUnk_02002A40
+	ldr r5, _0801C6F8 @ =gSave
 	adds r0, r5, #0
 	adds r0, #0xab
 	ldrb r0, [r0]
@@ -43,7 +43,7 @@ _0801C6EA:
 	lsrs r1, r0, #1
 	b _0801C6FE
 	.align 2, 0
-_0801C6F8: .4byte gUnk_02002A40
+_0801C6F8: .4byte gSave
 _0801C6FC:
 	movs r1, #1
 _0801C6FE:

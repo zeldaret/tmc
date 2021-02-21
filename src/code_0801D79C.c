@@ -53,17 +53,17 @@ void LoadGfxGroup(u32 group) {
             case 0xD:
                 return;
             case 0xE:
-                if (((struct_02000000 *)0x2000000)->gameLanguage > 1) {
+                if (((struct_02000000*)0x2000000)->gameLanguage > 1) {
                     loadGfx = TRUE;
                 }
                 break;
             case 0xF:
-                if (((struct_02000000 *)0x2000000)->gameLanguage != 0) {
+                if (((struct_02000000*)0x2000000)->gameLanguage != 0) {
                     loadGfx = TRUE;
                 }
                 break;
             default:
-                if (ctrl == ((struct_02000000 *)0x2000000)->gameLanguage) {
+                if (ctrl == ((struct_02000000*)0x2000000)->gameLanguage) {
                     loadGfx = TRUE;
                 }
                 break;

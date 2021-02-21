@@ -4,6 +4,8 @@
 #include "functions.h"
 #include "textbox.h"
 #include "flags.h"
+#include "save.h"
+#include "script.h"
 
 extern void InitializeAnimation(Entity*, u32);
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
@@ -15,7 +17,6 @@ extern void sub_0806AEE4(Entity*);
 extern void sub_0806AFE8(Entity*, s32*);
 extern s32 sub_0806EDD8(Entity*, u32, u32);
 extern u32 sub_0806F5B0(u32);
-extern void sub_0806F62C(Entity*, s32, s32);
 extern void sub_08078784(Entity*, u32);
 extern void sub_08078850(Entity*, u32, u32, u32*);
 
@@ -111,7 +112,7 @@ void sub_0806ACC4(Entity* this) {
                 this->interactType = 0;
                 sub_0806F118(this);
             } else {
-                sub_0807DDAC(this, 0);
+                sub_0807DDAC(this, NULL);
                 sub_0806AEA8(this);
                 if (this->entityType.parameter == 10 && this->interactType) {
                     this->action = 2;
@@ -245,7 +246,7 @@ void sub_0806AFA0(Entity* this) {
 }
 
 void sub_0806AFBC(Entity* this) {
-    int idx = gUnk_02002A40.unk8 - 2;
+    int idx = gSave.unk8 - 2;
     if (idx < 0)
         idx = 0;
 
@@ -300,7 +301,7 @@ void sub_0806B098(Entity* this) {
         idx = 1;
         if (CheckGlobalFlag(0x29)) {
             f = CheckGlobalFlag(0x2a);
-            idx = (-f | f) >> 0x1f;
+            idx = BOOLCAST(f);
         }
     }
     TextboxNoOverlap(gUnk_08112C50[(this->entityType.parameter - 7) * 3 + idx], this);
@@ -330,7 +331,7 @@ void sub_0806B134(Entity* this) {
         idx = 0;
         SetGlobalFlag(0x4a);
     }
-    if (5 < gUnk_02002A40.unk8) {
+    if (5 < gSave.unk8) {
         idx = 3;
     }
     TextboxNoOverlap(gUnk_08112C60[idx], this);

@@ -359,7 +359,7 @@ sub_08019698: @ 0x08019698
 _08019700:
 	movs r0, #0x11
 	bl LoadGfxGroup
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_080AD9B0
 	bl sub_080AD918
 	movs r0, #4
@@ -402,7 +402,7 @@ _08019760: .4byte gUnk_02018EB0
 	thumb_func_start sub_08019764
 sub_08019764: @ 0x08019764
 	push {lr}
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_0805E5C0
 	bl sub_080AD9B0
 	bl sub_080AD918
@@ -413,7 +413,7 @@ sub_08019764: @ 0x08019764
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	beq _08019790
-	ldr r0, _0801979C @ =gUnk_03000FF0
+	ldr r0, _0801979C @ =gInput
 	ldrh r1, [r0, #2]
 	movs r0, #0xa
 	ands r0, r1
@@ -427,7 +427,7 @@ _08019796:
 	pop {pc}
 	.align 2, 0
 _08019798: .4byte gUnk_02018EB0
-_0801979C: .4byte gUnk_03000FF0
+_0801979C: .4byte gInput
 
 	thumb_func_start sub_080197A0
 sub_080197A0: @ 0x080197A0
@@ -5053,7 +5053,7 @@ sub_0801BA18: @ 0x0801BA18
 	b _0801BA34
 _0801BA2A:
 	ldrb r1, [r1]
-	ldr r0, _0801BA4C @ =gUnk_02002A40
+	ldr r0, _0801BA4C @ =gSave
 	adds r0, r0, r1
 	adds r0, #0x9a
 	ldrb r0, [r0]
@@ -5070,7 +5070,7 @@ _0801BA34:
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_0801BA4C: .4byte gUnk_02002A40
+_0801BA4C: .4byte gSave
 _0801BA50: .4byte _0801BA54
 _0801BA54: @ jump table
 	.4byte _0801BA9C @ case 0
@@ -5306,7 +5306,7 @@ _0801BC76:
 	movs r5, #0xa0
 	b _0801BC98
 _0801BC7A:
-	ldr r1, _0801BCB0 @ =gUnk_02002A40
+	ldr r1, _0801BCB0 @ =gSave
 	adds r0, r4, #0
 	adds r0, #0x6f
 	ldrb r0, [r0]
@@ -5331,7 +5331,7 @@ _0801BC98:
 	bl SetBottleContents
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0801BCB0: .4byte gUnk_02002A40
+_0801BCB0: .4byte gSave
 
 	thumb_func_start sub_0801BCB4
 sub_0801BCB4: @ 0x0801BCB4
@@ -5403,7 +5403,7 @@ _0801BD40:
 	bl ModHealth
 	b _0801BD6C
 _0801BD54:
-	ldr r1, _0801BD88 @ =gUnk_02002A40
+	ldr r1, _0801BD88 @ =gSave
 	ldrb r0, [r5]
 	adds r2, r1, #0
 	adds r2, #0xb2
@@ -5429,7 +5429,7 @@ _0801BD6C:
 	beq _0801BDA2
 	b _0801BDAE
 	.align 2, 0
-_0801BD88: .4byte gUnk_02002A40
+_0801BD88: .4byte gSave
 _0801BD8C: .4byte 0x000001CF
 _0801BD90: .4byte gPlayerEntity
 _0801BD94:

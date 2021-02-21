@@ -4,6 +4,7 @@
 #include "player.h"
 #include "flags.h"
 #include "functions.h"
+#include "structures.h"
 
 extern void sub_0809F7BC(Entity*);
 extern void PlaySFX(u32);
@@ -22,7 +23,6 @@ extern Entity* CreateObject(u32, u32, u32);
 extern void PositionEntityOnTop(Entity*, Entity*);
 extern void sub_0807BB68(u32*, u32, u32);
 
-extern u8 gUnk_02034490;
 extern void* gUnk_080DD750;
 extern Entity gPlayerEntity;
 extern PlayerState gPlayerState;
@@ -48,7 +48,7 @@ void sub_0809F514(Entity* this) {
     this->spriteSettings.b.draw = 0;
     this->field_0x68.HALF.LO = 12;
     gRoomControls.cameraTarget = this;
-    gUnk_02034490 = 255;
+    gUnk_02034490[0] = 255;
     sub_0809F7BC(this);
 }
 

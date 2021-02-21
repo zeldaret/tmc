@@ -304,7 +304,7 @@ _0809D454:
 	ldrb r0, [r5, #0xc]
 	cmp r0, #2
 	bne _0809D478
-	ldr r0, _0809D494 @ =gUnk_02002A40
+	ldr r0, _0809D494 @ =gSave
 	ldr r1, [r0, #0x40]
 	movs r2, #0x80
 	lsls r2, r2, #0x15
@@ -328,7 +328,7 @@ _0809D488:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0809D494: .4byte gUnk_02002A40
+_0809D494: .4byte gSave
 
 	thumb_func_start sub_0809D498
 sub_0809D498: @ 0x0809D498

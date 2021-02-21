@@ -23,8 +23,18 @@ extern const u16 gUnk_080CC29C[];
 extern const u16 gUnk_080CC2BC[];
 extern const s8 gUnk_080CC2DC[];
 
+void ChuchuBoss(Entity* this) {
+    gUnk_080CC19C[GetNextFunction(this)]((Entity*)this);
+}
+
+void sub_08025CBC(Entity* this) {
+    sub_08001324(this);
+    if (this->entityType.form == 0) {
+        sub_08027870(this);
+    }
+}
+
 void sub_08025DC0(Entity*);
-void sub_08025CBC(Entity*);
 void sub_08025CD4(Entity*);
 void sub_08001242(Entity*);
 void sub_08025DD8(Entity*);

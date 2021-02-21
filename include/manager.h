@@ -24,7 +24,7 @@ typedef struct Manager {
     /*0x0f*/ u8 unk_0f;
     /*0x10*/ u8 unk_10;
     /*0x11*/ u8 unk_11[3];
-    /*0x14*/ struct Manager * parent;
+    /*0x14*/ struct Manager* parent;
     /*0x18*/ u8 unk_18[0x8];
     // union SplitHWord unk_20;
     // u16 unk_22;
@@ -123,5 +123,74 @@ extern struct {
 } gUnk_03004030;
 
 extern DiggingCaveEntrance* gUnk_08107DC0[];
+
+typedef struct {
+    u8 unk_00;
+    u8 unk_01;
+    u8 unk_02;
+    u8 unk_03;
+    u16 unk_04;
+    u16 unk_06;
+} UnkManager26HelperStruct;
+
+extern void Manager1();
+extern void Manager2();
+extern void sub_080576C0();
+extern void sub_08057854();
+extern void sub_08057AD0();
+extern void sub_08057CB4();
+extern void Manager7_Main();
+extern void sub_08057ED0();
+extern void sub_080581D8();
+extern void sub_08058380();
+extern void sub_080585F0();
+extern void sub_0805884C();
+extern void sub_08058DD0(Entity*);
+extern void sub_08058E60();
+extern void sub_08058ECC(Entity*);
+extern void sub_08059570(Entity*);
+extern void sub_080599B8(Entity*);
+extern void sub_080599EC(Entity*);
+extern void sub_08059DAC(Entity*);
+extern void sub_08059E58(Entity*);
+extern void sub_0805A280();
+extern void sub_0805AB4C(Entity*);
+extern void sub_0805AD48(Entity*);
+extern void sub_0805ADD8();
+extern void sub_0805AF60(Entity*);
+extern void sub_0805B030();
+extern void sub_0805B3B4(Entity*);
+extern void sub_0805B53C(Entity*);
+extern void sub_0805B5C8(Entity*);
+extern void Manager1E_Handler();
+extern void sub_0805B6F4(Entity*);
+extern void sub_0805B7A0();
+extern void sub_0805B820(Entity*);
+extern void sub_0805B8EC(Entity*);
+extern void sub_0805BC74(Entity*);
+extern void sub_0805BF18(Entity*);
+extern void sub_0805C61C(Entity*);
+extern void sub_0805C6B8();
+extern void Manager27();
+extern void Manager28_Entry();
+extern void sub_0805CB90(Entity*);
+extern void sub_0805CFC0(Entity*);
+extern void sub_0805D014(Entity*);
+extern void sub_0805D174(Entity*);
+extern void sub_0805D1FC(Entity*);
+extern void sub_0805D250();
+extern void sub_0805D3C8();
+extern void Manager30_Main();
+extern void sub_0805D630(Entity*);
+extern void sub_0805D7A4(Entity*);
+extern void sub_0805DAE8(Entity*);
+extern void sub_0805DB94(Entity*);
+extern void sub_0805DC84(Entity*);
+extern void sub_0805DDB4(Entity*);
+extern void sub_0805DE38(Entity*);
+extern void sub_0805E0A8(Entity*);
+extern void sub_0805E0FC();
+
+void (*const gManagerFunctions[58])();
 
 #endif

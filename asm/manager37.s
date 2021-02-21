@@ -59,7 +59,7 @@ _0805DE7A:
 	strb r1, [r0]
 	adds r0, #1
 	strb r1, [r0]
-	ldr r0, _0805DEB0 @ =gUnk_02002A40
+	ldr r0, _0805DEB0 @ =gSave
 	movs r1, #0x93
 	lsls r1, r1, #3
 	adds r0, r0, r1
@@ -68,7 +68,7 @@ _0805DE7A:
 	pop {r4, pc}
 	.align 2, 0
 _0805DEAC: .4byte gScreenTransition
-_0805DEB0: .4byte gUnk_02002A40
+_0805DEB0: .4byte gSave
 _0805DEB4: .4byte 0x00001194
 
 	thumb_func_start sub_0805DEB8

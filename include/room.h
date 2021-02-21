@@ -37,22 +37,22 @@ typedef struct {
 } RoomControls;
 
 typedef struct {
-	u8 filler[4];
+    u8 filler[4];
     u8 field_0x4;
     u8 filler1[1];
-	u8 itemForSaleIndex;
-	u8 field_0x7;
+    u8 itemForSaleIndex;
+    u8 field_0x7;
     u8 field_0x8;
     u8 field_0x9;
-	u8 unk2;
-	u8 filler2[5];
-	u8 unk_10;
-	u8 filler6[3];
-	u32 roomFlags;
+    u8 unk2;
+    u8 filler2[5];
+    u8 unk_10;
+    u8 filler6[3];
+    u32 roomFlags;
     u32 unk3;
-	u8 filler4[48];
-	u8 filler5[28];
-	u32 greatFairyState;
+    u8 filler4[48];
+    u8 filler5[28];
+    u32 greatFairyState;
     u32* field_0x6c;
     u32* field_0x70;
     u32* field_0x74;
@@ -61,13 +61,12 @@ typedef struct {
     void* field_0x88;
 } RoomVars;
 
-
-//Packets used to store which entities to load in a room
+// Packets used to store which entities to load in a room
 typedef struct {
-    u8 type  : 4;
+    u8 type : 4;
     u8 layer : 4;
     u8 flags : 4;
-    u8 unk   : 4;
+    u8 unk : 4;
     u8 subtype;
     u8 form;
     u32 parameter;
@@ -80,5 +79,8 @@ extern RoomControls gRoomControls;
 extern RoomVars gRoomVars;
 
 extern void SetTileType(u32, u32, u32);
+extern void sub_08080964(u32 time, u32 magnitude); // shake screen
+
+extern void* GetCurrentRoomProperty(u32);
 
 #endif

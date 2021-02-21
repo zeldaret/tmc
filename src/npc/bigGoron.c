@@ -3,13 +3,13 @@
 #include "player.h"
 #include "structures.h"
 #include "functions.h"
+#include "script.h"
 
 extern void (*gUnk_081140D4[])(Entity*);
 
 extern u16 gUnk_081140CC[];
 extern void sub_0806D0B0(Entity*);
 extern void sub_0807DD64(Entity*);
-extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern void PlaySFX(u32);
 extern void sub_0806D02C(Entity*);
@@ -28,7 +28,7 @@ void sub_0806CF30(Entity* this) {
         sub_0806D0B0(this);
         sub_0807DD64(this);
     } else {
-        sub_0807DDAC(this, 0);
+        sub_0807DDAC(this, NULL);
         sub_0807DDE4(this);
     }
 

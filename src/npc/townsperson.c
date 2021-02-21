@@ -6,6 +6,8 @@
 #include "flags.h"
 #include "structures.h"
 #include "functions.h"
+#include "save.h"
+#include "script.h"
 
 typedef struct {
     u8 frame1;
@@ -29,7 +31,6 @@ extern void sub_08061D64(Entity*);
 extern void sub_0806F118(Entity*);
 extern u32 sub_0806F5A4(u32);
 extern u32 GetFacingDirection(Entity*, Entity*);
-extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern void sub_08062048(Entity*);
 extern void sub_08078784(Entity*, u32);
@@ -42,7 +43,6 @@ extern SpriteLoadData* gUnk_0810B6EC[];
 extern u8 gUnk_0810B78C[];
 extern struct_0810B680 gUnk_0810B680[];
 extern u16 gUnk_0810B74A[];
-extern u8 gUnk_02033280[];
 extern u8 gUnk_0810B748[];
 extern u32 gUnk_0810B740[];
 extern u16 gUnk_0810B790[];
@@ -144,7 +144,7 @@ void sub_08061D64(Entity* this) {
         this->field_0x68.HALF.HI = this->animIndex;
         InitializeAnimation(this, (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
     } else {
-        sub_0807DDAC(this, 0);
+        sub_0807DDAC(this, NULL);
         sub_0807DDE4(this);
         if (this->frameDuration == 0xff) {
             this->frameDuration = gUnk_0810B680[this->entityType.form].unk2;
@@ -242,7 +242,7 @@ void sub_08061E90(Entity* this, Entity* arg1) {
         arg1->spriteIndex = 1;
     }
     if (--arg1->spriteIndex != 0) {
-        gUnk_02033280[6] = 0;
+        gUnk_02033280.unk_06 = 0;
     }
 }
 
@@ -297,7 +297,7 @@ void sub_08062048(Entity* this) {
     int iVar1;
 
     if ((this->entityType).subtype == 6) {
-        iVar1 = gUnk_02002A40.unk8 - 2;
+        iVar1 = gSave.unk8 - 2;
         if (iVar1 < 0) {
             iVar1 = 0;
         }

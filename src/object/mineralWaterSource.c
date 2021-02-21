@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 
-extern void (*MineralWaterSourceActionFuncs[])(Entity *);
+extern void (*MineralWaterSourceActionFuncs[])(Entity*);
 
 typedef struct {
     u8 field_0x00;
@@ -12,14 +12,14 @@ typedef struct {
 
 extern UnkStruct_MineralWater MineralWaterSourceParameters[];
 
-extern bool32 sub_0806FBD8(Entity *);
+extern bool32 sub_0806FBD8(Entity*);
 
-void MineralWaterSource(Entity *this) {
+void MineralWaterSource(Entity* this) {
     MineralWaterSourceActionFuncs[this->action](this);
 }
 
-void MineralWaterSource_Init(Entity *this) {
-    UnkStruct_MineralWater *unknownParameters;
+void MineralWaterSource_Init(Entity* this) {
+    UnkStruct_MineralWater* unknownParameters;
 
     if (!sub_0806FBD8(this)) {
         return;
@@ -30,8 +30,8 @@ void MineralWaterSource_Init(Entity *this) {
     this->entityType.parameter = unknownParameters->field_0x00;
     this->field_0x40 = unknownParameters->field_0x03;
 
-    this->boundingBox->unknown[6] = unknownParameters->field_0x01;
-    this->boundingBox->unknown[7] = unknownParameters->field_0x02;
+    this->boundingBox->width = unknownParameters->field_0x01;
+    this->boundingBox->height = unknownParameters->field_0x02;
 
     this->flags |= 0x80;
 
@@ -42,6 +42,6 @@ void MineralWaterSource_Init(Entity *this) {
     this->action = 1;
 }
 
-void sub_080973DC(Entity *this) {
+void sub_080973DC(Entity* this) {
     this->bitfield = 0;
 }

@@ -2,9 +2,10 @@
 #include "entity.h"
 #include "room.h"
 #include "screen.h"
-#include "greatFairy.h"
 #include "structures.h"
+#include "greatFairy.h"
 #include "functions.h"
+#include "save.h"
 
 enum {
     BEHAVIORS,
@@ -169,7 +170,7 @@ void GreatFairy_WingsUpdate(Entity* this) {
         this->action = 2;
         sub_0805EC60(this);
         gRoomVars.greatFairyState |= 32;
-        gUnk_02033280 |= 4;
+        gUnk_02033280.unk_00 |= 4;
     } else {
         sub_0805EC9C(this, this->nonPlanarMovement, 256, 0);
     }
@@ -540,10 +541,10 @@ void sub_08087424(Entity* arg0, struct_08087424* arg1) {
 
     switch (arg1->unk4) {
         case 0:
-            gUnk_02002A40.stats.arrowCount = arg1->unk4;
+            gSave.stats.arrowCount = arg1->unk4;
             break;
         case 1:
-            gUnk_02002A40.stats.bombCount = 0;
+            gSave.stats.bombCount = 0;
             break;
     }
 }

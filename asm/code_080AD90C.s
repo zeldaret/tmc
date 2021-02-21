@@ -5,8 +5,8 @@
 
 	.text
 	
-	thumb_func_start sub_080AD90C
-sub_080AD90C: @ 0x080AD90C
+	thumb_func_start FlushSprites
+FlushSprites: @ 0x080AD90C
 	ldr r1, _080AD914 @ =gUnk_03000000
 	movs r0, #0
 	strb r0, [r1, #3]
@@ -148,13 +148,13 @@ sub_080ADA14: @ 0x080ADA14
 	adds r3, r0, #0
 	adds r2, r1, #0
 	ldr r4, _080ADA28 @ =gUnk_03006580
-	ldr r0, _080ADA2C @ =gUnk_03001010
+	ldr r0, _080ADA2C @ =gOamCmd
 	adds r1, r3, #0
 	bl _call_via_r4
 	pop {r4, pc}
 	.align 2, 0
 _080ADA28: .4byte gUnk_03006580
-_080ADA2C: .4byte gUnk_03001010
+_080ADA2C: .4byte gOamCmd
 
 	thumb_func_start sub_080ADA30
 sub_080ADA30: @ 0x080ADA30

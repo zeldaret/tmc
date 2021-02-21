@@ -35,7 +35,8 @@ void Carpenter(Entity* this) {
                 this->action = 2;
                 this->interactType = 0;
                 this->field_0x68.HALF.HI = this->animIndex;
-                InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 4 + (this->entityType.form * 8));
+                InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 4 +
+                                              (this->entityType.form * 8));
                 sub_0806F118(this);
             } else {
                 sub_0807DDAC(this, 0);
@@ -68,7 +69,6 @@ void Carpenter_Head(Entity* this) {
     }
 }
 
-void sub_080672b0(Entity *this, u32 param_2)
-{
-  InitializeAnimation(this,*(u32 *)(param_2 + 4) + (this->animationState >> 1) + this->entityType.form * 8);
+void sub_080672b0(Entity* this, u32 param_2) {
+    InitializeAnimation(this, *(u32*)(param_2 + 4) + (this->animationState >> 1) + this->entityType.form * 8);
 }

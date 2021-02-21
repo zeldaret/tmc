@@ -324,7 +324,7 @@ sub_0801DA90: @ 0x0801DA90
 	ldr r0, _0801DB08 @ =0x0600C000
 	movs r1, #0x20
 	bl _DmaZero
-	ldr r0, _0801DB0C @ =gUnk_02034CB0
+	ldr r0, _0801DB0C @ =gBG0Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
 	bl _DmaZero
@@ -339,7 +339,7 @@ _0801DAFC: .4byte 0x040000B0
 _0801DB00: .4byte 0x0000C5FF
 _0801DB04: .4byte 0x00007FFF
 _0801DB08: .4byte 0x0600C000
-_0801DB0C: .4byte gUnk_02034CB0
+_0801DB0C: .4byte gBG0Buffer
 
 	thumb_func_start sub_0801DB10
 sub_0801DB10: @ 0x0801DB10
@@ -370,19 +370,19 @@ sub_0801DB34: @ 0x0801DB34
 	adds r0, r4, #0
 	movs r1, #0x7c
 	bl _DmaZero
-	ldr r0, _0801DB70 @ =gUnk_02034CB0
+	ldr r0, _0801DB70 @ =gBG0Buffer
 	str r0, [r4, #0x10]
 	ldr r0, _0801DB74 @ =0x00001F0C
 	strh r0, [r4, #8]
-	ldr r0, _0801DB78 @ =gUnk_02021F30
+	ldr r0, _0801DB78 @ =gBG1Buffer
 	str r0, [r4, #0x1c]
 	ldr r0, _0801DB7C @ =0x00001C01
 	strh r0, [r4, #0x14]
-	ldr r0, _0801DB80 @ =gUnk_020344B0
+	ldr r0, _0801DB80 @ =gBG2Buffer
 	str r0, [r4, #0x28]
 	ldr r0, _0801DB84 @ =0x00001D02
 	strh r0, [r4, #0x20]
-	ldr r0, _0801DB88 @ =gUnk_02001A40
+	ldr r0, _0801DB88 @ =gBG3Buffer
 	str r0, [r4, #0x34]
 	ldr r0, _0801DB8C @ =0x00001E03
 	strh r0, [r4, #0x2c]
@@ -394,13 +394,13 @@ sub_0801DB34: @ 0x0801DB34
 	pop {r4, pc}
 	.align 2, 0
 _0801DB6C: .4byte gScreen
-_0801DB70: .4byte gUnk_02034CB0
+_0801DB70: .4byte gBG0Buffer
 _0801DB74: .4byte 0x00001F0C
-_0801DB78: .4byte gUnk_02021F30
+_0801DB78: .4byte gBG1Buffer
 _0801DB7C: .4byte 0x00001C01
-_0801DB80: .4byte gUnk_020344B0
+_0801DB80: .4byte gBG2Buffer
 _0801DB84: .4byte 0x00001D02
-_0801DB88: .4byte gUnk_02001A40
+_0801DB88: .4byte gBG3Buffer
 _0801DB8C: .4byte 0x00001E03
 _0801DB90: .4byte 0x0000FFFF
 
@@ -1924,7 +1924,7 @@ _0801E6E4:
 	subs r0, r1, #1
 	cmp r0, #0x7e
 	bhi _0801E70A
-	ldr r0, _0801E72C @ =gUnk_02002A40
+	ldr r0, _0801E72C @ =gSave
 	ldr r2, _0801E730 @ =0x000001C1
 	adds r0, r0, r2
 	adds r1, r1, r0
@@ -1953,7 +1953,7 @@ _0801E722:
 	.align 2, 0
 _0801E724: .4byte gUnk_02022740
 _0801E728: .4byte gUnk_02002C01
-_0801E72C: .4byte gUnk_02002A40
+_0801E72C: .4byte gSave
 _0801E730: .4byte 0x000001C1
 _0801E734: .4byte gUnk_03003DF0
 
@@ -1972,7 +1972,7 @@ sub_0801E738: @ 0x0801E738
 	cmp r1, #0
 	bge _0801E76E
 	movs r1, #0
-	ldr r0, _0801E794 @ =gUnk_02002A40
+	ldr r0, _0801E794 @ =gSave
 	movs r3, #0x8c
 	lsls r3, r3, #1
 	adds r2, r0, r3
@@ -1988,7 +1988,7 @@ _0801E764:
 _0801E76E:
 	cmp r1, #0x11
 	bhi _0801E790
-	ldr r2, _0801E794 @ =gUnk_02002A40
+	ldr r2, _0801E794 @ =gSave
 	movs r3, #0x8c
 	lsls r3, r3, #1
 	adds r0, r2, r3
@@ -2007,7 +2007,7 @@ _0801E78E:
 _0801E790:
 	pop {r4, pc}
 	.align 2, 0
-_0801E794: .4byte gUnk_02002A40
+_0801E794: .4byte gSave
 
 	thumb_func_start sub_0801E798
 sub_0801E798: @ 0x0801E798
@@ -2016,7 +2016,7 @@ sub_0801E798: @ 0x0801E798
 	adds r1, r0, #0
 	cmp r1, #0
 	blt _0801E7C4
-	ldr r2, _0801E7C8 @ =gUnk_02002A40
+	ldr r2, _0801E7C8 @ =gSave
 	ldr r3, _0801E7CC @ =0x0000012B
 	adds r0, r2, r3
 	adds r3, r1, r0
@@ -2036,7 +2036,7 @@ _0801E7C2:
 _0801E7C4:
 	pop {r4, pc}
 	.align 2, 0
-_0801E7C8: .4byte gUnk_02002A40
+_0801E7C8: .4byte gSave
 _0801E7CC: .4byte 0x0000012B
 
 	thumb_func_start sub_0801E7D0
@@ -2046,14 +2046,14 @@ sub_0801E7D0: @ 0x0801E7D0
 	adds r1, r0, #0
 	cmp r1, #0
 	blt _0801E7F0
-	ldr r0, _0801E7E8 @ =gUnk_02002A40
+	ldr r0, _0801E7E8 @ =gSave
 	ldr r2, _0801E7EC @ =0x0000012B
 	adds r0, r0, r2
 	adds r0, r1, r0
 	ldrb r0, [r0]
 	b _0801E7F2
 	.align 2, 0
-_0801E7E8: .4byte gUnk_02002A40
+_0801E7E8: .4byte gSave
 _0801E7EC: .4byte 0x0000012B
 _0801E7F0:
 	movs r0, #0
@@ -2305,7 +2305,7 @@ sub_0801E99C: @ 0x0801E99C
 	bl GetInventoryValue
 	cmp r0, #0
 	beq _0801EA56
-	ldr r1, _0801E9E8 @ =gUnk_02002A40
+	ldr r1, _0801E9E8 @ =gSave
 	ldrb r0, [r7]
 	ldrb r2, [r1, #8]
 	cmp r0, r2
@@ -2329,7 +2329,7 @@ _0801E9D6:
 	b _0801EA10
 	.align 2, 0
 _0801E9E4: .4byte gUnk_08001DCC
-_0801E9E8: .4byte gUnk_02002A40
+_0801E9E8: .4byte gSave
 _0801E9EC: .4byte 0x000001C1
 _0801E9F0:
 	cmp r5, #0xf2
@@ -2370,7 +2370,7 @@ _0801EA1C:
 _0801EA32:
 	movs r5, #0xf3
 _0801EA34:
-	ldr r1, _0801EA5C @ =gUnk_02002A40
+	ldr r1, _0801EA5C @ =gSave
 	ldr r2, _0801EA60 @ =0x000001C1
 	adds r0, r1, r2
 	add r0, r8
@@ -2389,7 +2389,7 @@ _0801EA56:
 	movs r0, #0
 	b _0801EA6E
 	.align 2, 0
-_0801EA5C: .4byte gUnk_02002A40
+_0801EA5C: .4byte gSave
 _0801EA60: .4byte 0x000001C1
 _0801EA64:
 	subs r0, r5, #1

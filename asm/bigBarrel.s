@@ -43,14 +43,14 @@ sub_08088A68: @ 0x08088A68
 	bl CheckGlobalFlag
 	cmp r0, #0
 	beq _08088AA0
-	ldr r0, _08088A9C @ =gUnk_02002A40
+	ldr r0, _08088A9C @ =gSave
 	ldrb r0, [r0, #7]
 	adds r0, #1
 	b _08088AA4
 	.align 2, 0
-_08088A9C: .4byte gUnk_02002A40
+_08088A9C: .4byte gSave
 _08088AA0:
-	ldr r0, _08088AD8 @ =gUnk_02002A40
+	ldr r0, _08088AD8 @ =gSave
 	ldrb r0, [r0, #7]
 _08088AA4:
 	strb r0, [r4, #0x1e]
@@ -77,7 +77,7 @@ _08088AA4:
 	str r1, [r0, #0x68]
 	b _08088B82
 	.align 2, 0
-_08088AD8: .4byte gUnk_02002A40
+_08088AD8: .4byte gSave
 _08088ADC: .4byte gRoomControls
 _08088AE0: .4byte gRoomVars
 _08088AE4:

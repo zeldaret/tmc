@@ -5,26 +5,29 @@
 #include "flags.h"
 #include "area.h"
 
+void sub_08058398(ManagerA*);
+void sub_080583EC(ManagerA*);
+void sub_08058408(ManagerA*);
+void sub_08058514(ManagerA*);
+void sub_080585B0(ManagerA*);
 
-extern void (*gUnk_081081F4[])(Manager*);
+void (*const gUnk_081081F4[])(ManagerA*) = { sub_08058398, sub_080583EC, sub_08058408, sub_08058514, sub_080585B0 };
 
-void sub_08058380(Manager* this) {
-    gUnk_081081F4[this->action](this);
+void sub_08058380(ManagerA* this) {
+    gUnk_081081F4[this->manager.action](this);
 }
-
-
 
 extern void sub_0805E3A0(Manager*, u32);
 
 void sub_08058398(ManagerA* this) {
-    
+
     if (CheckFlags(this->unk_3c) != 0) {
         DeleteThisEntity();
     }
-    this->unk_24 = this->unk_3a<<3;
-    this->unk_26 = this->unk_3b<<3;
-    this->unk_20 = this->unk_24 + (this->unk_38<<4);
-    this->unk_22 = this->unk_26 + (this->unk_39<<4);
+    this->unk_24 = this->unk_3a << 3;
+    this->unk_26 = this->unk_3b << 3;
+    this->unk_20 = this->unk_24 + (this->unk_38 << 4);
+    this->unk_22 = this->unk_26 + (this->unk_39 << 4);
     sub_0805E3A0(&this->manager, 0x06);
     if (this->unk_3e == 0) {
         this->manager.action = 2;
@@ -32,7 +35,6 @@ void sub_08058398(ManagerA* this) {
         this->manager.action = 1;
     }
 }
-
 
 void sub_08058408(ManagerA*);
 
@@ -53,21 +55,25 @@ extern void sub_08078B48(void);
 u32 sub_0805848C(ManagerA*);
 void sub_080585DC(ManagerA*);
 
-void sub_08058408(ManagerA* this){
+void sub_08058408(ManagerA* this) {
     u32 tmp2;
     tmp2 = (gPlayerState.flags.all & 0x08);
-    if (tmp2 != 0) return;
-    if (!CheckPlayerInRegion(this->unk_20, this->unk_22, this->unk_24, this->unk_26)) return;
+    if (tmp2 != 0)
+        return;
+    if (!CheckPlayerInRegion(this->unk_20, this->unk_22, this->unk_24, this->unk_26))
+        return;
     switch (this->manager.unk_0a) {
         case 1:
             return;
         case 2:
             sub_080585DC(this);
-            if ((gPlayerState.flags.all & 0x80) == 0) return;
+            if ((gPlayerState.flags.all & 0x80) == 0)
+                return;
         case 0:
         default:
             sub_080585DC(this);
-            if (sub_0805848C(this) == 0) return;
+            if (sub_0805848C(this) == 0)
+                return;
             sub_08078A90(3);
             sub_08078B48();
             sub_0805E544();
@@ -83,9 +89,8 @@ void sub_08058408(ManagerA* this){
     }
 }
 
-
 u32 sub_0805848C(ManagerA* this) {
-    switch (gPlayerState.field_0xa8-5) {
+    switch (gPlayerState.field_0xa8 - 5) {
         case 0:
         case 2:
         case 3:
@@ -116,7 +121,6 @@ u32 sub_0805848C(ManagerA* this) {
     }
 }
 
-
 extern void UnfreezeTime(void);
 
 void sub_08058514(ManagerA* this) {
@@ -133,12 +137,13 @@ void sub_08058514(ManagerA* this) {
             return;
         case 0:
         case 2:
-            if (((--this->manager.unk_0e)<<0x18) == 0) {
+            if (((--this->manager.unk_0e) << 0x18) == 0) {
                 this->manager.unk_0d++;
             }
             return;
         case 3:
-            if (gPlayerEntity.action != 1 && gPlayerEntity.action != 9) return;
+            if (gPlayerEntity.action != 1 && gPlayerEntity.action != 9)
+                return;
             gPlayerState.field_0x8b = 1;
             UnfreezeTime();
             SetFlag(this->unk_3c);
@@ -148,7 +153,6 @@ void sub_08058514(ManagerA* this) {
             return;
     }
 }
-
 
 extern void sub_0801855C(void);
 

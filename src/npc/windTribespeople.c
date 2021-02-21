@@ -5,12 +5,13 @@
 #include "flags.h"
 #include "structures.h"
 #include "functions.h"
+#include "save.h"
+#include "script.h"
 
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 extern void sub_0807DD50(Entity*);
 extern void sub_0806C7D4(Entity*);
 extern void sub_0806F118(Entity*);
-extern void sub_0807DD94(Entity*, u32);
 extern void sub_0807DD80(Entity*, u32*);
 extern u32 sub_0801E99C();
 extern void sub_08078784(Entity*, u32);
@@ -53,7 +54,7 @@ void sub_0806C7D4(Entity* this) {
         this->interactType = '\0';
         sub_0806F118(this);
     } else {
-        sub_0807DD94(this, 0);
+        sub_0807DD94(this, NULL);
         if ((this->entityType.parameter == 3) && (!CheckGlobalFlag(WARP_EVENT_END)) && (CheckLocalFlag(0x63)) &&
             (CheckRoomFlag(0))) {
             (this->entityType).parameter = 7;
@@ -118,7 +119,7 @@ void sub_0806C90C(Entity* param_1, Entity* param_2) {
 }
 
 void sub_0806C928(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08113ABC[gUnk_02002A40.unk8]);
+    ShowNPCDialogue(this, &gUnk_08113ABC[gSave.unk8]);
 }
 
 void sub_0806C944(Entity* this) {

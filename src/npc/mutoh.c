@@ -6,12 +6,13 @@
 #include "npc.h"
 #include "structures.h"
 #include "functions.h"
+#include "save.h"
+#include "script.h"
 
 extern void sub_0807DD50(Entity*);
 extern u32 GetFacingDirection(Entity*, Entity*);
 extern u32 sub_0806F5A4(u32);
 extern void sub_0806F118(Entity*);
-extern void sub_0807DD94(Entity*, u32);
 extern u32 UpdateFuseInteraction(Entity*);
 extern void sub_0807000C(Entity*);
 extern u32 sub_0801E99C(Entity*);
@@ -42,7 +43,7 @@ void Mutoh(Entity* this) {
                 InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 4);
                 sub_0806F118(this);
             } else {
-                sub_0807DD94(this, 0);
+                sub_0807DD94(this, NULL);
             }
             break;
         case 2:
@@ -66,13 +67,13 @@ void sub_080670B4(Entity* this) {
     uVar2 = 0;
     if (GetInventoryValue(0x11) == 0) {
         uVar1 = CheckGlobalFlag(TABIDACHI);
-        uVar2 = (-uVar1 | uVar1) >> 0x1f;
+        uVar2 = BOOLCAST(uVar1);
     }
     TextboxNoOverlap(gUnk_08110C0C[uVar2], this);
 }
 
 void sub_080670E4(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08110C10[gUnk_02002A40.unk8]);
+    ShowNPCDialogue(this, &gUnk_08110C10[gSave.unk8]);
 }
 
 void sub_08067100(Entity* this) {

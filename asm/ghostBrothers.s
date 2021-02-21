@@ -505,7 +505,7 @@ _08065F60: .4byte gUnk_0811033C
 sub_08065F64: @ 0x08065F64
 	push {lr}
 	adds r3, r0, #0
-	ldr r0, _08065F88 @ =gUnk_02002A40
+	ldr r0, _08065F88 @ =gSave
 	ldrb r0, [r0, #8]
 	subs r0, #2
 	cmp r0, #0
@@ -522,7 +522,7 @@ _08065F74:
 	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
-_08065F88: .4byte gUnk_02002A40
+_08065F88: .4byte gSave
 _08065F8C: .4byte gUnk_08110280
 
 	thumb_func_start GhostBrothers_Fusion

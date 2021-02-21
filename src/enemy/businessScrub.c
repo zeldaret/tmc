@@ -3,6 +3,7 @@
 #include "flags.h"
 #include "functions.h"
 #include "textbox.h"
+#include "save.h"
 
 extern void sub_0801D040(Entity*, u32);
 extern Entity* sub_08049DF4(u32);
@@ -243,7 +244,7 @@ void sub_08028CE8(Entity* this) {
     u32 subtype;
 
     if ((gTextBox.doTextBox & 0x7f) == 0 && sub_0802915C(this) && !sub_08056338()) {
-        if (offer->price <= gUnk_02002A40.stats.rupees) {
+        if (offer->price <= gSave.stats.rupees) {
             if (sub_080291DC(this)) {
                 /* Bag full. */
                 TextboxNoOverlapFollow(0x2904);
@@ -508,11 +509,11 @@ bool32 sub_080291DC(Entity* this) {
 
     switch (offer->field_0x8) {
         case 0x6c:
-            if (gBombBagSizes[gUnk_02002A40.stats.bombBagType] <= gUnk_02002A40.stats.bombCount)
+            if (gBombBagSizes[gSave.stats.bombBagType] <= gSave.stats.bombCount)
                 return TRUE;
             break;
         case 0x6f:
-            if (gQuiverSizes[gUnk_02002A40.stats.quiverType] <= gUnk_02002A40.stats.arrowCount)
+            if (gQuiverSizes[gSave.stats.quiverType] <= gSave.stats.arrowCount)
                 return TRUE;
             break;
     }

@@ -6,39 +6,6 @@
 
 	.text
 
-
-	thumb_func_start ChuchuBoss
-ChuchuBoss: @ 0x08025CA0
-	push {r4, r5, lr}
-	adds r5, r0, #0
-	ldr r4, _08025CB8 @ =gUnk_080CC19C
-	bl GetNextFunction
-	lsls r0, r0, #2
-	adds r0, r0, r4
-	ldr r1, [r0]
-	adds r0, r5, #0
-	bl _call_via_r1
-	pop {r4, r5, pc}
-	.align 2, 0
-_08025CB8: .4byte gUnk_080CC19C
-
-	thumb_func_start sub_08025CBC
-sub_08025CBC: @ 0x08025CBC
-	push {r4, lr}
-	adds r4, r0, #0
-	bl sub_08001324
-
-	thumb_func_start sub_08025CC4
-sub_08025CC4: @ 0x08025CC4
-	ldrb r0, [r4, #0xa]
-	cmp r0, #0
-	bne _08025CD0
-	adds r0, r4, #0
-	bl sub_08027870
-_08025CD0:
-	pop {r4, pc}
-	.align 2, 0
-
 	thumb_func_start sub_08025CD4
 sub_08025CD4: @ 0x08025CD4
 	push {r4, r5, lr}

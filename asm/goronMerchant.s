@@ -13,7 +13,7 @@ sub_08069718: @ 0x08069718
 	adds r7, r1, #0
 	bl sub_080696BC
 	adds r6, r0, #0
-	ldr r0, _08069754 @ =gUnk_02002A40
+	ldr r0, _08069754 @ =gSave
 	adds r0, #0xc0
 	ldrh r0, [r0]
 	cmp r6, r0
@@ -35,7 +35,7 @@ sub_08069718: @ 0x08069718
 	movs r0, #1
 	b _0806976E
 	.align 2, 0
-_08069754: .4byte gUnk_02002A40
+_08069754: .4byte gSave
 _08069758: .4byte gRoomVars
 _0806975C:
 	ldr r0, _08069760 @ =0x00002C1F

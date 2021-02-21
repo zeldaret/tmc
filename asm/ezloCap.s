@@ -510,7 +510,7 @@ _0806DC36:
 
 	thumb_func_start sub_0806DC3C
 sub_0806DC3C: @ 0x0806DC3C
-	ldr r2, _0806DC54 @ =gUnk_02002A40
+	ldr r2, _0806DC54 @ =gSave
 	adds r1, r2, #0
 	adds r1, #0xb4
 	ldrb r3, [r1]
@@ -523,7 +523,7 @@ sub_0806DC3C: @ 0x0806DC3C
 	strb r1, [r0]
 	bx lr
 	.align 2, 0
-_0806DC54: .4byte gUnk_02002A40
+_0806DC54: .4byte gSave
 
 	thumb_func_start sub_0806DC58
 sub_0806DC58: @ 0x0806DC58

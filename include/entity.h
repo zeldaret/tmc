@@ -19,8 +19,22 @@ typedef struct {
 } EntityType;
 
 typedef struct {
-    u8 unknown[8];
+    s8 offset_x;
+    s8 offset_y;
+    u8 unk2[4];
+    u8 width;
+    u8 height;
 } BoundingBox;
+
+typedef struct {
+    s8 offset_x;
+    s8 offset_y;
+    u8 unknown[4];
+    u8 width;
+    u8 height;
+    u8 depth;
+    u8 unknown2[3];
+} BoundingBox3D;
 
 typedef struct Entity {
     /*0x00*/ struct Entity* prev;
@@ -50,10 +64,10 @@ typedef struct Entity {
     /*    */     } PACKED b;
     /*    */ } PACKED spriteSettings;
     /*0x19*/ struct {
-    /*    */     u8 b0         : 2; // 1-2
-    /*    */     u8 alphaBlend : 2; // 4-8
-    /*    */     u8 b2         : 2; //0x10
-    /*    */     u8 b3         : 2; //0x40
+    /*    */     u32 b0         : 2; // 1-2
+    /*    */     u32 alphaBlend : 2; // 4-8
+    /*    */     u32 b2         : 2; //0x10
+    /*    */     u32 b3         : 2; //0x40
     /*    */ } PACKED spriteRendering;
     /*0x1a*/ union {
     /*    */    u8 raw;
@@ -63,9 +77,9 @@ typedef struct Entity {
     /*    */    } PACKED b;
     /*    */} PACKED palette;
     /*0x1b*/ struct {
-    /*    */     u8 b0    : 4;
-    /*    */     u8 flipX : 2; //0x10
-    /*    */     u8 flipY : 2; //0x40
+    /*    */     u32 b0    : 1;
+    /*    */     u32 b1    : 5; //0x10
+    /*    */     u32 flipY : 2; //0x40
     /*    */ } PACKED spriteOrientation;
     /*0x1c*/ u8 field_0x1c;
     /*0x1d*/ u8 field_0x1d;
@@ -135,6 +149,16 @@ typedef struct Entity {
     /*0x86*/ union SplitHWord field_0x86;
 } Entity;
 
+typedef struct LinkedList {
+    Entity* last;
+    Entity* first;
+} LinkedList;
+
+extern LinkedList gEntityLists[9];
+extern LinkedList gUnk_03003D90;
+
+extern LinkedList gUnk_03003DA0;
+
 #define TILE(x, y)                                      \
     ((((x - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
      (((y - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
@@ -188,7 +212,5 @@ enum {
 #define Direction8TurnAround(expr) (Direction8RoundUp(expr) ^ 0x10)
 #define Direction8ToAnimationState(expr) (Direction8RoundUp(expr) >> 2)
 #define Direction8FromAnimationState(expr) (expr << 2)
-
-extern Entity gUnk_03003DA0;
 
 #endif

@@ -3,10 +3,10 @@
 #include "functions.h"
 #include "room.h"
 #include "flags.h"
+#include "script.h"
 
 extern void PrependEntityToList(Entity*, u32);
 extern void sub_0807DD50(Entity*);
-extern void sub_0807DD94(Entity*, u32);
 extern Entity* FindEntityBySubtype(u32, u32);
 void CopyPosition(Entity*, Entity*);
 void sub_08068680(Entity*, Entity*);
@@ -15,7 +15,6 @@ u32 GetAnimationState(Entity* ent);
 void DeleteThisEntity(void);
 extern Entity* GetEntityByType(u32, u32);
 extern void sub_080686C4(Entity*, Entity*);
-extern void sub_0806F62C(Entity*, u32, u32);
 extern void PlaySFX(u32);
 extern void SetTileType(u32, u32, u32);
 
@@ -23,7 +22,6 @@ extern Entity gPlayerEntity;
 extern RoomControls gRoomControls;
 
 extern void (*gUnk_08110BD8[])(Entity* ent);
-extern u8 gUnk_02033280[];
 extern u16 gUnk_08110BE0[];
 
 void Zelda(Entity* ent) {
@@ -39,7 +37,7 @@ void sub_08066CCC(Entity* ent) {
 }
 
 void sub_08066CF8(Entity* ent) {
-    sub_0807DD94(ent, 0);
+    sub_0807DD94(ent, NULL);
 }
 
 void sub_08066D04(Entity* ent) {
@@ -166,12 +164,12 @@ void sub_08066E80(Entity* ent, u8* param_2) {
         case 4:
             UpdateAnimationSingleFrame(ent);
             if (ent->frames.b.f3) {
-                gUnk_02033280[7] |= 1;
+                gUnk_02033280.unk_07 |= 1;
                 return;
             }
     }
     ent->field_0x80.HWORD = ent->animIndex;
-    gUnk_02033280[6] = 0;
+    gUnk_02033280.unk_06 = 0;
 }
 
 void sub_08066F94(void) {

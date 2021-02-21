@@ -51,7 +51,8 @@ void sub_080576C0(Manager3* this) {
                 }
             }
             if (sub_080002C0(this->unk_38, this->unk_3a, this->manager.unk_0e) == 0x3d) {
-                sub_080577AC(this->unk_38 + gRoomControls.roomOriginX, this->unk_3a + gRoomControls.roomOriginY, this->manager.unk_0e);
+                sub_080577AC(this->unk_38 + gRoomControls.roomOriginX, this->unk_3a + gRoomControls.roomOriginY,
+                             this->manager.unk_0e);
                 if (!this->manager.unk_0f) {
                     this->manager.unk_0f = 1;
                     PlaySFX(0x152);
@@ -62,7 +63,6 @@ void sub_080576C0(Manager3* this) {
     } else {
         this->manager.unk_0f = 0;
     }
-
 }
 
 void sub_080577AC(u32 baseX, u32 baseY, u32 layer) {
@@ -70,9 +70,11 @@ void sub_080577AC(u32 baseX, u32 baseY, u32 layer) {
     int offsetX, offsetY;
     Entity* spark;
     r = Random();
-    if ((r & 0x7) != 0) return;
+    if ((r & 0x7) != 0)
+        return;
     spark = CreateObject(0xF, 0x26, 0);
-    if (!spark) return;
+    if (!spark)
+        return;
     offsetX = (r >> 0x8) & 0xF;
     offsetY = ((r >> 0x10) & 0xF);
     if (offsetY > 0x4) {
@@ -88,10 +90,8 @@ void sub_080577AC(u32 baseX, u32 baseY, u32 layer) {
 }
 
 u32 sub_08057810(void) {
-    if ((gPlayerState.flags.all & 0x80)
-        && !gPlayerState.field_0xaa
-        && (gArea.field_0x17 != 0x6)
-        && (gPlayerState.heldObject == 0)) {
+    if ((gPlayerState.flags.all & 0x80) && !gPlayerState.field_0xaa && (gArea.field_0x17 != 0x6) &&
+        (gPlayerState.heldObject == 0)) {
         switch (gPlayerState.field_0xa8) {
             case 0:
             case 1:

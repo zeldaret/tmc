@@ -2141,7 +2141,7 @@ sub_080423A4: @ 0x080423A4
 	ands r0, r1
 	cmp r0, #0
 	bne _0804241C
-	ldr r0, _080423D0 @ =gUnk_02002A40
+	ldr r0, _080423D0 @ =gSave
 	movs r2, #0x93
 	lsls r2, r2, #3
 	adds r1, r0, r2
@@ -2153,7 +2153,7 @@ sub_080423A4: @ 0x080423A4
 	b _0804241C
 	.align 2, 0
 _080423CC: .4byte gScreenTransition
-_080423D0: .4byte gUnk_02002A40
+_080423D0: .4byte gSave
 _080423D4:
 	ldr r2, _08042420 @ =gPlayerState
 	adds r0, r2, #0

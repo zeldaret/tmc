@@ -1,6 +1,8 @@
 #ifndef GREATFAIRY_H
 #define GREATFAIRY_H
 
+#include "screen.h"
+
 extern u32 __modsi3(u32, u32);
 extern void InitializeAnimation(Entity*, u32);
 extern void GreatFairy_InitializeAnimation(Entity*);
@@ -39,11 +41,10 @@ extern const s16 GreatFairy_RippleOffsets[10];
 extern u32 gUnk_02034350;
 extern RoomVars gRoomVars;
 extern Screen gScreen;
-extern u32 gUnk_02033280;
+extern struct_02033280 gUnk_02033280;
 extern u8 gUnk_0812079C[8];
 extern s16 gSineTable[];
 extern s8 gUnk_081207AC[];
-
 
 typedef struct {
     s32 unk0;

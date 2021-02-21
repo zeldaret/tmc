@@ -42,47 +42,43 @@ void sub_080787CC(Entity* ent) {
     sub_0807887C(ent, 5, 0);
 }
 
-s32 sub_080787D8(Entity *ent)
-{
-  s32 iVar1;
-  
-  iVar1 = sub_0807887C(ent, 8, 0);
-  if (iVar1 >= 0) {
-    gUnk_03003DF0[iVar1].unk[10] = 0xbe;
-  }
-  return iVar1;
+s32 sub_080787D8(Entity* ent) {
+    s32 iVar1;
+
+    iVar1 = sub_0807887C(ent, 8, 0);
+    if (iVar1 >= 0) {
+        gUnk_03003DF0[iVar1].unk[10] = 0xbe;
+    }
+    return iVar1;
 }
 
-s32 sub_08078800(Entity *ent)
-{
-  s32 iVar1;
-  
-  iVar1 = sub_0807887C(ent, 6, 0);
-  if (iVar1 >= 0) {
-    gUnk_03003DF0[iVar1].unk[10] = 0xbe;
-  }
-  return iVar1;
+s32 sub_08078800(Entity* ent) {
+    s32 iVar1;
+
+    iVar1 = sub_0807887C(ent, 6, 0);
+    if (iVar1 >= 0) {
+        gUnk_03003DF0[iVar1].unk[10] = 0xbe;
+    }
+    return iVar1;
 }
 
-s32 sub_08078828(Entity *ent)
-{
-  s32 iVar1;
-  
-  iVar1 = sub_0807887C(ent, 3, 0);
-  if (iVar1 >= 0) {
-    gUnk_03003DF0[iVar1].unk[10] = 0xbe;
-  }
-  return iVar1;
+s32 sub_08078828(Entity* ent) {
+    s32 iVar1;
+
+    iVar1 = sub_0807887C(ent, 3, 0);
+    if (iVar1 >= 0) {
+        gUnk_03003DF0[iVar1].unk[10] = 0xbe;
+    }
+    return iVar1;
 }
 
-void sub_08078850(u32 arg0, u32 arg1, u32 arg2, u32 arg3)
-{
-  s32 iVar1;
-  
-  iVar1 = sub_08078904();
-  if (iVar1 >= 0) {
-    gUnk_03003DF0[iVar1].unk[8] = arg1;
-    gUnk_03003DF0[iVar1].unk[10] = arg2;
-    *(&gUnk_03003DF0[iVar1].unk4 + 1) = arg3;
-  }
+void sub_08078850(u32 arg0, u32 arg1, u32 arg2, u32 arg3) {
+    s32 iVar1;
+
+    iVar1 = sub_08078904();
+    if (iVar1 >= 0) {
+        gUnk_03003DF0[iVar1].unk[8] = arg1;
+        gUnk_03003DF0[iVar1].unk[10] = arg2;
+        *(&gUnk_03003DF0[iVar1].unk4 + 1) = arg3;
+    }
 }

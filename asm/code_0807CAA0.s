@@ -29,7 +29,7 @@ _0807CAC4: .4byte gUnk_02002B32
 
 	thumb_func_start sub_0807CAC8
 sub_0807CAC8: @ 0x0807CAC8
-	ldr r2, _0807CAE0 @ =gUnk_02002A40
+	ldr r2, _0807CAE0 @ =gSave
 	ldr r1, _0807CAE4 @ =gArea
 	ldr r3, _0807CAE8 @ =0x0000047C
 	adds r2, r2, r3
@@ -42,14 +42,14 @@ sub_0807CAC8: @ 0x0807CAC8
 	strb r1, [r2]
 	bx lr
 	.align 2, 0
-_0807CAE0: .4byte gUnk_02002A40
+_0807CAE0: .4byte gSave
 _0807CAE4: .4byte gArea
 _0807CAE8: .4byte 0x0000047C
 
 	thumb_func_start sub_0807CAEC
 sub_0807CAEC: @ 0x0807CAEC
 	adds r2, r0, #0
-	ldr r0, _0807CB04 @ =gUnk_02002A40
+	ldr r0, _0807CB04 @ =gSave
 	ldr r1, _0807CB08 @ =gArea
 	ldr r3, _0807CB0C @ =0x0000047C
 	adds r0, r0, r3
@@ -61,7 +61,7 @@ sub_0807CAEC: @ 0x0807CAEC
 	ands r0, r1
 	bx lr
 	.align 2, 0
-_0807CB04: .4byte gUnk_02002A40
+_0807CB04: .4byte gSave
 _0807CB08: .4byte gArea
 _0807CB0C: .4byte 0x0000047C
 

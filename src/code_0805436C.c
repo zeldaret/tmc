@@ -19,7 +19,7 @@ typedef struct {
     u8 unk;
 } ScreenTransition;
 
-extern SaveFile gUnk_02002A40;
+extern SaveFile gSave;
 extern struct_080FD5B4 gUnk_080FD5B4[];
 extern ScreenTransition gScreenTransition;
 
@@ -30,13 +30,12 @@ extern u8 gUnk_080FE1C6[];
 extern u32 gUnk_02034398;
 extern void (*const gUnk_080FE2A0[])();
 
-
 u32 IsItemEquipped(u32 itemID) {
     u32 ret;
 
-    if (itemID == gUnk_02002A40.stats.itemOnA)
+    if (itemID == gSave.stats.itemOnA)
         ret = 0;
-    else if (itemID == gUnk_02002A40.stats.itemOnB)
+    else if (itemID == gSave.stats.itemOnB)
         ret = 1;
     else
         ret = 2;
@@ -51,17 +50,17 @@ void PutItemOnSlot(u32 itemID) {
     }
     if (itemID - 1 < 0x1f) {
         itemSlot = 2;
-        if (gUnk_02002A40.stats.itemOnA == 0) {
+        if (gSave.stats.itemOnA == 0) {
             itemSlot = 0;
-        } else if (gUnk_02002A40.stats.itemOnB == 0) {
+        } else if (gSave.stats.itemOnB == 0) {
             itemSlot = 1;
         }
         if (itemSlot == 2) {
             u8 temp = gUnk_080FD5B4[itemID].unk;
-            if (temp == gUnk_080FD5B4[gUnk_02002A40.stats.itemOnA].unk) {
+            if (temp == gUnk_080FD5B4[gSave.stats.itemOnA].unk) {
                 itemSlot = 0;
             } else {
-                if (temp == gUnk_080FD5B4[gUnk_02002A40.stats.itemOnB].unk) {
+                if (temp == gUnk_080FD5B4[gSave.stats.itemOnB].unk) {
                     itemSlot = 1;
                 }
             }
@@ -83,19 +82,19 @@ u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
 
     if (bottleIndex > 3) {
         bottleIndex = 0;
-        if (gUnk_02002A40.stats.filler2[0] != 0x20) {
+        if (gSave.stats.bottles[0] != 0x20) {
             do {
                 bottleIndex++;
                 if (bottleIndex > 3) {
                     return bottleIndex;
                 }
-            } while (gUnk_02002A40.stats.filler2[bottleIndex] != 0x20);
+            } while (gSave.stats.bottles[bottleIndex] != 0x20);
         }
         if (bottleIndex > 3) {
             return bottleIndex;
         }
     }
-    gUnk_02002A40.stats.filler2[bottleIndex] = itemID;
+    gSave.stats.bottles[bottleIndex] = itemID;
     return bottleIndex;
 }
 
@@ -135,13 +134,13 @@ u32 sub_080544C8(u32 arg0) {
 }
 
 u32 sub_080544DC(u32 arg0) {
-    if (arg0 == gUnk_02002A40.stats.filler2[0]) {
+    if (arg0 == gSave.stats.bottles[0]) {
         return 1;
-    } else if (arg0 == gUnk_02002A40.stats.filler2[1]) {
+    } else if (arg0 == gSave.stats.bottles[1]) {
         return 2;
-    } else if (arg0 == gUnk_02002A40.stats.filler2[2]) {
+    } else if (arg0 == gSave.stats.bottles[2]) {
         return 3;
-    } else if (arg0 == gUnk_02002A40.stats.filler2[3]) {
+    } else if (arg0 == gSave.stats.bottles[3]) {
         return 4;
     } else {
         return 0;
@@ -268,7 +267,6 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
 }
 */
 
-void sub_08054870(void)
-{
-  gUnk_080FE2A0[gMenu.menuType]();
+void sub_08054870(void) {
+    gUnk_080FE2A0[gMenu.menuType]();
 }

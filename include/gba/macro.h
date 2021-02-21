@@ -167,6 +167,13 @@
 #define DmaClear16Defvars(dmaNum, dest, size) DmaClearDefvars(dmaNum, dest, size, 16)
 #define DmaClear32Defvars(dmaNum, dest, size) DmaClearDefvars(dmaNum, dest, size, 32)
 
+#define DmaWait(DmaNo)                               \
+    {                                                \
+        vu32*(DmaCntp) = (vu32*)REG_ADDR_DMA##DmaNo; \
+        while (DmaCntp[2] & (DMA_ENABLE << 16))      \
+            ;                                        \
+    }
+
 #define IntrEnable(flags)  \
     {                      \
         u16 imeTemp;       \

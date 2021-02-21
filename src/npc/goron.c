@@ -2,8 +2,8 @@
 #include "entity.h"
 #include "functions.h"
 #include "textbox.h"
+#include "script.h"
 
-extern u8 gUnk_02033280[];
 extern void (*gUnk_08111A80[])(Entity*);
 extern void (*gUnk_08111A8C[])(Entity*);
 extern Dialog gUnk_08111A94[];
@@ -62,10 +62,10 @@ void sub_080693C4(Entity* this) {
 void sub_08069428(Entity* this, s32 offsetX, bool32 createFx65);
 
 void sub_080693D0(Entity* this) {
-    sub_0807DD94(this, 0);
+    sub_0807DD94(this, NULL);
     if (this->animIndex == 8) {
         u32 var0 = this->field_0x82.HWORD & 0xF;
-        bool32 createFx65 = ((-var0) | var0) >> 0x1F; // = !var0
+        bool32 createFx65 = BOOLCAST(var0); // = !var0
 
         if (this->frames.all == 1) {
             this->frames.all = 0;
@@ -99,7 +99,7 @@ u32 sub_08069480(Entity* this) {
 
 void sub_0806948C(Entity* this, u32* param_1) {
     param_1[5] = CheckKinstoneFused((sub_08069480(this) << 24) >> 24);
-    gUnk_02033280[7] |= 1;
+    gUnk_02033280.unk_07 |= 1;
 }
 
 void sub_080694B0(Entity* this) {

@@ -552,7 +552,7 @@ sub_08067790: @ 0x08067790
 	lsls r1, r2, #2
 	adds r1, r1, r2
 	lsls r1, r1, #4
-	ldr r2, _080677AC @ =gUnk_02002A40
+	ldr r2, _080677AC @ =gSave
 	ldrb r2, [r2, #8]
 	lsls r2, r2, #3
 	ldr r3, _080677B0 @ =gUnk_08110EF8
@@ -561,5 +561,5 @@ sub_08067790: @ 0x08067790
 	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
-_080677AC: .4byte gUnk_02002A40
+_080677AC: .4byte gSave
 _080677B0: .4byte gUnk_08110EF8

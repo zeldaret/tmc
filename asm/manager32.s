@@ -275,7 +275,7 @@ _0805D988: .4byte 0x0000F7FF
 sub_0805D98C: @ 0x0805D98C
 	push {lr}
 	adds r2, r0, #0
-	ldr r3, _0805D9D4 @ =gUnk_03000FF0
+	ldr r3, _0805D9D4 @ =gInput
 	ldrh r1, [r3]
 	movs r0, #0x40
 	ands r0, r1
@@ -313,7 +313,7 @@ _0805D9C2:
 _0805D9D0:
 	pop {pc}
 	.align 2, 0
-_0805D9D4: .4byte gUnk_03000FF0
+_0805D9D4: .4byte gInput
 
 	thumb_func_start sub_0805D9D8
 sub_0805D9D8: @ 0x0805D9D8

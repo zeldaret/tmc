@@ -193,7 +193,7 @@ sub_08064F28: @ 0x08064F28
 	bl CheckRoomFlag
 	cmp r0, #0
 	bne _08064F84
-	ldr r4, _08064F64 @ =gUnk_02002A40
+	ldr r4, _08064F64 @ =gSave
 	adds r0, r6, #0
 	bl sub_08002632
 	ldr r1, _08064F68 @ =0x00000141
@@ -206,7 +206,7 @@ sub_08064F28: @ 0x08064F28
 	b _08064F7E
 	.align 2, 0
 _08064F60: .4byte gUnk_0810FC50
-_08064F64: .4byte gUnk_02002A40
+_08064F64: .4byte gSave
 _08064F68: .4byte 0x00000141
 _08064F6C:
 	movs r0, #0xc
@@ -226,7 +226,7 @@ _08064F84:
 	bl CheckGlobalFlag
 	cmp r0, #0
 	bne _08064FCE
-	ldr r0, _08064FB0 @ =gUnk_02002A40
+	ldr r0, _08064FB0 @ =gSave
 	ldr r1, _08064FB4 @ =0x00000117
 	adds r0, r0, r1
 	ldrb r1, [r0]
@@ -243,7 +243,7 @@ _08064F84:
 	str r0, [r1, #0x14]
 	b _08064FD2
 	.align 2, 0
-_08064FB0: .4byte gUnk_02002A40
+_08064FB0: .4byte gSave
 _08064FB4: .4byte 0x00000117
 _08064FB8:
 	movs r5, #7

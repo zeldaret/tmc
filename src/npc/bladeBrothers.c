@@ -5,7 +5,8 @@
 #include "player.h"
 #include "room.h"
 #include "textbox.h"
-
+#include "save.h"
+#include "script.h"
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -126,7 +127,7 @@ void FUN_08068b2c(Entity* this) {
         InitAnimationForceUpdate(this, uVar1);
         sub_0806F118(this);
     } else {
-        sub_0807DD94(this, 0);
+        sub_0807DD94(this, NULL);
     }
 }
 
@@ -147,10 +148,10 @@ void sub_08068B84(Entity* this) {
 }
 
 void sub_08068BB4(Entity* this) {
-    u32 item = gUnk_02002A40.stats.itemOnA;
+    u32 item = gSave.stats.itemOnA;
 
     this->field_0x68.HALF.HI = item;
-    item = gUnk_02002A40.stats.itemOnB;
+    item = gSave.stats.itemOnB;
     *(&this->field_0x68.HALF.HI + 1) = item;
 }
 
@@ -262,7 +263,7 @@ void sub_08068CFC(Entity* param_1, Entity* param_2, u32 param_3, u32 param_4)
             goto LABEL1;
             break;
         case 6:
-            if (gUnk_02002A40.stats.maxHealth < 0x50)
+            if (gSave.stats.maxHealth < 0x50)
                 return;
             goto switchD_08068d12_caseD_0;
         case 7:
@@ -304,22 +305,22 @@ switchD_08068d12_caseD_0:
     *(u32*)&param_2->animationState = 1;
 }
 
-//Introduction dialoague
+// Introduction dialoague
 void sub_08068DB8(Entity* this) {
     TextboxNoOverlap(gUnk_08111664[this->actionDelay], this);
 }
 
-//Ask to teach dialoague
+// Ask to teach dialoague
 void sub_08068DD0(Entity* this) {
     TextboxNoOverlap(gUnk_0811167A[this->actionDelay], this);
 }
 
-//Technique Dialogue
+// Technique Dialogue
 void sub_08068DE8(Entity* this) {
     TextboxNoOverlap(gUnk_08111690[this->actionDelay], this);
 }
 
-//Posession dialogue
+// Posession dialogue
 void sub_08068E00(Entity* this) {
     TextboxNoOverlap(gUnk_081116A6[this->actionDelay], this);
 }

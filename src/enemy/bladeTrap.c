@@ -4,7 +4,6 @@
 extern void sub_080A2CC0();
 extern void sub_0806F69C();
 extern void EnqueueSFX();
-extern Entity* GetCurrentRoomProperty();
 
 void BladeTrap(Entity* ent) {
     u16 uVar1;
@@ -19,8 +18,6 @@ void BladeTrap(Entity* ent) {
     if ((ent->direction & 0x80) == 0) {
         sub_0806F69C(ent);
     }
-
-    
 
     puVar3 = &(ent->field_0x74.HWORD);
     uVar1 = *puVar3;

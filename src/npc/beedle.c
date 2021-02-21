@@ -4,6 +4,7 @@
 #include "textbox.h"
 #include "player.h"
 #include "room.h"
+#include "script.h"
 
 typedef struct {
     u32 unk_00;
@@ -108,7 +109,7 @@ void sub_08063410(Entity* this) {
     if (this->entityType.form != 0) {
         sub_0806346C(this);
     }
-    sub_0807DDAC(this, 0);
+    sub_0807DDAC(this, NULL);
     sub_0807DDE4(this);
     GetNextFrame(this);
 }
@@ -159,5 +160,5 @@ void sub_08063504(Entity* this, u32* param_2) {
     u32 uVar1;
 
     uVar1 = sub_080544DC(gUnk_0810C88C[this->entityType.parameter]);
-    param_2[5] = (-uVar1 | uVar1) >> 0x1F;
+    param_2[5] = BOOLCAST(uVar1);
 }

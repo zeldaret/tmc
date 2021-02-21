@@ -802,7 +802,7 @@ sub_0807007C: @ 0x0807007C
 	beq _080700C4
 	ldrh r0, [r2, #2]
 	lsls r0, r0, #4
-	ldr r1, _080700C0 @ =gUnk_080029B4
+	ldr r1, _080700C0 @ =gSpritePtrs
 	adds r3, r0, r1
 	ldr r1, [r3, #4]
 	cmp r1, #0
@@ -820,7 +820,7 @@ sub_0807007C: @ 0x0807007C
 	movs r0, #1
 	b _080700C6
 	.align 2, 0
-_080700C0: .4byte gUnk_080029B4
+_080700C0: .4byte gSpritePtrs
 _080700C4:
 	movs r0, #0
 _080700C6:
@@ -1462,7 +1462,7 @@ _080705A8: .4byte gUnk_02034490
 	thumb_func_start sub_080705AC
 sub_080705AC: @ 0x080705AC
 	push {lr}
-	ldr r0, _08070614 @ =gUnk_03000FF0
+	ldr r0, _08070614 @ =gInput
 	ldrh r1, [r0, #2]
 	movs r0, #8
 	ands r0, r1
@@ -1482,7 +1482,7 @@ sub_080705AC: @ 0x080705AC
 	ands r0, r1
 	cmp r0, #0
 	bne _08070674
-	ldr r1, _08070624 @ =gUnk_02002A40
+	ldr r1, _08070624 @ =gSave
 	adds r0, r1, #0
 	adds r0, #0xaa
 	ldrb r0, [r0]
@@ -1513,11 +1513,11 @@ sub_080705AC: @ 0x080705AC
 	ldrb r0, [r0]
 	b _08070632
 	.align 2, 0
-_08070614: .4byte gUnk_03000FF0
+_08070614: .4byte gInput
 _08070618: .4byte gFadeControl
 _0807061C: .4byte gUnk_02034490
 _08070620: .4byte gTextBox
-_08070624: .4byte gUnk_02002A40
+_08070624: .4byte gSave
 _08070628: .4byte gPlayerState
 _0807062C: .4byte gUnk_03003DC0
 _08070630:

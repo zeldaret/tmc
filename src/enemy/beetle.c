@@ -315,7 +315,6 @@ void sub_08021D44(Entity* this, u32 direction) {
     }
 }
 
-
 // clang-format off
 void (*const gUnk_080CB590[])(Entity*) = {
     sub_08021768,
@@ -356,4 +355,3 @@ const s8 gUnk_080CB5E4[] = {
     -1, -2, -1, 0, 1, 2, 1, 0,
 };
 // clang-format on
-

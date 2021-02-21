@@ -203,10 +203,10 @@ void sub_08028528(Entity* this) {
     } else {
         sub_080288C0(this);
         box = gUnk_080CC944[this->animationState >> 1];
-        this->boundingBox->unknown[0] = box->unknown[0];
-        this->boundingBox->unknown[1] = box->unknown[1];
-        this->boundingBox->unknown[6] = box->unknown[6];
-        this->boundingBox->unknown[7] = box->unknown[7];
+        this->boundingBox->offset_x = box->offset_x;
+        this->boundingBox->offset_y = box->offset_y;
+        this->boundingBox->width = box->width;
+        this->boundingBox->height = box->height;
 
         if (this->field_0x7a.HALF.LO != 0) {
             this->field_0x7a.HALF.LO = 0;
@@ -365,10 +365,10 @@ void sub_08028858(Entity* this) {
 
     sub_080288C0(this);
     box = gUnk_080CC944[this->animationState >> 1];
-    this->boundingBox->unknown[0] = box->unknown[0];
-    this->boundingBox->unknown[1] = box->unknown[1];
-    this->boundingBox->unknown[6] = box->unknown[6];
-    this->boundingBox->unknown[7] = box->unknown[7];
+    this->boundingBox->offset_x = box->offset_x;
+    this->boundingBox->offset_y = box->offset_y;
+    this->boundingBox->width = box->width;
+    this->boundingBox->height = box->height;
 
     if (this->field_0x82.HALF.LO == 0) {
         this->nonPlanarMovement = 0;

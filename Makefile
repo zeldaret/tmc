@@ -38,7 +38,7 @@ MID_BUILDDIR = $(OBJ_DIR)/$(MID_SUBDIR)
 ASFLAGS := -mcpu=arm7tdmi --defsym $(GAME_VERSION)=1 --defsym REVISION=$(REVISION) --defsym $(GAME_LANGUAGE)=1
 
 CC1             := tools/agbcc/bin/agbcc
-override CFLAGS += -Wimplicit -Wparentheses -Werror -O2
+override CFLAGS += -O2 -Wimplicit -Wparentheses -Werror -Wno-multichar
 # -fhex-asm
 
 ifeq ($(DINFO),1)
@@ -83,6 +83,7 @@ NODEP := 1
 endif
 
 #$(C_BUILDDIR)/need_interworking_file_name.o: CFLAGS += -mthumb-interwork
+$(C_BUILDDIR)/arm_proxy.o: CFLAGS += -mthumb-interwork
 
 C_SRCS := $(wildcard $(C_SUBDIR)/*.c $(C_SUBDIR)/*/*.c)
 C_OBJS := $(patsubst $(C_SUBDIR)/%.c,$(C_BUILDDIR)/%.o,$(C_SRCS))

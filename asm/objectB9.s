@@ -285,13 +285,13 @@ _080A140C:
 	beq _080A1430
 	b _080A1444
 _080A1412:
-	ldr r0, _080A1418 @ =gUnk_02002A40
+	ldr r0, _080A1418 @ =gSave
 	adds r0, #0xbb
 	b _080A1424
 	.align 2, 0
-_080A1418: .4byte gUnk_02002A40
+_080A1418: .4byte gSave
 _080A141C:
-	ldr r0, _080A142C @ =gUnk_02002A40
+	ldr r0, _080A142C @ =gSave
 	movs r1, #0x8b
 	lsls r1, r1, #1
 	adds r0, r0, r1
@@ -301,7 +301,7 @@ _080A1424:
 	beq _080A1444
 	b _080A1454
 	.align 2, 0
-_080A142C: .4byte gUnk_02002A40
+_080A142C: .4byte gSave
 _080A1430:
 	movs r0, #0x4f
 	bl CheckGlobalFlag

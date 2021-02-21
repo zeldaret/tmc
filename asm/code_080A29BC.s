@@ -982,8 +982,8 @@ _080A3200:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start sub_080A3204
-sub_080A3204: @ 0x080A3204
+	thumb_func_start InitSound
+InitSound: @ 0xInitSound
 	push {lr}
 	bl sub_080A3210
 	bl m4aSoundInit

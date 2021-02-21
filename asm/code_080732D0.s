@@ -2319,7 +2319,7 @@ sub_0807441C: @ 0x0807441C
 	ldrb r0, [r0]
 	cmp r0, #4
 	bne _08074502
-	ldr r6, _08074444 @ =gUnk_02002A40
+	ldr r6, _08074444 @ =gSave
 	adds r4, r6, #0
 	adds r4, #0xb4
 	ldrb r0, [r4]
@@ -2330,7 +2330,7 @@ sub_0807441C: @ 0x0807441C
 	b _0807444E
 	.align 2, 0
 _08074440: .4byte gPlayerState
-_08074444: .4byte gUnk_02002A40
+_08074444: .4byte gSave
 _08074448:
 	adds r0, r6, #0
 	adds r0, #0xb5
@@ -3437,7 +3437,7 @@ sub_08074C68: @ 0x08074C68
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldr r1, [r0]
-	ldr r0, _08074CA4 @ =gUnk_02022750
+	ldr r0, _08074CA4 @ =gPlayerScriptExecutionContext
 	cmp r1, r0
 	bne _08074CF2
 	movs r0, #1
@@ -3449,7 +3449,7 @@ sub_08074C68: @ 0x08074C68
 	b _08074CF2
 	.align 2, 0
 _08074CA0: .4byte gPlayerState
-_08074CA4: .4byte gUnk_02022750
+_08074CA4: .4byte gPlayerScriptExecutionContext
 _08074CA8:
 	ldrb r1, [r4, #0x18]
 	movs r0, #4
@@ -4195,7 +4195,7 @@ sub_080751E8: @ 0x080751E8
 	adds r7, r0, #0
 	adds r5, r1, #0
 	adds r6, r2, #0
-	ldr r4, _08075230 @ =gUnk_02022750
+	ldr r4, _08075230 @ =gPlayerScriptExecutionContext
 	adds r0, r4, #0
 	movs r1, #0x24
 	bl _DmaZero
@@ -4226,7 +4226,7 @@ sub_080751E8: @ 0x080751E8
 	ldr r6, _0807523C @ =gUnk_08009ECC
 	b _08075244
 	.align 2, 0
-_08075230: .4byte gUnk_02022750
+_08075230: .4byte gPlayerScriptExecutionContext
 _08075234: .4byte gPlayerEntity
 _08075238: .4byte gPlayerState
 _0807523C: .4byte gUnk_08009ECC
@@ -5810,7 +5810,7 @@ sub_08075E40: @ 0x08075E40
 	movs r0, #0x7f
 	ands r0, r1
 	strb r0, [r4, #9]
-	ldr r0, _08075EA4 @ =gUnk_02002A40
+	ldr r0, _08075EA4 @ =gSave
 	adds r0, #0xad
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -5825,7 +5825,7 @@ sub_08075E40: @ 0x08075E40
 	b _08075EB8
 	.align 2, 0
 _08075EA0: .4byte gPlayerState
-_08075EA4: .4byte gUnk_02002A40
+_08075EA4: .4byte gSave
 _08075EA8:
 	adds r1, r6, #0
 	adds r1, #0x21
@@ -5845,7 +5845,7 @@ sub_08075EC0: @ 0x08075EC0
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	adds r6, r1, #0
-	ldr r0, _08075F04 @ =gUnk_02002A40
+	ldr r0, _08075F04 @ =gSave
 	adds r0, #0xad
 	ldrb r5, [r0]
 	adds r0, r4, #0
@@ -5875,7 +5875,7 @@ _08075EF0:
 	bl sub_08077E78
 	b _08075F32
 	.align 2, 0
-_08075F04: .4byte gUnk_02002A40
+_08075F04: .4byte gSave
 _08075F08: .4byte gPlayerState
 _08075F0C:
 	ldr r2, _08075F34 @ =gPlayerState
@@ -7323,7 +7323,7 @@ _080769CC:
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _08076A70
-	ldr r6, _08076A34 @ =gUnk_02002A40
+	ldr r6, _08076A34 @ =gSave
 	adds r4, r6, #0
 	adds r4, #0xb4
 	ldrb r0, [r4]
@@ -7333,7 +7333,7 @@ _080769CC:
 	ldrb r1, [r4]
 	b _08076A3E
 	.align 2, 0
-_08076A34: .4byte gUnk_02002A40
+_08076A34: .4byte gSave
 _08076A38:
 	adds r0, r6, #0
 	adds r0, #0xb5

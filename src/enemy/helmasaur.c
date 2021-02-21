@@ -14,7 +14,6 @@ void sub_0802C1C0(Entity*);
 u32 sub_0802C020(Entity*);
 void sub_0802C058(Entity*, u32);
 bool32 sub_0802C06C(Entity*);
-void sub_08080964(u32, u32);
 void sub_0802C1CC(Entity*);
 bool32 sub_0802C0E8(Entity*);
 
@@ -306,8 +305,8 @@ void sub_0802C058(Entity* this, u32 param_2) {
 }
 
 bool32 sub_0802C06C(Entity* this) {
-    u32 x = this->x.HALF.HI + (s8)this->boundingBox->unknown[0];
-    u32 y = this->y.HALF.HI + (s8)this->boundingBox->unknown[1];
+    u32 x = this->x.HALF.HI + this->boundingBox->offset_x;
+    u32 y = this->y.HALF.HI + this->boundingBox->offset_y;
     u32 xdiff = gUnk_080CD45C[(this->direction >> 2) + 0];
     u32 ydiff = gUnk_080CD45C[(this->direction >> 2) + 1];
 
@@ -331,14 +330,14 @@ bool32 sub_0802C0E8(Entity* this) {
         return TRUE;
     } else {
         const s8* ptr = &gUnk_080CD45C[this->direction >> 2];
-        s32 x = this->x.HALF.HI + (s8)this->boundingBox->unknown[0] + ptr[0] * 6;
-        s32 y = this->y.HALF.HI + (s8)this->boundingBox->unknown[1] + ptr[1] * 6;
+        s32 x = this->x.HALF.HI + this->boundingBox->offset_x + ptr[0] * 6;
+        s32 y = this->y.HALF.HI + this->boundingBox->offset_y + ptr[1] * 6;
 
         Entity* ent = this->collisionLayer == 2 ? &gUnk_0200D654 : &gUnk_02027EB4;
         u32 ret = FALSE;
         if (!sub_0806FC24(TILE(x, y), 9)) {
             u32 tmp = sub_080AE4CC(ent, x, y, 0);
-            ret = (-tmp | tmp) >> 0x1f;
+            ret = BOOLCAST(tmp);
         }
         return ret;
     }

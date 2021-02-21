@@ -862,7 +862,7 @@ sub_08059548: @ 0x08059548
 	bne _0805955C
 	bl DeleteThisEntity
 _0805955C:
-	ldr r2, _0805956C @ =gUnk_03000FF0
+	ldr r2, _0805956C @ =gInput
 	ldrh r1, [r2]
 	movs r0, #4
 	orrs r0, r1
@@ -870,4 +870,4 @@ _0805955C:
 	pop {pc}
 	.align 2, 0
 _08059568: .4byte gPlayerEntity
-_0805956C: .4byte gUnk_03000FF0
+_0805956C: .4byte gInput

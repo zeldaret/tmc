@@ -747,7 +747,7 @@ _08062658: .4byte gUnk_0810BDE8
 sub_0806265C: @ 0x0806265C
 	push {lr}
 	adds r2, r0, #0
-	ldr r3, _08062674 @ =gUnk_02002A40
+	ldr r3, _08062674 @ =gSave
 	ldrb r0, [r3, #8]
 	cmp r0, #0
 	bne _08062678
@@ -756,7 +756,7 @@ sub_0806265C: @ 0x0806265C
 	bl TextboxNoOverlap
 	b _08062690
 	.align 2, 0
-_08062674: .4byte gUnk_02002A40
+_08062674: .4byte gSave
 _08062678:
 	ldrb r0, [r2, #0xa]
 	lsls r1, r0, #3

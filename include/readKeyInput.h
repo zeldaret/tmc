@@ -6,4 +6,4 @@ typedef struct {
     u8 unk7;
 } Input;
 
-extern Input gUnk_03000FF0;
+extern Input gInput;

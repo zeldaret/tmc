@@ -51,7 +51,7 @@ sub_0806E964: @ 0x0806E964
 	push {r6, r7}
 	mov sb, r0
 	adds r2, r1, #0
-	ldr r0, _0806E984 @ =gUnk_03000FF0
+	ldr r0, _0806E984 @ =gInput
 	mov r8, r0
 	ldrh r1, [r0, #2]
 	movs r0, #2
@@ -61,7 +61,7 @@ sub_0806E964: @ 0x0806E964
 	bl sub_08050384
 	b _0806EAAA
 	.align 2, 0
-_0806E984: .4byte gUnk_03000FF0
+_0806E984: .4byte gInput
 _0806E988:
 	ldrb r0, [r2, #0x18]
 	adds r1, r0, #0
@@ -152,7 +152,7 @@ _0806EA0A:
 	strh r0, [r6]
 _0806EA28:
 	strh r4, [r7]
-	ldr r0, _0806EA74 @ =gUnk_03000FF0
+	ldr r0, _0806EA74 @ =gInput
 	ldrh r1, [r0, #2]
 	movs r0, #1
 	ands r0, r1
@@ -190,7 +190,7 @@ _0806EA4E:
 	strh r0, [r6]
 	b _0806EA86
 	.align 2, 0
-_0806EA74: .4byte gUnk_03000FF0
+_0806EA74: .4byte gInput
 _0806EA78: .4byte gUnk_081145E4
 _0806EA7C:
 	ldr r0, _0806EAB4 @ =0x80010000

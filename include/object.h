@@ -76,7 +76,7 @@ extern void Object44(Entity*);
 extern void Object45(Entity*);
 extern void GiantBookLadder(Entity*);
 extern void HeartContainer(Entity*);
-extern void Object48(Entity*);
+extern void FileScreenObjects(Entity*);
 extern void Object49(Entity*);
 extern void BackgroundCloud(Entity*);
 extern void Object4B(Entity*);
@@ -198,5 +198,7 @@ extern void Pinwheel(Entity*);
 extern void ObjectBF(Entity*);
 extern void EnemyItem(Entity*);
 extern void ObjectC1(Entity*);
+
+void (*const gObjectFunctions[194])(Entity*);
 
 #endif

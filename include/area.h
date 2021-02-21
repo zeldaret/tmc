@@ -3,7 +3,6 @@
 
 #include "global.h"
 
-
 typedef struct {
     u8 areaMetadata;
     u8 locationIndex;
@@ -17,7 +16,7 @@ typedef struct {
     u8 field_0x16;
     u8 field_0x17;
     u8 field_0x18;
-    //u8 filler3[7];
+    // u8 filler3[7];
     u8 fadeOut;
     u8 filler2[14];
     u8 filler4[0x835];

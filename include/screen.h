@@ -72,7 +72,20 @@ typedef struct {
     /*0x08*/ BgSettings bg;
     /*0x20*/ BgAffSettings affine;
     /*0x38*/ BgControls controls;
+    /*0x6c*/ u8 _6c;
+    /*0x6d*/ u8 _6d;
+    /*0x70*/ u32 _70;
+    /*0x74*/ u32 _74;
+    /*0x78*/ u32 _78;
 } Screen;
+
+struct OAMCommand {
+    u16 x;
+    u16 y;
+    u16 _4;
+    u16 _6;
+    u16 _8;
+} extern gOamCmd;
 
 extern BgControls gBgControls;
 extern Screen gScreen;

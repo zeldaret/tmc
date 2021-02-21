@@ -11,8 +11,7 @@ extern u32 sub_0806F5A4(u32);
 extern void sub_0806F118(Entity*);
 extern void sub_0807DD94(Entity*, u32);
 
-void Gentari(Entity *this)
-{    
+void Gentari(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
@@ -35,19 +34,17 @@ void Gentari(Entity *this)
         case 2:
             if (UpdateFuseInteraction(this)) {
                 this->action = 1;
-        }
+            }
     }
 }
 
-void Gentari_Fusion(Entity *this)
-{
-  if (this->action == 0) {
-    this->action++;
-    this->spriteSettings.b.draw = TRUE;
-    sub_0805E3A0(this, 2);
-    InitAnimationForceUpdate(this, 10);
-  }
-  else {
-    UpdateAnimationSingleFrame(this);
-  }
+void Gentari_Fusion(Entity* this) {
+    if (this->action == 0) {
+        this->action++;
+        this->spriteSettings.b.draw = TRUE;
+        sub_0805E3A0(this, 2);
+        InitAnimationForceUpdate(this, 10);
+    } else {
+        UpdateAnimationSingleFrame(this);
+    }
 }

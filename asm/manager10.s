@@ -333,7 +333,7 @@ _080597F4:
 	bl LoadGfxGroup
 	b _08059838
 _08059800:
-	ldr r4, _0805981C @ =gUnk_02001A40
+	ldr r4, _0805981C @ =gBG3Buffer
 	movs r5, #0x80
 	lsls r5, r5, #4
 	adds r0, r4, #0
@@ -345,7 +345,7 @@ _08059800:
 	bl LoadAssetAsync
 	b _08059838
 	.align 2, 0
-_0805981C: .4byte gUnk_02001A40
+_0805981C: .4byte gBG3Buffer
 _08059820: .4byte 0x0600E800
 _08059824:
 	ldr r0, _0805983C @ =gUnk_0200B650

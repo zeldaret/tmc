@@ -9,7 +9,6 @@ extern void sub_0809EAD8(Entity*);
 extern void sub_0809EABC(Entity*);
 extern void EnqueueSFX(u32);
 extern void sub_080A2CC0(Entity*, Entity**, u16*);
-extern Entity* GetCurrentRoomProperty(u32);
 extern void SetTile(u32, u32, u32);
 extern void sub_0806F69C(Entity*);
 
@@ -60,7 +59,7 @@ void sub_0809EABC(Entity* this) {
     u32 f;
 
     f = CheckFlags(this->field_0x86.HWORD);
-    anySet = (-f | f) >> 0x1F;
+    anySet = BOOLCAST(f);
     if (this->frameIndex != anySet) {
         this->frameIndex = anySet;
     }
@@ -142,4 +141,5 @@ void sub_0809EC08(Entity* this) {
     }
 }
 
-void nullsub_126(Entity* this) { }
+void nullsub_126(Entity* this) {
+}

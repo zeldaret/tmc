@@ -25,7 +25,7 @@ _08078004: .4byte gUnk_0811BFE8
 sub_08078008: @ 0x08078008
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
-	ldr r6, _08078060 @ =gUnk_02002A40
+	ldr r6, _08078060 @ =gSave
 	adds r5, r6, #0
 	adds r5, #0xb4
 	ldrb r0, [r5]
@@ -69,7 +69,7 @@ _08078036:
 	strb r2, [r4, #2]
 	b _0807806C
 	.align 2, 0
-_08078060: .4byte gUnk_02002A40
+_08078060: .4byte gSave
 _08078064: .4byte gPlayerState
 _08078068:
 	movs r0, #0
@@ -529,7 +529,7 @@ _080783B6:
 	bhi _0807842C
 	movs r0, #0
 	bl sub_0801E738
-	ldr r0, _08078410 @ =gUnk_02002A40
+	ldr r0, _08078410 @ =gSave
 	ldr r1, _08078414 @ =0x0000012B
 	adds r0, r0, r1
 	ldrb r0, [r0]
@@ -550,7 +550,7 @@ _08078400: .4byte gPlayerEntity
 _08078404: .4byte 0x00000206
 _08078408: .4byte gPlayerState
 _0807840C: .4byte gUnk_03003DF0
-_08078410: .4byte gUnk_02002A40
+_08078410: .4byte gSave
 _08078414: .4byte 0x0000012B
 _08078418:
 	ldr r0, _08078428 @ =0x00000B65

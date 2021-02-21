@@ -110,7 +110,7 @@ sub_0806C028: @ 0x0806C028
 sub_0806C038: @ 0x0806C038
 	push {r4, r5, lr}
 	adds r5, r0, #0
-	ldr r0, _0806C074 @ =gUnk_02002A40
+	ldr r0, _0806C074 @ =gSave
 	ldrb r0, [r0, #8]
 	subs r4, r0, #5
 	cmp r4, #0
@@ -135,7 +135,7 @@ _0806C048:
 	bl SetLocalFlag
 	b _0806C086
 	.align 2, 0
-_0806C074: .4byte gUnk_02002A40
+_0806C074: .4byte gSave
 _0806C078:
 	movs r4, #7
 	movs r0, #0x3a

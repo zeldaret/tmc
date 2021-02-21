@@ -136,16 +136,15 @@ u32 sub_08022B20(Entity* this) {
     return sub_080041A0(this, &gPlayerEntity, 0x24, 0x24);
 }
 
-void sub_08022B44(Entity *this){
+void sub_08022B44(Entity* this) {
     this->field_0x20 = 0xc000;
-    this->direction = GetFacingDirection(this,&gPlayerEntity);
+    this->direction = GetFacingDirection(this, &gPlayerEntity);
 
     if (this->direction & 0xf)
-        this->spriteSettings.b.flipX = (this->direction >> 4)^1;
+        this->spriteSettings.b.flipX = (this->direction >> 4) ^ 1;
 
     EnqueueSFX(0xd6);
 }
-
 
 // clang-format off
 void (*const gUnk_080CBB64[])(Entity*) = {

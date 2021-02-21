@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "object.h"
-//clang-format off
+
 void (*const gObjectFunctions[])(Entity*) = {
     /*0x00*/ ItemOnGround,
     /*0x01*/ DeathFx,
@@ -75,7 +75,7 @@ void (*const gObjectFunctions[])(Entity*) = {
     /*0x45*/ Object45,
     /*0x46*/ GiantBookLadder,
     /*0x47*/ HeartContainer,
-    /*0x48*/ Object48,
+    /*0x48*/ FileScreenObjects,
     /*0x49*/ Object49,
     /*0x4a*/ BackgroundCloud,
     /*0x4b*/ Object4B,
@@ -196,6 +196,5 @@ void (*const gObjectFunctions[])(Entity*) = {
     /*0xbe*/ Pinwheel,
     /*0xbf*/ ObjectBF,
     /*0xc0*/ EnemyItem,
-    /*0xc1*/ ObjectC1,
+    /*0xc1*/ ObjectC1
 };
-//clang-format on

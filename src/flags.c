@@ -17,20 +17,19 @@ u32 CheckFlags(u32 flags) {
     s32 uVar1;
     s32 index;
     s32 length;
-        index = flags & 0x3ff;
-        length = (((flags & (0xf0) << 0x6) >> 0xa) + 1);
-        uVar1 = (flags & 0xc000) >> 0xe;
-        switch ((u32)uVar1) {
-            case 2:
-                return CheckRoomFlags(index, length);
-            case 0:
-                return CheckLocalFlags(index, length);
-            case 1:
-                return CheckGlobalFlags(index, length);
-            default:
-                return 0;
-        }
-
+    index = flags & 0x3ff;
+    length = (((flags & (0xf0) << 0x6) >> 0xa) + 1);
+    uVar1 = (flags & 0xc000) >> 0xe;
+    switch ((u32)uVar1) {
+        case 2:
+            return CheckRoomFlags(index, length);
+        case 0:
+            return CheckLocalFlags(index, length);
+        case 1:
+            return CheckGlobalFlags(index, length);
+        default:
+            return 0;
+    }
 }
 
 u32 CheckGlobalFlag(u32 flag) {

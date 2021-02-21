@@ -10,7 +10,7 @@
 ModBombs: @ 0x080542F4
 	push {lr}
 	adds r3, r0, #0
-	ldr r1, _08054318 @ =gUnk_02002A40
+	ldr r1, _08054318 @ =gSave
 	adds r0, r1, #0
 	adds r0, #0xac
 	ldrb r0, [r0]
@@ -26,7 +26,7 @@ ModBombs: @ 0x080542F4
 	movs r3, #0
 	b _08054326
 	.align 2, 0
-_08054318: .4byte gUnk_02002A40
+_08054318: .4byte gSave
 _0805431C: .4byte gBombBagSizes
 _08054320:
 	cmp r2, r3

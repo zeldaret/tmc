@@ -120,7 +120,7 @@ _0804AC5E:
 	strh r0, [r2, #0x16]
 	ldrh r0, [r1, #0xc]
 	strh r0, [r2, #0x18]
-	bl sub_080AD90C
+	bl FlushSprites
 	bl sub_080AD9B0
 	bl sub_080AD918
 	ldr r0, _0804AC98 @ =gUnk_02018EB0
@@ -149,7 +149,7 @@ _0804ACA4: .4byte gArea
 	thumb_func_start sub_0804ACA8
 sub_0804ACA8: @ 0x0804ACA8
 	push {lr}
-	ldr r0, _0804ACC0 @ =gUnk_03000FF0
+	ldr r0, _0804ACC0 @ =gInput
 	ldrh r1, [r0, #2]
 	movs r0, #0x81
 	lsls r0, r0, #1
@@ -159,7 +159,7 @@ sub_0804ACA8: @ 0x0804ACA8
 	bl sub_0804AD18
 	b _0804ACC6
 	.align 2, 0
-_0804ACC0: .4byte gUnk_03000FF0
+_0804ACC0: .4byte gInput
 _0804ACC4:
 	movs r0, #0
 _0804ACC6:

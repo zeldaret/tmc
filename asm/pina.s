@@ -305,7 +305,7 @@ _08063C8C:
 	thumb_func_start sub_08063C90
 sub_08063C90: @ 0x08063C90
 	push {lr}
-	ldr r1, _08063CA4 @ =gUnk_02002A40
+	ldr r1, _08063CA4 @ =gSave
 	ldrb r1, [r1, #8]
 	lsls r1, r1, #3
 	ldr r2, _08063CA8 @ =gUnk_0810CE04
@@ -313,7 +313,7 @@ sub_08063C90: @ 0x08063C90
 	bl ShowNPCDialogue
 	pop {pc}
 	.align 2, 0
-_08063CA4: .4byte gUnk_02002A40
+_08063CA4: .4byte gSave
 _08063CA8: .4byte gUnk_0810CE04
 
 	thumb_func_start sub_08063CAC

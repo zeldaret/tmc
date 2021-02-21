@@ -4,7 +4,7 @@
 	.section .rodata
 	.align 2
 
-gUnk_080029B4:: @ 080029B4
+gSpritePtrs:: @ 080029B4
 	.incbin "baserom.gba", 0x0029B4, 0x000004C
 
 gUnk_08002A00:: @ 08002A00
