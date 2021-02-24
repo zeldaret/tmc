@@ -627,7 +627,7 @@ SECTIONS {
         src/npc/mayorHagen.o(.text);
         src/npc/bigGoron.o(.text);
         asm/bigGoron.o(.text);
-        asm/ezloCap.o(.text);
+        src/ezloCap.o(.text);
         asm/npc4E.o(.text);
         src/npc/clothesRack.o(.text);
         asm/clothesRack.o(.text);
