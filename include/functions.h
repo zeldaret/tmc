@@ -20,7 +20,7 @@ extern u32 __modsi3(u32, u32);
 extern void DoFade(u32, u32);
 extern u32 GetInventoryValue(u32);
 extern u32 CheckKinstoneFused(u32);
-extern void ForceEquipItem(u8, u8);
+extern void ForceEquipItem(u32, u8);
 extern void LoadRoomEntityList();
 void CopyPosition(Entity*, Entity*);
 extern void ResolveEntityOnTop(Entity*, Entity*);
