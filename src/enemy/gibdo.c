@@ -159,7 +159,7 @@ void sub_08037690(Entity* this) {
         this->field_0x76.HALF.HI = 0x14;
         sub_08037794(this);
     } else {
-        if ((this->frames.all & 1) != 0) {
+        if (this->frames.all & 1) {
             this->damageType = 0x27;
             ProcessMovement(this);
         }
