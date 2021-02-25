@@ -39,7 +39,6 @@ void Gibdo_OnTick(Entity* this) {
 // Non-matching
 NONMATCH("asm/non_matching/gibdo/sub_080374A4.inc", void sub_080374A4(Entity* this)) {
     u8 x;
-    u32 x2;
     if (this->bitfield == 0x87) {
         if (this->action == 0x6) {
             sub_08037ACC(this);
@@ -57,7 +56,7 @@ NONMATCH("asm/non_matching/gibdo/sub_080374A4.inc", void sub_080374A4(Entity* th
             } else {
                 if ((u8)(this->action - 1) < 2) {
                     this->action = 1;
-                    x = ((this->field_0x3e ^ 0x10) + 4) & 0x18;
+                    x = DirectionTurnAround(this->field_0x3e);
                     this->direction = x;
                     this->animationState = x >> 3;
                     InitAnimationForceUpdate(this, this->animationState);
@@ -81,10 +80,8 @@ void nullsub_162() {
 }
 
 void sub_08037558(Entity* this) {
-    u32 r;
     sub_0804A720(this);
-    r = Random();
-    this->animationState = r & 0x3;
+    this->animationState = Random() & 0x3;
     this->field_0x76.HALF.LO = 0;
     this->field_0x76.HALF.HI = 0;
     sub_08037794(this);
@@ -92,23 +89,21 @@ void sub_08037558(Entity* this) {
 
 void sub_08037580(Entity* this) {
     if (sub_08037810(this) == 0) {
-        this->field_0x74.HWORD--;
-        if (this->field_0x74.HWORD == 0) {
+        if (!(--this->field_0x74.HWORD)) {
             sub_080377B0(this);
         }
     }
 }
+
 void sub_080375A4(Entity* this) {
     if (sub_080378B0(this) == 0) {
         if (sub_08037810(this) == 0) {
-            this->field_0x74.HWORD--;
-            if (this->field_0x74.HWORD == 0) {
+            if (!(--this->field_0x74.HWORD)) {
                 sub_08037794(this);
             } else {
                 UpdateAnimationSingleFrame(this);
                 if (ProcessMovement(this) == 0) {
-                    this->field_0xf--;
-                    if (this->field_0xf == 0) {
+                    if (!(--this->field_0xf)) {
                         sub_080379BC(this);
                     }
                 }
@@ -119,8 +114,7 @@ void sub_080375A4(Entity* this) {
 
 void sub_080375F8(Entity* this) {
     if (sub_080378B0(this) == 0) {
-        this->actionDelay--;
-        if (this->actionDelay == 0) {
+        if (!(--this->actionDelay)) {
             this->action = 4;
             this->actionDelay = 0x18;
             InitAnimationForceUpdate(this, this->animationState + 4);
@@ -131,20 +125,17 @@ void sub_080375F8(Entity* this) {
 void sub_08037624(Entity* this) {
     if (sub_080378B0(this) == 0) {
         if (sub_08037914(this) == 0) {
-            this->field_0x74.HWORD--;
-            if (this->field_0x74.HWORD == 0) {
+            if (!(--this->field_0x74.HWORD)) {
                 sub_08037794(this);
             } else {
                 UpdateAnimationSingleFrame(this);
                 UpdateAnimationSingleFrame(this);
                 if (ProcessMovement(this) == 0) {
-                    this->field_0xf--;
-                    if (this->field_0xf == 0) {
+                    if (!(--this->field_0xf)) {
                         sub_080379BC(this);
                     }
-                } else {
-                    this->actionDelay--;
-                    if (this->actionDelay == 0) {
+                } else {   
+                    if (!(--this->actionDelay)) {
                         sub_0803797C(this);
                     }
                 }
@@ -159,7 +150,7 @@ void sub_08037690(Entity* this) {
         this->field_0x76.HALF.HI = 0x14;
         sub_08037794(this);
     } else {
-        if (this->frames.all & 1) {
+        if ((this->frames.all & 1) != 0) {
             this->damageType = 0x27;
             ProcessMovement(this);
         }
@@ -176,8 +167,7 @@ NONMATCH("asm/non_matching/gibdo/sub_080376D0.inc", void sub_080376D0(Entity* th
         UpdateAnimationSingleFrame(this);
         x = &this->frames.all;
         if ((*x & 0x1) != 0) {
-            this->field_0x7c.BYTES.byte0--;
-            if (this->field_0x7c.BYTES.byte0 == 0) {
+            if (!(--this->field_0x7c.BYTES.byte0)) {
                 sub_08037A58(this);
             }
         } else {
@@ -197,8 +187,7 @@ void sub_0803773C(Entity* this) {
 // Turn into Stalfos
 void sub_0803775C(Entity* this) {
     Entity* x;
-    this->actionDelay--;
-    if (this->actionDelay == 0) {
+    if (!(--this->actionDelay)) {
         x = CreateEnemy(0x42, 0);
         if (x != 0) {
             sub_0804A4E4(this, x);
@@ -224,10 +213,10 @@ void sub_080377B0(Entity* this) {
     this->field_0x74.HWORD = (r1 & 0x38) + 0x78;
     this->nonPlanarMovement = 0x40;
     r2 = Random();
-    if ((sub_08049FA0(this) == 0) && ((r2 & 3) != 0)) {
-        this->direction = (sub_08049EE4(this) + 4) & 0x18;
+    if (!sub_08049FA0(this) && (r2 & 3)) {
+        this->direction = DirectionRoundUp(sub_08049EE4(this));
     } else {
-        this->direction = r2 & 0x18;
+        this->direction = DirectionRound(r2);
     }
     this->animationState = this->direction / 8;
     InitAnimationForceUpdate(this, this->animationState + 4);
@@ -245,7 +234,7 @@ NONMATCH("asm/non_matching/gibdo/sub_08037810.inc", u32 sub_08037810(Entity* thi
                     this->actionDelay = 0x18;
                     this->field_0xf = 0x8;
                     this->nonPlanarMovement = 0xc0;
-                    y = (GetFacingDirection(this, gUnk_020000B0) + 4) & 0x18;
+                    y = DirectionRoundUp(GetFacingDirection(this, gUnk_020000B0));
                     this->direction = y;
                     this->animationState = y / 8;
                     this->field_0x74.HWORD = 300;
@@ -318,14 +307,13 @@ void sub_080379BC(Entity* this) {
     this->field_0xf = 0x8;
     r = Random();
     this->animationState = ((this->animationState + (r & 2)) - 1) & 3;
-    this->direction = this->animationState << 3;
+    this->direction = DirectionFromAnimationState(this->animationState);
     InitAnimationForceUpdate(this, this->animationState + 4);
 }
 
 u32 sub_080379EC(Entity* this) {
     if (sub_0807953C() != 0) {
-        this->actionDelay--;
-        if (this->actionDelay == 0) {
+        if (!(--this->actionDelay)) {
             sub_08037A58(this);
             return 1;
         }
@@ -334,12 +322,10 @@ u32 sub_080379EC(Entity* this) {
 }
 
 void sub_08037A14(Entity* this) {
-    u32 x;
     this->action = 6;
     this->actionDelay = 0x18;
     this->spritePriority.b0 = (this->spritePriority.b0 & (this->actionDelay - 0x20));
-    x = 3;
-    this->spritePriority.b0 |= x;
+    this->spritePriority.b0 |= 3;
     this->flags2 &= 0xfe;
     this->field_0x7c.BYTES.byte0 = 5;
     CopyPosition(this, this->field_0x4c);
@@ -366,10 +352,10 @@ NONMATCH("asm/non_matching/gibdo/sub_08037A58.inc", void sub_08037A58(Entity* th
 END_NONMATCH
 
 void sub_08037ACC(Entity* this) {
-    gPlayerState.flags.all &= ~0x100;
+    gPlayerState.flags.all &= 0xFFFFFEFF;
     gPlayerEntity.flags |= 0x80;
     gPlayerEntity.hurtBlinkTime = 0x1e;
-    gPlayerEntity.field_0x3e = this->animationState << 3;
+    gPlayerEntity.field_0x3e = DirectionFromAnimationState(this->animationState);
     gPlayerEntity.field_0x42 = 4;
     gPlayerEntity.field_0x46 = 0x180;
 }
