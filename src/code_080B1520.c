@@ -182,3 +182,35 @@ NONMATCH("asm/non_matching/code_080B1520/sub_080B16AC.inc", u16 sub_080B16AC(u16
     return 0;
 }
 END_NONMATCH
+
+u32 sub_080B180C(u16 unk_1, u16* unk_2) {
+    u16 t0, t1;
+    u32 ret;
+
+    u16 stack[4];
+    u16* ptr;
+
+    u8 i;
+
+    ret = 0;
+    if (unk_1 >= gUnk_02036A50->unk_04)
+        return 0x80ff;
+    sub_080B15E8(unk_1, stack);
+    ptr = stack;
+    i = 0;
+    goto L1;
+    L2:
+    i++;
+    if (i > 3)
+        goto RET;
+    L1:
+    t1 = *unk_2;
+    t0 = *ptr;
+    ptr++;
+    unk_2++;
+    if (t1 == t0)
+        goto L2;
+    ret = 0x8000;
+    RET:
+    return ret;
+}
