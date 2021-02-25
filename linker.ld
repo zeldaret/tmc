@@ -392,7 +392,7 @@ SECTIONS {
         asm/mazaalHand.o(.text);
         asm/octorokBoss.o(.text);
         asm/flyingPot.o(.text);
-        asm/gibdo.o(.text);
+        src/enemy/gibdo.o(.text);
         asm/octorokGolden.o(.text);
         src/enemy/tektiteGolden.o(.text);
         asm/ropeGolden.o(.text);
