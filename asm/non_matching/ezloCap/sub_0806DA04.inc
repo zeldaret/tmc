@@ -13,3 +13,4 @@
 	.align 2, 0
 _0806DA18: .4byte gUnk_0811415C
     .syntax divided
+	

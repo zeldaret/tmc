@@ -40,7 +40,7 @@ NONMATCH("asm/non_matching/ezloCap/sub_0806D908.inc", void sub_0806D908(Entity* 
 }
 END_NONMATCH
 
-void sub_0806D944(Entity* this) {
+void sub_0806D944(Entity* this) { // called when talk to ezlo, also when ezlo moves after you
     this->spriteSettings.b.flipX = 0;
     if (this->x.WORD <= gPlayerEntity.x.WORD) {
         this->spriteSettings.b.flipX = 1;
@@ -90,7 +90,7 @@ void sub_0806DA1C(Entity* this, u32* param_2) {
     sub_0808091C((ScreenTransitionData*)(gUnk_081141A4)[param_2[1]], (u32)(gUnk_081141E4[param_2[1]]));
 }
 
-// Returns the kingstone id?
+// Returns the kinstone id?
 u8 sub_0806DA3C(Entity* this) {
     u32 result;
 
@@ -127,15 +127,15 @@ u8 sub_0806DA3C(Entity* this) {
     return result;
 }
 
-// Check whether a kingstone fusion is possible and store the result somewhere in param_2?
-void sub_0806DAAC(Entity* this, u32 param_2) {
+// Check whether a kinstone fusion is possible and store the result somewhere in param_2?
+void sub_0806DAAC(Entity* this, u32* param_2) {
     u32 uVar1;
     uVar1 = CheckKinstoneFused(sub_0806DA3C(this));
-    *(u32*)(param_2 + 0x14) = uVar1;
+    param_2[5] = uVar1;
     gUnk_02033280.unk_07 |= 1;
 }
 
-// maybe actually execute the keystone fusion?
+// maybe actually execute the kinstone fusion?
 void sub_0806DAD0(Entity* this) {
     sub_08078790(this, sub_0806DA3C(this));
 }
@@ -172,9 +172,8 @@ void sub_0806DB44(Entity* this, u32* param_2) {
     }
 }
 
-void sub_0806DB84(
-    Entity* this,
-    u8 unused) { // The unused param just had to be added, so that a mov r1, #0 in NPC4E_Fusion is matching correctly
+// The unused param just had to be added, so that a mov r1, #0 in NPC4E_Fusion is matching correctly
+void sub_0806DB84(Entity* this, u8 unused) {
     Entity* ent;
     this->hitbox = &gUnk_08114154;
     ent = CreateObject(0x3e, 4, 0);
