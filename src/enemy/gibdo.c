@@ -134,7 +134,7 @@ void sub_08037624(Entity* this) {
                     if (!(--this->field_0xf)) {
                         sub_080379BC(this);
                     }
-                } else {   
+                } else {
                     if (!(--this->actionDelay)) {
                         sub_0803797C(this);
                     }
