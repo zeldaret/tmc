@@ -1344,7 +1344,7 @@ gUnk_080CF278:: @ 080CF278
 gUnk_080CF290:: @ 080CF290
 	.incbin "baserom.gba", 0x0CF290, 0x0000004
 
-gUnk_080CF294:: @ 080CF294
+gGibdo:: @ 080CF294
 	.incbin "baserom.gba", 0x0CF294, 0x0000018
 
 gUnk_080CF2AC:: @ 080CF2AC
