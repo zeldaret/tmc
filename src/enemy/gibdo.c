@@ -366,7 +366,7 @@ NONMATCH("asm/non_matching/gibdo/sub_08037A58.inc", void sub_08037A58(Entity* th
 END_NONMATCH
 
 void sub_08037ACC(Entity* this) {
-    gPlayerState.flags.all &= 0xFFFFFEFF;
+    gPlayerState.flags.all &= ~0x100;
     gPlayerEntity.flags |= 0x80;
     gPlayerEntity.hurtBlinkTime = 0x1e;
     gPlayerEntity.field_0x3e = this->animationState << 3;
