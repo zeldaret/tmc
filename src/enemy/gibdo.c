@@ -318,7 +318,6 @@ void sub_080379BC(Entity* this) {
     this->field_0xf = 0x8;
     r = Random();
     this->animationState = ((this->animationState + (r & 2)) - 1) & 3;
-    ;
     this->direction = this->animationState << 3;
     InitAnimationForceUpdate(this, this->animationState + 4);
 }
