@@ -13,7 +13,7 @@ extern struct_08DE7D40* gUnk_02036A50;
 extern struct_08DE7D40 gUnk_08DE7D40;
 extern struct_08DE7D40 gUnk_08DE7D4C;
 
-u16 sub_080B16AC(u16, u32, u32);
+u16 sub_080B16AC(u16, u16*, u8);
 
 u32 sub_080B1520(u16 unk_1) {
     u32 ret;
@@ -89,6 +89,96 @@ u32 sub_080B15E8(u16 unk_1, u16* unk_2) {
     }
 }
 
-u16 sub_080B1698(u16 unk_1, u32 unk_2){
+u16 sub_080B1698(u16 unk_1, u16* unk_2) {
     return sub_080B16AC(unk_1, unk_2, 1);
 }
+
+// this is the furthest I could get
+NONMATCH("asm/non_matching/code_080B1520/sub_080B16AC.inc", u16 sub_080B16AC(u16 unk_1, u16* unk_2, u8 unk_3)) {
+    u16 stack[0x52];
+    vu16 stack_a4;
+    vu16 stack_a6;
+    vu16 stack_a8;
+    vu32 stack_ac;
+
+    u32 r0, r1, r2;
+
+    u8 i, j;
+    u16* ptr;
+
+    r1 = unk_1;
+    if (unk_1 < gUnk_02036A50->unk_04)
+        return 0x80ff;
+
+    ptr = stack + gUnk_02036A50->unk_08 + 0x42;
+    *ptr = 0;
+    ptr--;
+    for (i = 0; i <= 3; i++) {
+        r2 = *unk_2;
+        unk_2++;
+        for (j = 0; j <= 0xf; j++) {
+            *ptr = r2;
+            ptr--;
+            r2 = r2 >> 1;
+        }
+    }
+    for (i = 0; i < gUnk_02036A50->unk_08; i++) {
+        *ptr = r1;
+        ptr--;
+        r1 = r1 >> 1;
+    }
+    *ptr = 0;
+    ptr--;
+    *ptr = 1;
+    sub_080B1568(stack, (u16*)0xd000000, gUnk_02036A50->unk_08 + 0x43);
+    stack_a4 = 0;
+    stack_a6 = REG_VCOUNT;
+    stack_ac = 0;
+    if (stack_a4 == 0) {
+        r0 = *(u16*)0xd000000;
+        r0 &= 1;
+        if (r0 != 0)
+            goto bad;
+    }
+    do {
+        do {
+            do {
+                stack_a8 = REG_VCOUNT;
+                if (stack_a8 != stack_a6) {
+                    if (stack_a8 > stack_a6) {
+                        r1 = stack_a8;
+                        r0 = stack_a6;
+                        r1 = r1 - r0;
+                        r0 = stack_ac;
+                        r1 = r1 + r0;
+                        stack_ac = r1;
+                    } else {
+                        r0 = stack_a8 + 0xe4;
+                        r1 = stack_a6;
+                        r0 = r0 - r1;
+                        r1 = stack_ac;
+                        r0 = r0 + r1;
+                        stack_ac = r0;
+                    }
+                    if (stack_ac > 0x88) {
+                        if (stack_a4 != 0)
+                            return 0;
+                        r0 = *(u16*)0xd000000;
+                        r0 &= 1;
+                        if (r0 != 0)
+                            return 0;
+                        return 0xc001;
+                    }
+                    stack_a6 = stack_a8;
+                }
+            } while (stack_a4 != 0);
+            r1 = 1;
+            r0 = *(u16*)0xd000000;
+            r1 &= r0;
+        } while (r1 != 0);
+    bad:
+        stack_a4++;
+    } while (unk_3 != 0);
+    return 0;
+}
+END_NONMATCH
