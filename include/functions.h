@@ -20,7 +20,7 @@ extern u32 __modsi3(u32, u32);
 extern void DoFade(u32, u32);
 extern u32 GetInventoryValue(u32);
 extern u32 CheckKinstoneFused(u32);
-extern void ForceEquipItem(u8, u8);
+extern void ForceEquipItem(u32, u8);
 extern void LoadRoomEntityList();
 void CopyPosition(Entity*, Entity*);
 extern void ResolveEntityOnTop(Entity*, Entity*);
@@ -284,10 +284,10 @@ extern void sub_0801E00C();
 extern void sub_08050038(u32);
 extern void sub_080500F4(u32);
 extern void sub_08050110(u32, u32, u32, u32);
-extern u32 sub_08052734(); //has Dungeon Map?
-extern u32 sub_08052764(); //has Dungeon Compass?
-extern u32 sub_0805279C(); //has Dungeon Big Key?
-extern u32 sub_080527CC(); //num Dungeon small keys?
+extern u32 sub_08052734(); // has Dungeon Map?
+extern u32 sub_08052764(); // has Dungeon Compass?
+extern u32 sub_0805279C(); // has Dungeon Big Key?
+extern u32 sub_080527CC(); // num Dungeon small keys?
 extern u32 sub_08053FE0();
 extern void sub_08078790(Entity*, u32);
 extern void sub_080788E0(Entity*);

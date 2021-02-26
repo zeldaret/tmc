@@ -487,7 +487,7 @@ void sub_080712F0(Entity* this) {
     sub_08079458();
 }
 
-void sub_08071380(Entity *this) {
+void sub_08071380(Entity* this) {
     gPlayerState.field_0xa8 = 0xe;
     gUnk_0811BA9C[this->previousActionFlag](this);
 
@@ -499,7 +499,7 @@ void sub_08071380(Entity *this) {
 
     if ((gInput.newKeys & 0x102) == 0)
         return;
-    
+
     if (CheckIsDungeon() || gArea.field_0x17 == 3) {
         this->previousActionFlag = 7;
         this->actionDelay = 30;
@@ -528,7 +528,7 @@ void sub_08071400(Entity* this) {
 
     sub_08073904(this);
     UpdateAnimationSingleFrame(this);
-    
+
     if (gPlayerState.jumpStatus == 0) {
         gPlayerState.flags.all |= 0x20;
         this->previousActionFlag = 1;
@@ -538,9 +538,9 @@ void sub_08071400(Entity* this) {
             gPlayerState.field_0x8 = 0x52c;
         }
     }
-    
+
     this->actionDelay = 8;
-    
+
     if (gArea.field_0x17 != 3) {
         this->spritePriority.b0 = 3;
     }

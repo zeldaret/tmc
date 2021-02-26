@@ -1146,8 +1146,7 @@ void sub_08051874(void) {
     gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk7] = temp;
     switch (temp) {
         case 1:
-            _DmaCopy(&gSave, &gUnk_02019EE0.saves[gUnk_02019EE0.unk7],
-                     sizeof(gUnk_02019EE0.saves[gUnk_02019EE0.unk7]));
+            _DmaCopy(&gSave, &gUnk_02019EE0.saves[gUnk_02019EE0.unk7], sizeof(gUnk_02019EE0.saves[gUnk_02019EE0.unk7]));
             SetFileSelectState(0);
             break;
         case -1:
