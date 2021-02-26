@@ -234,10 +234,10 @@ void sub_0808F498(Entity* this) {
         this->action = 1;
         this->actionDelay = 64;
         var0 = this->entityType.parameter != 0 ? 44 : 43;
-        this->x.HALF.HI -= this->parent->boundingBox->unknown[6];
-        this->x.HALF.HI += (s32)Random() % (this->parent->boundingBox->unknown[6] * 2);
-        this->y.HALF.HI -= this->parent->boundingBox->unknown[7];
-        this->y.HALF.HI += (s32)Random() % (this->parent->boundingBox->unknown[7] * 2);
+        this->x.HALF.HI -= this->parent->boundingBox->width;
+        this->x.HALF.HI += (s32)Random() % (this->parent->boundingBox->width * 2);
+        this->y.HALF.HI -= this->parent->boundingBox->height;
+        this->y.HALF.HI += (s32)Random() % (this->parent->boundingBox->height * 2);
         sub_0801D2B4(this, var0);
         InitializeAnimation(this, 4);
     }

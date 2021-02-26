@@ -83,6 +83,7 @@ NODEP := 1
 endif
 
 #$(C_BUILDDIR)/need_interworking_file_name.o: CFLAGS += -mthumb-interwork
+$(C_BUILDDIR)/arm_proxy.o: CFLAGS += -mthumb-interwork
 $(C_BUILDDIR)/code_080B1520.o: CFLAGS = -O1 -mthumb-interwork -Wimplicit -Wparentheses -Werror -Wno-multichar
 
 C_SRCS := $(wildcard $(C_SUBDIR)/*.c $(C_SUBDIR)/*/*.c)

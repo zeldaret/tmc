@@ -5236,7 +5236,7 @@ void sub_0804EEBC(void) {
             LoadRoomEntityList(&gUnk_080F5848);
         }
     }
-    if (gSave.stats.filler2[5] == 0) {
+    if (gSave.stats.filler3[0] == 0) {
         LoadRoomEntityList(&gUnk_080F5788);
     }
 }
