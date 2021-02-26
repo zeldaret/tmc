@@ -212,13 +212,24 @@ u32 sub_080B1864(u16 unk_1, u16* unk_2, u32 unk_3) {
 
     ret = unk_3;
 
-    for(i = 0; i < 3; i++){
+    for (i = 0; i < 3; i++) {
         ret = sub_080B1698(unk_1, unk_2);
-        if (ret == 0){
+        if (ret == 0) {
             ret = sub_080B180C(unk_1, unk_2);
             if (ret == 0)
                 break;
         }
+    }
+    return ret;
+}
+
+u32 sub_080B18A4(u16 unk_1, u16* unk_2) {
+    u16 ret;
+
+    if (*(u32*)&gUnk_02036A50->unk_00 != 0x200) {
+        ret = sub_080B16AC(unk_1, unk_2, 0);
+    } else {
+        ret = 0x8080;
     }
     return ret;
 }
