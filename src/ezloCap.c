@@ -159,7 +159,7 @@ void sub_0806DAE8(Entity* this) {
             break;
     }
 
-    PlaySFX(0xcd);
+    SoundReq(0xcd);
 }
 
 // Unknown param_2 struct
