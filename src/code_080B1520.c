@@ -1,6 +1,6 @@
 #include "global.h"
 
-typedef struct struct_08DE7D40 {
+typedef struct EEPROMConfig {
     u32 unk_00;
     u16 size;
     u16 waitcnt;
@@ -8,9 +8,9 @@ typedef struct struct_08DE7D40 {
     // u8 filler[3];
 } EEPROMConfig;
 
-extern EEPROMConfig* gEEPROMConfig;
-extern EEPROMConfig gEEPROMConfig512;
-extern EEPROMConfig gEEPROMConfig8k;
+extern const EEPROMConfig* gEEPROMConfig;
+const EEPROMConfig gEEPROMConfig512 = { 0x200, 0x40, 0x300, 0x6 };
+const EEPROMConfig gEEPROMConfig8k = { 0x2000, 0x400, 0x300, 0xe };
 
 u16 sub_080B16AC(u16, u16*, u8);
 

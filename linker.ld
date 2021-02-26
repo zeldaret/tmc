@@ -1033,6 +1033,7 @@ SECTIONS {
         data/strings.o(.rodata);
         data/sprite_table.o(.rodata);
         data/data_089FC6C4.o(.rodata);
+        src/code_080B1520.o(.rodata);
     } >rom
 
     /* DWARF 2 sections */
