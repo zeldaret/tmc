@@ -1,12 +1,11 @@
 #include "global.h"
 
 typedef struct struct_08DE7D40 {
-    u16 unk_00;
-    u16 unk_02;
+    u32 unk_00;
     u16 unk_04;
     u16 unk_06;
     u8 unk_08;
-    u8 filler[3];
+    //u8 filler[3];
 } struct_08DE7D40;
 
 extern struct_08DE7D40* gUnk_02036A50;
@@ -226,7 +225,7 @@ u32 sub_080B1864(u16 unk_1, u16* unk_2, u32 unk_3) {
 u32 sub_080B18A4(u16 unk_1, u16* unk_2) {
     u16 ret;
 
-    if (*(u32*)&gUnk_02036A50->unk_00 != 0x200) {
+    if (gUnk_02036A50->unk_00 != 0x200) {
         ret = sub_080B16AC(unk_1, unk_2, 0);
     } else {
         ret = 0x8080;
