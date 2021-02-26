@@ -197,7 +197,7 @@ u32 sub_080B180C(u16 unk_1, u16* unk_2) {
     }
     sub_080B15E8(unk_1, stack);
     ptr = stack;
-    for (i = 0; i < sizeof(stack)/sizeof(u16); i++) {
+    for (i = 0; i < ARRAY_COUNT(stack); i++) {
         if (*unk_2++ != *ptr++) {
             ret = 0x8000;
             break;
