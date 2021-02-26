@@ -10302,4 +10302,3 @@ gUnk_08DE7D18:: @ 08DE7D18
 
 gUnk_08DE7D28:: @ 08DE7D28
 	.incbin "baserom.gba", 0xDE7D28, 0x0000018
-
