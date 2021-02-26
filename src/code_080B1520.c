@@ -205,3 +205,20 @@ u16 sub_080B180C(u16 unk_1, u16* unk_2) {
     }
     return ret;
 }
+
+u32 sub_080B1864(u16 unk_1, u16* unk_2, u32 unk_3) {
+    u32 ret;
+    u8 i;
+
+    ret = unk_3;
+
+    for(i = 0; i < 3; i++){
+        ret = sub_080B1698(unk_1, unk_2);
+        if (ret == 0){
+            ret = sub_080B180C(unk_1, unk_2);
+            if (ret == 0)
+                break;
+        }
+    }
+    return ret;
+}

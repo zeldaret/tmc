@@ -5,42 +5,6 @@
 
 	.text
 
-	thumb_func_start sub_080B1864
-sub_080B1864: @ 0x080B1864
-	push {r4, r5, r6, lr}
-	adds r5, r1, #0
-	lsls r0, r0, #0x10
-	lsrs r4, r0, #0x10
-	movs r6, #0
-	b _080B1876
-_080B1870:
-	adds r0, r6, #1
-	lsls r0, r0, #0x18
-	lsrs r6, r0, #0x18
-_080B1876:
-	cmp r6, #2
-	bhi _080B189A
-	adds r0, r4, #0
-	adds r1, r5, #0
-	bl sub_080B1698
-	lsls r0, r0, #0x10
-	lsrs r2, r0, #0x10
-	cmp r2, #0
-	bne _080B1870
-	adds r0, r4, #0
-	adds r1, r5, #0
-	bl sub_080B180C
-	lsls r0, r0, #0x10
-	lsrs r2, r0, #0x10
-	cmp r2, #0
-	bne _080B1870
-_080B189A:
-	adds r0, r2, #0
-	pop {r4, r5, r6}
-	pop {r1}
-	bx r1
-	.align 2, 0
-
 	thumb_func_start sub_080B18A4
 sub_080B18A4: @ 0x080B18A4
 	push {lr}
