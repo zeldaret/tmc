@@ -31,27 +31,22 @@ u32 sub_080B1520(u16 unk_1) {
     return ret;
 }
 
-NONMATCH("asm/non_matching/code_080B1520/sub_080B1568.inc", void sub_080B1568(u16* src, u16* dest, u32 cnt)) {
+void sub_080B1568(void* src, void* dest, u16 count) {
     u32 temp;
 
-    u16 u1;
     u16 IME_save;
 
-    u1 = cnt;
     IME_save = REG_IME;
-    REG_IME = 0;
+    REG_IME = 0; // disable all interrupts
     temp = REG_WAITCNT & 0xf8ff;
-    temp |= gUnk_02036A50->unk_06;
+    temp |= gUnk_02036A50->unk_06; // configure wait state 2
     REG_WAITCNT = temp;
     REG_DMA3SAD = (u32)src;
     REG_DMA3DAD = (u32)dest;
-    REG_DMA3CNT = u1 | 0x80000000;
-    if ((REG_DMA3CNT_H & 0x8000) != 0) {
-        while ((REG_DMA3CNT_H & 0x8000) != 0) {}
-    }
+    REG_DMA3CNT = count | 0x80000000; // enable dma
+    while ((REG_DMA3CNT_H & 0x8000) != 0) {} // wait for dma to finish
     REG_IME = IME_save;
 }
-END_NONMATCH
 
 u32 sub_080B15E8(u16 unk_1, u16* unk_2) {
     u16 stack[0x44];
