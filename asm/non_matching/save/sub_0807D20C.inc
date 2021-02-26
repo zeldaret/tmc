@@ -15,13 +15,13 @@ _0807D21A:
 	lsrs r4, r0, #0x10
 	adds r0, r4, #0
 	adds r1, r7, #0
-	bl sub_080B18DC
+	bl EEPROMWrite0_8k_Check
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	beq _0807D23C
 	adds r0, r4, #0
 	ldr r1, _0807D238 @ =gUnk_0811E4B4
-	bl sub_080B18DC
+	bl EEPROMWrite0_8k_Check
 	movs r0, #0
 	b _0807D24A
 	.align 2, 0

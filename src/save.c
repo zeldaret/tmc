@@ -1,13 +1,11 @@
 #include "save.h"
+#include "gba/eeprom.h"
 
 typedef struct Thing {
     u16 unk_1;
     u16 unk_2;
     u32 unk_3;
 } Thing;
-
-extern u32 sub_080B180C(u32, const char*);
-extern u16 sub_080B18DC(u16, const char*);
 
 const u16 gUnk_0811E454[] = { 0x0,   0x0,   0x100, 0x200, 0x300, 0x400, 0x500,
                               0x5C0, 0x680, 0x740, 0x800, 0x8C0, 0x9C0, 0xA80 };
@@ -106,7 +104,7 @@ u32 sub_0807CE90(void) {
     int iVar2;
     int iVar3;
 
-    sub_080B1520(0x40);
+    EEPROMConfigure(0x40);
     puVar1 = sub_0807D1C4(4);
     iVar3 = 0;
     if (sub_0807D24C(puVar1->field_0x6, sSignatureLong, puVar1->field_0x0) == 0) {
@@ -343,8 +341,8 @@ NONMATCH("asm/non_matching/save/sub_0807D20C.inc", u32 sub_0807D20C(u32 unk_1, c
         unk_3 >>= 3;
         unk_1 >>= 3;
         while (unk_3-- > 0) {
-            if (sub_080B18DC(unk_1, unk_2)) {
-                sub_080B18DC(unk_1, gUnk_0811E4B4);
+            if (EEPROMWrite0_8k_Check(unk_1, (u16*)unk_2)) {
+                EEPROMWrite0_8k_Check(unk_1, (u16*)gUnk_0811E4B4);
                 return 0;
             }
             unk_1++;
@@ -358,7 +356,7 @@ NONMATCH("asm/non_matching/save/sub_0807D24C.inc", u32 sub_0807D24C(u32 unk_1, c
         unk_3 >>= 3;
         unk_1 >>= 3;
         while (unk_3-- > 0) {
-            if (sub_080B180C(unk_1, unk_2))
+            if (EEPROMCompare(unk_1, (u16*)unk_2))
                 return 0;
             unk_1++;
             unk_2 += 8;

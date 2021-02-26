@@ -1,4 +1,5 @@
 #include "global.h"
+#include "gba/eeprom.h"
 
 typedef struct EEPROMConfig {
     u32 unk_00;
@@ -12,10 +13,9 @@ extern const EEPROMConfig* gEEPROMConfig;
 const EEPROMConfig gEEPROMConfig512 = { 0x200, 0x40, 0x300, 0x6 };
 const EEPROMConfig gEEPROMConfig8k = { 0x2000, 0x400, 0x300, 0xe };
 
+u16 EEPROMWrite(u16, u16*, u8);
 
-u16 sub_080B16AC(u16, u16*, u8);
-
-u32 sub_080B1520(u16 unk_1) {
+u32 EEPROMConfigure(u16 unk_1) {
     u32 ret;
 
     ret = 0;
@@ -32,7 +32,7 @@ u32 sub_080B1520(u16 unk_1) {
     return ret;
 }
 
-void DMA3Transfer(void* src, void* dest, u16 count) {
+static void DMA3Transfer(void* src, void* dest, u16 count) {
     u32 temp;
 
     u16 IME_save;
@@ -49,47 +49,61 @@ void DMA3Transfer(void* src, void* dest, u16 count) {
     REG_IME = IME_save;
 }
 
-u32 sub_080B15E8(u16 unk_1, u16* unk_2) {
-    u16 stack[0x44];
+/**
+ * reads 64 bit (8 byte) from eeprom
+ *
+ * @param address 6/14 bit depending on eeprom size
+ * @param data u16[4]
+ * @return errorcode, 0 on success
+ */
+u32 EEPROMRead(u16 address, u16* data) {
+    u16 buffer[0x44];
 
     u16* ptr;
     u8 t1, t2;
     u16 value;
 
-    if (unk_1 >= gEEPROMConfig->size) {
-        return 0x80ff;
+    if (address >= gEEPROMConfig->size) {
+        return EEPROM_OUT_OF_RANGE;
     } else {
-        ptr = stack;
+        ptr = buffer;
+        // setup address
         (u8*)ptr += (gEEPROMConfig->address_width << 1) + 1;
         ((u8*)ptr)++;
         for (t1 = 0; t1 < gEEPROMConfig->address_width; t1++) {
-            *(ptr--) = unk_1;
-            unk_1 >>= 1;
+            *(ptr--) = address;
+            address >>= 1;
         }
+        // read request
         *(ptr--) = 1;
         *ptr = 1;
-        DMA3Transfer(stack, (u16*)0xd000000, gEEPROMConfig->address_width + 3);
-        DMA3Transfer((u16*)0xd000000, stack, 0x44);
-        ptr = stack + 4;
-        unk_2 += 3;
+        // send address to eeprom
+        DMA3Transfer(buffer, (u16*)0xd000000, gEEPROMConfig->address_width + 3);
+        // recieve data
+        DMA3Transfer((u16*)0xd000000, buffer, 0x44);
+        // 4 bit junk
+        ptr = buffer + 4;
+        data += 3;
+        // copy data into output buffer
         for (t1 = 0; t1 < 4; t1++) {
             value = 0;
             for (t2 = 0; t2 < 0x10; t2++) {
                 value <<= 1;
                 value |= (*ptr++) & 1;
             }
-            *(unk_2--) = value;
+            *(data--) = value;
         }
         return 0;
     }
 }
 
-u16 sub_080B1698(u16 unk_1, u16* unk_2) {
-    return sub_080B16AC(unk_1, unk_2, 1);
+u16 EEPROMWrite1(u16 address, u16* data) {
+    return EEPROMWrite(address, data, 1);
 }
 
 // this is the furthest I could get
-NONMATCH("asm/non_matching/code_080B1520/sub_080B16AC.inc", u16 sub_080B16AC(u16 unk_1, u16* unk_2, u8 unk_3)) {
+// 0x080B16AC
+NONMATCH("asm/non_matching/code_080B1520/EEPROMWrite.inc", u16 EEPROMWrite(u16 unk_1, u16* unk_2, u8 unk_3)) {
     u16 stack[0x52];
     vu16 stack_a4;
     vu16 stack_a6;
@@ -102,8 +116,8 @@ NONMATCH("asm/non_matching/code_080B1520/sub_080B16AC.inc", u16 sub_080B16AC(u16
     u16* ptr;
 
     r1 = unk_1;
-    if (unk_1 < gEEPROMConfig->size)
-        return 0x80ff;
+    if (unk_1 >= gEEPROMConfig->size)
+        return EEPROM_OUT_OF_RANGE;
 
     ptr = stack + gEEPROMConfig->address_width + 0x42;
     *ptr = 0;
@@ -178,23 +192,23 @@ NONMATCH("asm/non_matching/code_080B1520/sub_080B16AC.inc", u16 sub_080B16AC(u16
 }
 END_NONMATCH
 
-u16 sub_080B180C(u16 unk_1, u16* unk_2) {
+u16 EEPROMCompare(u16 address, u16* data) {
     u16 ret;
 
-    u16 stack[4];
+    u16 buffer[4];
     u16* ptr;
 
     u8 i;
 
     ret = 0;
-    if (unk_1 >= gEEPROMConfig->size) {
-        return 0x80ff;
+    if (address >= gEEPROMConfig->size) {
+        return EEPROM_OUT_OF_RANGE;
     }
-    sub_080B15E8(unk_1, stack);
-    ptr = stack;
-    for (i = 0; i < ARRAY_COUNT(stack); i++) {
-        if (*unk_2++ != *ptr++) {
-            ret = 0x8000;
+    EEPROMRead(address, buffer);
+    ptr = buffer;
+    for (i = 0; i < ARRAY_COUNT(buffer); i++) {
+        if (*data++ != *ptr++) {
+            ret = EEPROM_COMPARE_FAILED;
             break;
         }
     }
@@ -203,14 +217,14 @@ u16 sub_080B180C(u16 unk_1, u16* unk_2) {
 
 const char EEPROM_NOWAIT[] = "EEPROM_NOWAIT";
 
-u32 sub_080B1864(u16 unk_1, u16* unk_2) {
+u32 EEPROMWrite1_check(u16 address, u16* data) {
     u8 i;
     u32 ret;
 
     for (i = 0; i < 3; i++) {
-        ret = sub_080B1698(unk_1, unk_2);
+        ret = EEPROMWrite1(address, data);
         if (ret == 0) {
-            ret = sub_080B180C(unk_1, unk_2);
+            ret = EEPROMCompare(address, data);
             if (ret == 0)
                 break;
         }
@@ -218,25 +232,25 @@ u32 sub_080B1864(u16 unk_1, u16* unk_2) {
     return ret;
 }
 
-u16 sub_080B18A4(u16 unk_1, u16* unk_2) {
+u16 EEPROMWrite0_8k(u16 address, u16* data) {
     u16 ret;
 
     if (gEEPROMConfig->unk_00 != 0x200) {
-        ret = sub_080B16AC(unk_1, unk_2, 0);
+        ret = EEPROMWrite(address, data, 0);
     } else {
-        ret = 0x8080;
+        ret = EEPROM_UNSUPPORTED_TYPE;
     }
     return ret;
 }
 
-u32 sub_080B18DC(u16 unk_1, u16* unk_2) {
+u32 EEPROMWrite0_8k_Check(u16 address, u16* data) {
     u8 i;
     u32 ret;
 
     for (i = 0; i < 3; i++) {
-        ret = sub_080B18A4(unk_1, unk_2);
+        ret = EEPROMWrite0_8k(address, data);
         if (ret == 0) {
-            ret = sub_080B180C(unk_1, unk_2);
+            ret = EEPROMCompare(address, data);
             if (ret == 0) {
                 break;
             }
