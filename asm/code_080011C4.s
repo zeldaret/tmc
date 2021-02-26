@@ -5,15 +5,15 @@
 
 	.text
 
-	thumb_func_start sub_080011C4
-sub_080011C4: @ 0x080011C4
+	thumb_func_start EnemyUpdate
+EnemyUpdate: @ 0x080011C4
 	mov r3, lr
 	push {r3, r4}
 	adds r4, r0, #0
 	ldrb r2, [r0, #0xc]
 	cmp r2, #0
 	bne _080011DC
-	bl sub_0804A57C
+	bl EnemyInit
 	cmp r0, #0
 	bne _080011EA
 	bl DeleteThisEntity

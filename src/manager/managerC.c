@@ -104,7 +104,7 @@ void sub_080588F8(ManagerC* this) {
                 case 0xf0:
                     this->unk_28 = this->unk_24.HALF.HI;
                     this->manager.unk_0f = 0x2D;
-                    PlaySFX(0x8c);
+                    SoundReq(0x8c);
             }
         }
     } else {
@@ -127,7 +127,7 @@ void sub_080588F8(ManagerC* this) {
             }
             if (ABS_DIFF_GT(this->unk_2c, this->unk_24.WORD, 0x100000)) {
                     this->unk_2c = this->unk_24.WORD;
-                    PlaySFX(0x8b);
+                    SoundReq(0x8b);
             }
         }
     }
@@ -245,7 +245,7 @@ void sub_08058B5C(ManagerC* this, u32 unk1) {
     gScreenTransition.playerStartPos.HALF.x = gUnk_081082E8[unk1*3];
     gScreenTransition.playerStartPos.HALF.y = gUnk_081082E8[unk1*3+1];
     gSave.unk7 = gUnk_081082E8[unk1*3+2];
-    PlaySFX(0x121);
+    SoundReq(0x121);
 }
 
 void sub_08058BC8(ManagerC* this) {

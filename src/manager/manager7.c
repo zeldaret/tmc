@@ -64,7 +64,7 @@ void Manager7_Main(Manager7* this) {
     switch (this->manager.unk_0e) {
         case 0:
             gUnk_02034490[0] = 1;
-            LoadAssetAsync(&gGlobalGfxAndPalettes[tmp2[0]], tmp2[1], 0x1000);
+            LoadResourceAsync(&gGlobalGfxAndPalettes[tmp2[0]], tmp2[1], 0x1000);
             LoadPaletteGroup(gUnk_081081E4[tmp]);
             this->manager.unk_0e++;
             break;
@@ -75,7 +75,7 @@ void Manager7_Main(Manager7* this) {
         case 5:
         case 6:
         case 7:
-            LoadAssetAsync(&gGlobalGfxAndPalettes[tmp2[(this->manager.unk_0e << 1)]],
+            LoadResourceAsync(&gGlobalGfxAndPalettes[tmp2[(this->manager.unk_0e << 1)]],
                            tmp2[(this->manager.unk_0e << 1) + 1], 0x1000);
             this->manager.unk_0e++;
             break;

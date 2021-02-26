@@ -649,8 +649,8 @@ _080B21A4: .4byte 0x01010101
 _080B21A8: .4byte gUnk_02000006
 _080B21AC: .4byte gUnk_08000F54
 
-	arm_func_start sub_080B21B0
-sub_080B21B0: @ 0x080B21B0
+	arm_func_start UpdateEntities
+UpdateEntities: @ 0x080B21B0
 	ldr fp, _080B2270 @ =gUnk_03003DD0
 	ldr r1, [fp]
 	ldm r1, {r7, r8, sb, sl}
@@ -695,14 +695,14 @@ _080B2238:
 	pop {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	bx lr
 _080B2248: .4byte DeleteThisEntity
-_080B224C: .4byte sub_08016F28
+_080B224C: .4byte PlayerUpdate
 _080B2250: .4byte DeleteThisEntity
-_080B2254: .4byte sub_080011C4
-_080B2258: .4byte sub_08016AE4
+_080B2254: .4byte EnemyUpdate
+_080B2258: .4byte ProjectileUpdate
 _080B225C: .4byte DeleteThisEntity
-_080B2260: .4byte sub_080174A4
+_080B2260: .4byte ObjectUpdate
 _080B2264: .4byte sub_08017530
-_080B2268: .4byte sub_08017338
+_080B2268: .4byte ItemUpdate
 _080B226C: .4byte sub_08017508
 _080B2270: .4byte gUnk_03003DD0
 _080B2274: .4byte gUnk_080026A4

@@ -37,7 +37,7 @@ void sub_0804AAB8(void) {
 }
 
 void sub_0804AAD4(void) {
-    _DmaZero((void*)&gUnk_02018EB0, 0x28);
+    MemClear32((void*)&gUnk_02018EB0, 0x28);
     gUnk_02018EB0.unk = 0;
     EraseAllEntities();
     CreateObject(0x3d, gArea.field_0x17, 0);

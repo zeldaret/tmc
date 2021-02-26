@@ -12,7 +12,7 @@
 
 // Identified - to be sorted into header files
 extern u32 Random(void);
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern void ShowNPCDialogue(Entity*, Dialog*);
 extern u32 UpdateFuseInteraction();
 extern void DeleteEntity(Entity*);
@@ -32,7 +32,7 @@ extern Entity* CreatePlayerItem(u32, u32, u32, u32);
 extern Entity* GetEmptyEntity(void);
 extern u32 GetTileTypeByPos(s32 x, s32 y, u32 layer);
 extern u32 GetTileType(u32 pos, u32 layer);
-extern void _DmaZero(void* src, u32 count);
+extern void MemClear32(void* src, u32 count);
 extern void EraseAllEntities(void);
 extern void SetTile(u32, u32, u32);
 extern void SetDirtTile(u32);
@@ -48,9 +48,9 @@ void _DmaCopy(const void* src, void* dst, u32 size);
 extern u32 ProcessMovement(Entity*);
 extern Entity* FindEntityInListBySubtype(u32, u32, u32);
 extern Entity* FindEntityInListByForm(u32, u32, u32, u32, u32);
-extern void _DmaZero(void*, u32);
+extern void MemClear32(void*, u32);
 extern void MenuFadeIn(u32, u32);
-extern void LoadAssetAsync(const void*, u32, u32);
+extern void LoadResourceAsync(const void*, u32, u32);
 extern void LoadPaletteGroup(u32);
 extern void TryLoadPrologueHyruleTown(void);
 extern Manager* GetEmptyManager(void);

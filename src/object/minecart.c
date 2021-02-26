@@ -63,7 +63,7 @@ void sub_080917DC(Entity* this) {
         this->field_0x20 = 0x2a000;
         this->action = 7;
         InitAnimationForceUpdate(this, this->entityType.parameter + 4 + this->animationState);
-        PlaySFX(0x13b);
+        SoundReq(0x13b);
     } else {
         if (sub_0800445C(this) != 0) {
             if (((gPlayerState.flags.all & 0x40080) == 0) && (gPlayerState.field_0x1c == 0) &&
@@ -85,7 +85,7 @@ void sub_080917DC(Entity* this) {
                 gPlayerEntity.flags &= 0x7f;
                 ResetPlayer();
                 sub_0807A108();
-                PlaySFX(0x7c);
+                SoundReq(0x7c);
             }
         } else {
             this->actionDelay = 0;
@@ -113,7 +113,7 @@ void sub_080918A4(Entity* this) {
             this->field_0x44 = 8;
             sub_0801766C(this);
             sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
-            PlaySFX(0x137);
+            SoundReq(0x137);
         }
     } else {
         gPlayerEntity.direction = GetFacingDirection(&gPlayerEntity, this);
@@ -149,11 +149,11 @@ void sub_080919AC(Entity* this) {
         gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
         if (!sub_08091DDC(this)) {
             if ((gScreenTransition.frameCount & 0xf) == 0) {
-                PlaySFX(0x138);
+                SoundReq(0x138);
             }
 
             if (--this->field_0xf == 0xff) {
-                PlaySFX(0x7b);
+                SoundReq(0x7b);
                 this->field_0xf = 0x3c;
             }
 
@@ -182,8 +182,8 @@ void sub_080919AC(Entity* this) {
                         gPlayerEntity.flags |= 0x80;
                         sub_08004168(this);
                         InitAnimationForceUpdate(this, this->animationState + 0xc);
-                        PlaySFX(0x78);
-                        PlaySFX(0x139);
+                        SoundReq(0x78);
+                        SoundReq(0x139);
                         return;
                     case 0x67:
                     case 0x68:

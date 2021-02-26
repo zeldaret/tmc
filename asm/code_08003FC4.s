@@ -123,7 +123,7 @@ _0800407E:
 	ldr r4, _08004360 @ =gUnk_02021F20
 _0800408C:
 	ldrh r0, [r4]
-	bl PlaySFX
+	bl SoundReq
 	adds r4, #2
 	subs r5, #1
 	bne _0800408C

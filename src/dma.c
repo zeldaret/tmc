@@ -12,7 +12,7 @@ void _DmaFill32(u32 value, u8* dest, u32 size) {
     DmaFill32(3, value, dest, size);
 }
 
-void _DmaZero(u8* src, u32 size) {
+void MemClear32(u8* src, u32 size) {
     u32 zero = 0;
 
     switch (((u32)src | size) & 3) {

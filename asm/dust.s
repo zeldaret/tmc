@@ -449,7 +449,7 @@ _08044440:
 	movs r0, #0x12
 	bl SetGlobalFlag
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 	bl DeleteThisEntity
 _08044458:
 	movs r2, #0

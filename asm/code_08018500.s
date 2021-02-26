@@ -58,7 +58,7 @@ sub_0801855C: @ 0x0801855C
 	ldr r4, _08018570 @ =gUnk_02033AB8
 	adds r0, r4, #0
 	movs r1, #0x14
-	bl _DmaZero
+	bl MemClear32
 	adds r5, r4, #0
 	ldr r4, _08018574 @ =gUnk_080B3D20
 	movs r6, #0

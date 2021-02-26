@@ -2,7 +2,7 @@
 #include "entity.h"
 
 extern void InitializeAnimation(Entity*, u32);
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern void DeleteThisEntity();
 extern void GetNextFrame(Entity*);
 
@@ -22,7 +22,7 @@ void ThoughtBubble_Init(Entity* this) {
     }
     this->spriteOrientation.flipY = 1;
     InitializeAnimation(this, this->entityType.parameter);
-    PlaySFX(ThoughtBubble_SFX[this->entityType.parameter]);
+    SoundReq(ThoughtBubble_SFX[this->entityType.parameter]);
 }
 
 void ThoughtBubble_Update(Entity* this) {

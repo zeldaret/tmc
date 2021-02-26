@@ -55,7 +55,7 @@ static const u16 sLightRaysAlphaBlends[] = {
 static u32 AdvanceIntroSequence(u32 transition) {
     gUnk_02032EC0.lastState = transition;
     gUnk_03001000.funcIndex = 2;
-    _DmaZero(&gIntroState, sizeof(gIntroState));
+    MemClear32(&gIntroState, sizeof(gIntroState));
     DoFade(7, 8);
 }
 
@@ -64,7 +64,7 @@ void HandleIntroScreen(void) {
     switch (gUnk_03001000.funcIndex) {
         case 0:
             MessageInitialize();
-            _DmaZero(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
+            MemClear32(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
             AdvanceIntroSequence(0);
             break;
         case 1:
@@ -158,7 +158,7 @@ static void HandleTitlescreen(void) {
                 UpdateSwordBgAffineData();
             }
             sub_080A3210();
-            PlaySFX(3); // fanfare
+            SoundReq(3); // fanfare
             DoFade(6, 8);
             break;
         case 1:
@@ -182,12 +182,12 @@ static void HandleTitlescreen(void) {
             advance = GetAdvanceState();
             if (advance != ADVANCE_NONE) {
                 if (advance == ADVANCE_KEY_PRESSED) {
-                    PlaySFX(0x6a);
+                    SoundReq(0x6a);
                 } else {
                     advance = ADVANCE_NONE;
                 }
                 AdvanceIntroSequence(advance);
-                PlaySFX(0x80080000);
+                SoundReq(0x80080000);
             }
             UpdatePressStartIcon();
             if ((gIntroState.timer & 0x20) == 0) {
@@ -242,7 +242,7 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
                     gScreen.bg.bg1xOffset = 0xc09;
                     gFadeControl.field_0x4 = 0x40;
                     DoFade(6, 0x10);
-                    PlaySFX(0xf8);
+                    SoundReq(0xf8);
                 }
             }
             break;
@@ -272,7 +272,7 @@ static void HandleTitlescreenAnimationIntro(void) {
             if (!gFadeControl.active) {
                 gIntroState.subState = 1;
                 gScreen.lcd.displayControl |= DISPCNT_BG2_ON;
-                PlaySFX(0xF6);
+                SoundReq(0xF6);
             }
             break;
         case 1:
@@ -291,7 +291,7 @@ static void HandleTitlescreenAnimationIntro(void) {
                 gIntroState.subState++;
                 CreateObject(0xBD, 0, 0);
                 DoFade(6, 16);
-                PlaySFX(0xF8);
+                SoundReq(0xF8);
             }
             break;
         default:

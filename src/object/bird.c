@@ -32,7 +32,7 @@ void sub_0809CF54(Entity* this) {
     this->direction = 8;
     this->collisionLayer = 2;
     this->x.HALF.HI = gRoomControls.roomScrollX;
-    PlaySFX(0x123);
+    SoundReq(0x123);
     UpdateSpriteForCollisionLayer(this);
     InitAnimationForceUpdate(this, 0);
     target = CreateObject(0x95, 1, 0);
@@ -95,7 +95,7 @@ void sub_0809D0AC(Entity* this) {
         this->height.WORD = 0;
         this->collisionLayer = 1;
         SetLocalFlag(0x45);
-        PlaySFX(0x72);
+        SoundReq(0x72);
         fx = CreateFx(this, 0x11, 0);
         if (fx != NULL) {
             sub_0806FAD8(this, fx);

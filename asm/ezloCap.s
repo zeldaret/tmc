@@ -381,7 +381,7 @@ _0806DB34:
 	bl SetLocalFlag
 _0806DB3A:
 	movs r0, #0xcd
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 

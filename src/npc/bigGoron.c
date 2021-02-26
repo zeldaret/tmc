@@ -11,7 +11,7 @@ extern u16 gUnk_081140CC[];
 extern void sub_0806D0B0(Entity*);
 extern void sub_0807DD64(Entity*);
 extern void sub_0807DDE4(Entity*);
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern void sub_0806D02C(Entity*);
 extern Entity* FindEntityInListByForm(u32, u32, u32, u32, u32);
 
@@ -47,7 +47,7 @@ void sub_0806CF30(Entity* this) {
         case 2:
             if (--this->actionDelay == 0) {
                 u32 uVar2 = Random();
-                PlaySFX(gUnk_081140CC[uVar2 % 4]);
+                SoundReq(gUnk_081140CC[uVar2 % 4]);
                 this->actionDelay = ((u8)uVar2 & 7) * 16;
                 this->actionDelay += 128;
             }

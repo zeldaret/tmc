@@ -6,8 +6,8 @@
 
 	.text
 	
-	thumb_func_start PlaySFX
-PlaySFX: @ 0x080A3268
+	thumb_func_start SoundReq
+SoundReq: @ 0x080A3268
 	push {r4, r5, lr}
 	adds r3, r0, #0
 	ldr r0, _080A32AC @ =gUnk_03001000

@@ -8,7 +8,7 @@ extern void sub_080A080C(Entity*);
 extern void sub_0806F69C(Entity*);
 extern void EnqueueSFX(u32);
 extern void sub_080A0870(Entity*);
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern u32 sub_080001DA(u32, u32);
 extern void SetTile(u32, u32, u32);
 
@@ -79,7 +79,7 @@ void sub_080A07BC(Entity* this) {
         this->direction = 0x10;
         this->y.HALF.HI += 2;
         sub_080A0870(this);
-        PlaySFX(0x10b);
+        SoundReq(0x10b);
     }
 }
 

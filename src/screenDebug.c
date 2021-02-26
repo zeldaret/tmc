@@ -23,8 +23,8 @@ void HandleDebugTextScreen() {
 
 void sub_0805FA04(void) {
     sub_0801DA90(1);
-    _DmaZero((void*)&gBG0Buffer, sizeof(BGBuffer));
-    _DmaZero((void*)&gBG3Buffer, 0x1000);
+    MemClear32((void*)&gBG0Buffer, sizeof(BGBuffer));
+    MemClear32((void*)&gBG3Buffer, 0x1000);
     gScreen.lcd.displayControl = 0x940;
     gScreen.bg.bg1Control = 0;
     gScreen.bg.bg2Control = 0;
@@ -33,8 +33,8 @@ void sub_0805FA04(void) {
     gScreen.affine.bg3Control = 0x1e0f;
     gScreen.affine.unk4 = 1;
     MessageInitialize();
-    _DmaZero((void*)&gUnk_02032EC0, sizeof(UI));
-    _DmaZero((void*)&gMenu, sizeof(Menu));
+    MemClear32((void*)&gUnk_02032EC0, sizeof(UI));
+    MemClear32((void*)&gMenu, sizeof(Menu));
     gMenu.unk16 = gUnk_02000000->gameLanguage;
     sub_08053320();
     sub_0801D79C(0, 0x1144);

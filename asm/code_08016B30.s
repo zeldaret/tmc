@@ -53,7 +53,7 @@ sub_08016B6C: @ 0x08016B6C
 	ldrb r0, [r5]
 	cmp r0, #0
 	bne _08016BA6
-	bl UpdateBackgroundRegisters
+	bl DispCtrlSet
 	ldr r0, _08016BCC @ =gUnk_03000FBC
 	str r0, [r4]
 	ldr r0, _08016BD0 @ =gUnk_02022730
@@ -84,8 +84,8 @@ _08016BD0: .4byte gUnk_02022730
 _08016BD4: .4byte 0x84000004
 _08016BD8: .4byte 0x03007FF8
 
-	thumb_func_start sub_08016BDC
-sub_08016BDC: @ 0x08016BDC
+	thumb_func_start HBlankIntr
+HBlankIntr: @ 0x08016BDC
 	push {lr}
 	ldr r1, _08016BF0 @ =0x04000004
 	ldr r2, _08016BF4 @ =0x00005028

@@ -99,7 +99,7 @@ _08076BB8:
 	bl sub_08077D38
 
 	ldr r0, _08076C28 @ =0x00000216
-	bl PlaySFX
+	bl SoundReq
 
 	bl sub_0805E544
 

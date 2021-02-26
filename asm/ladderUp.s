@@ -108,7 +108,7 @@ _0808DC0E:
 	movs r1, #0
 	bl sub_08080964
 	ldr r0, _0808DC28 @ =0x0000010B
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #2
 	strb r0, [r7, #0xc]
 	movs r0, #0x3c
@@ -128,7 +128,7 @@ _0808DC3A:
 	movs r0, #3
 	strb r0, [r7, #0xc]
 	movs r0, #0x73
-	bl PlaySFX
+	bl SoundReq
 	b _0808DD72
 _0808DC46:
 	ldrb r0, [r7, #0xb]

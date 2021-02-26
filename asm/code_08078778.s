@@ -70,7 +70,7 @@ sub_080788E0: @ 0x080788E0
 	ldr r1, _08078900 @ =gUnk_03003DF8
 	adds r0, r0, r1
 	movs r1, #0xc
-	bl _DmaZero
+	bl MemClear32
 _080788FC:
 	pop {pc}
 	.align 2, 0
@@ -542,7 +542,7 @@ sub_08078C24: @ 0x08078C24
 	ldr r0, _08078CB0 @ =gUnk_03003DF0
 	movs r1, #0xc4
 	lsls r1, r1, #1
-	bl _DmaZero
+	bl MemClear32
 	pop {pc}
 	.align 2, 0
 _08078CAC: .4byte gPlayerState
@@ -1156,7 +1156,7 @@ sub_080790E4: @ 0x080790E4
 	rsbs r0, r0, #0
 	bl ModHealth
 	movs r0, #0x7a
-	bl PlaySFX
+	bl SoundReq
 	b _08079182
 	.align 2, 0
 _08079128: .4byte gPlayerState
@@ -2819,7 +2819,7 @@ _08079D92:
 	strb r0, [r1]
 	bl sub_08077B20
 	ldr r0, _08079DC8 @ =0x00000193
-	bl PlaySFX
+	bl SoundReq
 _08079DBE:
 	pop {pc}
 	.align 2, 0
@@ -2849,7 +2849,7 @@ sub_08079DCC: @ 0x08079DCC
 	movs r0, #0xe
 	strb r0, [r3, #0xc]
 	ldr r0, _08079E04 @ =0x00000193
-	bl PlaySFX
+	bl SoundReq
 _08079DF8:
 	pop {pc}
 	.align 2, 0
@@ -4929,7 +4929,7 @@ _0807AD52:
 	orrs r0, r1
 	strb r0, [r2]
 	ldr r0, _0807ADA0 @ =0x00000163
-	bl PlaySFX
+	bl SoundReq
 _0807AD74:
 	ldr r0, _0807ADA4 @ =gPlayerState
 	adds r0, #0x26
@@ -5014,7 +5014,7 @@ _0807ADF8:
 	strb r4, [r0]
 _0807AE0E:
 	ldr r0, _0807AE18 @ =0x00000163
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #1
 	b _0807AE1E
 	.align 2, 0
@@ -5066,7 +5066,7 @@ _0807AE64:
 	bl sub_08079520
 	movs r0, #0xb1
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0807AE74:
 	movs r0, #0x10
 	bl sub_080793E4
@@ -5090,7 +5090,7 @@ _0807AE74:
 	rsbs r0, r0, #0
 	bl ModHealth
 	movs r0, #0x7a
-	bl PlaySFX
+	bl SoundReq
 _0807AEA8:
 	ldrb r1, [r4, #0x15]
 	movs r0, #0x80
@@ -5638,7 +5638,7 @@ sub_0807B264: @ 0x0807B264
 	strb r0, [r1]
 	movs r0, #0xa9
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0807B2B0:
 	pop {r4, pc}
 	.align 2, 0

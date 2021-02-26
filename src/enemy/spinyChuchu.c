@@ -122,7 +122,7 @@ void sub_08022654(Entity* this) {
             if (--this->field_0xf)
                 return;
             this->previousActionFlag = 1;
-            PlaySFX(0x12d);
+            SoundReq(0x12d);
             InitializeAnimation(this, 0);
             /* fallthrough */
         case 1:

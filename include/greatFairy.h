@@ -11,7 +11,7 @@ extern Entity* GreatFairy_CreateForm(Entity*, u32, u32);
 extern void PositionRelative();
 extern void CopyPosition();
 extern void DoFade();
-extern void PlaySFX();
+extern void SoundReq();
 extern void GetNextFrame();
 extern void sub_0805EC9C();
 extern void sub_0805EC60();

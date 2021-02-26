@@ -45,10 +45,10 @@ VaatiWrath: @ 0x08041330
 	strb r0, [r4, #0xc]
 	strb r1, [r4, #0xd]
 	ldr r0, _08041398 @ =0x80010000
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08041384:
 	ldr r0, _0804139C @ =gUnk_080D0E1C
 	ldrb r1, [r4, #0xa]
@@ -228,7 +228,7 @@ _080414C8:
 	cmp r0, #0
 	bne _080414F4
 	ldr r0, _0804150C @ =0x000001A9
-	bl PlaySFX
+	bl SoundReq
 _080414F4:
 	movs r0, #0x36
 	ldrsh r1, [r4, r0]
@@ -239,7 +239,7 @@ _080414F4:
 	movs r0, #2
 	strb r0, [r4, #0xd]
 	ldr r0, _0804150C @ =0x000001A9
-	bl PlaySFX
+	bl SoundReq
 	b _080415E6
 	.align 2, 0
 _0804150C: .4byte 0x000001A9
@@ -875,7 +875,7 @@ _080419A6:
 	movs r1, #0x1e
 	bl InitializeAnimation
 	ldr r0, _080419FC @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 _080419F6:
 	pop {r4, pc}
 	.align 2, 0
@@ -1303,7 +1303,7 @@ _08041D40:
 	strb r0, [r4, #0x18]
 	movs r0, #0xe2
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08041D7C:
 	pop {r4, r5, pc}
 	.align 2, 0

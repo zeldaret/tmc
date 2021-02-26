@@ -181,7 +181,7 @@ static void sub_08081150(Entity* this) {
     this->height.HALF.HI = -0x80;
     this->spriteOrientation.flipY = 1;
     this->spriteRendering.b3 = 1;
-    PlaySFX(0x12D);
+    SoundReq(0x12D);
 }
 
 static void sub_08081188(Entity* this) {
@@ -205,7 +205,7 @@ void sub_080811C8(Entity* this) {
 
 void sub_080811D8(Entity* this) {
     sub_08081188(this);
-    PlaySFX(0x215);
+    SoundReq(0x215);
 }
 
 void sub_080811EC(Entity* this) {
@@ -358,7 +358,7 @@ static u8 sub_0808147C(u32 arg0) {
 void sub_0808148C(u32 arg0) {
     const Unk_0811E84C* var0 = &gUnk_0811E84C[arg0];
     if (var0->sfx) {
-        PlaySFX(var0->sfx);
+        SoundReq(var0->sfx);
     }
 }
 

@@ -242,7 +242,7 @@ _0805687A:
 	b _08056942
 _0805688C:
 	ldrh r0, [r5, #0x22]
-	bl PlaySFX
+	bl SoundReq
 	b _08056942
 _08056894:
 	ldr r1, _080568A8 @ =gUnk_02022780
@@ -267,11 +267,11 @@ _080568B2:
 	beq _080568D2
 	adds r0, r6, #0
 	movs r1, #4
-	bl _DmaZero
+	bl MemClear32
 	ldr r4, _08056910 @ =gUnk_02024030
 	adds r0, r4, #0
 	movs r1, #0x18
-	bl _DmaZero
+	bl MemClear32
 	movs r0, #1
 	strb r0, [r4]
 	strb r0, [r6]
@@ -472,9 +472,9 @@ _08056A30:
 	movs r1, #3
 	strb r1, [r2]
 	movs r1, #0x18
-	bl _DmaZero
+	bl MemClear32
 	movs r0, #0x6a
-	bl PlaySFX
+	bl SoundReq
 	adds r1, r6, #0
 	adds r1, #0x89
 	movs r0, #1
@@ -502,7 +502,7 @@ _08056A6A:
 	beq _08056A90
 	strb r5, [r4, #3]
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 	movs r1, #1
 	b _08056A92
 	.align 2, 0
@@ -610,7 +610,7 @@ _08056B48:
 	cmp r0, #0
 	beq _08056B70
 	movs r0, #0x68
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r4, #0
 	adds r0, #0x9a
 	strb r5, [r0]
@@ -1163,7 +1163,7 @@ sub_08056F70: @ 0x08056F70
 	ldr r1, _08056F84 @ =0x0600D040
 	movs r2, #0xd0
 	lsls r2, r2, #4
-	bl LoadAssetAsync
+	bl LoadResourceAsync
 	pop {pc}
 	.align 2, 0
 _08056F80: .4byte gUnk_02000D00

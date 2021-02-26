@@ -12,7 +12,7 @@ typedef struct {
 
 extern UnkStruct_MineralWater MineralWaterSourceParameters[];
 
-extern bool32 sub_0806FBD8(Entity*);
+extern bool32 AllocMutableBBox(Entity*);
 
 void MineralWaterSource(Entity* this) {
     MineralWaterSourceActionFuncs[this->action](this);
@@ -21,7 +21,7 @@ void MineralWaterSource(Entity* this) {
 void MineralWaterSource_Init(Entity* this) {
     UnkStruct_MineralWater* unknownParameters;
 
-    if (!sub_0806FBD8(this)) {
+    if (!AllocMutableBBox(this)) {
         return;
     }
 

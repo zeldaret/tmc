@@ -181,7 +181,7 @@ sub_080A0B60: @ 0x080A0B60
 	strb r0, [r2, #0xc]
 	movs r0, #0x9b
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _080A0B7C:
 	pop {pc}
 	.align 2, 0

@@ -138,7 +138,7 @@ _0805DF1A:
 	strb r0, [r2]
 _0805DF3C:
 	movs r0, #0x32
-	bl PlaySFX
+	bl SoundReq
 _0805DF42:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -211,7 +211,7 @@ _0805DFB8:
 	movs r1, #4
 	bl DoFade
 	movs r0, #0xf6
-	bl PlaySFX
+	bl SoundReq
 _0805DFCA:
 	pop {pc}
 
@@ -288,7 +288,7 @@ _0805E040:
 	movs r1, #4
 	bl DoFade
 	movs r0, #0xf7
-	bl PlaySFX
+	bl SoundReq
 _0805E062:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

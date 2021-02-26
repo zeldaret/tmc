@@ -94,7 +94,7 @@ void sub_08081C30(Entity* this) {
         this->action = 2;
         ClearFlag(this->field_0x86.HWORD);
         SetTileType(0x77, this->field_0x74.HWORD, this->collisionLayer);
-        PlaySFX(0x10C);
+        SoundReq(0x10C);
     }
 }
 
@@ -264,7 +264,7 @@ u32 sub_08081F7C(Entity* this, u32 r7) {
             SetFlag(this->field_0x86.HWORD);
             SetTileType(r7, this->field_0x74.HWORD, this->collisionLayer);
             sub_08081F24(this);
-            PlaySFX(0x10C);
+            SoundReq(0x10C);
             if (this->field_0x70.HALF_U.LO != 0xFFFF)
                 SetTile(this->field_0x70.HALF_U.LO, this->field_0x74.HWORD, this->collisionLayer);
             return 0;

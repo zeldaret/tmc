@@ -96,7 +96,7 @@ _08088AE4:
 	ldr r0, _08088B74 @ =gUnk_08120C1C
 	str r0, [r4, #0x68]
 	movs r0, #0x8a
-	bl PlaySFX
+	bl SoundReq
 _08088B06:
 	ldr r1, [r5, #0x68]
 	movs r0, #2
@@ -111,7 +111,7 @@ _08088B06:
 	ldr r0, _08088B78 @ =gUnk_08120C25
 	str r0, [r4, #0x68]
 	movs r0, #0x89
-	bl PlaySFX
+	bl SoundReq
 _08088B24:
 	ldr r1, [r5, #0x68]
 	movs r0, #4
@@ -126,7 +126,7 @@ _08088B24:
 	ldr r0, _08088B7C @ =gUnk_08120C2E
 	str r0, [r4, #0x68]
 	movs r0, #0x8a
-	bl PlaySFX
+	bl SoundReq
 _08088B42:
 	ldrb r0, [r4, #0xe]
 	cmp r0, #0
@@ -817,7 +817,7 @@ _0808905C:
 	movs r1, #0x3c
 	bl sub_0805E4E0
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 _08089088:
 	adds r0, r4, #0
 	bl DeleteEntity

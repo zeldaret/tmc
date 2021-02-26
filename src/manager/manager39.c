@@ -68,7 +68,7 @@ void sub_0805E18C(Manager39* this) {
 }
 
 void sub_0805E1D8(Manager39* this) {
-    _DmaZero(&gUnk_02034DF0, 0x80);
+    MemClear32(&gUnk_02034DF0, 0x80);
     gScreen.bg.bg3Control = 1;
     DeleteThisEntity();
 }
@@ -81,7 +81,7 @@ void sub_0805E1F8(u32 unk0, u32 unk1) {
         u8 unk_06[3];
     } PACKED tmp;
     const u8 * tmp2;
-    _DmaZero(&gUnk_02034DF0, 0x80);
+    MemClear32(&gUnk_02034DF0, 0x80);
     _DmaCopy(gUnk_08108E60, &tmp, sizeof(tmp));
     tmp.unk_04 = unk0>>8;
     tmp.unk_05 = unk0;

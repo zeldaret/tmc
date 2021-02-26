@@ -84,7 +84,7 @@ _080A3CF0:
 	beq _080A3CFE
 	strb r1, [r3]
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 _080A3CFE:
 	ldr r2, _080A3D28 @ =gInput
 	ldrh r1, [r2, #2]
@@ -95,7 +95,7 @@ _080A3CFE:
 	movs r0, #2
 	bl sub_080A7114
 	movs r0, #0x6c
-	bl PlaySFX
+	bl SoundReq
 	b _080A3DA8
 	.align 2, 0
 _080A3D18: .4byte 0x0001FFFF
@@ -276,7 +276,7 @@ sub_080A3E48: @ 0x080A3E48
 	beq _080A3E84
 	movs r0, #0x8c
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #4
 	bl sub_080A7114
 	b _080A3EC8
@@ -317,7 +317,7 @@ _080A3E84:
 	adds r0, #0x6a
 	strh r2, [r0]
 	movs r0, #0xfa
-	bl PlaySFX
+	bl SoundReq
 _080A3EC8:
 	pop {r4, pc}
 	.align 2, 0
@@ -379,7 +379,7 @@ sub_080A3F10: @ 0x080A3F10
 	movs r0, #1
 	bl sub_080A7114
 	movs r0, #0x6d
-	bl PlaySFX
+	bl SoundReq
 _080A3F46:
 	pop {r4, pc}
 	.align 2, 0
@@ -427,7 +427,7 @@ sub_080A3F68: @ 0x080A3F68
 _080A3F96:
 	bl sub_080A4468
 	movs r0, #0xcd
-	bl PlaySFX
+	bl SoundReq
 	ldr r0, _080A3FC8 @ =0x00000702
 	movs r1, #0xe
 	bl sub_080563C8
@@ -457,7 +457,7 @@ sub_080A3FCC: @ 0x080A3FCC
 	movs r1, #2
 	strb r1, [r0, #6]
 	ldr r0, _080A3FF0 @ =0x00000147
-	bl PlaySFX
+	bl SoundReq
 _080A3FE6:
 	pop {pc}
 	.align 2, 0
@@ -497,7 +497,7 @@ _080A4018:
 	bl CreateObject
 	movs r0, #0xe5
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _080A4036:
 	pop {pc}
 
@@ -935,7 +935,7 @@ sub_080A4398: @ 0x080A4398
 	push {lr}
 	ldr r0, _080A43A4 @ =gUnk_02019EE0
 	movs r1, #0x40
-	bl _DmaZero
+	bl MemClear32
 	pop {pc}
 	.align 2, 0
 _080A43A4: .4byte gUnk_02019EE0
@@ -1119,7 +1119,7 @@ sub_080A44E0: @ 0x080A44E0
 	mov r8, r0
 	ldr r0, [r4, #8]
 	mov r1, r8
-	bl _DmaZero
+	bl MemClear32
 	adds r0, r6, #0
 	adds r1, r4, #0
 	bl sub_0805F76C
@@ -1174,7 +1174,7 @@ _080A4550:
 	b _080A4576
 _080A456A:
 	adds r0, r4, #0
-	bl sub_0804A57C
+	bl EnemyInit
 	ldrb r0, [r4, #9]
 	strb r0, [r4, #0xf]
 	movs r0, #0x66
@@ -1269,11 +1269,11 @@ sub_080A4608: @ 0x080A4608
 	ldr r0, _080A46A4 @ =gBG0Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080A46A8 @ =gBG3Buffer
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl _DmaZero
+	bl MemClear32
 	ldr r2, _080A46AC @ =gScreen
 	adds r1, r2, #0
 	adds r1, #0x58
@@ -1336,7 +1336,7 @@ sub_080A46C0: @ 0x080A46C0
 	lsls r0, r0, #1
 	bl sub_080A3248
 	movs r0, #0x6c
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #2
 	bl ClearRoomFlag
 	bl sub_080A71DC
@@ -1456,7 +1456,7 @@ _080A4788:
 	adds r1, #0x9c
 _080A47BE:
 	adds r0, r1, #0
-	bl PlaySFX
+	bl SoundReq
 _080A47C4:
 	pop {r4, pc}
 	.align 2, 0
@@ -1631,7 +1631,7 @@ _080A48F6:
 	beq _080A490E
 	strb r4, [r6, #0x1c]
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #2
 	bl sub_080A7114
 	movs r5, #0
@@ -1915,7 +1915,7 @@ _080A4B2C: .4byte gUnk_081281A8
 _080A4B30: .4byte 0x06014000
 _080A4B34:
 	ldr r1, _080A4B40 @ =0x06014000
-	bl LoadAssetAsync
+	bl LoadResourceAsync
 _080A4B3A:
 	pop {r3}
 	mov r8, r3
@@ -1976,7 +1976,7 @@ sub_080A4BA0: @ 0x080A4BA0
 	adds r6, r1, #0
 	add r0, sp, #0x18
 	movs r1, #0x30
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080A4C08 @ =gUnk_0812816C
 	mov r1, sp
 	movs r2, #0x18
@@ -2123,7 +2123,7 @@ sub_080A4CBC: @ 0x080A4CBC
 	lsls r5, r5, #4
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r1, _080A4D14 @ =0x0600E000
 	adds r0, r4, #0
 	adds r2, r5, #0
@@ -2217,7 +2217,7 @@ sub_080A4D88: @ 0x080A4D88
 	push {lr}
 	ldr r0, _080A4DA4 @ =gUnk_020344A0
 	movs r1, #8
-	bl _DmaZero
+	bl MemClear32
 	movs r0, #1
 	movs r1, #0
 	bl MenuFadeIn
@@ -2245,21 +2245,21 @@ sub_080A4DB8: @ 0x080A4DB8
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080A4E5C @ =gBG1Buffer
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080A4E60 @ =gBG2Buffer
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080A4E64 @ =gUnk_0200AF34
 	movs r1, #0xc0
 	lsls r1, r1, #2
-	bl _DmaZero
+	bl MemClear32
 	ldr r4, _080A4E68 @ =gMenu
 	adds r0, r4, #0
 	movs r1, #0x30
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080A4E6C @ =0x0000FFFF
 	strh r0, [r4, #0x2e]
 	ldr r0, _080A4E70 @ =gUnk_02034490
@@ -2552,7 +2552,7 @@ _080A5042:
 	movs r4, #0
 	strb r5, [r0, #0x14]
 	movs r0, #0x65
-	bl PlaySFX
+	bl SoundReq
 	ldr r0, _080A5078 @ =gMenu
 	str r4, [r0, #0xc]
 _080A5052:
@@ -2580,7 +2580,7 @@ _080A5080:
 	ldr r0, _080A5098 @ =gBG0Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl _DmaZero
+	bl MemClear32
 	ldr r1, _080A509C @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]
@@ -2910,7 +2910,7 @@ _080A52EC:
 	bl ForceEquipItem
 _080A530A:
 	movs r0, #0x6a
-	bl PlaySFX
+	bl SoundReq
 	b _080A5336
 	.align 2, 0
 _080A5314: .4byte gMenu
@@ -2942,7 +2942,7 @@ _080A5336:
 	beq _080A5346
 	strb r4, [r5, #3]
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 _080A5346:
 	adds r0, r5, #0
 	adds r0, #0x10

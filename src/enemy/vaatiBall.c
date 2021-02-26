@@ -38,7 +38,7 @@ void VaatiBall(Entity* this) {
             this->currentHealth = -1;
             parent->field_0x80.HALF.LO--;
             CreateDust(this);
-            PlaySFX(0x1c3);
+            SoundReq(0x1c3);
         }
     }
 }
@@ -369,7 +369,7 @@ void sub_08044B04(Entity* this) {
                         if (this->actionDelay) {
                             if (--this->actionDelay == 0) {
                                 this->nonPlanarMovement = 1280;
-                                PlaySFX(0x14f);
+                                SoundReq(0x14f);
                             }
                         }
                         if (this->field_0x78.HALF.HI == 3)

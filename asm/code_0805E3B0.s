@@ -360,15 +360,15 @@ EraseAllEntities: @ 0x0805E60C
 	bl DeleteAllEntities
 	ldr r0, _0805E654 @ =gUnk_03003DC0
 	movs r1, #0xc
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _0805E658 @ =gPlayerEntity
 	movs r1, #0xaa
 	lsls r1, r1, #6
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _0805E65C @ =gUnk_02033290
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl _DmaZero
+	bl MemClear32
 	bl sub_0805E98C
 	ldr r0, _0805E660 @ =gEntCount
 	movs r1, #0

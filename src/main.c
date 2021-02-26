@@ -36,7 +36,7 @@ void MainLoop(void) {
     MessageInitialize();
     sub_080ADD30();
     gRand = 0x1234567;
-    _DmaZero(&gUnk_03001000, sizeof(gUnk_03001000));
+    MemClear32(&gUnk_03001000, sizeof(gUnk_03001000));
     InitScreen(SCREEN_INTRO);
     while (1) {
         ReadKeyInput();
@@ -71,8 +71,7 @@ void MainLoop(void) {
                 sub_080A3480();
                 break;
         }
-
-        sub_08016E78();
+        PrepNextFrame();
     }
 }
 
@@ -93,7 +92,7 @@ static void sub_08055F70(void) {
     *(vu16*)BG_PLTT = 0x7FFF;
     REG_WAITCNT = WAITCNT_PREFETCH_ENABLE | WAITCNT_WS0_S_1 | WAITCNT_WS0_N_3;
     size = 0x3FFD0;
-    _DmaZero(gUnk_02000030, size);
+    MemClear32(gUnk_02000030, size);
     size = (u32)gUnk_080B2CD8 - (u32)sub_080B197C;
     if (size != 0) {
         _DmaCopy(sub_080B197C, gUnk_030056F0, size);
@@ -186,7 +185,7 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", void sub_080560B8(void)) {
         b = 1;
     }
     if (b != 0) {
-        _DmaZero((u8*)&gUnk_02000010.signature, 0x20);
+        MemClear32((u8*)&gUnk_02000010.signature, 0x20);
         gUnk_02000010.signature = SIGNATURE;
     }
 }
@@ -202,7 +201,7 @@ u32 sub_08056134(void) {
 }
 
 void InitDMA() {
-    PlaySFX(0x80040000);
+    SoundReq(0x80040000);
     gScreen._6d = gScreen._6c;
     gScreen._6c = 0;
 
@@ -215,7 +214,7 @@ void InitDMA() {
 }
 
 void sub_08056208() {
-    PlaySFX(0x80060000);
+    SoundReq(0x80060000);
     gScreen._6c = gScreen._6d;
     gScreen._6d = 0;
 }

@@ -88,7 +88,7 @@ extern void MessageInitialize(void);
 extern void sub_080ADD30(void);
 
 extern void InitScreen(u32);
-extern void sub_08016E78(void);
+extern void PrepNextFrame(void);
 extern void ReadKeyInput(void);
 extern void DoSoftReset(void);
 extern void sub_08056260(void);

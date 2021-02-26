@@ -55,7 +55,7 @@ _08048314:
 	bl InitializeAnimation
 	movs r0, #0xb3
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08048326:
 	adds r0, r4, #0
 	bl sub_080485D8
@@ -228,7 +228,7 @@ _08048456:
 	movs r1, #5
 	bl InitializeAnimation
 	ldr r0, _08048474 @ =0x0000019B
-	bl PlaySFX
+	bl SoundReq
 _0804846A:
 	adds r0, r4, #0
 	bl sub_080485FC
@@ -386,7 +386,7 @@ _08048562:
 	bl sub_080485FC
 	movs r0, #0xb3
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0804859E:
 	pop {r4, pc}
 

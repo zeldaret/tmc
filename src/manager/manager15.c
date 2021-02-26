@@ -80,7 +80,7 @@ void sub_0805A370(Manager15* this) {
     if (this->manager.unk_0d) {
         LoadRoomEntityList(&gUnk_080E4C08);
         this->manager.action = 3;
-        PlaySFX(0x80100000);
+        SoundReq(0x80100000);
     }
 }
 

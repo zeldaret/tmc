@@ -138,7 +138,7 @@ sub_08035288: @ 0x08035288
 	bl sub_08078B48
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _080352FA
 	.align 2, 0
 _080352C4: .4byte gUnk_02034490
@@ -671,7 +671,7 @@ _080356B2:
 	strb r1, [r0]
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r7, #0
 	bl sub_0804A7D4
 	b _080356F0
@@ -1115,7 +1115,7 @@ sub_08035A24: @ 0x08035A24
 	ldr r0, [r0]
 	strb r1, [r0]
 	ldr r0, _08035A50 @ =0x00000159
-	bl PlaySFX
+	bl SoundReq
 	b _08035A64
 	.align 2, 0
 _08035A50: .4byte 0x00000159
@@ -1267,7 +1267,7 @@ sub_08035B34: @ 0x08035B34
 	ldr r0, _08035B78 @ =gUnk_02034490
 	strb r4, [r0]
 	movs r0, #0x2e
-	bl PlaySFX
+	bl SoundReq
 	b _08035B92
 	.align 2, 0
 _08035B70: .4byte gPlayerEntity
@@ -2047,10 +2047,10 @@ _0803612C:
 	bl sub_08080964
 	movs r0, #0xac
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0xa6
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0803617C
 _08036178:
 	subs r0, #1
@@ -2149,7 +2149,7 @@ _08036228:
 _0803622E:
 	strb r0, [r1]
 	ldr r0, _08036238 @ =0x00000155
-	bl PlaySFX
+	bl SoundReq
 _08036236:
 	pop {pc}
 	.align 2, 0
@@ -2210,7 +2210,7 @@ _08036292:
 	strb r0, [r3]
 _0803629A:
 	ldr r0, _080362A4 @ =0x00000155
-	bl PlaySFX
+	bl SoundReq
 _080362A0:
 	pop {pc}
 	.align 2, 0
@@ -2472,7 +2472,7 @@ _0803640C:
 	rsbs r0, r0, #0
 	strb r0, [r1, #3]
 	movs r0, #0xed
-	bl PlaySFX
+	bl SoundReq
 	b _080364AA
 	.align 2, 0
 _08036498: .4byte gPlayerEntity
@@ -2576,7 +2576,7 @@ _08036510:
 	adds r0, r4, #0
 	bl sub_08036C90
 	movs r0, #0xef
-	bl PlaySFX
+	bl SoundReq
 	b _08036652
 	.align 2, 0
 _0803656C: .4byte gPlayerEntity
@@ -2738,7 +2738,7 @@ _08036678:
 	bne _080366A0
 	movs r0, #0x92
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _080366A0:
 	adds r0, r5, #0
 	movs r1, #0x87
@@ -2945,10 +2945,10 @@ _080367FE:
 	bl sub_08080964
 	movs r0, #0xac
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0xa6
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0803683A:
 	adds r1, r4, #0
 	adds r1, #0x79
@@ -2970,7 +2970,7 @@ _08036852:
 	cmp r0, #0
 	bne _08036864
 	ldr r0, _0803686C @ =0x00000159
-	bl PlaySFX
+	bl SoundReq
 _08036864:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -3789,7 +3789,7 @@ _08036E62:
 	ldr r0, [r6]
 	strb r5, [r0]
 	ldr r0, _08036E88 @ =0x00000159
-	bl PlaySFX
+	bl SoundReq
 	b _08036F00
 	.align 2, 0
 _08036E84: .4byte gRoomVars
@@ -3966,14 +3966,14 @@ sub_08036FAC: @ 0x08036FAC
 	cmp r0, #0
 	bne _08036FD8
 	ldr r0, _08036FD4 @ =0x00000163
-	bl PlaySFX
+	bl SoundReq
 	b _08036FDE
 	.align 2, 0
 _08036FD0: .4byte gScreenTransition
 _08036FD4: .4byte 0x00000163
 _08036FD8:
 	ldr r0, _08036FE0 @ =0x000001B1
-	bl PlaySFX
+	bl SoundReq
 _08036FDE:
 	pop {pc}
 	.align 2, 0

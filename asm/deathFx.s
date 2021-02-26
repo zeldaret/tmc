@@ -66,7 +66,7 @@ _08081674:
 	movs r1, #0
 	bl InitAnimationForceUpdate
 	ldr r0, _08081698 @ =0x00000129
-	bl PlaySFX
+	bl SoundReq
 	b _0808170C
 	.align 2, 0
 _08081698: .4byte 0x00000129

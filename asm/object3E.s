@@ -270,7 +270,7 @@ sub_0808D280: @ 0x0808D280
 	movs r0, #0x10
 	strh r0, [r1]
 	movs r0, #0xf6
-	bl PlaySFX
+	bl SoundReq
 _0808D2C4:
 	add sp, #4
 	pop {r4, pc}
@@ -346,7 +346,7 @@ _0808D31C:
 	cmp r0, #0
 	bne _0808D350
 	ldr r0, _0808D35C @ =0x0000010F
-	bl PlaySFX
+	bl SoundReq
 _0808D350:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -540,7 +540,7 @@ sub_0808D474: @ 0x0808D474
 	lsls r0, r0, #5
 	strh r0, [r1]
 	ldr r0, _0808D4D0 @ =0x00000179
-	bl PlaySFX
+	bl SoundReq
 	b _0808D50E
 	.align 2, 0
 _0808D4CC: .4byte gScreen

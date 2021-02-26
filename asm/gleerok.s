@@ -62,7 +62,7 @@ _0802D04C:
 	ldr r0, _0802D08C @ =0x00001442
 	strh r0, [r1]
 	movs r0, #0xf6
-	bl PlaySFX
+	bl SoundReq
 	b _0802D148
 	.align 2, 0
 _0802D088: .4byte gScreen
@@ -109,7 +109,7 @@ _0802D0D2:
 	cmp r0, #0
 	bne _0802D148
 	movs r0, #0xf7
-	bl PlaySFX
+	bl SoundReq
 	b _0802D148
 	.align 2, 0
 _0802D0EC: .4byte gScreen
@@ -117,7 +117,7 @@ _0802D0F0: .4byte gPlayerEntity
 _0802D0F4:
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r4, #0
 	bl sub_0804A7D4
 	b _0802D148
@@ -372,7 +372,7 @@ _0802D2E4:
 	bne _0802D2F8
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0802D2F8:
 	ldr r0, [r5]
 	movs r1, #0xf
@@ -826,7 +826,7 @@ sub_0802D674: @ 0x0802D674
 	cmp r0, #0x96
 	bne _0802D692
 	ldr r0, _0802D6BC @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 _0802D692:
 	ldr r0, [r4, #0x7c]
 	subs r1, r0, #1
@@ -841,7 +841,7 @@ _0802D692:
 	ldr r0, _0802D6C0 @ =gRoomControls
 	str r4, [r0, #0x30]
 	ldr r0, _0802D6BC @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 	b _0802D6EC
 	.align 2, 0
 _0802D6B4: .4byte gUnk_02034490
@@ -1018,7 +1018,7 @@ sub_0802D7B4: @ 0x0802D7B4
 	ldr r0, _0802D80C @ =gUnk_02034490
 	strb r3, [r0]
 	movs r0, #0x2e
-	bl PlaySFX
+	bl SoundReq
 	b _0802D868
 	.align 2, 0
 _0802D7FC: .4byte gUnk_080CD7F8
@@ -1036,7 +1036,7 @@ _0802D810:
 	adds r0, #2
 	strb r0, [r5, #0xf]
 	ldr r0, _0802D828 @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 	b _0802D830
 	.align 2, 0
 _0802D828: .4byte 0x00000127
@@ -1225,7 +1225,7 @@ _0802D97A:
 	bls _0802D97A
 	movs r0, #0xa8
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0802D99C:
 	bl DeleteThisEntity
 	b _0802DB7E
@@ -1380,7 +1380,7 @@ _0802DA96:
 	strb r2, [r0]
 	movs r0, #0x86
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0802DB20
 	.align 2, 0
 _0802DAD4: .4byte gUnk_080CD884
@@ -2098,7 +2098,7 @@ _0802DFF8:
 	movs r0, #0x18
 	strb r0, [r1, #0xe]
 	ldr r0, _0802E030 @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 _0802E026:
 	adds r0, r5, #0
 	bl sub_0802E518
@@ -2228,7 +2228,7 @@ _0802E0F4:
 	bl sub_08078B48
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0802E1CA
 	.align 2, 0
 _0802E128: .4byte gPlayerEntity
@@ -2296,7 +2296,7 @@ _0802E190:
 	cmp r0, #0
 	ble _0802E1B2
 	ldr r0, _0802E1CC @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 _0802E1B2:
 	ldrh r0, [r5]
 	cmp r0, #0x77
@@ -2388,7 +2388,7 @@ _0802E23A:
 	bl CreateFx
 	movs r0, #0x92
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	cmp r4, #5
 	bne _0802E2F0
 	adds r0, r5, #0
@@ -2657,7 +2657,7 @@ _0802E452:
 	movs r2, #0
 	bl CreateFx
 	movs r0, #0x7d
-	bl PlaySFX
+	bl SoundReq
 _0802E46E:
 	ldrb r0, [r4]
 	cmp r0, #0xa

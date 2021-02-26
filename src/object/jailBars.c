@@ -4,7 +4,7 @@
 #include "room.h"
 
 extern void sub_080A0960(Entity*, u32);
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern void sub_0801AF18(u8*, u32, u32);
 
 extern void (*const gUnk_08124950[])(Entity*);
@@ -33,7 +33,7 @@ void sub_080A0910(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD) != 0) {
         this->action = 2;
         sub_080A0960(this, 1);
-        PlaySFX(0x10b);
+        SoundReq(0x10b);
     }
 }
 

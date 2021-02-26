@@ -258,7 +258,7 @@ sub_08054A60: @ 0x08054A60
 	ands r0, r1
 	strb r0, [r4, #0x14]
 	adds r0, r4, #0
-	bl sub_0806FBD8
+	bl AllocMutableBBox
 	cmp r0, #0
 	bne _08054AAC
 	bl DeleteThisEntity
@@ -514,7 +514,7 @@ sub_08054C88: @ 0x08054C88
 	movs r1, #0x10
 	bl DoFade
 	movs r0, #0x73
-	bl PlaySFX
+	bl SoundReq
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
@@ -865,7 +865,7 @@ sub_08054EFC: @ 0x08054EFC
 	bl sub_0806FAD8
 _08054F54:
 	movs r0, #0xfd
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, r5, pc}
 	.align 2, 0
 _08054F5C: .4byte gRoomControls
@@ -1264,7 +1264,7 @@ sub_0805524C: @ 0x0805524C
 	adds r0, #1
 	strb r0, [r3, #7]
 	movs r0, #0xf6
-	bl PlaySFX
+	bl SoundReq
 	b _080552D6
 	.align 2, 0
 _08055270: .4byte gMenu
@@ -1313,7 +1313,7 @@ _080552B4:
 	adds r0, #1
 	strb r0, [r3, #6]
 	movs r0, #0x73
-	bl PlaySFX
+	bl SoundReq
 _080552D6:
 	pop {r4, pc}
 	.align 2, 0
@@ -1418,7 +1418,7 @@ sub_08055380: @ 0x08055380
 	movs r1, #0x10
 	bl DoFade
 	movs r0, #0x73
-	bl PlaySFX
+	bl SoundReq
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
@@ -1563,7 +1563,7 @@ sub_08055498: @ 0x08055498
 	movs r1, #0x10
 	bl DoFade
 	movs r0, #0x73
-	bl PlaySFX
+	bl SoundReq
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
@@ -2228,7 +2228,7 @@ _080559AE:
 	ldrb r0, [r4, #4]
 	bl sub_080553E0
 	movs r0, #0x73
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, pc}
 	.align 2, 0
 _080559D8: .4byte gMenu
@@ -2321,7 +2321,7 @@ sub_08055A6C: @ 0x08055A6C
 	movs r1, #0x10
 	bl DoFade
 	movs r0, #0x73
-	bl PlaySFX
+	bl SoundReq
 	ldrb r0, [r4, #6]
 	adds r0, #1
 	strb r0, [r4, #6]
@@ -2584,7 +2584,7 @@ _08055C8C:
 	movs r1, #0x10
 	bl DoFade
 	movs r0, #0x73
-	bl PlaySFX
+	bl SoundReq
 	ldr r0, _08055CAC @ =gMenu
 	ldrb r1, [r0, #6]
 	adds r1, #1

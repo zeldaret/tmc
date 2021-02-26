@@ -304,9 +304,9 @@ extern ScriptExecutionContext gPlayerScriptExecutionContext;
 extern ScriptExecutionContext gScriptExecutionContextArray[0x20];
 
 void sub_0807DA70(void) {
-    _DmaZero(&gUnk_02033280, sizeof(gUnk_02033280));
-    _DmaZero(&gScriptExecutionContextArray, sizeof(gScriptExecutionContextArray));
-    _DmaZero(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
+    MemClear32(&gUnk_02033280, sizeof(gUnk_02033280));
+    MemClear32(&gScriptExecutionContextArray, sizeof(gScriptExecutionContextArray));
+    MemClear32(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
     gUnk_02033280.unk_08 = 8;
 }
 
@@ -324,7 +324,7 @@ ScriptExecutionContext* CreateScriptExecutionContext(void) {
 }
 
 void DestroyScriptExecutionContext(ScriptExecutionContext* context) {
-    _DmaZero(context, sizeof(ScriptExecutionContext));
+    MemClear32(context, sizeof(ScriptExecutionContext));
 }
 
 ScriptExecutionContext* StartCutscene(Entity* entity, u16* unk_2) {
@@ -354,7 +354,7 @@ void UnloadCutsceneData(Entity* entity) {
 void StartPlayerScript(u16* unk1) {
     Entity* player;
 
-    _DmaZero(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
+    MemClear32(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
     gPlayerScriptExecutionContext.unk_00 = unk1;
     player = &gPlayerEntity;
     *(ScriptExecutionContext**)&player->cutsceneBeh = &gPlayerScriptExecutionContext;
@@ -377,7 +377,7 @@ ScriptExecutionContext* sub_0807DB68(Entity* entity, u16* unk1) {
 }
 
 void sub_0807DB88(ScriptExecutionContext* context, u16* unk1) {
-    _DmaZero(context, sizeof(ScriptExecutionContext));
+    MemClear32(context, sizeof(ScriptExecutionContext));
     context->unk_00 = unk1;
 }
 
@@ -1425,23 +1425,23 @@ void sub_0807EF90(Entity* unk1, ScriptExecutionContext* unk2) {
 }
 
 void sub_0807EFA0(Entity* unk1, ScriptExecutionContext* unk2) {
-    PlaySFX(unk2->unk_00[1]);
+    SoundReq(unk2->unk_00[1]);
 }
 
 void sub_0807EFAC(Entity* unk1, ScriptExecutionContext* unk2) {
     if (unk2->unk_00[1] >= 100) {
-        PlaySFX(gArea.musicIndex);
+        SoundReq(gArea.musicIndex);
     } else {
-        PlaySFX(unk2->unk_00[1]);
+        SoundReq(unk2->unk_00[1]);
     }
 }
 
 void sub_0807EFD4(Entity* unk1, ScriptExecutionContext* unk2) {
-    PlaySFX(GetNextScriptCommandWordAfterCommandMetadata(unk2->unk_00));
+    SoundReq(GetNextScriptCommandWordAfterCommandMetadata(unk2->unk_00));
 }
 
 void sub_0807EFE4(Entity* unk1, ScriptExecutionContext* unk2) {
-    PlaySFX(0x80100000);
+    SoundReq(0x80100000);
 }
 
 void sub_0807EFF4(Entity* unk1, ScriptExecutionContext* unk2) {

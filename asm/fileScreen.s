@@ -35,13 +35,13 @@ sub_080519B0: @ 0x080519B0
 	movs r0, #1
 	bl sub_0801DA90
 	bl sub_080A3210
-	bl sub_0801DA7C
+	bl zMallocInit
 	bl sub_080A7124
 	bl sub_0807059C
 	ldr r4, _08051A08 @ =gScreenTransition
 	adds r0, r4, #0
 	movs r1, #0xb0
-	bl _DmaZero
+	bl MemClear32
 	bl sub_08049CD4
 	bl sub_080300AC
 	bl sub_0807CA18
@@ -76,11 +76,11 @@ sub_08051A14: @ 0x08051A14
 	str r0, [r1, #4]
 	ldr r0, _08051A74 @ =gUnk_03000000
 	ldr r1, _08051A78 @ =0x00000B74
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _08051A7C @ =gUnk_02032EC0
 	movs r1, #0xed
 	lsls r1, r1, #2
-	bl _DmaZero
+	bl MemClear32
 	bl EraseAllEntities
 	bl sub_080197AC
 	bl sub_08080668
@@ -196,7 +196,7 @@ _08051B02:
 	ldr r0, _08051BC0 @ =0x800B0000
 	orrs r2, r0
 	adds r0, r2, #0
-	bl PlaySFX
+	bl SoundReq
 _08051B5A:
 	bl sub_0805E9F4
 	bl sub_0805BC04
@@ -734,10 +734,10 @@ sub_08052010: @ 0x08052010
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _08052080 @ =gBG2Buffer
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	bl sub_080A4D34
 	movs r0, #0xa
 	bl LoadPaletteGroup
@@ -749,10 +749,10 @@ sub_08052010: @ 0x08052010
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
 	movs r1, #0x20
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _08052084 @ =gMenu
 	movs r1, #0x30
-	bl _DmaZero
+	bl MemClear32
 	ldr r1, _08052088 @ =gScreen
 	ldrh r2, [r1]
 	movs r3, #0x80
@@ -830,7 +830,7 @@ sub_080520D8: @ 0x080520D8
 	ldr r0, _08052124 @ =gUnk_03001000
 	strb r2, [r0, #5]
 	movs r0, #0xa
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #4
 	bl sub_080500F4
 	ldr r0, _08052128 @ =0xFFFF0001

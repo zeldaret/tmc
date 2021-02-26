@@ -163,7 +163,7 @@ OtherEntity* GetEmptyManager(void) {
     return NULL;
 }
 
-extern void _DmaZero(void*, u32);
+extern void MemClear32(void*, u32);
 extern u8 gManagerCount;
 
 void DeleteManager(OtherEntity* ent) {
@@ -172,7 +172,7 @@ void DeleteManager(OtherEntity* ent) {
 
     sub_0805E92C(ent);
     UnlinkEntity(ent);
-    _DmaZero(ent, sizeof(OtherEntity));
+    MemClear32(ent, sizeof(OtherEntity));
     gManagerCount--;
 }
 

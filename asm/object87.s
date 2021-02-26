@@ -136,7 +136,7 @@ _08099FCE:
 	bl InitializeAnimation
 	movs r0, #0xa6
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0809A1B6
 _0809A00C:
 	ldr r0, [r5, #0x50]
@@ -329,14 +329,14 @@ _0809A132:
 	cmp r0, #0
 	beq _0809A1A8
 	ldr r0, _0809A1A4 @ =0x000001A3
-	bl PlaySFX
+	bl SoundReq
 	b _0809A1B6
 	.align 2, 0
 _0809A1A0: .4byte gRoomControls
 _0809A1A4: .4byte 0x000001A3
 _0809A1A8:
 	movs r0, #0xe8
-	bl PlaySFX
+	bl SoundReq
 	b _0809A1B6
 _0809A1B0:
 	movs r0, #0xf0

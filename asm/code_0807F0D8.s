@@ -432,7 +432,7 @@ sub_0807F3C8: @ 0x0807F3C8
 	push {lr}
 	bl sub_0807F36C
 	movs r0, #0xe5
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 
@@ -2934,11 +2934,11 @@ sub_08080668: @ 0x08080668
 	ldr r5, _080806A4 @ =gRoomControls
 	adds r0, r5, #0
 	movs r1, #0x38
-	bl _DmaZero
+	bl MemClear32
 	ldr r4, _080806A8 @ =gUnk_03004030
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080806AC @ =0x0000FFFF
 	strh r0, [r5, #0x22]
 	movs r0, #0xff
@@ -2950,10 +2950,10 @@ sub_08080668: @ 0x08080668
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080806B8 @ =gMapDataTopSpecial
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	pop {r4, r5, pc}
 	.align 2, 0
 _080806A4: .4byte gRoomControls
@@ -3235,7 +3235,7 @@ _0808089A:
 	ldrh r0, [r4, #0x10]
 	cmp r0, #0
 	beq _080808B8
-	bl PlaySFX
+	bl SoundReq
 _080808B8:
 	ldr r0, _080808D4 @ =gUnk_0811E7C4
 	ldrh r1, [r4]

@@ -5,8 +5,8 @@
 
 	.text
 	
-	thumb_func_start sub_08016AE4
-sub_08016AE4: @ 0x08016AE4
+	thumb_func_start ProjectileUpdate
+ProjectileUpdate: @ 0x08016AE4
 	mov r3, lr
 	push {r3, r4}
 	adds r4, r0, #0

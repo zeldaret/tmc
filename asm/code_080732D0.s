@@ -37,7 +37,7 @@ _080732EE:
 	cmp r0, #7
 	bne _08073320
 	ldr r0, _0807331C @ =0x00000187
-	bl PlaySFX
+	bl SoundReq
 	b _08073328
 	.align 2, 0
 _08073318: .4byte gPlayerState
@@ -45,7 +45,7 @@ _0807331C: .4byte 0x00000187
 _08073320:
 	movs r0, #0xc4
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08073328:
 	pop {r4, pc}
 	.align 2, 0
@@ -351,7 +351,7 @@ _08073516:
 	strb r0, [r4, #0xe]
 	movs r0, #0xa9
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08073576:
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
@@ -935,7 +935,7 @@ _080739BC:
 	bl sub_0806F948
 _080739CE:
 	movs r0, #0x7c
-	bl PlaySFX
+	bl SoundReq
 _080739D4:
 	ldr r2, _080739E8 @ =gPlayerState
 	ldrb r1, [r2, #2]
@@ -1139,7 +1139,7 @@ _08073B50:
 _08073B54:
 	strh r0, [r2, #8]
 	movs r0, #0x7d
-	bl PlaySFX
+	bl SoundReq
 _08073B5C:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -1243,7 +1243,7 @@ _08073C0C:
 	bl sub_08080964
 	movs r0, #0xa6
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08073C28:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1584,7 +1584,7 @@ _08073E9E:
 	rsbs r0, r0, #0
 	bl ModHealth
 	movs r0, #0x7a
-	bl PlaySFX
+	bl SoundReq
 _08073EDC:
 	ldr r0, [r5, #0x30]
 	movs r1, #0x40
@@ -1732,7 +1732,7 @@ sub_08073FD0: @ 0x08073FD0
 	orrs r0, r1
 	strb r0, [r4, #0x18]
 	movs r0, #0x7c
-	bl PlaySFX
+	bl SoundReq
 _08073FF8:
 	movs r1, #0x80
 	lsls r1, r1, #6
@@ -1746,7 +1746,7 @@ _08073FF8:
 	strb r0, [r4, #0xd]
 	movs r0, #0xb8
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08074016:
 	pop {r4, pc}
 
@@ -2452,7 +2452,7 @@ sub_0807450C: @ 0x0807450C
 	rsbs r0, r0, #0
 	bl ModHealth
 	movs r0, #0x7a
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x18
 	strb r0, [r4]
 	adds r1, r6, #0
@@ -2581,7 +2581,7 @@ _08074618:
 	bne _08074636
 _08074630:
 	movs r0, #0x83
-	bl PlaySFX
+	bl SoundReq
 _08074636:
 	pop {r4, r5, pc}
 
@@ -2703,7 +2703,7 @@ _08074704:
 	beq _08074720
 _08074714:
 	ldr r0, _0807471C @ =0x00000161
-	bl PlaySFX
+	bl SoundReq
 	b _08074732
 	.align 2, 0
 _0807471C: .4byte 0x00000161
@@ -2715,7 +2715,7 @@ _08074720:
 	cmp r0, #0
 	bne _08074732
 	ldr r0, _08074764 @ =0x00000161
-	bl PlaySFX
+	bl SoundReq
 _08074732:
 	ldr r2, _08074768 @ =gPlayerState
 	adds r1, r2, #0
@@ -2872,7 +2872,7 @@ _08074840:
 	bl CreateFx
 _08074862:
 	ldr r0, _080748B0 @ =0x000001A5
-	bl PlaySFX
+	bl SoundReq
 	bl ResetPlayer
 _0807486C:
 	ldr r5, _080748AC @ =gPlayerState
@@ -3995,7 +3995,7 @@ _0807504E:
 	adds r0, #1
 	strb r0, [r1]
 	movs r0, #0x7c
-	bl PlaySFX
+	bl SoundReq
 _08075086:
 	pop {pc}
 	.align 2, 0
@@ -4052,7 +4052,7 @@ _080750CE:
 	adds r0, #0x68
 	strb r1, [r0]
 	movs r0, #0x7d
-	bl PlaySFX
+	bl SoundReq
 _080750F2:
 	pop {r4, pc}
 
@@ -4108,7 +4108,7 @@ sub_0807513C: @ 0x0807513C
 	movs r0, #0
 	strb r0, [r4]
 	movs r0, #0x7c
-	bl PlaySFX
+	bl SoundReq
 _08075158:
 	ldrb r0, [r4]
 	cmp r0, #2
@@ -4116,9 +4116,9 @@ _08075158:
 	movs r0, #0
 	strb r0, [r4]
 	ldr r0, _08075188 @ =0x0000014B
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x7a
-	bl PlaySFX
+	bl SoundReq
 _0807516E:
 	ldrb r1, [r4]
 	movs r0, #0x80
@@ -4198,7 +4198,7 @@ sub_080751E8: @ 0x080751E8
 	ldr r4, _08075230 @ =gPlayerScriptExecutionContext
 	adds r0, r4, #0
 	movs r1, #0x24
-	bl _DmaZero
+	bl MemClear32
 	str r6, [r4]
 	ldr r0, _08075234 @ =gPlayerEntity
 	adds r0, #0x84
@@ -4383,7 +4383,7 @@ sub_08075338: @ 0x08075338
 	lsls r0, r0, #4
 	strh r0, [r4, #8]
 	movs r0, #0x75
-	bl PlaySFX
+	bl SoundReq
 	b _080754B4
 	.align 2, 0
 _0807536C: .4byte gPlayerState
@@ -4516,7 +4516,7 @@ _0807541E:
 	adds r0, r5, #0
 	bl sub_08077DF4
 	movs r0, #0x77
-	bl PlaySFX
+	bl SoundReq
 	b _080754B4
 _08075480:
 	ldrb r1, [r4, #0x1b]
@@ -4867,7 +4867,7 @@ _080756E0:
 	bl sub_0807A108
 _08075726:
 	movs r0, #0x76
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, r5, pc}
 	.align 2, 0
 _08075730: .4byte gPlayerState
@@ -5392,7 +5392,7 @@ _08075B08:
 	ands r2, r0
 	strb r2, [r3, #0xb]
 	ldr r0, _08075B48 @ =0x0000013D
-	bl PlaySFX
+	bl SoundReq
 	b _08075B52
 	.align 2, 0
 _08075B44: .4byte gPlayerState
@@ -5445,7 +5445,7 @@ _08075B86:
 	bl sub_08077E78
 	movs r0, #0x9f
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _08075C80
 	.align 2, 0
 _08075BB0: .4byte gPlayerState
@@ -6063,7 +6063,7 @@ _08076036:
 	bl ModBombs
 	movs r0, #0x82
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08076076:
 	adds r0, r6, #0
 	adds r1, r7, #0
@@ -6214,7 +6214,7 @@ _08076198:
 	strb r2, [r4, #7]
 _0807619A:
 	movs r0, #0x7f
-	bl PlaySFX
+	bl SoundReq
 _080761A0:
 	pop {r3}
 	mov r8, r3
@@ -6316,7 +6316,7 @@ _08076258:
 _08076264:
 	movs r0, #0x81
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _080762C0
 _0807626E:
 	movs r0, #5
@@ -6350,7 +6350,7 @@ _080762A2:
 	bl sub_08077DF4
 _080762AA:
 	movs r0, #0x88
-	bl PlaySFX
+	bl SoundReq
 	b _080762C0
 	.align 2, 0
 _080762B4: .4byte 0x00000948
@@ -6954,7 +6954,7 @@ _08076720:
 _0807673C:
 	bl sub_08077F84
 	movs r0, #0x78
-	bl PlaySFX
+	bl SoundReq
 	b _08076754
 	.align 2, 0
 _08076748: .4byte gPlayerEntity
@@ -7016,7 +7016,7 @@ sub_08076758: @ 0x08076758
 	strh r0, [r5, #8]
 	movs r0, #0xb9
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _080767FE
 	.align 2, 0
 _080767C0: .4byte gPlayerState
@@ -7087,7 +7087,7 @@ _08076834:
 	cmp r0, #0
 	bne _0807684A
 	movs r0, #0x7d
-	bl PlaySFX
+	bl SoundReq
 _0807684A:
 	ldr r2, _08076880 @ =gPlayerState
 	ldr r0, [r2, #0x30]

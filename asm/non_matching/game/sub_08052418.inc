@@ -6,7 +6,7 @@
 	ldr r0, _08052494 @ =gBG1Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _08052498 @ =gUnk_020227E8
 	movs r1, #0xf
 	str r1, [r0]

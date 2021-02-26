@@ -12,7 +12,7 @@ sub_0801CFA8: @ 0x0801CFA8
 	adds r5, r0, #0
 	ldr r0, _0801CFCC @ =gUnk_02001A00
 	movs r1, #0x40
-	bl _DmaZero
+	bl MemClear32
 	movs r4, #0
 _0801CFB6:
 	adds r0, r4, #0

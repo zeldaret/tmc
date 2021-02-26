@@ -104,7 +104,7 @@ _0803A1EA:
 	adds r0, #0x3d
 	strb r1, [r0]
 	ldr r0, _0803A20C @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 	b _0803A23E
 	.align 2, 0
 _0803A20C: .4byte 0x00000127
@@ -128,7 +128,7 @@ _0803A210:
 	movs r1, #9
 	bl InitAnimationForceUpdate
 	ldr r0, _0803A248 @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 _0803A23E:
 	ldr r1, _0803A24C @ =gUnk_080CFC14
 	adds r0, r4, #0
@@ -418,7 +418,7 @@ _0803A468:
 	bl InitAnimationForceUpdate
 	movs r0, #0xb7
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0803A546
 _0803A49A:
 	adds r0, r4, #0
@@ -699,7 +699,7 @@ _0803A6A8:
 	cmp r0, #0
 	beq _0803A6BE
 	ldr r0, _0803A6E0 @ =0x00000157
-	bl PlaySFX
+	bl SoundReq
 _0803A6BE:
 	ldr r2, _0803A6E4 @ =gUnk_080CED6C
 	ldr r0, [r4, #0x50]
@@ -802,7 +802,7 @@ sub_0803A740: @ 0x0803A740
 	bl sub_08080964
 	movs r0, #0xac
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0803A77E:
 	pop {pc}
 
@@ -1013,7 +1013,7 @@ sub_0803A8B8: @ 0x0803A8B8
 	movs r1, #1
 	bl InitAnimationForceUpdate
 	ldr r0, _0803A908 @ =0x00000153
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, pc}
 	.align 2, 0
 _0803A904: .4byte gUnk_080CED6C
@@ -1266,7 +1266,7 @@ sub_0803AA98: @ 0x0803AA98
 	bl InitAnimationForceUpdate
 	movs r0, #0xb7
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0803AB0A:
 	pop {r4, pc}
 	.align 2, 0
@@ -1555,7 +1555,7 @@ _0803AD1A:
 	bl sub_08080964
 	movs r0, #0xac
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r4, #0
 	bl sub_0803B804
 	b _0803ADA4
@@ -1600,7 +1600,7 @@ _0803AD74:
 	bl sub_08080964
 	movs r0, #0xac
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r4, #0
 	bl sub_0803B804
 	b _0803ADAA
@@ -1941,7 +1941,7 @@ _0803AFF4:
 	bl sub_08080964
 	movs r0, #0xac
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0803B018:
 	pop {pc}
 	.align 2, 0
@@ -2099,7 +2099,7 @@ _0803B11E:
 	movs r1, #9
 	bl InitAnimationForceUpdate
 	ldr r0, _0803B140 @ =0x0000014F
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 _0803B13C: .4byte gUnk_080FD374
@@ -3123,7 +3123,7 @@ sub_0803B870: @ 0x0803B870
 	bl InitAnimationForceUpdate
 	movs r0, #0xb7
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #1
 	b _0803B8E6
 	.align 2, 0
@@ -3248,7 +3248,7 @@ _0803B9A8:
 	adds r0, #0x74
 	strb r1, [r0]
 	ldr r0, _0803BA10 @ =0x000001A9
-	bl PlaySFX
+	bl SoundReq
 _0803B9C0:
 	ldrb r1, [r4, #0xf]
 	adds r0, r4, #0
@@ -3263,7 +3263,7 @@ _0803B9C0:
 	cmp r0, #0
 	bne _0803B9E0
 	ldr r0, _0803BA10 @ =0x000001A9
-	bl PlaySFX
+	bl SoundReq
 _0803B9E0:
 	ldrb r0, [r5]
 	cmp r0, #0
@@ -3332,7 +3332,7 @@ _0803BA46:
 	cmp r0, #0
 	bne _0803BA66
 	ldr r0, _0803BA68 @ =0x000001A9
-	bl PlaySFX
+	bl SoundReq
 _0803BA66:
 	pop {r4, r5, pc}
 	.align 2, 0

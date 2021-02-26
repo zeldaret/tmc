@@ -99,7 +99,7 @@ void sub_0801CF18(Element* arg0) {
         arg0->unk4 = 2;
         arg0->unk1 = 8;
         gUnk_0200AF00.ezloNagFuncIndex = 3;
-        PlaySFX(0x173);
+        SoundReq(0x173);
     }
 }
 

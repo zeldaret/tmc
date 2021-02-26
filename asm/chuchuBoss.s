@@ -88,7 +88,7 @@ _08025D28:
 	strb r3, [r0]
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r4, #0
 	bl sub_0804A7D4
 	b _08025D9C
@@ -221,7 +221,7 @@ _08025E68:
 _08025E6E:
 	ldr r4, [r5, #0x48]
 	adds r0, r5, #0
-	bl sub_0806FBD8
+	bl AllocMutableBBox
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08025E7E
@@ -241,7 +241,7 @@ _08025E86:
 	cmp r0, #0
 	beq _08025EA2
 	adds r0, r5, #0
-	bl sub_0806FBD8
+	bl AllocMutableBBox
 	cmp r0, #0
 	bne _08025EAA
 _08025EA2:
@@ -1016,7 +1016,7 @@ sub_08026414: @ 0x08026414
 	strb r0, [r1, #3]
 	movs r0, #0xd1
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08026474:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -1035,7 +1035,7 @@ sub_0802647C: @ 0x0802647C
 	movs r1, #0
 	bl sub_08080964
 	ldr r0, _080264A8 @ =0x000001A1
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r4, #0
 	adds r0, #0x84
 	ldr r1, [r0]
@@ -1090,7 +1090,7 @@ sub_080264D4: @ 0x080264D4
 	movs r2, #0
 	bl sub_080276F4
 	movs r0, #0x2e
-	bl PlaySFX
+	bl SoundReq
 _08026504:
 	adds r0, r4, #0
 	bl sub_080277F8
@@ -1371,7 +1371,7 @@ _0802670A:
 	bne _08026726
 	movs r0, #0xcf
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08026726:
 	adds r0, r4, #0
 	bl ProcessMovement
@@ -1536,7 +1536,7 @@ _08026830:
 	bl sub_080276F4
 	movs r0, #0xd1
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08026860:
 	adds r0, r4, #0
 	bl sub_080277F8
@@ -1580,7 +1580,7 @@ _08026888:
 	movs r1, #3
 	bl InitAnimationForceUpdate
 	ldr r0, _080268C4 @ =0x000001A1
-	bl PlaySFX
+	bl SoundReq
 _080268BE:
 	add sp, #4
 	pop {r4, r5, pc}
@@ -1853,7 +1853,7 @@ _08026A98:
 	movs r1, #0
 	bl sub_08080964
 	ldr r0, _08026B24 @ =0x0000010B
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r6, #0
 	movs r1, #0x15
 	movs r2, #0
@@ -2035,7 +2035,7 @@ sub_08026BE8: @ 0x08026BE8
 	orrs r0, r1
 	strb r0, [r3]
 	ldr r0, _08026C30 @ =0x00000155
-	bl PlaySFX
+	bl SoundReq
 	b _08026C38
 	.align 2, 0
 _08026C30: .4byte 0x00000155
@@ -2558,7 +2558,7 @@ _08026FFE:
 	movs r0, #0x2d
 	strb r0, [r1]
 	ldr r0, _08027044 @ =0x00000155
-	bl PlaySFX
+	bl SoundReq
 	ldrb r1, [r4, #0x15]
 	movs r0, #0x10
 	ands r0, r1
@@ -2617,7 +2617,7 @@ sub_08027064: @ 0x08027064
 	cmp r0, #0
 	bne _08027098
 	movs r0, #0x7c
-	bl PlaySFX
+	bl SoundReq
 _08027098:
 	adds r0, r5, #0
 	adds r0, #0x84
@@ -3071,7 +3071,7 @@ _08027406:
 	beq _08027428
 _0802741C:
 	ldr r0, _08027424 @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 	b _08027444
 	.align 2, 0
 _08027424: .4byte 0x00000127
@@ -3087,7 +3087,7 @@ _08027428:
 	strb r0, [r2, #0xd]
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08027444:
 	adds r0, r6, #0
 	bl sub_08027A60
@@ -3965,14 +3965,14 @@ sub_08027AA4: @ 0x08027AA4
 	b _08027B94
 _08027AC2:
 	movs r0, #0x84
-	bl PlaySFX
+	bl SoundReq
 	ldrb r3, [r5, #0xb]
 	adds r0, r5, #0
 	movs r1, #0x49
 	movs r2, #9
 	bl CreateObjectWithParent
 	ldr r0, _08027B3C @ =0x00000155
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r5, #0
 	adds r0, #0x84
 	ldr r4, [r0]
@@ -4016,7 +4016,7 @@ _08027B2A:
 	adds r0, r5, #0
 	bl sub_08027D20
 	ldr r0, _08027B40 @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 _08027B36:
 	movs r0, #1
 	b _08027B96

@@ -177,12 +177,12 @@ void sub_0804696C(Entity* this) {
         this->nonPlanarMovement = 0x100;
         this->spriteOrientation.flipY = 3;
         this->spriteRendering.b3 = 3;
-        PlaySFX(0x2e);
+        SoundReq(0x2e);
     }
     if (this->actionDelay) {
         if (gRoomControls.roomOriginY + 0x258 > this->y.HALF.HI) {
             this->actionDelay = 0;
-            PlaySFX(0xf7);
+            SoundReq(0xf7);
         }
     }
 }
@@ -987,7 +987,7 @@ void sub_08047BA4(Entity* this) {
     } else {
         this->field_0x76.HWORD = 0x88;
     }
-    PlaySFX(0x1B5);
+    SoundReq(0x1B5);
     sub_08047BF0(this);
 }
 
@@ -1022,7 +1022,7 @@ void sub_08047BF0(Entity* this) {
         if (this->y.HALF.HI > gRoomControls.roomOriginY + 0x270) {
             this->previousActionFlag = 2;
             this->field_0x7c.HALF.HI = 0xAA;
-            PlaySFX(0x12D);
+            SoundReq(0x12D);
             InitAnimationForceUpdate(this, 1);
         }
     } else {

@@ -59,7 +59,7 @@ static void sub_0808F14C(Entity* this) {
     sub_0808F2B0(this);
     if (sub_08003FC4(this, 0x2000) == 0) {
         this->action++;
-        PlaySFX(0x84);
+        SoundReq(0x84);
     }
 }
 
@@ -218,7 +218,7 @@ void sub_0808F498(Entity* this) {
     if (this->action != 0) {
         if (sub_0806F3E4(this)) {
             if (gScreenTransition.frameCount % 16 == 0) {
-                PlaySFX(0xEF);
+                SoundReq(0xEF);
             }
             DeleteThisEntity();
         }

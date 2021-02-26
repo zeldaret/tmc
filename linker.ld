@@ -141,7 +141,7 @@ SECTIONS {
         . = 0x000354B4; gManagerCount = .;
         . = 0x000354C0; gUnk_020354C0 = .;
         . = 0x0003553E; gUnk_0203553E = .;
-        . = 0x00035540; gUnk_02035540 = .;
+        . = 0x00035540; gzHeap = .;
         . = 0x00035542; gUnk_02035542 = .;
         . = 0x00036540; gUnk_02036540 = .;
         . = 0x00036570; gScriptExecutionContextArray = .;
@@ -887,7 +887,7 @@ SECTIONS {
         asm/sub_080A285C.o(.text);
         src/createObject.o(.text);
         asm/code_080A29BC.o(.text);
-        asm/playSFX.o(.text);
+        asm/soundReq.o(.text);
         asm/code_080A3480.o(.text);
         src/sub_080A3B84.o(.text);
         asm/code_080A3BD0.o(.text);

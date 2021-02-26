@@ -188,7 +188,7 @@ sub_08018FA0: @ 0x08018FA0
 _08018FBC:
 	ldrb r0, [r2, #0xa]
 	adds r0, #0xea
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 _08018FC8: .4byte gPlayerEntity

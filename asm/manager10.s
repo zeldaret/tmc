@@ -101,7 +101,7 @@ sub_08059608: @ 0x08059608
 	adds r0, r0, r2
 	ldr r0, [r0]
 	str r0, [r1]
-	bl PlaySFX
+	bl SoundReq
 	b _08059682
 	.align 2, 0
 _08059634: .4byte gArea
@@ -120,7 +120,7 @@ _08059638:
 	movs r0, #0x78
 	strb r0, [r4]
 	ldr r0, _08059664 @ =0x800D0000
-	bl PlaySFX
+	bl SoundReq
 	b _08059682
 	.align 2, 0
 _0805965C: .4byte gArea
@@ -138,7 +138,7 @@ _08059668:
 	movs r0, #0x78
 	strb r0, [r4]
 	ldr r0, _0805968C @ =0x800D0000
-	bl PlaySFX
+	bl SoundReq
 _08059682:
 	pop {r4, pc}
 	.align 2, 0
@@ -338,11 +338,11 @@ _08059800:
 	lsls r5, r5, #4
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r1, _08059820 @ =0x0600E800
 	adds r0, r4, #0
 	adds r2, r5, #0
-	bl LoadAssetAsync
+	bl LoadResourceAsync
 	b _08059838
 	.align 2, 0
 _0805981C: .4byte gBG3Buffer

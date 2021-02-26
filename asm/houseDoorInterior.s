@@ -92,7 +92,7 @@ sub_08092BF8: @ 0x08092BF8
 	movs r0, #2
 	strb r0, [r4, #0xc]
 	ldr r0, _08092C1C @ =0x00000111
-	bl PlaySFX
+	bl SoundReq
 	b _08092C92
 	.align 2, 0
 _08092C1C: .4byte 0x00000111
@@ -150,7 +150,7 @@ _08092C78:
 	movs r2, #0
 	bl sub_08078AC0
 	ldr r0, _08092C94 @ =0x00000111
-	bl PlaySFX
+	bl SoundReq
 _08092C92:
 	pop {r4, r5, pc}
 	.align 2, 0

@@ -546,7 +546,7 @@ _0807720E:
 	movs r0, #3
 	strb r0, [r4, #4]
 	ldr r0, _08077244 @ =0x00000107
-	bl PlaySFX
+	bl SoundReq
 	b _080772A4
 	.align 2, 0
 _08077240: .4byte gPlayerEntity
@@ -597,7 +597,7 @@ _0807728C:
 _0807729C:
 	movs r0, #0x84
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _080772A4:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -727,7 +727,7 @@ _0807738C:
 	beq _080773BC
 	movs r0, #0x84
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	ldrb r2, [r4, #0xe]
 	adds r0, r5, #0
 	movs r1, #0x1e
@@ -797,7 +797,7 @@ _08077432:
 	strb r0, [r4, #4]
 	strb r6, [r4, #5]
 	ldr r0, _08077444 @ =0x00000119
-	bl PlaySFX
+	bl SoundReq
 _0807743E:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

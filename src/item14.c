@@ -30,7 +30,7 @@ void sub_0805FBE8(Entity* this) {
   sub_0801766C(this);
   sub_0806F69C(this);
   sub_0805FC74(this);
-  PlaySFX(0x13f);
+  SoundReq(0x13f);
 }
 
 void sub_0805FC74(Entity* this) {

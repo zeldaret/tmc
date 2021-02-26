@@ -197,7 +197,7 @@ sub_0804ACF8: @ 0x0804ACF8
 	bl sub_0804AD6C
 	bl sub_0805E5A8
 	movs r0, #0xf8
-	bl PlaySFX
+	bl SoundReq
 _0804AD12:
 	pop {pc}
 	.align 2, 0

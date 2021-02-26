@@ -54,7 +54,7 @@ static void sub_0808E714(Entity* this) {
         this->action = 3;
         this->field_0x3c |= 0x10;
         sub_0805EC60(this);
-        PlaySFX(0x141);
+        SoundReq(0x141);
     }
     sub_08080CB4(this);
 }

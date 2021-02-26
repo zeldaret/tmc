@@ -1137,8 +1137,8 @@ _0804A570:
 _0804A574: .4byte gUnk_080D2C58
 _0804A578: .4byte 0x0000FFFF
 
-	thumb_func_start sub_0804A57C
-sub_0804A57C: @ 0x0804A57C
+	thumb_func_start EnemyInit
+EnemyInit: @ 0x0804A57C
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -1524,7 +1524,7 @@ _0804A81C:
 _0804A84A:
 	bl sub_0807CD9C
 	ldr r0, _0804A860 @ =0x80100000
-	bl PlaySFX
+	bl SoundReq
 	bl DeleteThisEntity
 	b _0804A982
 	.align 2, 0

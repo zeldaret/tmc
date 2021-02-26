@@ -83,7 +83,7 @@ void TextboxAtPosition(u32 index, u32 x, u32 y) {
 }
 
 void ShowTextbox(u32 index) {
-    _DmaZero(&gTextBox, 32);
+    MemClear32(&gTextBox, 32);
     gTextBox.textIndex = index;
     gTextBox.textSpeed = 99;
     gTextBox.textWindowWidth = 26;
@@ -94,18 +94,18 @@ void ShowTextbox(u32 index) {
 }
 
 void MessageInitialize(void) {
-    _DmaZero(&gTextBox, 32);
-    _DmaZero(&gUnk_02022780, 168);
-    _DmaZero(&gUnk_02036A40, 8);
-    _DmaZero(&gUnk_02036A38, 8);
-    _DmaZero(&gUnk_02000040, 4);
+    MemClear32(&gTextBox, 32);
+    MemClear32(&gUnk_02022780, 168);
+    MemClear32(&gUnk_02036A40, 8);
+    MemClear32(&gUnk_02036A38, 8);
+    MemClear32(&gUnk_02000040, 4);
 }
 
 void MessageUpdate(void) {
     int iVar1;
 
     if (gTextBox.doTextBox == 1) {
-        _DmaZero((u32*)&gUnk_02022780, sizeof(gUnk_02022780));
+        MemClear32((u32*)&gUnk_02022780, sizeof(gUnk_02022780));
         sub_080564C8(1);
     }
 
@@ -141,9 +141,9 @@ NONMATCH("asm/non_matching/textbox/sub_080564EC.inc", u32 sub_080564EC(void)) {
     u32 i;
     char c;
 
-    _DmaZero((void*)&gUnk_02036A40, 8);
-    _DmaZero((void*)&gUnk_02024030, 0x18);
-    _DmaZero((void*)&gUnk_02022780, 0xa8);
+    MemClear32((void*)&gUnk_02036A40, 8);
+    MemClear32((void*)&gUnk_02024030, 0x18);
+    MemClear32((void*)&gUnk_02022780, 0xa8);
     _DmaCopy(&gTextBox, &gUnk_02022780, 32);
     if (gUnk_02022780._2 == 0x63) {
         gUnk_02022780._2 = gUnk_02000000->messageSpeed;
@@ -180,7 +180,7 @@ u32 sub_080565B4(void) {
         gUnk_02022780._89 = 1;
         gUnk_02022780._99 = 1;
         sub_08056F88(gUnk_02022780._3[0], gUnk_02022780._53);
-        PlaySFX(0x65);
+        SoundReq(0x65);
     }
 
     if (sub_08056CC0(1)) {
@@ -195,7 +195,7 @@ u32 sub_080565F8(void) {
         gUnk_02022780._89 = 1;
         gUnk_02022780._99 = 3;
         sub_08056BDC(0);
-        PlaySFX(0x66);
+        SoundReq(0x66);
     }
 
     if (sub_08056CC0(-1)) {

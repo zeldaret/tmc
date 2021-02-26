@@ -95,7 +95,7 @@ _08050F9C:
 	movs r1, #0
 	bl CreateDialogBox
 	movs r0, #0x6a
-	bl PlaySFX
+	bl SoundReq
 	b _08050FBA
 _08050FAC:
 	ldrb r0, [r6, #4]
@@ -103,7 +103,7 @@ _08050FAC:
 	ldrb r0, [r6, #5]
 	strb r0, [r1, #3]
 	movs r0, #0x6c
-	bl PlaySFX
+	bl SoundReq
 _08050FBA:
 	adds r0, r5, #0
 	bl sub_080A7114
@@ -120,7 +120,7 @@ _08050FD0:
 	beq _08050FE2
 	strb r3, [r1, #1]
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 	b _08050FF4
 _08050FE2:
 	cmp r2, r8
@@ -129,7 +129,7 @@ _08050FE2:
 	ldrb r0, [r6, #6]
 	bl LoadOptionsFromSave
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 _08050FF4:
 	pop {r3}
 	mov r8, r3
