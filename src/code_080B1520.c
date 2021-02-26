@@ -7,10 +7,11 @@ typedef struct EEPROMConfig {
     u8 address_width;
     // u8 filler[3];
 } EEPROMConfig;
-
+const char EEPROM_V124[] = "EEPROM_V124";
 extern const EEPROMConfig* gEEPROMConfig;
 const EEPROMConfig gEEPROMConfig512 = { 0x200, 0x40, 0x300, 0x6 };
 const EEPROMConfig gEEPROMConfig8k = { 0x2000, 0x400, 0x300, 0xe };
+
 
 u16 sub_080B16AC(u16, u16*, u8);
 
@@ -200,6 +201,8 @@ u16 sub_080B180C(u16 unk_1, u16* unk_2) {
     return ret;
 }
 
+const char EEPROM_NOWAIT[] = "EEPROM_NOWAIT";
+
 u32 sub_080B1864(u16 unk_1, u16* unk_2) {
     u8 i;
     u32 ret;
@@ -241,3 +244,5 @@ u32 sub_080B18DC(u16 unk_1, u16* unk_2) {
     }
     return ret;
 }
+
+const char thing[0x1c] = "\xff\xff\xff\xff";
