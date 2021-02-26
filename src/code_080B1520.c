@@ -31,7 +31,7 @@ u32 sub_080B1520(u16 unk_1) {
     return ret;
 }
 
-void sub_080B1568(void* src, void* dest, u16 count) {
+void DMA3Transfer(void* src, void* dest, u16 count) {
     u32 temp;
 
     u16 IME_save;
@@ -43,7 +43,7 @@ void sub_080B1568(void* src, void* dest, u16 count) {
     REG_WAITCNT = temp;
     REG_DMA3SAD = (u32)src;
     REG_DMA3DAD = (u32)dest;
-    REG_DMA3CNT = count | 0x80000000; // enable dma
+    REG_DMA3CNT = count | 0x80000000;        // enable dma
     while ((REG_DMA3CNT_H & 0x8000) != 0) {} // wait for dma to finish
     REG_IME = IME_save;
 }
@@ -67,8 +67,8 @@ u32 sub_080B15E8(u16 unk_1, u16* unk_2) {
         }
         *(ptr--) = 1;
         *ptr = 1;
-        sub_080B1568(stack, (u16*)0xd000000, gUnk_02036A50->unk_08 + 3);
-        sub_080B1568((u16*)0xd000000, stack, 0x44);
+        DMA3Transfer(stack, (u16*)0xd000000, gUnk_02036A50->unk_08 + 3);
+        DMA3Transfer((u16*)0xd000000, stack, 0x44);
         ptr = stack + 4;
         unk_2 += 3;
         for (t1 = 0; t1 < 4; t1++) {
@@ -124,7 +124,7 @@ NONMATCH("asm/non_matching/code_080B1520/sub_080B16AC.inc", u16 sub_080B16AC(u16
     *ptr = 0;
     ptr--;
     *ptr = 1;
-    sub_080B1568(stack, (u16*)0xd000000, gUnk_02036A50->unk_08 + 0x43);
+    DMA3Transfer(stack, (u16*)0xd000000, gUnk_02036A50->unk_08 + 0x43);
     stack_a4 = 0;
     stack_a6 = REG_VCOUNT;
     stack_ac = 0;

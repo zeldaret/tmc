@@ -81,7 +81,7 @@ _080B1722:
 	adds r2, #0x43
 	mov r0, sp
 	adds r1, r4, #0
-	bl sub_080B1568
+	bl DMA3Transfer
 	movs r5, #0
 	add r2, sp, #0xa4
 	strh r5, [r2]
