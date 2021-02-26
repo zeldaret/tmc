@@ -10303,8 +10303,8 @@ gUnk_08DE7D18:: @ 08DE7D18
 gUnk_08DE7D28:: @ 08DE7D28
 	.incbin "baserom.gba", 0xDE7D28, 0x0000018
 
-gUnk_08DE7D40:: @ 08DE7D40
+gEEPROMConfig512:: @ 08DE7D40
 	.incbin "baserom.gba", 0xDE7D40, 0x000000C
 
-gUnk_08DE7D4C:: @ 08DE7D4C
+gEEPROMConfig8k:: @ 08DE7D4C
 	.incbin "baserom.gba", 0xDE7D4C, 0x0000058

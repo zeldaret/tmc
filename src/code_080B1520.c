@@ -2,15 +2,15 @@
 
 typedef struct struct_08DE7D40 {
     u32 unk_00;
-    u16 unk_04;
-    u16 unk_06;
-    u8 unk_08;
+    u16 size;
+    u16 waitcnt;
+    u8 address_width;
     // u8 filler[3];
-} struct_08DE7D40;
+} EEPROMConfig;
 
-extern struct_08DE7D40* gUnk_02036A50;
-extern struct_08DE7D40 gUnk_08DE7D40;
-extern struct_08DE7D40 gUnk_08DE7D4C;
+extern EEPROMConfig* gEEPROMConfig;
+extern EEPROMConfig gEEPROMConfig512;
+extern EEPROMConfig gEEPROMConfig8k;
 
 u16 sub_080B16AC(u16, u16*, u8);
 
@@ -19,12 +19,12 @@ u32 sub_080B1520(u16 unk_1) {
 
     ret = 0;
     if (unk_1 == 4) {
-        gUnk_02036A50 = &gUnk_08DE7D40;
+        gEEPROMConfig = &gEEPROMConfig512;
     } else {
         if (unk_1 == 0x40) {
-            gUnk_02036A50 = &gUnk_08DE7D4C;
+            gEEPROMConfig = &gEEPROMConfig8k;
         } else {
-            gUnk_02036A50 = &gUnk_08DE7D40;
+            gEEPROMConfig = &gEEPROMConfig512;
             ret = 1;
         }
     }
@@ -39,7 +39,7 @@ void DMA3Transfer(void* src, void* dest, u16 count) {
     IME_save = REG_IME;
     REG_IME = 0; // disable all interrupts
     temp = REG_WAITCNT & 0xf8ff;
-    temp |= gUnk_02036A50->unk_06; // configure wait state 2
+    temp |= gEEPROMConfig->waitcnt; // configure wait state 2
     REG_WAITCNT = temp;
     REG_DMA3SAD = (u32)src;
     REG_DMA3DAD = (u32)dest;
@@ -55,19 +55,19 @@ u32 sub_080B15E8(u16 unk_1, u16* unk_2) {
     u8 t1, t2;
     u16 value;
 
-    if (unk_1 >= gUnk_02036A50->unk_04) {
+    if (unk_1 >= gEEPROMConfig->size) {
         return 0x80ff;
     } else {
         ptr = stack;
-        (u8*)ptr += (gUnk_02036A50->unk_08 << 1) + 1;
+        (u8*)ptr += (gEEPROMConfig->address_width << 1) + 1;
         ((u8*)ptr)++;
-        for (t1 = 0; t1 < gUnk_02036A50->unk_08; t1++) {
+        for (t1 = 0; t1 < gEEPROMConfig->address_width; t1++) {
             *(ptr--) = unk_1;
             unk_1 >>= 1;
         }
         *(ptr--) = 1;
         *ptr = 1;
-        DMA3Transfer(stack, (u16*)0xd000000, gUnk_02036A50->unk_08 + 3);
+        DMA3Transfer(stack, (u16*)0xd000000, gEEPROMConfig->address_width + 3);
         DMA3Transfer((u16*)0xd000000, stack, 0x44);
         ptr = stack + 4;
         unk_2 += 3;
@@ -101,10 +101,10 @@ NONMATCH("asm/non_matching/code_080B1520/sub_080B16AC.inc", u16 sub_080B16AC(u16
     u16* ptr;
 
     r1 = unk_1;
-    if (unk_1 < gUnk_02036A50->unk_04)
+    if (unk_1 < gEEPROMConfig->size)
         return 0x80ff;
 
-    ptr = stack + gUnk_02036A50->unk_08 + 0x42;
+    ptr = stack + gEEPROMConfig->address_width + 0x42;
     *ptr = 0;
     ptr--;
     for (i = 0; i <= 3; i++) {
@@ -116,7 +116,7 @@ NONMATCH("asm/non_matching/code_080B1520/sub_080B16AC.inc", u16 sub_080B16AC(u16
             r2 = r2 >> 1;
         }
     }
-    for (i = 0; i < gUnk_02036A50->unk_08; i++) {
+    for (i = 0; i < gEEPROMConfig->address_width; i++) {
         *ptr = r1;
         ptr--;
         r1 = r1 >> 1;
@@ -124,7 +124,7 @@ NONMATCH("asm/non_matching/code_080B1520/sub_080B16AC.inc", u16 sub_080B16AC(u16
     *ptr = 0;
     ptr--;
     *ptr = 1;
-    DMA3Transfer(stack, (u16*)0xd000000, gUnk_02036A50->unk_08 + 0x43);
+    DMA3Transfer(stack, (u16*)0xd000000, gEEPROMConfig->address_width + 0x43);
     stack_a4 = 0;
     stack_a6 = REG_VCOUNT;
     stack_ac = 0;
@@ -186,7 +186,7 @@ u16 sub_080B180C(u16 unk_1, u16* unk_2) {
     u8 i;
 
     ret = 0;
-    if (unk_1 >= gUnk_02036A50->unk_04) {
+    if (unk_1 >= gEEPROMConfig->size) {
         return 0x80ff;
     }
     sub_080B15E8(unk_1, stack);
@@ -218,7 +218,7 @@ u32 sub_080B1864(u16 unk_1, u16* unk_2) {
 u16 sub_080B18A4(u16 unk_1, u16* unk_2) {
     u16 ret;
 
-    if (gUnk_02036A50->unk_00 != 0x200) {
+    if (gEEPROMConfig->unk_00 != 0x200) {
         ret = sub_080B16AC(unk_1, unk_2, 0);
     } else {
         ret = 0x8080;

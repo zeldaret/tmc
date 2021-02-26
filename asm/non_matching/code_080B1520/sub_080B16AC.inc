@@ -9,7 +9,7 @@
 	lsrs r1, r0, #0x10
 	lsls r2, r2, #0x18
 	lsrs r7, r2, #0x18
-	ldr r0, _080B16C8 @ =gUnk_02036A50
+	ldr r0, _080B16C8 @ =gEEPROMConfig
 	ldr r0, [r0]
 	ldrh r0, [r0, #4]
 	cmp r1, r0
@@ -17,10 +17,10 @@
 	ldr r0, _080B16CC @ =0x000080FF
 	b _080B1804
 	.align 2, 0
-_080B16C8: .4byte gUnk_02036A50
+_080B16C8: .4byte gEEPROMConfig
 _080B16CC: .4byte 0x000080FF
 _080B16D0:
-	ldr r0, _080B1710 @ =gUnk_02036A50
+	ldr r0, _080B1710 @ =gEEPROMConfig
 	ldr r0, [r0]
 	ldrb r0, [r0, #8]
 	lsls r0, r0, #1
@@ -50,12 +50,12 @@ _080B16EC:
 	cmp r4, #3
 	bls _080B16E6
 	movs r4, #0
-	ldr r0, _080B1710 @ =gUnk_02036A50
+	ldr r0, _080B1710 @ =gEEPROMConfig
 	adds r2, r0, #0
 	ldr r0, [r0]
 	b _080B1722
 	.align 2, 0
-_080B1710: .4byte gUnk_02036A50
+_080B1710: .4byte gEEPROMConfig
 _080B1714:
 	strh r1, [r3]
 	subs r3, #2
@@ -75,7 +75,7 @@ _080B1722:
 	strh r6, [r3]
 	movs r4, #0xd0
 	lsls r4, r4, #0x14
-	ldr r0, _080B1794 @ =gUnk_02036A50
+	ldr r0, _080B1794 @ =gEEPROMConfig
 	ldr r0, [r0]
 	ldrb r2, [r0, #8]
 	adds r2, #0x43
@@ -123,7 +123,7 @@ _080B1768:
 	str r1, [r2]
 	b _080B17B2
 	.align 2, 0
-_080B1794: .4byte gUnk_02036A50
+_080B1794: .4byte gEEPROMConfig
 _080B1798: .4byte 0x04000006
 _080B179C:
 	add r2, sp, #0xac
