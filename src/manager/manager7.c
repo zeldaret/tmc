@@ -76,7 +76,7 @@ void Manager7_Main(Manager7* this) {
         case 6:
         case 7:
             LoadResourceAsync(&gGlobalGfxAndPalettes[tmp2[(this->manager.unk_0e << 1)]],
-                           tmp2[(this->manager.unk_0e << 1) + 1], 0x1000);
+                              tmp2[(this->manager.unk_0e << 1) + 1], 0x1000);
             this->manager.unk_0e++;
             break;
         case 8:
