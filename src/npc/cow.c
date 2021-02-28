@@ -14,7 +14,7 @@ extern void sub_080791D0();
 extern void (*gUnk_08111914[])(Entity*);
 extern void (*gUnk_08111928[])(Entity*);
 extern Dialog gUnk_08111938[];
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern u32 UpdateFuseInteraction(Entity*);
 extern PlayerState gPlayerState;
 
@@ -216,7 +216,7 @@ void sub_0806924C(Entity* ent) {
             Cow_ShowDialogue(ent);
             sub_080791D0();
         }
-        PlaySFX(212);
+        SoundReq(212);
         ent->interactType = 0;
     }
 }

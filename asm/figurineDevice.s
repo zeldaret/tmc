@@ -309,7 +309,7 @@ sub_08087DBC: @ 0x08087DBC
 	bl InitializeAnimation
 	movs r0, #0x88
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _08087E5A
 	.align 2, 0
 _08087E0C: .4byte gUnk_08120AA8
@@ -404,7 +404,7 @@ _08087EB6:
 	cmp r1, #0
 	beq _08087ED8
 	movs r0, #0x6a
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #2
 	strb r0, [r5]
 	movs r0, #0x3c
@@ -553,7 +553,7 @@ _08087FD6:
 _08087FE0:
 	strb r0, [r1]
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 	b _08088032
 _08087FEA:
 	adds r1, r5, #0
@@ -593,7 +593,7 @@ _08088028:
 	strb r3, [r7]
 	strb r2, [r1]
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 _08088032:
 	pop {r4, r5, r6, r7, pc}
 
@@ -607,7 +607,7 @@ sub_08088034: @ 0x08088034
 	movs r0, #0x14
 	strb r0, [r1, #0xe]
 	movs r0, #0x6d
-	bl PlaySFX
+	bl SoundReq
 _08088048:
 	pop {pc}
 	.align 2, 0

@@ -22,7 +22,7 @@ void sub_080317E0(Entity*);
 void sub_080317F8(Entity*);
 void sub_08031840(Entity*);
 
-extern BoundingBox gUnk_080CE560;
+extern Hitbox gUnk_080CE560;
 
 void SmallPesto(Entity* this) {
     gUnk_080CE530[GetNextFunction(this)](this);
@@ -123,7 +123,7 @@ void sub_080317F8(Entity* this) {
     this->field_0x3c |= 0x10;
     this->field_0x1c = 1;
     this->direction = newDirection;
-    this->boundingBox = &gUnk_080CE560;
+    this->hitbox = &gUnk_080CE560;
     sub_080317E0(this);
     this->actionDelay = 0;
     this->field_0xf = 0x20;

@@ -29,7 +29,7 @@ extern u8 gUnk_080D16D0[4]; // Entity count per form
 extern PosOffset gUnk_080D16D4[4];
 
 extern u8 gEntCount;
-extern EntityHandler gUnk_03003DB8;
+extern EntityHandler gHitboxCount;
 
 void Slime(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080D16A4);

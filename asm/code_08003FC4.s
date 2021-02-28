@@ -86,8 +86,8 @@ _08004048:
 	movs r0, #0
 	pop {r4, r5, r6, r7, pc}
 
-	thumb_func_start sub_0800404C
-sub_0800404C: @ 0x0800404C
+	thumb_func_start DrawEntity
+DrawEntity: @ 0x0800404C
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r1, [r0, #0x18]
@@ -123,7 +123,7 @@ _0800407E:
 	ldr r4, _08004360 @ =gUnk_02021F20
 _0800408C:
 	ldrh r0, [r4]
-	bl PlaySFX
+	bl SoundReq
 	adds r4, #2
 	subs r5, #1
 	bne _0800408C

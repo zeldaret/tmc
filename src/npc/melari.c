@@ -96,7 +96,7 @@ void sub_08068780(Entity* this) {
     if ((this->frames.b.f2) != 0) {
         this->frames.all &= 0xbf;
         if (sub_080040A8(this) == 0) {
-            PlaySFX(gUnk_0811153E[(s32)Random() % 3]);
+            SoundReq(gUnk_0811153E[(s32)Random() % 3]);
         } else {
             EnqueueSFX(gUnk_08111538[(s32)Random() % 3]);
         }

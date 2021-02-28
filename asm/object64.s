@@ -191,7 +191,7 @@ _08093F72:
 	cmp r1, r0
 	bne _08093F8E
 	movs r0, #0x7a
-	bl PlaySFX
+	bl SoundReq
 	bl sub_08079D84
 _08093F8E:
 	bl DeleteThisEntity

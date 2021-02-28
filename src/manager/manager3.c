@@ -55,7 +55,7 @@ void sub_080576C0(Manager3* this) {
                              this->manager.unk_0e);
                 if (!this->manager.unk_0f) {
                     this->manager.unk_0f = 1;
-                    PlaySFX(0x152);
+                    SoundReq(0x152);
                 }
             }
         }

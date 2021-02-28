@@ -97,7 +97,7 @@ _0809B8D8:
 	cmp r0, #0
 	bne _0809B8F0
 	ldr r0, _0809B910 @ =0x00000133
-	bl PlaySFX
+	bl SoundReq
 _0809B8F0:
 	ldr r0, [r5]
 	movs r1, #3
@@ -130,7 +130,7 @@ _0809B914:
 	str r0, [r1, #0x30]
 	movs r0, #0x9a
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0809B972
 	.align 2, 0
 _0809B938: .4byte gScreen
@@ -280,7 +280,7 @@ _0809BA40:
 	cmp r0, #0
 	bne _0809BA58
 	ldr r0, _0809BA78 @ =0x00000133
-	bl PlaySFX
+	bl SoundReq
 _0809BA58:
 	ldr r0, [r5]
 	movs r1, #3
@@ -308,7 +308,7 @@ _0809BA7C:
 	str r0, [r1, #0x30]
 	movs r0, #0x9a
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0809BAC2
 	.align 2, 0
 _0809BA94: .4byte gRoomControls
@@ -443,7 +443,7 @@ _0809BB88:
 	cmp r0, #0
 	bne _0809BBA6
 	ldr r0, _0809BBC0 @ =0x00000133
-	bl PlaySFX
+	bl SoundReq
 _0809BBA6:
 	ldr r0, [r4]
 	movs r1, #1
@@ -479,7 +479,7 @@ _0809BBC4:
 	strh r0, [r4, #0x32]
 	movs r0, #0x9a
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0809BC68
 	.align 2, 0
 _0809BBF4: .4byte 0x0000DFFF
@@ -501,7 +501,7 @@ _0809BBF8:
 	movs r0, #0x35
 	bl SetLocalFlag
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 	b _0809BC68
 _0809BC24:
 	ldrb r0, [r4, #0xe]
@@ -638,7 +638,7 @@ _0809BD20:
 	cmp r0, #0
 	bne _0809BD38
 	ldr r0, _0809BD5C @ =0x00000133
-	bl PlaySFX
+	bl SoundReq
 _0809BD38:
 	ldr r0, [r6]
 	ands r0, r5
@@ -677,7 +677,7 @@ _0809BD64:
 	bl SetLocalFlag
 	movs r0, #0x9a
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0809BDAE
 	.align 2, 0
 _0809BD90: .4byte gScreen
@@ -760,7 +760,7 @@ _0809BE0C:
 	cmp r0, #0
 	bne _0809BE70
 	ldr r0, _0809BE30 @ =0x00000133
-	bl PlaySFX
+	bl SoundReq
 	b _0809BE70
 	.align 2, 0
 _0809BE2C: .4byte gScreenTransition
@@ -775,7 +775,7 @@ _0809BE34:
 	str r0, [r1, #0x30]
 	movs r0, #0x9a
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0809BE70
 	.align 2, 0
 _0809BE4C: .4byte gRoomControls

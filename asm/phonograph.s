@@ -178,7 +178,7 @@ _0806EA4E:
 	adds r0, r0, r4
 	movs r1, #0
 	ldrsh r0, [r0, r1]
-	bl PlaySFX
+	bl SoundReq
 	ldrh r0, [r7]
 	strh r0, [r5]
 	movs r2, #0
@@ -194,7 +194,7 @@ _0806EA74: .4byte gInput
 _0806EA78: .4byte gUnk_081145E4
 _0806EA7C:
 	ldr r0, _0806EAB4 @ =0x80010000
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0
 	strh r0, [r5]
 _0806EA86:

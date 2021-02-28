@@ -59,7 +59,7 @@ static void sub_0808F14C(Entity* this) {
     sub_0808F2B0(this);
     if (sub_08003FC4(this, 0x2000) == 0) {
         this->action++;
-        PlaySFX(0x84);
+        SoundReq(0x84);
     }
 }
 
@@ -218,7 +218,7 @@ void sub_0808F498(Entity* this) {
     if (this->action != 0) {
         if (sub_0806F3E4(this)) {
             if (gScreenTransition.frameCount % 16 == 0) {
-                PlaySFX(0xEF);
+                SoundReq(0xEF);
             }
             DeleteThisEntity();
         }
@@ -234,10 +234,10 @@ void sub_0808F498(Entity* this) {
         this->action = 1;
         this->actionDelay = 64;
         var0 = this->entityType.parameter != 0 ? 44 : 43;
-        this->x.HALF.HI -= this->parent->boundingBox->width;
-        this->x.HALF.HI += (s32)Random() % (this->parent->boundingBox->width * 2);
-        this->y.HALF.HI -= this->parent->boundingBox->height;
-        this->y.HALF.HI += (s32)Random() % (this->parent->boundingBox->height * 2);
+        this->x.HALF.HI -= this->parent->hitbox->width;
+        this->x.HALF.HI += (s32)Random() % (this->parent->hitbox->width * 2);
+        this->y.HALF.HI -= this->parent->hitbox->height;
+        this->y.HALF.HI += (s32)Random() % (this->parent->hitbox->height * 2);
         sub_0801D2B4(this, var0);
         InitializeAnimation(this, 4);
     }

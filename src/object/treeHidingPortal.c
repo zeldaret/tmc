@@ -10,7 +10,7 @@ extern void CreateSparkle(Entity*);
 extern u32 sub_0809E9A0(void);
 extern void sub_08078A90(u32);
 extern void sub_0809E918(Entity*);
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern void CreateMinishEntrance(u32 tile);
 
 extern void (*const gUnk_08124354[])(Entity*);
@@ -62,7 +62,7 @@ void sub_0809E8EC(Entity* this) {
     if (--this->actionDelay == 0) {
         SetFlag(this->field_0x86.HWORD);
         sub_08078A90(0);
-        PlaySFX(0x73);
+        SoundReq(0x73);
         DeleteThisEntity();
     }
 }

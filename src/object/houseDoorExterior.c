@@ -29,7 +29,7 @@ extern u32 sub_080562CC(u32, u32, u32, u32);
 extern void sub_08078AC0(u32, u32, u32);
 
 extern void (*const gUnk_081206B4[])(Entity*);
-extern BoundingBox gUnk_081206AC; // TODO: should be const
+extern Hitbox gUnk_081206AC; // TODO: should be const
 
 void HouseDoorExterior(Entity* this) {
     gUnk_081206B4[this->entityType.parameter](this);
@@ -97,7 +97,7 @@ static void sub_0808681C(Entity* this) {
             this->actionDelay = 8;
             this->spriteSettings.b.draw = 1;
             this->frameIndex = 0;
-            this->boundingBox = &gUnk_081206AC;
+            this->hitbox = &gUnk_081206AC;
             if (this->previousActionFlag == 1) {
                 this->action = 2;
                 this->frameIndex = 1;
@@ -111,7 +111,7 @@ static void sub_0808681C(Entity* this) {
                 this->action++;
                 this->frameIndex = 1;
                 sub_08078AC0(16, 0, 1);
-                PlaySFX(0x111);
+                SoundReq(0x111);
             }
             break;
     }
@@ -126,7 +126,7 @@ void sub_080868B0(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         this->spriteSettings.b.draw = 1;
-        this->boundingBox = &gUnk_081206AC;
+        this->hitbox = &gUnk_081206AC;
         this->actionDelay = 8;
     }
     ExecuteScriptCommandSet(this, *(ScriptExecutionContext**)&this->cutsceneBeh);

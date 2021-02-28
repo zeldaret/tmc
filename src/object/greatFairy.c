@@ -105,7 +105,7 @@ void GreatFairy_SpawningUpdate(Entity* this) {
         if (mini != NULL) {
             CopyPosition(this, mini);
             DoFade(6, 4);
-            PlaySFX(325);
+            SoundReq(325);
             this->action = 4;
             this->actionDelay = 0x3c;
             var = this->spriteSettings.raw & ~0x3;
@@ -220,7 +220,7 @@ void GreatFairy_MiniRisingUpdate(Entity* this) {
     this->height.WORD -= 0x8000;
     if (this->height.HALF.HI == -20) {
         this->action = 2;
-        PlaySFX(321);
+        SoundReq(321);
     } else {
         if (((this->height.HALF.HI == -10) && (this->field_0xf == 0)) &&
             (target = GreatFairy_CreateForm(this, DROPLET, 0), target != NULL)) {
@@ -289,7 +289,7 @@ void GreatFairy_DropletInit(Entity* this) {
     this->spriteSettings.b.draw = 1;
     this->height.HALF.HI = 0;
     this->spritePriority.b0 = 5;
-    PlaySFX(320);
+    SoundReq(320);
 }
 
 void GreatFairy_DropletUpdate(Entity* this) {
@@ -328,7 +328,7 @@ void GreatFairy_BigRippleInit(Entity* this) {
     this->actionDelay = 120;
     this->spriteSettings.b.draw = 1;
     this->spritePriority.b0 = 5;
-    PlaySFX(249);
+    SoundReq(249);
 }
 
 void GreatFairy_BigRippleUpdate(Entity* this) {
@@ -520,7 +520,7 @@ void sub_080873D0(Entity* this) {
 void sub_080873FC(void) {
     Entity* ent;
 
-    PlaySFX(0xf7);
+    SoundReq(0xf7);
     gRoomControls.cameraTarget = NULL;
 
     while (ent = FindEntityInListBySubtype(0x6, 0x1b, 0x6), ent != NULL) {

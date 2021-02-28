@@ -173,7 +173,7 @@ _080192C6:
 	str r0, [r4, #0x30]
 	movs r0, #0xc5
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _080192D0:
 	adds r5, r4, #0
 	adds r5, #0x41

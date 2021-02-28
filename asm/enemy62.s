@@ -93,7 +93,7 @@ sub_08048E1C: @ 0x08048E1C
 	subs r0, r2, r0
 	strb r0, [r1]
 	ldr r0, _08048E44 @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 	b _08048E5C
 	.align 2, 0
 _08048E44: .4byte 0x00000127
@@ -102,7 +102,7 @@ _08048E48:
 	strb r0, [r1]
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x28
 	movs r1, #0
 	bl sub_08080964

@@ -83,7 +83,7 @@ void sub_08065AA4(Entity* this) {
             sub_08065A50(this);
             sub_080791D0();
         }
-        PlaySFX(0xD3);
+        SoundReq(0xD3);
         this->interactType = 0;
     }
 }

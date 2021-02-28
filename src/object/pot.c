@@ -13,8 +13,8 @@ extern void (*const gUnk_0811F090[])(Entity*);
 extern void (*const gUnk_0811F0A8[])(Entity*);
 extern void (*const gUnk_0811F0C4[])(Entity*);
 
-extern BoundingBox gUnk_080FD338; // TODO: should be const
-extern BoundingBox gUnk_080FD340; // TODO: should be const
+extern Hitbox gUnk_080FD338; // TODO: should be const
+extern Hitbox gUnk_080FD340; // TODO: should be const
 
 extern u32 sub_08016A30(Entity*);
 extern u32 sub_080001DA(u32, u32);
@@ -33,7 +33,7 @@ void sub_0808222C(Entity* this) {
     }
 
     this->action = 1;
-    this->boundingBox = &gUnk_080FD338;
+    this->hitbox = &gUnk_080FD338;
     this->nonPlanarMovement = 0x80;
     this->y.HALF.HI += 3;
     this->field_0x16 = 0;
@@ -119,7 +119,7 @@ void sub_080824F8(Entity* this) {
 
 void sub_08082510(Entity* this) {
     this->flags |= 0x80;
-    this->boundingBox = &gUnk_080FD340;
+    this->hitbox = &gUnk_080FD340;
     this->field_0x3c = 7;
     this->damageType = 1;
     this->flags2 = gPlayerEntity.flags2;

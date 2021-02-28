@@ -45,7 +45,7 @@ void sub_08058D34(void);
 extern void sub_0805622C(struct BgAffineDstData*, u32, u32);
 extern void sub_08052D74(void*, void*, void*);
 extern void sub_080044AE(Entity*, u32, u32);
-extern void _DmaCopy(const void* src, void* dest, u32 size);
+extern void MemCopy(const void* src, void* dest, u32 size);
 
 extern u8 gUnk_03003DE4[0xC];
 
@@ -100,7 +100,7 @@ void sub_080588F8(ManagerC* this) {
                 case 0xf0:
                     this->unk_28 = this->unk_24.HALF.HI;
                     this->manager.unk_0f = 0x2D;
-                    PlaySFX(0x8c);
+                    SoundReq(0x8c);
             }
         }
     } else {
@@ -123,7 +123,7 @@ void sub_080588F8(ManagerC* this) {
             }
             if (ABS_DIFF_GT(this->unk_2c, this->unk_24.WORD, 0x100000)) {
                 this->unk_2c = this->unk_24.WORD;
-                PlaySFX(0x8b);
+                SoundReq(0x8b);
             }
         }
     }
@@ -213,7 +213,7 @@ void sub_08058B5C(ManagerC* this, u32 unk1) {
     gScreenTransition.playerStartPos.HALF.x = gUnk_081082E8[unk1 * 3];
     gScreenTransition.playerStartPos.HALF.y = gUnk_081082E8[unk1 * 3 + 1];
     gSave.unk7 = gUnk_081082E8[unk1 * 3 + 2];
-    PlaySFX(0x121);
+    SoundReq(0x121);
 }
 
 void sub_08058BC8(ManagerC* this) {
@@ -281,7 +281,7 @@ void sub_08058CFC() {
 #ifdef NON_MATCHING
 void sub_08058D34() {
     LoadPaletteGroup(0x28);
-    _DmaCopy(gUnk_02017700, gUnk_02017700 + 0x240, 0x20);
+    MemCopy(gUnk_02017700, gUnk_02017700 + 0x240, 0x20);
     gUsedPalettes |= 0x200000;
     LoadGfxGroup(0x16);
     gScreen.lcd.displayControl |= 1;

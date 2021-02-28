@@ -42,7 +42,7 @@ void sub_0805C894(Entity* this) {
     if (sub_0805C920(this)) {
         this->action = 2;
         this->actionDelay = 1;
-        PlaySFX(0x11a);
+        SoundReq(0x11a);
     }
 }
 
@@ -58,7 +58,7 @@ void sub_0805C8B4(Entity* this) {
         }
         LoadPaletteGroup(gUnk_08108D20[this->field_0xf]);
         if (this->field_0xf == 0) {
-            PlaySFX(0x11a);
+            SoundReq(0x11a);
         }
     }
     if (sub_0805C920(this) == 0) {

@@ -5,14 +5,14 @@
 #include "save.h"
 #include "script.h"
 
-extern BoundingBox gUnk_080FD170;
+extern Hitbox gUnk_080FD170;
 
 extern u16* gUnk_08114144;
 
 extern u32 gUnk_081141A4[];
 extern u8 gUnk_081141E4[];
 
-extern BoundingBox gUnk_08114154;
+extern Hitbox gUnk_08114154;
 extern void gUnk_08016030; // Cutscene data type?
 extern void gUnk_0801606C; // Cutscene data type?
 
@@ -68,7 +68,7 @@ void NPC4E(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         this->spriteSettings.b.draw = 4;
-        this->boundingBox = &gUnk_080FD170;
+        this->hitbox = &gUnk_080FD170;
         sub_0807DD50(this);
     } else {
         sub_0807DD94(this, 0);
@@ -159,7 +159,7 @@ void sub_0806DAE8(Entity* this) {
             break;
     }
 
-    PlaySFX(0xcd);
+    SoundReq(0xcd);
 }
 
 // Unknown param_2 struct
@@ -176,7 +176,7 @@ void sub_0806DB84(
     Entity* this,
     u8 unused) { // The unused param just had to be added, so that a mov r1, #0 in NPC4E_Fusion is matching correctly
     Entity* ent;
-    this->boundingBox = &gUnk_08114154;
+    this->hitbox = &gUnk_08114154;
     ent = CreateObject(0x3e, 4, 0);
     if (ent != NULL) {
         PositionRelative(this, ent, -0x80000, 0);
@@ -270,7 +270,7 @@ void NPC4E_Fusion(Entity* this) {
                 break;
             case 11:
                 sub_0806DB84(this, 0);
-                this->boundingBox = NULL;
+                this->hitbox = NULL;
                 break;
         }
     }

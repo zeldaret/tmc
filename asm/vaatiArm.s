@@ -353,7 +353,7 @@ _080427EE:
 	bl InitAnimationForceUpdate
 	movs r0, #0xaf
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0804280E
 _080427FC:
 	ldrb r0, [r6, #0xe]
@@ -518,7 +518,7 @@ sub_080428FC: @ 0x080428FC
 	rsbs r0, r0, #0
 	strh r0, [r1, #8]
 	ldr r0, _08042940 @ =0x00000153
-	bl PlaySFX
+	bl SoundReq
 	movs r2, #0
 	movs r3, #0x3b
 _0804292A:
@@ -891,7 +891,7 @@ _08042BBA:
 	ands r0, r1
 	strb r0, [r4, #0x18]
 	ldr r0, _08042BDC @ =0x00000161
-	bl PlaySFX
+	bl SoundReq
 _08042BD4:
 	adds r6, #1
 	cmp r6, #3
@@ -1146,7 +1146,7 @@ _08042D8E:
 	bl CopyPosition
 	movs r0, #0xb3
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08042DB4:
 	ldrb r0, [r4, #0x18]
 	movs r2, #4
@@ -1354,7 +1354,7 @@ _08042F3C:
 	movs r1, #0xf
 	bl InitAnimationForceUpdate
 	ldr r0, _08042FD4 @ =0x0000019B
-	bl PlaySFX
+	bl SoundReq
 _08042F4E:
 	ldr r0, [r4, #0x64]
 	adds r7, r0, #0
@@ -1518,7 +1518,7 @@ _08043076:
 	cmp r2, #4
 	bls _08043076
 	ldr r0, _08043090 @ =0x00000153
-	bl PlaySFX
+	bl SoundReq
 	b _080430C6
 	.align 2, 0
 _08043090: .4byte 0x00000153
@@ -1679,7 +1679,7 @@ _08043194:
 	cmp r0, #1
 	bne _080431BC
 	ldr r0, _080431E4 @ =0x00000161
-	bl PlaySFX
+	bl SoundReq
 _080431BC:
 	ldrb r1, [r4, #0x18]
 	adds r0, r7, #0
@@ -1971,7 +1971,7 @@ _080433BC:
 	bne _0804341C
 	movs r0, #0xaf
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0804341C
 	.align 2, 0
 _080433E4: .4byte gUnk_080D1414
@@ -2538,7 +2538,7 @@ sub_080437DC: @ 0x080437DC
 	b _08043934
 _080437EE:
 	movs r0, #0x68
-	bl sub_0801D8E0
+	bl zMalloc
 	adds r7, r0, #0
 	cmp r7, #0
 	bne _080437FC

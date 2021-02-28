@@ -74,7 +74,7 @@ typedef struct {
 } UI;
 static_assert(sizeof(UI) == 0x3b4);
 
-extern Main gUnk_03001000;
+extern Main gMain;
 extern UI gUnk_02032EC0;
 
 void InitScreen();
@@ -84,16 +84,16 @@ extern void sub_0807CE90(void);
 extern void sub_080560B8(void);
 extern void sub_08056208(void);
 extern void sub_0804FFE4(void);
-extern void sub_08056418(void);
+extern void MessageInitialize(void);
 extern void sub_080ADD30(void);
 
 extern void InitScreen(u32);
-extern void sub_08016E78(void);
+extern void PrepNextFrame(void);
 extern void ReadKeyInput(void);
 extern void DoSoftReset(void);
 extern void sub_08056260(void);
 extern void VBlankIntrWait();
-extern void sub_08056458(void);
+extern void MessageUpdate(void);
 extern void sub_08050154(void);
 extern void sub_080A3480(void);
 

@@ -499,7 +499,7 @@ _0803FB16:
 	strb r0, [r7, #0x10]
 	movs r0, #0xa6
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x14
 	b _0803FC4A
 _0803FB34:
@@ -568,7 +568,7 @@ _0803FBA0:
 	strb r0, [r7, #0xe]
 	bl sub_0807A108
 	ldr r0, _0803FBB4 @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 	b _0803FD4E
 	.align 2, 0
 _0803FBB4: .4byte 0x00000127
@@ -645,7 +645,7 @@ _0803FC08:
 	bl sub_080408EC
 	movs r0, #0xa6
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x1e
 _0803FC4A:
 	movs r1, #4
@@ -662,7 +662,7 @@ _0803FC52:
 	bne _0803FC6C
 	movs r0, #0xd8
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0803FD32
 _0803FC6C:
 	movs r0, #7
@@ -670,7 +670,7 @@ _0803FC6C:
 	cmp r1, #0
 	bne _0803FD32
 	ldr r0, _0803FC7C @ =0x00000149
-	bl PlaySFX
+	bl SoundReq
 	b _0803FD32
 	.align 2, 0
 _0803FC7C: .4byte 0x00000149
@@ -736,7 +736,7 @@ _0803FCA8:
 	strb r0, [r2]
 	movs r0, #0x92
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0803FD32
 	.align 2, 0
 _0803FD08: .4byte 0x0000FFF9
@@ -820,7 +820,7 @@ _0803FD82:
 	lsls r0, r0, #0xa
 	str r0, [r4, #0x20]
 	ldr r0, _0803FDA4 @ =0x0000012B
-	bl PlaySFX
+	bl SoundReq
 	b _0803FE86
 	.align 2, 0
 _0803FDA4: .4byte 0x0000012B
@@ -872,7 +872,7 @@ _0803FDF0:
 _0803FDFA:
 	movs r0, #0xa6
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x1e
 	movs r1, #4
 	bl sub_08080964
@@ -1284,7 +1284,7 @@ _080400C2:
 	strb r0, [r2]
 	movs r0, #0xb7
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08040120:
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
@@ -1765,7 +1765,7 @@ _080404A6:
 	movs r0, #0xa
 	strb r0, [r4, #0xe]
 	ldr r0, _080404CC @ =0x00000149
-	bl PlaySFX
+	bl SoundReq
 _080404BC:
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
@@ -1901,7 +1901,7 @@ _080405A8:
 	movs r0, #0xa
 	strb r0, [r4, #0xe]
 	ldr r0, _080405D4 @ =0x00000149
-	bl PlaySFX
+	bl SoundReq
 _080405BE:
 	adds r0, r4, #0
 	bl GetNextFrame
@@ -2511,7 +2511,7 @@ _08040A04:
 	strb r0, [r1]
 	strb r2, [r3]
 	ldr r0, _08040A38 @ =0x00000155
-	bl PlaySFX
+	bl SoundReq
 	b _08040A68
 	.align 2, 0
 _08040A38: .4byte 0x00000155
@@ -2536,7 +2536,7 @@ _08040A3C:
 	str r0, [r4, #0x20]
 	movs r0, #0xb2
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08040A68:
 	adds r0, r4, #0
 	adds r0, #0x81
@@ -2571,7 +2571,7 @@ _08040A84:
 	movs r1, #1
 	bl sub_08080964
 	ldr r0, _08040ACC @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 _08040AB0:
 	ldrb r0, [r5]
 	cmp r0, #0x8a
@@ -2605,7 +2605,7 @@ sub_08040AD4: @ 0x08040AD4
 	cmp r0, #0
 	bne _08040AF0
 	ldr r0, _08040B0C @ =0x000001A9
-	bl PlaySFX
+	bl SoundReq
 _08040AF0:
 	movs r0, #3
 	ands r4, r0

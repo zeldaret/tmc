@@ -256,7 +256,7 @@ void sub_08061F94(Entity* this) {
 }
 
 void sub_08061FB0(Entity* this) {
-    this->boundingBox = NULL;
+    this->hitbox = NULL;
 }
 
 void sub_08061FB8(Entity* this, struct_08061FB8* arg1) {

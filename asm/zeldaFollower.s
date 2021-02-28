@@ -299,7 +299,7 @@ sub_0806854C: @ 0x0806854C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r0, #0xa0
-	bl sub_0801D8E0
+	bl zMalloc
 	str r0, [r5, #0x64]
 	cmp r0, #0
 	beq _08068574

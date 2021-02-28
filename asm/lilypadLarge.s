@@ -277,7 +277,7 @@ _080856EE:
 	beq _080856FC
 	strb r1, [r7, #0xf]
 	movs r0, #0x83
-	bl PlaySFX
+	bl SoundReq
 _080856FC:
 	adds r2, r7, #0
 	adds r2, #0x41
@@ -833,7 +833,7 @@ _08085B22:
 	movs r3, #0
 	bl CreateObjectWithParent
 	ldr r0, _08085B3C @ =0x0000012D
-	bl PlaySFX
+	bl SoundReq
 _08085B34:
 	pop {r4, pc}
 	.align 2, 0
@@ -1385,7 +1385,7 @@ sub_08085F48: @ 0x08085F48
 	strb r0, [r5, #0x12]
 _08085F6A:
 	movs r0, #0x83
-	bl PlaySFX
+	bl SoundReq
 	ldr r1, [r4, #0x78]
 	ldr r0, _08085F84 @ =0x0127FFFF
 	cmp r1, r0

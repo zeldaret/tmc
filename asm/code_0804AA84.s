@@ -45,7 +45,7 @@ _0804ABA4:
 	lsls r2, r2, #2
 	adds r1, r0, r2
 	movs r2, #0x20
-	bl _DmaCopy
+	bl MemCopy
 	ldr r2, _0804AC14 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80
@@ -197,7 +197,7 @@ sub_0804ACF8: @ 0x0804ACF8
 	bl sub_0804AD6C
 	bl sub_0805E5A8
 	movs r0, #0xf8
-	bl PlaySFX
+	bl SoundReq
 _0804AD12:
 	pop {pc}
 	.align 2, 0

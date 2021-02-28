@@ -128,7 +128,7 @@ _080A12B2:
 	adds r0, r0, r1
 	ldrh r0, [r0]
 	str r3, [sp]
-	bl PlaySFX
+	bl SoundReq
 	ldr r3, [sp]
 	b _080A132E
 	.align 2, 0
@@ -187,7 +187,7 @@ _080A132E:
 	cmp r0, #0
 	bgt _080A1370
 	movs r0, #0xe2
-	bl PlaySFX
+	bl SoundReq
 	bl sub_08050384
 	b _080A1376
 	.align 2, 0
@@ -470,7 +470,7 @@ sub_080A1550: @ 0x080A1550
 	cmp r4, #0
 	beq _080A15FE
 	movs r0, #0x28
-	bl sub_0801D8E0
+	bl zMalloc
 	str r0, [r4, #0x64]
 	cmp r0, #0
 	bne _080A1582

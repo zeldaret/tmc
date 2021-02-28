@@ -24,7 +24,7 @@ extern void (*const gUnk_0811E7D4[])(Entity*);
 extern void (*const gUnk_0811E7E8[])(Entity*);
 extern void (*const gUnk_0811E814[])(Entity*);
 extern void (*const gUnk_0811E840[])(Entity*);
-extern BoundingBox gUnk_080FD1A8;
+extern Hitbox gUnk_080FD1A8;
 
 typedef struct {
     u8 unk0[3];
@@ -95,7 +95,7 @@ void sub_08080F20(Entity* this) {
         this->field_0x3c = 0x47;
         this->field_0x40 = 0x44;
         this->currentHealth = 0xFF;
-        this->boundingBox = &gUnk_080FD1A8;
+        this->hitbox = &gUnk_080FD1A8;
         switch (this->entityType.form - 0x3F) {
             case 0:
             case 21:
@@ -181,7 +181,7 @@ static void sub_08081150(Entity* this) {
     this->height.HALF.HI = -0x80;
     this->spriteOrientation.flipY = 1;
     this->spriteRendering.b3 = 1;
-    PlaySFX(0x12D);
+    SoundReq(0x12D);
 }
 
 static void sub_08081188(Entity* this) {
@@ -205,7 +205,7 @@ void sub_080811C8(Entity* this) {
 
 void sub_080811D8(Entity* this) {
     sub_08081188(this);
-    PlaySFX(0x215);
+    SoundReq(0x215);
 }
 
 void sub_080811EC(Entity* this) {
@@ -358,7 +358,7 @@ static u8 sub_0808147C(u32 arg0) {
 void sub_0808148C(u32 arg0) {
     const Unk_0811E84C* var0 = &gUnk_0811E84C[arg0];
     if (var0->sfx) {
-        PlaySFX(var0->sfx);
+        SoundReq(var0->sfx);
     }
 }
 

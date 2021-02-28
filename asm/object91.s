@@ -109,7 +109,7 @@ _0809C440:
 	movs r0, #0xe0
 	strb r0, [r1]
 	movs r0, #0x30
-	bl sub_0801D8E0
+	bl zMalloc
 	adds r2, r0, #0
 	adds r0, r4, #0
 	adds r0, #0x84
@@ -632,7 +632,7 @@ _0809C892:
 	movs r0, #0x1e
 	strb r0, [r5]
 	movs r0, #0xe6
-	bl PlaySFX
+	bl SoundReq
 	b _0809C8B8
 	.align 2, 0
 _0809C8A8: .4byte gTextBox
@@ -749,7 +749,7 @@ _0809C948:
 	movs r1, #0xef
 	bl sub_0809CC30
 	movs r0, #0xe8
-	bl PlaySFX
+	bl SoundReq
 _0809C980:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -893,7 +893,7 @@ _0809CA30:
 	movs r0, #1
 	strb r0, [r1]
 	movs r0, #0xed
-	bl PlaySFX
+	bl SoundReq
 	b _0809CAC4
 _0809CA92:
 	subs r0, #1
@@ -978,7 +978,7 @@ _0809CB26:
 	cmp r0, #0
 	bne _0809CB38
 	ldr r0, _0809CB48 @ =0x00000163
-	bl PlaySFX
+	bl SoundReq
 _0809CB38:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1087,7 +1087,7 @@ sub_0809CBE4: @ 0x0809CBE4
 	strb r0, [r2, #0xf]
 	movs r0, #0xcf
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0809CC2C
 _0809CC16:
 	movs r0, #0
@@ -1099,7 +1099,7 @@ _0809CC16:
 	strb r0, [r2, #0xf]
 	movs r0, #0xcf
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0809CC2C:
 	pop {r4, pc}
 	.align 2, 0

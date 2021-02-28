@@ -208,7 +208,7 @@ _0806A568:
 	orrs r0, r1
 	str r0, [r2]
 	ldr r0, _0806A5B8 @ =0x0000011B
-	bl PlaySFX
+	bl SoundReq
 _0806A590:
 	ldrb r1, [r5]
 	movs r0, #0x80
@@ -286,7 +286,7 @@ _0806A60A:
 	adds r0, #0x78
 	strb r0, [r4, #0xe]
 	movs r0, #0xcc
-	bl PlaySFX
+	bl SoundReq
 _0806A628:
 	adds r0, r4, #0
 	bl GetNextFrame
@@ -323,7 +323,7 @@ _0806A65A:
 	movs r0, #0
 	strb r0, [r1]
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 _0806A66E:
 	pop {r4, pc}
 	.align 2, 0

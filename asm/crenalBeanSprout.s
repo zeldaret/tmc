@@ -483,7 +483,7 @@ _0809669C:
 	movs r0, #0xdc
 	bl sub_0807BA8C
 	movs r0, #0x79
-	bl PlaySFX
+	bl SoundReq
 _080966F6:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -754,7 +754,7 @@ _080968C4:
 	bl sub_0807B7D8
 _080968F0:
 	ldr r0, _08096900 @ =0x000001DB
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080968F8: .4byte 0x000001CD
@@ -842,7 +842,7 @@ sub_08096988: @ 0x08096988
 	cmp r0, #0
 	bne _080969A2
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 _080969A2:
 	pop {pc}
 

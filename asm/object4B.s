@@ -120,7 +120,7 @@ sub_0808F80C: @ 0x0808F80C
 	movs r1, #3
 	bl InitializeAnimation
 	ldr r0, _0808F854 @ =0x0000012B
-	bl PlaySFX
+	bl SoundReq
 _0808F850:
 	pop {r4, pc}
 	.align 2, 0
@@ -195,7 +195,7 @@ _0808F8C8:
 	movs r1, #3
 	bl InitializeAnimation
 	ldr r0, _0808F8EC @ =0x0000012B
-	bl PlaySFX
+	bl SoundReq
 _0808F8EA:
 	pop {r4, pc}
 	.align 2, 0

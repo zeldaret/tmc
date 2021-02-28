@@ -89,7 +89,7 @@ _0809D234:
 	movs r1, #0
 	bl InitAnimationForceUpdate
 	ldr r0, _0809D2AC @ =0x00000123
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x68
 	adds r0, r0, r5
 	mov r8, r0
@@ -392,7 +392,7 @@ sub_0809D498: @ 0x0809D498
 	ldrh r0, [r0, #0x32]
 	strh r0, [r5, #0x32]
 	ldr r0, _0809D544 @ =0x00000123
-	bl PlaySFX
+	bl SoundReq
 	ldrb r1, [r6]
 	movs r0, #0x39
 	rsbs r0, r0, #0

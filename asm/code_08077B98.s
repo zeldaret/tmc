@@ -116,7 +116,7 @@ _080780A0:
 	movs r0, #4
 	strb r0, [r2]
 	movs r0, #0xd8
-	bl PlaySFX
+	bl SoundReq
 	b _080780DA
 	.align 2, 0
 _080780BC: .4byte 0x0000031F
@@ -128,7 +128,7 @@ _080780C0:
 	cmp r0, #0
 	bne _080780DA
 	movs r0, #0xd7
-	bl PlaySFX
+	bl SoundReq
 	b _080780DA
 _080780D6:
 	movs r0, #1
@@ -642,7 +642,7 @@ sub_080784C8: @ 0x080784C8
 	movs r1, #0xc4
 	lsls r1, r1, #1
 	adds r0, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080784E0 @ =gUnk_0811C000
 	str r0, [r4, #4]
 	pop {r4, pc}
