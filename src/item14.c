@@ -4,7 +4,7 @@
 #include "room.h"
 
 extern void (*const gUnk_08109AC8[])(Entity*);
-extern BoundingBox gUnk_08109AD0;
+extern Hitbox gUnk_08109AD0;
 extern u8 gUnk_08003E44;
 
 void sub_0805FC74(Entity*);
@@ -18,7 +18,7 @@ void sub_0805FBE8(Entity* this) {
     this->action++;
     this->spriteSettings.b.draw = TRUE;
     this->field_0x3c = gPlayerEntity.field_0x3c + 1;
-    this->boundingBox = &gUnk_08109AD0;
+    this->hitbox = &gUnk_08109AD0;
     this->nonPlanarMovement = 0x380;
     this->animationState = this->animationState & 0x7f;
     if (this->collisionLayer == 2) {

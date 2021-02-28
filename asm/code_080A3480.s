@@ -209,7 +209,7 @@ HandleCreditsScreen: @ 0x080A35E0
 	adds r0, #1
 	str r0, [r1]
 	ldr r1, _080A3600 @ =gUnk_08127D00
-	ldr r0, _080A3604 @ =gUnk_03001000
+	ldr r0, _080A3604 @ =gMain
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -219,7 +219,7 @@ HandleCreditsScreen: @ 0x080A35E0
 	.align 2, 0
 _080A35FC: .4byte gScreenTransition
 _080A3600: .4byte gUnk_08127D00
-_080A3604: .4byte gUnk_03001000
+_080A3604: .4byte gMain
 
 	thumb_func_start sub_080A3608
 sub_080A3608: @ 0x080A3608
@@ -230,7 +230,7 @@ sub_080A3608: @ 0x080A3608
 	strb r4, [r0, #6]
 	movs r0, #0x55
 	bl SetGlobalFlag
-	ldr r0, _080A3644 @ =gUnk_03001000
+	ldr r0, _080A3644 @ =gMain
 	strb r4, [r0, #3]
 	ldr r2, _080A3648 @ =gMenu
 	strb r5, [r2, #5]
@@ -251,7 +251,7 @@ sub_080A3608: @ 0x080A3608
 	b _080A365E
 	.align 2, 0
 _080A3640: .4byte gSave
-_080A3644: .4byte gUnk_03001000
+_080A3644: .4byte gMain
 _080A3648: .4byte gMenu
 _080A364C: .4byte gUnk_08127998
 _080A3650:
@@ -621,14 +621,14 @@ sub_080A3930: @ 0x080A3930
 	movs r0, #7
 	movs r1, #8
 	bl DoFade
-	ldr r1, _080A3950 @ =gUnk_03001000
+	ldr r1, _080A3950 @ =gMain
 	movs r0, #2
 	strb r0, [r1, #3]
 _080A3948:
 	pop {pc}
 	.align 2, 0
 _080A394C: .4byte gFadeControl
-_080A3950: .4byte gUnk_03001000
+_080A3950: .4byte gMain
 
 	thumb_func_start sub_080A3954
 sub_080A3954: @ 0x080A3954
@@ -862,7 +862,7 @@ _080A3B14:
 	movs r0, #7
 	movs r1, #8
 	bl DoFade
-	ldr r1, _080A3B40 @ =gUnk_03001000
+	ldr r1, _080A3B40 @ =gMain
 	movs r0, #3
 	strb r0, [r1, #3]
 	ldr r0, _080A3B44 @ =gMenu
@@ -872,7 +872,7 @@ _080A3B36:
 	.align 2, 0
 _080A3B38: .4byte gScreen
 _080A3B3C: .4byte 0x0000FDFF
-_080A3B40: .4byte gUnk_03001000
+_080A3B40: .4byte gMain
 _080A3B44: .4byte gMenu
 
 	thumb_func_start sub_080A3B48

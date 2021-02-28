@@ -221,7 +221,7 @@ _08025E68:
 _08025E6E:
 	ldr r4, [r5, #0x48]
 	adds r0, r5, #0
-	bl AllocMutableBBox
+	bl AllocMutableHitbox
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08025E7E
@@ -234,14 +234,14 @@ _08025E7E:
 _08025E86:
 	strb r0, [r5, #0xb]
 	movs r0, #0x10
-	bl sub_0801D8E0
+	bl zMalloc
 	adds r4, r5, #0
 	adds r4, #0x84
 	str r0, [r4]
 	cmp r0, #0
 	beq _08025EA2
 	adds r0, r5, #0
-	bl AllocMutableBBox
+	bl AllocMutableHitbox
 	cmp r0, #0
 	bne _08025EAA
 _08025EA2:

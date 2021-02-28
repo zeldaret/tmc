@@ -13,7 +13,7 @@ HandleGameplayScreen: @ 0x08051988
 	adds r0, #1
 	str r0, [r1]
 	ldr r1, _080519A8 @ =gUnk_080FC9D8
-	ldr r0, _080519AC @ =gUnk_03001000
+	ldr r0, _080519AC @ =gMain
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -23,7 +23,7 @@ HandleGameplayScreen: @ 0x08051988
 	.align 2, 0
 _080519A4: .4byte gScreenTransition
 _080519A8: .4byte gUnk_080FC9D8
-_080519AC: .4byte gUnk_03001000
+_080519AC: .4byte gMain
 
 	thumb_func_start sub_080519B0
 sub_080519B0: @ 0x080519B0
@@ -49,11 +49,11 @@ sub_080519B0: @ 0x080519B0
 	adds r1, r4, #0
 	adds r1, #0xc
 	movs r2, #0x20
-	bl _DmaCopy
+	bl MemCopy
 	movs r0, #4
 	strb r0, [r4, #9]
 	bl sub_08053518
-	ldr r1, _08051A10 @ =gUnk_03001000
+	ldr r1, _08051A10 @ =gMain
 	movs r0, #1
 	strb r0, [r1, #3]
 	strb r5, [r1, #4]
@@ -63,7 +63,7 @@ _08051A02:
 _08051A04: .4byte gFadeControl
 _08051A08: .4byte gScreenTransition
 _08051A0C: .4byte gUnk_02002AC8
-_08051A10: .4byte gUnk_03001000
+_08051A10: .4byte gMain
 
 	thumb_func_start sub_08051A14
 sub_08051A14: @ 0x08051A14
@@ -98,7 +98,7 @@ sub_08051A14: @ 0x08051A14
 	ldr r1, _08051A88 @ =gUnk_02024490
 	movs r0, #1
 	strb r0, [r1]
-	ldr r1, _08051A8C @ =gUnk_03001000
+	ldr r1, _08051A8C @ =gMain
 	movs r0, #2
 	strb r0, [r1, #3]
 	pop {pc}
@@ -110,13 +110,13 @@ _08051A7C: .4byte gUnk_02032EC0
 _08051A80: .4byte gRoomControls
 _08051A84: .4byte gScreenTransition
 _08051A88: .4byte gUnk_02024490
-_08051A8C: .4byte gUnk_03001000
+_08051A8C: .4byte gMain
 
 	thumb_func_start sub_08051A90
 sub_08051A90: @ 0x08051A90
 	push {lr}
 	ldr r1, _08051AA4 @ =gUnk_080FC9E8
-	ldr r0, _08051AA8 @ =gUnk_03001000
+	ldr r0, _08051AA8 @ =gMain
 	ldrb r0, [r0, #4]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -125,7 +125,7 @@ sub_08051A90: @ 0x08051A90
 	pop {pc}
 	.align 2, 0
 _08051AA4: .4byte gUnk_080FC9E8
-_08051AA8: .4byte gUnk_03001000
+_08051AA8: .4byte gMain
 
 	thumb_func_start InitializeNewRoom
 InitializeNewRoom: @ 0x08051AAC
@@ -136,7 +136,7 @@ InitializeNewRoom: @ 0x08051AAC
 	movs r0, #0xba
 	lsls r0, r0, #5
 	strh r0, [r1]
-	ldr r1, _08051AE8 @ =gUnk_03001000
+	ldr r1, _08051AE8 @ =gMain
 	movs r0, #1
 	strb r0, [r1, #4]
 	ldr r0, _08051AEC @ =gScreenTransition
@@ -152,7 +152,7 @@ InitializeNewRoom: @ 0x08051AAC
 	pop {pc}
 	.align 2, 0
 _08051AE4: .4byte gScreen
-_08051AE8: .4byte gUnk_03001000
+_08051AE8: .4byte gMain
 _08051AEC: .4byte gScreenTransition
 
 	thumb_func_start sub_08051AF0
@@ -207,7 +207,7 @@ _08051B5A:
 	bl sub_0805E5B4
 	bl sub_08051E04
 	bl sub_080300C4
-	ldr r1, _08051BC4 @ =gUnk_03001000
+	ldr r1, _08051BC4 @ =gMain
 	movs r0, #2
 	strb r0, [r1, #4]
 	movs r0, #0
@@ -238,7 +238,7 @@ _08051BB4: .4byte gRoomControls
 _08051BB8: .4byte gArea
 _08051BBC: .4byte 0x00000864
 _08051BC0: .4byte 0x800B0000
-_08051BC4: .4byte gUnk_03001000
+_08051BC4: .4byte gMain
 _08051BC8: .4byte gUnk_02034490
 _08051BCC: .4byte gRoomVars
 
@@ -252,7 +252,7 @@ sub_08051BD0: @ 0x08051BD0
 	cmp r0, #0
 	bne _08051C9C
 	bl sub_0805340C
-	ldr r0, _08051C5C @ =gUnk_03001000
+	ldr r0, _08051C5C @ =gMain
 	ldrb r0, [r0, #4]
 	cmp r0, #2
 	bne _08051C9C
@@ -272,7 +272,7 @@ _08051C06:
 	bl FlushSprites
 	bl sub_0805E5C0
 	bl sub_08080A40
-	bl sub_080175F4
+	bl CollisionMain
 	bl UpdateScroll
 	bl UpdateBgAnim
 	bl sub_08000108
@@ -295,7 +295,7 @@ _08051C06:
 	beq _08051C88
 	b _08051C9C
 	.align 2, 0
-_08051C5C: .4byte gUnk_03001000
+_08051C5C: .4byte gMain
 _08051C60: .4byte gTextBox
 _08051C64: .4byte gUnk_03003DC0
 _08051C68: .4byte gRoomControls
@@ -303,19 +303,19 @@ _08051C6C:
 	ldr r0, _08051C80 @ =gPlayerState
 	movs r1, #0x17
 	strb r1, [r0, #0xc]
-	ldr r0, _08051C84 @ =gUnk_03001000
+	ldr r0, _08051C84 @ =gMain
 	strb r2, [r0, #4]
 	bl sub_0805E59C
 	bl sub_08051D98
 	b _08051C9C
 	.align 2, 0
 _08051C80: .4byte gPlayerState
-_08051C84: .4byte gUnk_03001000
+_08051C84: .4byte gMain
 _08051C88:
 	ldr r1, _08051CA0 @ =gPlayerState
 	movs r0, #0x17
 	strb r0, [r1, #0xc]
-	ldr r1, _08051CA4 @ =gUnk_03001000
+	ldr r1, _08051CA4 @ =gMain
 	movs r0, #1
 	strb r0, [r1, #4]
 	bl sub_0805E59C
@@ -324,7 +324,7 @@ _08051C9C:
 	pop {pc}
 	.align 2, 0
 _08051CA0: .4byte gPlayerState
-_08051CA4: .4byte gUnk_03001000
+_08051CA4: .4byte gMain
 
 	thumb_func_start sub_08051CA8
 sub_08051CA8: @ 0x08051CA8
@@ -333,7 +333,7 @@ sub_08051CA8: @ 0x08051CA8
 	cmp r0, #0
 	bne _08051CEA
 	bl sub_0805E5C0
-	bl sub_080175F4
+	bl CollisionMain
 	bl sub_0801C344
 	bl sub_0805E5F8
 	bl FlushSprites
@@ -359,7 +359,7 @@ sub_08051CF0: @ 0x08051CF0
 	bl FlushSprites
 	bl sub_0801C208
 	bl sub_080AD9B0
-	ldr r5, _08051D20 @ =gUnk_03001000
+	ldr r5, _08051D20 @ =gMain
 	movs r6, #1
 	strb r6, [r5, #0xb]
 	bl sub_080AD918
@@ -376,7 +376,7 @@ sub_08051CF0: @ 0x08051CF0
 _08051D1E:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08051D20: .4byte gUnk_03001000
+_08051D20: .4byte gMain
 _08051D24: .4byte gFadeControl
 _08051D28: .4byte gScreenTransition
 
@@ -780,7 +780,7 @@ _08052090: .4byte 0x00001D05
 HandleGameOverScreen: @ 0x08052094
 	push {r4, lr}
 	ldr r1, _080520BC @ =gUnk_080FCA70
-	ldr r4, _080520C0 @ =gUnk_03001000
+	ldr r4, _080520C0 @ =gMain
 	ldrb r0, [r4, #3]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -796,18 +796,18 @@ _080520B8:
 	pop {r4, pc}
 	.align 2, 0
 _080520BC: .4byte gUnk_080FCA70
-_080520C0: .4byte gUnk_03001000
+_080520C0: .4byte gMain
 
 	thumb_func_start sub_080520C4
 sub_080520C4: @ 0x080520C4
 	push {lr}
-	ldr r1, _080520D4 @ =gUnk_03001000
+	ldr r1, _080520D4 @ =gMain
 	strb r0, [r1, #3]
 	movs r0, #0
 	bl sub_080A7114
 	pop {pc}
 	.align 2, 0
-_080520D4: .4byte gUnk_03001000
+_080520D4: .4byte gMain
 
 	thumb_func_start sub_080520D8
 sub_080520D8: @ 0x080520D8
@@ -827,7 +827,7 @@ sub_080520D8: @ 0x080520D8
 	adds r0, #0xaa
 	movs r1, #0x18
 	strb r1, [r0]
-	ldr r0, _08052124 @ =gUnk_03001000
+	ldr r0, _08052124 @ =gMain
 	strb r2, [r0, #5]
 	movs r0, #0xa
 	bl SoundReq
@@ -843,6 +843,6 @@ _08052114:
 _08052118: .4byte gFadeControl
 _0805211C: .4byte gMenu
 _08052120: .4byte gSave
-_08052124: .4byte gUnk_03001000
+_08052124: .4byte gMain
 _08052128: .4byte 0xFFFF0001
 

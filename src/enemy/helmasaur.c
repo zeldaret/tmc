@@ -305,8 +305,8 @@ void sub_0802C058(Entity* this, u32 param_2) {
 }
 
 bool32 sub_0802C06C(Entity* this) {
-    u32 x = this->x.HALF.HI + this->boundingBox->offset_x;
-    u32 y = this->y.HALF.HI + this->boundingBox->offset_y;
+    u32 x = this->x.HALF.HI + this->hitbox->offset_x;
+    u32 y = this->y.HALF.HI + this->hitbox->offset_y;
     u32 xdiff = gUnk_080CD45C[(this->direction >> 2) + 0];
     u32 ydiff = gUnk_080CD45C[(this->direction >> 2) + 1];
 
@@ -330,8 +330,8 @@ bool32 sub_0802C0E8(Entity* this) {
         return TRUE;
     } else {
         const s8* ptr = &gUnk_080CD45C[this->direction >> 2];
-        s32 x = this->x.HALF.HI + this->boundingBox->offset_x + ptr[0] * 6;
-        s32 y = this->y.HALF.HI + this->boundingBox->offset_y + ptr[1] * 6;
+        s32 x = this->x.HALF.HI + this->hitbox->offset_x + ptr[0] * 6;
+        s32 y = this->y.HALF.HI + this->hitbox->offset_y + ptr[1] * 6;
 
         Entity* ent = this->collisionLayer == 2 ? &gUnk_0200D654 : &gUnk_02027EB4;
         u32 ret = FALSE;

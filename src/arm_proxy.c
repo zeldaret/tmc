@@ -20,20 +20,20 @@ extern u8 gUnk_03003DF0[];
 extern u8 gUnk_03003BE0;
 extern Entity* gUnk_03004040[3];
 extern u8 gUnk_020342F8;
-extern u8 gUnk_03003DB8;
-extern void gUnk_030059F0(void);
+extern u8 gHitboxCount;
+extern void gDoCollision(void);
 
 extern void sub_080ADD70();
 extern void sub_0801C25C();
-extern void sub_08016C3C();
+extern void UpdateDisplayControls();
 extern void LoadResources();
-extern void sub_0804FF98();
+extern void FadeMain();
 extern u32 sub_0805E3B0();
-extern void sub_08016FF4();
+extern void HandlePlayerLife();
 extern void sub_08070680();
 extern void sub_080171F0();
 extern void sub_08078FB0();
-extern void sub_0800404C();
+extern void DrawEntity();
 extern void sub_0807A050();
 extern u32 sub_08079B24();
 extern void sub_08079708();
@@ -114,15 +114,15 @@ void LoadResources(void) {
 }
 
 void PrepNextFrame(void) {
-    gUnk_03001000.interruptFlag = 0;
+    gMain.interruptFlag = 0;
     VBlankIntrWait();
     do {
         // Our VBlankIntr will set this flag
-    } while (gUnk_03001000.interruptFlag == 0);
+    } while (gMain.interruptFlag == 0);
 
     sub_080ADD70();
     sub_0801C25C();
-    sub_08016C3C();
+    UpdateDisplayControls();
     LoadResources();
 
     if (gUnk_02000070) {
@@ -133,11 +133,11 @@ void PrepNextFrame(void) {
         if (gUnk_0200B650 != NULL)
             DmaCopy32(3, &gBG2Buffer, VRAM + (*gUnk_0200B650 & 0x1f00) * 8, 0x5C0);
     }
-    sub_0804FF98();
+    FadeMain();
 }
 
 void PlayerUpdate(Entity* this) {
-    if (gSave.stats.floorType != 0)
+    if (gSave.stats.effect != 0)
         gPlayerState.flags.all |= 0x4000;
     else
         gPlayerState.flags.all &= ~0x4000;
@@ -155,18 +155,19 @@ void PlayerUpdate(Entity* this) {
                 gPlayerState.field_0xa8 = 0xf;
             }
         }
-        sub_08016FF4(this);
+        HandlePlayerLife(this);
         sub_08070680(this);
         if ((this->height.WORD == 0) && (this->action == 1 || this->action == 9))
             sub_08008790(this, 8);
         sub_080171F0();
     }
     sub_08078FB0(this);
-    sub_0800404C(this);
+    DrawEntity(this);
     sub_0807A050();
 }
 
-void sub_08016FF4(Entity* this) {
+// Responsible for some life things like low health beep and initiating the death sequence
+void HandlePlayerLife(Entity* this) {
     u32 temp;
 
     gUnk_0200AF00.filler25[10] = 0;
@@ -212,29 +213,28 @@ void sub_08016FF4(Entity* this) {
         }
     }
 
-    if (gSave.stats.filler[2] == 0) {
-        gSave.stats.field_0x1c = 0;
-    } else if ((gSave.stats.field_0x1c == 0) || --gSave.stats.field_0x1c == 0) {
-        gSave.stats.filler[2] = 0;
+    if (gSave.stats.charm == 0) {
+        gSave.stats.charmTimer = 0;
+    } else if ((gSave.stats.charmTimer == 0) || --gSave.stats.charmTimer == 0) {
+        gSave.stats.charm = 0;
         SoundReq(SFX_ICE_BLOCK_MELT);
     }
 
-    if (gSave.stats.filler[3] == 0) {
-        gSave.stats.field_0x1e = 0;
-    } else if ((gSave.stats.field_0x1e == 0) || (--gSave.stats.field_0x1e == 0)) {
-        gSave.stats.filler[3] = 0;
+    if (gSave.stats.unkB == 0) {
+        gSave.stats.unkTimer = 0;
+    } else if ((gSave.stats.unkTimer == 0) || (--gSave.stats.unkTimer == 0)) {
+        gSave.stats.unkB = 0;
         SoundReq(SFX_140);
-    } else if ((gSave.stats.field_0x1e & 0xf) == 0) {
+    } else if ((gSave.stats.unkTimer & 0xf) == 0) {
         CreateSparkle(this);
     }
 
-    if (gSave.stats.floorType == 0) {
-        gSave.stats.field_0x20 = 0;
-    } else if ((gSave.stats.field_0x20 == 0) || --gSave.stats.field_0x20 == 0) {
-        gSave.stats.floorType = 0;
-    } else if ((gSave.stats.field_0x20 & 0x3f) == 0) {
-        // lava or water splash FX
-        CreateFx(this, 0x55 + gSave.stats.floorType, 0);
+    if (gSave.stats.effect == 0) {
+        gSave.stats.effectTimer = 0;
+    } else if ((gSave.stats.effectTimer == 0) || --gSave.stats.effectTimer == 0) {
+        gSave.stats.effect = 0;
+    } else if ((gSave.stats.effectTimer & 0x3f) == 0) {
+        CreateFx(this, 0x55 + gSave.stats.effect, 0);
     }
 }
 
@@ -299,7 +299,7 @@ void ItemUpdate(Entity* this) {
                 this->hurtBlinkTime++;
         }
     }
-    sub_0800404C(this);
+    DrawEntity(this);
 }
 
 // tiny regalloc
@@ -346,7 +346,7 @@ void ObjectUpdate(Entity* this) {
         gObjectFunctions[this->entityType.subtype](this);
         this->bitfield &= ~0x80;
     }
-    sub_0800404C(this);
+    DrawEntity(this);
 }
 
 void sub_08017508(Entity* this) {
@@ -355,7 +355,7 @@ void sub_08017508(Entity* this) {
 }
 
 // regalloc
-NONMATCH("asm/non_matching/arm_proxy/sub_08017530.inc", void sub_08017530(Entity* this)) {
+NONMATCH("asm/non_matching/arm_proxy/sub_08017530.inc", void NPCUpdate(Entity* this)) {
     if ((this->currentHealth & 0x7f) && !ReadBit(&gUnk_020342F8, this->currentHealth - 1))
         DeleteThisEntity();
     if ((this->action == 0) && ((this->flags & 1) == 0))
@@ -370,20 +370,19 @@ NONMATCH("asm/non_matching/arm_proxy/sub_08017530.inc", void sub_08017530(Entity
             gUnk_02031EC0[temp * 2 - 2].x = this->x.HALF.HI - gRoomControls.roomOriginX;
             gUnk_02031EC0[temp * 2 - 2].y = this->y.HALF.HI - gRoomControls.roomOriginY;
         }
-        sub_0800404C(this);
+        DrawEntity(this);
     }
 }
 END_NONMATCH
 
-void sub_080175E8(void) {
-    gUnk_03003DB8 = 0;
+void ClearHitboxList(void) {
+    gHitboxCount = 0;
 }
 
-void sub_080175F4(void) {
+void CollisionMain(void) {
+    void (*doCollision)(void);
     u32 flags;
     u32 temp;
-
-    void (*func)(void);
 
     temp = gUnk_03003DC0.unk0;
     if (gUnk_03003DC0.unk0 <= gUnk_03003DC0.unk1)
@@ -391,19 +390,20 @@ void sub_080175F4(void) {
     if (temp != 0)
         return;
 
-    func = &gUnk_030059F0;
+    doCollision = &gDoCollision;
+    // Check to see if we should disable collision this frame
     if (gPlayerState.field_0x8b != 0) {
         u32 temp = gPlayerEntity.flags;
-        gPlayerEntity.flags &= 0x7f;
-        func();
-        gPlayerEntity.flags = temp;
+        gPlayerEntity.flags &= ~0x80;
+        doCollision();
+        gPlayerEntity.flags = temp; // reset collision to before
     } else {
-        func();
+        doCollision();
     }
 }
 
-void sub_08017640(void) {
-    MemClear32(&gUnk_03003C70, 0x100);
+void RegisterPlayerHitbox(void) {
+    MemClear32(&gUnk_03003C70, sizeof(gUnk_03003C70));
     gUnk_02018EA0 = (LinkedList2*)&gUnk_03003C70[0].last;
     gUnk_03003C70[0].last = &gUnk_03003C70[0].last;
     gUnk_03003C70[0].first = &gUnk_03003C70[0].last;
@@ -507,8 +507,8 @@ NONMATCH("asm/non_matching/arm_proxy/sub_080177A0.inc", bool32 sub_080177A0(Enti
     u32 depth;
 
     if ((that->collisionLayer & this->collisionLayer) != 0) {
-        BoundingBox* bb_this = this->boundingBox;
-        BoundingBox* bb_that = that->boundingBox;
+        Hitbox* bb_this = this->hitbox;
+        Hitbox* bb_that = that->hitbox;
         u32 this_w = bb_this->width;
         u32 that_w = bb_that->width;
         if ((((this->x.HALF.HI - that->x.HALF.HI) + bb_this->offset_x) - bb_that->offset_x) + this_w + that_w <=
@@ -518,11 +518,11 @@ NONMATCH("asm/non_matching/arm_proxy/sub_080177A0.inc", bool32 sub_080177A0(Enti
             if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + this_h + that_h <=
                 (this_h + that_h) * 2) {
                 if ((this->field_0x3c & 0x10) != 0)
-                    this_d = ((BoundingBox3D*)bb_this)->depth;
+                    this_d = ((Hitbox3D*)bb_this)->depth;
                 else
                     this_d = 5;
                 if ((that->field_0x3c & 0x10) != 0)
-                    depth = this_d + ((BoundingBox3D*)bb_that)->depth;
+                    depth = this_d + ((Hitbox3D*)bb_that)->depth;
                 else
                     depth = this_d + 5;
                 if ((this->height.HALF.HI - that->height.HALF.HI) + depth <= depth * 2)

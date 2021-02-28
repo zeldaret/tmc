@@ -19,7 +19,7 @@ extern struct_02018EB0 gUnk_02018EB0;
 
 u32 sub_0804AA84(void) {
     if (gArea.fadeOut != 0) {
-        gUnk_03001000.transition = 4;
+        gMain.transition = 4;
         gArea.filler[8] = 0;
         gArea.filler[9] = 0;
         *(u16*)&gArea.filler[10] = 0;

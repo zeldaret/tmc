@@ -25,7 +25,7 @@ extern const s8 gUnk_080CC7C0[];
 extern const u8 gUnk_080CC7D0[];
 extern const u16 gUnk_080CC7D8[];
 
-extern const BoundingBox* const gUnk_080CC944[];
+extern const Hitbox* const gUnk_080CC944[];
 
 void SpearMoblin(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080CC790);
@@ -195,7 +195,7 @@ void sub_08028488(Entity* this) {
 
 void sub_08028528(Entity* this) {
     Entity* ent = sub_08049DF4(1);
-    const BoundingBox* box;
+    const Hitbox* box;
 
     if (ent == NULL) {
         this->field_0xf = 0;
@@ -203,10 +203,10 @@ void sub_08028528(Entity* this) {
     } else {
         sub_080288C0(this);
         box = gUnk_080CC944[this->animationState >> 1];
-        this->boundingBox->offset_x = box->offset_x;
-        this->boundingBox->offset_y = box->offset_y;
-        this->boundingBox->width = box->width;
-        this->boundingBox->height = box->height;
+        this->hitbox->offset_x = box->offset_x;
+        this->hitbox->offset_y = box->offset_y;
+        this->hitbox->width = box->width;
+        this->hitbox->height = box->height;
 
         if (this->field_0x7a.HALF.LO != 0) {
             this->field_0x7a.HALF.LO = 0;
@@ -361,14 +361,14 @@ bool32 sub_08028828(u32 arg0, u32 arg1) {
 }
 
 void sub_08028858(Entity* this) {
-    const BoundingBox* box;
+    const Hitbox* box;
 
     sub_080288C0(this);
     box = gUnk_080CC944[this->animationState >> 1];
-    this->boundingBox->offset_x = box->offset_x;
-    this->boundingBox->offset_y = box->offset_y;
-    this->boundingBox->width = box->width;
-    this->boundingBox->height = box->height;
+    this->hitbox->offset_x = box->offset_x;
+    this->hitbox->offset_y = box->offset_y;
+    this->hitbox->width = box->width;
+    this->hitbox->height = box->height;
 
     if (this->field_0x82.HALF.LO == 0) {
         this->nonPlanarMovement = 0;

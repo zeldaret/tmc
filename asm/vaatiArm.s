@@ -2538,7 +2538,7 @@ sub_080437DC: @ 0x080437DC
 	b _08043934
 _080437EE:
 	movs r0, #0x68
-	bl sub_0801D8E0
+	bl zMalloc
 	adds r7, r0, #0
 	cmp r7, #0
 	bne _080437FC

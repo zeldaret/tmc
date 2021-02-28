@@ -3,8 +3,8 @@
 #include "functions.h"
 
 extern u8 gEntCount;
-extern BoundingBox gUnk_080FD298;
-extern BoundingBox gUnk_080FD2A0;
+extern Hitbox gUnk_080FD298;
+extern Hitbox gUnk_080FD2A0;
 
 void sub_08029E0C(Entity*);
 void sub_08029EEC(Entity*);
@@ -278,7 +278,7 @@ void sub_08029D14(Entity* this) {
             this->action = 4;
             this->actionDelay = 0x78;
             this->damageType = 0x6c;
-            this->boundingBox = &gUnk_080FD298;
+            this->hitbox = &gUnk_080FD298;
             EnqueueSFX(0x6b);
         }
     }
@@ -289,7 +289,7 @@ void sub_08029D78(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 5;
         this->damageType = 0x6a;
-        this->boundingBox = (BoundingBox*)&gUnk_080FD2A0;
+        this->hitbox = (Hitbox*)&gUnk_080FD2A0;
         InitializeAnimation(this, this->animationState + 0x10);
     }
 }

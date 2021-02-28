@@ -440,7 +440,7 @@ _080598AA:
 	lsls r2, r2, #2
 	adds r1, r0, r2
 	movs r2, #0x20
-	bl _DmaCopy
+	bl MemCopy
 	ldr r2, _080598F0 @ =gUsedPalettes
 	ldr r0, [r2]
 	ldr r1, _080598F4 @ =0x00207FFC

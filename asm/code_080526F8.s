@@ -161,7 +161,7 @@ sub_080527FC: @ 0x080527FC
 	ldr r1, _08052834 @ =gPaletteBuffer
 	movs r2, #0x80
 	lsls r2, r2, #3
-	bl _DmaCopy
+	bl MemCopy
 	ldr r1, _08052838 @ =gUsedPalettes
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -246,7 +246,7 @@ sub_080528B4: @ 0x080528B4
 _080528C4: .4byte gScreenTransition
 _080528C8:
 	bl sub_0804FFE4
-	ldr r1, _080528E8 @ =gUnk_03001000
+	ldr r1, _080528E8 @ =gMain
 	movs r2, #0
 	movs r0, #3
 	strb r0, [r1, #3]
@@ -260,7 +260,7 @@ _080528C8:
 _080528E6:
 	pop {pc}
 	.align 2, 0
-_080528E8: .4byte gUnk_03001000
+_080528E8: .4byte gMain
 _080528EC: .4byte 0x80100000
 
 	thumb_func_start sub_080528F0
@@ -377,7 +377,7 @@ _080529D4:
 	bl DoFade
 _080529DC:
 	bl sub_080528F0
-	ldr r0, _080529F0 @ =gUnk_03001000
+	ldr r0, _080529F0 @ =gMain
 	movs r1, #3
 	strb r1, [r0, #4]
 	movs r1, #1
@@ -385,7 +385,7 @@ _080529DC:
 	movs r0, #1
 	b _080529F6
 	.align 2, 0
-_080529F0: .4byte gUnk_03001000
+_080529F0: .4byte gMain
 _080529F4:
 	movs r0, #0
 _080529F6:
@@ -846,7 +846,7 @@ sub_08052D74: @ 0x08052D74
 	push {r4, r5, lr}
 	adds r3, r0, #0
 	adds r4, r1, #0
-	ldr r0, _08052D98 @ =gUnk_03001000
+	ldr r0, _08052D98 @ =gMain
 	ldrb r0, [r0, #4]
 	cmp r0, #7
 	beq _08052D96
@@ -863,7 +863,7 @@ sub_08052D74: @ 0x08052D74
 _08052D96:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08052D98: .4byte gUnk_03001000
+_08052D98: .4byte gMain
 _08052D9C: .4byte gArea
 _08052DA0: .4byte 0x00000888
 _08052DA4: .4byte 0x0000088C
@@ -1258,7 +1258,7 @@ sub_080530B0: @ 0x080530B0
 	ldr r0, _080530C0 @ =gUnk_080FCAF8
 	ldr r1, _080530C4 @ =gUnk_030010EC
 	movs r2, #0x20
-	bl _DmaCopy
+	bl MemCopy
 	pop {pc}
 	.align 2, 0
 _080530C0: .4byte gUnk_080FCAF8
@@ -1431,7 +1431,7 @@ sub_080531F8: @ 0x080531F8
 	ldr r1, _08053248 @ =gUnk_02002AC8
 	adds r0, r5, #0
 	movs r2, #0x20
-	bl _DmaCopy
+	bl MemCopy
 	bl CheckIsDungeon
 	cmp r0, #0
 	beq _08053238
@@ -1483,7 +1483,7 @@ sub_08053250: @ 0x08053250
 	adds r0, #0xc
 	ldr r1, _08053298 @ =gUnk_02002AC8
 	movs r2, #0x20
-	bl _DmaCopy
+	bl MemCopy
 	pop {r4, pc}
 	.align 2, 0
 _0805328C: .4byte gScreenTransition

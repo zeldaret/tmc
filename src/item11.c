@@ -10,9 +10,9 @@ extern void sub_08018F6C(Entity*);
 
 extern void (*const gUnk_080B3DD0[])(Entity*);
 
-extern BoundingBox gUnk_080B3E18;
+extern Hitbox gUnk_080B3E18;
 extern u8 gUnk_080B3DE0[];
-extern BoundingBox* gUnk_080B3DE8[];
+extern Hitbox* gUnk_080B3DE8[];
 
 void Item11(Entity* this) {
     if (this->currentHealth) {
@@ -43,7 +43,7 @@ void sub_08018CBC(Entity* this) {
         this->actionDelay = 0x56;
         this->field_0x40 = 0x1c;
         this->field_0x44 = 6;
-        this->boundingBox = &gUnk_080B3E18;
+        this->hitbox = &gUnk_080B3E18;
         this->attachedEntity->spriteOffsetX = 0;
         this->attachedEntity->spriteSettings.b.draw = 0;
     } else {
@@ -59,7 +59,7 @@ void sub_08018CBC(Entity* this) {
         this->actionDelay = gUnk_080B3DE0[(this->entityType).form * 2];
         this->field_0x44 = gUnk_080B3DE0[(this->entityType).form * 2 + 1];
         this->field_0x40 = 0x1b;
-        this->boundingBox = gUnk_080B3DE8[(this->entityType).form];
+        this->hitbox = gUnk_080B3DE8[(this->entityType).form];
         (u32*)gPlayerEntity.field_0x70.WORD = this;
         sub_08078CD0(&gPlayerEntity);
         (u32*)gPlayerEntity.field_0x70.WORD = pEVar3;

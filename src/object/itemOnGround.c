@@ -24,7 +24,7 @@ extern void (*const gUnk_0811E7D4[])(Entity*);
 extern void (*const gUnk_0811E7E8[])(Entity*);
 extern void (*const gUnk_0811E814[])(Entity*);
 extern void (*const gUnk_0811E840[])(Entity*);
-extern BoundingBox gUnk_080FD1A8;
+extern Hitbox gUnk_080FD1A8;
 
 typedef struct {
     u8 unk0[3];
@@ -95,7 +95,7 @@ void sub_08080F20(Entity* this) {
         this->field_0x3c = 0x47;
         this->field_0x40 = 0x44;
         this->currentHealth = 0xFF;
-        this->boundingBox = &gUnk_080FD1A8;
+        this->hitbox = &gUnk_080FD1A8;
         switch (this->entityType.form - 0x3F) {
             case 0:
             case 21:

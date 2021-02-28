@@ -53,7 +53,7 @@ void sub_0805212C(void) {
     if (gFadeControl.active)
         return;
 
-    if (gUnk_03001000.field_0x5 == 0) {
+    if (gMain.field_0x5 == 0) {
         if (gMenu.focusCoords[0] >= 0x26) {
             gMenu.focusCoords[0]--;
         } else {
@@ -67,7 +67,7 @@ void sub_0805212C(void) {
             }
         }
     } else {
-        gUnk_03001000.field_0x5--;
+        gMain.field_0x5--;
     }
 }
 
@@ -225,7 +225,7 @@ NONMATCH("asm/non_matching/game/sub_08052418.inc", void sub_08052418(int param_1
     gUnk_020227E8._0[4].WORD = 0xf;
     gUnk_020227E8._0[6].WORD = 0xf;
     gUnk_020227E8._0[param_2 * 2].BYTES.byte1 = 1;
-    _DmaCopy(&gUnk_080FCA8C, &temp, sizeof(temp));
+    MemCopy(&gUnk_080FCA8C, &temp, sizeof(temp));
     i = param_1 * 0xc;
     // temp._0 = gBG1Buffer[gUnk_080FCAA4._8[param_1]][gUnk_080FCAA4._0[gUnk_02000000->gameLanguage + i]] * 2;
     temp._13 = ((temp._13 & 0xfe) | gUnk_080FCAA4._8[i + 1]) & 1;
@@ -241,7 +241,7 @@ void InitializePlayer(void) {
     MemClear32((void*)&gUnk_03000B80, 0x70);
     MemClear32((void*)&gPlayerState, 0xb0);
 
-    _DmaFill32(0xffffffff, &gPlayerState.field_0x40, 0x40);
+    MemFill32(0xffffffff, &gPlayerState.field_0x40, 0x40);
     pl = &gPlayerEntity;
     MemClear32((void*)pl, 0x88);
     gRoomControls.cameraTarget = pl;
@@ -284,7 +284,7 @@ void InitializePlayer(void) {
     pl->collisionLayer = gScreenTransition.playerLayer;
     UpdateSpriteForCollisionLayer(pl);
     AppendEntityToList(pl, 1);
-    sub_08017640();
+    RegisterPlayerHitbox();
 }
 
 bool32 sub_08052620(u32 r0) {

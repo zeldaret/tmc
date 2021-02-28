@@ -31,7 +31,7 @@ _080560E4:
 	lsls r4, r4, #0x12
 	adds r1, r4, #0
 	movs r2, #0x10
-	bl _DmaCopy
+	bl MemCopy
 	adds r0, r4, #0
 	bl sub_0807CF10
 _080560F8:

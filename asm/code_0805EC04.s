@@ -805,7 +805,7 @@ sub_GetFontStrWidth: @ 0xGetFontStrWidth
 	adds r7, r1, #0
 	mov r1, sp
 	movs r2, #0x30
-	bl _DmaCopy
+	bl MemCopy
 	movs r0, #0
 	str r0, [sp, #0x34]
 	movs r1, #0
@@ -981,7 +981,7 @@ _0805F486:
 	adds r0, r5, #0
 	adds r1, r4, #0
 	movs r2, #0x18
-	bl _DmaCopy
+	bl MemCopy
 	mov r0, sp
 	adds r1, r6, #0
 	bl sub_0805F440
@@ -1158,7 +1158,7 @@ sub_0805F5CC: @ 0x0805F5CC
 	lsls r3, r3, #1
 	ands r2, r3
 	lsls r2, r2, #3
-	bl _DmaFill32
+	bl MemFill32
 	adds r0, r6, #0
 	movs r1, #0
 	bl sub_GetFontStrWidth
@@ -1211,7 +1211,7 @@ _0805F63A:
 	ldr r0, [r4, #8]
 	ldr r1, [r4, #4]
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, [r4, #4]
 	adds r0, r0, r5
 	str r0, [r4, #4]

@@ -45,7 +45,7 @@ _080A171E:
 	cmp r0, #0x45
 	bhi _080A181C
 	movs r0, #0x40
-	bl sub_0801D8E0
+	bl zMalloc
 	adds r7, r0, #0
 	cmp r7, #0
 	beq _080A181C

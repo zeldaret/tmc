@@ -92,7 +92,7 @@ void CreateDialogBox(u32 arg0, u32 arg1) {
     struct_080FC844 var0;
 
     sub_08050384();
-    _DmaCopy(&gUnk_080FC844, &var0, sizeof(gUnk_080FC844));
+    MemCopy(&gUnk_080FC844, &var0, sizeof(gUnk_080FC844));
     sub_08056FEC(arg1, &gUnk_020227E8);
     var0.unk10 |= gUnk_080FC85C[arg0][0] << 0xC;
     sub_0805F46C(gUnk_080FC85C[arg0][1], &var0);
@@ -143,14 +143,14 @@ void LoadOptionsFromSave(u32 idx) {
 void SetActiveSave(u32 idx) {
     if (idx < NUM_SAVE_SLOTS) {
         gUnk_02000000->saveFileId = idx;
-        _DmaCopy(&gUnk_02019EE0.saves[idx], &gSave, sizeof(gUnk_02019EE0.saves[idx]));
+        MemCopy(&gUnk_02019EE0.saves[idx], &gSave, sizeof(gUnk_02019EE0.saves[idx]));
     }
     LoadOptionsFromSave(idx);
 }
 
 void HandleChooseFileScreen(void) {
     FlushSprites();
-    sScreenHandlers[gUnk_03001000.funcIndex]();
+    sScreenHandlers[gMain.funcIndex]();
     if (gUnk_02032EC0.lastState != gUnk_02032EC0.state) {
         gUnk_02032EC0.lastState = gUnk_02032EC0.state;
         gScreen.bg.bg1Control = 0;
@@ -215,7 +215,7 @@ static void HandleFileScreenEnter(void) {
     gScreen.controls.layerFXControl = BLDCNT_TGT1_BG2 | BLDCNT_TGT2_BG3 | BLDCNT_EFFECT_BLEND;
     gScreen.controls.alphaBlend = BLDALPHA_BLEND(15, 10);
     gUnk_02024490.unk0 = 1;
-    gUnk_03001000.funcIndex = 1;
+    gMain.funcIndex = 1;
     SoundReq(0x7);
     DoFade(4, 8);
 }
@@ -290,7 +290,7 @@ void sub_0805070C(void) {
                 sub_0805F7DC(playerName[j], var0);
             }
             // i is a struct of size 0x200
-            _DmaCopy(var0->unk8, (void*)(OBJ_VRAM0 + 0x4000 + i * 0x200), 0x200);
+            MemCopy(var0->unk8, (void*)(OBJ_VRAM0 + 0x4000 + i * 0x200), 0x200);
         }
         sub_0805F300(var0);
     }
@@ -315,7 +315,7 @@ void sub_08050790(void) {
                 sub_0805F7DC(var1, var0);
                 var1++;
             }
-            _DmaCopy(gUnk_02000D00, (void*)(BG_VRAM + i * 0x400), 0x400);
+            MemCopy(gUnk_02000D00, (void*)(BG_VRAM + i * 0x400), 0x400);
         }
         sub_0805F300(var0);
     }
@@ -891,7 +891,7 @@ void sub_0805144C(void) {
 
 void sub_08051458(void) {
     sub_080503A8(gMenu.column_idx + 9);
-    _DmaCopy(&gUnk_02001B40, &gUnk_02022030, 0x400);
+    MemCopy(&gUnk_02001B40, &gUnk_02022030, 0x400);
 }
 
 u32 sub_080514BC(u32);
@@ -995,7 +995,7 @@ u32 sub_080514BC(u32 a1) {
 
 void sub_08051574(u32 sfx) {
     SoundReq(sfx);
-    _DmaCopy(&gSave, &gUnk_02019EE0.saves[gUnk_02019EE0.unk6], sizeof(gUnk_02019EE0.saves[gUnk_02019EE0.unk6]));
+    MemCopy(&gSave, &gUnk_02019EE0.saves[gUnk_02019EE0.unk6], sizeof(gUnk_02019EE0.saves[gUnk_02019EE0.unk6]));
     sub_0805070C();
 }
 
@@ -1146,7 +1146,7 @@ void sub_08051874(void) {
     gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk7] = temp;
     switch (temp) {
         case 1:
-            _DmaCopy(&gSave, &gUnk_02019EE0.saves[gUnk_02019EE0.unk7], sizeof(gUnk_02019EE0.saves[gUnk_02019EE0.unk7]));
+            MemCopy(&gSave, &gUnk_02019EE0.saves[gUnk_02019EE0.unk7], sizeof(gUnk_02019EE0.saves[gUnk_02019EE0.unk7]));
             SetFileSelectState(0);
             break;
         case -1:
@@ -1176,7 +1176,7 @@ void HandleFileStart(void) {
         gMenu.menuType = 1;
         gUnk_02000000->messageSpeed = gSave.messageSpeed;
         gUnk_02000000->brightnessPref = gSave.brightnessPref;
-        gUnk_03001000.funcIndex = 2;
+        gMain.funcIndex = 2;
         DoFade(5, 8);
     }
 }

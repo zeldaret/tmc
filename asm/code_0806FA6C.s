@@ -123,19 +123,19 @@ _0806FBCC:
 _0806FBD0: .4byte gScreenTransition
 _0806FBD4: .4byte gPlayerState
 
-	thumb_func_start AllocMutableBBox
-AllocMutableBBox: @ 0x0806FBD8
+	thumb_func_start AllocMutableHitbox
+AllocMutableHitbox: @ 0x0806FBD8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl UnloadBoundingBox
+	bl UnloadHitbox
 	movs r0, #0xc
-	bl sub_0801D8E0
+	bl zMalloc
 	str r0, [r4, #0x48]
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start UnloadBoundingBox
-UnloadBoundingBox: @ 0x0806FBEC
+	thumb_func_start UnloadHitbox
+UnloadHitbox: @ 0x0806FBEC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, [r4, #0x48]

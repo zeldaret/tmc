@@ -113,7 +113,7 @@ _08073386:
 _0807339C: .4byte gPlayerState
 _080733A0: .4byte gRoomControls
 _080733A4:
-	ldr r0, _080733B8 @ =gUnk_03001000
+	ldr r0, _080733B8 @ =gMain
 	movs r1, #3
 	strb r1, [r0, #4]
 	movs r1, #1
@@ -124,7 +124,7 @@ _080733A4:
 _080733B6:
 	pop {r4, pc}
 	.align 2, 0
-_080733B8: .4byte gUnk_03001000
+_080733B8: .4byte gMain
 
 	thumb_func_start sub_080733BC
 sub_080733BC: @ 0x080733BC

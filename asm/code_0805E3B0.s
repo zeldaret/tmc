@@ -331,7 +331,7 @@ sub_0805E5C0: @ 0x0805E5C0
 	strb r2, [r0, #4]
 	bl sub_0805ED30
 	bl sub_0805E428
-	bl sub_080175E8
+	bl ClearHitboxList
 	bl sub_0806F0A4
 	ldr r1, _0805E5F4 @ =gUnk_03005F40
 	movs r0, #0

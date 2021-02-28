@@ -21,7 +21,7 @@ extern void sub_080797EC();
 extern void sub_08079E08();
 extern void sub_08078F60();
 
-extern BoundingBox gUnk_08114F88;
+extern Hitbox gUnk_08114F88;
 
 // inject
 void sub_08070680(Entity* this) {
@@ -41,7 +41,7 @@ void sub_08070698(Entity* this) {
     this->field_0x16 = 0x20;
     this->flags2 = 8;
     this->damageType = 0x79;
-    this->boundingBox = &gUnk_08114F88;
+    this->hitbox = &gUnk_08114F88;
     this->spriteIndex = 1;
     gPlayerState.field_0x8 = 0x100;
     sub_0806FDA0(this);

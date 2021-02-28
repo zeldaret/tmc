@@ -1490,7 +1490,7 @@ sub_08041ED4: @ 0x08041ED4
 	cmp r0, #0x45
 	bhi _08041F18
 	movs r0, #0x2c
-	bl sub_0801D8E0
+	bl zMalloc
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08041F18

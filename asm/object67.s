@@ -257,7 +257,7 @@ _0809430A:
 _08094312:
 	strh r0, [r1]
 	adds r0, r4, #0
-	bl AllocMutableBBox
+	bl AllocMutableHitbox
 	cmp r0, #0
 	beq _0809438A
 	ldr r2, [r4, #0x48]

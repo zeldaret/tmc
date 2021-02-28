@@ -756,7 +756,7 @@ _08035764:
 	movs r0, #1
 	strb r0, [r4, #0xe]
 	movs r0, #0x30
-	bl sub_0801D8E0
+	bl zMalloc
 	adds r2, r0, #0
 	adds r0, r4, #0
 	adds r0, #0x84

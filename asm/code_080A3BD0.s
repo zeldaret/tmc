@@ -585,7 +585,7 @@ sub_080A4080: @ 0x080A4080
 	adds r0, r7, #0
 	movs r1, #1
 	bl sub_080ADA14
-	ldr r0, _080A4140 @ =gUnk_03001000
+	ldr r0, _080A4140 @ =gMain
 	ldrh r0, [r0, #0xc]
 	lsrs r0, r0, #2
 	movs r1, #0xe
@@ -634,7 +634,7 @@ _080A4130:
 _080A4134: .4byte gOamCmd
 _080A4138: .4byte gMenu
 _080A413C: .4byte 0x000001FB
-_080A4140: .4byte gUnk_03001000
+_080A4140: .4byte gMain
 _080A4144: .4byte gUnk_08128110
 _080A4148: .4byte 0x0000FFFF
 
@@ -1130,7 +1130,7 @@ sub_080A44E0: @ 0x080A44E0
 	adds r5, r5, r1
 	adds r1, r5, #0
 	mov r2, r8
-	bl _DmaCopy
+	bl MemCopy
 	adds r0, r6, #0
 	pop {r3}
 	mov r8, r3
@@ -1755,7 +1755,7 @@ _080A49D6:
 	adds r0, r7, #0
 	movs r1, #1
 	bl sub_080ADA14
-	ldr r0, _080A4B28 @ =gUnk_03001000
+	ldr r0, _080A4B28 @ =gMain
 	ldrh r1, [r0, #0xc]
 	movs r0, #0x10
 	ands r0, r1
@@ -1777,7 +1777,7 @@ _080A49F4:
 	adds r0, r7, #0
 	bl sub_080ADA14
 _080A4A10:
-	ldr r0, _080A4B28 @ =gUnk_03001000
+	ldr r0, _080A4B28 @ =gMain
 	ldrh r1, [r0, #0xc]
 	movs r2, #0x10
 	adds r0, r2, #0
@@ -1910,7 +1910,7 @@ _080A4ABE:
 _080A4B1C: .4byte gOamCmd
 _080A4B20: .4byte gSave
 _080A4B24: .4byte gMenu
-_080A4B28: .4byte gUnk_03001000
+_080A4B28: .4byte gMain
 _080A4B2C: .4byte gUnk_081281A8
 _080A4B30: .4byte 0x06014000
 _080A4B34:
@@ -1980,12 +1980,12 @@ sub_080A4BA0: @ 0x080A4BA0
 	ldr r0, _080A4C08 @ =gUnk_0812816C
 	mov r1, sp
 	movs r2, #0x18
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A4C0C @ =gUnk_08128184
 	add r4, sp, #0x48
 	adds r1, r4, #0
 	movs r2, #0xc
-	bl _DmaCopy
+	bl MemCopy
 	lsls r1, r6, #1
 	adds r1, r1, r6
 	lsls r2, r1, #9
@@ -2062,7 +2062,7 @@ _080A4C3E:
 _080A4C56:
 	ldr r1, [sp]
 	movs r2, #0x80
-	bl _DmaFill16
+	bl MemFill16
 	cmp r5, #0
 	ble _080A4CAC
 	ldr r0, _080A4C9C @ =0x00007FFF
@@ -2127,7 +2127,7 @@ sub_080A4CBC: @ 0x080A4CBC
 	ldr r1, _080A4D14 @ =0x0600E000
 	adds r0, r4, #0
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	adds r0, r6, #0
 	bl sub_080A4948
 	cmp r0, #0
@@ -3116,7 +3116,7 @@ _080A547C:
 	ldrb r0, [r1, #7]
 	strh r0, [r4, #2]
 	ldrb r2, [r1, #4]
-	ldr r0, _080A5540 @ =gUnk_03001000
+	ldr r0, _080A5540 @ =gMain
 	ldrh r1, [r0, #0xc]
 	movs r0, #0x10
 	ands r0, r1
@@ -3198,6 +3198,6 @@ _080A5530: .4byte gOamCmd
 _080A5534: .4byte gUnk_080FDFD8
 _080A5538: .4byte gMenu
 _080A553C: .4byte gUnk_08128B64
-_080A5540: .4byte gUnk_03001000
+_080A5540: .4byte gMain
 _080A5544: .4byte 0x000001FB
 _080A5548: .4byte gSave

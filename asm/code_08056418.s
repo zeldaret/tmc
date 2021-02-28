@@ -696,7 +696,7 @@ sub_08056BDC: @ 0x08056BDC
 	ldr r1, _08056C28 @ =gUnk_02000D00
 	movs r2, #0xd0
 	lsls r2, r2, #4
-	bl _DmaFill32
+	bl MemFill32
 	bl sub_08056F70
 	adds r1, r4, #0
 	adds r1, #0x9e

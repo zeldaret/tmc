@@ -36,7 +36,7 @@ void MainLoop(void) {
     MessageInitialize();
     sub_080ADD30();
     gRand = 0x1234567;
-    MemClear32(&gUnk_03001000, sizeof(gUnk_03001000));
+    MemClear32(&gMain, sizeof(gMain));
     InitScreen(SCREEN_INTRO);
     while (1) {
         ReadKeyInput();
@@ -44,28 +44,28 @@ void MainLoop(void) {
             DoSoftReset();
         }
 
-        switch (gUnk_03001000.field_0x1) {
+        switch (gMain.field_0x1) {
             case 1:
                 sub_08056260();
                 break;
             case 0:
             default:
-                if (gUnk_03001000.countdown != 0) {
+                if (gMain.countdown != 0) {
                     do {
                         VBlankIntrWait();
-                    } while (--gUnk_03001000.countdown);
+                    } while (--gMain.countdown);
                 }
 
-                if (gUnk_03001000.field_0x9 != 0) {
-                    gUnk_03001000.field_0x9--;
-                    var0 = gUnk_03001000.field_0xa;
+                if (gMain.field_0x9 != 0) {
+                    gMain.field_0x9--;
+                    var0 = gMain.field_0xa;
                     while (var0-- > 0) {
                         VBlankIntrWait();
                     }
                 }
 
-                gUnk_03001000.ticks++;
-                sScreenHandlers[gUnk_03001000.screen]();
+                gMain.ticks++;
+                sScreenHandlers[gMain.screen]();
                 MessageUpdate();
                 sub_08050154();
                 sub_080A3480();
@@ -95,12 +95,12 @@ static void sub_08055F70(void) {
     MemClear32(gUnk_02000030, size);
     size = (u32)gUnk_080B2CD8 - (u32)sub_080B197C;
     if (size != 0) {
-        _DmaCopy(sub_080B197C, gUnk_030056F0, size);
+        MemCopy(sub_080B197C, gUnk_030056F0, size);
     }
 
     size = (u32)gUnk_080B2CD8_2 - (u32)gUnk_080B2CD8_3;
     if (size != 0) {
-        _DmaCopy(gUnk_080B2CD8_3, gUnk_02038560, size);
+        MemCopy(gUnk_080B2CD8_3, gUnk_02038560, size);
     }
 
     sub_0801DA90(0);
@@ -114,9 +114,9 @@ static bool32 SoftResetKeysPressed(void) {
 }
 
 void InitScreen(u32 screen) {
-    gUnk_03001000.screen = screen;
-    gUnk_03001000.funcIndex = 0;
-    gUnk_03001000.transition = 0;
+    gMain.screen = screen;
+    gMain.funcIndex = 0;
+    gMain.transition = 0;
 }
 
 void DisableInterruptsAndDMA(void) {
@@ -172,7 +172,7 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", void sub_080560B8(void)) {
             case 0:
             case -1:
             default:
-                _DmaCopy(&sDefaultSettings, (void*)0x2000000, 16);
+                MemCopy(&sDefaultSettings, (void*)0x2000000, 16);
                 sub_0807CF10((u8*)0x2000000);
                 break;
         }
@@ -245,7 +245,7 @@ void sub_08056260(void) {
     REG_IME = 0;
     REG_IE = temp;
     REG_IME = 1;
-    temp2 = &gUnk_03001000;
+    temp2 = &gMain;
     asm("ldrb    r1, [r0, #0x1]");
     temp2->field_0x1 = 0;
 }

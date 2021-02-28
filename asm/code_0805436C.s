@@ -258,7 +258,7 @@ sub_08054A60: @ 0x08054A60
 	ands r0, r1
 	strb r0, [r4, #0x14]
 	adds r0, r4, #0
-	bl AllocMutableBBox
+	bl AllocMutableHitbox
 	cmp r0, #0
 	bne _08054AAC
 	bl DeleteThisEntity

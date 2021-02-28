@@ -13,7 +13,7 @@
 	ldr r0, _080565A4 @ =gTextBox
 	adds r1, r4, #0
 	movs r2, #0x20
-	bl _DmaCopy
+	bl MemCopy
 	ldrb r0, [r4, #2]
 	cmp r0, #0x63
 	bne _08056520

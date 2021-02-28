@@ -22,7 +22,7 @@ typedef struct {
 extern void (*const gUnk_081223A8[])(Entity*);
 
 extern struct_030010EC gUnk_030010EC[];
-extern BoundingBox gUnk_080FD310;
+extern Hitbox gUnk_080FD310;
 
 extern const s8 gUnk_081223C8[];
 extern const u32 gUnk_081223D8[];
@@ -44,7 +44,7 @@ void sub_080916EC(Entity* this) {
     this->animationState = unk->field_0x5;
     this->entityType.parameter = unk->field_0x6;
     this->action = 1;
-    this->boundingBox = &gUnk_080FD310;
+    this->hitbox = &gUnk_080FD310;
     this->flags |= 0x80;
     this->damageType = 1;
     this->field_0x3c = 0x47;

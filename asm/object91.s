@@ -109,7 +109,7 @@ _0809C440:
 	movs r0, #0xe0
 	strb r0, [r1]
 	movs r0, #0x30
-	bl sub_0801D8E0
+	bl zMalloc
 	adds r2, r0, #0
 	adds r0, r4, #0
 	adds r0, #0x84

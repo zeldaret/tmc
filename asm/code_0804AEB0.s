@@ -50,7 +50,7 @@ _0804AEF6:
 _0804AF00:
 	adds r0, r6, #0
 	movs r2, #0x10
-	bl _DmaCopy
+	bl MemCopy
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 

@@ -255,7 +255,7 @@ sub_080B1C54: @ 0x080B1C54
 	ands r1, r1, #0x80
 	bxeq lr
 	ldr r2, _080B200C @ =gUnk_03000E10
-	ldr r3, _080B2010 @ =gUnk_03003DB8
+	ldr r3, _080B2010 @ =gHitboxCount
 	ldrb r1, [r3]
 	str r0, [r2, r1, lsl #2]
 	add r1, r1, #1
@@ -340,7 +340,7 @@ _080B1D84:
 	bx lr
 _080B1D8C: .4byte gUnk_02018EA0
 _080B1D90: .4byte gUnk_03000E10
-_080B1D94: .4byte gUnk_03003DB8
+_080B1D94: .4byte gHitboxCount
 
 	arm_func_start sub_080B1D98
 sub_080B1D98: @ 0x080B1D98
@@ -525,7 +525,7 @@ _080B2000: .4byte gUnk_03005D24
 _080B2004: .4byte gUnk_03005D18
 _080B2008: .4byte gUnk_03005D58
 _080B200C: .4byte gUnk_03000E10
-_080B2010: .4byte gUnk_03003DB8
+_080B2010: .4byte gHitboxCount
 _080B2014: .4byte gUnk_080B7B74
 _080B2018: .4byte gUnk_080B3744
 
@@ -701,7 +701,7 @@ _080B2254: .4byte EnemyUpdate
 _080B2258: .4byte ProjectileUpdate
 _080B225C: .4byte DeleteThisEntity
 _080B2260: .4byte ObjectUpdate
-_080B2264: .4byte sub_08017530
+_080B2264: .4byte NPCUpdate
 _080B2268: .4byte ItemUpdate
 _080B226C: .4byte sub_08017508
 _080B2270: .4byte gUnk_03003DD0

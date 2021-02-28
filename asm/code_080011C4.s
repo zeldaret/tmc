@@ -41,7 +41,7 @@ _080011EA:
 	strb r2, [r4, r1]
 _0800120A:
 	adds r0, r4, #0
-	bl sub_0800404C
+	bl DrawEntity
 	pop {r3, r4}
 	bx r3
 
@@ -1052,7 +1052,7 @@ gUnk_080026A4::
 	.4byte gUnk_03005FBC
 	.4byte gUnk_020000B0
 	.4byte gUnk_03003DA8
-	.4byte gUnk_03003DB8
+	.4byte gHitboxCount
 	.4byte gUnk_03005FBC
 
 	thumb_func_start sub_080026C4

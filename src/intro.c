@@ -54,14 +54,14 @@ static const u16 sLightRaysAlphaBlends[] = {
 
 static u32 AdvanceIntroSequence(u32 transition) {
     gUnk_02032EC0.lastState = transition;
-    gUnk_03001000.funcIndex = 2;
+    gMain.funcIndex = 2;
     MemClear32(&gIntroState, sizeof(gIntroState));
     DoFade(7, 8);
 }
 
 void HandleIntroScreen(void) {
     FlushSprites();
-    switch (gUnk_03001000.funcIndex) {
+    switch (gMain.funcIndex) {
         case 0:
             MessageInitialize();
             MemClear32(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
@@ -75,7 +75,7 @@ void HandleIntroScreen(void) {
                 return;
             }
             sub_0801DA90(1);
-            gUnk_03001000.funcIndex = 1;
+            gMain.funcIndex = 1;
             break;
     }
     sub_080AD918();

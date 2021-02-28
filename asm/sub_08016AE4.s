@@ -37,7 +37,7 @@ _08016B0A:
 	strb r2, [r4, r1]
 _08016B22:
 	adds r0, r4, #0
-	bl sub_0800404C
+	bl DrawEntity
 	pop {r3, r4}
 	bx r3
 	.align 2, 0

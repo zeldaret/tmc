@@ -45,8 +45,8 @@ _0801D8C4:
 _0801D8D8: .4byte 0x00007FFF
 _0801D8DC: .4byte 0x040000D4
 
-	thumb_func_start sub_0801D8E0
-sub_0801D8E0: @ 0x0801D8E0
+	thumb_func_start zMalloc
+zMalloc: @ 0x0801D8E0
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -291,7 +291,7 @@ _0801DA8C: .4byte gzHeap
 sub_0801DA90: @ 0x0801DA90
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r1, _0801DAEC @ =gUnk_03001000
+	ldr r1, _0801DAEC @ =gMain
 	ldrb r0, [r1]
 	movs r3, #0
 	movs r0, #1
@@ -331,7 +331,7 @@ sub_0801DA90: @ 0x0801DA90
 	strh r4, [r5, #0xe]
 	pop {r4, r5, pc}
 	.align 2, 0
-_0801DAEC: .4byte gUnk_03001000
+_0801DAEC: .4byte gMain
 _0801DAF0: .4byte gUnk_03003DE0
 _0801DAF4: .4byte gFadeControl
 _0801DAF8: .4byte gScreen
@@ -1628,7 +1628,7 @@ sub_0801E49C: @ 0x0801E49C
 	movs r2, #0xf0
 	lsls r2, r2, #3
 	ldr r1, _0801E5E8 @ =gUnk_02018EE0
-	bl _DmaFill16
+	bl MemFill16
 	adds r3, r5, #0
 	subs r3, #0x40
 	movs r2, #0xff
@@ -2142,11 +2142,11 @@ _0801E86C:
 	adds r0, r6, #0
 	adds r1, r7, #0
 	adds r2, r4, #0
-	bl _DmaCopy
+	bl MemCopy
 	mov r0, r8
 	mov r1, sb
 	adds r2, r4, #0
-	bl _DmaCopy
+	bl MemCopy
 _0801E890:
 	movs r3, #1
 	add sb, r3

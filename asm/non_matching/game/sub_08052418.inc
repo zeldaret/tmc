@@ -22,7 +22,7 @@
 	adds r0, r4, #0
 	mov r1, sp
 	movs r2, #0x18
-	bl _DmaCopy
+	bl MemCopy
 	lsls r2, r6, #1
 	adds r2, r2, r6
 	lsls r2, r2, #2

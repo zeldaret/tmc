@@ -884,7 +884,7 @@ sub_08018BB4: @ 0x08018BB4
 	mov r5, sp
 	mov r1, sp
 	movs r2, #8
-	bl _DmaCopy
+	bl MemCopy
 	lsls r0, r4, #2
 	adds r0, r0, r4
 	lsls r0, r0, #2

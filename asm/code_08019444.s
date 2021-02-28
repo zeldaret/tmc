@@ -495,7 +495,7 @@ _08019810:
 _0801981A:
 	adds r0, r1, #0
 	adds r1, r3, #0
-	bl _DmaCopy
+	bl MemCopy
 	b _0801982E
 _08019824:
 	ldrh r0, [r4]
@@ -3466,7 +3466,7 @@ _0801AE70:
 	movs r2, #0x80
 	lsls r2, r2, #4
 	movs r0, #0xf
-	bl _DmaFill16
+	bl MemFill16
 	movs r0, #1
 	rsbs r0, r0, #0
 	bl sub_0805BB74
@@ -3815,7 +3815,7 @@ _0801B114:
 	adds r1, r3, r0
 	lsls r2, r2, #5
 	adds r0, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 _0801B122:
 	ldr r0, [r4]
 	cmp r0, #0
@@ -5093,7 +5093,7 @@ _0801BA54: @ jump table
 	.4byte _0801BB02 @ case 17
 _0801BA9C:
 	adds r0, r4, #0
-	bl AllocMutableBBox
+	bl AllocMutableHitbox
 	cmp r0, #0
 	beq _0801BB26
 	ldrb r1, [r4, #0x10]

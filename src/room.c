@@ -2259,7 +2259,7 @@ u32 sub_0804CDD0() {
 void sub_0804CDD4(void) {
     sub_08058D34();
     gArea.areaMetadata |= 0x40;
-    gUnk_03001000.transition = 5;
+    gMain.transition = 5;
 }
 
 u32 sub_0804CDF4() {

@@ -193,7 +193,7 @@ void sub_080469F4(Entity* this) {
 
 void sub_08046A30(Entity* this) {
     sub_08047D88(this);
-    if (((Entity*)this->otherEntity)->prev->field_0x6c.HWORD & 1) {
+    if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 1) {
         this->action = 2;
         this->previousActionFlag = 0;
     }
@@ -208,7 +208,7 @@ void sub_08046A54(Entity* this) {
 
 void sub_08046A78(Entity* this) {
     sub_08047D88(this);
-    if (((Entity*)this->otherEntity)->prev->field_0x6c.HWORD & 0x10) {
+    if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 0x10) {
         this->action = 3;
         this->previousActionFlag = 0;
     }
@@ -233,7 +233,7 @@ void sub_08046A9C(Entity* this) {
 void sub_08046AE8(Entity* this) {
     this->previousActionFlag = 1;
     this->nonPlanarMovement = 0x180;
-    sub_08048178(this, ((Entity*)this->otherEntity)->next->animationState >> 5);
+    sub_08048178(this, ((Entity*)this->myHeap)->next->animationState >> 5);
     this->field_0x76.HWORD = this->direction << 8;
     sub_08047D88(this);
 }
@@ -307,7 +307,7 @@ void sub_08046CEC(Entity* this) {
     }
     gUnk_080D1B4C[this->previousActionFlag](this);
     UpdateAnimationSingleFrame(this);
-    if (((Entity*)this->otherEntity)->prev->field_0x6c.HWORD & 2) {
+    if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 2) {
         this->action = 2;
         this->previousActionFlag = 0;
         this->animationState = this->nonPlanarMovement;
@@ -320,7 +320,7 @@ void sub_08046D44(Entity* this) {
     const u16* tmp;
     this->previousActionFlag = 1;
     this->nonPlanarMovement = 0x200;
-    tmp = gUnk_080D1B60 + (((Entity*)this->otherEntity)->next->animationState >> 5);
+    tmp = gUnk_080D1B60 + (((Entity*)this->myHeap)->next->animationState >> 5);
     this->field_0x80.HWORD = tmp[0] + gRoomControls.roomOriginX;
     this->field_0x82.HWORD = tmp[1] + gRoomControls.roomOriginY;
     this->field_0x76.HWORD = this->direction << 8;
@@ -358,7 +358,7 @@ void sub_08046E0C(Entity* this) {
 const s16 gUnk_080D1B70[2] = { 0x40, -0x40 };
 
 void sub_08046E68(Entity* this) {
-    u32 tmp = ((Entity*)this->otherEntity)->next->animationState ^ 0x80;
+    u32 tmp = ((Entity*)this->myHeap)->next->animationState ^ 0x80;
     if (tmp != this->direction) {
         if (((tmp - this->direction) & 0xFF) > 0x80) {
             this->field_0x76.HWORD -= 0x100;
@@ -420,7 +420,7 @@ void sub_08046F64(Entity* this) {
             UpdateSpriteForCollisionLayer(tmp);
         }
     }
-    if (((Entity*)this->otherEntity)->prev->field_0x6c.HWORD & 4) {
+    if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 4) {
         this->action = 5;
         this->previousActionFlag = 0;
     }
@@ -788,11 +788,11 @@ void sub_080477F0(Entity* this) {
         this->previousActionFlag = 2;
         this->field_0x76.HWORD = this->animationState << 8;
         this->field_0x74.HWORD = gUnk_080D1BF0[Random() & 1];
-        if (((Entity*)this->otherEntity)->prev->field_0x6c.HWORD & 1) {
-            ((Entity*)this->otherEntity)->next->field_0x78.HALF.HI =
+        if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 1) {
+            ((Entity*)this->myHeap)->next->field_0x78.HALF.HI =
                 gRoomControls.roomOriginX + 0x200 > this->x.HALF.HI ? 0x81 : 0x83;
         } else {
-            ((Entity*)this->otherEntity)->next->field_0x78.HALF.HI = 0x80;
+            ((Entity*)this->myHeap)->next->field_0x78.HALF.HI = 0x80;
         }
     }
 }
@@ -807,7 +807,7 @@ void sub_08047914(Entity* this) {
         this->previousActionFlag = 3;
         this->field_0x70.HALF.LO = 0x3C;
         this->field_0x7c.HALF.HI = ((this->entityType.form * 0xF) << 2) + 0x78;
-        sub_080A1D70(((Entity*)this->otherEntity)->prev, this->animationState);
+        sub_080A1D70(((Entity*)this->myHeap)->prev, this->animationState);
     }
 }
 
@@ -850,7 +850,7 @@ void sub_08047978(Entity* this) {
         return;
     this->previousActionFlag = 4;
     if (this->entityType.form == 0) {
-        if ((((Entity*)this->otherEntity)->next->animationState >> 6) == 1) {
+        if ((((Entity*)this->myHeap)->next->animationState >> 6) == 1) {
             this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x1C0;
             this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x250;
         } else {
@@ -969,11 +969,11 @@ void sub_08047D24(Entity* this) {
     this->field_0x7c.HALF_U.HI += 8;
     if (this->field_0x7c.HALF_U.HI > 0x800) {
         if (this->entityType.form == 0) {
-            ((u32*)this->otherEntity)[2] = 0;
+            ((u32*)this->myHeap)[2] = 0;
         } else {
-            ((u32*)this->otherEntity)[3] = 0;
+            ((u32*)this->myHeap)[3] = 0;
         }
-        this->otherEntity = 0;
+        this->myHeap = NULL;
         DeleteThisEntity();
     } else {
         if (this->field_0x7c.HALF_U.HI < 0x200) {
@@ -1158,7 +1158,7 @@ const u16 gUnk_080D1C60[8] = { 0x200, 0x150, 0x290, 0x210, 0x200, 0x2D0, 0x170, 
 
 void sub_08048178(Entity* this, u32 unk1) {
     const u16* tmp =
-        ((((Entity*)this->otherEntity)->next->animationState >> 6 & 1) ? gUnk_080D1C60 + unk1 : gUnk_080D1C50 + unk1);
+        ((((Entity*)this->myHeap)->next->animationState >> 6 & 1) ? gUnk_080D1C60 + unk1 : gUnk_080D1C50 + unk1);
     this->field_0x80.HWORD = *tmp + gRoomControls.roomOriginX;
     this->field_0x82.HWORD = *(tmp + 1) + gRoomControls.roomOriginY;
 }

@@ -538,7 +538,7 @@ sub_08078C24: @ 0x08078C24
 	rsbs r0, r0, #0
 	adds r1, #4
 	movs r2, #0x40
-	bl _DmaFill32
+	bl MemFill32
 	ldr r0, _08078CB0 @ =gUnk_03003DF0
 	movs r1, #0xc4
 	lsls r1, r1, #1

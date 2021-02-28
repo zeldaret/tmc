@@ -176,7 +176,7 @@ SECTIONS {
         . = 0x00000FBC; gUnk_03000FBC = .;
         . = 0x00000FD0; gFadeControl = .;
         . = 0x00000FF0; gInput = .;
-        . = 0x00001000; gUnk_03001000 = .;
+        . = 0x00001000; gMain = .;
         . = 0x00001010; gOamCmd = .;
         . = 0x00001020; gUnk_03001020 = .;
         . = 0x000010A0; gScreenTransition = .;
@@ -198,7 +198,7 @@ SECTIONS {
         . = 0x00003DA0; gUnk_03003DA0 = .;
         . = 0x00003DA8; gUnk_03003DA8 = .;
         . = 0x00003DB0; gUnk_03003DB0 = .;
-        . = 0x00003DB8; gUnk_03003DB8 = .;
+        . = 0x00003DB8; gHitboxCount = .;
         . = 0x00003DBC; gEntCount = .;
         . = 0x00003DC0; gUnk_03003DC0 = .;
         . = 0x00003DD0; gUnk_03003DD0 = .;
@@ -250,7 +250,7 @@ SECTIONS {
         . = 0x000058DC; gUnk_030058DC = .;
         . = 0x000058F8; gUnk_030058F8 = .;
         . = 0x00005918; gUnk_03005918 = .;
-        . = 0x000059F0; gUnk_030059F0 = .;
+        . = 0x000059F0; gDoCollision = .;
         . = 0x00005CA4; gUnk_03005CA4 = .;
         . = 0x00005CD0; gUnk_03005CD0 = .;
         . = 0x00005CFC; gUnk_03005CFC = .;

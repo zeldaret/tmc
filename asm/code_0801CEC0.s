@@ -467,7 +467,7 @@ sub_0801D2C8: @ 0x0801D2C8
 	lsls r1, r4, #5
 	adds r1, r1, r2
 	movs r2, #0x20
-	bl _DmaFill16
+	bl MemFill16
 	b _0801D33C
 	.align 2, 0
 _0801D2F8: .4byte gUsedPalettes
@@ -730,7 +730,7 @@ _0801D4C8:
 	adds r1, r7, #0
 	movs r2, #0x20
 	str r3, [sp]
-	bl _DmaCopy
+	bl MemCopy
 	adds r6, #0x20
 	adds r4, #4
 	adds r7, #0x20

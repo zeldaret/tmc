@@ -18,7 +18,7 @@ extern u8 gBG3Buffer[];
 extern void (*const gUnk_08109A30[])();
 
 void HandleDebugTextScreen() {
-    gUnk_08109A30[gUnk_03001000.funcIndex]();
+    gUnk_08109A30[gMain.funcIndex]();
 }
 
 void sub_0805FA04(void) {
@@ -38,7 +38,7 @@ void sub_0805FA04(void) {
     gMenu.unk16 = gUnk_02000000->gameLanguage;
     sub_08053320();
     sub_0801D79C(0, 0x1144);
-    gUnk_03001000.funcIndex = 1;
+    gMain.funcIndex = 1;
     sub_080A3210();
     sub_08050008();
 }

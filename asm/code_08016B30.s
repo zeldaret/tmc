@@ -49,7 +49,7 @@ sub_08016B6C: @ 0x08016B6C
 	strh r0, [r4, #0xa]
 	ldrh r0, [r4, #0xa]
 	bl m4aSoundVSync
-	ldr r5, _08016BC8 @ =gUnk_03001000
+	ldr r5, _08016BC8 @ =gMain
 	ldrb r0, [r5]
 	cmp r0, #0
 	bne _08016BA6
@@ -78,7 +78,7 @@ _08016BA6:
 _08016BBC: .4byte 0x040000B0
 _08016BC0: .4byte 0x0000C5FF
 _08016BC4: .4byte 0x00007FFF
-_08016BC8: .4byte gUnk_03001000
+_08016BC8: .4byte gMain
 _08016BCC: .4byte gUnk_03000FBC
 _08016BD0: .4byte gUnk_02022730
 _08016BD4: .4byte 0x84000004
@@ -135,8 +135,8 @@ _08016C30: .4byte gUnk_02022730
 _08016C34: .4byte 0x040000B0
 _08016C38: .4byte 0x00003FFF
 
-	thumb_func_start sub_08016C3C
-sub_08016C3C: @ 0x08016C3C
+	thumb_func_start UpdateDisplayControls
+UpdateDisplayControls: @ 0x08016C3C
 	push {r4, lr}
 	ldr r2, _08016C94 @ =gUnk_03000000
 	ldrb r0, [r2]

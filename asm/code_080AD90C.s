@@ -17,7 +17,7 @@ _080AD914: .4byte gUnk_03000000
 	thumb_func_start sub_080AD918
 sub_080AD918: @ 0x080AD918
 	push {r4, lr}
-	ldr r1, _080AD948 @ =gUnk_03001000
+	ldr r1, _080AD948 @ =gMain
 	ldrb r0, [r1, #0xb]
 	adds r2, r0, #0
 	cmp r2, #0
@@ -40,7 +40,7 @@ sub_080AD918: @ 0x080AD918
 	adds r4, r1, #0
 	b _080AD95E
 	.align 2, 0
-_080AD948: .4byte gUnk_03001000
+_080AD948: .4byte gMain
 _080AD94C: .4byte gUnk_03000000
 _080AD950: .4byte 0x00000664
 _080AD954: .4byte 0x000008EC

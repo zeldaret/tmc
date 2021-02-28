@@ -5,8 +5,8 @@
 
 	.text
 
-	thumb_func_start sub_0804FF98
-sub_0804FF98: @ 0x0804FF98
+	thumb_func_start FadeMain
+FadeMain: @ 0x0804FF98
 	push {r4, r5, r6, r7, lr}
 	ldr r6, _0804FFD4 @ =gUnk_020354C0
 	ldr r1, _0804FFD8 @ =gUsedPalettes

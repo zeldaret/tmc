@@ -77,7 +77,7 @@ _080175A4:
 	strh r0, [r2, #6]
 _080175CC:
 	adds r0, r4, #0
-	bl sub_0800404C
+	bl DrawEntity
 _080175D2:
 	pop {r4}
 	pop {r0}

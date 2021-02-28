@@ -74,7 +74,7 @@ typedef struct {
 } UI;
 static_assert(sizeof(UI) == 0x3b4);
 
-extern Main gUnk_03001000;
+extern Main gMain;
 extern UI gUnk_02032EC0;
 
 void InitScreen();

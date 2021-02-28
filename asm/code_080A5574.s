@@ -354,7 +354,7 @@ _080A581A:
 	ldrb r0, [r3, #7]
 	strh r0, [r2, #2]
 	ldrb r2, [r3, #4]
-	ldr r0, _080A58A0 @ =gUnk_03001000
+	ldr r0, _080A58A0 @ =gMain
 	ldrh r1, [r0, #0xc]
 	movs r0, #0x10
 	ands r0, r1
@@ -405,7 +405,7 @@ _080A5890: .4byte gOamCmd
 _080A5894: .4byte gUnk_08128C94
 _080A5898: .4byte gUnk_08128C14
 _080A589C: .4byte gMenu
-_080A58A0: .4byte gUnk_03001000
+_080A58A0: .4byte gMain
 _080A58A4: .4byte 0x000001FB
 _080A58A8:
 	ldrb r0, [r6]
@@ -826,7 +826,7 @@ sub_080A5BB8: @ 0x080A5BB8
 	cmp r0, #0
 	bne _080A5BE2
 	bl sub_08050384
-	ldr r1, _080A5BE8 @ =gUnk_03001000
+	ldr r1, _080A5BE8 @ =gMain
 	ldrb r0, [r1, #1]
 	movs r0, #1
 	strb r0, [r1, #1]
@@ -842,7 +842,7 @@ _080A5BE2:
 	pop {pc}
 	.align 2, 0
 _080A5BE4: .4byte gFadeControl
-_080A5BE8: .4byte gUnk_03001000
+_080A5BE8: .4byte gMain
 _080A5BEC: .4byte gUnk_02034490
 
 	thumb_func_start sub_080A5BF0
@@ -856,7 +856,7 @@ sub_080A5BF0: @ 0x080A5BF0
 	ldr r0, [r0]
 	bl _call_via_r0
 	bl sub_080A5D1C
-	ldr r0, _080A5C38 @ =gUnk_03001000
+	ldr r0, _080A5C38 @ =gMain
 	ldrh r0, [r0, #0xc]
 	movs r1, #7
 	ands r0, r1
@@ -867,7 +867,7 @@ sub_080A5BF0: @ 0x080A5BF0
 	adds r0, r4, #2
 	adds r1, r4, #0
 	movs r2, #0xe
-	bl _DmaCopy
+	bl MemCopy
 	strh r5, [r4, #0xe]
 	ldr r2, _080A5C40 @ =gUsedPalettes
 	ldr r0, [r2]
@@ -880,7 +880,7 @@ _080A5C2E:
 	.align 2, 0
 _080A5C30: .4byte gUnk_08128D30
 _080A5C34: .4byte gMenu
-_080A5C38: .4byte gUnk_03001000
+_080A5C38: .4byte gMain
 _080A5C3C: .4byte gUnk_02017830
 _080A5C40: .4byte gUsedPalettes
 
@@ -1020,7 +1020,7 @@ sub_080A5D1C: @ 0x080A5D1C
 	lsls r0, r0, #2
 	adds r0, r6, r0
 	strh r0, [r5, #2]
-	ldr r1, _080A5EAC @ =gUnk_03001000
+	ldr r1, _080A5EAC @ =gMain
 	mov sl, r1
 	ldrh r1, [r1, #0xc]
 	movs r0, #0x10
@@ -1181,7 +1181,7 @@ _080A5E9C: .4byte gUnk_080C9C6C
 _080A5EA0: .4byte gUnk_08128D3C
 _080A5EA4: .4byte gOamCmd
 _080A5EA8: .4byte gMenu
-_080A5EAC: .4byte gUnk_03001000
+_080A5EAC: .4byte gMain
 _080A5EB0: .4byte 0x000001FB
 _080A5EB4: .4byte gUnk_080FDFD8
 _080A5EB8: .4byte gUnk_02019EE0
@@ -1564,7 +1564,7 @@ sub_080A617C: @ 0x080A617C
 	subs r0, r0, r1
 	adds r0, #0x1a
 	strh r0, [r6]
-	ldr r0, _080A6268 @ =gUnk_03001000
+	ldr r0, _080A6268 @ =gMain
 	ldrh r1, [r0, #0xc]
 	movs r0, #0x20
 	ands r0, r1
@@ -1655,7 +1655,7 @@ _080A6250:
 	.align 2, 0
 _080A6260: .4byte gOamCmd
 _080A6264: .4byte gMenu
-_080A6268: .4byte gUnk_03001000
+_080A6268: .4byte gMain
 _080A626C: .4byte gUnk_08128D70
 
 	thumb_func_start sub_080A6270
@@ -2790,7 +2790,7 @@ sub_080A6B04: @ 0x080A6B04
 	ldr r1, _080A6C08 @ =gBG3Buffer
 	movs r2, #0x80
 	lsls r2, r2, #5
-	bl _DmaFill16
+	bl MemFill16
 	ldr r0, _080A6C0C @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #8
@@ -3420,7 +3420,7 @@ sub_080A7040: @ 0x080A7040
 	movs r2, #0x80
 	lsls r2, r2, #4
 	adds r0, r4, #0
-	bl _DmaCopy
+	bl MemCopy
 	ldr r1, _080A70A0 @ =gUnk_08128D70
 	lsls r0, r5, #3
 	adds r4, r0, r1
@@ -3539,13 +3539,13 @@ MenuFadeIn: @ 0x080A7138
 	bl MemClear32
 	strb r5, [r4, #2]
 	strb r6, [r4, #3]
-	ldr r0, _080A7160 @ =gUnk_03001000
+	ldr r0, _080A7160 @ =gMain
 	ldrb r0, [r0, #4]
 	strb r0, [r4, #7]
 	b _080A716C
 	.align 2, 0
 _080A715C: .4byte gUnk_02032EC0
-_080A7160: .4byte gUnk_03001000
+_080A7160: .4byte gMain
 _080A7164:
 	strb r5, [r4, #4]
 	strb r6, [r4, #5]
@@ -3560,7 +3560,7 @@ _080A716C:
 	movs r4, #0
 	movs r0, #0x20
 	strh r0, [r1, #0xa]
-	ldr r1, _080A719C @ =gUnk_03001000
+	ldr r1, _080A719C @ =gMain
 	movs r0, #7
 	strb r0, [r1, #4]
 	movs r0, #5
@@ -3573,7 +3573,7 @@ _080A716C:
 	.align 2, 0
 _080A7194: .4byte gUnk_02032EC0
 _080A7198: .4byte 0x0000FFFF
-_080A719C: .4byte gUnk_03001000
+_080A719C: .4byte gMain
 _080A71A0: .4byte gUnk_02018EB0
 
 	thumb_func_start sub_080A71A4
@@ -3632,14 +3632,14 @@ _080A71FE:
 	bl DeleteAllEntities
 	bl sub_0805E974
 	bl DeleteAllEntities
-	ldr r0, _080A7218 @ =gUnk_03001000
+	ldr r0, _080A7218 @ =gMain
 	movs r2, #0
 	movs r1, #1
 	strb r1, [r0, #3]
 	strb r2, [r0, #4]
 	pop {pc}
 	.align 2, 0
-_080A7218: .4byte gUnk_03001000
+_080A7218: .4byte gMain
 
 	thumb_func_start sub_080A721C
 sub_080A721C: @ 0x080A721C
@@ -3679,42 +3679,42 @@ sub_080A7250: @ 0x080A7250
 	ldr r0, _080A72EC @ =gScreen
 	ldr r1, _080A72F0 @ =gUnk_03001020
 	movs r2, #0x7c
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A72F4 @ =gPaletteBuffer
 	ldr r1, _080A72F8 @ =gUnk_02024090
 	movs r2, #0x80
 	lsls r2, r2, #3
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A72FC @ =gUnk_02024490
 	ldr r4, _080A7300 @ =gUnk_02032F14
 	movs r2, #0x85
 	lsls r2, r2, #2
 	adds r1, r4, #0
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A7304 @ =gUnk_02001A00
 	movs r2, #0x85
 	lsls r2, r2, #2
 	adds r1, r4, r2
 	movs r2, #0x40
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A7308 @ =gRoomControls
 	adds r1, r4, #0
 	subs r1, #0x38
 	movs r2, #0x38
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A730C @ =gUnk_03000420
 	movs r2, #0x95
 	lsls r2, r2, #2
 	adds r1, r4, r2
 	movs r2, #0x80
 	lsls r2, r2, #1
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A7310 @ =gUnk_02033280
 	movs r2, #0xd5
 	lsls r2, r2, #2
 	adds r1, r4, r2
 	movs r2, #0xc
-	bl _DmaCopy
+	bl MemCopy
 	bl sub_0805E958
 	adds r1, r4, #0
 	subs r1, #0x54
@@ -3838,36 +3838,36 @@ _080A73B4:
 	adds r0, r5, r1
 	ldr r1, _080A7480 @ =gUnk_02033280
 	movs r2, #0xc
-	bl _DmaCopy
+	bl MemCopy
 	movs r1, #0xaa
 	lsls r1, r1, #2
 	adds r0, r5, r1
 	ldr r1, _080A7484 @ =gUnk_03000420
 	movs r2, #0x80
 	lsls r2, r2, #1
-	bl _DmaCopy
+	bl MemCopy
 	movs r1, #0x9a
 	lsls r1, r1, #2
 	adds r0, r5, r1
 	ldr r1, _080A7488 @ =gUnk_02001A00
 	movs r2, #0x40
-	bl _DmaCopy
+	bl MemCopy
 	adds r0, r5, #0
 	adds r0, #0x54
 	ldr r1, _080A748C @ =gUnk_02024490
 	movs r2, #0x85
 	lsls r2, r2, #2
-	bl _DmaCopy
+	bl MemCopy
 	adds r0, r5, #0
 	adds r0, #0x1c
 	ldr r4, _080A7490 @ =gRoomControls
 	adds r1, r4, #0
 	movs r2, #0x38
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A7494 @ =gUnk_03001020
 	ldr r1, _080A7498 @ =gScreen
 	movs r2, #0x7c
-	bl _DmaCopy
+	bl MemCopy
 	ldrb r0, [r4, #4]
 	bl sub_08052D58
 	ldr r4, _080A749C @ =gArea
@@ -3934,7 +3934,7 @@ sub_080A74C8: @ 0x080A74C8
 	ldrb r3, [r0]
 	cmp r3, #0
 	bne _080A74E6
-	ldr r0, _080A74EC @ =gUnk_03001000
+	ldr r0, _080A74EC @ =gMain
 	ldr r1, _080A74F0 @ =gUnk_02032EC0
 	ldrb r2, [r1, #7]
 	strb r2, [r0, #4]
@@ -3945,14 +3945,14 @@ _080A74E6:
 	pop {pc}
 	.align 2, 0
 _080A74E8: .4byte gFadeControl
-_080A74EC: .4byte gUnk_03001000
+_080A74EC: .4byte gMain
 _080A74F0: .4byte gUnk_02032EC0
 
 	thumb_func_start sub_080A74F4
 sub_080A74F4: @ 0x080A74F4
 	push {lr}
 	bl sub_0805E5A8
-	ldr r1, _080A7524 @ =gUnk_03001000
+	ldr r1, _080A7524 @ =gMain
 	movs r0, #0
 	strb r0, [r1, #0xb]
 	bl FlushSprites
@@ -3965,7 +3965,7 @@ sub_080A74F4: @ 0x080A74F4
 	bl sub_080AD918
 	pop {pc}
 	.align 2, 0
-_080A7524: .4byte gUnk_03001000
+_080A7524: .4byte gMain
 
 	thumb_func_start sub_080A7528
 sub_080A7528: @ 0x080A7528
@@ -4038,7 +4038,7 @@ sub_080A758C: @ 0x080A758C
 	bl DeleteThisEntity
 _080A75AC:
 	adds r0, r5, #0
-	bl AllocMutableBBox
+	bl AllocMutableHitbox
 	cmp r0, #0
 	bne _080A75BA
 	bl DeleteThisEntity
@@ -5935,7 +5935,7 @@ _080A836E:
 sub_080A83A0: @ 0x080A83A0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl AllocMutableBBox
+	bl AllocMutableHitbox
 	cmp r0, #0
 	beq _080A83B0
 	movs r0, #1
@@ -10572,7 +10572,7 @@ sub_080AA654: @ 0x080AA654
 	ldr r0, _080AA688 @ =gUnk_0812A004
 	adds r1, r4, #0
 	movs r2, #0x10
-	bl _DmaCopy
+	bl MemCopy
 	movs r1, #0x3f
 	adds r0, r5, #0
 	ands r0, r1
@@ -13189,7 +13189,7 @@ sub_080AB9DC: @ 0x080AB9DC
 	adds r1, r4, #0
 	adds r1, #0x68
 	movs r2, #0x1c
-	bl _DmaCopy
+	bl MemCopy
 	ldrh r1, [r4, #0x2e]
 	adds r0, r4, #0
 	adds r0, #0x84

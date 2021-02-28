@@ -78,7 +78,7 @@ extern void sub_0805EC60();
 extern void sub_08017744();
 extern void sub_0805E92C();
 extern void UnloadCutsceneData();
-extern void UnloadBoundingBox();
+extern void UnloadHitbox();
 extern void sub_0801DA0C();
 extern void sub_0804AA1C();
 extern void UnlinkEntity(); // Unlink
@@ -94,9 +94,9 @@ void DeleteEntity(Entity* ent) {
         sub_08017744(ent);
         sub_0805E92C(ent);
         UnloadCutsceneData(ent);
-        UnloadBoundingBox(ent);
-        sub_0801DA0C(ent->otherEntity);
-        ent->otherEntity = NULL;
+        UnloadHitbox(ent);
+        sub_0801DA0C(ent->myHeap);
+        ent->myHeap = NULL;
         if ((ent->entityType).type == 3) {
             sub_0804AA1C(ent);
         }
@@ -132,7 +132,7 @@ void ClearDeletedEntity(Entity* ent) {
     gEntCount--;
 }
 
-extern EntityType gUnk_03003DB8;
+extern EntityType gHitboxCount;
 
 void DeleteAllEntities(void) {
     Entity* ent;
@@ -187,16 +187,16 @@ void sub_0805E92C(u32 param_1) {
 }
 
 extern Entity gUnk_020369F0;
-extern void _DmaCopy(const void* src, void* dest, size_t size); // dma copy
+extern void MemCopy(const void* src, void* dest, size_t size); // dma copy
 extern void sub_0805E98C(void);
 
 void sub_0805E958(void) {
-    _DmaCopy(&gEntityLists, &gUnk_020369F0, 0x48);
+    MemCopy(&gEntityLists, &gUnk_020369F0, 0x48);
     sub_0805E98C();
 }
 
 void sub_0805E974(void) {
-    _DmaCopy(&gUnk_020369F0, &gEntityLists, 0x48);
+    MemCopy(&gUnk_020369F0, &gEntityLists, 0x48);
 }
 
 void sub_0805E98C(void) {

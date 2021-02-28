@@ -14,7 +14,7 @@ typedef struct {
 extern void sub_08078850(Entity*, u32, s8, gUnk_0810C89C_struct*);
 
 extern u8 gUnk_0810C88C[];
-extern BoundingBox gUnk_0810C894;
+extern Hitbox gUnk_0810C894;
 extern gUnk_0810C89C_struct gUnk_0810C89C[];
 extern SpriteLoadData gUnk_0810C8D4;
 extern void (*gUnk_0810C8E0[])(Entity*);
@@ -100,7 +100,7 @@ void sub_08063410(Entity* this) {
         }
         this->action++;
         if (this->entityType.form != 0) {
-            this->boundingBox = &gUnk_0810C894;
+            this->hitbox = &gUnk_0810C894;
             this->entityType.parameter = 0;
         }
         sub_0807DD64(this);

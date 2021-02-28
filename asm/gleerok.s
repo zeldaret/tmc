@@ -542,7 +542,7 @@ _0802D420:
 	adds r0, r4, #0
 	bl sub_0802EB9C
 	movs r0, #0x54
-	bl sub_0801D8E0
+	bl zMalloc
 	adds r1, r4, #0
 	adds r1, #0x84
 	str r0, [r1]

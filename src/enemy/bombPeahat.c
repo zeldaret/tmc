@@ -32,9 +32,9 @@ extern void (*const gUnk_080CD134[])(Entity*);
 extern void (*const gUnk_080CD140[])(Entity*);
 extern void (*const gUnk_080CD158[])(Entity*);
 
-extern const BoundingBox gUnk_080CD16C;
-extern const BoundingBox gUnk_080CD174;
-extern const BoundingBox gUnk_080CD17C;
+extern const Hitbox gUnk_080CD16C;
+extern const Hitbox gUnk_080CD174;
+extern const Hitbox gUnk_080CD17C;
 
 void BombPeahat(Entity* this) {
     s32 iVar1;
@@ -105,7 +105,7 @@ void sub_0802A924(Entity* this) {
     this->previousActionFlag = 0;
     this->actionDelay = 0;
     this->field_0xf = 0;
-    this->boundingBox = (BoundingBox*)&gUnk_080CD16C;
+    this->hitbox = (Hitbox*)&gUnk_080CD16C;
     this->height.HALF.HI = -0x30;
     this->field_0x80.HALF.LO = Random() & 1;
     this->field_0x82.HWORD = 0;
@@ -358,7 +358,7 @@ void sub_0802AE24(Entity* this) {
     this->action = 1;
     this->actionDelay = 0xf0;
     this->field_0x20 = 0x8000;
-    this->boundingBox = (BoundingBox*)&gUnk_080CD174;
+    this->hitbox = (Hitbox*)&gUnk_080CD174;
     this->field_0x3c = 3;
     this->field_0x16 = 0;
     this->field_0x1c = 2;
@@ -515,7 +515,7 @@ void sub_0802B048(Entity* this) {
                     }
                     sub_0805EC60(this);
                     this->action = 4;
-                    this->boundingBox = (BoundingBox*)&gUnk_080CD17C;
+                    this->hitbox = (Hitbox*)&gUnk_080CD17C;
                     this->actionDelay = 0xf;
                     this->spriteSettings.b.draw = 0;
                     this->flags |= 0x80;
@@ -654,15 +654,15 @@ void (*const gUnk_080CD158[])(Entity*) = {
     sub_0802AF94,
 };
 
-const BoundingBox gUnk_080CD16C = {
+const Hitbox gUnk_080CD16C = {
     0x00, 0xFB, 0x05, 0x03, 0x03, 0x05, 0x06, 0x06,
 };
 
-const BoundingBox gUnk_080CD174 = {
+const Hitbox gUnk_080CD174 = {
     0x00, 0x00, 0x06, 0x00, 0x00, 0x06, 0x04, 0x04,
 };
 
-const BoundingBox gUnk_080CD17C = {
+const Hitbox gUnk_080CD17C = {
     0x00, 0x00, 0x04, 0x00, 0x00, 0x04, 0x16, 0x16,
 };
 // clang-format on

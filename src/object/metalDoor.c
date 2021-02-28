@@ -14,7 +14,7 @@ extern void SetTile(u32, u32, u32);
 
 extern void (*const gUnk_0812493C[])(Entity*);
 
-extern BoundingBox gUnk_080FD180;
+extern Hitbox gUnk_080FD180;
 
 void MetalDoor(Entity* this) {
     gUnk_0812493C[this->action](this);
@@ -29,7 +29,7 @@ void sub_080A0684(Entity* this) {
     this->spriteSettings.b.draw = 0;
     this->frameIndex = 0;
     this->spriteSettings.b.flipY = 1;
-    this->boundingBox = &gUnk_080FD180;
+    this->hitbox = &gUnk_080FD180;
     this->spritePriority.b0 = 5;
     this->field_0x70.HALF.LO = this->x.HALF.HI;
     this->field_0x70.HALF.HI = this->y.HALF.HI;

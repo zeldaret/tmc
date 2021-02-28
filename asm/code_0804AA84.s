@@ -45,7 +45,7 @@ _0804ABA4:
 	lsls r2, r2, #2
 	adds r1, r0, r2
 	movs r2, #0x20
-	bl _DmaCopy
+	bl MemCopy
 	ldr r2, _0804AC14 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80

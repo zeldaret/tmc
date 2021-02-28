@@ -144,7 +144,7 @@ NONMATCH("asm/non_matching/textbox/sub_080564EC.inc", u32 sub_080564EC(void)) {
     MemClear32((void*)&gUnk_02036A40, 8);
     MemClear32((void*)&gUnk_02024030, 0x18);
     MemClear32((void*)&gUnk_02022780, 0xa8);
-    _DmaCopy(&gTextBox, &gUnk_02022780, 32);
+    MemCopy(&gTextBox, &gUnk_02022780, 32);
     if (gUnk_02022780._2 == 0x63) {
         gUnk_02022780._2 = gUnk_02000000->messageSpeed;
     }

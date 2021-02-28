@@ -18,7 +18,7 @@ static void (*const gHeartContainerActions[])(Entity*) = {
     sub_0808E764,
 };
 
-extern BoundingBox gUnk_08121C58;
+extern Hitbox gUnk_08121C58;
 
 void HeartContainer(Entity* this) {
     gHeartContainerActions[this->action](this);
@@ -31,7 +31,7 @@ static void sub_0808E6A0(Entity* this) {
     this->action = 1;
     this->entityType.form = 0x62;
     this->spriteSettings.b.draw = 0;
-    this->boundingBox = &gUnk_08121C58;
+    this->hitbox = &gUnk_08121C58;
     this->collisionLayer = 3;
     this->scriptedScene = 3;
 }
