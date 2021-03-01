@@ -101,21 +101,22 @@ u16 EEPROMWrite1(u16 address, u16* data) {
     return EEPROMWrite(address, data, 1);
 }
 
+// reading from EEPROM like a status register
+#define REG_EEPROM (*(u16*)0xd000000)
 // this is the furthest I could get
 // 0x080B16AC
 NONMATCH("asm/non_matching/code_080B1520/EEPROMWrite.inc", u16 EEPROMWrite(u16 address, u16* data, u8 unk_3)) {
     u16 buffer[0x52]; // this is one too large?
     vu16 stack_a4;
-    vu16 stack_a6;
-    vu16 stack_a8;
-    vu32 stack_ac;
+    vu16 prev_vcount;      // stack + a6
+    vu16 current_vcount;   // stack + a6
+    vu32 passed_scanlines; // stack + ac
 
-    u32 r0, r1, r2;
+    u32 r2;
 
     u8 i, j;
     u16* ptr;
 
-    r1 = address;
     if (address >= gEEPROMConfig->size)
         return EEPROM_OUT_OF_RANGE;
 
@@ -134,59 +135,43 @@ NONMATCH("asm/non_matching/code_080B1520/EEPROMWrite.inc", u16 EEPROMWrite(u16 a
     }
     // copy address to buffer
     for (i = 0; i < gEEPROMConfig->address_width; i++) {
-        *ptr = r1;
+        *ptr = address;
         ptr--;
-        r1 = r1 >> 1;
+        address = address >> 1;
     }
     *ptr = 0;
     ptr--;
     *ptr = 1;
     DMA3Transfer(buffer, (u16*)0xd000000, gEEPROMConfig->address_width + 0x43);
     stack_a4 = 0;
-    stack_a6 = REG_VCOUNT;
-    stack_ac = 0;
+    prev_vcount = REG_VCOUNT;
+    passed_scanlines = 0;
     if (stack_a4 == 0) {
-        r0 = *(u16*)0xd000000;
-        r0 &= 1;
-        if (r0 != 0)
+        if ((REG_EEPROM & 1) != 0)
             goto bad;
     }
+    // before here its only regalloc, but after I cant get it to work
     do {
         do {
             do {
-                stack_a8 = REG_VCOUNT;
-                if (stack_a8 != stack_a6) {
-                    if (stack_a8 > stack_a6) {
-                        r1 = stack_a8;
-                        r0 = stack_a6;
-                        r1 = r1 - r0;
-                        r0 = stack_ac;
-                        r1 = r1 + r0;
-                        stack_ac = r1;
+                current_vcount = REG_VCOUNT;
+                if (current_vcount != prev_vcount) {
+                    if (current_vcount >= prev_vcount) {
+                        passed_scanlines += current_vcount - prev_vcount;
                     } else {
-                        r0 = stack_a8 + 0xe4;
-                        r1 = stack_a6;
-                        r0 = r0 - r1;
-                        r1 = stack_ac;
-                        r0 = r0 + r1;
-                        stack_ac = r0;
+                        passed_scanlines += (current_vcount + 0xe4) - prev_vcount;
                     }
-                    if (stack_ac > 0x88) {
+                    if (passed_scanlines > 0x88) {
                         if (stack_a4 != 0)
                             return 0;
-                        r0 = *(u16*)0xd000000;
-                        r0 &= 1;
-                        if (r0 != 0)
+                        if ((REG_EEPROM & 1) != 0)
                             return 0;
                         return 0xc001;
                     }
-                    stack_a6 = stack_a8;
+                    prev_vcount = current_vcount;
                 }
             } while (stack_a4 != 0);
-            r1 = 1;
-            r0 = *(u16*)0xd000000;
-            r1 &= r0;
-        } while (r1 != 0);
+        } while ((REG_EEPROM & 1) != 0);
     bad:
         stack_a4++;
     } while (unk_3 != 0);
