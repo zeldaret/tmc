@@ -8,6 +8,7 @@ typedef struct EEPROMConfig {
     u8 address_width;
     // u8 filler[3];
 } EEPROMConfig;
+
 const char EEPROM_V124[] = "EEPROM_V124";
 extern const EEPROMConfig* gEEPROMConfig;
 const EEPROMConfig gEEPROMConfig512 = { 0x200, 0x40, 0x300, 0x6 };

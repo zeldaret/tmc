@@ -900,7 +900,7 @@ SECTIONS {
         asm/m4a_asm.o(.text);
         asm/m4a.o(.text);
         asm/libagbsyscall.o(.text);
-        src/code_080B1520.o(.text);
+        src/eeprom.o(.text);
         *libc.a:memcpy.o(.text);
 
         /* handwritten assembly in arm mode */
@@ -1033,7 +1033,7 @@ SECTIONS {
         data/strings.o(.rodata);
         data/sprite_table.o(.rodata);
         data/data_089FC6C4.o(.rodata);
-        src/code_080B1520.o(.rodata);
+        src/eeprom.o(.rodata);
     } >rom
 
     /* DWARF 2 sections */
