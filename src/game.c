@@ -274,7 +274,7 @@ void InitializePlayer(void) {
         case 0xc:
             gPlayerState.field_0x34[4] = 4;
     }
-    pl->entityType.type = 1;
+    pl->kind = 1;
     pl->flags |= 0xa0;
     pl->spritePriority.b0 = 4;
     pl->currentHealth = gSave.stats.health;

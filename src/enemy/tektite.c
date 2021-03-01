@@ -30,7 +30,7 @@ void sub_0802F150(Entity* this) {
             case 0x14:
                 this->action = 1;
                 this->previousActionFlag = 0;
-                if ((this->entityType).form != 0) {
+                if (this->type != 0) {
                     this->actionDelay = 0xc0;
                 } else {
                     this->actionDelay = gUnk_080CDEF8[Random() & 3];
@@ -76,9 +76,9 @@ void sub_0802F210(Entity* this) {
     this->field_0xf = 0;
     *(u8*)&this->field_0x7c = 0;
 
-    this->field_0x80.HWORD = this->entityType.form == 0 ? 0x1800 : 0x2800;
+    this->field_0x80.HWORD = this->type == 0 ? 0x1800 : 0x2800;
 
-    this->field_0x82.HWORD = this->entityType.form == 0 ? 0x2800 : 0x3000;
+    this->field_0x82.HWORD = this->type == 0 ? 0x2800 : 0x3000;
 
     InitializeAnimation(this, 0);
 }
@@ -95,7 +95,7 @@ void sub_0802F284(Entity* this) {
         if ((this->frames.b.f3) != 0) {
             this->action = 2;
             this->actionDelay = 0x10;
-            this->field_0xf = this->entityType.form;
+            this->field_0xf = this->type;
             this->field_0x20 = this->field_0x82.HWORD << 4;
             sub_0802F45C(this);
             InitializeAnimation(this, 2);
@@ -120,7 +120,7 @@ void sub_0802F300(Entity* this) {
     if (sub_080044EC(this, this->field_0x80.HWORD) == 1) {
         this->action = 3;
         this->previousActionFlag = 0;
-        if (this->entityType.form != 0) {
+        if (this->type != 0) {
             rand = 0;
         }
 
@@ -165,10 +165,10 @@ void sub_0802F3F4(Entity* this) {
     GetNextFrame(this);
 
     if ((this->frames.b.f3) != 0) {
-        if ((*(u8*)&this->field_0x7c.HALF.LO < 2) && ((this->entityType.form % 2) != 0)) {
+        if ((*(u8*)&this->field_0x7c.HALF.LO < 2) && ((this->type % 2) != 0)) {
             this->action = 2;
             this->actionDelay = 0x10;
-            this->field_0xf = this->entityType.form;
+            this->field_0xf = this->type;
             this->field_0x20 = this->field_0x82.HWORD << 4;
             (*(u8*)&this->field_0x7c.HALF.LO)++;
             sub_0802F45C(this);

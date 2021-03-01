@@ -15,7 +15,7 @@ typedef struct {
 void sub_08077DF4(Entity* ent, u32 arg1) {
     *(u16*)&ent->flags = arg1;
     if ((arg1 & 0xff) > 0xb8) {
-        arg1 += (ent->entityType).form >> 1;
+        arg1 += ent->type >> 1;
     }
     gPlayerEntity.spriteIndex = (short)(arg1 >> 8);
     InitAnimationForceUpdate(&gPlayerEntity, (u8)arg1);

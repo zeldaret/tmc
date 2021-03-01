@@ -17,7 +17,7 @@ void TreeItem(Entity* this) {
 
     if (this->action == 0) {
         this->action++;
-        this->field_0x68.HALF.LO = sub_080028F4(gUnk_080D29E0[this->entityType.form]);
+        this->field_0x68.HALF.LO = sub_080028F4(gUnk_080D29E0[this->type]);
         if (this->field_0x68.HALF.LO > 8) {
             DeleteThisEntity();
         }

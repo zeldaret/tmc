@@ -31,7 +31,7 @@ void Moldworm(Entity* this) {
     u16 prevX = this->x.HALF.HI;
     u16 prevY = this->y.HALF.HI;
 
-    if (this->entityType.form == 0) {
+    if (this->type == 0) {
         if (this->action != 0) {
             sub_0802390C(this);
         }
@@ -39,7 +39,7 @@ void Moldworm(Entity* this) {
         EnemyFunctionHandler(this, gUnk_080CBC38);
     } else {
         if (this->parent->next) {
-            if (this->entityType.form != 8) {
+            if (this->type != 8) {
                 sub_080235BC(this);
             } else {
                 sub_08023730(this);
@@ -76,10 +76,10 @@ void sub_080230E4(Entity* this) {
         this->field_0x7c.BYTES.byte3 = 0;
         this->field_0x7a.HALF.HI = 0;
         if (this->bitfield == 0x80 || this->bitfield == 0x9e) {
-            this->entityType.parameter = 0;
+            this->type2 = 0;
             this->field_0x80.HALF.LO = 0x14;
         } else {
-            this->entityType.parameter = 1;
+            this->type2 = 1;
             this->field_0x80.HALF.LO = 8;
         }
     }
@@ -259,7 +259,7 @@ void sub_080234D8(Entity* this) {
 }
 
 void sub_0802351C(Entity* this) {
-    if (this->actionDelay != 0 && (this->entityType.parameter == 1 || gPlayerEntity.frameIndex == 0xff)) {
+    if (this->actionDelay != 0 && (this->type2 == 1 || gPlayerEntity.frameIndex == 0xff)) {
         this->actionDelay = 0;
         this->attachedEntity->action = 3;
         this->attachedEntity->field_0xf = this->field_0x80.HALF.LO;
@@ -268,7 +268,7 @@ void sub_0802351C(Entity* this) {
     }
 
     if (this->field_0x7c.BYTES.byte3 == 0) {
-        if (this->entityType.parameter == 0) {
+        if (this->type2 == 0) {
             gPlayerEntity.animationState = this->animationState & 7;
             gPlayerState.flags.all |= 0x80000;
             PositionRelative(this, &gPlayerEntity, 0, gUnk_080CBC90[this->animationState & 7] << 0x10);
@@ -291,7 +291,7 @@ void sub_080235D4(Entity* this) {
     this->x.HALF.HI = parent->x.HALF.HI;
     this->y.HALF.HI = parent->y.HALF.HI;
     sub_080239F0(this);
-    if (this->entityType.form == 1) {
+    if (this->type == 1) {
         this->animationState = 0x10;
     } else {
         this->animationState = 0x12;
@@ -404,7 +404,7 @@ void sub_08023894(Entity* this) {
         this->action = 2;
         this->parent->field_0x7c.BYTES.byte3 = 1;
         InitializeAnimation(this, this->animationState);
-        if ((this->parent->entityType).parameter == 0) {
+        if (this->parent->type2 == 0) {
             gPlayerState.flags.all |= 0x200000;
             gPlayerEntity.x.HALF.HI = this->x.HALF.HI;
             gPlayerEntity.y.HALF.HI = this->y.HALF.HI;

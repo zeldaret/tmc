@@ -84,7 +84,7 @@ void sub_08028314(Entity* this) {
     this->field_0x82.HALF.LO = 1;
 
     if (this->actionDelay) {
-        this->animationState = this->entityType.parameter << 1;
+        this->animationState = this->type2 << 1;
         this->actionDelay = 0x1e;
         this->nonPlanarMovement = 0x80;
         this->direction = this->animationState << 2;

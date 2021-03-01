@@ -15,7 +15,7 @@ void GiantLeaf(Entity* ent) {
         ent->spriteSettings.b.draw = 1;
         ent->spriteRendering.b3 = 3;
         ent->spritePriority.b0 = 7;
-        ent->frameIndex = ent->entityType.form;
+        ent->frameIndex = ent->type;
         sub_0808D618(ent);
     }
 }
@@ -25,7 +25,7 @@ void sub_0808D618(Entity* ent) {
     s16* arr;
     u32 i;
 
-    arr = (ent->entityType.form != 0) ? gUnk_0812176A : gUnk_08121750;
+    arr = (ent->type != 0) ? gUnk_0812176A : gUnk_08121750;
     tilePos = (((ent->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3F) |
               ((((ent->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3F) * 64);
 

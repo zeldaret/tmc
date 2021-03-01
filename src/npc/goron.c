@@ -112,7 +112,7 @@ void sub_080694B0(Entity* this) {
 }
 
 void sub_080694D8(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08111A94[this->entityType.form]);
+    ShowNPCDialogue(this, &gUnk_08111A94[this->type]);
 }
 
 void sub_080694EC(Entity* this) {

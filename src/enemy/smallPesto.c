@@ -130,11 +130,11 @@ void sub_080317F8(Entity* this) {
 }
 
 void sub_08031840(Entity* this) {
-    Entity* enemy = CreateEnemy(0x2d, this->entityType.form);
+    Entity* enemy = CreateEnemy(0x2d, this->type);
     if (enemy != NULL) {
         CopyPosition(this, enemy);
         enemy->parent = this;
         this->attachedEntity = enemy;
-        enemy->entityType.parameter = 1;
+        enemy->type2 = 1;
     }
 }

@@ -60,7 +60,7 @@ void sub_08020BB8(Entity* this) {
     switch (this->bitfield & 0x7f) {
         case 0x1c:
             this->action = 11;
-            this->actionDelay = gUnk_080CAB0C[this->entityType.form];
+            this->actionDelay = gUnk_080CAB0C[this->type];
             this->damageType = 81;
             sub_08021218(this, 8, DirectionToAnimationState(this->field_0x3e ^ 0x10));
             sub_08021588(this);
@@ -68,7 +68,7 @@ void sub_08020BB8(Entity* this) {
             break;
         case 0x16:
             this->action = 11;
-            this->actionDelay = gUnk_080CAB10[this->entityType.form];
+            this->actionDelay = gUnk_080CAB10[this->type];
             this->damageType = 81;
             sub_08021218(this, 8, DirectionToAnimationState(this->field_0x3e ^ 0x10));
             sub_08021588(this);
@@ -79,10 +79,10 @@ void sub_08020BB8(Entity* this) {
                 break;
             switch (this->field_0x78.HALF.HI) {
                 case 8 ... 12:
-                    this->field_0x7a.HALF.LO = gUnk_080CAB04[this->entityType.form];
+                    this->field_0x7a.HALF.LO = gUnk_080CAB04[this->type];
                     break;
                 case 4 ... 6:
-                    this->field_0x7a.HALF.LO = gUnk_080CAB00[this->entityType.form];
+                    this->field_0x7a.HALF.LO = gUnk_080CAB00[this->type];
                     break;
                 default:
                     this->field_0x7a.HALF.LO = 0;
@@ -100,7 +100,7 @@ void sub_08020BB8(Entity* this) {
                     bVar3 = this->attachedEntity->bitfield & 0x7f;
                 }
                 if (bVar3 == 2) {
-                    sub_080213D0(this, gUnk_080CAB08[this->entityType.form]);
+                    sub_080213D0(this, gUnk_080CAB08[this->type]);
                 } else {
                     sub_080213D0(this, 0);
                 }
@@ -412,7 +412,7 @@ void sub_080212B0(Entity* this) {
             break;
     }
 
-    if (this->entityType.form < 2 && tmp == 2)
+    if (this->type < 2 && tmp == 2)
         tmp = gUnk_080CAB52[Random() & 3];
 
     this->attachedEntity = NULL;
@@ -421,7 +421,7 @@ void sub_080212B0(Entity* this) {
 
 void sub_08021328(Entity* this) {
     this->action = 13;
-    this->field_0x7c.BYTES.byte0 = gUnk_080CAB68[this->entityType.form];
+    this->field_0x7c.BYTES.byte0 = gUnk_080CAB68[this->type];
     sub_08021218(this, 0xc, this->animationState);
 }
 

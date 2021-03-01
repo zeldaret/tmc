@@ -87,7 +87,7 @@ void sub_0805A370(Manager15* this) {
 void sub_0805A394(Manager15* this) {
     Entity* ent;
     if ((ent = FindEntityInListBySubtype(0x3, 0x13, 0x4))) {
-        if (ent->entityType.form != 4) {
+        if (ent->type != 4) {
             return;
         }
     }

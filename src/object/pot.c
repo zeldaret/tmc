@@ -28,7 +28,7 @@ void Pot(Entity* this) {
 }
 
 void sub_0808222C(Entity* this) {
-    if (this->entityType.parameter == 1 && CheckFlags(this->field_0x86.HWORD)) {
+    if (this->type2 == 1 && CheckFlags(this->field_0x86.HWORD)) {
         DeleteThisEntity();
     }
 
@@ -261,13 +261,13 @@ static void sub_08082824(Entity* this) {
 }
 
 static void sub_08082850(Entity* this, Entity* parent) {
-    u32 parameter = sub_0808288C(this, this->entityType.form, this->field_0x7c.BYTES.byte1, this->entityType.parameter);
+    u32 parameter = sub_0808288C(this, this->type, this->field_0x7c.BYTES.byte1, this->type2);
     Entity* fxEntity = CreateFx(this, 5, parameter);
     if (fxEntity) {
         fxEntity->parent = parent;
     }
 
-    if (this->entityType.parameter == 1) {
+    if (this->type2 == 1) {
         SetFlag(this->field_0x86.HWORD);
     }
 

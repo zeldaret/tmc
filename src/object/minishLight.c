@@ -13,7 +13,7 @@ void sub_0809F840(Entity* this) {
     this->actionDelay = 0x20;
     this->field_0xf = 0;
 
-    if (this->entityType.parameter != 0) {
+    if (this->type2 != 0) {
         this->spriteSettings.b.flipX = 1;
     }
 

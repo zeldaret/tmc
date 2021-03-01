@@ -11,7 +11,7 @@ void BladeTrap(Entity* ent) {
     u16* puVar3;
     if (ent->action == 0) {
         ent->action = 1;
-        pEVar2 = GetCurrentRoomProperty((u8)(ent->entityType).form);
+        pEVar2 = GetCurrentRoomProperty((u8)ent->type);
         ent->attachedEntity = pEVar2;
         sub_080A2CC0((EntityData*)ent, &ent->attachedEntity, &ent->field_0x74);
     }

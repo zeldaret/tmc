@@ -63,7 +63,7 @@ void sub_08021DDC(Entity* this) {
 
 void Keese_Initialize(Entity* this) {
     sub_0804A720(this);
-    if (this->entityType.form != 0) {
+    if (this->type != 0) {
         this->spritePriority.b1 = 1;
         this->height.HALF.HI = -0x10;
     }

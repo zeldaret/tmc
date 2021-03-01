@@ -27,7 +27,7 @@ extern const s8 gUnk_080CD45C[];
 extern const s8 gUnk_080CD464[];
 
 void Helmasaur(Entity* this) {
-    if (this->entityType.form == 0) {
+    if (this->type == 0) {
         EnemyFunctionHandler(this, gUnk_080CD3E4);
         SetChildOffset(this, 0, 1, -0x10);
     } else {

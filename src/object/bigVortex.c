@@ -11,7 +11,7 @@ extern void (*const gUnk_0812367C[])(Entity*);
 extern u16 gUnk_08123690[];
 
 void BigVortex(Entity* this) {
-    if ((this->entityType).form == 0) {
+    if (this->type == 0) {
         gUnk_0812367C[this->action](this);
     } else {
         sub_08098E3C(this);
@@ -67,9 +67,9 @@ void sub_08098DC4(Entity* this) {
         ResolveEntityOnTop(this, &gPlayerEntity);
         gPlayerState.playerAction = 0x1f;
         gPlayerState.field_0x34[4] = 1;
-        gPlayerState.field_0x34[5] = this->entityType.parameter;
+        gPlayerState.field_0x34[5] = this->type2;
         this->action = 4;
-        if (this->entityType.parameter == 1) {
+        if (this->type2 == 1) {
             SetGlobalFlag(0x23);
         }
         sub_08077B20();
@@ -87,9 +87,9 @@ void sub_08098E3C(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         this->spriteSettings.b.draw = TRUE;
-        InitAnimationForceUpdate(this, this->entityType.form);
+        InitAnimationForceUpdate(this, this->type);
     }
-    temp = &gUnk_08123690[this->entityType.form & 2];
+    temp = &gUnk_08123690[this->type & 2];
     sub_0805EC9C(this, temp[0], temp[1], 0);
     UpdateAnimationSingleFrame(this);
 }

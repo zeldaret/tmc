@@ -29,7 +29,7 @@ static void sub_0808E6A0(Entity* this) {
         DeleteThisEntity();
     }
     this->action = 1;
-    this->entityType.form = 0x62;
+    this->type = 0x62;
     this->spriteSettings.b.draw = 0;
     this->hitbox = &gUnk_08121C58;
     this->collisionLayer = 3;

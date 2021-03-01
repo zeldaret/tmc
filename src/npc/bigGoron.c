@@ -16,7 +16,7 @@ extern void sub_0806D02C(Entity*);
 extern Entity* FindEntityInListByForm(u32, u32, u32, u32, u32);
 
 void BigGoron(Entity* this) {
-    gUnk_081140D4[this->entityType.form](this);
+    gUnk_081140D4[this->type](this);
 }
 
 void sub_0806CF30(Entity* this) {

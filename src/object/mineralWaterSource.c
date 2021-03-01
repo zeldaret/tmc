@@ -25,9 +25,9 @@ void MineralWaterSource_Init(Entity* this) {
         return;
     }
 
-    unknownParameters = &MineralWaterSourceParameters[this->entityType.form];
+    unknownParameters = &MineralWaterSourceParameters[this->type];
 
-    this->entityType.parameter = unknownParameters->field_0x00;
+    this->type2 = unknownParameters->field_0x00;
     this->field_0x40 = unknownParameters->field_0x03;
 
     this->hitbox->width = unknownParameters->field_0x01;

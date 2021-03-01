@@ -43,7 +43,7 @@ void TownMinish(Entity* this) {
 }
 
 void sub_0806ABFC(Entity* this) {
-    SpriteLoadData* SpriteLoadData = &gUnk_08112674[this->entityType.form * 4];
+    SpriteLoadData* SpriteLoadData = &gUnk_08112674[this->type * 4];
     if (!LoadExtraSpriteData(this, SpriteLoadData)) {
         return;
     }
@@ -93,7 +93,7 @@ void sub_0806ACC4(Entity* this) {
     u8 delay;
     switch (this->action) {
         case 0:
-            if (LoadExtraSpriteData(this, &gUnk_08112674[this->entityType.form * 4]) == 0)
+            if (LoadExtraSpriteData(this, &gUnk_08112674[this->type * 4]) == 0)
                 return;
 
             this->action = 1;
@@ -114,13 +114,13 @@ void sub_0806ACC4(Entity* this) {
             } else {
                 sub_0807DDAC(this, NULL);
                 sub_0806AEA8(this);
-                if (this->entityType.parameter == 10 && this->interactType) {
+                if (this->type2 == 10 && this->interactType) {
                     this->action = 2;
                     this->interactType = 0;
                     InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 8);
                     sub_0806AFE8(this, *(s32**)&this->cutsceneBeh);
                 }
-                if (this->entityType.form == 1) {
+                if (this->type == 1) {
                     u8 idx = gPlayerEntity.animationState >> 1;
                     sub_08078850(this, 1, gUnk_081126E4[idx], &gUnk_081126D4[idx]);
                 }
@@ -250,12 +250,12 @@ void sub_0806AFBC(Entity* this) {
     if (idx < 0)
         idx = 0;
 
-    ShowNPCDialogue(this, gUnk_081126F0 + this->entityType.parameter * 8 + idx);
+    ShowNPCDialogue(this, gUnk_081126F0 + this->type2 * 8 + idx);
 }
 
 void sub_0806AFE8(Entity* this, s32* unk) {
     unk[5] = 0;
-    gUnk_08112BF0[this->entityType.parameter](this, unk);
+    gUnk_08112BF0[this->type2](this, unk);
 }
 
 void sub_0806B004(Entity* this, int* unk) {
@@ -304,7 +304,7 @@ void sub_0806B098(Entity* this) {
             idx = BOOLCAST(f);
         }
     }
-    TextboxNoOverlap(gUnk_08112C50[(this->entityType.parameter - 7) * 3 + idx], this);
+    TextboxNoOverlap(gUnk_08112C50[(this->type2 - 7) * 3 + idx], this);
 }
 
 void sub_0806B0E0(Entity* this) {
@@ -339,7 +339,7 @@ void sub_0806B134(Entity* this) {
 
 void TownMinish_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_08112674[this->entityType.form * 4])) {
+        if (LoadExtraSpriteData(this, &gUnk_08112674[this->type * 4])) {
             this->action++;
             this->spriteSettings.b.draw = 1;
             InitializeAnimation(this, 6);

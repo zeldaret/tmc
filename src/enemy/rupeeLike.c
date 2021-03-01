@@ -26,7 +26,7 @@ extern Hitbox gUnk_080FD260;
 void RupeeLike(Entity* this) {
     u32 uVar1;
 
-    if (this->entityType.parameter == 0) {
+    if (this->type2 == 0) {
         uVar1 = (u8)sub_080043E8(this);
         if (uVar1 != 0) {
             if (this->action == 4) {
@@ -75,7 +75,7 @@ void sub_08029318(Entity* this) {
 }
 
 void sub_080293B4(Entity* this) {
-    CreateDeathFx(this, 0xff, gUnk_080CCC34[this->cutsceneBeh.HALF.LO * 3 + this->entityType.form]);
+    CreateDeathFx(this, 0xff, gUnk_080CCC34[this->cutsceneBeh.HALF.LO * 3 + this->type]);
 }
 
 void nullsub_141() {
@@ -91,11 +91,11 @@ void sub_080293DC(Entity* this) {
 void sub_0802940C(Entity* this) {
     Entity* ent;
 
-    ent = CreateEnemy(0x17, this->entityType.form);
+    ent = CreateEnemy(0x17, this->type);
     if (ent != NULL) {
         sub_0804A720(this);
         ent->parent = this;
-        ent->entityType.parameter = 1;
+        ent->type2 = 1;
         this->attachedEntity = ent;
         this->field_0x80.HALF.HI = 0;
         this->cutsceneBeh.HALF.LO = 0;
@@ -172,7 +172,7 @@ void sub_0802953C(Entity* this) {
         if (--this->field_0x82.HALF.HI == 0) {
             this->field_0x82.HALF.HI = 0x41;
             if (gSave.stats.rupees != 0) {
-                ModRupees(gUnk_080CCC44[this->entityType.form]);
+                ModRupees(gUnk_080CCC44[this->type]);
                 this->cutsceneBeh.HALF.LO = 1;
             }
         }
@@ -200,7 +200,7 @@ void sub_08029660(Entity* this) {
     u32 temp;
     this->action = 1;
     this->spriteIndex = 0xd1;
-    temp = gUnk_080CCC47[this->entityType.form];
+    temp = gUnk_080CCC47[this->type];
     this->palette.b.b0 = temp;
 }
 
@@ -275,7 +275,7 @@ void sub_080297F0(Entity* this) {
     this->damageType = 0x8e;
     sub_080AE068(this);
     this->spriteIndex = 0x143;
-    temp = gUnk_080CCC47[this->entityType.form];
+    temp = gUnk_080CCC47[this->type];
     this->palette.b.b0 = temp;
     this->spriteVramOffset = 9;
     InitializeAnimation(this, 0x54);

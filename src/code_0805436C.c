@@ -250,10 +250,10 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
                 } else {
                     itemEntity->actionDelay = 0;
                 }
-                if ((arg0->entityType).type == 6) {
-                    if (arg0->entityType.subtype == 99) {
+                if (arg0->kind == 6) {
+                    if (arg0->id == 99) {
                         arg0->attachedEntity = itemEntity;
-                    } else if (arg0->entityType.subtype == 0x1e) {
+                    } else if (arg0->id == 0x1e) {
                         itemEntity->direction = arg0->animationState << 3 | 0x80;
                         itemEntity->nonPlanarMovement = 0xc0;
                         itemEntity->field_0x20 = 0x18000;

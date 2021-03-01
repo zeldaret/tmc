@@ -14,7 +14,7 @@ void Object9E(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         this->spritePriority.b0 = 6;
-        if ((this->entityType).form == 0) {
+        if (this->type == 0) {
             this->flags = this->flags | 0x80;
             this->frameIndex = 1;
             layer = &this->collisionLayer;

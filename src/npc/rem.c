@@ -13,7 +13,7 @@ extern void (*gUnk_08112278[])(Entity*);
 extern void gUnk_08012F0C;
 
 void Rem(Entity* this) {
-    gUnk_08112260[this->entityType.form](this);
+    gUnk_08112260[this->type](this);
 }
 
 void sub_0806a370(Entity* this) {

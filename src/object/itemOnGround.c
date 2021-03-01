@@ -75,7 +75,7 @@ void ItemOnGround(Entity* this) {
         gUnk_0811E7D4[this->action](this);
     }
 
-    if (this->entityType.form == 0x5C) {
+    if (this->type == 0x5C) {
         gRoomVars.field_0x4++;
     }
 
@@ -87,7 +87,7 @@ void sub_08080F20(Entity* this) {
         DeleteThisEntity();
     }
 
-    if (this->entityType.form != 0x60) {
+    if (this->type != 0x60) {
         this->spriteSettings.b.draw = 1;
         this->spritePriority.b1 = 3;
         this->spriteSettings.b.shadow = 0;
@@ -96,7 +96,7 @@ void sub_08080F20(Entity* this) {
         this->field_0x40 = 0x44;
         this->currentHealth = 0xFF;
         this->hitbox = &gUnk_080FD1A8;
-        switch (this->entityType.form - 0x3F) {
+        switch (this->type - 0x3F) {
             case 0:
             case 21:
             case 22:
@@ -120,14 +120,14 @@ void sub_08080F20(Entity* this) {
         this->field_0x68.HALF.LO = 0;
         this->actionDelay = 0;
         sub_0805E3A0(this, 3);
-        this->field_0x1c = sub_0808147C(this->entityType.form);
+        this->field_0x1c = sub_0808147C(this->type);
         gUnk_0811E7E8[this->field_0x68.HALF.HI](this);
     } else {
         Entity* entity = CreateObject(0x40, 0x60, 0);
         if (entity) {
             entity->actionDelay = 0;
             if (this->actionDelay == 1) {
-                entity->entityType.parameter = 2;
+                entity->type2 = 2;
             }
 
             CopyPosition(this, entity);
@@ -158,7 +158,7 @@ static void sub_080810A8(Entity* this) {
 }
 
 static void sub_080810FC(Entity* this) {
-    if (this->entityType.form != 0x5F) {
+    if (this->type != 0x5F) {
         sub_08081598(this);
     } else {
         this->action = 2;
@@ -278,7 +278,7 @@ void nullsub_510(Entity* this) {
 
 void sub_08081328(Entity* this) {
     Entity* other = this->attachedEntity;
-    if (!(other->entityType.type == 8 && other->entityType.subtype == 3)) {
+    if (!(other->kind == 8 && other->id == 3)) {
         sub_08081404(this, 0);
     } else {
         CopyPosition(other, this);
@@ -334,17 +334,17 @@ void sub_08081404(Entity* this, u32 arg1) {
 bool32 sub_08081420(Entity* this) {
     if (CheckShouldPlayItemGetCutscene(this)) {
         sub_0805E3A0(this, 6);
-        CreateItemEntity(this->entityType.form, this->entityType.parameter, 0);
+        CreateItemEntity(this->type, this->type2, 0);
         return TRUE;
     } else {
-        GiveItem(this->entityType.form, this->entityType.parameter);
+        GiveItem(this->type, this->type2);
         return FALSE;
     }
 }
 
 static bool32 CheckShouldPlayItemGetCutscene(Entity* this) {
     bool32 result = FALSE;
-    if ((gUnk_080FD5B4[this->entityType.form].unk0[3] & 0x2) || !GetInventoryValue(this->entityType.form)) {
+    if ((gUnk_080FD5B4[this->type].unk0[3] & 0x2) || !GetInventoryValue(this->type)) {
         result = TRUE;
     }
     return result;
@@ -391,7 +391,7 @@ static void sub_08081500(Entity* this) {
             this->field_0x68.HALF.LO = 1;
         } else {
             if (var0 == 1) {
-                sub_0808148C(this->entityType.form);
+                sub_0808148C(this->type);
                 UpdateSpriteForCollisionLayer(this);
             }
 
@@ -408,13 +408,13 @@ static void sub_0808153C(Entity* this) {
         if (!sub_08003FC4(this, 0x1000) && !sub_0800442E(this)) {
             this->field_0x68.HALF.LO = 1;
             this->field_0x20 = 0x1E000;
-            sub_0808148C(this->entityType.form);
+            sub_0808148C(this->type);
             UpdateSpriteForCollisionLayer(this);
         }
     } else {
         if (!sub_08003FC4(this, 0x2800)) {
             this->field_0x68.HALF.LO = 2;
-            sub_0808148C(this->entityType.form);
+            sub_0808148C(this->type);
         }
     }
 }
@@ -434,7 +434,7 @@ static void sub_08081598(Entity* this) {
     this->attachedEntity = &gPlayerEntity;
     CopyPosition(this->attachedEntity, this);
     this->height.HALF.HI -= 4;
-    if (this->entityType.form != 0x5F && sub_08081420(this)) {
+    if (this->type != 0x5F && sub_08081420(this)) {
         sub_08081404(this, 1);
     }
 }

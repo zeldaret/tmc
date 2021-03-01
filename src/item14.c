@@ -22,7 +22,7 @@ void sub_0805FBE8(Entity* this) {
     this->nonPlanarMovement = 0x380;
     this->animationState = this->animationState & 0x7f;
     if (this->collisionLayer == 2) {
-        this->entityType.parameter = 1;
+        this->type2 = 1;
     }
     this->direction = this->animationState << 2;
     *(u32*)&this->field_0x6c = 0x3c;
@@ -40,7 +40,7 @@ void sub_0805FC74(Entity* this) {
         GetNextFrame(this);
         sub_0806F69C(this);
         ++this->actionDelay;
-        if (this->entityType.parameter == 0) {
+        if (this->type2 == 0) {
             sub_0800451C(this);
         }
         if (!sub_080002F0(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) &&

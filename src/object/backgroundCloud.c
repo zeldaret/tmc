@@ -15,10 +15,10 @@ void sub_0808F658(Entity* this) {
     this->spriteSettings.b.draw = 1;
     this->spriteOrientation.flipY = 3;
     this->spriteRendering.b3 = 3;
-    this->spritePriority.b0 = this->entityType.form;
-    this->frameIndex = this->entityType.form;
+    this->spritePriority.b0 = this->type;
+    this->frameIndex = this->type;
     this->direction = 8;
-    this->nonPlanarMovement = gUnk_08121EB0[(this->entityType).form];
+    this->nonPlanarMovement = gUnk_08121EB0[this->type];
     this->field_0x78.HWORD = gRoomControls.roomOriginX - 0x60;
     this->field_0x7a.HWORD = gRoomControls.roomOriginX + gRoomControls.width + 0x60;
     this->animationState = 0;
@@ -45,8 +45,8 @@ void sub_0808F70C(Entity* this) {
             this->x.HALF.HI = this->field_0x78.HWORD;
         }
 
-        if (this->entityType.form == 2)
-            this->y.HALF.HI = gUnk_08121EB3[this->entityType.parameter * 2 + (Random() & 1)];
+        if (this->type == 2)
+            this->y.HALF.HI = gUnk_08121EB3[this->type2 * 2 + (Random() & 1)];
     }
 
     if (this->previousActionFlag == 1) {

@@ -14,7 +14,7 @@ extern u8 gEntCount;
 extern const s8 gUnk_080CBBC4[];
 
 void Moldorm(Entity* this) {
-    gUnk_080CBB90[this->entityType.form](this);
+    gUnk_080CBB90[this->type](this);
 }
 
 void sub_08022BA0(Entity* this) {
@@ -133,8 +133,8 @@ void sub_08022DE8(Entity* this) {
     this->animationState = this->parent->animationState;
     *(u32*)&this->cutsceneBeh = this->animationState * 0x11111111;
 
-    if (this->entityType.form != 3) {
-        this->frameIndex = this->entityType.form + 7;
+    if (this->type != 3) {
+        this->frameIndex = this->type + 7;
     } else {
         this->frameIndex = this->animationState + 10;
     }

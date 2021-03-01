@@ -31,11 +31,11 @@ extern u16 gUnk_081247C8[];
 extern u32 gUnk_081247D0;
 
 void Cloud(Entity* this) {
-    gUnk_08124798[(this->entityType).form](this);
+    gUnk_08124798[this->type](this);
 }
 
 void sub_0809F4DC(Entity* this) {
-    if ((this->entityType).parameter == 0) {
+    if (this->type2 == 0) {
         gUnk_081247A0[this->action](this);
     } else {
         gUnk_081247AC[this->action](this);
@@ -100,7 +100,7 @@ void sub_0809F61C(Entity* this) {
 
     if ((gRoomControls.unk6 & 4) == 0) {
         if (this->actionDelay == 30) {
-            SetLocalFlag(this->entityType.parameter);
+            SetLocalFlag(this->type2);
         }
         if (--this->actionDelay == 0) {
             this->action = 3;
