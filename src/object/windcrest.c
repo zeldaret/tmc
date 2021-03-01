@@ -28,6 +28,6 @@ void sub_080A2124(Entity* this) {
 
 void Windcrest_Unlock(Entity* this) {
     SoundReq(0x72);
-    gSave.windcrests = gSave.windcrests | 1 << (this->entityType.parameter + 0x18);
+    gSave.windcrests = gSave.windcrests | 1 << (this->type2 + 0x18);
     CreateFx(this, 0x46, 0);
 }

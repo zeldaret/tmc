@@ -66,15 +66,15 @@ void sub_08063D44(Entity* this) {
     if (gEntCount > 0x46)
         return;
 
-    temp = this->entityType.subtype;
+    temp = this->id;
     temp ^= 0x15;
     idx = BOOLCAST(temp) * 4;
     if (!LoadExtraSpriteData(this, &gUnk_0810F524[idx]))
         return;
 
     InitializeAnimation(this, 4);
-    sub_0806EE04(this, gUnk_0810F6BC[this->entityType.form], 0);
-    switch (this->entityType.form) {
+    sub_0806EE04(this, gUnk_0810F6BC[this->type], 0);
+    switch (this->type) {
         case 0 ... 3:
             ent = sub_080A7EE0(0xc);
             ent->parent = this;
@@ -85,12 +85,12 @@ void sub_08063D44(Entity* this) {
             break;
     }
     this->action++;
-    this->entityType.form = 0;
+    this->type = 0;
     sub_08063DC8(this);
 }
 
 void sub_08063DC8(Entity* this) {
-    if ((this->entityType).form == 0xff) {
+    if (this->type == 0xff) {
         this->action = 2;
         this->actionDelay = 0x1e;
         this->animationState = sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity));
@@ -130,7 +130,7 @@ void sub_08063E90(Entity* this) {
     u32 temp, idx;
     u32 unk;
 
-    temp = this->entityType.subtype;
+    temp = this->id;
     temp ^= 0x15;
     idx = BOOLCAST(temp) * 4;
     if (!LoadExtraSpriteData(this, &gUnk_0810F524[idx]))
@@ -188,7 +188,7 @@ void Guard_Head(Entity* this) {
     uVar2 = this->frames.all & 0x3f;
     pbVar5 = (this->frameIndex & 0x3f);
     uVar4 = this->frameSpriteSettings & 0x3f;
-    if ((this->entityType).subtype == 0x15) {
+    if (this->id == 0x15) {
         if ((this->frameIndex & 0x40) != 0) {
             pbVar5 = pbVar5 + 0x21;
             pbVar3 = 0xffffffff;
@@ -227,7 +227,7 @@ void sub_08064050(Entity* arg0, struct_08064050* arg1) {
     u32 unk;
 
     arg1->unk2 = 0;
-    switch (arg0->entityType.parameter) {
+    switch (arg0->type2) {
         case 0x11:
             arg1->unk2 = 1;
             break;

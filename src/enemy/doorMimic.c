@@ -24,7 +24,7 @@ extern s16 gUnk_080B4488[];
 
 void DoorMimic(Entity* this) {
     gUnk_080CB734[GetNextFunction(this)](this);
-    this->hitbox = (Hitbox*)gUnk_080CB8A4[this->entityType.parameter][this->frameIndex];
+    this->hitbox = (Hitbox*)gUnk_080CB8A4[this->type2][this->frameIndex];
 }
 
 void sub_08021FDC(Entity* this) {
@@ -44,11 +44,11 @@ void sub_08022004(Entity* this) {
 
 void sub_08022034(Entity* this) {
     this->action = 1;
-    this->entityType.parameter = this->entityType.form & 3;
+    this->type2 = this->type & 3;
     this->spritePriority.b0 = 5;
-    this->field_0x78.HWORD = gUnk_080CB764[this->entityType.parameter * 2 + 0] + this->x.HALF.HI;
-    this->field_0x7a.HWORD = gUnk_080CB764[this->entityType.parameter * 2 + 1] + this->y.HALF.HI;
-    InitializeAnimation(this, this->entityType.parameter);
+    this->field_0x78.HWORD = gUnk_080CB764[this->type2 * 2 + 0] + this->x.HALF.HI;
+    this->field_0x7a.HWORD = gUnk_080CB764[this->type2 * 2 + 1] + this->y.HALF.HI;
+    InitializeAnimation(this, this->type2);
     sub_080221C0(this);
 }
 
@@ -57,7 +57,7 @@ void sub_0802209C(Entity* this) {
         if (sub_0806FBFC(this->field_0x78.HWORD, this->field_0x7a.HWORD, 0x10, 0x10)) {
             this->action = 2;
             this->actionDelay = 0x12;
-            InitializeAnimation(this, this->entityType.parameter + 4);
+            InitializeAnimation(this, this->type2 + 4);
         }
     } else {
         this->actionDelay = this->actionDelay - 1;
@@ -78,7 +78,7 @@ void sub_080220F0(Entity* this) {
         this->action = 4;
         this->actionDelay = 0x78;
         this->field_0x44 = 0;
-        off = gUnk_080CB76C[this->entityType.parameter];
+        off = gUnk_080CB76C[this->type2];
         for (i = 0; i < 6; i++, off++) {
             Entity* fx = CreateFx(this, 0x11, 0);
             if (fx) {
@@ -96,7 +96,7 @@ void sub_08022174(Entity* this) {
     sub_0800445C(this);
     if (--this->actionDelay == 0) {
         this->action = 5;
-        InitializeAnimation(this, this->entityType.parameter + 8);
+        InitializeAnimation(this, this->type2 + 8);
     }
 }
 
@@ -110,10 +110,10 @@ void sub_08022198(Entity* this) {
 }
 
 void sub_080221C0(Entity* this) {
-    u32 tile = COORD_TO_TILE(this) + gUnk_080B4488[this->entityType.parameter];
+    u32 tile = COORD_TO_TILE(this) + gUnk_080B4488[this->type2];
     this->field_0x7c.HALF.HI = tile;
     this->field_0x7c.HALF.LO = sub_080001DA(tile, this->collisionLayer);
-    SetTile(gUnk_080CB79C[this->entityType.parameter], tile, this->collisionLayer);
+    SetTile(gUnk_080CB79C[this->type2], tile, this->collisionLayer);
 }
 
 // clang-format off

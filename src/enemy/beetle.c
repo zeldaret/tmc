@@ -52,7 +52,7 @@ void sub_08021780(Entity* this) {
 }
 
 void sub_08021818(Entity* this) {
-    if (this->entityType.form == 0) {
+    if (this->type == 0) {
         sub_0804A7D4(this);
     } else {
         Entity* ent = this->parent;
@@ -94,7 +94,7 @@ void Beetle_Initialize(Entity* this) {
 }
 
 void sub_080218B4(Entity* this) {
-    gUnk_080CB5D4[this->entityType.parameter](this);
+    gUnk_080CB5D4[this->type2](this);
 }
 
 void sub_080218CC(Entity* this) {
@@ -222,7 +222,7 @@ void sub_08021B64(Entity* this) {
         int iVar4 = 1;
         if (gPlayerState.field_0xa8 != 11 && gPlayerState.field_0xa8 != 20) {
             if (sub_0807953C())
-                iVar4 = this->entityType.form * 3 + 8;
+                iVar4 = this->type * 3 + 8;
 
             iVar4 = this->actionDelay - iVar4;
             if (iVar4 < 0)

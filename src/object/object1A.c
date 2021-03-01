@@ -20,7 +20,7 @@ void sub_080869DC(Entity* ent) {
     ent->spriteSettings.b.draw = 0;
     ent->hitbox = &gUnk_080FD1A8;
     ent->field_0x3c |= 16;
-    itemEntity = CreateObject(0, ent->entityType.form, 0);
+    itemEntity = CreateObject(0, ent->type, 0);
     if (itemEntity != NULL) {
         itemEntity->actionDelay = 10;
         itemEntity->parent = ent;

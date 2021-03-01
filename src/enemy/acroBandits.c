@@ -47,14 +47,14 @@ void AcroBandit(Entity* this) {
 }
 
 void sub_080318C4(Entity* this) {
-    gUnk_080CE584[this->entityType.form](this);
+    gUnk_080CE584[this->type](this);
 }
 
 void sub_080318DC(Entity* this) {
     Entity* brother;
 
     if (this->bitfield != 0x80 && this->bitfield != 0x81) {
-        if (this->entityType.form == 1) {
+        if (this->type == 1) {
             if (this->action < 7 && this->field_0x42) {
                 brother = this->attachedEntity;
                 if (brother) {
@@ -85,13 +85,13 @@ void sub_080318DC(Entity* this) {
 
             if (this->currentHealth == 0) {
                 this->field_0x3e = ((this->field_0x3e + (7 & Random())) - 4) & 0x1f;
-                this->field_0x42 += this->entityType.parameter * 3;
+                this->field_0x42 += this->type2 * 3;
                 sub_08032338(this);
             }
         }
 
         if (this->field_0x42 && this->frames.all & 0x10) {
-            if (this->entityType.form == 0) {
+            if (this->type == 0) {
                 this->action = 8;
             } else {
                 this->action = 9;
@@ -216,35 +216,35 @@ void sub_08031C58(Entity* this) {
             tmp &= 3;
 
             a = CreateEnemy(0x2e, 1);
-            a->entityType.parameter = 0;
+            a->type2 = 0;
             a->parent = NULL;
             a->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, a);
             a->attachedEntity = CreateEnemy(0x2e, 1);
 
             b = a->attachedEntity;
-            b->entityType.parameter = 1;
+            b->type2 = 1;
             b->parent = a;
             b->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, b);
             b->attachedEntity = CreateEnemy(0x2e, 1);
 
             a = b->attachedEntity;
-            a->entityType.parameter = 2;
+            a->type2 = 2;
             a->parent = b;
             a->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, a);
             a->attachedEntity = CreateEnemy(0x2e, 1);
 
             b = a->attachedEntity;
-            b->entityType.parameter = 3;
+            b->type2 = 3;
             b->parent = a;
             b->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, b);
             b->attachedEntity = CreateEnemy(0x2e, 1);
 
             a = b->attachedEntity;
-            a->entityType.parameter = 4;
+            a->type2 = 4;
             a->parent = b;
             a->attachedEntity = NULL;
             a->field_0x74.HALF.LO = tmp;
@@ -327,7 +327,7 @@ void sub_08031EA8(Entity* this) {
     this->action = 1;
     this->spritePriority.b1 = 1;
     this->field_0x20 = 0x40000;
-    this->height.HALF.HI = (4 - this->entityType.parameter) * 0xe;
+    this->height.HALF.HI = (4 - this->type2) * 0xe;
     this->field_0x78.HALF.HI = Random();
     InitializeAnimation(this, 4);
 }
@@ -358,11 +358,11 @@ void sub_08031EE8(Entity* this) {
 }
 
 void sub_08031F54(Entity* this) {
-    sub_08003FC4(this, gUnk_080CE5F0[this->entityType.parameter]);
-    if (this->entityType.parameter * -0xe <= this->height.HALF.HI) {
+    sub_08003FC4(this, gUnk_080CE5F0[this->type2]);
+    if (this->type2 * -0xe <= this->height.HALF.HI) {
         this->action = 3;
         this->actionDelay = 20;
-        this->height.HALF.HI = this->entityType.parameter * -0xe;
+        this->height.HALF.HI = this->type2 * -0xe;
         if (this->parent != NULL)
             this->spritePriority.b1 = 0;
         InitializeAnimation(this, 6);
@@ -445,7 +445,7 @@ void sub_08032160(Entity* this) {
 
     if (this->actionDelay == 0) {
         this->action = 7;
-        dir = gUnk_080CE5FA[this->field_0x74.HALF.LO * 5 + this->entityType.parameter];
+        dir = gUnk_080CE5FA[this->field_0x74.HALF.LO * 5 + this->type2];
         this->direction = dir;
         if (dir >= 0x10) {
             this->spriteSettings.b.flipX = 1;

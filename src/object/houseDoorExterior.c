@@ -32,7 +32,7 @@ extern void (*const gUnk_081206B4[])(Entity*);
 extern Hitbox gUnk_081206AC; // TODO: should be const
 
 void HouseDoorExterior(Entity* this) {
-    gUnk_081206B4[this->entityType.parameter](this);
+    gUnk_081206B4[this->type2](this);
 }
 
 void sub_080866D8(Entity* this) {
@@ -156,7 +156,7 @@ static void sub_080868EC(Entity* entity, unk_80868EC* arg1) {
 
 void sub_0808692C(Entity* this) {
     this->flags &= 0xFD;
-    this->entityType.parameter = 2;
+    this->type2 = 2;
     this->action = this->frameIndex == 0 ? 1 : 2;
     this->previousActionFlag = 0;
     this->actionDelay = 8;

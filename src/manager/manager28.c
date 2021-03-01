@@ -115,8 +115,7 @@ Entity* Manager28_FindMatchingEntity(EntityData* unk1) {
     y = unk1->yPos + gRoomControls.roomOriginY;
     tmp = &gUnk_03003D90;
     for (i = tmp->first; (u32)i != (u32)tmp; i = i->next) {
-        if (x == i->x.HALF.HI && y == i->y.HALF.HI && unk1->subtype == i->entityType.subtype &&
-            3 == i->entityType.type && unk1->form == i->entityType.form) {
+        if (x == i->x.HALF.HI && y == i->y.HALF.HI && unk1->subtype == i->id && 3 == i->kind && unk1->form == i->type) {
             return i;
         }
     }

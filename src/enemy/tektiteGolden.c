@@ -45,9 +45,9 @@ void sub_08037F58(Entity* this) {
     u32 uVar1;
 
     if ((this->field_0x3a & 2) == 0) {
-        SetGlobalFlag(this->entityType.parameter);
+        SetGlobalFlag(this->type2);
     }
-    if ((this->entityType).form != 0) {
+    if (this->type != 0) {
         uVar1 = 0x59;
     } else {
         uVar1 = 0x58;
@@ -64,7 +64,7 @@ void sub_08037F84(Entity* this) {
 
 void sub_08037FA0(Entity* this) {
 
-    if (CheckGlobalFlag(this->entityType.parameter)) {
+    if (CheckGlobalFlag(this->type2)) {
         DeleteThisEntity();
     }
     sub_0804A720(this);

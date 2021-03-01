@@ -42,7 +42,7 @@ void sub_080916EC(Entity* this) {
     this->x.HALF.HI = gRoomControls.roomOriginX + ((unk->field_0x0 & 0x3f) << 4) + 8;
     this->y.HALF.HI = gRoomControls.roomOriginY + ((unk->field_0x0 & 0xfc << 4) >> 2) + 8;
     this->animationState = unk->field_0x5;
-    this->entityType.parameter = unk->field_0x6;
+    this->type2 = unk->field_0x6;
     this->action = 1;
     this->hitbox = &gUnk_080FD310;
     this->flags |= 0x80;
@@ -53,7 +53,7 @@ void sub_080916EC(Entity* this) {
     this->direction = DirectionFromAnimationState(this->animationState);
     this->nonPlanarMovement = 0x700;
     this->spritePriority.b1 = 3;
-    InitAnimationForceUpdate(this, this->entityType.parameter + 4 + this->animationState);
+    InitAnimationForceUpdate(this, this->type2 + 4 + this->animationState);
     SetTile(0x4022, COORD_TO_TILE(this), this->collisionLayer);
 }
 
@@ -62,7 +62,7 @@ void sub_080917DC(Entity* this) {
     if ((this->bitfield & 0x7f) == 0x1d) {
         this->field_0x20 = 0x2a000;
         this->action = 7;
-        InitAnimationForceUpdate(this, this->entityType.parameter + 4 + this->animationState);
+        InitAnimationForceUpdate(this, this->type2 + 4 + this->animationState);
         SoundReq(0x13b);
     } else {
         if (sub_0800445C(this) != 0) {
@@ -75,7 +75,7 @@ void sub_080917DC(Entity* this) {
         } else {
             this->actionDelay = 0;
         }
-        if ((this->entityType).parameter == 0) {
+        if (this->type2 == 0) {
             if (8 < this->actionDelay) {
                 this->action = this->action + 1;
                 gPlayerState.jumpStatus = 0x81;

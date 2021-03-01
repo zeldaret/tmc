@@ -25,10 +25,10 @@ void GreatFairy(Entity* this) {
     u8 bVar1;
 
     if (this->action == 0) {
-        bVar1 = __modsi3(this->entityType.form, 11);
-        this->entityType.parameter = bVar1;
+        bVar1 = __modsi3(this->type, 11);
+        this->type2 = bVar1;
     }
-    GreatFairy_Main[(this->entityType).parameter](this);
+    GreatFairy_Main[this->type2](this);
 }
 
 // Behaviors
@@ -366,7 +366,7 @@ void GreatFairy_EnergyUpdate(Entity* this) {
 }
 
 void sub_08087114(Entity* this) {
-    if ((this->entityType).parameter == 0) {
+    if (this->type2 == 0) {
         GreatFairy_Form1Behaviors[this->action](this);
     } else {
         GreatFairy_Form2Behaviors[this->action](this);
@@ -485,10 +485,10 @@ void GreatFairy_InitializeAnimation(Entity* this) {
     s32 temp;
 
     this->action = 1;
-    temp = this->entityType.form;
-    this->entityType.parameter = temp % 11;
+    temp = this->type;
+    this->type2 = temp % 11;
     this->collisionLayer = 2;
-    InitializeAnimation(this, this->entityType.parameter);
+    InitializeAnimation(this, this->type2);
     sub_0805E3A0(this, 2);
 }
 
@@ -496,7 +496,7 @@ Entity* GreatFairy_CreateForm(Entity* this, u32 curForm, u32 parameter) {
     s32 nextForm;
     Entity* ent;
 
-    nextForm = this->entityType.form;
+    nextForm = this->type;
     nextForm /= 11;
 
     ent = CreateObject(0x1b, (u8)nextForm * 11 + curForm, parameter);

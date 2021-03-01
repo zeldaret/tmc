@@ -28,7 +28,7 @@ void sub_08068FC0(Entity* ent) {
     u32 r2;
 
     ent->action = 1;
-    ent->animationState = ent->entityType.parameter;
+    ent->animationState = ent->type2;
     ent->nonPlanarMovement = 0x40;
 
     ent->field_0x6c.HALF.HI = 0xFF;
@@ -181,7 +181,7 @@ void sub_080691E0(Entity* ent) {
 
 // Show dialogue
 void Cow_ShowDialogue(Entity* ent) {
-    ShowNPCDialogue(ent, &gUnk_08111938[ent->entityType.form]);
+    ShowNPCDialogue(ent, &gUnk_08111938[ent->type]);
 }
 
 void sub_0806920C(Entity* ent) {

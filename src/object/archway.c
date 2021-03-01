@@ -15,7 +15,7 @@ void Archway(Entity* this) {
         v1 = v1 - 0x5;
         v1 = v1 & v2;
         this->spriteSettings.raw = v1 | 1;
-        this->frameIndex = this->entityType.parameter;
+        this->frameIndex = this->type2;
         this->collisionLayer = 2;
         UpdateSpriteForCollisionLayer(this);
         v3 = CheckIsDungeon();

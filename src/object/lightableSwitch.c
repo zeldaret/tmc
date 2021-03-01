@@ -19,7 +19,7 @@ extern void (*const gUnk_081243C4[])(Entity*);
 extern Hitbox gUnk_080FD150;
 
 void LightableSwitch(Entity* this) {
-    gUnk_081243B4[this->entityType.form](this);
+    gUnk_081243B4[this->type](this);
     sub_0809EB30(this);
 }
 
@@ -69,9 +69,9 @@ void sub_0809EAD8(Entity* this) {
     u8 bVar1;
     Entity* pEVar2;
 
-    if (this->entityType.parameter != 0) {
+    if (this->type2 != 0) {
 
-        this->attachedEntity = GetCurrentRoomProperty(this->entityType.parameter);
+        this->attachedEntity = GetCurrentRoomProperty(this->type2);
         sub_080A2CC0(this, &this->attachedEntity, &this->field_0x74.HWORD);
 
     } else {
@@ -83,7 +83,7 @@ void sub_0809EB30(Entity* this) {
     u16 uVar1;
     u16* puVar2;
 
-    if (this->entityType.parameter != 0) {
+    if (this->type2 != 0) {
         if ((this->direction & 0x80) == 0) {
             sub_0806F69C(this);
         }

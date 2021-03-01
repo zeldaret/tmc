@@ -18,10 +18,10 @@ const u8 gUnk_08108D20[] = { 0x6F, 0x70, 0x71, 0x72, 0x71, 0x70 };
 void Manager27(Entity* this) {
 
     gUnk_08108D10[this->action](this);
-    if (CheckLocalFlagByOffset(0x300, this->entityType.form + 0x67)) {
-        gScreenTransition.field_0xac |= (1 << (this->entityType).form);
+    if (CheckLocalFlagByOffset(0x300, this->type + 0x67)) {
+        gScreenTransition.field_0xac |= (1 << this->type);
     } else {
-        gScreenTransition.field_0xac &= ~(1 << (this->entityType).form);
+        gScreenTransition.field_0xac &= ~(1 << this->type);
     }
 }
 
@@ -75,5 +75,5 @@ void sub_0805C908(Entity* this) {
 }
 
 u32 sub_0805C920(Entity* this) {
-    return CheckLocalFlagByOffset(0x300, (this->entityType).form + 0x67);
+    return CheckLocalFlagByOffset(0x300, this->type + 0x67);
 }

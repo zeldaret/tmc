@@ -12,11 +12,11 @@ void Object2A(Entity* this) {
 void sub_08089B18(Entity* this) {
     this->action = 1;
     this->spriteSettings.b.draw = TRUE;
-    if (this->entityType.parameter != 0) {
-        this->actionDelay = this->entityType.parameter;
+    if (this->type2 != 0) {
+        this->actionDelay = this->type2;
     }
     InitializeAnimation(this, 0);
-    switch (this->entityType.form) {
+    switch (this->type) {
         case 1:
             this->y.HALF.HI -= 8;
             this->actionDelay = 0x28;

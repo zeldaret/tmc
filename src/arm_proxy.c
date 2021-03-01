@@ -290,7 +290,7 @@ void ItemUpdate(Entity* this) {
         ItemInit(this);
 
     if (!sub_0805E3B0(this)) {
-        gPlayerItemFunctions[this->entityType.subtype](this);
+        gPlayerItemFunctions[this->id](this);
         this->bitfield &= ~0x80;
         if (this->hurtBlinkTime != 0) {
             if (this->hurtBlinkTime > 0)
@@ -306,7 +306,7 @@ void ItemUpdate(Entity* this) {
 NONMATCH("asm/non_matching/arm_proxy/ItemInit.inc", void ItemInit(Entity* this)) {
     ItemFrame* entry;
 
-    entry = &gUnk_08126DA8[this->entityType.subtype];
+    entry = &gUnk_08126DA8[this->id];
     if (entry->unk0 == 0xff) {
         u32 temp = entry->unk2;
         ItemFrame* temp2 = gUnk_08126ED8[entry->unk1];
@@ -343,7 +343,7 @@ void ObjectUpdate(Entity* this) {
     if (this->hurtBlinkTime != 0)
         this->hurtBlinkTime++;
     if (!sub_0805E3B0(this)) {
-        gObjectFunctions[this->entityType.subtype](this);
+        gObjectFunctions[this->id](this);
         this->bitfield &= ~0x80;
     }
     DrawEntity(this);
@@ -351,7 +351,7 @@ void ObjectUpdate(Entity* this) {
 
 void sub_08017508(Entity* this) {
     if (!sub_0805E3B0(this))
-        gManagerFunctions[this->entityType.subtype](this);
+        gManagerFunctions[this->id](this);
 }
 
 // regalloc
@@ -361,10 +361,10 @@ NONMATCH("asm/non_matching/arm_proxy/sub_08017530.inc", void NPCUpdate(Entity* t
     if ((this->action == 0) && ((this->flags & 1) == 0))
         sub_0806EC78(this);
     if (!sub_0805E3B0(this))
-        gNPCFunctions[this->entityType.subtype][0](this);
+        gNPCFunctions[this->id][0](this);
     if (this->next != NULL) {
-        if (gNPCFunctions[this->entityType.subtype][1] != NULL)
-            gNPCFunctions[this->entityType.subtype][1](this);
+        if (gNPCFunctions[this->id][1] != NULL)
+            gNPCFunctions[this->id][1](this);
         if ((this->currentHealth & 0x7f) != 0) {
             u32 temp = this->currentHealth & 0x7f;
             gUnk_02031EC0[temp * 2 - 2].x = this->x.HALF.HI - gRoomControls.roomOriginX;

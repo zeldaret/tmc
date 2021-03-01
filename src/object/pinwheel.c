@@ -21,7 +21,7 @@ void Pinwheel(Entity* this) {
 }
 
 void sub_080A23DC(Entity* this) {
-    this->field_0x68.HWORD = gUnk_08125050[this->entityType.parameter];
+    this->field_0x68.HWORD = gUnk_08125050[this->type2];
     this->spritePriority.b0 = 7;
     if (CheckLocalFlag(this->field_0x68.HWORD) != 0) {
         this->action = 2;

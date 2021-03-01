@@ -10,7 +10,7 @@ void ObjectAF(Entity* this) {
 }
 
 void sub_080A05A4(Entity* this) {
-    if ((this->entityType).form != 2) {
+    if (this->type != 2) {
         this->action = 1;
         this->spritePriority.b0 = 6;
         sub_080A0640(this);
@@ -45,7 +45,7 @@ void sub_080A0624(Entity* this) {
 }
 
 void sub_080A0640(Entity* this) {
-    if (this->entityType.form == 0) {
+    if (this->type == 0) {
         PositionRelative(*(Entity**)(this->parent->myHeap + 0x4), this, 0, 0x80000);
     } else {
         CopyPosition(this->parent, this);

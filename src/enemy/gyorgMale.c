@@ -114,7 +114,7 @@ void sub_08046898(Entity* this) {
     u32 tmp2;
     if (!tmp)
         return;
-    tmp->entityType.form = 1;
+    tmp->type = 1;
     tmp->parent = this;
     this->attachedEntity = tmp;
     this->action = 1;
@@ -141,7 +141,7 @@ void sub_08046910(Entity* this) {
 }
 
 void sub_08046930(Entity* this) {
-    if (this->entityType.form) {
+    if (this->type) {
         this->previousActionFlag = 5;
         this->direction = 0x20;
         this->nonPlanarMovement = 0x280;
@@ -806,7 +806,7 @@ void sub_08047914(Entity* this) {
     } else {
         this->previousActionFlag = 3;
         this->field_0x70.HALF.LO = 0x3C;
-        this->field_0x7c.HALF.HI = ((this->entityType.form * 0xF) << 2) + 0x78;
+        this->field_0x7c.HALF.HI = ((this->type * 0xF) << 2) + 0x78;
         sub_080A1D70(((Entity*)this->myHeap)->prev, this->animationState);
     }
 }
@@ -816,7 +816,7 @@ void sub_08047978(Entity* this) {
     if (this->currentHealth != 0) {
         if (--this->field_0x70.HALF_U.LO == 0) {
             this->field_0x70.HALF.HI = 1;
-            if (this->entityType.form == 0) {
+            if (this->type == 0) {
                 this->field_0x70.HALF.LO = 0xB4;
             } else {
                 this->field_0x70.HALF.LO = 0x168;
@@ -849,7 +849,7 @@ void sub_08047978(Entity* this) {
     if (this->attachedEntity->action != 1)
         return;
     this->previousActionFlag = 4;
-    if (this->entityType.form == 0) {
+    if (this->type == 0) {
         if ((((Entity*)this->myHeap)->next->animationState >> 6) == 1) {
             this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x1C0;
             this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x250;
@@ -880,7 +880,7 @@ void sub_08047B08(Entity* this) {
     sub_08047E58(this);
     if (!sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, 4))
         return;
-    if (this->entityType.form == 0) {
+    if (this->type == 0) {
         this->action = 7;
         this->previousActionFlag = 0;
         this->direction ^= 0x80;
@@ -968,7 +968,7 @@ void sub_08047BF0(Entity* this) {
 void sub_08047D24(Entity* this) {
     this->field_0x7c.HALF_U.HI += 8;
     if (this->field_0x7c.HALF_U.HI > 0x800) {
-        if (this->entityType.form == 0) {
+        if (this->type == 0) {
             ((u32*)this->myHeap)[2] = 0;
         } else {
             ((u32*)this->myHeap)[3] = 0;

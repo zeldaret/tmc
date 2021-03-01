@@ -94,7 +94,7 @@ void sub_0806DA1C(Entity* this, u32* param_2) {
 u8 sub_0806DA3C(Entity* this) {
     u32 result;
 
-    switch (this->entityType.form) {
+    switch (this->type) {
         default:
             result = 0;
             break;
@@ -141,7 +141,7 @@ void sub_0806DAD0(Entity* this) {
 }
 
 void sub_0806DAE8(Entity* this) {
-    switch (this->entityType.form - 1) {
+    switch (this->type - 1) {
         case 0:
             SetLocalFlag(0xee);
             break;
@@ -253,7 +253,7 @@ void sub_0806DCC0() {
 void NPC4E_Fusion(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
-        switch (this->entityType.form) {
+        switch (this->type) {
             case 1:
             case 2:
             case 3:

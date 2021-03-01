@@ -5,18 +5,21 @@
 #include "global.h"
 #include "sprite.h"
 
+typedef enum {
+    PLAYER = 1,
+    ENEMY = 3,
+    PROJECTILE = 4,
+    OBJECT = 6,
+    NPC = 7,
+    PLAYER_ITEM = 8,
+    MANAGER = 9,
+} EntityType;
+
 typedef struct {
     void* entity1;
     void* entity2;
     u8 filler[14];
 } UnkStruct;
-
-typedef struct {
-    u8 type;
-    u8 subtype;
-    u8 form;
-    u8 parameter;
-} EntityType;
 
 typedef struct {
     s8 offset_x;
@@ -39,7 +42,10 @@ typedef struct {
 typedef struct Entity {
     /*0x00*/ struct Entity* prev;
     /*0x04*/ struct Entity* next;
-    /*0x08*/ EntityType entityType;
+    /*0x08*/ u8 kind; // was: type
+    /*0x09*/ u8 id; // was: subtype
+    /*0x0a*/ u8 type; // was: form
+    /*0x0b*/ u8 type2; // was: parameter
     /*0x0c*/ u8 action;
     /*0x0d*/ u8 previousActionFlag;
     /*0x0e*/ u8 actionDelay;

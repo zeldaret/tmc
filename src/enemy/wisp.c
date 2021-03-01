@@ -36,9 +36,9 @@ void sub_08033564(Entity* this) {
             this->flags &= 0x7f;
             this->field_0x7c.HALF.LO = 0x27c;
             gPlayerState.flags.all |= 0x4000;
-            gSave.stats.effect = this->entityType.form + 1;
+            gSave.stats.effect = this->type + 1;
             gSave.stats.effectTimer = 600;
-            if (this->entityType.form == 0) {
+            if (this->type == 0) {
                 break;
             }
             DeleteThisEntity();
@@ -90,7 +90,7 @@ void sub_08033674(Entity* this) {
     this->field_0x80.HWORD = this->x.HALF.HI;
     this->field_0x82.HWORD = this->y.HALF.HI;
     sub_08033744(this);
-    InitializeAnimation(this, this->entityType.parameter);
+    InitializeAnimation(this, this->type2);
 }
 
 void sub_080336A8(Entity* this) {

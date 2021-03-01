@@ -389,7 +389,7 @@ void sub_0807DDE4(Entity* entity) {
         loopVar = loopVar ^ switchVar;
         switch (switchVar) {
             case 2:
-                if (entity->entityType.type == 7) {
+                if (entity->kind == 7) {
                     sub_0806ED78(entity);
                 } else {
                     sub_0800445C(entity);

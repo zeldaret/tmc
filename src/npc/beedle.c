@@ -99,14 +99,14 @@ void sub_08063410(Entity* this) {
             return;
         }
         this->action++;
-        if (this->entityType.form != 0) {
+        if (this->type != 0) {
             this->hitbox = &gUnk_0810C894;
-            this->entityType.parameter = 0;
+            this->type2 = 0;
         }
         sub_0807DD64(this);
         sub_08078778(this);
     }
-    if (this->entityType.form != 0) {
+    if (this->type != 0) {
         sub_0806346C(this);
     }
     sub_0807DDAC(this, NULL);
@@ -141,24 +141,24 @@ void sub_0806346C(Entity* this) {
     iVar2 >>= 4;
 
     bVar1 = gUnk_0810C8F0[(gPlayerEntity.animationState >> 1) + iVar3 * 4 + iVar2 * 0x18];
-    if (bVar1 != this->entityType.parameter) {
+    if (bVar1 != this->type2) {
         gUnk_0810C89C_struct* temp = &gUnk_0810C89C[bVar1];
         sub_08078850(this, 1, temp->unk_04, temp);
-        this->entityType.parameter = bVar1;
+        this->type2 = bVar1;
     }
 }
 
 void sub_080634E4(Entity* this, u32* param_1) {
-    param_1[1] = this->entityType.parameter;
+    param_1[1] = this->type2;
 }
 
 void sub_080634EC(Entity* this) {
-    gRoomVars.itemForSaleIndex = gUnk_0810C88C[this->entityType.parameter];
+    gRoomVars.itemForSaleIndex = gUnk_0810C88C[this->type2];
 }
 
 void sub_08063504(Entity* this, u32* param_2) {
     u32 uVar1;
 
-    uVar1 = sub_080544DC(gUnk_0810C88C[this->entityType.parameter]);
+    uVar1 = sub_080544DC(gUnk_0810C88C[this->type2]);
     param_2[5] = BOOLCAST(uVar1);
 }
