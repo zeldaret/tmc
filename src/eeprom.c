@@ -14,7 +14,7 @@ extern const EEPROMConfig* gEEPROMConfig;
 const EEPROMConfig gEEPROMConfig512 = { 0x200, 0x40, 0x300, 0x6 };
 const EEPROMConfig gEEPROMConfig8k = { 0x2000, 0x400, 0x300, 0xe };
 
-u16 EEPROMWrite(u16, u16*, u8);
+u16 EEPROMWrite(u16, const u16*, u8);
 
 u32 EEPROMConfigure(u16 unk_1) {
     u32 ret;
@@ -33,7 +33,7 @@ u32 EEPROMConfigure(u16 unk_1) {
     return ret;
 }
 
-static void DMA3Transfer(void* src, void* dest, u16 count) {
+static void DMA3Transfer(const void* src, void* dest, u16 count) {
     u32 temp;
 
     u16 IME_save;
@@ -98,7 +98,7 @@ u32 EEPROMRead(u16 address, u16* data) {
     }
 }
 
-u16 EEPROMWrite1(u16 address, u16* data) {
+u16 EEPROMWrite1(u16 address, const u16* data) {
     return EEPROMWrite(address, data, 1);
 }
 
@@ -106,7 +106,7 @@ u16 EEPROMWrite1(u16 address, u16* data) {
 #define REG_EEPROM (*(u16*)0xd000000)
 // this is the furthest I could get
 // 0x080B16AC
-NONMATCH("asm/non_matching/code_080B1520/EEPROMWrite.inc", u16 EEPROMWrite(u16 address, u16* data, u8 unk_3)) {
+NONMATCH("asm/non_matching/code_080B1520/EEPROMWrite.inc", u16 EEPROMWrite(u16 address, const u16* data, u8 unk_3)) {
     u16 buffer[0x52]; // this is one too large?
     vu16 stack_a4;
     vu16 prev_vcount;      // stack + a6
@@ -180,7 +180,7 @@ NONMATCH("asm/non_matching/code_080B1520/EEPROMWrite.inc", u16 EEPROMWrite(u16 a
 }
 END_NONMATCH
 
-u16 EEPROMCompare(u16 address, u16* data) {
+u16 EEPROMCompare(u16 address, const u16* data) {
     u16 ret;
 
     u16 buffer[4];
@@ -205,7 +205,7 @@ u16 EEPROMCompare(u16 address, u16* data) {
 
 const char EEPROM_NOWAIT[] = "EEPROM_NOWAIT";
 
-u32 EEPROMWrite1_check(u16 address, u16* data) {
+u32 EEPROMWrite1_check(u16 address, const u16* data) {
     u8 i;
     u32 ret;
 
@@ -220,7 +220,7 @@ u32 EEPROMWrite1_check(u16 address, u16* data) {
     return ret;
 }
 
-u16 EEPROMWrite0_8k(u16 address, u16* data) {
+u16 EEPROMWrite0_8k(u16 address, const u16* data) {
     u16 ret;
 
     if (gEEPROMConfig->unk_00 != 0x200) {
@@ -231,7 +231,7 @@ u16 EEPROMWrite0_8k(u16 address, u16* data) {
     return ret;
 }
 
-u32 EEPROMWrite0_8k_Check(u16 address, u16* data) {
+u32 EEPROMWrite0_8k_Check(u16 address, const u16* data) {
     u8 i;
     u32 ret;
 

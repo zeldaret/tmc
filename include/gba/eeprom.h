@@ -15,7 +15,7 @@
  */
 u32 EEPROMConfigure(u16 unk_1);
 u32 EEPROMRead(u16 address, u16* data);
-u16 EEPROMCompare(u16 address, u16* data);
-u32 EEPROMWrite0_8k_Check(u16 address, u16* data);
+u16 EEPROMCompare(u16 address, const u16* data);
+u32 EEPROMWrite0_8k_Check(u16 address, const u16* data);
 
 #endif // GUARD_GBA_EEPROM
