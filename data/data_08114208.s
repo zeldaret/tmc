@@ -4,7 +4,6 @@
 	.section .rodata
 	.align 2
 
-@ TODO rename this file
 gUnk_08114208:: @ 08114208
 	.incbin "baserom.gba", 0x114208, 0x0000005
 

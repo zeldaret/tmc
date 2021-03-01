@@ -18,10 +18,17 @@ const Hitbox gUnk_08114154;
 const u8 gUnk_0811415C[];
 const ScreenTransitionData* const gUnk_081141A4[];
 const u8 gUnk_081141E4[];
-const u8 gUnk_081141F4[];
+const u16 gUnk_081141F4[];
 
-void EzloCap(
-    Entity* this) { // 0x0806D86C  // Ezlo as a cap in the Minish Woods, is destroyed as soon as link wears ezlo
+typedef struct {
+    u32 unk_00;
+    s8 unk_04;
+} gUnk_0810C89C_struct;
+
+extern void sub_08078850(Entity*, u32, u8 /* TODO this is a s8 in beedle.c*/, gUnk_0810C89C_struct*);
+
+// Ezlo as a cap in the Minish Woods, is destroyed as soon as link wears ezlo
+void EzloCap(Entity* this) {
     if (this->action == 0) {
         this->action += 1;
         sub_0805E3A0(this, 2);
@@ -32,21 +39,55 @@ void EzloCap(
     UpdateAnimationSingleFrame(this);
 }
 
-NONMATCH("asm/non_matching/ezloCap/sub_0806D8A0.inc", void sub_0806D8A0(Entity* this, u32 param_2)) {
-}
-END_NONMATCH
+typedef struct {
+    u8 unk_00[4];
+    u32 field_04;
+    u32 field_08;
+    u8 unk_0c[8];
+    u32 field_14;
+    u8 unk_18;
+    u8 field_19;
+    u8 unk_1a[3];
+    u16 field_1e;
+    u8 unk_20[2];
+    u16 field_22;
+} paramStruct;
 
-NONMATCH("asm/non_matching/ezloCap/sub_0806D908.inc", void sub_0806D908(Entity* this)) {
-}
-END_NONMATCH
+void sub_0806D8A0(Entity* this, paramStruct* param_2) {
+    s32 xOffset;
+    s32 yOffset;
 
-void sub_0806D944(Entity* this) { // called when talk to ezlo, also when ezlo moves after you
+    param_2->field_19 = 8;
+    param_2->field_08 |= 2;
+    param_2->field_14 = 0;
+    xOffset = 16;
+    if (this->spriteSettings.b.flipX) {
+        xOffset = -xOffset;
+    }
+    xOffset += gPlayerEntity.x.HALF.HI;
+    yOffset = gPlayerEntity.y.HALF.HI + 2;
+    param_2->field_1e = xOffset;
+    param_2->field_22 = yOffset;
+
+    xOffset -= this->x.HALF.HI;
+    this->direction = sub_080045DA(xOffset, yOffset - this->y.HALF.HI);
+    this->animationState = (this->animationState & 0x80) | gUnk_08114134[this->direction >> 4];
+}
+
+void sub_0806D908(Entity* this) {
+    this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
+    this->animationState = (this->animationState & 0x80) | gUnk_08114144[this->direction >> 0x1];
+}
+
+// called when talk to ezlo, also when ezlo moves after you
+void sub_0806D944(Entity* this) {
     this->spriteSettings.b.flipX = 0;
     if (this->x.WORD <= gPlayerEntity.x.WORD) {
         this->spriteSettings.b.flipX = 1;
     }
 }
 
+// Ezlo Angry FX
 void sub_0806D96C(Entity* this) {
     Entity* fx = CreateFx(this, 0x42, 0);
     if (fx != NULL) {
@@ -64,9 +105,10 @@ void sub_0806D9A4(Entity* this) {
     gPlayerEntity.animationState = 4;
 }
 
-void NPC4E(Entity* this) { // 0x0806D9D0    // is created when link enters minish woods for the first time and
-                           // destroyed once he wears ezlo. Also exists when entering hyrule for the second time
-                           // and fusing kinstones. Is destroyed as soon as the kinstone is fused.
+// NPC4E is created when link enters minish woods for the first time and
+// destroyed once he wears ezlo. Also exists when entering hyrule for the second time
+// and fusing kinstones. Is destroyed as soon as the kinstone is fused.
+void NPC4E(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         this->spriteSettings.b.draw = 4;
@@ -77,9 +119,12 @@ void NPC4E(Entity* this) { // 0x0806D9D0    // is created when link enters minis
     }
 }
 
-NONMATCH("asm/non_matching/ezloCap/sub_0806DA04.inc", void sub_0806DA04(Entity* this, u32 param_2)) {
+void sub_0806DA04(Entity* this, u32* param_2) {
+    // TODO gUnk_0811415C should be a gUnk_0810C89C_struct[], but then a lot of bytes everywhere are wrong?
+    gUnk_0810C89C_struct* a = (gUnk_0810C89C_struct*)&(
+        (gUnk_0810C89C_struct*)gUnk_0811415C)[param_2[1]]; // cast necessary to no longer make it a const* ?
+    sub_08078850(this, 1, a->unk_04, a);
 }
-END_NONMATCH
 
 void sub_0806DA1C(Entity* this, u32* param_2) {
     sub_0808091C((ScreenTransitionData*)(gUnk_081141A4)[param_2[1]], (u32)(gUnk_081141E4[param_2[1]]));
@@ -170,7 +215,7 @@ void sub_0806DB44(Entity* this, u32* param_2) {
 // The unused param just had to be added, so that a mov r1, #0 in NPC4E_Fusion is matching correctly
 void sub_0806DB84(Entity* this, u8 unused) {
     Entity* ent;
-    this->hitbox = &gUnk_08114154;
+    this->hitbox = (Hitbox*)&gUnk_08114154;
     ent = CreateObject(0x3e, 4, 0);
     if (ent != NULL) {
         PositionRelative(this, ent, -0x80000, 0);
@@ -219,9 +264,9 @@ void sub_0806DC58(Entity* this) {
 }
 
 void sub_0806DC7C() {
-    u16* tiles = (u16*)&gUnk_081141F4;
+    const u16* tiles = gUnk_081141F4;
     while (*tiles != 0) {
-        u32 tile = (u32)*tiles;
+        u32 tile = *tiles;
         tiles = tiles + 1;
         SetTileType(0x4072, tile, 1);
     }
@@ -229,13 +274,11 @@ void sub_0806DC7C() {
 
 void sub_0806DCA0() {
     u16 uVar1;
-    u16* tiles;
-
-    tiles = (u16*)&gUnk_081141F4;
+    const u16* tiles = gUnk_081141F4;
     while (*tiles != 0) {
-        u16 tile = *tiles;
+        u32 tile = *tiles;
         tiles = tiles + 1;
-        sub_0807BA8C((u32)tile, 1);
+        sub_0807BA8C(tile, 1);
     }
 }
 
@@ -270,7 +313,7 @@ void NPC4E_Fusion(Entity* this) {
     }
 }
 
-// rodata
+// animation states
 const u8 gUnk_08114134[] = { 0x00, 0x01, 0x01, 0x02, 0x02, 0x03, 0x03, 0x04,
                              0x04, 0x05, 0x05, 0x06, 0x06, 0x07, 0x07, 0x00 };
 
@@ -278,14 +321,13 @@ const u8 gUnk_08114134[] = { 0x00, 0x01, 0x01, 0x02, 0x02, 0x03, 0x03, 0x04,
 const u8 gUnk_08114144[] = { 0x00, 0x01, 0x01, 0x02, 0x02, 0x03, 0x03, 0x04,
                              0x04, 0x05, 0x05, 0x06, 0x06, 0x07, 0x07, 0x00 };
 
-const BoundingBox gUnk_08114154 = { 0, -8, 0, 0, 0, 0, 24, 8 };
+const Hitbox gUnk_08114154 = { 0, -8, 0, 0, 0, 0, 24, 8 };
 
-const u8 gUnk_0811415C[] = { // 0x48
-    0x00, 0x00, 0x08, 0x08, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1a, 0x08, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x10, 0x04, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x0a,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, 0x04, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x08, 0x10, 0x04, 0x0e, 0x00,
-    0x00, 0x00, 0x00, 0xf8, 0x18, 0x08, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x58, 0x08, 0x0e, 0x00, 0x00, 0x00
-};
+const u8 gUnk_0811415C[] = { 0x00, 0x00, 0x08, 0x08, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1a, 0x08, 0x0e, 0x00, 0x00,
+                             0x00, 0x00, 0x00, 0x10, 0x04, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x0a, 0x00, 0x00,
+                             0x00, 0x00, 0x00, 0x00, 0x0a, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, 0x04, 0x0e,
+                             0x00, 0x00, 0x00, 0x00, 0x08, 0x10, 0x04, 0x0e, 0x00, 0x00, 0x00, 0x00, 0xf8, 0x18, 0x08,
+                             0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x58, 0x08, 0x0e, 0x00, 0x00, 0x00 };
 extern ScreenTransitionData gUnk_0813AB6C;
 extern ScreenTransitionData gUnk_0813ABBC;
 extern ScreenTransitionData gUnk_0813ABE4;
@@ -307,12 +349,10 @@ const ScreenTransitionData* const gUnk_081141A4[] = { &gUnk_0813AB6C, &gUnk_0813
                                                       &gUnk_0813AC0C, &gUnk_0813AC20, &gUnk_0813AC5C, &gUnk_0813AC70,
                                                       &gUnk_0813AC84, &gUnk_0813AC98, &gUnk_0813ACAC, &gUnk_0813ACC0,
                                                       &gUnk_0813ACD4, &gUnk_0813ACE8, &gUnk_0813AC5C, &gUnk_0813ACFC };
+
 // param_2 for the call to sub_0808091C, same indices as gUnk_081141A4
 const u8 gUnk_081141E4[] = { 0x02, 0x02, 0x04, 0x04, 0x02, 0x02, 0x09, 0x02,
                              0x02, 0x04, 0x02, 0x04, 0x04, 0x04, 0x04, 0x02 };
 
 // tiles that are changed?
-const u8 gUnk_081141F4[] = { // 0x14
-    0x7a, 0x04, 0x7b, 0x04, 0xaf, 0x05, 0xef, 0x05, 0x38, 0x07,
-    0x39, 0x07, 0x3a, 0x07, 0x3b, 0x07, 0x00, 0x00, 0x00, 0x00
-};
+const u16 gUnk_081141F4[] = { 0x047a, 0x047b, 0x05af, 0x05ef, 0x0738, 0x0739, 0x073a, 0x073b, 0x0000, 0x0000 };
