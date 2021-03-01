@@ -34,7 +34,7 @@ void sub_0804B058(EntityData* dat) {
     if ((dat != NULL) && *(u8*)dat != 0xff) {
         uVar2 = 0;
         do {
-            if ((uVar2 < 0x20) && ((dat->type) == 3)) {
+            if ((uVar2 < 0x20) && ((dat->kind) == 3)) {
                 if (sub_08049D1C(uVar2) != 0) {
                     ent = LoadRoomEntity(dat);
                     if ((ent != NULL) && (ent->kind == 3)) {
