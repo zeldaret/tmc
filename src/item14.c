@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "audio.h"
 #include "functions.h"
 #include "player.h"
 #include "room.h"
@@ -30,7 +31,7 @@ void sub_0805FBE8(Entity* this) {
     sub_0801766C(this);
     sub_0806F69C(this);
     sub_0805FC74(this);
-    SoundReq(0x13f);
+    SoundReq(SFX_ITEM_SWORD_BEAM);
 }
 
 void sub_0805FC74(Entity* this) {
@@ -39,7 +40,7 @@ void sub_0805FC74(Entity* this) {
     if (--*(int*)&this->field_0x6c != -1) {
         GetNextFrame(this);
         sub_0806F69C(this);
-        ++this->actionDelay;
+        this->actionDelay++;
         if (this->type2 == 0) {
             sub_0800451C(this);
         }

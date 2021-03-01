@@ -164,12 +164,12 @@ void sub_0804696C(Entity* this) {
         this->nonPlanarMovement = 0x100;
         this->spriteOrientation.flipY = 3;
         this->spriteRendering.b3 = 3;
-        SoundReq(0x2e);
+        SoundReq(BGM_BOSS_THEME);
     }
     if (this->actionDelay) {
         if (gRoomControls.roomOriginY + 0x258 > this->y.HALF.HI) {
             this->actionDelay = 0;
-            SoundReq(0xf7);
+            SoundReq(SFX_APPARATE);
         }
     }
 }

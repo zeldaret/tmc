@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "manager.h"
 #include "flags.h"
 #include "structures.h"
@@ -100,7 +101,7 @@ void sub_080588F8(ManagerC* this) {
                 case 0xf0:
                     this->unk_28 = this->unk_24.HALF.HI;
                     this->manager.unk_0f = 0x2D;
-                    SoundReq(0x8c);
+                    SoundReq(SFX_BARREL_ROLL_STOP);
             }
         }
     } else {
@@ -123,7 +124,7 @@ void sub_080588F8(ManagerC* this) {
             }
             if (ABS_DIFF_GT(this->unk_2c, this->unk_24.WORD, 0x100000)) {
                 this->unk_2c = this->unk_24.WORD;
-                SoundReq(0x8b);
+                SoundReq(SFX_BARREL_ROLL);
             }
         }
     }
@@ -213,7 +214,7 @@ void sub_08058B5C(ManagerC* this, u32 unk1) {
     gScreenTransition.playerStartPos.HALF.x = gUnk_081082E8[unk1 * 3];
     gScreenTransition.playerStartPos.HALF.y = gUnk_081082E8[unk1 * 3 + 1];
     gSave.unk7 = gUnk_081082E8[unk1 * 3 + 2];
-    SoundReq(0x121);
+    SoundReq(SFX_STAIRS);
 }
 
 void sub_08058BC8(ManagerC* this) {

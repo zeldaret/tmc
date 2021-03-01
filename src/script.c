@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "flags.h"
 #include "entity.h"
 #include "area.h"
@@ -1337,7 +1338,7 @@ void sub_0807EFD4(Entity* unk1, ScriptExecutionContext* unk2) {
 }
 
 void sub_0807EFE4(Entity* unk1, ScriptExecutionContext* unk2) {
-    SoundReq(0x80100000);
+    SoundReq(SONG_RESET_UNK);
 }
 
 void sub_0807EFF4(Entity* unk1, ScriptExecutionContext* unk2) {

@@ -105,13 +105,13 @@ void sub_080521A0(void) {
                         }
                         gMenu.transitionTimer = 0x3c;
                         sub_080A7114(temp2);
-                        SoundReq(0x6a);
+                        SoundReq(SFX_TEXTBOX_SELECT);
                         break;
                 }
                 if (gMenu.field_0x3 != temp) {
                     gMenu.field_0x3 = temp;
                     sub_08052418(0, temp);
-                    SoundReq(0x69);
+                    SoundReq(SFX_TEXTBOX_CHOICE);
                 }
                 break;
             }
@@ -170,7 +170,7 @@ void sub_080522F4(void) {
                         break;
                     case 0x1:
                         sub_080A7114(2);
-                        SoundReq(0x6a);
+                        SoundReq(SFX_TEXTBOX_SELECT);
                         if (temp == 0) {
                             DoFade(5, 8);
                         } else {
@@ -181,7 +181,7 @@ void sub_080522F4(void) {
                 if (gMenu.field_0x3 != temp) {
                     gMenu.field_0x3 = temp;
                     sub_08052418(1, temp);
-                    SoundReq(0x69);
+                    SoundReq(SFX_TEXTBOX_CHOICE);
                 }
             }
             break;

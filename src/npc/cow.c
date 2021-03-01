@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "player.h"
 #include "functions.h"
@@ -216,7 +217,7 @@ void sub_0806924C(Entity* ent) {
             Cow_ShowDialogue(ent);
             sub_080791D0();
         }
-        SoundReq(212);
+        SoundReq(SFX_VO_COW);
         ent->interactType = 0;
     }
 }

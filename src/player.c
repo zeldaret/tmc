@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "player.h"
 #include "textbox.h"
@@ -116,8 +117,8 @@ void sub_08070C3C(Entity* this) {
     this->spritePriority.b1 = 0;
     ResetPlayer();
     sub_0807A108();
-    SoundReq(0x7b);
-    SoundReq(0x85);
+    SoundReq(SFX_PLY_VO7);
+    SoundReq(SFX_FALL_HOLE);
 }
 
 void sub_08070CB4(Entity* this) {
@@ -355,8 +356,8 @@ void sub_080710A8(Entity* this) {
 
     this->nonPlanarMovement = 0x100;
     sub_0807A108();
-    SoundReq(0x7c);
-    SoundReq(0x78);
+    SoundReq(SFX_PLY_JUMP);
+    SoundReq(SFX_PLY_VO4);
 }
 
 void sub_08071130(Entity* this) {
@@ -412,7 +413,7 @@ void sub_08071130(Entity* this) {
     this->previousActionFlag++;
     sub_08078F60();
     this->field_0x42 = 0;
-    SoundReq(0x7d);
+    SoundReq(SFX_PLY_LAND);
 }
 
 void sub_08071208(Entity* this) {

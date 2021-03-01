@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "functions.h"
 #include "room.h"
@@ -35,7 +36,7 @@ void sub_0806C224(void) {
 void Simon_CreateChest(Entity* this) {
     CreateObjectWithParent(this, 0xf, 0x43, 0);
     SetTileType(0x73, COORD_TO_TILE(this), this->collisionLayer);
-    SoundReq(0x73);
+    SoundReq(SFX_SECRET_BIG);
 }
 
 void sub_0806C280(void) {

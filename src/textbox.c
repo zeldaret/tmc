@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "room.h"
 #include "entity.h"
 #include "functions.h"
@@ -180,7 +181,7 @@ u32 sub_080565B4(void) {
         gUnk_02022780._89 = 1;
         gUnk_02022780._99 = 1;
         sub_08056F88(gUnk_02022780._3[0], gUnk_02022780._53);
-        SoundReq(0x65);
+        SoundReq(SFX_TEXTBOX_OPEN);
     }
 
     if (sub_08056CC0(1)) {
@@ -195,7 +196,7 @@ u32 sub_080565F8(void) {
         gUnk_02022780._89 = 1;
         gUnk_02022780._99 = 3;
         sub_08056BDC(0);
-        SoundReq(0x66);
+        SoundReq(SFX_TEXTBOX_CLOSE);
     }
 
     if (sub_08056CC0(-1)) {

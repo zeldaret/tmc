@@ -1,3 +1,4 @@
+#include "audio.h"
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
@@ -159,7 +160,7 @@ void sub_0806DAE8(Entity* this) {
             break;
     }
 
-    SoundReq(0xcd);
+    SoundReq(SFX_TASK_COMPLETE);
 }
 
 // Unknown param_2 struct

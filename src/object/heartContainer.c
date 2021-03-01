@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
@@ -54,7 +55,7 @@ static void sub_0808E714(Entity* this) {
         this->action = 3;
         this->field_0x3c |= 0x10;
         sub_0805EC60(this);
-        SoundReq(0x141);
+        SoundReq(SFX_HEART_CONTAINER_SPAWN);
     }
     sub_08080CB4(this);
 }

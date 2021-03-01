@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "functions.h"
 #include "room.h"
@@ -140,7 +141,7 @@ void sub_08066E80(Entity* ent, u8* param_2) {
                 param_2[0x18]++;
                 ent->field_0x20 = 0x20000;
                 ent->frames.all &= 0xFE;
-                SoundReq(0x7C);
+                SoundReq(SFX_PLY_JUMP);
             }
             break;
         case 2:

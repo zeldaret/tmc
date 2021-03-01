@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "room.h"
 #include "player.h"
@@ -70,7 +71,7 @@ void sub_0809F548(Entity* this) {
 
 void sub_0809F5B0(Entity* this) {
     if (--this->actionDelay == 0) {
-        SoundReq(115);
+        SoundReq(SFX_SECRET_BIG);
         SetGlobalFlag(KUMOTATSUMAKI);
         LoadRoomEntityList(&gUnk_080DD750);
         DeleteThisEntity();
@@ -123,7 +124,7 @@ void sub_0809F69C(Entity* this) {
         this->actionDelay = 30;
         this->action = 4;
         gRoomControls.cameraTarget = &gPlayerEntity;
-        SoundReq(115);
+        SoundReq(SFX_SECRET_BIG);
     }
 }
 

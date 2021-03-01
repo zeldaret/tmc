@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "area.h"
 #include "room.h"
@@ -2240,7 +2241,7 @@ void sub_0804CD48(void) {
     if (CheckGlobalFlag(LV1_CLEAR)) {
         LoadRoomEntityList(&gUnk_080DF94C);
     } else {
-        SoundReq(0x80100000);
+        SoundReq(SONG_RESET_UNK);
         gArea.musicIndex = gArea.pMusicIndex;
     }
 }
@@ -2428,7 +2429,7 @@ void sub_0804CED8(void) {
         sub_0807AABC(&gPlayerEntity);
         LoadRoomEntityList(&gUnk_080E1814);
     } else {
-        SoundReq(0x80100000);
+        SoundReq(SONG_RESET_UNK);
         gArea.musicIndex = gArea.pMusicIndex;
     }
 }
@@ -2522,10 +2523,10 @@ void sub_0804CFB0(void) {
 
     if (!CheckFlags(0x31)) {
         if (gScreenTransition.field_0x38 == 0) {
-            SoundReq(0x80100000);
+            SoundReq(SONG_RESET_UNK);
         } else {
             if (gScreenTransition.field_0x39 == 0) {
-                SoundReq(0x80050000);
+                SoundReq(SONG_STOP);
                 sub_08078A90(3);
             }
         }
@@ -2756,12 +2757,11 @@ u32 sub_0804D13C() {
 extern EntityData gUnk_080E49F4;
 
 void sub_0804D140(void) {
-
     sub_0805308C(0x100);
     if (CheckGlobalFlag(LV4_CLEAR)) {
         LoadRoomEntityList(&gUnk_080E49F4);
     } else {
-        SoundReq(0x80100000);
+        SoundReq(SONG_RESET_UNK);
         gArea.musicIndex = gArea.pMusicIndex;
     }
 }
@@ -3090,7 +3090,7 @@ void sub_0804D384(void) {
             sub_08078A90(3);
             LoadRoomEntityList(&gUnk_080E72E4);
             gArea.musicIndex = gArea.pMusicIndex;
-            SoundReq(0x80100000);
+            SoundReq(SONG_RESET_UNK);
         }
     }
 }
@@ -3498,7 +3498,7 @@ u32 sub_0804D6C4() {
 }
 
 void sub_0804D6C8(void) {
-    SoundReq(0x80100000);
+    SoundReq(SONG_RESET_UNK);
     gArea.musicIndex = gArea.pMusicIndex;
 }
 
@@ -4508,7 +4508,7 @@ void sub_0804E3C4() {
         index = 0xE;
     }
     sub_0804B3C4(&gUnk_080F0E1C[index]);
-    SoundReq(0x80100000);
+    SoundReq(SONG_RESET_UNK);
 }
 
 u32 sub_0804E45C() {
@@ -4716,7 +4716,7 @@ extern EntityData gUnk_080F2E2C;
 void sub_0804E6E8(void) {
     if (!CheckGlobalFlag(OUTDOOR)) {
         gArea.musicIndex = gArea.pMusicIndex;
-        SoundReq(0x800b0036);
+        SoundReq(SONG_VOL_RESET | BGM_MINISH_CAP);
     }
     if (!CheckGlobalFlag(START)) {
         LoadRoomEntityList(&gUnk_080F2E2C);
@@ -4733,7 +4733,7 @@ extern EntityData gUnk_080F2EC4;
 void sub_0804E72C(void) {
     if (!CheckGlobalFlag(OUTDOOR)) {
         gArea.musicIndex = gArea.pMusicIndex;
-        SoundReq(0x800b0036);
+        SoundReq(SONG_VOL_RESET | BGM_MINISH_CAP);
     }
     if (!CheckGlobalFlag(START)) {
         LoadRoomEntityList(&gUnk_080F2E94);
@@ -4786,7 +4786,7 @@ void sub_0804E7DC(void) {
     }
     if (!CheckGlobalFlag(OUTDOOR)) {
         gArea.musicIndex = gArea.pMusicIndex;
-        SoundReq(0x800b0036);
+        SoundReq(SONG_VOL_RESET | BGM_MINISH_CAP);
     }
     if ((gPlayerState.flags.all & 8) == 0) {
         LoadRoomEntityList(&gUnk_080F31D8);
