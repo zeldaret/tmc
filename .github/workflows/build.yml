@@ -1,0 +1,38 @@
+name: GithubCI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # there is no need to install wget, libc, gcc, zlib1g, tar or xz-utils. all of there come with the runner by default
+      - name: Fetch repo
+        uses: actions/checkout@master
+      
+      - name: Load and setup agbcc
+        run: |
+          git clone https://github.com/luckytyphlosion/agbcc.git -b new_layout_with_libs
+          cd agbcc && make -j${nproc} && make install prefix=$GITHUB_WORKSPACE
+        
+      - name: Build tools and baserom
+        run: |
+          make -j tools
+          make -j setup
+        
+      - name: Build via Makefile
+        run: |
+          make -j compare
+      
+      # only run OK when pushed to master
+      - name: Run OK webhook
+        shell: bash
+        if: ${{ github.event_name == 'push' }}
+        env:
+          CALCROM_DISCORD_WEBHOOK_USERNAME: ${{ secrets.CALCROM_DISCORD_WEBHOOK_USERNAME }}
+          CALCROM_DISCORD_WEBHOOK_AVATAR_URL:  ${{ secrets.CALCROM_DISCORD_WEBHOOK_AVATAR_URL }}
+          CALCROM_DISCORD_WEBHOOK_URL:  ${{ secrets.CALCROM_DISCORD_WEBHOOK_URL }}
+        run: sh .github/calcrom/webhook.sh tmc
