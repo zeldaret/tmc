@@ -83,7 +83,7 @@ void sub_08031480(Entity* this) {
             this->spriteSettings.b.draw = 3;
             this->spriteRendering.b3 = 1;
             this->spriteOrientation.flipY = 1;
-            PlaySFX(0x12d);
+            SoundReq(0x12d);
         }
     } else {
         if (sub_08003FC4(this, 0x1800) == 0) {
