@@ -190,7 +190,7 @@ _08031496:
 	orrs r1, r2
 	strb r1, [r4, #0x1b]
 	ldr r0, _080314C8 @ =0x0000012D
-	bl PlaySFX
+	bl SoundReq
 	b _080314FA
 	.align 2, 0
 _080314C8: .4byte 0x0000012D

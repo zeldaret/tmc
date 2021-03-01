@@ -3,7 +3,7 @@
 
 extern void sub_0805E3A0(Entity*, u32);
 extern void ResolveEntityOnTop(Entity*, Entity*);
-extern BoundingBox gUnk_0810C3C0;
+extern Hitbox gUnk_0810C3C0;
 extern void sub_0807DD64(Entity*);
 extern void sub_0807DD94(Entity*, u32);
 
@@ -15,7 +15,7 @@ void Wheaton(Entity* this) {
 
         ResolveEntityOnTop(this, this);
 
-        this->boundingBox = &gUnk_0810C3C0;
+        this->hitbox = &gUnk_0810C3C0;
 
         this->spriteOffsetY = 0xfe;
 

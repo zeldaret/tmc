@@ -374,7 +374,7 @@ NONMATCH("asm/non_matching/gibdo/sub_08037B48.inc", void sub_08037B48(Entity* th
     Entity* E;
     E = CreateObject(0x2a, 3, 0);
     if (E != 0) {
-        E->entityType.parameter = this->actionDelay;
+        E->type2 = this->actionDelay;
         E->spritePriority.b0 = (E->spritePriority.b0 & 0xf8) | 3;
         E->spriteOffsetX = 0;
         E->spriteOffsetY = 0xfc;
@@ -383,7 +383,7 @@ NONMATCH("asm/non_matching/gibdo/sub_08037B48.inc", void sub_08037B48(Entity* th
     *(Entity**)&this->field_0x80.HWORD = E;
     E = CreateObject(0x2a, 3, 0);
     if (E != 0) {
-        E->entityType.parameter = this->actionDelay;
+        E->type2 = this->actionDelay;
         E->spritePriority.b0 = (E->spritePriority.b0 & 0xf8) | 3;
         E->spriteOffsetX = 0xfd;
         E->spriteOffsetY = 0xf8;
@@ -392,7 +392,7 @@ NONMATCH("asm/non_matching/gibdo/sub_08037B48.inc", void sub_08037B48(Entity* th
     *(Entity**)&this->cutsceneBeh.HWORD = E;
     E = CreateObject(0x2a, 3, 0);
     if (E != 0) {
-        E->entityType.parameter = this->actionDelay;
+        E->type2 = this->actionDelay;
         E->spritePriority.b0 = (E->spritePriority.b0 & 0xf8) | 3;
         E->spriteOffsetX = 0x5;
         E->spriteOffsetY = 0xf5;

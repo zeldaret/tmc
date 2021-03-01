@@ -206,7 +206,7 @@ sub_0808B590: @ 0x0808B590
 	adds r0, r4, #0
 	bl sub_0805E4E0
 	ldr r0, _0808B5E0 @ =0x00000113
-	bl PlaySFX
+	bl SoundReq
 	b _0808B5E6
 	.align 2, 0
 _0808B5DC: .4byte gPlayerEntity
@@ -258,7 +258,7 @@ _0808B624:
 	bne _0808B638
 	movs r0, #0x8a
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0808B638:
 	ldrb r1, [r4, #0xf]
 	movs r0, #1

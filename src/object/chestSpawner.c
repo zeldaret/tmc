@@ -12,7 +12,7 @@ extern void (*const gUnk_0811F818[])(Entity*);
 
 extern u32 gUnk_0811F8B0;
 void ChestSpawner(Entity* this) {
-    gUnk_0811F7E8[this->entityType.form](this);
+    gUnk_0811F7E8[this->type](this);
 }
 
 void sub_08083DF0(Entity* this) {

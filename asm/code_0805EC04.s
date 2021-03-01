@@ -751,7 +751,7 @@ _0805F2D0:
 	bne _0805F2F0
 	adds r0, r5, #0
 	movs r1, #0xc
-	bl _DmaZero
+	bl MemClear32
 	ldrb r0, [r4]
 	movs r1, #1
 	orrs r0, r1
@@ -781,7 +781,7 @@ _0805F308:
 	cmp r0, r2
 	bne _0805F318
 	movs r1, #0xc
-	bl _DmaZero
+	bl MemClear32
 	b _0805F320
 	.align 2, 0
 _0805F314: .4byte gUnk_02036540
@@ -794,8 +794,8 @@ _0805F320:
 	pop {pc}
 	.align 2, 0
 
-	thumb_func_start sub_0805F324
-sub_0805F324: @ 0x0805F324
+	thumb_func_start sub_GetFontStrWidth
+sub_GetFontStrWidth: @ 0xGetFontStrWidth
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -805,7 +805,7 @@ sub_0805F324: @ 0x0805F324
 	adds r7, r1, #0
 	mov r1, sp
 	movs r2, #0x30
-	bl _DmaCopy
+	bl MemCopy
 	movs r0, #0
 	str r0, [sp, #0x34]
 	movs r1, #0
@@ -944,7 +944,7 @@ sub_0805F440: @ 0x0805F440
 	adds r4, r0, #0
 	adds r5, r1, #0
 	movs r1, #0x30
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _0805F45C @ =0x0000FFFF
 	cmp r5, r0
 	bls _0805F460
@@ -981,7 +981,7 @@ _0805F486:
 	adds r0, r5, #0
 	adds r1, r4, #0
 	movs r2, #0x18
-	bl _DmaCopy
+	bl MemCopy
 	mov r0, sp
 	adds r1, r6, #0
 	bl sub_0805F440
@@ -1028,7 +1028,7 @@ _0805F486:
 	str r0, [r4, #4]
 	mov r0, sp
 	movs r1, #1
-	bl sub_0805F324
+	bl sub_GetFontStrWidth
 	lsrs r2, r0, #0x18
 	ldrb r1, [r4, #0x16]
 	muls r2, r1, r2
@@ -1087,7 +1087,7 @@ _0805F554:
 	adds r1, r4, #0
 	adds r2, r7, #0
 	adds r3, r6, #0
-	bl sub_08056DC8
+	bl DispMessageFrame
 	adds r5, #2
 	mov r1, sb
 	ldrh r0, [r1, #0x10]
@@ -1122,7 +1122,7 @@ _0805F596:
 _0805F59E:
 	ldr r0, _0805F5C8 @ =gUnk_02034330
 	movs r1, #0x18
-	bl _DmaZero
+	bl MemClear32
 _0805F5A6:
 	mov r0, sb
 	mov r1, sp
@@ -1158,10 +1158,10 @@ sub_0805F5CC: @ 0x0805F5CC
 	lsls r3, r3, #1
 	ands r2, r3
 	lsls r2, r2, #3
-	bl _DmaFill32
+	bl MemFill32
 	adds r0, r6, #0
 	movs r1, #0
-	bl sub_0805F324
+	bl sub_GetFontStrWidth
 	adds r2, r0, #0
 	ldrb r1, [r4, #0x13]
 	movs r0, #1
@@ -1211,7 +1211,7 @@ _0805F63A:
 	ldr r0, [r4, #8]
 	ldr r1, [r4, #4]
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, [r4, #4]
 	adds r0, r0, r5
 	str r0, [r4, #4]

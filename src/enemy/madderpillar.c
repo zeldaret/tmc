@@ -3,8 +3,8 @@
 #include "functions.h"
 
 extern u8 gEntCount;
-extern BoundingBox gUnk_080FD298;
-extern BoundingBox gUnk_080FD2A0;
+extern Hitbox gUnk_080FD298;
+extern Hitbox gUnk_080FD2A0;
 
 void sub_08029E0C(Entity*);
 void sub_08029EEC(Entity*);
@@ -27,7 +27,7 @@ extern const u8 gUnk_080CCDC8[];
 extern const u16 gUnk_080CCDD4[];
 
 void Madderpillar(Entity* this) {
-    gUnk_080CCD44[this->entityType.form](this);
+    gUnk_080CCD44[this->type](this);
 }
 
 void sub_08029870(Entity* this) {
@@ -167,7 +167,7 @@ void sub_08029B2C(Entity* this) {
             }
         } else {
             this->flags &= ~0x80;
-            this->actionDelay = -(this->entityType.form * 15 - 90);
+            this->actionDelay = -(this->type * 15 - 90);
             this->field_0x86.HALF.LO = 1;
         }
     } else {
@@ -179,7 +179,7 @@ void sub_08029B90(Entity* this) {
     this->action = 1;
     this->spriteSettings.b.draw = 1;
     sub_0802A058(this);
-    if (this->entityType.form < 2) {
+    if (this->type < 2) {
         InitializeAnimation(this, 0);
     } else {
         InitializeAnimation(this, 4);
@@ -195,7 +195,7 @@ void sub_08029BC4(Entity* this) {
     uVar2 = this->y.HALF.HI;
     if (sub_08029FE4(this)) {
         u32 index;
-        if (this->entityType.form < 2) {
+        if (this->type < 2) {
             index = 0;
         } else {
             index = 4;
@@ -207,7 +207,7 @@ void sub_08029BC4(Entity* this) {
 
 void sub_08029C08(Entity* this) {
     this->action = 3;
-    this->actionDelay = gUnk_080CCDA0[this->entityType.form];
+    this->actionDelay = gUnk_080CCDA0[this->type];
     this->damageType = 0x6b;
     this->attachedEntity->action = 2;
 }
@@ -278,7 +278,7 @@ void sub_08029D14(Entity* this) {
             this->action = 4;
             this->actionDelay = 0x78;
             this->damageType = 0x6c;
-            this->boundingBox = &gUnk_080FD298;
+            this->hitbox = &gUnk_080FD298;
             EnqueueSFX(0x6b);
         }
     }
@@ -289,7 +289,7 @@ void sub_08029D78(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 5;
         this->damageType = 0x6a;
-        this->boundingBox = (BoundingBox*)&gUnk_080FD2A0;
+        this->hitbox = (Hitbox*)&gUnk_080FD2A0;
         InitializeAnimation(this, this->animationState + 0x10);
     }
 }

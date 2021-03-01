@@ -55,7 +55,7 @@ void ManagerB_WaitForFlag(ManagerB* this) {
             tmp = gRoomVars.field_0x9 ? gRoomVars.field_0x9 : 0x33;
             this->unk_20 = gArea.musicIndex;
             gArea.musicIndex = tmp;
-            PlaySFX(tmp);
+            SoundReq(tmp);
         }
         sub_080186C0(0xB0F);
     }
@@ -73,7 +73,7 @@ void ManagerB_WaitForDone(ManagerB* this) {
     if (this->unk_3c) {
         if (!this->unk_35) {
             gArea.musicIndex = this->unk_20;
-            PlaySFX(gArea.musicIndex);
+            SoundReq(gArea.musicIndex);
             sub_0801855C();
         }
     }
@@ -101,7 +101,7 @@ void ManagerB_LoadFight(Manager* this) {
     if (prop) {
         while (*((u8*)prop) != 0xFF) {
             ent = LoadRoomEntity(prop++);
-            if (ent && (ent->entityType.type == 3)) {
+            if (ent && (ent->kind == 3)) {
                 ent->field_0x6c.HALF.HI |= 0x40;
                 ManagerBHelper_Monitor(monitor, ent, counter++);
             }
@@ -128,7 +128,7 @@ ManagerBHelper* CreateHelper(Manager* this) {
         extra->manager.unk_0a = 1;
         extra->manager.parent = this;
         this->unk_0e++;
-        _DmaZero(&extra->enemies, 0x20);
+        MemClear32(&extra->enemies, 0x20);
         AppendEntityToList(extra, 8);
     }
     return extra;

@@ -45,7 +45,7 @@ _080A171E:
 	cmp r0, #0x45
 	bhi _080A181C
 	movs r0, #0x40
-	bl sub_0801D8E0
+	bl zMalloc
 	adds r7, r0, #0
 	cmp r7, #0
 	beq _080A181C
@@ -153,7 +153,7 @@ _080A171E:
 	adds r0, r0, r4
 	strh r0, [r2, #0x18]
 	ldr r0, _080A1840 @ =0x80100000
-	bl PlaySFX
+	bl SoundReq
 	ldr r0, _080A1844 @ =gArea
 	movs r2, #0x86
 	lsls r2, r2, #4
@@ -254,7 +254,7 @@ sub_080A189C: @ 0x080A189C
 	strb r1, [r0]
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x96
 	movs r1, #1
 	bl sub_08080964
@@ -376,7 +376,7 @@ sub_080A1990: @ 0x080A1990
 	strb r0, [r1]
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x96
 	movs r1, #1
 	bl sub_08080964
@@ -495,7 +495,7 @@ sub_080A1A80: @ 0x080A1A80
 	strh r0, [r1]
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x96
 	movs r1, #1
 	bl sub_08080964
@@ -589,7 +589,7 @@ sub_080A1B4C: @ 0x080A1B4C
 	bl sub_08080964
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	adds r1, r4, #0
 	adds r1, #0x78
 	movs r0, #0xc0
@@ -714,7 +714,7 @@ _080A1C66:
 _080A1C76:
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0xb4
 	lsls r0, r0, #2
 	movs r1, #2
@@ -723,7 +723,7 @@ _080A1C76:
 _080A1C8A:
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x4b
 	movs r1, #1
 	bl sub_08080964

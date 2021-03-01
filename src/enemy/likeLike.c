@@ -70,7 +70,7 @@ void nullsub_139(Entity* this) {
 void sub_08027E70(Entity* this) {
     sub_0804A720(this);
 
-    switch (this->entityType.form) {
+    switch (this->type) {
         case 0:
             this->action = 3;
             this->spriteSettings.b.draw = 0;

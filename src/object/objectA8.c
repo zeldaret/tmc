@@ -26,7 +26,7 @@ void ObjectA8(Entity* this) {
             case 0x1f:
                 this->action = 5;
                 this->attachedEntity = &gPlayerEntity;
-                CreateItemEntity((this->entityType).form, 0, 0);
+                CreateItemEntity(this->type, 0, 0);
                 DeleteThisEntity();
         }
     }

@@ -4,7 +4,7 @@
 #include "room.h"
 
 extern void (*const gUnk_08109AC8[])(Entity*);
-extern BoundingBox gUnk_08109AD0;
+extern Hitbox gUnk_08109AD0;
 extern u8 gUnk_08003E44;
 
 void sub_0805FC74(Entity*);
@@ -18,11 +18,11 @@ void sub_0805FBE8(Entity* this) {
     this->action++;
     this->spriteSettings.b.draw = TRUE;
     this->field_0x3c = gPlayerEntity.field_0x3c + 1;
-    this->boundingBox = &gUnk_08109AD0;
+    this->hitbox = &gUnk_08109AD0;
     this->nonPlanarMovement = 0x380;
     this->animationState = this->animationState & 0x7f;
     if (this->collisionLayer == 2) {
-        this->entityType.parameter = 1;
+        this->type2 = 1;
     }
     this->direction = this->animationState << 2;
     *(u32*)&this->field_0x6c = 0x3c;
@@ -30,7 +30,7 @@ void sub_0805FBE8(Entity* this) {
     sub_0801766C(this);
     sub_0806F69C(this);
     sub_0805FC74(this);
-    PlaySFX(0x13f);
+    SoundReq(0x13f);
 }
 
 void sub_0805FC74(Entity* this) {
@@ -40,7 +40,7 @@ void sub_0805FC74(Entity* this) {
         GetNextFrame(this);
         sub_0806F69C(this);
         ++this->actionDelay;
-        if (this->entityType.parameter == 0) {
+        if (this->type2 == 0) {
             sub_0800451C(this);
         }
         if (!sub_080002F0(COORD_TO_TILE(this), gPlayerEntity.collisionLayer, 0x80) &&

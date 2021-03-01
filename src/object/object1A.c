@@ -6,7 +6,7 @@ extern void sub_08086A6C();
 
 extern void (*gUnk_081206C4[99])(Entity*);
 
-extern BoundingBox gUnk_080FD1A8;
+extern Hitbox gUnk_080FD1A8;
 
 // Main
 void Object1A(Entity* ent) {
@@ -18,9 +18,9 @@ void sub_080869DC(Entity* ent) {
 
     ent->action = 1;
     ent->spriteSettings.b.draw = 0;
-    ent->boundingBox = &gUnk_080FD1A8;
+    ent->hitbox = &gUnk_080FD1A8;
     ent->field_0x3c |= 16;
-    itemEntity = CreateObject(0, ent->entityType.form, 0);
+    itemEntity = CreateObject(0, ent->type, 0);
     if (itemEntity != NULL) {
         itemEntity->actionDelay = 10;
         itemEntity->parent = ent;

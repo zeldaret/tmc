@@ -173,7 +173,7 @@ sub_0804B260: @ 0x0804B260
 	adds r0, r0, r1
 	ldr r1, _0804B278 @ =gUnk_02034398
 	movs r2, #0x20
-	bl _DmaCopy
+	bl MemCopy
 	pop {pc}
 	.align 2, 0
 _0804B274: .4byte gUnk_080015BC
@@ -211,7 +211,7 @@ _0804B2A4:
 	adds r0, r2, #0
 	adds r1, r4, #0
 	movs r2, #8
-	bl _DmaCopy
+	bl MemCopy
 	ldrb r1, [r4, #6]
 	movs r0, #1
 	ands r0, r1

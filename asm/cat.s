@@ -697,7 +697,7 @@ _08067D12:
 	movs r0, #0
 	strb r0, [r5]
 	movs r0, #0xd2
-	bl PlaySFX
+	bl SoundReq
 _08067D1C:
 	pop {r4, r5, pc}
 	.align 2, 0

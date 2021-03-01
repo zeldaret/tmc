@@ -159,7 +159,7 @@ _0809D888:
 	bl _call_via_r1
 _0809D8AC:
 	movs r0, #0x6e
-	bl PlaySFX
+	bl SoundReq
 _0809D8B2:
 	ldrb r4, [r5, #0xa]
 	ldrb r0, [r6, #0xd]
@@ -226,7 +226,7 @@ sub_0809D91C: @ 0x0809D91C
 	bl sub_0806FAD8
 _0809D934:
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, pc}
 
 	thumb_func_start sub_0809D93C

@@ -349,7 +349,7 @@ sub_08089F70: @ 0x08089F70
 	strb r0, [r4, #0xe]
 	movs r0, #0xcc
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08089F8E:
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
@@ -416,7 +416,7 @@ sub_08089FF0: @ 0x08089FF0
 	strb r0, [r1, #0xe]
 	movs r0, #0xcc
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0808A00E:
 	pop {pc}
 

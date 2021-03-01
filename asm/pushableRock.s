@@ -245,7 +245,7 @@ _0808A69E:
 	ldrh r0, [r5]
 	bl SetFlag
 	movs r0, #0xcd
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r4, #0
 	movs r1, #5
 	bl InitializeAnimation

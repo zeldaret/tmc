@@ -376,7 +376,7 @@ _080488E8:
 	bne _080488FA
 	movs r0, #0xcc
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _080488FA:
 	pop {r4, pc}
 	.align 2, 0

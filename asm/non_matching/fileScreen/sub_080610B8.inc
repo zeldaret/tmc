@@ -80,7 +80,7 @@ _08051130:
 	cmp r5, #0
 	beq _0805114C
 	movs r0, #0x67
-	bl PlaySFX
+	bl SoundReq
 _0805114C:
 	cmp r6, #0
 	beq _0805123A
@@ -339,7 +339,7 @@ _08051330:
 	strb r4, [r1, #1]
 	bl sub_08051458
 	movs r0, #0x68
-	bl PlaySFX
+	bl SoundReq
 _0805134C:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0

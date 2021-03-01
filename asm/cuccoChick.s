@@ -193,7 +193,7 @@ _0806E870:
 	bl sub_080791D0
 _0806E874:
 	movs r0, #0xd6
-	bl PlaySFX
+	bl SoundReq
 	adds r1, r4, #0
 	adds r1, #0x39
 	movs r0, #0

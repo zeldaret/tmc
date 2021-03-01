@@ -323,7 +323,7 @@ sub_0809DBE4: @ 0x0809DBE4
 	movs r0, #1
 	strb r0, [r4, #0xe]
 	movs r0, #0x6e
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, pc}
 
 	thumb_func_start sub_0809DC14
@@ -360,7 +360,7 @@ _0809DC3C:
 	bl UpdateSpriteForCollisionLayer
 _0809DC54:
 	movs r0, #0x6e
-	bl PlaySFX
+	bl SoundReq
 _0809DC5A:
 	adds r0, r4, #0
 	bl sub_0809DB88
@@ -466,7 +466,7 @@ sub_0809DD0C: @ 0x0809DD0C
 	strb r0, [r4, #0xc]
 	movs r0, #0xa3
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0809DD2A:
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
@@ -497,7 +497,7 @@ sub_0809DD34: @ 0x0809DD34
 	strh r0, [r1]
 	movs r0, #0xa3
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0809DD64:
 	adds r0, r4, #0
 	bl sub_0809E238
@@ -557,7 +557,7 @@ sub_0809DDBC: @ 0x0809DDBC
 	adds r0, #1
 	strb r0, [r4, #0xc]
 	ldr r0, _0809DDE0 @ =0x0000015B
-	bl PlaySFX
+	bl SoundReq
 _0809DDD8:
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
@@ -724,7 +724,7 @@ _0809DF16:
 	adds r0, r4, #0
 	bl InitAnimationForceUpdate
 	ldr r0, _0809DF60 @ =0x00000123
-	bl PlaySFX
+	bl SoundReq
 	ldr r5, [r4, #0x54]
 	cmp r5, #0
 	beq _0809DF98
@@ -760,9 +760,9 @@ _0809DF64:
 	adds r0, r4, #0
 	bl InitAnimationForceUpdate
 	ldr r0, _0809DF8C @ =0x00000123
-	bl PlaySFX
+	bl SoundReq
 	ldr r0, _0809DF90 @ =0x000001F3
-	bl PlaySFX
+	bl SoundReq
 	b _0809DF98
 	.align 2, 0
 _0809DF8C: .4byte 0x00000123
@@ -803,7 +803,7 @@ sub_0809DFA0: @ 0x0809DFA0
 	strb r0, [r4, #0xf]
 	movs r0, #0x81
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0809DFD6:
 	adds r0, r4, #0
 	bl sub_0809DFE0
@@ -970,7 +970,7 @@ _0809E0FE:
 	adds r1, r6, #0
 	bl sub_0807DEDC
 	ldr r0, _0809E128 @ =0x00000123
-	bl PlaySFX
+	bl SoundReq
 	ldr r0, _0809E12C @ =gUnk_02033280
 	strb r4, [r0, #6]
 	b _0809E1BC
@@ -1044,7 +1044,7 @@ _0809E170:
 	strb r0, [r5, #0xf]
 	movs r0, #0x81
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0809E1BC
 _0809E1B6:
 	ldr r1, _0809E1C4 @ =gUnk_02033280

@@ -185,14 +185,14 @@ sub_080A02CC: @ 0x080A02CC
 	movs r1, #2
 	bl DoFade
 	movs r0, #0xf8
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0xa4
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #5
-	bl PlaySFX
+	bl SoundReq
 	ldr r0, _080A0348 @ =0x80110000
-	bl PlaySFX
+	bl SoundReq
 _080A0342:
 	pop {r4, pc}
 	.align 2, 0
@@ -324,7 +324,7 @@ sub_080A0424: @ 0x080A0424
 	strb r0, [r1]
 	movs r0, #0xbc
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _080A0442:
 	pop {pc}
 

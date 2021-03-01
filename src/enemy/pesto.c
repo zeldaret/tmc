@@ -137,7 +137,7 @@ void sub_080240B8(Entity* this) {
         this->x.HALF.HI += (direction & 0x10) ? -0x20 : 0x20;
     }
 
-    switch (this->entityType.form) {
+    switch (this->type) {
         case 0:
             this->field_0x78.HWORD = -0x10;
             this->height.HALF.HI = -0x10;
@@ -164,7 +164,7 @@ void sub_080240B8(Entity* this) {
     this->direction = direction;
     sub_080249DC(this);
 
-    if (this->entityType.form == 1) {
+    if (this->type == 1) {
         Entity* ent;
 
         this->field_0x82.HALF.HI = 0;
@@ -192,7 +192,7 @@ void sub_080241C0(Entity* this) {
             break;
         case 1:
             if (--this->field_0xf == 0) {
-                if (this->entityType.form != 0) {
+                if (this->type != 0) {
                     u8 tmp = this->field_0x82.HALF.HI & 0x80;
                     if (tmp) {
                         sub_08024C94(this);
@@ -535,7 +535,7 @@ void sub_08024940(Entity* this) {
             this->height.HALF.HI += 2;
     }
 
-    if (this->entityType.parameter != 0 || CheckIsDungeon()) {
+    if (this->type2 != 0 || CheckIsDungeon()) {
         if (!sub_08049FA0(this)) {
             this->direction = sub_08049EE4(this);
             sub_080249F4(this);

@@ -12,7 +12,7 @@ sub_0801CFA8: @ 0x0801CFA8
 	adds r5, r0, #0
 	ldr r0, _0801CFCC @ =gUnk_02001A00
 	movs r1, #0x40
-	bl _DmaZero
+	bl MemClear32
 	movs r4, #0
 _0801CFB6:
 	adds r0, r4, #0
@@ -467,7 +467,7 @@ sub_0801D2C8: @ 0x0801D2C8
 	lsls r1, r4, #5
 	adds r1, r1, r2
 	movs r2, #0x20
-	bl _DmaFill16
+	bl MemFill16
 	b _0801D33C
 	.align 2, 0
 _0801D2F8: .4byte gUsedPalettes
@@ -730,7 +730,7 @@ _0801D4C8:
 	adds r1, r7, #0
 	movs r2, #0x20
 	str r3, [sp]
-	bl _DmaCopy
+	bl MemCopy
 	adds r6, #0x20
 	adds r4, #4
 	adds r7, #0x20

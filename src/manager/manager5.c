@@ -71,14 +71,14 @@ void sub_08057BA4(Manager5* this) {
         sub_08057CA4(this, this->unk_28, this->unk_2a);
         sub_0807B7D8(this->unk_30, this->unk_38 | (this->unk_3a << 6), this->unk_3c);
         this->manager.unk_0f++;
-        PlaySFX(0x71);
+        SoundReq(0x71);
     } else {
         if (!this->manager.unk_0f)
             return;
         sub_0807BA8C(this->unk_38 | (this->unk_3a << 6), this->unk_3c);
         sub_08057CA4(this, this->unk_2c, this->unk_2e);
         this->manager.unk_0f--;
-        PlaySFX(0x71);
+        SoundReq(0x71);
     }
 }
 
@@ -95,10 +95,10 @@ void sub_08057C28(Manager5* this) {
             sub_08057CA4(this, this->unk_28, this->unk_2a);
             sub_0807B7D8(this->unk_30, this->unk_38 | (this->unk_3a << 6), this->unk_3c);
             this->manager.unk_0f++;
-            PlaySFX(0x71);
+            SoundReq(0x71);
         } else {
             if (this->unk_30 != 0x323) {
-                PlaySFX(0x72);
+                SoundReq(0x72);
             }
             DeleteManager(&this->manager);
         }

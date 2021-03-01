@@ -35,7 +35,7 @@ void WindTribespeople(Entity* this) {
 void sub_0806C798(Entity* this) {
     s32 iVar1;
 
-    iVar1 = LoadExtraSpriteData(this, gUnk_08113A1C + (this->entityType.form * 4));
+    iVar1 = LoadExtraSpriteData(this, gUnk_08113A1C + (this->type * 4));
     if (iVar1 != 0) {
         this->action = 1;
         this->spriteSettings.b.draw = 1;
@@ -55,9 +55,8 @@ void sub_0806C7D4(Entity* this) {
         sub_0806F118(this);
     } else {
         sub_0807DD94(this, NULL);
-        if ((this->entityType.parameter == 3) && (!CheckGlobalFlag(WARP_EVENT_END)) && (CheckLocalFlag(0x63)) &&
-            (CheckRoomFlag(0))) {
-            (this->entityType).parameter = 7;
+        if ((this->type2 == 3) && (!CheckGlobalFlag(WARP_EVENT_END)) && (CheckLocalFlag(0x63)) && (CheckRoomFlag(0))) {
+            this->type2 = 7;
             sub_0807DD80(this, &gUnk_08014A80);
         }
     }
@@ -90,7 +89,7 @@ void WindTribespeople_Head(Entity* this) {
     u8 pbVar3;
 
     pbVar3 = (this->frames.all & 0x3F);
-    if (this->entityType.form == 4) {
+    if (this->type == 4) {
         SetExtraSpriteFrame(this, 0, 9);
         SetExtraSpriteFrame(this, 1, pbVar3);
         SetExtraSpriteFrame(this, 2, this->frameIndex);
@@ -115,7 +114,7 @@ void WindTribespeople_Head(Entity* this) {
 // body and head entities?
 void sub_0806C90C(Entity* param_1, Entity* param_2) {
     *(u32*)&param_2->animationState = 0;
-    gUnk_08113A8C[param_1->entityType.parameter](param_1, param_2);
+    gUnk_08113A8C[param_1->type2](param_1, param_2);
 }
 
 void sub_0806C928(Entity* this) {

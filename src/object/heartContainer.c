@@ -18,7 +18,7 @@ static void (*const gHeartContainerActions[])(Entity*) = {
     sub_0808E764,
 };
 
-extern BoundingBox gUnk_08121C58;
+extern Hitbox gUnk_08121C58;
 
 void HeartContainer(Entity* this) {
     gHeartContainerActions[this->action](this);
@@ -29,9 +29,9 @@ static void sub_0808E6A0(Entity* this) {
         DeleteThisEntity();
     }
     this->action = 1;
-    this->entityType.form = 0x62;
+    this->type = 0x62;
     this->spriteSettings.b.draw = 0;
-    this->boundingBox = &gUnk_08121C58;
+    this->hitbox = &gUnk_08121C58;
     this->collisionLayer = 3;
     this->scriptedScene = 3;
 }
@@ -54,7 +54,7 @@ static void sub_0808E714(Entity* this) {
         this->action = 3;
         this->field_0x3c |= 0x10;
         sub_0805EC60(this);
-        PlaySFX(0x141);
+        SoundReq(0x141);
     }
     sub_08080CB4(this);
 }

@@ -82,7 +82,7 @@ sub_0808483C: @ 0x0808483C
 	bl SetTile
 	movs r0, #0x89
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, r5, pc}
 	.align 2, 0
 _080848C0: .4byte gRoomControls
@@ -228,7 +228,7 @@ sub_080849D8: @ 0x080849D8
 	cmp r1, #1
 	bne _080849EE
 	movs r0, #0x76
-	bl PlaySFX
+	bl SoundReq
 	ldrb r0, [r4, #0xf]
 	b _080849F2
 _080849EE:
@@ -377,7 +377,7 @@ _08084AF8:
 	ldr r0, [r4, #0x54]
 	bl DeleteEntity
 	ldr r0, _08084B18 @ =0x0000018F
-	bl PlaySFX
+	bl SoundReq
 	bl DeleteThisEntity
 _08084B16:
 	pop {r4, r5, pc}

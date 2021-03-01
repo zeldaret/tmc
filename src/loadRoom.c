@@ -37,7 +37,7 @@ void sub_0804B058(EntityData* dat) {
             if ((uVar2 < 0x20) && ((dat->type) == 3)) {
                 if (sub_08049D1C(uVar2) != 0) {
                     ent = LoadRoomEntity(dat);
-                    if ((ent != NULL) && ((ent->entityType).type == 3)) {
+                    if ((ent != NULL) && (ent->kind == 3)) {
                         ent->field_0x6c.HALF.LO = uVar2 | 0x80;
                     }
                 }

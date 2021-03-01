@@ -124,7 +124,7 @@ _080829A4:
 	movs r1, #7
 	bl InitAnimationForceUpdate
 	movs r0, #0xf3
-	bl PlaySFX
+	bl SoundReq
 	b _080829E2
 	.align 2, 0
 _080829C8: .4byte gPlayerEntity

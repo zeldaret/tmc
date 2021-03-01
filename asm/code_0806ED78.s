@@ -842,7 +842,7 @@ sub_0806F364: @ 0x0806F364
 	adds r1, r2, r3
 	adds r0, r0, r1
 	movs r1, #0x10
-	bl _DmaZero
+	bl MemClear32
 	pop {pc}
 	.align 2, 0
 _0806F384: .4byte gArea
@@ -1013,7 +1013,7 @@ _0806F444:
 	str r0, [r5, #0x50]
 _0806F4B4:
 	movs r0, #0xed
-	bl PlaySFX
+	bl SoundReq
 	b _0806F4D8
 	.align 2, 0
 _0806F4BC: .4byte gPlayerEntity
@@ -1026,7 +1026,7 @@ _0806F4C8:
 	ldr r0, [r0, #0x2c]
 	strb r1, [r0, #0xa]
 	movs r0, #0xef
-	bl PlaySFX
+	bl SoundReq
 _0806F4D8:
 	movs r0, #1
 	b _0806F4E2

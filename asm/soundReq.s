@@ -6,11 +6,11 @@
 
 	.text
 	
-	thumb_func_start PlaySFX
-PlaySFX: @ 0x080A3268
+	thumb_func_start SoundReq
+SoundReq: @ 0x080A3268
 	push {r4, r5, lr}
 	adds r3, r0, #0
-	ldr r0, _080A32AC @ =gUnk_03001000
+	ldr r0, _080A32AC @ =gMain
 	ldrb r2, [r0, #7]
 	cmp r2, #0
 	beq _080A3276
@@ -47,7 +47,7 @@ _080A32A0:
 	beq _080A337C
 	b _080A3458
 	.align 2, 0
-_080A32AC: .4byte gUnk_03001000
+_080A32AC: .4byte gMain
 _080A32B0: .4byte gUnk_02021EE0
 _080A32B4: .4byte 0x0000FFFF
 _080A32B8: .4byte 0xFFFF0000

@@ -29,7 +29,7 @@ extern u8 gUnk_080D16D0[4]; // Entity count per form
 extern PosOffset gUnk_080D16D4[4];
 
 extern u8 gEntCount;
-extern EntityHandler gUnk_03003DB8;
+extern EntityHandler gHitboxCount;
 
 void Slime(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080D16A4);
@@ -102,20 +102,20 @@ void sub_080450A8(Entity* this) {
     PosOffset* off;
 
     /* Can we create enough new entities? */
-    count = gUnk_080D16D0[this->entityType.form];
+    count = gUnk_080D16D0[this->type];
     if (72 - count <= gEntCount)
         return;
 
     /* Create 2-4 new MiniSlime */
     for (i = 0; i < count; i++)
-        entities[i] = CreateEnemy(0x57, this->entityType.form);
+        entities[i] = CreateEnemy(0x57, this->type);
 
     off = gUnk_080D16D4;
     for (i = 0; i < count; i++) {
         ent = entities[i];
         ent->attachedEntity = entities[(i + 1) % count];
         ent->parent = entities[(i + count - 1) % count];
-        ent->entityType.parameter = 1;
+        ent->type2 = 1;
         ent->height.HALF.HI = 0;
         ent->hurtBlinkTime = -0x10;
 

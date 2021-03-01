@@ -465,7 +465,7 @@ sub_0805A1D8: @ 0x0805A1D8
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _0805A240
-	ldr r0, _0805A250 @ =gUnk_03001000
+	ldr r0, _0805A250 @ =gMain
 	ldrh r1, [r0, #0xc]
 	movs r0, #0x1f
 	ands r0, r1
@@ -492,7 +492,7 @@ _0805A240:
 _0805A244: .4byte gRoomControls
 _0805A248: .4byte 0xFFFFF000
 _0805A24C: .4byte gScreen
-_0805A250: .4byte gUnk_03001000
+_0805A250: .4byte gMain
 _0805A254: .4byte gUnk_0810859A
 
 	thumb_func_start nullsub_495

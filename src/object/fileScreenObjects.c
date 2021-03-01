@@ -51,7 +51,7 @@ void FileScreenObjects(Entity* this) {
     if (this->currentHealth == 0) {
         sub_0808EFF0(this);
     }
-    gUnk_08121C64[this->entityType.form](this);
+    gUnk_08121C64[this->type](this);
     if (this->animIndex < 64) {
         UpdateAnimationSingleFrame(this);
     }
@@ -65,7 +65,7 @@ void sub_0808E7F0(Entity* this) {
     sub_080AE008(this, 1, 2);
     this->palette.b.b0 = 0xF;
     this->spriteSettings.b.draw = 0;
-    this->entityType.parameter = 0xFF;
+    this->type2 = 0xFF;
     this->action = 1;
 }
 
@@ -75,15 +75,15 @@ void sub_0808E818(Entity* this) {
 
     if (!sub_0808E950()) {
         int var2 = -1;
-        this->entityType.parameter = var2;
+        this->type2 = var2;
         this->field_0x68.HWORD = var2;
         this->field_0x6a.HWORD = var2;
         this->spriteSettings.b.draw = 0;
         return;
     }
 
-    if (this->entityType.parameter != gUnk_02019EE0.unk6) {
-        this->entityType.parameter = gUnk_02019EE0.unk6;
+    if (this->type2 != gUnk_02019EE0.unk6) {
+        this->type2 = gUnk_02019EE0.unk6;
         this->field_0x68.HWORD = CheckGlobalFlag(EZERO_1ST) == 0 ? 0x400 : 0x100;
         this->field_0x70.BYTES.byte0 = 4;
         this->animationState = 2;
@@ -142,7 +142,7 @@ void sub_0808E988(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         this->spriteIndex = 0x142;
-        this->entityType.parameter = 0xFF;
+        this->type2 = 0xFF;
         sub_080AE008(this, 1, 3);
     }
 
@@ -155,7 +155,7 @@ void sub_0808E988(Entity* this) {
         }
 
         if (i != 0) {
-            if (this->entityType.parameter != i) {
+            if (this->type2 != i) {
                 InitAnimationForceUpdate(this, i);
             }
             this->spriteSettings.b.draw = 2;
@@ -178,7 +178,7 @@ void sub_0808EA28(Entity* this) {
     u32 var0;
     u32 var1;
 
-    if (this->entityType.form == 3) {
+    if (this->type == 3) {
         if (gUnk_02000000->gameLanguage > LANGUAGE_EN) {
             this->spriteSettings.b.draw = 2;
         } else {
@@ -186,11 +186,11 @@ void sub_0808EA28(Entity* this) {
         }
     }
 
-    if (this->entityType.form == gUnk_02019EE0.unk6) {
+    if (this->type == gUnk_02019EE0.unk6) {
         var0 = 12;
         var1 = 1;
     } else {
-        if (gUnk_02032EC0.lastState == 5 && this->entityType.form == gUnk_02019EE0.unk7) {
+        if (gUnk_02032EC0.lastState == 5 && this->type == gUnk_02019EE0.unk7) {
             var0 = 13;
             var1 = 2;
         } else {
@@ -207,8 +207,8 @@ void sub_0808EA28(Entity* this) {
 
 void sub_0808EABC(Entity* this) {
     int var0 = -72;
-    int var1 = this->entityType.form * 32 + 40;
-    int var2 = gUnk_02019EE0.unk6 == this->entityType.form;
+    int var1 = this->type * 32 + 40;
+    int var2 = gUnk_02019EE0.unk6 == this->type;
     switch (gUnk_02032EC0.lastState) {
         case 0:
             var0 = 24;
@@ -223,7 +223,7 @@ void sub_0808EABC(Entity* this) {
             }
             break;
         case 5:
-            switch (gMenu.focusCoords[this->entityType.form]) {
+            switch (gMenu.focusCoords[this->type]) {
                 case 0:
                     var0 = 42;
                     var1 = 40;
@@ -232,7 +232,7 @@ void sub_0808EABC(Entity* this) {
                 case 2:
                     var0 = 20;
                     var1 = 144;
-                    var1 -= (gMenu.unk16 - gMenu.focusCoords[this->entityType.form]) * 32;
+                    var1 -= (gMenu.unk16 - gMenu.focusCoords[this->type]) * 32;
                     break;
             }
             break;
@@ -326,8 +326,7 @@ static Entity* sub_0808EC80(int form) {
     Entity* entityA = (Entity*)&gUnk_03003DA0;
     Entity* entityB = entityA->next;
     while (entityB != entityA) {
-        if ((entityB->entityType.type == 0x6 && entityB->entityType.subtype == 0x48) &&
-            form == entityB->entityType.form) {
+        if ((entityB->kind == 0x6 && entityB->id == 0x48) && form == entityB->type) {
             return entityB;
         }
         entityB = entityB->next;
@@ -361,7 +360,7 @@ void sub_0808ECBC(Entity* this) {
             break;
     }
 
-    var2 = this->entityType.form - 4;
+    var2 = this->type - 4;
     var3 = &gUnk_08121CD4[var1][var2];
     this->field_0x68.HWORD = var3->unk1;
     this->field_0x6a.HWORD = var3->unk2;
@@ -408,7 +407,7 @@ void sub_0808EE00(Entity* this) {
     int var0, var1, var2;
 
     var0 = ((struct_02000000*)0x2000000)->gameLanguage != 0;
-    var1 = this->entityType.form - 10;
+    var1 = this->type - 10;
     this->frameIndex = gUnk_08121D38[var0][var1];
     this->x.HALF.HI = gUnk_08121D18[var0][var1];
     this->field_0x68.HWORD = gUnk_08121D18[var0][var1];
@@ -445,7 +444,7 @@ void sub_0808EED8(Entity* this) {
         this->spriteSettings.b.draw = 0;
     } else {
         this->spriteSettings.b.draw = 2;
-        var0 = this->entityType.form - 19;
+        var0 = this->type - 19;
         this->palette.b.b0 = gMenu.column_idx == var0 ? 4 : 3;
     }
 }
@@ -456,7 +455,7 @@ void sub_0808EF24(Entity* this) {
         this->spriteSettings.b.draw = 0;
     } else {
         this->spriteSettings.b.draw = 2;
-        if (this->entityType.form == 21) {
+        if (this->type == 21) {
             var0 = ((struct_02000000*)0x2000000)->messageSpeed;
         } else {
             var0 = ((struct_02000000*)0x2000000)->brightnessPref;
@@ -522,7 +521,7 @@ static void sub_0808EFF0(Entity* this) {
     this->currentHealth = 1;
     this->frameIndex = 0xFF;
     this->animIndex = 0xFF;
-    var0 = &gUnk_08121D54[this->entityType.form];
+    var0 = &gUnk_08121D54[this->type];
     this->x.HALF.HI = var0->unk2;
     this->field_0x68.HWORD = var0->unk2;
     this->y.HALF.HI = var0->unk4;

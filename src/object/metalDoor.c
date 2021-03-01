@@ -8,13 +8,13 @@ extern void sub_080A080C(Entity*);
 extern void sub_0806F69C(Entity*);
 extern void EnqueueSFX(u32);
 extern void sub_080A0870(Entity*);
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern u32 sub_080001DA(u32, u32);
 extern void SetTile(u32, u32, u32);
 
 extern void (*const gUnk_0812493C[])(Entity*);
 
-extern BoundingBox gUnk_080FD180;
+extern Hitbox gUnk_080FD180;
 
 void MetalDoor(Entity* this) {
     gUnk_0812493C[this->action](this);
@@ -29,7 +29,7 @@ void sub_080A0684(Entity* this) {
     this->spriteSettings.b.draw = 0;
     this->frameIndex = 0;
     this->spriteSettings.b.flipY = 1;
-    this->boundingBox = &gUnk_080FD180;
+    this->hitbox = &gUnk_080FD180;
     this->spritePriority.b0 = 5;
     this->field_0x70.HALF.LO = this->x.HALF.HI;
     this->field_0x70.HALF.HI = this->y.HALF.HI;
@@ -79,7 +79,7 @@ void sub_080A07BC(Entity* this) {
         this->direction = 0x10;
         this->y.HALF.HI += 2;
         sub_080A0870(this);
-        PlaySFX(0x10b);
+        SoundReq(0x10b);
     }
 }
 

@@ -19,7 +19,7 @@ void LilypadSmall(Entity* this) {
         this->frameIndex = (rand >> 0x10) & 3;
         this->spriteSettings.b.draw = TRUE;
         this->spritePriority.b0 = 7;
-        this->attachedEntity = GetCurrentRoomProperty(this->entityType.parameter);
+        this->attachedEntity = GetCurrentRoomProperty(this->type2);
         sub_080A2CC0(this, &this->attachedEntity, &this->field_0x70.HALF.LO);
     }
     sub_080A2BE4(this, sub_08097ADC(this));

@@ -21,7 +21,7 @@ void SensorBladeTrap(Entity* this) {
 
 void sub_0802B9EC(Entity* this) {
     this->action = 1;
-    this->field_0x78.HWORD = gUnk_080CD3D4[this->entityType.form];
+    this->field_0x78.HWORD = gUnk_080CD3D4[this->type];
     this->field_0x7c.HALF.LO = this->cutsceneBeh.HWORD;
     this->field_0x7c.HALF.HI = this->field_0x86.HWORD;
 }

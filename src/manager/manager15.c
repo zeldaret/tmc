@@ -80,14 +80,14 @@ void sub_0805A370(Manager15* this) {
     if (this->manager.unk_0d) {
         LoadRoomEntityList(&gUnk_080E4C08);
         this->manager.action = 3;
-        PlaySFX(0x80100000);
+        SoundReq(0x80100000);
     }
 }
 
 void sub_0805A394(Manager15* this) {
     Entity* ent;
     if ((ent = FindEntityInListBySubtype(0x3, 0x13, 0x4))) {
-        if (ent->entityType.form != 4) {
+        if (ent->type != 4) {
             return;
         }
     }

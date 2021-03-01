@@ -59,7 +59,7 @@ _08058EF2:
 	bl sub_08058F44
 	movs r0, #0x92
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	bl DeleteThisEntity
 _08058F40:
 	pop {r4, r5, r6, pc}
@@ -348,7 +348,7 @@ sub_08059124: @ 0x08059124
 	ldrb r1, [r4, #0xb]
 	bl sub_0807BA8C
 	movs r0, #0xcd
-	bl PlaySFX
+	bl SoundReq
 	bl DeleteThisEntity
 	b _080591C8
 _08059174:
@@ -540,7 +540,7 @@ _080592C8:
 	bl sub_0805930C
 	movs r0, #0xb7
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	bl DeleteThisEntity
 _080592EA:
 	pop {r4, pc}

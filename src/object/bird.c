@@ -11,7 +11,7 @@ extern void (*const gUnk_08123EFC[])(Entity*);
 extern void (*const gUnk_08123F04[])(Entity*);
 
 void Bird(Entity* this) {
-    gUnk_08123EC0[this->entityType.form](this);
+    gUnk_08123EC0[this->type](this);
 }
 
 void sub_0809CF3C(Entity* this) {
@@ -32,7 +32,7 @@ void sub_0809CF54(Entity* this) {
     this->direction = 8;
     this->collisionLayer = 2;
     this->x.HALF.HI = gRoomControls.roomScrollX;
-    PlaySFX(0x123);
+    SoundReq(0x123);
     UpdateSpriteForCollisionLayer(this);
     InitAnimationForceUpdate(this, 0);
     target = CreateObject(0x95, 1, 0);
@@ -90,12 +90,12 @@ void sub_0809D0AC(Entity* this) {
     Entity* fx;
 
     if (sub_080044EC(this, 0x1800) < 2) {
-        (this->entityType).form = 2;
+        this->type = 2;
         this->action = 1;
         this->height.WORD = 0;
         this->collisionLayer = 1;
         SetLocalFlag(0x45);
-        PlaySFX(0x72);
+        SoundReq(0x72);
         fx = CreateFx(this, 0x11, 0);
         if (fx != NULL) {
             sub_0806FAD8(this, fx);

@@ -322,7 +322,7 @@ sub_08066C94: @ 0x08066C94
 	movs r1, #0
 	bl sub_0805DA90
 	movs r0, #0xf7
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 
 	thumb_func_start sub_08066CA4
@@ -331,5 +331,5 @@ sub_08066CA4: @ 0x08066CA4
 	movs r1, #1
 	bl sub_0805DA90
 	movs r0, #0xf6
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}

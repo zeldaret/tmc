@@ -302,7 +302,7 @@ sub_0809ACE8: @ 0x0809ACE8
 	movs r0, #1
 	strb r0, [r4, #0xd]
 	movs r0, #0x73
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x31
 	bl SetFlag
 	adds r0, r4, #0

@@ -21,11 +21,11 @@ extern const s8 gUnk_080CBDF7[];
 extern const s8 gUnk_080CBDFF[];
 
 void Sluggula(Entity* this) {
-    if (this->entityType.form == 1) {
+    if (this->type == 1) {
         EnemyFunctionHandler(this, gUnk_080CBDBC);
 
         SetChildOffset(this, 0, 1, -0x10);
-    } else if (this->entityType.form == 0) {
+    } else if (this->type == 0) {
         if (this->height.HALF.HI == 0) {
             u32 idx = sub_080012DC(this);
             if (idx != 0) {
@@ -49,7 +49,7 @@ void sub_08023C20(Entity* this) {
     if (this->field_0x43)
         sub_0804A9FC(this, 0x1c);
 
-    if (this->entityType.form == 1) {
+    if (this->type == 1) {
         sub_0804AA30(this, gUnk_080CBDBC);
     } else {
         sub_0804AA30(this, gUnk_080CBDD4);
@@ -89,7 +89,7 @@ void sub_08023CE0(Entity* this) {
     switch (this->action) {
         case 0:
             sub_0804A720(this);
-            if (this->entityType.parameter == 1) {
+            if (this->type2 == 1) {
                 this->action = 2;
                 if (this->actionDelay == 0) {
                     this->actionDelay = 1;

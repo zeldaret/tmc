@@ -80,7 +80,7 @@ _0801C718:
 	cmp r1, #0
 	bne _0801C740
 	movs r0, #0x71
-	bl PlaySFX
+	bl SoundReq
 _0801C740:
 	ldrb r0, [r7, #3]
 	adds r0, #1

@@ -365,7 +365,7 @@ _08048C34:
 	adds r0, r4, #0
 	bl InitializeAnimation
 	ldr r0, _08048CB4 @ =0x00000119
-	bl PlaySFX
+	bl SoundReq
 _08048C6C:
 	adds r0, r4, #0
 	bl GetNextFrame

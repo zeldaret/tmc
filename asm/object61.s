@@ -153,7 +153,7 @@ _08093538:
 	strb r0, [r5, #0xf]
 	movs r0, #0x92
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08093544:
 	adds r0, r5, #0
 	adds r0, #0x6e

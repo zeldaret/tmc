@@ -60,7 +60,7 @@ void sub_0806B41C(Entity* this) {
             if (LoadExtraSpriteData(this, &gUnk_08112E1C)) {
                 this->action = 1;
                 this->spriteSettings.b.draw = 1;
-                if (this->entityType.parameter == 2) {
+                if (this->type2 == 2) {
                     CreateFx(this, 0x25, 0);
                 }
                 sub_0807DD50(this);
@@ -90,7 +90,7 @@ void sub_0806B41C(Entity* this) {
 }
 
 void sub_0806B4F0(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08112E2C[this->entityType.parameter]);
+    ShowNPCDialogue(this, &gUnk_08112E2C[this->type2]);
 }
 
 void sub_0806B504(Entity* this) {

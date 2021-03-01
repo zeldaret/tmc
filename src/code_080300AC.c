@@ -13,13 +13,13 @@ typedef struct {
 extern struct_0300110C gUnk_0300110C;
 
 void sub_080300AC(void) {
-    _DmaZero(&gUnk_0300110C.unk0, 0x44);
+    MemClear32(&gUnk_0300110C.unk0, 0x44);
     gUnk_0300110C.unk66 = 0xff;
 }
 
 void sub_080300C4(void) {
     if (gScreenTransition.field_0xae == 0xff) {
         gScreenTransition.field_0xac = 0;
-        _DmaZero(&gScreenTransition.field_0x4c[32], 0x40);
+        MemClear32(&gScreenTransition.field_0x4c[32], 0x40);
     }
 }
