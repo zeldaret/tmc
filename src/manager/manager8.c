@@ -25,8 +25,8 @@ void sub_08057ED0(Manager8* this) {
     sub_08057F20(this);
     if (!this->manager.action) {
         this->manager.action = 1;
-        gScreen.bg.bg2yOffset = 0;
-        gScreen.affine.unk4 = 0;
+        gScreen.bg.bg1Updated = 0;
+        gScreen.affine.bg3Updated = 0;
         sub_08052D74(this, sub_08057EFC, 0);
     }
 }
@@ -50,23 +50,23 @@ void sub_08057F20(Manager8* this) {
     tmp = tmp + (tmp >> 3) + ((0x400 - gRoomControls.width) / 2);
     gScreen.affine.bg3xOffset = tmp & 0xF;
     gScreen.affine.bg3yOffset = 0x30 - ((0x30 - (gRoomControls.roomScrollY - gRoomControls.roomOriginY)) >> 2);
-    gScreen.affine.unk5 = gBG3Buffer;
+    gScreen.affine.bg3Tilemap = gBG3Buffer;
     sub_08058004(tmp, gUnk_02006F00, gBG3Buffer);
     tmp = ((tmp >> 4) << 1);
     if (this->unk_38 != tmp) {
         this->unk_38 = tmp;
-        gScreen.affine.unk4 = 1;
+        gScreen.affine.bg3Updated = 1;
     }
     tmp = (gRoomControls.roomScrollX - gRoomControls.roomOriginX);
     tmp = tmp + (tmp >> 2) + ((0x400 - gRoomControls.width) / 2);
-    gScreen.bg.bg1yOffset = tmp & 0xF;
-    gScreen.bg.bg2xOffset = 0x30 - ((0x30 - (gRoomControls.roomScrollY - gRoomControls.roomOriginY)) >> 1);
-    gScreen.bg.unk_14 = gBG3Buffer + 0x800;
+    gScreen.bg.bg1xOffset = tmp & 0xF;
+    gScreen.bg.bg1yOffset = 0x30 - ((0x30 - (gRoomControls.roomScrollY - gRoomControls.roomOriginY)) >> 1);
+    gScreen.bg.bg1Tilemap = gBG3Buffer + 0x800;
     sub_08058004(tmp, gUnk_02006F00 + 0x2000, gBG3Buffer + 0x800);
     tmp = ((tmp >> 4) << 1);
     if (this->unk_3c != tmp) {
         this->unk_3c = tmp;
-        gScreen.bg.bg2yOffset = 1;
+        gScreen.bg.bg1Updated = 1;
     }
 }
 
@@ -121,16 +121,16 @@ void sub_080580B0(u32 unk1) {
     gScreen.affine.bg3xOffset = tmp & 0xF;
     gScreen.affine.bg3yOffset = 0x30 - ((0x30 - (gRoomControls.roomScrollY - gRoomControls.roomOriginY)) >> 1); //?
     gScreen.affine.bg3Control = 0x1D09;
-    gScreen.affine.unk5 = gBG3Buffer;
-    gScreen.affine.unk4 = 1;
+    gScreen.affine.bg3Tilemap = gBG3Buffer;
+    gScreen.affine.bg3Updated = 1;
     tmp = gRoomControls.roomScrollX - gRoomControls.roomOriginX; // r7
     tmp = tmp + (tmp >> 2) + (0x400 - gRoomControls.width) / 2;
     sub_08058004(tmp, gUnk_02006F00 + 0x2000, gBG3Buffer + 0x800);
-    gScreen.bg.bg1yOffset = tmp & 0xF;
-    gScreen.bg.bg2xOffset = 0x30 - ((0x30 - (gRoomControls.roomScrollY - gRoomControls.roomOriginY)) >> 1); //?
-    gScreen.bg.bg1xOffset = 0x1E09;
-    gScreen.bg.unk_14 = gBG3Buffer + 0x800;
-    gScreen.bg.bg2yOffset = 1;
+    gScreen.bg.bg1xOffset = tmp & 0xF;
+    gScreen.bg.bg1yOffset = 0x30 - ((0x30 - (gRoomControls.roomScrollY - gRoomControls.roomOriginY)) >> 1); //?
+    gScreen.bg.bg1Control = 0x1E09;
+    gScreen.bg.bg1Tilemap = gBG3Buffer + 0x800;
+    gScreen.bg.bg1Updated = 1;
     gScreen.controls.layerFXControl = 0x3C48;
     gScreen.controls.alphaBlend = 0x609;
     gScreen.lcd.displayControl |= 0xa00;

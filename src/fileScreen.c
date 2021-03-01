@@ -100,19 +100,19 @@ void CreateDialogBox(u32 arg0, u32 arg1) {
     if (sfx) {
         SoundReq(sfx);
     }
-    gScreen.bg.bg3Control = BGCNT_PRIORITY(1);
+    gScreen.bg.bg0Updated = 1;
 }
 
 void sub_08050384(void) {
     sub_0801C4A0(0, 0);
     MemClear32(&gBG0Buffer, sizeof(gBG0Buffer));
-    gScreen.bg.bg3Control = BGCNT_PRIORITY(1);
+    gScreen.bg.bg0Updated = 1;
 }
 
 void sub_080503A8(u32 gfxGroup) {
     LoadGfxGroup(gfxGroup);
-    gScreen.bg.bg2yOffset = 1;
-    gScreen.affine.unk = 1;
+    gScreen.bg.bg1Updated = 1;
+    gScreen.affine.bg2Updated = 1;
 }
 
 void SetFileSelectState(FileSelectState mode) {
@@ -153,10 +153,10 @@ void HandleChooseFileScreen(void) {
     sScreenHandlers[gMain.funcIndex]();
     if (gUnk_02032EC0.lastState != gUnk_02032EC0.state) {
         gUnk_02032EC0.lastState = gUnk_02032EC0.state;
-        gScreen.bg.bg1Control = 0;
-        gScreen.bg.bg2Control = 0;
+        gScreen.bg.bg0xOffset = 0;
+        gScreen.bg.bg0yOffset = 0;
+        gScreen.bg.bg1xOffset = 0;
         gScreen.bg.bg1yOffset = 0;
-        gScreen.bg.bg2xOffset = 0;
         gScreen.affine.bg2xOffset = 0;
         gScreen.affine.bg2yOffset = 0;
         MemClear32(&gChooseFileState, sizeof(gChooseFileState));
@@ -493,7 +493,7 @@ void sub_08050AFC(u32 idx) {
     if (gUnk_02019EE0.saveStatus[idx] == SAVE_VALID) {
         sub_08050B3C(&gBG1Buffer.unk29C);
     }
-    gScreen.bg.bg2yOffset = 1;
+    gScreen.bg.bg1Updated = 1;
 }
 
 typedef struct {
@@ -827,7 +827,7 @@ void sub_08051090(void) {
     sub_08050790();
     sub_0805070C();
     sub_08051458();
-    gScreen.bg.bg2xOffset = 0xff;
+    gScreen.bg.bg1yOffset = 0xff;
     gScreen.affine.bg2yOffset = 0xff;
     sub_080A7114(1);
 }

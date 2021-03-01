@@ -499,10 +499,10 @@ void sub_0805AAF0(u32 unk0) {
     gScreen.controls.layerFXControl = 0x3E48;
     gScreen.controls.alphaBlend = 0x1008;
     gScreen.affine.bg3Control = 0x1E04;
-    gScreen.affine.unk5 = &gBG3Buffer;
+    gScreen.affine.bg3Tilemap = &gBG3Buffer;
     gScreen.affine.bg3xOffset = 0;
     gScreen.affine.bg3yOffset = 0;
-    gScreen.affine.unk4 = 1;
+    gScreen.affine.bg3Updated = 1;
     gScreen.controls.windowInsideControl = 0x3F3F;
     gScreen.controls.windowOutsideControl = 0x37;
     gScreen.controls.window1HorizontalDimensions = 0xF0;

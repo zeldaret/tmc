@@ -33,7 +33,7 @@ void sub_080570B8(Entity* this) {
     this->height.WORD = 0;
     pbVar1 = ((u8*)&this->field_0x20 + 1);
     if (*pbVar1 == 3) {
-        gScreen.affine.unk4 = 1;
+        gScreen.affine.bg3Updated = 1;
     } else {
         gUnk_08107C48[*pbVar1](this);
     }
