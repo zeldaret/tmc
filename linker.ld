@@ -377,7 +377,7 @@ SECTIONS {
         asm/code_080300AC.o(.text); /* ??? */
         asm/armos.o(.text);
         asm/eyegore.o(.text);
-        asm/rope.o(.text);
+        src/enemy/rope.o(.text);
         src/enemy/smallPesto.o(.text);
         src/enemy/acroBandits.o(.text);
         src/enemy/bladeTrap.o(.text);
@@ -395,7 +395,7 @@ SECTIONS {
         src/enemy/gibdo.o(.text);
         asm/octorokGolden.o(.text);
         src/enemy/tektiteGolden.o(.text);
-        asm/ropeGolden.o(.text);
+        src/enemy/ropeGolden.o(.text);
         asm/cloudPiranha.o(.text);
         asm/scissorsBeetle.o(.text);
         asm/cuccoAggr.o(.text);
