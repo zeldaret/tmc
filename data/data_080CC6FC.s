@@ -747,7 +747,7 @@ gUnk_080CE404:: @ 080CE404
 gUnk_080CE407:: @ 080CE407
 	.incbin "baserom.gba", 0x0CE407, 0x0000041
 
-gUnk_080CE448:: @ 080CE448
+gRope:: @ 080CE448
 	.incbin "baserom.gba", 0x0CE448, 0x0000018
 
 gUnk_080CE460:: @ 080CE460
