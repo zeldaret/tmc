@@ -103,8 +103,8 @@ u16 EEPROMWrite1(u16 address, u16* data) {
 
 // this is the furthest I could get
 // 0x080B16AC
-NONMATCH("asm/non_matching/code_080B1520/EEPROMWrite.inc", u16 EEPROMWrite(u16 unk_1, u16* unk_2, u8 unk_3)) {
-    u16 stack[0x52];
+NONMATCH("asm/non_matching/code_080B1520/EEPROMWrite.inc", u16 EEPROMWrite(u16 address, u16* data, u8 unk_3)) {
+    u16 buffer[0x52]; // this is one too large?
     vu16 stack_a4;
     vu16 stack_a6;
     vu16 stack_a8;
@@ -115,22 +115,24 @@ NONMATCH("asm/non_matching/code_080B1520/EEPROMWrite.inc", u16 EEPROMWrite(u16 u
     u8 i, j;
     u16* ptr;
 
-    r1 = unk_1;
-    if (unk_1 >= gEEPROMConfig->size)
+    r1 = address;
+    if (address >= gEEPROMConfig->size)
         return EEPROM_OUT_OF_RANGE;
 
-    ptr = stack + gEEPROMConfig->address_width + 0x42;
+    ptr = buffer + gEEPROMConfig->address_width + 0x42;
     *ptr = 0;
     ptr--;
+    // copy data into buffer
     for (i = 0; i <= 3; i++) {
-        r2 = *unk_2;
-        unk_2++;
+        r2 = *data;
+        data++;
         for (j = 0; j <= 0xf; j++) {
             *ptr = r2;
             ptr--;
             r2 = r2 >> 1;
         }
     }
+    // copy address to buffer
     for (i = 0; i < gEEPROMConfig->address_width; i++) {
         *ptr = r1;
         ptr--;
@@ -139,7 +141,7 @@ NONMATCH("asm/non_matching/code_080B1520/EEPROMWrite.inc", u16 EEPROMWrite(u16 u
     *ptr = 0;
     ptr--;
     *ptr = 1;
-    DMA3Transfer(stack, (u16*)0xd000000, gEEPROMConfig->address_width + 0x43);
+    DMA3Transfer(buffer, (u16*)0xd000000, gEEPROMConfig->address_width + 0x43);
     stack_a4 = 0;
     stack_a6 = REG_VCOUNT;
     stack_ac = 0;
