@@ -16,8 +16,8 @@ const EEPROMConfig gEEPROMConfig8k = { 0x2000, 0x400, 0x300, 0xe };
 
 u16 EEPROMWrite(u16, const u16*, u8);
 
-u32 EEPROMConfigure(u16 unk_1) {
-    u32 ret;
+u16 EEPROMConfigure(u16 unk_1) {
+    u16 ret;
 
     ret = 0;
     if (unk_1 == 4) {
@@ -57,7 +57,7 @@ static void DMA3Transfer(const void* src, void* dest, u16 count) {
  * @param data u16[4]
  * @return errorcode, 0 on success
  */
-u32 EEPROMRead(u16 address, u16* data) {
+u16 EEPROMRead(u16 address, u16* data) {
     u16 buffer[0x44];
 
     u16* ptr;
@@ -205,9 +205,9 @@ u16 EEPROMCompare(u16 address, const u16* data) {
 
 const char EEPROM_NOWAIT[] = "EEPROM_NOWAIT";
 
-u32 EEPROMWrite1_check(u16 address, const u16* data) {
+u16 EEPROMWrite1_check(u16 address, const u16* data) {
     u8 i;
-    u32 ret;
+    u16 ret;
 
     for (i = 0; i < 3; i++) {
         ret = EEPROMWrite1(address, data);
@@ -231,9 +231,9 @@ u16 EEPROMWrite0_8k(u16 address, const u16* data) {
     return ret;
 }
 
-u32 EEPROMWrite0_8k_Check(u16 address, const u16* data) {
+u16 EEPROMWrite0_8k_Check(u16 address, const u16* data) {
     u8 i;
-    u32 ret;
+    u16 ret;
 
     for (i = 0; i < 3; i++) {
         ret = EEPROMWrite0_8k(address, data);
