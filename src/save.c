@@ -8,19 +8,18 @@ typedef struct Thing {
 } Thing;
 
 typedef struct {
-    u16 field_0x0;
-    u16 field_0x2;
-    u16 field_0x4;
-    u16 field_0x6;
-    u16 field_0x8;
-    u16 field_0xa;
-} struct_0807D1C4;
+    u16 size;
+    u16 checksum1;
+    u16 checksum2;
+    u16 address1;
+    u16 address2;
+} SaveFileEEPROMAddresses;
 
 static SaveResult HandleSaveInit(u32);
 static SaveResult HandleSaveInProgress(u32);
 static SaveResult HandleSaveDone(u32);
 
-const struct_0807D1C4* sub_0807D1C4(u32);
+const SaveFileEEPROMAddresses* GetSaveFileEEPROMAddresses(u32);
 u32 sub_0807D008(u32, SaveFile*);
 u32 sub_0807D0A0(Thing*, u16*, u32);
 u32 sub_0807D128(const Thing*);
@@ -50,13 +49,13 @@ static const char sSaveDescDeleted[8] = "\xFF\xFF\xFF\xFF"
                                         "DelF";
 
 const char gUnk_0811E4B4[8] = "DAMEDAME";
-const struct_0807D1C4 gUnk_0811E4BC[7] = {{0x500, 0x30, 0x1030, 0x80, 0x1080, 0},
-                                          {0x500, 0x40, 0x1040, 0x580, 0x1580, 0},
-                                          {0x500, 0x50, 0x1050, 0xa80, 0x1a80, 0},
-                                          {0x10, 0x20, 0x1020, 0x70, 0x1070, 0},
-                                          {0x20, 0, 0, 0, 0x1000, 0},
-                                          {0x20, 0x60, 0x1060, 0xf80, 0x1f80, 0},
-                                          {0x8, 0xfa0, 0x1fa0, 0xfa0, 0x1fa0, 0}};
+const SaveFileEEPROMAddresses gSaveFileEEPROMAddresses[] = { { 0x500, 0x30, 0x1030, 0x80, 0x1080 },
+                                                             { 0x500, 0x40, 0x1040, 0x580, 0x1580 },
+                                                             { 0x500, 0x50, 0x1050, 0xa80, 0x1a80 },
+                                                             { 0x10, 0x20, 0x1020, 0x70, 0x1070 },
+                                                             { 0x20, 0, 0, 0, 0x1000 },
+                                                             { 0x20, 0x60, 0x1060, 0xf80, 0x1f80 },
+                                                             { 0x8, 0xfa0, 0x1fa0, 0xfa0, 0x1fa0 } };
 
 extern s16 gUnk_02021EE0[6];
 
@@ -122,17 +121,17 @@ SaveResult HandleSaveDone(u32 arg0) {
 }
 
 u32 sub_0807CE90(void) {
-    const struct_0807D1C4* puVar1;
+    const SaveFileEEPROMAddresses* eepromAddresses;
     int iVar2;
     int iVar3;
 
     EEPROMConfigure(0x40);
-    puVar1 = sub_0807D1C4(4);
+    eepromAddresses = GetSaveFileEEPROMAddresses(4);
     iVar3 = 0;
-    if (DataCompare(puVar1->field_0x6, sSignatureLong, puVar1->field_0x0) == 0) {
+    if (DataCompare(eepromAddresses->address1, sSignatureLong, eepromAddresses->size) == 0) {
         iVar3 += 1;
     }
-    if (DataCompare(puVar1->field_0x8, sSignatureLong, puVar1->field_0x0) == 0) {
+    if (DataCompare(eepromAddresses->address2, sSignatureLong, eepromAddresses->size) == 0) {
         iVar3 += 2;
     }
     if (iVar3 != 0) {
@@ -143,8 +142,8 @@ u32 sub_0807CE90(void) {
             sub_0807CF68(1);
             sub_0807CF68(0);
         }
-        DataWrite(puVar1->field_0x8, sSignatureLong, puVar1->field_0x0);
-        DataWrite(puVar1->field_0x6, sSignatureLong, puVar1->field_0x0);
+        DataWrite(eepromAddresses->address2, sSignatureLong, eepromAddresses->size);
+        DataWrite(eepromAddresses->address1, sSignatureLong, eepromAddresses->size);
     }
     return 1;
 }
@@ -174,45 +173,45 @@ u32 sub_0807CF3C(SaveFile* arg0) {
 }
 
 void sub_0807CF48(u32 arg0) {
-    const struct_0807D1C4* temp;
+    const SaveFileEEPROMAddresses* eepromAddresses;
 
-    temp = sub_0807D1C4(arg0);
-    sub_0807D184(temp->field_0x4, sSaveDescDeleted);
-    sub_0807D184(temp->field_0x2, sSaveDescDeleted);
+    eepromAddresses = GetSaveFileEEPROMAddresses(arg0);
+    sub_0807D184(eepromAddresses->checksum2, sSaveDescDeleted);
+    sub_0807D184(eepromAddresses->checksum1, sSaveDescDeleted);
 }
 
 void sub_0807CF68(u32 arg0) {
-    const struct_0807D1C4* temp;
+    const SaveFileEEPROMAddresses* eepromAddresses;
     const char* str;
 
-    temp = sub_0807D1C4(arg0);
+    eepromAddresses = GetSaveFileEEPROMAddresses(arg0);
     str = sSaveDescInit;
-    sub_0807D184(temp->field_0x4, str);
-    sub_0807D184(temp->field_0x2, str);
+    sub_0807D184(eepromAddresses->checksum2, str);
+    sub_0807D184(eepromAddresses->checksum1, str);
 }
 
 u32 sub_0807CF88(u32 arg0, u8* arg1) {
     Thing thing;
 
     u32 retval;
-    const struct_0807D1C4* ptr;
+    const SaveFileEEPROMAddresses* eepromAddresses;
     u32 e0, e1;
     u16 l1prep;
 
-    ptr = sub_0807D1C4(arg0);
+    eepromAddresses = GetSaveFileEEPROMAddresses(arg0);
 
     thing.unk_3 = 'MCZ3';
     l1prep = sub_0807D1A4((u16*)&thing.unk_3, 4);
-    l1prep += sub_0807D1A4((u16*)arg1, ptr->field_0x0);
+    l1prep += sub_0807D1A4((u16*)arg1, eepromAddresses->size);
     thing.unk_1 = l1prep;
     thing.unk_2 = -(u32)l1prep;
-    e0 = DataWrite(ptr->field_0x6, (const char*)arg1, ptr->field_0x0);
+    e0 = DataWrite(eepromAddresses->address1, (const char*)arg1, eepromAddresses->size);
     if (e0) {
-        e0 = sub_0807D184(ptr->field_0x2, (const char*)&thing.unk_1);
+        e0 = sub_0807D184(eepromAddresses->checksum1, (const char*)&thing.unk_1);
     }
-    e1 = DataWrite(ptr->field_0x8, (const char*)arg1, ptr->field_0x0);
+    e1 = DataWrite(eepromAddresses->address2, (const char*)arg1, eepromAddresses->size);
     if (e1) {
-        e1 = sub_0807D184(ptr->field_0x4, (const char*)&thing.unk_1);
+        e1 = sub_0807D184(eepromAddresses->checksum2, (const char*)&thing.unk_1);
     }
 
     retval = 0;
@@ -226,32 +225,32 @@ u32 sub_0807D008(u32 param_1, SaveFile* saveFile) {
     vu32 set_0;
     Thing auStack32;
 
-    const struct_0807D1C4* unk_s;
+    const SaveFileEEPROMAddresses* eepromAddresses;
     u32 t1;
     u32 t2;
     u32 ret;
     u32 temp;
 
-    unk_s = sub_0807D1C4(param_1);
-    t1 = sub_0807D0EC(unk_s->field_0x2, (char*)&auStack32);
+    eepromAddresses = GetSaveFileEEPROMAddresses(param_1);
+    t1 = sub_0807D0EC(eepromAddresses->checksum1, (char*)&auStack32);
     if (t1 == 2) {
-        if ((DataRead(unk_s->field_0x6, (char*)saveFile, unk_s->field_0x0) == 0) ||
-            (sub_0807D0A0(&auStack32, (u16*)saveFile, (u32)unk_s->field_0x0) == 0)) {
+        if ((DataRead(eepromAddresses->address1, (char*)saveFile, eepromAddresses->size) == 0) ||
+            (sub_0807D0A0(&auStack32, (u16*)saveFile, (u32)eepromAddresses->size) == 0)) {
             t1 = 0;
         } else {
             return 1;
         }
     }
-    t2 = sub_0807D0EC(unk_s->field_0x4, (char*)&auStack32);
+    t2 = sub_0807D0EC(eepromAddresses->checksum2, (char*)&auStack32);
     if (t2 == 2) {
-        if ((DataRead(unk_s->field_0x8, (char*)saveFile, unk_s->field_0x0) != 0) &&
-            (sub_0807D0A0(&auStack32, (u16*)saveFile, (u32)unk_s->field_0x0) != 0)) {
+        if ((DataRead(eepromAddresses->address2, (char*)saveFile, eepromAddresses->size) != 0) &&
+            (sub_0807D0A0(&auStack32, (u16*)saveFile, (u32)eepromAddresses->size) != 0)) {
             return 1;
         }
         t2 = 0;
     }
     set_0 = 0;
-    CpuSet((u16*)&set_0, saveFile, unk_s->field_0x0 >> 2 | CPU_SET_SRC_FIXED | CPU_SET_32BIT);
+    CpuSet((u16*)&set_0, saveFile, eepromAddresses->size >> 2 | CPU_SET_SRC_FIXED | CPU_SET_32BIT);
     temp = t1 | t2;
     ret = 0;
     if (temp == 0) {
@@ -261,27 +260,27 @@ u32 sub_0807D008(u32 param_1, SaveFile* saveFile) {
 }
 
 NONMATCH("asm/non_matching/save/sub_0807D0A0.inc", u32 sub_0807D0A0(Thing* unk_1, u16* unk_2, u32 unk_3)) {
-        u32 r0;
+    u32 r0;
 
-        u16 u0;
+    u16 u0;
 
-        u0 = sub_0807D1A4((u16*)&unk_1->unk_3, 4);
-        u0 = u0 + sub_0807D1A4(unk_2, unk_3);
+    u0 = sub_0807D1A4((u16*)&unk_1->unk_3, 4);
+    u0 = u0 + sub_0807D1A4(unk_2, unk_3);
 
-        if (unk_1->unk_1 != u0) {
-            r0 = 0;
-        } else {
-            if (unk_1->unk_2 == -unk_1->unk_1) {
-                if (unk_1->unk_3 != 'MCZ3') {
-                    r0 = 0;
-                } else {
-                    r0 = 1;
-                }
-            } else {
+    if (unk_1->unk_1 != u0) {
+        r0 = 0;
+    } else {
+        if (unk_1->unk_2 == -unk_1->unk_1) {
+            if (unk_1->unk_3 != 'MCZ3') {
                 r0 = 0;
+            } else {
+                r0 = 1;
             }
+        } else {
+            r0 = 0;
         }
-        return r0;
+    }
+    return r0;
 }
 END_NONMATCH
 
@@ -345,8 +344,8 @@ u16 sub_0807D1A4(u16* unk_1, u32 unk_2) {
     return uVar1;
 }
 
-const struct_0807D1C4* sub_0807D1C4(u32 unk_1) {
-    return &gUnk_0811E4BC[unk_1];
+const SaveFileEEPROMAddresses* GetSaveFileEEPROMAddresses(u32 unk_1) {
+    return &gSaveFileEEPROMAddresses[unk_1];
 }
 
 bool32 DataRead(u32 address, void* data, u32 size) {
