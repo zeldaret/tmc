@@ -338,7 +338,7 @@ u16 CalculateChecksum(u16* data, u32 size) {
     checksum = 0;
     while (size != 0) {
         checksum += (*data ^ size);
-        data = data + 1;
+        data++;
         size = size - 2;
     }
     return checksum;
