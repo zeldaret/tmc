@@ -7,17 +7,20 @@ typedef struct Thing {
     u32 unk_3;
 } Thing;
 
-const u16 gUnk_0811E454[] = { 0x0,   0x0,   0x100, 0x200, 0x300, 0x400, 0x500,
-                              0x5C0, 0x680, 0x740, 0x800, 0x8C0, 0x9C0, 0xA80 };
-
-const char gUnk_0811E470[6] = "LINK";
+typedef struct {
+    u16 field_0x0;
+    u16 field_0x2;
+    u16 field_0x4;
+    u16 field_0x6;
+    u16 field_0x8;
+    u16 field_0xa;
+} struct_0807D1C4;
 
 static SaveResult HandleSaveInit(u32);
 static SaveResult HandleSaveInProgress(u32);
 static SaveResult HandleSaveDone(u32);
-static SaveResult (*const sSaveHandlers[])(u32) = { HandleSaveInit, HandleSaveInProgress, HandleSaveDone };
 
-struct_0807D1C4* sub_0807D1C4(u32);
+const struct_0807D1C4* sub_0807D1C4(u32);
 u32 sub_0807D008(u32, SaveFile*);
 u32 sub_0807D0A0(Thing*, u16*, u32);
 u32 sub_0807D128(const Thing*);
@@ -30,6 +33,13 @@ u32 DataRead(u32 address, void* data, u32 size);
 u32 DataWrite(u32 address, const void* data, u32 size);
 u32 DataCompare(u32 address, const void* data, u32 size);
 
+const u16 gUnk_0811E454[] = { 0x0,   0x0,   0x100, 0x200, 0x300, 0x400, 0x500,
+                              0x5C0, 0x680, 0x740, 0x800, 0x8C0, 0x9C0, 0xA80 };
+
+const char gUnk_0811E470[6] = "LINK";
+
+static SaveResult (*const sSaveHandlers[])(u32) = { HandleSaveInit, HandleSaveInProgress, HandleSaveDone };
+
 static const char sSignatureLong[32] = "AGBZELDA:THE MINISH CAP:ZELDA 5";
 
 // Save file is untouched
@@ -40,7 +50,13 @@ static const char sSaveDescDeleted[8] = "\xFF\xFF\xFF\xFF"
                                         "DelF";
 
 const char gUnk_0811E4B4[8] = "DAMEDAME";
-extern struct_0807D1C4 gUnk_0811E4BC[];
+const struct_0807D1C4 gUnk_0811E4BC[7] = {{0x500, 0x30, 0x1030, 0x80, 0x1080, 0},
+                                          {0x500, 0x40, 0x1040, 0x580, 0x1580, 0},
+                                          {0x500, 0x50, 0x1050, 0xa80, 0x1a80, 0},
+                                          {0x10, 0x20, 0x1020, 0x70, 0x1070, 0},
+                                          {0x20, 0, 0, 0, 0x1000, 0},
+                                          {0x20, 0x60, 0x1060, 0xf80, 0x1f80, 0},
+                                          {0x8, 0xfa0, 0x1fa0, 0xfa0, 0x1fa0, 0}};
 
 extern s16 gUnk_02021EE0[6];
 
@@ -106,7 +122,7 @@ SaveResult HandleSaveDone(u32 arg0) {
 }
 
 u32 sub_0807CE90(void) {
-    struct_0807D1C4* puVar1;
+    const struct_0807D1C4* puVar1;
     int iVar2;
     int iVar3;
 
@@ -158,7 +174,7 @@ u32 sub_0807CF3C(SaveFile* arg0) {
 }
 
 void sub_0807CF48(u32 arg0) {
-    struct_0807D1C4* temp;
+    const struct_0807D1C4* temp;
 
     temp = sub_0807D1C4(arg0);
     sub_0807D184(temp->field_0x4, sSaveDescDeleted);
@@ -166,7 +182,7 @@ void sub_0807CF48(u32 arg0) {
 }
 
 void sub_0807CF68(u32 arg0) {
-    struct_0807D1C4* temp;
+    const struct_0807D1C4* temp;
     const char* str;
 
     temp = sub_0807D1C4(arg0);
@@ -179,7 +195,7 @@ u32 sub_0807CF88(u32 arg0, u8* arg1) {
     Thing thing;
 
     u32 retval;
-    struct_0807D1C4* ptr;
+    const struct_0807D1C4* ptr;
     u32 e0, e1;
     u16 l1prep;
 
@@ -210,7 +226,7 @@ u32 sub_0807D008(u32 param_1, SaveFile* saveFile) {
     vu32 set_0;
     Thing auStack32;
 
-    struct_0807D1C4* unk_s;
+    const struct_0807D1C4* unk_s;
     u32 t1;
     u32 t2;
     u32 ret;
@@ -329,7 +345,7 @@ u16 sub_0807D1A4(u16* unk_1, u32 unk_2) {
     return uVar1;
 }
 
-struct_0807D1C4* sub_0807D1C4(u32 unk_1) {
+const struct_0807D1C4* sub_0807D1C4(u32 unk_1) {
     return &gUnk_0811E4BC[unk_1];
 }
 
