@@ -22,7 +22,10 @@ u32 sub_0807D0A0(u16*, u16*, u32);
 u32 sub_0807D0EC(u32, const char*);
 u32 sub_0807D128(const Thing*);
 u16 sub_0807D1A4(u16*, u32);
-u32 sub_0807D1D8(u32, const char*, u32);
+
+u32 DataRead(u32 address, u8* data, u32 size);
+u32 DataWrite(u32 address, const u8* data, u32 size);
+u32 DataCompare(u32 address, const u8* data, u32 size);
 
 static const char sSignatureLong[32] = "AGBZELDA:THE MINISH CAP:ZELDA 5";
 
@@ -107,10 +110,10 @@ u32 sub_0807CE90(void) {
     EEPROMConfigure(0x40);
     puVar1 = sub_0807D1C4(4);
     iVar3 = 0;
-    if (sub_0807D24C(puVar1->field_0x6, sSignatureLong, puVar1->field_0x0) == 0) {
+    if (DataCompare(puVar1->field_0x6, sSignatureLong, puVar1->field_0x0) == 0) {
         iVar3 += 1;
     }
-    if (sub_0807D24C(puVar1->field_0x8, sSignatureLong, puVar1->field_0x0) == 0) {
+    if (DataCompare(puVar1->field_0x8, sSignatureLong, puVar1->field_0x0) == 0) {
         iVar3 += 2;
     }
     if (iVar3 != 0) {
@@ -121,8 +124,8 @@ u32 sub_0807CE90(void) {
             sub_0807CF68(1);
             sub_0807CF68(0);
         }
-        sub_0807D20C(puVar1->field_0x8, sSignatureLong, puVar1->field_0x0);
-        sub_0807D20C(puVar1->field_0x6, sSignatureLong, puVar1->field_0x0);
+        DataWrite(puVar1->field_0x8, sSignatureLong, puVar1->field_0x0);
+        DataWrite(puVar1->field_0x6, sSignatureLong, puVar1->field_0x0);
     }
     return 1;
 }
@@ -184,11 +187,11 @@ u32 sub_0807CF88(u32 arg0, u8* arg1) {
     l1prep += sub_0807D1A4((u16*)arg1, ptr->field_0x0);
     thing.unk_1 = l1prep;
     thing.unk_2 = -(u32)l1prep;
-    e0 = sub_0807D20C(ptr->field_0x6, (const char*)arg1, ptr->field_0x0);
+    e0 = DataWrite(ptr->field_0x6, (const char*)arg1, ptr->field_0x0);
     if (e0) {
         e0 = sub_0807D184(ptr->field_0x2, (const char*)&thing.unk_1);
     }
-    e1 = sub_0807D20C(ptr->field_0x8, (const char*)arg1, ptr->field_0x0);
+    e1 = DataWrite(ptr->field_0x8, (const char*)arg1, ptr->field_0x0);
     if (e1) {
         e1 = sub_0807D184(ptr->field_0x4, (const char*)&thing.unk_1);
     }
@@ -213,7 +216,7 @@ NONMATCH("asm/non_matching/save/sub_0807D008.inc", u32 sub_0807D008(u32 param_1,
     unk_s = sub_0807D1C4(param_1);
     t1 = sub_0807D0EC(unk_s->field_0x2, auStack32);
     if (t1 == 2) {
-        if ((sub_0807D1D8(unk_s->field_0x6, (char*)saveFile, unk_s->field_0x0) == 0) ||
+        if ((DataRead(unk_s->field_0x6, (char*)saveFile, unk_s->field_0x0) == 0) ||
             (sub_0807D0A0((u16*)auStack32, (u16*)saveFile, (u32)unk_s->field_0x0) == 0)) {
             t1 = 0;
         } else {
@@ -222,7 +225,7 @@ NONMATCH("asm/non_matching/save/sub_0807D008.inc", u32 sub_0807D008(u32 param_1,
     }
     t2 = sub_0807D0EC(unk_s->field_0x4, auStack32);
     if (t2 == 2) {
-        if ((sub_0807D1D8(unk_s->field_0x8, (char*)saveFile, unk_s->field_0x0) != 0) &&
+        if ((DataRead(unk_s->field_0x8, (char*)saveFile, unk_s->field_0x0) != 0) &&
             (sub_0807D0A0((u16*)auStack32, (u16*)saveFile, (u32)unk_s->field_0x0) != 0)) {
             return 1;
         }
@@ -271,12 +274,12 @@ END_NONMATCH
 u32 sub_0807D0EC(u32 unk_1, const char* unk_2) {
     u32 ret;
 
-    if (!sub_0807D1D8(unk_1, unk_2, 8)) {
+    if (!DataRead(unk_1, unk_2, 8)) {
         ret = 0;
     } else {
         ret = sub_0807D128((Thing*)unk_2);
     }
-    if (!ret && sub_0807D1D8(unk_1 + 8, unk_2, 8)) {
+    if (!ret && DataRead(unk_1 + 8, unk_2, 8)) {
         ret = sub_0807D128((Thing*)unk_2);
     }
     return ret;
@@ -309,9 +312,9 @@ u32 sub_0807D128(const Thing* thing) {
 u32 sub_0807D184(u32 param_1, const char* param_2) {
     u32 uVar1;
 
-    uVar1 = sub_0807D20C(param_1, param_2, 8);
+    uVar1 = DataWrite(param_1, param_2, 8);
     if (uVar1 == 0) {
-        uVar1 = sub_0807D20C(param_1 + 8, param_2, 8);
+        uVar1 = DataWrite(param_1 + 8, param_2, 8);
     }
     return uVar1;
 }
@@ -332,35 +335,40 @@ struct_0807D1C4* sub_0807D1C4(u32 unk_1) {
     return &gUnk_0811E4BC[unk_1];
 }
 
-// these three are basically the same and wrong by basically one instruction in the wrong place
-NONMATCH("asm/non_matching/save/sub_0807D1D8.inc", u32 sub_0807D1D8(u32 unk_1, const char* unk_2, u32 unk_3)) {
+bool32 DataRead(u32 address, u8* data, u32 size) {
+    size /= 8;
+    address /= 8;
+    while (size-- > 0) {
+        if (EEPROMRead(address, (u16*)data))
+            return FALSE;
+        address++;
+        data += 8;
+    }
+    return TRUE;
 }
-END_NONMATCH
 
-NONMATCH("asm/non_matching/save/sub_0807D20C.inc", u32 sub_0807D20C(u32 unk_1, const char* unk_2, u32 unk_3)) {
-    unk_3 >>= 3;
-    unk_1 >>= 3;
-    while (unk_3-- > 0) {
-        if (EEPROMWrite0_8k_Check(unk_1, (u16*)unk_2)) {
-            EEPROMWrite0_8k_Check(unk_1, (u16*)gUnk_0811E4B4);
-            return 0;
+bool32 DataWrite(u32 address, const u8* data, u32 size) {
+    size /= 8;
+    address /= 8;
+    while (size-- > 0) {
+        if (EEPROMWrite0_8k_Check(address, (u16*)data)) {
+            EEPROMWrite0_8k_Check(address, (u16*)gUnk_0811E4B4);
+            return FALSE;
         }
-        unk_1++;
-        unk_2 += 8;
+        address++;
+        data += 8;
     }
-    return 1;
+    return TRUE;
 }
-END_NONMATCH
 
-NONMATCH("asm/non_matching/save/sub_0807D24C.inc", u32 sub_0807D24C(u32 unk_1, const char* unk_2, u32 unk_3)) {
-    unk_3 >>= 3;
-    unk_1 >>= 3;
-    while (unk_3-- > 0) {
-        if (EEPROMCompare(unk_1, (u16*)unk_2))
-            return 0;
-        unk_1++;
-        unk_2 += 8;
+bool32 DataCompare(u32 address, const u8* data, u32 size) {
+    size /= 8;
+    address /= 8;
+    while (size-- > 0) {
+        if (EEPROMCompare(address, (u16*)data))
+            return FALSE;
+        address++;
+        data += 8;
     }
-    return 1;
+    return TRUE;
 }
-END_NONMATCH

@@ -21,7 +21,7 @@
 	ldrh r0, [r5, #6]
 	ldrh r2, [r5]
 	adds r1, r7, #0
-	bl sub_0807D1D8
+	bl DataRead
 	cmp r0, #0
 	beq _0807D046
 	ldrh r2, [r5]
@@ -42,7 +42,7 @@ _0807D048:
 	ldrh r0, [r5, #8]
 	ldrh r2, [r5]
 	adds r1, r7, #0
-	bl sub_0807D1D8
+	bl DataRead
 	cmp r0, #0
 	beq _0807D076
 	ldrh r2, [r5]
