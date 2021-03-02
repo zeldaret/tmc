@@ -50,7 +50,7 @@ void sub_08065A34(Entity* this) {
 }
 
 void sub_08065A50(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08110080[this->entityType.form]);
+    ShowNPCDialogue(this, &gUnk_08110080[this->type]);
 }
 
 void sub_08065A64(Entity* this) {
@@ -83,7 +83,7 @@ void sub_08065AA4(Entity* this) {
             sub_08065A50(this);
             sub_080791D0();
         }
-        PlaySFX(0xD3);
+        SoundReq(0xD3);
         this->interactType = 0;
     }
 }

@@ -61,7 +61,7 @@ sub_080A0F44: @ 0x080A0F44
 	bl sub_0805E544
 	movs r0, #0x89
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #3
 	strb r0, [r5, #0xc]
 	strb r4, [r5, #0xd]
@@ -99,7 +99,7 @@ sub_080A0FB0: @ 0x080A0FB0
 	bl sub_0805E544
 	movs r0, #0x89
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #2
 	strb r0, [r5, #0xc]
 	strb r4, [r5, #0xd]
@@ -159,7 +159,7 @@ _080A1038:
 	movs r0, #0x1e
 	strb r0, [r4, #0xe]
 	adds r0, #0xf5
-	bl PlaySFX
+	bl SoundReq
 	b _080A10D4
 _080A1056:
 	ldr r0, _080A1060 @ =gScreenTransition
@@ -257,7 +257,7 @@ _080A10FE:
 	movs r0, #0x1e
 	strb r0, [r2, #0xe]
 	adds r0, #0xf6
-	bl PlaySFX
+	bl SoundReq
 	b _080A11BA
 _080A110E:
 	ldrb r0, [r2, #0xe]

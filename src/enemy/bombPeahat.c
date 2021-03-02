@@ -32,14 +32,14 @@ extern void (*const gUnk_080CD134[])(Entity*);
 extern void (*const gUnk_080CD140[])(Entity*);
 extern void (*const gUnk_080CD158[])(Entity*);
 
-extern const BoundingBox gUnk_080CD16C;
-extern const BoundingBox gUnk_080CD174;
-extern const BoundingBox gUnk_080CD17C;
+extern const Hitbox gUnk_080CD16C;
+extern const Hitbox gUnk_080CD174;
+extern const Hitbox gUnk_080CD17C;
 
 void BombPeahat(Entity* this) {
     s32 iVar1;
 
-    if ((this->entityType.form == 2) && (iVar1 = sub_080012DC(this), iVar1)) {
+    if ((this->type == 2) && (iVar1 = sub_080012DC(this), iVar1)) {
         gUnk_080012C8[iVar1](this);
     } else {
         gUnk_080CD0F0[GetNextFunction(this)](this);
@@ -47,7 +47,7 @@ void BombPeahat(Entity* this) {
 }
 
 void sub_0802A84C(Entity* this) {
-    switch (this->entityType.form) {
+    switch (this->type) {
         default:
             gUnk_080CD108[this->action](this);
             sub_0802AD54(this);
@@ -64,7 +64,7 @@ void sub_0802A84C(Entity* this) {
 
 void sub_0802A8AC(Entity* this) {
     this->field_0x80.HALF.HI = 0;
-    if (this->entityType.form < 2) {
+    if (this->type < 2) {
         InitializeAnimation(this, 0);
     }
 }
@@ -105,7 +105,7 @@ void sub_0802A924(Entity* this) {
     this->previousActionFlag = 0;
     this->actionDelay = 0;
     this->field_0xf = 0;
-    this->boundingBox = (BoundingBox*)&gUnk_080CD16C;
+    this->hitbox = (Hitbox*)&gUnk_080CD16C;
     this->height.HALF.HI = -0x30;
     this->field_0x80.HALF.LO = Random() & 1;
     this->field_0x82.HWORD = 0;
@@ -118,7 +118,7 @@ void sub_0802A924(Entity* this) {
     this->spriteOrientation.flipY = 1;
     this->spriteRendering.b3 = 1;
     this->spritePriority.b0 = 1;
-    InitializeAnimation(this, this->entityType.form + 1);
+    InitializeAnimation(this, this->type + 1);
 }
 
 void sub_0802A9A8(Entity* this) {
@@ -245,7 +245,7 @@ void sub_0802AB40(Entity* this) {
             } else {
                 this->action = 5;
                 this->nonPlanarMovement = 0;
-                InitializeAnimation(this, this->entityType.form + 1);
+                InitializeAnimation(this, this->type + 1);
             }
             break;
     }
@@ -341,14 +341,14 @@ void sub_0802AD54(Entity* this) {
 }
 
 void sub_0802ADDC(Entity* this) {
-    Entity* ent = CreateEnemy(0x1b, this->entityType.form + 2);
+    Entity* ent = CreateEnemy(0x1b, this->type + 2);
     if (ent != NULL) {
-        ent->entityType.parameter = !!sub_0802B234(this);
+        ent->type2 = !!sub_0802B234(this);
         ent->parent = this;
         this->attachedEntity = ent;
         CopyPosition(this, ent);
         this->field_0x80.HALF.HI = 1;
-        if (this->entityType.form == 0) {
+        if (this->type == 0) {
             this->field_0x7a.HALF.LO++;
         }
     }
@@ -358,7 +358,7 @@ void sub_0802AE24(Entity* this) {
     this->action = 1;
     this->actionDelay = 0xf0;
     this->field_0x20 = 0x8000;
-    this->boundingBox = (BoundingBox*)&gUnk_080CD174;
+    this->hitbox = (Hitbox*)&gUnk_080CD174;
     this->field_0x3c = 3;
     this->field_0x16 = 0;
     this->field_0x1c = 2;
@@ -400,7 +400,7 @@ void sub_0802AED4(Entity* this) {
             sub_08078930(this);
         }
     }
-    if (this->entityType.parameter != 0 && this->field_0x80.HALF.HI) {
+    if (this->type2 != 0 && this->field_0x80.HALF.HI) {
         this->actionDelay = 0;
         this->field_0xf = 1;
     }
@@ -515,7 +515,7 @@ void sub_0802B048(Entity* this) {
                     }
                     sub_0805EC60(this);
                     this->action = 4;
-                    this->boundingBox = (BoundingBox*)&gUnk_080CD17C;
+                    this->hitbox = (Hitbox*)&gUnk_080CD17C;
                     this->actionDelay = 0xf;
                     this->spriteSettings.b.draw = 0;
                     this->flags |= 0x80;
@@ -654,15 +654,15 @@ void (*const gUnk_080CD158[])(Entity*) = {
     sub_0802AF94,
 };
 
-const BoundingBox gUnk_080CD16C = {
+const Hitbox gUnk_080CD16C = {
     0x00, 0xFB, 0x05, 0x03, 0x03, 0x05, 0x06, 0x06,
 };
 
-const BoundingBox gUnk_080CD174 = {
+const Hitbox gUnk_080CD174 = {
     0x00, 0x00, 0x06, 0x00, 0x00, 0x06, 0x04, 0x04,
 };
 
-const BoundingBox gUnk_080CD17C = {
+const Hitbox gUnk_080CD17C = {
     0x00, 0x00, 0x04, 0x00, 0x00, 0x04, 0x16, 0x16,
 };
 // clang-format on

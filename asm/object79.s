@@ -121,7 +121,7 @@ sub_0809803C: @ 0x0809803C
 	bl InitAnimationForceUpdate
 	movs r0, #0xbc
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _08098082
 	.align 2, 0
 _0809806C: .4byte gPlayerEntity
@@ -175,7 +175,7 @@ _080980A8:
 	strh r0, [r2]
 	movs r0, #0xbc
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _080980E6
 	.align 2, 0
 _080980D4: .4byte 0xFFFF0000

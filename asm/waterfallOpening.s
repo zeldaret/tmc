@@ -84,7 +84,7 @@ _0809FFCE:
 	adds r0, r4, #0
 	bl LoadFixedGFX
 	movs r0, #0xf6
-	bl PlaySFX
+	bl SoundReq
 	b _080A005A
 _080A0006:
 	adds r1, r4, #0
@@ -125,7 +125,7 @@ _080A0038:
 	adds r0, #1
 	strb r0, [r1, #6]
 	movs r0, #0x73
-	bl PlaySFX
+	bl SoundReq
 _080A005A:
 	adds r0, r4, #0
 	bl sub_080A00B0

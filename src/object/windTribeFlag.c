@@ -6,7 +6,7 @@ void WindTribeFlag(Entity* this) {
     if (this->action == 0) {
         this->action++;
         this->collisionLayer = 2;
-        if ((this->entityType).form == 0) {
+        if (this->type == 0) {
             this->spriteSettings.b.flipX = 0;
         } else {
             this->spriteSettings.b.flipX = 1;

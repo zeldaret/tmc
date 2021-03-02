@@ -29,11 +29,11 @@ void Mask(Entity* this) {
 }
 
 void sub_080929A4(Entity* this) {
-    if (this->entityType.parameter & 0xC0) {
+    if (this->type2 & 0xC0) {
         if (CheckFlags(this->field_0x86.HWORD)) {
             s32 field_0x0a;
 
-            switch (this->entityType.parameter & 0xC0) {
+            switch (this->type2 & 0xC0) {
                 case 0x40:
                     field_0x0a = gScreenTransition[0x5];
 
@@ -62,7 +62,7 @@ void sub_080929A4(Entity* this) {
     this->field_0xf = this->actionDelay >> 1;
     this->actionDelay = 0;
 
-    this->frameIndex = this->entityType.parameter & 0x3f;
+    this->frameIndex = this->type2 & 0x3f;
 
     this->field_0x7c.HALF.HI = COORD_TO_TILE(this);
     this->field_0x7c.HALF.LO = sub_080001DA(this->field_0x7c.HALF.HI, 1);
@@ -112,7 +112,7 @@ void sub_08092B0C(Entity* this) {
         this->action = 3;
 
         this->actionDelay = 0;
-        switch (this->entityType.parameter & 0xC0) {
+        switch (this->type2 & 0xC0) {
             case 0x80:
                 EnqueueSFX(0x72);
             case 0x40:

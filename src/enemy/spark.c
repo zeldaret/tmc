@@ -39,7 +39,7 @@ void nullsub_15(Entity* this) {
 void sub_0802B33C(Entity* this) {
     sub_0804A720(this);
     this->action = 1;
-    this->direction = (this->entityType).parameter;
+    this->direction = this->type2;
     this->field_0xf = 0x78;
     InitializeAnimation(this, 0);
 }
@@ -49,7 +49,7 @@ void sub_0802B35C(Entity* this) {
 
     GetNextFrame(this);
     ProcessMovement(this);
-    is_head = this->entityType.form == 0;
+    is_head = this->type == 0;
     if (this->collisions == 0) {
         if (--this->field_0xf == 0) {
             this->field_0xf = 0x78;

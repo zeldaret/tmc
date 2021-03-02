@@ -98,7 +98,7 @@ _0804BFE8:
 	ldrh r1, [r4, #0xc]
 	bl sub_08080964
 	ldrh r0, [r4, #0xe]
-	bl PlaySFX
+	bl SoundReq
 	pop {r3, r4, r5}
 	mov r8, r3
 	mov sb, r4

@@ -19,7 +19,7 @@ extern struct_02018EB0 gUnk_02018EB0;
 
 u32 sub_0804AA84(void) {
     if (gArea.fadeOut != 0) {
-        gUnk_03001000.transition = 4;
+        gMain.transition = 4;
         gArea.filler[8] = 0;
         gArea.filler[9] = 0;
         *(u16*)&gArea.filler[10] = 0;
@@ -37,7 +37,7 @@ void sub_0804AAB8(void) {
 }
 
 void sub_0804AAD4(void) {
-    _DmaZero((void*)&gUnk_02018EB0, 0x28);
+    MemClear32((void*)&gUnk_02018EB0, 0x28);
     gUnk_02018EB0.unk = 0;
     EraseAllEntities();
     CreateObject(0x3d, gArea.field_0x17, 0);

@@ -13,14 +13,14 @@ void ObjectB2(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         this->actionDelay = 0x10;
-        this->direction = (this->entityType).form << 3;
+        this->direction = this->type << 3;
         if (this->collisionLayer == 2) {
             pEVar3 = &gUnk_0200D654;
         } else {
             pEVar3 = &gUnk_02027EB4;
         }
         this->attachedEntity = pEVar3;
-        InitializeAnimation(this, this->entityType.form);
+        InitializeAnimation(this, this->type);
     }
     this->nonPlanarMovement = this->parent->nonPlanarMovement;
     sub_0806F69C(this);

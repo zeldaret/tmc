@@ -28,7 +28,7 @@
 // (entity->entityType).form = param_1->entityform;
 // RegisterRoomEntity(entity,param_1);
 // if ((param_1->field_0x1 & 240) != 16) {
-// (entity->entityType).parameter = *(u8 *)&param_1->entityparameter;
+// (entity->type2 = *(u8 *)&param_1->entityparameter;
 // entity->actionDelay = (u8)((u32)param_1->entityparameter >> 8);
 // if ((type != 9) && (sub_0804AF0C(entity,param_1), entity->field_0x4 != NULL)) {
 // if ((param_1->entityType & 16) == 0) {

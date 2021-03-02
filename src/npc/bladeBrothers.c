@@ -48,7 +48,7 @@ void sub_08068A1C(Entity* this) {
     u8 bVar1;
     int offset;
 
-    (this->entityType).parameter = (this->entityType).form;
+    this->type2 = this->type;
     if (gScreenTransition.field_0x24[8] != 0) {
         offset = 6;
         bVar1 = 3;
@@ -92,13 +92,13 @@ void sub_08068AA4(Entity* this) {
     u8 bVar1;
 
     this->action = 1;
-    if (this->entityType.form != 0) {
-        this->entityType.parameter++;
-        this->entityType.parameter &= 7;
-        if (this->entityType.parameter == 0) {
-            this->entityType.parameter += 1;
+    if (this->type != 0) {
+        this->type2++;
+        this->type2 &= 7;
+        if (this->type2 == 0) {
+            this->type2 += 1;
         }
-        sub_0801D2B4(this, gUnk_081115DC[this->entityType.parameter]);
+        sub_0801D2B4(this, gUnk_081115DC[this->type2]);
     }
 }
 
@@ -167,7 +167,7 @@ void sub_08068BEC(Entity* this, u32 unused) {
     if (target) {
         target->spritePriority.b0 = 1;
         PositionRelative(this, target, 0, -0x100000);
-        PlaySFX(0xfa);
+        SoundReq(0xfa);
     }
 }
 
@@ -175,8 +175,8 @@ void sub_08068C28(Entity* this) {
     u8 bVar1;
     u32 uVar2;
 
-    this->actionDelay = gUnk_08111623[(this->entityType).form];
-    if ((this->entityType).form == 1) {
+    this->actionDelay = gUnk_08111623[this->type];
+    if (this->type == 1) {
         if (GetInventoryValue(0x48)) {      // spin attack
             if (!GetInventoryValue(0x4b)) { // rock breaker
                 this->actionDelay = 1;
@@ -205,7 +205,7 @@ void sub_08068CA0(Entity* param_1, Entity* param_2) {
     u8 bVar1;
     u32 uVar2;
 
-    bVar1 = (param_1->entityType).form;
+    bVar1 = param_1->type;
     if (bVar1 == 1) {
         *(u32*)&param_2->animationState = bVar1;
         uVar2 = GetInventoryValue(0x48); // spin attack

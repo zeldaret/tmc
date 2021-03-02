@@ -238,9 +238,9 @@ _08092E16:
 	strb r0, [r5, #0xc]
 	bl sub_08077B20
 	ldr r0, _08092E90 @ =0x00000153
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x79
-	bl PlaySFX
+	bl SoundReq
 _08092E84:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

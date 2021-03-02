@@ -15,7 +15,7 @@ void sub_08090EC0(Entity* this) {
     this->action = 1;
     this->spriteRendering.b3 = 3;
     this->spritePriority.b0 = 7;
-    this->frameIndex = (this->entityType).parameter;
+    this->frameIndex = this->type2;
     if (CheckIsDungeon()) {
         this->frameIndex += 4;
         sub_080AE068(this);

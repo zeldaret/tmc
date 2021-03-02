@@ -193,7 +193,7 @@ _080A56F8:
 	ldr r0, _080A5708 @ =gMenu
 	strb r3, [r0, #3]
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 	b _080A575E
 	.align 2, 0
 _080A5708: .4byte gMenu
@@ -242,7 +242,7 @@ _080A5752:
 	adds r0, r1, #0
 	bl sub_080A4E84
 	movs r0, #0x6a
-	bl PlaySFX
+	bl SoundReq
 _080A575E:
 	ldr r0, _080A5780 @ =gMenu
 	ldrb r1, [r0, #3]
@@ -354,7 +354,7 @@ _080A581A:
 	ldrb r0, [r3, #7]
 	strh r0, [r2, #2]
 	ldrb r2, [r3, #4]
-	ldr r0, _080A58A0 @ =gUnk_03001000
+	ldr r0, _080A58A0 @ =gMain
 	ldrh r1, [r0, #0xc]
 	movs r0, #0x10
 	ands r0, r1
@@ -405,7 +405,7 @@ _080A5890: .4byte gOamCmd
 _080A5894: .4byte gUnk_08128C94
 _080A5898: .4byte gUnk_08128C14
 _080A589C: .4byte gMenu
-_080A58A0: .4byte gUnk_03001000
+_080A58A0: .4byte gMain
 _080A58A4: .4byte 0x000001FB
 _080A58A8:
 	ldrb r0, [r6]
@@ -606,13 +606,13 @@ _080A5A10:
 	movs r0, #2
 	bl sub_080A7114
 	movs r0, #0x6a
-	bl PlaySFX
+	bl SoundReq
 	b _080A5A52
 _080A5A2E:
 	movs r0, #3
 	bl sub_080A7114
 	movs r0, #0x6c
-	bl PlaySFX
+	bl SoundReq
 	b _080A5A52
 _080A5A3C:
 	ldrb r0, [r1, #3]
@@ -623,7 +623,7 @@ _080A5A3C:
 	adds r1, r2, #0
 	bl sub_08052418
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 _080A5A52:
 	pop {pc}
 
@@ -796,7 +796,7 @@ _080A5B76:
 	adds r1, r4, #0
 	bl sub_08052418
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 _080A5B8E:
 	cmp r5, #0
 	beq _080A5BB6
@@ -812,7 +812,7 @@ _080A5B8E:
 	b _080A5BB6
 _080A5BAA:
 	movs r0, #0x6c
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #2
 	bl sub_080A4E84
 _080A5BB6:
@@ -826,7 +826,7 @@ sub_080A5BB8: @ 0x080A5BB8
 	cmp r0, #0
 	bne _080A5BE2
 	bl sub_08050384
-	ldr r1, _080A5BE8 @ =gUnk_03001000
+	ldr r1, _080A5BE8 @ =gMain
 	ldrb r0, [r1, #1]
 	movs r0, #1
 	strb r0, [r1, #1]
@@ -842,7 +842,7 @@ _080A5BE2:
 	pop {pc}
 	.align 2, 0
 _080A5BE4: .4byte gFadeControl
-_080A5BE8: .4byte gUnk_03001000
+_080A5BE8: .4byte gMain
 _080A5BEC: .4byte gUnk_02034490
 
 	thumb_func_start sub_080A5BF0
@@ -856,7 +856,7 @@ sub_080A5BF0: @ 0x080A5BF0
 	ldr r0, [r0]
 	bl _call_via_r0
 	bl sub_080A5D1C
-	ldr r0, _080A5C38 @ =gUnk_03001000
+	ldr r0, _080A5C38 @ =gMain
 	ldrh r0, [r0, #0xc]
 	movs r1, #7
 	ands r0, r1
@@ -867,7 +867,7 @@ sub_080A5BF0: @ 0x080A5BF0
 	adds r0, r4, #2
 	adds r1, r4, #0
 	movs r2, #0xe
-	bl _DmaCopy
+	bl MemCopy
 	strh r5, [r4, #0xe]
 	ldr r2, _080A5C40 @ =gUsedPalettes
 	ldr r0, [r2]
@@ -880,7 +880,7 @@ _080A5C2E:
 	.align 2, 0
 _080A5C30: .4byte gUnk_08128D30
 _080A5C34: .4byte gMenu
-_080A5C38: .4byte gUnk_03001000
+_080A5C38: .4byte gMain
 _080A5C3C: .4byte gUnk_02017830
 _080A5C40: .4byte gUsedPalettes
 
@@ -967,7 +967,7 @@ _080A5CE6:
 	adds r0, r2, #0
 	bl sub_080A5CFC
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 _080A5CFA:
 	pop {pc}
 
@@ -1020,7 +1020,7 @@ sub_080A5D1C: @ 0x080A5D1C
 	lsls r0, r0, #2
 	adds r0, r6, r0
 	strh r0, [r5, #2]
-	ldr r1, _080A5EAC @ =gUnk_03001000
+	ldr r1, _080A5EAC @ =gMain
 	mov sl, r1
 	ldrh r1, [r1, #0xc]
 	movs r0, #0x10
@@ -1181,7 +1181,7 @@ _080A5E9C: .4byte gUnk_080C9C6C
 _080A5EA0: .4byte gUnk_08128D3C
 _080A5EA4: .4byte gOamCmd
 _080A5EA8: .4byte gMenu
-_080A5EAC: .4byte gUnk_03001000
+_080A5EAC: .4byte gMain
 _080A5EB0: .4byte 0x000001FB
 _080A5EB4: .4byte gUnk_080FDFD8
 _080A5EB8: .4byte gUnk_02019EE0
@@ -1535,7 +1535,7 @@ _080A6164:
 	beq _080A6178
 	strb r2, [r1, #3]
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 _080A6178:
 	pop {pc}
 	.align 2, 0
@@ -1564,7 +1564,7 @@ sub_080A617C: @ 0x080A617C
 	subs r0, r0, r1
 	adds r0, #0x1a
 	strh r0, [r6]
-	ldr r0, _080A6268 @ =gUnk_03001000
+	ldr r0, _080A6268 @ =gMain
 	ldrh r1, [r0, #0xc]
 	movs r0, #0x20
 	ands r0, r1
@@ -1655,7 +1655,7 @@ _080A6250:
 	.align 2, 0
 _080A6260: .4byte gOamCmd
 _080A6264: .4byte gMenu
-_080A6268: .4byte gUnk_03001000
+_080A6268: .4byte gMain
 _080A626C: .4byte gUnk_08128D70
 
 	thumb_func_start sub_080A6270
@@ -1749,7 +1749,7 @@ _080A6326:
 	cmp r0, #0
 	beq _080A635A
 	movs r0, #0x6a
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #6
 	bl sub_080A4E84
 	b _080A635A
@@ -1778,7 +1778,7 @@ _080A635A:
 	ldr r0, _080A6374 @ =gMenu
 	strb r4, [r0, #3]
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 _080A6368:
 	ldr r0, _080A6374 @ =gMenu
 	ldrb r0, [r0, #3]
@@ -2077,7 +2077,7 @@ sub_080A65AC: @ 0x080A65AC
 	movs r0, #0x20
 	strb r0, [r1]
 	adds r0, #0xe3
-	bl PlaySFX
+	bl SoundReq
 _080A65DA:
 	ldrh r0, [r4, #8]
 	subs r0, #1
@@ -2442,7 +2442,7 @@ _080A6886:
 	ldr r0, _080A68D0 @ =gUnk_02019EE0
 	movs r1, #0x80
 	lsls r1, r1, #3
-	bl _DmaZero
+	bl MemClear32
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A68AC: .4byte gUnk_02032EC0
@@ -2790,7 +2790,7 @@ sub_080A6B04: @ 0x080A6B04
 	ldr r1, _080A6C08 @ =gBG3Buffer
 	movs r2, #0x80
 	lsls r2, r2, #5
-	bl _DmaFill16
+	bl MemFill16
 	ldr r0, _080A6C0C @ =gPlayerState
 	ldr r0, [r0, #0x30]
 	movs r1, #8
@@ -2897,7 +2897,7 @@ _080A6C50:
 _080A6C58: .4byte gInput
 _080A6C5C:
 	ldr r0, _080A6C6C @ =0x00000103
-	bl PlaySFX
+	bl SoundReq
 _080A6C62:
 	ldr r1, _080A6C70 @ =gMenu
 	ldrh r0, [r1, #8]
@@ -3029,7 +3029,7 @@ _080A6D58:
 	beq _080A6D6E
 	strb r0, [r1, #3]
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 _080A6D6E:
 	pop {r4, pc}
 	.align 2, 0
@@ -3139,7 +3139,7 @@ _080A6E18:
 	movs r0, #0
 	strb r0, [r1]
 	movs r0, #0x6c
-	bl PlaySFX
+	bl SoundReq
 _080A6E3A:
 	pop {pc}
 	.align 2, 0
@@ -3307,7 +3307,7 @@ sub_080A6F6C: @ 0x080A6F6C
 	ldr r0, _080A6FA8 @ =gUnk_020350F0
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl _DmaZero
+	bl MemClear32
 	movs r0, #0xff
 	ands r0, r4
 	cmp r0, #0
@@ -3376,7 +3376,7 @@ _080A6FFA:
 	ldr r0, _080A7038 @ =gUnk_020350F0
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl _DmaZero
+	bl MemClear32
 	movs r0, #0xff
 	ands r0, r4
 	cmp r0, #0
@@ -3413,14 +3413,14 @@ sub_080A7040: @ 0x080A7040
 	movs r1, #0xc0
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080A7098 @ =0xFFFFFE00
 	adds r4, r4, r0
 	ldr r1, _080A709C @ =0x0600E000
 	movs r2, #0x80
 	lsls r2, r2, #4
 	adds r0, r4, #0
-	bl _DmaCopy
+	bl MemCopy
 	ldr r1, _080A70A0 @ =gUnk_08128D70
 	lsls r0, r5, #3
 	adds r4, r0, r1
@@ -3456,7 +3456,7 @@ sub_080A70AC: @ 0x080A70AC
 	movs r1, #0xc0
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	adds r2, r4, #0
 	subs r2, #0x34
 	movs r0, #0x7f
@@ -3519,7 +3519,7 @@ sub_080A7124: @ 0x080A7124
 	ldr r0, _080A7134 @ =gUnk_02032EC0
 	movs r1, #0xed
 	lsls r1, r1, #2
-	bl _DmaZero
+	bl MemClear32
 	pop {pc}
 	.align 2, 0
 _080A7134: .4byte gUnk_02032EC0
@@ -3536,16 +3536,16 @@ MenuFadeIn: @ 0x080A7138
 	movs r1, #0xed
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	strb r5, [r4, #2]
 	strb r6, [r4, #3]
-	ldr r0, _080A7160 @ =gUnk_03001000
+	ldr r0, _080A7160 @ =gMain
 	ldrb r0, [r0, #4]
 	strb r0, [r4, #7]
 	b _080A716C
 	.align 2, 0
 _080A715C: .4byte gUnk_02032EC0
-_080A7160: .4byte gUnk_03001000
+_080A7160: .4byte gMain
 _080A7164:
 	strb r5, [r4, #4]
 	strb r6, [r4, #5]
@@ -3560,7 +3560,7 @@ _080A716C:
 	movs r4, #0
 	movs r0, #0x20
 	strh r0, [r1, #0xa]
-	ldr r1, _080A719C @ =gUnk_03001000
+	ldr r1, _080A719C @ =gMain
 	movs r0, #7
 	strb r0, [r1, #4]
 	movs r0, #5
@@ -3573,7 +3573,7 @@ _080A716C:
 	.align 2, 0
 _080A7194: .4byte gUnk_02032EC0
 _080A7198: .4byte 0x0000FFFF
-_080A719C: .4byte gUnk_03001000
+_080A719C: .4byte gMain
 _080A71A0: .4byte gUnk_02018EB0
 
 	thumb_func_start sub_080A71A4
@@ -3632,14 +3632,14 @@ _080A71FE:
 	bl DeleteAllEntities
 	bl sub_0805E974
 	bl DeleteAllEntities
-	ldr r0, _080A7218 @ =gUnk_03001000
+	ldr r0, _080A7218 @ =gMain
 	movs r2, #0
 	movs r1, #1
 	strb r1, [r0, #3]
 	strb r2, [r0, #4]
 	pop {pc}
 	.align 2, 0
-_080A7218: .4byte gUnk_03001000
+_080A7218: .4byte gMain
 
 	thumb_func_start sub_080A721C
 sub_080A721C: @ 0x080A721C
@@ -3679,42 +3679,42 @@ sub_080A7250: @ 0x080A7250
 	ldr r0, _080A72EC @ =gScreen
 	ldr r1, _080A72F0 @ =gUnk_03001020
 	movs r2, #0x7c
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A72F4 @ =gPaletteBuffer
 	ldr r1, _080A72F8 @ =gUnk_02024090
 	movs r2, #0x80
 	lsls r2, r2, #3
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A72FC @ =gUnk_02024490
 	ldr r4, _080A7300 @ =gUnk_02032F14
 	movs r2, #0x85
 	lsls r2, r2, #2
 	adds r1, r4, #0
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A7304 @ =gUnk_02001A00
 	movs r2, #0x85
 	lsls r2, r2, #2
 	adds r1, r4, r2
 	movs r2, #0x40
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A7308 @ =gRoomControls
 	adds r1, r4, #0
 	subs r1, #0x38
 	movs r2, #0x38
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A730C @ =gUnk_03000420
 	movs r2, #0x95
 	lsls r2, r2, #2
 	adds r1, r4, r2
 	movs r2, #0x80
 	lsls r2, r2, #1
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A7310 @ =gUnk_02033280
 	movs r2, #0xd5
 	lsls r2, r2, #2
 	adds r1, r4, r2
 	movs r2, #0xc
-	bl _DmaCopy
+	bl MemCopy
 	bl sub_0805E958
 	adds r1, r4, #0
 	subs r1, #0x54
@@ -3767,23 +3767,23 @@ sub_080A7328: @ 0x080A7328
 	bl DeleteAllEntities
 	ldr r0, _080A738C @ =gMenu
 	movs r1, #0x30
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080A7390 @ =gRoomControls
 	movs r1, #0x38
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080A7394 @ =gUnk_03000420
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl _DmaZero
+	bl MemClear32
 	ldr r4, _080A7398 @ =gUnk_02033280
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl _DmaZero
+	bl MemClear32
 	movs r0, #8
 	strb r0, [r4, #8]
 	movs r0, #1
 	bl sub_0801DA90
-	bl sub_08056418
+	bl MessageInitialize
 	bl sub_080ADD30
 	movs r0, #0
 	bl sub_0801CFA8
@@ -3838,36 +3838,36 @@ _080A73B4:
 	adds r0, r5, r1
 	ldr r1, _080A7480 @ =gUnk_02033280
 	movs r2, #0xc
-	bl _DmaCopy
+	bl MemCopy
 	movs r1, #0xaa
 	lsls r1, r1, #2
 	adds r0, r5, r1
 	ldr r1, _080A7484 @ =gUnk_03000420
 	movs r2, #0x80
 	lsls r2, r2, #1
-	bl _DmaCopy
+	bl MemCopy
 	movs r1, #0x9a
 	lsls r1, r1, #2
 	adds r0, r5, r1
 	ldr r1, _080A7488 @ =gUnk_02001A00
 	movs r2, #0x40
-	bl _DmaCopy
+	bl MemCopy
 	adds r0, r5, #0
 	adds r0, #0x54
 	ldr r1, _080A748C @ =gUnk_02024490
 	movs r2, #0x85
 	lsls r2, r2, #2
-	bl _DmaCopy
+	bl MemCopy
 	adds r0, r5, #0
 	adds r0, #0x1c
 	ldr r4, _080A7490 @ =gRoomControls
 	adds r1, r4, #0
 	movs r2, #0x38
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _080A7494 @ =gUnk_03001020
 	ldr r1, _080A7498 @ =gScreen
 	movs r2, #0x7c
-	bl _DmaCopy
+	bl MemCopy
 	ldrb r0, [r4, #4]
 	bl sub_08052D58
 	ldr r4, _080A749C @ =gArea
@@ -3934,7 +3934,7 @@ sub_080A74C8: @ 0x080A74C8
 	ldrb r3, [r0]
 	cmp r3, #0
 	bne _080A74E6
-	ldr r0, _080A74EC @ =gUnk_03001000
+	ldr r0, _080A74EC @ =gMain
 	ldr r1, _080A74F0 @ =gUnk_02032EC0
 	ldrb r2, [r1, #7]
 	strb r2, [r0, #4]
@@ -3945,14 +3945,14 @@ _080A74E6:
 	pop {pc}
 	.align 2, 0
 _080A74E8: .4byte gFadeControl
-_080A74EC: .4byte gUnk_03001000
+_080A74EC: .4byte gMain
 _080A74F0: .4byte gUnk_02032EC0
 
 	thumb_func_start sub_080A74F4
 sub_080A74F4: @ 0x080A74F4
 	push {lr}
 	bl sub_0805E5A8
-	ldr r1, _080A7524 @ =gUnk_03001000
+	ldr r1, _080A7524 @ =gMain
 	movs r0, #0
 	strb r0, [r1, #0xb]
 	bl FlushSprites
@@ -3965,7 +3965,7 @@ sub_080A74F4: @ 0x080A74F4
 	bl sub_080AD918
 	pop {pc}
 	.align 2, 0
-_080A7524: .4byte gUnk_03001000
+_080A7524: .4byte gMain
 
 	thumb_func_start sub_080A7528
 sub_080A7528: @ 0x080A7528
@@ -4038,7 +4038,7 @@ sub_080A758C: @ 0x080A758C
 	bl DeleteThisEntity
 _080A75AC:
 	adds r0, r5, #0
-	bl sub_0806FBD8
+	bl AllocMutableHitbox
 	cmp r0, #0
 	bne _080A75BA
 	bl DeleteThisEntity
@@ -4161,7 +4161,7 @@ _080A7692:
 	lsls r0, r0, #1
 	adds r0, r0, r4
 	ldrh r0, [r0]
-	bl PlaySFX
+	bl SoundReq
 	b _080A76C2
 	.align 2, 0
 _080A76B0: .4byte gPlayerState
@@ -4173,7 +4173,7 @@ _080A76BC:
 _080A76C2:
 	movs r0, #0x87
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, r5, pc}
 
 	thumb_func_start sub_080A76CC
@@ -4237,7 +4237,7 @@ _080A7728:
 	beq _080A77C4
 	movs r0, #0x8b
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _080A77C4
 	.align 2, 0
 _080A7740: .4byte gPlayerEntity
@@ -4401,7 +4401,7 @@ _080A7868:
 	cmp r0, #0
 	beq _080A7880
 	movs r0, #0x77
-	bl PlaySFX
+	bl SoundReq
 _080A7880:
 	ldrb r0, [r4, #0x1e]
 	cmp r0, #0x8a
@@ -4943,7 +4943,7 @@ sub_080A7C7C: @ 0x080A7C7C
 	push {lr}
 	ldr r0, _080A7C88 @ =gUnk_02017660
 	movs r1, #0x40
-	bl _DmaZero
+	bl MemClear32
 	pop {pc}
 	.align 2, 0
 _080A7C88: .4byte gUnk_02017660
@@ -4999,7 +4999,7 @@ _080A7CDC:
 	movs r1, #0x78
 	bl sub_0805E4E0
 	ldr r0, _080A7CF8 @ =0x0000011B
-	bl PlaySFX
+	bl SoundReq
 _080A7CF4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -5935,7 +5935,7 @@ _080A836E:
 sub_080A83A0: @ 0x080A83A0
 	push {r4, lr}
 	adds r4, r0, #0
-	bl sub_0806FBD8
+	bl AllocMutableHitbox
 	cmp r0, #0
 	beq _080A83B0
 	movs r0, #1
@@ -7385,7 +7385,7 @@ sub_080A8E28: @ 0x080A8E28
 	movs r1, #0x51
 	bl InitializeAnimation
 	ldr r0, _080A8E84 @ =0x000001B5
-	bl PlaySFX
+	bl SoundReq
 _080A8E6E:
 	ldrb r4, [r5, #0xa]
 	cmp r4, #2
@@ -8083,7 +8083,7 @@ _080A93BE:
 	strb r0, [r4, #0x10]
 	str r2, [r5, #0x54]
 	movs r0, #0xfc
-	bl PlaySFX
+	bl SoundReq
 _080A93DA:
 	pop {r4, r5, pc}
 
@@ -8268,7 +8268,7 @@ sub_080A9518: @ 0x080A9518
 	movs r1, #0
 	bl InitializeAnimation
 	ldr r0, _080A953C @ =0x00000149
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 _080A953C: .4byte 0x00000149
@@ -8541,7 +8541,7 @@ _080A9718:
 	bl InitializeAnimation
 _080A9756:
 	ldr r0, _080A9768 @ =0x000001B5
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A9760: .4byte gPlayerEntity
@@ -8662,7 +8662,7 @@ _080A9804:
 	strb r0, [r1]
 _080A983C:
 	ldr r0, _080A98B8 @ =0x00000127
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r4, #0
 	bl sub_080A99F0
 _080A9848:
@@ -8714,7 +8714,7 @@ _080A989A:
 _080A98A4:
 	movs r0, #0xb2
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	ldrh r0, [r5]
 	cmp r0, #0
 	bne _080A98BC
@@ -10572,7 +10572,7 @@ sub_080AA654: @ 0x080AA654
 	ldr r0, _080AA688 @ =gUnk_0812A004
 	adds r1, r4, #0
 	movs r2, #0x10
-	bl _DmaCopy
+	bl MemCopy
 	movs r1, #0x3f
 	adds r0, r5, #0
 	ands r0, r1
@@ -11416,7 +11416,7 @@ _080AACB4: .4byte gPlayerState
 _080AACB8: .4byte gPlayerEntity
 _080AACBC:
 	ldr r0, _080AACDC @ =0x00000119
-	bl PlaySFX
+	bl SoundReq
 	ldr r0, [r4, #0x50]
 	adds r1, r4, #0
 	bl CopyPosition
@@ -12330,7 +12330,7 @@ sub_080AB318: @ 0x080AB318
 	movs r1, #0x51
 	bl InitializeAnimation
 	ldr r0, _080AB3E0 @ =0x000001B5
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r6, #0
 	bl sub_080AB4F8
 	movs r1, #0x2e
@@ -13189,7 +13189,7 @@ sub_080AB9DC: @ 0x080AB9DC
 	adds r1, r4, #0
 	adds r1, #0x68
 	movs r2, #0x1c
-	bl _DmaCopy
+	bl MemCopy
 	ldrh r1, [r4, #0x2e]
 	adds r0, r4, #0
 	adds r0, #0x84
@@ -13637,7 +13637,7 @@ sub_080ABCC4: @ 0x080ABCC4
 	movs r1, #0
 	bl InitializeAnimation
 	ldr r0, _080ABD40 @ =0x0000014B
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, r5, pc}
 	.align 2, 0
 _080ABD3C: .4byte gRoomControls
@@ -13799,7 +13799,7 @@ _080ABE56:
 	movs r1, #0
 	bl InitializeAnimation
 	ldr r0, _080ABE84 @ =0x0000012D
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, r5, pc}
 	.align 2, 0
 _080ABE84: .4byte 0x0000012D
@@ -13860,7 +13860,7 @@ _080ABEEC:
 	movs r1, #0
 	bl InitializeAnimation
 	ldr r0, _080ABF00 @ =0x00000193
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, pc}
 	.align 2, 0
 _080ABEFC: .4byte 0x0000013F
@@ -13914,7 +13914,7 @@ sub_080ABF40: @ 0x080ABF40
 	movs r1, #0
 	bl InitializeAnimation
 	ldr r0, _080ABFA4 @ =0x00000199
-	bl PlaySFX
+	bl SoundReq
 _080ABF66:
 	ldrh r2, [r4, #0x36]
 	movs r0, #0x36
@@ -14051,7 +14051,7 @@ _080AC058:
 	strh r0, [r4, #0x36]
 	ldr r0, _080AC070 @ =0x00000149
 _080AC06A:
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, pc}
 	.align 2, 0
 _080AC070: .4byte 0x00000149
@@ -14086,7 +14086,7 @@ _080AC084:
 	cmp r0, #0
 	bne _080AC0B2
 	ldr r0, _080AC0E8 @ =0x00000149
-	bl PlaySFX
+	bl SoundReq
 _080AC0B2:
 	adds r0, r4, #0
 	bl GetNextFrame
@@ -14110,7 +14110,7 @@ _080AC0B2:
 	lsls r0, r0, #1
 	strh r0, [r4, #0x24]
 	adds r0, #0x13
-	bl PlaySFX
+	bl SoundReq
 	b _080AC0F8
 	.align 2, 0
 _080AC0E8: .4byte 0x00000149
@@ -14622,7 +14622,7 @@ _080AC4A2:
 	strb r1, [r0]
 	movs r0, #0x8b
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _080AC50A
 _080AC4BE:
 	ldrb r0, [r4, #0xf]
@@ -15301,7 +15301,7 @@ _080AC964:
 	strb r0, [r5, #0x15]
 	movs r0, #0x97
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _080AC9C0:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -15435,7 +15435,7 @@ _080ACAB0:
 _080ACAB6:
 	strb r0, [r4, #0x15]
 	movs r0, #0xd8
-	bl PlaySFX
+	bl SoundReq
 	b _080ACAC4
 _080ACAC0:
 	bl DeleteThisEntity
@@ -15457,7 +15457,7 @@ sub_080ACAC8: @ 0x080ACAC8
 	movs r1, #7
 	bl InitializeAnimation
 	ldr r0, _080ACAEC @ =0x00000199
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 _080ACAE8: .4byte 0x0000FFFC
@@ -16361,7 +16361,7 @@ _080AD188:
 	bne _080AD196
 	movs r0, #0x82
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _080AD196:
 	adds r0, r4, #0
 	bl UpdateSpriteForCollisionLayer
@@ -16402,7 +16402,7 @@ _080AD1DA:
 _080AD1E0:
 	movs r0, #0x82
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	ldrb r0, [r4, #0xe]
 	adds r0, #1
 	strb r0, [r4, #0xe]
@@ -16439,7 +16439,7 @@ _080AD220:
 	cmp r5, #0
 	beq _080AD244
 	movs r0, #0x79
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r4, #0
 	bl sub_080AD27C
 	b _080AD26E

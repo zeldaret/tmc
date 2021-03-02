@@ -21,29 +21,8 @@ extern void sub_080A306C();
 extern void NulledItem();
 
 void (*const gPlayerItemFunctions[])() = {
-    DeleteEntity,
-    sub_080A7544,
-    sub_0801B188,
-    sub_0801B45C,
-    sub_08018FCC,
-    sub_080A2D74,
-    sub_08054A40,
-    sub_08056330,
-    sub_080ADA30,
-    sub_080704BC,
-    DeleteEntity,
-    DeleteEntity,
-    sub_0801B898,
-    CellOverwriteSet,
-    SwordSpin,
-    SwordBeam,
-    sub_080ACBCC,
-    Item11,
-    sub_080700E8,
-    sub_080ACF14,
-    Item14,
-    sub_080A306C,
-    SwordBeam,
-    NulledItem,
-    CellOverwriteSet
+    DeleteEntity, sub_080A7544, sub_0801B188, sub_0801B45C,    sub_08018FCC, sub_080A2D74, sub_08054A40,
+    sub_08056330, sub_080ADA30, sub_080704BC, DeleteEntity,    DeleteEntity, sub_0801B898, CellOverwriteSet,
+    SwordSpin,    SwordBeam,    sub_080ACBCC, Item11,          sub_080700E8, sub_080ACF14, Item14,
+    sub_080A306C, SwordBeam,    NulledItem,   CellOverwriteSet
 };

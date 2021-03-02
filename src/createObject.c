@@ -10,10 +10,10 @@ Entity* CreateObject(u32 subtype, u32 form, u32 parameter) {
 
     ent = GetEmptyEntity();
     if (ent != NULL) {
-        ent->entityType.type = 6;
-        ent->entityType.subtype = subtype;
-        ent->entityType.form = form;
-        ent->entityType.parameter = parameter;
+        ent->kind = 6;
+        ent->id = subtype;
+        ent->type = form;
+        ent->type2 = parameter;
         AppendEntityToList(ent, 6);
     }
     return ent;

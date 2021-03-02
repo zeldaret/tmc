@@ -28,7 +28,7 @@ _0805DDCE:
 	ldrh r0, [r3]
 	strb r0, [r2, #0xe]
 	ldrh r0, [r3, #2]
-	bl PlaySFX
+	bl SoundReq
 	b _0805DDE8
 	.align 2, 0
 _0805DDE0: .4byte gUnk_08108DA8

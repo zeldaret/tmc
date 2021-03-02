@@ -977,7 +977,7 @@ void sub_0804BF38(u32 arg0, struct_0804BF38* arg1)
   }
 
   sub_08080964(gUnk_080D8E50[iVar3].shakeTime, gUnk_080D8E50[iVar3].shakeMag);
-  PlaySFX(gUnk_080D8E50[iVar2].sfx);
+  SoundReq(gUnk_080D8E50[iVar2].sfx);
 }
 #else
 NAKED
@@ -1026,7 +1026,7 @@ void sub_0804C018(void) {
 
     if (CheckGlobalFlag(MAZE_CLEAR))
         if (gScreenTransition.playerStartPos.WORD == 0x2780078) // todo: wtf
-            PlaySFX(0x72);
+            SoundReq(0x72);
 
     ClearGlobalFlag(MAZE_CLEAR);
 }
@@ -1739,8 +1739,8 @@ typedef struct {
 extern struct_086D4460 gUnk_086D4460;
 
 void sub_0804C918(void) {
-    LoadAssetAsync(&gUnk_086D4460.LO, 0x6000000, 0x4000);
-    LoadAssetAsync(&gUnk_086D4460.HI, 0x6008000, 0x4000);
+    LoadResourceAsync(&gUnk_086D4460.LO, 0x6000000, 0x4000);
+    LoadResourceAsync(&gUnk_086D4460.HI, 0x6008000, 0x4000);
     LoadPaletteGroup(0x19);
 }
 
@@ -2240,7 +2240,7 @@ void sub_0804CD48(void) {
     if (CheckGlobalFlag(LV1_CLEAR)) {
         LoadRoomEntityList(&gUnk_080DF94C);
     } else {
-        PlaySFX(0x80100000);
+        SoundReq(0x80100000);
         gArea.musicIndex = gArea.pMusicIndex;
     }
 }
@@ -2259,7 +2259,7 @@ u32 sub_0804CDD0() {
 void sub_0804CDD4(void) {
     sub_08058D34();
     gArea.areaMetadata |= 0x40;
-    gUnk_03001000.transition = 5;
+    gMain.transition = 5;
 }
 
 u32 sub_0804CDF4() {
@@ -2428,7 +2428,7 @@ void sub_0804CED8(void) {
         sub_0807AABC(&gPlayerEntity);
         LoadRoomEntityList(&gUnk_080E1814);
     } else {
-        PlaySFX(0x80100000);
+        SoundReq(0x80100000);
         gArea.musicIndex = gArea.pMusicIndex;
     }
 }
@@ -2522,10 +2522,10 @@ void sub_0804CFB0(void) {
 
     if (!CheckFlags(0x31)) {
         if (gScreenTransition.field_0x38 == 0) {
-            PlaySFX(0x80100000);
+            SoundReq(0x80100000);
         } else {
             if (gScreenTransition.field_0x39 == 0) {
-                PlaySFX(0x80050000);
+                SoundReq(0x80050000);
                 sub_08078A90(3);
             }
         }
@@ -2761,7 +2761,7 @@ void sub_0804D140(void) {
     if (CheckGlobalFlag(LV4_CLEAR)) {
         LoadRoomEntityList(&gUnk_080E49F4);
     } else {
-        PlaySFX(0x80100000);
+        SoundReq(0x80100000);
         gArea.musicIndex = gArea.pMusicIndex;
     }
 }
@@ -3090,7 +3090,7 @@ void sub_0804D384(void) {
             sub_08078A90(3);
             LoadRoomEntityList(&gUnk_080E72E4);
             gArea.musicIndex = gArea.pMusicIndex;
-            PlaySFX(0x80100000);
+            SoundReq(0x80100000);
         }
     }
 }
@@ -3498,7 +3498,7 @@ u32 sub_0804D6C4() {
 }
 
 void sub_0804D6C8(void) {
-    PlaySFX(0x80100000);
+    SoundReq(0x80100000);
     gArea.musicIndex = gArea.pMusicIndex;
 }
 
@@ -4508,7 +4508,7 @@ void sub_0804E3C4() {
         index = 0xE;
     }
     sub_0804B3C4(&gUnk_080F0E1C[index]);
-    PlaySFX(0x80100000);
+    SoundReq(0x80100000);
 }
 
 u32 sub_0804E45C() {
@@ -4716,7 +4716,7 @@ extern EntityData gUnk_080F2E2C;
 void sub_0804E6E8(void) {
     if (!CheckGlobalFlag(OUTDOOR)) {
         gArea.musicIndex = gArea.pMusicIndex;
-        PlaySFX(0x800b0036);
+        SoundReq(0x800b0036);
     }
     if (!CheckGlobalFlag(START)) {
         LoadRoomEntityList(&gUnk_080F2E2C);
@@ -4733,7 +4733,7 @@ extern EntityData gUnk_080F2EC4;
 void sub_0804E72C(void) {
     if (!CheckGlobalFlag(OUTDOOR)) {
         gArea.musicIndex = gArea.pMusicIndex;
-        PlaySFX(0x800b0036);
+        SoundReq(0x800b0036);
     }
     if (!CheckGlobalFlag(START)) {
         LoadRoomEntityList(&gUnk_080F2E94);
@@ -4786,7 +4786,7 @@ void sub_0804E7DC(void) {
     }
     if (!CheckGlobalFlag(OUTDOOR)) {
         gArea.musicIndex = gArea.pMusicIndex;
-        PlaySFX(0x800b0036);
+        SoundReq(0x800b0036);
     }
     if ((gPlayerState.flags.all & 8) == 0) {
         LoadRoomEntityList(&gUnk_080F31D8);

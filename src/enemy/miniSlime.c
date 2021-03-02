@@ -52,7 +52,7 @@ void sub_080452A4(Entity* this) {
     this->nonPlanarMovement = 0x100;
     sub_0804A720(this);
     InitializeAnimation(this, 6);
-    if (this->entityType.parameter) {
+    if (this->type2) {
         this->action = 2;
         this->actionDelay = 1;
     } else {

@@ -31,7 +31,7 @@ void sub_0802C258(Entity* this) {
     this->field_0x20 = 0x20000;
     this->actionDelay = 2;
     this->field_0x7a.HWORD = Random() & 0x70;
-    switch (this->entityType.form) {
+    switch (this->type) {
         case 1:
             this->field_0x7a.HWORD |= 0x100;
             break;
@@ -86,7 +86,7 @@ void sub_0802C334(Entity* this) {
                     this->flags &= ~0x80;
                     break;
                 case 8:
-                    if (this->entityType.parameter != 0 && !sub_08049FA0(this)) {
+                    if (this->type2 != 0 && !sub_08049FA0(this)) {
                         u32 diff = 0;
                         s32 i;
                         for (i = 1; i > -1; i--) {
@@ -113,7 +113,7 @@ void sub_0802C334(Entity* this) {
             if (this->height.HALF.HI - y > 0x38) {
                 sub_0802C62C(this);
                 this->field_0x7a.HWORD = (Random() & 0x7f) | 0x80;
-                if (this->entityType.form == 3) {
+                if (this->type == 3) {
                     this->action = 3;
                 }
             }

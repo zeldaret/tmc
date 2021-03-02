@@ -710,7 +710,7 @@ _0806A060:
 	adds r0, r4, #0
 	bl sub_0806A080
 	movs r0, #0xd1
-	bl PlaySFX
+	bl SoundReq
 	bl sub_080791D0
 _0806A076:
 	adds r1, r4, #0

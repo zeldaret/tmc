@@ -12,30 +12,28 @@ typedef struct {
 
 typedef struct {
     u16 bg0Control;
-    u16 bg1Control;
-    u16 bg2Control;
-    u16 bg3Control;
     u16 bg0xOffset;
     u16 bg0yOffset;
+    u16 bg0Updated;
+    void* bg0Tilemap;
+    u16 bg1Control;
     u16 bg1xOffset;
     u16 bg1yOffset;
-    u16 bg2xOffset;
-    u16 bg2yOffset;
-    void* unk_14;
+    u16 bg1Updated;
+    void* bg1Tilemap;
 } BgSettings;
 
 typedef struct {
     u16 bg2Control;
     u16 bg2xOffset;
     u16 bg2yOffset;
-    u16 unk;
-    u16 unk2;
-    u16 unk3;
+    u16 bg2Updated;
+    void* bg2Tilemap;
     u16 bg3Control;
     s16 bg3xOffset;
     s16 bg3yOffset;
-    u16 unk4;
-    void* unk5;
+    u16 bg3Updated;
+    void* bg3Tilemap;
 } BgAffSettings;
 
 typedef struct {

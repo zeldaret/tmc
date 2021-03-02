@@ -877,7 +877,7 @@ sub_080496EC: @ 0x080496EC
 	adds r4, r0, #0
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	bl sub_08079F8C
 	cmp r0, #0
 	beq _08049720
@@ -975,7 +975,7 @@ sub_08049788: @ 0x08049788
 	strb r0, [r4, #0x15]
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _080497C6
 _080497B8:
 	ldrb r0, [r4, #0x15]
@@ -1094,7 +1094,7 @@ sub_08049888: @ 0x08049888
 	movs r0, #0xa0
 	strb r0, [r1, #0xe]
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x7c
 	bl SetFlag
 	movs r0, #1
@@ -1154,7 +1154,7 @@ _0804990E:
 	movs r2, #2
 	bl SetTile
 	movs r0, #0x71
-	bl PlaySFX
+	bl SoundReq
 	b _0804993E
 	.align 2, 0
 _0804991C: .4byte 0x00004081
@@ -1170,7 +1170,7 @@ _08049920:
 	movs r2, #2
 	bl SetTile
 	movs r0, #0x71
-	bl PlaySFX
+	bl SoundReq
 _0804993E:
 	pop {pc}
 	.align 2, 0

@@ -19,7 +19,7 @@ void sub_0809CC74(Entity* this) {
     this->action = 1;
     UpdateSpriteForCollisionLayer(this);
 
-    if (this->entityType.form == 0) {
+    if (this->type == 0) {
         this->spritePriority.b0 = 5;
         /* Create steam clouds */
         for (i = 0; i < 3; i++) {
@@ -31,12 +31,12 @@ void sub_0809CC74(Entity* this) {
         }
         sub_0809CDF0(this);
     } else {
-        if (this->entityType.parameter & 1) {
+        if (this->type2 & 1) {
             this->spriteSettings.b.draw = 1;
             this->actionDelay = 20;
         } else {
             this->action = 2;
-            this->actionDelay = (this->entityType.parameter & 2) ? 20 : 18;
+            this->actionDelay = (this->type2 & 2) ? 20 : 18;
         }
         InitializeAnimation(this, 0);
     }
@@ -45,7 +45,7 @@ void sub_0809CC74(Entity* this) {
 void sub_0809CD0C(Entity* this) {
     u8* frames;
 
-    if (this->entityType.form) {
+    if (this->type) {
         GetNextFrame(this);
         frames = &this->frames.all;
         if (*frames & 1) {

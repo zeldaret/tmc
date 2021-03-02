@@ -4,7 +4,7 @@
 #include "flags.h"
 #include "functions.h"
 
-extern BoundingBox gUnk_080FD170;
+extern Hitbox gUnk_080FD170;
 
 extern u8 gUnk_02000070;
 
@@ -13,7 +13,7 @@ void ObjectA(Entity* this) {
 
     if (this->action == 0) {
         this->action = 1;
-        this->boundingBox = &gUnk_080FD170;
+        this->hitbox = &gUnk_080FD170;
         if (this->collisionLayer == 1) {
             uVar2 = 0x26;
         } else {

@@ -123,19 +123,19 @@ _0806FBCC:
 _0806FBD0: .4byte gScreenTransition
 _0806FBD4: .4byte gPlayerState
 
-	thumb_func_start sub_0806FBD8
-sub_0806FBD8: @ 0x0806FBD8
+	thumb_func_start AllocMutableHitbox
+AllocMutableHitbox: @ 0x0806FBD8
 	push {r4, lr}
 	adds r4, r0, #0
-	bl UnloadBoundingBox
+	bl UnloadHitbox
 	movs r0, #0xc
-	bl sub_0801D8E0
+	bl zMalloc
 	str r0, [r4, #0x48]
 	pop {r4, pc}
 	.align 2, 0
 
-	thumb_func_start UnloadBoundingBox
-UnloadBoundingBox: @ 0x0806FBEC
+	thumb_func_start UnloadHitbox
+UnloadHitbox: @ 0x0806FBEC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, [r4, #0x48]
@@ -385,7 +385,7 @@ sub_0806FD8C: @ 0x0806FD8C
 	ldr r0, _0806FD9C @ =gUnk_020000C0
 	movs r1, #0xc0
 	lsls r1, r1, #4
-	bl _DmaZero
+	bl MemClear32
 	pop {pc}
 	.align 2, 0
 _0806FD9C: .4byte gUnk_020000C0
@@ -534,7 +534,7 @@ _0806FE9E:
 	bls _0806FE9E
 	adds r0, r6, #0
 	movs r1, #0x40
-	bl _DmaZero
+	bl MemClear32
 _0806FEB4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -973,7 +973,7 @@ _0807018C:
 	adds r0, r5, #0
 	bl InitializeAnimation
 	ldr r0, _080701F4 @ =0x000001DD
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, r5, pc}
 	.align 2, 0
 _080701F0: .4byte gUnk_0811B9A8
@@ -1325,7 +1325,7 @@ _0807049E:
 	adds r0, r4, #0
 	bl sub_08017744
 	ldr r0, _080704B8 @ =0x00000199
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080704B4: .4byte gRoomControls
@@ -1358,7 +1358,7 @@ sub_080704D4: @ 0x080704D4
 	bl sub_080AE008
 	movs r0, #0x87
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r4, #0
 	bl sub_080704FC
 	pop {r4, pc}
@@ -1454,7 +1454,7 @@ sub_0807059C: @ 0x0807059C
 	push {lr}
 	ldr r0, _080705A8 @ =gUnk_02034490
 	movs r1, #0x18
-	bl _DmaZero
+	bl MemClear32
 	pop {pc}
 	.align 2, 0
 _080705A8: .4byte gUnk_02034490

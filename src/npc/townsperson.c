@@ -58,9 +58,9 @@ void Townsperson(Entity* this) {
 }
 
 void sub_08061BC8(Entity* this) {
-    if (LoadExtraSpriteData(this, gUnk_0810B6EC[this->entityType.form])) {
+    if (LoadExtraSpriteData(this, gUnk_0810B6EC[this->type])) {
         this->animationState = 2;
-        this->field_0xf = this->entityType.form + 1;
+        this->field_0xf = this->type + 1;
         this->action++;
         sub_08061CB4(this, 2);
     }
@@ -84,15 +84,14 @@ void sub_08061C00(Entity* this) {
     sub_0806ED78(this);
     if (this->interactType != 0) {
         this->interactType = 0;
-        TextboxNoOverlapFollow(this->entityType.parameter + 0xa01);
+        TextboxNoOverlapFollow(this->type2 + 0xa01);
     }
 }
 
 #if NON_MATCHING
 void Townsperson_Head(Entity* this) {
-    SetExtraSpriteFrame(this, 0,
-                        *(gUnk_0810B78C + (this->animIndex & 3)) + gUnk_0810B680[this->entityType.form].frame1);
-    SetExtraSpriteFrame(this, 1, this->frameIndex + gUnk_0810B680[this->entityType.form].frame2);
+    SetExtraSpriteFrame(this, 0, *(gUnk_0810B78C + (this->animIndex & 3)) + gUnk_0810B680[this->type].frame1);
+    SetExtraSpriteFrame(this, 1, this->frameIndex + gUnk_0810B680[this->type].frame2);
     SetSpriteSubEntryOffsetData1(this, 1, 0);
     sub_0807000C(this);
 }
@@ -110,14 +109,14 @@ void sub_08061CB4(Entity* this, u32 arg1) {
         GetNextFrame(this);
     }
     if (this->frameDuration == 0xff) {
-        this->frameDuration = gUnk_0810B680[this->entityType.form].unk2;
+        this->frameDuration = gUnk_0810B680[this->type].unk2;
     }
 }
 
 void sub_08061CEC(Entity* this) {
     u32 uVar2;
 
-    if (LoadExtraSpriteData(this, gUnk_0810B6EC[this->entityType.form])) {
+    if (LoadExtraSpriteData(this, gUnk_0810B6EC[this->type])) {
         this->action = 1;
         this->spriteSettings.b.draw = TRUE;
         this->animationState = this->actionDelay;
@@ -147,7 +146,7 @@ void sub_08061D64(Entity* this) {
         sub_0807DDAC(this, NULL);
         sub_0807DDE4(this);
         if (this->frameDuration == 0xff) {
-            this->frameDuration = gUnk_0810B680[this->entityType.form].unk2;
+            this->frameDuration = gUnk_0810B680[this->type].unk2;
         }
         GetNextFrame(this);
         if (this->interactType != 0) {
@@ -177,7 +176,7 @@ void sub_08061E50(Entity* this) {
 }
 
 void sub_08061E70(Entity* this) {
-    if ((this->entityType).subtype == 6) {
+    if (this->id == 6) {
         sub_08078784(this, this->field_0x68.HALF.LO);
     } else {
         sub_08078778(this);
@@ -215,7 +214,7 @@ void sub_08061E90(Entity* this, Entity* arg1) {
         }
         this->direction = (u8)animIndex;
         this->animationState = sub_0806F5B0(animIndex);
-        this->nonPlanarMovement = gUnk_0810B74A[this->entityType.form];
+        this->nonPlanarMovement = gUnk_0810B74A[this->type];
     }
     animIndex = (this->animationState >> 1) + 4;
     if (animIndex != this->animIndex) {
@@ -256,7 +255,7 @@ void sub_08061F94(Entity* this) {
 }
 
 void sub_08061FB0(Entity* this) {
-    this->boundingBox = NULL;
+    this->hitbox = NULL;
 }
 
 void sub_08061FB8(Entity* this, struct_08061FB8* arg1) {
@@ -274,7 +273,7 @@ void sub_08061FE4(Entity* this) {
 }
 
 void sub_08061FF4(Entity* this) {
-    TextboxNoOverlap(gUnk_0810B790[this->entityType.form], this);
+    TextboxNoOverlap(gUnk_0810B790[this->type], this);
 }
 
 void sub_0806200C(Entity* this) {
@@ -296,12 +295,12 @@ void sub_0806200C(Entity* this) {
 void sub_08062048(Entity* this) {
     int iVar1;
 
-    if ((this->entityType).subtype == 6) {
+    if (this->id == 6) {
         iVar1 = gSave.unk8 - 2;
         if (iVar1 < 0) {
             iVar1 = 0;
         }
-        ShowNPCDialogue(this, gUnk_0810B7C0 + this->entityType.form * 0x8 + iVar1);
+        ShowNPCDialogue(this, gUnk_0810B7C0 + this->type * 0x8 + iVar1);
     } else {
         TextboxNoOverlap(0, this);
     }
@@ -309,7 +308,7 @@ void sub_08062048(Entity* this) {
 
 void Townsperson_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, gUnk_0810B6EC[this->entityType.form]) == 0) {
+        if (LoadExtraSpriteData(this, gUnk_0810B6EC[this->type]) == 0) {
             return;
         }
         this->action++;

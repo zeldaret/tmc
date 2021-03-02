@@ -127,7 +127,7 @@ _0801C58A:
 	cmp r0, #0
 	bne _0801C5A4
 	movs r0, #0x6f
-	bl PlaySFX
+	bl SoundReq
 _0801C5A4:
 	ldr r4, _0801C5D4 @ =gUnk_0200AF00
 	ldrh r3, [r4, #0xe]

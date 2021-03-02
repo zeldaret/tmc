@@ -21,7 +21,7 @@ extern void sub_080797EC();
 extern void sub_08079E08();
 extern void sub_08078F60();
 
-extern BoundingBox gUnk_08114F88;
+extern Hitbox gUnk_08114F88;
 
 // inject
 void sub_08070680(Entity* this) {
@@ -41,7 +41,7 @@ void sub_08070698(Entity* this) {
     this->field_0x16 = 0x20;
     this->flags2 = 8;
     this->damageType = 0x79;
-    this->boundingBox = &gUnk_08114F88;
+    this->hitbox = &gUnk_08114F88;
     this->spriteIndex = 1;
     gPlayerState.field_0x8 = 0x100;
     sub_0806FDA0(this);
@@ -116,8 +116,8 @@ void sub_08070C3C(Entity* this) {
     this->spritePriority.b1 = 0;
     ResetPlayer();
     sub_0807A108();
-    PlaySFX(0x7b);
-    PlaySFX(0x85);
+    SoundReq(0x7b);
+    SoundReq(0x85);
 }
 
 void sub_08070CB4(Entity* this) {
@@ -159,7 +159,7 @@ void sub_08070D38(Entity* this) {
     }
 
     gPlayerState.jumpStatus = 0x80;
-    PlaySFX(0x14c);
+    SoundReq(0x14c);
     ResetPlayer();
     sub_08078F60();
 }
@@ -355,8 +355,8 @@ void sub_080710A8(Entity* this) {
 
     this->nonPlanarMovement = 0x100;
     sub_0807A108();
-    PlaySFX(0x7c);
-    PlaySFX(0x78);
+    SoundReq(0x7c);
+    SoundReq(0x78);
 }
 
 void sub_08071130(Entity* this) {
@@ -412,7 +412,7 @@ void sub_08071130(Entity* this) {
     this->previousActionFlag++;
     sub_08078F60();
     this->field_0x42 = 0;
-    PlaySFX(0x7d);
+    SoundReq(0x7d);
 }
 
 void sub_08071208(Entity* this) {
@@ -442,7 +442,7 @@ void sub_0807127C(Entity* this) {
     if ((gPlayerState.flags.all & 0x80) != 0) {
         this->actionDelay = 0x3c;
         gPlayerState.field_0x8 = 0xc19;
-        PlaySFX(0x84);
+        SoundReq(0x84);
     } else {
         if ((gPlayerState.flags.all & 0x10000) == 0) {
             sub_08004168(this);
@@ -487,7 +487,7 @@ void sub_080712F0(Entity* this) {
     sub_08079458();
 }
 
-void sub_08071380(Entity *this) {
+void sub_08071380(Entity* this) {
     gPlayerState.field_0xa8 = 0xe;
     gUnk_0811BA9C[this->previousActionFlag](this);
 
@@ -499,12 +499,12 @@ void sub_08071380(Entity *this) {
 
     if ((gInput.newKeys & 0x102) == 0)
         return;
-    
+
     if (CheckIsDungeon() || gArea.field_0x17 == 3) {
         this->previousActionFlag = 7;
         this->actionDelay = 30;
         DoFade(7, 16);
-        PlaySFX(0xf8);
+        SoundReq(0xf8);
     } else {
         sub_0804ACF8();
     }
@@ -528,7 +528,7 @@ void sub_08071400(Entity* this) {
 
     sub_08073904(this);
     UpdateAnimationSingleFrame(this);
-    
+
     if (gPlayerState.jumpStatus == 0) {
         gPlayerState.flags.all |= 0x20;
         this->previousActionFlag = 1;
@@ -538,9 +538,9 @@ void sub_08071400(Entity* this) {
             gPlayerState.field_0x8 = 0x52c;
         }
     }
-    
+
     this->actionDelay = 8;
-    
+
     if (gArea.field_0x17 != 3) {
         this->spritePriority.b0 = 3;
     }

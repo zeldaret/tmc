@@ -7,19 +7,19 @@
 #include "functions.h"
 #include "fileScreen.h"
 
-void (* const gUnk_080D1AFC[8])(Entity*);
-void (* const gUnk_080D1B1C[7])(Entity*);
-void (* const gUnk_080D1B38[5])(Entity*);
-void (* const gUnk_080D1B4C[5])(Entity*);
+void (*const gUnk_080D1AFC[8])(Entity*);
+void (*const gUnk_080D1B1C[7])(Entity*);
+void (*const gUnk_080D1B38[5])(Entity*);
+void (*const gUnk_080D1B4C[5])(Entity*);
 const u16 gUnk_080D1B60[8];
-const s16 gUnk_080D1B70[2];//or 3?
+const s16 gUnk_080D1B70[2]; // or 3?
 const u16 gUnk_080D1B74[0x10];
-void (* const gUnk_080D1B94[0xA])(Entity*);
+void (*const gUnk_080D1B94[0xA])(Entity*);
 const u16 gUnk_080D1BBC[2];
-void (* const gUnk_080D1BC0[7])(Entity*);
-void (* const gUnk_080D1BDC[5])(Entity*);
+void (*const gUnk_080D1BC0[7])(Entity*);
+void (*const gUnk_080D1BDC[5])(Entity*);
 const s16 gUnk_080D1BF0[2];
-void (* const gUnk_080D1BF4[3])(Entity*);
+void (*const gUnk_080D1BF4[3])(Entity*);
 const s8 gUnk_080D1C00[4];
 const u16 gUnk_080D1C04[0x20];
 const u8 gUnk_080D1C44[0xC];
@@ -27,77 +27,69 @@ const u16 gUnk_080D1C50[8];
 const u16 gUnk_080D1C60[8];
 
 void GyorgMale(Entity*);
-void sub_08046898(Entity*);//action 0
-void sub_08046910(Entity*);//action 1
-void sub_08046930(Entity*);//action 1 previousActionFlag 0
-void sub_0804696C(Entity*);//action 1 previousActionFlag 1
-void sub_080469CC(Entity*);//action 1 previousActionFlag 2
-void sub_080469F4(Entity*);//action 1 previousActionFlag 3
-void sub_08046A30(Entity*);//action 1 previousActionFlag 4
-void sub_08046A54(Entity*);//action 1 previousActionFlag 5
-void sub_08046A78(Entity*);//action 1 previousActionFlag 6
-void sub_08046A9C(Entity*);//action 2
-void sub_08046AE8(Entity*);//action 2 previousActionFlag 0
-void sub_08046B18(Entity*);//action 2 previousActionFlag 1
-void sub_08046B8C(Entity*);//action 2 previousActionFlag 2
-void sub_08046C04(Entity*);//action 2 previousActionFlag 3
-void sub_08046C88(Entity*);//action 2 previousActionFlag 4
-void sub_08046CEC(Entity*);//action 3
-void sub_08046D44(Entity*);//action 3 previousActionFlag 0
-void sub_08046D98(Entity*);//action 3 previousActionFlag 1
-void sub_08046E0C(Entity*);//action 3 previousActionFlag 2
-void sub_08046E68(Entity*);//action 3 previousActionFlag 3
-void sub_08046EF4(Entity*);//action 3 previousActionFlag 4
-void sub_08046F64(Entity*);//action 4
-void sub_08046FE8(Entity*);//action 4 previousActionFlag 0
-void sub_0804702C(Entity*);//action 4 previousActionFlag 1
-void sub_080470B4(Entity*);//action 4 previousActionFlag 2
-void sub_08047140(Entity*);//action 4 previousActionFlag 3
-void sub_0804717C(Entity*);//action 4 previousActionFlag 4
-void sub_080471C8(Entity*);//action 4 previousActionFlag 5
-void sub_0804723C(Entity*);//action 4 previousActionFlag 6
-void sub_08047284(Entity*);//action 4 previousActionFlag 7
-void sub_080472BC(Entity*);//action 4 previousActionFlag 8
-void sub_08047310(Entity*);//action 4 previousActionFlag 9
-void sub_0804736C(Entity*);//action 5
-void sub_080473B8(Entity*);//action 5 previousActionFlag 0
-void sub_080473F0(Entity*);//action 5 previousActionFlag 1
-void sub_08047484(Entity*);//action 5 previousActionFlag 2
-void sub_08047508(Entity*);//action 5 previousActionFlag 3
-void sub_080475F4(Entity*);//action 5 previousActionFlag 4
-void sub_0804763C(Entity*);//action 5 previousActionFlag 5
-void sub_0804772C(Entity*);//action 5 previousActionFlag 6
-void sub_08047778(Entity*);//action 6
-void sub_08047798(Entity*);//action 6 previousActionFlag 0
-void sub_080477F0(Entity*);//action 6 previousActionFlag 1
-void sub_08047914(Entity*);//action 6 previousActionFlag 2
-void sub_08047978(Entity*);//action 6 previousActionFlag 3
-void sub_08047B08(Entity*);//action 6 previousActionFlag 4
-void sub_08047B84(Entity*);//action 7
-void sub_08047BA4(Entity*);//action 7 previousActionFlag 0
-void sub_08047BF0(Entity*);//action 7 previousActionFlag 1, also called elsewhere
-void sub_08047D24(Entity*);//action 7 previousActionFlag 2
-void sub_08047D88(Entity*);//
+void sub_08046898(Entity*); // action 0
+void sub_08046910(Entity*); // action 1
+void sub_08046930(Entity*); // action 1 previousActionFlag 0
+void sub_0804696C(Entity*); // action 1 previousActionFlag 1
+void sub_080469CC(Entity*); // action 1 previousActionFlag 2
+void sub_080469F4(Entity*); // action 1 previousActionFlag 3
+void sub_08046A30(Entity*); // action 1 previousActionFlag 4
+void sub_08046A54(Entity*); // action 1 previousActionFlag 5
+void sub_08046A78(Entity*); // action 1 previousActionFlag 6
+void sub_08046A9C(Entity*); // action 2
+void sub_08046AE8(Entity*); // action 2 previousActionFlag 0
+void sub_08046B18(Entity*); // action 2 previousActionFlag 1
+void sub_08046B8C(Entity*); // action 2 previousActionFlag 2
+void sub_08046C04(Entity*); // action 2 previousActionFlag 3
+void sub_08046C88(Entity*); // action 2 previousActionFlag 4
+void sub_08046CEC(Entity*); // action 3
+void sub_08046D44(Entity*); // action 3 previousActionFlag 0
+void sub_08046D98(Entity*); // action 3 previousActionFlag 1
+void sub_08046E0C(Entity*); // action 3 previousActionFlag 2
+void sub_08046E68(Entity*); // action 3 previousActionFlag 3
+void sub_08046EF4(Entity*); // action 3 previousActionFlag 4
+void sub_08046F64(Entity*); // action 4
+void sub_08046FE8(Entity*); // action 4 previousActionFlag 0
+void sub_0804702C(Entity*); // action 4 previousActionFlag 1
+void sub_080470B4(Entity*); // action 4 previousActionFlag 2
+void sub_08047140(Entity*); // action 4 previousActionFlag 3
+void sub_0804717C(Entity*); // action 4 previousActionFlag 4
+void sub_080471C8(Entity*); // action 4 previousActionFlag 5
+void sub_0804723C(Entity*); // action 4 previousActionFlag 6
+void sub_08047284(Entity*); // action 4 previousActionFlag 7
+void sub_080472BC(Entity*); // action 4 previousActionFlag 8
+void sub_08047310(Entity*); // action 4 previousActionFlag 9
+void sub_0804736C(Entity*); // action 5
+void sub_080473B8(Entity*); // action 5 previousActionFlag 0
+void sub_080473F0(Entity*); // action 5 previousActionFlag 1
+void sub_08047484(Entity*); // action 5 previousActionFlag 2
+void sub_08047508(Entity*); // action 5 previousActionFlag 3
+void sub_080475F4(Entity*); // action 5 previousActionFlag 4
+void sub_0804763C(Entity*); // action 5 previousActionFlag 5
+void sub_0804772C(Entity*); // action 5 previousActionFlag 6
+void sub_08047778(Entity*); // action 6
+void sub_08047798(Entity*); // action 6 previousActionFlag 0
+void sub_080477F0(Entity*); // action 6 previousActionFlag 1
+void sub_08047914(Entity*); // action 6 previousActionFlag 2
+void sub_08047978(Entity*); // action 6 previousActionFlag 3
+void sub_08047B08(Entity*); // action 6 previousActionFlag 4
+void sub_08047B84(Entity*); // action 7
+void sub_08047BA4(Entity*); // action 7 previousActionFlag 0
+void sub_08047BF0(Entity*); // action 7 previousActionFlag 1, also called elsewhere
+void sub_08047D24(Entity*); // action 7 previousActionFlag 2
+void sub_08047D88(Entity*); //
 void sub_08047DF0(Entity*, u32);
-void sub_08047E48(Entity*);//
-void sub_08047E58(Entity*);//
+void sub_08047E48(Entity*); //
+void sub_08047E58(Entity*); //
 void sub_08047EA4(Entity*, u32);
-u32 sub_08047F68(Entity*);//distance this to player?
-void sub_08048004(Entity*);//
-void sub_0804813C(Entity*);//
+u32 sub_08047F68(Entity*);  // distance this to player?
+void sub_08048004(Entity*); //
+void sub_0804813C(Entity*); //
 u32 sub_08048158(u32);
 void sub_08048178(Entity*, u32);
 
-void (* const gUnk_080D1AFC[8])(Entity*) = {
-    sub_08046898,
-    sub_08046910,
-    sub_08046A9C,
-    sub_08046CEC,
-    sub_08046F64,
-    sub_0804736C,
-    sub_08047778,
-    sub_08047B84
-};
+void (*const gUnk_080D1AFC[8])(Entity*) = { sub_08046898, sub_08046910, sub_08046A9C, sub_08046CEC,
+                                            sub_08046F64, sub_0804736C, sub_08047778, sub_08047B84 };
 
 void GyorgMale(Entity* this) {
     if (this->action) {
@@ -120,8 +112,9 @@ void GyorgMale(Entity* this) {
 void sub_08046898(Entity* this) {
     Entity* tmp = sub_080A7EE0(0x22);
     u32 tmp2;
-    if (!tmp) return;
-    tmp->entityType.form = 1;
+    if (!tmp)
+        return;
+    tmp->type = 1;
     tmp->parent = this;
     this->attachedEntity = tmp;
     this->action = 1;
@@ -139,15 +132,8 @@ void sub_08046898(Entity* this) {
     InitAnimationForceUpdate(this, 0);
 }
 
-void (* const gUnk_080D1B1C[7])(Entity*) = {
-    sub_08046930,
-    sub_0804696C,
-    sub_080469CC,
-    sub_080469F4,
-    sub_08046A30,
-    sub_08046A54,
-    sub_08046A78
-};
+void (*const gUnk_080D1B1C[7])(Entity*) = { sub_08046930, sub_0804696C, sub_080469CC, sub_080469F4,
+                                            sub_08046A30, sub_08046A54, sub_08046A78 };
 
 void sub_08046910(Entity* this) {
     gUnk_080D1B1C[this->previousActionFlag](this);
@@ -155,13 +141,14 @@ void sub_08046910(Entity* this) {
 }
 
 void sub_08046930(Entity* this) {
-    if (this->entityType.form) {
+    if (this->type) {
         this->previousActionFlag = 5;
         this->direction = 0x20;
         this->nonPlanarMovement = 0x280;
     }
     sub_08047D88(this);
-    if (this->field_0x7c.BYTES.byte0 == 0) return;
+    if (this->field_0x7c.BYTES.byte0 == 0)
+        return;
     this->previousActionFlag = 1;
     this->actionDelay = 1;
     this->animationState = 0;
@@ -177,12 +164,12 @@ void sub_0804696C(Entity* this) {
         this->nonPlanarMovement = 0x100;
         this->spriteOrientation.flipY = 3;
         this->spriteRendering.b3 = 3;
-        PlaySFX(0x2e);
+        SoundReq(0x2e);
     }
     if (this->actionDelay) {
         if (gRoomControls.roomOriginY + 0x258 > this->y.HALF.HI) {
             this->actionDelay = 0;
-            PlaySFX(0xf7);
+            SoundReq(0xf7);
         }
     }
 }
@@ -206,7 +193,7 @@ void sub_080469F4(Entity* this) {
 
 void sub_08046A30(Entity* this) {
     sub_08047D88(this);
-    if (((Entity*) this->otherEntity)->prev->field_0x6c.HWORD & 1) {
+    if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 1) {
         this->action = 2;
         this->previousActionFlag = 0;
     }
@@ -221,19 +208,13 @@ void sub_08046A54(Entity* this) {
 
 void sub_08046A78(Entity* this) {
     sub_08047D88(this);
-    if (((Entity*) this->otherEntity)->prev->field_0x6c.HWORD & 0x10) {
+    if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 0x10) {
         this->action = 3;
         this->previousActionFlag = 0;
     }
 }
 
-void (* const gUnk_080D1B38[5])(Entity*) = {
-    sub_08046AE8,
-    sub_08046B18,
-    sub_08046B8C,
-    sub_08046C04,
-    sub_08046C88
-};
+void (*const gUnk_080D1B38[5])(Entity*) = { sub_08046AE8, sub_08046B18, sub_08046B8C, sub_08046C04, sub_08046C88 };
 
 void sub_08046A9C(Entity* this) {
     if (this->animIndex == 1) {
@@ -252,7 +233,7 @@ void sub_08046A9C(Entity* this) {
 void sub_08046AE8(Entity* this) {
     this->previousActionFlag = 1;
     this->nonPlanarMovement = 0x180;
-    sub_08048178(this, ((Entity*) this->otherEntity)->next->animationState >> 5);
+    sub_08048178(this, ((Entity*)this->myHeap)->next->animationState >> 5);
     this->field_0x76.HWORD = this->direction << 8;
     sub_08047D88(this);
 }
@@ -281,7 +262,8 @@ void sub_08046B8C(Entity* this) {
         this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x210;
         sub_08047D88(this);
     } else {
-        this->direction = sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
+        this->direction =
+            sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
         sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
     }
 }
@@ -309,18 +291,13 @@ void sub_08046C88(Entity* this) {
         sub_08048178(this, sub_08048158(this->field_0x70.HALF_U.LO));
         sub_08047D88(this);
     } else {
-        this->direction = sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
+        this->direction =
+            sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
         sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
     }
 }
 
-void (* const gUnk_080D1B4C[5])(Entity*) = {
-    sub_08046D44,
-    sub_08046D98,
-    sub_08046E0C,
-    sub_08046E68,
-    sub_08046EF4
-};
+void (*const gUnk_080D1B4C[5])(Entity*) = { sub_08046D44, sub_08046D98, sub_08046E0C, sub_08046E68, sub_08046EF4 };
 
 void sub_08046CEC(Entity* this) {
     if (this->animIndex == 0) {
@@ -330,29 +307,20 @@ void sub_08046CEC(Entity* this) {
     }
     gUnk_080D1B4C[this->previousActionFlag](this);
     UpdateAnimationSingleFrame(this);
-    if (((Entity*) this->otherEntity)->prev->field_0x6c.HWORD & 2) {
+    if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 2) {
         this->action = 2;
         this->previousActionFlag = 0;
         this->animationState = this->nonPlanarMovement;
     }
 }
 
-const u16 gUnk_080D1B60[8] = {
-    0x200,
-    0x184,
-    0x28C,
-    0x210,
-    0x200,
-    0x29C,
-    0x174,
-    0x210
-};
+const u16 gUnk_080D1B60[8] = { 0x200, 0x184, 0x28C, 0x210, 0x200, 0x29C, 0x174, 0x210 };
 
 void sub_08046D44(Entity* this) {
-    const u16 * tmp;
+    const u16* tmp;
     this->previousActionFlag = 1;
     this->nonPlanarMovement = 0x200;
-    tmp = gUnk_080D1B60 + (((Entity*) this->otherEntity)->next->animationState >> 5);
+    tmp = gUnk_080D1B60 + (((Entity*)this->myHeap)->next->animationState >> 5);
     this->field_0x80.HWORD = tmp[0] + gRoomControls.roomOriginX;
     this->field_0x82.HWORD = tmp[1] + gRoomControls.roomOriginY;
     this->field_0x76.HWORD = this->direction << 8;
@@ -381,18 +349,16 @@ void sub_08046E0C(Entity* this) {
         this->field_0x76.HWORD = this->direction << 8;
         sub_08047D88(this);
     } else {
-        this->direction = sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
+        this->direction =
+            sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
         sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
     }
 }
 
-const s16 gUnk_080D1B70[2] = {
-    0x40,
-    -0x40
-};
+const s16 gUnk_080D1B70[2] = { 0x40, -0x40 };
 
 void sub_08046E68(Entity* this) {
-    u32 tmp = ((Entity*) this->otherEntity)->next->animationState ^ 0x80;
+    u32 tmp = ((Entity*)this->myHeap)->next->animationState ^ 0x80;
     if (tmp != this->direction) {
         if (((tmp - this->direction) & 0xFF) > 0x80) {
             this->field_0x76.HWORD -= 0x100;
@@ -411,24 +377,8 @@ void sub_08046E68(Entity* this) {
     }
 }
 
-const u16 gUnk_080D1B74[0x10] = {
-    0x20,
-    0x40,
-    0x60,
-    0x80,
-    0xA0,
-    0xC0,
-    0xE0,
-    0x100,
-    0x100,
-    0xE0,
-    0xC0,
-    0xA0,
-    0x80,
-    0x60,
-    0x40,
-    0x20
-};
+const u16 gUnk_080D1B74[0x10] = { 0x20,  0x40, 0x60, 0x80, 0xA0, 0xC0, 0xE0, 0x100,
+                                  0x100, 0xE0, 0xC0, 0xA0, 0x80, 0x60, 0x40, 0x20 };
 
 void sub_08046EF4(Entity* this) {
     if (--this->actionDelay == 0) {
@@ -449,18 +399,8 @@ void sub_08046EF4(Entity* this) {
     sub_08047E48(this);
 }
 
-void (* const gUnk_080D1B94[0xA])(Entity*) = {
-    sub_08046FE8,
-    sub_0804702C,
-    sub_080470B4,
-    sub_08047140,
-    sub_0804717C,
-    sub_080471C8,
-    sub_0804723C,
-    sub_08047284,
-    sub_080472BC,
-    sub_08047310
-};
+void (*const gUnk_080D1B94[0xA])(Entity*) = { sub_08046FE8, sub_0804702C, sub_080470B4, sub_08047140, sub_0804717C,
+                                              sub_080471C8, sub_0804723C, sub_08047284, sub_080472BC, sub_08047310 };
 
 void sub_08046F64(Entity* this) {
     if (this->animIndex == 0) {
@@ -480,7 +420,7 @@ void sub_08046F64(Entity* this) {
             UpdateSpriteForCollisionLayer(tmp);
         }
     }
-    if (((Entity*) this->otherEntity)->prev->field_0x6c.HWORD & 4) {
+    if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 4) {
         this->action = 5;
         this->previousActionFlag = 0;
     }
@@ -512,10 +452,7 @@ void sub_0804702C(Entity* this) {
     }
 }
 
-const u16 gUnk_080D1BBC[2] = {
-    0x1A0,
-    0xE0
-};
+const u16 gUnk_080D1BBC[2] = { 0x1A0, 0xE0 };
 
 void sub_080470B4(Entity* this) {
     u32 tmp = 0x40;
@@ -565,7 +502,8 @@ void sub_080471C8(Entity* this) {
         this->direction++;
     }
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
-    if (gRoomControls.roomOriginY + 0x190 <= this->y.HALF.HI) return;
+    if (gRoomControls.roomOriginY + 0x190 <= this->y.HALF.HI)
+        return;
     if (this->field_0x74.HWORD > 0x100) {
         if (Random() & 1) {
             this->previousActionFlag = 6;
@@ -604,7 +542,8 @@ void sub_080472BC(Entity* this) {
         this->nonPlanarMovement += 8;
     }
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
-    if (gRoomControls.roomOriginX + 0x2B0 >= this->x.HALF.HI) return;
+    if (gRoomControls.roomOriginX + 0x2B0 >= this->x.HALF.HI)
+        return;
     this->previousActionFlag = 9;
     this->field_0x76.HWORD = this->direction << 8;
 }
@@ -615,22 +554,15 @@ void sub_08047310(Entity* this) {
     }
     this->field_0x76.HWORD -= 0x1D0;
     this->direction = this->field_0x76.HWORD >> 8;
-    if ((u8) (this->direction + 0x7F) < 0x40) {
+    if ((u8)(this->direction + 0x7F) < 0x40) {
         this->direction = 0xC0;
         this->previousActionFlag = 4;
     }
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
 }
 
-void (* const gUnk_080D1BC0[7])(Entity*) = {
-    sub_080473B8,
-    sub_080473F0,
-    sub_08047484,
-    sub_08047508,
-    sub_080475F4,
-    sub_0804763C,
-    sub_0804772C
-};
+void (*const gUnk_080D1BC0[7])(Entity*) = { sub_080473B8, sub_080473F0, sub_08047484, sub_08047508,
+                                            sub_080475F4, sub_0804763C, sub_0804772C };
 
 void sub_0804736C(Entity* this) {
     if (this->animIndex == 1) {
@@ -766,7 +698,7 @@ void sub_0804763C(Entity* this) {
                 this->direction = this->field_0x76.HWORD >> 8;
             }
         } else {
-            s32 tmp = (s16) this->field_0x74.HWORD;
+            s32 tmp = (s16)this->field_0x74.HWORD;
             if (tmp > 0) {
                 this->field_0x76.HWORD += tmp;
                 this->direction = this->field_0x76.HWORD >> 8;
@@ -812,13 +744,7 @@ void sub_0804772C(Entity* this) {
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
 }
 
-void (* const gUnk_080D1BDC[5])(Entity*) = {
-    sub_08047798,
-    sub_080477F0,
-    sub_08047914,
-    sub_08047978,
-    sub_08047B08
-};
+void (*const gUnk_080D1BDC[5])(Entity*) = { sub_08047798, sub_080477F0, sub_08047914, sub_08047978, sub_08047B08 };
 
 void sub_08047778(Entity* this) {
     gUnk_080D1BDC[this->previousActionFlag](this);
@@ -838,10 +764,7 @@ void sub_08047798(Entity* this) {
     sub_08047D88(this);
 }
 
-const s16 gUnk_080D1BF0[2] = {
-    0x80,
-    -0x80
-};
+const s16 gUnk_080D1BF0[2] = { 0x80, -0x80 };
 
 void sub_080477F0(Entity* this) {
     if (this->nonPlanarMovement < 0x300) {
@@ -865,10 +788,11 @@ void sub_080477F0(Entity* this) {
         this->previousActionFlag = 2;
         this->field_0x76.HWORD = this->animationState << 8;
         this->field_0x74.HWORD = gUnk_080D1BF0[Random() & 1];
-        if (((Entity*) this->otherEntity)->prev->field_0x6c.HWORD & 1) {
-            ((Entity*) this->otherEntity)->next->field_0x78.HALF.HI = gRoomControls.roomOriginX + 0x200 > this->x.HALF.HI ? 0x81 : 0x83;
+        if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 1) {
+            ((Entity*)this->myHeap)->next->field_0x78.HALF.HI =
+                gRoomControls.roomOriginX + 0x200 > this->x.HALF.HI ? 0x81 : 0x83;
         } else {
-            ((Entity*) this->otherEntity)->next->field_0x78.HALF.HI = 0x80;
+            ((Entity*)this->myHeap)->next->field_0x78.HALF.HI = 0x80;
         }
     }
 }
@@ -882,8 +806,8 @@ void sub_08047914(Entity* this) {
     } else {
         this->previousActionFlag = 3;
         this->field_0x70.HALF.LO = 0x3C;
-        this->field_0x7c.HALF.HI = ((this->entityType.form * 0xF) << 2) + 0x78;
-        sub_080A1D70(((Entity*) this->otherEntity)->prev, this->animationState);
+        this->field_0x7c.HALF.HI = ((this->type * 0xF) << 2) + 0x78;
+        sub_080A1D70(((Entity*)this->myHeap)->prev, this->animationState);
     }
 }
 
@@ -892,7 +816,7 @@ void sub_08047978(Entity* this) {
     if (this->currentHealth != 0) {
         if (--this->field_0x70.HALF_U.LO == 0) {
             this->field_0x70.HALF.HI = 1;
-            if (this->entityType.form == 0) {
+            if (this->type == 0) {
                 this->field_0x70.HALF.LO = 0xB4;
             } else {
                 this->field_0x70.HALF.LO = 0x168;
@@ -920,11 +844,13 @@ void sub_08047978(Entity* this) {
         this->spriteRendering.b3 = 2;
         this->direction = this->animationState;
     }
-    if (this->currentHealth != 0) return;
-    if (this->attachedEntity->action != 1) return;
+    if (this->currentHealth != 0)
+        return;
+    if (this->attachedEntity->action != 1)
+        return;
     this->previousActionFlag = 4;
-    if (this->entityType.form == 0) {
-        if ((((Entity*) this->otherEntity)->next->animationState >> 6) == 1) {
+    if (this->type == 0) {
+        if ((((Entity*)this->myHeap)->next->animationState >> 6) == 1) {
             this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x1C0;
             this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x250;
         } else {
@@ -945,7 +871,6 @@ void sub_08047978(Entity* this) {
         }
         this->field_0x82.HWORD += gRoomControls.roomOriginY;
     }
-    
 }
 
 void sub_08047B08(Entity* this) {
@@ -953,8 +878,9 @@ void sub_08047B08(Entity* this) {
     this->direction = sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
     this->nonPlanarMovement = 0x200;
     sub_08047E58(this);
-    if (!sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, 4)) return;
-    if (this->entityType.form == 0) {
+    if (!sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, 4))
+        return;
+    if (this->type == 0) {
         this->action = 7;
         this->previousActionFlag = 0;
         this->direction ^= 0x80;
@@ -967,11 +893,7 @@ void sub_08047B08(Entity* this) {
     }
 }
 
-void (* const gUnk_080D1BF4[3])(Entity*) = {
-    sub_08047BA4,
-    sub_08047BF0,
-    sub_08047D24
-};
+void (*const gUnk_080D1BF4[3])(Entity*) = { sub_08047BA4, sub_08047BF0, sub_08047D24 };
 
 void sub_08047B84(Entity* this) {
     gUnk_080D1BF4[this->previousActionFlag](this);
@@ -987,16 +909,11 @@ void sub_08047BA4(Entity* this) {
     } else {
         this->field_0x76.HWORD = 0x88;
     }
-    PlaySFX(0x1B5);
+    SoundReq(0x1B5);
     sub_08047BF0(this);
 }
 
-const s8 gUnk_080D1C00[4] = {
-    0x40,
-    -0x40,
-    -0x40,
-    0x40
-};
+const s8 gUnk_080D1C00[4] = { 0x40, -0x40, -0x40, 0x40 };
 
 void sub_08047BF0(Entity* this) {
     Entity* tmp;
@@ -1022,7 +939,7 @@ void sub_08047BF0(Entity* this) {
         if (this->y.HALF.HI > gRoomControls.roomOriginY + 0x270) {
             this->previousActionFlag = 2;
             this->field_0x7c.HALF.HI = 0xAA;
-            PlaySFX(0x12D);
+            SoundReq(0x12D);
             InitAnimationForceUpdate(this, 1);
         }
     } else {
@@ -1051,12 +968,12 @@ void sub_08047BF0(Entity* this) {
 void sub_08047D24(Entity* this) {
     this->field_0x7c.HALF_U.HI += 8;
     if (this->field_0x7c.HALF_U.HI > 0x800) {
-        if (this->entityType.form == 0) {
-            ((u32*) this->otherEntity)[2] = 0;
+        if (this->type == 0) {
+            ((u32*)this->myHeap)[2] = 0;
         } else {
-            ((u32*) this->otherEntity)[3] = 0;
+            ((u32*)this->myHeap)[3] = 0;
         }
-        this->otherEntity = 0;
+        this->myHeap = NULL;
         DeleteThisEntity();
     } else {
         if (this->field_0x7c.HALF_U.HI < 0x200) {
@@ -1074,17 +991,21 @@ void sub_08047D88(Entity* this) {
     tmp = ((tmp << 1) & 0x7F) | (tmp & 0x80);
     this->field_0x7c.BYTES.byte0 = tmp;
     tmp2 = this->spriteRendering.b3;
-    if (tmp2 == 3 && gPlayerState.field_0x14 != 0) return;
-    if (this->animIndex == 1) return;
-    if (!sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x20)) return;
+    if (tmp2 == 3 && gPlayerState.field_0x14 != 0)
+        return;
+    if (this->animIndex == 1)
+        return;
+    if (!sub_0806FCB8(this, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI, 0x20))
+        return;
     gPlayerState.field_0x14 = 1;
-    if (gPlayerEntity.height.HALF.HI != 0) return;
+    if (gPlayerEntity.height.HALF.HI != 0)
+        return;
     this->field_0x7c.BYTES.byte0 |= 1;
 }
 
 void sub_08047DF0(Entity* this, u32 unk1) {
     u32 oldX, oldY;
-	sub_08047D88(this);
+    sub_08047D88(this);
     sub_08047EA4(this, unk1);
     oldX = this->x.HALF.HI;
     oldY = this->y.HALF.HI;
@@ -1120,7 +1041,8 @@ void sub_08047EA4(Entity* this, u32 unk1) {
     u32 tmp2, dir;
     this->field_0x78.HWORD = unk1;
     tmp = this->field_0x78.HWORD - this->field_0x7a.HWORD;
-    if (tmp + 0x100 < 0x200u) return; 
+    if (tmp + 0x100 < 0x200u)
+        return;
     if (this->field_0x7c.BYTES.byte0 & 1) {
         tmp2 = sub_08047F68(this) << 8;
         dir = sub_080045DA(gPlayerEntity.x.HALF.HI - this->x.HALF.HI, gPlayerEntity.y.HALF.HI - this->y.HALF.HI);
@@ -1132,24 +1054,17 @@ void sub_08047EA4(Entity* this, u32 unk1) {
     this->field_0x7a.HWORD = this->field_0x78.HWORD;
 }
 
-const u16 gUnk_080D1C04[0x20] = {
-    0, 1, 4, 9,
-    16, 25, 36, 49,
-    64, 81, 100, 121,
-    144, 169, 196, 225,
-    256, 289, 324, 361,
-    400, 441, 484, 529,
-    576, 625, 676, 729,
-    784, 841, 900, 961
-};
+const u16 gUnk_080D1C04[0x20] = { 0,   1,   4,   9,   16,  25,  36,  49,  64,  81,  100, 121, 144, 169, 196, 225,
+                                  256, 289, 324, 361, 400, 441, 484, 529, 576, 625, 676, 729, 784, 841, 900, 961 };
 
 u32 sub_08047F68(Entity* this) {
     s32 diffX, diffY;
     s32 distSquared, approx;
-    diffX =  gPlayerEntity.x.HALF.HI - this->x.HALF.HI;
+    diffX = gPlayerEntity.x.HALF.HI - this->x.HALF.HI;
     diffY = gPlayerEntity.y.HALF.HI - this->y.HALF.HI;
     distSquared = (diffX * diffX) + (diffY * diffY);
-    if (distSquared == 0x400) return 0x20;
+    if (distSquared == 0x400)
+        return 0x20;
     if (distSquared < gUnk_080D1C04[0x10]) {
         approx = 0x8;
     } else {
@@ -1171,7 +1086,7 @@ u32 sub_08047F68(Entity* this) {
         approx += 1;
     }
     if (distSquared < gUnk_080D1C04[approx]) {
-        s32 tmp = gUnk_080D1C04[approx-1];
+        s32 tmp = gUnk_080D1C04[approx - 1];
         tmp += (gUnk_080D1C04[approx] - tmp) / 2;
         if (distSquared <= tmp) {
             approx = approx - 1;
@@ -1181,22 +1096,26 @@ u32 sub_08047F68(Entity* this) {
 }
 
 void sub_08048004(Entity* this) {
-    if (this->action == 0) return;
+    if (this->action == 0)
+        return;
     if (this->animIndex == 0) {
         this->flags &= ~0x80;
-        if (gPlayerEntity.height.HALF.HI != 0) return;
-        if (!sub_08079F8C()) return;
+        if (gPlayerEntity.height.HALF.HI != 0)
+            return;
+        if (!sub_08079F8C())
+            return;
         if (this->field_0x7c.BYTES.byte0 & 1) {
             u32 b = this->spriteRendering.b3;
             if (b == 3) {
-                s32 posX = ((gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX) >> 3); 
+                s32 posX = ((gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX) >> 3);
                 s32 posY = ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) >> 3);
-                u16 * tmp = (u16*)&gUnk_02019EE0;
+                u16* tmp = (u16*)&gUnk_02019EE0;
                 if (tmp[(posY << 7) + posX]) {
                     if (!(this->field_0x7c.BYTES.byte0 & 2)) {
                         this->field_0x7c.BYTES.byte0 |= 0x80;
                     }
-                    if ((this->field_0x7c.BYTES.byte0 & 0x80)) return;
+                    if ((this->field_0x7c.BYTES.byte0 & 0x80))
+                        return;
                     gPlayerEntity.x.HALF.HI = this->cutsceneBeh.HWORD;
                     gPlayerEntity.y.HALF.HI = this->field_0x86.HWORD;
                     return;
@@ -1208,7 +1127,8 @@ void sub_08048004(Entity* this) {
             if (b != 3) {
                 if (sub_0806FCB8(&gPlayerEntity, this->x.HALF.HI, this->y.HALF.HI, 0x24)) {
                     if (!(this->field_0x7c.BYTES.byte0 & 2)) {
-                        u32 tmp = sub_080045DA(gPlayerEntity.x.HALF.HI - this->x.HALF.HI, gPlayerEntity.y.HALF.HI - this->y.HALF.HI);
+                        u32 tmp = sub_080045DA(gPlayerEntity.x.HALF.HI - this->x.HALF.HI,
+                                               gPlayerEntity.y.HALF.HI - this->y.HALF.HI);
                         gPlayerEntity.x.WORD = this->x.WORD + (gSineTable[tmp] * 9216);
                         gPlayerEntity.y.WORD = this->y.WORD - (gSineTable[tmp + 0x40] * 9216);
                     }
@@ -1226,41 +1146,19 @@ void sub_0804813C(Entity* this) {
     sub_080A1ED0(rand & 7, 1, (rand >> 8) & 3);
 }
 
-
-const u8 gUnk_080D1C44[0xC] = {
-    0, 2, 6, 0,
-    2, 4, 2, 4,
-    6, 0, 4, 6
-};
+const u8 gUnk_080D1C44[0xC] = { 0, 2, 6, 0, 2, 4, 2, 4, 6, 0, 4, 6 };
 
 u32 sub_08048158(u32 unk1) {
     return gUnk_080D1C44[(unk1 * 3) + ((signed)Random() % 3)];
 }
 
-const u16 gUnk_080D1C50[8] = {
-    0x200,
-    0x180,
-    0x2C0,
-    0x210,
-    0x200,
-    0x2A0,
-    0x140,
-    0x210
-};
+const u16 gUnk_080D1C50[8] = { 0x200, 0x180, 0x2C0, 0x210, 0x200, 0x2A0, 0x140, 0x210 };
 
-const u16 gUnk_080D1C60[8] = {
-    0x200,
-    0x150,
-    0x290,
-    0x210,
-    0x200,
-    0x2D0,
-    0x170,
-    0x210
-};
+const u16 gUnk_080D1C60[8] = { 0x200, 0x150, 0x290, 0x210, 0x200, 0x2D0, 0x170, 0x210 };
 
 void sub_08048178(Entity* this, u32 unk1) {
-    const u16* tmp = ((((Entity*) this->otherEntity)->next->animationState >> 6 & 1) ? gUnk_080D1C60 + unk1: gUnk_080D1C50 + unk1);
+    const u16* tmp =
+        ((((Entity*)this->myHeap)->next->animationState >> 6 & 1) ? gUnk_080D1C60 + unk1 : gUnk_080D1C50 + unk1);
     this->field_0x80.HWORD = *tmp + gRoomControls.roomOriginX;
     this->field_0x82.HWORD = *(tmp + 1) + gRoomControls.roomOriginY;
 }

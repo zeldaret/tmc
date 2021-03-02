@@ -572,7 +572,7 @@ _0808AE48:
 	strb r0, [r4, #0x18]
 	movs r0, #0x97
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0808AE80
 _0808AE54:
 	adds r0, r4, #0
@@ -664,7 +664,7 @@ sub_0808AEB0: @ 0x0808AEB0
 	movs r0, #4
 	str r0, [r4, #0x7c]
 	ldr r0, _0808AF1C @ =0x0000012F
-	bl PlaySFX
+	bl SoundReq
 _0808AF08:
 	movs r0, #1
 	strb r0, [r4, #0xf]
@@ -778,7 +778,7 @@ sub_0808AFD4: @ 0x0808AFD4
 	strb r0, [r2, #0x15]
 	movs r0, #0x98
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 
 	thumb_func_start sub_0808AFF0
@@ -829,7 +829,7 @@ _0808B01E:
 	strb r5, [r4, #0xc]
 	movs r0, #0x98
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0808B050:
 	pop {r4, r5, pc}
 	.align 2, 0

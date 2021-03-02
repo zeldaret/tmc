@@ -139,14 +139,14 @@ _080441F2:
 	adds r0, r0, r1
 	adds r5, r0, #1
 	adds r0, r5, #0
-	bl sub_0801D8E0
+	bl zMalloc
 	adds r1, r0, #0
 	str r1, [r4, #0x64]
 	cmp r1, #0
 	beq _0804429A
 	adds r0, r6, #0
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	adds r1, r4, #0
 	adds r1, #0x28
 	movs r0, #0xff
@@ -155,7 +155,7 @@ _080441F2:
 	ldrb r0, [r0]
 	lsls r0, r0, #3
 	adds r0, #0xc
-	bl sub_0801D8E0
+	bl zMalloc
 	adds r2, r0, #0
 	cmp r2, #0
 	bne _08044248
@@ -449,7 +449,7 @@ _08044440:
 	movs r0, #0x12
 	bl SetGlobalFlag
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 	bl DeleteThisEntity
 _08044458:
 	movs r2, #0

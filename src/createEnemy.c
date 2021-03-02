@@ -9,9 +9,9 @@ Entity* CreateEnemy(u32 subtype, u32 form) {
 
     enemy = GetEmptyEntity();
     if (enemy != NULL) {
-        (enemy->entityType).type = 3;
-        (enemy->entityType).subtype = subtype;
-        (enemy->entityType).form = form;
+        enemy->kind = 3;
+        enemy->id = subtype;
+        enemy->type = form;
         AppendEntityToList(enemy, 4);
     }
     return enemy;

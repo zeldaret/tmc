@@ -22,7 +22,7 @@ void sub_08081AE0(Entity* this) {
     this->field_0x74.HWORD = (((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3F) |
                              ((((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3F) << 6);
     this->field_0x70.HALF.HI = GetTileType(this->field_0x74.HWORD, this->collisionLayer);
-    if (this->entityType.form == 0 && CheckFlags(this->field_0x86.HWORD)) {
+    if (this->type == 0 && CheckFlags(this->field_0x86.HWORD)) {
         this->action = 5;
         SetTileType(0x7A, this->field_0x74.HWORD, this->collisionLayer);
     } else {
@@ -51,7 +51,7 @@ void sub_08081BAC(Entity* this) {
         this->actionDelay = 0xA;
         sub_0805E4E0(this, 0xA);
         sub_08081FF8(this);
-        if (this->entityType.form == 1) {
+        if (this->type == 1) {
             this->action = 3;
         } else {
             this->action = 5;
@@ -94,7 +94,7 @@ void sub_08081C30(Entity* this) {
         this->action = 2;
         ClearFlag(this->field_0x86.HWORD);
         SetTileType(0x77, this->field_0x74.HWORD, this->collisionLayer);
-        PlaySFX(0x10C);
+        SoundReq(0x10C);
     }
 }
 
@@ -211,7 +211,7 @@ void sub_08081E6C(Entity* this) {
     if (tile < 0x4000)
         return;
     r1 = GetLayerByIndex(r5);
-    r4 = (this->entityType.form == 0 ? 0x7a : 0x78);
+    r4 = (this->type == 0 ? 0x7a : 0x78);
     tmp = r1 + 0x3802;
     r1 += 0x3002 + r4;
     tmp = tmp + (*r1 << 2);
@@ -264,7 +264,7 @@ u32 sub_08081F7C(Entity* this, u32 r7) {
             SetFlag(this->field_0x86.HWORD);
             SetTileType(r7, this->field_0x74.HWORD, this->collisionLayer);
             sub_08081F24(this);
-            PlaySFX(0x10C);
+            SoundReq(0x10C);
             if (this->field_0x70.HALF_U.LO != 0xFFFF)
                 SetTile(this->field_0x70.HALF_U.LO, this->field_0x74.HWORD, this->collisionLayer);
             return 0;

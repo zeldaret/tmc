@@ -256,7 +256,7 @@ sub_0808BD00: @ 0x0808BD00
 	movs r0, #0x17
 	bl SetGlobalFlag
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 	bl DeleteThisEntity
 	pop {pc}
 

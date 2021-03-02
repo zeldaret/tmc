@@ -610,7 +610,7 @@ _080A2F06:
 	bne _080A2F30
 	movs r0, #0x8c
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #8
 	str r0, [r4, #0x6c]
 	b _080A2F30
@@ -848,7 +848,7 @@ _080A30CC:
 	adds r0, r4, #0
 	bl sub_0806F69C
 	ldr r0, _080A30F4 @ =0x0000013F
-	bl PlaySFX
+	bl SoundReq
 	b _080A30FC
 	.align 2, 0
 _080A30EC: .4byte gPlayerEntity
@@ -995,7 +995,7 @@ sub_080A3210: @ 0x080A3210
 	ldr r4, _080A3230 @ =gUnk_02021EE0
 	adds r0, r4, #0
 	movs r1, #0x18
-	bl _DmaZero
+	bl MemClear32
 	bl sub_080A35C8
 	movs r0, #0x80
 	lsls r0, r0, #1

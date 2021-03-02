@@ -11,7 +11,7 @@ void (*const gItemFunctions[])(ItemBehavior*, u32) = {
 };
 
 extern void sub_08077E78(ItemBehavior*, u32);
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern void sub_08078F60(void);
 extern void sub_08077D38(ItemBehavior*, u32);
 extern void sub_0805E544(void);
@@ -56,7 +56,7 @@ void OcarinaUse(ItemBehavior *beh, u32 arg1)
     gPlayerState.keepFacing |= bVar1;
     sub_08078F60();
     sub_08077D38(beh, arg1);
-    PlaySFX(0x216);
+    SoundReq(0x216);
     sub_0805E544();
   }
 }
@@ -104,7 +104,7 @@ void sub_08076D34(ItemBehavior* beh, u32 arg1) {
             beh->stateID++;
             beh->field_0xf = 0;
             gPlayerState.field_0xa &= ~(u8)(8 >> arg1);
-            PlaySFX(0x15d);
+            SoundReq(0x15d);
         }
     } else {
         gPlayerState.field_0x3[0] = 0;

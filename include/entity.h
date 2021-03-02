@@ -5,6 +5,16 @@
 #include "global.h"
 #include "sprite.h"
 
+typedef enum {
+    PLAYER = 1,
+    ENEMY = 3,
+    PROJECTILE = 4,
+    OBJECT = 6,
+    NPC = 7,
+    PLAYER_ITEM = 8,
+    MANAGER = 9,
+} EntityType;
+
 typedef struct {
     void* entity1;
     void* entity2;
@@ -12,19 +22,12 @@ typedef struct {
 } UnkStruct;
 
 typedef struct {
-    u8 type;
-    u8 subtype;
-    u8 form;
-    u8 parameter;
-} EntityType;
-
-typedef struct {
     s8 offset_x;
     s8 offset_y;
     u8 unk2[4];
     u8 width;
     u8 height;
-} BoundingBox;
+} Hitbox;
 
 typedef struct {
     s8 offset_x;
@@ -34,12 +37,15 @@ typedef struct {
     u8 height;
     u8 depth;
     u8 unknown2[3];
-} BoundingBox3D;
+} Hitbox3D;
 
 typedef struct Entity {
     /*0x00*/ struct Entity* prev;
     /*0x04*/ struct Entity* next;
-    /*0x08*/ EntityType entityType;
+    /*0x08*/ u8 kind; // was: type
+    /*0x09*/ u8 id; // was: subtype
+    /*0x0a*/ u8 type; // was: form
+    /*0x0b*/ u8 type2; // was: parameter
     /*0x0c*/ u8 action;
     /*0x0d*/ u8 previousActionFlag;
     /*0x0e*/ u8 actionDelay;
@@ -112,7 +118,7 @@ typedef struct Entity {
     /*0x44*/ u8 field_0x44;
     /*0x45*/ u8 currentHealth;
     /*0x46*/ u16 field_0x46;
-    /*0x48*/ BoundingBox* boundingBox;
+    /*0x48*/ Hitbox* hitbox;
     /*0x4c*/ struct Entity* field_0x4c;
     /*0x50*/ struct Entity* parent;
     /*0x54*/ struct Entity* attachedEntity;
@@ -132,7 +138,7 @@ typedef struct Entity {
     /*0x60*/ u16 spriteVramOffset;
     /*0x62*/ u8 spriteOffsetX;
     /*0x63*/ s8 spriteOffsetY;
-    /*0x64*/ u32* otherEntity;
+    /*0x64*/ u32* myHeap;
     /*0x68*/ union SplitHWord field_0x68;
     /*0x6a*/ union SplitHWord field_0x6a;
     /*0x6c*/ union SplitHWord field_0x6c;

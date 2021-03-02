@@ -1,26 +1,26 @@
 #include "global.h"
 #include "entity.h"
 
-void _DmaFill32(u32, u8*, u32);
-void _DmaFill16(u32, u8*, u32);
+void MemFill32(u32, u8*, u32);
+void MemFill16(u32, u8*, u32);
 
-void _DmaFill16(u32 value, u8* dest, u32 size) {
+void MemFill16(u32 value, u8* dest, u32 size) {
     DmaFill16(3, value, dest, size);
 }
 
-void _DmaFill32(u32 value, u8* dest, u32 size) {
+void MemFill32(u32 value, u8* dest, u32 size) {
     DmaFill32(3, value, dest, size);
 }
 
-void _DmaZero(u8* src, u32 size) {
+void MemClear32(u8* src, u32 size) {
     u32 zero = 0;
 
     switch (((u32)src | size) & 3) {
         case 0:
-            _DmaFill32(0, src, size);
+            MemFill32(0, src, size);
             break;
         case 2:
-            _DmaFill16(0, src, size);
+            MemFill16(0, src, size);
             break;
         default:
             do {
@@ -31,7 +31,7 @@ void _DmaZero(u8* src, u32 size) {
     }
 }
 
-void _DmaCopy(const u8* src, u8* dst, u32 size) {
+void MemCopy(const u8* src, u8* dst, u32 size) {
     switch (((u32)src | (u32)dst | size) & 3) {
         case 0:
             DmaCopy32(3, src, dst, size);

@@ -2,7 +2,7 @@
 #include "entity.h"
 
 extern void InitializeAnimation(Entity*, u32);
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern void DeleteThisEntity();
 extern void GetNextFrame(Entity*);
 
@@ -21,8 +21,8 @@ void ThoughtBubble_Init(Entity* this) {
         this->actionDelay = 0x2d;
     }
     this->spriteOrientation.flipY = 1;
-    InitializeAnimation(this, this->entityType.parameter);
-    PlaySFX(ThoughtBubble_SFX[this->entityType.parameter]);
+    InitializeAnimation(this, this->type2);
+    SoundReq(ThoughtBubble_SFX[this->type2]);
 }
 
 void ThoughtBubble_Update(Entity* this) {
@@ -31,7 +31,7 @@ void ThoughtBubble_Update(Entity* this) {
         this->y.HALF.HI = this->parent->y.HALF.HI;
         this->height.HALF.HI = this->parent->height.HALF.HI;
     }
-    if ((this->entityType).parameter != 2) {
+    if (this->type2 != 2) {
         if (--this->actionDelay == 0) {
             DeleteThisEntity();
         }

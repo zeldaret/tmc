@@ -195,7 +195,7 @@ _08083FB2:
 	strb r1, [r4, #0xf]
 	movs r0, #0xa5
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _08083FE6
 	.align 2, 0
 _08083FC8: .4byte gPlayerEntity
@@ -210,7 +210,7 @@ _08083FCC:
 	adds r0, r4, #0
 	bl sub_08083E20
 	movs r0, #0x73
-	bl PlaySFX
+	bl SoundReq
 _08083FE6:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -238,7 +238,7 @@ sub_08083FEC: @ 0x08083FEC
 	movs r1, #0x3c
 	bl sub_0805E4E0
 	ldr r0, _08084020 @ =0x0000011B
-	bl PlaySFX
+	bl SoundReq
 _0808401E:
 	pop {r4, pc}
 	.align 2, 0
@@ -381,7 +381,7 @@ sub_080840A8: @ 0x080840A8
 	beq _08084138
 	movs r0, #0x92
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08084138:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -524,13 +524,13 @@ sub_08084224: @ 0x08084224
 	cmp r0, #6
 	blt _0808424C
 	ldr r0, _08084248 @ =0x00000215
-	bl PlaySFX
+	bl SoundReq
 	b _08084258
 	.align 2, 0
 _08084248: .4byte 0x00000215
 _0808424C:
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r4, #0
 	bl CreateDust
 _08084258:

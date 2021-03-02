@@ -112,10 +112,10 @@ sub_0804614C: @ 0x0804614C
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _08046250 @ =gMapDataTopSpecial
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	adds r0, r6, #0
 	movs r1, #0
 	bl sub_0804660C
@@ -432,7 +432,7 @@ _0804646A:
 	strb r2, [r0]
 	movs r0, #0x94
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08046494:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -445,10 +445,10 @@ sub_08046498: @ 0x08046498
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080464BC @ =gMapDataTopSpecial
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	adds r0, r5, #0
 	bl sub_080464C0
 	pop {r4, r5, pc}
@@ -475,7 +475,7 @@ _080464DE:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	movs r2, #0x40
-	bl _DmaCopy
+	bl MemCopy
 	movs r0, #0x80
 	lsls r0, r0, #1
 	adds r5, r5, r0
@@ -486,7 +486,7 @@ _080464DE:
 	ldr r0, _0804650C @ =gUnk_02019EE0
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl _DmaZero
+	bl MemClear32
 	ldr r1, _08046514 @ =gUnk_02000070
 	movs r0, #1
 	strb r0, [r1]
@@ -737,7 +737,7 @@ _080466D0:
 	movs r0, #0xff
 	strb r0, [r7]
 	adds r0, #0x28
-	bl PlaySFX
+	bl SoundReq
 	adds r5, r4, #0
 	adds r5, #0x45
 	ldrb r0, [r5]

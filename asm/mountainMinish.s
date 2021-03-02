@@ -287,7 +287,7 @@ _0806802C:
 	lsls r0, r0, #1
 	adds r0, r0, r4
 	ldrh r0, [r0]
-	bl PlaySFX
+	bl SoundReq
 	b _0806807E
 	.align 2, 0
 _08068064: .4byte gUnk_0811137A

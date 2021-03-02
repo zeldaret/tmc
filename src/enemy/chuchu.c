@@ -49,7 +49,7 @@ void Chuchu(Entity* this) {
         case 2:
             this->field_0x3a &= 0xfe;
             if (index != this->field_0x80.HALF.HI) {
-                switch (this->entityType.form) {
+                switch (this->type) {
                     case 0:
                         if (this->flags & 0x80) {
                             this->action = 6;
@@ -73,13 +73,13 @@ void Chuchu(Entity* this) {
     gUnk_080CA21C[GetNextFunction(this)](this);
     if (*(char*)(*(int*)&this->field_0x68 + 10) == 0x1c) {
         SetChildOffset(this, 0, 1, -0x10);
-    } else if (this->entityType.form == 2) {
+    } else if (this->type == 2) {
         sub_0801FB34(this);
     }
 }
 
 void Chuchu_OnTick(Entity* this) {
-    switch (this->entityType.form) {
+    switch (this->type) {
         case 0:
             sub_0801F3AC(this);
             gUnk_080CA234[this->action](this);
@@ -97,7 +97,7 @@ void Chuchu_OnTick(Entity* this) {
 void sub_0801EF40(Entity* this) {
     u8 health;
 
-    if (this->entityType.form == 2) {
+    if (this->type == 2) {
         if (this->bitfield == 0x8e || this->bitfield == 0x95) {
             this->flags &= ~0x80;
             this->currentHealth = 0;
@@ -146,9 +146,9 @@ void sub_0801F02C(Entity* this) {
 void sub_0801F048(Entity* this) {
     sub_08003FC4(this, 0x1800);
     GetNextFrame(this);
-    if (this->entityType.form == 0) {
+    if (this->type == 0) {
         sub_0804A7D4(this);
-    } else if (this->entityType.form == 1) {
+    } else if (this->type == 1) {
         CreateDeathFx(this, 0xf2, 0);
     } else {
         CreateDeathFx(this, 0xf1, 0);
@@ -337,7 +337,7 @@ void sub_0801F428(Entity* this) {
     this->actionDelay = Random();
     this->field_0x80.HALF.LO = this->currentHealth;
     this->field_0x82.HALF.LO = 0;
-    if (this->entityType.parameter == 0)
+    if (this->type2 == 0)
         return;
 
     this->action = 3;
@@ -545,7 +545,7 @@ void sub_0801F884(Entity* this) {
     } else {
         Entity* ent = sub_0804A9FC(this, 0x1b);
         if (ent) {
-            ent->entityType.parameter = 64;
+            ent->type2 = 64;
             this->action = 4;
             this->damageType = 165;
             EnqueueSFX(0x193);
@@ -676,7 +676,7 @@ void sub_0801FB34(Entity* this) {
 }
 
 void sub_0801FB68(Entity* this) {
-    switch (this->entityType.form) {
+    switch (this->type) {
         case 0:
             this->action = 9;
             break;

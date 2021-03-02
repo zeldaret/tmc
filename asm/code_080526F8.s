@@ -161,7 +161,7 @@ sub_080527FC: @ 0x080527FC
 	ldr r1, _08052834 @ =gPaletteBuffer
 	movs r2, #0x80
 	lsls r2, r2, #3
-	bl _DmaCopy
+	bl MemCopy
 	ldr r1, _08052838 @ =gUsedPalettes
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -213,7 +213,7 @@ sub_08052878: @ 0x08052878
 	ldr r0, [r0]
 	str r0, [r1]
 	ldr r0, _08052898 @ =0x80010000
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 _08052894: .4byte gArea
@@ -246,7 +246,7 @@ sub_080528B4: @ 0x080528B4
 _080528C4: .4byte gScreenTransition
 _080528C8:
 	bl sub_0804FFE4
-	ldr r1, _080528E8 @ =gUnk_03001000
+	ldr r1, _080528E8 @ =gMain
 	movs r2, #0
 	movs r0, #3
 	strb r0, [r1, #3]
@@ -255,12 +255,12 @@ _080528C8:
 	movs r1, #8
 	bl DoFade
 	ldr r0, _080528EC @ =0x80100000
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #1
 _080528E6:
 	pop {pc}
 	.align 2, 0
-_080528E8: .4byte gUnk_03001000
+_080528E8: .4byte gMain
 _080528EC: .4byte 0x80100000
 
 	thumb_func_start sub_080528F0
@@ -377,7 +377,7 @@ _080529D4:
 	bl DoFade
 _080529DC:
 	bl sub_080528F0
-	ldr r0, _080529F0 @ =gUnk_03001000
+	ldr r0, _080529F0 @ =gMain
 	movs r1, #3
 	strb r1, [r0, #4]
 	movs r1, #1
@@ -385,7 +385,7 @@ _080529DC:
 	movs r0, #1
 	b _080529F6
 	.align 2, 0
-_080529F0: .4byte gUnk_03001000
+_080529F0: .4byte gMain
 _080529F4:
 	movs r0, #0
 _080529F6:
@@ -791,7 +791,7 @@ sub_08052CFC: @ 0x08052CFC
 	ldr r4, _08052D44 @ =gArea
 	ldr r1, _08052D48 @ =0x00000894
 	adds r0, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _08052D4C @ =gRoomControls
 	ldrb r1, [r0, #4]
 	lsls r1, r1, #2
@@ -846,7 +846,7 @@ sub_08052D74: @ 0x08052D74
 	push {r4, r5, lr}
 	adds r3, r0, #0
 	adds r4, r1, #0
-	ldr r0, _08052D98 @ =gUnk_03001000
+	ldr r0, _08052D98 @ =gMain
 	ldrb r0, [r0, #4]
 	cmp r0, #7
 	beq _08052D96
@@ -863,7 +863,7 @@ sub_08052D74: @ 0x08052D74
 _08052D96:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08052D98: .4byte gUnk_03001000
+_08052D98: .4byte gMain
 _08052D9C: .4byte gArea
 _08052DA0: .4byte 0x00000888
 _08052DA4: .4byte 0x0000088C
@@ -996,7 +996,7 @@ sub_08052EA0: @ 0x08052EA0
 	ldr r4, _08052EE4 @ =gRoomVars
 	adds r0, r4, #0
 	movs r1, #0xcc
-	bl _DmaZero
+	bl MemClear32
 	movs r0, #0xff
 	strb r0, [r4, #0x10]
 	strb r0, [r4, #0x11]
@@ -1178,7 +1178,7 @@ sub_08052FF4: @ 0x08052FF4
 	ldr r5, _08053074 @ =gUnk_020342CC
 	adds r0, r5, #0
 	movs r1, #0x20
-	bl _DmaZero
+	bl MemClear32
 	str r5, [r5, #0x20]
 	ldr r0, _08053078 @ =gAreaRoomHeaders
 	lsls r6, r6, #2
@@ -1258,7 +1258,7 @@ sub_080530B0: @ 0x080530B0
 	ldr r0, _080530C0 @ =gUnk_080FCAF8
 	ldr r1, _080530C4 @ =gUnk_030010EC
 	movs r2, #0x20
-	bl _DmaCopy
+	bl MemCopy
 	pop {pc}
 	.align 2, 0
 _080530C0: .4byte gUnk_080FCAF8
@@ -1431,7 +1431,7 @@ sub_080531F8: @ 0x080531F8
 	ldr r1, _08053248 @ =gUnk_02002AC8
 	adds r0, r5, #0
 	movs r2, #0x20
-	bl _DmaCopy
+	bl MemCopy
 	bl CheckIsDungeon
 	cmp r0, #0
 	beq _08053238
@@ -1483,7 +1483,7 @@ sub_08053250: @ 0x08053250
 	adds r0, #0xc
 	ldr r1, _08053298 @ =gUnk_02002AC8
 	movs r2, #0x20
-	bl _DmaCopy
+	bl MemCopy
 	pop {r4, pc}
 	.align 2, 0
 _0805328C: .4byte gScreenTransition
@@ -1570,17 +1570,17 @@ sub_08053320: @ 0x08053320
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _08053380 @ =gBG1Buffer
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _08053384 @ =gBG2Buffer
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _08053388 @ =gBG3Buffer
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl _DmaZero
+	bl MemClear32
 	movs r0, #0x10
 	bl LoadGfxGroup
 	movs r0, #0x17
@@ -1775,7 +1775,7 @@ sub_080534AC: @ 0x080534AC
 	movs r1, #0
 	str r1, [r0]
 	ldr r0, _080534E0 @ =0x80100000
-	bl PlaySFX
+	bl SoundReq
 _080534D6:
 	pop {r4, pc}
 	.align 2, 0
@@ -1964,7 +1964,7 @@ sub_08053634: @ 0x08053634
 	ldr r1, _08053644 @ =gUnk_02032EC0
 	movs r0, #3
 	strb r0, [r1]
-	bl sub_08056418
+	bl MessageInitialize
 	pop {pc}
 	.align 2, 0
 _08053644: .4byte gUnk_02032EC0
@@ -2018,7 +2018,7 @@ sub_0805368C: @ 0x0805368C
 	beq _080536A6
 	bl DeleteEntity
 	movs r0, #0xf0
-	bl PlaySFX
+	bl SoundReq
 _080536A6:
 	pop {pc}
 
@@ -2169,7 +2169,7 @@ sub_08053758: @ 0x08053758
 	ldr r0, _080537FC @ =0x00001DC1
 	strh r0, [r2, #0x20]
 	movs r0, #0xf
-	bl PlaySFX
+	bl SoundReq
 	bl sub_0805E5B4
 	movs r1, #0x80
 	lsls r1, r1, #1
@@ -2222,7 +2222,7 @@ sub_08053800: @ 0x08053800
 	ldr r0, _08053888 @ =gBG1Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _0805388C @ =0x00000F01
 	adds r5, r5, r0
 	ldr r1, [r4]
@@ -2732,7 +2732,7 @@ sub_08053C20: @ 0x08053C20
 	movs r1, #0x10
 	bl DoFade
 	movs r0, #0x33
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 _08053C50: .4byte gMenu
@@ -2751,9 +2751,9 @@ sub_08053C60: @ 0x08053C60
 	movs r1, #2
 	bl DoFade
 	movs r0, #0xf4
-	bl PlaySFX
+	bl SoundReq
 	ldr r0, _08053C80 @ =0x80100000
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #3
 	bl InitScreen
 	pop {pc}
@@ -3268,7 +3268,7 @@ _08054098:
 	ldrb r0, [r4, #2]
 	bl ModHealth
 	movs r0, #0x71
-	bl PlaySFX
+	bl SoundReq
 	b _0805427C
 _080540A6:
 	ldr r0, _080540BC @ =gUnk_080FD5A8
@@ -3278,7 +3278,7 @@ _080540A6:
 	ldrh r0, [r1]
 	bl ModRupees
 	movs r0, #0x6f
-	bl PlaySFX
+	bl SoundReq
 	b _0805427C
 	.align 2, 0
 _080540BC: .4byte gUnk_080FD5A8
@@ -3350,7 +3350,7 @@ _0805412C:
 	movs r1, #1
 	bl sub_0807CAA0
 	ldr r0, _08054148 @ =0x00000109
-	bl PlaySFX
+	bl SoundReq
 	b _0805427C
 	.align 2, 0
 _08054144: .4byte gSave
@@ -3482,7 +3482,7 @@ _08054240:
 	bl sub_080542C0
 _0805424E:
 	ldr r0, _08054258 @ =0x00000103
-	bl PlaySFX
+	bl SoundReq
 	b _0805427C
 	.align 2, 0
 _08054258: .4byte 0x00000103

@@ -3,10 +3,10 @@
 extern u32* gUnk_020354B0;
 extern u32 gUnk_02024050;
 
-extern void _DmaFill32(u32, void*, u32);
+extern void MemFill32(u32, void*, u32);
 
 void sub_08049CD4() {
-    _DmaFill32(0xFFFFFFFF, &gUnk_02024050, 0x40);
+    MemFill32(0xFFFFFFFF, &gUnk_02024050, 0x40);
     gUnk_020354B0 = &gUnk_02024050;
 }
 

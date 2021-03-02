@@ -75,7 +75,7 @@ void sub_0803CD6C(Entity* this) {
     this->height.HALF.HI = -2;
 
     // Set parent to lakitu
-    lakitu = GetCurrentRoomProperty(this->entityType.form);
+    lakitu = GetCurrentRoomProperty(this->type);
     this->attachedEntity = lakitu;
     this->parent = lakitu;
 

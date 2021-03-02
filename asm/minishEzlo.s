@@ -152,7 +152,7 @@ sub_0806305C: @ 0x0806305C
 	movs r0, #0x10
 	strh r0, [r4]
 	ldr r0, _080630A0 @ =0x0000016F
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, pc}
 	.align 2, 0
 _080630A0: .4byte 0x0000016F

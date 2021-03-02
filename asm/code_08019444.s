@@ -163,7 +163,7 @@ _0801954E:
 	adds r0, r5, #0
 	bl sub_08019580
 	ldr r0, _0801957C @ =0x0000013F
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, r5, pc}
 	.align 2, 0
 _08019578: .4byte gUnk_080B43FC
@@ -495,7 +495,7 @@ _08019810:
 _0801981A:
 	adds r0, r1, #0
 	adds r1, r3, #0
-	bl _DmaCopy
+	bl MemCopy
 	b _0801982E
 _08019824:
 	ldrh r0, [r4]
@@ -3466,7 +3466,7 @@ _0801AE70:
 	movs r2, #0x80
 	lsls r2, r2, #4
 	movs r0, #0xf
-	bl _DmaFill16
+	bl MemFill16
 	movs r0, #1
 	rsbs r0, r0, #0
 	bl sub_0805BB74
@@ -3708,8 +3708,8 @@ _0801B054:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0801B060
-sub_0801B060: @ 0x0801B060
+	thumb_func_start UpdateBgAnim
+UpdateBgAnim: @ 0x0801B060
 	push {r4, r5, lr}
 	movs r3, #0
 	ldr r4, _0801B0B0 @ =gUnk_02000CC0
@@ -3815,7 +3815,7 @@ _0801B114:
 	adds r1, r3, r0
 	lsls r2, r2, #5
 	adds r0, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 _0801B122:
 	ldr r0, [r4]
 	cmp r0, #0
@@ -5093,7 +5093,7 @@ _0801BA54: @ jump table
 	.4byte _0801BB02 @ case 17
 _0801BA9C:
 	adds r0, r4, #0
-	bl sub_0806FBD8
+	bl AllocMutableHitbox
 	cmp r0, #0
 	beq _0801BB26
 	ldrb r1, [r4, #0x10]
@@ -5130,7 +5130,7 @@ _0801BA9C:
 	bl sub_0801766C
 	movs r0, #0xee
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	b _0801BB0A
 	.align 2, 0
 _0801BAF4: .4byte gPlayerEntity
@@ -5189,7 +5189,7 @@ sub_0801BB2C: @ 0x0801BB2C
 	movs r2, #5
 	bl sub_080A7C18
 	ldr r0, _0801BB8C @ =0x00000109
-	bl PlaySFX
+	bl SoundReq
 _0801BB64:
 	bl DeleteThisEntity
 _0801BB68:
@@ -5319,7 +5319,7 @@ _0801BC7A:
 	strh r0, [r1]
 	movs r0, #0x88
 	lsls r0, r0, #2
-	bl PlaySFX
+	bl SoundReq
 _0801BC98:
 	adds r0, r5, #0
 	bl ModHealth
@@ -5413,7 +5413,7 @@ _0801BD54:
 	lsls r0, r0, #4
 	strh r0, [r1]
 	ldr r0, _0801BD8C @ =0x000001CF
-	bl PlaySFX
+	bl SoundReq
 _0801BD6C:
 	ldr r0, _0801BD90 @ =gPlayerEntity
 	adds r0, #0x5a

@@ -37,7 +37,7 @@ sub_0809FEF8: @ 0x0809FEF8
 	lsls r0, r0, #1
 	adds r0, r0, r1
 	ldrh r0, [r0]
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, pc}
 	.align 2, 0
 _0809FF20: .4byte gUnk_0812485C

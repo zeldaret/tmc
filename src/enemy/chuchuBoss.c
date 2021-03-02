@@ -29,7 +29,7 @@ void ChuchuBoss(Entity* this) {
 
 void sub_08025CBC(Entity* this) {
     sub_08001324(this);
-    if (this->entityType.form == 0) {
+    if (this->type == 0) {
         sub_08027870(this);
     }
 }

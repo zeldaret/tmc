@@ -7,7 +7,7 @@
 #include "structures.h"
 
 extern void sub_0809F7BC(Entity*);
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern void sub_0809F814(u32);
 extern void sub_0809F7F4(Entity*);
 extern void LoadRoomEntityList();
@@ -31,11 +31,11 @@ extern u16 gUnk_081247C8[];
 extern u32 gUnk_081247D0;
 
 void Cloud(Entity* this) {
-    gUnk_08124798[(this->entityType).form](this);
+    gUnk_08124798[this->type](this);
 }
 
 void sub_0809F4DC(Entity* this) {
-    if ((this->entityType).parameter == 0) {
+    if (this->type2 == 0) {
         gUnk_081247A0[this->action](this);
     } else {
         gUnk_081247AC[this->action](this);
@@ -57,7 +57,7 @@ void sub_0809F548(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 2;
         this->actionDelay = 90;
-        PlaySFX(285);
+        SoundReq(285);
         sub_0809F814((((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 63) |
                      (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 63) << 6);
     } else {
@@ -70,7 +70,7 @@ void sub_0809F548(Entity* this) {
 
 void sub_0809F5B0(Entity* this) {
     if (--this->actionDelay == 0) {
-        PlaySFX(115);
+        SoundReq(115);
         SetGlobalFlag(KUMOTATSUMAKI);
         LoadRoomEntityList(&gUnk_080DD750);
         DeleteThisEntity();
@@ -100,12 +100,12 @@ void sub_0809F61C(Entity* this) {
 
     if ((gRoomControls.unk6 & 4) == 0) {
         if (this->actionDelay == 30) {
-            SetLocalFlag(this->entityType.parameter);
+            SetLocalFlag(this->type2);
         }
         if (--this->actionDelay == 0) {
             this->action = 3;
             this->actionDelay = 120;
-            PlaySFX(285);
+            SoundReq(285);
             sub_0809F814((((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 63) |
                          (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 63) << 6);
         } else {
@@ -123,7 +123,7 @@ void sub_0809F69C(Entity* this) {
         this->actionDelay = 30;
         this->action = 4;
         gRoomControls.cameraTarget = &gPlayerEntity;
-        PlaySFX(115);
+        SoundReq(115);
     }
 }
 
@@ -189,7 +189,7 @@ void sub_0809F7BC(Entity* this) {
 void sub_0809F7F4(Entity* this) {
     if (--this->field_0x68.HALF.LO == 0) {
         this->field_0x68.HALF.LO = 12;
-        PlaySFX(388);
+        SoundReq(388);
     }
 }
 

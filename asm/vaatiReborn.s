@@ -247,7 +247,7 @@ _0806B83A:
 	movs r0, #0x20
 	strb r0, [r5, #0xf]
 	ldr r0, _0806B848 @ =0x000001A9
-	bl PlaySFX
+	bl SoundReq
 	b _0806B95A
 	.align 2, 0
 _0806B848: .4byte 0x000001A9
@@ -366,7 +366,7 @@ _0806B91E:
 	movs r0, #0x20
 	strb r0, [r5, #0xf]
 	ldr r0, _0806B938 @ =0x000001A9
-	bl PlaySFX
+	bl SoundReq
 	b _0806B95A
 	.align 2, 0
 _0806B938: .4byte 0x000001A9

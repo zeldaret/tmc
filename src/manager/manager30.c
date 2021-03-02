@@ -48,13 +48,13 @@ void Manager30_Main(Manager30* this) {
                     case 0x317:
                         // stepped on a red tile again
                         this->manager.action = FAILED;
-                        PlaySFX(0x6d);
+                        SoundReq(0x6d);
                         break;
                     case 0x318:
                         // stepped on a blue tile
                         // turn the tile into a red tile
                         sub_0807B7D8(0x317, this->player_current_tile, this->manager.unk_0b);
-                        PlaySFX(0x6b);
+                        SoundReq(0x6b);
                         // decrease the number of remaining tiles and check if we're done
                         if (--this->manager.unk_0e == 0) {
                             this->manager.action = SUCCEEDED;
@@ -89,7 +89,7 @@ void Manager30_Main(Manager30* this) {
                     SetFlag(this->flag_succeeded);
                 }
             } else {
-                PlaySFX(0x72);
+                SoundReq(0x72);
             }
     }
 }
