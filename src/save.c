@@ -23,9 +23,11 @@ u32 sub_0807D0EC(u32, const char*);
 u32 sub_0807D128(const Thing*);
 u16 sub_0807D1A4(u16*, u32);
 
-u32 DataRead(u32 address, u8* data, u32 size);
-u32 DataWrite(u32 address, const u8* data, u32 size);
-u32 DataCompare(u32 address, const u8* data, u32 size);
+u32 sub_0807D184(u32 address, const u8* data);
+
+u32 DataRead(u32 address, void* data, u32 size);
+u32 DataWrite(u32 address, const void* data, u32 size);
+u32 DataCompare(u32 address, const void* data, u32 size);
 
 static const char sSignatureLong[32] = "AGBZELDA:THE MINISH CAP:ZELDA 5";
 
@@ -309,12 +311,12 @@ u32 sub_0807D128(const Thing* thing) {
     return ret;
 }
 
-u32 sub_0807D184(u32 param_1, const char* param_2) {
+u32 sub_0807D184(u32 address, const u8* data) {
     u32 uVar1;
 
-    uVar1 = DataWrite(param_1, param_2, 8);
+    uVar1 = DataWrite(address, data, 8);
     if (uVar1 == 0) {
-        uVar1 = DataWrite(param_1 + 8, param_2, 8);
+        uVar1 = DataWrite(address + 8, data, 8);
     }
     return uVar1;
 }
@@ -335,11 +337,11 @@ struct_0807D1C4* sub_0807D1C4(u32 unk_1) {
     return &gUnk_0811E4BC[unk_1];
 }
 
-bool32 DataRead(u32 address, u8* data, u32 size) {
+bool32 DataRead(u32 address, void* data, u32 size) {
     size /= 8;
     address /= 8;
     while (size-- > 0) {
-        if (EEPROMRead(address, (u16*)data))
+        if (EEPROMRead(address, data))
             return FALSE;
         address++;
         data += 8;
@@ -347,12 +349,12 @@ bool32 DataRead(u32 address, u8* data, u32 size) {
     return TRUE;
 }
 
-bool32 DataWrite(u32 address, const u8* data, u32 size) {
+bool32 DataWrite(u32 address, const void* data, u32 size) {
     size /= 8;
     address /= 8;
     while (size-- > 0) {
-        if (EEPROMWrite0_8k_Check(address, (u16*)data)) {
-            EEPROMWrite0_8k_Check(address, (u16*)gUnk_0811E4B4);
+        if (EEPROMWrite0_8k_Check(address, data)) {
+            EEPROMWrite0_8k_Check(address, (const u16*)gUnk_0811E4B4);
             return FALSE;
         }
         address++;
@@ -361,11 +363,11 @@ bool32 DataWrite(u32 address, const u8* data, u32 size) {
     return TRUE;
 }
 
-bool32 DataCompare(u32 address, const u8* data, u32 size) {
+bool32 DataCompare(u32 address, const void* data, u32 size) {
     size /= 8;
     address /= 8;
     while (size-- > 0) {
-        if (EEPROMCompare(address, (u16*)data))
+        if (EEPROMCompare(address, data))
             return FALSE;
         address++;
         data += 8;

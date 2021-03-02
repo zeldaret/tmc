@@ -216,7 +216,6 @@ extern void sub_08050384();
 extern struct_0807D1C4* sub_0807D1C4(u32);
 extern void sub_0807CF68(u32);
 extern u32 sub_0807CF88(u32, u8*);
-extern u32 sub_0807D184(u32, const char*);
 extern u32 sub_0806F520();
 extern void sub_0806F4E8(Entity*);
 extern u32 sub_0806F3E4(Entity*);
