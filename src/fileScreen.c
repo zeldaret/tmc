@@ -231,7 +231,7 @@ static void HandleFileScreenExit(void) {
 
 static void sub_08050624(u32 idx) {
     SaveFile* saveFile = &gUnk_02019EE0.saves[idx];
-    int status = sub_0807CF28(idx, saveFile);
+    int status = ReadSaveFile(idx, saveFile);
     switch (status) {
         case SAVE_DELETED:
             SetFileStatusDeleted(idx);

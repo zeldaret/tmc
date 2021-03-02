@@ -48,8 +48,9 @@ extern SaveFile gSave;
 
 u32 InitSaveData(void);
 
-s32 sub_0807CF28(u32, SaveFile*);
-u32 sub_0807CF30(SaveFile*);
+u32 Write_02000000(struct_02000000*);
+s32 ReadSaveFile(u32, SaveFile*);
+u32 Read_02000000(SaveFile*);
 void SetFileStatusDeleted(u32 index);
 
 #endif

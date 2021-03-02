@@ -20,9 +20,9 @@ static SaveResult HandleSaveInProgress(u32);
 static SaveResult HandleSaveDone(u32);
 
 const SaveFileEEPROMAddresses* GetSaveFileEEPROMAddresses(u32);
-u32 DataDoubleReadWithStatus(u32, SaveFile* saveFile);
-u32 DataDoubleWriteWithStatus(u32, SaveFile* saveFile);
-u32 sub_0807D0A0(SaveFileStatus*, u16*, u32);
+u32 DataDoubleReadWithStatus(u32, void* data);
+u32 DataDoubleWriteWithStatus(u32, const void* data);
+u32 VerifyChecksum(SaveFileStatus* fileStatus, u16* data, u32 size);
 u16 CalculateChecksum(u16* data, u32);
 u32 WriteSaveFile(u32 index, SaveFile* saveFile);
 void SetFileStatusInit(u32 index);
@@ -91,7 +91,7 @@ SaveResult HandleSaveInProgress(u32 arg0) {
                 temp = 1;
                 break;
             case 2:
-                temp = sub_0807CF10((u8*)&gUnk_02000000->signature);
+                temp = Write_02000000(gUnk_02000000);
                 break;
         }
         gMenu.field_0xa = temp;
@@ -123,19 +123,19 @@ SaveResult HandleSaveDone(u32 arg0) {
 
 u32 InitSaveData(void) {
     const SaveFileEEPROMAddresses* eepromAddresses;
-    int iVar3;
+    u32 error;
 
     EEPROMConfigure(0x40);
     eepromAddresses = GetSaveFileEEPROMAddresses(4);
-    iVar3 = 0;
+    error = 0;
     if (DataCompare(eepromAddresses->address1, sSignatureLong, eepromAddresses->size) == 0) {
-        iVar3 += 1;
+        error += 1;
     }
     if (DataCompare(eepromAddresses->address2, sSignatureLong, eepromAddresses->size) == 0) {
-        iVar3 += 2;
+        error += 2;
     }
-    if (iVar3 != 0) {
-        if (iVar3 == 3) {
+    if (error != 0) {
+        if (error == 3) {
             SetFileStatusInit(5);
             SetFileStatusInit(3);
             SetFileStatusInit(2);
@@ -152,19 +152,19 @@ u32 WriteSaveFile(u32 index, SaveFile* saveFile) {
     return DataDoubleWriteWithStatus(index, saveFile);
 }
 
-u32 sub_0807CF10(u8* arg0) {
-    return DataDoubleWriteWithStatus(3, (void*)arg0);
+u32 Write_02000000(struct_02000000* arg0) {
+    return DataDoubleWriteWithStatus(3, arg0);
 }
 
 u32 sub_0807CF1C(u8* arg0) {
     return DataDoubleWriteWithStatus(5, (void*)arg0);
 }
 
-s32 sub_0807CF28(u32 arg0, SaveFile* saveFile) {
-    return DataDoubleReadWithStatus(arg0, saveFile);
+s32 ReadSaveFile(u32 index, SaveFile* saveFile) {
+    return DataDoubleReadWithStatus(index, saveFile);
 }
 
-u32 sub_0807CF30(SaveFile* arg0) {
+u32 Read_02000000(SaveFile* arg0) {
     return DataDoubleReadWithStatus(3, arg0);
 }
 
@@ -190,7 +190,7 @@ void SetFileStatusInit(u32 index) {
     WriteSaveFileStatus(eepromAddresses->checksum1, fileStatus);
 }
 
-u32 DataDoubleWriteWithStatus(u32 arg0, SaveFile* saveFile) {
+u32 DataDoubleWriteWithStatus(u32 arg0, const void* data) {
     SaveFileStatus fileStatus;
 
     u32 ret;
@@ -202,14 +202,14 @@ u32 DataDoubleWriteWithStatus(u32 arg0, SaveFile* saveFile) {
 
     fileStatus.status = 'MCZ3';
     checksum = CalculateChecksum((u16*)&fileStatus.status, 4);
-    checksum += CalculateChecksum((u16*)saveFile, eepromAddresses->size);
+    checksum += CalculateChecksum((u16*)data, eepromAddresses->size);
     fileStatus.checksum1 = checksum;
     fileStatus.checksum2 = -(u32)checksum;
-    write1success = DataWrite(eepromAddresses->address1, saveFile, eepromAddresses->size);
+    write1success = DataWrite(eepromAddresses->address1, data, eepromAddresses->size);
     if (write1success) {
         write1success = WriteSaveFileStatus(eepromAddresses->checksum1, &fileStatus);
     }
-    write2success = DataWrite(eepromAddresses->address2, saveFile, eepromAddresses->size);
+    write2success = DataWrite(eepromAddresses->address2, data, eepromAddresses->size);
     if (write2success) {
         write2success = WriteSaveFileStatus(eepromAddresses->checksum2, &fileStatus);
     }
@@ -221,7 +221,7 @@ u32 DataDoubleWriteWithStatus(u32 arg0, SaveFile* saveFile) {
     return ret;
 }
 
-u32 DataDoubleReadWithStatus(u32 param_1, SaveFile* saveFile) {
+u32 DataDoubleReadWithStatus(u32 param_1, void* data) {
     vu32 set_0;
     SaveFileStatus fileStatus;
 
@@ -234,8 +234,8 @@ u32 DataDoubleReadWithStatus(u32 param_1, SaveFile* saveFile) {
     eepromAddresses = GetSaveFileEEPROMAddresses(param_1);
     read1status = ReadSaveFileStatus(eepromAddresses->checksum1, &fileStatus);
     if (read1status == 2) {
-        if ((DataRead(eepromAddresses->address1, saveFile, eepromAddresses->size) == 0) ||
-            (sub_0807D0A0(&fileStatus, (u16*)saveFile, (u32)eepromAddresses->size) == 0)) {
+        if ((DataRead(eepromAddresses->address1, data, eepromAddresses->size) == 0) ||
+            (VerifyChecksum(&fileStatus, (u16*)data, eepromAddresses->size) == 0)) {
             // read 1 failed
             read1status = 0;
         } else {
@@ -244,15 +244,15 @@ u32 DataDoubleReadWithStatus(u32 param_1, SaveFile* saveFile) {
     }
     read2status = ReadSaveFileStatus(eepromAddresses->checksum2, &fileStatus);
     if (read2status == 2) {
-        if ((DataRead(eepromAddresses->address2, saveFile, eepromAddresses->size) != 0) &&
-            (sub_0807D0A0(&fileStatus, (u16*)saveFile, (u32)eepromAddresses->size) != 0)) {
+        if ((DataRead(eepromAddresses->address2, data, eepromAddresses->size) != 0) &&
+            (VerifyChecksum(&fileStatus, (u16*)data, (u32)eepromAddresses->size) != 0)) {
             return 1;
         }
         // read 2 failed
         read2status = 0;
     }
     set_0 = 0;
-    CpuSet((u16*)&set_0, saveFile, eepromAddresses->size >> 2 | CPU_SET_SRC_FIXED | CPU_SET_32BIT);
+    CpuSet((u16*)&set_0, data, eepromAddresses->size >> 2 | CPU_SET_SRC_FIXED | CPU_SET_32BIT);
     temp = read1status | read2status;
     ret = 0;
     if (temp == 0) {
@@ -261,28 +261,19 @@ u32 DataDoubleReadWithStatus(u32 param_1, SaveFile* saveFile) {
     return ret;
 }
 
-NONMATCH("asm/non_matching/save/sub_0807D0A0.inc", u32 sub_0807D0A0(SaveFileStatus* unk_1, u16* unk_2, u32 unk_3)) {
-    u32 r0;
+NONMATCH("asm/non_matching/save/sub_0807D0A0.inc", u32 VerifyChecksum(SaveFileStatus* fileStatus, u16* data, u32 size)) {
+    u32 ret;
 
-    u16 u0;
+    u16 checksum;
 
-    u0 = CalculateChecksum((u16*)&unk_1->status, 4);
-    u0 = u0 + CalculateChecksum(unk_2, unk_3);
+    checksum = CalculateChecksum((u16*)&fileStatus->status, 4);
+    checksum += CalculateChecksum(data, size);
 
-    if (unk_1->checksum1 != u0) {
-        r0 = 0;
-    } else {
-        if (unk_1->checksum2 == -unk_1->checksum1) {
-            if (unk_1->status != 'MCZ3') {
-                r0 = 0;
-            } else {
-                r0 = 1;
-            }
-        } else {
-            r0 = 0;
-        }
-    }
-    return r0;
+    if ((fileStatus->checksum1 != checksum) || (fileStatus->checksum2 != -(u32)fileStatus->checksum1) ||
+        (fileStatus->status != 'MCZ3')) {
+        return 0;
+    } else
+        return 1;
 }
 END_NONMATCH
 
@@ -346,7 +337,7 @@ u16 CalculateChecksum(u16* data, u32 size) {
 
     checksum = 0;
     while (size != 0) {
-        checksum = checksum + (*data ^ size);
+        checksum += (*data ^ size);
         data = data + 1;
         size = size - 2;
     }

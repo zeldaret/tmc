@@ -208,7 +208,6 @@ extern u32 sub_0801766C(Entity*);
 extern void sub_08004168(Entity*);
 extern u32 sub_08052638(u32);
 extern void InitDMA(void);
-extern u32 sub_0807CF10(u8*);
 extern void sub_08056208(void);
 extern void sub_08050384();
 extern u32 sub_0806F520();
