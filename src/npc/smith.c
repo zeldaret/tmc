@@ -9,7 +9,7 @@ extern u32 GetFacingDirection(Entity*, Entity*);
 extern u32 sub_0806F5A4(u32);
 extern void sub_0806F118(Entity*);
 extern Entity* CreateFx(Entity*, u32, u32);
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern void sub_0807000C(Entity*);
 extern u32 sub_0801E99C(Entity*);
 extern void sub_0807DD50(Entity*);
@@ -53,7 +53,7 @@ void Smith(Entity* this) {
     if ((this->frames.all & 1) != 0) {
         this->frames.all &= 0xfe;
         CreateFx(this, 0x3d, 0x20);
-        PlaySFX(gUnk_08110380[(Random() & 7)]);
+        SoundReq(gUnk_08110380[(Random() & 7)]);
     }
 }
 
@@ -161,7 +161,7 @@ void nullsub_501(Entity* this) {
 }
 
 void sub_08066258(void) {
-    PlaySFX(gUnk_081103D0[Random() & 7]);
+    SoundReq(gUnk_081103D0[Random() & 7]);
 }
 
 void sub_08066274(u32 arg0) {

@@ -4,7 +4,7 @@
 #include "script.h"
 
 extern void sub_0807DDE4(Entity*);
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern void sub_0806A8C8(Entity*);
 
 extern void (*gUnk_08112260[])(Entity*);
@@ -13,7 +13,7 @@ extern void (*gUnk_08112278[])(Entity*);
 extern void gUnk_08012F0C;
 
 void Rem(Entity* this) {
-    gUnk_08112260[this->entityType.form](this);
+    gUnk_08112260[this->type](this);
 }
 
 void sub_0806a370(Entity* this) {
@@ -28,11 +28,11 @@ void sub_0806a370(Entity* this) {
         pbVar1 = &this->frames.all;
         if (*pbVar1 == 1) {
             *pbVar1 = 0;
-            PlaySFX(0x218);
+            SoundReq(0x218);
         }
         if (*pbVar1 == 2) {
             *pbVar1 = 0;
-            PlaySFX(0x219);
+            SoundReq(0x219);
         }
     }
 }

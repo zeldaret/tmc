@@ -58,7 +58,7 @@ void sub_0802A4E4(Entity* this) {
     this->action = 1;
     this->collisionLayer = 3;
     this->field_0x7c.BYTES.byte1 = Random();
-    this->field_0x7a.HWORD = this->entityType.parameter * 0x3c;
+    this->field_0x7a.HWORD = this->type2 * 0x3c;
     this->field_0x7c.BYTES.byte0 = this->actionDelay;
     this->field_0x78.HWORD = this->actionDelay * 0x3c;
     UpdateSpriteForCollisionLayer(this);
@@ -184,7 +184,7 @@ void sub_0802A78C(Entity* this) {
                 }
             }
         } else {
-            this->field_0x7a.HWORD = this->entityType.parameter * 0x3c + 1;
+            this->field_0x7a.HWORD = this->type2 * 0x3c + 1;
         }
     }
 }

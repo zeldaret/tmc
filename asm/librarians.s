@@ -195,7 +195,7 @@ _0806BB52:
 	movs r1, #0xc
 	bl InitializeAnimation
 	movs r0, #0xcd
-	bl PlaySFX
+	bl SoundReq
 	b _0806BB78
 _0806BB70:
 	adds r0, r4, #0

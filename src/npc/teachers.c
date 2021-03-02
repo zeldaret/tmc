@@ -19,7 +19,7 @@ extern Dialog gUnk_08113930[];
 void Teachers(Entity* this) {
     switch (this->action) {
         case 0:
-            if (LoadExtraSpriteData(this, &gUnk_08113910[this->entityType.form * 4])) {
+            if (LoadExtraSpriteData(this, &gUnk_08113910[this->type * 4])) {
                 this->action = 1;
                 this->spriteSettings.b.draw = TRUE;
                 this->animationState = this->actionDelay;
@@ -61,7 +61,7 @@ void Teachers_Head(Entity* this) {
     uVar3 = this->frames.all & -0x81;
     bVar1 = this->frameIndex;
     bVar2 = this->frameSpriteSettings & 0x3f;
-    if ((this->entityType).form == 0) {
+    if (this->type == 0) {
         SetExtraSpriteFrame(this, 0, (uVar3 + 3));
         SetExtraSpriteFrame(this, 1, bVar1);
         SetSpriteSubEntryOffsetData1(this, 1, 0);
@@ -83,12 +83,12 @@ void sub_0806C70C(Entity* this) {
     if (offset < 0)
         offset = 0;
 
-    ShowNPCDialogue(this, gUnk_08113930 + this->entityType.form * 8 + offset);
+    ShowNPCDialogue(this, gUnk_08113930 + this->type * 8 + offset);
 }
 
 void Teachers_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_08113910[this->entityType.form * 4])) {
+        if (LoadExtraSpriteData(this, &gUnk_08113910[this->type * 4])) {
             this->action++;
             this->spriteSettings.b.draw = TRUE;
             InitializeAnimation(this, 2);

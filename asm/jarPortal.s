@@ -285,7 +285,7 @@ _0808C082:
 	strb r0, [r4, #0xf]
 	movs r0, #0xa9
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _0808C0A6:
 	pop {r4, r5, r6, pc}
 	.align 2, 0

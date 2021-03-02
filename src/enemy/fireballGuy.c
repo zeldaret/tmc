@@ -63,13 +63,13 @@ void sub_08045454(Entity* this) {
     u32 tmp;
 
     /* Can we create enough new entities? */
-    count = gUnk_080D180C[this->entityType.form];
+    count = gUnk_080D180C[this->type];
     if (72 - count <= gEntCount)
         return;
 
     /* Create 2-5 new MiniFireballGuy */
     for (i = 0; i < count; i++)
-        entities[i] = CreateEnemy(0x59, this->entityType.form);
+        entities[i] = CreateEnemy(0x59, this->type);
 
     off = gUnk_080D1810;
     for (i = 0; i < count; i++) {
@@ -77,7 +77,7 @@ void sub_08045454(Entity* this) {
         ent->attachedEntity = entities[(i + 1) % count];
         ent->parent = entities[(i + count - 1) % count];
         tmp = 0;
-        ent->entityType.parameter = 1;
+        ent->type2 = 1;
         ent->height.HALF.HI = tmp;
         ent->hurtBlinkTime = -0x10;
 

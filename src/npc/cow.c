@@ -14,7 +14,7 @@ extern void sub_080791D0();
 extern void (*gUnk_08111914[])(Entity*);
 extern void (*gUnk_08111928[])(Entity*);
 extern Dialog gUnk_08111938[];
-extern void PlaySFX(u32);
+extern void SoundReq(u32);
 extern u32 UpdateFuseInteraction(Entity*);
 extern PlayerState gPlayerState;
 
@@ -28,7 +28,7 @@ void sub_08068FC0(Entity* ent) {
     u32 r2;
 
     ent->action = 1;
-    ent->animationState = ent->entityType.parameter;
+    ent->animationState = ent->type2;
     ent->nonPlanarMovement = 0x40;
 
     ent->field_0x6c.HALF.HI = 0xFF;
@@ -181,7 +181,7 @@ void sub_080691E0(Entity* ent) {
 
 // Show dialogue
 void Cow_ShowDialogue(Entity* ent) {
-    ShowNPCDialogue(ent, &gUnk_08111938[ent->entityType.form]);
+    ShowNPCDialogue(ent, &gUnk_08111938[ent->type]);
 }
 
 void sub_0806920C(Entity* ent) {
@@ -216,7 +216,7 @@ void sub_0806924C(Entity* ent) {
             Cow_ShowDialogue(ent);
             sub_080791D0();
         }
-        PlaySFX(212);
+        SoundReq(212);
         ent->interactType = 0;
     }
 }

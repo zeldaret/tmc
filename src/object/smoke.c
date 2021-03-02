@@ -10,7 +10,7 @@ extern void (*const gUnk_08121070[])(Entity*);
 extern s8 gUnk_08121068[];
 
 void Smoke(Entity* this) {
-    gUnk_08121060[this->entityType.form](this);
+    gUnk_08121060[this->type](this);
 }
 
 void sub_0808A40C(Entity* this) {

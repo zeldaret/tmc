@@ -374,7 +374,7 @@ sub_08094CDC: @ 0x08094CDC
 	strh r0, [r2, #0x32]
 	movs r0, #0xa2
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08094D0A:
 	pop {pc}
 	.align 2, 0
@@ -426,7 +426,7 @@ sub_08094D34: @ 0x08094D34
 	strh r0, [r2, #0x32]
 	movs r0, #0xa2
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08094D68:
 	pop {pc}
 	.align 2, 0
@@ -511,7 +511,7 @@ sub_08094DD8: @ 0x08094DD8
 	strh r0, [r2, #0x32]
 	movs r0, #0xa2
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08094E06:
 	pop {pc}
 	.align 2, 0
@@ -1027,7 +1027,7 @@ _080951E8:
 	adds r0, #1
 	strb r0, [r4, #0xe]
 	movs r0, #0xe6
-	bl PlaySFX
+	bl SoundReq
 _08095218:
 	ldr r3, [r4, #0x50]
 	cmp r3, #0
@@ -1471,7 +1471,7 @@ _0809550A:
 	movs r1, #0xde
 	lsls r1, r1, #1
 	adds r0, r0, r1
-	bl PlaySFX
+	bl SoundReq
 	adds r1, r5, #0
 	b _08095630
 	.align 2, 0
@@ -1692,7 +1692,7 @@ _0809572C:
 	adds r0, #0x6c
 	adds r1, r4, #0
 	movs r2, #0x1c
-	bl _DmaCopy
+	bl MemCopy
 	ldrh r0, [r4, #0x14]
 	strh r0, [r5, #0x2e]
 	ldrh r0, [r4, #0x16]
@@ -2825,7 +2825,7 @@ _08095FC2:
 	strb r0, [r2]
 	movs r0, #0xea
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08095FE0:
 	ldrh r0, [r5, #0x12]
 	adds r1, r4, #0

@@ -10,5 +10,5 @@ Entity* sub_0805E374(Entity* param_1) {
     if (r3 != '\x02') {
         array = gUnk_081091EE;
     }
-    return sub_0805E3A0(param_1, array[(param_1->entityType).type]);
+    return sub_0805E3A0(param_1, array[param_1->kind]);
 }

@@ -203,7 +203,7 @@ sub_0808C348: @ 0x0808C348
 	cmp r0, #0
 	bne _0808C36A
 	ldr r0, _0808C378 @ =0x00000185
-	bl PlaySFX
+	bl SoundReq
 _0808C36A:
 	adds r0, r4, #0
 	bl GetNextFrame
@@ -408,7 +408,7 @@ sub_0808C4BC: @ 0x0808C4BC
 	strh r1, [r0, #0x32]
 	bl sub_0808C5D0
 	ldr r0, _0808C4FC @ =0x0000010B
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 _0808C4F8: .4byte gUnk_0812150C

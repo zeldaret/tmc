@@ -32,7 +32,7 @@ _0801C398:
 	movs r1, #0xcd
 	lsls r1, r1, #2
 	adds r0, r5, #0
-	bl _DmaZero
+	bl MemClear32
 	strb r6, [r5, #3]
 	strh r4, [r5, #0xe]
 	ldr r0, _0801C474 @ =gSave
@@ -48,7 +48,7 @@ _0801C398:
 	movs r1, #0x80
 	lsls r1, r1, #4
 	adds r0, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r1, _0801C47C @ =gScreen
 	str r4, [r1, #0x10]
 	ldr r0, _0801C480 @ =0x00001F0C
@@ -93,7 +93,7 @@ _0801C398:
 	adds r0, #0x34
 	movs r1, #0xc0
 	lsls r1, r1, #2
-	bl _DmaZero
+	bl MemClear32
 	movs r0, #5
 	movs r1, #9
 	bl sub_0801CA6C

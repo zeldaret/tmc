@@ -60,9 +60,9 @@ void sub_08025020(Entity* this) {
         case 0x1b:
             sub_0804AA1C(this);
 
-            tmp = gUnk_080CBFE8[(*(Entity**)&this->field_0x4c)->entityType.form];
+            tmp = gUnk_080CBFE8[(*(Entity**)&this->field_0x4c)->type];
             if (tmp < this->field_0x82.HALF.LO) {
-                this->field_0x82.HALF.LO -= gUnk_080CBFE8[(*(Entity**)&this->field_0x4c)->entityType.form];
+                this->field_0x82.HALF.LO -= gUnk_080CBFE8[(*(Entity**)&this->field_0x4c)->type];
             } else {
                 this->cutsceneBeh.HWORD = 0x294;
                 this->damageType = 0x83;

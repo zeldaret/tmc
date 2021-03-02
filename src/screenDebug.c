@@ -18,27 +18,27 @@ extern u8 gBG3Buffer[];
 extern void (*const gUnk_08109A30[])();
 
 void HandleDebugTextScreen() {
-  gUnk_08109A30[gUnk_03001000.funcIndex]();
+    gUnk_08109A30[gMain.funcIndex]();
 }
 
 void sub_0805FA04(void) {
     sub_0801DA90(1);
-    _DmaZero((void*)&gBG0Buffer, sizeof(BGBuffer));
-    _DmaZero((void*)&gBG3Buffer, 0x1000);
+    MemClear32((void*)&gBG0Buffer, sizeof(BGBuffer));
+    MemClear32((void*)&gBG3Buffer, 0x1000);
     gScreen.lcd.displayControl = 0x940;
-    gScreen.bg.bg1Control = 0;
-    gScreen.bg.bg2Control = 0;
+    gScreen.bg.bg0xOffset = 0;
+    gScreen.bg.bg0yOffset = 0;
     gScreen.affine.bg3xOffset = 0;
     gScreen.affine.bg3yOffset = 0;
     gScreen.affine.bg3Control = 0x1e0f;
-    gScreen.affine.unk4 = 1;
-    sub_08056418();
-    _DmaZero((void*)&gUnk_02032EC0, sizeof(UI));
-    _DmaZero((void*)&gMenu, sizeof(Menu));
+    gScreen.affine.bg3Updated = 1;
+    MessageInitialize();
+    MemClear32((void*)&gUnk_02032EC0, sizeof(UI));
+    MemClear32((void*)&gMenu, sizeof(Menu));
     gMenu.unk16 = gUnk_02000000->gameLanguage;
     sub_08053320();
     sub_0801D79C(0, 0x1144);
-    gUnk_03001000.funcIndex = 1;
+    gMain.funcIndex = 1;
     sub_080A3210();
     sub_08050008();
 }
@@ -68,7 +68,7 @@ void sub_0805FA98(void) {
             TextboxNoOverlapFollow(gMenu.unk14 * 0x100 + gMenu.unk15);
             break;
         case 0x2:
-            sub_08056418();
+            MessageInitialize();
             break;
         default:
             switch (gInput.unk4) {
@@ -95,7 +95,7 @@ void sub_0805FA98(void) {
             }
     }
     gMenu.focusCoords[1] = (gMenu.focusCoords[1] + 3) % 3;
-    gScreen.affine.unk4 = 1;
+    gScreen.affine.bg3Updated = 1;
 }
 
 void sub_0805FBC4() {

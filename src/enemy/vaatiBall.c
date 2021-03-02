@@ -38,7 +38,7 @@ void VaatiBall(Entity* this) {
             this->currentHealth = -1;
             parent->field_0x80.HALF.LO--;
             CreateDust(this);
-            PlaySFX(0x1c3);
+            SoundReq(0x1c3);
         }
     }
 }
@@ -50,7 +50,7 @@ void sub_0804468C(Entity* this) {
     this->spriteRendering.b3 = 2;
     this->spritePriority.b0 = 5;
     this->cutsceneBeh.HALF.LO = 0;
-    switch (this->entityType.form) {
+    switch (this->type) {
         case 0:
             this->action = 1;
             this->actionDelay = 1;
@@ -183,7 +183,7 @@ void sub_08044868(Entity* this) {
                 if (draw == 1 && this->cutsceneBeh.HALF.LO == 0) {
                     vaati = sub_0804A98C(this, 0x18, 0);
                     if (vaati) {
-                        vaati->entityType.parameter = 1;
+                        vaati->type2 = 1;
                         vaati->parent = this;
                         this->cutsceneBeh.HALF.LO = 1;
                         this->damageType = 0;
@@ -369,7 +369,7 @@ void sub_08044B04(Entity* this) {
                         if (this->actionDelay) {
                             if (--this->actionDelay == 0) {
                                 this->nonPlanarMovement = 1280;
-                                PlaySFX(0x14f);
+                                SoundReq(0x14f);
                             }
                         }
                         if (this->field_0x78.HALF.HI == 3)

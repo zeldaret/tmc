@@ -12,7 +12,7 @@ typedef struct {
 
 extern UnkStruct_MineralWater MineralWaterSourceParameters[];
 
-extern bool32 sub_0806FBD8(Entity*);
+extern bool32 AllocMutableHitbox(Entity*);
 
 void MineralWaterSource(Entity* this) {
     MineralWaterSourceActionFuncs[this->action](this);
@@ -21,17 +21,17 @@ void MineralWaterSource(Entity* this) {
 void MineralWaterSource_Init(Entity* this) {
     UnkStruct_MineralWater* unknownParameters;
 
-    if (!sub_0806FBD8(this)) {
+    if (!AllocMutableHitbox(this)) {
         return;
     }
 
-    unknownParameters = &MineralWaterSourceParameters[this->entityType.form];
+    unknownParameters = &MineralWaterSourceParameters[this->type];
 
-    this->entityType.parameter = unknownParameters->field_0x00;
+    this->type2 = unknownParameters->field_0x00;
     this->field_0x40 = unknownParameters->field_0x03;
 
-    this->boundingBox->width = unknownParameters->field_0x01;
-    this->boundingBox->height = unknownParameters->field_0x02;
+    this->hitbox->width = unknownParameters->field_0x01;
+    this->hitbox->height = unknownParameters->field_0x02;
 
     this->flags |= 0x80;
 

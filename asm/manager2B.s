@@ -117,7 +117,7 @@ _0805D0D8:
 	movs r0, #8
 	strb r0, [r4, #0xe]
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 	adds r0, r4, #0
 	bl sub_0805D11C
 _0805D0F6:

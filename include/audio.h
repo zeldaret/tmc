@@ -145,7 +145,7 @@ typedef enum {
     SFX_VO_MINISH2,
     SFX_VO_MINISH3,
     SFX_VO_MINISH4,
-    
+
     SFX_REM_SLEEP = 0xCC,
     SFX_TASK_COMPLETE,
     SFX_KEY_APPEAR,
@@ -183,7 +183,7 @@ typedef enum {
     SFX_APPARATE,
     SFX_F8,
     SFX_TELEPORTER,
-    
+
     SFX_ITEM_BOMB_EXPLODE = 0xFD,
     SFX_HIT,
 

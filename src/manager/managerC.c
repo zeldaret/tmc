@@ -9,10 +9,9 @@
 #include "functions.h"
 #include "save.h"
 
-
 typedef struct {
     Manager manager;
-	s32 unk_20;
+    s32 unk_20;
     union SplitWord unk_24;
     u32 unk_28;
     u32 unk_2c;
@@ -26,7 +25,7 @@ typedef struct {
     u16 unk_6;
 } struct_08108228;
 
-void (* const gUnk_0810821C[])(ManagerC*);
+void (*const gUnk_0810821C[])(ManagerC*);
 const struct_08108228 gUnk_08108228[6];
 const struct_08108228 gUnk_08108258[6];
 const struct_08108228 gUnk_08108288[6];
@@ -46,7 +45,7 @@ void sub_08058D34(void);
 extern void sub_0805622C(struct BgAffineDstData*, u32, u32);
 extern void sub_08052D74(void*, void*, void*);
 extern void sub_080044AE(Entity*, u32, u32);
-extern void _DmaCopy(const void* src, void* dest, u32 size);
+extern void MemCopy(const void* src, void* dest, u32 size);
 
 extern u8 gUnk_03003DE4[0xC];
 
@@ -60,11 +59,7 @@ void sub_08058894(ManagerC*);
 void sub_080588CC(ManagerC*);
 void nullsub_108(ManagerC*);
 
-void (* const gUnk_0810821C[])(ManagerC*) = {
-    sub_08058894,
-    sub_080588CC,
-    nullsub_108
-};
+void (*const gUnk_0810821C[])(ManagerC*) = { sub_08058894, sub_080588CC, nullsub_108 };
 
 void sub_0805884C(ManagerC* this) {
     u32 tmp;
@@ -90,9 +85,10 @@ void sub_080588CC(ManagerC* this) {
     }
 }
 
-void nullsub_108(ManagerC* this) {}
+void nullsub_108(ManagerC* this) {
+}
 
-#define ABS_DIFF_GT(a, b, c) (signed) a - b >= 0 ? a - b > c : b - a > c
+#define ABS_DIFF_GT(a, b, c) (signed)a - b >= 0 ? a - b > c : b - a > c
 
 void sub_080588F8(ManagerC* this) {
     if (this->manager.unk_0f == 0) {
@@ -104,7 +100,7 @@ void sub_080588F8(ManagerC* this) {
                 case 0xf0:
                     this->unk_28 = this->unk_24.HALF.HI;
                     this->manager.unk_0f = 0x2D;
-                    PlaySFX(0x8c);
+                    SoundReq(0x8c);
             }
         }
     } else {
@@ -126,8 +122,8 @@ void sub_080588F8(ManagerC* this) {
                 this->unk_24.WORD += tmp2;
             }
             if (ABS_DIFF_GT(this->unk_2c, this->unk_24.WORD, 0x100000)) {
-                    this->unk_2c = this->unk_24.WORD;
-                    PlaySFX(0x8b);
+                this->unk_2c = this->unk_24.WORD;
+                SoundReq(0x8b);
             }
         }
     }
@@ -140,50 +136,27 @@ void sub_080588F8(ManagerC* this) {
     }
 }
 
-const struct_08108228 gUnk_08108228[6] = {
-    {0x40, 0x2A, 0x1C, 0x10},
-    {0x3C, 0x24, 0x1C, 0x12},
-    {0x3C, 0x1C, 0x1A, 0x18},
-    {0x38, 0x16, 0x1C, 0x16},
-    {0x34, 0x16, 0x1E, 0x0E},
-    {0x30, 0x16, 0x20, 0x0A}
-};
+const struct_08108228 gUnk_08108228[6] = { { 0x40, 0x2A, 0x1C, 0x10 }, { 0x3C, 0x24, 0x1C, 0x12 },
+                                           { 0x3C, 0x1C, 0x1A, 0x18 }, { 0x38, 0x16, 0x1C, 0x16 },
+                                           { 0x34, 0x16, 0x1E, 0x0E }, { 0x30, 0x16, 0x20, 0x0A } };
 
-const struct_08108228 gUnk_08108258[6] = {
-    {0x30, 0x88, 0x20, 0x0A},
-    {0x34, 0x7E, 0x1E, 0x12},
-    {0x38, 0x78, 0x1A, 0x16},
-    {0x3A, 0x70, 0x1A, 0x18},
-    {0x3C, 0x64, 0x1E, 0x1E},
-    {0x3E, 0x6A, 0x1C, 0x10}
-};
+const struct_08108228 gUnk_08108258[6] = { { 0x30, 0x88, 0x20, 0x0A }, { 0x34, 0x7E, 0x1E, 0x12 },
+                                           { 0x38, 0x78, 0x1A, 0x16 }, { 0x3A, 0x70, 0x1A, 0x18 },
+                                           { 0x3C, 0x64, 0x1E, 0x1E }, { 0x3E, 0x6A, 0x1C, 0x10 } };
 
-const struct_08108228 gUnk_08108288[6] = {
-    {0x98, 0x2A, 0x1C, 0x10},
-    {0x98, 0x24, 0x1C, 0x12},
-    {0x9C, 0x1C, 0x1A, 0x18},
-    {0x9C, 0x16, 0x1C, 0x16},
-    {0xA0, 0x16, 0x1E, 0x0E},
-    {0xA0, 0x16, 0x20, 0x0A}
-};
+const struct_08108228 gUnk_08108288[6] = { { 0x98, 0x2A, 0x1C, 0x10 }, { 0x98, 0x24, 0x1C, 0x12 },
+                                           { 0x9C, 0x1C, 0x1A, 0x18 }, { 0x9C, 0x16, 0x1C, 0x16 },
+                                           { 0xA0, 0x16, 0x1E, 0x0E }, { 0xA0, 0x16, 0x20, 0x0A } };
 
-const struct_08108228 gUnk_081082B8[6] = {
-    {0xA0, 0x88, 0x20, 0x0A},
-    {0x9E, 0x7E, 0x1E, 0x12},
-    {0x9C, 0x78, 0x1A, 0x16},
-    {0x9A, 0x70, 0x1A, 0x18},
-    {0x98, 0x64, 0x1E, 0x1E},
-    {0x98, 0x6A, 0x1C, 0x10}
-};
+const struct_08108228 gUnk_081082B8[6] = { { 0xA0, 0x88, 0x20, 0x0A }, { 0x9E, 0x7E, 0x1E, 0x12 },
+                                           { 0x9C, 0x78, 0x1A, 0x16 }, { 0x9A, 0x70, 0x1A, 0x18 },
+                                           { 0x98, 0x64, 0x1E, 0x1E }, { 0x98, 0x6A, 0x1C, 0x10 } };
 
 void sub_08058A04(ManagerC* this) {
     s32 tmp = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
     s32 tmp2 = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
-    if ((this->unk_20 - 0x118 < 0xDu) &&
-      CheckGlobalFlag(LV1TARU_OPEN) &&
-      (tmp - 0x6d < 0x17u) &&
-      (tmp2 - 0x45 < 0x17u) &&
-      (gPlayerEntity.height.HALF.HI == 0)) {
+    if ((this->unk_20 - 0x118 < 0xDu) && CheckGlobalFlag(LV1TARU_OPEN) && (tmp - 0x6d < 0x17u) &&
+        (tmp2 - 0x45 < 0x17u) && (gPlayerEntity.height.HALF.HI == 0)) {
         gPlayerState.playerAction = 3;
         gPlayerState.field_0x38 = 0;
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x78;
@@ -228,12 +201,7 @@ u32 sub_08058B08(ManagerC* this, u32 unk1, u32 unk2, const struct_08108228* unk3
     }
 }
 
-const u16 gUnk_081082E8[0xC] = {
-    0xB8, 0x80, 0x0,
-    0xB8, 0x110, 0x2,
-    0x118, 0x80, 0x2,
-    0x118, 0x110, 0x0
-};
+const u16 gUnk_081082E8[0xC] = { 0xB8, 0x80, 0x0, 0xB8, 0x110, 0x2, 0x118, 0x80, 0x2, 0x118, 0x110, 0x0 };
 
 void sub_08058B5C(ManagerC* this, u32 unk1) {
     gScreenTransition.transitioningOut = 1;
@@ -242,14 +210,14 @@ void sub_08058B5C(ManagerC* this, u32 unk1) {
     gScreenTransition.areaID = gRoomControls.areaID;
     gScreenTransition.roomID = 6;
     gScreenTransition.playerState = unk1 & 1 ? 4 : 0;
-    gScreenTransition.playerStartPos.HALF.x = gUnk_081082E8[unk1*3];
-    gScreenTransition.playerStartPos.HALF.y = gUnk_081082E8[unk1*3+1];
-    gSave.unk7 = gUnk_081082E8[unk1*3+2];
-    PlaySFX(0x121);
+    gScreenTransition.playerStartPos.HALF.x = gUnk_081082E8[unk1 * 3];
+    gScreenTransition.playerStartPos.HALF.y = gUnk_081082E8[unk1 * 3 + 1];
+    gSave.unk7 = gUnk_081082E8[unk1 * 3 + 2];
+    SoundReq(0x121);
 }
 
 void sub_08058BC8(ManagerC* this) {
-    struct BgAffineDstData * tmp = &gUnk_02017AA0[gUnk_03003DE4[0]*0xA0];
+    struct BgAffineDstData* tmp = &gUnk_02017AA0[gUnk_03003DE4[0] * 0xA0];
     struct BgAffineSrcData tmp2;
     s32 tmp3;
     tmp2.texX = 0x10000;
@@ -262,25 +230,25 @@ void sub_08058BC8(ManagerC* this) {
     do {
         u32 indx = ((tmp3 << 7) / 0xA0) & 0xFF;
         tmp2.sx = 0x100 + ((gSineTable[indx] * 3) >> 2);
-        tmp2.sy = 0x100 - ((gSineTable[indx * 2] * 2) >> 5);//yes, it makes no sense to multiply first and then shift right, but it's matching this way
+        tmp2.sy =
+            0x100 - ((gSineTable[indx * 2] * 2) >>
+                     5); // yes, it makes no sense to multiply first and then shift right, but it's matching this way
         tmp2.texY = (this->unk_20 + tmp3) << 8;
         BgAffineSet(&tmp2, tmp, 1);
         tmp++;
-    } while (++tmp3<0xA0u);
-    tmp = &gUnk_02017BA0[gUnk_03003DE4[0]*0xA0];
+    } while (++tmp3 < 0xA0u);
+    tmp = &gUnk_02017BA0[gUnk_03003DE4[0] * 0xA0];
     gScreen.controls.bg2dx = tmp->pa;
     gScreen.controls.bg2dmx = tmp->pb;
     gScreen.controls.bg2dy = tmp->pc;
     gScreen.controls.bg2dmy = tmp->pd;
-    gScreen.controls.bg2xPointLeastSig = ((union SplitWord *) &tmp->dx)->HALF.LO;
-    gScreen.controls.bg2xPointMostSig = ((union SplitWord *) &tmp->dx)->HALF.HI;
-    gScreen.controls.bg2yPointLeastSig = ((union SplitWord *) &tmp->dy)->HALF.LO;
-    gScreen.controls.bg2yPointMostSig = ((union SplitWord *) &tmp->dy)->HALF.HI;
+    gScreen.controls.bg2xPointLeastSig = ((union SplitWord*)&tmp->dx)->HALF.LO;
+    gScreen.controls.bg2xPointMostSig = ((union SplitWord*)&tmp->dx)->HALF.HI;
+    gScreen.controls.bg2yPointLeastSig = ((union SplitWord*)&tmp->dy)->HALF.LO;
+    gScreen.controls.bg2yPointMostSig = ((union SplitWord*)&tmp->dy)->HALF.HI;
 }
 
-const u16 gUnk_08108300[4] = {
-    0xA4, 0x4C, 0xF4, 0x9C
-};
+const u16 gUnk_08108300[4] = { 0xA4, 0x4C, 0xF4, 0x9C };
 
 void sub_08058CB0(ManagerC* this) {
     u32 tmp = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
@@ -313,7 +281,7 @@ void sub_08058CFC() {
 #ifdef NON_MATCHING
 void sub_08058D34() {
     LoadPaletteGroup(0x28);
-    _DmaCopy(gUnk_02017700, gUnk_02017700 + 0x240, 0x20);
+    MemCopy(gUnk_02017700, gUnk_02017700 + 0x240, 0x20);
     gUsedPalettes |= 0x200000;
     LoadGfxGroup(0x16);
     gScreen.lcd.displayControl |= 1;

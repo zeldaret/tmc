@@ -41,7 +41,7 @@ void ForestMinish(Entity* this) {
                 this->field_0x68.HALF.HI = this->animationState = this->actionDelay << 1;
                 this->actionDelay = 0;
                 sub_0805E3A0(this, 2);
-                StartCutscene(this, (u16*)gUnk_08109D18[this->entityType.parameter]);
+                StartCutscene(this, (u16*)gUnk_08109D18[this->type2]);
                 sub_0807DD50(this);
             }
             break;
@@ -161,7 +161,7 @@ void sub_080601D4(Entity* this) {
 }
 
 void sub_08060208(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08109DC8[this->entityType.parameter * 0x4]);
+    ShowNPCDialogue(this, &gUnk_08109DC8[this->type2 * 0x4]);
 }
 
 void sub_0806021C(Entity* this) {
@@ -181,11 +181,11 @@ void sub_0806021C(Entity* this) {
     if (GetInventoryValue(0x13)) {
         uVar2 = 3;
     }
-    ShowNPCDialogue(this, gUnk_08109DC8 + this->entityType.parameter * 0x4 + uVar2);
+    ShowNPCDialogue(this, gUnk_08109DC8 + this->type2 * 0x4 + uVar2);
 }
 
 void sub_0806025C(Entity* this) {
-    ShowNPCDialogue(this, &gUnk_08109DC8[this->entityType.parameter * 0x4]);
+    ShowNPCDialogue(this, &gUnk_08109DC8[this->type2 * 0x4]);
 }
 
 void sub_08060270(Entity* this) {

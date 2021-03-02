@@ -61,7 +61,7 @@ typedef void (*Deleter)(void*);
 
 void DeleteEntityAny(Entity* ent) {
     Deleter deleter = NULL;
-    if (ent->entityType.type == 9) {
+    if (ent->kind == 9) {
         deleter = (Deleter)DeleteManager;
     } else {
         deleter = (Deleter)DeleteEntity;
@@ -78,7 +78,7 @@ extern void sub_0805EC60();
 extern void sub_08017744();
 extern void sub_0805E92C();
 extern void UnloadCutsceneData();
-extern void UnloadBoundingBox();
+extern void UnloadHitbox();
 extern void sub_0801DA0C();
 extern void sub_0804AA1C();
 extern void UnlinkEntity(); // Unlink
@@ -94,10 +94,10 @@ void DeleteEntity(Entity* ent) {
         sub_08017744(ent);
         sub_0805E92C(ent);
         UnloadCutsceneData(ent);
-        UnloadBoundingBox(ent);
-        sub_0801DA0C(ent->otherEntity);
-        ent->otherEntity = NULL;
-        if ((ent->entityType).type == 3) {
+        UnloadHitbox(ent);
+        sub_0801DA0C(ent->myHeap);
+        ent->myHeap = NULL;
+        if (ent->kind == 3) {
             sub_0804AA1C(ent);
         }
         ent->flags = ent->flags & 0x7f;
@@ -132,8 +132,6 @@ void ClearDeletedEntity(Entity* ent) {
     gEntCount--;
 }
 
-extern EntityType gUnk_03003DB8;
-
 void DeleteAllEntities(void) {
     Entity* ent;
     Entity* next;
@@ -163,7 +161,7 @@ OtherEntity* GetEmptyManager(void) {
     return NULL;
 }
 
-extern void _DmaZero(void*, u32);
+extern void MemClear32(void*, u32);
 extern u8 gManagerCount;
 
 void DeleteManager(OtherEntity* ent) {
@@ -172,7 +170,7 @@ void DeleteManager(OtherEntity* ent) {
 
     sub_0805E92C(ent);
     UnlinkEntity(ent);
-    _DmaZero(ent, sizeof(OtherEntity));
+    MemClear32(ent, sizeof(OtherEntity));
     gManagerCount--;
 }
 
@@ -187,16 +185,16 @@ void sub_0805E92C(u32 param_1) {
 }
 
 extern Entity gUnk_020369F0;
-extern void _DmaCopy(const void* src, void* dest, size_t size); // dma copy
+extern void MemCopy(const void* src, void* dest, size_t size); // dma copy
 extern void sub_0805E98C(void);
 
 void sub_0805E958(void) {
-    _DmaCopy(&gEntityLists, &gUnk_020369F0, 0x48);
+    MemCopy(&gEntityLists, &gUnk_020369F0, 0x48);
     sub_0805E98C();
 }
 
 void sub_0805E974(void) {
-    _DmaCopy(&gUnk_020369F0, &gEntityLists, 0x48);
+    MemCopy(&gUnk_020369F0, &gEntityLists, 0x48);
 }
 
 void sub_0805E98C(void) {
@@ -248,7 +246,7 @@ void AppendEntityToList(Entity* ent, int listIndex) {
     ent->prev = list->last;
     list->last->next = ent;
     list->last = ent;
-    if (ent->entityType.type != 9) {
+    if (ent->kind != 9) {
         ent->spritePriority.b0 = 4;
         gEntCount++;
     } else {
@@ -283,8 +281,7 @@ bool32 DoesSimilarEntityExist(Entity* ent) {
     list = &gEntityLists[0];
     do {
         for (i = list->first; (u32)i != (u32)list; i = i->next) {
-            if ((u32)i != (u32)ent && i->entityType.type == ent->entityType.type &&
-                i->entityType.subtype == ent->entityType.subtype) {
+            if ((u32)i != (u32)ent && i->kind == ent->kind && i->id == ent->id) {
                 return TRUE;
             }
         }
@@ -299,7 +296,7 @@ Entity* FindEntityInListBySubtype(int type, int subtype, int listIndex) {
 
     list = &gEntityLists[listIndex];
     for (it = list->first; (u32)it != (u32)list; it = it->next) {
-        if (type == it->entityType.type && subtype == it->entityType.subtype)
+        if (type == it->kind && subtype == it->id)
             return it;
     }
     return NULL;
@@ -311,8 +308,7 @@ Entity* FindEntityInListByForm(int type, int subtype, int listIndex, int form, i
 
     list = &gEntityLists[listIndex];
     for (i = list->first; (u32)i != (u32)list; i = i->next) {
-        if (type == i->entityType.type && subtype == i->entityType.subtype && form == i->entityType.form &&
-            parameter == i->entityType.parameter)
+        if (type == i->kind && subtype == i->id && form == i->type && parameter == i->type2)
             return i;
     }
     return NULL;
@@ -324,7 +320,7 @@ Entity* FindNextEntityOfSameSubtype(Entity* ent, int listIndex) {
 
     list = &gEntityLists[listIndex];
     for (i = ent->next; (u32)i != (u32)list; i = i->next) {
-        if (i->entityType.type == ent->entityType.type && i->entityType.subtype == ent->entityType.subtype)
+        if (i->kind == ent->kind && i->id == ent->id)
             return i;
     }
     return NULL;
@@ -337,7 +333,7 @@ Entity* FindEntityBySubtype(int type, int subtype) {
     list = &gEntityLists[0];
     do {
         for (i = (Entity*)list->first; (u32)i != (u32)list; i = i->next) {
-            if ((type == (i->entityType).type) && (subtype == (i->entityType).subtype))
+            if (type == i->kind && (subtype == i->id))
                 return i;
         }
     } while (++list < &gEntityLists[9]);
@@ -354,7 +350,7 @@ void DeleteAllEnemies(void) {
     do {
         for (ent = list->first; (u32)ent != (u32)list; ent = next) {
             next = ent->next;
-            if (ent->entityType.type == 3)
+            if (ent->kind == 3)
                 DeleteEntity(ent);
         }
     } while (++list < &gEntityLists[9]);

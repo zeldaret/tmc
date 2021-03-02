@@ -77,7 +77,7 @@ _08073218:
 	movs r0, #2
 	strb r0, [r4, #0x14]
 	ldr r0, _0807326C @ =0x00000187
-	bl PlaySFX
+	bl SoundReq
 	b _08073294
 	.align 2, 0
 _0807326C: .4byte 0x00000187
@@ -98,7 +98,7 @@ _08073270:
 	strb r0, [r4, #0x14]
 	movs r0, #0xc4
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _08073294:
 	adds r0, r4, #0
 	bl sub_08066DE4

@@ -6,28 +6,22 @@
 
 typedef struct {
     Manager manager;
-    u8 unk_20[0x14];//unused
+    u8 unk_20[0x14]; // unused
     u16 radiusX;
     u16 radiusY;
     s16 posX;
     s16 posY;
-    u8 unk_3c[2];//unused
+    u8 unk_3c[2]; // unused
     u16 playerInRegionFlag;
 } Manager1E;
 
-enum Manager1E_State {
-    Init,
-    ObserveRegion
-};
+enum Manager1E_State { Init, ObserveRegion };
 
 void Manager1E_Handler(Manager1E*);
 void Manager1E_Init(Manager1E*);
 void Manager1E_ObserveRegion(Manager1E*);
 
-void (* const Manager1E_ActionFuncs[2])(Manager1E*) = {
-    Manager1E_Init,
-    Manager1E_ObserveRegion
-};
+void (*const Manager1E_ActionFuncs[2])(Manager1E*) = { Manager1E_Init, Manager1E_ObserveRegion };
 
 void Manager1E_Handler(Manager1E* this) {
     Manager1E_ActionFuncs[this->manager.action](this);

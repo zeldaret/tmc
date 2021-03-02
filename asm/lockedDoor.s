@@ -470,7 +470,7 @@ sub_08083658: @ 0x08083658
 	movs r1, #0x3c
 	bl sub_0805E4E0
 	ldr r0, _0808369C @ =0x0000010B
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 _08083698: .4byte gUnk_0811F680

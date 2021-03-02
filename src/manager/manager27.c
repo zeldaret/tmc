@@ -11,24 +11,17 @@ void sub_0805C894(Entity*);
 void sub_0805C8B4(Entity*);
 void sub_0805C908(Entity*);
 
-void (*const gUnk_08108D10[])(Entity*) = {
-    sub_0805C874,
-    sub_0805C894,
-    sub_0805C8B4,
-    sub_0805C908
-};
+void (*const gUnk_08108D10[])(Entity*) = { sub_0805C874, sub_0805C894, sub_0805C8B4, sub_0805C908 };
 
-const u8 gUnk_08108D20[] = {
-    0x6F, 0x70, 0x71, 0x72, 0x71, 0x70
-};
+const u8 gUnk_08108D20[] = { 0x6F, 0x70, 0x71, 0x72, 0x71, 0x70 };
 
 void Manager27(Entity* this) {
 
     gUnk_08108D10[this->action](this);
-    if (CheckLocalFlagByOffset(0x300, this->entityType.form + 0x67)) {
-        gScreenTransition.field_0xac |= (1 << (this->entityType).form);
+    if (CheckLocalFlagByOffset(0x300, this->type + 0x67)) {
+        gScreenTransition.field_0xac |= (1 << this->type);
     } else {
-        gScreenTransition.field_0xac &= ~(1 << (this->entityType).form);
+        gScreenTransition.field_0xac &= ~(1 << this->type);
     }
 }
 
@@ -49,7 +42,7 @@ void sub_0805C894(Entity* this) {
     if (sub_0805C920(this)) {
         this->action = 2;
         this->actionDelay = 1;
-        PlaySFX(0x11a);
+        SoundReq(0x11a);
     }
 }
 
@@ -65,7 +58,7 @@ void sub_0805C8B4(Entity* this) {
         }
         LoadPaletteGroup(gUnk_08108D20[this->field_0xf]);
         if (this->field_0xf == 0) {
-            PlaySFX(0x11a);
+            SoundReq(0x11a);
         }
     }
     if (sub_0805C920(this) == 0) {
@@ -82,5 +75,5 @@ void sub_0805C908(Entity* this) {
 }
 
 u32 sub_0805C920(Entity* this) {
-    return CheckLocalFlagByOffset(0x300, (this->entityType).form + 0x67);
+    return CheckLocalFlagByOffset(0x300, this->type + 0x67);
 }

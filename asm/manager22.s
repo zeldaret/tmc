@@ -41,7 +41,7 @@ _0805B90A:
 	ldrb r0, [r5, #0xe]
 	bl sub_0801E154
 _0805B934:
-	ldr r0, _0805B970 @ =gUnk_03001000
+	ldr r0, _0805B970 @ =gMain
 	ldrb r0, [r0, #4]
 	cmp r0, #2
 	bne _0805B952
@@ -68,7 +68,7 @@ _0805B952:
 _0805B964: .4byte gArea
 _0805B968: .4byte gScreen
 _0805B96C: .4byte 0x0000D7FF
-_0805B970: .4byte gUnk_03001000
+_0805B970: .4byte gMain
 _0805B974: .4byte 0x0000DFFF
 _0805B978:
 	ldr r3, _0805B9A8 @ =gPlayerEntity
@@ -297,7 +297,7 @@ _0805BB28:
 	movs r2, #0x80
 	lsls r2, r2, #4
 	movs r0, #0xf
-	bl _DmaFill16
+	bl MemFill16
 	ldr r0, _0805BB58 @ =gScreen
 	ldr r1, _0805BB5C @ =0x00001E0C
 	strh r1, [r0, #0x2c]

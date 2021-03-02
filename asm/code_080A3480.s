@@ -209,7 +209,7 @@ HandleCreditsScreen: @ 0x080A35E0
 	adds r0, #1
 	str r0, [r1]
 	ldr r1, _080A3600 @ =gUnk_08127D00
-	ldr r0, _080A3604 @ =gUnk_03001000
+	ldr r0, _080A3604 @ =gMain
 	ldrb r0, [r0, #3]
 	lsls r0, r0, #2
 	adds r0, r0, r1
@@ -219,7 +219,7 @@ HandleCreditsScreen: @ 0x080A35E0
 	.align 2, 0
 _080A35FC: .4byte gScreenTransition
 _080A3600: .4byte gUnk_08127D00
-_080A3604: .4byte gUnk_03001000
+_080A3604: .4byte gMain
 
 	thumb_func_start sub_080A3608
 sub_080A3608: @ 0x080A3608
@@ -230,7 +230,7 @@ sub_080A3608: @ 0x080A3608
 	strb r4, [r0, #6]
 	movs r0, #0x55
 	bl SetGlobalFlag
-	ldr r0, _080A3644 @ =gUnk_03001000
+	ldr r0, _080A3644 @ =gMain
 	strb r4, [r0, #3]
 	ldr r2, _080A3648 @ =gMenu
 	strb r5, [r2, #5]
@@ -251,7 +251,7 @@ sub_080A3608: @ 0x080A3608
 	b _080A365E
 	.align 2, 0
 _080A3640: .4byte gSave
-_080A3644: .4byte gUnk_03001000
+_080A3644: .4byte gMain
 _080A3648: .4byte gMenu
 _080A364C: .4byte gUnk_08127998
 _080A3650:
@@ -354,7 +354,7 @@ sub_080A36F8: @ 0x080A36F8
 	ldr r0, _080A3760 @ =gBG1Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl _DmaZero
+	bl MemClear32
 	ldr r1, _080A3764 @ =gScreen
 	movs r2, #0
 	movs r0, #1
@@ -372,7 +372,7 @@ sub_080A36F8: @ 0x080A36F8
 	movs r0, #1
 	strb r0, [r5, #0x1a]
 	movs r0, #9
-	bl PlaySFX
+	bl SoundReq
 _080A374A:
 	movs r0, #4
 	movs r1, #8
@@ -410,7 +410,7 @@ _080A378A:
 	ldr r0, _080A37B8 @ =gBG1Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl _DmaZero
+	bl MemClear32
 	movs r1, #0x10
 	ldrsh r0, [r4, r1]
 	ldr r2, _080A37BC @ =gUnk_081272E0
@@ -580,7 +580,7 @@ sub_080A38D0: @ 0x080A38D0
 	movs r6, #0x80
 	lsls r6, r6, #4
 	adds r1, r6, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r4, _080A3924 @ =gScreen
 	movs r0, #0
 	mov r8, r0
@@ -588,7 +588,7 @@ sub_080A38D0: @ 0x080A38D0
 	strh r5, [r4, #0x1a]
 	ldr r0, _080A3928 @ =gBG2Buffer
 	adds r1, r6, #0
-	bl _DmaZero
+	bl MemClear32
 	strh r5, [r4, #0x26]
 	adds r4, #0x68
 	movs r0, #0x80
@@ -621,14 +621,14 @@ sub_080A3930: @ 0x080A3930
 	movs r0, #7
 	movs r1, #8
 	bl DoFade
-	ldr r1, _080A3950 @ =gUnk_03001000
+	ldr r1, _080A3950 @ =gMain
 	movs r0, #2
 	strb r0, [r1, #3]
 _080A3948:
 	pop {pc}
 	.align 2, 0
 _080A394C: .4byte gFadeControl
-_080A3950: .4byte gUnk_03001000
+_080A3950: .4byte gMain
 
 	thumb_func_start sub_080A3954
 sub_080A3954: @ 0x080A3954
@@ -712,7 +712,7 @@ _080A39C8:
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
 	movs r1, #0x20
-	bl _DmaZero
+	bl MemClear32
 	movs r0, #0
 	movs r1, #0
 	bl sub_08052418
@@ -790,7 +790,7 @@ _080A3A8C:
 	movs r0, #0x3c
 	strh r0, [r1, #8]
 	movs r0, #0x6a
-	bl PlaySFX
+	bl SoundReq
 _080A3A9A:
 	ldr r1, _080A3AB4 @ =gMenu
 	ldrb r0, [r1, #3]
@@ -801,7 +801,7 @@ _080A3A9A:
 	adds r1, r4, #0
 	bl sub_08052418
 	movs r0, #0x69
-	bl PlaySFX
+	bl SoundReq
 	b _080A3B36
 	.align 2, 0
 _080A3AB4: .4byte gMenu
@@ -862,7 +862,7 @@ _080A3B14:
 	movs r0, #7
 	movs r1, #8
 	bl DoFade
-	ldr r1, _080A3B40 @ =gUnk_03001000
+	ldr r1, _080A3B40 @ =gMain
 	movs r0, #3
 	strb r0, [r1, #3]
 	ldr r0, _080A3B44 @ =gMenu
@@ -872,7 +872,7 @@ _080A3B36:
 	.align 2, 0
 _080A3B38: .4byte gScreen
 _080A3B3C: .4byte 0x0000FDFF
-_080A3B40: .4byte gUnk_03001000
+_080A3B40: .4byte gMain
 _080A3B44: .4byte gMenu
 
 	thumb_func_start sub_080A3B48

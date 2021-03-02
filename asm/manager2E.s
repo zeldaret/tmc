@@ -78,13 +78,13 @@ sub_0805D2F4: @ 0x0805D2F4
 	ldrsh r0, [r4, r1]
 	cmp r0, #0
 	beq _0805D314
-	bl PlaySFX
+	bl SoundReq
 	b _0805D31A
 	.align 2, 0
 _0805D310: .4byte gUnk_03003DC0
 _0805D314:
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 _0805D31A:
 	ldrh r0, [r4, #0x3c]
 	cmp r0, #0
@@ -166,7 +166,7 @@ sub_0805D384: @ 0x0805D384
 	adds r1, r0, #0
 _0805D3A4:
 	adds r0, r1, #0
-	bl PlaySFX
+	bl SoundReq
 	ldrh r0, [r4, #0x3c]
 	bl SetFlag
 	b _0805D3C6

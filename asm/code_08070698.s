@@ -198,7 +198,7 @@ sub_080715D4: @ 0x080715D4
 	orrs r0, r1
 	str r0, [r2, #0x30]
 	ldr r0, _08071630 @ =0x0000016F
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 _08071628: .4byte gPlayerState
@@ -1058,7 +1058,7 @@ _08071C5A:
 	bl sub_0800451C
 	bl ResetPlayer
 	movs r0, #0x87
-	bl PlaySFX
+	bl SoundReq
 _08071C9C:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -1105,7 +1105,7 @@ _08071CEE:
 	movs r0, #0xf0
 	strb r0, [r4, #0xe]
 	movs r0, #0x7b
-	bl PlaySFX
+	bl SoundReq
 _08071CFE:
 	pop {r4, pc}
 	.align 2, 0
@@ -1434,7 +1434,7 @@ sub_08071F50: @ 0x08071F50
 	strh r0, [r1, #8]
 	bl sub_08077B20
 	ldr r0, _08071F7C @ =0x00000195
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 _08071F78: .4byte gPlayerState
@@ -1936,9 +1936,9 @@ _08072332:
 	bl ResetPlayer
 	movs r0, #0x92
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x7a
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, r5, pc}
 	.align 2, 0
 _08072350: .4byte 0x00000401
@@ -1991,7 +1991,7 @@ sub_08072354: @ 0x08072354
 	bl CreateFx
 	movs r0, #0xd3
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 _080723C0:
 	pop {r4, pc}
 	.align 2, 0
@@ -2093,7 +2093,7 @@ sub_0807246C: @ 0x0807246C
 	lsls r0, r0, #2
 	strh r0, [r2, #8]
 	movs r0, #0x7b
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 _0807248C: .4byte gPlayerState
@@ -2390,16 +2390,16 @@ _080726BE:
 	cmp r1, #0
 	beq _080726E4
 	movs r0, #0x79
-	bl PlaySFX
+	bl SoundReq
 	b _080726EA
 	.align 2, 0
 _080726E0: .4byte gPlayerState
 _080726E4:
 	movs r0, #0x78
-	bl PlaySFX
+	bl SoundReq
 _080726EA:
 	movs r0, #0x7e
-	bl PlaySFX
+	bl SoundReq
 	pop {r4, r5, pc}
 	.align 2, 0
 
@@ -2840,7 +2840,7 @@ _08072A14:
 	adds r0, r5, #0
 	bl sub_08072A60
 	movs r0, #0x81
-	bl PlaySFX
+	bl SoundReq
 _08072A4C:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
@@ -3089,7 +3089,7 @@ _08072C1E:
 	lsls r0, r0, #4
 	strh r0, [r1, #8]
 	movs r0, #0x7c
-	bl PlaySFX
+	bl SoundReq
 _08072C40:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -3449,7 +3449,7 @@ _08072EF8:
 	adds r0, #0x42
 	strb r1, [r0]
 	movs r0, #0x7d
-	bl PlaySFX
+	bl SoundReq
 _08072F10:
 	pop {r4, r5, pc}
 	.align 2, 0

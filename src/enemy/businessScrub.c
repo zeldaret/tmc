@@ -335,7 +335,7 @@ void sub_08028E84(Entity* this) {
 bool32 sub_08029198(const struct SalesOffering*);
 
 void sub_08028E9C(Entity* this) {
-    const struct SalesOffering* offer = &gUnk_080CC954[this->entityType.form];
+    const struct SalesOffering* offer = &gUnk_080CC954[this->type];
     if (sub_08029198(offer) && (offer->field_0x0 & 2)) {
         offer = &gUnk_080CC954[offer->field_0xa];
     }

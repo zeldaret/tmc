@@ -44,12 +44,12 @@ void sub_080A3BD0(void) {
 
     LoadGfxGroup(iVar1 + 0x76);
     gScreen.lcd.displayControl |= 0x1e00;
-    gScreen.bg.bg1xOffset = 0x1c01;
+    gScreen.bg.bg1Control = 0x1c01;
     gScreen.affine.bg2Control = 0x1d02;
     gScreen.affine.bg3Control = 0x1e0b;
-    gScreen.bg.bg2yOffset = 1;
-    gScreen.affine.unk = 1;
-    gScreen.affine.unk4 = 1;
+    gScreen.bg.bg1Updated = 1;
+    gScreen.affine.bg2Updated = 1;
+    gScreen.affine.bg3Updated = 1;
     sub_080A4528();
     sub_080A4398();
     sub_0801E738(0);

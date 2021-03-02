@@ -47,7 +47,7 @@ void sub_0801EAE8(Entity* this) {
 
 // Death
 void sub_0801EB0C(Entity* this) {
-    if (this->entityType.form == 0) {
+    if (this->type == 0) {
         sub_0804A7D4(this);
     } else {
         CreateDeathFx(this, 241, 0);
@@ -97,8 +97,8 @@ void sub_0801EB9C(Entity* this) {
 // Init
 void Octorok_Initialize(Entity* this) {
     sub_0804A720(this);
-    if (this->entityType.form == 2) {
-        this->animationState = this->entityType.form;
+    if (this->type == 2) {
+        this->animationState = this->type;
     } else {
         this->animationState = Random() & 3;
     }
@@ -120,7 +120,7 @@ void Octorok_Move(Entity* this) {
     ProcessMovement(this);
     GetNextFrame(this);
     if (--this->actionDelay == 0) {
-        if (Octorok_FacesPlayer(this) && gOctorokSpitChanceModifier[this->entityType.form] <= (Random() & 3)) {
+        if (Octorok_FacesPlayer(this) && gOctorokSpitChanceModifier[this->type] <= (Random() & 3)) {
             this->action = 3;
             InitializeAnimation(this, this->animationState + 4);
         } else {
@@ -155,9 +155,9 @@ void Octorok_Pause(Entity* this) {
 }
 
 void Octorok_Turn(Entity* this) {
-    if (this->entityType.form != 2) {
+    if (this->type != 2) {
         if (sub_08049FA0(this)) {
-            if (this->entityType.form == 1 && (Random() & 3) == 0 && sub_08049FDC(this, 1)) {
+            if (this->type == 1 && (Random() & 3) == 0 && sub_08049FDC(this, 1)) {
                 this->direction = DirectionRoundUp(GetFacingDirection(this, gUnk_020000B0));
             } else {
                 this->direction = DirectionRound(Random());

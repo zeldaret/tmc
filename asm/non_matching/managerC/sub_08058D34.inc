@@ -7,7 +7,7 @@ sub_08058D34: @ 0x08058D34
         lsl     r2, r2, #0x2
         add     r1, r0, r2
         mov     r2, #0x20
-        bl      _DmaCopy
+        bl      MemCopy
         ldr     r2, _08058DB0 @ =gUsedPalettes
         ldr     r0, [r2]
         mov     r1, #0x80

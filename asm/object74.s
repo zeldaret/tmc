@@ -162,7 +162,7 @@ sub_08097C20: @ 0x08097C20
 	ands r0, r1
 	strb r0, [r4, #0x19]
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 	movs r0, #0x63
 	bl SetGlobalFlag
 _08097CA6:
@@ -209,7 +209,7 @@ sub_08097CB4: @ 0x08097CB4
 	strh r0, [r1]
 	movs r0, #0xa5
 	lsls r0, r0, #1
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 _08097CF8: .4byte gScreen

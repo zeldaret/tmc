@@ -25,13 +25,13 @@ void sub_080851AC(Entity* this) {
     this->action = 1;
     this->spriteSettings.b.draw = 1;
     this->spritePriority.b0 = 7;
-    if ((this->entityType.parameter & 1) != 0) {
+    if ((this->type2 & 1) != 0) {
         this->field_0x7c.HALF.LO = -1;
     } else {
         this->field_0x7c.HALF.LO = 1;
     }
-    this->animationState = this->entityType.parameter & 2;
-    if ((this->entityType).form == 3) {
+    this->animationState = this->type2 & 2;
+    if (this->type == 3) {
         uVar1 = CheckFlags(this->field_0x86.HWORD);
         this->field_0x7a.HWORD = uVar1;
         if ((u16)(uVar1 & -1) != 0) {
@@ -48,7 +48,7 @@ void sub_08085264(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD)) {
         this->action = 2;
         this->field_0xf = 8;
-        if (this->entityType.form == 1) {
+        if (this->type == 1) {
             ClearFlag(this->field_0x86.HWORD);
         }
         this->animationState = (this->animationState + *(u8*)&this->field_0x7c) & 3;
@@ -72,7 +72,7 @@ void sub_080852B4(Entity* this) {
 
 void sub_08085308(Entity* this) {
     if (sub_080854A8(this) == 0) {
-        switch (this->entityType.form) {
+        switch (this->type) {
             case 0:
             case 1:
                 break;

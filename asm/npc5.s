@@ -138,7 +138,7 @@ sub_08060AE0: @ 0x08060AE0
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x14
-	bl sub_0801D8E0
+	bl zMalloc
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08060B54

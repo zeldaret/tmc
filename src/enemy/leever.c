@@ -57,7 +57,7 @@ void sub_0801FC40(Entity* this) {
 }
 
 void sub_0801FC7C(Entity* this) {
-    if (this->entityType.form == LeeverForm_Red) {
+    if (this->type == LeeverForm_Red) {
         sub_0804A7D4(this);
     } else {
         CreateDeathFx(this, 0xf1, 0);
@@ -89,7 +89,7 @@ void Leever_DigUp(Entity* this) {
 
     if (this->frames.b.f3 != 0) {
         this->action = 3;
-        if (this->entityType.form == LeeverForm_Red) {
+        if (this->type == LeeverForm_Red) {
             this->field_0x74.HWORD = 180;
         } else {
             this->field_0x74.HWORD = 110;
@@ -173,7 +173,7 @@ void Leever_Move(Entity* this) {
     }
 
     this->nonPlanarMovement = (this->frames.all & 0xf) * 0x20;
-    if (this->entityType.form == LeeverForm_Red) {
+    if (this->type == LeeverForm_Red) {
         if ((this->field_0xf++ & 0xf) == 0) {
             sub_08004596(this, sub_0800132C(this, gUnk_020000B0));
         }

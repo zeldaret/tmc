@@ -117,7 +117,7 @@ _08083C4A:
 	strh r1, [r0]
 _08083C62:
 	ldr r0, _08083C70 @ =0x00000109
-	bl PlaySFX
+	bl SoundReq
 	b _08083C98
 	.align 2, 0
 _08083C6C: .4byte gUnk_080FD964

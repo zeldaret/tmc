@@ -147,7 +147,7 @@ _080190E8:
 	adds r0, r4, #0
 	bl InitializeAnimation
 	movs r0, #0xfc
-	bl PlaySFX
+	bl SoundReq
 	b _08019178
 	.align 2, 0
 _080190F8: .4byte gUnk_080B3E40

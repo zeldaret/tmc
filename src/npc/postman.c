@@ -53,8 +53,8 @@ void sub_08060428(Entity* this) {
 
     this->actionDelay = 0x5a;
     this->nonPlanarMovement = 0x180;
-    if (this->entityType.parameter != 0) {
-        data = GetCurrentRoomProperty(this->entityType.parameter);
+    if (this->type2 != 0) {
+        data = GetCurrentRoomProperty(this->type2);
     } else {
         data = NULL;
     }

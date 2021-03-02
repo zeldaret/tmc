@@ -55,7 +55,7 @@ sub_0805DAE8: @ 0x0805DAE8
 	movs r0, #0x5a
 	strb r0, [r2, #0xe]
 	adds r0, #0xb0
-	bl PlaySFX
+	bl SoundReq
 	b _0805DB88
 	.align 2, 0
 _0805DB4C: .4byte gRoomControls

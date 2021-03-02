@@ -71,7 +71,7 @@ void sub_0805B048(Manager1A* this) {
     struct_08108764* tmp;
     Entity* obj;
     sub_0805E3A0(&this->manager, 6);
-    _DmaZero(&this->unk_20, 0x20);
+    MemClear32(&this->unk_20, 0x20);
     this->manager.action = 1;
     this->unk_3f = gRoomControls.roomID;
     tmp = &gUnk_08108764[this->manager.unk_0a];
@@ -209,7 +209,7 @@ void sub_0805B328(Manager1A* this) {
     if (!this->manager.unk_0b)
         return;
     tmp = &gUnk_08108764[this->manager.unk_0a];
-    LoadAssetAsync(&gGlobalGfxAndPalettes[tmp->unk_0c->unk_00], 0x0600F000, 0x800);
+    LoadResourceAsync(&gGlobalGfxAndPalettes[tmp->unk_0c->unk_00], 0x0600F000, 0x800);
     gScreen.affine.bg3Control = 0x1E07;
     gScreen.lcd.displayControl |= 0x800;
     gScreen.affine.bg3xOffset = gRoomControls.bg3OffsetX.HALF.HI;

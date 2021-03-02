@@ -822,14 +822,14 @@ sub_0807BFD0: @ 0x0807BFD0
 	adds r0, r7, #0
 	adds r1, r6, #0
 	mov r2, r8
-	bl _DmaFill16
+	bl MemFill16
 	movs r5, #0
 	strh r5, [r6]
 	ldr r4, _0807C0C0 @ =gMetatileTypesTop
 	adds r0, r7, #0
 	adds r1, r4, #0
 	mov r2, r8
-	bl _DmaFill16
+	bl MemFill16
 	strh r5, [r4]
 	ldr r2, _0807C0C4 @ =gRoomControls
 	ldr r0, _0807C0C8 @ =gArea
@@ -853,7 +853,7 @@ _0807C01C:
 	lsls r2, r2, #2
 	adds r1, r1, r2
 	movs r2, #0x20
-	bl _DmaCopy
+	bl MemCopy
 	ldr r2, _0807C0D4 @ =gUsedPalettes
 	ldr r0, [r2]
 	movs r1, #0x80
@@ -873,7 +873,7 @@ _0807C04E:
 	adds r0, r7, #0
 	adds r1, r6, #0
 	mov r2, r8
-	bl _DmaFill16
+	bl MemFill16
 	movs r2, #0
 	ldr r3, _0807C0D8 @ =0x000007FF
 	adds r4, r7, #0
@@ -899,7 +899,7 @@ _0807C078:
 	ldr r4, _0807C0B8 @ =0x0000FFFF
 	adds r0, r4, #0
 	adds r1, r6, #0
-	bl _DmaFill16
+	bl MemFill16
 	movs r2, #0
 	ldr r3, _0807C0D8 @ =0x000007FF
 _0807C096:
@@ -948,19 +948,19 @@ sub_0807C0DC: @ 0x0807C0DC
 	lsls r6, r6, #6
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl _DmaZero
+	bl MemClear32
 	adds r0, r5, r6
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _0807C160 @ =gUnk_02019EE0
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _0807C164 @ =gMapDataTopSpecial
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _0807C168 @ =gArea
 	ldr r1, _0807C16C @ =0x0000085C
 	adds r0, r0, r1
@@ -999,7 +999,7 @@ _0807C174: .4byte 0x0000FFFF
 _0807C178:
 	adds r0, r2, #4
 	adds r1, r6, #0
-	bl _DmaZero
+	bl MemClear32
 	movs r3, #1
 	mov sb, r3
 _0807C184:
@@ -1015,13 +1015,13 @@ _0807C184:
 	movs r4, #0x80
 	lsls r4, r4, #6
 	adds r2, r4, #0
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _0807C1B8 @ =gMapDataTop
 	movs r3, #0xc0
 	lsls r3, r3, #6
 	adds r1, r0, r3
 	adds r2, r4, #0
-	bl _DmaCopy
+	bl MemCopy
 	b _0807C26C
 	.align 2, 0
 _0807C1B0: .4byte gScreenTransition
@@ -1040,34 +1040,34 @@ _0807C1BC:
 	adds r0, r4, #0
 	mov r1, r8
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	movs r1, #0xc0
 	lsls r1, r1, #6
 	adds r6, r4, r1
 	adds r0, r6, #0
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	mov r0, r8
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	adds r6, r4, r5
 	adds r0, r6, #0
 	mov r1, r8
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	movs r2, #0x80
 	lsls r2, r2, #7
 	adds r4, r4, r2
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	mov r0, r8
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	ldr r4, _0807C27C @ =gMapDataTop
 	movs r3, #0xb0
 	lsls r3, r3, #8
@@ -1076,34 +1076,34 @@ _0807C1BC:
 	adds r0, r4, #0
 	mov r1, r8
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	movs r0, #0xc0
 	lsls r0, r0, #6
 	adds r6, r4, r0
 	adds r0, r6, #0
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	mov r0, r8
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	adds r6, r4, r5
 	adds r0, r6, #0
 	mov r1, r8
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	movs r1, #0x80
 	lsls r1, r1, #7
 	adds r4, r4, r1
 	adds r0, r4, #0
 	adds r1, r6, #0
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 	mov r0, r8
 	adds r1, r4, #0
 	adds r2, r5, #0
-	bl _DmaCopy
+	bl MemCopy
 _0807C26C:
 	mov r2, sb
 	cmp r2, #0
@@ -1161,25 +1161,25 @@ _0807C2E4:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl _DmaCopy
+	bl MemCopy
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r4, _0807C350 @ =gMapDataTopSpecial
 	adds r5, r4, r6
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl _DmaCopy
+	bl MemCopy
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl _DmaZero
+	bl MemClear32
 _0807C326:
 	mov r1, sb
 	cmp r1, #0
@@ -1406,10 +1406,10 @@ sub_0807C4F8: @ 0x0807C4F8
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _0807C59C @ =gMapDataTopSpecial
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r5, _0807C5A0 @ =gUnk_02022830
 	ldr r0, _0807C5A4 @ =gArea
 	ldr r1, _0807C5A8 @ =0x0000085C
@@ -1449,25 +1449,25 @@ _0807C54A:
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl _DmaCopy
+	bl MemCopy
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r4, _0807C59C @ =gMapDataTopSpecial
 	adds r5, r4, r6
 	adds r0, r4, #0
 	adds r1, r5, #0
 	adds r2, r6, #0
-	bl _DmaCopy
+	bl MemCopy
 	adds r0, r4, #0
 	adds r1, r5, #0
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl _DmaZero
+	bl MemClear32
 _0807C592:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -1694,7 +1694,7 @@ _0807C710:
 _0807C726:
 	adds r0, r4, #0
 	movs r1, #0x40
-	bl _DmaZero
+	bl MemClear32
 	adds r4, #0x40
 	adds r5, #1
 	cmp r5, r7
@@ -1870,13 +1870,13 @@ sub_0807C860: @ 0x0807C860
 	movs r4, #0x80
 	lsls r4, r4, #6
 	adds r2, r4, #0
-	bl _DmaCopy
+	bl MemCopy
 	ldr r0, _0807C894 @ =gMapDataTop
 	movs r2, #0xc0
 	lsls r2, r2, #6
 	adds r1, r0, r2
 	adds r2, r4, #0
-	bl _DmaCopy
+	bl MemCopy
 	pop {r4, pc}
 	.align 2, 0
 _0807C88C: .4byte gScreenTransition
@@ -1984,7 +1984,7 @@ _0807C92E:
 _0807C946:
 	adds r0, r4, #0
 	movs r1, #0x80
-	bl _DmaZero
+	bl MemClear32
 	adds r4, #0x80
 	adds r5, #1
 	cmp r5, r6

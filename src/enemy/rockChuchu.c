@@ -42,7 +42,7 @@ void sub_08022254(Entity* this) {
                 CreateFx(this, 4, 0);
                 ent = CreateEnemy(1, 1);
                 if (ent) {
-                    ent->entityType.parameter = 1;
+                    ent->type2 = 1;
                     ent->hurtBlinkTime = -8;
                     sub_0804A4E4(this, ent);
                     this->action = 2;

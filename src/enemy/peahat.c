@@ -32,7 +32,7 @@ enum {
 };
 
 void Peahat(Entity* this) {
-    if (this->entityType.form == PeahatForm_Torso) {
+    if (this->type == PeahatForm_Torso) {
         EnemyFunctionHandler(this, gPeahatFunctions);
         SetChildOffset(this, 0, 1, -0x10);
     } else {

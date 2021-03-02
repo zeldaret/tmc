@@ -129,7 +129,7 @@ void sub_0805F918(u32 idx, u32 idx2, void* dest) {
     u8* temp;
     u8* temp2;
 
-    _DmaFill32(sub_0805F8F8(idx2), &gUnk_02036AD8, 0xe0);
+    MemFill32(sub_0805F8F8(idx2), &gUnk_02036AD8, 0xe0);
     puVar1 = gUnk_081092AC[idx];
 
     temp = &gUnk_081094CE + idx2 * 0xc0;
@@ -145,7 +145,7 @@ void sub_0805F918(u32 idx, u32 idx2, void* dest) {
             idx3++;
         }
     }
-    LoadAssetAsync((const void*)&gUnk_02036AD8, (u32)dest, 0xe0);
+    LoadResourceAsync((const void*)&gUnk_02036AD8, (u32)dest, 0xe0);
 }
 
 u32 sub_0805F9A0(u32 r0) {

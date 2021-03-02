@@ -20,20 +20,20 @@ extern u8 gUnk_03003DF0[];
 extern u8 gUnk_03003BE0;
 extern Entity* gUnk_03004040[3];
 extern u8 gUnk_020342F8;
-extern u8 gUnk_03003DB8;
-extern void gUnk_030059F0(void);
+extern u8 gHitboxCount;
+extern void gDoCollision(void);
 
 extern void sub_080ADD70();
 extern void sub_0801C25C();
-extern void sub_08016C3C();
-extern void sub_08016DF8();
-extern void sub_0804FF98();
+extern void UpdateDisplayControls();
+extern void LoadResources();
+extern void FadeMain();
 extern u32 sub_0805E3B0();
-extern void sub_08016FF4();
+extern void HandlePlayerLife();
 extern void sub_08070680();
 extern void sub_080171F0();
 extern void sub_08078FB0();
-extern void sub_0800404C();
+extern void DrawEntity();
 extern void sub_0807A050();
 extern u32 sub_08079B24();
 extern void sub_08079708();
@@ -43,7 +43,7 @@ extern void sub_08078180(void);
 extern void sub_0807B0C8(void);
 extern void sub_0807A8D8(Entity*);
 extern void sub_08077FEC(u32);
-extern void sub_080173A4(Entity*);
+extern void ItemInit(Entity*);
 extern void sub_080A2838(Entity*);
 extern u32 ReadBit(void*, u32);
 extern void sub_0806EC78(Entity*);
@@ -89,7 +89,8 @@ typedef struct {
 extern LinkedList2 gUnk_03003C70[16];
 extern LinkedList2* gUnk_02018EA0;
 
-void sub_08016DF8(void) {
+// Load any resources that were requested with LoadResourceAsync
+void LoadResources(void) {
     if (gUnk_03003DE0 != 0) {
         u8* buf = &gUnk_03000C30;
         s32 i = gUnk_03003DE0;
@@ -112,32 +113,31 @@ void sub_08016DF8(void) {
     }
 }
 
-void sub_08016E78(void) {
-    gUnk_03001000.interruptFlag = 0;
+void PrepNextFrame(void) {
+    gMain.interruptFlag = 0;
     VBlankIntrWait();
     do {
-    } while (gUnk_03001000.interruptFlag == 0);
+        // Our VBlankIntr will set this flag
+    } while (gMain.interruptFlag == 0);
 
     sub_080ADD70();
     sub_0801C25C();
-    sub_08016C3C();
-    sub_08016DF8();
+    UpdateDisplayControls();
+    LoadResources();
 
     if (gUnk_02000070) {
         gUnk_02000070 = 0;
-        if (gUnk_02025EB0 != NULL) {
+        if (gUnk_02025EB0 != NULL)
             // sizeof(BGBuffer) = 0x800, what are we omitting?
             DmaCopy32(3, &gBG1Buffer, VRAM + (*gUnk_02025EB0 & 0x1f00) * 8, 0x5C0);
-        }
-        if (gUnk_0200B650 != NULL) {
+        if (gUnk_0200B650 != NULL)
             DmaCopy32(3, &gBG2Buffer, VRAM + (*gUnk_0200B650 & 0x1f00) * 8, 0x5C0);
-        }
     }
-    sub_0804FF98();
+    FadeMain();
 }
 
-void sub_08016F28(Entity* this) {
-    if (gSave.stats.floorType != 0)
+void PlayerUpdate(Entity* this) {
+    if (gSave.stats.effect != 0)
         gPlayerState.flags.all |= 0x4000;
     else
         gPlayerState.flags.all &= ~0x4000;
@@ -147,27 +147,27 @@ void sub_08016F28(Entity* this) {
             sub_08077B20();
             if ((gPlayerState.flags.all & 0x200000) != 0) {
                 gPlayerState.playerAction = 0x18;
-                gPlayerState.flags.all &= 0xfff7ffff;
+                gPlayerState.flags.all &= ~0x80000;
                 gPlayerState.hurtBlinkSpeed = 0xf0;
                 this->flags |= 0x80;
             } else {
-                this->flags &= 0x7f;
+                this->flags &= ~0x80;
                 gPlayerState.field_0xa8 = 0xf;
             }
         }
-        sub_08016FF4(this);
+        HandlePlayerLife(this);
         sub_08070680(this);
-        if ((this->height.WORD == 0) && (this->action == 1 || this->action == 9)) {
+        if ((this->height.WORD == 0) && (this->action == 1 || this->action == 9))
             sub_08008790(this, 8);
-        }
         sub_080171F0();
     }
     sub_08078FB0(this);
-    sub_0800404C(this);
+    DrawEntity(this);
     sub_0807A050();
 }
 
-void sub_08016FF4(Entity* this) {
+// Responsible for some life things like low health beep and initiating the death sequence
+void HandlePlayerLife(Entity* this) {
     u32 temp;
 
     gUnk_0200AF00.filler25[10] = 0;
@@ -175,7 +175,7 @@ void sub_08016FF4(Entity* this) {
     gUnk_0200AF00.filler25[9] = 0;
 
     if ((gPlayerEntity.bitfield & 0x80) && (gPlayerEntity.hurtBlinkTime > 0))
-        PlaySFX(SFX_86);
+        SoundReq(SFX_86);
 
     gPlayerState.flags.all &= ~(0x2000000 | 0x200);
     if (gPlayerState.flags.all & 0x400)
@@ -213,29 +213,28 @@ void sub_08016FF4(Entity* this) {
         }
     }
 
-    if (gSave.stats.filler[2] == 0) {
-        gSave.stats.field_0x1c = 0;
-    } else if ((gSave.stats.field_0x1c == 0) || --gSave.stats.field_0x1c == 0) {
-        gSave.stats.filler[2] = 0;
-        PlaySFX(SFX_ICE_BLOCK_MELT);
+    if (gSave.stats.charm == 0) {
+        gSave.stats.charmTimer = 0;
+    } else if ((gSave.stats.charmTimer == 0) || --gSave.stats.charmTimer == 0) {
+        gSave.stats.charm = 0;
+        SoundReq(SFX_ICE_BLOCK_MELT);
     }
 
-    if (gSave.stats.filler[3] == 0) {
-        gSave.stats.field_0x1e = 0;
-    } else if ((gSave.stats.field_0x1e == 0) || (--gSave.stats.field_0x1e == 0)) {
-        gSave.stats.filler[3] = 0;
-        PlaySFX(SFX_140);
-    } else if ((gSave.stats.field_0x1e & 0xf) == 0) {
+    if (gSave.stats.unkB == 0) {
+        gSave.stats.unkTimer = 0;
+    } else if ((gSave.stats.unkTimer == 0) || (--gSave.stats.unkTimer == 0)) {
+        gSave.stats.unkB = 0;
+        SoundReq(SFX_140);
+    } else if ((gSave.stats.unkTimer & 0xf) == 0) {
         CreateSparkle(this);
     }
 
-    if (gSave.stats.floorType == 0) {
-        gSave.stats.field_0x20 = 0;
-    } else if ((gSave.stats.field_0x20 == 0) || --gSave.stats.field_0x20 == 0) {
-        gSave.stats.floorType = 0;
-    } else if ((gSave.stats.field_0x20 & 0x3f) == 0) {
-        // lava or water splash FX
-        CreateFx(this, 0x55 + gSave.stats.floorType, 0);
+    if (gSave.stats.effect == 0) {
+        gSave.stats.effectTimer = 0;
+    } else if ((gSave.stats.effectTimer == 0) || --gSave.stats.effectTimer == 0) {
+        gSave.stats.effect = 0;
+    } else if ((gSave.stats.effectTimer & 0x3f) == 0) {
+        CreateFx(this, 0x55 + gSave.stats.effect, 0);
     }
 }
 
@@ -249,7 +248,7 @@ void sub_080171F0(void) {
 
     gPlayerEntity.bitfield &= ~0x80;
     if (gPlayerEntity.action != 0x14)
-        gPlayerState.flags.all = (gPlayerState.flags.all & ~0x10000) | (0x8000 * (gPlayerState.flags.all & 2));
+        gPlayerState.flags.all = (gPlayerState.flags.all & ~0x10000) | (0x10000 * (gPlayerState.flags.all & 2) / 2);
 
     gPlayerState.flags.all &= ~2;
     sub_080028E0(&gPlayerEntity);
@@ -264,7 +263,7 @@ void sub_080171F0(void) {
     gPlayerState.field_0x1a[0] = 0;
     gPlayerState.field_0x80 = 0;
     gPlayerState.field_0xaa = 0;
-    _DmaZero(&gUnk_03003BE0, 0x8c);
+    MemClear32(&gUnk_03003BE0, 0x8c);
     gPlayerEntity.spriteOffsetY = gPlayerState.field_0x3f;
     gPlayerState.field_0x3f = 0;
     sub_0807B0C8();
@@ -286,12 +285,12 @@ void sub_080171F0(void) {
     }
 }
 
-void sub_08017338(Entity *this) {
-    if (!(this->flags & 1) && !this->action && !this->previousActionFlag)
-        sub_080173A4(this);
+void ItemUpdate(Entity* this) {
+    if ((this->flags & 1) == 0 && this->action == 0 && this->previousActionFlag == 0)
+        ItemInit(this);
 
     if (!sub_0805E3B0(this)) {
-        gPlayerItemFunctions[this->entityType.subtype](this);
+        gPlayerItemFunctions[this->id](this);
         this->bitfield &= ~0x80;
         if (this->hurtBlinkTime != 0) {
             if (this->hurtBlinkTime > 0)
@@ -300,14 +299,14 @@ void sub_08017338(Entity *this) {
                 this->hurtBlinkTime++;
         }
     }
-    sub_0800404C(this);
+    DrawEntity(this);
 }
 
 // tiny regalloc
-NONMATCH("asm/non_matching/arm_proxy/sub_080173A4.inc", void sub_080173A4(Entity* this)) {
+NONMATCH("asm/non_matching/arm_proxy/ItemInit.inc", void ItemInit(Entity* this)) {
     ItemFrame* entry;
 
-    entry = &gUnk_08126DA8[this->entityType.subtype];
+    entry = &gUnk_08126DA8[this->id];
     if (entry->unk0 == 0xff) {
         u32 temp = entry->unk2;
         ItemFrame* temp2 = gUnk_08126ED8[entry->unk1];
@@ -336,82 +335,75 @@ NONMATCH("asm/non_matching/arm_proxy/sub_080173A4.inc", void sub_080173A4(Entity
 }
 END_NONMATCH
 
-void sub_080174A4(Entity* this) {
+void ObjectUpdate(Entity* this) {
     int iVar1;
-    
-    if (((this->flags & 1) == 0) && (this->action == 0)) {
+
+    if (((this->flags & 1) == 0) && (this->action == 0))
         sub_080A2838(this);
-    }
-    if (this->hurtBlinkTime != 0) {
+    if (this->hurtBlinkTime != 0)
         this->hurtBlinkTime++;
-    }
     if (!sub_0805E3B0(this)) {
-        gObjectFunctions[this->entityType.subtype](this);
+        gObjectFunctions[this->id](this);
         this->bitfield &= ~0x80;
     }
-    sub_0800404C(this);
+    DrawEntity(this);
 }
 
 void sub_08017508(Entity* this) {
     if (!sub_0805E3B0(this))
-        gManagerFunctions[this->entityType.subtype](this);
+        gManagerFunctions[this->id](this);
 }
 
 // regalloc
-NONMATCH("asm/non_matching/arm_proxy/sub_08017530.inc", void sub_08017530(Entity* this)) {
-    if ((this->currentHealth & 0x7f) &&
-       !ReadBit(&gUnk_020342F8, this->currentHealth - 1)) {
+NONMATCH("asm/non_matching/arm_proxy/sub_08017530.inc", void NPCUpdate(Entity* this)) {
+    if ((this->currentHealth & 0x7f) && !ReadBit(&gUnk_020342F8, this->currentHealth - 1))
         DeleteThisEntity();
-    }
-    if ((this->action == 0) && ((this->flags & 1) == 0)) {
+    if ((this->action == 0) && ((this->flags & 1) == 0))
         sub_0806EC78(this);
-    }
-    if (!sub_0805E3B0(this)) {
-        gNPCFunctions[this->entityType.subtype][0](this);
-    }
+    if (!sub_0805E3B0(this))
+        gNPCFunctions[this->id][0](this);
     if (this->next != NULL) {
-        if (gNPCFunctions[this->entityType.subtype][1] != NULL) {
-            gNPCFunctions[this->entityType.subtype][1](this);
-        }
+        if (gNPCFunctions[this->id][1] != NULL)
+            gNPCFunctions[this->id][1](this);
         if ((this->currentHealth & 0x7f) != 0) {
             u32 temp = this->currentHealth & 0x7f;
             gUnk_02031EC0[temp * 2 - 2].x = this->x.HALF.HI - gRoomControls.roomOriginX;
             gUnk_02031EC0[temp * 2 - 2].y = this->y.HALF.HI - gRoomControls.roomOriginY;
         }
-        sub_0800404C(this);
+        DrawEntity(this);
     }
 }
 END_NONMATCH
 
-void sub_080175E8(void) {
-    gUnk_03003DB8 = 0;
+void ClearHitboxList(void) {
+    gHitboxCount = 0;
 }
 
-void sub_080175F4(void) {
+void CollisionMain(void) {
+    void (*doCollision)(void);
     u32 flags;
     u32 temp;
 
-    void (*func)(void);
-    
     temp = gUnk_03003DC0.unk0;
     if (gUnk_03003DC0.unk0 <= gUnk_03003DC0.unk1)
         temp = gUnk_03003DC0.unk1;
     if (temp != 0)
         return;
 
-    func = &gUnk_030059F0;
+    doCollision = &gDoCollision;
+    // Check to see if we should disable collision this frame
     if (gPlayerState.field_0x8b != 0) {
         u32 temp = gPlayerEntity.flags;
-        gPlayerEntity.flags &= 0x7f;
-        func();
-        gPlayerEntity.flags = temp;
+        gPlayerEntity.flags &= ~0x80;
+        doCollision();
+        gPlayerEntity.flags = temp; // reset collision to before
     } else {
-        func();
+        doCollision();
     }
 }
 
-void sub_08017640(void) {
-    _DmaZero(&gUnk_03003C70,0x100);
+void RegisterPlayerHitbox(void) {
+    MemClear32(&gUnk_03003C70, sizeof(gUnk_03003C70));
     gUnk_02018EA0 = (LinkedList2*)&gUnk_03003C70[0].last;
     gUnk_03003C70[0].last = &gUnk_03003C70[0].last;
     gUnk_03003C70[0].first = &gUnk_03003C70[0].last;
@@ -426,7 +418,7 @@ NONMATCH("asm/non_matching/arm_proxy/sub_0801766C.inc", u32 sub_0801766C(Entity*
     LinkedList2* pLVar2;
     LinkedList2* i;
     u8* pbVar4;
-    
+
     if (this->spritePriority.b2 != 0) {
         return 1;
     } else {
@@ -491,7 +483,7 @@ NONMATCH("asm/non_matching/arm_proxy/sub_080176E4.inc", u32 sub_080176E4(Entity*
 END_NONMATCH
 
 // you guessed it
-NONMATCH("asm/non_matching/arm_proxy/sub_08016DF8.inc", void sub_08017744(Entity* this)) {
+NONMATCH("asm/non_matching/arm_proxy/sub_08017744.inc", void sub_08017744(Entity* this)) {
     LinkedList2* i;
     for (i = &gUnk_03003C70[0]; i < &gUnk_03003C70[16]; ++i) {
         if (i->node == this) {
@@ -513,22 +505,24 @@ END_NONMATCH
 NONMATCH("asm/non_matching/arm_proxy/sub_080177A0.inc", bool32 sub_080177A0(Entity* this, Entity* that)) {
     u32 this_d;
     u32 depth;
-    
+
     if ((that->collisionLayer & this->collisionLayer) != 0) {
-        BoundingBox* bb_this = this->boundingBox;
-        BoundingBox* bb_that = that->boundingBox;
+        Hitbox* bb_this = this->hitbox;
+        Hitbox* bb_that = that->hitbox;
         u32 this_w = bb_this->width;
         u32 that_w = bb_that->width;
-        if ((((this->x.HALF.HI - that->x.HALF.HI) + bb_this->offset_x) - bb_that->offset_x) + this_w + that_w <= (this_w + that_w) * 2) {
+        if ((((this->x.HALF.HI - that->x.HALF.HI) + bb_this->offset_x) - bb_that->offset_x) + this_w + that_w <=
+            (this_w + that_w) * 2) {
             u32 this_h = bb_this->height;
             u32 that_h = bb_that->height;
-            if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + this_h + that_h <= (this_h + that_h) * 2) {
+            if ((((this->y.HALF.HI - that->y.HALF.HI) + bb_this->offset_y) - bb_that->offset_y) + this_h + that_h <=
+                (this_h + that_h) * 2) {
                 if ((this->field_0x3c & 0x10) != 0)
-                    this_d = ((BoundingBox3D*)bb_this)->depth;
+                    this_d = ((Hitbox3D*)bb_this)->depth;
                 else
                     this_d = 5;
                 if ((that->field_0x3c & 0x10) != 0)
-                    depth = this_d + ((BoundingBox3D*)bb_that)->depth;
+                    depth = this_d + ((Hitbox3D*)bb_that)->depth;
                 else
                     depth = this_d + 5;
                 if ((this->height.HALF.HI - that->height.HALF.HI) + depth <= depth * 2)

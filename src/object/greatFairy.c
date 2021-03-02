@@ -25,10 +25,10 @@ void GreatFairy(Entity* this) {
     u8 bVar1;
 
     if (this->action == 0) {
-        bVar1 = __modsi3(this->entityType.form, 11);
-        this->entityType.parameter = bVar1;
+        bVar1 = __modsi3(this->type, 11);
+        this->type2 = bVar1;
     }
-    GreatFairy_Main[(this->entityType).parameter](this);
+    GreatFairy_Main[this->type2](this);
 }
 
 // Behaviors
@@ -105,7 +105,7 @@ void GreatFairy_SpawningUpdate(Entity* this) {
         if (mini != NULL) {
             CopyPosition(this, mini);
             DoFade(6, 4);
-            PlaySFX(325);
+            SoundReq(325);
             this->action = 4;
             this->actionDelay = 0x3c;
             var = this->spriteSettings.raw & ~0x3;
@@ -220,7 +220,7 @@ void GreatFairy_MiniRisingUpdate(Entity* this) {
     this->height.WORD -= 0x8000;
     if (this->height.HALF.HI == -20) {
         this->action = 2;
-        PlaySFX(321);
+        SoundReq(321);
     } else {
         if (((this->height.HALF.HI == -10) && (this->field_0xf == 0)) &&
             (target = GreatFairy_CreateForm(this, DROPLET, 0), target != NULL)) {
@@ -289,7 +289,7 @@ void GreatFairy_DropletInit(Entity* this) {
     this->spriteSettings.b.draw = 1;
     this->height.HALF.HI = 0;
     this->spritePriority.b0 = 5;
-    PlaySFX(320);
+    SoundReq(320);
 }
 
 void GreatFairy_DropletUpdate(Entity* this) {
@@ -328,7 +328,7 @@ void GreatFairy_BigRippleInit(Entity* this) {
     this->actionDelay = 120;
     this->spriteSettings.b.draw = 1;
     this->spritePriority.b0 = 5;
-    PlaySFX(249);
+    SoundReq(249);
 }
 
 void GreatFairy_BigRippleUpdate(Entity* this) {
@@ -366,7 +366,7 @@ void GreatFairy_EnergyUpdate(Entity* this) {
 }
 
 void sub_08087114(Entity* this) {
-    if ((this->entityType).parameter == 0) {
+    if (this->type2 == 0) {
         GreatFairy_Form1Behaviors[this->action](this);
     } else {
         GreatFairy_Form2Behaviors[this->action](this);
@@ -485,10 +485,10 @@ void GreatFairy_InitializeAnimation(Entity* this) {
     s32 temp;
 
     this->action = 1;
-    temp = this->entityType.form;
-    this->entityType.parameter = temp % 11;
+    temp = this->type;
+    this->type2 = temp % 11;
     this->collisionLayer = 2;
-    InitializeAnimation(this, this->entityType.parameter);
+    InitializeAnimation(this, this->type2);
     sub_0805E3A0(this, 2);
 }
 
@@ -496,7 +496,7 @@ Entity* GreatFairy_CreateForm(Entity* this, u32 curForm, u32 parameter) {
     s32 nextForm;
     Entity* ent;
 
-    nextForm = this->entityType.form;
+    nextForm = this->type;
     nextForm /= 11;
 
     ent = CreateObject(0x1b, (u8)nextForm * 11 + curForm, parameter);
@@ -520,7 +520,7 @@ void sub_080873D0(Entity* this) {
 void sub_080873FC(void) {
     Entity* ent;
 
-    PlaySFX(0xf7);
+    SoundReq(0xf7);
     gRoomControls.cameraTarget = NULL;
 
     while (ent = FindEntityInListBySubtype(0x6, 0x1b, 0x6), ent != NULL) {

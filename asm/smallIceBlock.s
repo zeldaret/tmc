@@ -256,7 +256,7 @@ _08099364:
 	movs r2, #0
 	bl sub_080A2A3C
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 	b _080993BA
 	.align 2, 0
 _0809939C: .4byte gUnk_08123748
@@ -271,7 +271,7 @@ _080993A0:
 	movs r2, #0
 	bl sub_080A2A3C
 	movs r0, #0x72
-	bl PlaySFX
+	bl SoundReq
 _080993BA:
 	movs r0, #4
 	strb r0, [r4, #0xc]

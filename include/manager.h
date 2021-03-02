@@ -193,5 +193,4 @@ extern void sub_0805E0FC();
 
 void (*const gManagerFunctions[58])();
 
-
 #endif

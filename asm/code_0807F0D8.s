@@ -432,7 +432,7 @@ sub_0807F3C8: @ 0x0807F3C8
 	push {lr}
 	bl sub_0807F36C
 	movs r0, #0xe5
-	bl PlaySFX
+	bl SoundReq
 	pop {pc}
 	.align 2, 0
 
@@ -1598,8 +1598,8 @@ _0807FC32:
 	.align 2, 0
 _0807FC3C: .4byte gRoomControls
 
-	thumb_func_start sub_0807FC40
-sub_0807FC40: @ 0x0807FC40
+	thumb_func_start UpdateScroll
+UpdateScroll: @ 0xUpdateScroll
 	push {lr}
 	ldr r0, _0807FC5C @ =gRoomControls
 	ldrb r2, [r0, #0xf]
@@ -1963,7 +1963,7 @@ sub_0807FEC8: @ 0x0807FEC8
 	ldr r4, _0807FEEC @ =gUnk_03003FC0
 	adds r1, r4, #0
 	movs r2, #0x40
-	bl _DmaFill32
+	bl MemFill32
 	subs r4, #0x40
 	ldr r1, [r5, #0x30]
 	ldrh r0, [r1, #0x2e]
@@ -2256,14 +2256,14 @@ sub_08080108: @ 0x08080108
 	lsls r6, r6, #6
 	adds r0, r5, #0
 	adds r2, r6, #0
-	bl _DmaCopy
+	bl MemCopy
 	ldr r4, _0808017C @ =gMapDataTop
 	movs r0, #0xc0
 	lsls r0, r0, #6
 	adds r1, r4, r0
 	adds r0, r4, #0
 	adds r2, r6, #0
-	bl _DmaCopy
+	bl MemCopy
 	bl sub_08080368
 	ldr r1, _08080180 @ =gUnk_02034480
 	ldr r0, _08080184 @ =gUnk_0200B640
@@ -2273,7 +2273,7 @@ sub_08080108: @ 0x08080108
 	ldr r1, _0808018C @ =gUnk_020246B0
 	movs r2, #0xc0
 	lsls r2, r2, #5
-	bl _DmaCopy
+	bl MemCopy
 	subs r5, #4
 	adds r0, r5, #0
 	bl sub_08080B60
@@ -2934,11 +2934,11 @@ sub_08080668: @ 0x08080668
 	ldr r5, _080806A4 @ =gRoomControls
 	adds r0, r5, #0
 	movs r1, #0x38
-	bl _DmaZero
+	bl MemClear32
 	ldr r4, _080806A8 @ =gUnk_03004030
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080806AC @ =0x0000FFFF
 	strh r0, [r5, #0x22]
 	movs r0, #0xff
@@ -2950,10 +2950,10 @@ sub_08080668: @ 0x08080668
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	ldr r0, _080806B8 @ =gMapDataTopSpecial
 	adds r1, r4, #0
-	bl _DmaZero
+	bl MemClear32
 	pop {r4, r5, pc}
 	.align 2, 0
 _080806A4: .4byte gRoomControls
@@ -3235,7 +3235,7 @@ _0808089A:
 	ldrh r0, [r4, #0x10]
 	cmp r0, #0
 	beq _080808B8
-	bl PlaySFX
+	bl SoundReq
 _080808B8:
 	ldr r0, _080808D4 @ =gUnk_0811E7C4
 	ldrh r1, [r4]
