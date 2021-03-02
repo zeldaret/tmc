@@ -50,7 +50,7 @@ u32 InitSaveData(void);
 
 u32 Write_02000000(struct_02000000*);
 s32 ReadSaveFile(u32, SaveFile*);
-u32 Read_02000000(SaveFile*);
+u32 Read_02000000(struct_02000000*);
 void SetFileStatusDeleted(u32 index);
 
 #endif

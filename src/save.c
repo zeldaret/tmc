@@ -157,18 +157,18 @@ u32 Write_02000000(struct_02000000* arg0) {
 }
 
 u32 sub_0807CF1C(u8* arg0) {
-    return DataDoubleWriteWithStatus(5, (void*)arg0);
+    return DataDoubleWriteWithStatus(5, arg0);
 }
 
 s32 ReadSaveFile(u32 index, SaveFile* saveFile) {
     return DataDoubleReadWithStatus(index, saveFile);
 }
 
-u32 Read_02000000(SaveFile* arg0) {
+u32 Read_02000000(struct_02000000* arg0) {
     return DataDoubleReadWithStatus(3, arg0);
 }
 
-u32 sub_0807CF3C(SaveFile* arg0) {
+u32 sub_0807CF3C(u8* arg0) {
     return DataDoubleReadWithStatus(5, arg0);
 }
 
