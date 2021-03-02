@@ -261,21 +261,20 @@ u32 DataDoubleReadWithStatus(u32 param_1, void* data) {
     return ret;
 }
 
-NONMATCH("asm/non_matching/save/sub_0807D0A0.inc", u32 VerifyChecksum(SaveFileStatus* fileStatus, u16* data, u32 size)) {
-    u32 ret;
-
+u32 VerifyChecksum(SaveFileStatus* fileStatus, u16* data, u32 size) {
+    u32 temp;
     u16 checksum;
 
     checksum = CalculateChecksum((u16*)&fileStatus->status, 4);
     checksum += CalculateChecksum(data, size);
 
-    if ((fileStatus->checksum1 != checksum) || (fileStatus->checksum2 != -(u32)fileStatus->checksum1) ||
+    if ((fileStatus->checksum1 != checksum) ||
+        (temp = fileStatus->checksum1 << 0x10, fileStatus->checksum2 != (-temp >> 0x10)) ||
         (fileStatus->status != 'MCZ3')) {
         return 0;
     } else
         return 1;
 }
-END_NONMATCH
 
 u32 ReadSaveFileStatus(u32 address, SaveFileStatus* fileStatus) {
     u32 ret;
