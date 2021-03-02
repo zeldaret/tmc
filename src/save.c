@@ -1,11 +1,11 @@
 #include "save.h"
 #include "gba/eeprom.h"
 
-typedef struct Thing {
-    u16 unk_1;
-    u16 unk_2;
-    u32 unk_3;
-} Thing;
+typedef struct Checksum {
+    u16 checksum1;
+    u16 checksum2;
+    u32 status;
+} Checksum;
 
 typedef struct {
     u16 size;
@@ -21,8 +21,8 @@ static SaveResult HandleSaveDone(u32);
 
 const SaveFileEEPROMAddresses* GetSaveFileEEPROMAddresses(u32);
 u32 sub_0807D008(u32, SaveFile*);
-u32 sub_0807D0A0(Thing*, u16*, u32);
-u32 sub_0807D128(const Thing*);
+u32 sub_0807D0A0(Checksum*, u16*, u32);
+u32 sub_0807D128(const Checksum*);
 u16 sub_0807D1A4(u16*, u32);
 
 u32 sub_0807D0EC(u32 address, char* data);
@@ -191,7 +191,7 @@ void sub_0807CF68(u32 arg0) {
 }
 
 u32 sub_0807CF88(u32 arg0, u8* arg1) {
-    Thing thing;
+    Checksum checksum;
 
     u32 retval;
     const SaveFileEEPROMAddresses* eepromAddresses;
@@ -200,18 +200,18 @@ u32 sub_0807CF88(u32 arg0, u8* arg1) {
 
     eepromAddresses = GetSaveFileEEPROMAddresses(arg0);
 
-    thing.unk_3 = 'MCZ3';
-    l1prep = sub_0807D1A4((u16*)&thing.unk_3, 4);
+    checksum.status = 'MCZ3';
+    l1prep = sub_0807D1A4((u16*)&checksum.status, 4);
     l1prep += sub_0807D1A4((u16*)arg1, eepromAddresses->size);
-    thing.unk_1 = l1prep;
-    thing.unk_2 = -(u32)l1prep;
+    checksum.checksum1 = l1prep;
+    checksum.checksum2 = -(u32)l1prep;
     e0 = DataWrite(eepromAddresses->address1, (const char*)arg1, eepromAddresses->size);
     if (e0) {
-        e0 = sub_0807D184(eepromAddresses->checksum1, (const char*)&thing.unk_1);
+        e0 = sub_0807D184(eepromAddresses->checksum1, (const char*)&checksum.checksum1);
     }
     e1 = DataWrite(eepromAddresses->address2, (const char*)arg1, eepromAddresses->size);
     if (e1) {
-        e1 = sub_0807D184(eepromAddresses->checksum2, (const char*)&thing.unk_1);
+        e1 = sub_0807D184(eepromAddresses->checksum2, (const char*)&checksum.checksum1);
     }
 
     retval = 0;
@@ -223,7 +223,7 @@ u32 sub_0807CF88(u32 arg0, u8* arg1) {
 
 u32 sub_0807D008(u32 param_1, SaveFile* saveFile) {
     vu32 set_0;
-    Thing auStack32;
+    Checksum checksum;
 
     const SaveFileEEPROMAddresses* eepromAddresses;
     u32 t1;
@@ -232,19 +232,19 @@ u32 sub_0807D008(u32 param_1, SaveFile* saveFile) {
     u32 temp;
 
     eepromAddresses = GetSaveFileEEPROMAddresses(param_1);
-    t1 = sub_0807D0EC(eepromAddresses->checksum1, (char*)&auStack32);
+    t1 = sub_0807D0EC(eepromAddresses->checksum1, (char*)&checksum);
     if (t1 == 2) {
         if ((DataRead(eepromAddresses->address1, (char*)saveFile, eepromAddresses->size) == 0) ||
-            (sub_0807D0A0(&auStack32, (u16*)saveFile, (u32)eepromAddresses->size) == 0)) {
+            (sub_0807D0A0(&checksum, (u16*)saveFile, (u32)eepromAddresses->size) == 0)) {
             t1 = 0;
         } else {
             return 1;
         }
     }
-    t2 = sub_0807D0EC(eepromAddresses->checksum2, (char*)&auStack32);
+    t2 = sub_0807D0EC(eepromAddresses->checksum2, (char*)&checksum);
     if (t2 == 2) {
         if ((DataRead(eepromAddresses->address2, (char*)saveFile, eepromAddresses->size) != 0) &&
-            (sub_0807D0A0(&auStack32, (u16*)saveFile, (u32)eepromAddresses->size) != 0)) {
+            (sub_0807D0A0(&checksum, (u16*)saveFile, (u32)eepromAddresses->size) != 0)) {
             return 1;
         }
         t2 = 0;
@@ -259,19 +259,19 @@ u32 sub_0807D008(u32 param_1, SaveFile* saveFile) {
     return ret;
 }
 
-NONMATCH("asm/non_matching/save/sub_0807D0A0.inc", u32 sub_0807D0A0(Thing* unk_1, u16* unk_2, u32 unk_3)) {
+NONMATCH("asm/non_matching/save/sub_0807D0A0.inc", u32 sub_0807D0A0(Checksum* unk_1, u16* unk_2, u32 unk_3)) {
     u32 r0;
 
     u16 u0;
 
-    u0 = sub_0807D1A4((u16*)&unk_1->unk_3, 4);
+    u0 = sub_0807D1A4((u16*)&unk_1->status, 4);
     u0 = u0 + sub_0807D1A4(unk_2, unk_3);
 
-    if (unk_1->unk_1 != u0) {
+    if (unk_1->checksum1 != u0) {
         r0 = 0;
     } else {
-        if (unk_1->unk_2 == -unk_1->unk_1) {
-            if (unk_1->unk_3 != 'MCZ3') {
+        if (unk_1->checksum2 == -unk_1->checksum1) {
+            if (unk_1->status != 'MCZ3') {
                 r0 = 0;
             } else {
                 r0 = 1;
@@ -290,19 +290,19 @@ u32 sub_0807D0EC(u32 address, char* data) {
     if (!DataRead(address, data, 8)) {
         ret = 0;
     } else {
-        ret = sub_0807D128((Thing*)data);
+        ret = sub_0807D128((Checksum*)data);
     }
     if (!ret && DataRead(address + 8, data, 8)) {
-        ret = sub_0807D128((Thing*)data);
+        ret = sub_0807D128((Checksum*)data);
     }
     return ret;
 }
 
-u32 sub_0807D128(const Thing* thing) {
+u32 sub_0807D128(const Checksum* checksum) {
     u32 ret;
-    switch (thing->unk_3) {
+    switch (checksum->status) {
         case 'MCZ3':
-            if (thing->unk_1 + thing->unk_2 == 0x10000) {
+            if (checksum->checksum1 + checksum->checksum2 == 0x10000) {
                 ret = 2;
             } else {
                 ret = 0;
@@ -311,7 +311,7 @@ u32 sub_0807D128(const Thing* thing) {
         case 'FleD':
         case 'TINI':
             ret = 0;
-            if ((thing->unk_1 & thing->unk_2) == 0xffff) {
+            if ((checksum->checksum1 & checksum->checksum2) == 0xffff) {
                 ret = 1;
             }
             break;
