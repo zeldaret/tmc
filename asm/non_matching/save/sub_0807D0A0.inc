@@ -9,13 +9,13 @@
 	adds r6, r2, #0
 	adds r0, r7, #4
 	movs r1, #4
-	bl sub_0807D1A4
+	bl CalculateChecksum
 	adds r4, r0, #0
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl sub_0807D1A4
+	bl CalculateChecksum
 	adds r4, r4, r0
 	lsls r4, r4, #0x10
 	lsrs r4, r4, #0x10

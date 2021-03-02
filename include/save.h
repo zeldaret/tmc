@@ -46,7 +46,10 @@ typedef struct {
 
 extern SaveFile gSave;
 
+u32 InitSaveData(void);
+
 s32 sub_0807CF28(u32, SaveFile*);
 u32 sub_0807CF30(SaveFile*);
+void SetFileStatusDeleted(u32 index);
 
 #endif

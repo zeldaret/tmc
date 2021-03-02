@@ -26,7 +26,7 @@ void MainLoop(void) {
     sub_08055F70();
     InitSound();
     InitDMA();
-    sub_0807CE90();
+    InitSaveData();
     sub_080560B8();
     sub_08056208();
     gUnk_02000010.field_0x4 = 193;

@@ -234,7 +234,7 @@ static void sub_08050624(u32 idx) {
     int status = sub_0807CF28(idx, saveFile);
     switch (status) {
         case SAVE_DELETED:
-            sub_0807CF48(idx);
+            SetFileStatusDeleted(idx);
             // fallthrough
         case SAVE_EMPTY:
             sub_0805194C(idx);
