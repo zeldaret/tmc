@@ -118,7 +118,7 @@ void sub_080521A0(void) {
             gMenu.transitionTimer--;
             break;
         case 2:
-            temp3 = sub_0807CDA4(0);
+            temp3 = HandleSave(0);
             gMenu.field_0x0 = temp3;
             switch (temp3) {
                 case 1:

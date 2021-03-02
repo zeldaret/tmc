@@ -21,7 +21,7 @@ typedef enum {
     SAVE_DONE,
 } SaveState;
 
-extern SaveResult sub_0807CDA4(SaveState state);
+extern SaveResult HandleSave(u32 arg0);
 
 typedef struct {
     /*0x000*/ u8 filler0[0x2];

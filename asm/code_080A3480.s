@@ -807,7 +807,7 @@ _080A3A9A:
 _080A3AB4: .4byte gMenu
 _080A3AB8:
 	movs r0, #0
-	bl sub_0807CDA4
+	bl HandleSave
 	adds r1, r0, #0
 	ldr r4, _080A3AD8 @ =gMenu
 	strb r1, [r4]

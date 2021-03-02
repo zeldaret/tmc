@@ -697,7 +697,7 @@ void sub_08050DE4(void) {
 }
 
 void sub_08050E88(void) {
-    if (sub_0807CDA4(2))
+    if (HandleSave(2))
         SetFileSelectState(0);
 }
 
@@ -792,7 +792,7 @@ NONMATCH("asm/non_matching/fileScreen/sub_08050EF4.inc", void sub_08050EF4(void)
 END_NONMATCH
 
 void sub_08050FFC(void) {
-    switch (sub_0807CDA4(0)) {
+    switch (HandleSave(0)) {
         case SAVE_ERROR:
             gMenu.transitionTimer = 0x1e;
             sub_0805194C(gUnk_02019EE0.unk6);
@@ -856,7 +856,7 @@ void sub_080513A8(void) {
 }
 
 void sub_080513C0(void) {
-    switch (sub_0807CDA4(0)) {
+    switch (HandleSave(0)) {
         case 1:
             gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk6] = 1;
             sub_080A7114(3);
@@ -1046,7 +1046,7 @@ void sub_080515D4(void) {
 }
 
 void sub_080516E0(void) {
-    if (sub_0807CDA4(1)) {
+    if (HandleSave(1)) {
         sub_0805194C(gUnk_02019EE0.unk6);
         sub_08050AFC(gUnk_02019EE0.unk6);
         gMenu.transitionTimer = 2;
@@ -1142,7 +1142,7 @@ void sub_080517EC(void) {
 void sub_08051874(void) {
     s32 temp;
     gUnk_02000000->saveFileId = gUnk_02019EE0.unk7;
-    temp = sub_0807CDA4(0);
+    temp = HandleSave(0);
     gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk7] = temp;
     switch (temp) {
         case 1:

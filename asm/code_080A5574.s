@@ -631,7 +631,7 @@ _080A5A52:
 sub_080A5A54: @ 0x080A5A54
 	push {lr}
 	movs r0, #0
-	bl sub_0807CDA4
+	bl HandleSave
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080A5A8A

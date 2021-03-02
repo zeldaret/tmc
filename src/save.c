@@ -1,11 +1,11 @@
 #include "save.h"
 #include "gba/eeprom.h"
 
-typedef struct Checksum {
+typedef struct SaveFileStatus {
     u16 checksum1;
     u16 checksum2;
     u32 status;
-} Checksum;
+} SaveFileStatus;
 
 typedef struct {
     u16 size;
@@ -21,12 +21,12 @@ static SaveResult HandleSaveDone(u32);
 
 const SaveFileEEPROMAddresses* GetSaveFileEEPROMAddresses(u32);
 u32 sub_0807D008(u32, SaveFile*);
-u32 sub_0807D0A0(Checksum*, u16*, u32);
-u32 sub_0807D128(const Checksum*);
+u32 sub_0807D0A0(SaveFileStatus*, u16*, u32);
 u16 sub_0807D1A4(u16*, u32);
 
-u32 sub_0807D0EC(u32 address, char* data);
-u32 sub_0807D184(u32 address, const u8* data);
+u32 ReadSaveFileStatus(u32 address, SaveFileStatus* fileStatus);
+u32 ParseSaveFileStatus(const SaveFileStatus* fileStatus);
+u32 WriteSaveFileStatus(u32 address, const SaveFileStatus* fileStatus);
 
 u32 DataRead(u32 address, void* data, u32 size);
 u32 DataWrite(u32 address, const void* data, u32 size);
@@ -63,7 +63,7 @@ void sub_0807CD9C() {
     sub_080530C8();
 }
 
-SaveResult sub_0807CDA4(u32 arg0) {
+SaveResult HandleSave(u32 arg0) {
     return sSaveHandlers[gMenu.storyPanelIndex](arg0);
 }
 
@@ -122,7 +122,6 @@ SaveResult HandleSaveDone(u32 arg0) {
 
 u32 sub_0807CE90(void) {
     const SaveFileEEPROMAddresses* eepromAddresses;
-    int iVar2;
     int iVar3;
 
     EEPROMConfigure(0x40);
@@ -176,8 +175,8 @@ void sub_0807CF48(u32 arg0) {
     const SaveFileEEPROMAddresses* eepromAddresses;
 
     eepromAddresses = GetSaveFileEEPROMAddresses(arg0);
-    sub_0807D184(eepromAddresses->checksum2, sSaveDescDeleted);
-    sub_0807D184(eepromAddresses->checksum1, sSaveDescDeleted);
+    WriteSaveFileStatus(eepromAddresses->checksum2, (const SaveFileStatus*)sSaveDescDeleted);
+    WriteSaveFileStatus(eepromAddresses->checksum1, (const SaveFileStatus*)sSaveDescDeleted);
 }
 
 void sub_0807CF68(u32 arg0) {
@@ -186,44 +185,44 @@ void sub_0807CF68(u32 arg0) {
 
     eepromAddresses = GetSaveFileEEPROMAddresses(arg0);
     str = sSaveDescInit;
-    sub_0807D184(eepromAddresses->checksum2, str);
-    sub_0807D184(eepromAddresses->checksum1, str);
+    WriteSaveFileStatus(eepromAddresses->checksum2, (const SaveFileStatus*)str);
+    WriteSaveFileStatus(eepromAddresses->checksum1, (const SaveFileStatus*)str);
 }
 
 u32 sub_0807CF88(u32 arg0, u8* arg1) {
-    Checksum checksum;
+    SaveFileStatus fileStatus;
 
-    u32 retval;
+    u32 ret;
     const SaveFileEEPROMAddresses* eepromAddresses;
-    u32 e0, e1;
-    u16 l1prep;
+    bool32 write1success, write2success;
+    u16 checksum;
 
     eepromAddresses = GetSaveFileEEPROMAddresses(arg0);
 
-    checksum.status = 'MCZ3';
-    l1prep = sub_0807D1A4((u16*)&checksum.status, 4);
-    l1prep += sub_0807D1A4((u16*)arg1, eepromAddresses->size);
-    checksum.checksum1 = l1prep;
-    checksum.checksum2 = -(u32)l1prep;
-    e0 = DataWrite(eepromAddresses->address1, (const char*)arg1, eepromAddresses->size);
-    if (e0) {
-        e0 = sub_0807D184(eepromAddresses->checksum1, (const char*)&checksum.checksum1);
+    fileStatus.status = 'MCZ3';
+    checksum = sub_0807D1A4((u16*)&fileStatus.status, 4);
+    checksum += sub_0807D1A4((u16*)arg1, eepromAddresses->size);
+    fileStatus.checksum1 = checksum;
+    fileStatus.checksum2 = -(u32)checksum;
+    write1success = DataWrite(eepromAddresses->address1, arg1, eepromAddresses->size);
+    if (write1success) {
+        write1success = WriteSaveFileStatus(eepromAddresses->checksum1, (const SaveFileStatus*)&fileStatus.checksum1);
     }
-    e1 = DataWrite(eepromAddresses->address2, (const char*)arg1, eepromAddresses->size);
-    if (e1) {
-        e1 = sub_0807D184(eepromAddresses->checksum2, (const char*)&checksum.checksum1);
+    write2success = DataWrite(eepromAddresses->address2, arg1, eepromAddresses->size);
+    if (write2success) {
+        write2success = WriteSaveFileStatus(eepromAddresses->checksum2, (const SaveFileStatus*)&fileStatus.checksum1);
     }
 
-    retval = 0;
-    if (e0 || e1) {
-        retval = 1;
+    ret = 0;
+    if (write1success || write2success) {
+        ret = 1;
     }
-    return retval;
+    return ret;
 }
 
 u32 sub_0807D008(u32 param_1, SaveFile* saveFile) {
     vu32 set_0;
-    Checksum checksum;
+    SaveFileStatus fileStatus;
 
     const SaveFileEEPROMAddresses* eepromAddresses;
     u32 t1;
@@ -232,19 +231,19 @@ u32 sub_0807D008(u32 param_1, SaveFile* saveFile) {
     u32 temp;
 
     eepromAddresses = GetSaveFileEEPROMAddresses(param_1);
-    t1 = sub_0807D0EC(eepromAddresses->checksum1, (char*)&checksum);
+    t1 = ReadSaveFileStatus(eepromAddresses->checksum1, &fileStatus);
     if (t1 == 2) {
         if ((DataRead(eepromAddresses->address1, (char*)saveFile, eepromAddresses->size) == 0) ||
-            (sub_0807D0A0(&checksum, (u16*)saveFile, (u32)eepromAddresses->size) == 0)) {
+            (sub_0807D0A0(&fileStatus, (u16*)saveFile, (u32)eepromAddresses->size) == 0)) {
             t1 = 0;
         } else {
             return 1;
         }
     }
-    t2 = sub_0807D0EC(eepromAddresses->checksum2, (char*)&checksum);
+    t2 = ReadSaveFileStatus(eepromAddresses->checksum2, &fileStatus);
     if (t2 == 2) {
         if ((DataRead(eepromAddresses->address2, (char*)saveFile, eepromAddresses->size) != 0) &&
-            (sub_0807D0A0(&checksum, (u16*)saveFile, (u32)eepromAddresses->size) != 0)) {
+            (sub_0807D0A0(&fileStatus, (u16*)saveFile, (u32)eepromAddresses->size) != 0)) {
             return 1;
         }
         t2 = 0;
@@ -259,7 +258,7 @@ u32 sub_0807D008(u32 param_1, SaveFile* saveFile) {
     return ret;
 }
 
-NONMATCH("asm/non_matching/save/sub_0807D0A0.inc", u32 sub_0807D0A0(Checksum* unk_1, u16* unk_2, u32 unk_3)) {
+NONMATCH("asm/non_matching/save/sub_0807D0A0.inc", u32 sub_0807D0A0(SaveFileStatus* unk_1, u16* unk_2, u32 unk_3)) {
     u32 r0;
 
     u16 u0;
@@ -284,25 +283,32 @@ NONMATCH("asm/non_matching/save/sub_0807D0A0.inc", u32 sub_0807D0A0(Checksum* un
 }
 END_NONMATCH
 
-u32 sub_0807D0EC(u32 address, char* data) {
+u32 ReadSaveFileStatus(u32 address, SaveFileStatus* fileStatus) {
     u32 ret;
 
-    if (!DataRead(address, data, 8)) {
+    if (!DataRead(address, fileStatus, 8)) {
         ret = 0;
     } else {
-        ret = sub_0807D128((Checksum*)data);
+        ret = ParseSaveFileStatus(fileStatus);
     }
-    if (!ret && DataRead(address + 8, data, 8)) {
-        ret = sub_0807D128((Checksum*)data);
+    if (!ret && DataRead(address + 8, fileStatus, 8)) {
+        ret = ParseSaveFileStatus(fileStatus);
     }
     return ret;
 }
 
-u32 sub_0807D128(const Checksum* checksum) {
+/**
+ * 2 for valid existing file
+ * 1 for valid empty file
+ * 0 for bad file
+ * @param fileStatus
+ * @return
+ */
+u32 ParseSaveFileStatus(const SaveFileStatus* fileStatus) {
     u32 ret;
-    switch (checksum->status) {
+    switch (fileStatus->status) {
         case 'MCZ3':
-            if (checksum->checksum1 + checksum->checksum2 == 0x10000) {
+            if (fileStatus->checksum1 + fileStatus->checksum2 == 0x10000) {
                 ret = 2;
             } else {
                 ret = 0;
@@ -311,7 +317,7 @@ u32 sub_0807D128(const Checksum* checksum) {
         case 'FleD':
         case 'TINI':
             ret = 0;
-            if ((checksum->checksum1 & checksum->checksum2) == 0xffff) {
+            if ((fileStatus->checksum1 & fileStatus->checksum2) == 0xffff) {
                 ret = 1;
             }
             break;
@@ -322,14 +328,14 @@ u32 sub_0807D128(const Checksum* checksum) {
     return ret;
 }
 
-u32 sub_0807D184(u32 address, const u8* data) {
-    u32 uVar1;
+bool32 WriteSaveFileStatus(u32 address, const struct SaveFileStatus* fileStatus) {
+    bool32 success;
 
-    uVar1 = DataWrite(address, data, 8);
-    if (uVar1 == 0) {
-        uVar1 = DataWrite(address + 8, data, 8);
+    success = DataWrite(address, fileStatus, 8);
+    if (!success) {
+        success = DataWrite(address + 8, fileStatus, 8);
     }
-    return uVar1;
+    return success;
 }
 
 u16 sub_0807D1A4(u16* unk_1, u32 unk_2) {
@@ -348,6 +354,13 @@ const SaveFileEEPROMAddresses* GetSaveFileEEPROMAddresses(u32 unk_1) {
     return &gSaveFileEEPROMAddresses[unk_1];
 }
 
+/**
+ * read arbitrary data from EEPROM
+ * @param address EEPROM address
+ * @param data buffer to read into
+ * @param size size in bytes to read
+ * @return TRUE on success
+ */
 bool32 DataRead(u32 address, void* data, u32 size) {
     size /= 8;
     address /= 8;
@@ -360,6 +373,13 @@ bool32 DataRead(u32 address, void* data, u32 size) {
     return TRUE;
 }
 
+/**
+ * write arbitrary data to EEPROM
+ * @param address EEPROM address
+ * @param data buffer to write from
+ * @param size size in bytes to write
+ * @return TRUE on success
+ */
 bool32 DataWrite(u32 address, const void* data, u32 size) {
     size /= 8;
     address /= 8;
@@ -374,6 +394,13 @@ bool32 DataWrite(u32 address, const void* data, u32 size) {
     return TRUE;
 }
 
+/**
+ * compare arbitrary data with EEPROM
+ * @param address EEPROM address
+ * @param data buffer to compare to
+ * @param size size in bytes to compare
+ * @return TRUE on success
+ */
 bool32 DataCompare(u32 address, const void* data, u32 size) {
     size /= 8;
     address /= 8;
