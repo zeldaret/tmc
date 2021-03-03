@@ -27,15 +27,6 @@ typedef struct {
 extern struct_02000040 gUnk_02000040;
 
 typedef struct {
-    u16 field_0x0;
-    u16 field_0x2;
-    u16 field_0x4;
-    u16 field_0x6;
-    u16 field_0x8;
-    u16 field_0xa;
-} struct_0807D1C4;
-
-typedef struct {
     s32 signature;
     u8 field_0x4;
     u8 listenForKeyPresses;

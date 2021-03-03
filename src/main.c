@@ -26,7 +26,7 @@ void MainLoop(void) {
     sub_08055F70();
     InitSound();
     InitDMA();
-    sub_0807CE90();
+    InitSaveData();
     sub_080560B8();
     sub_08056208();
     gUnk_02000010.field_0x4 = 193;
@@ -165,7 +165,7 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", void sub_080560B8(void)) {
     u32 b;
 
     if (!sub_08056134()) {
-        switch ((s32)sub_0807CF30((void*)0x2000000)) {
+        switch ((s32)Read_02000000((void*)0x2000000)) {
             case 1:
                 if (sub_08056134())
                     break;
@@ -173,7 +173,7 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", void sub_080560B8(void)) {
             case -1:
             default:
                 MemCopy(&sDefaultSettings, (void*)0x2000000, 16);
-                sub_0807CF10((u8*)0x2000000);
+                Write_02000000(gUnk_02000000);
                 break;
         }
     }

@@ -80,7 +80,6 @@ extern UI gUnk_02032EC0;
 void InitScreen();
 
 extern void InitSound(void);
-extern void sub_0807CE90(void);
 extern void sub_080560B8(void);
 extern void sub_08056208(void);
 extern void sub_0804FFE4(void);

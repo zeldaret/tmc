@@ -12,7 +12,7 @@
 	bne _080560F8
 	movs r0, #0x80
 	lsls r0, r0, #0x12
-	bl sub_0807CF30
+	bl Read_02000000
 	adds r1, r0, #0
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -33,7 +33,7 @@ _080560E4:
 	movs r2, #0x10
 	bl MemCopy
 	adds r0, r4, #0
-	bl sub_0807CF10
+	bl Write_02000000
 _080560F8:
 	ldr r2, _0805612C @ =gUnk_02000010
 	ldr r1, [r2]

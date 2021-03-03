@@ -21,7 +21,7 @@ typedef enum {
     SAVE_DONE,
 } SaveState;
 
-extern SaveResult sub_0807CDA4(SaveState state);
+extern SaveResult HandleSave(u32 arg0);
 
 typedef struct {
     /*0x000*/ u8 filler0[0x2];
@@ -46,7 +46,11 @@ typedef struct {
 
 extern SaveFile gSave;
 
-s32 sub_0807CF28(u32, SaveFile*);
-u32 sub_0807CF30(SaveFile*);
+u32 InitSaveData(void);
+
+u32 Write_02000000(struct_02000000*);
+s32 ReadSaveFile(u32, SaveFile*);
+u32 Read_02000000(struct_02000000*);
+void SetFileStatusDeleted(u32 index);
 
 #endif
