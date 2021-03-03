@@ -213,7 +213,6 @@ extern void sub_0807CF48(u32);
 extern u32 sub_0807CF10(u8*);
 extern void sub_08056208(void);
 extern void sub_08050384();
-extern void sub_080B1520(u32);
 extern struct_0807D1C4* sub_0807D1C4(u32);
 extern u32 sub_0807D24C(u32, const char*, u32);
 extern void sub_0807CF68(u32);

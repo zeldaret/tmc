@@ -148,7 +148,7 @@ SECTIONS {
         . = 0x000369F0; gUnk_020369F0 = .;
         . = 0x00036A38; gUnk_02036A38 = .;
         . = 0x00036A40; gUnk_02036A40 = .;
-        . = 0x00036A50; gUnk_02036A50 = .;
+        . = 0x00036A50; gEEPROMConfig = .;
         . = 0x00036A58; gUnk_02036A58 = .;
         . = 0x00036AD8; gUnk_02036AD8 = .;
         . = 0x00036BB8; gUnk_02036BB8 = .;
@@ -900,7 +900,7 @@ SECTIONS {
         asm/m4a_asm.o(.text);
         asm/m4a.o(.text);
         asm/libagbsyscall.o(.text);
-        asm/code_080B1520.o(.text);
+        src/eeprom.o(.text);
         *libc.a:memcpy.o(.text);
 
         /* handwritten assembly in arm mode */
@@ -1033,6 +1033,7 @@ SECTIONS {
         data/strings.o(.rodata);
         data/sprite_table.o(.rodata);
         data/data_089FC6C4.o(.rodata);
+        src/eeprom.o(.rodata);
     } >rom
 
     /* DWARF 2 sections */

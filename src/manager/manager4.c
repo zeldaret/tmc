@@ -67,7 +67,7 @@ void sub_08057A18(Manager*, DiggingCaveEntrance*);
 u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
     u16 offsetX, offsetY, offsetX2, offsetY2;
     u32 tmp;
-    if (gUnk_03004030.unk_08) {
+    if (gUnk_03004030.address_width) {
         offsetX = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
         offsetY = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
         offsetX2 = (entr->unk_00 & 0x3F) * 16 + 8;

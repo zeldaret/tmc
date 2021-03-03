@@ -14,7 +14,7 @@ _0807D1E6:
 	lsls r0, r5, #0x10
 	lsrs r0, r0, #0x10
 	adds r1, r6, #0
-	bl sub_080B15E8
+	bl EEPROMRead
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	beq _0807D1FA
