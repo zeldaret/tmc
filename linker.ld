@@ -112,7 +112,7 @@ SECTIONS {
         . = 0x00032EC0; gUnk_02032EC0 = .;
         . = 0x00032EDC; gUnk_02032EDC = .;
         . = 0x00032F14; gUnk_02032F14 = .;
-        . = 0x00033280; gUnk_02033280 = .;
+        . = 0x00033280; gActiveScriptInfo = .;
         . = 0x00033290; gUnk_02033290 = .;
         . = 0x00033A90; gArea = .;
         . = 0x00033AB8; gUnk_02033AB8 = .;

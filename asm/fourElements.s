@@ -114,7 +114,7 @@ _080A028C: .4byte gUnk_0800A0B4
 sub_080A0290: @ 0x080A0290
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r5, _080A02BC @ =gUnk_02033280
+	ldr r5, _080A02BC @ =gActiveScriptInfo
 	ldr r0, [r5]
 	movs r1, #4
 	ands r0, r1
@@ -133,7 +133,7 @@ sub_080A0290: @ 0x080A0290
 	strh r0, [r4, #0x36]
 	b _080A02CA
 	.align 2, 0
-_080A02BC: .4byte gUnk_02033280
+_080A02BC: .4byte gActiveScriptInfo
 _080A02C0:
 	movs r1, #2
 	strb r1, [r4, #0xc]

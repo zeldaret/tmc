@@ -875,7 +875,7 @@ _08054F60: .4byte 0x00004074
 sub_08054F64: @ 0x08054F64
 	push {lr}
 	ldrb r0, [r0, #0xb]
-	ldr r3, _08054F7C @ =gUnk_02033280
+	ldr r3, _08054F7C @ =gActiveScriptInfo
 	ldr r2, [r3]
 	adds r1, r2, #0
 	ands r1, r0
@@ -885,7 +885,7 @@ sub_08054F64: @ 0x08054F64
 	strb r0, [r3, #6]
 	b _08054F8C
 	.align 2, 0
-_08054F7C: .4byte gUnk_02033280
+_08054F7C: .4byte gActiveScriptInfo
 _08054F80:
 	bics r2, r1
 	str r2, [r3]

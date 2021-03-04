@@ -392,7 +392,7 @@ _0806E1C0:
 	ldr r1, _0806E1D8 @ =gScreenTransition
 	ldrh r0, [r4]
 	strh r0, [r1, #6]
-	ldr r2, _0806E1DC @ =gUnk_02033280
+	ldr r2, _0806E1DC @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -401,7 +401,7 @@ _0806E1C0:
 	.align 2, 0
 _0806E1D4: .4byte 0x0000421C
 _0806E1D8: .4byte gScreenTransition
-_0806E1DC: .4byte gUnk_02033280
+_0806E1DC: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0806E1E0
 sub_0806E1E0: @ 0x0806E1E0
@@ -476,11 +476,11 @@ sub_0806E250: @ 0x0806E250
 	movs r0, #1
 	str r0, [r4, #0x14]
 _0806E266:
-	ldr r2, _0806E274 @ =gUnk_02033280
+	ldr r2, _0806E274 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
 	strb r0, [r2, #7]
 	pop {r4, pc}
 	.align 2, 0
-_0806E274: .4byte gUnk_02033280
+_0806E274: .4byte gActiveScriptInfo

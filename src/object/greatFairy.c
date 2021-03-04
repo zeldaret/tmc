@@ -170,7 +170,7 @@ void GreatFairy_WingsUpdate(Entity* this) {
         this->action = 2;
         sub_0805EC60(this);
         gRoomVars.greatFairyState |= 32;
-        gUnk_02033280.unk_00 |= 4;
+        gActiveScriptInfo.unk_00 |= 4;
     } else {
         sub_0805EC9C(this, this->nonPlanarMovement, 256, 0);
     }

@@ -730,7 +730,7 @@ _08082E44:
 	rsbs r0, r0, #0
 	cmp r1, r0
 	ble _08082E5E
-	ldr r0, _08082E68 @ =gUnk_02033280
+	ldr r0, _08082E68 @ =gActiveScriptInfo
 	ldr r1, [r0]
 	movs r2, #2
 	orrs r1, r2
@@ -741,7 +741,7 @@ _08082E5E:
 	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
 	.align 2, 0
-_08082E68: .4byte gUnk_02033280
+_08082E68: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_08082E6C
 sub_08082E6C: @ 0x08082E6C

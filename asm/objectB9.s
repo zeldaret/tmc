@@ -193,7 +193,7 @@ _080A132E:
 	.align 2, 0
 _080A136C: .4byte gPlayerState
 _080A1370:
-	ldr r1, _080A1384 @ =gUnk_02033280
+	ldr r1, _080A1384 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _080A1376:
@@ -204,7 +204,7 @@ _080A1376:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080A1384: .4byte gUnk_02033280
+_080A1384: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_080A1388
 sub_080A1388: @ 0x080A1388

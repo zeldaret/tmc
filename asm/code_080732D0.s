@@ -3874,7 +3874,7 @@ sub_08074F8C: @ 0x08074F8C
 	bne _08074FAC
 	movs r0, #0
 	strb r0, [r3]
-	ldr r2, _08074FDC @ =gUnk_02033280
+	ldr r2, _08074FDC @ =gActiveScriptInfo
 	ldr r0, [r2]
 	movs r1, #4
 	orrs r0, r1
@@ -3904,7 +3904,7 @@ _08074FAC:
 	lsls r0, r0, #3
 	b _08074FE8
 	.align 2, 0
-_08074FDC: .4byte gUnk_02033280
+_08074FDC: .4byte gActiveScriptInfo
 _08074FE0: .4byte gPlayerState
 _08074FE4:
 	movs r0, #0x80
@@ -4310,13 +4310,13 @@ _080752D0:
 	cmp r0, #0
 	beq _080752E2
 _080752DC:
-	ldr r1, _080752E4 @ =gUnk_02033280
+	ldr r1, _080752E4 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _080752E2:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080752E4: .4byte gUnk_02033280
+_080752E4: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_080752E8
 sub_080752E8: @ 0x080752E8

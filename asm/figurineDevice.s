@@ -1386,7 +1386,7 @@ _0808863E:
 	movs r0, #0
 	str r0, [r4, #0x14]
 _08088642:
-	ldr r2, _08088654 @ =gUnk_02033280
+	ldr r2, _08088654 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -1394,7 +1394,7 @@ _08088642:
 	pop {r4, pc}
 	.align 2, 0
 _08088650: .4byte gPlayerEntity
-_08088654: .4byte gUnk_02033280
+_08088654: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_08088658
 sub_08088658: @ 0x08088658
@@ -1414,7 +1414,7 @@ sub_08088658: @ 0x08088658
 	movs r0, #0
 	str r0, [r4, #0x14]
 _08088678:
-	ldr r2, _08088688 @ =gUnk_02033280
+	ldr r2, _08088688 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -1422,4 +1422,4 @@ _08088678:
 	pop {r4, pc}
 	.align 2, 0
 _08088684: .4byte gPlayerEntity
-_08088688: .4byte gUnk_02033280
+_08088688: .4byte gActiveScriptInfo

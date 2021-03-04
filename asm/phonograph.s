@@ -214,7 +214,7 @@ _0806EA86:
 	strh r1, [r0]
 	strh r1, [r6]
 _0806EAA4:
-	ldr r1, _0806EAB8 @ =gUnk_02033280
+	ldr r1, _0806EAB8 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0806EAAA:
@@ -224,7 +224,7 @@ _0806EAAA:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0806EAB4: .4byte 0x80010000
-_0806EAB8: .4byte gUnk_02033280
+_0806EAB8: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0806EABC
 sub_0806EABC: @ 0x0806EABC

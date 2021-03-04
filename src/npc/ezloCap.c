@@ -172,7 +172,7 @@ void sub_0806DAAC(Entity* this, u32* param_2) {
     u32 uVar1;
     uVar1 = CheckKinstoneFused(sub_0806DA3C(this));
     param_2[5] = uVar1;
-    gUnk_02033280.unk_07 |= 1;
+    gActiveScriptInfo.flags |= 1;
 }
 
 // maybe actually execute the kinstone fusion?

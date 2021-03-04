@@ -127,12 +127,12 @@ sub_08094B0C: @ 0x08094B0C
 	.align 2, 0
 _08094B2C: .4byte 0x0000FFE0
 _08094B30:
-	ldr r0, _08094B38 @ =gUnk_02033280
+	ldr r0, _08094B38 @ =gActiveScriptInfo
 	strb r3, [r0, #6]
 _08094B34:
 	pop {pc}
 	.align 2, 0
-_08094B38: .4byte gUnk_02033280
+_08094B38: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_08094B3C
 sub_08094B3C: @ 0x08094B3C
@@ -155,13 +155,13 @@ sub_08094B3C: @ 0x08094B3C
 	.align 2, 0
 _08094B5C: .4byte 0x0000FFF3
 _08094B60:
-	ldr r1, _08094B68 @ =gUnk_02033280
+	ldr r1, _08094B68 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _08094B66:
 	pop {pc}
 	.align 2, 0
-_08094B68: .4byte gUnk_02033280
+_08094B68: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_08094B6C
 sub_08094B6C: @ 0x08094B6C
@@ -2005,7 +2005,7 @@ _080959AC: .4byte gUnk_08122AF8
 _080959B0: .4byte 0x0000FFFD
 _080959B4: .4byte gUnk_08012C48
 _080959B8:
-	ldr r0, _080959C8 @ =gUnk_02033280
+	ldr r0, _080959C8 @ =gActiveScriptInfo
 	ldr r1, [r0]
 	movs r2, #0x80
 	lsls r2, r2, #1
@@ -2014,7 +2014,7 @@ _080959B8:
 _080959C4:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080959C8: .4byte gUnk_02033280
+_080959C8: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_080959CC
 sub_080959CC: @ 0x080959CC
@@ -2550,7 +2550,7 @@ _08095DB8:
 sub_08095DBC: @ 0x08095DBC
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r5, _08095DF0 @ =gUnk_02033280
+	ldr r5, _08095DF0 @ =gActiveScriptInfo
 	ldr r0, [r5]
 	movs r1, #0x10
 	ands r0, r1
@@ -2574,7 +2574,7 @@ _08095DE6:
 	bl sub_0807DDAC
 	b _08095E74
 	.align 2, 0
-_08095DF0: .4byte gUnk_02033280
+_08095DF0: .4byte gActiveScriptInfo
 _08095DF4:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0

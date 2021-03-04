@@ -635,14 +635,14 @@ sub_080654FC: @ 0x080654FC
 	ands r0, r1
 	cmp r0, #0
 	beq _08065518
-	ldr r1, _08065514 @ =gUnk_02033280
+	ldr r1, _08065514 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 	b _08065522
 	.align 2, 0
-_08065514: .4byte gUnk_02033280
+_08065514: .4byte gActiveScriptInfo
 _08065518:
-	ldr r2, _08065524 @ =gUnk_02033280
+	ldr r2, _08065524 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -650,7 +650,7 @@ _08065518:
 _08065522:
 	pop {pc}
 	.align 2, 0
-_08065524: .4byte gUnk_02033280
+_08065524: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_08065528
 sub_08065528: @ 0x08065528

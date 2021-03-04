@@ -241,7 +241,7 @@ void sub_08061E90(Entity* this, Entity* arg1) {
         arg1->spriteIndex = 1;
     }
     if (--arg1->spriteIndex != 0) {
-        gUnk_02033280.unk_06 = 0;
+        gActiveScriptInfo.commandSize = 0;
     }
 }
 

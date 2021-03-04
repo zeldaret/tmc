@@ -950,11 +950,11 @@ sub_0809E0D4: @ 0x0809E0D4
 	ldrb r0, [r1, #0xc]
 	cmp r0, #1
 	bhi _0809E0FE
-	ldr r0, _0809E0F8 @ =gUnk_02033280
+	ldr r0, _0809E0F8 @ =gActiveScriptInfo
 	strb r2, [r0, #6]
 	b _0809E1BC
 	.align 2, 0
-_0809E0F8: .4byte gUnk_02033280
+_0809E0F8: .4byte gActiveScriptInfo
 _0809E0FC:
 	ldr r1, _0809E124 @ =gPlayerEntity
 _0809E0FE:
@@ -971,13 +971,13 @@ _0809E0FE:
 	bl sub_0807DEDC
 	ldr r0, _0809E128 @ =0x00000123
 	bl SoundReq
-	ldr r0, _0809E12C @ =gUnk_02033280
+	ldr r0, _0809E12C @ =gActiveScriptInfo
 	strb r4, [r0, #6]
 	b _0809E1BC
 	.align 2, 0
 _0809E124: .4byte gPlayerEntity
 _0809E128: .4byte 0x00000123
-_0809E12C: .4byte gUnk_02033280
+_0809E12C: .4byte gActiveScriptInfo
 _0809E130:
 	ldr r1, [r5, #0x54]
 	cmp r1, #0
@@ -1047,7 +1047,7 @@ _0809E170:
 	bl SoundReq
 	b _0809E1BC
 _0809E1B6:
-	ldr r1, _0809E1C4 @ =gUnk_02033280
+	ldr r1, _0809E1C4 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0809E1BC:
@@ -1055,7 +1055,7 @@ _0809E1BC:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0809E1C4: .4byte gUnk_02033280
+_0809E1C4: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0809E1C8
 sub_0809E1C8: @ 0x0809E1C8

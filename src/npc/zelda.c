@@ -164,12 +164,12 @@ void sub_08066E80(Entity* ent, u8* param_2) {
         case 4:
             UpdateAnimationSingleFrame(ent);
             if (ent->frames.b.f3) {
-                gUnk_02033280.unk_07 |= 1;
+                gActiveScriptInfo.flags |= 1;
                 return;
             }
     }
     ent->field_0x80.HWORD = ent->animIndex;
-    gUnk_02033280.unk_06 = 0;
+    gActiveScriptInfo.commandSize = 0;
 }
 
 void sub_08066F94(void) {

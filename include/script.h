@@ -3,12 +3,12 @@
 
 #include "global.h"
 
-typedef struct {
-    u16* unk_00;
+typedef struct ScriptExecutionContext {
+    u16* scriptInstructionPointer;
     u32 unk_04;
     u32 unk_08;
     u8 unk_0C[0x4]; // unused
-    u16 unk_10;
+    u16 wait;
     u16 unk_12;
     u32 unk_14;
     u8 unk_18;

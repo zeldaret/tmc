@@ -207,7 +207,7 @@ void sub_08060700(Entity* entity, ScriptExecutionContext* context) {
     u32 x = coords->x + gRoomControls.roomOriginX;
     u32 y = coords->y + gRoomControls.roomOriginY;
     sub_0807DEDC(entity, context, x, y);
-    gUnk_02033280.unk_07 |= 1;
+    gActiveScriptInfo.flags |= 1;
 }
 
 void sub_0806075C(Entity* this) {
