@@ -295,6 +295,7 @@ SECTIONS {
         asm/code_080043E8.o(.text);
         data/data_08007DF4.o(.rodata);
         asm/code_0800857C.o(.text);
+        data/scripts/ezlo_angry.o(.rodata);
         src/scripts/ezlo_angry.o(.rodata);
         asm/code_08012AB0.o(.text);
         src/scripts/npc4e_fusion.o(.rodata);
