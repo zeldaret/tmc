@@ -128,6 +128,7 @@ void sub_08066E68(Entity* ent) {
     ent->field_0x80.HWORD = ent->animIndex;
 }
 
+// TODO param_2 possibly ScriptExecutionContext?
 void sub_08066E80(Entity* ent, u8* param_2) {
     switch (param_2[0x18]) {
         case 0:
@@ -164,7 +165,7 @@ void sub_08066E80(Entity* ent, u8* param_2) {
         case 4:
             UpdateAnimationSingleFrame(ent);
             if (ent->frames.b.f3) {
-                gUnk_02033280.unk_07 |= 1;
+                gUnk_02033280.continueScriptExecutionFlags |= 1;
                 return;
             }
     }
