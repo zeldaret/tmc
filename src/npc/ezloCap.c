@@ -52,7 +52,7 @@ typedef struct {
     u8 unk_20[2];
     u16 field_22;
 } paramStruct;
-
+// This is a ScriptExecutionContext TODO
 void sub_0806D8A0(Entity* this, paramStruct* param_2) {
     s32 xOffset;
     s32 yOffset;

@@ -295,8 +295,10 @@ SECTIONS {
         asm/code_080043E8.o(.text);
         data/data_08007DF4.o(.rodata);
         asm/code_0800857C.o(.text);
+        src/scripts/ezlo_angry.o(.rodata);
+        asm/code_08012AB0.o(.text);
         src/scripts/npc4e_fusion.o(.rodata);
-        asm/code_rest.o(.text);
+        asm/code_0801606C.o(.text);
         asm/sub_08016AE4.o(.text);
 
 

@@ -647,6 +647,7 @@ void sub_0807E014(Entity* unk1, ScriptExecutionContext* unk2) {
     gUnk_02033280.continueScriptExecutionFlags &= ~2;
 }
 
+// Jump by offset
 void sub_0807E024(Entity* unk1, ScriptExecutionContext* unk2) {
     s16 tmp;
     // get metadata -> tmp
@@ -677,6 +678,7 @@ void sub_0807E078(Entity* unk1, ScriptExecutionContext* unk2) {
     }
 }
 
+// repoint the execution somewhere else
 void sub_0807E0A0(Entity* unk1, ScriptExecutionContext* unk2) {
     unk2->unk_00.raw = (u16*)GetNextScriptCommandWordAfterCommandMetadata(unk2->unk_00.raw);
     gUnk_02033280.unk_06 = 0;
@@ -1483,10 +1485,12 @@ void sub_0807EF3C(Entity* unk1, ScriptExecutionContext* unk2) {
     gUnk_02033280.unk_06 = 0;
 }
 
+// set one bit in unk_08
 void sub_0807EF80(Entity* unk1, ScriptExecutionContext* unk2) {
     unk2->unk_08 |= 1 << unk2->unk_00.raw[1];
 }
 
+// set one bit in unk_08
 void sub_0807EF90(Entity* unk1, ScriptExecutionContext* unk2) {
     unk2->unk_08 |= 1 << unk2->unk_00.raw[1];
 }
