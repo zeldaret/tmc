@@ -627,7 +627,7 @@ SECTIONS {
         src/npc/mayorHagen.o(.text);
         src/npc/bigGoron.o(.text);
         asm/bigGoron.o(.text);
-        src/ezloCap.o(.text);
+        src/npc/ezloCap.o(.text);
         asm/npc4E.o(.text);
         src/npc/clothesRack.o(.text);
         asm/clothesRack.o(.text);
@@ -1014,6 +1014,8 @@ SECTIONS {
         src/manager/manager27.o(.rodata);
         src/manager/manager28.o(.rodata);
         data/data_08108D30.o(.rodata);
+        src/npc/ezloCap.o(.rodata);
+        data/data_08114208.o(.rodata);
         src/item.o(.rodata);
         data/data_0811BD44.o(.rodata);
         data/room_headers.o(.rodata);
