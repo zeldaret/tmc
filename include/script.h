@@ -10,7 +10,7 @@ typedef struct ScriptExecutionContext {
     u8 unk_0C[0x4]; // unused
     u16 wait;
     u16 unk_12;
-    u32 unk_14;
+    u32 condition;
     u8 unk_18;
     u8 unk_19;
     u8 unk_1A;
