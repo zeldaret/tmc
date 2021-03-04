@@ -119,15 +119,11 @@ typedef struct {
 
 extern struct_02024490 gUnk_02024490;
 
-
-// Some kind of ScriptInterpreter state?
 typedef struct {
     u32 unk_00;
-    u16 operationId;
+    u16 unk_04;
     u8 unk_06;
-    // bit 0 is reset before each script execution
-    // execution is continued if bit 0 or bit 1 are true, so bit 1 can be set to execute until someone unsets bit 1
-    u8 continueScriptExecutionFlags;
+    u8 unk_07;
     u8 unk_08;
 } struct_02033280;
 

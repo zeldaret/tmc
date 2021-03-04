@@ -52,7 +52,7 @@ typedef struct {
     u8 unk_20[2];
     u16 field_22;
 } paramStruct;
-// This is a ScriptExecutionContext TODO
+
 void sub_0806D8A0(Entity* this, paramStruct* param_2) {
     s32 xOffset;
     s32 yOffset;
@@ -172,7 +172,7 @@ void sub_0806DAAC(Entity* this, u32* param_2) {
     u32 uVar1;
     uVar1 = CheckKinstoneFused(sub_0806DA3C(this));
     param_2[5] = uVar1;
-    gUnk_02033280.continueScriptExecutionFlags |= 1;
+    gUnk_02033280.unk_07 |= 1;
 }
 
 // maybe actually execute the kinstone fusion?

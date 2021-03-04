@@ -3,24 +3,14 @@
 
 #include "global.h"
 
-typedef struct 
-{
-    u16 command;
-    u16 metadata;
-} ScriptCommand;
-
-
 typedef struct {
-    union {
-        u16* raw;
-        ScriptCommand* commands; // list of commands to execute
-    } unk_00;
+    u16* unk_00;
     u32 unk_04;
     u32 unk_08;
     u8 unk_0C[0x4]; // unused
     u16 unk_10;
     u16 unk_12;
-    u32 compareResult; // result of a compare script command
+    u32 unk_14;
     u8 unk_18;
     u8 unk_19;
     u8 unk_1A;

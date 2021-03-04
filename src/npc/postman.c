@@ -201,13 +201,13 @@ void sub_080606D8(Entity* this) {
     ShowNPCDialogue(this, &gUnk_0810AA30[index]);
 }
 
-void sub_08060700(Entity* this, ScriptExecutionContext* context) {
-    s8* var0 = gUnk_0810A918[(s8)this->field_0x68.HALF.LO];
-    Coords16* coords = &gUnk_0810A66C[var0[(s8)this->field_0x68.HALF.HI]];
+void sub_08060700(Entity* entity, ScriptExecutionContext* context) {
+    s8* var0 = gUnk_0810A918[(s8)entity->field_0x68.HALF.LO];
+    Coords16* coords = &gUnk_0810A66C[var0[(s8)entity->field_0x68.HALF.HI]];
     u32 x = coords->x + gRoomControls.roomOriginX;
     u32 y = coords->y + gRoomControls.roomOriginY;
-    sub_0807DEDC(this, context, x, y);
-    gUnk_02033280.continueScriptExecutionFlags |= 1;
+    sub_0807DEDC(entity, context, x, y);
+    gUnk_02033280.unk_07 |= 1;
 }
 
 void sub_0806075C(Entity* this) {
