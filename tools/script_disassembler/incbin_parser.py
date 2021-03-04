@@ -3,6 +3,7 @@
 TMC_FOLDER='../..'
 
 import subprocess
+import sys
 from script_disassembler import disassemble_script
 
 def main():
@@ -32,8 +33,12 @@ def main():
                     # read data from rom
                     data = baserom_data[start:start+end]
 
-                    print(f'DISASM {label}')
-                    disassemble_script(data)
+                    stdout = sys.stdout
+                    with open(f'{TMC_FOLDER}/data/scripts/{label}.inc','w') as out:
+                        sys.stdout = out
+                        print(f'SCRIPT_START {label}')
+                        disassemble_script(data)
+                    sys.stdout = stdout
 
                     # print new include label
                     print(f'.include "data/scripts/{label}.inc"')

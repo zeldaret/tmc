@@ -26,6 +26,11 @@ def barray_to_u32_hex(barray):
     integers = struct.unpack('I'*count, barray)
     return [u32_to_hex(x) for x in integers]
 
+# tries to directly reference the function this is pointing to
+def get_pointer(barray):
+    integers = struct.unpack('I', barray)
+    return 'sub_' + (struct.pack('>I', integers[0]-1).hex()).upper()
+
 commands = [
     {'fun': 'nullsub_507', 'params': ''},
     {'fun': 'sub_0807E004', 'params': '', 'name': 'start executing scripts'},
@@ -38,14 +43,14 @@ commands = [
     {'fun': 'sub_0807E0B8', 'params': 'w', 'name': 'abs jump if'},
     {'fun': 'sub_0807E0CC', 'params': 'w', 'name': 'abs jump if not'},
     {'fun': 'sub_0807E0E0', 'params': 'w'},
-    {'fun': 'sub_0807E10C', 'params':'w', 'name': 'Execute function via pointer'},# 'exec': sub_0807E10C},
-    {'fun': 'sub_0807E124', 'params': 'ww'},
+    {'fun': 'sub_0807E10C', 'params':'p', 'name': 'Execute function via pointer'},# 'exec': sub_0807E10C},
+    {'fun': 'sub_0807E124', 'params': 'pw'},
     {'fun': 'sub_0807E148', 'params': 'w'},
     {'fun': 'sub_0807E158', 'params': 'w'},
     {'fun': 'sub_0807E188', 'params': 's'},
     {'fun': 'sub_0807E1D8', 'params': 's'},
     {'fun': 'sub_0807E4AC', 'params': 's'},
-    {'fun': 'sub_0807E200', 'params': 'w'},
+    {'fun': 'sub_0807E200', 'params': 's'},
     {'fun': 'sub_0807E220', 'params': 'ss'},
     {'fun': 'sub_0807E240', 'params': 's'},
     {'fun': 'sub_0807E260', 'params': 's'},
@@ -83,7 +88,7 @@ commands = [
     {'fun': 'sub_0807E700', 'params': ''},
     {'fun': 'sub_0807E72C', 'params': ''},
     {'fun': 'sub_0807E75C', 'params': ''},
-    {'fun': 'sub_0807E778', 'params': ''},
+    {'fun': 'sub_0807E778', 'params': 's'},
     {'fun': 'sub_0807E788', 'params': 'w'},
     {'fun': 'sub_0807E79C', 'params': ''},
     {'fun': 'nullsub_508', 'params': 's'},
@@ -146,7 +151,7 @@ commands = [
     {'fun': 'sub_0807EE04', 'params': 'ss'},
     {'fun': 'sub_0807EE30', 'params': ''},
     {'fun': 'sub_0807EEB4', 'params': ''},
-    {'fun': 'sub_0807EEF4', 'params': ''},
+    {'fun': 'sub_0807EEF4', 'params': 'ss'},
     {'fun': 'sub_0807EF3C', 'params': 'ss'},
     {'fun': 'sub_0807EF80', 'params': 's'},
     {'fun': 'sub_0807EF90', 'params': 's'},
@@ -205,13 +210,29 @@ parameters = {
         'param': 'a,b,c',
         'expr': '	.short \\a\n	.short \\b\n	.short \\c',
         'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr+2:ctx.ptr+8]))
+    },    
+    'p': {
+        'length': 2,
+        'param': 'w',
+        'expr': '	.word \w',
+        'read': lambda ctx: get_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6])
+    },
+    'pw': {
+        'length': 4,
+        'param': 'a,b',
+        'expr': '	.word \\a\n	.word \\b',
+        'read': lambda ctx: get_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6]) + ', ' + barray_to_u32_hex(ctx.data[ctx.ptr+6:ctx.ptr+10])[0]
     },
 }
 
 
 def ExecuteScriptCommandSet(ctx: Context):
     cmd = struct.unpack('H', ctx.data[ctx.ptr:ctx.ptr+2])[0]
-    if cmd == 0 or cmd ==0xffff:
+    if cmd == 0:
+        return 0
+    if cmd == 0xffff:
+        ctx.ptr += 2
+        print('SCRIPT_END')
         return 0
 
     unk_06 = cmd >> 0xA
@@ -220,7 +241,6 @@ def ExecuteScriptCommandSet(ctx: Context):
         return 0
     operationId = cmd & 0x3FF
     if operationId >= len(commands):
-        print('ERR: NO CMD')
         # TODO error
         return 0
     command = commands[operationId]
@@ -240,12 +260,13 @@ def ExecuteScriptCommandSet(ctx: Context):
         raise Exception('Parameter configuration ' + command['params'] + ' not defined')
     params = parameters[command['params']]
     if unk_06-1 != params['length']:
-        # TODOraise Exception(f'Call {command["fun"]} with ' + str(unk_06-1) +' length, while length of ' + str(params['length'])+' defined')
+        # raise Exception(f'Call {command["fun"]} with ' + str(unk_06-1) +' length, while length of ' + str(params['length'])+' defined')
+        return 0
+        #with open('log.txt', 'a') as log:
+#            log.write(f'Call {command["fun"]} with ' + str(unk_06-1) +' length, while length of ' + str(params['length'])+' defined\n')
         # TEMPORARY WORKAROUND:
-        print(ctx.ptr, unk_06, cmd)
-        ctx.ptr += unk_06*2
-        return 1
-
+        #ctx.ptr += unk_06*2
+        #return 1
 
     print(command['fun'] + ' ' + params['read'](ctx))
 
@@ -291,8 +312,7 @@ def generate_macros():
     print('')
     for num, command in enumerate(commands):
         if not 'params' in command:
-            #raise Exception('Parameters not defined for ' + command['fun'] + '   Should be of length ' + str(param_length))
-            continue # TODO
+            raise Exception('Parameters not defined for ' + command['fun'] + '!')
         if not command['params'] in parameters:
             raise Exception('Parameter configuration ' + command['params'] + ' not defined')
 
