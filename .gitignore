@@ -62,7 +62,6 @@ types_*.taghl
 !calcrom.pl
 !sound/programmable_wave_samples/*.pcm
 _Deparsed_XSubs.pm
-*.py
 *.sna
 __pycache__
 .vscode/settings.json

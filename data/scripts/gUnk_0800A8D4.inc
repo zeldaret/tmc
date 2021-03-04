@@ -1,14 +1,14 @@
-sub_0807E004 
-sub_0807EF80 0x0007
-sub_0807EB44 0x0004
-sub_0807E930 0x0008
-sub_0807E014 
-sub_0807E690 0x00000001
-sub_0807EF80 0x0000
-sub_0807E6AC 0x00000020
-sub_0807EF80 0x0004
-sub_0807E680 0x003c
-sub_0807EB44 0x0002
-sub_0807E680 0x000f
+ScriptCommand_StartScript 
+ScriptCommand_0807EF80 0x0007
+ScriptCommand_0807EB44 0x0004
+ScriptCommand_0807E930 0x0008
+ScriptCommand_StopScript 
+ScriptCommand_WaitForSomething 0x00000001
+ScriptCommand_0807EF80 0x0000
+ScriptCommand_WaitForSomething2 0x00000020
+ScriptCommand_0807EF80 0x0004
+ScriptCommand_Wait 0x003c
+ScriptCommand_0807EB44 0x0002
+ScriptCommand_Wait 0x000f
 .short 0x0861
 .short 0x0006
