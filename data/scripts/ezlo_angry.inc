@@ -1,5 +1,3 @@
-.include "asm/macros/script.inc"
-
 SCRIPT_START gUnk_080126FC
 sub_0807E004
 sub_0807EBC0 0x0040

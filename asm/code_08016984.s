@@ -4,68 +4,6 @@
 	.syntax unified
 
 	.text
-gUnk_0801606C:: @ 0801606C
-	.incbin "baserom.gba", 0x01606C, 0x000003C
-
-gUnk_080160A8:: @ 080160A8
-	.incbin "baserom.gba", 0x0160A8, 0x0000042
-
-gUnk_080160EA:: @ 080160EA
-	.incbin "baserom.gba", 0x0160EA, 0x0000052
-
-gUnk_0801613C:: @ 0801613C
-	.incbin "baserom.gba", 0x01613C, 0x0000054
-
-gUnk_08016190:: @ 08016190
-	.incbin "baserom.gba", 0x016190, 0x0000058
-
-gUnk_080161E8:: @ 080161E8
-	.incbin "baserom.gba", 0x0161E8, 0x0000174
-
-gUnk_0801635C:: @ 0801635C
-	.incbin "baserom.gba", 0x01635C, 0x0000021
-
-gUnk_0801637D:: @ 0801637D
-	.incbin "baserom.gba", 0x01637D, 0x0000007
-
-gUnk_08016384:: @ 08016384
-	.incbin "baserom.gba", 0x016384, 0x0000084
-
-gUnk_08016408:: @ 08016408
-	.incbin "baserom.gba", 0x016408, 0x00001F0
-
-gUnk_080165F8:: @ 080165F8
-	.incbin "baserom.gba", 0x0165F8, 0x0000014
-
-gUnk_0801660C:: @ 0801660C
-	.incbin "baserom.gba", 0x01660C, 0x000001C
-
-gUnk_08016628:: @ 08016628
-	.incbin "baserom.gba", 0x016628, 0x000001C
-
-gUnk_08016644:: @ 08016644
-	.incbin "baserom.gba", 0x016644, 0x0000028
-
-gUnk_0801666C:: @ 0801666C
-	.incbin "baserom.gba", 0x01666C, 0x000004C
-
-gUnk_080166B8:: @ 080166B8
-	.incbin "baserom.gba", 0x0166B8, 0x0000044
-
-gUnk_080166FC:: @ 080166FC
-	.incbin "baserom.gba", 0x0166FC, 0x000009C
-
-gUnk_08016798:: @ 08016798
-	.incbin "baserom.gba", 0x016798, 0x00000AC
-
-gUnk_08016844:: @ 08016844
-	.incbin "baserom.gba", 0x016844, 0x000009C
-
-gUnk_080168E0:: @ 080168E0
-	.incbin "baserom.gba", 0x0168E0, 0x0000014
-
-gUnk_080168F4:: @ 080168F4
-	.incbin "baserom.gba", 0x0168F4, 0x0000090
 
 gUnk_08016984:: @ 08016984
 	.incbin "baserom.gba", 0x016984, 0x0000002
