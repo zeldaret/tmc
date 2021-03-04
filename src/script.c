@@ -981,6 +981,7 @@ void sub_0807E674(Entity* unk1, ScriptExecutionContext* unk2) {
     ClearRoomFlag(unk2->unk_00.raw[1]);
 }
 
+// set unk2->unk_10 to meta
 void sub_0807E680(Entity* unk1, ScriptExecutionContext* unk2) {
     unk2->unk_10 = GetNextScriptCommandHalfwordAfterCommandMetadata(unk2->unk_00.raw);
 }
@@ -1293,6 +1294,7 @@ void sub_0807EBB0(Entity* unk1, ScriptExecutionContext* unk2) {
     unk1->animationState = unk1->direction / 4;
 }
 
+// set nonPlanarMovement
 void sub_0807EBC0(Entity* unk1, ScriptExecutionContext* unk2) {
     unk1->nonPlanarMovement = unk2->unk_00.raw[1];
 }
