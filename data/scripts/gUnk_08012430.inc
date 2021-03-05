@@ -32,18 +32,18 @@ _0807E864
 Call 0x0807f9a5
 Call 0x0807df29
 StartPlayerScript 0x08012ab0
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1101
 .short 0x0007
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 CameraTargetPlayer 
 _0807E778 0x0004
 _0807E80C 0x00000000
 WaitFor_2 
-_0807E858
+.short 0x0842 @ _0807E858 with 1 parameters
 .short 0x0000
-@ End of 1 parameters
+@ End of parameters
 Call 0x080791bd
 LoadRoomEntityList 0x080f4d70
 Call 0x0805ebcd
@@ -153,12 +153,12 @@ Wait 0x003c
 SoundReq2 0xffff
 Call 0x08054571
 SetGlobalFlag 0x0014
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf6f9
 .short 0x0807
 .short 0x0008
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Call 0x0807df51
 _0807E878 
 _0807EF80 0x0006

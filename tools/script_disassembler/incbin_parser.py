@@ -9,7 +9,10 @@ from script_disassembler import disassemble_script, generate_macros
 ROM_OFFSET=0x08000000
 SCRIPTS_START=0x08008B5C
 SCRIPTS_END=0x08016984
-# cat data/scripts.s  | grep @ | cut -d " " -f 3 | sed  -e 's/^/0x/' | sed -e 's/\\n/, /g' > labels.txt
+
+# Create labels for these additional script instructions
+# Currently done by splitting the script at that point
+LABEL_BREAKS=[ 0x0800B41C, 0x08012F0C, 0x080142B0, 0x08014A80]
 
 def read_baserom():
     # read baserom data
@@ -33,9 +36,13 @@ def main():
 
 	.text
     
-    '''
+'''
 
     while script_start < SCRIPTS_END-ROM_OFFSET:
+        if len(LABEL_BREAKS) > 0 and script_start+ROM_OFFSET >=LABEL_BREAKS[0]:
+            print(f'{hex(script_start+ROM_OFFSET)} > {LABEL_BREAKS[0]}')
+            LABEL_BREAKS.pop(0)
+
         label = get_label(script_start+ROM_OFFSET)
         print(f"Disassembling \033[1;34m{label}\033[0m ({script_start} / { SCRIPTS_END-ROM_OFFSET} bytes converted)...")
         # find end of the script signified by 0xffff0000
@@ -44,7 +51,10 @@ def main():
         if script_end > SCRIPTS_END-ROM_OFFSET:
             script_end = SCRIPTS_END-ROM_OFFSET
 
-        script_start+ROM_OFFSET
+        if len(LABEL_BREAKS) > 0 and script_end+ROM_OFFSET > LABEL_BREAKS[0]:
+            print(f'break at {hex(LABEL_BREAKS[0])} instead of {hex(script_end)}')
+            script_end = LABEL_BREAKS[0]-ROM_OFFSET
+
         # read data from rom
         data = baserom_data[script_start:script_end]
 

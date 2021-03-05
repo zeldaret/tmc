@@ -45,19 +45,19 @@ _0807EA94
 Call 0x0806ba35
 JumpIfNot 0x0066
 _0807EA94 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xbb1d
 .short 0x0806
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Call 0x0807f2d5
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xbb1d
 .short 0x0806
 .short 0x0001
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Call 0x0806bb7d
 JumpIfNot 0x0048
 TextboxNoOverlap 0x490c

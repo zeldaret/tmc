@@ -26,11 +26,11 @@ _0807E5F8 0x00000010
 Wait 0x0002
 _0807E5F8 0x00000020
 Wait 0x0078
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xda1d
 .short 0x0806
 .short 0x000c
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 _0807EF80 0x0006
 SCRIPT_END

@@ -9,10 +9,10 @@ Call 0x0807df39
 Wait 0x0010
 CheckLocalFlag 0x0093
 JumpIf 0x0092
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x4215
 .short 0x000c
-@ End of 2 parameters
+@ End of parameters
 _0807E878 
 TestBit 0x00000001
 JumpIf 0x002c
@@ -24,10 +24,10 @@ _0807E864
 _0807E930 0x0008
 Wait 0x0020
 _0807E930 0x0002
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x4215
 .short 0x000c
-@ End of 2 parameters
+@ End of parameters
 _0807E878 
 Jump 0xffce
 _0807E930 0x0008
@@ -50,10 +50,10 @@ _0807E864
 _0807E930 0x0008
 Wait 0x0020
 _0807E930 0x0002
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x4216
 .short 0x000c
-@ End of 2 parameters
+@ End of parameters
 _0807E878 
 Jump 0xffce
 _0807E930 0x0008

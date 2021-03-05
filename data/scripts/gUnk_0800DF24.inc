@@ -19,10 +19,10 @@ Call 0x0807f5c1
 Call 0x08066c95
 Wait 0x00e9
 _0807EF80 0x0007
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x162f
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 SoundReq2 0x002f
 _0807EF80 0x0019

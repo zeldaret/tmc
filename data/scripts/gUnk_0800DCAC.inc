@@ -4,12 +4,12 @@ _0807EF80 0x000a
 Call 0x08066e39
 StopScript 
 WaitForSomething2 0x00000001
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf8e9
 .short 0x0807
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 _0807E5F8 0x00000002
 CheckRoomFlag 0x0000
 JumpIfNot 0xfffa

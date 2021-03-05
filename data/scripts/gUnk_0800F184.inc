@@ -22,12 +22,12 @@ _0807E5F8 0x00000040
 WaitForSomething2 0x00000002
 StopScript 
 StartScript 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf681
 .short 0x0807
 .short 0x01c0
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 JumpIf 0x0034
 StopScript 
 _0807E864 
@@ -36,21 +36,21 @@ _0807EB74
 _0807E930 0x0008
 _0807EF80 0x0004
 Wait 0x003c
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1206
 .short 0x000c
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 StartPlayerScript 0x0800f33c
 WaitForSomething2 0x00000400
 _0807E878 
 Jump 0xffbe
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf681
 .short 0x0807
 .short 0x0230
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 JumpIfNot 0x0034
 StopScript 
 _0807E864 
@@ -59,21 +59,21 @@ _0807EB74
 _0807E930 0x0008
 _0807EF80 0x0004
 Wait 0x003c
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1206
 .short 0x000c
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 StartPlayerScript 0x0800f354
 WaitForSomething2 0x00000400
 _0807E878 
 Jump 0xff7e
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf6b5
 .short 0x0807
 .short 0x0310
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 JumpIf 0x0034
 StopScript 
 _0807E864 
@@ -82,21 +82,21 @@ _0807EB74
 _0807E930 0x0008
 _0807EF80 0x0004
 Wait 0x003c
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1206
 .short 0x000c
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 StartPlayerScript 0x0800f36c
 WaitForSomething2 0x00000400
 _0807E878 
 Jump 0xff3e
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf6b5
 .short 0x0807
 .short 0x0340
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 JumpIfNot 0x0034
 StopScript 
 _0807E864 
@@ -105,10 +105,10 @@ _0807EB74
 _0807E930 0x0008
 _0807EF80 0x0004
 Wait 0x003c
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1206
 .short 0x000c
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 StartPlayerScript 0x0800f384
 WaitForSomething2 0x00000400
@@ -124,10 +124,10 @@ StopScript
 _0807E864 
 _0807EB74 
 _0807E930 0x0008
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1208
 .short 0x000c
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807E878 
 Jump 0xfed4

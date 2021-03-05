@@ -31,10 +31,10 @@ StartPlayerScript 0x08015918
 WaitForSomething2 0x00000010
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1066
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002
@@ -54,18 +54,18 @@ SetEntityPositionRelative 0x02080248
 CameraTargetEntity 
 StartPlayerScript 0x08015938
 WaitForSomething2 0x00000010
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x106a
 .short 0x000c
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807E5F8 0x00000008
 Wait 0x0078
 _0807E8E4_2 
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1068
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002

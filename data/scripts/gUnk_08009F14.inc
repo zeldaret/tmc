@@ -20,10 +20,10 @@ _0807EF80 0x000b
 StartPlayerScript 0x0800a088
 WaitForSomething2 0x00000002
 Call 0x0806014d
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1f01
 .short 0x0000
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 Wait 0x001e
 _0807F034 0x0065
@@ -41,23 +41,23 @@ StopScript
 _0807E864 
 Call 0x080602bd
 _0807EA94 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf971
 .short 0x0807
 .short 0x1f03
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 JumpIf 0x0008
 _0807E878 
 Jump 0xffd2
 Wait 0x0008
 SoundReq 0x0103
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x030d
 .short 0x0806
 .short 0x0063
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Wait 0x0008
 _0807E878 
 Jump 0xffb6

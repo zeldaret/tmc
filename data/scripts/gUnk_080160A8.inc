@@ -18,7 +18,7 @@ Jump 0xffd2
 _0807E864 
 _0807EB74 
 StopScript 
-HasRoomItemForSale 
+.short 0x0411 @ HasRoomItemForSale with 0 parameters
 JumpIfNot 0x0030
 TextboxNoOverlapFollow 0x2d07
 _0807EA94 
@@ -51,12 +51,12 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 GetInventoryValue 0x0025
-_0807EAF0
+.short 0x145d @ _0807EAF0 with 4 parameters
 .short 0x2d03
 .short 0x2d02
 .short 0x2d02
 .short 0x2d02
-@ End of 4 parameters
+@ End of parameters
 _0807E3E8 
 JumpIfNot 0x002a
 _0807E48C 0x0020
@@ -78,12 +78,12 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 GetInventoryValue 0x0024
-_0807EAF0
+.short 0x145d @ _0807EAF0 with 4 parameters
 .short 0x2d05
 .short 0x2d04
 .short 0x2d04
 .short 0x2d04
-@ End of 4 parameters
+@ End of parameters
 _0807E3E8 
 JumpIfNot 0x002e
 _0807E48C 0x0020
@@ -140,12 +140,12 @@ JumpIf 0x009a
 Call 0x08068f01
 Call 0x08068f15
 Call 0x08068bb5
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf245
 .short 0x0807
 .short 0x0001
 .short 0x0001
-@ End of 4 parameters
+@ End of parameters
 Call 0x08068b85
 Call 0x0807f2a9
 Call 0x08068bd1

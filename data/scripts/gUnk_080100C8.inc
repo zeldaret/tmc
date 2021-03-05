@@ -48,22 +48,22 @@ _0807E864
 _0807EB74 
 CheckRoomFlag 0x0001
 JumpIf 0x0034
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x3001
 .short 0x0000
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807E3E8 
 JumpIfNot 0x002e
 Call 0x080a1609
 _0807EA94 
 _0807E878 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x1551
 .short 0x080a
 .short 0x01ac
 .short 0x0801
-@ End of 4 parameters
+@ End of parameters
 JumpIfNot 0xffca
 SoundReq2 0x0015
 SetRoomFlag 0x0001
@@ -79,21 +79,21 @@ StopScript
 Call 0x080a1271
 _0807E864 
 Call 0x0807df29
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x3004
 .short 0x0007
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 SoundReq0x80100000 
 _0807E778 0x0004
 DoFade5 
 WaitFor_2 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf75d
 .short 0x0807
 .short 0x0378
 .short 0x0340
-@ End of 4 parameters
+@ End of parameters
 Call 0x080791bd
 Call 0x0807fb75
 _0807E8E4_1 
@@ -119,12 +119,12 @@ _0807EA94
 Call 0x080a14a9
 Call 0x0807df51
 _0807E878 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf5b1
 .short 0x0807
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 ClearRoomFlag 0x0001
 Call 0x080a169d
 _0807EF80 0x0006

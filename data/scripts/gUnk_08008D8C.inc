@@ -18,33 +18,33 @@ StartScript
 _0807E9D4 
 _0807EF80 0x000a
 _0807EB44 0x0004
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf3d9
 .short 0x0807
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf3d9
 .short 0x0807
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Call 0x080643d9
 _0807EA94 
 _0807E878 
 _0807EB44 0x0004
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf3d9
 .short 0x0807
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Jump 0xffd2
 StartScript 
 SetEntityPositionRelative 0x00780088
@@ -74,10 +74,10 @@ _0807E5F8 0x00000080
 WaitForSomething2 0x00000100
 _0807E5F8 0x00000004
 WaitForSomething2 0x00000008
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1053
 .short 0x000e
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807E5F8 0x00000080
 WaitForSomething2 0x00000100

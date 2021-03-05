@@ -3,23 +3,23 @@ StartScript
 _0807EB44 0x0004
 _0807E9D4 
 _0807EF80 0x000a
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf3d9
 .short 0x0807
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf3d9
 .short 0x0807
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Call 0x08064429
 _0807EA94 
 _0807E878 
@@ -36,30 +36,30 @@ JumpIfNot 0xfffc
 _0807E864 
 Call 0x0807df29
 _0807EB74 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf78d
 .short 0x0807
 .short 0x0022
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 _0807EA94 
 _0807E3E8 
 JumpIfNot 0x0038
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf7c5
 .short 0x0807
 .short 0x0022
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 JumpIfNot 0x001e
 _0807E48C 0x0020
 JumpIfNot 0x001e
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf801
 .short 0x0807
 .short 0x0022
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 WaitPlayerAction8 
 TextboxNoOverlap 0x0a04
 Jump 0x000e
@@ -119,12 +119,12 @@ _0807EB74
 _0807EF80 0x0000
 StartScript 
 TextboxNoOverlap 0x3b0b
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf855
 .short 0x0807
 .short 0x0064
 .short 0x0001
-@ End of 4 parameters
+@ End of parameters
 StopScript 
 _0807EA94 
 _0807E3E8 
@@ -161,10 +161,10 @@ _0807F0B4 0x0001
 CameraTargetEntity 
 StartPlayerScript 0x080152b4
 WaitForSomething2 0x00000001
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1301
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 Call 0x0807f3f9
 Wait 0x003c
@@ -175,17 +175,17 @@ WaitForSomething2 0x00000004
 SoundReq2 0x000d
 _0807EB28 0x1302
 _0807EA94 
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1303
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807EB28 0x1304
 _0807EA94 
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1305
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807E5F8 0x00000002
 WaitForSomething2 0x00000004
@@ -270,12 +270,12 @@ WaitFor_2
 Call 0x08053b3d
 StartScript 
 _0807E864 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf6e9
 .short 0x0807
 .short 0x0008
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 MoveEntityToPlayer 
 _0807F0B4 0x0004
 CameraTargetEntity 

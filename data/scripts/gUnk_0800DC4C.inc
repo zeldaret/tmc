@@ -11,20 +11,20 @@ CameraTargetPlayer
 _0807E778 0x0004
 _0807E80C 0x00000000
 WaitFor_2 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xde19
 .short 0x0805
 .short 0x0001
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 _0807F0C8 0x0000, 0x0000
 SetLocalFlag 0x0079
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xda1d
 .short 0x0806
 .short 0x0002
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Call 0x0807df51
 _0807E878 
 _0807EF80 0x0006

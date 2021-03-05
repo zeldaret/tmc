@@ -33,12 +33,12 @@ WaitForSomething2 0x00000100
 _0807EB44 0x0000
 _0807EF80 0x0014
 SoundReq 0x0120
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x5421
 .short 0x0809
 .short 0x1890
 .short 0x0801
-@ End of 4 parameters
+@ End of parameters
 Wait 0x00f0
 _0807EF80 0x0016
 SoundReq 0x01cb
@@ -55,12 +55,12 @@ _0807E5F8 0x00000200
 WaitForSomething2 0x00000100
 _0807EF80 0x0014
 SoundReq 0x01c4
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x545d
 .short 0x0809
 .short 0x18d4
 .short 0x0801
-@ End of 4 parameters
+@ End of parameters
 _0807E5F8 0x00000200
 WaitForSomething2 0x00000100
 Wait 0x003c

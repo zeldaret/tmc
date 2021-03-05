@@ -46,13 +46,13 @@ _0807EF80 0x0000
 StopScript 
 Call 0x08062699
 Call 0x080626ad
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf0ed
 .short 0x0807
 .short 0x0009
 .short 0x0000
-@ End of 4 parameters
-_0807E078
+@ End of parameters
+.short 0x2806 @ _0807E078 with 9 parameters
 .short 0x0012
 .short 0x001a
 .short 0x0022
@@ -62,7 +62,7 @@ _0807E078
 .short 0x0042
 .short 0x004a
 .short 0x0052
-@ End of 9 parameters
+@ End of parameters
 _0807EE04 0x0038, 0x0068
 Jump 0x004e
 _0807EE04 0x0078, 0x0068
@@ -104,18 +104,18 @@ _0807EF80 0x0000
 StopScript 
 Call 0x08062699
 Call 0x080626ad
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf0ed
 .short 0x0807
 .short 0x0004
 .short 0x0000
-@ End of 4 parameters
-_0807E078
+@ End of parameters
+.short 0x1406 @ _0807E078 with 4 parameters
 .short 0x0008
 .short 0x0010
 .short 0x0018
 .short 0x0020
-@ End of 4 parameters
+@ End of parameters
 _0807EE04 0x0038, 0x0098
 Jump 0x001c
 _0807EE04 0x0058, 0x0098
@@ -138,12 +138,12 @@ _0807EF80 0x0008
 Call 0x0806daad
 JumpIf 0x008c
 Call 0x0806dad1
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xda05
 .short 0x0806
 .short 0x0002
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 StopScript 
 _0807EA4C 
 _0807E9F0 

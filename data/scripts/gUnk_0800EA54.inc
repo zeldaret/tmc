@@ -9,12 +9,12 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf3d9
 .short 0x0807
 .short 0x0004
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Call 0x0807f2d5
 _0807E930 0x0009
 Call 0x0806ce81
@@ -36,12 +36,12 @@ JumpIfNot 0xfffc
 StartScript 
 _0807E864 
 _0807EB74 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xc029
 .short 0x0806
 .short 0x0004
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 StopScript 
 Call 0x0806c00d
 JumpIfNot 0xfff8
@@ -166,12 +166,12 @@ Jump 0xffe4
 .short 0x0000
 StartScript 
 _0807E9D4 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x1fb9
 .short 0x0806
 .short 0x0001
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 SetEntityNonPlanarMovement 0x0040
 _0807EF80 0x000a
 _0807EB44 0x0004
@@ -203,23 +203,23 @@ Call 0x080639d1
 _0807EF80 0x000a
 StopScript 
 StartScript 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x3851
 .short 0x0806
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x3851
 .short 0x0806
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Call 0x08063945
 _0807EA94 
 JumpIfNot 0x0008
@@ -227,12 +227,12 @@ _0807F050 0x0070
 WaitPlayerAction8 
 _0807E878 
 Call 0x08063875
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x3851
 .short 0x0806
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Jump 0xffc6
 StartScript 
 Call 0x08064cc1
@@ -286,12 +286,12 @@ Jump 0xff88
 StopScript 
 WaitForSomething2 0x00000002
 _0807EB44 0x0002
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xaf61
 .short 0x0806
 .short 0x0008
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 WaitForSomething2 0x00000004
 Call 0x0806aed9
 WaitForSomething2 0x00000008
@@ -337,12 +337,12 @@ Jump 0xff88
 StopScript 
 WaitForSomething2 0x00000010
 _0807EB44 0x0006
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xaf61
 .short 0x0806
 .short 0x0008
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 WaitForSomething2 0x00000020
 Call 0x0806aed9
 WaitForSomething2 0x00000040

@@ -13,10 +13,10 @@ WaitForSomething2 0x00000004
 _0807EB74 
 _0807EB8C 
 _0807EF80 0x0001
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x100a
 .short 0x0000
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807EF80 0x0000
 _0807E5F8 0x00000008
@@ -25,10 +25,10 @@ _0807EB8C
 _0807EF80 0x0001
 _0807EB8C 
 _0807EB44 0x0002
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x100d
 .short 0x0000
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807EF80 0x0000
 _0807EDD4 0x0028, 0x0060

@@ -15,25 +15,25 @@ CameraTargetEntity
 Call 0x0807f5c1
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x162d
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807E5F8 0x00000001
 Wait 0x001e
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x162e
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807E8E4_0 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf75d
 .short 0x0807
 .short 0x0138
 .short 0x0078
-@ End of 4 parameters
+@ End of parameters
 _0807F0B4 0x0004
 CameraTargetPlayer 
 Call 0x0807f5c1

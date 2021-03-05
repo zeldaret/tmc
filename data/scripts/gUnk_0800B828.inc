@@ -50,12 +50,12 @@ _0807E9D4
 _0807EB44 0x0004
 _0807EF80 0x0000
 _0807EF80 0x000a
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x4645
 .short 0x0806
 .short 0x464d
 .short 0x0806
-@ End of 4 parameters
+@ End of parameters
 StopScript 
 Wait 0x003c
 Call 0x080646a5
@@ -107,12 +107,12 @@ _0807EF80 0x0008
 Call 0x0806daad
 JumpIf 0x0036
 Call 0x0806dad1
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xda05
 .short 0x0806
 .short 0x0005
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 StopScript 
 _0807EA4C 
 _0807E9F0 

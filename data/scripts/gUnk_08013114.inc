@@ -15,26 +15,26 @@ _0807E864
 StopScript 
 _0807EB74 
 Call 0x0806aed9
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xaa51
 .short 0x0806
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 _0807EA94 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xaa51
 .short 0x0806
 .short 0x0001
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 _0807EA94 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xaa51
 .short 0x0806
 .short 0x0002
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 _0807EA94 
 JumpIf 0x0008
 _0807E878 

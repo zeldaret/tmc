@@ -3,12 +3,12 @@ StartScript
 _0807EF80 0x0008
 StopScript 
 StartScript 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf6b5
 .short 0x0807
 .short 0x01c8
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 JumpIfNot 0xfff0
 CheckInventory1 0x0006
 JumpIfNot 0xffe8
@@ -27,12 +27,12 @@ _0807E878
 Jump 0xffb2
 .short 0x0000
 SoundReq 0x01d3
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf239
 .short 0x0807
 .short 0x08bf
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Call 0x08096029
 Wait 0x003c
 _0807E5F8 0x00020000

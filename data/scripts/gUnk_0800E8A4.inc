@@ -1,12 +1,12 @@
 SCRIPT_START gUnk_0800E8A4
 StartScript 
 TextboxNoOverlapFollow 0x4504
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf855
 .short 0x0807
 .short 0x00c8
 .short 0x0001
-@ End of 4 parameters
+@ End of parameters
 StopScript 
 _0807EA94 
 HasRupees 0x00c8

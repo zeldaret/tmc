@@ -1,16 +1,16 @@
 SCRIPT_START gUnk_0800B7FC
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf4f9
 .short 0x0807
 .short 0x0090
 .short 0x0000
-@ End of 4 parameters
-CallWithArg
+@ End of parameters
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf465
 .short 0x0807
 .short 0x0078
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Jump 0xffdc
 StartScript 
 _0807EF80 0x0007

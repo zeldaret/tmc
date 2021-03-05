@@ -29,9 +29,9 @@ StartScript
 _0807E778 0x0004
 _0807E788 0x00007fff
 DoFade5 
-_0807E858
+.short 0x0842 @ _0807E858 with 1 parameters
 .short 0x0080
-@ End of 1 parameters
+@ End of parameters
 StopScript 
 WaitFor_2 
 SoundReq2 0x002c
@@ -55,9 +55,9 @@ StartScript
 _0807E778 0x0004
 _0807E788 0xffffffff
 DoFade4 
-_0807E858
+.short 0x0842 @ _0807E858 with 1 parameters
 .short 0x0080
-@ End of 1 parameters
+@ End of parameters
 StopScript 
 WaitFor_2 
 SoundReq2 0xffff

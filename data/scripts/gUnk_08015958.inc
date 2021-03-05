@@ -15,10 +15,10 @@ _0807EB74
 _0807EDD4 0x01f8, 0x02f8
 _0807EB44 0x0004
 _0807EF80 0x0000
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1011
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807EDD4 0x01f8, 0x0268
 SetEntityPositionRelative 0x02180248
@@ -59,10 +59,10 @@ JumpIf 0x0016
 CheckEntityInteractType 
 JumpIfNot 0xffee
 StopScript 
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1067
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 Jump 0xffe0
 StopScript 

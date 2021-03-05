@@ -199,10 +199,10 @@ WaitForSomething2 0x00000008
 _0807EB74 
 _0807E914 0x00000000
 Call 0x0806c029
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x125c
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 StartPlayerScript 0x0800d1b4
 WaitForSomething2 0x00000008
@@ -213,10 +213,10 @@ Wait 0x000f
 _0807E5F8 0x00000020
 StartPlayerScript 0x0800d1e0
 WaitForSomething2 0x00000008
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x125d
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 Jump 0x00e6
 CheckLocalFlag 0x007e
 JumpIfNot 0x000a
@@ -231,10 +231,10 @@ WaitForSomething2 0x00000004
 _0807EB74 
 _0807E914 0x00000000
 Call 0x0806c029
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x123d
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 StartPlayerScript 0x0800d1b4
 WaitForSomething2 0x00000008
@@ -248,10 +248,10 @@ JumpIf 0xfffa
 SoundReq 0x00f8
 _0807E5F8 0x00000010
 SetLocalFlag 0x007e
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x123e
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 Wait 0x000f
 _0807E930 0x0009
@@ -260,10 +260,10 @@ WaitForSomething2 0x00000004
 _0807E5F8 0x00000002
 WaitForSomething2 0x00000004
 Wait 0x001e
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x123f
 .short 0x0002
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000004

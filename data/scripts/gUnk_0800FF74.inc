@@ -2,12 +2,12 @@ SCRIPT_START gUnk_0800FF74
 StartScript 
 _0807EB44 0x0002
 _0807E9D4 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf3d9
 .short 0x0807
 .short 0x0008
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Call 0x080644a5
 ClearLocalFlag 0x00c7
 StopScript 
@@ -31,12 +31,12 @@ StopScript
 SetLocalFlag 0x00c7
 _0807E864 
 _0807EB74 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf3d9
 .short 0x0807
 .short 0x0008
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 CheckInventory1 0x0048
 JumpIf 0x000c
 TextboxNoOverlap 0x3401
@@ -55,39 +55,39 @@ _0807E888
 Call 0x0807f595
 _0807E864 
 _0807EB74 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf3d9
 .short 0x0807
 .short 0x0008
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 SoundReq 0x00cd
 TextboxNoOverlap 0x340a
 _0807EA94 
 _0807EB44 0x0004
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf3d9
 .short 0x0807
 .short 0x000c
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 SetEntityNonPlanarMovement 0x0100
 _0807EDD4 0x0018, 0x0108
 _0807EB44 0x0002
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf3d9
 .short 0x0807
 .short 0x0008
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 SetLocalFlag 0x00ce
 Call 0x080644a5
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf5b1
 .short 0x0807
 .short 0x000a
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 _0807E878 
 Jump 0xff1e
 .short 0x0000
@@ -95,34 +95,34 @@ StartScript
 _0807E9D4 
 _0807EF80 0x000a
 _0807EB44 0x0004
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x72b1
 .short 0x0806
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x72b1
 .short 0x0806
 .short 0x0004
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 TextboxNoOverlapFollow 0x0a01
 _0807EA94 
 Wait 0x000f
 _0807E878 
 _0807EB44 0x0004
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x72b1
 .short 0x0806
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Jump 0xffd0
 _0807EF80 0x0006
 SCRIPT_END

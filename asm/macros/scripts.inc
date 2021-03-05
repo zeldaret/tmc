@@ -9,10 +9,6 @@
 	.short 0xffff
 .endm
 
-.macro ScriptCommandNop 
-	.short 0x0000
-.endm
-
 .macro StartScript 
 	.short 0x0401
 .endm
@@ -34,10 +30,6 @@
 .macro JumpIfNot s
 	.short 0x0805
 	.short \s
-.endm
-
-.macro _0807E078 
-	.short 0x0006
 .endm
 
 .macro JumpAbsolute w
@@ -66,10 +58,6 @@
 	.word \w
 .endm
 
-.macro CallWithArg 
-	.short 0x000c
-.endm
-
 .macro LoadRoomEntityList w
 	.short 0x0c0d
 	.word \w
@@ -88,10 +76,6 @@
 .macro CheckInventory2 s
 	.short 0x0810
 	.short \s
-.endm
-
-.macro HasRoomItemForSale 
-	.short 0x0411
 .endm
 
 .macro CheckLocalFlag s
@@ -325,10 +309,6 @@
 	.word \w
 .endm
 
-.macro _0807E858 
-	.short 0x0042
-.endm
-
 .macro _0807E864 
 	.short 0x0443
 .endm
@@ -438,14 +418,6 @@
 .macro TextboxNoOverlap s
 	.short 0x085b
 	.short \s
-.endm
-
-.macro TextboxNoOverlapFollowPos 
-	.short 0x005c
-.endm
-
-.macro _0807EAF0 
-	.short 0x005d
 .endm
 
 .macro TextboxNoOverlapVar 

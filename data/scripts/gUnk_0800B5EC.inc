@@ -32,19 +32,19 @@ _0807E3E8
 JumpIfNot 0x002a
 Wait 0x000f
 TextboxNoOverlap 0x0584
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf971
 .short 0x0807
 .short 0x058b
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 JumpIf 0x001e
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x7425
 .short 0x0808
 .short 0x0000
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Wait 0x00b4
 Jump 0x0024
 TextboxNoOverlap 0x057d

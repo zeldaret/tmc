@@ -7,10 +7,10 @@ _0807E930 0x001f
 Call 0x0806d945
 WaitForSomething2 0x00000008
 _0807E930 0x0010
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1314
 .short 0x000c
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807E930 0x0018
 Call 0x0806d8a1

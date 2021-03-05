@@ -55,7 +55,7 @@ commands = [
     {'fun': 'ScriptCommand_TestBit', 'params': 'w'},
     {'fun': 'ScriptCommand_CheckInventory1', 'params': 's'},
     {'fun': 'ScriptCommand_CheckInventory2', 'params': 's'},
-    {'fun': 'ScriptCommand_HasRoomItemForSale', 'params': ''},
+    {'fun': 'ScriptCommand_HasRoomItemForSale', 'params': 'v'},
     {'fun': 'ScriptCommand_CheckLocalFlag', 'params': 's'},
     {'fun': 'ScriptCommand_CheckLocalFlagByOffset', 'params': 'ss'},
     {'fun': 'ScriptCommand_CheckGlobalFlag', 'params': 's'},
@@ -330,14 +330,16 @@ def ExecuteScriptCommandSet(ctx: Context):
 
 
     if params['length'] == -1: # variable parameter length
-        print(build_script_command(command['fun']))
+        print(f'.short {u16_to_hex(cmd)} @ {build_script_command(command["fun"])} with {commandSize-1} parameters')
         if commandSize > 1:
             print('\n'.join(['.short ' + x for x in barray_to_u16_hex(ctx.data[ctx.ptr+2:ctx.ptr+commandSize*2])]))
-            print(f'@ End of {commandSize-1} parameters')
+            print(f'@ End of parameters')
         ctx.ptr += commandSize*2
         return 1
     elif params['length'] == -2: # point and var
-        print(build_script_command(command['fun']) + ' '+ get_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6]))
+        print(f'.short {u16_to_hex(cmd)} @ {build_script_command(command["fun"])} with parameters:')
+
+        print('.word'+ get_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6]))
         if commandSize > 3:
             print('\n'.join(['.short ' + x for x in barray_to_u16_hex(ctx.data[ctx.ptr+6:ctx.ptr+commandSize*2])]))
             print(f'% End of {commandSize-3} parameters')
@@ -427,6 +429,9 @@ def generate_macros():
 
         params = parameters[command['params']]
         id = ((params['length']+1) << 0xA) + num
+
+        if params['length'] < 0:
+            continue
 
         print(f'.macro {build_script_command(command["fun"])} {params["param"]}')
         print(f'	.short {u16_to_hex(id)}')

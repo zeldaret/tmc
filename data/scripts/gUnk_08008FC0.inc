@@ -1,23 +1,23 @@
 SCRIPT_START gUnk_08008FC0
 _0807F078 0x0001, 0x0001
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf919
 .short 0x0807
 .short 0x0001
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 SoundReq 0x0109
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf239
 .short 0x0807
 .short 0x045f
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Call 0x0807f305
-TextboxNoOverlapFollowPos
+.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x0501
 .short 0x000e
-@ End of 2 parameters
+@ End of parameters
 _0807EA94 
 _0807E5F8 0x00000020
 Call 0x080791bd

@@ -16,12 +16,12 @@ CheckLocalFlag 0x009f
 JumpIf 0x0098
 TextboxNoOverlap 0x057b
 _0807EA94 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf971
 .short 0x0807
 .short 0x057d
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 JumpIf 0xff88
 _0807EA94 
 SetLocalFlag 0x009f
@@ -44,19 +44,19 @@ CheckLocalFlag 0x00a0
 JumpIf 0x0036
 TextboxNoOverlap 0x0580
 _0807EA94 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf971
 .short 0x0807
 .short 0x0582
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 JumpIf 0x0014
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x7425
 .short 0x0808
 .short 0x0001
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Wait 0x00b4
 Jump 0xff14
 _0807EA94 
@@ -78,25 +78,25 @@ Jump 0xfee6
 StartScript 
 SetEntityNonPlanarMovement 0x0100
 StopScript 
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf6b5
 .short 0x0807
 .short 0x0090
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 JumpIfNot 0x0024
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf465
 .short 0x0807
 .short 0x0078
 .short 0x0000
-@ End of 4 parameters
-CallWithArg
+@ End of parameters
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf4f9
 .short 0x0807
 .short 0x0090
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 _0807E8E4_0 
 _0807EF80 0x0000
 _0807E5F8 0x00000004

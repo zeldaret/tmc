@@ -8,26 +8,26 @@ StopScript
 Jump 0xfffa
 JumpIf 0xfff6
 JumpIfNot 0xfff2
-_0807E078
+.short 0x0c06 @ _0807E078 with 2 parameters
 .short 0xffee
 .short 0xffec
-@ End of 2 parameters
+@ End of parameters
 JumpAbsolute 0x08016384
 JumpAbsoluteIf 0x08016384
 JumpAbsoluteIfNot 0x08016384
 _0807E0E0 0x08016384, 0x08016384
 Call 0x08016384
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0x6384
 .short 0x0801
 .short 0x5678
 .short 0x1234
-@ End of 4 parameters
+@ End of parameters
 LoadRoomEntityList 0x08016384
 TestBit 0x00000001
 CheckInventory1 0x0001
 CheckInventory2 0x0001
-HasRoomItemForSale 
+.short 0x0411 @ HasRoomItemForSale with 0 parameters
 CheckLocalFlag 0x0067
 CheckLocalFlagByOffset 0x0100, 0x006b
 CheckGlobalFlag 0x0013

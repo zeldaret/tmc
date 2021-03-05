@@ -8,12 +8,12 @@ Call 0x0807f349
 StopScript 
 WaitForSomething2 0x00000002
 _0807EF80 0x0007
-CallWithArg
+.short 0x140c @ CallWithArg with 4 parameters
 .short 0xf4f9
 .short 0x0807
 .short 0x01b8
 .short 0x0000
-@ End of 4 parameters
+@ End of parameters
 Wait 0x001e
 TextboxNoOverlap 0x0e0e
 _0807EA94 
