@@ -4,7 +4,7 @@ _0807EF80 0x0008
 _0807EB44 0x0004
 SetEntityNonPlanarMovement 0x0100
 StopScript 
-Call sub_0807F338
+Call 0x0807f339
 WaitForSomething2 0x00000040
 _0807EF80 0x0007
 _0807EF80 0x0001
@@ -16,7 +16,7 @@ WaitForSomething2 0x00000040
 _0807EF80 0x0010
 Wait 0x001e
 _0807EF80 0x0010
-Call sub_0807F3C8
+Call 0x0807f3c9
 SetEntityNonPlanarMovement 0x0400
 SetEntityDirection 0x0008
 _0807EC1C 0x003c

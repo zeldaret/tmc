@@ -9,6 +9,6 @@ Wait 0x003c
 TextboxNoOverlap 0x0e03
 _0807EA94 
 Wait 0x0078
-Call sub_08054968
+Call 0x08054969
 SCRIPT_END
 .short 0x0000

@@ -2,10 +2,44 @@ SCRIPT_START gUnk_08009C68
 StartScript 
 _0807EB44 0x0002
 SetEntityNonPlanarMovement 0x0100
-Call sub_0807F348
+Call 0x0807f349
 StopScript 
-.byte 0x33
-.byte 0xc
-.byte 0x4
-.byte 0x0
-.byte 0x0
+WaitForSomething2 0x00000004
+_0807EF80 0x0004
+_0807EB74 
+WaitForSomething2 0x00000004
+_0807EB74 
+WaitForSomething2 0x00000004
+_0807EB74 
+_0807EB8C 
+_0807EF80 0x0001
+TextboxNoOverlapFollowPos
+.short 0x100a
+.short 0x0000
+@ End of 2 parameters
+_0807EA94 
+_0807EF80 0x0000
+_0807E5F8 0x00000008
+WaitForSomething2 0x00000004
+_0807EB8C 
+_0807EF80 0x0001
+_0807EB8C 
+_0807EB44 0x0002
+TextboxNoOverlapFollowPos
+.short 0x100d
+.short 0x0000
+@ End of 2 parameters
+_0807EA94 
+_0807EF80 0x0000
+_0807EDD4 0x0028, 0x0060
+_0807EDD4 0x0000, 0x0060
+Call 0x080536a9
+Wait 0x001e
+StartScript 
+SetGlobalFlag 0x0013
+Call 0x0807df51
+Call 0x080791d1
+_0807E878 
+StopScript 
+SCRIPT_END
+.short 0x0000

@@ -1,4 +1,9 @@
 SCRIPT_START gUnk_0800D6B4
 StartScript 
-.short 0x0879
-.short 0x0007
+_0807EF80 0x0007
+_0807EF80 0x0011
+Call 0x0807f159
+Call 0x0807f739
+StopScript 
+SCRIPT_END
+.short 0x0000

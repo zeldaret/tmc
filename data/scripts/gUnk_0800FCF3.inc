@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0800FCF3
-.short 0x2800

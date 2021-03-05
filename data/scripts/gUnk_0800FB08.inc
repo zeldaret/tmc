@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0800FB08
-.short 0xf465

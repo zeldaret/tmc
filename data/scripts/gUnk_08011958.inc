@@ -1,5 +1,0 @@
-SCRIPT_START gUnk_08011958
-StartScript 
-_0807EB44 0x0006
-Jump 0x000a
-.short 0x0000

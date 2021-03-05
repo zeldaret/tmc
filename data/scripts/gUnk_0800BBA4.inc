@@ -3,7 +3,7 @@ StartScript
 _0807EF80 0x0007
 _0807EB44 0x0004
 _0807EF80 0x0000
-Call sub_0807F348
+Call 0x0807f349
 StopScript 
 CheckRoomFlag 0x00ff
 JumpIfNot 0xfffa
@@ -12,5 +12,5 @@ Wait 0x003c
 TextboxNoOverlap 0x0e04
 _0807EA94 
 Wait 0x0078
-Call sub_08054968
-.byte 0xff
+Call 0x08054969
+SCRIPT_END

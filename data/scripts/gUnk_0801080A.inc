@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0801080A
-.byte 0x30

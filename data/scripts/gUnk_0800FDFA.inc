@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0800FDFA
-.short 0x000c

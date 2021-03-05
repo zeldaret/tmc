@@ -1,4 +1,0 @@
-SCRIPT_START gUnk_080103F8
-StartScript 
-_0807E9D4 
-.byte 0x61

@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0800E3FA
-.short 0x240d

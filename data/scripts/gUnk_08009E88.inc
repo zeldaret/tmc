@@ -1,8 +1,19 @@
 SCRIPT_START gUnk_08009E88
 StartScript 
-Call sub_0807DF28
+Call 0x0807df29
 _0807E864 
 SetLocalFlag 0x009f
 StopScript 
 Wait 0x003c
-.short 0x0838
+_0807E778 0x0004
+DoFade4 
+WaitFor_2 
+Call 0x0807f0d9
+JumpIfNot 0xfff8
+_0807EF80 0x0014
+Wait 0x000a
+Call 0x08053251
+_0807E878 
+Call 0x0807df51
+Call 0x080791d1
+SCRIPT_END

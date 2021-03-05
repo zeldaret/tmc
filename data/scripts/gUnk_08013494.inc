@@ -1,0 +1,18 @@
+SCRIPT_START gUnk_08013494
+StartScript 
+_0807E930 0x0000
+SetEntityNonPlanarMovement 0x0200
+Call 0x08095459
+Call 0x08094b81
+StopScript 
+Wait 0x005a
+Call 0x08094b6d
+_0807EDD4 0x0098, 0x0080
+StartScript 
+Call 0x08094b81
+SoundReq 0x01cc
+Call 0x0807f36d
+_0807E5F8 0x00000080
+StopScript 
+_0807EF80 0x0006
+SCRIPT_END

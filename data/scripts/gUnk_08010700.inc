@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_08010700
-.byte 0x4

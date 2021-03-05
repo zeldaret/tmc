@@ -6,4 +6,16 @@ _0807EF80 0x0000
 StopScript 
 CheckRoomFlag 0x00ff
 JumpIfNot 0xfffa
-.short 0x0879
+_0807EF80 0x0004
+Wait 0x003c
+TextboxNoOverlap 0x0e07
+_0807EA94 
+StartScript 
+_0807EB44 0x0000
+_0807E930 0x0004
+StopScript 
+Wait 0x003c
+Call 0x08065ccd
+Wait 0x0078
+Call 0x08054969
+SCRIPT_END

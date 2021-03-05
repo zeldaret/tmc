@@ -1,4 +1,0 @@
-SCRIPT_START gUnk_0801010A
-_0807EF80 0x000a
-StopScript 
-.byte 0x31

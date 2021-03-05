@@ -2,6 +2,10 @@ SCRIPT_START gUnk_08010A14
 StartScript 
 SetEntityNonPlanarMovement 0x0100
 StopScript 
-.byte 0x6e
-.byte 0x8
-.byte 0x10
+_0807EC64 0x0010
+_0807EB44 0x0000
+_0807EF80 0x0000
+_0807E5F8 0x00000001
+Call 0x080791bd
+SCRIPT_END
+.short 0x0000

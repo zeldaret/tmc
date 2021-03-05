@@ -4,40 +4,53 @@ StopScript
 CheckPlayerInRegion 0x0078, 0x0148, 0x4040
 JumpIfNot 0xfff6
 _0807E864 
-Call sub_0807F9A4
-Call sub_0807DF28
+Call 0x0807f9a5
+Call 0x0807df29
 _0807E8E4_0 
-Call sub_0807F3F8
+Call 0x0807f3f9
 Wait 0x003c
 _0807F0B4 0x0004
 SetEntityPositionRelative 0x00800078
 CameraTargetEntity 
-Call sub_0807F5C0
+Call 0x0807f5c1
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002
-TextboxNoOverlapFollowPos 0x162d, 0x0002
+TextboxNoOverlapFollowPos
+.short 0x162d
+.short 0x0002
+@ End of 2 parameters
 _0807EA94 
 _0807E5F8 0x00000001
 Wait 0x001e
-TextboxNoOverlapFollowPos 0x162e, 0x0002
+TextboxNoOverlapFollowPos
+.short 0x162e
+.short 0x0002
+@ End of 2 parameters
 _0807EA94 
 _0807E8E4_0 
-CallWithArg sub_0807F75C, 0x00780138
+CallWithArg
+.short 0xf75d
+.short 0x0807
+.short 0x0138
+.short 0x0078
+@ End of 4 parameters
 _0807F0B4 0x0004
 CameraTargetPlayer 
-Call sub_0807F5C0
+Call 0x0807f5c1
 SetRoomFlag 0x0000
-Call sub_0807F40C
+Call 0x0807f40d
 Wait 0x001e
 _0807E8E4_1 
 Wait 0x000a
 _0807E8E4_3 
 Wait 0x000a
 _0807E8E4_2 
-Call sub_0807F3F8
+Call 0x0807f3f9
 Wait 0x003c
 SetRoomFlag 0x0001
 SetLocalFlag 0x0077
-.short 0x0c0b
-.short 0xdf51
-.short 0x0807
+Call 0x0807df51
+_0807E878 
+_0807EF80 0x0006
+SCRIPT_END
+.short 0x0000

@@ -1,8 +1,20 @@
 SCRIPT_START gUnk_08009A34
 Wait 0x003c
-Call sub_08066258
+Call 0x08066259
 Wait 0x001e
-Call sub_08066258
+Call 0x08066259
 Wait 0x005a
-.short 0x0803
-.short 0xffea
+Jump 0xffea
+SetEntityPositionRelative 0x01780240
+CameraTargetEntity 
+SetEntityNonPlanarMovement 0x0080
+Wait 0x0078
+SoundReq2 0x0036
+_0807E778 0x0002
+DoFade4 
+WaitFor_2 
+Wait 0x0078
+_0807E5F8 0x00000004
+Call 0x08053649
+_0807EDD4 0x0240, 0x0228
+SCRIPT_END

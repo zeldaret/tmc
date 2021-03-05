@@ -1,4 +1,0 @@
-SCRIPT_START gUnk_0800FFB0
-JumpIfNot 0x001a
-Call sub_08064488
-.byte 0x17

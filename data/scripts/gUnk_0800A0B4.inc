@@ -2,11 +2,11 @@ SCRIPT_START gUnk_0800A0B4
 StartScript 
 SetEntityNonPlanarMovement 0x0140
 _0807E864 
-Call sub_0807DF28
+Call 0x0807df29
 StopScript 
 Wait 0x0078
 SoundReq2 0x0018
-Call sub_080A0464
+Call 0x080a0465
 _0807EE30 
 JumpIfNot 0xfffc
 _0807E8E4_0 

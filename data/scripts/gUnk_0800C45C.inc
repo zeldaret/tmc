@@ -2,7 +2,7 @@ SCRIPT_START gUnk_0800C45C
 StartScript 
 SetEntityNonPlanarMovement 0x0180
 _0807E930 0x0004
-Call sub_080A0B28
+Call 0x080a0b29
 StopScript 
 Wait 0x000a
 _0807EF80 0x0007

@@ -1,3 +1,51 @@
 SCRIPT_START gUnk_0800C004
 StartScript 
-.byte 0x61
+_0807EB44 0x0000
+_0807E930 0x0000
+_0807EF80 0x0008
+SetEntityNonPlanarMovement 0x0080
+Call 0x0807f349
+StopScript 
+WaitForSomething2 0x00000002
+_0807EF80 0x0007
+CallWithArg
+.short 0xf4f9
+.short 0x0807
+.short 0x01b8
+.short 0x0000
+@ End of 4 parameters
+Wait 0x001e
+TextboxNoOverlap 0x0e11
+_0807EA94 
+_0807E5F8 0x0000001c
+WaitForSomething2 0x00000002
+SetEntityNonPlanarMovement 0x0100
+_0807EDD4 0x0088, 0x0188
+_0807EDD4 0x00a8, 0x0188
+_0807EDD4 0x00a8, 0x0178
+Wait 0x000f
+_0807E5F8 0x0000001c
+_0807EF80 0x000f
+_0807E930 0x0008
+Wait 0x00b4
+CallWithArg
+.short 0xbf39
+.short 0x0804
+.short 0x0001
+.short 0x0000
+@ End of 4 parameters
+Wait 0x00b4
+CallWithArg
+.short 0xbf39
+.short 0x0804
+.short 0x0004
+.short 0x0000
+@ End of 4 parameters
+_0807EB44 0x0004
+_0807E930 0x0000
+Wait 0x003c
+_0807E5F8 0x0000001c
+SetEntityNonPlanarMovement 0x0080
+_0807EEF4 0x0000, 0xffe0
+Call 0x08054969
+SCRIPT_END

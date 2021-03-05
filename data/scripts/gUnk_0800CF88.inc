@@ -1,5 +1,0 @@
-SCRIPT_START gUnk_0800CF88
-StartScript 
-Call sub_08068104
-_0807EF80 0x000a
-.byte 0x2

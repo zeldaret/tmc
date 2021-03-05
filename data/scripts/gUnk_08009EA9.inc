@@ -1,8 +1,0 @@
-SCRIPT_START gUnk_08009EA9
-.short 0x0508
-.short 0xf808
-.short 0x79ff
-.short 0x1408
-.short 0x3100
-.short 0x0a08
-.short 0x0b00

@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_08008E08
-StartScript 

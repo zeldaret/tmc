@@ -1,6 +1,6 @@
 SCRIPT_START gUnk_08009320
 StartScript 
-Call sub_0806D650
+Call 0x0806d651
 SetEntityNonPlanarMovement 0x0010
 StopScript 
 _0807EEF4 0xfff8, 0x0000

@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0800FBF3
-.short 0x6101

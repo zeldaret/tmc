@@ -2,34 +2,17 @@ SCRIPT_START gUnk_08014210
 StartScript 
 _0807EF80 0x0007
 _0807E930 0x0015
-Call sub_0807F714
-Call sub_0807F714
-CallWithArg sub_0807F994, 0x0000fffc
+Call 0x0807f715
+Call 0x0807f715
+CallWithArg
+.short 0xf995
+.short 0x0807
+.short 0xfffc
+.short 0x0000
+@ End of 4 parameters
 StopScript 
 WaitForSomething 0x00000020
 Wait 0x0078
-Call sub_0807F2D4
+Call 0x0807f2d5
 _0807EF80 0x0006
 SCRIPT_END
-.short 0x0c0e
-.short 0x0000
-.short 0x0002
-.short 0x0804
-.short 0x0014
-.short 0x0831
-.short 0x0008
-.short 0x140c
-.short 0x5ead
-.short 0x0809
-.short 0x0000
-.short 0x0000
-.short 0x0803
-.short 0xffe6
-.short 0x140c
-.short 0x5ead
-.short 0x0809
-.short 0x0001
-.short 0x0000
-.short 0x0803
-.short 0xfff4
-.short 0x0000

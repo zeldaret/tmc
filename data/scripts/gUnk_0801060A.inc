@@ -1,3 +1,0 @@
-SCRIPT_START gUnk_0801060A
-_0807EB74 
-.byte 0x5a

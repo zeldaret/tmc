@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_08010003
-.short 0x5934

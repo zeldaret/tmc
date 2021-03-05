@@ -1,8 +1,0 @@
-SCRIPT_START gUnk_0800AF7E
-.short 0xdf51
-.short 0x0807
-.short 0x0444
-.short 0x0879
-.short 0x0006
-.short 0xffff
-.short 0x0000

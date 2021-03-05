@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0800FE01
-.byte 0xff

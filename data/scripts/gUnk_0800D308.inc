@@ -1,7 +1,0 @@
-SCRIPT_START gUnk_0800D308
-StartScript 
-.byte 0xb
-.byte 0xc
-.byte 0x85
-.byte 0x88
-.byte 0x6

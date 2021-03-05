@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0800F900
-.short 0x3c15

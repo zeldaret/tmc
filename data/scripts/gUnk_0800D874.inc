@@ -1,14 +1,14 @@
 SCRIPT_START gUnk_0800D874
 StartScript 
-Call sub_0807F934
+Call 0x0807f935
 _0807EF80 0x0008
 _0807E914 0x00000001
-Call sub_0806DA04
+Call 0x0806da05
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
-Call sub_0807DF28
+Call 0x0807df29
 CheckLocalFlag 0x0045
 JumpIf 0x000e
 StartPlayerScript 0x0800d92c
@@ -23,7 +23,27 @@ JumpIf 0x0010
 LoadRoomEntityList 0x080e3830
 CheckLocalFlag 0x0045
 JumpIfNot 0xfffa
-Call sub_0807DF50
+Call 0x0807df51
 _0807E878 
 Jump 0xffae
+.short 0x0000
+StartScript 
+_0807EF80 0x0008
+CheckInventory1 0x0017
+JumpIf 0x0034
+StopScript 
+CheckInventory1 0x0017
+JumpIfNot 0xfffa
+Call 0x0807df29
+_0807E864 
+WaitPlayerAction8 
+_0807EB28 0x1325
+_0807EA94 
+SoundReq 0x0113
+_0807E914 0x00000000
+Call 0x0806da1d
+_0807E878 
+Call 0x0807df51
+_0807EF80 0x0006
+SCRIPT_END
 .short 0x0000

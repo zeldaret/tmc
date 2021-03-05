@@ -1,0 +1,53 @@
+SCRIPT_START gUnk_0800A310
+StopScript 
+_0807EB44 0x0002
+Wait 0x000a
+_0807EB44 0x0006
+Wait 0x000a
+_0807EB44 0x0002
+Wait 0x000a
+_0807EB44 0x0006
+Wait 0x000a
+_0807E5F8 0x00000001
+Call 0x080791bd
+.short 0x0000
+StartScript 
+_0807EF80 0x0008
+SetEntityNonPlanarMovement 0x0080
+_0807EF80 0x000b
+_0807EB44 0x0004
+CallWithArg
+.short 0xf3d9
+.short 0x0807
+.short 0x0000
+.short 0x0000
+@ End of 4 parameters
+StopScript 
+WaitForSomething2 0x00000002
+_0807E930 0x000e
+_0807EF80 0x0007
+Call 0x0807f2d5
+_0807EF80 0x0004
+_0807E5F8 0x00000040
+WaitForSomething2 0x00000002
+_0807E930 0x000c
+Call 0x0807f2d5
+_0807E5F8 0x00000040
+WaitForSomething2 0x00000002
+_0807E930 0x000f
+Call 0x0807f2d5
+_0807E5F8 0x00000040
+WaitForSomething2 0x00000002
+_0807E930 0x000c
+Call 0x0807f2d5
+_0807E5F8 0x00000040
+WaitForSomething2 0x00000002
+CallWithArg
+.short 0x60c5
+.short 0x0809
+.short 0xa680
+.short 0x0800
+@ End of 4 parameters
+_0807E5F8 0x00000040
+SCRIPT_END
+.short 0x0000

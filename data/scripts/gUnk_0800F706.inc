@@ -1,9 +1,0 @@
-SCRIPT_START gUnk_0800F706
-Call sub_0806265C
-_0807EA94 
-_0807E878 
-_0807EF80 0x0001
-Jump 0xffde
-.short 0x0c0b
-.short 0x27e9
-.short 0x0806

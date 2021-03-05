@@ -1,6 +1,6 @@
 SCRIPT_START gUnk_08014958
 StartScript 
-Call sub_0806C870
+Call 0x0806c871
 _0807EF80 0x000a
 CheckGlobalFlag 0x0058
 JumpIf 0x000c
@@ -11,9 +11,25 @@ _0807E30C
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-Call sub_0806C90C
+Call 0x0806c90d
 _0807EA94 
 Wait 0x000f
 _0807E878 
-.short 0x0803
-.short 0xffe6
+Jump 0xffe6
+StartScript 
+Call 0x0806c871
+_0807EF80 0x000a
+CheckGlobalFlag 0x0058
+JumpIfNot 0x0020
+StopScript 
+_0807E30C 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+Call 0x0806c90d
+_0807EA94 
+Wait 0x000f
+_0807E878 
+Jump 0xffe6
+_0807EF80 0x0006
+SCRIPT_END

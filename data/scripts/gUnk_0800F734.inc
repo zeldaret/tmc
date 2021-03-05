@@ -1,4 +1,0 @@
-SCRIPT_START gUnk_0800F734
-_0807EF80 0x0007
-.short 0x0803
-.short 0xfe4a

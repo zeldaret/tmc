@@ -1,3 +1,0 @@
-SCRIPT_START gUnk_0800F203
-.short 0x5004
-.short 0x0808

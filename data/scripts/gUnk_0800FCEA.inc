@@ -1,3 +1,0 @@
-SCRIPT_START gUnk_0800FCEA
-.short 0x0020
-.short 0x0861

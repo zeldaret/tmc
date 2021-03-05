@@ -1,62 +1,79 @@
 SCRIPT_START gUnk_0800B9B4
 StartScript 
 _0807E9D4 
-Call sub_080694EC
+Call 0x080694ed
 _0807EF80 0x000a
-Call sub_080694B0
+Call 0x080694b1
 StopScript 
-Call sub_0807F434
-.short 0x1006
+Call 0x0807f435
+_0807E078
 .short 0xfff8
 .short 0x0004
 .short 0x001e
-.short 0x0443
-.short 0x0463
-.short 0x0879
-.short 0x0000
-.short 0x0c0b
-.short 0x94d9
-.short 0x0806
-.short 0x0459
-.short 0x0c0b
-.short 0x94ed
-.short 0x0806
-.short 0x0444
-.short 0x0803
-.short 0xffd8
-.short 0x0443
-.short 0x0463
-.short 0x0879
-.short 0x0000
-.short 0x0c0b
-.short 0xf651
-.short 0x0807
-.short 0x0456
-.short 0x0443
-.short 0x0c0b
-.short 0x948d
-.short 0x0806
-.short 0x0804
-.short 0x0016
-.short 0x0459
-.short 0x0c0b
-.short 0x94ed
-.short 0x0806
-.short 0x0c0b
-.short 0xdf51
-.short 0x0807
-.short 0x0444
-.short 0x0803
-.short 0xffa8
-.short 0x0459
-.short 0x0454
-.short 0x0453
-.short 0x0c0b
-.short 0x94ed
-.short 0x0806
-.short 0x0c0b
-.short 0xdf51
-.short 0x0807
-.short 0x0444
-.short 0x0803
-.short 0xff90
+@ End of 3 parameters
+_0807E864 
+_0807EB74 
+_0807EF80 0x0000
+Call 0x080694d9
+_0807EA94 
+Call 0x080694ed
+_0807E878 
+Jump 0xffd8
+_0807E864 
+_0807EB74 
+_0807EF80 0x0000
+Call 0x0807f651
+_0807E9F0 
+_0807E864 
+Call 0x0806948d
+JumpIf 0x0016
+_0807EA94 
+Call 0x080694ed
+Call 0x0807df51
+_0807E878 
+Jump 0xffa8
+_0807EA94 
+_0807E9DC 
+_0807E9D4 
+Call 0x080694ed
+Call 0x0807df51
+_0807E878 
+Jump 0xff90
+StartScript 
+Call 0x0807f935
+StopScript 
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+_0807E864 
+Call 0x0807df29
+TextboxNoOverlapFollow 0x3301
+_0807EA94 
+_0807E3E8 
+JumpIfNot 0x000e
+SoundReq0x80100000 
+Call 0x0806e965
+SoundReq2 0xffff
+Call 0x0807df51
+_0807E878 
+Jump 0xffd0
+StartScript 
+_0807EB44 0x0004
+_0807EF80 0x0000
+SetEntityNonPlanarMovement 0x0040
+Call 0x0807f349
+StopScript 
+CheckRoomFlag 0x00ff
+JumpIfNot 0xfffa
+_0807EDD4 0x02f8, 0x0350
+Wait 0x001e
+_0807EF80 0x0004
+Wait 0x003c
+_0807EB44 0x0006
+Wait 0x001e
+_0807EDD4 0x02f0, 0x0350
+Wait 0x001e
+TextboxNoOverlap 0x0e00
+_0807EA94 
+Wait 0x0078
+Call 0x08054969
+SCRIPT_END

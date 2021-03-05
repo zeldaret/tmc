@@ -1,4 +1,0 @@
-SCRIPT_START gUnk_0800FEF9
-.byte 0x0
-.byte 0x0
-.byte 0x0

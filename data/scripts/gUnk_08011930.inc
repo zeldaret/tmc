@@ -1,5 +1,5 @@
 SCRIPT_START gUnk_08011930
 WaitForSomething 0x20000000
-Call sub_0809567C
+Call 0x0809567d
 SCRIPT_END
 .short 0x0000

@@ -4,5 +4,5 @@ _0807EB44 0x0000
 SetEntityPositionRelative 0x00700098
 StopScript 
 _0807E5F8 0x00000002
-Call sub_080791BC
+Call 0x080791bd
 SCRIPT_END

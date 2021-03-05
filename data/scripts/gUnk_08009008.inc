@@ -1,7 +1,0 @@
-SCRIPT_START gUnk_08009008
-WaitForSomething 0x00000010
-SoundReq 0x011c
-_0807E930 0x0001
-Wait 0x0010
-SoundReq 0x011c
-.byte 0x61

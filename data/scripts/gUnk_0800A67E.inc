@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0800A67E
-.short 0x0000

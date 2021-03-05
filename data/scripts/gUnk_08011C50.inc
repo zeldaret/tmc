@@ -3,7 +3,12 @@ StartScript
 _0807E864 
 StopScript 
 Wait 0x003c
-CallWithArg sub_0806C2A0, 0x00000001
+CallWithArg
+.short 0xc2a1
+.short 0x0806
+.short 0x0001
+.short 0x0000
+@ End of 4 parameters
 WaitFor_2 
 Wait 0x003c
 _0807EF80 0x0014

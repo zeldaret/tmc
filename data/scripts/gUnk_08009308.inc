@@ -1,7 +1,0 @@
-SCRIPT_START gUnk_08009308
-_0807EB74 
-TextboxNoOverlap 0x1071
-_0807EA94 
-_0807E878 
-Jump 0xffec
-.short 0x0000

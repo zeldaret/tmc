@@ -4,7 +4,7 @@ _0807EF80 0x0007
 CheckGlobalFlag 0x001f
 JumpIf 0x0046
 StopScript 
-Call sub_080869A4
+Call 0x080869a5
 JumpIfNot 0xfff8
 _0807E864 
 CheckLocalFlagByOffset 0x0200, 0x006d
@@ -21,4 +21,6 @@ TextboxNoOverlapFollow 0x4d02
 _0807EA94 
 Wait 0x000f
 _0807E878 
-.byte 0xb
+Call 0x0808692d
+SCRIPT_END
+.short 0x0000

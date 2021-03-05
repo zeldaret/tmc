@@ -3,37 +3,146 @@ StartScript
 _0807EF80 0x0008
 StopScript 
 StartScript 
-Call sub_0807F92C
-CallWithArg sub_0806DA04, 0x00000003
+Call 0x0807f92d
+CallWithArg
+.short 0xda05
+.short 0x0806
+.short 0x0003
+.short 0x0000
+@ End of 4 parameters
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
-Call sub_0807DF28
+Call 0x0807df29
 StartPlayerScript 0x080136d8
 WaitForSomething2 0x00000001
-CallWithArg sub_08095A1C, 0x08013f34
+CallWithArg
+.short 0x5a1d
+.short 0x0809
+.short 0x3f34
+.short 0x0801
+@ End of 4 parameters
 SoundReq 0x01cd
 Wait 0x005a
 StartScript 
 SoundReq 0x01ce
-CallWithArg sub_08095D54, 0x08013e4c
+CallWithArg
+.short 0x5d55
+.short 0x0809
+.short 0x3e4c
+.short 0x0801
+@ End of 4 parameters
 StopScript 
 WaitForSomething2 0x20000000
 StartScript 
 SoundReq 0x01cf
-CallWithArg sub_08095D8C, 0x08014054
-CallWithArg sub_08095D8C, 0x08014074
-CallWithArg sub_08095D8C, 0x08014094
+CallWithArg
+.short 0x5d8d
+.short 0x0809
+.short 0x4054
+.short 0x0801
+@ End of 4 parameters
+CallWithArg
+.short 0x5d8d
+.short 0x0809
+.short 0x4074
+.short 0x0801
+@ End of 4 parameters
+CallWithArg
+.short 0x5d8d
+.short 0x0809
+.short 0x4094
+.short 0x0801
+@ End of 4 parameters
 StopScript 
 Wait 0x001e
 StartScript 
 SoundReq 0x01d0
-CallWithArg sub_08095D8C, 0x080140dc
-CallWithArg sub_08095D8C, 0x08014118
-CallWithArg sub_08095D8C, 0x08014154
+CallWithArg
+.short 0x5d8d
+.short 0x0809
+.short 0x40dc
+.short 0x0801
+@ End of 4 parameters
+CallWithArg
+.short 0x5d8d
+.short 0x0809
+.short 0x4118
+.short 0x0801
+@ End of 4 parameters
+CallWithArg
+.short 0x5d8d
+.short 0x0809
+.short 0x4154
+.short 0x0801
+@ End of 4 parameters
 StopScript 
 Wait 0x003c
-.short 0x140c
+CallWithArg
 .short 0xdded
 .short 0x0805
+.short 0x0000
+.short 0x0000
+@ End of 4 parameters
+_0807E5F8 0x00000200
+WaitForSomething2 0x00002000
+SoundReq 0x01d2
+CallWithArg
+.short 0x5d8d
+.short 0x0809
+.short 0x41dc
+.short 0x0801
+@ End of 4 parameters
+CallWithArg
+.short 0x5d8d
+.short 0x0809
+.short 0x4210
+.short 0x0801
+@ End of 4 parameters
+_0807E5F8 0x00000400
+WaitForSomething2 0x00004000
+_0807E5F8 0x00000800
+WaitForSomething2 0x00008000
+Wait 0x0078
+_0807E5F8 0x00000060
+CallWithArg
+.short 0xde19
+.short 0x0805
+.short 0x0000
+.short 0x0000
+@ End of 4 parameters
+Wait 0x0078
+_0807E5F8 0x00000080
+WaitForSomething2 0x00000100
+Wait 0x003c
+StartPlayerScript 0x08013b70
+_0807E5F8 0x00000080
+_0807F078 0x0004, 0x0001
+Call 0x0806dc3d
+Call 0x0806dc59
+Call 0x0807f305
+Wait 0x003c
+_0807E778 0x0004
+DoFade7 
+SoundReq 0x00f6
+WaitFor_2 
+Wait 0x003c
+_0807E5F8 0x00000010
+_0807E778 0x0002
+DoFade6 
+WaitFor_2 
+SoundReq 0x0109
+TextboxNoOverlapFollowPos
+.short 0x0504
+.short 0x000c
+@ End of 2 parameters
+_0807EA94 
+_0807E5F8 0x00040000
+SetLocalFlag 0x007b
+Call 0x08053251
+Call 0x0807df51
+_0807E878 
+_0807EF80 0x0006
+SCRIPT_END
+.short 0x0000

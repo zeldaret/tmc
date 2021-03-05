@@ -12,17 +12,100 @@ TestBit 0x00000001
 JumpIf 0x002a
 CheckEntityInteractType 
 JumpIf 0x000e
-Call sub_0806811C
+Call 0x0806811d
 StopScript 
 Jump 0xffd4
 StopScript 
 _0807E864 
-Call sub_08068190
+Call 0x08068191
 _0807EA94 
 Wait 0x000f
 _0807E878 
 Jump 0xffbe
 StopScript 
-.short 0x0c28
-.short 0x0004
+_0807E5F8 0x00000004
+WaitForSomething2 0x00000002
+_0807E5F8 0x00000004
+_0807E930 0x000c
+WaitForSomething2 0x00000001
+_0807E5F8 0x00000004
+_0807E930 0x000b
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+_0807E864 
+Call 0x08068191
+_0807EA94 
+Wait 0x000f
+_0807E878 
+Jump 0xffe8
+StartScript 
+Call 0x08068885
+_0807EF80 0x000a
+_0807EB44 0x0004
+_0807E930 0x0000
+StopScript 
+StopScript 
+StartScript 
+Call 0x08068911
+CheckEntityInteractType 
+JumpIfNot 0xfff2
+StopScript 
+_0807E864 
+_0807EB74 
+_0807E914 0x00000000
+Call 0x0806c029
+TextboxNoOverlapFollow 0x1219
+_0807EA94 
+Wait 0x000f
+_0807E878 
+Jump 0xffd0
+StartScript 
+Call 0x08068105
+_0807EF80 0x000a
+StopScript 
+StartScript 
+CheckEntityInteractType 
+JumpIf 0x000e
+Call 0x0806811d
+StopScript 
+Jump 0xffee
+StopScript 
+_0807E864 
+Call 0x08068191
+_0807EA94 
+Wait 0x000f
+CheckLocalFlag 0x007f
+JumpIf 0x005c
+CheckLocalFlag 0x007e
+JumpIfNot 0x0054
+_0807EF80 0x000b
+SetEntityNonPlanarMovement 0x0100
+CheckPlayerInRegion 0x0090, 0x0130, 0x0810
+JumpIfNot 0x000e
+StartPlayerScript 0x0800d3ec
+WaitForSomething2 0x00000001
+_0807EB44 0x0002
+_0807E930 0x0005
+_0807EDD4 0x00a0, 0x0130
+_0807EB44 0x0006
+_0807E930 0x0003
+_0807E914 0x00000004
+Call 0x080681d9
+SoundReq 0x00cd
+Wait 0x001e
+_0807EF80 0x000a
+SetLocalFlag 0x007f
+_0807E878 
+Jump 0xff76
+.short 0x0000
+StartScript 
+SetEntityNonPlanarMovement 0x0080
+StopScript 
+_0807EB44 0x0000
+_0807EF80 0x0000
+_0807EF80 0x000d
+_0807ECC4 0x0020
+_0807E5F8 0x00000001
+Call 0x080791bd
+SCRIPT_END
 .short 0x0000

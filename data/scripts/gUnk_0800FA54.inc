@@ -1,0 +1,10 @@
+SCRIPT_START gUnk_0800FA54
+StartScript 
+SetEntityNonPlanarMovement 0x0100
+StopScript 
+SetEntityPositionRelative 0x039800d8
+_0807EB44 0x0006
+_0807EF80 0x0000
+_0807E5F8 0x00000001
+Call 0x080791bd
+SCRIPT_END

@@ -4,9 +4,18 @@ _0807EB44 0x0004
 _0807EF80 0x0000
 SetEntityNonPlanarMovement 0x0100
 _0807EF80 0x000b
-Call sub_08066D04
+Call 0x08066d05
 StopScript 
 StartScript 
-.short 0x0c0b
-.short 0x6d15
-.short 0x0806
+Call 0x08066d15
+SetEntityPositionRelative 0x01480198
+_0807EF80 0x0007
+StopScript 
+_0807EDD4 0x0198, 0x01a8
+_0807EB44 0x0004
+_0807EF80 0x0000
+_0807E5F8 0x00000002
+Call 0x08066d4d
+_0807EF80 0x0006
+SCRIPT_END
+.short 0x0000

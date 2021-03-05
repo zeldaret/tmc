@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0800FE04
-.short 0xffde

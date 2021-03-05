@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0800BBDB
-.byte 0xff

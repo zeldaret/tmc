@@ -4,11 +4,16 @@ _0807EB44 0x0000
 _0807E930 0x0000
 _0807EF80 0x0008
 SetEntityNonPlanarMovement 0x0080
-Call sub_0807F348
+Call 0x0807f349
 StopScript 
 WaitForSomething2 0x00000002
 _0807EF80 0x0007
-CallWithArg sub_0807F4F8, 0x00000128
+CallWithArg
+.short 0xf4f9
+.short 0x0807
+.short 0x0128
+.short 0x0000
+@ End of 4 parameters
 Wait 0x001e
 TextboxNoOverlap 0x0e14
 _0807EA94 
@@ -23,5 +28,5 @@ _0807E5F8 0x0000003c
 _0807EF80 0x000f
 _0807E930 0x0008
 Wait 0x00f0
-Call sub_08054968
+Call 0x08054969
 SCRIPT_END

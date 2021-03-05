@@ -35,18 +35,18 @@ Call sub_0807F3C8
 TextboxNoOverlapFollowPos 0x1106,0x000c
 _0807EA94 
 _0807E930 0x001c
-Call sub_0806D96C // Ezlo Angry FX 
+Call sub_0806D96C @ Ezlo Angry FX 
 TextboxNoOverlapFollowPos 0x1107,0x000c
 _0807EA94 
 _0807E930 0x0020
 _0807E5F8 0x00000008
 WaitForSomething2 0x00000004
 _0807E930 0x0021
-Call sub_0807F3C8 // Ezlo Angry FX 
+Call sub_0807F3C8 @ Ezlo Angry FX 
 TextboxNoOverlapFollowPos 0x1108,0x000c
 _0807EA94 
 _0807E930 0x001c
-Call sub_0806D96C// Ezlo Angry FX 
+Call sub_0806D96C @ Ezlo Angry FX 
 TextboxNoOverlapFollowPos 0x1109,0x000c
 _0807EA94 
 _0807E930 0x0020
@@ -61,7 +61,7 @@ CheckEntityInteractType
 JumpIfNot 0xfff0
 StopScript 
 _0807E864 
-Call sub_0806D944  // Ezlo look at player
+Call sub_0806D944  @ Ezlo look at player
 _0807E930 0x0010
 TextboxNoOverlapFollowPos 0x1114,0x000c
 _0807EA94 
@@ -78,7 +78,7 @@ WaitForSomething2 0x00000004
 _0807EF80 0x000b
 _0807E5F8 0x00000008
 WaitForSomething2 0x00000004
-Call sub_0806D944// Ezlo look at player
+Call sub_0806D944 @ Ezlo look at player
 _0807E930 0x0010
 TextboxNoOverlapFollowPos 0x110a,0x000c
 _0807EA94 
@@ -118,7 +118,7 @@ _0807E5F8 0x00000008
 WaitForSomething2 0x00000004
 StopScript 
 StartScript 
-Call sub_0806D944 // Ezlo look at player
+Call sub_0806D944 @ Ezlo look at player
 CheckEntityInteractType 
 JumpIf 0x000e
 CheckPlayerInRegion2 0x3030
@@ -137,7 +137,7 @@ _0807E864
 Call sub_0807F9A4
 Call sub_0807DF28
 _0807EB8C 
-Call sub_0806D944 // Ezlo look at player
+Call sub_0806D944 @ Ezlo look at player
 _0807E930 0x0010
 TextboxNoOverlapFollowPos 0x110f,0x000c
 _0807E930 0x0018
@@ -151,7 +151,7 @@ _0807E5F8 0x00000008
 WaitForSomething2 0x00000004
 StopScript 
 StartScript 
-Call sub_0806D944 // Ezlo look at player
+Call sub_0806D944 @ Ezlo look at player
 CheckEntityInteractType 
 JumpIf 0x000e
 CheckPlayerInRegion2 0x3030
@@ -170,7 +170,7 @@ _0807E864
 Call sub_0807F9A4 
 Call sub_0807DF28 
 _0807EB8C 
-Call sub_0806D944  // Ezlo look at player
+Call sub_0806D944  @ Ezlo look at player
 _0807E930 0x0010
 TextboxNoOverlapFollowPos 0x1110,0x000c
 _0807E930 0x0018
@@ -185,7 +185,7 @@ _0807E5F8 0x00000008
 WaitForSomething2 0x00000004
 StopScript 
 StartScript 
-Call sub_0806D944  // Ezlo look at player
+Call sub_0806D944  @ Ezlo look at player
 CheckEntityInteractType 
 JumpIf 0x000e
 CheckPlayerInRegion2 0x3030
@@ -206,7 +206,7 @@ Call sub_0807DF28
 SoundReq0x80100000 
 _0807EF80 0x000b
 _0807EB8C 
-Call sub_0806D944  // Ezlo look at player
+Call sub_0806D944  @ Ezlo look at player
 _0807E930 0x0010
 TextboxNoOverlapFollowPos 0x1111,0x000c
 _0807E930 0x0018

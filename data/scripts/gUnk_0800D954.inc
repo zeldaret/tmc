@@ -1,11 +1,41 @@
 SCRIPT_START gUnk_0800D954
 StartScript 
 _0807EF80 0x0008
-Call sub_0807F180
+Call 0x0807f181
 StopScript 
 CheckPlayerInRegion 0x0118, 0x0038, 0x3050
 JumpIfNot 0xfff6
 _0807E864 
-Call sub_0807F9A4
-Call sub_0807DF28
-.byte 0x47
+Call 0x0807f9a5
+Call 0x0807df29
+StartPlayerScript 0x0800da00
+WaitForSomething2 0x00000001
+Wait 0x003c
+_0807EB44 0x0004
+_0807EF80 0x0000
+_0807EF80 0x0007
+SoundReq 0x01ce
+SetEntity0x20 0xffff8000
+TextboxNoOverlap 0x1701
+_0807EA94 
+_0807E5F8 0x00000004
+WaitForSomething2 0x00000002
+TextboxNoOverlap 0x1702
+_0807EA94 
+SetEntity0x20 0x00010000
+_0807E5F8 0x00000004
+WaitForSomething2 0x00000002
+_0807F050 0x006d
+WaitPlayerAction8 
+_0807EB28 0x1703
+_0807EA94 
+Wait 0x003c
+SetLocalFlag 0x0032
+SoundReq 0x0113
+_0807E914 0x00000001
+Call 0x0806da1d
+Call 0x0807df51
+_0807E878 
+_0807EF80 0x0006
+SCRIPT_END
+.short 0x0000

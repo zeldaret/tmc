@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0800FE02
-.short 0x0803

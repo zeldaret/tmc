@@ -1,9 +1,0 @@
-SCRIPT_START gUnk_0800B888
-Jump 0xfff4
-StartScript 
-_0807E9D4 
-_0807EB44 0x0004
-_0807EF80 0x0000
-_0807EF80 0x000a
-StopScript 
-CheckEntityInteractType 

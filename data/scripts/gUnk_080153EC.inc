@@ -17,45 +17,40 @@ _0807E5F8 0x00000880
 WaitForSomething2 0x00001100
 _0807F0B4 0x0004
 SetEntityPositionRelative 0x00900078
-TextboxNoOverlapFollowPos 0x1330, 0x0002
+TextboxNoOverlapFollowPos
+.short 0x1330
+.short 0x0002
+@ End of 2 parameters
 _0807EA94 
 _0807E5F8 0x00008000
 WaitForSomething2 0x00010000
 _0807E5F8 0x00000880
 WaitForSomething2 0x00001000
 Wait 0x003c
-TextboxNoOverlapFollowPos 0x130d, 0x0002
+TextboxNoOverlapFollowPos
+.short 0x130d
+.short 0x0002
+@ End of 2 parameters
 _0807EA94 
-TextboxNoOverlapFollowPos 0x130e, 0x000c
+TextboxNoOverlapFollowPos
+.short 0x130e
+.short 0x000c
+@ End of 2 parameters
 _0807EA94 
-TextboxNoOverlapFollowPos 0x130f, 0x0002
+TextboxNoOverlapFollowPos
+.short 0x130f
+.short 0x0002
+@ End of 2 parameters
 _0807EA94 
-TextboxNoOverlapFollowPos 0x1310, 0x000c
+TextboxNoOverlapFollowPos
+.short 0x1310
+.short 0x000c
+@ End of 2 parameters
 _0807EA94 
-CallWithArg sub_0805DDEC, 0x00000001
+CallWithArg
+.short 0xdded
+.short 0x0805
+.short 0x0001
+.short 0x0000
+@ End of 4 parameters
 _0807F0C8 0xffff, 0x0000
-_0807E5F8 0x00000800
-WaitForSomething2 0x00001000
-SoundReq 0x0125
-CallWithArg sub_0807FB28, 0x00000003
-_0807E5F8 0x00048000
-WaitForSomething2 0x00090000
-TextboxNoOverlapFollowPos 0x1311, 0x0002
-_0807EA94 
-_0807E5F8 0x00008000
-WaitForSomething2 0x00010000
-_0807E5F8 0x00048000
-WaitForSomething2 0x00010000
-CallWithArg sub_0805DE18, 0x00000001
-_0807F0C8 0x0000, 0x0000
-TextboxNoOverlapFollowPos 0x1312, 0x000c
-_0807EA94 
-_0807E5F8 0x00000800
-WaitForSomething2 0x00001000
-SoundReq0x80100000 
-_0807E778 0x0004
-DoFade5 
-WaitFor_2 
-SetRoomFlag 0x0001
-_0807EF80 0x0006
-SCRIPT_END

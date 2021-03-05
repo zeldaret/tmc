@@ -1,6 +1,6 @@
 SCRIPT_START gUnk_0800DB18
 StartScript 
 _0807EF80 0x000a
-Call sub_08066E38
+Call 0x08066e39
 StopScript 
 SCRIPT_END

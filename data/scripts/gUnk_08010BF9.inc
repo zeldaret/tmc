@@ -1,6 +1,0 @@
-SCRIPT_START gUnk_08010BF9
-.byte 0x8
-.byte 0x47
-.byte 0xc
-.byte 0x74
-.byte 0x10

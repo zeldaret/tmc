@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0800FB02
-.short 0x027c

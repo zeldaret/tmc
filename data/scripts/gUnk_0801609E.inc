@@ -1,0 +1,4 @@
+SCRIPT_START gUnk_0801609E
+SetEntityPosition 0x0010, 0x0000
+SCRIPT_END
+.short 0x0000

@@ -8,10 +8,127 @@ StopScript
 _0807E944 
 _0807E864 
 _0807E930 0x0004
-Call sub_0807F2D4
-Call sub_0806BBB0
+Call 0x0807f2d5
+Call 0x0806bbb1
 _0807EA94 
 _0807E930 0x0008
 _0807E878 
 Jump 0xffe2
+.short 0x0000
+StartScript 
+_0807E9D4 
+_0807EB44 0x0004
+_0807EF80 0x000a
+_0807E930 0x0000
+StopScript 
+_0807E944 
+_0807E864 
+_0807E930 0x0004
+Call 0x0807f2d5
+TextboxNoOverlapFollow 0x4912
+_0807EA94 
+_0807E930 0x0008
+_0807E878 
+Jump 0xffe4
+StartScript 
+_0807E9D4 
+_0807EB44 0x0004
+_0807EF80 0x000a
+_0807E930 0x0000
+StopScript 
+_0807E944 
+_0807E864 
+SetGlobalFlag 0x0061
+_0807E930 0x0004
+Call 0x0807f2d5
+_0807EA94 
+Call 0x0806ba35
+JumpIfNot 0x0066
+_0807EA94 
+CallWithArg
+.short 0xbb1d
+.short 0x0806
+.short 0x0000
+.short 0x0000
+@ End of 4 parameters
+Call 0x0807f2d5
+CallWithArg
+.short 0xbb1d
+.short 0x0806
+.short 0x0001
+.short 0x0000
+@ End of 4 parameters
+Call 0x0806bb7d
+JumpIfNot 0x0048
+TextboxNoOverlap 0x490c
+_0807EA94 
+LoadRoomEntityList 0x080d6784
+WaitForSomething 0x00000001
+WaitForSomething 0x00000004
+Wait 0x000f
+SoundReq 0x0072
+_0807E930 0x0004
+Call 0x0807f2d5
+TextboxNoOverlap 0x4913
+_0807EA94 
+_0807E930 0x0008
+Call 0x0807f2d5
+Jump 0x000a
+_0807E930 0x0008
+Wait 0x000f
+_0807EA94 
+_0807E878 
+Jump 0xff70
+StartScript 
+SetEntityPositionRelative 0x00180068
+_0807EF80 0x000f
+_0807EB44 0x0004
+_0807E930 0x0004
+SetEntityNonPlanarMovement 0x0300
+SoundReq 0x0121
+StopScript 
+WaitForSomething 0x00000002
+TextboxNoOverlap 0x490d
+_0807EA94 
+_0807EF80 0x0007
+Call 0x08064d09
+_0807EDD4 0x0068, 0x0078
+Call 0x08064d11
+Wait 0x000f
+_0807EB44 0x0002
+Wait 0x000f
+Call 0x08064d09
+_0807EDD4 0x0098, 0x0078
+Call 0x08064d11
+Wait 0x000f
+_0807EB44 0x0004
+SoundReq 0x007f
+Wait 0x000f
+_0807EB44 0x0002
+_0807EDD4 0x00ac, 0x0078
+Wait 0x000f
+_0807EB44 0x0004
+SoundReq 0x007f
+Wait 0x000f
+_0807EB44 0x0002
+_0807EDD4 0x00c0, 0x0078
+Wait 0x000f
+_0807EB44 0x0004
+SoundReq 0x007f
+Wait 0x000f
+_0807EB44 0x0006
+Wait 0x001e
+Call 0x08064d09
+_0807EDD4 0x0068, 0x0078
+Call 0x08064d11
+Wait 0x000f
+_0807EB44 0x0000
+Wait 0x000f
+Call 0x08064d09
+_0807EDD4 0x0068, 0x0018
+Call 0x08064d11
+SoundReq 0x0121
+_0807E5F8 0x00000001
+_0807EF80 0x0006
+SCRIPT_END
 .short 0x0000

@@ -16,5 +16,5 @@ SoundReq 0x0111
 WaitForSomething2 0x00000010
 _0807EF80 0x0007
 SoundReq 0x0111
-Call sub_0808692C
+Call 0x0808692d
 SCRIPT_END

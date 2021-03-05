@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_0800F4F7
-.short 0x3801

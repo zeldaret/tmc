@@ -2,7 +2,7 @@ SCRIPT_START gUnk_0800BC50
 StartScript 
 _0807EB44 0x0004
 _0807E930 0x0008
-Call sub_08054EB8
+Call 0x08054eb9
 StopScript 
 CheckRoomFlag 0x00ff
 JumpIfNot 0xfffa
@@ -15,10 +15,33 @@ _0807EA94
 _0807EF80 0x000f
 _0807E930 0x0008
 Wait 0x00f0
-Call sub_08054EFC
+Call 0x08054efd
 _0807EB44 0x0000
 _0807E930 0x0000
 SetEntityNonPlanarMovement 0x0040
 _0807EF80 0x000d
-CallWithArg sub_0807F4F8, 0x00000378
-.short 0x0831
+CallWithArg
+.short 0xf4f9
+.short 0x0807
+.short 0x0378
+.short 0x0000
+@ End of 4 parameters
+Wait 0x003c
+_0807EF80 0x000c
+Wait 0x003c
+TextboxNoOverlap 0x0e09
+_0807EA94 
+Call 0x0807f159
+CallWithArg
+.short 0xf4f9
+.short 0x0807
+.short 0x035c
+.short 0x0000
+@ End of 4 parameters
+Wait 0x001e
+SoundReq 0x0188
+_0807EF80 0x0008
+Wait 0x0078
+Call 0x08054969
+SCRIPT_END
+.short 0x0000

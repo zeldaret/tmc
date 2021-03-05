@@ -16,7 +16,7 @@ TextboxNoOverlap 0x3d07
 _0807EA94 
 _0807EB44 0x0004
 ClearGlobalFlag 0x0050
-Call sub_0807DF50
+Call 0x0807df51
 _0807E878 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
@@ -39,9 +39,53 @@ ModRupees 0xfff6
 Wait 0x001e
 TextboxNoOverlap 0x3d06
 _0807EA94 
-CallWithArg sub_0806C2A0, 0x00000000
+CallWithArg
+.short 0xc2a1
+.short 0x0806
+.short 0x0000
+.short 0x0000
+@ End of 4 parameters
 WaitFor_2 
 Wait 0x003c
-Call sub_0806C224
-.short 0x0803
-.short 0xffb8
+Call 0x0806c225
+Jump 0xffb8
+StartScript 
+_0807E888 
+StopScript 
+CallWithArg
+.short 0xc2a1
+.short 0x0806
+.short 0x0001
+.short 0x0000
+@ End of 4 parameters
+WaitFor_2 
+Wait 0x003c
+_0807E878 
+SetRoomFlag 0x0000
+SoundReq2 0x0033
+CheckRoomFlag 0x0064
+JumpIfNot 0xfffa
+SoundReq0x80100000 
+_0807E864 
+Wait 0x003c
+CameraTargetEntity 
+Wait 0x003c
+Call 0x0806c23d
+Wait 0x003c
+CameraTargetPlayer 
+_0807E878 
+CheckLocalFlag 0x0001
+JumpIfNot 0xfffa
+_0807E888 
+WaitPlayerAction8 
+Wait 0x001e
+CallWithArg
+.short 0xc2a1
+.short 0x0806
+.short 0x0000
+.short 0x0000
+@ End of 4 parameters
+WaitFor_2 
+Wait 0x003c
+Call 0x0806c281
+SCRIPT_END

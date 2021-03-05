@@ -3,7 +3,7 @@ StartScript
 _0807EB44 0x0006
 SetEntityNonPlanarMovement 0x0080
 _0807E9D4 
-Call sub_0807F348
+Call 0x0807f349
 StopScript 
 CheckGlobalFlag 0x0013
 JumpIf 0x00ba
@@ -11,14 +11,17 @@ _0807E888
 Wait 0x000a
 _0807E864 
 StartPlayerScript 0x08009cfc
-Call sub_0807DF28
+Call 0x0807df29
 WaitForSomething2 0x00000008
 _0807EDD4 0x0080, 0x005c
 _0807EB44 0x0006
 _0807EF80 0x0000
 Wait 0x000f
 _0807EF80 0x0001
-TextboxNoOverlapFollowPos 0x1009, 0x0000
+TextboxNoOverlapFollowPos
+.short 0x1009
+.short 0x0000
+@ End of 2 parameters
 _0807E8E4_1 
 _0807EA94 
 _0807EF80 0x0000
@@ -26,7 +29,10 @@ _0807E5F8 0x00000004
 WaitForSomething2 0x00000008
 _0807EB8C 
 _0807EF80 0x0001
-TextboxNoOverlapFollowPos 0x100b, 0x0000
+TextboxNoOverlapFollowPos
+.short 0x100b
+.short 0x0000
+@ End of 2 parameters
 _0807EA94 
 _0807EF80 0x0000
 _0807E5F8 0x00000002
@@ -40,12 +46,15 @@ _0807EF80 0x000c
 _0807EF80 0x0000
 _0807E5F8 0x00000002
 WaitForSomething2 0x00000008
-Call sub_08053250
+Call 0x08053251
 _0807F034 0x0034
 WaitPlayerAction8 
 _0807E8E4_1 
 _0807EF80 0x0001
-TextboxNoOverlapFollowPos 0x100c, 0x0000
+TextboxNoOverlapFollowPos
+.short 0x100c
+.short 0x0000
+@ End of 2 parameters
 _0807EA94 
 _0807EF80 0x0000
 _0807E5F8 0x00000004

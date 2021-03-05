@@ -1,14 +1,24 @@
 SCRIPT_START gUnk_0800C410
 StartScript 
-Call sub_0806D660
+Call 0x0806d661
 SetEntityNonPlanarMovement 0x0080
 StopScript 
 WaitForSomething2 0x00000004
-CallWithArg sub_0807F4F8, 0x00000048
-Call sub_0806D66C
+CallWithArg
+.short 0xf4f9
+.short 0x0807
+.short 0x0048
+.short 0x0000
+@ End of 4 parameters
+Call 0x0806d66d
 Wait 0x000f
-CallWithArg sub_0807F4F8, 0x00000068
-Call sub_0806D67C
+CallWithArg
+.short 0xf4f9
+.short 0x0807
+.short 0x0068
+.short 0x0000
+@ End of 4 parameters
+Call 0x0806d67d
 _0807F0C8 0x001e, 0x0000
 SoundReq 0x010b
 _0807E5F8 0x00000001

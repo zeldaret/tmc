@@ -1,2 +1,0 @@
-SCRIPT_START gUnk_08010005
-.short 0x0304
