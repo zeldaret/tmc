@@ -1,0 +1,2 @@
+SCRIPT_START gUnk_0800FCFA
+.byte 0x33

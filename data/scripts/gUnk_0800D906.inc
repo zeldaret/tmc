@@ -1,0 +1,31 @@
+SCRIPT_START gUnk_0800D906
+_0807EB28 0x1325
+_0807EA94 
+SoundReq 0x0113
+_0807E914 0x00000000
+Call sub_0806DA1C
+_0807E878 
+Call sub_0807DF50
+_0807EF80 0x0006
+SCRIPT_END
+.short 0x0000
+.short 0x0401
+.short 0x0867
+.short 0x0080
+.short 0x0402
+.short 0x0879
+.short 0x0001
+.short 0x0c73
+.short 0x00a0
+.short 0x0078
+.short 0x0861
+.short 0x0000
+.short 0x0879
+.short 0x0000
+.short 0x0c28
+.short 0x0001
+.short 0x0000
+.short 0x0c0b
+.short 0x91bd
+.short 0x0807
+.short 0xffff

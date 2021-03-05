@@ -1,0 +1,3 @@
+SCRIPT_START gUnk_0800F3F5
+.short 0x4304
+.short 0x6304

@@ -1,0 +1,7 @@
+SCRIPT_START gUnk_0800A590
+StartScript 
+SetEntityNonPlanarMovement 0x0080
+SetEntity0x20 0x00000000
+_0807EF80 0x0008
+_0807EB44 0x0000
+.short 0x0c0b

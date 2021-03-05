@@ -1,0 +1,14 @@
+SCRIPT_START gUnk_08009A84
+StartScript 
+SetEntityPositionRelative 0x011001e8
+SetEntityNonPlanarMovement 0x00c0
+_0807EF80 0x0008
+StopScript 
+WaitForSomething2 0x00000004
+_0807EF80 0x0007
+_0807EDD4 0x01e8, 0x0200
+_0807EDD4 0x01f8, 0x0218
+_0807EDD4 0x0220, 0x0228
+_0807EDD4 0x0240, 0x0228
+CameraTargetEntity 
+.byte 0x73

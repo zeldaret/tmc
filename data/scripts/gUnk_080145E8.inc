@@ -1,0 +1,18 @@
+SCRIPT_START gUnk_080145E8
+StartScript 
+_0807EF80 0x0008
+_0807EB44 0x0004
+_0807EF80 0x0000
+StopScript 
+CheckRoomFlag 0x0000
+JumpIfNot 0xfffa
+_0807E864 
+Call sub_0807DF28
+CheckRoomFlag 0x0004
+JumpIf 0xfffa
+_0807E5F8 0x00000004
+WaitForSomething2 0x00000008
+Call sub_0807DF50
+_0807E878 
+.short 0x0803
+.short 0xffd2

@@ -1,0 +1,7 @@
+SCRIPT_START gUnk_0800F6C8
+_0807EA94 
+Wait 0x000f
+_0807E878 
+CallWithArg sub_0807F3D8, 0x00000000
+Jump 0xffc4
+.short 0x0000

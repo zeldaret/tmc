@@ -1,0 +1,3 @@
+SCRIPT_START gUnk_0800FA02
+Wait 0x00b7
+.byte 0x4e

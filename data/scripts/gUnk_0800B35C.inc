@@ -1,0 +1,6 @@
+SCRIPT_START gUnk_0800B35C
+Call sub_080676D8
+Call sub_0806757C
+Call sub_080675D4
+Wait 0x0014
+StartScript 

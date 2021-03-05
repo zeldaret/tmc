@@ -1,0 +1,25 @@
+SCRIPT_START gUnk_08015FC0
+StartScript 
+Call sub_0806DB84
+CheckKinstoneFused 0x0009
+JumpIf 0x005a
+_0807EA88 0x0009
+CallWithArg sub_0806DA04, 0x00000007
+_0807EF80 0x000a
+StopScript 
+_0807EA4C 
+_0807E9F0 
+_0807E864 
+CheckKinstoneFused 0x0009
+JumpIf 0x000e
+Call sub_0807DF50
+_0807E878 
+Jump 0xffe8
+_0807F0C8 0xffff, 0x0000
+_0807E5F8 0x00000003
+WaitForSomething2 0x0000000c
+_0807F0C8 0x0000, 0x0000
+SoundReq 0x0072
+_0807EB28 0x0b1f
+_0807EA94 
+.byte 0xb

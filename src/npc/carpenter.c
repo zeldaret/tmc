@@ -69,6 +69,6 @@ void Carpenter_Head(Entity* this) {
     }
 }
 
-void sub_080672b0(Entity* this, u32 param_2) {
+void sub_080672B0(Entity* this, u32 param_2) {
     InitializeAnimation(this, *(u32*)(param_2 + 4) + (this->animationState >> 1) + this->type * 8);
 }

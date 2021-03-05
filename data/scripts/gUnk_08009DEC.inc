@@ -1,0 +1,20 @@
+SCRIPT_START gUnk_08009DEC
+StartScript 
+StopScript 
+CheckPlayerInRegion 0x00a0, 0x0038, 0x1830
+JumpIfNot 0xfff6
+_0807E864 
+Call sub_0807F9A4
+Wait 0x0008
+_0807EB28 0x3207
+_0807E3E8 
+JumpIfNot 0x003e
+Call sub_0807DF28
+_0807E778 0x0002
+DoFade5 
+WaitFor_2 
+Call sub_0804E864
+Wait 0x001e
+_0807E5F8 0x00000002
+WaitForSomething2 0x00000001
+.short 0x085f

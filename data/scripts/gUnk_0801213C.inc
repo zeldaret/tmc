@@ -1,0 +1,42 @@
+SCRIPT_START gUnk_0801213C
+StartScript 
+Call sub_08064A28
+_0807EB44 0x0004
+_0807EF80 0x0001
+_0807EF80 0x000a
+StopScript 
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+_0807EF80 0x0000
+CheckLocalFlag 0x0096
+JumpIf 0x0010
+TextboxNoOverlap 0x311c
+_0807EA94 
+SetLocalFlag 0x0096
+Jump 0x0042
+_0807E48C 0x0030
+JumpIfNot 0x000c
+TextboxNoOverlap 0x311d
+_0807EA94 
+Jump 0x0030
+TextboxNoOverlap 0x311e
+_0807EA94 
+_0807E3E8 
+JumpIfNot 0x0024
+_0807E48C 0x0020
+JumpIfNot 0x0018
+TextboxNoOverlap 0x311f
+_0807EA94 
+_0807F034 0x0030
+WaitPlayerAction8 
+Call sub_0807FC24
+Jump 0x0006
+TextboxNoOverlap 0x3121
+_0807EA94 
+_0807E878 
+_0807EB44 0x0004
+_0807EF80 0x0001
+Jump 0xff8e
+.short 0x0000

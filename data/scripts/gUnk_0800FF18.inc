@@ -1,0 +1,7 @@
+SCRIPT_START gUnk_0800FF18
+StartScript 
+CheckInventory1 0x0012
+JumpIf 0x004a
+_0807EB44 0x0006
+_0807E9D4 
+.short 0x140c

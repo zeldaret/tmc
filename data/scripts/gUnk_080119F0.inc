@@ -1,0 +1,9 @@
+SCRIPT_START gUnk_080119F0
+StartScript 
+_0807EB44 0x0006
+_0807E9D4 
+_0807EF80 0x000a
+.short 0x140c
+.short 0xf3d9
+.short 0x0807
+.short 0x0000

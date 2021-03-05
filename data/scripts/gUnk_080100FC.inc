@@ -1,0 +1,2 @@
+SCRIPT_START gUnk_080100FC
+StartScript 

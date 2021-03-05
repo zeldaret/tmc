@@ -1,0 +1,15 @@
+SCRIPT_START gUnk_0800E70A
+_0807E864 
+Call sub_0806AFE8
+JumpIf 0x000e
+_0807EA94 
+Wait 0x000f
+_0807E878 
+Jump 0xffd4
+_0807EA94 
+_0807F034 0x0057
+WaitPlayerAction8 
+_0807EA94 
+_0807E878 
+Jump 0xffc4
+.short 0x0000

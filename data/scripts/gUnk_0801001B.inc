@@ -1,0 +1,2 @@
+SCRIPT_START gUnk_0801001B
+.short 0x07f5

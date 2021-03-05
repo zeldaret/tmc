@@ -1,0 +1,10 @@
+SCRIPT_START gUnk_0800F902
+_0807E078 0x0c0b
+.short 0x4dd9
+.short 0x0809
+.short 0x0831
+.short 0x001e
+.short 0x0c5c
+.short 0x1024
+.short 0x000e
+.short 0x0459

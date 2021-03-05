@@ -1,0 +1,36 @@
+SCRIPT_START gUnk_08015F3C
+StartScript 
+SetEntityNonPlanarMovement 0x0080
+_0807EB44 0x0000
+_0807E930 0x0000
+StopScript 
+WaitForSomething 0x00000040
+_0807E930 0x0004
+_0807EC64 0x00c0
+_0807E930 0x0000
+Wait 0x003c
+_0807E5F8 0x00000080
+WaitForSomething 0x00000200
+_0807EF80 0x0005
+WaitForSomething 0x00000400
+_0807EF80 0x0006
+SCRIPT_END
+.short 0x0000
+.short 0x0401
+.short 0x0861
+.short 0x0004
+.short 0x0879
+.short 0x0000
+.short 0x0402
+.short 0x0c32
+.short 0x0200
+.short 0x0000
+.short 0x0879
+.short 0x0005
+.short 0x0c32
+.short 0x0400
+.short 0x0000
+.short 0x0879
+.short 0x0006
+.short 0xffff
+.short 0x0000

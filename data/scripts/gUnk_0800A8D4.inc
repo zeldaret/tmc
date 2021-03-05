@@ -1,14 +1,15 @@
-ScriptCommand_StartScript 
-ScriptCommand_0807EF80 0x0007
-ScriptCommand_0807EB44 0x0004
-ScriptCommand_0807E930 0x0008
-ScriptCommand_StopScript 
-ScriptCommand_WaitForSomething 0x00000001
-ScriptCommand_0807EF80 0x0000
-ScriptCommand_WaitForSomething2 0x00000020
-ScriptCommand_0807EF80 0x0004
-ScriptCommand_Wait 0x003c
-ScriptCommand_0807EB44 0x0002
-ScriptCommand_Wait 0x000f
+SCRIPT_START gUnk_0800A8D4
+StartScript 
+_0807EF80 0x0007
+_0807EB44 0x0004
+_0807E930 0x0008
+StopScript 
+WaitForSomething 0x00000001
+_0807EF80 0x0000
+WaitForSomething2 0x00000020
+_0807EF80 0x0004
+Wait 0x003c
+_0807EB44 0x0002
+Wait 0x000f
 .short 0x0861
 .short 0x0006

@@ -1,0 +1,5 @@
+SCRIPT_START gUnk_0800A124
+_0807E8E4_3 
+CallWithArg sub_0807F75C, 0x00d00060
+.short 0x140c
+.short 0x4ae9

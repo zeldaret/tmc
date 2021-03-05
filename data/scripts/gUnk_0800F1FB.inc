@@ -1,0 +1,2 @@
+SCRIPT_START gUnk_0800F1FB
+.short 0x0b04

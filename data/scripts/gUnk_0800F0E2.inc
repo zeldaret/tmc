@@ -1,0 +1,6 @@
+SCRIPT_START gUnk_0800F0E2
+TextboxNoOverlapFollowPos 0x1202, 0x000c
+_0807EA94 
+_0807F034 0x0067
+WaitPlayerAction8 
+_0807E8E4_0 

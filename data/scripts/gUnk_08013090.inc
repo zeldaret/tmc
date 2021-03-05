@@ -1,0 +1,36 @@
+SCRIPT_START gUnk_08013090
+JumpIfNot 0xfff8
+TextboxNoOverlap 0x4407
+_0807EA94 
+_0807E908 0x0001
+Call sub_0806A96C
+JumpIfNot 0xfff8
+TextboxNoOverlap 0x440d
+_0807EA94 
+_0807E908 0x0001
+Jump 0xffd6
+CheckLocalFlag 0x0062
+JumpIfNot 0x0008
+Call sub_0806A9B0
+StopScript 
+Call sub_0806A96C
+JumpIfNot 0xfff8
+_0807E864 
+Call sub_0806AA18
+_0807EA94 
+_0807E878 
+_0807E908 0x0001
+Jump 0xffe4
+StartScript 
+_0807EB44 0x0006
+SetEntityNonPlanarMovement 0x0140
+StopScript 
+_0807EDD4 0x00a8, 0x0060
+Wait 0x0008
+_0807EF80 0x0000
+Wait 0x0008
+_0807EF80 0x0004
+Wait 0x000f
+_0807E5F8 0x00000004
+SCRIPT_END
+.short 0x0000

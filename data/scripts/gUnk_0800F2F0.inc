@@ -1,0 +1,2 @@
+SCRIPT_START gUnk_0800F2F0
+.short 0x0032

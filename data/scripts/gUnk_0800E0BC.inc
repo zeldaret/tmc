@@ -1,0 +1,16 @@
+SCRIPT_START gUnk_0800E0BC
+StartScript 
+_0807EB44 0x0004
+_0807EF80 0x000a
+CheckLocalFlag 0x0093
+JumpIf 0x0062
+_0807E930 0x0008
+CallWithArg sub_0807F8E8, 0x00000000
+StopScript 
+CheckRoomFlag 0x0000
+JumpIfNot 0xfffa
+_0807E864 
+Wait 0x001e
+_0807EF80 0x0010
+SoundReq 0x01c9
+.short 0x0850

@@ -1,0 +1,8 @@
+SCRIPT_START gUnk_0800E140
+_0807EB74 
+TextboxNoOverlap 0x2402
+_0807EA94 
+Wait 0x000f
+_0807E878 
+Jump 0xffe8
+.byte 0x0

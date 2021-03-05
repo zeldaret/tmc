@@ -1,0 +1,62 @@
+SCRIPT_START gUnk_0801550C
+StartScript 
+SetEntityNonPlanarMovement 0x0080
+_0807EF80 0x0007
+_0807EB44 0x0000
+Call sub_0807F338
+StopScript 
+CallWithArg sub_0806AF60, 0x00000000
+WaitForSomething2 0x00008000
+CallWithArg sub_0806AF60, 0x00000004
+_0807EDD4 0x0078, 0x00b8
+_0807EB44 0x0000
+CallWithArg sub_0806AF60, 0x00000000
+_0807E5F8 0x00010000
+WaitForSomething2 0x00008000
+_0807EF80 0x000d
+_0807EB44 0x0000
+CallWithArg sub_0806AF60, 0x00000004
+_0807EDD4 0x0078, 0x00c8
+_0807E5F8 0x00010000
+WaitForSomething2 0x00008000
+_0807EB44 0x0000
+CallWithArg sub_0806AF60, 0x00000000
+_0807EF80 0x0010
+Wait 0x0028
+SoundReq 0x0125
+CallWithArg sub_0807FB28, 0x00000003
+Wait 0x000a
+SoundReq 0x0125
+CallWithArg sub_0807FB28, 0x00000003
+Wait 0x000a
+_0807EF80 0x0010
+_0807E5F8 0x00010000
+WaitForSomething2 0x00008000
+_0807E930 0x000d
+Call sub_0807F2D4
+_0807E5F8 0x00010000
+Wait 0x003c
+_0807EF80 0x0005
+Wait 0x003c
+CheckRoomFlag 0x0001
+JumpIfNot 0xfffa
+_0807EF80 0x0006
+SCRIPT_END
+.short 0x0c33
+.short 0x0020
+.short 0x0000
+.short 0x0850
+.short 0x0000
+.short 0x0831
+.short 0x0014
+.short 0x0c28
+.short 0x0040
+.short 0x0000
+.short 0x0815
+.short 0x0001
+.short 0x0805
+.short 0xfffa
+.short 0x0879
+.short 0x0006
+.short 0xffff
+.short 0x0000

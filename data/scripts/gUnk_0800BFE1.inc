@@ -1,0 +1,2 @@
+SCRIPT_START gUnk_0800BFE1
+.short 0x3100

@@ -1,0 +1,28 @@
+SCRIPT_START gUnk_0800FA78
+StartScript 
+SetEntityNonPlanarMovement 0x0100
+StopScript 
+_0807EDD4 0x00a0, 0x0278
+_0807EB44 0x0000
+_0807EF80 0x0000
+_0807E5F8 0x00000001
+Call sub_080791BC
+SCRIPT_END
+.short 0x0401
+.short 0x0867
+.short 0x0100
+.short 0x0402
+.short 0x0c73
+.short 0x0078
+.short 0x01c0
+.short 0x0861
+.short 0x0000
+.short 0x0879
+.short 0x0000
+.short 0x0c28
+.short 0x0001
+.short 0x0000
+.short 0x0c0b
+.short 0x91bd
+.short 0x0807
+.short 0xffff

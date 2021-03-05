@@ -5,6 +5,8 @@ import struct
 # Input 'macros' to generate the macros for the script commands
 # Input the script bytes as hex to disassemble the script
 
+# Build macros: echo "macros" | python script_disassembler.py > ~/git/tmc/github/asm/macros/script.inc 
+
 @dataclass
 class Context:
     ptr: int
@@ -225,9 +227,10 @@ parameters = {
     },
 }
 
-def build_script_command(name: str):
+# Remove the ScriptCommand_ prefix for the asm macros
+def build_script_command(name: str): 
     name = name.replace("ScriptCommand_", "")
-    if name[0].isdigit():
+    if name[0].isdigit(): # asm macros cannot start with an _
         return '_' + name
     return name
 
@@ -294,7 +297,7 @@ def disassemble_script(input_bytes):
     # Print rest (did not manage to get there)
     if ctx.ptr < len(ctx.data):
         if (len(ctx.data) - ctx.ptr) % 2 != 0:
-            print(ctx.data[ctx.ptr:])
+            print('\n'.join(['.byte ' + hex(x) for x in ctx.data[ctx.ptr:]]))
             # TODO error
             return
         print('\n'.join(['.short ' + x for x in barray_to_u16_hex(ctx.data[ctx.ptr:])]))

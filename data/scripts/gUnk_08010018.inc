@@ -1,0 +1,4 @@
+SCRIPT_START gUnk_08010018
+.byte 0xb
+.byte 0xc
+.byte 0x95

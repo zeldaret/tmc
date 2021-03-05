@@ -1,0 +1,18 @@
+SCRIPT_START gUnk_0800BECC
+StartScript 
+_0807EB44 0x0000
+_0807E930 0x0000
+_0807EF80 0x0008
+SetEntityNonPlanarMovement 0x0080
+Call sub_0807F348
+StopScript 
+WaitForSomething2 0x00000002
+_0807EF80 0x0007
+CallWithArg sub_0807F4F8, 0x000001b8
+Wait 0x001e
+TextboxNoOverlap 0x0e0e
+_0807EA94 
+_0807E5F8 0x0000000c
+WaitForSomething2 0x00000002
+.short 0x0867
+.short 0x0100

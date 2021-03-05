@@ -1,0 +1,5 @@
+SCRIPT_START gUnk_0800EC54
+StartScript 
+Call sub_08061E70
+_0807EF80 0x000a
+.byte 0x61

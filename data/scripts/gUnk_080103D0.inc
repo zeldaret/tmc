@@ -1,0 +1,11 @@
+SCRIPT_START gUnk_080103D0
+StartScript 
+_0807E9D4 
+_0807EB44 0x0004
+_0807EF80 0x000a
+CallWithArg sub_0807F3D8, 0x00000004
+StopScript 
+Wait 0x003c
+Call sub_0806407C
+Jump 0xfff4
+.short 0x0000

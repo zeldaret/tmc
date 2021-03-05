@@ -1,0 +1,11 @@
+SCRIPT_START gUnk_08012E20
+StartScript 
+_0807E864 
+StopScript 
+Wait 0x0078
+_0807E908 0x0004
+StartPlayerScript 0x08012e44
+WaitForSomething2 0x00000002
+Wait 0x000c
+_0807E908 0x0005
+SCRIPT_END

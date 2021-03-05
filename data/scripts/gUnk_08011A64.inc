@@ -1,0 +1,47 @@
+SCRIPT_START gUnk_08011A64
+StartScript 
+_0807EB44 0x0002
+_0807E9D4 
+_0807EF80 0x000a
+CallWithArg sub_0807F3D8, 0x00000000
+StopScript 
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+CallWithArg sub_0807F3D8, 0x00000000
+CallWithArg sub_080644B4, 0x00000006
+JumpIf 0x005e
+TextboxNoOverlapFollow 0x1320
+_0807EA94 
+_0807E878 
+Jump 0xffd4
+.short 0x0000
+.short 0x0401
+.short 0x0861
+.short 0x0004
+.short 0x0453
+.short 0x0879
+.short 0x000a
+.short 0x140c
+.short 0xf3d9
+.short 0x0807
+.short 0x0000
+.short 0x0000
+.short 0x0402
+.short 0x0418
+.short 0x0805
+.short 0xfffc
+.short 0x0443
+.short 0x0463
+.short 0x140c
+.short 0xf3d9
+.short 0x0807
+.short 0x0000
+.short 0x0000
+.short 0x085a
+.short 0x1322
+.short 0x0459
+.short 0x0444
+.short 0x0803
+.short 0xffe2

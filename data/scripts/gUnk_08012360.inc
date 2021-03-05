@@ -1,0 +1,50 @@
+SCRIPT_START gUnk_08012360
+StartScript 
+_0807EF80 0x0008
+StopScript 
+CheckLocalFlag 0x0004
+JumpIfNot 0xfffa
+Call sub_0807DF28
+_0807E864 
+SoundReq0x80100000 
+StartScript 
+_0807E778 0x0004
+_0807E788 0x00007fff
+DoFade5 
+_0807E858 0x0080
+StopScript 
+WaitFor_2 
+SoundReq2 0x002c
+_0807EB28 0x1401
+_0807EA94 
+_0807EB44 0x0004
+_0807EF80 0x0000
+_0807EF80 0x0007
+SoundReq 0x01ce
+SetEntity0x20 0xffff8000
+Wait 0x003c
+_0807E8E4_0 
+StartPlayerScript 0x08012410
+WaitForSomething2 0x00000001
+TextboxNoOverlap 0x1402
+_0807EA94 
+SoundReq0x80100000 
+SetEntity0x20 0x00010000
+Wait 0x003c
+StartScript 
+_0807E778 0x0004
+_0807E788 0xffffffff
+DoFade4 
+_0807E858 0x0080
+StopScript 
+WaitFor_2 
+SoundReq2 0xffff
+_0807EB28 0x1403
+_0807EA94 
+_0807E914 0x00000203
+Call sub_0807F420
+Call sub_0807DF50
+_0807E878 
+_0807EF80 0x0006
+SCRIPT_END
+.short 0x0000

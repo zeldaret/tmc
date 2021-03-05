@@ -1,0 +1,10 @@
+SCRIPT_START gUnk_0800A064
+Wait 0x0008
+_0807F034 0x0007
+Call sub_08060318
+WaitPlayerAction8 
+Wait 0x0008
+_0807EB8C 
+TextboxNoOverlapFollow 0x1f10
+_0807EA94 
+.byte 0x44

@@ -1,0 +1,9 @@
+SCRIPT_START gUnk_08013EB0
+StartScript 
+_0807EF80 0x0007
+Call sub_0807F180
+SetEntityPositionRelative 0x00f80120
+_0807E930 0x0003
+StopScript 
+SCRIPT_END
+.short 0x0000

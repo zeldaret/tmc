@@ -1,0 +1,14 @@
+SCRIPT_START gUnk_0800C1D8
+StartScript 
+_0807EB44 0x0004
+_0807E930 0x0008
+Call sub_0807F348
+StopScript 
+WaitFor_2 
+Wait 0x00f0
+_0807E930 0x0000
+_0807EB44 0x0002
+Wait 0x003c
+TextboxNoOverlap 0x0e16
+_0807EA94 
+.short 0x0850

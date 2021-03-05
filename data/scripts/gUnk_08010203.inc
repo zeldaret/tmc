@@ -1,0 +1,3 @@
+SCRIPT_START gUnk_08010203
+.short 0x0108
+.short 0x6b04

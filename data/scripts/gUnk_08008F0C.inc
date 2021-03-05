@@ -1,0 +1,6 @@
+SCRIPT_START gUnk_08008F0C
+.short 0x0100
+.short 0x0000
+.short 0x0c28
+.short 0x0010
+.short 0x0000

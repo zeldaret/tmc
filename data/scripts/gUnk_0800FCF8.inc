@@ -1,0 +1,2 @@
+SCRIPT_START gUnk_0800FCF8
+.short 0x0000

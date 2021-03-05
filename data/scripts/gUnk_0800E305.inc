@@ -1,0 +1,2 @@
+SCRIPT_START gUnk_0800E305
+.short 0x07f3

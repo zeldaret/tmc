@@ -1,0 +1,9 @@
+SCRIPT_START gUnk_080092D4
+StartScript 
+_0807EB44 0x0004
+_0807EF80 0x0000
+Call sub_0806672C
+_0807EF80 0x000a
+StopScript 
+Jump 0xfe90
+.short 0x0000

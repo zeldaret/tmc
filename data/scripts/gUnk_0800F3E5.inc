@@ -1,0 +1,2 @@
+SCRIPT_START gUnk_0800F3E5
+.byte 0xc

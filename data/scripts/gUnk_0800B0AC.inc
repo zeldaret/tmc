@@ -1,0 +1,3 @@
+SCRIPT_START gUnk_0800B0AC
+StopScript 
+_0807E864 

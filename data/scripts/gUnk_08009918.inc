@@ -1,0 +1,12 @@
+SCRIPT_START gUnk_08009918
+StartScript 
+Call sub_0807DF28
+_0807E864 
+_0807E5F8 0x00000000
+StopScript 
+WaitFor_2 
+Wait 0x0078
+_0807E5F8 0x00000004
+WaitForSomething2 0x00000001
+.short 0x082d
+.short 0x001c

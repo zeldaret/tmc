@@ -1,0 +1,2 @@
+SCRIPT_START gUnk_0801000A
+.short 0x085b

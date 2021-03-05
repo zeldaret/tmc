@@ -1,0 +1,22 @@
+SCRIPT_START gUnk_0800EA54
+StartScript 
+Call sub_0806CE5C
+_0807EF80 0x000a
+_0807EB44 0x0004
+_0807E930 0x0008
+StopScript 
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+CallWithArg sub_0807F3D8, 0x00000004
+Call sub_0807F2D4
+_0807E930 0x0009
+Call sub_0806CE80
+_0807EA94 
+_0807E878 
+_0807E930 0x000a
+Call sub_0807F2D4
+_0807E930 0x0008
+.short 0x0803
+.short 0xffc8

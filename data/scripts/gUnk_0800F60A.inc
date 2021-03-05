@@ -1,0 +1,10 @@
+SCRIPT_START gUnk_0800F60A
+_0807E864 
+_0807EB74 
+CallWithArg sub_0807F3D8, 0x00000008
+TextboxNoOverlap 0x2511
+_0807EA94 
+Wait 0x000f
+_0807E878 
+.short 0x0803
+.short 0xffde

@@ -1,0 +1,6 @@
+SCRIPT_START gUnk_08008F16
+Wait 0x0078
+_0807E5F8 0x00000080
+.short 0x0c33
+.short 0x0100
+.short 0x0000

@@ -1,0 +1,3 @@
+SCRIPT_START gUnk_0800FA09
+.short 0x0000
+.short 0x0b00

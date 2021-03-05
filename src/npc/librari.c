@@ -60,7 +60,7 @@ void sub_0806B260(Entity* this, u32 arg1) {
 
 extern u16 gUnk_08112D50[];
 
-void sub_0806b2b4(Entity* this) {
+void sub_0806B2B4(Entity* this) {
     u32 index;
 
     if (CheckLocalFlag(0xb3)) {

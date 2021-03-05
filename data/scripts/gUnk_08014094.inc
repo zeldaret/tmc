@@ -1,0 +1,28 @@
+SCRIPT_START gUnk_08014094
+StartScript 
+_0807EF80 0x0007
+_0807E930 0x0002
+Call sub_0807F738
+SetEntityPosition 0x0000, 0xfff0
+StopScript 
+WaitForSomething 0x00000040
+_0807EF80 0x0006
+SCRIPT_END
+.short 0x0401
+.short 0x0879
+.short 0x0007
+.short 0x0850
+.short 0x0003
+.short 0x0c0b
+.short 0xf739
+.short 0x0807
+.short 0x0c6a
+.short 0x0000
+.short 0xfff0
+.short 0x0402
+.short 0x0c32
+.short 0x0040
+.short 0x0000
+.short 0x0879
+.short 0x0006
+.short 0xffff

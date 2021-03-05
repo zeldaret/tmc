@@ -1,0 +1,30 @@
+SCRIPT_START gUnk_08014548
+StartScript 
+StopScript 
+CheckPlayerInRegion 0x0078, 0x0088, 0x0810
+JumpIfNot 0xfff6
+CheckRoomFlag 0x0000
+JumpIfNot 0xffee
+_0807E864 
+_0807EB28 0x4217
+_0807EA94 
+StartPlayerScript 0x08014588
+Wait 0x0010
+_0807E5F8 0x00000001
+WaitForSomething2 0x00000002
+_0807E878 
+Jump 0xffca
+SCRIPT_END
+.short 0x0000
+.short 0x0402
+.short 0x0c33
+.short 0x0001
+.short 0x0000
+.short 0x0867
+.short 0x00e0
+.short 0x0c73
+.short 0x0078
+.short 0x0078
+.short 0x0879
+.short 0x0000
+.short 0x0831

@@ -1,0 +1,8 @@
+SCRIPT_START gUnk_08012BF8
+StartScript 
+_0807EB44 0x0006
+_0807EF80 0x0007
+_0807E930 0x0003
+StopScript 
+.short 0x0c33
+.short 0x0010

@@ -1,0 +1,9 @@
+SCRIPT_START gUnk_0800CCCD
+.short 0x800c
+.short 0x3001
+.short 0x7b00
+.short 0x7c08
+.short 0x7800
+.short 0x800c
+.short 0x3001
+.short 0x2800

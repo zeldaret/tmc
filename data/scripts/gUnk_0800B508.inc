@@ -1,0 +1,4 @@
+SCRIPT_START gUnk_0800B508
+TextboxNoOverlapFollow 0x2016
+_0807EA94 
+.byte 0x73

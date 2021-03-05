@@ -1,0 +1,24 @@
+SCRIPT_START gUnk_08012430
+StartScript 
+_0807EF80 0x000a
+_0807EB44 0x0004
+_0807E930 0x0000
+StopScript 
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+_0807E864 
+_0807E930 0x0008
+Call sub_0807F2D4
+_0807E930 0x0009
+Call sub_0806B2B4
+_0807EA94 
+CheckLocalFlag 0x00b3
+JumpIf 0x0010
+SetLocalFlag 0x00b3
+_0807F034 0x0062
+WaitPlayerAction8 
+SetLocalFlag 0x00d0
+_0807E878 
+_0807E930 0x0000
+Jump 0xffc4
+.short 0x0000
