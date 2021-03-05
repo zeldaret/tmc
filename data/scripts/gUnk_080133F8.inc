@@ -3,11 +3,11 @@ StartScript
 _0807EB44 0x0004
 _0807EF80 0x0008
 _0807EF80 0x000b
-Call 0x0807f339
+Call sub_0807F338
 StopScript 
 WaitForSomething2 0x00000020
 SetEntityPositionRelative 0x00480098
-Call 0x08066c95
+Call sub_08066C94
 Wait 0x00e9
 _0807EF80 0x0007
 _0807E5F8 0x00000040
@@ -15,9 +15,8 @@ WaitForSomething2 0x00000020
 Wait 0x003c
 _0807EF80 0x0014
 SoundReq 0x0120
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5421
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095420
 .short 0x3494
 .short 0x0801
 @ End of parameters
@@ -30,7 +29,7 @@ _0807EB44 0x0004
 _0807EF80 0x0000
 _0807E5F8 0x00000040
 WaitForSomething2 0x00000020
-Call 0x08066ca5
+Call sub_08066CA4
 _0807EF80 0x0008
 Wait 0x0078
 _0807E5F8 0x00000040

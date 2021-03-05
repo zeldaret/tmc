@@ -4,12 +4,12 @@ SetEntityNonPlanarMovement 0x00c0
 _0807E908 0x0001
 _0807EF80 0x000b
 _0807E864 
-Call 0x0807fbc5
+Call sub_0807FBC4
 StopScript 
 Wait 0x000a
 _0807EF80 0x0004
 _0807E5F8 0x00000008
-StartPlayerScript 0x0800b54c
+StartPlayerScript gUnk_0800B54C
 _0807EDD4 0x0140, 0x0298
 _0807EB74 
 WaitForSomething2 0x00000004

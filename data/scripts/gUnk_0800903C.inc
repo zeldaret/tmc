@@ -17,7 +17,7 @@ _0807EF80 0x000a
 Jump 0x0202
 .short 0x0000
 StartScript 
-Call 0x0807f349
+Call sub_0807F348
 SetEntityNonPlanarMovement 0x0100
 _0807EB44 0x0004
 _0807EF80 0x0000
@@ -97,13 +97,13 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-Call 0x0806673d
+Call sub_0806673C
 _0807EA94 
 Wait 0x000f
 _0807E878 
 Jump 0xffe6
 StartScript 
-Call 0x0807f349
+Call sub_0807F348
 _0807EB44 0x0006
 _0807EF80 0x0000
 StopScript 
@@ -170,14 +170,14 @@ Jump 0x0042
 StartScript 
 _0807EB44 0x0004
 _0807EF80 0x0000
-Call 0x080668f1
+Call sub_080668F0
 _0807EF80 0x000a
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-Call 0x08066905
+Call sub_08066904
 _0807EA94 
 Wait 0x000f
 _0807E878 
@@ -201,14 +201,14 @@ Jump 0xffe8
 StartScript 
 _0807EB44 0x0004
 _0807EF80 0x0000
-Call 0x0806672d
+Call sub_0806672C
 _0807EF80 0x000a
 StopScript 
 Jump 0xfe90
 .short 0x0000
 StartScript 
 _0807EF80 0x000a
-Call 0x08066e39
+Call sub_08066E38
 _0807E9D4 
 StopScript 
 CheckEntityInteractType 

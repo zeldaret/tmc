@@ -5,7 +5,7 @@ JumpIfNot 0xfffa
 _0807E864 
 Wait 0x003c
 _0807E914 0x00000905
-Call 0x0807f421
+Call sub_0807F420
 SetRoomFlag 0x0001
 Wait 0x001e
 _0807E878 

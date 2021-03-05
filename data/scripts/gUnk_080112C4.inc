@@ -2,8 +2,8 @@ SCRIPT_START gUnk_080112C4
 StartScript 
 _0807EF80 0x0008
 SetEntityNonPlanarMovement 0x0100
-Call 0x08095245
-Call 0x0807f339
+Call sub_08095244
+Call sub_0807F338
 StopScript 
 WaitForSomething 0x0002a800
 _0807EF80 0x0007
@@ -14,7 +14,7 @@ _0807ECC4 0x0010
 Wait 0x003c
 _0807ECC4 0x0010
 _0807E930 0x0002
-Call 0x08064051
+Call sub_08064050
 .short 0x1406 @ _0807E078 with 4 parameters
 .short 0x0008
 .short 0x009e
@@ -46,7 +46,7 @@ WaitForSomething2 0x00000800
 _0807EF80 0x0010
 Wait 0x000a
 _0807EF80 0x0010
-Call 0x0807f3c9
+Call sub_0807F3C8
 _0807E930 0x0014
 SetEntityNonPlanarMovement 0x0400
 SetEntityDirection 0x001e

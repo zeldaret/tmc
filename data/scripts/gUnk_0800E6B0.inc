@@ -1,33 +1,33 @@
 SCRIPT_START gUnk_0800E6B0
 StartScript 
-Call 0x08060091
+Call sub_08060090
 _0807EF80 0x000a
 StopScript 
 StartScript 
 CheckEntityInteractType 
 JumpIf 0x000e
-Call 0x08060159
+Call sub_08060158
 StopScript 
 Jump 0xffee
 StopScript 
 _0807E864 
-Call 0x0806025d
+Call sub_0806025C
 _0807EA94 
 Wait 0x000f
 _0807E878 
 Jump 0xffd8
 StartScript 
-Call 0x0806adfd
+Call sub_0806ADFC
 _0807EF80 0x000a
 StopScript 
 StartScript 
 CheckEntityInteractType 
 JumpIf 0x000c
-Call 0x0806aee5
+Call sub_0806AEE4
 Jump 0xffee
 StopScript 
 _0807E864 
-Call 0x0806afe9
+Call sub_0806AFE8
 JumpIf 0x000e
 _0807EA94 
 Wait 0x000f
@@ -48,13 +48,12 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xaf61
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806AF60
 .short 0x0000
 .short 0x0000
 @ End of parameters
-Call 0x0806afe9
+Call sub_0806AFE8
 _0807EA94 
 _0807E878 
 Jump 0xffe0
@@ -74,29 +73,28 @@ CheckGlobalFlag 0x002a
 JumpIf 0x002a
 CheckEntityInteractType 
 JumpIf 0x000e
-Call 0x0806aee5
+Call sub_0806AEE4
 StopScript 
 Jump 0xffe6
 StopScript 
 _0807E864 
-Call 0x0806afe9
+Call sub_0806AFE8
 _0807EA94 
 Wait 0x000f
 _0807E878 
 Jump 0xffd0
 _0807EF80 0x000f
 _0807EB44 0x0002
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xaf61
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806AF60
 .short 0x0004
 .short 0x0000
 @ End of parameters
-Call 0x0806af71
+Call sub_0806AF70
 _0807EE04 0x0188, 0x0058
 StopScript 
 StartScript 
-Call 0x0806af79
+Call sub_0806AF78
 _0807EE30 
 JumpIfNot 0xfff2
 EntityHasHeight 
@@ -104,7 +102,7 @@ JumpIf 0xffec
 StopScript 
 Jump 0xff02
 StartScript 
-Call 0x0806c675
+Call sub_0806C674
 _0807EF80 0x000a
 _0807EB44 0x0004
 StopScript 
@@ -112,7 +110,7 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-Call 0x0806c70d
+Call sub_0806C70C
 _0807EA94 
 _0807E878 
 _0807EB44 0x0004
@@ -129,21 +127,18 @@ _0807E864
 _0807EB44 0x0004
 StartScript 
 TextboxNoOverlapFollow 0x4501
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf855
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F854
 .short 0x0032
 .short 0x0001
 @ End of parameters
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf855
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F854
 .short 0x00c8
 .short 0x0002
 @ End of parameters
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf855
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F854
 .short 0x0190
 .short 0x0003
 @ End of parameters
@@ -158,9 +153,8 @@ _0807EB38
 @ End of parameters
 StartScript 
 TextboxNoOverlapFollow 0x4505
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf855
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F854
 .short 0x0190
 .short 0x0001
 @ End of parameters
@@ -172,5 +166,5 @@ ModRupees 0xfe70
 SetLocalFlag 0x0091
 TextboxNoOverlapFollow 0x4508
 _0807EA94 
-Call 0x0806c579
+Call sub_0806C578
 SCRIPT_END

@@ -23,7 +23,7 @@ HasRupees 0x000a
 JumpIf 0x000a
 TextboxNoOverlapFollow 0x4204
 Jump 0x005c
-Call 0x0806e251
+Call sub_0806E250
 JumpIfNot 0x000e
 TextboxNoOverlapFollow 0x420b
 _0807EB38 
@@ -42,7 +42,7 @@ Wait 0x0018
 SetRoomFlag 0x0000
 SetLocalFlag 0x0092
 _0807EEF4 0x0000, 0xffa0
-Call 0x0807df39
+Call sub_0807DF38
 Jump 0x000e
 _0807E930 0x0009
 Wait 0x003c

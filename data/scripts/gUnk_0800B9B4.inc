@@ -1,11 +1,11 @@
 SCRIPT_START gUnk_0800B9B4
 StartScript 
 _0807E9D4 
-Call 0x080694ed
+Call sub_080694EC
 _0807EF80 0x000a
-Call 0x080694b1
+Call sub_080694B0
 StopScript 
-Call 0x0807f435
+Call sub_0807F434
 .short 0x1006 @ _0807E078 with 3 parameters
 .short 0xfff8
 .short 0x0004
@@ -14,53 +14,53 @@ Call 0x0807f435
 _0807E864 
 _0807EB74 
 _0807EF80 0x0000
-Call 0x080694d9
+Call sub_080694D8
 _0807EA94 
-Call 0x080694ed
+Call sub_080694EC
 _0807E878 
 Jump 0xffd8
 _0807E864 
 _0807EB74 
 _0807EF80 0x0000
-Call 0x0807f651
+Call sub_0807F650
 _0807E9F0 
 _0807E864 
-Call 0x0806948d
+Call sub_0806948C
 JumpIf 0x0016
 _0807EA94 
-Call 0x080694ed
-Call 0x0807df51
+Call sub_080694EC
+Call sub_0807DF50
 _0807E878 
 Jump 0xffa8
 _0807EA94 
 _0807E9DC 
 _0807E9D4 
-Call 0x080694ed
-Call 0x0807df51
+Call sub_080694EC
+Call sub_0807DF50
 _0807E878 
 Jump 0xff90
 StartScript 
-Call 0x0807f935
+Call sub_0807F934
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
-Call 0x0807df29
+Call sub_0807DF28
 TextboxNoOverlapFollow 0x3301
 _0807EA94 
 _0807E3E8 
 JumpIfNot 0x000e
 SoundReq0x80100000 
-Call 0x0806e965
+Call sub_0806E964
 SoundReq2 0xffff
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 Jump 0xffd0
 StartScript 
 _0807EB44 0x0004
 _0807EF80 0x0000
 SetEntityNonPlanarMovement 0x0040
-Call 0x0807f349
+Call sub_0807F348
 StopScript 
 CheckRoomFlag 0x00ff
 JumpIfNot 0xfffa
@@ -75,5 +75,5 @@ Wait 0x001e
 TextboxNoOverlap 0x0e00
 _0807EA94 
 Wait 0x0078
-Call 0x08054969
+Call sub_08054968
 SCRIPT_END

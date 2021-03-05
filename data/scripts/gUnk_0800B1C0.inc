@@ -12,5 +12,5 @@ Wait 0x002c
 LoadRoomEntityList 0x080da260
 Wait 0x001e
 _0807E5F8 0x00000001
-Call 0x0807921d
+Call sub_0807921C
 SCRIPT_END

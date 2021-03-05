@@ -3,10 +3,10 @@ Wait 0x003c
 _0807F0C8 0x0000, 0x0000
 LoadRoomEntityList 0x080f9c58
 Wait 0x003c
-Call 0x0806d70d
+Call sub_0806D70C
 Wait 0x003c
 ClearLocalFlag 0x00ae
-Call 0x0806d621
+Call sub_0806D620
 Wait 0x003c
 WaitPlayerAction8 
 _0807EB8C 
@@ -16,7 +16,7 @@ Wait 0x000a
 Jump 0xfed6
 .short 0x0000
 StartScript 
-Call 0x0806d7c5
+Call sub_0806D7C4
 SetEntityNonPlanarMovement 0x0080
 StopScript 
 Wait 0x003c

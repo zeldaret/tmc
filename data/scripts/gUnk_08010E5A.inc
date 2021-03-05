@@ -1,25 +1,22 @@
 SCRIPT_START gUnk_08010E5A
 Wait 0x001e
 SoundReq 0x0125
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xfb29
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807FB28
 .short 0x0003
 .short 0x0000
 @ End of parameters
 Wait 0x003c
 SoundReq 0x0125
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xfb29
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807FB28
 .short 0x0003
 .short 0x0000
 @ End of parameters
 Wait 0x0004
 SoundReq 0x0125
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xfb29
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807FB28
 .short 0x0003
 .short 0x0000
 @ End of parameters
@@ -39,24 +36,21 @@ WaitForSomething2 0x00000020
 _0807E778 0x0002
 DoFade6 
 WaitFor_2 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xde19
-.short 0x0805
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0805DE18
 .short 0x0002
 .short 0x0000
 @ End of parameters
 _0807F0C8 0x0000, 0x0000
-Call 0x0806dc3d
-Call 0x080791bd
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf245
-.short 0x0807
+Call sub_0806DC3C
+Call sub_080791BC
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F244
 .short 0x000d
 .short 0x0000
 @ End of parameters
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf29d
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F29C
 .short 0x49f6
 .short 0x0800
 @ End of parameters
@@ -70,13 +64,12 @@ WaitForSomething2 0x00000080
 SoundReq 0x01c3
 _0807E5F8 0x20000000
 Wait 0x0078
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf29d
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F29C
 .short 0x0000
 .short 0x0000
 @ End of parameters
-Call 0x0806dc59
+Call sub_0806DC58
 _0807E5F8 0x40000000
 _0807E5F8 0x00000010
 _0807E5F8 0x00000100
@@ -92,9 +85,8 @@ _0807EA94
 .short 0x0000
 @ End of parameters
 _0807EA94 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xdded
-.short 0x0805
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0805DDEC
 .short 0x0002
 .short 0x0000
 @ End of parameters

@@ -2,7 +2,7 @@ SCRIPT_START gUnk_08009C68
 StartScript 
 _0807EB44 0x0002
 SetEntityNonPlanarMovement 0x0100
-Call 0x0807f349
+Call sub_0807F348
 StopScript 
 WaitForSomething2 0x00000004
 _0807EF80 0x0004
@@ -33,12 +33,12 @@ _0807EA94
 _0807EF80 0x0000
 _0807EDD4 0x0028, 0x0060
 _0807EDD4 0x0000, 0x0060
-Call 0x080536a9
+Call sub_080536A8
 Wait 0x001e
 StartScript 
 SetGlobalFlag 0x0013
-Call 0x0807df51
-Call 0x080791d1
+Call sub_0807DF50
+Call sub_080791D0
 _0807E878 
 StopScript 
 SCRIPT_END

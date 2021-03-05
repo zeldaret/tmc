@@ -47,7 +47,7 @@
 	.word \w
 .endm
 
-.macro _0807E0E0 a,b
+.macro _0807E0E0 a, b
 	.short 0x140a
 	.word \a
 	.word \b

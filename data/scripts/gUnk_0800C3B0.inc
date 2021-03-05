@@ -3,5 +3,5 @@ SetEntityNonPlanarMovement 0x0080
 _0807EEF4 0x0000, 0xff30
 _0807F0C8 0x0000, 0x0000
 Wait 0x00b4
-Call 0x08054969
+Call sub_08054968
 SCRIPT_END

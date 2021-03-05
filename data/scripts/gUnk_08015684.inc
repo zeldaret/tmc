@@ -4,7 +4,7 @@ _0807EF80 0x0007
 _0807EF80 0x000b
 _0807EB44 0x0000
 _0807EF80 0x0017
-Call 0x0807f181
+Call sub_0807F180
 StopScript 
 WaitForSomething2 0x00000800
 _0807EB44 0x0002
@@ -22,16 +22,15 @@ Wait 0x0014
 _0807E5F8 0x00001000
 WaitForSomething2 0x00000800
 _0807EF80 0x0018
-Call 0x0807f2d5
+Call sub_0807F2D4
 _0807EB44 0x0004
 _0807EF80 0x0000
 _0807E5F8 0x00001000
 WaitForSomething2 0x00000800
 _0807EB44 0x0004
 _0807EF80 0x0014
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x545d
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0809545C
 .short 0x5754
 .short 0x0801
 @ End of parameters
@@ -43,7 +42,7 @@ _0807EB44 0x0004
 _0807EF80 0x0000
 _0807E5F8 0x00001000
 WaitForSomething2 0x00000800
-Call 0x08066ca5
+Call sub_08066CA4
 _0807EF80 0x0008
 Wait 0x0078
 _0807E5F8 0x00001000

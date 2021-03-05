@@ -4,7 +4,7 @@ SetEntityNonPlanarMovement 0x0080
 _0807EF80 0x0008
 _0807EF80 0x000a
 StopScript 
-Call 0x0807f349
+Call sub_0807F348
 _0807EB44 0x0002
 WaitForSomething2 0x00000002
 _0807EF80 0x0007
@@ -16,22 +16,21 @@ _0807E930 0x0008
 _0807E8E4_0 
 _0807E5F8 0x00000040
 WaitForSomething2 0x00000002
-Call 0x0806e441
+Call sub_0806E440
 Wait 0x0078
 _0807E5F8 0x00000040
 WaitForSomething2 0x00000002
 StopScript 
 StartScript 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf681
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F680
 .short 0x01c0
 .short 0x0000
 @ End of parameters
 JumpIf 0x0034
 StopScript 
 _0807E864 
-Call 0x0807f9a5
+Call sub_0807F9A4
 _0807EB74 
 _0807E930 0x0008
 _0807EF80 0x0004
@@ -41,20 +40,19 @@ Wait 0x003c
 .short 0x000c
 @ End of parameters
 _0807EA94 
-StartPlayerScript 0x0800f33c
+StartPlayerScript gUnk_0800F33C
 WaitForSomething2 0x00000400
 _0807E878 
 Jump 0xffbe
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf681
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F680
 .short 0x0230
 .short 0x0000
 @ End of parameters
 JumpIfNot 0x0034
 StopScript 
 _0807E864 
-Call 0x0807f9a5
+Call sub_0807F9A4
 _0807EB74 
 _0807E930 0x0008
 _0807EF80 0x0004
@@ -64,20 +62,19 @@ Wait 0x003c
 .short 0x000c
 @ End of parameters
 _0807EA94 
-StartPlayerScript 0x0800f354
+StartPlayerScript gUnk_0800F354
 WaitForSomething2 0x00000400
 _0807E878 
 Jump 0xff7e
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf6b5
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F6B4
 .short 0x0310
 .short 0x0000
 @ End of parameters
 JumpIf 0x0034
 StopScript 
 _0807E864 
-Call 0x0807f9a5
+Call sub_0807F9A4
 _0807EB74 
 _0807E930 0x0008
 _0807EF80 0x0004
@@ -87,20 +84,19 @@ Wait 0x003c
 .short 0x000c
 @ End of parameters
 _0807EA94 
-StartPlayerScript 0x0800f36c
+StartPlayerScript gUnk_0800F36C
 WaitForSomething2 0x00000400
 _0807E878 
 Jump 0xff3e
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf6b5
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F6B4
 .short 0x0340
 .short 0x0000
 @ End of parameters
 JumpIfNot 0x0034
 StopScript 
 _0807E864 
-Call 0x0807f9a5
+Call sub_0807F9A4
 _0807EB74 
 _0807E930 0x0008
 _0807EF80 0x0004
@@ -110,7 +106,7 @@ Wait 0x003c
 .short 0x000c
 @ End of parameters
 _0807EA94 
-StartPlayerScript 0x0800f384
+StartPlayerScript gUnk_0800F384
 WaitForSomething2 0x00000400
 _0807E878 
 Jump 0xfefe

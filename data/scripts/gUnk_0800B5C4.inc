@@ -7,6 +7,6 @@ Wait 0x001e
 SoundReq 0x00d1
 _0807EDD4 0x008a, 0x005a
 Wait 0x000a
-Call 0x08069ee9
+Call sub_08069EE8
 SCRIPT_END
 .short 0x0000

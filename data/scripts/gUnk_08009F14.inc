@@ -1,7 +1,7 @@
 SCRIPT_START gUnk_08009F14
 StartScript 
 _0807EB44 0x0004
-Call 0x08060091
+Call sub_08060090
 _0807EF80 0x000a
 CheckKinstoneFused 0x001c
 JumpIf 0x00a8
@@ -10,16 +10,16 @@ JumpIf 0x0052
 StopScript 
 StopScript 
 StartScript 
-Call 0x08060159
+Call sub_08060158
 CheckEntityInteractType 
 JumpIfNot 0xfff2
 StopScript 
 _0807E864 
-Call 0x0807df29
+Call sub_0807DF28
 _0807EF80 0x000b
-StartPlayerScript 0x0800a088
+StartPlayerScript gUnk_0800A088
 WaitForSomething2 0x00000002
-Call 0x0806014d
+Call sub_0806014C
 .short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1f01
 .short 0x0000
@@ -29,21 +29,20 @@ Wait 0x001e
 _0807F034 0x0065
 WaitPlayerAction8 
 _0807EF80 0x000a
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 StopScript 
 StopScript 
 StartScript 
-Call 0x08060159
+Call sub_08060158
 CheckEntityInteractType 
 JumpIfNot 0xfff2
 StopScript 
 _0807E864 
-Call 0x080602bd
+Call sub_080602BC
 _0807EA94 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf971
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F970
 .short 0x1f03
 .short 0x0000
 @ End of parameters
@@ -52,9 +51,8 @@ _0807E878
 Jump 0xffd2
 Wait 0x0008
 SoundReq 0x0103
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x030d
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806030C
 .short 0x0063
 .short 0x0000
 @ End of parameters
@@ -66,7 +64,7 @@ CheckLocalFlag 0x00b0
 JumpIf 0x004a
 StopScript 
 StartScript 
-Call 0x08060159
+Call sub_08060158
 CheckEntityInteractType 
 JumpIfNot 0xfff2
 StopScript 
@@ -79,7 +77,7 @@ _0807E878
 Jump 0xffdc
 Wait 0x0008
 _0807F034 0x0008
-Call 0x08060319
+Call sub_08060318
 WaitPlayerAction8 
 Wait 0x0008
 _0807EB8C 
@@ -89,7 +87,7 @@ SetLocalFlag 0x00b0
 _0807E878 
 StopScript 
 StartScript 
-Call 0x08060159
+Call sub_08060158
 CheckEntityInteractType 
 JumpIfNot 0xfff2
 StopScript 
@@ -110,7 +108,7 @@ _0807E878
 Jump 0xffc2
 Wait 0x0008
 _0807F034 0x0007
-Call 0x08060319
+Call sub_08060318
 WaitPlayerAction8 
 Wait 0x0008
 _0807EB8C 
@@ -119,14 +117,3 @@ _0807EA94
 _0807E878 
 Jump 0xffa0
 .short 0x0000
-StartScript 
-SetEntityNonPlanarMovement 0x0100
-StopScript 
-_0807ECC4 0x0010
-_0807EDD4 0x0078, 0x0060
-_0807EB44 0x0000
-Wait 0x000f
-_0807EF80 0x0000
-_0807E5F8 0x00000002
-Call 0x080791bd
-SCRIPT_END

@@ -1,13 +1,11 @@
 SCRIPT_START gUnk_0800B7FC
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf4f9
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F4F8
 .short 0x0090
 .short 0x0000
 @ End of parameters
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf465
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F464
 .short 0x0078
 .short 0x0000
 @ End of parameters

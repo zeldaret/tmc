@@ -3,9 +3,8 @@ StartScript
 _0807EF80 0x0008
 StopScript 
 StartScript 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf6b5
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F6B4
 .short 0x01c8
 .short 0x0000
 @ End of parameters
@@ -16,29 +15,13 @@ CheckLocalFlag 0x0078
 JumpIf 0xffe0
 StopScript 
 _0807E864 
-Call 0x0807f9a5
-Call 0x0807df29
+Call sub_0807F9A4
+Call sub_0807DF28
 _0807EB28 0x1507
 _0807EA94 
-StartPlayerScript 0x08010a14
+StartPlayerScript gUnk_08010A14
 WaitForSomething2 0x00000001
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 Jump 0xffb2
-.short 0x0000
-SoundReq 0x01d3
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf239
-.short 0x0807
-.short 0x08bf
-.short 0x0000
-@ End of parameters
-Call 0x08096029
-Wait 0x003c
-_0807E5F8 0x00020000
-Call 0x0807f305
-Wait 0x0078
-WaitForSomething2 0x00040000
-Call 0x080791bd
-SCRIPT_END
 .short 0x0000

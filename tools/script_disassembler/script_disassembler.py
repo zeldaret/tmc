@@ -28,14 +28,29 @@ def barray_to_u32_hex(barray):
     integers = struct.unpack('I'*count, barray)
     return [u32_to_hex(x) for x in integers]
 
+
+# Functions that have already been renamed
+POINTER_MAP = {
+    'sub_08095458': 'nullsub_527',
+    'sub_0805EBCC': 'DeleteAllEnemies',
+    'sub_0806C23C': 'Simon_CreateChest',
+    'sub_0801637C': '0x0801637D', # TODO disassembly assembly code between scripts
+    'sub_08016383': '0x08016384', # TODO points to the end of the previous function?
+    'sub_0806C598': 'FUN_0806c598',
+    'sub_080A2138': 'Windcrest_Unlock',
+    'sub_080A29BC': 'CreateDust'
+}
 # tries to directly reference the function this is pointing to
 def get_pointer(barray):
     integers = struct.unpack('I', barray)
-    return 'sub_' + (struct.pack('>I', integers[0]-1).hex()).upper()
+    pointer = 'sub_' + (struct.pack('>I', integers[0]-1).hex()).upper()
+    if pointer in POINTER_MAP:
+        return POINTER_MAP[pointer]
+    return pointer
 
 def get_data_pointer(barray):
     integers = struct.unpack('I', barray)
-    return 'gUnk_' + (struct.pack('>I', integers[0]-1).hex()).upper()
+    return 'gUnk_' + (struct.pack('>I', integers[0]).hex()).upper()
 
 commands = [
     {'fun': 'ScriptCommandNop', 'params': 'v'}, # TODO one version with length 33???
@@ -51,7 +66,7 @@ commands = [
     {'fun': 'ScriptCommand_0807E0E0', 'params': 'dd'},
     {'fun': 'ScriptCommand_Call', 'params':'p', 'name': 'Execute function via pointer'},# 'exec': ScriptCommand_Call},
     {'fun': 'ScriptCommand_CallWithArg', 'params': 'pv'},
-    {'fun': 'ScriptCommand_LoadRoomEntityList', 'params': 'd'},
+    {'fun': 'ScriptCommand_LoadRoomEntityList', 'params': 'w'}, # TODO return to d and create labels for them
     {'fun': 'ScriptCommand_TestBit', 'params': 'w'},
     {'fun': 'ScriptCommand_CheckInventory1', 'params': 's'},
     {'fun': 'ScriptCommand_CheckInventory2', 'params': 's'},
@@ -259,8 +274,9 @@ def build_script_command(name: str):
 def print_rest_bytes(ctx):
      print('\n'.join(['.byte ' + hex(x) for x in ctx.data[ctx.ptr:]]))
 
-def ExecuteScriptCommandSet(ctx: Context):
-    # print(f'@{ctx.ptr}') print offsets to debug when manually inserting labels
+def ExecuteScriptCommandSet(ctx: Context, add_annotations=False):
+    if add_annotations:
+        print(f'@{ctx.ptr}') # print offsets to debug when manually inserting labels
     cmd = struct.unpack('H', ctx.data[ctx.ptr:ctx.ptr+2])[0]
     if cmd == 0:
         # this does not need to be the end of the script
@@ -308,25 +324,8 @@ def ExecuteScriptCommandSet(ctx: Context):
     if not command['params'] in parameters:
         raise Exception('Parameter configuration ' + command['params'] + ' not defined')
 
-    # TODO REMOVE fix pointers
-    if command['params'] == 'p':
-        command['params'] = 'w'
-    elif command['params'] == 'd':
-        command['params'] = 'w'
-    elif command['params'] == 'pv':
-        command['params'] = 'v'
-    elif command['params'] == 'dd':
-        command['params'] = 'ww'
 
     params = parameters[command['params']]
-
-
-
-
-    # TODO REMOVE
-    if commandSize == 34:
-        print('@TODO FIX THIS COMMAND!')
-        commandSize = 13
 
 
     if params['length'] == -1: # variable parameter length
@@ -337,12 +336,12 @@ def ExecuteScriptCommandSet(ctx: Context):
         ctx.ptr += commandSize*2
         return 1
     elif params['length'] == -2: # point and var
-        print(f'.short {u16_to_hex(cmd)} @ {build_script_command(command["fun"])} with parameters:')
+        print(f'.short {u16_to_hex(cmd)} @ {build_script_command(command["fun"])} with {commandSize-3} parameters')
 
-        print('.word'+ get_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6]))
+        print('.word '+ get_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6]))
         if commandSize > 3:
             print('\n'.join(['.short ' + x for x in barray_to_u16_hex(ctx.data[ctx.ptr+6:ctx.ptr+commandSize*2])]))
-            print(f'% End of {commandSize-3} parameters')
+            print(f'@ End of parameters')
         ctx.ptr += commandSize*2
         return 1
 
@@ -367,7 +366,7 @@ def ExecuteScriptCommandSet(ctx: Context):
 # JumpAbsoluteIf 0x08016384
 # JumpAbsoluteIfNot 0x08016384
 
-def disassemble_script(input_bytes):
+def disassemble_script(input_bytes, add_annotations=False):
 
     ctx = Context(0, input_bytes)
 
@@ -376,7 +375,7 @@ def disassemble_script(input_bytes):
     while True:
         if ctx.ptr >= len(ctx.data) - 1: # End of file (there need to be at least two bytes remaining for the next operation id)
             break
-        res = ExecuteScriptCommandSet(ctx)
+        res = ExecuteScriptCommandSet(ctx, add_annotations)
         if res == 0:
             break
         elif res == 2:

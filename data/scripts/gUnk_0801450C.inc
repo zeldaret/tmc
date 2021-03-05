@@ -6,13 +6,13 @@ SetEntityNonPlanarMovement 0x01c0
 _0807EF80 0x000a
 StopScript 
 _0807E864 
-Call 0x0807df29
-Call 0x0806e20d
+Call sub_0807DF28
+Call sub_0806E20C
 _0807EA94 
-Call 0x0806e23d
+Call sub_0806E23C
 ClearLocalFlag 0x0093
 ClearLocalFlag 0x0092
-Call 0x0807df51
+Call sub_0807DF50
 Jump 0xffb8
 .short 0x0000
 StartScript 
@@ -24,7 +24,7 @@ JumpIfNot 0xffee
 _0807E864 
 _0807EB28 0x4217
 _0807EA94 
-StartPlayerScript 0x08014588
+StartPlayerScript gUnk_08014588
 Wait 0x0010
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002

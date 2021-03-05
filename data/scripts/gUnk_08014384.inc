@@ -5,7 +5,7 @@ _0807EA94
 _0807E3E8 
 JumpIfNot 0x001e
 Wait 0x001e
-Call 0x08065371
+Call sub_08065370
 JumpIfNot 0x0010
 Wait 0x003c
 _0807EA94 

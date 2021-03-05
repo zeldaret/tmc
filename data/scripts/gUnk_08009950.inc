@@ -1,6 +1,6 @@
 SCRIPT_START gUnk_08009950
 StartScript 
-Call 0x0807f349
+Call sub_0807F348
 SetEntityNonPlanarMovement 0x0040
 _0807EB44 0x0004
 _0807E930 0x000c
@@ -33,5 +33,5 @@ Wait 0x001e
 _0807E778 0x0002
 DoFade5 
 WaitFor_2 
-Call 0x08053635
+Call sub_08053634
 SCRIPT_END

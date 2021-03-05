@@ -8,8 +8,8 @@ StopScript
 _0807E944 
 _0807E864 
 _0807E930 0x0004
-Call 0x0807f2d5
-Call 0x0806bbb1
+Call sub_0807F2D4
+Call sub_0806BBB0
 _0807EA94 
 _0807E930 0x0008
 _0807E878 
@@ -24,7 +24,7 @@ StopScript
 _0807E944 
 _0807E864 
 _0807E930 0x0004
-Call 0x0807f2d5
+Call sub_0807F2D4
 TextboxNoOverlapFollow 0x4912
 _0807EA94 
 _0807E930 0x0008
@@ -40,25 +40,23 @@ _0807E944
 _0807E864 
 SetGlobalFlag 0x0061
 _0807E930 0x0004
-Call 0x0807f2d5
+Call sub_0807F2D4
 _0807EA94 
-Call 0x0806ba35
+Call sub_0806BA34
 JumpIfNot 0x0066
 _0807EA94 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xbb1d
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806BB1C
 .short 0x0000
 .short 0x0000
 @ End of parameters
-Call 0x0807f2d5
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xbb1d
-.short 0x0806
+Call sub_0807F2D4
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806BB1C
 .short 0x0001
 .short 0x0000
 @ End of parameters
-Call 0x0806bb7d
+Call sub_0806BB7C
 JumpIfNot 0x0048
 TextboxNoOverlap 0x490c
 _0807EA94 
@@ -68,11 +66,11 @@ WaitForSomething 0x00000004
 Wait 0x000f
 SoundReq 0x0072
 _0807E930 0x0004
-Call 0x0807f2d5
+Call sub_0807F2D4
 TextboxNoOverlap 0x4913
 _0807EA94 
 _0807E930 0x0008
-Call 0x0807f2d5
+Call sub_0807F2D4
 Jump 0x000a
 _0807E930 0x0008
 Wait 0x000f
@@ -91,15 +89,15 @@ WaitForSomething 0x00000002
 TextboxNoOverlap 0x490d
 _0807EA94 
 _0807EF80 0x0007
-Call 0x08064d09
+Call sub_08064D08
 _0807EDD4 0x0068, 0x0078
-Call 0x08064d11
+Call sub_08064D10
 Wait 0x000f
 _0807EB44 0x0002
 Wait 0x000f
-Call 0x08064d09
+Call sub_08064D08
 _0807EDD4 0x0098, 0x0078
-Call 0x08064d11
+Call sub_08064D10
 Wait 0x000f
 _0807EB44 0x0004
 SoundReq 0x007f
@@ -118,15 +116,15 @@ SoundReq 0x007f
 Wait 0x000f
 _0807EB44 0x0006
 Wait 0x001e
-Call 0x08064d09
+Call sub_08064D08
 _0807EDD4 0x0068, 0x0078
-Call 0x08064d11
+Call sub_08064D10
 Wait 0x000f
 _0807EB44 0x0000
 Wait 0x000f
-Call 0x08064d09
+Call sub_08064D08
 _0807EDD4 0x0068, 0x0018
-Call 0x08064d11
+Call sub_08064D10
 SoundReq 0x0121
 _0807E5F8 0x00000001
 _0807EF80 0x0006

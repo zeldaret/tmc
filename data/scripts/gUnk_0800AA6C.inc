@@ -5,7 +5,7 @@ _0807EF80 0x0007
 _0807E930 0x0000
 StopScript 
 WaitForSomething2 0x00000002
-Call 0x080a29bd
+Call CreateDust
 _0807EF80 0x0006
 SCRIPT_END
 .short 0x0000

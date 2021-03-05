@@ -2,14 +2,14 @@ SCRIPT_START gUnk_08015754
 StartScript 
 _0807E930 0x0000
 SetEntityNonPlanarMovement 0x0200
-Call 0x08094b81
+Call sub_08094B80
 StopScript 
 Wait 0x0078
 SoundReq 0x01c5
-Call 0x08094b6d
+Call sub_08094B6C
 _0807EDD4 0x0078, 0x00b8
 SoundReq 0x01c6
-Call 0x08094b81
+Call sub_08094B80
 _0807E5F8 0x00020000
 SetEntityNonPlanarMovement 0x0080
 WaitForSomething2 0x00040000

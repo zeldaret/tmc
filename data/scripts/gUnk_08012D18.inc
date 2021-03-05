@@ -9,13 +9,13 @@ CheckPlayerInRegion 0x0000, 0x01a8, 0x2010
 JumpIfNot 0xffe0
 StopScript 
 _0807E864 
-Call 0x0807f9a5
-Call 0x0807df29
+Call sub_0807F9A4
+Call sub_0807DF28
 _0807EB28 0x111a
 _0807EA94 
-StartPlayerScript 0x08010a38
+StartPlayerScript gUnk_08010A38
 WaitForSomething2 0x00000001
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 Jump 0xffb2
 _0807EF80 0x0006

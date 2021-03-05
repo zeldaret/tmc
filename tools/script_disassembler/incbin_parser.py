@@ -12,7 +12,10 @@ SCRIPTS_END=0x08016984
 
 # Create labels for these additional script instructions
 # Currently done by splitting the script at that point
-LABEL_BREAKS=[ 0x0800B41C, 0x08012F0C, 0x080142B0, 0x08014A80]
+LABEL_BREAKS=[0x0800A088, 0x0800ACE0, 0x0800AD54, 0x0800B41C, 0x0800B7C4, 0x0800C8C8, 0x0800D190, 0x800D3EC, 0x0800E9F4, 0x0800FD80, 0x08012AC8, 0x08012F0C, 0x080130E4, 0x08013B70, 0x080142B0, 0x080147DC, 0x08014A80, 0x08014B10,0x0801635C,  0x08016384, 0x080165D8]
+
+# Generate a version of the script that is annotated with the byte offset to the beginning of the script
+GENERATE_REF=False
 
 def read_baserom():
     # read baserom data
@@ -61,25 +64,31 @@ def main():
 
         scripts += f'	.include "data/scripts/{label}.inc"\n'
         stdout = sys.stdout
-        with open(f'{TMC_FOLDER}/data/scripts/{label}.inc','w') as out:
+
+        with open(f'{TMC_FOLDER}/data/scripts/{label}.ref' if GENERATE_REF else f'{TMC_FOLDER}/data/scripts/{label}.inc','w') as out:
             sys.stdout = out
             print(f'SCRIPT_START {label}')
-            res = disassemble_script(data)
+            if GENERATE_REF:
+                res = disassemble_script(data, True)
+            else:
+                res = disassemble_script(data)
             if res != 0:
                 # Script ended in the middle, need to create a new file
                 script_end = script_start + res
         sys.stdout = stdout
 
         script_start = script_end 
-    print('Writing scripts.s file...')
-    with open(f'{TMC_FOLDER}/data/scripts.s', 'w') as out:
-        out.write(scripts)
-    print('Generating asm macros...')
-    stdout = sys.stdout
-    with open(f'{TMC_FOLDER}/asm/macros/scripts.inc', 'w') as out:
-        sys.stdout = out
-        generate_macros()
-    sys.stdout = stdout
+
+    if not GENERATE_REF:
+        print('Writing scripts.s file...')
+        with open(f'{TMC_FOLDER}/data/scripts.s', 'w') as out:
+            out.write(scripts)
+        print('Generating asm macros...')
+        stdout = sys.stdout
+        with open(f'{TMC_FOLDER}/asm/macros/scripts.inc', 'w') as out:
+            sys.stdout = out
+            generate_macros()
+        sys.stdout = stdout
     print('\033[1;92mDone\033[0m\n')
 
 if __name__ == '__main__':

@@ -1,14 +1,14 @@
 SCRIPT_START gUnk_0800D954
 StartScript 
 _0807EF80 0x0008
-Call 0x0807f181
+Call sub_0807F180
 StopScript 
 CheckPlayerInRegion 0x0118, 0x0038, 0x3050
 JumpIfNot 0xfff6
 _0807E864 
-Call 0x0807f9a5
-Call 0x0807df29
-StartPlayerScript 0x0800da00
+Call sub_0807F9A4
+Call sub_0807DF28
+StartPlayerScript gUnk_0800DA00
 WaitForSomething2 0x00000001
 Wait 0x003c
 _0807EB44 0x0004
@@ -33,8 +33,8 @@ Wait 0x003c
 SetLocalFlag 0x0032
 SoundReq 0x0113
 _0807E914 0x00000001
-Call 0x0806da1d
-Call 0x0807df51
+Call sub_0806DA1C
+Call sub_0807DF50
 _0807E878 
 _0807EF80 0x0006
 SCRIPT_END

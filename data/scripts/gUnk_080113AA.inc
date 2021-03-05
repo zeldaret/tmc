@@ -24,7 +24,7 @@ WaitForSomething2 0x00002000
 _0807EF80 0x0010
 Wait 0x000a
 _0807EF80 0x0010
-Call 0x0807f3c9
+Call sub_0807F3C8
 _0807E930 0x0014
 SetEntityNonPlanarMovement 0x0400
 SetEntityDirection 0x0002

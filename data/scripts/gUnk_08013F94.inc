@@ -11,14 +11,14 @@ JumpIfNot 0xfff6
 CheckPlayerFlags 0x00400000
 JumpIfNot 0xffec
 StopScript 
-Call 0x0807fa41
+Call sub_0807FA40
 _0807E888 
-Call 0x0807df39
+Call sub_0807DF38
 Wait 0x0078
 _0807EB28 0x1505
 _0807EA94 
 SetLocalFlag 0x007d
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 _0807EF80 0x0006
 SCRIPT_END

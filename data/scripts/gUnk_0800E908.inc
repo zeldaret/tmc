@@ -7,7 +7,7 @@ _0807E878
 _0807EB44 0x0000
 Jump 0xff14
 StartScript 
-Call 0x0806c4f9
+Call sub_0806C4F8
 _0807EF80 0x000a
 _0807EB44 0x0000
 StopScript 
@@ -16,9 +16,9 @@ JumpIfNot 0xfffc
 _0807E864 
 _0807EB44 0x0004
 _0807E930 0x0004
-Call 0x0806c4a9
+Call sub_0806C4A8
 JumpIfNot 0xfff8
-Call 0x0806c4dd
+Call sub_0806C4DC
 _0807EA94 
 _0807E878 
 _0807EB44 0x0000
@@ -34,13 +34,13 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807E930 0x0008
-Call 0x0807f2d5
+Call sub_0807F2D4
 _0807E930 0x0009
-Call 0x0806b261
+Call sub_0806B260
 JumpIfNot 0x0052
 _0807EA94 
 _0807EF80 0x000b
-StartPlayerScript 0x0800e9f4
+StartPlayerScript gUnk_0800E9F4
 WaitForSomething2 0x00000001
 _0807EF80 0x000a
 TextboxNoOverlapFollow 0x4a24
@@ -50,7 +50,7 @@ Wait 0x0014
 TextboxNoOverlapFollow 0x4a25
 _0807EA94 
 _0807E930 0x0000
-StartPlayerScript 0x0800ea1c
+StartPlayerScript gUnk_0800EA1C
 WaitForSomething2 0x00000001
 SetLocalFlag 0x0074
 SoundReq 0x0072
@@ -63,13 +63,3 @@ Wait 0x000f
 _0807E878 
 _0807E930 0x0000
 Jump 0xff82
-StartScript 
-_0807EB44 0x0004
-SetEntityNonPlanarMovement 0x0100
-StopScript 
-_0807EF80 0x0001
-_0807EDD4 0x0078, 0x0080
-_0807EF80 0x0000
-_0807E5F8 0x00000001
-Call 0x080791bd
-SCRIPT_END

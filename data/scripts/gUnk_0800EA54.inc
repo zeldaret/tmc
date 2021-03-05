@@ -1,6 +1,6 @@
 SCRIPT_START gUnk_0800EA54
 StartScript 
-Call 0x0806ce5d
+Call sub_0806CE5C
 _0807EF80 0x000a
 _0807EB44 0x0004
 _0807E930 0x0008
@@ -9,24 +9,23 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf3d9
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F3D8
 .short 0x0004
 .short 0x0000
 @ End of parameters
-Call 0x0807f2d5
+Call sub_0807F2D4
 _0807E930 0x0009
-Call 0x0806ce81
+Call sub_0806CE80
 _0807EA94 
 _0807E878 
 _0807E930 0x000a
-Call 0x0807f2d5
+Call sub_0807F2D4
 _0807E930 0x0008
 Jump 0xffc8
 StartScript 
 _0807E9D4 
-Call 0x0806c09d
+Call sub_0806C09C
 _0807EF80 0x000a
 _0807E930 0x0000
 _0807EB44 0x0004
@@ -36,24 +35,23 @@ JumpIfNot 0xfffc
 StartScript 
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xc029
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806C028
 .short 0x0004
 .short 0x0000
 @ End of parameters
 StopScript 
-Call 0x0806c00d
+Call sub_0806C00C
 JumpIfNot 0xfff8
 _0807E930 0x0008
-Call 0x0806c039
+Call sub_0806C038
 _0807EA94 
 Wait 0x000f
 _0807E878 
 _0807E930 0x0000
 Jump 0xffc6
 StartScript 
-Call 0x0806c871
+Call sub_0806C870
 _0807EF80 0x000a
 _0807EB44 0x0004
 _0807E930 0x0000
@@ -62,113 +60,112 @@ _0807E30C
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-Call 0x0806c90d
+Call sub_0806C90C
 _0807EA94 
 Wait 0x000f
 _0807E878 
 Jump 0xffe6
 .short 0x0000
 StartScript 
-Call 0x08061e71
+Call sub_08061E70
 _0807EF80 0x000a
 _0807EB44 0x0004
-Call 0x08061fd9
+Call sub_08061FD8
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-Call 0x08061fd9
-Call 0x08062049
+Call sub_08061FD8
+Call sub_08062048
 _0807EA94 
 _0807E878 
 Jump 0xffe4
 .short 0x0000
 StartScript 
-Call 0x08061e71
+Call sub_08061E70
 _0807EF80 0x000a
 _0807EB44 0x0006
-Call 0x08061fd9
+Call sub_08061FD8
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-Call 0x08061fd9
-Call 0x08062049
+Call sub_08061FD8
+Call sub_08062048
 _0807EA94 
 _0807E878 
 _0807EB44 0x0006
-Call 0x08061fd9
+Call sub_08061FD8
 Jump 0xffda
 StartScript 
-Call 0x08061e71
+Call sub_08061E70
 _0807EF80 0x000a
 _0807EB44 0x0002
-Call 0x08061fd9
+Call sub_08061FD8
 StopScript 
 Jump 0x0036
 StartScript 
-Call 0x08061e71
+Call sub_08061E70
 _0807EF80 0x000a
 _0807EB44 0x0004
-Call 0x08061fd9
+Call sub_08061FD8
 StopScript 
 Jump 0x001a
 StartScript 
-Call 0x08061e71
+Call sub_08061E70
 _0807EF80 0x000a
 _0807EB44 0x0006
-Call 0x08061fd9
+Call sub_08061FD8
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-Call 0x08061fd9
-Call 0x08062049
+Call sub_08061FD8
+Call sub_08062048
 _0807EA94 
 _0807E878 
 Jump 0xffe4
 .short 0x0000
 StartScript 
-Call 0x08061e71
+Call sub_08061E70
 _0807EF80 0x000a
 _0807EB44 0x0002
-Call 0x08061fd9
+Call sub_08061FD8
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-Call 0x08061fd9
-Call 0x08062049
+Call sub_08061FD8
+Call sub_08062048
 _0807EA94 
 _0807E878 
 _0807EB44 0x0002
-Call 0x08061fd9
+Call sub_08061FD8
 Jump 0xffda
 StartScript 
-Call 0x08061e71
+Call sub_08061E70
 _0807EF80 0x000a
 _0807EB44 0x0004
-Call 0x08061fd9
+Call sub_08061FD8
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-Call 0x08061fd9
-Call 0x08062049
+Call sub_08061FD8
+Call sub_08062048
 _0807EA94 
 _0807E878 
 Jump 0xffe4
 .short 0x0000
 StartScript 
 _0807E9D4 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x1fb9
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08061FB8
 .short 0x0001
 .short 0x0000
 @ End of parameters
@@ -199,13 +196,12 @@ _0807E930 0x0003
 Wait 0x001e
 Jump 0xffaa
 StartScript 
-Call 0x080639d1
+Call sub_080639D0
 _0807EF80 0x000a
 StopScript 
 StartScript 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x3851
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08063850
 .short 0x0000
 .short 0x0000
 @ End of parameters
@@ -214,28 +210,26 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x3851
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08063850
 .short 0x0000
 .short 0x0000
 @ End of parameters
-Call 0x08063945
+Call sub_08063944
 _0807EA94 
 JumpIfNot 0x0008
 _0807F050 0x0070
 WaitPlayerAction8 
 _0807E878 
-Call 0x08063875
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x3851
-.short 0x0806
+Call sub_08063874
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08063850
 .short 0x0000
 .short 0x0000
 @ End of parameters
 Jump 0xffc6
 StartScript 
-Call 0x08064cc1
+Call sub_08064CC0
 _0807EF80 0x000a
 _0807EF80 0x0007
 _0807EB44 0x0002
@@ -244,7 +238,7 @@ StopScript
 _0807E944 
 _0807E864 
 _0807EB74 
-Call 0x08064cd9
+Call sub_08064CD8
 _0807EA94 
 Wait 0x000f
 _0807E878 
@@ -259,11 +253,11 @@ CheckEntityInteractType
 JumpIf 0x0016
 TestBit 0x00000001
 JumpIf 0x0068
-Call 0x0806aee5
+Call sub_0806AEE4
 Jump 0xffe4
 StopScript 
 _0807E864 
-Call 0x0807df29
+Call sub_0807DF28
 CheckLocalFlag 0x00ae
 JumpIf 0x0078
 Wait 0x000a
@@ -277,28 +271,27 @@ _0807E5F8 0x00000020
 TextboxNoOverlapFollow 0x4c09
 _0807EA94 
 _0807E914 0x00000503
-Call 0x0807f421
+Call sub_0807F420
 _0807E5F8 0x00000040
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 SetLocalFlag 0x00ae
 Jump 0xff88
 StopScript 
 WaitForSomething2 0x00000002
 _0807EB44 0x0002
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xaf61
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806AF60
 .short 0x0008
 .short 0x0000
 @ End of parameters
 WaitForSomething2 0x00000004
-Call 0x0806aed9
+Call sub_0806AED8
 WaitForSomething2 0x00000008
 Jump 0xff5c
 TextboxNoOverlapFollow 0x4c16
 _0807EA94 
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 Jump 0xff4a
 StartScript 
@@ -310,11 +303,11 @@ CheckEntityInteractType
 JumpIf 0x0016
 TestBit 0x00000001
 JumpIf 0x0068
-Call 0x0806aee5
+Call sub_0806AEE4
 Jump 0xffe4
 StopScript 
 _0807E864 
-Call 0x0807df29
+Call sub_0807DF28
 CheckLocalFlag 0x00ae
 JumpIf 0x0078
 Wait 0x000a
@@ -328,28 +321,27 @@ _0807E5F8 0x00000004
 TextboxNoOverlapFollow 0x4c09
 _0807EA94 
 _0807E914 0x00000503
-Call 0x0807f421
+Call sub_0807F420
 _0807E5F8 0x00000008
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 SetLocalFlag 0x00ae
 Jump 0xff88
 StopScript 
 WaitForSomething2 0x00000010
 _0807EB44 0x0006
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xaf61
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806AF60
 .short 0x0008
 .short 0x0000
 @ End of parameters
 WaitForSomething2 0x00000020
-Call 0x0806aed9
+Call sub_0806AED8
 WaitForSomething2 0x00000040
 Jump 0xff5c
 TextboxNoOverlapFollow 0x4c15
 _0807EA94 
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 Jump 0xff4a
 TextboxNoOverlapFollow 0x4c07
@@ -362,5 +354,5 @@ _0807E5F8 0x00000024
 TextboxNoOverlapFollow 0x4c09
 _0807EA94 
 _0807E5F8 0x00000048
-Call 0x080791bd
+Call sub_080791BC
 SCRIPT_END

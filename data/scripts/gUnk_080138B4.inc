@@ -3,10 +3,9 @@ StartScript
 _0807EF80 0x0008
 StopScript 
 StartScript 
-Call 0x0807f92d
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xda05
-.short 0x0806
+Call sub_0807F92C
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806DA04
 .short 0x0003
 .short 0x0000
 @ End of parameters
@@ -14,12 +13,11 @@ StopScript
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
-Call 0x0807df29
-StartPlayerScript 0x080136d8
+Call sub_0807DF28
+StartPlayerScript gUnk_080136D8
 WaitForSomething2 0x00000001
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5a1d
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095A1C
 .short 0x3f64
 .short 0x0801
 @ End of parameters
@@ -27,9 +25,8 @@ SoundReq 0x01cd
 Wait 0x005a
 StartScript 
 SoundReq 0x01ce
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5d55
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095D54
 .short 0x3e70
 .short 0x0801
 @ End of parameters
@@ -37,27 +34,23 @@ StopScript
 WaitForSomething2 0x40000000
 StartScript 
 SoundReq 0x01cf
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5d8d
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095D8C
 .short 0x4054
 .short 0x0801
 @ End of parameters
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5d8d
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095D8C
 .short 0x4074
 .short 0x0801
 @ End of parameters
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5d8d
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095D8C
 .short 0x4094
 .short 0x0801
 @ End of parameters
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5d8d
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095D8C
 .short 0x40b8
 .short 0x0801
 @ End of parameters
@@ -65,50 +58,43 @@ StopScript
 Wait 0x001e
 StartScript 
 SoundReq 0x01d0
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5d8d
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095D8C
 .short 0x40dc
 .short 0x0801
 @ End of parameters
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5d8d
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095D8C
 .short 0x4118
 .short 0x0801
 @ End of parameters
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5d8d
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095D8C
 .short 0x4154
 .short 0x0801
 @ End of parameters
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5d8d
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095D8C
 .short 0x4198
 .short 0x0801
 @ End of parameters
 StopScript 
 Wait 0x003c
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xdded
-.short 0x0805
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0805DDEC
 .short 0x0000
 .short 0x0000
 @ End of parameters
 _0807E5F8 0x00000200
 WaitForSomething2 0x00002000
 SoundReq 0x01d2
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5d8d
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095D8C
 .short 0x41dc
 .short 0x0801
 @ End of parameters
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5d8d
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095D8C
 .short 0x4210
 .short 0x0801
 @ End of parameters
@@ -120,9 +106,8 @@ _0807E5F8 0x00001000
 WaitForSomething2 0x00010000
 Wait 0x0078
 _0807E5F8 0x00000060
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xde19
-.short 0x0805
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0805DE18
 .short 0x0000
 .short 0x0000
 @ End of parameters
@@ -130,13 +115,13 @@ Wait 0x0078
 _0807E5F8 0x00000080
 WaitForSomething2 0x00000100
 Wait 0x003c
-StartPlayerScript 0x08013ba8
+StartPlayerScript gUnk_08013BA8
 _0807E5F8 0x00000080
 _0807F078 0x0006, 0x0001
-Call 0x0807aee5
-Call 0x0806dc3d
-Call 0x0806dc59
-Call 0x0807f305
+Call sub_0807AEE4
+Call sub_0806DC3C
+Call sub_0806DC58
+Call sub_0807F304
 Wait 0x003c
 _0807E778 0x0004
 DoFade7 
@@ -157,32 +142,28 @@ _0807E5F8 0x00040000
 _0807F0B4 0x0002
 SetEntityPositionRelative 0x00d800e8
 CameraTargetEntity 
-Call 0x0806dc3d
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf245
-.short 0x0807
+Call sub_0806DC3C
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F244
 .short 0x0001
 .short 0x0001
 @ End of parameters
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf29d
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F29C
 .short 0x49fe
 .short 0x0800
 @ End of parameters
 Wait 0x00c8
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf29d
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F29C
 .short 0x0000
 .short 0x0000
 @ End of parameters
-Call 0x0806dc59
+Call sub_0806DC58
 CheckRoomFlag 0x0004
 JumpIfNot 0xfffa
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xdded
-.short 0x0805
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0805DDEC
 .short 0x0001
 .short 0x0000
 @ End of parameters

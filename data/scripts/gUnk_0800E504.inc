@@ -7,7 +7,7 @@ CheckPlayerInRegion 0x00a8, 0x0178, 0x1080
 JumpIfNot 0xfff6
 _0807E864 
 Wait 0x001e
-Call 0x0807f3f9
+Call sub_0807F3F8
 Wait 0x003c
 SoundReq 0x0105
 Wait 0x001e

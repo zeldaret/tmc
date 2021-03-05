@@ -1,32 +1,29 @@
 SCRIPT_START gUnk_08010A98
 StartScript 
 _0807EB44 0x0004
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x72b1
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_080672B0
 .short 0x0000
 .short 0x0000
 @ End of parameters
 _0807EF80 0x000a
-Call 0x08067315
+Call sub_08067314
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x72b1
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_080672B0
 .short 0x0004
 .short 0x0000
 @ End of parameters
-Call 0x08067305
+Call sub_08067304
 _0807EA94 
 _0807E878 
 _0807EB44 0x0004
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x72b1
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_080672B0
 .short 0x0000
 .short 0x0000
 @ End of parameters
@@ -37,25 +34,22 @@ JumpIfNot 0x0076
 _0807EB44 0x0004
 _0807EF80 0x0000
 SetEntityNonPlanarMovement 0x0180
-.short 0x0c0c @ CallWithArg with 2 parameters
-.short 0xf349
-.short 0x0807
-@ End of parameters
-Call 0x0806075d
+.short 0x0c0c @ CallWithArg with 0 parameters
+.word sub_0807F348
+Call sub_0806075C
 StopScript 
 _0807EA94 
-Call 0x080606c1
+Call sub_080606C0
 StopScript 
-Call 0x0806076d
+Call sub_0806076C
 _0807EF80 0x0007
-Call 0x08060701
+Call sub_08060700
 StopScript 
 StartScript 
 _0807E564 
 JumpIf 0x0010
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x08e5
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_080608E4
 .short 0x0000
 .short 0x0000
 @ End of parameters
@@ -67,9 +61,8 @@ StopScript
 _0807EF80 0x0000
 StopScript 
 StartScript 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x08e5
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_080608E4
 .short 0x0001
 .short 0x0000
 @ End of parameters

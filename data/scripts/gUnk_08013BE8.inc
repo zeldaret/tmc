@@ -20,17 +20,15 @@ CheckLocalFlag 0x007c
 JumpIf 0x0068
 StartScript 
 _0807EF80 0x0007
-Call 0x0807f935
+Call sub_0807F934
 _0807EF80 0x000a
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x62f9
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_080962F8
 .short 0x0000
 .short 0x0000
 @ End of parameters
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf8e9
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F8E8
 .short 0x0004
 .short 0x0000
 @ End of parameters

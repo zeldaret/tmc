@@ -5,18 +5,18 @@ _0807EB44 0x0004
 _0807EF80 0x0000
 StopScript 
 _0807E864 
-Call 0x0807f9a5
-Call 0x0807df29
+Call sub_0807F9A4
+Call sub_0807DF28
 SoundReq0x80100000 
 _0807E8E4_2 
 Wait 0x005a
-Call 0x0807f3f9
+Call sub_0807F3F8
 Wait 0x003c
 _0807E8E4_0 
 _0807F0B4 0x0001
 CameraTargetEntity 
-Call 0x0807f5c1
-Call 0x08066c95
+Call sub_0807F5C0
+Call sub_08066C94
 Wait 0x00e9
 _0807EF80 0x0007
 .short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
@@ -27,15 +27,15 @@ _0807EA94
 SoundReq2 0x002f
 _0807EF80 0x0019
 SoundReq 0x0198
-Call 0x0807f2d5
+Call sub_0807F2D4
 SetRoomFlag 0x0000
 _0807EF80 0x0008
 Wait 0x0080
 _0807F0B4 0x0004
 CameraTargetPlayer 
-Call 0x0807f5c1
+Call sub_0807F5C0
 SetLocalFlag 0x0078
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 _0807EF80 0x0006
 SCRIPT_END

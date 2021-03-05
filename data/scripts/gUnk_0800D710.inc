@@ -1,10 +1,10 @@
 SCRIPT_START gUnk_0800D710
 StartScript 
-Call 0x0807f361
+Call sub_0807F360
 SetEntityNonPlanarMovement 0x0700
 _0807F0B4 0x0007
 CameraTargetEntity 
-Call 0x0807fbc5
+Call sub_0807FBC4
 StopScript 
 _0807E5F8 0x00000008
 WaitForSomething2 0x00000010
@@ -15,9 +15,9 @@ WaitForSomething2 0x00000004
 _0807EEB4 
 _0807F0B4 0x0004
 CameraTargetPlayer 
-Call 0x0807fbcd
+Call sub_0807FBCC
 _0807E878 
-Call 0x0807df51
+Call sub_0807DF50
 _0807EF80 0x0006
 SCRIPT_END
 .short 0x0000

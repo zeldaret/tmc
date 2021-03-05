@@ -8,9 +8,9 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807E930 0x0008
-Call 0x0807f2d5
+Call sub_0807F2D4
 _0807E930 0x0009
-Call 0x0806b2b5
+Call sub_0806B2B4
 _0807EA94 
 CheckLocalFlag 0x00b3
 JumpIf 0x0010
@@ -23,15 +23,15 @@ _0807E930 0x0000
 Jump 0xffc4
 .short 0x0000
 StartScript 
-Call 0x08054565
+Call sub_08054564
 StopScript 
 CheckPlayerInRegion 0x0208, 0x02c8, 0x4020
 JumpIfNot 0xfff6
 SoundReq0x80100000 
 _0807E864 
-Call 0x0807f9a5
-Call 0x0807df29
-StartPlayerScript 0x08012ab0
+Call sub_0807F9A4
+Call sub_0807DF28
+StartPlayerScript gUnk_08012AB0
 .short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1101
 .short 0x0007
@@ -44,11 +44,11 @@ WaitFor_2
 .short 0x0842 @ _0807E858 with 1 parameters
 .short 0x0000
 @ End of parameters
-Call 0x080791bd
+Call sub_080791BC
 LoadRoomEntityList 0x080f4d70
-Call 0x0805ebcd
+Call DeleteAllEnemies
 SetEntityPositionRelative 0x01680388
-Call 0x0807f845
+Call sub_0807F844
 _0807E778 0x0004
 _0807E800 0x00000000
 WaitFor_2 
@@ -68,23 +68,23 @@ _0807E778 0x0004
 _0807E80C 0x00000000
 WaitFor_2 
 MoveEntityToPlayer 
-Call 0x0807f845
+Call sub_0807F844
 CameraTargetPlayer 
 _0807E788 0xffffffff
 _0807E778 0x0004
 _0807E800 0x00000000
 WaitFor_2 
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 SoundReq2 0xffff
 CheckPlayerInRegion 0x03a0, 0x01a0, 0x1020
 JumpIfNot 0xfff6
 _0807E864 
-Call 0x0807f9a5
-Call 0x0807df29
-Call 0x0806dc7d
+Call sub_0807F9A4
+Call sub_0807DF28
+Call sub_0806DC7C
 SoundReq0x80100000 
-StartPlayerScript 0x08012ac8
+StartPlayerScript gUnk_08012AC8
 WaitForSomething2 0x00000001
 SetEntityPositionRelative 0x01680388
 _0807F0B4 0x0001
@@ -107,19 +107,19 @@ _0807E5F8 0x00000004
 WaitForSomething2 0x00000008
 SoundReq0x80100000 
 SoundReq2 0x0033
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 _0807E5F8 0x00000050
 LoadRoomEntityList 0x080f51d0
 WaitForSomething2 0x00000008
 _0807E864 
-Call 0x0807fa41
-Call 0x0807df29
+Call sub_0807FA40
+Call sub_0807DF28
 SoundReq 0x0072
 SoundReq0x80100000 
 _0807E5F8 0x00000004
 WaitForSomething2 0x00000008
-StartPlayerScript 0x08012af0
+StartPlayerScript gUnk_08012AF0
 WaitForSomething2 0x00000001
 _0807E8E4_0 
 SoundReq2 0x000e
@@ -137,10 +137,10 @@ WaitForSomething2 0x00000008
 SoundReq0x80100000 
 Wait 0x003c
 SoundReq2 0xffff
-Call 0x0806dca1
+Call sub_0806DCA0
 _0807F0B4 0x0004
 CameraTargetPlayer 
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 _0807E5F8 0x00000004
 WaitForSomething2 0x00000008
@@ -151,15 +151,14 @@ WaitForSomething2 0x00000008
 SoundReq0x80100000 
 Wait 0x003c
 SoundReq2 0xffff
-Call 0x08054571
+Call sub_08054570
 SetGlobalFlag 0x0014
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf6f9
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F6F8
 .short 0x0008
 .short 0x0000
 @ End of parameters
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 _0807EF80 0x0006
 SCRIPT_END

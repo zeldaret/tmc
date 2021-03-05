@@ -2,14 +2,14 @@ SCRIPT_START gUnk_080111CC
 StartScript 
 _0807EF80 0x0008
 SetEntityNonPlanarMovement 0x0100
-Call 0x08066d05
+Call sub_08066D04
 StopScript 
-Call 0x0807f339
+Call sub_0807F338
 WaitForSomething2 0x00000010
-Call 0x08066d15
+Call sub_08066D14
 JumpIf 0x0004
 MoveEntityToPlayer 
-Call 0x0807f8bd
+Call sub_0807F8BC
 JumpIf 0x0008
 SetEntityPositionRelative 0x00b801f8
 _0807EF80 0x0007
@@ -31,7 +31,7 @@ _0807EDD4 0x01e8, 0x0040
 _0807EF80 0x0000
 _0807E5F8 0x00000020
 WaitForSomething2 0x00000010
-Call 0x08095811
+Call sub_08095810
 _0807E5F8 0x00000020
 WaitForSomething2 0x00000010
 _0807EF80 0x0001
@@ -42,10 +42,10 @@ WaitForSomething2 0x00000010
 SoundReq 0x01c9
 _0807EF80 0x0010
 Wait 0x0014
-Call 0x08066e21
+Call sub_08066E20
 Wait 0x0014
 _0807EF80 0x0010
-Call 0x0807f2d5
+Call sub_0807F2D4
 SoundReq 0x01ca
 _0807E5F8 0x00000020
 WaitForSomething2 0x00000010

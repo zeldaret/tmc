@@ -8,12 +8,12 @@ JumpIfNot 0xffec
 ComparePlayerAction 0x0015
 JumpIf 0xffe4
 _0807E864 
-Call 0x0807df29
+Call sub_0807DF28
 StopScript 
 _0807EB28 0x2203
 _0807EA94 
 SetLocalFlag 0x003e
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 _0807EF80 0x0006
 SCRIPT_END

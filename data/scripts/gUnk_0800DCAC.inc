@@ -1,12 +1,11 @@
 SCRIPT_START gUnk_0800DCAC
 StartScript 
 _0807EF80 0x000a
-Call 0x08066e39
+Call sub_08066E38
 StopScript 
 WaitForSomething2 0x00000001
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf8e9
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F8E8
 .short 0x0000
 .short 0x0000
 @ End of parameters
@@ -19,9 +18,9 @@ _0807EF80 0x0010
 SetEntityPositionRelative 0x00680078
 WaitForSomething2 0x00000001
 SoundReq0x80100000 
-Call 0x08066e51
+Call sub_08066E50
 SoundReq 0x01c9
-Call 0x0807f2d5
+Call sub_0807F2D4
 SoundReq 0x01ca
 Wait 0x003c
 _0807EF80 0x0004
@@ -46,7 +45,7 @@ _0807EEF4 0x0000, 0x0008
 _0807EB44 0x0004
 _0807EF80 0x0000
 Wait 0x001e
-Call 0x08066e81
+Call sub_08066E80
 _0807EB44 0x0004
 _0807EF80 0x0000
 _0807E5F8 0x00000002

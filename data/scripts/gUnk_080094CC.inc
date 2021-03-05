@@ -1,11 +1,11 @@
 SCRIPT_START gUnk_080094CC
 StartScript 
-Call 0x0806d805
+Call sub_0806D804
 SetEntityNonPlanarMovement 0x0180
 StopScript 
 Wait 0x003c
 SetEntity0x20 0x00018000
-Call 0x0806d859
+Call sub_0806D858
 _0807EE30 
 JumpIfNot 0xfffc
 Wait 0x001e

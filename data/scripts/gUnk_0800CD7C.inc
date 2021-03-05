@@ -2,18 +2,18 @@ SCRIPT_START gUnk_0800CD7C
 StartScript 
 CheckInventory1 0x005b
 JumpIfNot 0xf87a
-Call 0x08060091
+Call sub_08060090
 _0807EF80 0x000a
 StopScript 
 StopScript 
 StartScript 
 CheckEntityInteractType 
 JumpIf 0x000c
-Call 0x08060159
+Call sub_08060158
 Jump 0xffee
 StopScript 
 _0807E864 
-Call 0x0807df29
+Call sub_0807DF28
 CheckLocalFlag 0x009d
 JumpIf 0x000e
 SetLocalFlag 0x009d
@@ -52,7 +52,7 @@ _0807F088 0x0022
 WaitPlayerAction8 
 _0807EB8C 
 SetGlobalFlag 0x0054
-Call 0x08060341
+Call sub_08060340
 TextboxNoOverlap 0x213f
 Jump 0x00be
 CheckGlobalFlag 0x003c
@@ -78,7 +78,7 @@ _0807F088 0x0027
 WaitPlayerAction8 
 _0807EB8C 
 SetGlobalFlag 0x0054
-Call 0x08060341
+Call sub_08060340
 TextboxNoOverlap 0x2143
 Jump 0x005e
 CheckGlobalFlag 0x003d
@@ -104,55 +104,55 @@ _0807F088 0x0024
 WaitPlayerAction8 
 _0807EB8C 
 SetGlobalFlag 0x0054
-Call 0x08060341
+Call sub_08060340
 TextboxNoOverlap 0x2147
 _0807EA94 
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 StopScript 
 StartScript 
 CheckEntityInteractType 
 JumpIf 0x000c
-Call 0x08060159
+Call sub_08060158
 Jump 0xffee
 StopScript 
 _0807E864 
-Call 0x0807df29
+Call sub_0807DF28
 TextboxNoOverlap 0x2140
 _0807EA94 
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 Jump 0xffd2
 TextboxNoOverlap 0x214a
 _0807EA94 
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 Jump 0xfe46
 .short 0x0000
 StartScript 
-Call 0x08068105
+Call sub_08068104
 _0807EF80 0x000a
 StopScript 
 StartScript 
 CheckEntityInteractType 
 JumpIf 0x000e
-Call 0x0806811d
+Call sub_0806811C
 StopScript 
 Jump 0xffee
 StopScript 
 _0807E864 
-Call 0x08068191
+Call sub_08068190
 _0807EA94 
 Wait 0x000f
 _0807E878 
 Jump 0xffd8
 StartScript 
-Call 0x08068105
+Call sub_08068104
 _0807EF80 0x000a
 StopScript 
 _0807E944 
 _0807E864 
-Call 0x08068191
+Call sub_08068190
 _0807EA94 
 Wait 0x000f
 _0807E878 
@@ -179,39 +179,39 @@ JumpIfNot 0x0008
 _0807E5F8 0x00000010
 StopScript 
 StartScript 
-Call 0x08068911
+Call sub_08068910
 CheckEntityInteractType 
 JumpIfNot 0xfff2
 StopScript 
 _0807E864 
-Call 0x0807df29
+Call sub_0807DF28
 CheckInventory1 0x0002
 JumpIfNot 0x0018
 _0807EB74 
 _0807E914 0x00000000
-Call 0x0806c029
+Call sub_0806C028
 TextboxNoOverlap 0x1219
 Jump 0x014c
 CheckInventory1 0x0041
 JumpIfNot 0x0060
-StartPlayerScript 0x0800d190
+StartPlayerScript gUnk_0800D190
 WaitForSomething2 0x00000008
 _0807EB74 
 _0807E914 0x00000000
-Call 0x0806c029
+Call sub_0806C028
 .short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x125c
 .short 0x0002
 @ End of parameters
 _0807EA94 
-StartPlayerScript 0x0800d1b4
+StartPlayerScript gUnk_0800D1B4
 WaitForSomething2 0x00000008
 _0807EB44 0x0002
 _0807E914 0x00000000
-Call 0x0806c029
+Call sub_0806C028
 Wait 0x000f
 _0807E5F8 0x00000020
-StartPlayerScript 0x0800d1e0
+StartPlayerScript gUnk_0800D1E0
 WaitForSomething2 0x00000008
 .short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x125d
@@ -222,7 +222,7 @@ CheckLocalFlag 0x007e
 JumpIfNot 0x000a
 TextboxNoOverlapFollow 0x123e
 Jump 0x00d6
-StartPlayerScript 0x0800d190
+StartPlayerScript gUnk_0800D190
 WaitForSomething2 0x00000008
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000004
@@ -230,19 +230,19 @@ _0807E5F8 0x00000001
 WaitForSomething2 0x00000004
 _0807EB74 
 _0807E914 0x00000000
-Call 0x0806c029
+Call sub_0806C028
 .short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x123d
 .short 0x0002
 @ End of parameters
 _0807EA94 
-StartPlayerScript 0x0800d1b4
+StartPlayerScript gUnk_0800D1B4
 WaitForSomething2 0x00000008
 _0807EB44 0x0002
 _0807E914 0x00000000
-Call 0x0806c029
+Call sub_0806C028
 SoundReq 0x00cd
-Call 0x08068965
+Call sub_08068964
 ComparePlayerAction 0x0008
 JumpIf 0xfffa
 SoundReq 0x00f8
@@ -271,20 +271,11 @@ _0807E5F8 0x00000001
 WaitForSomething2 0x00000004
 _0807E930 0x0008
 Wait 0x003c
-Call 0x08095165
+Call sub_08095164
 _0807EB28 0x1240
 _0807EA94 
 Wait 0x000f
 _0807E878 
-Call 0x0807df51
+Call sub_0807DF50
 Jump 0xfe6e
 .short 0x0000
-StartScript 
-SetEntityNonPlanarMovement 0x0100
-StopScript 
-_0807EDD4 0x0170, 0x0140
-_0807EB44 0x0002
-_0807EF80 0x0000
-_0807E5F8 0x00000008
-Call 0x080791bd
-SCRIPT_END

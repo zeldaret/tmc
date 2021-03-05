@@ -6,12 +6,12 @@ SetEntityPosition 0x0000, 0xfff0
 StopScript 
 WaitForSomething2 0x00001000
 _0807E930 0x000b
-Call 0x0807f2d5
+Call sub_0807F2D4
 _0807E930 0x000f
 _0807E5F8 0x00010000
 WaitForSomething 0x00000020
 _0807E930 0x0013
-Call 0x0807f2d5
+Call sub_0807F2D4
 _0807EF80 0x0006
 SCRIPT_END
 .short 0x0000

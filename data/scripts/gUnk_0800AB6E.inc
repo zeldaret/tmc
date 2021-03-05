@@ -1,16 +1,15 @@
 SCRIPT_START gUnk_0800AB6E
-Call 0x0808d2cd
+Call sub_0808D2CC
 _0807E5F8 0x00000002
 WaitForSomething2 0x00000004
 _0807E8E4_0 
 _0807E5F8 0x00000040
 WaitForSomething2 0x00000080
 SetEntityPosition 0x0000, 0xffe0
-Call 0x0807f5c1
+Call sub_0807F5C0
 Wait 0x003c
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xde19
-.short 0x0805
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0805DE18
 .short 0x0001
 .short 0x0000
 @ End of parameters
@@ -23,7 +22,7 @@ WaitForSomething2 0x00000004
 .short 0x000e
 @ End of parameters
 _0807EA94 
-StartPlayerScript 0x0800acbc
+StartPlayerScript gUnk_0800ACBC
 WaitForSomething2 0x00000001
 .short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x1660
@@ -41,9 +40,9 @@ _0807E5F8 0x00000008
 _0807E5F8 0x00000002
 WaitForSomething2 0x00000004
 SetEntityPosition 0x0000, 0x0020
-Call 0x0807f5c1
+Call sub_0807F5C0
 WaitForSomething2 0x00000010
-StartPlayerScript 0x0800ace0
+StartPlayerScript gUnk_0800ACE0
 WaitForSomething2 0x00000001
 Wait 0x003c
 .short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
@@ -57,12 +56,12 @@ _0807EA94
 @ End of parameters
 _0807EA94 
 SetEntityPosition 0x0000, 0xffe0
-Call 0x0807f5c1
+Call sub_0807F5C0
 _0807E5F8 0x00000002
 WaitForSomething2 0x00000004
 _0807E5F8 0x00000002
 WaitForSomething2 0x00000004
-StartPlayerScript 0x0800ad54
+StartPlayerScript gUnk_0800AD54
 WaitForSomething2 0x00000001
 Wait 0x003c
 .short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
@@ -73,20 +72,20 @@ _0807EA94
 _0807E5F8 0x00000002
 WaitForSomething2 0x00000004
 Wait 0x0078
-Call 0x0808d281
+Call sub_0808D280
 Wait 0x0078
 _0807E778 0x0004
 DoFade5 
 WaitFor_2 
-Call 0x0807fb95
+Call sub_0807FB94
 MoveEntityToPlayer 
-Call 0x0807f845
+Call sub_0807F844
 _0807F0B4 0x0004
 CameraTargetPlayer 
 _0807E5F8 0x80000000
 DoFade4 
 WaitFor_2 
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 _0807EF80 0x0006
 SCRIPT_END

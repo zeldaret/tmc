@@ -3,15 +3,15 @@ StartScript
 _0807EB44 0x0006
 SetEntityNonPlanarMovement 0x0080
 _0807E9D4 
-Call 0x0807f349
+Call sub_0807F348
 StopScript 
 CheckGlobalFlag 0x0013
 JumpIf 0x00ba
 _0807E888 
 Wait 0x000a
 _0807E864 
-StartPlayerScript 0x08009cfc
-Call 0x0807df29
+StartPlayerScript gUnk_08009CFC
+Call sub_0807DF28
 WaitForSomething2 0x00000008
 _0807EDD4 0x0080, 0x005c
 _0807EB44 0x0006
@@ -46,7 +46,7 @@ _0807EF80 0x000c
 _0807EF80 0x0000
 _0807E5F8 0x00000002
 WaitForSomething2 0x00000008
-Call 0x08053251
+Call sub_08053250
 _0807F034 0x0034
 WaitPlayerAction8 
 _0807E8E4_1 

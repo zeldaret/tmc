@@ -21,31 +21,31 @@ _0807E878
 Jump 0xffda
 StopScript 
 _0807E864 
-Call 0x0807df29
+Call sub_0807DF28
 _0807E5F8 0x00000001
 _0807EF80 0x0004
 WaitForSomething2 0x00000002
 _0807E930 0x0010
-Call 0x0806ccf9
+Call sub_0806CCF8
 Wait 0x0014
-Call 0x0806cd05
+Call sub_0806CD04
 Wait 0x0014
-Call 0x0806cd15
+Call sub_0806CD14
 Wait 0x0014
-Call 0x0806cd21
+Call sub_0806CD20
 Wait 0x0014
-Call 0x0806cd31
+Call sub_0806CD30
 Wait 0x0014
-Call 0x0806cd3d
+Call sub_0806CD3C
 Wait 0x0014
-Call 0x0806cd4d
+Call sub_0806CD4C
 SoundReq 0x0072
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 _0807E930 0x0010
-Call 0x0806cd4d
+Call sub_0806CD4C
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
@@ -64,7 +64,7 @@ Wait 0x000f
 _0807E878 
 Jump 0xffc8
 StartScript 
-Call 0x0806cd59
+Call sub_0806CD58
 _0807EF80 0x000a
 _0807EB44 0x0004
 _0807E930 0x0006
@@ -73,9 +73,9 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-Call 0x0806ccd1
+Call sub_0806CCD0
 JumpIfNot 0xfff8
-Call 0x0806ccb5
+Call sub_0806CCB4
 JumpIfNot 0xfff8
 CheckLocalFlag 0x0066
 JumpIf 0x0016
@@ -95,7 +95,7 @@ Jump 0xffb0
 StartScript 
 CheckGlobalFlag 0x0024
 JumpIf 0x0038
-Call 0x0806c871
+Call sub_0806C870
 _0807EF80 0x000a
 _0807EF80 0x0000
 StopScript 
@@ -108,7 +108,7 @@ JumpIfNot 0xfff0
 StopScript 
 _0807E864 
 _0807EB74 
-Call 0x0806c90d
+Call sub_0806C90C
 _0807EA94 
 _0807E878 
 Jump 0xffdc

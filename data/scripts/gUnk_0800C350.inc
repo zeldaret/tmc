@@ -1,8 +1,7 @@
 SCRIPT_START gUnk_0800C350
 StartScript 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xd659
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806D658
 .short 0x0003
 .short 0x0000
 @ End of parameters

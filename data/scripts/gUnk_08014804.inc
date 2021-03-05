@@ -5,7 +5,7 @@ _0807EB44 0x0000
 _0807EF80 0x000a
 StopScript 
 _0807E864 
-Call 0x0807df39
+Call sub_0807DF38
 Wait 0x0010
 CheckLocalFlag 0x0093
 JumpIf 0x0092
@@ -72,7 +72,7 @@ StopScript
 CheckRoomFlag 0x0000
 JumpIfNot 0xfffa
 ClearRoomFlag 0x0000
-Call 0x0806e141
+Call sub_0806E140
 JumpIfNot 0x002a
 _0807EA94 
 _0807E3E8 
@@ -80,7 +80,7 @@ JumpIfNot 0x0028
 _0807E864 
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002
-Call 0x0806e1e1
+Call sub_0806E1E0
 _0807EA94 
 Wait 0x0018
 _0807E878 
@@ -89,8 +89,8 @@ _0807EA94
 Jump 0x0002
 _0807E5F8 0x00000004
 WaitForSomething2 0x00000008
-Call 0x0806e1fd
+Call sub_0806E1FC
 Wait 0x001e
-Call 0x0807df51
+Call sub_0807DF50
 SCRIPT_END
 .short 0x0000

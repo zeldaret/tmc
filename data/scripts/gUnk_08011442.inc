@@ -33,7 +33,7 @@ _0807E930 0x0013
 _0807EF80 0x0010
 _0807E5F8 0x00010000
 WaitForSomething2 0x00008000
-Call 0x0807f3c9
+Call sub_0807F3C8
 _0807E930 0x0014
 SetEntityNonPlanarMovement 0x0400
 SetEntityDirection 0x001e

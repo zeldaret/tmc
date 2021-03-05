@@ -3,26 +3,23 @@ StartScript
 SetEntityNonPlanarMovement 0x0080
 _0807EF80 0x0007
 _0807EB44 0x0000
-Call 0x0807f339
+Call sub_0807F338
 StopScript 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xaf61
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806AF60
 .short 0x0000
 .short 0x0000
 @ End of parameters
 WaitForSomething2 0x00008000
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xaf61
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806AF60
 .short 0x0004
 .short 0x0000
 @ End of parameters
 _0807EDD4 0x0078, 0x00b8
 _0807EB44 0x0000
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xaf61
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806AF60
 .short 0x0000
 .short 0x0000
 @ End of parameters
@@ -30,9 +27,8 @@ _0807E5F8 0x00010000
 WaitForSomething2 0x00008000
 _0807EF80 0x000d
 _0807EB44 0x0000
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xaf61
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806AF60
 .short 0x0004
 .short 0x0000
 @ End of parameters
@@ -40,26 +36,23 @@ _0807EDD4 0x0078, 0x00c8
 _0807E5F8 0x00010000
 WaitForSomething2 0x00008000
 _0807EB44 0x0000
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xaf61
-.short 0x0806
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0806AF60
 .short 0x0000
 .short 0x0000
 @ End of parameters
 _0807EF80 0x0010
 Wait 0x0028
 SoundReq 0x0125
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xfb29
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807FB28
 .short 0x0003
 .short 0x0000
 @ End of parameters
 Wait 0x000a
 SoundReq 0x0125
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xfb29
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807FB28
 .short 0x0003
 .short 0x0000
 @ End of parameters
@@ -68,7 +61,7 @@ _0807EF80 0x0010
 _0807E5F8 0x00010000
 WaitForSomething2 0x00008000
 _0807E930 0x000d
-Call 0x0807f2d5
+Call sub_0807F2D4
 _0807E5F8 0x00010000
 Wait 0x003c
 _0807EF80 0x0005

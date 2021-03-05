@@ -4,29 +4,26 @@ SetEntityNonPlanarMovement 0x0080
 SetEntity0x20 0x00000000
 _0807EF80 0x0008
 _0807EB44 0x0000
-Call 0x0807f715
+Call sub_0807F714
 MoveEntityToPlayer 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf98d
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F98C
 .short 0x0000
 .short 0xfff0
 @ End of parameters
 StopScript 
 _0807E930 0x0023
 WaitForSomething2 0x00000010
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf6e9
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F6E8
 .short 0x0008
 .short 0x0000
 @ End of parameters
 _0807EF80 0x0007
 SoundReq 0x0142
 _0807E610 0x00000800
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x60c5
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_080960C4
 .short 0xa65c
 .short 0x0800
 @ End of parameters

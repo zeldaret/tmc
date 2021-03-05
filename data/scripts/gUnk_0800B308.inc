@@ -7,21 +7,21 @@ SetEntityNonPlanarMovement 0x0040
 SetEntityDirection 0x0010
 CheckKinstoneFused 0x0006
 JumpIfNot 0x0008
-Call 0x080676d9
+Call sub_080676D8
 CheckKinstoneFused 0x0007
 JumpIfNot 0x0008
-Call 0x080676d9
+Call sub_080676D8
 CheckKinstoneFused 0x0008
 JumpIfNot 0x0008
-Call 0x080676d9
+Call sub_080676D8
 StopScript 
-Call 0x0806757d
+Call sub_0806757C
 StopScript 
 WaitForSomething2 0x00000002
 SoundReq 0x00fd
-Call 0x080676d9
-Call 0x0806757d
-Call 0x080675d5
+Call sub_080676D8
+Call sub_0806757C
+Call sub_080675D4
 Wait 0x0014
 StartScript 
 _0807E5F8 0x00000001

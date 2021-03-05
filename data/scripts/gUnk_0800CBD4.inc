@@ -4,7 +4,7 @@ _0807EF80 0x0000
 _0807EF80 0x0008
 SetEntityNonPlanarMovement 0x0100
 _0807EF80 0x000f
-Call 0x0807f339
+Call sub_0807F338
 StopScript 
 WaitForSomething2 0x00002000
 _0807EF80 0x0007

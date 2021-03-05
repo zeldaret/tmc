@@ -1,7 +1,7 @@
 SCRIPT_START gUnk_08013E94
 StartScript 
 _0807EF80 0x0007
-Call 0x0807f181
+Call sub_0807F180
 SetEntityPositionRelative 0x00f800b0
 _0807E930 0x0001
 StopScript 

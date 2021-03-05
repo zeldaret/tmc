@@ -1,6 +1,6 @@
 SCRIPT_START gUnk_08009E58
 StartScript 
-Call 0x0807df29
+Call sub_0807DF28
 StopScript 
 WaitForSomething2 0x00000002
 _0807E778 0x0002

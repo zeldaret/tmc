@@ -4,7 +4,7 @@ JumpIfNot 0xffe8
 _0807E864 
 _0807EB74 
 _0807EF80 0x0001
-Call 0x0806be85
+Call sub_0806BE84
 _0807EA94 
 JumpIfNot 0x0018
 SoundReq 0x0109
@@ -25,10 +25,10 @@ StartScript
 CheckGlobalFlag 0x0020
 JumpIfNot 0xfff6
 StopScript 
-Call 0x0806bf45
+Call sub_0806BF44
 JumpIf 0xfff8
 StopScript 
-Call 0x0806be3d
+Call sub_0806BE3C
 _0807EF80 0x000a
 _0807EF80 0x0007
 CheckEntityInteractType 
@@ -36,13 +36,13 @@ JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
 _0807EF80 0x0001
-Call 0x0806bec9
+Call sub_0806BEC8
 _0807EA94 
 JumpIfNot 0x0016
 SoundReq 0x0111
 SoundReq 0x0072
 _0807F078 0x003c, 0x0002
-Call 0x0806befd
+Call sub_0806BEFC
 _0807E878 
 _0807EF80 0x0000
 Jump 0xffca
@@ -55,9 +55,9 @@ StopScript
 CheckPlayerInRegion 0x0188, 0x01c0, 0x1020
 JumpIfNot 0xfff6
 _0807E864 
-Call 0x0807f9a5
-Call 0x0807df29
-StartPlayerScript 0x08009704
+Call sub_0807F9A4
+Call sub_0807DF28
+StartPlayerScript gUnk_08009704
 WaitForSomething2 0x00000001
 SoundReq 0x0111
 _0807EF80 0x0008
@@ -67,7 +67,7 @@ SoundReq 0x0111
 _0807EF80 0x0007
 CheckGlobalFlag 0x0020
 JumpIfNot 0xfffa
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
-Call 0x0808692d
+Call sub_0808692C
 SCRIPT_END

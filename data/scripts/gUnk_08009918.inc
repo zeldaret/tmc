@@ -1,6 +1,6 @@
 SCRIPT_START gUnk_08009918
 StartScript 
-Call 0x0807df29
+Call sub_0807DF28
 _0807E864 
 _0807E5F8 0x00000000
 StopScript 
@@ -9,7 +9,7 @@ Wait 0x0078
 _0807E5F8 0x00000004
 WaitForSomething2 0x00000001
 SetGlobalFlag 0x001c
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
-Call 0x0807921d
+Call sub_0807921C
 SCRIPT_END

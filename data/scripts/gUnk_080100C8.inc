@@ -1,26 +1,26 @@
 SCRIPT_START gUnk_080100C8
 StartScript 
-Call 0x08061fe5
-Call 0x08061e71
+Call sub_08061FE4
+Call sub_08061E70
 _0807EF80 0x000a
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-Call 0x08061fe5
-Call 0x08062049
+Call sub_08061FE4
+Call sub_08062048
 _0807EA94 
 _0807E878 
 Jump 0xffe4
 .short 0x0000
 StartScript 
-Call 0x08061fe5
-Call 0x08061e71
+Call sub_08061FE4
+Call sub_08061E70
 _0807EF80 0x000a
 StopScript 
 Wait 0x003c
-Call 0x08061e91
+Call sub_08061E90
 Jump 0xfff4
 .short 0x0000
 StartScript 
@@ -39,7 +39,7 @@ _0807E878
 Jump 0xffec
 StartScript 
 _0807EF80 0x0001
-Call 0x0806c355
+Call sub_0806C354
 _0807EF80 0x000a
 StopScript 
 CheckEntityInteractType 
@@ -55,12 +55,11 @@ JumpIf 0x0034
 _0807EA94 
 _0807E3E8 
 JumpIfNot 0x002e
-Call 0x080a1609
+Call sub_080A1608
 _0807EA94 
 _0807E878 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x1551
-.short 0x080a
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_080A1550
 .short 0x01ac
 .short 0x0801
 @ End of parameters
@@ -68,17 +67,17 @@ JumpIfNot 0xffca
 SoundReq2 0x0015
 SetRoomFlag 0x0001
 Jump 0xffbe
-Call 0x080a1609
+Call sub_080A1608
 _0807EA94 
 _0807E878 
 Jump 0xffb0
 StartScript 
 _0807EF80 0x0008
-Call 0x080a1649
+Call sub_080A1648
 StopScript 
-Call 0x080a1271
+Call sub_080A1270
 _0807E864 
-Call 0x0807df29
+Call sub_0807DF28
 .short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x3004
 .short 0x0007
@@ -88,45 +87,43 @@ SoundReq0x80100000
 _0807E778 0x0004
 DoFade5 
 WaitFor_2 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf75d
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F75C
 .short 0x0378
 .short 0x0340
 @ End of parameters
-Call 0x080791bd
-Call 0x0807fb75
+Call sub_080791BC
+Call sub_0807FB74
 _0807E8E4_1 
-Call 0x0807f169
-Call 0x080a1389
-Call 0x0806ec39
+Call sub_0807F168
+Call sub_080A1388
+Call sub_0806EC38
 StartScript 
 MoveEntityToPlayer 
-Call 0x0807f845
+Call sub_0807F844
 CameraTargetPlayer 
 StopScript 
 _0807E778 0x0004
 DoFade4 
 WaitFor_2 
 SoundReq2 0xffff
-Call 0x080a13b5
+Call sub_080A13B4
 _0807EA94 
 JumpIfNot 0x0018
-Call 0x080a13e9
+Call sub_080A13E8
 WaitPlayerAction8 
-Call 0x080a1461
+Call sub_080A1460
 _0807EA94 
-Call 0x080a14a9
-Call 0x0807df51
+Call sub_080A14A8
+Call sub_0807DF50
 _0807E878 
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf5b1
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F5B0
 .short 0x0000
 .short 0x0000
 @ End of parameters
 ClearRoomFlag 0x0001
-Call 0x080a169d
+Call sub_080A169C
 _0807EF80 0x0006
 SCRIPT_END
 .short 0x0000

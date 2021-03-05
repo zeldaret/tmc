@@ -2,7 +2,7 @@ SCRIPT_START gUnk_08010B68
 StartScript 
 _0807E564 
 JumpIfNot 0x003e
-Call 0x0807f925
+Call sub_0807F924
 _0807EB44 0x0004
 _0807EF80 0x0000
 _0807EF80 0x0007
@@ -17,7 +17,7 @@ JumpIfNot 0xfff2
 StopScript 
 _0807E864 
 _0807EB74 
-Call 0x0806e2dd
+Call sub_0806E2DC
 _0807EA94 
 _0807E878 
 Jump 0xffde

@@ -3,7 +3,7 @@ StartScript
 _0807EB44 0x0000
 SetEntityNonPlanarMovement 0x0100
 StopScript 
-Call 0x0807f339
+Call sub_0807F338
 WaitForSomething2 0x00000100
 _0807EF80 0x0001
 _0807EDD4 0x01f8, 0x00d0
@@ -12,30 +12,29 @@ _0807E5F8 0x00000200
 WaitForSomething2 0x00000100
 _0807EB44 0x0004
 _0807EF80 0x001c
-Call 0x0807f2d5
+Call sub_0807F2D4
 _0807EB44 0x0004
 _0807EF80 0x0000
 _0807E5F8 0x00000200
 WaitForSomething2 0x00000100
 _0807EB44 0x0000
 _0807EF80 0x001c
-Call 0x0807f2d5
+Call sub_0807F2D4
 _0807EB44 0x0000
 _0807EF80 0x0000
 _0807E5F8 0x00000200
 WaitForSomething2 0x00000100
 _0807EB44 0x0000
 _0807EF80 0x001a
-Call 0x0807f2d5
+Call sub_0807F2D4
 _0807EF80 0x0000
 _0807E5F8 0x00000200
 WaitForSomething2 0x00000100
 _0807EB44 0x0000
 _0807EF80 0x0014
 SoundReq 0x0120
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x5421
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_08095420
 .short 0x1890
 .short 0x0801
 @ End of parameters
@@ -55,9 +54,8 @@ _0807E5F8 0x00000200
 WaitForSomething2 0x00000100
 _0807EF80 0x0014
 SoundReq 0x01c4
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0x545d
-.short 0x0809
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0809545C
 .short 0x18d4
 .short 0x0801
 @ End of parameters
@@ -80,13 +78,13 @@ _0807EF80 0x0004
 Wait 0x005a
 _0807EB44 0x0004
 _0807EF80 0x001c
-Call 0x0807f2d5
+Call sub_0807F2D4
 _0807EB44 0x0004
 _0807EF80 0x0000
 Wait 0x001e
 _0807E5F8 0x00000200
 WaitForSomething2 0x00000100
-Call 0x08066ca5
+Call sub_08066CA4
 _0807EF80 0x0008
 Wait 0x0078
 _0807E5F8 0x00000200

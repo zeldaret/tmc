@@ -45,7 +45,7 @@ _0807E878
 _0807EB44 0x0004
 Jump 0xff76
 StartScript 
-Call 0x080787b5
+Call sub_080787B4
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
@@ -72,7 +72,7 @@ TextboxNoOverlapFollow 0x2d06
 _0807E878 
 Jump 0xffb8
 StartScript 
-Call 0x080787b5
+Call sub_080787B4
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
@@ -101,104 +101,96 @@ TextboxNoOverlap 0x2d06
 _0807E878 
 Jump 0xffb4
 StartScript 
-Call 0x0807f349
+Call sub_0807F348
 _0807EF80 0x000a
 _0807EB44 0x0004
 _0807EF80 0x0000
 StopScript 
-Call 0x08068c29
+Call sub_08068C28
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
-Call 0x0807df29
+Call sub_0807DF28
 _0807EB74 
-Call 0x08068ca1
+Call sub_08068CA0
 JumpIf 0x0122
-Call 0x08068cfd
+Call sub_08068CFC
 JumpIfNot 0x010c
-Call 0x08068db9
+Call sub_08068DB8
 _0807EA94 
-Call 0x08068dd1
+Call sub_08068DD0
 _0807EA94 
 _0807E3E8 
 JumpIfNot 0x010a
-StartPlayerScript 0x0801635c
+StartPlayerScript gUnk_0801635C
 WaitForSomething2 0x00000001
 _0807EB74 
-Call 0x08068c8d
+Call sub_08068C8C
 JumpIf 0x000e
-Call 0x08068de9
+Call sub_08068DE8
 _0807EA94 
 Wait 0x001e
-Call 0x08068e01
+Call sub_08068E00
 _0807EA94 
 _0807EF80 0x0001
-Call 0x0807f2d5
-Call 0x08068e91
-Call 0x08068c8d
+Call sub_0807F2D4
+Call sub_08068E90
+Call sub_08068C8C
 JumpIf 0x009a
-Call 0x08068f01
-Call 0x08068f15
-Call 0x08068bb5
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xf245
-.short 0x0807
+Call sub_08068F00
+Call sub_08068F14
+Call sub_08068BB4
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807F244
 .short 0x0001
 .short 0x0001
 @ End of parameters
-Call 0x08068b85
-Call 0x0807f2a9
-Call 0x08068bd1
+Call sub_08068B84
+Call sub_0807F2A8
+Call sub_08068BD0
 Wait 0x001e
-Call 0x08068e19
+Call sub_08068E18
 _0807EA94 
-Call 0x08068eb5
-Call 0x0807df51
+Call sub_08068EB4
+Call sub_0807DF50
 _0807E878 
 StopScript 
 StartScript 
-Call 0x08068ec5
+Call sub_08068EC4
 JumpIf 0x001e
 CheckEntityInteractType 
 JumpIf 0x0006
 Jump 0xffea
 StopScript 
 _0807E864 
-Call 0x08068e79
+Call sub_08068E78
 _0807EA94 
 _0807E878 
 Jump 0xffd8
 StopScript 
 _0807E888 
-Call 0x0807f595
-Call 0x0807df29
+Call sub_0807F594
+Call sub_0807DF28
 _0807E864 
 SoundReq0x80100000 
 SoundReq 0x00cd
 Wait 0x003c
 SoundReq2 0x005e
-Call 0x08068f3d
-Call 0x08068e31
+Call sub_08068F3C
+Call sub_08068E30
 _0807EA94 
-Call 0x08068c6d
+Call sub_08068C6C
 WaitPlayerAction8 
 _0807EA94 
 Jump 0x0016
-Call 0x08068e61
+Call sub_08068E60
 _0807EA94 
 Jump 0x000a
-Call 0x08068e49
+Call sub_08068E48
 _0807EA94 
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 _0807EB44 0x0004
 _0807EF80 0x0000
 Jump 0xfea6
 .short 0x0000
-SetEntityNonPlanarMovement 0x0100
-_0807EDD4 0x0078, 0x0050
-_0807EB44 0x0000
-_0807EF80 0x0000
-_0807E5F8 0x00000001
-Call 0x080791bd
-SCRIPT_END

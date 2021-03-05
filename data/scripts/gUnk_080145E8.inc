@@ -7,12 +7,12 @@ StopScript
 CheckRoomFlag 0x0000
 JumpIfNot 0xfffa
 _0807E864 
-Call 0x0807df29
+Call sub_0807DF28
 CheckRoomFlag 0x0004
 JumpIf 0xfffa
 _0807E5F8 0x00000004
 WaitForSomething2 0x00000008
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 Jump 0xffd2
 StartScript 
@@ -27,7 +27,7 @@ TestBit 0x00000004
 JumpIf 0x0132
 CheckRoomFlag 0x0004
 JumpIf 0x0022
-Call 0x0808861d
+Call sub_0808861C
 JumpIfNot 0xffe0
 CheckLocalFlag 0x005e
 JumpIf 0x003e
@@ -38,12 +38,12 @@ _0807EB8C
 .short 0x000c
 @ End of parameters
 Jump 0x015e
-Call 0x08088659
+Call sub_08088658
 JumpIfNot 0xffc0
 _0807E864 
 _0807EB28 0x431f
 _0807EA94 
-StartPlayerScript 0x080147dc
+StartPlayerScript gUnk_080147DC
 Wait 0x0010
 _0807E5F8 0x00000002
 WaitForSomething2 0x00000001
@@ -70,7 +70,7 @@ CheckRoomFlag 0x0006
 JumpIf 0x0052
 CheckLocalFlag 0x005f
 JumpIf 0x003c
-Call 0x08088575
+Call sub_08088574
 SetRoomFlag 0x0009
 Jump 0x004a
 .short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
@@ -93,11 +93,11 @@ JumpIfNot 0x00b0
 @ End of parameters
 Jump 0x001e
 SetRoomFlag 0x0009
-Call 0x08088505
+Call sub_08088504
 Jump 0x0010
 SetRoomFlag 0x0009
 ClearRoomFlag 0x0006
-Call 0x08088545
+Call sub_08088544
 _0807E3E8 
 JumpIfNot 0x0030
 _0807EA94 
@@ -122,9 +122,9 @@ CheckRoomFlag 0x0008
 JumpIf 0x0034
 CheckRoomFlag 0x0007
 JumpIf 0x001c
-Call 0x08088479
+Call sub_08088478
 _0807EA94 
-Call 0x080885b1
+Call sub_080885B0
 WaitPlayerAction8 
 _0807E5F8 0x00000008
 Jump 0x002c
@@ -146,12 +146,3 @@ Wait 0x0004
 _0807E878 
 Jump 0xfe62
 .short 0x0000
-StopScript 
-WaitForSomething2 0x00000002
-SetEntityNonPlanarMovement 0x00e0
-_0807EDD4 0x0078, 0x0068
-_0807EF80 0x0000
-Wait 0x0010
-_0807E5F8 0x00000001
-Call 0x0807921d
-SCRIPT_END

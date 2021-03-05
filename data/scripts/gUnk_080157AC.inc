@@ -2,32 +2,32 @@ SCRIPT_START gUnk_080157AC
 CheckPlayerInRegion 0x01f8, 0x0310, 0x2020
 JumpIfNot 0xfff6
 _0807E864 
-Call 0x0807f9a5
-Call 0x0807df29
+Call sub_0807F9A4
+Call sub_0807DF28
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
 CheckPlayerInRegion 0x0250, 0x0230, 0x3040
 JumpIfNot 0xfff6
 _0807E864 
-Call 0x0807f9a5
-Call 0x0807df29
-Call 0x0807f3f9
+Call sub_0807F9A4
+Call sub_0807DF28
+Call sub_0807F3F8
 Wait 0x003c
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002
-StartPlayerScript 0x080158f8
+StartPlayerScript gUnk_080158F8
 _0807F0B4 0x0001
 SetEntityPositionRelative 0x02180248
 CameraTargetEntity 
-Call 0x0807f5c1
+Call sub_0807F5C0
 WaitForSomething2 0x00000010
 _0807E5F8 0x00000008
 WaitForSomething2 0x00000020
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002
-StartPlayerScript 0x08015918
+StartPlayerScript gUnk_08015918
 WaitForSomething2 0x00000010
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002
@@ -38,9 +38,9 @@ WaitForSomething2 0x00000002
 _0807EA94 
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002
-Call 0x0807df51
+Call sub_0807DF50
 _0807E878 
-Call 0x08066f95
+Call sub_08066F94
 _0807E5F8 0x00000008
 CheckRoomFlag 0x0000
 JumpIfNot 0xfffa
@@ -48,11 +48,11 @@ _0807EA94
 ComparePlayerAction 0x001c
 JumpIf 0xfff8
 _0807E864 
-Call 0x0807df29
+Call sub_0807DF28
 _0807F0B4 0x0002
 SetEntityPositionRelative 0x02080248
 CameraTargetEntity 
-StartPlayerScript 0x08015938
+StartPlayerScript gUnk_08015938
 WaitForSomething2 0x00000010
 .short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
 .short 0x106a
@@ -70,8 +70,8 @@ _0807EA94
 _0807E5F8 0x00000001
 WaitForSomething2 0x00000002
 SetLocalFlag 0x008b
-Call 0x08066fb9
-Call 0x0807df51
+Call sub_08066FB8
+Call sub_0807DF50
 _0807E878 
 _0807F0B4 0x0004
 CameraTargetPlayer 

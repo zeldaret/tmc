@@ -3,23 +3,23 @@ StartScript
 _0807EF80 0x000a
 _0807EB44 0x0004
 _0807E930 0x0008
-Call 0x0806e441
+Call sub_0806E440
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
 _0807EF80 0x0000
-Call 0x0806e419
+Call sub_0806E418
 _0807EA94 
 _0807E878 
 _0807E930 0x0008
 Jump 0xffe2
 .short 0x0000
 _0807E864 
-Call 0x0807f9a5
-Call 0x0807df29
-StartPlayerScript 0x08011074
+Call sub_0807F9A4
+Call sub_0807DF28
+StartPlayerScript gUnk_08011074
 WaitForSomething2 0x00000400
 _0807F078 0x0034, 0x0002
 .short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
@@ -45,18 +45,18 @@ SoundReq0x80100000
 _0807E778 0x0004
 DoFade5 
 WaitFor_2 
-Call 0x08064181
-Call 0x08064181
-Call 0x08064181
-Call 0x08064181
-Call 0x08064181
-Call 0x08064181
-Call 0x08064181
-Call 0x08064181
+Call sub_08064180
+Call sub_08064180
+Call sub_08064180
+Call sub_08064180
+Call sub_08064180
+Call sub_08064180
+Call sub_08064180
+Call sub_08064180
 LoadRoomEntityList 0x080f06e0
 _0807E5F8 0x00000004
 WaitForSomething2 0x00000008
-StartPlayerScript 0x08011098
+StartPlayerScript gUnk_08011098
 WaitForSomething2 0x00000400
 SetEntityPositionRelative 0x005001f8
 _0807F0B4 0x0007
@@ -127,9 +127,8 @@ SoundReq 0x01c7
 SoundReq 0x00e5
 _0807E5F8 0x00000100
 _0807E5F8 0x00002800
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xfb29
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807FB28
 .short 0x0003
 .short 0x0000
 @ End of parameters
@@ -150,9 +149,8 @@ _0807E5F8 0x00028000
 _0807E5F8 0x00000100
 WaitForSomething2 0x00000200
 WaitForSomething2 0x00050000
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xfb29
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807FB28
 .short 0x0003
 .short 0x0000
 @ End of parameters
@@ -160,18 +158,16 @@ SoundReq 0x00e5
 _0807E5F8 0x00028000
 WaitForSomething2 0x00050000
 SoundReq 0x0125
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xfb29
-.short 0x0807
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0807FB28
 .short 0x0003
 .short 0x0000
 @ End of parameters
 _0807E5F8 0x08000000
 _0807E5F8 0x00800000
 WaitForSomething2 0x01000000
-.short 0x140c @ CallWithArg with 4 parameters
-.short 0xdded
-.short 0x0805
+.short 0x140c @ CallWithArg with 2 parameters
+.word sub_0805DDEC
 .short 0x0002
 .short 0x0000
 @ End of parameters
