@@ -1,9 +1,9 @@
 SCRIPT_START script_0800BC08
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0007
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 script_0800BC18:
 	CheckRoomFlag 0x00ff
 	JumpIfNot script_0800BC18
@@ -11,10 +11,10 @@ script_0800BC18:
 	Wait 0x003c
 	TextboxNoOverlap 0x0e07
 	_0807EA94 
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0000
 	_0807E930 0x0004
-	StopScript 
+	EndBlock 
 	Wait 0x003c
 	Call sub_08065CCC
 	Wait 0x0078

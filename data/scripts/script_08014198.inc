@@ -1,9 +1,9 @@
 SCRIPT_START script_08014198
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0007
 	_0807E930 0x0007
 	SetEntityPosition 0x0000, 0xfff0
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00001000
 	_0807E930 0x000b
 	Call sub_0807F2D4

@@ -1,12 +1,12 @@
 SCRIPT_START script_08009DB0
-	StartScript 
+	BeginBlock 
 	Call sub_0807F348
 	Call sub_08066288
 	Call sub_08066274
 	_0807EF80 0x000a
 	_0807E930 0x000c
 	_0807E908 0x0003
-	StopScript 
+	EndBlock 
 script_08009DD2:
 	_0807E944 
 	_0807E908 0x0002
@@ -15,8 +15,8 @@ script_08009DD2:
 	_0807E908 0x0003
 	_0807E930 0x000c
 	Jump script_08009DD2
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 script_08009DF0:
 	CheckPlayerInRegion 0x00a0, 0x0038, 0x1830
 	JumpIfNot script_08009DF0

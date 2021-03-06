@@ -1,6 +1,6 @@
 SCRIPT_START script_0800D84C
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 script_0800D850:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_0800D850

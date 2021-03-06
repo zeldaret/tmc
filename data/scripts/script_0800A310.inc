@@ -1,5 +1,5 @@
 SCRIPT_START script_0800A310
-	StopScript 
+	EndBlock 
 	_0807EB44 0x0002
 	Wait 0x000a
 	_0807EB44 0x0006
@@ -11,13 +11,13 @@ SCRIPT_START script_0800A310
 	_0807E5F8 0x00000001
 	Call sub_080791BC
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0008
 	SetEntityNonPlanarMovement 0x0080
 	_0807EF80 0x000b
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x00000000
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000002
 	_0807E930 0x000e
 	_0807EF80 0x0007

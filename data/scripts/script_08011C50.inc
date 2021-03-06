@@ -1,7 +1,7 @@
 SCRIPT_START script_08011C50
-	StartScript 
+	BeginBlock 
 	_0807E864 
-	StopScript 
+	EndBlock 
 	Wait 0x003c
 	CallWithArg sub_0806C2A0, 0x00000001
 	WaitFor_2 

@@ -1,9 +1,9 @@
 SCRIPT_START script_08008D50
-	StartScript 
-	SetEntityPositionRelative 0x00680068
+	BeginBlock 
+	SetEntityPositionRelative 0x0068, 0x0068
 	_0807F0B4 0x0004
 	CameraTargetEntity 
-	StopScript 
+	EndBlock 
 	Wait 0x001e
 	_0807E5F8 0x00000002
 	WaitForSomething 0x00000001

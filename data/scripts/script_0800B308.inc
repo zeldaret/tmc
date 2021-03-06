@@ -1,5 +1,5 @@
 SCRIPT_START script_0800B308
-	StartScript 
+	BeginBlock 
 	CheckLocalFlag 0x001d
 	JumpIf script_0800B39C
 	_0807EF80 0x0001
@@ -17,17 +17,17 @@ script_0800B33A:
 	JumpIfNot script_0800B348
 	Call sub_080676D8
 script_0800B348:
-	StopScript 
+	EndBlock 
 	Call sub_0806757C
 script_0800B350:
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000002
 	SoundReq 0x00fd
 	Call sub_080676D8
 	Call sub_0806757C
 	Call sub_080675D4
 	Wait 0x0014
-	StartScript 
+	BeginBlock 
 	_0807E5F8 0x00000001
 	CheckKinstoneFused 0x0006
 	JumpIfNot script_0800B350
@@ -35,7 +35,7 @@ script_0800B350:
 	JumpIfNot script_0800B350
 	CheckKinstoneFused 0x0008
 	JumpIfNot script_0800B350
-	StopScript 
+	EndBlock 
 	SetLocalFlag 0x001d
 	SoundReq 0x0072
 script_0800B39C:

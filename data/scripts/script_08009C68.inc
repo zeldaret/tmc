@@ -1,9 +1,9 @@
 SCRIPT_START script_08009C68
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0002
 	SetEntityNonPlanarMovement 0x0100
 	Call sub_0807F348
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000004
 	_0807EF80 0x0004
 	_0807EB74 
@@ -29,11 +29,11 @@ SCRIPT_START script_08009C68
 	_0807EDD4 0x0000, 0x0060
 	Call sub_080536A8
 	Wait 0x001e
-	StartScript 
+	BeginBlock 
 	SetGlobalFlag 0x0013
 	Call sub_0807DF50
 	Call sub_080791D0
 	_0807E878 
-	StopScript 
+	EndBlock 
 SCRIPT_END
 	.short 0x0000

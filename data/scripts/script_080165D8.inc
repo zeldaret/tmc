@@ -6,17 +6,17 @@ SCRIPT_START script_080165D8
 	Call script_0801637C+1
 	JumpAbsolute script_080165D8
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
-	StopScript 
+	EndBlock 
 script_080165FE:
 	_0807E30C 
 	JumpIfNot script_080165FE
 	TextboxNoOverlapFollow 0x0601
 	Jump script_080165FE
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
-	StopScript 
+	EndBlock 
 script_08016612:
 	_0807E944 
 	_0807E864 
@@ -26,9 +26,9 @@ script_08016612:
 	_0807E878 
 	Jump script_08016612
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
-	StopScript 
+	EndBlock 
 script_0801662E:
 	_0807E944 
 	_0807E864 
@@ -191,21 +191,21 @@ script_08016848:
 	Wait 0x0002
 	_0807EB44 0x0004
 	Jump script_08016848
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
-	StopScript 
+	EndBlock 
 script_080168E6:
 	_0807E944 
 	_0807E864 
 	Wait 0x000f
 	_0807E878 
 	Jump script_080168E6
-	StartScript 
+	BeginBlock 
 	Call sub_08064EA4
 	_0807EB44 0x0004
 	_0807EF80 0x0000
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0801690A:
 	_0807E30C 
 	JumpIfNot script_0801690A
@@ -220,11 +220,11 @@ script_08016926:
 	_0807E878 
 	SetGlobalFlag 0x005c
 	Jump script_0801690A
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0000
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0801693E:
 	_0807E944 
 	_0807E864 
@@ -235,12 +235,12 @@ script_0801693E:
 	_0807E878 
 	Jump script_0801693E
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0000
 	_0807EF80 0x000a
 	_0807E930 0x0000
-	StopScript 
+	EndBlock 
 script_0801696A:
 	_0807E944 
 	_0807E864 

@@ -1,17 +1,17 @@
 SCRIPT_START script_08013F94
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0008
-	StopScript 
+	EndBlock 
 	CheckLocalFlag 0x007d
 	JumpIf script_08013FE0
 script_08013FA4:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckInventory1 0x0003
 	JumpIfNot script_08013FA4
 	CheckPlayerFlags 0x00400000
 	JumpIfNot script_08013FA4
-	StopScript 
+	EndBlock 
 	Call sub_0807FA40
 	_0807E888 
 	Call sub_0807DF38

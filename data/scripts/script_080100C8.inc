@@ -1,9 +1,9 @@
 SCRIPT_START script_080100C8
-	StartScript 
+	BeginBlock 
 	Call sub_08061FE4
 	Call sub_08061E70
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_080100DC:
 	CheckEntityInteractType 
 	JumpIfNot script_080100DC
@@ -15,22 +15,22 @@ script_080100DC:
 	_0807E878 
 	Jump script_080100DC
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_08061FE4
 	Call sub_08061E70
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08010110:
 	Wait 0x003c
 	Call sub_08061E90
 	Jump script_08010110
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
 	_0807EF80 0x0000
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08010132:
 	CheckEntityInteractType 
 	JumpIfNot script_08010132
@@ -40,11 +40,11 @@ script_08010132:
 	_0807EA94 
 	_0807E878 
 	Jump script_08010132
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0001
 	Call sub_0806C354
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0801015A:
 	CheckEntityInteractType 
 	JumpIfNot script_0801015A
@@ -70,10 +70,10 @@ script_0801019E:
 script_080101A6:
 	_0807E878 
 	Jump script_0801015A
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0008
 	Call sub_080A1648
-	StopScript 
+	EndBlock 
 	Call sub_080A1270
 	_0807E864 
 	Call sub_0807DF28
@@ -90,11 +90,11 @@ script_080101A6:
 	Call sub_0807F168
 	Call sub_080A1388
 	Call sub_0806EC38
-	StartScript 
+	BeginBlock 
 	MoveEntityToPlayer 
 	Call sub_0807F844
 	CameraTargetPlayer 
-	StopScript 
+	EndBlock 
 	_0807E778 0x0004
 	DoFade4 
 	WaitFor_2 

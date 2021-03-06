@@ -1,9 +1,9 @@
 SCRIPT_START script_0800A0B4
-	StartScript 
+	BeginBlock 
 	SetEntityNonPlanarMovement 0x0140
 	_0807E864 
 	Call sub_0807DF28
-	StopScript 
+	EndBlock 
 	Wait 0x0078
 	SoundReq2 0x0018
 	Call sub_080A0464

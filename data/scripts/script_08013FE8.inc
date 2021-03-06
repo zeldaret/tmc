@@ -1,10 +1,10 @@
 SCRIPT_START script_08013FE8
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0008
-	StopScript 
+	EndBlock 
 script_08013FF0:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckLocalFlag 0x007d
 	JumpIf script_0801404C
 	CheckLocalFlag 0x007a
@@ -13,12 +13,12 @@ script_08013FF0:
 	JumpIfNot script_08013FF0
 	CallWithArg sub_0807F6B4, 0x000000d0
 	JumpIfNot script_08013FF0
-	StopScript 
+	EndBlock 
 	Call sub_0807F9A4
-	StartScript 
+	BeginBlock 
 	_0807E864 
 	Call sub_0807DF28
-	StopScript 
+	EndBlock 
 	_0807EB28 0x1508
 	_0807EA94 
 	StartPlayerScript script_08010A14

@@ -1,11 +1,11 @@
 SCRIPT_START script_0800D76C
-	StartScript 
+	BeginBlock 
 	Call sub_0807F360
 	_0807EF80 0x000b
 	SetEntityNonPlanarMovement 0x0200
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000008
 	_0807EF80 0x0004
 	Wait 0x003c
@@ -23,12 +23,12 @@ SCRIPT_START script_0800D76C
 	_0807EF80 0x0001
 	WaitForSomething2 0x00000008
 	Jump script_0800D80C
-	StartScript 
+	BeginBlock 
 	Call sub_0807F360
 	_0807EF80 0x000b
-	SetEntityPositionRelative 0x01d80268
+	SetEntityPositionRelative 0x0268, 0x01d8
 	SetEntityNonPlanarMovement 0x0100
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000002
 	_0807EDD4 0x01f0, 0x01d8
 	_0807E5F8 0x00000004

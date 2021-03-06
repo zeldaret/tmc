@@ -1,7 +1,7 @@
 SCRIPT_START script_0800B7C4
-	StartScript 
+	BeginBlock 
 	SetEntityNonPlanarMovement 0x0100
-	StopScript 
+	EndBlock 
 	CallWithArg sub_0807F6B4, 0x00000090
 	JumpIfNot script_0800B7FC
 	CallWithArg sub_0807F464, 0x00000078

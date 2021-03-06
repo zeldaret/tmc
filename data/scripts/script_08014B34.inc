@@ -1,18 +1,18 @@
 SCRIPT_START script_08014B34
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	_0807E930 0x0000
-	StopScript 
+	EndBlock 
 	CheckLocalFlag 0x0063
 	JumpIf script_08014BE8
 script_08014B48:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckRoomFlag 0x0000
 	JumpIf script_08014B70
 	CheckEntityInteractType 
 	JumpIfNot script_08014B48
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	TextboxNoOverlap 0x2f01
@@ -21,7 +21,7 @@ script_08014B48:
 	_0807E878 
 	Jump script_08014B48
 script_08014B70:
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807DF28
 	_0807E5F8 0x00000001
@@ -69,12 +69,12 @@ script_08014C22:
 	Wait 0x000f
 	_0807E878 
 	Jump script_08014BF2
-	StartScript 
+	BeginBlock 
 	Call sub_0806CD58
 	_0807EF80 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0006
-	StopScript 
+	EndBlock 
 script_08014C42:
 	CheckEntityInteractType 
 	JumpIfNot script_08014C42
@@ -103,21 +103,21 @@ script_08014C82:
 	_0807EB44 0x0004
 	_0807E930 0x0006
 	Jump script_08014C42
-	StartScript 
+	BeginBlock 
 	CheckGlobalFlag 0x0024
 	JumpIf script_08014CD4
 	Call sub_0806C870
 	_0807EF80 0x000a
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 script_08014CAE:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckGlobalFlag 0x0024
 	JumpIf script_08014CD4
 	_0807E30C 
 	JumpIfNot script_08014CAE
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	Call sub_0806C90C

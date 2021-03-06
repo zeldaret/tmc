@@ -18,20 +18,20 @@ script_08009622:
 	_0807E878 
 	_0807EF80 0x0000
 	Jump script_080095DE
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000b
 	_0807EF80 0x0008
-	StopScript 
+	EndBlock 
 script_08009638:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckGlobalFlag 0x0020
 	JumpIfNot script_08009638
-	StopScript 
+	EndBlock 
 script_08009646:
 	Call sub_0806BF44
 	JumpIf script_08009646
-	StopScript 
+	EndBlock 
 	Call sub_0806BE3C
 	_0807EF80 0x000a
 	_0807EF80 0x0007
@@ -52,12 +52,12 @@ script_0800968E:
 	_0807E878 
 	_0807EF80 0x0000
 	Jump script_08009660
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0007
 	Jump script_080096FC
 	CheckGlobalFlag 0x0020
 	JumpIf script_080096FC
-	StopScript 
+	EndBlock 
 script_080096AC:
 	CheckPlayerInRegion 0x0188, 0x01c0, 0x1020
 	JumpIfNot script_080096AC

@@ -1,6 +1,6 @@
 SCRIPT_START script_08012DD8
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 	_0807E888 
 	Wait 0x0018
 	_0807E864 

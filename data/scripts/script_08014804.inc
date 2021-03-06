@@ -1,9 +1,9 @@
 SCRIPT_START script_08014804
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0000
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807DF38
 	Wait 0x0010
@@ -65,8 +65,8 @@ script_080148D8:
 	_0807E5F8 0x00000008
 	Jump script_0801488E
 	.short 0x0000
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 script_080148F4:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_080148F4

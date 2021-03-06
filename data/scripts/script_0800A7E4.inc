@@ -1,9 +1,9 @@
 SCRIPT_START script_0800A7E4
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0007
 	_0807EB44 0x0004
 	_0807E930 0x0010
-	StopScript 
+	EndBlock 
 	WaitForSomething 0x00000001
 	_0807E930 0x0002
 	WaitForSomething2 0x00000002
@@ -15,11 +15,11 @@ script_0800A80C:
 	_0807E930 0x0003
 	Wait 0x001e
 	Jump script_0800A80C
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0007
 	_0807EB44 0x0004
 	_0807E930 0x0010
-	StopScript 
+	EndBlock 
 	WaitForSomething 0x00000001
 	_0807E930 0x0002
 	WaitForSomething2 0x00000004
@@ -31,11 +31,11 @@ script_0800A848:
 	_0807E930 0x0003
 	Wait 0x0014
 	Jump script_0800A848
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0007
 	_0807EB44 0x0004
 	_0807E930 0x0010
-	StopScript 
+	EndBlock 
 	WaitForSomething 0x00000001
 	_0807E930 0x0002
 	WaitForSomething2 0x00000008
@@ -47,11 +47,11 @@ script_0800A884:
 	_0807E930 0x0003
 	Wait 0x000a
 	Jump script_0800A884
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0007
 	_0807EB44 0x0004
 	_0807E930 0x0008
-	StopScript 
+	EndBlock 
 	WaitForSomething 0x00000001
 	_0807EF80 0x0000
 	WaitForSomething2 0x00000010
@@ -63,11 +63,11 @@ script_0800A8C0:
 	_0807EB44 0x0006
 	Wait 0x0019
 	Jump script_0800A8C0
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0007
 	_0807EB44 0x0004
 	_0807E930 0x0008
-	StopScript 
+	EndBlock 
 	WaitForSomething 0x00000001
 	_0807EF80 0x0000
 	WaitForSomething2 0x00000020
@@ -79,12 +79,12 @@ script_0800A8FC:
 	_0807EB44 0x0006
 	Wait 0x000f
 	Jump script_0800A8FC
-	StartScript 
+	BeginBlock 
 	_0807E864 
 	Call sub_0807DF28
-	SetEntityPositionRelative 0x01780378
+	SetEntityPositionRelative 0x0378, 0x0178
 	Call sub_0807F844
-	StopScript 
+	EndBlock 
 	Wait 0x003c
 	_0807E5F8 0x00000001
 	Wait 0x001e

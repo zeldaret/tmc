@@ -1,9 +1,9 @@
 SCRIPT_START script_08010A5C
-	StartScript 
+	BeginBlock 
 	Call sub_0807DF28
 	_0807E864 
 	ModHealth 0x00a0
-	StopScript 
+	EndBlock 
 	Wait 0x003c
 	_0807E778 0x0004
 	DoFade4 

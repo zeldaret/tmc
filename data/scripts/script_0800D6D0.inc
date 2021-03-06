@@ -1,9 +1,9 @@
 SCRIPT_START script_0800D6D0
-	StartScript 
+	BeginBlock 
 	CheckLocalFlag 0x00f3
 	JumpIf script_0800D6E8
 	_0807EF80 0x0008
-	StopScript 
+	EndBlock 
 script_0800D6E0:
 	CheckLocalFlag 0x00f3
 	JumpIfNot script_0800D6E0

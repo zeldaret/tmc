@@ -1,10 +1,10 @@
 SCRIPT_START script_0800B00C
-	StartScript 
+	BeginBlock 
 	Call sub_0807F934
 	Call sub_080A2124
 	_0807EF80 0x000a
 	_0807EF80 0x0007
-	StopScript 
+	EndBlock 
 script_0800B024:
 	CheckEntityInteractType 
 	JumpIfNot script_0800B024

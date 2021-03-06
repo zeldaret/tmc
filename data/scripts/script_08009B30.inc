@@ -1,9 +1,9 @@
 SCRIPT_START script_08009B30
-	StartScript 
+	BeginBlock 
 	Call sub_0807DF28
 	_0807E864 
 	SetLocalFlag 0x0046
-	StopScript 
+	EndBlock 
 	WaitFor_2 
 	Wait 0x001e
 	TextboxNoOverlapFollow 0x1005

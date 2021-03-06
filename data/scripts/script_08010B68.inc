@@ -1,5 +1,5 @@
 SCRIPT_START script_08010B68
-	StartScript 
+	BeginBlock 
 	_0807E564 
 	JumpIfNot script_08010BAC
 	Call sub_0807F924
@@ -7,15 +7,15 @@ SCRIPT_START script_08010B68
 	_0807EF80 0x0000
 	_0807EF80 0x0007
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08010B88:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	_0807E564 
 	JumpIfNot script_08010BAC
 	CheckEntityInteractType 
 	JumpIfNot script_08010B88
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	Call sub_0806E2DC

@@ -1,11 +1,11 @@
 SCRIPT_START script_0800CBD4
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0000
 	_0807EF80 0x0008
 	SetEntityNonPlanarMovement 0x0100
 	_0807EF80 0x000f
 	Call sub_0807F338
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00002000
 	_0807EF80 0x0007
 	_0807EDD4 0x0258, 0x0330

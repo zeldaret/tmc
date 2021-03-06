@@ -21,7 +21,7 @@ script_080157DA:
 	WaitForSomething2 0x00000002
 	StartPlayerScript script_080158F8
 	_0807F0B4 0x0001
-	SetEntityPositionRelative 0x02180248
+	SetEntityPositionRelative 0x0248, 0x0218
 	CameraTargetEntity 
 	Call sub_0807F5C0
 	WaitForSomething2 0x00000010
@@ -51,7 +51,7 @@ script_08015888:
 	_0807E864 
 	Call sub_0807DF28
 	_0807F0B4 0x0002
-	SetEntityPositionRelative 0x02080248
+	SetEntityPositionRelative 0x0248, 0x0208
 	CameraTargetEntity 
 	StartPlayerScript script_08015938
 	WaitForSomething2 0x00000010

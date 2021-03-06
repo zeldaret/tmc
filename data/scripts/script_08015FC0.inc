@@ -1,12 +1,12 @@
 SCRIPT_START script_08015FC0
-	StartScript 
+	BeginBlock 
 	Call sub_0806DB84
 	CheckKinstoneFused 0x0009
 	JumpIf script_08016028
 	_0807EA88 0x0009
 	CallWithArg sub_0806DA04, 0x00000007
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08015FE4:
 	_0807EA4C 
 	_0807E9F0 

@@ -1,9 +1,9 @@
 SCRIPT_START script_080145E8
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0008
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 script_080145F8:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_080145F8
@@ -17,12 +17,12 @@ script_08014608:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_080145F8
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
 	SetEntityDirection 0x0000
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0801463A:
 	_0807E30C 
 	JumpIf script_080146A0

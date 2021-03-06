@@ -1,13 +1,13 @@
 SCRIPT_START script_08014CDC
-	StartScript 
+	BeginBlock 
 	SetEntityNonPlanarMovement 0x0180
 	_0807EF80 0x000a
 	Call sub_08066D04
 	Call sub_08066D14
-	SetEntityPositionRelative 0x018001e8
+	SetEntityPositionRelative 0x01e8, 0x0180
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000001
 	Call sub_08066E08
 	_0807E864 
@@ -15,11 +15,11 @@ SCRIPT_START script_08014CDC
 	_0807EA94 
 	_0807E5F8 0x00000002
 script_08014D1E:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckPlayerInRegion 0x01d8, 0x0160, 0x3050
 	JumpIfNot script_08014D1E
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28
@@ -28,7 +28,7 @@ script_08014D1E:
 	_0807EC64 0x0040
 	_0807EB44 0x0004
 	Call sub_08066E08
-	SetEntityPositionRelative 0x00c801f8
+	SetEntityPositionRelative 0x01f8, 0x00c8
 	Call sub_0807DF50
 	_0807E878 
 script_08014D60:
@@ -41,7 +41,7 @@ script_08014D60:
 	_0807EC64 0x0040
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	SetEntityPositionRelative 0x002801e8
+	SetEntityPositionRelative 0x01e8, 0x0028
 	Call sub_0807DF50
 	_0807E878 
 script_08014D96:

@@ -1,5 +1,5 @@
 SCRIPT_START script_0800A590
-	StartScript 
+	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
 	SetEntity0x20 0x00000000
 	_0807EF80 0x0008
@@ -7,7 +7,7 @@ SCRIPT_START script_0800A590
 	Call sub_0807F714
 	MoveEntityToPlayer 
 	CallWithArg sub_0807F98C, 0xfff00000
-	StopScript 
+	EndBlock 
 	_0807E930 0x0023
 	WaitForSomething2 0x00000010
 	CallWithArg sub_0807F6E8, 0x00000008

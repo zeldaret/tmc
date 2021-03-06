@@ -1,9 +1,9 @@
 SCRIPT_START script_0800A988
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807EF80 0x0007
 	_0807E930 0x0002
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000002
 	Call CreateDust
 	_0807EF80 0x0006

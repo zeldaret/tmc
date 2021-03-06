@@ -1,15 +1,15 @@
 SCRIPT_START script_08015958
-	StartScript 
+	BeginBlock 
 	SetEntityNonPlanarMovement 0x0180
 	_0807EF80 0x0008
 	_0807EF80 0x000b
 	Call sub_08066D04
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000001
-	StartScript 
+	BeginBlock 
 	Call sub_08066D14
 	MoveEntityToPlayer 
-	StopScript 
+	EndBlock 
 	_0807EF80 0x0007
 	_0807EB74 
 	_0807EDD4 0x01f8, 0x02f8
@@ -18,7 +18,7 @@ SCRIPT_START script_08015958
 	TextboxNoOverlapFollowPos 0x1011, 0x0002
 	_0807EA94 
 	_0807EDD4 0x01f8, 0x0268
-	SetEntityPositionRelative 0x02180248
+	SetEntityPositionRelative 0x0248, 0x0218
 	_0807EB44 0x0006
 	_0807EF80 0x0000
 	_0807E5F8 0x00000002
@@ -49,19 +49,19 @@ SCRIPT_START script_08015958
 	_0807E9D4 
 	_0807E5F8 0x00000002
 script_08015A32:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	_0807EB74 
 	CheckRoomFlag 0x0000
 	JumpIf script_08015A54
 	CheckEntityInteractType 
 	JumpIfNot script_08015A32
-	StopScript 
+	EndBlock 
 	TextboxNoOverlapFollowPos 0x1067, 0x0002
 	_0807EA94 
 	Jump script_08015A32
 script_08015A54:
-	StopScript 
+	EndBlock 
 	_0807EF80 0x000b
 	_0807EB44 0x0000
 	_0807EF80 0x0000

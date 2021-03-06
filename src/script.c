@@ -13,8 +13,8 @@ void sub_0807DB88(ScriptExecutionContext*, u16*);
 void sub_0807DE80(Entity*);
 void sub_0807DF38(void);
 void ScriptCommandNop(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_StartScript(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_StopScript(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_BeginBlock(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_EndBlock(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_Jump(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_JumpIf(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_JumpIfNot(Entity* entity, ScriptExecutionContext* context);
@@ -158,8 +158,8 @@ extern void sub_0801C4A0(u32);
 typedef void (*ScriptCommand)(Entity*, ScriptExecutionContext*);
 
 const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
-                                          ScriptCommand_StartScript,
-                                          ScriptCommand_StopScript,
+                                          ScriptCommand_BeginBlock,
+                                          ScriptCommand_EndBlock,
                                           ScriptCommand_Jump,
                                           ScriptCommand_JumpIf,
                                           ScriptCommand_JumpIfNot,
@@ -628,12 +628,12 @@ void ScriptCommandNop(Entity* entity, ScriptExecutionContext* context) {
 }
 
 // not entirely sure this name is acurate
-void ScriptCommand_StartScript(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_BeginBlock(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.flags |= 2;
 }
 
 // not entirely sure this name is acurate
-void ScriptCommand_StopScript(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_EndBlock(Entity* entity, ScriptExecutionContext* context) {
     gActiveScriptInfo.flags &= ~2;
 }
 

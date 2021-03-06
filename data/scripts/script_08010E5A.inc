@@ -31,7 +31,7 @@ SCRIPT_START script_08010E5A
 	CallWithArg sub_0807F244, 0x0000000d
 	CallWithArg sub_0807F29C, 0x080049f6
 	_0807F0B4 0x0001
-	SetEntityPositionRelative 0x006801f8
+	SetEntityPositionRelative 0x01f8, 0x0068
 	_0807E5F8 0x00000004
 	Wait 0x001e
 	_0807E5F8 0x00000040

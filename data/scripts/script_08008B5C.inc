@@ -1,10 +1,10 @@
 SCRIPT_START script_08008B5C
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
 	_0807E930 0x0000
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08008B6E:
 	_0807E944 
 	_0807E864 
@@ -16,12 +16,12 @@ script_08008B6E:
 	_0807E878 
 	Jump script_08008B6E
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
 	_0807EF80 0x000a
 	_0807E930 0x0000
-	StopScript 
+	EndBlock 
 script_08008BA2:
 	_0807E944 
 	_0807E864 
@@ -32,12 +32,12 @@ script_08008BA2:
 	_0807E930 0x0008
 	_0807E878 
 	Jump script_08008BA2
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
 	_0807EF80 0x000a
 	_0807E930 0x0000
-	StopScript 
+	EndBlock 
 script_08008BD2:
 	_0807E944 
 	_0807E864 
@@ -74,14 +74,14 @@ script_08008C5C:
 	_0807EA94 
 	_0807E878 
 	Jump script_08008BD2
-	StartScript 
-	SetEntityPositionRelative 0x00180068
+	BeginBlock 
+	SetEntityPositionRelative 0x0068, 0x0018
 	_0807EF80 0x000f
 	_0807EB44 0x0004
 	_0807E930 0x0004
 	SetEntityNonPlanarMovement 0x0300
 	SoundReq 0x0121
-	StopScript 
+	EndBlock 
 	WaitForSomething 0x00000002
 	TextboxNoOverlap 0x490d
 	_0807EA94 

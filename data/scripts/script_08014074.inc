@@ -1,9 +1,9 @@
 SCRIPT_START script_08014074
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0007
 	_0807E930 0x0001
 	Call sub_0807F738
-	StopScript 
+	EndBlock 
 	WaitForSomething 0x00000040
 	_0807EF80 0x0006
 SCRIPT_END

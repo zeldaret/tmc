@@ -1,11 +1,11 @@
 SCRIPT_START script_0800EFC0
-	StartScript 
+	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
 	_0807E9D4 
 	_0807EF80 0x000a
 	CheckLocalFlag 0x007b
 	JumpIf script_0800F082
-	StopScript 
+	EndBlock 
 	Jump script_0800EFFE
 script_0800EFDA:
 	_0807EB44 0x0006
@@ -39,14 +39,14 @@ script_0800EFFE:
 	JumpIf script_0800F082
 	Jump script_0800EFDA
 script_0800F082:
-	StopScript 
+	EndBlock 
 	Call sub_0806AEE4
 	Jump script_0800F082
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807F0B4 0x0001
 	CameraTargetPlayer 
-	StopScript 
+	EndBlock 
 script_0800F09A:
 	CheckPlayerInRegion 0x01f8, 0x0338, 0x1030
 	JumpIfNot script_0800F09A

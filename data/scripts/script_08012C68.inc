@@ -1,10 +1,10 @@
 SCRIPT_START script_08012C68
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EF80 0x0008
 	_0807E914 0x00000000
 	Call sub_0806DA04
-	StopScript 
+	EndBlock 
 script_08012C7E:
 	CheckEntityInteractType 
 	JumpIfNot script_08012C7E
@@ -19,13 +19,13 @@ script_08012C98:
 	CheckGlobalFlag 0x0014
 	JumpIfNot script_08012C98
 script_08012CA0:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckPlayerInRegion 0x0398, 0x03b0, 0x2040
 	JumpIfNot script_08012CA0
 	_0807E564 
 	JumpIf script_08012CD2
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807DF28
 	_0807EB28 0x2202

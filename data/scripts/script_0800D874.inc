@@ -1,10 +1,10 @@
 SCRIPT_START script_0800D874
-	StartScript 
+	BeginBlock 
 	Call sub_0807F934
 	_0807EF80 0x0008
 	_0807E914 0x00000001
 	Call sub_0806DA04
-	StopScript 
+	EndBlock 
 script_0800D88E:
 	CheckEntityInteractType 
 	JumpIfNot script_0800D88E
@@ -31,11 +31,11 @@ script_0800D8D6:
 	_0807E878 
 	Jump script_0800D88E
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0008
 	CheckInventory1 0x0017
 	JumpIf script_0800D924
-	StopScript 
+	EndBlock 
 script_0800D8F4:
 	CheckInventory1 0x0017
 	JumpIfNot script_0800D8F4

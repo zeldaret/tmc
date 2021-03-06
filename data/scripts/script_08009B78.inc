@@ -1,10 +1,10 @@
 SCRIPT_START script_08009B78
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0006
 	SetEntityNonPlanarMovement 0x0080
 	_0807E9D4 
 	Call sub_0807F348
-	StopScript 
+	EndBlock 
 	CheckGlobalFlag 0x0013
 	JumpIf script_08009C4C
 	_0807E888 

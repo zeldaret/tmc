@@ -6,7 +6,7 @@ script_08009A38:
 	Call sub_08066258
 	Wait 0x005a
 	Jump script_08009A38
-	SetEntityPositionRelative 0x01780240
+	SetEntityPositionRelative 0x0240, 0x0178
 	CameraTargetEntity 
 	SetEntityNonPlanarMovement 0x0080
 	Wait 0x0078

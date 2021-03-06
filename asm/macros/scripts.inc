@@ -13,11 +13,11 @@
 	.short 0x0400
 .endm
 
-.macro StartScript 
+.macro BeginBlock 
 	.short 0x0401
 .endm
 
-.macro StopScript 
+.macro EndBlock 
 	.short 0x0402
 .endm
 
@@ -577,9 +577,10 @@
 	.word \w
 .endm
 
-.macro SetEntityPositionRelative w
+.macro SetEntityPositionRelative a,b
 	.short 0x0c69
-	.word \w
+	.short \a
+	.short \b
 .endm
 
 .macro SetEntityPosition a,b

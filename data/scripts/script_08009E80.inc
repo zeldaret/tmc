@@ -1,5 +1,5 @@
 SCRIPT_START script_08009E80
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 SCRIPT_END
 	.short 0x0000

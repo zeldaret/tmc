@@ -1,8 +1,8 @@
 SCRIPT_START script_08015F08
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000001
 	TextboxNoOverlap 0x131c
 	_0807EA94 

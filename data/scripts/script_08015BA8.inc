@@ -1,11 +1,11 @@
 SCRIPT_START script_08015BA8
-	StartScript 
+	BeginBlock 
 	SetLocalFlag 0x008e
 	_0807E864 
 	MoveEntityToPlayer 
 	CameraTargetEntity 
 	SetEntityNonPlanarMovement 0x0200
-	StopScript 
+	EndBlock 
 	Wait 0x000f
 	_0807E8E4_2 
 	Call sub_0807F3F8

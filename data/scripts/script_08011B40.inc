@@ -1,10 +1,10 @@
 SCRIPT_START script_08011B40
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EF80 0x000a
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 	CheckGlobalFlag 0x0050
 	JumpIfNot script_08011B84
 	WaitForSomething2 0x00000004
@@ -48,9 +48,9 @@ script_08011BBC:
 	Wait 0x003c
 	Call sub_0806C224
 	Jump script_08011B9A
-	StartScript 
+	BeginBlock 
 	_0807E888 
-	StopScript 
+	EndBlock 
 	CallWithArg sub_0806C2A0, 0x00000001
 	WaitFor_2 
 	Wait 0x003c

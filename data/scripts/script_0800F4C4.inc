@@ -1,12 +1,12 @@
 SCRIPT_START script_0800F4C4
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0002
 	_0807EF80 0x0001
 	_0807EF80 0x0008
 	SetEntityNonPlanarMovement 0x0080
 	_0807EF80 0x000b
-	StopScript 
+	EndBlock 
 	Call sub_0807F348
 	WaitForSomething2 0x00000010
 	_0807EF80 0x0007
@@ -17,11 +17,11 @@ SCRIPT_START script_0800F4C4
 	_0807EF80 0x000a
 	_0807E5F8 0x00000200
 script_0800F50C:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckEntityInteractType 
 	JumpIfNot script_0800F524
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	TextboxNoOverlap 0x1239
@@ -30,7 +30,7 @@ script_0800F50C:
 script_0800F524:
 	TestBit 0x00000010
 	JumpIfNot script_0800F50C
-	StopScript 
+	EndBlock 
 	_0807EF80 0x000b
 	Wait 0x0028
 	SetEntityNonPlanarMovement 0x0100

@@ -1,9 +1,9 @@
 SCRIPT_START script_080153EC
-	StartScript 
+	BeginBlock 
 	_0807F0B4 0x0007
-	SetEntityPositionRelative 0x00680078
+	SetEntityPositionRelative 0x0078, 0x0068
 	CameraTargetEntity 
-	StopScript 
+	EndBlock 
 	SoundReq2 0x002a
 	_0807E778 0x0004
 	DoFade4 
@@ -16,7 +16,7 @@ SCRIPT_START script_080153EC
 	_0807E5F8 0x00000880
 	WaitForSomething2 0x00001100
 	_0807F0B4 0x0004
-	SetEntityPositionRelative 0x00900078
+	SetEntityPositionRelative 0x0078, 0x0090
 	TextboxNoOverlapFollowPos 0x1330, 0x0002
 	_0807EA94 
 	_0807E5F8 0x00008000

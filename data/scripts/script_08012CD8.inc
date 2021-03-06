@@ -1,7 +1,7 @@
 SCRIPT_START script_08012CD8
 script_08012CD8:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	_0807E564 
 	JumpIfNot script_08012CD8
 	CheckPlayerInRegion 0x0380, 0x03b0, 0x4040
@@ -10,7 +10,7 @@ script_08012CD8:
 	JumpIf script_08012CD8
 	_0807E864 
 	Call sub_0807DF28
-	StopScript 
+	EndBlock 
 	_0807EB28 0x2203
 	_0807EA94 
 	SetLocalFlag 0x003e

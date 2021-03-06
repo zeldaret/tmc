@@ -1,9 +1,9 @@
 SCRIPT_START script_0800E8A4
 script_0800E8A4:
-	StartScript 
+	BeginBlock 
 	TextboxNoOverlapFollow 0x4504
 	CallWithArg sub_0807F854, 0x000100c8
-	StopScript 
+	EndBlock 
 	_0807EA94 
 	HasRupees 0x00c8
 	JumpIfNot script_0800E908

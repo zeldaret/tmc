@@ -16,13 +16,13 @@ script_08010994:
 	_0807E878 
 	Jump script_08010964
 script_080109A0:
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 	CheckLocalFlag 0x00d1
 	JumpIf script_080109EA
 	CheckPlayerInRegion2 0x0808
 	JumpIfNot script_080109A0
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28

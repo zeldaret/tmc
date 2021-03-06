@@ -15,10 +15,10 @@ SCRIPT_START script_08009464
 	Wait 0x000a
 	Jump script_08009376
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_0806D7C4
 	SetEntityNonPlanarMovement 0x0080
-	StopScript 
+	EndBlock 
 	Wait 0x003c
 	SetEntity0x20 0x00018000
 script_080094BC:

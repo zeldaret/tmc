@@ -1,10 +1,10 @@
 SCRIPT_START script_0800B200
-	StartScript 
+	BeginBlock 
 	_0807E5F8 0x00000000
 	CheckLocalFlag 0x001d
 	JumpIf script_0800B252
 	SetEntityNonPlanarMovement 0x00c0
-	StopScript 
+	EndBlock 
 script_0800B216:
 	WaitForSomething2 0x00000001
 	Call sub_0807DF28

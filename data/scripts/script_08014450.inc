@@ -1,10 +1,10 @@
 SCRIPT_START script_08014450
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0000
 	SetEntityNonPlanarMovement 0x01c0
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08014462:
 	_0807E30C 
 	JumpIfNot script_08014462

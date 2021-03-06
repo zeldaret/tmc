@@ -1,9 +1,9 @@
 SCRIPT_START script_0800B0D0
-	StartScript 
+	BeginBlock 
 	Call sub_0806BCD4
 	_0807EF80 0x000a
 	CallWithArg sub_0806BC94, 0x00000000
-	StopScript 
+	EndBlock 
 script_0800B0E8:
 	Call sub_0807F434
 	JumpSwitch_3 script_0800B0E8, script_0800B0F6, script_0800B134
@@ -36,11 +36,11 @@ script_0800B160:
 	Call sub_0806BCB8
 	CallWithArg sub_0806BC94, 0x00000000
 	Jump script_0800B0E8
-	StartScript 
+	BeginBlock 
 	Call sub_0807DF28
 	SetLocalFlag 0x0039
 	_0807E864 
-	StopScript 
+	EndBlock 
 	WaitForPlayerAction0x17 
 	StartPlayerScript script_0800B1C0
 	Wait 0x0018

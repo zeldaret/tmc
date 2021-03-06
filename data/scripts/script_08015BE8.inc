@@ -1,7 +1,7 @@
 SCRIPT_START script_08015BE8
-	StartScript 
+	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
-	StopScript 
+	EndBlock 
 script_08015BF0:
 	CheckPlayerInRegion 0x0160, 0x0020, 0x3040
 	JumpIfNot script_08015BF0
@@ -17,14 +17,14 @@ script_08015BF0:
 	WaitFor_2 
 	SoundReq0x80100000 
 	Call sub_08053BE8
-	StartScript 
+	BeginBlock 
 	_0807E864 
 	Call sub_0807FBC4
 	CameraTargetPlayer 
 	_0807E778 0x0100
 	DoFade4 
 	_0807E80C 0x00000000
-	StopScript 
+	EndBlock 
 	_0807E778 0x0004
 	_0807E800 0x00000000
 	WaitFor_2 

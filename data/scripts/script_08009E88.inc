@@ -1,9 +1,9 @@
 SCRIPT_START script_08009E88
-	StartScript 
+	BeginBlock 
 	Call sub_0807DF28
 	_0807E864 
 	SetLocalFlag 0x009f
-	StopScript 
+	EndBlock 
 	Wait 0x003c
 	_0807E778 0x0004
 	DoFade4 

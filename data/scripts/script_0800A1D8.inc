@@ -1,12 +1,12 @@
 SCRIPT_START script_0800A1D8
-	StartScript 
+	BeginBlock 
 	_0807E864 
 	Call sub_0807DF28
-	SetEntityPositionRelative 0x00800088
+	SetEntityPositionRelative 0x0088, 0x0080
 	Call sub_0807F844
 	_0807E8E4_3 
 	CallWithArg sub_0807F75C, 0x00a80088
-	StopScript 
+	EndBlock 
 	Wait 0x003c
 	StartPlayerScript script_0800A310
 	WaitForSomething2 0x00000001

@@ -1,9 +1,9 @@
 SCRIPT_START script_0800BACC
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807EF80 0x0000
 	Call sub_0807F348
-	StopScript 
+	EndBlock 
 script_0800BADE:
 	CheckRoomFlag 0x00ff
 	JumpIfNot script_0800BADE

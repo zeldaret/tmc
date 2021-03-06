@@ -1,6 +1,6 @@
 SCRIPT_START script_0800DB78
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 script_0800DB7C:
 	CallWithArg sub_0807F6B4, 0x000000a0
 	JumpIf script_0800DB7C
@@ -8,7 +8,7 @@ script_0800DB7C:
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	_0807F0B4 0x0001
-	SetEntityPositionRelative 0x00780078
+	SetEntityPositionRelative 0x0078, 0x0078
 	CameraTargetEntity 
 	Call sub_0807F5C0
 	_0807EB28 0x1648

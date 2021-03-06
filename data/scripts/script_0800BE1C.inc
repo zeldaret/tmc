@@ -1,9 +1,9 @@
 SCRIPT_START script_0800BE1C
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807E930 0x0008
 	Call sub_0807F348
-	StopScript 
+	EndBlock 
 	WaitFor_2 
 	Wait 0x00f0
 	_0807E930 0x0000
@@ -15,11 +15,11 @@ SCRIPT_START script_0800BE1C
 	Wait 0x003c
 	Jump script_0800BE88
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807E930 0x0008
 	Call sub_0807F348
-	StopScript 
+	EndBlock 
 	WaitFor_2 
 	Wait 0x00f0
 	_0807E930 0x0000

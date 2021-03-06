@@ -1,5 +1,5 @@
 SCRIPT_START script_0800DFB4
-	StopScript 
+	EndBlock 
 script_0800DFB6:
 	CheckRoomFlag 0x0001
 	JumpIfNot script_0800DFB6

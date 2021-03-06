@@ -1,19 +1,19 @@
 SCRIPT_START script_0800CD7C
-	StartScript 
+	BeginBlock 
 	CheckInventory1 0x005b
 	JumpIfNot script_0800C5FE
 	Call sub_08060090
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0800CD92:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckEntityInteractType 
 	JumpIf script_0800CDA6
 	Call sub_08060158
 	Jump script_0800CD92
 script_0800CDA6:
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807DF28
 	CheckLocalFlag 0x009d
@@ -121,14 +121,14 @@ script_0800CF02:
 	Call sub_0807DF50
 	_0807E878 
 script_0800CF0C:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckEntityInteractType 
 	JumpIf script_0800CF20
 	Call sub_08060158
 	Jump script_0800CF0C
 script_0800CF20:
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807DF28
 script_0800CF2A:
@@ -145,29 +145,29 @@ script_0800CF40:
 	_0807E878 
 	Jump script_0800CD92
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_08068104
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0800CF5E:
-	StartScript 
+	BeginBlock 
 	CheckEntityInteractType 
 	JumpIf script_0800CF72
 	Call sub_0806811C
-	StopScript 
+	EndBlock 
 	Jump script_0800CF5E
 script_0800CF72:
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_08068190
 	_0807EA94 
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800CF5E
-	StartScript 
+	BeginBlock 
 	Call sub_08068104
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0800CF96:
 	_0807E944 
 	_0807E864 
@@ -176,12 +176,12 @@ script_0800CF96:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800CF96
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EF80 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0000
-	StopScript 
+	EndBlock 
 	CheckInventory1 0x0041
 	JumpIf script_0800CFD2
 	CheckLocalFlag 0x007e
@@ -199,12 +199,12 @@ script_0800CFEC:
 	JumpIfNot script_0800CFFA
 	_0807E5F8 0x00000010
 script_0800CFFA:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	Call sub_08068910
 	CheckEntityInteractType 
 	JumpIfNot script_0800CFFA
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807DF28
 	CheckInventory1 0x0002

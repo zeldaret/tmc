@@ -1,18 +1,18 @@
 SCRIPT_START script_08011C7C
-	StartScript 
+	BeginBlock 
 	Call sub_08064828
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	_0807EF80 0x000a
 	CheckGlobalFlag 0x0047
 	JumpIf script_08011CC2
-	StopScript 
+	EndBlock 
 script_08011C9A:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckEntityInteractType 
 	JumpIfNot script_08011C9A
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	_0807EF80 0x0000
@@ -23,15 +23,15 @@ script_08011C9A:
 	_0807EF80 0x0001
 	Jump script_08011C9A
 script_08011CC2:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckGlobalFlag 0x002c
 	JumpIf script_08011C9A
 	CheckGlobalFlag 0x002d
 	JumpIf script_08011C9A
 	CheckEntityInteractType 
 	JumpIfNot script_08011CC2
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	_0807EF80 0x0000
@@ -58,20 +58,20 @@ script_08011D0E:
 	_0807EF80 0x0001
 	Jump script_08011D00
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_08064928
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	_0807EF80 0x000a
 	CheckGlobalFlag 0x0047
 	JumpIf script_08011D6E
-	StopScript 
+	EndBlock 
 script_08011D46:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckEntityInteractType 
 	JumpIfNot script_08011D46
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	_0807EF80 0x0000
@@ -82,15 +82,15 @@ script_08011D46:
 	_0807EF80 0x0001
 	Jump script_08011D46
 script_08011D6E:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckGlobalFlag 0x002b
 	JumpIf script_08011D46
 	CheckGlobalFlag 0x002d
 	JumpIf script_08011D46
 	CheckEntityInteractType 
 	JumpIfNot script_08011D6E
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	_0807EF80 0x0000
@@ -117,20 +117,20 @@ script_08011DBA:
 	_0807EF80 0x0001
 	Jump script_08011DAC
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_08064A28
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	_0807EF80 0x000a
 	CheckGlobalFlag 0x0047
 	JumpIf script_08011E1A
-	StopScript 
+	EndBlock 
 script_08011DF2:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckEntityInteractType 
 	JumpIfNot script_08011DF2
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	_0807EF80 0x0000
@@ -141,15 +141,15 @@ script_08011DF2:
 	_0807EF80 0x0001
 	Jump script_08011DF2
 script_08011E1A:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckGlobalFlag 0x002b
 	JumpIf script_08011DF2
 	CheckGlobalFlag 0x002c
 	JumpIf script_08011DF2
 	CheckEntityInteractType 
 	JumpIfNot script_08011E1A
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	_0807EF80 0x0000
@@ -176,22 +176,22 @@ script_08011E66:
 	_0807EF80 0x0001
 	Jump script_08011E58
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_08064828
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08011E96:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckGlobalFlag 0x002f
 	JumpIf script_08011C9A
 	CheckGlobalFlag 0x0030
 	JumpIf script_08011C9A
 	CheckEntityInteractType 
 	JumpIfNot script_08011E96
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	_0807EF80 0x0000
@@ -224,22 +224,22 @@ script_08011EF4:
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	Jump script_08011EE6
-	StartScript 
+	BeginBlock 
 	Call sub_08064928
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08011F22:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckGlobalFlag 0x002e
 	JumpIf script_08011D46
 	CheckGlobalFlag 0x0030
 	JumpIf script_08011D46
 	CheckEntityInteractType 
 	JumpIfNot script_08011F22
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	_0807EF80 0x0000
@@ -272,22 +272,22 @@ script_08011F80:
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	Jump script_08011F72
-	StartScript 
+	BeginBlock 
 	Call sub_08064A28
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08011FAE:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckGlobalFlag 0x002e
 	JumpIf script_08011DF2
 	CheckGlobalFlag 0x002f
 	JumpIf script_08011DF2
 	CheckEntityInteractType 
 	JumpIfNot script_08011FAE
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	_0807EF80 0x0000
@@ -320,12 +320,12 @@ script_0801200C:
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	Jump script_08011FFE
-	StartScript 
+	BeginBlock 
 	Call sub_08064828
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0801203A:
 	CheckEntityInteractType 
 	JumpIfNot script_0801203A
@@ -366,12 +366,12 @@ script_0801209E:
 	_0807EF80 0x0001
 	Jump script_0801203A
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_08064928
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_080120C6:
 	CheckEntityInteractType 
 	JumpIfNot script_080120C6
@@ -412,12 +412,12 @@ script_0801212A:
 	_0807EF80 0x0001
 	Jump script_080120C6
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_08064A28
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08012152:
 	CheckEntityInteractType 
 	JumpIfNot script_08012152
@@ -458,12 +458,12 @@ script_080121B6:
 	_0807EF80 0x0001
 	Jump script_08012152
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_08064828
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_080121DE:
 	CheckEntityInteractType 
 	JumpIfNot script_080121DE
@@ -476,12 +476,12 @@ script_080121DE:
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	Jump script_080121DE
-	StartScript 
+	BeginBlock 
 	Call sub_08064928
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08012216:
 	CheckEntityInteractType 
 	JumpIfNot script_08012216
@@ -494,12 +494,12 @@ script_08012216:
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	Jump script_08012216
-	StartScript 
+	BeginBlock 
 	Call sub_08064A28
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0801224E:
 	CheckEntityInteractType 
 	JumpIfNot script_0801224E
@@ -512,15 +512,15 @@ script_0801224E:
 	_0807EB44 0x0004
 	_0807EF80 0x0001
 	Jump script_0801224E
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	Call sub_08061FD8
 	_0807E9D4 
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08012284:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckGlobalFlag 0x001e
 	JumpIfNot script_08012298
 	CheckInventory1 0x0015
@@ -528,7 +528,7 @@ script_08012284:
 script_08012298:
 	CheckEntityInteractType 
 	JumpIfNot script_08012284
-	StopScript 
+	EndBlock 
 	_0807EB74 
 	_0807E864 
 	Call sub_08061FD8
@@ -538,8 +538,8 @@ script_08012298:
 	SetGlobalFlag 0x001e
 	Jump script_08012284
 script_080122BA:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckRoomFlag 0x0000
 	JumpIfNot script_080122CE
 	CheckRoomFlag 0x0001
@@ -547,7 +547,7 @@ script_080122BA:
 script_080122CE:
 	CheckEntityInteractType 
 	JumpIfNot script_080122BA
-	StopScript 
+	EndBlock 
 	_0807EB74 
 	_0807E864 
 	Call sub_08061FD8
@@ -556,7 +556,7 @@ script_080122CE:
 	_0807E878 
 	Jump script_080122BA
 script_080122EC:
-	StopScript 
+	EndBlock 
 	_0807EB74 
 	_0807E864 
 	Call sub_08061FD8

@@ -1,11 +1,11 @@
 SCRIPT_START script_080134DC
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0008
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	Call sub_0807F92C
 	CallWithArg sub_0806DA04, 0x00000003
-	StopScript 
+	EndBlock 
 script_080134F8:
 	CheckEntityInteractType 
 	JumpIfNot script_080134F8
@@ -16,23 +16,23 @@ script_080134F8:
 	CallWithArg sub_08095A1C, 0x08013f04
 	SoundReq 0x01cd
 	Wait 0x005a
-	StartScript 
+	BeginBlock 
 	SoundReq 0x01ce
 	CallWithArg sub_08095D54, 0x08013e04
 	CallWithArg sub_08095D54, 0x08013e28
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x18000000
-	StartScript 
+	BeginBlock 
 	SoundReq 0x01cf
 	CallWithArg sub_08095D8C, 0x08014054
 	CallWithArg sub_08095D8C, 0x08014074
-	StopScript 
+	EndBlock 
 	Wait 0x001e
-	StartScript 
+	BeginBlock 
 	SoundReq 0x01d0
 	CallWithArg sub_08095D8C, 0x080140dc
 	CallWithArg sub_08095D8C, 0x08014118
-	StopScript 
+	EndBlock 
 	Wait 0x003c
 	CallWithArg sub_0805DDEC, 0x00000000
 	_0807E5F8 0x00000200

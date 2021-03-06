@@ -1,7 +1,7 @@
 SCRIPT_START script_08015C7C
-	StartScript 
+	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
-	StopScript 
+	EndBlock 
 	_0807EF80 0x0001
 	_0807EDD4 0x0168, 0x0058
 	_0807EB44 0x0004

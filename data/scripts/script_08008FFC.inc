@@ -1,8 +1,8 @@
 SCRIPT_START script_08008FFC
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0000
 	_0807E930 0x0000
-	StopScript 
+	EndBlock 
 	WaitForSomething 0x00000010
 	SoundReq 0x011c
 	_0807E930 0x0001

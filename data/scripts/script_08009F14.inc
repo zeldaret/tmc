@@ -1,5 +1,5 @@
 SCRIPT_START script_08009F14
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	Call sub_08060090
 	_0807EF80 0x000a
@@ -7,14 +7,14 @@ SCRIPT_START script_08009F14
 	JumpIf script_08009FD2
 	CheckInventory1 0x0007
 	JumpIf script_08009F84
-	StopScript 
+	EndBlock 
 script_08009F36:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	Call sub_08060158
 	CheckEntityInteractType 
 	JumpIfNot script_08009F36
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807DF28
 	_0807EF80 0x000b
@@ -30,14 +30,14 @@ script_08009F36:
 	Call sub_0807DF50
 	_0807E878 
 script_08009F84:
-	StopScript 
+	EndBlock 
 script_08009F86:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	Call sub_08060158
 	CheckEntityInteractType 
 	JumpIfNot script_08009F86
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_080602BC
 	_0807EA94 
@@ -53,16 +53,16 @@ script_08009FB6:
 	_0807E878 
 	Jump script_08009F86
 script_08009FD2:
-	StopScript 
+	EndBlock 
 	CheckLocalFlag 0x00b0
 	JumpIf script_0800A024
 script_08009FDC:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	Call sub_08060158
 	CheckEntityInteractType 
 	JumpIfNot script_08009FDC
-	StopScript 
+	EndBlock 
 	_0807E864 
 	TextboxNoOverlap 0x1f0e
 	_0807EA94 
@@ -82,12 +82,12 @@ script_0800A002:
 	SetLocalFlag 0x00b0
 	_0807E878 
 script_0800A024:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	Call sub_08060158
 	CheckEntityInteractType 
 	JumpIfNot script_0800A024
-	StopScript 
+	EndBlock 
 	_0807E864 
 	CheckInventory1 0x0008
 	JumpIf script_0800A052

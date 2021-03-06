@@ -9,16 +9,16 @@ script_08014264:
 	CallWithArg sub_08095EAC, 0x00000001
 	Jump script_08014264
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0008
-	StopScript 
+	EndBlock 
 script_0801427C:
 	CheckLocalFlag 0x0078
 	JumpIfNot script_0801427C
-	StartScript 
+	BeginBlock 
 	Call sub_0807F934
 	CallWithArg sub_0806DA04, 0x00000008
-	StopScript 
+	EndBlock 
 script_08014298:
 	CheckEntityInteractType 
 	JumpIfNot script_08014298

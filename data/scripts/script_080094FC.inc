@@ -1,10 +1,10 @@
 SCRIPT_START script_080094FC
-	StartScript 
+	BeginBlock 
 	Call sub_08067100
 	_0807EF80 0x000a
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 script_08009512:
 	CheckEntityInteractType 
 	JumpIfNot script_08009512
@@ -18,12 +18,12 @@ script_08009512:
 	_0807EF80 0x0000
 	Jump script_08009512
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_08067100
 	_0807EF80 0x000a
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 script_0800954E:
 	CheckEntityInteractType 
 	JumpIfNot script_0800954E
@@ -37,13 +37,13 @@ script_0800954E:
 	_0807EF80 0x0000
 	Jump script_0800954E
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_08067314
 	_0807EF80 0x000a
 	_0807EB44 0x0004
 	_0807E914 0x00000000
 	Call sub_080672B0
-	StopScript 
+	EndBlock 
 script_08009592:
 	CheckEntityInteractType 
 	JumpIfNot script_08009592
@@ -60,11 +60,11 @@ script_08009592:
 	Call sub_080672B0
 	Jump script_08009592
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_0806BE3C
 	_0807EF80 0x000a
 	_0807EF80 0x0007
-	StopScript 
+	EndBlock 
 script_080095DE:
 	Call sub_0806BF44
 	JumpIf script_080095F2

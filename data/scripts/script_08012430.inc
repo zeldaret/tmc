@@ -1,9 +1,9 @@
 SCRIPT_START script_08012430
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0000
-	StopScript 
+	EndBlock 
 script_08012440:
 	CheckEntityInteractType 
 	JumpIfNot script_08012440
@@ -24,9 +24,9 @@ script_08012474:
 	_0807E930 0x0000
 	Jump script_08012440
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_08054564
-	StopScript 
+	EndBlock 
 script_0801248A:
 	CheckPlayerInRegion 0x0208, 0x02c8, 0x4020
 	JumpIfNot script_0801248A
@@ -45,7 +45,7 @@ script_0801248A:
 	Call sub_080791BC
 	LoadRoomEntityList gUnk_080F4D70
 	Call DeleteAllEnemies
-	SetEntityPositionRelative 0x01680388
+	SetEntityPositionRelative 0x0388, 0x0168
 	Call sub_0807F844
 	_0807E778 0x0004
 	_0807E800 0x00000000
@@ -85,7 +85,7 @@ script_08012566:
 	SoundReq0x80100000 
 	StartPlayerScript script_08012AC8
 	WaitForSomething2 0x00000001
-	SetEntityPositionRelative 0x01680388
+	SetEntityPositionRelative 0x0388, 0x0168
 	_0807F0B4 0x0001
 	CameraTargetEntity 
 	Wait 0x005a

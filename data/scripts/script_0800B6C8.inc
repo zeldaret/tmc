@@ -1,6 +1,6 @@
 SCRIPT_START script_0800B6C8
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 script_0800B6CC:
 	HasRupees 0x0001
 	JumpIfNot script_0800B6CC
@@ -25,8 +25,8 @@ script_0800B6D4:
 	_0807F034 0x0064
 	Jump script_0800B698
 	.short 0x0000
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 script_0800B734:
 	Call sub_0808747C
 	JumpIfNot script_0800B734

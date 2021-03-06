@@ -1,7 +1,7 @@
 SCRIPT_START script_0800F724
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0008
-	StopScript 
+	EndBlock 
 script_0800F72C:
 	CheckLocalFlag 0x00cd
 	JumpIfNot script_0800F72C
@@ -11,7 +11,7 @@ script_0800F72C:
 	JumpIf script_0800FA4C
 	_0807E864 
 	Call sub_0807DF28
-	SetEntityPositionRelative 0x014800c8
+	SetEntityPositionRelative 0x00c8, 0x0148
 	Call sub_0807F844
 	_0807E778 0x0002
 	DoFade6 
@@ -19,11 +19,11 @@ script_0800F72C:
 	StartPlayerScript script_0800FA54
 	_0807E5F8 0x00000002
 	_0807F0B4 0x0001
-	SetEntityPositionRelative 0x021800c8
+	SetEntityPositionRelative 0x00c8, 0x0218
 	Call sub_0807F5C0
 	Wait 0x0064
 	_0807F0B4 0x0002
-	SetEntityPositionRelative 0x036800c8
+	SetEntityPositionRelative 0x00c8, 0x0368
 	Call sub_0807F5C0
 	WaitForSomething2 0x00000001
 	WaitForSomething2 0x00000004
@@ -87,7 +87,7 @@ script_0800F72C:
 	TextboxNoOverlapFollowPos 0x1021, 0x000e
 	_0807EA94 
 	StartPlayerScript script_0800FAE4
-	SetEntityPositionRelative 0x025800f0
+	SetEntityPositionRelative 0x00f0, 0x0258
 	_0807F0B4 0x0001
 	CameraTargetEntity 
 	Wait 0x001e

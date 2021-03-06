@@ -1,6 +1,6 @@
 SCRIPT_START script_0800DA60
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 script_0800DA64:
 	CheckPlayerInRegion 0x0078, 0x0148, 0x4040
 	JumpIfNot script_0800DA64
@@ -11,7 +11,7 @@ script_0800DA64:
 	Call sub_0807F3F8
 	Wait 0x003c
 	_0807F0B4 0x0004
-	SetEntityPositionRelative 0x00800078
+	SetEntityPositionRelative 0x0078, 0x0080
 	CameraTargetEntity 
 	Call sub_0807F5C0
 	_0807E5F8 0x00000001

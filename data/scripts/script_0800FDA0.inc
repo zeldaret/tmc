@@ -1,10 +1,10 @@
 SCRIPT_START script_0800FDA0
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807EF80 0x0000
 	_0807EF80 0x000a
 	_0807E9D4 
-	StopScript 
+	EndBlock 
 script_0800FDB2:
 	CheckEntityInteractType 
 	JumpIfNot script_0800FDB2
@@ -15,27 +15,27 @@ script_0800FDB2:
 	_0807E878 
 	Jump script_0800FDB2
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807EF80 0x0000
 	_0807EF80 0x000a
 	_0807E9D4 
 	SetEntityNonPlanarMovement 0x0040
-	StopScript 
+	EndBlock 
 script_0800FDE2:
 	Call sub_08069A60
 script_0800FDE8:
 	Call sub_0806991C
 script_0800FDEE:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	Call sub_08069ACC
 	JumpIf script_0800FE06
 	_0807EE30 
 	JumpIfNot script_0800FDEE
 	Jump script_0800FDE2
 script_0800FE06:
-	StopScript 
+	EndBlock 
 	_0807EB44 0x0002
 	_0807EF80 0x0000
 	Wait 0x001e
@@ -51,27 +51,27 @@ script_0800FE06:
 	Call sub_08069A3C
 	Jump script_0800FDE8
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807EF80 0x0000
 	_0807EF80 0x000a
 	_0807E9D4 
 	SetEntityNonPlanarMovement 0x0040
-	StopScript 
+	EndBlock 
 script_0800FE5A:
 	Call sub_08069AA8
 script_0800FE60:
 	Call sub_080699AC
 script_0800FE66:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	Call sub_08069ACC
 	JumpIf script_0800FE7E
 	_0807EE30 
 	JumpIfNot script_0800FE66
 	Jump script_0800FE5A
 script_0800FE7E:
-	StopScript 
+	EndBlock 
 	_0807EB44 0x0002
 	_0807EF80 0x0000
 	Wait 0x001e
@@ -87,21 +87,21 @@ script_0800FE7E:
 	Call sub_08069A84
 	Jump script_0800FE60
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	CheckInventory1 0x0012
 	JumpIf script_0800FF0E
 	_0807EB44 0x0006
 	_0807E9D4 
 	CallWithArg sub_0807F3D8, 0x00000008
-	StopScript 
+	EndBlock 
 script_0800FED8:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	_0807EF80 0x000b
 	Call sub_080642B8
 	CheckEntityInteractType 
 	JumpIfNot script_0800FED8
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000008

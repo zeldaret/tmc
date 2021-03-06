@@ -1,9 +1,9 @@
 SCRIPT_START script_080165A4
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	_0807EB44 0x0004
 	_0807E9D4 
-	StopScript 
+	EndBlock 
 script_080165B2:
 	_0807E974 0x0601
 	Jump script_080165B2

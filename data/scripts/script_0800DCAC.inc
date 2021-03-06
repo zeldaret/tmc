@@ -1,8 +1,8 @@
 SCRIPT_START script_0800DCAC
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	Call sub_08066E38
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000001
 	CallWithArg sub_0807F8E8, 0x00000000
 	_0807E5F8 0x00000002
@@ -12,7 +12,7 @@ script_0800DCD0:
 	_0807EF80 0x0010
 	Wait 0x003c
 	_0807EF80 0x0010
-	SetEntityPositionRelative 0x00680078
+	SetEntityPositionRelative 0x0078, 0x0068
 	WaitForSomething2 0x00000001
 	SoundReq0x80100000 
 	Call sub_08066E50

@@ -1,9 +1,9 @@
 SCRIPT_START script_080145B0
-	StartScript 
-	SetEntityPositionRelative 0x00e001f8
+	BeginBlock 
+	SetEntityPositionRelative 0x01f8, 0x00e0
 	CheckLocalFlag 0x005e
 	JumpIf script_080145E4
-	StopScript 
+	EndBlock 
 script_080145C2:
 	CheckRoomFlag 0x0005
 	JumpIfNot script_080145C2
@@ -16,5 +16,5 @@ script_080145C2:
 	_0807E878 
 	Jump script_080145C2
 script_080145E4:
-	StopScript 
+	EndBlock 
 SCRIPT_END

@@ -1,11 +1,11 @@
 SCRIPT_START script_080138B4
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0008
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	Call sub_0807F92C
 	CallWithArg sub_0806DA04, 0x00000003
-	StopScript 
+	EndBlock 
 script_080138D0:
 	CheckEntityInteractType 
 	JumpIfNot script_080138D0
@@ -16,26 +16,26 @@ script_080138D0:
 	CallWithArg sub_08095A1C, 0x08013f64
 	SoundReq 0x01cd
 	Wait 0x005a
-	StartScript 
+	BeginBlock 
 	SoundReq 0x01ce
 	CallWithArg sub_08095D54, 0x08013e70
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x40000000
-	StartScript 
+	BeginBlock 
 	SoundReq 0x01cf
 	CallWithArg sub_08095D8C, 0x08014054
 	CallWithArg sub_08095D8C, 0x08014074
 	CallWithArg sub_08095D8C, 0x08014094
 	CallWithArg sub_08095D8C, 0x080140b8
-	StopScript 
+	EndBlock 
 	Wait 0x001e
-	StartScript 
+	BeginBlock 
 	SoundReq 0x01d0
 	CallWithArg sub_08095D8C, 0x080140dc
 	CallWithArg sub_08095D8C, 0x08014118
 	CallWithArg sub_08095D8C, 0x08014154
 	CallWithArg sub_08095D8C, 0x08014198
-	StopScript 
+	EndBlock 
 	Wait 0x003c
 	CallWithArg sub_0805DDEC, 0x00000000
 	_0807E5F8 0x00000200
@@ -78,7 +78,7 @@ script_080138D0:
 	_0807EA94 
 	_0807E5F8 0x00040000
 	_0807F0B4 0x0002
-	SetEntityPositionRelative 0x00d800e8
+	SetEntityPositionRelative 0x00e8, 0x00d8
 	CameraTargetEntity 
 	Call sub_0806DC3C
 	CallWithArg sub_0807F244, 0x00010001

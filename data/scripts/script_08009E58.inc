@@ -1,7 +1,7 @@
 SCRIPT_START script_08009E58
-	StartScript 
+	BeginBlock 
 	Call sub_0807DF28
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000002
 	_0807E778 0x0002
 	DoFade4 

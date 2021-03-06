@@ -1,35 +1,35 @@
 SCRIPT_START script_0800C550
-	StartScript 
+	BeginBlock 
 	Call sub_08060090
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0800C55E:
-	StartScript 
+	BeginBlock 
 	CheckEntityInteractType 
 	JumpIf script_0800C572
 	Call sub_08060158
-	StopScript 
+	EndBlock 
 	Jump script_0800C55E
 script_0800C572:
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_08060208
 	_0807EA94 
 	_0807E878 
 	Jump script_0800C55E
-	StartScript 
+	BeginBlock 
 	Call sub_08060090
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0800C592:
-	StartScript 
+	BeginBlock 
 	CheckEntityInteractType 
 	JumpIf script_0800C5A6
 	Call sub_08060158
-	StopScript 
+	EndBlock 
 	Jump script_0800C592
 script_0800C5A6:
-	StopScript 
+	EndBlock 
 	_0807E864 
 	CheckInventory1 0x0067
 	JumpIfNot script_0800C5BC
@@ -41,45 +41,45 @@ script_0800C5C0:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800C592
-	StartScript 
+	BeginBlock 
 	Call sub_08060090
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0800C5D6:
-	StartScript 
+	BeginBlock 
 	CheckEntityInteractType 
 	JumpIf script_0800C5EA
 	Call sub_08060158
-	StopScript 
+	EndBlock 
 	Jump script_0800C5D6
 script_0800C5EA:
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_08060270
 	_0807EA94 
 	_0807E878 
 	Jump script_0800C5D6
-	StartScript 
+	BeginBlock 
 script_0800C5FE:
 	Call sub_08060090
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0800C60A:
-	StartScript 
+	BeginBlock 
 	CheckEntityInteractType 
 	JumpIf script_0800C61E
 	Call sub_08060158
-	StopScript 
+	EndBlock 
 	Jump script_0800C60A
 script_0800C61E:
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0806021C
 	_0807EA94 
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800C60A
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	SetEntityNonPlanarMovement 0x0080
 	_0807EB44 0x0004
@@ -87,7 +87,7 @@ script_0800C61E:
 	JumpIfNot script_0800C650
 	SetEntityPosition 0x0010, 0x0000
 script_0800C650:
-	StopScript 
+	EndBlock 
 script_0800C652:
 	_0807E944 
 	_0807E864 
@@ -170,10 +170,10 @@ script_0800C756:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800C652
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	_0807EB44 0x0004
-	StopScript 
+	EndBlock 
 script_0800C780:
 	_0807E944 
 	_0807E864 

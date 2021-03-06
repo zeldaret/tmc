@@ -1,10 +1,10 @@
 SCRIPT_START script_080160A8
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807E930 0x0008
 script_080160B0:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckEntityInteractType 
 	JumpIf script_080160E0
 	TestBit 0x00000008
@@ -13,14 +13,14 @@ script_080160B0:
 	JumpIf script_080160D2
 	Jump script_080160B0
 script_080160D2:
-	StopScript 
+	EndBlock 
 	_0807EB74 
 	WaitForSomething2 0x00000004
 	Jump script_080160B0
 script_080160E0:
 	_0807E864 
 	_0807EB74 
-	StopScript 
+	EndBlock 
 	HasRoomItemForSale 
 	JumpIfNot script_0801611A
 	TextboxNoOverlapFollow 0x2d07
@@ -51,9 +51,9 @@ script_08016132:
 	_0807E878 
 	_0807EB44 0x0004
 	Jump script_080160B0
-	StartScript 
+	BeginBlock 
 	Call sub_080787B4
-	StopScript 
+	EndBlock 
 script_08016146:
 	CheckEntityInteractType 
 	JumpIfNot script_08016146
@@ -77,9 +77,9 @@ script_08016184:
 script_0801618A:
 	_0807E878 
 	Jump script_08016146
-	StartScript 
+	BeginBlock 
 	Call sub_080787B4
-	StopScript 
+	EndBlock 
 script_0801619A:
 	CheckEntityInteractType 
 	JumpIfNot script_0801619A
@@ -105,12 +105,12 @@ script_080161D8:
 script_080161E2:
 	_0807E878 
 	Jump script_0801619A
-	StartScript 
+	BeginBlock 
 	Call sub_0807F348
 	_0807EF80 0x000a
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 script_080161FE:
 	Call sub_08068C28
 script_08016204:
@@ -159,22 +159,22 @@ script_08016262:
 	Call sub_0807DF50
 	_0807E878 
 script_080162CC:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	Call sub_08068EC4
 	JumpIf script_080162F6
 	CheckEntityInteractType 
 	JumpIf script_080162E4
 	Jump script_080162CC
 script_080162E4:
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_08068E78
 	_0807EA94 
 	_0807E878 
 	Jump script_080162CC
 script_080162F6:
-	StopScript 
+	EndBlock 
 	_0807E888 
 	Call sub_0807F594
 	Call sub_0807DF28

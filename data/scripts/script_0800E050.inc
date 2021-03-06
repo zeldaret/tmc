@@ -1,8 +1,8 @@
 SCRIPT_START script_0800E050
-	StartScript 
+	BeginBlock 
 	Call sub_0807DF28
 	_0807E864 
-	StopScript 
+	EndBlock 
 	SoundReq0x80100000 
 	SoundReq0x80100000 
 	Wait 0x0078

@@ -1,10 +1,10 @@
 SCRIPT_START script_08014E14
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807E9D4 
 	_0807EF80 0x000a
 	CallWithArg sub_0807F3D8, 0x00000000
-	StopScript 
+	EndBlock 
 script_08014E2C:
 	CheckEntityInteractType 
 	JumpIfNot script_08014E2C
@@ -16,12 +16,12 @@ script_08014E2C:
 	_0807E878 
 	Jump script_08014E2C
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	_0807EF80 0x0007
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 script_08014E64:
 	CheckEntityInteractType 
 	JumpIfNot script_08014E64
@@ -51,12 +51,12 @@ script_08014EBC:
 	_0807E878 
 	Jump script_08014E64
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	_0807EF80 0x0007
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 script_08014EE0:
 	CheckEntityInteractType 
 	JumpIfNot script_08014EE0
@@ -67,12 +67,12 @@ script_08014EE0:
 	_0807E878 
 	Jump script_08014EE0
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	_0807EF80 0x0007
 	_0807EB44 0x0004
 	_0807E930 0x000a
-	StopScript 
+	EndBlock 
 script_08014F0C:
 	CheckEntityInteractType 
 	JumpIfNot script_08014F0C
@@ -86,12 +86,12 @@ script_08014F0C:
 	_0807E930 0x000a
 	Jump script_08014F0C
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	_0807EF80 0x0007
 	_0807EB44 0x0004
 	_0807E930 0x000e
-	StopScript 
+	EndBlock 
 	Call sub_08065914
 script_08014F4A:
 	CheckEntityInteractType 
@@ -100,10 +100,10 @@ script_08014F4A:
 	Call sub_0807DF28
 	_0807EB74 
 	_0807EF80 0x0000
-	StartScript 
+	BeginBlock 
 	TextboxNoOverlap 0x3b0b
 	CallWithArg sub_0807F854, 0x00010064
-	StopScript 
+	EndBlock 
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_08014FA6
@@ -128,10 +128,10 @@ script_08014FA6:
 	_0807EB44 0x0004
 	_0807E930 0x000e
 	Jump script_08014F4A
-	StartScript 
-	SetEntityPositionRelative 0x00e001f8
+	BeginBlock 
+	SetEntityPositionRelative 0x01f8, 0x00e0
 	Call sub_08054564
-	StopScript 
+	EndBlock 
 script_08014FCC:
 	CheckPlayerInRegion 0x01f8, 0x00a0, 0x2040
 	JumpIfNot script_08014FCC
@@ -168,7 +168,7 @@ script_08014FCC:
 	StartPlayerScript script_080152DC
 	CameraTargetEntity 
 	_0807F0B4 0x0003
-	SetEntityPositionRelative 0x014801f8
+	SetEntityPositionRelative 0x01f8, 0x0148
 	WaitForSomething2 0x00000001
 	Call sub_0804F6A8
 	Wait 0x0004
@@ -242,7 +242,7 @@ script_08015104:
 	_0807E80C 0x00000000
 	WaitFor_2 
 	Call sub_08053B3C
-	StartScript 
+	BeginBlock 
 	_0807E864 
 	CallWithArg sub_0807F6E8, 0x00000008
 	MoveEntityToPlayer 
@@ -251,7 +251,7 @@ script_08015104:
 	_0807E778 0x0100
 	DoFade4 
 	_0807E80C 0x00000000
-	StopScript 
+	EndBlock 
 	StartPlayerScript script_08015360
 	WaitForSomething2 0x00000001
 	LoadRoomEntityList gUnk_080F7CB0
@@ -260,10 +260,10 @@ script_08015104:
 	WaitFor_2 
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000010
-	StartScript 
+	BeginBlock 
 	_0807E8E4_2 
 	_0807EB28 0x1315
-	StopScript 
+	EndBlock 
 	_0807EA94 
 	_0807F0B4 0x0004
 	CameraTargetPlayer 

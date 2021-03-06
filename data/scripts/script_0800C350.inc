@@ -1,8 +1,8 @@
 SCRIPT_START script_0800C350
-	StartScript 
+	BeginBlock 
 	CallWithArg sub_0806D658, 0x00000003
 	SetEntityNonPlanarMovement 0x0200
-	StopScript 
+	EndBlock 
 script_0800C362:
 	CheckRoomFlag 0x00ff
 	JumpIfNot script_0800C362

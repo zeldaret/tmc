@@ -1,10 +1,10 @@
 SCRIPT_START script_0800B9B4
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	Call sub_080694EC
 	_0807EF80 0x000a
 	Call sub_080694B0
-	StopScript 
+	EndBlock 
 script_0800B9CA:
 	Call sub_0807F434
 	JumpSwitch_3 script_0800B9CA, script_0800B9D8, script_0800B9F4
@@ -39,9 +39,9 @@ script_0800BA24:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800B9CA
-	StartScript 
+	BeginBlock 
 	Call sub_0807F934
-	StopScript 
+	EndBlock 
 script_0800BA46:
 	CheckEntityInteractType 
 	JumpIfNot script_0800BA46
@@ -58,12 +58,12 @@ script_0800BA6C:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800BA46
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807EF80 0x0000
 	SetEntityNonPlanarMovement 0x0040
 	Call sub_0807F348
-	StopScript 
+	EndBlock 
 script_0800BA8E:
 	CheckRoomFlag 0x00ff
 	JumpIfNot script_0800BA8E

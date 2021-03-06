@@ -1,10 +1,10 @@
 SCRIPT_START script_0800B254
-	StartScript 
+	BeginBlock 
 	CheckKinstoneFused 0x0006
 	JumpIf script_0800B302
 	_0807EA88 0x0006
 	_0807EB44 0x0002
-	StopScript 
+	EndBlock 
 script_0800B268:
 	_0807EA4C 
 	_0807E9F0 
@@ -15,12 +15,12 @@ script_0800B268:
 	_0807E878 
 	Jump script_0800B268
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	CheckKinstoneFused 0x0007
 	JumpIf script_0800B302
 	_0807EA88 0x0007
 	_0807EB44 0x0002
-	StopScript 
+	EndBlock 
 script_0800B298:
 	_0807EA4C 
 	_0807E9F0 
@@ -31,12 +31,12 @@ script_0800B298:
 	_0807E878 
 	Jump script_0800B298
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	CheckKinstoneFused 0x0008
 	JumpIf script_0800B302
 	_0807EA88 0x0008
 	_0807EB44 0x0002
-	StopScript 
+	EndBlock 
 script_0800B2C8:
 	_0807EA4C 
 	_0807E9F0 
@@ -55,6 +55,6 @@ script_0800B2E2:
 	_0807EF80 0x0012
 	_0807E5F8 0x00000001
 script_0800B302:
-	StopScript 
+	EndBlock 
 SCRIPT_END
 	.short 0x0000

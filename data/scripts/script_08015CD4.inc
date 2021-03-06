@@ -1,34 +1,34 @@
 SCRIPT_START script_08015CD4
-	StartScript 
+	BeginBlock 
 	_0807F0B4 0x0007
-	SetEntityPositionRelative 0x00680088
+	SetEntityPositionRelative 0x0088, 0x0068
 	CameraTargetEntity 
-	StopScript 
+	EndBlock 
 	_0807E778 0x0004
 	DoFade4 
 	WaitFor_2 
 	Wait 0x003c
 	_0807F0B4 0x0004
-	SetEntityPositionRelative 0x00e00088
+	SetEntityPositionRelative 0x0088, 0x00e0
 	CameraTargetEntity 
 	Wait 0x003c
 	SoundReq2 0x000d
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
 	_0807F0B4 0x0004
-	SetEntityPositionRelative 0x00700088
+	SetEntityPositionRelative 0x0088, 0x0070
 	CameraTargetEntity 
 	Wait 0x003c
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
 	_0807F0B4 0x0004
-	SetEntityPositionRelative 0x00e00088
+	SetEntityPositionRelative 0x0088, 0x00e0
 	CameraTargetEntity 
 	Wait 0x003c
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
 	_0807F0B4 0x0004
-	SetEntityPositionRelative 0x00700088
+	SetEntityPositionRelative 0x0088, 0x0070
 	CameraTargetEntity 
 	Wait 0x003c
 	_0807E5F8 0x00000010

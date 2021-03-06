@@ -9,11 +9,11 @@ script_0800E914:
 	_0807E878 
 	_0807EB44 0x0000
 	Jump script_0800E832
-	StartScript 
+	BeginBlock 
 	Call sub_0806C4F8
 	_0807EF80 0x000a
 	_0807EB44 0x0000
-	StopScript 
+	EndBlock 
 script_0800E932:
 	CheckEntityInteractType 
 	JumpIfNot script_0800E932
@@ -30,11 +30,11 @@ script_0800E942:
 	_0807E930 0x0000
 	Jump script_0800E932
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0000
-	StopScript 
+	EndBlock 
 script_0800E974:
 	CheckEntityInteractType 
 	JumpIfNot script_0800E974

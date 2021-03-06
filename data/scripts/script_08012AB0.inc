@@ -1,5 +1,5 @@
 SCRIPT_START script_08012AB0
-	StopScript 
+	EndBlock 
 script_08012AB2:
 	_0807EB44 0x0002
 	Wait 0x000a

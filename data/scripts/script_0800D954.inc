@@ -1,8 +1,8 @@
 SCRIPT_START script_0800D954
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0008
 	Call sub_0807F180
-	StopScript 
+	EndBlock 
 script_0800D962:
 	CheckPlayerInRegion 0x0118, 0x0038, 0x3050
 	JumpIfNot script_0800D962

@@ -1,24 +1,24 @@
 SCRIPT_START script_0800FB44
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0008
 	_0807EF80 0x000b
 	SetEntityNonPlanarMovement 0x0080
 	Call sub_08066D04
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000002
 	Call sub_08066D14
 	JumpIf script_0800FB6C
 	MoveEntityToPlayer 
 script_0800FB6C:
 	_0807EF80 0x0007
-	SetEntityPositionRelative 0x039800b8
+	SetEntityPositionRelative 0x00b8, 0x0398
 	_0807EB44 0x0002
 	_0807EF80 0x0000
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
 	SetEntityNonPlanarMovement 0x0200
 	_0807EDD4 0x00b8, 0x0318
-	SetEntityPositionRelative 0x026000a0
+	SetEntityPositionRelative 0x00a0, 0x0260
 	_0807EB44 0x0000
 	_0807EF80 0x0001
 	_0807E5F8 0x00000004
@@ -38,7 +38,7 @@ script_0800FBAE:
 	_0807EDD4 0x00a0, 0x0268
 	_0807EDD4 0x0070, 0x0268
 	_0807EDD4 0x0070, 0x0208
-	SetEntityPositionRelative 0x01a80078
+	SetEntityPositionRelative 0x0078, 0x01a8
 	_0807EB44 0x0000
 	_0807EF80 0x0001
 	_0807E5F8 0x00000004
@@ -55,7 +55,7 @@ script_0800FC06:
 	WaitForSomething2 0x00000002
 	SetEntityNonPlanarMovement 0x0200
 	_0807EDD4 0x00f8, 0x01a8
-	SetEntityPositionRelative 0x01c80118
+	SetEntityPositionRelative 0x0118, 0x01c8
 	_0807EB44 0x0002
 	_0807EF80 0x0001
 	_0807E5F8 0x00000004
@@ -72,7 +72,7 @@ script_0800FC52:
 	WaitForSomething2 0x00000002
 	SetEntityNonPlanarMovement 0x0200
 	_0807EDD4 0x0118, 0x0260
-	SetEntityPositionRelative 0x027000f8
+	SetEntityPositionRelative 0x00f8, 0x0270
 	_0807EB44 0x0000
 	_0807EF80 0x0001
 	_0807E5F8 0x00000004

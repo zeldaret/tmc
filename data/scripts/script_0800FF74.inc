@@ -1,14 +1,14 @@
 SCRIPT_START script_0800FF74
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0002
 	_0807E9D4 
 	CallWithArg sub_0807F3D8, 0x00000008
 	Call sub_080644A4
 	ClearLocalFlag 0x00c7
-	StopScript 
+	EndBlock 
 script_0800FF92:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	_0807EF80 0x000a
 	CheckLocalFlag 0x00ce
 	JumpIf script_0800FFCC
@@ -24,7 +24,7 @@ script_0800FF92:
 script_0800FFCC:
 	CheckEntityInteractType 
 	JumpIfNot script_0800FF92
-	StopScript 
+	EndBlock 
 	SetLocalFlag 0x00c7
 	_0807E864 
 	_0807EB74 
@@ -45,7 +45,7 @@ script_0801000A:
 	_0807EA94 
 	Jump script_08010060
 script_08010014:
-	StopScript 
+	EndBlock 
 	_0807E888 
 	Call sub_0807F594
 	_0807E864 
@@ -67,12 +67,12 @@ script_08010060:
 	_0807E878 
 	Jump script_0800FF92
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EF80 0x000a
 	_0807EB44 0x0004
 	CallWithArg sub_080672B0, 0x00000000
-	StopScript 
+	EndBlock 
 script_08010090:
 	CheckEntityInteractType 
 	JumpIfNot script_08010090

@@ -7,7 +7,7 @@ SCRIPT_START script_08013AA6
 	_0807F0C8 0x0000, 0x0000
 	Wait 0x003c
 	_0807F0B4 0x0004
-	SetEntityPositionRelative 0x005000e8
+	SetEntityPositionRelative 0x00e8, 0x0050
 	CameraTargetEntity 
 	Wait 0x003c
 	LoadRoomEntityList gUnk_080F55D8

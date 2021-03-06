@@ -1,7 +1,7 @@
 SCRIPT_START script_08014A80
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000001
 	_0807EB74 
 	_0807EF80 0x0004
@@ -20,10 +20,10 @@ script_08014AAC:
 	_0807E878 
 	Jump script_08014AAC
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_0806C870
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08014AD2:
 	_0807E30C 
 	JumpIfNot script_08014AD2

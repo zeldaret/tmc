@@ -4,8 +4,8 @@ import struct
 # A list of all the commands, their correspondingScriptCommand_  functions and what kind of parameters they take
 commands = [
     {'fun': 'ScriptCommandNop', 'params': ''},
-    {'fun': 'ScriptCommand_StartScript', 'params': ''},
-    {'fun': 'ScriptCommand_StopScript', 'params': ''},
+    {'fun': 'ScriptCommand_BeginBlock', 'params': ''},
+    {'fun': 'ScriptCommand_EndBlock', 'params': ''},
     {'fun': 'ScriptCommand_Jump', 'params': 'j'},
     {'fun': 'ScriptCommand_JumpIf', 'params': 'j'},
     {'fun': 'ScriptCommand_JumpIfNot', 'params': 'j'},
@@ -108,7 +108,7 @@ commands = [
     {'fun': 'ScriptCommand_SetEntityDirectionWithAnimationState', 'params': 's'},
     {'fun': 'ScriptCommand_SetEntityNonPlanarMovement', 'params': 's'},
     {'fun': 'ScriptCommand_SetEntity0x20', 'params': 'w'},
-    {'fun': 'ScriptCommand_SetEntityPositionRelative', 'params': 'w'},
+    {'fun': 'ScriptCommand_SetEntityPositionRelative', 'params': 'ss'},
     {'fun': 'ScriptCommand_SetEntityPosition', 'params': 'ss'},
     {'fun': 'ScriptCommand_MoveEntityToPlayer', 'params': ''},
     {'fun': 'ScriptCommandNop3', 'params': ''},

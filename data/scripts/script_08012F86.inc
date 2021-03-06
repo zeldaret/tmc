@@ -1,6 +1,6 @@
 SCRIPT_START script_08012F86
 script_08012F86:
-	StartScript 
+	BeginBlock 
 	CheckLocalFlag 0x0060
 	JumpIf script_08012FD2
 	_0807E864 
@@ -8,7 +8,7 @@ script_08012F86:
 	StartPlayerScript script_080130E4
 	SetLocalFlag 0x0060
 	ClearLocalFlag 0x0061
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000004
 	_0807E908 0x0004
 	Call sub_0806A958
@@ -18,13 +18,13 @@ script_08012F86:
 	SetLocalFlag 0x0062
 	Jump script_08012FFA
 script_08012FD2:
-	StartScript 
+	BeginBlock 
 	_0807E930 0x000d
 	_0807E908 0x0005
 	SetLocalFlag 0x0062
 	CallWithArg sub_0807F93C, 0x0000f2f4
 	Call sub_0806AA10
-	StopScript 
+	EndBlock 
 	CheckInventory1 0x0038
 	JumpIf script_08013006
 script_08012FFA:
@@ -34,10 +34,10 @@ script_08012FFA:
 	Jump script_08012FFA
 script_08013006:
 	_0807E944 
-	StartScript 
+	BeginBlock 
 	_0807E864 
 	Call sub_0807DF28
-	StopScript 
+	EndBlock 
 	SoundReq 0x00cd
 	_0807F088 0x0038
 	WaitPlayerAction8 
@@ -88,7 +88,7 @@ script_080130B6:
 	JumpIfNot script_080130C4
 	Call sub_0806A9B0
 script_080130C4:
-	StopScript 
+	EndBlock 
 script_080130C6:
 	Call sub_0806A96C
 	JumpIfNot script_080130C6

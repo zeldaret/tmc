@@ -1,11 +1,11 @@
 SCRIPT_START script_08014DCC
-	StartScript 
-	SetEntityPositionRelative 0x01a80238
+	BeginBlock 
+	SetEntityPositionRelative 0x0238, 0x01a8
 	Call sub_0807F844
 	Call sub_0807F348
 	_0807E864 
 	Call sub_0807DF28
-	StopScript 
+	EndBlock 
 	_0807E778 0x0010
 	DoFade6 
 	WaitFor_2 

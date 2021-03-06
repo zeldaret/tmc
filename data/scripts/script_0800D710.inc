@@ -1,11 +1,11 @@
 SCRIPT_START script_0800D710
-	StartScript 
+	BeginBlock 
 	Call sub_0807F360
 	SetEntityNonPlanarMovement 0x0700
 	_0807F0B4 0x0007
 	CameraTargetEntity 
 	Call sub_0807FBC4
-	StopScript 
+	EndBlock 
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000010
 	_0807E5F8 0x00000002

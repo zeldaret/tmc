@@ -1,13 +1,13 @@
 SCRIPT_START script_0800A160
-	StartScript 
+	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
 	_0807EF80 0x0007
 	_0807EF80 0x000b
 	_0807E930 0x0002
-	SetEntityPositionRelative 0x008000b0
+	SetEntityPositionRelative 0x00b0, 0x0080
 	CallWithArg sub_0807F98C, 0xff800000
 	CallWithArg sub_080960C4, 0x0800a1b4
-	StopScript 
+	EndBlock 
 	SoundReq 0x0142
 	_0807EF3C 0xff80, 0x0000
 	SoundReq 0x0143

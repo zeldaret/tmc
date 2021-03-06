@@ -1,8 +1,8 @@
 SCRIPT_START script_0800DFE4
-	StartScript 
+	BeginBlock 
 	Call sub_0807DF28
 	_0807E864 
-	StopScript 
+	EndBlock 
 	SoundReq0x80100000 
 	TextboxNoOverlapFollowPos 0x1632, 0x0002
 	_0807EA94 

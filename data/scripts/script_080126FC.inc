@@ -1,8 +1,8 @@
 SCRIPT_START script_080126FC
-	StartScript 
+	BeginBlock 
 	SetEntityNonPlanarMovement 0x0040
 	_0807EF80 0x0007
-	StopScript 
+	EndBlock 
 	_0807E930 0x0020
 	WaitForSomething2 0x00000004
 	_0807E930 0x0022
@@ -54,13 +54,13 @@ SCRIPT_START script_080126FC
 	_0807E9D4 
 	_0807E5F8 0x00000008
 script_080127F2:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckRoomFlag 0x0000
 	JumpIf script_08012824
 	CheckEntityInteractType 
 	JumpIfNot script_080127F2
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0806D944
 	_0807E930 0x0010
@@ -74,7 +74,7 @@ script_08012824:
 	_0807E9DC 
 	CallWithArg sub_0807F5B0, 0x0000003c
 	Call sub_080791D0
-	StopScript 
+	EndBlock 
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
 	_0807EF80 0x000b
@@ -119,8 +119,8 @@ script_08012824:
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
 script_08012904:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	Call sub_0806D944
 	CheckEntityInteractType 
 	JumpIf script_08012920
@@ -130,14 +130,14 @@ script_08012904:
 script_08012920:
 	_0807E864 
 	_0807E930 0x0010
-	StopScript 
+	EndBlock 
 	TextboxNoOverlapFollowPos 0x1115, 0x000c
 	_0807EA94 
 	_0807E930 0x0018
 	_0807E878 
 	Jump script_08012904
 script_0801293A:
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28
@@ -155,8 +155,8 @@ script_0801293A:
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
 script_08012984:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	Call sub_0806D944
 	CheckEntityInteractType 
 	JumpIf script_080129A0
@@ -166,14 +166,14 @@ script_08012984:
 script_080129A0:
 	_0807E864 
 	_0807E930 0x0010
-	StopScript 
+	EndBlock 
 	TextboxNoOverlapFollowPos 0x1115, 0x000c
 	_0807EA94 
 	_0807E930 0x0018
 	_0807E878 
 	Jump script_08012984
 script_080129BA:
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28
@@ -192,8 +192,8 @@ script_080129BA:
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
 script_08012A08:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	Call sub_0806D944
 	CheckEntityInteractType 
 	JumpIf script_08012A24
@@ -203,14 +203,14 @@ script_08012A08:
 script_08012A24:
 	_0807E864 
 	_0807E930 0x0010
-	StopScript 
+	EndBlock 
 	TextboxNoOverlapFollowPos 0x1115, 0x000c
 	_0807EA94 
 	_0807E930 0x0018
 	_0807E878 
 	Jump script_08012A08
 script_08012A3E:
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28
@@ -233,10 +233,10 @@ script_08012A74:
 	_0807EF80 0x0008
 	Wait 0x0078
 	SoundReq2 0x000e
-	StartScript 
+	BeginBlock 
 	_0807E8E4_2 
 	_0807EB28 0x1112
-	StopScript 
+	EndBlock 
 	_0807EA94 
 	_0807E5F8 0x00000008
 	_0807EF80 0x0006

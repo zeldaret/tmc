@@ -1,8 +1,8 @@
 SCRIPT_START script_0800C91C
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	SetEntityNonPlanarMovement 0x0300
-	StopScript 
+	EndBlock 
 script_0800C928:
 	CheckPlayerInRegion 0x0208, 0x0360, 0x2040
 	JumpIfNot script_0800C928

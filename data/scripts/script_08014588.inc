@@ -1,5 +1,5 @@
 SCRIPT_START script_08014588
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000001
 	SetEntityNonPlanarMovement 0x00e0
 	_0807EDD4 0x0078, 0x0078

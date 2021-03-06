@@ -1,12 +1,12 @@
 SCRIPT_START script_080133F8
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807EF80 0x0008
 	_0807EF80 0x000b
 	Call sub_0807F338
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000020
-	SetEntityPositionRelative 0x00480098
+	SetEntityPositionRelative 0x0098, 0x0048
 	Call sub_08066C94
 	Wait 0x00e9
 	_0807EF80 0x0007

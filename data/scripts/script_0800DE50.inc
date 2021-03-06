@@ -1,5 +1,5 @@
 SCRIPT_START script_0800DE50
-	StopScript 
+	EndBlock 
 	_0807EB44 0x0004
 	_0807EF80 0x0000
 	CallWithArg sub_0807F238, 0x000003c5

@@ -1,9 +1,9 @@
 SCRIPT_START script_0800F184
-	StartScript 
+	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
 	_0807EF80 0x0008
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 	Call sub_0807F348
 	_0807EB44 0x0002
 	WaitForSomething2 0x00000002
@@ -21,11 +21,11 @@ SCRIPT_START script_0800F184
 	_0807E5F8 0x00000040
 	WaitForSomething2 0x00000002
 script_0800F1E6:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CallWithArg sub_0807F680, 0x000001c0
 	JumpIf script_0800F22A
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807F9A4
 	_0807EB74 
@@ -41,7 +41,7 @@ script_0800F1E6:
 script_0800F22A:
 	CallWithArg sub_0807F680, 0x00000230
 	JumpIfNot script_0800F26A
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807F9A4
 	_0807EB74 
@@ -57,7 +57,7 @@ script_0800F22A:
 script_0800F26A:
 	CallWithArg sub_0807F6B4, 0x00000310
 	JumpIf script_0800F2AA
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807F9A4
 	_0807EB74 
@@ -73,7 +73,7 @@ script_0800F26A:
 script_0800F2AA:
 	CallWithArg sub_0807F6B4, 0x00000340
 	JumpIfNot script_0800F2EA
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807F9A4
 	_0807EB74 
@@ -87,13 +87,13 @@ script_0800F2AA:
 	_0807E878 
 	Jump script_0800F1E6
 script_0800F2EA:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckKinstoneFused 0x0032
 	JumpIf script_0800F314
 	CheckEntityInteractType 
 	JumpIfNot script_0800F2EA
-	StopScript 
+	EndBlock 
 	_0807E864 
 	_0807EB74 
 	_0807E930 0x0008
@@ -102,7 +102,7 @@ script_0800F2EA:
 	_0807E878 
 	Jump script_0800F1E6
 script_0800F314:
-	StopScript 
+	EndBlock 
 	_0807E5F8 0x00000040
 	WaitForSomething2 0x00000002
 	SetEntityNonPlanarMovement 0x0100

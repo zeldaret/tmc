@@ -1,8 +1,8 @@
 SCRIPT_START script_0800903C
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000004
 	SoundReq 0x007c
 	_0807EF3C 0x0180, 0x0030
@@ -11,19 +11,19 @@ SCRIPT_START script_0800903C
 	WaitForSomething2 0x00000004
 	_0807EB44 0x0004
 	_0807E5F8 0x00000008
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EF80 0x000a
 	Jump script_0800927E
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	Call sub_0807F348
 	SetEntityNonPlanarMovement 0x0100
 	_0807EB44 0x0004
 	_0807EF80 0x0000
 	_0807E9D4 
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000080
 	_0807EB44 0x0004
 	_0807ECC4 0x0008
@@ -82,11 +82,11 @@ script_0800917C:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800917C
-	StartScript 
+	BeginBlock 
 	Call sub_0807F348
 	_0807EB44 0x0006
 	_0807EF80 0x0000
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000001
 	_0807EB74 
 	_0807EF80 0x0001
@@ -130,18 +130,18 @@ script_0800917C:
 	_0807EA94 
 	_0807EF80 0x0000
 	_0807E5F8 0x00000002
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EF80 0x000a
 	Jump script_080092B2
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807EF80 0x0000
 script_0800927E:
 	Call sub_080668F0
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_0800928A:
 	CheckEntityInteractType 
 	JumpIfNot script_0800928A
@@ -153,13 +153,13 @@ script_0800928A:
 	_0807E878 
 	Jump script_0800928A
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0006
 	_0807EF80 0x0000
 script_080092B2:
 	_0807E9D4 
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_080092BA:
 	CheckEntityInteractType 
 	JumpIfNot script_080092BA
@@ -170,19 +170,19 @@ script_080092BA:
 	Wait 0x000f
 	_0807E878 
 	Jump script_080092BA
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	_0807EF80 0x0000
 	Call sub_0806672C
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 	Jump script_0800917C
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	Call sub_08066E38
 	_0807E9D4 
-	StopScript 
+	EndBlock 
 script_08009300:
 	CheckEntityInteractType 
 	JumpIfNot script_08009300
@@ -193,7 +193,7 @@ script_08009300:
 	_0807E878 
 	Jump script_08009300
 	.short 0x0000
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 SCRIPT_END
 	.short 0x0000

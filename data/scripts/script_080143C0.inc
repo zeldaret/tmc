@@ -1,5 +1,5 @@
 SCRIPT_START script_080143C0
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807DF28
 	Call sub_080654FC

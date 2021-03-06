@@ -1,11 +1,11 @@
 SCRIPT_START script_0800A500
-	StartScript 
+	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
 	_0807EF80 0x0007
 	_0807EF80 0x000b
 	_0807E930 0x0005
 	Call sub_0807F348
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00000008
 	SoundReq 0x0142
 	_0807E610 0x00000800

@@ -1,7 +1,7 @@
 SCRIPT_START script_0801319A
 script_0801319A:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CameraTargetEntity 
 	MoveEntityToPlayer 
 	Call sub_0806AB74

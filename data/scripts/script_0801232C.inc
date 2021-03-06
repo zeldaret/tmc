@@ -1,9 +1,9 @@
 SCRIPT_START script_0801232C
-	StartScript 
+	BeginBlock 
 	_0807EB74 
 	_0807E9D4 
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08012338:
 	CheckEntityInteractType 
 	JumpIfNot script_08012338
@@ -19,21 +19,21 @@ script_08012338:
 script_0801235A:
 	_0807E878 
 	Jump script_08012338
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0008
-	StopScript 
+	EndBlock 
 script_08012368:
 	CheckLocalFlag 0x0004
 	JumpIfNot script_08012368
 	Call sub_0807DF28
 	_0807E864 
 	SoundReq0x80100000 
-	StartScript 
+	BeginBlock 
 	_0807E778 0x0004
 	_0807E788 0x00007fff
 	DoFade5 
 	_0807E858 0x0080
-	StopScript 
+	EndBlock 
 	WaitFor_2 
 	SoundReq2 0x002c
 	_0807EB28 0x1401
@@ -52,12 +52,12 @@ script_08012368:
 	SoundReq0x80100000 
 	SetEntity0x20 0x00010000
 	Wait 0x003c
-	StartScript 
+	BeginBlock 
 	_0807E778 0x0004
 	_0807E788 0xffffffff
 	DoFade4 
 	_0807E858 0x0080
-	StopScript 
+	EndBlock 
 	WaitFor_2 
 	SoundReq2 0xffff
 	_0807EB28 0x1403

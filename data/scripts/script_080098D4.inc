@@ -1,6 +1,6 @@
 SCRIPT_START script_080098D4
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 script_080098D8:
 	CheckGlobalFlag 0x0020
 	JumpIfNot script_080098D8

@@ -1,7 +1,7 @@
 SCRIPT_START script_08009348
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
-	StopScript 
+	EndBlock 
 script_0800934E:
 	CheckEntityInteractType 
 	JumpIfNot script_0800934E

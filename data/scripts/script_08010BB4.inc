@@ -1,10 +1,10 @@
 SCRIPT_START script_08010BB4
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0008
 	Call sub_0806E440
-	StopScript 
+	EndBlock 
 script_08010BCA:
 	CheckEntityInteractType 
 	JumpIfNot script_08010BCA
@@ -50,7 +50,7 @@ script_08010BCA:
 	WaitForSomething2 0x00000008
 	StartPlayerScript script_08011098
 	WaitForSomething2 0x00000400
-	SetEntityPositionRelative 0x005001f8
+	SetEntityPositionRelative 0x01f8, 0x0050
 	_0807F0B4 0x0007
 	CameraTargetEntity 
 	Wait 0x000a
@@ -59,7 +59,7 @@ script_08010BCA:
 	DoFade4 
 	_0807E5F8 0x0002a800
 	WaitForSomething2 0x00055000
-	SetEntityPositionRelative 0x007801f8
+	SetEntityPositionRelative 0x01f8, 0x0078
 	Wait 0x003c
 	_0807E5F8 0x00800000
 	WaitForSomething2 0x01000000
@@ -83,13 +83,13 @@ script_08010BCA:
 	WaitForSomething2 0x00000008
 	TextboxNoOverlapFollowPos 0x103a, 0x000c
 	_0807EA94 
-	SetEntityPositionRelative 0x01c001f8
+	SetEntityPositionRelative 0x01f8, 0x01c0
 	_0807F0B4 0x0004
 	Wait 0x0078
 	_0807E5F8 0x00280000
 	WaitForSomething2 0x00500000
 	_0807E5F8 0x00000100
-	SetEntityPositionRelative 0x022001f8
+	SetEntityPositionRelative 0x01f8, 0x0220
 	SetEntityNonPlanarMovement 0x0100
 	_0807EDD4 0x01f8, 0x0098
 	Wait 0x003c
@@ -117,7 +117,7 @@ script_08010BCA:
 	WaitForSomething2 0x00050000
 	TextboxNoOverlapFollowPos 0x1044, 0x0000
 	_0807EA94 
-	SetEntityPositionRelative 0x009801f8
+	SetEntityPositionRelative 0x01f8, 0x0098
 	SoundReq0x80100000 
 	Wait 0x003c
 	SoundReq2 0x002f

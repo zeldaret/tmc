@@ -1,9 +1,9 @@
 SCRIPT_START script_0800D6B4
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0007
 	_0807EF80 0x0011
 	Call sub_0807F158
 	Call sub_0807F738
-	StopScript 
+	EndBlock 
 SCRIPT_END
 	.short 0x0000

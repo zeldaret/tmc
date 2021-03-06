@@ -1,9 +1,9 @@
 SCRIPT_START script_0800EF40
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x0007
 	CheckGlobalFlag 0x001f
 	JumpIf script_0800EF92
-	StopScript 
+	EndBlock 
 script_0800EF50:
 	Call sub_080869A4
 	JumpIfNot script_0800EF50

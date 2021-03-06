@@ -1,9 +1,9 @@
 SCRIPT_START script_0800B5EC
-	StartScript 
+	BeginBlock 
 	_0807EF80 0x000a
 	_0807EF80 0x0001
 	_0807E9D4 
-	StopScript 
+	EndBlock 
 script_0800B5FA:
 	CheckEntityInteractType 
 	JumpIfNot script_0800B5FA
@@ -14,8 +14,8 @@ script_0800B5FA:
 	_0807E878 
 	_0807EB44 0x0004
 	Jump script_0800B5FA
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 script_0800B618:
 	CheckPlayerInRegion 0x0078, 0x00b8, 0x1060
 	JumpIfNot script_0800B618

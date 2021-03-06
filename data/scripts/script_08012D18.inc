@@ -1,14 +1,14 @@
 SCRIPT_START script_08012D18
 script_08012D18:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckGlobalFlag 0x0014
 	JumpIfNot script_08012D18
 	CheckLocalFlagByOffset 0x0200, 0x008d
 	JumpIf script_08012D68
 	CheckPlayerInRegion 0x0000, 0x01a8, 0x2010
 	JumpIfNot script_08012D18
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28

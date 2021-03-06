@@ -1,12 +1,12 @@
 SCRIPT_START script_08015B34
 script_08015B34:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CheckLocalFlag 0x008b
 	JumpIf script_08015B7E
 	CallWithArg sub_0807F6B4, 0x00000318
 	JumpIfNot script_08015B34
-	StopScript 
+	EndBlock 
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28

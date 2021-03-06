@@ -1,7 +1,7 @@
 SCRIPT_START script_08016384
 script_08016384:
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 	Jump script_08016384
 	JumpIf script_08016384
 	JumpIfNot script_08016384

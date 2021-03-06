@@ -1,6 +1,6 @@
 SCRIPT_START script_0800E544
-	StartScript 
-	StopScript 
+	BeginBlock 
+	EndBlock 
 	CheckLocalFlag 0x007e
 	JumpIf script_0800E582
 script_0800E550:

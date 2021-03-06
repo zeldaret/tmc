@@ -1,9 +1,9 @@
 SCRIPT_START script_08008D8C
-	StartScript 
+	BeginBlock 
 	Call sub_08061FD8
 	Call sub_08061E70
 	_0807EF80 0x000a
-	StopScript 
+	EndBlock 
 script_08008DA0:
 	CheckEntityInteractType 
 	JumpIfNot script_08008DA0
@@ -15,12 +15,12 @@ script_08008DA0:
 	_0807E878 
 	Jump script_08008DA0
 	.short 0x0000
-	StartScript 
+	BeginBlock 
 	_0807E9D4 
 	_0807EF80 0x000a
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x00000000
-	StopScript 
+	EndBlock 
 script_08008DD8:
 	CheckEntityInteractType 
 	JumpIfNot script_08008DD8
@@ -33,9 +33,9 @@ script_08008DD8:
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x00000000
 	Jump script_08008DD8
-	StartScript 
-	SetEntityPositionRelative 0x00780088
-	StopScript 
+	BeginBlock 
+	SetEntityPositionRelative 0x0088, 0x0078
+	EndBlock 
 script_08008E12:
 	CheckPlayerInRegion 0x00d8, 0x0098, 0x4020
 	JumpIfNot script_08008E12

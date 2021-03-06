@@ -34,7 +34,7 @@ SCRIPT_START script_08010F84
 	WaitForSomething2 0x00000200
 	TextboxNoOverlapFollowPos 0x1049, 0x0000
 	_0807EA94 
-	SetEntityPositionRelative 0x009801f8
+	SetEntityPositionRelative 0x01f8, 0x0098
 	Wait 0x0078
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200

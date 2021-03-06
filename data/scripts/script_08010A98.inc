@@ -1,10 +1,10 @@
 SCRIPT_START script_08010A98
-	StartScript 
+	BeginBlock 
 	_0807EB44 0x0004
 	CallWithArg sub_080672B0, 0x00000000
 	_0807EF80 0x000a
 	Call sub_08067314
-	StopScript 
+	EndBlock 
 script_08010AB4:
 	CheckEntityInteractType 
 	JumpIfNot script_08010AB4
@@ -17,7 +17,7 @@ script_08010AB4:
 	_0807EB44 0x0004
 	CallWithArg sub_080672B0, 0x00000000
 	Jump script_08010AB4
-	StartScript 
+	BeginBlock 
 	CheckInventory1 0x0067
 	JumpIfNot script_08010B62
 	_0807EB44 0x0004
@@ -25,18 +25,18 @@ script_08010AB4:
 	SetEntityNonPlanarMovement 0x0180
 	CallWithArg_2 sub_0807F348
 	Call sub_0806075C
-	StopScript 
+	EndBlock 
 	_0807EA94 
 	Call sub_080606C0
 script_08010B10:
-	StopScript 
+	EndBlock 
 	Call sub_0806076C
 	_0807EF80 0x0007
 script_08010B1C:
 	Call sub_08060700
 script_08010B22:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	_0807E564 
 	JumpIf script_08010B3A
 	CallWithArg sub_080608E4, 0x00000000
@@ -46,14 +46,14 @@ script_08010B3A:
 	JumpIfNot script_08010B22
 	Jump script_08010B10
 script_08010B44:
-	StopScript 
+	EndBlock 
 	_0807EF80 0x0000
 script_08010B4A:
-	StopScript 
-	StartScript 
+	EndBlock 
+	BeginBlock 
 	CallWithArg sub_080608E4, 0x00000001
 	JumpIf script_08010B4A
-	StopScript 
+	EndBlock 
 	Jump script_08010B1C
 script_08010B62:
 	_0807EF80 0x0006

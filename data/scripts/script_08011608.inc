@@ -1,9 +1,9 @@
 SCRIPT_START script_08011608
-	StartScript 
+	BeginBlock 
 	SetEntityNonPlanarMovement 0x0100
 	_0807EB44 0x0006
 	_0807E930 0x0003
-	StopScript 
+	EndBlock 
 	WaitForSomething2 0x00200000
 	_0807E930 0x0007
 	SoundReq 0x011c
