@@ -1,0 +1,16 @@
+SCRIPT_START script_08009AF8
+StartScript 
+StopScript 
+WaitForSomething2 0x00000010
+SoundReq 0x00f0
+_0807EF80 0x0008
+Wait 0x001e
+SoundReq 0x00f1
+_0807EF80 0x0007
+Wait 0x005a
+_0807E778 0x0004
+_0807E80C 0x00000000
+WaitFor_2 
+Call sub_0805367C
+SCRIPT_END
+.short 0x0000

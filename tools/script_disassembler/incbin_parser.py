@@ -23,7 +23,7 @@ def read_baserom():
         return bytearray(baserom.read())
 
 def get_label(addr):
-    return hex(addr).upper().replace('0X', 'gUnk_0')
+    return hex(addr).upper().replace('0X', 'script_0')
 
 def main():
     baserom_data = read_baserom()

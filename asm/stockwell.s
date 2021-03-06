@@ -54,7 +54,7 @@ sub_08065080: @ 0x08065080
 	movs r1, #0
 	movs r2, #0
 	bl sub_08078850
-	ldr r1, _080650C8 @ =gUnk_080142B0
+	ldr r1, _080650C8 @ =script_080142B0
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r4, #0x84
@@ -62,7 +62,7 @@ sub_08065080: @ 0x08065080
 	pop {r4, pc}
 	.align 2, 0
 _080650C4: .4byte gUnk_0810FDA0
-_080650C8: .4byte gUnk_080142B0
+_080650C8: .4byte script_080142B0
 
 	thumb_func_start sub_080650CC
 sub_080650CC: @ 0x080650CC
@@ -83,12 +83,12 @@ sub_080650CC: @ 0x080650CC
 	adds r0, r5, #0
 	adds r0, #0x84
 	ldr r0, [r0]
-	ldr r1, _080650FC @ =gUnk_080143C0
+	ldr r1, _080650FC @ =script_080143C0
 	bl sub_0807DB88
 	b _080651A6
 	.align 2, 0
 _080650F8: .4byte gRoomVars
-_080650FC: .4byte gUnk_080143C0
+_080650FC: .4byte script_080143C0
 _08065100:
 	adds r2, r5, #0
 	adds r2, #0x5a
@@ -132,7 +132,7 @@ _0806513C:
 	adds r0, r5, #0
 	adds r0, #0x84
 	ldr r0, [r0]
-	ldr r1, _08065174 @ =gUnk_08014384
+	ldr r1, _08065174 @ =script_08014384
 	bl sub_0807DB88
 _0806515E:
 	adds r0, r7, #0
@@ -145,7 +145,7 @@ _0806515E:
 	str r0, [r1, #0x10]
 	b _080651A6
 	.align 2, 0
-_08065174: .4byte gUnk_08014384
+_08065174: .4byte script_08014384
 _08065178: .4byte gTextBox
 _0806517C:
 	ldrb r1, [r2]

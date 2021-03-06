@@ -1,0 +1,8 @@
+SCRIPT_START script_08012AB0
+StopScript 
+_0807EB44 0x0002
+Wait 0x000a
+_0807EB44 0x0006
+Wait 0x000a
+Jump 0xffee
+.short 0x0000

@@ -1,0 +1,67 @@
+SCRIPT_START script_08015CD4
+StartScript 
+_0807F0B4 0x0007
+SetEntityPositionRelative 0x00680088
+CameraTargetEntity 
+StopScript 
+_0807E778 0x0004
+DoFade4 
+WaitFor_2 
+Wait 0x003c
+_0807F0B4 0x0004
+SetEntityPositionRelative 0x00e00088
+CameraTargetEntity 
+Wait 0x003c
+SoundReq2 0x000d
+_0807E5F8 0x00000010
+WaitForSomething2 0x00000020
+_0807F0B4 0x0004
+SetEntityPositionRelative 0x00700088
+CameraTargetEntity 
+Wait 0x003c
+_0807E5F8 0x00000004
+WaitForSomething2 0x00000008
+_0807F0B4 0x0004
+SetEntityPositionRelative 0x00e00088
+CameraTargetEntity 
+Wait 0x003c
+_0807E5F8 0x00000010
+WaitForSomething2 0x00000020
+_0807F0B4 0x0004
+SetEntityPositionRelative 0x00700088
+CameraTargetEntity 
+Wait 0x003c
+_0807E5F8 0x00000010
+WaitForSomething2 0x00000020
+_0807E5F8 0x00000004
+WaitForSomething2 0x00000008
+_0807E5F8 0x00000010
+WaitForSomething2 0x00000020
+_0807E778 0x0004
+DoFade5 
+WaitFor_2 
+_0807E5F8 0x00000010
+LoadRoomEntityList gUnk_080FCE30
+SoundReq0x80100000 
+Wait 0x0078
+_0807E778 0x0004
+DoFade4 
+WaitFor_2 
+SoundReq2 0x0034
+_0807E5F8 0x00000040
+WaitForSomething2 0x00000080
+_0807E5F8 0x00000001
+WaitForSomething2 0x00000002
+_0807E5F8 0x00000004
+WaitForSomething2 0x00000008
+_0807E5F8 0x00000200
+Wait 0x003c
+_0807E5F8 0x00000004
+WaitForSomething2 0x00000008
+_0807E778 0x0004
+DoFade5 
+WaitFor_2 
+SoundReq0x80100000 
+SetRoomFlag 0x0000
+_0807EF80 0x0006
+SCRIPT_END

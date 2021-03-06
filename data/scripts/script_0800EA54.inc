@@ -1,0 +1,326 @@
+SCRIPT_START script_0800EA54
+StartScript 
+Call sub_0806CE5C
+_0807EF80 0x000a
+_0807EB44 0x0004
+_0807E930 0x0008
+StopScript 
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+CallWithArg sub_0807F3D8, 0x00000004
+Call sub_0807F2D4
+_0807E930 0x0009
+Call sub_0806CE80
+_0807EA94 
+_0807E878 
+_0807E930 0x000a
+Call sub_0807F2D4
+_0807E930 0x0008
+Jump 0xffc8
+StartScript 
+_0807E9D4 
+Call sub_0806C09C
+_0807EF80 0x000a
+_0807E930 0x0000
+_0807EB44 0x0004
+StopScript 
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+StartScript 
+_0807E864 
+_0807EB74 
+CallWithArg sub_0806C028, 0x00000004
+StopScript 
+Call sub_0806C00C
+JumpIfNot 0xfff8
+_0807E930 0x0008
+Call sub_0806C038
+_0807EA94 
+Wait 0x000f
+_0807E878 
+_0807E930 0x0000
+Jump 0xffc6
+StartScript 
+Call sub_0806C870
+_0807EF80 0x000a
+_0807EB44 0x0004
+_0807E930 0x0000
+StopScript 
+_0807E30C 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+Call sub_0806C90C
+_0807EA94 
+Wait 0x000f
+_0807E878 
+Jump 0xffe6
+.short 0x0000
+StartScript 
+Call sub_08061E70
+_0807EF80 0x000a
+_0807EB44 0x0004
+Call sub_08061FD8
+StopScript 
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+Call sub_08061FD8
+Call sub_08062048
+_0807EA94 
+_0807E878 
+Jump 0xffe4
+.short 0x0000
+StartScript 
+Call sub_08061E70
+_0807EF80 0x000a
+_0807EB44 0x0006
+Call sub_08061FD8
+StopScript 
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+Call sub_08061FD8
+Call sub_08062048
+_0807EA94 
+_0807E878 
+_0807EB44 0x0006
+Call sub_08061FD8
+Jump 0xffda
+StartScript 
+Call sub_08061E70
+_0807EF80 0x000a
+_0807EB44 0x0002
+Call sub_08061FD8
+StopScript 
+Jump 0x0036
+StartScript 
+Call sub_08061E70
+_0807EF80 0x000a
+_0807EB44 0x0004
+Call sub_08061FD8
+StopScript 
+Jump 0x001a
+StartScript 
+Call sub_08061E70
+_0807EF80 0x000a
+_0807EB44 0x0006
+Call sub_08061FD8
+StopScript 
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+Call sub_08061FD8
+Call sub_08062048
+_0807EA94 
+_0807E878 
+Jump 0xffe4
+.short 0x0000
+StartScript 
+Call sub_08061E70
+_0807EF80 0x000a
+_0807EB44 0x0002
+Call sub_08061FD8
+StopScript 
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+Call sub_08061FD8
+Call sub_08062048
+_0807EA94 
+_0807E878 
+_0807EB44 0x0002
+Call sub_08061FD8
+Jump 0xffda
+StartScript 
+Call sub_08061E70
+_0807EF80 0x000a
+_0807EB44 0x0004
+Call sub_08061FD8
+StopScript 
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+Call sub_08061FD8
+Call sub_08062048
+_0807EA94 
+_0807E878 
+Jump 0xffe4
+.short 0x0000
+StartScript 
+_0807E9D4 
+CallWithArg sub_08061FB8, 0x00000001
+SetEntityNonPlanarMovement 0x0040
+_0807EF80 0x000a
+_0807EB44 0x0004
+_0807E930 0x0002
+StopScript 
+_0807EB44 0x0006
+_0807E930 0x0007
+_0807EDD4 0x0028, 0x0050
+Wait 0x001e
+_0807EB44 0x0004
+_0807E930 0x0002
+Wait 0x001e
+_0807EB44 0x0002
+_0807E930 0x0001
+Wait 0x001e
+_0807EB44 0x0002
+_0807E930 0x0005
+_0807EDD4 0x0048, 0x0050
+Wait 0x001e
+_0807EB44 0x0004
+_0807E930 0x0002
+Wait 0x001e
+_0807EB44 0x0006
+_0807E930 0x0003
+Wait 0x001e
+Jump 0xffaa
+StartScript 
+Call sub_080639D0
+_0807EF80 0x000a
+StopScript 
+StartScript 
+CallWithArg sub_08063850, 0x00000000
+StopScript 
+CheckEntityInteractType 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+CallWithArg sub_08063850, 0x00000000
+Call sub_08063944
+_0807EA94 
+JumpIfNot 0x0008
+_0807F050 0x0070
+WaitPlayerAction8 
+_0807E878 
+Call sub_08063874
+CallWithArg sub_08063850, 0x00000000
+Jump 0xffc6
+StartScript 
+Call sub_08064CC0
+_0807EF80 0x000a
+_0807EF80 0x0007
+_0807EB44 0x0002
+_0807E930 0x0000
+StopScript 
+_0807E944 
+_0807E864 
+_0807EB74 
+Call sub_08064CD8
+_0807EA94 
+Wait 0x000f
+_0807E878 
+Jump 0xffea
+.short 0x0000
+StartScript 
+_0807E9D4 
+_0807EF80 0x000a
+StopScript 
+StartScript 
+CheckEntityInteractType 
+JumpIf 0x0016
+TestBit 0x00000001
+JumpIf 0x0068
+Call sub_0806AEE4
+Jump 0xffe4
+StopScript 
+_0807E864 
+Call sub_0807DF28
+CheckLocalFlag 0x00ae
+JumpIf 0x0078
+Wait 0x000a
+_0807E5F8 0x00000001
+TextboxNoOverlapFollow 0x4c07
+_0807EA94 
+_0807E5F8 0x00000010
+TextboxNoOverlapFollow 0x4c08
+_0807EA94 
+_0807E5F8 0x00000020
+TextboxNoOverlapFollow 0x4c09
+_0807EA94 
+_0807E914 0x00000503
+Call sub_0807F420
+_0807E5F8 0x00000040
+Call sub_0807DF50
+_0807E878 
+SetLocalFlag 0x00ae
+Jump 0xff88
+StopScript 
+WaitForSomething2 0x00000002
+_0807EB44 0x0002
+CallWithArg sub_0806AF60, 0x00000008
+WaitForSomething2 0x00000004
+Call sub_0806AED8
+WaitForSomething2 0x00000008
+Jump 0xff5c
+TextboxNoOverlapFollow 0x4c16
+_0807EA94 
+Call sub_0807DF50
+_0807E878 
+Jump 0xff4a
+StartScript 
+_0807E9D4 
+_0807EF80 0x000a
+StopScript 
+StartScript 
+CheckEntityInteractType 
+JumpIf 0x0016
+TestBit 0x00000001
+JumpIf 0x0068
+Call sub_0806AEE4
+Jump 0xffe4
+StopScript 
+_0807E864 
+Call sub_0807DF28
+CheckLocalFlag 0x00ae
+JumpIf 0x0078
+Wait 0x000a
+_0807E5F8 0x00000001
+TextboxNoOverlapFollow 0x4c07
+_0807EA94 
+_0807E5F8 0x00000002
+TextboxNoOverlapFollow 0x4c08
+_0807EA94 
+_0807E5F8 0x00000004
+TextboxNoOverlapFollow 0x4c09
+_0807EA94 
+_0807E914 0x00000503
+Call sub_0807F420
+_0807E5F8 0x00000008
+Call sub_0807DF50
+_0807E878 
+SetLocalFlag 0x00ae
+Jump 0xff88
+StopScript 
+WaitForSomething2 0x00000010
+_0807EB44 0x0006
+CallWithArg sub_0806AF60, 0x00000008
+WaitForSomething2 0x00000020
+Call sub_0806AED8
+WaitForSomething2 0x00000040
+Jump 0xff5c
+TextboxNoOverlapFollow 0x4c15
+_0807EA94 
+Call sub_0807DF50
+_0807E878 
+Jump 0xff4a
+TextboxNoOverlapFollow 0x4c07
+_0807EA94 
+_0807E5F8 0x00000012
+Wait 0x000a
+TextboxNoOverlapFollow 0x4c08
+_0807EA94 
+_0807E5F8 0x00000024
+TextboxNoOverlapFollow 0x4c09
+_0807EA94 
+_0807E5F8 0x00000048
+Call sub_080791BC
+SCRIPT_END

@@ -34,8 +34,8 @@ POINTER_MAP = {
     'sub_08095458': 'nullsub_527',
     'sub_0805EBCC': 'DeleteAllEnemies',
     'sub_0806C23C': 'Simon_CreateChest',
-    'sub_0801637C': '0x0801637D', # TODO disassembly assembly code between scripts
-    'sub_08016383': '0x08016384', # TODO points to the end of the previous function?
+    'sub_0801637C': 'script_0801637C+1',
+    'sub_08016383': 'script_08016384',
     'sub_0806C598': 'FUN_0806c598',
     'sub_080A2138': 'Windcrest_Unlock',
     'sub_080A29BC': 'CreateDust'
@@ -48,22 +48,34 @@ def get_pointer(barray):
         return POINTER_MAP[pointer]
     return pointer
 
+# Data pointers that actually point to a script location
+DATA_MAP = {
+    'gUnk_08016384': 'script_08016384'
+}
 def get_data_pointer(barray):
     integers = struct.unpack('I', barray)
-    return 'gUnk_' + (struct.pack('>I', integers[0]).hex()).upper()
+    pointer = 'gUnk_' + (struct.pack('>I', integers[0]).hex()).upper()
+    if pointer in DATA_MAP:
+        return DATA_MAP[pointer]
+    return pointer
+
+def get_script_pointer(barray):
+    integers = struct.unpack('I', barray)
+    return 'script_' + (struct.pack('>I', integers[0]).hex()).upper()
+
 
 commands = [
-    {'fun': 'ScriptCommandNop', 'params': 'v'}, # TODO one version with length 33???
+    {'fun': 'ScriptCommandNop', 'params': ''},
     {'fun': 'ScriptCommand_StartScript', 'params': '', 'name': 'start executing scripts'},
     {'fun': 'ScriptCommand_StopScript', 'params': '', 'name': 'stop executing scripts'},
     {'fun': 'ScriptCommand_Jump', 'params': 's', 'name': 'jump by offset'},
     {'fun': 'ScriptCommand_JumpIf', 'params': 's', 'name': 'jump if'},
     {'fun': 'ScriptCommand_JumpIfNot', 'params': 's', 'name': 'jump if not'},
     {'fun': 'ScriptCommand_0807E078', 'params': ['ss', 'sss', 'ssss', 'sssssss', 'sssssssss']},
-    {'fun': 'ScriptCommand_JumpAbsolute', 'params': 'd','name': 'abs jump' },
-    {'fun': 'ScriptCommand_JumpAbsoluteIf', 'params': 'd', 'name': 'abs jump if'},
-    {'fun': 'ScriptCommand_JumpAbsoluteIfNot', 'params': 'd', 'name': 'abs jump if not'},
-    {'fun': 'ScriptCommand_0807E0E0', 'params': 'dd'},
+    {'fun': 'ScriptCommand_JumpAbsolute', 'params': 'x','name': 'abs jump' },
+    {'fun': 'ScriptCommand_JumpAbsoluteIf', 'params': 'x', 'name': 'abs jump if'},
+    {'fun': 'ScriptCommand_JumpAbsoluteIfNot', 'params': 'x', 'name': 'abs jump if not'},
+    {'fun': 'ScriptCommand_0807E0E0', 'params': 'xx'},
     {'fun': 'ScriptCommand_Call', 'params':'p', 'name': 'Execute function via pointer'},# 'exec': ScriptCommand_Call},
     {'fun': 'ScriptCommand_CallWithArg', 'params': ['pw', 'p']},
     {'fun': 'ScriptCommand_LoadRoomEntityList', 'params': 'd'},
@@ -124,7 +136,7 @@ commands = [
     {'fun': 'ScriptCommand_0807E878', 'params': ''},
     {'fun': 'ScriptCommand_0807E888', 'params': ''},
     {'fun': 'ScriptCommand_SetPlayerAction', 'params': 'w'},
-    {'fun': 'ScriptCommand_StartPlayerScript', 'params': 'd'},
+    {'fun': 'ScriptCommand_StartPlayerScript', 'params': 'x'},
     {'fun': 'ScriptCommand_0807E8D4', 'params': 's'},
     {'fun': 'ScriptCommand_0807E8E4_0', 'params': ''}, # duplicate
     {'fun': 'ScriptCommand_0807E8E4_1', 'params': ''}, # duplicate
@@ -194,8 +206,6 @@ commands = [
     {'fun': 'ScriptCommand_0807F0C8', 'params': 'ss'}
 ]
 
-# TODO replace variable parameters with parameter variants that explicitely define macros for all possibilities
-
 # definitions for parameters
 parameters = {
     '': {
@@ -264,30 +274,38 @@ parameters = {
         'expr': '	.word \w',
         'read': lambda ctx: get_data_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6])
     },
-    'pv': {
-        'length': -2,
+    'x': { # Script pointer
+        'length': 2,
         'param': 'w',
         'expr': '	.word \w',
-        'read': lambda ctx: ''
+        'read': lambda ctx: get_script_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6])
     },
+
     'pw': {
         'length': 4,
         'param': 'a,b',
         'expr': '	.word \\a\n	.word \\b',
         'read': lambda ctx: get_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6]) + ', ' + barray_to_u32_hex(ctx.data[ctx.ptr+6:ctx.ptr+14])[0]
     },
-    'dd': {
+    'xx': {
         'length': 4,
         'param': 'a, b',
         'expr': '	.word \\a\n	.word \\b',
-        'read': lambda ctx: get_data_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6]) + ', ' + get_data_pointer(ctx.data[ctx.ptr+6:ctx.ptr+10])
+        'read': lambda ctx: get_script_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6]) + ', ' + get_script_pointer(ctx.data[ctx.ptr+6:ctx.ptr+10])
     },
-    'v': { # variable parameter count (TODO why?)
-        'length': -1,
-        'param': '',
-        'expr': '',
-        'read': lambda ctx: ''
-    }
+    # Commands with variable parameter count are now handled by explicitely defining all used parameter configurations
+    # 'v': { 
+    #     'length': -1,
+    #     'param': '',
+    #     'expr': '',
+    #     'read': lambda ctx: ''
+    # },
+    # 'pv': {
+    #     'length': -2,
+    #     'param': 'w',
+    #     'expr': '	.word \w',
+    #     'read': lambda ctx: ''
+    # },
 }
 
 # Remove the ScriptCommand_ prefix for the asm macros

@@ -1,0 +1,55 @@
+SCRIPT_START script_080149CC
+StartScript 
+SetEntityNonPlanarMovement 0x0080
+Call sub_0806C870
+_0807EF80 0x000a
+StopScript 
+_0807E30C 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+Call sub_0806C90C
+_0807EA94 
+CheckLocalFlag 0x0064
+JumpIfNot 0x002a
+CheckLocalFlag 0x00b1
+JumpIf 0x0022
+SetLocalFlag 0x00b1
+_0807EF80 0x000b
+_0807EF80 0x0001
+_0807EDD4 0x0068, 0x00f8
+SoundReq 0x0072
+_0807EB74 
+_0807EF80 0x0000
+_0807EF80 0x000a
+_0807E878 
+Jump 0xffba
+.short 0x0000
+StartScript 
+Call sub_0806C870
+_0807EF80 0x000a
+StopScript 
+_0807E30C 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+Call sub_0806C90C
+_0807EA94 
+Wait 0x000f
+_0807E878 
+Jump 0xffe6
+.short 0x0000
+StartScript 
+Call sub_0806C870
+_0807EF80 0x000a
+StopScript 
+_0807E30C 
+JumpIfNot 0xfffc
+_0807E864 
+_0807EB74 
+Call sub_0806C90C
+_0807EA94 
+Wait 0x000f
+_0807E878 
+Jump 0xffe6
+.short 0x0000

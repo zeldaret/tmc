@@ -386,7 +386,7 @@ u32 sub_0804B7A8(void) {
     return 1;
 }
 
-extern void* gUnk_08010A5C[];
+extern void* script_08010A5C[];
 
 void sub_0804B7E8(void) {
     if (CheckLocalFlag(0x91)) {
@@ -394,7 +394,7 @@ void sub_0804B7E8(void) {
         DoFade(5, 0x100);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-        sub_080751E8(1, 2, &gUnk_08010A5C);
+        sub_080751E8(1, 2, &script_08010A5C);
     }
 }
 
@@ -420,7 +420,7 @@ void sub_0804B86C(void) {
         DoFade(5, 0x100);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-        sub_080751E8(1, 2, &gUnk_08010A5C);
+        sub_080751E8(1, 2, &script_08010A5C);
     }
 }
 
@@ -440,7 +440,7 @@ u32 sub_0804B8B0(void) {
     return 1;
 }
 
-extern void* gUnk_08010A5C[];
+extern void* script_08010A5C[];
 
 void sub_0804B8F0(void) {
     if (CheckLocalFlag(0x91)) {
@@ -448,7 +448,7 @@ void sub_0804B8F0(void) {
         DoFade(5, 0x100);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x60;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-        sub_080751E8(1, 2, &gUnk_08010A5C);
+        sub_080751E8(1, 2, &script_08010A5C);
     }
 }
 
@@ -648,14 +648,14 @@ u32 sub_0804BC50(void) {
     return 1;
 }
 
-extern u32 gUnk_08009E88;
+extern u32 script_08009E88;
 
 void sub_0804BC70(void) {
     if (!CheckLocalFlag(0x9f)) {
         DoFade(5, 0x100);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0xb0;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x40;
-        sub_080751E8(0, 6, &gUnk_08009E88);
+        sub_080751E8(0, 6, &script_08009E88);
     }
     if (!CheckGlobalFlag(TABIDACHI)) {
         sub_08052878();
@@ -4774,7 +4774,7 @@ u32 sub_0804E7D8() {
 
 extern EntityData gUnk_080F31D8;
 extern u8 gUnk_02000070;
-extern u32 gUnk_08009B30;
+extern u32 script_08009B30;
 
 void sub_0804E7DC(void) {
 
@@ -4782,7 +4782,7 @@ void sub_0804E7DC(void) {
         sub_080A71C4(5, 1, 4, 4);
         gUnk_02000070 = 0;
         DoFade(5, 0x100);
-        sub_080751E8(0, 6, &gUnk_08009B30);
+        sub_080751E8(0, 6, &script_08009B30);
     }
     if (!CheckGlobalFlag(OUTDOOR)) {
         gArea.musicIndex = gArea.pMusicIndex;
@@ -4793,12 +4793,12 @@ void sub_0804E7DC(void) {
     }
 }
 
-extern u32 gUnk_08009E58;
+extern u32 script_08009E58;
 
 void sub_0804E864(void) {
     gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x90;
     gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-    sub_080751E8(1, 6, &gUnk_08009E58);
+    sub_080751E8(1, 6, &script_08009E58);
     ModHealth(0xa0);
 }
 
@@ -5274,14 +5274,14 @@ u32 sub_0804EFDC(void) {
 }
 
 extern EntityData gUnk_080F5DD0;
-extern u32 gUnk_08011C50;
+extern u32 script_08011C50;
 
 void sub_0804EFF8(void) {
     if (gSave.unk8 > 7) {
         LoadRoomEntityList(&gUnk_080F5DD0);
     }
     if (CheckGlobalFlag(MAROYA_WAKEUP)) {
-        sub_080751E8(1, 2, &gUnk_08011C50);
+        sub_080751E8(1, 2, &script_08011C50);
     }
 }
 

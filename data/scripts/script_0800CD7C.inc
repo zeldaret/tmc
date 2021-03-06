@@ -1,0 +1,266 @@
+SCRIPT_START script_0800CD7C
+StartScript 
+CheckInventory1 0x005b
+JumpIfNot 0xf87a
+Call sub_08060090
+_0807EF80 0x000a
+StopScript 
+StopScript 
+StartScript 
+CheckEntityInteractType 
+JumpIf 0x000c
+Call sub_08060158
+Jump 0xffee
+StopScript 
+_0807E864 
+Call sub_0807DF28
+CheckLocalFlag 0x009d
+JumpIf 0x000e
+SetLocalFlag 0x009d
+TextboxNoOverlap 0x213d
+Jump 0x017e
+CheckGlobalFlag 0x003b
+JumpIf 0x007c
+CheckGlobalFlag 0x0054
+JumpIfNot 0x001a
+CheckRoomFlag 0x0000
+JumpIfNot 0x0150
+SetGlobalFlag 0x003b
+ClearGlobalFlag 0x0054
+TextboxNoOverlap 0x2141
+Jump 0x0156
+TextboxNoOverlap 0x213e
+_0807EA94 
+_0807E48C 0x0023
+JumpIfNot 0x001c
+TextboxNoOverlap 0x214b
+_0807EA94 
+_0807E3E8 
+JumpIfNot 0x013c
+SoundReq 0x00cd
+_0807F088 0x0023
+WaitPlayerAction8 
+Jump 0x0020
+_0807E48C 0x0022
+JumpIfNot 0x0126
+TextboxNoOverlap 0x214b
+_0807EA94 
+_0807E3E8 
+JumpIfNot 0x011a
+SoundReq 0x00cd
+_0807F088 0x0022
+WaitPlayerAction8 
+_0807EB8C 
+SetGlobalFlag 0x0054
+Call sub_08060340
+TextboxNoOverlap 0x213f
+Jump 0x00be
+CheckGlobalFlag 0x003c
+JumpIf 0x005a
+CheckGlobalFlag 0x0054
+JumpIfNot 0x001a
+CheckRoomFlag 0x0000
+JumpIfNot 0x00ce
+SetGlobalFlag 0x003c
+ClearGlobalFlag 0x0054
+TextboxNoOverlap 0x2145
+Jump 0x00d4
+TextboxNoOverlap 0x2142
+_0807EA94 
+_0807E48C 0x0027
+JumpIfNot 0x00c6
+TextboxNoOverlap 0x214c
+_0807EA94 
+_0807E3E8 
+JumpIfNot 0x00ba
+SoundReq 0x00cd
+_0807F088 0x0027
+WaitPlayerAction8 
+_0807EB8C 
+SetGlobalFlag 0x0054
+Call sub_08060340
+TextboxNoOverlap 0x2143
+Jump 0x005e
+CheckGlobalFlag 0x003d
+JumpIf 0x0090
+CheckGlobalFlag 0x0054
+JumpIfNot 0x001a
+CheckRoomFlag 0x0000
+JumpIfNot 0x006e
+SetGlobalFlag 0x003d
+ClearGlobalFlag 0x0054
+TextboxNoOverlap 0x2149
+Jump 0x0074
+TextboxNoOverlap 0x2146
+_0807EA94 
+_0807E48C 0x0024
+JumpIfNot 0x0066
+TextboxNoOverlap 0x214d
+_0807EA94 
+_0807E3E8 
+JumpIfNot 0x005a
+SoundReq 0x00cd
+_0807F088 0x0024
+WaitPlayerAction8 
+_0807EB8C 
+SetGlobalFlag 0x0054
+Call sub_08060340
+TextboxNoOverlap 0x2147
+_0807EA94 
+Call sub_0807DF50
+_0807E878 
+StopScript 
+StartScript 
+CheckEntityInteractType 
+JumpIf 0x000c
+Call sub_08060158
+Jump 0xffee
+StopScript 
+_0807E864 
+Call sub_0807DF28
+TextboxNoOverlap 0x2140
+_0807EA94 
+Call sub_0807DF50
+_0807E878 
+Jump 0xffd2
+TextboxNoOverlap 0x214a
+_0807EA94 
+Call sub_0807DF50
+_0807E878 
+Jump 0xfe46
+.short 0x0000
+StartScript 
+Call sub_08068104
+_0807EF80 0x000a
+StopScript 
+StartScript 
+CheckEntityInteractType 
+JumpIf 0x000e
+Call sub_0806811C
+StopScript 
+Jump 0xffee
+StopScript 
+_0807E864 
+Call sub_08068190
+_0807EA94 
+Wait 0x000f
+_0807E878 
+Jump 0xffd8
+StartScript 
+Call sub_08068104
+_0807EF80 0x000a
+StopScript 
+_0807E944 
+_0807E864 
+Call sub_08068190
+_0807EA94 
+Wait 0x000f
+_0807E878 
+Jump 0xffec
+StartScript 
+_0807E9D4 
+_0807EF80 0x000a
+_0807EB44 0x0004
+_0807E930 0x0000
+StopScript 
+CheckInventory1 0x0041
+JumpIf 0x000e
+CheckLocalFlag 0x007e
+JumpIfNot 0x0006
+_0807E930 0x0008
+CheckInventory1 0x0002
+JumpIf 0x0022
+CheckInventory1 0x0041
+JumpIfNot 0x000c
+_0807E5F8 0x00000020
+Jump 0x0010
+CheckLocalFlag 0x007e
+JumpIfNot 0x0008
+_0807E5F8 0x00000010
+StopScript 
+StartScript 
+Call sub_08068910
+CheckEntityInteractType 
+JumpIfNot 0xfff2
+StopScript 
+_0807E864 
+Call sub_0807DF28
+CheckInventory1 0x0002
+JumpIfNot 0x0018
+_0807EB74 
+_0807E914 0x00000000
+Call sub_0806C028
+TextboxNoOverlap 0x1219
+Jump 0x014c
+CheckInventory1 0x0041
+JumpIfNot 0x0060
+StartPlayerScript script_0800D190
+WaitForSomething2 0x00000008
+_0807EB74 
+_0807E914 0x00000000
+Call sub_0806C028
+TextboxNoOverlapFollowPos 0x0002125c
+_0807EA94 
+StartPlayerScript script_0800D1B4
+WaitForSomething2 0x00000008
+_0807EB44 0x0002
+_0807E914 0x00000000
+Call sub_0806C028
+Wait 0x000f
+_0807E5F8 0x00000020
+StartPlayerScript script_0800D1E0
+WaitForSomething2 0x00000008
+TextboxNoOverlapFollowPos 0x0002125d
+Jump 0x00e6
+CheckLocalFlag 0x007e
+JumpIfNot 0x000a
+TextboxNoOverlapFollow 0x123e
+Jump 0x00d6
+StartPlayerScript script_0800D190
+WaitForSomething2 0x00000008
+_0807E5F8 0x00000001
+WaitForSomething2 0x00000004
+_0807E5F8 0x00000001
+WaitForSomething2 0x00000004
+_0807EB74 
+_0807E914 0x00000000
+Call sub_0806C028
+TextboxNoOverlapFollowPos 0x0002123d
+_0807EA94 
+StartPlayerScript script_0800D1B4
+WaitForSomething2 0x00000008
+_0807EB44 0x0002
+_0807E914 0x00000000
+Call sub_0806C028
+SoundReq 0x00cd
+Call sub_08068964
+ComparePlayerAction 0x0008
+JumpIf 0xfffa
+SoundReq 0x00f8
+_0807E5F8 0x00000010
+SetLocalFlag 0x007e
+TextboxNoOverlapFollowPos 0x0002123e
+_0807EA94 
+Wait 0x000f
+_0807E930 0x0009
+_0807E5F8 0x00000002
+WaitForSomething2 0x00000004
+_0807E5F8 0x00000002
+WaitForSomething2 0x00000004
+Wait 0x001e
+TextboxNoOverlapFollowPos 0x0002123f
+_0807EA94 
+_0807E5F8 0x00000001
+WaitForSomething2 0x00000004
+_0807E5F8 0x00000001
+WaitForSomething2 0x00000004
+_0807E930 0x0008
+Wait 0x003c
+Call sub_08095164
+_0807EB28 0x1240
+_0807EA94 
+Wait 0x000f
+_0807E878 
+Call sub_0807DF50
+Jump 0xfe6e
+.short 0x0000

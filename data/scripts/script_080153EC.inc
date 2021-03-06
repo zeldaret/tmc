@@ -1,0 +1,36 @@
+SCRIPT_START script_080153EC
+StartScript 
+_0807F0B4 0x0007
+SetEntityPositionRelative 0x00680078
+CameraTargetEntity 
+StopScript 
+SoundReq2 0x002a
+_0807E778 0x0004
+DoFade4 
+WaitFor_2 
+Wait 0x003c
+_0807E5F8 0x00000080
+WaitForSomething2 0x00000100
+_0807E5F8 0x00000800
+WaitForSomething2 0x00001000
+_0807E5F8 0x00000880
+WaitForSomething2 0x00001100
+_0807F0B4 0x0004
+SetEntityPositionRelative 0x00900078
+TextboxNoOverlapFollowPos 0x00021330
+_0807EA94 
+_0807E5F8 0x00008000
+WaitForSomething2 0x00010000
+_0807E5F8 0x00000880
+WaitForSomething2 0x00001000
+Wait 0x003c
+TextboxNoOverlapFollowPos 0x0002130d
+_0807EA94 
+TextboxNoOverlapFollowPos 0x000c130e
+_0807EA94 
+TextboxNoOverlapFollowPos 0x0002130f
+_0807EA94 
+TextboxNoOverlapFollowPos 0x000c1310
+_0807EA94 
+CallWithArg sub_0805DDEC, 0x00000001
+_0807F0C8 0xffff, 0x0000

@@ -6,8 +6,8 @@
 #include "script.h"
 
 extern Hitbox gUnk_080FD170;
-extern void gUnk_08016030; // Cutscene data type?
-extern void gUnk_0801606C; // Cutscene data type?
+extern void script_08016030; // Cutscene data type?
+extern void script_0801606C; // Cutscene data type?
 
 extern void sub_0809623C(Entity*);
 extern void sub_08096260(Entity*);
@@ -219,12 +219,12 @@ void sub_0806DB84(Entity* this, u8 unused) {
     ent = CreateObject(0x3e, 4, 0);
     if (ent != NULL) {
         PositionRelative(this, ent, -0x80000, 0);
-        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &gUnk_08016030);
+        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_08016030);
     }
     ent = CreateObject(0x3e, 5, 0);
     if (ent != NULL) {
         PositionRelative(this, ent, 0x80000, 0);
-        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &gUnk_0801606C);
+        *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_0801606C);
     }
 }
 

@@ -300,7 +300,7 @@ _08034E8A:
 	beq _08034EBC
 	movs r0, #3
 	strb r0, [r4, #0xc]
-	ldr r1, _08034EB4 @ =gUnk_08012E20
+	ldr r1, _08034EB4 @ =script_08012E20
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r1, r4, #0
@@ -309,7 +309,7 @@ _08034E8A:
 	b _08034EBC
 	.align 2, 0
 _08034EB0: .4byte gScreenTransition
-_08034EB4: .4byte gUnk_08012E20
+_08034EB4: .4byte script_08012E20
 _08034EB8:
 	bl DeleteThisEntity
 _08034EBC:

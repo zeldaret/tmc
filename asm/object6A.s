@@ -204,7 +204,7 @@ sub_08094B94: @ 0x08094B94
 	bl CopyPosition
 	ldr r0, _08094BD8 @ =0x0000FFD0
 	strh r0, [r4, #0x36]
-	ldr r1, _08094BDC @ =gUnk_0800AEDC
+	ldr r1, _08094BDC @ =script_0800AEDC
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r1, r4, #0
@@ -223,7 +223,7 @@ _08094BD2:
 	.align 2, 0
 _08094BD4: .4byte gPlayerEntity
 _08094BD8: .4byte 0x0000FFD0
-_08094BDC: .4byte gUnk_0800AEDC
+_08094BDC: .4byte script_0800AEDC
 
 	thumb_func_start sub_08094BE0
 sub_08094BE0: @ 0x08094BE0
@@ -1073,7 +1073,7 @@ sub_08095244: @ 0x08095244
 	adds r0, r5, #0
 	adds r1, r4, #0
 	bl PositionRelative
-	ldr r1, _08095284 @ =gUnk_0801183C
+	ldr r1, _08095284 @ =script_0801183C
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r1, r4, #0
@@ -1083,7 +1083,7 @@ _0809527C:
 	pop {r4, r5, pc}
 	.align 2, 0
 _08095280: .4byte 0xFFF00000
-_08095284: .4byte gUnk_0801183C
+_08095284: .4byte script_0801183C
 
 	thumb_func_start sub_08095288
 sub_08095288: @ 0x08095288
@@ -1374,7 +1374,7 @@ sub_080954AC: @ 0x080954AC
 	adds r0, r5, #0
 	adds r1, r4, #0
 	bl CopyPosition
-	ldr r1, _080954D8 @ =gUnk_08015B14
+	ldr r1, _080954D8 @ =script_08015B14
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r1, r4, #0
@@ -1383,7 +1383,7 @@ sub_080954AC: @ 0x080954AC
 _080954D6:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080954D8: .4byte gUnk_08015B14
+_080954D8: .4byte script_08015B14
 
 	thumb_func_start sub_080954DC
 sub_080954DC: @ 0x080954DC
@@ -1821,7 +1821,7 @@ sub_08095810: @ 0x08095810
 	adds r0, r5, #0
 	adds r1, r4, #0
 	bl ResolveEntityOnTop
-	ldr r1, _08095848 @ =gUnk_08011940
+	ldr r1, _08095848 @ =script_08011940
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r1, r4, #0
@@ -1830,7 +1830,7 @@ sub_08095810: @ 0x08095810
 _08095844:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08095848: .4byte gUnk_08011940
+_08095848: .4byte script_08011940
 
 	thumb_func_start sub_0809584C
 sub_0809584C: @ 0x0809584C
@@ -1984,7 +1984,7 @@ sub_08095954: @ 0x08095954
 	bl PositionRelative
 	ldr r0, _080959B0 @ =0x0000FFFD
 	strh r0, [r4, #0x36]
-	ldr r1, _080959B4 @ =gUnk_08012C48
+	ldr r1, _080959B4 @ =script_08012C48
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r1, r4, #0
@@ -2003,7 +2003,7 @@ sub_08095954: @ 0x08095954
 	.align 2, 0
 _080959AC: .4byte gUnk_08122AF8
 _080959B0: .4byte 0x0000FFFD
-_080959B4: .4byte gUnk_08012C48
+_080959B4: .4byte script_08012C48
 _080959B8:
 	ldr r0, _080959C8 @ =gActiveScriptInfo
 	ldr r1, [r0]
