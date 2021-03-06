@@ -41,7 +41,7 @@ _0807E778 0x0004
 DoFade5 
 WaitFor_2 
 _0807E5F8 0x00000010
-LoadRoomEntityList 0x080fce30
+LoadRoomEntityList gUnk_080FCE30
 SoundReq0x80100000 
 Wait 0x0078
 _0807E778 0x0004

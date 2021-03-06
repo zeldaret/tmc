@@ -1,7 +1,7 @@
 SCRIPT_START gUnk_08009464
 Wait 0x003c
 _0807F0C8 0x0000, 0x0000
-LoadRoomEntityList 0x080f9c58
+LoadRoomEntityList gUnk_080F9C58
 Wait 0x003c
 Call sub_0806D70C
 Wait 0x003c

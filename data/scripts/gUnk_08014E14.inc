@@ -217,7 +217,7 @@ WaitForSomething2 0x00000001
 SoundReq 0x01b0
 Call sub_0804F79C
 Wait 0x000a
-LoadRoomEntityList 0x080f7fc0
+LoadRoomEntityList gUnk_080F7FC0
 SoundReq2 0x002d
 Call sub_0807DF50
 _0807E878 
@@ -278,7 +278,7 @@ _0807E80C 0x00000000
 StopScript 
 StartPlayerScript gUnk_08015360
 WaitForSomething2 0x00000001
-LoadRoomEntityList 0x080f7cb0
+LoadRoomEntityList gUnk_080F7CB0
 _0807E778 0x0004
 _0807E800 0x00000000
 WaitFor_2 

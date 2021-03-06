@@ -9,7 +9,7 @@ ClearLocalFlag 0x0039
 _0807EF80 0x0000
 _0807EF80 0x0004
 Wait 0x002c
-LoadRoomEntityList 0x080da260
+LoadRoomEntityList gUnk_080DA260
 Wait 0x001e
 _0807E5F8 0x00000001
 Call sub_0807921C

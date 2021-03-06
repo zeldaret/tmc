@@ -20,7 +20,7 @@ CheckInventory1 0x0017
 JumpIf 0x0018
 CheckLocalFlag 0x0045
 JumpIf 0x0010
-LoadRoomEntityList 0x080e3830
+LoadRoomEntityList gUnk_080E3830
 CheckLocalFlag 0x0045
 JumpIfNot 0xfffa
 Call sub_0807DF50

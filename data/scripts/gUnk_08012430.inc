@@ -45,7 +45,7 @@ WaitFor_2
 .short 0x0000
 @ End of parameters
 Call sub_080791BC
-LoadRoomEntityList 0x080f4d70
+LoadRoomEntityList gUnk_080F4D70
 Call DeleteAllEnemies
 SetEntityPositionRelative 0x01680388
 Call sub_0807F844
@@ -110,7 +110,7 @@ SoundReq2 0x0033
 Call sub_0807DF50
 _0807E878 
 _0807E5F8 0x00000050
-LoadRoomEntityList 0x080f51d0
+LoadRoomEntityList gUnk_080F51D0
 WaitForSomething2 0x00000008
 _0807E864 
 Call sub_0807FA40

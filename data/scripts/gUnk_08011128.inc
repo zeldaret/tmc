@@ -5,7 +5,7 @@ _0807EF80 0x0000
 StopScript 
 CheckPlayerInRegion 0x01f8, 0x0048, 0x1040
 JumpIfNot 0xfff6
-LoadRoomEntityList 0x080f06b0
+LoadRoomEntityList gUnk_080F06B0
 _0807EF80 0x000b
 WaitForSomething2 0x00000004
 SetEntityPositionRelative 0x005801b8

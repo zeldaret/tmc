@@ -162,6 +162,6 @@ Call sub_0806DAE8
 Wait 0x0078
 Call sub_0806DB44
 JumpIfNot 0x000e
-LoadRoomEntityList 0x080dd730
+LoadRoomEntityList gUnk_080DD730
 _0807EF80 0x0006
 SCRIPT_END

@@ -19,7 +19,7 @@ WaitForSomething2 0x00000002
 _0807E778 0x0004
 DoFade5 
 WaitFor_2 
-LoadRoomEntityList 0x080f5680
+LoadRoomEntityList gUnk_080F5680
 StartPlayerScript gUnk_08013330
 WaitForSomething2 0x00000002
 MoveEntityToPlayer 

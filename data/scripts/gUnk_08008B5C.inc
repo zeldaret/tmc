@@ -60,7 +60,7 @@ Call sub_0806BB7C
 JumpIfNot 0x0048
 TextboxNoOverlap 0x490c
 _0807EA94 
-LoadRoomEntityList 0x080d6784
+LoadRoomEntityList gUnk_080D6784
 WaitForSomething 0x00000001
 WaitForSomething 0x00000004
 Wait 0x000f

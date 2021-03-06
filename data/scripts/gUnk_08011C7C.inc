@@ -513,7 +513,7 @@ Call sub_08061FD8
 _0807EF80 0x000b
 Call sub_08061FB0
 Call sub_08061F94
-LoadRoomEntityList 0x080f2758
+LoadRoomEntityList gUnk_080F2758
 _0807EF80 0x0008
 Wait 0x003c
 SoundReq 0x0072

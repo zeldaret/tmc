@@ -81,7 +81,7 @@ JumpIfNot 0xfff6
 _0807E864 
 Call sub_0807F9A4
 Call sub_0807DF28
-LoadRoomEntityList 0x080ee8ac
+LoadRoomEntityList gUnk_080EE8AC
 StartPlayerScript gUnk_0800F14C
 WaitForSomething2 0x00000001
 _0807E5F8 0x0000001e

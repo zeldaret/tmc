@@ -26,7 +26,7 @@ JumpIfNot 0xff80
 Wait 0x001e
 TextboxNoOverlap 0x1d08
 _0807EA94 
-LoadRoomEntityList 0x080f9c38
+LoadRoomEntityList gUnk_080F9C38
 Wait 0x0078
 Call sub_0806D6D0
 Wait 0x00b4

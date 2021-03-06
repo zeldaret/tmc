@@ -66,7 +66,7 @@ commands = [
     {'fun': 'ScriptCommand_0807E0E0', 'params': 'dd'},
     {'fun': 'ScriptCommand_Call', 'params':'p', 'name': 'Execute function via pointer'},# 'exec': ScriptCommand_Call},
     {'fun': 'ScriptCommand_CallWithArg', 'params': 'pv'},
-    {'fun': 'ScriptCommand_LoadRoomEntityList', 'params': 'w'}, # TODO return to d and create labels for them
+    {'fun': 'ScriptCommand_LoadRoomEntityList', 'params': 'd'},
     {'fun': 'ScriptCommand_TestBit', 'params': 'w'},
     {'fun': 'ScriptCommand_CheckInventory1', 'params': 's'},
     {'fun': 'ScriptCommand_CheckInventory2', 'params': 's'},

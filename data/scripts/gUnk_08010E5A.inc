@@ -30,7 +30,7 @@ WaitFor_2
 Wait 0x003c
 SoundReq 0x00ab
 SoundReq 0x01c2
-LoadRoomEntityList 0x080f0770
+LoadRoomEntityList gUnk_080F0770
 _0807E5F8 0x00000010
 WaitForSomething2 0x00000020
 _0807E778 0x0002

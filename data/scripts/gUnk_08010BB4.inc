@@ -53,7 +53,7 @@ Call sub_08064180
 Call sub_08064180
 Call sub_08064180
 Call sub_08064180
-LoadRoomEntityList 0x080f06e0
+LoadRoomEntityList gUnk_080F06E0
 _0807E5F8 0x00000004
 WaitForSomething2 0x00000008
 StartPlayerScript gUnk_08011098

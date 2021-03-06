@@ -18,7 +18,7 @@ Call 0x08016384
 .short 0x5678
 .short 0x1234
 @ End of parameters
-LoadRoomEntityList 0x08016384
+LoadRoomEntityList gUnk_08016384
 TestBit 0x00000001
 CheckInventory1 0x0001
 CheckInventory2 0x0001

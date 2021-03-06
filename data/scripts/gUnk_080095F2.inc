@@ -61,7 +61,7 @@ StartPlayerScript gUnk_08009704
 WaitForSomething2 0x00000001
 SoundReq 0x0111
 _0807EF80 0x0008
-LoadRoomEntityList 0x080d9048
+LoadRoomEntityList gUnk_080D9048
 Wait 0x000f
 SoundReq 0x0111
 _0807EF80 0x0007
