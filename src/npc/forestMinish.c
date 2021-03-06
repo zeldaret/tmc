@@ -224,11 +224,11 @@ void sub_080602BC(Entity* this) {
     TextboxNoOverlap(gUnk_0810A362[index], this);
 }
 
-void sub_0806030C(Entity* this, u32* arg1) {
-    ModBombs(*(arg1 + 1));
+void sub_0806030C(Entity* this, ScriptExecutionContext* context) {
+    ModBombs(context->unk_04);
 }
 
-void sub_08060318(void) {
+void sub_08060318() {
     Entity* ent;
     int i;
 
@@ -241,11 +241,11 @@ void sub_08060318(void) {
     }
 }
 
-void sub_08060340(void) {
+void sub_08060340() {
     gSave.unk490 = gSave.unk50;
 }
 
-u32 sub_08060354(void) {
+u32 sub_08060354() {
     u32 iVar1;
     s32 iVar2;
 

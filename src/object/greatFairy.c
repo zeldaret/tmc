@@ -6,6 +6,7 @@
 #include "greatFairy.h"
 #include "functions.h"
 #include "save.h"
+#include "script.h"
 
 enum {
     BEHAVIORS,
@@ -517,7 +518,7 @@ void sub_080873D0(Entity* this) {
     }
 }
 
-void sub_080873FC(void) {
+void sub_080873FC() {
     Entity* ent;
 
     SoundReq(0xf7);
@@ -528,7 +529,7 @@ void sub_080873FC(void) {
     }
 }
 
-void sub_08087424(Entity* arg0, struct_08087424* arg1) {
+void sub_08087424(Entity* this, ScriptExecutionContext* context) {
     Entity* ent;
 
     sub_080791D0();
@@ -539,9 +540,9 @@ void sub_08087424(Entity* arg0, struct_08087424* arg1) {
         sub_0805E3A0(ent, 2);
     }
 
-    switch (arg1->unk4) {
+    switch (context->unk_04) {
         case 0:
-            gSave.stats.arrowCount = arg1->unk4;
+            gSave.stats.arrowCount = 0;
             break;
         case 1:
             gSave.stats.bombCount = 0;
@@ -549,14 +550,14 @@ void sub_08087424(Entity* arg0, struct_08087424* arg1) {
     }
 }
 
-void sub_0808747C(u32 arg0, u32 arg1) {
-    u32 iVar1;
+void sub_0808747C(Entity* this, ScriptExecutionContext* context) {
+    u32 iVar1 = 0;
 
     iVar1 = (u32)FindEntityInListByForm(0x6, 0xf, 0x6, 0xb, 0x0);
     if (iVar1 != 0) {
         iVar1 = 1;
     }
-    *(u32*)(arg1 + 0x14) = iVar1;
+    context->condition = iVar1;
 }
 
 // clang-format off

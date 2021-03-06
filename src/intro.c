@@ -212,7 +212,6 @@ static void UpdatePressStartIcon(void) {
     gOamCmd.x = 120;
     gOamCmd.y = 152;
     sub_080ADA14(511, 1);
-    return;
 }
 
 static void UpdateSwordBgAffineData(void) {

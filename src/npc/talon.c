@@ -134,12 +134,12 @@ void sub_0806574C(Entity* this) {
     this->field_0x6a.HALF.LO = this->animIndex;
 }
 
-void sub_08065780(Entity* this, u16* param_2) {
+void sub_08065780(Entity* this, ScriptExecutionContext* context) {
     u32 rand;
 
     rand = Random();
     this->animationState = rand & 6;
-    param_2[8] = gUnk_0810FED8[rand >> 8 & 7];
+    context->wait = gUnk_0810FED8[rand >> 8 & 7];
 }
 
 void Talon_Head(Entity* this) {

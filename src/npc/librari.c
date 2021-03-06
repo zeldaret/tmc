@@ -37,15 +37,15 @@ void Librari(Entity* this) {
     }
 }
 
-void sub_0806B260(Entity* this, u32 arg1) {
+void sub_0806B260(Entity* this, ScriptExecutionContext* context) {
     u32 index;
 
-    *(u32*)(arg1 + 0x14) = 0;
+    context->condition = 0;
     // flippers
     if (!GetInventoryValue(0x46)) {
         if (CheckGlobalFlag(0x29)) {
             index = 2;
-            *(u32*)(arg1 + 0x14) = 1;
+            context->condition = 1;
         } else if (!CheckLocalFlag(0x7a)) {
             index = 0;
             SetLocalFlag(0x7a);

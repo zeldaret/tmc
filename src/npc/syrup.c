@@ -56,8 +56,8 @@ void sub_0806A26C(Entity* this) {
         if (uVar2 = Random(), uVar2) {
             unk = -unk; // wtf?!
         }
-        pEVar1->spriteOffsetX = gUnk_081121DC[uVar2 & 7];
-        pEVar1->spriteOffsetY = gUnk_081121DC[(uVar2 / 256) & 7] - 8;
+        pEVar1->spriteOffsetX = gUnk_081121D4[uVar2 & 7];
+        pEVar1->spriteOffsetY = gUnk_081121D4[(uVar2 / 256) & 7] - 8;
     }
 }
 #else

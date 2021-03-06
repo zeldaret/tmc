@@ -39,35 +39,21 @@ void EzloCap(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-typedef struct {
-    u8 unk_00[4];
-    u32 field_04;
-    u32 field_08;
-    u8 unk_0c[8];
-    u32 field_14;
-    u8 unk_18;
-    u8 field_19;
-    u8 unk_1a[3];
-    u16 field_1e;
-    u8 unk_20[2];
-    u16 field_22;
-} paramStruct;
-
-void sub_0806D8A0(Entity* this, paramStruct* param_2) {
+void sub_0806D8A0(Entity* this, ScriptExecutionContext* context) {
     s32 xOffset;
     s32 yOffset;
 
-    param_2->field_19 = 8;
-    param_2->field_08 |= 2;
-    param_2->field_14 = 0;
+    context->unk_19 = 8;
+    context->unk_08 |= 2;
+    context->condition = 0;
     xOffset = 16;
     if (this->spriteSettings.b.flipX) {
         xOffset = -xOffset;
     }
     xOffset += gPlayerEntity.x.HALF.HI;
     yOffset = gPlayerEntity.y.HALF.HI + 2;
-    param_2->field_1e = xOffset;
-    param_2->field_22 = yOffset;
+    context->unk_1C.HALF.HI = xOffset;
+    context->unk_20.HALF.HI = yOffset;
 
     xOffset -= this->x.HALF.HI;
     this->direction = sub_080045DA(xOffset, yOffset - this->y.HALF.HI);
@@ -119,15 +105,15 @@ void NPC4E(Entity* this) {
     }
 }
 
-void sub_0806DA04(Entity* this, u32* param_2) {
+void sub_0806DA04(Entity* this, ScriptExecutionContext* context) {
     // TODO gUnk_0811415C should be a gUnk_0810C89C_struct[], but then a lot of bytes everywhere are wrong?
     gUnk_0810C89C_struct* a = (gUnk_0810C89C_struct*)&(
-        (gUnk_0810C89C_struct*)gUnk_0811415C)[param_2[1]]; // cast necessary to no longer make it a const* ?
+        (gUnk_0810C89C_struct*)gUnk_0811415C)[context->unk_04]; // cast necessary to no longer make it a const* ?
     sub_08078850(this, 1, a->unk_04, a);
 }
 
-void sub_0806DA1C(Entity* this, u32* param_2) {
-    sub_0808091C((ScreenTransitionData*)(gUnk_081141A4)[param_2[1]], (u32)(gUnk_081141E4[param_2[1]]));
+void sub_0806DA1C(Entity* this, ScriptExecutionContext* context) {
+    sub_0808091C((ScreenTransitionData*)(gUnk_081141A4)[context->unk_04], (u32)(gUnk_081141E4[context->unk_04]));
 }
 
 // Returns the kinstone id?
@@ -168,10 +154,8 @@ u8 sub_0806DA3C(Entity* this) {
 }
 
 // Check whether a kinstone fusion is possible and store the result somewhere in param_2?
-void sub_0806DAAC(Entity* this, u32* param_2) {
-    u32 uVar1;
-    uVar1 = CheckKinstoneFused(sub_0806DA3C(this));
-    param_2[5] = uVar1;
+void sub_0806DAAC(Entity* this, ScriptExecutionContext* context) {
+    context->condition = CheckKinstoneFused(sub_0806DA3C(this));
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -202,18 +186,16 @@ void sub_0806DAE8(Entity* this) {
     SoundReq(0xcd);
 }
 
-// Unknown param_2 struct
-void sub_0806DB44(Entity* this, u32* param_2) {
-    param_2[5] = 0;
+void sub_0806DB44(Entity* this, ScriptExecutionContext* context) {
+    context->condition = 0;
 
     if (CheckLocalFlag(0xee) != 0 && CheckLocalFlag(0xef) != 0 && CheckLocalFlag(0xf0) != 0 &&
         CheckLocalFlag(0xf1) != 0 && CheckLocalFlag(0xf2) != 0) {
-        param_2[5] = 1;
+        context->condition = 1;
     }
 }
 
-// The unused param just had to be added, so that a mov r1, #0 in NPC4E_Fusion is matching correctly
-void sub_0806DB84(Entity* this, u8 unused) {
+void sub_0806DB84(Entity* this, ScriptExecutionContext* context) {
     Entity* ent;
     this->hitbox = (Hitbox*)&gUnk_08114154;
     ent = CreateObject(0x3e, 4, 0);

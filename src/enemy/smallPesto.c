@@ -101,7 +101,6 @@ void sub_08031770(Entity* this) {
             this->attachedEntity = NULL;
         }
     }
-    return;
 }
 
 void sub_080317B4(Entity* this) {

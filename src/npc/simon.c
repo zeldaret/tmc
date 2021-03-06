@@ -27,7 +27,7 @@ void Simon(Entity* this) {
     }
 }
 
-void sub_0806C224(void) {
+void sub_0806C224() {
     DoExitTransition(&gUnk_0813AD60);
     gScreenTransition.transitionType = 6;
 }
@@ -38,14 +38,14 @@ void Simon_CreateChest(Entity* this) {
     SoundReq(0x73);
 }
 
-void sub_0806C280(void) {
+void sub_0806C280() {
     SetGlobalFlag(MAROYA_WAKEUP);
     DoExitTransition(&gUnk_0813AD74);
     gScreenTransition.transitionType = 6;
 }
 
-void sub_0806C2A0(u32* param_1, struct_0806C2A0* param_2) {
-    switch (param_2->unk) {
+void sub_0806C2A0(Entity* this, ScriptExecutionContext* context) {
+    switch (context->unk_04) {
         case 0:
             DoFade(0xd, 4);
             break;

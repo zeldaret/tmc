@@ -174,11 +174,10 @@ static u8 sub_08086954(Entity* this) {
     return this->actionDelay;
 }
 
-// TODO: Second arg is some unknown struct.
-void sub_080869A4(Entity* entityA, u32* entityB) {
-    entityB[5] = 0;
-    if (!sub_08086954(entityA)) {
-        entityA->actionDelay = 8;
-        entityB[5] = 1;
+void sub_080869A4(Entity* this, ScriptExecutionContext* context) {
+    context->condition = 0;
+    if (!sub_08086954(this)) {
+        this->actionDelay = 8;
+        context->condition = 1;
     }
 }

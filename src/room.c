@@ -10,6 +10,7 @@
 #include "main.h"
 #include "structures.h"
 #include "save.h"
+#include "script.h"
 
 void sub_0804B3C4(void* arg0) {
     sub_0804B29C(arg0);
@@ -981,7 +982,7 @@ void sub_0804BF38(u32 arg0, struct_0804BF38* arg1)
 }
 #else
 NAKED
-void sub_0804BF38(u32 arg0, void* arg1) {
+void sub_0804BF38(Entity* this, ScriptExecutionContext* context) {
     asm(".include \"asm/non_matching/sub_0804BF38.inc\"");
 }
 #endif
@@ -3568,7 +3569,7 @@ void sub_0804D780(void) {
 
 extern u16 gUnk_080EAE00;
 
-void sub_0804D7EC(void) {
+void sub_0804D7EC() {
     u16 temp;
     u16* tilePos;
 
@@ -3580,7 +3581,7 @@ void sub_0804D7EC(void) {
     }
 }
 
-void sub_0804D810(void) {
+void sub_0804D810() {
     u16 uVar1;
     u16* puVar2;
 
@@ -4795,7 +4796,7 @@ void sub_0804E7DC(void) {
 
 extern u32 script_08009E58;
 
-void sub_0804E864(void) {
+void sub_0804E864() {
     gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x90;
     gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
     sub_080751E8(1, 6, &script_08009E58);
@@ -5680,35 +5681,35 @@ void sub_0804F680(Entity* parent, s32 x, s32 y) {
     }
 }
 
-void sub_0804F6A8(Entity* arg0) {
-    sub_0804F680(arg0, 0x1d8, 0x108);
-    sub_0804F680(arg0, 0x218, 0x188);
+void sub_0804F6A8(Entity* this) {
+    sub_0804F680(this, 0x1d8, 0x108);
+    sub_0804F680(this, 0x218, 0x188);
 }
 
-void sub_0804F6C8(Entity* arg0) {
-    sub_0804F680(arg0, 0x1e8, 0x108);
-    sub_0804F680(arg0, 0x208, 0x188);
+void sub_0804F6C8(Entity* this) {
+    sub_0804F680(this, 0x1e8, 0x108);
+    sub_0804F680(this, 0x208, 0x188);
 }
 
-void sub_0804F6E8(Entity* arg0) {
-    sub_0804F680(arg0, 0x1f8, 0x108);
-    sub_0804F680(arg0, 0x258, 0x138);
-    sub_0804F680(arg0, 0x1f8, 0x188);
-    sub_0804F680(arg0, 0x198, 0x158);
+void sub_0804F6E8(Entity* this) {
+    sub_0804F680(this, 0x1f8, 0x108);
+    sub_0804F680(this, 0x258, 0x138);
+    sub_0804F680(this, 0x1f8, 0x188);
+    sub_0804F680(this, 0x198, 0x158);
 }
 
-void sub_0804F724(Entity* arg0) {
-    sub_0804F680(arg0, 0x208, 0x108);
-    sub_0804F680(arg0, 0x258, 0x148);
-    sub_0804F680(arg0, 0x1e8, 0x188);
-    sub_0804F680(arg0, 0x198, 0x148);
+void sub_0804F724(Entity* this) {
+    sub_0804F680(this, 0x208, 0x108);
+    sub_0804F680(this, 0x258, 0x148);
+    sub_0804F680(this, 0x1e8, 0x188);
+    sub_0804F680(this, 0x198, 0x148);
 }
 
-void sub_0804F760(Entity* arg0) {
-    sub_0804F680(arg0, 0x218, 0x108);
-    sub_0804F680(arg0, 0x258, 0x158);
-    sub_0804F680(arg0, 0x1d8, 0x188);
-    sub_0804F680(arg0, 0x198, 0x138);
+void sub_0804F760(Entity* this) {
+    sub_0804F680(this, 0x218, 0x108);
+    sub_0804F680(this, 0x258, 0x158);
+    sub_0804F680(this, 0x1d8, 0x188);
+    sub_0804F680(this, 0x198, 0x138);
 }
 
 void sub_0804F79C(Entity* parent) {
@@ -5728,62 +5729,62 @@ void sub_0804F79C(Entity* parent) {
     }
 }
 
-void sub_0804F808(void) {
+void sub_0804F808() {
     SetTileType(0x1d3, 0x41d, 1);
     SetTileType(0x1d3, 0x621, 1);
 }
 
-void sub_0804F830(void) {
+void sub_0804F830() {
     SetTileType(0x1d4, 0x41e, 1);
     SetTileType(0x1d4, 0x620, 1);
 }
 
-void sub_0804F854(void) {
+void sub_0804F854() {
     SetTileType(0x1d5, 0x41f, 1);
     SetTileType(0x1d4, 0x4e5, 1);
     SetTileType(0x1d5, 0x61f, 1);
     SetTileType(0x1d4, 0x559, 1);
 }
 
-void sub_0804F89C(void) {
+void sub_0804F89C() {
     SetTileType(0x1d6, 0x420, 1);
     SetTileType(0x1d5, 0x525, 1);
     SetTileType(0x1d6, 0x61e, 1);
     SetTileType(0x1d5, 0x519, 1);
 }
 
-void sub_0804F8E0(void) {
+void sub_0804F8E0() {
     SetTileType(0x1d3, 0x421, 1);
     SetTileType(0x1d6, 0x565, 1);
     SetTileType(0x1d3, 0x61d, 1);
     SetTileType(0x1d6, 0x4d9, 1);
 }
 
-void sub_0804F928(void) {
+void sub_0804F928() {
     sub_0807BA8C(0x41d, 1);
     sub_0807BA8C(0x621, 1);
 }
 
-void sub_0804F944(void) {
+void sub_0804F944() {
     sub_0807BA8C(0x41e, 1);
     sub_0807BA8C(0x620, 1);
 }
 
-void sub_0804F960(void) {
+void sub_0804F960() {
     sub_0807BA8C(0x41f, 1);
     sub_0807BA8C(0x4e5, 1);
     sub_0807BA8C(0x61f, 1);
     sub_0807BA8C(0x559, 1);
 }
 
-void sub_0804F994(void) {
+void sub_0804F994() {
     sub_0807BA8C(0x420, 1);
     sub_0807BA8C(0x525, 1);
     sub_0807BA8C(0x61e, 1);
     sub_0807BA8C(0x519, 1);
 }
 
-void sub_0804F9C8(void) {
+void sub_0804F9C8() {
     sub_0807BA8C(0x421, 1);
     sub_0807BA8C(0x565, 1);
     sub_0807BA8C(0x61d, 1);

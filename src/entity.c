@@ -122,7 +122,6 @@ void ClearAllDeletedEntities(void) {
             ClearDeletedEntity(ent);
         }
     } while (ent++, ent < (&gPlayerEntity + 80));
-    return;
 }
 
 extern u8 gEntCount;

@@ -74,9 +74,7 @@ void sub_08062CA4(Entity* ent) {
 }
 
 void sub_08062CBC(Entity* ent) {
-    u32 uVar1;
-
-    uVar1 = CheckKinstoneFused(44);
+    u32 uVar1 = CheckKinstoneFused(44);
     ShowNPCDialogue(ent, &gUnk_0810C2E4[(-uVar1 | uVar1) >> 31]);
 }
 

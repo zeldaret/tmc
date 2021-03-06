@@ -6,25 +6,19 @@
 #include "sprite.h"
 #include "textbox.h"
 #include "npc.h"
+#include "script.h"
 
 extern void sub_0805E3A0(Entity*, u32);
 extern void sub_0807DD50(Entity*);
 extern u32 sub_0806F5A4(u32);
 extern void sub_0806F118(Entity*);
-extern void sub_0807DD94(Entity*, u32);
 extern u32 sub_0801E99C(void);
 extern void sub_08078784(Entity*, u32);
 
 extern u16 gUnk_08113344[];
 extern u16 gUnk_0811334A[];
 
-typedef struct {
-    u8 filler[18];
-    u32 unk;
-} struct_0806BE84;
-
 void Dampe(Entity* this) {
-
     switch (this->action) {
         case 0:
             this->action = 1;
@@ -47,7 +41,6 @@ void Dampe(Entity* this) {
             if (UpdateFuseInteraction(this)) {
                 this->action = 1;
             }
-        default:
     }
 }
 
@@ -66,15 +59,15 @@ void Dampe_Fusion(Entity* this) {
     }
 }
 
-void sub_0806BE84(Entity* this, struct_0806BE84* r1) {
+void sub_0806BE84(Entity* this, ScriptExecutionContext* context) {
     u32 msgIndex;
 
-    r1->unk = 0;
+    context->condition = 0;
     msgIndex = 1;
     if (!CheckLocalFlag(0x69)) {
         msgIndex = 0;
         SetLocalFlag(0x69);
-        r1->unk = 1;
+        context->condition = 1;
     }
     // Graveyard key
     if (GetInventoryValue(0x3C) >= 2) {
@@ -83,16 +76,16 @@ void sub_0806BE84(Entity* this, struct_0806BE84* r1) {
     TextboxNoOverlap(gUnk_08113344[msgIndex], this);
 }
 
-void sub_0806BEC8(Entity* this, struct_0806BE84* r1) {
+void sub_0806BEC8(Entity* this, ScriptExecutionContext* context) {
     u32 hasGraveyardKey;
     u32 msgIndex;
 
     msgIndex = 0;
-    r1->unk = 0;
+    context->condition = 0;
     hasGraveyardKey = GetInventoryValue(0x3C);
     if (hasGraveyardKey == 1) {
         msgIndex = 1;
-        r1->unk = 1;
+        context->condition = 1;
     } else if (hasGraveyardKey >= 2) {
         msgIndex = 2;
     }
@@ -107,10 +100,10 @@ void sub_0806BEFC() {
     SetTileType(0x181, 0x5CF, 1);
 }
 
-void sub_0806BF44(Entity* this, struct_0806BE84* r1) {
-    r1->unk = 0;
+void sub_0806BF44(Entity* this, ScriptExecutionContext* context) {
+    context->condition = 0;
     if (((this->x.HALF.HI - gRoomControls.roomScrollX) + 0x10U < 0x110) &&
         ((this->y.HALF.HI - gRoomControls.roomScrollY) + 0x18U < 0xD0)) {
-        r1->unk = 1;
+        context->condition = 1;
     }
 }

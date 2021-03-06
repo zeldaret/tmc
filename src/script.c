@@ -579,18 +579,18 @@ void sub_0807DEDC(Entity* entity, ScriptExecutionContext* context, u32 arg2, u32
     entity->animationState = (entity->animationState & 0x80) | gUnk_0811E514[(u32)(temp << 0x18) >> 0x1c];
 }
 
-void sub_0807DF28(void) {
+void sub_0807DF28() {
     sub_0807DF38();
     sub_08079184();
     sub_08077B20();
 }
 
-void sub_0807DF38(void) {
+void sub_0807DF38() {
     gUnk_0200AF00.filler0[1] = 0xff;
     gUnk_02034490[0] = 0xff;
 }
 
-void sub_0807DF50(void) {
+void sub_0807DF50() {
     gUnk_02034490[0] = 0;
     gUnk_0200AF00.filler0[1] = 0;
     sub_0801C4A0(0);

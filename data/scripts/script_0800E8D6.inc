@@ -11,5 +11,5 @@ script_0800E8D6:
 	SetLocalFlag 0x0091
 	TextboxNoOverlapFollow 0x4508
 	_0807EA94 
-	Call FUN_0806c598
+	Call sub_0806C598
 SCRIPT_END

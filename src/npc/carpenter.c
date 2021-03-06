@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "sprite.h"
 #include "player.h"
+#include "script.h"
 
 extern void DeleteThisEntity();
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
@@ -10,7 +11,6 @@ extern void sub_0805E3A0(Entity*, u32);
 extern void sub_0807DD64(Entity*);
 extern u32 GetFacingDirection(Entity*, Entity*);
 extern void sub_0806F118(Entity*);
-extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0807DDE4(Entity*);
 extern u32 UpdateFuseInteraction(Entity*);
 extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
@@ -69,6 +69,6 @@ void Carpenter_Head(Entity* this) {
     }
 }
 
-void sub_080672B0(Entity* this, u32 param_2) {
-    InitializeAnimation(this, *(u32*)(param_2 + 4) + (this->animationState >> 1) + this->type * 8);
+void sub_080672B0(Entity* this, ScriptExecutionContext* context) {
+    InitializeAnimation(this, context->unk_04 + (this->animationState >> 1) + this->type * 8);
 }

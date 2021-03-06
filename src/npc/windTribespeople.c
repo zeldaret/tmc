@@ -21,7 +21,7 @@ extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
 extern void sub_0807000C(Entity*);
 
 extern void (*const gUnk_08113A7C[])(Entity*);
-extern void (*const gUnk_08113A8C[])(Entity*, Entity*);
+extern void (*const gUnk_08113A8C[])(Entity*, ScriptExecutionContext*);
 
 extern SpriteLoadData gUnk_08113A1C[];
 extern u32 script_08014A80;
@@ -111,10 +111,9 @@ void WindTribespeople_Head(Entity* this) {
     }
 }
 
-// body and head entities?
-void sub_0806C90C(Entity* param_1, Entity* param_2) {
-    *(u32*)&param_2->animationState = 0;
-    gUnk_08113A8C[param_1->type2](param_1, param_2);
+void sub_0806C90C(Entity* this, ScriptExecutionContext* context) {
+    context->condition = 0;
+    gUnk_08113A8C[this->type2](this, context);
 }
 
 void sub_0806C928(Entity* this) {

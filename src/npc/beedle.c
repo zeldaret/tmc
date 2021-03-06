@@ -148,17 +148,17 @@ void sub_0806346C(Entity* this) {
     }
 }
 
-void sub_080634E4(Entity* this, u32* param_1) {
-    param_1[1] = this->type2;
+void sub_080634E4(Entity* this, ScriptExecutionContext* context) {
+    context->unk_04 = this->type2;
 }
 
 void sub_080634EC(Entity* this) {
     gRoomVars.itemForSaleIndex = gUnk_0810C88C[this->type2];
 }
 
-void sub_08063504(Entity* this, u32* param_2) {
+void sub_08063504(Entity* this, ScriptExecutionContext* context) {
     u32 uVar1;
 
     uVar1 = sub_080544DC(gUnk_0810C88C[this->type2]);
-    param_2[5] = BOOLCAST(uVar1);
+    context->condition = BOOLCAST(uVar1);
 }

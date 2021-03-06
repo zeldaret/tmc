@@ -16,11 +16,6 @@ typedef struct {
     u8 unk3;
 } struct_0810B680;
 
-typedef struct {
-    u32 unk;
-    u32 unk2;
-} struct_08061FB8;
-
 extern void (*const gUnk_0810B774[])(Entity*);
 extern void (*const gUnk_0810B77C[])(Entity*);
 extern void sub_08061CB4(Entity*, u32);
@@ -183,6 +178,7 @@ void sub_08061E70(Entity* this) {
     }
 }
 
+// FIXME this is actually (Entity* this, ScriptExecutionContext* context)
 void sub_08061E90(Entity* this, Entity* arg1) {
     u32 animIndex;
     s32 iVar4;
@@ -258,10 +254,10 @@ void sub_08061FB0(Entity* this) {
     this->hitbox = NULL;
 }
 
-void sub_08061FB8(Entity* this, struct_08061FB8* arg1) {
+void sub_08061FB8(Entity* this, ScriptExecutionContext* context) {
     u8* temp = gUnk_0810B748;
 
-    sub_08078850(this, 1, temp[arg1->unk2], &gUnk_0810B740[arg1->unk2]);
+    sub_08078850(this, 1, temp[context->unk_04], &gUnk_0810B740[context->unk_04]);
 }
 
 void sub_08061FD8(Entity* this) {

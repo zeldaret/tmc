@@ -168,11 +168,11 @@ void sub_08054524(void) {
 }
 #endif
 
-void sub_08054564(void) {
+void sub_08054564() {
     gRoomVars.filler[2] = 1;
 }
 
-void sub_08054570(void) {
+void sub_08054570() {
     gRoomVars.filler[2] = 0;
 }
 

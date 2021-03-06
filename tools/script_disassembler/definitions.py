@@ -151,7 +151,7 @@ POINTER_MAP = {
     'sub_0806C23C': 'Simon_CreateChest',
     'sub_0801637C': 'script_0801637C+1',
     'sub_08016383': 'script_08016384',
-    'sub_0806C598': 'FUN_0806c598',
+    'sub_0806C598': 'sub_0806C598',
     'sub_080A2138': 'Windcrest_Unlock',
     'sub_080A29BC': 'CreateDust'
 }
