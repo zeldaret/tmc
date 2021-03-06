@@ -1,52 +1,60 @@
 SCRIPT_START script_08010A98
-StartScript 
-_0807EB44 0x0004
-CallWithArg sub_080672B0, 0x00000000
-_0807EF80 0x000a
-Call sub_08067314
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-_0807EB74 
-CallWithArg sub_080672B0, 0x00000004
-Call sub_08067304
-_0807EA94 
-_0807E878 
-_0807EB44 0x0004
-CallWithArg sub_080672B0, 0x00000000
-Jump 0xffd2
-StartScript 
-CheckInventory1 0x0067
-JumpIfNot 0x0076
-_0807EB44 0x0004
-_0807EF80 0x0000
-SetEntityNonPlanarMovement 0x0180
-CallWithArg_p sub_0807F348
-Call sub_0806075C
-StopScript 
-_0807EA94 
-Call sub_080606C0
-StopScript 
-Call sub_0806076C
-_0807EF80 0x0007
-Call sub_08060700
-StopScript 
-StartScript 
-_0807E564 
-JumpIf 0x0010
-CallWithArg sub_080608E4, 0x00000000
-JumpIf 0x000c
-_0807EE30 
-JumpIfNot 0xffe4
-Jump 0xffce
-StopScript 
-_0807EF80 0x0000
-StopScript 
-StartScript 
-CallWithArg sub_080608E4, 0x00000001
-JumpIf 0xfff0
-StopScript 
-Jump 0xffbc
-_0807EF80 0x0006
+	StartScript 
+	_0807EB44 0x0004
+	CallWithArg sub_080672B0, 0x00000000
+	_0807EF80 0x000a
+	Call sub_08067314
+	StopScript 
+script_08010AB4:
+	CheckEntityInteractType 
+	JumpIfNot script_08010AB4
+	_0807E864 
+	_0807EB74 
+	CallWithArg sub_080672B0, 0x00000004
+	Call sub_08067304
+	_0807EA94 
+	_0807E878 
+	_0807EB44 0x0004
+	CallWithArg sub_080672B0, 0x00000000
+	Jump script_08010AB4
+	StartScript 
+	CheckInventory1 0x0067
+	JumpIfNot script_08010B62
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	SetEntityNonPlanarMovement 0x0180
+	CallWithArg_2 sub_0807F348
+	Call sub_0806075C
+	StopScript 
+	_0807EA94 
+	Call sub_080606C0
+script_08010B10:
+	StopScript 
+	Call sub_0806076C
+	_0807EF80 0x0007
+script_08010B1C:
+	Call sub_08060700
+script_08010B22:
+	StopScript 
+	StartScript 
+	_0807E564 
+	JumpIf script_08010B3A
+	CallWithArg sub_080608E4, 0x00000000
+	JumpIf script_08010B44
+script_08010B3A:
+	_0807EE30 
+	JumpIfNot script_08010B22
+	Jump script_08010B10
+script_08010B44:
+	StopScript 
+	_0807EF80 0x0000
+script_08010B4A:
+	StopScript 
+	StartScript 
+	CallWithArg sub_080608E4, 0x00000001
+	JumpIf script_08010B4A
+	StopScript 
+	Jump script_08010B1C
+script_08010B62:
+	_0807EF80 0x0006
 SCRIPT_END

@@ -1,55 +1,60 @@
 SCRIPT_START script_0800B254
-StartScript 
-CheckKinstoneFused 0x0006
-JumpIf 0x00a6
-_0807EA88 0x0006
-_0807EB44 0x0002
-StopScript 
-_0807EA4C 
-_0807E9F0 
-_0807E864 
-CheckKinstoneFused 0x0006
-JumpIf 0x006e
-Call sub_0807DF50
-_0807E878 
-Jump 0xffe8
-.short 0x0000
-StartScript 
-CheckKinstoneFused 0x0007
-JumpIf 0x0076
-_0807EA88 0x0007
-_0807EB44 0x0002
-StopScript 
-_0807EA4C 
-_0807E9F0 
-_0807E864 
-CheckKinstoneFused 0x0007
-JumpIf 0x003e
-Call sub_0807DF50
-_0807E878 
-Jump 0xffe8
-.short 0x0000
-StartScript 
-CheckKinstoneFused 0x0008
-JumpIf 0x0046
-_0807EA88 0x0008
-_0807EB44 0x0002
-StopScript 
-_0807EA4C 
-_0807E9F0 
-_0807E864 
-CheckKinstoneFused 0x0008
-JumpIf 0x000e
-Call sub_0807DF50
-_0807E878 
-Jump 0xffe8
-_0807EF80 0x0013
-_0807EB44 0x0004
-_0807E9DC 
-Call sub_080676E0
-Call sub_08067534
-_0807EF80 0x0012
-_0807E5F8 0x00000001
-StopScript 
+	StartScript 
+	CheckKinstoneFused 0x0006
+	JumpIf script_0800B302
+	_0807EA88 0x0006
+	_0807EB44 0x0002
+	StopScript 
+script_0800B268:
+	_0807EA4C 
+	_0807E9F0 
+	_0807E864 
+	CheckKinstoneFused 0x0006
+	JumpIf script_0800B2E2
+	Call sub_0807DF50
+	_0807E878 
+	Jump script_0800B268
+	.short 0x0000
+	StartScript 
+	CheckKinstoneFused 0x0007
+	JumpIf script_0800B302
+	_0807EA88 0x0007
+	_0807EB44 0x0002
+	StopScript 
+script_0800B298:
+	_0807EA4C 
+	_0807E9F0 
+	_0807E864 
+	CheckKinstoneFused 0x0007
+	JumpIf script_0800B2E2
+	Call sub_0807DF50
+	_0807E878 
+	Jump script_0800B298
+	.short 0x0000
+	StartScript 
+	CheckKinstoneFused 0x0008
+	JumpIf script_0800B302
+	_0807EA88 0x0008
+	_0807EB44 0x0002
+	StopScript 
+script_0800B2C8:
+	_0807EA4C 
+	_0807E9F0 
+	_0807E864 
+	CheckKinstoneFused 0x0008
+	JumpIf script_0800B2E2
+	Call sub_0807DF50
+	_0807E878 
+	Jump script_0800B2C8
+script_0800B2E2:
+	_0807EF80 0x0013
+	_0807EB44 0x0004
+	_0807E9DC 
+	Call sub_080676E0
+	Call sub_08067534
+	_0807EF80 0x0012
+	_0807E5F8 0x00000001
+script_0800B302:
+	StopScript 
 SCRIPT_END
-.short 0x0000
+	.short 0x0000

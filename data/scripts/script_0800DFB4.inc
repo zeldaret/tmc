@@ -1,13 +1,14 @@
 SCRIPT_START script_0800DFB4
-StopScript 
-CheckRoomFlag 0x0001
-JumpIfNot 0xfffa
-SoundReq0x80100000 
-_0807E864 
-Call sub_0807DF28
-SoundReq 0x00f6
-CallWithArg sub_0806DA1C, 0x00000004
-Call sub_0807DF50
-_0807E878 
-_0807EF80 0x0006
+	StopScript 
+script_0800DFB6:
+	CheckRoomFlag 0x0001
+	JumpIfNot script_0800DFB6
+	SoundReq0x80100000 
+	_0807E864 
+	Call sub_0807DF28
+	SoundReq 0x00f6
+	CallWithArg sub_0806DA1C, 0x00000004
+	Call sub_0807DF50
+	_0807E878 
+	_0807EF80 0x0006
 SCRIPT_END

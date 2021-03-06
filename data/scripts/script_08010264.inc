@@ -1,479 +1,537 @@
 SCRIPT_START script_08010264
-StartScript 
-_0807EF80 0x0007
-_0807E9D4 
-_0807EF80 0x000a
-_0807EB44 0x0006
-_0807EF80 0x0000
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-_0807EB74 
-Call sub_08065F64
-_0807EA94 
-_0807E878 
-Jump 0xffea
-.short 0x0000
-StartScript 
-_0807EF80 0x0000
-Call sub_08062A48
-_0807EF80 0x000a
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-CheckRoomFlag 0x0009
-JumpIfNot 0x001a
-_0807E864 
-_0807EB74 
-Call sub_0806265C
-_0807EA94 
-_0807E878 
-Call sub_08062500
-Jump 0xffdc
-_0807E864 
-_0807EB74 
-Call sub_0806265C
-_0807EA94 
-_0807E878 
-Jump 0xffca
-.short 0x0000
-StartScript 
-_0807EF80 0x0000
-Call sub_08062A48
-_0807EF80 0x000a
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-_0807EB74 
-Call sub_0806265C
-_0807EA94 
-_0807E878 
-Jump 0xffea
-.short 0x0000
-StartScript 
-_0807EF80 0x0000
-StopScript 
-StopScript 
-Call sub_08062698
-Call sub_080626AC
-CallWithArg sub_0807F0EC, 0x00000009
-_0807E078_sssssssss 0x0012, 0x001a, 0x0022, 0x002a, 0x0032, 0x003a, 0x0042, 0x004a, 0x0052
-_0807EE04 0x0358, 0x0078
-Jump 0x004e
-_0807EE04 0x0390, 0x0078
-Jump 0x0044
-_0807EE04 0x03c8, 0x0078
-Jump 0x003a
-_0807EE04 0x0358, 0x0098
-Jump 0x0030
-_0807EE04 0x0390, 0x0098
-Jump 0x0026
-_0807EE04 0x03c8, 0x0098
-Jump 0x001c
-_0807EE04 0x0358, 0x00b8
-Jump 0x0012
-_0807EE04 0x0390, 0x00b8
-Jump 0x0008
-_0807EE04 0x03c8, 0x00b8
-StopScript 
-StartScript 
-Call sub_080626C0
-JumpIf 0xff72
-_0807EE30 
-JumpIfNot 0xffee
-Jump 0xff68
-.short 0x0000
-StartScript 
-_0807EF80 0x0000
-Call sub_08062A48
-_0807EF80 0x000a
-StopScript 
-Wait 0x001e
-Call sub_08062948
-Jump 0xfff4
-StartScript 
-_0807E9D4 
-_0807EB44 0x0004
-_0807EF80 0x000a
-CallWithArg sub_0807F3D8, 0x00000004
-StopScript 
-Wait 0x003c
-Call sub_0806407C
-Jump 0xfff4
-.short 0x0000
-StartScript 
-_0807E9D4 
-_0807EB44 0x0004
-_0807EF80 0x000a
-CallWithArg sub_0807F3D8, 0x00000000
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-_0807EB74 
-Call sub_08064428
-_0807EA94 
-_0807E878 
-Jump 0xffea
-StartScript 
-_0807E9D4 
-_0807EB44 0x0004
-_0807EF80 0x0000
-_0807EF80 0x000a
-_0807E914 0x08064689
-Call sub_08064644
-StopScript 
-Wait 0x003c
-Call sub_080646A4
-Jump 0xfff4
-StartScript 
-_0807EB44 0x0004
-_0807E930 0x0000
-Call sub_080636F4
-_0807EF80 0x000a
-Call sub_0807F348
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-_0807EB74 
-CallWithArg sub_0807F3D8, 0x00000004
-Call sub_080636D8
-_0807EA94 
-Wait 0x000f
-_0807E878 
-CallWithArg sub_0807F3D8, 0x00000000
-Jump 0xffd2
-StartScript 
-_0807EB44 0x0004
-_0807E930 0x0000
-Call sub_08063CAC
-_0807EF80 0x000a
-Call sub_0807F348
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-_0807EB74 
-CallWithArg sub_0807F3D8, 0x00000004
-Call sub_08063C90
-_0807EA94 
-Wait 0x000f
-_0807E878 
-CallWithArg sub_0807F3D8, 0x00000000
-Jump 0xffd2
-StartScript 
-_0807EB44 0x0004
-_0807E930 0x0000
-_0807EF80 0x000a
-Call sub_0807F348
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-Call sub_0807DF28
-_0807EB74 
-CallWithArg sub_0807F3D8, 0x00000008
-CheckRoomFlag 0x000e
-JumpIf 0x000c
-SetRoomFlag 0x000e
-TextboxNoOverlap 0x2b10
-_0807EA94 
-Call sub_080634E4
-_0807E078_sssssss 0x000e, 0x0020, 0x0036, 0x0034, 0x000e, 0x0024, 0x002e
-TextboxNoOverlap 0x2b0d
-Jump 0x0096
-CheckGlobalFlag 0x003d
-JumpIfNot 0x008a
-Jump 0x001a
-CheckGlobalFlag 0x003c
-JumpIfNot 0x007e
-Jump 0x000e
-CheckGlobalFlag 0x003b
-JumpIfNot 0x0072
-Jump 0x0002
-Call sub_080634EC
-CallWithArg sub_0807F78C, 0x00000000
-_0807EA94 
-_0807E3E8 
-JumpIfNot 0x005a
-CallWithArg sub_0807F7C4, 0x00000000
-JumpIfNot 0x0030
-_0807E48C 0x0020
-JumpIfNot 0x0030
-Call sub_08063504
-JumpIf 0x002e
-TextboxNoOverlap 0x2b07
-_0807EA94 
-CallWithArg sub_0807F800, 0x00000000
-WaitPlayerAction8 
-_0807EA94 
-TextboxNoOverlap 0x2b0c
-Jump 0x001e
-TextboxNoOverlap 0x2b09
-Jump 0x0016
-TextboxNoOverlap 0x2b0a
-Jump 0x000e
-TextboxNoOverlap 0x2b0b
-Jump 0x0006
-TextboxNoOverlap 0x2b0e
-_0807EA94 
-Call sub_0807DF50
-_0807E878 
-Jump 0xff16
-.short 0x0000
-StartScript 
-_0807E9D4 
-_0807EF80 0x000a
-_0807EB44 0x0004
-_0807EF80 0x0000
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-_0807EB74 
-TextboxNoOverlapFollow 0x0a01
-_0807EA94 
-_0807E878 
-_0807EB44 0x0004
-Jump 0xffe8
-StartScript 
-_0807E930 0x0008
-Call sub_08062A48
-_0807EF80 0x000a
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-Call sub_0806265C
-_0807EA94 
-_0807E878 
-Jump 0xffec
-StartScript 
-_0807E930 0x0009
-Jump 0xffd6
-.short 0x0000
-StartScript 
-_0807E930 0x000b
-Jump 0xffca
-.short 0x0000
-StartScript 
-_0807E930 0x000c
-Jump 0xffbe
-.short 0x0000
-StartScript 
-_0807E930 0x000d
-Jump 0xffb2
-.short 0x0000
-StartScript 
-_0807E9D4 
-_0807EF80 0x000a
-_0807EB44 0x0004
-_0807EF80 0x0000
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-_0807EB74 
-HasRoomItemForSale 
-Call sub_0807F77C
-_0807EAF0 0x3c08, 0x3c09
-_0807EA94 
-_0807E878 
-_0807EB44 0x0004
-Jump 0xffde
-.short 0x0000
-StartScript 
-_0807E9D4 
-_0807EF80 0x000a
-_0807EB44 0x0004
-_0807EF80 0x0000
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-_0807EB74 
-Call sub_0807F2D4
-_0807EF80 0x0000
-HasRoomItemForSale 
-JumpIf 0x000a
-TextboxNoOverlap 0x3c07
-Jump 0x0048
-Call sub_08062EB8
-CallWithArg sub_0807F78C, 0x00000000
-_0807EA94 
-_0807E3E8 
-JumpIfNot 0x0030
-_0807EA94 
-BuyItem 0x0000, 0x0000
-JumpIf 0x000a
-TextboxNoOverlap 0x3c04
-Jump 0x001c
-WaitPlayerAction8 
-ModHealth 0x0008
-Call sub_08062EDC
-JumpIf 0x000a
-TextboxNoOverlap 0x3c06
-Jump 0x0004
-WaitPlayerAction8 
-_0807EA94 
-_0807E878 
-_0807EF80 0x0001
-Jump 0xff8e
-.short 0x0000
-StartScript 
-_0807EF80 0x0007
-_0807E9D4 
-_0807EF80 0x000a
-_0807E930 0x0000
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-_0807E930 0x0004
-StartScript 
-Call sub_08062D18
-JumpIfNot 0x002a
-StopScript 
-_0807EA94 
-_0807E3E8 
-JumpIfNot 0x0020
-HasRupees 0x00c8
-JumpIf 0x000a
-TextboxNoOverlap 0x4008
-Jump 0x0010
-ModRupees 0xff38
-Call sub_08062E14
-TextboxNoOverlap 0x4007
-StopScript 
-_0807EA94 
-_0807E878 
-_0807E930 0x0008
-Jump 0xffb4
-StartScript 
-_0807EF80 0x0007
-_0807E9D4 
-_0807EF80 0x000a
-_0807EB44 0x0004
-_0807EF80 0x0000
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-Call sub_0807F2D4
-_0807EF80 0x0001
-Call sub_08062CBC
-_0807EA94 
-_0807E878 
-_0807EF80 0x0000
-Jump 0xffde
-.short 0x0000
-StartScript 
-_0807EB44 0x0004
-_0807EF80 0x0000
-_0807EF80 0x000a
-_0807EF80 0x0007
-_0807E9D4 
-Call sub_0807F348
-Call sub_08069684
-StopScript 
-StopScript 
-StartScript 
-CheckPlayerInRegion2 0x3030
-JumpIfNot 0xfff6
-Call sub_080696B0
-StopScript 
-StartScript 
-CheckPlayerInRegion2 0x3030
-JumpIfNot 0xffe4
-HasRoomItemForSale 
-JumpIf 0x004c
-CheckEntityInteractType 
-JumpIfNot 0xffea
-StopScript 
-_0807E864 
-Call sub_0807DF28
-_0807EB74 
-CheckGlobalFlag 0x0042
-JumpIfNot 0x002a
-CheckGlobalFlag 0x0043
-JumpIfNot 0x0022
-CheckGlobalFlag 0x0044
-JumpIfNot 0x001a
-CheckGlobalFlag 0x0041
-JumpIfNot 0x000a
-TextboxNoOverlap 0x3f39
-Jump 0x006c
-TextboxNoOverlap 0x2c1b
-Jump 0x0064
-TextboxNoOverlap 0x2c1a
-Jump 0x005c
-StopScript 
-_0807E864 
-Call sub_0807DF38
-_0807EB74 
-Call sub_08069660
-_0807EA94 
-_0807E3E8 
-JumpIfNot 0x003a
-Call sub_08069718
-JumpIfNot 0x0030
-WaitPlayerAction8 
-_0807EA94 
-_0807EB8C 
-CheckGlobalFlag 0x0042
-JumpIfNot 0x001a
-CheckGlobalFlag 0x0043
-JumpIfNot 0x0012
-CheckGlobalFlag 0x0044
-JumpIfNot 0x000a
-TextboxNoOverlap 0x2c21
-Jump 0x000a
-SetLocalFlag 0x00fa
-TextboxNoOverlap 0x2c20
-_0807EA94 
-Call sub_0807F83C
-_0807EA94 
-Call sub_0807DF50
-_0807E878 
-_0807EB44 0x0004
-_0807EF80 0x0000
-Jump 0xff36
-CheckPlayerInRegion2 0x0808
-JumpIfNot 0xfffa
-_0807E864 
-Call sub_0807F9A4
-Call sub_0807DF28
-StartPlayerScript script_080109F0
-WaitForSomething2 0x00000001
-CheckRoomFlag 0x0001
-JumpIf 0x0008
-_0807EB28 0x0b63
-_0807EA94 
-Call sub_0807DF50
-_0807E878 
-Jump 0xffc6
-StartScript 
-_0807EF80 0x0007
-CheckKinstoneFused 0x001b
-JumpIf 0xe67a
-StopScript 
-Call sub_080869A4
-JumpIfNot 0xfff8
-_0807E864 
-Call sub_0807F9A4
-Call sub_0807DF28
-CheckRoomFlag 0x0001
-JumpIf 0x0008
-_0807EB28 0x0b62
-_0807EA94 
-StartPlayerScript script_080109F0
-WaitForSomething2 0x00000001
-Call sub_0807DF50
-_0807E878 
-Jump 0xffc4
-Call sub_0808692C
+	StartScript 
+	_0807EF80 0x0007
+	_0807E9D4 
+	_0807EF80 0x000a
+	_0807EB44 0x0006
+	_0807EF80 0x0000
+	StopScript 
+script_0801027A:
+	CheckEntityInteractType 
+	JumpIfNot script_0801027A
+	_0807E864 
+	_0807EB74 
+	Call sub_08065F64
+	_0807EA94 
+	_0807E878 
+	Jump script_0801027A
+	.short 0x0000
+	StartScript 
+	_0807EF80 0x0000
+	Call sub_08062A48
+	_0807EF80 0x000a
+	StopScript 
+script_080102A6:
+	CheckEntityInteractType 
+	JumpIfNot script_080102A6
+	CheckRoomFlag 0x0009
+	JumpIfNot script_080102CC
+	_0807E864 
+	_0807EB74 
+	Call sub_0806265C
+	_0807EA94 
+	_0807E878 
+	Call sub_08062500
+	Jump script_080102A6
+script_080102CC:
+	_0807E864 
+	_0807EB74 
+	Call sub_0806265C
+	_0807EA94 
+	_0807E878 
+	Jump script_080102A6
+	.short 0x0000
+	StartScript 
+	_0807EF80 0x0000
+	Call sub_08062A48
+	_0807EF80 0x000a
+	StopScript 
+script_080102F2:
+	CheckEntityInteractType 
+	JumpIfNot script_080102F2
+	_0807E864 
+	_0807EB74 
+	Call sub_0806265C
+	_0807EA94 
+	_0807E878 
+	Jump script_080102F2
+	.short 0x0000
+	StartScript 
+	_0807EF80 0x0000
+	StopScript 
+script_08010314:
+	StopScript 
+	Call sub_08062698
+	Call sub_080626AC
+	CallWithArg sub_0807F0EC, 0x00000009
+	JumpSwitch_9 script_08010340, script_0801034A, script_08010354, script_0801035E, script_08010368, script_08010372, script_0801037C, script_08010386, script_08010390
+script_08010340:
+	_0807EE04 0x0358, 0x0078
+	Jump script_08010396
+script_0801034A:
+	_0807EE04 0x0390, 0x0078
+	Jump script_08010396
+script_08010354:
+	_0807EE04 0x03c8, 0x0078
+	Jump script_08010396
+script_0801035E:
+	_0807EE04 0x0358, 0x0098
+	Jump script_08010396
+script_08010368:
+	_0807EE04 0x0390, 0x0098
+	Jump script_08010396
+script_08010372:
+	_0807EE04 0x03c8, 0x0098
+	Jump script_08010396
+script_0801037C:
+	_0807EE04 0x0358, 0x00b8
+	Jump script_08010396
+script_08010386:
+	_0807EE04 0x0390, 0x00b8
+	Jump script_08010396
+script_08010390:
+	_0807EE04 0x03c8, 0x00b8
+script_08010396:
+	StopScript 
+	StartScript 
+	Call sub_080626C0
+	JumpIf script_08010314
+	_0807EE30 
+	JumpIfNot script_08010396
+	Jump script_08010314
+	.short 0x0000
+	StartScript 
+	_0807EF80 0x0000
+	Call sub_08062A48
+	_0807EF80 0x000a
+	StopScript 
+script_080103C2:
+	Wait 0x001e
+	Call sub_08062948
+	Jump script_080103C2
+	StartScript 
+	_0807E9D4 
+	_0807EB44 0x0004
+	_0807EF80 0x000a
+	CallWithArg sub_0807F3D8, 0x00000004
+	StopScript 
+script_080103E8:
+	Wait 0x003c
+	Call sub_0806407C
+	Jump script_080103E8
+	.short 0x0000
+	StartScript 
+	_0807E9D4 
+	_0807EB44 0x0004
+	_0807EF80 0x000a
+	CallWithArg sub_0807F3D8, 0x00000000
+	StopScript 
+script_08010410:
+	CheckEntityInteractType 
+	JumpIfNot script_08010410
+	_0807E864 
+	_0807EB74 
+	Call sub_08064428
+	_0807EA94 
+	_0807E878 
+	Jump script_08010410
+	StartScript 
+	_0807E9D4 
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	_0807EF80 0x000a
+	_0807E914 0x08064689
+	Call sub_08064644
+	StopScript 
+script_08010446:
+	Wait 0x003c
+	Call sub_080646A4
+	Jump script_08010446
+	StartScript 
+	_0807EB44 0x0004
+	_0807E930 0x0000
+	Call sub_080636F4
+	_0807EF80 0x000a
+	Call sub_0807F348
+	StopScript 
+script_08010470:
+	CheckEntityInteractType 
+	JumpIfNot script_08010470
+	_0807E864 
+	_0807EB74 
+	CallWithArg sub_0807F3D8, 0x00000004
+	Call sub_080636D8
+	_0807EA94 
+	Wait 0x000f
+	_0807E878 
+	CallWithArg sub_0807F3D8, 0x00000000
+	Jump script_08010470
+	StartScript 
+	_0807EB44 0x0004
+	_0807E930 0x0000
+	Call sub_08063CAC
+	_0807EF80 0x000a
+	Call sub_0807F348
+	StopScript 
+script_080104BC:
+	CheckEntityInteractType 
+	JumpIfNot script_080104BC
+	_0807E864 
+	_0807EB74 
+	CallWithArg sub_0807F3D8, 0x00000004
+	Call sub_08063C90
+	_0807EA94 
+	Wait 0x000f
+	_0807E878 
+	CallWithArg sub_0807F3D8, 0x00000000
+	Jump script_080104BC
+	StartScript 
+	_0807EB44 0x0004
+	_0807E930 0x0000
+	_0807EF80 0x000a
+	Call sub_0807F348
+	StopScript 
+script_08010502:
+	CheckEntityInteractType 
+	JumpIfNot script_08010502
+	_0807E864 
+	Call sub_0807DF28
+	_0807EB74 
+	CallWithArg sub_0807F3D8, 0x00000008
+	CheckRoomFlag 0x000e
+	JumpIf script_0801052E
+	SetRoomFlag 0x000e
+	TextboxNoOverlap 0x2b10
+	_0807EA94 
+script_0801052E:
+	Call sub_080634E4
+	JumpSwitch_7 script_08010544, script_08010558, script_08010570, script_08010570, script_0801054C, script_08010564, script_08010570
+script_08010544:
+	TextboxNoOverlap 0x2b0d
+	Jump script_080105E0
+script_0801054C:
+	CheckGlobalFlag 0x003d
+	JumpIfNot script_080105DC
+	Jump script_08010570
+script_08010558:
+	CheckGlobalFlag 0x003c
+	JumpIfNot script_080105DC
+	Jump script_08010570
+script_08010564:
+	CheckGlobalFlag 0x003b
+	JumpIfNot script_080105DC
+	Jump script_08010570
+script_08010570:
+	Call sub_080634EC
+	CallWithArg sub_0807F78C, 0x00000000
+	_0807EA94 
+	_0807E3E8 
+	JumpIfNot script_080105E0
+	CallWithArg sub_0807F7C4, 0x00000000
+	JumpIfNot script_080105C4
+	_0807E48C 0x0020
+	JumpIfNot script_080105CC
+	Call sub_08063504
+	JumpIf script_080105D4
+	TextboxNoOverlap 0x2b07
+	_0807EA94 
+	CallWithArg sub_0807F800, 0x00000000
+	WaitPlayerAction8 
+	_0807EA94 
+	TextboxNoOverlap 0x2b0c
+	Jump script_080105E0
+script_080105C4:
+	TextboxNoOverlap 0x2b09
+	Jump script_080105E0
+script_080105CC:
+	TextboxNoOverlap 0x2b0a
+	Jump script_080105E0
+script_080105D4:
+	TextboxNoOverlap 0x2b0b
+	Jump script_080105E0
+script_080105DC:
+	TextboxNoOverlap 0x2b0e
+script_080105E0:
+	_0807EA94 
+	Call sub_0807DF50
+	_0807E878 
+	Jump script_08010502
+	.short 0x0000
+	StartScript 
+	_0807E9D4 
+	_0807EF80 0x000a
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	StopScript 
+script_08010602:
+	CheckEntityInteractType 
+	JumpIfNot script_08010602
+	_0807E864 
+	_0807EB74 
+	TextboxNoOverlapFollow 0x0a01
+	_0807EA94 
+	_0807E878 
+	_0807EB44 0x0004
+	Jump script_08010602
+	StartScript 
+	_0807E930 0x0008
+script_08010622:
+	Call sub_08062A48
+	_0807EF80 0x000a
+	StopScript 
+script_0801062E:
+	CheckEntityInteractType 
+	JumpIfNot script_0801062E
+	_0807E864 
+	Call sub_0806265C
+	_0807EA94 
+	_0807E878 
+	Jump script_0801062E
+	StartScript 
+	_0807E930 0x0009
+	Jump script_08010622
+	.short 0x0000
+	StartScript 
+	_0807E930 0x000b
+	Jump script_08010622
+	.short 0x0000
+	StartScript 
+	_0807E930 0x000c
+	Jump script_08010622
+	.short 0x0000
+	StartScript 
+	_0807E930 0x000d
+	Jump script_08010622
+	.short 0x0000
+	StartScript 
+	_0807E9D4 
+	_0807EF80 0x000a
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	StopScript 
+script_08010686:
+	CheckEntityInteractType 
+	JumpIfNot script_08010686
+	_0807E864 
+	_0807EB74 
+	HasRoomItemForSale 
+	Call sub_0807F77C
+	_0807EAF0 0x3c08, 0x3c09
+	_0807EA94 
+	_0807E878 
+	_0807EB44 0x0004
+	Jump script_08010686
+	.short 0x0000
+	StartScript 
+	_0807E9D4 
+	_0807EF80 0x000a
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	StopScript 
+script_080106BE:
+	CheckEntityInteractType 
+	JumpIfNot script_080106BE
+	_0807E864 
+	_0807EB74 
+	Call sub_0807F2D4
+	_0807EF80 0x0000
+	HasRoomItemForSale 
+	JumpIf script_080106E0
+	TextboxNoOverlap 0x3c07
+	Jump script_08010726
+script_080106E0:
+	Call sub_08062EB8
+	CallWithArg sub_0807F78C, 0x00000000
+	_0807EA94 
+	_0807E3E8 
+	JumpIfNot script_08010726
+	_0807EA94 
+	BuyItem 0x0000, 0x0000
+	JumpIf script_0801070C
+	TextboxNoOverlap 0x3c04
+	Jump script_08010726
+script_0801070C:
+	WaitPlayerAction8 
+	ModHealth 0x0008
+	Call sub_08062EDC
+	JumpIf script_08010724
+	TextboxNoOverlap 0x3c06
+	Jump script_08010726
+script_08010724:
+	WaitPlayerAction8 
+script_08010726:
+	_0807EA94 
+	_0807E878 
+	_0807EF80 0x0001
+	Jump script_080106BE
+	.short 0x0000
+	StartScript 
+	_0807EF80 0x0007
+	_0807E9D4 
+	_0807EF80 0x000a
+	_0807E930 0x0000
+	StopScript 
+script_08010746:
+	CheckEntityInteractType 
+	JumpIfNot script_08010746
+	_0807E864 
+	_0807E930 0x0004
+	StartScript 
+	Call sub_08062D18
+	JumpIfNot script_08010786
+	StopScript 
+	_0807EA94 
+	_0807E3E8 
+	JumpIfNot script_08010786
+	HasRupees 0x00c8
+	JumpIf script_08010778
+	TextboxNoOverlap 0x4008
+	Jump script_08010786
+script_08010778:
+	ModRupees 0xff38
+	Call sub_08062E14
+	TextboxNoOverlap 0x4007
+script_08010786:
+	StopScript 
+	_0807EA94 
+	_0807E878 
+	_0807E930 0x0008
+	Jump script_08010746
+	StartScript 
+	_0807EF80 0x0007
+	_0807E9D4 
+	_0807EF80 0x000a
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	StopScript 
+script_080107AA:
+	CheckEntityInteractType 
+	JumpIfNot script_080107AA
+	_0807E864 
+	Call sub_0807F2D4
+	_0807EF80 0x0001
+	Call sub_08062CBC
+	_0807EA94 
+	_0807E878 
+	_0807EF80 0x0000
+	Jump script_080107AA
+	.short 0x0000
+	StartScript 
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	_0807EF80 0x000a
+	_0807EF80 0x0007
+	_0807E9D4 
+	Call sub_0807F348
+	Call sub_08069684
+	StopScript 
+script_080107F2:
+	StopScript 
+	StartScript 
+	CheckPlayerInRegion2 0x3030
+	JumpIfNot script_080107F2
+	Call sub_080696B0
+script_08010804:
+	StopScript 
+	StartScript 
+	CheckPlayerInRegion2 0x3030
+	JumpIfNot script_080107F2
+	HasRoomItemForSale 
+	JumpIf script_08010860
+	CheckEntityInteractType 
+	JumpIfNot script_08010804
+	StopScript 
+	_0807E864 
+	Call sub_0807DF28
+	_0807EB74 
+	CheckGlobalFlag 0x0042
+	JumpIfNot script_08010858
+	CheckGlobalFlag 0x0043
+	JumpIfNot script_08010858
+	CheckGlobalFlag 0x0044
+	JumpIfNot script_08010858
+	CheckGlobalFlag 0x0041
+	JumpIfNot script_08010850
+	TextboxNoOverlap 0x3f39
+	Jump script_080108BA
+script_08010850:
+	TextboxNoOverlap 0x2c1b
+	Jump script_080108BA
+script_08010858:
+	TextboxNoOverlap 0x2c1a
+	Jump script_080108BA
+script_08010860:
+	StopScript 
+	_0807E864 
+	Call sub_0807DF38
+	_0807EB74 
+	Call sub_08069660
+	_0807EA94 
+	_0807E3E8 
+	JumpIfNot script_080108B2
+	Call sub_08069718
+	JumpIfNot script_080108B2
+	WaitPlayerAction8 
+	_0807EA94 
+	_0807EB8C 
+	CheckGlobalFlag 0x0042
+	JumpIfNot script_080108AA
+	CheckGlobalFlag 0x0043
+	JumpIfNot script_080108AA
+	CheckGlobalFlag 0x0044
+	JumpIfNot script_080108AA
+	TextboxNoOverlap 0x2c21
+	Jump script_080108B2
+script_080108AA:
+	SetLocalFlag 0x00fa
+	TextboxNoOverlap 0x2c20
+script_080108B2:
+	_0807EA94 
+	Call sub_0807F83C
+script_080108BA:
+	_0807EA94 
+	Call sub_0807DF50
+	_0807E878 
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	Jump script_08010804
+script_080108D0:
+	CheckPlayerInRegion2 0x0808
+	JumpIfNot script_080108D0
+	_0807E864 
+	Call sub_0807F9A4
+	Call sub_0807DF28
+	StartPlayerScript script_080109F0
+	WaitForSomething2 0x00000001
+	CheckRoomFlag 0x0001
+	JumpIf script_08010900
+	_0807EB28 0x0b63
+	_0807EA94 
+script_08010900:
+	Call sub_0807DF50
+	_0807E878 
+	Jump script_080108D0
+	StartScript 
+	_0807EF80 0x0007
+	CheckKinstoneFused 0x001b
+	JumpIf script_0800EF92
+	StopScript 
+script_0801091C:
+	Call sub_080869A4
+	JumpIfNot script_0801091C
+	_0807E864 
+	Call sub_0807F9A4
+	Call sub_0807DF28
+	CheckRoomFlag 0x0001
+	JumpIf script_08010942
+	_0807EB28 0x0b62
+	_0807EA94 
+script_08010942:
+	StartPlayerScript script_080109F0
+	WaitForSomething2 0x00000001
+	Call sub_0807DF50
+	_0807E878 
+	Jump script_0801091C
+	Call sub_0808692C
 SCRIPT_END
-.short 0x0000
+	.short 0x0000

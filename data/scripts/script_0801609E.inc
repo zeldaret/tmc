@@ -1,4 +1,5 @@
 SCRIPT_START script_0801609E
-SetEntityPosition 0x0010, 0x0000
+script_0801609E:
+	SetEntityPosition 0x0010, 0x0000
 SCRIPT_END
-.short 0x0000
+	.short 0x0000

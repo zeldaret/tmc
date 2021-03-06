@@ -1,14 +1,17 @@
 SCRIPT_START script_080136D8
-StartScript 
-SetEntityNonPlanarMovement 0x0100
-StopScript 
-Call sub_0807F584
-_0807E078_ssss 0x0008, 0x0010, 0x0018, 0x000c
-CallWithArg sub_0807F464, 0x000000d0
-CallWithArg sub_0807F4F8, 0x00000124
-_0807EDD4 0x00e8, 0x0124
-_0807EB44 0x0004
-_0807EF80 0x0000
-_0807E5F8 0x00000001
-Call sub_080791BC
+	StartScript 
+	SetEntityNonPlanarMovement 0x0100
+	StopScript 
+	Call sub_0807F584
+	JumpSwitch_4 script_080136F0, script_080136FA, script_08013704, script_080136FA
+script_080136F0:
+	CallWithArg sub_0807F464, 0x000000d0
+script_080136FA:
+	CallWithArg sub_0807F4F8, 0x00000124
+script_08013704:
+	_0807EDD4 0x00e8, 0x0124
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	_0807E5F8 0x00000001
+	Call sub_080791BC
 SCRIPT_END

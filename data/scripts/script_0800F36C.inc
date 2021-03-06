@@ -1,7 +1,7 @@
 SCRIPT_START script_0800F36C
-SetEntityNonPlanarMovement 0x0100
-_0807ECC4 0x0008
-_0807E5F8 0x00000400
-Call sub_080791BC
+	SetEntityNonPlanarMovement 0x0100
+	_0807ECC4 0x0008
+	_0807E5F8 0x00000400
+	Call sub_080791BC
 SCRIPT_END
-.short 0x0000
+	.short 0x0000

@@ -1,69 +1,73 @@
 SCRIPT_START script_080094FC
-StartScript 
-Call sub_08067100
-_0807EF80 0x000a
-_0807EB44 0x0004
-_0807EF80 0x0000
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-_0807EF80 0x0001
-_0807EB74 
-Call sub_080670B4
-_0807EA94 
-_0807E878 
-_0807EB44 0x0004
-_0807EF80 0x0000
-Jump 0xffde
-.short 0x0000
-StartScript 
-Call sub_08067100
-_0807EF80 0x000a
-_0807EB44 0x0004
-_0807EF80 0x0000
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-_0807EF80 0x0001
-_0807EB74 
-Call sub_080670E4
-_0807EA94 
-_0807E878 
-_0807EB44 0x0004
-_0807EF80 0x0000
-Jump 0xffde
-.short 0x0000
-StartScript 
-Call sub_08067314
-_0807EF80 0x000a
-_0807EB44 0x0004
-_0807E914 0x00000000
-Call sub_080672B0
-StopScript 
-CheckEntityInteractType 
-JumpIfNot 0xfffc
-_0807E864 
-_0807EB74 
-_0807E914 0x00000004
-Call sub_080672B0
-Call sub_080672C8
-_0807EA94 
-Wait 0x000f
-_0807E878 
-_0807EB44 0x0004
-_0807E914 0x00000000
-Call sub_080672B0
-Jump 0xffca
-.short 0x0000
-StartScript 
-Call sub_0806BE3C
-_0807EF80 0x000a
-_0807EF80 0x0007
-StopScript 
-Call sub_0806BF44
-JumpIf 0x000c
-_0807EF80 0x000b
-_0807EF80 0x0006
+	StartScript 
+	Call sub_08067100
+	_0807EF80 0x000a
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	StopScript 
+script_08009512:
+	CheckEntityInteractType 
+	JumpIfNot script_08009512
+	_0807E864 
+	_0807EF80 0x0001
+	_0807EB74 
+	Call sub_080670B4
+	_0807EA94 
+	_0807E878 
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	Jump script_08009512
+	.short 0x0000
+	StartScript 
+	Call sub_08067100
+	_0807EF80 0x000a
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	StopScript 
+script_0800954E:
+	CheckEntityInteractType 
+	JumpIfNot script_0800954E
+	_0807E864 
+	_0807EF80 0x0001
+	_0807EB74 
+	Call sub_080670E4
+	_0807EA94 
+	_0807E878 
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	Jump script_0800954E
+	.short 0x0000
+	StartScript 
+	Call sub_08067314
+	_0807EF80 0x000a
+	_0807EB44 0x0004
+	_0807E914 0x00000000
+	Call sub_080672B0
+	StopScript 
+script_08009592:
+	CheckEntityInteractType 
+	JumpIfNot script_08009592
+	_0807E864 
+	_0807EB74 
+	_0807E914 0x00000004
+	Call sub_080672B0
+	Call sub_080672C8
+	_0807EA94 
+	Wait 0x000f
+	_0807E878 
+	_0807EB44 0x0004
+	_0807E914 0x00000000
+	Call sub_080672B0
+	Jump script_08009592
+	.short 0x0000
+	StartScript 
+	Call sub_0806BE3C
+	_0807EF80 0x000a
+	_0807EF80 0x0007
+	StopScript 
+script_080095DE:
+	Call sub_0806BF44
+	JumpIf script_080095F2
+	_0807EF80 0x000b
+	_0807EF80 0x0006
 SCRIPT_END

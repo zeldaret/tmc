@@ -9,6 +9,10 @@
 	.short 0xffff
 .endm
 
+.macro ScriptCommandNop 
+	.short 0x0400
+.endm
+
 .macro StartScript 
 	.short 0x0401
 .endm
@@ -19,62 +23,62 @@
 
 .macro Jump s
 	.short 0x0803
-	.short \s
+1:	.short \s - 1b
 .endm
 
 .macro JumpIf s
 	.short 0x0804
-	.short \s
+1:	.short \s - 1b
 .endm
 
 .macro JumpIfNot s
 	.short 0x0805
-	.short \s
+1:	.short \s - 1b
 .endm
 
-.macro _0807E078 a,b
+.macro JumpSwitch a,b
 	.short 0x0c06
-	.short \a
-	.short \b
+1:	.short \a - 1b
+	.short \b - 1b - 2
 .endm
 
-.macro _0807E078_sss a,b,c
+.macro JumpSwitch_3 a,b,c
 	.short 0x1006
-	.short \a
-	.short \b
-	.short \c
+1:	.short \a - 1b
+	.short \b - 1b - 2
+	.short \c - 1b - 4
 .endm
 
-.macro _0807E078_ssss a,b,c,d
+.macro JumpSwitch_4 a,b,c,d
 	.short 0x1406
-	.short \a
-	.short \b
-	.short \c
-	.short \d
+1:	.short \a - 1b
+	.short \b - 1b - 2
+	.short \c - 1b - 4
+	.short \d - 1b - 6
 .endm
 
-.macro _0807E078_sssssss a,b,c,d,e,f,g
+.macro JumpSwitch_7 a,b,c,d,e,f,g
 	.short 0x2006
-	.short \a
-	.short \b
-	.short \c
-	.short \d
-	.short \e
-	.short \f
-	.short \g
+1:	.short \a - 1b
+	.short \b - 1b - 2
+	.short \c - 1b - 4
+	.short \d - 1b - 6
+	.short \e - 1b - 8
+	.short \f - 1b - 10
+	.short \g - 1b - 12
 .endm
 
-.macro _0807E078_sssssssss a,b,c,d,e,f,g,h,i
+.macro JumpSwitch_9 a,b,c,d,e,f,g,h,i
 	.short 0x2806
-	.short \a
-	.short \b
-	.short \c
-	.short \d
-	.short \e
-	.short \f
-	.short \g
-	.short \h
-	.short \i
+1:	.short \a - 1b
+	.short \b - 1b - 2
+	.short \c - 1b - 4
+	.short \d - 1b - 6
+	.short \e - 1b - 8
+	.short \f - 1b - 10
+	.short \g - 1b - 12
+	.short \h - 1b - 14
+	.short \i - 1b - 16
 .endm
 
 .macro JumpAbsolute w
@@ -92,7 +96,7 @@
 	.word \w
 .endm
 
-.macro _0807E0E0 a, b
+.macro JumpAbsoluteSwitch a, b
 	.short 0x140a
 	.word \a
 	.word \b
@@ -109,7 +113,7 @@
 	.word \b
 .endm
 
-.macro CallWithArg_p w
+.macro CallWithArg_2 w
 	.short 0x0c0c
 	.word \w
 .endm
@@ -374,7 +378,7 @@
 	.short \s
 .endm
 
-.macro _0807E858_ 
+.macro _0807E858_0 
 	.short 0x0442
 .endm
 
@@ -494,7 +498,7 @@
 	.word \w
 .endm
 
-.macro TextboxNoOverlapFollowPos_s s
+.macro TextboxNoOverlapFollowPos_1 s
 	.short 0x085c
 	.short \s
 .endm
@@ -505,14 +509,14 @@
 	.short \b
 .endm
 
-.macro _0807EAF0_sss a,b,c
+.macro _0807EAF0_3 a,b,c
 	.short 0x105d
 	.short \a
 	.short \b
 	.short \c
 .endm
 
-.macro _0807EAF0_ssss a,b,c,d
+.macro _0807EAF0_4 a,b,c,d
 	.short 0x145d
 	.short \a
 	.short \b

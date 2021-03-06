@@ -1,24 +1,25 @@
 SCRIPT_START script_0800B3A4
-StartScript 
-_0807EF80 0x000a
-Call sub_0807F158
-SetEntityNonPlanarMovement 0x0120
-_0807EB44 0x0004
-_0807E908 0x0002
-_0807E914 0x0000200a
-StopScript 
-_0807EDD4 0x0158, 0x0290
-Call sub_08065780
-Call sub_08065780
-Call sub_08065780
-Call sub_08065780
-Call sub_08065780
-Call sub_08065780
-_0807EDD4 0x0128, 0x0290
-Call sub_08065780
-Call sub_08065780
-Call sub_08065780
-Call sub_08065780
-Call sub_08065780
-Call sub_08065780
-Jump 0xffaa
+	StartScript 
+	_0807EF80 0x000a
+	Call sub_0807F158
+	SetEntityNonPlanarMovement 0x0120
+	_0807EB44 0x0004
+	_0807E908 0x0002
+	_0807E914 0x0000200a
+	StopScript 
+script_0800B3C4:
+	_0807EDD4 0x0158, 0x0290
+	Call sub_08065780
+	Call sub_08065780
+	Call sub_08065780
+	Call sub_08065780
+	Call sub_08065780
+	Call sub_08065780
+	_0807EDD4 0x0128, 0x0290
+	Call sub_08065780
+	Call sub_08065780
+	Call sub_08065780
+	Call sub_08065780
+	Call sub_08065780
+	Call sub_08065780
+	Jump script_0800B3C4

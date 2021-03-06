@@ -14,8 +14,8 @@ SCRIPTS_END=0x08016984
 # Currently done by splitting the script at that point
 LABEL_BREAKS=[0x0800A088, 0x0800ACE0, 0x0800AD54, 0x0800B41C, 0x0800B7C4, 0x0800C8C8, 0x0800D190, 0x800D3EC, 0x0800E9F4, 0x0800FD80, 0x08012AC8, 0x08012F0C, 0x080130E4, 0x08013B70, 0x080142B0, 0x080147DC, 0x08014A80, 0x08014B10,0x0801635C,  0x08016384, 0x080165D8]
 
-# Generate a version of the script that is annotated with the byte offset to the beginning of the script
-GENERATE_REF=False
+# Whether to output a label for every line
+PRINT_ALL_LABELS=False
 
 def read_baserom():
     # read baserom data
@@ -25,9 +25,8 @@ def read_baserom():
 def get_label(addr):
     return hex(addr).upper().replace('0X', 'script_0')
 
-def main():
-    baserom_data = read_baserom()
 
+def disassemble_scripts(baserom_data):
     script_start = SCRIPTS_START-ROM_OFFSET
 
     scripts = '''	.include "asm/macros.inc"
@@ -40,11 +39,11 @@ def main():
 	.text
     
 '''
+    label_break = 0
 
     while script_start < SCRIPTS_END-ROM_OFFSET:
-        if len(LABEL_BREAKS) > 0 and script_start+ROM_OFFSET >=LABEL_BREAKS[0]:
-            print(f'{hex(script_start+ROM_OFFSET)} > {LABEL_BREAKS[0]}')
-            LABEL_BREAKS.pop(0)
+        if label_break < len(LABEL_BREAKS) and script_start+ROM_OFFSET >=LABEL_BREAKS[label_break]:
+            label_break += 1
 
         label = get_label(script_start+ROM_OFFSET)
         print(f"Disassembling \033[1;34m{label}\033[0m ({script_start} / { SCRIPTS_END-ROM_OFFSET} bytes converted)...")
@@ -54,41 +53,62 @@ def main():
         if script_end > SCRIPTS_END-ROM_OFFSET:
             script_end = SCRIPTS_END-ROM_OFFSET
 
-        if len(LABEL_BREAKS) > 0 and script_end+ROM_OFFSET > LABEL_BREAKS[0]:
-            print(f'break at {hex(LABEL_BREAKS[0])} instead of {hex(script_end)}')
-            script_end = LABEL_BREAKS[0]-ROM_OFFSET
+        if label_break < len(LABEL_BREAKS) and script_end+ROM_OFFSET > LABEL_BREAKS[label_break]:
+            #print(f'break at {hex(LABEL_BREAKS[label_break])} instead of {hex(script_end)}')
+            script_end = LABEL_BREAKS[label_break]-ROM_OFFSET
 
         # read data from rom
         data = baserom_data[script_start:script_end]
 
 
+
         scripts += f'	.include "data/scripts/{label}.inc"\n'
         stdout = sys.stdout
 
-        with open(f'{TMC_FOLDER}/data/scripts/{label}.ref' if GENERATE_REF else f'{TMC_FOLDER}/data/scripts/{label}.inc','w') as out:
+        with open(f'{TMC_FOLDER}/data/scripts/{label}.inc','w') as out:
             sys.stdout = out
+
+            if script_start == 0x1637C: # This function is actually assembly
+                print ('''thumb_func_start script_0801637C
+script_0801637C:
+    push {lr}
+    bl CreateDust
+    pop {pc}''')
+                sys.stdout = stdout
+                script_start = script_end 
+                continue
+
             print(f'SCRIPT_START {label}')
-            if GENERATE_REF:
-                res = disassemble_script(data, True)
-            else:
-                res = disassemble_script(data)
+            res = disassemble_script(data, script_start+ROM_OFFSET, PRINT_ALL_LABELS)
             if res != 0:
                 # Script ended in the middle, need to create a new file
                 script_end = script_start + res
         sys.stdout = stdout
 
         script_start = script_end 
+    return scripts
 
-    if not GENERATE_REF:
-        print('Writing scripts.s file...')
-        with open(f'{TMC_FOLDER}/data/scripts.s', 'w') as out:
-            out.write(scripts)
-        print('Generating asm macros...')
-        stdout = sys.stdout
-        with open(f'{TMC_FOLDER}/asm/macros/scripts.inc', 'w') as out:
-            sys.stdout = out
-            generate_macros()
-        sys.stdout = stdout
+def main():
+    baserom_data = read_baserom()
+
+    # Do two passes, in the first pass not all labels that are jumped to are known, so those labels are recorded in the first pass
+    # This is not necessary when all labels are printed
+    if not PRINT_ALL_LABELS:
+        print('Collecting labels...')
+        disassemble_scripts(baserom_data)
+    print('Writing scripts with labels...')
+    scripts = disassemble_scripts(baserom_data)
+
+    print('Writing scripts.s file...')
+    with open(f'{TMC_FOLDER}/data/scripts.s', 'w') as out:
+        out.write(scripts)
+    print('Generating asm macros...')
+    stdout = sys.stdout
+    with open(f'{TMC_FOLDER}/asm/macros/scripts.inc', 'w') as out:
+        sys.stdout = out
+        generate_macros()
+    sys.stdout = stdout
+
     print('\033[1;92mDone\033[0m\n')
 
 if __name__ == '__main__':

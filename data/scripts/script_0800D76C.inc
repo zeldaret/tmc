@@ -1,48 +1,50 @@
 SCRIPT_START script_0800D76C
-StartScript 
-Call sub_0807F360
-_0807EF80 0x000b
-SetEntityNonPlanarMovement 0x0200
-_0807EB44 0x0004
-_0807EF80 0x0000
-StopScript 
-WaitForSomething2 0x00000008
-_0807EF80 0x0004
-Wait 0x003c
-SoundReq 0x0123
-CallWithArg sub_0807F464, 0x000001e0
-_0807EDD4 0x01e0, 0x01d8
-_0807EB44 0x0002
-_0807EF80 0x0000
-_0807E5F8 0x00000010
-SoundReq 0x007c
-_0807EF3C 0x0180, 0x0030
-SoundReq 0x007c
-_0807EF3C 0x0180, 0x0030
-_0807EB44 0x0002
-_0807EF80 0x0001
-WaitForSomething2 0x00000008
-Jump 0x0032
-StartScript 
-Call sub_0807F360
-_0807EF80 0x000b
-SetEntityPositionRelative 0x01d80268
-SetEntityNonPlanarMovement 0x0100
-StopScript 
-WaitForSomething2 0x00000002
-_0807EDD4 0x01f0, 0x01d8
-_0807E5F8 0x00000004
-WaitForSomething2 0x00000002
-SetEntityNonPlanarMovement 0x0100
-_0807EEF4 0x0000, 0xffe0
-_0807EF80 0x000e
-Call sub_0806CA5C
-SetEntity0x20 0x00040000
-SoundReq 0x00f5
-CallWithArg sub_0807F8D0, 0xffffe000
-Call sub_0807F8BC
-JumpIf 0xffee
-_0807E5F8 0x00000004
-_0807EF80 0x0006
+	StartScript 
+	Call sub_0807F360
+	_0807EF80 0x000b
+	SetEntityNonPlanarMovement 0x0200
+	_0807EB44 0x0004
+	_0807EF80 0x0000
+	StopScript 
+	WaitForSomething2 0x00000008
+	_0807EF80 0x0004
+	Wait 0x003c
+	SoundReq 0x0123
+	CallWithArg sub_0807F464, 0x000001e0
+	_0807EDD4 0x01e0, 0x01d8
+	_0807EB44 0x0002
+	_0807EF80 0x0000
+	_0807E5F8 0x00000010
+	SoundReq 0x007c
+	_0807EF3C 0x0180, 0x0030
+	SoundReq 0x007c
+	_0807EF3C 0x0180, 0x0030
+	_0807EB44 0x0002
+	_0807EF80 0x0001
+	WaitForSomething2 0x00000008
+	Jump script_0800D80C
+	StartScript 
+	Call sub_0807F360
+	_0807EF80 0x000b
+	SetEntityPositionRelative 0x01d80268
+	SetEntityNonPlanarMovement 0x0100
+	StopScript 
+	WaitForSomething2 0x00000002
+	_0807EDD4 0x01f0, 0x01d8
+	_0807E5F8 0x00000004
+	WaitForSomething2 0x00000002
+script_0800D80C:
+	SetEntityNonPlanarMovement 0x0100
+	_0807EEF4 0x0000, 0xffe0
+	_0807EF80 0x000e
+	Call sub_0806CA5C
+	SetEntity0x20 0x00040000
+	SoundReq 0x00f5
+script_0800D82A:
+	CallWithArg sub_0807F8D0, 0xffffe000
+	Call sub_0807F8BC
+	JumpIf script_0800D82A
+	_0807E5F8 0x00000004
+	_0807EF80 0x0006
 SCRIPT_END
-.short 0x0000
+	.short 0x0000

@@ -1,11 +1,11 @@
 SCRIPT_START script_0800AA48
-StartScript 
-_0807EB44 0x0002
-_0807EF80 0x0007
-_0807E930 0x0000
-StopScript 
-WaitForSomething2 0x00000001
-Call CreateDust
-_0807EF80 0x0006
+	StartScript 
+	_0807EB44 0x0002
+	_0807EF80 0x0007
+	_0807E930 0x0000
+	StopScript 
+	WaitForSomething2 0x00000001
+	Call CreateDust
+	_0807EF80 0x0006
 SCRIPT_END
-.short 0x0000
+	.short 0x0000

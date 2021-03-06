@@ -1,11 +1,11 @@
 SCRIPT_START script_08010A38
-StartScript 
-SetEntityNonPlanarMovement 0x0100
-StopScript 
-_0807EC94 0x0010
-_0807EB44 0x0002
-_0807EF80 0x0000
-_0807E5F8 0x00000001
-Call sub_080791BC
+	StartScript 
+	SetEntityNonPlanarMovement 0x0100
+	StopScript 
+	_0807EC94 0x0010
+	_0807EB44 0x0002
+	_0807EF80 0x0000
+	_0807E5F8 0x00000001
+	Call sub_080791BC
 SCRIPT_END
-.short 0x0000
+	.short 0x0000
