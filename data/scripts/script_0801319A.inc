@@ -32,7 +32,7 @@ script_080131AC:
 	_0807E864 
 	Call sub_0807DF28
 	WaitFor_2 
-	TextboxNoOverlapFollowPos 0x000c1602
+	TextboxNoOverlapFollowPos 0x1602, 0x000c
 	_0807EA94 
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000010
@@ -46,7 +46,7 @@ script_080131AC:
 	StartPlayerScript script_08013378
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000042
-	TextboxNoOverlapFollowPos 0x000c1603
+	TextboxNoOverlapFollowPos 0x1603, 0x000c
 	_0807EA94 
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000040
@@ -59,7 +59,7 @@ script_080131AC:
 	Wait 0x003c
 	CameraTargetPlayer 
 	Call sub_0807F5C0
-	TextboxNoOverlapFollowPos 0x00071604
+	TextboxNoOverlapFollowPos 0x1604, 0x0007
 	_0807EA94 
 	_0807E788 0xffffffff
 	_0807E778 0x0004

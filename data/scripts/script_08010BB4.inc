@@ -23,15 +23,15 @@ script_08010BCA:
 	StartPlayerScript script_08011074
 	WaitForSomething2 0x00000400
 	_0807F078 0x0034, 0x0002
-	TextboxNoOverlapFollowPos 0x000c1036
+	TextboxNoOverlapFollowPos 0x1036, 0x000c
 	_0807EA94 
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
-	TextboxNoOverlapFollowPos 0x00021037
+	TextboxNoOverlapFollowPos 0x1037, 0x0002
 	_0807EA94 
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
-	TextboxNoOverlapFollowPos 0x000c1038
+	TextboxNoOverlapFollowPos 0x1038, 0x000c
 	_0807EA94 
 	SoundReq0x80100000 
 	_0807E778 0x0004
@@ -68,7 +68,7 @@ script_08010BCA:
 	_0807E8E4_1 
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
-	TextboxNoOverlapFollowPos 0x000c1039
+	TextboxNoOverlapFollowPos 0x1039, 0x000c
 	_0807EA94 
 	SoundReq2 0x0001
 	_0807E8E4_2 
@@ -81,7 +81,7 @@ script_08010BCA:
 	Wait 0x012c
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
-	TextboxNoOverlapFollowPos 0x000c103a
+	TextboxNoOverlapFollowPos 0x103a, 0x000c
 	_0807EA94 
 	SetEntityPositionRelative 0x01c001f8
 	_0807F0B4 0x0004
@@ -99,7 +99,7 @@ script_08010BCA:
 	SoundReq 0x009b
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
-	TextboxNoOverlapFollowPos 0x00001043
+	TextboxNoOverlapFollowPos 0x1043, 0x0000
 	_0807EA94 
 	SoundReq2 0x000d
 	_0807E5F8 0x00000100
@@ -115,7 +115,7 @@ script_08010BCA:
 	WaitForSomething2 0x00005000
 	_0807E5F8 0x00028000
 	WaitForSomething2 0x00050000
-	TextboxNoOverlapFollowPos 0x00001044
+	TextboxNoOverlapFollowPos 0x1044, 0x0000
 	_0807EA94 
 	SetEntityPositionRelative 0x009801f8
 	SoundReq0x80100000 

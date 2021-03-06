@@ -11,7 +11,7 @@ script_080145C2:
 	ClearRoomFlag 0x0005
 	Wait 0x000c
 	_0807EB8C 
-	TextboxNoOverlapFollowPos 0x000c432e
+	TextboxNoOverlapFollowPos 0x432e, 0x000c
 	_0807EA94 
 	_0807E878 
 	Jump script_080145C2

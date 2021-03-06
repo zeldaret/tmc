@@ -15,7 +15,7 @@ SCRIPT_START script_08015958
 	_0807EDD4 0x01f8, 0x02f8
 	_0807EB44 0x0004
 	_0807EF80 0x0000
-	TextboxNoOverlapFollowPos 0x00021011
+	TextboxNoOverlapFollowPos 0x1011, 0x0002
 	_0807EA94 
 	_0807EDD4 0x01f8, 0x0268
 	SetEntityPositionRelative 0x02180248
@@ -57,7 +57,7 @@ script_08015A32:
 	CheckEntityInteractType 
 	JumpIfNot script_08015A32
 	StopScript 
-	TextboxNoOverlapFollowPos 0x00021067
+	TextboxNoOverlapFollowPos 0x1067, 0x0002
 	_0807EA94 
 	Jump script_08015A32
 script_08015A54:

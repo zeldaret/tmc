@@ -13,9 +13,9 @@ SCRIPT_START script_0800AB08
 	_0807F0B4 0x0001
 	SetEntityPositionRelative 0x00780088
 	Call sub_0807F5C0
-	TextboxNoOverlapFollowPos 0x00001664
+	TextboxNoOverlapFollowPos 0x1664, 0x0000
 	_0807EA94 
-	TextboxNoOverlapFollowPos 0x000e165e
+	TextboxNoOverlapFollowPos 0x165e, 0x000e
 	_0807EA94 
 	CallWithArg sub_0805DDEC, 0x00000001
 	_0807F0C8 0xffff, 0x0000

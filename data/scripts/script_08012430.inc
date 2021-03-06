@@ -35,7 +35,7 @@ script_0801248A:
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	StartPlayerScript script_08012AB0
-	TextboxNoOverlapFollowPos 0x00071101
+	TextboxNoOverlapFollowPos 0x1101, 0x0007
 	_0807EA94 
 	CameraTargetPlayer 
 	_0807E778 0x0004

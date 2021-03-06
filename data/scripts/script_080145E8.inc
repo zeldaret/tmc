@@ -36,7 +36,7 @@ script_0801463A:
 	JumpIf script_080146A0
 	_0807E864 
 	_0807EB8C 
-	TextboxNoOverlapFollowPos 0x000c432b
+	TextboxNoOverlapFollowPos 0x432b, 0x000c
 	Jump script_080147CE
 script_08014672:
 	Call sub_08088658
@@ -59,7 +59,7 @@ script_080146A0:
 	_0807E930 0x0002
 	CheckGlobalFlag 0x0059
 	JumpIfNot script_080146C6
-	TextboxNoOverlapFollowPos 0x000c432f
+	TextboxNoOverlapFollowPos 0x432f, 0x000c
 	Jump script_080147CE
 script_080146C6:
 	CheckRoomFlag 0x0004
@@ -74,16 +74,16 @@ script_080146C6:
 	SetRoomFlag 0x0009
 	Jump script_0801473C
 script_080146F4:
-	TextboxNoOverlapFollowPos 0x000c431e
+	TextboxNoOverlapFollowPos 0x431e, 0x000c
 	Jump script_080147CE
 script_080146FE:
 	SetRoomFlag 0x0009
 	SetLocalFlag 0x005c
-	TextboxNoOverlapFollowPos 0x000c4305
+	TextboxNoOverlapFollowPos 0x4305, 0x000c
 	_0807EA94 
 	_0807E3BC 0x0001
 	JumpIfNot script_080147C4
-	TextboxNoOverlapFollowPos 0x000c4306
+	TextboxNoOverlapFollowPos 0x4306, 0x000c
 	Jump script_0801473C
 script_08014720:
 	SetRoomFlag 0x0009
@@ -107,7 +107,7 @@ script_08014754:
 	ClearRoomFlag 0x0003
 	_0807EA94 
 	SetRoomFlag 0x0004
-	TextboxNoOverlapFollowPos 0x000c431e
+	TextboxNoOverlapFollowPos 0x431e, 0x000c
 	Jump script_080147CE
 script_08014770:
 	SetRoomFlag 0x0009
@@ -137,7 +137,7 @@ script_080147B4:
 	Jump script_0801478A
 script_080147C4:
 	SetRoomFlag 0x0009
-	TextboxNoOverlapFollowPos 0x000c4307
+	TextboxNoOverlapFollowPos 0x4307, 0x000c
 script_080147CE:
 	_0807EA94 
 	Wait 0x0004

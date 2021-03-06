@@ -7,14 +7,14 @@ SCRIPT_START script_080126FC
 	WaitForSomething2 0x00000004
 	_0807E930 0x0022
 	Call sub_0807F3C8
-	TextboxNoOverlapFollowPos 0x000c1102
+	TextboxNoOverlapFollowPos 0x1102, 0x000c
 	_0807EA94 
 	_0807E930 0x0020
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
 	_0807E930 0x0021
 	Call sub_0807F3C8
-	TextboxNoOverlapFollowPos 0x000c1103
+	TextboxNoOverlapFollowPos 0x1103, 0x000c
 	_0807EA94 
 	_0807E930 0x0020
 	_0807E5F8 0x00000008
@@ -25,29 +25,29 @@ SCRIPT_START script_080126FC
 	WaitForSomething2 0x00000004
 	_0807EF80 0x0011
 	_0807E930 0x001c
-	TextboxNoOverlapFollowPos 0x000c1105
+	TextboxNoOverlapFollowPos 0x1105, 0x000c
 	_0807EA94 
 	_0807E930 0x0020
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
 	_0807E930 0x0022
 	Call sub_0807F3C8
-	TextboxNoOverlapFollowPos 0x000c1106
+	TextboxNoOverlapFollowPos 0x1106, 0x000c
 	_0807EA94 
 	_0807E930 0x001c
 	Call sub_0806D96C
-	TextboxNoOverlapFollowPos 0x000c1107
+	TextboxNoOverlapFollowPos 0x1107, 0x000c
 	_0807EA94 
 	_0807E930 0x0020
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
 	_0807E930 0x0021
 	Call sub_0807F3C8
-	TextboxNoOverlapFollowPos 0x000c1108
+	TextboxNoOverlapFollowPos 0x1108, 0x000c
 	_0807EA94 
 	_0807E930 0x001c
 	Call sub_0806D96C
-	TextboxNoOverlapFollowPos 0x000c1109
+	TextboxNoOverlapFollowPos 0x1109, 0x000c
 	_0807EA94 
 	_0807E930 0x0020
 	_0807EF80 0x000a
@@ -64,7 +64,7 @@ script_080127F2:
 	_0807E864 
 	Call sub_0806D944
 	_0807E930 0x0010
-	TextboxNoOverlapFollowPos 0x000c1114
+	TextboxNoOverlapFollowPos 0x1114, 0x000c
 	_0807EA94 
 	_0807E930 0x0020
 	_0807E878 
@@ -82,13 +82,13 @@ script_08012824:
 	WaitForSomething2 0x00000004
 	Call sub_0806D944
 	_0807E930 0x0010
-	TextboxNoOverlapFollowPos 0x000c110a
+	TextboxNoOverlapFollowPos 0x110a, 0x000c
 	_0807EA94 
 	_0807E930 0x001f
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
 	_0807E930 0x0010
-	TextboxNoOverlapFollowPos 0x000c110b
+	TextboxNoOverlapFollowPos 0x110b, 0x000c
 	_0807EA94 
 	_0807E930 0x001f
 	_0807E5F8 0x00000008
@@ -96,19 +96,19 @@ script_08012824:
 	_0807EF80 0x0004
 	Wait 0x003c
 	_0807E930 0x0010
-	TextboxNoOverlapFollowPos 0x000c110c
+	TextboxNoOverlapFollowPos 0x110c, 0x000c
 	_0807EA94 
 	_0807E930 0x001f
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
 	_0807E930 0x0010
-	TextboxNoOverlapFollowPos 0x000c110d
+	TextboxNoOverlapFollowPos 0x110d, 0x000c
 	_0807EA94 
 	_0807E930 0x001f
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
 	_0807E930 0x0010
-	TextboxNoOverlapFollowPos 0x000c110e
+	TextboxNoOverlapFollowPos 0x110e, 0x000c
 	_0807EA94 
 	_0807E930 0x0018
 	SetEntityNonPlanarMovement 0x0080
@@ -131,7 +131,7 @@ script_08012920:
 	_0807E864 
 	_0807E930 0x0010
 	StopScript 
-	TextboxNoOverlapFollowPos 0x000c1115
+	TextboxNoOverlapFollowPos 0x1115, 0x000c
 	_0807EA94 
 	_0807E930 0x0018
 	_0807E878 
@@ -144,7 +144,7 @@ script_0801293A:
 	_0807EB8C 
 	Call sub_0806D944
 	_0807E930 0x0010
-	TextboxNoOverlapFollowPos 0x000c110f
+	TextboxNoOverlapFollowPos 0x110f, 0x000c
 	_0807E930 0x0018
 	SetEntityNonPlanarMovement 0x0080
 	Call sub_0806D908
@@ -167,7 +167,7 @@ script_080129A0:
 	_0807E864 
 	_0807E930 0x0010
 	StopScript 
-	TextboxNoOverlapFollowPos 0x000c1115
+	TextboxNoOverlapFollowPos 0x1115, 0x000c
 	_0807EA94 
 	_0807E930 0x0018
 	_0807E878 
@@ -180,7 +180,7 @@ script_080129BA:
 	_0807EB8C 
 	Call sub_0806D944
 	_0807E930 0x0010
-	TextboxNoOverlapFollowPos 0x000c1110
+	TextboxNoOverlapFollowPos 0x1110, 0x000c
 	_0807E930 0x0018
 	SetEntityNonPlanarMovement 0x0080
 	Call sub_0806D908
@@ -204,7 +204,7 @@ script_08012A24:
 	_0807E864 
 	_0807E930 0x0010
 	StopScript 
-	TextboxNoOverlapFollowPos 0x000c1115
+	TextboxNoOverlapFollowPos 0x1115, 0x000c
 	_0807EA94 
 	_0807E930 0x0018
 	_0807E878 
@@ -219,7 +219,7 @@ script_08012A3E:
 	_0807EB8C 
 	Call sub_0806D944
 	_0807E930 0x0010
-	TextboxNoOverlapFollowPos 0x000c1111
+	TextboxNoOverlapFollowPos 0x1111, 0x000c
 	_0807E930 0x0018
 	SetEntityNonPlanarMovement 0x0080
 	Call sub_0806D8A0

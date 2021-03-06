@@ -16,11 +16,11 @@ script_0800DA64:
 	Call sub_0807F5C0
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
-	TextboxNoOverlapFollowPos 0x0002162d
+	TextboxNoOverlapFollowPos 0x162d, 0x0002
 	_0807EA94 
 	_0807E5F8 0x00000001
 	Wait 0x001e
-	TextboxNoOverlapFollowPos 0x0002162e
+	TextboxNoOverlapFollowPos 0x162e, 0x0002
 	_0807EA94 
 	_0807E8E4_0 
 	CallWithArg sub_0807F75C, 0x00780138

@@ -23,7 +23,7 @@ script_08014298:
 	CheckEntityInteractType 
 	JumpIfNot script_08014298
 	_0807E864 
-	TextboxNoOverlapFollowPos 0x000c0647
+	TextboxNoOverlapFollowPos 0x0647, 0x000c
 	_0807EA94 
 	_0807E878 
 	Jump script_08014298

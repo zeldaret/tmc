@@ -18,7 +18,7 @@ SCRIPT_START script_08009B78
 	_0807EF80 0x0000
 	Wait 0x000f
 	_0807EF80 0x0001
-	TextboxNoOverlapFollowPos 0x00001009
+	TextboxNoOverlapFollowPos 0x1009, 0x0000
 	_0807E8E4_1 
 	_0807EA94 
 	_0807EF80 0x0000
@@ -26,7 +26,7 @@ SCRIPT_START script_08009B78
 	WaitForSomething2 0x00000008
 	_0807EB8C 
 	_0807EF80 0x0001
-	TextboxNoOverlapFollowPos 0x0000100b
+	TextboxNoOverlapFollowPos 0x100b, 0x0000
 	_0807EA94 
 	_0807EF80 0x0000
 	_0807E5F8 0x00000002
@@ -45,7 +45,7 @@ SCRIPT_START script_08009B78
 	WaitPlayerAction8 
 	_0807E8E4_1 
 	_0807EF80 0x0001
-	TextboxNoOverlapFollowPos 0x0000100c
+	TextboxNoOverlapFollowPos 0x100c, 0x0000
 	_0807EA94 
 	_0807EF80 0x0000
 	_0807E5F8 0x00000004

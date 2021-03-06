@@ -52,7 +52,7 @@ script_0801015A:
 	_0807EB74 
 	CheckRoomFlag 0x0001
 	JumpIf script_0801019E
-	TextboxNoOverlapFollowPos 0x00003001
+	TextboxNoOverlapFollowPos 0x3001, 0x0000
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_080101A6
@@ -77,7 +77,7 @@ script_080101A6:
 	Call sub_080A1270
 	_0807E864 
 	Call sub_0807DF28
-	TextboxNoOverlapFollowPos 0x00073004
+	TextboxNoOverlapFollowPos 0x3004, 0x0007
 	_0807EA94 
 	SoundReq0x80100000 
 	_0807E778 0x0004

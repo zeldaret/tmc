@@ -126,7 +126,7 @@ script_08011AE4:
 	Call sub_0807F9A4
 	Call sub_0807DF28
 script_08011AFA:
-	TextboxNoOverlapFollowPos 0x00071321
+	TextboxNoOverlapFollowPos 0x1321, 0x0007
 	_0807EA94 
 	SetLocalFlag 0x0010
 	CallWithArg sub_0806DA1C, 0x00000003

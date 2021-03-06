@@ -493,9 +493,10 @@
 	.short \s
 .endm
 
-.macro TextboxNoOverlapFollowPos w
+.macro TextboxNoOverlapFollowPos a,b
 	.short 0x0c5c
-	.word \w
+	.short \a
+	.short \b
 .endm
 
 .macro TextboxNoOverlapFollowPos_1 s

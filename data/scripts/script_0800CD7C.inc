@@ -222,7 +222,7 @@ script_0800D032:
 	_0807EB74 
 	_0807E914 0x00000000
 	Call sub_0806C028
-	TextboxNoOverlapFollowPos 0x0002125c
+	TextboxNoOverlapFollowPos 0x125c, 0x0002
 	_0807EA94 
 	StartPlayerScript script_0800D1B4
 	WaitForSomething2 0x00000008
@@ -233,7 +233,7 @@ script_0800D032:
 	_0807E5F8 0x00000020
 	StartPlayerScript script_0800D1E0
 	WaitForSomething2 0x00000008
-	TextboxNoOverlapFollowPos 0x0002125d
+	TextboxNoOverlapFollowPos 0x125d, 0x0002
 	Jump script_0800D17C
 script_0800D098:
 	CheckLocalFlag 0x007e
@@ -250,7 +250,7 @@ script_0800D0A8:
 	_0807EB74 
 	_0807E914 0x00000000
 	Call sub_0806C028
-	TextboxNoOverlapFollowPos 0x0002123d
+	TextboxNoOverlapFollowPos 0x123d, 0x0002
 	_0807EA94 
 	StartPlayerScript script_0800D1B4
 	WaitForSomething2 0x00000008
@@ -265,7 +265,7 @@ script_0800D108:
 	SoundReq 0x00f8
 	_0807E5F8 0x00000010
 	SetLocalFlag 0x007e
-	TextboxNoOverlapFollowPos 0x0002123e
+	TextboxNoOverlapFollowPos 0x123e, 0x0002
 	_0807EA94 
 	Wait 0x000f
 	_0807E930 0x0009
@@ -274,7 +274,7 @@ script_0800D108:
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
 	Wait 0x001e
-	TextboxNoOverlapFollowPos 0x0002123f
+	TextboxNoOverlapFollowPos 0x123f, 0x0002
 	_0807EA94 
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000004

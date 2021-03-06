@@ -1,19 +1,20 @@
 from utils import barray_to_u16_hex, barray_to_u32_hex, barray_to_s16
 import struct
 
+# A list of all the commands, their correspondingScriptCommand_  functions and what kind of parameters they take
 commands = [
     {'fun': 'ScriptCommandNop', 'params': ''},
-    {'fun': 'ScriptCommand_StartScript', 'params': '', 'name': 'start executing scripts'},
-    {'fun': 'ScriptCommand_StopScript', 'params': '', 'name': 'stop executing scripts'},
-    {'fun': 'ScriptCommand_Jump', 'params': 'j', 'name': 'jump by offset'},
-    {'fun': 'ScriptCommand_JumpIf', 'params': 'j', 'name': 'jump if'},
-    {'fun': 'ScriptCommand_JumpIfNot', 'params': 'j', 'name': 'jump if not'},
+    {'fun': 'ScriptCommand_StartScript', 'params': ''},
+    {'fun': 'ScriptCommand_StopScript', 'params': ''},
+    {'fun': 'ScriptCommand_Jump', 'params': 'j'},
+    {'fun': 'ScriptCommand_JumpIf', 'params': 'j'},
+    {'fun': 'ScriptCommand_JumpIfNot', 'params': 'j'},
     {'fun': 'ScriptCommand_JumpSwitch', 'params': ['jj', 'jjj', 'jjjj', 'jjjjjjj', 'jjjjjjjjj']},
-    {'fun': 'ScriptCommand_JumpAbsolute', 'params': 'x','name': 'abs jump' },
-    {'fun': 'ScriptCommand_JumpAbsoluteIf', 'params': 'x', 'name': 'abs jump if'},
-    {'fun': 'ScriptCommand_JumpAbsoluteIfNot', 'params': 'x', 'name': 'abs jump if not'},
+    {'fun': 'ScriptCommand_JumpAbsolute', 'params': 'x'},
+    {'fun': 'ScriptCommand_JumpAbsoluteIf', 'params': 'x'},
+    {'fun': 'ScriptCommand_JumpAbsoluteIfNot', 'params': 'x'},
     {'fun': 'ScriptCommand_JumpAbsoluteSwitch', 'params': 'xx'},
-    {'fun': 'ScriptCommand_Call', 'params':'p', 'name': 'Execute function via pointer'},# 'exec': ScriptCommand_Call},
+    {'fun': 'ScriptCommand_Call', 'params': 'p'},
     {'fun': 'ScriptCommand_CallWithArg', 'params': ['pw', 'p']},
     {'fun': 'ScriptCommand_LoadRoomEntityList', 'params': 'd'},
     {'fun': 'ScriptCommand_TestBit', 'params': 'w'},
@@ -37,12 +38,12 @@ commands = [
     {'fun': 'ScriptCommand_0807E4CC', 'params': 'w'},
     {'fun': 'ScriptCommand_0807E4EC', 'params': 'w'},
     {'fun': 'ScriptCommand_0807E514', 'params': 'w'},
-    {'fun': 'ScriptCommand_CheckPlayerFlags', 'params':'w'},
+    {'fun': 'ScriptCommand_CheckPlayerFlags', 'params': 'w'},
     {'fun': 'ScriptCommand_0807E564', 'params': ''},
     {'fun': 'ScriptCommand_EntityHasHeight', 'params': ''},
     {'fun': 'ScriptCommand_ComparePlayerAction', 'params': 's'},
     {'fun': 'ScriptCommand_ComparePlayerAnimationState', 'params': 's'},
-    {'fun': 'ScriptCommand_0807E5F8', 'params': 'w'},# 'exec': ScriptCommand_0807E5F8},
+    {'fun': 'ScriptCommand_0807E5F8', 'params': 'w'},
     {'fun': 'ScriptCommand_0807E610', 'params': 'w'},
     {'fun': 'ScriptCommand_SetLocalFlag', 'params': 's'},
     {'fun': 'ScriptCommand_SetLocalFlagByOffset', 'params': 'ss'},
@@ -75,10 +76,10 @@ commands = [
     {'fun': 'ScriptCommand_SetPlayerAction', 'params': 'w'},
     {'fun': 'ScriptCommand_StartPlayerScript', 'params': 'x'},
     {'fun': 'ScriptCommand_0807E8D4', 'params': 's'},
-    {'fun': 'ScriptCommand_0807E8E4_0', 'params': ''}, # duplicate
-    {'fun': 'ScriptCommand_0807E8E4_1', 'params': ''}, # duplicate
-    {'fun': 'ScriptCommand_0807E8E4_2', 'params': ''}, # duplicate
-    {'fun': 'ScriptCommand_0807E8E4_3', 'params': ''}, # duplicate
+    {'fun': 'ScriptCommand_0807E8E4_0', 'params': ''},  # duplicate
+    {'fun': 'ScriptCommand_0807E8E4_1', 'params': ''},  # duplicate
+    {'fun': 'ScriptCommand_0807E8E4_2', 'params': ''},  # duplicate
+    {'fun': 'ScriptCommand_0807E8E4_3', 'params': ''},  # duplicate
     {'fun': 'ScriptCommand_0807E908', 'params': 's'},
     {'fun': 'ScriptCommand_0807E914', 'params': 'w'},
     {'fun': 'ScriptCommand_0807E924', 'params': ''},
@@ -94,7 +95,7 @@ commands = [
     {'fun': 'ScriptCommand_0807EA94', 'params': ''},
     {'fun': 'ScriptCommand_TextboxNoOverlapFollow', 'params': 's'},
     {'fun': 'ScriptCommand_TextboxNoOverlap', 'params': 's'},
-    {'fun': 'ScriptCommand_TextboxNoOverlapFollowPos', 'params': ['w', 's']}, # TODO w or ss?
+    {'fun': 'ScriptCommand_TextboxNoOverlapFollowPos', 'params': ['ss', 's']},
     {'fun': 'ScriptCommand_0807EAF0', 'params': ['ss', 'sss', 'ssss']},
     {'fun': 'ScriptCommand_TextboxNoOverlapVar', 'params': ''},
     {'fun': 'ScriptCommand_0807EB28', 'params': 's'},
@@ -143,9 +144,6 @@ commands = [
     {'fun': 'ScriptCommand_0807F0C8', 'params': 'ss'}
 ]
 
-
-
-
 # Functions that have already been renamed
 POINTER_MAP = {
     'sub_08095458': 'nullsub_527',
@@ -157,24 +155,29 @@ POINTER_MAP = {
     'sub_080A2138': 'Windcrest_Unlock',
     'sub_080A29BC': 'CreateDust'
 }
-# tries to directly reference the function this is pointing to
+
+
 def get_pointer(barray):
+    # tries to directly reference the function this is pointing to
     integers = struct.unpack('I', barray)
     pointer = 'sub_' + (struct.pack('>I', integers[0]-1).hex()).upper()
     if pointer in POINTER_MAP:
         return POINTER_MAP[pointer]
     return pointer
 
+
 # Data pointers that actually point to a script location
 DATA_MAP = {
     'gUnk_08016384': 'script_08016384'
 }
+
 def get_data_pointer(barray):
     integers = struct.unpack('I', barray)
     pointer = 'gUnk_' + (struct.pack('>I', integers[0]).hex()).upper()
     if pointer in DATA_MAP:
         return DATA_MAP[pointer]
     return pointer
+
 
 def get_script_pointer(barray):
     integers = struct.unpack('I', barray)
@@ -184,7 +187,7 @@ def get_script_pointer(barray):
 def get_script_label(u32):
     return hex(u32).upper().replace('0X', 'script_0')
 
-
+# Collects a set of all the labels that were jumped to
 used_labels = set()
 def use_script_label(u32):
     global used_labels
@@ -193,125 +196,121 @@ def use_script_label(u32):
     return label
 
 
-
-
 # definitions for parameter types
 parameters = {
     '': {
-        'length':0,
+        'length': 0,
         'param': '',
         'expr': '',
         'read': lambda ctx: ''
     },
-    's': { 
+    's': {
         'length': 1,
         'param': 's',
         'expr': '	.short \s',
-        'read': lambda ctx: barray_to_u16_hex(ctx.data[ctx.ptr+2:ctx.ptr+4])[0]
+        'read': lambda ctx: barray_to_u16_hex(ctx.data[ctx.ptr + 2:ctx.ptr + 4])[0]
     },
     'ss': {
         'length': 2,
         'param': 'a,b',
         'expr': '	.short \\a\n	.short \\b',
-        'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr+2:ctx.ptr+6]))
+        'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr + 2:ctx.ptr + 6]))
     },
     'sss': {
         'length': 3,
         'param': 'a,b,c',
         'expr': '	.short \\a\n	.short \\b\n	.short \\c',
-        'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr+2:ctx.ptr+8]))
+        'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr + 2:ctx.ptr + 8]))
     },
     'ssss': {
         'length': 4,
         'param': 'a,b,c,d',
         'expr': '	.short \\a\n	.short \\b\n	.short \\c\n	.short \\d',
-        'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr+2:ctx.ptr+10]))
+        'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr + 2:ctx.ptr + 10]))
     },
 
     'w': {
         'length': 2,
         'param': 'w',
         'expr': '	.word \w',
-        'read': lambda ctx: barray_to_u32_hex(ctx.data[ctx.ptr+2:ctx.ptr+6])[0]
+        'read': lambda ctx: barray_to_u32_hex(ctx.data[ctx.ptr + 2:ctx.ptr + 6])[0]
     },
     'ww': {
         'length': 4,
         'param': 'a,b',
         'expr': '	.word \\a\n	.word \\b',
-        'read': lambda ctx: ', '.join(barray_to_u32_hex(ctx.data[ctx.ptr+2:ctx.ptr+10]))
+        'read': lambda ctx: ', '.join(barray_to_u32_hex(ctx.data[ctx.ptr + 2:ctx.ptr + 10]))
     },
 
-
-    'j': { # Relative jump target
+    'j': {  # Relative jump target
         'length': 1,
         'param': 's',
         'expr': '1:	.short \s - 1b',
-        'read': lambda ctx: use_script_label(ctx.script_addr+ctx.ptr+ 2 +barray_to_s16(ctx.data[ctx.ptr+2:ctx.ptr+4]))
-        # hex(ctx.script_addr + barray_to_s16(ctx.data[ctx.ptr+2:ctx.ptr+4])).upper().replace('0X', 'script_0')
+        'read': lambda ctx: use_script_label(ctx.script_addr + ctx.ptr + 2 + barray_to_s16(ctx.data[ctx.ptr + 2:ctx.ptr + 4]))
     },
     'jj': {
         'length': 2,
         'param': 'a,b',
         'expr': '1:	.short \\a - 1b\n	.short \\b - 1b - 2',
-        'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr+ctx.ptr+ 2 +barray_to_s16(ctx.data[ctx.ptr+x*2+2:ctx.ptr+x*2+4]) + x*2) for x in range(0,2)])
-    },  
+        'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr + ctx.ptr + 2 + barray_to_s16(ctx.data[ctx.ptr + x * 2 + 2:ctx.ptr + x * 2 + 4]) + x * 2) for x in range(0, 2)])
+    },
     'jjj': {
         'length': 3,
         'param': 'a,b,c',
         'expr': '1:	.short \\a - 1b\n	.short \\b - 1b - 2\n	.short \\c - 1b - 4',
-        'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr+ctx.ptr+ 2 +barray_to_s16(ctx.data[ctx.ptr+x*2+2:ctx.ptr+x*2+4]) + x*2) for x in range(0,3)])
+        'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr + ctx.ptr + 2 + barray_to_s16(ctx.data[ctx.ptr + x * 2 + 2:ctx.ptr + x * 2 + 4]) + x*2) for x in range(0, 3)])
     },
     'jjjj': {
         'length': 4,
         'param': 'a,b,c,d',
         'expr': '1:	.short \\a - 1b\n	.short \\b - 1b - 2\n	.short \\c - 1b - 4\n	.short \\d - 1b - 6',
-        'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr+ctx.ptr+ 2 +barray_to_s16(ctx.data[ctx.ptr+x*2+2:ctx.ptr+x*2+4]) + x*2) for x in range(0,4)])
+        'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr + ctx.ptr + 2 + barray_to_s16(ctx.data[ctx.ptr + x * 2 + 2:ctx.ptr + x * 2 + 4]) + x*2) for x in range(0, 4)])
     },
     'jjjjjjj': {
         'length': 7,
         'param': 'a,b,c,d,e,f,g',
         'expr': '1:	.short \\a - 1b\n	.short \\b - 1b - 2\n	.short \\c - 1b - 4\n	.short \\d - 1b - 6\n	.short \\e - 1b - 8\n	.short \\f - 1b - 10\n	.short \\g - 1b - 12',
-        'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr+ctx.ptr+ 2 +barray_to_s16(ctx.data[ctx.ptr+x*2+2:ctx.ptr+x*2+4]) + x*2) for x in range(0,7)])
-    },  
+        'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr + ctx.ptr + 2 + barray_to_s16(ctx.data[ctx.ptr + x * 2 + 2:ctx.ptr + x * 2 + 4]) + x*2) for x in range(0, 7)])
+    },
     'jjjjjjjjj': {
         'length': 9,
         'param': 'a,b,c,d,e,f,g,h,i',
         'expr': '1:	.short \\a - 1b\n	.short \\b - 1b - 2\n	.short \\c - 1b - 4\n	.short \\d - 1b - 6\n	.short \\e - 1b - 8\n	.short \\f - 1b - 10\n	.short \\g - 1b - 12\n	.short \\h - 1b - 14\n	.short \\i - 1b - 16',
-        'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr+ctx.ptr+ 2 +barray_to_s16(ctx.data[ctx.ptr+x*2+2:ctx.ptr+x*2+4]) + x*2) for x in range(0,9)])
-    }, 
+        'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr + ctx.ptr + 2 + barray_to_s16(ctx.data[ctx.ptr + x * 2 + 2:ctx.ptr + x * 2 + 4]) + x*2) for x in range(0, 9)])
+    },
     'p': {
         'length': 2,
         'param': 'w',
         'expr': '	.word \w',
-        'read': lambda ctx: get_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6])
+        'read': lambda ctx: get_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6])
     },
 
     'pw': {
         'length': 4,
         'param': 'a,b',
         'expr': '	.word \\a\n	.word \\b',
-        'read': lambda ctx: get_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6]) + ', ' + barray_to_u32_hex(ctx.data[ctx.ptr+6:ctx.ptr+14])[0]
+        'read': lambda ctx: get_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6]) + ', ' + barray_to_u32_hex(ctx.data[ctx.ptr + 6:ctx.ptr + 14])[0]
     },
-    'd': { # Data pointer
+    'd': {  # Data pointer
         'length': 2,
         'param': 'w',
         'expr': '	.word \w',
-        'read': lambda ctx: get_data_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6])
+        'read': lambda ctx: get_data_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6])
     },
-    'x': { # Script pointer
+    'x': {  # Script pointer
         'length': 2,
         'param': 'w',
         'expr': '	.word \w',
-        'read': lambda ctx: get_script_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6])
+        'read': lambda ctx: get_script_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6])
     },
     'xx': {
         'length': 4,
         'param': 'a, b',
         'expr': '	.word \\a\n	.word \\b',
-        'read': lambda ctx: get_script_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6]) + ', ' + get_script_pointer(ctx.data[ctx.ptr+6:ctx.ptr+10])
+        'read': lambda ctx: get_script_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6]) + ', ' + get_script_pointer(ctx.data[ctx.ptr + 6:ctx.ptr + 10])
     },
     # Commands with variable parameter count are now handled by explicitely defining all used parameter configurations
-    # 'v': { 
+    # 'v': {
     #     'length': -1,
     #     'param': '',
     #     'expr': '',

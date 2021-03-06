@@ -143,7 +143,7 @@ script_08014FCC:
 	CameraTargetEntity 
 	StartPlayerScript script_080152B4
 	WaitForSomething2 0x00000001
-	TextboxNoOverlapFollowPos 0x00021301
+	TextboxNoOverlapFollowPos 0x1301, 0x0002
 	_0807EA94 
 	Call sub_0807F3F8
 	Wait 0x003c
@@ -154,11 +154,11 @@ script_08014FCC:
 	SoundReq2 0x000d
 	_0807EB28 0x1302
 	_0807EA94 
-	TextboxNoOverlapFollowPos 0x00021303
+	TextboxNoOverlapFollowPos 0x1303, 0x0002
 	_0807EA94 
 	_0807EB28 0x1304
 	_0807EA94 
-	TextboxNoOverlapFollowPos 0x00021305
+	TextboxNoOverlapFollowPos 0x1305, 0x0002
 	_0807EA94 
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004

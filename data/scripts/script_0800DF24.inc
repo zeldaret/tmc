@@ -19,7 +19,7 @@ SCRIPT_START script_0800DF24
 	Call sub_08066C94
 	Wait 0x00e9
 	_0807EF80 0x0007
-	TextboxNoOverlapFollowPos 0x0002162f
+	TextboxNoOverlapFollowPos 0x162f, 0x0002
 	_0807EA94 
 	SoundReq2 0x002f
 	_0807EF80 0x0019

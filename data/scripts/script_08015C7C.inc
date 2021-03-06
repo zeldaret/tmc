@@ -8,7 +8,7 @@ SCRIPT_START script_08015C7C
 	_0807EF80 0x0000
 	CallWithArg sub_0807F238, 0x000003c5
 	Call sub_0807F304
-	TextboxNoOverlapFollowPos 0x000c1318
+	TextboxNoOverlapFollowPos 0x1318, 0x000c
 	_0807EA94 
 	CallWithArg sub_0807F238, 0x000003c9
 	Call sub_0807F304

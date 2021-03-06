@@ -74,7 +74,7 @@ script_080138D0:
 	DoFade6 
 	WaitFor_2 
 	SoundReq 0x0109
-	TextboxNoOverlapFollowPos 0x000c0505
+	TextboxNoOverlapFollowPos 0x0505, 0x000c
 	_0807EA94 
 	_0807E5F8 0x00040000
 	_0807F0B4 0x0002

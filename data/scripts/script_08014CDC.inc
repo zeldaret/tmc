@@ -11,7 +11,7 @@ SCRIPT_START script_08014CDC
 	WaitForSomething2 0x00000001
 	Call sub_08066E08
 	_0807E864 
-	TextboxNoOverlapFollowPos 0x000c1010
+	TextboxNoOverlapFollowPos 0x1010, 0x000c
 	_0807EA94 
 	_0807E5F8 0x00000002
 script_08014D1E:

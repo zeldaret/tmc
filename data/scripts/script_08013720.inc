@@ -69,7 +69,7 @@ script_0801373C:
 	DoFade6 
 	WaitFor_2 
 	SoundReq 0x0109
-	TextboxNoOverlapFollowPos 0x000c0504
+	TextboxNoOverlapFollowPos 0x0504, 0x000c
 	_0807EA94 
 	_0807E5F8 0x00040000
 	SetLocalFlag 0x007b

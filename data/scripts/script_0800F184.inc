@@ -32,7 +32,7 @@ script_0800F1E6:
 	_0807E930 0x0008
 	_0807EF80 0x0004
 	Wait 0x003c
-	TextboxNoOverlapFollowPos 0x000c1206
+	TextboxNoOverlapFollowPos 0x1206, 0x000c
 	_0807EA94 
 	StartPlayerScript script_0800F33C
 	WaitForSomething2 0x00000400
@@ -48,7 +48,7 @@ script_0800F22A:
 	_0807E930 0x0008
 	_0807EF80 0x0004
 	Wait 0x003c
-	TextboxNoOverlapFollowPos 0x000c1206
+	TextboxNoOverlapFollowPos 0x1206, 0x000c
 	_0807EA94 
 	StartPlayerScript script_0800F354
 	WaitForSomething2 0x00000400
@@ -64,7 +64,7 @@ script_0800F26A:
 	_0807E930 0x0008
 	_0807EF80 0x0004
 	Wait 0x003c
-	TextboxNoOverlapFollowPos 0x000c1206
+	TextboxNoOverlapFollowPos 0x1206, 0x000c
 	_0807EA94 
 	StartPlayerScript script_0800F36C
 	WaitForSomething2 0x00000400
@@ -80,7 +80,7 @@ script_0800F2AA:
 	_0807E930 0x0008
 	_0807EF80 0x0004
 	Wait 0x003c
-	TextboxNoOverlapFollowPos 0x000c1206
+	TextboxNoOverlapFollowPos 0x1206, 0x000c
 	_0807EA94 
 	StartPlayerScript script_0800F384
 	WaitForSomething2 0x00000400
@@ -97,7 +97,7 @@ script_0800F2EA:
 	_0807E864 
 	_0807EB74 
 	_0807E930 0x0008
-	TextboxNoOverlapFollowPos 0x000c1208
+	TextboxNoOverlapFollowPos 0x1208, 0x000c
 	_0807EA94 
 	_0807E878 
 	Jump script_0800F1E6

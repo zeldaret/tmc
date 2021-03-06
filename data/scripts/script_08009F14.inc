@@ -21,7 +21,7 @@ script_08009F36:
 	StartPlayerScript script_0800A088
 	WaitForSomething2 0x00000002
 	Call sub_0806014C
-	TextboxNoOverlapFollowPos 0x00001f01
+	TextboxNoOverlapFollowPos 0x1f01, 0x0000
 	_0807EA94 
 	Wait 0x001e
 	_0807F034 0x0065

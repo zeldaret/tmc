@@ -4,7 +4,7 @@ SCRIPT_START script_08010F84
 	WaitForSomething2 0x00000200
 	StartPlayerScript script_080110BC
 	WaitForSomething2 0x00000400
-	TextboxNoOverlapFollowPos 0x00001047
+	TextboxNoOverlapFollowPos 0x1047, 0x0000
 	_0807EA94 
 	Call sub_0806DC3C
 	Call sub_080791BC
@@ -28,11 +28,11 @@ SCRIPT_START script_08010F84
 	WaitForSomething2 0x00000020
 	SoundReq0x80100000 
 	Wait 0x003c
-	TextboxNoOverlapFollowPos 0x0000104a
+	TextboxNoOverlapFollowPos 0x104a, 0x0000
 	_0807EA94 
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
-	TextboxNoOverlapFollowPos 0x00001049
+	TextboxNoOverlapFollowPos 0x1049, 0x0000
 	_0807EA94 
 	SetEntityPositionRelative 0x009801f8
 	Wait 0x0078
