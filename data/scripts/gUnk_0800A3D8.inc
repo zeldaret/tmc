@@ -28,11 +28,7 @@ WaitForSomething2 0x00000004
 _0807EB44 0x0004
 _0807EF80 0x0000
 SoundReq 0x0142
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_080960C4
-.short 0xa638
-.short 0x0800
-@ End of parameters
+CallWithArg sub_080960C4, 0x0800a638
 _0807E5F8 0x00000080
 WaitForSomething2 0x00000004
 SoundReq 0x0143
@@ -43,39 +39,19 @@ Call sub_08066E68
 _0807E5F8 0x00000080
 WaitForSomething2 0x00000004
 SoundReq 0x0142
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_080960C4
-.short 0xa680
-.short 0x0800
-@ End of parameters
+CallWithArg sub_080960C4, 0x0800a680
 Wait 0x0078
 SoundReq 0x0153
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807FADC
-.short 0x0003
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807FADC, 0x00000003
 Wait 0x000f
 SoundReq 0x0153
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807FADC
-.short 0x0003
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807FADC, 0x00000003
 Wait 0x000f
 SoundReq 0x0153
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807FADC
-.short 0x0003
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807FADC, 0x00000003
 Wait 0x003c
 SoundReq 0x0153
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807FADC
-.short 0x0001
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807FADC, 0x00000001
 SoundReq 0x0143
 _0807E5F8 0x00000080
 WaitForSomething2 0x00000004

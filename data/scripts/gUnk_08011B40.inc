@@ -39,11 +39,7 @@ ModRupees 0xfff6
 Wait 0x001e
 TextboxNoOverlap 0x3d06
 _0807EA94 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0806C2A0
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0806C2A0, 0x00000000
 WaitFor_2 
 Wait 0x003c
 Call sub_0806C224
@@ -51,11 +47,7 @@ Jump 0xffb8
 StartScript 
 _0807E888 
 StopScript 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0806C2A0
-.short 0x0001
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0806C2A0, 0x00000001
 WaitFor_2 
 Wait 0x003c
 _0807E878 
@@ -77,11 +69,7 @@ JumpIfNot 0xfffa
 _0807E888 
 WaitPlayerAction8 
 Wait 0x001e
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0806C2A0
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0806C2A0, 0x00000000
 WaitFor_2 
 Wait 0x003c
 Call sub_0806C280

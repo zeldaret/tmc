@@ -10,10 +10,7 @@ _0807E864
 ClearRoomFlag 0x0005
 Wait 0x000c
 _0807EB8C 
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x432e
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c432e
 _0807EA94 
 _0807E878 
 Jump 0xffe0

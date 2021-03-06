@@ -3,22 +3,9 @@ StartScript
 SetEntityNonPlanarMovement 0x0100
 StopScript 
 Call sub_0807F584
-.short 0x1406 @ _0807E078 with 4 parameters
-.short 0x0008
-.short 0x0010
-.short 0x0018
-.short 0x000c
-@ End of parameters
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F464
-.short 0x00d0
-.short 0x0000
-@ End of parameters
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F4F8
-.short 0x0124
-.short 0x0000
-@ End of parameters
+_0807E078_ssss 0x0008, 0x0010, 0x0018, 0x000c
+CallWithArg sub_0807F464, 0x000000d0
+CallWithArg sub_0807F4F8, 0x00000124
 _0807EDD4 0x00e8, 0x0124
 _0807EB44 0x0004
 _0807EF80 0x0000

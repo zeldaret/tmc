@@ -8,11 +8,7 @@ Call sub_0807F348
 StopScript 
 WaitForSomething2 0x00000002
 _0807EF80 0x0007
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F4F8
-.short 0x0128
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F4F8, 0x00000128
 Wait 0x001e
 TextboxNoOverlap 0x0e14
 _0807EA94 

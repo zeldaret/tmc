@@ -58,22 +58,8 @@ StopScript
 StopScript 
 Call sub_08062698
 Call sub_080626AC
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F0EC
-.short 0x0009
-.short 0x0000
-@ End of parameters
-.short 0x2806 @ _0807E078 with 9 parameters
-.short 0x0012
-.short 0x001a
-.short 0x0022
-.short 0x002a
-.short 0x0032
-.short 0x003a
-.short 0x0042
-.short 0x004a
-.short 0x0052
-@ End of parameters
+CallWithArg sub_0807F0EC, 0x00000009
+_0807E078_sssssssss 0x0012, 0x001a, 0x0022, 0x002a, 0x0032, 0x003a, 0x0042, 0x004a, 0x0052
 _0807EE04 0x0358, 0x0078
 Jump 0x004e
 _0807EE04 0x0390, 0x0078
@@ -111,11 +97,7 @@ StartScript
 _0807E9D4 
 _0807EB44 0x0004
 _0807EF80 0x000a
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0004
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000004
 StopScript 
 Wait 0x003c
 Call sub_0806407C
@@ -125,11 +107,7 @@ StartScript
 _0807E9D4 
 _0807EB44 0x0004
 _0807EF80 0x000a
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
@@ -161,20 +139,12 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0004
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000004
 Call sub_080636D8
 _0807EA94 
 Wait 0x000f
 _0807E878 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 Jump 0xffd2
 StartScript 
 _0807EB44 0x0004
@@ -187,20 +157,12 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0004
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000004
 Call sub_08063C90
 _0807EA94 
 Wait 0x000f
 _0807E878 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 Jump 0xffd2
 StartScript 
 _0807EB44 0x0004
@@ -213,26 +175,14 @@ JumpIfNot 0xfffc
 _0807E864 
 Call sub_0807DF28
 _0807EB74 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0008
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000008
 CheckRoomFlag 0x000e
 JumpIf 0x000c
 SetRoomFlag 0x000e
 TextboxNoOverlap 0x2b10
 _0807EA94 
 Call sub_080634E4
-.short 0x2006 @ _0807E078 with 7 parameters
-.short 0x000e
-.short 0x0020
-.short 0x0036
-.short 0x0034
-.short 0x000e
-.short 0x0024
-.short 0x002e
-@ End of parameters
+_0807E078_sssssss 0x000e, 0x0020, 0x0036, 0x0034, 0x000e, 0x0024, 0x002e
 TextboxNoOverlap 0x2b0d
 Jump 0x0096
 CheckGlobalFlag 0x003d
@@ -245,19 +195,11 @@ CheckGlobalFlag 0x003b
 JumpIfNot 0x0072
 Jump 0x0002
 Call sub_080634EC
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F78C
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F78C, 0x00000000
 _0807EA94 
 _0807E3E8 
 JumpIfNot 0x005a
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F7C4
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F7C4, 0x00000000
 JumpIfNot 0x0030
 _0807E48C 0x0020
 JumpIfNot 0x0030
@@ -265,11 +207,7 @@ Call sub_08063504
 JumpIf 0x002e
 TextboxNoOverlap 0x2b07
 _0807EA94 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F800
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F800, 0x00000000
 WaitPlayerAction8 
 _0807EA94 
 TextboxNoOverlap 0x2b0c
@@ -339,12 +277,9 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-.short 0x0411 @ HasRoomItemForSale with 0 parameters
+HasRoomItemForSale 
 Call sub_0807F77C
-.short 0x0c5d @ _0807EAF0 with 2 parameters
-.short 0x3c08
-.short 0x3c09
-@ End of parameters
+_0807EAF0 0x3c08, 0x3c09
 _0807EA94 
 _0807E878 
 _0807EB44 0x0004
@@ -362,16 +297,12 @@ _0807E864
 _0807EB74 
 Call sub_0807F2D4
 _0807EF80 0x0000
-.short 0x0411 @ HasRoomItemForSale with 0 parameters
+HasRoomItemForSale 
 JumpIf 0x000a
 TextboxNoOverlap 0x3c07
 Jump 0x0048
 Call sub_08062EB8
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F78C
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F78C, 0x00000000
 _0807EA94 
 _0807E3E8 
 JumpIfNot 0x0030
@@ -457,7 +388,7 @@ StopScript
 StartScript 
 CheckPlayerInRegion2 0x3030
 JumpIfNot 0xffe4
-.short 0x0411 @ HasRoomItemForSale with 0 parameters
+HasRoomItemForSale 
 JumpIf 0x004c
 CheckEntityInteractType 
 JumpIfNot 0xffea

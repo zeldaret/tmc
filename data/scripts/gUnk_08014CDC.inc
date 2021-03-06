@@ -11,10 +11,7 @@ StopScript
 WaitForSomething2 0x00000001
 Call sub_08066E08
 _0807E864 
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1010
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1010
 _0807EA94 
 _0807E5F8 0x00000002
 StopScript 
@@ -33,11 +30,7 @@ Call sub_08066E08
 SetEntityPositionRelative 0x00c801f8
 Call sub_0807DF50
 _0807E878 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F6B4
-.short 0x00e8
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F6B4, 0x000000e8
 JumpIf 0xfff4
 _0807E864 
 Call sub_0807DF28

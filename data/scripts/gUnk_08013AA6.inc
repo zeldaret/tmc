@@ -3,11 +3,7 @@ Call sub_0807F3F8
 Wait 0x003c
 _0807E5F8 0x00000008
 Wait 0x0078
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0805DE18
-.short 0x0001
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0805DE18, 0x00000001
 _0807F0C8 0x0000, 0x0000
 Wait 0x003c
 _0807F0B4 0x0004

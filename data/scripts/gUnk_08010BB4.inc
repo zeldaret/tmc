@@ -22,24 +22,15 @@ Call sub_0807DF28
 StartPlayerScript gUnk_08011074
 WaitForSomething2 0x00000400
 _0807F078 0x0034, 0x0002
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1036
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1036
 _0807EA94 
 _0807E5F8 0x00000010
 WaitForSomething2 0x00000020
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1037
-.short 0x0002
-@ End of parameters
+TextboxNoOverlapFollowPos 0x00021037
 _0807EA94 
 _0807E5F8 0x00000010
 WaitForSomething2 0x00000020
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1038
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1038
 _0807EA94 
 SoundReq0x80100000 
 _0807E778 0x0004
@@ -76,10 +67,7 @@ WaitForSomething2 0x00055000
 _0807E8E4_1 
 _0807E5F8 0x00000004
 WaitForSomething2 0x00000008
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1039
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1039
 _0807EA94 
 SoundReq2 0x0001
 _0807E8E4_2 
@@ -92,10 +80,7 @@ WaitForSomething2 0x00000080
 Wait 0x012c
 _0807E5F8 0x00000004
 WaitForSomething2 0x00000008
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x103a
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c103a
 _0807EA94 
 SetEntityPositionRelative 0x01c001f8
 _0807F0B4 0x0004
@@ -113,10 +98,7 @@ SoundReq0x80100000
 SoundReq 0x009b
 _0807E5F8 0x00000100
 WaitForSomething2 0x00000200
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1043
-.short 0x0000
-@ End of parameters
+TextboxNoOverlapFollowPos 0x00001043
 _0807EA94 
 SoundReq2 0x000d
 _0807E5F8 0x00000100
@@ -127,19 +109,12 @@ SoundReq 0x01c7
 SoundReq 0x00e5
 _0807E5F8 0x00000100
 _0807E5F8 0x00002800
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807FB28
-.short 0x0003
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807FB28, 0x00000003
 WaitForSomething2 0x00000200
 WaitForSomething2 0x00005000
 _0807E5F8 0x00028000
 WaitForSomething2 0x00050000
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1044
-.short 0x0000
-@ End of parameters
+TextboxNoOverlapFollowPos 0x00001044
 _0807EA94 
 SetEntityPositionRelative 0x009801f8
 SoundReq0x80100000 
@@ -149,26 +124,14 @@ _0807E5F8 0x00028000
 _0807E5F8 0x00000100
 WaitForSomething2 0x00000200
 WaitForSomething2 0x00050000
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807FB28
-.short 0x0003
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807FB28, 0x00000003
 SoundReq 0x00e5
 _0807E5F8 0x00028000
 WaitForSomething2 0x00050000
 SoundReq 0x0125
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807FB28
-.short 0x0003
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807FB28, 0x00000003
 _0807E5F8 0x08000000
 _0807E5F8 0x00800000
 WaitForSomething2 0x01000000
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0805DDEC
-.short 0x0002
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0805DDEC, 0x00000002
 _0807F0C8 0xffff, 0x0000

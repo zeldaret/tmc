@@ -10,11 +10,7 @@ WaitForSomething2 0x00000008
 _0807EF80 0x0004
 Wait 0x003c
 SoundReq 0x0123
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F464
-.short 0x01e0
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F464, 0x000001e0
 _0807EDD4 0x01e0, 0x01d8
 _0807EB44 0x0002
 _0807EF80 0x0000
@@ -43,11 +39,7 @@ _0807EF80 0x000e
 Call sub_0806CA5C
 SetEntity0x20 0x00040000
 SoundReq 0x00f5
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F8D0
-.short 0xe000
-.short 0xffff
-@ End of parameters
+CallWithArg sub_0807F8D0, 0xffffe000
 Call sub_0807F8BC
 JumpIf 0xffee
 _0807E5F8 0x00000004

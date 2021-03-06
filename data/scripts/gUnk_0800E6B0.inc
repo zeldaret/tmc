@@ -48,11 +48,7 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0806AF60
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0806AF60, 0x00000000
 Call sub_0806AFE8
 _0807EA94 
 _0807E878 
@@ -85,11 +81,7 @@ _0807E878
 Jump 0xffd0
 _0807EF80 0x000f
 _0807EB44 0x0002
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0806AF60
-.short 0x0004
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0806AF60, 0x00000004
 Call sub_0806AF70
 _0807EE04 0x0188, 0x0058
 StopScript 
@@ -127,37 +119,16 @@ _0807E864
 _0807EB44 0x0004
 StartScript 
 TextboxNoOverlapFollow 0x4501
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F854
-.short 0x0032
-.short 0x0001
-@ End of parameters
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F854
-.short 0x00c8
-.short 0x0002
-@ End of parameters
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F854
-.short 0x0190
-.short 0x0003
-@ End of parameters
+CallWithArg sub_0807F854, 0x00010032
+CallWithArg sub_0807F854, 0x000200c8
+CallWithArg sub_0807F854, 0x00030190
 StopScript 
 _0807EA94 
 _0807EB38 
-.short 0x1406 @ _0807E078 with 4 parameters
-.short 0x00a6
-.short 0x006a
-.short 0x0036
-.short 0x0002
-@ End of parameters
+_0807E078_ssss 0x00a6, 0x006a, 0x0036, 0x0002
 StartScript 
 TextboxNoOverlapFollow 0x4505
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F854
-.short 0x0190
-.short 0x0001
-@ End of parameters
+CallWithArg sub_0807F854, 0x00010190
 StopScript 
 _0807EA94 
 HasRupees 0x0190

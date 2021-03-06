@@ -4,11 +4,7 @@ CheckInventory1 0x0012
 JumpIf 0x004a
 _0807EB44 0x0006
 _0807E9D4 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0008
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000008
 StopScript 
 StopScript 
 StartScript 
@@ -19,11 +15,7 @@ JumpIfNot 0xffee
 StopScript 
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0008
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000008
 Call sub_08064428
 _0807EA94 
 Wait 0x000f

@@ -32,17 +32,9 @@ _0807E3E8
 JumpIfNot 0x002a
 Wait 0x000f
 TextboxNoOverlap 0x0584
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F970
-.short 0x058b
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F970, 0x0000058b
 JumpIf 0x001e
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_08087424
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_08087424, 0x00000000
 Wait 0x00b4
 Jump 0x0024
 TextboxNoOverlap 0x057d

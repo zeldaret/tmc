@@ -46,22 +46,8 @@ _0807EF80 0x0000
 StopScript 
 Call sub_08062698
 Call sub_080626AC
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F0EC
-.short 0x0009
-.short 0x0000
-@ End of parameters
-.short 0x2806 @ _0807E078 with 9 parameters
-.short 0x0012
-.short 0x001a
-.short 0x0022
-.short 0x002a
-.short 0x0032
-.short 0x003a
-.short 0x0042
-.short 0x004a
-.short 0x0052
-@ End of parameters
+CallWithArg sub_0807F0EC, 0x00000009
+_0807E078_sssssssss 0x0012, 0x001a, 0x0022, 0x002a, 0x0032, 0x003a, 0x0042, 0x004a, 0x0052
 _0807EE04 0x0038, 0x0068
 Jump 0x004e
 _0807EE04 0x0078, 0x0068
@@ -103,17 +89,8 @@ _0807EF80 0x0000
 StopScript 
 Call sub_08062698
 Call sub_080626AC
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F0EC
-.short 0x0004
-.short 0x0000
-@ End of parameters
-.short 0x1406 @ _0807E078 with 4 parameters
-.short 0x0008
-.short 0x0010
-.short 0x0018
-.short 0x0020
-@ End of parameters
+CallWithArg sub_0807F0EC, 0x00000004
+_0807E078_ssss 0x0008, 0x0010, 0x0018, 0x0020
 _0807EE04 0x0038, 0x0098
 Jump 0x001c
 _0807EE04 0x0058, 0x0098
@@ -136,11 +113,7 @@ _0807EF80 0x0008
 Call sub_0806DAAC
 JumpIf 0x008c
 Call sub_0806DAD0
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0806DA04
-.short 0x0002
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0806DA04, 0x00000002
 StopScript 
 _0807EA4C 
 _0807E9F0 

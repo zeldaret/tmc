@@ -48,21 +48,14 @@ _0807E864
 _0807EB74 
 CheckRoomFlag 0x0001
 JumpIf 0x0034
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x3001
-.short 0x0000
-@ End of parameters
+TextboxNoOverlapFollowPos 0x00003001
 _0807EA94 
 _0807E3E8 
 JumpIfNot 0x002e
 Call sub_080A1608
 _0807EA94 
 _0807E878 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_080A1550
-.short 0x01ac
-.short 0x0801
-@ End of parameters
+CallWithArg sub_080A1550, 0x080101ac
 JumpIfNot 0xffca
 SoundReq2 0x0015
 SetRoomFlag 0x0001
@@ -78,20 +71,13 @@ StopScript
 Call sub_080A1270
 _0807E864 
 Call sub_0807DF28
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x3004
-.short 0x0007
-@ End of parameters
+TextboxNoOverlapFollowPos 0x00073004
 _0807EA94 
 SoundReq0x80100000 
 _0807E778 0x0004
 DoFade5 
 WaitFor_2 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F75C
-.short 0x0378
-.short 0x0340
-@ End of parameters
+CallWithArg sub_0807F75C, 0x03400378
 Call sub_080791BC
 Call sub_0807FB74
 _0807E8E4_1 
@@ -117,11 +103,7 @@ _0807EA94
 Call sub_080A14A8
 Call sub_0807DF50
 _0807E878 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F5B0
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F5B0, 0x00000000
 ClearRoomFlag 0x0001
 Call sub_080A169C
 _0807EF80 0x0006

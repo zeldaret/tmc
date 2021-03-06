@@ -4,11 +4,7 @@ Call sub_0806DB84
 CheckKinstoneFused 0x0009
 JumpIf 0x005a
 _0807EA88 0x0009
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0806DA04
-.short 0x0007
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0806DA04, 0x00000007
 _0807EF80 0x000a
 StopScript 
 _0807EA4C 

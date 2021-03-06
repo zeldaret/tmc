@@ -32,6 +32,51 @@
 	.short \s
 .endm
 
+.macro _0807E078 a,b
+	.short 0x0c06
+	.short \a
+	.short \b
+.endm
+
+.macro _0807E078_sss a,b,c
+	.short 0x1006
+	.short \a
+	.short \b
+	.short \c
+.endm
+
+.macro _0807E078_ssss a,b,c,d
+	.short 0x1406
+	.short \a
+	.short \b
+	.short \c
+	.short \d
+.endm
+
+.macro _0807E078_sssssss a,b,c,d,e,f,g
+	.short 0x2006
+	.short \a
+	.short \b
+	.short \c
+	.short \d
+	.short \e
+	.short \f
+	.short \g
+.endm
+
+.macro _0807E078_sssssssss a,b,c,d,e,f,g,h,i
+	.short 0x2806
+	.short \a
+	.short \b
+	.short \c
+	.short \d
+	.short \e
+	.short \f
+	.short \g
+	.short \h
+	.short \i
+.endm
+
 .macro JumpAbsolute w
 	.short 0x0c07
 	.word \w
@@ -58,6 +103,17 @@
 	.word \w
 .endm
 
+.macro CallWithArg a,b
+	.short 0x140c
+	.word \a
+	.word \b
+.endm
+
+.macro CallWithArg_p w
+	.short 0x0c0c
+	.word \w
+.endm
+
 .macro LoadRoomEntityList w
 	.short 0x0c0d
 	.word \w
@@ -76,6 +132,10 @@
 .macro CheckInventory2 s
 	.short 0x0810
 	.short \s
+.endm
+
+.macro HasRoomItemForSale 
+	.short 0x0411
 .endm
 
 .macro CheckLocalFlag s
@@ -309,6 +369,15 @@
 	.word \w
 .endm
 
+.macro _0807E858 s
+	.short 0x0842
+	.short \s
+.endm
+
+.macro _0807E858_ 
+	.short 0x0442
+.endm
+
 .macro _0807E864 
 	.short 0x0443
 .endm
@@ -418,6 +487,37 @@
 .macro TextboxNoOverlap s
 	.short 0x085b
 	.short \s
+.endm
+
+.macro TextboxNoOverlapFollowPos w
+	.short 0x0c5c
+	.word \w
+.endm
+
+.macro TextboxNoOverlapFollowPos_s s
+	.short 0x085c
+	.short \s
+.endm
+
+.macro _0807EAF0 a,b
+	.short 0x0c5d
+	.short \a
+	.short \b
+.endm
+
+.macro _0807EAF0_sss a,b,c
+	.short 0x105d
+	.short \a
+	.short \b
+	.short \c
+.endm
+
+.macro _0807EAF0_ssss a,b,c,d
+	.short 0x145d
+	.short \a
+	.short \b
+	.short \c
+	.short \d
 .endm
 
 .macro TextboxNoOverlapVar 

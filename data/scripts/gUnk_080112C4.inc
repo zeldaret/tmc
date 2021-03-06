@@ -15,12 +15,7 @@ Wait 0x003c
 _0807ECC4 0x0010
 _0807E930 0x0002
 Call sub_08064050
-.short 0x1406 @ _0807E078 with 4 parameters
-.short 0x0008
-.short 0x009e
-.short 0x0134
-.short 0x01f8
-@ End of parameters
+_0807E078_ssss 0x0008, 0x009e, 0x0134, 0x01f8
 _0807E610 0x00000800
 _0807E5F8 0x00001000
 WaitForSomething2 0x00000800

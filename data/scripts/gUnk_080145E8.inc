@@ -33,10 +33,7 @@ CheckLocalFlag 0x005e
 JumpIf 0x003e
 _0807E864 
 _0807EB8C 
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x432b
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c432b
 Jump 0x015e
 Call sub_08088658
 JumpIfNot 0xffc0
@@ -57,10 +54,7 @@ Wait 0x0010
 _0807E930 0x0002
 CheckGlobalFlag 0x0059
 JumpIfNot 0x000c
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x432f
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c432f
 Jump 0x010a
 CheckRoomFlag 0x0004
 JumpIf 0x0028
@@ -73,24 +67,15 @@ JumpIf 0x003c
 Call sub_08088574
 SetRoomFlag 0x0009
 Jump 0x004a
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x431e
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c431e
 Jump 0x00d2
 SetRoomFlag 0x0009
 SetLocalFlag 0x005c
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x4305
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c4305
 _0807EA94 
 _0807E3BC 0x0001
 JumpIfNot 0x00b0
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x4306
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c4306
 Jump 0x001e
 SetRoomFlag 0x0009
 Call sub_08088504
@@ -110,10 +95,7 @@ JumpIfNot 0xfffa
 ClearRoomFlag 0x0003
 _0807EA94 
 SetRoomFlag 0x0004
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x431e
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c431e
 Jump 0x0060
 SetRoomFlag 0x0009
 _0807EA94 
@@ -137,10 +119,7 @@ Wait 0x008c
 _0807E930 0x0002
 Jump 0xffc8
 SetRoomFlag 0x0009
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x4307
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c4307
 _0807EA94 
 Wait 0x0004
 _0807E878 

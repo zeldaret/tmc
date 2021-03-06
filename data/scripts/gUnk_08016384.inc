@@ -4,25 +4,18 @@ StopScript
 Jump 0xfffa
 JumpIf 0xfff6
 JumpIfNot 0xfff2
-.short 0x0c06 @ _0807E078 with 2 parameters
-.short 0xffee
-.short 0xffec
-@ End of parameters
+_0807E078 0xffee, 0xffec
 JumpAbsolute gUnk_08016384
 JumpAbsoluteIf gUnk_08016384
 JumpAbsoluteIfNot gUnk_08016384
 _0807E0E0 gUnk_08016384, gUnk_08016384
 Call 0x08016384
-.short 0x140c @ CallWithArg with 2 parameters
-.word 0x08016384
-.short 0x5678
-.short 0x1234
-@ End of parameters
+CallWithArg 0x08016384, 0x12345678
 LoadRoomEntityList gUnk_08016384
 TestBit 0x00000001
 CheckInventory1 0x0001
 CheckInventory2 0x0001
-.short 0x0411 @ HasRoomItemForSale with 0 parameters
+HasRoomItemForSale 
 CheckLocalFlag 0x0067
 CheckLocalFlagByOffset 0x0100, 0x006b
 CheckGlobalFlag 0x0013

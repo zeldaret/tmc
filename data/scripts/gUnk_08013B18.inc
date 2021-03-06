@@ -3,11 +3,7 @@ StartScript
 _0807EF80 0x0008
 StopScript 
 StartScript 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F6B4
-.short 0x01c8
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F6B4, 0x000001c8
 JumpIfNot 0xfff0
 CheckInventory1 0x0006
 JumpIfNot 0xffe8

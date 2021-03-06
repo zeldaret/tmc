@@ -6,11 +6,7 @@ _0807EF80 0x000a
 Call sub_080694B0
 StopScript 
 Call sub_0807F434
-.short 0x1006 @ _0807E078 with 3 parameters
-.short 0xfff8
-.short 0x0004
-.short 0x001e
-@ End of parameters
+_0807E078_sss 0xfff8, 0x0004, 0x001e
 _0807E864 
 _0807EB74 
 _0807EF80 0x0000

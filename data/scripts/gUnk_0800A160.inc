@@ -5,16 +5,8 @@ _0807EF80 0x0007
 _0807EF80 0x000b
 _0807E930 0x0002
 SetEntityPositionRelative 0x008000b0
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F98C
-.short 0x0000
-.short 0xff80
-@ End of parameters
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_080960C4
-.short 0xa1b4
-.short 0x0800
-@ End of parameters
+CallWithArg sub_0807F98C, 0xff800000
+CallWithArg sub_080960C4, 0x0800a1b4
 StopScript 
 SoundReq 0x0142
 _0807EF3C 0xff80, 0x0000

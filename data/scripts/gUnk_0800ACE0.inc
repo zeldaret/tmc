@@ -1,27 +1,15 @@
 SCRIPT_START gUnk_0800ACE0
 StartScript 
 Call sub_08094BE0
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F238
-.short 0x045b
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F238, 0x0000045b
 SoundReq 0x0109
 StopScript 
 Call sub_0807F304
 Wait 0x005a
 _0807E5F8 0x00000008
 StartScript 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F6F8
-.short 0x0008
-.short 0x0000
-@ End of parameters
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F238
-.short 0x08e4
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F6F8, 0x00000008
+CallWithArg sub_0807F238, 0x000008e4
 StopScript 
 Call sub_0807F304
 _0807EB44 0x0004

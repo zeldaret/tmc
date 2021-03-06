@@ -50,11 +50,7 @@ _0807E9D4
 _0807EB44 0x0004
 _0807EF80 0x0000
 _0807EF80 0x000a
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_08064644
-.short 0x464d
-.short 0x0806
-@ End of parameters
+CallWithArg sub_08064644, 0x0806464d
 StopScript 
 Wait 0x003c
 Call sub_080646A4
@@ -106,11 +102,7 @@ _0807EF80 0x0008
 Call sub_0806DAAC
 JumpIf 0x0036
 Call sub_0806DAD0
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0806DA04
-.short 0x0005
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0806DA04, 0x00000005
 StopScript 
 _0807EA4C 
 _0807E9F0 

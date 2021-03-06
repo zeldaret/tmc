@@ -2,19 +2,11 @@ SCRIPT_START gUnk_08013D84
 StartScript 
 Call sub_0807F92C
 _0807EF80 0x0008
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0806DA04
-.short 0x0004
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0806DA04, 0x00000004
 StopScript 
 CheckEntityInteractType 
 JumpIfNot 0xfffc
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_08095D54
-.short 0x0002
-.short 0x0000
-@ End of parameters
+CallWithArg sub_08095D54, 0x00000002
 SoundReq 0x01cd
 _0807E5F8 0x20000000
 Call sub_080791BC

@@ -27,10 +27,7 @@ Call sub_0806E250
 JumpIfNot 0x000e
 TextboxNoOverlapFollow 0x420b
 _0807EB38 
-.short 0x0c06 @ _0807E078 with 2 parameters
-.short 0x0004
-.short 0x000a
-@ End of parameters
+_0807E078 0x0004, 0x000a
 ClearLocalFlag 0x0093
 Jump 0x000a
 SetLocalFlag 0x0093

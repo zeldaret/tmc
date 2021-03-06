@@ -29,11 +29,7 @@ _0807E5F8 0x00001000
 WaitForSomething2 0x00000800
 _0807EB44 0x0004
 _0807EF80 0x0014
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0809545C
-.short 0x5754
-.short 0x0801
-@ End of parameters
+CallWithArg sub_0809545C, 0x08015754
 SoundReq 0x01c4
 Wait 0x0078
 _0807EF80 0x0016

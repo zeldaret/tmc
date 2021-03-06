@@ -22,16 +22,8 @@ StartScript
 _0807EF80 0x0007
 Call sub_0807F934
 _0807EF80 0x000a
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_080962F8
-.short 0x0000
-.short 0x0000
-@ End of parameters
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F8E8
-.short 0x0004
-.short 0x0000
-@ End of parameters
+CallWithArg sub_080962F8, 0x00000000
+CallWithArg sub_0807F8E8, 0x00000004
 StopScript 
 StopScript 
 StartScript 

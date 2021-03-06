@@ -20,22 +20,14 @@ _0807EB44 0x0000
 _0807E930 0x0000
 SetEntityNonPlanarMovement 0x0040
 _0807EF80 0x000d
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F4F8
-.short 0x0378
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F4F8, 0x00000378
 Wait 0x003c
 _0807EF80 0x000c
 Wait 0x003c
 TextboxNoOverlap 0x0e09
 _0807EA94 
 Call sub_0807F158
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F4F8
-.short 0x035c
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F4F8, 0x0000035c
 Wait 0x001e
 SoundReq 0x0188
 _0807EF80 0x0008

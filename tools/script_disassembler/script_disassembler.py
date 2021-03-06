@@ -59,18 +59,18 @@ commands = [
     {'fun': 'ScriptCommand_Jump', 'params': 's', 'name': 'jump by offset'},
     {'fun': 'ScriptCommand_JumpIf', 'params': 's', 'name': 'jump if'},
     {'fun': 'ScriptCommand_JumpIfNot', 'params': 's', 'name': 'jump if not'},
-    {'fun': 'ScriptCommand_0807E078', 'params': 'v'},
+    {'fun': 'ScriptCommand_0807E078', 'params': ['ss', 'sss', 'ssss', 'sssssss', 'sssssssss']},
     {'fun': 'ScriptCommand_JumpAbsolute', 'params': 'd','name': 'abs jump' },
     {'fun': 'ScriptCommand_JumpAbsoluteIf', 'params': 'd', 'name': 'abs jump if'},
     {'fun': 'ScriptCommand_JumpAbsoluteIfNot', 'params': 'd', 'name': 'abs jump if not'},
     {'fun': 'ScriptCommand_0807E0E0', 'params': 'dd'},
     {'fun': 'ScriptCommand_Call', 'params':'p', 'name': 'Execute function via pointer'},# 'exec': ScriptCommand_Call},
-    {'fun': 'ScriptCommand_CallWithArg', 'params': 'pv'},
+    {'fun': 'ScriptCommand_CallWithArg', 'params': ['pw', 'p']},
     {'fun': 'ScriptCommand_LoadRoomEntityList', 'params': 'd'},
     {'fun': 'ScriptCommand_TestBit', 'params': 'w'},
     {'fun': 'ScriptCommand_CheckInventory1', 'params': 's'},
     {'fun': 'ScriptCommand_CheckInventory2', 'params': 's'},
-    {'fun': 'ScriptCommand_HasRoomItemForSale', 'params': 'v'},
+    {'fun': 'ScriptCommand_HasRoomItemForSale', 'params': ''},
     {'fun': 'ScriptCommand_CheckLocalFlag', 'params': 's'},
     {'fun': 'ScriptCommand_CheckLocalFlagByOffset', 'params': 'ss'},
     {'fun': 'ScriptCommand_CheckGlobalFlag', 'params': 's'},
@@ -119,7 +119,7 @@ commands = [
     {'fun': 'ScriptCommand_DoFade7', 'params': ''},
     {'fun': 'ScriptCommand_0807E800', 'params': 'w'},
     {'fun': 'ScriptCommand_0807E80C', 'params': 'w'},
-    {'fun': 'ScriptCommand_0807E858', 'params': 'v'}, # TODO why are there both 0 and 1?
+    {'fun': 'ScriptCommand_0807E858', 'params': ['s', '']},
     {'fun': 'ScriptCommand_0807E864', 'params': ''},
     {'fun': 'ScriptCommand_0807E878', 'params': ''},
     {'fun': 'ScriptCommand_0807E888', 'params': ''},
@@ -145,8 +145,8 @@ commands = [
     {'fun': 'ScriptCommand_0807EA94', 'params': ''},
     {'fun': 'ScriptCommand_TextboxNoOverlapFollow', 'params': 's'},
     {'fun': 'ScriptCommand_TextboxNoOverlap', 'params': 's'},
-    {'fun': 'ScriptCommand_TextboxNoOverlapFollowPos', 'params': 'v'}, # TODO 1 or two
-    {'fun': 'ScriptCommand_0807EAF0', 'params': 'v'}, # TODO
+    {'fun': 'ScriptCommand_TextboxNoOverlapFollowPos', 'params': ['w', 's']}, # TODO w or ss?
+    {'fun': 'ScriptCommand_0807EAF0', 'params': ['ss', 'sss', 'ssss']},
     {'fun': 'ScriptCommand_TextboxNoOverlapVar', 'params': ''},
     {'fun': 'ScriptCommand_0807EB28', 'params': 's'},
     {'fun': 'ScriptCommand_0807EB38', 'params': ''},
@@ -194,6 +194,8 @@ commands = [
     {'fun': 'ScriptCommand_0807F0C8', 'params': 'ss'}
 ]
 
+# TODO replace variable parameters with parameter variants that explicitely define macros for all possibilities
+
 # definitions for parameters
 parameters = {
     '': {
@@ -231,7 +233,25 @@ parameters = {
         'param': 'a,b,c',
         'expr': '	.short \\a\n	.short \\b\n	.short \\c',
         'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr+2:ctx.ptr+8]))
+    },
+    'ssss': {
+        'length': 4,
+        'param': 'a,b,c,d',
+        'expr': '	.short \\a\n	.short \\b\n	.short \\c\n	.short \\d',
+        'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr+2:ctx.ptr+10]))
     },    
+    'sssssss': {
+        'length': 7,
+        'param': 'a,b,c,d,e,f,g',
+        'expr': '	.short \\a\n	.short \\b\n	.short \\c\n	.short \\d\n	.short \\e\n	.short \\f\n	.short \\g',
+        'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr+2:ctx.ptr+16]))
+    },  
+    'sssssssss': {
+        'length': 9,
+        'param': 'a,b,c,d,e,f,g,h,i',
+        'expr': '	.short \\a\n	.short \\b\n	.short \\c\n	.short \\d\n	.short \\e\n	.short \\f\n	.short \\g\n	.short \\h\n	.short \\i',
+        'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr+2:ctx.ptr+20]))
+    }, 
     'p': {
         'length': 2,
         'param': 'w',
@@ -249,6 +269,12 @@ parameters = {
         'param': 'w',
         'expr': '	.word \w',
         'read': lambda ctx: ''
+    },
+    'pw': {
+        'length': 4,
+        'param': 'a,b',
+        'expr': '	.word \\a\n	.word \\b',
+        'read': lambda ctx: get_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6]) + ', ' + barray_to_u32_hex(ctx.data[ctx.ptr+6:ctx.ptr+14])[0]
     },
     'dd': {
         'length': 4,
@@ -321,22 +347,38 @@ def ExecuteScriptCommandSet(ctx: Context, add_annotations=False):
     # Handle parameters
     if not 'params' in command:
         raise Exception('Parameters not defined for ' + command['fun'] + '   Should be of length ' + str(param_length))
-    if not command['params'] in parameters:
-        raise Exception('Parameter configuration ' + command['params'] + ' not defined')
 
+    params = None
+    suffix = '' 
+    # When there are multiple variants of parameters, choose the one with the correct count for this
+    if isinstance(command['params'], list):
+        for i,param in enumerate(command['params']):
+            if not param in parameters:
+                raise Exception(f'Parameter configuration {param} not defined')
+            candidate = parameters[param]
+            if candidate['length'] == commandSize -1:
+                params = candidate
+                if i != 0:
+                    suffix = f'_{param}'# We need to add a suffix to distinguish the correct parameter variant
+                break
+        if params is None:
+            raise Exception(f'No suitable parameter configuration with length {commandSize-1} found for {command["fun"]}')
+    else:
+        if not command['params'] in parameters:
+            raise Exception('Parameter configuration ' + command['params'] + ' not defined')
+        params = parameters[command['params']]
 
-    params = parameters[command['params']]
-
+    command_name = f'{command["fun"]}{suffix}'
 
     if params['length'] == -1: # variable parameter length
-        print(f'.short {u16_to_hex(cmd)} @ {build_script_command(command["fun"])} with {commandSize-1} parameters')
+        print(f'.short {u16_to_hex(cmd)} @ {build_script_command(command_name)} with {commandSize-1} parameters')
         if commandSize > 1:
             print('\n'.join(['.short ' + x for x in barray_to_u16_hex(ctx.data[ctx.ptr+2:ctx.ptr+commandSize*2])]))
             print(f'@ End of parameters')
         ctx.ptr += commandSize*2
         return 1
     elif params['length'] == -2: # point and var
-        print(f'.short {u16_to_hex(cmd)} @ {build_script_command(command["fun"])} with {commandSize-3} parameters')
+        print(f'.short {u16_to_hex(cmd)} @ {build_script_command(command_name)} with {commandSize-3} parameters')
 
         print('.word '+ get_pointer(ctx.data[ctx.ptr+2:ctx.ptr+6]))
         if commandSize > 3:
@@ -346,15 +388,9 @@ def ExecuteScriptCommandSet(ctx: Context, add_annotations=False):
         return 1
 
     if commandSize-1 != params['length']:
-        raise Exception(f'Call {command["fun"]} with ' + str(commandSize-1) +' length, while length of ' + str(params['length'])+' defined')
-        return 0
-        #with open('log.txt', 'a') as log:
-#            log.write(f'Call {command["fun"]} with ' + str(unk_06-1) +' length, while length of ' + str(params['length'])+' defined\n')
-        # TEMPORARY WORKAROUND:
-        #ctx.ptr += unk_06*2
-        #return 1
+        raise Exception(f'Call {command_name} with ' + str(commandSize-1) +' length, while length of ' + str(params['length'])+' defined')
 
-    print(build_script_command(command['fun']) + ' ' + params['read'](ctx))
+    print(build_script_command(command_name) + ' ' + params['read'](ctx))
 
     # Execute script
     ctx.ptr += commandSize*2
@@ -423,21 +459,36 @@ def generate_macros():
     for num, command in enumerate(commands):
         if not 'params' in command:
             raise Exception('Parameters not defined for ' + command['fun'] + '!')
-        if not command['params'] in parameters:
-            raise Exception('Parameter configuration ' + command['params'] + ' not defined')
 
-        params = parameters[command['params']]
-        id = ((params['length']+1) << 0xA) + num
+        def emit_macro(command_name, id, params):
+            print(f'.macro {command_name} {params["param"]}')
+            print(f'	.short {u16_to_hex(id)}')
+            if params['expr'] != '':
+                print(params['expr'])
+            print('.endm')
+            print('')
 
-        if params['length'] < 0:
-            continue
+        if isinstance(command['params'], list):
+            # emit macros for all variants
+            for i,variant in enumerate(command['params']):
+                if not variant in parameters:
+                    raise Exception('Parameter configuration ' + variant + ' not defined')
+                params = parameters[variant]
+                id = ((params['length']+1) << 0xA) + num    
+                suffix = ''
+                if i != 0:
+                    suffix = f'_{variant}'
+                emit_macro(f'{build_script_command(command["fun"])}{suffix}', id, params)
+        else:
+            if not command['params'] in parameters:
+                raise Exception('Parameter configuration ' + command['params'] + ' not defined')
+            params = parameters[command['params']]
+            id = ((params['length']+1) << 0xA) + num
 
-        print(f'.macro {build_script_command(command["fun"])} {params["param"]}')
-        print(f'	.short {u16_to_hex(id)}')
-        if params['expr'] != '':
-            print(params['expr'])
-        print('.endm')
-        print('')
+            if params['length'] < 0: # Don't emit anything for variable parameters
+                continue
+
+            emit_macro(build_script_command(command['fun']), id, params)
 
         #print('#define ' + command['fun'] + '(' + params['param'] + ') asm(".short '+u16_to_hex(id)+'");' + params['expr'])
     print('')

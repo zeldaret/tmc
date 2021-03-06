@@ -7,20 +7,14 @@ _0807E930 0x0020
 WaitForSomething2 0x00000004
 _0807E930 0x0022
 Call sub_0807F3C8
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1102
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1102
 _0807EA94 
 _0807E930 0x0020
 _0807E5F8 0x00000008
 WaitForSomething2 0x00000004
 _0807E930 0x0021
 Call sub_0807F3C8
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1103
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1103
 _0807EA94 
 _0807E930 0x0020
 _0807E5F8 0x00000008
@@ -31,44 +25,29 @@ _0807E5F8 0x00000008
 WaitForSomething2 0x00000004
 _0807EF80 0x0011
 _0807E930 0x001c
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1105
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1105
 _0807EA94 
 _0807E930 0x0020
 _0807E5F8 0x00000008
 WaitForSomething2 0x00000004
 _0807E930 0x0022
 Call sub_0807F3C8
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1106
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1106
 _0807EA94 
 _0807E930 0x001c
 Call sub_0806D96C
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1107
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1107
 _0807EA94 
 _0807E930 0x0020
 _0807E5F8 0x00000008
 WaitForSomething2 0x00000004
 _0807E930 0x0021
 Call sub_0807F3C8
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1108
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1108
 _0807EA94 
 _0807E930 0x001c
 Call sub_0806D96C
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1109
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1109
 _0807EA94 
 _0807E930 0x0020
 _0807EF80 0x000a
@@ -84,21 +63,14 @@ StopScript
 _0807E864 
 Call sub_0806D944
 _0807E930 0x0010
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1114
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1114
 _0807EA94 
 _0807E930 0x0020
 _0807E878 
 Jump 0xffd0
 _0807E864 
 _0807E9DC 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F5B0
-.short 0x003c
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F5B0, 0x0000003c
 Call sub_080791D0
 StopScript 
 _0807E5F8 0x00000008
@@ -108,19 +80,13 @@ _0807E5F8 0x00000008
 WaitForSomething2 0x00000004
 Call sub_0806D944
 _0807E930 0x0010
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x110a
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c110a
 _0807EA94 
 _0807E930 0x001f
 _0807E5F8 0x00000008
 WaitForSomething2 0x00000004
 _0807E930 0x0010
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x110b
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c110b
 _0807EA94 
 _0807E930 0x001f
 _0807E5F8 0x00000008
@@ -128,28 +94,19 @@ WaitForSomething2 0x00000004
 _0807EF80 0x0004
 Wait 0x003c
 _0807E930 0x0010
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x110c
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c110c
 _0807EA94 
 _0807E930 0x001f
 _0807E5F8 0x00000008
 WaitForSomething2 0x00000004
 _0807E930 0x0010
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x110d
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c110d
 _0807EA94 
 _0807E930 0x001f
 _0807E5F8 0x00000008
 WaitForSomething2 0x00000004
 _0807E930 0x0010
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x110e
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c110e
 _0807EA94 
 _0807E930 0x0018
 SetEntityNonPlanarMovement 0x0080
@@ -170,10 +127,7 @@ Jump 0xffe6
 _0807E864 
 _0807E930 0x0010
 StopScript 
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1115
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1115
 _0807EA94 
 _0807E930 0x0018
 _0807E878 
@@ -185,10 +139,7 @@ Call sub_0807DF28
 _0807EB8C 
 Call sub_0806D944
 _0807E930 0x0010
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x110f
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c110f
 _0807E930 0x0018
 SetEntityNonPlanarMovement 0x0080
 Call sub_0806D908
@@ -209,10 +160,7 @@ Jump 0xffe6
 _0807E864 
 _0807E930 0x0010
 StopScript 
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1115
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1115
 _0807EA94 
 _0807E930 0x0018
 _0807E878 
@@ -224,10 +172,7 @@ Call sub_0807DF28
 _0807EB8C 
 Call sub_0806D944
 _0807E930 0x0010
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1110
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1110
 _0807E930 0x0018
 SetEntityNonPlanarMovement 0x0080
 Call sub_0806D908
@@ -249,10 +194,7 @@ Jump 0xffe6
 _0807E864 
 _0807E930 0x0010
 StopScript 
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1115
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1115
 _0807EA94 
 _0807E930 0x0018
 _0807E878 
@@ -266,10 +208,7 @@ _0807EF80 0x000b
 _0807EB8C 
 Call sub_0806D944
 _0807E930 0x0010
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1111
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1111
 _0807E930 0x0018
 SetEntityNonPlanarMovement 0x0080
 Call sub_0806D8A0

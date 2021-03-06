@@ -7,7 +7,7 @@ DoFade6
 DoFade7 
 _0807E800 0x00000000
 _0807E80C 0x00000000
-.short 0x0442 @ _0807E858 with 0 parameters
+_0807E858_ 
 _0807E864 
 _0807E878 
 _0807E888 
@@ -31,14 +31,8 @@ _0807EA88 0x0001
 _0807EA94 
 TextboxNoOverlapFollow 0x0601
 TextboxNoOverlap 0x0601
-.short 0x085c @ TextboxNoOverlapFollowPos with 1 parameters
-.short 0x0601
-@ End of parameters
-.short 0x105d @ _0807EAF0 with 3 parameters
-.short 0x0601
-.short 0x0602
-.short 0x0603
-@ End of parameters
+TextboxNoOverlapFollowPos_s 0x0601
+_0807EAF0_sss 0x0601, 0x0602, 0x0603
 TextboxNoOverlapVar 
 _0807EB28 0x0602
 _0807EB38 

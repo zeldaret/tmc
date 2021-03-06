@@ -5,11 +5,7 @@ _0807EF80 0x000a
 CheckLocalFlag 0x0093
 JumpIf 0x0062
 _0807E930 0x0008
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F8E8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F8E8, 0x00000000
 StopScript 
 CheckRoomFlag 0x0000
 JumpIfNot 0xfffa
@@ -52,11 +48,7 @@ _0807EF80 0x000a
 CheckLocalFlag 0x0094
 JumpIf 0x006c
 _0807E930 0x0010
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F8E8
-.short 0x0001
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F8E8, 0x00000001
 StopScript 
 CheckRoomFlag 0x0001
 JumpIfNot 0xfffa
@@ -76,20 +68,12 @@ Wait 0x001e
 _0807EF80 0x0000
 _0807EB8C 
 _0807EB74 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 Wait 0x000a
 TextboxNoOverlap 0x2401
 _0807EA94 
 SetLocalFlag 0x0094
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 _0807E9D4 
 _0807E878 
 StopScript 
@@ -97,11 +81,7 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 TextboxNoOverlap 0x2401
 _0807EA94 
 _0807E878 
@@ -115,21 +95,13 @@ JumpIfNot 0x001e
 _0807E9D4 
 SetEntityPositionRelative 0x01680070
 _0807EB44 0x0002
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 StopScript 
 Jump 0x00fe
 CheckLocalFlag 0x0095
 JumpIf 0x0062
 _0807E930 0x0010
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F8E8
-.short 0x0002
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F8E8, 0x00000002
 StopScript 
 CheckRoomFlag 0x0002
 JumpIfNot 0xfffa
@@ -149,18 +121,10 @@ Wait 0x001e
 _0807EF80 0x0000
 _0807EB8C 
 _0807EB74 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 SetLocalFlag 0x0095
 _0807EF80 0x0000
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 _0807E9D4 
 _0807E878 
 StopScript 
@@ -178,34 +142,18 @@ _0807E9DC
 SetLocalFlag 0x0073
 StopScript 
 _0807EB44 0x0000
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0004
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000004
 _0807EDD4 0x0088, 0x0168
 _0807EB44 0x0006
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0004
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000004
 _0807EDD4 0x0070, 0x0168
 _0807EB74 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 _0807E9D4 
 Jump 0x001e
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 StopScript 
 TextboxNoOverlap 0x2404
 _0807EA94 
@@ -215,11 +163,7 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 TextboxNoOverlap 0x2403
 _0807EA94 
 _0807E878 
@@ -233,11 +177,7 @@ JumpIf 0x0088
 CheckLocalFlag 0x0096
 JumpIf 0x0056
 _0807E930 0x000c
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F8E8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F8E8, 0x00000000
 StopScript 
 CheckRoomFlag 0x0000
 JumpIfNot 0xfffa
@@ -300,11 +240,7 @@ _0807E878
 Jump 0xffe8
 StartScript 
 _0807EB44 0x0002
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 _0807EF80 0x000a
 _0807E9D4 
 StopScript 
@@ -312,22 +248,14 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 TextboxNoOverlap 0x2405
 _0807EA94 
 _0807E878 
 Jump 0xffe2
 StartScript 
 _0807EB44 0x0004
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 _0807EF80 0x000a
 _0807E9D4 
 StopScript 
@@ -335,11 +263,7 @@ CheckEntityInteractType
 JumpIfNot 0xfffc
 _0807E864 
 _0807EB74 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F3D8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F3D8, 0x00000000
 TextboxNoOverlap 0x2407
 _0807EA94 
 _0807E878 

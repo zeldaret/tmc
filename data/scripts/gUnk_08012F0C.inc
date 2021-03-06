@@ -1,10 +1,6 @@
 SCRIPT_START gUnk_08012F0C
 StartScript 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0806A93C
-.short 0x5678
-.short 0x1234
-@ End of parameters
+CallWithArg sub_0806A93C, 0x12345678
 _0807EB44 0x0004
 _0807E930 0x0002
 CheckInventory1 0x0015

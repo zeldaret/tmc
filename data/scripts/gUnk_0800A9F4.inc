@@ -14,10 +14,6 @@ _0807E5F8 0x00000004
 Wait 0x001e
 _0807E5F8 0x00000008
 Wait 0x003c
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0806DA1C
-.short 0x000e
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0806DA1C, 0x0000000e
 _0807EF80 0x0006
 SCRIPT_END

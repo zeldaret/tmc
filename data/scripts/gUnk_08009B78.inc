@@ -18,10 +18,7 @@ _0807EB44 0x0006
 _0807EF80 0x0000
 Wait 0x000f
 _0807EF80 0x0001
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1009
-.short 0x0000
-@ End of parameters
+TextboxNoOverlapFollowPos 0x00001009
 _0807E8E4_1 
 _0807EA94 
 _0807EF80 0x0000
@@ -29,10 +26,7 @@ _0807E5F8 0x00000004
 WaitForSomething2 0x00000008
 _0807EB8C 
 _0807EF80 0x0001
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x100b
-.short 0x0000
-@ End of parameters
+TextboxNoOverlapFollowPos 0x0000100b
 _0807EA94 
 _0807EF80 0x0000
 _0807E5F8 0x00000002
@@ -51,10 +45,7 @@ _0807F034 0x0034
 WaitPlayerAction8 
 _0807E8E4_1 
 _0807EF80 0x0001
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x100c
-.short 0x0000
-@ End of parameters
+TextboxNoOverlapFollowPos 0x0000100c
 _0807EA94 
 _0807EF80 0x0000
 _0807E5F8 0x00000004

@@ -10,11 +10,7 @@ CheckLocalFlag 0x007a
 JumpIfNot 0xffee
 CheckInventory1 0x0003
 JumpIfNot 0xffe6
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F6B4
-.short 0x00d0
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F6B4, 0x000000d0
 JumpIfNot 0xffd8
 StopScript 
 Call sub_0807F9A4

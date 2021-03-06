@@ -9,11 +9,7 @@ StopScript
 WaitForSomething2 0x00000008
 SoundReq 0x0142
 _0807E610 0x00000800
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_080960C4
-.short 0xa65c
-.short 0x0800
-@ End of parameters
+CallWithArg sub_080960C4, 0x0800a65c
 _0807E930 0x0002
 Call sub_08094B0C
 _0807EDD4 0x0068, 0x0088

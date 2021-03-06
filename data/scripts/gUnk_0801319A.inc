@@ -30,10 +30,7 @@ Call sub_080536B8
 _0807E864 
 Call sub_0807DF28
 WaitFor_2 
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1602
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1602
 _0807EA94 
 _0807E5F8 0x00000008
 WaitForSomething2 0x00000010
@@ -47,10 +44,7 @@ WaitForSomething2 0x00000040
 StartPlayerScript gUnk_08013378
 _0807E5F8 0x00000020
 WaitForSomething2 0x00000042
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1603
-.short 0x000c
-@ End of parameters
+TextboxNoOverlapFollowPos 0x000c1603
 _0807EA94 
 _0807E5F8 0x00000020
 WaitForSomething2 0x00000040
@@ -59,16 +53,11 @@ _0807E778 0x0004
 DoFade5 
 WaitFor_2 
 SoundReq0x80100000 
-.short 0x0842 @ _0807E858 with 1 parameters
-.short 0x0000
-@ End of parameters
+_0807E858 0x0000
 Wait 0x003c
 CameraTargetPlayer 
 Call sub_0807F5C0
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x1604
-.short 0x0007
-@ End of parameters
+TextboxNoOverlapFollowPos 0x00071604
 _0807EA94 
 _0807E788 0xffffffff
 _0807E778 0x0004

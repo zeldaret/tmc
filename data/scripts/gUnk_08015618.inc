@@ -5,21 +5,13 @@ SetEntityNonPlanarMovement 0x0040
 Call sub_08094B80
 StopScript 
 WaitForSomething2 0x00000080
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0805DDEC
-.short 0x0003
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0805DDEC, 0x00000003
 Call sub_08094B0C
 _0807EDD4 0x0078, 0x0068
 _0807E5F8 0x00000100
 WaitForSomething2 0x00000080
 _0807EF3C 0xff80, 0x0000
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0805DE18
-.short 0x0003
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0805DE18, 0x00000003
 Wait 0x003c
 _0807E5F8 0x00000100
 WaitForSomething2 0x00000080

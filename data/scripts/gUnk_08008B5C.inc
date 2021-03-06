@@ -45,17 +45,9 @@ _0807EA94
 Call sub_0806BA34
 JumpIfNot 0x0066
 _0807EA94 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0806BB1C
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0806BB1C, 0x00000000
 Call sub_0807F2D4
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0806BB1C
-.short 0x0001
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0806BB1C, 0x00000001
 Call sub_0806BB7C
 JumpIfNot 0x0048
 TextboxNoOverlap 0x490c

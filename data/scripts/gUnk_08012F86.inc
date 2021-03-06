@@ -11,11 +11,7 @@ StopScript
 WaitForSomething2 0x00000004
 _0807E908 0x0004
 Call sub_0806A958
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F93C
-.short 0xf2f4
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F93C, 0x0000f2f4
 Call sub_0807DF50
 _0807E878 
 SetLocalFlag 0x0062
@@ -24,11 +20,7 @@ StartScript
 _0807E930 0x000d
 _0807E908 0x0005
 SetLocalFlag 0x0062
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F93C
-.short 0xf2f4
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F93C, 0x0000f2f4
 Call sub_0806AA10
 StopScript 
 CheckInventory1 0x0038

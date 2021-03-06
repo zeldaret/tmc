@@ -16,11 +16,7 @@ CheckLocalFlag 0x009f
 JumpIf 0x0098
 TextboxNoOverlap 0x057b
 _0807EA94 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F970
-.short 0x057d
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F970, 0x0000057d
 JumpIf 0xff88
 _0807EA94 
 SetLocalFlag 0x009f
@@ -43,17 +39,9 @@ CheckLocalFlag 0x00a0
 JumpIf 0x0036
 TextboxNoOverlap 0x0580
 _0807EA94 
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F970
-.short 0x0582
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F970, 0x00000582
 JumpIf 0x0014
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_08087424
-.short 0x0001
-.short 0x0000
-@ End of parameters
+CallWithArg sub_08087424, 0x00000001
 Wait 0x00b4
 Jump 0xff14
 _0807EA94 

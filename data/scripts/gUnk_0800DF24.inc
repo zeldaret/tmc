@@ -19,10 +19,7 @@ Call sub_0807F5C0
 Call sub_08066C94
 Wait 0x00e9
 _0807EF80 0x0007
-.short 0x0c5c @ TextboxNoOverlapFollowPos with 2 parameters
-.short 0x162f
-.short 0x0002
-@ End of parameters
+TextboxNoOverlapFollowPos 0x0002162f
 _0807EA94 
 SoundReq2 0x002f
 _0807EF80 0x0019

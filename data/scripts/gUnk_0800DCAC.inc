@@ -4,11 +4,7 @@ _0807EF80 0x000a
 Call sub_08066E38
 StopScript 
 WaitForSomething2 0x00000001
-.short 0x140c @ CallWithArg with 2 parameters
-.word sub_0807F8E8
-.short 0x0000
-.short 0x0000
-@ End of parameters
+CallWithArg sub_0807F8E8, 0x00000000
 _0807E5F8 0x00000002
 CheckRoomFlag 0x0000
 JumpIfNot 0xfffa
