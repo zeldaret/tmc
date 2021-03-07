@@ -3,7 +3,7 @@ SCRIPT_START script_0800FAE4
 	SetEntityNonPlanarMovement 0x0100
 	EndBlock 
 	Call sub_0807F584
-	JumpSwitch script_0800FB06, script_0800FB10, script_0800FB06, script_0800FAFC
+	JumpTable script_0800FB06, script_0800FB10, script_0800FB06, script_0800FAFC
 script_0800FAFC:
 	CallWithArg sub_0807F4F8, 0x0000027c
 script_0800FB06:

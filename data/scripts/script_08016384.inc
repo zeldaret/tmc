@@ -5,11 +5,11 @@ script_08016384:
 	Jump script_08016384
 	JumpIf script_08016384
 	JumpIfNot script_08016384
-	JumpSwitch script_08016384, script_08016384
+	JumpTable script_08016384, script_08016384
 	JumpAbsolute script_08016384
 	JumpAbsoluteIf script_08016384
 	JumpAbsoluteIfNot script_08016384
-	JumpAbsoluteSwitch script_08016384, script_08016384
+	JumpAbsoluteTable script_08016384, script_08016384
 	Call script_08016384
 	CallWithArg script_08016384, 0x12345678
 	LoadRoomEntityList script_08016384

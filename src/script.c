@@ -18,11 +18,11 @@ void ScriptCommand_EndBlock(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_Jump(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_JumpIf(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_JumpIfNot(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_JumpSwitch(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_JumpTable(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_JumpAbsolute(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_JumpAbsoluteIf(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_JumpAbsoluteIfNot(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_JumpAbsoluteSwitch(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_JumpAbsoluteTable(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_Call(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_CallWithArg(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_LoadRoomEntityList(Entity* entity, ScriptExecutionContext* context);
@@ -163,11 +163,11 @@ const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
                                           ScriptCommand_Jump,
                                           ScriptCommand_JumpIf,
                                           ScriptCommand_JumpIfNot,
-                                          ScriptCommand_JumpSwitch,
+                                          ScriptCommand_JumpTable,
                                           ScriptCommand_JumpAbsolute,
                                           ScriptCommand_JumpAbsoluteIf,
                                           ScriptCommand_JumpAbsoluteIfNot,
-                                          ScriptCommand_JumpAbsoluteSwitch,
+                                          ScriptCommand_JumpAbsoluteTable,
                                           ScriptCommand_Call,
                                           ScriptCommand_CallWithArg,
                                           ScriptCommand_LoadRoomEntityList,
@@ -657,7 +657,7 @@ void ScriptCommand_JumpIfNot(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void ScriptCommand_JumpSwitch(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_JumpTable(Entity* entity, ScriptExecutionContext* context) {
     if (gActiveScriptInfo.commandSize > context->unk_04) {
         context->scriptInstructionPointer += context->unk_04;
         ScriptCommand_Jump(entity, context);
@@ -682,7 +682,7 @@ void ScriptCommand_JumpAbsoluteIfNot(Entity* entity, ScriptExecutionContext* con
     }
 }
 
-void ScriptCommand_JumpAbsoluteSwitch(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_JumpAbsoluteTable(Entity* entity, ScriptExecutionContext* context) {
     if (gActiveScriptInfo.commandSize > (context->unk_04 << 1) + 1) {
         context->scriptInstructionPointer += context->unk_04 << 1;
         ScriptCommand_JumpAbsolute(entity, context);

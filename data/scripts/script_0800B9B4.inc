@@ -7,7 +7,7 @@ SCRIPT_START script_0800B9B4
 	EndBlock 
 script_0800B9CA:
 	Call sub_0807F434
-	JumpSwitch script_0800B9CA, script_0800B9D8, script_0800B9F4
+	JumpTable script_0800B9CA, script_0800B9D8, script_0800B9F4
 script_0800B9D8:
 	_0807E864 
 	_0807EB74 

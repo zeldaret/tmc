@@ -139,7 +139,7 @@ script_0800E832:
 	EndBlock 
 	_0807EA94 
 	_0807EB38 
-	JumpSwitch script_0800E910, script_0800E8D6, script_0800E8A4, script_0800E872
+	JumpTable script_0800E910, script_0800E8D6, script_0800E8A4, script_0800E872
 script_0800E872:
 	BeginBlock 
 	TextboxNoOverlapFollow 0x4505

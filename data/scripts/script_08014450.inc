@@ -29,7 +29,7 @@ script_080144A2:
 	JumpIfNot script_080144B8
 	TextboxNoOverlapFollow 0x420b
 	_0807EB38 
-	JumpSwitch script_080144B8, script_080144C0
+	JumpTable script_080144B8, script_080144C0
 script_080144B8:
 	ClearLocalFlag 0x0093
 	Jump script_080144C8

@@ -36,29 +36,29 @@
 1:	.2byte \s - 1b
 .endm
 
-.macro JumpSwitchOpN n label labels:vararg
+.macro JumpTableOpN n label labels:vararg
     .ifnb \labels
-    JumpSwitchOpN \n + 1 \labels
+    JumpTableOpN \n + 1 \labels
     .else
     .2byte 0x400 * (\n) + 0x6
     .endif
 .endm
 
-.macro JumpSwitchOp labels:vararg
-    JumpSwitchOpN 2 \labels
+.macro JumpTableOp labels:vararg
+    JumpTableOpN 2 \labels
 .endm
 
-.macro JumpSwitchLabel temp label labels:vararg
+.macro JumpTableLabel temp label labels:vararg
     .2byte \label - \temp
     .ifnb \labels
-    JumpSwitchLabel \temp - 2 \labels
+    JumpTableLabel \temp - 2 \labels
     .endif
 .endm
 
-.macro JumpSwitch labels:vararg
-    JumpSwitchOp \labels
+.macro JumpTable labels:vararg
+    JumpTableOp \labels
 1:
-    JumpSwitchLabel 1b \labels
+    JumpTableLabel 1b \labels
 .endm
 
 .macro JumpAbsolute w
@@ -76,28 +76,28 @@
 	.4byte \w
 .endm
 
-.macro JumpAbsoluteSwitchOpN n label labels:vararg
+.macro JumpAbsoluteTableOpN n label labels:vararg
     .ifnb \labels
-    JumpAbsoluteSwitchOpN \n + 2 \labels
+    JumpAbsoluteTableOpN \n + 2 \labels
     .else
     .2byte 0x400 * (\n) + 0xa
     .endif
 .endm
 
-.macro JumpAbsoluteSwitchOp labels:vararg
-    JumpAbsoluteSwitchOpN 3 \labels
+.macro JumpAbsoluteTableOp labels:vararg
+    JumpAbsoluteTableOpN 3 \labels
 .endm
 
-.macro JumpAbsoluteSwitchLabel label labels:vararg
+.macro JumpAbsoluteTableLabel label labels:vararg
     .4byte \label
     .ifnb \labels
-    JumpAbsoluteSwitchLabel \labels
+    JumpAbsoluteTableLabel \labels
     .endif
 .endm
 
-.macro JumpAbsoluteSwitch labels:vararg
-    JumpAbsoluteSwitchOp \labels
-    JumpAbsoluteSwitchLabel \labels
+.macro JumpAbsoluteTable labels:vararg
+    JumpAbsoluteTableOp \labels
+    JumpAbsoluteTableLabel \labels
 .endm
 
 .macro Call w

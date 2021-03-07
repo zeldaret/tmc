@@ -64,7 +64,7 @@ script_08010314:
 	Call sub_08062698
 	Call sub_080626AC
 	CallWithArg sub_0807F0EC, 0x00000009
-	JumpSwitch script_08010340, script_0801034A, script_08010354, script_0801035E, script_08010368, script_08010372, script_0801037C, script_08010386, script_08010390
+	JumpTable script_08010340, script_0801034A, script_08010354, script_0801035E, script_08010368, script_08010372, script_0801037C, script_08010386, script_08010390
 script_08010340:
 	_0807EE04 0x0358, 0x0078
 	Jump script_08010396
@@ -205,7 +205,7 @@ script_08010502:
 	_0807EA94 
 script_0801052E:
 	Call sub_080634E4
-	JumpSwitch script_08010544, script_08010558, script_08010570, script_08010570, script_0801054C, script_08010564, script_08010570
+	JumpTable script_08010544, script_08010558, script_08010570, script_08010570, script_0801054C, script_08010564, script_08010570
 script_08010544:
 	TextboxNoOverlap 0x2b0d
 	Jump script_080105E0
