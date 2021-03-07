@@ -1,6 +1,10 @@
 from utils import barray_to_u16_hex, barray_to_u32_hex, barray_to_s16
 import struct
 
+ROM_OFFSET = 0x08000000
+SCRIPTS_START = 0x08008B5C
+SCRIPTS_END = 0x08016984
+
 # A list of all the commands, their correspondingScriptCommand_  functions and what kind of parameters they take
 commands = [
     {'fun': 'ScriptCommandNop', 'params': ''},
@@ -15,7 +19,7 @@ commands = [
     {'fun': 'ScriptCommand_JumpAbsoluteIfNot', 'params': 'x'},
     {'fun': 'ScriptCommand_JumpAbsoluteSwitch', 'params': 'xx'},
     {'fun': 'ScriptCommand_Call', 'params': 'p'},
-    {'fun': 'ScriptCommand_CallWithArg', 'params': ['pw', 'p']},
+    {'fun': 'ScriptCommand_CallWithArg', 'params': ['px', 'p']},
     {'fun': 'ScriptCommand_LoadRoomEntityList', 'params': 'd'},
     {'fun': 'ScriptCommand_TestBit', 'params': 'w'},
     {'fun': 'ScriptCommand_CheckInventory1', 'params': 's'},
@@ -181,7 +185,11 @@ def get_data_pointer(barray):
 
 def get_script_pointer(barray):
     integers = struct.unpack('I', barray)
-    return 'script_' + (struct.pack('>I', integers[0]).hex()).upper()
+    val = integers[0]
+    if val >= SCRIPTS_START and val <= SCRIPTS_END:
+        return 'script_' + (struct.pack('>I', val).hex()).upper()
+    else:
+        return '0x'+struct.pack('>I', val).hex()
 
 
 def get_script_label(u32):
@@ -285,11 +293,11 @@ parameters = {
         'read': lambda ctx: get_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6])
     },
 
-    'pw': {
+    'px': {
         'length': 4,
         'param': 'a,b',
         'expr': '	.word \\a\n	.word \\b',
-        'read': lambda ctx: get_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6]) + ', ' + barray_to_u32_hex(ctx.data[ctx.ptr + 6:ctx.ptr + 14])[0]
+        'read': lambda ctx: get_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6]) + ', ' + get_script_pointer(ctx.data[ctx.ptr + 6:ctx.ptr + 10])
     },
     'd': {  # Data pointer
         'length': 2,

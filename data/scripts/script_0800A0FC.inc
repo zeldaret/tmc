@@ -12,7 +12,7 @@ script_0800A0FE:
 	Call sub_0807F844
 	_0807E8E4_3 
 	CallWithArg sub_0807F75C, 0x00d00060
-	CallWithArg sub_08094AE8, 0x0800a160
+	CallWithArg sub_08094AE8, script_0800A160
 	SoundReq 0x00f7
 	_0807E778 0x0002
 	DoFade6 

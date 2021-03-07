@@ -40,7 +40,7 @@ SCRIPT_START script_0800AD54
 	Call sub_0807F2D4
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
-	CallWithArg sub_080960C4, 0x0800af18
+	CallWithArg sub_080960C4, script_0800AF18
 	_0807E930 0x0012
 	Call sub_0807F2D4
 	Wait 0x001e

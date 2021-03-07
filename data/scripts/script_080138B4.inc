@@ -13,36 +13,36 @@ script_080138D0:
 	Call sub_0807DF28
 	StartPlayerScript script_080136D8
 	WaitForSomething2 0x00000001
-	CallWithArg sub_08095A1C, 0x08013f64
+	CallWithArg sub_08095A1C, script_08013F64
 	SoundReq 0x01cd
 	Wait 0x005a
 	BeginBlock 
 	SoundReq 0x01ce
-	CallWithArg sub_08095D54, 0x08013e70
+	CallWithArg sub_08095D54, script_08013E70
 	EndBlock 
 	WaitForSomething2 0x40000000
 	BeginBlock 
 	SoundReq 0x01cf
-	CallWithArg sub_08095D8C, 0x08014054
-	CallWithArg sub_08095D8C, 0x08014074
-	CallWithArg sub_08095D8C, 0x08014094
-	CallWithArg sub_08095D8C, 0x080140b8
+	CallWithArg sub_08095D8C, script_08014054
+	CallWithArg sub_08095D8C, script_08014074
+	CallWithArg sub_08095D8C, script_08014094
+	CallWithArg sub_08095D8C, script_080140B8
 	EndBlock 
 	Wait 0x001e
 	BeginBlock 
 	SoundReq 0x01d0
-	CallWithArg sub_08095D8C, 0x080140dc
-	CallWithArg sub_08095D8C, 0x08014118
-	CallWithArg sub_08095D8C, 0x08014154
-	CallWithArg sub_08095D8C, 0x08014198
+	CallWithArg sub_08095D8C, script_080140DC
+	CallWithArg sub_08095D8C, script_08014118
+	CallWithArg sub_08095D8C, script_08014154
+	CallWithArg sub_08095D8C, script_08014198
 	EndBlock 
 	Wait 0x003c
 	CallWithArg sub_0805DDEC, 0x00000000
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00002000
 	SoundReq 0x01d2
-	CallWithArg sub_08095D8C, 0x080141dc
-	CallWithArg sub_08095D8C, 0x08014210
+	CallWithArg sub_08095D8C, script_080141DC
+	CallWithArg sub_08095D8C, script_08014210
 	_0807E5F8 0x00000400
 	WaitForSomething2 0x00004000
 	_0807E5F8 0x00000800

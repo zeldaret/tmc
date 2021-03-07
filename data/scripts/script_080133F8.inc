@@ -15,7 +15,7 @@ SCRIPT_START script_080133F8
 	Wait 0x003c
 	_0807EF80 0x0014
 	SoundReq 0x0120
-	CallWithArg sub_08095420, 0x08013494
+	CallWithArg sub_08095420, script_08013494
 	Wait 0x005a
 	_0807EF80 0x0016
 	WaitForSomething2 0x00000080

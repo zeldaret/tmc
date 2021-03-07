@@ -1,3 +1,4 @@
+from definitions import ROM_OFFSET, SCRIPTS_END, SCRIPTS_START
 from script_disassembler import disassemble_script, generate_macros
 import sys
 
@@ -6,9 +7,7 @@ import sys
 
 TMC_FOLDER = '../..'
 
-ROM_OFFSET = 0x08000000
-SCRIPTS_START = 0x08008B5C
-SCRIPTS_END = 0x08016984
+
 
 # Create labels for these additional script instructions
 # Currently done by splitting the script at that point

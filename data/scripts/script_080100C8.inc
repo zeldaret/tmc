@@ -59,7 +59,7 @@ script_0801015A:
 	Call sub_080A1608
 	_0807EA94 
 	_0807E878 
-	CallWithArg sub_080A1550, 0x080101ac
+	CallWithArg sub_080A1550, script_080101AC
 	JumpIfNot script_0801015A
 	SoundReq2 0x0015
 	SetRoomFlag 0x0001
