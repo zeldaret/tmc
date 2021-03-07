@@ -36,49 +36,29 @@
 1:	.short \s - 1b
 .endm
 
-.macro JumpSwitch a,b
-	.short 0x0c06
-1:	.short \a - 1b
-	.short \b - 1b - 2
+.macro JumpSwitchOpN n label labels:vararg
+    .ifnb \labels
+    JumpSwitchOpN \n + 1 \labels
+    .else
+    .short 0x400 * (\n) + 0x6
+    .endif
 .endm
 
-.macro JumpSwitch_3 a,b,c
-	.short 0x1006
-1:	.short \a - 1b
-	.short \b - 1b - 2
-	.short \c - 1b - 4
+.macro JumpSwitchOp labels:vararg
+    JumpSwitchOpN 2 \labels
 .endm
 
-.macro JumpSwitch_4 a,b,c,d
-	.short 0x1406
-1:	.short \a - 1b
-	.short \b - 1b - 2
-	.short \c - 1b - 4
-	.short \d - 1b - 6
+.macro JumpSwitchLabel temp label labels:vararg
+    .short \label - \temp
+    .ifnb \labels
+    JumpSwitchLabel \temp - 2 \labels
+    .endif
 .endm
 
-.macro JumpSwitch_7 a,b,c,d,e,f,g
-	.short 0x2006
-1:	.short \a - 1b
-	.short \b - 1b - 2
-	.short \c - 1b - 4
-	.short \d - 1b - 6
-	.short \e - 1b - 8
-	.short \f - 1b - 10
-	.short \g - 1b - 12
-.endm
-
-.macro JumpSwitch_9 a,b,c,d,e,f,g,h,i
-	.short 0x2806
-1:	.short \a - 1b
-	.short \b - 1b - 2
-	.short \c - 1b - 4
-	.short \d - 1b - 6
-	.short \e - 1b - 8
-	.short \f - 1b - 10
-	.short \g - 1b - 12
-	.short \h - 1b - 14
-	.short \i - 1b - 16
+.macro JumpSwitch labels:vararg
+    JumpSwitchOp \labels
+1:
+    JumpSwitchLabel 1b \labels
 .endm
 
 .macro JumpAbsolute w
@@ -96,10 +76,28 @@
 	.word \w
 .endm
 
-.macro JumpAbsoluteSwitch a, b
-	.short 0x140a
-	.word \a
-	.word \b
+.macro JumpAbsoluteSwitchOpN n label labels:vararg
+    .ifnb \labels
+    JumpAbsoluteSwitchOpN \n + 2 \labels
+    .else
+    .short 0x400 * (\n) + 0xa
+    .endif
+.endm
+
+.macro JumpAbsoluteSwitchOp labels:vararg
+    JumpAbsoluteSwitchOpN 3 \labels
+.endm
+
+.macro JumpAbsoluteSwitchLabel label labels:vararg
+    .word \label
+    .ifnb \labels
+    JumpAbsoluteSwitchLabel \labels
+    .endif
+.endm
+
+.macro JumpAbsoluteSwitch labels:vararg
+    JumpAbsoluteSwitchOp \labels
+    JumpAbsoluteSwitchLabel \labels
 .endm
 
 .macro Call w

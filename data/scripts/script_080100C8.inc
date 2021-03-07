@@ -70,6 +70,7 @@ script_0801019E:
 script_080101A6:
 	_0807E878 
 	Jump script_0801015A
+script_080101AC:
 	BeginBlock 
 	_0807EF80 0x0008
 	Call sub_080A1648

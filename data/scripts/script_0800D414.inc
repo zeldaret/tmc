@@ -49,7 +49,7 @@ script_0800D4E4:
 	Call sub_08062698
 	Call sub_080626AC
 	CallWithArg sub_0807F0EC, 0x00000009
-	JumpSwitch_9 script_0800D510, script_0800D51A, script_0800D524, script_0800D52E, script_0800D538, script_0800D542, script_0800D54C, script_0800D556, script_0800D560
+	JumpSwitch script_0800D510, script_0800D51A, script_0800D524, script_0800D52E, script_0800D538, script_0800D542, script_0800D54C, script_0800D556, script_0800D560
 script_0800D510:
 	_0807EE04 0x0038, 0x0068
 	Jump script_0800D566
@@ -104,7 +104,7 @@ script_0800D5AC:
 	Call sub_08062698
 	Call sub_080626AC
 	CallWithArg sub_0807F0EC, 0x00000004
-	JumpSwitch_4 script_0800D5CE, script_0800D5D8, script_0800D5E2, script_0800D5EC
+	JumpSwitch script_0800D5CE, script_0800D5D8, script_0800D5E2, script_0800D5EC
 script_0800D5CE:
 	_0807EE04 0x0038, 0x0098
 	Jump script_0800D5F2
