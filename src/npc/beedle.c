@@ -149,7 +149,7 @@ void sub_0806346C(Entity* this) {
 }
 
 void sub_080634E4(Entity* this, ScriptExecutionContext* context) {
-    context->unk_04 = this->type2;
+    context->intVariable = this->type2;
 }
 
 void sub_080634EC(Entity* this) {

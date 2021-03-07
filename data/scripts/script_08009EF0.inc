@@ -1,11 +1,11 @@
 SCRIPT_START script_08009EF0
 	BeginBlock 
-	_0807E914 0x00000000
+	SetIntVariable 0x00000000
 	_0807EF80 0x0001
 	EndBlock 
 	WaitForSomething2 0x00000004
 	BeginBlock 
-	_0807E914 0x00000001
+	SetIntVariable 0x00000001
 	_0807EF80 0x0001
 	EndBlock 
 SCRIPT_END

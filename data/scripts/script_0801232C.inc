@@ -62,7 +62,7 @@ script_08012368:
 	SoundReq2 0xffff
 	_0807EB28 0x1403
 	_0807EA94 
-	_0807E914 0x00000203
+	SetIntVariable 0x00000203
 	Call sub_0807F420
 	Call sub_0807DF50
 	_0807E878 

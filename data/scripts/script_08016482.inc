@@ -19,7 +19,7 @@ SCRIPT_START script_08016482
 	_0807E8E4_2 
 	_0807E8E4_3 
 	_0807E908 0x0004
-	_0807E914 0x00000000
+	SetIntVariable 0x00000000
 	_0807E924 
 	_0807E930 0x0000
 	_0807E944 
@@ -32,7 +32,7 @@ SCRIPT_START script_08016482
 	TextboxNoOverlapFollow 0x0601
 	TextboxNoOverlap 0x0601
 	TextboxNoOverlapFollowPos_1 0x0601
-	_0807EAF0_3 0x0601, 0x0602, 0x0603
+	TextboxNoOverlapFollowTable_3 0x0601, 0x0602, 0x0603
 	TextboxNoOverlapVar 
 	_0807EB28 0x0602
 	_0807EB38 

@@ -202,7 +202,7 @@ script_0800C7C0:
 	_0807EB8C 
 	TextboxNoOverlapFollow 0x1132
 	_0807EA94 
-	_0807E914 0x00000103
+	SetIntVariable 0x00000103
 	Call sub_0807F420
 	TextboxNoOverlapFollow 0x1133
 	_0807EA94 
@@ -250,7 +250,7 @@ script_0800C87C:
 	_0807E864 
 	Call sub_0807DF28
 	_0807EB74 
-	_0807E914 0x00000008
+	SetIntVariable 0x00000008
 	Call sub_0807F3D8
 	TextboxNoOverlapFollow 0x1136
 	_0807EA94 

@@ -85,7 +85,7 @@ commands = [
     {'fun': 'ScriptCommand_0807E8E4_2', 'params': ''},  # duplicate
     {'fun': 'ScriptCommand_0807E8E4_3', 'params': ''},  # duplicate
     {'fun': 'ScriptCommand_0807E908', 'params': 's'},
-    {'fun': 'ScriptCommand_0807E914', 'params': 'w'},
+    {'fun': 'ScriptCommandSetIntVariable', 'params': 'w'},
     {'fun': 'ScriptCommand_0807E924', 'params': ''},
     {'fun': 'ScriptCommand_0807E930', 'params': 's'},
     {'fun': 'ScriptCommand_0807E944', 'params': ''},
@@ -100,7 +100,7 @@ commands = [
     {'fun': 'ScriptCommand_TextboxNoOverlapFollow', 'params': 's'},
     {'fun': 'ScriptCommand_TextboxNoOverlap', 'params': 's'},
     {'fun': 'ScriptCommand_TextboxNoOverlapFollowPos', 'params': ['ss', 's']},
-    {'fun': 'ScriptCommand_0807EAF0', 'params': ['ss', 'sss', 'ssss']},
+    {'fun': 'ScriptCommandTextboxNoOverlapFollowTable', 'params': ['ss', 'sss', 'ssss']},
     {'fun': 'ScriptCommand_TextboxNoOverlapVar', 'params': ''},
     {'fun': 'ScriptCommand_0807EB28', 'params': 's'},
     {'fun': 'ScriptCommand_0807EB38', 'params': ''},

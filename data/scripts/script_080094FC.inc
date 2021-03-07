@@ -41,7 +41,7 @@ script_0800954E:
 	Call sub_08067314
 	_0807EF80 0x000a
 	_0807EB44 0x0004
-	_0807E914 0x00000000
+	SetIntVariable 0x00000000
 	Call sub_080672B0
 	EndBlock 
 script_08009592:
@@ -49,14 +49,14 @@ script_08009592:
 	JumpIfNot script_08009592
 	_0807E864 
 	_0807EB74 
-	_0807E914 0x00000004
+	SetIntVariable 0x00000004
 	Call sub_080672B0
 	Call sub_080672C8
 	_0807EA94 
 	Wait 0x000f
 	_0807E878 
 	_0807EB44 0x0004
-	_0807E914 0x00000000
+	SetIntVariable 0x00000000
 	Call sub_080672B0
 	Jump script_08009592
 	.short 0x0000

@@ -88,7 +88,7 @@ void ScriptCommand_StartPlayerScript(Entity* entity, ScriptExecutionContext* con
 void ScriptCommand_0807E8D4(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E8E4(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E908(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807E914(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetIntVariable(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E924(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E930(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E944(Entity* entity, ScriptExecutionContext* context);
@@ -103,7 +103,7 @@ void ScriptCommand_0807EA94(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_TextboxNoOverlapFollow(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_TextboxNoOverlap(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_TextboxNoOverlapFollowPos(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EAF0(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_TextboxNoOverlapFollowTable(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_TextboxNoOverlapVar(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EB28(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EB38(Entity* entity, ScriptExecutionContext* context);
@@ -235,7 +235,7 @@ const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
                                           ScriptCommand_0807E8E4,
                                           ScriptCommand_0807E8E4,
                                           ScriptCommand_0807E908,
-                                          ScriptCommand_0807E914,
+                                          ScriptCommand_SetIntVariable,
                                           ScriptCommand_0807E924,
                                           ScriptCommand_0807E930,
                                           ScriptCommand_0807E944,
@@ -250,7 +250,7 @@ const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
                                           ScriptCommand_TextboxNoOverlapFollow,
                                           ScriptCommand_TextboxNoOverlap,
                                           ScriptCommand_TextboxNoOverlapFollowPos,
-                                          ScriptCommand_0807EAF0,
+                                          ScriptCommand_TextboxNoOverlapFollowTable,
                                           ScriptCommand_TextboxNoOverlapVar,
                                           ScriptCommand_0807EB28,
                                           ScriptCommand_0807EB38,
@@ -658,8 +658,8 @@ void ScriptCommand_JumpIfNot(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_JumpTable(Entity* entity, ScriptExecutionContext* context) {
-    if (gActiveScriptInfo.commandSize > context->unk_04) {
-        context->scriptInstructionPointer += context->unk_04;
+    if (gActiveScriptInfo.commandSize > context->intVariable) {
+        context->scriptInstructionPointer += context->intVariable;
         ScriptCommand_Jump(entity, context);
     }
 }
@@ -683,8 +683,8 @@ void ScriptCommand_JumpAbsoluteIfNot(Entity* entity, ScriptExecutionContext* con
 }
 
 void ScriptCommand_JumpAbsoluteTable(Entity* entity, ScriptExecutionContext* context) {
-    if (gActiveScriptInfo.commandSize > (context->unk_04 << 1) + 1) {
-        context->scriptInstructionPointer += context->unk_04 << 1;
+    if (gActiveScriptInfo.commandSize > (context->intVariable << 1) + 1) {
+        context->scriptInstructionPointer += context->intVariable << 1;
         ScriptCommand_JumpAbsolute(entity, context);
     }
 }
@@ -693,10 +693,10 @@ void ScriptCommand_Call(Entity* entity, ScriptExecutionContext* context) {
     ((ScriptCommand)GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer))(entity, context);
 }
 
-// the called function can read an argument from context->unk_04
+// the called function can read an argument from context->intVariable
 void ScriptCommand_CallWithArg(Entity* entity, ScriptExecutionContext* context) {
     ScriptCommand tmp = (ScriptCommand)GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
-    context->unk_04 = GetNextScriptCommandWord(context->scriptInstructionPointer + 3);
+    context->intVariable = GetNextScriptCommandWord(context->scriptInstructionPointer + 3);
     tmp(entity, context);
 }
 
@@ -863,19 +863,19 @@ void ScriptCommand_HasRoomItemForSale(Entity* entity, ScriptExecutionContext* co
 }
 
 void ScriptCommand_0807E4CC(Entity* entity, ScriptExecutionContext* context) {
-    context->condition = !!(context->unk_04 & context->scriptInstructionPointer[1]);
+    context->condition = !!(context->intVariable & context->scriptInstructionPointer[1]);
     gActiveScriptInfo.flags |= 1;
 }
 
 void ScriptCommand_0807E4EC(Entity* entity, ScriptExecutionContext* context) {
     u32 tmp = context->scriptInstructionPointer[1];
-    context->condition = tmp == (tmp & context->unk_04);
+    context->condition = tmp == (tmp & context->intVariable);
     gActiveScriptInfo.flags |= 1;
 }
 
 void ScriptCommand_0807E514(Entity* entity, ScriptExecutionContext* context) {
     u32 tmp = context->scriptInstructionPointer[1];
-    context->condition = tmp == context->unk_04;
+    context->condition = tmp == context->intVariable;
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -1088,12 +1088,12 @@ void ScriptCommand_0807E908(Entity* entity, ScriptExecutionContext* context) {
     entity->previousActionFlag = 0;
 }
 
-void ScriptCommand_0807E914(Entity* entity, ScriptExecutionContext* context) {
-    context->unk_04 = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
+void ScriptCommand_SetIntVariable(Entity* entity, ScriptExecutionContext* context) {
+    context->intVariable = GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer);
 }
 
 void ScriptCommand_0807E924(Entity* entity, ScriptExecutionContext* context) {
-    context->unk_04 = entity->frames.all;
+    context->intVariable = entity->frames.all;
     entity->frames.all = 0;
 }
 
@@ -1205,9 +1205,9 @@ void ScriptCommand_TextboxNoOverlapFollowPos(Entity* entity, ScriptExecutionCont
     gTextBox.textWindowPosY = context->scriptInstructionPointer[2];
 }
 
-void ScriptCommand_0807EAF0(Entity* entity, ScriptExecutionContext* context) {
-    if (gActiveScriptInfo.commandSize > context->unk_04) {
-        u16* tmp = context->scriptInstructionPointer + context->unk_04;
+void ScriptCommand_TextboxNoOverlapFollowTable(Entity* entity, ScriptExecutionContext* context) {
+    if (gActiveScriptInfo.commandSize > context->intVariable) {
+        u16* tmp = context->scriptInstructionPointer + context->intVariable;
         TextboxNoOverlapFollow(tmp[1]);
     } else {
         TextboxNoOverlapFollow(0);
@@ -1215,7 +1215,7 @@ void ScriptCommand_0807EAF0(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_TextboxNoOverlapVar(Entity* entity, ScriptExecutionContext* context) {
-    TextboxNoOverlap(context->unk_04, entity);
+    TextboxNoOverlap(context->intVariable, entity);
 }
 
 void ScriptCommand_0807EB28(Entity* entity, ScriptExecutionContext* context) {
@@ -1223,7 +1223,7 @@ void ScriptCommand_0807EB28(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_0807EB38(Entity* entity, ScriptExecutionContext* context) {
-    context->unk_04 = gUnk_02000040.unk_01;
+    context->intVariable = gUnk_02000040.unk_01;
 }
 
 void ScriptCommand_0807EB44(Entity* entity, ScriptExecutionContext* context) {
@@ -1483,7 +1483,7 @@ void ScriptCommand_IncreaseMaxHealth(Entity* entity, ScriptExecutionContext* con
 void ScriptCommand_0807F034(Entity* entity, ScriptExecutionContext* context) {
     u32 tmp = 0;
     if (context->scriptInstructionPointer[1] == 0x3F) {
-        tmp = context->unk_04;
+        tmp = context->intVariable;
     }
     sub_080A7C18(context->scriptInstructionPointer[1], tmp, 0);
 }
@@ -1493,8 +1493,8 @@ void ScriptCommand_0807F050(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_GetInventoryValue(Entity* entity, ScriptExecutionContext* context) {
-    context->unk_04 = GetInventoryValue(context->scriptInstructionPointer[1]);
-    context->condition = context->unk_04 != 0;
+    context->intVariable = GetInventoryValue(context->scriptInstructionPointer[1]);
+    context->condition = context->intVariable != 0;
 }
 
 void ScriptCommand_0807F078(Entity* entity, ScriptExecutionContext* context) {

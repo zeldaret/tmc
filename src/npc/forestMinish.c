@@ -225,7 +225,7 @@ void sub_080602BC(Entity* this) {
 }
 
 void sub_0806030C(Entity* this, ScriptExecutionContext* context) {
-    ModBombs(context->unk_04);
+    ModBombs(context->intVariable);
 }
 
 void sub_08060318() {

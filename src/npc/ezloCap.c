@@ -108,12 +108,12 @@ void NPC4E(Entity* this) {
 void sub_0806DA04(Entity* this, ScriptExecutionContext* context) {
     // TODO gUnk_0811415C should be a gUnk_0810C89C_struct[], but then a lot of bytes everywhere are wrong?
     gUnk_0810C89C_struct* a = (gUnk_0810C89C_struct*)&(
-        (gUnk_0810C89C_struct*)gUnk_0811415C)[context->unk_04]; // cast necessary to no longer make it a const* ?
+        (gUnk_0810C89C_struct*)gUnk_0811415C)[context->intVariable]; // cast necessary to no longer make it a const* ?
     sub_08078850(this, 1, a->unk_04, a);
 }
 
 void sub_0806DA1C(Entity* this, ScriptExecutionContext* context) {
-    sub_0808091C((ScreenTransitionData*)(gUnk_081141A4)[context->unk_04], (u32)(gUnk_081141E4[context->unk_04]));
+    sub_0808091C((ScreenTransitionData*)(gUnk_081141A4)[context->intVariable], (u32)(gUnk_081141E4[context->intVariable]));
 }
 
 // Returns the kinstone id?

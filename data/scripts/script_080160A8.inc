@@ -59,7 +59,7 @@ script_08016146:
 	JumpIfNot script_08016146
 	_0807E864 
 	GetInventoryValue 0x0025
-	_0807EAF0_4 0x2d03, 0x2d02, 0x2d02, 0x2d02
+	TextboxNoOverlapFollowTable_4 0x2d03, 0x2d02, 0x2d02, 0x2d02
 	_0807E3E8 
 	JumpIfNot script_0801618A
 	_0807E48C 0x0020
@@ -85,7 +85,7 @@ script_0801619A:
 	JumpIfNot script_0801619A
 	_0807E864 
 	GetInventoryValue 0x0024
-	_0807EAF0_4 0x2d05, 0x2d04, 0x2d04, 0x2d04
+	TextboxNoOverlapFollowTable_4 0x2d05, 0x2d04, 0x2d04, 0x2d04
 	_0807E3E8 
 	JumpIfNot script_080161E2
 	_0807E48C 0x0020

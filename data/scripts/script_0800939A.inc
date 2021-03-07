@@ -18,10 +18,10 @@ script_080093BC:
 	Call sub_0806D70C
 	Jump script_08009376
 script_080093DA:
-	_0807E914 0x00001d05
+	SetIntVariable 0x00001d05
 	CheckLocalFlag 0x00ad
 	JumpIf script_080093EE
-	_0807E914 0x00001d04
+	SetIntVariable 0x00001d04
 script_080093EE:
 	TextboxNoOverlapVar 
 	_0807EA94 

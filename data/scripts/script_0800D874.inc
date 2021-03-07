@@ -2,7 +2,7 @@ SCRIPT_START script_0800D874
 	BeginBlock 
 	Call sub_0807F934
 	_0807EF80 0x0008
-	_0807E914 0x00000001
+	SetIntVariable 0x00000001
 	Call sub_0806DA04
 	EndBlock 
 script_0800D88E:
@@ -45,7 +45,7 @@ script_0800D8F4:
 	_0807EB28 0x1325
 	_0807EA94 
 	SoundReq 0x0113
-	_0807E914 0x00000000
+	SetIntVariable 0x00000000
 	Call sub_0806DA1C
 	_0807E878 
 	Call sub_0807DF50

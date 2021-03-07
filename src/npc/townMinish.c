@@ -224,7 +224,7 @@ void sub_0806AEE4(Entity* this) {
 }
 
 void sub_0806AF60(Entity* this, ScriptExecutionContext* context) {
-    InitializeAnimation(this, context->unk_04 + (this->animationState / 2));
+    InitializeAnimation(this, context->intVariable + (this->animationState / 2));
 }
 
 void sub_0806AF70(Entity* this, ScriptExecutionContext* context) {

@@ -33,7 +33,7 @@ script_0800D962:
 	Wait 0x003c
 	SetLocalFlag 0x0032
 	SoundReq 0x0113
-	_0807E914 0x00000001
+	SetIntVariable 0x00000001
 	Call sub_0806DA1C
 	Call sub_0807DF50
 	_0807E878 

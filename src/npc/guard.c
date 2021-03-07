@@ -219,15 +219,15 @@ void sub_08064044() {
 }
 
 void sub_08064050(Entity* this, ScriptExecutionContext* context) {
-    context->unk_04 = 0;
+    context->intVariable = 0;
     switch (this->type2) {
         case 0x11:
-            context->unk_04 = 1;
+            context->intVariable = 1;
             break;
         case 0x12:
-            context->unk_04 = 2;
+            context->intVariable = 2;
             break;
         case 0x13:
-            context->unk_04 = 3;
+            context->intVariable = 3;
     }
 }

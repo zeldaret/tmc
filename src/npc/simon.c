@@ -45,7 +45,7 @@ void sub_0806C280() {
 }
 
 void sub_0806C2A0(Entity* this, ScriptExecutionContext* context) {
-    switch (context->unk_04) {
+    switch (context->intVariable) {
         case 0:
             DoFade(0xd, 4);
             break;

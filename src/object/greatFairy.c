@@ -540,7 +540,7 @@ void sub_08087424(Entity* this, ScriptExecutionContext* context) {
         sub_0805E3A0(ent, 2);
     }
 
-    switch (context->unk_04) {
+    switch (context->intVariable) {
         case 0:
             gSave.stats.arrowCount = 0;
             break;

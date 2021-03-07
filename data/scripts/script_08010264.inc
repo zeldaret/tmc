@@ -140,7 +140,7 @@ script_08010410:
 	_0807EB44 0x0004
 	_0807EF80 0x0000
 	_0807EF80 0x000a
-	_0807E914 0x08064689
+	SetIntVariable 0x08064689
 	Call sub_08064644
 	EndBlock 
 script_08010446:
@@ -316,7 +316,7 @@ script_08010686:
 	_0807EB74 
 	HasRoomItemForSale 
 	Call sub_0807F77C
-	_0807EAF0 0x3c08, 0x3c09
+	TextboxNoOverlapFollowTable 0x3c08, 0x3c09
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004

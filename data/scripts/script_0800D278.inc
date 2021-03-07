@@ -59,7 +59,7 @@ script_0800D31E:
 	EndBlock 
 	_0807E864 
 	_0807EB74 
-	_0807E914 0x00000000
+	SetIntVariable 0x00000000
 	Call sub_0806C028
 	TextboxNoOverlapFollow 0x1219
 	_0807EA94 
@@ -99,7 +99,7 @@ script_0800D3B2:
 	_0807EDD4 0x00a0, 0x0130
 	_0807EB44 0x0006
 	_0807E930 0x0003
-	_0807E914 0x00000004
+	SetIntVariable 0x00000004
 	Call sub_080681D8
 	SoundReq 0x00cd
 	Wait 0x001e

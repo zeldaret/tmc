@@ -70,5 +70,5 @@ void Carpenter_Head(Entity* this) {
 }
 
 void sub_080672B0(Entity* this, ScriptExecutionContext* context) {
-    InitializeAnimation(this, context->unk_04 + (this->animationState >> 1) + this->type * 8);
+    InitializeAnimation(this, context->intVariable + (this->animationState >> 1) + this->type * 8);
 }

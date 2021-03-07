@@ -6,7 +6,7 @@ script_0800E5D8:
 	JumpIfNot script_0800E5D8
 	_0807E864 
 	Wait 0x003c
-	_0807E914 0x00000905
+	SetIntVariable 0x00000905
 	Call sub_0807F420
 	SetRoomFlag 0x0001
 	Wait 0x001e

@@ -58,7 +58,7 @@ script_08014BF2:
 	SetLocalFlag 0x0065
 	TextboxNoOverlap 0x2f07
 	_0807EA94 
-	_0807E914 0x00000064
+	SetIntVariable 0x00000064
 	_0807F034 0x003f
 	WaitPlayerAction8 
 	Jump script_08014C22

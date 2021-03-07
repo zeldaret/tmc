@@ -152,11 +152,11 @@ script_0800F72C:
 	Call sub_0806DC3C
 	Call sub_080791BC
 	CallWithArg sub_0807F244, 0x0000000d
-	_0807E914 0x000000ff
+	SetIntVariable 0x000000ff
 	Call sub_0807F5B0
 	CallWithArg sub_0807F29C, 0x080049d6
 	Wait 0x00b7
-	_0807E914 0x00000000
+	SetIntVariable 0x00000000
 	Call sub_0807F5B0
 	TextboxNoOverlapFollowPos 0x102c, 0x0000
 	_0807EA94 

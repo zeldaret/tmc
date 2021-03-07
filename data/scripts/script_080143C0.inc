@@ -10,7 +10,7 @@ SCRIPT_START script_080143C0
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_080143FA
-	_0807E914 0x00000002
+	SetIntVariable 0x00000002
 	Call sub_08065528
 	Jump script_0801443E
 script_080143FA:
@@ -19,13 +19,13 @@ script_080143FA:
 	TextboxNoOverlap 0x2c18
 	_0807EA94 
 	Wait 0x000a
-	_0807E914 0x00000000
+	SetIntVariable 0x00000000
 	Call sub_08065528
 	_0807F034 0x0036
 	WaitPlayerAction8 
 	TextboxNoOverlap 0x2c19
 	_0807EA94 
-	_0807E914 0x00000303
+	SetIntVariable 0x00000303
 	Call sub_0807F420
 	Wait 0x001e
 	_0807EB8C 

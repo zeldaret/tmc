@@ -27,7 +27,7 @@ script_0801313C:
 	_0807E878 
 	Jump script_08013128
 script_08013176:
-	_0807E914 0x00000403
+	SetIntVariable 0x00000403
 	Call sub_0807F420
 	_0807E878 
 	Jump script_08013128

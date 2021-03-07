@@ -257,7 +257,7 @@ void sub_08061FB0(Entity* this) {
 void sub_08061FB8(Entity* this, ScriptExecutionContext* context) {
     u8* temp = gUnk_0810B748;
 
-    sub_08078850(this, 1, temp[context->unk_04], &gUnk_0810B740[context->unk_04]);
+    sub_08078850(this, 1, temp[context->intVariable], &gUnk_0810B740[context->intVariable]);
 }
 
 void sub_08061FD8(Entity* this) {

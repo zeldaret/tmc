@@ -210,7 +210,7 @@ script_0800CFFA:
 	CheckInventory1 0x0002
 	JumpIfNot script_0800D032
 	_0807EB74 
-	_0807E914 0x00000000
+	SetIntVariable 0x00000000
 	Call sub_0806C028
 	TextboxNoOverlap 0x1219
 	Jump script_0800D17C
@@ -220,14 +220,14 @@ script_0800D032:
 	StartPlayerScript script_0800D190
 	WaitForSomething2 0x00000008
 	_0807EB74 
-	_0807E914 0x00000000
+	SetIntVariable 0x00000000
 	Call sub_0806C028
 	TextboxNoOverlapFollowPos 0x125c, 0x0002
 	_0807EA94 
 	StartPlayerScript script_0800D1B4
 	WaitForSomething2 0x00000008
 	_0807EB44 0x0002
-	_0807E914 0x00000000
+	SetIntVariable 0x00000000
 	Call sub_0806C028
 	Wait 0x000f
 	_0807E5F8 0x00000020
@@ -248,14 +248,14 @@ script_0800D0A8:
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000004
 	_0807EB74 
-	_0807E914 0x00000000
+	SetIntVariable 0x00000000
 	Call sub_0806C028
 	TextboxNoOverlapFollowPos 0x123d, 0x0002
 	_0807EA94 
 	StartPlayerScript script_0800D1B4
 	WaitForSomething2 0x00000008
 	_0807EB44 0x0002
-	_0807E914 0x00000000
+	SetIntVariable 0x00000000
 	Call sub_0806C028
 	SoundReq 0x00cd
 	Call sub_08068964

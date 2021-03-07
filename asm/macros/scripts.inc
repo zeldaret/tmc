@@ -428,7 +428,7 @@
 	.2byte \s
 .endm
 
-.macro _0807E914 w
+.macro SetIntVariable w
 	.2byte 0x0c4e
 	.4byte \w
 .endm
@@ -502,20 +502,20 @@
 	.2byte \s
 .endm
 
-.macro _0807EAF0 a,b
+.macro TextboxNoOverlapFollowTable a,b
 	.2byte 0x0c5d
 	.2byte \a
 	.2byte \b
 .endm
 
-.macro _0807EAF0_3 a,b,c
+.macro TextboxNoOverlapFollowTable_3 a,b,c
 	.2byte 0x105d
 	.2byte \a
 	.2byte \b
 	.2byte \c
 .endm
 
-.macro _0807EAF0_4 a,b,c,d
+.macro TextboxNoOverlapFollowTable_4 a,b,c,d
 	.2byte 0x145d
 	.2byte \a
 	.2byte \b
