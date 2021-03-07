@@ -6,41 +6,41 @@
 \name:
 .endm
 .macro SCRIPT_END
-	.short 0xffff
+	.2byte 0xffff
 .endm
 
 .macro ScriptCommandNop 
-	.short 0x0400
+	.2byte 0x0400
 .endm
 
 .macro BeginBlock 
-	.short 0x0401
+	.2byte 0x0401
 .endm
 
 .macro EndBlock 
-	.short 0x0402
+	.2byte 0x0402
 .endm
 
 .macro Jump s
-	.short 0x0803
-1:	.short \s - 1b
+	.2byte 0x0803
+1:	.2byte \s - 1b
 .endm
 
 .macro JumpIf s
-	.short 0x0804
-1:	.short \s - 1b
+	.2byte 0x0804
+1:	.2byte \s - 1b
 .endm
 
 .macro JumpIfNot s
-	.short 0x0805
-1:	.short \s - 1b
+	.2byte 0x0805
+1:	.2byte \s - 1b
 .endm
 
 .macro JumpSwitchOpN n label labels:vararg
     .ifnb \labels
     JumpSwitchOpN \n + 1 \labels
     .else
-    .short 0x400 * (\n) + 0x6
+    .2byte 0x400 * (\n) + 0x6
     .endif
 .endm
 
@@ -49,7 +49,7 @@
 .endm
 
 .macro JumpSwitchLabel temp label labels:vararg
-    .short \label - \temp
+    .2byte \label - \temp
     .ifnb \labels
     JumpSwitchLabel \temp - 2 \labels
     .endif
@@ -62,25 +62,25 @@
 .endm
 
 .macro JumpAbsolute w
-	.short 0x0c07
-	.word \w
+	.2byte 0x0c07
+	.4byte \w
 .endm
 
 .macro JumpAbsoluteIf w
-	.short 0x0c08
-	.word \w
+	.2byte 0x0c08
+	.4byte \w
 .endm
 
 .macro JumpAbsoluteIfNot w
-	.short 0x0c09
-	.word \w
+	.2byte 0x0c09
+	.4byte \w
 .endm
 
 .macro JumpAbsoluteSwitchOpN n label labels:vararg
     .ifnb \labels
     JumpAbsoluteSwitchOpN \n + 2 \labels
     .else
-    .short 0x400 * (\n) + 0xa
+    .2byte 0x400 * (\n) + 0xa
     .endif
 .endm
 
@@ -89,7 +89,7 @@
 .endm
 
 .macro JumpAbsoluteSwitchLabel label labels:vararg
-    .word \label
+    .4byte \label
     .ifnb \labels
     JumpAbsoluteSwitchLabel \labels
     .endif
@@ -101,651 +101,651 @@
 .endm
 
 .macro Call w
-	.short 0x0c0b
-	.word \w
+	.2byte 0x0c0b
+	.4byte \w
 .endm
 
 .macro CallWithArg a,b
-	.short 0x140c
-	.word \a
-	.word \b
+	.2byte 0x140c
+	.4byte \a
+	.4byte \b
 .endm
 
 .macro CallWithArg_2 w
-	.short 0x0c0c
-	.word \w
+	.2byte 0x0c0c
+	.4byte \w
 .endm
 
 .macro LoadRoomEntityList w
-	.short 0x0c0d
-	.word \w
+	.2byte 0x0c0d
+	.4byte \w
 .endm
 
 .macro TestBit w
-	.short 0x0c0e
-	.word \w
+	.2byte 0x0c0e
+	.4byte \w
 .endm
 
 .macro CheckInventory1 s
-	.short 0x080f
-	.short \s
+	.2byte 0x080f
+	.2byte \s
 .endm
 
 .macro CheckInventory2 s
-	.short 0x0810
-	.short \s
+	.2byte 0x0810
+	.2byte \s
 .endm
 
 .macro HasRoomItemForSale 
-	.short 0x0411
+	.2byte 0x0411
 .endm
 
 .macro CheckLocalFlag s
-	.short 0x0812
-	.short \s
+	.2byte 0x0812
+	.2byte \s
 .endm
 
 .macro CheckLocalFlagByOffset a,b
-	.short 0x0c13
-	.short \a
-	.short \b
+	.2byte 0x0c13
+	.2byte \a
+	.2byte \b
 .endm
 
 .macro CheckGlobalFlag s
-	.short 0x0814
-	.short \s
+	.2byte 0x0814
+	.2byte \s
 .endm
 
 .macro CheckRoomFlag s
-	.short 0x0815
-	.short \s
+	.2byte 0x0815
+	.2byte \s
 .endm
 
 .macro CheckPlayerInRegion a,b,c
-	.short 0x1016
-	.short \a
-	.short \b
-	.short \c
+	.2byte 0x1016
+	.2byte \a
+	.2byte \b
+	.2byte \c
 .endm
 
 .macro CheckPlayerInRegion2 s
-	.short 0x0817
-	.short \s
+	.2byte 0x0817
+	.2byte \s
 .endm
 
 .macro CheckEntityInteractType 
-	.short 0x0418
+	.2byte 0x0418
 .endm
 
 .macro _0807E30C 
-	.short 0x0419
+	.2byte 0x0419
 .endm
 
 .macro HasRupees s
-	.short 0x081a
-	.short \s
+	.2byte 0x081a
+	.2byte \s
 .endm
 
 .macro _0807E3BC s
-	.short 0x081b
-	.short \s
+	.2byte 0x081b
+	.2byte \s
 .endm
 
 .macro _0807E3E8 
-	.short 0x041c
+	.2byte 0x041c
 .endm
 
 .macro CheckKinstoneFused s
-	.short 0x081d
-	.short \s
+	.2byte 0x081d
+	.2byte \s
 .endm
 
 .macro BuyItem a,b
-	.short 0x0c1e
-	.short \a
-	.short \b
+	.2byte 0x0c1e
+	.2byte \a
+	.2byte \b
 .endm
 
 .macro _0807E48C s
-	.short 0x081f
-	.short \s
+	.2byte 0x081f
+	.2byte \s
 .endm
 
 .macro _0807E4CC w
-	.short 0x0c20
-	.word \w
+	.2byte 0x0c20
+	.4byte \w
 .endm
 
 .macro _0807E4EC w
-	.short 0x0c21
-	.word \w
+	.2byte 0x0c21
+	.4byte \w
 .endm
 
 .macro _0807E514 w
-	.short 0x0c22
-	.word \w
+	.2byte 0x0c22
+	.4byte \w
 .endm
 
 .macro CheckPlayerFlags w
-	.short 0x0c23
-	.word \w
+	.2byte 0x0c23
+	.4byte \w
 .endm
 
 .macro _0807E564 
-	.short 0x0424
+	.2byte 0x0424
 .endm
 
 .macro EntityHasHeight 
-	.short 0x0425
+	.2byte 0x0425
 .endm
 
 .macro ComparePlayerAction s
-	.short 0x0826
-	.short \s
+	.2byte 0x0826
+	.2byte \s
 .endm
 
 .macro ComparePlayerAnimationState s
-	.short 0x0827
-	.short \s
+	.2byte 0x0827
+	.2byte \s
 .endm
 
 .macro _0807E5F8 w
-	.short 0x0c28
-	.word \w
+	.2byte 0x0c28
+	.4byte \w
 .endm
 
 .macro _0807E610 w
-	.short 0x0c29
-	.word \w
+	.2byte 0x0c29
+	.4byte \w
 .endm
 
 .macro SetLocalFlag s
-	.short 0x082a
-	.short \s
+	.2byte 0x082a
+	.2byte \s
 .endm
 
 .macro SetLocalFlagByOffset a,b
-	.short 0x0c2b
-	.short \a
-	.short \b
+	.2byte 0x0c2b
+	.2byte \a
+	.2byte \b
 .endm
 
 .macro ClearLocalFlag s
-	.short 0x082c
-	.short \s
+	.2byte 0x082c
+	.2byte \s
 .endm
 
 .macro SetGlobalFlag s
-	.short 0x082d
-	.short \s
+	.2byte 0x082d
+	.2byte \s
 .endm
 
 .macro ClearGlobalFlag s
-	.short 0x082e
-	.short \s
+	.2byte 0x082e
+	.2byte \s
 .endm
 
 .macro SetRoomFlag s
-	.short 0x082f
-	.short \s
+	.2byte 0x082f
+	.2byte \s
 .endm
 
 .macro ClearRoomFlag s
-	.short 0x0830
-	.short \s
+	.2byte 0x0830
+	.2byte \s
 .endm
 
 .macro Wait s
-	.short 0x0831
-	.short \s
+	.2byte 0x0831
+	.2byte \s
 .endm
 
 .macro WaitForSomething w
-	.short 0x0c32
-	.word \w
+	.2byte 0x0c32
+	.4byte \w
 .endm
 
 .macro WaitForSomething2 w
-	.short 0x0c33
-	.word \w
+	.2byte 0x0c33
+	.4byte \w
 .endm
 
 .macro WaitPlayerAction8 
-	.short 0x0434
+	.2byte 0x0434
 .endm
 
 .macro WaitForPlayerAction0x17 
-	.short 0x0435
+	.2byte 0x0435
 .endm
 
 .macro WaitFor_1 
-	.short 0x0436
+	.2byte 0x0436
 .endm
 
 .macro WaitFor_2 
-	.short 0x0437
+	.2byte 0x0437
 .endm
 
 .macro _0807E778 s
-	.short 0x0838
-	.short \s
+	.2byte 0x0838
+	.2byte \s
 .endm
 
 .macro _0807E788 w
-	.short 0x0c39
-	.word \w
+	.2byte 0x0c39
+	.4byte \w
 .endm
 
 .macro _0807E79C 
-	.short 0x043a
+	.2byte 0x043a
 .endm
 
 .macro ScriptCommandNop2 s
-	.short 0x083b
-	.short \s
+	.2byte 0x083b
+	.2byte \s
 .endm
 
 .macro DoFade4 
-	.short 0x043c
+	.2byte 0x043c
 .endm
 
 .macro DoFade5 
-	.short 0x043d
+	.2byte 0x043d
 .endm
 
 .macro DoFade6 
-	.short 0x043e
+	.2byte 0x043e
 .endm
 
 .macro DoFade7 
-	.short 0x043f
+	.2byte 0x043f
 .endm
 
 .macro _0807E800 w
-	.short 0x0c40
-	.word \w
+	.2byte 0x0c40
+	.4byte \w
 .endm
 
 .macro _0807E80C w
-	.short 0x0c41
-	.word \w
+	.2byte 0x0c41
+	.4byte \w
 .endm
 
 .macro _0807E858 s
-	.short 0x0842
-	.short \s
+	.2byte 0x0842
+	.2byte \s
 .endm
 
 .macro _0807E858_0 
-	.short 0x0442
+	.2byte 0x0442
 .endm
 
 .macro _0807E864 
-	.short 0x0443
+	.2byte 0x0443
 .endm
 
 .macro _0807E878 
-	.short 0x0444
+	.2byte 0x0444
 .endm
 
 .macro _0807E888 
-	.short 0x0445
+	.2byte 0x0445
 .endm
 
 .macro SetPlayerAction w
-	.short 0x0c46
-	.word \w
+	.2byte 0x0c46
+	.4byte \w
 .endm
 
 .macro StartPlayerScript w
-	.short 0x0c47
-	.word \w
+	.2byte 0x0c47
+	.4byte \w
 .endm
 
 .macro _0807E8D4 s
-	.short 0x0848
-	.short \s
+	.2byte 0x0848
+	.2byte \s
 .endm
 
 .macro _0807E8E4_0 
-	.short 0x0449
+	.2byte 0x0449
 .endm
 
 .macro _0807E8E4_1 
-	.short 0x044a
+	.2byte 0x044a
 .endm
 
 .macro _0807E8E4_2 
-	.short 0x044b
+	.2byte 0x044b
 .endm
 
 .macro _0807E8E4_3 
-	.short 0x044c
+	.2byte 0x044c
 .endm
 
 .macro _0807E908 s
-	.short 0x084d
-	.short \s
+	.2byte 0x084d
+	.2byte \s
 .endm
 
 .macro _0807E914 w
-	.short 0x0c4e
-	.word \w
+	.2byte 0x0c4e
+	.4byte \w
 .endm
 
 .macro _0807E924 
-	.short 0x044f
+	.2byte 0x044f
 .endm
 
 .macro _0807E930 s
-	.short 0x0850
-	.short \s
+	.2byte 0x0850
+	.2byte \s
 .endm
 
 .macro _0807E944 
-	.short 0x0451
+	.2byte 0x0451
 .endm
 
 .macro _0807E974 s
-	.short 0x0852
-	.short \s
+	.2byte 0x0852
+	.2byte \s
 .endm
 
 .macro _0807E9D4 
-	.short 0x0453
+	.2byte 0x0453
 .endm
 
 .macro _0807E9DC 
-	.short 0x0454
+	.2byte 0x0454
 .endm
 
 .macro _0807E9E4 s
-	.short 0x0855
-	.short \s
+	.2byte 0x0855
+	.2byte \s
 .endm
 
 .macro _0807E9F0 
-	.short 0x0456
+	.2byte 0x0456
 .endm
 
 .macro _0807EA4C 
-	.short 0x0457
+	.2byte 0x0457
 .endm
 
 .macro _0807EA88 s
-	.short 0x0858
-	.short \s
+	.2byte 0x0858
+	.2byte \s
 .endm
 
 .macro _0807EA94 
-	.short 0x0459
+	.2byte 0x0459
 .endm
 
 .macro TextboxNoOverlapFollow s
-	.short 0x085a
-	.short \s
+	.2byte 0x085a
+	.2byte \s
 .endm
 
 .macro TextboxNoOverlap s
-	.short 0x085b
-	.short \s
+	.2byte 0x085b
+	.2byte \s
 .endm
 
 .macro TextboxNoOverlapFollowPos a,b
-	.short 0x0c5c
-	.short \a
-	.short \b
+	.2byte 0x0c5c
+	.2byte \a
+	.2byte \b
 .endm
 
 .macro TextboxNoOverlapFollowPos_1 s
-	.short 0x085c
-	.short \s
+	.2byte 0x085c
+	.2byte \s
 .endm
 
 .macro _0807EAF0 a,b
-	.short 0x0c5d
-	.short \a
-	.short \b
+	.2byte 0x0c5d
+	.2byte \a
+	.2byte \b
 .endm
 
 .macro _0807EAF0_3 a,b,c
-	.short 0x105d
-	.short \a
-	.short \b
-	.short \c
+	.2byte 0x105d
+	.2byte \a
+	.2byte \b
+	.2byte \c
 .endm
 
 .macro _0807EAF0_4 a,b,c,d
-	.short 0x145d
-	.short \a
-	.short \b
-	.short \c
-	.short \d
+	.2byte 0x145d
+	.2byte \a
+	.2byte \b
+	.2byte \c
+	.2byte \d
 .endm
 
 .macro TextboxNoOverlapVar 
-	.short 0x045e
+	.2byte 0x045e
 .endm
 
 .macro _0807EB28 s
-	.short 0x085f
-	.short \s
+	.2byte 0x085f
+	.2byte \s
 .endm
 
 .macro _0807EB38 
-	.short 0x0460
+	.2byte 0x0460
 .endm
 
 .macro _0807EB44 s
-	.short 0x0861
-	.short \s
+	.2byte 0x0861
+	.2byte \s
 .endm
 
 .macro _0807EB4C a,b
-	.short 0x0c62
-	.short \a
-	.short \b
+	.2byte 0x0c62
+	.2byte \a
+	.2byte \b
 .endm
 
 .macro _0807EB74 
-	.short 0x0463
+	.2byte 0x0463
 .endm
 
 .macro _0807EB8C 
-	.short 0x0464
+	.2byte 0x0464
 .endm
 
 .macro SetEntityDirection s
-	.short 0x0865
-	.short \s
+	.2byte 0x0865
+	.2byte \s
 .endm
 
 .macro SetEntityDirectionWithAnimationState s
-	.short 0x0866
-	.short \s
+	.2byte 0x0866
+	.2byte \s
 .endm
 
 .macro SetEntityNonPlanarMovement s
-	.short 0x0867
-	.short \s
+	.2byte 0x0867
+	.2byte \s
 .endm
 
 .macro SetEntity0x20 w
-	.short 0x0c68
-	.word \w
+	.2byte 0x0c68
+	.4byte \w
 .endm
 
 .macro SetEntityPositionRelative a,b
-	.short 0x0c69
-	.short \a
-	.short \b
+	.2byte 0x0c69
+	.2byte \a
+	.2byte \b
 .endm
 
 .macro SetEntityPosition a,b
-	.short 0x0c6a
-	.short \a
-	.short \b
+	.2byte 0x0c6a
+	.2byte \a
+	.2byte \b
 .endm
 
 .macro MoveEntityToPlayer 
-	.short 0x046b
+	.2byte 0x046b
 .endm
 
 .macro ScriptCommandNop3 
-	.short 0x046c
+	.2byte 0x046c
 .endm
 
 .macro _0807EC1C s
-	.short 0x086d
-	.short \s
+	.2byte 0x086d
+	.2byte \s
 .endm
 
 .macro _0807EC64 s
-	.short 0x086e
-	.short \s
+	.2byte 0x086e
+	.2byte \s
 .endm
 
 .macro _0807EC94 s
-	.short 0x086f
-	.short \s
+	.2byte 0x086f
+	.2byte \s
 .endm
 
 .macro _0807ECC4 s
-	.short 0x0870
-	.short \s
+	.2byte 0x0870
+	.2byte \s
 .endm
 
 .macro _0807ECF4 s
-	.short 0x0871
-	.short \s
+	.2byte 0x0871
+	.2byte \s
 .endm
 
 .macro _0807ED24 a,b,c
-	.short 0x1072
-	.short \a
-	.short \b
-	.short \c
+	.2byte 0x1072
+	.2byte \a
+	.2byte \b
+	.2byte \c
 .endm
 
 .macro _0807EDD4 a,b
-	.short 0x0c73
-	.short \a
-	.short \b
+	.2byte 0x0c73
+	.2byte \a
+	.2byte \b
 .endm
 
 .macro _0807EE04 a,b
-	.short 0x0c74
-	.short \a
-	.short \b
+	.2byte 0x0c74
+	.2byte \a
+	.2byte \b
 .endm
 
 .macro _0807EE30 
-	.short 0x0475
+	.2byte 0x0475
 .endm
 
 .macro _0807EEB4 
-	.short 0x0476
+	.2byte 0x0476
 .endm
 
 .macro _0807EEF4 a,b
-	.short 0x0c77
-	.short \a
-	.short \b
+	.2byte 0x0c77
+	.2byte \a
+	.2byte \b
 .endm
 
 .macro _0807EF3C a,b
-	.short 0x0c78
-	.short \a
-	.short \b
+	.2byte 0x0c78
+	.2byte \a
+	.2byte \b
 .endm
 
 .macro _0807EF80 s
-	.short 0x0879
-	.short \s
+	.2byte 0x0879
+	.2byte \s
 .endm
 
 .macro _0807EF90 s
-	.short 0x087a
-	.short \s
+	.2byte 0x087a
+	.2byte \s
 .endm
 
 .macro SoundReq s
-	.short 0x087b
-	.short \s
+	.2byte 0x087b
+	.2byte \s
 .endm
 
 .macro SoundReq2 s
-	.short 0x087c
-	.short \s
+	.2byte 0x087c
+	.2byte \s
 .endm
 
 .macro SoundReq3 w
-	.short 0x0c7d
-	.word \w
+	.2byte 0x0c7d
+	.4byte \w
 .endm
 
 .macro SoundReq0x80100000 
-	.short 0x047e
+	.2byte 0x047e
 .endm
 
 .macro ModRupees s
-	.short 0x087f
-	.short \s
+	.2byte 0x087f
+	.2byte \s
 .endm
 
 .macro ModHealth s
-	.short 0x0880
-	.short \s
+	.2byte 0x0880
+	.2byte \s
 .endm
 
 .macro IncreaseMaxHealth s
-	.short 0x0881
-	.short \s
+	.2byte 0x0881
+	.2byte \s
 .endm
 
 .macro _0807F034 s
-	.short 0x0882
-	.short \s
+	.2byte 0x0882
+	.2byte \s
 .endm
 
 .macro _0807F050 s
-	.short 0x0883
-	.short \s
+	.2byte 0x0883
+	.2byte \s
 .endm
 
 .macro GetInventoryValue s
-	.short 0x0884
-	.short \s
+	.2byte 0x0884
+	.2byte \s
 .endm
 
 .macro _0807F078 a,b
-	.short 0x0c85
-	.short \a
-	.short \b
+	.2byte 0x0c85
+	.2byte \a
+	.2byte \b
 .endm
 
 .macro _0807F088 s
-	.short 0x0886
-	.short \s
+	.2byte 0x0886
+	.2byte \s
 .endm
 
 .macro CameraTargetEntity 
-	.short 0x0487
+	.2byte 0x0487
 .endm
 
 .macro CameraTargetPlayer 
-	.short 0x0488
+	.2byte 0x0488
 .endm
 
 .macro _0807F0B4 s
-	.short 0x0889
-	.short \s
+	.2byte 0x0889
+	.2byte \s
 .endm
 
 .macro _0807F0C8 a,b
-	.short 0x0c8a
-	.short \a
-	.short \b
+	.2byte 0x0c8a
+	.2byte \a
+	.2byte \b
 .endm
 
 
