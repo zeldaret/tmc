@@ -1,5 +1,4 @@
 SCRIPT_START script_08016384
-script_08016384:
 	BeginBlock 
 	EndBlock 
 	Jump script_08016384

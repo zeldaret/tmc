@@ -1,5 +1,4 @@
 SCRIPT_START script_08012D70
-script_08012D70:
 	CheckPlayerInRegion 0x0088, 0x0048, 0x3030
 	JumpIfNot script_08012D70
 	_0807E864 

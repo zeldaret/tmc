@@ -518,7 +518,7 @@ void sub_080873D0(Entity* this) {
     }
 }
 
-void sub_080873FC() {
+void sub_080873FC(void) {
     Entity* ent;
 
     SoundReq(0xf7);

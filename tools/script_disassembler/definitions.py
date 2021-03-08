@@ -187,7 +187,8 @@ def get_script_pointer(barray):
     integers = struct.unpack('I', barray)
     val = integers[0]
     if val >= SCRIPTS_START and val <= SCRIPTS_END:
-        return 'script_' + (struct.pack('>I', val).hex()).upper()
+        return use_script_label(val)
+#        return 'script_' + (struct.pack('>I', val).hex()).upper()
     else:
         return '0x'+struct.pack('>I', val).hex()
 

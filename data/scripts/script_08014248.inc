@@ -1,5 +1,4 @@
 SCRIPT_START script_08014248
-script_08014248:
 	TestBit 0x00020000
 	JumpIf script_08014264
 	Wait 0x0008

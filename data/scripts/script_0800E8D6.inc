@@ -1,5 +1,4 @@
 SCRIPT_START script_0800E8D6
-script_0800E8D6:
 	BeginBlock 
 	TextboxNoOverlapFollow 0x4503
 	CallWithArg sub_0807F854, 0x00010032

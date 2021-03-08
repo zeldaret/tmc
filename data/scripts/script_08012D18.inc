@@ -1,5 +1,4 @@
 SCRIPT_START script_08012D18
-script_08012D18:
 	EndBlock 
 	BeginBlock 
 	CheckGlobalFlag 0x0014

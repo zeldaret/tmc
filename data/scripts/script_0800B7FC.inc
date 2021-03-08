@@ -1,5 +1,4 @@
 SCRIPT_START script_0800B7FC
-script_0800B7FC:
 	CallWithArg sub_0807F4F8, 0x00000090
 	CallWithArg sub_0807F464, 0x00000078
 	Jump script_0800B7EE

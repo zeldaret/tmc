@@ -1,5 +1,4 @@
 SCRIPT_START script_0800D698
-script_0800D698:
 	_0807EEB4 
 	_0807F0B4 0x0004
 	CameraTargetPlayer 

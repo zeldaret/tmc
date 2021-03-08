@@ -19,14 +19,14 @@ void Emma(Entity* this) {
     }
 }
 
-void sub_0806C578() {
+void sub_0806C578(void) {
     DoExitTransition(&gUnk_0813AD10);
 }
 
-void sub_0806C588() {
+void sub_0806C588(void) {
     DoExitTransition(&gUnk_0813AD24);
 }
 
-void sub_0806C598() {
+void sub_0806C598(void) {
     DoExitTransition(&gUnk_0813AD38);
 }

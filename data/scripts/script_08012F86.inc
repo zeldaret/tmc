@@ -1,5 +1,4 @@
 SCRIPT_START script_08012F86
-script_08012F86:
 	BeginBlock 
 	CheckLocalFlag 0x0060
 	JumpIf script_08012FD2

@@ -1,5 +1,4 @@
 SCRIPT_START script_080095F2
-script_080095F2:
 	CheckEntityInteractType 
 	JumpIfNot script_080095DE
 	_0807E864 

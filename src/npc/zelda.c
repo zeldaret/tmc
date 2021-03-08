@@ -171,7 +171,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
     gActiveScriptInfo.commandSize = 0;
 }
 
-void sub_08066F94() {
+void sub_08066F94(void) {
     u16 uVar1;
     u16* puVar2;
 
@@ -183,7 +183,7 @@ void sub_08066F94() {
     }
 }
 
-void sub_08066FB8() {
+void sub_08066FB8(void) {
     u16 uVar1;
     u16* puVar2;
 

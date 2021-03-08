@@ -347,7 +347,7 @@ void sub_08068E90(Entity* this) {
     *(u16*)&s->field_0xac = (1 << (gUnk_08111740[this->actionDelay] - 1)) | *(u16*)&s->field_0xac;
 }
 
-void sub_08068EB4() {
+void sub_08068EB4(void) {
     gPlayerState.field_0xab = 0;
 }
 

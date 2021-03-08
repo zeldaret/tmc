@@ -212,7 +212,7 @@ void sub_08064030(Entity* arg0, Entity* arg1) {
     *(u32*)&arg1->animationState = (-gRoomVars.greatFairyState | gRoomVars.greatFairyState) >> 0x1f;
 }
 
-void sub_08064044() {
+void sub_08064044(void) {
     gScreenTransition.unk = 1;
 }
 

@@ -1,5 +1,4 @@
 SCRIPT_START script_08015B34
-script_08015B34:
 	EndBlock 
 	BeginBlock 
 	CheckLocalFlag 0x008b

@@ -31,7 +31,7 @@ def print_rest_bytes(ctx):
 
 def disassemble_command(ctx: Context, add_all_annotations=False):
     global used_labels
-    if add_all_annotations or ctx.script_addr + ctx.ptr in used_labels:
+    if (add_all_annotations or ctx.script_addr + ctx.ptr in used_labels) and ctx.ptr != 0:
         # print offsets to debug when manually inserting labels
         print(f'{get_script_label(ctx.script_addr + ctx.ptr)}:')
     cmd = struct.unpack('H', ctx.data[ctx.ptr:ctx.ptr + 2])[0]

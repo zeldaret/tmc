@@ -158,7 +158,7 @@ void sub_0806622C(Entity* this) {
 void nullsub_501(Entity* this) {
 }
 
-void sub_08066258() {
+void sub_08066258(void) {
     SoundReq(gUnk_081103D0[Random() & 7]);
 }
 

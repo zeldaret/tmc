@@ -1,5 +1,4 @@
 SCRIPT_START script_08012CD8
-script_08012CD8:
 	EndBlock 
 	BeginBlock 
 	_0807E564 

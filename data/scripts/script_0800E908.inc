@@ -1,5 +1,4 @@
 SCRIPT_START script_0800E908
-script_0800E908:
 	TextboxNoOverlapFollow 0x4507
 	Jump script_0800E914
 script_0800E910:

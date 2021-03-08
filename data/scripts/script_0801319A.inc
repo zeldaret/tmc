@@ -1,5 +1,4 @@
 SCRIPT_START script_0801319A
-script_0801319A:
 	EndBlock 
 	BeginBlock 
 	CameraTargetEntity 

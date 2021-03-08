@@ -1,5 +1,4 @@
 SCRIPT_START script_0800939A
-script_0800939A:
 	CheckLocalFlag 0x00ae
 	JumpIf script_0800943E
 	CheckInventory1 0x000d

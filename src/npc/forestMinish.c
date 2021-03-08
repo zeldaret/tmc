@@ -226,7 +226,7 @@ void sub_0806030C(Entity* this, ScriptExecutionContext* context) {
     ModBombs(context->intVariable);
 }
 
-void sub_08060318() {
+void sub_08060318(void) {
     Entity* ent;
     int i;
 
@@ -239,11 +239,11 @@ void sub_08060318() {
     }
 }
 
-void sub_08060340() {
+void sub_08060340(void) {
     gSave.unk490 = gSave.unk50;
 }
 
-u32 sub_08060354() {
+u32 sub_08060354(void) {
     u32 iVar1;
     s32 iVar2;
 

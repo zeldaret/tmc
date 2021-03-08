@@ -1,5 +1,4 @@
 SCRIPT_START script_0800E5D6
-script_0800E5D6:
 	EndBlock 
 script_0800E5D8:
 	CheckLocalFlag 0x0086
