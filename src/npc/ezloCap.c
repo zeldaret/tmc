@@ -113,7 +113,8 @@ void sub_0806DA04(Entity* this, ScriptExecutionContext* context) {
 }
 
 void sub_0806DA1C(Entity* this, ScriptExecutionContext* context) {
-    sub_0808091C((ScreenTransitionData*)(gUnk_081141A4)[context->intVariable], (u32)(gUnk_081141E4[context->intVariable]));
+    sub_0808091C((ScreenTransitionData*)(gUnk_081141A4)[context->intVariable],
+                 (u32)(gUnk_081141E4[context->intVariable]));
 }
 
 // Returns the kinstone id?

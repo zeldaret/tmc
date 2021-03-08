@@ -9,7 +9,7 @@ SCRIPT_START script_08010F84
 	Call sub_0806DC3C
 	Call sub_080791BC
 	CallWithArg sub_0807F244, 0x0000000d
-	CallWithArg sub_0807F29C, 0x080049f6
+	CallWithArg sub_0807F29C, gUnk_080049F6
 	Wait 0x001e
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200

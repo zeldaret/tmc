@@ -29,7 +29,7 @@ SCRIPT_START script_08010E5A
 	Call sub_0806DC3C
 	Call sub_080791BC
 	CallWithArg sub_0807F244, 0x0000000d
-	CallWithArg sub_0807F29C, 0x080049f6
+	CallWithArg sub_0807F29C, gUnk_080049F6
 	_0807F0B4 0x0001
 	SetEntityPositionRelative 0x01f8, 0x0068
 	_0807E5F8 0x00000004

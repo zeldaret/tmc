@@ -140,7 +140,7 @@ script_08010410:
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
-	SetIntVariable 0x08064689
+	SetIntVariable sub_08064688
 	Call sub_08064644
 	EndBlock 
 script_08010446:

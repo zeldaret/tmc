@@ -82,7 +82,7 @@ script_080138D0:
 	CameraTargetEntity 
 	Call sub_0806DC3C
 	CallWithArg sub_0807F244, 0x00010001
-	CallWithArg sub_0807F29C, 0x080049fe
+	CallWithArg sub_0807F29C, gUnk_080049FE
 	Wait 0x00c8
 	CallWithArg sub_0807F29C, 0x00000000
 	Call sub_0806DC58

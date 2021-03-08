@@ -54,7 +54,7 @@ script_0800B89E:
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
-	CallWithArg sub_08064644, 0x0806464d
+	CallWithArg sub_08064644, sub_0806464C
 	EndBlock 
 script_0800B8D4:
 	Wait 0x003c

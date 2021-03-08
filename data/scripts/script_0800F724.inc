@@ -154,7 +154,7 @@ script_0800F72C:
 	CallWithArg sub_0807F244, 0x0000000d
 	SetIntVariable 0x000000ff
 	Call sub_0807F5B0
-	CallWithArg sub_0807F29C, 0x080049d6
+	CallWithArg sub_0807F29C, gUnk_080049D6
 	Wait 0x00b7
 	SetIntVariable 0x00000000
 	Call sub_0807F5B0
