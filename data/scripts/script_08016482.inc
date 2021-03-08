@@ -32,7 +32,7 @@ SCRIPT_START script_08016482
 	TextboxNoOverlapFollow 0x0601
 	TextboxNoOverlap 0x0601
 	TextboxNoOverlapFollowPos_1 0x0601
-	TextboxNoOverlapFollowTable_3 0x0601, 0x0602, 0x0603
+	TextboxNoOverlapFollowTable 0x0601, 0x0602, 0x0603
 	TextboxNoOverlapVar 
 	_0807EB28 0x0602
 	_0807EB38 

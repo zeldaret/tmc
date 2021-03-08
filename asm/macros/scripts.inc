@@ -502,25 +502,28 @@
 	.2byte \s
 .endm
 
-.macro TextboxNoOverlapFollowTable a,b
-	.2byte 0x0c5d
-	.2byte \a
-	.2byte \b
+.macro TextboxNoOverlapFollowTableOpN n label labels:vararg
+    .ifnb \labels
+    TextboxNoOverlapFollowTableOpN \n + 1 \labels
+    .else
+    .2byte 0x400 * (\n) + 0x5d
+    .endif
 .endm
 
-.macro TextboxNoOverlapFollowTable_3 a,b,c
-	.2byte 0x105d
-	.2byte \a
-	.2byte \b
-	.2byte \c
+.macro TextboxNoOverlapFollowTableOp labels:vararg
+    TextboxNoOverlapFollowTableOpN 2 \labels
 .endm
 
-.macro TextboxNoOverlapFollowTable_4 a,b,c,d
-	.2byte 0x145d
-	.2byte \a
-	.2byte \b
-	.2byte \c
-	.2byte \d
+.macro TextboxNoOverlapFollowTableLabel label labels:vararg
+    .2byte \label
+    .ifnb \labels
+    TextboxNoOverlapFollowTableLabel \labels
+    .endif
+.endm
+
+.macro TextboxNoOverlapFollowTable labels:vararg
+    TextboxNoOverlapFollowTableOp \labels
+    TextboxNoOverlapFollowTableLabel \labels
 .endm
 
 .macro TextboxNoOverlapVar 
