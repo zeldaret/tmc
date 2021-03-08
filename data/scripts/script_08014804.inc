@@ -64,7 +64,7 @@ script_080148D8:
 	_0807E930 0x0002
 	_0807E5F8 0x00000008
 	Jump script_0801488E
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	EndBlock 
 script_080148F4:
@@ -94,4 +94,4 @@ script_08014938:
 	Wait 0x001e
 	Call sub_0807DF50
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

@@ -42,7 +42,7 @@ script_0800F082:
 	EndBlock 
 	Call sub_0806AEE4
 	Jump script_0800F082
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807F0B4 0x0001
 	CameraTargetPlayer 
@@ -88,4 +88,4 @@ script_0800F11A:
 	_0807E878 
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

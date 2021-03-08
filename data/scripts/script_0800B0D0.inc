@@ -53,4 +53,4 @@ script_0800B160:
 	_0807E878 
 	Call sub_0807DF50
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

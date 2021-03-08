@@ -8,4 +8,4 @@ SCRIPT_START script_08012DD8
 	WaitForSomething2 0x00000001
 	_0807E908 0x0002
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

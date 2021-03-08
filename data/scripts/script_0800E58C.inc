@@ -14,4 +14,4 @@ SCRIPT_START script_0800E58C
 	Wait 0x003c
 	Call sub_08053C84
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

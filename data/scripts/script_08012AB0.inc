@@ -6,4 +6,4 @@ script_08012AB2:
 	_0807EB44 0x0006
 	Wait 0x000a
 	Jump script_08012AB2
-	.short 0x0000
+	.2byte 0x0000

@@ -15,7 +15,7 @@ SCRIPT_START script_0800903C
 	_0807E9D4 
 	DoPostScriptAction 0x000a
 	Jump script_0800927E
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	Call sub_0807F348
 	SetEntityNonPlanarMovement 0x0100
@@ -134,7 +134,7 @@ script_0800917C:
 	_0807E9D4 
 	DoPostScriptAction 0x000a
 	Jump script_080092B2
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
@@ -152,7 +152,7 @@ script_0800928A:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800928A
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0006
 	DoPostScriptAction 0x0000
@@ -177,7 +177,7 @@ script_080092BA:
 	DoPostScriptAction 0x000a
 	EndBlock 
 	Jump script_0800917C
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	Call sub_08066E38
@@ -192,8 +192,8 @@ script_08009300:
 	_0807EA94 
 	_0807E878 
 	Jump script_08009300
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	EndBlock 
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

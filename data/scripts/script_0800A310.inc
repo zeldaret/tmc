@@ -10,7 +10,7 @@ SCRIPT_START script_0800A310
 	Wait 0x000a
 	_0807E5F8 0x00000001
 	Call sub_080791BC
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	DoPostScriptAction 0x0008
 	SetEntityNonPlanarMovement 0x0080
@@ -40,4 +40,4 @@ SCRIPT_START script_0800A310
 	CallWithArg sub_080960C4, script_0800A680
 	_0807E5F8 0x00000040
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

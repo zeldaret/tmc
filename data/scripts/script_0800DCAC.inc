@@ -65,4 +65,4 @@ script_0800DCD0:
 	SetEntityNonPlanarMovement 0x0100
 	_0807EEF4 0x0000, 0x0080
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

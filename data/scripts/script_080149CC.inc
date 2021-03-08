@@ -26,7 +26,7 @@ script_080149DE:
 script_08014A20:
 	_0807E878 
 	Jump script_080149DE
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	Call sub_0806C870
 	DoPostScriptAction 0x000a
@@ -41,7 +41,7 @@ script_08014A36:
 	Wait 0x000f
 	_0807E878 
 	Jump script_08014A36
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	Call sub_0806C870
 	DoPostScriptAction 0x000a
@@ -56,4 +56,4 @@ script_08014A62:
 	Wait 0x000f
 	_0807E878 
 	Jump script_08014A62
-	.short 0x0000
+	.2byte 0x0000

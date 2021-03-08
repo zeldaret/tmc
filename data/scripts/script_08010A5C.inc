@@ -16,4 +16,4 @@ script_08010A78:
 	Call sub_0807DF50
 	Call sub_080791D0
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

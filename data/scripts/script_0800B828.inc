@@ -12,7 +12,7 @@ script_0800B836:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800B836
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
@@ -60,7 +60,7 @@ script_0800B8D4:
 	Wait 0x003c
 	Call sub_080646A4
 	Jump script_0800B8D4
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	Call sub_08061E70
 	DoPostScriptAction 0x000a
@@ -77,7 +77,7 @@ script_0800B8FC:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800B8FC
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
@@ -126,4 +126,4 @@ script_0800B99E:
 script_0800B9AC:
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

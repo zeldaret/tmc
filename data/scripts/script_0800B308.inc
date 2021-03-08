@@ -41,4 +41,4 @@ script_0800B350:
 script_0800B39C:
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

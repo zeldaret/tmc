@@ -60,4 +60,4 @@ script_08009C50:
 	_0807E878 
 	Jump script_08009C50
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

@@ -35,4 +35,4 @@ script_0800BC62:
 	Wait 0x0078
 	Call sub_08054968
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

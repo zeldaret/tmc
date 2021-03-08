@@ -10,4 +10,4 @@ script_0800D6E0:
 script_0800D6E8:
 	DoPostScriptAction 0x0007
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

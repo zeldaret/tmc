@@ -108,4 +108,4 @@ script_0800D3B2:
 script_0800D3E4:
 	_0807E878 
 	Jump script_0800D35E
-	.short 0x0000
+	.2byte 0x0000

@@ -41,4 +41,4 @@ SCRIPT_START script_08010F84
 	Call sub_0804BCDC
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

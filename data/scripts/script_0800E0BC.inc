@@ -44,7 +44,7 @@ script_0800E138:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800E138
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x000a
@@ -180,7 +180,7 @@ script_0800E32E:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800E32E
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x000a

@@ -56,4 +56,4 @@ script_080144FC:
 	JumpIfNot script_08014462
 	_0807E9DC 
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

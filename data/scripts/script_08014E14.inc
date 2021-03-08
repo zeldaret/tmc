@@ -15,7 +15,7 @@ script_08014E2C:
 	_0807EA94 
 	_0807E878 
 	Jump script_08014E2C
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
@@ -50,7 +50,7 @@ script_08014EBC:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_08014E64
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
@@ -66,7 +66,7 @@ script_08014EE0:
 	_0807EA94 
 	_0807E878 
 	Jump script_08014EE0
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
@@ -85,7 +85,7 @@ script_08014F0C:
 	_0807EB44 0x0004
 	_0807E930 0x000a
 	Jump script_08014F0C
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007

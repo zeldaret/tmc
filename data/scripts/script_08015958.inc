@@ -70,4 +70,4 @@ script_08015A54:
 	_0807E5F8 0x00000002
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

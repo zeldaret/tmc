@@ -7,4 +7,4 @@ SCRIPT_START script_0800ACBC
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000001
 	Call sub_080791BC
-	.short 0x0000
+	.2byte 0x0000

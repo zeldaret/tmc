@@ -16,4 +16,4 @@ SCRIPT_START script_0801183C
 	WaitForSomething2 0x00800000
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

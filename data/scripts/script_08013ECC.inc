@@ -6,4 +6,4 @@ SCRIPT_START script_08013ECC
 	_0807E930 0x0005
 	EndBlock 
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

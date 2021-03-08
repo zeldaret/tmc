@@ -85,7 +85,7 @@ commands = [
     {'fun': 'ScriptCommand_0807E8E4_2', 'params': ''},  # duplicate
     {'fun': 'ScriptCommand_0807E8E4_3', 'params': ''},  # duplicate
     {'fun': 'ScriptCommand_0807E908', 'params': 's'},
-    {'fun': 'ScriptCommandSetIntVariable', 'params': 'w'},
+    {'fun': 'ScriptCommand_SetIntVariable', 'params': 'w'},
     {'fun': 'ScriptCommand_0807E924', 'params': ''},
     {'fun': 'ScriptCommand_0807E930', 'params': 's'},
     {'fun': 'ScriptCommand_0807E944', 'params': ''},
@@ -100,7 +100,7 @@ commands = [
     {'fun': 'ScriptCommand_TextboxNoOverlapFollow', 'params': 's'},
     {'fun': 'ScriptCommand_TextboxNoOverlap', 'params': 's'},
     {'fun': 'ScriptCommand_TextboxNoOverlapFollowPos', 'params': ['ss', 's']},
-    {'fun': 'ScriptCommandTextboxNoOverlapFollowTable', 'params': ['ss', 'sss', 'ssss']},
+    {'fun': 'ScriptCommand_TextboxNoOverlapFollowTable', 'params': ['ss', 'sss', 'ssss']},
     {'fun': 'ScriptCommand_TextboxNoOverlapVar', 'params': ''},
     {'fun': 'ScriptCommand_0807EB28', 'params': 's'},
     {'fun': 'ScriptCommand_0807EB38', 'params': ''},
@@ -216,106 +216,106 @@ parameters = {
     's': {
         'length': 1,
         'param': 's',
-        'expr': '	.short \s',
+        'expr': '	.2byte \s',
         'read': lambda ctx: barray_to_u16_hex(ctx.data[ctx.ptr + 2:ctx.ptr + 4])[0]
     },
     'ss': {
         'length': 2,
         'param': 'a,b',
-        'expr': '	.short \\a\n	.short \\b',
+        'expr': '	.2byte \\a\n	.2byte \\b',
         'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr + 2:ctx.ptr + 6]))
     },
     'sss': {
         'length': 3,
         'param': 'a,b,c',
-        'expr': '	.short \\a\n	.short \\b\n	.short \\c',
+        'expr': '	.2byte \\a\n	.2byte \\b\n	.2byte \\c',
         'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr + 2:ctx.ptr + 8]))
     },
     'ssss': {
         'length': 4,
         'param': 'a,b,c,d',
-        'expr': '	.short \\a\n	.short \\b\n	.short \\c\n	.short \\d',
+        'expr': '	.2byte \\a\n	.2byte \\b\n	.2byte \\c\n	.2byte \\d',
         'read': lambda ctx: ', '.join(barray_to_u16_hex(ctx.data[ctx.ptr + 2:ctx.ptr + 10]))
     },
 
     'w': {
         'length': 2,
         'param': 'w',
-        'expr': '	.word \w',
+        'expr': '	.4byte \w',
         'read': lambda ctx: barray_to_u32_hex(ctx.data[ctx.ptr + 2:ctx.ptr + 6])[0]
     },
     'ww': {
         'length': 4,
         'param': 'a,b',
-        'expr': '	.word \\a\n	.word \\b',
+        'expr': '	.4byte \\a\n	.4byte \\b',
         'read': lambda ctx: ', '.join(barray_to_u32_hex(ctx.data[ctx.ptr + 2:ctx.ptr + 10]))
     },
 
     'j': {  # Relative jump target
         'length': 1,
         'param': 's',
-        'expr': '1:	.short \s - 1b',
+        'expr': '1:	.2byte \s - 1b',
         'read': lambda ctx: use_script_label(ctx.script_addr + ctx.ptr + 2 + barray_to_s16(ctx.data[ctx.ptr + 2:ctx.ptr + 4]))
     },
     'jj': {
         'length': 2,
         'param': 'a,b',
-        'expr': '1:	.short \\a - 1b\n	.short \\b - 1b - 2',
+        'expr': '1:	.2byte \\a - 1b\n	.2byte \\b - 1b - 2',
         'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr + ctx.ptr + 2 + barray_to_s16(ctx.data[ctx.ptr + x * 2 + 2:ctx.ptr + x * 2 + 4]) + x * 2) for x in range(0, 2)])
     },
     'jjj': {
         'length': 3,
         'param': 'a,b,c',
-        'expr': '1:	.short \\a - 1b\n	.short \\b - 1b - 2\n	.short \\c - 1b - 4',
+        'expr': '1:	.2byte \\a - 1b\n	.2byte \\b - 1b - 2\n	.2byte \\c - 1b - 4',
         'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr + ctx.ptr + 2 + barray_to_s16(ctx.data[ctx.ptr + x * 2 + 2:ctx.ptr + x * 2 + 4]) + x*2) for x in range(0, 3)])
     },
     'jjjj': {
         'length': 4,
         'param': 'a,b,c,d',
-        'expr': '1:	.short \\a - 1b\n	.short \\b - 1b - 2\n	.short \\c - 1b - 4\n	.short \\d - 1b - 6',
+        'expr': '1:	.2byte \\a - 1b\n	.2byte \\b - 1b - 2\n	.2byte \\c - 1b - 4\n	.2byte \\d - 1b - 6',
         'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr + ctx.ptr + 2 + barray_to_s16(ctx.data[ctx.ptr + x * 2 + 2:ctx.ptr + x * 2 + 4]) + x*2) for x in range(0, 4)])
     },
     'jjjjjjj': {
         'length': 7,
         'param': 'a,b,c,d,e,f,g',
-        'expr': '1:	.short \\a - 1b\n	.short \\b - 1b - 2\n	.short \\c - 1b - 4\n	.short \\d - 1b - 6\n	.short \\e - 1b - 8\n	.short \\f - 1b - 10\n	.short \\g - 1b - 12',
+        'expr': '1:	.2byte \\a - 1b\n	.2byte \\b - 1b - 2\n	.2byte \\c - 1b - 4\n	.2byte \\d - 1b - 6\n	.2byte \\e - 1b - 8\n	.2byte \\f - 1b - 10\n	.2byte \\g - 1b - 12',
         'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr + ctx.ptr + 2 + barray_to_s16(ctx.data[ctx.ptr + x * 2 + 2:ctx.ptr + x * 2 + 4]) + x*2) for x in range(0, 7)])
     },
     'jjjjjjjjj': {
         'length': 9,
         'param': 'a,b,c,d,e,f,g,h,i',
-        'expr': '1:	.short \\a - 1b\n	.short \\b - 1b - 2\n	.short \\c - 1b - 4\n	.short \\d - 1b - 6\n	.short \\e - 1b - 8\n	.short \\f - 1b - 10\n	.short \\g - 1b - 12\n	.short \\h - 1b - 14\n	.short \\i - 1b - 16',
+        'expr': '1:	.2byte \\a - 1b\n	.2byte \\b - 1b - 2\n	.2byte \\c - 1b - 4\n	.2byte \\d - 1b - 6\n	.2byte \\e - 1b - 8\n	.2byte \\f - 1b - 10\n	.2byte \\g - 1b - 12\n	.2byte \\h - 1b - 14\n	.2byte \\i - 1b - 16',
         'read': lambda ctx: ', '.join([use_script_label(ctx.script_addr + ctx.ptr + 2 + barray_to_s16(ctx.data[ctx.ptr + x * 2 + 2:ctx.ptr + x * 2 + 4]) + x*2) for x in range(0, 9)])
     },
     'p': {
         'length': 2,
         'param': 'w',
-        'expr': '	.word \w',
+        'expr': '	.4byte \w',
         'read': lambda ctx: get_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6])
     },
 
     'px': {
         'length': 4,
         'param': 'a,b',
-        'expr': '	.word \\a\n	.word \\b',
+        'expr': '	.4byte \\a\n	.4byte \\b',
         'read': lambda ctx: get_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6]) + ', ' + get_script_pointer(ctx.data[ctx.ptr + 6:ctx.ptr + 10])
     },
     'd': {  # Data pointer
         'length': 2,
         'param': 'w',
-        'expr': '	.word \w',
+        'expr': '	.4byte \w',
         'read': lambda ctx: get_data_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6])
     },
     'x': {  # Script pointer
         'length': 2,
         'param': 'w',
-        'expr': '	.word \w',
+        'expr': '	.4byte \w',
         'read': lambda ctx: get_script_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6])
     },
     'xx': {
         'length': 4,
         'param': 'a, b',
-        'expr': '	.word \\a\n	.word \\b',
+        'expr': '	.4byte \\a\n	.4byte \\b',
         'read': lambda ctx: get_script_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6]) + ', ' + get_script_pointer(ctx.data[ctx.ptr + 6:ctx.ptr + 10])
     },
     # Commands with variable parameter count are now handled by explicitely defining all used parameter configurations
@@ -328,7 +328,7 @@ parameters = {
     # 'pv': {
     #     'length': -2,
     #     'param': 'w',
-    #     'expr': '	.word \w',
+    #     'expr': '	.4byte \w',
     #     'read': lambda ctx: ''
     # },
 }

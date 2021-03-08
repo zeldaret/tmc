@@ -6,4 +6,4 @@ SCRIPT_START script_0800D6B4
 	Call sub_0807F738
 	EndBlock 
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

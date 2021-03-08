@@ -143,4 +143,4 @@ script_080147CE:
 	Wait 0x0004
 	_0807E878 
 	Jump script_0801463A
-	.short 0x0000
+	.2byte 0x0000

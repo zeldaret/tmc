@@ -21,4 +21,4 @@ script_08013B1E:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_08013B1E
-	.short 0x0000
+	.2byte 0x0000

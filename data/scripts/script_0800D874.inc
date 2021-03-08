@@ -30,7 +30,7 @@ script_0800D8D6:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800D88E
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	DoPostScriptAction 0x0008
 	CheckInventory1 0x0017
@@ -52,4 +52,4 @@ script_0800D8F4:
 script_0800D924:
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

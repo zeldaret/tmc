@@ -40,4 +40,4 @@ script_0800F490:
 	_0807E5F8 0x00000100
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

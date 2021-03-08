@@ -24,7 +24,7 @@ script_0800B6D4:
 	SetLocalFlag 0x009f
 	_0807F034 0x0064
 	Jump script_0800B698
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	EndBlock 
 script_0800B734:
@@ -64,4 +64,4 @@ script_0800B7A2:
 	TextboxNoOverlap 0x057f
 	_0807EA94 
 	Jump script_0800B6A6
-	.short 0x0000
+	.2byte 0x0000

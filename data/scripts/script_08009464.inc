@@ -14,7 +14,7 @@ SCRIPT_START script_08009464
 	_0807EA94 
 	Wait 0x000a
 	Jump script_08009376
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	Call sub_0806D7C4
 	SetEntityNonPlanarMovement 0x0080

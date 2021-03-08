@@ -2,11 +2,11 @@ SCRIPT_START script_0801194C
 	BeginBlock 
 	_0807EB44 0x0002
 	Jump script_0801196A
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0006
 	Jump script_0801196A
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
 script_0801196A:
@@ -41,15 +41,15 @@ script_080119C8:
 	Wait 0x003c
 	Call sub_0806407C
 	Jump script_080119C8
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0002
 	Jump script_080119F6
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
 	Jump script_080119F6
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0006
 script_080119F6:
@@ -67,7 +67,7 @@ script_08011A08:
 	_0807EA94 
 	_0807E878 
 	Jump script_08011A08
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
 	_0807E9D4 
@@ -102,7 +102,7 @@ script_08011A7C:
 	_0807EA94 
 	_0807E878 
 	Jump script_08011A7C
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
 	_0807E9D4 
@@ -134,4 +134,4 @@ script_08011AFA:
 	Call sub_0807DF50
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

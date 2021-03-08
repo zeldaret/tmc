@@ -7,4 +7,4 @@ SCRIPT_START script_0800A680
 	WaitForSomething 0x00000020
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

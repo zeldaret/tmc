@@ -66,7 +66,7 @@ script_08010060:
 	CallWithArg sub_0807F5B0, 0x0000000a
 	_0807E878 
 	Jump script_0800FF92
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807E9D4 
 	DoPostScriptAction 0x000a

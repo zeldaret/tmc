@@ -13,4 +13,4 @@ SCRIPT_START script_08009AF8
 	WaitFor_2 
 	Call sub_0805367C
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

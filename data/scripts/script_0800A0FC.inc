@@ -22,4 +22,4 @@ script_0800A0FE:
 	CallWithArg sub_0806DA1C, 0x00000006
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

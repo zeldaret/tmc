@@ -9,4 +9,4 @@ SCRIPT_START script_0800B5C4
 	Wait 0x000a
 	Call sub_08069EE8
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

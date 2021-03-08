@@ -37,4 +37,4 @@ script_08015BF0:
 	_0807E878 
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

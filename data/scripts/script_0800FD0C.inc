@@ -27,4 +27,4 @@ script_0800FD5C:
 	WaitForSomething2 0x00000008
 	_0807E878 
 	Jump script_0800FD50
-	.short 0x0000
+	.2byte 0x0000

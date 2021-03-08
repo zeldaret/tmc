@@ -14,7 +14,7 @@ SCRIPT_START script_0801450C
 	ClearLocalFlag 0x0092
 	Call sub_0807DF50
 	Jump script_080144FC
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	EndBlock 
 script_0801454C:
@@ -32,4 +32,4 @@ script_0801454C:
 	_0807E878 
 	Jump script_0801454C
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

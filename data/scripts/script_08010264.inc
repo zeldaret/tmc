@@ -15,7 +15,7 @@ script_0801027A:
 	_0807EA94 
 	_0807E878 
 	Jump script_0801027A
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	DoPostScriptAction 0x0000
 	Call sub_08062A48
@@ -40,7 +40,7 @@ script_080102CC:
 	_0807EA94 
 	_0807E878 
 	Jump script_080102A6
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	DoPostScriptAction 0x0000
 	Call sub_08062A48
@@ -55,7 +55,7 @@ script_080102F2:
 	_0807EA94 
 	_0807E878 
 	Jump script_080102F2
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	DoPostScriptAction 0x0000
 	EndBlock 
@@ -99,7 +99,7 @@ script_08010396:
 	_0807EE30 
 	JumpIfNot script_08010396
 	Jump script_08010314
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	DoPostScriptAction 0x0000
 	Call sub_08062A48
@@ -119,7 +119,7 @@ script_080103E8:
 	Wait 0x003c
 	Call sub_0806407C
 	Jump script_080103E8
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
@@ -256,7 +256,7 @@ script_080105E0:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_08010502
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807E9D4 
 	DoPostScriptAction 0x000a
@@ -290,19 +290,19 @@ script_0801062E:
 	BeginBlock 
 	_0807E930 0x0009
 	Jump script_08010622
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807E930 0x000b
 	Jump script_08010622
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807E930 0x000c
 	Jump script_08010622
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807E930 0x000d
 	Jump script_08010622
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807E9D4 
 	DoPostScriptAction 0x000a
@@ -321,7 +321,7 @@ script_08010686:
 	_0807E878 
 	_0807EB44 0x0004
 	Jump script_08010686
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807E9D4 
 	DoPostScriptAction 0x000a
@@ -364,7 +364,7 @@ script_08010726:
 	_0807E878 
 	DoPostScriptAction 0x0001
 	Jump script_080106BE
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	DoPostScriptAction 0x0007
 	_0807E9D4 
@@ -415,7 +415,7 @@ script_080107AA:
 	_0807E878 
 	DoPostScriptAction 0x0000
 	Jump script_080107AA
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
@@ -534,4 +534,4 @@ script_08010942:
 	Jump script_0801091C
 	Call sub_0808692C
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

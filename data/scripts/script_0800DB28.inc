@@ -18,4 +18,4 @@ SCRIPT_START script_0800DB28
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0014
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

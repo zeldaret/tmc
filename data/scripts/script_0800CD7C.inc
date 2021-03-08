@@ -144,7 +144,7 @@ script_0800CF40:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800CD92
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	Call sub_08068104
 	DoPostScriptAction 0x000a
@@ -290,4 +290,4 @@ script_0800D17C:
 	_0807E878 
 	Call sub_0807DF50
 	Jump script_0800CFFA
-	.short 0x0000
+	.2byte 0x0000

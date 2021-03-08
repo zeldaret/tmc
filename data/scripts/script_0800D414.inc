@@ -38,7 +38,7 @@ script_0800D426:
 	Call sub_0806AF60
 	_0807EDD4 0x0228, 0x01e8
 	Jump script_0800D426
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	Call sub_08062A48
@@ -124,7 +124,7 @@ script_0800D5F2:
 	_0807EE30 
 	JumpIfNot script_0800D5F2
 	Jump script_0800D5AC
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x000b

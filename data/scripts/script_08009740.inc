@@ -16,7 +16,7 @@ script_0800975A:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800975A
-	.short 0x0000
+	.2byte 0x0000
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28

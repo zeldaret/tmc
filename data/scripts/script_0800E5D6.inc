@@ -11,4 +11,4 @@ script_0800E5D8:
 	Wait 0x001e
 	_0807E878 
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

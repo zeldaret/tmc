@@ -9,4 +9,4 @@ SCRIPT_START script_08013B70
 	WaitForSomething2 0x00040000
 	Call sub_080791BC
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

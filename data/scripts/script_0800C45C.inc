@@ -15,4 +15,4 @@ script_0800C47A:
 	_0807E930 0x0005
 	Wait 0x000f
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

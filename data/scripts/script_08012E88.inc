@@ -16,7 +16,7 @@ script_08012E9E:
 	_0807E878 
 	DoPostScriptAction 0x0000
 	Jump script_08012E9E
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x00000008

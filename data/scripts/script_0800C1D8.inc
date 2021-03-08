@@ -14,7 +14,7 @@ SCRIPT_START script_0800C1D8
 	_0807E930 0x0008
 	Wait 0x003c
 	Jump script_0800C244
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
 	_0807E930 0x0008

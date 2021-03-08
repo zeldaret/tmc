@@ -7,7 +7,7 @@ SCRIPT_START script_080165A4
 script_080165B2:
 	_0807E974 0x0601
 	Jump script_080165B2
-	.short 0x0000
+	.2byte 0x0000
 script_080165BC:
 	Wait 0x001e
 	CheckPlayerInRegion2 0x2020
@@ -15,4 +15,4 @@ script_080165BC:
 	DoPostScriptAction 0x0003
 	Call script_0801637C+1
 	Jump script_080165BC
-	.short 0x0000
+	.2byte 0x0000

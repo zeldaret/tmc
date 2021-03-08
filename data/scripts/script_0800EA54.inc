@@ -61,7 +61,7 @@ script_0800EB0E:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800EB0E
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	Call sub_08061E70
 	DoPostScriptAction 0x000a
@@ -78,7 +78,7 @@ script_0800EB44:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800EB44
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	Call sub_08061E70
 	DoPostScriptAction 0x000a
@@ -127,7 +127,7 @@ script_0800EBF4:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800EBF4
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	Call sub_08061E70
 	DoPostScriptAction 0x000a
@@ -162,7 +162,7 @@ script_0800EC6C:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800EC6C
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807E9D4 
 	CallWithArg sub_08061FB8, 0x00000001
@@ -232,7 +232,7 @@ script_0800ED76:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800ED76
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807E9D4 
 	DoPostScriptAction 0x000a

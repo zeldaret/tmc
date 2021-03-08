@@ -8,4 +8,4 @@ SCRIPT_START script_0800B7FC
 	_0807E930 0x0000
 	EndBlock 
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

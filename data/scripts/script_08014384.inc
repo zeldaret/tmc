@@ -19,4 +19,4 @@ script_080143AC:
 	_0807E908 0x0001
 	_0807E878 
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

@@ -15,7 +15,7 @@ script_08008B6E:
 	_0807E930 0x0008
 	_0807E878 
 	Jump script_08008B6E
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
@@ -126,4 +126,4 @@ script_08008C5C:
 	_0807E5F8 0x00000001
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

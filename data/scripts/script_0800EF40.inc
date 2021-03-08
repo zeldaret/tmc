@@ -26,4 +26,4 @@ script_0800EF82:
 script_0800EF92:
 	Call sub_0808692C
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

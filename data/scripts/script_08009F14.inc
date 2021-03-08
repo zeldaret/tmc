@@ -115,4 +115,4 @@ script_0800A064:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800A024
-	.short 0x0000
+	.2byte 0x0000

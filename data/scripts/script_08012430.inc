@@ -23,7 +23,7 @@ script_08012474:
 	_0807E878 
 	_0807E930 0x0000
 	Jump script_08012440
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	Call sub_08054564
 	EndBlock 

@@ -37,7 +37,7 @@ def disassemble_command(ctx: Context, add_all_annotations=False):
     cmd = struct.unpack('H', ctx.data[ctx.ptr:ctx.ptr + 2])[0]
     if cmd == 0:
         # this does not need to be the end of the script
-        print('\t.short 0x0000')
+        print('\t.2byte 0x0000')
         ctx.ptr += 2
         return 1
 
@@ -47,7 +47,7 @@ def disassemble_command(ctx: Context, add_all_annotations=False):
         cmd = struct.unpack('H', ctx.data[ctx.ptr:ctx.ptr + 2])[0]
         if cmd == 0x0000:
             # This is actually the end of the script
-            print('\t.short 0x0000')
+            print('\t.2byte 0x0000')
             ctx.ptr += 2
             return 2
         return 3  # There is a SCRIPT_END without 0x0000 afterwards, but still split into a new file, please
@@ -93,18 +93,18 @@ def disassemble_command(ctx: Context, add_all_annotations=False):
     command_name = f'{command["fun"]}{suffix}'
 
     if params['length'] == -1:  # variable parameter length
-        print(f'\t.short {u16_to_hex(cmd)} @ {build_script_command(command_name)} with {commandSize-1} parameters')
+        print(f'\t.2byte {u16_to_hex(cmd)} @ {build_script_command(command_name)} with {commandSize-1} parameters')
         if commandSize > 1:
-            print('\n'.join(['\t.short ' + x for x in barray_to_u16_hex(ctx.data[ctx.ptr + 2:ctx.ptr + commandSize * 2])]))
+            print('\n'.join(['\t.2byte ' + x for x in barray_to_u16_hex(ctx.data[ctx.ptr + 2:ctx.ptr + commandSize * 2])]))
             print(f'@ End of parameters')
         ctx.ptr += commandSize * 2
         return 1
     elif params['length'] == -2:  # point and var
-        print(f'\t.short {u16_to_hex(cmd)} @ {build_script_command(command_name)} with {commandSize-3} parameters')
+        print(f'\t.2byte {u16_to_hex(cmd)} @ {build_script_command(command_name)} with {commandSize-3} parameters')
 
-        print('\t.word ' + get_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6]))
+        print('\t.4byte ' + get_pointer(ctx.data[ctx.ptr + 2:ctx.ptr + 6]))
         if commandSize > 3:
-            print('\n'.join(['\t.short ' + x for x in barray_to_u16_hex(ctx.data[ctx.ptr + 6:ctx.ptr + commandSize * 2])]))
+            print('\n'.join(['\t.2byte ' + x for x in barray_to_u16_hex(ctx.data[ctx.ptr + 6:ctx.ptr + commandSize * 2])]))
             print(f'@ End of parameters')
         ctx.ptr += commandSize * 2
         return 1
@@ -142,7 +142,7 @@ def disassemble_script(input_bytes, script_addr, add_all_annotations=False):
         if (len(ctx.data) - ctx.ptr) % 2 != 0:
             print_rest_bytes(ctx)
             raise Exception(f'There is extra data at the end {ctx.ptr} / {len(ctx.data)}')
-        print('\n'.join(['.short ' + x for x in barray_to_u16_hex(ctx.data[ctx.ptr:])]))
+        print('\n'.join(['.2byte ' + x for x in barray_to_u16_hex(ctx.data[ctx.ptr:])]))
         raise Exception(f'There is extra data at the end {ctx.ptr} / {len(ctx.data)}')
 
     if not foundEnd:
@@ -163,7 +163,7 @@ def generate_macros():
     print('.endm')
 
     print('.macro SCRIPT_END')
-    print('	.short 0xffff')
+    print('	.2byte 0xffff')
     print('.endm')
 
     print('')
@@ -173,7 +173,7 @@ def generate_macros():
 
         def emit_macro(command_name, id, params):
             print(f'.macro {command_name} {params["param"]}')
-            print(f'	.short {u16_to_hex(id)}')
+            print(f'	.2byte {u16_to_hex(id)}')
             if params['expr'] != '':
                 print(params['expr'])
             print('.endm')

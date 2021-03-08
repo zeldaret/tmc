@@ -14,7 +14,7 @@ script_0800B268:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800B268
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	CheckKinstoneFused 0x0007
 	JumpIf script_0800B302
@@ -30,7 +30,7 @@ script_0800B298:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800B298
-	.short 0x0000
+	.2byte 0x0000
 	BeginBlock 
 	CheckKinstoneFused 0x0008
 	JumpIf script_0800B302
@@ -57,4 +57,4 @@ script_0800B2E2:
 script_0800B302:
 	EndBlock 
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000

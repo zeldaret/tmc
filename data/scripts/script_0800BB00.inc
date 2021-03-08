@@ -13,4 +13,4 @@ script_0800BB04:
 	Wait 0x00b4
 	Call sub_08054968
 SCRIPT_END
-	.short 0x0000
+	.2byte 0x0000
