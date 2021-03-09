@@ -5,6 +5,7 @@
 #include "script.h"
 #include "structures.h"
 #include "textbox.h"
+#include "dma.h"
 #include "functions.h"
 #include "save.h"
 
@@ -187,9 +188,9 @@ extern ScriptExecutionContext gPlayerScriptExecutionContext;
 extern ScriptExecutionContext gScriptExecutionContextArray[0x20];
 
 void sub_0807DA70(void) {
-    MemClear32(&gUnk_02033280, sizeof(gUnk_02033280));
-    MemClear32(&gScriptExecutionContextArray, sizeof(gScriptExecutionContextArray));
-    MemClear32(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
+    MemClear(&gUnk_02033280, sizeof(gUnk_02033280));
+    MemClear(&gScriptExecutionContextArray, sizeof(gScriptExecutionContextArray));
+    MemClear(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
     gUnk_02033280.unk_08 = 8;
 }
 
@@ -207,7 +208,7 @@ ScriptExecutionContext* CreateScriptExecutionContext(void) {
 }
 
 void DestroyScriptExecutionContext(ScriptExecutionContext* context) {
-    MemClear32(context, sizeof(ScriptExecutionContext));
+    MemClear(context, sizeof(ScriptExecutionContext));
 }
 
 ScriptExecutionContext* StartCutscene(Entity* entity, u16* unk_2) {
@@ -237,7 +238,7 @@ void UnloadCutsceneData(Entity* entity) {
 void StartPlayerScript(u16* unk1) {
     Entity* player;
 
-    MemClear32(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
+    MemClear(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
     gPlayerScriptExecutionContext.unk_00 = unk1;
     player = &gPlayerEntity;
     *(ScriptExecutionContext**)&player->cutsceneBeh = &gPlayerScriptExecutionContext;
@@ -260,7 +261,7 @@ ScriptExecutionContext* sub_0807DB68(Entity* entity, u16* unk1) {
 }
 
 void sub_0807DB88(ScriptExecutionContext* context, u16* unk1) {
-    MemClear32(context, sizeof(ScriptExecutionContext));
+    MemClear(context, sizeof(ScriptExecutionContext));
     context->unk_00 = unk1;
 }
 

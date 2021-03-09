@@ -3,7 +3,6 @@
 #include "area.h"
 
 extern void sub_08001328(Entity*);
-extern u32 sub_0806FCB8(Entity*, u32, u32, u32);
 extern void DoExitTransition(u32*);
 
 extern Entity* gUnk_020000B0;

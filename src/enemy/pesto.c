@@ -3,10 +3,8 @@
 #include "functions.h"
 
 extern u32 sub_080002E0(u16, u32);
-extern u32 CheckIsDungeon(void);
 extern void sub_0800449C(Entity*, u32);
 extern u32 sub_08049F1C(Entity*, Entity*, u32);
-extern void sub_0804AA30(Entity*, void (*const funcs[])(Entity*));
 extern u32 PlayerInRange(Entity*, u32, u32);
 extern void sub_080AEFB4(Entity*);
 extern Entity* FindNextEntityOfSameSubtype(Entity* ent, int listIndex);

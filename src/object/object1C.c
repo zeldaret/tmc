@@ -2,7 +2,6 @@
 #include "entity.h"
 
 extern u32 CheckRectOnScreen(s16, s16, u32, u32);
-extern void DeleteThisEntity();
 
 void Object1C(Entity* this) {
     s32 iVar1;

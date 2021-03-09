@@ -1,4 +1,5 @@
 #include "fileScreen.h"
+#include "dma.h"
 
 // copy, erase, start
 #define NUM_FILE_OPERATIONS 3
@@ -105,7 +106,7 @@ void CreateDialogBox(u32 arg0, u32 arg1) {
 
 void sub_08050384(void) {
     sub_0801C4A0(0, 0);
-    MemClear32(&gBG0Buffer, sizeof(gBG0Buffer));
+    MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
     gScreen.bg.bg0Updated = 1;
 }
 
@@ -117,8 +118,8 @@ void sub_080503A8(u32 gfxGroup) {
 
 void SetFileSelectState(FileSelectState mode) {
     gUnk_02032EC0.state = mode;
-    MemClear32(&gBG0Buffer, sizeof(gBG0Buffer));
-    MemClear32(&gBG1Buffer, sizeof(gBG1Buffer));
+    MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
+    MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
 }
 
 void LoadOptionsFromSave(u32 idx) {
@@ -159,7 +160,7 @@ void HandleChooseFileScreen(void) {
         gScreen.bg.bg1yOffset = 0;
         gScreen.affine.bg2xOffset = 0;
         gScreen.affine.bg2yOffset = 0;
-        MemClear32(&gChooseFileState, sizeof(gChooseFileState));
+        MemClear(&gChooseFileState, sizeof(gChooseFileState));
     }
 
     HideButtonR();
@@ -184,17 +185,17 @@ static void HandleFileScreenEnter(void) {
 
     sub_0801DA90(1);
     sub_080A3210();
-    MemClear32((void*)VRAM, 0x80); // clear palettes
+    MemClear((void*)VRAM, 0x80); // clear palettes
     MessageInitialize();
     EraseAllEntities();
     sub_08080668();
     sub_080ADD30();
     sub_0801CFA8(0);
-    MemClear32(&gUnk_0200AF00, sizeof(gUnk_0200AF00));
-    MemClear32(&gUnk_02019EE0, sizeof(gUnk_02019EE0));
+    MemClear(&gUnk_0200AF00, sizeof(gUnk_0200AF00));
+    MemClear(&gUnk_02019EE0, sizeof(gUnk_02019EE0));
     gUnk_02019EE0.unk3 = 7;
     gUnk_02019EE0.unk6 = gUnk_02000000->gameLanguage > LANGUAGE_EN ? 3 : 0;
-    MemClear32(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
+    MemClear(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
     gUnk_02032EC0.lastState = 8;
     SetFileSelectState(STATE_NONE);
     InitDMA();
@@ -284,7 +285,7 @@ void sub_0805070C(void) {
         var0->unk8 = gUnk_02000D00;
         for (i = 0; i < NUM_SAVE_SLOTS; i++) {
             var0->unk6 = 0;
-            MemClear32(var0->unk8, 0x200);
+            MemClear(var0->unk8, 0x200);
             playerName = &gUnk_02019EE0.saves[i].playerName[0];
             for (j = 0; j < FILENAME_LENGTH; j++) {
                 sub_0805F7DC(playerName[j], var0);
@@ -489,7 +490,7 @@ void sub_08050B3C(u16*);
 
 void sub_08050AFC(u32 idx) {
     SetActiveSave(idx);
-    MemClear32(&gBG1Buffer, sizeof(gBG1Buffer));
+    MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
     if (gUnk_02019EE0.saveStatus[idx] == SAVE_VALID) {
         sub_08050B3C(&gBG1Buffer.unk29C);
     }
@@ -645,7 +646,7 @@ void HandleFileLanguageSelect(void) {
 }
 
 void sub_08050DB8(void) {
-    MemClear32(&gBG2Buffer, sizeof(gBG2Buffer));
+    MemClear(&gBG2Buffer, sizeof(gBG2Buffer));
     sub_080503A8(0xc);
     gMenu.field_0x4 = gUnk_02000000->gameLanguage;
     sub_080A7114(1);
@@ -980,7 +981,6 @@ u32 sub_080514BC(u32 a1) {
         switch (a1) {
             default:
             case 0x0:
-                return c - 0x33;
             case 0xe:
                 return c - 0x33;
             case 0xf:
@@ -1186,7 +1186,7 @@ void sub_0805194C(u32 save_idx) {
 
     gUnk_02019EE0.saveStatus[save_idx] = 0;
     save = &gUnk_02019EE0.saves[save_idx];
-    MemClear32(save, sizeof(*save));
+    MemClear(save, sizeof(*save));
     save->messageSpeed = 1;
     save->brightnessPref = 1;
     save->stats.health = 24;

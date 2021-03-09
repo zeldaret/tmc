@@ -5,19 +5,7 @@
 #include "save.h"
 #include "script.h"
 
-extern u32 GetFacingDirection(Entity*, Entity*);
-extern u32 sub_0806F5A4(u32);
-extern void sub_0806F118(Entity*);
-extern Entity* CreateFx(Entity*, u32, u32);
-extern void SoundReq(u32);
-extern void sub_0807000C(Entity*);
-extern u32 sub_0801E99C(Entity*);
-extern void sub_0807DD50(Entity*);
-extern void sub_0807DDE4(Entity*);
-extern u32 UpdateFuseInteraction(Entity*);
-extern u32 GetAnimationState(Entity*);
 extern void sub_08078850(u32, u32, u32, u32*);
-extern void sub_08078784(Entity*, u32);
 
 extern void (*const gUnk_08110360[])(Entity*);
 extern void (*const gUnk_0811036C[])(Entity*);

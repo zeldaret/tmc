@@ -89,7 +89,6 @@ extern void VaatiWrath(Entity*);
 extern void VaatiArm(Entity*);
 extern void Dust(Entity*);
 extern void VaatiBall(Entity*);
-extern void Octorok(Entity*);
 extern void Slime(Entity*);
 extern void MiniSlime(Entity*);
 extern void FireballGuy(Entity*);

@@ -6,11 +6,8 @@
 void sub_08045374(Entity*);
 
 extern u32 sub_0806FA04(u32, u32);
-extern void sub_0804A720();
 extern void sub_080452E4();
-extern void sub_0804AA30();
 extern void ReplaceMonitoredEntity(Entity*, Entity*);
-extern void sub_0804A7D4(Entity*);
 
 extern void (*const gUnk_080D17C0[])(Entity*);
 extern void (*const gUnk_080D17D8[])(Entity*);

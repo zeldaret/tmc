@@ -1,13 +1,9 @@
 #include "global.h"
 #include "entity.h"
-
-extern Entity* CreateItemEntity(u32, u32, u32);
-extern void DeleteThisEntity();
-extern void sub_08080CB4(Entity*);
+#include "player.h"
+#include "functions.h"
 
 extern void (*gUnk_08124824[])(Entity*);
-
-extern Entity gPlayerEntity;
 
 void ObjectA8(Entity* this) {
     if ((this->bitfield & 0x80) != 0) {

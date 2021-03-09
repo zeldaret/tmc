@@ -1,12 +1,11 @@
 #include "global.h"
 #include "entity.h"
 #include "screen.h"
+#include "functions.h"
 
-extern void LoadGfxGroup(u32);
 extern void sub_08056250(void);
 extern void sub_080570B8(Entity*);
 void sub_080570F8(void);
-extern void sub_08052D74(void*, void*, void*);
 
 extern void (*const gUnk_08107C5C[])(Entity*);
 extern void (*const gUnk_08107C48[])(Entity*);

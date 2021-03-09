@@ -1,4 +1,5 @@
 #include "global.h"
+#include "dma.h"
 #include "functions.h"
 #include "main.h"
 #include "menu.h"
@@ -23,8 +24,8 @@ void HandleDebugTextScreen() {
 
 void sub_0805FA04(void) {
     sub_0801DA90(1);
-    MemClear32((void*)&gBG0Buffer, sizeof(BGBuffer));
-    MemClear32((void*)&gBG3Buffer, 0x1000);
+    MemClear(&gBG0Buffer, sizeof(BGBuffer));
+    MemClear(&gBG3Buffer, 0x1000);
     gScreen.lcd.displayControl = 0x940;
     gScreen.bg.bg0xOffset = 0;
     gScreen.bg.bg0yOffset = 0;
@@ -33,8 +34,8 @@ void sub_0805FA04(void) {
     gScreen.affine.bg3Control = 0x1e0f;
     gScreen.affine.bg3Updated = 1;
     MessageInitialize();
-    MemClear32((void*)&gUnk_02032EC0, sizeof(UI));
-    MemClear32((void*)&gMenu, sizeof(Menu));
+    MemClear((void*)&gUnk_02032EC0, sizeof(UI));
+    MemClear((void*)&gMenu, sizeof(Menu));
     gMenu.unk16 = gUnk_02000000->gameLanguage;
     sub_08053320();
     sub_0801D79C(0, 0x1144);

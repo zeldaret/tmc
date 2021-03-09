@@ -4,8 +4,9 @@
 #include "screen.h"
 #include "structures.h"
 #include "greatFairy.h"
-#include "functions.h"
+#include "flags.h"
 #include "save.h"
+#include "functions.h"
 
 enum {
     BEHAVIORS,

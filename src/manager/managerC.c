@@ -40,12 +40,9 @@ void sub_08058A04(ManagerC*);
 void sub_080588F8(ManagerC*);
 u32 sub_08058B08(ManagerC*, u32, u32, const struct_08108228*);
 void sub_08058B5C(ManagerC*, u32);
-void sub_08058D34(void);
 
 extern void sub_0805622C(struct BgAffineDstData*, u32, u32);
-extern void sub_08052D74(void*, void*, void*);
 extern void sub_080044AE(Entity*, u32, u32);
-extern void MemCopy(const void* src, void* dest, u32 size);
 
 extern u8 gUnk_03003DE4[0xC];
 
@@ -88,7 +85,7 @@ void sub_080588CC(ManagerC* this) {
 void nullsub_108(ManagerC* this) {
 }
 
-#define ABS_DIFF_GT(a, b, c) (signed)a - b >= 0 ? a - b > c : b - a > c
+#define ABS_DIFF_GT(a, b, c) ((signed)(a) - (b) >= 0 ? (a) - (b) > (c) : (b) - (a) > (c))
 
 void sub_080588F8(ManagerC* this) {
     if (this->manager.unk_0f == 0) {

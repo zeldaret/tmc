@@ -17,8 +17,6 @@ void sub_08057EFC();
 void sub_08058034(void);
 void sub_08058084(u16*, u16*);
 
-extern void sub_08052D74(void*, void*, void*);
-
 extern u16 gMapDataTopSpecial[];
 
 void sub_08057ED0(Manager8* this) {

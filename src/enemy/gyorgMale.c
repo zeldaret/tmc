@@ -26,7 +26,6 @@ const u8 gUnk_080D1C44[0xC];
 const u16 gUnk_080D1C50[8];
 const u16 gUnk_080D1C60[8];
 
-void GyorgMale(Entity*);
 void sub_08046898(Entity*); // action 0
 void sub_08046910(Entity*); // action 1
 void sub_08046930(Entity*); // action 1 previousActionFlag 0

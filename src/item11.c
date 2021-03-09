@@ -1,11 +1,10 @@
 #include "global.h"
 #include "entity.h"
 #include "player.h"
+#include "functions.h"
 
-extern void DeleteThisEntity();
 extern void sub_08078CD0(Entity*);
 extern void sub_08018FA0(Entity*);
-extern u32 sub_0801766C(Entity*);
 extern void sub_08018F6C(Entity*);
 
 extern void (*const gUnk_080B3DD0[])(Entity*);

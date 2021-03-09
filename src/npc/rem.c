@@ -3,8 +3,6 @@
 #include "entity.h"
 #include "script.h"
 
-extern void sub_0807DDE4(Entity*);
-extern void SoundReq(u32);
 extern void sub_0806A8C8(Entity*);
 
 extern void (*gUnk_08112260[])(Entity*);

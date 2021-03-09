@@ -1,8 +1,6 @@
 #include "entity.h"
 #include "global.h"
-
-extern Entity* GetEmptyEntity();
-extern void AppendEntityToList(Entity*, u8);
+#include "functions.h"
 
 Entity* CreateEnemy(u32 subtype, u32 form) {
     Entity* enemy;

@@ -7,10 +7,9 @@
 #include "textbox.h"
 #include "npc.h"
 #include "structures.h"
+#include "functions.h"
 
-extern void sub_0807DD50(Entity*);
 extern void sub_0807DD94(Entity*, u32);
-extern void EnqueueSFX(u32);
 
 void Carlov(Entity* this) {
     if (this->action == 0) {

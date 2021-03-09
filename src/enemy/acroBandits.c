@@ -4,7 +4,6 @@
 
 extern u32 sub_080002D4(s32, s32, u32);
 extern s32 sub_080012DC(Entity*);
-extern u32 sub_080044EC(Entity*, u32);
 extern u32 sub_08031E04(Entity*);
 extern void sub_08031E48(Entity*, Entity*);
 extern void sub_08032290(Entity*);
@@ -12,10 +11,7 @@ extern u32 sub_080322A4(Entity*);
 void sub_080322E8(Entity*);
 extern void sub_08032338(Entity*);
 extern Entity* sub_08049DF4(u32);
-extern void sub_0804AA30(Entity*, void (*const funcs[])(Entity*));
-extern u32 sub_0806FCB8(Entity*, u32, u32, u32);
 extern u32 GetNextFunction(Entity*);
-extern void SetChildOffset(Entity*, s32, s32, s32);
 
 extern Entity* gUnk_020000B0;
 extern u8 gEntCount;

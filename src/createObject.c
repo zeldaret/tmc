@@ -1,22 +1,21 @@
 #include "global.h"
 #include "entity.h"
+#include "position.h"
 #include "room.h"
-
-extern Entity* GetEmptyEntity();
-extern void AppendEntityToList(Entity*, u8);
+#include "functions.h"
 
 Entity* CreateObject(u32 subtype, u32 form, u32 parameter) {
-    Entity* ent;
+    Entity* entity;
 
-    ent = GetEmptyEntity();
-    if (ent != NULL) {
-        ent->kind = 6;
-        ent->id = subtype;
-        ent->type = form;
-        ent->type2 = parameter;
-        AppendEntityToList(ent, 6);
+    entity = GetEmptyEntity();
+    if (entity != NULL) {
+        entity->kind = 6;
+        entity->id = subtype;
+        entity->type = form;
+        entity->type2 = parameter;
+        AppendEntityToList(entity, 6);
     }
-    return ent;
+    return entity;
 }
 
 Entity* CreateObjectWithParent(Entity* parentEnt, u32 subtype, u32 form, u32 parameter) {

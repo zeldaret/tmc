@@ -1,10 +1,8 @@
 #include "global.h"
 #include "entity.h"
+#include "enemy.h"
+#include "functions.h"
 
-extern void EnemyFunctionHandler(Entity*, void (*const funcs[])(Entity*));
-extern void SetChildOffset(Entity*, u32, u32, u32);
-extern void sub_0804A9FC(Entity*, u32);
-extern void sub_0804AA30(Entity*, void (*const funcs[][])(Entity*));
 extern void sub_0803C5F0(Entity*);
 
 extern void (*const gUnk_080CFF78[])(Entity*);
@@ -25,7 +23,7 @@ void sub_0803C198(Entity* this) {
     if (this->field_0x43 != 0) {
         sub_0804A9FC(this, 0x1c);
     }
-    sub_0804AA30(this, &gUnk_080CFF78);
+    sub_0804AA30(this, gUnk_080CFF78);
     if ((this->bitfield & 0x80) != 0) {
         sub_0803C5F0(this);
         pEVar1 = this->attachedEntity;

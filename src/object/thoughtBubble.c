@@ -1,10 +1,6 @@
 #include "global.h"
 #include "entity.h"
-
-extern void InitializeAnimation(Entity*, u32);
-extern void SoundReq(u32);
-extern void DeleteThisEntity();
-extern void GetNextFrame(Entity*);
+#include "functions.h"
 
 extern void (*const ThoughtBubble_Behaviors[])(Entity*);
 

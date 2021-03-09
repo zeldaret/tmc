@@ -1,8 +1,6 @@
 #include "global.h"
 #include "entity.h"
 
-void DeleteThisEntity();
-
 extern void (*gUnk_081208A0[])(Entity*);
 
 void Object1D(Entity* this) {

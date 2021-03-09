@@ -11,9 +11,6 @@ typedef struct {
 } struct_0806C2A0;
 
 extern void DoExitTransition(void*);
-extern void SetTileType(u32, u32, u32);
-extern void DoExitTransition(void*);
-extern void DoFade(u32, u32);
 
 extern void gUnk_0813AD60;
 extern void gUnk_0813AD74;

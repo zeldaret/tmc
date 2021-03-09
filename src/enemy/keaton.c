@@ -164,17 +164,17 @@ void sub_08032650(Entity* this) {
     sub_0803269C(this, this->direction);
 }
 
-void sub_0803269C(Entity* this, u32 param_2) {
+void sub_0803269C(Entity* this, u32 direction) {
     u32 uVar1;
 
-    if (((param_2 - 3) & 7) < 3) {
-        uVar1 = DirectionToAnimationState(param_2);
+    if (((direction - 3) & 7) < 3) {
+        uVar1 = DirectionToAnimationState(direction);
         if (((this->animationState - uVar1) & 3) > 1) {
             this->animationState = uVar1;
             InitAnimationForceUpdate(this, (this->animIndex & 0xFC) + uVar1);
         }
     } else {
-        uVar1 = DirectionToAnimationState(param_2);
+        uVar1 = DirectionToAnimationState(direction);
         if (uVar1 != this->animationState) {
             this->animationState = uVar1;
             InitAnimationForceUpdate(this, (this->animIndex & 0xFC) + uVar1);

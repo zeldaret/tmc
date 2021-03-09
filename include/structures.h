@@ -39,8 +39,7 @@ typedef struct {
     u8 field_0x4[0x4];
     bool8 transitioningOut;
     u8 transitionType; // transition when changing areas
-    u8 field_0xa;      // seems to be a tile type
-    u8 field_0xb;
+    u16 field_0xa;      // seems to be a tile type
     u8 areaID;
     u8 roomID;
     u8 playerState;

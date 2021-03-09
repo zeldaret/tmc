@@ -1,10 +1,9 @@
 #include "global.h"
 #include "room.h"
 #include "flags.h"
+#include "functions.h"
 
-void LoadRoomEntityList(EntityData* dat);
 extern void sub_0804B058(EntityData* dat);
-extern void LoadRoomTileEntities(EntityData* dat);
 extern void sub_0801AC98();
 extern u32 sub_08049D1C(u32);
 extern Entity* LoadRoomEntity(EntityData*);

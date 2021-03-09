@@ -5,7 +5,7 @@
 extern u32 PlayerInRange(Entity*, u32, u32);
 
 u32 sub_08021D00();
-void sub_08021D44(Entity* this, u32 param_2);
+void sub_08021D44(Entity* this, u32 direction);
 
 extern void (*const gUnk_080CB590[])(Entity*);
 extern void (*const gUnk_080CB5A8[])(Entity*);

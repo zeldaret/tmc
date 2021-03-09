@@ -11,7 +11,6 @@ typedef struct {
     } d;
 } Manager28;
 
-void Manager28_Entry(Manager28*);
 void Manager28_Init(Manager28*);
 void Manager28_Main(Manager28*);
 u32 Manager28_FindMatchingEntities(Manager28*);

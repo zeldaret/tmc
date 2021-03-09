@@ -6,8 +6,8 @@
 #include "sprite.h"
 #include "textbox.h"
 #include "npc.h"
-extern void sub_0807DD50();
-extern void sub_0807DD94();
+#include "script.h"
+#include "functions.h"
 
 void MoblinLady(Entity* this) {
     if (this->action == 0) {

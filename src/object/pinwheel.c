@@ -1,10 +1,9 @@
 #include "global.h"
 #include "entity.h"
+#include "flags.h"
 #include "functions.h"
 
 extern u32 ReadBit(u32*, u32);
-extern void DeleteThisEntity();
-extern u32 CheckLocalFlag(u32);
 
 extern u32 gUnk_020342F8;
 extern u16 gUnk_08125050[];

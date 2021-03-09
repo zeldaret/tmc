@@ -54,7 +54,6 @@ void DeleteThisEntity(void) {
     _call_via_r0((u32*)&_EntUpdate);
 }
 
-void DeleteEntity(Entity*);
 void DeleteManager(OtherEntity*);
 
 typedef void (*Deleter)(void*);
@@ -122,7 +121,6 @@ void ClearAllDeletedEntities(void) {
             ClearDeletedEntity(ent);
         }
     } while (ent++, ent < (&gPlayerEntity + 80));
-    return;
 }
 
 extern u8 gEntCount;
@@ -161,7 +159,7 @@ OtherEntity* GetEmptyManager(void) {
     return NULL;
 }
 
-extern void MemClear32(void*, u32);
+extern void MemClear(void*, u32);
 extern u8 gManagerCount;
 
 void DeleteManager(OtherEntity* ent) {
@@ -170,7 +168,7 @@ void DeleteManager(OtherEntity* ent) {
 
     sub_0805E92C(ent);
     UnlinkEntity(ent);
-    MemClear32(ent, sizeof(OtherEntity));
+    MemClear(ent, sizeof(OtherEntity));
     gManagerCount--;
 }
 
@@ -290,7 +288,7 @@ bool32 DoesSimilarEntityExist(Entity* ent) {
     return FALSE;
 }
 
-Entity* FindEntityInListBySubtype(int type, int subtype, int listIndex) {
+Entity* FindEntityInListBySubtype(u32 type, u32 subtype, u32 listIndex) {
     Entity* it;
     LinkedList* list;
 
@@ -302,7 +300,7 @@ Entity* FindEntityInListBySubtype(int type, int subtype, int listIndex) {
     return NULL;
 }
 
-Entity* FindEntityInListByForm(int type, int subtype, int listIndex, int form, int parameter) {
+Entity* FindEntityInListByForm(u32 type, u32 subtype, u32 listIndex, u32 form, u32 parameter) {
     Entity* i;
     LinkedList* list;
 

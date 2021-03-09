@@ -136,8 +136,6 @@ void sub_080447E0(Entity* this) {
     }
 }
 
-extern u32 sub_080045B4();
-extern u32 sub_0806FCB8(Entity*, u32, u32, u32);
 extern void sub_08044DEC();
 
 void sub_08044868(Entity* this) {

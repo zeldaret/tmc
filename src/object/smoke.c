@@ -2,8 +2,6 @@
 #include "entity.h"
 #include "functions.h"
 
-extern void sub_0806F69C(Entity*);
-
 extern void (*const gUnk_08121060[])(Entity*);
 extern void (*const gUnk_08121070[])(Entity*);
 

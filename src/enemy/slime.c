@@ -16,10 +16,7 @@ typedef struct {
 void sub_08044FF8(Entity*);
 void sub_08045178(Entity*, Entity*, int, int);
 
-extern void sub_0804A720(Entity*);
 extern u32 sub_0806FA04(u32, u32);
-extern u32 sub_08049FA0(Entity*);
-extern u32 sub_08049EE4(Entity*);
 extern void sub_0804A4E4(Entity*, Entity*);
 extern u32 sub_080002CC(Entity*, s32, s32);
 

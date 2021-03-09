@@ -10,23 +10,11 @@
 #include "script.h"
 
 extern void sub_08060528(Entity*);
-extern void* GetCurrentRoomProperty(u32);
 extern void sub_0806EE04(Entity*, void*, u32);
 extern void sub_080604DC(Entity*);
-extern s32 sub_0806ED9C(Entity*, u32, u32);
 extern void sub_0806EE20(Entity*);
-extern u32 sub_080040A8(Entity*);
-extern u32 sub_0801E99C(Entity*);
-extern void sub_0807DD50(Entity*);
-extern void sub_0806F118(Entity*);
-extern u32 sub_0806F5A4(u32);
-extern u32 GetFacingDirection(Entity*, Entity*);
 extern void sub_080606D8(Entity*);
-extern void sub_080788E0(Entity*);
-extern void EnqueueSFX(u32);
 extern void sub_080606C0(Entity*);
-extern void sub_0800451C(Entity*);
-extern void sub_08078784(Entity*, u32);
 
 typedef struct {
     s16 x;

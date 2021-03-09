@@ -8,17 +8,8 @@
 #include "save.h"
 #include "script.h"
 
-extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
-extern void sub_0807DD50(Entity*);
 extern void sub_0806C7D4(Entity*);
-extern void sub_0806F118(Entity*);
 extern void sub_0807DD80(Entity*, u32*);
-extern u32 sub_0801E99C();
-extern void sub_08078784(Entity*, u32);
-extern void SetExtraSpriteFrame(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
-extern void sub_0807000C(Entity*);
 
 extern void (*const gUnk_08113A7C[])(Entity*);
 extern void (*const gUnk_08113A8C[])(Entity*, Entity*);

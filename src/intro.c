@@ -2,6 +2,7 @@
 #include "menu.h"
 #include "main.h"
 #include "entity.h"
+#include "dma.h"
 #include "functions.h"
 #include "readKeyInput.h"
 #include "screen.h"
@@ -55,7 +56,7 @@ static const u16 sLightRaysAlphaBlends[] = {
 static u32 AdvanceIntroSequence(u32 transition) {
     gUnk_02032EC0.lastState = transition;
     gMain.funcIndex = 2;
-    MemClear32(&gIntroState, sizeof(gIntroState));
+    MemClear(&gIntroState, sizeof(gIntroState));
     DoFade(7, 8);
 }
 
@@ -64,7 +65,7 @@ void HandleIntroScreen(void) {
     switch (gMain.funcIndex) {
         case 0:
             MessageInitialize();
-            MemClear32(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
+            MemClear(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
             AdvanceIntroSequence(0);
             break;
         case 1:
@@ -212,7 +213,6 @@ static void UpdatePressStartIcon(void) {
     gOamCmd.x = 120;
     gOamCmd.y = 152;
     sub_080ADA14(511, 1);
-    return;
 }
 
 static void UpdateSwordBgAffineData(void) {

@@ -7,10 +7,7 @@
 extern void sub_0809EB30(Entity*);
 extern void sub_0809EAD8(Entity*);
 extern void sub_0809EABC(Entity*);
-extern void EnqueueSFX(u32);
 extern void sub_080A2CC0(Entity*, Entity**, u16*);
-extern void SetTile(u32, u32, u32);
-extern void sub_0806F69C(Entity*);
 
 extern void (*const gUnk_081243B4[])(Entity*);
 extern void (*const gUnk_081243BC[])(Entity*);

@@ -2,13 +2,12 @@
 #include "entity.h"
 #include "room.h"
 #include "flags.h"
+#include "functions.h"
 
 extern u32* GetLayerByIndex(u32);
 extern void sub_08085394(Entity*);
 extern void sub_0808543C(Entity*);
-extern void EnqueueSFX(u32);
 extern u32 sub_080854A8(Entity*);
-extern void SetTile(u32, u32, u32);
 
 extern void (*const gUnk_081205D0[])(Entity*);
 

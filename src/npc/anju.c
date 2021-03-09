@@ -6,14 +6,8 @@
 #include "sprite.h"
 #include "textbox.h"
 #include "npc.h"
-
-extern void sub_0805E3A0(Entity*, u32);
-extern void sub_0807DD50(Entity*);
-extern u32 sub_0806F5A4(u32);
-extern void sub_0806F118(Entity*);
-extern void sub_0807DD94(Entity*, u32);
-extern u32 sub_0801E99C(void);
-extern void sub_08078784(Entity*, u32);
+#include "script.h"
+#include "functions.h"
 
 void Anju(Entity* this) {
     switch (this->action) {
@@ -43,7 +37,7 @@ void Anju(Entity* this) {
 }
 
 void sub_0806C354(Entity* this) {
-    this->field_0x68.HALF.LO = sub_0801E99C();
+    this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_08078784(this, this->field_0x68.HALF.LO);
 }
 
