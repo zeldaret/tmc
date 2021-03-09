@@ -23,12 +23,10 @@ extern u32 sub_0806F5A4(u32);
 extern void sub_0806EE20(Entity*);
 extern void sub_08064428(Entity*);
 extern u32 sub_0805ACC0(Entity*);
-extern void sub_0807DDE4(Entity*);
 extern void sub_0807000C(Entity*);
 extern void sub_0806EE04(Entity*, void*, u32);
 extern Entity* sub_080A7EE0(int);
 extern void sub_08078778(Entity*);
-extern void sub_0807DD64(Entity*);
 void sub_08063DC8(Entity*);
 void sub_08063F20(Entity*);
 
@@ -155,8 +153,8 @@ void sub_08063E90(Entity* this) {
 }
 
 void sub_08063F20(Entity* this) {
-    sub_0807DDAC(this, 0);
-    sub_0807DDE4(this);
+    ExecuteScriptForEntity(this, 0);
+    HandleEntity0x82Actions(this);
     GetNextFrame(this);
     if (this->interactType != 0) {
         this->action++;

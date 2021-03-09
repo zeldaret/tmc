@@ -1,45 +1,45 @@
 SCRIPT_START script_080094FC
 	BeginBlock 
 	Call sub_08067100
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	EndBlock 
 script_08009512:
 	CheckEntityInteractType 
 	JumpIfNot script_08009512
 	_0807E864 
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	_0807EB74 
 	Call sub_080670B4
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Jump script_08009512
 	.short 0x0000
 	BeginBlock 
 	Call sub_08067100
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	EndBlock 
 script_0800954E:
 	CheckEntityInteractType 
 	JumpIfNot script_0800954E
 	_0807E864 
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	_0807EB74 
 	Call sub_080670E4
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Jump script_0800954E
 	.short 0x0000
 	BeginBlock 
 	Call sub_08067314
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	SetIntVariable 0x00000000
 	Call sub_080672B0
@@ -62,12 +62,12 @@ script_08009592:
 	.short 0x0000
 	BeginBlock 
 	Call sub_0806BE3C
-	_0807EF80 0x000a
-	_0807EF80 0x0007
+	DoPostScriptAction 0x000a
+	DoPostScriptAction 0x0007
 	EndBlock 
 script_080095DE:
 	Call sub_0806BF44
 	JumpIf script_080095F2
-	_0807EF80 0x000b
-	_0807EF80 0x0006
+	DoPostScriptAction 0x000b
+	DoPostScriptAction 0x0006
 SCRIPT_END

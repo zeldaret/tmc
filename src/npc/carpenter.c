@@ -8,10 +8,8 @@ extern void DeleteThisEntity();
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 extern SpriteLoadData gUnk_08110CA8[];
 extern void sub_0805E3A0(Entity*, u32);
-extern void sub_0807DD64(Entity*);
 extern u32 GetFacingDirection(Entity*, Entity*);
 extern void sub_0806F118(Entity*);
-extern void sub_0807DDE4(Entity*);
 extern u32 UpdateFuseInteraction(Entity*);
 extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
 extern void sub_0807000C(Entity*);
@@ -39,8 +37,8 @@ void Carpenter(Entity* this) {
                                     sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 4 + (this->type * 8));
                 sub_0806F118(this);
             } else {
-                sub_0807DDAC(this, 0);
-                sub_0807DDE4(this);
+                ExecuteScriptForEntity(this, 0);
+                HandleEntity0x82Actions(this);
                 GetNextFrame(this);
             }
             break;

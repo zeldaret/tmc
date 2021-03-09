@@ -12,8 +12,6 @@ extern Entity* CreateFx(Entity*, u32, u32);
 extern void SoundReq(u32);
 extern void sub_0807000C(Entity*);
 extern u32 sub_0801E99C(Entity*);
-extern void sub_0807DD50(Entity*);
-extern void sub_0807DDE4(Entity*);
 extern u32 UpdateFuseInteraction(Entity*);
 extern u32 GetAnimationState(Entity*);
 extern void sub_08078850(Entity*, u32, u32, u32*);
@@ -135,8 +133,8 @@ void sub_080661BC(Entity* this) {
 }
 
 void sub_08066200(Entity* this) {
-    sub_0807DDAC(this, NULL);
-    sub_0807DDE4(this);
+    ExecuteScriptForEntity(this, NULL);
+    HandleEntity0x82Actions(this);
     UpdateAnimationSingleFrame(this);
 }
 

@@ -22,7 +22,7 @@ Stockwell: @ 0x08065054
 	adds r0, #0x84
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl ExecuteScriptCommandSet
+	bl ExecuteScript
 	adds r0, r4, #0
 	bl sub_0806ED78
 	pop {r4, pc}
@@ -84,7 +84,7 @@ sub_080650CC: @ 0x080650CC
 	adds r0, #0x84
 	ldr r0, [r0]
 	ldr r1, _080650FC @ =script_080143C0
-	bl sub_0807DB88
+	bl InitScriptExecutionContext
 	b _080651A6
 	.align 2, 0
 _080650F8: .4byte gRoomVars
@@ -124,7 +124,7 @@ _0806513C:
 	bl GetSaleItemConfirmMessageID
 	adds r7, r0, #0
 	ldrb r0, [r6, #6]
-	bl sub_08053FE0
+	bl GetItemPrice
 	mov r8, r0
 	movs r0, #4
 	strb r0, [r5, #0xc]
@@ -133,7 +133,7 @@ _0806513C:
 	adds r0, #0x84
 	ldr r0, [r0]
 	ldr r1, _08065174 @ =script_08014384
-	bl sub_0807DB88
+	bl InitScriptExecutionContext
 _0806515E:
 	adds r0, r7, #0
 	adds r1, r5, #0
@@ -529,7 +529,7 @@ _0806543C:
 	cmp r6, #0
 	beq _080654C8
 	adds r0, r5, #0
-	bl sub_08053FE0
+	bl GetItemPrice
 	adds r6, r0, #0
 	ldr r7, _08065494 @ =gSave
 	adds r0, r7, #0

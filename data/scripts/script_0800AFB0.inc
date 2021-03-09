@@ -13,6 +13,6 @@ script_0800AFB2:
 	SetLocalFlagByOffset 0x0100, 0x0004
 	Call sub_0807DF50
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

@@ -1,8 +1,8 @@
 SCRIPT_START script_0800A160
 	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
-	_0807EF80 0x0007
-	_0807EF80 0x000b
+	DoPostScriptAction 0x0007
+	DoPostScriptAction 0x000b
 	_0807E930 0x0002
 	SetEntityPositionRelative 0x00b0, 0x0080
 	CallWithArg sub_0807F98C, 0xff800000

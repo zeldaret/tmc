@@ -1,7 +1,7 @@
 SCRIPT_START script_0800C550
 	BeginBlock 
 	Call sub_08060090
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800C55E:
 	BeginBlock 
@@ -19,7 +19,7 @@ script_0800C572:
 	Jump script_0800C55E
 	BeginBlock 
 	Call sub_08060090
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800C592:
 	BeginBlock 
@@ -43,7 +43,7 @@ script_0800C5C0:
 	Jump script_0800C592
 	BeginBlock 
 	Call sub_08060090
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800C5D6:
 	BeginBlock 
@@ -62,7 +62,7 @@ script_0800C5EA:
 	BeginBlock 
 script_0800C5FE:
 	Call sub_08060090
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800C60A:
 	BeginBlock 
@@ -80,7 +80,7 @@ script_0800C61E:
 	_0807E878 
 	Jump script_0800C60A
 	BeginBlock 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	SetEntityNonPlanarMovement 0x0080
 	_0807EB44 0x0004
 	CheckLocalFlag 0x0082
@@ -96,20 +96,20 @@ script_0800C652:
 	JumpIf script_0800C684
 	CheckPlayerInRegion 0x00e8, 0x0028, 0x1810
 	JumpIfNot script_0800C674
-	_0807EF80 0x000b
+	DoPostScriptAction 0x000b
 script_0800C674:
 	StartPlayerScript script_0800C8C8
 	WaitForSomething2 0x00000001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 script_0800C684:
 	CheckInventory1 0x0040
 	JumpIf script_0800C730
 	CheckInventory1 0x005b
 	JumpIf script_0800C6B6
-	_0807EF80 0x0002
+	DoPostScriptAction 0x0002
 	TextboxNoOverlapFollow 0x1f16
 	_0807EA94 
-	_0807EF80 0x0015
+	DoPostScriptAction 0x0015
 	Wait 0x000a
 	SetLocalFlag 0x0080
 	Call sub_0807DF50
@@ -118,10 +118,10 @@ script_0800C684:
 script_0800C6B6:
 	CheckLocalFlag 0x0081
 	JumpIf script_0800C6DC
-	_0807EF80 0x0002
+	DoPostScriptAction 0x0002
 	TextboxNoOverlapFollow 0x1f1b
 	_0807EA94 
-	_0807EF80 0x0015
+	DoPostScriptAction 0x0015
 	Wait 0x000a
 	Call sub_0807DF50
 	_0807E878 
@@ -129,23 +129,23 @@ script_0800C6B6:
 script_0800C6DC:
 	CheckLocalFlag 0x0082
 	JumpIf script_0800C712
-	_0807EF80 0x0002
+	DoPostScriptAction 0x0002
 	TextboxNoOverlapFollow 0x1f17
 	_0807EA94 
-	_0807EF80 0x0015
+	DoPostScriptAction 0x0015
 	Wait 0x000a
 	_0807EB44 0x0002
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	_0807EC94 0x0020
 	_0807EB44 0x0004
 	Wait 0x000f
 	SoundReq 0x0072
 	SetLocalFlag 0x0082
 script_0800C712:
-	_0807EF80 0x0002
+	DoPostScriptAction 0x0002
 	TextboxNoOverlapFollow 0x1f18
 	_0807EA94 
-	_0807EF80 0x0015
+	DoPostScriptAction 0x0015
 	Wait 0x000a
 	Call sub_0807DF50
 	_0807E878 
@@ -153,25 +153,25 @@ script_0800C712:
 script_0800C730:
 	CheckLocalFlag 0x0083
 	JumpIf script_0800C756
-	_0807EF80 0x0002
+	DoPostScriptAction 0x0002
 	TextboxNoOverlapFollow 0x1f19
 	_0807EA94 
-	_0807EF80 0x0015
+	DoPostScriptAction 0x0015
 	Wait 0x000a
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800C652
 script_0800C756:
-	_0807EF80 0x0002
+	DoPostScriptAction 0x0002
 	TextboxNoOverlapFollow 0x1f1a
 	_0807EA94 
-	_0807EF80 0x0015
+	DoPostScriptAction 0x0015
 	Wait 0x000a
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800C652
 	BeginBlock 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	EndBlock 
 script_0800C780:
@@ -187,7 +187,7 @@ script_0800C780:
 	_0807E930 0x0008
 	TextboxNoOverlapFollow 0x2122
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800C780
@@ -207,7 +207,7 @@ script_0800C7C0:
 	TextboxNoOverlapFollow 0x1133
 	_0807EA94 
 	Wait 0x000a
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	SetLocalFlag 0x0081
 	Call sub_0807DF50
 	_0807E878 
@@ -228,7 +228,7 @@ script_0800C824:
 	_0807EA94 
 	SetEntityNonPlanarMovement 0x0040
 	_0807EDD4 0x0038, 0x0044
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Wait 0x000f
 	SetLocalFlag 0x0083
 	Wait 0x003c
@@ -242,7 +242,7 @@ script_0800C824:
 	_0807EA94 
 	Wait 0x000a
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Call sub_0807DF50
 	_0807E878 
 script_0800C87C:
@@ -255,7 +255,7 @@ script_0800C87C:
 	TextboxNoOverlapFollow 0x1136
 	_0807EA94 
 	Wait 0x000a
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800C87C
@@ -263,7 +263,7 @@ script_0800C8AE:
 	TextboxNoOverlapFollow 0x1136
 	_0807EA94 
 	Wait 0x000a
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800C780

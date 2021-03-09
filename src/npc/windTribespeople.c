@@ -9,10 +9,8 @@
 #include "script.h"
 
 extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
-extern void sub_0807DD50(Entity*);
 extern void sub_0806C7D4(Entity*);
 extern void sub_0806F118(Entity*);
-extern void sub_0807DD80(Entity*, u32*);
 extern u32 sub_0801E99C();
 extern void sub_08078784(Entity*, u32);
 extern void SetExtraSpriteFrame(Entity*, u32, u32);
@@ -24,7 +22,7 @@ extern void (*const gUnk_08113A7C[])(Entity*);
 extern void (*const gUnk_08113A8C[])(Entity*, ScriptExecutionContext*);
 
 extern SpriteLoadData gUnk_08113A1C[];
-extern u32 script_08014A80;
+extern u16 script_08014A80;
 extern Dialog gUnk_08113ABC[];
 extern u16 gUnk_08113B0C[];
 

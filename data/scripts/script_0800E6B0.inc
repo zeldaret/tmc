@@ -1,7 +1,7 @@
 SCRIPT_START script_0800E6B0
 	BeginBlock 
 	Call sub_08060090
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800E6BE:
 	BeginBlock 
@@ -20,7 +20,7 @@ script_0800E6D2:
 	Jump script_0800E6BE
 	BeginBlock 
 	Call sub_0806ADFC
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 script_0800E6F4:
 	EndBlock 
 	BeginBlock 
@@ -47,7 +47,7 @@ script_0800E722:
 	.short 0x0000
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800E73E:
 	CheckEntityInteractType 
@@ -61,7 +61,7 @@ script_0800E73E:
 	Jump script_0800E73E
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	SetEntityNonPlanarMovement 0x0200
 	CheckGlobalFlag 0x0029
 	JumpIfNot script_0800E77C
@@ -90,7 +90,7 @@ script_0800E7A4:
 	_0807E878 
 	Jump script_0800E788
 script_0800E7BA:
-	_0807EF80 0x000f
+	DoPostScriptAction 0x000f
 	_0807EB44 0x0002
 	CallWithArg sub_0806AF60, 0x00000004
 	Call sub_0806AF70
@@ -107,7 +107,7 @@ script_0800E7D8:
 	Jump script_0800E6F4
 	BeginBlock 
 	Call sub_0806C674
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	EndBlock 
 script_0800E806:
@@ -123,7 +123,7 @@ script_0800E806:
 	.short 0x0000
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0000
 	EndBlock 
 script_0800E832:

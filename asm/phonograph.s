@@ -36,9 +36,9 @@ Phonograph: @ 0x0806E91C
 _0806E950:
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r5, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	pop {r4, r5, pc}
 	.align 2, 0
 _0806E960: .4byte 0x0000FFFF

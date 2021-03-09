@@ -3,7 +3,7 @@ SCRIPT_START script_08014450
 	_0807E9D4 
 	_0807EB44 0x0000
 	SetEntityNonPlanarMovement 0x01c0
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08014462:
 	_0807E30C 
@@ -17,9 +17,9 @@ script_08014462:
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_080144F0
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Wait 0x008c
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	HasRupees 0x000a
 	JumpIf script_080144A2
 	TextboxNoOverlapFollow 0x4204

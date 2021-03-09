@@ -1,15 +1,15 @@
 SCRIPT_START script_08011B40
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	EndBlock 
 	CheckGlobalFlag 0x0050
 	JumpIfNot script_08011B84
 	WaitForSomething2 0x00000004
 	_0807EB44 0x0006
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x003c
 	_0807EB8C 
 	TextboxNoOverlap 0x3d07
@@ -34,7 +34,7 @@ script_08011B9A:
 script_08011BA4:
 	HasRupees 0x000a
 	JumpIf script_08011BBC
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x003c
 	TextboxNoOverlap 0x3d05
 	Jump script_08011B9A

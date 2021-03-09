@@ -1,7 +1,7 @@
 SCRIPT_START script_0800D874
 	BeginBlock 
 	Call sub_0807F934
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	SetIntVariable 0x00000001
 	Call sub_0806DA04
 	EndBlock 
@@ -32,7 +32,7 @@ script_0800D8D6:
 	Jump script_0800D88E
 	.short 0x0000
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	CheckInventory1 0x0017
 	JumpIf script_0800D924
 	EndBlock 
@@ -50,6 +50,6 @@ script_0800D8F4:
 	_0807E878 
 	Call sub_0807DF50
 script_0800D924:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

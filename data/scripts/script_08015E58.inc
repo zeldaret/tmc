@@ -1,40 +1,40 @@
 SCRIPT_START script_08015E58
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	_0807EB44 0x0004
-	_0807EF80 0x0000
-	_0807EF80 0x001d
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x001d
 	EndBlock 
 	WaitForSomething2 0x00000010
 	Call sub_08066C94
 	Wait 0x00e9
-	_0807EF80 0x0007
-	_0807EF80 0x001e
+	DoPostScriptAction 0x0007
+	DoPostScriptAction 0x001e
 	Wait 0x0014
 	_0807EB44 0x0000
-	_0807EF80 0x001c
+	DoPostScriptAction 0x001c
 	Call sub_0807F2D4
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
 	Call sub_08066CA4
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	Wait 0x00bc
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
 	SetEntityPositionRelative 0x0088, 0x0068
 	Call sub_08066C94
 	Wait 0x00e8
-	_0807EF80 0x0007
-	_0807EF80 0x001e
+	DoPostScriptAction 0x0007
+	DoPostScriptAction 0x001e
 	Wait 0x0014
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
-	_0807EF80 0x0014
+	DoPostScriptAction 0x0014
 	Wait 0x001e
 	TextboxNoOverlap 0x131b
 	_0807EA94 
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

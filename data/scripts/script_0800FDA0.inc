@@ -1,8 +1,8 @@
 SCRIPT_START script_0800FDA0
 	BeginBlock 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x000a
 	_0807E9D4 
 	EndBlock 
 script_0800FDB2:
@@ -17,8 +17,8 @@ script_0800FDB2:
 	.short 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x000a
 	_0807E9D4 
 	SetEntityNonPlanarMovement 0x0040
 	EndBlock 
@@ -37,24 +37,24 @@ script_0800FDEE:
 script_0800FE06:
 	EndBlock 
 	_0807EB44 0x0002
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Wait 0x001e
 	_0807EB44 0x0006
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Wait 0x001e
 	_0807EB44 0x0002
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Wait 0x001e
 	_0807EB44 0x0006
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Wait 0x003c
 	Call sub_08069A3C
 	Jump script_0800FDE8
 	.short 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x000a
 	_0807E9D4 
 	SetEntityNonPlanarMovement 0x0040
 	EndBlock 
@@ -73,16 +73,16 @@ script_0800FE66:
 script_0800FE7E:
 	EndBlock 
 	_0807EB44 0x0002
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Wait 0x001e
 	_0807EB44 0x0006
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Wait 0x001e
 	_0807EB44 0x0002
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Wait 0x001e
 	_0807EB44 0x0006
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Wait 0x003c
 	Call sub_08069A84
 	Jump script_0800FE60
@@ -97,7 +97,7 @@ script_0800FE7E:
 script_0800FED8:
 	EndBlock 
 	BeginBlock 
-	_0807EF80 0x000b
+	DoPostScriptAction 0x000b
 	Call sub_080642B8
 	CheckEntityInteractType 
 	JumpIfNot script_0800FED8
@@ -111,6 +111,6 @@ script_0800FED8:
 	_0807E878 
 	Jump script_0800FED8
 script_0800FF0E:
-	_0807EF80 0x0008
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0008
+	DoPostScriptAction 0x0006
 SCRIPT_END

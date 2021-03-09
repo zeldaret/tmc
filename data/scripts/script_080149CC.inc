@@ -2,7 +2,7 @@ SCRIPT_START script_080149CC
 	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
 	Call sub_0806C870
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_080149DE:
 	_0807E30C 
@@ -16,20 +16,20 @@ script_080149DE:
 	CheckLocalFlag 0x00b1
 	JumpIf script_08014A20
 	SetLocalFlag 0x00b1
-	_0807EF80 0x000b
-	_0807EF80 0x0001
+	DoPostScriptAction 0x000b
+	DoPostScriptAction 0x0001
 	_0807EDD4 0x0068, 0x00f8
 	SoundReq 0x0072
 	_0807EB74 
-	_0807EF80 0x0000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x000a
 script_08014A20:
 	_0807E878 
 	Jump script_080149DE
 	.short 0x0000
 	BeginBlock 
 	Call sub_0806C870
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08014A36:
 	_0807E30C 
@@ -44,7 +44,7 @@ script_08014A36:
 	.short 0x0000
 	BeginBlock 
 	Call sub_0806C870
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08014A62:
 	_0807E30C 

@@ -109,8 +109,8 @@ void sub_08063410(Entity* this) {
     if (this->type != 0) {
         sub_0806346C(this);
     }
-    sub_0807DDAC(this, NULL);
-    sub_0807DDE4(this);
+    ExecuteScriptForEntity(this, NULL);
+    HandleEntity0x82Actions(this);
     GetNextFrame(this);
 }
 

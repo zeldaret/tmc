@@ -10,6 +10,6 @@ script_080094EA:
 	_0807EE30 
 	JumpIfNot script_080094EA
 	Wait 0x001e
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

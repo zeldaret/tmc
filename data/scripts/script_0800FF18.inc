@@ -9,7 +9,7 @@ SCRIPT_START script_0800FF18
 script_0800FF34:
 	EndBlock 
 	BeginBlock 
-	_0807EF80 0x000b
+	DoPostScriptAction 0x000b
 	Call sub_08064198
 	CheckEntityInteractType 
 	JumpIfNot script_0800FF34
@@ -23,6 +23,6 @@ script_0800FF34:
 	_0807E878 
 	Jump script_0800FF34
 script_0800FF6A:
-	_0807EF80 0x0008
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0008
+	DoPostScriptAction 0x0006
 SCRIPT_END

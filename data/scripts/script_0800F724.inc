@@ -1,11 +1,11 @@
 SCRIPT_START script_0800F724
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	EndBlock 
 script_0800F72C:
 	CheckLocalFlag 0x00cd
 	JumpIfNot script_0800F72C
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	Jump script_0800F584
 	CheckLocalFlag 0x00cd
 	JumpIf script_0800FA4C
@@ -171,6 +171,6 @@ script_0800F72C:
 	Call sub_0807DF50
 	_0807E878 
 script_0800FA4C:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

@@ -1,11 +1,11 @@
 SCRIPT_START script_0800D254
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	EndBlock 
 	WaitForSomething2 0x00000020
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	WaitForSomething2 0x00000020
-	_0807EF80 0x0008
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0008
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

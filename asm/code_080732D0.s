@@ -3501,7 +3501,7 @@ sub_08074CF8: @ 0x08074CF8
 	adds r4, r5, #0
 	adds r4, #0x84
 	ldr r1, [r4]
-	bl ExecuteScriptCommandSet
+	bl ExecuteScript
 	ldr r1, [r4]
 	adds r0, r5, #0
 	bl sub_08074D34
@@ -3818,7 +3818,7 @@ sub_08074F2C: @ 0x08074F2C
 	adds r5, r4, #0
 	adds r5, #0x84
 	ldr r1, [r5]
-	bl ExecuteScriptCommandSet
+	bl ExecuteScript
 	ldr r1, [r5]
 	adds r0, r4, #0
 	bl sub_08074D34

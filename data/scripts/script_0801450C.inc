@@ -3,7 +3,7 @@ SCRIPT_START script_0801450C
 	_0807E9D4 
 	_0807EB44 0x0000
 	SetEntityNonPlanarMovement 0x01c0
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 	_0807E864 
 	Call sub_0807DF28

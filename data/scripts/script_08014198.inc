@@ -1,6 +1,6 @@
 SCRIPT_START script_08014198
 	BeginBlock 
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	_0807E930 0x0007
 	SetEntityPosition 0x0000, 0xfff0
 	EndBlock 
@@ -12,6 +12,6 @@ SCRIPT_START script_08014198
 	WaitForSomething 0x00000020
 	_0807E930 0x0013
 	Call sub_0807F2D4
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

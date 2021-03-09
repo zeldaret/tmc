@@ -334,7 +334,7 @@ _08034ED6:
 sub_08034ED8: @ 0x08034ED8
 	push {lr}
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	pop {pc}
 	.align 2, 0
 
@@ -389,7 +389,7 @@ sub_08034EE4: @ 0x08034EE4
 _08034F46:
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	pop {r4, r5, pc}
 	.align 2, 0
 _08034F50: .4byte gUnk_080CEEC8

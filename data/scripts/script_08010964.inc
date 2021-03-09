@@ -37,5 +37,5 @@ script_080109DE:
 	_0807E878 
 	Jump script_080109A0
 script_080109EA:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -1,13 +1,13 @@
 SCRIPT_START script_0800F184
 	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
-	_0807EF80 0x0008
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0008
+	DoPostScriptAction 0x000a
 	EndBlock 
 	Call sub_0807F348
 	_0807EB44 0x0002
 	WaitForSomething2 0x00000002
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	_0807EDD4 0x01b8, 0x0328
 	_0807E5F8 0x00000040
 	_0807EDD4 0x01f8, 0x0328
@@ -30,7 +30,7 @@ script_0800F1E6:
 	Call sub_0807F9A4
 	_0807EB74 
 	_0807E930 0x0008
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x003c
 	TextboxNoOverlapFollowPos 0x1206, 0x000c
 	_0807EA94 
@@ -46,7 +46,7 @@ script_0800F22A:
 	Call sub_0807F9A4
 	_0807EB74 
 	_0807E930 0x0008
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x003c
 	TextboxNoOverlapFollowPos 0x1206, 0x000c
 	_0807EA94 
@@ -62,7 +62,7 @@ script_0800F26A:
 	Call sub_0807F9A4
 	_0807EB74 
 	_0807E930 0x0008
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x003c
 	TextboxNoOverlapFollowPos 0x1206, 0x000c
 	_0807EA94 
@@ -78,7 +78,7 @@ script_0800F2AA:
 	Call sub_0807F9A4
 	_0807EB74 
 	_0807E930 0x0008
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x003c
 	TextboxNoOverlapFollowPos 0x1206, 0x000c
 	_0807EA94 
@@ -109,5 +109,5 @@ script_0800F314:
 	_0807EB44 0x0002
 	_0807EEF4 0x00c0, 0x0000
 	_0807E5F8 0x00000040
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

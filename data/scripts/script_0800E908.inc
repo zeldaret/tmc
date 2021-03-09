@@ -11,7 +11,7 @@ script_0800E914:
 	Jump script_0800E832
 	BeginBlock 
 	Call sub_0806C4F8
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0000
 	EndBlock 
 script_0800E932:
@@ -31,7 +31,7 @@ script_0800E942:
 	Jump script_0800E932
 	.short 0x0000
 	BeginBlock 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0000
 	EndBlock 
@@ -45,10 +45,10 @@ script_0800E974:
 	Call sub_0806B260
 	JumpIfNot script_0800E9E4
 	_0807EA94 
-	_0807EF80 0x000b
+	DoPostScriptAction 0x000b
 	StartPlayerScript script_0800E9F4
 	WaitForSomething2 0x00000001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	TextboxNoOverlapFollow 0x4a24
 	_0807EA94 
 	_0807E930 0x000a

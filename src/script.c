@@ -8,8 +8,8 @@
 #include "functions.h"
 #include "save.h"
 
-void sub_0807DAF0(Entity*, ScriptExecutionContext*, u16*);
-void sub_0807DB88(ScriptExecutionContext*, u16*);
+void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
+void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
 void sub_0807DE80(Entity*);
 void sub_0807DF38(void);
 void ScriptCommandNop(Entity* entity, ScriptExecutionContext* context);
@@ -132,8 +132,8 @@ void ScriptCommand_0807EE30(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EEB4(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EEF4(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EF3C(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EF80(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EF90(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_DoPostScriptAction(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_DoPostScriptAction2(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SoundReq(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SoundReq2(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SoundReq3(Entity* entity, ScriptExecutionContext* context);
@@ -278,8 +278,8 @@ const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
                                           ScriptCommand_0807EEB4,
                                           ScriptCommand_0807EEF4,
                                           ScriptCommand_0807EF3C,
-                                          ScriptCommand_0807EF80,
-                                          ScriptCommand_0807EF90,
+                                          ScriptCommand_DoPostScriptAction,
+                                          ScriptCommand_DoPostScriptAction2,
                                           ScriptCommand_SoundReq,
                                           ScriptCommand_SoundReq2,
                                           ScriptCommand_SoundReq3,
@@ -303,7 +303,7 @@ extern u8 gUnk_0811E510[];
 extern ScriptExecutionContext gPlayerScriptExecutionContext;
 extern ScriptExecutionContext gScriptExecutionContextArray[0x20];
 
-void sub_0807DA70(void) {
+void InitScriptData(void) {
     MemClear32(&gActiveScriptInfo, sizeof(gActiveScriptInfo));
     MemClear32(&gScriptExecutionContextArray, sizeof(gScriptExecutionContextArray));
     MemClear32(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
@@ -327,20 +327,20 @@ void DestroyScriptExecutionContext(ScriptExecutionContext* context) {
     MemClear32(context, sizeof(ScriptExecutionContext));
 }
 
-ScriptExecutionContext* StartCutscene(Entity* entity, u16* unk_2) {
+ScriptExecutionContext* StartCutscene(Entity* entity, u16* script) {
     ScriptExecutionContext* context;
 
     context = CreateScriptExecutionContext();
     if (context) {
-        sub_0807DAF0(entity, context, unk_2);
+        InitScriptForEntity(entity, context, script);
     }
     return context;
 }
 
-void sub_0807DAF0(Entity* entity, ScriptExecutionContext* context, u16* unk1) {
+void InitScriptForEntity(Entity* entity, ScriptExecutionContext* context, u16* script) {
     entity->flags = entity->flags | 2;
     *(ScriptExecutionContext**)&entity->cutsceneBeh = context;
-    sub_0807DB88(context, unk1);
+    InitScriptExecutionContext(context, script);
 }
 
 void UnloadCutsceneData(Entity* entity) {
@@ -351,11 +351,11 @@ void UnloadCutsceneData(Entity* entity) {
     }
 }
 
-void StartPlayerScript(u16* unk1) {
+void StartPlayerScript(u16* script) {
     Entity* player;
 
     MemClear32(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
-    gPlayerScriptExecutionContext.scriptInstructionPointer = unk1;
+    gPlayerScriptExecutionContext.scriptInstructionPointer = script;
     player = &gPlayerEntity;
     *(ScriptExecutionContext**)&player->cutsceneBeh = &gPlayerScriptExecutionContext;
     gPlayerState.playerAction = 0x1c;
@@ -364,89 +364,89 @@ void StartPlayerScript(u16* unk1) {
     gPlayerState.field_0x38 = 0;
 }
 
-ScriptExecutionContext* sub_0807DB68(Entity* entity, u16* unk1) {
+ScriptExecutionContext* StartCutscene2(Entity* entity, u16* script) {
     ScriptExecutionContext* context;
 
     context = CreateScriptExecutionContext();
     if (context) {
         entity->flags |= 2;
         *(ScriptExecutionContext**)&entity->field_0x3c = context;
-        context->scriptInstructionPointer = unk1;
+        context->scriptInstructionPointer = script;
     }
     return context;
 }
 
-void sub_0807DB88(ScriptExecutionContext* context, u16* unk1) {
+void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script) {
     MemClear32(context, sizeof(ScriptExecutionContext));
-    context->scriptInstructionPointer = unk1;
+    context->scriptInstructionPointer = script;
 }
 
-void sub_0807DB98(Entity* entity, ScriptExecutionContext* context) {
-    u32 switchVar;
-
-    while (context->unk_08) {
-        switchVar = (~context->unk_08 + 1) & context->unk_08;
-        context->unk_08 ^= switchVar;
-        switch (switchVar) {
-            case 1:
+void HandlePostScriptActions(Entity* entity, ScriptExecutionContext* context) {
+    u32 bit;
+    // iterate over bits of context->postScriptActions, LSB first
+    while (context->postScriptActions) {
+        bit = (~context->postScriptActions + 1) & context->postScriptActions;
+        context->postScriptActions ^= bit;
+        switch (bit) {
+            case 1 << 0x00:
                 entity->field_0x80.HWORD = 0;
                 break;
-            case 2:
+            case 1 << 0x01:
                 entity->field_0x80.HWORD = 4;
                 break;
-            case 4:
+            case 1 << 0x02:
                 break;
-            case 8:
+            case 1 << 0x03:
                 entity->field_0x20 = 0x18000;
                 break;
-            case 0x10:
+            case 1 << 0x04:
                 CreateSpeechBubbleExclamationMark(entity, 8, -0x18);
                 break;
-            case 0x20:
+            case 1 << 0x05:
                 CreateSpeechBubbleQuestionMark(entity, 8, -0x18);
                 break;
-            case 0x40:
+            case 1 << 0x06:
                 DestroyScriptExecutionContext(context);
                 DeleteThisEntity();
-            case 0x80:
+            case 1 << 0x07:
                 entity->spriteSettings.b.draw = 1;
                 break;
-            case 0x100:
+            case 1 << 0x08:
                 entity->spriteSettings.b.draw = 0;
                 break;
-            case 0x200:
+            case 1 << 0x09:
                 entity->spriteOffsetY = 0;
                 entity->spriteOffsetX = 0;
                 entity->field_0x82.HWORD = 0;
                 break;
-            case 0x400:
+            case 1 << 0x0a:
                 entity->field_0x82.HWORD |= 2;
                 break;
-            case 0x800:
+            case 1 << 0x0b:
                 entity->field_0x82.HWORD &= 0xfffd;
                 break;
-            case 0x1000:
+            case 1 << 0x0c:
                 entity->field_0x82.HWORD &= 0xfffe;
                 break;
-            case 0x2000:
+            case 1 << 0x0d:
                 entity->field_0x82.HWORD |= 1;
                 break;
-            case 0x4000:
+            case 1 << 0x0e:
                 entity->field_0x82.HWORD |= 8;
                 break;
-            case 0x8000:
+            case 1 << 0x0f:
                 entity->field_0x82.HWORD ^= 4;
                 break;
-            case 0x10000:
+            case 1 << 0x10:
                 entity->field_0x82.HWORD ^= 0x10;
                 break;
-            case 0x20000:
+            case 1 << 0x11:
                 entity->spriteSettings.b.flipX ^= 1;
                 break;
-            case 0x40000:
+            case 1 << 0x12:
                 entity->field_0x82.HWORD |= 0x20;
                 break;
-            case 0x80000:
+            case 1 << 0x13:
                 entity->field_0x82.HWORD &= 0xffdf;
                 break;
             default:
@@ -467,27 +467,27 @@ void sub_0807DD64(Entity* entity) {
     entity->field_0x82.HWORD = 0;
 }
 
-void sub_0807DD80(Entity* entity, u16* unk1) {
-    sub_0807DB88(*(ScriptExecutionContext**)&entity->cutsceneBeh, unk1);
+void sub_0807DD80(Entity* entity, u16* script) {
+    InitScriptExecutionContext(*(ScriptExecutionContext**)&entity->cutsceneBeh, script);
     sub_0807DD64(entity);
 }
 
 void sub_0807DD94(Entity* entity, void (*function)(Entity*, ScriptExecutionContext*)) {
-    sub_0807DDAC(entity, function);
-    sub_0807DDE4(entity);
+    ExecuteScriptForEntity(entity, function);
+    HandleEntity0x82Actions(entity);
     sub_0807DE80(entity);
 }
 
-void sub_0807DDAC(Entity* entity, void (*function)(Entity*, ScriptExecutionContext*)) {
+void ExecuteScriptForEntity(Entity* entity, void (*postScriptCallback)(Entity*, ScriptExecutionContext*)) {
     ScriptExecutionContext** piVar1;
 
     piVar1 = (ScriptExecutionContext**)&entity->cutsceneBeh;
     if (*piVar1) {
-        ExecuteScriptCommandSet(entity, *piVar1);
-        if (function) {
-            function(entity, *piVar1);
+        ExecuteScript(entity, *piVar1);
+        if (postScriptCallback) {
+            postScriptCallback(entity, *piVar1);
         } else {
-            sub_0807DB98(entity, *piVar1);
+            HandlePostScriptActions(entity, *piVar1);
         }
         if (!entity->next) {
             DeleteThisEntity();
@@ -495,36 +495,36 @@ void sub_0807DDAC(Entity* entity, void (*function)(Entity*, ScriptExecutionConte
     }
 }
 
-void sub_0807DDE4(Entity* entity) {
+void HandleEntity0x82Actions(Entity* entity) {
     u32 temp;
-    u32 switchVar;
+    u32 bit;
     u32 loopVar;
 
     loopVar = entity->field_0x82.HWORD;
     while (loopVar) {
-        switchVar = (~loopVar + 1) & loopVar;
-        loopVar = loopVar ^ switchVar;
-        switch (switchVar) {
-            case 2:
+        bit = (~loopVar + 1) & loopVar;
+        loopVar = loopVar ^ bit;
+        switch (bit) {
+            case 1 << 1:
                 if (entity->kind == 7) {
                     sub_0806ED78(entity);
                 } else {
                     sub_0800445C(entity);
                 }
                 break;
-            case 8:
+            case 1 << 3:
                 if ((gScreenTransition.frameCount & 3) == 0) {
                     temp = (entity->field_0xf + 2U) & 7;
                     entity->animationState = temp;
                     entity->field_0xf = temp;
                 }
                 break;
-            case 0x10:
+            case 1 << 4:
                 if ((gScreenTransition.frameCount & 1) == 0) {
                     entity->spriteOffsetX = gUnk_0811E510[Random() & 3];
                 }
                 break;
-            case 0x20:
+            case 1 << 5:
                 sub_08003FC4(entity, 0x2000);
                 break;
         }
@@ -563,20 +563,20 @@ void sub_0807DE80(Entity* entity) {
     sub_080042BA(entity, local1);
 }
 
-void sub_0807DEDC(Entity* entity, ScriptExecutionContext* context, u32 arg2, u32 arg3) {
-    int temp;
-    s32 t0, t1;
+void sub_0807DEDC(Entity* entity, ScriptExecutionContext* context, u32 x, u32 y) {
+    int direction;
+    s32 xOffset, yOffset;
 
     context->unk_19 = 8;
-    context->unk_08 |= 2;
+    context->postScriptActions |= 2;
     context->condition = 0;
-    context->unk_1C.HALF.HI = arg2;
-    context->unk_20.HALF.HI = arg3;
-    t0 = context->unk_1C.HALF.HI - entity->x.HALF.HI;
-    t1 = context->unk_20.HALF.HI - entity->y.HALF.HI;
-    temp = sub_080045DA(t0, t1);
-    entity->direction = temp;
-    entity->animationState = (entity->animationState & 0x80) | gUnk_0811E514[(u32)(temp << 0x18) >> 0x1c];
+    context->x.HALF.HI = x;
+    context->y.HALF.HI = y;
+    xOffset = context->x.HALF.HI - entity->x.HALF.HI;
+    yOffset = context->y.HALF.HI - entity->y.HALF.HI;
+    direction = sub_080045DA(xOffset, yOffset);
+    entity->direction = direction;
+    entity->animationState = (entity->animationState & 0x80) | gUnk_0811E514[(u32)(direction << 0x18) >> 0x1c];
 }
 
 void sub_0807DF28() {
@@ -598,29 +598,29 @@ void sub_0807DF50() {
     sub_08079184();
 }
 
-void ExecuteScriptCommandSet(Entity* unk1, ScriptExecutionContext* unk2) {
-    if (!unk2->scriptInstructionPointer)
+void ExecuteScript(Entity* entity, ScriptExecutionContext* context) {
+    if (!context->scriptInstructionPointer)
         return;
-    if (unk2->wait) {
-        unk2->wait--;
+    if (context->wait) {
+        context->wait--;
     } else {
-        struct_02033280* tmp2 = &gActiveScriptInfo;
-        tmp2->flags = 0;
+        struct_02033280* activeScriptInfo = &gActiveScriptInfo;
+        activeScriptInfo->flags = 0;
         do {
-            u32 cmd = GetNextScriptCommandHalfword(unk2->scriptInstructionPointer);
-            u16* tmp;
+            u32 cmd = GetNextScriptCommandHalfword(context->scriptInstructionPointer);
+            u16* lastInstruction;
             if (cmd == 0xFFFF)
                 return;
-            tmp2->commandSize = cmd >> 0xA;
-            tmp2->commandIndex = cmd & 0x3FF;
-            tmp = unk2->scriptInstructionPointer;
-            tmp2->flags &= ~1;
-            gScriptCommands[tmp2->commandIndex](unk1, unk2);
-            unk2->scriptInstructionPointer += tmp2->commandSize;
-            if (tmp != unk2->scriptInstructionPointer) {
-                unk2->unk_18 = 0;
+            activeScriptInfo->commandSize = cmd >> 0xA;
+            activeScriptInfo->commandIndex = cmd & 0x3FF;
+            lastInstruction = context->scriptInstructionPointer;
+            activeScriptInfo->flags &= ~1;
+            gScriptCommands[activeScriptInfo->commandIndex](entity, context);
+            context->scriptInstructionPointer += activeScriptInfo->commandSize;
+            if (lastInstruction != context->scriptInstructionPointer) {
+                context->unk_18 = 0;
             }
-        } while (tmp2->flags & 3);
+        } while (activeScriptInfo->flags & 3);
     }
 }
 
@@ -833,19 +833,19 @@ void ScriptCommand_CheckKinstoneFused(Entity* entity, ScriptExecutionContext* co
 }
 
 void ScriptCommand_BuyItem(Entity* entity, ScriptExecutionContext* context) {
-    u32 tmp, tmp2;
-    s32 tmp3;
-    tmp = context->scriptInstructionPointer[1];
+    u32 item, tmp2;
+    s32 price;
+    item = context->scriptInstructionPointer[1];
     tmp2 = context->scriptInstructionPointer[2];
-    if (!tmp) {
-        tmp = gRoomVars.itemForSaleIndex;
+    if (!item) {
+        item = gRoomVars.itemForSaleIndex;
         tmp2 = gRoomVars.field_0x7;
     }
-    tmp3 = sub_08053FE0(tmp);
-    context->condition = (tmp3 <= gSave.stats.rupees);
+    price = GetItemPrice(item);
+    context->condition = (price <= gSave.stats.rupees);
     if (context->condition) {
-        ModRupees(-tmp3);
-        sub_080A7C18(tmp, tmp2, 0);
+        ModRupees(-price);
+        sub_080A7C18(item, tmp2, 0);
         gRoomVars.itemForSaleIndex = 0;
         gRoomVars.field_0x7 = 0;
     }
@@ -1032,16 +1032,16 @@ void ScriptCommand_0807E80C(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void sub_0807E818(u32 unk1) {
-    Entity* tmp = gRoomControls.cameraTarget;
-    u32 tmp2, tmp3;
-    if (tmp) {
-        tmp2 = tmp->x.HALF.HI - gRoomControls.roomScrollX;
-        tmp3 = tmp->y.HALF.HI - gRoomControls.roomScrollY;
+    Entity* cameraTarget = gRoomControls.cameraTarget;
+    u32 x, y;
+    if (cameraTarget) {
+        x = cameraTarget->x.HALF.HI - gRoomControls.roomScrollX;
+        y = cameraTarget->y.HALF.HI - gRoomControls.roomScrollY;
     } else {
-        tmp2 = 0x78;
-        tmp3 = 0x50;
+        x = 0x78;
+        y = 0x50;
     }
-    sub_08050110(tmp2, tmp3, unk1, gActiveScriptInfo.unk_08);
+    sub_08050110(x, y, unk1, gActiveScriptInfo.unk_08);
 }
 
 void ScriptCommand_0807E858(Entity* entity, ScriptExecutionContext* context) {
@@ -1282,14 +1282,14 @@ void ScriptCommand_0807EC1C(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
         context->unk_12 = context->scriptInstructionPointer[1];
-        context->unk_08 |= 2;
+        context->postScriptActions |= 2;
     }
     sub_0807EC44(entity, context);
 }
 
-void sub_0807EC44(Entity* unk1, ScriptExecutionContext* unk2) {
-    sub_0806F69C(unk1);
-    if (--unk2->unk_12) {
+void sub_0807EC44(Entity* entity, ScriptExecutionContext* context) {
+    sub_0806F69C(entity);
+    if (--context->unk_12) {
         gActiveScriptInfo.commandSize = 0;
     }
 }
@@ -1300,7 +1300,7 @@ void ScriptCommand_0807EC64(Entity* entity, ScriptExecutionContext* context) {
         context->unk_12 = context->scriptInstructionPointer[1];
         entity->animationState = 0;
         entity->direction = 0;
-        context->unk_08 |= 2;
+        context->postScriptActions |= 2;
     }
     sub_0807EC44(entity, context);
 }
@@ -1311,7 +1311,7 @@ void ScriptCommand_0807EC94(Entity* entity, ScriptExecutionContext* context) {
         context->unk_12 = context->scriptInstructionPointer[1];
         entity->animationState = 2;
         entity->direction = 8;
-        context->unk_08 |= 2;
+        context->postScriptActions |= 2;
     }
     sub_0807EC44(entity, context);
 }
@@ -1322,7 +1322,7 @@ void ScriptCommand_0807ECC4(Entity* entity, ScriptExecutionContext* context) {
         context->unk_12 = context->scriptInstructionPointer[1];
         entity->animationState = 4;
         entity->direction = 0x10;
-        context->unk_08 |= 2;
+        context->postScriptActions |= 2;
     }
     sub_0807EC44(entity, context);
 }
@@ -1333,7 +1333,7 @@ void ScriptCommand_0807ECF4(Entity* entity, ScriptExecutionContext* context) {
         context->unk_12 = context->scriptInstructionPointer[1];
         entity->animationState = 6;
         entity->direction = 0x18;
-        context->unk_08 |= 2;
+        context->postScriptActions |= 2;
     }
     sub_0807EC44(entity, context);
 }
@@ -1345,22 +1345,22 @@ void ScriptCommand_0807ED24(Entity* entity, ScriptExecutionContext* context) {
         context->unk_12 = context->scriptInstructionPointer[3];
         tmp = context->scriptInstructionPointer[1];
         tmp2 = entity->x.HALF.HI - gRoomControls.roomOriginX;
-        context->unk_1C.WORD = ((tmp - tmp2) << 0x10) / context->unk_12;
+        context->x.WORD = ((tmp - tmp2) << 0x10) / context->unk_12;
         tmp = context->scriptInstructionPointer[2];
         tmp3 = entity->y.HALF.HI - gRoomControls.roomOriginY;
-        context->unk_20.WORD = ((tmp - tmp3) << 0x10) / context->unk_12;
+        context->y.WORD = ((tmp - tmp3) << 0x10) / context->unk_12;
         entity->animationState =
             sub_0806F5B0(sub_080045B4(entity, context->scriptInstructionPointer[1] + gRoomControls.roomOriginX,
                                       context->scriptInstructionPointer[2] + gRoomControls.roomOriginY));
-        context->unk_08 |= 2;
+        context->postScriptActions |= 2;
     } else {
         if (!--context->unk_12) {
             entity->x.HALF.HI = context->scriptInstructionPointer[1] + gRoomControls.roomOriginX;
             entity->y.HALF.HI = context->scriptInstructionPointer[2] + gRoomControls.roomOriginY;
             return;
         }
-        entity->x.WORD += context->unk_1C.WORD;
-        entity->y.WORD += context->unk_20.WORD;
+        entity->x.WORD += context->x.WORD;
+        entity->y.WORD += context->y.WORD;
     }
     gActiveScriptInfo.commandSize = 0;
 }
@@ -1387,16 +1387,16 @@ void ScriptCommand_0807EE30(Entity* entity, ScriptExecutionContext* context) {
     if (!--context->unk_19) {
         context->unk_19 = 8;
         entity->direction =
-            sub_080045DA(context->unk_1C.HALF.HI - entity->x.HALF.HI, context->unk_20.HALF.HI - entity->y.HALF.HI);
+            sub_080045DA(context->x.HALF.HI - entity->x.HALF.HI, context->y.HALF.HI - entity->y.HALF.HI);
     }
-    tmp = entity->x.HALF.HI - context->unk_1C.HALF.HI;
-    tmp2 = entity->y.HALF.HI - context->unk_20.HALF.HI;
+    tmp = entity->x.HALF.HI - context->x.HALF.HI;
+    tmp2 = entity->y.HALF.HI - context->y.HALF.HI;
     sub_0806F62C(entity, entity->nonPlanarMovement, entity->direction);
-    tmp *= entity->x.HALF.HI - context->unk_1C.HALF.HI;
-    tmp2 *= entity->y.HALF.HI - context->unk_20.HALF.HI;
+    tmp *= entity->x.HALF.HI - context->x.HALF.HI;
+    tmp2 *= entity->y.HALF.HI - context->y.HALF.HI;
     if (tmp <= 0 && tmp2 <= 0) {
-        entity->x.HALF.HI = context->unk_1C.HALF.HI;
-        entity->y.HALF.HI = context->unk_20.HALF.HI;
+        entity->x.HALF.HI = context->x.HALF.HI;
+        entity->y.HALF.HI = context->y.HALF.HI;
         context->condition = 1;
     } else {
         context->condition = 0;
@@ -1430,21 +1430,21 @@ void ScriptCommand_0807EF3C(Entity* entity, ScriptExecutionContext* context) {
     if (!context->unk_18) {
         context->unk_18 = 1;
         entity->field_0x20 = ((s16)context->scriptInstructionPointer[1]) << 8;
-        context->unk_1C.HALF.LO = context->scriptInstructionPointer[2] << 8;
-        sub_08003FC4(entity, (u16)context->unk_1C.HALF.LO);
+        context->x.HALF.LO = context->scriptInstructionPointer[2] << 8;
+        sub_08003FC4(entity, (u16)context->x.HALF.LO);
     } else {
-        if (!sub_08003FC4(entity, (u16)context->unk_1C.HALF.LO))
+        if (!sub_08003FC4(entity, (u16)context->x.HALF.LO))
             return;
     }
     gActiveScriptInfo.commandSize = 0;
 }
 
-void ScriptCommand_0807EF80(Entity* entity, ScriptExecutionContext* context) {
-    context->unk_08 |= 1 << context->scriptInstructionPointer[1];
+void ScriptCommand_DoPostScriptAction(Entity* entity, ScriptExecutionContext* context) {
+    context->postScriptActions |= 1 << context->scriptInstructionPointer[1];
 }
 
-void ScriptCommand_0807EF90(Entity* entity, ScriptExecutionContext* context) {
-    context->unk_08 |= 1 << context->scriptInstructionPointer[1];
+void ScriptCommand_DoPostScriptAction2(Entity* entity, ScriptExecutionContext* context) {
+    context->postScriptActions |= 1 << context->scriptInstructionPointer[1];
 }
 
 void ScriptCommand_SoundReq(Entity* entity, ScriptExecutionContext* context) {

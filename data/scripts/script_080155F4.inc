@@ -6,6 +6,6 @@ SCRIPT_START script_080155F4
 script_08015608:
 	CheckRoomFlag 0x0001
 	JumpIfNot script_08015608
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

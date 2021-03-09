@@ -12,17 +12,17 @@ SCRIPT_START script_0800A310
 	Call sub_080791BC
 	.short 0x0000
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	SetEntityNonPlanarMovement 0x0080
-	_0807EF80 0x000b
+	DoPostScriptAction 0x000b
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock 
 	WaitForSomething2 0x00000002
 	_0807E930 0x000e
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	Call sub_0807F2D4
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	_0807E5F8 0x00000040
 	WaitForSomething2 0x00000002
 	_0807E930 0x000c

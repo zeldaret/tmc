@@ -1,6 +1,6 @@
 SCRIPT_START script_080140DC
 	BeginBlock 
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	_0807E930 0x0004
 	EndBlock 
 	WaitForSomething2 0x00000200
@@ -11,5 +11,5 @@ SCRIPT_START script_080140DC
 	WaitForSomething 0x00000020
 	_0807E930 0x0010
 	Call sub_0807F2D4
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

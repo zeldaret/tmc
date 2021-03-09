@@ -3,7 +3,7 @@ SCRIPT_START script_0800CD7C
 	CheckInventory1 0x005b
 	JumpIfNot script_0800C5FE
 	Call sub_08060090
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800CD92:
 	EndBlock 
@@ -147,7 +147,7 @@ script_0800CF40:
 	.short 0x0000
 	BeginBlock 
 	Call sub_08068104
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800CF5E:
 	BeginBlock 
@@ -166,7 +166,7 @@ script_0800CF72:
 	Jump script_0800CF5E
 	BeginBlock 
 	Call sub_08068104
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800CF96:
 	_0807E944 
@@ -178,7 +178,7 @@ script_0800CF96:
 	Jump script_0800CF96
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0000
 	EndBlock 

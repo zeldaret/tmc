@@ -901,9 +901,9 @@ sub_0809E088: @ 0x0809E088
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	pop {r4, pc}

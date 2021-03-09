@@ -11,7 +11,7 @@ SCRIPT_START script_0801194C
 	_0807EB44 0x0004
 script_0801196A:
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock 
 script_0801197C:
@@ -34,7 +34,7 @@ script_080119A4:
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CallWithArg sub_0807F3D8, 0x0000000c
 	EndBlock 
 script_080119C8:
@@ -54,7 +54,7 @@ script_080119C8:
 	_0807EB44 0x0006
 script_080119F6:
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock 
 script_08011A08:
@@ -71,7 +71,7 @@ script_08011A08:
 	BeginBlock 
 	_0807EB44 0x0004
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock 
 script_08011A44:
@@ -87,7 +87,7 @@ script_08011A44:
 	BeginBlock 
 	_0807EB44 0x0002
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock 
 script_08011A7C:
@@ -106,7 +106,7 @@ script_08011A7C:
 	BeginBlock 
 	_0807EB44 0x0004
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock 
 script_08011AC4:
@@ -132,6 +132,6 @@ script_08011AFA:
 	CallWithArg sub_0806DA1C, 0x00000003
 	_0807E878 
 	Call sub_0807DF50
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

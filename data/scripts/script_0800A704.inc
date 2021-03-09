@@ -8,5 +8,5 @@ SCRIPT_START script_0800A704
 	Wait 0x003c
 	SoundReq 0x00f6
 	CallWithArg sub_0806DA1C, 0x0000000a
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

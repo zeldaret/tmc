@@ -5,81 +5,81 @@ SCRIPT_START script_080116A8
 	EndBlock 
 	Call sub_0807F338
 	WaitForSomething2 0x00000100
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	_0807EDD4 0x01f8, 0x00d0
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00000100
 	_0807EB44 0x0004
-	_0807EF80 0x001c
+	DoPostScriptAction 0x001c
 	Call sub_0807F2D4
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00000100
 	_0807EB44 0x0000
-	_0807EF80 0x001c
+	DoPostScriptAction 0x001c
 	Call sub_0807F2D4
 	_0807EB44 0x0000
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00000100
 	_0807EB44 0x0000
-	_0807EF80 0x001a
+	DoPostScriptAction 0x001a
 	Call sub_0807F2D4
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00000100
 	_0807EB44 0x0000
-	_0807EF80 0x0014
+	DoPostScriptAction 0x0014
 	SoundReq 0x0120
 	CallWithArg sub_08095420, script_08011890
 	Wait 0x00f0
-	_0807EF80 0x0016
+	DoPostScriptAction 0x0016
 	SoundReq 0x01cb
 	WaitForSomething2 0x10000000
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00000100
 	SetEntityNonPlanarMovement 0x0080
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	_0807EDD4 0x01d8, 0x00a8
 	_0807EB44 0x0000
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00000100
-	_0807EF80 0x0014
+	DoPostScriptAction 0x0014
 	SoundReq 0x01c4
 	CallWithArg sub_0809545C, script_080118D4
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00000100
 	Wait 0x003c
-	_0807EF80 0x0016
+	DoPostScriptAction 0x0016
 	SoundReq 0x01c5
 	_0807E5F8 0x08000000
 	WaitForSomething2 0x10000000
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00000100
 	SetEntityNonPlanarMovement 0x0100
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	_0807EDD4 0x01f8, 0x0098
 	_0807EB44 0x0000
-	_0807EF80 0x0000
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x0004
 	Wait 0x005a
 	_0807EB44 0x0004
-	_0807EF80 0x001c
+	DoPostScriptAction 0x001c
 	Call sub_0807F2D4
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Wait 0x001e
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00000100
 	Call sub_08066CA4
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	Wait 0x0078
 	_0807E5F8 0x00000200
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

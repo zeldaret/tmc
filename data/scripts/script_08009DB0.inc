@@ -3,7 +3,7 @@ SCRIPT_START script_08009DB0
 	Call sub_0807F348
 	Call sub_08066288
 	Call sub_08066274
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807E930 0x000c
 	_0807E908 0x0003
 	EndBlock 
@@ -39,5 +39,5 @@ script_08009DF0:
 	_0807EA94 
 	_0807E878 
 	Call sub_0807DF50
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

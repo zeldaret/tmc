@@ -1,8 +1,8 @@
 SCRIPT_START script_080145E8
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	EndBlock 
 script_080145F8:
 	CheckRoomFlag 0x0000
@@ -21,7 +21,7 @@ script_08014608:
 	_0807E9D4 
 	_0807EB44 0x0004
 	SetEntityDirection 0x0000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0801463A:
 	_0807E30C 

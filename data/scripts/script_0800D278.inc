@@ -1,7 +1,7 @@
 SCRIPT_START script_0800D278
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800D282:
 	CheckInventory1 0x0041
@@ -46,7 +46,7 @@ script_0800D2EE:
 	Jump script_0800D2EE
 	BeginBlock 
 	Call sub_08068884
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0000
 	EndBlock 
@@ -68,7 +68,7 @@ script_0800D31E:
 	Jump script_0800D31E
 	BeginBlock 
 	Call sub_08068104
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800D35E:
 	BeginBlock 
@@ -87,7 +87,7 @@ script_0800D372:
 	JumpIf script_0800D3E4
 	CheckLocalFlag 0x007e
 	JumpIfNot script_0800D3E4
-	_0807EF80 0x000b
+	DoPostScriptAction 0x000b
 	SetEntityNonPlanarMovement 0x0100
 	CheckPlayerInRegion 0x0090, 0x0130, 0x0810
 	JumpIfNot script_0800D3B2
@@ -103,7 +103,7 @@ script_0800D3B2:
 	Call sub_080681D8
 	SoundReq 0x00cd
 	Wait 0x001e
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	SetLocalFlag 0x007f
 script_0800D3E4:
 	_0807E878 

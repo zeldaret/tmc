@@ -1,6 +1,6 @@
 SCRIPT_START script_08013FE8
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	EndBlock 
 script_08013FF0:
 	EndBlock 
@@ -27,6 +27,6 @@ script_08013FF0:
 	_0807E878 
 	Jump script_08013FF0
 script_0801404C:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

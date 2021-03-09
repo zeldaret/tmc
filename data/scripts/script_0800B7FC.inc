@@ -4,7 +4,7 @@ script_0800B7FC:
 	CallWithArg sub_0807F464, 0x00000078
 	Jump script_0800B7EE
 	BeginBlock 
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	_0807EB44 0x0004
 	_0807E930 0x0000
 	EndBlock 

@@ -1,7 +1,7 @@
 SCRIPT_START script_08015390
 	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	EndBlock 
 	_0807E930 0x001f
 	Call sub_0806D944
@@ -17,8 +17,8 @@ script_080153C2:
 	_0807E930 0x001f
 	StartPlayerScript script_08015384
 	Call sub_0806D9A4
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	Wait 0x0078
 	_0807E5F8 0x00000010
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

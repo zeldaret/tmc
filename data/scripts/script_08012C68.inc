@@ -1,7 +1,7 @@
 SCRIPT_START script_08012C68
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	SetIntVariable 0x00000000
 	Call sub_0806DA04
 	EndBlock 
@@ -34,5 +34,5 @@ script_08012CA0:
 	Call sub_0807DF50
 	_0807E878 
 script_08012CD2:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

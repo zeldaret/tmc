@@ -984,7 +984,7 @@ _0807F79A:
 	bl GetSaleItemConfirmMessageID
 	adds r4, r0, #0
 	adds r0, r5, #0
-	bl sub_08053FE0
+	bl GetItemPrice
 	adds r5, r0, #0
 	adds r0, r4, #0
 	adds r1, r6, #0
@@ -1008,7 +1008,7 @@ sub_0807F7C4: @ 0x0807F7C4
 	ldr r0, _0807F7F4 @ =gRoomVars
 	ldrb r0, [r0, #6]
 _0807F7D2:
-	bl sub_08053FE0
+	bl GetItemPrice
 	movs r2, #0
 	ldr r1, _0807F7F8 @ =gSave
 	adds r1, #0xc0
@@ -1039,7 +1039,7 @@ sub_0807F800: @ 0x0807F800
 	ldrb r4, [r0, #6]
 _0807F80C:
 	adds r0, r4, #0
-	bl sub_08053FE0
+	bl GetItemPrice
 	rsbs r0, r0, #0
 	bl ModRupees
 	adds r0, r4, #0

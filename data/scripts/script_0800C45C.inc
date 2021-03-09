@@ -5,7 +5,7 @@ SCRIPT_START script_0800C45C
 	Call sub_080A0B28
 	EndBlock 
 	Wait 0x000a
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	SoundReq 0x0136
 script_0800C47A:
 	_0807EE30 

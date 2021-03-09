@@ -17,5 +17,5 @@ SCRIPT_START script_08015BA8
 	_0807EEB4 
 	CameraTargetPlayer 
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

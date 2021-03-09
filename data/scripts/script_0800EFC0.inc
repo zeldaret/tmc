@@ -2,7 +2,7 @@ SCRIPT_START script_0800EFC0
 	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CheckLocalFlag 0x007b
 	JumpIf script_0800F082
 	EndBlock 
@@ -21,7 +21,7 @@ script_0800EFFE:
 	_0807EB44 0x0002
 	CallWithArg sub_0806AF60, 0x00000004
 	_0807EDD4 0x0088, 0x0040
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0002
 	CallWithArg sub_0806AF60, 0x00000008
 	Wait 0x0004
@@ -34,7 +34,7 @@ script_0800EFFE:
 	_0807EB44 0x0006
 	CallWithArg sub_0806AF60, 0x00000004
 	_0807EDD4 0x0068, 0x0040
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CheckLocalFlag 0x007b
 	JumpIf script_0800F082
 	Jump script_0800EFDA
@@ -86,6 +86,6 @@ script_0800F11A:
 	WaitForSomething2 0x000003c0
 	Call sub_0807DF50
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

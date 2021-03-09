@@ -1,5 +1,5 @@
 SCRIPT_START script_0800D24C
 script_0800D24C:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

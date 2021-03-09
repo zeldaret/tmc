@@ -16,6 +16,6 @@ SCRIPT_START script_080118D4
 	_0807E5F8 0x10000000
 	WaitForSomething2 0x08000000
 	SoundReq 0x011d
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

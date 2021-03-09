@@ -117,7 +117,7 @@ static void sub_0808681C(Entity* this) {
     }
 
     if (this->flags & 0x2) {
-        ExecuteScriptCommandSet(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
+        ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
         sub_080868EC(this, *(void**)&this->cutsceneBeh);
     }
 }
@@ -129,7 +129,7 @@ void sub_080868B0(Entity* this) {
         this->hitbox = &gUnk_081206AC;
         this->actionDelay = 8;
     }
-    ExecuteScriptCommandSet(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
+    ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
     sub_080868EC(this, *(void**)&this->cutsceneBeh);
 }
 

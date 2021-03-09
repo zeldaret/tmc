@@ -2,7 +2,7 @@ SCRIPT_START script_0801232C
 	BeginBlock 
 	_0807EB74 
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08012338:
 	CheckEntityInteractType 
@@ -20,7 +20,7 @@ script_0801235A:
 	_0807E878 
 	Jump script_08012338
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	EndBlock 
 script_08012368:
 	CheckLocalFlag 0x0004
@@ -39,8 +39,8 @@ script_08012368:
 	_0807EB28 0x1401
 	_0807EA94 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x0007
 	SoundReq 0x01ce
 	SetEntity0x20 0xffff8000
 	Wait 0x003c
@@ -66,6 +66,6 @@ script_08012368:
 	Call sub_0807F420
 	Call sub_0807DF50
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

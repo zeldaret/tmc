@@ -1,7 +1,7 @@
 SCRIPT_START script_0800E0BC
 	BeginBlock 
 	_0807EB44 0x0004
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CheckLocalFlag 0x0093
 	JumpIf script_0800E12E
 	_0807E930 0x0008
@@ -12,18 +12,18 @@ script_0800E0DE:
 	JumpIfNot script_0800E0DE
 	_0807E864 
 	Wait 0x001e
-	_0807EF80 0x0010
+	DoPostScriptAction 0x0010
 	SoundReq 0x01c9
 	_0807E930 0x0009
 	Wait 0x003c
 	SoundReq 0x01ca
-	_0807EF80 0x0010
+	DoPostScriptAction 0x0010
 	Wait 0x001e
 	SoundReq 0x0072
 	Wait 0x0078
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x001e
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807EB8C 
 	_0807EB74 
 	Wait 0x000a
@@ -47,7 +47,7 @@ script_0800E138:
 	.short 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CheckLocalFlag 0x0094
 	JumpIf script_0800E1D0
 	_0807E930 0x0010
@@ -58,18 +58,18 @@ script_0800E176:
 	JumpIfNot script_0800E176
 	_0807E864 
 	Wait 0x001e
-	_0807EF80 0x0010
+	DoPostScriptAction 0x0010
 	SoundReq 0x01c9
 	_0807E930 0x0015
 	Wait 0x003c
 	SoundReq 0x01ca
-	_0807EF80 0x0010
+	DoPostScriptAction 0x0010
 	Wait 0x001e
 	SoundReq 0x0072
 	Wait 0x0078
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x001e
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807EB8C 
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000000
@@ -95,7 +95,7 @@ script_0800E1E0:
 	BeginBlock 
 	SetEntityNonPlanarMovement 0x0100
 	_0807EB44 0x0004
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CheckLocalFlag 0x0073
 	JumpIfNot script_0800E232
 	_0807E9D4 
@@ -115,24 +115,24 @@ script_0800E24A:
 	JumpIfNot script_0800E24A
 	_0807E864 
 	Wait 0x001e
-	_0807EF80 0x0010
+	DoPostScriptAction 0x0010
 	SoundReq 0x01c9
 	_0807E930 0x0015
 	Wait 0x003c
 	SoundReq 0x01ca
-	_0807EF80 0x0010
+	DoPostScriptAction 0x0010
 	Wait 0x001e
 	SoundReq 0x0072
 	Wait 0x0078
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x001e
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807EB8C 
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000000
 	SetLocalFlag 0x0095
 script_0800E29A:
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	CallWithArg sub_0807F3D8, 0x00000000
 	_0807E9D4 
 	_0807E878 
@@ -183,7 +183,7 @@ script_0800E32E:
 	.short 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CheckLocalFlag 0x0071
 	JumpIf script_0800E3E8
 	CheckLocalFlag 0x0096
@@ -196,22 +196,22 @@ script_0800E37A:
 	JumpIfNot script_0800E37A
 	_0807E864 
 	Wait 0x001e
-	_0807EF80 0x0010
+	DoPostScriptAction 0x0010
 	SoundReq 0x01c9
 	_0807E930 0x000d
 	Wait 0x003c
 	SoundReq 0x01ca
-	_0807EF80 0x0010
+	DoPostScriptAction 0x0010
 	Wait 0x001e
 	SoundReq 0x0072
 	Wait 0x0078
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x001e
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807EB74 
 	SetLocalFlag 0x0096
 script_0800E3BE:
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E9D4 
 	_0807E878 
 	EndBlock 
@@ -243,7 +243,7 @@ script_0800E3EE:
 	Jump script_0800E3EE
 	BeginBlock 
 	_0807EB44 0x0002
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	Call sub_080668F0
 	EndBlock 
 script_0800E41A:
@@ -259,7 +259,7 @@ script_0800E41A:
 	BeginBlock 
 	_0807EB44 0x0002
 	CallWithArg sub_0807F3D8, 0x00000000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807E9D4 
 	EndBlock 
 script_0800E44C:
@@ -275,7 +275,7 @@ script_0800E44C:
 	BeginBlock 
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x00000000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807E9D4 
 	EndBlock 
 script_0800E484:
@@ -315,6 +315,6 @@ script_0800E4B6:
 	SetLocalFlag 0x007c
 script_0800E4FA:
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 	EndBlock 
 SCRIPT_END

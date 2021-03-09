@@ -4,9 +4,9 @@ SCRIPT_START script_08010B68
 	JumpIfNot script_08010BAC
 	Call sub_0807F924
 	_0807EB44 0x0004
-	_0807EF80 0x0000
-	_0807EF80 0x0007
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x0007
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08010B88:
 	EndBlock 
@@ -23,6 +23,6 @@ script_08010B88:
 	_0807E878 
 	Jump script_08010B88
 script_08010BAC:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

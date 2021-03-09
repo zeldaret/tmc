@@ -2,7 +2,7 @@ SCRIPT_START script_08014E14
 	BeginBlock 
 	_0807EB44 0x0004
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock 
 script_08014E2C:
@@ -17,10 +17,10 @@ script_08014E2C:
 	Jump script_08014E2C
 	.short 0x0000
 	BeginBlock 
-	_0807EF80 0x000a
-	_0807EF80 0x0007
+	DoPostScriptAction 0x000a
+	DoPostScriptAction 0x0007
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	EndBlock 
 script_08014E64:
 	CheckEntityInteractType 
@@ -52,10 +52,10 @@ script_08014EBC:
 	Jump script_08014E64
 	.short 0x0000
 	BeginBlock 
-	_0807EF80 0x000a
-	_0807EF80 0x0007
+	DoPostScriptAction 0x000a
+	DoPostScriptAction 0x0007
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	EndBlock 
 script_08014EE0:
 	CheckEntityInteractType 
@@ -68,8 +68,8 @@ script_08014EE0:
 	Jump script_08014EE0
 	.short 0x0000
 	BeginBlock 
-	_0807EF80 0x000a
-	_0807EF80 0x0007
+	DoPostScriptAction 0x000a
+	DoPostScriptAction 0x0007
 	_0807EB44 0x0004
 	_0807E930 0x000a
 	EndBlock 
@@ -78,7 +78,7 @@ script_08014F0C:
 	JumpIfNot script_08014F0C
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	TextboxNoOverlap 0x200e
 	_0807EA94 
 	_0807E878 
@@ -87,8 +87,8 @@ script_08014F0C:
 	Jump script_08014F0C
 	.short 0x0000
 	BeginBlock 
-	_0807EF80 0x000a
-	_0807EF80 0x0007
+	DoPostScriptAction 0x000a
+	DoPostScriptAction 0x0007
 	_0807EB44 0x0004
 	_0807E930 0x000e
 	EndBlock 
@@ -99,7 +99,7 @@ script_08014F4A:
 	_0807E864 
 	Call sub_0807DF28
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	BeginBlock 
 	TextboxNoOverlap 0x3b0b
 	CallWithArg sub_0807F854, 0x00010064
@@ -271,5 +271,5 @@ script_08015104:
 	SoundReq2 0xffff
 	Call sub_0807DF50
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -2,7 +2,7 @@ SCRIPT_START script_0800D414
 	BeginBlock 
 	SetEntityNonPlanarMovement 0x0100
 	Call sub_08068104
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800D426:
 	_0807EB44 0x0002
@@ -40,10 +40,10 @@ script_0800D426:
 	Jump script_0800D426
 	.short 0x0000
 	BeginBlock 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	Call sub_08062A48
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 script_0800D4E4:
 	EndBlock 
 	Call sub_08062698
@@ -96,9 +96,9 @@ script_0800D584:
 	_0807E878 
 	Jump script_0800D4E4
 	BeginBlock 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	Call sub_08062A48
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 script_0800D5AC:
 	EndBlock 
 	Call sub_08062698
@@ -127,8 +127,8 @@ script_0800D5F2:
 	.short 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
-	_0807EF80 0x000b
-	_0807EF80 0x0008
+	DoPostScriptAction 0x000b
+	DoPostScriptAction 0x0008
 	Call sub_0806DAAC
 	JumpIf script_0800D6AE
 	Call sub_0806DAD0
@@ -157,5 +157,5 @@ script_0800D650:
 	Call sub_0806DB44
 	JumpIfNot script_0800D698
 	LoadRoomEntityList gUnk_080DD730
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

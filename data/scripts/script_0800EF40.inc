@@ -1,6 +1,6 @@
 SCRIPT_START script_0800EF40
 	BeginBlock 
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	CheckGlobalFlag 0x001f
 	JumpIf script_0800EF92
 	EndBlock 

@@ -9,8 +9,6 @@ extern void (*gUnk_081140D4[])(Entity*);
 
 extern u16 gUnk_081140CC[];
 extern void sub_0806D0B0(Entity*);
-extern void sub_0807DD64(Entity*);
-extern void sub_0807DDE4(Entity*);
 extern void SoundReq(u32);
 extern void sub_0806D02C(Entity*);
 extern Entity* FindEntityInListByForm(u32, u32, u32, u32, u32);
@@ -28,8 +26,8 @@ void sub_0806CF30(Entity* this) {
         sub_0806D0B0(this);
         sub_0807DD64(this);
     } else {
-        sub_0807DDAC(this, NULL);
-        sub_0807DDE4(this);
+        ExecuteScriptForEntity(this, NULL);
+        HandleEntity0x82Actions(this);
     }
 
     switch (this->previousActionFlag) {

@@ -59,5 +59,5 @@ SCRIPT_START script_0800A1D8
 	SoundReq2 0x0008
 	SoundReq 0x00f7
 	CallWithArg sub_0806DA1C, 0x00000007
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -11,7 +11,7 @@ SCRIPT_START script_08009B30
 	Wait 0x003c
 	Call sub_0807529C
 	Wait 0x003c
-	_0807EF80 0x0014
+	DoPostScriptAction 0x0014
 	Wait 0x001e
 	Call sub_08053250
 	_0807E878 

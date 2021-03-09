@@ -11,8 +11,8 @@ SCRIPT_START script_08008FFC
 	_0807EB44 0x0004
 	_0807E930 0x0006
 	Wait 0x0010
-	_0807EF80 0x000f
+	DoPostScriptAction 0x000f
 	SetEntityNonPlanarMovement 0x0200
 	_0807ECC4 0x1c20
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

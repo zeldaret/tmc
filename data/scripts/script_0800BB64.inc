@@ -1,7 +1,7 @@
 SCRIPT_START script_0800BB64
 	BeginBlock 
 	_0807EB44 0x0006
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	SetEntityNonPlanarMovement 0x0040
 	Call sub_0807F348
 	EndBlock 

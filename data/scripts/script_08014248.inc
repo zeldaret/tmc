@@ -10,7 +10,7 @@ script_08014264:
 	Jump script_08014264
 	.short 0x0000
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	EndBlock 
 script_0801427C:
 	CheckLocalFlag 0x0078

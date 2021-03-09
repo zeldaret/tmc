@@ -70,5 +70,5 @@ script_08015888:
 	_0807E878 
 	_0807F0B4 0x0004
 	CameraTargetPlayer 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

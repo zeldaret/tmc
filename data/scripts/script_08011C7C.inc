@@ -2,8 +2,8 @@ SCRIPT_START script_08011C7C
 	BeginBlock 
 	Call sub_08064828
 	_0807EB44 0x0004
-	_0807EF80 0x0001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0001
+	DoPostScriptAction 0x000a
 	CheckGlobalFlag 0x0047
 	JumpIf script_08011CC2
 	EndBlock 
@@ -15,12 +15,12 @@ script_08011C9A:
 	EndBlock 
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	TextboxNoOverlap 0x4515
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011C9A
 script_08011CC2:
 	EndBlock 
@@ -34,35 +34,35 @@ script_08011CC2:
 	EndBlock 
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	TextboxNoOverlap 0x3105
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_08011D0E
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011CC2
 script_08011D00:
 	CheckEntityInteractType 
 	JumpIfNot script_08011D00
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 script_08011D0E:
 	TextboxNoOverlap 0x3108
 	_0807EA94 
 	SetGlobalFlag 0x002b
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011D00
 	.short 0x0000
 	BeginBlock 
 	Call sub_08064928
 	_0807EB44 0x0004
-	_0807EF80 0x0001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0001
+	DoPostScriptAction 0x000a
 	CheckGlobalFlag 0x0047
 	JumpIf script_08011D6E
 	EndBlock 
@@ -74,12 +74,12 @@ script_08011D46:
 	EndBlock 
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	TextboxNoOverlap 0x4513
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011D46
 script_08011D6E:
 	EndBlock 
@@ -93,35 +93,35 @@ script_08011D6E:
 	EndBlock 
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	TextboxNoOverlap 0x3103
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_08011DBA
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011D6E
 script_08011DAC:
 	CheckEntityInteractType 
 	JumpIfNot script_08011DAC
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 script_08011DBA:
 	TextboxNoOverlap 0x3106
 	_0807EA94 
 	SetGlobalFlag 0x002c
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011DAC
 	.short 0x0000
 	BeginBlock 
 	Call sub_08064A28
 	_0807EB44 0x0004
-	_0807EF80 0x0001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0001
+	DoPostScriptAction 0x000a
 	CheckGlobalFlag 0x0047
 	JumpIf script_08011E1A
 	EndBlock 
@@ -133,12 +133,12 @@ script_08011DF2:
 	EndBlock 
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	TextboxNoOverlap 0x4514
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011DF2
 script_08011E1A:
 	EndBlock 
@@ -152,35 +152,35 @@ script_08011E1A:
 	EndBlock 
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	TextboxNoOverlap 0x3104
 	_0807EA94 
 	_0807E3E8 
 	JumpIf script_08011E66
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011E1A
 script_08011E58:
 	CheckEntityInteractType 
 	JumpIfNot script_08011E58
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 script_08011E66:
 	TextboxNoOverlap 0x3107
 	_0807EA94 
 	SetGlobalFlag 0x002d
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011E58
 	.short 0x0000
 	BeginBlock 
 	Call sub_08064828
 	_0807EB44 0x0004
-	_0807EF80 0x0001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0001
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08011E96:
 	EndBlock 
@@ -194,7 +194,7 @@ script_08011E96:
 	EndBlock 
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	CheckGlobalFlag 0x0048
 	JumpIf script_08011ECC
 	TextboxNoOverlap 0x4524
@@ -208,27 +208,27 @@ script_08011ECC:
 script_08011ED8:
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011E96
 script_08011EE6:
 	CheckEntityInteractType 
 	JumpIfNot script_08011EE6
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 script_08011EF4:
 	TextboxNoOverlap 0x3114
 	_0807EA94 
 	SetGlobalFlag 0x002e
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011EE6
 	BeginBlock 
 	Call sub_08064928
 	_0807EB44 0x0004
-	_0807EF80 0x0001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0001
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08011F22:
 	EndBlock 
@@ -242,7 +242,7 @@ script_08011F22:
 	EndBlock 
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	CheckGlobalFlag 0x0048
 	JumpIf script_08011F58
 	TextboxNoOverlap 0x4522
@@ -256,27 +256,27 @@ script_08011F58:
 script_08011F64:
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011F22
 script_08011F72:
 	CheckEntityInteractType 
 	JumpIfNot script_08011F72
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 script_08011F80:
 	TextboxNoOverlap 0x3112
 	_0807EA94 
 	SetGlobalFlag 0x002f
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011F72
 	BeginBlock 
 	Call sub_08064A28
 	_0807EB44 0x0004
-	_0807EF80 0x0001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0001
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08011FAE:
 	EndBlock 
@@ -290,7 +290,7 @@ script_08011FAE:
 	EndBlock 
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	CheckGlobalFlag 0x0048
 	JumpIf script_08011FE4
 	TextboxNoOverlap 0x4523
@@ -304,34 +304,34 @@ script_08011FE4:
 script_08011FF0:
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011FAE
 script_08011FFE:
 	CheckEntityInteractType 
 	JumpIfNot script_08011FFE
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 script_0801200C:
 	TextboxNoOverlap 0x3113
 	_0807EA94 
 	SetGlobalFlag 0x0030
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08011FFE
 	BeginBlock 
 	Call sub_08064828
 	_0807EB44 0x0004
-	_0807EF80 0x0001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0001
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0801203A:
 	CheckEntityInteractType 
 	JumpIfNot script_0801203A
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	CheckLocalFlag 0x0094
 	JumpIf script_0801205E
 	TextboxNoOverlap 0x3122
@@ -363,21 +363,21 @@ script_0801209E:
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_0801203A
 	.short 0x0000
 	BeginBlock 
 	Call sub_08064928
 	_0807EB44 0x0004
-	_0807EF80 0x0001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0001
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_080120C6:
 	CheckEntityInteractType 
 	JumpIfNot script_080120C6
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	CheckLocalFlag 0x0095
 	JumpIf script_080120EA
 	TextboxNoOverlap 0x3116
@@ -409,21 +409,21 @@ script_0801212A:
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_080120C6
 	.short 0x0000
 	BeginBlock 
 	Call sub_08064A28
 	_0807EB44 0x0004
-	_0807EF80 0x0001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0001
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08012152:
 	CheckEntityInteractType 
 	JumpIfNot script_08012152
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	CheckLocalFlag 0x0096
 	JumpIf script_08012176
 	TextboxNoOverlap 0x311c
@@ -455,68 +455,68 @@ script_080121B6:
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08012152
 	.short 0x0000
 	BeginBlock 
 	Call sub_08064828
 	_0807EB44 0x0004
-	_0807EF80 0x0001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0001
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_080121DE:
 	CheckEntityInteractType 
 	JumpIfNot script_080121DE
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	TextboxNoOverlap 0x4527
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_080121DE
 	BeginBlock 
 	Call sub_08064928
 	_0807EB44 0x0004
-	_0807EF80 0x0001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0001
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08012216:
 	CheckEntityInteractType 
 	JumpIfNot script_08012216
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	TextboxNoOverlap 0x4525
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_08012216
 	BeginBlock 
 	Call sub_08064A28
 	_0807EB44 0x0004
-	_0807EF80 0x0001
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0001
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0801224E:
 	CheckEntityInteractType 
 	JumpIfNot script_0801224E
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	TextboxNoOverlap 0x4526
 	_0807EA94 
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Jump script_0801224E
 	BeginBlock 
 	_0807EB44 0x0004
 	Call sub_08061FD8
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08012284:
 	EndBlock 
@@ -560,16 +560,16 @@ script_080122EC:
 	_0807EB74 
 	_0807E864 
 	Call sub_08061FD8
-	_0807EF80 0x000b
+	DoPostScriptAction 0x000b
 	Call sub_08061FB0
 	Call sub_08061F94
 	LoadRoomEntityList gUnk_080F2758
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	Wait 0x003c
 	SoundReq 0x0072
 	SetLocalFlag 0x0043
 	Wait 0x001e
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

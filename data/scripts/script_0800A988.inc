@@ -1,11 +1,11 @@
 SCRIPT_START script_0800A988
 	BeginBlock 
 	_0807EB44 0x0004
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	_0807E930 0x0002
 	EndBlock 
 	WaitForSomething2 0x00000002
 	Call CreateDust
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

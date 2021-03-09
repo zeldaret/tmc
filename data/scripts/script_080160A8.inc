@@ -107,9 +107,9 @@ script_080161E2:
 	Jump script_0801619A
 	BeginBlock 
 	Call sub_0807F348
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	EndBlock 
 script_080161FE:
 	Call sub_08068C28
@@ -140,7 +140,7 @@ script_08016204:
 script_08016262:
 	Call sub_08068E00
 	_0807EA94 
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Call sub_0807F2D4
 	Call sub_08068E90
 	Call sub_08068C8C
@@ -202,6 +202,6 @@ script_08016346:
 	Call sub_0807DF50
 	_0807E878 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Jump script_080161FE
 	.short 0x0000

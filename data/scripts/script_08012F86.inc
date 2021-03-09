@@ -46,12 +46,12 @@ script_08013006:
 	Call sub_0806AB9C
 	_0807E930 0x000b
 	Wait 0x003c
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x003c
 	TextboxNoOverlap 0x4404
 	_0807EA94 
 	Wait 0x001e
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x003c
 	TextboxNoOverlap 0x440e
 	_0807EA94 

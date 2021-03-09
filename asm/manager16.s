@@ -175,7 +175,7 @@ _0805AC6A:
 	beq _0805ACA6
 	adds r0, r3, #0
 	mov r1, sb
-	bl sub_0807DAF0
+	bl InitScriptForEntity
 _0805ACA6:
 	adds r4, #0x10
 	adds r5, #1

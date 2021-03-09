@@ -12,7 +12,7 @@ script_0800A0D2:
 	JumpIfNot script_0800A0D2
 	_0807E8E4_0 
 	Wait 0x0008
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
 	Wait 0x003c

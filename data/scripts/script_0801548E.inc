@@ -22,5 +22,5 @@ SCRIPT_START script_0801548E
 	DoFade5 
 	WaitFor_2 
 	SetRoomFlag 0x0001
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

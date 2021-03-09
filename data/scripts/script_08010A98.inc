@@ -2,7 +2,7 @@ SCRIPT_START script_08010A98
 	BeginBlock 
 	_0807EB44 0x0004
 	CallWithArg sub_080672B0, 0x00000000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	Call sub_08067314
 	EndBlock 
 script_08010AB4:
@@ -21,9 +21,9 @@ script_08010AB4:
 	CheckInventory1 0x0067
 	JumpIfNot script_08010B62
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	SetEntityNonPlanarMovement 0x0180
-	CallWithArg_2 sub_0807F348
+	CallWithArg sub_0807F348
 	Call sub_0806075C
 	EndBlock 
 	_0807EA94 
@@ -31,7 +31,7 @@ script_08010AB4:
 script_08010B10:
 	EndBlock 
 	Call sub_0806076C
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 script_08010B1C:
 	Call sub_08060700
 script_08010B22:
@@ -47,7 +47,7 @@ script_08010B3A:
 	Jump script_08010B10
 script_08010B44:
 	EndBlock 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 script_08010B4A:
 	EndBlock 
 	BeginBlock 
@@ -56,5 +56,5 @@ script_08010B4A:
 	EndBlock 
 	Jump script_08010B1C
 script_08010B62:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

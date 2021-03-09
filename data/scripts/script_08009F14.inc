@@ -2,7 +2,7 @@ SCRIPT_START script_08009F14
 	BeginBlock 
 	_0807EB44 0x0004
 	Call sub_08060090
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CheckKinstoneFused 0x001c
 	JumpIf script_08009FD2
 	CheckInventory1 0x0007
@@ -17,7 +17,7 @@ script_08009F36:
 	EndBlock 
 	_0807E864 
 	Call sub_0807DF28
-	_0807EF80 0x000b
+	DoPostScriptAction 0x000b
 	StartPlayerScript script_0800A088
 	WaitForSomething2 0x00000002
 	Call sub_0806014C
@@ -26,7 +26,7 @@ script_08009F36:
 	Wait 0x001e
 	_0807F034 0x0065
 	WaitPlayerAction8 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	Call sub_0807DF50
 	_0807E878 
 script_08009F84:

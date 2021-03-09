@@ -1,7 +1,7 @@
 SCRIPT_START script_0800EA54
 	BeginBlock 
 	Call sub_0806CE5C
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0008
 	EndBlock 
@@ -23,7 +23,7 @@ script_0800EA6A:
 	BeginBlock 
 	_0807E9D4 
 	Call sub_0806C09C
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807E930 0x0000
 	_0807EB44 0x0004
 	EndBlock 
@@ -47,7 +47,7 @@ script_0800EAD4:
 	Jump script_0800EABC
 	BeginBlock 
 	Call sub_0806C870
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0000
 	EndBlock 
@@ -64,7 +64,7 @@ script_0800EB0E:
 	.short 0x0000
 	BeginBlock 
 	Call sub_08061E70
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	Call sub_08061FD8
 	EndBlock 
@@ -81,7 +81,7 @@ script_0800EB44:
 	.short 0x0000
 	BeginBlock 
 	Call sub_08061E70
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0006
 	Call sub_08061FD8
 	EndBlock 
@@ -99,21 +99,21 @@ script_0800EB7C:
 	Jump script_0800EB7C
 	BeginBlock 
 	Call sub_08061E70
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0002
 	Call sub_08061FD8
 	EndBlock 
 	Jump script_0800EBF4
 	BeginBlock 
 	Call sub_08061E70
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	Call sub_08061FD8
 	EndBlock 
 	Jump script_0800EBF4
 	BeginBlock 
 	Call sub_08061E70
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0006
 	Call sub_08061FD8
 	EndBlock 
@@ -130,7 +130,7 @@ script_0800EBF4:
 	.short 0x0000
 	BeginBlock 
 	Call sub_08061E70
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0002
 	Call sub_08061FD8
 	EndBlock 
@@ -148,7 +148,7 @@ script_0800EC2C:
 	Jump script_0800EC2C
 	BeginBlock 
 	Call sub_08061E70
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	Call sub_08061FD8
 	EndBlock 
@@ -167,7 +167,7 @@ script_0800EC6C:
 	_0807E9D4 
 	CallWithArg sub_08061FB8, 0x00000001
 	SetEntityNonPlanarMovement 0x0040
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0002
 	EndBlock 
@@ -195,7 +195,7 @@ script_0800ECAC:
 	Jump script_0800ECAC
 	BeginBlock 
 	Call sub_080639D0
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 	BeginBlock 
 	CallWithArg sub_08063850, 0x00000000
@@ -218,8 +218,8 @@ script_0800ED46:
 	Jump script_0800ED20
 	BeginBlock 
 	Call sub_08064CC0
-	_0807EF80 0x000a
-	_0807EF80 0x0007
+	DoPostScriptAction 0x000a
+	DoPostScriptAction 0x0007
 	_0807EB44 0x0002
 	_0807E930 0x0000
 	EndBlock 
@@ -235,7 +235,7 @@ script_0800ED76:
 	.short 0x0000
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 script_0800ED98:
 	EndBlock 
 	BeginBlock 
@@ -285,7 +285,7 @@ script_0800EE3E:
 	Jump script_0800ED98
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 script_0800EE58:
 	EndBlock 
 	BeginBlock 

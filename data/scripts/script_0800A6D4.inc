@@ -8,5 +8,5 @@ SCRIPT_START script_0800A6D4
 	EndBlock 
 	Wait 0x003c
 	CallWithArg sub_0806DA1C, 0x00000009
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

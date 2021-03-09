@@ -21,5 +21,5 @@ script_08013CA6:
 	SetLocalFlag 0x0079
 	Call sub_0807DF50
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

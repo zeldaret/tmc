@@ -2,7 +2,7 @@ SCRIPT_START script_080100C8
 	BeginBlock 
 	Call sub_08061FE4
 	Call sub_08061E70
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_080100DC:
 	CheckEntityInteractType 
@@ -18,7 +18,7 @@ script_080100DC:
 	BeginBlock 
 	Call sub_08061FE4
 	Call sub_08061E70
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08010110:
 	Wait 0x003c
@@ -28,8 +28,8 @@ script_08010110:
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08010132:
 	CheckEntityInteractType 
@@ -41,9 +41,9 @@ script_08010132:
 	_0807E878 
 	Jump script_08010132
 	BeginBlock 
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Call sub_0806C354
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0801015A:
 	CheckEntityInteractType 
@@ -72,7 +72,7 @@ script_080101A6:
 	Jump script_0801015A
 script_080101AC:
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	Call sub_080A1648
 	EndBlock 
 	Call sub_080A1270
@@ -114,6 +114,6 @@ script_08010240:
 	CallWithArg sub_0807F5B0, 0x00000000
 	ClearRoomFlag 0x0001
 	Call sub_080A169C
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

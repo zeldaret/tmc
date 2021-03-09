@@ -63,5 +63,5 @@ SCRIPT_START script_08015CD4
 	WaitFor_2 
 	SoundReq0x80100000 
 	SetRoomFlag 0x0000
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

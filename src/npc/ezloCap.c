@@ -34,8 +34,8 @@ void EzloCap(Entity* this) {
         sub_0805E3A0(this, 2);
         sub_0807DD50(this);
     }
-    sub_0807DDAC(this, NULL);
-    sub_0807DDE4(this);
+    ExecuteScriptForEntity(this, NULL);
+    HandleEntity0x82Actions(this);
     UpdateAnimationSingleFrame(this);
 }
 
@@ -44,7 +44,7 @@ void sub_0806D8A0(Entity* this, ScriptExecutionContext* context) {
     s32 yOffset;
 
     context->unk_19 = 8;
-    context->unk_08 |= 2;
+    context->postScriptActions |= 2;
     context->condition = 0;
     xOffset = 16;
     if (this->spriteSettings.b.flipX) {
@@ -52,8 +52,8 @@ void sub_0806D8A0(Entity* this, ScriptExecutionContext* context) {
     }
     xOffset += gPlayerEntity.x.HALF.HI;
     yOffset = gPlayerEntity.y.HALF.HI + 2;
-    context->unk_1C.HALF.HI = xOffset;
-    context->unk_20.HALF.HI = yOffset;
+    context->x.HALF.HI = xOffset;
+    context->y.HALF.HI = yOffset;
 
     xOffset -= this->x.HALF.HI;
     this->direction = sub_080045DA(xOffset, yOffset - this->y.HALF.HI);

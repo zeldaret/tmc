@@ -1,12 +1,12 @@
 SCRIPT_START script_08014CDC
 	BeginBlock 
 	SetEntityNonPlanarMovement 0x0180
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	Call sub_08066D04
 	Call sub_08066D14
 	SetEntityPositionRelative 0x01e8, 0x0180
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	EndBlock 
 	WaitForSomething2 0x00000001
 	Call sub_08066E08
@@ -40,7 +40,7 @@ script_08014D60:
 	_0807EA94 
 	_0807EC64 0x0040
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	SetEntityPositionRelative 0x01e8, 0x0028
 	Call sub_0807DF50
 	_0807E878 
@@ -56,5 +56,5 @@ script_08014D96:
 	SetLocalFlag 0x006d
 	Call sub_0807DF50
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

@@ -18,6 +18,6 @@ script_080098E0:
 	Call sub_0807DF50
 	_0807E878 
 script_08009910:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

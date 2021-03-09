@@ -1,7 +1,7 @@
 SCRIPT_START script_0800B5EC
 	BeginBlock 
-	_0807EF80 0x000a
-	_0807EF80 0x0001
+	DoPostScriptAction 0x000a
+	DoPostScriptAction 0x0001
 	_0807E9D4 
 	EndBlock 
 script_0800B5FA:

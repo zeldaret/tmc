@@ -6,7 +6,6 @@
 #include "script.h"
 
 extern void PrependEntityToList(Entity*, u32);
-extern void sub_0807DD50(Entity*);
 extern Entity* FindEntityBySubtype(u32, u32);
 void CopyPosition(Entity*, Entity*);
 void sub_08068680(Entity*, Entity*);

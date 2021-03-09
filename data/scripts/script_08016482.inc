@@ -1,6 +1,6 @@
 SCRIPT_START script_08016482
 	_0807E79C 
-	ScriptCommandNop2 0x0080
+	Nop2 0x0080
 	DoFade4 
 	DoFade5 
 	DoFade6 
@@ -46,7 +46,7 @@ SCRIPT_START script_08016482
 	SetEntity0x20 0x00018000
 	SetEntityPositionRelative 0x0000, 0x0000
 	MoveEntityToPlayer 
-	ScriptCommandNop3 
+	Nop3
 	_0807EC1C 0x0010
 	_0807EC64 0x0020
 	_0807EC94 0x0030
@@ -58,15 +58,15 @@ SCRIPT_START script_08016482
 	_0807EE30 
 	_0807EEB4 
 	_0807EEF4 0xfff0, 0x0014
-	_0807EF80 0x0000
-	_0807EF90 0x0001
+	DoPostScriptAction 0x0000
+	DoPostScriptAction2 0x0001
 	SoundReq 0x0074
 	SoundReq2 0x001d
 	SoundReq3 0x00000074
 	SoundReq0x80100000 
 	ModRupees 0xff38
 	ModHealth 0x0010
-	IncreaseMaxHealth 0x0008
+	IncreaseMaxHealth
 	_0807F050 0x0001
 	_0807F034 0x0001
 	GetInventoryValue 0x0001

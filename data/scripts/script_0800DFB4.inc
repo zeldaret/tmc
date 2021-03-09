@@ -10,5 +10,5 @@ script_0800DFB6:
 	CallWithArg sub_0806DA1C, 0x00000004
 	Call sub_0807DF50
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

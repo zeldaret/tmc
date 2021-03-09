@@ -20,6 +20,6 @@ script_08012D18:
 	_0807E878 
 	Jump script_08012D18
 script_08012D68:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

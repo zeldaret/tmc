@@ -2,7 +2,7 @@ SCRIPT_START script_0800B828
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800B836:
 	_0807E944 
@@ -16,8 +16,8 @@ script_0800B836:
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800B85E:
 	Wait 0x003c
@@ -27,7 +27,7 @@ script_0800B85E:
 	_0807E9D4 
 	_0807EB44 0x0004
 	_0807E930 0x0000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800B87E:
 	Wait 0x003c
@@ -36,8 +36,8 @@ script_0800B87E:
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800B89E:
 	CheckEntityInteractType 
@@ -52,8 +52,8 @@ script_0800B89E:
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x000a
 	CallWithArg sub_08064644, 0x0806464d
 	EndBlock 
 script_0800B8D4:
@@ -63,7 +63,7 @@ script_0800B8D4:
 	.short 0x0000
 	BeginBlock 
 	Call sub_08061E70
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	Call sub_08061FD8
 	EndBlock 
@@ -80,8 +80,8 @@ script_0800B8FC:
 	.short 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x000a
 	EndBlock 
 	CheckLocalFlag 0x005f
 	JumpIf script_0800B94E
@@ -105,8 +105,8 @@ script_0800B94E:
 	_0807E878 
 	Jump script_0800B94E
 	BeginBlock 
-	_0807EF80 0x000b
-	_0807EF80 0x0008
+	DoPostScriptAction 0x000b
+	DoPostScriptAction 0x0008
 	Call sub_0806DAAC
 	JumpIf script_0800B9AC
 	Call sub_0806DAD0
@@ -124,6 +124,6 @@ script_0800B99E:
 	Call sub_0807DF50
 	_0807E878 
 script_0800B9AC:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

@@ -1,8 +1,8 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
+#include "script.h"
 
-extern void sub_0807DD50(Entity*);
 extern void sub_0806ED78(Entity*);
 extern void sub_0805E3A0(Entity*, u32);
 
@@ -11,7 +11,6 @@ extern void (*gUnk_081121D4[])(Entity*);
 extern SpriteLoadData gUnk_081121C4;
 extern SpriteLoadData gUnk_081121B4;
 extern u32 gScreenTransition;
-extern void sub_0807DD94(Entity*, u32);
 extern void sub_0806A26C(Entity*);
 extern void sub_080042BA(Entity*, u32);
 

@@ -2,7 +2,7 @@ SCRIPT_START script_0800B308
 	BeginBlock 
 	CheckLocalFlag 0x001d
 	JumpIf script_0800B39C
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	SetEntityNonPlanarMovement 0x0040
 	SetEntityDirection 0x0010
 	CheckKinstoneFused 0x0006
@@ -39,6 +39,6 @@ script_0800B350:
 	SetLocalFlag 0x001d
 	SoundReq 0x0072
 script_0800B39C:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

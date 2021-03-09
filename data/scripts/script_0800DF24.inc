@@ -1,8 +1,8 @@
 SCRIPT_START script_0800DF24
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	EndBlock 
 	_0807E864 
 	Call sub_0807F9A4
@@ -18,15 +18,15 @@ SCRIPT_START script_0800DF24
 	Call sub_0807F5C0
 	Call sub_08066C94
 	Wait 0x00e9
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	TextboxNoOverlapFollowPos 0x162f, 0x0002
 	_0807EA94 
 	SoundReq2 0x002f
-	_0807EF80 0x0019
+	DoPostScriptAction 0x0019
 	SoundReq 0x0198
 	Call sub_0807F2D4
 	SetRoomFlag 0x0000
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	Wait 0x0080
 	_0807F0B4 0x0004
 	CameraTargetPlayer 
@@ -34,5 +34,5 @@ SCRIPT_START script_0800DF24
 	SetLocalFlag 0x0078
 	Call sub_0807DF50
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

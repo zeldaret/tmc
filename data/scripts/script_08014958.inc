@@ -1,7 +1,7 @@
 SCRIPT_START script_08014958
 	BeginBlock 
 	Call sub_0806C870
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CheckGlobalFlag 0x0058
 	JumpIf script_08014976
 	_0807EB44 0x0004
@@ -20,7 +20,7 @@ script_08014978:
 	Jump script_08014978
 	BeginBlock 
 	Call sub_0806C870
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CheckGlobalFlag 0x0058
 	JumpIfNot script_080149C6
 	EndBlock 
@@ -35,5 +35,5 @@ script_080149AA:
 	_0807E878 
 	Jump script_080149AA
 script_080149C6:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

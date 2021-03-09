@@ -1,8 +1,8 @@
 SCRIPT_START script_0800AEDC
 	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
-	_0807EF80 0x0007
-	_0807EF80 0x000b
+	DoPostScriptAction 0x0007
+	DoPostScriptAction 0x000b
 	_0807E930 0x0000
 	EndBlock 
 	WaitForSomething2 0x00000008
@@ -10,6 +10,6 @@ SCRIPT_START script_0800AEDC
 	_0807EF3C 0x0000, 0x0001
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000008
-	_0807EF80 0x0008
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0008
+	DoPostScriptAction 0x0006
 SCRIPT_END

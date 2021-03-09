@@ -2,7 +2,7 @@ SCRIPT_START script_08008D8C
 	BeginBlock 
 	Call sub_08061FD8
 	Call sub_08061E70
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08008DA0:
 	CheckEntityInteractType 
@@ -17,7 +17,7 @@ script_08008DA0:
 	.short 0x0000
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x00000000
 	EndBlock 
@@ -105,6 +105,6 @@ script_08008E12:
 	Call sub_0806DCC0
 	Call sub_0807DF50
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

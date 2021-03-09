@@ -47,12 +47,12 @@ script_0800B2C8:
 	_0807E878 
 	Jump script_0800B2C8
 script_0800B2E2:
-	_0807EF80 0x0013
+	DoPostScriptAction 0x0013
 	_0807EB44 0x0004
 	_0807E9DC 
 	Call sub_080676E0
 	Call sub_08067534
-	_0807EF80 0x0012
+	DoPostScriptAction 0x0012
 	_0807E5F8 0x00000001
 script_0800B302:
 	EndBlock 

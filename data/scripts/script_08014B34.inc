@@ -1,6 +1,6 @@
 SCRIPT_START script_08014B34
 	BeginBlock 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807E930 0x0000
 	EndBlock 
 	CheckLocalFlag 0x0063
@@ -25,7 +25,7 @@ script_08014B70:
 	_0807E864 
 	Call sub_0807DF28
 	_0807E5F8 0x00000001
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	WaitForSomething2 0x00000002
 	_0807E930 0x0010
 	Call sub_0806CCF8
@@ -71,7 +71,7 @@ script_08014C22:
 	Jump script_08014BF2
 	BeginBlock 
 	Call sub_0806CD58
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0006
 	EndBlock 
@@ -107,8 +107,8 @@ script_08014C82:
 	CheckGlobalFlag 0x0024
 	JumpIf script_08014CD4
 	Call sub_0806C870
-	_0807EF80 0x000a
-	_0807EF80 0x0000
+	DoPostScriptAction 0x000a
+	DoPostScriptAction 0x0000
 	EndBlock 
 script_08014CAE:
 	EndBlock 
@@ -125,6 +125,6 @@ script_08014CAE:
 	_0807E878 
 	Jump script_08014CAE
 script_08014CD4:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

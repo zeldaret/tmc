@@ -1,8 +1,8 @@
 SCRIPT_START script_0800A500
 	BeginBlock 
 	SetEntityNonPlanarMovement 0x0080
-	_0807EF80 0x0007
-	_0807EF80 0x000b
+	DoPostScriptAction 0x0007
+	DoPostScriptAction 0x000b
 	_0807E930 0x0005
 	Call sub_0807F348
 	EndBlock 
@@ -22,7 +22,7 @@ SCRIPT_START script_0800A500
 	SoundReq 0x0143
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000008
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	Call sub_080961B0
 	SoundReq 0x00fa
 	Wait 0x003c

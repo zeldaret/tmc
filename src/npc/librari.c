@@ -25,8 +25,8 @@ void Librari(Entity* this) {
                 this->interactType = 0;
                 sub_0806F118(this);
             } else {
-                sub_0807DDAC(this, NULL);
-                sub_0807DDE4(this);
+                ExecuteScriptForEntity(this, NULL);
+                HandleEntity0x82Actions(this);
                 UpdateAnimationSingleFrame(this);
             }
             break;

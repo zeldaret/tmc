@@ -1,8 +1,8 @@
 SCRIPT_START script_08012E88
 	BeginBlock 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
-	_0807EF80 0x000a
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x000a
 	Call sub_0806B60C
 	EndBlock 
 script_08012E9E:
@@ -10,17 +10,17 @@ script_08012E9E:
 	JumpIfNot script_08012E9E
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Call sub_0806B4F0
 	_0807EA94 
 	_0807E878 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Jump script_08012E9E
 	.short 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x00000008
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	Call sub_0806B60C
 	EndBlock 
 script_08012EDC:

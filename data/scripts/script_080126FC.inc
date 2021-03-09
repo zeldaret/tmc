@@ -1,7 +1,7 @@
 SCRIPT_START script_080126FC
 	BeginBlock 
 	SetEntityNonPlanarMovement 0x0040
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	EndBlock 
 	_0807E930 0x0020
 	WaitForSomething2 0x00000004
@@ -19,11 +19,11 @@ SCRIPT_START script_080126FC
 	_0807E930 0x0020
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x003c
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
-	_0807EF80 0x0011
+	DoPostScriptAction 0x0011
 	_0807E930 0x001c
 	TextboxNoOverlapFollowPos 0x1105, 0x000c
 	_0807EA94 
@@ -50,7 +50,7 @@ SCRIPT_START script_080126FC
 	TextboxNoOverlapFollowPos 0x1109, 0x000c
 	_0807EA94 
 	_0807E930 0x0020
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807E9D4 
 	_0807E5F8 0x00000008
 script_080127F2:
@@ -77,7 +77,7 @@ script_08012824:
 	EndBlock 
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
-	_0807EF80 0x000b
+	DoPostScriptAction 0x000b
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
 	Call sub_0806D944
@@ -93,7 +93,7 @@ script_08012824:
 	_0807E930 0x001f
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x003c
 	_0807E930 0x0010
 	TextboxNoOverlapFollowPos 0x110c, 0x000c
@@ -114,7 +114,7 @@ script_08012824:
 	SetEntityNonPlanarMovement 0x0080
 	Call sub_0806D908
 	_0807EC1C 0x0010
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807E9D4 
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
@@ -215,7 +215,7 @@ script_08012A3E:
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	SoundReq0x80100000 
-	_0807EF80 0x000b
+	DoPostScriptAction 0x000b
 	_0807EB8C 
 	Call sub_0806D944
 	_0807E930 0x0010
@@ -230,7 +230,7 @@ script_08012A74:
 	_0807EA94 
 	StartPlayerScript script_08012B18
 	Call sub_0806D9A4
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	Wait 0x0078
 	SoundReq2 0x000e
 	BeginBlock 
@@ -239,5 +239,5 @@ script_08012A74:
 	EndBlock 
 	_0807EA94 
 	_0807E5F8 0x00000008
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

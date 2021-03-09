@@ -25,5 +25,5 @@ script_080094BC:
 	_0807EE30 
 	JumpIfNot script_080094BC
 	Wait 0x003c
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

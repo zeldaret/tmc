@@ -12,7 +12,7 @@ script_08011508:
 	_0807E930 0x0002
 	_0807E5F8 0x00040000
 	WaitForSomething2 0x00020000
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x003c
 	_0807E930 0x0012
 	SoundReq 0x011e
@@ -26,12 +26,12 @@ script_08011508:
 	_0807E930 0x0013
 	_0807E5F8 0x00040000
 	WaitForSomething2 0x00020000
-	_0807EF80 0x000d
+	DoPostScriptAction 0x000d
 	_0807E930 0x0014
 	SetEntityNonPlanarMovement 0x0020
 	_0807EEF4 0x0000, 0xfff0
 	_0807E930 0x0013
-	_0807EF80 0x0010
+	DoPostScriptAction 0x0010
 	_0807E5F8 0x00040000
 	WaitForSomething2 0x00020000
 	Call sub_0807F3C8
@@ -40,6 +40,6 @@ script_08011508:
 	SetEntityDirection 0x0002
 	_0807EC1C 0x003c
 	_0807E5F8 0x00040000
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

@@ -2,11 +2,11 @@ SCRIPT_START script_0800C50C
 	BeginBlock 
 	SetEntityNonPlanarMovement 0x0100
 	_0807E930 0x0004
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	EndBlock 
 	WaitForSomething2 0x00000001
 	Wait 0x000a
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	SoundReq 0x0136
 	_0807EEF4 0x0000, 0x0060
 	Wait 0x003c

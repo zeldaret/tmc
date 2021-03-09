@@ -2,8 +2,8 @@ SCRIPT_START script_0800B00C
 	BeginBlock 
 	Call sub_0807F934
 	Call sub_080A2124
-	_0807EF80 0x000a
-	_0807EF80 0x0007
+	DoPostScriptAction 0x000a
+	DoPostScriptAction 0x0007
 	EndBlock 
 script_0800B024:
 	CheckEntityInteractType 
@@ -16,7 +16,7 @@ script_0800B024:
 	JumpIf script_0800B064
 	TextboxNoOverlap 0x3f32
 	_0807EA94 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	Call Windcrest_Unlock
 	Wait 0x003c
 	_0807EB28 0x0b5c
@@ -26,7 +26,7 @@ script_0800B024:
 script_0800B064:
 	TextboxNoOverlap 0x3f32
 	_0807EA94 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	Call Windcrest_Unlock
 	Wait 0x003c
 	_0807EB28 0x0b5d
@@ -35,7 +35,7 @@ script_0800B064:
 script_0800B082:
 	TextboxNoOverlap 0x3f32
 	_0807EA94 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	Call Windcrest_Unlock
 	Wait 0x003c
 	_0807EB28 0x0b5e
@@ -43,6 +43,6 @@ script_0800B082:
 script_0800B09C:
 	Call sub_0807DF50
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

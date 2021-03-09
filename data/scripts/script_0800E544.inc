@@ -17,6 +17,6 @@ script_0800E550:
 	SetLocalFlag 0x007e
 script_0800E582:
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

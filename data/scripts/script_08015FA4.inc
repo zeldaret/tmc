@@ -1,9 +1,9 @@
 SCRIPT_START script_08015FA4
 	BeginBlock 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	Call sub_08066E38
 	EndBlock 
 	WaitForSomething 0x00000400
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

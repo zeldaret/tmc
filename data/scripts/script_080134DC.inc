@@ -1,6 +1,6 @@
 SCRIPT_START script_080134DC
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	EndBlock 
 	BeginBlock 
 	Call sub_0807F92C

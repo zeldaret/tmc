@@ -9,10 +9,10 @@ SCRIPT_START script_0800FF74
 script_0800FF92:
 	EndBlock 
 	BeginBlock 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CheckLocalFlag 0x00ce
 	JumpIf script_0800FFCC
-	_0807EF80 0x000b
+	DoPostScriptAction 0x000b
 	Call sub_08064198
 	CheckLocalFlag 0x00c7
 	JumpIfNot script_0800FFCC
@@ -69,7 +69,7 @@ script_08010060:
 	.short 0x0000
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	CallWithArg sub_080672B0, 0x00000000
 	EndBlock 
@@ -86,5 +86,5 @@ script_08010090:
 	_0807EB44 0x0004
 	CallWithArg sub_080672B0, 0x00000000
 	Jump script_08010090
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

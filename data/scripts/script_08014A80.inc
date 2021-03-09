@@ -1,10 +1,10 @@
 SCRIPT_START script_08014A80
 	BeginBlock 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 	WaitForSomething2 0x00000001
 	_0807EB74 
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000001
 	TextboxNoOverlap 0x2f0a
@@ -22,7 +22,7 @@ script_08014AAC:
 	.short 0x0000
 	BeginBlock 
 	Call sub_0806C870
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_08014AD2:
 	_0807E30C 

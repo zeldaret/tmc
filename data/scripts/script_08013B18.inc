@@ -1,6 +1,6 @@
 SCRIPT_START script_08013B18
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 script_08013B1E:
 	EndBlock 
 	BeginBlock 

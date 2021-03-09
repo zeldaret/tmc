@@ -7,5 +7,5 @@ script_0800D698:
 	_0807E878 
 	Call sub_0807DF50
 script_0800D6AE:
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

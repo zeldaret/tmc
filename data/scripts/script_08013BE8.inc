@@ -11,7 +11,7 @@ SCRIPT_START script_08013BE8
 	CheckInventory1 0x0041
 	JumpIfNot script_08013C98
 	EndBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	WaitForSomething2 0x00000004
 	_0807E908 0x0002
 	SoundReq 0x0134
@@ -21,9 +21,9 @@ script_08013C2A:
 	JumpIf script_08013C98
 script_08013C32:
 	BeginBlock 
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	Call sub_0807F934
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	CallWithArg sub_080962F8, 0x00000000
 	CallWithArg sub_0807F8E8, 0x00000004
 	EndBlock 
@@ -52,7 +52,7 @@ script_08013C92:
 	EndBlock 
 	_0807E908 0x0004
 script_08013C98:
-	_0807EF80 0x0008
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0008
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

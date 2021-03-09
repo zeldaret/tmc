@@ -1,6 +1,6 @@
 SCRIPT_START script_080111CC
 	BeginBlock 
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	SetEntityNonPlanarMovement 0x0100
 	Call sub_08066D04
 	EndBlock 
@@ -14,42 +14,42 @@ script_080111F6:
 	JumpIf script_08011206
 	SetEntityPositionRelative 0x01f8, 0x00b8
 script_08011206:
-	_0807EF80 0x0007
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0007
+	DoPostScriptAction 0x0001
 	_0807EDD4 0x01f8, 0x0050
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	_0807EDD4 0x01f8, 0x0020
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
-	_0807EF80 0x0007
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0007
+	DoPostScriptAction 0x0001
 	SetEntityNonPlanarMovement 0x0040
 	_0807EDD4 0x01e8, 0x0040
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
 	Call sub_08095810
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	_0807EDD4 0x01d8, 0x0058
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
 	SoundReq 0x01c9
-	_0807EF80 0x0010
+	DoPostScriptAction 0x0010
 	Wait 0x0014
 	Call sub_08066E20
 	Wait 0x0014
-	_0807EF80 0x0010
+	DoPostScriptAction 0x0010
 	Call sub_0807F2D4
 	SoundReq 0x01ca
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

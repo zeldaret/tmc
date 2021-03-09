@@ -100,7 +100,7 @@ _0809ABA0: .4byte script_08012DD8
 sub_0809ABA4: @ 0x0809ABA4
 	push {lr}
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	pop {pc}
 	.align 2, 0
 

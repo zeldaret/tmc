@@ -3,21 +3,21 @@ SCRIPT_START script_080099DC
 	Call sub_0807F348
 	SetEntityNonPlanarMovement 0x00c0
 	_0807EB44 0x0002
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	EndBlock 
 	WaitForSomething2 0x00000004
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	_0807EDD4 0x0068, 0x0060
 	Wait 0x000f
 	TextboxNoOverlapFollow 0x1001
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	TextboxNoOverlapFollow 0x1003
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000008
 SCRIPT_END
 	.short 0x0000

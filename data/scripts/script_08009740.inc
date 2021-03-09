@@ -2,16 +2,16 @@ SCRIPT_START script_08009740
 	BeginBlock 
 	Call sub_08065D00
 	_0807EB44 0x0004
-	_0807EF80 0x0000
-	_0807EF80 0x000a
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x000a
+	DoPostScriptAction 0x0007
 	EndBlock 
 script_0800975A:
 	CheckEntityInteractType 
 	JumpIfNot script_0800975A
 	_0807E864 
 	_0807EB74 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Call sub_08065F64
 	_0807EA94 
 	_0807E878 
@@ -42,5 +42,5 @@ script_0800975A:
 	_0807EA94 
 	Call sub_0807DF50
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

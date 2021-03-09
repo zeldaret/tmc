@@ -112,7 +112,7 @@ void sub_0806ACC4(Entity* this) {
                 this->interactType = 0;
                 sub_0806F118(this);
             } else {
-                sub_0807DDAC(this, NULL);
+                ExecuteScriptForEntity(this, NULL);
                 sub_0806AEA8(this);
                 if (this->type2 == 10 && this->interactType) {
                     this->action = 2;
@@ -182,7 +182,7 @@ void sub_0806AEA8(Entity* this) {
     if (old & 0x20) {
         sub_08003FC4(this, 0x4000);
     }
-    sub_0807DDE4(this);
+    HandleEntity0x82Actions(this);
     this->field_0x82.HWORD = old;
 }
 

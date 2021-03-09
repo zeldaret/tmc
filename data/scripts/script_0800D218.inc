@@ -4,9 +4,9 @@ SCRIPT_START script_0800D218
 	JumpIf script_0800D24C
 	CheckLocalFlag 0x007e
 	JumpIf script_0800D242
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	EndBlock 
 	WaitForSomething2 0x00000010
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	WaitForSomething2 0x00000010
 SCRIPT_END

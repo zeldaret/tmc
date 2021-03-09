@@ -11,7 +11,7 @@ SCRIPT_START script_08010A5C
 script_08010A78:
 	Call sub_0807F0D8
 	JumpIfNot script_08010A78
-	_0807EF80 0x0014
+	DoPostScriptAction 0x0014
 	_0807E878 
 	Call sub_0807DF50
 	Call sub_080791D0

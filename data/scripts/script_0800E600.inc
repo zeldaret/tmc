@@ -7,7 +7,7 @@ SCRIPT_START script_0800E600
 	EndBlock 
 	WaitForPlayerAction0x17 
 	_0807E8E4_0 
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	Call sub_080752AC
 	_0807E878 
 	Call sub_080791D0

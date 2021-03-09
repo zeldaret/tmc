@@ -11,8 +11,8 @@ SCRIPT_START script_08015F3C
 	Wait 0x003c
 	_0807E5F8 0x00000080
 	WaitForSomething 0x00000200
-	_0807EF80 0x0005
+	DoPostScriptAction 0x0005
 	WaitForSomething 0x00000400
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

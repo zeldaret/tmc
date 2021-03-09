@@ -2,12 +2,12 @@ SCRIPT_START script_0800C2A4
 	BeginBlock 
 	_0807EB44 0x0000
 	_0807E930 0x0000
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0008
 	SetEntityNonPlanarMovement 0x0080
 	Call sub_0807F348
 	EndBlock 
 	WaitForSomething2 0x00000002
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	CallWithArg sub_0807F4F8, 0x00000128
 	Wait 0x001e
 	TextboxNoOverlap 0x0e17
@@ -20,7 +20,7 @@ SCRIPT_START script_0800C2A4
 	_0807EDD4 0x00c8, 0x00d8
 	Wait 0x000f
 	_0807E5F8 0x0000007c
-	_0807EF80 0x000f
+	DoPostScriptAction 0x000f
 	_0807E930 0x0008
 	Wait 0x00b4
 	CallWithArg sub_0804BF38, 0x00000002

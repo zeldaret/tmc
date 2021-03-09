@@ -1,22 +1,22 @@
 SCRIPT_START script_0800CBD4
 	BeginBlock 
-	_0807EF80 0x0000
-	_0807EF80 0x0008
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x0008
 	SetEntityNonPlanarMovement 0x0100
-	_0807EF80 0x000f
+	DoPostScriptAction 0x000f
 	Call sub_0807F338
 	EndBlock 
 	WaitForSomething2 0x00002000
-	_0807EF80 0x0007
+	DoPostScriptAction 0x0007
 	_0807EDD4 0x0258, 0x0330
 	_0807EB44 0x0006
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00004000
 	WaitForSomething2 0x00002000
 	SetEntityNonPlanarMovement 0x0200
-	_0807EF80 0x000f
+	DoPostScriptAction 0x000f
 	_0807EDD4 0x0218, 0x0340
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00004000
 	WaitForSomething2 0x00002000
 	SoundReq 0x007c
@@ -26,9 +26,9 @@ SCRIPT_START script_0800CBD4
 	_0807E5F8 0x00004000
 	WaitForSomething2 0x00002000
 	SetEntityNonPlanarMovement 0x0300
-	_0807EF80 0x000f
+	DoPostScriptAction 0x000f
 	_0807EDD4 0x0288, 0x02d8
 	_0807E5F8 0x00004000
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END
 	.short 0x0000

@@ -1,8 +1,8 @@
 SCRIPT_START script_08013114
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x000a
-	_0807EF80 0x0012
+	DoPostScriptAction 0x000a
+	DoPostScriptAction 0x0012
 	Call sub_0807F348
 	EndBlock 
 script_08013128:
@@ -34,6 +34,6 @@ script_08013176:
 	BeginBlock 
 	CheckLocalFlag 0x0062
 	JumpIfNot script_0801319A
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 	EndBlock 
 SCRIPT_END

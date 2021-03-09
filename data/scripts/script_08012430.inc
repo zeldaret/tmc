@@ -1,6 +1,6 @@
 SCRIPT_START script_08012430
 	BeginBlock 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
 	_0807E930 0x0000
 	EndBlock 
@@ -155,5 +155,5 @@ script_08012566:
 	CallWithArg sub_0807F6F8, 0x00000008
 	Call sub_0807DF50
 	_0807E878 
-	_0807EF80 0x0006
+	DoPostScriptAction 0x0006
 SCRIPT_END

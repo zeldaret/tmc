@@ -1,7 +1,7 @@
 SCRIPT_START script_0800903C
 	BeginBlock 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	EndBlock 
 	WaitForSomething2 0x00000004
 	SoundReq 0x007c
@@ -13,16 +13,16 @@ SCRIPT_START script_0800903C
 	_0807E5F8 0x00000008
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	Jump script_0800927E
 	.short 0x0000
 	BeginBlock 
 	Call sub_0807F348
 	SetEntityNonPlanarMovement 0x0100
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 	WaitForSomething2 0x00000080
 	_0807EB44 0x0004
@@ -30,20 +30,20 @@ SCRIPT_START script_0800903C
 	_0807E930 0x0004
 	TextboxNoOverlapFollowPos 0x1050, 0x000e
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
 	TextboxNoOverlapFollowPos 0x1052, 0x000e
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807EB44 0x0006
 	_0807E930 0x0005
 	TextboxNoOverlapFollowPos 0x1054, 0x000e
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807EB44 0x0004
@@ -52,25 +52,25 @@ SCRIPT_START script_0800903C
 	_0807E930 0x0004
 	TextboxNoOverlapFollowPos 0x1056, 0x000e
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
 	TextboxNoOverlapFollowPos 0x1057, 0x000e
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
 	TextboxNoOverlapFollowPos 0x1058, 0x000e
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000080
 	_0807E930 0x0004
 	TextboxNoOverlapFollowPos 0x105c, 0x000e
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000100
 script_0800917C:
 	CheckEntityInteractType 
@@ -85,62 +85,62 @@ script_0800917C:
 	BeginBlock 
 	Call sub_0807F348
 	_0807EB44 0x0006
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	EndBlock 
 	WaitForSomething2 0x00000001
 	_0807EB74 
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	TextboxNoOverlapFollowPos 0x105b, 0x0000
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000001
 	_0807EB44 0x0006
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000001
-	_0807EF80 0x0005
+	DoPostScriptAction 0x0005
 	Wait 0x003c
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	TextboxNoOverlapFollowPos 0x1051, 0x0000
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000001
-	_0807EF80 0x0004
+	DoPostScriptAction 0x0004
 	Wait 0x003c
 	_0807EB74 
 	_0807EB8C 
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	TextboxNoOverlapFollowPos 0x1055, 0x0000
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000001
 	_0807EB74 
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000001
 	SetEntityNonPlanarMovement 0x0080
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0001
 	_0807EDD4 0x0098, 0x0078
 	_0807EB74 
-	_0807EF80 0x0000
-	_0807EF80 0x0001
+	DoPostScriptAction 0x0000
+	DoPostScriptAction 0x0001
 	TextboxNoOverlapFollowPos 0x1059, 0x0000
 	_0807EA94 
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
 	BeginBlock 
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	Jump script_080092B2
 	.short 0x0000
 	BeginBlock 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 script_0800927E:
 	Call sub_080668F0
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_0800928A:
 	CheckEntityInteractType 
@@ -155,10 +155,10 @@ script_0800928A:
 	.short 0x0000
 	BeginBlock 
 	_0807EB44 0x0006
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 script_080092B2:
 	_0807E9D4 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 script_080092BA:
 	CheckEntityInteractType 
@@ -172,14 +172,14 @@ script_080092BA:
 	Jump script_080092BA
 	BeginBlock 
 	_0807EB44 0x0004
-	_0807EF80 0x0000
+	DoPostScriptAction 0x0000
 	Call sub_0806672C
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	EndBlock 
 	Jump script_0800917C
 	.short 0x0000
 	BeginBlock 
-	_0807EF80 0x000a
+	DoPostScriptAction 0x000a
 	Call sub_08066E38
 	_0807E9D4 
 	EndBlock 
