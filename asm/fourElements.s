@@ -78,7 +78,7 @@ sub_080A01E0: @ 0x080A01E0
 	adds r0, #0x38
 	strb r3, [r0]
 _080A0246:
-	ldr r0, _080A028C @ =gUnk_0800A0B4
+	ldr r0, _080A028C @ =script_0800A0B4
 	bl StartPlayerScript
 	ldr r1, _080A0284 @ =gScreen
 	adds r2, r1, #0
@@ -108,13 +108,13 @@ _080A027C: .4byte gUnk_080FD1A0
 _080A0280: .4byte 0x0000FF40
 _080A0284: .4byte gScreen
 _080A0288: .4byte 0x0000FDFF
-_080A028C: .4byte gUnk_0800A0B4
+_080A028C: .4byte script_0800A0B4
 
 	thumb_func_start sub_080A0290
 sub_080A0290: @ 0x080A0290
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r5, _080A02BC @ =gUnk_02033280
+	ldr r5, _080A02BC @ =gActiveScriptInfo
 	ldr r0, [r5]
 	movs r1, #4
 	ands r0, r1
@@ -133,7 +133,7 @@ sub_080A0290: @ 0x080A0290
 	strh r0, [r4, #0x36]
 	b _080A02CA
 	.align 2, 0
-_080A02BC: .4byte gUnk_02033280
+_080A02BC: .4byte gActiveScriptInfo
 _080A02C0:
 	movs r1, #2
 	strb r1, [r4, #0xc]

@@ -26,7 +26,7 @@ typedef struct Manager {
     /*0x11*/ u8 unk_11[3];
     /*0x14*/ struct Manager* parent;
     /*0x18*/ u8 unk_18[0x8];
-    // union SplitHWord unk_20;
+    // union SplitHWord y;
     // u16 unk_22;
     // u16 unk_24;
     // u16 unk_26;

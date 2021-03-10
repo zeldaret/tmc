@@ -18,7 +18,6 @@ void sub_0804AFF4(void) {
         _call_via_r0(func);
     }
     sub_0804B16C();
-    return;
 }
 
 /*

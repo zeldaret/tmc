@@ -110,9 +110,9 @@ _08063800: .4byte gPlayerEntity
 _08063804:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r5, r4, #0
 	adds r5, #0x59
 	ldrb r0, [r5]

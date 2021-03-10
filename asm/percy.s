@@ -100,13 +100,13 @@ _0806B5EE:
 	.align 2, 0
 _0806B5FC: .4byte gPlayerEntity
 _0806B600:
-	ldr r1, _0806B608 @ =gUnk_02033280
+	ldr r1, _0806B608 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0806B606:
 	pop {r4, pc}
 	.align 2, 0
-_0806B608: .4byte gUnk_02033280
+_0806B608: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0806B60C
 sub_0806B60C: @ 0x0806B60C

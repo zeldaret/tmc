@@ -7,9 +7,7 @@
 extern void sub_08078778(Entity*);
 extern void sub_0805E47C(Entity*);
 extern void sub_0805E584();
-extern void sub_0807DD64();
 extern void sub_08062CA4();
-extern void sub_0807DDE4();
 extern u32 CheckKinstoneFused();
 
 extern void (*gStampBehaviors1[4])(Entity*);
@@ -68,15 +66,13 @@ void sub_08062C7C(Entity* ent) {
 }
 
 void sub_08062CA4(Entity* ent) {
-    sub_0807DDAC(ent, NULL);
-    sub_0807DDE4(ent);
+    ExecuteScriptForEntity(ent, NULL);
+    HandleEntity0x82Actions(ent);
     GetNextFrame(ent);
 }
 
 void sub_08062CBC(Entity* ent) {
-    u32 uVar1;
-
-    uVar1 = CheckKinstoneFused(44);
+    u32 uVar1 = CheckKinstoneFused(44);
     ShowNPCDialogue(ent, &gUnk_0810C2E4[(-uVar1 | uVar1) >> 31]);
 }
 

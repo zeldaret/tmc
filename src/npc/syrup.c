@@ -1,8 +1,8 @@
 #include "global.h"
 #include "entity.h"
 #include "npc.h"
+#include "script.h"
 
-extern void sub_0807DD50(Entity*);
 extern void sub_0806ED78(Entity*);
 extern void sub_0805E3A0(Entity*, u32);
 
@@ -11,7 +11,6 @@ extern void (*gUnk_081121D4[])(Entity*);
 extern SpriteLoadData gUnk_081121C4;
 extern SpriteLoadData gUnk_081121B4;
 extern u32 gScreenTransition;
-extern void sub_0807DD94(Entity*, u32);
 extern void sub_0806A26C(Entity*);
 extern void sub_080042BA(Entity*, u32);
 
@@ -56,8 +55,8 @@ void sub_0806A26C(Entity* this) {
         if (uVar2 = Random(), uVar2) {
             unk = -unk; // wtf?!
         }
-        pEVar1->spriteOffsetX = gUnk_081121DC[uVar2 & 7];
-        pEVar1->spriteOffsetY = gUnk_081121DC[(uVar2 / 256) & 7] - 8;
+        pEVar1->spriteOffsetX = gUnk_081121D4[uVar2 & 7];
+        pEVar1->spriteOffsetY = gUnk_081121D4[(uVar2 / 256) & 7] - 8;
     }
 }
 #else

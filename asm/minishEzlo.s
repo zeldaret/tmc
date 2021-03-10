@@ -33,9 +33,9 @@ MinishEzlo: @ 0x08062F70
 _08062FA0:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl GetNextFrame
 	adds r4, #0x5b
@@ -300,7 +300,7 @@ _08063186:
 	adds r1, #0x80
 	movs r0, #0x11
 	strh r0, [r1]
-	ldr r2, _080631B8 @ =gUnk_02033280
+	ldr r2, _080631B8 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -308,7 +308,7 @@ _08063186:
 	b _080631DC
 	.align 2, 0
 _080631B4: .4byte 0x0000033F
-_080631B8: .4byte gUnk_02033280
+_080631B8: .4byte gActiveScriptInfo
 _080631BC:
 	lsls r0, r3, #1
 	adds r0, r2, r0
@@ -324,11 +324,11 @@ _080631CA:
 	adds r0, r4, #0
 	movs r3, #0
 	bl sub_0805EC9C
-	ldr r1, _080631E4 @ =gUnk_02033280
+	ldr r1, _080631E4 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _080631DC:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080631E0: .4byte 0xFFFE0000
-_080631E4: .4byte gUnk_02033280
+_080631E4: .4byte gActiveScriptInfo

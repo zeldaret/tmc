@@ -300,7 +300,7 @@ _08034E8A:
 	beq _08034EBC
 	movs r0, #3
 	strb r0, [r4, #0xc]
-	ldr r1, _08034EB4 @ =gUnk_08012E20
+	ldr r1, _08034EB4 @ =script_08012E20
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r1, r4, #0
@@ -309,7 +309,7 @@ _08034E8A:
 	b _08034EBC
 	.align 2, 0
 _08034EB0: .4byte gScreenTransition
-_08034EB4: .4byte gUnk_08012E20
+_08034EB4: .4byte script_08012E20
 _08034EB8:
 	bl DeleteThisEntity
 _08034EBC:
@@ -334,7 +334,7 @@ _08034ED6:
 sub_08034ED8: @ 0x08034ED8
 	push {lr}
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	pop {pc}
 	.align 2, 0
 
@@ -389,7 +389,7 @@ sub_08034EE4: @ 0x08034EE4
 _08034F46:
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	pop {r4, r5, pc}
 	.align 2, 0
 _08034F50: .4byte gUnk_080CEEC8

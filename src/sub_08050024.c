@@ -18,7 +18,6 @@ extern void DoFade(u32, u32);
 void sub_08050024() {
     sub_0801E104();
     DoFade(5, 0x80 << 1);
-    return;
 }
 
 void sub_08050038(u32 arg0) {

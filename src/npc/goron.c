@@ -97,9 +97,9 @@ u32 sub_08069480(Entity* this) {
     return (sub_0801E99C(this) << 24) >> 24;
 }
 
-void sub_0806948C(Entity* this, u32* param_1) {
-    param_1[5] = CheckKinstoneFused((sub_08069480(this) << 24) >> 24);
-    gUnk_02033280.unk_07 |= 1;
+void sub_0806948C(Entity* this, ScriptExecutionContext* context) {
+    context->condition = CheckKinstoneFused((sub_08069480(this) << 24) >> 24);
+    gActiveScriptInfo.flags |= 1;
 }
 
 void sub_080694B0(Entity* this) {

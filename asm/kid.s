@@ -897,13 +897,13 @@ _0806274A:
 	.align 2, 0
 _08062778: .4byte gRoomControls
 _0806277C:
-	ldr r1, _08062784 @ =gUnk_02033280
+	ldr r1, _08062784 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _08062782:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08062784: .4byte gUnk_02033280
+_08062784: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_08062788
 sub_08062788: @ 0x08062788
@@ -1228,13 +1228,13 @@ _08062A30:
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	beq _08062A42
-	ldr r1, _08062A44 @ =gUnk_02033280
+	ldr r1, _08062A44 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _08062A42:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_08062A44: .4byte gUnk_02033280
+_08062A44: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_08062A48
 sub_08062A48: @ 0x08062A48

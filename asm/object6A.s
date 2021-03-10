@@ -37,9 +37,9 @@ sub_08094A5C: @ 0x08094A5C
 _08094A78:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl GetNextFrame
 	pop {r4, pc}
@@ -78,9 +78,9 @@ sub_08094A90: @ 0x08094A90
 _08094ACE:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
@@ -127,12 +127,12 @@ sub_08094B0C: @ 0x08094B0C
 	.align 2, 0
 _08094B2C: .4byte 0x0000FFE0
 _08094B30:
-	ldr r0, _08094B38 @ =gUnk_02033280
+	ldr r0, _08094B38 @ =gActiveScriptInfo
 	strb r3, [r0, #6]
 _08094B34:
 	pop {pc}
 	.align 2, 0
-_08094B38: .4byte gUnk_02033280
+_08094B38: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_08094B3C
 sub_08094B3C: @ 0x08094B3C
@@ -155,13 +155,13 @@ sub_08094B3C: @ 0x08094B3C
 	.align 2, 0
 _08094B5C: .4byte 0x0000FFF3
 _08094B60:
-	ldr r1, _08094B68 @ =gUnk_02033280
+	ldr r1, _08094B68 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _08094B66:
 	pop {pc}
 	.align 2, 0
-_08094B68: .4byte gUnk_02033280
+_08094B68: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_08094B6C
 sub_08094B6C: @ 0x08094B6C
@@ -204,7 +204,7 @@ sub_08094B94: @ 0x08094B94
 	bl CopyPosition
 	ldr r0, _08094BD8 @ =0x0000FFD0
 	strh r0, [r4, #0x36]
-	ldr r1, _08094BDC @ =gUnk_0800AEDC
+	ldr r1, _08094BDC @ =script_0800AEDC
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r1, r4, #0
@@ -223,7 +223,7 @@ _08094BD2:
 	.align 2, 0
 _08094BD4: .4byte gPlayerEntity
 _08094BD8: .4byte 0x0000FFD0
-_08094BDC: .4byte gUnk_0800AEDC
+_08094BDC: .4byte script_0800AEDC
 
 	thumb_func_start sub_08094BE0
 sub_08094BE0: @ 0x08094BE0
@@ -933,9 +933,9 @@ sub_08095120: @ 0x08095120
 _0809514C:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
@@ -984,9 +984,9 @@ sub_08095188: @ 0x08095188
 _080951B4:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	pop {r4, pc}
 
 	thumb_func_start sub_080951C4
@@ -1010,9 +1010,9 @@ sub_080951C4: @ 0x080951C4
 _080951E8:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl GetNextFrame
 	movs r1, #0x36
@@ -1073,7 +1073,7 @@ sub_08095244: @ 0x08095244
 	adds r0, r5, #0
 	adds r1, r4, #0
 	bl PositionRelative
-	ldr r1, _08095284 @ =gUnk_0801183C
+	ldr r1, _08095284 @ =script_0801183C
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r1, r4, #0
@@ -1083,7 +1083,7 @@ _0809527C:
 	pop {r4, r5, pc}
 	.align 2, 0
 _08095280: .4byte 0xFFF00000
-_08095284: .4byte gUnk_0801183C
+_08095284: .4byte script_0801183C
 
 	thumb_func_start sub_08095288
 sub_08095288: @ 0x08095288
@@ -1261,9 +1261,9 @@ sub_080953A4: @ 0x080953A4
 _080953E0:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl GetNextFrame
 	ldrb r0, [r4, #0xa]
@@ -1374,7 +1374,7 @@ sub_080954AC: @ 0x080954AC
 	adds r0, r5, #0
 	adds r1, r4, #0
 	bl CopyPosition
-	ldr r1, _080954D8 @ =gUnk_08015B14
+	ldr r1, _080954D8 @ =script_08015B14
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r1, r4, #0
@@ -1383,7 +1383,7 @@ sub_080954AC: @ 0x080954AC
 _080954D6:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080954D8: .4byte gUnk_08015B14
+_080954D8: .4byte script_08015B14
 
 	thumb_func_start sub_080954DC
 sub_080954DC: @ 0x080954DC
@@ -1588,9 +1588,9 @@ _08095664:
 	strb r0, [r4, #0x18]
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl GetNextFrame
 	pop {r4, r5, pc}
@@ -1795,9 +1795,9 @@ sub_080957DC: @ 0x080957DC
 _080957F8:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
@@ -1821,7 +1821,7 @@ sub_08095810: @ 0x08095810
 	adds r0, r5, #0
 	adds r1, r4, #0
 	bl ResolveEntityOnTop
-	ldr r1, _08095848 @ =gUnk_08011940
+	ldr r1, _08095848 @ =script_08011940
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r1, r4, #0
@@ -1830,7 +1830,7 @@ sub_08095810: @ 0x08095810
 _08095844:
 	pop {r4, r5, pc}
 	.align 2, 0
-_08095848: .4byte gUnk_08011940
+_08095848: .4byte script_08011940
 
 	thumb_func_start sub_0809584C
 sub_0809584C: @ 0x0809584C
@@ -1884,9 +1884,9 @@ _08095880:
 _080958B2:
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r5, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	ldrb r4, [r5, #0xa]
 	movs r0, #0x5c
 	strb r0, [r5, #0xa]
@@ -1912,9 +1912,9 @@ sub_080958D8: @ 0x080958D8
 _080958EC:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl GetNextFrame
 	adds r0, r4, #0
@@ -1950,9 +1950,9 @@ sub_08095918: @ 0x08095918
 _0809593C:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl GetNextFrame
 	pop {r4, pc}
@@ -1984,7 +1984,7 @@ sub_08095954: @ 0x08095954
 	bl PositionRelative
 	ldr r0, _080959B0 @ =0x0000FFFD
 	strh r0, [r4, #0x36]
-	ldr r1, _080959B4 @ =gUnk_08012C48
+	ldr r1, _080959B4 @ =script_08012C48
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r1, r4, #0
@@ -2003,9 +2003,9 @@ sub_08095954: @ 0x08095954
 	.align 2, 0
 _080959AC: .4byte gUnk_08122AF8
 _080959B0: .4byte 0x0000FFFD
-_080959B4: .4byte gUnk_08012C48
+_080959B4: .4byte script_08012C48
 _080959B8:
-	ldr r0, _080959C8 @ =gUnk_02033280
+	ldr r0, _080959C8 @ =gActiveScriptInfo
 	ldr r1, [r0]
 	movs r2, #0x80
 	lsls r2, r2, #1
@@ -2014,7 +2014,7 @@ _080959B8:
 _080959C4:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080959C8: .4byte gUnk_02033280
+_080959C8: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_080959CC
 sub_080959CC: @ 0x080959CC
@@ -2038,9 +2038,9 @@ sub_080959CC: @ 0x080959CC
 _080959F2:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
@@ -2146,9 +2146,9 @@ _08095ABC:
 _08095ACC:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	b _08095B44
 _08095ADC:
 	ldrb r0, [r4, #0xc]
@@ -2455,9 +2455,9 @@ sub_08095CE0: @ 0x08095CE0
 _08095D06:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	adds r0, r4, #0
@@ -2550,7 +2550,7 @@ _08095DB8:
 sub_08095DBC: @ 0x08095DBC
 	push {r4, r5, lr}
 	adds r4, r0, #0
-	ldr r5, _08095DF0 @ =gUnk_02033280
+	ldr r5, _08095DF0 @ =gActiveScriptInfo
 	ldr r0, [r5]
 	movs r1, #0x10
 	ands r0, r1
@@ -2571,10 +2571,10 @@ _08095DD0:
 _08095DE6:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	b _08095E74
 	.align 2, 0
-_08095DF0: .4byte gUnk_02033280
+_08095DF0: .4byte gActiveScriptInfo
 _08095DF4:
 	ldrb r0, [r4, #0xc]
 	cmp r0, #0
@@ -2904,9 +2904,9 @@ sub_08096058: @ 0x08096058
 _0809606C:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl GetNextFrame
 	pop {r4, pc}
@@ -2929,9 +2929,9 @@ sub_08096084: @ 0x08096084
 _080960A0:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl GetNextFrame
 	ldr r0, [r4, #0x50]
@@ -3204,9 +3204,9 @@ sub_0809629C: @ 0x0809629C
 _080962B2:
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r5, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	movs r1, #0x80
 	lsls r1, r1, #5
 	adds r0, r5, #0

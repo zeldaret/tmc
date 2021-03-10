@@ -121,13 +121,13 @@ extern struct_02024490 gUnk_02024490;
 
 typedef struct {
     u32 unk_00;
-    u16 unk_04;
-    u8 unk_06;
-    u8 unk_07;
+    u16 commandIndex;
+    u8 commandSize;
+    u8 flags;
     u8 unk_08;
 } struct_02033280;
 
-extern struct_02033280 gUnk_02033280;
+extern struct_02033280 gActiveScriptInfo;
 
 typedef struct {
     u16 unk_00;

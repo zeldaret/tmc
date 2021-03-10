@@ -1,11 +1,8 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 #include "save.h"
 #include "script.h"
 
-extern void sub_0807DD64(Entity*);
-extern void sub_0807DDE4(Entity*);
 extern void sub_08078850(Entity*, u32, u32, u8*);
 extern void SoundReq(u32);
 extern Entity* CreateFx(Entity*, u32, u32);
@@ -18,8 +15,8 @@ void Windcrest(Entity* this) {
         this->frameIndex = 0;
         sub_0807DD64(this);
     }
-    sub_0807DDAC(this, NULL);
-    sub_0807DDE4(this);
+    ExecuteScriptForEntity(this, NULL);
+    HandleEntity0x82Actions(this);
 }
 
 void sub_080A2124(Entity* this) {

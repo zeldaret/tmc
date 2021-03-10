@@ -22,7 +22,7 @@ Stockwell: @ 0x08065054
 	adds r0, #0x84
 	ldr r1, [r0]
 	adds r0, r4, #0
-	bl ExecuteScriptCommandSet
+	bl ExecuteScript
 	adds r0, r4, #0
 	bl sub_0806ED78
 	pop {r4, pc}
@@ -54,7 +54,7 @@ sub_08065080: @ 0x08065080
 	movs r1, #0
 	movs r2, #0
 	bl sub_08078850
-	ldr r1, _080650C8 @ =gUnk_080142B0
+	ldr r1, _080650C8 @ =script_080142B0
 	adds r0, r4, #0
 	bl StartCutscene
 	adds r4, #0x84
@@ -62,7 +62,7 @@ sub_08065080: @ 0x08065080
 	pop {r4, pc}
 	.align 2, 0
 _080650C4: .4byte gUnk_0810FDA0
-_080650C8: .4byte gUnk_080142B0
+_080650C8: .4byte script_080142B0
 
 	thumb_func_start sub_080650CC
 sub_080650CC: @ 0x080650CC
@@ -83,12 +83,12 @@ sub_080650CC: @ 0x080650CC
 	adds r0, r5, #0
 	adds r0, #0x84
 	ldr r0, [r0]
-	ldr r1, _080650FC @ =gUnk_080143C0
-	bl sub_0807DB88
+	ldr r1, _080650FC @ =script_080143C0
+	bl InitScriptExecutionContext
 	b _080651A6
 	.align 2, 0
 _080650F8: .4byte gRoomVars
-_080650FC: .4byte gUnk_080143C0
+_080650FC: .4byte script_080143C0
 _08065100:
 	adds r2, r5, #0
 	adds r2, #0x5a
@@ -124,7 +124,7 @@ _0806513C:
 	bl GetSaleItemConfirmMessageID
 	adds r7, r0, #0
 	ldrb r0, [r6, #6]
-	bl sub_08053FE0
+	bl GetItemPrice
 	mov r8, r0
 	movs r0, #4
 	strb r0, [r5, #0xc]
@@ -132,8 +132,8 @@ _0806513C:
 	adds r0, r5, #0
 	adds r0, #0x84
 	ldr r0, [r0]
-	ldr r1, _08065174 @ =gUnk_08014384
-	bl sub_0807DB88
+	ldr r1, _08065174 @ =script_08014384
+	bl InitScriptExecutionContext
 _0806515E:
 	adds r0, r7, #0
 	adds r1, r5, #0
@@ -145,7 +145,7 @@ _0806515E:
 	str r0, [r1, #0x10]
 	b _080651A6
 	.align 2, 0
-_08065174: .4byte gUnk_08014384
+_08065174: .4byte script_08014384
 _08065178: .4byte gTextBox
 _0806517C:
 	ldrb r1, [r2]
@@ -529,7 +529,7 @@ _0806543C:
 	cmp r6, #0
 	beq _080654C8
 	adds r0, r5, #0
-	bl sub_08053FE0
+	bl GetItemPrice
 	adds r6, r0, #0
 	ldr r7, _08065494 @ =gSave
 	adds r0, r7, #0
@@ -635,14 +635,14 @@ sub_080654FC: @ 0x080654FC
 	ands r0, r1
 	cmp r0, #0
 	beq _08065518
-	ldr r1, _08065514 @ =gUnk_02033280
+	ldr r1, _08065514 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 	b _08065522
 	.align 2, 0
-_08065514: .4byte gUnk_02033280
+_08065514: .4byte gActiveScriptInfo
 _08065518:
-	ldr r2, _08065524 @ =gUnk_02033280
+	ldr r2, _08065524 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -650,7 +650,7 @@ _08065518:
 _08065522:
 	pop {pc}
 	.align 2, 0
-_08065524: .4byte gUnk_02033280
+_08065524: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_08065528
 sub_08065528: @ 0x08065528

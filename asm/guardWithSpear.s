@@ -139,13 +139,13 @@ _08064168:
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	beq _0806417A
-	ldr r1, _0806417C @ =gUnk_02033280
+	ldr r1, _0806417C @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0806417A:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0806417C: .4byte gUnk_02033280
+_0806417C: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_08064180
 sub_08064180: @ 0x08064180

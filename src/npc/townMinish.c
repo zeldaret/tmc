@@ -14,7 +14,7 @@ extern u32 sub_080002C0();
 extern void sub_0806ACC4(Entity*);
 extern void sub_0806AEA8();
 extern void sub_0806AEE4(Entity*);
-extern void sub_0806AFE8(Entity*, s32*);
+extern void sub_0806AFE8(Entity*, ScriptExecutionContext*);
 extern s32 sub_0806EDD8(Entity*, u32, u32);
 extern u32 sub_0806F5B0(u32);
 extern void sub_08078784(Entity*, u32);
@@ -26,7 +26,7 @@ extern u32 gUnk_081126D4[4];
 extern u8 gUnk_081126E4[4];
 extern void (*gUnk_081126E8[])();
 extern Dialog gUnk_081126F0[0x10];
-extern void (*gUnk_08112BF0[])(Entity*, s32*);
+extern void (*gUnk_08112BF0[])(Entity*, ScriptExecutionContext*);
 extern u16 gUnk_08112C40[5];
 extern u16 gUnk_08112C4A[3];
 extern u16 gUnk_08112C50[6];
@@ -112,13 +112,13 @@ void sub_0806ACC4(Entity* this) {
                 this->interactType = 0;
                 sub_0806F118(this);
             } else {
-                sub_0807DDAC(this, NULL);
+                ExecuteScriptForEntity(this, NULL);
                 sub_0806AEA8(this);
                 if (this->type2 == 10 && this->interactType) {
                     this->action = 2;
                     this->interactType = 0;
                     InitializeAnimation(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 8);
-                    sub_0806AFE8(this, *(s32**)&this->cutsceneBeh);
+                    sub_0806AFE8(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
                 }
                 if (this->type == 1) {
                     u8 idx = gPlayerEntity.animationState >> 1;
@@ -182,7 +182,7 @@ void sub_0806AEA8(Entity* this) {
     if (old & 0x20) {
         sub_08003FC4(this, 0x4000);
     }
-    sub_0807DDE4(this);
+    HandleEntity0x82Actions(this);
     this->field_0x82.HWORD = old;
 }
 
@@ -223,19 +223,19 @@ void sub_0806AEE4(Entity* this) {
     }
 }
 
-void sub_0806AF60(Entity* this, int* idx) {
-    InitializeAnimation(this, idx[1] + (this->animationState / 2));
+void sub_0806AF60(Entity* this, ScriptExecutionContext* context) {
+    InitializeAnimation(this, context->intVariable + (this->animationState / 2));
 }
 
-void sub_0806AF70(Entity* this, u32 arg1) {
+void sub_0806AF70(Entity* this, ScriptExecutionContext* context) {
     this->field_0x20 = 0x24000;
 }
 
-void sub_0806AF78(Entity* this, u32 arg1) {
+void sub_0806AF78(Entity* this, ScriptExecutionContext* context) {
     sub_08003FC4(this, 0x1800);
     if (0 <= this->height.WORD && this->field_0x20 < 1) {
         this->height.WORD = 0;
-        sub_0806AF70(this, arg1);
+        sub_0806AF70(this, context);
     }
 }
 
@@ -253,12 +253,12 @@ void sub_0806AFBC(Entity* this) {
     ShowNPCDialogue(this, gUnk_081126F0 + this->type2 * 8 + idx);
 }
 
-void sub_0806AFE8(Entity* this, s32* unk) {
-    unk[5] = 0;
-    gUnk_08112BF0[this->type2](this, unk);
+void sub_0806AFE8(Entity* this, ScriptExecutionContext* context) {
+    context->condition = 0;
+    gUnk_08112BF0[this->type2](this, context);
 }
 
-void sub_0806B004(Entity* this, int* unk) {
+void sub_0806B004(Entity* this, ScriptExecutionContext* context) {
     int idx = 0;
 
     if (CheckGlobalFlag(0x29)) {
@@ -267,7 +267,7 @@ void sub_0806B004(Entity* this, int* unk) {
                 idx = 3;
                 if (CheckLocalFlag(0x78) == 0) {
                     idx = 2;
-                    unk[5] = 1;
+                    context->condition = 1;
                     SetLocalFlag(0x78);
                 }
             } else {

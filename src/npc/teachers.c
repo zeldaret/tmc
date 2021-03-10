@@ -6,7 +6,6 @@
 #include "script.h"
 
 extern SpriteLoadData gUnk_08113910[];
-extern void sub_0807DD50(Entity*);
 extern u32 GetFacingDirection(Entity*, Entity*);
 extern u32 sub_0806F5A4(u32);
 extern void sub_0806F118(Entity*);

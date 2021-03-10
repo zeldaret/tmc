@@ -17,7 +17,6 @@ extern s32 sub_0806ED9C(Entity*, u32, u32);
 extern void sub_0806EE20(Entity*);
 extern u32 sub_080040A8(Entity*);
 extern u32 sub_0801E99C(Entity*);
-extern void sub_0807DD50(Entity*);
 extern void sub_0806F118(Entity*);
 extern u32 sub_0806F5A4(u32);
 extern u32 GetFacingDirection(Entity*, Entity*);
@@ -207,7 +206,7 @@ void sub_08060700(Entity* entity, ScriptExecutionContext* context) {
     u32 x = coords->x + gRoomControls.roomOriginX;
     u32 y = coords->y + gRoomControls.roomOriginY;
     sub_0807DEDC(entity, context, x, y);
-    gUnk_02033280.unk_07 |= 1;
+    gActiveScriptInfo.flags |= 1;
 }
 
 void sub_0806075C(Entity* this) {

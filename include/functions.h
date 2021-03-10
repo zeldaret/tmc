@@ -83,12 +83,9 @@ extern u32 sub_080045D4(s16, s16, u32, u32);
 extern void sub_0806F69C(Entity*);
 extern void sub_0805E3A0(void*, u32);
 extern void sub_0806D0B0(Entity*);
-extern void sub_0807DD64(Entity*);
-extern void sub_0807DDE4(Entity*);
 extern void sub_0806D02C(Entity*);
 extern u32 sub_0806F5A4(u32);
 extern void sub_08078784(Entity*, u32);
-extern void sub_0807DD50(Entity*);
 extern s32 sub_0806ED9C(Entity*, u32, u32);
 extern void sub_0807000C(Entity*);
 extern void sub_0805E47C(Entity*);
@@ -100,7 +97,6 @@ extern s32 sub_0806F078(Entity*, s32);
 extern void sub_0801D2B4(Entity*, u32);
 extern void sub_0806FD3C(Entity*);
 extern u32 sub_0801E99C(Entity*);
-extern void sub_0807DD50(Entity*);
 extern void sub_0806F118(Entity*);
 extern void sub_0805ED14(u32*);
 extern void sub_080A7C18(u32, u32, u32);
@@ -278,7 +274,7 @@ extern u32 sub_08052734(); // has Dungeon Map?
 extern u32 sub_08052764(); // has Dungeon Compass?
 extern u32 sub_0805279C(); // has Dungeon Big Key?
 extern u32 sub_080527CC(); // num Dungeon small keys?
-extern u32 sub_08053FE0();
+extern u32 GetItemPrice();
 extern void sub_08078790(Entity*, u32);
 extern void sub_080788E0(Entity*);
 extern void sub_08078AA8(u32, u32);

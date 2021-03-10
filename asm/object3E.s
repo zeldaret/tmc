@@ -328,9 +328,9 @@ _0808D31C:
 	ldrsh r5, [r4, r0]
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	ldr r0, _0808D354 @ =gRoomControls
 	ldrh r0, [r0, #0x16]
 	cmp r0, #0
@@ -375,9 +375,9 @@ sub_0808D360: @ 0x0808D360
 _0808D382:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	pop {r4, pc}
 	.align 2, 0
 

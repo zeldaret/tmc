@@ -16,22 +16,15 @@ typedef struct {
     u8 unk3;
 } struct_0810B680;
 
-typedef struct {
-    u32 unk;
-    u32 unk2;
-} struct_08061FB8;
-
 extern void (*const gUnk_0810B774[])(Entity*);
 extern void (*const gUnk_0810B77C[])(Entity*);
 extern void sub_08061CB4(Entity*, u32);
 extern u32 sub_0805ACC0(Entity*);
 extern u32 sub_0801E99C(Entity*);
-extern void sub_0807DD64(Entity*);
 extern void sub_08061D64(Entity*);
 extern void sub_0806F118(Entity*);
 extern u32 sub_0806F5A4(u32);
 extern u32 GetFacingDirection(Entity*, Entity*);
-extern void sub_0807DDE4(Entity*);
 extern void sub_08062048(Entity*);
 extern void sub_08078784(Entity*, u32);
 extern void sub_08078778(Entity*);
@@ -143,8 +136,8 @@ void sub_08061D64(Entity* this) {
         this->field_0x68.HALF.HI = this->animIndex;
         InitializeAnimation(this, (this->animIndex & -4) + sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
     } else {
-        sub_0807DDAC(this, NULL);
-        sub_0807DDE4(this);
+        ExecuteScriptForEntity(this, NULL);
+        HandleEntity0x82Actions(this);
         if (this->frameDuration == 0xff) {
             this->frameDuration = gUnk_0810B680[this->type].unk2;
         }
@@ -183,6 +176,7 @@ void sub_08061E70(Entity* this) {
     }
 }
 
+// FIXME this is actually (Entity* this, ScriptExecutionContext* context)
 void sub_08061E90(Entity* this, Entity* arg1) {
     u32 animIndex;
     s32 iVar4;
@@ -241,7 +235,7 @@ void sub_08061E90(Entity* this, Entity* arg1) {
         arg1->spriteIndex = 1;
     }
     if (--arg1->spriteIndex != 0) {
-        gUnk_02033280.unk_06 = 0;
+        gActiveScriptInfo.commandSize = 0;
     }
 }
 
@@ -258,10 +252,10 @@ void sub_08061FB0(Entity* this) {
     this->hitbox = NULL;
 }
 
-void sub_08061FB8(Entity* this, struct_08061FB8* arg1) {
+void sub_08061FB8(Entity* this, ScriptExecutionContext* context) {
     u8* temp = gUnk_0810B748;
 
-    sub_08078850(this, 1, temp[arg1->unk2], &gUnk_0810B740[arg1->unk2]);
+    sub_08078850(this, 1, temp[context->intVariable], &gUnk_0810B740[context->intVariable]);
 }
 
 void sub_08061FD8(Entity* this) {

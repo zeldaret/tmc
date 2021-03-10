@@ -12,11 +12,9 @@ extern Entity* CreateFx(Entity*, u32, u32);
 extern void SoundReq(u32);
 extern void sub_0807000C(Entity*);
 extern u32 sub_0801E99C(Entity*);
-extern void sub_0807DD50(Entity*);
-extern void sub_0807DDE4(Entity*);
 extern u32 UpdateFuseInteraction(Entity*);
 extern u32 GetAnimationState(Entity*);
-extern void sub_08078850(u32, u32, u32, u32*);
+extern void sub_08078850(Entity*, u32, u32, u32*);
 extern void sub_08078784(Entity*, u32);
 
 extern void (*const gUnk_08110360[])(Entity*);
@@ -135,8 +133,8 @@ void sub_080661BC(Entity* this) {
 }
 
 void sub_08066200(Entity* this) {
-    sub_0807DDAC(this, NULL);
-    sub_0807DDE4(this);
+    ExecuteScriptForEntity(this, NULL);
+    HandleEntity0x82Actions(this);
     UpdateAnimationSingleFrame(this);
 }
 
@@ -164,12 +162,12 @@ void sub_08066258(void) {
     SoundReq(gUnk_081103D0[Random() & 7]);
 }
 
-void sub_08066274(u32 arg0) {
-    sub_08078850(arg0, 1, 0, &gUnk_081103E0);
+void sub_08066274(Entity* this) {
+    sub_08078850(this, 1, 0, &gUnk_081103E0);
 }
 
-void sub_08066288(Entity* arg0) {
-    sub_08078784(arg0, arg0->field_0x68.HALF.LO);
+void sub_08066288(Entity* this) {
+    sub_08078784(this, this->field_0x68.HALF.LO);
 }
 
 void Smith_Fusion(Entity* this) {

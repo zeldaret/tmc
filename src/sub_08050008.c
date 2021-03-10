@@ -11,6 +11,4 @@ void sub_08050008(u32 param_1, u32 param_2, u32 param_3) {
 
     unk = &gFadeControl;
     *(unk + 1) = -1;
-
-    return;
 }
