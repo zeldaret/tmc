@@ -21,7 +21,7 @@ static void (*const sScreenHandlers[])(void) = {
     [SCREEN_CREDITS] = HandleCreditsScreen,   [SCREEN_DEBUG_TEXT] = HandleDebugTextScreen,
 };
 
-void MainLoop(void) {
+void AgbMain(void) {
     int var0;
 
     sub_08055F70();
