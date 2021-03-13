@@ -208,7 +208,7 @@ void sub_08061E90(Entity* this, Entity* arg1) {
         }
         this->direction = (u8)animIndex;
         this->animationState = sub_0806F5B0(animIndex);
-        this->nonPlanarMovement = gUnk_0810B74A[this->type];
+        this->speed = gUnk_0810B74A[this->type];
     }
     animIndex = (this->animationState >> 1) + 4;
     if (animIndex != this->animIndex) {

@@ -12,7 +12,7 @@ SCRIPT_START script_08008FFC
 	_0807E930 0x0006
 	Wait 0x0010
 	DoPostScriptAction 0x000f
-	SetEntityNonPlanarMovement 0x0200
+	SetEntitySpeed 0x0200
 	_0807ECC4 0x1c20
 	DoPostScriptAction 0x0006
 SCRIPT_END

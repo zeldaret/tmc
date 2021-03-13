@@ -32,6 +32,6 @@ script_0800BD1C:
 	Wait 0x003c
 	_0807EB44 0x0002
 	WaitForSomething2 0x00000004
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	_0807EEF4 0x0000, 0xffe0
 SCRIPT_END

@@ -241,7 +241,7 @@ void sub_0806AF78(Entity* this, ScriptExecutionContext* context) {
 
 void sub_0806AFA0(Entity* this) {
     if (sub_0806ED78(this)) {
-        sub_0806F62C(this, -this->nonPlanarMovement, this->direction);
+        sub_0806F62C(this, -this->speed, this->direction);
     }
 }
 

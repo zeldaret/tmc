@@ -1,6 +1,6 @@
 SCRIPT_START script_0800D414
 	BeginBlock 
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 	Call sub_08068104
 	DoPostScriptAction 0x000a
 	EndBlock 
@@ -147,7 +147,7 @@ script_0800D650:
 	Call sub_0807DF28
 	Call sub_0807FBC4
 	Call sub_0807FBA0
-	SetEntityNonPlanarMovement 0x0700
+	SetEntitySpeed 0x0700
 	_0807F0B4 0x0007
 	CameraTargetEntity 
 	_0807EDD4 0x01e8, 0x01b8

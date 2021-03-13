@@ -44,7 +44,7 @@ void sub_0803169C(Entity* this) {
         this->action = 1;
         this->previousActionFlag = 0;
         this->flags = this->flags | 0x80;
-        this->nonPlanarMovement = 0x40;
+        this->speed = 0x40;
         this->field_0xf = 1;
     } else {
         gUnk_080CE554[this->previousActionFlag](this);

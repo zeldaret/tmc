@@ -4,7 +4,7 @@ SCRIPT_START script_08015BA8
 	_0807E864 
 	MoveEntityToPlayer 
 	CameraTargetEntity 
-	SetEntityNonPlanarMovement 0x0200
+	SetEntitySpeed 0x0200
 	EndBlock 
 	Wait 0x000f
 	_0807E8E4_2 

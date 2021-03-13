@@ -3,7 +3,7 @@ SCRIPT_START script_0800B200
 	_0807E5F8 0x00000000
 	CheckLocalFlag 0x001d
 	JumpIf script_0800B252
-	SetEntityNonPlanarMovement 0x00c0
+	SetEntitySpeed 0x00c0
 	EndBlock 
 script_0800B216:
 	WaitForSomething2 0x00000001

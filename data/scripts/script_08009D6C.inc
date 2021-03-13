@@ -1,6 +1,6 @@
 SCRIPT_START script_08009D6C
 	BeginBlock 
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 	_0807EB44 0x0006
 	EndBlock 
 	_0807EDD4 0x0078, 0x0060

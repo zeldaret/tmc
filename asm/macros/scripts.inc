@@ -547,9 +547,9 @@
 	.2byte \direction
 .endm
 
-.macro SetEntityNonPlanarMovement nonPlanarMovement:req
+.macro SetEntitySpeed speed:req
 	.2byte 0x0867
-	.2byte \nonPlanarMovement
+	.2byte \speed
 .endm
 
 .macro SetEntity0x20 value:req

@@ -155,7 +155,7 @@ void sub_08044868(Entity* this) {
                         if (this->frames.all & 0x80) {
                             this->field_0x74.HALF.LO = 1;
                             this->direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
-                            this->nonPlanarMovement = 0x180;
+                            this->speed = 0x180;
                         }
                         break;
                     case 1:
@@ -230,7 +230,7 @@ void sub_080449F8(Entity* this) {
 
             if (this->field_0x78.HALF.LO == 0) {
                 this->field_0x78.HALF.LO++;
-                this->nonPlanarMovement = 640;
+                this->speed = 640;
             }
 
             this->actionDelay = 4;
@@ -321,7 +321,7 @@ void sub_08044B04(Entity* this) {
                                 this->field_0xf = 32;
                             }
 
-                            this->nonPlanarMovement = this->field_0x78.HALF.LO ? 640 : 1280;
+                            this->speed = this->field_0x78.HALF.LO ? 640 : 1280;
                         }
                     }
                     break;
@@ -331,7 +331,7 @@ void sub_08044B04(Entity* this) {
                         this->direction = (this->direction + 1) & 0x1f;
                         if (++this->field_0xf == 0x30) {
                             u32 direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
-                            this->nonPlanarMovement = 0;
+                            this->speed = 0;
                             this->direction = (direction + 16) & 0x1f;
                             this->actionDelay = 16;
                             this->field_0xf = 16;
@@ -343,32 +343,32 @@ void sub_08044B04(Entity* this) {
                     if (this->field_0xf == 0) {
                         switch (--this->actionDelay) {
                             case 12:
-                                this->nonPlanarMovement = 1280;
+                                this->speed = 1280;
                                 break;
                             case 0:
                                 this->field_0x74.HALF.LO++;
                                 this->direction = sub_080045B4(this, vaati->x.HALF.HI, vaati->y.HALF.HI - 0x10);
-                                this->nonPlanarMovement = 0;
+                                this->speed = 0;
                                 this->actionDelay = 4;
                                 this->field_0xf = 16;
                                 break;
                             case 4:
-                                this->nonPlanarMovement = 640;
+                                this->speed = 640;
                                 break;
                         }
                     } else {
                         if (--this->field_0xf == 0)
-                            this->nonPlanarMovement = 640;
+                            this->speed = 640;
                     }
                     break;
                 case 3:
                     if (this->field_0xf) {
                         if (--this->field_0xf == 0)
-                            this->nonPlanarMovement = 640;
+                            this->speed = 640;
                     } else {
                         if (this->actionDelay) {
                             if (--this->actionDelay == 0) {
-                                this->nonPlanarMovement = 1280;
+                                this->speed = 1280;
                                 SoundReq(0x14f);
                             }
                         }
@@ -450,7 +450,7 @@ void sub_08044DEC(Entity* this) {
     }
     this->flags &= 0x7f;
     this->field_0x78.HALF.LO = 0;
-    this->nonPlanarMovement = 0x300;
+    this->speed = 0x300;
     off = this->parent->field_0x80.HALF.LO - 1;
     this->direction = gUnk_080D1628[off][this->field_0x78.HALF.HI];
     PositionRelative(this->parent, this, 0, -0x100000);
@@ -466,11 +466,11 @@ void sub_08044E74(Entity* this, u32 state) {
             this->direction += 0x18;
             this->direction &= 0x1f;
             PositionRelative(this->parent, this, 0, -0x100000);
-            this->nonPlanarMovement = 12288;
+            this->speed = 12288;
             sub_0806F69C(this);
             this->direction += 0x8;
             this->direction &= 0x1f;
-            this->nonPlanarMovement = 1280;
+            this->speed = 1280;
             sub_0806F69C(this);
             break;
         case 1:
@@ -499,5 +499,5 @@ void sub_08044E74(Entity* this, u32 state) {
     }
     this->actionDelay = 1;
     this->field_0x78.HALF.LO = 0;
-    this->nonPlanarMovement = 1280;
+    this->speed = 1280;
 }

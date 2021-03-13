@@ -22,7 +22,7 @@ script_08010AB4:
 	JumpIfNot script_08010B62
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
-	SetEntityNonPlanarMovement 0x0180
+	SetEntitySpeed 0x0180
 	CallWithArg sub_0807F348
 	Call sub_0806075C
 	EndBlock 

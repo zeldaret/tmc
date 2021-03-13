@@ -15,7 +15,7 @@ SCRIPT_START script_080113AA
 	SoundReq 0x011e
 	Wait 0x003c
 	_0807E930 0x0014
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 	_0807EDD4 0x0200, 0x0098
 	_0807EDD4 0x0200, 0x00c8
 	_0807E930 0x0013
@@ -26,7 +26,7 @@ SCRIPT_START script_080113AA
 	DoPostScriptAction 0x0010
 	Call sub_0807F3C8
 	_0807E930 0x0014
-	SetEntityNonPlanarMovement 0x0400
+	SetEntitySpeed 0x0400
 	SetEntityDirection 0x0002
 	_0807EC1C 0x003c
 	_0807E5F8 0x00004000

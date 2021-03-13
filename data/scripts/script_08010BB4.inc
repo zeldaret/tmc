@@ -90,7 +90,7 @@ script_08010BCA:
 	WaitForSomething2 0x00500000
 	_0807E5F8 0x00000100
 	SetEntityPositionRelative 0x01f8, 0x0220
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 	_0807EDD4 0x01f8, 0x0098
 	Wait 0x003c
 	WaitForSomething2 0x00000200

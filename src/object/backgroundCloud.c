@@ -18,7 +18,7 @@ void sub_0808F658(Entity* this) {
     this->spritePriority.b0 = this->type;
     this->frameIndex = this->type;
     this->direction = 8;
-    this->nonPlanarMovement = gUnk_08121EB0[this->type];
+    this->speed = gUnk_08121EB0[this->type];
     this->field_0x78.HWORD = gRoomControls.roomOriginX - 0x60;
     this->field_0x7a.HWORD = gRoomControls.roomOriginX + gRoomControls.width + 0x60;
     this->animationState = 0;

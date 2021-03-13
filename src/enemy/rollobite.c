@@ -101,7 +101,7 @@ void sub_080207A8(Entity* this) {
     this->field_0x3a &= 0xfb;
     this->direction ^= 0x10;
     this->field_0x20 = 0x18000;
-    this->nonPlanarMovement = 0x80;
+    this->speed = 0x80;
     InitializeAnimation(this, this->animationState + 0x10);
 }
 
@@ -194,7 +194,7 @@ void Rollobite_Unroll(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x80) {
         this->flags |= 0x80;
-        this->nonPlanarMovement = 0x100;
+        this->speed = 0x100;
         this->damageType = 34;
         sub_08020A30(this);
         this->direction = DirectionFromAnimationState(this->animationState);

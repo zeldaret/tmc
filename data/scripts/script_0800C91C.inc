@@ -1,7 +1,7 @@
 SCRIPT_START script_0800C91C
 	BeginBlock 
 	_0807EB44 0x0004
-	SetEntityNonPlanarMovement 0x0300
+	SetEntitySpeed 0x0300
 	EndBlock 
 script_0800C928:
 	CheckPlayerInRegion 0x0208, 0x0360, 0x2040

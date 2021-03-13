@@ -113,7 +113,7 @@ void ScriptCommand_0807EB74(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EB8C(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetEntityDirection(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetEntityDirectionWithAnimationState(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_SetEntityNonPlanarMovement(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_SetEntitySpeed(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetEntity0x20(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetEntityPositionRelative(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SetEntityPosition(Entity* entity, ScriptExecutionContext* context);
@@ -260,7 +260,7 @@ const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
                                           ScriptCommand_0807EB8C,
                                           ScriptCommand_SetEntityDirection,
                                           ScriptCommand_SetEntityDirectionWithAnimationState,
-                                          ScriptCommand_SetEntityNonPlanarMovement,
+                                          ScriptCommand_SetEntitySpeed,
                                           ScriptCommand_SetEntity0x20,
                                           ScriptCommand_SetEntityPositionRelative,
                                           ScriptCommand_SetEntityPosition,
@@ -1253,8 +1253,8 @@ void ScriptCommand_SetEntityDirectionWithAnimationState(Entity* entity, ScriptEx
     entity->animationState = entity->direction / 4;
 }
 
-void ScriptCommand_SetEntityNonPlanarMovement(Entity* entity, ScriptExecutionContext* context) {
-    entity->nonPlanarMovement = context->scriptInstructionPointer[1];
+void ScriptCommand_SetEntitySpeed(Entity* entity, ScriptExecutionContext* context) {
+    entity->speed = context->scriptInstructionPointer[1];
 }
 
 void ScriptCommand_SetEntity0x20(Entity* entity, ScriptExecutionContext* context) {
@@ -1391,7 +1391,7 @@ void ScriptCommand_0807EE30(Entity* entity, ScriptExecutionContext* context) {
     }
     tmp = entity->x.HALF.HI - context->x.HALF.HI;
     tmp2 = entity->y.HALF.HI - context->y.HALF.HI;
-    sub_0806F62C(entity, entity->nonPlanarMovement, entity->direction);
+    sub_0806F62C(entity, entity->speed, entity->direction);
     tmp *= entity->x.HALF.HI - context->x.HALF.HI;
     tmp2 *= entity->y.HALF.HI - context->y.HALF.HI;
     if (tmp <= 0 && tmp2 <= 0) {

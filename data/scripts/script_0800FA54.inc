@@ -1,6 +1,6 @@
 SCRIPT_START script_0800FA54
 	BeginBlock 
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 	EndBlock 
 	SetEntityPositionRelative 0x00d8, 0x0398
 	_0807EB44 0x0006

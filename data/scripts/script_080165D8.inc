@@ -38,7 +38,7 @@ script_0801662E:
 	_0807E878 
 	Jump script_0801662E
 	.2byte 0x0000
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 script_08016648:
 	_0807ECF4 0x0030
 	Wait 0x0008
@@ -63,7 +63,7 @@ script_0801666C:
 	_0807ED24 0x00d8, 0x003f, 0x003c
 	Wait 0x0008
 	Jump script_0801666C
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 script_080166BC:
 	_0807EDD4 0x0055, 0x0039
 	Wait 0x0008
@@ -78,7 +78,7 @@ script_080166BC:
 	_0807EDD4 0x00d8, 0x003f
 	Wait 0x0008
 	Jump script_080166BC
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 script_08016700:
 	_0807EC94 0x0030
 	_0807E5F8 0x00000002
@@ -115,7 +115,7 @@ script_08016700:
 	_0807EB44 0x0004
 	Wait 0x003c
 	Jump script_08016700
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 script_0801679C:
 	WaitForSomething 0x00000002
 	_0807E610 0x00000002
@@ -154,7 +154,7 @@ script_0801679C:
 	Wait 0x0002
 	_0807EB44 0x0004
 	Jump script_0801679C
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 script_08016848:
 	WaitForSomething 0x00000004
 	_0807E610 0x00000004

@@ -3,7 +3,7 @@ SCRIPT_START script_08013E70
 	DoPostScriptAction 0x0007
 	_0807E930 0x0006
 	EndBlock 
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	_0807EDD4 0x00b0, 0x0168
 	_0807E930 0x0007
 	_0807E5F8 0x40000000

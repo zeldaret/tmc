@@ -2,7 +2,7 @@ SCRIPT_START script_0800FB44
 	BeginBlock 
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x000b
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	Call sub_08066D04
 	EndBlock 
 	WaitForSomething2 0x00000002
@@ -16,7 +16,7 @@ script_0800FB6C:
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
-	SetEntityNonPlanarMovement 0x0200
+	SetEntitySpeed 0x0200
 	_0807EDD4 0x00b8, 0x0318
 	SetEntityPositionRelative 0x00a0, 0x0260
 	_0807EB44 0x0000
@@ -34,7 +34,7 @@ script_0800FBAE:
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
-	SetEntityNonPlanarMovement 0x0200
+	SetEntitySpeed 0x0200
 	_0807EDD4 0x00a0, 0x0268
 	_0807EDD4 0x0070, 0x0268
 	_0807EDD4 0x0070, 0x0208
@@ -53,7 +53,7 @@ script_0800FC06:
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
-	SetEntityNonPlanarMovement 0x0200
+	SetEntitySpeed 0x0200
 	_0807EDD4 0x00f8, 0x01a8
 	SetEntityPositionRelative 0x0118, 0x01c8
 	_0807EB44 0x0002
@@ -70,7 +70,7 @@ script_0800FC52:
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
-	SetEntityNonPlanarMovement 0x0200
+	SetEntitySpeed 0x0200
 	_0807EDD4 0x0118, 0x0260
 	SetEntityPositionRelative 0x00f8, 0x0270
 	_0807EB44 0x0000
@@ -87,14 +87,14 @@ script_0800FC9E:
 	DoPostScriptAction 0x0004
 	WaitForSomething2 0x00000002
 	DoPostScriptAction 0x000d
-	SetEntityNonPlanarMovement 0x0040
+	SetEntitySpeed 0x0040
 	_0807EC94 0x0020
 	_0807EB44 0x0000
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
 	DoPostScriptAction 0x000c
-	SetEntityNonPlanarMovement 0x0040
+	SetEntitySpeed 0x0040
 	_0807ECF4 0x0020
 	_0807EB44 0x0006
 	DoPostScriptAction 0x0000

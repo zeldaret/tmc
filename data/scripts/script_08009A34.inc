@@ -8,7 +8,7 @@ script_08009A38:
 	Jump script_08009A38
 	SetEntityPositionRelative 0x0240, 0x0178
 	CameraTargetEntity 
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	Wait 0x0078
 	SoundReq2 0x0036
 	_0807E778 0x0002

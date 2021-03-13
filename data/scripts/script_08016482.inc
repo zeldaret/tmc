@@ -42,7 +42,7 @@ SCRIPT_START script_08016482
 	_0807EB8C 
 	SetEntityDirection 0x0000
 	SetEntityDirectionWithAnimationState 0x0000
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 	SetEntity0x20 0x00018000
 	SetEntityPositionRelative 0x0000, 0x0000
 	MoveEntityToPlayer 

@@ -3,7 +3,7 @@ SCRIPT_START script_0800987C
 	_0807EB44 0x0004
 	SoundReq 0x0086
 	Call sub_0807F36C
-	SetEntityNonPlanarMovement 0x0400
+	SetEntitySpeed 0x0400
 	_0807ECF4 0x0004
 	Call sub_0807F1E8
 	Wait 0x001e

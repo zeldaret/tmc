@@ -141,8 +141,8 @@ static void sub_080810A8(Entity* this) {
     sub_080814A4(this);
     if (this->direction & 0x80) {
         this->direction &= 0x1F;
-        if (this->nonPlanarMovement == 0) {
-            this->nonPlanarMovement = 0x100;
+        if (this->speed == 0) {
+            this->speed = 0x100;
         }
     } else {
         this->direction |= 0xFF;
@@ -259,7 +259,7 @@ void sub_080812A0(Entity* this) {
 void sub_080812A8(Entity* this) {
     if (sub_080002D0(this) != 0xF && this->field_0x6e.HWORD != GetTileTypeByEntity(this)) {
         this->direction = 0;
-        this->nonPlanarMovement = 0;
+        this->speed = 0;
         this->spriteSettings.b.draw = 1;
         this->field_0x68.HALF.HI = 0;
         sub_080810A8(this);

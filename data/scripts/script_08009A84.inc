@@ -1,7 +1,7 @@
 SCRIPT_START script_08009A84
 	BeginBlock 
 	SetEntityPositionRelative 0x01e8, 0x0110
-	SetEntityNonPlanarMovement 0x00c0
+	SetEntitySpeed 0x00c0
 	DoPostScriptAction 0x0008
 	EndBlock 
 	WaitForSomething2 0x00000004
@@ -13,9 +13,9 @@ SCRIPT_START script_08009A84
 	CameraTargetEntity 
 	_0807EDD4 0x0290, 0x0228
 	_0807EDD4 0x0290, 0x01f8
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	_0807EDD4 0x0290, 0x01c8
-	SetEntityNonPlanarMovement 0x00c0
+	SetEntitySpeed 0x00c0
 	_0807EDD4 0x0290, 0x0198
 	Wait 0x001e
 	_0807E5F8 0x00000010

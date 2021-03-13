@@ -158,7 +158,7 @@ void sub_080226EC(Entity* this) {
         if (sub_080228F0(this)) {
             this->action = 6;
             this->field_0x20 = 0x12000;
-            this->nonPlanarMovement = 0x140;
+            this->speed = 0x140;
             this->direction = GetFacingDirection(this, gUnk_020000B0);
             this->damageType = 0x5a;
             InitializeAnimation(this, 4);
@@ -209,7 +209,7 @@ void sub_0802281C(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x80) {
         this->action = 2;
-        this->nonPlanarMovement = 0x20;
+        this->speed = 0x20;
         InitializeAnimation(this, 0);
         sub_0804AA1C(this);
     }
@@ -232,7 +232,7 @@ void sub_0802289C(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x80) {
         this->action = 2;
-        this->nonPlanarMovement = 0x20;
+        this->speed = 0x20;
         this->field_0x80.HALF.HI = 0x78;
         InitializeAnimation(this, 0);
     }

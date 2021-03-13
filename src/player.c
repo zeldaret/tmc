@@ -143,7 +143,7 @@ void sub_08070D20(Entity* this) {
 void sub_08070D38(Entity* this) {
     this->flags &= ~0x80;
     this->direction = ((this->animationState & 0xe) << 2) ^ 0x10;
-    this->nonPlanarMovement = 0x100;
+    this->speed = 0x100;
     this->field_0x42 = 0;
     this->previousActionFlag++;
     this->actionDelay = gPlayerState.field_0x38;
@@ -353,7 +353,7 @@ void sub_080710A8(Entity* this) {
     asm("lsl r0, r0, #0x4");
     this->field_0x20 = (temp - 4) * 64 * 64;
 
-    this->nonPlanarMovement = 0x100;
+    this->speed = 0x100;
     sub_0807A108();
     SoundReq(0x7c);
     SoundReq(0x78);
@@ -522,7 +522,7 @@ void sub_08071400(Entity* this) {
 
     if ((this->x.HALF.HI != x) || (this->y.HALF.HI != y)) {
         this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, gArea.field_0x12, gArea.field_0x14);
-        this->nonPlanarMovement = 0x100;
+        this->speed = 0x100;
         sub_08079E08();
     }
 

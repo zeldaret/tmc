@@ -1,6 +1,6 @@
 SCRIPT_START script_080126FC
 	BeginBlock 
-	SetEntityNonPlanarMovement 0x0040
+	SetEntitySpeed 0x0040
 	DoPostScriptAction 0x0007
 	EndBlock 
 	_0807E930 0x0020
@@ -111,7 +111,7 @@ script_08012824:
 	TextboxNoOverlapFollowPos 0x110e, 0x000c
 	_0807EA94 
 	_0807E930 0x0018
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	Call sub_0806D908
 	_0807EC1C 0x0010
 	DoPostScriptAction 0x000a
@@ -146,7 +146,7 @@ script_0801293A:
 	_0807E930 0x0010
 	TextboxNoOverlapFollowPos 0x110f, 0x000c
 	_0807E930 0x0018
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	Call sub_0806D908
 	_0807EC1C 0x0050
 	_0807EA94 
@@ -182,7 +182,7 @@ script_080129BA:
 	_0807E930 0x0010
 	TextboxNoOverlapFollowPos 0x1110, 0x000c
 	_0807E930 0x0018
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	Call sub_0806D908
 	_0807EC1C 0x0050
 	_0807E930 0x0018
@@ -221,7 +221,7 @@ script_08012A3E:
 	_0807E930 0x0010
 	TextboxNoOverlapFollowPos 0x1111, 0x000c
 	_0807E930 0x0018
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	Call sub_0806D8A0
 script_08012A74:
 	_0807EE30 

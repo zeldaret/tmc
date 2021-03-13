@@ -3,7 +3,7 @@ SCRIPT_START script_0800B308
 	CheckLocalFlag 0x001d
 	JumpIf script_0800B39C
 	DoPostScriptAction 0x0001
-	SetEntityNonPlanarMovement 0x0040
+	SetEntitySpeed 0x0040
 	SetEntityDirection 0x0010
 	CheckKinstoneFused 0x0006
 	JumpIfNot script_0800B32C

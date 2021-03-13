@@ -37,7 +37,7 @@ script_0800DCD0:
 	Wait 0x003c
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000001
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 	_0807EEF4 0x0000, 0x0008
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
@@ -62,7 +62,7 @@ script_0800DCD0:
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000001
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 	_0807EEF4 0x0000, 0x0080
 SCRIPT_END
 	.2byte 0x0000

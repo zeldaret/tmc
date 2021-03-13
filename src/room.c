@@ -972,7 +972,7 @@ void sub_0804BF38(u32 arg0, struct_0804BF38* arg1)
         fx->x.HALF.HI = gUnk_080D8E50[iVar3].x + gRoomControls.roomOriginX + xOff;
         fx->y.HALF.HI = gUnk_080D8E50[iVar3].y + gRoomControls.roomOriginY + -0xc + (entCnt & 1) * 8;
         fx->direction = 0;
-        fx->nonPlanarMovement = 0x100;
+        fx->speed = 0x100;
       }
     }
   }

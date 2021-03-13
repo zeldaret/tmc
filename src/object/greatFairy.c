@@ -159,21 +159,21 @@ void GreatFairy_WingsInit(Entity* this) {
     this->spriteRendering.alphaBlend = 1;
     gScreen.controls.layerFXControl = 0xF40;
     gScreen.controls.alphaBlend = BLDALPHA_BLEND(9, 8);
-    this->nonPlanarMovement = 1024;
+    this->speed = 1024;
     sub_0805EC9C(this, 1024, 256, 0);
 }
 
 void GreatFairy_WingsUpdate(Entity* this) {
     s32 iVar1;
 
-    iVar1 = this->nonPlanarMovement -= 32;
+    iVar1 = this->speed -= 32;
     if (iVar1 * 65536 >> 16 == 256) {
         this->action = 2;
         sub_0805EC60(this);
         gRoomVars.greatFairyState |= 32;
         gActiveScriptInfo.unk_00 |= 4;
     } else {
-        sub_0805EC9C(this, this->nonPlanarMovement, 256, 0);
+        sub_0805EC9C(this, this->speed, 256, 0);
     }
 }
 
@@ -260,7 +260,7 @@ void GreatFairy_MiniAffineInit2(Entity* this) {
     if (this->height.HALF.HI == -20) {
         this->action = 2;
         this->actionDelay = 90;
-        this->nonPlanarMovement = 4096;
+        this->speed = 4096;
         this->spriteRendering.b0 = 3;
         sub_0805EC9C(this, 256, 256, 0);
     }
@@ -275,7 +275,7 @@ void GreatFairy_MiniAffineUpdate(Entity* this) {
         this->action = 3;
         sub_0805EC60(this);
     } else {
-        iVar2 = this->nonPlanarMovement -= 24;
+        iVar2 = this->speed -= 24;
         sub_0805EC9C(this, 256, iVar2 * 0x10000 >> 20, 0);
     }
 }
@@ -386,7 +386,7 @@ void sub_08087150(Entity* this) {
     this->spriteOrientation.flipY = 0;
     this->spriteRendering.b0 = 0;
     this->spritePriority.b0 = 3;
-    this->nonPlanarMovement = 0x80;
+    this->speed = 0x80;
     this->direction = 0x10;
     temp = gUnk_0812079C;
     this->palette.raw = ((temp & 0xf) << 4) | 0xf;
@@ -463,7 +463,7 @@ void sub_080872AC(Entity* this) {
     this->field_0x68.HWORD = this->x.HALF.HI;
     this->field_0x6a.HWORD = this->y.HALF.HI;
     this->direction = (u8)Random() & 0x1F;
-    this->nonPlanarMovement = 32;
+    this->speed = 32;
     GreatFairy_InitializeAnimation(this);
 }
 

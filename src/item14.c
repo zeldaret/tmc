@@ -19,7 +19,7 @@ void sub_0805FBE8(Entity* this) {
     this->spriteSettings.b.draw = TRUE;
     this->field_0x3c = gPlayerEntity.field_0x3c + 1;
     this->hitbox = &gUnk_08109AD0;
-    this->nonPlanarMovement = 0x380;
+    this->speed = 0x380;
     this->animationState = this->animationState & 0x7f;
     if (this->collisionLayer == 2) {
         this->type2 = 1;

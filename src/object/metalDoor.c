@@ -25,7 +25,7 @@ void sub_080A0684(Entity* this) {
         DeleteThisEntity();
     }
     this->action = 1;
-    this->nonPlanarMovement = 0x300;
+    this->speed = 0x300;
     this->spriteSettings.b.draw = 0;
     this->frameIndex = 0;
     this->spriteSettings.b.flipY = 1;

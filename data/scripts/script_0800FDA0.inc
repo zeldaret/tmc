@@ -20,7 +20,7 @@ script_0800FDB2:
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
 	_0807E9D4 
-	SetEntityNonPlanarMovement 0x0040
+	SetEntitySpeed 0x0040
 	EndBlock 
 script_0800FDE2:
 	Call sub_08069A60
@@ -56,7 +56,7 @@ script_0800FE06:
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a
 	_0807E9D4 
-	SetEntityNonPlanarMovement 0x0040
+	SetEntitySpeed 0x0040
 	EndBlock 
 script_0800FE5A:
 	Call sub_08069AA8

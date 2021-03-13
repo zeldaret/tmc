@@ -32,7 +32,7 @@ void sub_08018CBC(Entity* this) {
     *(u32*)&this->field_0x80 = this->y.WORD = gPlayerEntity.y.WORD;
     uVar2 = this->animationState = gPlayerEntity.animationState & 0xe;
     this->direction = (u8)(uVar2 << 2);
-    this->nonPlanarMovement = 0x400;
+    this->speed = 0x400;
     this->damageType = 0x96;
     this->field_0x3c = (gPlayerEntity.field_0x3c + 1) | 0x80;
     this->flags2 = gPlayerEntity.flags2;

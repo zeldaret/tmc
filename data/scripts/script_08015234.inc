@@ -21,7 +21,7 @@ SCRIPT_START script_08015234
 	WaitForSomething2 0x00000002
 	SoundReq 0x00f5
 	DoPostScriptAction 0x001f
-	SetEntityNonPlanarMovement 0x0200
+	SetEntitySpeed 0x0200
 	DoPostScriptAction 0x000d
 	DoPostScriptAction 0x0000
 	_0807ECC4 0x0030

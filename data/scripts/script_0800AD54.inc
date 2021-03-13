@@ -1,6 +1,6 @@
 SCRIPT_START script_0800AD54
 	BeginBlock 
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	EndBlock 
 	_0807EC64 0x0020
 	_0807EB44 0x0000
@@ -8,7 +8,7 @@ SCRIPT_START script_0800AD54
 	_0807E5F8 0x00000001
 	Call sub_080791BC
 	BeginBlock 
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0007
 	DoPostScriptAction 0x000b
 	_0807EB44 0x0004
@@ -53,7 +53,7 @@ SCRIPT_START script_0800AD54
 	Wait 0x001e
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	_0807EEF4 0x0000, 0xfff0
 	Wait 0x003c
 	_0807EEF4 0x0000, 0xfff0

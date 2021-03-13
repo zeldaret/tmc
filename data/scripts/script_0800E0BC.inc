@@ -93,7 +93,7 @@ script_0800E1E0:
 	_0807E878 
 	Jump script_0800E1E0
 	BeginBlock 
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 	_0807EB44 0x0004
 	DoPostScriptAction 0x000a
 	CheckLocalFlag 0x0073

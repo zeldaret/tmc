@@ -102,7 +102,7 @@ void sub_080218CC(Entity* this) {
         this->previousActionFlag = 1;
         this->spriteSettings.b.draw = 1;
         this->direction = ((sub_08049F84(this, 1) ^ 0x10) + gUnk_080CB5DC[Random() & 7]) & 0x1f;
-        this->nonPlanarMovement = 0x100;
+        this->speed = 0x100;
         this->field_0x20 = 0x12000;
     }
 
@@ -118,7 +118,7 @@ void sub_080218CC(Entity* this) {
         this->actionDelay = (Random() & 0x38) + 8;
         this->field_0xf = 1;
         this->flags |= 0x80;
-        this->nonPlanarMovement = 0x180;
+        this->speed = 0x180;
         InitializeAnimation(this, 0);
     }
 }
@@ -139,7 +139,7 @@ void sub_08021984(Entity* this) {
         this->actionDelay = 16;
         this->field_0xf = 1;
         this->spriteSettings.b.draw = 1;
-        this->nonPlanarMovement = 0x180;
+        this->speed = 0x180;
         ((u8*)&this->field_0x86)[0] = 60;
         InitializeAnimation(this, 0);
         UpdateSpriteForCollisionLayer(this);
@@ -309,9 +309,9 @@ void sub_08021D44(Entity* this, u32 direction) {
     direction = DirectionRoundUp(direction);
     this->direction = direction;
     if (DirectionIsHorizontal(direction)) {
-        this->nonPlanarMovement = 0x180;
+        this->speed = 0x180;
     } else {
-        this->nonPlanarMovement = 0xc0;
+        this->speed = 0xc0;
     }
 }
 

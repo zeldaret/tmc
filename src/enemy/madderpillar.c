@@ -115,7 +115,7 @@ void sub_0802999C(Entity* this) {
         this->action = 1;
         this->flags |= 0x80;
         this->direction = DirectionRound(Random());
-        this->nonPlanarMovement = 0xa0;
+        this->speed = 0xa0;
         this->animationState = 0xff;
         this->y.WORD += 6;
         this->parent = this;
@@ -135,7 +135,7 @@ void sub_08029A94(Entity* this) {
 void sub_08029AA4(Entity* this) {
     if (this->field_0x76.HALF.HI != 0) {
         this->action = 3;
-        this->nonPlanarMovement = 0x108;
+        this->speed = 0x108;
         this->damageType = 0x6a;
         this->field_0x7a.HWORD = 0x168;
         this->field_0x74.HALF.HI = 4;
@@ -150,7 +150,7 @@ void sub_08029AE0(Entity* this) {
     sub_0802A098(this);
     if (--this->field_0x7a.HWORD == 0) {
         this->action = 1;
-        this->nonPlanarMovement = 0xa0;
+        this->speed = 0xa0;
         this->field_0x74.HALF.HI = 0;
         sub_08029EEC(this);
         sub_0801D2B4(this, 0x77);

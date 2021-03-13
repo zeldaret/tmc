@@ -4,7 +4,7 @@ SCRIPT_START script_080110E8
 	DoPostScriptAction 0x000d
 	SoundReq 0x0086
 	Call sub_0807F36C
-	SetEntityNonPlanarMovement 0x0400
+	SetEntitySpeed 0x0400
 	_0807ECF4 0x0008
 	BeginBlock 
 	Call sub_0807F1E8

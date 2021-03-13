@@ -28,7 +28,7 @@ void sub_0809CF54(Entity* this) {
     this->field_0x20 = -0x18000;
     this->height.WORD = -0x38C000;
     this->field_0x68.HWORD = -0x800;
-    this->nonPlanarMovement = 0x280;
+    this->speed = 0x280;
     this->direction = 8;
     this->collisionLayer = 2;
     this->x.HALF.HI = gRoomControls.roomScrollX;
