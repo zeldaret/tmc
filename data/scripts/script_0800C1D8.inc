@@ -50,6 +50,6 @@ script_0800C248:
 	_0807E930 0x0000
 	Wait 0x003c
 	Call sub_08054F64
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	_0807EEF4 0x0000, 0xffe0
 SCRIPT_END

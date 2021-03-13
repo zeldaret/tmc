@@ -428,7 +428,7 @@ void sub_08021328(Entity* this) {
 void sub_0802134C(Entity* this) {
     this->action = 15;
     this->direction = DirectionFromAnimationState(this->animationState);
-    this->nonPlanarMovement = 0x200;
+    this->speed = 0x200;
     this->field_0x76.HWORD = 0x78;
     sub_08021218(this, 0xe, this->animationState);
 }
@@ -445,7 +445,7 @@ void sub_08021380(Entity* this) {
 
 void sub_08021390(Entity* this) {
     this->action = 7;
-    this->nonPlanarMovement = 0x200;
+    this->speed = 0x200;
     this->damageType = 0x56;
     sub_08021218(this, 6, this->animationState);
 }
@@ -453,7 +453,7 @@ void sub_08021390(Entity* this) {
 void sub_080213B0(Entity* this) {
     this->action = 3;
     this->actionDelay = 1;
-    this->nonPlanarMovement = 0xc0;
+    this->speed = 0xc0;
     this->field_0x76.HWORD = 0xf0;
     sub_08021218(this, 3, this->animationState);
 }
@@ -472,7 +472,7 @@ void sub_080213F0(Entity* this) {
 
 void sub_08021400(Entity* this) {
     this->action = 9;
-    this->nonPlanarMovement = 0x60;
+    this->speed = 0x60;
     sub_08021218(this, 10, this->animationState);
 }
 

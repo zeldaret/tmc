@@ -452,7 +452,7 @@ void sub_08032160(Entity* this) {
         } else {
             this->spriteSettings.b.flipX = 0;
         }
-        this->nonPlanarMovement = 0xf0;
+        this->speed = 0xf0;
         this->field_0x20 = 0x12000;
         this->spritePriority.b1 = 1;
         InitializeAnimation(this, 12);

@@ -1,7 +1,7 @@
 SCRIPT_START script_0800D710
 	BeginBlock 
 	Call sub_0807F360
-	SetEntityNonPlanarMovement 0x0700
+	SetEntitySpeed 0x0700
 	_0807F0B4 0x0007
 	CameraTargetEntity 
 	Call sub_0807FBC4

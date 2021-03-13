@@ -1,6 +1,6 @@
 SCRIPT_START script_0800E62C
 	BeginBlock 
-	SetEntityNonPlanarMovement 0x0140
+	SetEntitySpeed 0x0140
 	SetEntityDirection 0x0008
 	_0807E864 
 	Call sub_0807F354

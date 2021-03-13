@@ -19,7 +19,7 @@ script_0800BC62:
 	Call sub_08054EFC
 	_0807EB44 0x0000
 	_0807E930 0x0000
-	SetEntityNonPlanarMovement 0x0040
+	SetEntitySpeed 0x0040
 	DoPostScriptAction 0x000d
 	CallWithArg sub_0807F4F8, 0x00000378
 	Wait 0x003c

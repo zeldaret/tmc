@@ -2,7 +2,7 @@ SCRIPT_START script_0800DED4
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 	DoPostScriptAction 0x000b
 	Call sub_08066D04
 	EndBlock 

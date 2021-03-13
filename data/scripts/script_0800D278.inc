@@ -88,7 +88,7 @@ script_0800D372:
 	CheckLocalFlag 0x007e
 	JumpIfNot script_0800D3E4
 	DoPostScriptAction 0x000b
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 	CheckPlayerInRegion 0x0090, 0x0130, 0x0810
 	JumpIfNot script_0800D3B2
 	StartPlayerScript script_0800D3EC

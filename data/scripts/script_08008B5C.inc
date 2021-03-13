@@ -79,7 +79,7 @@ script_08008C5C:
 	DoPostScriptAction 0x000f
 	_0807EB44 0x0004
 	_0807E930 0x0004
-	SetEntityNonPlanarMovement 0x0300
+	SetEntitySpeed 0x0300
 	SoundReq 0x0121
 	EndBlock 
 	WaitForSomething 0x00000002

@@ -144,7 +144,7 @@ void sub_08046930(Entity* this) {
     if (this->type) {
         this->previousActionFlag = 5;
         this->direction = 0x20;
-        this->nonPlanarMovement = 0x280;
+        this->speed = 0x280;
     }
     sub_08047D88(this);
     if (this->field_0x7c.BYTES.byte0 == 0)
@@ -153,7 +153,7 @@ void sub_08046930(Entity* this) {
     this->actionDelay = 1;
     this->animationState = 0;
     this->direction = 0;
-    this->nonPlanarMovement = 0x280;
+    this->speed = 0x280;
 }
 
 void sub_0804696C(Entity* this) {
@@ -161,7 +161,7 @@ void sub_0804696C(Entity* this) {
     if (gRoomControls.roomOriginY + 0x130 > this->y.HALF.HI) {
         this->previousActionFlag = 2;
         this->direction = 0x80;
-        this->nonPlanarMovement = 0x100;
+        this->speed = 0x100;
         this->spriteOrientation.flipY = 3;
         this->spriteRendering.b3 = 3;
         SoundReq(0x2e);
@@ -232,7 +232,7 @@ void sub_08046A9C(Entity* this) {
 
 void sub_08046AE8(Entity* this) {
     this->previousActionFlag = 1;
-    this->nonPlanarMovement = 0x180;
+    this->speed = 0x180;
     sub_08048178(this, ((Entity*)this->myHeap)->next->animationState >> 5);
     this->field_0x76.HWORD = this->direction << 8;
     sub_08047D88(this);
@@ -310,7 +310,7 @@ void sub_08046CEC(Entity* this) {
     if (((Entity*)this->myHeap)->prev->field_0x6c.HWORD & 2) {
         this->action = 2;
         this->previousActionFlag = 0;
-        this->animationState = this->nonPlanarMovement;
+        this->animationState = this->speed;
     }
 }
 
@@ -319,7 +319,7 @@ const u16 gUnk_080D1B60[8] = { 0x200, 0x184, 0x28C, 0x210, 0x200, 0x29C, 0x174, 
 void sub_08046D44(Entity* this) {
     const u16* tmp;
     this->previousActionFlag = 1;
-    this->nonPlanarMovement = 0x200;
+    this->speed = 0x200;
     tmp = gUnk_080D1B60 + (((Entity*)this->myHeap)->next->animationState >> 5);
     this->field_0x80.HWORD = tmp[0] + gRoomControls.roomOriginX;
     this->field_0x82.HWORD = tmp[1] + gRoomControls.roomOriginY;
@@ -385,7 +385,7 @@ void sub_08046EF4(Entity* this) {
         this->actionDelay = 0x7F;
         this->direction ^= 0x80;
     }
-    this->nonPlanarMovement = gUnk_080D1B74[(this->actionDelay >> 3) & 0xF];
+    this->speed = gUnk_080D1B74[(this->actionDelay >> 3) & 0xF];
     if ((--this->field_0xf & 0xFF) == 0) {
         Entity* tmp;
         this->field_0xf = (Random() & 0x38) + 0x78;
@@ -428,7 +428,7 @@ void sub_08046F64(Entity* this) {
 
 void sub_08046FE8(Entity* this) {
     this->previousActionFlag = 1;
-    this->nonPlanarMovement = 0x1c0;
+    this->speed = 0x1c0;
     this->field_0x7c.HALF.HI = 0x1e;
     this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x290;
     this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x190;
@@ -445,10 +445,10 @@ void sub_0804702C(Entity* this) {
         }
     }
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
-    if (sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, (this->nonPlanarMovement >> 0x10) + 0x10)) {
+    if (sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, (this->speed >> 0x10) + 0x10)) {
         this->previousActionFlag = 2;
         this->field_0x76.HWORD = this->direction << 8;
-        this->nonPlanarMovement = 0x280;
+        this->speed = 0x280;
     }
 }
 
@@ -467,7 +467,7 @@ void sub_080470B4(Entity* this) {
         sub_08047EA4(this, ((0x100 - this->direction) & 0xFF) << 8);
     } else {
         this->previousActionFlag = 3;
-        this->nonPlanarMovement = 0x200;
+        this->speed = 0x200;
         this->field_0x76.HWORD = this->direction << 8;
         this->field_0x74.HWORD = gUnk_080D1BBC[Random() & 1];
         sub_08047D88(this);
@@ -485,8 +485,8 @@ void sub_08047140(Entity* this) {
 }
 
 void sub_0804717C(Entity* this) {
-    if (this->nonPlanarMovement < 0x280) {
-        this->nonPlanarMovement += 8;
+    if (this->speed < 0x280) {
+        this->speed += 8;
     }
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
     if (gRoomControls.roomOriginX + 0x200 > this->x.HALF.HI) {
@@ -495,8 +495,8 @@ void sub_0804717C(Entity* this) {
 }
 
 void sub_080471C8(Entity* this) {
-    if (this->nonPlanarMovement > 0x180) {
-        this->nonPlanarMovement -= 0x10;
+    if (this->speed > 0x180) {
+        this->speed -= 0x10;
     }
     if (this->direction < 0xe0) {
         this->direction++;
@@ -519,7 +519,7 @@ void sub_0804723C(Entity* this) {
     this->direction -= 2;
     if (this->direction < 0xc0) {
         this->previousActionFlag = 7;
-        this->nonPlanarMovement = 0x200;
+        this->speed = 0x200;
         this->direction = 0xc0;
         this->field_0x76.HWORD = 0xc000;
     }
@@ -538,8 +538,8 @@ void sub_08047284(Entity* this) {
 }
 
 void sub_080472BC(Entity* this) {
-    if (this->nonPlanarMovement < 0x300) {
-        this->nonPlanarMovement += 8;
+    if (this->speed < 0x300) {
+        this->speed += 8;
     }
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
     if (gRoomControls.roomOriginX + 0x2B0 >= this->x.HALF.HI)
@@ -549,8 +549,8 @@ void sub_080472BC(Entity* this) {
 }
 
 void sub_08047310(Entity* this) {
-    if (this->nonPlanarMovement < 0x180) {
-        this->nonPlanarMovement -= 0x10;
+    if (this->speed < 0x180) {
+        this->speed -= 0x10;
     }
     this->field_0x76.HWORD -= 0x1D0;
     this->direction = this->field_0x76.HWORD >> 8;
@@ -580,7 +580,7 @@ void sub_0804736C(Entity* this) {
 
 void sub_080473B8(Entity* this) {
     this->previousActionFlag = 1;
-    this->nonPlanarMovement = 0x120;
+    this->speed = 0x120;
     this->field_0x80.HWORD = gRoomControls.roomOriginX + 0x200;
     this->field_0x82.HWORD = gRoomControls.roomOriginY + 0x1D0;
     sub_08047D88(this);
@@ -608,7 +608,7 @@ void sub_080473F0(Entity* this) {
     if (sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, 8)) {
         this->previousActionFlag = 2;
         this->field_0x76.HWORD = this->direction << 8;
-        this->nonPlanarMovement = 0x180;
+        this->speed = 0x180;
     }
 }
 
@@ -625,7 +625,7 @@ void sub_08047484(Entity* this) {
         sub_08047EA4(this, ((0x100 - this->direction) & 0xFF) << 8);
     } else {
         this->previousActionFlag = 3;
-        this->nonPlanarMovement = 0x200;
+        this->speed = 0x200;
         this->direction = 0x40;
         this->field_0x76.HWORD = 0x4000;
         this->field_0x74.HWORD = 0x180;
@@ -665,7 +665,7 @@ void sub_08047508(Entity* this) {
     sub_08047E48(this);
     if (gRoomControls.roomOriginX + 0x280 < this->x.HALF.HI) {
         this->previousActionFlag = 4;
-        this->nonPlanarMovement = 0x200;
+        this->speed = 0x200;
         this->animationState = this->direction;
         this->field_0x76.HWORD = this->direction << 8;
     }
@@ -683,7 +683,7 @@ void sub_080475F4(Entity* this) {
     if (this->direction >= 0xc0) {
         this->direction = 0xc0;
         this->previousActionFlag = 5;
-        this->nonPlanarMovement = 0x200;
+        this->speed = 0x200;
         this->field_0x7c.HALF.HI = 0x3c;
     }
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
@@ -720,7 +720,7 @@ void sub_0804763C(Entity* this) {
     sub_08047E48(this);
     if (gRoomControls.roomOriginX + 0x180 > this->x.HALF.HI) {
         this->previousActionFlag = 6;
-        this->nonPlanarMovement = 0x200;
+        this->speed = 0x200;
         this->animationState = this->direction;
         this->field_0x76.HWORD = this->direction << 8;
     }
@@ -738,7 +738,7 @@ void sub_0804772C(Entity* this) {
     if (this->direction <= 0x40) {
         this->direction = 0x40;
         this->previousActionFlag = 3;
-        this->nonPlanarMovement = 0x200;
+        this->speed = 0x200;
         this->field_0x7c.HALF.HI = 0x1e;
     }
     sub_08047DF0(this, ((0x100 - this->direction) & 0xFF) << 8);
@@ -753,7 +753,7 @@ void sub_08047778(Entity* this) {
 
 void sub_08047798(Entity* this) {
     this->previousActionFlag = 1;
-    this->nonPlanarMovement = 0x80;
+    this->speed = 0x80;
     if (this->x.HALF.HI - gRoomControls.roomOriginX < 0x1F8) {
         this->field_0x80.HWORD = 0xa8;
     } else {
@@ -767,8 +767,8 @@ void sub_08047798(Entity* this) {
 const s16 gUnk_080D1BF0[2] = { 0x80, -0x80 };
 
 void sub_080477F0(Entity* this) {
-    if (this->nonPlanarMovement < 0x300) {
-        this->nonPlanarMovement += 8;
+    if (this->speed < 0x300) {
+        this->speed += 8;
     }
     this->direction = sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
     sub_08047E48(this);
@@ -876,7 +876,7 @@ void sub_08047978(Entity* this) {
 void sub_08047B08(Entity* this) {
     sub_08047D88(this);
     this->direction = sub_080045DA(this->field_0x80.HWORD - this->x.HALF.HI, this->field_0x82.HWORD - this->y.HALF.HI);
-    this->nonPlanarMovement = 0x200;
+    this->speed = 0x200;
     sub_08047E58(this);
     if (!sub_0806FCB8(this, this->field_0x80.HWORD, this->field_0x82.HWORD, 4))
         return;
@@ -918,7 +918,7 @@ const s8 gUnk_080D1C00[4] = { 0x40, -0x40, -0x40, 0x40 };
 void sub_08047BF0(Entity* this) {
     Entity* tmp;
     this->direction = gUnk_080D1C00[this->actionDelay & 3];
-    this->nonPlanarMovement = 0x100;
+    this->speed = 0x100;
     sub_08047E48(this);
     if (this->actionDelay == 0) {
         if ((this->field_0xf++ & 0xF) == 0) {
@@ -934,7 +934,7 @@ void sub_08047BF0(Entity* this) {
             }
         }
         this->direction = this->field_0x76.HWORD;
-        this->nonPlanarMovement = 0x140;
+        this->speed = 0x140;
         sub_08047E48(this);
         if (this->y.HALF.HI > gRoomControls.roomOriginY + 0x270) {
             this->previousActionFlag = 2;
@@ -1009,7 +1009,7 @@ void sub_08047DF0(Entity* this, u32 unk1) {
     sub_08047EA4(this, unk1);
     oldX = this->x.HALF.HI;
     oldY = this->y.HALF.HI;
-    sub_0806F62C(this, this->nonPlanarMovement, this->direction);
+    sub_0806F62C(this, this->speed, this->direction);
     if (this->field_0x7c.BYTES.byte0 & 1) {
         if (sub_08079F8C()) {
             gPlayerEntity.x.HALF.HI += this->x.HALF.HI - oldX;
@@ -1027,7 +1027,7 @@ void sub_08047E58(Entity* this) {
     u32 oldX, oldY;
     oldX = this->x.HALF.HI;
     oldY = this->y.HALF.HI;
-    sub_0806F62C(this, this->nonPlanarMovement, this->direction);
+    sub_0806F62C(this, this->speed, this->direction);
     if (this->field_0x7c.BYTES.byte0 & 1) {
         if (sub_08079F8C()) {
             gPlayerEntity.x.HALF.HI += this->x.HALF.HI - oldX;

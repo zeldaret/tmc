@@ -180,7 +180,7 @@ void sub_0809F7BC(Entity* this) {
         cloud = sub_0809F770(this);
         if (cloud != NULL) {
             uVar1 = Random();
-            cloud->nonPlanarMovement = gUnk_081247C8[uVar1 & 3];
+            cloud->speed = gUnk_081247C8[uVar1 & 3];
             cloud->direction = (u8)(uVar1 >> 8) & 31;
         }
     }

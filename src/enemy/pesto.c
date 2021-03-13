@@ -84,7 +84,7 @@ void sub_08023FF0(Entity* this) {
         this->flags |= 0x80;
         this->damageType = 0x77;
         this->actionDelay = 1;
-        this->nonPlanarMovement = 0x40;
+        this->speed = 0x40;
     } else {
         gUnk_080CBEF8[this->previousActionFlag](this);
     }
@@ -184,7 +184,7 @@ void sub_080241C0(Entity* this) {
             if (PlayerInRange(this, 3, (gPlayerState.hurtBlinkSpeed != 0) ? 0xa0 : 0x40) && sub_08049FDC(this, 3) &&
                 gPlayerEntity.action != 0x1e) {
                 this->field_0x80.HALF.LO++;
-                this->nonPlanarMovement = 0;
+                this->speed = 0;
                 sub_08024A14(this, 3, 10);
             } else if (--this->field_0xf == 0) {
                 sub_08024A14(this, 0, 0x20);
@@ -223,8 +223,8 @@ void sub_080242A0(Entity* this) {
         if (--this->actionDelay == 0) {
             this->direction = GetFacingDirection(this, gUnk_020000B0);
             sub_08024E00(this, 1);
-            if (this->nonPlanarMovement != 0) {
-                this->nonPlanarMovement = 0;
+            if (this->speed != 0) {
+                this->speed = 0;
             } else {
                 sub_08024E1C(this);
             }
@@ -236,7 +236,7 @@ void sub_080242A0(Entity* this) {
             this->action = 4;
             this->field_0x80.HALF.LO = 0;
             this->actionDelay = 0x10;
-            this->nonPlanarMovement = 0;
+            this->speed = 0;
         }
     }
 }
@@ -247,7 +247,7 @@ void sub_0802433C(Entity* this) {
         case 0:
             if (--this->actionDelay == 0) {
                 this->field_0x80.HALF.LO++;
-                this->nonPlanarMovement = 0x100;
+                this->speed = 0x100;
                 this->field_0xf = 8;
                 sub_08024E00(this, 1);
             }
@@ -256,7 +256,7 @@ void sub_0802433C(Entity* this) {
             if (--this->actionDelay == 0) {
                 this->action = 5;
                 this->field_0x80.HALF.LO = 0;
-                this->nonPlanarMovement = 0x140;
+                this->speed = 0x140;
                 this->actionDelay = 0xc0;
                 this->field_0xf = 8;
             } else {
@@ -275,12 +275,12 @@ void sub_080243B8(Entity* this) {
                 if (this->attachedEntity == NULL || this->attachedEntity->next == NULL) {
                     this->field_0x80.HALF.LO = 2;
                     this->actionDelay = 0x20;
-                    this->nonPlanarMovement = 0x80;
+                    this->speed = 0x80;
                     this->field_0x82.HALF.HI = 0x80;
                 } else if (sub_08049F1C(this, gUnk_020000B0, 0xe)) {
                     this->field_0x80.HALF.LO++;
                     this->actionDelay = 0x1e;
-                    this->nonPlanarMovement = 0x100;
+                    this->speed = 0x100;
                     this->field_0x82.HALF.HI = 0x80;
                     this->attachedEntity->action = 2;
                 } else if (--this->actionDelay) {
@@ -298,14 +298,14 @@ void sub_080243B8(Entity* this) {
             if (--this->actionDelay == 0) {
                 this->field_0x80.HALF.LO++;
                 this->actionDelay = 0x20;
-                this->nonPlanarMovement = 0x80;
+                this->speed = 0x80;
             }
             break;
         case 2:
             if (--this->actionDelay == 0) {
                 this->action = 6;
                 this->field_0x80.HALF.LO = 0;
-                this->nonPlanarMovement = 0x80;
+                this->speed = 0x80;
                 sub_08024B38(this);
 
                 if ((this->field_0x82.HALF.HI & 0x40) == 0) {
@@ -339,7 +339,7 @@ void sub_080244E8(Entity* this) {
                     this->field_0x80.HALF.LO += 1;
                     this->field_0x82.HALF.LO += 1;
                     this->field_0xf = 0;
-                    this->nonPlanarMovement = 0;
+                    this->speed = 0;
                 } else {
                     this->actionDelay = 0x30;
                     this->field_0xf = 4;
@@ -368,8 +368,8 @@ void sub_080244E8(Entity* this) {
                 u32 tmp;
 
                 if (--this->actionDelay == 0) {
-                    if (this->nonPlanarMovement) {
-                        this->nonPlanarMovement = 0;
+                    if (this->speed) {
+                        this->speed = 0;
                     } else {
                         sub_08024E1C(this);
                     }
@@ -387,7 +387,7 @@ void sub_080244E8(Entity* this) {
                             this->field_0x80.HALF.LO++;
                             this->actionDelay = 0xc;
                             this->direction = 0x10;
-                            this->nonPlanarMovement = tmp;
+                            this->speed = tmp;
                             this->cutsceneBeh.HALF.LO = 0;
                             this->flags2 &= 0xfc;
                             sub_080249DC(this);
@@ -453,7 +453,7 @@ void sub_080244E8(Entity* this) {
             if (--this->actionDelay == 0) {
                 this->field_0x80.HALF.LO++;
                 this->field_0xf = 0;
-                this->nonPlanarMovement = 0;
+                this->speed = 0;
                 this->field_0x82.HALF.LO++;
             }
             break;
@@ -482,7 +482,7 @@ void sub_080244E8(Entity* this) {
                         this->field_0x80.HALF.LO += 1;
                         this->actionDelay = 0xc0;
                         this->field_0xf = 8;
-                        this->nonPlanarMovement = 0x80;
+                        this->speed = 0x80;
                         sub_080249DC(this);
                         break;
                     default:
@@ -496,7 +496,7 @@ void sub_080244E8(Entity* this) {
                 if (this->field_0x82.HALF.HI & 0x80) {
                     this->field_0x82.HALF.HI = 0xc0;
                     this->field_0x80.HALF.LO = 0;
-                    this->nonPlanarMovement = 0x40;
+                    this->speed = 0x40;
                     this->actionDelay = 0x40;
                     this->field_0xf = 8;
                     sub_08024A14(this, 0, 8);
@@ -511,7 +511,7 @@ void sub_080244E8(Entity* this) {
         case 7:
             if (gPlayerEntity.height.HALF.HI == 0) {
                 this->field_0x80.HALF.LO = 0;
-                this->nonPlanarMovement = 0x80;
+                this->speed = 0x80;
                 sub_08024B38(this);
             }
     }
@@ -709,7 +709,7 @@ bool32 sub_08024C48(Entity* this, bool32 unk) {
 
 void sub_08024C7C(Entity* this) {
     this->action = 1;
-    this->nonPlanarMovement = 0x40;
+    this->speed = 0x40;
     this->actionDelay = 0;
     sub_08024A14(this, 0, 0x20);
 }
@@ -719,7 +719,7 @@ void sub_08024C94(Entity* this) {
     this->field_0x80.HALF.LO = 0;
     this->actionDelay = 0x40;
     this->field_0xf = 0;
-    this->nonPlanarMovement = 0xc0;
+    this->speed = 0xc0;
     this->field_0x82.HALF.HI = 0x80;
     sub_08024A14(this, 3, this->field_0xf);
 }
@@ -785,7 +785,7 @@ void sub_08024E00(Entity* this, u32 unk) {
 }
 
 void sub_08024E1C(Entity* this) {
-    this->nonPlanarMovement = gUnk_080CBF18[sub_08024E34()];
+    this->speed = gUnk_080CBF18[sub_08024E34()];
 }
 
 u32 sub_08024E34(void) {
@@ -809,7 +809,7 @@ void sub_08024E4C(Entity* this) {
             this->field_0x86.HALF.HI = 0;
             sub_08024F50(this);
             this->field_0x80.HALF.LO = 0;
-            this->nonPlanarMovement = 0x40;
+            this->speed = 0x40;
             this->actionDelay = 0x40;
             this->field_0xf = 8;
             sub_08024A14(this, 0, 8);
@@ -851,7 +851,7 @@ void sub_08024F50(Entity* this) {
     gPlayerEntity.flags |= 0x80;
     gPlayerEntity.hurtBlinkTime = -0x3c;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
-    gPlayerEntity.nonPlanarMovement = 0;
+    gPlayerEntity.speed = 0;
     gPlayerEntity.spritePriority.b1 = this->cutsceneBeh.HALF.HI;
     gPlayerEntity.height.HALF.HI = gPlayerEntity.spriteOffsetY;
     gPlayerEntity.spriteOffsetY = 0;
@@ -859,7 +859,7 @@ void sub_08024F50(Entity* this) {
     this->field_0x82.HALF.HI = 0xc0;
     this->field_0x80.HALF.LO += 2;
     this->cutsceneBeh.HALF.LO = 0;
-    this->nonPlanarMovement = 0x80;
+    this->speed = 0x80;
 }
 
 // clang-format off

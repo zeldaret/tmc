@@ -37,7 +37,7 @@ void sub_0808A46C(Entity* this) {
 void sub_0808A484(Entity* this) {
     this->action = 1;
     this->spriteSettings.b.draw = TRUE;
-    this->nonPlanarMovement = 0x40;
+    this->speed = 0x40;
     this->direction = 6;
     this->spriteRendering.b3 = 1;
     this->spritePriority.b0 = 0;

@@ -19,7 +19,7 @@ script_08011134:
 	_0807EB44 0x0004
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000004
-	SetEntityNonPlanarMovement 0x0100
+	SetEntitySpeed 0x0100
 	DoPostScriptAction 0x0001
 	_0807ECC4 0x0010
 	DoPostScriptAction 0x0000
@@ -29,7 +29,7 @@ script_08011134:
 	Wait 0x001e
 	DoPostScriptAction 0x0010
 	Call sub_0807F3C8
-	SetEntityNonPlanarMovement 0x0400
+	SetEntitySpeed 0x0400
 	SetEntityDirection 0x001c
 	_0807EC1C 0x003c
 	_0807E5F8 0x00000008

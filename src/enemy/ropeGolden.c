@@ -88,7 +88,7 @@ void sub_080383AC(Entity* this) {
     u32 v;
     this->action = 1;
     this->actionDelay = 0x8;
-    this->nonPlanarMovement = 0x100;
+    this->speed = 0x100;
     this->direction = DirectionRoundUp(GetFacingDirection(this, &gPlayerEntity));
     v = this->direction >> 3;
     if (v != this->animationState) {
@@ -101,7 +101,7 @@ void sub_080383E4(Entity* this) {
     u32 v;
     this->action = 2;
     this->actionDelay = 0x8;
-    this->nonPlanarMovement = 0x280;
+    this->speed = 0x280;
     v = DirectionRoundUp(GetFacingDirection(this, &gPlayerEntity));
     this->direction = v;
     this->field_0x78.HALF.LO = v;

@@ -62,7 +62,7 @@ script_0800E73E:
 	BeginBlock 
 	_0807E9D4 
 	DoPostScriptAction 0x000a
-	SetEntityNonPlanarMovement 0x0200
+	SetEntitySpeed 0x0200
 	CheckGlobalFlag 0x0029
 	JumpIfNot script_0800E77C
 	CheckGlobalFlag 0x002a

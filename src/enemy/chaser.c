@@ -36,7 +36,7 @@ void sub_0802B540(Entity* this) {
         u32 direction = sub_0804A024(this, 1, 0xc);
         if (direction != 0xff) {
             this->action = 2;
-            this->nonPlanarMovement = 0x40;
+            this->speed = 0x40;
             this->direction = direction;
         }
     }
@@ -45,15 +45,15 @@ void sub_0802B540(Entity* this) {
 void sub_0802B56C(Entity* this) {
     GetNextFrame(this);
     if (this->bitfield & 0x80) {
-        this->nonPlanarMovement = 0x40;
+        this->speed = 0x40;
     }
 
     if (sub_080AF038(this)) {
         if (this->animIndex != 1) {
             InitializeAnimation(this, 1);
         }
-        if (this->nonPlanarMovement < 0x220) {
-            this->nonPlanarMovement += 4;
+        if (this->speed < 0x220) {
+            this->speed += 4;
         }
     } else {
         this->action = 3;

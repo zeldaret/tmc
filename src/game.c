@@ -258,7 +258,7 @@ void InitializePlayer(void) {
             gPlayerState.field_0x34[4] = 0x10;
             pl->direction = gScreenTransition.playerState << 2;
         case 0x3:
-            pl->nonPlanarMovement = 0xe0;
+            pl->speed = 0xe0;
             break;
         case 0x7:
         case 0x8:

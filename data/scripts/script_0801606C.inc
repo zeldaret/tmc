@@ -6,7 +6,7 @@ SCRIPT_START script_0801606C
 	WaitForSomething2 0x00000002
 	DoPostScriptAction 0x0010
 	Wait 0x003c
-	SetEntityNonPlanarMovement 0x0020
+	SetEntitySpeed 0x0020
 	_0807EC94 0x0080
 	Wait 0x001e
 	DoPostScriptAction 0x0010

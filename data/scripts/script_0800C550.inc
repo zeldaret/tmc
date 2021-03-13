@@ -81,7 +81,7 @@ script_0800C61E:
 	Jump script_0800C60A
 	BeginBlock 
 	DoPostScriptAction 0x000a
-	SetEntityNonPlanarMovement 0x0080
+	SetEntitySpeed 0x0080
 	_0807EB44 0x0004
 	CheckLocalFlag 0x0082
 	JumpIfNot script_0800C650
@@ -226,7 +226,7 @@ script_0800C824:
 	JumpIf script_0800C8AE
 	TextboxNoOverlapFollow 0x1135
 	_0807EA94 
-	SetEntityNonPlanarMovement 0x0040
+	SetEntitySpeed 0x0040
 	_0807EDD4 0x0038, 0x0044
 	DoPostScriptAction 0x0000
 	Wait 0x000f

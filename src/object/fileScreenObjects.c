@@ -506,7 +506,7 @@ static u32 sub_0808EF6C(Entity* this) {
     if (this->field_0x6c.HWORD < var7) {
         var7 = this->field_0x6c.HWORD;
     }
-    this->nonPlanarMovement = var7;
+    this->speed = var7;
     this->direction = sub_080045DA(var0, var2) >> 3;
     sub_0806F69C(this);
     return 1;
@@ -517,7 +517,7 @@ static void sub_0808EFF0(Entity* this) {
     u8 var1;
 
     this->spriteSettings.b.draw = 2;
-    this->nonPlanarMovement = 0x400;
+    this->speed = 0x400;
     this->currentHealth = 1;
     this->frameIndex = 0xFF;
     this->animIndex = 0xFF;

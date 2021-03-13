@@ -54,7 +54,7 @@ void Chuchu(Entity* this) {
                         if (this->flags & 0x80) {
                             this->action = 6;
                             this->flags &= ~0x80;
-                            this->nonPlanarMovement = 0x20;
+                            this->speed = 0x20;
                             this->damageType = 0x5c;
                             InitializeAnimation(this, 5);
                         }
@@ -293,7 +293,7 @@ void sub_0801F328(Entity* this) {
 void sub_0801F340(Entity* this) {
     this->action = 5;
     this->actionDelay = 60;
-    this->nonPlanarMovement = 0x20;
+    this->speed = 0x20;
     this->damageType = 92;
     InitializeAnimation(this, 2);
 }
@@ -417,7 +417,7 @@ void sub_0801F584(Entity* this) {
         } else {
             this->action = 6;
             this->field_0xf = 60;
-            this->nonPlanarMovement = 0x20;
+            this->speed = 0x20;
             this->damageType = 92;
             InitializeAnimation(this, 2);
         }
@@ -469,7 +469,7 @@ void sub_0801F6F8(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x80) {
         this->action = 4;
-        this->nonPlanarMovement = 0x20;
+        this->speed = 0x20;
         sub_0804AA1C(this);
         InitializeAnimation(this, 2);
     }
@@ -592,7 +592,7 @@ void sub_0801F940(Entity* this) {
         } else {
             this->action = 6;
             this->field_0xf = 60;
-            this->nonPlanarMovement = 0x20;
+            this->speed = 0x20;
             InitializeAnimation(this, 2);
         }
     }
@@ -644,7 +644,7 @@ void sub_0801FAAC(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x80) {
         sub_0801FB14(this);
-        this->nonPlanarMovement = 0x20;
+        this->speed = 0x20;
         sub_0804AA1C(this);
     }
 }
@@ -705,7 +705,7 @@ u32 sub_0801FBD0(Entity* this) {
 }
 
 void Chuchu_JumpAtPlayer(Entity* this) {
-    this->nonPlanarMovement = 0x180;
+    this->speed = 0x180;
     this->field_0x20 = 0x20000;
     this->direction = sub_08049F84(this, 1);
     InitializeAnimation(this, 3);
