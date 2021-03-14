@@ -22,4 +22,16 @@ gUnk_080CB901:: @ 080CB901
 	.incbin "baserom.gba", 0x0CB901, 0x0000013
 
 gUnk_080CB914:: @ 080CB914
-	.incbin "baserom.gba", 0x0CB914, 0x0000034
+	.4byte gUnk_080CB8B4
+	.4byte gUnk_080CB8B9
+	.4byte gUnk_080CB8B9
+	.4byte gUnk_080CB8B4
+	.4byte gUnk_080CB8BE
+	.4byte gUnk_080CB8D7
+	.4byte gUnk_080CB8D7
+	.4byte gUnk_080CB8BE
+	.4byte gUnk_080CB8F0
+	.4byte gUnk_080CB901
+	.4byte gUnk_080CB901
+	.4byte gUnk_080CB8F0
+	.4byte 00000000

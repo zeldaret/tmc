@@ -31,4 +31,14 @@ gUnk_080CC165:: @ 080CC165
 	.incbin "baserom.gba", 0x0CC165, 0x000000F
 
 gUnk_080CC174:: @ 080CC174
-	.incbin "baserom.gba", 0x0CC174, 0x0000028
+	.4byte gUnk_080CC0CA
+	.4byte gUnk_080CC10B
+	.4byte gUnk_080CC118
+	.4byte gUnk_080CC121
+	.4byte gUnk_080CC131
+	.4byte gUnk_080CC13E
+	.4byte gUnk_080CC14B
+	.4byte gUnk_080CC158
+	.4byte gUnk_080CC165
+	.4byte 00000000
+

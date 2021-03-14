@@ -40,4 +40,16 @@ gUnk_080CD508:: @ 080CD508
 	.incbin "baserom.gba", 0x0CD508, 0x0000004
 
 gUnk_080CD50C:: @ 080CD50C
-	.incbin "baserom.gba", 0x0CD50C, 0x0000034
+	.4byte gUnk_080CD474
+	.4byte gUnk_080CD485
+	.4byte gUnk_080CD496
+	.4byte gUnk_080CD4A7
+	.4byte gUnk_080CD4B8
+	.4byte gUnk_080CD4C9
+	.4byte gUnk_080CD4DA
+	.4byte gUnk_080CD4EB
+	.4byte gUnk_080CD4FC
+	.4byte gUnk_080CD500
+	.4byte gUnk_080CD504
+	.4byte gUnk_080CD508
+	.4byte 00000000

@@ -28,4 +28,12 @@ gUnk_080CCD06:: @ 080CCD06
 	.incbin "baserom.gba", 0x0CCD06, 0x000001A
 
 gUnk_080CCD20:: @ 080CCD20
-	.incbin "baserom.gba", 0x0CCD20, 0x0000024
+	.4byte gUnk_080CCC4A
+	.4byte gUnk_080CCC5F
+	.4byte gUnk_080CCC74
+	.4byte gUnk_080CCC9C
+	.4byte gUnk_080CCCB4
+	.4byte gUnk_080CCCC9
+	.4byte gUnk_080CCCDE
+	.4byte gUnk_080CCD06
+	.4byte 00000000

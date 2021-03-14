@@ -34,4 +34,14 @@ gUnk_080CD391:: @ 080CD391
 	.incbin "baserom.gba", 0x0CD391, 0x0000007
 
 gUnk_080CD398:: @ 080CD398
-	.incbin "baserom.gba", 0x0CD398, 0x000002C
+	.4byte gUnk_080CD31C
+	.4byte gUnk_080CD32D
+	.4byte gUnk_080CD33E
+	.4byte gUnk_080CD34F
+	.4byte gUnk_080CD360
+	.4byte gUnk_080CD368
+	.4byte gUnk_080CD370
+	.4byte gUnk_080CD378
+	.4byte gUnk_080CD380
+	.4byte gUnk_080CD391
+	.4byte 00000000

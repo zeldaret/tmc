@@ -10,4 +10,6 @@ gUnk_080CB71E:: @ 080CB71E
 	.incbin "baserom.gba", 0x0CB71E, 0x000000A
 
 gUnk_080CB728:: @ 080CB728
-	.incbin "baserom.gba", 0x0CB728, 0x000000C
+	.4byte gUnk_080CB706
+	.4byte gUnk_080CB71E
+	.4byte 00000000

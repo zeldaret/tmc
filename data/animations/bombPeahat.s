@@ -16,4 +16,8 @@ gUnk_080CD217:: @ 080CD217
 	.incbin "baserom.gba", 0x0CD217, 0x0000009
 
 gUnk_080CD220:: @ 080CD220
-	.incbin "baserom.gba", 0x0CD220, 0x0000014
+	.4byte gUnk_080CD184
+	.4byte gUnk_080CD195
+	.4byte gUnk_080CD1D6
+	.4byte gUnk_080CD217
+	.4byte 00000000

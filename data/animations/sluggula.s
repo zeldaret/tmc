@@ -25,4 +25,12 @@ gUnk_080CBE9E:: @ 080CBE9E
 	.incbin "baserom.gba", 0x0CBE9E, 0x0000006
 
 gUnk_080CBEA4:: @ 080CBEA4
-	.incbin "baserom.gba", 0x0CBEA4, 0x0000020
+	.4byte gUnk_080CBE02
+	.4byte gUnk_080CBE1B
+	.4byte gUnk_080CBE34
+	.4byte gUnk_080CBE4D
+	.4byte gUnk_080CBE66
+	.4byte gUnk_080CBE8A
+	.4byte gUnk_080CBE9E
+	.4byte 00000000
+
