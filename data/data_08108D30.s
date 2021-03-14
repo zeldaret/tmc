@@ -391,7 +391,7 @@ gUnk_08109B60:: @ 08109B60
 gUnk_08109B80:: @ 08109B80
 	.incbin "baserom.gba", 0x109B80, 0x000003C
 
-gUnk_08109BBC:: @ 08109BBC
+gUnk_08109BBC:: @ 08109BBC TODO festari
 	.incbin "baserom.gba", 0x109BBC, 0x000000C
 
 gUnk_08109BC8:: @ 08109BC8
@@ -427,7 +427,7 @@ gUnk_08109C59:: @ 08109C59
 gUnk_08109C60:: @ 08109C60
 	.incbin "baserom.gba", 0x109C60, 0x0000038
 
-gUnk_08109C98:: @ 08109C98
+gUnk_08109C98:: @ 08109C98 TODO forestMinish.c
 	.incbin "baserom.gba", 0x109C98, 0x0000080
 
 gUnk_08109D18:: @ 08109D18

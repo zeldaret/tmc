@@ -4,100 +4,100 @@
 	.section .rodata
 
 	@ TODO convert .inc files into .s files and include them in linker.ld
-	.include "data/gleerok.inc"
-	.include "data/animations/gleerok.inc"
+	.include "data/const/enemy/gleerok.inc"
+	.include "data/animations/enemy/gleerok.inc"
 
-	.include "data/vaatiEyesMacro.inc"
-	.include "data/animations/vaatiEyesMacro.inc"
+	.include "data/const/enemy/vaatiEyesMacro.inc"
+	.include "data/animations/enemy/vaatiEyesMacro.inc"
 
-	.include "data/tektite.inc"
-	.include "data/animations/tektite.inc"
+	.include "data/const/enemy/tektite.inc"
+	.include "data/animations/enemy/tektite.inc"
 
-	.include "data/wizzrobeWind.inc"
-	.include "data/animations/wizzrobeWind.inc"
+	.include "data/const/enemy/wizzrobeWind.inc"
+	.include "data/animations/enemy/wizzrobeWind.inc"
 
-	.include "data/wizzrobeFire.inc"
-	.include "data/animations/wizzrobeFire.inc"
+	.include "data/const/enemy/wizzrobeFire.inc"
+	.include "data/animations/enemy/wizzrobeFire.inc"
 
-	.include "data/wizzrobeIce.inc"
-	.include "data/animations/wizzrobeIce.inc"
+	.include "data/const/enemy/wizzrobeIce.inc"
+	.include "data/animations/enemy/wizzrobeIce.inc"
 
-	.include "data/armos.inc"
-	.include "data/animations/armos.inc"
+	.include "data/const/enemy/armos.inc"
+	.include "data/animations/enemy/armos.inc"
 
-	.include "data/eyegore.inc"
-	.include "data/animations/eyegore.inc"
+	.include "data/const/enemy/eyegore.inc"
+	.include "data/animations/enemy/eyegore.inc"
 
-	.include "data/rope.inc"
-	.include "data/animations/rope.inc"
+	.include "data/const/enemy/rope.inc"
+	.include "data/animations/enemy/rope.inc"
 
-	.include "data/smallPesto.inc"
+	.include "data/const/enemy/smallPesto.inc"
 
-	.include "data/acroBandits.inc"
-	.include "data/animations/acroBandits.inc"
+	.include "data/const/enemy/acroBandits.inc"
+	.include "data/animations/enemy/acroBandits.inc"
 
-	.include "data/keaton.inc"
-	.include "data/animations/keaton.inc"
+	.include "data/const/enemy/keaton.inc"
+	.include "data/animations/enemy/keaton.inc"
 
-	.include "data/crow.inc"
-	.include "data/animations/crow.inc"
+	.include "data/const/enemy/crow.inc"
+	.include "data/animations/enemy/crow.inc"
 
-	.include "data/mulldozer.inc"
-	.include "data/animations/mulldozer.inc"
+	.include "data/const/enemy/mulldozer.inc"
+	.include "data/animations/enemy/mulldozer.inc"
 
-	.include "data/bombarossa.inc"
-	.include "data/animations/bombarossa.inc"
+	.include "data/const/enemy/bombarossa.inc"
+	.include "data/animations/enemy/bombarossa.inc"
 
-	.include "data/wisp.inc"
-	.include "data/animations/wisp.inc"
+	.include "data/const/enemy/wisp.inc"
+	.include "data/animations/enemy/wisp.inc"
 
 	.incbin "baserom.gba", 0x0CEBDC, 0x000010
 
-	.include "data/spinyBeetle.inc"
-	.include "data/animations/spinyBeetle.inc"
+	.include "data/const/enemy/spinyBeetle.inc"
+	.include "data/animations/enemy/spinyBeetle.inc"
 
-	.include "data/mazaalHead.inc"
-	.include "data/animations/mazaalHead.inc"
+	.include "data/const/enemy/mazaalHead.inc"
+	.include "data/animations/enemy/mazaalHead.inc"
 
-	.include "data/mazaalMacro.inc"
-	.include "data/animations/mazaalMacro.inc"
+	.include "data/const/enemy/mazaalMacro.inc"
+	.include "data/animations/enemy/mazaalMacro.inc"
 
-	.include "data/mazaalHand.inc"
-	.include "data/animations/mazaalHand.inc"
+	.include "data/const/enemy/mazaalHand.inc"
+	.include "data/animations/enemy/mazaalHand.inc"
 
-	.include "data/octorokBoss.inc"
-	.include "data/animations/octorokBoss.inc"
+	.include "data/const/enemy/octorokBoss.inc"
+	.include "data/animations/enemy/octorokBoss.inc"
 
-	.include "data/flyingPot.inc"
+	.include "data/const/enemy/flyingPot.inc"
 
-	.include "data/gibdo.inc"
-	.include "data/animations/gibdo.inc"
+	.include "data/const/enemy/gibdo.inc"
+	.include "data/animations/enemy/gibdo.inc"
 
-	.include "data/octorokGolden.inc"
+	.include "data/const/enemy/octorokGolden.inc"
 
-	.include "data/tektiteGolden.inc"
+	.include "data/const/enemy/tektiteGolden.inc"
 
-	.include "data/ropeGolden.inc"
+	.include "data/const/enemy/ropeGolden.inc"
 
-	.include "data/cloudPiranha.inc"
-	.include "data/animations/cloudPiranha.inc"
+	.include "data/const/enemy/cloudPiranha.inc"
+	.include "data/animations/enemy/cloudPiranha.inc"
 
-	.include "data/scissorsBeetle.inc"
-	.include "data/animations/scissorsBeetle.inc"
+	.include "data/const/enemy/scissorsBeetle.inc"
+	.include "data/animations/enemy/scissorsBeetle.inc"
 
-	.include "data/cuccoAggr.inc"
-	.include "data/animations/cuccoAggr.inc"
+	.include "data/const/enemy/cuccoAggr.inc"
+	.include "data/animations/enemy/cuccoAggr.inc"
 
-	.include "data/stalfos.inc"
-	.include "data/animations/stalfos.inc"
+	.include "data/const/enemy/stalfos.inc"
+	.include "data/animations/enemy/stalfos.inc"
 
-	.include "data/flyingSkull.inc"
-	.include "data/animations/flyingSkull.inc"
+	.include "data/const/enemy/flyingSkull.inc"
+	.include "data/animations/enemy/flyingSkull.inc"
 
-	.include "data/mazaalBracelet.inc"
-	.include "data/animations/mazaalBracelet.inc"
+	.include "data/const/enemy/mazaalBracelet.inc"
+	.include "data/animations/enemy/mazaalBracelet.inc"
 
-	.include "data/takkuri.inc"
+	.include "data/const/enemy/takkuri.inc"
 
-	.include "data/bowMoblin.inc"
-	.include "data/animations/bowMoblin.inc"
+	.include "data/const/enemy/bowMoblin.inc"
+	.include "data/animations/enemy/bowMoblin.inc"
