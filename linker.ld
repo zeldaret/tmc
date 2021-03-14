@@ -975,7 +975,7 @@ SECTIONS {
         src/enemy/wallMaster2.o(.rodata);
         data/data_080CC6FC.o(.rodata);
         src/enemy/lakitu.o(.rodata);
-        data/data_080D015C.o(.rodata);
+        data/animations/lakitu.o(.rodata);
         src/enemy/lakituCloud.o(.rodata);
         data/data_080D0448.o(.rodata);
         src/enemy/gyorgMale.o(.rodata);

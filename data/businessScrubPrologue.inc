@@ -1,0 +1,27 @@
+gUnk_080D19FC:: @ 080D19FC TODO asm/businessScrubPrologue.s
+	.4byte sub_08045B98
+	.4byte sub_08045BC8
+	.4byte sub_08001324
+	.4byte sub_0804A7D4
+	.4byte sub_08001242
+	.4byte nullsub_174
+
+gUnk_080D1A14:: @ 080D1A14
+	.4byte sub_08045C3C
+	.4byte sub_08045CA4
+	.4byte nullsub_24
+	.4byte sub_08045CE0
+	.4byte sub_08045E14
+	.4byte sub_08045EC8
+	.4byte sub_08045ED4
+	.4byte sub_08045EDC
+	.4byte nullsub_25
+
+gUnk_080D1A38:: @ 080D1A38
+	.incbin "baserom.gba", 0x0D1A38, 0x0000006
+
+gUnk_080D1A3E:: @ 080D1A3E
+	.incbin "baserom.gba", 0x0D1A3E, 0x0000010
+
+gUnk_080D1A4E:: @ 080D1A4E
+	.incbin "baserom.gba", 0x0D1A4E, 0x0000016
