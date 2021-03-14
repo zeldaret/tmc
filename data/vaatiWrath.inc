@@ -1,6 +1,4 @@
-
-
-gUnk_080D0E1C:: @ 080D0E1C TODO asm/vaatiWrath.s
+gUnk_080D0E1C:: @ 080D0E1C
 	.4byte sub_080413A0
 	.4byte sub_08042428
 	.4byte sub_080424A0

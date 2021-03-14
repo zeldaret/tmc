@@ -1,4 +1,4 @@
-gUnk_080D1A64:: @ 080D1A64 TODO asm/gyorgFemale.s
+gUnk_080D1A64:: @ 080D1A64
 	.4byte sub_0804614C
 	.4byte sub_0804625C
 	.4byte sub_0804632C

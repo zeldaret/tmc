@@ -1,4 +1,4 @@
-gUnk_080D17C0:: @ 080D17C0 TODO src/enemy/miniSlime.c
+gUnk_080D17C0:: @ 080D17C0
 	.4byte sub_08045220
 	.4byte sub_08045238
 	.4byte sub_08001324

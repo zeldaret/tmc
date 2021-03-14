@@ -1,5 +1,4 @@
-
-gUnk_080D0470:: @ 080D0470 TODO  asm/vaatiRebornEnemy.s
+gUnk_080D0470:: @ 080D0470
 	.4byte sub_0803D134
 	.4byte sub_0803D264
 	.4byte sub_0803D408

@@ -1,4 +1,4 @@
-gUnk_080D16A4:: @ 080D16A4 TODO src/enemy/slime.c
+gUnk_080D16A4:: @ 080D16A4
 	.4byte sub_08044F70
 	.4byte sub_08044F88
 	.4byte sub_08001324

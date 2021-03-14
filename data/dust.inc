@@ -1,4 +1,4 @@
-gUnk_080D1588:: @ 080D1588 TODO asm/dust.s
+gUnk_080D1588:: @ 080D1588
 	.4byte sub_08044134
 	.4byte sub_0804414C
 	.4byte sub_08001324

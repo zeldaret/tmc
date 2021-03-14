@@ -1,4 +1,4 @@
-gUnk_080D17E8:: @ 080D17E8 TODO src/enemy/fireballGuy.c
+gUnk_080D17E8:: @ 080D17E8 
 	.4byte sub_080453A4
 	.4byte sub_080453BC
 	.4byte sub_08001324

@@ -1,4 +1,4 @@
-gUnk_080D19FC:: @ 080D19FC TODO asm/businessScrubPrologue.s
+gUnk_080D19FC:: @ 080D19FC
 	.4byte sub_08045B98
 	.4byte sub_08045BC8
 	.4byte sub_08001324

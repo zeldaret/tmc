@@ -1,5 +1,4 @@
-
-gUnk_080D1604:: @ 080D1604 TODO src/enemy/vaatiBall.c
+gUnk_080D1604:: @ 080D1604
 	.4byte sub_0804468C
 	.4byte sub_0804474C
 	.4byte sub_080447E0

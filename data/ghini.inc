@@ -1,6 +1,4 @@
-
-
-gUnk_080D0924:: @ 080D0924 TODO  asm/ghini.s
+gUnk_080D0924:: @ 080D0924
 	.4byte sub_0803F008
 	.4byte sub_0803F028
 	.4byte sub_0803F0F4

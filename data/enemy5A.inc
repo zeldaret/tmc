@@ -1,5 +1,5 @@
 
-gUnk_080D1888:: @ 080D1888 TODO asm/enemy5A.s
+gUnk_080D1888:: @ 080D1888
 	.4byte sub_080456E8
 	.4byte sub_08045700
 	.4byte sub_080456E8
