@@ -4,131 +4,28 @@
 	.section .rodata
 	.align 2
 
-gUnk_08114208:: @ 08114208
-	.incbin "baserom.gba", 0x114208, 0x0000005
 
-gUnk_0811420D:: @ 0811420D
-	.incbin "baserom.gba", 0x11420D, 0x0000004
+	@ TODO convert .inc files into .s files and include them in linker.ld
+	.include "data/animations/npc/npc4f.inc"
 
-gUnk_08114211:: @ 08114211
-	.incbin "baserom.gba", 0x114211, 0x0000005
+	.include "data/const/npc/clothesRack.inc"
+	.include "data/animations/npc/clothesRack.inc"
 
-gUnk_08114216:: @ 08114216
-	.incbin "baserom.gba", 0x114216, 0x0000009
+	.include "data/const/npc/picolyteBottle.inc"
 
-gUnk_0811421F:: @ 0811421F
-	.incbin "baserom.gba", 0x11421F, 0x0000009
+	.include "data/const/npc/smallTownMinish.inc"
+	.include "data/animations/npc/smallTownMinish.inc"
 
-gUnk_08114228:: @ 08114228
-	.incbin "baserom.gba", 0x114228, 0x0000014
+	.include "data/const/npc/hurdyGurdyMan.inc"
+	.include "data/animations/npc/hurdyGurdyMan.inc"
 
-gUnk_0811423C:: @ 0811423C
-	.incbin "baserom.gba", 0x11423C, 0x0000008
+	.include "data/const/npc/cucco.inc"
 
-gUnk_08114244:: @ 08114244
-	.incbin "baserom.gba", 0x114244, 0x0000019
+	.include "data/const/npc/cuccoChick.inc"
 
-gUnk_0811425D:: @ 0811425D
-	.incbin "baserom.gba", 0x11425D, 0x0000019
+	.include "data/const/npc/phonograph.inc"
 
-gUnk_08114276:: @ 08114276
-	.incbin "baserom.gba", 0x114276, 0x0000019
-
-gUnk_0811428F:: @ 0811428F
-	.incbin "baserom.gba", 0x11428F, 0x0000019
-
-gUnk_081142A8:: @ 081142A8
-	.incbin "baserom.gba", 0x1142A8, 0x0000014
-
-gUnk_081142BC:: @ 081142BC
-	.incbin "baserom.gba", 0x1142BC, 0x0000010
-
-gUnk_081142CC:: @ 081142CC
-	.incbin "baserom.gba", 0x1142CC, 0x0000010
-
-gUnk_081142DC:: @ 081142DC
-	.incbin "baserom.gba", 0x1142DC, 0x0000020
-
-gUnk_081142FC:: @ 081142FC
-	.incbin "baserom.gba", 0x1142FC, 0x0000008
-
-gUnk_08114304:: @ 08114304
-	.incbin "baserom.gba", 0x114304, 0x0000004
-
-gUnk_08114308:: @ 08114308
-	.incbin "baserom.gba", 0x114308, 0x0000128
-
-gUnk_08114430:: @ 08114430
-	.incbin "baserom.gba", 0x114430, 0x0000002
-
-gUnk_08114432:: @ 08114432
-	.incbin "baserom.gba", 0x114432, 0x0000012
-
-gUnk_08114444:: @ 08114444
-	.incbin "baserom.gba", 0x114444, 0x0000084
-
-gUnk_081144C8:: @ 081144C8
-	.incbin "baserom.gba", 0x1144C8, 0x0000005
-
-gUnk_081144CD:: @ 081144CD
-	.incbin "baserom.gba", 0x1144CD, 0x0000005
-
-gUnk_081144D2:: @ 081144D2
-	.incbin "baserom.gba", 0x1144D2, 0x0000005
-
-gUnk_081144D7:: @ 081144D7
-	.incbin "baserom.gba", 0x1144D7, 0x0000005
-
-gUnk_081144DC:: @ 081144DC
-	.incbin "baserom.gba", 0x1144DC, 0x0000014
-
-gUnk_081144F0:: @ 081144F0
-	.incbin "baserom.gba", 0x1144F0, 0x000000C
-
-gUnk_081144FC:: @ 081144FC
-	.incbin "baserom.gba", 0x1144FC, 0x0000035
-
-gUnk_08114531:: @ 08114531
-	.incbin "baserom.gba", 0x114531, 0x000000B
-
-gUnk_0811453C:: @ 0811453C
-	.incbin "baserom.gba", 0x11453C, 0x0000011
-
-gUnk_0811454D:: @ 0811454D
-	.incbin "baserom.gba", 0x11454D, 0x0000011
-
-gUnk_0811455E:: @ 0811455E
-	.incbin "baserom.gba", 0x11455E, 0x0000011
-
-gUnk_0811456F:: @ 0811456F
-	.incbin "baserom.gba", 0x11456F, 0x0000005
-
-gUnk_08114574:: @ 08114574
-	.incbin "baserom.gba", 0x114574, 0x0000005
-
-gUnk_08114579:: @ 08114579
-	.incbin "baserom.gba", 0x114579, 0x0000007
-
-gUnk_08114580:: @ 08114580
-	.incbin "baserom.gba", 0x114580, 0x0000034
-
-gUnk_081145B4:: @ 081145B4
-	.incbin "baserom.gba", 0x1145B4, 0x0000014
-
-gUnk_081145C8:: @ 081145C8
-	.incbin "baserom.gba", 0x1145C8, 0x0000008
-
-gUnk_081145D0:: @ 081145D0
-	.incbin "baserom.gba", 0x1145D0, 0x0000004
-
-gUnk_081145D4:: @ 081145D4
-	.incbin "baserom.gba", 0x1145D4, 0x0000010
-
-gUnk_081145E4:: @ 081145E4
-	.incbin "baserom.gba", 0x1145E4, 0x00000D4
-
-gUnk_081146B8:: @ 081146B8
-	.incbin "baserom.gba", 0x1146B8, 0x0000018
+	.include "data/const/npc/npc58.inc"
 
 gUnk_081146D0:: @ 081146D0
 	.incbin "baserom.gba", 0x1146D0, 0x0000014
@@ -212,13 +109,29 @@ gUnk_08114AE4:: @ 08114AE4
 	.incbin "baserom.gba", 0x114AE4, 0x0000400
 
 gUnk_08114EE4:: @ 08114EE4
-	.incbin "baserom.gba", 0x114EE4, 0x0000018
+	.4byte 00000000
+	.4byte gUnk_080FD170
+	.4byte gUnk_080FD158
+	.4byte gUnk_080FD170
+	.4byte gUnk_080FD180
+	.4byte gUnk_080FD160
 
 gUnk_08114EFC:: @ 08114EFC
-	.incbin "baserom.gba", 0x114EFC, 0x0000010
+	.4byte sub_0806EF88
+	.4byte sub_0806EE70
+	.4byte sub_0806EED0
+	.4byte sub_0806EEF4
 
 gUnk_08114F0C:: @ 08114F0C
-	.incbin "baserom.gba", 0x114F0C, 0x0000024
+	.4byte sub_0806EFAC
+	.4byte sub_0806EFBC
+	.4byte sub_0806EFCC
+	.4byte sub_0806EFDC
+	.4byte sub_0806F014
+	.4byte sub_0806F02C
+	.4byte sub_0806F048
+	.4byte sub_0806F050
+	.4byte sub_0806F064
 
 gUnk_08114F30:: @ 08114F30
 	.incbin "baserom.gba", 0x114F30, 0x0000004
