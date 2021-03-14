@@ -545,6 +545,7 @@ _08067788:
 _0806778E:
 	pop {r4, pc}
 
+@ TODO this already belongs to cat
 	thumb_func_start sub_08067790
 sub_08067790: @ 0x08067790
 	push {lr}
