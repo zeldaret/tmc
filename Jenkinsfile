@@ -5,13 +5,10 @@ pipeline {
         stage('Setup') {
             steps {
                 echo 'Setting up...'
-                sh 'cp /usr/local/etc/roms/baserom_tmc.gba baserom.gba'
                 git clone https://github.com/zeldaret/tmc
-                git clone https://github.com/pret/agbcc
-                cd ./agbcc
-                sh build.sh
-                sh install.sh ../tmc
-                cd ../tmc
+                cd ./tmc
+                sh /var/www/jenkins/agbcc/install.sh .
+                sh 'cp /usr/local/etc/roms/baserom_tmc.gba baserom.gba'
                 sh 'make -j setup'
             }
         }
