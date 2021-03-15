@@ -1,4 +1,4 @@
-gUnk_0811EBFC:: @ 0811EBFC TODO deathFx.s
+gUnk_0811EBFC:: @ 0811EBFC
 	.4byte sub_08081634
 	.4byte sub_08081720
 	.4byte sub_08081760

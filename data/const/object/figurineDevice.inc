@@ -1,4 +1,4 @@
-gUnk_08120A94:: @ 08120A94 TODO figurineDevice.s
+gUnk_08120A94:: @ 08120A94
 	.4byte sub_08087BC4
 	.4byte sub_08087CA8
 	.4byte sub_08087D1C

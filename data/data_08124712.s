@@ -3,7 +3,7 @@
 
 	.section .rodata
 	.align 1
-
+@ TODO convert .inc files into .s files and include them in linker.ld
 gUnk_08124712:: @ 08124712
 	.incbin "baserom.gba", 0x124712, 0x0000031
 

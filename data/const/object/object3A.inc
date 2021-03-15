@@ -1,4 +1,4 @@
-gUnk_081215E8:: @ 081215E8 TODO object3A.s
+gUnk_081215E8:: @ 081215E8
 	.incbin "baserom.gba", 0x1215E8, 0x000002A
 
 gUnk_08121612:: @ 08121612

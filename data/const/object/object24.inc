@@ -1,4 +1,4 @@
-gUnk_08120BE0:: @ 08120BE0 TODO object24
+gUnk_08120BE0:: @ 08120BE0
 	.4byte sub_08088840
 	.4byte sub_0808886C
 	.4byte sub_080888F4
