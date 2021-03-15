@@ -2,10 +2,11 @@
 #include "entity.h"
 #include "player.h"
 #include "textbox.h"
-#include "functions.h"
 #include "readKeyInput.h"
 #include "area.h"
 #include "save.h"
+#include "game.h"
+#include "functions.h"
 
 extern const void (*const gUnk_0811B9E0[])(Entity*);
 extern const void (*const gUnk_0811BA60[])(Entity*);

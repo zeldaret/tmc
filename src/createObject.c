@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "position.h"
 #include "room.h"
-#include "functions.h"
+#include "createObject.h"
 
 Entity* CreateObject(u32 subtype, u32 form, u32 parameter) {
     Entity* entity;

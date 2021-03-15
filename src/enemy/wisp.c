@@ -1,10 +1,10 @@
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
-#include "structures.h"
 #include "player.h"
 #include "save.h"
 #include "random.h"
+#include "createObject.h"
 #include "functions.h"
 
 extern void (*const gUnk_080CEB74[])(Entity*);

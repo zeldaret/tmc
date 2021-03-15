@@ -1,6 +1,5 @@
-#include "entity.h"
 #include "global.h"
-#include "functions.h"
+#include "entity.h"
 
 Entity* CreateEnemy(u32 subtype, u32 form) {
     Entity* enemy;

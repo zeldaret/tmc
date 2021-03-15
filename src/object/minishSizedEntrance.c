@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "game.h"
 #include "functions.h"
 
 extern void (*const gUnk_08122254[])(Entity*);

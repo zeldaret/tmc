@@ -3,7 +3,6 @@
 #include "flags.h"
 #include "structures.h"
 #include "room.h"
-#include "area.h"
 #include "screen.h"
 #include "trig.h"
 #include "functions.h"

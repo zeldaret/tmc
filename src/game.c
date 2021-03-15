@@ -300,7 +300,7 @@ u32 sub_08052654() {
     return (gArea >> 7) & 1;
 }
 
-u32 CheckIsDungeon() {
+u32 CheckIsDungeon(void) {
     return (gArea >> 2) & 1;
 }
 

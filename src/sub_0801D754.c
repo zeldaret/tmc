@@ -1,5 +1,4 @@
 #include "global.h"
-#include "functions.h"
 
 extern const u8 gUnk_020176E0[];
 

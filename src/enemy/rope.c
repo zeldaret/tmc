@@ -1,6 +1,5 @@
 #include "global.h"
 #include "entity.h"
-#include "sprite.h"
 #include "enemy.h"
 #include "random.h"
 #include "functions.h"

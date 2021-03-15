@@ -3,7 +3,6 @@
 #include "player.h"
 #include "room.h"
 #include "trig.h"
-#include "structures.h"
 #include "fileScreen.h"
 #include "random.h"
 #include "functions.h"

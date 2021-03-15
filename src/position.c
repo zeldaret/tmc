@@ -1,7 +1,6 @@
 #include "global.h"
 #include "entity.h"
 #include "position.h"
-#include "functions.h"
 
 extern u8 gUnk_08114F78[];
 extern u8 gUnk_08114F80[];

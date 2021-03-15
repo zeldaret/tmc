@@ -7,6 +7,7 @@
 #include "save.h"
 #include "script.h"
 #include "random.h"
+#include "createObject.h"
 #include "structures.h"
 #include "functions.h"
 

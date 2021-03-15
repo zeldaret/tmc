@@ -1,7 +1,8 @@
 #include "entity.h"
 #include "player.h"
-#include "functions.h"
 #include "screen.h"
+#include "createObject.h"
+#include "functions.h"
 
 typedef struct {
     s8 h, v;

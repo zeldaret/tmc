@@ -5,6 +5,9 @@
 #include "npc.h"
 #include "functions.h"
 
+void sub_0806920C(Entity* ent);
+void sub_0806924C(Entity* ent);
+
 extern void (*gUnk_08111914[])(Entity*);
 extern void (*gUnk_08111928[])(Entity*);
 extern Dialog gUnk_08111938[];

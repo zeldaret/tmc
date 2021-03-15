@@ -60,7 +60,7 @@ void sub_0809F5B0(Entity* this) {
     if (--this->actionDelay == 0) {
         SoundReq(115);
         SetGlobalFlag(KUMOTATSUMAKI);
-        LoadRoomEntityList(&gUnk_080DD750);
+        LoadRoomEntityList((EntityData*)&gUnk_080DD750);
         DeleteThisEntity();
     }
 }

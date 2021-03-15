@@ -3,6 +3,7 @@
 #include "textbox.h"
 #include "save.h"
 #include "random.h"
+#include "createObject.h"
 #include "functions.h"
 
 extern bool32 sub_080544B4(u32);

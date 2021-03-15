@@ -7,7 +7,7 @@
 #include "npc.h"
 #include "functions.h"
 
-extern void sub_08078850(u32, u32, u32, u32*);
+extern void sub_08078850(Entity*, u32, u32, u32*);
 
 extern void (*const gUnk_08110360[])(Entity*);
 extern void (*const gUnk_0811036C[])(Entity*);

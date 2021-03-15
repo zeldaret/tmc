@@ -1,5 +1,4 @@
 #include "global.h"
-#include "entity.h"
 
 extern u32 SetTileType(u32 tileID, u32 tilePos, u32 layerID);
 

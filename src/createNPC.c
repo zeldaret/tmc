@@ -1,6 +1,5 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 
 Entity* CreateNPC(u32 subtype, u32 form, u32 parameter) {
     Entity* entity;

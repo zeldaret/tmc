@@ -703,7 +703,7 @@ void ScriptCommand_CallWithArg(Entity* entity, ScriptExecutionContext* context) 
 }
 
 void ScriptCommand_LoadRoomEntityList(Entity* entity, ScriptExecutionContext* context) {
-    LoadRoomEntityList(GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer));
+    LoadRoomEntityList((EntityData*)GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer));
 }
 
 void ScriptCommand_TestBit(Entity* entity, ScriptExecutionContext* context) {

@@ -1,5 +1,4 @@
 #include "global.h"
-#include "menu.h"
 #include "main.h"
 #include "entity.h"
 #include "dma.h"

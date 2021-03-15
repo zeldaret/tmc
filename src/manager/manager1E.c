@@ -1,7 +1,6 @@
 #include "global.h"
 #include "manager.h"
 #include "flags.h"
-#include "player.h"
 #include "functions.h"
 
 typedef struct {

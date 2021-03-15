@@ -7,8 +7,8 @@
 #include "manager.h"
 #include "position.h"
 #include "player.h"
-#include "structures.h"
 #include "room.h"
+#include "structures.h"
 
 // Identified - to be sorted into header files
 extern void SoundReq(u32);
@@ -17,7 +17,7 @@ extern u32 __modsi3(u32, u32);
 extern void DoFade(u32, u32);
 extern u32 CheckKinstoneFused(u32);
 extern void ForceEquipItem(u32, u8);
-extern void LoadRoomEntityList();
+extern void LoadRoomEntityList(EntityData* listPtr);
 extern u32 GetAnimationState(Entity*);
 extern void SetChildOffset(Entity*, s32, s32, s32);
 extern Entity* CreatePlayerItem(u32, u32, u32, u32);
@@ -29,7 +29,6 @@ extern void SetDirtTile(u32);
 extern void LoadRoomTileEntities(); // tba
 extern Entity* CreateDeathFx(Entity*, u32, u32);
 extern void UpdateAnimationVariableFrames(Entity*, u32);
-extern void CopyPositionAndSpriteOffset(Entity*, Entity*);
 extern u8* GetSpriteSubEntryOffsetDataPointer(u32, u32);
 extern u32 LoadFixedGFX(Entity*, u32);
 extern Entity* CreateItemEntity(u32, u32, u32);
@@ -42,19 +41,15 @@ extern Manager* GetEmptyManager(void);
 extern void LoadGfxGroup(u32);
 extern void EnqueueSFX(u32);
 extern void ResetPlayer(void);
-extern void CreateDust(Entity*);
 extern u32 IsItemEquipped(u32);
 extern void DeleteManager(Manager*);
 extern bool32 CheckPlayerInRegion(u32 centerX, u32 centerY, u32 radiusX, u32 radiusY);
-extern u32 CheckIsDungeon();
 extern u32 GetTileTypeByEntity(Entity*);
 
 // Unidentified
 extern u32 sub_0806ED78(Entity*);
-extern void sub_0806920C(Entity*);
 extern u32 sub_0805ACC0(Entity*);
 extern u32 sub_0801E99C(Entity*);
-extern void sub_0806924C(Entity*);
 extern Entity* sub_080873AC(Entity*, u32, u32);
 extern void sub_08078778(Entity*);
 extern void sub_080787A8(Entity*, u32);

@@ -4497,7 +4497,7 @@ void sub_0804E3C4() {
     }
     r = Random();
     index = gUnk_080F0D58[index][r & 0x1f];
-    LoadRoomEntityList(gUnk_080F0CB8[index & 0xF]);
+    LoadRoomEntityList((EntityData*)gUnk_080F0CB8[index & 0xF]);
     index >>= 4;
     r >>= 8;
     index = gUnk_080F0E08[index][r & 0x1F];
