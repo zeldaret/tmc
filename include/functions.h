@@ -62,7 +62,7 @@ extern void CreateDust(Entity*);
 extern u32 IsItemEquipped(u32);
 extern void DeleteManager(Manager*);
 extern bool32 CheckPlayerInRegion(u32 centerX, u32 centerY, u32 radiusX, u32 radiusY);
-extern u32 CheckIsDungeon();
+extern u32 CheckIsDungeon(void);
 extern u32 GetTileTypeByEntity(Entity*);
 
 // Unidentified

@@ -799,7 +799,7 @@ SECTIONS {
         asm/minecartDoor.o(.text);
         asm/objectOnPillar.o(.text);
         src/object/mineralWaterSource.o(.text);
-        asm/minishSizedArchway.o(.text);
+        src/object/minishSizedArchway.o(.text);
         asm/object70.o(.text);
         asm/pushableGrave.o(.text);
         asm/object72.o(.text);
