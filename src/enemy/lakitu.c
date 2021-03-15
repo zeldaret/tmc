@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "enemy.h"
 #include "functions.h"
 #include "trig.h"
 #include "random.h"
@@ -32,7 +33,6 @@ typedef struct {
     s8 x;
     s8 y;
 } PACKED OffsetCoords;
-
 
 // Variables
 extern void (*const gUnk_080D0110[])(Entity*);

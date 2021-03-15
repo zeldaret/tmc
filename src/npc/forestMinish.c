@@ -4,10 +4,11 @@
 #include "flags.h"
 #include "textbox.h"
 #include "player.h"
-#include "structures.h"
-#include "functions.h"
 #include "save.h"
 #include "script.h"
+#include "random.h"
+#include "structures.h"
+#include "functions.h"
 
 extern void sub_080600F0(Entity*);
 extern s32 sub_0806EDD8(Entity*, u32, u32);

@@ -2,7 +2,6 @@
 #include "entity.h"
 #include "area.h"
 #include "room.h"
-#include "functions.h"
 #include "flags.h"
 #include "npc.h"
 #include "player.h"
@@ -10,6 +9,8 @@
 #include "main.h"
 #include "structures.h"
 #include "save.h"
+#include "random.h"
+#include "functions.h"
 
 void sub_0804B3C4(void* arg0) {
     sub_0804B29C(arg0);

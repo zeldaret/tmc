@@ -3,6 +3,7 @@
 #include "room.h"
 #include "player.h"
 #include "flags.h"
+#include "random.h"
 #include "functions.h"
 #include "structures.h"
 

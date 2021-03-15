@@ -3,8 +3,9 @@
 #include "enemy.h"
 #include "structures.h"
 #include "player.h"
-#include "functions.h"
 #include "save.h"
+#include "random.h"
+#include "functions.h"
 
 extern void (*const gUnk_080CEB74[])(Entity*);
 extern void (*const gUnk_080CEB8C[])(Entity*);

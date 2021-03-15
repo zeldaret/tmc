@@ -175,6 +175,7 @@ extern LinkedList gUnk_03003DA0;
 #define COORD_TO_TILE_OFFSET(entity, xOff, yOff) \
     TILE((entity)->x.HALF.HI - (xOff), (entity)->y.HALF.HI - (yOff))
 
+Entity* GetEmptyEntity(void);
 extern Entity* CreateEnemy(u32 subtype, u32 form);
 extern Entity* CreateObject(u32 subtype, u32 form, u32 parameter);
 extern Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);
@@ -193,8 +194,11 @@ extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
 
 extern u32 GetFacingDirection(Entity*, Entity*);
 
-extern void DeleteThisEntity(void);
-extern void DeleteEntity(Entity*);
+void DeleteThisEntity(void);
+void DeleteEntity(Entity*);
+
+void AppendEntityToList(Entity* entity, u32 listIndex);
+void PrependEntityToList(Entity* entity, int listIndex);
 
 Entity* FindEntityInListBySubtype(u32 type, u32 subtype, u32 listIndex);
 Entity* FindEntityInListByForm(u32 type, u32 subtype, u32 listIndex, u32 form, u32 parameter);

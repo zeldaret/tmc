@@ -2,8 +2,9 @@
 #include "entity.h"
 #include "player.h"
 #include "structures.h"
-#include "functions.h"
 #include "script.h"
+#include "random.h"
+#include "functions.h"
 
 extern void (*gUnk_081140D4[])(Entity*);
 

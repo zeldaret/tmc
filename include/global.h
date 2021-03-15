@@ -31,9 +31,9 @@
 
 #define SWAP(a, b, temp) \
     {                    \
-        (temp) = a;        \
-        (a) = b;           \
-        (b) = temp;        \
+        (temp) = a;      \
+        (a) = b;         \
+        (b) = temp;      \
     }
 
 // useful math macros

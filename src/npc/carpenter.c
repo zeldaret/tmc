@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "sprite.h"
 #include "player.h"
+#include "npc.h"
 #include "functions.h"
 
 extern SpriteLoadData gUnk_08110CA8[];

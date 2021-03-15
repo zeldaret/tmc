@@ -5,7 +5,6 @@
 #include "flags.h"
 #include "script.h"
 
-extern void PrependEntityToList(Entity*, u32);
 extern Entity* FindEntityBySubtype(u32, u32);
 void sub_08068680(Entity*, Entity*);
 void sub_08068694(Entity*, Entity*);

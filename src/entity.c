@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "dma.h"
 
 typedef struct OtherEntity {
     struct OtherEntity* prev;
@@ -22,8 +23,7 @@ Entity* sub_0805E744(void) {
     return NULL;
 }
 
-extern Entity* GetEmptyEntity();
-OtherEntity* GetEmptyManager();
+OtherEntity* GetEmptyManager(void);
 
 typedef void* (*Getter)(void);
 
@@ -47,7 +47,7 @@ typedef struct {
 extern struct_03003DD0 gUnk_03003DD0;
 extern u32 _call_via_r0(u32*);
 extern u32 _EntUpdate;
-extern void DeleteEntityAny(Entity*);
+void DeleteEntityAny(Entity*);
 
 void DeleteThisEntity(void) {
     DeleteEntityAny(gUnk_03003DD0.field_0x8);
@@ -80,7 +80,7 @@ extern void UnloadCutsceneData();
 extern void UnloadHitbox();
 extern void sub_0801DA0C();
 extern void sub_0804AA1C();
-extern void UnlinkEntity(); // Unlink
+void UnlinkEntity();
 
 void DeleteEntity(Entity* ent) {
     if (ent->next) {
@@ -159,7 +159,6 @@ OtherEntity* GetEmptyManager(void) {
     return NULL;
 }
 
-extern void MemClear(void*, u32);
 extern u8 gManagerCount;
 
 void DeleteManager(OtherEntity* ent) {
@@ -183,8 +182,7 @@ void sub_0805E92C(u32 param_1) {
 }
 
 extern Entity gUnk_020369F0;
-extern void MemCopy(const void* src, void* dest, size_t size); // dma copy
-extern void sub_0805E98C(void);
+void sub_0805E98C(void);
 
 void sub_0805E958(void) {
     MemCopy(&gEntityLists, &gUnk_020369F0, 0x48);
@@ -236,32 +234,32 @@ void sub_0805E9F4(void) {
 
 extern void sub_0805E374(Entity*);
 
-void AppendEntityToList(Entity* ent, int listIndex) {
+void AppendEntityToList(Entity* entity, u32 listIndex) {
     LinkedList* list;
 
     list = &gEntityLists[listIndex];
-    ent->next = (Entity*)list;
-    ent->prev = list->last;
-    list->last->next = ent;
-    list->last = ent;
-    if (ent->kind != 9) {
-        ent->spritePriority.b0 = 4;
+    entity->next = (Entity*)list;
+    entity->prev = list->last;
+    list->last->next = entity;
+    list->last = entity;
+    if (entity->kind != 9) {
+        entity->spritePriority.b0 = 4;
         gEntCount++;
     } else {
         gManagerCount++;
     }
-    sub_0805E374(ent);
+    sub_0805E374(entity);
 }
 
-void PrependEntityToList(Entity* ent, int listIndex) {
+void PrependEntityToList(Entity* entity, int listIndex) {
     LinkedList* list;
 
-    UnlinkEntity(ent);
+    UnlinkEntity(entity);
     list = &gEntityLists[listIndex];
-    ent->prev = (Entity*)list;
-    ent->next = list->first;
-    list->first->prev = ent;
-    list->first = ent;
+    entity->prev = (Entity*)list;
+    entity->next = list->first;
+    list->first->prev = entity;
+    list->first = entity;
 }
 
 void UnlinkEntity(Entity* ent) {

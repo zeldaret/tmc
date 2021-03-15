@@ -2,7 +2,6 @@
 #include "screen.h"
 #include "structures.h"
 #include "dma.h"
-#include "functions.h"
 #include "screen.h"
 #include "entity.h"
 #include "player.h"
@@ -10,7 +9,9 @@
 #include "main.h"
 #include "flags.h"
 #include "save.h"
+#include "readKeyInput.h"
 #include "fileScreen.h"
+#include "functions.h"
 
 extern u8 gArea;
 extern u32 gUnk_03000B80;

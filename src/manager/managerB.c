@@ -130,7 +130,7 @@ ManagerBHelper* CreateHelper(Manager* this) {
         extra->manager.parent = this;
         this->unk_0e++;
         MemClear(&extra->enemies, 0x20);
-        AppendEntityToList(extra, 8);
+        AppendEntityToList((Entity*)extra, 8);
     }
     return extra;
 }

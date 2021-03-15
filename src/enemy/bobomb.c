@@ -1,4 +1,5 @@
 #include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
 extern void CreateDustSmall(Entity*);

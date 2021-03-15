@@ -1,7 +1,8 @@
 #include "global.h"
-#include "functions.h"
 #include "entity.h"
 #include "script.h"
+#include "npc.h"
+#include "functions.h"
 
 extern void (*gUnk_0810FF5C[])(Entity* this);
 extern void (*gUnk_0810FF64[])(Entity* this);

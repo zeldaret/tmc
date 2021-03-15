@@ -1,13 +1,14 @@
 #include "global.h"
 #include "entity.h"
 #include "flags.h"
-#include "functions.h"
 #include "main.h"
 #include "menu.h"
 #include "npc.h"
 #include "position.h"
-#include "structures.h"
 #include "fileScreen.h"
+#include "readKeyInput.h"
+#include "structures.h"
+#include "functions.h"
 
 extern int sub_0807A094(int);
 extern u32 sub_080041EC(int, int);

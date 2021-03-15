@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "player.h"
+#include "random.h"
 #include "functions.h"
 
 extern void sub_08001328(Entity*);

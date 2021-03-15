@@ -7,7 +7,6 @@
 #include "flags.h"
 #include "functions.h"
 
-
 extern void (*MaskActionFuncs[])(Entity*);
 
 extern void sub_08000148(u16, u16, u32);

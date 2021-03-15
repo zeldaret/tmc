@@ -1,12 +1,13 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 #include "flags.h"
 #include "player.h"
 #include "room.h"
 #include "textbox.h"
 #include "save.h"
 #include "script.h"
+#include "npc.h"
+#include "functions.h"
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -132,7 +133,7 @@ void FUN_08068b2c(Entity* this) {
 }
 
 void sub_08068B70(Entity* this) {
-    if (UpdateFuseInteraction()) {
+    if (UpdateFuseInteraction(this)) {
         this->action = 1;
     }
 }

@@ -11,20 +11,16 @@
 #include "room.h"
 
 // Identified - to be sorted into header files
-extern u32 Random(void);
 extern void SoundReq(u32);
 extern void ShowNPCDialogue(Entity*, Dialog*);
-extern u32 UpdateFuseInteraction();
 extern u32 __modsi3(u32, u32);
 extern void DoFade(u32, u32);
 extern u32 CheckKinstoneFused(u32);
 extern void ForceEquipItem(u32, u8);
 extern void LoadRoomEntityList();
-extern void EnemyFunctionHandler(Entity*, void (*const funcs[])(Entity*));
 extern u32 GetAnimationState(Entity*);
 extern void SetChildOffset(Entity*, s32, s32, s32);
 extern Entity* CreatePlayerItem(u32, u32, u32, u32);
-extern Entity* GetEmptyEntity(void);
 extern u32 GetTileTypeByPos(s32 x, s32 y, u32 layer);
 extern u32 GetTileType(u32 pos, u32 layer);
 extern void EraseAllEntities(void);
@@ -43,7 +39,6 @@ extern void LoadResourceAsync(const void*, u32, u32);
 extern void LoadPaletteGroup(u32);
 extern void TryLoadPrologueHyruleTown(void);
 extern Manager* GetEmptyManager(void);
-extern void AppendEntityToList(void*, u32);
 extern void LoadGfxGroup(u32);
 extern void EnqueueSFX(u32);
 extern void ResetPlayer(void);

@@ -1,5 +1,6 @@
 #include "enemy.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 extern bool32 sub_0806FC80(Entity*, Entity*, u32);

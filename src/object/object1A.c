@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 extern void sub_08086A6C();

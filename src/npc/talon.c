@@ -1,9 +1,11 @@
 #include "global.h"
 #include "entity.h"
 #include "textbox.h"
-#include "functions.h"
 #include "player.h"
 #include "script.h"
+#include "npc.h"
+#include "random.h"
+#include "functions.h"
 
 extern void (*gUnk_0810FEC4[])(Entity* this);
 extern void (*gUnk_0810FEBC[])(Entity* this);
@@ -83,7 +85,7 @@ void sub_08065648(Entity* this) {
 }
 
 void sub_08065680(Entity* this) {
-    if (UpdateFuseInteraction() != 0) {
+    if (UpdateFuseInteraction(this) != 0) {
         this->action = this->field_0x68.HALF.HI;
         InitAnimationForceUpdate(this, this->field_0x6a.HALF.LO);
     }

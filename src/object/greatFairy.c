@@ -2,10 +2,11 @@
 #include "entity.h"
 #include "room.h"
 #include "screen.h"
-#include "structures.h"
 #include "greatFairy.h"
 #include "flags.h"
 #include "save.h"
+#include "random.h"
+#include "structures.h"
 #include "functions.h"
 
 enum {

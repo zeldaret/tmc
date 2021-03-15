@@ -6,8 +6,9 @@
 #include "structures.h"
 #include "textbox.h"
 #include "dma.h"
-#include "functions.h"
 #include "save.h"
+#include "random.h"
+#include "functions.h"
 
 void sub_0807DAF0(Entity*, ScriptExecutionContext*, u16*);
 void sub_0807DB88(ScriptExecutionContext*, u16*);

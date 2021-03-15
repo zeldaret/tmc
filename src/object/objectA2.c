@@ -1,6 +1,7 @@
 #include "global.h"
 #include "object.h"
 #include "menu.h"
+#include "random.h"
 #include "structures.h"
 #include "functions.h"
 

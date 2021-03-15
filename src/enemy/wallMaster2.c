@@ -1,6 +1,7 @@
 #include "enemy.h"
-#include "functions.h"
 #include "area.h"
+#include "random.h"
+#include "functions.h"
 
 extern void sub_08001328(Entity*);
 extern void DoExitTransition(u32*);

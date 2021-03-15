@@ -1,5 +1,11 @@
 #include "fileScreen.h"
+#include "main.h"
+#include "player.h"
+#include "readKeyInput.h"
+#include "screen.h"
+#include "menu.h"
 #include "dma.h"
+#include "random.h"
 
 // copy, erase, start
 #define NUM_FILE_OPERATIONS 3

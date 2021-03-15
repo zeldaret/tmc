@@ -1,9 +1,11 @@
 #include "global.h"
 #include "entity.h"
 #include "textbox.h"
-#include "functions.h"
 #include "save.h"
 #include "script.h"
+#include "random.h"
+#include "npc.h"
+#include "functions.h"
 
 extern void sub_08078850(u32, u32, u32, u32*);
 

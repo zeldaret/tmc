@@ -1,9 +1,10 @@
 #include "global.h"
 #include "entity.h"
 #include "player.h"
-#include "functions.h"
 #include "save.h"
 #include "script.h"
+#include "npc.h"
+#include "functions.h"
 
 extern SpriteLoadData gUnk_08113910[];
 

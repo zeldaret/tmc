@@ -223,5 +223,5 @@ void sub_0805B390(u32 unk1) {
     tmp->type = 0x9;
     tmp->subtype = 0x1A;
     tmp->unk_0a = unk1;
-    AppendEntityToList(tmp, 6);
+    AppendEntityToList((Entity*)tmp, 6);
 }

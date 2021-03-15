@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "position.h"
+#include "random.h"
 #include "functions.h"
 
 extern u32 GetNextFunction(Entity*);

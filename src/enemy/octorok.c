@@ -1,5 +1,7 @@
 #include "global.h"
 #include "entity.h"
+#include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
 extern Entity* sub_08049DF4(u32);

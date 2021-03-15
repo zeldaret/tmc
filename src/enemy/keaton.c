@@ -1,5 +1,7 @@
 #include "global.h"
 #include "entity.h"
+#include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
 extern Entity* gUnk_020000B0;

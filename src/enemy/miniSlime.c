@@ -1,6 +1,8 @@
 #include "global.h"
 #include "entity.h"
+#include "enemy.h"
 #include "room.h"
+#include "random.h"
 #include "functions.h"
 
 void sub_08045374(Entity*);
