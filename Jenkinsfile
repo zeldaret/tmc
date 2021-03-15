@@ -8,7 +8,7 @@ pipeline {
                 git clone https://github.com/zeldaret/tmc
                 cd ./tmc
                 sh ${env.AGBCC}/install.sh .
-                sh 'cp /usr/local/etc/roms/baserom_tmc.gba baserom.gba'
+                sh 'cp /usr/local/etc/roms/tmc.us.gba baserom.gba'
                 sh 'make -j setup'
             }
         }
