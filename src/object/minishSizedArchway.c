@@ -1,8 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "sprite.h"
-
-extern u32 CheckIsDungeon();
+#include "functions.h"
 
 void MinishSizedArchway(Entity* this) {
     if (this->action == 0) {
@@ -11,8 +10,7 @@ void MinishSizedArchway(Entity* this) {
         this->collisionLayer = 2;
         UpdateSpriteForCollisionLayer(this);
         if (CheckIsDungeon()) {
-            this->spritePriority.b0 = (this->spritePriority.b0 & 0xf8) | 1;
+            this->spritePriority.b0 = 1;
         }
     }
-    return;
 }
