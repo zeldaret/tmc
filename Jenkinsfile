@@ -11,6 +11,7 @@ pipeline {
                 cd ./agbcc
                 sh build.sh
                 sh install.sh ../tmc
+                cd ../tmc
                 sh 'make -j setup'
             }
         }
