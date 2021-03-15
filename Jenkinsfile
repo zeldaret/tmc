@@ -10,11 +10,6 @@ pipeline {
             }
         }
         stage('Build') {
-            when {
-                not {
-                    branch 'master'
-                }
-            }
             steps {
                 sh 'make -j'
             }
