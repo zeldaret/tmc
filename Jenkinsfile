@@ -7,7 +7,7 @@ pipeline {
                 echo 'Setting up...'
                 git clone https://github.com/zeldaret/tmc
                 cd ./tmc
-                sh /var/www/jenkins/agbcc/install.sh .
+                sh ${env.AGBCC}/install.sh .
                 sh 'cp /usr/local/etc/roms/baserom_tmc.gba baserom.gba'
                 sh 'make -j setup'
             }
