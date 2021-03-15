@@ -653,13 +653,27 @@ gUnk_08129004:: @ 08129004
 	.incbin "baserom.gba", 0x129004, 0x0000018
 
 gUnk_0812901C:: @ 0812901C
-	.incbin "baserom.gba", 0x12901C, 0x0000014
+	.4byte sub_080A7250
+	.4byte sub_080A7328
+	.4byte sub_080A7528
+	.4byte sub_080A73A8
+	.4byte sub_080A74C8
 
 gUnk_08129030:: @ 08129030
-	.incbin "baserom.gba", 0x129030, 0x000002C
-
-gUnk_0812905C:: @ 0812905C
-	.incbin "baserom.gba", 0x12905C, 0x000000C
+	.4byte sub_080A71DC
+	.4byte sub_080A4EA0
+	.4byte sub_080A71DC
+	.4byte sub_080A64FC
+	.4byte DrawKinstoneMenu
+	.4byte sub_08051E68
+	.4byte sub_0804AB54
+	.4byte sub_080A45A4
+	.4byte sub_08054870
+	.4byte sub_080A6C74
+	.4byte sub_080A6AB8
+	
+	@ TODO convert .inc files into .s files and include them in linker.ld
+	.include "data/const/playerItem/playerItemSword.inc"
 
 gUnk_08129068:: @ 08129068
 	.incbin "baserom.gba", 0x129068, 0x0000004

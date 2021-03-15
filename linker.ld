@@ -649,7 +649,9 @@ SECTIONS {
         asm/stairsInteract.o(.text);
         asm/code_080732D0.o(.text);
         asm/ocarina.o(.text);
-        src/item.o(.text);
+        src/item/itemPacciCane.o(.text);
+        src/item/itemShield.o(.text);
+        src/item/itemGustJar.o(.text);
         asm/code_08076C80.o(.text);
         asm/respawnPlayer.o(.text);
         src/code_08077B98.o(.text);
