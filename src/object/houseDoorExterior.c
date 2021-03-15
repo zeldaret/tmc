@@ -22,7 +22,7 @@ typedef struct {
 
 static void sub_080868EC(Entity* entity, unk_80868EC* arg1);
 static bool32 sub_080867CC(u32);
-static void sub_0808681C(Entity*);
+void sub_0808681C(Entity*);
 static u8 sub_08086954(Entity*);
 
 extern u32 sub_080562CC(u32, u32, u32, u32);
@@ -90,7 +90,7 @@ void sub_080867E4(Entity* this) {
     sub_0808681C(this);
 }
 
-static void sub_0808681C(Entity* this) {
+void sub_0808681C(Entity* this) {
     switch (this->action) {
         case 0:
             this->action = 1;
