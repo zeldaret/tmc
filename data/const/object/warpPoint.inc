@@ -1,0 +1,10 @@
+gUnk_08121368:: @ 08121368
+	.4byte sub_0808B474
+	.4byte sub_0808B530
+	.4byte sub_0808B564
+	.4byte sub_0808B590
+	.4byte sub_0808B5E8
+	.4byte sub_0808B684
+
+gUnk_08121380:: @ 08121380
+	.incbin "baserom.gba", 0x121380, 0x0000003

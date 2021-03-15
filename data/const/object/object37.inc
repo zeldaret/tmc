@@ -1,0 +1,3 @@
+gUnk_08121480:: @ 08121480
+	.4byte sub_0808BE00
+	.4byte sub_0808BE2C

@@ -4,10 +4,10 @@
 	.section .rodata
 	.align 2
 
-gUnk_08121C58:: @ 08121C58
+gUnk_08121C58:: @ 08121C58 TODO asm/object30.s, src/object/heartContainer.c?
 	.incbin "baserom.gba", 0x121C58, 0x000000C
 
-gUnk_08121C64:: @ 08121C64
+gUnk_08121C64:: @ 08121C64 TODO fileScreenObjects.c ?
 	.incbin "baserom.gba", 0x121C64, 0x0000068
 
 gUnk_08121CCC:: @ 08121CCC
@@ -46,7 +46,7 @@ gUnk_08121E31:: @ 08121E31
 gUnk_08121E50:: @ 08121E50
 	.incbin "baserom.gba", 0x121E50, 0x000000C
 
-gUnk_08121E5C:: @ 08121E5C
+gUnk_08121E5C:: @ 08121E5C TODO object49?
 	.incbin "baserom.gba", 0x121E5C, 0x000002C
 
 gUnk_08121E88:: @ 08121E88
@@ -58,7 +58,7 @@ gUnk_08121E98:: @ 08121E98
 gUnk_08121EA0:: @ 08121EA0
 	.incbin "baserom.gba", 0x121EA0, 0x0000004
 
-gUnk_08121EA4:: @ 08121EA4
+gUnk_08121EA4:: @ 08121EA4 TODO backgroundCloud.c
 	.incbin "baserom.gba", 0x121EA4, 0x000000C
 
 gUnk_08121EB0:: @ 08121EB0
