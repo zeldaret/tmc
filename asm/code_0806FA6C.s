@@ -844,8 +844,8 @@ GetSpriteSubEntryOffsetDataPointer: @ 0x080700C8
 	.align 2, 0
 _080700E4: .4byte gUnk_089FB780
 
-	thumb_func_start sub_080700E8
-sub_080700E8: @ 0x080700E8
+	thumb_func_start PlayerItem12
+PlayerItem12: @ 0x080700E8
 	push {lr}
 	ldr r2, _080700FC @ =gUnk_0811B98C
 	ldrb r1, [r0, #0xc]
@@ -1331,8 +1331,8 @@ _0807049E:
 _080704B4: .4byte gRoomControls
 _080704B8: .4byte 0x00000199
 
-	thumb_func_start sub_080704BC
-sub_080704BC: @ 0x080704BC
+	thumb_func_start PlayerItemPacciCane
+PlayerItemPacciCane: @ 0x080704BC
 	push {lr}
 	ldr r2, _080704D0 @ =gUnk_0811B9D8
 	ldrb r1, [r0, #0xc]

@@ -55,8 +55,8 @@ void sub_08057920(Manager* this) {
     DiggingCaveEntrance* tmp;
     u8 roomID;
     roomID = gRoomControls.roomID;
-    for (tmp = diggingCaveEntrances[gRoomControls.areaID]; (tmp = sub_08057AA8(tmp, roomID)) != 0 && !sub_0805795C(this, tmp);
-         tmp++)
+    for (tmp = diggingCaveEntrances[gRoomControls.areaID];
+         (tmp = sub_08057AA8(tmp, roomID)) != 0 && !sub_0805795C(this, tmp); tmp++)
         ;
 }
 

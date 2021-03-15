@@ -279,10 +279,10 @@ u16 sub_08056300(u16* arr) {
     return 0xff;
 }
 
-void NulledItem() {
+void PlayerItemNulled2() {
     DeleteThisEntity();
 }
 
-void sub_08056330() {
+void PlayerItemNulled() {
     DeleteThisEntity();
 }

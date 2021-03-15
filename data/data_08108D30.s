@@ -370,7 +370,7 @@ gUnk_08109AA8:: @ 08109AA8
 gUnk_08109AB8:: @ 08109AB8
 	.incbin "baserom.gba", 0x109AB8, 0x0000010
 
-	.include "data/const/playerItem/item11.inc"
+	.include "data/const/playerItem/playerItem11.inc"
 
 	@ TODO convert .inc files into .s files and include them in linker.ld
 	.include "data/animations/npc/gentari.inc"

@@ -3982,8 +3982,8 @@ sub_080A7528: @ 0x080A7528
 _080A753C: .4byte gUnk_08129030
 _080A7540: .4byte gUnk_02032EC0
 
-	thumb_func_start sub_080A7544
-sub_080A7544: @ 0x080A7544
+	thumb_func_start PlayerItemSword
+PlayerItemSword: @ 0x080A7544
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080A7584 @ =gUnk_0812905C
@@ -15582,8 +15582,8 @@ _080ACBC6:
 	.align 2, 0
 _080ACBC8: .4byte 0x00000119
 
-	thumb_func_start sub_080ACBCC
-sub_080ACBCC: @ 0x080ACBCC
+	thumb_func_start PlayerItem10
+PlayerItem10: @ 0x080ACBCC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, _080ACBFC @ =gPlayerState
@@ -16026,8 +16026,8 @@ _080ACF0C:
 	.align 2, 0
 _080ACF10: .4byte gUnk_0812AAE8
 
-	thumb_func_start sub_080ACF14
-sub_080ACF14: @ 0x080ACF14
+	thumb_func_start PlayerItem13
+PlayerItem13: @ 0x080ACF14
 	push {lr}
 	ldr r2, _080ACF28 @ =gUnk_081320A8
 	ldrb r1, [r0, #0xd]

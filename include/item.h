@@ -5,21 +5,21 @@
 #include "entity.h"
 #include "player.h"
 
-extern void DebugItem(ItemBehavior*, u32);
-extern void Sword(ItemBehavior*, u32);
-extern void Bomb(ItemBehavior*, u32);
-extern void Bow(ItemBehavior*, u32);
-extern void sub_08075D14(ItemBehavior*, u32);
-extern void Shield(ItemBehavior*, u32);
-extern void Lantern(ItemBehavior*, u32);
-extern void GustJar(ItemBehavior*, u32);
-extern void PacciCane(ItemBehavior*, u32);
-extern void MoleMitts(ItemBehavior*, u32);
-extern void RocsCape(ItemBehavior*, u32);
-extern void sub_08076800(ItemBehavior*, u32);
-extern void Ocarina(ItemBehavior*, u32);
-extern void TryPickupObject(ItemBehavior*, u32);
-extern void JarEmpty(ItemBehavior*, u32);
+extern void ItemDebug(ItemBehavior*, u32);
+extern void ItemSword(ItemBehavior*, u32);
+extern void ItemBomb(ItemBehavior*, u32);
+extern void ItemBow(ItemBehavior*, u32);
+extern void ItemBoomerang(ItemBehavior*, u32);
+extern void ItemShield(ItemBehavior*, u32);
+extern void ItemLantern(ItemBehavior*, u32);
+extern void ItemGustJar(ItemBehavior*, u32);
+extern void ItemPacciCane(ItemBehavior*, u32);
+extern void ItemMoleMitts(ItemBehavior*, u32);
+extern void ItemRocsCape(ItemBehavior*, u32);
+extern void ItemPegasusBoots(ItemBehavior*, u32);
+extern void ItemOcarina(ItemBehavior*, u32);
+extern void ItemTryPickupObject(ItemBehavior*, u32);
+extern void ItemJarEmpty(ItemBehavior*, u32);
 
 /* On hold until naming conflicts are resolved */
 /*

@@ -403,8 +403,8 @@ _08077110:
 	.align 2, 0
 _08077114: .4byte gPlayerEntity
 
-	thumb_func_start MoleMitts
-MoleMitts: @ 0x08077118
+	thumb_func_start ItemMoleMitts
+ItemMoleMitts: @ 0x08077118
 	push {lr}
 	ldr r3, _0807712C @ =gUnk_0811BE04
 	ldrb r2, [r0, #4]
@@ -912,8 +912,8 @@ _08077518:
 _0807751A:
 	pop {r4, r5, r6, r7, pc}
 
-	thumb_func_start JarEmpty
-JarEmpty: @ 0x0807751C
+	thumb_func_start ItemJarEmpty
+ItemJarEmpty: @ 0x0807751C
 	push {lr}
 	ldr r3, _08077530 @ =gUnk_0811BE28
 	ldrb r2, [r0, #4]

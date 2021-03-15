@@ -5,10 +5,12 @@
 
 // TODO - How does this relate to PlayerItemFunctions? Is this just a lookup table?
 void (*const gItemFunctions[])(ItemBehavior*, u32) = {
-    DebugItem, Sword,     Sword,     Sword,           Sword,        Sword,        Sword,     Bomb,
-    Bomb,      Bow,       Bow,       sub_08075D14,    sub_08075D14, Shield,       Shield,    Lantern,
-    Lantern,   GustJar,   PacciCane, MoleMitts,       RocsCape,     sub_08076800, DebugItem, Ocarina,
-    DebugItem, DebugItem, DebugItem, TryPickupObject, JarEmpty,     JarEmpty,     JarEmpty,  JarEmpty,
+
+    ItemDebug,        ItemSword,    ItemSword,    ItemSword,    ItemSword,     ItemSword,     ItemSword,
+    ItemBomb,         ItemBomb,     ItemBow,      ItemBow,      ItemBoomerang, ItemBoomerang, ItemShield,
+    ItemShield,       ItemLantern,  ItemLantern,  ItemGustJar,  ItemPacciCane, ItemMoleMitts, ItemRocsCape,
+    ItemPegasusBoots, ItemDebug,    ItemOcarina,  ItemDebug,    ItemDebug,     ItemDebug,     ItemTryPickupObject,
+    ItemJarEmpty,     ItemJarEmpty, ItemJarEmpty, ItemJarEmpty,
 };
 
 extern void sub_08077E78(ItemBehavior*, u32);
@@ -61,7 +63,7 @@ void OcarinaUse(ItemBehavior *beh, u32 arg1)
 }
 #endif
 
-void PacciCane(ItemBehavior* beh, u32 arg1) {
+void ItemPacciCane(ItemBehavior* beh, u32 arg1) {
     gUnk_0811BDE0[beh->stateID](beh, arg1);
 }
 
@@ -83,7 +85,7 @@ void sub_08076CBC(ItemBehavior* beh, u32 arg1) {
     }
 }
 
-void Shield(ItemBehavior* beh, u32 arg1) {
+void ItemShield(ItemBehavior* beh, u32 arg1) {
     gUnk_0811BDE8[beh->stateID](beh, arg1);
 }
 
@@ -121,7 +123,7 @@ void sub_08076D94(ItemBehavior* beh, u32 arg1) {
     }
 }
 
-void GustJar(ItemBehavior* beh, u32 arg1) {
+void ItemGustJar(ItemBehavior* beh, u32 arg1) {
     gPlayerState.field_0xa8 = 3;
     gUnk_0811BDF4[beh->stateID](beh, arg1);
 }

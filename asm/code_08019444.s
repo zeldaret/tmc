@@ -39,8 +39,8 @@ sub_08019468: @ 0x08019468
 _0801947E:
 	pop {pc}
 
-	thumb_func_start SwordBeam
-SwordBeam: @ 0x08019480
+	thumb_func_start PlayerItemSwordBeam
+PlayerItemSwordBeam: @ 0x08019480
 	push {lr}
 	ldr r2, _08019494 @ =gUnk_080B43F4
 	ldrb r1, [r0, #0xc]
@@ -3875,8 +3875,8 @@ _0801B178:
 	.align 2, 0
 _0801B184: .4byte gUnk_02000CC0
 
-	thumb_func_start sub_0801B188
-sub_0801B188: @ 0x0801B188
+	thumb_func_start PlayerItemBomb
+PlayerItemBomb: @ 0x0801B188
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, _0801B1E0 @ =gUnk_080B77C8
@@ -4278,8 +4278,8 @@ _0801B432:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start sub_0801B45C
-sub_0801B45C: @ 0x0801B45C
+	thumb_func_start PlayerItem3
+PlayerItem3: @ 0x0801B45C
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0801B48C @ =gUnk_080B77FC
@@ -4843,8 +4843,8 @@ _0801B874:
 	.align 2, 0
 _0801B894: .4byte gUnk_080B782E
 
-	thumb_func_start sub_0801B898
-sub_0801B898: @ 0x0801B898
+	thumb_func_start PlayerItemC
+PlayerItemC: @ 0x0801B898
 	push {lr}
 	ldr r2, _0801B8AC @ =gUnk_080B7840
 	ldrb r1, [r0, #0xc]
@@ -5027,8 +5027,8 @@ sub_0801B9F0: @ 0x0801B9F0
 	bl sub_08017744
 	pop {pc}
 
-	thumb_func_start SwordSpin
-SwordSpin: @ 0x0801BA00
+	thumb_func_start PlayerItemSwordSpin
+PlayerItemSwordSpin: @ 0x0801BA00
 	push {lr}
 	ldr r2, _0801BA14 @ =gUnk_080B7870
 	ldrb r1, [r0, #0xc]

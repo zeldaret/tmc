@@ -4331,8 +4331,8 @@ sub_080752E8: @ 0x080752E8
 	.align 2, 0
 _080752FC: .4byte gItemFunctions
 
-	thumb_func_start DebugItem
-DebugItem: @ 0x08075300
+	thumb_func_start ItemDebug
+ItemDebug: @ 0x08075300
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
@@ -4342,8 +4342,8 @@ DebugItem: @ 0x08075300
 	bl sub_08077E78
 	pop {r4, r5, pc}
 
-	thumb_func_start Sword
-Sword: @ 0x08075314
+	thumb_func_start ItemSword
+ItemSword: @ 0x08075314
 	push {lr}
 	ldr r2, _08075330 @ =gPlayerState
 	adds r2, #0xa8
@@ -5231,8 +5231,8 @@ _080759E8: .4byte gPlayerState
 _080759EC: .4byte gPlayerEntity
 _080759F0: .4byte 0xF7FFFFFF
 
-	thumb_func_start Lantern
-Lantern: @ 0x080759F4
+	thumb_func_start ItemLantern
+ItemLantern: @ 0x080759F4
 	push {lr}
 	ldr r3, _08075A08 @ =gUnk_0811BD68
 	ldrb r2, [r0, #4]
@@ -5622,8 +5622,8 @@ _08075D0E:
 	.align 2, 0
 _08075D10: .4byte gPlayerEntity
 
-	thumb_func_start sub_08075D14
-sub_08075D14: @ 0x08075D14
+	thumb_func_start ItemBoomerang
+ItemBoomerang: @ 0x08075D14
 	push {lr}
 	ldr r3, _08075D28 @ =gUnk_0811BD78
 	ldrb r2, [r0, #4]
@@ -5724,8 +5724,8 @@ _08075DD8:
 	pop {r4, r5, pc}
 	.align 2, 0
 
-	thumb_func_start Bow
-Bow: @ 0x08075DDC
+	thumb_func_start ItemBow
+ItemBow: @ 0x08075DDC
 	push {lr}
 	ldr r3, _08075DF0 @ =gUnk_0811BD80
 	ldrb r2, [r0, #4]
@@ -5989,8 +5989,8 @@ _08075FD8:
 	.align 2, 0
 _08075FDC: .4byte gPlayerState
 
-	thumb_func_start Bomb
-Bomb: @ 0x08075FE0
+	thumb_func_start ItemBomb
+ItemBomb: @ 0x08075FE0
 	push {lr}
 	ldr r3, _08075FF4 @ =gUnk_0811BD98
 	ldrb r2, [r0, #4]
@@ -6221,8 +6221,8 @@ _080761A0:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start TryPickupObject
-TryPickupObject: @ 0x080761A8
+	thumb_func_start ItemTryPickupObject
+ItemTryPickupObject: @ 0x080761A8
 	push {lr}
 	ldr r3, _080761BC @ =gUnk_0811BDB4
 	ldrb r2, [r0, #4]
@@ -6819,8 +6819,8 @@ _0807663A:
 	.align 2, 0
 _0807663C: .4byte gPlayerState
 
-	thumb_func_start RocsCape
-RocsCape: @ 0x08076640
+	thumb_func_start ItemRocsCape
+ItemRocsCape: @ 0x08076640
 	push {r4, r5, lr}
 	adds r3, r0, #0
 	adds r4, r1, #0
@@ -7052,8 +7052,8 @@ _080767F8:
 _080767FE:
 	pop {r4, r5, pc}
 
-	thumb_func_start sub_08076800
-sub_08076800: @ 0x08076800
+	thumb_func_start ItemPegasusBoots
+ItemPegasusBoots: @ 0x08076800
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
 	mov r6, r8

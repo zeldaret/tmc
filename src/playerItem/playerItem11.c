@@ -13,7 +13,7 @@ extern Hitbox gUnk_080B3E18;
 extern u8 gUnk_080B3DE0[];
 extern Hitbox* gUnk_080B3DE8[];
 
-void Item11(Entity* this) {
+void PlayerItem11(Entity* this) {
     if (this->currentHealth) {
         this->iframes = 0;
         gUnk_080B3DD0[this->action](this);

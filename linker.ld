@@ -309,14 +309,14 @@ SECTIONS {
         /* C source compiled without interworking */
         asm/code_08018500.o(.text);
         src/code_08018C58.o(.text);
-        src/item11.o(.text);
-        asm/item11.o(.text);
+        src/playerItem/playerItem11.o(.text);
+        asm/playerItem11.o(.text);
         src/createBowEntity.o(.text);
         asm/createBowEntity.o(.text);
         asm/bowUse.o(.text);
         asm/sub_08019410.o(.text);
         asm/code_08019444.o(.text);
-        asm/cellOverwriteSet.o(.text);
+        asm/playerItemCellOverwriteSet.o(.text);
         asm/code_0801C1D4.o(.text);
         asm/drawUI.o(.text);
         asm/code_0801C370.o(.text);
@@ -537,7 +537,7 @@ SECTIONS {
         asm/code_0805EC04.o(.text);
         src/code_0805F9A0.o(.text);
         src/debugScreen.o(.text);
-        src/item14.o(.text);
+        src/playerItem/playerItem14.o(.text);
         /* npcs */
         src/npc/gentari.o(.text);
         src/npc/festari.o(.text);

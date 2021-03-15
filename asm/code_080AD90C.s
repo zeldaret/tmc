@@ -156,8 +156,8 @@ sub_080ADA14: @ 0x080ADA14
 _080ADA28: .4byte gUnk_03006580
 _080ADA2C: .4byte gOamCmd
 
-	thumb_func_start sub_080ADA30
-sub_080ADA30: @ 0x080ADA30
+	thumb_func_start PlayerItemGustJar
+PlayerItemGustJar: @ 0x080ADA30
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _080ADA60 @ =gPlayerState

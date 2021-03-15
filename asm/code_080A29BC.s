@@ -397,8 +397,8 @@ _080A2D6E:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start sub_080A2D74
-sub_080A2D74: @ 0x080A2D74
+	thumb_func_start PlayerItemShield
+PlayerItemShield: @ 0x080A2D74
 	push {lr}
 	adds r2, r0, #0
 	ldr r0, [r2, #0x6c]
@@ -787,8 +787,8 @@ _080A3068:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 
-	thumb_func_start sub_080A306C
-sub_080A306C: @ 0x080A306C
+	thumb_func_start PlayerItem15
+PlayerItem15: @ 0x080A306C
 	push {lr}
 	ldr r2, _080A3080 @ =gUnk_08127270
 	ldrb r1, [r0, #0xc]

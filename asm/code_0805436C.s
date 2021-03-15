@@ -206,8 +206,8 @@ _08054A34:
 _08054A38: .4byte gUnk_080FE320
 _08054A3C: .4byte gUnk_0811E454
 
-	thumb_func_start sub_08054A40
-sub_08054A40: @ 0x08054A40
+	thumb_func_start PlayerItemLantern
+PlayerItemLantern: @ 0x08054A40
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _08054A5C @ =gUnk_080FEEA8
