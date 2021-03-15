@@ -4,23 +4,11 @@
 	.section .rodata
 	.align 2
 
-gUnk_08108C94:: @ 08108C94
-	.incbin "baserom.gba", 0x108C94, 0x0000008
+	@ TODO convert .inc files into .s files and include them in linker.ld
+	.include "data/const/manager/manager1F.inc"
 
-gUnk_08108C9C:: @ 08108C9C
-	.incbin "baserom.gba", 0x108C9C, 0x000000C
+	.include "data/const/manager/manager22.inc"
 
-gUnk_08108CA8:: @ 08108CA8
-	.incbin "baserom.gba", 0x108CA8, 0x0000024
+	.include "data/const/manager/manager23.inc"
 
-gUnk_08108CCC:: @ 08108CCC
-	.incbin "baserom.gba", 0x108CCC, 0x0000010
-
-gUnk_08108CDC:: @ 08108CDC
-	.incbin "baserom.gba", 0x108CDC, 0x000000C
-
-gUnk_08108CE8:: @ 08108CE8
-	.incbin "baserom.gba", 0x108CE8, 0x0000014
-
-gUnk_08108CFC:: @ 08108CFC
-	.incbin "baserom.gba", 0x108CFC, 0x0000008
+	.include "data/const/manager/manager24.inc"

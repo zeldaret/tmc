@@ -25,11 +25,11 @@ void sub_0805786C(Manager* this) {
         if (gUnk_03004030.unk_00 == 0) {
             gUnk_03004030.unk_0a = 0xFF;
             roomID = gRoomControls.roomID;
-            tmp = gUnk_08107DC0[gRoomControls.areaID];
+            tmp = diggingCaveEntrances[gRoomControls.areaID];
             tmp = sub_08057AA8(tmp, roomID);
             if (tmp != 0) {
                 roomID = tmp->target_roomID;
-                tmp = gUnk_08107DC0[tmp->target_areaID];
+                tmp = diggingCaveEntrances[tmp->target_areaID];
                 tmp = sub_08057AA8(tmp, roomID);
                 if (tmp != 0) {
                     gUnk_03004030.unk_00 = tmp;
@@ -37,7 +37,7 @@ void sub_0805786C(Manager* this) {
             }
         }
         roomID = gRoomControls.roomID;
-        tmp = gUnk_08107DC0[gRoomControls.areaID];
+        tmp = diggingCaveEntrances[gRoomControls.areaID];
         uVar = 0x81 << 7;
         for (tmp = sub_08057AA8(tmp, roomID); tmp != 0; tmp = sub_08057AA8(tmp, roomID)) {
             SetTile(uVar, tmp->unk_00 + 0x3F, 1);
@@ -55,7 +55,7 @@ void sub_08057920(Manager* this) {
     DiggingCaveEntrance* tmp;
     u8 roomID;
     roomID = gRoomControls.roomID;
-    for (tmp = gUnk_08107DC0[gRoomControls.areaID]; (tmp = sub_08057AA8(tmp, roomID)) != 0 && !sub_0805795C(this, tmp);
+    for (tmp = diggingCaveEntrances[gRoomControls.areaID]; (tmp = sub_08057AA8(tmp, roomID)) != 0 && !sub_0805795C(this, tmp);
          tmp++)
         ;
 }

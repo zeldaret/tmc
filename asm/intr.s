@@ -704,7 +704,7 @@ _080B225C: .4byte DeleteThisEntity
 _080B2260: .4byte ObjectUpdate
 _080B2264: .4byte NPCUpdate
 _080B2268: .4byte ItemUpdate
-_080B226C: .4byte sub_08017508
+_080B226C: .4byte ManagerUpdate
 _080B2270: .4byte gUnk_03003DD0
 _080B2274: .4byte gUnk_080026A4
 _080B2278: .4byte gUnk_03003DD0
