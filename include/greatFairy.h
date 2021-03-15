@@ -27,9 +27,4 @@ extern u8 gUnk_0812079C[8];
 extern s16 gSineTable[];
 extern s8 gUnk_081207AC[];
 
-typedef struct {
-    s32 unk0;
-    s32 unk4;
-} struct_08087424;
-
 #endif

@@ -8,7 +8,7 @@ extern void sub_0806A8C8(Entity*);
 extern void (*gUnk_08112260[])(Entity*);
 extern void (*gUnk_08112278[])(Entity*);
 
-extern void gUnk_08012F0C;
+extern void script_08012F0C;
 
 void Rem(Entity* this) {
     gUnk_08112260[this->type](this);
@@ -18,8 +18,8 @@ void sub_0806a370(Entity* this) {
     u8* pbVar1;
 
     gUnk_08112278[this->action](this);
-    sub_0807DDAC(this, NULL);
-    sub_0807DDE4(this);
+    ExecuteScriptForEntity(this, NULL);
+    HandleEntity0x82Actions(this);
     UpdateAnimationSingleFrame(this);
     sub_0806ED78(this);
     if (this->animIndex == 0xf) {
@@ -42,7 +42,7 @@ void sub_0806A3D8(Entity* this) {
     this->actionDelay = 0xb4;
     sub_0805E3A0(this, 2);
     sub_0806A8C8(this);
-    uVar1 = StartCutscene(this, &gUnk_08012F0C);
+    uVar1 = StartCutscene(this, &script_08012F0C);
     *(ScriptExecutionContext**)&this->cutsceneBeh = uVar1;
     sub_0807DD94(this, NULL);
 }

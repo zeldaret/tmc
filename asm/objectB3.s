@@ -103,7 +103,7 @@ sub_080A0ADC: @ 0x080A0ADC
 	bl sub_0807DD64
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	pop {r4, pc}
 	.align 2, 0
 
@@ -112,7 +112,7 @@ sub_080A0AF0: @ 0x080A0AF0
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
 	bl GetNextFrame
 	adds r0, r4, #0

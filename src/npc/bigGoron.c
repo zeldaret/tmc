@@ -23,8 +23,8 @@ void sub_0806CF30(Entity* this) {
         sub_0806D0B0(this);
         sub_0807DD64(this);
     } else {
-        sub_0807DDAC(this, NULL);
-        sub_0807DDE4(this);
+        ExecuteScriptForEntity(this, NULL);
+        HandleEntity0x82Actions(this);
     }
 
     switch (this->previousActionFlag) {

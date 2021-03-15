@@ -167,13 +167,13 @@ void Leever_Move(Entity* this) {
         this->field_0x74.HWORD = 1;
     }
 
-    this->nonPlanarMovement = (this->frames.all & 0xf) * 0x20;
+    this->speed = (this->frames.all & 0xf) * 0x20;
     if (this->type == LeeverForm_Red) {
         if ((this->field_0xf++ & 0xf) == 0) {
             sub_08004596(this, sub_0800132C(this, gUnk_020000B0));
         }
     } else {
-        this->nonPlanarMovement += 0x40;
+        this->speed += 0x40;
         if ((this->field_0xf++ & 0x7) == 0) {
             sub_08004596(this, sub_0800132C(this, gUnk_020000B0));
         }

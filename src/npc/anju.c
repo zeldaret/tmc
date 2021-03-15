@@ -32,7 +32,6 @@ void Anju(Entity* this) {
             if (UpdateFuseInteraction(this)) {
                 this->action = 1;
             }
-        default:
     }
 }
 

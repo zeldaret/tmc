@@ -208,9 +208,9 @@ _08063BDC: .4byte gPlayerEntity
 _08063BE0:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	b _08063C10

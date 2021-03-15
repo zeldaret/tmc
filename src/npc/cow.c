@@ -20,7 +20,7 @@ void sub_08068FC0(Entity* ent) {
 
     ent->action = 1;
     ent->animationState = ent->type2;
-    ent->nonPlanarMovement = 0x40;
+    ent->speed = 0x40;
 
     ent->field_0x6c.HALF.HI = 0xFF;
 

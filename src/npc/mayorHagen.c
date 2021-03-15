@@ -35,8 +35,8 @@ void MayorHagen(Entity* this) {
                 sub_0806F118(this);
                 break;
             }
-            sub_0807DDAC(this, NULL);
-            sub_0807DDE4(this);
+            ExecuteScriptForEntity(this, NULL);
+            HandleEntity0x82Actions(this);
             UpdateAnimationSingleFrame(this);
             break;
         case 2:

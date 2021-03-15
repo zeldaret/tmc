@@ -32,7 +32,7 @@ void sub_0808222C(Entity* this) {
 
     this->action = 1;
     this->hitbox = &gUnk_080FD338;
-    this->nonPlanarMovement = 0x80;
+    this->speed = 0x80;
     this->y.HALF.HI += 3;
     this->field_0x16 = 0;
     this->flags |= 0x80;
@@ -84,7 +84,7 @@ void sub_08082310(Entity* this) {
                         this->actionDelay = 32;
                         this->action = 4;
                         if (gPlayerState.flags.all & 0x80) {
-                            this->nonPlanarMovement >>= 1;
+                            this->speed >>= 1;
                             this->actionDelay = 64;
                         }
                         SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
@@ -183,7 +183,7 @@ void sub_08082614(Entity* this) {
 
     this->action = 1;
     if (gPlayerState.flags.all & 0x80) {
-        this->nonPlanarMovement <<= 1;
+        this->speed <<= 1;
     }
 
     this->field_0x70.HALF.LO = sub_080001DA(COORD_TO_TILE(this), this->collisionLayer);

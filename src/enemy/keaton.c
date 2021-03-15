@@ -104,7 +104,7 @@ void sub_080324FC(Entity* this) {
     this->field_0xf--;
     if (this->field_0xf == 0) {
         this->action = 4;
-        this->nonPlanarMovement = 0x1E0;
+        this->speed = 0x1E0;
         this->field_0x76.HWORD = 0x46;
         this->field_0x78.HWORD = 0;
         *(((u8*)&this->field_0x7a) + 1) = 0;
@@ -199,7 +199,7 @@ u32 sub_0803271C(Entity* this) {
 
 void sub_08032740(Entity* this) {
     this->action = 1;
-    this->nonPlanarMovement = 0x80;
+    this->speed = 0x80;
     InitializeAnimation(this, this->animationState);
     sub_08032650(this);
 }
@@ -207,7 +207,7 @@ void sub_08032740(Entity* this) {
 void sub_0803275C(Entity* this) {
     this->action = 5;
     this->actionDelay = 0x2D;
-    this->nonPlanarMovement = 0x80;
+    this->speed = 0x80;
     InitAnimationForceUpdate(this, this->animationState);
     sub_0803269C(this, this->direction);
     sub_080327E0(this);

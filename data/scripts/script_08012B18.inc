@@ -1,0 +1,4 @@
+SCRIPT_START script_08012B18
+	DoPostScriptAction 0x0015
+	Call sub_080791BC
+SCRIPT_END

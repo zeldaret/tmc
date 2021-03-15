@@ -35,7 +35,7 @@ void sub_0802BA18(Entity* this) {
         return;
 
     this->action = 2;
-    this->nonPlanarMovement = this->field_0x78.HWORD;
+    this->speed = this->field_0x78.HWORD;
     this->direction = direction;
 
     switch (direction >> 3) {
@@ -87,7 +87,7 @@ void sub_0802BAFC(Entity* this) {
 
 void sub_0802BB10(Entity* this) {
     this->action = 3;
-    this->nonPlanarMovement = 0xc0;
+    this->speed = 0xc0;
     this->direction = this->direction ^ 0x10;
     EnqueueSFX(0x74);
 }

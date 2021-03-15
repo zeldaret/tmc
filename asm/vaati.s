@@ -313,7 +313,7 @@ _08066C86:
 	adds r0, #0x84
 	ldr r1, [r0]
 	mov r0, ip
-	bl sub_0807DB98
+	bl HandlePostScriptActions
 	pop {r4, r5, r6, pc}
 
 	thumb_func_start sub_08066C94

@@ -25,8 +25,8 @@ void Librari(Entity* this) {
                 this->interactType = 0;
                 sub_0806F118(this);
             } else {
-                sub_0807DDAC(this, NULL);
-                sub_0807DDE4(this);
+                ExecuteScriptForEntity(this, NULL);
+                HandleEntity0x82Actions(this);
                 UpdateAnimationSingleFrame(this);
             }
             break;
@@ -37,15 +37,15 @@ void Librari(Entity* this) {
     }
 }
 
-void sub_0806B260(Entity* this, u32 arg1) {
+void sub_0806B260(Entity* this, ScriptExecutionContext* context) {
     u32 index;
 
-    *(u32*)(arg1 + 0x14) = 0;
+    context->condition = 0;
     // flippers
     if (!GetInventoryValue(0x46)) {
         if (CheckGlobalFlag(0x29)) {
             index = 2;
-            *(u32*)(arg1 + 0x14) = 1;
+            context->condition = 1;
         } else if (!CheckLocalFlag(0x7a)) {
             index = 0;
             SetLocalFlag(0x7a);
@@ -60,7 +60,7 @@ void sub_0806B260(Entity* this, u32 arg1) {
 
 extern u16 gUnk_08112D50[];
 
-void sub_0806b2b4(Entity* this) {
+void sub_0806B2B4(Entity* this) {
     u32 index;
 
     if (CheckLocalFlag(0xb3)) {

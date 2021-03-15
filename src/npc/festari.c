@@ -34,7 +34,7 @@ void sub_0805FE48(Entity* this) {
         InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
         sub_0806F118(this);
     } else {
-        ExecuteScriptCommandSet(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
+        ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
         sub_0805FF2C(this, *(void**)&this->cutsceneBeh);
         uVar4 = this->field_0x80.HWORD;
         if (uVar4 < 8) {

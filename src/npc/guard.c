@@ -4,6 +4,7 @@
 #include "flags.h"
 #include "textbox.h"
 #include "room.h"
+#include "script.h"
 #include "structures.h"
 #include "functions.h"
 
@@ -20,7 +21,6 @@ typedef struct {
 extern void sub_08063D24(Entity*);
 extern void sub_0806EE20(Entity*);
 extern void sub_08064428(Entity*);
-extern void sub_0807DDAC(Entity*, u32);
 extern void sub_0806EE04(Entity*, void*, u32);
 void sub_08063DC8(Entity*);
 void sub_08063F20(Entity*);
@@ -148,8 +148,8 @@ void sub_08063E90(Entity* this) {
 }
 
 void sub_08063F20(Entity* this) {
-    sub_0807DDAC(this, 0);
-    sub_0807DDE4(this);
+    ExecuteScriptForEntity(this, 0);
+    HandleEntity0x82Actions(this);
     GetNextFrame(this);
     if (this->interactType != 0) {
         this->action++;
@@ -211,18 +211,16 @@ void sub_08064044(void) {
     gScreenTransition.transitioningOut = 1;
 }
 
-void sub_08064050(Entity* arg0, struct_08064050* arg1) {
-    u32 unk;
-
-    arg1->unk2 = 0;
-    switch (arg0->type2) {
+void sub_08064050(Entity* this, ScriptExecutionContext* context) {
+    context->intVariable = 0;
+    switch (this->type2) {
         case 0x11:
-            arg1->unk2 = 1;
+            context->intVariable = 1;
             break;
         case 0x12:
-            arg1->unk2 = 2;
+            context->intVariable = 2;
             break;
         case 0x13:
-            arg1->unk2 = 3;
+            context->intVariable = 3;
     }
 }

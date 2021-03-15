@@ -71,7 +71,7 @@ _0805FF90:
 _0805FF94:
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl sub_0807DB98
+	bl HandlePostScriptActions
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 

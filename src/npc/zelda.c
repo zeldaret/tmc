@@ -14,59 +14,59 @@ extern void sub_080686C4(Entity*, Entity*);
 extern void (*gUnk_08110BD8[])(Entity* ent);
 extern u16 gUnk_08110BE0[];
 
-void Zelda(Entity* ent) {
-    gUnk_08110BD8[ent->action](ent);
+void Zelda(Entity* this) {
+    gUnk_08110BD8[this->action](this);
 }
 
-void sub_08066CCC(Entity* ent) {
-    ent->action = 1;
-    ent->spriteSettings.b.draw = 1;
-    PrependEntityToList(ent, 7);
-    sub_0805E3A0(ent, 2);
-    sub_0807DD50(ent);
+void sub_08066CCC(Entity* this) {
+    this->action = 1;
+    this->spriteSettings.b.draw = 1;
+    PrependEntityToList(this, 7);
+    sub_0805E3A0(this, 2);
+    sub_0807DD50(this);
 }
 
-void sub_08066CF8(Entity* ent) {
-    sub_0807DD94(ent, NULL);
+void sub_08066CF8(Entity* this) {
+    sub_0807DD94(this, NULL);
 }
 
-void sub_08066D04(Entity* ent) {
-    ent->parent = FindEntityBySubtype(7, 0x2E);
+void sub_08066D04(Entity* this) {
+    this->parent = FindEntityBySubtype(7, 0x2E);
 }
 
-void sub_08066D14(Entity* ent, u32* param_2) {
+void sub_08066D14(Entity* this, ScriptExecutionContext* context) {
     Entity* parent;
 
-    parent = ent->parent;
+    parent = this->parent;
     if (parent != NULL) {
-        ent->animationState = parent->animationState;
-        ent->spriteSettings.b.draw = 1;
-        CopyPosition(parent, ent);
-        sub_08068680(ent, ent->parent);
-        param_2[5] = 1;
+        this->animationState = parent->animationState;
+        this->spriteSettings.b.draw = 1;
+        CopyPosition(parent, this);
+        sub_08068680(this, this->parent);
+        context->condition = 1;
     } else {
-        param_2[5] = 0;
+        context->condition = 0;
     }
 }
 
-void sub_08066D4C(Entity* ent, u32* param_2) {
+void sub_08066D4C(Entity* this, ScriptExecutionContext* context) {
     Entity* parent;
 
-    parent = ent->parent;
-    if (ent->parent != NULL) {
-        CopyPosition(ent, parent);
-        ent->parent->spriteSettings.b.draw = 1;
-        ent->parent->animationState = ent->animationState;
-        ent->spriteSettings.b.draw = 0;
-        ent->field_0x17 &= 0xFE;
-        sub_08068694(ent, ent->parent);
-        param_2[5] = 1;
+    parent = this->parent;
+    if (this->parent != NULL) {
+        CopyPosition(this, parent);
+        this->parent->spriteSettings.b.draw = 1;
+        this->parent->animationState = this->animationState;
+        this->spriteSettings.b.draw = 0;
+        this->field_0x17 &= 0xFE;
+        sub_08068694(this, this->parent);
+        context->condition = 1;
     } else {
-        param_2[5] = 0;
+        context->condition = 0;
     }
 }
 
-void sub_08066D94(Entity* ent) {
+void sub_08066D94(Entity* this) {
     u32 roomID;
     Entity* npc;
 
@@ -75,91 +75,91 @@ void sub_08066D94(Entity* ent) {
     if (npc != NULL) {
         npc->animationState = gPlayerEntity.animationState;
         npc->flags |= 0x20;
-        npc->animationState = GetAnimationState(ent);
+        npc->animationState = GetAnimationState(this);
         roomID = gRoomControls.roomID;
         npc->field_0x74.HWORD = roomID;
-        CopyPosition(ent, npc);
+        CopyPosition(this, npc);
     }
     DeleteThisEntity();
 }
 
-void sub_08066DE4(Entity* ent) {
+void sub_08066DE4(Entity* this) {
     Entity* pEVar1;
 
     pEVar1 = FindEntityBySubtype(7, 0x2E);
     if (pEVar1 != NULL) {
-        CopyPosition(ent, pEVar1);
-        sub_080686C4(ent, pEVar1);
+        CopyPosition(this, pEVar1);
+        sub_080686C4(this, pEVar1);
     }
 }
 
-void sub_08066E08(Entity* ent) {
-    InitAnimationForceUpdate(ent, 0x50);
-    ent->field_0x80.HWORD = ent->animIndex;
+void sub_08066E08(Entity* this) {
+    InitAnimationForceUpdate(this, 0x50);
+    this->field_0x80.HWORD = this->animIndex;
 }
 
-void sub_08066E20(Entity* ent) {
-    InitAnimationForceUpdate(ent, 0x44);
-    ent->field_0x80.HWORD = ent->animIndex;
+void sub_08066E20(Entity* this) {
+    InitAnimationForceUpdate(this, 0x44);
+    this->field_0x80.HWORD = this->animIndex;
 }
 
-void sub_08066E38(Entity* ent) {
-    InitAnimationForceUpdate(ent, 0x48);
-    ent->field_0x80.HWORD = ent->animIndex;
+void sub_08066E38(Entity* this) {
+    InitAnimationForceUpdate(this, 0x48);
+    this->field_0x80.HWORD = this->animIndex;
 }
 
-void sub_08066E50(Entity* ent) {
-    InitAnimationForceUpdate(ent, 0x4C);
-    ent->field_0x80.HWORD = ent->animIndex;
+void sub_08066E50(Entity* this) {
+    InitAnimationForceUpdate(this, 0x4C);
+    this->field_0x80.HWORD = this->animIndex;
 }
 
-void sub_08066E68(Entity* ent) {
-    InitAnimationForceUpdate(ent, 0x54);
-    ent->field_0x80.HWORD = ent->animIndex;
+void sub_08066E68(Entity* this) {
+    InitAnimationForceUpdate(this, 0x54);
+    this->field_0x80.HWORD = this->animIndex;
 }
 
-void sub_08066E80(Entity* ent, u8* param_2) {
-    switch (param_2[0x18]) {
+void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
+    switch (context->unk_18) {
         case 0:
-            param_2[0x18]++;
-            InitAnimationForceUpdate(ent, 0x16);
+            context->unk_18++;
+            InitAnimationForceUpdate(this, 0x16);
             break;
         case 1:
-            UpdateAnimationSingleFrame(ent);
-            if (ent->frames.all & 1) {
-                param_2[0x18]++;
-                ent->field_0x20 = 0x20000;
-                ent->frames.all &= 0xFE;
+            UpdateAnimationSingleFrame(this);
+            if (this->frames.all & 1) {
+                context->unk_18++;
+                this->field_0x20 = 0x20000;
+                this->frames.all &= 0xFE;
                 SoundReq(0x7C);
             }
             break;
         case 2:
-            sub_0806F62C(ent, 0x100, 0x80);
-            sub_08003FC4(ent, 0x2000);
-            if (!(ent->frames.all & 1)) {
-                UpdateAnimationSingleFrame(ent);
+            sub_0806F62C(this, 0x100, 0x80);
+            sub_08003FC4(this, 0x2000);
+            if (!(this->frames.all & 1)) {
+                UpdateAnimationSingleFrame(this);
             }
-            if (ent->field_0x20 < 0) {
-                param_2[0x18]++;
+            if (this->field_0x20 < 0) {
+                context->unk_18++;
             }
             break;
         case 3:
-            sub_0806F62C(ent, 0x100, 0x80);
-            UpdateAnimationSingleFrame(ent);
-            if (sub_08003FC4(ent, 0x2000) == 0) {
-                param_2[0x18]++;
-                InitAnimationForceUpdate(ent, 0x1E);
+            sub_0806F62C(this, 0x100, 0x80);
+            UpdateAnimationSingleFrame(this);
+            if (sub_08003FC4(this, 0x2000) == 0) {
+                context->unk_18++;
+                InitAnimationForceUpdate(this, 0x1E);
             }
             break;
         case 4:
-            UpdateAnimationSingleFrame(ent);
-            if (ent->frames.b.f3) {
-                gUnk_02033280.unk_07 |= 1;
+            UpdateAnimationSingleFrame(this);
+            if (this->frames.b.f3) {
+                gActiveScriptInfo.flags |= 1;
                 return;
             }
     }
-    ent->field_0x80.HWORD = ent->animIndex;
-    gUnk_02033280.unk_06 = 0;
+    this->field_0x80.HWORD = this->animIndex;
+    gActiveScriptInfo.commandSize = 0;
 }
 
 void sub_08066F94(void) {

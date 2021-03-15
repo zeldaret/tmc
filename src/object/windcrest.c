@@ -1,6 +1,5 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 #include "save.h"
 #include "script.h"
 
@@ -14,8 +13,8 @@ void Windcrest(Entity* this) {
         this->frameIndex = 0;
         sub_0807DD64(this);
     }
-    sub_0807DDAC(this, NULL);
-    sub_0807DDE4(this);
+    ExecuteScriptForEntity(this, NULL);
+    HandleEntity0x82Actions(this);
 }
 
 void sub_080A2124(Entity* this) {

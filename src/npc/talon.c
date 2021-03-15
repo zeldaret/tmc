@@ -10,7 +10,7 @@
 extern void (*gUnk_0810FEC4[])(Entity* this);
 extern void (*gUnk_0810FEBC[])(Entity* this);
 extern SpriteLoadData gUnk_0810FEB0;
-extern u8 gUnk_0800B41C;
+extern u8 script_0800B41C;
 extern u8 gUnk_0810FED8[];
 
 void sub_0806574C(Entity* this);
@@ -109,7 +109,7 @@ void sub_080656D4(Entity* this) {
     } else {
         if (this->interactType != 0) {
             if (GetInventoryValue(0x37) != 0) { // keyLonLon
-                StartCutscene(this, (u16*)&gUnk_0800B41C);
+                StartCutscene(this, (u16*)&script_0800B41C);
                 goto label2;
             } else {
                 this->field_0x68.HALF.HI = this->action;
@@ -136,12 +136,12 @@ void sub_0806574C(Entity* this) {
     this->field_0x6a.HALF.LO = this->animIndex;
 }
 
-void sub_08065780(Entity* this, u16* param_2) {
+void sub_08065780(Entity* this, ScriptExecutionContext* context) {
     u32 rand;
 
     rand = Random();
     this->animationState = rand & 6;
-    param_2[8] = gUnk_0810FED8[rand >> 8 & 7];
+    context->wait = gUnk_0810FED8[rand >> 8 & 7];
 }
 
 void Talon_Head(Entity* this) {

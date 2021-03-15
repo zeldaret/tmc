@@ -61,7 +61,7 @@ void sub_08031434(Entity* this) {
     sub_0804A720(this);
     this->animationState = 0xff;
     this->field_0x1c = 1;
-    this->field_0x7a.HWORD = this->nonPlanarMovement;
+    this->field_0x7a.HWORD = this->speed;
     if (!(this->type)) {
         sub_08031600(this);
     } else {
@@ -113,7 +113,7 @@ void sub_080314FC(Entity* this) {
                     if (u != 0xff) {
                         this->action = 3;
                         this->actionDelay = 0x1e;
-                        this->field_0x7a.HWORD = this->nonPlanarMovement = 0x1a0;
+                        this->field_0x7a.HWORD = this->speed = 0x1a0;
                         this->direction = u;
                         this->animationState = this->direction >> 3;
                         InitializeAnimation(this, this->animationState + 4);
@@ -158,7 +158,7 @@ void sub_08031600(Entity* this) {
     u32 r;
     this->action = 2;
     this->actionDelay = (Random() & 0x30) + 0x3c;
-    this->nonPlanarMovement = 0x80;
+    this->speed = 0x80;
     this->field_0x7a.HWORD = 0x80;
     r = Random() & 0x18;
     this->direction = r;
@@ -176,6 +176,6 @@ u32 sub_0803163C(Entity* this) {
     } else {
         h = this->field_0x7a.HWORD;
     }
-    this->nonPlanarMovement = h;
+    this->speed = h;
     return ProcessMovement(this);
 }

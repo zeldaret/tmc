@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "dma.h"
+#include "script.h"
 
 typedef struct OtherEntity {
     struct OtherEntity* prev;
@@ -76,7 +77,6 @@ extern void sub_08078954();
 extern void sub_0805EC60();
 extern void sub_08017744();
 extern void sub_0805E92C();
-extern void UnloadCutsceneData();
 extern void UnloadHitbox();
 extern void sub_0801DA0C();
 extern void sub_0804AA1C();

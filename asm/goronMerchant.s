@@ -50,7 +50,7 @@ _08069766:
 	movs r0, #0
 _0806976E:
 	str r0, [r7, #0x14]
-	ldr r2, _08069780 @ =gUnk_02033280
+	ldr r2, _08069780 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -58,4 +58,4 @@ _0806976E:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0806977C: .4byte 0x00002C1E
-_08069780: .4byte gUnk_02033280
+_08069780: .4byte gActiveScriptInfo

@@ -48,7 +48,7 @@ void nullsub_22(void) {
 void sub_080452A4(Entity* this) {
     this->action = 1;
     this->spriteSettings.b.draw = 1;
-    this->nonPlanarMovement = 0x100;
+    this->speed = 0x100;
     sub_0804A720(this);
     InitializeAnimation(this, 6);
     if (this->type2) {
@@ -70,8 +70,8 @@ void sub_080452FC(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 3;
         this->actionDelay = 1;
-        if (0 < this->nonPlanarMovement)
-            this->actionDelay = sub_0806FA04(0x1000, this->nonPlanarMovement) >> 0x8;
+        if (0 < this->speed)
+            this->actionDelay = sub_0806FA04(0x1000, this->speed) >> 0x8;
 
         if (sub_08049FA0(this) == 0 && (Random() & 3)) {
             cVar2 = sub_08049EE4(this);

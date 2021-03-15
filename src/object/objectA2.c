@@ -106,6 +106,6 @@ void sub_0809F448(Entity* this) {
             tmp += -0x80000 + (rand & 0xFFFFF);
             break;
     }
-    this->nonPlanarMovement = (tmp > 0 ? tmp : -tmp) / (tmp2->unk_1 << 8);
+    this->speed = (tmp > 0 ? tmp : -tmp) / (tmp2->unk_1 << 8);
     this->direction = sub_080045DA(tmp, 0) >> 3;
 }

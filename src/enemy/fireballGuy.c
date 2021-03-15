@@ -41,7 +41,7 @@ void sub_080453E8(Entity* this) {
     this->action = 1;
     this->actionDelay = 0;
     this->spriteSettings.b.draw = 1;
-    this->nonPlanarMovement = 0x80;
+    this->speed = 0x80;
     this->cutsceneBeh.HALF.LO = this->currentHealth;
     this->field_0x3c |= 0x10;
     sub_0804A720(this);

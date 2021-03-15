@@ -26,9 +26,9 @@ DrLeft: @ 0x0806BF80
 _0806BFA2:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl GetNextFrame
 	adds r0, r4, #0

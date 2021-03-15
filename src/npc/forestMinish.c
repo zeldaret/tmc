@@ -42,8 +42,8 @@ void ForestMinish(Entity* this) {
                 this->interactType = 0;
                 sub_0806F118(this);
             } else {
-                sub_0807DDAC(this, NULL);
-                sub_0807DDE4(this);
+                ExecuteScriptForEntity(this, NULL);
+                HandleEntity0x82Actions(this);
                 if (this->frameDuration != 0xf0) {
                     sub_080600F0(this);
                 }
@@ -215,8 +215,8 @@ void sub_080602BC(Entity* this) {
     TextboxNoOverlap(gUnk_0810A362[index], this);
 }
 
-void sub_0806030C(Entity* this, u32* arg1) {
-    ModBombs(*(arg1 + 1));
+void sub_0806030C(Entity* this, ScriptExecutionContext* context) {
+    ModBombs(context->intVariable);
 }
 
 void sub_08060318(void) {

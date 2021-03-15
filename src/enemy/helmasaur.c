@@ -177,7 +177,7 @@ void sub_0802BE18(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 4;
         this->actionDelay = 0x1e;
-        this->nonPlanarMovement = 0x300;
+        this->speed = 0x300;
     } else {
         sub_0802C18C(this);
     }
@@ -197,12 +197,12 @@ void sub_0802BE48(Entity* this) {
 }
 
 void sub_0802BE80(Entity* this) {
-    this->nonPlanarMovement -= 0x20;
-    if (0xff < this->nonPlanarMovement) {
+    this->speed -= 0x20;
+    if (0xff < this->speed) {
         sub_0802C1CC(this);
     }
 
-    if (this->nonPlanarMovement > 0) {
+    if (this->speed > 0) {
         sub_080AEFE0(this);
         sub_0802C18C(this);
     } else {
@@ -230,7 +230,7 @@ void sub_0802BEEC(Entity* this) {
     } else if (!sub_08003FC4(this, 0x1c00)) {
         this->action = 8;
         this->actionDelay = 30;
-        this->nonPlanarMovement = 0x120;
+        this->speed = 0x120;
     }
 }
 
@@ -367,7 +367,7 @@ void sub_0802C1CC(Entity* this) {
 
 void sub_0802C218(Entity* this) {
     this->action = 6;
-    this->nonPlanarMovement = 0xe0;
+    this->speed = 0xe0;
     this->field_0x20 = 0x18000;
 }
 

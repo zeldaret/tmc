@@ -212,7 +212,7 @@ void sub_080377B0(Entity* this) {
     this->field_0xf = 8;
     r1 = Random();
     this->field_0x74.HWORD = (r1 & 0x38) + 0x78;
-    this->nonPlanarMovement = 0x40;
+    this->speed = 0x40;
     r2 = Random();
     if (!sub_08049FA0(this) && (r2 & 3)) {
         this->direction = DirectionRoundUp(sub_08049EE4(this));
@@ -234,7 +234,7 @@ NONMATCH("asm/non_matching/gibdo/sub_08037810.inc", u32 sub_08037810(Entity* thi
                     this->action = 3;
                     this->actionDelay = 0x18;
                     this->field_0xf = 0x8;
-                    this->nonPlanarMovement = 0xc0;
+                    this->speed = 0xc0;
                     y = DirectionRoundUp(GetFacingDirection(this, gUnk_020000B0));
                     this->direction = y;
                     this->animationState = y / 8;
@@ -259,7 +259,7 @@ u32 sub_080378B0(Entity* this) {
             if (sub_0804A044(this, gUnk_020000B0, 0xa) == this->direction)
                 if (sub_0806FCB8(this, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x18) != 0) {
                     this->action = 5;
-                    this->nonPlanarMovement = 0x100;
+                    this->speed = 0x100;
                     InitAnimationForceUpdate(this, this->animationState + 8);
                     return 1;
                 }

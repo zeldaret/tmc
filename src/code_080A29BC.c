@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "room.h"
 
-void sub_080A29BC(Entity* parent) {
+void sub_080A29BC(Entity* parent) { // TODO this is CreateDust, why is it here again? Fogot to delete file?
     CreateFx(parent, 2, 0);
 }
 

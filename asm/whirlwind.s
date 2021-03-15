@@ -108,7 +108,7 @@ _08092D5C:
 	bl sub_0807DD64
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 _08092D74:
 	pop {r4, pc}
 	.align 2, 0
@@ -125,7 +125,7 @@ sub_08092D7C: @ 0x08092D7C
 	beq _08092D92
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 _08092D92:
 	ldrb r0, [r5, #0x18]
 	lsls r0, r0, #0x1e

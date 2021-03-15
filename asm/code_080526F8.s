@@ -1013,7 +1013,7 @@ sub_08052EA0: @ 0x08052EA0
 	ldrb r0, [r0, #1]
 	strb r0, [r2, #1]
 	bl sub_08049D30
-	bl sub_0807DA70
+	bl InitScriptData
 	bl sub_08054524
 	bl sub_080186D4
 	bl sub_0806F364
@@ -3187,8 +3187,8 @@ GetSaleItemConfirmMessageID: @ 0x08053FD0
 	.align 2, 0
 _08053FDC: .4byte gUnk_080FD964
 
-	thumb_func_start sub_08053FE0
-sub_08053FE0: @ 0x08053FE0
+	thumb_func_start GetItemPrice
+GetItemPrice: @ 0x08053FE0
 	lsls r0, r0, #3
 	ldr r1, _08053FEC @ =gUnk_080FD964
 	adds r0, r0, r1

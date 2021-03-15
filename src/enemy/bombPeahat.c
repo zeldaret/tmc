@@ -172,7 +172,7 @@ void sub_0802AA40(Entity* this) {
                 }
                 if (this->direction == direction) {
                     this->action = 3;
-                    this->nonPlanarMovement = 0x180;
+                    this->speed = 0x180;
                     this->field_0x7a.HALF.HI = 0;
                     ent->field_0x80.HALF.LO = 1;
                     ent->actionDelay = 0x96;
@@ -242,7 +242,7 @@ void sub_0802AB40(Entity* this) {
                 }
             } else {
                 this->action = 5;
-                this->nonPlanarMovement = 0;
+                this->speed = 0;
                 InitializeAnimation(this, this->type + 1);
             }
             break;
@@ -254,7 +254,7 @@ void sub_0802AC08(Entity* this) {
         this->action = 2;
         this->previousActionFlag = 0;
         this->actionDelay = 0x40;
-        this->nonPlanarMovement = 0xc0;
+        this->speed = 0xc0;
         sub_0802ACDC(this, 8);
         sub_0802ADDC(this);
     }

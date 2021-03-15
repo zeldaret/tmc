@@ -50,7 +50,7 @@ void sub_0802B628(Entity* this) {
             if (this->action < 6) {
                 this->action = 6;
                 this->field_0x20 = 0x18000;
-                this->nonPlanarMovement = 0xc0;
+                this->speed = 0xc0;
                 this->direction = this->field_0x3e;
                 this->field_0x42 = 0;
                 this->hurtBlinkTime = -8;
@@ -100,7 +100,7 @@ void sub_0802B7A4(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 1;
         this->actionDelay = gUnk_080CD314[Random() & 3];
-        this->nonPlanarMovement = 0x60;
+        this->speed = 0x60;
         sub_0802B960(this);
         if (this->direction != 0xff) {
             u32 animation = this->direction >> 3;
@@ -117,7 +117,7 @@ void sub_0802B7FC(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 4;
         this->actionDelay = 0x78;
-        this->nonPlanarMovement = 0x1c0;
+        this->speed = 0x1c0;
     }
 }
 
@@ -167,7 +167,7 @@ void sub_0802B8E0(Entity* this) {
     } else {
         this->action = 8;
         this->field_0x20 = 0x10000;
-        this->nonPlanarMovement = 0x60;
+        this->speed = 0x60;
         this->damageType = 99;
         InitializeAnimation(this, this->animationState);
         EnqueueSFX(299);

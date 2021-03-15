@@ -4,9 +4,9 @@
 #include "player.h"
 #include "npc.h"
 #include "functions.h"
+#include "script.h"
 
 extern SpriteLoadData gUnk_08110CA8[];
-extern void sub_0807DDAC(Entity*, u32);
 
 void Carpenter(Entity* this) {
     if (*(u32*)&this->cutsceneBeh == 0) {
@@ -30,8 +30,8 @@ void Carpenter(Entity* this) {
                                     sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)) + 4 + (this->type * 8));
                 sub_0806F118(this);
             } else {
-                sub_0807DDAC(this, 0);
-                sub_0807DDE4(this);
+                ExecuteScriptForEntity(this, 0);
+                HandleEntity0x82Actions(this);
                 GetNextFrame(this);
             }
             break;
@@ -60,6 +60,6 @@ void Carpenter_Head(Entity* this) {
     }
 }
 
-void sub_080672b0(Entity* this, u32 param_2) {
-    InitializeAnimation(this, *(u32*)(param_2 + 4) + (this->animationState >> 1) + this->type * 8);
+void sub_080672B0(Entity* this, ScriptExecutionContext* context) {
+    InitializeAnimation(this, context->intVariable + (this->animationState >> 1) + this->type * 8);
 }

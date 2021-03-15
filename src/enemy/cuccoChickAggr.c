@@ -72,7 +72,7 @@ void sub_080229F8(Entity* this) {
             this->actionDelay = 6;
             this->field_0xf = 8;
             this->frameIndex = 0;
-            this->nonPlanarMovement = 0xc0;
+            this->speed = 0xc0;
             sub_08022B44(this);
         } else {
             this->field_0x20 = 0x10000;
@@ -111,7 +111,7 @@ void sub_08022AA4(Entity* this) {
     this->action = 2;
     this->actionDelay = (rand & 3) + 1;
     this->field_0xf = 1;
-    this->nonPlanarMovement = 0x80;
+    this->speed = 0x80;
 
     if (!sub_08049FA0(this) && (rand >> 8) & 3) {
         this->direction = sub_08049EE4(this);

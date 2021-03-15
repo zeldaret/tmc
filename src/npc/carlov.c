@@ -8,8 +8,8 @@
 #include "npc.h"
 #include "structures.h"
 #include "functions.h"
+#include "script.h"
 
-extern void sub_0807DD94(Entity*, u32);
 
 void Carlov(Entity* this) {
     if (this->action == 0) {

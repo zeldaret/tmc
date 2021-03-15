@@ -152,14 +152,14 @@ _0806CA7E:
 	ldrh r0, [r4, #0x10]
 	cmp r0, #0
 	beq _0806CA8A
-	ldr r1, _0806CA90 @ =gUnk_02033280
+	ldr r1, _0806CA90 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0806CA8A:
 	pop {r4, pc}
 	.align 2, 0
 _0806CA8C: .4byte gUnk_08113B38
-_0806CA90: .4byte gUnk_02033280
+_0806CA90: .4byte gActiveScriptInfo
 
 	thumb_func_start WindTribespeople_Fusion
 WindTribespeople_Fusion: @ 0x0806CA94

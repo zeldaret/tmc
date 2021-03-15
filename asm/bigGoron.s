@@ -517,9 +517,9 @@ _0806D3F4:
 	strh r0, [r4, #0x2e]
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 _0806D408:
 	pop {r4, pc}
 	.align 2, 0
@@ -566,9 +566,9 @@ sub_0806D41C: @ 0x0806D41C
 _0806D45E:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 _0806D46C:
 	ldr r0, _0806D4A8 @ =gScreenTransition
 	ldr r0, [r0]
