@@ -1,11 +1,12 @@
 #include "global.h"
 #include "entity.h"
+#include "player.h"
+#include "functions.h"
 
-extern bool32 CheckIsDungeon();
-extern void sub_080AE068(Entity*);
-extern void LoadFixedGFX(Entity*, u32);
+extern void DoExitTransition(void*);
 
 extern void (*const gUnk_08122254[])(Entity*);
+extern u16 gUnk_0812225C[];
 
 void MinishSizedEntrance(Entity* this) {
     gUnk_08122254[this->action](this);
@@ -20,5 +21,20 @@ void sub_08090EC0(Entity* this) {
         this->frameIndex += 4;
         sub_080AE068(this);
         LoadFixedGFX(this, 0x184);
+    }
+}
+
+void sub_08090F00(Entity* this) {
+    if (this->type == 1) {
+        Entity* parent = this->parent;
+        u32 mask = 1 << this->field_0xf;
+        if (!(parent->field_0x20 & mask)) {
+            DeleteThisEntity();
+        }
+    }
+    if ((((gPlayerState.flags.all & 0x80) && sub_080041A0(this, &gPlayerEntity, 4, 4)) &&
+         (gPlayerEntity.height.HALF.HI == 0)) &&
+        (((u16)gPlayerState.field_0x90.HALF.LO) & gUnk_0812225C[this->type2])) {
+        DoExitTransition((Entity*)GetCurrentRoomProperty(this->actionDelay));
     }
 }
