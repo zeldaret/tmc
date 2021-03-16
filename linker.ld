@@ -311,9 +311,8 @@ SECTIONS {
         src/code_08018C58.o(.text);
         src/playerItem/playerItem11.o(.text);
         asm/playerItem11.o(.text);
-        src/createBowEntity.o(.text);
-        asm/createBowEntity.o(.text);
-        asm/bowUse.o(.text);
+        src/playerItem/playerItemBow.o(.text);
+        asm/playerItem/playerItemBow.o(.text);
         asm/sub_08019410.o(.text);
         asm/code_08019444.o(.text);
         asm/playerItemCellOverwriteSet.o(.text);

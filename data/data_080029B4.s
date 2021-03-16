@@ -89,7 +89,14 @@ gUnk_080033F5:: @ 080033F5
 	.incbin "baserom.gba", 0x0033F5, 0x000000B
 
 gUnk_08003400:: @ 08003400
-	.incbin "baserom.gba", 0x003400, 0x0000020
+	.4byte 00000000
+	.4byte gUnk_080CB67C
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+	.4byte gUnk_0812714C
+	.4byte 00000000
+	.4byte 00000000
 
 gUnk_08003420:: @ 08003420
 	.incbin "baserom.gba", 0x003420, 0x0000014

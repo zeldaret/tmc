@@ -604,20 +604,7 @@ gUnk_0811B578:: @ 0811B578
 gUnk_0811B940:: @ 0811B940
 	.incbin "baserom.gba", 0x11B940, 0x000004C
 
-gUnk_0811B98C:: @ 0811B98C
-	.incbin "baserom.gba", 0x11B98C, 0x0000014
+	@ TODO convert .inc files into .s files and include them in linker.ld
+	.include "data/const/playerItem/playerItem12.inc"
 
-gUnk_0811B9A0:: @ 0811B9A0
-	.incbin "baserom.gba", 0x11B9A0, 0x0000008
-
-gUnk_0811B9A8:: @ 0811B9A8
-	.incbin "baserom.gba", 0x11B9A8, 0x0000020
-
-gUnk_0811B9C8:: @ 0811B9C8
-	.incbin "baserom.gba", 0x11B9C8, 0x0000008
-
-gUnk_0811B9D0:: @ 0811B9D0
-	.incbin "baserom.gba", 0x11B9D0, 0x0000008
-
-gUnk_0811B9D8:: @ 0811B9D8
-	.incbin "baserom.gba", 0x11B9D8, 0x0000008
+	.include "data/const/playerItem/playerItemPacciCane.inc"

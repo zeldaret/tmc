@@ -44,40 +44,11 @@ gUnk_080B3D14:: @ 080B3D14
 gUnk_080B3D20:: @ 080B3D20
 	.incbin "baserom.gba", 0x0B3D20, 0x00000B0
 
-gUnk_080B3DD0:: @ 080B3DD0
-	.4byte sub_08018CBC
-	.4byte sub_08018DE8
-	.4byte sub_08018E68
-	.4byte sub_08018F6C
+	@ TODO convert .inc files into .s files and include them in linker.ld
+	.include "data/const/playerItem/playerItem11.inc"
 
-gUnk_080B3DE0:: @ 080B3DE0
-	.incbin "baserom.gba", 0x0B3DE0, 0x0000008
+	.include "data/const/playerItem/playerItemBow.inc"
 
-gUnk_080B3DE8:: @ 080B3DE8
-	.4byte gUnk_080B3E18
-	.4byte gUnk_080B3E20
-	.4byte gUnk_080B3E28
-
-gUnk_080B3DF4:: @ 080B3DF4
-	.incbin "baserom.gba", 0x0B3DF4, 0x0000024
-
-gUnk_080B3E18:: @ 080B3E18
-	.incbin "baserom.gba", 0x0B3E18, 0x0000008
-
-gUnk_080B3E20:: @ 080B3E20
-	.incbin "baserom.gba", 0x0B3E20, 0x0000008
-
-gUnk_080B3E28:: @ 080B3E28
-	.incbin "baserom.gba", 0x0B3E28, 0x0000008
-
-gUnk_080B3E30:: @ 080B3E30
-	.4byte sub_08018FE4
-	.4byte sub_0801917C
-	.4byte sub_08019410
-	.4byte sub_08019444
-
-gUnk_080B3E40:: @ 080B3E40
-	.incbin "baserom.gba", 0x0B3E40, 0x0000030
 
 gUnk_080B3E70:: @ 080B3E70
 	.incbin "baserom.gba", 0x0B3E70, 0x0000001
@@ -94,18 +65,8 @@ gUnk_080B3E80:: @ 080B3E80
 gUnk_080B4000:: @ 080B4000
 	.incbin "baserom.gba", 0x0B4000, 0x00003F4
 
-gUnk_080B43F4:: @ 080B43F4
-	.4byte sub_08019498
-	.4byte sub_08019580
-
-gUnk_080B43FC:: @ 080B43FC
-	.incbin "baserom.gba", 0x0B43FC, 0x0000004
-
-gUnk_080B4400:: @ 080B4400
-	.incbin "baserom.gba", 0x0B4400, 0x0000008
-
-gUnk_080B4408:: @ 080B4408
-	.incbin "baserom.gba", 0x0B4408, 0x0000008
+	@ TODO convert .inc files into .s files and include them in linker.ld
+	.include "data/const/playerItem/playerItemSwordBeam.inc"
 
 gUnk_080B4410:: @ 080B4410
 	.incbin "baserom.gba", 0x0B4410, 0x0000048
@@ -2780,55 +2741,15 @@ gUnk_080B755C:: @ 080B755C
 gUnk_080B77C0:: @ 080B77C0
 	.incbin "baserom.gba", 0x0B77C0, 0x0000008
 
-gUnk_080B77C8:: @ 080B77C8
-	.4byte sub_0801B250
-	.4byte sub_0801B2CC
-	.4byte sub_0801B318
-	.4byte sub_0801B38C
+	@ TODO convert .inc files into .s files and include them in linker.ld
+	.include "data/const/playerItem/playerItemBomb.inc"
 
-gUnk_080B77D8:: @ 080B77D8
-	.4byte sub_0801B330
-	.4byte sub_0801B340
-	.4byte sub_0801B354
-	.4byte sub_0801B368
-	.4byte sub_0801B384
-	.incbin "baserom.gba", 0x0B77EC, 0x0000008
+	.include "data/const/playerItem/playerItem3.inc"
 
-gUnk_080B77F4:: @ 080B77F4
-	.incbin "baserom.gba", 0x0B77F4, 0x0000008
+	.include "data/const/playerItem/playerItemC.inc"
 
-gUnk_080B77FC:: @ 080B77FC
-	.4byte sub_0801B4C8
-	.4byte sub_0801B584
-	.4byte sub_0801B680
-	.4byte sub_0801B7A8
-	.incbin "baserom.gba", 0x0B780C, 0x000001A
+	.include "data/const/playerItem/playerItemSwordSpin.inc"
 
-gUnk_080B7826:: @ 080B7826
-	.incbin "baserom.gba", 0x0B7826, 0x0000008
-
-gUnk_080B782E:: @ 080B782E
-	.incbin "baserom.gba", 0x0B782E, 0x0000012
-
-gUnk_080B7840:: @ 080B7840
-	.4byte sub_0801B8B0
-	.4byte sub_0801B8FC
-
-gUnk_080B7848:: @ 080B7848
-	.incbin "baserom.gba", 0x0B7848, 0x0000008
-
-gUnk_080B7850:: @ 080B7850
-	.incbin "baserom.gba", 0x0B7850, 0x0000020
-
-gUnk_080B7870:: @ 080B7870
-	.4byte sub_0801BA18
-	.4byte sub_0801BB2C
-
-gUnk_080B7878:: @ 080B7878
-	.incbin "baserom.gba", 0x0B7878, 0x0000012
-
-gUnk_080B788A:: @ 080B788A
-	.incbin "baserom.gba", 0x0B788A, 0x0000086
 
 gUnk_080B7910:: @ 080B7910
 	.incbin "baserom.gba", 0x0B7910, 0x0000097
@@ -2839,8 +2760,8 @@ gUnk_080B79A7:: @ 080B79A7
 gUnk_080B7A3E:: @ 080B7A3E
 	.incbin "baserom.gba", 0x0B7A3E, 0x000012E
 
-gUnk_080B7B6C:: @ 080B7B6C
-	.incbin "baserom.gba", 0x0B7B6C, 0x0000008
+	.include "data/const/playerItem/playerItemCellOverwriteSet.inc"
+
 
 gUnk_080B7B74:: @ 080B7B74
 	.incbin "baserom.gba", 0x0B7B74, 0x00004BA

@@ -1,0 +1,3 @@
+gUnk_0812AA80:: @ 0812AA80
+	.4byte sub_080ACC04
+	.4byte sub_080ACC5C
