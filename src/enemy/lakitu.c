@@ -140,12 +140,12 @@ void sub_0803C784(Entity* this) {
 
 void sub_0803C820(Entity* this) {
     if (sub_0806F520(this)) {
-        gUnk_080D0148[this->previousActionFlag](this);
+        gUnk_080D0148[this->subAction](this);
     }
 }
 
 void sub_0803C844(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 0x3c;
 }
 

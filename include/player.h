@@ -6,6 +6,41 @@
 #include "global.h"
 #include "entity.h"
 
+enum {
+    PLAYER_INIT,
+    PLAYER_NORMAL,
+    PLAYER_DUMMY,
+    PLAYER_FALL,
+    PLAYER_JUMP,
+    PLAYER_PUSH,
+    PLAYER_BOUNCE,
+    PLAYER_08070E9C,
+    PLAYER_ITEMGET,
+    PLAYER_MINISH,
+    PLAYER_MINISHDIE,
+    PLAYER_08071DB8,
+    PLAYER_EMPTYBOTTLE,
+    PLAYER_FROZEN,
+    PLAYER_0807204C,
+    PLAYER_080720DC,
+    PLAYER_PULL,
+    PLAYER_LAVA,
+    PLAYER_WARP,
+    PLAYER_08072454,
+    PLAYER_DROWN,
+    PLAYER_USEPORTAL,
+    PLAYER_TALKEZLO,
+    PLAYER_ROOMTRANSITION,
+    PLAYER_ROLL,
+    PLAYER_080728AC,
+    PLAYER_INHOLE,
+    PLAYER_08072C9C,
+    PLAYER_08074C44,
+    PLAYER_08072F34,
+    PLAYER_USEENTRANCE,
+    PLAYER_PARACHUTE,
+};
+
 typedef struct {
     /*0x00*/ u8 field_0x0[2];
     /*0x02*/ u8 jumpStatus;
@@ -17,12 +52,14 @@ typedef struct {
     /*0x0a*/ u8 field_0xa;
     /*0x0b*/ u8 keepFacing;
     /*0x0c*/ u8 playerAction;
-    /*0x0d*/ u8 field_0xd[2];
+    /*0x0d*/ u8 field_0xd;
+    /*0x0e*/ u8 field_0xe;
     /*0x0f*/ u8 hurtBlinkSpeed;
     /*0x10*/ u8 field_0x10[4];
     /*0x11*/ u8 field_0x14;
     /*0x11*/ u8 field_0x15;
-    /*0x14*/ u16 field_0x16[2];
+    /*0x14*/ u16 startPosX;
+    /*0x16*/ u16 startPosY;
     /*0x1a*/ u8 field_0x1a[2];
     /*0x1c*/ u8 field_0x1c;
     /*0x1d*/ u8 field_0x1d[5];

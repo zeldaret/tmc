@@ -30,7 +30,7 @@ void sub_0805B030(Manager1A* this) {
 }
 
 extern void sub_08052D74(void*, void*, void*);
-extern u32 sub_0806FBFC(u32, u32, u32, u32);
+extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 
 typedef struct struct_08108764 {
     u8 unk_00;
@@ -138,7 +138,7 @@ void sub_0805B168(Manager1A* this) {
 
 u32 sub_0805B1CC(Manager1A* this) {
     u32 re = 0;
-    if (sub_0806FBFC(this->unk_20, this->unk_22, this->unk_24, this->unk_26)) {
+    if (CheckPlayerProximity(this->unk_20, this->unk_22, this->unk_24, this->unk_26)) {
         if ((gPlayerState.flags.all & 0x4) && (gPlayerState.flags.all & 0x1)) {
             gPlayerState.flags.all |= 0x8000;
         } else if (gPlayerState.flags.all & 0x8000) {

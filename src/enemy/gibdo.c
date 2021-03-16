@@ -337,12 +337,12 @@ NONMATCH("asm/non_matching/gibdo/sub_08037A58.inc", void sub_08037A58(Entity* th
     sub_08037ACC(this);
     this->action = 7;
     this->spritePriority.b0 = (this->spritePriority.b0 & 0xf8) | 4;
-    if (this->hurtBlinkTime == 0) {
-        this->hurtBlinkTime = 0xec;
+    if (this->iframes == 0) {
+        this->iframes = 0xec;
     }
     this->damageType = 0x26;
     this->flags2 |= 1;
-    this->hurtBlinkTime = 0xf4;
+    this->iframes = 0xf4;
     this->field_0x3e = (this->animationState << 3) ^ 0x10;
     this->field_0x42 = 8;
     this->field_0x46 = 0x180;
@@ -354,7 +354,7 @@ END_NONMATCH
 void sub_08037ACC(Entity* this) {
     gPlayerState.flags.all &= 0xFFFFFEFF;
     gPlayerEntity.flags |= 0x80;
-    gPlayerEntity.hurtBlinkTime = 0x1e;
+    gPlayerEntity.iframes = 0x1e;
     gPlayerEntity.field_0x3e = DirectionFromAnimationState(this->animationState);
     gPlayerEntity.field_0x42 = 4;
     gPlayerEntity.field_0x46 = 0x180;
@@ -362,7 +362,7 @@ void sub_08037ACC(Entity* this) {
 // Damage player maybe?
 void sub_08037B10(Entity* this) {
     u32 h;
-    gPlayerEntity.hurtBlinkTime = 0xc;
+    gPlayerEntity.iframes = 0xc;
     h = ModHealth(-8);
     sub_0800449C(&gPlayerEntity, 0x7a);
     if (h == 0) {

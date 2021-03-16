@@ -47,7 +47,7 @@ typedef struct Entity {
     /*0x0a*/ u8 type; // was: form
     /*0x0b*/ u8 type2; // was: parameter
     /*0x0c*/ u8 action;
-    /*0x0d*/ u8 previousActionFlag;
+    /*0x0d*/ u8 subAction;
     /*0x0e*/ u8 actionDelay;
     /*0x0f*/ u8 field_0xf;
     /*0x10*/ u8 flags;
@@ -108,7 +108,7 @@ typedef struct Entity {
     /*0x3a*/ u8 field_0x3a;
     /*0x3b*/ u8 flags2;
     /*0x3c*/ u8 field_0x3c;
-    /*0x3d*/ s8 hurtBlinkTime;
+    /*0x3d*/ s8 iframes;
     /*0x3e*/ u8 field_0x3e;
     /*0x3f*/ u8 damageType;
     /*0x40*/ u8 field_0x40;

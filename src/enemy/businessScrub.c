@@ -54,7 +54,7 @@ void sub_08028934(Entity* this) {
 
     if (this->damageType == 1 && (this->bitfield & 0x7f) == 0x42) {
         this->action = 3;
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->actionDelay = 0x28;
         this->flags &= ~0x80;
         sub_080290E0(this, 4);
@@ -97,7 +97,7 @@ void sub_08028A48(Entity* this) {
         this->actionDelay--;
     } else if (sub_08028F98(this, 0)) {
         sub_08029078(this);
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->field_0xf = 1;
     }
 }
@@ -106,11 +106,11 @@ void sub_08028A74(Entity* this) {
     u32 unk;
 
     GetNextFrame(this);
-    switch (this->previousActionFlag) {
+    switch (this->subAction) {
         case 0:
             unk = 1;
             if (this->frames.all & 0x80) {
-                this->previousActionFlag = 1;
+                this->subAction = 1;
                 this->actionDelay = 0x3c;
                 this->field_0xf = 0x10;
                 sub_08028FDC(this);
@@ -120,7 +120,7 @@ void sub_08028A74(Entity* this) {
         case 1:
             unk = 1;
             if (--this->actionDelay == 0) {
-                this->previousActionFlag = 2;
+                this->subAction = 2;
                 this->actionDelay = 0x20;
                 this->field_0xf = 0;
                 sub_08028FDC(this);
@@ -141,14 +141,14 @@ void sub_08028A74(Entity* this) {
                     ent->parent = this;
                     ent->direction = this->direction;
                     this->frames.all &= ~1;
-                    this->previousActionFlag = 3;
+                    this->subAction = 3;
                 }
             }
             break;
         case 3:
             unk = 2;
             if (this->frames.all & 0x80) {
-                this->previousActionFlag = 4;
+                this->subAction = 4;
                 this->actionDelay = 0x50;
                 sub_080290E0(this, 1);
             }
@@ -157,13 +157,13 @@ void sub_08028A74(Entity* this) {
             unk = 2;
             if (--this->actionDelay == 0) {
                 if (sub_08028F98(this, 0)) {
-                    this->previousActionFlag = 1;
+                    this->subAction = 1;
                     this->actionDelay = 0x3c;
                     this->field_0xf = 0x10;
                     sub_08028FDC(this);
                 } else {
                     sub_08028FFC(this);
-                    this->previousActionFlag = 0;
+                    this->subAction = 0;
                     this->actionDelay = 0x50;
                     this->field_0xf = 0;
                 }
@@ -174,7 +174,7 @@ void sub_08028A74(Entity* this) {
 
     if (!sub_08028F98(this, unk)) {
         sub_08028FFC(this);
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->actionDelay = 0x50;
         this->field_0xf = 0;
     }
@@ -183,11 +183,11 @@ void sub_08028A74(Entity* this) {
 void sub_08028BC4(Entity* this) {
     Entity* iVar1;
 
-    switch (this->previousActionFlag) {
+    switch (this->subAction) {
         case 0:
             if (this->actionDelay == 0) {
                 if (this->frames.all & 0x80) {
-                    this->previousActionFlag = 1;
+                    this->subAction = 1;
                     sub_08028FDC(this);
                     sub_080290E0(this, 5);
                     this->spritePriority.b1 = 1;
@@ -199,7 +199,7 @@ void sub_08028BC4(Entity* this) {
         case 1:
             if (this->frames.all & 0x80) {
                 this->action = 4;
-                this->previousActionFlag = 0;
+                this->subAction = 0;
                 this->actionDelay = 0x1e;
                 this->field_0xf = 5;
                 sub_080290E0(this, 0);
@@ -314,7 +314,7 @@ void sub_08028E40(Entity* this) {
         struct SalesOffering* offer = (struct SalesOffering*)this->field_0x7c.WORD;
 
         this->action = 4;
-        this->previousActionFlag = gTextBox.doTextBox & 0x7f;
+        this->subAction = gTextBox.doTextBox & 0x7f;
         this->actionDelay = 1;
         if (CheckLocalFlag(offer->field_0xa) == 0) {
             SetLocalFlag(offer->field_0xa);

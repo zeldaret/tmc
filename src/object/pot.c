@@ -62,7 +62,7 @@ void sub_08082310(Entity* this) {
     switch (var0) {
         case 0x13:
             this->action = 3;
-            this->previousActionFlag = 0;
+            this->subAction = 0;
             break;
         case 0x1D:
             SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
@@ -114,7 +114,7 @@ void sub_08082310(Entity* this) {
 }
 
 void sub_080824F8(Entity* this) {
-    gUnk_0811F0A8[this->previousActionFlag](this);
+    gUnk_0811F0A8[this->subAction](this);
 }
 
 void sub_08082510(Entity* this) {
@@ -125,7 +125,7 @@ void sub_08082510(Entity* this) {
     this->flags2 = gPlayerEntity.flags2;
     this->spriteOffsetY = 0;
     SetTile((u16)this->field_0x70.HALF.LO, COORD_TO_TILE(this), this->collisionLayer);
-    this->previousActionFlag++;
+    this->subAction++;
 }
 
 void nullsub_511(Entity* this) {
@@ -166,7 +166,7 @@ void sub_080825F0(Entity* this) {
 
 static void sub_08082608(Entity* this) {
     this->action = 1;
-    this->previousActionFlag = 0;
+    this->subAction = 0;
 }
 
 void sub_08082614(Entity* this) {
@@ -203,11 +203,11 @@ void sub_08082614(Entity* this) {
 }
 
 void sub_080826E4(Entity* this) {
-    gUnk_0811F0C4[this->previousActionFlag](this);
+    gUnk_0811F0C4[this->subAction](this);
 }
 
 void sub_080826FC(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 48;
     this->actionDelay = 0;
 }

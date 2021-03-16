@@ -167,6 +167,22 @@ extern BG3Buffer gBG3Buffer;
 static_assert(sizeof(BG3Buffer) == 0x1000);
 */
 
+struct {
+    u8 filler[0x70];
+} extern gUnk_03000B80;
+static_assert(sizeof(gUnk_03000B80) == 0x70);
+
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u8 freezeTime;
+    u8 unk9;
+} EntityHandler;
+
+extern EntityHandler gUnk_03003DC0;
+
 extern u8 gUnk_02022740[];
 extern u8 gUnk_02034490[];
 

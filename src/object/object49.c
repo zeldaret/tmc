@@ -150,13 +150,13 @@ void sub_0808F2C0(Entity* this) {
 
 void sub_0808F370(Entity* this) {
     if (this->action == 0) {
-        if (this->parent->previousActionFlag == 1) {
+        if (this->parent->subAction == 1) {
             this->action = 1;
             this->field_0x70.WORD = 0;
             sub_0808F5EC(this);
         }
     } else {
-        u8 flag = this->parent->previousActionFlag - 1;
+        u8 flag = this->parent->subAction - 1;
         if (flag < 5) {
             if (this->field_0x70.WORD == 0) {
                 if (--(*(u32*)&this->field_0x74) == -1) {

@@ -18,7 +18,7 @@ void sub_08099DD0(Entity* this) {
     this->collisionLayer = 1;
     this->spriteRendering.b3 = 3;
     this->spritePriority.b0 = 7;
-    this->previousActionFlag = 0;
+    this->subAction = 0;
     if (GetInventoryValue(0x46)) {
         this->action = 4;
         this->frameIndex = 0;
@@ -31,7 +31,7 @@ void sub_08099DD0(Entity* this) {
 void sub_08099E10(Entity* this) {
     if (CheckLocalFlag(0x74)) {
         GetNextFrame(this);
-        if ((this->frames.all == 1) && (this->previousActionFlag == 0)) {
+        if ((this->frames.all == 1) && (this->subAction == 0)) {
             this->frames.all = 0;
             sub_08099ECC(this);
         }
@@ -56,7 +56,7 @@ void sub_08099E58(Entity* this) {
 
 void sub_08099E8C(Entity* this) {
     if (sub_080041A0(this, &gPlayerEntity, 0xc, 0xc)) {
-        if (this->previousActionFlag == 0) {
+        if (this->subAction == 0) {
             sub_08099ECC(this);
             sub_0805E4E0(this, 0x1e);
         }
@@ -70,7 +70,7 @@ void nullsub_534(Entity* this) {
 }
 
 void sub_08099ECC(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     CopyPosition(this, &gPlayerEntity);
     gPlayerState.playerAction = 3;
     gPlayerState.field_0x34[4] = 0;

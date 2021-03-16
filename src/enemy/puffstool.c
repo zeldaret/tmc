@@ -74,7 +74,7 @@ void sub_08025020(Entity* this) {
             if (0 < this->field_0x20) {
                 this->field_0x20 = 0;
             }
-            this->hurtBlinkTime = -0xc;
+            this->iframes = -0xc;
             this->field_0x42 = 0;
             if (this->field_0x80.HALF.LO == 0) {
                 this->animationState = (*(Entity**)&this->field_0x4c)->direction >> 3;
@@ -84,7 +84,7 @@ void sub_08025020(Entity* this) {
             }
             break;
         default:
-            if (this->damageType == 0x82 && this->hurtBlinkTime < 0) {
+            if (this->damageType == 0x82 && this->iframes < 0) {
                 Entity* ent = CreateObject(0x21, 2, 0);
                 if (ent != NULL) {
                     ent->spritePriority.b0 = 3;
@@ -108,14 +108,14 @@ void sub_0802511C(Entity* this) {
 void sub_0802514C(Entity* this) {
     sub_08003FC4(this, 0x2000);
     if (sub_0806F520(this)) {
-        gUnk_080CBFEC[this->previousActionFlag](this);
+        gUnk_080CBFEC[this->subAction](this);
     } else {
         sub_08025C2C(this);
     }
 }
 
 void sub_08025180(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->actionDelay = Random();
     this->animationState = (((*(Entity**)&this->field_0x4c)->direction ^ 0x10) >> 3);
     InitializeAnimation(this, this->animationState + 4);

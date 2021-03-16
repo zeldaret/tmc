@@ -28,7 +28,6 @@ extern void (*const gUnk_0811BDE0[])(ItemBehavior* beh, u32);
 extern void (*const gUnk_0811BDE8[])(ItemBehavior* beh, u32);
 extern void (*const gUnk_0811BDF4[])(ItemBehavior* beh, u32);
 
-extern u8 gUnk_02034490;
 #if 0
 void Ocarina(ItemBehavior* beh, u32 inputFlags) {
     gOcarinaStates[beh->stateID](beh, inputFlags);

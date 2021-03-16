@@ -43,12 +43,12 @@ void sub_08021d98(Entity* this) {
 
 void sub_08021DA8(Entity* this) {
     if (sub_0806F520(this)) {
-        gUnk_080CB6C4[this->previousActionFlag](this);
+        gUnk_080CB6C4[this->subAction](this);
     }
 }
 
 void sub_08021DCC(Entity* this) {
-    this->previousActionFlag = 2;
+    this->subAction = 2;
 }
 
 void sub_08021DD4(Entity* this) {

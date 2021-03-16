@@ -460,12 +460,12 @@ void sub_0802A098(Entity* this) {
 
 void sub_0802A0F8(Entity* this) {
     if (this->currentHealth != 0) {
-        if ((this->bitfield & 0x80) && this->hurtBlinkTime != 0) {
+        if ((this->bitfield & 0x80) && this->iframes != 0) {
             Entity* ent = this;
             u32 i;
             for (i = 0; i < 6; i++) {
                 ent = ent->attachedEntity;
-                ent->hurtBlinkTime = this->hurtBlinkTime;
+                ent->iframes = this->iframes;
             }
         }
     } else {

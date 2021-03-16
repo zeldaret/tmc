@@ -4,12 +4,6 @@
 #include "functions.h"
 
 typedef struct {
-    void* field_0x0;
-    void* entityCount;
-    u8 freezeTime;
-} EntityHandler;
-
-typedef struct {
     s8 h, v;
 } PACKED PosOffset;
 
@@ -29,7 +23,6 @@ extern u8 gUnk_080D16D0[4]; // Entity count per form
 extern PosOffset gUnk_080D16D4[4];
 
 extern u8 gEntCount;
-extern EntityHandler gHitboxCount;
 
 void Slime(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080D16A4);
@@ -117,7 +110,7 @@ void sub_080450A8(Entity* this) {
         ent->parent = entities[(i + count - 1) % count];
         ent->type2 = 1;
         ent->height.HALF.HI = 0;
-        ent->hurtBlinkTime = -0x10;
+        ent->iframes = -0x10;
 
         /* Set MiniSlime offset relative to killed slime. */
         sub_08045178(this, ent, off->h, off->v);

@@ -63,8 +63,8 @@ void sub_0802C688(Entity* this) {
 }
 
 void sub_0802C7AC(Entity* this) {
-    if (this->previousActionFlag < 3 && !sub_0806F520(this)) {
-        this->previousActionFlag = 0;
+    if (this->subAction < 3 && !sub_0806F520(this)) {
+        this->subAction = 0;
         this->field_0xf = 1;
         this->height.HALF.HI = 0;
         if (this->field_0x82.HALF.LO != 2) {
@@ -75,7 +75,7 @@ void sub_0802C7AC(Entity* this) {
         this->field_0x80.HALF.HI = 0;
     } else {
         this->height.HALF.HI = -1;
-        gUnk_080CD600[this->previousActionFlag](this);
+        gUnk_080CD600[this->subAction](this);
         if (this->actionDelay != 0) {
             GetNextFrame(this);
         }
@@ -83,7 +83,7 @@ void sub_0802C7AC(Entity* this) {
 }
 
 void sub_0802C820(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 60;
 }
 
@@ -180,11 +180,11 @@ void sub_0802C91C(Entity* this) {
 }
 
 void sub_0802C9B8(Entity* this) {
-    gUnk_080CD618[this->previousActionFlag](this);
+    gUnk_080CD618[this->subAction](this);
 }
 
 void sub_0802C9D0(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->flags &= ~0x80;
     this->spritePriority.b1 = 0;
     this->field_0x82.HALF.HI = 1;
@@ -255,7 +255,7 @@ void nullsub_150(Entity* this) {
 
 void sub_0802CB68(Entity* this) {
     this->action = 1;
-    this->previousActionFlag = 0;
+    this->subAction = 0;
     this->direction = Random() & 0x18;
     this->direction |= 4;
     this->flags |= 0x80;

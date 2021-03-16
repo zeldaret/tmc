@@ -16,7 +16,7 @@ extern Hitbox* gUnk_080B3DE8[];
 
 void Item11(Entity* this) {
     if (this->currentHealth) {
-        this->hurtBlinkTime = 0;
+        this->iframes = 0;
         gUnk_080B3DD0[this->action](this);
     } else {
         DeleteThisEntity();
@@ -82,7 +82,7 @@ void sub_08018DE8(Entity* this) {
             sub_08018F6C(this);
             break;
         case 5:
-            this->attachedEntity->previousActionFlag = 4;
+            this->attachedEntity->subAction = 4;
             this->flags = this->flags | 0x80;
             this->action = 2;
             this->spritePriority.b0 = 2;

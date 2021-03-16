@@ -35,7 +35,7 @@ void sub_08077E3C(Entity* ent, u32 idx) {
 void sub_08077E54(Entity* ent) {
     ent->action = gPlayerEntity.animIndex;
     *(u8*)&ent->spriteIndex = gPlayerEntity.frameIndex;
-    ent->previousActionFlag = gPlayerEntity.frameDuration;
+    ent->subAction = gPlayerEntity.frameDuration;
     ent->actionDelay = gPlayerEntity.frames.all;
 }
 

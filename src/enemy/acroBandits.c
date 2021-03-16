@@ -62,8 +62,8 @@ void sub_080318DC(Entity* this) {
                     do {
                         brother->action = 5;
                         brother->spritePriority.b1 = 1;
-                        if (brother->hurtBlinkTime == 0)
-                            brother->hurtBlinkTime = -12;
+                        if (brother->iframes == 0)
+                            brother->iframes = -12;
                     } while (brother = brother->attachedEntity, brother != NULL);
                 }
                 if (this->parent) {
@@ -113,7 +113,7 @@ void sub_080318DC(Entity* this) {
 }
 
 void sub_08031A60(Entity* this) {
-    if (this->hurtBlinkTime > 0)
+    if (this->iframes > 0)
         sub_08003FC4(this, 0x1800);
 
     sub_08001324(this);

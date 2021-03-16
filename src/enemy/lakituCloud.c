@@ -38,16 +38,16 @@ void sub_0803CCEC(Entity* this) {
 
 void sub_0803CCFC(Entity* this) {
     if (sub_0806F520(this) == 0) {
-        if (this->previousActionFlag == 2) {
+        if (this->subAction == 2) {
             sub_0803CE3C(this);
         }
     } else {
-        gUnk_080D043C[this->previousActionFlag](this);
+        gUnk_080D043C[this->subAction](this);
     }
 }
 
 void sub_0803CD2C(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 0x3c;
 }
 

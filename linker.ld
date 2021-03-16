@@ -1019,6 +1019,8 @@ SECTIONS {
         data/data_08108D30.o(.rodata);
         src/npc/ezloCap.o(.rodata);
         data/data_08114208.o(.rodata);
+        src/player.o(.rodata);
+        data/data_0811B9E0.o(.rodata);
         src/item.o(.rodata);
         data/data_0811BD44.o(.rodata);
         data/room_headers.o(.rodata);

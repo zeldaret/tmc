@@ -63,18 +63,18 @@ void sub_080206E0(Entity* this) {
 }
 
 void sub_08020734(Entity* this) {
-    if (this->previousActionFlag < 3 && !sub_0806F520(this)) {
+    if (this->subAction < 3 && !sub_0806F520(this)) {
         this->action = 4;
         this->flags |= 0x80;
         this->direction = 0xff;
         InitializeAnimation(this, this->animationState + 0x10);
     } else {
-        gUnk_080CA6A4[this->previousActionFlag](this);
+        gUnk_080CA6A4[this->subAction](this);
     }
 }
 
 void sub_0802077C(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 60;
 }
 
@@ -132,11 +132,11 @@ void Rollobite_Walk(Entity* this) {
 }
 
 void sub_08020874(Entity* this) {
-    gUnk_080CA6BC[this->previousActionFlag](this);
+    gUnk_080CA6BC[this->subAction](this);
 }
 
 void sub_0802088C(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->flags &= ~0x80;
     this->cutsceneBeh.HALF.HI = gPlayerEntity.animationState;
     this->spritePriority.b1 = 0;

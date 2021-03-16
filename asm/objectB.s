@@ -281,7 +281,7 @@ _08083DA0:
 _08083DA8: .4byte gSave
 _08083DAC:
 	ldrb r0, [r4, #0xa]
-	bl sub_080544DC
+	bl GetBottleContaining
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08083DC8

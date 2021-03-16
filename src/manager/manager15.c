@@ -251,10 +251,10 @@ void sub_0805A664(Manager15* this) {
     sub_0805A68C(this);
 }
 
-extern u32 sub_0806FBFC(u32, u32, u32, u32);
+extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 
 void sub_0805A68C(Manager15* this) {
-    if (sub_0806FBFC(this->unk_38 - 0x18, this->unk_3a - 0x18, 0x30, 0x30)) {
+    if (CheckPlayerProximity(this->unk_38 - 0x18, this->unk_3a - 0x18, 0x30, 0x30)) {
         if (this->unk_2c <= 0x1007) {
             gScreen.controls.alphaBlend = ++this->unk_2c;
             this->unk_22 = 0;
@@ -285,7 +285,7 @@ void sub_0805A6E8(Manager15* this) {
 }
 
 u32 sub_0805A73C(Manager15* this) {
-    return sub_0806FBFC(this->unk_38 - 0x6, this->unk_3a - 0x6, 0xC, 0xC);
+    return CheckPlayerProximity(this->unk_38 - 0x6, this->unk_3a - 0x6, 0xC, 0xC);
 }
 
 void sub_0805A758(Manager15* this) {

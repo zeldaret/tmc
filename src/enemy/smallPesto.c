@@ -42,17 +42,17 @@ void sub_0803169C(Entity* this) {
     iVar1 = sub_0806F520(this);
     if (iVar1 == 0) {
         this->action = 1;
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->flags = this->flags | 0x80;
         this->speed = 0x40;
         this->field_0xf = 1;
     } else {
-        gUnk_080CE554[this->previousActionFlag](this);
+        gUnk_080CE554[this->subAction](this);
     }
 }
 
 void sub_080316DC(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 0x3c;
 }
 

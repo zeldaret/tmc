@@ -583,7 +583,7 @@ _0806D46C:
 	ldrsh r1, [r4, r2]
 	movs r2, #0x40
 	movs r3, #0x40
-	bl sub_0806FBFC
+	bl CheckPlayerProximity
 	cmp r0, #0
 	beq _0806D4AC
 	adds r2, r4, #0
@@ -724,7 +724,7 @@ _0806D540:
 	ldrsh r1, [r4, r2]
 	movs r2, #0x18
 	movs r3, #0x40
-	bl sub_0806FBFC
+	bl CheckPlayerProximity
 	cmp r0, #0
 	beq _0806D5B4
 _0806D590:
