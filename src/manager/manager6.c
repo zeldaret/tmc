@@ -12,7 +12,7 @@ void sub_08057CB4(Manager6* this) {
         this->manager.action = 1;
         this->warpList = GetCurrentRoomProperty(this->manager.unk_0a);
         if (!this->warpList) {
-            DeleteManager((Manager*)this);
+            DeleteManager(&this->manager);
             return;
         }
     }
