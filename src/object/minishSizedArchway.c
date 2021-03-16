@@ -2,11 +2,10 @@
 #include "entity.h"
 #include "game.h"
 
-void Archway(Entity* this) {
+void MinishSizedArchway(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
-        this->spriteSettings.b.draw = 1;
-        this->frameIndex = this->type2;
+        this->frameIndex = this->type;
         this->collisionLayer = 2;
         UpdateSpriteForCollisionLayer(this);
         if (CheckIsDungeon()) {
