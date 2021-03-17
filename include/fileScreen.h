@@ -2,12 +2,6 @@
 #define FILESELECT_H
 
 #include "global.h"
-#include "functions.h"
-#include "main.h"
-#include "player.h"
-#include "readKeyInput.h"
-#include "screen.h"
-#include "menu.h"
 #include "save.h"
 
 typedef struct {

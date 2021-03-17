@@ -1,17 +1,12 @@
 #include "global.h"
 #include "entity.h"
 #include "player.h"
-#include "functions.h"
 #include "save.h"
 #include "script.h"
+#include "npc.h"
+#include "functions.h"
 
 extern SpriteLoadData gUnk_08113910[];
-extern u32 GetFacingDirection(Entity*, Entity*);
-extern u32 sub_0806F5A4(u32);
-extern void sub_0806F118(Entity*);
-extern void sub_08078784(Entity*, u32);
-extern u32 UpdateFuseInteraction(Entity*);
-extern void sub_0807000C(Entity*);
 
 extern Dialog gUnk_08113930[];
 

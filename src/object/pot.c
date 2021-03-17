@@ -16,10 +16,8 @@ extern void (*const gUnk_0811F0C4[])(Entity*);
 extern Hitbox gUnk_080FD338; // TODO: should be const
 extern Hitbox gUnk_080FD340; // TODO: should be const
 
-extern u32 sub_08016A30(Entity*);
 extern u32 sub_080001DA(u32, u32);
 extern void sub_08078930(Entity*);
-extern u32 sub_080002B8(Entity*);
 extern void sub_08016A6C(Entity*);
 
 void Pot(Entity* this) {

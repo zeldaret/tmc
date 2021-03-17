@@ -166,15 +166,16 @@ extern LinkedList gUnk_03003D90;
 extern LinkedList gUnk_03003DA0;
 
 #define TILE(x, y)                                      \
-    ((((x - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
-     (((y - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
+    (((((x) - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
+     ((((y) - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
 
 #define COORD_TO_TILE(entity) \
-    TILE(entity->x.HALF.HI, entity->y.HALF.HI)
+    TILE((entity)->x.HALF.HI, (entity)->y.HALF.HI)
 
 #define COORD_TO_TILE_OFFSET(entity, xOff, yOff) \
-    TILE(entity->x.HALF.HI - xOff, entity->y.HALF.HI - yOff)
+    TILE((entity)->x.HALF.HI - (xOff), (entity)->y.HALF.HI - (yOff))
 
+Entity* GetEmptyEntity(void);
 extern Entity* CreateEnemy(u32 subtype, u32 form);
 extern Entity* CreateObject(u32 subtype, u32 form, u32 parameter);
 extern Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);
@@ -193,10 +194,14 @@ extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
 
 extern u32 GetFacingDirection(Entity*, Entity*);
 
-extern void DeleteThisEntity(void);
-extern void CopyPosition(Entity*, Entity*);
-extern void DeleteEntity(Entity*);
-extern void PositionRelative(Entity*, Entity*, s32, s32);
+void DeleteThisEntity(void);
+void DeleteEntity(Entity*);
+
+void AppendEntityToList(Entity* entity, u32 listIndex);
+void PrependEntityToList(Entity* entity, int listIndex);
+
+Entity* FindEntityInListBySubtype(u32 type, u32 subtype, u32 listIndex);
+Entity* FindEntityInListByForm(u32 type, u32 subtype, u32 listIndex, u32 form, u32 parameter);
 
 enum {
     DirectionNorth  = 0x00,
@@ -211,12 +216,12 @@ enum {
 #define DirectionIsVertical(expr) ((expr) & 0x10)
 #define DirectionTurnAround(expr) (DirectionRoundUp(expr) ^ 0x10)
 #define DirectionToAnimationState(expr) (DirectionRoundUp(expr) >> 3)
-#define DirectionFromAnimationState(expr) (expr << 3)
+#define DirectionFromAnimationState(expr) ((expr) << 3)
 
 #define Direction8Round(expr) ((expr) & 0x1c)
 #define Direction8RoundUp(expr) Direction8Round((expr) + 2)
 #define Direction8TurnAround(expr) (Direction8RoundUp(expr) ^ 0x10)
 #define Direction8ToAnimationState(expr) (Direction8RoundUp(expr) >> 2)
-#define Direction8FromAnimationState(expr) (expr << 2)
+#define Direction8FromAnimationState(expr) (((expr) << 2)
 
 #endif

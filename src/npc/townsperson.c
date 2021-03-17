@@ -4,10 +4,11 @@
 #include "player.h"
 #include "textbox.h"
 #include "flags.h"
-#include "structures.h"
-#include "functions.h"
 #include "save.h"
 #include "script.h"
+#include "random.h"
+#include "structures.h"
+#include "functions.h"
 
 typedef struct {
     u8 frame1;
@@ -19,17 +20,8 @@ typedef struct {
 extern void (*const gUnk_0810B774[])(Entity*);
 extern void (*const gUnk_0810B77C[])(Entity*);
 extern void sub_08061CB4(Entity*, u32);
-extern u32 sub_0805ACC0(Entity*);
-extern u32 sub_0801E99C(Entity*);
 extern void sub_08061D64(Entity*);
-extern void sub_0806F118(Entity*);
-extern u32 sub_0806F5A4(u32);
-extern u32 GetFacingDirection(Entity*, Entity*);
 extern void sub_08062048(Entity*);
-extern void sub_08078784(Entity*, u32);
-extern void sub_08078778(Entity*);
-extern u32 sub_0806F5B0(u32);
-extern void ResolveEntityOnTop(Entity*, Entity*);
 extern void sub_08078850(Entity*, u32, u8, u32*);
 
 extern SpriteLoadData* gUnk_0810B6EC[];

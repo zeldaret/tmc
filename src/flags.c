@@ -2,7 +2,6 @@
 #include "room.h"
 #include "flags.h"
 #include "area.h"
-#include "room.h"
 
 extern u32 ReadBit(u32*, u32);
 extern u32 CheckBits(u32*, u32, u32);

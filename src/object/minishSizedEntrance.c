@@ -1,9 +1,7 @@
 #include "global.h"
 #include "entity.h"
-
-extern bool32 CheckIsDungeon();
-extern void sub_080AE068(Entity*);
-extern void LoadFixedGFX(Entity*, u32);
+#include "game.h"
+#include "functions.h"
 
 extern void (*const gUnk_08122254[])(Entity*);
 

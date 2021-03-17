@@ -1,17 +1,11 @@
 #include "global.h"
 #include "entity.h"
+#include "position.h"
+#include "random.h"
+#include "functions.h"
 
 extern u32 GetNextFunction(Entity*);
-extern u32 sub_0806F520(Entity*);
-extern void sub_0806F4E8(Entity*);
-extern u32 sub_0806F3E4();
-extern void sub_0804A7D4(Entity*);
-extern void sub_0804A720(Entity*);
 extern void sub_080317F8(Entity*);
-extern u32 sub_08049FA0(Entity*);
-extern u32 Random();
-extern u32 sub_08049EE4(Entity*);
-extern void sub_0806F69C(Entity*);
 
 extern void (*gUnk_080CE530[])(Entity*);
 extern void (*gUnk_080CE548[])(Entity*);
@@ -19,7 +13,6 @@ extern void (*gUnk_080CE554[])(Entity*);
 
 void sub_080317B4(Entity*);
 void sub_080317E0(Entity*);
-void sub_080317F8(Entity*);
 void sub_08031840(Entity*);
 
 extern Hitbox gUnk_080CE560;
@@ -61,7 +54,7 @@ void sub_080316E8(Entity* this) {
 }
 
 void sub_080316F0(Entity* this) {
-    if (sub_0806F3E4()) {
+    if (sub_0806F3E4(this)) {
         sub_0804A7D4(this);
     }
 }

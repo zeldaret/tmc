@@ -1,9 +1,10 @@
 #include "global.h"
 #include "entity.h"
+#include "position.h"
 #include "player.h"
 #include "flags.h"
+#include "functions.h"
 
-extern u32 sub_080041A0(Entity*, Entity*, u32, u32);
 void sub_08099ECC(Entity*);
 extern void sub_0805E4E0(Entity*, u32);
 extern void sub_0805B390(u32);

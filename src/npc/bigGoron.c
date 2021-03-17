@@ -2,16 +2,13 @@
 #include "entity.h"
 #include "player.h"
 #include "structures.h"
-#include "functions.h"
 #include "script.h"
+#include "random.h"
+#include "functions.h"
 
 extern void (*gUnk_081140D4[])(Entity*);
 
 extern u16 gUnk_081140CC[];
-extern void sub_0806D0B0(Entity*);
-extern void SoundReq(u32);
-extern void sub_0806D02C(Entity*);
-extern Entity* FindEntityInListByForm(u32, u32, u32, u32, u32);
 
 void BigGoron(Entity* this) {
     gUnk_081140D4[this->type](this);

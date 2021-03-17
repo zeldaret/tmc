@@ -338,7 +338,7 @@ _08059800:
 	lsls r5, r5, #4
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl MemClear32
+	bl MemClear
 	ldr r1, _08059820 @ =0x0600E800
 	adds r0, r4, #0
 	adds r2, r5, #0

@@ -34,8 +34,6 @@ void sub_08057AD0(Manager5* this) {
 
 void sub_08057CA4(Manager5*, u32, u32);
 
-extern void DeleteManager(Manager*);
-
 void sub_08057AE8(Manager5* this) {
     u32 tmp;
     tmp = (this->manager.unk_0b & 0x3) << 1;

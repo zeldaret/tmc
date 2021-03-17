@@ -3,9 +3,9 @@
 #include "player.h"
 #include "room.h"
 #include "trig.h"
-#include "structures.h"
-#include "functions.h"
 #include "fileScreen.h"
+#include "random.h"
+#include "functions.h"
 
 void (*const gUnk_080D1AFC[8])(Entity*);
 void (*const gUnk_080D1B1C[7])(Entity*);
@@ -26,7 +26,6 @@ const u8 gUnk_080D1C44[0xC];
 const u16 gUnk_080D1C50[8];
 const u16 gUnk_080D1C60[8];
 
-void GyorgMale(Entity*);
 void sub_08046898(Entity*); // action 0
 void sub_08046910(Entity*); // action 1
 void sub_08046930(Entity*); // action 1 previousActionFlag 0

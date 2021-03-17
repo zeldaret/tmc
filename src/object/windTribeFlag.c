@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
+#include "random.h"
 
 void WindTribeFlag(Entity* this) {
     if (this->action == 0) {

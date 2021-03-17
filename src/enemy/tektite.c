@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
 extern void (*const gUnk_080CDED0[])(Entity*);
@@ -62,8 +63,6 @@ void sub_0802F1F0(Entity* this) {
     }
 }
 
-extern u8 gUnk_080CDEF8[];
-
 void sub_0802F210(Entity* this) {
     u32 temp;
     u32 temp2;
@@ -105,8 +104,6 @@ void sub_0802F284(Entity* this) {
         InitializeAnimation(this, 1);
     }
 }
-
-extern u8 gUnk_080CDEF8[];
 
 void sub_0802F300(Entity* this) {
     s32 temp;

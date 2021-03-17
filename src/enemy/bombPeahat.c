@@ -1,17 +1,15 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 #include "player.h"
+#include "random.h"
+#include "functions.h"
 
 extern void sub_08078954(Entity*);
-extern u32 sub_0800442E(Entity*);
 extern void sub_08078930(Entity*);
 extern s32 sub_080012DC(Entity*);
 extern u32 GetNextFunction(Entity*);
-extern void sub_0806F4E8(Entity*);
 extern Entity* sub_08049DF4(u32);
 extern void sub_08079BD8(Entity*);
-extern u32 GetTileTypeByEntity(Entity*);
 
 void sub_0802AD1C(Entity*, u32);
 void sub_0802AD54(Entity*);

@@ -70,7 +70,7 @@ sub_080788E0: @ 0x080788E0
 	ldr r1, _08078900 @ =gUnk_03003DF8
 	adds r0, r0, r1
 	movs r1, #0xc
-	bl MemClear32
+	bl MemClear
 _080788FC:
 	pop {pc}
 	.align 2, 0
@@ -542,7 +542,7 @@ sub_08078C24: @ 0x08078C24
 	ldr r0, _08078CB0 @ =gUnk_03003DF0
 	movs r1, #0xc4
 	lsls r1, r1, #1
-	bl MemClear32
+	bl MemClear
 	pop {pc}
 	.align 2, 0
 _08078CAC: .4byte gPlayerState

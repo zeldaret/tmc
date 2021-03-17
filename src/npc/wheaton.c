@@ -1,9 +1,8 @@
 #include "global.h"
 #include "entity.h"
 #include "script.h"
+#include "functions.h"
 
-extern void sub_0805E3A0(Entity*, u32);
-extern void ResolveEntityOnTop(Entity*, Entity*);
 extern Hitbox gUnk_0810C3C0;
 
 void Wheaton(Entity* this) {

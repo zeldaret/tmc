@@ -1,5 +1,4 @@
 #include "global.h"
-#include "entity.h"
 
 extern void sub_0807C960();
 extern u16 gMetatilesBottom[];

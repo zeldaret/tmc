@@ -3,29 +3,17 @@
 #include "room.h"
 #include "player.h"
 #include "flags.h"
+#include "random.h"
 #include "functions.h"
 #include "structures.h"
 
 extern void sub_0809F7BC(Entity*);
-extern void SoundReq(u32);
-extern void sub_0809F814(u32);
 extern void sub_0809F7F4(Entity*);
-extern void LoadRoomEntityList();
-extern void DeleteThisEntity();
-extern u32 CheckRoomFlag(u32);
-extern void sub_08078A90(u32);
-extern void sub_08078B48(void);
-extern void sub_0806F69C(Entity*);
 extern void (*gUnk_08124798[])(Entity*);
 extern void (*gUnk_081247A0[])(Entity*);
 extern void (*gUnk_081247AC[])(Entity*);
-extern Entity* CreateObject(u32, u32, u32);
-extern void PositionEntityOnTop(Entity*, Entity*);
-extern void sub_0807BB68(u32*, u32, u32);
 
 extern void* gUnk_080DD750;
-extern Entity gPlayerEntity;
-extern PlayerState gPlayerState;
 extern u8 gUnk_081247C0[];
 extern u16 gUnk_081247C8[];
 extern u32 gUnk_081247D0;
@@ -72,7 +60,7 @@ void sub_0809F5B0(Entity* this) {
     if (--this->actionDelay == 0) {
         SoundReq(115);
         SetGlobalFlag(KUMOTATSUMAKI);
-        LoadRoomEntityList(&gUnk_080DD750);
+        LoadRoomEntityList((EntityData*)&gUnk_080DD750);
         DeleteThisEntity();
     }
 }

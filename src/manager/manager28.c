@@ -11,7 +11,6 @@ typedef struct {
     } d;
 } Manager28;
 
-void Manager28_Entry(Manager28*);
 void Manager28_Init(Manager28*);
 void Manager28_Main(Manager28*);
 u32 Manager28_FindMatchingEntities(Manager28*);
@@ -47,7 +46,7 @@ void Manager28_Init(Manager28* this) {
                 /*     tmp3->enemies[tmp4] = this->enemies[tmp4]; */
                 /* } */
                 tmp3->d = this->d;
-                AppendEntityToList(tmp3, 6);
+                AppendEntityToList((Entity*)tmp3, 6);
             }
         }
         DeleteManager(&this->manager);

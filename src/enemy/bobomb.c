@@ -1,7 +1,8 @@
 #include "enemy.h"
+#include "random.h"
+#include "createObject.h"
 #include "functions.h"
 
-extern void CreateDustSmall(Entity*);
 extern void sub_08078930(Entity*);
 extern void sub_08078954(Entity*);
 

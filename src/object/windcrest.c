@@ -4,8 +4,6 @@
 #include "script.h"
 
 extern void sub_08078850(Entity*, u32, u32, u8*);
-extern void SoundReq(u32);
-extern Entity* CreateFx(Entity*, u32, u32);
 
 extern u8 gUnk_08125010;
 

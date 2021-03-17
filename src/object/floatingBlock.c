@@ -1,6 +1,5 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 
 void FloatingBlock(Entity* this) {
     if (this->action == 0) {

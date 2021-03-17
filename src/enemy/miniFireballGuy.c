@@ -1,11 +1,9 @@
 #include "global.h"
 #include "entity.h"
+#include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
-extern void EnemyFunctionHandler(Entity*, void (*const func[])(Entity*));
-extern void sub_0804A7D4(Entity*);
-extern void sub_0804A720(Entity*);
-extern void sub_08045678(Entity*);
 extern void sub_08045678(Entity*);
 
 extern void (*const gUnk_080D1868[])(Entity*);

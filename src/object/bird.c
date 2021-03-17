@@ -1,8 +1,9 @@
 #include "global.h"
 #include "entity.h"
 #include "flags.h"
-#include "functions.h"
 #include "save.h"
+#include "random.h"
+#include "functions.h"
 
 extern void (*const gUnk_08123EC0[])(Entity*);
 extern void (*const gUnk_08123EEC[])(Entity*);

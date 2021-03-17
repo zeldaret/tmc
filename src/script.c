@@ -5,8 +5,10 @@
 #include "script.h"
 #include "structures.h"
 #include "textbox.h"
-#include "functions.h"
+#include "dma.h"
 #include "save.h"
+#include "random.h"
+#include "functions.h"
 
 void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
 void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
@@ -304,9 +306,9 @@ extern ScriptExecutionContext gPlayerScriptExecutionContext;
 extern ScriptExecutionContext gScriptExecutionContextArray[0x20];
 
 void InitScriptData(void) {
-    MemClear32(&gActiveScriptInfo, sizeof(gActiveScriptInfo));
-    MemClear32(&gScriptExecutionContextArray, sizeof(gScriptExecutionContextArray));
-    MemClear32(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
+    MemClear(&gActiveScriptInfo, sizeof(gActiveScriptInfo));
+    MemClear(&gScriptExecutionContextArray, sizeof(gScriptExecutionContextArray));
+    MemClear(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
     gActiveScriptInfo.unk_08 = 8;
 }
 
@@ -324,7 +326,7 @@ ScriptExecutionContext* CreateScriptExecutionContext(void) {
 }
 
 void DestroyScriptExecutionContext(ScriptExecutionContext* context) {
-    MemClear32(context, sizeof(ScriptExecutionContext));
+    MemClear(context, sizeof(ScriptExecutionContext));
 }
 
 ScriptExecutionContext* StartCutscene(Entity* entity, u16* script) {
@@ -354,7 +356,7 @@ void UnloadCutsceneData(Entity* entity) {
 void StartPlayerScript(u16* script) {
     Entity* player;
 
-    MemClear32(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
+    MemClear(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
     gPlayerScriptExecutionContext.scriptInstructionPointer = script;
     player = &gPlayerEntity;
     *(ScriptExecutionContext**)&player->cutsceneBeh = &gPlayerScriptExecutionContext;
@@ -377,7 +379,7 @@ ScriptExecutionContext* StartCutscene2(Entity* entity, u16* script) {
 }
 
 void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script) {
-    MemClear32(context, sizeof(ScriptExecutionContext));
+    MemClear(context, sizeof(ScriptExecutionContext));
     context->scriptInstructionPointer = script;
 }
 
@@ -701,7 +703,7 @@ void ScriptCommand_CallWithArg(Entity* entity, ScriptExecutionContext* context) 
 }
 
 void ScriptCommand_LoadRoomEntityList(Entity* entity, ScriptExecutionContext* context) {
-    LoadRoomEntityList(GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer));
+    LoadRoomEntityList((EntityData*)GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer));
 }
 
 void ScriptCommand_TestBit(Entity* entity, ScriptExecutionContext* context) {

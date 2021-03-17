@@ -1,8 +1,7 @@
 #include "global.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
-
-extern void sub_0806F69C(Entity*);
 
 extern void (*const gUnk_08121060[])(Entity*);
 extern void (*const gUnk_08121070[])(Entity*);

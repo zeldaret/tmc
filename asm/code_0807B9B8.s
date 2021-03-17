@@ -948,19 +948,19 @@ sub_0807C0DC: @ 0x0807C0DC
 	lsls r6, r6, #6
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl MemClear32
+	bl MemClear
 	adds r0, r5, r6
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl MemClear32
+	bl MemClear
 	ldr r0, _0807C160 @ =gUnk_02019EE0
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _0807C164 @ =gMapDataTopSpecial
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _0807C168 @ =gArea
 	ldr r1, _0807C16C @ =0x0000085C
 	adds r0, r0, r1
@@ -999,7 +999,7 @@ _0807C174: .4byte 0x0000FFFF
 _0807C178:
 	adds r0, r2, #4
 	adds r1, r6, #0
-	bl MemClear32
+	bl MemClear
 	movs r3, #1
 	mov sb, r3
 _0807C184:
@@ -1167,7 +1167,7 @@ _0807C2E4:
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl MemClear32
+	bl MemClear
 	ldr r4, _0807C350 @ =gMapDataTopSpecial
 	adds r5, r4, r6
 	adds r0, r4, #0
@@ -1179,7 +1179,7 @@ _0807C2E4:
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl MemClear32
+	bl MemClear
 _0807C326:
 	mov r1, sb
 	cmp r1, #0
@@ -1406,10 +1406,10 @@ sub_0807C4F8: @ 0x0807C4F8
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _0807C59C @ =gMapDataTopSpecial
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r5, _0807C5A0 @ =gUnk_02022830
 	ldr r0, _0807C5A4 @ =gArea
 	ldr r1, _0807C5A8 @ =0x0000085C
@@ -1455,7 +1455,7 @@ _0807C54A:
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl MemClear32
+	bl MemClear
 	ldr r4, _0807C59C @ =gMapDataTopSpecial
 	adds r5, r4, r6
 	adds r0, r4, #0
@@ -1467,7 +1467,7 @@ _0807C54A:
 	bl sub_0807C5F4
 	adds r0, r5, #0
 	adds r1, r6, #0
-	bl MemClear32
+	bl MemClear
 _0807C592:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -1694,7 +1694,7 @@ _0807C710:
 _0807C726:
 	adds r0, r4, #0
 	movs r1, #0x40
-	bl MemClear32
+	bl MemClear
 	adds r4, #0x40
 	adds r5, #1
 	cmp r5, r7
@@ -1984,7 +1984,7 @@ _0807C92E:
 _0807C946:
 	adds r0, r4, #0
 	movs r1, #0x80
-	bl MemClear32
+	bl MemClear
 	adds r4, #0x80
 	adds r5, #1
 	cmp r5, r6

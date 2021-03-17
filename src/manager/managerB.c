@@ -4,6 +4,7 @@
 #include "entity.h"
 #include "room.h"
 #include "area.h"
+#include "dma.h"
 #include "functions.h"
 
 /*
@@ -128,8 +129,8 @@ ManagerBHelper* CreateHelper(Manager* this) {
         extra->manager.unk_0a = 1;
         extra->manager.parent = this;
         this->unk_0e++;
-        MemClear32(&extra->enemies, 0x20);
-        AppendEntityToList(extra, 8);
+        MemClear(&extra->enemies, 0x20);
+        AppendEntityToList((Entity*)extra, 8);
     }
     return extra;
 }

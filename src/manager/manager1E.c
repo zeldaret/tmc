@@ -1,7 +1,6 @@
 #include "global.h"
 #include "manager.h"
 #include "flags.h"
-#include "player.h"
 #include "functions.h"
 
 typedef struct {
@@ -17,7 +16,6 @@ typedef struct {
 
 enum Manager1E_State { Init, ObserveRegion };
 
-void Manager1E_Handler(Manager1E*);
 void Manager1E_Init(Manager1E*);
 void Manager1E_ObserveRegion(Manager1E*);
 

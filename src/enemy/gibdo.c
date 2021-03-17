@@ -1,8 +1,9 @@
 #include "global.h"
 #include "entity.h"
 #include "sprite.h"
-#include "functions.h"
 #include "enemy.h"
+#include "random.h"
+#include "functions.h"
 // Gibudo
 void sub_08037794();
 void sub_08037B10();

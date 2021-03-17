@@ -2,19 +2,13 @@
 #include "entity.h"
 #include "enemy.h"
 #include "player.h"
+#include "random.h"
 #include "functions.h"
 
 extern void sub_08001328(Entity*);
-extern u32 sub_0806F520(Entity*);
-extern void sub_0806F4E8(Entity*);
-extern u32 sub_0806F3E4(Entity*);
-extern void sub_0804A7D4(Entity*);
-extern void sub_0804A720(Entity*);
 extern void Keese_StartFly(Entity*);
 extern void sub_080AEFB4(Entity*);
 extern void sub_08021F24(Entity*);
-extern u32 sub_08049FA0(Entity*);
-extern u32 sub_08049EE4(Entity*);
 
 extern void (*const gKeeseFunctions[])(Entity*);
 extern void (*const gKeeseActions[])(Entity*);

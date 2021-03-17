@@ -1,5 +1,4 @@
 #include "global.h"
-#include "functions.h"
 #include "entity.h"
 #include "npc.h"
 

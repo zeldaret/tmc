@@ -3,7 +3,6 @@
 #include "room.h"
 #include "functions.h"
 
-extern u32* _call_via_r0(u32* func);
 extern void (*const gUnk_080FF420[])();
 extern void sub_0804B0B0(u32, u32);
 extern void sub_08055B70(u32, u32, u32, u32);
