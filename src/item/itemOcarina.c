@@ -5,7 +5,6 @@ extern void (*const gOcarinaStates[4])(ItemBehavior*, u32);
 extern void sub_08078F60(void);
 extern void sub_0805E544(void);
 
-
 #if 0
 void Ocarina(ItemBehavior* beh, u32 inputFlags) {
     gOcarinaStates[beh->stateID](beh, inputFlags);
