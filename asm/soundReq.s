@@ -190,8 +190,8 @@ _080A33C4:
 	bl sub_080A35A0
 	b _080A347C
 _080A33CC:
-	ldr r2, _080A33EC @ =gUnk_08A11C3C
-	ldr r1, _080A33F0 @ =gUnk_08A11DBC
+	ldr r2, _080A33EC @ =gMPlayTable
+	ldr r1, _080A33F0 @ =gSongTable
 	ldrh r0, [r5, #0x14]
 	lsls r0, r0, #3
 	adds r0, r0, r1
@@ -205,8 +205,8 @@ _080A33CC:
 	bl m4aMPlayTempoControl
 	b _080A347C
 	.align 2, 0
-_080A33EC: .4byte gUnk_08A11C3C
-_080A33F0: .4byte gUnk_08A11DBC
+_080A33EC: .4byte gMPlayTable
+_080A33F0: .4byte gSongTable
 _080A33F4:
 	bl m4aMPlayAllStop
 	bl m4aSoundVSyncOff

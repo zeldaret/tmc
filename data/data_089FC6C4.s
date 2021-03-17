@@ -43,31 +43,31 @@ gUnk_089FC6C4:: @ 089FC6C4
 .4byte RealClearChain
 .4byte SoundMainBTM
 
-gUnk_089FC754:: @ 089FC754
+gScaleTable:: @ 089FC754
 	.incbin "baserom.gba", 0x9FC754, 0x00000B4
 
-gUnk_089FC808:: @ 089FC808
+gFreqTable:: @ 089FC808
 	.incbin "baserom.gba", 0x9FC808, 0x0000030
 
-gUnk_089FC838:: @ 089FC838
+gPcmSamplesPerVBlankTable:: @ 089FC838
 	.incbin "baserom.gba", 0x9FC838, 0x0000018
 
-gUnk_089FC850:: @ 089FC850
+gCgbScaleTable:: @ 089FC850
 	.incbin "baserom.gba", 0x9FC850, 0x0000084
 
-gUnk_089FC8D4:: @ 089FC8D4
+gCgbFreqTable:: @ 089FC8D4
 	.incbin "baserom.gba", 0x9FC8D4, 0x0000018
 
-gUnk_089FC8EC:: @ 089FC8EC
+gNoiseTable:: @ 089FC8EC
 	.incbin "baserom.gba", 0x9FC8EC, 0x000003C
 
-gUnk_089FC928:: @ 089FC928
+gCgb3Vol:: @ 089FC928
 	.incbin "baserom.gba", 0x9FC928, 0x0000010
 
 gUnk_089FC938:: @ 089FC938
 	.incbin "baserom.gba", 0x9FC938, 0x0000034
 
-gUnk_089FC96C:: @ 089FC96C
+gXcmdTable:: @ 089FC96C
 @ replacing .incbin "baserom.gba", 0x009fc96c, 0x30
 .4byte ply_xxx
 .4byte ply_xwave
@@ -1690,10 +1690,10 @@ gUnk_08A11C0C:: @ 08A11C0C
 gUnk_08A11C1C:: @ 08A11C1C
 	.incbin "baserom.gba", 0xA11C1C, 0x0000020
 
-gUnk_08A11C3C:: @ 08A11C3C
+gMPlayTable:: @ 08A11C3C
 	.incbin "baserom.gba", 0xA11C3C, 0x0000180
 
-gUnk_08A11DBC:: @ 08A11DBC
+gSongTable:: @ 08A11DBC
 	.incbin "baserom.gba", 0xA11DBC, 0x00009E5
 
 gUnk_08A127A1:: @ 08A127A1

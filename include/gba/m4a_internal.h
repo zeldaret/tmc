@@ -98,7 +98,7 @@ struct CgbChannel {
     u8 sw;
     u32 fr;
     u32* wp;
-    u32 cp;
+    u32* cp;
     u32 tp;
     u32 pp;
     u32 np;
@@ -171,17 +171,17 @@ struct SoundInfo {
     s32 pcmFreq;
     s32 divFreq;
     struct CgbChannel* cgbChans;
-    u32 func;
-    u32 intp;
+    void* func;
+    void* intp;
     void (*CgbSound)(void);
     void (*CgbOscOff)(u8);
     u32 (*MidiKeyToCgbFreq)(u8, u8, u8);
-    u32 MPlayJumpTable;
+    void* MPlayJumpTable;
     void* plynote;
     void (*ExtVolPit)(void);
     u8 gap2[16];
     struct SoundChannel chans[MAX_DIRECTSOUND_CHANNELS];
-    s8 pcmBuffer[PCM_DMA_BUF_SIZE * 2];
+    s8 pcmBuffer[PCM_DMA_BUF_SIZE];
 };
 
 struct SongHeader {
@@ -272,8 +272,8 @@ struct MusicPlayerInfo {
     struct MusicPlayerTrack* tracks;
     struct ToneData* tone;
     u32 ident;
-    u32 func;
-    u32 intp;
+    u32* func;
+    u32* intp;
 };
 
 struct MusicPlayer {

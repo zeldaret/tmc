@@ -1,5 +1,8 @@
 ENTRY(__start)
 
+gNumMusicPlayers = 0x20;
+gMaxLines = 0;
+
 MEMORY {
     ewram (w!x) : ORIGIN = 0x02000000, LENGTH = 256K
     iwram (w!x) : ORIGIN = 0x03000000, LENGTH = 32K
@@ -212,15 +215,15 @@ SECTIONS {
         . = 0x00004020; gUnk_03004020 = .;
         . = 0x00004030; gUnk_03004030 = .;
         . = 0x00004040; gUnk_03004040 = .;
-        . = 0x0000404C; gUnk_0300404C = .;
+        . = 0x0000404C; SoundMainRAM_Buffer = .;
         . = 0x0000404D; gUnk_0300404D = .;
-        . = 0x000043D0; gUnk_030043D0 = .;
-        . = 0x00004D50; gUnk_03004D50 = .;
+        . = 0x000043D0; gSoundInfo = .;
+        . = 0x00004D50; gMPlayJumpTable = .;
         . = 0x00004D54; gUnk_03004D54 = .;
         . = 0x00004DD8; gUnk_03004DD8 = .;
         . = 0x00004DDC; gUnk_03004DDC = .;
-        . = 0x00004DE0; gUnk_03004DE0 = .;
-        . = 0x000055E0; gUnk_030055E0 = .;
+        . = 0x00004DE0; gCgbChans = .;
+        . = 0x000055E0; gMPlayMemAccArea = .;
         . = 0x000056F0; gUnk_030056F0 = .;
         . = 0x000056F1; gUnk_030056F1 = .;
         . = 0x00005740; gUnk_03005740 = .;
@@ -901,7 +904,7 @@ SECTIONS {
         asm/code_080AD90C.o(.text);
         /* library functions */
         asm/m4a_asm.o(.text);
-        asm/m4a.o(.text);
+        src/gba/m4a.o(.text);
         asm/libagbsyscall.o(.text);
         src/eeprom.o(.text);
         *libc.a:memcpy.o(.text);

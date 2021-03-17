@@ -138,8 +138,8 @@ _080A355E:
 	ldrsh r0, [r0, r1]
 	muls r0, r5, r0
 	lsrs r5, r0, #8
-	ldr r2, _080A3594 @ =gUnk_08A11C3C
-	ldr r1, _080A3598 @ =gUnk_08A11DBC
+	ldr r2, _080A3594 @ =gMPlayTable
+	ldr r1, _080A3598 @ =gSongTable
 	lsls r0, r3, #3
 	adds r0, r0, r1
 	ldrh r1, [r0, #4]
@@ -159,8 +159,8 @@ _080A358C:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A3590: .4byte gUnk_02021EE0
-_080A3594: .4byte gUnk_08A11C3C
-_080A3598: .4byte gUnk_08A11DBC
+_080A3594: .4byte gMPlayTable
+_080A3598: .4byte gSongTable
 _080A359C: .4byte 0x0000FFFF
 
 	thumb_func_start sub_080A35A0
