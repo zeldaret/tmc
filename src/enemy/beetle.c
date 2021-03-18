@@ -68,7 +68,7 @@ void sub_08021818(Entity* this) {
 
 void sub_08021848(Entity* this) {
     if (sub_0806F520(this)) {
-        gUnk_080CB5C8[this->previousActionFlag](this);
+        gUnk_080CB5C8[this->subAction](this);
     } else {
         this->action = 3;
         this->height.HALF.HI = 0;
@@ -77,7 +77,7 @@ void sub_08021848(Entity* this) {
 }
 
 void sub_0802187C(Entity* this) {
-    this->previousActionFlag = 2;
+    this->subAction = 2;
 }
 
 void nullsub_130(Entity* this) {
@@ -100,8 +100,8 @@ void sub_080218B4(Entity* this) {
 }
 
 void sub_080218CC(Entity* this) {
-    if (this->previousActionFlag == 0) {
-        this->previousActionFlag = 1;
+    if (this->subAction == 0) {
+        this->subAction = 1;
         this->spriteSettings.b.draw = 1;
         this->direction = ((sub_08049F84(this, 1) ^ 0x10) + gUnk_080CB5DC[Random() & 7]) & 0x1f;
         this->speed = 0x100;
@@ -126,8 +126,8 @@ void sub_080218CC(Entity* this) {
 }
 
 void sub_08021984(Entity* this) {
-    if (this->previousActionFlag == 0) {
-        this->previousActionFlag = 1;
+    if (this->subAction == 0) {
+        this->subAction = 1;
         this->flags |= 0x80;
         this->spriteSettings.b.draw = 3;
         this->height.HALF.HI = -0x80;

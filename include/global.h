@@ -51,21 +51,21 @@
 #define static_assert(cond) extern char assertion[(cond) ? 1 : -1]
 
 #if NON_MATCHING
-#define asmfunc(prologue, path)
+#define ASM_FUNC(path, decl)
 #else
-#define asmfunc(prologue, path) \
-    NAKED prologue {            \
+#define ASM_FUNC(path, decl)    \
+    NAKED decl {                \
         asm(".include " #path); \
     }
 #endif
 
 #if NON_MATCHING
-#define NONMATCH(prologue, path) prologue
+#define NONMATCH(path, decl) decl
 #define END_NONMATCH
 #else
-#define NONMATCH(path, prologue) \
-    NAKED prologue {             \
-        asm(".include " #path);  \
+#define NONMATCH(path, decl)    \
+    NAKED decl {                \
+        asm(".include " #path); \
         if (0)
 #define END_NONMATCH }
 #endif

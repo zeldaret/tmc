@@ -81,7 +81,7 @@ void sub_08045454(Entity* this) {
         tmp = 0;
         ent->type2 = 1;
         ent->height.HALF.HI = tmp;
-        ent->hurtBlinkTime = -0x10;
+        ent->iframes = -0x10;
 
         /* Set MiniFireballGuy offset relative to killed slime. */
         sub_08045178(this, ent, off->h, off->v);

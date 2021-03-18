@@ -50,7 +50,7 @@ void sub_08033564(Entity* this) {
             break;
         case 0x14:
             this->flags &= 0x7f;
-            this->hurtBlinkTime = 0;
+            this->iframes = 0;
             this->spriteSettings.b.draw = FALSE;
             ent = CreateFx(this, 2, 0);
             if (ent != NULL) {
@@ -65,12 +65,12 @@ void sub_08033564(Entity* this) {
 
 void sub_0803362C(Entity* this) {
     if (sub_0806F520() != 0) {
-        gUnk_080CEB98[this->previousActionFlag](this);
+        gUnk_080CEB98[this->subAction](this);
     }
 }
 
 void sub_08033650(Entity* this) {
-    this->previousActionFlag = 2;
+    this->subAction = 2;
 }
 
 void sub_08033658(Entity* this) {

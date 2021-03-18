@@ -855,7 +855,7 @@ void ScriptCommand_BuyItem(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_0807E48C(Entity* entity, ScriptExecutionContext* context) {
-    context->condition = sub_080544DC(context->scriptInstructionPointer[1]);
+    context->condition = GetBottleContaining(context->scriptInstructionPointer[1]);
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -1087,7 +1087,7 @@ void ScriptCommand_0807E8E4(Entity* entity, ScriptExecutionContext* context) {
 
 void ScriptCommand_0807E908(Entity* entity, ScriptExecutionContext* context) {
     entity->action = context->scriptInstructionPointer[1];
-    entity->previousActionFlag = 0;
+    entity->subAction = 0;
 }
 
 void ScriptCommand_SetIntVariable(Entity* entity, ScriptExecutionContext* context) {

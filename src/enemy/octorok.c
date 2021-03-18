@@ -49,16 +49,16 @@ void sub_0801EB0C(Entity* this) {
 }
 
 void sub_0801EB2C(Entity* this) {
-    if (this->previousActionFlag < 3 && !sub_0806F520(this)) {
+    if (this->subAction < 3 && !sub_0806F520(this)) {
         Octorok_Pause(this);
         InitializeAnimation(this, this->animationState);
     } else {
-        gUnk_080CA158[this->previousActionFlag](this);
+        gUnk_080CA158[this->subAction](this);
     }
 }
 
 void sub_0801EB68(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 60;
 }
 

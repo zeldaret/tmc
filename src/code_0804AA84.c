@@ -17,7 +17,7 @@ extern void (*const gUnk_080D412C[])();
 extern struct_02018EB0 gUnk_02018EB0;
 
 u32 sub_0804AA84(void) {
-    if (gArea.fadeOut != 0) {
+    if (gArea.playShrinkSeq) {
         gMain.transition = 4;
         gArea.filler[8] = 0;
         gArea.filler[9] = 0;
@@ -25,8 +25,8 @@ u32 sub_0804AA84(void) {
         sub_0805E5A8();
         return 1;
     } else {
-        gArea.filler[18] = gArea.fadeOut;
-        *(vu8*)&gArea.fadeOut = gArea.fadeOut;
+        gArea.filler[18] = gArea.playShrinkSeq;
+        *(vu8*)&gArea.playShrinkSeq = gArea.playShrinkSeq;
         return 0;
     }
 }
@@ -39,7 +39,7 @@ void sub_0804AAD4(void) {
     MemClear(&gUnk_02018EB0, 0x28);
     gUnk_02018EB0.unk = 0;
     EraseAllEntities();
-    CreateObject(0x3d, gArea.field_0x17, 0);
+    CreateObject(0x3d, gArea.curPortalType, 0);
     gArea.filler[8]++;
 }
 

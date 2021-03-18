@@ -14,7 +14,7 @@
 #include "functions.h"
 
 extern u8 gArea;
-extern u32 gUnk_03000B80;
+extern Entity gPlayerEntity;
 extern u32 gUnk_03003FC0;
 
 extern u16 gWalletSizes[4];
@@ -239,7 +239,7 @@ void InitializePlayer(void) {
     Entity* pl;
 
     sub_080784C8();
-    MemClear((void*)&gUnk_03000B80, 0x70);
+    MemClear((void*)&gUnk_03000B80, sizeof(gUnk_03000B80));
     MemClear((void*)&gPlayerState, 0xb0);
 
     MemFill32(0xffffffff, &gPlayerState.field_0x40, 0x40);

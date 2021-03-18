@@ -17,7 +17,7 @@ void BigGoron(Entity* this) {
 void sub_0806CF30(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
-        this->previousActionFlag = 1;
+        this->subAction = 1;
         this->field_0x68.HWORD = this->x.HALF.HI;
         sub_0805E3A0(this, 2);
         sub_0806D0B0(this);
@@ -27,7 +27,7 @@ void sub_0806CF30(Entity* this) {
         HandleEntity0x82Actions(this);
     }
 
-    switch (this->previousActionFlag) {
+    switch (this->subAction) {
         case 0:
         case 1:
             if (gScreenTransition.frameCount % 4 == 0) {

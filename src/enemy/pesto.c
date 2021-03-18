@@ -79,20 +79,20 @@ void sub_08023FE0(Entity* this) {
 }
 
 void sub_08023FF0(Entity* this) {
-    if (this->previousActionFlag < 3 && !sub_0806F520(this)) {
+    if (this->subAction < 3 && !sub_0806F520(this)) {
         this->action = 1;
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->flags |= 0x80;
         this->damageType = 0x77;
         this->actionDelay = 1;
         this->speed = 0x40;
     } else {
-        gUnk_080CBEF8[this->previousActionFlag](this);
+        gUnk_080CBEF8[this->subAction](this);
     }
 }
 
 void sub_08024038(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 60;
     GetNextFrame(this);
 }
@@ -130,7 +130,7 @@ void sub_080240B8(Entity* this) {
     u32 direction = (Random() & 0xc0) >> 3;
     sub_0804A720(this);
     this->action = 1;
-    this->previousActionFlag = 0;
+    this->subAction = 0;
     this->field_0x80.HALF.LO = 0;
     if (direction & 8) {
         this->y.HALF.HI += (direction & 0x10) ? -0x20 : 0x20;
@@ -830,7 +830,7 @@ void sub_08024E4C(Entity* this) {
             player->spritePriority.b1 = 0;
             if (this->field_0xf == 0) {
                 (this->field_0x86.HALF.HI++;
-                player->hurtBlinkTime = 8;
+                player->iframes = 8;
                 ModHealth(-2);
                 sub_0800449C(player, 0x7a);
             }
@@ -850,7 +850,7 @@ void sub_08024F50(Entity* this) {
     CopyPosition(this, &gPlayerEntity);
     gPlayerEntity.action = 1;
     gPlayerEntity.flags |= 0x80;
-    gPlayerEntity.hurtBlinkTime = -0x3c;
+    gPlayerEntity.iframes = -0x3c;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
     gPlayerEntity.speed = 0;
     gPlayerEntity.spritePriority.b1 = this->cutsceneBeh.HALF.HI;

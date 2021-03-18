@@ -56,7 +56,7 @@ void sub_08028284(Entity* this) {
         }
     }
 
-    this->attachedEntity->hurtBlinkTime = this->hurtBlinkTime;
+    this->attachedEntity->iframes = this->iframes;
     if (this->currentHealth == 0) {
         this->speed = 0;
         this->field_0x82.HALF.LO = 0;
@@ -386,7 +386,7 @@ void sub_080288C0(Entity* this) {
     Entity* ent = this->attachedEntity;
     if (ent && (ent->bitfield & 0x80)) {
         this->field_0x3e = ent->field_0x3e;
-        this->hurtBlinkTime = -ent->hurtBlinkTime;
+        this->iframes = -ent->iframes;
         this->field_0x46 = ent->field_0x46;
         this->field_0x42 = ent->field_0x42;
         ent->field_0x42 = 0;

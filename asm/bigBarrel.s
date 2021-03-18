@@ -176,7 +176,7 @@ _08088B82:
 	subs r1, #0x50
 	movs r2, #0xa0
 	movs r3, #0x30
-	bl sub_0806FBFC
+	bl CheckPlayerProximity
 	cmp r0, #0
 	beq _08088BBA
 	ldrb r0, [r5]
@@ -194,7 +194,7 @@ _08088BBA:
 	adds r1, #0x30
 	movs r2, #0xa0
 	movs r3, #0x30
-	bl sub_0806FBFC
+	bl CheckPlayerProximity
 	cmp r0, #0
 	beq _08088BDE
 	ldrb r0, [r5]

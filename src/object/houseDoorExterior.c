@@ -61,7 +61,7 @@ void sub_080866D8(Entity* this) {
                 entity->field_0x68.HWORD = prop->unk0;
                 entity->field_0x6a.HWORD = prop->unk2;
                 entity->collisionLayer = prop->unk4;
-                entity->previousActionFlag = prop->unk5;
+                entity->subAction = prop->unk5;
                 UpdateSpriteForCollisionLayer(entity);
                 *((u32*)(&this->field_0x68)) |= mask;
                 if (prop->unk8) {
@@ -98,7 +98,7 @@ static void sub_0808681C(Entity* this) {
             this->spriteSettings.b.draw = 1;
             this->frameIndex = 0;
             this->hitbox = &gUnk_081206AC;
-            if (this->previousActionFlag == 1) {
+            if (this->subAction == 1) {
                 this->action = 2;
                 this->frameIndex = 1;
             }
@@ -158,7 +158,7 @@ void sub_0808692C(Entity* this) {
     this->flags &= 0xFD;
     this->type2 = 2;
     this->action = this->frameIndex == 0 ? 1 : 2;
-    this->previousActionFlag = 0;
+    this->subAction = 0;
     this->actionDelay = 8;
 }
 

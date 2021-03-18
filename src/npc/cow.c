@@ -50,8 +50,8 @@ void sub_08068FC0(Entity* ent) {
 void sub_08069018(Entity* ent) {
     s32 var0;
 
-    if (ent->previousActionFlag == 0) {
-        ent->previousActionFlag++;
+    if (ent->subAction == 0) {
+        ent->subAction++;
         ent->field_0xf = (Random() & 0x3F) + 0x3C;
         InitAnimationForceUpdate(ent, ent->animationState);
     }
@@ -64,7 +64,7 @@ void sub_08069018(Entity* ent) {
         } else {
             ent->action = 3;
         }
-        ent->previousActionFlag = var0;
+        ent->subAction = var0;
     }
 
     sub_0806924C(ent);
@@ -73,10 +73,10 @@ void sub_08069018(Entity* ent) {
 void sub_08069068(Entity* ent) {
     s32 var0;
 
-    if (ent->previousActionFlag == 0) {
+    if (ent->subAction == 0) {
         u32 anim;
 
-        ent->previousActionFlag++;
+        ent->subAction++;
 
         anim = (Random() & 2) - 1;
         anim = (anim + ent->animationState) & 3;
@@ -120,7 +120,7 @@ void sub_08069068(Entity* ent) {
     var0 = --ent->field_0xf;
     if (var0 == 0) {
         ent->action = 3;
-        ent->previousActionFlag = var0;
+        ent->subAction = var0;
     }
 
     sub_0806924C(ent);
@@ -128,7 +128,7 @@ void sub_08069068(Entity* ent) {
 
 void sub_08069124(Entity* ent) {
     UpdateAnimationSingleFrame(ent);
-    gUnk_08111928[ent->previousActionFlag](ent);
+    gUnk_08111928[ent->subAction](ent);
     sub_0806924C(ent);
 }
 
@@ -136,13 +136,13 @@ void sub_08069148(Entity* ent) {
     u32 var0 = Random() & 3;
     var0 += 3;
     ent->field_0xf = var0;
-    ent->previousActionFlag = 1;
+    ent->subAction = 1;
     InitAnimationForceUpdate(ent, ent->animationState + 8);
 }
 
 void sub_08069168(Entity* ent) {
     if ((s8)ent->frames.all < 0) {
-        ent->previousActionFlag = 2;
+        ent->subAction = 2;
         InitAnimationForceUpdate(ent, ent->animationState + 12);
     }
 }
@@ -154,14 +154,14 @@ void sub_08069188(Entity* ent) {
 
     if (((s8)--ent->field_0xf) != 0)
         return;
-    ent->previousActionFlag = 3;
+    ent->subAction = 3;
     InitAnimationForceUpdate(ent, ent->animationState + 16);
 }
 
 void sub_080691BC(Entity* ent) {
     if ((s8)ent->frames.all < 0) {
         ent->action = 1;
-        ent->previousActionFlag = 0;
+        ent->subAction = 0;
         InitAnimationForceUpdate(ent, ent->animationState + 4);
     }
 }
@@ -169,7 +169,7 @@ void sub_080691BC(Entity* ent) {
 void sub_080691E0(Entity* ent) {
     if (UpdateFuseInteraction(ent) != 0) {
         ent->action = 1;
-        ent->previousActionFlag = 0;
+        ent->subAction = 0;
     }
 }
 

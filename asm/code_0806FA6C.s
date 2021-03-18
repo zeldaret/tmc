@@ -144,8 +144,8 @@ UnloadHitbox: @ 0x0806FBEC
 	str r0, [r4, #0x48]
 	pop {r4, pc}
 
-	thumb_func_start sub_0806FBFC
-sub_0806FBFC: @ 0x0806FBFC
+	thumb_func_start CheckPlayerProximity
+CheckPlayerProximity: @ 0x0806FBFC
 	push {r4, r5, r6, lr}
 	adds r5, r3, #0
 	ldr r4, _0806FC20 @ =gPlayerEntity

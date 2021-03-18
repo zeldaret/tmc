@@ -47,7 +47,7 @@ void sub_08081FF8(Entity*);
 
 void sub_08081BAC(Entity* this) {
     if (sub_08081CB0(this)) {
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->actionDelay = 0xA;
         sub_0805E4E0(this, 0xA);
         sub_08081FF8(this);
