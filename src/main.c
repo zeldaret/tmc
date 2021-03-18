@@ -147,14 +147,14 @@ typedef struct {
     u8 name[6];
     u8 _e;
     u8 _f;
-} test;
+} Defaults;
 
-const test sDefaultSettings = {
+const Defaults sDefaultSettings = {
     .signature = SIGNATURE,
     .saveFileId = 0,
     .messageSpeed = 1,
     .brightnessPref = 1,
-    .gameLanguage = LANGUAGE_EN,
+    .gameLanguage = GAME_LANGUAGE,
     .name = "LINK",
     ._e = 0,
     ._f = 0,
