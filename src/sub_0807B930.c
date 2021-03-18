@@ -1,6 +1,5 @@
 #include "global.h"
-
-extern void SetTileType(u32, u32, u32);
+#include "functions.h"
 
 void sub_0807B930(int param_1) {
     SetTileType(652, param_1 + -65, 1);

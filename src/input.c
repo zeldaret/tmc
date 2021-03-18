@@ -1,5 +1,4 @@
 #include "global.h"
-#include "entity.h"
 #include "readKeyInput.h"
 
 static void StoreKeyInput(Input*, u32);

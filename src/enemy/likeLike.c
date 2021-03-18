@@ -1,11 +1,12 @@
 #include "enemy.h"
 #include "entity.h"
-#include "functions.h"
 #include "textbox.h"
 #include "save.h"
+#include "random.h"
+#include "createObject.h"
+#include "functions.h"
 
 extern bool32 sub_080544B4(u32);
-extern void sub_0807CAA0(u32, u32);
 
 void sub_0802810C(Entity*);
 void sub_080281A0(Entity*);

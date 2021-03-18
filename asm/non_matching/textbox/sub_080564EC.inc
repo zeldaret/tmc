@@ -2,14 +2,14 @@
 	push {r4, lr}
 	ldr r0, _08056598 @ =gUnk_02036A40
 	movs r1, #8
-	bl MemClear32
+	bl MemClear
 	ldr r0, _0805659C @ =gUnk_02024030
 	movs r1, #0x18
-	bl MemClear32
+	bl MemClear
 	ldr r4, _080565A0 @ =gUnk_02022780
 	adds r0, r4, #0
 	movs r1, #0xa8
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080565A4 @ =gTextBox
 	adds r1, r4, #0
 	movs r2, #0x20

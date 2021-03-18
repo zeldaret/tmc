@@ -5,6 +5,8 @@
 #include "textbox.h"
 #include "room.h"
 #include "script.h"
+#include "structures.h"
+#include "functions.h"
 
 typedef struct {
     u32 unk;
@@ -12,21 +14,14 @@ typedef struct {
 } struct_03003DB8;
 
 typedef struct {
-    u8 filler[8];
-    u8 unk;
-} ScreenTransition;
+    u32 unk;
+    u32 unk2;
+} struct_08064050;
 
 extern void sub_08063D24(Entity*);
-extern void sub_0806ED78(Entity*);
-extern u32 GetFacingDirection(Entity*, Entity*);
-extern u32 sub_0806F5A4(u32);
 extern void sub_0806EE20(Entity*);
 extern void sub_08064428(Entity*);
-extern u32 sub_0805ACC0(Entity*);
-extern void sub_0807000C(Entity*);
 extern void sub_0806EE04(Entity*, void*, u32);
-extern Entity* sub_080A7EE0(int);
-extern void sub_08078778(Entity*);
 void sub_08063DC8(Entity*);
 void sub_08063F20(Entity*);
 
@@ -213,7 +208,7 @@ void sub_08064030(Entity* arg0, Entity* arg1) {
 }
 
 void sub_08064044(void) {
-    gScreenTransition.unk = 1;
+    gScreenTransition.transitioningOut = 1;
 }
 
 void sub_08064050(Entity* this, ScriptExecutionContext* context) {

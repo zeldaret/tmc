@@ -1,5 +1,4 @@
 #include "global.h"
-#include "entity.h"
 #include "player.h"
 #include "room.h"
 #include "menu.h"

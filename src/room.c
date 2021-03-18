@@ -2,7 +2,6 @@
 #include "entity.h"
 #include "area.h"
 #include "room.h"
-#include "functions.h"
 #include "flags.h"
 #include "npc.h"
 #include "player.h"
@@ -11,6 +10,8 @@
 #include "structures.h"
 #include "save.h"
 #include "script.h"
+#include "random.h"
+#include "functions.h"
 
 void sub_0804B3C4(void* arg0) {
     sub_0804B29C(arg0);
@@ -440,8 +441,6 @@ u32 sub_0804B8B0(void) {
     gRoomVars.field_0x78 = gUnk_080D6BB8[index];
     return 1;
 }
-
-extern void* script_08010A5C[];
 
 void sub_0804B8F0(void) {
     if (CheckLocalFlag(0x91)) {
@@ -4308,8 +4307,6 @@ void LoadHyruleTown(void) {
     }
 }
 
-extern EntityData gUnk_080EEBAC;
-
 void sub_0804E130(void) {
     if ((gSave.windcrests & 0x8000000) == 0) {
         LoadRoomEntityList(&gUnk_080EEBAC);
@@ -4500,7 +4497,7 @@ void sub_0804E3C4() {
     }
     r = Random();
     index = gUnk_080F0D58[index][r & 0x1f];
-    LoadRoomEntityList(gUnk_080F0CB8[index & 0xF]);
+    LoadRoomEntityList((EntityData*)gUnk_080F0CB8[index & 0xF]);
     index >>= 4;
     r >>= 8;
     index = gUnk_080F0E08[index][r & 0x1F];
@@ -4774,7 +4771,6 @@ u32 sub_0804E7D8() {
 }
 
 extern EntityData gUnk_080F31D8;
-extern u8 gUnk_02000070;
 extern u32 script_08009B30;
 
 void sub_0804E7DC(void) {
@@ -5073,8 +5069,6 @@ void sub_0804EC00(void) {
     }
 }
 
-extern EntityData gUnk_080F4E10;
-
 void sub_0804EC98(void) {
     if ((s32)gSave.windcrests > -1) {
         LoadRoomEntityList(&gUnk_080F4E10);
@@ -5207,8 +5201,6 @@ extern EntityData gUnk_080F5868;
 extern EntityData gUnk_080F5828;
 extern EntityData gUnk_080F5848;
 extern EntityData gUnk_080F5788;
-
-extern u8 gBombBagSizes[];
 
 void sub_0804EEBC(void) {
     LoadRoomEntityList(&gUnk_080F5758);
@@ -5516,8 +5508,6 @@ void sub_0804F25C(void) {
         LoadRoomEntityList(&gUnk_080F7088);
     }
 }
-
-extern EntityData gUnk_080F70D8;
 
 void sub_0804F2C8(void) {
     if ((gSave.windcrests & 0x40000000) == 0) {
@@ -6032,8 +6022,6 @@ void sub_0804FBBC(void) {
     }
 }
 
-extern EntityData gUnk_080F9304;
-
 void sub_0804FBDC(void) {
     if ((gSave.windcrests & 0x2000000) == 0) {
         LoadRoomEntityList(&gUnk_080F9304);
@@ -6449,8 +6437,6 @@ void sub_0804FE58(void) {
         SetGlobalFlag(WHITE_SWORD_END);
     }
 }
-
-extern EntityData gUnk_080FB004;
 
 void sub_0804FEAC(void) {
     if ((gSave.windcrests & 0x1000000) == 0) {

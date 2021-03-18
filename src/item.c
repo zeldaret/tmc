@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "item.h"
+#include "functions.h"
 
 // TODO - How does this relate to PlayerItemFunctions? Is this just a lookup table?
 void (*const gItemFunctions[])(ItemBehavior*, u32) = {
@@ -11,7 +12,6 @@ void (*const gItemFunctions[])(ItemBehavior*, u32) = {
 };
 
 extern void sub_08077E78(ItemBehavior*, u32);
-extern void SoundReq(u32);
 extern void sub_08078F60(void);
 extern void sub_08077D38(ItemBehavior*, u32);
 extern void sub_0805E544(void);
@@ -49,7 +49,7 @@ void OcarinaUse(ItemBehavior *beh, u32 arg1)
     gPlayerEntity.field_0x7a = 2;
     gPlayerState.flags.all |= 0x10000000;
     gPlayerState.field_0x27[0] = 0xff;
-    gUnk_02034490 = 1;
+    gUnk_02034490[0] = 1;
     bVar1 = (8 >> arg1);
     gPlayerState.field_0xa |= bVar1;
     gPlayerState.keepFacing |= bVar1;

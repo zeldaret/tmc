@@ -1,9 +1,9 @@
 #include "enemy.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 extern bool32 sub_0806FC80(Entity*, Entity*, u32);
-extern Entity* sub_080A7EE0(u32);
 extern Entity* sub_08049DF4(u32);
 
 void sub_08028604(Entity*);

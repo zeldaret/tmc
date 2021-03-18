@@ -89,7 +89,7 @@ void sub_08069684(void) {
         if (mgr != NULL) {
             mgr->type = 9;
             mgr->subtype = 0x31;
-            AppendEntityToList(mgr, 8);
+            AppendEntityToList((Entity*)mgr, 8);
         }
     }
 }

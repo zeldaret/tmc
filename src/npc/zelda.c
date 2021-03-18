@@ -5,20 +5,11 @@
 #include "flags.h"
 #include "script.h"
 
-extern void PrependEntityToList(Entity*, u32);
 extern Entity* FindEntityBySubtype(u32, u32);
-void CopyPosition(Entity*, Entity*);
 void sub_08068680(Entity*, Entity*);
 void sub_08068694(Entity*, Entity*);
-u32 GetAnimationState(Entity* ent);
-void DeleteThisEntity(void);
 extern Entity* GetEntityByType(u32, u32);
 extern void sub_080686C4(Entity*, Entity*);
-extern void SoundReq(u32);
-extern void SetTileType(u32, u32, u32);
-
-extern Entity gPlayerEntity;
-extern RoomControls gRoomControls;
 
 extern void (*gUnk_08110BD8[])(Entity* ent);
 extern u16 gUnk_08110BE0[];

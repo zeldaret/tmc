@@ -1,15 +1,9 @@
 #include "global.h"
 #include "entity.h"
+#include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
-extern void EnemyFunctionHandler();
-extern void SetChildOffset();
-extern void sub_0804AA30();
-extern void sub_0804A7D4();
-extern u32 sub_0806F520();
-extern void sub_0806F4E8();
-extern void UpdateAnimationVariableFrames();
-extern void sub_0804A720();
 extern Entity* sub_08049DF4(u32);
 
 void Octorok_Pause();

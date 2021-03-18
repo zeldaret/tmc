@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "room.h"
 #include "flags.h"
+#include "createObject.h"
 #include "functions.h"
 
 extern Hitbox gUnk_080FD170;

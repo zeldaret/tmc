@@ -4,6 +4,7 @@
 #include "area.h"
 #include "room.h"
 #include "player.h"
+#include "random.h"
 #include "functions.h"
 
 // Facilitates the usage of minish portals.

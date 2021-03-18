@@ -1,4 +1,5 @@
 #include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
 extern void sub_08008796(Entity*, u32, u32, u32);

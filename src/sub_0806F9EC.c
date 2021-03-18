@@ -1,13 +1,11 @@
 #include "global.h"
 
-s32 sub_0806F9EC(s16 param_1, s16 param_2)
+s32 sub_0806F9EC(s16 unk_1, s16 unk_2) {
+    int temp;
 
-{
-    int iVar1;
-
-    iVar1 = (s32)param_1 * (s32)param_2;
-    if (iVar1 < 0) {
-        iVar1 = iVar1 + 255;
+    temp = (s32)unk_1 * (s32)unk_2;
+    if (temp < 0) {
+        temp = temp + 255;
     }
-    return (iVar1 << 8) >> 16;
+    return (temp << 8) >> 16;
 }

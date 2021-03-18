@@ -2,17 +2,14 @@
 #include "entity.h"
 #include "npc.h"
 #include "script.h"
-
-extern void sub_0806ED78(Entity*);
-extern void sub_0805E3A0(Entity*, u32);
+#include "functions.h"
 
 extern void (*gUnk_081121D4[])(Entity*);
 
 extern SpriteLoadData gUnk_081121C4;
 extern SpriteLoadData gUnk_081121B4;
-extern u32 gScreenTransition;
+
 extern void sub_0806A26C(Entity*);
-extern void sub_080042BA(Entity*, u32);
 
 void Syrup(Entity* this) {
     gUnk_081121D4[this->action](this);
@@ -37,7 +34,7 @@ void sub_0806A1F8(Entity* this) {
 void sub_0806A234(Entity* this) {
     sub_0807DD94(this, 0);
     if ((this->field_0x82.HWORD & 4) != 0) {
-        if ((gScreenTransition & 7) == 0) {
+        if ((gScreenTransition.frameCount & 7) == 0) {
             sub_0806A26C(this);
         }
         sub_080042BA(this, 2);

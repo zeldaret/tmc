@@ -7,6 +7,7 @@
 void CopyPosition(Entity*, Entity*);
 void PositionEntityOnTop(Entity*, Entity*);
 void PositionRelative(Entity*, Entity*, s32, s32);
+void CopyPositionAndSpriteOffset(Entity* param_1, Entity* param_2);
 void sub_0806FA90(Entity*, Entity*, s32, s32);
 void ResolveEntityOnTop(Entity*, Entity*);
 void sub_0806FAD8(Entity*, Entity*);

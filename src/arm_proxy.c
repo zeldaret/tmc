@@ -8,6 +8,7 @@
 #include "functions.h"
 #include "object.h"
 #include "manager.h"
+#include "dma.h"
 #include "npc.h"
 
 extern u8 gUnk_03003DE0;
@@ -252,7 +253,7 @@ void sub_080171F0(void) {
     gPlayerState.field_0x1a[0] = 0;
     gPlayerState.field_0x80 = 0;
     gPlayerState.field_0xaa = 0;
-    MemClear32(&gUnk_03003BE0, 0x8c);
+    MemClear(&gUnk_03003BE0, 0x8c);
     gPlayerEntity.spriteOffsetY = gPlayerState.field_0x3f;
     gPlayerState.field_0x3f = 0;
     sub_0807B0C8();
@@ -392,7 +393,7 @@ void CollisionMain(void) {
 }
 
 void RegisterPlayerHitbox(void) {
-    MemClear32(&gUnk_03003C70, sizeof(gUnk_03003C70));
+    MemClear(&gUnk_03003C70, sizeof(gUnk_03003C70));
     gUnk_02018EA0 = (LinkedList2*)&gUnk_03003C70[0].last;
     gUnk_03003C70[0].last = &gUnk_03003C70[0].last;
     gUnk_03003C70[0].first = &gUnk_03003C70[0].last;

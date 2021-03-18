@@ -1,10 +1,10 @@
 #include "global.h"
 #include "entity.h"
+#include "position.h"
 #include "room.h"
+#include "functions.h"
 
 extern Hitbox gUnk_080FD168;
-
-extern void SetTile(u32, u32, u32);
 
 void Object9E(Entity* this) {
     Entity* ent;

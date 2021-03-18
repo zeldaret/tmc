@@ -78,7 +78,7 @@ extern Entity gUnk_080E4C08;
 
 void sub_0805A370(Manager15* this) {
     if (this->manager.unk_0d) {
-        LoadRoomEntityList(&gUnk_080E4C08);
+        LoadRoomEntityList((EntityData*)&gUnk_080E4C08);
         this->manager.action = 3;
         SoundReq(0x80100000);
     }
@@ -295,7 +295,6 @@ void sub_0805A758(Manager15* this) {
 }
 
 extern void sub_0805E4E0(Manager*, u32);
-extern void sub_08077B20(void);
 
 void sub_0805A76C(Manager15* this) {
     if ((gPlayerEntity.currentHealth != 0) && (gPlayerEntity.height.HALF.HI == 0) && (!gPlayerState.field_0x2c)) {
@@ -364,7 +363,6 @@ void sub_0805A804(Manager15* this) {
 }
 
 void sub_0805AAC8(Manager15*);
-extern void sub_08052D74(void*, void*, void*);
 
 void sub_0805A89C(Manager15* this) {
     sub_0805E3A0(this, 6);

@@ -1,11 +1,11 @@
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
-#include "functions.h"
 #include "npc.h"
-#include "structures.h"
 #include "player.h"
 #include "save.h"
+#include "createObject.h"
+#include "functions.h"
 
 extern void sub_080293DC(Entity*);
 extern void sub_080296D8(Entity*);

@@ -3,6 +3,8 @@
 #include "screen.h"
 #include "area.h"
 #include "textbox.h"
+#include "dma.h"
+#include "game.h"
 #include "functions.h"
 
 typedef struct {
@@ -25,9 +27,7 @@ extern const u8 gUnk_08108E30[0x18];
 extern const u8 gUnk_08108E48[0x18];
 extern const u8 gUnk_08108E60[];
 
-extern void MemCopy(const void* src, void* dest, u32 size);
 extern void sub_0805F46C(void*, const void*);
-extern u32 CheckIsDungeon(void);
 extern void sub_0805E5B4(void);
 
 void sub_0805E140(Manager39*);
@@ -68,7 +68,7 @@ void sub_0805E18C(Manager39* this) {
 }
 
 void sub_0805E1D8(Manager39* this) {
-    MemClear32(&gUnk_02034DF0, 0x80);
+    MemClear(&gUnk_02034DF0, 0x80);
     gScreen.bg.bg0Updated = 1;
     DeleteThisEntity();
 }
@@ -81,7 +81,7 @@ void sub_0805E1F8(u32 unk0, u32 unk1) {
         u8 unk_06[3];
     } PACKED tmp;
     const u8* tmp2;
-    MemClear32(&gUnk_02034DF0, 0x80);
+    MemClear(&gUnk_02034DF0, 0x80);
     MemCopy(gUnk_08108E60, &tmp, sizeof(tmp));
     tmp.unk_04 = unk0 >> 8;
     tmp.unk_05 = unk0;

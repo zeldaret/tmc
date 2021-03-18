@@ -10,7 +10,6 @@ extern void sub_0806B41C(Entity*);
 extern void sub_0806B3CC(Entity*);
 
 extern u32 sub_08002632(Entity*);
-extern void sub_0801DFB4(Entity*, u32, u32, u32);
 
 extern u16* gUnk_08001A7C[40];
 extern u16 gUnk_08112E54[4];

@@ -995,7 +995,7 @@ sub_080A3210: @ 0x080A3210
 	ldr r4, _080A3230 @ =gUnk_02021EE0
 	adds r0, r4, #0
 	movs r1, #0x18
-	bl MemClear32
+	bl MemClear
 	bl sub_080A35C8
 	movs r0, #0x80
 	lsls r0, r0, #1

@@ -4198,7 +4198,7 @@ sub_080751E8: @ 0x080751E8
 	ldr r4, _08075230 @ =gPlayerScriptExecutionContext
 	adds r0, r4, #0
 	movs r1, #0x24
-	bl MemClear32
+	bl MemClear
 	str r6, [r4]
 	ldr r0, _08075234 @ =gPlayerEntity
 	adds r0, #0x84

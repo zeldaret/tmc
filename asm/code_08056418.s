@@ -267,11 +267,11 @@ _080568B2:
 	beq _080568D2
 	adds r0, r6, #0
 	movs r1, #4
-	bl MemClear32
+	bl MemClear
 	ldr r4, _08056910 @ =gUnk_02024030
 	adds r0, r4, #0
 	movs r1, #0x18
-	bl MemClear32
+	bl MemClear
 	movs r0, #1
 	strb r0, [r4]
 	strb r0, [r6]
@@ -472,7 +472,7 @@ _08056A30:
 	movs r1, #3
 	strb r1, [r2]
 	movs r1, #0x18
-	bl MemClear32
+	bl MemClear
 	movs r0, #0x6a
 	bl SoundReq
 	adds r1, r6, #0

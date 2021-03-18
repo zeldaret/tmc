@@ -4,6 +4,7 @@
 #include "entity.h"
 #include "room.h"
 #include "screen.h"
+#include "dma.h"
 #include "functions.h"
 
 typedef struct {
@@ -65,13 +66,12 @@ u32 sub_0805B1CC(Manager1A*);
 void sub_0805B210(Manager1A*);
 void sub_0805B2B0(Manager1A*);
 void sub_0805B328(Manager1A*);
-void sub_0805BC4C(void);
 
 void sub_0805B048(Manager1A* this) {
     struct_08108764* tmp;
     Entity* obj;
     sub_0805E3A0(&this->manager, 6);
-    MemClear32(&this->unk_20, 0x20);
+    MemClear(&this->unk_20, 0x20);
     this->manager.action = 1;
     this->unk_3f = gRoomControls.roomID;
     tmp = &gUnk_08108764[this->manager.unk_0a];
@@ -224,5 +224,5 @@ void sub_0805B390(u32 unk1) {
     tmp->type = 0x9;
     tmp->subtype = 0x1A;
     tmp->unk_0a = unk1;
-    AppendEntityToList(tmp, 6);
+    AppendEntityToList((Entity*)tmp, 6);
 }

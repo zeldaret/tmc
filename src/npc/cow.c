@@ -1,22 +1,16 @@
 #include "global.h"
 #include "entity.h"
 #include "player.h"
+#include "random.h"
+#include "npc.h"
 #include "functions.h"
 
-extern void sub_0806920C(Entity*);
-extern u32 sub_0805ACC0(Entity*);
-extern u32 sub_0801E99C(Entity*);
-extern void sub_0806924C(Entity*);
-extern void sub_08078778(Entity*);
-extern void sub_080787A8(Entity*, u32);
-extern void sub_0806F118(Entity*);
-extern void sub_080791D0();
+void sub_0806920C(Entity* ent);
+void sub_0806924C(Entity* ent);
+
 extern void (*gUnk_08111914[])(Entity*);
 extern void (*gUnk_08111928[])(Entity*);
 extern Dialog gUnk_08111938[];
-extern void SoundReq(u32);
-extern u32 UpdateFuseInteraction(Entity*);
-extern PlayerState gPlayerState;
 
 void Cow(Entity* ent) {
     gUnk_08111914[ent->action](ent);

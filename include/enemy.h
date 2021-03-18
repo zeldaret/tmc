@@ -89,7 +89,6 @@ extern void VaatiWrath(Entity*);
 extern void VaatiArm(Entity*);
 extern void Dust(Entity*);
 extern void VaatiBall(Entity*);
-extern void Octorok(Entity*);
 extern void Slime(Entity*);
 extern void MiniSlime(Entity*);
 extern void FireballGuy(Entity*);
@@ -110,6 +109,5 @@ extern void Enemy66(Entity*);
 
 extern u32 GetNextFunction(Entity*);
 extern void EnemyFunctionHandler(Entity*, void (*const func[])(Entity*));
-extern void sub_0804AA30(Entity*, void (*const func[])(Entity*));
 extern void sub_08001324(Entity*);
 #endif

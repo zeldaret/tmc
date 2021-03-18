@@ -2,10 +2,11 @@
 #include "entity.h"
 #include "player.h"
 #include "textbox.h"
-#include "functions.h"
 #include "readKeyInput.h"
 #include "area.h"
 #include "save.h"
+#include "game.h"
+#include "functions.h"
 
 static void (*const sPlayerActions[])(Entity*);
 extern void (*const gUnk_0811BA60[])(Entity*);

@@ -1,5 +1,6 @@
 #include "enemy.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 extern u32 sub_080002E0(u32, u32);
@@ -8,7 +9,6 @@ extern u16 sub_080002A8(u32, u32, u32);
 extern u16 sub_080002D4(u32, u32, u32);
 extern void sub_0804AA1C(Entity*);
 extern Entity* sub_08049DF4(u32);
-extern void sub_0807B7D8(u32, u32, u32);
 
 extern u8 gUnk_080B37A0[];
 extern u8 gUnk_080B3E80[];

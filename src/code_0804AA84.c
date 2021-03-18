@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "area.h"
 #include "main.h"
+#include "dma.h"
 #include "functions.h"
 #include "screen.h"
 
@@ -9,8 +10,6 @@ typedef struct {
     u8 filler[18];
     u32 unk;
 } struct_02018EB0;
-
-extern void sub_0805E5A8();
 
 extern void (*const gUnk_080D4120[])();
 extern void (*const gUnk_080D412C[])();
@@ -37,7 +36,7 @@ void sub_0804AAB8(void) {
 }
 
 void sub_0804AAD4(void) {
-    MemClear32((void*)&gUnk_02018EB0, 0x28);
+    MemClear(&gUnk_02018EB0, 0x28);
     gUnk_02018EB0.unk = 0;
     EraseAllEntities();
     CreateObject(0x3d, gArea.curPortalType, 0);

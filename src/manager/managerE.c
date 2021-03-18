@@ -3,13 +3,7 @@
 #include "manager.h"
 #include "flags.h"
 #include "room.h"
-
-extern void LoadRoomEntityList(Entity*);
-extern void DeleteThisEntity(void);
-extern void DeleteManager(Manager*);
-extern void sub_08078A90(u32);
-extern void sub_08078B48(void);
-extern void SoundReq(u32);
+#include "functions.h"
 
 void sub_08058E60(ManagerE* this) {
     if (!this->manager.action) {

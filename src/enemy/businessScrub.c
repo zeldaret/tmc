@@ -1,9 +1,11 @@
 #include "enemy.h"
 #include "entity.h"
 #include "flags.h"
-#include "functions.h"
 #include "textbox.h"
 #include "save.h"
+#include "random.h"
+#include "npc.h"
+#include "functions.h"
 
 extern void sub_0801D040(Entity*, u32);
 extern Entity* sub_08049DF4(u32);
@@ -326,7 +328,7 @@ void sub_08028E40(Entity* this) {
 }
 
 void sub_08028E84(Entity* this) {
-    if (UpdateFuseInteraction()) {
+    if (UpdateFuseInteraction(this)) {
         this->action = 4;
         this->actionDelay = 1;
     }

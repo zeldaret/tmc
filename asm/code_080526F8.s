@@ -791,7 +791,7 @@ sub_08052CFC: @ 0x08052CFC
 	ldr r4, _08052D44 @ =gArea
 	ldr r1, _08052D48 @ =0x00000894
 	adds r0, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _08052D4C @ =gRoomControls
 	ldrb r1, [r0, #4]
 	lsls r1, r1, #2
@@ -996,7 +996,7 @@ sub_08052EA0: @ 0x08052EA0
 	ldr r4, _08052EE4 @ =gRoomVars
 	adds r0, r4, #0
 	movs r1, #0xcc
-	bl MemClear32
+	bl MemClear
 	movs r0, #0xff
 	strb r0, [r4, #0x10]
 	strb r0, [r4, #0x11]
@@ -1178,7 +1178,7 @@ sub_08052FF4: @ 0x08052FF4
 	ldr r5, _08053074 @ =gUnk_020342CC
 	adds r0, r5, #0
 	movs r1, #0x20
-	bl MemClear32
+	bl MemClear
 	str r5, [r5, #0x20]
 	ldr r0, _08053078 @ =gAreaRoomHeaders
 	lsls r6, r6, #2
@@ -1570,17 +1570,17 @@ sub_08053320: @ 0x08053320
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _08053380 @ =gBG1Buffer
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _08053384 @ =gBG2Buffer
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _08053388 @ =gBG3Buffer
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl MemClear32
+	bl MemClear
 	movs r0, #0x10
 	bl LoadGfxGroup
 	movs r0, #0x17
@@ -2222,7 +2222,7 @@ sub_08053800: @ 0x08053800
 	ldr r0, _08053888 @ =gBG1Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl MemClear32
+	bl MemClear
 	ldr r0, _0805388C @ =0x00000F01
 	adds r5, r5, r0
 	ldr r1, [r4]
