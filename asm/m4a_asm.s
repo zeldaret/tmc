@@ -502,7 +502,7 @@ _080AF73A:
 MPlayJumpTableCopy: @ 0x080AF744
 	mov ip, lr
 	movs r1, #0x24
-	ldr r2, _080AF774 @ =gUnk_089FC6C4
+	ldr r2, _080AF774 @ =gMPlayJumpTableTemplate
 _080AF74A:
 	ldr r3, [r2]
 	bl _080AF75E
@@ -520,7 +520,7 @@ _080AF75E:
 	push {r0}
 	lsrs r0, r2, #0x19
 	bne _080AF770
-	ldr r0, _080AF774 @ =gUnk_089FC6C4
+	ldr r0, _080AF774 @ =gMPlayJumpTableTemplate
 	cmp r2, r0
 	blo _080AF76E
 	lsrs r0, r2, #0xe
@@ -531,7 +531,7 @@ _080AF770:
 	pop {r0}
 	bx lr
 	.align 2, 0
-_080AF774: .4byte gUnk_089FC6C4
+_080AF774: .4byte gMPlayJumpTableTemplate
 
 	thumb_func_start sub_080AF778
 sub_080AF778: @ 0x080AF778
@@ -931,7 +931,7 @@ _080AF9FA:
 	beq _080AFA82
 	b _080AFA26
 _080AFA1C:
-	ldr r0, _080AFB78 @ =gUnk_089FC938
+	ldr r0, _080AFB78 @ =gClockTable
 	subs r1, #0x80
 	adds r1, r1, r0
 	ldrb r0, [r1]
@@ -1126,7 +1126,7 @@ _080AFB64:
 sub_080AFB74: @ 0x080AFB74
 	bx r3
 	.align 2, 0
-_080AFB78: .4byte gUnk_089FC938
+_080AFB78: .4byte gClockTable
 _080AFB7C: .4byte 0x03007FF0
 _080AFB80: .4byte 0x68736D53
 
@@ -1219,7 +1219,7 @@ ply_note: @ 0x080AFC00
 	ldr r1, _080AFDF8 @ =0x03007FF0
 	ldr r1, [r1]
 	str r1, [sp, #4]
-	ldr r1, _080AFDFC @ =gUnk_089FC938
+	ldr r1, _080AFDFC @ =gClockTable
 	adds r0, r0, r1
 	ldrb r0, [r0]
 	strb r0, [r5, #4]
@@ -1482,7 +1482,7 @@ _080AFDE6:
 	bx r0
 	.align 2, 0
 _080AFDF8: .4byte 0x03007FF0
-_080AFDFC: .4byte gUnk_089FC938
+_080AFDFC: .4byte gClockTable
 
 	thumb_func_start ply_endtie
 ply_endtie: @ 0x080AFE00
