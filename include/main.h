@@ -84,7 +84,6 @@ extern void sub_08056208(void);
 extern void sub_0804FFE4(void);
 extern void sub_080ADD30(void);
 
-extern void ReadKeyInput(void);
 extern void DoSoftReset(void);
 extern void sub_08056260(void);
 extern void VBlankIntrWait();

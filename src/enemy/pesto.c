@@ -10,7 +10,7 @@ extern void sub_0800449C(Entity*, u32);
 extern u32 sub_08049F1C(Entity*, Entity*, u32);
 extern u32 PlayerInRange(Entity*, u32, u32);
 extern void sub_080AEFB4(Entity*);
-extern Entity* FindNextEntityOfSameSubtype(Entity* ent, int listIndex);
+extern Entity* FindNextDuplicateID(Entity* ent, int listIndex);
 
 void sub_080249F4(Entity*);
 void sub_08024940(Entity*);
@@ -666,7 +666,7 @@ bool32 sub_08024B38(Entity* this) {
         }
     }
 
-    ent = FindEntityInListBySubtype(8, 2, 2);
+    ent = FindEntityByID(8, 2, 2);
     if (ent) {
         do {
             if (ent->action != 2 && ent->height.HALF.HI == 0 && sub_08049F1C(this, ent, 0xa0)) {
@@ -676,14 +676,14 @@ bool32 sub_08024B38(Entity* this) {
                 this->field_0x82.HALF.HI &= ~0x40;
                 break;
             }
-        } while (ent = FindNextEntityOfSameSubtype(ent, 2), ent != NULL);
+        } while (ent = FindNextDuplicateID(ent, 2), ent != NULL);
     }
 
     if (iVar4 != 0) {
         return iVar4;
     }
 
-    ent = FindEntityInListBySubtype(6, 5, 6);
+    ent = FindEntityByID(6, 5, 6);
     if (ent) {
         do {
             if (ent->action == 1 && sub_08049F1C(this, ent, 0xa0)) {
@@ -693,7 +693,7 @@ bool32 sub_08024B38(Entity* this) {
                 this->field_0x82.HALF.HI &= ~0x40;
                 break;
             }
-        } while (ent = FindNextEntityOfSameSubtype(ent, 6), ent != NULL);
+        } while (ent = FindNextDuplicateID(ent, 6), ent != NULL);
     }
 
     if (iVar4 == 0) {

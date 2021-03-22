@@ -12,7 +12,6 @@ typedef struct {
 void sub_08044FF8(Entity*);
 void sub_08045178(Entity*, Entity*, int, int);
 
-//extern u32 FixedDiv(u32, u32);
 extern void sub_0804A4E4(Entity*, Entity*);
 extern u32 sub_080002CC(Entity*, s32, s32);
 

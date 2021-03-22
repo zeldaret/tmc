@@ -62,7 +62,7 @@ sub_0809D9D8: @ 0x0809D9D8
 	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	movs r1, #6
-	bl FindNextEntityOfSameSubtype
+	bl FindNextDuplicateID
 	cmp r0, #0
 	beq _0809DA1E
 	str r4, [r0, #0x50]
@@ -436,7 +436,7 @@ sub_0809DC80: @ 0x0809DC80
 	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	movs r1, #6
-	bl FindNextEntityOfSameSubtype
+	bl FindNextDuplicateID
 	cmp r0, #0
 	beq _0809DD00
 	str r4, [r0, #0x50]

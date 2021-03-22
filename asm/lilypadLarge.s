@@ -73,7 +73,7 @@ _08085566:
 	b _0808557A
 _0808556C:
 	adds r0, r4, #0
-	bl DoesSimilarEntityExist
+	bl EntityHasDuplicateID
 	cmp r0, #0
 	beq _0808557A
 	bl DeleteThisEntity
@@ -1072,7 +1072,7 @@ _08085D0C:
 sub_08085D10: @ 0x08085D10
 	push {r4, lr}
 	adds r4, r0, #0
-	bl DoesSimilarEntityExist
+	bl EntityHasDuplicateID
 	cmp r0, #0
 	beq _08085D26
 	ldrb r0, [r4, #0xb]

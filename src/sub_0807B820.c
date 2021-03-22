@@ -41,7 +41,6 @@ void sub_0807B8A8(u32 param_1) {
     SetTileType(642, param_1 + 1, 1);
 }
 
-
 void sub_0807B930(int param_1) {
     SetTileType(652, param_1 + -65, 1);
     SetTileType(659, param_1 + -65, 2);

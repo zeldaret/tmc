@@ -107,7 +107,7 @@ static void sub_08055F70(void) {
         MemCopy(gUnk_080B2CD8_3, gUnk_02038560, size);
     }
 
-    sub_0801DA90(0);
+    DispReset(0);
     sub_08016B34();
 }
 

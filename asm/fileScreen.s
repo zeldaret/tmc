@@ -33,7 +33,7 @@ sub_080519B0: @ 0x080519B0
 	cmp r5, #0
 	bne _08051A02
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	bl sub_080A3210
 	bl zMallocInit
 	bl sub_080A7124
@@ -69,7 +69,7 @@ _08051A10: .4byte gMain
 sub_08051A14: @ 0x08051A14
 	push {lr}
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	ldr r1, _08051A70 @ =gFadeControl
 	movs r0, #1
 	rsbs r0, r0, #0
@@ -368,7 +368,7 @@ sub_08051CF0: @ 0x08051CF0
 	cmp r4, #0
 	bne _08051D1E
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	strb r6, [r5, #3]
 	strb r4, [r5, #4]
 	ldr r0, _08051D28 @ =gScreenTransition
@@ -729,7 +729,7 @@ sub_08052010: @ 0x08052010
 	bl sub_080A3210
 	bl MessageInitialize
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	ldr r0, _0805207C @ =gBG1Buffer
 	movs r4, #0x80
 	lsls r4, r4, #4

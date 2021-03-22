@@ -2013,7 +2013,7 @@ sub_0805368C: @ 0x0805368C
 	movs r0, #6
 	movs r1, #0x5d
 	movs r2, #6
-	bl FindEntityInListBySubtype
+	bl FindEntityByID
 	cmp r0, #0
 	beq _080536A6
 	bl DeleteEntity
@@ -2139,7 +2139,7 @@ sub_08053758: @ 0x08053758
 	strh r2, [r0, #0xa]
 	bl sub_0801B170
 	movs r0, #0
-	bl sub_0801DA90
+	bl DispReset
 	ldr r2, _080537F0 @ =gScreen
 	movs r0, #0x99
 	lsls r0, r0, #6
@@ -2380,7 +2380,7 @@ sub_08053974: @ 0x08053974
 	bne _080539A8
 	bl sub_0804FFE4
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	bl sub_080197AC
 	bl sub_08051F78
 	ldr r0, _080539B0 @ =gUnk_080FCBC4
@@ -2437,7 +2437,7 @@ sub_080539F4: @ 0x080539F4
 	cmp r0, #0
 	bne _08053A10
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	ldr r0, _08053A18 @ =gMenu
 	ldrb r1, [r0, #6]
 	adds r1, #1
@@ -2587,7 +2587,7 @@ sub_08053B10: @ 0x08053B10
 	adds r1, #1
 	strb r1, [r0, #5]
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #4
@@ -2673,7 +2673,7 @@ sub_08053BBC: @ 0x08053BBC
 	adds r1, #1
 	strb r1, [r0, #5]
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	movs r1, #0x80
 	lsls r1, r1, #1
 	movs r0, #4

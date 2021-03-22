@@ -938,7 +938,7 @@ _0806AAEE:
 	adds r0, #0xac
 	ldr r0, [r0]
 	movs r1, #7
-	bl FindNextEntityOfSameSubtype
+	bl FindNextDuplicateID
 	adds r1, r0, #0
 	adds r0, r4, #0
 	adds r0, #0xb0
@@ -948,7 +948,7 @@ _0806AB02:
 	adds r0, #0xb0
 	ldr r0, [r0]
 	movs r1, #7
-	bl FindNextEntityOfSameSubtype
+	bl FindNextDuplicateID
 	adds r1, r0, #0
 	mov r0, r8
 	adds r0, #0xb4
@@ -1041,7 +1041,7 @@ sub_0806AB9C: @ 0x0806AB9C
 	movs r1, #0x37
 	movs r2, #7
 	movs r3, #1
-	bl FindEntityInListByForm
+	bl FindEntity
 	cmp r0, #0
 	beq _0806ABBC
 	bl DeleteEntity

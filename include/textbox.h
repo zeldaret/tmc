@@ -56,10 +56,40 @@ typedef struct {
 extern struct_02022780 gUnk_02022780;
 static_assert(sizeof(struct_02022780) == 0xa8);
 
+/**
+ * @brief Initialize the message system.
+ */
 void MessageInitialize(void);
+
+/**
+ * @brief Show a message on screen.
+ *
+ * @param index u32 Message index
+ */
 void ShowTextbox(u32 index);
+
+/**
+ * @brief Show a message at screen posiiton.
+ *
+ * @param index u32 Message index
+ * @param x u32 Screen x
+ * @param y u32 Screen y
+ */
 void TextboxAtPosition(u32 index, u32 x, u32 y);
+
+/**
+ * @brief Show a message that attempts not to obscure the entity.
+ *
+ * @param index u32 Message index
+ * @param ent Entity* Your important entity
+ */
 void TextboxNoOverlap(u32 index, Entity* ent);
+
+/**
+ * @brief Show a message that attempts not to obscure the camera target.
+ *
+ * @param index u32 Message index
+ */
 void TextboxNoOverlapFollow(u32 index);
 
 #endif

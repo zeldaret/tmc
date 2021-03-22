@@ -84,7 +84,7 @@ void sub_08069660(Entity* this) {
 void sub_08069684(void) {
     Manager* mgr;
 
-    if (FindEntityInListBySubtype(9, 0x31, 8) == NULL) {
+    if (FindEntityByID(9, 0x31, 8) == NULL) {
         mgr = GetEmptyManager();
         if (mgr != NULL) {
             mgr->type = 9;

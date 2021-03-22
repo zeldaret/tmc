@@ -189,7 +189,7 @@ void HandleChooseFileScreen(void) {
 static void HandleFileScreenEnter(void) {
     u32 i;
 
-    sub_0801DA90(1);
+    DispReset(1);
     sub_080A3210();
     MemClear((void*)VRAM, 0x80); // clear palettes
     MessageInitialize();

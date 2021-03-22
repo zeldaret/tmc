@@ -225,7 +225,7 @@ void sub_08060318(void) {
     int i;
 
     for (i = 2; i >= 0; i--) {
-        ent = FindEntityInListBySubtype(8, 2, 2);
+        ent = FindEntityByID(8, 2, 2);
         if (ent != NULL) {
             CreateDust(ent);
             DeleteEntity(ent);

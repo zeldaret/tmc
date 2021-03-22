@@ -16,7 +16,7 @@ void HandleDebugTextScreen() {
 }
 
 void sub_0805FA04(void) {
-    sub_0801DA90(1);
+    DispReset(1);
     MemClear(&gBG0Buffer, sizeof(BGBuffer));
     MemClear(&gBG3Buffer, 0x1000);
     gScreen.lcd.displayControl = 0x940;

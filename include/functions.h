@@ -119,7 +119,7 @@ extern u32 sub_08060354(void);
 extern void sub_08057E64(void);
 extern void sub_0809F814(u32);
 extern void sub_080300E8(void);
-extern void sub_0801DA90(u32);
+extern void DispReset(u32);
 extern void sub_08058D34(void);
 extern void sub_0807AABC(Entity*);
 extern void sub_08078A90(u32);

@@ -266,7 +266,7 @@ _080A365C:
 _080A365E:
 	str r0, [r2, #0xc]
 	movs r0, #0
-	bl sub_0801DA90
+	bl DispReset
 	movs r0, #0xb
 	bl LoadPaletteGroup
 	movs r0, #0xc
@@ -699,7 +699,7 @@ _080A39C8:
 	strh r0, [r2, #8]
 	strb r4, [r2, #3]
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	bl sub_080A3210
 	bl sub_080A4D34
 	movs r0, #0xa

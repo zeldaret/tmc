@@ -217,8 +217,8 @@ _0801DA02:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 
-	thumb_func_start sub_0801DA0C
-sub_0801DA0C: @ 0x0801DA0C
+	thumb_func_start zFree
+zFree: @ 0x0801DA0C
 	push {r4, r5, lr}
 	ldr r3, _0801DA44 @ =gzHeap
 	subs r1, r0, r3
@@ -287,8 +287,8 @@ zMallocInit: @ 0x0801DA7C
 	.align 2, 0
 _0801DA8C: .4byte gzHeap
 
-	thumb_func_start sub_0801DA90
-sub_0801DA90: @ 0x0801DA90
+	thumb_func_start DispReset
+DispReset: @ 0x0801DA90
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r1, _0801DAEC @ =gMain
@@ -319,7 +319,7 @@ sub_0801DA90: @ 0x0801DA90
 	movs r0, #0x80
 	lsls r0, r0, #0x13
 	strh r3, [r0]
-	bl sub_0801DB10
+	bl ClearOAM
 	bl sub_0801DB34
 	ldr r0, _0801DB08 @ =0x0600C000
 	movs r1, #0x20
@@ -341,8 +341,8 @@ _0801DB04: .4byte 0x00007FFF
 _0801DB08: .4byte 0x0600C000
 _0801DB0C: .4byte gBG0Buffer
 
-	thumb_func_start sub_0801DB10
-sub_0801DB10: @ 0x0801DB10
+	thumb_func_start ClearOAM
+ClearOAM: @ 0x0801DB10
 	push {r4, lr}
 	ldr r3, _0801DB30 @ =gUnk_03000020
 	movs r1, #0xe0

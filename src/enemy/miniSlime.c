@@ -6,7 +6,6 @@
 
 void sub_08045374(Entity*);
 
-//extern u32 FixedDiv(u32, u32);
 extern void sub_080452E4();
 extern void ReplaceMonitoredEntity(Entity*, Entity*);
 
