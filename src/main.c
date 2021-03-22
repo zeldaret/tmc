@@ -24,7 +24,7 @@ static void (*const sScreenHandlers[])(void) = {
 
 static void sub_080560B8(void);
 
-void MainLoop(void) {
+void AgbMain(void) {
     int var0;
 
     sub_08055F70();
