@@ -1,7 +1,8 @@
 #include "global.h"
-#include "functions.h"
 #include "entity.h"
 #include "script.h"
+#include "audio.h"
+#include "functions.h"
 
 extern void sub_0806A8C8(Entity*);
 

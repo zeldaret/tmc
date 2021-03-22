@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "room.h"
 #include "flags.h"
+#include "audio.h"
 #include "functions.h"
 
 extern u32 sub_08083734(Entity*, u32);

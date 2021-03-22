@@ -16,12 +16,12 @@ script_0800DCD0:
 	WaitForSomething2 0x00000001
 	SoundReq0x80100000 
 	Call sub_08066E50
-	SoundReq 0x01c9
+	PlaySound 0x01c9
 	Call sub_0807F2D4
-	SoundReq 0x01ca
+	PlaySound 0x01ca
 	Wait 0x003c
 	DoPostScriptAction 0x0004
-	SoundReq2 0x000b
+	PlayBgm 0x000b
 	Wait 0x0078
 	_0807EB44 0x0002
 	DoPostScriptAction 0x0000

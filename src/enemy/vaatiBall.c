@@ -2,6 +2,7 @@
 #include "player.h"
 #include "screen.h"
 #include "createObject.h"
+#include "audio.h"
 #include "functions.h"
 
 typedef struct {

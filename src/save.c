@@ -58,8 +58,6 @@ const SaveFileEEPROMAddresses gSaveFileEEPROMAddresses[] = { { 0x500, 0x30, 0x10
                                                              { 0x20, 0x60, 0x1060, 0xf80, 0x1f80 },
                                                              { 0x8, 0xfa0, 0x1fa0, 0xfa0, 0x1fa0 } };
 
-extern s16 gUnk_02021EE0[6];
-
 void sub_0807CD9C() {
     sub_080530C8();
 }
@@ -69,8 +67,8 @@ SaveResult HandleSave(u32 arg0) {
 }
 
 SaveResult HandleSaveInit(u32 arg0) {
-    gUnk_02021EE0[5] -= 8;
-    if (gUnk_02021EE0[4] <= 0) {
+    gUnk_02021EE0.unk_0a -= 8;
+    if (gUnk_02021EE0.unk_08 <= 0) {
         gMenu.field_0xa = 8;
         gMenu.storyPanelIndex = SAVE_IN_PROGRESS;
     }
@@ -107,9 +105,9 @@ SaveResult HandleSaveDone(u32 arg0) {
     SaveResult result;
 
     result = SAVE_BUSY;
-    gUnk_02021EE0[5] += 8;
-    if (gUnk_02021EE0[3] <= gUnk_02021EE0[5]) {
-        gUnk_02021EE0[5] = gUnk_02021EE0[3];
+    gUnk_02021EE0.unk_0a += 8;
+    if (gUnk_02021EE0.unk_06 <= gUnk_02021EE0.unk_0a) {
+        gUnk_02021EE0.unk_0a = gUnk_02021EE0.unk_06;
         sub_08050384();
         gMenu.storyPanelIndex = SAVE_INIT;
         if (gMenu.field_0xa == 1) {

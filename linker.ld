@@ -882,7 +882,7 @@ SECTIONS {
         asm/sub_080A285C.o(.text);
         src/createObject.o(.text);
         asm/code_080A29BC.o(.text);
-        asm/soundReq.o(.text);
+        src/audio.o(.text);
         asm/code_080A3480.o(.text);
         src/sub_080A3B84.o(.text);
         asm/code_080A3BD0.o(.text);
@@ -1033,7 +1033,7 @@ SECTIONS {
         data/sprite_table.o(.rodata);
         src/gba/m4a.o(.rodata);
         data/data_089FC6C4.o(.rodata);
-        src/sound.o(.rodata);
+        src/audio.o(.rodata);
         data/data_08A127A1.o(.rodata);
         data/songs.o(.rodata);
         src/eeprom.o(.rodata);

@@ -1,4 +1,115 @@
+#include "global.h"
+#include "main.h"
 #include "gba/m4a.h"
+#include "audio.h"
+#include "structures.h"
+
+extern void sub_080A35A0(u32);
+extern void sub_080A35C8(void);
+extern void sub_080A353C(u32);
+extern void sub_080A3234(u32);
+extern void sub_080A35B4(u32);
+
+#define IS_BGM(song) (song) - 1 <= NUM_BGM - 1
+#define IS_SFX(song) (song) - 1 > NUM_BGM - 1
+
+void SoundReq(u32 arg) {
+    u32 song;
+    struct_02021EE0* ptr;
+    if (gMain.field_0x7)
+        return;
+    ptr = &gUnk_02021EE0;
+    song = arg & 0xffff;
+    switch (arg & 0xffff0000) {
+        case SOUND_REQ_ALL_STOP:
+            ptr->currentBgm = 0;
+            m4aMPlayAllStop();
+            return;
+        case 0x80020000:
+            sub_080A3234(0);
+            return;
+        case 0x80030000:
+            sub_080A35C8();
+            ptr->unk_12 = 0x100;
+            sub_080A353C(ptr->currentBgm);
+            return;
+        case 0x80080000:
+            sub_080A35B4(ptr->currentBgm);
+            return;
+        case 0x80090000:
+            if (song == 0)
+                song = ptr->currentBgm;
+            if (IS_SFX(song))
+                return;
+            ptr->currentBgm = song;
+            m4aSongNumStart(song);
+            sub_080A35A0(song);
+            return;
+        case 0x800a0000:
+            if (IS_SFX(song))
+                return;
+            ptr->currentBgm = song;
+            m4aSongNumStartOrContinue(song);
+            sub_080A35A0(song);
+            return;
+        case 0x800c0000:
+            m4aMPlayTempoControl(gMPlayTable[gSongTable[ptr->currentBgm].ms].info, song);
+            return;
+        case 0x80040000:
+            m4aMPlayAllStop();
+            m4aSoundVSyncOff();
+            return;
+        case 0x80050000:
+            if (ptr->currentBgm == 0)
+                return;
+            m4aSongNumStop(ptr->currentBgm);
+            return;
+        case 0x80060000:
+            m4aSoundVSyncOn();
+        case 0x80070000:
+            if (ptr->currentBgm == 0)
+                return;
+            m4aSongNumStartOrContinue(ptr->currentBgm);
+            sub_080A353C(ptr->currentBgm);
+            return;
+        case 0x800b0000:
+            if (IS_SFX(song))
+                return;
+            ptr->currentBgm = song;
+            m4aSongNumStartOrContinue(song);
+            sub_080A35C8();
+            sub_080A353C(song);
+            return;
+        case 0x800d0000:
+            ptr->unk_10 = 0;
+            return;
+        case 0x80100000:
+            ptr->unk_10 = 0;
+            ptr->unk_02 = 1;
+            return;
+        case 0x800e0000:
+            ptr->unk_10 = 0x100;
+            return;
+        case 0x800f0000:
+            sub_080A35C8();
+            return;
+        case 0x80110000:
+            ptr->currentBgm = 0;
+            return;
+        default:
+            if (song != 0) {
+                if (IS_BGM(song)) {
+                    ptr->currentBgm = song;
+                    m4aSongNumStart(song);
+                    sub_080A35C8();
+                } else {
+                    m4aSongNumStart(song);
+                }
+                sub_080A353C(song);
+            }
+            return;
+    }
+}
 
 extern const SongHeader song_08DCC48C;
 extern const SongHeader song_08DCC6CC;

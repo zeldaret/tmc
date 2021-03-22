@@ -5,6 +5,7 @@
 #include "room.h"
 #include "area.h"
 #include "utils.h"
+#include "audio.h"
 #include "functions.h"
 
 /*

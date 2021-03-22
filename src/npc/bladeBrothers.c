@@ -7,6 +7,7 @@
 #include "save.h"
 #include "script.h"
 #include "npc.h"
+#include "audio.h"
 #include "functions.h"
 
 extern void (*gUnk_081115C0[])(Entity*);

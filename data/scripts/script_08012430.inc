@@ -50,7 +50,7 @@ script_0801248A:
 	_0807E778 0x0004
 	_0807E800 0x00000000
 	WaitFor_2 
-	SoundReq2 0x000e
+	PlayBgm 0x000e
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
 	WaitForSomething2 0x00000100
@@ -74,7 +74,7 @@ script_0801248A:
 	WaitFor_2 
 	Call sub_0807DF50
 	_0807E878 
-	SoundReq2 0xffff
+	PlayBgm 0xffff
 script_08012566:
 	CheckPlayerInRegion 0x03a0, 0x01a0, 0x1020
 	JumpIfNot script_08012566
@@ -91,7 +91,7 @@ script_08012566:
 	Wait 0x005a
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
-	SoundReq2 0x000e
+	PlayBgm 0x000e
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
 	_0807E5F8 0x00000040
@@ -105,7 +105,7 @@ script_08012566:
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
 	SoundReq0x80100000 
-	SoundReq2 0x0033
+	PlayBgm 0x0033
 	Call sub_0807DF50
 	_0807E878 
 	_0807E5F8 0x00000050
@@ -114,14 +114,14 @@ script_08012566:
 	_0807E864 
 	Call sub_0807FA40
 	Call sub_0807DF28
-	SoundReq 0x0072
+	PlaySound 0x0072
 	SoundReq0x80100000 
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
 	StartPlayerScript script_08012AF0
 	WaitForSomething2 0x00000001
 	_0807E8E4_0 
-	SoundReq2 0x000e
+	PlayBgm 0x000e
 	Wait 0x001e
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
@@ -135,7 +135,7 @@ script_08012566:
 	WaitForSomething2 0x00000008
 	SoundReq0x80100000 
 	Wait 0x003c
-	SoundReq2 0xffff
+	PlayBgm 0xffff
 	Call sub_0806DCA0
 	_0807F0B4 0x0004
 	CameraTargetPlayer 
@@ -149,7 +149,7 @@ script_08012566:
 	WaitForSomething2 0x00000008
 	SoundReq0x80100000 
 	Wait 0x003c
-	SoundReq2 0xffff
+	PlayBgm 0xffff
 	Call sub_08054570
 	SetGlobalFlag 0x0014
 	CallWithArg sub_0807F6F8, 0x00000008

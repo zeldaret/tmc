@@ -139,7 +139,7 @@ script_0800C6DC:
 	_0807EC94 0x0020
 	_0807EB44 0x0004
 	Wait 0x000f
-	SoundReq 0x0072
+	PlaySound 0x0072
 	SetLocalFlag 0x0082
 script_0800C712:
 	DoPostScriptAction 0x0002
@@ -232,7 +232,7 @@ script_0800C824:
 	Wait 0x000f
 	SetLocalFlag 0x0083
 	Wait 0x003c
-	SoundReq 0x0072
+	PlaySound 0x0072
 	Wait 0x003c
 	_0807EB74 
 	_0807EB8C 

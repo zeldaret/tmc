@@ -180,9 +180,9 @@ script_080162F6:
 	Call sub_0807DF28
 	_0807E864 
 	SoundReq0x80100000 
-	SoundReq 0x00cd
+	PlaySound 0x00cd
 	Wait 0x003c
-	SoundReq2 0x005e
+	PlayBgm 0x005e
 	Call sub_08068F3C
 script_0801631C:
 	Call sub_08068E30

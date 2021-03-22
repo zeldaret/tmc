@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "flags.h"
 #include "room.h"
+#include "audio.h"
 #include "functions.h"
 
 extern void (*const gUnk_0811EE38[])(Entity*);

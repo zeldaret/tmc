@@ -9,6 +9,7 @@
 #include "utils.h"
 #include "save.h"
 #include "random.h"
+#include "audio.h"
 #include "functions.h"
 
 void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
@@ -137,9 +138,9 @@ void ScriptCommand_0807EEF4(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EF3C(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_DoPostScriptAction(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_DoPostScriptAction2(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_PlaySound(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_PlayBgm(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SoundReq(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_SoundReq2(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_SoundReq3(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SoundReq0x80100000(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ModRupees(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ModHealth(Entity* entity, ScriptExecutionContext* context);
@@ -283,9 +284,9 @@ const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
                                           ScriptCommand_0807EF3C,
                                           ScriptCommand_DoPostScriptAction,
                                           ScriptCommand_DoPostScriptAction2,
+                                          ScriptCommand_PlaySound,
+                                          ScriptCommand_PlayBgm,
                                           ScriptCommand_SoundReq,
-                                          ScriptCommand_SoundReq2,
-                                          ScriptCommand_SoundReq3,
                                           ScriptCommand_SoundReq0x80100000,
                                           ScriptCommand_ModRupees,
                                           ScriptCommand_ModHealth,
@@ -1450,11 +1451,11 @@ void ScriptCommand_DoPostScriptAction2(Entity* entity, ScriptExecutionContext* c
     context->postScriptActions |= 1 << context->scriptInstructionPointer[1];
 }
 
-void ScriptCommand_SoundReq(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_PlaySound(Entity* entity, ScriptExecutionContext* context) {
     SoundReq(context->scriptInstructionPointer[1]);
 }
 
-void ScriptCommand_SoundReq2(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_PlayBgm(Entity* entity, ScriptExecutionContext* context) {
     if (context->scriptInstructionPointer[1] >= 100) {
         SoundReq(gArea.musicIndex);
     } else {
@@ -1462,7 +1463,7 @@ void ScriptCommand_SoundReq2(Entity* entity, ScriptExecutionContext* context) {
     }
 }
 
-void ScriptCommand_SoundReq3(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_SoundReq(Entity* entity, ScriptExecutionContext* context) {
     SoundReq(GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer));
 }
 

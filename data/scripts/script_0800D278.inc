@@ -101,7 +101,7 @@ script_0800D3B2:
 	_0807E930 0x0003
 	SetIntVariable 0x00000004
 	Call sub_080681D8
-	SoundReq 0x00cd
+	PlaySound 0x00cd
 	Wait 0x001e
 	DoPostScriptAction 0x000a
 	SetLocalFlag 0x007f

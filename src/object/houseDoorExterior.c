@@ -1,9 +1,10 @@
 #include "global.h"
 #include "entity.h"
 #include "flags.h"
-#include "functions.h"
 #include "room.h"
 #include "script.h"
+#include "audio.h"
+#include "functions.h"
 
 typedef struct {
     /*0x00*/ u16 unk0;

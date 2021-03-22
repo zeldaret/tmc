@@ -13,13 +13,13 @@ script_0800E0DE:
 	_0807E864 
 	Wait 0x001e
 	DoPostScriptAction 0x0010
-	SoundReq 0x01c9
+	PlaySound 0x01c9
 	_0807E930 0x0009
 	Wait 0x003c
-	SoundReq 0x01ca
+	PlaySound 0x01ca
 	DoPostScriptAction 0x0010
 	Wait 0x001e
-	SoundReq 0x0072
+	PlaySound 0x0072
 	Wait 0x0078
 	DoPostScriptAction 0x0004
 	Wait 0x001e
@@ -59,13 +59,13 @@ script_0800E176:
 	_0807E864 
 	Wait 0x001e
 	DoPostScriptAction 0x0010
-	SoundReq 0x01c9
+	PlaySound 0x01c9
 	_0807E930 0x0015
 	Wait 0x003c
-	SoundReq 0x01ca
+	PlaySound 0x01ca
 	DoPostScriptAction 0x0010
 	Wait 0x001e
-	SoundReq 0x0072
+	PlaySound 0x0072
 	Wait 0x0078
 	DoPostScriptAction 0x0004
 	Wait 0x001e
@@ -116,13 +116,13 @@ script_0800E24A:
 	_0807E864 
 	Wait 0x001e
 	DoPostScriptAction 0x0010
-	SoundReq 0x01c9
+	PlaySound 0x01c9
 	_0807E930 0x0015
 	Wait 0x003c
-	SoundReq 0x01ca
+	PlaySound 0x01ca
 	DoPostScriptAction 0x0010
 	Wait 0x001e
-	SoundReq 0x0072
+	PlaySound 0x0072
 	Wait 0x0078
 	DoPostScriptAction 0x0004
 	Wait 0x001e
@@ -197,13 +197,13 @@ script_0800E37A:
 	_0807E864 
 	Wait 0x001e
 	DoPostScriptAction 0x0010
-	SoundReq 0x01c9
+	PlaySound 0x01c9
 	_0807E930 0x000d
 	Wait 0x003c
-	SoundReq 0x01ca
+	PlaySound 0x01ca
 	DoPostScriptAction 0x0010
 	Wait 0x001e
-	SoundReq 0x0072
+	PlaySound 0x0072
 	Wait 0x0078
 	DoPostScriptAction 0x0004
 	Wait 0x001e
@@ -311,7 +311,7 @@ script_0800E4B6:
 	Wait 0x003c
 	_0807EA94 
 	BeginBlock 
-	SoundReq2 0x0033
+	PlayBgm 0x0033
 	SetLocalFlag 0x007c
 script_0800E4FA:
 	_0807E878 

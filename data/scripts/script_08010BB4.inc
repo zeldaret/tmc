@@ -70,7 +70,7 @@ script_08010BCA:
 	WaitForSomething2 0x00000008
 	TextboxNoOverlapFollowPos 0x1039, 0x000c
 	_0807EA94 
-	SoundReq2 0x0001
+	PlayBgm 0x0001
 	_0807E8E4_2 
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
@@ -96,18 +96,18 @@ script_08010BCA:
 	WaitForSomething2 0x00000200
 	_0807E5F8 0x00280000
 	SoundReq0x80100000 
-	SoundReq 0x009b
+	PlaySound 0x009b
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
 	TextboxNoOverlapFollowPos 0x1043, 0x0000
 	_0807EA94 
-	SoundReq2 0x000d
+	PlayBgm 0x000d
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
 	_0807E5F8 0x0002a800
 	WaitForSomething2 0x00055000
-	SoundReq 0x01c7
-	SoundReq 0x00e5
+	PlaySound 0x01c7
+	PlaySound 0x00e5
 	_0807E5F8 0x00000100
 	_0807E5F8 0x00002800
 	CallWithArg sub_0807FB28, 0x00000003
@@ -120,16 +120,16 @@ script_08010BCA:
 	SetEntityPositionRelative 0x01f8, 0x0098
 	SoundReq0x80100000 
 	Wait 0x003c
-	SoundReq2 0x002f
+	PlayBgm 0x002f
 	_0807E5F8 0x00028000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
 	WaitForSomething2 0x00050000
 	CallWithArg sub_0807FB28, 0x00000003
-	SoundReq 0x00e5
+	PlaySound 0x00e5
 	_0807E5F8 0x00028000
 	WaitForSomething2 0x00050000
-	SoundReq 0x0125
+	PlaySound 0x0125
 	CallWithArg sub_0807FB28, 0x00000003
 	_0807E5F8 0x08000000
 	_0807E5F8 0x00800000

@@ -232,7 +232,7 @@ script_08012A74:
 	Call sub_0806D9A4
 	DoPostScriptAction 0x0008
 	Wait 0x0078
-	SoundReq2 0x000e
+	PlayBgm 0x000e
 	BeginBlock 
 	_0807E8E4_2 
 	_0807EB28 0x1112

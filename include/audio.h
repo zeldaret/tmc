@@ -1,6 +1,10 @@
 #ifndef AUDIO_H
 #define AUDIO_H
 
+#include "global.h"
+
+#define NUM_BGM 99
+
 typedef enum {
     SFX_NONE,
     BGM_CASTLE_TOURNAMENT,
@@ -257,5 +261,8 @@ typedef enum {
     SONG_VOL_CHAN1_RESET = 0x800E0000,
     SONG_RESET_UNK = 0x80100000,
 } Sound;
+
+#define SOUND_REQ_ALL_STOP 0x80010000
+void SoundReq(u32 arg);
 
 #endif // AUDIO_H

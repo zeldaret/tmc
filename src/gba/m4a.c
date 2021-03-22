@@ -286,10 +286,7 @@ u32 MidiKeyToCgbFreq(u8, u8, u8);
 void nullsub_141(void);
 void MPlayJumpTableCopy(void** mplayJumpTable);
 void SampleFreqSet(u32 freq);
-void m4aSoundVSyncOn(void);
-void m4aSoundVSyncOff(void);
 
-void m4aMPlayTempoControl(MusicPlayerInfo* mplayInfo, u16 tempo);
 void m4aMPlayVolumeControl(MusicPlayerInfo* mplayInfo, u16 trackBits, u16 volume);
 void m4aMPlayPitchControl(MusicPlayerInfo* mplayInfo, u16 trackBits, s16 pitch);
 void m4aMPlayPanpotControl(MusicPlayerInfo* mplayInfo, u16 trackBits, s8 pan);
@@ -1152,27 +1149,26 @@ void CgbOscOff(u8 chanNum) {
     }
 }
 
-// CgbModVol does not match because of this
 static inline int CgbPan(CgbChannel* chan) {
     u32 rightVolume = chan->rightVolume;
     u32 leftVolume = chan->leftVolume;
-    // regalloc
-    if ((rightVolume = (u8)rightVolume) >= (leftVolume = (u8)leftVolume)) {
-        if (rightVolume / 2 >= leftVolume) {
+    u8 rightVolume2 = rightVolume;
+    u8 leftVolume2 = leftVolume;
+    if (rightVolume2 >= leftVolume2) {
+        if (rightVolume2 / 2 >= leftVolume2) {
             chan->pan = 0x0F;
             return 1;
         }
     } else {
-        if (leftVolume / 2 >= rightVolume) {
+        if (leftVolume2 / 2 >= rightVolume2) {
             chan->pan = 0xF0;
             return 1;
         }
     }
-
     return 0;
 }
 
-NONMATCH("asm/non_matching/m4a/CgbModVol.inc", void CgbModVol(CgbChannel* chan)) {
+void CgbModVol(CgbChannel* chan) {
     SoundInfo* soundInfo = SOUND_INFO_PTR;
 
     if (!CgbPan(chan)) {
@@ -1194,7 +1190,6 @@ NONMATCH("asm/non_matching/m4a/CgbModVol.inc", void CgbModVol(CgbChannel* chan))
     chan->sustainGoal = (chan->envelopeGoal * chan->sustain + 15) >> 4;
     chan->pan &= chan->panMask;
 }
-END_NONMATCH
 
 NONMATCH("asm/non_matching/m4a/CgbSound.inc", void CgbSound(void)) {
     s32 ch;

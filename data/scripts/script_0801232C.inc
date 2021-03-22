@@ -35,13 +35,13 @@ script_08012368:
 	_0807E858 0x0080
 	EndBlock 
 	WaitFor_2 
-	SoundReq2 0x002c
+	PlayBgm 0x002c
 	_0807EB28 0x1401
 	_0807EA94 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x0007
-	SoundReq 0x01ce
+	PlaySound 0x01ce
 	SetEntity0x20 0xffff8000
 	Wait 0x003c
 	_0807E8E4_0 
@@ -59,7 +59,7 @@ script_08012368:
 	_0807E858 0x0080
 	EndBlock 
 	WaitFor_2 
-	SoundReq2 0xffff
+	PlayBgm 0xffff
 	_0807EB28 0x1403
 	_0807EA94 
 	SetIntVariable 0x00000203

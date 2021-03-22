@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "random.h"
+#include "audio.h"
 #include "functions.h"
 
 extern void (*const gRope[6])(Entity*);

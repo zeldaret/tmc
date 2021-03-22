@@ -59,7 +59,7 @@ script_08008BD2:
 	WaitForSomething 0x00000001
 	WaitForSomething 0x00000004
 	Wait 0x000f
-	SoundReq 0x0072
+	PlaySound 0x0072
 	_0807E930 0x0004
 	Call sub_0807F2D4
 	TextboxNoOverlap 0x4913
@@ -80,7 +80,7 @@ script_08008C5C:
 	_0807EB44 0x0004
 	_0807E930 0x0004
 	SetEntitySpeed 0x0300
-	SoundReq 0x0121
+	PlaySound 0x0121
 	EndBlock 
 	WaitForSomething 0x00000002
 	TextboxNoOverlap 0x490d
@@ -97,19 +97,19 @@ script_08008C5C:
 	Call sub_08064D10
 	Wait 0x000f
 	_0807EB44 0x0004
-	SoundReq 0x007f
+	PlaySound 0x007f
 	Wait 0x000f
 	_0807EB44 0x0002
 	_0807EDD4 0x00ac, 0x0078
 	Wait 0x000f
 	_0807EB44 0x0004
-	SoundReq 0x007f
+	PlaySound 0x007f
 	Wait 0x000f
 	_0807EB44 0x0002
 	_0807EDD4 0x00c0, 0x0078
 	Wait 0x000f
 	_0807EB44 0x0004
-	SoundReq 0x007f
+	PlaySound 0x007f
 	Wait 0x000f
 	_0807EB44 0x0006
 	Wait 0x001e
@@ -122,7 +122,7 @@ script_08008C5C:
 	Call sub_08064D08
 	_0807EDD4 0x0068, 0x0018
 	Call sub_08064D10
-	SoundReq 0x0121
+	PlaySound 0x0121
 	_0807E5F8 0x00000001
 	DoPostScriptAction 0x0006
 SCRIPT_END

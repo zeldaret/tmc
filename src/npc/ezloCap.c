@@ -1,9 +1,10 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 #include "flags.h"
 #include "save.h"
 #include "script.h"
+#include "audio.h"
+#include "functions.h"
 
 extern Hitbox gUnk_080FD170;
 extern void script_08016030; // Cutscene data type?

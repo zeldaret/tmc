@@ -11,7 +11,6 @@
 #include "structures.h"
 
 // Identified - to be sorted into header files
-extern void SoundReq(u32);
 extern void ShowNPCDialogue(Entity*, Dialog*);
 extern void DoFade(u32, u32);
 extern u32 CheckKinstoneFused(u32);

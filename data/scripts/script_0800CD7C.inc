@@ -41,7 +41,7 @@ script_0800CDEC:
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_0800CF40
-	SoundReq 0x00cd
+	PlaySound 0x00cd
 	_0807F088 0x0023
 	WaitPlayerAction8 
 	Jump script_0800CE32
@@ -52,7 +52,7 @@ script_0800CE14:
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_0800CF40
-	SoundReq 0x00cd
+	PlaySound 0x00cd
 	_0807F088 0x0022
 	WaitPlayerAction8 
 script_0800CE32:
@@ -81,7 +81,7 @@ script_0800CE6E:
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_0800CF40
-	SoundReq 0x00cd
+	PlaySound 0x00cd
 	_0807F088 0x0027
 	WaitPlayerAction8 
 	_0807EB8C 
@@ -109,7 +109,7 @@ script_0800CECE:
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_0800CF40
-	SoundReq 0x00cd
+	PlaySound 0x00cd
 	_0807F088 0x0024
 	WaitPlayerAction8 
 	_0807EB8C 
@@ -257,12 +257,12 @@ script_0800D0A8:
 	_0807EB44 0x0002
 	SetIntVariable 0x00000000
 	Call sub_0806C028
-	SoundReq 0x00cd
+	PlaySound 0x00cd
 	Call sub_08068964
 script_0800D108:
 	ComparePlayerAction 0x0008
 	JumpIf script_0800D108
-	SoundReq 0x00f8
+	PlaySound 0x00f8
 	_0807E5F8 0x00000010
 	SetLocalFlag 0x007e
 	TextboxNoOverlapFollowPos 0x123e, 0x0002
