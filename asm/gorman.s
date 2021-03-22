@@ -272,7 +272,7 @@ sub_0806991C: @ 0x0806991C
 	ldrb r0, [r0]
 	orrs r1, r0
 	strb r1, [r5, #0x14]
-	ldr r2, _080699A8 @ =gUnk_02033280
+	ldr r2, _080699A8 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -282,7 +282,7 @@ sub_0806991C: @ 0x0806991C
 _0806999C: .4byte gUnk_08111C5C
 _080699A0: .4byte gRoomControls
 _080699A4: .4byte gUnk_08111C74
-_080699A8: .4byte gUnk_02033280
+_080699A8: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_080699AC
 sub_080699AC: @ 0x080699AC
@@ -342,7 +342,7 @@ sub_080699AC: @ 0x080699AC
 	ldrb r0, [r0]
 	orrs r1, r0
 	strb r1, [r5, #0x14]
-	ldr r2, _08069A38 @ =gUnk_02033280
+	ldr r2, _08069A38 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -352,7 +352,7 @@ sub_080699AC: @ 0x080699AC
 _08069A2C: .4byte gUnk_08111C84
 _08069A30: .4byte gRoomControls
 _08069A34: .4byte gUnk_08111C8C
-_08069A38: .4byte gUnk_02033280
+_08069A38: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_08069A3C
 sub_08069A3C: @ 0x08069A3C

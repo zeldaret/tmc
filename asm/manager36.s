@@ -72,7 +72,7 @@ sub_0805DE18: @ 0x0805DE18
 	movs r0, #9
 	movs r1, #0x36
 	movs r2, #6
-	bl FindEntityInListByForm
+	bl FindEntity
 	cmp r0, #0
 	beq _0805DE34
 	bl DeleteEntityAny

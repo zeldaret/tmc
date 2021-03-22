@@ -2,9 +2,9 @@
 #include "entity.h"
 #include "flags.h"
 #include "room.h"
+#include "functions.h"
 
 extern void sub_080A0960(Entity*, u32);
-extern void SoundReq(u32);
 extern void sub_0801AF18(u8*, u32, u32);
 
 extern void (*const gUnk_08124950[])(Entity*);

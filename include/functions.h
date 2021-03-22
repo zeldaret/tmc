@@ -5,72 +5,50 @@
 #include "global.h"
 #include "entity.h"
 #include "manager.h"
-#include "position.h"
+#include "coord.h"
 #include "player.h"
-#include "structures.h"
 #include "room.h"
+#include "structures.h"
 
 // Identified - to be sorted into header files
-extern u32 Random(void);
 extern void SoundReq(u32);
 extern void ShowNPCDialogue(Entity*, Dialog*);
-extern u32 UpdateFuseInteraction();
-extern void DeleteEntity(Entity*);
-extern u32 __modsi3(u32, u32);
 extern void DoFade(u32, u32);
-extern u32 GetInventoryValue(u32);
 extern u32 CheckKinstoneFused(u32);
 extern void ForceEquipItem(u32, u8);
-extern void LoadRoomEntityList();
-void CopyPosition(Entity*, Entity*);
-extern void ResolveEntityOnTop(Entity*, Entity*);
-extern void EnemyFunctionHandler(Entity*, void (*const funcs[])(Entity*));
+extern void LoadRoomEntityList(EntityData* listPtr);
 extern u32 GetAnimationState(Entity*);
 extern void SetChildOffset(Entity*, s32, s32, s32);
-extern u32 GetFacingDirection(Entity*, Entity*);
 extern Entity* CreatePlayerItem(u32, u32, u32, u32);
-extern Entity* GetEmptyEntity(void);
 extern u32 GetTileTypeByPos(s32 x, s32 y, u32 layer);
 extern u32 GetTileType(u32 pos, u32 layer);
-extern void MemClear32(void* src, u32 count);
 extern void EraseAllEntities(void);
 extern void SetTile(u32, u32, u32);
 extern void SetDirtTile(u32);
 extern void LoadRoomTileEntities(); // tba
 extern Entity* CreateDeathFx(Entity*, u32, u32);
 extern void UpdateAnimationVariableFrames(Entity*, u32);
-extern void CopyPositionAndSpriteOffset(Entity*, Entity*);
 extern u8* GetSpriteSubEntryOffsetDataPointer(u32, u32);
 extern u32 LoadFixedGFX(Entity*, u32);
-extern void MemFill32(u32, void*, u32);
 extern Entity* CreateItemEntity(u32, u32, u32);
-void MemCopy(const void* src, void* dst, u32 size);
 extern u32 ProcessMovement(Entity*);
-extern Entity* FindEntityInListBySubtype(u32, u32, u32);
-extern Entity* FindEntityInListByForm(u32, u32, u32, u32, u32);
-extern void MemClear32(void*, u32);
 extern void MenuFadeIn(u32, u32);
 extern void LoadResourceAsync(const void*, u32, u32);
 extern void LoadPaletteGroup(u32);
 extern void TryLoadPrologueHyruleTown(void);
 extern Manager* GetEmptyManager(void);
-extern void AppendEntityToList(void*, u32);
 extern void LoadGfxGroup(u32);
 extern void EnqueueSFX(u32);
 extern void ResetPlayer(void);
-extern void CreateDust(Entity*);
 extern u32 IsItemEquipped(u32);
 extern void DeleteManager(Manager*);
 extern bool32 CheckPlayerInRegion(u32 centerX, u32 centerY, u32 radiusX, u32 radiusY);
-extern u32 CheckIsDungeon();
 extern u32 GetTileTypeByEntity(Entity*);
 
 // Unidentified
 extern u32 sub_0806ED78(Entity*);
-extern void sub_0806920C(Entity*);
 extern u32 sub_0805ACC0(Entity*);
 extern u32 sub_0801E99C(Entity*);
-extern void sub_0806924C(Entity*);
 extern Entity* sub_080873AC(Entity*, u32, u32);
 extern void sub_08078778(Entity*);
 extern void sub_080787A8(Entity*, u32);
@@ -78,33 +56,23 @@ extern void sub_0806F118(Entity*);
 extern void sub_080791D0();
 extern void sub_0805EC9C();
 extern void sub_0805EC60();
-extern void sub_080873D0();
-extern u8 sub_080045D4(s16, s16, u32, u32);
+extern u32 sub_080045D4(s16, s16, u32, u32);
 extern void sub_0806F69C(Entity*);
 extern void sub_0805E3A0(void*, u32);
 extern void sub_0806D0B0(Entity*);
-extern void sub_0807DD64(Entity*);
-extern void sub_0807DDE4(Entity*);
 extern void sub_0806D02C(Entity*);
 extern u32 sub_0806F5A4(u32);
 extern void sub_08078784(Entity*, u32);
-extern void sub_0807DD50(Entity*);
 extern s32 sub_0806ED9C(Entity*, u32, u32);
 extern void sub_0807000C(Entity*);
 extern void sub_0805E47C(Entity*);
 extern void sub_0805E584(Entity*);
 extern void sub_08068BEC(Entity*, u32);
-extern void sub_08078778(Entity*);
-extern s32 sub_0806ED9C(Entity*, u32, u32);
 extern s32 sub_0806F078(Entity*, s32);
 extern void sub_0801D2B4(Entity*, u32);
 extern void sub_0806FD3C(Entity*);
-extern u32 sub_0801E99C(Entity*);
-extern void sub_0807DD50(Entity*);
-extern void sub_0806F118(Entity*);
 extern void sub_0805ED14(u32*);
 extern void sub_080A7C18(u32, u32, u32);
-extern void sub_08068BEC(Entity*, u32);
 extern void sub_0804AA30(Entity*, void (*const funcs[])(Entity*));
 extern Entity* sub_0804A9FC(Entity*, u32);
 extern void sub_0804A720(Entity*);
@@ -114,7 +82,7 @@ extern u32 sub_08049FDC(Entity*, u32);
 extern u32 sub_080041A0(Entity*, Entity*, u32, u32);
 extern u32 sub_08049EE4(Entity*);
 extern Entity* sub_0804A98C(Entity*, u8, u8);
-extern u32 sub_080544DC(u32);
+extern u32 GetBottleContaining(u32);
 extern void sub_08077E54(Entity*);
 extern void sub_080042BA(Entity*, u32);
 extern void sub_08077F24(ItemBehavior*, u32);
@@ -151,7 +119,7 @@ extern u32 sub_08060354(void);
 extern void sub_08057E64(void);
 extern void sub_0809F814(u32);
 extern void sub_080300E8(void);
-extern void sub_0801DA90(u32);
+extern void DispReset(u32);
 extern void sub_08058D34(void);
 extern void sub_0807AABC(Entity*);
 extern void sub_08078A90(u32);
@@ -159,8 +127,6 @@ extern void sub_080530C8(void);
 extern void sub_0805B4D0(u32);
 extern void sub_0804D0B4(void);
 extern void sub_0805308C(u32);
-extern void sub_0805AF60();
-extern void sub_0805D3C8(u32);
 extern void sub_080534AC();
 extern void sub_0807BA8C(u32, u32);
 extern void sub_0804D9B0();
@@ -174,7 +140,6 @@ extern void sub_08054564();
 extern void sub_0801DD58(u32, u32);
 extern void sub_0804ED18();
 extern void sub_080AF2E4(void);
-extern void sub_0805ADD8(u32);
 extern void sub_0804F578(void);
 extern void sub_08059994(void);
 extern s32 sub_0801CFA8(u32);
@@ -208,18 +173,8 @@ extern u32 sub_0801766C(Entity*);
 extern void sub_08004168(Entity*);
 extern u32 sub_08052638(u32);
 extern void InitDMA(void);
-extern u32 sub_0807CF08(u32, u8*);
-extern void sub_0807CF48(u32);
-extern u32 sub_0807CF10(u8*);
 extern void sub_08056208(void);
 extern void sub_08050384();
-extern void sub_080B1520(u32);
-extern struct_0807D1C4* sub_0807D1C4(u32);
-extern u32 sub_0807D24C(u32, const char*, u32);
-extern void sub_0807CF68(u32);
-extern u32 sub_0807D20C(u32, const char*, u32);
-extern u32 sub_0807CF88(u32, u8*);
-extern u32 sub_0807D184(u32, const char*);
 extern u32 sub_0806F520();
 extern void sub_0806F4E8(Entity*);
 extern u32 sub_0806F3E4(Entity*);
@@ -276,7 +231,6 @@ u32 sub_0806FCB8(Entity*, u32, u32, u32);
 extern Entity* sub_080A7EE0(u32);
 extern void sub_080A1D70(Entity*, u32);
 extern void sub_0806F62C(Entity*, u32, u32);
-extern u32 sub_08079F8C(void);
 extern void sub_080A1ED0(u32, u32, u32);
 extern u32 sub_0806F5B0(u32);
 extern void sub_0801DFB4(Entity*, u32, u32, u32);
@@ -288,7 +242,7 @@ extern u32 sub_08052734(); // has Dungeon Map?
 extern u32 sub_08052764(); // has Dungeon Compass?
 extern u32 sub_0805279C(); // has Dungeon Big Key?
 extern u32 sub_080527CC(); // num Dungeon small keys?
-extern u32 sub_08053FE0();
+extern u32 GetItemPrice();
 extern void sub_08078790(Entity*, u32);
 extern void sub_080788E0(Entity*);
 extern void sub_08078AA8(u32, u32);
@@ -302,7 +256,6 @@ extern void sub_080791BC9();
 extern void sub_080791BC();
 extern void sub_08056360();
 extern u32 sub_080542AC(u32);
-extern void sub_0807A108();
 extern u32 sub_08079FC4(u32);
 extern void sub_0800455E(Entity*);
 extern void sub_08008790(Entity*, u32);

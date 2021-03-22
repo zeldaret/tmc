@@ -201,7 +201,7 @@ _0806A568:
 	movs r0, #8
 	movs r1, #2
 	bl sub_08080964
-	ldr r2, _0806A5B4 @ =gUnk_02033280
+	ldr r2, _0806A5B4 @ =gActiveScriptInfo
 	ldr r0, [r2]
 	movs r1, #0x80
 	lsls r1, r1, #1
@@ -227,7 +227,7 @@ _0806A590:
 _0806A5B0:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0806A5B4: .4byte gUnk_02033280
+_0806A5B4: .4byte gActiveScriptInfo
 _0806A5B8: .4byte 0x0000011B
 
 	thumb_func_start nullsub_503
@@ -305,7 +305,7 @@ sub_0806A630: @ 0x0806A630
 	movs r1, #0x12
 	bl InitializeAnimation
 _0806A646:
-	ldr r0, _0806A670 @ =gUnk_02033280
+	ldr r0, _0806A670 @ =gActiveScriptInfo
 	ldr r0, [r0]
 	movs r1, #0x80
 	lsls r1, r1, #1
@@ -327,7 +327,7 @@ _0806A65A:
 _0806A66E:
 	pop {r4, pc}
 	.align 2, 0
-_0806A670: .4byte gUnk_02033280
+_0806A670: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0806A674
 sub_0806A674: @ 0x0806A674
@@ -370,7 +370,7 @@ _0806A6A0:
 	bl InitializeAnimation
 	b _0806A82A
 _0806A6BE:
-	ldr r0, _0806A6E0 @ =gUnk_02033280
+	ldr r0, _0806A6E0 @ =gActiveScriptInfo
 	ldr r0, [r0]
 	movs r1, #0x80
 	lsls r1, r1, #1
@@ -387,7 +387,7 @@ _0806A6BE:
 	strb r0, [r1]
 	b _0806A82A
 	.align 2, 0
-_0806A6E0: .4byte gUnk_02033280
+_0806A6E0: .4byte gActiveScriptInfo
 _0806A6E4:
 	ldr r0, [r4, #0x50]
 	adds r0, #0x58
@@ -581,7 +581,7 @@ sub_0806A830: @ 0x0806A830
 	movs r1, #2
 	bl sub_0805E3A0
 _0806A84E:
-	ldr r0, _0806A88C @ =gUnk_02033280
+	ldr r0, _0806A88C @ =gActiveScriptInfo
 	ldr r0, [r0]
 	movs r1, #0x80
 	lsls r1, r1, #2
@@ -611,7 +611,7 @@ _0806A860:
 _0806A88A:
 	pop {r4, pc}
 	.align 2, 0
-_0806A88C: .4byte gUnk_02033280
+_0806A88C: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0806A890
 sub_0806A890: @ 0x0806A890
@@ -721,13 +721,13 @@ sub_0806A958: @ 0x0806A958
 	ldrb r0, [r0, #0xc]
 	cmp r0, #5
 	beq _0806A966
-	ldr r1, _0806A968 @ =gUnk_02033280
+	ldr r1, _0806A968 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0806A966:
 	pop {pc}
 	.align 2, 0
-_0806A968: .4byte gUnk_02033280
+_0806A968: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0806A96C
 sub_0806A96C: @ 0x0806A96C
@@ -758,14 +758,14 @@ _0806A992:
 	strb r3, [r4]
 	movs r0, #1
 	str r0, [r1, #0x14]
-	ldr r2, _0806A9AC @ =gUnk_02033280
+	ldr r2, _0806A9AC @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	orrs r0, r1
 	strb r0, [r2, #7]
 _0806A9A8:
 	pop {r4, pc}
 	.align 2, 0
-_0806A9AC: .4byte gUnk_02033280
+_0806A9AC: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0806A9B0
 sub_0806A9B0: @ 0x0806A9B0
@@ -938,7 +938,7 @@ _0806AAEE:
 	adds r0, #0xac
 	ldr r0, [r0]
 	movs r1, #7
-	bl FindNextEntityOfSameSubtype
+	bl FindNextDuplicateID
 	adds r1, r0, #0
 	adds r0, r4, #0
 	adds r0, #0xb0
@@ -948,7 +948,7 @@ _0806AB02:
 	adds r0, #0xb0
 	ldr r0, [r0]
 	movs r1, #7
-	bl FindNextEntityOfSameSubtype
+	bl FindNextDuplicateID
 	adds r1, r0, #0
 	mov r0, r8
 	adds r0, #0xb4
@@ -996,7 +996,7 @@ _0806AB5C:
 	cmp r0, #0
 	bge _0806AB6A
 _0806AB64:
-	ldr r1, _0806AB70 @ =gUnk_02033280
+	ldr r1, _0806AB70 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0806AB6A:
@@ -1004,7 +1004,7 @@ _0806AB6A:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0806AB70: .4byte gUnk_02033280
+_0806AB70: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0806AB74
 sub_0806AB74: @ 0x0806AB74
@@ -1041,7 +1041,7 @@ sub_0806AB9C: @ 0x0806AB9C
 	movs r1, #0x37
 	movs r2, #7
 	movs r3, #1
-	bl FindEntityInListByForm
+	bl FindEntity
 	cmp r0, #0
 	beq _0806ABBC
 	bl DeleteEntity

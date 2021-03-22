@@ -503,13 +503,13 @@ _08067734:
 	cmp r0, #0
 	beq _08067748
 _08067742:
-	ldr r1, _0806774C @ =gUnk_02033280
+	ldr r1, _0806774C @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _08067748:
 	pop {pc}
 	.align 2, 0
-_0806774C: .4byte gUnk_02033280
+_0806774C: .4byte gActiveScriptInfo
 
 	thumb_func_start CastorWildsStatue_Fusion
 CastorWildsStatue_Fusion: @ 0x08067750

@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 extern void sub_08086A6C();
@@ -54,5 +55,5 @@ void sub_08086A6C(Entity* ent) {
     uVar1 = Random();
     ent->field_0x20 = 163840;
     ent->direction = (uVar1 >> 16) & 31;
-    ent->nonPlanarMovement = uVar1 & 480;
+    ent->speed = uVar1 & 480;
 }

@@ -1,9 +1,9 @@
 #include "enemy.h"
-#include "functions.h"
 #include "area.h"
+#include "random.h"
+#include "functions.h"
 
 extern void sub_08001328(Entity*);
-extern u32 sub_0806FCB8(Entity*, u32, u32, u32);
 extern void DoExitTransition(u32*);
 
 extern Entity* gUnk_020000B0;
@@ -83,7 +83,7 @@ void sub_0802CD54(Entity* this) {
             this->action = 2;
             tmp = Random() >> 0x10;
             this->actionDelay = tmp;
-            this->nonPlanarMovement = 0xc0;
+            this->speed = 0xc0;
             this->field_0x78.HWORD = gUnk_080CD728[Random() & 3];
             this->field_0x7a.HALF.HI = (tmp >> 8) & 0x60;
             return;
@@ -107,7 +107,7 @@ void sub_0802CDE8(Entity* this) {
     } else {
         this->action = 1;
         this->actionDelay = 60;
-        this->nonPlanarMovement = 0x60;
+        this->speed = 0x60;
         this->field_0x7c.HALF.LO = (Random() & 0x38) + 0x96;
     }
     GetNextFrame(this);

@@ -5,7 +5,6 @@
 #include "functions.h"
 
 extern u32 sub_0805C920(Entity*);
-extern void LoadPaletteGroup(u32);
 
 void sub_0805C874(Entity*);
 void sub_0805C894(Entity*);

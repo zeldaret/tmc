@@ -1,16 +1,9 @@
 #include "global.h"
 #include "entity.h"
-#include "player.h"
 #include "room.h"
-#include "flags.h"
-#include "sprite.h"
-#include "textbox.h"
 #include "npc.h"
-#include "structures.h"
-
-extern void sub_0807DD50(Entity*);
-extern void sub_0807DD94(Entity*, u32);
-extern void EnqueueSFX(u32);
+#include "script.h"
+#include "functions.h"
 
 void Carlov(Entity* this) {
     if (this->action == 0) {

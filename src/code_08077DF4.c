@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "player.h"
+#include "utils.h"
 #include "functions.h"
 
 typedef struct {
@@ -35,7 +36,7 @@ void sub_08077E3C(Entity* ent, u32 idx) {
 void sub_08077E54(Entity* ent) {
     ent->action = gPlayerEntity.animIndex;
     *(u8*)&ent->spriteIndex = gPlayerEntity.frameIndex;
-    ent->previousActionFlag = gPlayerEntity.frameDuration;
+    ent->subAction = gPlayerEntity.frameDuration;
     ent->actionDelay = gPlayerEntity.frames.all;
 }
 
@@ -57,7 +58,7 @@ void sub_08077E78(void* arg0, u32 bits) {
     not = ~not ;
     gPlayerState.field_0xa &= not ;
     gPlayerState.keepFacing &= not ;
-    MemClear32(arg0, 0x1c);
+    MemClear(arg0, 0x1c);
 }
 
 u32 sub_08077EC8(Unk_struct* arg0) {

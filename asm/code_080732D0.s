@@ -175,8 +175,8 @@ _08073418:
 	.align 2, 0
 _0807341C: .4byte gRoomControls
 
-	thumb_func_start sub_08073420
-sub_08073420: @ 0x08073420
+	thumb_func_start PlayerParachute
+PlayerParachute: @ 0x08073420
 	push {r4, lr}
 	adds r4, r0, #0
 	bl sub_08078EFC
@@ -1280,8 +1280,8 @@ _08073C58:
 _08073C66:
 	pop {pc}
 
-	thumb_func_start sub_08073C68
-sub_08073C68: @ 0x08073C68
+	thumb_func_start PlayerMinish
+PlayerMinish: @ 0x08073C68
 	push {lr}
 	ldr r2, _08073C7C @ =gUnk_0811BC60
 	ldrb r1, [r0, #0xd]
@@ -2760,7 +2760,7 @@ _0807476C:
 	strb r0, [r1]
 	subs r0, #0x24
 	bl ModHealth
-	bl sub_08079458
+	bl RespawnPlayer
 _08074792:
 	pop {r4, pc}
 	.align 2, 0
@@ -3501,7 +3501,7 @@ sub_08074CF8: @ 0x08074CF8
 	adds r4, r5, #0
 	adds r4, #0x84
 	ldr r1, [r4]
-	bl ExecuteScriptCommandSet
+	bl ExecuteScript
 	ldr r1, [r4]
 	adds r0, r5, #0
 	bl sub_08074D34
@@ -3818,7 +3818,7 @@ sub_08074F2C: @ 0x08074F2C
 	adds r5, r4, #0
 	adds r5, #0x84
 	ldr r1, [r5]
-	bl ExecuteScriptCommandSet
+	bl ExecuteScript
 	ldr r1, [r5]
 	adds r0, r4, #0
 	bl sub_08074D34
@@ -3874,7 +3874,7 @@ sub_08074F8C: @ 0x08074F8C
 	bne _08074FAC
 	movs r0, #0
 	strb r0, [r3]
-	ldr r2, _08074FDC @ =gUnk_02033280
+	ldr r2, _08074FDC @ =gActiveScriptInfo
 	ldr r0, [r2]
 	movs r1, #4
 	orrs r0, r1
@@ -3904,7 +3904,7 @@ _08074FAC:
 	lsls r0, r0, #3
 	b _08074FE8
 	.align 2, 0
-_08074FDC: .4byte gUnk_02033280
+_08074FDC: .4byte gActiveScriptInfo
 _08074FE0: .4byte gPlayerState
 _08074FE4:
 	movs r0, #0x80
@@ -4198,7 +4198,7 @@ sub_080751E8: @ 0x080751E8
 	ldr r4, _08075230 @ =gPlayerScriptExecutionContext
 	adds r0, r4, #0
 	movs r1, #0x24
-	bl MemClear32
+	bl MemClear
 	str r6, [r4]
 	ldr r0, _08075234 @ =gPlayerEntity
 	adds r0, #0x84
@@ -4223,16 +4223,16 @@ sub_080751E8: @ 0x080751E8
 	cmp r7, #0
 	bne _08075240
 	strb r7, [r3]
-	ldr r6, _0807523C @ =gUnk_08009ECC
+	ldr r6, _0807523C @ =script_08009ECC
 	b _08075244
 	.align 2, 0
 _08075230: .4byte gPlayerScriptExecutionContext
 _08075234: .4byte gPlayerEntity
 _08075238: .4byte gPlayerState
-_0807523C: .4byte gUnk_08009ECC
+_0807523C: .4byte script_08009ECC
 _08075240:
 	strb r4, [r3]
-	ldr r6, _08075290 @ =gUnk_08009EF0
+	ldr r6, _08075290 @ =script_08009EF0
 _08075244:
 	ldr r0, _08075294 @ =gPlayerState
 	adds r0, #0x39
@@ -4270,7 +4270,7 @@ _08075270:
 _0807528C:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_08075290: .4byte gUnk_08009EF0
+_08075290: .4byte script_08009EF0
 _08075294: .4byte gPlayerState
 _08075298: .4byte gPlayerEntity
 
@@ -4310,13 +4310,13 @@ _080752D0:
 	cmp r0, #0
 	beq _080752E2
 _080752DC:
-	ldr r1, _080752E4 @ =gUnk_02033280
+	ldr r1, _080752E4 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _080752E2:
 	pop {r4, r5, pc}
 	.align 2, 0
-_080752E4: .4byte gUnk_02033280
+_080752E4: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_080752E8
 sub_080752E8: @ 0x080752E8
@@ -4592,7 +4592,7 @@ _080754F2:
 	movs r0, #8
 	movs r1, #0xf
 	movs r2, #2
-	bl FindEntityInListBySubtype
+	bl FindEntityByID
 	cmp r0, #0
 	bne _08075538
 	adds r0, r4, #0
@@ -6017,7 +6017,7 @@ sub_08075FF8: @ 0x08075FF8
 	movs r0, #8
 	movs r1, #2
 	movs r2, #2
-	bl FindEntityInListBySubtype
+	bl FindEntityByID
 	b _08076026
 	.align 2, 0
 _08076018: .4byte gPlayerState
@@ -6025,7 +6025,7 @@ _0807601C:
 	adds r5, #1
 	adds r0, r4, #0
 	movs r1, #2
-	bl FindNextEntityOfSameSubtype
+	bl FindNextDuplicateID
 _08076026:
 	adds r4, r0, #0
 	cmp r4, #0

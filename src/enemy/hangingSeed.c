@@ -1,4 +1,5 @@
 #include "entity.h"
+#include "enemy.h"
 #include "functions.h"
 
 extern void (*const gHangingSeedFunctions[])(Entity*);

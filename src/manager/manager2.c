@@ -1,9 +1,9 @@
 #include "global.h"
 #include "entity.h"
 #include "screen.h"
+#include "functions.h"
 
 extern void sub_080576A0();
-extern void sub_08052D74();
 extern void sub_0805754C(Entity*);
 
 void Manager2(Entity* this) {

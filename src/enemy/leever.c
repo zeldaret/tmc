@@ -1,19 +1,14 @@
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
+#include "random.h"
 #include "functions.h"
+#include "coord.h"
 
-extern void SetChildOffset(Entity*, s32, s32, s32);
-extern void sub_0804AA30(Entity*, void (*const func[])(Entity*));
-extern void sub_0804A7D4(Entity*);
-extern Entity* CreateDeathFx(Entity*, u32, u32);
-extern void sub_0804A720(Entity*);
 extern u32 sub_080002D4(s32, s32, u32);
 extern u32 sub_080002BC(s32, s32, u32);
-extern u32 sub_08049FDC(Entity*, u32);
 
 extern Entity* gUnk_020000B0;
-extern s16 gSineTable[];
 
 bool32 Leever_PlayerInRange(Entity*, s32);
 void Leever_Move(Entity*);
@@ -172,13 +167,13 @@ void Leever_Move(Entity* this) {
         this->field_0x74.HWORD = 1;
     }
 
-    this->nonPlanarMovement = (this->frames.all & 0xf) * 0x20;
+    this->speed = (this->frames.all & 0xf) * 0x20;
     if (this->type == LeeverForm_Red) {
         if ((this->field_0xf++ & 0xf) == 0) {
             sub_08004596(this, sub_0800132C(this, gUnk_020000B0));
         }
     } else {
-        this->nonPlanarMovement += 0x40;
+        this->speed += 0x40;
         if ((this->field_0xf++ & 0x7) == 0) {
             sub_08004596(this, sub_0800132C(this, gUnk_020000B0));
         }

@@ -142,8 +142,8 @@ static void sub_080810A8(Entity* this) {
     sub_080814A4(this);
     if (this->direction & 0x80) {
         this->direction &= 0x1F;
-        if (this->nonPlanarMovement == 0) {
-            this->nonPlanarMovement = 0x100;
+        if (this->speed == 0) {
+            this->speed = 0x100;
         }
     } else {
         this->direction |= 0xFF;
@@ -163,7 +163,7 @@ static void sub_080810FC(Entity* this) {
         sub_08081598(this);
     } else {
         this->action = 2;
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->flags |= 0x80;
         this->flags2 = 0x11;
         CopyPosition(&gPlayerEntity, this);
@@ -260,7 +260,7 @@ void sub_080812A0(Entity* this) {
 void sub_080812A8(Entity* this) {
     if (sub_080002D0(this) != 0xF && this->field_0x6e.HWORD != GetTileTypeByEntity(this)) {
         this->direction = 0;
-        this->nonPlanarMovement = 0;
+        this->speed = 0;
         this->spriteSettings.b.draw = 1;
         this->field_0x68.HALF.HI = 0;
         sub_080810A8(this);
@@ -305,11 +305,11 @@ void sub_0808136C(Entity* this) {
 }
 
 static void sub_080813BC(Entity* this) {
-    gUnk_0811E840[this->previousActionFlag](this);
+    gUnk_0811E840[this->subAction](this);
 }
 
 void sub_080813D4(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 1;
     this->spriteSettings.b.draw = 1;
 }

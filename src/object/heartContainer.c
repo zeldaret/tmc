@@ -4,9 +4,6 @@
 #include "flags.h"
 #include "functions.h"
 
-extern void DeleteThisEntity();
-extern void sub_08080CB4(Entity*);
-extern u32 sub_08017850(Entity*);
 static void sub_0808E6A0(Entity*);
 static void sub_0808E6E4(Entity*);
 static void sub_0808E714(Entity*);

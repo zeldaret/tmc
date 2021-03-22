@@ -1,4 +1,5 @@
 #include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
 void sub_0802C4B0(Entity*);
@@ -156,15 +157,15 @@ void sub_0802C4B0(Entity* this) {
     rand = Random() & 7;
     if (rand & 4) {
         if (rand & 3) {
-            this->nonPlanarMovement = gUnk_080CD568[offset | 2];
+            this->speed = gUnk_080CD568[offset | 2];
         } else {
-            this->nonPlanarMovement = gUnk_080CD568[offset | 0];
+            this->speed = gUnk_080CD568[offset | 0];
         }
     } else {
         if (rand & 3) {
-            this->nonPlanarMovement = gUnk_080CD568[offset | 1];
+            this->speed = gUnk_080CD568[offset | 1];
         } else {
-            this->nonPlanarMovement = gUnk_080CD568[offset | 3];
+            this->speed = gUnk_080CD568[offset | 3];
         }
     }
 

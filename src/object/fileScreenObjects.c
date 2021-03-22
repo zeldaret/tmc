@@ -1,18 +1,17 @@
 #include "global.h"
 #include "entity.h"
 #include "flags.h"
-#include "functions.h"
 #include "main.h"
 #include "menu.h"
 #include "npc.h"
-#include "position.h"
-#include "structures.h"
+#include "coord.h"
 #include "fileScreen.h"
+#include "utils.h"
+#include "structures.h"
+#include "functions.h"
 
 extern int sub_0807A094(int);
-extern void LoadPalettes(const u8*, int, int);
 extern u32 sub_080041EC(int, int);
-extern u32 sub_080045DA(int, int);
 
 static bool32 sub_0808E950(void);
 static void sub_0808EABC(Entity*);
@@ -39,7 +38,6 @@ typedef struct {
 extern void (*const gUnk_08121C64[])(Entity*);
 extern void (*const gUnk_08121CCC[])(Entity*);
 extern const int gUnk_08133368[];
-extern const u8 gGlobalGfxAndPalettes[];
 extern const struct_08121CD4 gUnk_08121CD4[][4];
 extern const u8 gUnk_08121D10[];
 extern const u8 gUnk_08121D38[][8];
@@ -506,7 +504,7 @@ static u32 sub_0808EF6C(Entity* this) {
     if (this->field_0x6c.HWORD < var7) {
         var7 = this->field_0x6c.HWORD;
     }
-    this->nonPlanarMovement = var7;
+    this->speed = var7;
     this->direction = sub_080045DA(var0, var2) >> 3;
     sub_0806F69C(this);
     return 1;
@@ -517,7 +515,7 @@ static void sub_0808EFF0(Entity* this) {
     u8 var1;
 
     this->spriteSettings.b.draw = 2;
-    this->nonPlanarMovement = 0x400;
+    this->speed = 0x400;
     this->currentHealth = 1;
     this->frameIndex = 0xFF;
     this->animIndex = 0xFF;

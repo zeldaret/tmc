@@ -199,9 +199,9 @@ _08067F94: .4byte gPlayerEntity
 _08067F98:
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r5, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	ldrb r0, [r5, #0xb]
 	cmp r0, #3
 	bne _0806801A

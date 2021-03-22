@@ -378,7 +378,7 @@ sub_08068578: @ 0x08068578
 	lsls r0, r1, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x14
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	mov sl, r0
@@ -386,7 +386,7 @@ sub_08068578: @ 0x08068578
 	lsls r0, r2, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x14
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	mov r8, r0

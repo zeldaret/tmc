@@ -75,9 +75,9 @@ _0806C41C: .4byte gPlayerEntity
 _0806C420:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl GetNextFrame
 	b _0806C450

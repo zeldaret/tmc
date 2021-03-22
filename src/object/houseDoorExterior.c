@@ -61,7 +61,7 @@ void sub_080866D8(Entity* this) {
                 entity->field_0x68.HWORD = prop->unk0;
                 entity->field_0x6a.HWORD = prop->unk2;
                 entity->collisionLayer = prop->unk4;
-                entity->previousActionFlag = prop->unk5;
+                entity->subAction = prop->unk5;
                 UpdateSpriteForCollisionLayer(entity);
                 *((u32*)(&this->field_0x68)) |= mask;
                 if (prop->unk8) {
@@ -98,7 +98,7 @@ static void sub_0808681C(Entity* this) {
             this->spriteSettings.b.draw = 1;
             this->frameIndex = 0;
             this->hitbox = &gUnk_081206AC;
-            if (this->previousActionFlag == 1) {
+            if (this->subAction == 1) {
                 this->action = 2;
                 this->frameIndex = 1;
             }
@@ -117,7 +117,7 @@ static void sub_0808681C(Entity* this) {
     }
 
     if (this->flags & 0x2) {
-        ExecuteScriptCommandSet(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
+        ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
         sub_080868EC(this, *(void**)&this->cutsceneBeh);
     }
 }
@@ -129,7 +129,7 @@ void sub_080868B0(Entity* this) {
         this->hitbox = &gUnk_081206AC;
         this->actionDelay = 8;
     }
-    ExecuteScriptCommandSet(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
+    ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
     sub_080868EC(this, *(void**)&this->cutsceneBeh);
 }
 
@@ -158,7 +158,7 @@ void sub_0808692C(Entity* this) {
     this->flags &= 0xFD;
     this->type2 = 2;
     this->action = this->frameIndex == 0 ? 1 : 2;
-    this->previousActionFlag = 0;
+    this->subAction = 0;
     this->actionDelay = 8;
 }
 
@@ -174,11 +174,10 @@ static u8 sub_08086954(Entity* this) {
     return this->actionDelay;
 }
 
-// TODO: Second arg is some unknown struct.
-void sub_080869A4(Entity* entityA, u32* entityB) {
-    entityB[5] = 0;
-    if (!sub_08086954(entityA)) {
-        entityA->actionDelay = 8;
-        entityB[5] = 1;
+void sub_080869A4(Entity* this, ScriptExecutionContext* context) {
+    context->condition = 0;
+    if (!sub_08086954(this)) {
+        this->actionDelay = 8;
+        context->condition = 1;
     }
 }

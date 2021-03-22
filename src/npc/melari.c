@@ -2,22 +2,12 @@
 #include "entity.h"
 #include "npc.h"
 #include "textbox.h"
-#include "functions.h"
 #include "script.h"
+#include "random.h"
+#include "functions.h"
 
 extern void sub_08068780(Entity*);
-extern void sub_08078778(Entity*);
-extern void sub_0807DD50(Entity*);
-extern void sub_0806F118(Entity*);
-extern void sub_0807DDE4(Entity*);
-extern u32 sub_080040A8(Entity*);
-extern void EnqueueSFX(u32);
-extern u32 sub_0801E99C(Entity*);
-extern void sub_08078784(Entity*, u32);
-extern void sub_0807000C(Entity*);
 extern s32 sub_0806EDD8(Entity*, u32, u32);
-extern void sub_080A7C18(u32, u32, u32);
-extern void sub_0807CAA0(u32, u32);
 
 extern void (*const gUnk_08111530[])(Entity*);
 
@@ -82,8 +72,8 @@ void sub_08068780(Entity* this) {
                 this->interactType = 0;
                 sub_0806F118(this);
             } else {
-                sub_0807DDAC(this, NULL);
-                sub_0807DDE4(this);
+                ExecuteScriptForEntity(this, NULL);
+                HandleEntity0x82Actions(this);
                 GetNextFrame(this);
             }
             break;

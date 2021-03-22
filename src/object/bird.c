@@ -2,8 +2,9 @@
 #include "audio.h"
 #include "entity.h"
 #include "flags.h"
-#include "functions.h"
 #include "save.h"
+#include "random.h"
+#include "functions.h"
 
 extern void (*const gUnk_08123EC0[])(Entity*);
 extern void (*const gUnk_08123EEC[])(Entity*);
@@ -29,7 +30,7 @@ void sub_0809CF54(Entity* this) {
     this->field_0x20 = -0x18000;
     this->height.WORD = -0x38C000;
     this->field_0x68.HWORD = -0x800;
-    this->nonPlanarMovement = 0x280;
+    this->speed = 0x280;
     this->direction = 8;
     this->collisionLayer = 2;
     this->x.HALF.HI = gRoomControls.roomScrollX;
@@ -70,7 +71,7 @@ void sub_0809D048(Entity* this) {
 }
 
 void sub_0809D06C(Entity* this) {
-    gUnk_08123EFC[this->previousActionFlag](this);
+    gUnk_08123EFC[this->subAction](this);
 }
 
 void sub_0809D084(Entity* this) {
@@ -81,7 +82,7 @@ void sub_0809D084(Entity* this) {
         if (temp != 0) {
             PositionRelative(this->parent, this, 0, 0x80000);
         } else {
-            this->previousActionFlag++;
+            this->subAction++;
             this->field_0x20 = temp;
         }
     }

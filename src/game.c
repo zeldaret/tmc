@@ -1,7 +1,6 @@
 #include "global.h"
 #include "screen.h"
 #include "structures.h"
-#include "functions.h"
 #include "screen.h"
 #include "entity.h"
 #include "player.h"
@@ -9,11 +8,12 @@
 #include "main.h"
 #include "flags.h"
 #include "save.h"
+#include "utils.h"
 #include "fileScreen.h"
+#include "functions.h"
 
 extern u8 gArea;
 extern Entity gPlayerEntity;
-extern u32 gUnk_03000B80;
 extern u32 gUnk_03003FC0;
 
 extern u16 gWalletSizes[4];
@@ -118,7 +118,7 @@ void sub_080521A0(void) {
             gMenu.transitionTimer--;
             break;
         case 2:
-            temp3 = sub_0807CDA4(0);
+            temp3 = HandleSave(0);
             gMenu.field_0x0 = temp3;
             switch (temp3) {
                 case 1:
@@ -219,7 +219,7 @@ NONMATCH("asm/non_matching/game/sub_08052418.inc", void sub_08052418(int param_1
     int i;
     struct_080FCA8C temp;
 
-    MemClear32(&gBG1Buffer, 0x800);
+    MemClear(&gBG1Buffer, 0x800);
     gUnk_020227E8._0[0].WORD = 0xf;
     gUnk_020227E8._0[2].WORD = 0xf;
     gUnk_020227E8._0[4].WORD = 0xf;
@@ -238,12 +238,12 @@ void InitializePlayer(void) {
     Entity* pl;
 
     sub_080784C8();
-    MemClear32((void*)&gUnk_03000B80, 0x70);
-    MemClear32((void*)&gPlayerState, 0xb0);
+    MemClear((void*)&gUnk_03000B80, sizeof(gUnk_03000B80));
+    MemClear((void*)&gPlayerState, 0xb0);
 
     MemFill32(0xffffffff, &gPlayerState.field_0x40, 0x40);
     pl = &gPlayerEntity;
-    MemClear32((void*)pl, 0x88);
+    MemClear((void*)pl, 0x88);
     gRoomControls.cameraTarget = pl;
     gPlayerState.playerAction = gUnk_080FCAC8[gScreenTransition.field_0xf];
     if (!CheckGlobalFlag(0x14)) {
@@ -258,7 +258,7 @@ void InitializePlayer(void) {
             gPlayerState.field_0x34[4] = 0x10;
             pl->direction = gScreenTransition.playerState << 2;
         case 0x3:
-            pl->nonPlanarMovement = 0xe0;
+            pl->speed = 0xe0;
             break;
         case 0x7:
         case 0x8:
@@ -299,7 +299,7 @@ u32 sub_08052654() {
     return (gArea >> 7) & 1;
 }
 
-u32 CheckIsDungeon() {
+u32 CheckIsDungeon(void) {
     return (gArea >> 2) & 1;
 }
 

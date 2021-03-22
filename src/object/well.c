@@ -2,11 +2,7 @@
 #include "entity.h"
 #include "room.h"
 #include "player.h"
-
-void SetTile(u32 tileIndex, s32 tilePosition, s32 layerIndex);
-s32 GetTileType(s32 tilePosition, s32 layerIndex);
-void sub_08078B48();
-void DeleteThisEntity();
+#include "functions.h"
 
 extern void (*gUnk_08124C08[])(Entity*);
 

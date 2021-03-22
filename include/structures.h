@@ -27,15 +27,6 @@ typedef struct {
 extern struct_02000040 gUnk_02000040;
 
 typedef struct {
-    u16 field_0x0;
-    u16 field_0x2;
-    u16 field_0x4;
-    u16 field_0x6;
-    u16 field_0x8;
-    u16 field_0xa;
-} struct_0807D1C4;
-
-typedef struct {
     s32 signature;
     u8 field_0x4;
     u8 listenForKeyPresses;
@@ -48,8 +39,7 @@ typedef struct {
     u8 field_0x4[0x4];
     bool8 transitioningOut;
     u8 transitionType; // transition when changing areas
-    u8 field_0xa;      // seems to be a tile type
-    u8 field_0xb;
+    u16 field_0xa;     // seems to be a tile type
     u8 areaID;
     u8 roomID;
     u8 playerState;
@@ -130,13 +120,13 @@ extern struct_02024490 gUnk_02024490;
 
 typedef struct {
     u32 unk_00;
-    u16 unk_04;
-    u8 unk_06;
-    u8 unk_07;
+    u16 commandIndex;
+    u8 commandSize;
+    u8 flags;
     u8 unk_08;
 } struct_02033280;
 
-extern struct_02033280 gUnk_02033280;
+extern struct_02033280 gActiveScriptInfo;
 
 typedef struct {
     u16 unk_00;
@@ -175,6 +165,22 @@ typedef struct {
 extern BG3Buffer gBG3Buffer;
 static_assert(sizeof(BG3Buffer) == 0x1000);
 */
+
+struct {
+    u8 filler[0x70];
+} extern gUnk_03000B80;
+static_assert(sizeof(gUnk_03000B80) == 0x70);
+
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u8 freezeTime;
+    u8 unk9;
+} EntityHandler;
+
+extern EntityHandler gUnk_03003DC0;
 
 extern u8 gUnk_02022740[];
 extern u8 gUnk_02034490[];

@@ -2,15 +2,12 @@
 #include "entity.h"
 #include "room.h"
 #include "flags.h"
+#include "functions.h"
 
 extern u32 sub_08083734(Entity*, u32);
 extern void sub_080A080C(Entity*);
-extern void sub_0806F69C(Entity*);
-extern void EnqueueSFX(u32);
 extern void sub_080A0870(Entity*);
-extern void SoundReq(u32);
 extern u32 sub_080001DA(u32, u32);
-extern void SetTile(u32, u32, u32);
 
 extern void (*const gUnk_0812493C[])(Entity*);
 
@@ -25,7 +22,7 @@ void sub_080A0684(Entity* this) {
         DeleteThisEntity();
     }
     this->action = 1;
-    this->nonPlanarMovement = 0x300;
+    this->speed = 0x300;
     this->spriteSettings.b.draw = 0;
     this->frameIndex = 0;
     this->spriteSettings.b.flipY = 1;

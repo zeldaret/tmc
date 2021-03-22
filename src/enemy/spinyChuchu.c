@@ -1,5 +1,6 @@
 #include "enemy.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 extern void sub_08001318(Entity*);
@@ -117,11 +118,11 @@ void sub_080225EC(Entity* this) {
 }
 
 void sub_08022654(Entity* this) {
-    switch (this->previousActionFlag) {
+    switch (this->subAction) {
         case 0:
             if (--this->field_0xf)
                 return;
-            this->previousActionFlag = 1;
+            this->subAction = 1;
             SoundReq(0x12d);
             InitializeAnimation(this, 0);
             /* fallthrough */
@@ -129,7 +130,7 @@ void sub_08022654(Entity* this) {
             if (sub_08003FC4(this, 0x1800))
                 return;
 
-            this->previousActionFlag = 2;
+            this->subAction = 2;
             this->spriteSettings.b.draw = 1;
             InitializeAnimation(this, 5);
             EnqueueSFX(0x7d);
@@ -158,7 +159,7 @@ void sub_080226EC(Entity* this) {
         if (sub_080228F0(this)) {
             this->action = 6;
             this->field_0x20 = 0x12000;
-            this->nonPlanarMovement = 0x140;
+            this->speed = 0x140;
             this->direction = GetFacingDirection(this, gUnk_020000B0);
             this->damageType = 0x5a;
             InitializeAnimation(this, 4);
@@ -209,7 +210,7 @@ void sub_0802281C(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x80) {
         this->action = 2;
-        this->nonPlanarMovement = 0x20;
+        this->speed = 0x20;
         InitializeAnimation(this, 0);
         sub_0804AA1C(this);
     }
@@ -232,7 +233,7 @@ void sub_0802289C(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x80) {
         this->action = 2;
-        this->nonPlanarMovement = 0x20;
+        this->speed = 0x20;
         this->field_0x80.HALF.HI = 0x78;
         InitializeAnimation(this, 0);
     }

@@ -1,11 +1,9 @@
 #include "global.h"
 #include "entity.h"
+#include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
-extern void EnemyFunctionHandler(Entity*, void (*const func[])(Entity*));
-extern void sub_0804A7D4(Entity*);
-extern void sub_0804A720(Entity*);
-extern void sub_08045678(Entity*);
 extern void sub_08045678(Entity*);
 
 extern void (*const gUnk_080D1868[])(Entity*);
@@ -38,7 +36,7 @@ void nullsub_23(Entity* this) {
 void sub_08045618(Entity* this) {
     this->action = 1;
     this->spriteSettings.b.draw = 1;
-    this->nonPlanarMovement = 0x80;
+    this->speed = 0x80;
     this->field_0x3c = this->field_0x3c | 0x10;
     sub_0804A720(this);
     InitializeAnimation(this, 1);

@@ -5,8 +5,10 @@
 #include "main.h"
 #include "screen.h"
 #include "random.h"
-#include "readKeyInput.h"
+#include "utils.h"
 #include "save.h"
+#include "textbox.h"
+#include "arm_proxy.h"
 
 extern void HandleIntroScreen(void);
 extern void HandleChooseFileScreen(void);
@@ -21,13 +23,15 @@ static void (*const sScreenHandlers[])(void) = {
     [SCREEN_CREDITS] = HandleCreditsScreen,   [SCREEN_DEBUG_TEXT] = HandleDebugTextScreen,
 };
 
-void MainLoop(void) {
+static void sub_080560B8(void);
+
+void AgbMain(void) {
     int var0;
 
     sub_08055F70();
     InitSound();
     InitDMA();
-    sub_0807CE90();
+    InitSaveData();
     sub_080560B8();
     sub_08056208();
     gUnk_02000010.field_0x4 = 193;
@@ -37,7 +41,7 @@ void MainLoop(void) {
     MessageInitialize();
     sub_080ADD30();
     gRand = 0x1234567;
-    MemClear32(&gMain, sizeof(gMain));
+    MemClear(&gMain, sizeof(gMain));
     InitScreen(SCREEN_INTRO);
     while (1) {
         ReadKeyInput();
@@ -93,7 +97,7 @@ static void sub_08055F70(void) {
     *(vu16*)BG_PLTT = 0x7FFF;
     REG_WAITCNT = WAITCNT_PREFETCH_ENABLE | WAITCNT_WS0_S_1 | WAITCNT_WS0_N_3;
     size = 0x3FFD0;
-    MemClear32(gUnk_02000030, size);
+    MemClear(gUnk_02000030, size);
     size = (u32)gUnk_080B2CD8 - (u32)sub_080B197C;
     if (size != 0) {
         MemCopy(sub_080B197C, gUnk_030056F0, size);
@@ -104,7 +108,7 @@ static void sub_08055F70(void) {
         MemCopy(gUnk_080B2CD8_3, gUnk_02038560, size);
     }
 
-    sub_0801DA90(0);
+    DispReset(0);
     sub_08016B34();
 }
 
@@ -147,26 +151,26 @@ typedef struct {
     u8 name[6];
     u8 _e;
     u8 _f;
-} test;
+} Defaults;
 
-const test sDefaultSettings = {
+const Defaults sDefaultSettings = {
     .signature = SIGNATURE,
     .saveFileId = 0,
     .messageSpeed = 1,
     .brightnessPref = 1,
-    .gameLanguage = LANGUAGE_EN,
+    .gameLanguage = GAME_LANGUAGE,
     .name = "LINK",
     ._e = 0,
     ._f = 0,
 };
 
 // single misplaced ldr
-NONMATCH("asm/non_matching/sub_080560B8.inc", void sub_080560B8(void)) {
+NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
     u32 temp;
     u32 b;
 
     if (!sub_08056134()) {
-        switch ((s32)sub_0807CF30((void*)0x2000000)) {
+        switch ((s32)Read_02000000((void*)0x2000000)) {
             case 1:
                 if (sub_08056134())
                     break;
@@ -174,7 +178,7 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", void sub_080560B8(void)) {
             case -1:
             default:
                 MemCopy(&sDefaultSettings, (void*)0x2000000, 16);
-                sub_0807CF10((u8*)0x2000000);
+                Write_02000000(gUnk_02000000);
                 break;
         }
     }
@@ -183,10 +187,10 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", void sub_080560B8(void)) {
     b = BOOLCAST(temp);
 
     if ((gUnk_02000010.field_0x4 != 0) && (gUnk_02000010.field_0x4 != 0xc1)) {
-        b = 1;
+        b = TRUE;
     }
-    if (b != 0) {
-        MemClear32((u8*)&gUnk_02000010.signature, 0x20);
+    if (b) {
+        MemClear((u8*)&gUnk_02000010.signature, 0x20);
         gUnk_02000010.signature = SIGNATURE;
     }
 }
@@ -251,7 +255,7 @@ void sub_08056260(void) {
     temp2->field_0x1 = 0;
 }
 
-// Convert in-game AABB to screen coordinates and check if it's within the viewport
+// Convert AABB to screen coordinates and check if it's within the viewport
 u32 sub_080562CC(u32 x0, u32 y0, u32 x1, u32 y1) {
     u32 result;
     u32 x = ((gRoomControls.roomScrollX - gRoomControls.roomOriginX) - x0 + DISPLAY_WIDTH);

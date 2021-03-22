@@ -1,8 +1,9 @@
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
-#include "functions.h"
 #include "flags.h"
+#include "random.h"
+#include "functions.h"
 
 extern void sub_08038168(Entity*);
 
@@ -27,7 +28,7 @@ void sub_08037F00(Entity* this) {
     sub_0804AA30(this, &gUnk_080CF4A0);
     if (this->bitfield == 0x94) {
         this->action = 1;
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->actionDelay = 0x14;
         this->field_0xf = 0;
         this->field_0x80.HALF.LO = 0;
@@ -69,7 +70,7 @@ void sub_08037FA0(Entity* this) {
     }
     sub_0804A720(this);
     this->action = 1;
-    this->previousActionFlag = 0;
+    this->subAction = 0;
     this->actionDelay = (Random() & 0x1f) + 0x20;
     this->field_0xf = 0;
     this->field_0x80.HALF.LO = 0;
@@ -106,7 +107,7 @@ void sub_08038048(Entity* this) {
 
     if (sub_080044EC(this, 0x3000) == 1) {
         this->action = 3;
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->actionDelay = 0x14;
         InitializeAnimation(this, 3);
         return;
@@ -121,9 +122,9 @@ void sub_08038048(Entity* this) {
         sub_08038168(this);
     }
 
-    if ((this->previousActionFlag == 0) && (temp < this->height.HALF.HI)) {
+    if ((this->subAction == 0) && (temp < this->height.HALF.HI)) {
         InitializeAnimation(this, 4);
-        this->previousActionFlag = 1;
+        this->subAction = 1;
     }
 
     if (temp < -0xc) {

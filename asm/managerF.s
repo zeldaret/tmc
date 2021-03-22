@@ -492,7 +492,7 @@ sub_08059278: @ 0x08059278
 	movs r0, #9
 	movs r1, #0xf
 	movs r2, #6
-	bl FindEntityInListBySubtype
+	bl FindEntityByID
 	cmp r0, #0
 	beq _0805928C
 	bl sub_08058ECC

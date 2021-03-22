@@ -1,8 +1,9 @@
 #include "global.h"
 #include "entity.h"
 #include "sprite.h"
-#include "functions.h"
 #include "enemy.h"
+#include "random.h"
+#include "functions.h"
 // Gibudo
 void sub_08037794();
 void sub_08037B10();
@@ -211,7 +212,7 @@ void sub_080377B0(Entity* this) {
     this->field_0xf = 8;
     r1 = Random();
     this->field_0x74.HWORD = (r1 & 0x38) + 0x78;
-    this->nonPlanarMovement = 0x40;
+    this->speed = 0x40;
     r2 = Random();
     if (!sub_08049FA0(this) && (r2 & 3)) {
         this->direction = DirectionRoundUp(sub_08049EE4(this));
@@ -233,7 +234,7 @@ NONMATCH("asm/non_matching/gibdo/sub_08037810.inc", u32 sub_08037810(Entity* thi
                     this->action = 3;
                     this->actionDelay = 0x18;
                     this->field_0xf = 0x8;
-                    this->nonPlanarMovement = 0xc0;
+                    this->speed = 0xc0;
                     y = DirectionRoundUp(GetFacingDirection(this, gUnk_020000B0));
                     this->direction = y;
                     this->animationState = y / 8;
@@ -258,7 +259,7 @@ u32 sub_080378B0(Entity* this) {
             if (sub_0804A044(this, gUnk_020000B0, 0xa) == this->direction)
                 if (sub_0806FCB8(this, gUnk_020000B0->x.HALF.HI, gUnk_020000B0->y.HALF.HI, 0x18) != 0) {
                     this->action = 5;
-                    this->nonPlanarMovement = 0x100;
+                    this->speed = 0x100;
                     InitAnimationForceUpdate(this, this->animationState + 8);
                     return 1;
                 }
@@ -337,12 +338,12 @@ NONMATCH("asm/non_matching/gibdo/sub_08037A58.inc", void sub_08037A58(Entity* th
     sub_08037ACC(this);
     this->action = 7;
     this->spritePriority.b0 = (this->spritePriority.b0 & 0xf8) | 4;
-    if (this->hurtBlinkTime == 0) {
-        this->hurtBlinkTime = 0xec;
+    if (this->iframes == 0) {
+        this->iframes = 0xec;
     }
     this->damageType = 0x26;
     this->flags2 |= 1;
-    this->hurtBlinkTime = 0xf4;
+    this->iframes = 0xf4;
     this->field_0x3e = (this->animationState << 3) ^ 0x10;
     this->field_0x42 = 8;
     this->field_0x46 = 0x180;
@@ -354,7 +355,7 @@ END_NONMATCH
 void sub_08037ACC(Entity* this) {
     gPlayerState.flags.all &= 0xFFFFFEFF;
     gPlayerEntity.flags |= 0x80;
-    gPlayerEntity.hurtBlinkTime = 0x1e;
+    gPlayerEntity.iframes = 0x1e;
     gPlayerEntity.field_0x3e = DirectionFromAnimationState(this->animationState);
     gPlayerEntity.field_0x42 = 4;
     gPlayerEntity.field_0x46 = 0x180;
@@ -362,7 +363,7 @@ void sub_08037ACC(Entity* this) {
 // Damage player maybe?
 void sub_08037B10(Entity* this) {
     u32 h;
-    gPlayerEntity.hurtBlinkTime = 0xc;
+    gPlayerEntity.iframes = 0xc;
     h = ModHealth(-8);
     sub_0800449C(&gPlayerEntity, 0x7a);
     if (h == 0) {

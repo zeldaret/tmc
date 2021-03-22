@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
 extern void (*const gUnk_080CDED0[])(Entity*);
@@ -29,7 +30,7 @@ void sub_0802F150(Entity* this) {
         switch (this->bitfield & 0x3f) {
             case 0x14:
                 this->action = 1;
-                this->previousActionFlag = 0;
+                this->subAction = 0;
                 if (this->type != 0) {
                     this->actionDelay = 0xc0;
                 } else {
@@ -62,15 +63,13 @@ void sub_0802F1F0(Entity* this) {
     }
 }
 
-extern u8 gUnk_080CDEF8[];
-
 void sub_0802F210(Entity* this) {
     u32 temp;
     u32 temp2;
 
     sub_0804A720(this);
     this->action = 1;
-    this->previousActionFlag = 0;
+    this->subAction = 0;
     this->actionDelay = gUnk_080CDEF8[Random() & 3];
     this->actionDelay = (Random() & 0x1f) + this->actionDelay;
     this->field_0xf = 0;
@@ -106,8 +105,6 @@ void sub_0802F284(Entity* this) {
     }
 }
 
-extern u8 gUnk_080CDEF8[];
-
 void sub_0802F300(Entity* this) {
     s32 temp;
     u32 rand;
@@ -119,7 +116,7 @@ void sub_0802F300(Entity* this) {
 
     if (sub_080044EC(this, this->field_0x80.HWORD) == 1) {
         this->action = 3;
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         if (this->type != 0) {
             rand = 0;
         }
@@ -146,9 +143,9 @@ void sub_0802F300(Entity* this) {
         }
     }
 
-    if ((this->previousActionFlag == 0) && (temp < this->height.HALF.HI)) {
+    if ((this->subAction == 0) && (temp < this->height.HALF.HI)) {
         InitializeAnimation(this, 4);
-        this->previousActionFlag = 1;
+        this->subAction = 1;
     }
 
     if (temp < -0xc) {

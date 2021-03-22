@@ -2,7 +2,7 @@
 #include "audio.h"
 #include "entity.h"
 #include "functions.h"
-#include "position.h"
+#include "coord.h"
 #include "random.h"
 #include "structures.h"
 
@@ -12,7 +12,6 @@ static void sub_0808F244(Entity*);
 
 extern void sub_0806FCF4(Entity*, u32, u32, u32);
 extern void sub_0808F5EC(Entity*);
-extern bool32 sub_0806F3E4(Entity*);
 
 extern void (*const gUnk_08121E5C[])(Entity*);
 extern void (*const gUnk_08121E88[])(Entity*);
@@ -151,13 +150,13 @@ void sub_0808F2C0(Entity* this) {
 
 void sub_0808F370(Entity* this) {
     if (this->action == 0) {
-        if (this->parent->previousActionFlag == 1) {
+        if (this->parent->subAction == 1) {
             this->action = 1;
             this->field_0x70.WORD = 0;
             sub_0808F5EC(this);
         }
     } else {
-        u8 flag = this->parent->previousActionFlag - 1;
+        u8 flag = this->parent->subAction - 1;
         if (flag < 5) {
             if (this->field_0x70.WORD == 0) {
                 if (--(*(u32*)&this->field_0x74) == -1) {

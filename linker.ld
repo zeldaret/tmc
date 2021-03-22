@@ -112,7 +112,7 @@ SECTIONS {
         . = 0x00032EC0; gUnk_02032EC0 = .;
         . = 0x00032EDC; gUnk_02032EDC = .;
         . = 0x00032F14; gUnk_02032F14 = .;
-        . = 0x00033280; gUnk_02033280 = .;
+        . = 0x00033280; gActiveScriptInfo = .;
         . = 0x00033290; gUnk_02033290 = .;
         . = 0x00033A90; gArea = .;
         . = 0x00033AB8; gUnk_02033AB8 = .;
@@ -148,7 +148,7 @@ SECTIONS {
         . = 0x000369F0; gUnk_020369F0 = .;
         . = 0x00036A38; gUnk_02036A38 = .;
         . = 0x00036A40; gUnk_02036A40 = .;
-        . = 0x00036A50; gUnk_02036A50 = .;
+        . = 0x00036A50; gEEPROMConfig = .;
         . = 0x00036A58; gUnk_02036A58 = .;
         . = 0x00036AD8; gUnk_02036AD8 = .;
         . = 0x00036BB8; gUnk_02036BB8 = .;
@@ -258,7 +258,7 @@ SECTIONS {
         . = 0x00005D24; gUnk_03005D24 = .;
         . = 0x00005D58; gUnk_03005D58 = .;
         . = 0x00005D5C; gUnk_03005D5C = .;
-        . = 0x00005D90; gUnk_03005D90 = .;
+        . = 0x00005D90; IntrMain = .;
         . = 0x00005E60; gUnk_03005E60 = .;
         . = 0x00005E98; gUnk_03005E98 = .;
         . = 0x00005F24; _EntUpdate = .;
@@ -295,6 +295,9 @@ SECTIONS {
         asm/code_080043E8.o(.text);
         data/data_08007DF4.o(.rodata);
         asm/code_0800857C.o(.text);
+        /* scripts */
+        data/scripts.o(.text);
+        asm/code_08016984.o(.text);
         asm/sub_08016AE4.o(.text);
 
 
@@ -324,10 +327,7 @@ SECTIONS {
         asm/code_0801C85C.o(.text);
         src/ezloNag.o(.text);
         asm/code_0801CEC0.o(.text);
-        src/dma.o(.text);
-        src/input.o(.text);
-        src/code_0801D714.o(.text);
-        src/code_0801D79C.o(.text);
+        src/utils.o(.text);
         asm/code_0801D79C.o(.text);
         /* enemies */
         src/enemy/octorok.o(.text);
@@ -448,13 +448,12 @@ SECTIONS {
         src/loadRoomEntityList.o(.text);
         asm/loadRoomEntity.o(.text);
         asm/code_0804AEB0.o(.text);
-        src/sub_0804AFF4.o(.text);
         src/loadRoom.o(.text);
         asm/code_0804B058.o(.text);
         src/room.o(.text);
         asm/code_0804B9F8.o(.text);
         src/sub_08050008.o(.text);
-        src/sub_08050024.o(.text);
+        src/fade.o(.text);
         asm/code_08050038.o(.text);
         src/fileScreen.o(.text);
         asm/fileScreen.o(.text);
@@ -537,7 +536,7 @@ SECTIONS {
         src/code_0805EC04.o(.text);
         asm/code_0805EC04.o(.text);
         src/code_0805F9A0.o(.text);
-        src/screenDebug.o(.text);
+        src/debugScreen.o(.text);
         src/item14.o(.text);
         /* npcs */
         src/npc/gentari.o(.text);
@@ -627,7 +626,7 @@ SECTIONS {
         src/npc/mayorHagen.o(.text);
         src/npc/bigGoron.o(.text);
         asm/bigGoron.o(.text);
-        src/ezloCap.o(.text);
+        src/npc/ezloCap.o(.text);
         asm/npc4E.o(.text);
         src/npc/clothesRack.o(.text);
         asm/clothesRack.o(.text);
@@ -643,9 +642,7 @@ SECTIONS {
         asm/code_0806EC20.o(.text);
         src/createNPC.o(.text);
         asm/code_0806ED78.o(.text);
-        src/sub_0806F9EC.o(.text);
-        src/sub_0806FA04.o(.text);
-        src/position.o(.text);
+        src/coord.o(.text);
         asm/code_0806FA6C.o(.text);
         src/player.o(.text);
         asm/code_08070698.o(.text);
@@ -660,13 +657,9 @@ SECTIONS {
         asm/code_08077B98.o(.text);
         src/code_08078778.o(.text);
         asm/code_08078778.o(.text);
-        src/sub_0807B7D8.o(.text);
         src/sub_0807B820.o(.text);
-        src/sub_0807B8A8.o(.text);
-        src/sub_0807B930.o(.text);
         asm/code_0807B9B8.o(.text);
         src/sub_0807C998.o(.text);
-        src/sub_0801D754.o(.text); /* ??? */
         asm/sub_0807CA18.o(.text);
         asm/getInventoryValue.o(.text);
         asm/code_0807CAA0.o(.text);
@@ -762,7 +755,6 @@ SECTIONS {
         asm/pushableFurniture.o(.text);
         asm/furniture.o(.text);
         src/object/minishSizedEntrance.o(.text);
-        asm/minishSizedEntrance.o(.text);
         src/object/archway.o(.text);
         asm/giantRock.o(.text);
         asm/object51.o(.text);
@@ -796,7 +788,7 @@ SECTIONS {
         asm/minecartDoor.o(.text);
         asm/objectOnPillar.o(.text);
         src/object/mineralWaterSource.o(.text);
-        asm/minishSizedArchway.o(.text);
+        src/object/minishSizedArchway.o(.text);
         asm/object70.o(.text);
         asm/pushableGrave.o(.text);
         asm/object72.o(.text);
@@ -900,7 +892,7 @@ SECTIONS {
         asm/m4a_asm.o(.text);
         asm/m4a.o(.text);
         asm/libagbsyscall.o(.text);
-        asm/code_080B1520.o(.text);
+        src/eeprom.o(.text);
         *libc.a:memcpy.o(.text);
 
         /* handwritten assembly in arm mode */
@@ -912,7 +904,7 @@ SECTIONS {
         src/manager.o(.rodata);
         src/npc.o(.rodata);
         data/data_080B3740.o(.rodata);
-        src/trig.o(.rodata);
+        src/coord.o(.rodata);
         data/data_080C93E0.o(.rodata);
         src/enemy/octorok.o(.rodata);
         data/animations/octorok.o(.rodata);
@@ -1014,6 +1006,10 @@ SECTIONS {
         src/manager/manager27.o(.rodata);
         src/manager/manager28.o(.rodata);
         data/data_08108D30.o(.rodata);
+        src/npc/ezloCap.o(.rodata);
+        data/data_08114208.o(.rodata);
+        src/player.o(.rodata);
+        data/data_0811B9E0.o(.rodata);
         src/item.o(.rodata);
         data/data_0811BD44.o(.rodata);
         data/room_headers.o(.rodata);
@@ -1033,6 +1029,7 @@ SECTIONS {
         data/strings.o(.rodata);
         data/sprite_table.o(.rodata);
         data/data_089FC6C4.o(.rodata);
+        src/eeprom.o(.rodata);
     } >rom
 
     /* DWARF 2 sections */

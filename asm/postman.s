@@ -19,12 +19,12 @@ sub_0806076C: @ 0x0806076C
 	ldr r0, [r7, #0x34]
 	cmp r0, #0
 	bge _08060790
-	ldr r1, _0806078C @ =gUnk_02033280
+	ldr r1, _0806078C @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 	b _080608D8
 	.align 2, 0
-_0806078C: .4byte gUnk_02033280
+_0806078C: .4byte gActiveScriptInfo
 _08060790:
 	adds r4, r7, #0
 	adds r4, #0x69

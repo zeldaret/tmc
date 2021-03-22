@@ -3,6 +3,7 @@
 #include "room.h"
 #include "manager.h"
 #include "structures.h"
+#include "functions.h"
 
 extern void (*gUnk_08107C70[])(Manager*);
 
@@ -11,8 +12,6 @@ void sub_08057854(Manager* this) {
 }
 
 extern void sub_080805F8(void);
-
-extern void SetTile(u32, u32, u32);
 
 extern DiggingCaveEntrance* sub_08057AA8(DiggingCaveEntrance*, int);
 
@@ -67,7 +66,7 @@ void sub_08057A18(Manager*, DiggingCaveEntrance*);
 u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
     u16 offsetX, offsetY, offsetX2, offsetY2;
     u32 tmp;
-    if (gUnk_03004030.unk_08) {
+    if (gUnk_03004030.address_width) {
         offsetX = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
         offsetY = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
         offsetX2 = (entr->unk_00 & 0x3F) * 16 + 8;
@@ -101,8 +100,6 @@ u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
 }
 #endif
 
-extern void sub_0805E5A8(void);
-extern void DeleteManager(Manager*);
 extern void sub_08080930();
 
 void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {

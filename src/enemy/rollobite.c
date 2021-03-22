@@ -1,4 +1,6 @@
 #include "entity.h"
+#include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
 extern void (*const gRollobiteFunctions[])(Entity*);
@@ -63,18 +65,18 @@ void sub_080206E0(Entity* this) {
 }
 
 void sub_08020734(Entity* this) {
-    if (this->previousActionFlag < 3 && !sub_0806F520(this)) {
+    if (this->subAction < 3 && !sub_0806F520(this)) {
         this->action = 4;
         this->flags |= 0x80;
         this->direction = 0xff;
         InitializeAnimation(this, this->animationState + 0x10);
     } else {
-        gUnk_080CA6A4[this->previousActionFlag](this);
+        gUnk_080CA6A4[this->subAction](this);
     }
 }
 
 void sub_0802077C(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 60;
 }
 
@@ -101,7 +103,7 @@ void sub_080207A8(Entity* this) {
     this->field_0x3a &= 0xfb;
     this->direction ^= 0x10;
     this->field_0x20 = 0x18000;
-    this->nonPlanarMovement = 0x80;
+    this->speed = 0x80;
     InitializeAnimation(this, this->animationState + 0x10);
 }
 
@@ -132,11 +134,11 @@ void Rollobite_Walk(Entity* this) {
 }
 
 void sub_08020874(Entity* this) {
-    gUnk_080CA6BC[this->previousActionFlag](this);
+    gUnk_080CA6BC[this->subAction](this);
 }
 
 void sub_0802088C(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->flags &= ~0x80;
     this->cutsceneBeh.HALF.HI = gPlayerEntity.animationState;
     this->spritePriority.b1 = 0;
@@ -194,7 +196,7 @@ void Rollobite_Unroll(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 0x80) {
         this->flags |= 0x80;
-        this->nonPlanarMovement = 0x100;
+        this->speed = 0x100;
         this->damageType = 34;
         sub_08020A30(this);
         this->direction = DirectionFromAnimationState(this->animationState);

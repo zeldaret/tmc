@@ -9,7 +9,7 @@
 sub_0804AB70: @ 0x0804AB70
 	push {r4, r5, lr}
 	movs r0, #0
-	bl sub_0801DA90
+	bl DispReset
 	ldr r1, _0804ABF8 @ =gScreen
 	movs r2, #0
 	movs r0, #0x92

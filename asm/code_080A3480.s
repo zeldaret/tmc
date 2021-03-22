@@ -266,7 +266,7 @@ _080A365C:
 _080A365E:
 	str r0, [r2, #0xc]
 	movs r0, #0
-	bl sub_0801DA90
+	bl DispReset
 	movs r0, #0xb
 	bl LoadPaletteGroup
 	movs r0, #0xc
@@ -354,7 +354,7 @@ sub_080A36F8: @ 0x080A36F8
 	ldr r0, _080A3760 @ =gBG1Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl MemClear32
+	bl MemClear
 	ldr r1, _080A3764 @ =gScreen
 	movs r2, #0
 	movs r0, #1
@@ -410,7 +410,7 @@ _080A378A:
 	ldr r0, _080A37B8 @ =gBG1Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl MemClear32
+	bl MemClear
 	movs r1, #0x10
 	ldrsh r0, [r4, r1]
 	ldr r2, _080A37BC @ =gUnk_081272E0
@@ -580,7 +580,7 @@ sub_080A38D0: @ 0x080A38D0
 	movs r6, #0x80
 	lsls r6, r6, #4
 	adds r1, r6, #0
-	bl MemClear32
+	bl MemClear
 	ldr r4, _080A3924 @ =gScreen
 	movs r0, #0
 	mov r8, r0
@@ -588,7 +588,7 @@ sub_080A38D0: @ 0x080A38D0
 	strh r5, [r4, #0x1a]
 	ldr r0, _080A3928 @ =gBG2Buffer
 	adds r1, r6, #0
-	bl MemClear32
+	bl MemClear
 	strh r5, [r4, #0x26]
 	adds r4, #0x68
 	movs r0, #0x80
@@ -699,7 +699,7 @@ _080A39C8:
 	strh r0, [r2, #8]
 	strb r4, [r2, #3]
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	bl sub_080A3210
 	bl sub_080A4D34
 	movs r0, #0xa
@@ -712,7 +712,7 @@ _080A39C8:
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
 	movs r1, #0x20
-	bl MemClear32
+	bl MemClear
 	movs r0, #0
 	movs r1, #0
 	bl sub_08052418
@@ -807,7 +807,7 @@ _080A3A9A:
 _080A3AB4: .4byte gMenu
 _080A3AB8:
 	movs r0, #0
-	bl sub_0807CDA4
+	bl HandleSave
 	adds r1, r0, #0
 	ldr r4, _080A3AD8 @ =gMenu
 	strb r1, [r4]

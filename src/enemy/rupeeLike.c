@@ -1,11 +1,11 @@
 #include "global.h"
 #include "entity.h"
 #include "enemy.h"
-#include "functions.h"
 #include "npc.h"
-#include "structures.h"
 #include "player.h"
 #include "save.h"
+#include "createObject.h"
+#include "functions.h"
 
 extern void sub_080293DC(Entity*);
 extern void sub_080296D8(Entity*);
@@ -234,17 +234,17 @@ void sub_080296D8(Entity* this) {
     gPlayerState.flags.all &= 0xffffffef;
     gPlayerEntity.flags |= 0x80;
     gPlayerEntity.field_0x20 = 0x18000;
-    gPlayerEntity.hurtBlinkTime = 0xa6;
+    gPlayerEntity.iframes = 0xa6;
     gPlayerEntity.height.HALF.HI = -2;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
     gPlayerEntity.spritePriority.b1 = this->field_0x80.HALF.LO;
     gPlayerEntity.spriteOffsetY = 0;
-    gPlayerEntity.nonPlanarMovement = 0x140;
+    gPlayerEntity.speed = 0x140;
     this->action = 5;
     this->field_0xf = 0x3c;
     this->flags2 |= 3;
-    if ((s8)this->hurtBlinkTime == 0) {
-        this->hurtBlinkTime = 0xf4;
+    if ((s8)this->iframes == 0) {
+        this->iframes = 0xf4;
     }
 }
 

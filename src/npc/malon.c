@@ -1,9 +1,8 @@
 #include "global.h"
-#include "functions.h"
 #include "entity.h"
 #include "script.h"
-
-extern Entity gPlayerEntity;
+#include "npc.h"
+#include "functions.h"
 
 extern void (*gUnk_0810FF5C[])(Entity* this);
 extern void (*gUnk_0810FF64[])(Entity* this);
@@ -58,12 +57,12 @@ void sub_08065900(Entity* this) {
 void sub_08065914(Entity* this) {
     Entity* target;
 
-    target = FindEntityInListBySubtype(7, 0x1F, 7);
+    target = FindEntityByID(7, 0x1F, 7);
     if (target != NULL) {
         PositionRelative(this, target, 0x180000, -0x10000);
         target->parent = this;
     }
-    target = FindEntityInListBySubtype(7, 0x20, 7);
+    target = FindEntityByID(7, 0x20, 7);
     if (target != NULL) {
         PositionRelative(this, target, 0x280000, 0);
         target->parent = this;

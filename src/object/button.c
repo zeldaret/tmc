@@ -47,7 +47,7 @@ void sub_08081FF8(Entity*);
 
 void sub_08081BAC(Entity* this) {
     if (sub_08081CB0(this)) {
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->actionDelay = 0xA;
         sub_0805E4E0(this, 0xA);
         sub_08081FF8(this);
@@ -105,7 +105,6 @@ void sub_08081C98(Entity* this) {
 }
 
 Entity* sub_08081D74(Entity*);
-void sub_0807B7D8(u32, u32, u32);
 u32 sub_080001DA(u32, u32);
 
 u32 sub_08081CB0(Entity* this) {
@@ -142,8 +141,7 @@ u32 sub_08081D28(Entity* this) {
 }
 
 extern u32 sub_080002E0(u32, u32);
-extern Entity* gUnk_03004040[];
-extern u32 sub_080041A0(Entity*, Entity*, u32, u32);
+extern Entity* gUnk_03004040[3];
 u32 sub_08081E0C(Entity*);
 
 Entity* sub_08081D74(Entity* this) {
@@ -170,8 +168,6 @@ Entity* sub_08081D74(Entity* this) {
     this->attachedEntity = ent;
     return ent;
 }
-
-extern u32 sub_08079F8C();
 
 u32 sub_08081E0C(Entity* this) {
     Entity* tmp = &gPlayerEntity;
@@ -273,7 +269,6 @@ u32 sub_08081F7C(Entity* this, u32 r7) {
     return 1;
 }
 
-extern Entity* gUnk_03004040[3];
 extern void sub_080044AE(Entity*, u32, u32);
 
 void sub_08081FF8(Entity* this) {

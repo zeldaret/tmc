@@ -1,12 +1,13 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 #include "flags.h"
 #include "player.h"
 #include "room.h"
 #include "textbox.h"
 #include "save.h"
 #include "script.h"
+#include "npc.h"
+#include "functions.h"
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -132,7 +133,7 @@ void FUN_08068b2c(Entity* this) {
 }
 
 void sub_08068B70(Entity* this) {
-    if (UpdateFuseInteraction()) {
+    if (UpdateFuseInteraction(this)) {
         this->action = 1;
     }
 }
@@ -195,53 +196,50 @@ void sub_08068C6C(Entity* this) {
     sub_080A7C18(gUnk_0811162B[this->actionDelay] & 0xffffff7f, 0, 0);
 }
 
-void sub_08068C8C(Entity* param_1, Entity* param_2) {
+void sub_08068C8C(Entity* this, ScriptExecutionContext* context) {
     u8* arr = gUnk_0811162B + 0xd;
-
-    *(u32*)&param_2->animationState = *(u32*)(arr + param_1->actionDelay * 4);
+    context->condition = *(u32*)(arr + this->actionDelay * 4);
 }
 
-void sub_08068CA0(Entity* param_1, Entity* param_2) {
+void sub_08068CA0(Entity* this, ScriptExecutionContext* context) {
     u8 bVar1;
     u32 uVar2;
 
-    bVar1 = param_1->type;
+    bVar1 = this->type;
     if (bVar1 == 1) {
-        *(u32*)&param_2->animationState = bVar1;
+        context->condition = bVar1;
         uVar2 = GetInventoryValue(0x48); // spin attack
         if (uVar2 == 0) {
-            *(u32*)&param_2->animationState = 0;
+            context->condition = 0;
         }
         uVar2 = GetInventoryValue(0x4b); // rock breaker
         if (uVar2 == 0) {
-            *(u32*)&param_2->animationState = 0;
+            context->condition = 0;
         }
         uVar2 = GetInventoryValue(0x4a); // dash attack
         if (uVar2 == 0) {
-            *(u32*)&param_2->animationState = 0;
+            context->condition = 0;
         }
         uVar2 = GetInventoryValue(0x4e); // down thrust
         if (uVar2 != 0) {
             return;
         }
     } else {
-        uVar2 = GetInventoryValue(gUnk_0811162B[param_1->actionDelay] & -0x81);
+        uVar2 = GetInventoryValue(gUnk_0811162B[this->actionDelay] & -0x81);
         if (uVar2 != 0) {
             uVar2 = 1;
         }
     }
-    *(u32*)&param_2->animationState = uVar2;
+    context->condition = uVar2;
 }
 
-void sub_08068CFC(Entity* param_1, Entity* param_2, u32 param_3, u32 param_4)
-
-{
+void sub_08068CFC(Entity* this, ScriptExecutionContext* context) {
     u8 bVar1;
     u8 itemID;
     u32 uVar2;
 
-    *(u32*)&param_2->animationState = 0;
-    bVar1 = param_1->actionDelay;
+    context->condition = 0;
+    bVar1 = this->actionDelay;
     if (bVar1 > 10)
         return;
 
@@ -302,7 +300,7 @@ LABEL1:
         return;
     }
 switchD_08068d12_caseD_0:
-    *(u32*)&param_2->animationState = 1;
+    context->condition = 1;
 }
 
 // Introduction dialoague
@@ -354,12 +352,12 @@ void sub_08068EB4(void) {
     gPlayerState.field_0xab = 0;
 }
 
-void sub_08068EC4(Entity* param_1, Entity* param_2) {
-    if (gUnk_08111740[param_1->actionDelay] == gPlayerState.field_0xab) {
-        *(u16*)&param_2->flags = gUnk_0811172A[param_1->actionDelay];
-        *(u32*)&param_2->animationState = 1;
+void sub_08068EC4(Entity* this, ScriptExecutionContext* context) {
+    if (gUnk_08111740[this->actionDelay] == gPlayerState.field_0xab) {
+        context->wait = gUnk_0811172A[this->actionDelay];
+        context->condition = 1;
     } else {
-        *(u32*)&param_2->animationState = 0;
+        context->condition = 0;
     }
 }
 
@@ -386,7 +384,6 @@ void sub_08068F3C(Entity* this) {
 }
 
 void BladeBrothers_Fusion(Entity* this) {
-
     if (this->action == 0) {
         this->action += 1;
         this->spriteSettings.b.draw = 0;

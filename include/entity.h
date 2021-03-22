@@ -47,7 +47,7 @@ typedef struct Entity {
     /*0x0a*/ u8 type; // was: form
     /*0x0b*/ u8 type2; // was: parameter
     /*0x0c*/ u8 action;
-    /*0x0d*/ u8 previousActionFlag;
+    /*0x0d*/ u8 subAction;
     /*0x0e*/ u8 actionDelay;
     /*0x0f*/ u8 field_0xf;
     /*0x10*/ u8 flags;
@@ -92,7 +92,7 @@ typedef struct Entity {
     /*0x1e*/ u8 frameIndex;
     /*0x1f*/ u8 lastFrameIndex;
     /*0x20*/ s32 field_0x20;
-    /*0x24*/ s16 nonPlanarMovement;
+    /*0x24*/ s16 speed;
     /*0x26*/ u8 spriteAnimation[3];
     /*0x29*/ struct {
     /*    */     u8 b0 : 3; // 1-4
@@ -108,7 +108,7 @@ typedef struct Entity {
     /*0x3a*/ u8 field_0x3a;
     /*0x3b*/ u8 flags2;
     /*0x3c*/ u8 field_0x3c;
-    /*0x3d*/ s8 hurtBlinkTime;
+    /*0x3d*/ s8 iframes;
     /*0x3e*/ u8 field_0x3e;
     /*0x3f*/ u8 damageType;
     /*0x40*/ u8 field_0x40;
@@ -166,37 +166,14 @@ extern LinkedList gUnk_03003D90;
 extern LinkedList gUnk_03003DA0;
 
 #define TILE(x, y)                                      \
-    ((((x - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
-     (((y - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
+    (((((x) - gRoomControls.roomOriginX) >> 4) & 0x3fU) | \
+     ((((y) - gRoomControls.roomOriginY) >> 4) & 0x3fU) << 6)
 
 #define COORD_TO_TILE(entity) \
-    TILE(entity->x.HALF.HI, entity->y.HALF.HI)
+    TILE((entity)->x.HALF.HI, (entity)->y.HALF.HI)
 
 #define COORD_TO_TILE_OFFSET(entity, xOff, yOff) \
-    TILE(entity->x.HALF.HI - xOff, entity->y.HALF.HI - yOff)
-
-extern Entity* CreateEnemy(u32 subtype, u32 form);
-extern Entity* CreateObject(u32 subtype, u32 form, u32 parameter);
-extern Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);
-extern Entity* CreateObjectWithParent(Entity* parent, u32 subtype, u32 form, u32 parameter);
-extern Entity* CreateFx(Entity* parent, u32 form, u32 parameter);
-
-extern void InitializeAnimation(Entity*, u32);
-extern void InitAnimationForceUpdate(Entity*, u32);
-extern void UpdateAnimationSingleFrame(Entity*);
-extern void UpdateSpriteForCollisionLayer(Entity*);
-extern void GetNextFrame(Entity*);
-extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
-extern void SetExtraSpriteFrame(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
-
-extern u32 GetFacingDirection(Entity*, Entity*);
-
-extern void DeleteThisEntity(void);
-extern void CopyPosition(Entity*, Entity*);
-extern void DeleteEntity(Entity*);
-extern void PositionRelative(Entity*, Entity*, s32, s32);
+    TILE((entity)->x.HALF.HI - (xOff), (entity)->y.HALF.HI - (yOff))
 
 enum {
     DirectionNorth  = 0x00,
@@ -211,12 +188,81 @@ enum {
 #define DirectionIsVertical(expr) ((expr) & 0x10)
 #define DirectionTurnAround(expr) (DirectionRoundUp(expr) ^ 0x10)
 #define DirectionToAnimationState(expr) (DirectionRoundUp(expr) >> 3)
-#define DirectionFromAnimationState(expr) (expr << 3)
+#define DirectionFromAnimationState(expr) ((expr) << 3)
 
 #define Direction8Round(expr) ((expr) & 0x1c)
 #define Direction8RoundUp(expr) Direction8Round((expr) + 2)
 #define Direction8TurnAround(expr) (Direction8RoundUp(expr) ^ 0x10)
 #define Direction8ToAnimationState(expr) (Direction8RoundUp(expr) >> 2)
-#define Direction8FromAnimationState(expr) (expr << 2)
+#define Direction8FromAnimationState(expr) (((expr) << 2)
+
+Entity* GetEmptyEntity(void);
+extern Entity* CreateEnemy(u32 id, u32 type);
+extern Entity* CreateNPC(u32 id, u32 type, u32 type2);
+extern Entity* CreateObject(u32 id, u32 type, u32 type2);
+extern Entity* CreateObjectWithParent(Entity* parent, u32 id, u32 type, u32 type2);
+extern Entity* CreateFx(Entity* parent, u32 type, u32 type2);
+
+extern void InitializeAnimation(Entity*, u32);
+extern void InitAnimationForceUpdate(Entity*, u32);
+extern void UpdateAnimationSingleFrame(Entity*);
+extern void UpdateSpriteForCollisionLayer(Entity*);
+extern void GetNextFrame(Entity*);
+extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
+extern void SetExtraSpriteFrame(Entity*, u32, u32);
+extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
+extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
+
+extern u32 GetFacingDirection(Entity*, Entity*);
+
+/**
+ * @brief Delete the entity currently in execution.
+ */
+void DeleteThisEntity(void);
+
+/**
+ * @brief Delete an entity.
+ */
+void DeleteEntity(Entity*);
+
+/**
+ * @brief Append entity to linked list.
+ */
+void AppendEntityToList(Entity* entity, u32 listIndex);
+
+/**
+ * @brief Prepend entity to linked list.
+ */
+void PrependEntityToList(Entity* entity, u32 listIndex);
+
+/**
+ * @brief Find an entity for a given kind and ID.
+ * @return Entity* First result or NULL if none found
+ */
+Entity* FindEntityByID(u32 kind, u32 id, u32 listIndex);
+
+/**
+ * @brief Search all lists for an entity of same kind and id.
+ * @return Entity* First result or NULL if none found
+ */
+Entity* DeepFindEntityByID(u32 kind, u32 id);
+
+/**
+ * @brief Search all lists for entity of same kind and id.
+ * @return bool32 Duplicate was entity found
+ */
+bool32 EntityHasDuplicateID(Entity* ent);
+
+/**
+ * @brief Find an entity of same kind and id in list.
+ * @return Entity* First result or NULL if none found
+ */
+Entity* FindNextDuplicateID(Entity* ent, int listIndex);
+
+/**
+ * @brief Find Entity with full identifiers.
+ * @return Entity* First result or NULL if none found
+ */
+Entity* FindEntity(u32 kind, u32 id, u32 listIndex, u32 type, u32 type2);
 
 #endif

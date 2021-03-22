@@ -1,4 +1,5 @@
 #include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
 extern void sub_08008796(Entity*, u32, u32, u32);
@@ -62,16 +63,16 @@ void sub_0802BBC4(Entity* this) {
 void sub_0802BC20(Entity* this) {
     if (this->damageType != 0x19) {
         if (sub_0806F520(this)) {
-            gUnk_080CD42C[this->previousActionFlag](this);
+            gUnk_080CD42C[this->subAction](this);
         }
-    } else if (2 < this->previousActionFlag || sub_0806F520(this)) {
-        gUnk_080CD438[this->previousActionFlag](this);
+    } else if (2 < this->subAction || sub_0806F520(this)) {
+        gUnk_080CD438[this->subAction](this);
     }
 }
 
 void sub_0802BC74(Entity* this) {
     sub_0802C1C0(this);
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 60;
     this->animationState = (gPlayerEntity.animationState >> 1) ^ 2;
     InitializeAnimation(this, this->animationState);
@@ -101,7 +102,7 @@ void sub_0802BCA8(Entity* this) {
 }
 
 void sub_0802BCFC(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 60;
 }
 
@@ -176,7 +177,7 @@ void sub_0802BE18(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 4;
         this->actionDelay = 0x1e;
-        this->nonPlanarMovement = 0x300;
+        this->speed = 0x300;
     } else {
         sub_0802C18C(this);
     }
@@ -196,12 +197,12 @@ void sub_0802BE48(Entity* this) {
 }
 
 void sub_0802BE80(Entity* this) {
-    this->nonPlanarMovement -= 0x20;
-    if (0xff < this->nonPlanarMovement) {
+    this->speed -= 0x20;
+    if (0xff < this->speed) {
         sub_0802C1CC(this);
     }
 
-    if (this->nonPlanarMovement > 0) {
+    if (this->speed > 0) {
         sub_080AEFE0(this);
         sub_0802C18C(this);
     } else {
@@ -229,7 +230,7 @@ void sub_0802BEEC(Entity* this) {
     } else if (!sub_08003FC4(this, 0x1c00)) {
         this->action = 8;
         this->actionDelay = 30;
-        this->nonPlanarMovement = 0x120;
+        this->speed = 0x120;
     }
 }
 
@@ -259,7 +260,7 @@ void sub_0802BF78(Entity* this) {
 
 void sub_0802BF98(Entity* this) {
     if (sub_0806F520(this)) {
-        gUnk_080CD450[this->previousActionFlag](this);
+        gUnk_080CD450[this->subAction](this);
     } else {
         this->action = 2;
         this->actionDelay = 30;
@@ -268,7 +269,7 @@ void sub_0802BF98(Entity* this) {
 }
 
 void sub_0802BFD0(Entity* this) {
-    this->previousActionFlag = 2;
+    this->subAction = 2;
 }
 
 void sub_0802BFD8(Entity* this) {
@@ -366,7 +367,7 @@ void sub_0802C1CC(Entity* this) {
 
 void sub_0802C218(Entity* this) {
     this->action = 6;
-    this->nonPlanarMovement = 0xe0;
+    this->speed = 0xe0;
     this->field_0x20 = 0x18000;
 }
 

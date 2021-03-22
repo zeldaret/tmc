@@ -59,12 +59,12 @@ void sub_0809CD0C(Entity* this) {
         }
 
         /* Damage minish link if he touches a steam cloud */
-        if (this->field_0xf == 0 && gPlayerEntity.hurtBlinkTime == 0 && this->frameIndex &&
+        if (this->field_0xf == 0 && gPlayerEntity.iframes == 0 && this->frameIndex &&
             sub_0806FC80(this, &gPlayerEntity, 4)) {
             this->field_0xf++;
             ModHealth(-2);
             sub_0800449C(&gPlayerEntity, 0x7a);
-            gPlayerEntity.hurtBlinkTime = 16;
+            gPlayerEntity.iframes = 16;
             gPlayerEntity.field_0x3e = 16;
             gPlayerEntity.field_0x42 = 12;
             gPlayerEntity.field_0x46 = 16;

@@ -125,7 +125,7 @@ sub_0807F1A0: @ 0x0807F1A0
 	movs r4, #0x32
 	ldrsh r3, [r3, r4]
 	bl sub_0807DEDC
-	ldr r2, _0807F1C0 @ =gUnk_02033280
+	ldr r2, _0807F1C0 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -133,7 +133,7 @@ sub_0807F1A0: @ 0x0807F1A0
 	pop {r4, pc}
 	.align 2, 0
 _0807F1BC: .4byte gPlayerEntity
-_0807F1C0: .4byte gUnk_02033280
+_0807F1C0: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F1C4
 sub_0807F1C4: @ 0x0807F1C4
@@ -271,7 +271,7 @@ sub_0807F2A8: @ 0x0807F2A8
 	ldr r0, [r0]
 	cmp r0, #0
 	bne _0807F2C8
-	ldr r2, _0807F2C4 @ =gUnk_02033280
+	ldr r2, _0807F2C4 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -279,15 +279,15 @@ sub_0807F2A8: @ 0x0807F2A8
 	b _0807F2CE
 	.align 2, 0
 _0807F2C0: .4byte gPlayerState
-_0807F2C4: .4byte gUnk_02033280
+_0807F2C4: .4byte gActiveScriptInfo
 _0807F2C8:
-	ldr r1, _0807F2D0 @ =gUnk_02033280
+	ldr r1, _0807F2D0 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0807F2CE:
 	pop {pc}
 	.align 2, 0
-_0807F2D0: .4byte gUnk_02033280
+_0807F2D0: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F2D4
 sub_0807F2D4: @ 0x0807F2D4
@@ -300,21 +300,21 @@ sub_0807F2D4: @ 0x0807F2D4
 	lsrs r1, r0, #0x18
 	cmp r1, #0
 	beq _0807F2F8
-	ldr r2, _0807F2F4 @ =gUnk_02033280
+	ldr r2, _0807F2F4 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
 	strb r0, [r2, #7]
 	b _0807F2FC
 	.align 2, 0
-_0807F2F4: .4byte gUnk_02033280
+_0807F2F4: .4byte gActiveScriptInfo
 _0807F2F8:
-	ldr r0, _0807F300 @ =gUnk_02033280
+	ldr r0, _0807F300 @ =gActiveScriptInfo
 	strb r1, [r0, #6]
 _0807F2FC:
 	pop {pc}
 	.align 2, 0
-_0807F300: .4byte gUnk_02033280
+_0807F300: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F304
 sub_0807F304: @ 0x0807F304
@@ -328,7 +328,7 @@ sub_0807F304: @ 0x0807F304
 	lsrs r1, r0, #0x18
 	cmp r1, #0
 	beq _0807F32C
-	ldr r2, _0807F328 @ =gUnk_02033280
+	ldr r2, _0807F328 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -336,14 +336,14 @@ sub_0807F304: @ 0x0807F304
 	b _0807F330
 	.align 2, 0
 _0807F324: .4byte gPlayerEntity
-_0807F328: .4byte gUnk_02033280
+_0807F328: .4byte gActiveScriptInfo
 _0807F32C:
-	ldr r0, _0807F334 @ =gUnk_02033280
+	ldr r0, _0807F334 @ =gActiveScriptInfo
 	strb r1, [r0, #6]
 _0807F330:
 	pop {pc}
 	.align 2, 0
-_0807F334: .4byte gUnk_02033280
+_0807F334: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F338
 sub_0807F338: @ 0x0807F338
@@ -509,14 +509,14 @@ _0807F44C:
 	strb r0, [r3]
 	str r2, [r1, #4]
 _0807F452:
-	ldr r2, _0807F460 @ =gUnk_02033280
+	ldr r2, _0807F460 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
 	strb r0, [r2, #7]
 	pop {pc}
 	.align 2, 0
-_0807F460: .4byte gUnk_02033280
+_0807F460: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F464
 sub_0807F464: @ 0x0807F464
@@ -589,13 +589,13 @@ _0807F4BC:
 	strh r0, [r4, #0x2e]
 	b _0807F4F0
 _0807F4EA:
-	ldr r1, _0807F4F4 @ =gUnk_02033280
+	ldr r1, _0807F4F4 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0807F4F0:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0807F4F4: .4byte gUnk_02033280
+_0807F4F4: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F4F8
 sub_0807F4F8: @ 0x0807F4F8
@@ -665,13 +665,13 @@ _0807F548:
 	strh r0, [r4, #0x32]
 	b _0807F57C
 _0807F576:
-	ldr r1, _0807F580 @ =gUnk_02033280
+	ldr r1, _0807F580 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0807F57C:
 	pop {r4, r5, pc}
 	.align 2, 0
-_0807F580: .4byte gUnk_02033280
+_0807F580: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F584
 sub_0807F584: @ 0x0807F584
@@ -691,14 +691,14 @@ sub_0807F594: @ 0x0807F594
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _0807F5A6
-	ldr r1, _0807F5AC @ =gUnk_02033280
+	ldr r1, _0807F5AC @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0807F5A6:
 	pop {pc}
 	.align 2, 0
 _0807F5A8: .4byte gPlayerState
-_0807F5AC: .4byte gUnk_02033280
+_0807F5AC: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F5B0
 sub_0807F5B0: @ 0x0807F5B0
@@ -757,7 +757,7 @@ _0807F602:
 	ldrsh r0, [r4, r2]
 	cmp r3, r0
 	bne _0807F628
-	ldr r2, _0807F624 @ =gUnk_02033280
+	ldr r2, _0807F624 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -765,15 +765,15 @@ _0807F602:
 	b _0807F62E
 	.align 2, 0
 _0807F620: .4byte gRoomControls
-_0807F624: .4byte gUnk_02033280
+_0807F624: .4byte gActiveScriptInfo
 _0807F628:
-	ldr r1, _0807F630 @ =gUnk_02033280
+	ldr r1, _0807F630 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0807F62E:
 	pop {r4, pc}
 	.align 2, 0
-_0807F630: .4byte gUnk_02033280
+_0807F630: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F634
 sub_0807F634: @ 0x0807F634
@@ -831,7 +831,7 @@ sub_0807F680: @ 0x0807F680
 	movs r3, #1
 _0807F69A:
 	str r3, [r2, #0x14]
-	ldr r2, _0807F6B0 @ =gUnk_02033280
+	ldr r2, _0807F6B0 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -840,7 +840,7 @@ _0807F69A:
 	.align 2, 0
 _0807F6A8: .4byte gPlayerEntity
 _0807F6AC: .4byte gRoomControls
-_0807F6B0: .4byte gUnk_02033280
+_0807F6B0: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F6B4
 sub_0807F6B4: @ 0x0807F6B4
@@ -859,7 +859,7 @@ sub_0807F6B4: @ 0x0807F6B4
 	movs r3, #1
 _0807F6CE:
 	str r3, [r2, #0x14]
-	ldr r2, _0807F6E4 @ =gUnk_02033280
+	ldr r2, _0807F6E4 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -868,7 +868,7 @@ _0807F6CE:
 	.align 2, 0
 _0807F6DC: .4byte gPlayerEntity
 _0807F6E0: .4byte gRoomControls
-_0807F6E4: .4byte gUnk_02033280
+_0807F6E4: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F6E8
 sub_0807F6E8: @ 0x0807F6E8
@@ -984,7 +984,7 @@ _0807F79A:
 	bl GetSaleItemConfirmMessageID
 	adds r4, r0, #0
 	adds r0, r5, #0
-	bl sub_08053FE0
+	bl GetItemPrice
 	adds r5, r0, #0
 	adds r0, r4, #0
 	adds r1, r6, #0
@@ -1008,7 +1008,7 @@ sub_0807F7C4: @ 0x0807F7C4
 	ldr r0, _0807F7F4 @ =gRoomVars
 	ldrb r0, [r0, #6]
 _0807F7D2:
-	bl sub_08053FE0
+	bl GetItemPrice
 	movs r2, #0
 	ldr r1, _0807F7F8 @ =gSave
 	adds r1, #0xc0
@@ -1018,7 +1018,7 @@ _0807F7D2:
 	movs r2, #1
 _0807F7E4:
 	str r2, [r4, #0x14]
-	ldr r2, _0807F7FC @ =gUnk_02033280
+	ldr r2, _0807F7FC @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -1027,7 +1027,7 @@ _0807F7E4:
 	.align 2, 0
 _0807F7F4: .4byte gRoomVars
 _0807F7F8: .4byte gSave
-_0807F7FC: .4byte gUnk_02033280
+_0807F7FC: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F800
 sub_0807F800: @ 0x0807F800
@@ -1039,7 +1039,7 @@ sub_0807F800: @ 0x0807F800
 	ldrb r4, [r0, #6]
 _0807F80C:
 	adds r0, r4, #0
-	bl sub_08053FE0
+	bl GetItemPrice
 	rsbs r0, r0, #0
 	bl ModRupees
 	adds r0, r4, #0
@@ -1049,7 +1049,7 @@ _0807F80C:
 	ldr r1, _0807F834 @ =gRoomVars
 	movs r0, #0
 	strb r0, [r1, #6]
-	ldr r2, _0807F838 @ =gUnk_02033280
+	ldr r2, _0807F838 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -1057,7 +1057,7 @@ _0807F80C:
 	pop {r4, pc}
 	.align 2, 0
 _0807F834: .4byte gRoomVars
-_0807F838: .4byte gUnk_02033280
+_0807F838: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F83C
 sub_0807F83C: @ 0x0807F83C
@@ -1144,14 +1144,14 @@ sub_0807F8D0: @ 0x0807F8D0
 	push {lr}
 	ldr r1, [r1, #4]
 	bl sub_08003FC4
-	ldr r2, _0807F8E4 @ =gUnk_02033280
+	ldr r2, _0807F8E4 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
 	strb r0, [r2, #7]
 	pop {pc}
 	.align 2, 0
-_0807F8E4: .4byte gUnk_02033280
+_0807F8E4: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807F8E8
 sub_0807F8E8: @ 0x0807F8E8
@@ -1228,7 +1228,7 @@ sub_0807F950: @ 0x0807F950
 	movs r1, #0x56
 	movs r2, #6
 	movs r3, #0
-	bl FindEntityInListByForm
+	bl FindEntity
 	cmp r0, #0
 	beq _0807F96C
 	bl DeleteEntity
@@ -1314,14 +1314,14 @@ _0807F9C4: @ jump table
 	.4byte _0807FA24 @ case 22
 	.4byte _0807FA24 @ case 23
 _0807FA24:
-	ldr r1, _0807FA2C @ =gUnk_02033280
+	ldr r1, _0807FA2C @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 	b _0807FA3A
 	.align 2, 0
-_0807FA2C: .4byte gUnk_02033280
+_0807FA2C: .4byte gActiveScriptInfo
 _0807FA30:
-	ldr r2, _0807FA3C @ =gUnk_02033280
+	ldr r2, _0807FA3C @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -1329,7 +1329,7 @@ _0807FA30:
 _0807FA3A:
 	pop {pc}
 	.align 2, 0
-_0807FA3C: .4byte gUnk_02033280
+_0807FA3C: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807FA40
 sub_0807FA40: @ 0x0807FA40
@@ -1374,14 +1374,14 @@ _0807FA60: @ jump table
 	.4byte _0807FAC0 @ case 22
 	.4byte _0807FAC0 @ case 23
 _0807FAC0:
-	ldr r1, _0807FAC8 @ =gUnk_02033280
+	ldr r1, _0807FAC8 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 	b _0807FAD6
 	.align 2, 0
-_0807FAC8: .4byte gUnk_02033280
+_0807FAC8: .4byte gActiveScriptInfo
 _0807FACC:
-	ldr r2, _0807FAD8 @ =gUnk_02033280
+	ldr r2, _0807FAD8 @ =gActiveScriptInfo
 	ldrb r1, [r2, #7]
 	movs r0, #1
 	orrs r0, r1
@@ -1389,7 +1389,7 @@ _0807FACC:
 _0807FAD6:
 	pop {pc}
 	.align 2, 0
-_0807FAD8: .4byte gUnk_02033280
+_0807FAD8: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807FADC
 sub_0807FADC: @ 0x0807FADC
@@ -1427,13 +1427,13 @@ _0807FB16:
 	bl sub_0808C688
 	b _0807FB22
 _0807FB1C:
-	ldr r1, _0807FB24 @ =gUnk_02033280
+	ldr r1, _0807FB24 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0807FB22:
 	pop {r4, pc}
 	.align 2, 0
-_0807FB24: .4byte gUnk_02033280
+_0807FB24: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807FB28
 sub_0807FB28: @ 0x0807FB28
@@ -1460,13 +1460,13 @@ _0807FB3A:
 	.align 2, 0
 _0807FB54: .4byte 0x00007FFF
 _0807FB58:
-	ldr r1, _0807FB60 @ =gUnk_02033280
+	ldr r1, _0807FB60 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0807FB5E:
 	pop {r4, pc}
 	.align 2, 0
-_0807FB60: .4byte gUnk_02033280
+_0807FB60: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807FB64
 sub_0807FB64: @ 0x0807FB64
@@ -1552,13 +1552,13 @@ sub_0807FBD4: @ 0x0807FBD4
 	bl sub_080040A8
 	cmp r0, #0
 	beq _0807FBF4
-	ldr r1, _0807FBF8 @ =gUnk_02033280
+	ldr r1, _0807FBF8 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0807FBF4:
 	pop {r4, pc}
 	.align 2, 0
-_0807FBF8: .4byte gUnk_02033280
+_0807FBF8: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0807FBFC
 sub_0807FBFC: @ 0x0807FBFC
@@ -2934,11 +2934,11 @@ sub_08080668: @ 0x08080668
 	ldr r5, _080806A4 @ =gRoomControls
 	adds r0, r5, #0
 	movs r1, #0x38
-	bl MemClear32
+	bl MemClear
 	ldr r4, _080806A8 @ =gUnk_03004030
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080806AC @ =0x0000FFFF
 	strh r0, [r5, #0x22]
 	movs r0, #0xff
@@ -2950,10 +2950,10 @@ sub_08080668: @ 0x08080668
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080806B8 @ =gMapDataTopSpecial
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	pop {r4, r5, pc}
 	.align 2, 0
 _080806A4: .4byte gRoomControls

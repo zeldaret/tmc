@@ -230,7 +230,7 @@ sub_0808C01C: @ 0x0808C01C
 	subs r1, #0x18
 	movs r2, #0x30
 	movs r3, #0x30
-	bl sub_0806FBFC
+	bl CheckPlayerProximity
 	cmp r0, #0
 	beq _0808C0A6
 	ldr r2, _0808C06C @ =gArea

@@ -1,17 +1,15 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 #include "player.h"
+#include "random.h"
+#include "functions.h"
 
 extern void sub_08078954(Entity*);
-extern u32 sub_0800442E(Entity*);
 extern void sub_08078930(Entity*);
 extern s32 sub_080012DC(Entity*);
 extern u32 GetNextFunction(Entity*);
-extern void sub_0806F4E8(Entity*);
 extern Entity* sub_08049DF4(u32);
 extern void sub_08079BD8(Entity*);
-extern u32 GetTileTypeByEntity(Entity*);
 
 void sub_0802AD1C(Entity*, u32);
 void sub_0802AD54(Entity*);
@@ -70,11 +68,11 @@ void sub_0802A8AC(Entity* this) {
 }
 
 void sub_0802A8C8(Entity* this) {
-    gUnk_080CD140[this->previousActionFlag](this);
+    gUnk_080CD140[this->subAction](this);
 }
 
 void sub_0802A8E0(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 60;
 }
 
@@ -102,7 +100,7 @@ void sub_0802A91C(Entity* this) {
 
 void sub_0802A924(Entity* this) {
     this->action = 1;
-    this->previousActionFlag = 0;
+    this->subAction = 0;
     this->actionDelay = 0;
     this->field_0xf = 0;
     this->hitbox = (Hitbox*)&gUnk_080CD16C;
@@ -128,7 +126,7 @@ void sub_0802A9A8(Entity* this) {
         if (this->actionDelay) {
             if (--this->actionDelay == 0) {
                 this->action = 2;
-                this->previousActionFlag = 0;
+                this->subAction = 0;
                 this->actionDelay = 0x40;
                 sub_0802ACDC(this, 8);
             }
@@ -174,7 +172,7 @@ void sub_0802AA40(Entity* this) {
                 }
                 if (this->direction == direction) {
                     this->action = 3;
-                    this->nonPlanarMovement = 0x180;
+                    this->speed = 0x180;
                     this->field_0x7a.HALF.HI = 0;
                     ent->field_0x80.HALF.LO = 1;
                     ent->actionDelay = 0x96;
@@ -244,7 +242,7 @@ void sub_0802AB40(Entity* this) {
                 }
             } else {
                 this->action = 5;
-                this->nonPlanarMovement = 0;
+                this->speed = 0;
                 InitializeAnimation(this, this->type + 1);
             }
             break;
@@ -254,9 +252,9 @@ void sub_0802AB40(Entity* this) {
 void sub_0802AC08(Entity* this) {
     if (this->frames.all & 0x80) {
         this->action = 2;
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->actionDelay = 0x40;
-        this->nonPlanarMovement = 0xc0;
+        this->speed = 0xc0;
         sub_0802ACDC(this, 8);
         sub_0802ADDC(this);
     }
@@ -386,7 +384,7 @@ void sub_0802AE68(Entity* this) {
 }
 
 void sub_0802AEBC(Entity* this) {
-    gUnk_080CD158[this->previousActionFlag](this);
+    gUnk_080CD158[this->subAction](this);
 }
 
 void sub_0802AED4(Entity* this) {
@@ -407,7 +405,7 @@ void sub_0802AED4(Entity* this) {
 }
 
 void sub_0802AF28(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     sub_08079BD8(this);
     this->spritePriority.b1 = 2;
     GetNextFrame(this);
@@ -424,7 +422,7 @@ void sub_0802AF58(Entity* this) {
 
 void sub_0802AF74(Entity* this) {
     this->action = 3;
-    this->previousActionFlag = 0;
+    this->subAction = 0;
     if (this->actionDelay > 60) {
         this->actionDelay = 60;
     }
@@ -510,7 +508,7 @@ void sub_0802B048(Entity* this) {
         } else {
             if (this->field_0xf) {
                 if (--this->field_0xf == 0) {
-                    if (action == 2 && this->previousActionFlag == 1) {
+                    if (action == 2 && this->subAction == 1) {
                         gPlayerState.heldObject = 0;
                     }
                     sub_0805EC60(this);

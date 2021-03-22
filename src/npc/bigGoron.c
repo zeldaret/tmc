@@ -2,18 +2,13 @@
 #include "entity.h"
 #include "player.h"
 #include "structures.h"
-#include "functions.h"
 #include "script.h"
+#include "random.h"
+#include "functions.h"
 
 extern void (*gUnk_081140D4[])(Entity*);
 
 extern u16 gUnk_081140CC[];
-extern void sub_0806D0B0(Entity*);
-extern void sub_0807DD64(Entity*);
-extern void sub_0807DDE4(Entity*);
-extern void SoundReq(u32);
-extern void sub_0806D02C(Entity*);
-extern Entity* FindEntityInListByForm(u32, u32, u32, u32, u32);
 
 void BigGoron(Entity* this) {
     gUnk_081140D4[this->type](this);
@@ -22,17 +17,17 @@ void BigGoron(Entity* this) {
 void sub_0806CF30(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
-        this->previousActionFlag = 1;
+        this->subAction = 1;
         this->field_0x68.HWORD = this->x.HALF.HI;
         sub_0805E3A0(this, 2);
         sub_0806D0B0(this);
         sub_0807DD64(this);
     } else {
-        sub_0807DDAC(this, NULL);
-        sub_0807DDE4(this);
+        ExecuteScriptForEntity(this, NULL);
+        HandleEntity0x82Actions(this);
     }
 
-    switch (this->previousActionFlag) {
+    switch (this->subAction) {
         case 0:
         case 1:
             if (gScreenTransition.frameCount % 4 == 0) {
@@ -61,7 +56,7 @@ void sub_0806CF30(Entity* this) {
 void sub_0806D00C(Entity* this) {
     Entity* pEVar1;
 
-    pEVar1 = FindEntityInListByForm(7, 76, 7, 0, 0);
+    pEVar1 = FindEntity(7, 76, 7, 0, 0);
     if (pEVar1 != NULL) {
         this->parent = pEVar1;
     }

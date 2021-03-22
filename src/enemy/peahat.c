@@ -1,4 +1,6 @@
 #include "entity.h"
+#include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
 extern void (*const gPeahatFunctions[])(Entity*);
@@ -57,22 +59,22 @@ void sub_0801FFDC(Entity* this) {
             this->field_0x82.HALF.LO = 0;
             this->animationState = PeahatAnimation_SlicedPropeller;
             this->action = 5;
-            this->nonPlanarMovement = 0x80;
-            this->hurtBlinkTime = -30;
+            this->speed = 0x80;
+            this->iframes = -30;
             this->field_0x80.HALF.HI = 0;
             InitializeAnimation(this, this->animationState);
         } else if (this->bitfield == 0x9b) {
             this->animationState = PeahatAnimation_BrokenPropeller;
             this->action = 5;
-            this->nonPlanarMovement = 0x80;
-            this->hurtBlinkTime = -30;
+            this->speed = 0x80;
+            this->iframes = -30;
             this->field_0x80.HALF.HI = 0;
             InitializeAnimation(this, this->animationState);
         } else if (this->bitfield == 0x80) {
             if (this->animationState == PeahatAnimation_Flying) {
                 this->action = 1;
                 this->actionDelay = 30;
-                this->nonPlanarMovement = 0x80;
+                this->speed = 0x80;
                 this->direction = -1;
                 this->field_0x82.HALF.HI = 0x78;
                 GetNextFrame(this);
@@ -87,14 +89,14 @@ void sub_0801FFDC(Entity* this) {
 }
 
 void sub_08020088(Entity* this) {
-    if (2 >= this->previousActionFlag && !sub_0806F520(this))
+    if (2 >= this->subAction && !sub_0806F520(this))
         return;
 
-    gUnk_080CA5BC[this->previousActionFlag](this);
+    gUnk_080CA5BC[this->subAction](this);
 }
 
 void sub_080200B4(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 60;
     if (this->animationState == PeahatAnimation_Flying) {
         this->animationState = PeahatAnimation_BrokenPropeller;
@@ -150,9 +152,9 @@ void Peahat_Fly(Entity* this) {
     if (sub_08049FDC(this, 1)) {
         if (this->field_0x82.HALF.HI == 0 && (this->field_0xf & 0xf) == 0 && sub_08049F1C(this, gUnk_020000B0, 0x30)) {
             this->action = 2;
-            this->previousActionFlag = Random() & 3;
+            this->subAction = Random() & 3;
             this->actionDelay = 60;
-            this->nonPlanarMovement = 160;
+            this->speed = 160;
         }
     }
 
@@ -176,7 +178,7 @@ void Peahat_ChargeStart(Entity* this) {
         } else {
             this->action = 3;
             this->actionDelay = 120;
-            this->nonPlanarMovement = 192;
+            this->speed = 192;
             this->direction = (GetFacingDirection(this, gUnk_020000B0) + gUnk_080CA5D4[Random() & 1]) & 0x1f;
         }
     } else {
@@ -193,7 +195,7 @@ void Peahat_ChargeTarget(Entity* this) {
         }
         if (60 < this->actionDelay) {
             if (this->actionDelay & 1)
-                this->nonPlanarMovement += 4;
+                this->speed += 4;
 
             if ((gScreenTransition.frameCount & 3) == 0)
                 sub_08004596(this, GetFacingDirection(this, gUnk_020000B0));
@@ -209,12 +211,12 @@ void Peahat_ChargeEnd(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 1;
         this->actionDelay = 1;
-        this->nonPlanarMovement = 128;
+        this->speed = 128;
         this->field_0x82.HALF.HI = 120;
         GetNextFrame(this);
     } else {
         if (this->actionDelay & 1)
-            this->nonPlanarMovement -= 8;
+            this->speed -= 8;
 
         sub_080AEFE0(this);
         UpdateAnimationVariableFrames(this, 4);
@@ -329,7 +331,7 @@ void PeahatPropeller_Initialize(Entity* this) {
     this->spriteRendering.b3 = 1;
     this->spriteOrientation.flipY = 1;
     this->spriteSettings.b.shadow = 0;
-    this->nonPlanarMovement = 0x20;
+    this->speed = 0x20;
     this->direction = (Random() & 0x10) + 8;
     InitializeAnimation(this, PeahatAnimation_Propeller);
 }

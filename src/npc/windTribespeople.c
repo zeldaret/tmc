@@ -8,23 +8,13 @@
 #include "save.h"
 #include "script.h"
 
-extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
-extern void sub_0807DD50(Entity*);
 extern void sub_0806C7D4(Entity*);
-extern void sub_0806F118(Entity*);
-extern void sub_0807DD80(Entity*, u32*);
-extern u32 sub_0801E99C();
-extern void sub_08078784(Entity*, u32);
-extern void SetExtraSpriteFrame(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
-extern void sub_0807000C(Entity*);
 
 extern void (*const gUnk_08113A7C[])(Entity*);
-extern void (*const gUnk_08113A8C[])(Entity*, Entity*);
+extern void (*const gUnk_08113A8C[])(Entity*, ScriptExecutionContext*);
 
 extern SpriteLoadData gUnk_08113A1C[];
-extern u32 gUnk_08014A80;
+extern u16 script_08014A80;
 extern Dialog gUnk_08113ABC[];
 extern u16 gUnk_08113B0C[];
 
@@ -57,7 +47,7 @@ void sub_0806C7D4(Entity* this) {
         sub_0807DD94(this, NULL);
         if ((this->type2 == 3) && (!CheckGlobalFlag(WARP_EVENT_END)) && (CheckLocalFlag(0x63)) && (CheckRoomFlag(0))) {
             this->type2 = 7;
-            sub_0807DD80(this, &gUnk_08014A80);
+            sub_0807DD80(this, &script_08014A80);
         }
     }
 }
@@ -111,10 +101,9 @@ void WindTribespeople_Head(Entity* this) {
     }
 }
 
-// body and head entities?
-void sub_0806C90C(Entity* param_1, Entity* param_2) {
-    *(u32*)&param_2->animationState = 0;
-    gUnk_08113A8C[param_1->type2](param_1, param_2);
+void sub_0806C90C(Entity* this, ScriptExecutionContext* context) {
+    context->condition = 0;
+    gUnk_08113A8C[this->type2](this, context);
 }
 
 void sub_0806C928(Entity* this) {

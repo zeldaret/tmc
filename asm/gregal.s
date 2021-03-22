@@ -74,9 +74,9 @@ _0806CB4E:
 _0806CB66:
 	adds r0, r5, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r5, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r5, #0
 	bl GetNextFrame
 	pop {r4, r5, pc}
@@ -219,9 +219,9 @@ _0806CC7C: .4byte gPlayerEntity
 _0806CC80:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl GetNextFrame
 	b _0806CCB0

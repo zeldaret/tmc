@@ -343,10 +343,10 @@ _08064776:
 	lsls r0, r0, #0x10
 	cmp r0, #0
 	beq _08064788
-	ldr r1, _0806478C @ =gUnk_02033280
+	ldr r1, _0806478C @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _08064788:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
-_0806478C: .4byte gUnk_02033280
+_0806478C: .4byte gActiveScriptInfo

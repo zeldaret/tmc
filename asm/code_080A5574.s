@@ -631,7 +631,7 @@ _080A5A52:
 sub_080A5A54: @ 0x080A5A54
 	push {lr}
 	movs r0, #0
-	bl sub_0807CDA4
+	bl HandleSave
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080A5A8A
@@ -2442,7 +2442,7 @@ _080A6886:
 	ldr r0, _080A68D0 @ =gUnk_02019EE0
 	movs r1, #0x80
 	lsls r1, r1, #3
-	bl MemClear32
+	bl MemClear
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A68AC: .4byte gUnk_02032EC0
@@ -3307,7 +3307,7 @@ sub_080A6F6C: @ 0x080A6F6C
 	ldr r0, _080A6FA8 @ =gUnk_020350F0
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl MemClear32
+	bl MemClear
 	movs r0, #0xff
 	ands r0, r4
 	cmp r0, #0
@@ -3376,7 +3376,7 @@ _080A6FFA:
 	ldr r0, _080A7038 @ =gUnk_020350F0
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl MemClear32
+	bl MemClear
 	movs r0, #0xff
 	ands r0, r4
 	cmp r0, #0
@@ -3413,7 +3413,7 @@ sub_080A7040: @ 0x080A7040
 	movs r1, #0xc0
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080A7098 @ =0xFFFFFE00
 	adds r4, r4, r0
 	ldr r1, _080A709C @ =0x0600E000
@@ -3456,7 +3456,7 @@ sub_080A70AC: @ 0x080A70AC
 	movs r1, #0xc0
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl MemClear32
+	bl MemClear
 	adds r2, r4, #0
 	subs r2, #0x34
 	movs r0, #0x7f
@@ -3519,7 +3519,7 @@ sub_080A7124: @ 0x080A7124
 	ldr r0, _080A7134 @ =gUnk_02032EC0
 	movs r1, #0xed
 	lsls r1, r1, #2
-	bl MemClear32
+	bl MemClear
 	pop {pc}
 	.align 2, 0
 _080A7134: .4byte gUnk_02032EC0
@@ -3536,7 +3536,7 @@ MenuFadeIn: @ 0x080A7138
 	movs r1, #0xed
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl MemClear32
+	bl MemClear
 	strb r5, [r4, #2]
 	strb r6, [r4, #3]
 	ldr r0, _080A7160 @ =gMain
@@ -3709,7 +3709,7 @@ sub_080A7250: @ 0x080A7250
 	movs r2, #0x80
 	lsls r2, r2, #1
 	bl MemCopy
-	ldr r0, _080A7310 @ =gUnk_02033280
+	ldr r0, _080A7310 @ =gActiveScriptInfo
 	movs r2, #0xd5
 	lsls r2, r2, #2
 	adds r1, r4, r2
@@ -3750,7 +3750,7 @@ _080A7300: .4byte gUnk_02032F14
 _080A7304: .4byte gUnk_02001A00
 _080A7308: .4byte gRoomControls
 _080A730C: .4byte gUnk_03000420
-_080A7310: .4byte gUnk_02033280
+_080A7310: .4byte gActiveScriptInfo
 _080A7314: .4byte gScreenTransition
 _080A7318: .4byte gPlayerState
 _080A731C: .4byte gUnk_02017654
@@ -3767,22 +3767,22 @@ sub_080A7328: @ 0x080A7328
 	bl DeleteAllEntities
 	ldr r0, _080A738C @ =gMenu
 	movs r1, #0x30
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080A7390 @ =gRoomControls
 	movs r1, #0x38
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080A7394 @ =gUnk_03000420
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl MemClear32
-	ldr r4, _080A7398 @ =gUnk_02033280
+	bl MemClear
+	ldr r4, _080A7398 @ =gActiveScriptInfo
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl MemClear32
+	bl MemClear
 	movs r0, #8
 	strb r0, [r4, #8]
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	bl MessageInitialize
 	bl sub_080ADD30
 	movs r0, #0
@@ -3803,7 +3803,7 @@ _080A7388: .4byte gFadeControl
 _080A738C: .4byte gMenu
 _080A7390: .4byte gRoomControls
 _080A7394: .4byte gUnk_03000420
-_080A7398: .4byte gUnk_02033280
+_080A7398: .4byte gActiveScriptInfo
 _080A739C: .4byte gUnk_02024490
 _080A73A0: .4byte gUnk_02032EC0
 _080A73A4: .4byte gScreenTransition
@@ -3836,7 +3836,7 @@ _080A73B4:
 	movs r1, #0xea
 	lsls r1, r1, #2
 	adds r0, r5, r1
-	ldr r1, _080A7480 @ =gUnk_02033280
+	ldr r1, _080A7480 @ =gActiveScriptInfo
 	movs r2, #0xc
 	bl MemCopy
 	movs r1, #0xaa
@@ -3899,7 +3899,7 @@ _080A7470: .4byte gUnk_02032EC0
 _080A7474: .4byte gPlayerState
 _080A7478: .4byte gUnk_02025EB0
 _080A747C: .4byte gUnk_0200B650
-_080A7480: .4byte gUnk_02033280
+_080A7480: .4byte gActiveScriptInfo
 _080A7484: .4byte gUnk_03000420
 _080A7488: .4byte gUnk_02001A00
 _080A748C: .4byte gUnk_02024490
@@ -4943,7 +4943,7 @@ sub_080A7C7C: @ 0x080A7C7C
 	push {lr}
 	ldr r0, _080A7C88 @ =gUnk_02017660
 	movs r1, #0x40
-	bl MemClear32
+	bl MemClear
 	pop {pc}
 	.align 2, 0
 _080A7C88: .4byte gUnk_02017660

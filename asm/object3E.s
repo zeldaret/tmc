@@ -247,7 +247,7 @@ sub_0808D280: @ 0x0808D280
 	movs r1, #0x3e
 	movs r2, #6
 	movs r3, #9
-	bl FindEntityInListByForm
+	bl FindEntity
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0808D2C4
@@ -287,7 +287,7 @@ sub_0808D2CC: @ 0x0808D2CC
 	movs r1, #0x3e
 	movs r2, #6
 	movs r3, #1
-	bl FindEntityInListByForm
+	bl FindEntity
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0808D2F2
@@ -328,9 +328,9 @@ _0808D31C:
 	ldrsh r5, [r4, r0]
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	ldr r0, _0808D354 @ =gRoomControls
 	ldrh r0, [r0, #0x16]
 	cmp r0, #0
@@ -375,9 +375,9 @@ sub_0808D360: @ 0x0808D360
 _0808D382:
 	adds r0, r4, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	pop {r4, pc}
 	.align 2, 0
 

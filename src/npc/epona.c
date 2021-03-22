@@ -3,6 +3,7 @@
 #include "entity.h"
 #include "textbox.h"
 #include "player.h"
+#include "npc.h"
 #include "functions.h"
 
 void sub_08065A64(Entity* this);
@@ -44,7 +45,7 @@ void sub_08065A10(Entity* this) {
 }
 
 void sub_08065A34(Entity* this) {
-    if (UpdateFuseInteraction() != 0) {
+    if (UpdateFuseInteraction(this) != 0) {
         this->action = 1;
         InitAnimationForceUpdate(this, this->animationState / 2);
     }

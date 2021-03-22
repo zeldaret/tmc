@@ -597,13 +597,13 @@ _08035616:
 	adds r1, r4, #0
 	ands r1, r2
 	lsls r1, r1, #8
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r5, #0x80
 	lsls r5, r5, #1
 	adds r1, r5, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	lsrs r0, r0, #8
 	adds r1, r7, #0
 	adds r1, #0x62
@@ -619,11 +619,11 @@ _08035616:
 	ands r4, r1
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r5, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
 	rsbs r0, r0, #0
@@ -3086,13 +3086,13 @@ sub_08036914: @ 0x08036914
 	lsls r6, r6, #0x10
 	asrs r6, r6, #0x10
 	adds r1, r6, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x80
 	lsls r1, r1, #1
 	mov r8, r1
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r1, [r5, #0x50]
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
@@ -3105,11 +3105,11 @@ sub_08036914: @ 0x08036914
 	movs r1, #0
 	ldrsh r0, [r4, r1]
 	adds r1, r6, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	mov r1, r8
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r2, [r5, #0x50]
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
@@ -3270,11 +3270,11 @@ _08036A78:
 	movs r1, #0
 	ldrsh r0, [r0, r1]
 	adds r1, r6, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r7, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r2, [r5]
 	ldr r1, [r5, #4]
 	lsls r0, r0, #0x10
@@ -3293,11 +3293,11 @@ _08036A78:
 	movs r1, #0
 	ldrsh r0, [r0, r1]
 	adds r1, r6, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r7, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r2, [r5]
 	ldr r1, [r5, #4]
 	lsls r0, r0, #0x10
@@ -3386,12 +3386,12 @@ _08036B48:
 	movs r3, #0
 	ldrsh r0, [r0, r3]
 	mov r1, sl
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r2, [r5]
 	ldr r1, [r6]
 	lsls r0, r0, #0x10
@@ -3409,12 +3409,12 @@ _08036B48:
 	movs r2, #0
 	ldrsh r0, [r0, r2]
 	mov r1, sl
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r2, [r5]
 	ldr r1, [r6]
 	b _08036C6E
@@ -3475,12 +3475,12 @@ _08036C0E:
 	movs r2, #0
 	ldrsh r0, [r0, r2]
 	mov r1, sl
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r2, [r4]
 	adds r5, r6, r7
 	ldr r1, [r5]
@@ -3499,12 +3499,12 @@ _08036C0E:
 	movs r1, #0
 	ldrsh r0, [r0, r1]
 	mov r1, sl
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r2, [r4]
 	ldr r1, [r5]
 _08036C6E:

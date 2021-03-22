@@ -8,7 +8,6 @@ extern u32 sub_08091DDC(Entity*);
 extern u32 sub_080002B4(Entity*, u32, u32);
 extern u32 sub_08007DD6(u32, u32);
 extern void sub_08017744(Entity*);
-extern u32 sub_080002B8(Entity*);
 extern void sub_08091C0C(Entity*);
 
 typedef struct {
@@ -52,7 +51,7 @@ void sub_080916EC(Entity* this) {
     this->field_0x40 = 0x44;
     this->flags2 = 0x80;
     this->direction = DirectionFromAnimationState(this->animationState);
-    this->nonPlanarMovement = 0x700;
+    this->speed = 0x700;
     this->spritePriority.b1 = 3;
     InitAnimationForceUpdate(this, this->type2 + 4 + this->animationState);
     SetTile(0x4022, COORD_TO_TILE(this), this->collisionLayer);
@@ -82,7 +81,7 @@ void sub_080917DC(Entity* this) {
                 gPlayerState.jumpStatus = 0x81;
                 gPlayerState.flags.all |= 0x4000000;
                 gPlayerEntity.field_0x20 = 0x20000;
-                gPlayerEntity.nonPlanarMovement = 0x100;
+                gPlayerEntity.speed = 0x100;
                 gPlayerEntity.flags &= 0x7f;
                 ResetPlayer();
                 sub_0807A108();
@@ -144,7 +143,7 @@ void sub_080919AC(Entity* this) {
         }
     } else {
         this->flags = this->flags | 0x80;
-        gPlayerEntity.nonPlanarMovement = 0;
+        gPlayerEntity.speed = 0;
         sub_0806F69C(this);
         CopyPosition(this, &gPlayerEntity);
         gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
@@ -177,7 +176,7 @@ void sub_080919AC(Entity* this) {
                         gPlayerState.jumpStatus = 0x41;
                         gPlayerState.flags.all = (gPlayerState.flags.all ^ 0x1000) | 0x4000000;
                         gPlayerEntity.field_0x20 = 0x20000;
-                        gPlayerEntity.nonPlanarMovement = 0x200;
+                        gPlayerEntity.speed = 0x200;
                         gPlayerEntity.animationState = this->animationState << 1;
                         gPlayerEntity.direction = this->direction;
                         gPlayerEntity.flags |= 0x80;

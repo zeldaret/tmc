@@ -62,7 +62,7 @@ sub_0809D9D8: @ 0x0809D9D8
 	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	movs r1, #6
-	bl FindNextEntityOfSameSubtype
+	bl FindNextDuplicateID
 	cmp r0, #0
 	beq _0809DA1E
 	str r4, [r0, #0x50]
@@ -436,7 +436,7 @@ sub_0809DC80: @ 0x0809DC80
 	bl InitAnimationForceUpdate
 	adds r0, r4, #0
 	movs r1, #6
-	bl FindNextEntityOfSameSubtype
+	bl FindNextDuplicateID
 	cmp r0, #0
 	beq _0809DD00
 	str r4, [r0, #0x50]
@@ -901,9 +901,9 @@ sub_0809E088: @ 0x0809E088
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r1, #0
-	bl sub_0807DDAC
+	bl ExecuteScriptForEntity
 	adds r0, r4, #0
-	bl sub_0807DDE4
+	bl HandleEntity0x82Actions
 	adds r0, r4, #0
 	bl UpdateAnimationSingleFrame
 	pop {r4, pc}
@@ -950,11 +950,11 @@ sub_0809E0D4: @ 0x0809E0D4
 	ldrb r0, [r1, #0xc]
 	cmp r0, #1
 	bhi _0809E0FE
-	ldr r0, _0809E0F8 @ =gUnk_02033280
+	ldr r0, _0809E0F8 @ =gActiveScriptInfo
 	strb r2, [r0, #6]
 	b _0809E1BC
 	.align 2, 0
-_0809E0F8: .4byte gUnk_02033280
+_0809E0F8: .4byte gActiveScriptInfo
 _0809E0FC:
 	ldr r1, _0809E124 @ =gPlayerEntity
 _0809E0FE:
@@ -971,13 +971,13 @@ _0809E0FE:
 	bl sub_0807DEDC
 	ldr r0, _0809E128 @ =0x00000123
 	bl SoundReq
-	ldr r0, _0809E12C @ =gUnk_02033280
+	ldr r0, _0809E12C @ =gActiveScriptInfo
 	strb r4, [r0, #6]
 	b _0809E1BC
 	.align 2, 0
 _0809E124: .4byte gPlayerEntity
 _0809E128: .4byte 0x00000123
-_0809E12C: .4byte gUnk_02033280
+_0809E12C: .4byte gActiveScriptInfo
 _0809E130:
 	ldr r1, [r5, #0x54]
 	cmp r1, #0
@@ -1047,7 +1047,7 @@ _0809E170:
 	bl SoundReq
 	b _0809E1BC
 _0809E1B6:
-	ldr r1, _0809E1C4 @ =gUnk_02033280
+	ldr r1, _0809E1C4 @ =gActiveScriptInfo
 	movs r0, #0
 	strb r0, [r1, #6]
 _0809E1BC:
@@ -1055,7 +1055,7 @@ _0809E1BC:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_0809E1C4: .4byte gUnk_02033280
+_0809E1C4: .4byte gActiveScriptInfo
 
 	thumb_func_start sub_0809E1C8
 sub_0809E1C8: @ 0x0809E1C8
@@ -1141,7 +1141,7 @@ sub_0809E238: @ 0x0809E238
 	adds r5, #0x6c
 	movs r2, #0
 	ldrsh r1, [r5, r2]
-	bl sub_0806F9EC
+	bl FixedMul
 	adds r4, r0, #0
 	lsls r4, r4, #0x10
 	asrs r4, r4, #0x10
@@ -1154,7 +1154,7 @@ sub_0809E238: @ 0x0809E238
 	ldrsh r0, [r0, r2]
 	movs r2, #0
 	ldrsh r1, [r5, r2]
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r7, #0

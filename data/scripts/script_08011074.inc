@@ -1,0 +1,10 @@
+SCRIPT_START script_08011074
+	BeginBlock 
+	SetEntitySpeed 0x0080
+	EndBlock 
+	_0807EDD4 0x01e8, 0x0050
+	_0807EB44 0x0000
+	DoPostScriptAction 0x0000
+	_0807E5F8 0x00000400
+	Call sub_080791BC
+SCRIPT_END

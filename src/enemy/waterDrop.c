@@ -1,7 +1,8 @@
 #include "enemy.h"
 #include "entity.h"
-#include "functions.h"
 #include "screen.h"
+#include "random.h"
+#include "functions.h"
 
 void sub_0802A39C(Entity*);
 void sub_0802A334(Entity*);
@@ -22,7 +23,7 @@ void sub_0802A250(Entity* this) {
     this->action = 1;
     this->actionDelay = 0;
     this->field_0x20 = -0x30000;
-    this->nonPlanarMovement = gUnk_080CD03C[Random() & 3];
+    this->speed = gUnk_080CD03C[Random() & 3];
     this->direction = gUnk_080CD040[Random() & 3] + 0x18;
     this->collisionLayer = 2;
     InitializeAnimation(this, 0);

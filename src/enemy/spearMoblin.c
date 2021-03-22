@@ -1,9 +1,9 @@
 #include "enemy.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 extern bool32 sub_0806FC80(Entity*, Entity*, u32);
-extern Entity* sub_080A7EE0(u32);
 extern Entity* sub_08049DF4(u32);
 
 void sub_08028604(Entity*);
@@ -56,9 +56,9 @@ void sub_08028284(Entity* this) {
         }
     }
 
-    this->attachedEntity->hurtBlinkTime = this->hurtBlinkTime;
+    this->attachedEntity->iframes = this->iframes;
     if (this->currentHealth == 0) {
-        this->nonPlanarMovement = 0;
+        this->speed = 0;
         this->field_0x82.HALF.LO = 0;
         sub_080287E0(this);
         DeleteEntity(this->attachedEntity);
@@ -86,7 +86,7 @@ void sub_08028314(Entity* this) {
     if (this->actionDelay) {
         this->animationState = this->type2 << 1;
         this->actionDelay = 0x1e;
-        this->nonPlanarMovement = 0x80;
+        this->speed = 0x80;
         this->direction = this->animationState << 2;
         sub_080287E0(this);
     } else {
@@ -164,13 +164,13 @@ void sub_08028488(Entity* this) {
         switch (this->field_0x82.HALF.LO) {
             case 3:
                 this->action = 4;
-                this->nonPlanarMovement = 0x180;
+                this->speed = 0x180;
                 this->direction = sub_08049F84(this, 1);
                 EnqueueSFX(0x11e);
                 break;
             case 2:
                 this->action = 2;
-                this->nonPlanarMovement = 0;
+                this->speed = 0;
                 this->actionDelay = (Random() & 7) * 3 + 0x40;
                 break;
             case 4:
@@ -180,7 +180,7 @@ void sub_08028488(Entity* this) {
             default:
                 this->action = 1;
                 this->field_0x82.HALF.LO = 1;
-                this->nonPlanarMovement = 0x80;
+                this->speed = 0x80;
                 this->actionDelay = (Random() & 7) * 3 + 0x22;
                 break;
         }
@@ -245,7 +245,7 @@ void sub_08028604(Entity* this) {
     this->field_0xf = 0;
     if (this->field_0x82.HALF.LO == 1) {
         this->actionDelay = gUnk_080CC7BC[Random() & 3];
-        this->nonPlanarMovement = 0x80;
+        this->speed = 0x80;
         if (sub_08049FA0(this) != 0) {
             this->direction = gUnk_080CC7D0[Random() & 7] + 0x18 + this->direction & 0x18;
         } else {
@@ -262,7 +262,7 @@ void sub_08028604(Entity* this) {
         }
     } else {
         this->actionDelay = 0xc;
-        this->nonPlanarMovement = 0;
+        this->speed = 0;
     }
 
     if (this->direction >> 2 != this->animationState) {
@@ -324,7 +324,7 @@ void sub_080287B4(Entity* this) {
     this->field_0xf = 0;
     this->field_0x80.HALF.LO = 0;
     this->field_0x7a.HALF.HI = 0;
-    this->nonPlanarMovement = 0;
+    this->speed = 0;
     this->field_0x82.HALF.LO = 0;
     sub_080287E0(this);
 }
@@ -371,7 +371,7 @@ void sub_08028858(Entity* this) {
     this->hitbox->height = box->height;
 
     if (this->field_0x82.HALF.LO == 0) {
-        this->nonPlanarMovement = 0;
+        this->speed = 0;
     }
 
     ProcessMovement(this);
@@ -386,7 +386,7 @@ void sub_080288C0(Entity* this) {
     Entity* ent = this->attachedEntity;
     if (ent && (ent->bitfield & 0x80)) {
         this->field_0x3e = ent->field_0x3e;
-        this->hurtBlinkTime = -ent->hurtBlinkTime;
+        this->iframes = -ent->iframes;
         this->field_0x46 = ent->field_0x46;
         this->field_0x42 = ent->field_0x42;
         ent->field_0x42 = 0;

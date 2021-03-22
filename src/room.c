@@ -3,7 +3,6 @@
 #include "entity.h"
 #include "area.h"
 #include "room.h"
-#include "functions.h"
 #include "flags.h"
 #include "npc.h"
 #include "player.h"
@@ -11,6 +10,9 @@
 #include "main.h"
 #include "structures.h"
 #include "save.h"
+#include "script.h"
+#include "random.h"
+#include "functions.h"
 
 void sub_0804B3C4(void* arg0) {
     sub_0804B29C(arg0);
@@ -387,7 +389,7 @@ u32 sub_0804B7A8(void) {
     return 1;
 }
 
-extern void* gUnk_08010A5C[];
+extern void* script_08010A5C[];
 
 void sub_0804B7E8(void) {
     if (CheckLocalFlag(0x91)) {
@@ -395,7 +397,7 @@ void sub_0804B7E8(void) {
         DoFade(5, 0x100);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-        sub_080751E8(1, 2, &gUnk_08010A5C);
+        sub_080751E8(1, 2, &script_08010A5C);
     }
 }
 
@@ -421,7 +423,7 @@ void sub_0804B86C(void) {
         DoFade(5, 0x100);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x50;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-        sub_080751E8(1, 2, &gUnk_08010A5C);
+        sub_080751E8(1, 2, &script_08010A5C);
     }
 }
 
@@ -441,15 +443,13 @@ u32 sub_0804B8B0(void) {
     return 1;
 }
 
-extern void* gUnk_08010A5C[];
-
 void sub_0804B8F0(void) {
     if (CheckLocalFlag(0x91)) {
         ClearLocalFlag(0x91);
         DoFade(5, 0x100);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x60;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-        sub_080751E8(1, 2, &gUnk_08010A5C);
+        sub_080751E8(1, 2, &script_08010A5C);
     }
 }
 
@@ -649,14 +649,14 @@ u32 sub_0804BC50(void) {
     return 1;
 }
 
-extern u32 gUnk_08009E88;
+extern u32 script_08009E88;
 
 void sub_0804BC70(void) {
     if (!CheckLocalFlag(0x9f)) {
         DoFade(5, 0x100);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0xb0;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x40;
-        sub_080751E8(0, 6, &gUnk_08009E88);
+        sub_080751E8(0, 6, &script_08009E88);
     }
     if (!CheckGlobalFlag(TABIDACHI)) {
         sub_08052878();
@@ -972,7 +972,7 @@ void sub_0804BF38(u32 arg0, struct_0804BF38* arg1)
         fx->x.HALF.HI = gUnk_080D8E50[iVar3].x + gRoomControls.roomOriginX + xOff;
         fx->y.HALF.HI = gUnk_080D8E50[iVar3].y + gRoomControls.roomOriginY + -0xc + (entCnt & 1) * 8;
         fx->direction = 0;
-        fx->nonPlanarMovement = 0x100;
+        fx->speed = 0x100;
       }
     }
   }
@@ -982,7 +982,7 @@ void sub_0804BF38(u32 arg0, struct_0804BF38* arg1)
 }
 #else
 NAKED
-void sub_0804BF38(u32 arg0, void* arg1) {
+void sub_0804BF38(Entity* this, ScriptExecutionContext* context) {
     asm(".include \"asm/non_matching/sub_0804BF38.inc\"");
 }
 #endif
@@ -2236,7 +2236,7 @@ void sub_0804CD48(void) {
         gFadeControl.active = 0;
         gUsedPalettes = 0;
         *(u16*)0x5000000 = 0x7fff;
-        sub_0801DA90(1);
+        DispReset(1);
     }
     if (CheckGlobalFlag(LV1_CLEAR)) {
         LoadRoomEntityList(&gUnk_080DF94C);
@@ -4307,8 +4307,6 @@ void LoadHyruleTown(void) {
     }
 }
 
-extern EntityData gUnk_080EEBAC;
-
 void sub_0804E130(void) {
     if ((gSave.windcrests & 0x8000000) == 0) {
         LoadRoomEntityList(&gUnk_080EEBAC);
@@ -4499,7 +4497,7 @@ void sub_0804E3C4() {
     }
     r = Random();
     index = gUnk_080F0D58[index][r & 0x1f];
-    LoadRoomEntityList(gUnk_080F0CB8[index & 0xF]);
+    LoadRoomEntityList((EntityData*)gUnk_080F0CB8[index & 0xF]);
     index >>= 4;
     r >>= 8;
     index = gUnk_080F0E08[index][r & 0x1F];
@@ -4773,8 +4771,7 @@ u32 sub_0804E7D8() {
 }
 
 extern EntityData gUnk_080F31D8;
-extern u8 gUnk_02000070;
-extern u32 gUnk_08009B30;
+extern u32 script_08009B30;
 
 void sub_0804E7DC(void) {
 
@@ -4782,7 +4779,7 @@ void sub_0804E7DC(void) {
         sub_080A71C4(5, 1, 4, 4);
         gUnk_02000070 = 0;
         DoFade(5, 0x100);
-        sub_080751E8(0, 6, &gUnk_08009B30);
+        sub_080751E8(0, 6, &script_08009B30);
     }
     if (!CheckGlobalFlag(OUTDOOR)) {
         gArea.musicIndex = gArea.pMusicIndex;
@@ -4793,12 +4790,12 @@ void sub_0804E7DC(void) {
     }
 }
 
-extern u32 gUnk_08009E58;
+extern u32 script_08009E58;
 
 void sub_0804E864(void) {
     gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0x90;
     gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x38;
-    sub_080751E8(1, 6, &gUnk_08009E58);
+    sub_080751E8(1, 6, &script_08009E58);
     ModHealth(0xa0);
 }
 
@@ -5072,8 +5069,6 @@ void sub_0804EC00(void) {
     }
 }
 
-extern EntityData gUnk_080F4E10;
-
 void sub_0804EC98(void) {
     if ((s32)gSave.windcrests > -1) {
         LoadRoomEntityList(&gUnk_080F4E10);
@@ -5207,8 +5202,6 @@ extern EntityData gUnk_080F5828;
 extern EntityData gUnk_080F5848;
 extern EntityData gUnk_080F5788;
 
-extern u8 gBombBagSizes[];
-
 void sub_0804EEBC(void) {
     LoadRoomEntityList(&gUnk_080F5758);
     if (!GetInventoryValue(0x36) && CheckLocalFlagByOffset(0x200, 0x8f)) {
@@ -5274,14 +5267,14 @@ u32 sub_0804EFDC(void) {
 }
 
 extern EntityData gUnk_080F5DD0;
-extern u32 gUnk_08011C50;
+extern u32 script_08011C50;
 
 void sub_0804EFF8(void) {
     if (gSave.unk8 > 7) {
         LoadRoomEntityList(&gUnk_080F5DD0);
     }
     if (CheckGlobalFlag(MAROYA_WAKEUP)) {
-        sub_080751E8(1, 2, &gUnk_08011C50);
+        sub_080751E8(1, 2, &script_08011C50);
     }
 }
 
@@ -5516,8 +5509,6 @@ void sub_0804F25C(void) {
     }
 }
 
-extern EntityData gUnk_080F70D8;
-
 void sub_0804F2C8(void) {
     if ((gSave.windcrests & 0x40000000) == 0) {
         LoadRoomEntityList(&gUnk_080F70D8);
@@ -5680,35 +5671,35 @@ void sub_0804F680(Entity* parent, s32 x, s32 y) {
     }
 }
 
-void sub_0804F6A8(Entity* arg0) {
-    sub_0804F680(arg0, 0x1d8, 0x108);
-    sub_0804F680(arg0, 0x218, 0x188);
+void sub_0804F6A8(Entity* this) {
+    sub_0804F680(this, 0x1d8, 0x108);
+    sub_0804F680(this, 0x218, 0x188);
 }
 
-void sub_0804F6C8(Entity* arg0) {
-    sub_0804F680(arg0, 0x1e8, 0x108);
-    sub_0804F680(arg0, 0x208, 0x188);
+void sub_0804F6C8(Entity* this) {
+    sub_0804F680(this, 0x1e8, 0x108);
+    sub_0804F680(this, 0x208, 0x188);
 }
 
-void sub_0804F6E8(Entity* arg0) {
-    sub_0804F680(arg0, 0x1f8, 0x108);
-    sub_0804F680(arg0, 0x258, 0x138);
-    sub_0804F680(arg0, 0x1f8, 0x188);
-    sub_0804F680(arg0, 0x198, 0x158);
+void sub_0804F6E8(Entity* this) {
+    sub_0804F680(this, 0x1f8, 0x108);
+    sub_0804F680(this, 0x258, 0x138);
+    sub_0804F680(this, 0x1f8, 0x188);
+    sub_0804F680(this, 0x198, 0x158);
 }
 
-void sub_0804F724(Entity* arg0) {
-    sub_0804F680(arg0, 0x208, 0x108);
-    sub_0804F680(arg0, 0x258, 0x148);
-    sub_0804F680(arg0, 0x1e8, 0x188);
-    sub_0804F680(arg0, 0x198, 0x148);
+void sub_0804F724(Entity* this) {
+    sub_0804F680(this, 0x208, 0x108);
+    sub_0804F680(this, 0x258, 0x148);
+    sub_0804F680(this, 0x1e8, 0x188);
+    sub_0804F680(this, 0x198, 0x148);
 }
 
-void sub_0804F760(Entity* arg0) {
-    sub_0804F680(arg0, 0x218, 0x108);
-    sub_0804F680(arg0, 0x258, 0x158);
-    sub_0804F680(arg0, 0x1d8, 0x188);
-    sub_0804F680(arg0, 0x198, 0x138);
+void sub_0804F760(Entity* this) {
+    sub_0804F680(this, 0x218, 0x108);
+    sub_0804F680(this, 0x258, 0x158);
+    sub_0804F680(this, 0x1d8, 0x188);
+    sub_0804F680(this, 0x198, 0x138);
 }
 
 void sub_0804F79C(Entity* parent) {
@@ -6030,8 +6021,6 @@ void sub_0804FBBC(void) {
         LoadRoomEntityList(&gUnk_080F9304);
     }
 }
-
-extern EntityData gUnk_080F9304;
 
 void sub_0804FBDC(void) {
     if ((gSave.windcrests & 0x2000000) == 0) {
@@ -6448,8 +6437,6 @@ void sub_0804FE58(void) {
         SetGlobalFlag(WHITE_SWORD_END);
     }
 }
-
-extern EntityData gUnk_080FB004;
 
 void sub_0804FEAC(void) {
     if ((gSave.windcrests & 0x1000000) == 0) {

@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
+#include "functions.h"
 
-extern void sub_0806F69C(Entity*);
 extern u32 sub_080AE4CC(Entity*, u32, u32, u32);
 
 extern void* gUnk_02027EB4;
@@ -22,12 +22,12 @@ void ObjectB2(Entity* this) {
         this->attachedEntity = pEVar3;
         InitializeAnimation(this, this->type);
     }
-    this->nonPlanarMovement = this->parent->nonPlanarMovement;
+    this->speed = this->parent->speed;
     sub_0806F69C(this);
     if (sub_080AE4CC(this->attachedEntity, this->x.HALF.HI, this->y.HALF.HI, 9) != 0) {
         DeleteThisEntity();
     }
-    if (this->nonPlanarMovement < 0x41) {
+    if (this->speed < 0x41) {
         this->spriteSettings.b.draw ^= 1;
 
         if (--this->actionDelay == 0) {

@@ -8,6 +8,7 @@
 #include "functions.h"
 #include "object.h"
 #include "manager.h"
+#include "utils.h"
 #include "npc.h"
 
 extern u8 gUnk_03003DE0;
@@ -30,7 +31,7 @@ extern void LoadResources();
 extern void FadeMain();
 extern u32 sub_0805E3B0();
 extern void HandlePlayerLife();
-extern void sub_08070680();
+extern void DoPlayerAction();
 extern void sub_080171F0();
 extern void sub_08078FB0();
 extern void DrawEntity();
@@ -67,17 +68,6 @@ typedef struct {
     u16 y;
 } NPCStruct;
 extern NPCStruct gUnk_02031EC0[100];
-
-typedef struct {
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u8 unk3;
-    u8 freezeTime;
-    u8 unk9;
-} EntityHandler;
-
-extern EntityHandler gUnk_03003DC0;
 
 typedef struct {
     void* last;
@@ -156,7 +146,7 @@ void PlayerUpdate(Entity* this) {
             }
         }
         HandlePlayerLife(this);
-        sub_08070680(this);
+        DoPlayerAction(this);
         if ((this->height.WORD == 0) && (this->action == 1 || this->action == 9))
             sub_08008790(this, 8);
         sub_080171F0();
@@ -174,7 +164,7 @@ void HandlePlayerLife(Entity* this) {
     gUnk_0200AF00.filler25[8] = 0;
     gUnk_0200AF00.filler25[9] = 0;
 
-    if ((gPlayerEntity.bitfield & 0x80) && (gPlayerEntity.hurtBlinkTime > 0))
+    if ((gPlayerEntity.bitfield & 0x80) && (gPlayerEntity.iframes > 0))
         SoundReq(SFX_86);
 
     gPlayerState.flags.all &= ~(0x2000000 | 0x200);
@@ -263,7 +253,7 @@ void sub_080171F0(void) {
     gPlayerState.field_0x1a[0] = 0;
     gPlayerState.field_0x80 = 0;
     gPlayerState.field_0xaa = 0;
-    MemClear32(&gUnk_03003BE0, 0x8c);
+    MemClear(&gUnk_03003BE0, 0x8c);
     gPlayerEntity.spriteOffsetY = gPlayerState.field_0x3f;
     gPlayerState.field_0x3f = 0;
     sub_0807B0C8();
@@ -278,7 +268,7 @@ void sub_080171F0(void) {
 
     sub_0807A8D8(&gPlayerEntity);
     if (gPlayerState.jumpStatus & 0xc0)
-        gPlayerEntity.hurtBlinkTime = 0xfe;
+        gPlayerEntity.iframes = 0xfe;
 
     if (gPlayerEntity.action != 0x17) {
         sub_08077FEC(gPlayerEntity.action);
@@ -286,17 +276,17 @@ void sub_080171F0(void) {
 }
 
 void ItemUpdate(Entity* this) {
-    if ((this->flags & 1) == 0 && this->action == 0 && this->previousActionFlag == 0)
+    if ((this->flags & 1) == 0 && this->action == 0 && this->subAction == 0)
         ItemInit(this);
 
     if (!sub_0805E3B0(this)) {
         gPlayerItemFunctions[this->id](this);
         this->bitfield &= ~0x80;
-        if (this->hurtBlinkTime != 0) {
-            if (this->hurtBlinkTime > 0)
-                this->hurtBlinkTime--;
+        if (this->iframes != 0) {
+            if (this->iframes > 0)
+                this->iframes--;
             else
-                this->hurtBlinkTime++;
+                this->iframes++;
         }
     }
     DrawEntity(this);
@@ -340,8 +330,8 @@ void ObjectUpdate(Entity* this) {
 
     if (((this->flags & 1) == 0) && (this->action == 0))
         sub_080A2838(this);
-    if (this->hurtBlinkTime != 0)
-        this->hurtBlinkTime++;
+    if (this->iframes != 0)
+        this->iframes++;
     if (!sub_0805E3B0(this)) {
         gObjectFunctions[this->id](this);
         this->bitfield &= ~0x80;
@@ -403,7 +393,7 @@ void CollisionMain(void) {
 }
 
 void RegisterPlayerHitbox(void) {
-    MemClear32(&gUnk_03003C70, sizeof(gUnk_03003C70));
+    MemClear(&gUnk_03003C70, sizeof(gUnk_03003C70));
     gUnk_02018EA0 = (LinkedList2*)&gUnk_03003C70[0].last;
     gUnk_03003C70[0].last = &gUnk_03003C70[0].last;
     gUnk_03003C70[0].first = &gUnk_03003C70[0].last;
