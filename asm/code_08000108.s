@@ -75,7 +75,7 @@ SetTile: @ r0 = tile type, r1, = tile position, r2 = layer
 	ldrb r0, [r3, r4]
 	lsrs r2, r2, #2
 	bl sub_08000148
-	pop {r0, r1} # tilepos, layer
+	pop {r0, r1} @ tilepos, layer
 	push {r0, r1}
 	bl DeleteLoadedTileEntity
 	adds r0, r7, #0
