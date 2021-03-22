@@ -33,9 +33,8 @@ void sub_08090F00(Entity* this) {
             DeleteThisEntity();
         }
     }
-    if ((((gPlayerState.flags.all & 0x80) && sub_080041A0(this, &gPlayerEntity, 4, 4)) &&
-         (gPlayerEntity.height.HALF.HI == 0)) &&
-        (((u16)gPlayerState.field_0x90.HALF.LO) & gUnk_0812225C[this->type2])) {
+    if ((gPlayerState.flags.all & 0x80) && sub_080041A0(this, &gPlayerEntity, 4, 4) &&
+        (gPlayerEntity.height.HALF.HI == 0) && (((u16)gPlayerState.field_0x90.HALF.LO) & gUnk_0812225C[this->type2])) {
         DoExitTransition((Entity*)GetCurrentRoomProperty(this->actionDelay));
     }
 }
