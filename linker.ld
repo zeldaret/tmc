@@ -1042,6 +1042,8 @@ SECTIONS {
         data/sprite_table.o(.rodata);
         src/gba/m4a.o(.rodata);
         data/data_089FC6C4.o(.rodata);
+        src/sound.o(.rodata);
+        data/data_08A127A1.o(.rodata);
         src/eeprom.o(.rodata);
     } >rom
 
