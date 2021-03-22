@@ -1,5 +1,6 @@
 #include "enemy.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 extern u32 sub_080002E0(u32, u32);
@@ -8,7 +9,6 @@ extern u16 sub_080002A8(u32, u32, u32);
 extern u16 sub_080002D4(u32, u32, u32);
 extern void sub_0804AA1C(Entity*);
 extern Entity* sub_08049DF4(u32);
-extern void sub_0807B7D8(u32, u32, u32);
 
 extern u8 gUnk_080B37A0[];
 extern u8 gUnk_080B3E80[];
@@ -74,7 +74,7 @@ void sub_08025020(Entity* this) {
             if (0 < this->field_0x20) {
                 this->field_0x20 = 0;
             }
-            this->hurtBlinkTime = -0xc;
+            this->iframes = -0xc;
             this->field_0x42 = 0;
             if (this->field_0x80.HALF.LO == 0) {
                 this->animationState = (*(Entity**)&this->field_0x4c)->direction >> 3;
@@ -84,7 +84,7 @@ void sub_08025020(Entity* this) {
             }
             break;
         default:
-            if (this->damageType == 0x82 && this->hurtBlinkTime < 0) {
+            if (this->damageType == 0x82 && this->iframes < 0) {
                 Entity* ent = CreateObject(0x21, 2, 0);
                 if (ent != NULL) {
                     ent->spritePriority.b0 = 3;
@@ -108,14 +108,14 @@ void sub_0802511C(Entity* this) {
 void sub_0802514C(Entity* this) {
     sub_08003FC4(this, 0x2000);
     if (sub_0806F520(this)) {
-        gUnk_080CBFEC[this->previousActionFlag](this);
+        gUnk_080CBFEC[this->subAction](this);
     } else {
         sub_08025C2C(this);
     }
 }
 
 void sub_08025180(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->actionDelay = Random();
     this->animationState = (((*(Entity**)&this->field_0x4c)->direction ^ 0x10) >> 3);
     InitializeAnimation(this, this->animationState + 4);

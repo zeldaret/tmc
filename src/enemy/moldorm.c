@@ -1,5 +1,6 @@
 #include "enemy.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 void sub_08022EAC(Entity*);
@@ -40,9 +41,9 @@ void sub_08022BEC(Entity* this) {
     this->animationState = ((this->direction + 2) & 0x1c) >> 2;
     this->frameIndex = this->animationState;
 
-    this->attachedEntity->hurtBlinkTime = this->hurtBlinkTime;
-    (*(Entity**)&this->field_0x7c)->hurtBlinkTime = this->hurtBlinkTime;
-    (*(Entity**)&this->field_0x80)->hurtBlinkTime = this->hurtBlinkTime;
+    this->attachedEntity->iframes = this->iframes;
+    (*(Entity**)&this->field_0x7c)->iframes = this->iframes;
+    (*(Entity**)&this->field_0x80)->iframes = this->iframes;
     sub_0804AA30(this, gUnk_080CBBA0);
 }
 

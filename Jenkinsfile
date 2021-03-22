@@ -5,7 +5,8 @@ pipeline {
         stage('Setup') {
             steps {
                 echo 'Setting up...'
-                sh 'cp /usr/local/etc/roms/baserom_tmc.gba baserom.gba'
+                sh 'cd ${AGBCC} && ./install.sh ${WORKSPACE} && cd ${WORKSPACE}'
+                sh 'cp /usr/local/etc/roms/tmc.us.gba baserom.gba'
                 sh 'make -j setup'
             }
         }
@@ -19,8 +20,8 @@ pipeline {
                 branch 'master'
             }
             steps {
-                sh 'python3 progress.py -c >> /var/www/html/reports/progress.csv'
-                sh 'python3 progress.py -mc >> /var/www/html/reports/progress_matching.csv'
+                sh 'python3 progress.py >> /var/www/html/reports/progress_tmc.csv'
+                sh 'python3 progress.py -m >> /var/www/html/reports/progress_tmc_matching.csv'
             }
         }
     }

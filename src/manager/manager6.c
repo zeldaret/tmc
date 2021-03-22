@@ -1,12 +1,9 @@
 #include "global.h"
-#include "entity.h"
 #include "player.h"
 #include "manager.h"
+#include "functions.h"
 
-extern void* GetCurrentRoomProperty(u8);
-extern u32 CheckPlayerInRegion(u16, u16, u8, u8);
 extern void DoExitTransition(void*);
-extern void DeleteManager(Entity*);
 
 void sub_08057CB4(Manager6* this) {
     u32 tmp;
@@ -15,7 +12,7 @@ void sub_08057CB4(Manager6* this) {
         this->manager.action = 1;
         this->warpList = GetCurrentRoomProperty(this->manager.unk_0a);
         if (!this->warpList) {
-            DeleteManager((Entity*)this);
+            DeleteManager(&this->manager);
             return;
         }
     }

@@ -1,7 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "sprite.h"
-#include "functions.h"
+#include "game.h"
 
 void Archway(Entity* this) {
     if (this->action == 0) {

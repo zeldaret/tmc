@@ -1,7 +1,6 @@
 #include "global.h"
 #include "entity.h"
-
-extern void sub_0806ED78();
+#include "functions.h"
 
 extern void (*gMilkCartBehaviors[2])(Entity*);
 

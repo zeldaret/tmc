@@ -1,7 +1,8 @@
 #include "enemy.h"
 #include "entity.h"
-#include "functions.h"
 #include "screen.h"
+#include "random.h"
+#include "functions.h"
 
 void sub_0802A39C(Entity*);
 void sub_0802A334(Entity*);

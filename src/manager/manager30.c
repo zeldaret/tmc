@@ -19,8 +19,6 @@ typedef struct Manager30 {
     u16 flag_reset;
 } Manager30;
 
-extern void sub_0807B7D8(u32, u32, u32);
-
 enum { INIT, IN_PROGRESS, FAILED, SUCCEEDED };
 
 /*

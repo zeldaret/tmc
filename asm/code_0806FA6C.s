@@ -139,13 +139,13 @@ UnloadHitbox: @ 0x0806FBEC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, [r4, #0x48]
-	bl sub_0801DA0C
+	bl zFree
 	movs r0, #0
 	str r0, [r4, #0x48]
 	pop {r4, pc}
 
-	thumb_func_start sub_0806FBFC
-sub_0806FBFC: @ 0x0806FBFC
+	thumb_func_start CheckPlayerProximity
+CheckPlayerProximity: @ 0x0806FBFC
 	push {r4, r5, r6, lr}
 	adds r5, r3, #0
 	ldr r4, _0806FC20 @ =gPlayerEntity
@@ -385,7 +385,7 @@ sub_0806FD8C: @ 0x0806FD8C
 	ldr r0, _0806FD9C @ =gUnk_020000C0
 	movs r1, #0xc0
 	lsls r1, r1, #4
-	bl MemClear32
+	bl MemClear
 	pop {pc}
 	.align 2, 0
 _0806FD9C: .4byte gUnk_020000C0
@@ -534,7 +534,7 @@ _0806FE9E:
 	bls _0806FE9E
 	adds r0, r6, #0
 	movs r1, #0x40
-	bl MemClear32
+	bl MemClear
 _0806FEB4:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
@@ -1454,7 +1454,7 @@ sub_0807059C: @ 0x0807059C
 	push {lr}
 	ldr r0, _080705A8 @ =gUnk_02034490
 	movs r1, #0x18
-	bl MemClear32
+	bl MemClear
 	pop {pc}
 	.align 2, 0
 _080705A8: .4byte gUnk_02034490

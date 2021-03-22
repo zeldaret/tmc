@@ -2,8 +2,6 @@
 #include "entity.h"
 #include "functions.h"
 
-extern void sub_08078B48(void);
-
 void sub_08027870(Entity*);
 
 extern void (*const gUnk_080CC19C[])(Entity*);
@@ -36,12 +34,10 @@ void sub_08025CBC(Entity* this) {
 
 void sub_08025DC0(Entity*);
 void sub_08025CD4(Entity*);
-void sub_08001242(Entity*);
 void sub_08025DD8(Entity*);
 void sub_08026060(Entity*);
 void sub_08026110(Entity*);
 void sub_080272D4(Entity*);
-void sub_0802720C(Entity*);
 void sub_0802720C(Entity*);
 void sub_08026090(Entity*);
 void sub_0802626C(Entity*);

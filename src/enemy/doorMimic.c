@@ -4,7 +4,7 @@
 
 extern s16 sub_080001DA(u32, u32); // ?
 extern void sub_08049CF4();
-extern u32 sub_0806FBFC(u32, u32, u32, u32);
+extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 void sub_080221C0();
 
 typedef struct {
@@ -54,7 +54,7 @@ void sub_08022034(Entity* this) {
 
 void sub_0802209C(Entity* this) {
     if (this->actionDelay == 0) {
-        if (sub_0806FBFC(this->field_0x78.HWORD, this->field_0x7a.HWORD, 0x10, 0x10)) {
+        if (CheckPlayerProximity(this->field_0x78.HWORD, this->field_0x7a.HWORD, 0x10, 0x10)) {
             this->action = 2;
             this->actionDelay = 0x12;
             InitializeAnimation(this, this->type2 + 4);

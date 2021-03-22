@@ -4,11 +4,7 @@
 #include "functions.h"
 #include "script.h"
 
-extern void sub_08078778(Entity*);
-extern void sub_0805E47C(Entity*);
-extern void sub_0805E584();
 extern void sub_08062CA4();
-extern u32 CheckKinstoneFused();
 
 extern void (*gStampBehaviors1[4])(Entity*);
 extern void (*gStampBehaviors2[2])(Entity*);

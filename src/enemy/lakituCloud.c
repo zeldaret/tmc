@@ -1,25 +1,17 @@
 #include "global.h"
 #include "entity.h"
 #include "player.h"
+#include "functions.h"
 
 extern u32 GetNextFunction(Entity*);
-
-extern void sub_0804A7D4(Entity*);
-extern void sub_08001242(Entity*);
 
 extern void (*const gUnk_080D0418[6])(Entity*);
 extern void (*const gUnk_080D0430[3])(Entity*);
 extern void (*const gUnk_080D043C[3])(Entity*);
 
-extern bool32 sub_0806F3E4(Entity*);
-extern bool32 sub_0806F520(Entity*);
-
 extern void sub_0800449C(Entity*, u32);
 extern void sub_0803CE14(Entity*);
 extern void sub_0803CE3C(Entity*);
-extern Entity* GetCurrentRoomProperty(u8);
-extern void sub_0806F4E8(Entity*);
-extern void sub_0806F69C(Entity*);
 extern void sub_08079D84(void);
 extern void sub_080A2CC0(Entity*, Entity**, u16*);
 
@@ -38,16 +30,16 @@ void sub_0803CCEC(Entity* this) {
 
 void sub_0803CCFC(Entity* this) {
     if (sub_0806F520(this) == 0) {
-        if (this->previousActionFlag == 2) {
+        if (this->subAction == 2) {
             sub_0803CE3C(this);
         }
     } else {
-        gUnk_080D043C[this->previousActionFlag](this);
+        gUnk_080D043C[this->subAction](this);
     }
 }
 
 void sub_0803CD2C(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 0x3c;
 }
 

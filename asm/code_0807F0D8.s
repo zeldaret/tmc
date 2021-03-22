@@ -1228,7 +1228,7 @@ sub_0807F950: @ 0x0807F950
 	movs r1, #0x56
 	movs r2, #6
 	movs r3, #0
-	bl FindEntityInListByForm
+	bl FindEntity
 	cmp r0, #0
 	beq _0807F96C
 	bl DeleteEntity
@@ -2934,11 +2934,11 @@ sub_08080668: @ 0x08080668
 	ldr r5, _080806A4 @ =gRoomControls
 	adds r0, r5, #0
 	movs r1, #0x38
-	bl MemClear32
+	bl MemClear
 	ldr r4, _080806A8 @ =gUnk_03004030
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080806AC @ =0x0000FFFF
 	strh r0, [r5, #0x22]
 	movs r0, #0xff
@@ -2950,10 +2950,10 @@ sub_08080668: @ 0x08080668
 	movs r4, #0x80
 	lsls r4, r4, #8
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080806B8 @ =gMapDataTopSpecial
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	pop {r4, r5, pc}
 	.align 2, 0
 _080806A4: .4byte gRoomControls

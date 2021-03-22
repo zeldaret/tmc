@@ -1,6 +1,5 @@
 #include "global.h"
 #include "entity.h"
-#include "flags.h"
 
 extern void sub_080842D8(Entity*);
 extern void sub_08078828(Entity*);

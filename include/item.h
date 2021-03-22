@@ -7,35 +7,18 @@
 
 extern void DebugItem(ItemBehavior*, u32);
 extern void Sword(ItemBehavior*, u32);
-extern void Sword(ItemBehavior*, u32);
-extern void Sword(ItemBehavior*, u32);
-extern void Sword(ItemBehavior*, u32);
-extern void Sword(ItemBehavior*, u32);
-extern void Sword(ItemBehavior*, u32);
-extern void Bomb(ItemBehavior*, u32);
 extern void Bomb(ItemBehavior*, u32);
 extern void Bow(ItemBehavior*, u32);
-extern void Bow(ItemBehavior*, u32);
-extern void sub_08075D14(ItemBehavior*, u32);
 extern void sub_08075D14(ItemBehavior*, u32);
 extern void Shield(ItemBehavior*, u32);
-extern void Shield(ItemBehavior*, u32);
-extern void Lantern(ItemBehavior*, u32);
 extern void Lantern(ItemBehavior*, u32);
 extern void GustJar(ItemBehavior*, u32);
 extern void PacciCane(ItemBehavior*, u32);
 extern void MoleMitts(ItemBehavior*, u32);
 extern void RocsCape(ItemBehavior*, u32);
 extern void sub_08076800(ItemBehavior*, u32);
-extern void DebugItem(ItemBehavior*, u32);
 extern void Ocarina(ItemBehavior*, u32);
-extern void DebugItem(ItemBehavior*, u32);
-extern void DebugItem(ItemBehavior*, u32);
-extern void DebugItem(ItemBehavior*, u32);
 extern void TryPickupObject(ItemBehavior*, u32);
-extern void JarEmpty(ItemBehavior*, u32);
-extern void JarEmpty(ItemBehavior*, u32);
-extern void JarEmpty(ItemBehavior*, u32);
 extern void JarEmpty(ItemBehavior*, u32);
 
 /* On hold until naming conflicts are resolved */

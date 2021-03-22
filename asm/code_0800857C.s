@@ -719,7 +719,7 @@ sub_08008AC6: @ 0x08008AC6
 	movs r3, #0xe2
 	movs r2, #0x3d
 	strb r3, [r0, r2]
-	bl sub_08079458
+	bl RespawnPlayer
 _08008AEC:
 	pop {r0, pc}
 

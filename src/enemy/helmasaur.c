@@ -1,4 +1,5 @@
 #include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
 extern void sub_08008796(Entity*, u32, u32, u32);
@@ -62,16 +63,16 @@ void sub_0802BBC4(Entity* this) {
 void sub_0802BC20(Entity* this) {
     if (this->damageType != 0x19) {
         if (sub_0806F520(this)) {
-            gUnk_080CD42C[this->previousActionFlag](this);
+            gUnk_080CD42C[this->subAction](this);
         }
-    } else if (2 < this->previousActionFlag || sub_0806F520(this)) {
-        gUnk_080CD438[this->previousActionFlag](this);
+    } else if (2 < this->subAction || sub_0806F520(this)) {
+        gUnk_080CD438[this->subAction](this);
     }
 }
 
 void sub_0802BC74(Entity* this) {
     sub_0802C1C0(this);
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 60;
     this->animationState = (gPlayerEntity.animationState >> 1) ^ 2;
     InitializeAnimation(this, this->animationState);
@@ -101,7 +102,7 @@ void sub_0802BCA8(Entity* this) {
 }
 
 void sub_0802BCFC(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 60;
 }
 
@@ -259,7 +260,7 @@ void sub_0802BF78(Entity* this) {
 
 void sub_0802BF98(Entity* this) {
     if (sub_0806F520(this)) {
-        gUnk_080CD450[this->previousActionFlag](this);
+        gUnk_080CD450[this->subAction](this);
     } else {
         this->action = 2;
         this->actionDelay = 30;
@@ -268,7 +269,7 @@ void sub_0802BF98(Entity* this) {
 }
 
 void sub_0802BFD0(Entity* this) {
-    this->previousActionFlag = 2;
+    this->subAction = 2;
 }
 
 void sub_0802BFD8(Entity* this) {

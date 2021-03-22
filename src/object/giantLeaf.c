@@ -1,11 +1,10 @@
 #include "global.h"
 #include "entity.h"
 #include "room.h"
+#include "functions.h"
 
-void SetTile(u32 tileIndex, s32 tilePosition, s32 layerIndex);
 void sub_0808D618(Entity* ent);
 
-extern RoomControls gRoomControls;
 extern s16 gUnk_08121750[];
 extern s16 gUnk_0812176A[];
 

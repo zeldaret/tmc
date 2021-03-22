@@ -4,16 +4,13 @@
 #include "functions.h"
 #include "room.h"
 
-extern void sub_0805E5A8();
 extern void sub_08080BC4(void);
 
-extern RoomControls gRoomControls;
 extern u32 gUnk_0200B650;
 extern u32 gUnk_02025EB0;
 extern u8 gUnk_02000070;
 
 extern void DoExitTransition(ScreenTransitionData*);
-extern void sub_080809D4();
 
 void sub_080808D8(void) {
     gScreenTransition.transitionType = 0;

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "room.h"
 #include "entity.h"
+#include "utils.h"
 #include "functions.h"
 #include "textbox.h"
 #include "structures.h"
@@ -13,11 +14,14 @@ u32 sub_080565B4(void);
 u32 sub_080565F8(void);
 u32 sub_08056640(void);
 
-u32 (*const gUnk_08107BC8[])(void) = { sub_080564DC, sub_080564EC, sub_08056654,
-                                       sub_080565B4, sub_080565F8, sub_08056640 };
+u32 (*const gUnk_08107BC8[])(void) = {
+    sub_080564DC, sub_080564EC, sub_08056654, sub_080565B4, sub_080565F8, sub_08056640,
+};
 
 extern u8 gUnk_020227DC, gUnk_020227E8, gUnk_020227F0, gUnk_020227F8, gUnk_02022800;
-u8* const gUnk_08107BE0[] = { &gUnk_020227DC, &gUnk_020227E8, &gUnk_020227F0, &gUnk_020227F8, &gUnk_02022800 };
+u8* const gUnk_08107BE0[] = {
+    &gUnk_020227DC, &gUnk_020227E8, &gUnk_020227F0, &gUnk_020227F8, &gUnk_02022800,
+};
 
 void sub_08056684(struct_02022780*);
 void sub_080566B8(struct_02022780*);
@@ -26,8 +30,9 @@ void sub_08056B1C(struct_02022780*);
 void sub_08056B7C(struct_02022780*);
 void sub_080569D4(struct_02022780*);
 
-void (*const gUnk_08107BF4[])(struct_02022780*) = { sub_08056684, sub_080566B8, sub_08056BA0,
-                                                    sub_08056B1C, sub_08056B7C, sub_080569D4 };
+void (*const gUnk_08107BF4[])(struct_02022780*) = {
+    sub_08056684, sub_080566B8, sub_08056BA0, sub_08056B1C, sub_08056B7C, sub_080569D4,
+};
 
 extern u32 gUnk_02036A40;
 extern u32 gUnk_02036A38;
@@ -83,7 +88,7 @@ void TextboxAtPosition(u32 index, u32 x, u32 y) {
 }
 
 void ShowTextbox(u32 index) {
-    MemClear32(&gTextBox, 32);
+    MemClear(&gTextBox, 32);
     gTextBox.textIndex = index;
     gTextBox.textSpeed = 99;
     gTextBox.textWindowWidth = 26;
@@ -94,18 +99,18 @@ void ShowTextbox(u32 index) {
 }
 
 void MessageInitialize(void) {
-    MemClear32(&gTextBox, 32);
-    MemClear32(&gUnk_02022780, 168);
-    MemClear32(&gUnk_02036A40, 8);
-    MemClear32(&gUnk_02036A38, 8);
-    MemClear32(&gUnk_02000040, 4);
+    MemClear(&gTextBox, 32);
+    MemClear(&gUnk_02022780, 168);
+    MemClear(&gUnk_02036A40, 8);
+    MemClear(&gUnk_02036A38, 8);
+    MemClear(&gUnk_02000040, 4);
 }
 
 void MessageUpdate(void) {
     int iVar1;
 
     if (gTextBox.doTextBox == 1) {
-        MemClear32((u32*)&gUnk_02022780, sizeof(gUnk_02022780));
+        MemClear((u32*)&gUnk_02022780, sizeof(gUnk_02022780));
         sub_080564C8(1);
     }
 
@@ -141,9 +146,9 @@ NONMATCH("asm/non_matching/textbox/sub_080564EC.inc", u32 sub_080564EC(void)) {
     u32 i;
     char c;
 
-    MemClear32((void*)&gUnk_02036A40, 8);
-    MemClear32((void*)&gUnk_02024030, 0x18);
-    MemClear32((void*)&gUnk_02022780, 0xa8);
+    MemClear((void*)&gUnk_02036A40, 8);
+    MemClear((void*)&gUnk_02024030, 0x18);
+    MemClear((void*)&gUnk_02022780, 0xa8);
     MemCopy(&gTextBox, &gUnk_02022780, 32);
     if (gUnk_02022780._2 == 0x63) {
         gUnk_02022780._2 = gUnk_02000000->messageSpeed;

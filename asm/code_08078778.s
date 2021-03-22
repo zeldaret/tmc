@@ -44,7 +44,7 @@ _080788BA:
 	movs r0, #6
 	movs r1, #9
 	movs r2, #6
-	bl FindEntityInListBySubtype
+	bl FindEntityByID
 	cmp r0, #0
 	bne _080788D6
 	movs r0, #9
@@ -70,7 +70,7 @@ sub_080788E0: @ 0x080788E0
 	ldr r1, _08078900 @ =gUnk_03003DF8
 	adds r0, r0, r1
 	movs r1, #0xc
-	bl MemClear32
+	bl MemClear
 _080788FC:
 	pop {pc}
 	.align 2, 0
@@ -542,7 +542,7 @@ sub_08078C24: @ 0x08078C24
 	ldr r0, _08078CB0 @ =gUnk_03003DF0
 	movs r1, #0xc4
 	lsls r1, r1, #1
-	bl MemClear32
+	bl MemClear
 	pop {pc}
 	.align 2, 0
 _08078CAC: .4byte gPlayerState
@@ -866,7 +866,7 @@ sub_08078EFC: @ 0x08078EFC
 	strb r2, [r0, #0xc]
 	strb r1, [r0, #0xd]
 	strb r1, [r3, #0xc]
-	bl sub_08070680
+	bl DoPlayerAction
 	movs r0, #1
 	b _08078F22
 	.align 2, 0
@@ -1583,8 +1583,8 @@ _08079454:
 _08079456:
 	pop {r4, r5, pc}
 
-	thumb_func_start sub_08079458
-sub_08079458: @ 0x08079458
+	thumb_func_start RespawnPlayer
+RespawnPlayer: @ 0x08079458
 	push {r4, r5, lr}
 	ldr r4, _08079498 @ =gPlayerEntity
 	movs r1, #0
@@ -1915,7 +1915,7 @@ _080796C8:
 	strb r1, [r0, #0x10]
 	movs r1, #0x81
 	strb r1, [r4, #2]
-	bl sub_08070680
+	bl DoPlayerAction
 	movs r0, #1
 	b _080796FE
 	.align 2, 0
@@ -2537,7 +2537,7 @@ sub_08079B24: @ 0x08079B24
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _08079B6C
-	bl sub_08079458
+	bl RespawnPlayer
 	b _08079BC0
 	.align 2, 0
 _08079B60: .4byte gPlayerEntity
@@ -5401,8 +5401,8 @@ sub_0807B0C8: @ 0x0807B0C8
 	.align 2, 0
 _0807B0F8: .4byte gPlayerEntity
 
-	thumb_func_start sub_0807B0FC
-sub_0807B0FC: @ 0x0807B0FC
+	thumb_func_start PlayerWarp
+PlayerWarp: @ 0x0807B0FC
 	push {lr}
 	ldr r2, _0807B110 @ =gUnk_0811C27C
 	ldrb r1, [r0, #0xd]

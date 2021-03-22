@@ -15,7 +15,6 @@ void sub_08058210(Manager9*);
 u32 sub_08058244(int);
 void sub_080582A0(u32, u32*, u8*);
 void sub_080582F8(u8*, u8*);
-void sub_08058324();
 
 extern u32 gUnk_02006F00[];
 extern u8 gBG3Buffer[];

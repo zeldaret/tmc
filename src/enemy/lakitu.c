@@ -1,56 +1,12 @@
 #include "global.h"
 #include "entity.h"
+#include "enemy.h"
 #include "functions.h"
-#include "trig.h"
+#include "coord.h"
 #include "random.h"
 #include "player.h"
 
 extern void (*const LakituActionFuncs[])(Entity*);
-
-// Lakitu
-extern void EnemyFunctionHandler(Entity*, void (*const funcs[])(Entity*));
-
-// sub_0803C784
-extern void sub_0804AA30(Entity*, void (*const funcs[])(Entity*));
-
-// sub_0803C820
-extern u32 sub_0806F520(Entity*);
-
-// sub_0803C850
-extern void sub_0806F4E8(Entity*);
-
-// Lakitu_Initialize
-extern void sub_0804A720(Entity*);
-
-// Lakitu_Cloudless
-extern u32 sub_08003FC4(Entity*, u32);
-
-// sub_0803CA4C
-extern u32 sub_080041A0(Entity*, Entity*, u32, u32);
-
-// sub_0803CAD0
-extern u32 sub_080AEFE0(Entity*);
-
-// Lakitu_SpawnLightning
-void PositionRelative(Entity*, Entity*, s32, s32);
-extern void EnqueueSFX(u32);
-
-// sub_0803CC08
-extern void DeleteEntity(Entity*);
-
-// Part of function tables
-extern void sub_08001324(Entity*);
-extern void sub_0804A7D4(Entity*);
-extern void sub_08001242(Entity*);
-
-// Used in multiple functions
-extern Entity* CreateFx(Entity*, u32, u32);
-extern Entity* sub_0804A98C(Entity* positionEntity, u8 subtype,
-                            u8 form); // Creates a projectile positioned at the given entity
-extern void UpdateAnimationSingleFrame(Entity*);
-extern void InitAnimationForceUpdate(Entity*, u32);
-extern u32 sub_0806FCB8(Entity*, u32, u32, u32);
-extern u32 GetFacingDirection(Entity*, Entity*);
 
 // Forward references to functions in lakitu.c
 extern void sub_0803CAD0(Entity*);
@@ -77,9 +33,6 @@ typedef struct {
     s8 x;
     s8 y;
 } PACKED OffsetCoords;
-
-// sub_0803CC08
-extern void DeleteEntity(Entity*);
 
 // Variables
 extern void (*const gUnk_080D0110[])(Entity*);
@@ -140,12 +93,12 @@ void sub_0803C784(Entity* this) {
 
 void sub_0803C820(Entity* this) {
     if (sub_0806F520(this)) {
-        gUnk_080D0148[this->previousActionFlag](this);
+        gUnk_080D0148[this->subAction](this);
     }
 }
 
 void sub_0803C844(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 0x3c;
 }
 

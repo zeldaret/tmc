@@ -78,7 +78,7 @@ extern Entity gUnk_080E4C08;
 
 void sub_0805A370(Manager15* this) {
     if (this->manager.unk_0d) {
-        LoadRoomEntityList(&gUnk_080E4C08);
+        LoadRoomEntityList((EntityData*)&gUnk_080E4C08);
         this->manager.action = 3;
         SoundReq(0x80100000);
     }
@@ -86,7 +86,7 @@ void sub_0805A370(Manager15* this) {
 
 void sub_0805A394(Manager15* this) {
     Entity* ent;
-    if ((ent = FindEntityInListBySubtype(0x3, 0x13, 0x4))) {
+    if ((ent = FindEntityByID(0x3, 0x13, 0x4))) {
         if (ent->type != 4) {
             return;
         }
@@ -251,10 +251,10 @@ void sub_0805A664(Manager15* this) {
     sub_0805A68C(this);
 }
 
-extern u32 sub_0806FBFC(u32, u32, u32, u32);
+extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 
 void sub_0805A68C(Manager15* this) {
-    if (sub_0806FBFC(this->unk_38 - 0x18, this->unk_3a - 0x18, 0x30, 0x30)) {
+    if (CheckPlayerProximity(this->unk_38 - 0x18, this->unk_3a - 0x18, 0x30, 0x30)) {
         if (this->unk_2c <= 0x1007) {
             gScreen.controls.alphaBlend = ++this->unk_2c;
             this->unk_22 = 0;
@@ -285,7 +285,7 @@ void sub_0805A6E8(Manager15* this) {
 }
 
 u32 sub_0805A73C(Manager15* this) {
-    return sub_0806FBFC(this->unk_38 - 0x6, this->unk_3a - 0x6, 0xC, 0xC);
+    return CheckPlayerProximity(this->unk_38 - 0x6, this->unk_3a - 0x6, 0xC, 0xC);
 }
 
 void sub_0805A758(Manager15* this) {
@@ -295,7 +295,6 @@ void sub_0805A758(Manager15* this) {
 }
 
 extern void sub_0805E4E0(Manager*, u32);
-extern void sub_08077B20(void);
 
 void sub_0805A76C(Manager15* this) {
     if ((gPlayerEntity.currentHealth != 0) && (gPlayerEntity.height.HALF.HI == 0) && (!gPlayerState.field_0x2c)) {
@@ -364,7 +363,6 @@ void sub_0805A804(Manager15* this) {
 }
 
 void sub_0805AAC8(Manager15*);
-extern void sub_08052D74(void*, void*, void*);
 
 void sub_0805A89C(Manager15* this) {
     sub_0805E3A0(this, 6);

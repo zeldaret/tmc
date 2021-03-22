@@ -935,7 +935,7 @@ sub_080A4398: @ 0x080A4398
 	push {lr}
 	ldr r0, _080A43A4 @ =gUnk_02019EE0
 	movs r1, #0x40
-	bl MemClear32
+	bl MemClear
 	pop {pc}
 	.align 2, 0
 _080A43A4: .4byte gUnk_02019EE0
@@ -1119,7 +1119,7 @@ sub_080A44E0: @ 0x080A44E0
 	mov r8, r0
 	ldr r0, [r4, #8]
 	mov r1, r8
-	bl MemClear32
+	bl MemClear
 	adds r0, r6, #0
 	adds r1, r4, #0
 	bl sub_0805F76C
@@ -1269,11 +1269,11 @@ sub_080A4608: @ 0x080A4608
 	ldr r0, _080A46A4 @ =gBG0Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080A46A8 @ =gBG3Buffer
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl MemClear32
+	bl MemClear
 	ldr r2, _080A46AC @ =gScreen
 	adds r1, r2, #0
 	adds r1, #0x58
@@ -1976,7 +1976,7 @@ sub_080A4BA0: @ 0x080A4BA0
 	adds r6, r1, #0
 	add r0, sp, #0x18
 	movs r1, #0x30
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080A4C08 @ =gUnk_0812816C
 	mov r1, sp
 	movs r2, #0x18
@@ -2123,7 +2123,7 @@ sub_080A4CBC: @ 0x080A4CBC
 	lsls r5, r5, #4
 	adds r0, r4, #0
 	adds r1, r5, #0
-	bl MemClear32
+	bl MemClear
 	ldr r1, _080A4D14 @ =0x0600E000
 	adds r0, r4, #0
 	adds r2, r5, #0
@@ -2217,7 +2217,7 @@ sub_080A4D88: @ 0x080A4D88
 	push {lr}
 	ldr r0, _080A4DA4 @ =gUnk_020344A0
 	movs r1, #8
-	bl MemClear32
+	bl MemClear
 	movs r0, #1
 	movs r1, #0
 	bl MenuFadeIn
@@ -2245,21 +2245,21 @@ sub_080A4DB8: @ 0x080A4DB8
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080A4E5C @ =gBG1Buffer
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080A4E60 @ =gBG2Buffer
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080A4E64 @ =gUnk_0200AF34
 	movs r1, #0xc0
 	lsls r1, r1, #2
-	bl MemClear32
+	bl MemClear
 	ldr r4, _080A4E68 @ =gMenu
 	adds r0, r4, #0
 	movs r1, #0x30
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080A4E6C @ =0x0000FFFF
 	strh r0, [r4, #0x2e]
 	ldr r0, _080A4E70 @ =gUnk_02034490
@@ -2580,7 +2580,7 @@ _080A5080:
 	ldr r0, _080A5098 @ =gBG0Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl MemClear32
+	bl MemClear
 	ldr r1, _080A509C @ =gScreen
 	movs r0, #1
 	strh r0, [r1, #0xe]

@@ -1,10 +1,9 @@
 #include "global.h"
 #include "room.h"
 #include "flags.h"
+#include "functions.h"
 
-void LoadRoomEntityList(EntityData* dat);
 extern void sub_0804B058(EntityData* dat);
-extern void LoadRoomTileEntities(EntityData* dat);
 extern void sub_0801AC98();
 extern u32 sub_08049D1C(u32);
 extern Entity* LoadRoomEntity(EntityData*);
@@ -12,6 +11,24 @@ extern void* GetRoomProperty(u32, u32, u32);
 
 extern u32 gUnk_02017654;
 extern u32* gAreaEntities;
+
+extern void sub_080186EC();
+extern void sub_0804B16C();
+
+void sub_0804AFF4(void) {
+    void (*func)();
+
+    sub_080186EC();
+    func = (void (*)())GetCurrentRoomProperty(5);
+    if (func) {
+        func();
+    }
+    func = (void (*)())GetCurrentRoomProperty(7);
+    if (func) {
+        func();
+    }
+    sub_0804B16C();
+}
 
 void LoadRoom(void) {
     s32 iVar1;

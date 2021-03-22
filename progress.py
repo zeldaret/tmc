@@ -1,12 +1,69 @@
 
-import csv, git, re
-
+import csv, git, re, argparse, os
+from itertools import chain
 map = open("tmc.map", "r")
 
 src = 0
 asm = 0
 srcData = 0
 data = 0
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-m", "--matching", dest='matching', action='store_true', help="Output matching progress instead of decompilation progress")
+args = parser.parse_args()
+matching = args.matching
+
+NON_MATCHING_PATTERN = r'((?<=NONMATCH\(")asm/non_matching/.*\.inc)|((?<=NONMATCH\(")asm/non_matching/.*\.s)'
+NON_ASM_PATTERN = r'(^\w+:)|(^\s@)|(^\s*\.)|(^\s*thumb_func_start)'
+
+#def remInvalid(x):
+
+def GetNonMatchingFunctions(files):
+    functions = []
+
+    for file in files:
+        with open(file) as f:
+            functions += re.findall(NON_MATCHING_PATTERN, f.read())
+
+    #functions = map(lambda x: x != "", functions)
+    return functions
+
+def ReadAllLines(fileName):
+    lineList = list()
+    with open(fileName) as f:
+        lineList = f.readlines()
+
+    return lineList
+
+def GetFiles(path, ext):
+    files = []
+    for r, d, f in os.walk(path):
+        for file in f:
+            if file.endswith(ext):
+                files.append(os.path.join(r, file))
+
+    return files
+
+nonMatchingFunctions = GetNonMatchingFunctions(GetFiles("src", ".c")) if not args.matching else []
+
+# this is actually the size of all non matching asm, not (total - non matching)
+def GetNonMatchingSize(path):
+    size = 0
+
+    asmFiles = GetFiles(path, ".s") + GetFiles(path, ".inc")
+
+    for asmFilePath in asmFiles:
+        for x in nonMatchingFunctions: # stupid tuple
+            if asmFilePath in x:
+                asmLines = ReadAllLines(asmFilePath)
+
+                for asmLine in asmLines:
+                    if len(re.findall(NON_ASM_PATTERN, asmLine, re.DOTALL)) == 0:
+                        size += 4
+
+    return size
+
+nonMatchingASM = GetNonMatchingSize("asm/non_matching")
 
 for line in map:
     reg = re.compile(r"^ \.(\w+)\s+0x[0-9a-f]+\s+(0x[0-9a-f]+) (\w+)\/(.+)\.o")
@@ -20,7 +77,7 @@ for line in map:
     direc = matches[3]
     basename = matches[4]
 
-    # From original script, not sure what this is doing...
+    # alignment? idk
     if (size & 3):
         size += 4 - (size % 3)
 
@@ -38,8 +95,13 @@ for line in map:
 total = src + asm
 dataTotal = srcData + data
 
-srcPct = "%.4f" % (100 * src / total)
-asmPct = "%.4f" % (100 * asm / total)
+if matching:
+    srcPct = "%.4f" % (100 * (src) / total)
+    asmPct = "%.4f" % (100 * (asm) / total)
+else:
+    srcPct = "%.4f" % (100 * (src + nonMatchingASM) / total)
+    asmPct = "%.4f" % (100 * (asm - nonMatchingASM) / total)
+
 
 srcDataPct = "%.4f" % (100 * srcData / dataTotal)
 dataPct = "%.4f" % (100 * data / dataTotal)

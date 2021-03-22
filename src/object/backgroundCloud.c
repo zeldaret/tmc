@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 extern void (*const gUnk_08121EA4[])(Entity*);
@@ -24,7 +25,7 @@ void sub_0808F658(Entity* this) {
     this->animationState = 0;
     this->x.HALF.HI += (Random() & 0xf) << 4;
     this->actionDelay = 0;
-    this->previousActionFlag = 0;
+    this->subAction = 0;
 }
 
 void sub_0808F6E0(Entity* this) {
@@ -35,8 +36,8 @@ void sub_0808F6E0(Entity* this) {
 }
 
 void sub_0808F70C(Entity* this) {
-    if (this->previousActionFlag == 0) {
-        this->previousActionFlag = 1;
+    if (this->subAction == 0) {
+        this->subAction = 1;
         this->actionDelay = ((Random() & 7) << 3) + 31;
 
         if ((this->direction & 0x10)) {
@@ -49,10 +50,10 @@ void sub_0808F70C(Entity* this) {
             this->y.HALF.HI = gUnk_08121EB3[this->type2 * 2 + (Random() & 1)];
     }
 
-    if (this->previousActionFlag == 1) {
+    if (this->subAction == 1) {
         if (--this->actionDelay == 0) {
             this->action = 1;
-            this->previousActionFlag = 0;
+            this->subAction = 0;
         }
     }
 }

@@ -968,13 +968,13 @@ sub_0809A648: @ 0x0809A648
 	lsls r5, r5, #8
 	asrs r5, r5, #0x10
 	adds r1, r5, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r4, #0x80
 	lsls r4, r4, #1
 	adds r1, r4, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r1, [r7, #0x50]
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
@@ -989,11 +989,11 @@ sub_0809A648: @ 0x0809A648
 	movs r2, #0
 	ldrsh r0, [r0, r2]
 	adds r1, r5, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r4, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r1, [r7, #0x50]
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8

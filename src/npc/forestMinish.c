@@ -4,22 +4,16 @@
 #include "flags.h"
 #include "textbox.h"
 #include "player.h"
-#include "structures.h"
-#include "functions.h"
 #include "save.h"
 #include "script.h"
+#include "random.h"
+#include "createObject.h"
+#include "structures.h"
+#include "functions.h"
 
-extern void sub_0806F118(Entity*);
 extern void sub_080600F0(Entity*);
 extern s32 sub_0806EDD8(Entity*, u32, u32);
-extern u32 sub_0806F5B0(u32);
-extern u32 sub_0801E99C(Entity*);
-extern void sub_08078784(Entity*, u32);
-extern void sub_0807000C(Entity*);
 extern void sub_08060158(Entity*);
-extern u32 CheckKinstoneFused(u32);
-extern Entity* FindEntityInListBySubtype(u32, u32, u32);
-extern void DeleteEntity(Entity*);
 extern void ModBombs(s32);
 
 extern SpriteLoadData gUnk_0810A348;
@@ -231,7 +225,7 @@ void sub_08060318(void) {
     int i;
 
     for (i = 2; i >= 0; i--) {
-        ent = FindEntityInListBySubtype(8, 2, 2);
+        ent = FindEntityByID(8, 2, 2);
         if (ent != NULL) {
             CreateDust(ent);
             DeleteEntity(ent);

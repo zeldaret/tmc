@@ -2442,7 +2442,7 @@ _080A6886:
 	ldr r0, _080A68D0 @ =gUnk_02019EE0
 	movs r1, #0x80
 	lsls r1, r1, #3
-	bl MemClear32
+	bl MemClear
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A68AC: .4byte gUnk_02032EC0
@@ -3307,7 +3307,7 @@ sub_080A6F6C: @ 0x080A6F6C
 	ldr r0, _080A6FA8 @ =gUnk_020350F0
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl MemClear32
+	bl MemClear
 	movs r0, #0xff
 	ands r0, r4
 	cmp r0, #0
@@ -3376,7 +3376,7 @@ _080A6FFA:
 	ldr r0, _080A7038 @ =gUnk_020350F0
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl MemClear32
+	bl MemClear
 	movs r0, #0xff
 	ands r0, r4
 	cmp r0, #0
@@ -3413,7 +3413,7 @@ sub_080A7040: @ 0x080A7040
 	movs r1, #0xc0
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080A7098 @ =0xFFFFFE00
 	adds r4, r4, r0
 	ldr r1, _080A709C @ =0x0600E000
@@ -3456,7 +3456,7 @@ sub_080A70AC: @ 0x080A70AC
 	movs r1, #0xc0
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl MemClear32
+	bl MemClear
 	adds r2, r4, #0
 	subs r2, #0x34
 	movs r0, #0x7f
@@ -3519,7 +3519,7 @@ sub_080A7124: @ 0x080A7124
 	ldr r0, _080A7134 @ =gUnk_02032EC0
 	movs r1, #0xed
 	lsls r1, r1, #2
-	bl MemClear32
+	bl MemClear
 	pop {pc}
 	.align 2, 0
 _080A7134: .4byte gUnk_02032EC0
@@ -3536,7 +3536,7 @@ MenuFadeIn: @ 0x080A7138
 	movs r1, #0xed
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl MemClear32
+	bl MemClear
 	strb r5, [r4, #2]
 	strb r6, [r4, #3]
 	ldr r0, _080A7160 @ =gMain
@@ -3767,22 +3767,22 @@ sub_080A7328: @ 0x080A7328
 	bl DeleteAllEntities
 	ldr r0, _080A738C @ =gMenu
 	movs r1, #0x30
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080A7390 @ =gRoomControls
 	movs r1, #0x38
-	bl MemClear32
+	bl MemClear
 	ldr r0, _080A7394 @ =gUnk_03000420
 	movs r1, #0x80
 	lsls r1, r1, #1
-	bl MemClear32
+	bl MemClear
 	ldr r4, _080A7398 @ =gActiveScriptInfo
 	adds r0, r4, #0
 	movs r1, #0xc
-	bl MemClear32
+	bl MemClear
 	movs r0, #8
 	strb r0, [r4, #8]
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	bl MessageInitialize
 	bl sub_080ADD30
 	movs r0, #0
@@ -4943,7 +4943,7 @@ sub_080A7C7C: @ 0x080A7C7C
 	push {lr}
 	ldr r0, _080A7C88 @ =gUnk_02017660
 	movs r1, #0x40
-	bl MemClear32
+	bl MemClear
 	pop {pc}
 	.align 2, 0
 _080A7C88: .4byte gUnk_02017660

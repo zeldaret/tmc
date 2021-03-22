@@ -1,8 +1,8 @@
 #include "global.h"
 #include "entity.h"
 #include "textbox.h"
+#include "functions.h"
 
-extern void sub_0806ED78(Entity*);
 extern void sub_08063280();
 
 extern void (*gMailboxBehaviors[4])(Entity*);

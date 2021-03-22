@@ -4,6 +4,7 @@
 #include "manager.h"
 #include "flags.h"
 #include "area.h"
+#include "functions.h"
 
 void sub_08058398(ManagerA*);
 void sub_080583EC(ManagerA*);
@@ -16,8 +17,6 @@ void (*const gUnk_081081F4[])(ManagerA*) = { sub_08058398, sub_080583EC, sub_080
 void sub_08058380(ManagerA* this) {
     gUnk_081081F4[this->manager.action](this);
 }
-
-extern void sub_0805E3A0(Manager*, u32);
 
 void sub_08058398(ManagerA* this) {
 
@@ -36,8 +35,6 @@ void sub_08058398(ManagerA* this) {
     }
 }
 
-void sub_08058408(ManagerA*);
-
 void sub_080583EC(ManagerA* this) {
     if (CheckFlags(this->unk_3e) != 0) {
         this->manager.action = 2;
@@ -45,12 +42,8 @@ void sub_080583EC(ManagerA* this) {
     }
 }
 
-extern u32 CheckPlayerInRegion(u32, u32, u32, u32);
 extern void sub_0805E544(void);
-extern void sub_08078A90(u32);
-extern void sub_08078AA8(u32, u32);
 extern void sub_080186C0(u16);
-extern void sub_08078B48(void);
 
 u32 sub_0805848C(ManagerA*);
 void sub_080585DC(ManagerA*);

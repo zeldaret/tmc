@@ -1,13 +1,9 @@
 #include "global.h"
 #include "entity.h"
+#include "enemy.h"
 #include "room.h"
+#include "random.h"
 #include "functions.h"
-
-typedef struct {
-    void* field_0x0;
-    void* entityCount;
-    u8 freezeTime;
-} EntityHandler;
 
 typedef struct {
     s8 h, v;
@@ -16,10 +12,6 @@ typedef struct {
 void sub_08044FF8(Entity*);
 void sub_08045178(Entity*, Entity*, int, int);
 
-extern void sub_0804A720(Entity*);
-extern u32 sub_0806FA04(u32, u32);
-extern u32 sub_08049FA0(Entity*);
-extern u32 sub_08049EE4(Entity*);
 extern void sub_0804A4E4(Entity*, Entity*);
 extern u32 sub_080002CC(Entity*, s32, s32);
 
@@ -29,7 +21,6 @@ extern u8 gUnk_080D16D0[4]; // Entity count per form
 extern PosOffset gUnk_080D16D4[4];
 
 extern u8 gEntCount;
-extern EntityHandler gHitboxCount;
 
 void Slime(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080D16A4);
@@ -76,7 +67,7 @@ void sub_08045018(Entity* this) {
         this->action = 3;
         this->actionDelay = 1;
         if (0 < this->speed) {
-            this->actionDelay = sub_0806FA04(4096, this->speed) >> 8;
+            this->actionDelay = FixedDiv(4096, this->speed) >> 8;
         }
         if (sub_08049FA0(this) == 0 && (Random() & 3)) {
             this->direction = (sub_08049EE4(this) + 0xfc + (Random() & 8)) & 24;
@@ -117,7 +108,7 @@ void sub_080450A8(Entity* this) {
         ent->parent = entities[(i + count - 1) % count];
         ent->type2 = 1;
         ent->height.HALF.HI = 0;
-        ent->hurtBlinkTime = -0x10;
+        ent->iframes = -0x10;
 
         /* Set MiniSlime offset relative to killed slime. */
         sub_08045178(this, ent, off->h, off->v);

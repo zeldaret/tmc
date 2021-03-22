@@ -1,11 +1,11 @@
 #include "global.h"
-#include "menu.h"
 #include "main.h"
 #include "entity.h"
 #include "functions.h"
-#include "readKeyInput.h"
+#include "utils.h"
 #include "screen.h"
 #include "structures.h"
+#include "textbox.h"
 
 typedef struct {
     u8 filler0[0x4];
@@ -55,7 +55,7 @@ static const u16 sLightRaysAlphaBlends[] = {
 static u32 AdvanceIntroSequence(u32 transition) {
     gUnk_02032EC0.lastState = transition;
     gMain.funcIndex = 2;
-    MemClear32(&gIntroState, sizeof(gIntroState));
+    MemClear(&gIntroState, sizeof(gIntroState));
     DoFade(7, 8);
 }
 
@@ -64,7 +64,7 @@ void HandleIntroScreen(void) {
     switch (gMain.funcIndex) {
         case 0:
             MessageInitialize();
-            MemClear32(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
+            MemClear(&gUnk_02032EC0, sizeof(gUnk_02032EC0));
             AdvanceIntroSequence(0);
             break;
         case 1:
@@ -74,7 +74,7 @@ void HandleIntroScreen(void) {
             if (gFadeControl.active) {
                 return;
             }
-            sub_0801DA90(1);
+            DispReset(1);
             gMain.funcIndex = 1;
             break;
     }
@@ -87,7 +87,7 @@ static void HandleNintendoCapcomLogos(void) {
 
     advance = GetAdvanceState();
     if (gIntroState.state == 0) {
-        sub_0801DA90(1);
+        DispReset(1);
         gIntroState.state = 1;
         gIntroState.timer = 120;
         LoadGfxGroup(16);
