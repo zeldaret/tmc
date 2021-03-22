@@ -46,6 +46,7 @@ typedef void (*CgbOscOffFunc)(u8);
 typedef u32 (*MidiKeyToCgbFreqFunc)(u8, u8, u8);
 typedef void (*ExtVolPitFunc)(void);
 typedef void (*MPlayMainFunc)(MusicPlayerInfo*);
+typedef void (*XcmdFunc)(MusicPlayerInfo*, MusicPlayerTrack*);
 
 typedef struct WaveData {
     u16 type;
@@ -309,19 +310,7 @@ extern char SoundMainRAM[];
 
 extern void* gMPlayJumpTable[];
 
-typedef void (*XcmdFunc)(MusicPlayerInfo*, MusicPlayerTrack*);
-extern const XcmdFunc gXcmdTable[];
-
 extern CgbChannel gCgbChans[];
-extern const u8 gCgb3Vol[];
-
-extern const u8 gScaleTable[];
-extern const u32 gFreqTable[];
-extern const u16 gPcmSamplesPerVBlankTable[];
-
-extern const u8 gCgbScaleTable[];
-extern const s16 gCgbFreqTable[];
-extern const u8 gNoiseTable[];
 
 extern char gNumMusicPlayers[];
 extern char gMaxLines[];
@@ -654,9 +643,16 @@ void m4aMPlayFadeIn(MusicPlayerInfo* mplayInfo, u16 speed) {
     }
 }
 
-NONMATCH("asm/non_matching/m4a/m4aMPlayImmInit.inc", void m4aMPlayImmInit(MusicPlayerInfo* mplayInfo)) {
-    s32 trackCount = mplayInfo->trackCount;
-    MusicPlayerTrack* track = mplayInfo->tracks;
+void m4aMPlayImmInit(MusicPlayerInfo* mplayInfo) {
+    s32 trackCount;
+    MusicPlayerTrack* track;
+
+    if (mplayInfo->ident != ID_NUMBER)
+        return;
+
+    mplayInfo->ident++;
+    trackCount = mplayInfo->trackCount;
+    track = mplayInfo->tracks;
 
     while (trackCount > 0) {
         if (track->flags & MPT_FLG_EXIST) {
@@ -673,8 +669,8 @@ NONMATCH("asm/non_matching/m4a/m4aMPlayImmInit.inc", void m4aMPlayImmInit(MusicP
         trackCount--;
         track++;
     }
+    mplayInfo->ident = ID_NUMBER;
 }
-END_NONMATCH
 
 void MPlayExtender(CgbChannel* cgbChans) {
     SoundInfo* soundInfo;
@@ -885,27 +881,26 @@ void SoundClear(void) {
     soundInfo->ident = ID_NUMBER;
 }
 
-NONMATCH("asm/non_matching/m4a/m4aSoundVSyncOff.inc", void m4aSoundVSyncOff(void)) {
+void m4aSoundVSyncOff(void) {
     SoundInfo* soundInfo = SOUND_INFO_PTR;
 
     if (soundInfo->ident >= ID_NUMBER && soundInfo->ident <= ID_NUMBER + 1) {
         soundInfo->ident += 10;
 
+        REG_TM0CNT_H = 0;
+
         if (REG_DMA1CNT & (DMA_REPEAT << 16))
             REG_DMA1CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DEST_FIXED) << 16) | 4;
 
-        if (REG_DMA2CNT & (DMA_REPEAT << 16))
-            REG_DMA2CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DEST_FIXED) << 16) | 4;
-
         REG_DMA1CNT_H = DMA_32BIT;
-        REG_DMA2CNT_H = DMA_32BIT;
 
         CpuFill32(0, soundInfo->pcmBuffer, sizeof(soundInfo->pcmBuffer));
     }
 }
-END_NONMATCH
 
-NONMATCH("asm/non_matching/m4a/m4aSoundVSyncOn.inc", void m4aSoundVSyncOn(void)) {
+#define REG_VCOUNT_8 (*(vu8*)REG_ADDR_VCOUNT)
+
+void m4aSoundVSyncOn(void) {
     SoundInfo* soundInfo = SOUND_INFO_PTR;
     u32 ident = soundInfo->ident;
 
@@ -913,16 +908,33 @@ NONMATCH("asm/non_matching/m4a/m4aSoundVSyncOn.inc", void m4aSoundVSyncOn(void))
         return;
 
     REG_DMA1CNT_H = DMA_ENABLE | DMA_START_SPECIAL | DMA_32BIT | DMA_REPEAT;
-    REG_DMA2CNT_H = DMA_ENABLE | DMA_START_SPECIAL | DMA_32BIT | DMA_REPEAT;
 
     soundInfo->pcmDmaCounter = 0;
     soundInfo->ident = ident - 10;
-}
-END_NONMATCH
 
-NONMATCH("asm/non_matching/m4a/m4aSoundVSync.inc", void m4aSoundVSync(void)) {
+    while (REG_VCOUNT_8 == 0x9f) {}
+    while (REG_VCOUNT_8 != 0x9f) {}
+
+    REG_TM0CNT_L = -(0x44940 / soundInfo->pcmSamplesPerVBlank);
+    REG_TM0CNT_H = 0x80;
 }
-END_NONMATCH
+
+void m4aSoundVSync(void) {
+    SoundInfo* soundInfo = SOUND_INFO_PTR;
+
+    if (soundInfo->ident - ID_NUMBER > 1)
+        return;
+
+    soundInfo->pcmDmaCounter--;
+    if ((s8)soundInfo->pcmDmaCounter > 0)
+        return;
+    soundInfo->pcmDmaCounter = soundInfo->pcmDmaPeriod;
+    if (REG_DMA1CNT & (DMA_REPEAT << 16)) {
+        REG_DMA1CNT = ((DMA_ENABLE | DMA_START_NOW | DMA_32BIT | DMA_SRC_INC | DMA_DEST_FIXED) << 16) | 4;
+    }
+    REG_DMA1CNT_H = DMA_32BIT;
+    REG_DMA1CNT_H = DMA_ENABLE | DMA_START_SPECIAL | DMA_32BIT | DMA_REPEAT;
+}
 
 void MPlayOpen(MusicPlayerInfo* mplayInfo, MusicPlayerTrack* tracks, u8 trackCount) {
     SoundInfo* soundInfo;
