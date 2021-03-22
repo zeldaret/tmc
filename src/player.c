@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "player.h"
 #include "textbox.h"
-#include "readKeyInput.h"
+#include "utils.h"
 #include "area.h"
 #include "save.h"
 #include "game.h"

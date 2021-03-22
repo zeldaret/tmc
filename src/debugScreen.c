@@ -1,5 +1,5 @@
 #include "global.h"
-#include "dma.h"
+#include "utils.h"
 #include "functions.h"
 #include "main.h"
 #include "menu.h"
@@ -7,13 +7,6 @@
 #include "structures.h"
 #include "textbox.h"
 
-typedef struct {
-    u16 unk0;
-    u16 unk2;
-    u16 unk4;
-} VStruct;
-
-extern VStruct gInput;
 extern u8 gBG3Buffer[];
 
 extern void (*const gUnk_08109A30[])();
@@ -47,7 +40,7 @@ void sub_0805FA04(void) {
 void sub_0805FA98(void) {
     int iVar1;
 
-    switch (gInput.unk2) {
+    switch (gInput.newKeys) {
         case 0x40:
             gMenu.focusCoords[1] -= 1;
             break;

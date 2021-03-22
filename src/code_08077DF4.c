@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "player.h"
-#include "dma.h"
+#include "utils.h"
 #include "functions.h"
 
 typedef struct {

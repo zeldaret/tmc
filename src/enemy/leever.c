@@ -3,12 +3,12 @@
 #include "enemy.h"
 #include "random.h"
 #include "functions.h"
+#include "coord.h"
 
 extern u32 sub_080002D4(s32, s32, u32);
 extern u32 sub_080002BC(s32, s32, u32);
 
 extern Entity* gUnk_020000B0;
-extern s16 gSineTable[];
 
 bool32 Leever_PlayerInRange(Entity*, s32);
 void Leever_Move(Entity*);

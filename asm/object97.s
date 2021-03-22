@@ -1141,7 +1141,7 @@ sub_0809E238: @ 0x0809E238
 	adds r5, #0x6c
 	movs r2, #0
 	ldrsh r1, [r5, r2]
-	bl sub_0806F9EC
+	bl FixedMul
 	adds r4, r0, #0
 	lsls r4, r4, #0x10
 	asrs r4, r4, #0x10
@@ -1154,7 +1154,7 @@ sub_0809E238: @ 0x0809E238
 	ldrsh r0, [r0, r2]
 	movs r2, #0
 	ldrsh r1, [r5, r2]
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r7, #0

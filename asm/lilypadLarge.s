@@ -349,13 +349,13 @@ _08085774:
 	lsls r4, r4, #0x10
 	asrs r4, r4, #0x18
 	adds r1, r4, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r5, #0x80
 	lsls r5, r5, #1
 	adds r1, r5, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
 	ldr r1, [r7, #0x6c]
@@ -368,11 +368,11 @@ _08085774:
 	movs r2, #0
 	ldrsh r0, [r0, r2]
 	adds r1, r4, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r5, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
 	ldr r1, [r7, #0x70]
@@ -441,7 +441,7 @@ _0808581A:
 	movs r4, #0x80
 	lsls r4, r4, #1
 	adds r1, r4, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	ldr r5, _080858A8 @ =gSineTable
@@ -450,13 +450,13 @@ _0808581A:
 	adds r1, r1, r5
 	movs r2, #0
 	ldrsh r1, [r1, r2]
-	bl sub_0806FA04
+	bl FixedDiv
 	strh r0, [r7, #0x24]
 	ldr r0, [r7, #0x70]
 	lsls r0, r0, #8
 	asrs r0, r0, #0x10
 	adds r1, r4, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	ldrb r1, [r7, #0x15]
@@ -465,7 +465,7 @@ _0808581A:
 	adds r1, r1, r5
 	movs r2, #0
 	ldrsh r1, [r1, r2]
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	rsbs r4, r0, #0

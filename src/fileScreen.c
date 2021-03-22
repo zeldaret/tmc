@@ -1,10 +1,9 @@
 #include "fileScreen.h"
 #include "main.h"
 #include "player.h"
-#include "readKeyInput.h"
+#include "utils.h"
 #include "screen.h"
 #include "menu.h"
-#include "dma.h"
 #include "random.h"
 #include "textbox.h"
 

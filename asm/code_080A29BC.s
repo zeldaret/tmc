@@ -96,13 +96,13 @@ sub_080A2AF4: @ 0x080A2AF4
 	lsls r4, r4, #0x18
 	asrs r4, r4, #0x10
 	adds r1, r4, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r5, #0x80
 	lsls r5, r5, #1
 	adds r1, r5, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
 	ldr r1, [r6, #0x2c]
@@ -115,11 +115,11 @@ sub_080A2AF4: @ 0x080A2AF4
 	movs r1, #0
 	ldrsh r0, [r0, r1]
 	adds r1, r4, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r5, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
 	ldr r1, [r6, #0x30]

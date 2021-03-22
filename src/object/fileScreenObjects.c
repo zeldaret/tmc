@@ -4,9 +4,9 @@
 #include "main.h"
 #include "menu.h"
 #include "npc.h"
-#include "position.h"
+#include "coord.h"
 #include "fileScreen.h"
-#include "readKeyInput.h"
+#include "utils.h"
 #include "structures.h"
 #include "functions.h"
 

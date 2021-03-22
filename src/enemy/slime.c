@@ -12,7 +12,7 @@ typedef struct {
 void sub_08044FF8(Entity*);
 void sub_08045178(Entity*, Entity*, int, int);
 
-extern u32 sub_0806FA04(u32, u32);
+//extern u32 FixedDiv(u32, u32);
 extern void sub_0804A4E4(Entity*, Entity*);
 extern u32 sub_080002CC(Entity*, s32, s32);
 
@@ -68,7 +68,7 @@ void sub_08045018(Entity* this) {
         this->action = 3;
         this->actionDelay = 1;
         if (0 < this->speed) {
-            this->actionDelay = sub_0806FA04(4096, this->speed) >> 8;
+            this->actionDelay = FixedDiv(4096, this->speed) >> 8;
         }
         if (sub_08049FA0(this) == 0 && (Random() & 3)) {
             this->direction = (sub_08049EE4(this) + 0xfc + (Random() & 8)) & 24;

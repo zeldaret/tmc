@@ -1193,13 +1193,13 @@ sub_0806F5BC: @ 0x0806F5BC
 	lsls r5, r1, #0x10
 	asrs r5, r5, #0x10
 	adds r1, r5, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r6, #0x80
 	lsls r6, r6, #1
 	adds r1, r6, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
 	ldr r1, [r7, #0x2c]
@@ -1211,11 +1211,11 @@ sub_0806F5BC: @ 0x0806F5BC
 	movs r1, #0
 	ldrsh r0, [r4, r1]
 	adds r1, r5, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r6, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
 	ldr r1, [r7, #0x30]
@@ -1248,13 +1248,13 @@ sub_0806F62C: @ 0x0806F62C
 	lsls r5, r5, #0x10
 	asrs r5, r5, #0x10
 	adds r1, r5, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x80
 	lsls r1, r1, #1
 	mov r8, r1
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
 	ldr r1, [r6, #0x2c]
@@ -1266,11 +1266,11 @@ sub_0806F62C: @ 0x0806F62C
 	movs r1, #0
 	ldrsh r0, [r4, r1]
 	adds r1, r5, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	mov r1, r8
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
 	ldr r1, [r6, #0x30]
@@ -1300,13 +1300,13 @@ sub_0806F69C: @ 0x0806F69C
 	ldrsh r0, [r0, r1]
 	movs r2, #0x24
 	ldrsh r1, [r6, r2]
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r4, #0x80
 	lsls r4, r4, #1
 	adds r1, r4, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
 	ldr r1, [r6, #0x2c]
@@ -1320,11 +1320,11 @@ sub_0806F69C: @ 0x0806F69C
 	ldrsh r0, [r0, r1]
 	movs r2, #0x24
 	ldrsh r1, [r6, r2]
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r4, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
 	ldr r1, [r6, #0x30]

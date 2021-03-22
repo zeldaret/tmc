@@ -5,7 +5,7 @@
 #include "global.h"
 #include "entity.h"
 #include "manager.h"
-#include "position.h"
+#include "coord.h"
 #include "player.h"
 #include "room.h"
 #include "structures.h"
@@ -13,7 +13,6 @@
 // Identified - to be sorted into header files
 extern void SoundReq(u32);
 extern void ShowNPCDialogue(Entity*, Dialog*);
-extern u32 __modsi3(u32, u32);
 extern void DoFade(u32, u32);
 extern u32 CheckKinstoneFused(u32);
 extern void ForceEquipItem(u32, u8);

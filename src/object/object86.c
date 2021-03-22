@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "position.h"
+#include "coord.h"
 #include "player.h"
 #include "flags.h"
 #include "functions.h"

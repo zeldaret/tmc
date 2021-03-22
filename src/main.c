@@ -1,11 +1,10 @@
 #include "global.h"
-#include "dma.h"
 #include "functions.h"
 #include "structures.h"
 #include "main.h"
 #include "screen.h"
 #include "random.h"
-#include "readKeyInput.h"
+#include "utils.h"
 #include "save.h"
 #include "textbox.h"
 #include "arm_proxy.h"
@@ -187,9 +186,9 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
     b = BOOLCAST(temp);
 
     if ((gUnk_02000010.field_0x4 != 0) && (gUnk_02000010.field_0x4 != 0xc1)) {
-        b = 1;
+        b = TRUE;
     }
-    if (b != 0) {
+    if (b) {
         MemClear((u8*)&gUnk_02000010.signature, 0x20);
         gUnk_02000010.signature = SIGNATURE;
     }
@@ -255,7 +254,7 @@ void sub_08056260(void) {
     temp2->field_0x1 = 0;
 }
 
-// Convert in-game AABB to screen coordinates and check if it's within the viewport
+// Convert AABB to screen coordinates and check if it's within the viewport
 u32 sub_080562CC(u32 x0, u32 y0, u32 x1, u32 y1) {
     u32 result;
     u32 x = ((gRoomControls.roomScrollX - gRoomControls.roomOriginX) - x0 + DISPLAY_WIDTH);

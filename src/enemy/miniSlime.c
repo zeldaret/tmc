@@ -6,7 +6,7 @@
 
 void sub_08045374(Entity*);
 
-extern u32 sub_0806FA04(u32, u32);
+//extern u32 FixedDiv(u32, u32);
 extern void sub_080452E4();
 extern void ReplaceMonitoredEntity(Entity*, Entity*);
 
@@ -70,7 +70,7 @@ void sub_080452FC(Entity* this) {
         this->action = 3;
         this->actionDelay = 1;
         if (0 < this->speed)
-            this->actionDelay = sub_0806FA04(0x1000, this->speed) >> 0x8;
+            this->actionDelay = FixedDiv(0x1000, this->speed) >> 0x8;
 
         if (sub_08049FA0(this) == 0 && (Random() & 3)) {
             cVar2 = sub_08049EE4(this);

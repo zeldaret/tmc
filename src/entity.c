@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "dma.h"
+#include "utils.h"
 #include "script.h"
 
 typedef struct OtherEntity {
