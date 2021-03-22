@@ -139,7 +139,7 @@ UnloadHitbox: @ 0x0806FBEC
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r0, [r4, #0x48]
-	bl sub_0801DA0C
+	bl zFree
 	movs r0, #0
 	str r0, [r4, #0x48]
 	pop {r4, pc}

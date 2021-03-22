@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
-#include "trig.h"
+#include "coord.h"
 #include "random.h"
 #include "player.h"
 

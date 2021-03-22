@@ -1228,7 +1228,7 @@ sub_0807F950: @ 0x0807F950
 	movs r1, #0x56
 	movs r2, #6
 	movs r3, #0
-	bl FindEntityInListByForm
+	bl FindEntity
 	cmp r0, #0
 	beq _0807F96C
 	bl DeleteEntity

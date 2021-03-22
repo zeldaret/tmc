@@ -1,5 +1,5 @@
 #include "global.h"
-#include "dma.h"
+#include "utils.h"
 #include "functions.h"
 
 typedef struct {

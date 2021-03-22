@@ -33,7 +33,7 @@ sub_0805488C: @ 0x0805488C
 	lsls r0, r0, #1
 	strh r0, [r2, #8]
 	movs r0, #0
-	bl sub_0801DA90
+	bl DispReset
 	ldrb r0, [r4, #3]
 	movs r1, #1
 	bl sub_08054974
@@ -2571,7 +2571,7 @@ _08055C6C:
 	movs r1, #0x9e
 	movs r2, #6
 	movs r3, #0
-	bl FindEntityInListByForm
+	bl FindEntity
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08055C8C

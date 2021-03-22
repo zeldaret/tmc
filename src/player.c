@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "player.h"
 #include "textbox.h"
-#include "readKeyInput.h"
+#include "utils.h"
 #include "area.h"
 #include "save.h"
 #include "game.h"
@@ -92,7 +92,7 @@ void PlayerInit(Entity* this) {
             sub_08079938();
             gPlayerState.field_0xa8 = 7;
             sub_0807ACCC(this);
-            ent = FindEntityInListByForm(0x6, 0xf, 0x6, 0xb, 0x0);
+            ent = FindEntity(0x6, 0xf, 0x6, 0xb, 0x0);
             if (ent != NULL) {
                 DeleteEntity(ent);
             }

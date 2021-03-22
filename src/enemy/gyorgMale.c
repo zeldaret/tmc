@@ -2,7 +2,7 @@
 #include "enemy.h"
 #include "player.h"
 #include "room.h"
-#include "trig.h"
+#include "coord.h"
 #include "fileScreen.h"
 #include "random.h"
 #include "functions.h"

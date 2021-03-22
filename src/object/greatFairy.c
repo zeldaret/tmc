@@ -25,11 +25,9 @@ enum {
 
 // Main
 void GreatFairy(Entity* this) {
-    u8 bVar1;
-
     if (this->action == 0) {
-        bVar1 = __modsi3(this->type, 11);
-        this->type2 = bVar1;
+        s32 temp = 11;
+        this->type2 = this->type % temp;
     }
     GreatFairy_Main[this->type2](this);
 }
@@ -68,20 +66,18 @@ void GreatFairy_DormantUpdate(Entity* this) {
         --*pFrame;
     }
     switch (*pFrame) {
-        case 0x96:
-        case 0x82:
-            goto e;
-        case 0x0:
+        case 0:
             this->action = 2;
             break;
-        e:
-        case 0xd2:
-        case 0xaa:
-        case 0x121:
+        case 130:
+        case 150:
+        case 170:
+        case 210:
+        case 289:
             ripple = GreatFairy_CreateForm(this, RIPPLE, 0);
             if (ripple) {
-                PositionRelative(this, ripple, (s32)GreatFairy_RippleOffsets[this->actionDelay] << 16,
-                                 (s32)GreatFairy_RippleOffsets[this->actionDelay + 1] << 16);
+                PositionRelative(this, ripple, (s32)GreatFairy_RippleOffsets[this->actionDelay] * 65536,
+                                 (s32)GreatFairy_RippleOffsets[this->actionDelay + 1] * 65536);
                 this->actionDelay += 2;
                 break;
             }
@@ -110,9 +106,8 @@ void GreatFairy_SpawningUpdate(Entity* this) {
             DoFade(6, 4);
             SoundReq(325);
             this->action = 4;
-            this->actionDelay = 0x3c;
-            var = this->spriteSettings.raw & ~0x3;
-            this->spriteSettings.raw = (this->spriteSettings.raw & var) | 1;
+            this->actionDelay = 60;
+            this->spriteSettings.b.draw = 1;
         }
     }
 }
@@ -166,10 +161,8 @@ void GreatFairy_WingsInit(Entity* this) {
 }
 
 void GreatFairy_WingsUpdate(Entity* this) {
-    s32 iVar1;
-
-    iVar1 = this->speed -= 32;
-    if (iVar1 * 65536 >> 16 == 256) {
+    this->speed -= 32;
+    if (this->speed == 256) {
         this->action = 2;
         sub_0805EC60(this);
         gRoomVars.greatFairyState |= 32;
@@ -237,7 +230,7 @@ void GreatFairy_MiniRisingUpdate(Entity* this) {
 void GreatFairy_MiniRemoveMe(Entity* this) {
     GetNextFrame(this);
     sub_080873D0(this);
-    if ((gRoomVars.greatFairyState & 1) != 0) {
+    if (gRoomVars.greatFairyState & 1) {
         DeleteEntity(this);
     }
 }
@@ -270,15 +263,13 @@ void GreatFairy_MiniAffineInit2(Entity* this) {
 
 // Mini great fairy stretch
 void GreatFairy_MiniAffineUpdate(Entity* this) {
-    s32 iVar2;
-
     if (--this->actionDelay == 0) {
         gRoomVars.greatFairyState |= 1;
         this->action = 3;
         sub_0805EC60(this);
     } else {
-        iVar2 = this->speed -= 24;
-        sub_0805EC9C(this, 256, iVar2 * 0x10000 >> 20, 0);
+        this->speed -= 24;
+        sub_0805EC9C(this, 256, this->speed >> 4, 0);
     }
 }
 
@@ -297,7 +288,7 @@ void GreatFairy_DropletInit(Entity* this) {
 
 void GreatFairy_DropletUpdate(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.b.f3) {
+    if (this->frames.all & 0x80) {
         DeleteEntity(this);
     }
 }
@@ -314,7 +305,7 @@ void GreatFairy_RippleInit(Entity* this) {
 }
 
 void GreatFairy_RippleUpdate(Entity* this) {
-    if ((gRoomVars.greatFairyState & 2) != 0) {
+    if (gRoomVars.greatFairyState & 2) {
         DeleteEntity(this);
     } else {
         GetNextFrame(this);
@@ -363,7 +354,7 @@ void GreatFairy_EnergyInit(Entity* this) {
 
 void GreatFairy_EnergyUpdate(Entity* this) {
     GetNextFrame(this);
-    if (this->frames.b.f3) {
+    if (this->frames.all & 0x80) {
         DeleteEntity(this);
     }
 }
@@ -377,35 +368,25 @@ void sub_08087114(Entity* this) {
     }
 }
 
-#ifdef NON_MATCHING
-extern u8 gUnk_0812079C;
-
-void sub_08087150(Entity* this) {
+NONMATCH("asm/greatFairy/sub_08087150.inc", void sub_08087150(Entity* this)) {
     u32 temp;
 
-    GreatFairy_InitializeAnimation();
+    GreatFairy_InitializeAnimation(this);
     this->spriteSettings.b.draw = TRUE;
     this->spriteOrientation.flipY = 0;
     this->spriteRendering.b0 = 0;
     this->spritePriority.b0 = 3;
-    this->speed = 0x80;
+    this->speed = 128;
     this->direction = 0x10;
-    temp = gUnk_0812079C;
+    temp = gUnk_0812079C[0];
     this->palette.raw = ((temp & 0xf) << 4) | 0xf;
 }
-#else
-NAKED
-void sub_08087150(Entity* this) {
-    asm(".include \"asm/greatFairy/sub_08087150.inc\"");
-}
-#endif
+END_NONMATCH
 
 void nullsub_516(Entity* this) {
 }
 
 void sub_080871A8(Entity* this) {
-    u32 bVar1;
-
     if (--this->actionDelay == 0) {
         this->action = 3;
         this->actionDelay = 60;
@@ -414,7 +395,6 @@ void sub_080871A8(Entity* this) {
 }
 
 void sub_080871D0(Entity* this) {
-
     if (--this->actionDelay == 0) {
         gRoomVars.greatFairyState |= 8;
         DeleteEntity(this);
@@ -424,16 +404,16 @@ void sub_080871D0(Entity* this) {
 void sub_080871F8(Entity* this) {
     Entity* temp = this->attachedEntity;
 
-    if ((temp->x.HALF.HI == this->x.HALF.HI) && (temp->y.HALF.HI - 0x20 == this->y.HALF.HI)) {
+    if ((temp->x.HALF.HI == this->x.HALF.HI) && (temp->y.HALF.HI - 32 == this->y.HALF.HI)) {
         this->action = 2;
     } else {
-        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, temp->x.HALF.HI, temp->y.HALF.HI - 0x20);
+        this->direction = sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, temp->x.HALF.HI, temp->y.HALF.HI - 32);
         sub_0806F69C(this);
     }
 }
 
 void sub_08087240(Entity* this) {
-    if ((gRoomVars.greatFairyState & 4) != 0) {
+    if (gRoomVars.greatFairyState & 4) {
         this->action = 3;
         this->actionDelay = 20;
         this->direction = 16;
@@ -448,7 +428,6 @@ void sub_08087264(Entity* this) {
 }
 
 void sub_0808727C(Entity* this) {
-
     if (--this->actionDelay == 0) {
         DeleteEntity(this);
     }
@@ -479,17 +458,16 @@ void sub_080872F8(Entity* this) {
             sub_080045D4(this->x.HALF.HI, this->y.HALF.HI, (s16)this->field_0x68.HWORD, (s16)this->field_0x6a.HWORD);
         this->direction = (this->direction + gUnk_081207AC[Random() & 3]) & 0x1f;
     }
-    temp = gSineTable[this->actionDelay + 0x40];
+    temp = gSineTable[this->actionDelay + 64];
     this->height.HALF.HI = (temp >> 6) - 8;
     this->actionDelay++;
 }
 
 void GreatFairy_InitializeAnimation(Entity* this) {
-    s32 temp;
+    s32 temp = 11;
 
     this->action = 1;
-    temp = this->type;
-    this->type2 = temp % 11;
+    this->type2 = this->type % temp;
     this->collisionLayer = 2;
     InitializeAnimation(this, this->type2);
     sub_0805E3A0(this, 2);
@@ -515,7 +493,7 @@ void sub_080873D0(Entity* this) {
         ent = GreatFairy_CreateForm(this, 8, 0);
         if (ent != NULL) {
             CopyPosition(this, ent);
-            this->actionDelay = 0x30;
+            this->actionDelay = 48;
         }
     }
 }
@@ -526,7 +504,7 @@ void sub_080873FC(void) {
     SoundReq(0xf7);
     gRoomControls.cameraTarget = NULL;
 
-    while (ent = FindEntityInListBySubtype(0x6, 0x1b, 0x6), ent != NULL) {
+    while (ent = FindEntityByID(0x6, 0x1b, 0x6), ent != NULL) {
         DeleteEntity(ent);
     }
 }
@@ -555,101 +533,87 @@ void sub_08087424(Entity* this, ScriptExecutionContext* context) {
 void sub_0808747C(Entity* this, ScriptExecutionContext* context) {
     u32 iVar1 = 0;
 
-    iVar1 = (u32)FindEntityInListByForm(0x6, 0xf, 0x6, 0xb, 0x0);
+    iVar1 = (u32)FindEntity(0x6, 0xf, 0x6, 0xb, 0x0);
     if (iVar1 != 0) {
         iVar1 = 1;
     }
     context->condition = iVar1;
 }
 
-// clang-format off
 void (*const GreatFairy_Main[])(Entity*) = {
-    GreatFairy_CallBehavior, 
+    GreatFairy_CallBehavior,
     GreatFairy_WingsCallBehavior,
     GreatFairy_WakeCallBehavior,
     GreatFairy_MiniCallBehavior,
-    GreatFairy_MiniAffineCallBehavior,     
-    GreatFairy_DropletCallBehavior, 
-    GreatFairy_RippleCallBehavior, 
+    GreatFairy_MiniAffineCallBehavior,
+    GreatFairy_DropletCallBehavior,
+    GreatFairy_RippleCallBehavior,
     GreatFairy_BigRippleCallBehavior,
-    GreatFairy_EnergyCallBehavior, 
-    sub_08087114, 
-    sub_08087294 
+    GreatFairy_EnergyCallBehavior,
+    sub_08087114,
+    sub_08087294,
 };
 
 void (*const GreatFairy_Behaviors[])(Entity*) = {
-    GreatFairy_Init,
-    GreatFairy_DormantUpdate,
-    GreatFairy_CreateBigRipple,
-    GreatFairy_SpawningUpdate,
-    GreatFairy_MiniUpdate,
-    GreatFairy_FinalUpdate
+    GreatFairy_Init,           GreatFairy_DormantUpdate, GreatFairy_CreateBigRipple,
+    GreatFairy_SpawningUpdate, GreatFairy_MiniUpdate,    GreatFairy_FinalUpdate,
 };
 
 const s16 GreatFairy_RippleOffsets[10] = {
-       0,   0,
-     -32,  -8,
-      16,  20,
-      24, -12,
-     -16,  24
+    0, 0, -32, -8, 16, 20, 24, -12, -16, 24,
 };
 
-
-void (*const GreatFairy_WingsBehaviors[])(Entity*) =  {
+void (*const GreatFairy_WingsBehaviors[])(Entity*) = {
     GreatFairy_WingsInit,
     GreatFairy_WingsUpdate,
-    nullsub_116
+    nullsub_116,
 };
 
 void (*const GreatFairy_WakeBehaviors[])(Entity*) = {
     GreatFairy_WakeInit,
-    GreatFairy_WakeUpdate
+    GreatFairy_WakeUpdate,
 };
 
 void (*const GreatFairy_MiniBehaviors[])(Entity*) = {
     GreatFairy_MiniInit,
     GreatFairy_MiniRisingUpdate,
-    GreatFairy_MiniRemoveMe
+    GreatFairy_MiniRemoveMe,
 };
 
 void (*const GreatFairy_MiniAffineBehaviors[])(Entity*) = {
     GreatFairy_MiniAffineInit,
     GreatFairy_MiniAffineInit2,
     GreatFairy_MiniAffineUpdate,
-    DeleteEntity
+    DeleteEntity,
 };
 
 void (*const GreatFairy_DropletBehaviors[])(Entity*) = {
     GreatFairy_DropletInit,
-    GreatFairy_DropletUpdate
+    GreatFairy_DropletUpdate,
 };
 
 void (*const GreatFairy_RippleBehaviors[])(Entity*) = {
     GreatFairy_RippleInit,
-    GreatFairy_RippleUpdate
+    GreatFairy_RippleUpdate,
 };
 
 void (*const GreatFairy_BigRippleBehaviors[])(Entity*) = {
     GreatFairy_BigRippleInit,
-    GreatFairy_BigRippleUpdate
+    GreatFairy_BigRippleUpdate,
 };
 
 void (*const GreatFairy_EnergyBehaviors[])(Entity*) = {
     GreatFairy_EnergyInit,
-    GreatFairy_EnergyUpdate
+    GreatFairy_EnergyUpdate,
 };
+
 void (*const GreatFairy_Form1Behaviors[])(Entity*) = {
     sub_08087150,
     nullsub_516,
     sub_080871A8,
-    sub_080871D0
+    sub_080871D0,
 };
 
 void (*const GreatFairy_Form2Behaviors[])(Entity*) = {
-    sub_08087150,
-    sub_080871F8,
-    sub_08087240,
-    sub_08087264,
-    sub_0808727C
+    sub_08087150, sub_080871F8, sub_08087240, sub_08087264, sub_0808727C,
 };
-// clang-format on

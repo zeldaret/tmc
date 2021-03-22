@@ -1,11 +1,11 @@
 #include "fileScreen.h"
 #include "main.h"
 #include "player.h"
-#include "readKeyInput.h"
+#include "utils.h"
 #include "screen.h"
 #include "menu.h"
-#include "dma.h"
 #include "random.h"
+#include "textbox.h"
 
 // copy, erase, start
 #define NUM_FILE_OPERATIONS 3
@@ -189,7 +189,7 @@ void HandleChooseFileScreen(void) {
 static void HandleFileScreenEnter(void) {
     u32 i;
 
-    sub_0801DA90(1);
+    DispReset(1);
     sub_080A3210();
     MemClear((void*)VRAM, 0x80); // clear palettes
     MessageInitialize();

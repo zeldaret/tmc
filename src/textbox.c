@@ -1,7 +1,7 @@
 #include "global.h"
 #include "room.h"
 #include "entity.h"
-#include "dma.h"
+#include "utils.h"
 #include "functions.h"
 #include "textbox.h"
 #include "structures.h"
@@ -14,11 +14,14 @@ u32 sub_080565B4(void);
 u32 sub_080565F8(void);
 u32 sub_08056640(void);
 
-u32 (*const gUnk_08107BC8[])(void) = { sub_080564DC, sub_080564EC, sub_08056654,
-                                       sub_080565B4, sub_080565F8, sub_08056640 };
+u32 (*const gUnk_08107BC8[])(void) = {
+    sub_080564DC, sub_080564EC, sub_08056654, sub_080565B4, sub_080565F8, sub_08056640,
+};
 
 extern u8 gUnk_020227DC, gUnk_020227E8, gUnk_020227F0, gUnk_020227F8, gUnk_02022800;
-u8* const gUnk_08107BE0[] = { &gUnk_020227DC, &gUnk_020227E8, &gUnk_020227F0, &gUnk_020227F8, &gUnk_02022800 };
+u8* const gUnk_08107BE0[] = {
+    &gUnk_020227DC, &gUnk_020227E8, &gUnk_020227F0, &gUnk_020227F8, &gUnk_02022800,
+};
 
 void sub_08056684(struct_02022780*);
 void sub_080566B8(struct_02022780*);
@@ -27,8 +30,9 @@ void sub_08056B1C(struct_02022780*);
 void sub_08056B7C(struct_02022780*);
 void sub_080569D4(struct_02022780*);
 
-void (*const gUnk_08107BF4[])(struct_02022780*) = { sub_08056684, sub_080566B8, sub_08056BA0,
-                                                    sub_08056B1C, sub_08056B7C, sub_080569D4 };
+void (*const gUnk_08107BF4[])(struct_02022780*) = {
+    sub_08056684, sub_080566B8, sub_08056BA0, sub_08056B1C, sub_08056B7C, sub_080569D4,
+};
 
 extern u32 gUnk_02036A40;
 extern u32 gUnk_02036A38;

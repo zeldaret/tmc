@@ -327,10 +327,7 @@ SECTIONS {
         asm/code_0801C85C.o(.text);
         src/ezloNag.o(.text);
         asm/code_0801CEC0.o(.text);
-        src/dma.o(.text);
-        src/input.o(.text);
-        src/code_0801D714.o(.text);
-        src/code_0801D79C.o(.text);
+        src/utils.o(.text);
         asm/code_0801D79C.o(.text);
         /* enemies */
         src/enemy/octorok.o(.text);
@@ -451,13 +448,12 @@ SECTIONS {
         src/loadRoomEntityList.o(.text);
         asm/loadRoomEntity.o(.text);
         asm/code_0804AEB0.o(.text);
-        src/sub_0804AFF4.o(.text);
         src/loadRoom.o(.text);
         asm/code_0804B058.o(.text);
         src/room.o(.text);
         asm/code_0804B9F8.o(.text);
         src/sub_08050008.o(.text);
-        src/sub_08050024.o(.text);
+        src/fade.o(.text);
         asm/code_08050038.o(.text);
         src/fileScreen.o(.text);
         asm/fileScreen.o(.text);
@@ -540,7 +536,7 @@ SECTIONS {
         src/code_0805EC04.o(.text);
         asm/code_0805EC04.o(.text);
         src/code_0805F9A0.o(.text);
-        src/screenDebug.o(.text);
+        src/debugScreen.o(.text);
         src/item14.o(.text);
         /* npcs */
         src/npc/gentari.o(.text);
@@ -646,9 +642,7 @@ SECTIONS {
         asm/code_0806EC20.o(.text);
         src/createNPC.o(.text);
         asm/code_0806ED78.o(.text);
-        src/sub_0806F9EC.o(.text);
-        src/sub_0806FA04.o(.text);
-        src/position.o(.text);
+        src/coord.o(.text);
         asm/code_0806FA6C.o(.text);
         src/player.o(.text);
         asm/code_08070698.o(.text);
@@ -663,13 +657,9 @@ SECTIONS {
         asm/code_08077B98.o(.text);
         src/code_08078778.o(.text);
         asm/code_08078778.o(.text);
-        src/sub_0807B7D8.o(.text);
         src/sub_0807B820.o(.text);
-        src/sub_0807B8A8.o(.text);
-        src/sub_0807B930.o(.text);
         asm/code_0807B9B8.o(.text);
         src/sub_0807C998.o(.text);
-        src/sub_0801D754.o(.text); /* ??? */
         asm/sub_0807CA18.o(.text);
         asm/getInventoryValue.o(.text);
         asm/code_0807CAA0.o(.text);
@@ -915,7 +905,7 @@ SECTIONS {
         src/manager.o(.rodata);
         src/npc.o(.rodata);
         data/data_080B3740.o(.rodata);
-        src/trig.o(.rodata);
+        src/coord.o(.rodata);
         data/data_080C93E0.o(.rodata);
         src/enemy/octorok.o(.rodata);
         data/animations/octorok.o(.rodata);

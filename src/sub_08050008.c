@@ -1,5 +1,5 @@
 #include "global.h"
-#include "dma.h"
+#include "utils.h"
 #include "structures.h"
 
 extern u32 gUnk_020354C0;

@@ -4,7 +4,7 @@
 #include "structures.h"
 #include "room.h"
 #include "screen.h"
-#include "trig.h"
+#include "coord.h"
 #include "functions.h"
 #include "save.h"
 

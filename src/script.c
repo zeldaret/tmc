@@ -5,7 +5,7 @@
 #include "script.h"
 #include "structures.h"
 #include "textbox.h"
-#include "dma.h"
+#include "utils.h"
 #include "save.h"
 #include "random.h"
 #include "functions.h"

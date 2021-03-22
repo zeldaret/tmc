@@ -639,7 +639,7 @@ CreateBird: @ 0x0809D700
 	movs r1, #0x95
 	movs r2, #6
 	movs r3, #8
-	bl FindEntityInListByForm
+	bl FindEntity
 	adds r4, r0, #0
 	cmp r4, #0
 	bne _0809D732

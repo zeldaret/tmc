@@ -342,7 +342,7 @@ _0805BB82:
 	strh r1, [r2, #0xc]
 	movs r0, #9
 	movs r1, #0x22
-	bl FindEntityBySubtype
+	bl DeepFindEntityByID
 	cmp r0, #0
 	beq _0805BBAE
 	bl sub_0805B8EC
