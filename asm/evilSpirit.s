@@ -341,13 +341,13 @@ _080864EE:
 	ldrsh r0, [r0, r1]
 	movs r1, #0x80
 	lsls r1, r1, #6
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r4, #0x80
 	lsls r4, r4, #1
 	adds r1, r4, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	adds r1, r6, #0
 	adds r1, #0x80
 	lsls r0, r0, #0x10
@@ -363,11 +363,11 @@ _080864EE:
 	ldrsh r0, [r0, r3]
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r4, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	adds r1, r6, #0
 	adds r1, #0x84
 	lsls r0, r0, #0x10
@@ -520,13 +520,13 @@ _0808663A:
 	ldrsh r0, [r0, r1]
 	movs r1, #0x80
 	lsls r1, r1, #6
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r5, #0x80
 	lsls r5, r5, #1
 	adds r1, r5, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	adds r1, r7, #0
 	adds r1, #0x80
 	lsls r0, r0, #0x10
@@ -541,11 +541,11 @@ _0808663A:
 	ldrsh r0, [r0, r1]
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r5, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	adds r1, r7, #0
 	adds r1, #0x84
 	lsls r0, r0, #0x10

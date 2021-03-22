@@ -1,7 +1,71 @@
 #include "global.h"
+#include "entity.h"
+#include "coord.h"
+
+extern u8 gUnk_08114F78[];
+extern u8 gUnk_08114F80[];
+
+s16 FixedMul(s16 r0, s16 r1) {
+    s32 temp = r0 * r1;
+    if (temp < 0)
+        return (temp + 255) >> 8;
+    else
+        return temp >> 8;
+}
+
+s16 FixedDiv(s16 r0, s16 r1) {
+    if (r1 == 0)
+        return 0;
+    else
+        return (r0 * 256) / r1;
+}
+
+void CopyPosition(Entity* param_1, Entity* param_2) {
+    PositionRelative(param_1, param_2, 0, 0);
+}
+
+void PositionEntityOnTop(Entity* ent, Entity* ent2) {
+    PositionRelative(ent, ent2, 0, 0);
+    ResolveEntityOnTop(ent, ent2);
+}
+
+void PositionRelative(Entity* source, Entity* target, s32 offsetX, s32 offsetY) { // r0, r1, r2, r3
+    s32 x;
+    s32 y;
+
+    x = source->x.WORD;
+    target->x.WORD = x + offsetX;
+
+    y = source->y.WORD;
+    target->y.WORD = y + offsetY;
+
+    target->height = source->height; // ldr
+    target->collisionLayer = source->collisionLayer;
+    UpdateSpriteForCollisionLayer(target);
+}
+
+void CopyPositionAndSpriteOffset(Entity* param_1, Entity* param_2) {
+    param_2->spriteOffsetX = param_1->spriteOffsetX;
+    param_2->spriteOffsetY = param_1->spriteOffsetY;
+    PositionRelative(param_1, param_2, 0, 0);
+}
+
+void sub_0806FA90(Entity* param_1, Entity* param_2, s32 offsetX, s32 offsetY) {
+    param_2->spriteOffsetX = param_1->spriteOffsetX;
+    param_2->spriteOffsetY = param_1->spriteOffsetY;
+    PositionRelative(param_1, param_2, offsetX * 64 * 32 * 32, offsetY * 64 * 32 * 32);
+}
+
+void ResolveEntityOnTop(Entity* param_1, Entity* param_2) {
+    param_2->spritePriority.b0 = gUnk_08114F78[param_1->spritePriority.b0];
+}
+
+void sub_0806FAD8(Entity* param_1, Entity* param_2) {
+    param_2->spritePriority.b0 = gUnk_08114F80[param_1->spritePriority.b0];
+}
 
 // Values of sin(x*(π/128)) as Q8.8 fixed-point numbers from x = 0 to x = 319
-const s16 gSineTable[] = {
+const s16 gSineTable[64] = {
     Q_8_8(0),          // sin(0*(π/128))
     Q_8_8(0.0234375),  // sin(1*(π/128))
     Q_8_8(0.046875),   // sin(2*(π/128))
@@ -68,8 +132,7 @@ const s16 gSineTable[] = {
     Q_8_8(0.99609375), // sin(63*(π/128))
 };
 
-const s16 gCosineTable[] = {
-
+const s16 gCosineTable[256] = {
     Q_8_8(1),           // sin(64*(π/128))
     Q_8_8(0.99609375),  // sin(65*(π/128))
     Q_8_8(0.99609375),  // sin(66*(π/128))

@@ -82,7 +82,7 @@ void* sub_08077C54(UnkItemStruct* unk) {
 Entity* sub_08077C94(ItemBehavior* arg0, u32 arg1) {
     Entity* iVar1;
 
-    iVar1 = FindEntityInListBySubtype(8, gUnk_0811BE48[arg1].unk[3], 2);
+    iVar1 = FindEntityByID(8, gUnk_0811BE48[arg1].unk[3], 2);
     if (iVar1 == NULL) {
         return NULL;
     }

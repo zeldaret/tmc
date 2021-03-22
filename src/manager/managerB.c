@@ -4,7 +4,7 @@
 #include "entity.h"
 #include "room.h"
 #include "area.h"
-#include "dma.h"
+#include "utils.h"
 #include "functions.h"
 
 /*

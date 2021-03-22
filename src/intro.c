@@ -1,11 +1,11 @@
 #include "global.h"
 #include "main.h"
 #include "entity.h"
-#include "dma.h"
 #include "functions.h"
-#include "readKeyInput.h"
+#include "utils.h"
 #include "screen.h"
 #include "structures.h"
+#include "textbox.h"
 
 typedef struct {
     u8 filler0[0x4];
@@ -74,7 +74,7 @@ void HandleIntroScreen(void) {
             if (gFadeControl.active) {
                 return;
             }
-            sub_0801DA90(1);
+            DispReset(1);
             gMain.funcIndex = 1;
             break;
     }
@@ -87,7 +87,7 @@ static void HandleNintendoCapcomLogos(void) {
 
     advance = GetAdvanceState();
     if (gIntroState.state == 0) {
-        sub_0801DA90(1);
+        DispReset(1);
         gIntroState.state = 1;
         gIntroState.timer = 120;
         LoadGfxGroup(16);

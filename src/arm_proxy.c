@@ -8,7 +8,7 @@
 #include "functions.h"
 #include "object.h"
 #include "manager.h"
-#include "dma.h"
+#include "utils.h"
 #include "npc.h"
 
 extern u8 gUnk_03003DE0;

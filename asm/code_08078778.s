@@ -44,7 +44,7 @@ _080788BA:
 	movs r0, #6
 	movs r1, #9
 	movs r2, #6
-	bl FindEntityInListBySubtype
+	bl FindEntityByID
 	cmp r0, #0
 	bne _080788D6
 	movs r0, #9

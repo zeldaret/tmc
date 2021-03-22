@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "area.h"
 #include "main.h"
-#include "dma.h"
+#include "utils.h"
 #include "functions.h"
 #include "screen.h"
 

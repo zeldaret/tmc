@@ -1024,13 +1024,13 @@ sub_0809CB70: @ 0x0809CB70
 	lsls r5, r5, #0x10
 	asrs r5, r5, #0x10
 	adds r1, r5, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	movs r1, #0x80
 	lsls r1, r1, #1
 	mov r8, r1
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r1, [r6, #0x50]
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
@@ -1043,11 +1043,11 @@ sub_0809CB70: @ 0x0809CB70
 	movs r1, #0
 	ldrsh r0, [r4, r1]
 	adds r1, r5, #0
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	mov r1, r8
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r2, [r6, #0x50]
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8

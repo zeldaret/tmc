@@ -175,34 +175,6 @@ extern LinkedList gUnk_03003DA0;
 #define COORD_TO_TILE_OFFSET(entity, xOff, yOff) \
     TILE((entity)->x.HALF.HI - (xOff), (entity)->y.HALF.HI - (yOff))
 
-Entity* GetEmptyEntity(void);
-extern Entity* CreateEnemy(u32 subtype, u32 form);
-extern Entity* CreateObject(u32 subtype, u32 form, u32 parameter);
-extern Entity* CreateNPC(u32 subtype, u32 form, u32 parameter);
-extern Entity* CreateObjectWithParent(Entity* parent, u32 subtype, u32 form, u32 parameter);
-extern Entity* CreateFx(Entity* parent, u32 form, u32 parameter);
-
-extern void InitializeAnimation(Entity*, u32);
-extern void InitAnimationForceUpdate(Entity*, u32);
-extern void UpdateAnimationSingleFrame(Entity*);
-extern void UpdateSpriteForCollisionLayer(Entity*);
-extern void GetNextFrame(Entity*);
-extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
-extern void SetExtraSpriteFrame(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
-extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
-
-extern u32 GetFacingDirection(Entity*, Entity*);
-
-void DeleteThisEntity(void);
-void DeleteEntity(Entity*);
-
-void AppendEntityToList(Entity* entity, u32 listIndex);
-void PrependEntityToList(Entity* entity, int listIndex);
-
-Entity* FindEntityInListBySubtype(u32 type, u32 subtype, u32 listIndex);
-Entity* FindEntityInListByForm(u32 type, u32 subtype, u32 listIndex, u32 form, u32 parameter);
-
 enum {
     DirectionNorth  = 0x00,
     DirectionEast   = 0x08,
@@ -223,5 +195,74 @@ enum {
 #define Direction8TurnAround(expr) (Direction8RoundUp(expr) ^ 0x10)
 #define Direction8ToAnimationState(expr) (Direction8RoundUp(expr) >> 2)
 #define Direction8FromAnimationState(expr) (((expr) << 2)
+
+Entity* GetEmptyEntity(void);
+extern Entity* CreateEnemy(u32 id, u32 type);
+extern Entity* CreateNPC(u32 id, u32 type, u32 type2);
+extern Entity* CreateObject(u32 id, u32 type, u32 type2);
+extern Entity* CreateObjectWithParent(Entity* parent, u32 id, u32 type, u32 type2);
+extern Entity* CreateFx(Entity* parent, u32 type, u32 type2);
+
+extern void InitializeAnimation(Entity*, u32);
+extern void InitAnimationForceUpdate(Entity*, u32);
+extern void UpdateAnimationSingleFrame(Entity*);
+extern void UpdateSpriteForCollisionLayer(Entity*);
+extern void GetNextFrame(Entity*);
+extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
+extern void SetExtraSpriteFrame(Entity*, u32, u32);
+extern void SetSpriteSubEntryOffsetData1(Entity*, u32, u32);
+extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
+
+extern u32 GetFacingDirection(Entity*, Entity*);
+
+/**
+ * @brief Delete the entity currently in execution.
+ */
+void DeleteThisEntity(void);
+
+/**
+ * @brief Delete an entity.
+ */
+void DeleteEntity(Entity*);
+
+/**
+ * @brief Append entity to linked list.
+ */
+void AppendEntityToList(Entity* entity, u32 listIndex);
+
+/**
+ * @brief Prepend entity to linked list.
+ */
+void PrependEntityToList(Entity* entity, u32 listIndex);
+
+/**
+ * @brief Find an entity for a given kind and ID.
+ * @return Entity* First result or NULL if none found
+ */
+Entity* FindEntityByID(u32 kind, u32 id, u32 listIndex);
+
+/**
+ * @brief Search all lists for an entity of same kind and id.
+ * @return Entity* First result or NULL if none found
+ */
+Entity* DeepFindEntityByID(u32 kind, u32 id);
+
+/**
+ * @brief Search all lists for entity of same kind and id.
+ * @return bool32 Duplicate was entity found
+ */
+bool32 EntityHasDuplicateID(Entity* ent);
+
+/**
+ * @brief Find an entity of same kind and id in list.
+ * @return Entity* First result or NULL if none found
+ */
+Entity* FindNextDuplicateID(Entity* ent, int listIndex);
+
+/**
+ * @brief Find Entity with full identifiers.
+ * @return Entity* First result or NULL if none found
+ */
+Entity* FindEntity(u32 kind, u32 id, u32 listIndex, u32 type, u32 type2);
 
 #endif

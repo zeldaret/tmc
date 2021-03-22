@@ -1,7 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "functions.h"
-#include "position.h"
+#include "coord.h"
 #include "random.h"
 #include "structures.h"
 

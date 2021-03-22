@@ -77,18 +77,13 @@ static_assert(sizeof(UI) == 0x3b4);
 extern Main gMain;
 extern UI gUnk_02032EC0;
 
-void InitScreen();
+void InitScreen(u32 screen);
 
 extern void InitSound(void);
-extern void sub_080560B8(void);
 extern void sub_08056208(void);
 extern void sub_0804FFE4(void);
-extern void MessageInitialize(void);
 extern void sub_080ADD30(void);
 
-extern void InitScreen(u32);
-extern void PrepNextFrame(void);
-extern void ReadKeyInput(void);
 extern void DoSoftReset(void);
 extern void sub_08056260(void);
 extern void VBlankIntrWait();

@@ -1,6 +1,6 @@
 #include "global.h"
 #include "entity.h"
-#include "position.h"
+#include "coord.h"
 
 void Object7E(Entity* this) {
 

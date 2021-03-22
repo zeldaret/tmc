@@ -160,7 +160,7 @@ _080441F2:
 	cmp r2, #0
 	bne _08044248
 	ldr r0, [r4, #0x64]
-	bl sub_0801DA0C
+	bl zFree
 	b _0804429A
 	.align 2, 0
 _08044244: .4byte 0x000001EB

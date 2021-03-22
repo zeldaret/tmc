@@ -1238,7 +1238,7 @@ _08002812:
 	cmp r0, #0
 	beq _08002834
 	adds r6, #1
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #8
 _08002834:
 	adds r4, r0, #0
@@ -1256,7 +1256,7 @@ _0800283E:
 	cmp r0, #0
 	beq _08002856
 	adds r6, #2
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #8
 _08002856:
 	adds r4, r0, #0

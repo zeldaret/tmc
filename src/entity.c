@@ -1,6 +1,7 @@
 #include "global.h"
+#include "area.h"
 #include "entity.h"
-#include "dma.h"
+#include "utils.h"
 #include "script.h"
 
 typedef struct OtherEntity {
@@ -28,9 +29,9 @@ OtherEntity* GetEmptyManager(void);
 
 typedef void* (*Getter)(void);
 
-void* GetEmptyEntityByType(int type) {
+void* GetEmptyEntityByKind(u32 kind) {
     Getter getter = NULL;
-    if (type == 9) {
+    if (kind == MANAGER) {
         getter = (Getter)GetEmptyManager;
     } else {
         getter = (Getter)GetEmptyEntity;
@@ -61,7 +62,7 @@ typedef void (*Deleter)(void*);
 
 void DeleteEntityAny(Entity* ent) {
     Deleter deleter = NULL;
-    if (ent->kind == 9) {
+    if (ent->kind == MANAGER) {
         deleter = (Deleter)DeleteManager;
     } else {
         deleter = (Deleter)DeleteEntity;
@@ -78,7 +79,6 @@ extern void sub_0805EC60();
 extern void sub_08017744();
 extern void sub_0805E92C();
 extern void UnloadHitbox();
-extern void sub_0801DA0C();
 extern void sub_0804AA1C();
 void UnlinkEntity();
 
@@ -94,9 +94,9 @@ void DeleteEntity(Entity* ent) {
         sub_0805E92C(ent);
         UnloadCutsceneData(ent);
         UnloadHitbox(ent);
-        sub_0801DA0C(ent->myHeap);
+        zFree(ent->myHeap);
         ent->myHeap = NULL;
-        if (ent->kind == 3) {
+        if (ent->kind == ENEMY) {
             sub_0804AA1C(ent);
         }
         ent->flags = ent->flags & 0x7f;
@@ -171,8 +171,6 @@ void DeleteManager(OtherEntity* ent) {
     gManagerCount--;
 }
 
-#include "area.h"
-
 void sub_0805E92C(u32 param_1) {
     if (param_1 == gArea.unk2) {
         gArea.unk2 = 0;
@@ -209,7 +207,7 @@ void sub_0805E9A8(void) {
     list = &gEntityLists[0];
     do {
         for (i = list->first; (u32)i != (u32)list; i = i->next) {
-            i->flags &= 0xfd;
+            i->flags &= ~2;
             if ((i->flags & 0x20) == 0) {
                 i->flags |= 0x10;
             }
@@ -242,7 +240,7 @@ void AppendEntityToList(Entity* entity, u32 listIndex) {
     entity->prev = list->last;
     list->last->next = entity;
     list->last = entity;
-    if (entity->kind != 9) {
+    if (entity->kind != MANAGER) {
         entity->spritePriority.b0 = 4;
         gEntCount++;
     } else {
@@ -251,7 +249,7 @@ void AppendEntityToList(Entity* entity, u32 listIndex) {
     sub_0805E374(entity);
 }
 
-void PrependEntityToList(Entity* entity, int listIndex) {
+void PrependEntityToList(Entity* entity, u32 listIndex) {
     LinkedList* list;
 
     UnlinkEntity(entity);
@@ -270,7 +268,7 @@ void UnlinkEntity(Entity* ent) {
     ent->next->prev = ent->prev;
 }
 
-bool32 DoesSimilarEntityExist(Entity* ent) {
+bool32 EntityHasDuplicateID(Entity* ent) {
     Entity* i;
     LinkedList* list;
 
@@ -286,31 +284,31 @@ bool32 DoesSimilarEntityExist(Entity* ent) {
     return FALSE;
 }
 
-Entity* FindEntityInListBySubtype(u32 type, u32 subtype, u32 listIndex) {
+Entity* FindEntityByID(u32 kind, u32 id, u32 listIndex) {
     Entity* it;
     LinkedList* list;
 
     list = &gEntityLists[listIndex];
     for (it = list->first; (u32)it != (u32)list; it = it->next) {
-        if (type == it->kind && subtype == it->id)
+        if (kind == it->kind && id == it->id)
             return it;
     }
     return NULL;
 }
 
-Entity* FindEntityInListByForm(u32 type, u32 subtype, u32 listIndex, u32 form, u32 parameter) {
+Entity* FindEntity(u32 kind, u32 id, u32 listIndex, u32 type, u32 type2) {
     Entity* i;
     LinkedList* list;
 
     list = &gEntityLists[listIndex];
     for (i = list->first; (u32)i != (u32)list; i = i->next) {
-        if (type == i->kind && subtype == i->id && form == i->type && parameter == i->type2)
+        if (kind == i->kind && id == i->id && type == i->type && type2 == i->type2)
             return i;
     }
     return NULL;
 }
 
-Entity* FindNextEntityOfSameSubtype(Entity* ent, int listIndex) {
+Entity* FindNextDuplicateID(Entity* ent, int listIndex) {
     Entity* i;
     LinkedList* list;
 
@@ -322,14 +320,14 @@ Entity* FindNextEntityOfSameSubtype(Entity* ent, int listIndex) {
     return NULL;
 }
 
-Entity* FindEntityBySubtype(int type, int subtype) {
+Entity* DeepFindEntityByID(u32 kind, u32 id) {
     Entity* i;
     LinkedList* list;
 
     list = &gEntityLists[0];
     do {
         for (i = (Entity*)list->first; (u32)i != (u32)list; i = i->next) {
-            if (type == i->kind && (subtype == i->id))
+            if (kind == i->kind && (id == i->id))
                 return i;
         }
     } while (++list < &gEntityLists[9]);
@@ -346,7 +344,7 @@ void DeleteAllEnemies(void) {
     do {
         for (ent = list->first; (u32)ent != (u32)list; ent = next) {
             next = ent->next;
-            if (ent->kind == 3)
+            if (ent->kind == ENEMY)
                 DeleteEntity(ent);
         }
     } while (++list < &gEntityLists[9]);

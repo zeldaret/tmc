@@ -1,12 +1,13 @@
 #include "global.h"
-#include "dma.h"
 #include "functions.h"
 #include "structures.h"
 #include "main.h"
 #include "screen.h"
 #include "random.h"
-#include "readKeyInput.h"
+#include "utils.h"
 #include "save.h"
+#include "textbox.h"
+#include "arm_proxy.h"
 
 extern void HandleIntroScreen(void);
 extern void HandleChooseFileScreen(void);
@@ -20,6 +21,8 @@ static void (*const sScreenHandlers[])(void) = {
     [SCREEN_GAMEPLAY] = HandleGameplayScreen, [SCREEN_GAME_OVER] = HandleGameOverScreen,
     [SCREEN_CREDITS] = HandleCreditsScreen,   [SCREEN_DEBUG_TEXT] = HandleDebugTextScreen,
 };
+
+static void sub_080560B8(void);
 
 void AgbMain(void) {
     int var0;
@@ -104,7 +107,7 @@ static void sub_08055F70(void) {
         MemCopy(gUnk_080B2CD8_3, gUnk_02038560, size);
     }
 
-    sub_0801DA90(0);
+    DispReset(0);
     sub_08016B34();
 }
 
@@ -147,21 +150,21 @@ typedef struct {
     u8 name[6];
     u8 _e;
     u8 _f;
-} test;
+} Defaults;
 
-const test sDefaultSettings = {
+const Defaults sDefaultSettings = {
     .signature = SIGNATURE,
     .saveFileId = 0,
     .messageSpeed = 1,
     .brightnessPref = 1,
-    .gameLanguage = LANGUAGE_EN,
+    .gameLanguage = GAME_LANGUAGE,
     .name = "LINK",
     ._e = 0,
     ._f = 0,
 };
 
 // single misplaced ldr
-NONMATCH("asm/non_matching/sub_080560B8.inc", void sub_080560B8(void)) {
+NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
     u32 temp;
     u32 b;
 
@@ -183,9 +186,9 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", void sub_080560B8(void)) {
     b = BOOLCAST(temp);
 
     if ((gUnk_02000010.field_0x4 != 0) && (gUnk_02000010.field_0x4 != 0xc1)) {
-        b = 1;
+        b = TRUE;
     }
-    if (b != 0) {
+    if (b) {
         MemClear((u8*)&gUnk_02000010.signature, 0x20);
         gUnk_02000010.signature = SIGNATURE;
     }
@@ -251,7 +254,7 @@ void sub_08056260(void) {
     temp2->field_0x1 = 0;
 }
 
-// Convert in-game AABB to screen coordinates and check if it's within the viewport
+// Convert AABB to screen coordinates and check if it's within the viewport
 u32 sub_080562CC(u32 x0, u32 y0, u32 x1, u32 y1) {
     u32 result;
     u32 x = ((gRoomControls.roomScrollX - gRoomControls.roomOriginX) - x0 + DISPLAY_WIDTH);

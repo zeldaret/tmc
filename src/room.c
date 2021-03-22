@@ -2235,7 +2235,7 @@ void sub_0804CD48(void) {
         gFadeControl.active = 0;
         gUsedPalettes = 0;
         *(u16*)0x5000000 = 0x7fff;
-        sub_0801DA90(1);
+        DispReset(1);
     }
     if (CheckGlobalFlag(LV1_CLEAR)) {
         LoadRoomEntityList(&gUnk_080DF94C);
