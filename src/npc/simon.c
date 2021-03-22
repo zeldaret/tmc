@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "functions.h"
 #include "room.h"
@@ -11,9 +12,6 @@ typedef struct {
 } struct_0806C2A0;
 
 extern void DoExitTransition(void*);
-extern void SetTileType(u32, u32, u32);
-extern void DoExitTransition(void*);
-extern void DoFade(u32, u32);
 
 extern void gUnk_0813AD60;
 extern void gUnk_0813AD74;
@@ -35,7 +33,7 @@ void sub_0806C224(void) {
 void Simon_CreateChest(Entity* this) {
     CreateObjectWithParent(this, 0xf, 0x43, 0);
     SetTileType(0x73, COORD_TO_TILE(this), this->collisionLayer);
-    SoundReq(0x73);
+    SoundReq(SFX_SECRET_BIG);
 }
 
 void sub_0806C280(void) {

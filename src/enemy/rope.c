@@ -1,8 +1,8 @@
 #include "global.h"
 #include "entity.h"
-#include "sprite.h"
-#include "functions.h"
 #include "enemy.h"
+#include "random.h"
+#include "functions.h"
 
 extern void (*const gRope[6])(Entity*);
 extern void (*const gUnk_080CE460[4])(Entity*);
@@ -36,12 +36,12 @@ void sub_080313AC(Entity* this) {
 
 void sub_080313E8(Entity* this) {
     if (sub_0806F520()) {
-        gUnk_080CE470[this->previousActionFlag](this);
+        gUnk_080CE470[this->subAction](this);
     }
 }
 
 void sub_0803140C(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 0x3c;
 }
 
@@ -65,7 +65,7 @@ void sub_08031434(Entity* this) {
         sub_08031600(this);
     } else {
         this->action = 1;
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->spriteSettings.b.draw = (this->spriteSettings.b.draw & 0xfc);
         this->height.HALF.HI = -0x80;
         this->frameIndex = 0xff;
@@ -73,13 +73,13 @@ void sub_08031434(Entity* this) {
 }
 
 void sub_08031480(Entity* this) {
-    if (this->previousActionFlag == 0) {
+    if (this->subAction == 0) {
         if (this->actionDelay != 0) {
             this->actionDelay--;
         } else {
             sub_08031600(this);
             this->action = 1;
-            this->previousActionFlag = 1;
+            this->subAction = 1;
             this->spriteSettings.b.draw = 3;
             this->spriteRendering.b3 = 1;
             this->spriteOrientation.flipY = 1;

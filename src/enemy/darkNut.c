@@ -1,4 +1,6 @@
 #include "entity.h"
+#include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
 typedef struct {
@@ -241,7 +243,7 @@ void sub_08020FAC(Entity* this) {
         if (this->field_0x7a.HALF.LO) {
             this->field_0x7a.HALF.LO--;
         } else {
-            this->hurtBlinkTime = -8;
+            this->iframes = -8;
             sub_08021390(this);
         }
     } else {

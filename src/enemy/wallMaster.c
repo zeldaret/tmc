@@ -1,7 +1,8 @@
 #include "enemy.h"
 #include "entity.h"
-#include "functions.h"
 #include "area.h"
+#include "random.h"
+#include "functions.h"
 
 extern void sub_08001328(Entity*);
 extern Entity* sub_08049DF4(u32);

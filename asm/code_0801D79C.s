@@ -203,7 +203,7 @@ _0801D9D8:
 	strh r0, [r3]
 	adds r0, r4, #0
 	mov r1, ip
-	bl MemClear32
+	bl MemClear
 	adds r0, r4, #0
 	b _0801DA02
 	.align 2, 0
@@ -217,8 +217,8 @@ _0801DA02:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 
-	thumb_func_start sub_0801DA0C
-sub_0801DA0C: @ 0x0801DA0C
+	thumb_func_start zFree
+zFree: @ 0x0801DA0C
 	push {r4, r5, lr}
 	ldr r3, _0801DA44 @ =gzHeap
 	subs r1, r0, r3
@@ -282,13 +282,13 @@ zMallocInit: @ 0x0801DA7C
 	ldr r0, _0801DA8C @ =gzHeap
 	movs r1, #0x80
 	lsls r1, r1, #5
-	bl MemClear32
+	bl MemClear
 	pop {pc}
 	.align 2, 0
 _0801DA8C: .4byte gzHeap
 
-	thumb_func_start sub_0801DA90
-sub_0801DA90: @ 0x0801DA90
+	thumb_func_start DispReset
+DispReset: @ 0x0801DA90
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r1, _0801DAEC @ =gMain
@@ -319,15 +319,15 @@ sub_0801DA90: @ 0x0801DA90
 	movs r0, #0x80
 	lsls r0, r0, #0x13
 	strh r3, [r0]
-	bl sub_0801DB10
+	bl ClearOAM
 	bl sub_0801DB34
 	ldr r0, _0801DB08 @ =0x0600C000
 	movs r1, #0x20
-	bl MemClear32
+	bl MemClear
 	ldr r0, _0801DB0C @ =gBG0Buffer
 	movs r1, #0x80
 	lsls r1, r1, #4
-	bl MemClear32
+	bl MemClear
 	strh r4, [r5, #0xe]
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -341,8 +341,8 @@ _0801DB04: .4byte 0x00007FFF
 _0801DB08: .4byte 0x0600C000
 _0801DB0C: .4byte gBG0Buffer
 
-	thumb_func_start sub_0801DB10
-sub_0801DB10: @ 0x0801DB10
+	thumb_func_start ClearOAM
+ClearOAM: @ 0x0801DB10
 	push {r4, lr}
 	ldr r3, _0801DB30 @ =gUnk_03000020
 	movs r1, #0xe0
@@ -369,7 +369,7 @@ sub_0801DB34: @ 0x0801DB34
 	ldr r4, _0801DB6C @ =gScreen
 	adds r0, r4, #0
 	movs r1, #0x7c
-	bl MemClear32
+	bl MemClear
 	ldr r0, _0801DB70 @ =gBG0Buffer
 	str r0, [r4, #0x10]
 	ldr r0, _0801DB74 @ =0x00001F0C
@@ -424,7 +424,7 @@ sub_0801DBA0: @ 0x0801DBA0
 	adds r5, r1, #0
 	adds r1, r2, #0
 	adds r0, r5, #0
-	bl MemClear32
+	bl MemClear
 	movs r0, #1
 	strb r0, [r5]
 	ldr r2, _0801DBE4 @ =gScreenTransition
@@ -699,7 +699,7 @@ _0801DDB8:
 	ldr r0, _0801DDE0 @ =gUnk_02019EE0
 	movs r1, #0x80
 	lsls r1, r1, #8
-	bl MemClear32
+	bl MemClear
 	b _0801DEE2
 	.align 2, 0
 _0801DDD8: .4byte gUnk_080C9C50
@@ -968,7 +968,7 @@ sub_0801DFB4: @ 0x0801DFB4
 	ldr r7, _0801E004 @ =gUnk_02022740
 	adds r0, r7, #0
 	movs r1, #0x10
-	bl MemClear32
+	bl MemClear
 	strh r4, [r7, #6]
 	strh r5, [r7, #8]
 	strh r6, [r7, #0xa]
@@ -1209,7 +1209,7 @@ sub_0801E160: @ 0x0801E160
 	adds r0, r0, r4
 	movs r1, #0xa0
 	lsls r1, r1, #4
-	bl MemClear32
+	bl MemClear
 	adds r0, r6, #0
 	mov r1, r8
 	mov r2, sb
@@ -1279,7 +1279,7 @@ sub_0801E1EC: @ 0x0801E1EC
 	adds r0, r0, r5
 	movs r1, #0xa0
 	lsls r1, r1, #4
-	bl MemClear32
+	bl MemClear
 	adds r0, r4, #0
 	movs r1, #0
 	bl sub_0801E24C
@@ -1443,7 +1443,7 @@ sub_0801E31C: @ 0x0801E31C
 	adds r0, r0, r1
 	movs r1, #0xa0
 	lsls r1, r1, #4
-	bl MemClear32
+	bl MemClear
 	cmp sl, sb
 	bge _0801E3DC
 	movs r6, #0
@@ -1738,7 +1738,7 @@ sub_0801E49C: @ 0x0801E49C
 	adds r0, r0, r6
 	movs r1, #0xa0
 	lsls r1, r1, #4
-	bl MemClear32
+	bl MemClear
 	ldr r2, _0801E5E8 @ =gUnk_02018EE0
 	ldrb r1, [r5]
 	lsls r0, r1, #2

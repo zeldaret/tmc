@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "manager.h"
 #include "flags.h"
 #include "functions.h"
@@ -18,8 +19,6 @@ typedef struct Manager30 {
     u16 flag_succeeded;
     u16 flag_reset;
 } Manager30;
-
-extern void sub_0807B7D8(u32, u32, u32);
 
 enum { INIT, IN_PROGRESS, FAILED, SUCCEEDED };
 
@@ -48,13 +47,13 @@ void Manager30_Main(Manager30* this) {
                     case 0x317:
                         // stepped on a red tile again
                         this->manager.action = FAILED;
-                        SoundReq(0x6d);
+                        SoundReq(SFX_MENU_ERROR);
                         break;
                     case 0x318:
                         // stepped on a blue tile
                         // turn the tile into a red tile
                         sub_0807B7D8(0x317, this->player_current_tile, this->manager.unk_0b);
-                        SoundReq(0x6b);
+                        SoundReq(SFX_6B);
                         // decrease the number of remaining tiles and check if we're done
                         if (--this->manager.unk_0e == 0) {
                             this->manager.action = SUCCEEDED;
@@ -89,7 +88,7 @@ void Manager30_Main(Manager30* this) {
                     SetFlag(this->flag_succeeded);
                 }
             } else {
-                SoundReq(0x72);
+                SoundReq(SFX_SECRET);
             }
     }
 }

@@ -1,5 +1,6 @@
 #include "enemy.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 extern void sub_08001318(Entity*);
@@ -117,11 +118,11 @@ void sub_080225EC(Entity* this) {
 }
 
 void sub_08022654(Entity* this) {
-    switch (this->previousActionFlag) {
+    switch (this->subAction) {
         case 0:
             if (--this->field_0xf)
                 return;
-            this->previousActionFlag = 1;
+            this->subAction = 1;
             SoundReq(0x12d);
             InitializeAnimation(this, 0);
             /* fallthrough */
@@ -129,7 +130,7 @@ void sub_08022654(Entity* this) {
             if (sub_08003FC4(this, 0x1800))
                 return;
 
-            this->previousActionFlag = 2;
+            this->subAction = 2;
             this->spriteSettings.b.draw = 1;
             InitializeAnimation(this, 5);
             EnqueueSFX(0x7d);

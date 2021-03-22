@@ -2,18 +2,11 @@
 #include "entity.h"
 #include "sprite.h"
 #include "player.h"
+#include "npc.h"
+#include "functions.h"
 #include "script.h"
 
-extern void DeleteThisEntity();
-extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
 extern SpriteLoadData gUnk_08110CA8[];
-extern void sub_0805E3A0(Entity*, u32);
-extern u32 GetFacingDirection(Entity*, Entity*);
-extern void sub_0806F118(Entity*);
-extern u32 UpdateFuseInteraction(Entity*);
-extern void SetSpriteSubEntryOffsetData2(Entity*, u32, u32);
-extern void sub_0807000C(Entity*);
-extern u32 sub_0806F5A4();
 
 void Carpenter(Entity* this) {
     if (*(u32*)&this->cutsceneBeh == 0) {

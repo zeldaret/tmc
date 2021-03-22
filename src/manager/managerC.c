@@ -1,11 +1,11 @@
 #include "global.h"
+#include "audio.h"
 #include "manager.h"
 #include "flags.h"
 #include "structures.h"
 #include "room.h"
-#include "area.h"
 #include "screen.h"
-#include "trig.h"
+#include "coord.h"
 #include "functions.h"
 #include "save.h"
 
@@ -40,12 +40,9 @@ void sub_08058A04(ManagerC*);
 void sub_080588F8(ManagerC*);
 u32 sub_08058B08(ManagerC*, u32, u32, const struct_08108228*);
 void sub_08058B5C(ManagerC*, u32);
-void sub_08058D34(void);
 
 extern void sub_0805622C(struct BgAffineDstData*, u32, u32);
-extern void sub_08052D74(void*, void*, void*);
 extern void sub_080044AE(Entity*, u32, u32);
-extern void MemCopy(const void* src, void* dest, u32 size);
 
 extern u8 gUnk_03003DE4[0xC];
 
@@ -88,7 +85,7 @@ void sub_080588CC(ManagerC* this) {
 void nullsub_108(ManagerC* this) {
 }
 
-#define ABS_DIFF_GT(a, b, c) (signed)a - b >= 0 ? a - b > c : b - a > c
+#define ABS_DIFF_GT(a, b, c) ((signed)(a) - (b) >= 0 ? (a) - (b) > (c) : (b) - (a) > (c))
 
 void sub_080588F8(ManagerC* this) {
     if (this->manager.unk_0f == 0) {
@@ -100,7 +97,7 @@ void sub_080588F8(ManagerC* this) {
                 case 0xf0:
                     this->unk_28 = this->unk_24.HALF.HI;
                     this->manager.unk_0f = 0x2D;
-                    SoundReq(0x8c);
+                    SoundReq(SFX_BARREL_ROLL_STOP);
             }
         }
     } else {
@@ -123,7 +120,7 @@ void sub_080588F8(ManagerC* this) {
             }
             if (ABS_DIFF_GT(this->unk_2c, this->unk_24.WORD, 0x100000)) {
                 this->unk_2c = this->unk_24.WORD;
-                SoundReq(0x8b);
+                SoundReq(SFX_BARREL_ROLL);
             }
         }
     }
@@ -213,7 +210,7 @@ void sub_08058B5C(ManagerC* this, u32 unk1) {
     gScreenTransition.playerStartPos.HALF.x = gUnk_081082E8[unk1 * 3];
     gScreenTransition.playerStartPos.HALF.y = gUnk_081082E8[unk1 * 3 + 1];
     gSave.unk7 = gUnk_081082E8[unk1 * 3 + 2];
-    SoundReq(0x121);
+    SoundReq(SFX_STAIRS);
 }
 
 void sub_08058BC8(ManagerC* this) {

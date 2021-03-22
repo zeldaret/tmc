@@ -33,7 +33,7 @@ _08000136:
 	pop {r4, pc}
 _08000138:
 _08000138: .4byte gUnk_030056F1
-_0800013C: .4byte sub_0807D280
+_0800013C: .4byte sub_0807D280 @ layer 1, 2, 3?
 _08000140: .4byte sub_0807D46C
 _08000144: .4byte sub_0807D6D8
 
@@ -55,8 +55,8 @@ sub_08000152: @ 0x08000152
 	lsrs r2, r2, #2
 
 	non_word_aligned_thumb_func_start SetTile
-SetTile: @ 0x0800015E
-	push {r4, r5, r6, r7, lr}
+SetTile: @ r0 = tile type, r1, = tile position, r2 = layer
+	push {r4-r7, lr}
 	lsls r3, r2, #3
 	ldr r4, _08000208 @ =gUnk_08000228
 	ldr r5, [r4, r3]
@@ -75,7 +75,7 @@ SetTile: @ 0x0800015E
 	ldrb r0, [r3, r4]
 	lsrs r2, r2, #2
 	bl sub_08000148
-	pop {r0, r1}
+	pop {r0, r1} @ tilepos, layer
 	push {r0, r1}
 	bl DeleteLoadedTileEntity
 	adds r0, r7, #0
@@ -170,8 +170,8 @@ gUnk_08000278::
 @ call 0x80B19CC
 @ ========
 @ Unused? Doesn't seem to be called by anything in Ghidra.
-	thumb_func_start sub_08000288
-sub_08000288: @ 0x08000288
+	thumb_func_start GetTileAtEntityPos
+GetTileAtEntityPos: @ 0x08000288
 	ldr r3, _080002F4 @ =gUnk_03005740
 	bx r3
 

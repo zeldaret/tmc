@@ -3,12 +3,7 @@
 #include "npc.h"
 #include "player.h"
 #include "script.h"
-
-extern void sub_0805E3A0(Entity*, u32);
-extern u32 sub_0801E99C(Entity*);
-extern void sub_08078784(Entity*, u32);
-extern u32 sub_0806F5A4(u32);
-extern void sub_0806F118(Entity*);
+#include "functions.h"
 
 void Gentari(Entity* this) {
     switch (this->action) {

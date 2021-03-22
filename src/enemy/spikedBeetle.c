@@ -1,5 +1,6 @@
 #include "enemy.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 extern u32 sub_0804A024(Entity*, u32, u32);
@@ -52,7 +53,7 @@ void sub_0802B628(Entity* this) {
                 this->speed = 0xc0;
                 this->direction = this->field_0x3e;
                 this->field_0x42 = 0;
-                this->hurtBlinkTime = -8;
+                this->iframes = -8;
                 this->damageType = 100;
                 InitializeAnimation(this, 9);
             }

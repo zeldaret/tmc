@@ -235,7 +235,7 @@ sub_08094BE0: @ 0x08094BE0
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #0x22
-	bl FindEntityInListByForm
+	bl FindEntity
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08094C22
@@ -390,7 +390,7 @@ sub_08094D10: @ 0x08094D10
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #3
-	bl FindEntityInListByForm
+	bl FindEntity
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08094D2E
@@ -442,7 +442,7 @@ sub_08094D70: @ 0x08094D70
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #0x15
-	bl FindEntityInListByForm
+	bl FindEntity
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08094D8E
@@ -527,7 +527,7 @@ sub_08094E0C: @ 0x08094E0C
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #4
-	bl FindEntityInListByForm
+	bl FindEntity
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08094E2A
@@ -951,7 +951,7 @@ sub_08095164: @ 0x08095164
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #8
-	bl FindEntityInListByForm
+	bl FindEntity
 	cmp r0, #0
 	beq _08095182
 	movs r1, #3
@@ -2103,7 +2103,7 @@ sub_08095A68: @ 0x08095A68
 	movs r1, #0x6a
 	movs r2, #6
 	movs r3, #0x16
-	bl FindEntityInListByForm
+	bl FindEntity
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08095A86

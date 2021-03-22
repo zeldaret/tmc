@@ -1,10 +1,10 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
 
 extern u32 sub_0805C920(Entity*);
-extern void LoadPaletteGroup(u32);
 
 void sub_0805C874(Entity*);
 void sub_0805C894(Entity*);
@@ -42,7 +42,7 @@ void sub_0805C894(Entity* this) {
     if (sub_0805C920(this)) {
         this->action = 2;
         this->actionDelay = 1;
-        SoundReq(0x11a);
+        SoundReq(SFX_EM_ARMOS_ON);
     }
 }
 
@@ -58,7 +58,7 @@ void sub_0805C8B4(Entity* this) {
         }
         LoadPaletteGroup(gUnk_08108D20[this->field_0xf]);
         if (this->field_0xf == 0) {
-            SoundReq(0x11a);
+            SoundReq(SFX_EM_ARMOS_ON);
         }
     }
     if (sub_0805C920(this) == 0) {

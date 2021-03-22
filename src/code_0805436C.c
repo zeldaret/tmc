@@ -1,5 +1,4 @@
 #include "global.h"
-#include "entity.h"
 #include "player.h"
 #include "room.h"
 #include "menu.h"
@@ -133,7 +132,7 @@ u32 sub_080544C8(u32 arg0) {
     }
 }
 
-u32 sub_080544DC(u32 arg0) {
+u32 GetBottleContaining(u32 arg0) {
     if (arg0 == gSave.stats.bottles[0]) {
         return 1;
     } else if (arg0 == gSave.stats.bottles[1]) {

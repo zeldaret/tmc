@@ -7,17 +7,12 @@
 #include "save.h"
 #include "script.h"
 
-extern void InitializeAnimation(Entity*, u32);
-extern u32 LoadExtraSpriteData(Entity*, SpriteLoadData*);
-
 extern u32 sub_080002C0();
 extern void sub_0806ACC4(Entity*);
 extern void sub_0806AEA8();
 extern void sub_0806AEE4(Entity*);
 extern void sub_0806AFE8(Entity*, ScriptExecutionContext*);
 extern s32 sub_0806EDD8(Entity*, u32, u32);
-extern u32 sub_0806F5B0(u32);
-extern void sub_08078784(Entity*, u32);
 extern void sub_08078850(Entity*, u32, u32, u32*);
 
 extern u8 gUnk_081125F4[12];

@@ -33,7 +33,7 @@ sub_080519B0: @ 0x080519B0
 	cmp r5, #0
 	bne _08051A02
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	bl sub_080A3210
 	bl zMallocInit
 	bl sub_080A7124
@@ -41,7 +41,7 @@ sub_080519B0: @ 0x080519B0
 	ldr r4, _08051A08 @ =gScreenTransition
 	adds r0, r4, #0
 	movs r1, #0xb0
-	bl MemClear32
+	bl MemClear
 	bl sub_08049CD4
 	bl sub_080300AC
 	bl sub_0807CA18
@@ -69,18 +69,18 @@ _08051A10: .4byte gMain
 sub_08051A14: @ 0x08051A14
 	push {lr}
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	ldr r1, _08051A70 @ =gFadeControl
 	movs r0, #1
 	rsbs r0, r0, #0
 	str r0, [r1, #4]
 	ldr r0, _08051A74 @ =gUnk_03000000
 	ldr r1, _08051A78 @ =0x00000B74
-	bl MemClear32
+	bl MemClear
 	ldr r0, _08051A7C @ =gUnk_02032EC0
 	movs r1, #0xed
 	lsls r1, r1, #2
-	bl MemClear32
+	bl MemClear
 	bl EraseAllEntities
 	bl sub_080197AC
 	bl sub_08080668
@@ -368,7 +368,7 @@ sub_08051CF0: @ 0x08051CF0
 	cmp r4, #0
 	bne _08051D1E
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	strb r6, [r5, #3]
 	strb r4, [r5, #4]
 	ldr r0, _08051D28 @ =gScreenTransition
@@ -729,15 +729,15 @@ sub_08052010: @ 0x08052010
 	bl sub_080A3210
 	bl MessageInitialize
 	movs r0, #1
-	bl sub_0801DA90
+	bl DispReset
 	ldr r0, _0805207C @ =gBG1Buffer
 	movs r4, #0x80
 	lsls r4, r4, #4
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	ldr r0, _08052080 @ =gBG2Buffer
 	adds r1, r4, #0
-	bl MemClear32
+	bl MemClear
 	bl sub_080A4D34
 	movs r0, #0xa
 	bl LoadPaletteGroup
@@ -749,10 +749,10 @@ sub_08052010: @ 0x08052010
 	movs r0, #0xc0
 	lsls r0, r0, #0x13
 	movs r1, #0x20
-	bl MemClear32
+	bl MemClear
 	ldr r0, _08052084 @ =gMenu
 	movs r1, #0x30
-	bl MemClear32
+	bl MemClear
 	ldr r1, _08052088 @ =gScreen
 	ldrh r2, [r1]
 	movs r3, #0x80

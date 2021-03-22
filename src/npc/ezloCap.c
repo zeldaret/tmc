@@ -325,7 +325,6 @@ extern ScreenTransitionData gUnk_0813ACAC;
 extern ScreenTransitionData gUnk_0813ACC0;
 extern ScreenTransitionData gUnk_0813ACD4;
 extern ScreenTransitionData gUnk_0813ACE8;
-extern ScreenTransitionData gUnk_0813AC5C;
 extern ScreenTransitionData gUnk_0813ACFC;
 // Array of pointers to ScreenTransitionData
 const ScreenTransitionData* const gUnk_081141A4[] = { &gUnk_0813AB6C, &gUnk_0813ABBC, &gUnk_0813ABE4, &gUnk_0813ABF8,

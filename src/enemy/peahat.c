@@ -1,4 +1,6 @@
 #include "entity.h"
+#include "enemy.h"
+#include "random.h"
 #include "functions.h"
 
 extern void (*const gPeahatFunctions[])(Entity*);
@@ -58,14 +60,14 @@ void sub_0801FFDC(Entity* this) {
             this->animationState = PeahatAnimation_SlicedPropeller;
             this->action = 5;
             this->speed = 0x80;
-            this->hurtBlinkTime = -30;
+            this->iframes = -30;
             this->field_0x80.HALF.HI = 0;
             InitializeAnimation(this, this->animationState);
         } else if (this->bitfield == 0x9b) {
             this->animationState = PeahatAnimation_BrokenPropeller;
             this->action = 5;
             this->speed = 0x80;
-            this->hurtBlinkTime = -30;
+            this->iframes = -30;
             this->field_0x80.HALF.HI = 0;
             InitializeAnimation(this, this->animationState);
         } else if (this->bitfield == 0x80) {
@@ -87,14 +89,14 @@ void sub_0801FFDC(Entity* this) {
 }
 
 void sub_08020088(Entity* this) {
-    if (2 >= this->previousActionFlag && !sub_0806F520(this))
+    if (2 >= this->subAction && !sub_0806F520(this))
         return;
 
-    gUnk_080CA5BC[this->previousActionFlag](this);
+    gUnk_080CA5BC[this->subAction](this);
 }
 
 void sub_080200B4(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 60;
     if (this->animationState == PeahatAnimation_Flying) {
         this->animationState = PeahatAnimation_BrokenPropeller;
@@ -150,7 +152,7 @@ void Peahat_Fly(Entity* this) {
     if (sub_08049FDC(this, 1)) {
         if (this->field_0x82.HALF.HI == 0 && (this->field_0xf & 0xf) == 0 && sub_08049F1C(this, gUnk_020000B0, 0x30)) {
             this->action = 2;
-            this->previousActionFlag = Random() & 3;
+            this->subAction = Random() & 3;
             this->actionDelay = 60;
             this->speed = 160;
         }

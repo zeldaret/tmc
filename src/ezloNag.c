@@ -1,5 +1,5 @@
+#include "audio.h"
 #include "global.h"
-#include "entity.h"
 #include "functions.h"
 #include "textbox.h"
 #include "structures.h"
@@ -23,8 +23,6 @@ typedef struct {
     u8 unk12;
     u8 unk13;
 } Element;
-
-///////////////////////////////////////////////////////////////
 
 extern void sub_0805ECEC(u32, u32, u32, u32);
 extern void sub_0801CAD0(Element*);
@@ -99,7 +97,7 @@ void sub_0801CF18(Element* arg0) {
         arg0->unk4 = 2;
         arg0->unk1 = 8;
         gUnk_0200AF00.ezloNagFuncIndex = 3;
-        SoundReq(0x173);
+        SoundReq(SFX_EZLO_UI);
     }
 }
 

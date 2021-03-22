@@ -1,24 +1,16 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "functions.h"
 #include "room.h"
 #include "flags.h"
 #include "script.h"
 
-extern void PrependEntityToList(Entity*, u32);
-extern Entity* FindEntityBySubtype(u32, u32);
-void CopyPosition(Entity*, Entity*);
+extern Entity* DeepFindEntityByID(u32, u32);
 void sub_08068680(Entity*, Entity*);
 void sub_08068694(Entity*, Entity*);
-u32 GetAnimationState(Entity* ent);
-void DeleteThisEntity(void);
 extern Entity* GetEntityByType(u32, u32);
 extern void sub_080686C4(Entity*, Entity*);
-extern void SoundReq(u32);
-extern void SetTileType(u32, u32, u32);
-
-extern Entity gPlayerEntity;
-extern RoomControls gRoomControls;
 
 extern void (*gUnk_08110BD8[])(Entity* ent);
 extern u16 gUnk_08110BE0[];
@@ -40,7 +32,7 @@ void sub_08066CF8(Entity* this) {
 }
 
 void sub_08066D04(Entity* this) {
-    this->parent = FindEntityBySubtype(7, 0x2E);
+    this->parent = DeepFindEntityByID(7, 0x2E);
 }
 
 void sub_08066D14(Entity* this, ScriptExecutionContext* context) {
@@ -95,7 +87,7 @@ void sub_08066D94(Entity* this) {
 void sub_08066DE4(Entity* this) {
     Entity* pEVar1;
 
-    pEVar1 = FindEntityBySubtype(7, 0x2E);
+    pEVar1 = DeepFindEntityByID(7, 0x2E);
     if (pEVar1 != NULL) {
         CopyPosition(this, pEVar1);
         sub_080686C4(this, pEVar1);
@@ -139,7 +131,7 @@ void sub_08066E80(Entity* this, ScriptExecutionContext* context) {
                 context->unk_18++;
                 this->field_0x20 = 0x20000;
                 this->frames.all &= 0xFE;
-                SoundReq(0x7C);
+                SoundReq(SFX_PLY_JUMP);
             }
             break;
         case 2:

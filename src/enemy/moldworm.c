@@ -1,5 +1,6 @@
 #include "enemy.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 extern void sub_0800449C(Entity*, u32);
@@ -67,12 +68,12 @@ void sub_080230CC(Entity* this) {
 }
 
 void sub_080230E4(Entity* this) {
-    if (this->previousActionFlag == 0xff) {
+    if (this->subAction == 0xff) {
         this->action = 7;
         this->actionDelay = 1;
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->damageType = 0x85;
-        this->hurtBlinkTime = -8;
+        this->iframes = -8;
         this->field_0x7c.BYTES.byte3 = 0;
         this->field_0x7a.HALF.HI = 0;
         if (this->bitfield == 0x80 || this->bitfield == 0x9e) {
@@ -90,7 +91,7 @@ void sub_080230E4(Entity* this) {
         gPlayerEntity.spriteSettings.b.draw = 1;
         gPlayerEntity.field_0x20 = 0x18000;
         gPlayerEntity.direction = 0xff;
-        gPlayerEntity.hurtBlinkTime = -0x14;
+        gPlayerEntity.iframes = -0x14;
         gPlayerState.jumpStatus = 0x41;
         gPlayerState.flags.all &= 0xfff7ffff;
     }
@@ -410,7 +411,7 @@ void sub_08023894(Entity* this) {
             gPlayerEntity.y.HALF.HI = this->y.HALF.HI;
             gPlayerEntity.direction = DirectionRoundUp(GetFacingDirection(*(Entity**)&this->field_0x74, this));
             gPlayerEntity.animationState = gPlayerEntity.direction >> 2;
-            gPlayerEntity.hurtBlinkTime = 12;
+            gPlayerEntity.iframes = 12;
             ModHealth(-0x10);
             sub_0800449C(&gPlayerEntity, 0x7a);
         }
@@ -421,7 +422,7 @@ void sub_0802390C(Entity* this) {
     if (this->bitfield & 0x80) {
         Entity* ent = this->attachedEntity;
         do {
-            ent->hurtBlinkTime = this->hurtBlinkTime;
+            ent->iframes = this->iframes;
         } while (ent = ent->attachedEntity, ent != NULL);
     } else {
         Entity* ent = this->attachedEntity;
@@ -431,7 +432,7 @@ void sub_0802390C(Entity* this) {
                 if (bVar2 != 0) {
                     u32 tmp;
                     ent->currentHealth = 0xff;
-                    tmp = (u8)ent->hurtBlinkTime;
+                    tmp = (u8)ent->iframes;
                     if (this->currentHealth >= bVar2) {
                         this->currentHealth -= bVar2;
                     } else {
@@ -440,7 +441,7 @@ void sub_0802390C(Entity* this) {
 
                     ent = this;
                     do {
-                        ent->hurtBlinkTime = tmp;
+                        ent->iframes = tmp;
                     } while (ent = ent->attachedEntity, ent != NULL);
                     break;
                 }

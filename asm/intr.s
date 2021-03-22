@@ -49,16 +49,17 @@ _080B19C0: .4byte gRoomControls
 _080B19C4: .4byte 0x80000020
 _080B19C8: .4byte 0x040000D4
 
-	arm_func_start sub_080B19CC
-sub_080B19CC: @ 0x080B19CC
-	ldrb r2, [r0, #0x38]
-	ldrh r1, [r0, #0x32]
-	ldrh r0, [r0, #0x2e]
+@ r0 = entity*
+	arm_func_start _GetTileAtEntityPos
+_GetTileAtEntityPos: @ 0x080B19CC
+	ldrb r2, [r0, #0x38] @ obj layer
+	ldrh r1, [r0, #0x32] @ obj y
+	ldrh r0, [r0, #0x2e] @ obj x
 	ldr ip, _080B1C10 @ =gRoomControls
 	ldrh r3, [ip, #6]
-	sub r0, r0, r3
+	sub r0, r0, r3 @ obj x - room x
 	ldrh r3, [ip, #8]
-	sub r1, r1, r3
+	sub r1, r1, r3 @ obj y - room y
 	lsl r0, r0, #0x16
 	lsr r0, r0, #0x1a
 	lsl r1, r1, #0x16
@@ -102,7 +103,7 @@ _080B1A64:
 	ldr r1, [r2]
 	lsl r0, r0, #1
 	ldrh r0, [r1, r0]
-	cmp r0, #0x4000
+	cmp r0, #0x4000 @ return tile index is OOB
 	bxhs lr
 	ldr r1, [r2, #4]
 	lsl r0, r0, #1

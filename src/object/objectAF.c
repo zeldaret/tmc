@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "coord.h"
 
 extern void sub_080A0640(Entity*);
 

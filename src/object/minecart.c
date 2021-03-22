@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "functions.h"
 #include "room.h"
@@ -7,7 +8,6 @@ extern u32 sub_08091DDC(Entity*);
 extern u32 sub_080002B4(Entity*, u32, u32);
 extern u32 sub_08007DD6(u32, u32);
 extern void sub_08017744(Entity*);
-extern u32 sub_080002B8(Entity*);
 extern void sub_08091C0C(Entity*);
 
 typedef struct {
@@ -85,7 +85,7 @@ void sub_080917DC(Entity* this) {
                 gPlayerEntity.flags &= 0x7f;
                 ResetPlayer();
                 sub_0807A108();
-                SoundReq(0x7c);
+                SoundReq(SFX_PLY_JUMP);
             }
         } else {
             this->actionDelay = 0;
@@ -153,7 +153,7 @@ void sub_080919AC(Entity* this) {
             }
 
             if (--this->field_0xf == 0xff) {
-                SoundReq(0x7b);
+                SoundReq(SFX_PLY_VO7);
                 this->field_0xf = 0x3c;
             }
 
@@ -182,7 +182,7 @@ void sub_080919AC(Entity* this) {
                         gPlayerEntity.flags |= 0x80;
                         sub_08004168(this);
                         InitAnimationForceUpdate(this, this->animationState + 0xc);
-                        SoundReq(0x78);
+                        SoundReq(SFX_PLY_VO4);
                         SoundReq(0x139);
                         return;
                     case 0x67:

@@ -1,10 +1,10 @@
 #include "global.h"
 #include "entity.h"
+#include "random.h"
 #include "functions.h"
 
 extern u32 sub_080002D4(s32, s32, u32);
 extern s32 sub_080012DC(Entity*);
-extern u32 sub_080044EC(Entity*, u32);
 extern u32 sub_08031E04(Entity*);
 extern void sub_08031E48(Entity*, Entity*);
 extern void sub_08032290(Entity*);
@@ -12,10 +12,7 @@ extern u32 sub_080322A4(Entity*);
 void sub_080322E8(Entity*);
 extern void sub_08032338(Entity*);
 extern Entity* sub_08049DF4(u32);
-extern void sub_0804AA30(Entity*, void (*const funcs[])(Entity*));
-extern u32 sub_0806FCB8(Entity*, u32, u32, u32);
 extern u32 GetNextFunction(Entity*);
-extern void SetChildOffset(Entity*, s32, s32, s32);
 
 extern Entity* gUnk_020000B0;
 extern u8 gEntCount;
@@ -62,8 +59,8 @@ void sub_080318DC(Entity* this) {
                     do {
                         brother->action = 5;
                         brother->spritePriority.b1 = 1;
-                        if (brother->hurtBlinkTime == 0)
-                            brother->hurtBlinkTime = -12;
+                        if (brother->iframes == 0)
+                            brother->iframes = -12;
                     } while (brother = brother->attachedEntity, brother != NULL);
                 }
                 if (this->parent) {
@@ -113,7 +110,7 @@ void sub_080318DC(Entity* this) {
 }
 
 void sub_08031A60(Entity* this) {
-    if (this->hurtBlinkTime > 0)
+    if (this->iframes > 0)
         sub_08003FC4(this, 0x1800);
 
     sub_08001324(this);

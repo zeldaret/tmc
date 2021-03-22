@@ -1,6 +1,7 @@
 #include "global.h"
-#include "functions.h"
+#include "utils.h"
 #include "structures.h"
+#include "functions.h"
 
 extern u16 gUnk_081092D4;
 extern u8 gUnk_02036AD8;

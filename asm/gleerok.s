@@ -2824,11 +2824,11 @@ _0802E580:
 	ldrb r1, [r6]
 	lsls r1, r1, #0x18
 	asrs r1, r1, #0x10
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r7, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	adds r1, r0, #0
 	ldrb r0, [r4, #1]
 	lsls r0, r0, #4
@@ -2838,11 +2838,11 @@ _0802E580:
 	ldrsh r0, [r0, r2]
 	lsls r1, r1, #0x10
 	asrs r1, r1, #0x10
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r7, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r2, [r5]
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8
@@ -2859,11 +2859,11 @@ _0802E580:
 	ldrb r1, [r6]
 	lsls r1, r1, #0x18
 	asrs r1, r1, #0x10
-	bl sub_0806F9EC
+	bl FixedMul
 	lsls r0, r0, #0x10
 	asrs r0, r0, #0x10
 	adds r1, r7, #0
-	bl sub_0806FA04
+	bl FixedDiv
 	ldr r2, [r5]
 	lsls r0, r0, #0x10
 	asrs r0, r0, #8

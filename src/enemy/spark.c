@@ -19,7 +19,7 @@ void sub_0802B2E0(Entity* this) {
     if (this->bitfield & 0x80) {
         if ((this->bitfield & 0x7f) == 0x14) {
             this->flags &= ~0x80;
-            this->hurtBlinkTime = 0;
+            this->iframes = 0;
             this->spriteSettings.b.draw = 0;
             this->action = 2;
             ent = CreateFx(this, 2, 0);

@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "flags.h"
 #include "functions.h"
@@ -162,7 +163,7 @@ static void sub_080810FC(Entity* this) {
         sub_08081598(this);
     } else {
         this->action = 2;
-        this->previousActionFlag = 0;
+        this->subAction = 0;
         this->flags |= 0x80;
         this->flags2 = 0x11;
         CopyPosition(&gPlayerEntity, this);
@@ -304,11 +305,11 @@ void sub_0808136C(Entity* this) {
 }
 
 static void sub_080813BC(Entity* this) {
-    gUnk_0811E840[this->previousActionFlag](this);
+    gUnk_0811E840[this->subAction](this);
 }
 
 void sub_080813D4(Entity* this) {
-    this->previousActionFlag = 1;
+    this->subAction = 1;
     this->field_0x1d = 1;
     this->spriteSettings.b.draw = 1;
 }

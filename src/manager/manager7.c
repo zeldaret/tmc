@@ -12,12 +12,9 @@ typedef struct {
 
 void sub_08057E30();
 u32 sub_08057E40();
-void sub_08057E64();
 void sub_08057E7C(u32);
 
-extern void sub_08052D74();
 extern u32 sub_08056300(const u16*);
-extern void sub_0805E3A0();
 
 extern const u8 gGlobalGfxAndPalettes[];
 

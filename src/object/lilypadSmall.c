@@ -1,7 +1,8 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 #include "player.h"
+#include "random.h"
+#include "functions.h"
 
 extern void sub_080A2CC0(Entity*, Entity**, u16*);
 

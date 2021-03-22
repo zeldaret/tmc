@@ -1,12 +1,12 @@
 #include "global.h"
 #include "entity.h"
 #include "script.h"
+#include "functions.h"
 
 extern u32 gUnk_0813AD10;
 extern u32 gUnk_0813AD24;
 extern u32 gUnk_0813AD38;
 
-extern void sub_0805E3A0(Entity*, u32);
 extern void DoExitTransition(u32*);
 
 void Emma(Entity* this) {

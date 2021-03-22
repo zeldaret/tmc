@@ -4,6 +4,7 @@
 #include "entity.h"
 #include "room.h"
 #include "screen.h"
+#include "utils.h"
 #include "functions.h"
 
 typedef struct {
@@ -30,7 +31,7 @@ void sub_0805B030(Manager1A* this) {
 }
 
 extern void sub_08052D74(void*, void*, void*);
-extern u32 sub_0806FBFC(u32, u32, u32, u32);
+extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 
 typedef struct struct_08108764 {
     u8 unk_00;
@@ -65,13 +66,12 @@ u32 sub_0805B1CC(Manager1A*);
 void sub_0805B210(Manager1A*);
 void sub_0805B2B0(Manager1A*);
 void sub_0805B328(Manager1A*);
-void sub_0805BC4C(void);
 
 void sub_0805B048(Manager1A* this) {
     struct_08108764* tmp;
     Entity* obj;
     sub_0805E3A0(&this->manager, 6);
-    MemClear32(&this->unk_20, 0x20);
+    MemClear(&this->unk_20, 0x20);
     this->manager.action = 1;
     this->unk_3f = gRoomControls.roomID;
     tmp = &gUnk_08108764[this->manager.unk_0a];
@@ -138,7 +138,7 @@ void sub_0805B168(Manager1A* this) {
 
 u32 sub_0805B1CC(Manager1A* this) {
     u32 re = 0;
-    if (sub_0806FBFC(this->unk_20, this->unk_22, this->unk_24, this->unk_26)) {
+    if (CheckPlayerProximity(this->unk_20, this->unk_22, this->unk_24, this->unk_26)) {
         if ((gPlayerState.flags.all & 0x4) && (gPlayerState.flags.all & 0x1)) {
             gPlayerState.flags.all |= 0x8000;
         } else if (gPlayerState.flags.all & 0x8000) {
@@ -224,5 +224,5 @@ void sub_0805B390(u32 unk1) {
     tmp->type = 0x9;
     tmp->subtype = 0x1A;
     tmp->unk_0a = unk1;
-    AppendEntityToList(tmp, 6);
+    AppendEntityToList((Entity*)tmp, 6);
 }

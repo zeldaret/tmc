@@ -1,7 +1,9 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "textbox.h"
 #include "player.h"
+#include "npc.h"
 #include "functions.h"
 
 void sub_08065A64(Entity* this);
@@ -43,7 +45,7 @@ void sub_08065A10(Entity* this) {
 }
 
 void sub_08065A34(Entity* this) {
-    if (UpdateFuseInteraction() != 0) {
+    if (UpdateFuseInteraction(this) != 0) {
         this->action = 1;
         InitAnimationForceUpdate(this, this->animationState / 2);
     }
@@ -83,7 +85,7 @@ void sub_08065AA4(Entity* this) {
             sub_08065A50(this);
             sub_080791D0();
         }
-        SoundReq(0xD3);
+        SoundReq(SFX_VO_EPONA);
         this->interactType = 0;
     }
 }

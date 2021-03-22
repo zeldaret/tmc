@@ -1,12 +1,15 @@
 #include "global.h"
+#include "audio.h"
 #include "flags.h"
 #include "entity.h"
 #include "area.h"
 #include "script.h"
 #include "structures.h"
 #include "textbox.h"
-#include "functions.h"
+#include "utils.h"
 #include "save.h"
+#include "random.h"
+#include "functions.h"
 
 void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
 void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
@@ -304,9 +307,9 @@ extern ScriptExecutionContext gPlayerScriptExecutionContext;
 extern ScriptExecutionContext gScriptExecutionContextArray[0x20];
 
 void InitScriptData(void) {
-    MemClear32(&gActiveScriptInfo, sizeof(gActiveScriptInfo));
-    MemClear32(&gScriptExecutionContextArray, sizeof(gScriptExecutionContextArray));
-    MemClear32(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
+    MemClear(&gActiveScriptInfo, sizeof(gActiveScriptInfo));
+    MemClear(&gScriptExecutionContextArray, sizeof(gScriptExecutionContextArray));
+    MemClear(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
     gActiveScriptInfo.unk_08 = 8;
 }
 
@@ -324,7 +327,7 @@ ScriptExecutionContext* CreateScriptExecutionContext(void) {
 }
 
 void DestroyScriptExecutionContext(ScriptExecutionContext* context) {
-    MemClear32(context, sizeof(ScriptExecutionContext));
+    MemClear(context, sizeof(ScriptExecutionContext));
 }
 
 ScriptExecutionContext* StartCutscene(Entity* entity, u16* script) {
@@ -354,7 +357,7 @@ void UnloadCutsceneData(Entity* entity) {
 void StartPlayerScript(u16* script) {
     Entity* player;
 
-    MemClear32(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
+    MemClear(&gPlayerScriptExecutionContext, sizeof(gPlayerScriptExecutionContext));
     gPlayerScriptExecutionContext.scriptInstructionPointer = script;
     player = &gPlayerEntity;
     *(ScriptExecutionContext**)&player->cutsceneBeh = &gPlayerScriptExecutionContext;
@@ -377,7 +380,7 @@ ScriptExecutionContext* StartCutscene2(Entity* entity, u16* script) {
 }
 
 void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script) {
-    MemClear32(context, sizeof(ScriptExecutionContext));
+    MemClear(context, sizeof(ScriptExecutionContext));
     context->scriptInstructionPointer = script;
 }
 
@@ -701,7 +704,7 @@ void ScriptCommand_CallWithArg(Entity* entity, ScriptExecutionContext* context) 
 }
 
 void ScriptCommand_LoadRoomEntityList(Entity* entity, ScriptExecutionContext* context) {
-    LoadRoomEntityList(GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer));
+    LoadRoomEntityList((EntityData*)GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer));
 }
 
 void ScriptCommand_TestBit(Entity* entity, ScriptExecutionContext* context) {
@@ -853,7 +856,7 @@ void ScriptCommand_BuyItem(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_0807E48C(Entity* entity, ScriptExecutionContext* context) {
-    context->condition = sub_080544DC(context->scriptInstructionPointer[1]);
+    context->condition = GetBottleContaining(context->scriptInstructionPointer[1]);
     gActiveScriptInfo.flags |= 1;
 }
 
@@ -1085,7 +1088,7 @@ void ScriptCommand_0807E8E4(Entity* entity, ScriptExecutionContext* context) {
 
 void ScriptCommand_0807E908(Entity* entity, ScriptExecutionContext* context) {
     entity->action = context->scriptInstructionPointer[1];
-    entity->previousActionFlag = 0;
+    entity->subAction = 0;
 }
 
 void ScriptCommand_SetIntVariable(Entity* entity, ScriptExecutionContext* context) {
@@ -1464,7 +1467,7 @@ void ScriptCommand_SoundReq3(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_SoundReq0x80100000(Entity* entity, ScriptExecutionContext* context) {
-    SoundReq(0x80100000);
+    SoundReq(SONG_RESET_UNK);
 }
 
 void ScriptCommand_ModRupees(Entity* entity, ScriptExecutionContext* context) {

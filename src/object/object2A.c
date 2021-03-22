@@ -31,7 +31,7 @@ void sub_08089B18(Entity* this) {
         case 4:
             if (!CheckFlags(this->field_0x86.HWORD)) {
                 this->spriteSettings.b.draw = FALSE;
-                this->previousActionFlag = 1;
+                this->subAction = 1;
                 return;
             }
     }

@@ -1,11 +1,12 @@
 #include "enemy.h"
 #include "entity.h"
-#include "functions.h"
 #include "textbox.h"
 #include "save.h"
+#include "random.h"
+#include "createObject.h"
+#include "functions.h"
 
 extern bool32 sub_080544B4(u32);
-extern void sub_0807CAA0(u32, u32);
 
 void sub_0802810C(Entity*);
 void sub_080281A0(Entity*);
@@ -210,7 +211,7 @@ void sub_0802810C(Entity* this) {
     gPlayerState.flags.all &= 0xffffffef;
     gPlayerEntity.flags |= 0x80;
     gPlayerEntity.field_0x20 = 0x18000;
-    gPlayerEntity.hurtBlinkTime = -60;
+    gPlayerEntity.iframes = -60;
     gPlayerEntity.direction = gPlayerEntity.animationState << 2;
     gPlayerEntity.spritePriority.b1 = this->field_0x82.HALF.HI;
     gPlayerEntity.height.HALF.HI = gPlayerEntity.spriteOffsetY;
@@ -219,8 +220,8 @@ void sub_0802810C(Entity* this) {
     this->actionDelay = 0x50;
     this->field_0xf = 0;
     this->flags2 |= 2;
-    if (this->hurtBlinkTime == 0) {
-        this->hurtBlinkTime = -18;
+    if (this->iframes == 0) {
+        this->iframes = -18;
     }
 }
 #else

@@ -1,11 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "textbox.h"
-
-extern void sub_08078778(Entity*);
-extern void sub_0805E47C(Entity*);
-extern void sub_0806ED78(Entity*);
-extern void sub_0805E584(Entity*);
+#include "functions.h"
 
 extern void (*const gUnk_0810C290[])(Entity*);
 

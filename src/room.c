@@ -1,8 +1,8 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "area.h"
 #include "room.h"
-#include "functions.h"
 #include "flags.h"
 #include "npc.h"
 #include "player.h"
@@ -11,6 +11,8 @@
 #include "structures.h"
 #include "save.h"
 #include "script.h"
+#include "random.h"
+#include "functions.h"
 
 void sub_0804B3C4(void* arg0) {
     sub_0804B29C(arg0);
@@ -440,8 +442,6 @@ u32 sub_0804B8B0(void) {
     gRoomVars.field_0x78 = gUnk_080D6BB8[index];
     return 1;
 }
-
-extern void* script_08010A5C[];
 
 void sub_0804B8F0(void) {
     if (CheckLocalFlag(0x91)) {
@@ -2236,12 +2236,12 @@ void sub_0804CD48(void) {
         gFadeControl.active = 0;
         gUsedPalettes = 0;
         *(u16*)0x5000000 = 0x7fff;
-        sub_0801DA90(1);
+        DispReset(1);
     }
     if (CheckGlobalFlag(LV1_CLEAR)) {
         LoadRoomEntityList(&gUnk_080DF94C);
     } else {
-        SoundReq(0x80100000);
+        SoundReq(SONG_RESET_UNK);
         gArea.musicIndex = gArea.pMusicIndex;
     }
 }
@@ -2429,7 +2429,7 @@ void sub_0804CED8(void) {
         sub_0807AABC(&gPlayerEntity);
         LoadRoomEntityList(&gUnk_080E1814);
     } else {
-        SoundReq(0x80100000);
+        SoundReq(SONG_RESET_UNK);
         gArea.musicIndex = gArea.pMusicIndex;
     }
 }
@@ -2523,10 +2523,10 @@ void sub_0804CFB0(void) {
 
     if (!CheckFlags(0x31)) {
         if (gScreenTransition.field_0x38 == 0) {
-            SoundReq(0x80100000);
+            SoundReq(SONG_RESET_UNK);
         } else {
             if (gScreenTransition.field_0x39 == 0) {
-                SoundReq(0x80050000);
+                SoundReq(SONG_STOP);
                 sub_08078A90(3);
             }
         }
@@ -2757,12 +2757,11 @@ u32 sub_0804D13C() {
 extern EntityData gUnk_080E49F4;
 
 void sub_0804D140(void) {
-
     sub_0805308C(0x100);
     if (CheckGlobalFlag(LV4_CLEAR)) {
         LoadRoomEntityList(&gUnk_080E49F4);
     } else {
-        SoundReq(0x80100000);
+        SoundReq(SONG_RESET_UNK);
         gArea.musicIndex = gArea.pMusicIndex;
     }
 }
@@ -3091,7 +3090,7 @@ void sub_0804D384(void) {
             sub_08078A90(3);
             LoadRoomEntityList(&gUnk_080E72E4);
             gArea.musicIndex = gArea.pMusicIndex;
-            SoundReq(0x80100000);
+            SoundReq(SONG_RESET_UNK);
         }
     }
 }
@@ -3499,7 +3498,7 @@ u32 sub_0804D6C4() {
 }
 
 void sub_0804D6C8(void) {
-    SoundReq(0x80100000);
+    SoundReq(SONG_RESET_UNK);
     gArea.musicIndex = gArea.pMusicIndex;
 }
 
@@ -4308,8 +4307,6 @@ void LoadHyruleTown(void) {
     }
 }
 
-extern EntityData gUnk_080EEBAC;
-
 void sub_0804E130(void) {
     if ((gSave.windcrests & 0x8000000) == 0) {
         LoadRoomEntityList(&gUnk_080EEBAC);
@@ -4500,7 +4497,7 @@ void sub_0804E3C4() {
     }
     r = Random();
     index = gUnk_080F0D58[index][r & 0x1f];
-    LoadRoomEntityList(gUnk_080F0CB8[index & 0xF]);
+    LoadRoomEntityList((EntityData*)gUnk_080F0CB8[index & 0xF]);
     index >>= 4;
     r >>= 8;
     index = gUnk_080F0E08[index][r & 0x1F];
@@ -4509,7 +4506,7 @@ void sub_0804E3C4() {
         index = 0xE;
     }
     sub_0804B3C4(&gUnk_080F0E1C[index]);
-    SoundReq(0x80100000);
+    SoundReq(SONG_RESET_UNK);
 }
 
 u32 sub_0804E45C() {
@@ -4717,7 +4714,7 @@ extern EntityData gUnk_080F2E2C;
 void sub_0804E6E8(void) {
     if (!CheckGlobalFlag(OUTDOOR)) {
         gArea.musicIndex = gArea.pMusicIndex;
-        SoundReq(0x800b0036);
+        SoundReq(SONG_VOL_RESET | BGM_MINISH_CAP);
     }
     if (!CheckGlobalFlag(START)) {
         LoadRoomEntityList(&gUnk_080F2E2C);
@@ -4734,7 +4731,7 @@ extern EntityData gUnk_080F2EC4;
 void sub_0804E72C(void) {
     if (!CheckGlobalFlag(OUTDOOR)) {
         gArea.musicIndex = gArea.pMusicIndex;
-        SoundReq(0x800b0036);
+        SoundReq(SONG_VOL_RESET | BGM_MINISH_CAP);
     }
     if (!CheckGlobalFlag(START)) {
         LoadRoomEntityList(&gUnk_080F2E94);
@@ -4774,7 +4771,6 @@ u32 sub_0804E7D8() {
 }
 
 extern EntityData gUnk_080F31D8;
-extern u8 gUnk_02000070;
 extern u32 script_08009B30;
 
 void sub_0804E7DC(void) {
@@ -4787,7 +4783,7 @@ void sub_0804E7DC(void) {
     }
     if (!CheckGlobalFlag(OUTDOOR)) {
         gArea.musicIndex = gArea.pMusicIndex;
-        SoundReq(0x800b0036);
+        SoundReq(SONG_VOL_RESET | BGM_MINISH_CAP);
     }
     if ((gPlayerState.flags.all & 8) == 0) {
         LoadRoomEntityList(&gUnk_080F31D8);
@@ -5073,8 +5069,6 @@ void sub_0804EC00(void) {
     }
 }
 
-extern EntityData gUnk_080F4E10;
-
 void sub_0804EC98(void) {
     if ((s32)gSave.windcrests > -1) {
         LoadRoomEntityList(&gUnk_080F4E10);
@@ -5207,8 +5201,6 @@ extern EntityData gUnk_080F5868;
 extern EntityData gUnk_080F5828;
 extern EntityData gUnk_080F5848;
 extern EntityData gUnk_080F5788;
-
-extern u8 gBombBagSizes[];
 
 void sub_0804EEBC(void) {
     LoadRoomEntityList(&gUnk_080F5758);
@@ -5516,8 +5508,6 @@ void sub_0804F25C(void) {
         LoadRoomEntityList(&gUnk_080F7088);
     }
 }
-
-extern EntityData gUnk_080F70D8;
 
 void sub_0804F2C8(void) {
     if ((gSave.windcrests & 0x40000000) == 0) {
@@ -6032,8 +6022,6 @@ void sub_0804FBBC(void) {
     }
 }
 
-extern EntityData gUnk_080F9304;
-
 void sub_0804FBDC(void) {
     if ((gSave.windcrests & 0x2000000) == 0) {
         LoadRoomEntityList(&gUnk_080F9304);
@@ -6449,8 +6437,6 @@ void sub_0804FE58(void) {
         SetGlobalFlag(WHITE_SWORD_END);
     }
 }
-
-extern EntityData gUnk_080FB004;
 
 void sub_0804FEAC(void) {
     if ((gSave.windcrests & 0x1000000) == 0) {

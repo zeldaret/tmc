@@ -3,16 +3,10 @@
 #include "player.h"
 #include "room.h"
 #include "flags.h"
-#include "sprite.h"
 #include "textbox.h"
 #include "npc.h"
+#include "functions.h"
 #include "script.h"
-
-extern void sub_0805E3A0(Entity*, u32);
-extern u32 sub_0806F5A4(u32);
-extern void sub_0806F118(Entity*);
-extern u32 sub_0801E99C(void);
-extern void sub_08078784(Entity*, u32);
 
 extern u16 gUnk_08113344[];
 extern u16 gUnk_0811334A[];
@@ -44,7 +38,7 @@ void Dampe(Entity* this) {
 }
 
 void sub_0806BE3C(Entity* this) {
-    this->field_0x68.HALF.LO = sub_0801E99C();
+    this->field_0x68.HALF.LO = sub_0801E99C(this);
     sub_08078784(this, this->field_0x68.HALF.LO);
 }
 

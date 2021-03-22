@@ -175,8 +175,8 @@ _08073418:
 	.align 2, 0
 _0807341C: .4byte gRoomControls
 
-	thumb_func_start sub_08073420
-sub_08073420: @ 0x08073420
+	thumb_func_start PlayerParachute
+PlayerParachute: @ 0x08073420
 	push {r4, lr}
 	adds r4, r0, #0
 	bl sub_08078EFC
@@ -1280,8 +1280,8 @@ _08073C58:
 _08073C66:
 	pop {pc}
 
-	thumb_func_start sub_08073C68
-sub_08073C68: @ 0x08073C68
+	thumb_func_start PlayerMinish
+PlayerMinish: @ 0x08073C68
 	push {lr}
 	ldr r2, _08073C7C @ =gUnk_0811BC60
 	ldrb r1, [r0, #0xd]
@@ -2760,7 +2760,7 @@ _0807476C:
 	strb r0, [r1]
 	subs r0, #0x24
 	bl ModHealth
-	bl sub_08079458
+	bl RespawnPlayer
 _08074792:
 	pop {r4, pc}
 	.align 2, 0
@@ -4198,7 +4198,7 @@ sub_080751E8: @ 0x080751E8
 	ldr r4, _08075230 @ =gPlayerScriptExecutionContext
 	adds r0, r4, #0
 	movs r1, #0x24
-	bl MemClear32
+	bl MemClear
 	str r6, [r4]
 	ldr r0, _08075234 @ =gPlayerEntity
 	adds r0, #0x84
@@ -4592,7 +4592,7 @@ _080754F2:
 	movs r0, #8
 	movs r1, #0xf
 	movs r2, #2
-	bl FindEntityInListBySubtype
+	bl FindEntityByID
 	cmp r0, #0
 	bne _08075538
 	adds r0, r4, #0
@@ -6017,7 +6017,7 @@ sub_08075FF8: @ 0x08075FF8
 	movs r0, #8
 	movs r1, #2
 	movs r2, #2
-	bl FindEntityInListBySubtype
+	bl FindEntityByID
 	b _08076026
 	.align 2, 0
 _08076018: .4byte gPlayerState
@@ -6025,7 +6025,7 @@ _0807601C:
 	adds r5, #1
 	adds r0, r4, #0
 	movs r1, #2
-	bl FindNextEntityOfSameSubtype
+	bl FindNextDuplicateID
 _08076026:
 	adds r4, r0, #0
 	cmp r4, #0

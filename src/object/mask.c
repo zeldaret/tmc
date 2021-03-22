@@ -2,26 +2,17 @@
 #include "entity.h"
 #include "room.h"
 #include "random.h"
-
-extern Entity gPlayerEntity;
-extern u16 gScreenTransition[];
+#include "structures.h"
+#include "player.h"
+#include "flags.h"
+#include "functions.h"
 
 extern void (*MaskActionFuncs[])(Entity*);
-
-extern void DeleteThisEntity();
-
-extern bool32 CheckFlags(u16);
-extern void SetFlag(u16);
-extern void ClearFlag(u16);
-
-extern void SetTile(u32, u16, u32);
 
 extern void sub_08000148(u16, u16, u32);
 extern s16 sub_080001DA(u16, u32);
 extern u16 sub_080002E0(u16, u32);
 
-extern void EnqueueSFX(u32);
-extern void sub_080044EC(Entity*, u16);
 extern void sub_0805457C(Entity*, s32);
 
 void Mask(Entity* this) {
@@ -35,7 +26,7 @@ void sub_080929A4(Entity* this) {
 
             switch (this->type2 & 0xC0) {
                 case 0x40:
-                    field_0x0a = gScreenTransition[0x5];
+                    field_0x0a = gScreenTransition.field_0xa;
 
                     switch (field_0x0a) {
                         case 0x44D ... 0x44F:
@@ -69,7 +60,7 @@ void sub_080929A4(Entity* this) {
 
     this->field_0x7a.HWORD = sub_080002E0(this->field_0x7c.HALF.HI, 1);
 
-    SetTile(0x4022, this->field_0x7c.HALF.HI, 1);
+    SetTile(0x4022, this->field_0x7c.HALF_U.HI, 1);
 }
 
 // Probably related to knocking it down
@@ -94,7 +85,7 @@ void sub_08092A94(Entity* this) {
     }
 
     // Presumably, make the mask fall
-    SetTile((u16)this->field_0x7c.HALF.LO, this->field_0x7c.HALF.HI, 1);
+    SetTile(this->field_0x7c.HALF_U.LO, this->field_0x7c.HALF_U.HI, 1);
 
     sub_08000148(this->field_0x7a.HWORD, this->field_0x7c.HALF.HI, 1);
 

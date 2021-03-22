@@ -567,7 +567,7 @@ sub_080ADD30: @ 0x080ADD30
 	movs r1, #0x85
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl MemClear32
+	bl MemClear
 	movs r5, #0
 	adds r4, #4
 	movs r0, #0x10
@@ -718,7 +718,7 @@ _080ADE54: .4byte gUnk_02024494
 _080ADE58:
 	adds r0, r1, #0
 	movs r1, #0xc
-	bl MemClear32
+	bl MemClear
 _080ADE60:
 	adds r5, #0xc
 	adds r4, #1
@@ -1084,7 +1084,7 @@ sub_080AE104: @ 0x080AE104
 	adds r1, r1, r5
 	lsls r1, r1, #2
 	adds r0, r4, #0
-	bl MemClear32
+	bl MemClear
 	strb r5, [r4, #1]
 	strh r6, [r4, #4]
 	adds r0, r4, #0
@@ -1396,7 +1396,7 @@ _080AE350:
 	stm r0!, {r2, r3, r7}
 	adds r0, r6, #0
 	movs r1, #0xc
-	bl MemClear32
+	bl MemClear
 	adds r6, #0xc
 	adds r5, #0xc
 	movs r0, #0xc

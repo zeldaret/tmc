@@ -182,7 +182,7 @@ typedef struct Entity
     u32 * field_0x4;
     EntityType entityType;
     u8 action;
-    u8 previousActionFlag;
+    u8 subAction;
     u8 actionDelay;
     u8 field_0xf;
     u8 flags;
@@ -199,7 +199,7 @@ What's the 12th byte in this struct?
     u32 * field_0x4; //4-7
     EntityType entityType; //8-11
     u8 action; //12
-    u8 previousActionFlag; //13
+    u8 subAction; //13
 ```
 
 ---

@@ -1,4 +1,6 @@
-extern void DeleteEntity();
+#include "global.h"
+#include "functions.h"
+
 extern void sub_080A7544();
 extern void sub_0801B188();
 extern void sub_0801B45C();

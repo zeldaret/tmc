@@ -1,21 +1,20 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "flags.h"
 #include "player.h"
 #include "room.h"
+#include "structures.h"
+#include "functions.h"
 
 extern void sub_0809E96C(Entity*);
-extern u32 sub_0800419C(Entity*, Entity*, u32, u32);
 extern void CreateSparkle(Entity*);
 extern u32 sub_0809E9A0(void);
-extern void sub_08078A90(u32);
 extern void sub_0809E918(Entity*);
-extern void SoundReq(u32);
 extern void CreateMinishEntrance(u32 tile);
 
 extern void (*const gUnk_08124354[])(Entity*);
 
-extern u32 gScreenTransition;
 extern s16 gUnk_08124364[];
 
 void TreeHidingPortal(Entity* this) {
@@ -36,7 +35,7 @@ void sub_0809E86C(Entity* this) {
 
     if (sub_0800419C(this, &gPlayerEntity, 0x30, 0x30)) {
         if (CheckGlobalFlag(EZERO_1ST)) {
-            if (((gScreenTransition & 3) == 0)) {
+            if (((gScreenTransition.frameCount & 3) == 0)) {
                 CreateSparkle(this);
             }
         }
@@ -62,7 +61,7 @@ void sub_0809E8EC(Entity* this) {
     if (--this->actionDelay == 0) {
         SetFlag(this->field_0x86.HWORD);
         sub_08078A90(0);
-        SoundReq(0x73);
+        SoundReq(SFX_SECRET_BIG);
         DeleteThisEntity();
     }
 }
