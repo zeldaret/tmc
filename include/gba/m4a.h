@@ -1,0 +1,4 @@
+#ifndef GUARD_M4A_INTERNAL_H
+#define GUARD_M4A_INTERNAL_H
+
+#endif // GUARD_M4A_INTERNAL_H
