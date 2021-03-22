@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "flags.h"
 #include "entity.h"
 #include "area.h"
@@ -1466,7 +1467,7 @@ void ScriptCommand_SoundReq3(Entity* entity, ScriptExecutionContext* context) {
 }
 
 void ScriptCommand_SoundReq0x80100000(Entity* entity, ScriptExecutionContext* context) {
-    SoundReq(0x80100000);
+    SoundReq(SONG_RESET_UNK);
 }
 
 void ScriptCommand_ModRupees(Entity* entity, ScriptExecutionContext* context) {

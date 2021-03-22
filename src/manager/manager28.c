@@ -85,10 +85,10 @@ u32 Manager28_FindMatchingEntities(Manager28* this) {
     EntityData* tmp = GetCurrentRoomProperty(this->manager.unk_0b);
     if (!tmp)
         return 0;
-    for (; *((u8*)tmp) != 0xFF && !(tmp->type == 9 && tmp->subtype == 0x28); tmp++) {
+    for (; *((u8*)tmp) != 0xFF && !(tmp->kind == 9 && tmp->id == 0x28); tmp++) {
         Entity* tmp2;
         u32 i;
-        if (tmp->type != 3)
+        if (tmp->kind != 3)
             continue;
         tmp2 = Manager28_FindMatchingEntity(tmp);
         if (!tmp2)
@@ -114,7 +114,7 @@ Entity* Manager28_FindMatchingEntity(EntityData* unk1) {
     y = unk1->yPos + gRoomControls.roomOriginY;
     tmp = &gUnk_03003D90;
     for (i = tmp->first; (u32)i != (u32)tmp; i = i->next) {
-        if (x == i->x.HALF.HI && y == i->y.HALF.HI && unk1->subtype == i->id && 3 == i->kind && unk1->form == i->type) {
+        if (x == i->x.HALF.HI && y == i->y.HALF.HI && unk1->id == i->id && 3 == i->kind && unk1->type == i->type) {
             return i;
         }
     }

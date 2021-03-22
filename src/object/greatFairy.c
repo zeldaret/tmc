@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "room.h"
 #include "screen.h"
@@ -216,7 +217,7 @@ void GreatFairy_MiniRisingUpdate(Entity* this) {
     this->height.WORD -= 0x8000;
     if (this->height.HALF.HI == -20) {
         this->action = 2;
-        SoundReq(321);
+        SoundReq(SFX_HEART_CONTAINER_SPAWN);
     } else {
         if (((this->height.HALF.HI == -10) && (this->field_0xf == 0)) &&
             (target = GreatFairy_CreateForm(this, DROPLET, 0), target != NULL)) {
@@ -283,7 +284,7 @@ void GreatFairy_DropletInit(Entity* this) {
     this->spriteSettings.b.draw = 1;
     this->height.HALF.HI = 0;
     this->spritePriority.b0 = 5;
-    SoundReq(320);
+    SoundReq(SFX_140);
 }
 
 void GreatFairy_DropletUpdate(Entity* this) {
@@ -322,7 +323,7 @@ void GreatFairy_BigRippleInit(Entity* this) {
     this->actionDelay = 120;
     this->spriteSettings.b.draw = 1;
     this->spritePriority.b0 = 5;
-    SoundReq(249);
+    SoundReq(SFX_TELEPORTER);
 }
 
 void GreatFairy_BigRippleUpdate(Entity* this) {
@@ -501,7 +502,7 @@ void sub_080873D0(Entity* this) {
 void sub_080873FC(void) {
     Entity* ent;
 
-    SoundReq(0xf7);
+    SoundReq(SFX_APPARATE);
     gRoomControls.cameraTarget = NULL;
 
     while (ent = FindEntityByID(0x6, 0x1b, 0x6), ent != NULL) {

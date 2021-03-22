@@ -1,3 +1,4 @@
+#include "audio.h"
 #include "global.h"
 #include "functions.h"
 #include "structures.h"
@@ -205,7 +206,7 @@ u32 sub_08056134(void) {
 }
 
 void InitDMA() {
-    SoundReq(0x80040000);
+    SoundReq(SND_VSYNC_OFF);
     gScreen._6d = gScreen._6c;
     gScreen._6c = 0;
 
@@ -218,7 +219,7 @@ void InitDMA() {
 }
 
 void sub_08056208() {
-    SoundReq(0x80060000);
+    SoundReq(SND_VSYNC_ON);
     gScreen._6c = gScreen._6d;
     gScreen._6d = 0;
 }

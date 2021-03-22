@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "flags.h"
 #include "save.h"
@@ -96,7 +97,7 @@ void sub_0809D0AC(Entity* this) {
         this->height.WORD = 0;
         this->collisionLayer = 1;
         SetLocalFlag(0x45);
-        SoundReq(0x72);
+        SoundReq(SFX_SECRET);
         fx = CreateFx(this, 0x11, 0);
         if (fx != NULL) {
             sub_0806FAD8(this, fx);

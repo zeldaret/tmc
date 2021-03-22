@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "entity.h"
 #include "flags.h"
 #include "player.h"
@@ -60,7 +61,7 @@ void sub_0809E8EC(Entity* this) {
     if (--this->actionDelay == 0) {
         SetFlag(this->field_0x86.HWORD);
         sub_08078A90(0);
-        SoundReq(0x73);
+        SoundReq(SFX_SECRET_BIG);
         DeleteThisEntity();
     }
 }

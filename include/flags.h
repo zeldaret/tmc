@@ -29,7 +29,7 @@ extern u32 gGlobalFlags;
 extern u32 gRoomFlags;
 
 enum {
-    NONE,
+    FLAG_NONE,
     /*0x01*/ LV0_CLEAR,           /*                             */
     /*0x02*/ LV1_CLEAR,           /*                             */
     /*0x03*/ LV2_CLEAR,           /*                             */

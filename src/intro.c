@@ -1,3 +1,4 @@
+#include "audio.h"
 #include "global.h"
 #include "main.h"
 #include "entity.h"
@@ -158,7 +159,7 @@ static void HandleTitlescreen(void) {
                 UpdateSwordBgAffineData();
             }
             sub_080A3210();
-            SoundReq(3); // fanfare
+            SoundReq(BGM_TITLE_SCREEN);
             DoFade(6, 8);
             break;
         case 1:
@@ -182,12 +183,12 @@ static void HandleTitlescreen(void) {
             advance = GetAdvanceState();
             if (advance != ADVANCE_NONE) {
                 if (advance == ADVANCE_KEY_PRESSED) {
-                    SoundReq(0x6a);
+                    SoundReq(SFX_TEXTBOX_SELECT);
                 } else {
                     advance = ADVANCE_NONE;
                 }
                 AdvanceIntroSequence(advance);
-                SoundReq(0x80080000);
+                SoundReq(SONG_VOL_FADE_OUT);
             }
             UpdatePressStartIcon();
             if ((gIntroState.timer & 0x20) == 0) {
@@ -241,7 +242,7 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
                     gScreen.bg.bg1Control = 0xc09;
                     gFadeControl.field_0x4 = 0x40;
                     DoFade(6, 0x10);
-                    SoundReq(0xf8);
+                    SoundReq(SFX_F8);
                 }
             }
             break;
@@ -271,7 +272,7 @@ static void HandleTitlescreenAnimationIntro(void) {
             if (!gFadeControl.active) {
                 gIntroState.subState = 1;
                 gScreen.lcd.displayControl |= DISPCNT_BG2_ON;
-                SoundReq(0xF6);
+                SoundReq(SFX_EVAPORATE);
             }
             break;
         case 1:
@@ -290,7 +291,7 @@ static void HandleTitlescreenAnimationIntro(void) {
                 gIntroState.subState++;
                 CreateObject(0xBD, 0, 0);
                 DoFade(6, 16);
-                SoundReq(0xF8);
+                SoundReq(SFX_F8);
             }
             break;
         default:

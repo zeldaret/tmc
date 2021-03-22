@@ -223,7 +223,7 @@ static void HandleFileScreenEnter(void) {
     gScreen.controls.alphaBlend = BLDALPHA_BLEND(15, 10);
     gUnk_02024490.unk0 = 1;
     gMain.funcIndex = 1;
-    SoundReq(0x7);
+    SoundReq(BGM_FILE_SELECT);
     DoFade(4, 8);
 }
 
@@ -445,14 +445,14 @@ void sub_08050940(void) {
 
     if (gUnk_02032EC0.lastState != mode) {
         SetFileSelectState(mode);
-        SoundReq(0x6A);
+        SoundReq(SFX_TEXTBOX_SELECT);
     }
 
     row_idx = (row_idx + num_rows) % num_rows;
     if (gUnk_02019EE0.unk6 != row_idx) {
         gUnk_02019EE0.unk6 = row_idx;
         sub_08050AFC(row_idx);
-        SoundReq(0x69);
+        SoundReq(SFX_TEXTBOX_CHOICE);
     }
 
     if (gUnk_02019EE0.saveStatus[gUnk_02019EE0.unk6] == SAVE_VALID) {
@@ -596,14 +596,14 @@ void sub_08050C54(void) {
         case A_BUTTON:
         case START_BUTTON:
             if (column_idx == 0) {
-                SoundReq(0x80080000);
+                SoundReq(SONG_VOL_FADE_OUT);
             }
             gMenu.transitionTimer = 0xf;
             sub_080A7114(1);
-            SoundReq(0x6a);
+            SoundReq(SFX_TEXTBOX_SELECT);
             break;
         case B_BUTTON:
-            SoundReq(0x6c);
+            SoundReq(SFX_MENU_CANCEL);
             SetFileSelectState(STATE_NONE);
             break;
         case DPAD_LEFT:
@@ -621,7 +621,7 @@ void sub_08050C54(void) {
     }
     if (gMenu.column_idx != column_idx) {
         gMenu.column_idx = column_idx;
-        SoundReq(0x69);
+        SoundReq(SFX_TEXTBOX_CHOICE);
     }
 }
 
@@ -674,7 +674,7 @@ void sub_08050DE4(void) {
             break;
         case A_BUTTON:
         case START_BUTTON:
-            SoundReq(0x6a);
+            SoundReq(SFX_TEXTBOX_SELECT);
             if (gMenu.field_0x4 != row_idx) {
                 sub_080A7114(2);
                 CreateDialogBox(8, 0);
@@ -685,7 +685,7 @@ void sub_08050DE4(void) {
         case B_BUTTON:
             row_idx = gMenu.field_0x4;
             gUnk_02000000->gameLanguage = gMenu.field_0x4;
-            SoundReq(0x6c);
+            SoundReq(SFX_MENU_CANCEL);
             SetFileSelectState(STATE_NONE);
             break;
     }
@@ -699,7 +699,7 @@ void sub_08050DE4(void) {
     }
     if (gUnk_02000000->gameLanguage != row_idx) {
         gUnk_02000000->gameLanguage = row_idx;
-        SoundReq(0x69);
+        SoundReq(SFX_TEXTBOX_CHOICE);
     }
 }
 
@@ -772,13 +772,13 @@ NONMATCH("asm/non_matching/fileScreen/sub_08050EF4.inc", void sub_08050EF4(void)
         case 3:
             gUnk_02019EE0.saves[gUnk_02019EE0.unk6].messageSpeed = gUnk_02019EE0.unk4;
             gUnk_02019EE0.saves[gUnk_02019EE0.unk6].brightnessPref = gUnk_02019EE0.unk5;
-            SoundReq(0x6c);
+            SoundReq(SFX_MENU_CANCEL);
             sub_080A7114(mode);
             SetActiveSave(gUnk_02019EE0.unk6);
             break;
         case 2:
             CreateDialogBox(8, 0);
-            SoundReq(0x6a);
+            SoundReq(SFX_TEXTBOX_SELECT);
         default:
         case 1:
             sub_080A7114(mode);
@@ -787,11 +787,11 @@ NONMATCH("asm/non_matching/fileScreen/sub_08050EF4.inc", void sub_08050EF4(void)
         case 0:
             if (gMenu.column_idx != column_idx) {
                 gMenu.column_idx = column_idx;
-                SoundReq(0x69);
+                SoundReq(SFX_TEXTBOX_CHOICE);
             } else if (option != *p_option) {
                 *p_option = option;
                 LoadOptionsFromSave(gUnk_02019EE0.unk6);
-                SoundReq(0x69);
+                SoundReq(SFX_TEXTBOX_CHOICE);
             }
             break;
     }
@@ -849,7 +849,7 @@ void sub_08051358(void) {
     if (gMenu.focusCoords[0] != 0x0b || gMenu.focusCoords[1] != 0x5) {
         gMenu.focusCoords[1] = 0x5;
         gMenu.focusCoords[0] = 0xb;
-        SoundReq(0x67);
+        SoundReq(SFX_TEXTBOX_NEXT);
     }
 }
 
@@ -926,7 +926,7 @@ void sub_08051480(u32 c) {
 
     gMenu.unk13 = idx + 1;
     gSave.playerName[idx] = c;
-    sub_08051574(0x6b);
+    sub_08051574(SFX_6B);
 }
 
 u32 sub_080514BC(u32 a1) {
@@ -946,9 +946,8 @@ u32 sub_080514BC(u32 a1) {
     }
 
     idx = gMenu.unk13;
-    if (idx == 0) {
+    if (idx == 0)
         return 0;
-    }
 
     c = gSave.playerName[idx - 1];
     if (c - 0xa4 < 0x29) {
@@ -962,11 +961,10 @@ u32 sub_080514BC(u32 a1) {
             case 0xE:
                 return c;
             case 0xF:
-                if (c < 0xc3) {
+                if (c < 0xc3)
                     return 0;
-                } else {
+                else
                     return c + 10;
-                }
             default:
                 return c;
         }
@@ -990,9 +988,8 @@ u32 sub_080514BC(u32 a1) {
             case 0xe:
                 return c - 0x33;
             case 0xf:
-                if (c > 0xf5) {
+                if (c > 0xf5)
                     return c - 0x29;
-                }
         }
     }
 
@@ -1031,10 +1028,10 @@ void sub_080515D4(void) {
             if (column_idx == 1) {
                 CreateDialogBox(4, 0);
                 sub_080A7114(2);
-                SoundReq(0x6a);
+                SoundReq(SFX_TEXTBOX_SELECT);
             } else {
                 SetFileSelectState(0);
-                SoundReq(0x6c);
+                SoundReq(SFX_MENU_CANCEL);
             }
             break;
         case DPAD_LEFT:
@@ -1047,7 +1044,7 @@ void sub_080515D4(void) {
 
     if (gMenu.column_idx != column_idx) {
         gMenu.column_idx = column_idx;
-        SoundReq(0x69);
+        SoundReq(SFX_TEXTBOX_CHOICE);
     }
 }
 
@@ -1128,20 +1125,20 @@ void sub_080517EC(void) {
             if (gUnk_02019EE0.unk7 < 3) {
                 CreateDialogBox(2, 0);
                 sub_080A7114(2);
-                SoundReq(0x6a);
+                SoundReq(SFX_TEXTBOX_SELECT);
                 break;
             }
             // fallthrough
         case B_BUTTON:
             gUnk_02019EE0.unk7 = 4;
-            SoundReq(0x6c);
+            SoundReq(SFX_MENU_CANCEL);
             SetFileSelectState(0);
             break;
     }
     temp = sub_080517B4(delta);
     if (temp != gUnk_02019EE0.unk7) {
         gUnk_02019EE0.unk7 = temp;
-        SoundReq(0x69);
+        SoundReq(SFX_TEXTBOX_CHOICE);
     }
 }
 

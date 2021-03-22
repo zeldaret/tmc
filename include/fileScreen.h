@@ -1,6 +1,7 @@
 #ifndef FILESELECT_H
 #define FILESELECT_H
 
+#include "audio.h"
 #include "global.h"
 #include "save.h"
 

@@ -1,4 +1,5 @@
 #include "global.h"
+#include "audio.h"
 #include "flags.h"
 #include "screen.h"
 #include "manager.h"
@@ -80,7 +81,7 @@ void sub_0805A370(Manager15* this) {
     if (this->manager.unk_0d) {
         LoadRoomEntityList((EntityData*)&gUnk_080E4C08);
         this->manager.action = 3;
-        SoundReq(0x80100000);
+        SoundReq(SONG_RESET_UNK);
     }
 }
 
