@@ -56,6 +56,7 @@ typedef struct {
 extern struct_02022780 gUnk_02022780;
 static_assert(sizeof(struct_02022780) == 0xa8);
 
+void MessageInitialize(void);
 void ShowTextbox(u32 index);
 void TextboxAtPosition(u32 index, u32 x, u32 y);
 void TextboxNoOverlap(u32 index, Entity* ent);

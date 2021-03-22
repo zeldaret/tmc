@@ -6,6 +6,7 @@
 #include "menu.h"
 #include "dma.h"
 #include "random.h"
+#include "textbox.h"
 
 // copy, erase, start
 #define NUM_FILE_OPERATIONS 3

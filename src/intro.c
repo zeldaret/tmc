@@ -6,6 +6,7 @@
 #include "readKeyInput.h"
 #include "screen.h"
 #include "structures.h"
+#include "textbox.h"
 
 typedef struct {
     u8 filler0[0x4];

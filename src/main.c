@@ -7,6 +7,8 @@
 #include "random.h"
 #include "readKeyInput.h"
 #include "save.h"
+#include "textbox.h"
+#include "arm_proxy.h"
 
 extern void HandleIntroScreen(void);
 extern void HandleChooseFileScreen(void);
@@ -20,6 +22,8 @@ static void (*const sScreenHandlers[])(void) = {
     [SCREEN_GAMEPLAY] = HandleGameplayScreen, [SCREEN_GAME_OVER] = HandleGameOverScreen,
     [SCREEN_CREDITS] = HandleCreditsScreen,   [SCREEN_DEBUG_TEXT] = HandleDebugTextScreen,
 };
+
+static void sub_080560B8(void);
 
 void MainLoop(void) {
     int var0;
@@ -161,7 +165,7 @@ const Defaults sDefaultSettings = {
 };
 
 // single misplaced ldr
-NONMATCH("asm/non_matching/sub_080560B8.inc", void sub_080560B8(void)) {
+NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
     u32 temp;
     u32 b;
 
