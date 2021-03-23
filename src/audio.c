@@ -13,30 +13,30 @@ extern void sub_080A35B4(u32);
 #define IS_BGM(song) (song) - 1 <= NUM_BGM - 1
 #define IS_SFX(song) (song) - 1 > NUM_BGM - 1
 
-void SoundReq(u32 arg) {
+void SoundReq(Sound sound) {
     u32 song;
     struct_02021EE0* ptr;
     if (gMain.field_0x7)
         return;
     ptr = &gUnk_02021EE0;
-    song = arg & 0xffff;
-    switch (arg & 0xffff0000) {
-        case SOUND_REQ_ALL_STOP:
+    song = sound & 0xffff;
+    switch (sound & 0xffff0000) {
+        case SONG_STOP_ALL:
             ptr->currentBgm = 0;
             m4aMPlayAllStop();
             return;
-        case 0x80020000:
+        case SONG_VOL_ZERO:
             sub_080A3234(0);
             return;
-        case 0x80030000:
+        case SONG_VOL_RESET_ALL:
             sub_080A35C8();
             ptr->unk_12 = 0x100;
             sub_080A353C(ptr->currentBgm);
             return;
-        case 0x80080000:
+        case SONG_VOL_FADE_OUT:
             sub_080A35B4(ptr->currentBgm);
             return;
-        case 0x80090000:
+        case SONG_UNK_9:
             if (song == 0)
                 song = ptr->currentBgm;
             if (IS_SFX(song))
@@ -45,34 +45,34 @@ void SoundReq(u32 arg) {
             m4aSongNumStart(song);
             sub_080A35A0(song);
             return;
-        case 0x800a0000:
+        case SONG_UNK_A:
             if (IS_SFX(song))
                 return;
             ptr->currentBgm = song;
             m4aSongNumStartOrContinue(song);
             sub_080A35A0(song);
             return;
-        case 0x800c0000:
+        case SONG_UNK_C:
             m4aMPlayTempoControl(gMPlayTable[gSongTable[ptr->currentBgm].ms].info, song);
             return;
-        case 0x80040000:
+        case SONG_VSYNC_OFF:
             m4aMPlayAllStop();
             m4aSoundVSyncOff();
             return;
-        case 0x80050000:
+        case SONG_STOP:
             if (ptr->currentBgm == 0)
                 return;
             m4aSongNumStop(ptr->currentBgm);
             return;
-        case 0x80060000:
+        case SONG_VSYNC_ON:
             m4aSoundVSyncOn();
-        case 0x80070000:
+        case SONG_UNK_7:
             if (ptr->currentBgm == 0)
                 return;
             m4aSongNumStartOrContinue(ptr->currentBgm);
             sub_080A353C(ptr->currentBgm);
             return;
-        case 0x800b0000:
+        case SONG_VOL_RESET:
             if (IS_SFX(song))
                 return;
             ptr->currentBgm = song;
@@ -80,20 +80,20 @@ void SoundReq(u32 arg) {
             sub_080A35C8();
             sub_080A353C(song);
             return;
-        case 0x800d0000:
+        case SONG_VOL_CHAN1_SILENT:
             ptr->unk_10 = 0;
             return;
-        case 0x80100000:
+        case SONG_RESET_UNK:
             ptr->unk_10 = 0;
             ptr->unk_02 = 1;
             return;
-        case 0x800e0000:
+        case SONG_VOL_CHAN1_RESET:
             ptr->unk_10 = 0x100;
             return;
-        case 0x800f0000:
+        case SONG_UNK_F:
             sub_080A35C8();
             return;
-        case 0x80110000:
+        case SONG_UNK_11:
             ptr->currentBgm = 0;
             return;
         default:
@@ -112,1059 +112,1059 @@ void SoundReq(u32 arg) {
 }
 
 extern const SongHeader song_08DCC48C;
-extern const SongHeader song_08DCC6CC;
-extern const SongHeader song_08DCC844;
-extern const SongHeader song_08DCC9F4;
-extern const SongHeader song_08DCCB3C;
-extern const SongHeader song_08DCCD40;
-extern const SongHeader song_08DCD0C8;
-extern const SongHeader song_08DCD4AC;
-extern const SongHeader song_08DCDF2C;
-extern const SongHeader song_08DCF734;
-extern const SongHeader song_08DCFA40;
-extern const SongHeader song_08DCFBF4;
-extern const SongHeader song_08DCFD98;
-extern const SongHeader song_08DD0244;
-extern const SongHeader song_08DD0690;
-extern const SongHeader song_08DD0A94;
-extern const SongHeader song_08DD0CF4;
-extern const SongHeader song_08DD11A8;
-extern const SongHeader song_08A12ECC;
-extern const SongHeader song_08DD1548;
-extern const SongHeader song_08DD1990;
-extern const SongHeader song_08DD1C2C;
-extern const SongHeader song_08DD1EA4;
-extern const SongHeader song_08DD2130;
-extern const SongHeader song_08DD2340;
-extern const SongHeader song_08DD2D50;
-extern const SongHeader song_08DD30F0;
-extern const SongHeader song_08DD335C;
-extern const SongHeader song_08DD3BCC;
-extern const SongHeader song_08DD40E8;
-extern const SongHeader song_08DD4858;
-extern const SongHeader song_08DD4B44;
-extern const SongHeader song_08DD52FC;
-extern const SongHeader song_08DD5894;
-extern const SongHeader song_08DD64FC;
-extern const SongHeader song_08DD6BFC;
-extern const SongHeader song_08DD6FC4;
-extern const SongHeader song_08DD7174;
-extern const SongHeader song_08DD7670;
-extern const SongHeader song_08DD7E08;
-extern const SongHeader song_08DD83CC;
-extern const SongHeader song_08DD8E5C;
-extern const SongHeader song_08DD902C;
-extern const SongHeader song_08DD9604;
-extern const SongHeader song_08DD9AAC;
-extern const SongHeader song_08DD9F50;
-extern const SongHeader song_08DDA3F8;
-extern const SongHeader song_08DDAAC8;
-extern const SongHeader song_08DDB1D4;
-extern const SongHeader song_08DDB5E4;
-extern const SongHeader song_08DDC070;
-extern const SongHeader song_08DDC250;
-extern const SongHeader song_08DDC394;
-extern const SongHeader song_08DDC4B4;
-extern const SongHeader song_08DDCF28;
-extern const SongHeader song_08DDD510;
-extern const SongHeader song_08DDDA50;
-extern const SongHeader song_08DDE4E4;
-extern const SongHeader song_08DDE824;
-extern const SongHeader song_08DDEC38;
-extern const SongHeader song_08DDED6C;
-extern const SongHeader song_08DDEE18;
-extern const SongHeader song_08DDEE44;
-extern const SongHeader song_08DDEEBC;
-extern const SongHeader song_08DDEF20;
-extern const SongHeader song_08DDEF44;
-extern const SongHeader song_08DDEF7C;
-extern const SongHeader song_08DDEF9C;
-extern const SongHeader song_08DDF008;
-extern const SongHeader song_08DDF040;
-extern const SongHeader song_08DDF068;
-extern const SongHeader song_08DDF094;
-extern const SongHeader song_08DDF0BC;
-extern const SongHeader song_08DDF0EC;
-extern const SongHeader song_08DDF144;
-extern const SongHeader song_08DDF16C;
-extern const SongHeader song_08DDF19C;
-extern const SongHeader song_08DDF1F4;
-extern const SongHeader song_08DDF21C;
-extern const SongHeader song_08DDF238;
-extern const SongHeader song_08DDF254;
-extern const SongHeader song_08DDF270;
-extern const SongHeader song_08DDF28C;
-extern const SongHeader song_08DDF2A8;
-extern const SongHeader song_08DDF2C4;
-extern const SongHeader song_08DDF2E0;
-extern const SongHeader song_08DDF2FC;
-extern const SongHeader song_08DDF31C;
-extern const SongHeader song_08DDF33C;
-extern const SongHeader song_08DDF38C;
-extern const SongHeader song_08DDF3B0;
-extern const SongHeader song_08DDF3E4;
-extern const SongHeader song_08DDF400;
-extern const SongHeader song_08DDF43C;
-extern const SongHeader song_08DDF484;
-extern const SongHeader song_08DDF57C;
-extern const SongHeader song_08DDF598;
-extern const SongHeader song_08DDF608;
-extern const SongHeader song_08DDF630;
-extern const SongHeader song_08DDF64C;
-extern const SongHeader song_08DDF668;
-extern const SongHeader song_08DDF684;
-extern const SongHeader song_08DDF6A0;
-extern const SongHeader song_08DDF6BC;
-extern const SongHeader song_08DDF6D8;
-extern const SongHeader song_08DDF6F4;
-extern const SongHeader song_08DDF710;
-extern const SongHeader song_08DDF72C;
-extern const SongHeader song_08DDF748;
-extern const SongHeader song_08DDF764;
-extern const SongHeader song_08DDF780;
-extern const SongHeader song_08DDF79C;
-extern const SongHeader song_08DDF7B8;
-extern const SongHeader song_08DDF7D4;
-extern const SongHeader song_08DDF7F0;
-extern const SongHeader song_08DDF80C;
-extern const SongHeader song_08DDF828;
-extern const SongHeader song_08DDF844;
-extern const SongHeader song_08DDF860;
-extern const SongHeader song_08DDF87C;
-extern const SongHeader song_08DDF898;
-extern const SongHeader song_08DDF8B4;
-extern const SongHeader song_08DDF8D4;
-extern const SongHeader song_08DDF8F0;
-extern const SongHeader song_08DDF90C;
-extern const SongHeader song_08DDF928;
-extern const SongHeader song_08DDF944;
-extern const SongHeader song_08DDF960;
-extern const SongHeader song_08DDF97C;
-extern const SongHeader song_08DDF998;
-extern const SongHeader song_08DDF9B4;
-extern const SongHeader song_08DDF9D0;
-extern const SongHeader song_08DDF9EC;
-extern const SongHeader song_08DDFA0C;
-extern const SongHeader song_08DDFA28;
-extern const SongHeader song_08DDFA44;
-extern const SongHeader song_08DDFA60;
-extern const SongHeader song_08DDFA7C;
-extern const SongHeader song_08DDFA98;
-extern const SongHeader song_08DDFAB4;
-extern const SongHeader song_08DDFAD0;
-extern const SongHeader song_08DDFAEC;
-extern const SongHeader song_08DDFB08;
-extern const SongHeader song_08DDFB24;
-extern const SongHeader song_08DDFB40;
-extern const SongHeader song_08DDFB5C;
-extern const SongHeader song_08DDFB78;
-extern const SongHeader song_08DDFB94;
-extern const SongHeader song_08DDFBB0;
-extern const SongHeader song_08DDFBCC;
-extern const SongHeader song_08DDFBE8;
-extern const SongHeader song_08DDFC04;
-extern const SongHeader song_08DDFC20;
-extern const SongHeader song_08DDFC3C;
-extern const SongHeader song_08DDFC58;
-extern const SongHeader song_08DDFC74;
-extern const SongHeader song_08DDFC90;
-extern const SongHeader song_08DDFCAC;
-extern const SongHeader song_08DDFCC8;
-extern const SongHeader song_08DDFCE4;
-extern const SongHeader song_08DDFD00;
-extern const SongHeader song_08DDFD1C;
-extern const SongHeader song_08DDFD38;
-extern const SongHeader song_08DDFD54;
-extern const SongHeader song_08DDFD70;
-extern const SongHeader song_08DDFD8C;
-extern const SongHeader song_08DDFDA8;
-extern const SongHeader song_08DDFDD4;
-extern const SongHeader song_08DDFE14;
-extern const SongHeader song_08DDFE30;
-extern const SongHeader song_08DDFE4C;
-extern const SongHeader song_08DDFE68;
-extern const SongHeader song_08DDFE84;
-extern const SongHeader song_08DDFEA0;
-extern const SongHeader song_08DDFEBC;
-extern const SongHeader song_08DDFED8;
-extern const SongHeader song_08DDFEF4;
-extern const SongHeader song_08DDFF10;
-extern const SongHeader song_08DDFF2C;
-extern const SongHeader song_08DDFF48;
-extern const SongHeader song_08DDFF64;
-extern const SongHeader song_08DDFF80;
-extern const SongHeader song_08DDFF9C;
-extern const SongHeader song_08DDFFB8;
-extern const SongHeader song_08DDFFD4;
-extern const SongHeader song_08DDFFF0;
-extern const SongHeader song_08DE000C;
-extern const SongHeader song_08DE0028;
-extern const SongHeader song_08DE0048;
-extern const SongHeader song_08DE0064;
-extern const SongHeader song_08DE0080;
-extern const SongHeader song_08DE00A0;
-extern const SongHeader song_08DE00BC;
-extern const SongHeader song_08DE00EC;
-extern const SongHeader song_08DE0138;
-extern const SongHeader song_08DE0180;
-extern const SongHeader song_08DE01B4;
-extern const SongHeader song_08DE01F4;
-extern const SongHeader song_08DE0244;
-extern const SongHeader song_08DE028C;
-extern const SongHeader song_08DE02AC;
-extern const SongHeader song_08DE02C8;
-extern const SongHeader song_08DE02EC;
-extern const SongHeader song_08DE0310;
-extern const SongHeader song_08DE0388;
-extern const SongHeader song_08DE03C4;
-extern const SongHeader song_08DE041C;
-extern const SongHeader song_08DE04E4;
-extern const SongHeader song_08DE0534;
-extern const SongHeader song_08DE0584;
-extern const SongHeader song_08DE05DC;
-extern const SongHeader song_08DE0634;
-extern const SongHeader song_08DE068C;
-extern const SongHeader song_08DE06E4;
-extern const SongHeader song_08DE0728;
-extern const SongHeader song_08DE0784;
-extern const SongHeader song_08DE07D4;
-extern const SongHeader song_08DE0840;
-extern const SongHeader song_08DE0860;
-extern const SongHeader song_08DE087C;
-extern const SongHeader song_08DE0898;
-extern const SongHeader song_08DE08C4;
-extern const SongHeader song_08DE08FC;
-extern const SongHeader song_08DE199C;
-extern const SongHeader song_08DE19D0;
-extern const SongHeader song_08DE1A00;
-extern const SongHeader song_08DE1A2C;
-extern const SongHeader song_08DE207C;
-extern const SongHeader song_08DE20C8;
-extern const SongHeader song_08DE20FC;
-extern const SongHeader song_08DE2124;
-extern const SongHeader song_08DE2174;
-extern const SongHeader song_08DE21AC;
-extern const SongHeader song_08DE21E8;
-extern const SongHeader song_08DE222C;
-extern const SongHeader song_08DE2260;
-extern const SongHeader song_08DE2338;
-extern const SongHeader song_08DE2408;
-extern const SongHeader song_08DE2478;
-extern const SongHeader song_08DE24BC;
-extern const SongHeader song_08DE2500;
-extern const SongHeader song_08DE251C;
-extern const SongHeader song_08DE2544;
-extern const SongHeader song_08DE2584;
-extern const SongHeader song_08DE25A4;
-extern const SongHeader song_08DE25D0;
-extern const SongHeader song_08DE25F0;
-extern const SongHeader song_08DE267C;
-extern const SongHeader song_08DE269C;
-extern const SongHeader song_08DE26C4;
-extern const SongHeader song_08DE26E4;
-extern const SongHeader song_08DE2718;
-extern const SongHeader song_08DE2734;
-extern const SongHeader song_08DE2778;
-extern const SongHeader song_08DE27C0;
-extern const SongHeader song_08DE27DC;
-extern const SongHeader song_08DE287C;
-extern const SongHeader song_08DE2944;
-extern const SongHeader song_08DE2A68;
-extern const SongHeader song_08DE2AE8;
-extern const SongHeader song_08DE2B1C;
-extern const SongHeader song_08DE2B3C;
-extern const SongHeader song_08DE2B58;
-extern const SongHeader song_08DE2B78;
-extern const SongHeader song_08DE2B9C;
-extern const SongHeader song_08DE2BD0;
-extern const SongHeader song_08DE2BF4;
-extern const SongHeader song_08DE2C10;
-extern const SongHeader song_08DE2C2C;
-extern const SongHeader song_08DE2C48;
-extern const SongHeader song_08DE2C64;
-extern const SongHeader song_08DE2C8C;
-extern const SongHeader song_08DE2CFC;
-extern const SongHeader song_08DE2D18;
-extern const SongHeader song_08DE2D34;
-extern const SongHeader song_08DE2D50;
-extern const SongHeader song_08DE2D6C;
-extern const SongHeader song_08DE2D88;
-extern const SongHeader song_08DE2DA4;
-extern const SongHeader song_08DE2DC0;
-extern const SongHeader song_08DE2DDC;
-extern const SongHeader song_08DE2E74;
-extern const SongHeader song_08DE2EDC;
-extern const SongHeader song_08DE2F98;
-extern const SongHeader song_08DE3100;
-extern const SongHeader song_08DE311C;
-extern const SongHeader song_08DE3154;
-extern const SongHeader song_08DE3188;
-extern const SongHeader song_08DE31C4;
-extern const SongHeader song_08DE32A4;
-extern const SongHeader song_08DE33B4;
-extern const SongHeader song_08DE33E8;
-extern const SongHeader song_08DE34A4;
-extern const SongHeader song_08DE34E4;
-extern const SongHeader song_08DE3564;
-extern const SongHeader song_08DE3588;
-extern const SongHeader song_08DE35AC;
-extern const SongHeader song_08DE3618;
-extern const SongHeader song_08DE3674;
-extern const SongHeader song_08DE36B0;
-extern const SongHeader song_08DE37CC;
-extern const SongHeader song_08DE380C;
-extern const SongHeader song_08DE3850;
-extern const SongHeader song_08DE3888;
-extern const SongHeader song_08DE38F0;
-extern const SongHeader song_08DE3918;
-extern const SongHeader song_08DE3968;
-extern const SongHeader song_08DE39B4;
-extern const SongHeader song_08DE3A10;
-extern const SongHeader song_08DE3A70;
-extern const SongHeader song_08DE3AA0;
-extern const SongHeader song_08DE3AF8;
-extern const SongHeader song_08DE3B30;
-extern const SongHeader song_08DE3B6C;
-extern const SongHeader song_08DE3BD4;
-extern const SongHeader song_08DE3BF0;
-extern const SongHeader song_08DE3C14;
-extern const SongHeader song_08DE3C64;
-extern const SongHeader song_08DE3CC0;
-extern const SongHeader song_08DE3D34;
-extern const SongHeader song_08DE3DB0;
-extern const SongHeader song_08DE3E34;
-extern const SongHeader song_08DE3E5C;
-extern const SongHeader song_08DE3EA4;
-extern const SongHeader song_08DE3EE0;
-extern const SongHeader song_08DE3F1C;
-extern const SongHeader song_08DE3F5C;
-extern const SongHeader song_08DE4028;
-extern const SongHeader song_08DE406C;
-extern const SongHeader song_08DE4110;
-extern const SongHeader song_08DE417C;
-extern const SongHeader song_08DE4198;
-extern const SongHeader song_08DE41D0;
-extern const SongHeader song_08DE420C;
-extern const SongHeader song_08DE4244;
-extern const SongHeader song_08DE4278;
-extern const SongHeader song_08DE42C0;
-extern const SongHeader song_08DE4380;
-extern const SongHeader song_08DE43D4;
-extern const SongHeader song_08DE4424;
-extern const SongHeader song_08DE44C4;
-extern const SongHeader song_08DE44E4;
-extern const SongHeader song_08DE4500;
-extern const SongHeader song_08DE451C;
-extern const SongHeader song_08DE4538;
-extern const SongHeader song_08DE4554;
-extern const SongHeader song_08DE4574;
-extern const SongHeader song_08DE4594;
-extern const SongHeader song_08DE45F0;
-extern const SongHeader song_08DE46A8;
-extern const SongHeader song_08DE46C8;
-extern const SongHeader song_08DE475C;
-extern const SongHeader song_08DE4790;
-extern const SongHeader song_08DE47E4;
-extern const SongHeader song_08DE4838;
-extern const SongHeader song_08DE4878;
-extern const SongHeader song_08DE48BC;
-extern const SongHeader song_08DE4930;
-extern const SongHeader song_08DE4968;
-extern const SongHeader song_08DE49AC;
-extern const SongHeader song_08DE49D0;
-extern const SongHeader song_08DE4A0C;
-extern const SongHeader song_08DE4A28;
-extern const SongHeader song_08DE4A60;
-extern const SongHeader song_08DE4ACC;
-extern const SongHeader song_08DE4B00;
-extern const SongHeader song_08DE4B50;
-extern const SongHeader song_08DE4BEC;
-extern const SongHeader song_08DE4CCC;
-extern const SongHeader song_08DE4D24;
-extern const SongHeader song_08DE4E64;
-extern const SongHeader song_08DE4EB0;
-extern const SongHeader song_08DE4F20;
-extern const SongHeader song_08DE4FB4;
-extern const SongHeader song_08DE4FE8;
-extern const SongHeader song_08DE506C;
-extern const SongHeader song_08DE50BC;
-extern const SongHeader song_08DE512C;
-extern const SongHeader song_08DE51B0;
-extern const SongHeader song_08DE5218;
-extern const SongHeader song_08DE5248;
-extern const SongHeader song_08DE52F0;
-extern const SongHeader song_08DE5318;
-extern const SongHeader song_08DE5348;
-extern const SongHeader song_08DE5390;
-extern const SongHeader song_08DE53FC;
-extern const SongHeader song_08DE5440;
-extern const SongHeader song_08DE5540;
-extern const SongHeader song_08DE5654;
-extern const SongHeader song_08DE5728;
-extern const SongHeader song_08DE57AC;
-extern const SongHeader song_08DE5808;
-extern const SongHeader song_08DE5850;
-extern const SongHeader song_08DE5894;
-extern const SongHeader song_08DE58E0;
-extern const SongHeader song_08DE58FC;
-extern const SongHeader song_08DE5918;
-extern const SongHeader song_08DE5934;
-extern const SongHeader song_08DE598C;
-extern const SongHeader song_08DE59C8;
-extern const SongHeader song_08DE5ADC;
-extern const SongHeader song_08DE5AFC;
-extern const SongHeader song_08DE5B18;
-extern const SongHeader song_08DE5B34;
-extern const SongHeader song_08DE5B54;
-extern const SongHeader song_08DE5BA8;
-extern const SongHeader song_08DE5BC4;
-extern const SongHeader song_08DE5BE0;
-extern const SongHeader song_08DE5BFC;
-extern const SongHeader song_08DE5C18;
-extern const SongHeader song_08DE5C34;
-extern const SongHeader song_08DE5C50;
-extern const SongHeader song_08DE5C6C;
-extern const SongHeader song_08DE5C88;
-extern const SongHeader song_08DE5CA8;
-extern const SongHeader song_08DE5CC4;
-extern const SongHeader song_08DE5CE0;
-extern const SongHeader song_08DE5CFC;
-extern const SongHeader song_08DE5D28;
-extern const SongHeader song_08DE5D44;
-extern const SongHeader song_08DE5D70;
-extern const SongHeader song_08DE5D90;
-extern const SongHeader song_08DE5DAC;
-extern const SongHeader song_08DE5DC8;
-extern const SongHeader song_08DE5DE4;
-extern const SongHeader song_08DE5E00;
-extern const SongHeader song_08DE5E1C;
-extern const SongHeader song_08DE5E38;
-extern const SongHeader song_08DE5E54;
-extern const SongHeader song_08DE5E70;
-extern const SongHeader song_08DE5E8C;
-extern const SongHeader song_08DE5EA8;
-extern const SongHeader song_08DE5EC4;
-extern const SongHeader song_08DE5EE0;
-extern const SongHeader song_08DE5EFC;
-extern const SongHeader song_08DE5F18;
-extern const SongHeader song_08DE5F34;
-extern const SongHeader song_08DE5FCC;
-extern const SongHeader song_08DE6004;
-extern const SongHeader song_08DE6044;
-extern const SongHeader song_08DE6060;
-extern const SongHeader song_08DE607C;
-extern const SongHeader song_08DE6098;
-extern const SongHeader song_08DE60B4;
-extern const SongHeader song_08DE60D0;
-extern const SongHeader song_08DE60EC;
-extern const SongHeader song_08DE6108;
-extern const SongHeader song_08DE6124;
-extern const SongHeader song_08DE6140;
-extern const SongHeader song_08DE615C;
-extern const SongHeader song_08DE6178;
-extern const SongHeader song_08DE6194;
-extern const SongHeader song_08DE61B0;
-extern const SongHeader song_08DE61CC;
-extern const SongHeader song_08DE61E8;
-extern const SongHeader song_08DE6204;
-extern const SongHeader song_08DE6220;
-extern const SongHeader song_08DE623C;
-extern const SongHeader song_08DE6258;
-extern const SongHeader song_08DE6274;
-extern const SongHeader song_08DE6290;
-extern const SongHeader song_08DE62AC;
-extern const SongHeader song_08DE62C8;
-extern const SongHeader song_08DE62E4;
-extern const SongHeader song_08DE6300;
-extern const SongHeader song_08DE631C;
-extern const SongHeader song_08DE6338;
-extern const SongHeader song_08DE6354;
-extern const SongHeader song_08DE6370;
-extern const SongHeader song_08DE638C;
-extern const SongHeader song_08DE63A8;
-extern const SongHeader song_08DE63C4;
-extern const SongHeader song_08DE63E0;
-extern const SongHeader song_08DE63FC;
-extern const SongHeader song_08DE6418;
-extern const SongHeader song_08DE6434;
-extern const SongHeader song_08DE6450;
-extern const SongHeader song_08DE646C;
-extern const SongHeader song_08DE6488;
-extern const SongHeader song_08DE64A4;
-extern const SongHeader song_08DE64C0;
-extern const SongHeader song_08DE64DC;
-extern const SongHeader song_08DE64F8;
-extern const SongHeader song_08DE6514;
-extern const SongHeader song_08DE6530;
-extern const SongHeader song_08DE654C;
-extern const SongHeader song_08DE6568;
-extern const SongHeader song_08DE6584;
-extern const SongHeader song_08DE65A0;
-extern const SongHeader song_08DE65BC;
-extern const SongHeader song_08DE65DC;
-extern const SongHeader song_08DE65F8;
-extern const SongHeader song_08DE6614;
-extern const SongHeader song_08DE6630;
-extern const SongHeader song_08DE6650;
-extern const SongHeader song_08DE6674;
-extern const SongHeader song_08DE7544;
-extern const SongHeader song_08DE7B70;
-extern const SongHeader song_08DE7BB8;
-extern const SongHeader song_08DE7BD4;
-extern const SongHeader song_08DE7BFC;
-extern const SongHeader song_08DE7C28;
-extern const SongHeader song_08DE7C78;
-extern const SongHeader song_08DE7C94;
-extern const SongHeader song_08DE7CB4;
-extern const SongHeader song_08DE7CF0;
-extern const SongHeader song_08DE7D0C;
-extern const SongHeader song_08DE7D28;
+extern const SongHeader bgmCastleTournament;
+extern const SongHeader bgmVaatiMotif;
+extern const SongHeader bgmTitleScreen;
+extern const SongHeader bgmCastleMotif;
+extern const SongHeader bgmElementGet;
+extern const SongHeader bgmFairyFountain;
+extern const SongHeader bgmFileSelect;
+extern const SongHeader bgmIntorCutscene;
+extern const SongHeader bgmCredits;
+extern const SongHeader bgmGameover;
+extern const SongHeader bgmSavingZelda;
+extern const SongHeader bgmLttpTitle;
+extern const SongHeader bgmVaatiTheme;
+extern const SongHeader bgmEzloTheme;
+extern const SongHeader bgmStory;
+extern const SongHeader bgmFestivalApproach;
+extern const SongHeader bgmBeatVaati;
+extern const SongHeader bgmUnused;
+extern const SongHeader bgmBeanstalk;
+extern const SongHeader bgmHouse;
+extern const SongHeader bgmCuccoMinigame;
+extern const SongHeader bgmSyrupTheme;
+extern const SongHeader bgmDungeon;
+extern const SongHeader bgmElementTheme;
+extern const SongHeader bgmHyruleField;
+extern const SongHeader bgmHyruleCastle;
+extern const SongHeader bgmHyruleCastleNointro;
+extern const SongHeader bgmMinishVillage;
+extern const SongHeader bgmMinishWoods;
+extern const SongHeader bgmCrenelStorm;
+extern const SongHeader bgmCastorWilds;
+extern const SongHeader bgmHyruleTown;
+extern const SongHeader bgmRoyalValley;
+extern const SongHeader bgmCloudTops;
+extern const SongHeader bgmDarkHyruleCastle;
+extern const SongHeader bgmSecretCastleEntrance;
+extern const SongHeader bmgDeepwoodShrine;
+extern const SongHeader bgmCaveOfFlames;
+extern const SongHeader bgmFortressOfWinds;
+extern const SongHeader bgmTempleOfDroplets;
+extern const SongHeader bgmPalaceOfWinds;
+extern const SongHeader bgmEzloStory;
+extern const SongHeader bgmRoyalCrypt;
+extern const SongHeader bgmElementalSanctuary;
+extern const SongHeader bgmFightTheme;
+extern const SongHeader bgmBossTheme;
+extern const SongHeader bgmVaatiReborn;
+extern const SongHeader bgmVaatiTransfigured;
+extern const SongHeader bgmCastleCollapse;
+extern const SongHeader bgmVaatiWrath;
+extern const SongHeader bgmFightTheme2;
+extern const SongHeader bgmDiggingCave;
+extern const SongHeader bgmSwiftbladeDojo;
+extern const SongHeader bgmMinishCap;
+extern const SongHeader bgmMtCrenel;
+extern const SongHeader bgmPicoriFestival;
+extern const SongHeader bgmLostWoods;
+extern const SongHeader bgmFairyFountain2;
+extern const SongHeader bgmWindRuins;
+extern const SongHeader bgmLearnScroll;
+extern const SongHeader bgmEzloGet;
+extern const SongHeader sfxBeep;
+extern const SongHeader sfxTextboxOpen;
+extern const SongHeader sfxTextboxClose;
+extern const SongHeader sfxTextboxNext;
+extern const SongHeader sfxTextboxSwap;
+extern const SongHeader sfxTextboxChoice;
+extern const SongHeader sfxTextboxSelect;
+extern const SongHeader sfx6B;
+extern const SongHeader sfxMenuCancel;
+extern const SongHeader sfxMenuError;
+extern const SongHeader sfxRupeeBounce;
+extern const SongHeader sfxRupeeGet;
+extern const SongHeader sfxHeartBounce;
+extern const SongHeader sfxHeartGet;
+extern const SongHeader sfxSecret;
+extern const SongHeader sfxSecretBig;
+extern const SongHeader sfxMetalClink;
+extern const SongHeader sfxPlyVo1;
+extern const SongHeader sfxPlyVo2;
+extern const SongHeader sfxPlyVo3;
+extern const SongHeader sfxPlyVo4;
+extern const SongHeader sfxPlyVo5;
+extern const SongHeader sfxPlyVo6;
+extern const SongHeader sfxPlyVo7;
+extern const SongHeader sfxPlyJump;
+extern const SongHeader sfxPlyLand;
+extern const SongHeader sfx7E;
+extern const SongHeader sfxPlyLift;
+extern const SongHeader sfx80;
+extern const SongHeader sfx81;
+extern const SongHeader sfx82;
+extern const SongHeader sfxWaterWalk;
+extern const SongHeader sfxWaterSplash;
+extern const SongHeader sfxFallHole;
+extern const SongHeader sfx86;
+extern const SongHeader sfxPlyDie;
+extern const SongHeader sfx88;
+extern const SongHeader sfxBarrelRelease;
+extern const SongHeader sfxBarrelEnter;
+extern const SongHeader sfxBarrelRoll;
+extern const SongHeader sfxBarrelRollStop;
+extern const SongHeader sfxVoEzlo1;
+extern const SongHeader sfxVoEzlo2;
+extern const SongHeader sfxVoEzlo3;
+extern const SongHeader sfxVoEzlo4;
+extern const SongHeader sfxVoEzlo5;
+extern const SongHeader sfxVoEzlo6;
+extern const SongHeader sfxVoEzlo7;
+extern const SongHeader sfxVoZelda1;
+extern const SongHeader sfxVoZelda2;
+extern const SongHeader sfxVoZelda3;
+extern const SongHeader sfxVoZelda4;
+extern const SongHeader sfxVoZelda5;
+extern const SongHeader sfxVoZelda6;
+extern const SongHeader sfxVoZelda7;
+extern const SongHeader sfx9B;
+extern const SongHeader sfx9C;
+extern const SongHeader sfx9D;
+extern const SongHeader sfx9E;
+extern const SongHeader sfx9F;
+extern const SongHeader sfxA0;
+extern const SongHeader sfxVoTingle1;
+extern const SongHeader sfxVoTingle2;
+extern const SongHeader sfxVoKing1;
+extern const SongHeader sfxVoKing2;
+extern const SongHeader sfxVoKing3;
+extern const SongHeader sfxVoKing4;
+extern const SongHeader sfxVoKing5;
+extern const SongHeader sfxA8;
+extern const SongHeader sfxA9;
+extern const SongHeader sfxAA;
+extern const SongHeader sfxSpiritsRelease;
+extern const SongHeader sfxAC;
+extern const SongHeader sfxVoBeedle;
+extern const SongHeader sfxAE;
+extern const SongHeader sfxAF;
+extern const SongHeader sfxB0;
+extern const SongHeader sfxMinish1;
+extern const SongHeader sfxMinish2;
+extern const SongHeader sfxMinish3;
+extern const SongHeader sfxMinish4;
+extern const SongHeader sfxB5;
+extern const SongHeader sfxB6;
+extern const SongHeader sfxB7;
+extern const SongHeader sfxB8;
+extern const SongHeader sfxB9;
+extern const SongHeader sfxBA;
+extern const SongHeader sfxBB;
+extern const SongHeader sfxBC;
+extern const SongHeader sfxBD;
+extern const SongHeader sfxBE;
+extern const SongHeader sfxBF;
+extern const SongHeader sfxC0;
+extern const SongHeader sfxC1;
+extern const SongHeader sfxC2;
+extern const SongHeader sfxC3;
+extern const SongHeader sfxC4;
+extern const SongHeader sfxC5;
+extern const SongHeader sfxC6;
+extern const SongHeader sfxC7;
+extern const SongHeader sfxC8;
+extern const SongHeader sfxC9;
+extern const SongHeader sfxCA;
+extern const SongHeader sfxCB;
+extern const SongHeader sfxRemSleep;
+extern const SongHeader sfxTaskComplete;
+extern const SongHeader sfxKeyAppear;
+extern const SongHeader sfxCF;
+extern const SongHeader sfxD0;
+extern const SongHeader sfxVoDog;
+extern const SongHeader sfxVoCat;
+extern const SongHeader sfxVoEpona;
+extern const SongHeader sfxVoCow;
+extern const SongHeader sfxVoCuccoCall;
+extern const SongHeader sfxVoCheep;
+extern const SongHeader sfxItemSwordCharge;
+extern const SongHeader sfxItemSwordChargeFinish;
+extern const SongHeader sfxD9;
+extern const SongHeader sfxDA;
+extern const SongHeader sfxVoSturgeon;
+extern const SongHeader sfxHammer1;
+extern const SongHeader sfxHammer2;
+extern const SongHeader sfxHammer3;
+extern const SongHeader sfxHammer4;
+extern const SongHeader sfxHammer5;
+extern const SongHeader sfxHammer6;
+extern const SongHeader sfxCuccoMinigameBell;
+extern const SongHeader sfxE3;
+extern const SongHeader sfxE4;
+extern const SongHeader sfxButtonDepress;
+extern const SongHeader sfxThudHeavy;
+extern const SongHeader sfxWind1;
+extern const SongHeader sfxWind2;
+extern const SongHeader sfxWind3;
+extern const SongHeader sfxEA;
+extern const SongHeader sfxEB;
+extern const SongHeader sfxEC;
+extern const SongHeader sfxED;
+extern const SongHeader sfxEE;
+extern const SongHeader sfxEF;
+extern const SongHeader sfxF0;
+extern const SongHeader sfxF1;
+extern const SongHeader sfxF2;
+extern const SongHeader sfxF3;
+extern const SongHeader sfxSummon;
+extern const SongHeader sfxF5;
+extern const SongHeader sfxEvaporate;
+extern const SongHeader sfxApparate;
+extern const SongHeader sfxF8;
+extern const SongHeader sfxTeleporter;
+extern const SongHeader sfxFA;
+extern const SongHeader sfxFB;
+extern const SongHeader sfxFC;
+extern const SongHeader sfxItemBombExplode;
+extern const SongHeader sfxHit;
+extern const SongHeader sfxFF;
+extern const SongHeader sfx100;
+extern const SongHeader sfx101;
+extern const SongHeader sfx102;
+extern const SongHeader sfx103;
+extern const SongHeader sfx104;
+extern const SongHeader sfx105;
+extern const SongHeader sfx106;
+extern const SongHeader sfx107;
+extern const SongHeader sfx108;
+extern const SongHeader sfx109;
+extern const SongHeader sfx10A;
+extern const SongHeader sfx10B;
+extern const SongHeader sfx10C;
+extern const SongHeader sfx10D;
+extern const SongHeader sfx10E;
+extern const SongHeader sfx10F;
+extern const SongHeader sfx110;
+extern const SongHeader sfx111;
+extern const SongHeader sfx112;
+extern const SongHeader sfx113;
+extern const SongHeader sfx114;
+extern const SongHeader sfx115;
+extern const SongHeader sfx116;
+extern const SongHeader sfx117;
+extern const SongHeader sfxItemShieldBounce;
+extern const SongHeader sfxItemGlovesKnockback;
+extern const SongHeader sfxEmArmosOn;
+extern const SongHeader sfx11B;
+extern const SongHeader sfx11C;
+extern const SongHeader sfx11D;
+extern const SongHeader sfxEmMoblinSpear;
+extern const SongHeader sfxLowHealth;
+extern const SongHeader sfxChargingUp;
+extern const SongHeader sfxStairs;
+extern const SongHeader sfx122;
+extern const SongHeader sfx123;
+extern const SongHeader sfx124;
+extern const SongHeader sfx125;
+extern const SongHeader sfx126;
+extern const SongHeader sfxBossHit;
+extern const SongHeader sfxBossDie;
+extern const SongHeader sfxBossExplode;
+extern const SongHeader sfx12A;
+extern const SongHeader sfx12B;
+extern const SongHeader sfx12C;
+extern const SongHeader sfx12D;
+extern const SongHeader sfx12E;
+extern const SongHeader sfx12F;
+extern const SongHeader sfx130;
+extern const SongHeader sfx131;
+extern const SongHeader sfx132;
+extern const SongHeader sfx133;
+extern const SongHeader sfx134;
+extern const SongHeader sfx135;
+extern const SongHeader sfx136;
+extern const SongHeader sfx137;
+extern const SongHeader sfx138;
+extern const SongHeader sfx139;
+extern const SongHeader sfx13A;
+extern const SongHeader sfx13B;
+extern const SongHeader sfx13C;
+extern const SongHeader sfxItemLanternOn;
+extern const SongHeader sfxItemLanternOff;
+extern const SongHeader sfxItemSwordBeam;
+extern const SongHeader sfx140;
+extern const SongHeader sfxHeartContainerSpawn;
+extern const SongHeader sfxSparkles;
+extern const SongHeader sfx143;
+extern const SongHeader sfx144;
+extern const SongHeader sfx145;
+extern const SongHeader sfx146;
+extern const SongHeader sfx147;
+extern const SongHeader sfx148;
+extern const SongHeader sfx149;
+extern const SongHeader sfx14A;
+extern const SongHeader sfx14B;
+extern const SongHeader sfx14C;
+extern const SongHeader sfx14D;
+extern const SongHeader sfx14E;
+extern const SongHeader sfx14F;
+extern const SongHeader sfx150;
+extern const SongHeader sfx151;
+extern const SongHeader sfx152;
+extern const SongHeader sfx153;
+extern const SongHeader sfx154;
+extern const SongHeader sfx155;
+extern const SongHeader sfx156;
+extern const SongHeader sfx157;
+extern const SongHeader sfx158;
+extern const SongHeader sfx159;
+extern const SongHeader sfx15A;
+extern const SongHeader sfx15B;
+extern const SongHeader sfx15C;
+extern const SongHeader sfx15D;
+extern const SongHeader sfx15E;
+extern const SongHeader sfx15F;
+extern const SongHeader sfx160;
+extern const SongHeader sfx161;
+extern const SongHeader sfx162;
+extern const SongHeader sfx163;
+extern const SongHeader sfx164;
+extern const SongHeader sfx165;
+extern const SongHeader sfx166;
+extern const SongHeader sfx167;
+extern const SongHeader sfx168;
+extern const SongHeader sfx169;
+extern const SongHeader sfx16A;
+extern const SongHeader sfx16B;
+extern const SongHeader sfx16C;
+extern const SongHeader sfx16D;
+extern const SongHeader sfx16E;
+extern const SongHeader sfxPlyShrinking;
+extern const SongHeader sfxPlyGrow;
+extern const SongHeader sfx171;
+extern const SongHeader sfx172;
+extern const SongHeader sfxEzloUi;
+extern const SongHeader sfx174;
+extern const SongHeader sfx175;
+extern const SongHeader sfx176;
+extern const SongHeader sfx177;
+extern const SongHeader sfx178;
+extern const SongHeader sfx179;
+extern const SongHeader sfx17A;
+extern const SongHeader sfxLavaTitleStep;
+extern const SongHeader sfxLavaTitleWobble;
+extern const SongHeader sfxLavaTitleSink;
+extern const SongHeader sfxLavaTitleFlip;
+extern const SongHeader sfxLavaTitleLand;
+extern const SongHeader sfx180;
+extern const SongHeader sfx181;
+extern const SongHeader sfx182;
+extern const SongHeader sfx183;
+extern const SongHeader sfx184;
+extern const SongHeader sfx185;
+extern const SongHeader sfx186;
+extern const SongHeader sfxStairsAscend;
+extern const SongHeader sfxStairsDescend;
+extern const SongHeader sfx189;
+extern const SongHeader sfx18A;
+extern const SongHeader sfx18B;
+extern const SongHeader sfx18C;
+extern const SongHeader sfx18D;
+extern const SongHeader sfx18E;
+extern const SongHeader sfx18F;
+extern const SongHeader sfx190;
+extern const SongHeader sfx191;
+extern const SongHeader sfx192;
+extern const SongHeader sfx193;
+extern const SongHeader sfx194;
+extern const SongHeader sfx195;
+extern const SongHeader sfx196;
+extern const SongHeader sfx197;
+extern const SongHeader sfx198;
+extern const SongHeader sfx199;
+extern const SongHeader sfx19A;
+extern const SongHeader sfx19B;
+extern const SongHeader sfx19C;
+extern const SongHeader sfx19D;
+extern const SongHeader sfx19E;
+extern const SongHeader sfx19F;
+extern const SongHeader sfx1A0;
+extern const SongHeader sfx1A1;
+extern const SongHeader sfx1A2;
+extern const SongHeader sfx1A3;
+extern const SongHeader sfx1A4;
+extern const SongHeader sfx1A5;
+extern const SongHeader sfx1A6;
+extern const SongHeader sfx1A7;
+extern const SongHeader sfx1A8;
+extern const SongHeader sfx1A9;
+extern const SongHeader sfx1AA;
+extern const SongHeader sfx1AB;
+extern const SongHeader sfx1AC;
+extern const SongHeader sfx1AD;
+extern const SongHeader sfx1AE;
+extern const SongHeader sfx1AF;
+extern const SongHeader sfx1B0;
+extern const SongHeader sfxIceBlockSlide;
+extern const SongHeader sfxIceBlockStop;
+extern const SongHeader sfxIceBlockMelt;
+extern const SongHeader sfx1B4;
+extern const SongHeader sfx1B5;
+extern const SongHeader sfx1B6;
+extern const SongHeader sfxVoGoron1;
+extern const SongHeader sfxVoGoron2;
+extern const SongHeader sfxVoGoron3;
+extern const SongHeader sfxVoGoron4;
+extern const SongHeader sfxEmDekuscrubHit;
+extern const SongHeader sfx1BC;
+extern const SongHeader sfx1BD;
+extern const SongHeader sfx1BE;
+extern const SongHeader sfx1BF;
+extern const SongHeader sfx1C0;
+extern const SongHeader sfx1C1;
+extern const SongHeader sfx1C2;
+extern const SongHeader sfx1C3;
+extern const SongHeader sfx1C4;
+extern const SongHeader sfx1C5;
+extern const SongHeader sfx1C6;
+extern const SongHeader sfx1C7;
+extern const SongHeader sfx1C8;
+extern const SongHeader sfx1C9;
+extern const SongHeader sfx1CA;
+extern const SongHeader sfx1CB;
+extern const SongHeader sfx1CC;
+extern const SongHeader sfxElementPlace;
+extern const SongHeader sfxElementFloat;
+extern const SongHeader sfxElementCharge;
+extern const SongHeader sfx1D0;
+extern const SongHeader sfxElementInfuse;
+extern const SongHeader sfx1D2;
+extern const SongHeader sfx1D3;
+extern const SongHeader sfx1D4;
+extern const SongHeader sfx1D5;
+extern const SongHeader sfxVoCucco1;
+extern const SongHeader sfxVoCucco2;
+extern const SongHeader sfxVoCucco3;
+extern const SongHeader sfxVoCucco4;
+extern const SongHeader sfxVoCucco5;
+extern const SongHeader sfx1DB;
+extern const SongHeader sfx1DC;
+extern const SongHeader sfx1DD;
+extern const SongHeader sfx1DE;
+extern const SongHeader sfx1DF;
+extern const SongHeader sfx1E0;
+extern const SongHeader sfx1E1;
+extern const SongHeader sfx1E2;
+extern const SongHeader sfx1E3;
+extern const SongHeader sfx1E4;
+extern const SongHeader sfx1E5;
+extern const SongHeader sfx1E6;
+extern const SongHeader sfx1E7;
+extern const SongHeader sfx1E8;
+extern const SongHeader sfx1E9;
+extern const SongHeader sfx1EA;
+extern const SongHeader sfx1EB;
+extern const SongHeader sfx1EC;
+extern const SongHeader sfx1ED;
+extern const SongHeader sfx1EE;
+extern const SongHeader sfx1EF;
+extern const SongHeader sfx1F0;
+extern const SongHeader sfx1F1;
+extern const SongHeader sfx1F2;
+extern const SongHeader sfx1F3;
+extern const SongHeader sfx1F4;
+extern const SongHeader sfx1F5;
+extern const SongHeader sfx1F6;
+extern const SongHeader sfx1F7;
+extern const SongHeader sfx1F8;
+extern const SongHeader sfx1F9;
+extern const SongHeader sfx1FA;
+extern const SongHeader sfx1FB;
+extern const SongHeader sfx1FC;
+extern const SongHeader sfx1FD;
+extern const SongHeader sfx1FE;
+extern const SongHeader sfx1FF;
+extern const SongHeader sfx200;
+extern const SongHeader sfx201;
+extern const SongHeader sfx202;
+extern const SongHeader sfx203;
+extern const SongHeader sfx204;
+extern const SongHeader sfx205;
+extern const SongHeader sfx206;
+extern const SongHeader sfx207;
+extern const SongHeader sfx208;
+extern const SongHeader sfx209;
+extern const SongHeader sfx20A;
+extern const SongHeader sfx20B;
+extern const SongHeader sfx20C;
+extern const SongHeader sfx20D;
+extern const SongHeader sfx20E;
+extern const SongHeader sfx20F;
+extern const SongHeader sfx210;
+extern const SongHeader sfx211;
+extern const SongHeader sfx212;
+extern const SongHeader sfx213;
+extern const SongHeader sfx214;
+extern const SongHeader sfx215;
+extern const SongHeader sfx216;
+extern const SongHeader sfx217;
+extern const SongHeader sfx218;
+extern const SongHeader sfx219;
+extern const SongHeader sfx21A;
+extern const SongHeader sfx21B;
+extern const SongHeader sfx21C;
+extern const SongHeader sfx21D;
+extern const SongHeader sfx21E;
+extern const SongHeader sfx21F;
+extern const SongHeader sfx220;
+extern const SongHeader sfx221;
 
 const Song gSongTable[] = {
     { &song_08DCC48C, 0x001f, 0x001f },
-    { &song_08DCC6CC, 0x001f, 0x001f },
-    { &song_08DCC844, 0x001f, 0x001f },
-    { &song_08DCC9F4, 0x001f, 0x001f },
-    { &song_08DCCB3C, 0x001f, 0x001f },
-    { &song_08DCCD40, 0x001f, 0x001f },
-    { &song_08DCD0C8, 0x001f, 0x001f },
-    { &song_08DCD4AC, 0x001f, 0x001f },
-    { &song_08DCDF2C, 0x001f, 0x001f },
-    { &song_08DCF734, 0x001f, 0x001f },
-    { &song_08DCFA40, 0x001f, 0x001f },
-    { &song_08DCFBF4, 0x001f, 0x001f },
-    { &song_08DCFD98, 0x001f, 0x001f },
-    { &song_08DD0244, 0x001f, 0x001f },
-    { &song_08DD0690, 0x001f, 0x001f },
-    { &song_08DD0A94, 0x001f, 0x001f },
-    { &song_08DD0CF4, 0x001f, 0x001f },
-    { &song_08DD11A8, 0x001f, 0x001f },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08DD1548, 0x001f, 0x001f },
-    { &song_08DD1990, 0x001f, 0x001f },
-    { &song_08DD1C2C, 0x001f, 0x001f },
-    { &song_08DD1EA4, 0x001f, 0x001f },
-    { &song_08DD2130, 0x001f, 0x001f },
-    { &song_08DD2340, 0x001f, 0x001f },
-    { &song_08DD2D50, 0x001f, 0x001f },
-    { &song_08DD30F0, 0x001f, 0x001f },
-    { &song_08DD335C, 0x001f, 0x001f },
-    { &song_08DD3BCC, 0x001f, 0x001f },
-    { &song_08DD40E8, 0x001f, 0x001f },
-    { &song_08DD4858, 0x001f, 0x001f },
-    { &song_08DD4B44, 0x001f, 0x001f },
-    { &song_08DD52FC, 0x001f, 0x001f },
-    { &song_08DD5894, 0x001f, 0x001f },
-    { &song_08DD64FC, 0x001f, 0x001f },
-    { &song_08DD6BFC, 0x001f, 0x001f },
-    { &song_08DD6FC4, 0x001f, 0x001f },
-    { &song_08DD7174, 0x001f, 0x001f },
-    { &song_08DD7670, 0x001f, 0x001f },
-    { &song_08DD7E08, 0x001f, 0x001f },
-    { &song_08DD83CC, 0x001f, 0x001f },
-    { &song_08DD8E5C, 0x001f, 0x001f },
-    { &song_08DD902C, 0x001f, 0x001f },
-    { &song_08DD9604, 0x001f, 0x001f },
-    { &song_08DD9AAC, 0x001f, 0x001f },
-    { &song_08DD9F50, 0x001f, 0x001f },
-    { &song_08DDA3F8, 0x001f, 0x001f },
-    { &song_08DDAAC8, 0x001f, 0x001f },
-    { &song_08DDB1D4, 0x001f, 0x001f },
-    { &song_08DDB5E4, 0x001f, 0x001f },
-    { &song_08DDC070, 0x001f, 0x001f },
-    { &song_08DDC250, 0x001f, 0x001f },
-    { &song_08DDC394, 0x001f, 0x001f },
-    { &song_08DDC4B4, 0x001f, 0x001f },
-    { &song_08DDCF28, 0x001f, 0x001f },
-    { &song_08DDD510, 0x001f, 0x001f },
-    { &song_08DDDA50, 0x001f, 0x001f },
-    { &song_08DDE4E4, 0x001f, 0x001f },
-    { &song_08DDE824, 0x001f, 0x001f },
-    { &song_08DDEC38, 0x001f, 0x001f },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08DDED6C, 0x001f, 0x001f },
-    { &song_08DDEE18, 0x001f, 0x001f },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08A12ECC, 0x0000, 0x0000 },
-    { &song_08DDEE44, 0x0000, 0x0000 },
-    { &song_08DDEEBC, 0x001d, 0x001d },
-    { &song_08DDEF20, 0x001c, 0x001c },
-    { &song_08DDEF44, 0x001b, 0x001b },
-    { &song_08DDEF7C, 0x001a, 0x001a },
-    { &song_08DDEF9C, 0x0019, 0x0019 },
-    { &song_08DDF008, 0x0018, 0x0018 },
-    { &song_08DDF040, 0x0017, 0x0017 },
-    { &song_08DDF068, 0x0016, 0x0016 },
-    { &song_08DDF094, 0x0015, 0x0015 },
-    { &song_08DDF0BC, 0x0014, 0x0014 },
-    { &song_08DDF0EC, 0x0000, 0x0000 },
-    { &song_08DDF144, 0x0012, 0x0012 },
-    { &song_08DDF16C, 0x0000, 0x0000 },
-    { &song_08DDF19C, 0x0003, 0x0003 },
-    { &song_08DDF1F4, 0x0003, 0x0003 },
-    { &song_08DDF21C, 0x000e, 0x000e },
-    { &song_08DDF238, 0x0001, 0x0001 },
-    { &song_08DDF254, 0x0001, 0x0001 },
-    { &song_08DDF270, 0x0001, 0x0001 },
-    { &song_08DDF28C, 0x0001, 0x0001 },
-    { &song_08DDF2A8, 0x0001, 0x0001 },
-    { &song_08DDF2C4, 0x0001, 0x0001 },
-    { &song_08DDF2E0, 0x0001, 0x0001 },
-    { &song_08DDF2FC, 0x000d, 0x000d },
-    { &song_08DDF31C, 0x000c, 0x000c },
-    { &song_08DDF33C, 0x000b, 0x000b },
-    { &song_08DDF38C, 0x000a, 0x000a },
-    { &song_08DDF3B0, 0x0009, 0x0009 },
-    { &song_08DDF3E4, 0x0008, 0x0008 },
-    { &song_08DDF400, 0x0007, 0x0007 },
-    { &song_08DDF43C, 0x0006, 0x0006 },
-    { &song_08DDF484, 0x0005, 0x0005 },
-    { &song_08DDF57C, 0x0004, 0x0004 },
-    { &song_08DDF598, 0x000f, 0x000f },
-    { &song_08DDF608, 0x001d, 0x001d },
-    { &song_08DDF630, 0x001c, 0x001c },
-    { &song_08DDF64C, 0x001b, 0x001b },
-    { &song_08DDF668, 0x001a, 0x001a },
-    { &song_08DDF684, 0x0019, 0x0019 },
-    { &song_08DDF6A0, 0x0018, 0x0018 },
-    { &song_08DDF6BC, 0x0002, 0x0002 },
-    { &song_08DDF6D8, 0x0002, 0x0002 },
-    { &song_08DDF6F4, 0x0002, 0x0002 },
-    { &song_08DDF710, 0x0002, 0x0002 },
-    { &song_08DDF72C, 0x0002, 0x0002 },
-    { &song_08DDF748, 0x0002, 0x0002 },
-    { &song_08DDF764, 0x0002, 0x0002 },
-    { &song_08DDF780, 0x0003, 0x0003 },
-    { &song_08DDF79C, 0x0003, 0x0003 },
-    { &song_08DDF7B8, 0x0003, 0x0003 },
-    { &song_08DDF7D4, 0x0003, 0x0003 },
-    { &song_08DDF7F0, 0x0003, 0x0003 },
-    { &song_08DDF80C, 0x0003, 0x0003 },
-    { &song_08DDF828, 0x0003, 0x0003 },
-    { &song_08DDF844, 0x0004, 0x0004 },
-    { &song_08DDF860, 0x0004, 0x0004 },
-    { &song_08DDF87C, 0x0004, 0x0004 },
-    { &song_08DDF898, 0x0004, 0x0004 },
-    { &song_08DDF8B4, 0x0004, 0x0004 },
-    { &song_08DDF8D4, 0x0004, 0x0004 },
-    { &song_08DDF8F0, 0x0005, 0x0005 },
-    { &song_08DDF90C, 0x0005, 0x0005 },
-    { &song_08DDF928, 0x0006, 0x0006 },
-    { &song_08DDF944, 0x0006, 0x0006 },
-    { &song_08DDF960, 0x0006, 0x0006 },
-    { &song_08DDF97C, 0x0007, 0x0007 },
-    { &song_08DDF998, 0x0007, 0x0007 },
-    { &song_08DDF9B4, 0x0007, 0x0007 },
-    { &song_08DDF9D0, 0x0008, 0x0008 },
-    { &song_08DDF9EC, 0x000a, 0x000a },
-    { &song_08DDFA0C, 0x0009, 0x0009 },
-    { &song_08DDFA28, 0x000b, 0x000b },
-    { &song_08DDFA44, 0x000c, 0x000c },
-    { &song_08DDFA60, 0x000d, 0x000d },
-    { &song_08DDFA7C, 0x000e, 0x000e },
-    { &song_08DDFA98, 0x000f, 0x000f },
-    { &song_08DDFAB4, 0x0010, 0x0010 },
-    { &song_08DDFAD0, 0x0011, 0x0011 },
-    { &song_08DDFAEC, 0x0012, 0x0012 },
-    { &song_08DDFB08, 0x0013, 0x0013 },
-    { &song_08DDFB24, 0x0014, 0x0014 },
-    { &song_08DDFB40, 0x0015, 0x0015 },
-    { &song_08DDFB5C, 0x0016, 0x0016 },
-    { &song_08DDFB78, 0x0017, 0x0017 },
-    { &song_08DDFB94, 0x0018, 0x0018 },
-    { &song_08DDFBB0, 0x0019, 0x0019 },
-    { &song_08DDFBCC, 0x001a, 0x001a },
-    { &song_08DDFBE8, 0x001b, 0x001b },
-    { &song_08DDFC04, 0x001c, 0x001c },
-    { &song_08DDFC20, 0x001c, 0x001c },
-    { &song_08DDFC3C, 0x0003, 0x0003 },
-    { &song_08DDFC58, 0x0004, 0x0004 },
-    { &song_08DDFC74, 0x0005, 0x0005 },
-    { &song_08DDFC90, 0x0006, 0x0006 },
-    { &song_08DDFCAC, 0x0007, 0x0007 },
-    { &song_08DDFCC8, 0x0008, 0x0008 },
-    { &song_08DDFCE4, 0x0009, 0x0009 },
-    { &song_08DDFD00, 0x000a, 0x000a },
-    { &song_08DDFD1C, 0x000b, 0x000b },
-    { &song_08DDFD38, 0x000c, 0x000c },
-    { &song_08DDFD54, 0x000d, 0x000d },
-    { &song_08DDFD70, 0x000e, 0x000e },
-    { &song_08DDFD8C, 0x000f, 0x000f },
-    { &song_08DDFDA8, 0x0010, 0x0010 },
-    { &song_08DDFDD4, 0x0003, 0x0003 },
-    { &song_08DDFE14, 0x0016, 0x0016 },
-    { &song_08DDFE30, 0x0011, 0x0011 },
-    { &song_08DDFE4C, 0x0012, 0x0012 },
-    { &song_08DDFE68, 0x0013, 0x0013 },
-    { &song_08DDFE84, 0x0014, 0x0014 },
-    { &song_08DDFEA0, 0x0015, 0x0015 },
-    { &song_08DDFEBC, 0x0016, 0x0016 },
-    { &song_08DDFED8, 0x0017, 0x0017 },
-    { &song_08DDFEF4, 0x0018, 0x0018 },
-    { &song_08DDFF10, 0x0015, 0x0015 },
-    { &song_08DDFF2C, 0x0014, 0x0014 },
-    { &song_08DDFF48, 0x0019, 0x0019 },
-    { &song_08DDFF64, 0x001a, 0x001a },
-    { &song_08DDFF80, 0x001b, 0x001b },
-    { &song_08DDFF9C, 0x0013, 0x0013 },
-    { &song_08DDFFB8, 0x0012, 0x0012 },
-    { &song_08DDFFD4, 0x0011, 0x0011 },
-    { &song_08DDFFF0, 0x0010, 0x0010 },
-    { &song_08DE000C, 0x000f, 0x000f },
-    { &song_08DE0028, 0x000e, 0x000e },
-    { &song_08DE0048, 0x000d, 0x000d },
-    { &song_08DE0064, 0x000c, 0x000c },
-    { &song_08DE0080, 0x000b, 0x000b },
-    { &song_08DE00A0, 0x000a, 0x000a },
-    { &song_08DE00BC, 0x0009, 0x0009 },
-    { &song_08DE00EC, 0x0008, 0x0008 },
-    { &song_08DE0138, 0x0008, 0x0008 },
-    { &song_08DE0180, 0x0008, 0x0008 },
-    { &song_08DE01B4, 0x0008, 0x0008 },
-    { &song_08DE01F4, 0x0008, 0x0008 },
-    { &song_08DE0244, 0x0008, 0x0008 },
-    { &song_08DE028C, 0x0008, 0x0008 },
-    { &song_08DE02AC, 0x0008, 0x0008 },
-    { &song_08DE02C8, 0x0007, 0x0007 },
-    { &song_08DE02EC, 0x0006, 0x0006 },
-    { &song_08DE0310, 0x0005, 0x0005 },
-    { &song_08DE0388, 0x0004, 0x0004 },
-    { &song_08DE03C4, 0x0003, 0x0003 },
-    { &song_08DE041C, 0x001d, 0x001d },
-    { &song_08DE04E4, 0x001c, 0x001c },
-    { &song_08DE0534, 0x001b, 0x001b },
-    { &song_08DE0584, 0x001a, 0x001a },
-    { &song_08DE05DC, 0x0019, 0x0019 },
-    { &song_08DE0634, 0x0018, 0x0018 },
-    { &song_08DE068C, 0x0017, 0x0017 },
-    { &song_08DE06E4, 0x0016, 0x0016 },
-    { &song_08DE0728, 0x0015, 0x0015 },
-    { &song_08DE0784, 0x0014, 0x0014 },
-    { &song_08DE07D4, 0x0013, 0x0013 },
-    { &song_08DE0840, 0x0012, 0x0012 },
-    { &song_08DE0860, 0x0011, 0x0011 },
-    { &song_08DE087C, 0x0010, 0x0010 },
-    { &song_08DE0898, 0x000f, 0x000f },
-    { &song_08DE08C4, 0x0000, 0x0000 },
-    { &song_08DE08FC, 0x000d, 0x000d },
-    { &song_08DE199C, 0x001e, 0x001e },
-    { &song_08DE19D0, 0x000b, 0x000b },
-    { &song_08DE1A00, 0x000a, 0x000a },
-    { &song_08DE1A2C, 0x0009, 0x0009 },
-    { &song_08DE207C, 0x001e, 0x001e },
-    { &song_08DE20C8, 0x0008, 0x0008 },
-    { &song_08DE20FC, 0x0007, 0x0007 },
-    { &song_08DE2124, 0x0006, 0x0006 },
-    { &song_08DE2174, 0x0005, 0x0005 },
-    { &song_08DE21AC, 0x0004, 0x0004 },
-    { &song_08DE21E8, 0x0003, 0x0003 },
-    { &song_08DE222C, 0x001d, 0x001d },
-    { &song_08DE2260, 0x001c, 0x001c },
-    { &song_08DE2338, 0x001b, 0x001b },
-    { &song_08DE2408, 0x001a, 0x001a },
-    { &song_08DE2478, 0x0019, 0x0019 },
-    { &song_08DE24BC, 0x0018, 0x0018 },
-    { &song_08DE2500, 0x0004, 0x0004 },
-    { &song_08DE251C, 0x0016, 0x0016 },
-    { &song_08DE2544, 0x0007, 0x0007 },
-    { &song_08DE2584, 0x0014, 0x0014 },
-    { &song_08DE25A4, 0x0013, 0x0013 },
-    { &song_08DE25D0, 0x0012, 0x0012 },
-    { &song_08DE25F0, 0x0011, 0x0011 },
-    { &song_08DE267C, 0x0010, 0x0010 },
-    { &song_08DE269C, 0x000f, 0x000f },
-    { &song_08DE26C4, 0x000e, 0x000e },
-    { &song_08DE26E4, 0x000d, 0x000d },
-    { &song_08DE2718, 0x000c, 0x000c },
-    { &song_08DE2734, 0x000b, 0x000b },
-    { &song_08DE2778, 0x0017, 0x0017 },
-    { &song_08DE27C0, 0x0009, 0x0009 },
-    { &song_08DE27DC, 0x0008, 0x0008 },
-    { &song_08DE287C, 0x0007, 0x0007 },
-    { &song_08DE2944, 0x0006, 0x0006 },
-    { &song_08DE2A68, 0x0005, 0x0005 },
-    { &song_08DE2AE8, 0x0004, 0x0004 },
-    { &song_08DE2B1C, 0x0003, 0x0003 },
-    { &song_08DE2B3C, 0x001d, 0x001d },
-    { &song_08DE2B58, 0x001c, 0x001c },
-    { &song_08DE2B78, 0x001b, 0x001b },
-    { &song_08DE2B9C, 0x001a, 0x001a },
-    { &song_08DE2BD0, 0x0019, 0x0019 },
-    { &song_08DE2BF4, 0x0018, 0x0018 },
-    { &song_08DE2C10, 0x0017, 0x0017 },
-    { &song_08DE2C2C, 0x0016, 0x0016 },
-    { &song_08DE2C48, 0x0015, 0x0015 },
-    { &song_08DE2C64, 0x0015, 0x0015 },
-    { &song_08DE2C8C, 0x0013, 0x0013 },
-    { &song_08DE2CFC, 0x0012, 0x0012 },
-    { &song_08DE2D18, 0x0011, 0x0011 },
-    { &song_08DE2D34, 0x0010, 0x0010 },
-    { &song_08DE2D50, 0x000f, 0x000f },
-    { &song_08DE2D6C, 0x000e, 0x000e },
-    { &song_08DE2D88, 0x000d, 0x000d },
-    { &song_08DE2DA4, 0x000c, 0x000c },
-    { &song_08DE2DC0, 0x000b, 0x000b },
-    { &song_08DE2DDC, 0x000a, 0x000a },
-    { &song_08DE2E74, 0x0009, 0x0009 },
-    { &song_08DE2EDC, 0x0008, 0x0008 },
-    { &song_08DE2F98, 0x0007, 0x0007 },
-    { &song_08DE3100, 0x0006, 0x0006 },
-    { &song_08DE311C, 0x0006, 0x0006 },
-    { &song_08DE3154, 0x0005, 0x0005 },
-    { &song_08DE3188, 0x0004, 0x0004 },
-    { &song_08DE31C4, 0x0003, 0x0003 },
-    { &song_08DE32A4, 0x001d, 0x001d },
-    { &song_08DE33B4, 0x001c, 0x001c },
-    { &song_08DE33E8, 0x001b, 0x001b },
-    { &song_08DE34A4, 0x001a, 0x001a },
-    { &song_08DE34E4, 0x0019, 0x0019 },
-    { &song_08DE3564, 0x0012, 0x0012 },
-    { &song_08DE3588, 0x0017, 0x0017 },
-    { &song_08DE35AC, 0x0016, 0x0016 },
-    { &song_08DE3618, 0x0015, 0x0015 },
-    { &song_08DE3674, 0x0014, 0x0014 },
-    { &song_08DE36B0, 0x0013, 0x0013 },
-    { &song_08DE37CC, 0x0018, 0x0018 },
-    { &song_08DE380C, 0x0011, 0x0011 },
-    { &song_08DE3850, 0x0010, 0x0010 },
-    { &song_08DE3888, 0x000f, 0x000f },
-    { &song_08DE38F0, 0x000e, 0x000e },
-    { &song_08DE3918, 0x000d, 0x000d },
-    { &song_08DE3968, 0x000c, 0x000c },
-    { &song_08DE39B4, 0x000b, 0x000b },
-    { &song_08DE3A10, 0x000a, 0x000a },
-    { &song_08DE3A70, 0x0009, 0x0009 },
-    { &song_08DE3AA0, 0x0008, 0x0008 },
-    { &song_08DE3AF8, 0x0015, 0x0015 },
-    { &song_08DE3B30, 0x0006, 0x0006 },
-    { &song_08DE3B6C, 0x0005, 0x0005 },
-    { &song_08DE3BD4, 0x0004, 0x0004 },
-    { &song_08DE3BF0, 0x001d, 0x001d },
-    { &song_08DE3C14, 0x001c, 0x001c },
-    { &song_08DE3C64, 0x001b, 0x001b },
-    { &song_08DE3CC0, 0x001a, 0x001a },
-    { &song_08DE3D34, 0x0019, 0x0019 },
-    { &song_08DE3DB0, 0x0018, 0x0018 },
-    { &song_08DE3E34, 0x0017, 0x0017 },
-    { &song_08DE3E5C, 0x0016, 0x0016 },
-    { &song_08DE3EA4, 0x0015, 0x0015 },
-    { &song_08DE3EE0, 0x0014, 0x0014 },
-    { &song_08DE3F1C, 0x0013, 0x0013 },
-    { &song_08DE3F5C, 0x0003, 0x0003 },
-    { &song_08DE4028, 0x0012, 0x0012 },
-    { &song_08DE406C, 0x0011, 0x0011 },
-    { &song_08DE4110, 0x0010, 0x0010 },
-    { &song_08DE417C, 0x000f, 0x000f },
-    { &song_08DE4198, 0x000e, 0x000e },
-    { &song_08DE41D0, 0x000d, 0x000d },
-    { &song_08DE420C, 0x000c, 0x000c },
-    { &song_08DE4244, 0x000b, 0x000b },
-    { &song_08DE4278, 0x000a, 0x000a },
-    { &song_08DE42C0, 0x0009, 0x0009 },
-    { &song_08DE4380, 0x0009, 0x0009 },
-    { &song_08DE43D4, 0x0008, 0x0008 },
-    { &song_08DE4424, 0x0007, 0x0007 },
-    { &song_08DE44C4, 0x0006, 0x0006 },
-    { &song_08DE44E4, 0x001d, 0x001d },
-    { &song_08DE4500, 0x001c, 0x001c },
-    { &song_08DE451C, 0x001b, 0x001b },
-    { &song_08DE4538, 0x001a, 0x001a },
-    { &song_08DE4554, 0x0019, 0x0019 },
-    { &song_08DE4574, 0x0005, 0x0005 },
-    { &song_08DE4594, 0x0004, 0x0004 },
-    { &song_08DE45F0, 0x0003, 0x0003 },
-    { &song_08DE46A8, 0x0018, 0x0018 },
-    { &song_08DE46C8, 0x0017, 0x0017 },
-    { &song_08DE475C, 0x0016, 0x0016 },
-    { &song_08DE4790, 0x0015, 0x0015 },
-    { &song_08DE47E4, 0x0014, 0x0014 },
-    { &song_08DE4838, 0x0013, 0x0013 },
-    { &song_08DE4878, 0x0012, 0x0012 },
-    { &song_08DE48BC, 0x0011, 0x0011 },
-    { &song_08DE4930, 0x0010, 0x0010 },
-    { &song_08DE4968, 0x000f, 0x000f },
-    { &song_08DE49AC, 0x000e, 0x000e },
-    { &song_08DE49D0, 0x000d, 0x000d },
-    { &song_08DE4A0C, 0x000c, 0x000c },
-    { &song_08DE4A28, 0x000b, 0x000b },
-    { &song_08DE4A60, 0x000a, 0x000a },
-    { &song_08DE4ACC, 0x0009, 0x0009 },
-    { &song_08DE4B00, 0x0008, 0x0008 },
-    { &song_08DE4B50, 0x0007, 0x0007 },
-    { &song_08DE4BEC, 0x0006, 0x0006 },
-    { &song_08DE4CCC, 0x0005, 0x0005 },
-    { &song_08DE4D24, 0x0004, 0x0004 },
-    { &song_08DE4E64, 0x0003, 0x0003 },
-    { &song_08DE4EB0, 0x001d, 0x001d },
-    { &song_08DE4F20, 0x001c, 0x001c },
-    { &song_08DE4FB4, 0x001b, 0x001b },
-    { &song_08DE4FE8, 0x001a, 0x001a },
-    { &song_08DE506C, 0x0019, 0x0019 },
-    { &song_08DE50BC, 0x0018, 0x0018 },
-    { &song_08DE512C, 0x0017, 0x0017 },
-    { &song_08DE51B0, 0x0016, 0x0016 },
-    { &song_08DE5218, 0x0015, 0x0015 },
-    { &song_08DE5248, 0x0014, 0x0014 },
-    { &song_08DE52F0, 0x0013, 0x0013 },
-    { &song_08DE5318, 0x0012, 0x0012 },
-    { &song_08DE5348, 0x0011, 0x0011 },
-    { &song_08DE5390, 0x0010, 0x0010 },
-    { &song_08DE53FC, 0x000f, 0x000f },
-    { &song_08DE5440, 0x000e, 0x000e },
-    { &song_08DE5540, 0x000d, 0x000d },
-    { &song_08DE5654, 0x000c, 0x000c },
-    { &song_08DE5728, 0x000c, 0x000c },
-    { &song_08DE57AC, 0x000a, 0x000a },
-    { &song_08DE5808, 0x0009, 0x0009 },
-    { &song_08DE5850, 0x0008, 0x0008 },
-    { &song_08DE5894, 0x0007, 0x0007 },
-    { &song_08DE58E0, 0x0006, 0x0006 },
-    { &song_08DE58FC, 0x001d, 0x001d },
-    { &song_08DE5918, 0x001c, 0x001c },
-    { &song_08DE5934, 0x001b, 0x001b },
-    { &song_08DE598C, 0x001a, 0x001a },
-    { &song_08DE59C8, 0x0019, 0x0019 },
-    { &song_08DE5ADC, 0x0018, 0x0018 },
-    { &song_08DE5AFC, 0x000a, 0x000a },
-    { &song_08DE5B18, 0x000b, 0x000b },
-    { &song_08DE5B34, 0x000c, 0x000c },
-    { &song_08DE5B54, 0x000d, 0x000d },
-    { &song_08DE5BA8, 0x000e, 0x000e },
-    { &song_08DE5BC4, 0x000f, 0x000f },
-    { &song_08DE5BE0, 0x0010, 0x0010 },
-    { &song_08DE5BFC, 0x0011, 0x0011 },
-    { &song_08DE5C18, 0x0012, 0x0012 },
-    { &song_08DE5C34, 0x0013, 0x0013 },
-    { &song_08DE5C50, 0x0014, 0x0014 },
-    { &song_08DE5C6C, 0x0005, 0x0005 },
-    { &song_08DE5C88, 0x0004, 0x0004 },
-    { &song_08DE5CA8, 0x0003, 0x0003 },
-    { &song_08DE5CC4, 0x001d, 0x001d },
-    { &song_08DE5CE0, 0x001c, 0x001c },
-    { &song_08DE5CFC, 0x0003, 0x0003 },
-    { &song_08DE5D28, 0x0000, 0x0000 },
-    { &song_08DE5D44, 0x001a, 0x001a },
-    { &song_08DE5D70, 0x001a, 0x001a },
-    { &song_08DE5D90, 0x0018, 0x0018 },
-    { &song_08DE5DAC, 0x0017, 0x0017 },
-    { &song_08DE5DC8, 0x0016, 0x0016 },
-    { &song_08DE5DE4, 0x0015, 0x0015 },
-    { &song_08DE5E00, 0x0014, 0x0014 },
-    { &song_08DE5E1C, 0x0013, 0x0013 },
-    { &song_08DE5E38, 0x0012, 0x0012 },
-    { &song_08DE5E54, 0x0011, 0x0011 },
-    { &song_08DE5E70, 0x0010, 0x0010 },
-    { &song_08DE5E8C, 0x000f, 0x000f },
-    { &song_08DE5EA8, 0x000e, 0x000e },
-    { &song_08DE5EC4, 0x000d, 0x000d },
-    { &song_08DE5EE0, 0x000c, 0x000c },
-    { &song_08DE5EFC, 0x000b, 0x000b },
-    { &song_08DE5F18, 0x000a, 0x000a },
-    { &song_08DE5F34, 0x0009, 0x0009 },
-    { &song_08DE5FCC, 0x0008, 0x0008 },
-    { &song_08DE6004, 0x0007, 0x0007 },
-    { &song_08DE6044, 0x0006, 0x0006 },
-    { &song_08DE6060, 0x0003, 0x0003 },
-    { &song_08DE607C, 0x0003, 0x0003 },
-    { &song_08DE6098, 0x0003, 0x0003 },
-    { &song_08DE60B4, 0x0003, 0x0003 },
-    { &song_08DE60D0, 0x0003, 0x0003 },
-    { &song_08DE60EC, 0x0003, 0x0003 },
-    { &song_08DE6108, 0x0002, 0x0002 },
-    { &song_08DE6124, 0x0002, 0x0002 },
-    { &song_08DE6140, 0x0002, 0x0002 },
-    { &song_08DE615C, 0x0002, 0x0002 },
-    { &song_08DE6178, 0x0004, 0x0004 },
-    { &song_08DE6194, 0x0004, 0x0004 },
-    { &song_08DE61B0, 0x0006, 0x0006 },
-    { &song_08DE61CC, 0x0006, 0x0006 },
-    { &song_08DE61E8, 0x0006, 0x0006 },
-    { &song_08DE6204, 0x0006, 0x0006 },
-    { &song_08DE6220, 0x0007, 0x0007 },
-    { &song_08DE623C, 0x0007, 0x0007 },
-    { &song_08DE6258, 0x0007, 0x0007 },
-    { &song_08DE6274, 0x0008, 0x0008 },
-    { &song_08DE6290, 0x0008, 0x0008 },
-    { &song_08DE62AC, 0x0009, 0x0009 },
-    { &song_08DE62C8, 0x000a, 0x000a },
-    { &song_08DE62E4, 0x000b, 0x000b },
-    { &song_08DE6300, 0x000c, 0x000c },
-    { &song_08DE631C, 0x000d, 0x000d },
-    { &song_08DE6338, 0x000e, 0x000e },
-    { &song_08DE6354, 0x000f, 0x000f },
-    { &song_08DE6370, 0x0010, 0x0010 },
-    { &song_08DE638C, 0x0011, 0x0011 },
-    { &song_08DE63A8, 0x0012, 0x0012 },
-    { &song_08DE63C4, 0x0013, 0x0013 },
-    { &song_08DE63E0, 0x0014, 0x0014 },
-    { &song_08DE63FC, 0x0015, 0x0015 },
-    { &song_08DE6418, 0x0016, 0x0016 },
-    { &song_08DE6434, 0x0017, 0x0017 },
-    { &song_08DE6450, 0x0018, 0x0018 },
-    { &song_08DE646C, 0x0019, 0x0019 },
-    { &song_08DE6488, 0x001a, 0x001a },
-    { &song_08DE64A4, 0x001b, 0x001b },
-    { &song_08DE64C0, 0x001c, 0x001c },
-    { &song_08DE64DC, 0x0011, 0x0011 },
-    { &song_08DE64F8, 0x0004, 0x0004 },
-    { &song_08DE6514, 0x0005, 0x0005 },
-    { &song_08DE6530, 0x0006, 0x0006 },
-    { &song_08DE654C, 0x0007, 0x0007 },
-    { &song_08DE6568, 0x0008, 0x0008 },
-    { &song_08DE6584, 0x0009, 0x0009 },
-    { &song_08DE65A0, 0x000a, 0x000a },
-    { &song_08DE65BC, 0x000b, 0x000b },
-    { &song_08DE65DC, 0x000c, 0x000c },
-    { &song_08DE65F8, 0x000d, 0x000d },
-    { &song_08DE6614, 0x000e, 0x000e },
-    { &song_08DE6630, 0x000f, 0x000f },
-    { &song_08DE6650, 0x0010, 0x0010 },
-    { &song_08DE6674, 0x0005, 0x0005 },
-    { &song_08DE7544, 0x001e, 0x001e },
-    { &song_08DE7B70, 0x001e, 0x001e },
-    { &song_08DE7BB8, 0x0004, 0x0004 },
-    { &song_08DE7BD4, 0x0003, 0x0003 },
-    { &song_08DE7BFC, 0x000b, 0x000b },
-    { &song_08DE7C28, 0x001d, 0x001d },
-    { &song_08DE7C78, 0x001c, 0x001c },
-    { &song_08DE7C94, 0x001b, 0x001b },
-    { &song_08DE7CB4, 0x001a, 0x001a },
-    { &song_08DE7CF0, 0x0019, 0x0019 },
-    { &song_08DE7D0C, 0x0018, 0x0018 },
-    { &song_08DE7D28, 0x0017, 0x0017 },
+    { &bgmCastleTournament, 0x001f, 0x001f },
+    { &bgmVaatiMotif, 0x001f, 0x001f },
+    { &bgmTitleScreen, 0x001f, 0x001f },
+    { &bgmCastleMotif, 0x001f, 0x001f },
+    { &bgmElementGet, 0x001f, 0x001f },
+    { &bgmFairyFountain, 0x001f, 0x001f },
+    { &bgmFileSelect, 0x001f, 0x001f },
+    { &bgmIntorCutscene, 0x001f, 0x001f },
+    { &bgmCredits, 0x001f, 0x001f },
+    { &bgmGameover, 0x001f, 0x001f },
+    { &bgmSavingZelda, 0x001f, 0x001f },
+    { &bgmLttpTitle, 0x001f, 0x001f },
+    { &bgmVaatiTheme, 0x001f, 0x001f },
+    { &bgmEzloTheme, 0x001f, 0x001f },
+    { &bgmStory, 0x001f, 0x001f },
+    { &bgmFestivalApproach, 0x001f, 0x001f },
+    { &bgmBeatVaati, 0x001f, 0x001f },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmBeanstalk, 0x001f, 0x001f },
+    { &bgmHouse, 0x001f, 0x001f },
+    { &bgmCuccoMinigame, 0x001f, 0x001f },
+    { &bgmSyrupTheme, 0x001f, 0x001f },
+    { &bgmDungeon, 0x001f, 0x001f },
+    { &bgmElementTheme, 0x001f, 0x001f },
+    { &bgmHyruleField, 0x001f, 0x001f },
+    { &bgmHyruleCastle, 0x001f, 0x001f },
+    { &bgmHyruleCastleNointro, 0x001f, 0x001f },
+    { &bgmMinishVillage, 0x001f, 0x001f },
+    { &bgmMinishWoods, 0x001f, 0x001f },
+    { &bgmCrenelStorm, 0x001f, 0x001f },
+    { &bgmCastorWilds, 0x001f, 0x001f },
+    { &bgmHyruleTown, 0x001f, 0x001f },
+    { &bgmRoyalValley, 0x001f, 0x001f },
+    { &bgmCloudTops, 0x001f, 0x001f },
+    { &bgmDarkHyruleCastle, 0x001f, 0x001f },
+    { &bgmSecretCastleEntrance, 0x001f, 0x001f },
+    { &bmgDeepwoodShrine, 0x001f, 0x001f },
+    { &bgmCaveOfFlames, 0x001f, 0x001f },
+    { &bgmFortressOfWinds, 0x001f, 0x001f },
+    { &bgmTempleOfDroplets, 0x001f, 0x001f },
+    { &bgmPalaceOfWinds, 0x001f, 0x001f },
+    { &bgmEzloStory, 0x001f, 0x001f },
+    { &bgmRoyalCrypt, 0x001f, 0x001f },
+    { &bgmElementalSanctuary, 0x001f, 0x001f },
+    { &bgmFightTheme, 0x001f, 0x001f },
+    { &bgmBossTheme, 0x001f, 0x001f },
+    { &bgmVaatiReborn, 0x001f, 0x001f },
+    { &bgmVaatiTransfigured, 0x001f, 0x001f },
+    { &bgmCastleCollapse, 0x001f, 0x001f },
+    { &bgmVaatiWrath, 0x001f, 0x001f },
+    { &bgmFightTheme2, 0x001f, 0x001f },
+    { &bgmDiggingCave, 0x001f, 0x001f },
+    { &bgmSwiftbladeDojo, 0x001f, 0x001f },
+    { &bgmMinishCap, 0x001f, 0x001f },
+    { &bgmMtCrenel, 0x001f, 0x001f },
+    { &bgmPicoriFestival, 0x001f, 0x001f },
+    { &bgmLostWoods, 0x001f, 0x001f },
+    { &bgmFairyFountain2, 0x001f, 0x001f },
+    { &bgmWindRuins, 0x001f, 0x001f },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmLearnScroll, 0x001f, 0x001f },
+    { &bgmEzloGet, 0x001f, 0x001f },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &bgmUnused, 0x0000, 0x0000 },
+    { &sfxBeep, 0x0000, 0x0000 },
+    { &sfxTextboxOpen, 0x001d, 0x001d },
+    { &sfxTextboxClose, 0x001c, 0x001c },
+    { &sfxTextboxNext, 0x001b, 0x001b },
+    { &sfxTextboxSwap, 0x001a, 0x001a },
+    { &sfxTextboxChoice, 0x0019, 0x0019 },
+    { &sfxTextboxSelect, 0x0018, 0x0018 },
+    { &sfx6B, 0x0017, 0x0017 },
+    { &sfxMenuCancel, 0x0016, 0x0016 },
+    { &sfxMenuError, 0x0015, 0x0015 },
+    { &sfxRupeeBounce, 0x0014, 0x0014 },
+    { &sfxRupeeGet, 0x0000, 0x0000 },
+    { &sfxHeartBounce, 0x0012, 0x0012 },
+    { &sfxHeartGet, 0x0000, 0x0000 },
+    { &sfxSecret, 0x0003, 0x0003 },
+    { &sfxSecretBig, 0x0003, 0x0003 },
+    { &sfxMetalClink, 0x000e, 0x000e },
+    { &sfxPlyVo1, 0x0001, 0x0001 },
+    { &sfxPlyVo2, 0x0001, 0x0001 },
+    { &sfxPlyVo3, 0x0001, 0x0001 },
+    { &sfxPlyVo4, 0x0001, 0x0001 },
+    { &sfxPlyVo5, 0x0001, 0x0001 },
+    { &sfxPlyVo6, 0x0001, 0x0001 },
+    { &sfxPlyVo7, 0x0001, 0x0001 },
+    { &sfxPlyJump, 0x000d, 0x000d },
+    { &sfxPlyLand, 0x000c, 0x000c },
+    { &sfx7E, 0x000b, 0x000b },
+    { &sfxPlyLift, 0x000a, 0x000a },
+    { &sfx80, 0x0009, 0x0009 },
+    { &sfx81, 0x0008, 0x0008 },
+    { &sfx82, 0x0007, 0x0007 },
+    { &sfxWaterWalk, 0x0006, 0x0006 },
+    { &sfxWaterSplash, 0x0005, 0x0005 },
+    { &sfxFallHole, 0x0004, 0x0004 },
+    { &sfx86, 0x000f, 0x000f },
+    { &sfxPlyDie, 0x001d, 0x001d },
+    { &sfx88, 0x001c, 0x001c },
+    { &sfxBarrelRelease, 0x001b, 0x001b },
+    { &sfxBarrelEnter, 0x001a, 0x001a },
+    { &sfxBarrelRoll, 0x0019, 0x0019 },
+    { &sfxBarrelRollStop, 0x0018, 0x0018 },
+    { &sfxVoEzlo1, 0x0002, 0x0002 },
+    { &sfxVoEzlo2, 0x0002, 0x0002 },
+    { &sfxVoEzlo3, 0x0002, 0x0002 },
+    { &sfxVoEzlo4, 0x0002, 0x0002 },
+    { &sfxVoEzlo5, 0x0002, 0x0002 },
+    { &sfxVoEzlo6, 0x0002, 0x0002 },
+    { &sfxVoEzlo7, 0x0002, 0x0002 },
+    { &sfxVoZelda1, 0x0003, 0x0003 },
+    { &sfxVoZelda2, 0x0003, 0x0003 },
+    { &sfxVoZelda3, 0x0003, 0x0003 },
+    { &sfxVoZelda4, 0x0003, 0x0003 },
+    { &sfxVoZelda5, 0x0003, 0x0003 },
+    { &sfxVoZelda6, 0x0003, 0x0003 },
+    { &sfxVoZelda7, 0x0003, 0x0003 },
+    { &sfx9B, 0x0004, 0x0004 },
+    { &sfx9C, 0x0004, 0x0004 },
+    { &sfx9D, 0x0004, 0x0004 },
+    { &sfx9E, 0x0004, 0x0004 },
+    { &sfx9F, 0x0004, 0x0004 },
+    { &sfxA0, 0x0004, 0x0004 },
+    { &sfxVoTingle1, 0x0005, 0x0005 },
+    { &sfxVoTingle2, 0x0005, 0x0005 },
+    { &sfxVoKing1, 0x0006, 0x0006 },
+    { &sfxVoKing2, 0x0006, 0x0006 },
+    { &sfxVoKing3, 0x0006, 0x0006 },
+    { &sfxVoKing4, 0x0007, 0x0007 },
+    { &sfxVoKing5, 0x0007, 0x0007 },
+    { &sfxA8, 0x0007, 0x0007 },
+    { &sfxA9, 0x0008, 0x0008 },
+    { &sfxAA, 0x000a, 0x000a },
+    { &sfxSpiritsRelease, 0x0009, 0x0009 },
+    { &sfxAC, 0x000b, 0x000b },
+    { &sfxVoBeedle, 0x000c, 0x000c },
+    { &sfxAE, 0x000d, 0x000d },
+    { &sfxAF, 0x000e, 0x000e },
+    { &sfxB0, 0x000f, 0x000f },
+    { &sfxMinish1, 0x0010, 0x0010 },
+    { &sfxMinish2, 0x0011, 0x0011 },
+    { &sfxMinish3, 0x0012, 0x0012 },
+    { &sfxMinish4, 0x0013, 0x0013 },
+    { &sfxB5, 0x0014, 0x0014 },
+    { &sfxB6, 0x0015, 0x0015 },
+    { &sfxB7, 0x0016, 0x0016 },
+    { &sfxB8, 0x0017, 0x0017 },
+    { &sfxB9, 0x0018, 0x0018 },
+    { &sfxBA, 0x0019, 0x0019 },
+    { &sfxBB, 0x001a, 0x001a },
+    { &sfxBC, 0x001b, 0x001b },
+    { &sfxBD, 0x001c, 0x001c },
+    { &sfxBE, 0x001c, 0x001c },
+    { &sfxBF, 0x0003, 0x0003 },
+    { &sfxC0, 0x0004, 0x0004 },
+    { &sfxC1, 0x0005, 0x0005 },
+    { &sfxC2, 0x0006, 0x0006 },
+    { &sfxC3, 0x0007, 0x0007 },
+    { &sfxC4, 0x0008, 0x0008 },
+    { &sfxC5, 0x0009, 0x0009 },
+    { &sfxC6, 0x000a, 0x000a },
+    { &sfxC7, 0x000b, 0x000b },
+    { &sfxC8, 0x000c, 0x000c },
+    { &sfxC9, 0x000d, 0x000d },
+    { &sfxCA, 0x000e, 0x000e },
+    { &sfxCB, 0x000f, 0x000f },
+    { &sfxRemSleep, 0x0010, 0x0010 },
+    { &sfxTaskComplete, 0x0003, 0x0003 },
+    { &sfxKeyAppear, 0x0016, 0x0016 },
+    { &sfxCF, 0x0011, 0x0011 },
+    { &sfxD0, 0x0012, 0x0012 },
+    { &sfxVoDog, 0x0013, 0x0013 },
+    { &sfxVoCat, 0x0014, 0x0014 },
+    { &sfxVoEpona, 0x0015, 0x0015 },
+    { &sfxVoCow, 0x0016, 0x0016 },
+    { &sfxVoCuccoCall, 0x0017, 0x0017 },
+    { &sfxVoCheep, 0x0018, 0x0018 },
+    { &sfxItemSwordCharge, 0x0015, 0x0015 },
+    { &sfxItemSwordChargeFinish, 0x0014, 0x0014 },
+    { &sfxD9, 0x0019, 0x0019 },
+    { &sfxDA, 0x001a, 0x001a },
+    { &sfxVoSturgeon, 0x001b, 0x001b },
+    { &sfxHammer1, 0x0013, 0x0013 },
+    { &sfxHammer2, 0x0012, 0x0012 },
+    { &sfxHammer3, 0x0011, 0x0011 },
+    { &sfxHammer4, 0x0010, 0x0010 },
+    { &sfxHammer5, 0x000f, 0x000f },
+    { &sfxHammer6, 0x000e, 0x000e },
+    { &sfxCuccoMinigameBell, 0x000d, 0x000d },
+    { &sfxE3, 0x000c, 0x000c },
+    { &sfxE4, 0x000b, 0x000b },
+    { &sfxButtonDepress, 0x000a, 0x000a },
+    { &sfxThudHeavy, 0x0009, 0x0009 },
+    { &sfxWind1, 0x0008, 0x0008 },
+    { &sfxWind2, 0x0008, 0x0008 },
+    { &sfxWind3, 0x0008, 0x0008 },
+    { &sfxEA, 0x0008, 0x0008 },
+    { &sfxEB, 0x0008, 0x0008 },
+    { &sfxEC, 0x0008, 0x0008 },
+    { &sfxED, 0x0008, 0x0008 },
+    { &sfxEE, 0x0008, 0x0008 },
+    { &sfxEF, 0x0007, 0x0007 },
+    { &sfxF0, 0x0006, 0x0006 },
+    { &sfxF1, 0x0005, 0x0005 },
+    { &sfxF2, 0x0004, 0x0004 },
+    { &sfxF3, 0x0003, 0x0003 },
+    { &sfxSummon, 0x001d, 0x001d },
+    { &sfxF5, 0x001c, 0x001c },
+    { &sfxEvaporate, 0x001b, 0x001b },
+    { &sfxApparate, 0x001a, 0x001a },
+    { &sfxF8, 0x0019, 0x0019 },
+    { &sfxTeleporter, 0x0018, 0x0018 },
+    { &sfxFA, 0x0017, 0x0017 },
+    { &sfxFB, 0x0016, 0x0016 },
+    { &sfxFC, 0x0015, 0x0015 },
+    { &sfxItemBombExplode, 0x0014, 0x0014 },
+    { &sfxHit, 0x0013, 0x0013 },
+    { &sfxFF, 0x0012, 0x0012 },
+    { &sfx100, 0x0011, 0x0011 },
+    { &sfx101, 0x0010, 0x0010 },
+    { &sfx102, 0x000f, 0x000f },
+    { &sfx103, 0x0000, 0x0000 },
+    { &sfx104, 0x000d, 0x000d },
+    { &sfx105, 0x001e, 0x001e },
+    { &sfx106, 0x000b, 0x000b },
+    { &sfx107, 0x000a, 0x000a },
+    { &sfx108, 0x0009, 0x0009 },
+    { &sfx109, 0x001e, 0x001e },
+    { &sfx10A, 0x0008, 0x0008 },
+    { &sfx10B, 0x0007, 0x0007 },
+    { &sfx10C, 0x0006, 0x0006 },
+    { &sfx10D, 0x0005, 0x0005 },
+    { &sfx10E, 0x0004, 0x0004 },
+    { &sfx10F, 0x0003, 0x0003 },
+    { &sfx110, 0x001d, 0x001d },
+    { &sfx111, 0x001c, 0x001c },
+    { &sfx112, 0x001b, 0x001b },
+    { &sfx113, 0x001a, 0x001a },
+    { &sfx114, 0x0019, 0x0019 },
+    { &sfx115, 0x0018, 0x0018 },
+    { &sfx116, 0x0004, 0x0004 },
+    { &sfx117, 0x0016, 0x0016 },
+    { &sfxItemShieldBounce, 0x0007, 0x0007 },
+    { &sfxItemGlovesKnockback, 0x0014, 0x0014 },
+    { &sfxEmArmosOn, 0x0013, 0x0013 },
+    { &sfx11B, 0x0012, 0x0012 },
+    { &sfx11C, 0x0011, 0x0011 },
+    { &sfx11D, 0x0010, 0x0010 },
+    { &sfxEmMoblinSpear, 0x000f, 0x000f },
+    { &sfxLowHealth, 0x000e, 0x000e },
+    { &sfxChargingUp, 0x000d, 0x000d },
+    { &sfxStairs, 0x000c, 0x000c },
+    { &sfx122, 0x000b, 0x000b },
+    { &sfx123, 0x0017, 0x0017 },
+    { &sfx124, 0x0009, 0x0009 },
+    { &sfx125, 0x0008, 0x0008 },
+    { &sfx126, 0x0007, 0x0007 },
+    { &sfxBossHit, 0x0006, 0x0006 },
+    { &sfxBossDie, 0x0005, 0x0005 },
+    { &sfxBossExplode, 0x0004, 0x0004 },
+    { &sfx12A, 0x0003, 0x0003 },
+    { &sfx12B, 0x001d, 0x001d },
+    { &sfx12C, 0x001c, 0x001c },
+    { &sfx12D, 0x001b, 0x001b },
+    { &sfx12E, 0x001a, 0x001a },
+    { &sfx12F, 0x0019, 0x0019 },
+    { &sfx130, 0x0018, 0x0018 },
+    { &sfx131, 0x0017, 0x0017 },
+    { &sfx132, 0x0016, 0x0016 },
+    { &sfx133, 0x0015, 0x0015 },
+    { &sfx134, 0x0015, 0x0015 },
+    { &sfx135, 0x0013, 0x0013 },
+    { &sfx136, 0x0012, 0x0012 },
+    { &sfx137, 0x0011, 0x0011 },
+    { &sfx138, 0x0010, 0x0010 },
+    { &sfx139, 0x000f, 0x000f },
+    { &sfx13A, 0x000e, 0x000e },
+    { &sfx13B, 0x000d, 0x000d },
+    { &sfx13C, 0x000c, 0x000c },
+    { &sfxItemLanternOn, 0x000b, 0x000b },
+    { &sfxItemLanternOff, 0x000a, 0x000a },
+    { &sfxItemSwordBeam, 0x0009, 0x0009 },
+    { &sfx140, 0x0008, 0x0008 },
+    { &sfxHeartContainerSpawn, 0x0007, 0x0007 },
+    { &sfxSparkles, 0x0006, 0x0006 },
+    { &sfx143, 0x0006, 0x0006 },
+    { &sfx144, 0x0005, 0x0005 },
+    { &sfx145, 0x0004, 0x0004 },
+    { &sfx146, 0x0003, 0x0003 },
+    { &sfx147, 0x001d, 0x001d },
+    { &sfx148, 0x001c, 0x001c },
+    { &sfx149, 0x001b, 0x001b },
+    { &sfx14A, 0x001a, 0x001a },
+    { &sfx14B, 0x0019, 0x0019 },
+    { &sfx14C, 0x0012, 0x0012 },
+    { &sfx14D, 0x0017, 0x0017 },
+    { &sfx14E, 0x0016, 0x0016 },
+    { &sfx14F, 0x0015, 0x0015 },
+    { &sfx150, 0x0014, 0x0014 },
+    { &sfx151, 0x0013, 0x0013 },
+    { &sfx152, 0x0018, 0x0018 },
+    { &sfx153, 0x0011, 0x0011 },
+    { &sfx154, 0x0010, 0x0010 },
+    { &sfx155, 0x000f, 0x000f },
+    { &sfx156, 0x000e, 0x000e },
+    { &sfx157, 0x000d, 0x000d },
+    { &sfx158, 0x000c, 0x000c },
+    { &sfx159, 0x000b, 0x000b },
+    { &sfx15A, 0x000a, 0x000a },
+    { &sfx15B, 0x0009, 0x0009 },
+    { &sfx15C, 0x0008, 0x0008 },
+    { &sfx15D, 0x0015, 0x0015 },
+    { &sfx15E, 0x0006, 0x0006 },
+    { &sfx15F, 0x0005, 0x0005 },
+    { &sfx160, 0x0004, 0x0004 },
+    { &sfx161, 0x001d, 0x001d },
+    { &sfx162, 0x001c, 0x001c },
+    { &sfx163, 0x001b, 0x001b },
+    { &sfx164, 0x001a, 0x001a },
+    { &sfx165, 0x0019, 0x0019 },
+    { &sfx166, 0x0018, 0x0018 },
+    { &sfx167, 0x0017, 0x0017 },
+    { &sfx168, 0x0016, 0x0016 },
+    { &sfx169, 0x0015, 0x0015 },
+    { &sfx16A, 0x0014, 0x0014 },
+    { &sfx16B, 0x0013, 0x0013 },
+    { &sfx16C, 0x0003, 0x0003 },
+    { &sfx16D, 0x0012, 0x0012 },
+    { &sfx16E, 0x0011, 0x0011 },
+    { &sfxPlyShrinking, 0x0010, 0x0010 },
+    { &sfxPlyGrow, 0x000f, 0x000f },
+    { &sfx171, 0x000e, 0x000e },
+    { &sfx172, 0x000d, 0x000d },
+    { &sfxEzloUi, 0x000c, 0x000c },
+    { &sfx174, 0x000b, 0x000b },
+    { &sfx175, 0x000a, 0x000a },
+    { &sfx176, 0x0009, 0x0009 },
+    { &sfx177, 0x0009, 0x0009 },
+    { &sfx178, 0x0008, 0x0008 },
+    { &sfx179, 0x0007, 0x0007 },
+    { &sfx17A, 0x0006, 0x0006 },
+    { &sfxLavaTitleStep, 0x001d, 0x001d },
+    { &sfxLavaTitleWobble, 0x001c, 0x001c },
+    { &sfxLavaTitleSink, 0x001b, 0x001b },
+    { &sfxLavaTitleFlip, 0x001a, 0x001a },
+    { &sfxLavaTitleLand, 0x0019, 0x0019 },
+    { &sfx180, 0x0005, 0x0005 },
+    { &sfx181, 0x0004, 0x0004 },
+    { &sfx182, 0x0003, 0x0003 },
+    { &sfx183, 0x0018, 0x0018 },
+    { &sfx184, 0x0017, 0x0017 },
+    { &sfx185, 0x0016, 0x0016 },
+    { &sfx186, 0x0015, 0x0015 },
+    { &sfxStairsAscend, 0x0014, 0x0014 },
+    { &sfxStairsDescend, 0x0013, 0x0013 },
+    { &sfx189, 0x0012, 0x0012 },
+    { &sfx18A, 0x0011, 0x0011 },
+    { &sfx18B, 0x0010, 0x0010 },
+    { &sfx18C, 0x000f, 0x000f },
+    { &sfx18D, 0x000e, 0x000e },
+    { &sfx18E, 0x000d, 0x000d },
+    { &sfx18F, 0x000c, 0x000c },
+    { &sfx190, 0x000b, 0x000b },
+    { &sfx191, 0x000a, 0x000a },
+    { &sfx192, 0x0009, 0x0009 },
+    { &sfx193, 0x0008, 0x0008 },
+    { &sfx194, 0x0007, 0x0007 },
+    { &sfx195, 0x0006, 0x0006 },
+    { &sfx196, 0x0005, 0x0005 },
+    { &sfx197, 0x0004, 0x0004 },
+    { &sfx198, 0x0003, 0x0003 },
+    { &sfx199, 0x001d, 0x001d },
+    { &sfx19A, 0x001c, 0x001c },
+    { &sfx19B, 0x001b, 0x001b },
+    { &sfx19C, 0x001a, 0x001a },
+    { &sfx19D, 0x0019, 0x0019 },
+    { &sfx19E, 0x0018, 0x0018 },
+    { &sfx19F, 0x0017, 0x0017 },
+    { &sfx1A0, 0x0016, 0x0016 },
+    { &sfx1A1, 0x0015, 0x0015 },
+    { &sfx1A2, 0x0014, 0x0014 },
+    { &sfx1A3, 0x0013, 0x0013 },
+    { &sfx1A4, 0x0012, 0x0012 },
+    { &sfx1A5, 0x0011, 0x0011 },
+    { &sfx1A6, 0x0010, 0x0010 },
+    { &sfx1A7, 0x000f, 0x000f },
+    { &sfx1A8, 0x000e, 0x000e },
+    { &sfx1A9, 0x000d, 0x000d },
+    { &sfx1AA, 0x000c, 0x000c },
+    { &sfx1AB, 0x000c, 0x000c },
+    { &sfx1AC, 0x000a, 0x000a },
+    { &sfx1AD, 0x0009, 0x0009 },
+    { &sfx1AE, 0x0008, 0x0008 },
+    { &sfx1AF, 0x0007, 0x0007 },
+    { &sfx1B0, 0x0006, 0x0006 },
+    { &sfxIceBlockSlide, 0x001d, 0x001d },
+    { &sfxIceBlockStop, 0x001c, 0x001c },
+    { &sfxIceBlockMelt, 0x001b, 0x001b },
+    { &sfx1B4, 0x001a, 0x001a },
+    { &sfx1B5, 0x0019, 0x0019 },
+    { &sfx1B6, 0x0018, 0x0018 },
+    { &sfxVoGoron1, 0x000a, 0x000a },
+    { &sfxVoGoron2, 0x000b, 0x000b },
+    { &sfxVoGoron3, 0x000c, 0x000c },
+    { &sfxVoGoron4, 0x000d, 0x000d },
+    { &sfxEmDekuscrubHit, 0x000e, 0x000e },
+    { &sfx1BC, 0x000f, 0x000f },
+    { &sfx1BD, 0x0010, 0x0010 },
+    { &sfx1BE, 0x0011, 0x0011 },
+    { &sfx1BF, 0x0012, 0x0012 },
+    { &sfx1C0, 0x0013, 0x0013 },
+    { &sfx1C1, 0x0014, 0x0014 },
+    { &sfx1C2, 0x0005, 0x0005 },
+    { &sfx1C3, 0x0004, 0x0004 },
+    { &sfx1C4, 0x0003, 0x0003 },
+    { &sfx1C5, 0x001d, 0x001d },
+    { &sfx1C6, 0x001c, 0x001c },
+    { &sfx1C7, 0x0003, 0x0003 },
+    { &sfx1C8, 0x0000, 0x0000 },
+    { &sfx1C9, 0x001a, 0x001a },
+    { &sfx1CA, 0x001a, 0x001a },
+    { &sfx1CB, 0x0018, 0x0018 },
+    { &sfx1CC, 0x0017, 0x0017 },
+    { &sfxElementPlace, 0x0016, 0x0016 },
+    { &sfxElementFloat, 0x0015, 0x0015 },
+    { &sfxElementCharge, 0x0014, 0x0014 },
+    { &sfx1D0, 0x0013, 0x0013 },
+    { &sfxElementInfuse, 0x0012, 0x0012 },
+    { &sfx1D2, 0x0011, 0x0011 },
+    { &sfx1D3, 0x0010, 0x0010 },
+    { &sfx1D4, 0x000f, 0x000f },
+    { &sfx1D5, 0x000e, 0x000e },
+    { &sfxVoCucco1, 0x000d, 0x000d },
+    { &sfxVoCucco2, 0x000c, 0x000c },
+    { &sfxVoCucco3, 0x000b, 0x000b },
+    { &sfxVoCucco4, 0x000a, 0x000a },
+    { &sfxVoCucco5, 0x0009, 0x0009 },
+    { &sfx1DB, 0x0008, 0x0008 },
+    { &sfx1DC, 0x0007, 0x0007 },
+    { &sfx1DD, 0x0006, 0x0006 },
+    { &sfx1DE, 0x0003, 0x0003 },
+    { &sfx1DF, 0x0003, 0x0003 },
+    { &sfx1E0, 0x0003, 0x0003 },
+    { &sfx1E1, 0x0003, 0x0003 },
+    { &sfx1E2, 0x0003, 0x0003 },
+    { &sfx1E3, 0x0003, 0x0003 },
+    { &sfx1E4, 0x0002, 0x0002 },
+    { &sfx1E5, 0x0002, 0x0002 },
+    { &sfx1E6, 0x0002, 0x0002 },
+    { &sfx1E7, 0x0002, 0x0002 },
+    { &sfx1E8, 0x0004, 0x0004 },
+    { &sfx1E9, 0x0004, 0x0004 },
+    { &sfx1EA, 0x0006, 0x0006 },
+    { &sfx1EB, 0x0006, 0x0006 },
+    { &sfx1EC, 0x0006, 0x0006 },
+    { &sfx1ED, 0x0006, 0x0006 },
+    { &sfx1EE, 0x0007, 0x0007 },
+    { &sfx1EF, 0x0007, 0x0007 },
+    { &sfx1F0, 0x0007, 0x0007 },
+    { &sfx1F1, 0x0008, 0x0008 },
+    { &sfx1F2, 0x0008, 0x0008 },
+    { &sfx1F3, 0x0009, 0x0009 },
+    { &sfx1F4, 0x000a, 0x000a },
+    { &sfx1F5, 0x000b, 0x000b },
+    { &sfx1F6, 0x000c, 0x000c },
+    { &sfx1F7, 0x000d, 0x000d },
+    { &sfx1F8, 0x000e, 0x000e },
+    { &sfx1F9, 0x000f, 0x000f },
+    { &sfx1FA, 0x0010, 0x0010 },
+    { &sfx1FB, 0x0011, 0x0011 },
+    { &sfx1FC, 0x0012, 0x0012 },
+    { &sfx1FD, 0x0013, 0x0013 },
+    { &sfx1FE, 0x0014, 0x0014 },
+    { &sfx1FF, 0x0015, 0x0015 },
+    { &sfx200, 0x0016, 0x0016 },
+    { &sfx201, 0x0017, 0x0017 },
+    { &sfx202, 0x0018, 0x0018 },
+    { &sfx203, 0x0019, 0x0019 },
+    { &sfx204, 0x001a, 0x001a },
+    { &sfx205, 0x001b, 0x001b },
+    { &sfx206, 0x001c, 0x001c },
+    { &sfx207, 0x0011, 0x0011 },
+    { &sfx208, 0x0004, 0x0004 },
+    { &sfx209, 0x0005, 0x0005 },
+    { &sfx20A, 0x0006, 0x0006 },
+    { &sfx20B, 0x0007, 0x0007 },
+    { &sfx20C, 0x0008, 0x0008 },
+    { &sfx20D, 0x0009, 0x0009 },
+    { &sfx20E, 0x000a, 0x000a },
+    { &sfx20F, 0x000b, 0x000b },
+    { &sfx210, 0x000c, 0x000c },
+    { &sfx211, 0x000d, 0x000d },
+    { &sfx212, 0x000e, 0x000e },
+    { &sfx213, 0x000f, 0x000f },
+    { &sfx214, 0x0010, 0x0010 },
+    { &sfx215, 0x0005, 0x0005 },
+    { &sfx216, 0x001e, 0x001e },
+    { &sfx217, 0x001e, 0x001e },
+    { &sfx218, 0x0004, 0x0004 },
+    { &sfx219, 0x0003, 0x0003 },
+    { &sfx21A, 0x000b, 0x000b },
+    { &sfx21B, 0x001d, 0x001d },
+    { &sfx21C, 0x001c, 0x001c },
+    { &sfx21D, 0x001b, 0x001b },
+    { &sfx21E, 0x001a, 0x001a },
+    { &sfx21F, 0x0019, 0x0019 },
+    { &sfx220, 0x0018, 0x0018 },
+    { &sfx221, 0x0017, 0x0017 },
 };

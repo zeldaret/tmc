@@ -112,7 +112,7 @@ static void sub_0808681C(Entity* this) {
                 this->action++;
                 this->frameIndex = 1;
                 sub_08078AC0(16, 0, 1);
-                SoundReq(0x111);
+                SoundReq(SFX_111);
             }
             break;
     }

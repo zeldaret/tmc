@@ -13,7 +13,7 @@ script_0800A0FE:
 	_0807E8E4_3 
 	CallWithArg sub_0807F75C, 0x00d00060
 	CallWithArg sub_08094AE8, script_0800A160
-	PlaySound 0x00f7
+	PlaySound SFX_APPARATE
 	_0807E778 0x0002
 	DoFade6 
 	EndBlock 

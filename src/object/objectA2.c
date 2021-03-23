@@ -49,7 +49,7 @@ void sub_0809F374(Entity* this) {
             this->height.WORD = 0;
             this->action = 2;
             InitializeAnimation(this, 1);
-            SoundReq(0x186);
+            SoundReq(SFX_186);
         } else {
             this->actionDelay++;
         }
@@ -65,7 +65,7 @@ void sub_0809F374(Entity* this) {
             case 1:
                 this->actionDelay = 0;
                 sub_0809F448(this);
-                SoundReq(0x186);
+                SoundReq(SFX_186);
         }
     }
 }

@@ -656,9 +656,13 @@
 	.2byte \s
 .endm
 
-.macro PlayBgm s:req
+.macro PlayBgm s
 	.2byte 0x087c
+	.ifnb \s
 	.2byte \s
+	.else
+	.2byte -1
+	.endif
 .endm
 
 .macro SoundReq w:req

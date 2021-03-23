@@ -41,7 +41,7 @@ script_08014B70:
 	Call sub_0806CD3C
 	Wait 0x0014
 	Call sub_0806CD4C
-	PlaySound 0x0072
+	PlaySound SFX_SECRET
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
 	Call sub_0807DF50

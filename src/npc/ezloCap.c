@@ -185,7 +185,7 @@ void sub_0806DAE8(Entity* this) {
             break;
     }
 
-    SoundReq(0xcd);
+    SoundReq(SFX_TASK_COMPLETE);
 }
 
 void sub_0806DB44(Entity* this, ScriptExecutionContext* context) {

@@ -28,7 +28,7 @@ script_08015BF0:
 	_0807E778 0x0004
 	_0807E800 0x00000000
 	WaitFor_2 
-	PlayBgm 0xffff
+	PlayBGM
 	_0807EB28 0x131f
 	_0807EA94 
 	SetLocalFlag 0x009c

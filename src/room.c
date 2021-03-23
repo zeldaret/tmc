@@ -1027,7 +1027,7 @@ void sub_0804C018(void) {
 
     if (CheckGlobalFlag(MAZE_CLEAR))
         if (gScreenTransition.playerStartPos.WORD == 0x2780078) // todo: wtf
-            SoundReq(0x72);
+            SoundReq(SFX_SECRET);
 
     ClearGlobalFlag(MAZE_CLEAR);
 }

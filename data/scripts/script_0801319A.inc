@@ -37,7 +37,7 @@ script_080131AC:
 	WaitForSomething2 0x00000010
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000040
-	PlayBgm 0x000d
+	PlayBgm BGM_VAATI_THEME
 	StartPlayerScript script_0801334C
 	WaitForSomething2 0x00000002
 	_0807E5F8 0x00000020
@@ -69,7 +69,7 @@ script_080131AC:
 	_0807EB28 0x1605
 	_0807EA94 
 	SetLocalFlag 0x0078
-	PlayBgm 0x0031
+	PlayBgm BGM_CASTLE_COLLAPSE
 	SetGlobalFlag 0x005d
 	Call sub_0807DF50
 	_0807E878 

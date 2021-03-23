@@ -60,8 +60,8 @@ SCRIPT_START script_08016482
 	_0807EEF4 0xfff0, 0x0014
 	DoPostScriptAction 0x0000
 	DoPostScriptAction2 0x0001
-	PlaySound 0x0074
-	PlayBgm 0x001d
+	PlaySound SFX_METAL_CLINK
+	PlayBgm BGM_MINISH_WOODS
 	SoundReq 0x00000074
 	SoundReq0x80100000 
 	ModRupees 0xff38

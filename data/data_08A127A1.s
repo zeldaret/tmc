@@ -4,7 +4,7 @@
 	.section .rodata
 	.align 2
 
-song_08A12ECC:: @ 08A12ECC
+bgmUnused:: @ 08A12ECC
 	.incbin "baserom.gba", 0xA12ECC, 0x0000004
 
 gUnk_08A12ED0:: @ 08A12ED0

@@ -53,7 +53,7 @@ script_0800BA46:
 	JumpIfNot script_0800BA6C
 	SoundReq0x80100000 
 	Call sub_0806E964
-	PlayBgm 0xffff
+	PlayBGM
 script_0800BA6C:
 	Call sub_0807DF50
 	_0807E878 

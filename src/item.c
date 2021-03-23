@@ -55,7 +55,7 @@ void OcarinaUse(ItemBehavior *beh, u32 arg1)
     gPlayerState.keepFacing |= bVar1;
     sub_08078F60();
     sub_08077D38(beh, arg1);
-    SoundReq(0x216);
+    SoundReq(SFX_216);
     sub_0805E544();
   }
 }
@@ -103,7 +103,7 @@ void sub_08076D34(ItemBehavior* beh, u32 arg1) {
             beh->stateID++;
             beh->field_0xf = 0;
             gPlayerState.field_0xa &= ~(u8)(8 >> arg1);
-            SoundReq(0x15d);
+            SoundReq(SFX_15D);
         }
     } else {
         gPlayerState.field_0x3[0] = 0;

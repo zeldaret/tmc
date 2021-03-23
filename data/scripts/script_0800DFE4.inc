@@ -10,7 +10,7 @@ SCRIPT_START script_0800DFE4
 script_0800DFFE:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_0800DFFE
-	PlayBgm 0x0030
+	PlayBgm BGM_VAATI_TRANSFIGURED
 	Call sub_0807DF50
 	_0807E878 
 script_0800E012:
@@ -22,7 +22,7 @@ script_0800E012:
 	TextboxNoOverlapFollowPos 0x1639, 0x000c
 	_0807EA94 
 	Wait 0x0096
-	PlaySound 0x00f6
+	PlaySound SFX_EVAPORATE
 	CallWithArg sub_0806DA1C, 0x00000005
 	Call sub_0807DF50
 	_0807E878 

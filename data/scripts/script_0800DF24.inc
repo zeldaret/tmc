@@ -21,9 +21,9 @@ SCRIPT_START script_0800DF24
 	DoPostScriptAction 0x0007
 	TextboxNoOverlapFollowPos 0x162f, 0x0002
 	_0807EA94 
-	PlayBgm 0x002f
+	PlayBgm BGM_VAATI_REBORN
 	DoPostScriptAction 0x0019
-	PlaySound 0x0198
+	PlaySound SFX_198
 	Call sub_0807F2D4
 	SetRoomFlag 0x0000
 	DoPostScriptAction 0x0008

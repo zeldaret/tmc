@@ -566,7 +566,7 @@ script_080122EC:
 	LoadRoomEntityList gUnk_080F2758
 	DoPostScriptAction 0x0008
 	Wait 0x003c
-	PlaySound 0x0072
+	PlaySound SFX_SECRET
 	SetLocalFlag 0x0043
 	Wait 0x001e
 	_0807E878 

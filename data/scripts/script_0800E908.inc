@@ -58,7 +58,7 @@ script_0800E974:
 	StartPlayerScript script_0800EA1C
 	WaitForSomething2 0x00000001
 	SetLocalFlag 0x0074
-	PlaySound 0x0072
+	PlaySound SFX_SECRET
 	Wait 0x00f0
 	TextboxNoOverlapFollow 0x4a26
 	_0807EA94 

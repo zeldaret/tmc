@@ -20,7 +20,7 @@ script_0800975A:
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28
-	PlaySound 0x01f3
+	PlaySound SFX_1F3
 	Call sub_0807F40C
 	_0807E8E4_1 
 	Wait 0x000a

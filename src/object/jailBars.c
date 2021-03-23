@@ -33,7 +33,7 @@ void sub_080A0910(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD) != 0) {
         this->action = 2;
         sub_080A0960(this, 1);
-        SoundReq(0x10b);
+        SoundReq(SFX_10B);
     }
 }
 

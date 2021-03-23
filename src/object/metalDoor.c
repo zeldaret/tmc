@@ -77,7 +77,7 @@ void sub_080A07BC(Entity* this) {
         this->direction = 0x10;
         this->y.HALF.HI += 2;
         sub_080A0870(this);
-        SoundReq(0x10b);
+        SoundReq(SFX_10B);
     }
 }
 

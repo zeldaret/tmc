@@ -10,7 +10,7 @@ script_08009A38:
 	CameraTargetEntity 
 	SetEntitySpeed 0x0080
 	Wait 0x0078
-	PlayBgm 0x0036
+	PlayBgm BGM_MINISH_CAP
 	_0807E778 0x0002
 	DoFade4 
 	WaitFor_2 

@@ -12,7 +12,7 @@ SCRIPT_START script_08015CD4
 	SetEntityPositionRelative 0x0088, 0x00e0
 	CameraTargetEntity 
 	Wait 0x003c
-	PlayBgm 0x000d
+	PlayBgm BGM_VAATI_THEME
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
 	_0807F0B4 0x0004
@@ -47,7 +47,7 @@ SCRIPT_START script_08015CD4
 	_0807E778 0x0004
 	DoFade4 
 	WaitFor_2 
-	PlayBgm 0x0034
+	PlayBgm BGM_DIGGING_CAVE
 	_0807E5F8 0x00000040
 	WaitForSomething2 0x00000080
 	_0807E5F8 0x00000001
