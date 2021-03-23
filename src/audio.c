@@ -2,16 +2,48 @@
 #include "main.h"
 #include "gba/m4a.h"
 #include "audio.h"
+#include "utils.h"
 #include "structures.h"
 
-extern void sub_080A35A0(u32);
-extern void sub_080A35C8(void);
-extern void sub_080A353C(u32);
-extern void sub_080A3234(u32);
-extern void sub_080A35B4(u32);
+s32 sub_080A3518(s32, s32);
+void sub_080A353C(u32);
+void sub_080A35A0(u32);
+void sub_080A35B4(u32);
+void sub_080A35C8(void);
 
 #define IS_BGM(song) (song) - 1 <= NUM_BGM - 1
 #define IS_SFX(song) (song) - 1 > NUM_BGM - 1
+
+void sub_080A3210(void);
+
+void InitSound(void){
+    sub_080A3210();
+    m4aSoundInit();
+}
+
+void sub_080A3210(void){
+    MemClear(&gUnk_02021EE0, 0x18);
+    sub_080A35C8();
+    gUnk_02021EE0.unk_12 = 0x100;
+    gUnk_02021EE0.unk_04 = 0x100;
+    m4aMPlayAllStop();
+}
+
+void sub_080A3234(u32 arg){
+    gUnk_02021EE0.unk_08 = arg;
+    gUnk_02021EE0.unk_0a = arg;
+    sub_080A353C(gUnk_02021EE0.currentBgm);
+}
+
+void sub_080A3248(u32 arg){
+    gUnk_02021EE0.unk_10 = arg;
+    gUnk_02021EE0.unk_0e = arg;
+    sub_080A353C(gUnk_02021EE0.currentBgm);
+}
+
+void sub_080A325C(u32 arg){
+    gUnk_02021EE0.unk_12 = arg;
+}
 
 void SoundReq(Sound sound) {
     u32 song;
@@ -111,7 +143,102 @@ void SoundReq(Sound sound) {
     }
 }
 
-extern const SongHeader song_08DCC48C;
+void sub_080A3480(void) {
+    u32 iVar2;
+    struct_02021EE0* ptr = &gUnk_02021EE0;
+
+    if (ptr->unk_0a != ptr->unk_08) {
+        iVar2 = sub_080A3518(ptr->unk_0a, ptr->unk_08);
+        if (iVar2 == 0) {
+            ptr->unk_08 = ptr->unk_0a;
+        } else {
+            ptr->unk_08 = ptr->unk_08 + iVar2;
+        }
+        if (ptr->unk_08 < 0) {
+            ptr->unk_0a = 0;
+            ptr->unk_08 = 0;
+        }
+        sub_080A353C(ptr->currentBgm);
+    } else {
+        if (ptr->unk_10 != ptr->unk_0e) {
+            iVar2 = sub_080A3518(ptr->unk_10, ptr->unk_0e);
+            if (iVar2 == 0) {
+                if (ptr->unk_02 != 0 && ptr->unk_10 == 0) {
+                    ptr->unk_02 = 0;
+                    ptr->currentBgm = 0;
+                    m4aSongNumStop(0);
+                } else {
+                    ptr->unk_0e = ptr->unk_10;
+                }
+            } else {
+                ptr->unk_0e += iVar2;
+            }
+            if (ptr->unk_0e < 0) {
+                ptr->unk_10 = 0;
+                ptr->unk_0e = 0;
+            }
+            sub_080A353C(ptr->currentBgm);
+        }
+    }
+}
+
+s32 sub_080A3518(s32 unk_1, s32 unk_2){
+    if (unk_1 - unk_2 >= 1) {
+        unk_2 += 4;
+        if (unk_1 > unk_2)
+            return 4;
+        else
+            return 0;
+    } else {
+        unk_2 -= 4;
+        if (unk_1 < unk_2)
+            return -4;
+        else
+            return 0;
+    }
+}
+
+void sub_080A353C(u32 song){
+    u32 volume;
+    u32 iVar2;
+    MusicPlayerInfo* musicPlayerInfo;
+
+    if(song == 0)
+        return;
+
+    if (IS_BGM(song)) {
+        volume = gUnk_02021EE0.unk_0e;
+    }
+    else{
+        volume = gUnk_02021EE0.unk_12;
+    }
+    iVar2 = gUnk_02021EE0.unk_08;
+    volume = iVar2 * volume / 0x100;
+    musicPlayerInfo = gMPlayTable[gSongTable[song].ms].info;
+    m4aMPlayImmInit(musicPlayerInfo);
+    m4aMPlayVolumeControl(musicPlayerInfo, 0xffff, volume);
+}
+
+void sub_080A35A0(u32 song){
+    gUnk_02021EE0.unk_0a = 0x100;
+    sub_080A353C(song);
+}
+
+void sub_080A35B4(u32 song){
+    gUnk_02021EE0.unk_0a = 0;
+    sub_080A353C(song);
+}
+
+void sub_080A35C8(){
+    gUnk_02021EE0.unk_06 = 0x100;
+    gUnk_02021EE0.unk_08 = 0x100;
+    gUnk_02021EE0.unk_0a = 0x100;
+    gUnk_02021EE0.unk_0c = 0x100;
+    gUnk_02021EE0.unk_0e = 0x100;
+    gUnk_02021EE0.unk_10 = 0x100;
+}
+
+extern const SongHeader sfxNone;
 extern const SongHeader bgmCastleTournament;
 extern const SongHeader bgmVaatiMotif;
 extern const SongHeader bgmTitleScreen;
@@ -621,7 +748,7 @@ extern const SongHeader sfx220;
 extern const SongHeader sfx221;
 
 const Song gSongTable[] = {
-    { &song_08DCC48C, 0x001f, 0x001f },
+    { &sfxNone, 0x001f, 0x001f },
     { &bgmCastleTournament, 0x001f, 0x001f },
     { &bgmVaatiMotif, 0x001f, 0x001f },
     { &bgmTitleScreen, 0x001f, 0x001f },

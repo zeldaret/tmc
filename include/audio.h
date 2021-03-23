@@ -23,7 +23,7 @@ typedef enum {
     BGM_VAATI_THEME,
     BGM_EZLO_THEME,
     BGM_STORY,
-    BGM_FESTIVAL_APPROACH, //0x10
+    BGM_FESTIVAL_APPROACH,
     BGM_BEAT_VAATI,
     BGM_UNUSED_12,
     BGM_BEANSTALK,
@@ -39,7 +39,7 @@ typedef enum {
     BGM_MINISH_WOODS,
     BGM_CRENEL_STORM,
     BGM_CASTOR_WILDS,
-    BGM_HYRULE_TOWN, //0x20
+    BGM_HYRULE_TOWN,
     BGM_ROYAL_VALLEY,
     BGM_CLOUD_TOPS,
     BGM_DARK_HYRULE_CASTLE,
@@ -55,7 +55,7 @@ typedef enum {
     BGM_FIGHT_THEME,
     BGM_BOSS_THEME,
     BGM_VAATI_REBORN,
-    BGM_VAATI_TRANSFIGURED, // 0x30
+    BGM_VAATI_TRANSFIGURED,
     BGM_CASTLE_COLLAPSE,
     BGM_VAATI_WRATH,
     BGM_FIGHT_THEME2,
@@ -71,7 +71,7 @@ typedef enum {
     BGM_UNUSED_3D,
     BGM_UNUSED_3E,
     BGM_UNUSED_3F,
-    BGM_UNUSED_40, // 0x40
+    BGM_UNUSED_40,
     BGM_UNUSED_41,
     BGM_UNUSED_42,
     BGM_UNUSED_43,
@@ -152,7 +152,7 @@ typedef enum {
     SFX_VO_EZLO1,
     SFX_VO_EZLO2,
     SFX_VO_EZLO3,
-    SFX_VO_EZLO4, //0x90
+    SFX_VO_EZLO4,
     SFX_VO_EZLO5,
     SFX_VO_EZLO6,
     SFX_VO_EZLO7,
@@ -574,6 +574,7 @@ typedef enum {
     SONG_UNK_11 = 0x80110000,
 } Sound;
 
+void InitSound(void);
 void SoundReq(Sound sound);
 
 #endif // AUDIO_H

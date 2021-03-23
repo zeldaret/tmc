@@ -190,10 +190,10 @@ typedef struct struct_02021EE0 {
     s16 unk_06;
     s16 unk_08;
     s16 unk_0a;
-    u16 unk_0c;
-    u16 unk_0e;
-    u16 unk_10;
-    u16 unk_12;
+    s16 unk_0c;
+    s16 unk_0e;
+    s16 unk_10;
+    s16 unk_12;
     u16 currentBgm;
 } struct_02021EE0;
 

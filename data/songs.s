@@ -1,6 +1,6 @@
 .section .rodata
 
-song_08DCC48C:: @ 08DCC48C
+sfxNone:: @ 08DCC48C
 	.incbin "baserom.gba", 0xDCC48C, 0x0000240
 
 bgmCastleTournament:: @ 08DCC6CC
