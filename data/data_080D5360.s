@@ -15809,7 +15809,7 @@ gUnk_080FC38C:: @ 080FC38C
 gUnk_080FC39C:: @ 080FC39C
 	.incbin "baserom.gba", 0x0FC39C, 0x0000008
 
-gUnk_080FC3A4:: @ 080FC3A4 TODO last room entites
+gUnk_080FC3A4:: @ 080FC3A4
 	.4byte gUnk_080FC32C
 	.4byte gUnk_080FC37C
 	.4byte gUnk_080FC38C

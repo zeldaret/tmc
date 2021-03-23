@@ -544,3 +544,65 @@ _08019402:
 _08019404: .4byte gSave
 _08019408: .4byte gPlayerEntity
 _0801940C: .4byte gPlayerState
+
+	thumb_func_start sub_08019410
+sub_08019410: @ 0x08019410
+	push {r4, lr}
+	adds r4, r0, #0
+	ldrb r0, [r4, #0xe]
+	cmp r0, #0xe
+	bhi _08019428
+	adds r0, r4, #0
+	adds r0, #0x58
+	ldrb r1, [r0]
+	adds r0, r4, #0
+	bl InitializeAnimation
+	b _0801942E
+_08019428:
+	adds r0, r4, #0
+	bl GetNextFrame
+_0801942E:
+	ldrb r0, [r4, #0xe]
+	subs r0, #1
+	strb r0, [r4, #0xe]
+	lsls r0, r0, #0x18
+	lsrs r0, r0, #0x18
+	cmp r0, #0xff
+	bne _08019440
+	bl DeleteThisEntity
+_08019440:
+	pop {r4, pc}
+	.align 2, 0
+
+	thumb_func_start sub_08019444
+sub_08019444: @ 0x08019444
+	push {r4, lr}
+	adds r4, r0, #0
+	bl GetNextFrame
+	adds r0, r4, #0
+	bl sub_0806F69C
+	movs r1, #0x80
+	lsls r1, r1, #6
+	adds r0, r4, #0
+	bl sub_08003FC4
+	cmp r0, #0
+	bne _08019464
+	bl DeleteThisEntity
+_08019464:
+	pop {r4, pc}
+	.align 2, 0
+
+	thumb_func_start sub_08019468
+sub_08019468: @ 0x08019468
+	push {lr}
+	adds r1, r0, #0
+	adds r0, #0x40
+	ldrb r0, [r0]
+	cmp r0, #0xe
+	bne _0801947E
+	adds r0, r1, #0
+	movs r1, #0x50
+	movs r2, #0
+	bl CreateFx
+_0801947E:
+	pop {pc}

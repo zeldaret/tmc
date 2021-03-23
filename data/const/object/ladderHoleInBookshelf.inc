@@ -1,3 +1,0 @@
-gUnk_081229B4:: @ 081229B4
-	.4byte sub_08093FCC
-	.4byte sub_08093FE0

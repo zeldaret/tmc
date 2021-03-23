@@ -1,8 +1,0 @@
-gUnk_081205D0:: @ 081205D0
-	.4byte sub_080851AC
-	.4byte sub_08085264
-	.4byte sub_080852B4
-	.4byte sub_08085308
-
-gUnk_081205E0:: @ 081205E0
-	.incbin "baserom.gba", 0x1205E0, 0x0000004
