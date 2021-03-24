@@ -1611,6 +1611,3 @@ gUnk_08A11C0C:: @ 08A11C0C
 
 gUnk_08A11C1C:: @ 08A11C1C
 	.incbin "baserom.gba", 0xA11C1C, 0x0000020
-
-gMPlayTable:: @ 08A11C3C
-	.incbin "baserom.gba", 0xA11C3C, 0x0000180

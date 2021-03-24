@@ -42,7 +42,6 @@ typedef void (*CgbSoundFunc)(void);
 typedef void (*CgbOscOffFunc)(u8);
 typedef u32 (*MidiKeyToCgbFreqFunc)(u8, u8, u8);
 typedef void (*ExtVolPitFunc)(void);
-typedef void (*MPlayMainFunc)(MusicPlayerInfo*);
 typedef void (*XcmdFunc)(MusicPlayerInfo*, MusicPlayerTrack*);
 
 typedef struct CgbChannel {
@@ -85,42 +84,6 @@ typedef struct CgbChannel {
     u8 unk4[8];
 } CgbChannel;
 
-typedef struct SoundChannel {
-    u8 statusFlags;
-    u8 type;
-    u8 rightVolume;
-    u8 leftVolume;
-    u8 attack;
-    u8 decay;
-    u8 sustain;
-    u8 release;
-    u8 key;
-    u8 envelopeVolume;
-    u8 envelopeVolumeRight;
-    u8 envelopeVolumeLeft;
-    u8 echoVolume;
-    u8 echoLength;
-    u8 unk0;
-    u8 unk1;
-    u8 gateTime;
-    u8 midiKey;
-    u8 velocity;
-    u8 priority;
-    u8 rhythmPan;
-    u8 unk2[3];
-    u32 count;
-    u32 fw;
-    u32 frequency;
-    WaveData* wav;
-    u32 currentPointer;
-    MusicPlayerTrack* track;
-    u32 prev;
-    u32 next;
-    u32 unk3;
-    u16 xpi;
-    u16 xpc;
-} SoundChannel;
-
 #define MAX_DIRECTSOUND_CHANNELS 12
 
 #define PCM_DMA_BUF_SIZE 1584 // size of Direct Sound buffer
@@ -162,56 +125,6 @@ typedef struct SoundInfo {
     s8 pcmBuffer[PCM_DMA_BUF_SIZE];
 } SoundInfo;
 
-#define MPT_FLG_VOLSET 0x01
-#define MPT_FLG_VOLCHG 0x03
-#define MPT_FLG_PITSET 0x04
-#define MPT_FLG_PITCHG 0x0C
-#define MPT_FLG_START 0x40
-#define MPT_FLG_EXIST 0x80
-
-// typedef above
-struct MusicPlayerTrack {
-    u8 flags;
-    u8 wait;
-    u8 patternLevel;
-    u8 repN;
-    u8 gateTime;
-    u8 key;
-    u8 velocity;
-    u8 runningStatus;
-    u8 keyM;
-    u8 pitM;
-    s8 keyShift;
-    s8 keyShiftX;
-    s8 tune;
-    u8 pitX;
-    s8 bend;
-    u8 bendRange;
-    u8 volMR;
-    u8 volML;
-    u8 vol;
-    u8 volX;
-    s8 pan;
-    s8 panX;
-    s8 modM;
-    u8 mod;
-    u8 modT;
-    u8 lfoSpeed;
-    u8 lfoSpeedC;
-    u8 lfoDelay;
-    u8 lfoDelayC;
-    u8 priority;
-    u8 echoVolume;
-    u8 echoLength;
-    SoundChannel* chan;
-    ToneData tone;
-    u8 gap[10];
-    u16 unk_3A;
-    u32 unk_3C;
-    u8* cmdPtr;
-    u8* patternStack[3];
-};
-
 #define MUSICPLAYER_STATUS_TRACK 0x0000ffff
 #define MUSICPLAYER_STATUS_PAUSE 0x80000000
 
@@ -221,31 +134,6 @@ struct MusicPlayerTrack {
 #define FADE_IN 0x0002
 #define FADE_VOL_MAX 64
 #define FADE_VOL_SHIFT 2
-
-// typedef above
-struct MusicPlayerInfo {
-    const SongHeader* songHeader;
-    u32 status;
-    u8 trackCount;
-    u8 priority;
-    u8 cmd;
-    u8 unk_B;
-    u32 clock;
-    u8 gap[8];
-    u8* memAccArea;
-    u16 tempoD;
-    u16 tempoU;
-    u16 tempoI;
-    u16 tempoC;
-    u16 fadeOI;
-    u16 fadeOC;
-    u16 fadeOV;
-    MusicPlayerTrack* tracks;
-    ToneData* tone;
-    u32 ident;
-    MPlayMainFunc func;
-    u32* intp;
-};
 
 extern u8 gMPlayMemAccArea[];
 
@@ -471,9 +359,9 @@ void m4aSoundInit(void) {
                  (8 << SOUND_MODE_MAXCHN_SHIFT));
 
     for (i = 0; i < NUM_MUSIC_PLAYERS; i++) {
-        MusicPlayerInfo* mplayInfo = gMPlayTable[i].info;
-        MPlayOpen(mplayInfo, gMPlayTable[i].track, gMPlayTable[i].unk_8);
-        mplayInfo->unk_B = gMPlayTable[i].unk_A;
+        MusicPlayerInfo* mplayInfo = gMusicPlayers[i].info;
+        MPlayOpen(mplayInfo, gMusicPlayers[i].tracks, gMusicPlayers[i].nTracks);
+        mplayInfo->unk_B = gMusicPlayers[i].unk_A;
         mplayInfo->memAccArea = gMPlayMemAccArea;
     }
 }
@@ -483,19 +371,19 @@ void m4aSoundMain(void) {
 }
 
 void m4aSongNumStart(u16 n) {
-    const MusicPlayer* mplayTable = gMPlayTable;
+    const MusicPlayer* mplayTable = gMusicPlayers;
     const Song* songTable = gSongTable;
     const Song* song = &songTable[n];
-    const MusicPlayer* mplay = &mplayTable[song->ms];
+    const MusicPlayer* mplay = &mplayTable[song->musicPlayerIndex];
 
     MPlayStart(mplay->info, song->header);
 }
 
 void m4aSongNumStartOrChange(u16 n) {
-    const MusicPlayer* mplayTable = gMPlayTable;
+    const MusicPlayer* mplayTable = gMusicPlayers;
     const Song* songTable = gSongTable;
     const Song* song = &songTable[n];
-    const MusicPlayer* mplay = &mplayTable[song->ms];
+    const MusicPlayer* mplay = &mplayTable[song->musicPlayerIndex];
 
     if (mplay->info->songHeader != song->header) {
         MPlayStart(mplay->info, song->header);
@@ -507,10 +395,10 @@ void m4aSongNumStartOrChange(u16 n) {
 }
 
 void m4aSongNumStartOrContinue(u16 n) {
-    const MusicPlayer* mplayTable = gMPlayTable;
+    const MusicPlayer* mplayTable = gMusicPlayers;
     const Song* songTable = gSongTable;
     const Song* song = &songTable[n];
-    const MusicPlayer* mplay = &mplayTable[song->ms];
+    const MusicPlayer* mplay = &mplayTable[song->musicPlayerIndex];
 
     if (mplay->info->songHeader != song->header)
         MPlayStart(mplay->info, song->header);
@@ -521,20 +409,20 @@ void m4aSongNumStartOrContinue(u16 n) {
 }
 
 void m4aSongNumStop(u16 n) {
-    const MusicPlayer* mplayTable = gMPlayTable;
+    const MusicPlayer* mplayTable = gMusicPlayers;
     const Song* songTable = gSongTable;
     const Song* song = &songTable[n];
-    const MusicPlayer* mplay = &mplayTable[song->ms];
+    const MusicPlayer* mplay = &mplayTable[song->musicPlayerIndex];
 
     if (mplay->info->songHeader == song->header)
         MPlayStop(mplay->info);
 }
 
 void m4aSongNumContinue(u16 n) {
-    const MusicPlayer* mplayTable = gMPlayTable;
+    const MusicPlayer* mplayTable = gMusicPlayers;
     const Song* songTable = gSongTable;
     const Song* song = &songTable[n];
-    const MusicPlayer* mplay = &mplayTable[song->ms];
+    const MusicPlayer* mplay = &mplayTable[song->musicPlayerIndex];
 
     if (mplay->info->songHeader == song->header)
         MPlayContinue(mplay->info);
@@ -544,7 +432,7 @@ void m4aMPlayAllStop(void) {
     s32 i;
 
     for (i = 0; i < NUM_MUSIC_PLAYERS; i++)
-        MPlayStop(gMPlayTable[i].info);
+        MPlayStop(gMusicPlayers[i].info);
 }
 
 void m4aMPlayContinue(MusicPlayerInfo* mplayInfo) {
@@ -555,7 +443,7 @@ void m4aMPlayAllContinue(void) {
     s32 i;
 
     for (i = 0; i < NUM_MUSIC_PLAYERS; i++)
-        MPlayContinue(gMPlayTable[i].info);
+        MPlayContinue(gMusicPlayers[i].info);
 }
 
 void m4aMPlayFadeOut(MusicPlayerInfo* mplayInfo, u16 speed) {

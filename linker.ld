@@ -155,6 +155,7 @@ SECTIONS {
         . = 0x00036A58; gUnk_02036A58 = .;
         . = 0x00036AD8; gUnk_02036AD8 = .;
         . = 0x00036BB8; gUnk_02036BB8 = .;
+        . = 0x00036BC0; gMPlayTracks = .;
         . = 0x00038560; gUnk_02038560 = .;
         . = 0x00040000;
     } >ewram
@@ -223,7 +224,9 @@ SECTIONS {
         . = 0x00004DD8; gUnk_03004DD8 = .;
         . = 0x00004DDC; gUnk_03004DDC = .;
         . = 0x00004DE0; gCgbChans = .;
+        . = 0x00004EE0; gMPlayInfos = .;
         . = 0x000055E0; gMPlayMemAccArea = .;
+        . = 0x000055F0; gMPlayInfos2 = .;
         . = 0x000056F0; gUnk_030056F0 = .;
         . = 0x000056F1; gUnk_030056F1 = .;
         . = 0x00005740; gUnk_03005740 = .;
