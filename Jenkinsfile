@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                sh 'cd ${env.AGBCC} && ./install.sh ${WORKSPACE} && cd ${WORKSPACE}'
+                sh 'cd ${AGBCC} && ./install.sh ${WORKSPACE} && cd ${WORKSPACE}'
                 sh 'cp /usr/local/etc/roms/tmc.us.gba baserom.gba'
                 sh 'make -j setup'
             }
