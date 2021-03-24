@@ -670,7 +670,7 @@
 	.4byte \w
 .endm
 
-.macro SoundReq0x80100000 
+.macro StopBgm
 	.2byte 0x047e
 .endm
 

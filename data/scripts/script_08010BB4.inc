@@ -33,7 +33,7 @@ script_08010BCA:
 	WaitForSomething2 0x00000020
 	TextboxNoOverlapFollowPos 0x1038, 0x000c
 	_0807EA94 
-	SoundReq0x80100000 
+	StopBgm
 	_0807E778 0x0004
 	DoFade5 
 	WaitFor_2 
@@ -95,7 +95,7 @@ script_08010BCA:
 	Wait 0x003c
 	WaitForSomething2 0x00000200
 	_0807E5F8 0x00280000
-	SoundReq0x80100000 
+	StopBgm
 	PlaySound SFX_9B
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
@@ -118,7 +118,7 @@ script_08010BCA:
 	TextboxNoOverlapFollowPos 0x1044, 0x0000
 	_0807EA94 
 	SetEntityPositionRelative 0x01f8, 0x0098
-	SoundReq0x80100000 
+	StopBgm
 	Wait 0x003c
 	PlayBgm BGM_VAATI_REBORN
 	_0807E5F8 0x00028000

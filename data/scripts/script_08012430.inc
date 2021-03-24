@@ -30,7 +30,7 @@ script_08012474:
 script_0801248A:
 	CheckPlayerInRegion 0x0208, 0x02c8, 0x4020
 	JumpIfNot script_0801248A
-	SoundReq0x80100000 
+	StopBgm
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28
@@ -61,7 +61,7 @@ script_0801248A:
 	WaitForSomething2 0x00000100
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
-	SoundReq0x80100000 
+	StopBgm
 	_0807E778 0x0004
 	_0807E80C 0x00000000
 	WaitFor_2 
@@ -82,7 +82,7 @@ script_08012566:
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	Call sub_0806DC7C
-	SoundReq0x80100000 
+	StopBgm
 	StartPlayerScript script_08012AC8
 	WaitForSomething2 0x00000001
 	SetEntityPositionRelative 0x0388, 0x0168
@@ -104,7 +104,7 @@ script_08012566:
 	WaitForSomething2 0x00000100
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
-	SoundReq0x80100000 
+	StopBgm
 	PlayBgm BGM_FIGHT_THEME2
 	Call sub_0807DF50
 	_0807E878 
@@ -115,7 +115,7 @@ script_08012566:
 	Call sub_0807FA40
 	Call sub_0807DF28
 	PlaySound SFX_SECRET
-	SoundReq0x80100000 
+	StopBgm
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
 	StartPlayerScript script_08012AF0
@@ -133,7 +133,7 @@ script_08012566:
 	WaitForSomething2 0x00000008
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
-	SoundReq0x80100000 
+	StopBgm
 	Wait 0x003c
 	PlayBGM
 	Call sub_0806DCA0
@@ -147,7 +147,7 @@ script_08012566:
 	WaitForSomething2 0x00000008
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
-	SoundReq0x80100000 
+	StopBgm
 	Wait 0x003c
 	PlayBGM
 	Call sub_08054570

@@ -214,7 +214,7 @@ script_08012A3E:
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28
-	SoundReq0x80100000 
+	StopBgm
 	DoPostScriptAction 0x000b
 	_0807EB8C 
 	Call sub_0806D944

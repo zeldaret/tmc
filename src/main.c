@@ -73,7 +73,7 @@ void AgbMain(void) {
                 sScreenHandlers[gMain.screen]();
                 MessageUpdate();
                 sub_08050154();
-                sub_080A3480();
+                SoundLoop();
                 break;
         }
         PrepNextFrame();

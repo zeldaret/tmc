@@ -7,7 +7,7 @@ SCRIPT_START script_0800DF24
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28
-	SoundReq0x80100000 
+	StopBgm
 	_0807E8E4_2 
 	Wait 0x005a
 	Call sub_0807F3F8

@@ -14,7 +14,7 @@ script_0800DCD0:
 	DoPostScriptAction 0x0010
 	SetEntityPositionRelative 0x0078, 0x0068
 	WaitForSomething2 0x00000001
-	SoundReq0x80100000 
+	StopBgm
 	Call sub_08066E50
 	PlaySound SFX_1C9
 	Call sub_0807F2D4

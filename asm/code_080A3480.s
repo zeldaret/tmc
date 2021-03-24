@@ -95,7 +95,7 @@ _080A365E:
 	strh r0, [r2, #0x14]
 	subs r0, #0x8a
 	strh r0, [r2, #0x20]
-	bl sub_080A3210
+	bl InitSoundPlayingInfo
 	bl sub_0805E5B4
 	movs r1, #0x80
 	lsls r1, r1, #1
@@ -505,7 +505,7 @@ _080A39C8:
 	strb r4, [r2, #3]
 	movs r0, #1
 	bl DispReset
-	bl sub_080A3210
+	bl InitSoundPlayingInfo
 	bl sub_080A4D34
 	movs r0, #0xa
 	bl LoadPaletteGroup

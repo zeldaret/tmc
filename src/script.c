@@ -141,7 +141,7 @@ void ScriptCommand_DoPostScriptAction2(Entity* entity, ScriptExecutionContext* c
 void ScriptCommand_PlaySound(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_PlayBgm(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_SoundReq(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_SoundReq0x80100000(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_StopBgm(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ModRupees(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_ModHealth(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_IncreaseMaxHealth(Entity* entity, ScriptExecutionContext* context);
@@ -287,7 +287,7 @@ const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
                                           ScriptCommand_PlaySound,
                                           ScriptCommand_PlayBgm,
                                           ScriptCommand_SoundReq,
-                                          ScriptCommand_SoundReq0x80100000,
+                                          ScriptCommand_StopBgm,
                                           ScriptCommand_ModRupees,
                                           ScriptCommand_ModHealth,
                                           ScriptCommand_IncreaseMaxHealth,
@@ -1467,8 +1467,8 @@ void ScriptCommand_SoundReq(Entity* entity, ScriptExecutionContext* context) {
     SoundReq(GetNextScriptCommandWordAfterCommandMetadata(context->scriptInstructionPointer));
 }
 
-void ScriptCommand_SoundReq0x80100000(Entity* entity, ScriptExecutionContext* context) {
-    SoundReq(SONG_RESET_UNK);
+void ScriptCommand_StopBgm(Entity* entity, ScriptExecutionContext* context) {
+    SoundReq(SONG_STOP_BGM);
 }
 
 void ScriptCommand_ModRupees(Entity* entity, ScriptExecutionContext* context) {

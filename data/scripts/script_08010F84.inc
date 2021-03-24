@@ -26,7 +26,7 @@ SCRIPT_START script_08010F84
 	_0807F0C8 0x0000, 0x0000
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
-	SoundReq0x80100000 
+	StopBgm
 	Wait 0x003c
 	TextboxNoOverlapFollowPos 0x104a, 0x0000
 	_0807EA94 

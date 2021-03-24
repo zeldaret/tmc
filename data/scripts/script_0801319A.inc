@@ -53,7 +53,7 @@ script_080131AC:
 	_0807E778 0x0004
 	DoFade5 
 	WaitFor_2 
-	SoundReq0x80100000 
+	StopBgm
 	_0807E858 0x0000
 	Wait 0x003c
 	CameraTargetPlayer 

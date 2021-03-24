@@ -80,7 +80,7 @@ script_080101AC:
 	Call sub_0807DF28
 	TextboxNoOverlapFollowPos 0x3004, 0x0007
 	_0807EA94 
-	SoundReq0x80100000 
+	StopBgm
 	_0807E778 0x0004
 	DoFade5 
 	WaitFor_2 

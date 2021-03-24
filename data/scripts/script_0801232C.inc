@@ -27,7 +27,7 @@ script_08012368:
 	JumpIfNot script_08012368
 	Call sub_0807DF28
 	_0807E864 
-	SoundReq0x80100000 
+	StopBgm
 	BeginBlock 
 	_0807E778 0x0004
 	_0807E788 0x00007fff
@@ -49,7 +49,7 @@ script_08012368:
 	WaitForSomething2 0x00000001
 	TextboxNoOverlap 0x1402
 	_0807EA94 
-	SoundReq0x80100000 
+	StopBgm
 	SetEntity0x20 0x00010000
 	Wait 0x003c
 	BeginBlock 

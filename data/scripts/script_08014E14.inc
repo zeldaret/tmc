@@ -138,7 +138,7 @@ script_08014FCC:
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28
-	SoundReq0x80100000 
+	StopBgm
 	_0807F0B4 0x0001
 	CameraTargetEntity 
 	StartPlayerScript script_080152B4
@@ -164,7 +164,7 @@ script_08014FCC:
 	WaitForSomething2 0x00000004
 	_0807EB28 0x1306
 	_0807EA94 
-	SoundReq0x80100000 
+	StopBgm
 	StartPlayerScript script_080152DC
 	CameraTargetEntity 
 	_0807F0B4 0x0003
@@ -206,7 +206,7 @@ script_08015104:
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28
-	SoundReq0x80100000 
+	StopBgm
 	StartPlayerScript script_08015338
 	WaitForSomething2 0x00000001
 	Wait 0x003c

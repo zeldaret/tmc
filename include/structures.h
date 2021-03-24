@@ -182,23 +182,6 @@ typedef struct {
 
 extern EntityHandler gUnk_03003DC0;
 
-typedef struct struct_02021EE0 {
-    u16 unk_00;
-    u8 unk_02;
-    u8 unk_03;
-    u16 unk_04;
-    s16 unk_06;
-    s16 unk_08;
-    s16 unk_0a;
-    s16 unk_0c;
-    s16 unk_0e;
-    s16 unk_10;
-    s16 unk_12;
-    u16 currentBgm;
-} struct_02021EE0;
-
-extern struct_02021EE0 gUnk_02021EE0;
-
 extern u8 gUnk_02022740[];
 extern u8 gUnk_02034490[];
 

@@ -78,7 +78,7 @@ SECTIONS {
         . = 0x00019EE0; gUnk_02019EE0 = .;
         . = 0x00019F6C; gUnk_02019F6C = .;
         . = 0x0001AEE0; gUnk_0201AEE0 = .;
-        . = 0x00021EE0; gUnk_02021EE0 = .;
+        . = 0x00021EE0; gSoundPlayingInfo = .;
         . = 0x00021F00; gUnk_02021F00 = .;
         . = 0x00021F20; gUnk_02021F20 = .;
         . = 0x00021F30; gBG1Buffer = .;

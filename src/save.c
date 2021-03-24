@@ -1,5 +1,6 @@
 #include "save.h"
 #include "gba/eeprom.h"
+#include "audio.h"
 
 typedef struct SaveFileStatus {
     u16 checksum1;
@@ -67,8 +68,8 @@ SaveResult HandleSave(u32 arg0) {
 }
 
 SaveResult HandleSaveInit(u32 arg0) {
-    gUnk_02021EE0.unk_0a -= 8;
-    if (gUnk_02021EE0.unk_08 <= 0) {
+    gSoundPlayingInfo.volumeMasterTarget -= 8;
+    if (gSoundPlayingInfo.volumeMaster <= 0) {
         gMenu.field_0xa = 8;
         gMenu.storyPanelIndex = SAVE_IN_PROGRESS;
     }
@@ -105,9 +106,9 @@ SaveResult HandleSaveDone(u32 arg0) {
     SaveResult result;
 
     result = SAVE_BUSY;
-    gUnk_02021EE0.unk_0a += 8;
-    if (gUnk_02021EE0.unk_06 <= gUnk_02021EE0.unk_0a) {
-        gUnk_02021EE0.unk_0a = gUnk_02021EE0.unk_06;
+    gSoundPlayingInfo.volumeMasterTarget += 8;
+    if (gSoundPlayingInfo.volumeMasterUnk <= gSoundPlayingInfo.volumeMasterTarget) {
+        gSoundPlayingInfo.volumeMasterTarget = gSoundPlayingInfo.volumeMasterUnk;
         sub_08050384();
         gMenu.storyPanelIndex = SAVE_INIT;
         if (gMenu.field_0xa == 1) {

@@ -40,7 +40,7 @@ script_0800DBCA:
 	_0807EA94 
 	Call sub_0807F3F8
 	_0807E5F8 0x00000001
-	SoundReq0x80100000 
+	StopBgm
 	Call sub_08094F98
 	CallWithArg sub_0805DDEC, 0x00000001
 	_0807F0C8 0xffff, 0x0000

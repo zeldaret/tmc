@@ -6,7 +6,7 @@ script_0800A0FE:
 	BeginBlock 
 	_0807E864 
 	Call sub_0807DF28
-	SoundReq0x80100000 
+	StopBgm
 	Call sub_0807FBFC
 	SetEntityPositionRelative 0x00b0, 0x0058
 	Call sub_0807F844

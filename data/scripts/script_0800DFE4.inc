@@ -3,7 +3,7 @@ SCRIPT_START script_0800DFE4
 	Call sub_0807DF28
 	_0807E864 
 	EndBlock 
-	SoundReq0x80100000 
+	StopBgm
 	TextboxNoOverlapFollowPos 0x1632, 0x0002
 	_0807EA94 
 	SetRoomFlag 0x0003

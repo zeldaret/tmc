@@ -556,25 +556,43 @@ typedef enum {
     SFX_221,
     // special functions
     SONG_STOP_ALL = 0x80010000,
-    SONG_VOL_ZERO = 0x80020000,
-    SONG_VOL_RESET_ALL = 0x80030000,
+    SONG_MUTE = 0x80020000,
+    SONG_PLAY_VOL_RESET_ALL = 0x80030000,
     SONG_VSYNC_OFF = 0x80040000,
     SONG_STOP = 0x80050000,
     SONG_VSYNC_ON = 0x80060000,
-    SONG_UNK_7 = 0x80070000,
+    SONG_CONTINUE = 0x80070000,
     SONG_VOL_FADE_OUT = 0x80080000,
-    SONG_UNK_9 = 0x80090000,
-    SONG_UNK_A = 0x800A0000,
-    SONG_VOL_RESET = 0x800B0000,
-    SONG_UNK_C = 0x800C0000,
-    SONG_VOL_CHAN1_SILENT = 0x800D0000,
-    SONG_VOL_CHAN1_RESET = 0x800E0000,
-    SONG_UNK_F = 0x800F0000,
-    SONG_RESET_UNK = 0x80100000,
-    SONG_UNK_11 = 0x80110000,
+    SONG_FADE_IN = 0x80090000,
+    SONG_FADE_IN_CONTINUE = 0x800A0000,
+    SONG_PLAY_VOL_RESET = 0x800B0000,
+    SONG_PLAY_TEMPO_CONTROL = 0x800C0000,
+    SONG_FADE_OUT_BGM = 0x800D0000,
+    SONG_FADE_IN_BGM = 0x800E0000,
+    SONG_INIT = 0x800F0000,
+    SONG_STOP_BGM = 0x80100000,
+    SONG_BGM_0 = 0x80110000,
 } Sound;
+
+typedef struct SoundPlayingInfo {
+    u16 unk_00;
+    bool8 stopBgm;
+    // u8 unk_03;
+    u16 unk_04;
+    s16 volumeMasterUnk;
+    s16 volumeMaster;
+    s16 volumeMasterTarget;
+    s16 volumeBgmUnk;
+    s16 volumeBgm;
+    s16 volumeBgmTarget;
+    s16 volumeSfx;
+    u16 currentBgm;
+} SoundPlayingInfo;
+
+extern SoundPlayingInfo gSoundPlayingInfo;
 
 void InitSound(void);
 void SoundReq(Sound sound);
+void SoundLoop(void);
 
 #endif // AUDIO_H

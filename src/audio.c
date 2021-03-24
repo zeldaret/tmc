@@ -3,88 +3,86 @@
 #include "gba/m4a.h"
 #include "audio.h"
 #include "utils.h"
-#include "structures.h"
-
-s32 sub_080A3518(s32, s32);
-void sub_080A353C(u32);
-void sub_080A35A0(u32);
-void sub_080A35B4(u32);
-void sub_080A35C8(void);
 
 #define IS_BGM(song) (song) - 1 <= NUM_BGM - 1
 #define IS_SFX(song) (song) - 1 > NUM_BGM - 1
 
-void sub_080A3210(void);
+void InitSoundPlayingInfo(void);
+s32 fade(s32 target, s32 current);
+void doPlaySound(u32 sound);
+void PlayFadeIn(u32 sound);
+void PlayFadeOut(u32 sound);
+void InitVolume(void);
 
-void InitSound(void){
-    sub_080A3210();
+void InitSound(void) {
+    InitSoundPlayingInfo();
     m4aSoundInit();
 }
 
-void sub_080A3210(void){
-    MemClear(&gUnk_02021EE0, 0x18);
-    sub_080A35C8();
-    gUnk_02021EE0.unk_12 = 0x100;
-    gUnk_02021EE0.unk_04 = 0x100;
+void InitSoundPlayingInfo(void) {
+    MemClear(&gSoundPlayingInfo, sizeof(gSoundPlayingInfo));
+    InitVolume();
+    gSoundPlayingInfo.volumeSfx = 0x100;
+    gSoundPlayingInfo.unk_04 = 0x100;
     m4aMPlayAllStop();
 }
 
-void sub_080A3234(u32 arg){
-    gUnk_02021EE0.unk_08 = arg;
-    gUnk_02021EE0.unk_0a = arg;
-    sub_080A353C(gUnk_02021EE0.currentBgm);
+void SetMasterVolume(u32 volume) {
+    gSoundPlayingInfo.volumeMaster = volume;
+    gSoundPlayingInfo.volumeMasterTarget = volume;
+    doPlaySound(gSoundPlayingInfo.currentBgm);
 }
 
-void sub_080A3248(u32 arg){
-    gUnk_02021EE0.unk_10 = arg;
-    gUnk_02021EE0.unk_0e = arg;
-    sub_080A353C(gUnk_02021EE0.currentBgm);
+void SetBgmVolume(u32 volume) {
+    gSoundPlayingInfo.volumeBgmTarget = volume;
+    gSoundPlayingInfo.volumeBgm = volume;
+    doPlaySound(gSoundPlayingInfo.currentBgm);
 }
 
-void sub_080A325C(u32 arg){
-    gUnk_02021EE0.unk_12 = arg;
+void SetSfxVolume(u32 volume) {
+    gSoundPlayingInfo.volumeSfx = volume;
 }
 
 void SoundReq(Sound sound) {
     u32 song;
-    struct_02021EE0* ptr;
+    SoundPlayingInfo* ptr;
     if (gMain.field_0x7)
         return;
-    ptr = &gUnk_02021EE0;
+    ptr = &gSoundPlayingInfo;
     song = sound & 0xffff;
     switch (sound & 0xffff0000) {
         case SONG_STOP_ALL:
             ptr->currentBgm = 0;
             m4aMPlayAllStop();
             return;
-        case SONG_VOL_ZERO:
-            sub_080A3234(0);
+        case SONG_MUTE:
+            SetMasterVolume(0);
             return;
-        case SONG_VOL_RESET_ALL:
-            sub_080A35C8();
-            ptr->unk_12 = 0x100;
-            sub_080A353C(ptr->currentBgm);
+        case SONG_PLAY_VOL_RESET_ALL:
+            InitVolume();
+            ptr->volumeSfx = 0x100;
+            doPlaySound(ptr->currentBgm);
             return;
         case SONG_VOL_FADE_OUT:
-            sub_080A35B4(ptr->currentBgm);
+            PlayFadeOut(ptr->currentBgm);
             return;
-        case SONG_UNK_9:
+        case SONG_FADE_IN:
             if (song == 0)
                 song = ptr->currentBgm;
             if (IS_SFX(song))
                 return;
             ptr->currentBgm = song;
             m4aSongNumStart(song);
-            sub_080A35A0(song);
+            PlayFadeIn(song);
             return;
-        case SONG_UNK_A:
+        case SONG_FADE_IN_CONTINUE:
             if (IS_SFX(song))
                 return;
             ptr->currentBgm = song;
             m4aSongNumStartOrContinue(song);
-            sub_080A35A0(song);
+            PlayFadeIn(song);
             return;
-        case SONG_UNK_C:
+        case SONG_PLAY_TEMPO_CONTROL:
             m4aMPlayTempoControl(gMPlayTable[gSongTable[ptr->currentBgm].ms].info, song);
             return;
         case SONG_VSYNC_OFF:
@@ -98,34 +96,34 @@ void SoundReq(Sound sound) {
             return;
         case SONG_VSYNC_ON:
             m4aSoundVSyncOn();
-        case SONG_UNK_7:
+        case SONG_CONTINUE:
             if (ptr->currentBgm == 0)
                 return;
             m4aSongNumStartOrContinue(ptr->currentBgm);
-            sub_080A353C(ptr->currentBgm);
+            doPlaySound(ptr->currentBgm);
             return;
-        case SONG_VOL_RESET:
+        case SONG_PLAY_VOL_RESET:
             if (IS_SFX(song))
                 return;
             ptr->currentBgm = song;
             m4aSongNumStartOrContinue(song);
-            sub_080A35C8();
-            sub_080A353C(song);
+            InitVolume();
+            doPlaySound(song);
             return;
-        case SONG_VOL_CHAN1_SILENT:
-            ptr->unk_10 = 0;
+        case SONG_FADE_OUT_BGM:
+            ptr->volumeBgmTarget = 0;
             return;
-        case SONG_RESET_UNK:
-            ptr->unk_10 = 0;
-            ptr->unk_02 = 1;
+        case SONG_STOP_BGM:
+            ptr->volumeBgmTarget = 0;
+            ptr->stopBgm = TRUE;
             return;
-        case SONG_VOL_CHAN1_RESET:
-            ptr->unk_10 = 0x100;
+        case SONG_FADE_IN_BGM:
+            ptr->volumeBgmTarget = 0x100;
             return;
-        case SONG_UNK_F:
-            sub_080A35C8();
+        case SONG_INIT:
+            InitVolume();
             return;
-        case SONG_UNK_11:
+        case SONG_BGM_0:
             ptr->currentBgm = 0;
             return;
         default:
@@ -133,109 +131,106 @@ void SoundReq(Sound sound) {
                 if (IS_BGM(song)) {
                     ptr->currentBgm = song;
                     m4aSongNumStart(song);
-                    sub_080A35C8();
+                    InitVolume();
                 } else {
                     m4aSongNumStart(song);
                 }
-                sub_080A353C(song);
+                doPlaySound(song);
             }
             return;
     }
 }
 
-void sub_080A3480(void) {
-    u32 iVar2;
-    struct_02021EE0* ptr = &gUnk_02021EE0;
+void SoundLoop(void) {
+    s32 fadeValue;
+    SoundPlayingInfo* ptr = &gSoundPlayingInfo;
 
-    if (ptr->unk_0a != ptr->unk_08) {
-        iVar2 = sub_080A3518(ptr->unk_0a, ptr->unk_08);
-        if (iVar2 == 0) {
-            ptr->unk_08 = ptr->unk_0a;
+    if (ptr->volumeMasterTarget != ptr->volumeMaster) {
+        fadeValue = fade(ptr->volumeMasterTarget, ptr->volumeMaster);
+        if (fadeValue == 0) {
+            ptr->volumeMaster = ptr->volumeMasterTarget;
         } else {
-            ptr->unk_08 = ptr->unk_08 + iVar2;
+            ptr->volumeMaster = ptr->volumeMaster + fadeValue;
         }
-        if (ptr->unk_08 < 0) {
-            ptr->unk_0a = 0;
-            ptr->unk_08 = 0;
+        if (ptr->volumeMaster < 0) {
+            ptr->volumeMasterTarget = 0;
+            ptr->volumeMaster = 0;
         }
-        sub_080A353C(ptr->currentBgm);
+        doPlaySound(ptr->currentBgm);
     } else {
-        if (ptr->unk_10 != ptr->unk_0e) {
-            iVar2 = sub_080A3518(ptr->unk_10, ptr->unk_0e);
-            if (iVar2 == 0) {
-                if (ptr->unk_02 != 0 && ptr->unk_10 == 0) {
-                    ptr->unk_02 = 0;
+        if (ptr->volumeBgmTarget != ptr->volumeBgm) {
+            fadeValue = fade(ptr->volumeBgmTarget, ptr->volumeBgm);
+            if (fadeValue == 0) {
+                if (ptr->stopBgm && ptr->volumeBgmTarget == 0) {
+                    ptr->stopBgm = FALSE;
                     ptr->currentBgm = 0;
                     m4aSongNumStop(0);
                 } else {
-                    ptr->unk_0e = ptr->unk_10;
+                    ptr->volumeBgm = ptr->volumeBgmTarget;
                 }
             } else {
-                ptr->unk_0e += iVar2;
+                ptr->volumeBgm += fadeValue;
             }
-            if (ptr->unk_0e < 0) {
-                ptr->unk_10 = 0;
-                ptr->unk_0e = 0;
+            if (ptr->volumeBgm < 0) {
+                ptr->volumeBgmTarget = 0;
+                ptr->volumeBgm = 0;
             }
-            sub_080A353C(ptr->currentBgm);
+            doPlaySound(ptr->currentBgm);
         }
     }
 }
 
-s32 sub_080A3518(s32 unk_1, s32 unk_2){
-    if (unk_1 - unk_2 >= 1) {
-        unk_2 += 4;
-        if (unk_1 > unk_2)
+s32 fade(s32 target, s32 current) {
+    if (target - current >= 1) {
+        current += 4;
+        if (target > current)
             return 4;
-        else
-            return 0;
+        return 0;
     } else {
-        unk_2 -= 4;
-        if (unk_1 < unk_2)
+        current -= 4;
+        if (target < current)
             return -4;
-        else
-            return 0;
+        return 0;
     }
 }
 
-void sub_080A353C(u32 song){
+void doPlaySound(u32 sound) {
     u32 volume;
     u32 iVar2;
     MusicPlayerInfo* musicPlayerInfo;
 
-    if(song == 0)
+    if (sound == 0)
         return;
 
-    if (IS_BGM(song)) {
-        volume = gUnk_02021EE0.unk_0e;
+    if (IS_BGM(sound)) {
+        volume = gSoundPlayingInfo.volumeBgm;
+    } else {
+        volume = gSoundPlayingInfo.volumeSfx;
     }
-    else{
-        volume = gUnk_02021EE0.unk_12;
-    }
-    iVar2 = gUnk_02021EE0.unk_08;
+    iVar2 = gSoundPlayingInfo.volumeMaster;
     volume = iVar2 * volume / 0x100;
-    musicPlayerInfo = gMPlayTable[gSongTable[song].ms].info;
+    musicPlayerInfo = gMPlayTable[gSongTable[sound].ms].info;
     m4aMPlayImmInit(musicPlayerInfo);
     m4aMPlayVolumeControl(musicPlayerInfo, 0xffff, volume);
 }
 
-void sub_080A35A0(u32 song){
-    gUnk_02021EE0.unk_0a = 0x100;
-    sub_080A353C(song);
+void PlayFadeIn(u32 sound) {
+    gSoundPlayingInfo.volumeMasterTarget = 0x100;
+    doPlaySound(sound);
 }
 
-void sub_080A35B4(u32 song){
-    gUnk_02021EE0.unk_0a = 0;
-    sub_080A353C(song);
+void PlayFadeOut(u32 sound) {
+    gSoundPlayingInfo.volumeMasterTarget = 0;
+    doPlaySound(sound);
 }
 
-void sub_080A35C8(){
-    gUnk_02021EE0.unk_06 = 0x100;
-    gUnk_02021EE0.unk_08 = 0x100;
-    gUnk_02021EE0.unk_0a = 0x100;
-    gUnk_02021EE0.unk_0c = 0x100;
-    gUnk_02021EE0.unk_0e = 0x100;
-    gUnk_02021EE0.unk_10 = 0x100;
+void InitVolume() {
+    gSoundPlayingInfo.volumeMasterUnk = 0x100;
+    gSoundPlayingInfo.volumeMaster = 0x100;
+    gSoundPlayingInfo.volumeMasterTarget = 0x100;
+    gSoundPlayingInfo.volumeBgmUnk = 0x100;
+    gSoundPlayingInfo.volumeBgm = 0x100;
+    gSoundPlayingInfo.volumeBgmTarget = 0x100;
 }
 
 extern const SongHeader sfxNone;

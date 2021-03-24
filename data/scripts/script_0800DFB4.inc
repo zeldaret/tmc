@@ -3,7 +3,7 @@ SCRIPT_START script_0800DFB4
 script_0800DFB6:
 	CheckRoomFlag 0x0001
 	JumpIfNot script_0800DFB6
-	SoundReq0x80100000 
+	StopBgm
 	_0807E864 
 	Call sub_0807DF28
 	PlaySound SFX_EVAPORATE

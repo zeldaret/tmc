@@ -15,7 +15,7 @@ script_08015BF0:
 	_0807E778 0x0004
 	_0807E80C 0x00000000
 	WaitFor_2 
-	SoundReq0x80100000 
+	StopBgm
 	Call sub_08053BE8
 	BeginBlock 
 	_0807E864 

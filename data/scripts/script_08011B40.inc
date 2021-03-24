@@ -60,7 +60,7 @@ script_08011BBC:
 script_08011C04:
 	CheckRoomFlag 0x0064
 	JumpIfNot script_08011C04
-	SoundReq0x80100000 
+	StopBgm
 	_0807E864 
 	Wait 0x003c
 	CameraTargetEntity 

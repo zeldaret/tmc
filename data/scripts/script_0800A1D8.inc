@@ -47,7 +47,7 @@ SCRIPT_START script_0800A1D8
 	WaitForSomething2 0x000000c0
 	TextboxNoOverlapFollowPos 0x165c, 0x000e
 	_0807EA94 
-	SoundReq0x80100000 
+	StopBgm
 	TextboxNoOverlapFollowPos 0x165d, 0x000e
 	_0807EA94 
 	_0807E5F8 0x00000006

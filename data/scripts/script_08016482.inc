@@ -63,7 +63,7 @@ SCRIPT_START script_08016482
 	PlaySound SFX_METAL_CLINK
 	PlayBgm BGM_MINISH_WOODS
 	SoundReq 0x00000074
-	SoundReq0x80100000 
+	StopBgm
 	ModRupees 0xff38
 	ModHealth 0x0010
 	IncreaseMaxHealth

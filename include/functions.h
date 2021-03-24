@@ -142,7 +142,7 @@ extern void sub_080AF2E4(void);
 extern void sub_0804F578(void);
 extern void sub_08059994(void);
 extern s32 sub_0801CFA8(u32);
-extern void sub_080A3210(void);
+extern void InitSoundPlayingInfo(void);
 extern void sub_080ADA14(u32, u32); // trampoline to sub_080B27F4
 extern void sub_0801E1B8(u32, u32);
 extern void sub_0801E1EC(s32, s32, s32);
