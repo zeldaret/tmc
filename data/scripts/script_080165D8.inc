@@ -6,6 +6,7 @@ SCRIPT_START script_080165D8
 	Call script_0801637C+1
 	JumpAbsolute script_080165D8
 	.2byte 0x0000
+SCRIPT_START script_080165F8
 	BeginBlock 
 	_0807E9D4 
 	EndBlock 
@@ -14,6 +15,7 @@ script_080165FE:
 	JumpIfNot script_080165FE
 	TextboxNoOverlapFollow 0x0601
 	Jump script_080165FE
+SCRIPT_START script_0801660C
 	BeginBlock 
 	_0807E9D4 
 	EndBlock 
@@ -26,6 +28,7 @@ script_08016612:
 	_0807E878 
 	Jump script_08016612
 	.2byte 0x0000
+SCRIPT_START script_08016628
 	BeginBlock 
 	_0807E9D4 
 	EndBlock 
@@ -38,6 +41,7 @@ script_0801662E:
 	_0807E878 
 	Jump script_0801662E
 	.2byte 0x0000
+SCRIPT_START script_08016644
 	SetEntitySpeed 0x0100
 script_08016648:
 	_0807ECF4 0x0030
@@ -49,7 +53,7 @@ script_08016648:
 	_0807EC64 0x0030
 	Wait 0x0008
 	Jump script_08016648
-script_0801666C:
+SCRIPT_START script_0801666C
 	_0807ED24 0x0055, 0x0039, 0x00b4
 	Wait 0x0008
 	_0807ED24 0x0075, 0x0076, 0x003c
@@ -63,6 +67,7 @@ script_0801666C:
 	_0807ED24 0x00d8, 0x003f, 0x003c
 	Wait 0x0008
 	Jump script_0801666C
+SCRIPT_START script_080166B8
 	SetEntitySpeed 0x0100
 script_080166BC:
 	_0807EDD4 0x0055, 0x0039
@@ -78,6 +83,7 @@ script_080166BC:
 	_0807EDD4 0x00d8, 0x003f
 	Wait 0x0008
 	Jump script_080166BC
+SCRIPT_START script_080166FC
 	SetEntitySpeed 0x0100
 script_08016700:
 	_0807EC94 0x0030
@@ -115,6 +121,7 @@ script_08016700:
 	_0807EB44 0x0004
 	Wait 0x003c
 	Jump script_08016700
+SCRIPT_START script_08016798	
 	SetEntitySpeed 0x0100
 script_0801679C:
 	WaitForSomething 0x00000002
@@ -154,6 +161,7 @@ script_0801679C:
 	Wait 0x0002
 	_0807EB44 0x0004
 	Jump script_0801679C
+SCRIPT_START script_08016844
 	SetEntitySpeed 0x0100
 script_08016848:
 	WaitForSomething 0x00000004
@@ -191,6 +199,7 @@ script_08016848:
 	Wait 0x0002
 	_0807EB44 0x0004
 	Jump script_08016848
+SCRIPT_START script_080168E0
 	BeginBlock 
 	_0807E9D4 
 	EndBlock 

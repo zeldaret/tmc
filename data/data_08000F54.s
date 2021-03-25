@@ -5,7 +5,18 @@
 	.align 2
 
 gUnk_08000F54:: @ 08000F54
-	.incbin "baserom.gba", 0x000F54, 0x0000030
+	.4byte gUnk_08000F84
+	.4byte gUnk_08000FC4
+	.4byte gUnk_08001004
+	.4byte 00000000
+	.4byte gUnk_08001044
+	.4byte gUnk_08001084
+	.4byte gUnk_080010C4
+	.4byte 00000000
+	.4byte gUnk_08001104
+	.4byte gUnk_08001144
+	.4byte gUnk_08001184
+	.4byte 00000000
 
 gUnk_08000F84:: @ 08000F84
 	.incbin "baserom.gba", 0x000F84, 0x0000040

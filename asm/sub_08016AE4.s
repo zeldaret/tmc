@@ -27,7 +27,7 @@ _08016B0A:
 	adds r0, r4, #0
 	ldrb r1, [r0, #9]
 	lsls r1, r1, #2
-	ldr r2, _08016B2C @ =gUnk_08129320
+	ldr r2, _08016B2C @ =gProjectileFunctions
 	ldr r1, [r2, r1]
 	bl _call_via_r1
 	movs r1, #0x41
@@ -41,4 +41,4 @@ _08016B22:
 	pop {r3, r4}
 	bx r3
 	.align 2, 0
-_08016B2C: .4byte gUnk_08129320
+_08016B2C: .4byte gProjectileFunctions

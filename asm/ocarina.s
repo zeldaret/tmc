@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start Ocarina    
-Ocarina: @ 0x08076B78
+	thumb_func_start ItemOcarina    
+ItemOcarina: @ 0x08076B78
 	push {lr}
     
 	ldr r3, _08076B94 @ =gOcarinaStates

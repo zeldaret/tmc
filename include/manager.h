@@ -122,7 +122,7 @@ extern struct {
     u8 unk_0b;
 } gUnk_03004030;
 
-extern DiggingCaveEntrance* gUnk_08107DC0[];
+extern DiggingCaveEntrance* diggingCaveEntrances[];
 
 typedef struct {
     u8 unk_00;
