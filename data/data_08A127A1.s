@@ -3090,7 +3090,3 @@ gUnk_08DCC1C9:: @ 08DCC1C9
 
 gUnk_08DCC3F5:: @ 08DCC3F5
 	.incbin "baserom.gba", 0xDCC3F5, 0x0000087
-
-gUnk_08DCC47C:: @ 08DCC47C
-	.incbin "baserom.gba", 0xDCC47C, 0x0000010
-

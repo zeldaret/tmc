@@ -270,7 +270,7 @@ extern const SongHeader bgmRoyalValley;
 extern const SongHeader bgmCloudTops;
 extern const SongHeader bgmDarkHyruleCastle;
 extern const SongHeader bgmSecretCastleEntrance;
-extern const SongHeader bmgDeepwoodShrine;
+extern const SongHeader bgmDeepwoodShrine;
 extern const SongHeader bgmCaveOfFlames;
 extern const SongHeader bgmFortressOfWinds;
 extern const SongHeader bgmTempleOfDroplets;
@@ -856,7 +856,7 @@ const Song gSongTable[] = {
     [BGM_CLOUD_TOPS] = { &bgmCloudTops, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
     [BGM_DARK_HYRULE_CASTLE] = { &bgmDarkHyruleCastle, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
     [BGM_SECRET_CASTLE_ENTRANCE] = { &bgmSecretCastleEntrance, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
-    [BGM_DEEPWOOD_SHRINE] = { &bmgDeepwoodShrine, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
+    [BGM_DEEPWOOD_SHRINE] = { &bgmDeepwoodShrine, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
     [BGM_CAVE_OF_FLAMES] = { &bgmCaveOfFlames, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
     [BGM_FORTRESS_OF_WINDS] = { &bgmFortressOfWinds, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
     [BGM_TEMPLE_OF_DROPLETS] = { &bgmTempleOfDroplets, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },

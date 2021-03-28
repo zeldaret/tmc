@@ -1038,7 +1038,7 @@ SECTIONS {
         data/data_089FC6C4.o(.rodata);
         src/audio.o(.rodata);
         data/data_08A127A1.o(.rodata);
-        data/songs.o(.rodata);
+        data/sounds.o(.rodata);
         src/eeprom.o(.rodata);
     } >rom
 
