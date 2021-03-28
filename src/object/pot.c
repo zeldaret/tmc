@@ -5,9 +5,9 @@
 #include "player.h"
 #include "room.h"
 
-static void sub_08082824(Entity*);
+void sub_08082824(Entity*);
 static void sub_08082850(Entity*, Entity*);
-static void sub_08082608(Entity*);
+void sub_08082608(Entity*);
 
 extern void (*const gUnk_0811F090[])(Entity*);
 extern void (*const gUnk_0811F0A8[])(Entity*);
@@ -162,7 +162,7 @@ void sub_080825F0(Entity* this) {
     }
 }
 
-static void sub_08082608(Entity* this) {
+void sub_08082608(Entity* this) {
     this->action = 1;
     this->subAction = 0;
 }
@@ -248,7 +248,7 @@ void sub_08082818(Entity* this) {
     sub_08082850(this, NULL);
 }
 
-static void sub_08082824(Entity* this) {
+void sub_08082824(Entity* this) {
     if (this->field_0x20 < 0) {
         this->spriteSettings.b.flipY = 1;
     }

@@ -7,8 +7,8 @@
 #include "structures.h"
 
 static void sub_0808F2B0(Entity*);
-static void sub_0808F14C(Entity*);
-static void sub_0808F244(Entity*);
+void sub_0808F14C(Entity*);
+void sub_0808F244(Entity*);
 
 extern void sub_0806FCF4(Entity*, u32, u32, u32);
 extern void sub_0808F5EC(Entity*);
@@ -55,7 +55,7 @@ void sub_0808F0D0(Entity* this) {
     sub_0808F14C(this);
 }
 
-static void sub_0808F14C(Entity* this) {
+void sub_0808F14C(Entity* this) {
     sub_0808F2B0(this);
     if (sub_08003FC4(this, 0x2000) == 0) {
         this->action++;
@@ -101,7 +101,7 @@ void sub_0808F1F8(Entity* this) {
     sub_0808F244(this);
 }
 
-static void sub_0808F244(Entity* this) {
+void sub_0808F244(Entity* this) {
 
     this->spriteSettings.b.draw = this->parent->spriteSettings.b.draw;
     this->y.HALF.HI = this->parent->y.HALF.HI + 3;

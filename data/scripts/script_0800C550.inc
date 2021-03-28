@@ -17,6 +17,7 @@ script_0800C572:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800C55E
+SCRIPT_START script_0800C584
 	BeginBlock 
 	Call sub_08060090
 	DoPostScriptAction 0x000a
@@ -41,6 +42,7 @@ script_0800C5C0:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800C592
+SCRIPT_START script_0800C5C8
 	BeginBlock 
 	Call sub_08060090
 	DoPostScriptAction 0x000a
@@ -59,6 +61,7 @@ script_0800C5EA:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800C5D6
+SCRIPT_START script_0800C5FC
 	BeginBlock 
 script_0800C5FE:
 	Call sub_08060090

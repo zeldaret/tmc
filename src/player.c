@@ -534,7 +534,7 @@ static void PlayerUsePortal(Entity* this) {
     }
 }
 
-static void PortalJumpOnUpdate(Entity* this) {
+void PortalJumpOnUpdate(Entity* this) {
     u16 x;
     u16 y;
 
@@ -570,7 +570,7 @@ static void PortalJumpOnUpdate(Entity* this) {
     }
 }
 
-static void PortalStandUpdate(Entity* this) {
+void PortalStandUpdate(Entity* this) {
     switch (gArea.curPortalType) {
         case 4:
         case 5:
@@ -610,7 +610,7 @@ static void PortalStandUpdate(Entity* this) {
     sub_08079938();
 }
 
-static void PortalActivateInit(Entity* this) {
+void PortalActivateInit(Entity* this) {
     gRoomControls.cameraTarget = NULL;
     gUnk_02034490[0] = 1;
     this->subAction = 3;
@@ -621,7 +621,7 @@ static void PortalActivateInit(Entity* this) {
     sub_0805E544();
 }
 
-static void PortalActivateUpdate(Entity* this) {
+void PortalActivateUpdate(Entity* this) {
     if (this->field_0xf)
         return;
 
@@ -631,7 +631,7 @@ static void PortalActivateUpdate(Entity* this) {
         this->subAction = 4;
 }
 
-static void PortalShrinkInit(Entity* this) {
+void PortalShrinkInit(Entity* this) {
     this->subAction = 5;
     this->spritePriority.b1 = 0;
     this->field_0xf = 0;
@@ -645,9 +645,9 @@ static void PortalShrinkInit(Entity* this) {
 }
 
 // horrible
-ASM_FUNC("asm/non_matching/player/sub_08071634.s", static void PortalShrinkUpdate(Entity* this))
+ASM_FUNC("asm/non_matching/player/sub_08071634.s", void PortalShrinkUpdate(Entity* this))
 
-static void PortalEnterUpdate(Entity* this) {
+void PortalEnterUpdate(Entity* this) {
     if (this->actionDelay == 0) {
         if (sub_08003FC4(this, 0x2000))
             return;
@@ -669,7 +669,7 @@ static void PortalEnterUpdate(Entity* this) {
     this->actionDelay--;
 }
 
-static void PortalUnknownUpdate(Entity* this) {
+void PortalUnknownUpdate(Entity* this) {
     if (gFadeControl.active)
         return;
 

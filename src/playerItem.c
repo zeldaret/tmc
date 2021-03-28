@@ -1,30 +1,52 @@
 #include "global.h"
 #include "functions.h"
 
-extern void sub_080A7544();
-extern void sub_0801B188();
-extern void sub_0801B45C();
-extern void sub_08018FCC();
-extern void sub_080A2D74();
-extern void sub_08054A40();
-extern void sub_08056330();
-extern void sub_080ADA30();
-extern void sub_080704BC();
-extern void sub_0801B898();
-extern void CellOverwriteSet();
-extern void SwordSpin();
-extern void SwordBeam();
-extern void sub_080ACBCC();
-extern void Item11();
-extern void sub_080700E8();
-extern void sub_080ACF14();
-extern void Item14();
-extern void sub_080A306C();
-extern void NulledItem();
+extern void PlayerItemSword();
+extern void PlayerItemBomb();
+extern void PlayerItem3();
+extern void PlayerItemBow();
+extern void PlayerItemShield();
+extern void PlayerItemLantern();
+extern void PlayerItemNulled();
+extern void PlayerItemGustJar();
+extern void PlayerItemPacciCane();
+extern void PlayerItemC();
+extern void PlayerItemCellOverwriteSet();
+extern void PlayerItemSwordSpin();
+extern void PlayerItemSwordBeam();
+extern void PlayerItem10();
+extern void PlayerItem11();
+extern void PlayerItem12();
+extern void PlayerItem13();
+extern void PlayerItem14();
+extern void PlayerItem15();
+extern void PlayerItemNulled2();
 
 void (*const gPlayerItemFunctions[])() = {
-    DeleteEntity, sub_080A7544, sub_0801B188, sub_0801B45C,    sub_08018FCC, sub_080A2D74, sub_08054A40,
-    sub_08056330, sub_080ADA30, sub_080704BC, DeleteEntity,    DeleteEntity, sub_0801B898, CellOverwriteSet,
-    SwordSpin,    SwordBeam,    sub_080ACBCC, Item11,          sub_080700E8, sub_080ACF14, Item14,
-    sub_080A306C, SwordBeam,    NulledItem,   CellOverwriteSet
+
+    DeleteEntity,
+    PlayerItemSword,
+    PlayerItemBomb,
+    PlayerItem3,
+    PlayerItemBow,
+    PlayerItemShield,
+    PlayerItemLantern,
+    PlayerItemNulled,
+    PlayerItemGustJar,
+    PlayerItemPacciCane,
+    DeleteEntity,
+    DeleteEntity,
+    PlayerItemC,
+    PlayerItemCellOverwriteSet,
+    PlayerItemSwordSpin,
+    PlayerItemSwordBeam,
+    PlayerItem10,
+    PlayerItem11,
+    PlayerItem12,
+    PlayerItem13,
+    PlayerItem14,
+    PlayerItem15,
+    PlayerItemSwordBeam,
+    PlayerItemNulled2,
+    PlayerItemCellOverwriteSet
 };
