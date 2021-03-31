@@ -618,7 +618,7 @@ sub_08059368: @ 0x08059368
 	adds r2, r0, #0
 	movs r0, #1
 	strb r0, [r2, #0xc]
-	ldr r1, _08059388 @ =gUnk_02022780
+	ldr r1, _08059388 @ =gCurrentTextBox
 	ldrh r0, [r2, #0x3c]
 	ldrh r1, [r1, #0x28]
 	cmp r0, r1
@@ -629,7 +629,7 @@ sub_08059368: @ 0x08059368
 _08059384:
 	pop {pc}
 	.align 2, 0
-_08059388: .4byte gUnk_02022780
+_08059388: .4byte gCurrentTextBox
 
 	thumb_func_start sub_0805938C
 sub_0805938C: @ 0x0805938C

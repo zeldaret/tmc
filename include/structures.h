@@ -185,4 +185,14 @@ extern EntityHandler gUnk_03003DC0;
 extern u8 gUnk_02022740[];
 extern u8 gUnk_02034490[];
 
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u16 unk4;
+    u16 unk6;
+    void* unk8;
+} WStruct;
+
 #endif

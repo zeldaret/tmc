@@ -3,6 +3,7 @@
 
 #include "global.h"
 #include "entity.h"
+#include "structures.h"
 
 typedef struct {
     u8 doTextBox;
@@ -18,25 +19,23 @@ typedef struct {
     u16 field_0xc;
     u16 field_0xe;
     u32 field_0x10;
+    u32 field_0x14;
+    u32 field_0x18;
+    u32 field_0x1c;
 } TextBox;
 extern TextBox gTextBox;
 
 typedef struct {
-    u8 _0;
-    u8 _1;
-    u8 _2;
-    u8 _3[5];
-    u16 _8;
-    u8 _b[0x16];
+    TextBox textBox;
     u8 _20;
     u8 _21;
-    u8 _22[0xa];
+    u16 _22;
+    u16 _24;
+    u16 _26;
+    u8 _28[0x4];
     void* _2c;
-    u8 _30[0x23];
-    u8 _53;
-    u16 _54;
-    u8 _56[0x2];
-    void* _58;
+    u8 _30[0x20];
+    WStruct _50;
     u8 _5c;
     u8 _5d;
     u8 _5e[24];
@@ -45,16 +44,38 @@ typedef struct {
     u8 _88;
     u8 _89;
     u8 _8a;
-    u8 _8b[0xe];
-    u8 _99;
-    u8 _9a;
-    u8 _9b;
+    u8 _8b;
+    u8 _8c;
+    u8 _8d;
+    u8 _8e;
+    u8 _8f;
+    u8 _90;
+    u8 _91;
+    s8 _92;
+    u8 _93;
+    u8 _94;
+    u8 _95;
+    u8 _96;
+    u8 _97;
+    union {
+        u32 word;
+        struct {
+            u8 b0;
+            u8 b1;
+            u8 b2;
+            s8 b3;
+        } bytes;
+    } _98;
     u8 _9c;
     u8 _9d;
-    u8 _9e[0xa];
-} struct_02022780;
-extern struct_02022780 gUnk_02022780;
-static_assert(sizeof(struct_02022780) == 0xa8);
+    u16 _9e;
+    u16 _a0;
+    u16 _a2;
+    u16 _a4;
+    u16 _a6;
+} CurrentTextBox;
+extern CurrentTextBox gCurrentTextBox;
+static_assert(sizeof(CurrentTextBox) == 0xa8);
 
 /**
  * @brief Initialize the message system.
