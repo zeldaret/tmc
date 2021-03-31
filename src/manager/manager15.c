@@ -426,8 +426,6 @@ void sub_0805A94C(Manager15* this) {
     gScreen.controls.window1VerticalDimensions = (tmp1 << 8 | tmp2);
 }
 
-extern u8 gBG3Buffer[];
-
 #ifdef NON_MATCHING
 void sub_0805A9CC(Manager15* this) {
     int tmp1, tmp2;

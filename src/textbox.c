@@ -8,6 +8,12 @@
 #include "structures.h"
 #include "save.h"
 
+#define TEXTBOX_ADVANCE_KEYS (A_BUTTON | B_BUTTON | DPAD_ANY | R_BUTTON)
+#define TEXTBOX_PRESS_ANY_ADVANCE_KEYS ((gInput.newKeys & TEXTBOX_ADVANCE_KEYS) != 0)
+
+#define TEXTBOX_WIDTH 0x20
+#define TEXTBOX_POSITION_INDEX(window) ((window).yPos * TEXTBOX_WIDTH + (window).xPos)
+
 extern void WriteBit(u32*, u32);
 extern void sub_0805EF40(u8*, u8*);
 extern void sub_0801C4A0(u32, u32);
@@ -17,12 +23,6 @@ extern u32 sub_0801D51C(u32, u8*, u32);
 
 u32 sub_08056FEC(u32, u8*);
 
-u32 sub_080564DC(void);
-u32 sub_080564EC(void);
-u32 sub_08056654(void);
-u32 sub_080565B4(void);
-u32 sub_080565F8(void);
-u32 sub_08056640(void);
 u16 sub_08056750(CurrentTextBox*);
 u32 sub_0805EFE8(u8*);
 void sub_08056ABC(u32, u32);
@@ -30,9 +30,28 @@ void sub_080569C4(CurrentTextBox*, u32);
 u16 sub_0805F7DC(u32, u8*);
 u32 sub_GetFontStrWidth(u8*, u32);
 void sub_08056FBC(CurrentTextBox*);
+void SetDoTextBox(u32 doTextbox);
+void Load_02000D00_Asyc(void);
 
-u32 (*const gUnk_08107BC8[])(void) = {
-    sub_080564DC, sub_080564EC, sub_08056654, sub_080565B4, sub_080565F8, sub_08056640,
+void DeleteWindow(void);
+void CreateWindow(void);
+u32 CalcWindowSize(u32 fade);
+
+void DispMessageFrame(u16*, u32, u32, u32);
+void DispString(void);
+void DispCursor(void);
+
+typedef u32 (*TextBoxFunction)(void);
+
+u32 TextBoxFunction0(void);
+u32 TextBoxFunction1(void);
+u32 HandleTextBox(void);
+u32 TextBoxFunctionOpen(void);
+u32 TextBoxFunctionClose(void);
+u32 TextBoxFunction5(void);
+
+const TextBoxFunction gTextBoxFunctions[] = {
+    TextBoxFunction0, TextBoxFunction1, HandleTextBox, TextBoxFunctionOpen, TextBoxFunctionClose, TextBoxFunction5,
 };
 
 extern u8 gUnk_020227DC, gUnk_020227E8, gUnk_020227F0, gUnk_020227F8, gUnk_02022800;
@@ -40,15 +59,18 @@ u8* const gUnk_08107BE0[] = {
     &gUnk_020227DC, &gUnk_020227E8, &gUnk_020227F0, &gUnk_020227F8, &gUnk_02022800,
 };
 
-void sub_08056684(CurrentTextBox*);
-void sub_080566B8(CurrentTextBox*);
-void sub_08056BA0(CurrentTextBox*);
-void sub_08056B1C(CurrentTextBox*);
-void sub_08056B7C(CurrentTextBox*);
-void sub_080569D4(CurrentTextBox*);
+typedef void (*TextBoxHandler)(CurrentTextBox*);
 
-void (*const gUnk_08107BF4[])(CurrentTextBox*) = {
-    sub_08056684, sub_080566B8, sub_08056BA0, sub_08056B1C, sub_08056B7C, sub_080569D4,
+void TextBoxHandler0(CurrentTextBox* this);
+void TextBoxHandler1(CurrentTextBox* param_1);
+void TextBoxHandlerAdvance(CurrentTextBox* ctb);
+void TextBoxHandlerNextBox(CurrentTextBox* ctb);
+void TextBoxHandler4(CurrentTextBox* ctb);
+void TextBoxHandlerQuestion(CurrentTextBox* ctb);
+
+const TextBoxHandler gTextBoxHandlers[] = {
+    TextBoxHandler0,       TextBoxHandler1, TextBoxHandlerAdvance,
+    TextBoxHandlerNextBox, TextBoxHandler4, TextBoxHandlerQuestion,
 };
 
 typedef struct Window {
@@ -56,10 +78,10 @@ typedef struct Window {
     u8 unk1;
     u8 unk2;
     u8 unk3;
-    u8 unk4;
-    u8 unk5;
-    u8 unk6;
-    u8 unk7;
+    u8 xPos;
+    u8 yPos;
+    u8 width;
+    u8 height;
 } Window;
 extern Window gCurrentWindow;
 extern Window gNewWindow;
@@ -77,7 +99,7 @@ extern struct {
 extern u32 gUnk_0200005C;
 
 extern u8 gUnk_020227A0;
-extern u8 gUnk_02000D00;
+extern u8 gUnk_02000D00[0xD00];
 
 extern const u8 gUnk_08107C0C[];
 
@@ -92,7 +114,7 @@ s32 sub_08056338(void) {
 
 void sub_08056360(void) {
     if ((gTextBox.doTextBox & 0x7f) != 0) {
-        gTextBox.doTextBox = 0x80 | 0x8;
+        gTextBox.doTextBox = 0x88;
     }
 }
 
@@ -104,21 +126,21 @@ void TextboxNoOverlapFollow(u32 index) {
     }
 }
 
-void TextboxNoOverlap(u32 index, Entity* ent) {
+void TextboxNoOverlap(u32 index, Entity* entity) {
     s16 y;
-    s16 h;
+    s16 height;
 
     ShowTextbox(index);
 
-    y = ent->y.HALF.HI;
-    h = ent->height.HALF.HI;
+    y = entity->y.HALF.HI;
+    height = entity->height.HALF.HI;
 
-    if (((y + h) - gRoomControls.roomScrollY) > 0x58) {
+    if (((y + height) - gRoomControls.roomScrollY) > 0x58) {
         gTextBox.textWindowPosY = 1;
     }
 }
 
-void sub_080563C8(u32 index, u32 y) {
+void TextBoxAtYPosition(u32 index, u32 y) {
     TextboxAtPosition(index, 1, y);
 }
 
@@ -159,29 +181,29 @@ void MessageUpdate(void) {
         gCurrentTextBox._8a--;
     } else {
         do {
-            iVar1 = gUnk_08107BC8[gCurrentTextBox._88]();
+            iVar1 = gTextBoxFunctions[gCurrentTextBox._88]();
         } while (iVar1 != 0);
     }
     if (gCurrentTextBox._9d != 0) {
         gCurrentTextBox._9d = 0;
-        sub_08056F70();
+        Load_02000D00_Asyc();
     }
     DeleteWindow();
     CreateWindow();
 }
 
-void sub_080564C8(u32 a1) {
-    gCurrentTextBox._88 = a1;
-    gCurrentTextBox._89 = 0;
+void sub_080564C8(u32 unk) {
+    gCurrentTextBox._88 = unk;
+    gCurrentTextBox.state = 0;
 }
 
-u32 sub_080564DC(void) {
+u32 TextBoxFunction0(void) {
     gCurrentTextBox._98.bytes.b1 = 0;
     return 0;
 }
 
 // regalloc in loop
-NONMATCH("asm/non_matching/textbox/sub_080564EC.inc", u32 sub_080564EC(void)) {
+NONMATCH("asm/non_matching/textbox/TextBoxFunction1.inc", u32 TextBoxFunction1(void)) {
     u32 uVar1;
     char* dest;
     u32 i;
@@ -195,16 +217,17 @@ NONMATCH("asm/non_matching/textbox/sub_080564EC.inc", u32 sub_080564EC(void)) {
         gCurrentTextBox.textBox.textSpeed = gUnk_02000000->messageSpeed;
     }
     gCurrentTextBox._9c = 0xff;
-    sub_0805EEB4(&gCurrentTextBox._20, gCurrentTextBox.textBox.textIndex /*, 32*/);
-    gCurrentTextBox._5c = 2;
-    gCurrentTextBox._5d = 0xe;
-    dest = gCurrentTextBox._5e;
+    sub_0805EEB4(&gCurrentTextBox._20, gCurrentTextBox.textBox.textIndex);
+    gCurrentTextBox.playerName[0] = 2;
+    gCurrentTextBox.playerName[1] = 0xe;
+    dest = &gCurrentTextBox.playerName[2];
 
-    for (i = 0; i < 6; ++i) {
+    for (i = 0; i < FILENAME_LENGTH; ++i) {
         c = gSave.playerName[i];
         if (c == '\0')
             break;
-        dest[i] = c;
+        *dest = c;
+        dest++;
     }
 
     dest[0] = 2;
@@ -212,69 +235,69 @@ NONMATCH("asm/non_matching/textbox/sub_080564EC.inc", u32 sub_080564EC(void)) {
     dest[2] = 0;
     sub_08056FBC(&gCurrentTextBox);
     gCurrentTextBox._2c = &gUnk_08107BE0;
-    gCurrentTextBox._50.unk8 = &gUnk_02000D00;
+    gCurrentTextBox._50.unk8 = gUnk_02000D00;
     gCurrentTextBox._50.unk4 = 0xd0;
-    sub_08056C54(2);
+    SetDoTextBox(2);
     sub_08056BDC(0);
     sub_080564C8(2);
     return 1;
 }
 END_NONMATCH
 
-u32 sub_080565B4(void) {
-    if (gCurrentTextBox._89 == 0) {
-        gCurrentTextBox._89 = 1;
+u32 TextBoxFunctionOpen(void) {
+    if (gCurrentTextBox.state == 0) {
+        gCurrentTextBox.state = 1;
         gCurrentTextBox._98.bytes.b1 = 1;
         sub_08056F88(gCurrentTextBox.textBox.unk3, gCurrentTextBox._50.unk3);
         SoundReq(SFX_TEXTBOX_OPEN);
     }
 
-    if (sub_08056CC0(1)) {
+    if (CalcWindowSize(1)) {
         gCurrentTextBox._98.bytes.b1 = 2;
         sub_080564C8(2);
     }
     return 0;
 }
 
-u32 sub_080565F8(void) {
-    if (gCurrentTextBox._89 == 0) {
-        gCurrentTextBox._89 = 1;
+u32 TextBoxFunctionClose(void) {
+    if (gCurrentTextBox.state == 0) {
+        gCurrentTextBox.state = 1;
         gCurrentTextBox._98.bytes.b1 = 3;
         sub_08056BDC(0);
         SoundReq(SFX_TEXTBOX_CLOSE);
     }
 
-    if (sub_08056CC0(-1)) {
+    if (CalcWindowSize(-1)) {
         gCurrentTextBox._98.bytes.b1 = 0;
         sub_080564C8(2);
     }
     return 0;
 }
 
-u32 sub_08056640(void) {
-    sub_08056C54(0);
+u32 TextBoxFunction5(void) {
+    SetDoTextBox(0);
     sub_080564C8(0);
     return 0;
 }
 
-u32 sub_08056654(void) {
-    sub_08056C54(4);
-    gUnk_08107BF4[gCurrentTextBox._89](&gCurrentTextBox);
-    sub_08056CC0(0);
+u32 HandleTextBox(void) {
+    SetDoTextBox(4);
+    gTextBoxHandlers[gCurrentTextBox.state](&gCurrentTextBox);
+    CalcWindowSize(0);
     return 0;
 }
 
-void sub_08056684(CurrentTextBox* this) {
+void TextBoxHandler0(CurrentTextBox* this) {
     if ((gCurrentTextBox._20 & 1) == 0) {
-        if (gCurrentTextBox._98.bytes.b1 == '\0') {
+        if (gCurrentTextBox._98.bytes.b1 == 0) {
             sub_080564C8(5);
         }
     } else {
-        this->_89 = 1;
+        this->state = 1;
     }
 }
 
-void sub_080566B8(CurrentTextBox* param_1) {
+void TextBoxHandler1(CurrentTextBox* param_1) {
     u32 uVar3;
     s32 iVar4;
     int iVar5;
@@ -326,10 +349,10 @@ NONMATCH("asm/non_matching/textbox/sub_08056750.inc", u16 sub_08056750(CurrentTe
         switch (r7) {
             case 0:
                 if (gUnk_02000040.unk_00 == 1) {
-                    param_1->_89 = 5;
+                    param_1->state = 5;
                     sub_08056ABC(0, 0);
                 } else {
-                    param_1->_89 = 2;
+                    param_1->state = 2;
                 }
                 break;
             case 1:
@@ -337,7 +360,7 @@ NONMATCH("asm/non_matching/textbox/sub_08056750.inc", u16 sub_08056750(CurrentTe
                 if (param_1->_98.bytes.b0 == 0) {
                     sub_08056BDC(1);
                 } else {
-                    param_1->_89 = 3;
+                    param_1->state = 3;
                 }
                 break;
             case 2:
@@ -452,7 +475,7 @@ void sub_080569C4(CurrentTextBox* ctb, u32 unk) {
 
 extern u8 gUnk_08107C14;
 extern u8 gUnk_08107C0F;
-void sub_080569D4(CurrentTextBox* ctb) {
+void TextBoxHandlerQuestion(CurrentTextBox* ctb) {
     s32 r1, r5, r6;
     u32 error;
     u8* ptr1;
@@ -477,7 +500,7 @@ void sub_080569D4(CurrentTextBox* ctb) {
             gUnk_02000040.unk_00 = 3;
             MemClear(&gUnk_02024030, sizeof(gUnk_02024030));
             SoundReq(0x6a); // SFX_TEXTBOX_SELECT
-            ctb->_89 = 1;
+            ctb->state = 1;
             break;
         case DPAD_LEFT:
             r5--;
@@ -517,7 +540,7 @@ void sub_08056ABC(u32 unk_0, u32 unk_1) {
     gCurrentTextBox._9d = 1;
 }
 
-void sub_08056B1C(CurrentTextBox* ctb) {
+void TextBoxHandlerNextBox(CurrentTextBox* ctb) {
     u32 t;
     u8* ptr;
     gTextBox.unk = 0;
@@ -525,13 +548,13 @@ void sub_08056B1C(CurrentTextBox* ctb) {
         ctb->_94--;
         if (ctb->_94 != 0)
             return;
-        ptr = &ctb->_89;
+        ptr = &ctb->state;
         t = 4;
     } else {
-        if ((gInput.newKeys & 0x1f3) != 0) {
+        if (TEXTBOX_PRESS_ANY_ADVANCE_KEYS) {
             SoundReq(0x68); // SFX_TEXTBOX_SWAP
             ctb->_98.bytes.b2 = 0;
-            ptr = &ctb->_89;
+            ptr = &ctb->state;
             t = 4;
         } else {
             ptr = &ctb->_98.bytes.b2;
@@ -541,16 +564,16 @@ void sub_08056B1C(CurrentTextBox* ctb) {
     *ptr = t;
 }
 
-void sub_08056B7C(CurrentTextBox* ctb) {
+void TextBoxHandler4(CurrentTextBox* ctb) {
     sub_08056BDC(0);
     sub_080569C4(ctb, ctb->_8f | 0x40);
-    ctb->_89 = 1;
+    ctb->state = 1;
 }
 
-void sub_08056BA0(CurrentTextBox* ctb) {
+void TextBoxHandlerAdvance(CurrentTextBox* ctb) {
     gTextBox.unk = 0;
-    sub_08056C54(7);
-    if ((ctb->_8e != 1) && ((ctb->_8e == 2 || ((gInput.newKeys & 0x1f3) != 0)))) {
+    SetDoTextBox(7);
+    if ((ctb->_8e != 1) && (ctb->_8e == 2 || TEXTBOX_PRESS_ANY_ADVANCE_KEYS)) {
         sub_080564C8(4);
     }
 }
@@ -558,8 +581,8 @@ void sub_08056BA0(CurrentTextBox* ctb) {
 void sub_08056BDC(u32 unk) {
     gCurrentTextBox._98.bytes.b0 = unk;
     if (unk == 0) {
-        MemFill32(-1, &gUnk_02000D00, 0xd00);
-        sub_08056F70();
+        MemFill32(0xFFFFFFFF, gUnk_02000D00, sizeof(gUnk_02000D00));
+        Load_02000D00_Asyc();
         gCurrentTextBox._9e = 0xf082;
         gCurrentTextBox._a0 = 0xf083;
         gCurrentTextBox._a2 = 0xf0b6;
@@ -573,98 +596,86 @@ void sub_08056BDC(u32 unk) {
     sub_080569C4(&gCurrentTextBox, gCurrentTextBox._8f | 0x40);
 }
 
-void sub_08056C54(u32 unk) {
-    gTextBox.doTextBox = gCurrentTextBox.textBox.doTextBox = unk;
+void SetDoTextBox(u32 doTextbox) {
+    gTextBox.doTextBox = gCurrentTextBox.textBox.doTextBox = doTextbox;
 }
 
 void DeleteWindow(void) {
-    u32 r0;
     u16* ptr;
-    u16* ptr2;
     int i, j;
 
-    Window* tp = &gCurrentWindow;
+    Window* window = &gCurrentWindow;
 
-    if (tp->unk1 != 0) {
-        tp->unk1 = 0;
-        r0 = tp->unk5 << 5;
-        r0 += tp->unk4;
-        ptr = &((u16*)(&gBG0Buffer.filler0))[r0];
-        i = tp->unk7 + 2;
+    if (window->unk1 != 0) {
+        window->unk1 = 0;
+        ptr = &gBG0Buffer[TEXTBOX_POSITION_INDEX(*window)];
+        i = window->height + 2;
         do {
             j = 0;
             do {
                 ptr[j] = 0;
-            } while (j++, j < tp->unk6 + 2);
-            ptr += 0x20;
+            } while (j++, j < window->width + 2);
+            ptr += TEXTBOX_WIDTH;
             i--;
         } while (i > 0);
-        sub_0801C4A0(tp->unk5, tp->unk7);
+        sub_0801C4A0(window->yPos, window->height);
         sub_0801C494();
     }
 }
 
-u32 sub_08056CC0(u32 unk) {
-    u32 iVar1;
-    u32 uVar2;
-    u32 uVar3;
-    Window* ptr;
+u32 CalcWindowSize(u32 fade) {
+    u32 scale;
+    u32 ret;
+    Window* window;
 
-    uVar3 = 0;
+    ret = 0;
 
-    // inline function?
-    gCurrentTextBox._98.bytes.b3 += unk;
-    if (gCurrentTextBox._98.bytes.b3 < 1) {
-        gCurrentTextBox._98.bytes.b3 = 0;
+    gCurrentTextBox._98.bytes.sizeScale += fade;
+    if (gCurrentTextBox._98.bytes.sizeScale < 1) {
+        gCurrentTextBox._98.bytes.sizeScale = 0;
     } else {
-        if (gCurrentTextBox._98.bytes.b3 < 8)
+        if (gCurrentTextBox._98.bytes.sizeScale < 8)
             goto LAB_08056cee;
-        gCurrentTextBox._98.bytes.b3 = 8;
+        gCurrentTextBox._98.bytes.sizeScale = 8;
     }
-    uVar3 = 1;
+    ret = 1;
 LAB_08056cee:
-    ptr = &gNewWindow;
-    if (gCurrentTextBox._98.bytes.b3 != 0) {
-        iVar1 = gCurrentTextBox._98.bytes.b3;
-        uVar2 = (iVar1 * (gCurrentTextBox.textBox.textWindowWidth << 1)) / 16;
-        ptr->unk6 = uVar2;
-        if ((uVar2 & 1) != 0) {
-            ptr->unk6++;
+    window = &gNewWindow;
+    if (gCurrentTextBox._98.bytes.sizeScale != 0) {
+        scale = gCurrentTextBox._98.bytes.sizeScale;
+        window->width = (scale * (gCurrentTextBox.textBox.textWindowWidth << 1)) / 16;
+        if ((window->width & 1) != 0) {
+            window->width++;
         }
-        ptr->unk4 =
-            ((gCurrentTextBox.textBox.textWindowWidth / 2) + gCurrentTextBox.textBox.textWindowPosX) - (ptr->unk6 / 2);
-        uVar2 = (iVar1 * (gCurrentTextBox.textBox.textWindowHeight << 1)) / 16;
-        ptr->unk7 = uVar2;
-        if ((uVar2 & 1) != 0) {
-            ptr->unk7++;
-        }
-        ptr->unk5 =
-            ((gCurrentTextBox.textBox.textWindowHeight / 2) + gCurrentTextBox.textBox.textWindowPosY) - (ptr->unk7 / 2);
-    } else {
-        ptr->unk5 = 0xff;
-        ptr->unk4 = -1;
-        ptr->unk7 = -1;
-        ptr->unk6 = -1;
-    }
-    ptr->unk1 = 1;
-    return uVar3;
-}
+        window->xPos = ((gCurrentTextBox.textBox.textWindowWidth / 2) + gCurrentTextBox.textBox.textWindowPosX) -
+                       (window->width / 2);
 
-void DispMessageFrame(u16*, u32, u32, u32);
-extern void DispString(void);
-extern void DispCursor(void);
+        window->height = (scale * (gCurrentTextBox.textBox.textWindowHeight << 1)) / 16;
+        if ((window->height & 1) != 0) {
+            window->height++;
+        }
+        window->yPos = ((gCurrentTextBox.textBox.textWindowHeight / 2) + gCurrentTextBox.textBox.textWindowPosY) -
+                       (window->height / 2);
+    } else {
+        window->yPos = -1;
+        window->xPos = -1;
+        window->height = -1;
+        window->width = -1;
+    }
+    window->unk1 = 1;
+    return ret;
+}
 
 void CreateWindow(void) {
     s32 r0, r3;
     u16* ptr;
 
-    r0 = gCurrentTextBox._98.bytes.b3;
+    r0 = gCurrentTextBox._98.bytes.sizeScale;
     if (r0 <= 0)
         return;
-    r0 = ((gNewWindow.unk5 << 5) + gNewWindow.unk4);
-    ptr = &((u16*)(&gBG0Buffer.filler0))[r0];
+    ptr = &gBG0Buffer[TEXTBOX_POSITION_INDEX(gNewWindow)];
     r3 = 0xf07b;
-    DispMessageFrame(ptr, gNewWindow.unk6, gNewWindow.unk7, r3);
+    DispMessageFrame(ptr, gNewWindow.width, gNewWindow.height, r3);
     DispString();
     DispCursor();
     gCurrentWindow = gNewWindow;
@@ -686,13 +697,13 @@ void DispString(void) {
 
     Window* window = &gNewWindow;
 
-    if (window->unk6 != 0) {
-        if (window->unk7 != 0) {
-            r4 = window->unk7;
-            r5 = &gUnk_02034CB2[(window->unk5 << 5) + window->unk4];
+    if (window->width != 0) {
+        if (window->height != 0) {
+            r4 = window->height;
+            r5 = &gUnk_02034CB2[TEXTBOX_POSITION_INDEX(*window)];
             i = (s32)(4 - r4) / 2;
             do {
-                j = window->unk6;
+                j = window->width;
                 r2 = gUnk_0202281E[i];
                 r5 += 0x20;
                 r0 = i + 1;
@@ -715,16 +726,16 @@ void DispCursor(void) {
     u16* ptr;
 
     if ((gCurrentTextBox._98.word & 0x10ff00) == 0x100200) {
-        ptr = &((u16*)(gBG0Buffer.filler0))[(gNewWindow.unk5 << 5) + gNewWindow.unk4];
-        r0 = (((gNewWindow.unk7 + 1) << 5) - 2);
-        r0 += gNewWindow.unk6;
+        ptr = &gBG0Buffer[TEXTBOX_POSITION_INDEX(gNewWindow)];
+        r0 = (((gNewWindow.height + 1) << 5) - 2);
+        r0 += gNewWindow.width;
         ptr += r0;
         *ptr = 0xf080;
     }
 }
 
-void sub_08056F70(void) {
-    LoadResourceAsync(&gUnk_02000D00, 0x0600D040, 0xd00);
+void Load_02000D00_Asyc(void) {
+    LoadResourceAsync(gUnk_02000D00, 0x0600D040, sizeof(gUnk_02000D00));
 }
 
 void sub_08056F88(u32 unk_1, u32 unk_2) {
@@ -741,8 +752,8 @@ void sub_08056F88(u32 unk_1, u32 unk_2) {
 }
 
 void sub_08056FBC(CurrentTextBox* ctb) {
-    sub_08056FEC(ctb->textBox.field_0x10, &ctb->_5e[0xa]);
-    sub_08056FEC(ctb->textBox.field_0x14, &ctb->_5e[0x12]);
+    sub_08056FEC(ctb->textBox.field_0x10, &ctb->_66[0x2]);
+    sub_08056FEC(ctb->textBox.field_0x14, &ctb->_66[0xa]);
     sub_08056FEC(ctb->textBox.field_0x18, &ctb->_77[0x1]);
     sub_08056FEC(ctb->textBox.field_0x1c, &ctb->_77[0x9]);
 }

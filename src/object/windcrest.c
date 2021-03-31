@@ -3,6 +3,7 @@
 #include "entity.h"
 #include "save.h"
 #include "script.h"
+#include "functions.h"
 
 extern void sub_08078850(Entity*, u32, u32, u8*);
 

@@ -1,5 +1,7 @@
 #include "save.h"
 #include "gba/eeprom.h"
+#include "menu.h"
+#include "functions.h"
 
 typedef struct SaveFileStatus {
     u16 checksum1;

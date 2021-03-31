@@ -72,7 +72,7 @@ _08056560:
 	movs r0, #0xd0
 	strh r0, [r4]
 	movs r0, #2
-	bl sub_08056C54
+	bl SetDoTextBox
 	movs r0, #0
 	bl sub_08056BDC
 	movs r0, #2

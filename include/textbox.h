@@ -36,13 +36,12 @@ typedef struct {
     void* _2c;
     u8 _30[0x20];
     WStruct _50;
-    u8 _5c;
-    u8 _5d;
-    u8 _5e[24];
+    char playerName[0xa];
+    u8 _66[0x10];
     u8 _76;
     u8 _77[0x11];
     u8 _88;
-    u8 _89;
+    u8 state;
     u8 _8a;
     u8 _8b;
     u8 _8c;
@@ -63,7 +62,7 @@ typedef struct {
             u8 b0;
             u8 b1;
             u8 b2;
-            s8 b3;
+            s8 sizeScale;
         } bytes;
     } _98;
     u8 _9c;
@@ -102,9 +101,9 @@ void TextboxAtPosition(u32 index, u32 x, u32 y);
  * @brief Show a message that attempts not to obscure the entity.
  *
  * @param index u32 Message index
- * @param ent Entity* Your important entity
+ * @param entity Entity* Your important entity
  */
-void TextboxNoOverlap(u32 index, Entity* ent);
+void TextboxNoOverlap(u32 index, Entity* entity);
 
 /**
  * @brief Show a message that attempts not to obscure the camera target.

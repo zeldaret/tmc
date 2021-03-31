@@ -264,13 +264,8 @@ extern void sub_08073904(Entity*);
 extern u32 sub_08056134(void);
 extern void sub_08004484(Entity*, Entity*);
 extern void sub_080564C8(u32);
-extern void sub_08056F70(void);
-extern void DeleteWindow(void);
-extern void CreateWindow(void);
 extern void sub_0805EEB4(u8*, u32);
-extern void sub_08056C54(u32);
 extern void sub_08056BDC(u32);
 extern void sub_08056F88(u32, u32);
-extern u32 sub_08056CC0(u32);
 extern void sub_0805F8E4(u32 r0, WStruct* r1);
 #endif

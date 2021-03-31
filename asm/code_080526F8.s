@@ -646,7 +646,7 @@ _08052BEC:
 _08052BEE:
 	ldrh r0, [r3, #0x36]
 	adds r1, r2, #0
-	bl sub_080563C8
+	bl TextBoxAtYPosition
 	pop {pc}
 
 	thumb_func_start sub_08052BF8
