@@ -396,6 +396,6 @@ extern void ObjectBF(Entity*);
 extern void EnemyItem(Entity*);
 extern void ObjectC1(Entity*);
 
-void (*const gObjectFunctions[194])(Entity*);
+extern void (*const gObjectFunctions[194])(Entity*);
 
 #endif
