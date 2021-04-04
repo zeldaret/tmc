@@ -51,7 +51,7 @@ script_08010014:
 	_0807E864 
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000008
-	SoundReq 0x00cd
+	PlaySound SFX_TASK_COMPLETE
 	TextboxNoOverlap 0x340a
 	_0807EA94 
 	_0807EB44 0x0004

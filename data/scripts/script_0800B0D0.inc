@@ -48,7 +48,7 @@ script_0800B160:
 	WaitForSomething2 0x00000001
 	SetRoomFlag 0x0000
 	Wait 0x0010
-	SoundReq2 0x002d
+	PlayBgm BGM_FIGHT_THEME
 	_0807EB28 0x2701
 	_0807E878 
 	Call sub_0807DF50

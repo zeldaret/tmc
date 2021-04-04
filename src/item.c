@@ -1,7 +1,5 @@
 #include "global.h"
-#include "entity.h"
 #include "item.h"
-#include "functions.h"
 
 // TODO - How does this relate to PlayerItemFunctions? Is this just a lookup table?
 void (*const gItemFunctions[])(ItemBehavior*, u32) = {

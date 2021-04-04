@@ -7,7 +7,7 @@ SCRIPT_START script_0800C50C
 	WaitForSomething2 0x00000001
 	Wait 0x000a
 	DoPostScriptAction 0x0007
-	SoundReq 0x0136
+	PlaySound SFX_136
 	_0807EEF4 0x0000, 0x0060
 	Wait 0x003c
 	_0807EEF4 0x0000, 0x0060

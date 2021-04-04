@@ -45,7 +45,7 @@ SCRIPT_START script_0800AD54
 	Call sub_0807F2D4
 	Wait 0x001e
 	_0807E5F8 0x00000020
-	SoundReq0x80100000 
+	StopBgm
 	Call CreateDust
 	Call sub_0806305C
 	Call sub_080630A4

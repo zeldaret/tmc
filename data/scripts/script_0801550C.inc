@@ -23,10 +23,10 @@ SCRIPT_START script_0801550C
 	CallWithArg sub_0806AF60, 0x00000000
 	DoPostScriptAction 0x0010
 	Wait 0x0028
-	SoundReq 0x0125
+	PlaySound SFX_125
 	CallWithArg sub_0807FB28, 0x00000003
 	Wait 0x000a
-	SoundReq 0x0125
+	PlaySound SFX_125
 	CallWithArg sub_0807FB28, 0x00000003
 	Wait 0x000a
 	DoPostScriptAction 0x0010

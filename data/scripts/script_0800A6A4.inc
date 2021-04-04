@@ -6,7 +6,7 @@ SCRIPT_START script_0800A6A4
 	Call sub_0807F844
 	EndBlock 
 	Wait 0x003c
-	SoundReq 0x00f6
+	PlaySound SFX_EVAPORATE
 	CallWithArg sub_0806DA1C, 0x00000008
 	DoPostScriptAction 0x0006
 SCRIPT_END

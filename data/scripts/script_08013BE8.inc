@@ -14,7 +14,7 @@ SCRIPT_START script_08013BE8
 	DoPostScriptAction 0x0008
 	WaitForSomething2 0x00000004
 	_0807E908 0x0002
-	SoundReq 0x0134
+	PlaySound SFX_134
 	Jump script_08013C32
 script_08013C2A:
 	CheckLocalFlag 0x007c

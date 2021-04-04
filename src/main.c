@@ -73,7 +73,7 @@ void AgbMain(void) {
                 sScreenHandlers[gMain.screen]();
                 MessageUpdate();
                 sub_08050154();
-                sub_080A3480();
+                SoundLoop();
                 break;
         }
         PrepNextFrame();
@@ -206,7 +206,7 @@ u32 sub_08056134(void) {
 }
 
 void InitDMA() {
-    SoundReq(SND_VSYNC_OFF);
+    SoundReq(SONG_VSYNC_OFF);
     gScreen._6d = gScreen._6c;
     gScreen._6c = 0;
 
@@ -219,7 +219,7 @@ void InitDMA() {
 }
 
 void sub_08056208() {
-    SoundReq(SND_VSYNC_ON);
+    SoundReq(SONG_VSYNC_ON);
     gScreen._6c = gScreen._6d;
     gScreen._6d = 0;
 }

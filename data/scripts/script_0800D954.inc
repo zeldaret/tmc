@@ -15,7 +15,7 @@ script_0800D962:
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x0007
-	SoundReq 0x01ce
+	PlaySound SFX_ELEMENT_FLOAT
 	SetEntity0x20 0xffff8000
 	TextboxNoOverlap 0x1701
 	_0807EA94 
@@ -32,7 +32,7 @@ script_0800D962:
 	_0807EA94 
 	Wait 0x003c
 	SetLocalFlag 0x0032
-	SoundReq 0x0113
+	PlaySound SFX_113
 	SetIntVariable 0x00000001
 	Call sub_0806DA1C
 	Call sub_0807DF50

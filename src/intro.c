@@ -158,7 +158,7 @@ static void HandleTitlescreen(void) {
                 gIntroState.swordBgScaleRatio = 0x10;
                 UpdateSwordBgAffineData();
             }
-            sub_080A3210();
+            InitSoundPlayingInfo();
             SoundReq(BGM_TITLE_SCREEN);
             DoFade(6, 8);
             break;

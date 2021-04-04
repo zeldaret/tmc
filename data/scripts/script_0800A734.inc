@@ -4,7 +4,7 @@ SCRIPT_START script_0800A734
 	Call sub_0807DF28
 	SetEntityPositionRelative 0x00d8, 0x01c8
 	Call sub_0807F844
-	SoundReq 0x00f7
+	PlaySound SFX_APPARATE
 	EndBlock 
 	Wait 0x003c
 	CallWithArg sub_0806DA1C, 0x0000000b

@@ -14,22 +14,22 @@ script_080134F8:
 	StartPlayerScript script_080136D8
 	WaitForSomething2 0x00000001
 	CallWithArg sub_08095A1C, script_08013F04
-	SoundReq 0x01cd
+	PlaySound SFX_ELEMENT_PLACE
 	Wait 0x005a
 	BeginBlock 
-	SoundReq 0x01ce
+	PlaySound SFX_ELEMENT_FLOAT
 	CallWithArg sub_08095D54, script_08013E04
 	CallWithArg sub_08095D54, script_08013E28
 	EndBlock 
 	WaitForSomething2 0x18000000
 	BeginBlock 
-	SoundReq 0x01cf
+	PlaySound SFX_ELEMENT_CHARGE
 	CallWithArg sub_08095D8C, script_08014054
 	CallWithArg sub_08095D8C, script_08014074
 	EndBlock 
 	Wait 0x001e
 	BeginBlock 
-	SoundReq 0x01d0
+	PlaySound SFX_1D0
 	CallWithArg sub_08095D8C, script_080140DC
 	CallWithArg sub_08095D8C, script_08014118
 	EndBlock 
@@ -37,7 +37,7 @@ script_080134F8:
 	CallWithArg sub_0805DDEC, 0x00000000
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00002000
-	SoundReq 0x01d2
+	PlaySound SFX_1D2
 	CallWithArg sub_08095D8C, script_080141DC
 	CallWithArg sub_08095D8C, script_08014210
 	_0807E5F8 0x00000400
@@ -58,14 +58,14 @@ script_080134F8:
 	Wait 0x003c
 	_0807E778 0x0004
 	DoFade7 
-	SoundReq 0x00f6
+	PlaySound SFX_EVAPORATE
 	WaitFor_2 
 	Wait 0x003c
 	_0807E5F8 0x00000010
 	_0807E778 0x0002
 	DoFade6 
 	WaitFor_2 
-	SoundReq 0x0109
+	PlaySound SFX_109
 	TextboxNoOverlapFollowPos 0x0503, 0x000c
 	_0807EA94 
 	_0807E5F8 0x00040000

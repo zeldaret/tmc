@@ -908,7 +908,7 @@ void sub_08047BA4(Entity* this) {
     } else {
         this->field_0x76.HWORD = 0x88;
     }
-    SoundReq(0x1B5);
+    SoundReq(SFX_1B5);
     sub_08047BF0(this);
 }
 
@@ -938,7 +938,7 @@ void sub_08047BF0(Entity* this) {
         if (this->y.HALF.HI > gRoomControls.roomOriginY + 0x270) {
             this->subAction = 2;
             this->field_0x7c.HALF.HI = 0xAA;
-            SoundReq(0x12D);
+            SoundReq(SFX_12D);
             InitAnimationForceUpdate(this, 1);
         }
     } else {

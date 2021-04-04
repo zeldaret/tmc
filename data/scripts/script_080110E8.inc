@@ -1,8 +1,8 @@
 SCRIPT_START script_080110E8
-	SoundReq 0x007a
+	PlaySound SFX_PLY_VO6
 	_0807EB44 0x0004
 	DoPostScriptAction 0x000d
-	SoundReq 0x0086
+	PlaySound SFX_86
 	Call sub_0807F36C
 	SetEntitySpeed 0x0400
 	_0807ECF4 0x0008

@@ -9,7 +9,7 @@ SCRIPT_START script_08011890
 	Call sub_08094B6C
 	_0807EDD4 0x01f8, 0x0088
 	Call sub_08094B80
-	SoundReq 0x01cc
+	PlaySound SFX_1CC
 	_0807E5F8 0x10000000
 	WaitForSomething2 0x08000000
 	DoPostScriptAction 0x0006

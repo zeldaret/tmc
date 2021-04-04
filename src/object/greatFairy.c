@@ -105,7 +105,7 @@ void GreatFairy_SpawningUpdate(Entity* this) {
         if (mini != NULL) {
             CopyPosition(this, mini);
             DoFade(6, 4);
-            SoundReq(325);
+            SoundReq(SFX_145);
             this->action = 4;
             this->actionDelay = 60;
             this->spriteSettings.b.draw = 1;

@@ -651,22 +651,26 @@
 	.2byte \action
 .endm
 
-.macro SoundReq s:req
+.macro PlaySound s:req
 	.2byte 0x087b
 	.2byte \s
 .endm
 
-.macro SoundReq2 s:req
+.macro PlayBgm s
 	.2byte 0x087c
+	.ifnb \s
 	.2byte \s
+	.else
+	.2byte -1
+	.endif
 .endm
 
-.macro SoundReq3 w:req
+.macro SoundReq w:req
 	.2byte 0x0c7d
 	.4byte \w
 .endm
 
-.macro SoundReq0x80100000 
+.macro StopBgm
 	.2byte 0x047e
 .endm
 

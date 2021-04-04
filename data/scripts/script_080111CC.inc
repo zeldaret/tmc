@@ -41,14 +41,14 @@ script_08011206:
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
-	SoundReq 0x01c9
+	PlaySound SFX_1C9
 	DoPostScriptAction 0x0010
 	Wait 0x0014
 	Call sub_08066E20
 	Wait 0x0014
 	DoPostScriptAction 0x0010
 	Call sub_0807F2D4
-	SoundReq 0x01ca
+	PlaySound SFX_1CA
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
 	DoPostScriptAction 0x0006

@@ -1,9 +1,10 @@
 #include "global.h"
 #include "entity.h"
 #include "flags.h"
-#include "functions.h"
 #include "room.h"
 #include "script.h"
+#include "audio.h"
+#include "functions.h"
 
 typedef struct {
     /*0x00*/ u16 unk0;
@@ -111,7 +112,7 @@ void sub_0808681C(Entity* this) {
                 this->action++;
                 this->frameIndex = 1;
                 sub_08078AC0(16, 0, 1);
-                SoundReq(0x111);
+                SoundReq(SFX_111);
             }
             break;
     }

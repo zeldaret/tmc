@@ -22,7 +22,7 @@ script_0800B348:
 script_0800B350:
 	EndBlock 
 	WaitForSomething2 0x00000002
-	SoundReq 0x00fd
+	PlaySound SFX_ITEM_BOMB_EXPLODE
 	Call sub_080676D8
 	Call sub_0806757C
 	Call sub_080675D4
@@ -37,7 +37,7 @@ script_0800B350:
 	JumpIfNot script_0800B350
 	EndBlock 
 	SetLocalFlag 0x001d
-	SoundReq 0x0072
+	PlaySound SFX_SECRET
 script_0800B39C:
 	DoPostScriptAction 0x0006
 SCRIPT_END

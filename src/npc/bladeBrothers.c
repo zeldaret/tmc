@@ -7,6 +7,7 @@
 #include "save.h"
 #include "script.h"
 #include "npc.h"
+#include "audio.h"
 #include "functions.h"
 
 extern void (*gUnk_081115C0[])(Entity*);
@@ -168,7 +169,7 @@ void sub_08068BEC(Entity* this, u32 unused) {
     if (target) {
         target->spritePriority.b0 = 1;
         PositionRelative(this, target, 0, -0x100000);
-        SoundReq(0xfa);
+        SoundReq(SFX_FA);
     }
 }
 

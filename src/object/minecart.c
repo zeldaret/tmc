@@ -63,7 +63,7 @@ void sub_080917DC(Entity* this) {
         this->field_0x20 = 0x2a000;
         this->action = 7;
         InitAnimationForceUpdate(this, this->type2 + 4 + this->animationState);
-        SoundReq(0x13b);
+        SoundReq(SFX_13B);
     } else {
         if (sub_0800445C(this) != 0) {
             if (((gPlayerState.flags.all & 0x40080) == 0) && (gPlayerState.field_0x1c == 0) &&
@@ -113,7 +113,7 @@ void sub_080918A4(Entity* this) {
             this->field_0x44 = 8;
             sub_0801766C(this);
             sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
-            SoundReq(0x137);
+            SoundReq(SFX_137);
         }
     } else {
         gPlayerEntity.direction = GetFacingDirection(&gPlayerEntity, this);
@@ -149,7 +149,7 @@ void sub_080919AC(Entity* this) {
         gPlayerEntity.spritePriority.b0 = this->spritePriority.b0 - 1;
         if (!sub_08091DDC(this)) {
             if ((gScreenTransition.frameCount & 0xf) == 0) {
-                SoundReq(0x138);
+                SoundReq(SFX_138);
             }
 
             if (--this->field_0xf == 0xff) {
@@ -183,7 +183,7 @@ void sub_080919AC(Entity* this) {
                         sub_08004168(this);
                         InitAnimationForceUpdate(this, this->animationState + 0xc);
                         SoundReq(SFX_PLY_VO4);
-                        SoundReq(0x139);
+                        SoundReq(SFX_139);
                         return;
                     case 0x67:
                     case 0x68:

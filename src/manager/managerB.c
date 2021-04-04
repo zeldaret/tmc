@@ -5,6 +5,7 @@
 #include "room.h"
 #include "area.h"
 #include "utils.h"
+#include "audio.h"
 #include "functions.h"
 
 /*
@@ -18,7 +19,7 @@
 void (*const ManagerB_ActionFuncs[])(Manager*);
 
 void sub_080585F0(Manager* this) {
-    // make a distincion if this is a controller (unk_0a = 0) or a helper (unk_0a = 1)
+    // make a distincion if this is a controller (volumeMasterTarget = 0) or a helper (volumeMasterTarget = 1)
     ManagerB_ActionFuncs[this->unk_0a](this);
 }
 
@@ -140,7 +141,7 @@ void ManagerBHelper_Monitor(ManagerBHelper* this, Entity* ent, u32 index) {
     this->manager.unk_0e++;
 }
 
-// case unk_0a is 1: The manager is a helper
+// case volumeMasterTarget is 1: The manager is a helper
 
 void ManagerBHelper_Main(Manager* this) {
     u8 i, anyRemaining;

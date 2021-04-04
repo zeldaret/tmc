@@ -39,7 +39,7 @@ script_080144C0:
 script_080144C8:
 	ModRupees 0xfff6
 	TextboxNoOverlapFollow 0x420c
-	SoundReq 0x010c
+	PlaySound SFX_10C
 	Wait 0x0018
 	SetRoomFlag 0x0000
 	SetLocalFlag 0x0092

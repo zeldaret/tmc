@@ -179,10 +179,10 @@ script_080162F6:
 	Call sub_0807F594
 	Call sub_0807DF28
 	_0807E864 
-	SoundReq0x80100000 
-	SoundReq 0x00cd
+	StopBgm
+	PlaySound SFX_TASK_COMPLETE
 	Wait 0x003c
-	SoundReq2 0x005e
+	PlayBgm BGM_LEARN_SCROLL
 	Call sub_08068F3C
 script_0801631C:
 	Call sub_08068E30

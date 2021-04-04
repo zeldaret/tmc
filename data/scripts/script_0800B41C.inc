@@ -15,7 +15,7 @@ SCRIPT_START script_0800B41C
 	WaitForSomething2 0x00000004
 	_0807EB74 
 	Wait 0x003c
-	SoundReq 0x00cd
+	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0037
 	WaitPlayerAction8 
 	_0807EB8C 
