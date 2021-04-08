@@ -12,7 +12,7 @@ SCRIPT_START script_08015CD4
 	SetEntityPositionRelative 0x0088, 0x00e0
 	CameraTargetEntity 
 	Wait 0x003c
-	SoundReq2 0x000d
+	PlayBgm BGM_VAATI_THEME
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
 	_0807F0B4 0x0004
@@ -42,12 +42,12 @@ SCRIPT_START script_08015CD4
 	WaitFor_2 
 	_0807E5F8 0x00000010
 	LoadRoomEntityList gUnk_080FCE30
-	SoundReq0x80100000 
+	StopBgm
 	Wait 0x0078
 	_0807E778 0x0004
 	DoFade4 
 	WaitFor_2 
-	SoundReq2 0x0034
+	PlayBgm BGM_DIGGING_CAVE
 	_0807E5F8 0x00000040
 	WaitForSomething2 0x00000080
 	_0807E5F8 0x00000001
@@ -61,7 +61,7 @@ SCRIPT_START script_08015CD4
 	_0807E778 0x0004
 	DoFade5 
 	WaitFor_2 
-	SoundReq0x80100000 
+	StopBgm
 	SetRoomFlag 0x0000
 	DoPostScriptAction 0x0006
 SCRIPT_END

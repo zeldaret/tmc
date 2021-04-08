@@ -1,6 +1,7 @@
 #include "enemy.h"
 #include "entity.h"
 #include "random.h"
+#include "audio.h"
 #include "functions.h"
 
 extern void sub_08001318(Entity*);
@@ -123,7 +124,7 @@ void sub_08022654(Entity* this) {
             if (--this->field_0xf)
                 return;
             this->subAction = 1;
-            SoundReq(0x12d);
+            SoundReq(SFX_12D);
             InitializeAnimation(this, 0);
             /* fallthrough */
         case 1:

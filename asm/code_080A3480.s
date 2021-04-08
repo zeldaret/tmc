@@ -6,201 +6,6 @@
 
 	.text
 
-	thumb_func_start sub_080A3480
-sub_080A3480: @ 0x080A3480
-	push {r4, lr}
-	ldr r4, _080A34A4 @ =gUnk_02021EE0
-	movs r0, #0xa
-	ldrsh r1, [r4, r0]
-	movs r2, #8
-	ldrsh r0, [r4, r2]
-	cmp r1, r0
-	beq _080A34C4
-	adds r0, r1, #0
-	movs r2, #8
-	ldrsh r1, [r4, r2]
-	bl sub_080A3518
-	adds r1, r0, #0
-	cmp r1, #0
-	bne _080A34A8
-	ldrh r0, [r4, #0xa]
-	b _080A34AC
-	.align 2, 0
-_080A34A4: .4byte gUnk_02021EE0
-_080A34A8:
-	ldrh r0, [r4, #8]
-	adds r0, r0, r1
-_080A34AC:
-	strh r0, [r4, #8]
-	movs r1, #8
-	ldrsh r0, [r4, r1]
-	cmp r0, #0
-	bge _080A34BC
-	movs r0, #0
-	strh r0, [r4, #0xa]
-	strh r0, [r4, #8]
-_080A34BC:
-	ldrh r0, [r4, #0x14]
-	bl sub_080A353C
-	b _080A3516
-_080A34C4:
-	movs r2, #0x10
-	ldrsh r1, [r4, r2]
-	movs r2, #0xe
-	ldrsh r0, [r4, r2]
-	cmp r1, r0
-	beq _080A3516
-	adds r0, r1, #0
-	movs r2, #0xe
-	ldrsh r1, [r4, r2]
-	bl sub_080A3518
-	adds r1, r0, #0
-	cmp r1, #0
-	bne _080A34FC
-	ldrb r0, [r4, #2]
-	ldrh r2, [r4, #0x10]
-	cmp r0, #0
-	beq _080A34F8
-	cmp r2, #0
-	bne _080A34F8
-	strb r1, [r4, #2]
-	strh r1, [r4, #0x14]
-	movs r0, #0
-	bl m4aSongNumStop
-	b _080A3502
-_080A34F8:
-	strh r2, [r4, #0xe]
-	b _080A3502
-_080A34FC:
-	ldrh r0, [r4, #0xe]
-	adds r0, r0, r1
-	strh r0, [r4, #0xe]
-_080A3502:
-	movs r1, #0xe
-	ldrsh r0, [r4, r1]
-	cmp r0, #0
-	bge _080A3510
-	movs r0, #0
-	strh r0, [r4, #0x10]
-	strh r0, [r4, #0xe]
-_080A3510:
-	ldrh r0, [r4, #0x14]
-	bl sub_080A353C
-_080A3516:
-	pop {r4, pc}
-
-	thumb_func_start sub_080A3518
-sub_080A3518: @ 0x080A3518
-	push {lr}
-	adds r2, r0, #0
-	subs r0, r2, r1
-	cmp r0, #0
-	ble _080A352C
-	adds r1, #4
-	cmp r2, r1
-	ble _080A3532
-	movs r0, #4
-	b _080A353A
-_080A352C:
-	subs r1, #4
-	cmp r2, r1
-	blt _080A3536
-_080A3532:
-	movs r0, #0
-	b _080A353A
-_080A3536:
-	movs r0, #4
-	rsbs r0, r0, #0
-_080A353A:
-	pop {pc}
-
-	thumb_func_start sub_080A353C
-sub_080A353C: @ 0x080A353C
-	push {r4, r5, lr}
-	adds r3, r0, #0
-	cmp r3, #0
-	beq _080A358C
-	subs r0, r3, #1
-	cmp r0, #0x62
-	bhi _080A3558
-	ldr r0, _080A3554 @ =gUnk_02021EE0
-	movs r1, #0xe
-	ldrsh r5, [r0, r1]
-	b _080A355E
-	.align 2, 0
-_080A3554: .4byte gUnk_02021EE0
-_080A3558:
-	ldr r0, _080A3590 @ =gUnk_02021EE0
-	movs r1, #0x12
-	ldrsh r5, [r0, r1]
-_080A355E:
-	movs r1, #8
-	ldrsh r0, [r0, r1]
-	muls r0, r5, r0
-	lsrs r5, r0, #8
-	ldr r2, _080A3594 @ =gUnk_08A11C3C
-	ldr r1, _080A3598 @ =gUnk_08A11DBC
-	lsls r0, r3, #3
-	adds r0, r0, r1
-	ldrh r1, [r0, #4]
-	lsls r0, r1, #1
-	adds r0, r0, r1
-	lsls r0, r0, #2
-	adds r0, r0, r2
-	ldr r4, [r0]
-	adds r0, r4, #0
-	bl m4aMPlayImmInit
-	ldr r1, _080A359C @ =0x0000FFFF
-	lsls r2, r5, #0x10
-	lsrs r2, r2, #0x10
-	adds r0, r4, #0
-	bl m4aMPlayVolumeControl
-_080A358C:
-	pop {r4, r5, pc}
-	.align 2, 0
-_080A3590: .4byte gUnk_02021EE0
-_080A3594: .4byte gUnk_08A11C3C
-_080A3598: .4byte gUnk_08A11DBC
-_080A359C: .4byte 0x0000FFFF
-
-	thumb_func_start sub_080A35A0
-sub_080A35A0: @ 0x080A35A0
-	push {lr}
-	ldr r2, _080A35B0 @ =gUnk_02021EE0
-	movs r1, #0x80
-	lsls r1, r1, #1
-	strh r1, [r2, #0xa]
-	bl sub_080A353C
-	pop {pc}
-	.align 2, 0
-_080A35B0: .4byte gUnk_02021EE0
-
-	thumb_func_start sub_080A35B4
-sub_080A35B4: @ 0x080A35B4
-	push {lr}
-	ldr r2, _080A35C4 @ =gUnk_02021EE0
-	movs r1, #0
-	strh r1, [r2, #0xa]
-	bl sub_080A353C
-	pop {pc}
-	.align 2, 0
-_080A35C4: .4byte gUnk_02021EE0
-
-	thumb_func_start sub_080A35C8
-sub_080A35C8: @ 0x080A35C8
-	ldr r1, _080A35DC @ =gUnk_02021EE0
-	movs r0, #0x80
-	lsls r0, r0, #1
-	strh r0, [r1, #6]
-	strh r0, [r1, #8]
-	strh r0, [r1, #0xa]
-	strh r0, [r1, #0xc]
-	strh r0, [r1, #0xe]
-	strh r0, [r1, #0x10]
-	bx lr
-	.align 2, 0
-_080A35DC: .4byte gUnk_02021EE0
-
 	thumb_func_start HandleCreditsScreen
 HandleCreditsScreen: @ 0x080A35E0
 	push {lr}
@@ -290,7 +95,7 @@ _080A365E:
 	strh r0, [r2, #0x14]
 	subs r0, #0x8a
 	strh r0, [r2, #0x20]
-	bl sub_080A3210
+	bl InitSoundPlayingInfo
 	bl sub_0805E5B4
 	movs r1, #0x80
 	lsls r1, r1, #1
@@ -700,7 +505,7 @@ _080A39C8:
 	strb r4, [r2, #3]
 	movs r0, #1
 	bl DispReset
-	bl sub_080A3210
+	bl InitSoundPlayingInfo
 	bl sub_080A4D34
 	movs r0, #0xa
 	bl LoadPaletteGroup

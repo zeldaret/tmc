@@ -19,7 +19,7 @@ SCRIPT_START script_08015234
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
-	SoundReq 0x00f5
+	PlaySound SFX_F5
 	DoPostScriptAction 0x001f
 	SetEntitySpeed 0x0200
 	DoPostScriptAction 0x000d

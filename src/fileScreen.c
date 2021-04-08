@@ -191,7 +191,7 @@ static void HandleFileScreenEnter(void) {
     u32 i;
 
     DispReset(1);
-    sub_080A3210();
+    InitSoundPlayingInfo();
     MemClear((void*)VRAM, 0x80); // clear palettes
     MessageInitialize();
     EraseAllEntities();

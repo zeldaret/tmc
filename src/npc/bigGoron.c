@@ -4,6 +4,7 @@
 #include "structures.h"
 #include "script.h"
 #include "random.h"
+#include "audio.h"
 #include "functions.h"
 
 extern void (*gUnk_081140D4[])(Entity*);

@@ -8,9 +8,9 @@ SCRIPT_START script_0800A160
 	CallWithArg sub_0807F98C, 0xff800000
 	CallWithArg sub_080960C4, script_0800A1B4
 	EndBlock 
-	SoundReq 0x0142
+	PlaySound SFX_SPARKLES
 	_0807EF3C 0xff80, 0x0000
-	SoundReq 0x0143
+	PlaySound SFX_143
 	_0807E930 0x0004
 	_0807E5F8 0x00000002
 	Wait 0x003c

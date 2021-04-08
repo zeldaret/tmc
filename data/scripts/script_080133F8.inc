@@ -14,7 +14,7 @@ SCRIPT_START script_080133F8
 	WaitForSomething2 0x00000020
 	Wait 0x003c
 	DoPostScriptAction 0x0014
-	SoundReq 0x0120
+	PlaySound SFX_CHARGING_UP
 	CallWithArg sub_08095420, script_08013494
 	Wait 0x005a
 	DoPostScriptAction 0x0016

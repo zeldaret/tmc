@@ -37,7 +37,7 @@ script_08013006:
 	_0807E864 
 	Call sub_0807DF28
 	EndBlock 
-	SoundReq 0x00cd
+	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0038
 	WaitPlayerAction8 
 	Wait 0x001e

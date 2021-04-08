@@ -5,7 +5,7 @@
 #include "room.h"
 #include "player.h"
 #include "random.h"
-#include "functions.h"
+#include "audio.h"
 
 // Facilitates the usage of minish portals.
 
@@ -58,7 +58,7 @@ void sub_080576C0(Manager3* this) {
                              this->manager.unk_0e);
                 if (!this->manager.unk_0f) {
                     this->manager.unk_0f = 1;
-                    SoundReq(0x152);
+                    SoundReq(SFX_152);
                 }
             }
         }

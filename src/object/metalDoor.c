@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "room.h"
 #include "flags.h"
+#include "audio.h"
 #include "functions.h"
 
 extern u32 sub_08083734(Entity*, u32);
@@ -76,7 +77,7 @@ void sub_080A07BC(Entity* this) {
         this->direction = 0x10;
         this->y.HALF.HI += 2;
         sub_080A0870(this);
-        SoundReq(0x10b);
+        SoundReq(SFX_10B);
     }
 }
 

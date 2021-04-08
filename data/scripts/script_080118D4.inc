@@ -11,11 +11,11 @@ SCRIPT_START script_080118D4
 	StartPlayerScript script_080110E8
 	_0807EDD4 0x01d8, 0x0058
 	Call sub_08094B80
-	SoundReq 0x009a
-	SoundReq 0x01c6
+	PlaySound SFX_VO_ZELDA7
+	PlaySound SFX_1C6
 	_0807E5F8 0x10000000
 	WaitForSomething2 0x08000000
-	SoundReq 0x011d
+	PlaySound SFX_11D
 	DoPostScriptAction 0x0006
 SCRIPT_END
 	.2byte 0x0000

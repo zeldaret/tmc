@@ -5,7 +5,7 @@ SCRIPT_START script_0800C4D0
 	EndBlock 
 	Wait 0x000a
 	DoPostScriptAction 0x0007
-	SoundReq 0x0136
+	PlaySound SFX_136
 	_0807EEF4 0x00c0, 0x0000
 	Wait 0x001e
 	_0807EEF4 0x0070, 0x0000

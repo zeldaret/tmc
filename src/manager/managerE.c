@@ -3,6 +3,7 @@
 #include "manager.h"
 #include "flags.h"
 #include "room.h"
+#include "audio.h"
 #include "functions.h"
 
 void sub_08058E60(ManagerE* this) {

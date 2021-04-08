@@ -5,9 +5,9 @@ SCRIPT_START script_0800E58C
 	DoPostScriptAction 0x0014
 	EndBlock 
 	Wait 0x003c
-	SoundReq 0x0105
+	PlaySound SFX_105
 	Wait 0x003c
-	SoundReq 0x009b
+	PlaySound SFX_9B
 	Wait 0x001e
 	TextboxNoOverlap 0x1625
 	_0807EA94 

@@ -1,7 +1,7 @@
 SCRIPT_START script_0800D1E0
 	_0807F078 0x0002, 0x0001
 	CallWithArg sub_0807F918, 0x00000002
-	SoundReq 0x0109
+	PlaySound SFX_109
 	CallWithArg sub_0807F238, 0x000001e2
 	Call sub_0807F304
 	TextboxNoOverlap 0x0502

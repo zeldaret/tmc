@@ -1,6 +1,6 @@
 SCRIPT_START script_0800DC4C
 	Wait 0x003c
-	SoundReq2 0x0031
+	PlayBgm BGM_CASTLE_COLLAPSE
 	StartPlayerScript script_0800DE50
 	WaitForSomething2 0x00000006
 	_0807EB28 0x1646

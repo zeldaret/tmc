@@ -6,16 +6,16 @@ SCRIPT_START script_0800B574
 	EndBlock 
 	WaitForSomething2 0x00000010
 	DoPostScriptAction 0x0008
-	SoundReq 0x0111
+	PlaySound SFX_111
 	WaitForSomething2 0x00000010
 	DoPostScriptAction 0x0007
-	SoundReq 0x0111
+	PlaySound SFX_111
 	WaitForSomething2 0x00000010
 	DoPostScriptAction 0x0008
-	SoundReq 0x0111
+	PlaySound SFX_111
 	WaitForSomething2 0x00000010
 	DoPostScriptAction 0x0007
-	SoundReq 0x0111
+	PlaySound SFX_111
 script_0800B5BC:
 	Call sub_0808692C
 SCRIPT_END

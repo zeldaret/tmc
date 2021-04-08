@@ -185,7 +185,7 @@ void sub_08070D38(Entity* this) {
     }
 
     gPlayerState.jumpStatus = 0x80;
-    SoundReq(0x14c);
+    SoundReq(SFX_14C);
     ResetPlayer();
     sub_08078F60();
 }
@@ -467,7 +467,7 @@ void sub_0807127C(Entity* this) {
     if (gPlayerState.flags.all & 0x80) {
         this->actionDelay = 0x3c;
         gPlayerState.field_0x8 = 0xc19;
-        SoundReq(0x84);
+        SoundReq(SFX_WATER_SPLASH);
     } else {
         if ((gPlayerState.flags.all & 0x10000) == 0)
             sub_08004168(this);
@@ -528,7 +528,7 @@ static void PlayerUsePortal(Entity* this) {
         this->subAction = 7;
         this->actionDelay = 30;
         DoFade(7, 16);
-        SoundReq(0xf8);
+        SoundReq(SFX_F8);
     } else {
         sub_0804ACF8();
     }
@@ -641,7 +641,7 @@ void PortalShrinkInit(Entity* this) {
     sub_0805EC9C(this, 0x100, 0x100, 0);
     gPlayerState.field_0x8 = 0x2c3;
     gPlayerState.flags.all |= 0x80;
-    SoundReq(0x16f);
+    SoundReq(SFX_PLY_SHRINKING);
 }
 
 // horrible
@@ -912,7 +912,7 @@ void sub_08071BDC(Entity* this) {
     gPlayerState.pushedObject = 0;
     sub_0800451C(this);
     ResetPlayer();
-    SoundReq(0x87);
+    SoundReq(SFX_PLY_DIE);
 }
 
 void sub_08071CAC(Entity* this) {
@@ -927,7 +927,7 @@ void sub_08071CAC(Entity* this) {
 
         this->subAction = 2;
         this->actionDelay = 0xf0;
-        SoundReq(0x7b);
+        SoundReq(SFX_PLY_VO7);
     }
 }
 

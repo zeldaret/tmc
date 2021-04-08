@@ -17,16 +17,16 @@ SCRIPT_START script_08010F84
 	Call sub_0806DC58
 	Wait 0x003c
 	_0807E5F8 0x08000000
-	SoundReq 0x0125
+	PlaySound SFX_125
 	CallWithArg sub_0807FB28, 0x00000003
 	Wait 0x000f
-	SoundReq 0x0125
+	PlaySound SFX_125
 	CallWithArg sub_0807FB28, 0x00000003
 	CallWithArg sub_0805DE18, 0x00000002
 	_0807F0C8 0x0000, 0x0000
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
-	SoundReq0x80100000 
+	StopBgm
 	Wait 0x003c
 	TextboxNoOverlapFollowPos 0x104a, 0x0000
 	_0807EA94 

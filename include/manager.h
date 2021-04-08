@@ -191,6 +191,6 @@ extern void sub_0805DE38(Entity*);
 extern void sub_0805E0A8(Entity*);
 extern void sub_0805E0FC();
 
-void (*const gManagerFunctions[58])();
+extern void (*const gManagerFunctions[58])();
 
 #endif

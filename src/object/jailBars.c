@@ -2,7 +2,7 @@
 #include "entity.h"
 #include "flags.h"
 #include "room.h"
-#include "functions.h"
+#include "audio.h"
 
 extern void sub_080A0960(Entity*, u32);
 extern void sub_0801AF18(u8*, u32, u32);
@@ -33,7 +33,7 @@ void sub_080A0910(Entity* this) {
     if (CheckFlags(this->field_0x86.HWORD) != 0) {
         this->action = 2;
         sub_080A0960(this, 1);
-        SoundReq(0x10b);
+        SoundReq(SFX_10B);
     }
 }
 

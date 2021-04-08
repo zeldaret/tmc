@@ -19,7 +19,7 @@ script_080149DE:
 	DoPostScriptAction 0x000b
 	DoPostScriptAction 0x0001
 	_0807EDD4 0x0068, 0x00f8
-	SoundReq 0x0072
+	PlaySound SFX_SECRET
 	_0807EB74 
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x000a

@@ -182,7 +182,7 @@ static void sub_08081150(Entity* this) {
     this->height.HALF.HI = -0x80;
     this->spriteOrientation.flipY = 1;
     this->spriteRendering.b3 = 1;
-    SoundReq(0x12D);
+    SoundReq(SFX_12D);
 }
 
 static void sub_08081188(Entity* this) {
@@ -206,7 +206,7 @@ void sub_080811C8(Entity* this) {
 
 void sub_080811D8(Entity* this) {
     sub_08081188(this);
-    SoundReq(0x215);
+    SoundReq(SFX_215);
 }
 
 void sub_080811EC(Entity* this) {

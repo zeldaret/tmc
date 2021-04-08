@@ -6,12 +6,12 @@ SCRIPT_START script_0800A764
 	Call sub_0807F844
 	EndBlock 
 	Wait 0x003c
-	SoundReq 0x00f6
+	PlaySound SFX_EVAPORATE
 	_0807E778 0x0004
 	DoFade7 
 	WaitFor_2 
 	_0807E5F8 0x00000001
-	SoundReq 0x00f7
+	PlaySound SFX_APPARATE
 	_0807E778 0x0002
 	DoFade6 
 	WaitFor_2 

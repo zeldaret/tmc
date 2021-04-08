@@ -31,7 +31,7 @@ void sub_0805FA04(void) {
     sub_08053320();
     sub_0801D79C(0, 0x1144);
     gMain.funcIndex = 1;
-    sub_080A3210();
+    InitSoundPlayingInfo();
     sub_08050008();
 }
 

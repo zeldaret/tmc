@@ -138,7 +138,7 @@ script_08014FCC:
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28
-	SoundReq0x80100000 
+	StopBgm
 	_0807F0B4 0x0001
 	CameraTargetEntity 
 	StartPlayerScript script_080152B4
@@ -151,7 +151,7 @@ script_08014FCC:
 	WaitForSomething2 0x00000004
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
-	SoundReq2 0x000d
+	PlayBgm BGM_VAATI_THEME
 	_0807EB28 0x1302
 	_0807EA94 
 	TextboxNoOverlapFollowPos 0x1303, 0x0002
@@ -164,7 +164,7 @@ script_08014FCC:
 	WaitForSomething2 0x00000004
 	_0807EB28 0x1306
 	_0807EA94 
-	SoundReq0x80100000 
+	StopBgm
 	StartPlayerScript script_080152DC
 	CameraTargetEntity 
 	_0807F0B4 0x0003
@@ -173,31 +173,31 @@ script_08014FCC:
 	Call sub_0804F6A8
 	Wait 0x0004
 	Call sub_0804F808
-	SoundReq 0x010b
+	PlaySound SFX_10B
 	StartPlayerScript script_08015304
 	Call sub_0804F6C8
 	Wait 0x0004
 	Call sub_0804F830
-	SoundReq 0x010b
+	PlaySound SFX_10B
 	Call sub_0804F6E8
 	Wait 0x0004
 	Call sub_0804F854
-	SoundReq 0x010b
+	PlaySound SFX_10B
 	Call sub_0804F724
 	Wait 0x0004
 	Call sub_0804F89C
-	SoundReq 0x010b
+	PlaySound SFX_10B
 	Call sub_0804F760
 	Wait 0x0004
 	Call sub_0804F8E0
-	SoundReq 0x010b
+	PlaySound SFX_10B
 	Wait 0x003c
 	WaitForSomething2 0x00000001
-	SoundReq 0x01b0
+	PlaySound SFX_1B0
 	Call sub_0804F79C
 	Wait 0x000a
 	LoadRoomEntityList gUnk_080F7FC0
-	SoundReq2 0x002d
+	PlayBgm BGM_FIGHT_THEME
 	Call sub_0807DF50
 	_0807E878 
 script_08015104:
@@ -206,32 +206,32 @@ script_08015104:
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28
-	SoundReq0x80100000 
+	StopBgm
 	StartPlayerScript script_08015338
 	WaitForSomething2 0x00000001
 	Wait 0x003c
 	Call sub_0804F6A8
 	Wait 0x0004
 	Call sub_0804F928
-	SoundReq 0x010b
+	PlaySound SFX_10B
 	Call sub_0804F6C8
 	Wait 0x0004
 	Call sub_0804F944
-	SoundReq 0x010b
+	PlaySound SFX_10B
 	Call sub_0804F6E8
 	Wait 0x0004
 	Call sub_0804F960
-	SoundReq 0x010b
+	PlaySound SFX_10B
 	Call sub_0804F724
 	Wait 0x0004
 	Call sub_0804F994
-	SoundReq 0x010b
+	PlaySound SFX_10B
 	Call sub_0804F760
 	Wait 0x0004
 	Call sub_0804F9C8
-	SoundReq 0x010b
+	PlaySound SFX_10B
 	Wait 0x003c
-	SoundReq 0x0072
+	PlaySound SFX_SECRET
 	_0807F0B4 0x0004
 	CameraTargetPlayer 
 	SetLocalFlag 0x008c
@@ -268,7 +268,7 @@ script_08015104:
 	_0807F0B4 0x0004
 	CameraTargetPlayer 
 	Call sub_08054570
-	SoundReq2 0xffff
+	PlayBGM
 	Call sub_0807DF50
 	_0807E878 
 	DoPostScriptAction 0x0006

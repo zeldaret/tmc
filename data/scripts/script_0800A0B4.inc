@@ -5,7 +5,7 @@ SCRIPT_START script_0800A0B4
 	Call sub_0807DF28
 	EndBlock 
 	Wait 0x0078
-	SoundReq2 0x0018
+	PlayBgm BGM_ELEMENT_THEME
 	Call sub_080A0464
 script_0800A0D2:
 	_0807EE30 

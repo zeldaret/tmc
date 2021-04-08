@@ -7,7 +7,7 @@ SCRIPT_START script_0801183C
 	_0807E5F8 0x01000000
 	WaitForSomething2 0x00800000
 	Call sub_08095364
-	SoundReq 0x0122
+	PlaySound SFX_122
 	Wait 0x003c
 	_0807E5F8 0x01000000
 	WaitForSomething2 0x00800000

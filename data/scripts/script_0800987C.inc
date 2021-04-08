@@ -1,7 +1,7 @@
 SCRIPT_START script_0800987C
-	SoundReq 0x007a
+	PlaySound SFX_PLY_VO6
 	_0807EB44 0x0004
-	SoundReq 0x0086
+	PlaySound SFX_86
 	Call sub_0807F36C
 	SetEntitySpeed 0x0400
 	_0807ECF4 0x0004
@@ -9,7 +9,7 @@ SCRIPT_START script_0800987C
 	Wait 0x001e
 	_0807E5F8 0x00000040
 	WaitForSomething2 0x00000020
-	SoundReq 0x007c
+	PlaySound SFX_PLY_JUMP
 	_0807EB44 0x0004
 	Call sub_0807F210
 	_0807EF3C 0x0200, 0x0020

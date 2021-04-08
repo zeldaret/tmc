@@ -47,7 +47,7 @@ SCRIPT_START script_0800A1D8
 	WaitForSomething2 0x000000c0
 	TextboxNoOverlapFollowPos 0x165c, 0x000e
 	_0807EA94 
-	SoundReq0x80100000 
+	StopBgm
 	TextboxNoOverlapFollowPos 0x165d, 0x000e
 	_0807EA94 
 	_0807E5F8 0x00000006
@@ -56,8 +56,8 @@ SCRIPT_START script_0800A1D8
 	WaitForSomething2 0x00000080
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000100
-	SoundReq2 0x0008
-	SoundReq 0x00f7
+	PlayBgm BGM_INTRO_CUTSCENE
+	PlaySound SFX_APPARATE
 	CallWithArg sub_0806DA1C, 0x00000007
 	DoPostScriptAction 0x0006
 SCRIPT_END
