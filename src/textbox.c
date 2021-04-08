@@ -692,7 +692,7 @@ extern u16 gUnk_0202281E[];
 
 void DispString(void) {
     u32 r0, r2, r4;
-    u16 *r5, *ptr2;
+    u16 *ptr, *ptr2;
     s32 i, j;
 
     Window* window = &gNewWindow;
@@ -700,15 +700,15 @@ void DispString(void) {
     if (window->width != 0) {
         if (window->height != 0) {
             r4 = window->height;
-            r5 = &gUnk_02034CB2[TEXTBOX_POSITION_INDEX(*window)];
+            ptr = &gUnk_02034CB2[TEXTBOX_POSITION_INDEX(*window)];
             i = (s32)(4 - r4) / 2;
             do {
                 j = window->width;
                 r2 = gUnk_0202281E[i];
-                r5 += 0x20;
+                ptr += TEXTBOX_WIDTH;
                 r0 = i + 1;
                 r4--;
-                ptr2 = r5;
+                ptr2 = ptr;
                 do {
                     *ptr2 = r2;
                     ptr2++;
@@ -722,14 +722,14 @@ void DispString(void) {
 }
 
 void DispCursor(void) {
-    u32 r0;
+    u32 offset;
     u16* ptr;
 
     if ((gCurrentTextBox._98.word & 0x10ff00) == 0x100200) {
         ptr = &gBG0Buffer[TEXTBOX_POSITION_INDEX(gNewWindow)];
-        r0 = (((gNewWindow.height + 1) << 5) - 2);
-        r0 += gNewWindow.width;
-        ptr += r0;
+        offset = (((gNewWindow.height + 1) * TEXTBOX_WIDTH) - 2);
+        offset += gNewWindow.width;
+        ptr += offset;
         *ptr = 0xf080;
     }
 }
