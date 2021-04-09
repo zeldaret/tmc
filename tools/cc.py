@@ -57,12 +57,14 @@ def parse_defsym(Ds):
 
 def do_preprocess(input_filename: str, output_filename: str, args) -> None:
     logging.debug(f'preprocess "{input_filename}" > "{output_filename}"')
-    # TODO CPPFLAGS
     call = [CC, '-E']
     if args.I:
         for I in args.I:
             call += ['-I', I]
-    call += ['-nostdinc', '-undef']
+    if args.nostdinc:
+        call.append('-nostdinc')
+    if args.undef:
+        call.append('-undef')
     if args.D:
         for D in args.D:
             call.append(f'-D{D}')
@@ -80,6 +82,7 @@ def do_compile(input_filename: str, output_filename: str, args) -> None:
     preproc = subprocess.Popen([PREPROC, input_filename, CHARMAP], stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     cmd = [CC1]
     if args.O:
+        # FIXME
         if 'eeprom' in input_filename:
             cmd.append('-O1')
         else:
@@ -87,6 +90,7 @@ def do_compile(input_filename: str, output_filename: str, args) -> None:
     if args.W:
         for W in args.W:
             cmd.append(f'-W{W}')
+    # FIXME
     if any([name in input_filename for name in ['arm_proxy', 'gba/m4a', 'eeprom']]):
         cmd.append('-mthumb-interwork')
 
@@ -112,8 +116,9 @@ def do_compile(input_filename: str, output_filename: str, args) -> None:
 
 def do_assemble(input_filename: str, output_filename: str, args) -> None:
     logging.debug(f'assemble "{input_filename}" > "{output_filename}"')
-    # TODO ASFLAGS
-    cmd = [AS, '-mcpu=arm7tdmi']
+    cmd = [AS]
+    if args.mcpu:
+        cmd.append(f'-mcpu={args.mcpu}')
     if args.D:
         cmd += parse_defsym(args.D)
     cmd += ['-I', f'{TOOLS_DIR}/..', '-o', output_filename, input_filename]
@@ -127,10 +132,11 @@ def do_assemble(input_filename: str, output_filename: str, args) -> None:
 
 def do_assemble2(input_filename: str, output_filename: str, args) -> None:
     logging.debug(f'assemble2 "{input_filename}" > "{output_filename}"')
-    # TODO ASFLAGS
     preproc = subprocess.Popen([PREPROC, os.path.abspath(input_filename)], stdout=subprocess.PIPE,
                                stderr=subprocess.PIPE, cwd=f'{TOOLS_DIR}/..')
-    cmd = [AS, '-mcpu=arm7tdmi']
+    cmd = [AS]
+    if args.mcpu:
+        cmd.append(f'-mcpu={args.mcpu}')
     if args.D:
         cmd += parse_defsym(args.D)
     cmd += ['-I', f'{TOOLS_DIR}/..', '-o', output_filename]
@@ -148,11 +154,21 @@ def do_assemble2(input_filename: str, output_filename: str, args) -> None:
 
 def do_link(input_files, output_filename: str, args) -> None:
     logging.debug(f'link: "{input_files}" > "{output_filename}"')
-    # TODO LDFLAGS
-    # TODO map file
-    ld = subprocess.Popen([LD, '-Map', f'{TOOLS_DIR}/../tmc.map', '-n', '-T', f'{TOOLS_DIR}/../cmake.ld', '-o',
-                           f'../../{output_filename}', '-L', f'{TOOLS_DIR}/agbcc/lib', '-lc'],
-                          stderr=subprocess.PIPE, cwd='CMakeFiles/tmc.elf.dir')
+    cmd = [LD]
+    if args.Map:
+        cmd += ['-Map', args.Map]
+    if args.n:
+        cmd.append('-n')
+    if args.T:
+        cmd += ['-T', args.T]
+    cmd += ['-o', f'../../{output_filename}']
+    if args.L:
+        for L in args.L:
+            cmd += ['-L', L]
+    if args.l:
+        for l in args.l:
+            cmd.append(f'-l{l}')
+    ld = subprocess.Popen(cmd, stderr=subprocess.PIPE, cwd='CMakeFiles/tmc.elf.dir')
     ld.wait()
     if ld.returncode:
         logging.error(ld.stderr.read().decode('ascii'))
@@ -180,6 +196,15 @@ def parse_args(argv):
     parser.add_argument('-O')
     parser.add_argument('-W', action='append')
     parser.add_argument('-D', action='append')
+    parser.add_argument('-Map')
+    parser.add_argument('-T')
+    parser.add_argument('-L', action='append')
+    parser.add_argument('-l', action='append')
+    parser.add_argument('-n', action='store_true')
+    parser.add_argument('-mcpu')
+    parser.add_argument('-mthumb-interwork', action='store_true')
+    parser.add_argument('-nostdinc', action='store_true')
+    parser.add_argument('-undef', action='store_true')
     parser.add_argument('files', nargs='+')
     return parser.parse_args(argv)
 
@@ -197,8 +222,6 @@ def setup_logging(args):
 def main(argv):
     args = parse_args(argv)
     setup_logging(args)
-    logging.debug(f'argv: {argv}')
-    logging.debug(f'args I: {args.I}')
     target_stage = args.stages if args.stages is not None else Stages.LINK
     if target_stage is Stages.LINK:
         logging.debug(f'link "{args.files}" > "{args.output}"')
