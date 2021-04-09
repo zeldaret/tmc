@@ -44,6 +44,17 @@ class Stages:
             return basename + '.o'
 
 
+def parse_defsym(Ds):
+    result = []
+    for D in Ds:
+        result.append('--defsym')
+        if '=' in D:
+            result.append(D)
+        else:
+            result.append(D + '=1')
+    return result
+
+
 def do_preprocess(input_filename: str, output_filename: str, args) -> None:
     logging.debug(f'preprocess "{input_filename}" > "{output_filename}"')
     # TODO CPPFLAGS
@@ -51,56 +62,79 @@ def do_preprocess(input_filename: str, output_filename: str, args) -> None:
     if args.I:
         for I in args.I:
             call += ['-I', I]
-    call += ['-nostdinc', '-undef', '-DTHEMINISHCAP', '-DREVISION=0' '-DENGLISH', input_filename, '-o', output_filename]
+    call += ['-nostdinc', '-undef']
+    if args.D:
+        for D in args.D:
+            call.append(f'-D{D}')
+    call += [input_filename, '-o', output_filename]
     logging.debug(f'call: {call}')
-    p = subprocess.Popen(call, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    out, err = p.communicate()
-    if p.returncode:
-        logging.error(err.decode('ascii'))
-        exit(p.returncode)
+    cpp = subprocess.Popen(call, stderr=subprocess.PIPE)
+    cpp.wait()
+    if cpp.returncode:
+        logging.error(cpp.stderr.read().decode('ascii'))
+        exit(cpp.returncode)
 
 
 def do_compile(input_filename: str, output_filename: str, args) -> None:
     logging.debug(f'compile "{input_filename}" > "{output_filename}"')
-    # TODO CFLAGS
-    p = subprocess.Popen(
-        f'{PREPROC} {input_filename} {CHARMAP} | {CC1} -O2 -Wimplicit -Wparentheses -Werror -Wno-multichar -o {output_filename}',
-        shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    out, err = p.communicate()
-    if p.returncode:
-        logging.error(err.decode('ascii'))
-        exit(p.returncode)
-    p = subprocess.Popen(f'echo -e "\t.text\n\t.align\t2, 0 @ Don\'t pad with nop\n" >> {output_filename}', shell=True,
-                         stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    out, err = p.communicate()
-    if p.returncode:
-        logging.error(err.decode('ascii'))
-        exit(p.returncode)
+    preproc = subprocess.Popen([PREPROC, input_filename, CHARMAP], stderr=subprocess.PIPE, stdout=subprocess.PIPE)
+    cmd = [CC1]
+    if args.O:
+        if 'eeprom' in input_filename:
+            cmd.append('-O1')
+        else:
+            cmd.append(f'-O{args.O}')
+    if args.W:
+        for W in args.W:
+            cmd.append(f'-W{W}')
+    if any([name in input_filename for name in ['arm_proxy', 'gba/m4a', 'eeprom']]):
+        cmd.append('-mthumb-interwork')
+
+    cmd += ['-o', output_filename]
+    cc = subprocess.Popen(cmd, stdin=preproc.stdout, stderr=subprocess.PIPE)
+    preproc.stdout.close()
+    preproc.wait()
+    cc.wait()
+    if preproc.returncode:
+        logging.error(preproc.stderr.read().decode('ascii'))
+        exit(preproc.returncode)
+    if cc.returncode:
+        logging.error(cc.stderr.read().decode('ascii'))
+        exit(cc.returncode)
+
+    append = subprocess.Popen(f'echo -e "\t.text\n\t.align\t2, 0 @ Don\'t pad with nop\n" >> {output_filename}',
+                              shell=True, stderr=subprocess.PIPE)
+    append.wait()
+    if append.returncode:
+        logging.error(append.stderr.read().decode('ascii'))
+        exit(append.returncode)
 
 
 def do_assemble(input_filename: str, output_filename: str, args) -> None:
     logging.debug(f'assemble "{input_filename}" > "{output_filename}"')
     # TODO ASFLAGS
-    cmd = [AS,
-           '-mcpu=arm7tdmi', '--defsym', 'THEMINISHCAP=1', '--defsym', 'REVISION=0', '--defsym',
-           'ENGLISH=1', '-I', f'{TOOLS_DIR}/..',
-           '-o', output_filename, input_filename]
+    cmd = [AS, '-mcpu=arm7tdmi']
+    if args.D:
+        cmd += parse_defsym(args.D)
+    cmd += ['-I', f'{TOOLS_DIR}/..', '-o', output_filename, input_filename]
     logging.debug(f'cmd: {cmd}')
-    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    out, err = p.communicate()
-    if p.returncode:
-        logging.error(err.decode('ascii'))
-        exit(p.returncode)
+    asm = subprocess.Popen(cmd, stderr=subprocess.PIPE)
+    asm.wait()
+    if asm.returncode:
+        logging.error(asm.stderr.read().decode('ascii'))
+        exit(asm.returncode)
 
 
 def do_assemble2(input_filename: str, output_filename: str, args) -> None:
     logging.debug(f'assemble2 "{input_filename}" > "{output_filename}"')
     # TODO ASFLAGS
-    preproc = subprocess.Popen([PREPROC, input_filename], stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                               cwd=f'{TOOLS_DIR}/..')
-    asm = subprocess.Popen([AS, '-mcpu=arm7tdmi', '--defsym', 'THEMINISHCAP=1', '--defsym', 'REVISION=0',
-                            '--defsym', 'ENGLISH=1', '-I', f'{TOOLS_DIR}/..', '-o', output_filename],
-                           stdin=preproc.stdout, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    preproc = subprocess.Popen([PREPROC, os.path.abspath(input_filename)], stdout=subprocess.PIPE,
+                               stderr=subprocess.PIPE, cwd=f'{TOOLS_DIR}/..')
+    cmd = [AS, '-mcpu=arm7tdmi']
+    if args.D:
+        cmd += parse_defsym(args.D)
+    cmd += ['-I', f'{TOOLS_DIR}/..', '-o', output_filename]
+    asm = subprocess.Popen(cmd, stdin=preproc.stdout, stderr=subprocess.PIPE)
     preproc.stdout.close()
     preproc.wait()
     asm.wait()
@@ -116,13 +150,13 @@ def do_link(input_files, output_filename: str, args) -> None:
     logging.debug(f'link: "{input_files}" > "{output_filename}"')
     # TODO LDFLAGS
     # TODO map file
-    p = subprocess.Popen([LD, '-Map', f'{TOOLS_DIR}/../tmc.map', '-n', '-T', f'{TOOLS_DIR}/../cmake.ld', '-o',
-                          f'../../{output_filename}', '-L', f'{TOOLS_DIR}/agbcc/lib', '-lc'],
-                         stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd='CMakeFiles/tmc.elf.dir')
-    out, err = p.communicate()
-    if p.returncode:
-        logging.error(err.decode('ascii'))
-        exit(p.returncode)
+    ld = subprocess.Popen([LD, '-Map', f'{TOOLS_DIR}/../tmc.map', '-n', '-T', f'{TOOLS_DIR}/../cmake.ld', '-o',
+                           f'../../{output_filename}', '-L', f'{TOOLS_DIR}/agbcc/lib', '-lc'],
+                          stderr=subprocess.PIPE, cwd='CMakeFiles/tmc.elf.dir')
+    ld.wait()
+    if ld.returncode:
+        logging.error(ld.stderr.read().decode('ascii'))
+        exit(ld.returncode)
 
 
 def do_stage(stage: int, input_filename: str, output_filename: str, args) -> None:
@@ -143,6 +177,9 @@ def parse_args(argv):
     parser.add_argument('-c', action='store_const', dest='stages', const=Stages.ASSEMBLE)
     parser.add_argument('-v', action='count')
     parser.add_argument('-I', action='append')
+    parser.add_argument('-O')
+    parser.add_argument('-W', action='append')
+    parser.add_argument('-D', action='append')
     parser.add_argument('files', nargs='+')
     return parser.parse_args(argv)
 

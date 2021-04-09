@@ -33,7 +33,9 @@ add_executable(tmc.elf ${source_files} ${include_files} ${asm_files} ${data_file
 target_include_directories(tmc.elf PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/tools/agbcc)
 target_include_directories(tmc.elf PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/tools/agbcc/include)
 target_include_directories(tmc.elf PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-add_custom_command(TARGET tmc.elf POST_BUILD COMMAND ${fix} "$<TARGET_FILE:tmc.elf>" -t"GBAZELDA MC" -cBZME -m01 -r0 --silent)
+add_custom_command(TARGET tmc.elf POST_BUILD COMMAND ${fix} "$<TARGET_FILE:tmc.elf>" "-tGBAZELDA MC" -cBZME -m01 -r0 --silent)
+target_compile_options(tmc.elf PUBLIC -O2 -Wimplicit -Wparentheses -Wno-multichar -Werror)
+target_compile_options(tmc.elf PUBLIC -DTHEMINISHCAP -DREVISION=0 -DENGLISH)
 
 add_custom_target(tmc.gba ALL COMMAND ${objcopy} -O binary --gap-fill 0xFF --pad-to 0x9000000 "$<TARGET_FILE:tmc.elf>" "tmc.gba")
 add_custom_command(TARGET tmc.gba POST_BUILD COMMAND sha1sum -c ${CMAKE_CURRENT_SOURCE_DIR}/tmc.sha1)
