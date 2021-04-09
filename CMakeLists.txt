@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.17)
 
 #======================
 # Cross compiling stuff
@@ -15,7 +15,9 @@ set(CMAKE_ASM_COMPILER ${tools}/cc.py)
 set(fix ${tools}/gbafix/gbafix)
 
 set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
-#set(CMAKE_C_COMPILER_WORKS TRUE)
+
+set(CMAKE_C_FLAGS_DEBUG -g)
+set(CMAKE_C_FLAGS_RELEASE)
 
 #===========
 # Game stuff
@@ -29,16 +31,23 @@ file(GLOB_RECURSE include_files CONFIGURE_DEPENDS "include/*.h")
 file(GLOB_RECURSE asm_files CONFIGURE_DEPENDS "asm/*.s")
 file(GLOB_RECURSE data_files CONFIGURE_DEPENDS "data/*.s")
 
+add_library(settings INTERFACE)
+target_include_directories(settings INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/tools/agbcc)
+target_include_directories(settings INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/tools/agbcc/include)
+target_include_directories(settings INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_compile_options(settings INTERFACE -nostdinc -undef)
+target_compile_options(settings INTERFACE -O2 -Wimplicit -Wparentheses -Wno-multichar -Werror)
+target_compile_options(settings INTERFACE -mcpu=arm7tdmi)
+target_compile_definitions(settings INTERFACE THEMINISHCAP REVISION=0 ENGLISH)
+
 add_executable(tmc.elf ${source_files} ${include_files} ${asm_files} ${data_files})
-target_include_directories(tmc.elf PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/tools/agbcc)
-target_include_directories(tmc.elf PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/tools/agbcc/include)
-target_include_directories(tmc.elf PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_link_libraries(tmc.elf PRIVATE settings)
+set_source_files_properties(src/eeprom.c PROPERTIES COMPILE_OPTIONS "-O1;-mthumb-interwork")
+set_source_files_properties(src/arm_proxy.c PROPERTIES COMPILE_OPTIONS -mthumb-interwork)
+set_source_files_properties(src/gba/m4a.c PROPERTIES COMPILE_OPTIONS -mthumb-interwork)
+target_link_options(tmc.elf PRIVATE -Map ${CMAKE_CURRENT_SOURCE_DIR}/tmc.map -n -T ${CMAKE_CURRENT_SOURCE_DIR}/cmake.ld)
+target_link_options(tmc.elf PRIVATE -L ${tools}/agbcc/lib -lc)
 add_custom_command(TARGET tmc.elf POST_BUILD COMMAND ${fix} "$<TARGET_FILE:tmc.elf>" "-tGBAZELDA MC" -cBZME -m01 -r0 --silent)
-target_compile_options(tmc.elf PUBLIC -nostdinc -undef)
-target_compile_options(tmc.elf PUBLIC -O2 -Wimplicit -Wparentheses -Wno-multichar -Werror)
-target_compile_options(tmc.elf PUBLIC -DTHEMINISHCAP -DREVISION=0 -DENGLISH -mcpu=arm7tdmi)
-target_link_options(tmc.elf PUBLIC -Map ${CMAKE_CURRENT_SOURCE_DIR}/tmc.map -n -T ${CMAKE_CURRENT_SOURCE_DIR}/cmake.ld)
-target_link_options(tmc.elf PUBLIC -L ${tools}/agbcc/lib -lc)
 
 add_custom_target(tmc.gba ALL COMMAND ${objcopy} -O binary --gap-fill 0xFF --pad-to 0x9000000 "$<TARGET_FILE:tmc.elf>" "tmc.gba")
 add_custom_command(TARGET tmc.gba POST_BUILD COMMAND sha1sum -c ${CMAKE_CURRENT_SOURCE_DIR}/tmc.sha1)

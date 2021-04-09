@@ -81,17 +81,14 @@ def do_compile(input_filename: str, output_filename: str, args) -> None:
     logging.debug(f'compile "{input_filename}" > "{output_filename}"')
     preproc = subprocess.Popen([PREPROC, input_filename, CHARMAP], stderr=subprocess.PIPE, stdout=subprocess.PIPE)
     cmd = [CC1]
+    if args.g:
+        cmd.append('-g')
     if args.O:
-        # FIXME
-        if 'eeprom' in input_filename:
-            cmd.append('-O1')
-        else:
-            cmd.append(f'-O{args.O}')
+        cmd.append(f'-O{args.O}')
     if args.W:
         for W in args.W:
             cmd.append(f'-W{W}')
-    # FIXME
-    if any([name in input_filename for name in ['arm_proxy', 'gba/m4a', 'eeprom']]):
+    if args.mthumb_interwork:
         cmd.append('-mthumb-interwork')
 
     cmd += ['-o', output_filename]
@@ -196,6 +193,7 @@ def parse_args(argv):
     parser.add_argument('-O')
     parser.add_argument('-W', action='append')
     parser.add_argument('-D', action='append')
+    parser.add_argument('-g', action='store_true')
     parser.add_argument('-Map')
     parser.add_argument('-T')
     parser.add_argument('-L', action='append')
