@@ -1,4 +1,4 @@
-#!/bin/python
+#!${Python3_EXECUTABLE}
 import argparse
 import sys
 import os
@@ -10,7 +10,7 @@ if DEVKITARM is None:
     raise ValueError('this requries DEVKITARM env variable')
 CC = f'{DEVKITARM}/bin/arm-none-eabi-gcc'
 # FIXME: relies on the script being in the tools dir
-TOOLS_DIR = sys.path[0]
+TOOLS_DIR = "${tools}"
 PREPROC = f'{TOOLS_DIR}/preproc/preproc'
 CHARMAP = f'{TOOLS_DIR}/../charmap.txt'
 CC1 = f'{TOOLS_DIR}/agbcc/bin/agbcc'

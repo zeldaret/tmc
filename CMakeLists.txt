@@ -7,11 +7,21 @@ cmake_minimum_required(VERSION 3.17)
 set(CMAKE_SYSTEM_NAME Generic)
 set(CMAKE_SYSTEM_PROCESSOR arm)
 
+find_package(Python3 COMPONENTS Interpreter)
+if (NOT Python3_FOUND)
+    message(FATAL_ERROR python 3.7 is required for compiling via cmake)
+elseif (${Python3_VERSION_MINOR} LESS 7)
+    message(FATAL_ERROR python 3.7 is required for compiling via cmake)
+endif ()
+
 set(tools ${CMAKE_CURRENT_LIST_DIR}/tools)
+
+configure_file(${tools}/cc.py ${CMAKE_CURRENT_BINARY_DIR}/cc.py)
+
 set(devkitarm $ENV{DEVKITARM})
 set(objcopy ${devkitarm}/bin/arm-none-eabi-objcopy)
-set(CMAKE_C_COMPILER ${tools}/cc.py)
-set(CMAKE_ASM_COMPILER ${tools}/cc.py)
+set(CMAKE_C_COMPILER ${CMAKE_CURRENT_BINARY_DIR}/cc.py)
+set(CMAKE_ASM_COMPILER ${CMAKE_CURRENT_BINARY_DIR}/cc.py)
 set(fix ${tools}/gbafix/gbafix)
 
 # cmake tests the compiler during configuration
