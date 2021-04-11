@@ -9,7 +9,6 @@ DEVKITARM = os.environ.get('DEVKITARM')
 if DEVKITARM is None:
     raise ValueError('this requries DEVKITARM env variable')
 CC = f'{DEVKITARM}/bin/arm-none-eabi-gcc'
-# FIXME: relies on the script being in the tools dir
 TOOLS_DIR = "${tools}"
 PREPROC = f'{TOOLS_DIR}/preproc/preproc'
 CHARMAP = f'{TOOLS_DIR}/../charmap.txt'

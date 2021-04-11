@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.17)
 
+add_subdirectory(tools)
+
 #================
 # Compiler Setup
 #================
@@ -16,7 +18,7 @@ endif ()
 
 set(tools ${CMAKE_CURRENT_LIST_DIR}/tools)
 
-configure_file(${tools}/cc.py ${CMAKE_CURRENT_BINARY_DIR}/cc.py)
+configure_file(${CMAKE_CURRENT_LIST_DIR}/cmake/cc.py ${CMAKE_CURRENT_BINARY_DIR}/cc.py)
 
 set(devkitarm $ENV{DEVKITARM})
 set(objcopy ${devkitarm}/bin/arm-none-eabi-objcopy)
