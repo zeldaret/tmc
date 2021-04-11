@@ -203,6 +203,7 @@ def parse_args(argv):
     parser.add_argument('-mthumb-interwork', action='store_true')
     parser.add_argument('-nostdinc', action='store_true')
     parser.add_argument('-undef', action='store_true')
+    parser.add_argument('-no-g', action='store_false', dest='g')
     parser.add_argument('files', nargs='+')
     return parser.parse_args(argv)
 
