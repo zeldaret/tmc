@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
 
-add_subdirectory(tools)
-
 if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/baserom.gba)
     file(SHA1 ${CMAKE_CURRENT_SOURCE_DIR}/baserom.gba baserom_sha1)
     if (NOT ${baserom_sha1} STREQUAL b4bd50e4131b027c334547b4524e2dbbd4227130)
@@ -10,6 +8,12 @@ if (EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/baserom.gba)
 else ()
     message(FATAL_ERROR "baserom.gba is required")
 endif ()
+
+if (NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/tools/agbcc/bin/agbcc)
+    message(FATAL_ERROR "agbcc is required")
+endif ()
+
+add_subdirectory(tools)
 
 #================
 # Compiler Setup
