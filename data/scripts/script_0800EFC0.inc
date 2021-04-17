@@ -43,6 +43,7 @@ script_0800F082:
 	Call sub_0806AEE4
 	Jump script_0800F082
 	.2byte 0x0000
+SCRIPT_START script_0800F090
 	BeginBlock 
 	_0807F0B4 0x0001
 	CameraTargetPlayer 

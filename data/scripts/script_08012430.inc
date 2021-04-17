@@ -24,6 +24,7 @@ script_08012474:
 	_0807E930 0x0000
 	Jump script_08012440
 	.2byte 0x0000
+SCRIPT_START script_08012480
 	BeginBlock 
 	Call sub_08054564
 	EndBlock 

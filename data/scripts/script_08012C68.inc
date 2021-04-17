@@ -15,7 +15,7 @@ script_08012C7E:
 	SetGlobalFlag 0x0022
 	_0807E878 
 	Jump script_08012C7E
-script_08012C98:
+SCRIPT_START script_08012C98
 	CheckGlobalFlag 0x0014
 	JumpIfNot script_08012C98
 script_08012CA0:

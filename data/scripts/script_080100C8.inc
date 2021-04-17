@@ -15,6 +15,7 @@ script_080100DC:
 	_0807E878 
 	Jump script_080100DC
 	.2byte 0x0000
+SCRIPT_START script_080100FC
 	BeginBlock 
 	Call sub_08061FE4
 	Call sub_08061E70
@@ -40,6 +41,7 @@ script_08010132:
 	_0807EA94 
 	_0807E878 
 	Jump script_08010132
+SCRIPT_START script_08010148
 	BeginBlock 
 	DoPostScriptAction 0x0001
 	Call sub_0806C354

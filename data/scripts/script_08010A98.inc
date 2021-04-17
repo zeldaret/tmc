@@ -17,6 +17,7 @@ script_08010AB4:
 	_0807EB44 0x0004
 	CallWithArg sub_080672B0, 0x00000000
 	Jump script_08010AB4
+SCRIPT_START script_08010AE4
 	BeginBlock 
 	CheckInventory1 0x0067
 	JumpIfNot script_08010B62

@@ -82,6 +82,7 @@ script_0800C61E:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800C60A
+SCRIPT_START script_0800C634
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	SetEntitySpeed 0x0080
@@ -173,6 +174,7 @@ script_0800C756:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800C652
+SCRIPT_START script_0800C774
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	_0807EB44 0x0004

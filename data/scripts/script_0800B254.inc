@@ -15,6 +15,7 @@ script_0800B268:
 	_0807E878 
 	Jump script_0800B268
 	.2byte 0x0000
+SCRIPT_START script_0800B284
 	BeginBlock 
 	CheckKinstoneFused 0x0007
 	JumpIf script_0800B302
@@ -31,6 +32,7 @@ script_0800B298:
 	_0807E878 
 	Jump script_0800B298
 	.2byte 0x0000
+SCRIPT_START script_0800B2B4
 	BeginBlock 
 	CheckKinstoneFused 0x0008
 	JumpIf script_0800B302

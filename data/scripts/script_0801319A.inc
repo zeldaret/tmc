@@ -5,7 +5,7 @@ SCRIPT_START script_0801319A
 	MoveEntityToPlayer 
 	Call sub_0806AB74
 	Jump script_0801319A
-script_080131AC:
+SCRIPT_START script_080131AC
 	CheckPlayerInRegion 0x0098, 0x0038, 0x2060
 	JumpIfNot script_080131AC
 	_0807E864 

@@ -209,6 +209,7 @@ script_080168E6:
 	Wait 0x000f
 	_0807E878 
 	Jump script_080168E6
+SCRIPT_START script_080168F4
 	BeginBlock 
 	Call sub_08064EA4
 	_0807EB44 0x0004

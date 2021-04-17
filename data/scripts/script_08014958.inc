@@ -18,6 +18,7 @@ script_08014978:
 	Wait 0x000f
 	_0807E878 
 	Jump script_08014978
+SCRIPT_START script_08014994
 	BeginBlock 
 	Call sub_0806C870
 	DoPostScriptAction 0x000a

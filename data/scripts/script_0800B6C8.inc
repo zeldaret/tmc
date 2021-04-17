@@ -25,6 +25,7 @@ script_0800B6D4:
 	_0807F034 0x0064
 	Jump script_0800B698
 	.2byte 0x0000
+SCRIPT_START script_0800B730
 	BeginBlock 
 	EndBlock 
 script_0800B734:

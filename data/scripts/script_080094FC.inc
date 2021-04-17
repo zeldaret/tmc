@@ -18,6 +18,7 @@ script_08009512:
 	DoPostScriptAction 0x0000
 	Jump script_08009512
 	.2byte 0x0000
+SCRIPT_START script_08009538
 	BeginBlock 
 	Call sub_08067100
 	DoPostScriptAction 0x000a
@@ -37,6 +38,7 @@ script_0800954E:
 	DoPostScriptAction 0x0000
 	Jump script_0800954E
 	.2byte 0x0000
+SCRIPT_START script_08009574
 	BeginBlock 
 	Call sub_08067314
 	DoPostScriptAction 0x000a
@@ -60,6 +62,7 @@ script_08009592:
 	Call sub_080672B0
 	Jump script_08009592
 	.2byte 0x0000
+SCRIPT_START script_080095CC
 	BeginBlock 
 	Call sub_0806BE3C
 	DoPostScriptAction 0x000a

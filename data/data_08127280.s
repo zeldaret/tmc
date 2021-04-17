@@ -665,7 +665,46 @@ gUnk_081281A8:: @ 081281A8 TODO figurineData?
 	.4byte 00000000
 
 gUnk_08128A38:: @ 08128A38
-	.incbin "baserom.gba", 0x128A38, 0x00000A0
+	.incbin "baserom.gba", 0x128A38, 0x0000004
+	.4byte sub_080A4F28
+	.incbin "baserom.gba", 0x128A40, 0x0000004
+	.4byte sub_080A5218
+	.incbin "baserom.gba", 0x128A48, 0x0000004
+	.4byte sub_080A5574
+	.incbin "baserom.gba", 0x128A50, 0x0000004
+	.4byte sub_080A4F28
+	.incbin "baserom.gba", 0x128A58, 0x0000004
+	.4byte sub_080A6270
+	.incbin "baserom.gba", 0x128A60, 0x0000004
+	.4byte sub_080A5BF0
+	.incbin "baserom.gba", 0x128A68, 0x0000004
+	.4byte sub_080A6608
+	.incbin "baserom.gba", 0x128A70, 0x0000004
+	.4byte sub_080A6008
+	.incbin "baserom.gba", 0x128A78, 0x0000004
+	.4byte sub_080A60E0
+	.incbin "baserom.gba", 0x128A80, 0x0000004
+	.4byte sub_080A5AD8
+	.incbin "baserom.gba", 0x128A88, 0x0000004
+	.4byte sub_080A5990
+	.incbin "baserom.gba", 0x128A90, 0x0000004
+	.4byte sub_080A5990
+	.incbin "baserom.gba", 0x128A98, 0x0000004
+	.4byte sub_080A4F28
+	.incbin "baserom.gba", 0x128AA0, 0x0000004
+	.4byte sub_080A4F28
+	.incbin "baserom.gba", 0x128AA8, 0x0000004
+	.4byte sub_080A4F28
+	.incbin "baserom.gba", 0x128AB0, 0x0000004
+	.4byte sub_080A4F28
+	.incbin "baserom.gba", 0x128AB8, 0x0000004
+	.4byte sub_080A4F28
+	.incbin "baserom.gba", 0x128AC0, 0x0000004
+	.4byte sub_080A4F28
+	.incbin "baserom.gba", 0x128AC8, 0x0000004
+	.4byte sub_080A4F28
+	.incbin "baserom.gba", 0x128AD0, 0x0000004
+	.4byte sub_080A4F28
 
 gUnk_08128AD8:: @ 08128AD8
 	.incbin "baserom.gba", 0x128AD8, 0x0000058

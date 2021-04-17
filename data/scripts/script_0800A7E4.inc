@@ -15,6 +15,7 @@ script_0800A80C:
 	_0807E930 0x0003
 	Wait 0x001e
 	Jump script_0800A80C
+SCRIPT_START script_0800A820
 	BeginBlock 
 	DoPostScriptAction 0x0007
 	_0807EB44 0x0004
@@ -31,6 +32,7 @@ script_0800A848:
 	_0807E930 0x0003
 	Wait 0x0014
 	Jump script_0800A848
+SCRIPT_START script_0800A85C
 	BeginBlock 
 	DoPostScriptAction 0x0007
 	_0807EB44 0x0004
@@ -47,6 +49,7 @@ script_0800A884:
 	_0807E930 0x0003
 	Wait 0x000a
 	Jump script_0800A884
+SCRIPT_START script_0800A898
 	BeginBlock 
 	DoPostScriptAction 0x0007
 	_0807EB44 0x0004
@@ -63,6 +66,7 @@ script_0800A8C0:
 	_0807EB44 0x0006
 	Wait 0x0019
 	Jump script_0800A8C0
+SCRIPT_START script_0800A8D4
 	BeginBlock 
 	DoPostScriptAction 0x0007
 	_0807EB44 0x0004
@@ -79,6 +83,7 @@ script_0800A8FC:
 	_0807EB44 0x0006
 	Wait 0x000f
 	Jump script_0800A8FC
+SCRIPT_START script_0800A910
 	BeginBlock 
 	_0807E864 
 	Call sub_0807DF28
