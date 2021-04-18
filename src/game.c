@@ -1,6 +1,5 @@
 #include "global.h"
 #include "screen.h"
-#include "structures.h"
 #include "screen.h"
 #include "entity.h"
 #include "player.h"
@@ -10,7 +9,9 @@
 #include "save.h"
 #include "utils.h"
 #include "fileScreen.h"
+#include "menu.h"
 #include "functions.h"
+#include "structures.h"
 
 extern u8 gArea;
 extern Entity gPlayerEntity;

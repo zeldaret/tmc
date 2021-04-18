@@ -3,11 +3,10 @@
 #include "screen.h"
 #include "random.h"
 #include "functions.h"
+#include "structures.h"
 
 void sub_0802A39C(Entity*);
 void sub_0802A334(Entity*);
-
-extern u16 gBG3Buffer[];
 
 extern void (*const gUnk_080CD030[])(Entity*);
 extern const u8 gUnk_080CD03C[];

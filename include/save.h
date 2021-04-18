@@ -2,9 +2,7 @@
 #define SAVE_H
 
 #include "global.h"
-#include "entity.h"
-#include "functions.h"
-#include "menu.h"
+#include "player.h"
 #include "structures.h"
 
 #define FILENAME_LENGTH 6

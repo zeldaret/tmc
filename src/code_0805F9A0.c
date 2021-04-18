@@ -21,16 +21,6 @@ typedef struct {
     u8 unk1;
 } UStruct;
 
-typedef struct {
-    u8 unk0;
-    u8 unk1;
-    u8 unk2;
-    u8 unk3;
-    u16 unk4;
-    u16 unk6;
-    void* unk8;
-} WStruct;
-
 void sub_0805F820(WStruct* r0, u32* r1);
 
 u32 sub_0805F7DC(u32 r0, WStruct* r1) {

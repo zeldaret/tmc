@@ -1,12 +1,12 @@
     .syntax unified
 	push {r4, lr}
-	ldr r0, _08056598 @ =gUnk_02036A40
+	ldr r0, _08056598 @ =gNewWindow
 	movs r1, #8
 	bl MemClear
 	ldr r0, _0805659C @ =gUnk_02024030
 	movs r1, #0x18
 	bl MemClear
-	ldr r4, _080565A0 @ =gUnk_02022780
+	ldr r4, _080565A0 @ =gCurrentTextBox
 	adds r0, r4, #0
 	movs r1, #0xa8
 	bl MemClear
@@ -61,7 +61,7 @@ _08056560:
 	strb r0, [r3, #1]
 	movs r0, #0
 	strb r0, [r3, #2]
-	ldr r4, _080565A0 @ =gUnk_02022780
+	ldr r4, _080565A0 @ =gCurrentTextBox
 	adds r0, r4, #0
 	bl sub_08056FBC
 	ldr r0, _080565AC @ =gUnk_08107BE0
@@ -72,7 +72,7 @@ _08056560:
 	movs r0, #0xd0
 	strh r0, [r4]
 	movs r0, #2
-	bl sub_08056C54
+	bl SetDoTextBox
 	movs r0, #0
 	bl sub_08056BDC
 	movs r0, #2
@@ -80,9 +80,9 @@ _08056560:
 	movs r0, #1
 	pop {r4, pc}
 	.align 2, 0
-_08056598: .4byte gUnk_02036A40
+_08056598: .4byte gNewWindow
 _0805659C: .4byte gUnk_02024030
-_080565A0: .4byte gUnk_02022780
+_080565A0: .4byte gCurrentTextBox
 _080565A4: .4byte gTextBox
 _080565A8: .4byte gSave
 _080565AC: .4byte gUnk_08107BE0
