@@ -17,6 +17,20 @@ AS = f'{DEVKITARM}/bin/arm-none-eabi-as'
 LD = f'{DEVKITARM}/bin/arm-none-eabi-ld'
 
 
+def log_out(process: subprocess.Popen):
+    stdout = process.stdout.read().decode('ascii')
+    logger = logging.error if process.returncode else logging.warning
+    if stdout:
+        logger(stdout)
+
+
+def log_err(process: subprocess.Popen):
+    stderr = process.stderr.read().decode('ascii')
+    logger = logging.error if process.returncode else logging.warning
+    if stderr:
+        logger(stderr)
+
+
 class Stages:
     PREPROCESS = 0
     COMPILE = 1
@@ -69,10 +83,11 @@ def do_preprocess(input_filename: str, output_filename: str, args) -> None:
             call.append(f'-D{D}')
     call += [input_filename, '-o', output_filename]
     logging.debug(f'call: {call}')
-    cpp = subprocess.Popen(call, stderr=subprocess.PIPE)
+    cpp = subprocess.Popen(call, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     cpp.wait()
+    log_out(cpp)
+    log_err(cpp)
     if cpp.returncode:
-        logging.error(cpp.stderr.read().decode('ascii'))
         exit(cpp.returncode)
 
 
@@ -91,22 +106,24 @@ def do_compile(input_filename: str, output_filename: str, args) -> None:
         cmd.append('-mthumb-interwork')
 
     cmd += ['-o', output_filename]
-    cc = subprocess.Popen(cmd, stdin=preproc.stdout, stderr=subprocess.PIPE)
+    cc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=preproc.stdout, stderr=subprocess.PIPE)
     preproc.stdout.close()
     preproc.wait()
     cc.wait()
+    log_err(preproc)
+    log_out(cc)
+    log_err(cc)
     if preproc.returncode:
-        logging.error(preproc.stderr.read().decode('ascii'))
         exit(preproc.returncode)
     if cc.returncode:
-        logging.error(cc.stderr.read().decode('ascii'))
         exit(cc.returncode)
 
     append = subprocess.Popen(f'echo -e "\t.text\n\t.align\t2, 0 @ Don\'t pad with nop\n" >> {output_filename}',
-                              shell=True, stderr=subprocess.PIPE)
+                              shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     append.wait()
+    log_out(append)
+    log_err(append)
     if append.returncode:
-        logging.error(append.stderr.read().decode('ascii'))
         exit(append.returncode)
 
 
@@ -119,10 +136,11 @@ def do_assemble(input_filename: str, output_filename: str, args) -> None:
         cmd += parse_defsym(args.D)
     cmd += ['-I', f'{TOOLS_DIR}/..', '-o', output_filename, input_filename]
     logging.debug(f'cmd: {cmd}')
-    asm = subprocess.Popen(cmd, stderr=subprocess.PIPE)
+    asm = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     asm.wait()
+    log_out(asm)
+    log_err(asm)
     if asm.returncode:
-        logging.error(asm.stderr.read().decode('ascii'))
         exit(asm.returncode)
 
 
@@ -136,15 +154,16 @@ def do_assemble2(input_filename: str, output_filename: str, args) -> None:
     if args.D:
         cmd += parse_defsym(args.D)
     cmd += ['-I', f'{TOOLS_DIR}/..', '-o', output_filename]
-    asm = subprocess.Popen(cmd, stdin=preproc.stdout, stderr=subprocess.PIPE)
+    asm = subprocess.Popen(cmd, stdout=subprocess.PIPE, stdin=preproc.stdout, stderr=subprocess.PIPE)
     preproc.stdout.close()
     preproc.wait()
     asm.wait()
+    log_err(preproc)
+    log_out(asm)
+    log_err(asm)
     if preproc.returncode:
-        logging.error('preproc:\n' + preproc.stderr.read().decode('ascii'))
         exit(preproc.returncode)
     if asm.returncode:
-        logging.error('as:\n' + asm.stderr.read().decode('ascii'))
         exit(asm.returncode)
 
 
@@ -164,10 +183,11 @@ def do_link(input_files, output_filename: str, args) -> None:
     if args.l:
         for l in args.l:
             cmd.append(f'-l{l}')
-    ld = subprocess.Popen(cmd, stderr=subprocess.PIPE, cwd='CMakeFiles/tmc.elf.dir')
+    ld = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd='CMakeFiles/tmc.elf.dir')
     ld.wait()
+    log_out(ld)
+    log_err(ld)
     if ld.returncode:
-        logging.error(ld.stderr.read().decode('ascii'))
         exit(ld.returncode)
 
 
