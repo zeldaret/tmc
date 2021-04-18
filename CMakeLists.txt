@@ -60,6 +60,13 @@ set(CMAKE_BUILD_TYPE Release CACHE STRING "build type")
 
 project(tmc C ASM)
 
+# dirs
+# make is too stupid to generate these on its own
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/graphics/intro)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/graphics/npc)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/data/tilesets/minish_woods)
+file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/translations)
+
 # graphics
 # the way we handle graphics will change entirely in the future, this works until then
 add_custom_command(OUTPUT graphics/font.4bpp COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/font.png graphics/font.4bpp)
