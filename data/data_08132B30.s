@@ -12584,13 +12584,13 @@ gUnk_08692F60:: @ 08692F60
 gUnk_08692FA0::
 	@ TODO 08692FA0 to 086A2A3F is .incbin "graphics/font.4bpp"
 	.incbin "baserom.gba", 0x692FA0, 0x0003FC0
-gUnk_00696F60:: @ 00696F60
+gUnk_08696F60:: @ 08696F60
 	.incbin "baserom.gba", 0x696F60, 0x0000980
-gUnk_006978E0:: @ 006978E0
+gUnk_086978E0:: @ 086978E0
 	.incbin "baserom.gba", 0x6978E0, 0x0002000
-gUnk_006998E0:: @ 006998E0
+gUnk_086998E0:: @ 086998E0
 	.incbin "baserom.gba", 0x6998E0, 0x0008000
-gUnk_006A18E0:: @ 006A18E0
+gUnk_086A18E0:: @ 086A18E0
 	.incbin "baserom.gba", 0x6A18E0, 0x0001160
 
 	.incbin "baserom.gba", 0x6A2A40, 0x0000020

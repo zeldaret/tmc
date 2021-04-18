@@ -256,11 +256,11 @@ gUnk_08109244:: @ 08109244
 gUnk_08109248:: @ 08109248 TODO might be a pointer array?
 	.4byte gUnk_08692F60
 	.4byte gUnk_08692F60
-	.4byte gUnk_006978E0
-	.4byte gUnk_00696F60
+	.4byte gUnk_086978E0
+	.4byte gUnk_08696F60
 	.4byte gUnk_086AAEE0
-	.4byte gUnk_006998E0
-	.4byte gUnk_006A18E0
+	.4byte gUnk_086998E0
+	.4byte gUnk_086A18E0
 	.4byte gUnk_086A2A60
 	.4byte gUnk_086A2EE0
 
