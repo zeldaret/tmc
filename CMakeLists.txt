@@ -69,19 +69,19 @@ file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/translations)
 
 # graphics
 # the way we handle graphics will change entirely in the future, this works until then
-add_custom_command(OUTPUT graphics/font.4bpp COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/font.png graphics/font.4bpp)
-add_custom_command(OUTPUT graphics/pot_portal.4bpp COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/pot_portal.png graphics/pot_portal.4bpp)
-add_custom_command(OUTPUT graphics/npc/postman.4bpp COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/npc/postman.png graphics/npc/postman.4bpp)
-add_custom_command(OUTPUT graphics/npc/malon.4bpp COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/npc/malon.png graphics/npc/malon.4bpp)
-add_custom_command(OUTPUT graphics/intro/nintendo_capcom.4bpp COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/intro/nintendo_capcom.png graphics/intro/nintendo_capcom.4bpp -num_tiles 123)
-add_custom_command(OUTPUT data/tilesets/minish_woods/tiles_bottom.4bpp COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/data/tilesets/minish_woods/tiles_bottom.png data/tilesets/minish_woods/tiles_bottom.4bpp)
-add_custom_command(OUTPUT data/tilesets/minish_woods/tiles_bottom.4bpp.lz COMMAND ${gbagfx} data/tilesets/minish_woods/tiles_bottom.4bpp data/tilesets/minish_woods/tiles_bottom.4bpp.lz DEPENDS data/tilesets/minish_woods/tiles_bottom.4bpp)
-add_custom_command(OUTPUT graphics/intro/capcom.gbapal COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/intro/capcom.pal graphics/intro/capcom.gbapal)
-add_custom_command(OUTPUT graphics/intro/nintendo.gbapal COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/intro/nintendo.pal graphics/intro/nintendo.gbapal)
-add_custom_target(graphics DEPENDS graphics/font.4bpp graphics/pot_portal.4bpp graphics/npc/postman.4bpp graphics/npc/malon.4bpp graphics/intro/nintendo_capcom.4bpp data/tilesets/minish_woods/tiles_bottom.4bpp.lz graphics/intro/capcom.gbapal graphics/intro/nintendo.gbapal)
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/graphics/font.4bpp COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/font.png ${CMAKE_CURRENT_BINARY_DIR}/graphics/font.4bpp)
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/graphics/pot_portal.4bpp COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/pot_portal.png ${CMAKE_CURRENT_BINARY_DIR}/graphics/pot_portal.4bpp)
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/graphics/npc/postman.4bpp COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/npc/postman.png ${CMAKE_CURRENT_BINARY_DIR}/graphics/npc/postman.4bpp)
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/graphics/npc/malon.4bpp COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/npc/malon.png ${CMAKE_CURRENT_BINARY_DIR}/graphics/npc/malon.4bpp)
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/graphics/intro/nintendo_capcom.4bpp COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/intro/nintendo_capcom.png ${CMAKE_CURRENT_BINARY_DIR}/graphics/intro/nintendo_capcom.4bpp -num_tiles 123)
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/data/tilesets/minish_woods/tiles_bottom.4bpp COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/data/tilesets/minish_woods/tiles_bottom.png ${CMAKE_CURRENT_BINARY_DIR}/data/tilesets/minish_woods/tiles_bottom.4bpp)
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/data/tilesets/minish_woods/tiles_bottom.4bpp.lz COMMAND ${gbagfx} ${CMAKE_CURRENT_BINARY_DIR}/data/tilesets/minish_woods/tiles_bottom.4bpp data/tilesets/minish_woods/tiles_bottom.4bpp.lz DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/data/tilesets/minish_woods/tiles_bottom.4bpp)
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/graphics/intro/capcom.gbapal COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/intro/capcom.pal ${CMAKE_CURRENT_BINARY_DIR}/graphics/intro/capcom.gbapal)
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/graphics/intro/nintendo.gbapal COMMAND ${gbagfx} ${CMAKE_CURRENT_SOURCE_DIR}/graphics/intro/nintendo.pal ${CMAKE_CURRENT_BINARY_DIR}/graphics/intro/nintendo.gbapal)
+add_custom_target(graphics DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/graphics/font.4bpp ${CMAKE_CURRENT_BINARY_DIR}/graphics/pot_portal.4bpp ${CMAKE_CURRENT_BINARY_DIR}/graphics/npc/postman.4bpp ${CMAKE_CURRENT_BINARY_DIR}/graphics/npc/malon.4bpp ${CMAKE_CURRENT_BINARY_DIR}/graphics/intro/nintendo_capcom.4bpp ${CMAKE_CURRENT_BINARY_DIR}/data/tilesets/minish_woods/tiles_bottom.4bpp.lz ${CMAKE_CURRENT_BINARY_DIR}/graphics/intro/capcom.gbapal ${CMAKE_CURRENT_BINARY_DIR}/graphics/intro/nintendo.gbapal)
 
-add_custom_command(OUTPUT translations/USA.bin COMMAND ${tmc_strings} -p --source ${CMAKE_CURRENT_SOURCE_DIR}/translations/USA.json --dest translations/USA.bin --size 0x499E0)
-add_custom_target(translations DEPENDS translations/USA.bin)
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/translations/USA.bin COMMAND ${tmc_strings} -p --source ${CMAKE_CURRENT_SOURCE_DIR}/translations/USA.json --dest ${CMAKE_CURRENT_BINARY_DIR}/translations/USA.bin --size 0x499E0)
+add_custom_target(translations DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/translations/USA.bin)
 
 # files should maybe be specified individually
 file(GLOB_RECURSE source_files CONFIGURE_DEPENDS "src/*.c")
