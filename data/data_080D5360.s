@@ -610,11 +610,11 @@ gUnk_080D6924:: @ 080D6924
 	.4byte 0x07074F07
 	.4byte 0x00000400
 	.4byte 0x003800E8
-	.4byte 0x080103B0
+	.4byte script_080103B0
 	.4byte 0x08074F07
 	.4byte 0x00000400
 	.4byte 0x006800E8
-	.4byte 0x080103B0
+	.4byte script_080103B0
 	.4byte 0x000000FF
 	.4byte 0x00000000
 	.4byte 0x00000000
