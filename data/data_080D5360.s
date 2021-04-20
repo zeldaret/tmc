@@ -12621,7 +12621,9 @@ gUnk_080F2B78:: @ 080F2B78
 	.4byte gUnk_080F2B58
 
 gUnk_080F2B9C:: @ 080F2B9C
-	.incbin "baserom.gba", 0x0F2B9C, 0x00000E0
+	.incbin "baserom.gba", 0x0F2B9C, 0x00000CC
+	.4byte script_08010120
+	.incbin "baserom.gba", 0x0F2C6C, 0x0000010
 
 gUnk_080F2C7C:: @ 080F2C7C
 	.incbin "baserom.gba", 0x0F2C7C, 0x00000A0
@@ -13711,7 +13713,9 @@ gUnk_080F5610:: @ 080F5610
 	.4byte sub_0804ED5C
 
 gUnk_080F5630:: @ 080F5630
-	.incbin "baserom.gba", 0x0F5630, 0x0000030
+	.incbin "baserom.gba", 0x0F5630, 0x000000C
+	.4byte script_08014274
+	.incbin "baserom.gba", 0x0F5640, 0x0000020
 
 gUnk_080F5660:: @ 080F5660
 	.incbin "baserom.gba", 0x0F5660, 0x000000C
@@ -14678,7 +14682,9 @@ gUnk_080F79D0:: @ 080F79D0
 	.incbin "baserom.gba", 0x0F79D0, 0x0000050
 
 gUnk_080F7A20:: @ 080F7A20
-	.incbin "baserom.gba", 0x0F7A20, 0x0000024
+	.incbin "baserom.gba", 0x0F7A20, 0x0000008
+	.4byte script_0800B574
+	.incbin "baserom.gba", 0x0F7A2C, 0x0000018
 
 gUnk_080F7A44:: @ 080F7A44
 	.incbin "baserom.gba", 0x0F7A44, 0x00000B0
