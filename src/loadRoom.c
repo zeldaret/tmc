@@ -10,7 +10,7 @@ extern Entity* LoadRoomEntity(EntityData*);
 extern void* GetRoomProperty(u32, u32, u32);
 
 extern u32 gUnk_02017654;
-extern u32* gAreaEntities;
+extern u32* gAreaTable;
 
 extern void sub_080186EC();
 extern void sub_0804B16C();
@@ -74,7 +74,7 @@ void sub_0804B0B0(u32 arg0, u32 arg1) {
 void SetCurrentRoomPropertyList(u32 arg0, u32 arg1) {
     u32** arr;
     gUnk_02017654 = 0;
-    arr = &gAreaEntities;
+    arr = &gAreaTable;
     if (arr[arg0] != 0) {
         gUnk_02017654 = arr[arg0][arg1];
     }
@@ -94,7 +94,7 @@ void* GetRoomProperty(u32 arg0, u32 arg1, u32 arg2) {
     u32 temp;
     u32** arr;
     temp = 0;
-    arr = &gAreaEntities;
+    arr = &gAreaTable;
     if (arr[arg0] != NULL) {
         temp = arr[arg0][arg1];
         if (temp != 0) {
