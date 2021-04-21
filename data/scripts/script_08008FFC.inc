@@ -4,10 +4,10 @@ SCRIPT_START script_08008FFC
 	_0807E930 0x0000
 	EndBlock 
 	WaitForSomething 0x00000010
-	SoundReq 0x011c
+	PlaySound SFX_11C
 	_0807E930 0x0001
 	Wait 0x0010
-	SoundReq 0x011c
+	PlaySound SFX_11C
 	_0807EB44 0x0004
 	_0807E930 0x0006
 	Wait 0x0010

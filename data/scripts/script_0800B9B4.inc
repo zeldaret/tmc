@@ -39,6 +39,7 @@ script_0800BA24:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800B9CA
+SCRIPT_START script_0800BA3C
 	BeginBlock 
 	Call sub_0807F934
 	EndBlock 
@@ -51,13 +52,14 @@ script_0800BA46:
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_0800BA6C
-	SoundReq0x80100000 
+	StopBgm
 	Call sub_0806E964
-	SoundReq2 0xffff
+	PlayBGM
 script_0800BA6C:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800BA46
+SCRIPT_START script_0800BA78
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000

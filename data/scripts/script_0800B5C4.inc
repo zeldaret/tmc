@@ -4,7 +4,7 @@ SCRIPT_START script_0800B5C4
 	_0807EB44 0x0004
 	EndBlock 
 	Wait 0x001e
-	SoundReq 0x00d1
+	PlaySound SFX_VO_DOG
 	_0807EDD4 0x008a, 0x005a
 	Wait 0x000a
 	Call sub_08069EE8

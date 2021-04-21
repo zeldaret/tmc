@@ -79,7 +79,6 @@ extern UI gUnk_02032EC0;
 
 void InitScreen(u32 screen);
 
-extern void InitSound(void);
 extern void sub_08056208(void);
 extern void sub_0804FFE4(void);
 extern void sub_080ADD30(void);
@@ -89,7 +88,6 @@ extern void sub_08056260(void);
 extern void VBlankIntrWait();
 extern void MessageUpdate(void);
 extern void sub_08050154(void);
-extern void sub_080A3480(void);
 
 extern u8 gUnk_03003DE4;
 

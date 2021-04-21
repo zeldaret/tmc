@@ -6,6 +6,7 @@
 #include "menu.h"
 #include "random.h"
 #include "textbox.h"
+#include "functions.h"
 
 // copy, erase, start
 #define NUM_FILE_OPERATIONS 3
@@ -190,7 +191,7 @@ static void HandleFileScreenEnter(void) {
     u32 i;
 
     DispReset(1);
-    sub_080A3210();
+    InitSoundPlayingInfo();
     MemClear((void*)VRAM, 0x80); // clear palettes
     MessageInitialize();
     EraseAllEntities();
@@ -498,7 +499,7 @@ void sub_08050AFC(u32 idx) {
     SetActiveSave(idx);
     MemClear(&gBG1Buffer, sizeof(gBG1Buffer));
     if (gUnk_02019EE0.saveStatus[idx] == SAVE_VALID) {
-        sub_08050B3C(&gBG1Buffer.unk29C);
+        sub_08050B3C(&gBG1Buffer[0x14E]);
     }
     gScreen.bg.bg1Updated = 1;
 }

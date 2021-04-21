@@ -5,7 +5,7 @@ SCRIPT_START script_0801319A
 	MoveEntityToPlayer 
 	Call sub_0806AB74
 	Jump script_0801319A
-script_080131AC:
+SCRIPT_START script_080131AC
 	CheckPlayerInRegion 0x0098, 0x0038, 0x2060
 	JumpIfNot script_080131AC
 	_0807E864 
@@ -37,7 +37,7 @@ script_080131AC:
 	WaitForSomething2 0x00000010
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000040
-	SoundReq2 0x000d
+	PlayBgm BGM_VAATI_THEME
 	StartPlayerScript script_0801334C
 	WaitForSomething2 0x00000002
 	_0807E5F8 0x00000020
@@ -53,7 +53,7 @@ script_080131AC:
 	_0807E778 0x0004
 	DoFade5 
 	WaitFor_2 
-	SoundReq0x80100000 
+	StopBgm
 	_0807E858 0x0000
 	Wait 0x003c
 	CameraTargetPlayer 
@@ -69,7 +69,7 @@ script_080131AC:
 	_0807EB28 0x1605
 	_0807EA94 
 	SetLocalFlag 0x0078
-	SoundReq2 0x0031
+	PlayBgm BGM_CASTLE_COLLAPSE
 	SetGlobalFlag 0x005d
 	Call sub_0807DF50
 	_0807E878 

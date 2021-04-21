@@ -46,7 +46,7 @@ void sub_0809F548(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 2;
         this->actionDelay = 90;
-        SoundReq(285);
+        SoundReq(SFX_11D);
         sub_0809F814((((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 63) |
                      (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 63) << 6);
     } else {
@@ -94,7 +94,7 @@ void sub_0809F61C(Entity* this) {
         if (--this->actionDelay == 0) {
             this->action = 3;
             this->actionDelay = 120;
-            SoundReq(285);
+            SoundReq(SFX_11D);
             sub_0809F814((((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 63) |
                          (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 63) << 6);
         } else {
@@ -178,7 +178,7 @@ void sub_0809F7BC(Entity* this) {
 void sub_0809F7F4(Entity* this) {
     if (--this->field_0x68.HALF.LO == 0) {
         this->field_0x68.HALF.LO = 12;
-        SoundReq(388);
+        SoundReq(SFX_184);
     }
 }
 

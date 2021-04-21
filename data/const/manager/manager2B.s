@@ -5,4 +5,6 @@
     .align 2
 
 gUnk_08108D30:: @ 08108D30
-	.incbin "baserom.gba", 0x108D30, 0x000000C
+	.4byte sub_0805D02C
+	.4byte sub_0805D0C4
+	.4byte sub_0805D0FC

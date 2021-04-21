@@ -30,7 +30,7 @@ SCRIPT_START script_08015684
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0014
 	CallWithArg sub_0809545C, script_08015754
-	SoundReq 0x01c4
+	PlaySound SFX_1C4
 	Wait 0x0078
 	DoPostScriptAction 0x0016
 	WaitForSomething2 0x00020000

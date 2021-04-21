@@ -95,6 +95,7 @@ script_0800D584:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800D4E4
+SCRIPT_START script_0800D59C
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	Call sub_08062A48
@@ -125,6 +126,7 @@ script_0800D5F2:
 	JumpIfNot script_0800D5F2
 	Jump script_0800D5AC
 	.2byte 0x0000
+SCRIPT_START script_0800D60C
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x000b

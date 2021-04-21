@@ -254,7 +254,15 @@ gUnk_08109244:: @ 08109244
 	.incbin "baserom.gba", 0x109244, 0x0000004
 
 gUnk_08109248:: @ 08109248 TODO might be a pointer array?
-	.incbin "baserom.gba", 0x109248, 0x0000024
+	.4byte gUnk_08692F60
+	.4byte gUnk_08692F60
+	.4byte gUnk_086978E0
+	.4byte gUnk_08696F60
+	.4byte gUnk_086AAEE0
+	.4byte gUnk_086998E0
+	.4byte gUnk_086A18E0
+	.4byte gUnk_086A2A60
+	.4byte gUnk_086A2EE0
 
 gUnk_0810926C:: @ 0810926C
 	.incbin "baserom.gba", 0x10926C, 0x0000040

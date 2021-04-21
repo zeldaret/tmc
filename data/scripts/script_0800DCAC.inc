@@ -14,14 +14,14 @@ script_0800DCD0:
 	DoPostScriptAction 0x0010
 	SetEntityPositionRelative 0x0078, 0x0068
 	WaitForSomething2 0x00000001
-	SoundReq0x80100000 
+	StopBgm
 	Call sub_08066E50
-	SoundReq 0x01c9
+	PlaySound SFX_1C9
 	Call sub_0807F2D4
-	SoundReq 0x01ca
+	PlaySound SFX_1CA
 	Wait 0x003c
 	DoPostScriptAction 0x0004
-	SoundReq2 0x000b
+	PlayBgm BGM_SAVING_ZELDA
 	Wait 0x0078
 	_0807EB44 0x0002
 	DoPostScriptAction 0x0000

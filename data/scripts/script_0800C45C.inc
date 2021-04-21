@@ -6,7 +6,7 @@ SCRIPT_START script_0800C45C
 	EndBlock 
 	Wait 0x000a
 	DoPostScriptAction 0x0007
-	SoundReq 0x0136
+	PlaySound SFX_136
 script_0800C47A:
 	_0807EE30 
 	JumpIfNot script_0800C47A

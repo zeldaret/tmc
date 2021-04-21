@@ -41,7 +41,7 @@ script_08014B70:
 	Call sub_0806CD3C
 	Wait 0x0014
 	Call sub_0806CD4C
-	SoundReq 0x0072
+	PlaySound SFX_SECRET
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
 	Call sub_0807DF50
@@ -69,6 +69,7 @@ script_08014C22:
 	Wait 0x000f
 	_0807E878 
 	Jump script_08014BF2
+SCRIPT_START script_08014C2C
 	BeginBlock 
 	Call sub_0806CD58
 	DoPostScriptAction 0x000a
@@ -103,6 +104,7 @@ script_08014C82:
 	_0807EB44 0x0004
 	_0807E930 0x0006
 	Jump script_08014C42
+SCRIPT_START script_08014C94
 	BeginBlock 
 	CheckGlobalFlag 0x0024
 	JumpIf script_08014CD4

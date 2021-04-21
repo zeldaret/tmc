@@ -11,7 +11,6 @@
 #include "structures.h"
 
 // Identified - to be sorted into header files
-extern void SoundReq(u32);
 extern void ShowNPCDialogue(Entity*, Dialog*);
 extern void DoFade(u32, u32);
 extern u32 CheckKinstoneFused(u32);
@@ -143,7 +142,7 @@ extern void sub_080AF2E4(void);
 extern void sub_0804F578(void);
 extern void sub_08059994(void);
 extern s32 sub_0801CFA8(u32);
-extern void sub_080A3210(void);
+extern void InitSoundPlayingInfo(void);
 extern void sub_080ADA14(u32, u32); // trampoline to sub_080B27F4
 extern void sub_0801E1B8(u32, u32);
 extern void sub_0801E1EC(s32, s32, s32);
@@ -264,13 +263,8 @@ extern void sub_08073904(Entity*);
 extern u32 sub_08056134(void);
 extern void sub_08004484(Entity*, Entity*);
 extern void sub_080564C8(u32);
-extern void sub_08056F70(void);
-extern void DeleteWindow(void);
-extern void CreateWindow(void);
-extern void sub_0805EEB4(u8*, u32, u32);
-extern void sub_08056FBC(void*);
-extern void sub_08056C54(u32);
+extern void sub_0805EEB4(u8*, u32);
 extern void sub_08056BDC(u32);
 extern void sub_08056F88(u32, u32);
-extern u32 sub_08056CC0(u32);
+extern void sub_0805F8E4(u32 r0, WStruct* r1);
 #endif

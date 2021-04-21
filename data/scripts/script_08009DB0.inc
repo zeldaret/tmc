@@ -15,6 +15,7 @@ script_08009DD2:
 	_0807E908 0x0003
 	_0807E930 0x000c
 	Jump script_08009DD2
+SCRIPT_START script_08009DEC
 	BeginBlock 
 	EndBlock 
 script_08009DF0:

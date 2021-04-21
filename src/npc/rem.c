@@ -1,7 +1,8 @@
 #include "global.h"
-#include "functions.h"
 #include "entity.h"
 #include "script.h"
+#include "audio.h"
+#include "functions.h"
 
 extern void sub_0806A8C8(Entity*);
 
@@ -26,11 +27,11 @@ void sub_0806a370(Entity* this) {
         pbVar1 = &this->frames.all;
         if (*pbVar1 == 1) {
             *pbVar1 = 0;
-            SoundReq(0x218);
+            SoundReq(SFX_218);
         }
         if (*pbVar1 == 2) {
             *pbVar1 = 0;
-            SoundReq(0x219);
+            SoundReq(SFX_219);
         }
     }
 }

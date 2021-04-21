@@ -44,6 +44,7 @@ script_0800D2EE:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800D2EE
+SCRIPT_START script_0800D308
 	BeginBlock 
 	Call sub_08068884
 	DoPostScriptAction 0x000a
@@ -66,6 +67,7 @@ script_0800D31E:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800D31E
+SCRIPT_START script_0800D350
 	BeginBlock 
 	Call sub_08068104
 	DoPostScriptAction 0x000a
@@ -101,7 +103,7 @@ script_0800D3B2:
 	_0807E930 0x0003
 	SetIntVariable 0x00000004
 	Call sub_080681D8
-	SoundReq 0x00cd
+	PlaySound SFX_TASK_COMPLETE
 	Wait 0x001e
 	DoPostScriptAction 0x000a
 	SetLocalFlag 0x007f

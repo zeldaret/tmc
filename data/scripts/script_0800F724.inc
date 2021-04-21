@@ -7,6 +7,7 @@ script_0800F72C:
 	JumpIfNot script_0800F72C
 	DoPostScriptAction 0x0007
 	Jump script_0800F584
+SCRIPT_START script_0800F73C
 	CheckLocalFlag 0x00cd
 	JumpIf script_0800FA4C
 	_0807E864 
@@ -79,7 +80,7 @@ script_0800F72C:
 	_0807E864 
 	Call sub_0807DF28
 	Call sub_08063C5C
-	SoundReq 0x00e2
+	PlaySound SFX_CUCCO_MINIGAME_BELL
 	Wait 0x001e
 	_0807E8E4_0 
 	Call sub_0807F3F8
@@ -134,7 +135,7 @@ script_0800F72C:
 	_0807EA94 
 	Call sub_08063C14
 	Call sub_08094D70
-	SoundReq 0x0103
+	PlaySound SFX_103
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
 	Call sub_08063C14

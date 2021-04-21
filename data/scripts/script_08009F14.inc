@@ -47,7 +47,7 @@ script_08009F86:
 	Jump script_08009F86
 script_08009FB6:
 	Wait 0x0008
-	SoundReq 0x0103
+	PlaySound SFX_103
 	CallWithArg sub_0806030C, 0x00000063
 	Wait 0x0008
 	_0807E878 

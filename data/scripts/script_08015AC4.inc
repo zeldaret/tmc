@@ -14,7 +14,7 @@ SCRIPT_START script_08015AC4
 	DoPostScriptAction 0x0000
 	WaitForSomething2 0x00000008
 	Wait 0x003c
-	SoundReq 0x0072
+	PlaySound SFX_SECRET
 	Call sub_08046078
 	DoPostScriptAction 0x0006
 SCRIPT_END

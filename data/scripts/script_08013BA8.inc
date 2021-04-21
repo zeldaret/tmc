@@ -1,6 +1,6 @@
 SCRIPT_START script_08013BA8
 	CallWithArg sub_08095E7C, script_08014248
-	SoundReq 0x01d3
+	PlaySound SFX_1D3
 	CallWithArg sub_0807F238, 0x000008e3
 	Call sub_08096028
 	Wait 0x0078

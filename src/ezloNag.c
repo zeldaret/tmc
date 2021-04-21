@@ -1,6 +1,5 @@
-#include "audio.h"
 #include "global.h"
-#include "functions.h"
+#include "audio.h"
 #include "textbox.h"
 #include "structures.h"
 

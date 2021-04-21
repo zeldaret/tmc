@@ -84,6 +84,7 @@ endif
 
 #$(C_BUILDDIR)/need_interworking_file_name.o: CFLAGS += -mthumb-interwork
 $(C_BUILDDIR)/arm_proxy.o: CFLAGS += -mthumb-interwork
+$(C_BUILDDIR)/gba/m4a.o: CFLAGS = -O2 -mthumb-interwork -Wimplicit -Wparentheses -Werror -Wno-multichar
 $(C_BUILDDIR)/eeprom.o: CFLAGS = -O1 -mthumb-interwork -Wimplicit -Wparentheses -Werror -Wno-multichar
 
 C_SRCS := $(wildcard $(C_SUBDIR)/*.c $(C_SUBDIR)/*/*.c)

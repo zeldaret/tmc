@@ -430,7 +430,7 @@ _080A3F96:
 	bl SoundReq
 	ldr r0, _080A3FC8 @ =0x00000702
 	movs r1, #0xe
-	bl sub_080563C8
+	bl TextBoxAtYPosition
 	movs r0, #1
 	strb r0, [r5, #6]
 	movs r0, #0x78
@@ -1249,7 +1249,7 @@ _080A4604: .4byte gMenu
 sub_080A4608: @ 0x080A4608
 	push {r4, lr}
 	movs r0, #0x80
-	bl sub_080A3248
+	bl SetBgmVolume
 	movs r0, #3
 	bl sub_080A4DA8
 	ldr r4, _080A46A0 @ =gPaletteBuffer
@@ -1334,7 +1334,7 @@ sub_080A46C0: @ 0x080A46C0
 	push {lr}
 	movs r0, #0x80
 	lsls r0, r0, #1
-	bl sub_080A3248
+	bl SetBgmVolume
 	movs r0, #0x6c
 	bl SoundReq
 	movs r0, #2
@@ -2222,7 +2222,7 @@ sub_080A4D88: @ 0x080A4D88
 	movs r1, #0
 	bl MenuFadeIn
 	movs r0, #0x80
-	bl sub_080A3248
+	bl SetBgmVolume
 	pop {pc}
 	.align 2, 0
 _080A4DA4: .4byte gUnk_020344A0
@@ -2351,7 +2351,7 @@ sub_080A4EA0: @ 0x080A4EA0
 	bne _080A4EBC
 	movs r0, #0x80
 	lsls r0, r0, #1
-	bl sub_080A3248
+	bl SetBgmVolume
 	bl sub_080A71DC
 	b _080A4F14
 	.align 2, 0

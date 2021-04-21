@@ -14,7 +14,7 @@ script_08010994:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_08010964
-script_080109A0:
+SCRIPT_START script_080109A0
 	BeginBlock 
 	EndBlock 
 	CheckLocalFlag 0x00d1

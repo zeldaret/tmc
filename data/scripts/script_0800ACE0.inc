@@ -2,7 +2,7 @@ SCRIPT_START script_0800ACE0
 	BeginBlock 
 	Call sub_08094BE0
 	CallWithArg sub_0807F238, 0x0000045b
-	SoundReq 0x0109
+	PlaySound SFX_109
 	EndBlock 
 	Call sub_0807F304
 	Wait 0x005a

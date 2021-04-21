@@ -17,6 +17,7 @@ script_08010BCA:
 	_0807E930 0x0008
 	Jump script_08010BCA
 	.2byte 0x0000
+SCRIPT_START script_08010BEC
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28
@@ -33,7 +34,7 @@ script_08010BCA:
 	WaitForSomething2 0x00000020
 	TextboxNoOverlapFollowPos 0x1038, 0x000c
 	_0807EA94 
-	SoundReq0x80100000 
+	StopBgm
 	_0807E778 0x0004
 	DoFade5 
 	WaitFor_2 
@@ -70,7 +71,7 @@ script_08010BCA:
 	WaitForSomething2 0x00000008
 	TextboxNoOverlapFollowPos 0x1039, 0x000c
 	_0807EA94 
-	SoundReq2 0x0001
+	PlayBgm BGM_CASTLE_TOURNAMENT
 	_0807E8E4_2 
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
@@ -95,19 +96,19 @@ script_08010BCA:
 	Wait 0x003c
 	WaitForSomething2 0x00000200
 	_0807E5F8 0x00280000
-	SoundReq0x80100000 
-	SoundReq 0x009b
+	StopBgm
+	PlaySound SFX_9B
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
 	TextboxNoOverlapFollowPos 0x1043, 0x0000
 	_0807EA94 
-	SoundReq2 0x000d
+	PlayBgm BGM_VAATI_THEME
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
 	_0807E5F8 0x0002a800
 	WaitForSomething2 0x00055000
-	SoundReq 0x01c7
-	SoundReq 0x00e5
+	PlaySound SFX_1C7
+	PlaySound SFX_BUTTON_DEPRESS
 	_0807E5F8 0x00000100
 	_0807E5F8 0x00002800
 	CallWithArg sub_0807FB28, 0x00000003
@@ -118,18 +119,18 @@ script_08010BCA:
 	TextboxNoOverlapFollowPos 0x1044, 0x0000
 	_0807EA94 
 	SetEntityPositionRelative 0x01f8, 0x0098
-	SoundReq0x80100000 
+	StopBgm
 	Wait 0x003c
-	SoundReq2 0x002f
+	PlayBgm BGM_VAATI_REBORN
 	_0807E5F8 0x00028000
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
 	WaitForSomething2 0x00050000
 	CallWithArg sub_0807FB28, 0x00000003
-	SoundReq 0x00e5
+	PlaySound SFX_BUTTON_DEPRESS
 	_0807E5F8 0x00028000
 	WaitForSomething2 0x00050000
-	SoundReq 0x0125
+	PlaySound SFX_125
 	CallWithArg sub_0807FB28, 0x00000003
 	_0807E5F8 0x08000000
 	_0807E5F8 0x00800000

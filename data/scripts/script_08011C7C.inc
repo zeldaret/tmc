@@ -58,6 +58,7 @@ script_08011D0E:
 	DoPostScriptAction 0x0001
 	Jump script_08011D00
 	.2byte 0x0000
+SCRIPT_START script_08011D28
 	BeginBlock 
 	Call sub_08064928
 	_0807EB44 0x0004
@@ -117,6 +118,7 @@ script_08011DBA:
 	DoPostScriptAction 0x0001
 	Jump script_08011DAC
 	.2byte 0x0000
+SCRIPT_START script_08011DD4
 	BeginBlock 
 	Call sub_08064A28
 	_0807EB44 0x0004
@@ -176,6 +178,7 @@ script_08011E66:
 	DoPostScriptAction 0x0001
 	Jump script_08011E58
 	.2byte 0x0000
+SCRIPT_START script_08011E80
 	BeginBlock 
 	Call sub_08064828
 	_0807EB44 0x0004
@@ -224,6 +227,7 @@ script_08011EF4:
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_08011EE6
+SCRIPT_START script_08011F0C
 	BeginBlock 
 	Call sub_08064928
 	_0807EB44 0x0004
@@ -272,6 +276,7 @@ script_08011F80:
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_08011F72
+SCRIPT_START script_08011F98
 	BeginBlock 
 	Call sub_08064A28
 	_0807EB44 0x0004
@@ -320,6 +325,7 @@ script_0801200C:
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_08011FFE
+SCRIPT_START script_08012024
 	BeginBlock 
 	Call sub_08064828
 	_0807EB44 0x0004
@@ -366,6 +372,7 @@ script_0801209E:
 	DoPostScriptAction 0x0001
 	Jump script_0801203A
 	.2byte 0x0000
+SCRIPT_START script_080120B0
 	BeginBlock 
 	Call sub_08064928
 	_0807EB44 0x0004
@@ -412,6 +419,7 @@ script_0801212A:
 	DoPostScriptAction 0x0001
 	Jump script_080120C6
 	.2byte 0x0000
+SCRIPT_START script_0801213C
 	BeginBlock 
 	Call sub_08064A28
 	_0807EB44 0x0004
@@ -458,6 +466,7 @@ script_080121B6:
 	DoPostScriptAction 0x0001
 	Jump script_08012152
 	.2byte 0x0000
+SCRIPT_START script_080121C8
 	BeginBlock 
 	Call sub_08064828
 	_0807EB44 0x0004
@@ -476,6 +485,7 @@ script_080121DE:
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_080121DE
+SCRIPT_START script_08012200
 	BeginBlock 
 	Call sub_08064928
 	_0807EB44 0x0004
@@ -494,6 +504,7 @@ script_08012216:
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_08012216
+SCRIPT_START script_08012238
 	BeginBlock 
 	Call sub_08064A28
 	_0807EB44 0x0004
@@ -512,6 +523,7 @@ script_0801224E:
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_0801224E
+SCRIPT_START script_08012270
 	BeginBlock 
 	_0807EB44 0x0004
 	Call sub_08061FD8
@@ -566,7 +578,7 @@ script_080122EC:
 	LoadRoomEntityList gUnk_080F2758
 	DoPostScriptAction 0x0008
 	Wait 0x003c
-	SoundReq 0x0072
+	PlaySound SFX_SECRET
 	SetLocalFlag 0x0043
 	Wait 0x001e
 	_0807E878 

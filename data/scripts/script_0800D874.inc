@@ -31,6 +31,7 @@ script_0800D8D6:
 	_0807E878 
 	Jump script_0800D88E
 	.2byte 0x0000
+SCRIPT_START script_0800D8E4
 	BeginBlock 
 	DoPostScriptAction 0x0008
 	CheckInventory1 0x0017
@@ -44,7 +45,7 @@ script_0800D8F4:
 	WaitPlayerAction8 
 	_0807EB28 0x1325
 	_0807EA94 
-	SoundReq 0x0113
+	PlaySound SFX_113
 	SetIntVariable 0x00000000
 	Call sub_0806DA1C
 	_0807E878 

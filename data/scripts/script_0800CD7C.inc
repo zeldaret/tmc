@@ -41,7 +41,7 @@ script_0800CDEC:
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_0800CF40
-	SoundReq 0x00cd
+	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0023
 	WaitPlayerAction8 
 	Jump script_0800CE32
@@ -52,7 +52,7 @@ script_0800CE14:
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_0800CF40
-	SoundReq 0x00cd
+	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0022
 	WaitPlayerAction8 
 script_0800CE32:
@@ -81,7 +81,7 @@ script_0800CE6E:
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_0800CF40
-	SoundReq 0x00cd
+	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0027
 	WaitPlayerAction8 
 	_0807EB8C 
@@ -109,7 +109,7 @@ script_0800CECE:
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_0800CF40
-	SoundReq 0x00cd
+	PlaySound SFX_TASK_COMPLETE
 	_0807F088 0x0024
 	WaitPlayerAction8 
 	_0807EB8C 
@@ -145,6 +145,7 @@ script_0800CF40:
 	_0807E878 
 	Jump script_0800CD92
 	.2byte 0x0000
+SCRIPT_START script_0800CF50
 	BeginBlock 
 	Call sub_08068104
 	DoPostScriptAction 0x000a
@@ -164,6 +165,7 @@ script_0800CF72:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800CF5E
+SCRIPT_START script_0800CF88
 	BeginBlock 
 	Call sub_08068104
 	DoPostScriptAction 0x000a
@@ -176,6 +178,7 @@ script_0800CF96:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800CF96
+SCRIPT_START script_0800CFAC
 	BeginBlock 
 	_0807E9D4 
 	DoPostScriptAction 0x000a
@@ -257,12 +260,12 @@ script_0800D0A8:
 	_0807EB44 0x0002
 	SetIntVariable 0x00000000
 	Call sub_0806C028
-	SoundReq 0x00cd
+	PlaySound SFX_TASK_COMPLETE
 	Call sub_08068964
 script_0800D108:
 	ComparePlayerAction 0x0008
 	JumpIf script_0800D108
-	SoundReq 0x00f8
+	PlaySound SFX_F8
 	_0807E5F8 0x00000010
 	SetLocalFlag 0x007e
 	TextboxNoOverlapFollowPos 0x123e, 0x0002

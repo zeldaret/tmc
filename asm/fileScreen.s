@@ -34,7 +34,7 @@ sub_080519B0: @ 0x080519B0
 	bne _08051A02
 	movs r0, #1
 	bl DispReset
-	bl sub_080A3210
+	bl InitSoundPlayingInfo
 	bl zMallocInit
 	bl sub_080A7124
 	bl sub_0807059C
@@ -726,7 +726,7 @@ _0805200C: .4byte gMenu
 	thumb_func_start sub_08052010
 sub_08052010: @ 0x08052010
 	push {r4, lr}
-	bl sub_080A3210
+	bl InitSoundPlayingInfo
 	bl MessageInitialize
 	movs r0, #1
 	bl DispReset

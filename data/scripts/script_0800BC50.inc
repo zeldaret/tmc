@@ -30,7 +30,7 @@ script_0800BC62:
 	Call sub_0807F158
 	CallWithArg sub_0807F4F8, 0x0000035c
 	Wait 0x001e
-	SoundReq 0x0188
+	PlaySound SFX_STAIRS_DESCEND
 	DoPostScriptAction 0x0008
 	Wait 0x0078
 	Call sub_08054968

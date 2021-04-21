@@ -10,7 +10,7 @@ script_0800E550:
 	Wait 0x001e
 	Call sub_0807F3F8
 	Wait 0x003c
-	SoundReq 0x0105
+	PlaySound SFX_105
 	Wait 0x001e
 	_0807EB28 0x1622
 	Call sub_08053494

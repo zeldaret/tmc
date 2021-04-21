@@ -4,7 +4,7 @@ SCRIPT_START script_0800903C
 	DoPostScriptAction 0x0000
 	EndBlock 
 	WaitForSomething2 0x00000004
-	SoundReq 0x007c
+	PlaySound SFX_PLY_JUMP
 	_0807EF3C 0x0180, 0x0030
 	_0807EB44 0x0002
 	_0807E5F8 0x00000008
@@ -16,6 +16,7 @@ SCRIPT_START script_0800903C
 	DoPostScriptAction 0x000a
 	Jump script_0800927E
 	.2byte 0x0000
+SCRIPT_START script_08009080
 	BeginBlock 
 	Call sub_0807F348
 	SetEntitySpeed 0x0100
@@ -82,6 +83,7 @@ script_0800917C:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800917C
+SCRIPT_START script_08009198
 	BeginBlock 
 	Call sub_0807F348
 	_0807EB44 0x0006
@@ -135,6 +137,7 @@ script_0800917C:
 	DoPostScriptAction 0x000a
 	Jump script_080092B2
 	.2byte 0x0000
+SCRIPT_START script_08009274
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
@@ -153,6 +156,7 @@ script_0800928A:
 	_0807E878 
 	Jump script_0800928A
 	.2byte 0x0000
+SCRIPT_START script_080092A8
 	BeginBlock 
 	_0807EB44 0x0006
 	DoPostScriptAction 0x0000
@@ -170,6 +174,7 @@ script_080092BA:
 	Wait 0x000f
 	_0807E878 
 	Jump script_080092BA
+SCRIPT_START script_080092D4
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
@@ -178,6 +183,7 @@ script_080092BA:
 	EndBlock 
 	Jump script_0800917C
 	.2byte 0x0000
+SCRIPT_START script_080092F0
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	Call sub_08066E38
@@ -193,6 +199,7 @@ script_08009300:
 	_0807E878 
 	Jump script_08009300
 	.2byte 0x0000
+SCRIPT_START script_08009318
 	BeginBlock 
 	EndBlock 
 SCRIPT_END

@@ -4,7 +4,7 @@ SCRIPT_START script_080153EC
 	SetEntityPositionRelative 0x0078, 0x0068
 	CameraTargetEntity 
 	EndBlock 
-	SoundReq2 0x002a
+	PlayBgm BGM_EZLO_STORY
 	_0807E778 0x0004
 	DoFade4 
 	WaitFor_2 

@@ -1,23 +1,23 @@
 SCRIPT_START script_08010E5A
 	Wait 0x001e
-	SoundReq 0x0125
+	PlaySound SFX_125
 	CallWithArg sub_0807FB28, 0x00000003
 	Wait 0x003c
-	SoundReq 0x0125
+	PlaySound SFX_125
 	CallWithArg sub_0807FB28, 0x00000003
 	Wait 0x0004
-	SoundReq 0x0125
+	PlaySound SFX_125
 	CallWithArg sub_0807FB28, 0x00000003
 	Wait 0x001e
-	SoundReq 0x012c
+	PlaySound SFX_12C
 	_0807E5F8 0x00800000
 	WaitForSomething2 0x01000000
 	_0807E778 0x0004
 	DoFade7 
 	WaitFor_2 
 	Wait 0x003c
-	SoundReq 0x00ab
-	SoundReq 0x01c2
+	PlaySound SFX_SPIRITS_RELEASE
+	PlaySound SFX_1C2
 	LoadRoomEntityList gUnk_080F0770
 	_0807E5F8 0x00000010
 	WaitForSomething2 0x00000020
@@ -37,7 +37,7 @@ SCRIPT_START script_08010E5A
 	_0807E5F8 0x00000040
 	WaitForSomething2 0x00000008
 	WaitForSomething2 0x00000080
-	SoundReq 0x01c3
+	PlaySound SFX_1C3
 	_0807E5F8 0x20000000
 	Wait 0x0078
 	CallWithArg sub_0807F29C, 0x00000000

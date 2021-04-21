@@ -12,7 +12,7 @@ SCRIPT_START script_08009CFC
 	DoPostScriptAction 0x0000
 	_0807E8E4_0 
 	Wait 0x000f
-	SoundReq 0x0094
+	PlaySound SFX_VO_ZELDA1
 	DoPostScriptAction 0x0000
 	Wait 0x001e
 	_0807E5F8 0x00000008

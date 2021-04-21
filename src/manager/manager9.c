@@ -13,11 +13,10 @@ typedef struct {
 void sub_08058204(Manager9*);
 void sub_08058210(Manager9*);
 u32 sub_08058244(int);
-void sub_080582A0(u32, u32*, u8*);
+void sub_080582A0(u32, u32*, u16*);
 void sub_080582F8(u8*, u8*);
 
 extern u32 gUnk_02006F00[];
-extern u8 gBG3Buffer[];
 
 const u16 gUnk_081081EC[] = { 0x30, 0x30, 0x30, 0x38 };
 
@@ -55,13 +54,13 @@ u32 sub_08058244(int i) {
     return tmp;
 }
 
-void sub_080582A0(u32 unk, u32* unk2, u8* unk3) {
+void sub_080582A0(u32 unk, u32* unk2, u16* unk3) {
     int i = 0x20;
     unk2 += unk >> 4;
     for (; i != 0; i--) {
         DmaSet(3, unk2, unk3, 0x80000020);
         unk2 += 0x40;
-        unk3 += 0x40;
+        unk3 += 0x20;
     }
 }
 

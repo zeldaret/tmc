@@ -27,32 +27,32 @@ SCRIPT_START script_0800A3D8
 	WaitForSomething2 0x00000004
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
-	SoundReq 0x0142
+	PlaySound SFX_SPARKLES
 	CallWithArg sub_080960C4, script_0800A638
 	_0807E5F8 0x00000080
 	WaitForSomething2 0x00000004
-	SoundReq 0x0143
+	PlaySound SFX_143
 	_0807E5F8 0x00001000
 	_0807E5F8 0x00000080
 	WaitForSomething2 0x00000004
 	Call sub_08066E68
 	_0807E5F8 0x00000080
 	WaitForSomething2 0x00000004
-	SoundReq 0x0142
+	PlaySound SFX_SPARKLES
 	CallWithArg sub_080960C4, script_0800A680
 	Wait 0x0078
-	SoundReq 0x0153
+	PlaySound SFX_153
 	CallWithArg sub_0807FADC, 0x00000003
 	Wait 0x000f
-	SoundReq 0x0153
+	PlaySound SFX_153
 	CallWithArg sub_0807FADC, 0x00000003
 	Wait 0x000f
-	SoundReq 0x0153
+	PlaySound SFX_153
 	CallWithArg sub_0807FADC, 0x00000003
 	Wait 0x003c
-	SoundReq 0x0153
+	PlaySound SFX_153
 	CallWithArg sub_0807FADC, 0x00000001
-	SoundReq 0x0143
+	PlaySound SFX_143
 	_0807E5F8 0x00000080
 	WaitForSomething2 0x00000004
 	DoPostScriptAction 0x0006

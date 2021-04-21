@@ -1241,7 +1241,7 @@ sub_0807F970: @ 0x0807F970
 	push {lr}
 	adds r2, r1, #0
 	movs r3, #0
-	ldr r1, _0807F988 @ =gUnk_02022780
+	ldr r1, _0807F988 @ =gCurrentTextBox
 	ldr r0, [r2, #4]
 	ldrh r1, [r1, #0x28]
 	cmp r0, r1
@@ -1251,7 +1251,7 @@ _0807F982:
 	str r3, [r2, #0x14]
 	pop {pc}
 	.align 2, 0
-_0807F988: .4byte gUnk_02022780
+_0807F988: .4byte gCurrentTextBox
 
 	thumb_func_start sub_0807F98C
 sub_0807F98C: @ 0x0807F98C

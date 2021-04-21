@@ -5,10 +5,10 @@ SCRIPT_START script_08015754
 	Call sub_08094B80
 	EndBlock 
 	Wait 0x0078
-	SoundReq 0x01c5
+	PlaySound SFX_1C5
 	Call sub_08094B6C
 	_0807EDD4 0x0078, 0x00b8
-	SoundReq 0x01c6
+	PlaySound SFX_1C6
 	Call sub_08094B80
 	_0807E5F8 0x00020000
 	SetEntitySpeed 0x0080

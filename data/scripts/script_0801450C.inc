@@ -15,6 +15,7 @@ SCRIPT_START script_0801450C
 	Call sub_0807DF50
 	Jump script_080144FC
 	.2byte 0x0000
+SCRIPT_START script_08014548
 	BeginBlock 
 	EndBlock 
 script_0801454C:

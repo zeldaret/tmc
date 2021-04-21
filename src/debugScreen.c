@@ -7,8 +7,6 @@
 #include "structures.h"
 #include "textbox.h"
 
-extern u8 gBG3Buffer[];
-
 extern void (*const gUnk_08109A30[])();
 
 void HandleDebugTextScreen() {
@@ -17,8 +15,8 @@ void HandleDebugTextScreen() {
 
 void sub_0805FA04(void) {
     DispReset(1);
-    MemClear(&gBG0Buffer, sizeof(BGBuffer));
-    MemClear(&gBG3Buffer, 0x1000);
+    MemClear(&gBG0Buffer, sizeof(gBG0Buffer));
+    MemClear(&gBG3Buffer, sizeof(gBG3Buffer));
     gScreen.lcd.displayControl = 0x940;
     gScreen.bg.bg0xOffset = 0;
     gScreen.bg.bg0yOffset = 0;
@@ -33,7 +31,7 @@ void sub_0805FA04(void) {
     sub_08053320();
     sub_0801D79C(0, 0x1144);
     gMain.funcIndex = 1;
-    sub_080A3210();
+    InitSoundPlayingInfo();
     sub_08050008();
 }
 

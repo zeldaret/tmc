@@ -36,6 +36,7 @@ script_0800B160:
 	Call sub_0806BCB8
 	CallWithArg sub_0806BC94, 0x00000000
 	Jump script_0800B0E8
+SCRIPT_START script_0800B17C
 	BeginBlock 
 	Call sub_0807DF28
 	SetLocalFlag 0x0039
@@ -48,7 +49,7 @@ script_0800B160:
 	WaitForSomething2 0x00000001
 	SetRoomFlag 0x0000
 	Wait 0x0010
-	SoundReq2 0x002d
+	PlayBgm BGM_FIGHT_THEME
 	_0807EB28 0x2701
 	_0807E878 
 	Call sub_0807DF50

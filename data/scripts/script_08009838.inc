@@ -8,9 +8,9 @@ SCRIPT_START script_08009838
 	WaitForSomething2 0x00000008
 	Call sub_0809E0A0
 	Call sub_0809E0D4
-	SoundReq 0x01f3
+	PlaySound SFX_1F3
 	Call sub_0807FBD4
-	SoundReq 0x01f3
+	PlaySound SFX_1F3
 	_0807E5F8 0x00000010
 	DoPostScriptAction 0x0006
 SCRIPT_END

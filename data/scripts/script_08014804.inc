@@ -65,6 +65,7 @@ script_080148D8:
 	_0807E5F8 0x00000008
 	Jump script_0801488E
 	.2byte 0x0000
+SCRIPT_START script_080148F0
 	BeginBlock 
 	EndBlock 
 script_080148F4:

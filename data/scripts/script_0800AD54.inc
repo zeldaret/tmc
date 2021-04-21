@@ -7,6 +7,7 @@ SCRIPT_START script_0800AD54
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000001
 	Call sub_080791BC
+SCRIPT_START script_0800AD74
 	BeginBlock 
 	SetEntitySpeed 0x0080
 	DoPostScriptAction 0x0007
@@ -45,7 +46,7 @@ SCRIPT_START script_0800AD54
 	Call sub_0807F2D4
 	Wait 0x001e
 	_0807E5F8 0x00000020
-	SoundReq0x80100000 
+	StopBgm
 	Call CreateDust
 	Call sub_0806305C
 	Call sub_080630A4

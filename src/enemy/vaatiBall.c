@@ -2,6 +2,7 @@
 #include "player.h"
 #include "screen.h"
 #include "createObject.h"
+#include "audio.h"
 #include "functions.h"
 
 typedef struct {
@@ -39,7 +40,7 @@ void VaatiBall(Entity* this) {
             this->currentHealth = -1;
             parent->field_0x80.HALF.LO--;
             CreateDust(this);
-            SoundReq(0x1c3);
+            SoundReq(SFX_1C3);
         }
     }
 }
@@ -368,7 +369,7 @@ void sub_08044B04(Entity* this) {
                         if (this->actionDelay) {
                             if (--this->actionDelay == 0) {
                                 this->speed = 1280;
-                                SoundReq(0x14f);
+                                SoundReq(SFX_14F);
                             }
                         }
                         if (this->field_0x78.HALF.HI == 3)

@@ -32,11 +32,11 @@ SCRIPT_START script_080116A8
 	WaitForSomething2 0x00000100
 	_0807EB44 0x0000
 	DoPostScriptAction 0x0014
-	SoundReq 0x0120
+	PlaySound SFX_CHARGING_UP
 	CallWithArg sub_08095420, script_08011890
 	Wait 0x00f0
 	DoPostScriptAction 0x0016
-	SoundReq 0x01cb
+	PlaySound SFX_1CB
 	WaitForSomething2 0x10000000
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000200
@@ -49,13 +49,13 @@ SCRIPT_START script_080116A8
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00000100
 	DoPostScriptAction 0x0014
-	SoundReq 0x01c4
+	PlaySound SFX_1C4
 	CallWithArg sub_0809545C, script_080118D4
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00000100
 	Wait 0x003c
 	DoPostScriptAction 0x0016
-	SoundReq 0x01c5
+	PlaySound SFX_1C5
 	_0807E5F8 0x08000000
 	WaitForSomething2 0x10000000
 	DoPostScriptAction 0x0000

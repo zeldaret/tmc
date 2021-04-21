@@ -81,7 +81,7 @@ void sub_0805A370(Manager15* this) {
     if (this->manager.unk_0d) {
         LoadRoomEntityList((EntityData*)&gUnk_080E4C08);
         this->manager.action = 3;
-        SoundReq(SONG_RESET_UNK);
+        SoundReq(SONG_STOP_BGM);
     }
 }
 
@@ -425,8 +425,6 @@ void sub_0805A94C(Manager15* this) {
         tmp2 = 0xA0;
     gScreen.controls.window1VerticalDimensions = (tmp1 << 8 | tmp2);
 }
-
-extern u8 gBG3Buffer[];
 
 #ifdef NON_MATCHING
 void sub_0805A9CC(Manager15* this) {

@@ -51,6 +51,7 @@ script_08016132:
 	_0807E878 
 	_0807EB44 0x0004
 	Jump script_080160B0
+SCRIPT_START script_0801613C
 	BeginBlock 
 	Call sub_080787B4
 	EndBlock 
@@ -77,6 +78,7 @@ script_08016184:
 script_0801618A:
 	_0807E878 
 	Jump script_08016146
+SCRIPT_START script_08016190
 	BeginBlock 
 	Call sub_080787B4
 	EndBlock 
@@ -105,6 +107,7 @@ script_080161D8:
 script_080161E2:
 	_0807E878 
 	Jump script_0801619A
+SCRIPT_START script_080161E8
 	BeginBlock 
 	Call sub_0807F348
 	DoPostScriptAction 0x000a
@@ -179,10 +182,10 @@ script_080162F6:
 	Call sub_0807F594
 	Call sub_0807DF28
 	_0807E864 
-	SoundReq0x80100000 
-	SoundReq 0x00cd
+	StopBgm
+	PlaySound SFX_TASK_COMPLETE
 	Wait 0x003c
-	SoundReq2 0x005e
+	PlayBgm BGM_LEARN_SCROLL
 	Call sub_08068F3C
 script_0801631C:
 	Call sub_08068E30

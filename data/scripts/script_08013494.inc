@@ -10,7 +10,7 @@ SCRIPT_START script_08013494
 	_0807EDD4 0x0098, 0x0080
 	BeginBlock 
 	Call sub_08094B80
-	SoundReq 0x01cc
+	PlaySound SFX_1CC
 	Call sub_0807F36C
 	_0807E5F8 0x00000080
 	EndBlock 

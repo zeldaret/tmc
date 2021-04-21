@@ -5,10 +5,15 @@
     .align 2
 
 gUnk_08108D3C:: @ 08108D3C
-	.incbin "baserom.gba", 0x108D3C, 0x0000008
+	.4byte sub_0805D268
+	.4byte sub_0805D32C
 
 gUnk_08108D44:: @ 08108D44
-	.incbin "baserom.gba", 0x108D44, 0x000000C
+	.4byte sub_0805D280
+	.4byte sub_0805D2C0
+	.4byte sub_0805D2F4
 
 gUnk_08108D50:: @ 08108D50
-	.incbin "baserom.gba", 0x108D50, 0x000000C
+	.4byte sub_0805D344
+	.4byte sub_0805D36C
+	.4byte sub_0805D384

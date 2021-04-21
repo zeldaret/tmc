@@ -15,7 +15,7 @@ void sub_0806FA90(Entity*, Entity*, s32, s32);
 void ResolveEntityOnTop(Entity*, Entity*);
 void sub_0806FAD8(Entity*, Entity*);
 
-const s16 gSineTable[64];
-const s16 gCosineTable[256];
+extern const s16 gSineTable[64];
+extern const s16 gCosineTable[256];
 
 #endif

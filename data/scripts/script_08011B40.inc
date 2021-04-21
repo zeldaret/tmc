@@ -48,6 +48,7 @@ script_08011BBC:
 	Wait 0x003c
 	Call sub_0806C224
 	Jump script_08011B9A
+SCRIPT_START script_08011BE4
 	BeginBlock 
 	_0807E888 
 	EndBlock 
@@ -56,11 +57,11 @@ script_08011BBC:
 	Wait 0x003c
 	_0807E878 
 	SetRoomFlag 0x0000
-	SoundReq2 0x0033
+	PlayBgm BGM_FIGHT_THEME2
 script_08011C04:
 	CheckRoomFlag 0x0064
 	JumpIfNot script_08011C04
-	SoundReq0x80100000 
+	StopBgm
 	_0807E864 
 	Wait 0x003c
 	CameraTargetEntity 

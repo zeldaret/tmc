@@ -218,7 +218,7 @@ void sub_0808F498(Entity* this) {
     if (this->action != 0) {
         if (sub_0806F3E4(this)) {
             if (gScreenTransition.frameCount % 16 == 0) {
-                SoundReq(0xEF);
+                SoundReq(SFX_EF);
             }
             DeleteThisEntity();
         }

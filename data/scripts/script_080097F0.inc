@@ -6,7 +6,7 @@ SCRIPT_START script_080097F0
 	Call sub_0807F348
 	EndBlock 
 	WaitForSomething2 0x00000002
-	SoundReq 0x0123
+	PlaySound SFX_123
 	Call sub_0807F1A0
 script_08009816:
 	EndBlock 
@@ -16,6 +16,6 @@ script_08009816:
 	EndBlock 
 	_0807E5F8 0x00000004
 	Call sub_0807FBD4
-	SoundReq 0x01f3
+	PlaySound SFX_1F3
 	DoPostScriptAction 0x0006
 SCRIPT_END

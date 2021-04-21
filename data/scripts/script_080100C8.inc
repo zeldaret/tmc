@@ -15,6 +15,7 @@ script_080100DC:
 	_0807E878 
 	Jump script_080100DC
 	.2byte 0x0000
+SCRIPT_START script_080100FC
 	BeginBlock 
 	Call sub_08061FE4
 	Call sub_08061E70
@@ -25,6 +26,7 @@ script_08010110:
 	Call sub_08061E90
 	Jump script_08010110
 	.2byte 0x0000
+SCRIPT_START script_08010120
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
@@ -40,6 +42,7 @@ script_08010132:
 	_0807EA94 
 	_0807E878 
 	Jump script_08010132
+SCRIPT_START script_08010148
 	BeginBlock 
 	DoPostScriptAction 0x0001
 	Call sub_0806C354
@@ -61,7 +64,7 @@ script_0801015A:
 	_0807E878 
 	CallWithArg sub_080A1550, script_080101AC
 	JumpIfNot script_0801015A
-	SoundReq2 0x0015
+	PlayBgm BGM_CUCCO_MINIGAME
 	SetRoomFlag 0x0001
 	Jump script_0801015A
 script_0801019E:
@@ -80,7 +83,7 @@ script_080101AC:
 	Call sub_0807DF28
 	TextboxNoOverlapFollowPos 0x3004, 0x0007
 	_0807EA94 
-	SoundReq0x80100000 
+	StopBgm
 	_0807E778 0x0004
 	DoFade5 
 	WaitFor_2 
@@ -99,7 +102,7 @@ script_080101AC:
 	_0807E778 0x0004
 	DoFade4 
 	WaitFor_2 
-	SoundReq2 0xffff
+	PlayBGM
 	Call sub_080A13B4
 	_0807EA94 
 	JumpIfNot script_08010240

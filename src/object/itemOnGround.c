@@ -5,16 +5,16 @@
 #include "functions.h"
 #include "player.h"
 
-static void sub_08081150(Entity*);
-static u8 sub_0808147C(u32);
-static void sub_080814A4(Entity*);
-static u32 sub_080814C0(Entity*);
-static void sub_08081500(Entity*);
-static void sub_0808153C(Entity*);
-static void sub_08081598(Entity*);
-static void sub_080813BC(Entity*);
-static void sub_080810FC(Entity*);
-static bool32 CheckShouldPlayItemGetCutscene(Entity*);
+void sub_08081150(Entity*);
+u8 sub_0808147C(u32);
+void sub_080814A4(Entity*);
+u32 sub_080814C0(Entity*);
+void sub_08081500(Entity*);
+void sub_0808153C(Entity*);
+void sub_08081598(Entity*);
+void sub_080813BC(Entity*);
+void sub_080810FC(Entity*);
+bool32 CheckShouldPlayItemGetCutscene(Entity*);
 
 extern u32 sub_080002D0(Entity*);
 extern u32 sub_080177A0(Entity*, Entity*);
@@ -137,7 +137,7 @@ void sub_08080F20(Entity* this) {
     }
 }
 
-static void sub_080810A8(Entity* this) {
+void sub_080810A8(Entity* this) {
     this->action = 1;
     sub_080814A4(this);
     if (this->direction & 0x80) {
@@ -158,7 +158,7 @@ static void sub_080810A8(Entity* this) {
     }
 }
 
-static void sub_080810FC(Entity* this) {
+void sub_080810FC(Entity* this) {
     if (this->type != 0x5F) {
         sub_08081598(this);
     } else {
@@ -176,16 +176,16 @@ void sub_08081134(Entity* this) {
     sub_08081150(this);
 }
 
-static void sub_08081150(Entity* this) {
+void sub_08081150(Entity* this) {
     this->action = 2;
     this->flags |= 0x80;
     this->height.HALF.HI = -0x80;
     this->spriteOrientation.flipY = 1;
     this->spriteRendering.b3 = 1;
-    SoundReq(0x12D);
+    SoundReq(SFX_12D);
 }
 
-static void sub_08081188(Entity* this) {
+void sub_08081188(Entity* this) {
     this->action = 2;
     this->flags |= 0x80;
     if (this->collisionLayer == 2) {
@@ -206,7 +206,7 @@ void sub_080811C8(Entity* this) {
 
 void sub_080811D8(Entity* this) {
     sub_08081188(this);
-    SoundReq(0x215);
+    SoundReq(SFX_215);
 }
 
 void sub_080811EC(Entity* this) {
@@ -304,7 +304,7 @@ void sub_0808136C(Entity* this) {
     }
 }
 
-static void sub_080813BC(Entity* this) {
+void sub_080813BC(Entity* this) {
     gUnk_0811E840[this->subAction](this);
 }
 
@@ -343,7 +343,7 @@ bool32 sub_08081420(Entity* this) {
     }
 }
 
-static bool32 CheckShouldPlayItemGetCutscene(Entity* this) {
+bool32 CheckShouldPlayItemGetCutscene(Entity* this) {
     bool32 result = FALSE;
     if ((gUnk_080FD5B4[this->type].unk0[3] & 0x2) || !GetInventoryValue(this->type)) {
         result = TRUE;
@@ -351,7 +351,7 @@ static bool32 CheckShouldPlayItemGetCutscene(Entity* this) {
     return result;
 }
 
-static u8 sub_0808147C(u32 arg0) {
+u8 sub_0808147C(u32 arg0) {
     const Unk_0811E84C* var0 = &gUnk_0811E84C[arg0];
     return var0->unk4;
 }
@@ -363,7 +363,7 @@ void sub_0808148C(u32 arg0) {
     }
 }
 
-static void sub_080814A4(Entity* this) {
+void sub_080814A4(Entity* this) {
     if (this->field_0x68.HALF.HI == 10) {
         this->field_0x6c.HWORD = 120;
     } else {
@@ -371,7 +371,7 @@ static void sub_080814A4(Entity* this) {
     }
 }
 
-static u32 sub_080814C0(Entity* this) {
+u32 sub_080814C0(Entity* this) {
     if (!sub_0805E40C(this)) {
         if (--this->field_0x6c.HWORD == 0) {
             return TRUE;
@@ -385,7 +385,7 @@ static u32 sub_080814C0(Entity* this) {
     return FALSE;
 }
 
-static void sub_08081500(Entity* this) {
+void sub_08081500(Entity* this) {
     if (this->field_0x68.HALF.LO == 0) {
         u32 var0 = sub_080044EC(this, 0x2800);
         if (var0 == 0) {
@@ -401,7 +401,7 @@ static void sub_08081500(Entity* this) {
     }
 }
 
-static void sub_0808153C(Entity* this) {
+void sub_0808153C(Entity* this) {
     if (this->field_0x68.HALF.LO > 1)
         return;
 
@@ -420,7 +420,7 @@ static void sub_0808153C(Entity* this) {
     }
 }
 
-static void sub_08081598(Entity* this) {
+void sub_08081598(Entity* this) {
     if (this->currentHealth == 0) {
         sub_08081404(this, 1);
     }

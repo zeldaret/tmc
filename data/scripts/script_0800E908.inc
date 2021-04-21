@@ -8,6 +8,7 @@ script_0800E914:
 	_0807E878 
 	_0807EB44 0x0000
 	Jump script_0800E832
+SCRIPT_START script_0800E920
 	BeginBlock 
 	Call sub_0806C4F8
 	DoPostScriptAction 0x000a
@@ -29,6 +30,7 @@ script_0800E942:
 	_0807E930 0x0000
 	Jump script_0800E932
 	.2byte 0x0000
+SCRIPT_START script_0800E964
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	_0807EB44 0x0004
@@ -58,7 +60,7 @@ script_0800E974:
 	StartPlayerScript script_0800EA1C
 	WaitForSomething2 0x00000001
 	SetLocalFlag 0x0074
-	SoundReq 0x0072
+	PlaySound SFX_SECRET
 	Wait 0x00f0
 	TextboxNoOverlapFollow 0x4a26
 	_0807EA94 

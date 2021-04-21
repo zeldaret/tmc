@@ -646,7 +646,7 @@ _08052BEC:
 _08052BEE:
 	ldrh r0, [r3, #0x36]
 	adds r1, r2, #0
-	bl sub_080563C8
+	bl TextBoxAtYPosition
 	pop {pc}
 
 	thumb_func_start sub_08052BF8
@@ -960,7 +960,7 @@ sub_08052E10: @ 0x08052E10
 	adds r0, r3, r0
 	ldr r0, [r0]
 	str r0, [r5, #0x18]
-	ldr r0, _08052E88 @ =gAreaEntities
+	ldr r0, _08052E88 @ =gAreaTable
 	adds r2, r2, r0
 	ldr r0, [r2]
 	cmp r0, #0
@@ -976,7 +976,7 @@ _08052E78: .4byte gAreaRoomMaps
 _08052E7C: .4byte gAreaMetatiles
 _08052E80: .4byte gUnk_080B755C
 _08052E84: .4byte gUnk_0813A7F0
-_08052E88: .4byte gAreaEntities
+_08052E88: .4byte gAreaTable
 
 	thumb_func_start sub_08052E8C
 sub_08052E8C: @ 0x08052E8C

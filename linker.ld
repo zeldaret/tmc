@@ -1,5 +1,8 @@
 ENTRY(__start)
 
+gNumMusicPlayers = 0x20;
+gMaxLines = 0;
+
 MEMORY {
     ewram (w!x) : ORIGIN = 0x02000000, LENGTH = 256K
     iwram (w!x) : ORIGIN = 0x03000000, LENGTH = 32K
@@ -75,7 +78,7 @@ SECTIONS {
         . = 0x00019EE0; gUnk_02019EE0 = .;
         . = 0x00019F6C; gUnk_02019F6C = .;
         . = 0x0001AEE0; gUnk_0201AEE0 = .;
-        . = 0x00021EE0; gUnk_02021EE0 = .;
+        . = 0x00021EE0; gSoundPlayingInfo = .;
         . = 0x00021F00; gUnk_02021F00 = .;
         . = 0x00021F20; gUnk_02021F20 = .;
         . = 0x00021F30; gBG1Buffer = .;
@@ -85,7 +88,7 @@ SECTIONS {
         . = 0x00022730; gUnk_02022730 = .;
         . = 0x00022740; gUnk_02022740 = .;
         . = 0x00022750; gPlayerScriptExecutionContext = .;
-        . = 0x00022780; gUnk_02022780 = .;
+        . = 0x00022780; gCurrentTextBox = .;
         . = 0x000227DC; gUnk_020227DC = .;
         . = 0x000227E8; gUnk_020227E8 = .;
         . = 0x000227F0; gUnk_020227F0 = .;
@@ -146,12 +149,13 @@ SECTIONS {
         . = 0x00036540; gUnk_02036540 = .;
         . = 0x00036570; gScriptExecutionContextArray = .;
         . = 0x000369F0; gUnk_020369F0 = .;
-        . = 0x00036A38; gUnk_02036A38 = .;
-        . = 0x00036A40; gUnk_02036A40 = .;
+        . = 0x00036A38; gCurrentWindow = .;
+        . = 0x00036A40; gNewWindow = .;
         . = 0x00036A50; gEEPROMConfig = .;
         . = 0x00036A58; gUnk_02036A58 = .;
         . = 0x00036AD8; gUnk_02036AD8 = .;
         . = 0x00036BB8; gUnk_02036BB8 = .;
+        . = 0x00036BC0; gMPlayTracks = .;
         . = 0x00038560; gUnk_02038560 = .;
         . = 0x00040000;
     } >ewram
@@ -212,15 +216,17 @@ SECTIONS {
         . = 0x00004020; gUnk_03004020 = .;
         . = 0x00004030; gUnk_03004030 = .;
         . = 0x00004040; gUnk_03004040 = .;
-        . = 0x0000404C; gUnk_0300404C = .;
+        . = 0x0000404C; SoundMainRAM_Buffer = .;
         . = 0x0000404D; gUnk_0300404D = .;
-        . = 0x000043D0; gUnk_030043D0 = .;
-        . = 0x00004D50; gUnk_03004D50 = .;
+        . = 0x000043D0; gSoundInfo = .;
+        . = 0x00004D50; gMPlayJumpTable = .;
         . = 0x00004D54; gUnk_03004D54 = .;
         . = 0x00004DD8; gUnk_03004DD8 = .;
         . = 0x00004DDC; gUnk_03004DDC = .;
-        . = 0x00004DE0; gUnk_03004DE0 = .;
-        . = 0x000055E0; gUnk_030055E0 = .;
+        . = 0x00004DE0; gCgbChans = .;
+        . = 0x00004EE0; gMPlayInfos = .;
+        . = 0x000055E0; gMPlayMemAccArea = .;
+        . = 0x000055F0; gMPlayInfos2 = .;
         . = 0x000056F0; gUnk_030056F0 = .;
         . = 0x000056F1; gUnk_030056F1 = .;
         . = 0x00005740; gUnk_03005740 = .;
@@ -905,8 +911,7 @@ SECTIONS {
         asm/code_080A29BC.o(.text);
         asm/playerItem/playerItemShield.o(.text);
         asm/playerItem/playerItem15.o(.text);
-        asm/code_080A3204.o(.text);
-        asm/soundReq.o(.text);
+        src/audio.o(.text);
         asm/code_080A3480.o(.text);
         src/sub_080A3B84.o(.text);
         asm/code_080A3BD0.o(.text);
@@ -960,7 +965,7 @@ SECTIONS {
         asm/code_080ADD30.o(.text);
         /* library functions */
         asm/m4a_asm.o(.text);
-        asm/m4a.o(.text);
+        src/gba/m4a.o(.text);
         asm/libagbsyscall.o(.text);
         src/eeprom.o(.text);
         *libc.a:memcpy.o(.text);
@@ -1704,7 +1709,11 @@ data/const/object/object1D.o(.rodata);
         data/data_08132B30.o(.rodata);
         data/strings.o(.rodata);
         data/sprite_table.o(.rodata);
+        src/gba/m4a.o(.rodata);
         data/data_089FC6C4.o(.rodata);
+        src/audio.o(.rodata);
+        data/data_08A127A1.o(.rodata);
+        data/sounds.o(.rodata);
         src/eeprom.o(.rodata);
     } >rom
 

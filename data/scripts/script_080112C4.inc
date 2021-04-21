@@ -30,7 +30,7 @@ script_08011312:
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 	_0807E930 0x0012
-	SoundReq 0x011e
+	PlaySound SFX_EM_MOBLIN_SPEAR
 	Wait 0x003c
 	_0807E930 0x0014
 	SetEntitySpeed 0x0100
