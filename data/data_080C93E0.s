@@ -14,7 +14,7 @@ gUnk_080C9480:: @ 080C9480
 	.incbin "baserom.gba", 0x0C9480, 0x0000008
 
 gUnk_080C9488:: @ 080C9488
-	.incbin "baserom.gba", 0x0C9488, 0x0000004
+	.4byte gUnk_080C9480
 
 gUnk_080C948C:: @ 080C948C
 	.incbin "baserom.gba", 0x0C948C, 0x0000018

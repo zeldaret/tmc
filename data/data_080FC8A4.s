@@ -5,7 +5,9 @@
 	.align 2
 
 gUnk_080FC908:: @ 080FC908
-	.incbin "baserom.gba", 0x0FC908, 0x000000C
+	.4byte sub_08050888
+	.4byte sub_080508E4
+	.4byte sub_08050910
 
 gUnk_080FC914:: @ 080FC914
 	.incbin "baserom.gba", 0x0FC914, 0x0000028
@@ -136,13 +138,29 @@ gUnk_080FCBB4:: @ 080FCBB4
 	.4byte sub_08053618
 
 gUnk_080FCBC4:: @ 080FCBC4
-	.incbin "baserom.gba", 0x0FCBC4, 0x0000050
+	.incbin "baserom.gba", 0x0FCBC4, 0x000000C
+	.4byte script_08009A50
+	.incbin "baserom.gba", 0x0FCBD4, 0x000000C
+	.4byte script_08009A84
+	.incbin "baserom.gba", 0x0FCBE4, 0x000000C
+	.4byte script_08009AF8
+	.incbin "baserom.gba", 0x0FCBF4, 0x000000C
+	.4byte script_08009A34
+	.incbin "baserom.gba", 0x0FCC04, 0x0000010
 
 gUnk_080FCC14:: @ 080FCC14
-	.incbin "baserom.gba", 0x0FCC14, 0x0000040
+	.incbin "baserom.gba", 0x0FCC14, 0x000000C
+	.4byte script_08009918
+	.incbin "baserom.gba", 0x0FCC24, 0x000000C
+	.4byte script_08009950
+	.incbin "baserom.gba", 0x0FCC34, 0x000000C
+	.4byte script_080099DC
+	.incbin "baserom.gba", 0x0FCC44, 0x0000010
 
 gUnk_080FCC54:: @ 080FCC54
-	.incbin "baserom.gba", 0x0FCC54, 0x0000030
+	.incbin "baserom.gba", 0x0FCC54, 0x000000C
+	.4byte script_08009D6C
+	.incbin "baserom.gba", 0x0FCC64, 0x0000020
 
 gUnk_080FCC84:: @ 080FCC84
 	.incbin "baserom.gba", 0x0FCC84, 0x0000018
@@ -151,7 +169,18 @@ gUnk_080FCC9C:: @ 080FCC9C
 	.incbin "baserom.gba", 0x0FCC9C, 0x0000018
 
 gUnk_080FCCB4:: @ 080FCCB4
-	.incbin "baserom.gba", 0x0FCCB4, 0x0000048
+	.4byte gUnk_080FCC84
+	.incbin "baserom.gba", 0x0FCCB8, 0x0000008
+	.4byte gUnk_080FCC84
+	.incbin "baserom.gba", 0x0FCCC4, 0x0000008
+	.4byte gUnk_080FCC9C
+	.incbin "baserom.gba", 0x0FCCD0, 0x0000008
+	.4byte gUnk_080FCC9C
+	.incbin "baserom.gba", 0x0FCCDC, 0x0000008
+	.4byte gUnk_080FCC84
+	.incbin "baserom.gba", 0x0FCCE8, 0x0000008
+	.4byte gUnk_080FCC84
+	.incbin "baserom.gba", 0x0FCCF4, 0x0000008
 
 gUnk_080FCCFC:: @ 080FCCFC
 	.4byte sub_08053758
@@ -194,7 +223,15 @@ gUnk_080FCD40:: @ 080FCD40
 	.4byte sub_08053A90
 
 gUnk_080FCD84:: @ 080FCD84
-	.incbin "baserom.gba", 0x0FCD84, 0x0000050
+	.incbin "baserom.gba", 0x0FCD84, 0x000000C
+	.4byte script_080153EC
+	.incbin "baserom.gba", 0x0FCD94, 0x000000C
+	.4byte script_0801550C
+	.incbin "baserom.gba", 0x0FCDA4, 0x000000C
+	.4byte script_08015618
+	.incbin "baserom.gba", 0x0FCDB4, 0x000000C
+	.4byte script_08015684
+	.incbin "baserom.gba", 0x0FCDC4, 0x0000010
 
 gUnk_080FCDD4:: @ 080FCDD4
 	.4byte sub_08053ACC
@@ -202,10 +239,32 @@ gUnk_080FCDD4:: @ 080FCDD4
 	.4byte sub_08053B10
 
 gUnk_080FCDE0:: @ 080FCDE0
-	.incbin "baserom.gba", 0x0FCDE0, 0x0000050
+	.incbin "baserom.gba", 0x0FCDE0, 0x000000C
+	.4byte script_08015CD4
+	.incbin "baserom.gba", 0x0FCDF0, 0x000000C
+	.4byte script_08015DF0
+	.incbin "baserom.gba", 0x0FCE00, 0x000000C
+	.4byte script_08015E58
+	.incbin "baserom.gba", 0x0FCE10, 0x000000C
+	.4byte script_08015FA4
+	.incbin "baserom.gba", 0x0FCE20, 0x0000010
 
 gUnk_080FCE30:: @ 080FCE30
-	.incbin "baserom.gba", 0x0FCE30, 0x0000080
+	.incbin "baserom.gba", 0x0FCE30, 0x000000C
+	.4byte script_08015F08
+	.incbin "baserom.gba", 0x0FCE40, 0x000000C
+	.4byte script_08015F3C
+	.incbin "baserom.gba", 0x0FCE50, 0x000000C
+	.4byte script_08015F3C
+	.incbin "baserom.gba", 0x0FCE60, 0x000000C
+	.4byte script_08015F3C
+	.incbin "baserom.gba", 0x0FCE70, 0x000000C
+	.4byte script_08015F3C
+	.incbin "baserom.gba", 0x0FCE80, 0x000000C
+	.4byte script_08015F3C
+	.incbin "baserom.gba", 0x0FCE90, 0x000000C
+	.4byte script_08015F3C
+	.incbin "baserom.gba", 0x0FCEA0, 0x0000010
 
 gUnk_080FCEB0:: @ 080FCEB0
 	.4byte sub_08053B74
@@ -213,7 +272,11 @@ gUnk_080FCEB0:: @ 080FCEB0
 	.4byte sub_08053BBC
 
 gUnk_080FCEBC:: @ 080FCEBC
-	.incbin "baserom.gba", 0x0FCEBC, 0x0000030
+	.incbin "baserom.gba", 0x0FCEBC, 0x000000C
+	.4byte script_0800DB18
+	.incbin "baserom.gba", 0x0FCECC, 0x000000C
+	.4byte script_0800E58C
+	.incbin "baserom.gba", 0x0FCEDC, 0x0000010
 
 gUnk_080FCEEC:: @ 080FCEEC
 	.4byte sub_08053C20

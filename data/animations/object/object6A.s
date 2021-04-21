@@ -287,7 +287,8 @@ gUnk_081230C8:: @ 081230C8
 	.incbin "baserom.gba", 0x1230C8, 0x0000054
 
 gUnk_0812311C:: @ 0812311C
-	.incbin "baserom.gba", 0x12311C, 0x0000008
+	.4byte gUnk_081230C8
+	.incbin "baserom.gba", 0x123120, 0x0000004
 
 gUnk_08123124:: @ 08123124
 	.incbin "baserom.gba", 0x123124, 0x0000005

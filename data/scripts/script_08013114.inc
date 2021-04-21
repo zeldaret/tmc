@@ -31,6 +31,7 @@ script_08013176:
 	Call sub_0807F420
 	_0807E878 
 	Jump script_08013128
+SCRIPT_START script_08013188
 	BeginBlock 
 	CheckLocalFlag 0x0062
 	JumpIfNot script_0801319A

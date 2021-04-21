@@ -15,6 +15,7 @@ SCRIPT_START script_08009464
 	Wait 0x000a
 	Jump script_08009376
 	.2byte 0x0000
+SCRIPT_START script_080094A4
 	BeginBlock 
 	Call sub_0806D7C4
 	SetEntitySpeed 0x0080

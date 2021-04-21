@@ -3,10 +3,12 @@ SCRIPT_START script_0801194C
 	_0807EB44 0x0002
 	Jump script_0801196A
 	.2byte 0x0000
+SCRIPT_START script_08011958
 	BeginBlock 
 	_0807EB44 0x0006
 	Jump script_0801196A
 	.2byte 0x0000
+SCRIPT_START script_08011964
 	BeginBlock 
 	_0807EB44 0x0004
 script_0801196A:
@@ -31,6 +33,7 @@ script_080119A4:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0801197C
+SCRIPT_START script_080119B0
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
@@ -42,14 +45,17 @@ script_080119C8:
 	Call sub_0806407C
 	Jump script_080119C8
 	.2byte 0x0000
+SCRIPT_START script_080119D8	
 	BeginBlock 
 	_0807EB44 0x0002
 	Jump script_080119F6
 	.2byte 0x0000
+SCRIPT_START script_080119E4
 	BeginBlock 
 	_0807EB44 0x0004
 	Jump script_080119F6
 	.2byte 0x0000
+SCRIPT_START script_080119F0
 	BeginBlock 
 	_0807EB44 0x0006
 script_080119F6:
@@ -68,6 +74,7 @@ script_08011A08:
 	_0807E878 
 	Jump script_08011A08
 	.2byte 0x0000
+SCRIPT_START script_08011A2C
 	BeginBlock 
 	_0807EB44 0x0004
 	_0807E9D4 
@@ -84,6 +91,7 @@ script_08011A44:
 	_0807EA94 
 	_0807E878 
 	Jump script_08011A44
+SCRIPT_START script_08011A64
 	BeginBlock 
 	_0807EB44 0x0002
 	_0807E9D4 
@@ -119,7 +127,7 @@ script_08011AC4:
 	_0807EA94 
 	_0807E878 
 	Jump script_08011AC4
-script_08011AE4:
+SCRIPT_START script_08011AE4
 	CheckRoomFlag 0x000f
 	JumpIfNot script_08011AE4
 	_0807E864 

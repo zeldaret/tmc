@@ -23,6 +23,7 @@ SCRIPT_START script_0800D76C
 	DoPostScriptAction 0x0001
 	WaitForSomething2 0x00000008
 	Jump script_0800D80C
+SCRIPT_START script_0800D7DC
 	BeginBlock 
 	Call sub_0807F360
 	DoPostScriptAction 0x000b

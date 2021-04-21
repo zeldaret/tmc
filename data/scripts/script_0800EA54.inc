@@ -20,6 +20,7 @@ script_0800EA6A:
 	Call sub_0807F2D4
 	_0807E930 0x0008
 	Jump script_0800EA6A
+SCRIPT_START script_0800EAA4
 	BeginBlock 
 	_0807E9D4 
 	Call sub_0806C09C
@@ -45,6 +46,7 @@ script_0800EAD4:
 	_0807E878 
 	_0807E930 0x0000
 	Jump script_0800EABC
+SCRIPT_START script_0800EAF8
 	BeginBlock 
 	Call sub_0806C870
 	DoPostScriptAction 0x000a
@@ -62,6 +64,7 @@ script_0800EB0E:
 	_0807E878 
 	Jump script_0800EB0E
 	.2byte 0x0000
+SCRIPT_START script_0800EB2C
 	BeginBlock 
 	Call sub_08061E70
 	DoPostScriptAction 0x000a
@@ -79,6 +82,7 @@ script_0800EB44:
 	_0807E878 
 	Jump script_0800EB44
 	.2byte 0x0000
+SCRIPT_START script_0800EB64
 	BeginBlock 
 	Call sub_08061E70
 	DoPostScriptAction 0x000a
@@ -104,6 +108,7 @@ script_0800EB7C:
 	Call sub_08061FD8
 	EndBlock 
 	Jump script_0800EBF4
+SCRIPT_START script_0800EBC0
 	BeginBlock 
 	Call sub_08061E70
 	DoPostScriptAction 0x000a
@@ -111,6 +116,7 @@ script_0800EB7C:
 	Call sub_08061FD8
 	EndBlock 
 	Jump script_0800EBF4
+SCRIPT_START script_0800EBDC
 	BeginBlock 
 	Call sub_08061E70
 	DoPostScriptAction 0x000a
@@ -128,6 +134,7 @@ script_0800EBF4:
 	_0807E878 
 	Jump script_0800EBF4
 	.2byte 0x0000
+SCRIPT_START script_0800EC14
 	BeginBlock 
 	Call sub_08061E70
 	DoPostScriptAction 0x000a
@@ -146,6 +153,7 @@ script_0800EC2C:
 	_0807EB44 0x0002
 	Call sub_08061FD8
 	Jump script_0800EC2C
+SCRIPT_START script_0800EC54
 	BeginBlock 
 	Call sub_08061E70
 	DoPostScriptAction 0x000a
@@ -163,6 +171,7 @@ script_0800EC6C:
 	_0807E878 
 	Jump script_0800EC6C
 	.2byte 0x0000
+SCRIPT_START script_0800EC8C
 	BeginBlock 
 	_0807E9D4 
 	CallWithArg sub_08061FB8, 0x00000001
@@ -193,6 +202,7 @@ script_0800ECAC:
 	_0807E930 0x0003
 	Wait 0x001e
 	Jump script_0800ECAC
+SCRIPT_START script_0800ED04
 	BeginBlock 
 	Call sub_080639D0
 	DoPostScriptAction 0x000a
@@ -216,6 +226,7 @@ script_0800ED46:
 	Call sub_08063874
 	CallWithArg sub_08063850, 0x00000000
 	Jump script_0800ED20
+SCRIPT_START script_0800ED5C
 	BeginBlock 
 	Call sub_08064CC0
 	DoPostScriptAction 0x000a
@@ -233,6 +244,7 @@ script_0800ED76:
 	_0807E878 
 	Jump script_0800ED76
 	.2byte 0x0000
+SCRIPT_START script_0800ED90
 	BeginBlock 
 	_0807E9D4 
 	DoPostScriptAction 0x000a
@@ -283,6 +295,7 @@ script_0800EE3E:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_0800ED98
+SCRIPT_START script_0800EE50
 	BeginBlock 
 	_0807E9D4 
 	DoPostScriptAction 0x000a

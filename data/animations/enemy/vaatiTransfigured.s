@@ -107,7 +107,8 @@ gUnk_080D0D14:: @ 080D0D14
 	.incbin "baserom.gba", 0x0D0D14, 0x000002C
 
 gUnk_080D0D40:: @ 080D0D40
-	.incbin "baserom.gba", 0x0D0D40, 0x0000008
+	.4byte gUnk_080D0D0C
+	.incbin "baserom.gba", 0x0D0D44, 0x0000004
 
 gUnk_080D0D48:: @ 080D0D48
 	.incbin "baserom.gba", 0x0D0D48, 0x0000030

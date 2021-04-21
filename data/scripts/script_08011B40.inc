@@ -48,6 +48,7 @@ script_08011BBC:
 	Wait 0x003c
 	Call sub_0806C224
 	Jump script_08011B9A
+SCRIPT_START script_08011BE4
 	BeginBlock 
 	_0807E888 
 	EndBlock 

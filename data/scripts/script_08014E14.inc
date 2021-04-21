@@ -16,6 +16,7 @@ script_08014E2C:
 	_0807E878 
 	Jump script_08014E2C
 	.2byte 0x0000
+SCRIPT_START script_08014E50
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
@@ -51,6 +52,7 @@ script_08014EBC:
 	_0807E878 
 	Jump script_08014E64
 	.2byte 0x0000
+SCRIPT_START script_08014ECC
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
@@ -67,6 +69,7 @@ script_08014EE0:
 	_0807E878 
 	Jump script_08014EE0
 	.2byte 0x0000
+SCRIPT_START script_08014EF8
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
@@ -86,6 +89,7 @@ script_08014F0C:
 	_0807E930 0x000a
 	Jump script_08014F0C
 	.2byte 0x0000
+SCRIPT_START script_08014F30
 	BeginBlock 
 	DoPostScriptAction 0x000a
 	DoPostScriptAction 0x0007
@@ -128,6 +132,7 @@ script_08014FA6:
 	_0807EB44 0x0004
 	_0807E930 0x000e
 	Jump script_08014F4A
+SCRIPT_START script_08014FBC
 	BeginBlock 
 	SetEntityPositionRelative 0x01f8, 0x00e0
 	Call sub_08054564

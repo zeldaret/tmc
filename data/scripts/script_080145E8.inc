@@ -17,6 +17,7 @@ script_08014608:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_080145F8
+SCRIPT_START script_08014628
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004

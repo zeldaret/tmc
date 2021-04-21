@@ -15,6 +15,7 @@ script_0800FDB2:
 	_0807E878 
 	Jump script_0800FDB2
 	.2byte 0x0000
+SCRIPT_START script_0800FDCC
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
@@ -51,6 +52,7 @@ script_0800FE06:
 	Call sub_08069A3C
 	Jump script_0800FDE8
 	.2byte 0x0000
+SCRIPT_START script_0800FE44
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
@@ -87,6 +89,7 @@ script_0800FE7E:
 	Call sub_08069A84
 	Jump script_0800FE60
 	.2byte 0x0000
+SCRIPT_START script_0800FEBC
 	BeginBlock 
 	CheckInventory1 0x0012
 	JumpIf script_0800FF0E

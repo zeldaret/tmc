@@ -17,6 +17,7 @@ script_08010BCA:
 	_0807E930 0x0008
 	Jump script_08010BCA
 	.2byte 0x0000
+SCRIPT_START script_08010BEC
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28

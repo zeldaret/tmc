@@ -16,6 +16,7 @@ script_0801027A:
 	_0807E878 
 	Jump script_0801027A
 	.2byte 0x0000
+SCRIPT_START script_08010294
 	BeginBlock 
 	DoPostScriptAction 0x0000
 	Call sub_08062A48
@@ -41,6 +42,7 @@ script_080102CC:
 	_0807E878 
 	Jump script_080102A6
 	.2byte 0x0000
+SCRIPT_START script_080102E0
 	BeginBlock 
 	DoPostScriptAction 0x0000
 	Call sub_08062A48
@@ -56,6 +58,7 @@ script_080102F2:
 	_0807E878 
 	Jump script_080102F2
 	.2byte 0x0000
+SCRIPT_START script_0801030C
 	BeginBlock 
 	DoPostScriptAction 0x0000
 	EndBlock 
@@ -100,6 +103,7 @@ script_08010396:
 	JumpIfNot script_08010396
 	Jump script_08010314
 	.2byte 0x0000
+SCRIPT_START script_080103B0
 	BeginBlock 
 	DoPostScriptAction 0x0000
 	Call sub_08062A48
@@ -109,6 +113,7 @@ script_080103C2:
 	Wait 0x001e
 	Call sub_08062948
 	Jump script_080103C2
+SCRIPT_START script_080103D0
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
@@ -120,6 +125,7 @@ script_080103E8:
 	Call sub_0806407C
 	Jump script_080103E8
 	.2byte 0x0000
+SCRIPT_START script_080103F8
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
@@ -135,6 +141,7 @@ script_08010410:
 	_0807EA94 
 	_0807E878 
 	Jump script_08010410
+SCRIPT_START script_08010428
 	BeginBlock 
 	_0807E9D4 
 	_0807EB44 0x0004
@@ -147,6 +154,7 @@ script_08010446:
 	Wait 0x003c
 	Call sub_080646A4
 	Jump script_08010446
+SCRIPT_START script_08010454
 	BeginBlock 
 	_0807EB44 0x0004
 	_0807E930 0x0000
@@ -166,6 +174,7 @@ script_08010470:
 	_0807E878 
 	CallWithArg sub_0807F3D8, 0x00000000
 	Jump script_08010470
+SCRIPT_START script_080104A0
 	BeginBlock 
 	_0807EB44 0x0004
 	_0807E930 0x0000
@@ -185,6 +194,7 @@ script_080104BC:
 	_0807E878 
 	CallWithArg sub_0807F3D8, 0x00000000
 	Jump script_080104BC
+SCRIPT_START script_080104EC
 	BeginBlock 
 	_0807EB44 0x0004
 	_0807E930 0x0000
@@ -273,6 +283,7 @@ script_08010602:
 	_0807E878 
 	_0807EB44 0x0004
 	Jump script_08010602
+SCRIPT_START script_0801061C
 	BeginBlock 
 	_0807E930 0x0008
 script_08010622:
@@ -287,10 +298,12 @@ script_0801062E:
 	_0807EA94 
 	_0807E878 
 	Jump script_0801062E
+SCRIPT_START script_08010644
 	BeginBlock 
 	_0807E930 0x0009
 	Jump script_08010622
 	.2byte 0x0000
+SCRIPT_START script_08010650
 	BeginBlock 
 	_0807E930 0x000b
 	Jump script_08010622
@@ -303,6 +316,7 @@ script_0801062E:
 	_0807E930 0x000d
 	Jump script_08010622
 	.2byte 0x0000
+SCRIPT_START script_08010674
 	BeginBlock 
 	_0807E9D4 
 	DoPostScriptAction 0x000a
@@ -322,6 +336,7 @@ script_08010686:
 	_0807EB44 0x0004
 	Jump script_08010686
 	.2byte 0x0000
+SCRIPT_START script_080106AC
 	BeginBlock 
 	_0807E9D4 
 	DoPostScriptAction 0x000a
@@ -365,6 +380,7 @@ script_08010726:
 	DoPostScriptAction 0x0001
 	Jump script_080106BE
 	.2byte 0x0000
+SCRIPT_START script_08010734
 	BeginBlock 
 	DoPostScriptAction 0x0007
 	_0807E9D4 
@@ -397,6 +413,7 @@ script_08010786:
 	_0807E878 
 	_0807E930 0x0008
 	Jump script_08010746
+SCRIPT_START script_08010794
 	BeginBlock 
 	DoPostScriptAction 0x0007
 	_0807E9D4 
@@ -416,6 +433,7 @@ script_080107AA:
 	DoPostScriptAction 0x0000
 	Jump script_080107AA
 	.2byte 0x0000
+SCRIPT_START script_080107D0
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
@@ -495,7 +513,7 @@ script_080108BA:
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
 	Jump script_08010804
-script_080108D0:
+SCRIPT_START script_080108D0
 	CheckPlayerInRegion2 0x0808
 	JumpIfNot script_080108D0
 	_0807E864 
@@ -511,6 +529,7 @@ script_08010900:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_080108D0
+SCRIPT_START script_0801090C
 	BeginBlock 
 	DoPostScriptAction 0x0007
 	CheckKinstoneFused 0x001b
