@@ -638,6 +638,8 @@ SECTIONS {
         src/npc/bigGoron.o(.text);
         asm/bigGoron.o(.text);
         src/npc/ezloCap.o(.text);
+        src/npc/npc4E.o(.text);
+        src/npc/npc4F.o(.text);
         asm/npc4E.o(.text);
         src/npc/clothesRack.o(.text);
         asm/clothesRack.o(.text);
@@ -1363,7 +1365,9 @@ SECTIONS {
         data/animations/npc/mayorHagen.o(.rodata);
         data/const/npc/bigGoron.o(.rodata);
         src/npc/ezloCap.o(.rodata);
-        data/animations/npc/npc4f.o(.rodata);
+        src/npc/npc4E.o(.rodata);
+        src/npc/npc4F.o(.rodata);
+        data/animations/npc/npc4F.o(.rodata);
         data/const/npc/clothesRack.o(.rodata);
         data/animations/npc/clothesRack.o(.rodata);
         data/const/npc/picolyteBottle.o(.rodata);
