@@ -648,7 +648,7 @@ SECTIONS {
         asm/hurdyGurdyMan.o(.text);
         asm/cucco.o(.text);
         asm/cuccoChick.o(.text);
-        asm/fusionMenuNPC.o(.text);
+        src/npc/fusionMenuNPC.o(.text);
         asm/phonograph.o(.text);
         asm/npc58.o(.text);
         /* END npcs */
