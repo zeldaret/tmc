@@ -5,44 +5,93 @@
 #include "audio.h"
 #include "functions.h"
 
-extern void (* const gUnk_0811F65C[])(Entity*);
+void sub_08083338(Entity*);
+void sub_080834B4(Entity*);
+void sub_080834EC(Entity*);
+void sub_08083518(Entity*);
+void sub_08083540(Entity*);
+void nullsub_513(Entity*);
+void sub_08083598(Entity*);
+void sub_080835C8(Entity*);
+void sub_080835F8(Entity*);
+
+void sub_08083638(Entity*);
+void sub_08083658(Entity*);
+void sub_080836A0(Entity*);
+void sub_080836DC(Entity*, u32, u32);
+u32 sub_08083734(Entity*, u32);
+u32 sub_080837B0(Entity*);
+void sub_08083814(Entity*, u32);
+
+void (* const gUnk_0811F65C[])(Entity*) = {
+    sub_08083338,
+    sub_080834B4,
+    sub_080834EC,
+    sub_08083518,
+    sub_08083540,
+    nullsub_513,
+    sub_08083598,
+    sub_080835C8,
+    sub_080835F8
+};
 
 void LockedDoor(Entity* this) {
     gUnk_0811F65C[this->action](this);
 }
 
-extern u32 sub_080837B0(Entity*);
 extern Hitbox gUnk_080FD170;
-extern void sub_08083638(Entity*);
-extern void sub_080836A0(Entity*);
-extern u8 gUnk_0811F740[];
+
 extern u32 sub_080001DA(u32, u32);
-extern void sub_080836DC(Entity*, u32, u32);
 extern void sub_08078850(Entity*, u32, u32, u32);
-
-extern u32 sub_08083734(Entity*, u32);
-
-extern void sub_08083814(Entity*, u32);
-
-extern void sub_08083658(Entity*);
-
 extern void sub_0805E4E0(Entity*, u32);
 
 typedef struct PACKED {
     s8 x;
     s8 y;
 } struct_0811F680;
-extern const struct_0811F680 gUnk_0811F680[];
-extern const struct_0811F680 gUnk_0811F688[];
 
-extern const u16 gUnk_0811F690[];
+const struct_0811F680 gUnk_0811F680[] = {
+    {0, -2},
+    {2, 0},
+    {0, 2},
+    {-2, 0}
+};
+
+const struct_0811F680 gUnk_0811F688[] = {
+    {0, -21},
+    {21, 0},
+    {0, 21},
+    {-21, 0}
+};
+
+const u16 gUnk_0811F690[] = {
+    0x0A, 0x0A, 0x0A, 0x0A, 0x0A, 0x0A, 0x0A, 0x0A,
+    0x15, 0x15, 0x15, 0x15, 0x15, 0x15, 0x15, 0x15,
+    0x52, 0x52, 0x52, 0x52, 0x52, 0x52, 0x52, 0x52,
+    0x53, 0x53, 0x53, 0x53, 0x53, 0x53, 0x53, 0x53,
+    0x54, 0x54, 0x54, 0x54, 0x54, 0x54, 0x54, 0x54,
+    0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55,
+    0x56, 0x56, 0x56, 0x56, 0x56, 0x56, 0x56, 0x56,
+    0x57, 0x57, 0x57, 0x57, 0x57, 0x57, 0x57, 0x57,
+    0x58, 0x58, 0x58, 0x58, 0x58, 0x58, 0x58, 0x58,
+    0x59, 0x59, 0x59, 0x59, 0x59, 0x59, 0x59, 0x59
+};
 
 typedef struct {
     struct_0811F680 unk_00;
     struct_0811F680 unk_02;
 } struct_0811F730;
 
-extern const struct_0811F730 gUnk_0811F730[];
+const struct_0811F730 gUnk_0811F730[] = {
+    {{ 8, 8}, {-8, 8}},
+    {{-8, 8}, {-8,-8}},
+    {{ 8,-8}, {-8,-8}},
+    {{ 8, 8}, { 8,-8}}
+};
+
+const u8 gUnk_0811F740[] = {
+    0xBE, 0x7D, 0xEB, 0xD7
+};
 
 void sub_08083338(Entity *this) {
     if (this->cutsceneBeh.HWORD != 0xFFFF && CheckFlags(this->cutsceneBeh.HWORD)) {

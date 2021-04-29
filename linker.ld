@@ -1414,7 +1414,7 @@ SECTIONS {
         data/const/object/object6.o(.rodata);
         data/animations/object/object6.o(.rodata);
         data/const/object/blockPushed.o(.rodata);
-        data/const/object/lockedDoor.o(.rodata);
+        src/object/lockedDoor.o(.rodata);
         data/const/object/object9.o(.rodata);
         data/animations/object/object9.o(.rodata);
         data/const/object/objectB.o(.rodata);
