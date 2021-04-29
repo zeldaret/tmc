@@ -709,7 +709,7 @@ SECTIONS {
         src/object/pot.o(.text);
         asm/object6.o(.text);
         asm/blockPushed.o(.text);
-        asm/lockedDoor.o(.text);
+        src/object/lockedDoor.o(.text);
         asm/object9.o(.text);
         src/object/objectA.o(.text);
         asm/objectB.o(.text);
