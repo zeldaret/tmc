@@ -410,7 +410,7 @@ SECTIONS {
         asm/cuccoAggr.o(.text);
         asm/stalfos.o(.text);
         asm/flyingSkull.o(.text);
-        asm/mazaalBracelet.o(.text);
+        src/enemy/mazaalBracelet.o(.text);
         asm/takkuri.o(.text);
         src/enemy/bowMoblin.o(.text);
         asm/bowMoblin.o(.text);
@@ -1117,7 +1117,7 @@ SECTIONS {
         data/animations/enemy/stalfos.o(.rodata);
         data/const/enemy/flyingSkull.o(.rodata);
         data/animations/enemy/flyingSkull.o(.rodata);
-        data/const/enemy/mazaalBracelet.o(.rodata);
+        src/enemy/mazaalBracelet.o(.rodata);
         data/animations/enemy/mazaalBracelet.o(.rodata);
         data/const/enemy/takkuri.o(.rodata);
         data/const/enemy/bowMoblin.o(.rodata);
