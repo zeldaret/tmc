@@ -14,21 +14,21 @@ u32 sub_0803B610(Entity*);
 void sub_0803B63C(Entity*);
 void sub_0803B6A4(Entity*);
 u32 sub_0803B6F4(Entity*);
-extern void sub_0803B8E8(Entity*, u32);
-extern u32 sub_0803B870(Entity*);
-extern void sub_0803B824(Entity*);
-extern void sub_0803B804(Entity*);
-extern void sub_0803B798(void);
-extern void sub_0803BA8C(Entity*, u32);
+void sub_0803B8E8(Entity*, u32);
+u32 sub_0803B870(Entity*);
+void sub_0803B824(Entity*);
+void sub_0803B804(Entity*);
+void sub_0803B798(void);
+void sub_0803BA8C(Entity*, u32);
 
-extern void sub_0803B724(Entity*);
+void sub_0803B724(Entity*);
 extern void sub_0800449C(Entity*, u32);
 
 void sub_0803A170(Entity*);
 void sub_0803A188(Entity*);
 void nullsub_167(Entity*);
 void sub_0803A254(Entity*);
-extern void sub_0803B8F8(Entity*);
+void sub_0803B8F8(Entity*);
 
 void sub_0803A274(Entity*);
 void sub_0803A364(Entity*);
@@ -82,10 +82,10 @@ void sub_0803B398(Entity*);
 void sub_0803B3F4(Entity*);
 void sub_0803B480(Entity*);
 
-extern void sub_0803B910(Entity*);
-extern void sub_0803B978(Entity*);
-extern void sub_0803BA6C(Entity*);
-extern void sub_0803BA80(Entity*);
+void sub_0803B910(Entity*);
+void sub_0803B978(Entity*);
+void sub_0803BA6C(Entity*);
+void sub_0803BA80(Entity*);
 
 extern u8 gEntCount;
 // these are not with the rest of this files constant data
@@ -1313,11 +1313,11 @@ void sub_0803B978(Entity* this) {
             this->actionDelay = 2;
             this->field_0xf = 0x1e;
             this->field_0x74.HALF.LO = 0;
-            SoundReq(0x1a9);
+            SoundReq(SFX_1A9);
         case 2:
             sub_0803BA8C(this, this->field_0xf);
             if ((this->field_0x74.HALF.HI | this->field_0x74.HALF.LO) == 0) {
-                SoundReq(0x1a9);
+                SoundReq(SFX_1A9);
             }
             if (this->field_0x74.HALF.LO != 0) {
                 return;
@@ -1348,7 +1348,7 @@ void sub_0803B978(Entity* this) {
     }
     sub_0803BA8C(this, 0x10);
     if ((this->field_0x74.HALF.HI | this->field_0x74.HALF.LO) == 0) {
-        SoundReq(0x1a9);
+        SoundReq(SFX_1A9);
     }
 }
 
