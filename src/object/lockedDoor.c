@@ -23,16 +23,9 @@ u32 sub_08083734(Entity*, u32);
 u32 sub_080837B0(Entity*);
 void sub_08083814(Entity*, u32);
 
-void (* const gUnk_0811F65C[])(Entity*) = {
-    sub_08083338,
-    sub_080834B4,
-    sub_080834EC,
-    sub_08083518,
-    sub_08083540,
-    nullsub_513,
-    sub_08083598,
-    sub_080835C8,
-    sub_080835F8
+void (*const gUnk_0811F65C[])(Entity*) = {
+    sub_08083338, sub_080834B4, sub_080834EC, sub_08083518, sub_08083540,
+    nullsub_513,  sub_08083598, sub_080835C8, sub_080835F8,
 };
 
 void LockedDoor(Entity* this) {
@@ -51,30 +44,25 @@ typedef struct PACKED {
 } struct_0811F680;
 
 const struct_0811F680 gUnk_0811F680[] = {
-    {0, -2},
-    {2, 0},
-    {0, 2},
-    {-2, 0}
+    { 0, -2 },
+    { 2, 0 },
+    { 0, 2 },
+    { -2, 0 },
 };
 
 const struct_0811F680 gUnk_0811F688[] = {
-    {0, -21},
-    {21, 0},
-    {0, 21},
-    {-21, 0}
+    { 0, -21 },
+    { 21, 0 },
+    { 0, 21 },
+    { -21, 0 },
 };
 
 const u16 gUnk_0811F690[] = {
-    0x0A, 0x0A, 0x0A, 0x0A, 0x0A, 0x0A, 0x0A, 0x0A,
-    0x15, 0x15, 0x15, 0x15, 0x15, 0x15, 0x15, 0x15,
-    0x52, 0x52, 0x52, 0x52, 0x52, 0x52, 0x52, 0x52,
-    0x53, 0x53, 0x53, 0x53, 0x53, 0x53, 0x53, 0x53,
-    0x54, 0x54, 0x54, 0x54, 0x54, 0x54, 0x54, 0x54,
-    0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55,
-    0x56, 0x56, 0x56, 0x56, 0x56, 0x56, 0x56, 0x56,
-    0x57, 0x57, 0x57, 0x57, 0x57, 0x57, 0x57, 0x57,
-    0x58, 0x58, 0x58, 0x58, 0x58, 0x58, 0x58, 0x58,
-    0x59, 0x59, 0x59, 0x59, 0x59, 0x59, 0x59, 0x59
+    0x0A, 0x0A, 0x0A, 0x0A, 0x0A, 0x0A, 0x0A, 0x0A, 0x15, 0x15, 0x15, 0x15, 0x15, 0x15, 0x15, 0x15,
+    0x52, 0x52, 0x52, 0x52, 0x52, 0x52, 0x52, 0x52, 0x53, 0x53, 0x53, 0x53, 0x53, 0x53, 0x53, 0x53,
+    0x54, 0x54, 0x54, 0x54, 0x54, 0x54, 0x54, 0x54, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55,
+    0x56, 0x56, 0x56, 0x56, 0x56, 0x56, 0x56, 0x56, 0x57, 0x57, 0x57, 0x57, 0x57, 0x57, 0x57, 0x57,
+    0x58, 0x58, 0x58, 0x58, 0x58, 0x58, 0x58, 0x58, 0x59, 0x59, 0x59, 0x59, 0x59, 0x59, 0x59, 0x59,
 };
 
 typedef struct {
@@ -83,21 +71,25 @@ typedef struct {
 } struct_0811F730;
 
 const struct_0811F730 gUnk_0811F730[] = {
-    {{ 8, 8}, {-8, 8}},
-    {{-8, 8}, {-8,-8}},
-    {{ 8,-8}, {-8,-8}},
-    {{ 8, 8}, { 8,-8}}
+    { { 8, 8 }, { -8, 8 } },
+    { { -8, 8 }, { -8, -8 } },
+    { { 8, -8 }, { -8, -8 } },
+    { { 8, 8 }, { 8, -8 } },
 };
 
 const u8 gUnk_0811F740[] = {
-    0xBE, 0x7D, 0xEB, 0xD7
+    0xBE,
+    0x7D,
+    0xEB,
+    0xD7,
 };
 
-void sub_08083338(Entity *this) {
+void sub_08083338(Entity* this) {
     if (this->cutsceneBeh.HWORD != 0xFFFF && CheckFlags(this->cutsceneBeh.HWORD)) {
         DeleteThisEntity();
     }
-    if (!sub_080837B0(this)) return;
+    if (!sub_080837B0(this))
+        return;
     this->type2 = (this->type >> 2) & 3;
     this->frameIndex = this->type & 3;
     this->speed = 0x300;
@@ -150,7 +142,7 @@ void sub_08083338(Entity *this) {
     }
 }
 
-void sub_080834B4(Entity *this) {
+void sub_080834B4(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 2;
         this->actionDelay = 7;
@@ -159,7 +151,7 @@ void sub_080834B4(Entity *this) {
     }
 }
 
-void sub_080834EC(Entity *this) {
+void sub_080834EC(Entity* this) {
     sub_0806F69C(this);
     if (--this->actionDelay == 0) {
         if (this->type & 0x80) {
@@ -170,14 +162,14 @@ void sub_080834EC(Entity *this) {
     }
 }
 
-void sub_08083518(Entity *this) {
+void sub_08083518(Entity* this) {
     if (sub_08083734(this, this->field_0x7c.BYTES.byte2)) {
         this->action = 4;
         sub_080836DC(this, this->field_0x7c.BYTES.byte2, this->field_0x76.HWORD);
     }
 }
 
-void sub_08083540(Entity *this) {
+void sub_08083540(Entity* this) {
     sub_0806F69C(this);
     if (!--this->actionDelay) {
         if (this->type & 0x10) {
@@ -195,28 +187,34 @@ void sub_08083540(Entity *this) {
     }
 }
 
-void nullsub_513(Entity* this) {}
+void nullsub_513(Entity* this) {
+}
 
-void sub_08083598(Entity *this) {
+void sub_08083598(Entity* this) {
     if (this->type2 == 0) {
-        if (!CheckFlags(this->field_0x86.HWORD)) return;
+        if (!CheckFlags(this->field_0x86.HWORD))
+            return;
     } else {
-        if (CheckFlags(this->field_0x86.HWORD)) return;
+        if (CheckFlags(this->field_0x86.HWORD))
+            return;
     }
     sub_08083658(this);
 }
 
-void sub_080835C8(Entity *this) {
+void sub_080835C8(Entity* this) {
     if (this->type2 == 0) {
-        if (CheckFlags(this->field_0x86.HWORD)) return;
+        if (CheckFlags(this->field_0x86.HWORD))
+            return;
     } else {
-        if (!CheckFlags(this->field_0x86.HWORD)) return;
+        if (!CheckFlags(this->field_0x86.HWORD))
+            return;
     }
     this->action = 3;
 }
 
-void sub_080835F8(Entity *this) {
-    if (this->interactType == 0 && !CheckFlags(this->field_0x86.HWORD)) return;
+void sub_080835F8(Entity* this) {
+    if (this->interactType == 0 && !CheckFlags(this->field_0x86.HWORD))
+        return;
     this->action = 1;
     this->actionDelay = 0x14;
     sub_08083658(this);
@@ -224,15 +222,15 @@ void sub_080835F8(Entity *this) {
     sub_080526F8(-1);
 }
 
-void sub_08083638(Entity *this) {
+void sub_08083638(Entity* this) {
     this->action = 7;
     this->spriteSettings.b.draw = 0;
     this->x.HALF.HI = this->field_0x70.HALF.LO;
     this->y.HALF.HI = this->field_0x70.HALF.HI;
 }
 
-void sub_08083658(Entity *this) {
-    const struct_0811F680 * tmp;
+void sub_08083658(Entity* this) {
+    const struct_0811F680* tmp;
     this->action = 1;
     this->actionDelay = 0x14;
     this->direction = this->field_0x7c.BYTES.byte2 << 3;
@@ -243,7 +241,7 @@ void sub_08083658(Entity *this) {
     SoundReq(0x10b);
 }
 
-void sub_080836A0(Entity *this) {
+void sub_080836A0(Entity* this) {
     this->action = 6;
     this->spriteSettings.b.draw = 1;
     this->x.HALF.HI = this->field_0x70.HALF.LO;
@@ -251,7 +249,7 @@ void sub_080836A0(Entity *this) {
     SetTile(0x4022, this->field_0x76.HWORD, this->collisionLayer);
 }
 
-void sub_080836DC(Entity *this, u32 unk_0, u32 unk_1) {
+void sub_080836DC(Entity* this, u32 unk_0, u32 unk_1) {
     const struct_0811F680* tmp;
     SetTile(0x4022, unk_1, this->collisionLayer);
     this->actionDelay = 7;
@@ -264,25 +262,29 @@ void sub_080836DC(Entity *this, u32 unk_0, u32 unk_1) {
     }
 }
 
-u32 sub_08083734(Entity *this, u32 unk0) {
+u32 sub_08083734(Entity* this, u32 unk0) {
     switch (unk0) {
         case 0:
-            if (this->field_0x70.HALF_U.HI + 0xd  - gPlayerEntity.y.HALF.HI < 0) return 1;
+            if (this->field_0x70.HALF_U.HI + 0xd - gPlayerEntity.y.HALF.HI < 0)
+                return 1;
             break;
         case 1:
-            if (gPlayerEntity.x.HALF.HI - (this->field_0x70.HALF_U.LO - 0xb) < 0) return 1;
+            if (gPlayerEntity.x.HALF.HI - (this->field_0x70.HALF_U.LO - 0xb) < 0)
+                return 1;
             break;
         case 2:
-            if (gPlayerEntity.y.HALF.HI - (this->field_0x70.HALF_U.HI - 0x8) < 0) return 1;
+            if (gPlayerEntity.y.HALF.HI - (this->field_0x70.HALF_U.HI - 0x8) < 0)
+                return 1;
             break;
         case 3:
-            if (this->field_0x70.HALF_U.LO + 0xa - gPlayerEntity.x.HALF.HI < 0) return 1;
+            if (this->field_0x70.HALF_U.LO + 0xa - gPlayerEntity.x.HALF.HI < 0)
+                return 1;
             break;
     }
     return 0;
 }
 
-u32 sub_080837B0(Entity *this) {
+u32 sub_080837B0(Entity* this) {
     u32 tmp;
     u32 tmp2 = gRoomControls.areaID;
     if (tmp2 < 0x40) {
@@ -310,9 +312,9 @@ u32 sub_080837B0(Entity *this) {
     LoadFixedGFX(this, tmp);
 }
 
-void sub_08083814(Entity *this, u32 unk0) {
+void sub_08083814(Entity* this, u32 unk0) {
     Entity* fx;
-    const struct_0811F730 * tmp = &gUnk_0811F730[unk0];
+    const struct_0811F730* tmp = &gUnk_0811F730[unk0];
     fx = CreateFx(this, 0x11, 0x40);
     if (fx) {
         fx->x.HALF.HI += tmp->unk_00.x;
