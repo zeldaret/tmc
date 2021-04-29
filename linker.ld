@@ -398,7 +398,7 @@ SECTIONS {
         asm/spinyBeetle.o(.text);
         asm/mazaalHead.o(.text);
         asm/mazaalMacro.o(.text);
-        asm/mazaalHand.o(.text);
+        src/enemy/mazaalHand.o(.text);
         asm/octorokBoss.o(.text);
         asm/flyingPot.o(.text);
         src/enemy/gibdo.o(.text);
@@ -1097,7 +1097,7 @@ SECTIONS {
         data/animations/enemy/mazaalHead.o(.rodata);
         data/const/enemy/mazaalMacro.o(.rodata);
         data/animations/enemy/mazaalMacro.o(.rodata);
-        data/const/enemy/mazaalHand.o(.rodata);
+        src/enemy/mazaalHand.o(.rodata);
         data/animations/enemy/mazaalHand.o(.rodata);
         data/const/enemy/octorokBoss.o(.rodata);
         data/animations/enemy/octorokBoss.o(.rodata);
