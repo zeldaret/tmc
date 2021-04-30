@@ -624,7 +624,7 @@ SECTIONS {
         src/npc/carlov.o(.text);
         src/npc/dampe.o(.text);
         asm/drLeft.o(.text);
-        asm/kingGustaf.o(.text);
+        src/npc/kingGustaf.o(.text);
         asm/gina.o(.text);
         src/npc/simon.o(.text);
         src/npc/anju.o(.text);
@@ -1348,7 +1348,7 @@ SECTIONS {
         data/animations/npc/dampe.o(.rodata);
         data/const/npc/drLeft.o(.rodata);
         data/animations/npc/drLeft.o(.rodata);
-        data/animations/npc/kingGustav.o(.rodata);
+        data/animations/npc/kingGustaf.o(.rodata);
         data/animations/npc/gina.o(.rodata);
         data/animations/npc/simon.o(.rodata);
         data/animations/npc/anju.o(.rodata);
