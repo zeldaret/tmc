@@ -642,7 +642,7 @@ SECTIONS {
         src/npc/clothesRack.o(.text);
         asm/clothesRack.o(.text);
         asm/picolyteBottles.o(.text);
-        asm/smallTownMinish.o(.text);
+        src/npc/smallTownMinish.o(.text);
         asm/hurdyGurdyMan.o(.text);
         asm/cucco.o(.text);
         asm/cuccoChick.o(.text);
