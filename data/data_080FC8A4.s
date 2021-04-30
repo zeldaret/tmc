@@ -48,7 +48,7 @@ gUnk_080FC9B0:: @ 080FC9B0
 	.4byte sub_0805141C
 
 gUnk_080FC9BC:: @ 080FC9BC
-	.4byte FUN_080515c8
+	.4byte sub_080515c8
 	.4byte sub_080515D4
 	.4byte sub_080516E0
 

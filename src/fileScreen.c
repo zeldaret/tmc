@@ -1009,7 +1009,7 @@ void HandleFileDelete(void) {
     sub_08050A64(gUnk_02019EE0.unk6);
 }
 
-void FUN_080515c8(void) {
+void sub_080515c8(void) {
     sub_080A7114(1);
 }
 

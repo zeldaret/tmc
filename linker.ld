@@ -606,7 +606,6 @@ SECTIONS {
         src/npc/cow.o(.text);
         src/npc/goron.o(.text);
         src/npc/goronMerchant.o(.text);
-        asm/goronMerchant.o(.text);
         asm/gorman.o(.text);
         asm/dog.o(.text);
         src/npc/syrup.o(.text);
@@ -640,7 +639,6 @@ SECTIONS {
         src/npc/ezloCap.o(.text);
         src/npc/npc4E.o(.text);
         src/npc/npc4F.o(.text);
-        asm/npc4E.o(.text);
         src/npc/clothesRack.o(.text);
         asm/clothesRack.o(.text);
         asm/picolyteBottles.o(.text);
@@ -1319,7 +1317,7 @@ SECTIONS {
         data/animations/npc/cow.o(.rodata);
         data/const/npc/goron.o(.rodata);
         data/animations/npc/goron.o(.rodata);
-        data/const/npc/goronMerchant.o(.rodata);
+        src/npc/goronMerchant.o(.rodata);
         data/animations/npc/goronMerchant.o(.rodata);
         data/const/npc/gorman.o(.rodata);
         data/animations/npc/gorman.o(.rodata);

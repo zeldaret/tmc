@@ -256,7 +256,7 @@ void sub_0806AFE8(Entity* this, ScriptExecutionContext* context) {
 void sub_0806B004(Entity* this, ScriptExecutionContext* context) {
     int idx = 0;
 
-    if (CheckGlobalFlag(0x29)) {
+    if (CheckGlobalFlag(MIZUKAKI_START)) {
         if (CheckLocalFlag(0x73)) {
             if (GetInventoryValue(0x46) == 0) {
                 idx = 3;
@@ -279,7 +279,7 @@ void sub_0806B004(Entity* this, ScriptExecutionContext* context) {
 void sub_0806B064(Entity* this) {
     int idx = 0;
 
-    if (CheckGlobalFlag(0x29)) {
+    if (CheckGlobalFlag(MIZUKAKI_START)) {
         idx = 1;
         if (CheckLocalFlag(0x73)) {
             idx = 2;
@@ -294,8 +294,8 @@ void sub_0806B098(Entity* this) {
 
     if (GetInventoryValue(0x46) == 0) {
         idx = 1;
-        if (CheckGlobalFlag(0x29)) {
-            f = CheckGlobalFlag(0x2a);
+        if (CheckGlobalFlag(MIZUKAKI_START)) {
+            f = CheckGlobalFlag(MIZUKAKI_HARIFALL);
             idx = BOOLCAST(f);
         }
     }

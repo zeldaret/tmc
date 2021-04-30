@@ -119,7 +119,7 @@ void sub_08068AFC(Entity* this) {
     sub_0807DD50(this);
 }
 
-void FUN_08068b2c(Entity* this) {
+void sub_08068b2c(Entity* this) {
     u32 uVar1;
 
     if (this->interactType == '\x02') {

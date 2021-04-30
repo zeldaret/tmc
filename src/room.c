@@ -1003,13 +1003,13 @@ extern EntityData gUnk_080D9108;
 extern EntityData gUnk_080D9098;
 
 void sub_0804C018(void) {
-    if (!CheckGlobalFlag(0x20)) {
+    if (!CheckGlobalFlag(HAKA_KEY_LOST)) {
         // graveyard key
         if (GetInventoryValue(0x3c) == 1) {
             LoadRoomEntityList(&gUnk_080D90C8);
             LoadRoomEntityList(&gUnk_080D9108);
         }
-    } else if (!CheckGlobalFlag(0x21))
+    } else if (!CheckGlobalFlag(HAKA_KEY_FOUND))
         LoadRoomEntityList(&gUnk_080D9108);
 
     if (GetInventoryValue(0x3c) != 2) {

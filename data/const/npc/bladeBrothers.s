@@ -12,7 +12,7 @@ gUnk_081115C0:: @ 081115C0
 
 gUnk_081115D0:: @ 081115D0
 	.4byte sub_08068AFC
-	.4byte FUN_08068b2c
+	.4byte sub_08068b2c
 	.4byte sub_08068B70
 
 gUnk_081115DC:: @ 081115DC

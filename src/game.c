@@ -247,7 +247,7 @@ void InitializePlayer(void) {
     MemClear((void*)pl, 0x88);
     gRoomControls.cameraTarget = pl;
     gPlayerState.playerAction = gUnk_080FCAC8[gScreenTransition.field_0xf];
-    if (!CheckGlobalFlag(0x14)) {
+    if (!CheckGlobalFlag(EZERO_1ST)) {
         gPlayerState.flags.all |= 8;
     }
     switch (gScreenTransition.field_0xf) {

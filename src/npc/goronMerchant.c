@@ -6,13 +6,16 @@
 #include "room.h"
 #include "flags.h"
 #include "script.h"
+#include "save.h"
 
-extern u32 sub_080696BC(Entity*);
+extern u32 GoronMerchant_GetSalePrice(Entity*);
 
 extern void (*const gUnk_08111B88[])(Entity*);
 extern void (*const gUnk_08111B98[])(Entity*);
 
-extern u16 gUnk_08111BA0[];
+const u16 GoronMerchant_KinstonePrices[];
+
+extern u32 sub_0801E7D0(u32);
 
 void GoronMerchant(Entity* this) {
     if ((this->flags & 2) != 0) {
@@ -78,7 +81,7 @@ void sub_08069660(Entity* this) {
     u32 uVar1;
 
     TextboxNoOverlap(0x2c1c, this);
-    gTextBox.field_0x10 = (u16)sub_080696BC(this);
+    gTextBox.field_0x10 = (u16)GoronMerchant_GetSalePrice(this);
 }
 
 void sub_08069684(void) {
@@ -98,33 +101,86 @@ void sub_080696B0(void) {
     gRoomVars.itemForSaleIndex = 0;
 }
 
-u32 sub_080696BC(Entity* this) {
-    u32 uVar1;
+u32 GoronMerchant_GetSalePrice(Entity* this) {
+    u32 restockCount;
     u32 temp;
-    u32 iVar3;
-    s32 temp2;
+    u32 kinstoneType;
+    s32 itemForSale;
 
-    temp2 = gRoomVars.field_0x7;
-    if (temp2 > 0x70) {
-        iVar3 = 1;
+    itemForSale = gRoomVars.field_0x7;
+    if (itemForSale > 0x70) {
+        kinstoneType = 1;
     } else {
-        iVar3 = 0;
+        kinstoneType = 0;
     }
-    if (temp2 > 0x72) {
-        iVar3 = 2;
+    if (itemForSale > 0x72) {
+        kinstoneType = 2;
     }
 
-    temp = CheckGlobalFlag(0x3e);
-    uVar1 = BOOLCAST(temp);
+    temp = CheckGlobalFlag(GORON_KAKERA_LV2);
+    restockCount = BOOLCAST(temp);
 
-    if (CheckGlobalFlag(0x3f)) {
-        uVar1 = 2;
+    if (CheckGlobalFlag(GORON_KAKERA_LV3)) {
+        restockCount = 2;
     }
-    if (CheckGlobalFlag(0x40)) {
-        uVar1 = 3;
+    if (CheckGlobalFlag(GORON_KAKERA_LV4)) {
+        restockCount = 3;
     }
-    if (CheckGlobalFlag(0x41)) {
-        uVar1 = 4;
+    if (CheckGlobalFlag(GORON_KAKERA_LV5)) {
+        restockCount = 4;
     }
-    return gUnk_08111BA0[uVar1 * 3 + iVar3];
+    return GoronMerchant_KinstonePrices[restockCount * 3 + kinstoneType];
 }
+
+void GoronMerchant_TryToBuyKinstone(Entity* this, ScriptExecutionContext* context) {
+    s32 salePrice = GoronMerchant_GetSalePrice(this);
+    if (salePrice <= gSave.stats.rupees) {
+        if (sub_0801E7D0(gRoomVars.field_0x7) < 99) {
+            ModRupees(-salePrice);
+            sub_080A7C18(0x5c, gRoomVars.field_0x7, 0);
+            gRoomVars.itemForSaleIndex = 0;
+            gRoomVars.field_0x7 = 0;
+            context->condition = 1;
+        } else {
+            TextboxNoOverlap(0x2c1f, this);
+            context->condition = 0;
+        }
+    } else {
+        TextboxNoOverlap(0x2c1e, this);
+        context->condition = 0;
+    }
+    gActiveScriptInfo.flags = gActiveScriptInfo.flags | 1;
+}
+
+void (*const gUnk_08111B88[])(Entity*) = {
+    sub_08069584,
+    sub_080695AC,
+    sub_080695E8,
+    sub_0806961C,
+};
+void (*const gUnk_08111B98[])(Entity*) = {
+    sub_0806963C,
+    sub_08069654,
+};
+
+const u16 GoronMerchant_KinstonePrices[] = {
+    300,
+    200,
+    50,
+    // prices after restock 1
+    300,
+    200,
+    50,
+    // prices after restock 2
+    300,
+    200,
+    50,
+    // prices after restock 3
+    300,
+    200,
+    50,
+    // prices after restock 4
+    300,
+    200,
+    50,
+};
