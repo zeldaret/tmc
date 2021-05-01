@@ -118,10 +118,10 @@ const s8 gUnk_080CFD1D[] = { -0x11, 0x11 };
 
 void (*const gUnk_080CFD20[])(Entity*) = { sub_0803B910, sub_0803B978, sub_0803BA6C, sub_0803BA80 };
 
-const s16 gUnk_080CFD30[] = { 0xdb, 0xdd, 0xdf, 0xe1, 0xdf, 0xdd, 0xdb, 0xe3, 0xe5, 0xe3 };
-const s16 gUnk_080CFD44[] = { 0xdc, 0xde, 0xe0, 0xe2, 0xe0, 0xde, 0xdc, 0xe4, 0xe6, 0xe4 };
-const s16 gUnk_080CFD58[] = { 0xe5, 0xe6 };
-const s16 gUnk_080CFD5C[] = { 0xe7, 0xe8 };
+const u16 gUnk_080CFD30[] = { 0xdb, 0xdd, 0xdf, 0xe1, 0xdf, 0xdd, 0xdb, 0xe3, 0xe5, 0xe3 };
+const u16 gUnk_080CFD44[] = { 0xdc, 0xde, 0xe0, 0xe2, 0xe0, 0xde, 0xdc, 0xe4, 0xe6, 0xe4 };
+const u16 gUnk_080CFD58[] = { 0xe5, 0xe6 };
+const u16 gUnk_080CFD5C[] = { 0xe7, 0xe8 };
 
 extern s8 gUnk_080CED6C[8];
 
@@ -1361,10 +1361,12 @@ void sub_0803BA80(Entity* this) {
     sub_0803BA8C(this, 10);
 }
 
-NONMATCH("asm/non_matching/mazaal/sub_0803BA8C.inc", void sub_0803BA8C(Entity* this, u32 unk)) {
+void sub_0803BA8C(Entity* this, u32 unk) {
     u32 sVar2;
+    u32 tmp;
 
     sVar2 = 0;
+    tmp = this->field_0x74.HALF.LO & 0xe0;
     if ((this->field_0x74.HALF.LO & 0xe0) == 0) {
         if (this->field_0x74.HALF.LO == 0) {
             if (9 < ++this->field_0x74.HALF.HI) {
@@ -1381,9 +1383,9 @@ NONMATCH("asm/non_matching/mazaal/sub_0803BA8C.inc", void sub_0803BA8C(Entity* t
             this->field_0x74.HALF.LO = 0;
         }
     } else {
-        if ((this->field_0x74.HALF.LO & 0x80) == 0) {
+        if ((tmp & 0x80) == 0) {
             this->field_0x74.HALF.LO |= 0x80;
-            if ((this->field_0x74.HALF.LO & 0x20) != 0) {
+            if ((tmp & 0x20) != 0) {
                 sVar2 = gUnk_080CFD58[this->type - 2];
             } else {
                 sVar2 = gUnk_080CFD5C[this->type - 2];
@@ -1392,10 +1394,9 @@ NONMATCH("asm/non_matching/mazaal/sub_0803BA8C.inc", void sub_0803BA8C(Entity* t
     }
     if (sVar2 != 0) {
         sub_0801D2B4(this, sVar2);
-        (*(Entity**)&this->parent->field_0x78)->palette.b.b0 = this->palette.b.b0;
+        (*(Entity**)&this->parent->field_0x78)->palette.b.b0 = this->palette.raw << 0x1c >> 0x1c;
         (*(Entity**)&this->parent->field_0x78)->palette.b.b4 = this->palette.b.b0;
-        this->parent->attachedEntity->palette.b.b0 = this->palette.b.b0;
+        this->parent->attachedEntity->palette.b.b0 = this->palette.raw << 0x1c >> 0x1c;
         this->parent->attachedEntity->palette.b.b4 = this->palette.b.b0;
     }
 }
-END_NONMATCH
