@@ -708,7 +708,7 @@ SECTIONS {
         src/object/pot.o(.text);
         asm/object6.o(.text);
         asm/blockPushed.o(.text);
-        asm/lockedDoor.o(.text);
+        src/object/lockedDoor.o(.text);
         asm/object9.o(.text);
         src/object/objectA.o(.text);
         asm/objectB.o(.text);
@@ -1413,7 +1413,7 @@ SECTIONS {
         data/const/object/object6.o(.rodata);
         data/animations/object/object6.o(.rodata);
         data/const/object/blockPushed.o(.rodata);
-        data/const/object/lockedDoor.o(.rodata);
+        src/object/lockedDoor.o(.rodata);
         data/const/object/object9.o(.rodata);
         data/animations/object/object9.o(.rodata);
         data/const/object/objectB.o(.rodata);
