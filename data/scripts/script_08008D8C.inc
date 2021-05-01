@@ -15,6 +15,7 @@ script_08008DA0:
 	_0807E878 
 	Jump script_08008DA0
 	.2byte 0x0000
+SCRIPT_START script_08008DC0
 	BeginBlock 
 	_0807E9D4 
 	DoPostScriptAction 0x000a
@@ -33,6 +34,7 @@ script_08008DD8:
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x00000000
 	Jump script_08008DD8
+SCRIPT_START script_08008E08
 	BeginBlock 
 	SetEntityPositionRelative 0x0088, 0x0078
 	EndBlock 

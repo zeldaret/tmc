@@ -20,6 +20,7 @@ script_08014AAC:
 	_0807E878 
 	Jump script_08014AAC
 	.2byte 0x0000
+SCRIPT_START script_08014AC4
 	BeginBlock 
 	Call sub_0806C870
 	DoPostScriptAction 0x000a

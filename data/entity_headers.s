@@ -4,8 +4,8 @@
 	.section .rodata
 	.align 2
 
-gAreaRoomEntities_MinishWoods:: @ 080D4150
-	.4byte gAreaRoomEntities_MinishWoods_0
+Area_MinishWoods:: @ 080D4150
+	.4byte Room_MinishWoods_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -14,55 +14,9 @@ gAreaRoomEntities_MinishWoods:: @ 080D4150
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_MinishVillage:: @ 080D4170
-	.4byte gUnk_080DC568
-	.4byte gUnk_080DC5C0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_MinishPaths1:: @ 080D41B0
-	.4byte gUnk_080D5D18
-	.4byte gUnk_080D5DD8
-	.4byte gUnk_080D5F70
-	.4byte gUnk_080D6078
-	.4byte gUnk_080D61A0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_CrenelMinishPaths:: @ 080D41D0
-	.4byte gUnk_080D5948
-	.4byte gUnk_080D5AA8
-	.4byte gUnk_080D5B38
-	.4byte gUnk_080D5C38
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_MelarisMine:: @ 080D4210
-	.4byte gUnk_080DD31C
-	.4byte 0x0
+Area_MinishVillage:: @ 080D4170
+	.4byte Room_MinishVillage_Main
+	.4byte Room_MinishVillage_SideHouse
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -78,63 +32,26 @@ gAreaRoomEntities_MelarisMine:: @ 080D4210
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_HyruleTown:: @ 080D4250
-	.4byte gUnk_080EFAEC
-	.4byte gUnk_080EFBD8
-	.4byte gUnk_080EFC00
-	.4byte gUnk_080EFC00
-	.4byte gUnk_080EFC20
-	.4byte gUnk_080EFC40
-	.4byte gUnk_080EFC60
-	.4byte gUnk_080EFC80
-	.4byte gUnk_080EFCA0
-	.4byte gUnk_080EFCC0
+Area_MinishPaths1:: @ 080D41B0
+	.4byte Room_MinishPaths1_ToMinishVillage
+	.4byte Room_MinishPaths1_CastorWilds
+	.4byte Room_MinishPaths1_HyruleTown
+	.4byte Room_MinishPaths1_LonLonRanch
+	.4byte Room_MinishPaths1_MayorsCabin
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
 
-gAreaRoomEntities_HyruleTownUnderground:: @ 080D4278
-	.4byte gUnk_080F05B8
-	.4byte gUnk_080F0610
-
-gAreaRoomEntities_FestivalTown:: @ 080D4280
-	.4byte gUnk_080EFBD8
-
-gAreaRoomEntities_HyruleTownMinishCaves:: @ 080D4284
-	.4byte gUnk_080EFDF8
-	.4byte gUnk_080EFE78
-	.4byte gUnk_080EFF80
-	.4byte gUnk_080F00A0
-	.4byte gUnk_080F00F4
+Area_CrenelMinishPaths:: @ 080D41D0
+	.4byte Room_CrenelMinishPaths_CrenelBean
+	.4byte Room_CrenelMinishPaths_CrenelWater
+	.4byte Room_CrenelMinishPaths_Rainfall
+	.4byte Room_CrenelMinishPaths_MelarisMine
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080F01D4
-	.4byte gUnk_080F0230
-	.4byte gUnk_080F0290
-	.4byte gUnk_080F0368
-	.4byte gUnk_080F0410
-	.4byte gUnk_080F0458
-
-gAreaRoomEntities_HyruleField:: @ 080D42DC
-	.4byte gUnk_080F6FF0
-	.4byte gUnk_080F72C4
-	.4byte gUnk_080F73AC
-	.4byte gUnk_080F74C8
-	.4byte gUnk_080F76F8
-	.4byte gUnk_080F7BA4
-	.4byte gUnk_080F8020
-	.4byte gUnk_080F81E8
-	.4byte gUnk_080F8400
-	.4byte gUnk_080F84C8
-
-gAreaRoomEntities_CastorWilds:: @ 080D4304
-	.4byte gUnk_080D9F58
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -143,50 +60,8 @@ gAreaRoomEntities_CastorWilds:: @ 080D4304
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_Ruins:: @ 080D4324
-	.4byte gUnk_080DDD40
-	.4byte gUnk_080DDE20
-	.4byte gUnk_080DDF34
-	.4byte gUnk_080DDFC8
-	.4byte gUnk_080DE12C
-	.4byte gUnk_080DE39C
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_MtCrenel:: @ 080D4344
-	.4byte gUnk_080FAE6C
-	.4byte gUnk_080FAFB4
-	.4byte gUnk_080FB270
-	.4byte gUnk_080FB460
-	.4byte gUnk_080FB7A4
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_RoyalValley:: @ 080D4364
-	.4byte gUnk_080D9290
-	.4byte gUnk_080D9368
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_VeilFalls:: @ 080D4374
-	.4byte gUnk_080F94A8
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_LakeHylia:: @ 080D4384
-	.4byte gUnk_080F4074
-	.4byte gUnk_080F41B8
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_Beanstalks:: @ 080D4394
-	.4byte gUnk_080F68FC
-	.4byte gUnk_080F69CC
-	.4byte gUnk_080F6A94
-	.4byte gUnk_080F6B64
-	.4byte gUnk_080F6D1C
+Area_MelarisMine:: @ 080D4210
+	.4byte Room_MelarisMine_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -195,33 +70,6 @@ gAreaRoomEntities_Beanstalks:: @ 080D4394
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080F6D7C
-	.4byte gUnk_080F6DDC
-	.4byte gUnk_080F6E3C
-	.4byte gUnk_080F6E9C
-	.4byte gUnk_080F6EFC
-
-gAreaRoomEntities_CastleGarden:: @ 080D43E8
-	.4byte gUnk_080F0AE8
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_CloudTops:: @ 080D43F8
-	.4byte gUnk_080DD3EC
-	.4byte gUnk_080DD70C
-	.4byte gUnk_080DDBC8
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_LakeWoodsCave:: @ 080D4418
-	.4byte gUnk_080F42A0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -230,8 +78,63 @@ gAreaRoomEntities_LakeWoodsCave:: @ 080D4418
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_HyruleDigCaves:: @ 080D4438
-	.4byte gUnk_080F4540
+Area_HyruleTown:: @ 080D4250
+	.4byte Room_HyruleTown_0
+	.4byte Room_HyruleTown_1
+	.4byte Room_HyruleTown_2
+	.4byte Room_HyruleTown_2
+	.4byte Room_HyruleTown_3
+	.4byte Room_HyruleTown_4
+	.4byte Room_HyruleTown_5
+	.4byte Room_HyruleTown_6
+	.4byte Room_HyruleTown_7
+	.4byte Room_HyruleTown_8
+
+Area_HyruleTownUnderground:: @ 080D4278
+	.4byte Room_HyruleTownUnderground_Main
+	.4byte Room_HyruleTownUnderground_Well
+
+Area_FestivalTown:: @ 080D4280
+	.4byte Room_HyruleTown_1
+
+Area_HyruleTownMinishCaves:: @ 080D4284
+	.4byte Room_HyruleTownMinishCaves_Entrance
+	.4byte Room_HyruleTownMinishCaves_NorthRoom
+	.4byte Room_HyruleTownMinishCaves_PacciJump
+	.4byte Room_HyruleTownMinishCaves_MulldozerFight
+	.4byte Room_HyruleTownMinishCaves_WestChest
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte Room_HyruleTownMinishCaves_Flippers
+	.4byte Room_HyruleTownMinishCaves_Librari
+	.4byte Room_HyruleTownMinishCaves_WestFrozenChest
+	.4byte Room_HyruleTownMinishCaves_CrossIntersection
+	.4byte Room_HyruleTownMinishCaves_SoutheastCorner
+	.4byte Room_HyruleTownMinishCaves_Entrance2
+
+Area_HyruleField:: @ 080D42DC
+	.4byte Room_HyruleField_WesternWoodSouth
+	.4byte Room_HyruleField_LinksHouseExterior
+	.4byte Room_HyruleField_FromMinishWoods
+	.4byte Room_HyruleField_FromMinishWoodsNorth
+	.4byte Room_HyruleField_Farmers
+	.4byte Room_HyruleField_LonLonRanch
+	.4byte Room_HyruleField_OutsideCastle
+	.4byte Room_HyruleField_OutsideCastleWest
+	.4byte Room_HyruleField_TrilbyHighlands
+	.4byte Room_HyruleField_PercysHouse
+
+Area_CastorWilds:: @ 080D4304
+	.4byte Room_CastorWilds_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -240,147 +143,85 @@ gAreaRoomEntities_HyruleDigCaves:: @ 080D4438
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_DigCaves1:: @ 080D4458
-	.4byte gUnk_080F46D0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080F4780
-
-gAreaRoomEntities_CrenelDigCave:: @ 080D4468
-	.4byte gUnk_080F4638
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
+Area_Ruins:: @ 080D4324
+	.4byte Room_Ruins_Entrance
+	.4byte Room_Ruins_Beanstalk
+	.4byte Room_Ruins_TripleTektites
+	.4byte Room_Ruins_LadderToTektites
+	.4byte Room_Ruins_FortressEntrance
+	.4byte Room_Ruins_Armos
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_VeilFallsDigCave:: @ 080D4488
-	.4byte gUnk_080F4820
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
+Area_MtCrenel:: @ 080D4344
+	.4byte Room_MtCrenel_MountainTop
+	.4byte Room_MtCrenel_WallClimb
+	.4byte Room_MtCrenel_CaveOfFlamesEntrance
+	.4byte Room_MtCrenel_GustJarShortcut
+	.4byte Room_MtCrenel_Entrance
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_CastorWildsDigCave:: @ 080D44A8
-	.4byte gUnk_080F44A0
+Area_RoyalValley:: @ 080D4364
+	.4byte Room_RoyalValley_Main
+	.4byte Room_RoyalValley_ForestMaze
 	.4byte 0x0
 	.4byte 0x0
+
+Area_VeilFalls:: @ 080D4374
+	.4byte Room_VeilFalls_Main
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+
+Area_LakeHylia:: @ 080D4384
+	.4byte Room_LakeHylia_Main
+	.4byte Room_LakeHylia_Beanstalk
+	.4byte 0x0
+	.4byte 0x0
+
+Area_Beanstalks:: @ 080D4394
+	.4byte Room_Beanstalks_MountCrenel
+	.4byte Room_Beanstalks_LakeHylia
+	.4byte Room_Beanstalks_Ruins
+	.4byte Room_Beanstalks_EasternHills
+	.4byte Room_Beanstalks_WesternWoods
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte Room_Beanstalks_MountCrenelClimb
+	.4byte Room_Beanstalks_LakeHyliaClimb
+	.4byte Room_Beanstalks_RuinsClimb
+	.4byte Room_Beanstalks_EasternHillsClimb
+	.4byte Room_Beanstalks_WesternWoodsClimb
+
+Area_CastleGarden:: @ 080D43E8
+	.4byte Room_CastleGarden_Main
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+
+Area_CloudTops:: @ 080D43F8
+	.4byte Room_CloudTops_House
+	.4byte Room_CloudTops_Middle
+	.4byte Room_CloudTops_Bottom
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_OuterFortressOfWinds:: @ 080D44C8
-	.4byte gUnk_080F4880
-	.4byte gUnk_080F4A80
-	.4byte gUnk_080F4B38
-	.4byte gUnk_080F4BD8
-	.4byte gUnk_080F4CDC
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_HyliaDigCaves:: @ 080D44E8
-	.4byte gUnk_080F4300
-	.4byte gUnk_080F4428
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_VeilFallsTop:: @ 080D44FC
-	.4byte gUnk_080F9CB0
-
-gAreaRoomEntities_Empty:: @ 080D4500
-	.4byte gUnk_080F52D8
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_DeepwoodShrineEntry:: @ 080D4520
-	.4byte gUnk_080DFBB0
-
-gAreaRoomEntities_DeepwoodShrine:: @ 080D4524
-	.4byte gUnk_080DE550
-	.4byte gUnk_080DE7B4
-	.4byte gUnk_080DE8AC
-	.4byte gUnk_080DE980
-	.4byte gUnk_080DEA48
-	.4byte gUnk_080DEB10
-	.4byte gUnk_080DEC68
-	.4byte gUnk_080DED6C
-	.4byte gUnk_080DEE5C
-	.4byte gUnk_080DEF60
-	.4byte gUnk_080DF090
-	.4byte gUnk_080DF1B0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080DF324
-	.4byte gUnk_080DF46C
-	.4byte gUnk_080DF5BC
-	.4byte gUnk_080DF62C
-	.4byte gUnk_080DF70C
-	.4byte gUnk_080DF86C
-	.4byte 0x0
-	.4byte gUnk_080DFA70
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080DFB48
-
-gAreaRoomEntities_DeepwoodShrineBoss:: @ 080D45A8
-	.4byte gUnk_080DF9AC
-
-gAreaRoomEntities_CaveOfFlames:: @ 080D45AC
-	.4byte gUnk_080DFCF0
-	.4byte gUnk_080DFE9C
-	.4byte gUnk_080E0048
-	.4byte gUnk_080E0188
-	.4byte gUnk_080E035C
-	.4byte gUnk_080E04AC
-	.4byte gUnk_080E0770
-	.4byte gUnk_080E0878
-	.4byte gUnk_080E0A20
-	.4byte gUnk_080E0C14
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080E0E34
-	.4byte gUnk_080E0F4C
-	.4byte gUnk_080E107C
-	.4byte gUnk_080E110C
-	.4byte gUnk_080E11F0
-	.4byte gUnk_080E12F0
-	.4byte gUnk_080E141C
-	.4byte gUnk_080E1728
-	.4byte gUnk_080E1784
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080E1874
+Area_LakeWoodsCave:: @ 080D4418
+	.4byte Room_LakeWoodsCave_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -389,125 +230,284 @@ gAreaRoomEntities_CaveOfFlames:: @ 080D45AC
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_CaveOfFlamesBoss:: @ 080D464C
-	.4byte gUnk_080E1874
-
-gAreaRoomEntities_FortressOfWinds:: @ 080D4650
-	.4byte gUnk_080E1998
-	.4byte gUnk_080E1ACC
-	.4byte gUnk_080E1D84
-	.4byte gUnk_080E1F48
-	.4byte gUnk_080E212C
-	.4byte gUnk_080F4BD8
-	.4byte gUnk_080F4CDC
+Area_HyruleDigCaves:: @ 080D4438
+	.4byte Room_HyruleDigCaves_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080E2310
-	.4byte gUnk_080E2424
-	.4byte gUnk_080E2564
-	.4byte gUnk_080E26F8
-	.4byte gUnk_080E28EC
-	.4byte gUnk_080E2AA8
-	.4byte gUnk_080E2C08
-	.4byte gUnk_080E2D60
-	.4byte gUnk_080E2E5C
-	.4byte gUnk_080E3054
-	.4byte gUnk_080E3130
-	.4byte gUnk_080E31BC
-	.4byte gUnk_080E326C
-	.4byte gUnk_080E33DC
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080E347C
-	.4byte gUnk_080E351C
-	.4byte gUnk_080E358C
-	.4byte gUnk_080E3694
-	.4byte gUnk_080E3728
-
-gAreaRoomEntities_FortressOfWindsTop:: @ 080D46E4
-	.4byte gUnk_080E38C0
-
-gAreaRoomEntities_InnerMazaal:: @ 080D46E8
-	.4byte gUnk_080E3790
-	.4byte gUnk_080E3790
-
-gAreaRoomEntities_TempleOfDroplets:: @ 080D46F0
-	.4byte gUnk_080E3970
-	.4byte gUnk_080E3A90
-	.4byte gUnk_080E3B40
-	.4byte gUnk_080E3C90
-	.4byte gUnk_080E3D20
-	.4byte gUnk_080E3E60
-	.4byte gUnk_080E3F84
-	.4byte gUnk_080E4054
-	.4byte gUnk_080E42BC
-	.4byte gUnk_080E4344
-	.4byte gUnk_080E4668
-	.4byte gUnk_080E471C
-	.4byte gUnk_080E47EC
-	.4byte gUnk_080E4924
-	.4byte gUnk_080E4A5C
-	.4byte gUnk_080E4B48
-	.4byte gUnk_080E4C68
-	.4byte gUnk_080E4D4C
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080E4E0C
-	.4byte gUnk_080E4ECC
-	.4byte gUnk_080E4FA0
-	.4byte gUnk_080E4FF0
-	.4byte gUnk_080E5100
-	.4byte gUnk_080E5220
-	.4byte gUnk_080E5330
-	.4byte gUnk_080E5460
-	.4byte gUnk_080E5730
-	.4byte gUnk_080E5828
-	.4byte gUnk_080E58C0
-	.4byte gUnk_080E5B38
-	.4byte gUnk_080E5CF0
-	.4byte gUnk_080E5DAC
-	.4byte gUnk_080E5E9C
-	.4byte gUnk_080E5FB4
-	.4byte gUnk_080E6130
-	.4byte gUnk_080E62A8
-	.4byte gUnk_080E637C
-	.4byte gUnk_080E64A4
-	.4byte gUnk_080E65B8
-	.4byte gUnk_080E66D8
-	.4byte gUnk_080E678C
 	.4byte 0x0
 
-gAreaRoomEntities_RoyalCrypt:: @ 080D47D0
-	.4byte gUnk_080E698C
-	.4byte gUnk_080E6AD4
-	.4byte gUnk_080E6B50
-	.4byte gUnk_080E6BF8
-	.4byte gUnk_080E6E04
-	.4byte gUnk_080E6F1C
-	.4byte gUnk_080E70A4
-	.4byte gUnk_080E714C
-	.4byte gUnk_080E7204
+Area_DigCaves1:: @ 080D4458
+	.4byte Room_DigCaves1_HyruleFieldFarm
+	.4byte 0x0
+	.4byte 0x0
+	.4byte Room_DigCaves1_TrilbyHighlands
 
-gAreaRoomEntities_PalaceOfWinds:: @ 080D47F4
+Area_CrenelDigCave:: @ 080D4468
+	.4byte Room_CrenelDigCave_Main
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+
+Area_VeilFallsDigCave:: @ 080D4488
+	.4byte Room_VeilFallsDigCave_Main
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+
+Area_CastorWildsDigCave:: @ 080D44A8
+	.4byte Room_CastorWildsDigCave_Main
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+
+Area_OuterFortressOfWinds:: @ 080D44C8
+	.4byte Room_OuterFortressOfWinds_EntranceHall
+	.4byte Room_OuterFortressOfWinds_2F
+	.4byte Room_OuterFortressOfWinds_3F
+	.4byte Room_OuterFortressOfWinds_MoleMitts
+	.4byte Room_OuterFortressOfWinds_SmallKey
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+
+Area_HyliaDigCaves:: @ 080D44E8
+	.4byte Room_HyliaDigCaves_Middle
+	.4byte Room_HyliaDigCaves_North
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+
+Area_VeilFallsTop:: @ 080D44FC
+	.4byte Room_VeilFallsTop_Main
+
+Area_Empty:: @ 080D4500
+	.4byte Room_Empty_Main
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+
+Area_DeepwoodShrineEntry:: @ 080D4520
+	.4byte Room_DeepwoodShrineEntry_Main
+
+Area_DeepwoodShrine:: @ 080D4524
+	.4byte Room_DeepwoodShrine_Madderpillar
+	.4byte Room_DeepwoodShrine_BluePortal
+	.4byte Room_DeepwoodShrine_StairsToB1
+	.4byte Room_DeepwoodShrine_PotBridge
+	.4byte Room_DeepwoodShrine_DoubleStatue
+	.4byte Room_DeepwoodShrine_Map
+	.4byte Room_DeepwoodShrine_Barrel
+	.4byte Room_DeepwoodShrine_Button
+	.4byte Room_DeepwoodShrine_Mulldozer
+	.4byte Room_DeepwoodShrine_Pillars
+	.4byte Room_DeepwoodShrine_Lever
+	.4byte Room_DeepwoodShrine_Entrance
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte Room_DeepwoodShrine_Torch
+	.4byte Room_DeepwoodShrine_BossKey
+	.4byte Room_DeepwoodShrine_Compass
+	.4byte Room_DeepwoodShrine_13
+	.4byte Room_DeepwoodShrine_LilyPadWest
+	.4byte Room_DeepwoodShrine_LilyPadEast
+	.4byte 0x0
+	.4byte Room_DeepwoodShrine_PreBoss
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte Room_DeepwoodShrine_InsideBarrel
+
+Area_DeepwoodShrineBoss:: @ 080D45A8
+	.4byte Room_DeepwoodShrineBoss_Main
+
+Area_CaveOfFlames:: @ 080D45AC
+	.4byte Room_CaveOfFlames_AfterCane
+	.4byte Room_CaveOfFlames_SpinyChus
+	.4byte Room_CaveOfFlames_CartToSpinyChus
+	.4byte Room_CaveOfFlames_Entrance
+	.4byte Room_CaveOfFlames_MainCart
+	.4byte Room_CaveOfFlames_NorthEntrance
+	.4byte Room_CaveOfFlames_CartWest
+	.4byte Room_CaveOfFlames_Helmasaur
+	.4byte Room_CaveOfFlames_Rollobite
+	.4byte Room_CaveOfFlames_MinishLava
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte Room_CaveOfFlames_MinishSpikes
+	.4byte Room_CaveOfFlames_RollobiteSwitch
+	.4byte Room_CaveOfFlames_BeforeGleerok
+	.4byte Room_CaveOfFlames_PathBossKey
+	.4byte Room_CaveOfFlames_PathBossKey2
+	.4byte Room_CaveOfFlames_Compass
+	.4byte Room_CaveOfFlames_Bobomb
+	.4byte Room_CaveOfFlames_BossDoor
+	.4byte Room_CaveOfFlames_18
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte Room_CaveOfFlamesBoss_Main
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+
+Area_CaveOfFlamesBoss:: @ 080D464C
+	.4byte Room_CaveOfFlamesBoss_Main
+
+Area_FortressOfWinds:: @ 080D4650
+	.4byte Room_FortressOfWinds_Eyegore
+	.4byte Room_FortressOfWinds_BeforeMazaal
+	.4byte Room_FortressOfWinds_EastKeyLever
+	.4byte Room_FortressOfWinds_PitPlatforms
+	.4byte Room_FortressOfWinds_WestKeyLever
+	.4byte Room_OuterFortressOfWinds_MoleMitts
+	.4byte Room_OuterFortressOfWinds_SmallKey
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte Room_FortressOfWinds_Darknut
+	.4byte Room_FortressOfWinds_EyeBridge
+	.4byte Room_FortressOfWinds_Pit
+	.4byte Room_FortressOfWinds_Wallmaster
+	.4byte Room_FortressOfWinds_Clone
+	.4byte Room_FortressOfWinds_SpikeTraps
+	.4byte Room_FortressOfWinds_Mazaal
+	.4byte Room_FortressOfWinds_Stalfos
+	.4byte Room_FortressOfWinds_EntranceMoleMitts
+	.4byte Room_FortressOfWinds_Main2F
+	.4byte Room_FortressOfWinds_MinishHole
+	.4byte Room_FortressOfWinds_BossKey
+	.4byte Room_FortressOfWinds_WestStairs2F
+	.4byte Room_FortressOfWinds_EastStairs2F
+	.4byte 0x0
+	.4byte 0x0
+	.4byte Room_FortressOfWinds_WestStairs1F
+	.4byte Room_FortressOfWinds_CenterStairs1F
+	.4byte Room_FortressOfWinds_EastStairs1F
+	.4byte Room_FortressOfWinds_Wizzrobe
+	.4byte Room_FortressOfWinds_HeartPiece
+
+Area_FortressOfWindsTop:: @ 080D46E4
+	.4byte Room_FortressOfWindsTop_Main
+
+Area_InnerMazaal:: @ 080D46E8
+	.4byte Room_InnerMazaal_Main
+	.4byte Room_InnerMazaal_Main
+
+Area_TempleOfDroplets:: @ 080D46F0
+	.4byte Room_TempleOfDroplets_WestHole
+	.4byte Room_TempleOfDroplets_NorthSplit
+	.4byte Room_TempleOfDroplets_EastHole
+	.4byte Room_TempleOfDroplets_Entrance
+	.4byte Room_TempleOfDroplets_NorthwestStairs
+	.4byte Room_TempleOfDroplets_ScissorsMiniboss
+	.4byte Room_TempleOfDroplets_WaterfallNorthwest
+	.4byte Room_TempleOfDroplets_WaterfallNortheast
+	.4byte Room_TempleOfDroplets_Element
+	.4byte Room_TempleOfDroplets_IceCorner
+	.4byte Room_TempleOfDroplets_IcePitMaze
+	.4byte Room_TempleOfDroplets_HoleToBlueChuchu
+	.4byte Room_TempleOfDroplets_WaterfallSoutheast
+	.4byte Room_TempleOfDroplets_WaterfallSouthwest
+	.4byte Room_TempleOfDroplets_BigOcto
+	.4byte Room_TempleOfDroplets_ToBigBlueChuchu
+	.4byte Room_TempleOfDroplets_BigBlueChuchu
+	.4byte Room_TempleOfDroplets_BigBlueChuchuKey
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte Room_TempleOfDroplets_BossKey
+	.4byte Room_TempleOfDroplets_NorthSmallKey
+	.4byte Room_TempleOfDroplets_BlockCloneButtonPuzzle
+	.4byte Room_TempleOfDroplets_BlockClonePuzzle
+	.4byte Room_TempleOfDroplets_BlockCloneIceBridge
+	.4byte Room_TempleOfDroplets_StairsToScissorsMiniboss
+	.4byte Room_TempleOfDroplets_SpikeBar
+	.4byte Room_TempleOfDroplets_Lanterns
+	.4byte Room_TempleOfDroplets_LilypadIceBlocks
+	.4byte Room_TempleOfDroplets_Pit
+	.4byte Room_TempleOfDroplets_FireBars
+	.4byte Room_TempleOfDroplets_LanternMaze
+	.4byte Room_TempleOfDroplets_Madderpillars
+	.4byte Room_TempleOfDroplets_AfterMadderpillars
+	.4byte Room_TempleOfDroplets_BlueChuchuKeyLever
+	.4byte Room_TempleOfDroplets_MulldozerKey
+	.4byte Room_TempleOfDroplets_BombWall
+	.4byte Room_TempleOfDroplets_LilypadWestB2
+	.4byte Room_TempleOfDroplets_CompassRoom
+	.4byte Room_TempleOfDroplets_LanternScissors
+	.4byte Room_TempleOfDroplets_LilypadMiddleB2
+	.4byte Room_TempleOfDroplets_LilypadEastB2
+	.4byte Room_TempleOfDroplets_FlameBarBlockPuzzle
+	.4byte 0x0
+
+Area_RoyalCrypt:: @ 080D47D0
+	.4byte Room_RoyalCrypt_KingGustaf
+	.4byte Room_RoyalCrypt_WaterRope
+	.4byte Room_RoyalCrypt_Gibdo
+	.4byte Room_RoyalCrypt_3
+	.4byte Room_RoyalCrypt_KeyBlock
+	.4byte Room_RoyalCrypt_5
+	.4byte Room_RoyalCrypt_6
+	.4byte Room_RoyalCrypt_MushroomPit
+	.4byte Room_RoyalCrypt_Entrance
+
+Area_PalaceOfWinds:: @ 080D47F4
 	.4byte gUnk_080E7364
 	.4byte gUnk_080E73E4
 	.4byte gUnk_080E74C4
@@ -560,17 +560,17 @@ gAreaRoomEntities_PalaceOfWinds:: @ 080D47F4
 	.4byte gUnk_080EA7C8
 	.4byte gUnk_080EA9E0
 
-gAreaRoomEntities_PalaceOfWindsBoss:: @ 080D48C0
-	.4byte gUnk_080EAA58
+Area_PalaceOfWindsBoss:: @ 080D48C0
+	.4byte Room_PalaceOfWindsBoss_Main
 
-gAreaRoomEntities_Sanctuary:: @ 080D48C4
-	.4byte gUnk_080F5428
-	.4byte gUnk_080F5610
-	.4byte gUnk_080F5718
+Area_Sanctuary:: @ 080D48C4
+	.4byte Room_Sanctuary_Hall
+	.4byte Room_Sanctuary_Main
+	.4byte Room_Sanctuary_StainedGlass
 	.4byte 0x0
-	.4byte gUnk_080F5718
+	.4byte Room_Sanctuary_StainedGlass
 
-gAreaRoomEntities_HyruleCastle:: @ 080D48D8
+Area_HyruleCastle:: @ 080D48D8
 	.4byte gUnk_080D7380
 	.4byte gUnk_080D7498
 	.4byte gUnk_080D7650
@@ -578,10 +578,10 @@ gAreaRoomEntities_HyruleCastle:: @ 080D48D8
 	.4byte gUnk_080D7744
 	.4byte gUnk_080D778C
 
-gAreaRoomEntities_SanctuaryEntrance:: @ 080D48F0
-	.4byte gUnk_080F53C0
+Area_SanctuaryEntrance:: @ 080D48F0
+	.4byte Room_SanctuaryEntrance_Main
 
-gAreaRoomEntities_DarkHyruleCastle:: @ 080D48F4
+Area_DarkHyruleCastle:: @ 080D48F4
 	.4byte gUnk_080EB704
 	.4byte gUnk_080EB75C
 	.4byte gUnk_080EB7B4
@@ -642,165 +642,111 @@ gAreaRoomEntities_DarkHyruleCastle:: @ 080D48F4
 	.4byte gUnk_080EE78C
 	.4byte gUnk_080EE7EC
 
-gAreaRoomEntities_VaatisArms:: @ 080D49E0
-	.4byte gUnk_080EACA8
-	.4byte gUnk_080EAD18
+Area_VaatisArms:: @ 080D49E0
+	.4byte Room_VaatisArms_First
+	.4byte Room_VaatisArms_Second
 
-gAreaRoomEntities_Vaati3:: @ 080D49E8
-	.4byte gUnk_080EABA8
-	.4byte gUnk_080EABA8
+Area_Vaati3:: @ 080D49E8
+	.4byte Room_Vaati3_Main
+	.4byte Room_Vaati3_Main
 
-gAreaRoomEntities_Vaati2:: @ 080D49F0
-	.4byte gUnk_080EAB00
+Area_Vaati2:: @ 080D49F0
+	.4byte Room_Vaati2_Main
 
-gAreaRoomEntities_DarkHyruleCastleBridge:: @ 080D49F4
-	.4byte gUnk_080EAC40
+Area_DarkHyruleCastleBridge:: @ 080D49F4
+	.4byte Room_DarkHyruleCastleBridge_Main
 
-gAreaRoomEntities_DarkHyruleCastleOutside:: @ 080D49F8
-	.4byte gUnk_080EAE20
-	.4byte gUnk_080EAF78
-	.4byte gUnk_080EAFD0
-	.4byte gUnk_080EB0A4
-	.4byte gUnk_080EB180
-	.4byte gUnk_080EB1D8
-	.4byte gUnk_080EB320
-	.4byte gUnk_080EB440
-	.4byte gUnk_080EB568
+Area_DarkHyruleCastleOutside:: @ 080D49F8
+	.4byte Room_DarkHyruleCastleOutside_ZeldaStatuePlatform
+	.4byte Room_DarkHyruleCastleOutside_Garden
+	.4byte Room_DarkHyruleCastleOutside_OutsideNorthwest
+	.4byte Room_DarkHyruleCastleOutside_OutsideNortheast
+	.4byte Room_DarkHyruleCastleOutside_OutsideEast
+	.4byte Room_DarkHyruleCastleOutside_OutsideSouthwest
+	.4byte Room_DarkHyruleCastleOutside_OutsideSouth
+	.4byte Room_DarkHyruleCastleOutside_OutsideSoutheast
+	.4byte Room_DarkHyruleCastleOutside_8
 
-gAreaRoomEntities_45:: @ 080D4A1C
-	.4byte gUnk_080D787C
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_4D:: @ 080D4A2C
-	.4byte gUnk_080D78F4
+Area_45:: @ 080D4A1C
+	.4byte Area_45_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_57:: @ 080D4A3C
-	.4byte gUnk_080D797C
+Area_4D:: @ 080D4A2C
+	.4byte Area_4D_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_5F:: @ 080D4A4C
-	.4byte gUnk_080D79F4
+Area_57:: @ 080D4A3C
+	.4byte Area_57_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_67:: @ 080D4A5C
-	.4byte gUnk_080D7A6C
+Area_5F:: @ 080D4A4C
+	.4byte Area_5F_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_6F:: @ 080D4A6C
-	.4byte gUnk_080D7AE4
+Area_67:: @ 080D4A5C
+	.4byte Area_67_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_77:: @ 080D4A7C
-	.4byte gUnk_080D7B6C
+Area_6F:: @ 080D4A6C
+	.4byte Area_6F_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_7F:: @ 080D4A8C
-	.4byte gUnk_080D7BE4
+Area_77:: @ 080D4A7C
+	.4byte Area_77_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_87:: @ 080D4A9C
-	.4byte gUnk_080D7804
+Area_7F:: @ 080D4A8C
+	.4byte Area_7F_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_8F:: @ 080D4AAC
-	.4byte gUnk_080D7C5C
+Area_87:: @ 080D4A9C
+	.4byte Area_87_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_MinishHouseInteriors:: @ 080D4ABC
-	.4byte gUnk_080DA63C
-	.4byte gUnk_080DA6E8
-	.4byte gUnk_080DA7B8
-	.4byte gUnk_080DA83C
-	.4byte gUnk_080DA8B4
-	.4byte gUnk_080DA92C
-	.4byte gUnk_080DA9A4
-	.4byte gUnk_080DAA1C
-	.4byte gUnk_080DAAB4
-	.4byte gUnk_080DAEB4
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080DAF50
-	.4byte gUnk_080DAFE8
-	.4byte gUnk_080DB0A0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080DB118
-	.4byte gUnk_080DB190
-	.4byte gUnk_080DB208
-	.4byte gUnk_080DB290
-	.4byte gUnk_080DB308
-	.4byte gUnk_080DB380
-	.4byte gUnk_080DB3F8
-	.4byte gUnk_080DB470
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
+Area_8F:: @ 080D4AAC
+	.4byte Area_8F_Main
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_TownMinishHoles:: @ 080D4B7C
-	.4byte gUnk_080DB548
-	.4byte gUnk_080DB5C0
-	.4byte gUnk_080DB648
-	.4byte gUnk_080DB6D0
-	.4byte gUnk_080DB768
-	.4byte gUnk_080DB7E0
+Area_MinishHouseInteriors:: @ 080D4ABC
+	.4byte Room_MinishHouseInteriors_GentariMain
+	.4byte Room_MinishHouseInteriors_GentariExit
+	.4byte Room_MinishHouseInteriors_Festari
+	.4byte Room_MinishHouseInteriors_Red
+	.4byte Room_MinishHouseInteriors_Green
+	.4byte Room_MinishHouseInteriors_Blue
+	.4byte Room_MinishHouseInteriors_SideArea
+	.4byte Room_MinishHouseInteriors_ShoeMinish
+	.4byte Room_MinishHouseInteriors_PotMinish
+	.4byte Room_MinishHouseInteriors_BarrelMinish
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080DB9BC
-	.4byte gUnk_080DBA80
-	.4byte gUnk_080DBBC8
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
+	.4byte Room_MinishHouseInteriors_MelariMinesSouthwest
+	.4byte Room_MinishHouseInteriors_MelariMinesSoutheast
+	.4byte Room_MinishHouseInteriors_MelariMinesEast
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -814,10 +760,14 @@ gAreaRoomEntities_TownMinishHoles:: @ 080D4B7C
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
+	.4byte Room_MinishHouseInteriors_HyruleFieldSouthwest
+	.4byte Room_MinishHouseInteriors_HyruleFieldOutsideLinksHouse
+	.4byte Room_MinishHouseInteriors_NextToKnuckle
+	.4byte Room_MinishHouseInteriors_Librari
+	.4byte Room_MinishHouseInteriors_HyruleFieldExit
+	.4byte Room_MinishHouseInteriors_HyruleTown
+	.4byte Room_MinishHouseInteriors_MinishWoodsBomb
+	.4byte Room_MinishHouseInteriors_LakeHyliaOcarina
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -827,16 +777,13 @@ gAreaRoomEntities_TownMinishHoles:: @ 080D4B7C
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_HouseInteriors3:: @ 080D4C3C
-	.4byte gUnk_080F5934
-	.4byte gUnk_080F5ADC
-	.4byte gUnk_080F5BE8
-	.4byte gUnk_080F5D84
-	.4byte gUnk_080F5E28
-	.4byte gUnk_080F5EF8
-	.4byte gUnk_080F5FF0
-	.4byte gUnk_080F60C4
-	.4byte gUnk_080F615C
+Area_TownMinishHoles:: @ 080D4B7C
+	.4byte Room_TownMinishHoles_MayorsHouse
+	.4byte Room_TownMinishHoles_WestOracle
+	.4byte Room_TownMinishHoles_DrLeft
+	.4byte Room_TownMinishHoles_Carpenter
+	.4byte Room_TownMinishHoles_Cafe
+	.4byte Room_TownMinishHoles_5
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -844,48 +791,15 @@ gAreaRoomEntities_HouseInteriors3:: @ 080D4C3C
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
-
-gAreaRoomEntities_HouseInteriors1:: @ 080D4C7C
-	.4byte gUnk_080D62FC
-	.4byte gUnk_080D6518
-	.4byte gUnk_080D66A8
-	.4byte gUnk_080D68CC
-	.4byte gUnk_080D69BC
-	.4byte gUnk_080D6A80
-	.4byte gUnk_080D6B20
-	.4byte gUnk_080D6BC4
-	.4byte gUnk_080D6D9C
-	.4byte gUnk_080D6F54
-	.4byte gUnk_080D6FF4
-	.4byte gUnk_080D7100
-	.4byte gUnk_080D72B0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
-
-gAreaRoomEntities_HouseInteriors2:: @ 080D4CBC
-	.4byte gUnk_080F1D48
-	.4byte gUnk_080F1EC0
-	.4byte gUnk_080F1FEC
-	.4byte gUnk_080F2108
-	.4byte gUnk_080F22F4
-	.4byte 0x0
-	.4byte gUnk_080F24D8
-	.4byte gUnk_080F26CC
-	.4byte gUnk_080F2888
-	.4byte gUnk_080F29CC
-	.4byte gUnk_080F2A9C
-	.4byte gUnk_080F2B78
-	.4byte gUnk_080F2D7C
+	.4byte Room_TownMinishHoles_LibraryBookshelf
+	.4byte Room_TownMinishHoles_LibrariBookHouse
+	.4byte Room_TownMinishHoles_RemShoeShop
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
-	.4byte gUnk_080F2E64
-	.4byte gUnk_080F2F94
-	.4byte gUnk_080F307C
-	.4byte 0x0
-	.4byte gUnk_080F3174
-	.4byte gUnk_080F3230
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -913,16 +827,16 @@ gAreaRoomEntities_HouseInteriors2:: @ 080D4CBC
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_HouseInteriors4:: @ 080D4D7C
-	.4byte gUnk_080F33C8
-	.4byte gUnk_080F35C4
-	.4byte gUnk_080F3758
-	.4byte gUnk_080F38F4
-	.4byte gUnk_080F39F4
-	.4byte gUnk_080F3BC4
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
+Area_HouseInteriors3:: @ 080D4C3C
+	.4byte Room_HouseInteriors3_StockwellShop
+	.4byte Room_HouseInteriors3_Cafe
+	.4byte Room_HouseInteriors3_RemShoeShop
+	.4byte Room_HouseInteriors3_Bakery
+	.4byte Room_HouseInteriors3_Simon
+	.4byte Room_HouseInteriors3_FigurineHouse
+	.4byte Room_HouseInteriors3_BorlovEntrance
+	.4byte Room_HouseInteriors3_Carlov
+	.4byte Room_HouseInteriors3_Borlov
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -931,188 +845,57 @@ gAreaRoomEntities_HouseInteriors4:: @ 080D4D7C
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_TreeInteriors:: @ 080D4DBC
-	.4byte gUnk_080F9FF8
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
-	.4byte gUnk_080FA590
-	.4byte gUnk_080FA628
-	.4byte gUnk_080FA690
-	.4byte gUnk_080FA6E8
-	.4byte gUnk_080FA740
-	.4byte gUnk_080FA798
-	.4byte gUnk_080FA7F0
-	.4byte gUnk_080FA848
-	.4byte gUnk_080FA8A0
-	.4byte gUnk_080FA908
-	.4byte gUnk_080FA960
-	.4byte gUnk_080FA9B8
-	.4byte gUnk_080FAA70
-	.4byte gUnk_080FAAD8
-	.4byte gUnk_080FABA0
-	.4byte gUnk_080FAC08
-
-gAreaRoomEntities_Dojos:: @ 080D4E3C
-	.4byte gUnk_080D7E9C
-	.4byte gUnk_080D7F7C
-	.4byte gUnk_080D805C
-	.4byte gUnk_080D813C
-	.4byte gUnk_080D822C
-	.4byte gUnk_080D8374
-	.4byte gUnk_080D8464
-	.4byte gUnk_080D855C
-	.4byte gUnk_080D8634
-	.4byte gUnk_080D871C
-	.4byte gUnk_080D87F4
-	.4byte gUnk_080D886C
-	.4byte gUnk_080D88E4
-	.4byte gUnk_080D895C
-	.4byte 0x0
-	.4byte 0x0
-
-gAreaRoomEntities_CrenelCaves:: @ 080D4E7C
-	.4byte gUnk_080FB8BC
-	.4byte gUnk_080FB934
-	.4byte gUnk_080FBA6C
-	.4byte gUnk_080FBAEC
-	.4byte gUnk_080FBB54
-	.4byte gUnk_080FBC04
-	.4byte gUnk_080FBCB4
-	.4byte gUnk_080FBDC4
-	.4byte gUnk_080FBE5C
-	.4byte gUnk_080FBF1C
-	.4byte gUnk_080FC064
-	.4byte gUnk_080FC12C
-	.4byte gUnk_080FC1C4
-	.4byte gUnk_080FC234
-	.4byte gUnk_080FC2A4
-	.4byte gUnk_080FC30C
-	.4byte gUnk_080FC3A4
-
-gAreaRoomEntities_MinishCracks:: @ 080D4EC0
-	.4byte gUnk_080DC790
-	.4byte gUnk_080DC848
-	.4byte gUnk_080DC8F0
-	.4byte gUnk_080DC9A0
-	.4byte gUnk_080DCA48
-	.4byte gUnk_080DCAD0
-	.4byte gUnk_080DCBD8
-	.4byte gUnk_080DCC8C
-	.4byte gUnk_080DCCFC
-	.4byte gUnk_080DCD74
-	.4byte gUnk_080DCDEC
-	.4byte gUnk_080DCE64
-	.4byte gUnk_080DCEDC
-	.4byte gUnk_080DCF54
-	.4byte gUnk_080DCFAC
-	.4byte gUnk_080DD004
-	.4byte gUnk_080DD05C
-	.4byte gUnk_080DD124
-	.4byte 0x0
-	.4byte 0x0
-	.4byte 0x0
+Area_HouseInteriors1:: @ 080D4C7C
+	.4byte Room_HouseInteriors1_Mayor
+	.4byte Room_HouseInteriors1_PostOffice
+	.4byte Room_HouseInteriors1_Library2F
+	.4byte Room_HouseInteriors1_Library1F
+	.4byte Room_HouseInteriors1_Inn1F
+	.4byte Room_HouseInteriors1_InnWestRoom
+	.4byte Room_HouseInteriors1_InnMiddleRoom
+	.4byte Room_HouseInteriors1_InnEastRoom
+	.4byte Room_HouseInteriors1_InnWest2F
+	.4byte Room_HouseInteriors1_InnEast2F
+	.4byte Room_HouseInteriors1_InnMinishHeartPiece
+	.4byte Room_HouseInteriors1_SchoolWest
+	.4byte Room_HouseInteriors1_SchoolEast
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_MinishRafters:: @ 080D4F20
-	.4byte gUnk_080D95D0
-	.4byte gUnk_080D97A0
-	.4byte gUnk_080D9948
-	.4byte gUnk_080D9AB8
-
-gAreaRoomEntities_EzloCutscene:: @ 080D4F30
-	.4byte gUnk_080D8F98
-
-gAreaRoomEntities_WindTribeTower:: @ 080D4F34
-	.4byte gUnk_080F6284
-	.4byte gUnk_080F63C4
-	.4byte gUnk_080F64E4
-	.4byte gUnk_080F662C
-
-gAreaRoomEntities_WindTribeTowerRoof:: @ 080D4F44
-	.4byte gUnk_080F67BC
-
-gAreaRoomEntities_GoronCave:: @ 080D4F48
-	.4byte gUnk_080D89A4
-	.4byte gUnk_080D8EB0
-
-gAreaRoomEntities_Caves:: @ 080D4F50
-	.4byte gUnk_080F8688
-	.4byte gUnk_080F8714
-	.4byte gUnk_080F876C
-	.4byte gUnk_080F87C4
-	.4byte gUnk_080F881C
-	.4byte gUnk_080F8874
-	.4byte gUnk_080F88BC
-	.4byte gUnk_080F896C
-	.4byte gUnk_080F89EC
-	.4byte gUnk_080F8A6C
-	.4byte gUnk_080F8AB4
-	.4byte gUnk_080F8B04
-	.4byte gUnk_080F8B6C
-	.4byte gUnk_080F8C04
-	.4byte gUnk_080F8C74
-	.4byte gUnk_080F8CD4
-	.4byte gUnk_080F8E1C
-	.4byte gUnk_080F8F64
-	.4byte gUnk_080F9004
-	.4byte gUnk_080F9074
-	.4byte gUnk_080F90CC
-	.4byte gUnk_080F9154
-	.4byte gUnk_080F91E4
-	.4byte gUnk_080F9244
-
-gAreaRoomEntities_VeilFallsCaves:: @ 080D4FB0
-	.4byte gUnk_080F95A0
-	.4byte gUnk_080F9680
-	.4byte gUnk_080F96F0
-	.4byte gUnk_080F9770
-	.4byte gUnk_080F9830
-	.4byte gUnk_080F98D0
-	.4byte gUnk_080F9930
-	.4byte gUnk_080F99B8
-	.4byte gUnk_080F9B00
-	.4byte gUnk_080F9B58
-
-gAreaRoomEntities_RoyalValleyGraves:: @ 080D4FD8
-	.4byte gUnk_080D93C0
-	.4byte gUnk_080D9420
-
-gAreaRoomEntities_MinishCaves:: @ 080D4FE0
-	.4byte gUnk_080DBC48
-	.4byte gUnk_080DBC98
-	.4byte gUnk_080DBD60
-	.4byte gUnk_080DBE00
-	.4byte gUnk_080DBE58
-	.4byte gUnk_080DBEE8
-	.4byte gUnk_080DBF60
-	.4byte gUnk_080DC0A8
-	.4byte gUnk_080DC160
-	.4byte gUnk_080DC260
-
-gAreaRoomEntities_CastleGardenMinishHoles:: @ 080D5008
-	.4byte gUnk_080DC610
-	.4byte gUnk_080DC660
-
-gAreaRoomEntities_37:: @ 080D5010
-	.4byte gUnk_080DC6B0
-	.4byte gUnk_080DC700
-
-gAreaRoomEntities_40:: @ 080D5018
+Area_HouseInteriors2:: @ 080D4CBC
+	.4byte Room_HouseInteriors2_Stranger
+	.4byte Room_HouseInteriors2_WestOracle
+	.4byte Room_HouseInteriors2_2
+	.4byte Room_HouseInteriors2_3
+	.4byte Room_HouseInteriors2_DrLeft
+	.4byte 0x0
+	.4byte Room_HouseInteriors2_Romio
+	.4byte Room_HouseInteriors2_Julietta
+	.4byte Room_HouseInteriors2_Percy
+	.4byte Room_HouseInteriors2_EastOracle
+	.4byte Room_HouseInteriors2_A
+	.4byte Room_HouseInteriors2_B
+	.4byte Room_HouseInteriors2_Cucco
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte Room_HouseInteriors2_LinksHouseEntrance
+	.4byte Room_HouseInteriors2_LinksHouseSmith
+	.4byte Room_HouseInteriors2_Dampe
+	.4byte 0x0
+	.4byte Room_HouseInteriors2_Stockwell
+	.4byte Room_HouseInteriors2_LinksHouseBedroom
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
@@ -1130,121 +913,338 @@ gAreaRoomEntities_40:: @ 080D5018
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_SimonsSimulation:: @ 080D5058
-	.4byte gUnk_080F1BEC
-
-gAreaRoomEntities_HyruleCastleCellar:: @ 080D505C
-	.4byte gUnk_080D7CE4
-	.4byte gUnk_080D7D9C
-
-gAreaRoomEntities_GreatFairies:: @ 080D5064
-	.4byte gUnk_080DA3EC
-	.4byte gUnk_080DA454
-	.4byte gUnk_080DA4BC
+Area_HouseInteriors4:: @ 080D4D7C
+	.4byte Room_HouseInteriors4_Carpenter
+	.4byte Room_HouseInteriors4_Swiftblade
+	.4byte Room_HouseInteriors4_RanchHouseWest
+	.4byte Room_HouseInteriors4_RanchHouseEast
+	.4byte Room_HouseInteriors4_FarmHouse
+	.4byte Room_HouseInteriors4_Mayor
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_GardenFountains:: @ 080D5084
-	.4byte gUnk_080DA514
-	.4byte gUnk_080DA5A4
+Area_TreeInteriors:: @ 080D4DBC
+	.4byte Room_TreeInteriors_WitchHut
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte Room_TreeInteriors_StairsToCarlov
+	.4byte Room_TreeInteriors_PercysTreehouse
+	.4byte Room_TreeInteriors_HeartPiece
+	.4byte Room_TreeInteriors_StairsToBladeBrother
+	.4byte Room_TreeInteriors_14
+	.4byte Room_TreeInteriors_BoomerangNorthwest
+	.4byte Room_TreeInteriors_BoomerangNortheast
+	.4byte Room_TreeInteriors_BoomerangSouthwest
+	.4byte Room_TreeInteriors_BoomerangSoutheast
+	.4byte Room_TreeInteriors_HeartPieceSouthwestField
+	.4byte Room_TreeInteriors_StairsToFairyFountain
+	.4byte Room_TreeInteriors_StairsToWalletFairy
+	.4byte Room_TreeInteriors_1C
+	.4byte Room_TreeInteriors_StairsToBusinessScrub
+	.4byte Room_TreeInteriors_1E
+	.4byte Room_TreeInteriors_1F
 
-gAreaRoomEntities_CastorCaves:: @ 080D508C
-	.4byte gUnk_080DA008
-	.4byte gUnk_080DA080
-	.4byte gUnk_080DA0E0
-	.4byte gUnk_080DA198
-	.4byte gUnk_080DA1F0
+Area_Dojos:: @ 080D4E3C
+	.4byte Room_Dojos_Grayblade
+	.4byte Room_Dojos_Splitblade
+	.4byte Room_Dojos_Greatblade
+	.4byte Room_Dojos_Scarblade
+	.4byte Room_Dojos_Swiftblade
+	.4byte Room_Dojos_Grimblade
+	.4byte Room_Dojos_Waveblade
+	.4byte Room_Dojos_7
+	.4byte Room_Dojos_8
+	.4byte Room_Dojos_9
+	.4byte Room_Dojos_ToGrimblade
+	.4byte Room_Dojos_ToSplitblade
+	.4byte Room_Dojos_ToGreatblade
+	.4byte Room_Dojos_ToScarblade
+	.4byte 0x0
+	.4byte 0x0
+
+Area_CrenelCaves:: @ 080D4E7C
+	.4byte Room_CrenelCaves_BlockPushing
+	.4byte Room_CrenelCaves_PillarCave
+	.4byte Room_CrenelCaves_BridgeSwitch
+	.4byte Room_CrenelCaves_ExitToMines
+	.4byte Room_CrenelCaves_GripRing
+	.4byte Room_CrenelCaves_FairyFountain
+	.4byte Room_CrenelCaves_SpinyChuPuzzle
+	.4byte Room_CrenelCaves_ChuchuPotChest
+	.4byte Room_CrenelCaves_WaterHeartPiece
+	.4byte Room_CrenelCaves_RupeeFairyFountain
+	.4byte Room_CrenelCaves_HelmasaurHallway
+	.4byte Room_CrenelCaves_MushroomKeese
+	.4byte Room_CrenelCaves_LadderToGreenWater
+	.4byte Room_CrenelCaves_BombBusinessScrub
+	.4byte Room_CrenelCaves_Hermit
+	.4byte Room_CrenelCaves_HintScrub
+	.4byte Room_CrenelCaves_ToGrayblade
+
+Area_MinishCracks:: @ 080D4EC0
+	.4byte Room_MinishCracks_LonLonRanchNorth
+	.4byte Room_MinishCracks_LakeHyliaEast
+	.4byte Room_MinishCracks_HyruleCastleGarden
+	.4byte Room_MinishCracks_MtCrenel
+	.4byte Room_MinishCracks_EastHyruleCastle
+	.4byte Room_MinishCracks_5
+	.4byte Room_MinishCracks_CastleWildsBowHole
+	.4byte Room_MinishCracks_RuinsEntrance
+	.4byte Room_MinishCracks_MinishWoodsSouth
+	.4byte Room_MinishCracks_CastorWildsNorth
+	.4byte Room_MinishCracks_CastorWildsWest
+	.4byte Room_MinishCracks_CastorWildsMiddle
+	.4byte Room_MinishCracks_RuinsTektite
+	.4byte Room_MinishCracks_CastorWildsNextToBow
+	.4byte Room_MinishCracks_E
+	.4byte Room_MinishCracks_F
+	.4byte Room_MinishCracks_10
+	.4byte Room_MinishCracks_11
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_CastorDarknut:: @ 080D50AC
-	.4byte gUnk_080DA2F8
-	.4byte gUnk_080DA384
+Area_MinishRafters:: @ 080D4F20
+	.4byte Room_MinishRafters_Cafe
+	.4byte Room_MinishRafters_Stockwell
+	.4byte Room_MinishRafters_DrLeft
+	.4byte Room_MinishRafters_Bakery
+
+Area_EzloCutscene:: @ 080D4F30
+	.4byte Area_EzloCutscene_Main
+
+Area_WindTribeTower:: @ 080D4F34
+	.4byte Room_WindTribeTower_Entrance
+	.4byte Room_WindTribeTower_Floor2
+	.4byte Room_WindTribeTower_Floor3
+	.4byte Room_WindTribeTower_Floor4
+
+Area_WindTribeTowerRoof:: @ 080D4F44
+	.4byte Area_WindTribeTowerRoof_Main
+
+Area_GoronCave:: @ 080D4F48
+	.4byte Room_GoronCave_StairsToCave
+	.4byte Room_GoronCave_Main
+
+Area_Caves:: @ 080D4F50
+	.4byte Room_Caves_Boomerang
+	.4byte Room_Caves_ToGraveyard
+	.4byte Room_Caves_2
+	.4byte Room_Caves_3
+	.4byte Room_Caves_4
+	.4byte Room_Caves_5
+	.4byte Room_Caves_6
+	.4byte Room_Caves_KeeseChest
+	.4byte Room_Caves_FairyFountainTrilbyHighlands
+	.4byte Room_Caves_FairyFountainLinksHouse
+	.4byte Room_Caves_A
+	.4byte Room_Caves_HyruleTownWaterfall
+	.4byte Room_Caves_LonLonRanch
+	.4byte Room_Caves_LonLonRanchSecret
+	.4byte Room_Caves_TrilbyHighlands
+	.4byte Room_Caves_LonLonRanchWallet
+	.4byte Room_Caves_RupeeLinksHouse
+	.4byte Room_Caves_RupeeTrilbyHighlands
+	.4byte Room_Caves_FairyFountainMoleMitts
+	.4byte Room_Caves_KeeseChestSoutheastHyrule
+	.4byte Room_Caves_BottleBusinessScrub
+	.4byte Room_Caves_HeartPieceHallway
+	.4byte Room_Caves_FairyFountainBoomerang
+	.4byte Room_Caves_KinstoneBusinessScrub
+
+Area_VeilFallsCaves:: @ 080D4FB0
+	.4byte Room_VeilFallsCaves_Hallway2F
+	.4byte Room_VeilFallsCaves_Hallway1F
+	.4byte Room_VeilFallsCaves_SecretRoom
+	.4byte Room_VeilFallsCaves_Entrance
+	.4byte Room_VeilFallsCaves_Exit
+	.4byte Room_VeilFallsCaves_SecretChest
+	.4byte Room_VeilFallsCaves_SecretStaircases
+	.4byte Room_VeilFallsCaves_BlockPuzzle
+	.4byte Room_VeilFallsCaves_RupeePath
+	.4byte Room_VeilFallsCaves_HeartPiece
+
+Area_RoyalValleyGraves:: @ 080D4FD8
+	.4byte Room_RoyalValleyGraves_HeartPiece
+	.4byte Room_RoyalValleyGraves_Gina
+
+Area_MinishCaves:: @ 080D4FE0
+	.4byte Room_MinishCaves_BeanPesto
+	.4byte Room_MinishCaves_SoutheastWater1
+	.4byte Room_MinishCaves_SoutheastWater2
+	.4byte Room_MinishCaves_Ruins
+	.4byte Room_MinishCaves_OutsideLinksHouse
+	.4byte Room_MinishCaves_MinishWoodsNorth1
+	.4byte Room_MinishCaves_MinishWoodsNorth2
+	.4byte Room_MinishCaves_LakeHyliaNorth
+	.4byte Room_MinishCaves_LakeHyliaLibrari
+	.4byte Room_MinishCaves_MinishWoodsSouthwest
+
+Area_CastleGardenMinishHoles:: @ 080D5008
+	.4byte Room_CastleGardenMinishHoles_East
+	.4byte Room_CastleGardenMinishHoles_West
+
+Area_37:: @ 080D5010
+	.4byte Room_37_0
+	.4byte Room_37_1
+
+Area_40:: @ 080D5018
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
 	.4byte 0x0
 	.4byte 0x0
 
-gAreaRoomEntities_ArmosInteriors:: @ 080D50BC
-	.4byte gUnk_080D53B8
-	.4byte gUnk_080D5430
-	.4byte gUnk_080D54A8
-	.4byte gUnk_080D5520
-	.4byte gUnk_080D5598
-	.4byte gUnk_080D5610
-	.4byte gUnk_080D5688
-	.4byte gUnk_080D5700
-	.4byte gUnk_080D5778
-	.4byte gUnk_080D57F0
-	.4byte gUnk_080D5868
+Area_SimonsSimulation:: @ 080D5058
+	.4byte Area_SimonsSimulation_Main
 
-gAreaRoomEntities_47:: @ 080D50E8
-	.4byte gUnk_080F9D58
-	.4byte gUnk_080F9E10
-	.4byte gUnk_080F9E78
-	.4byte gUnk_080F9EC0
-	.4byte gUnk_080F9F08
+Area_HyruleCastleCellar:: @ 080D505C
+	.4byte Room_GreatFairies_Entrance
+	.4byte Room_GreatFairies_Exit
 
-gAreaEntities:: @ 080D50FC
-	.4byte gAreaRoomEntities_MinishWoods             @ 0x0
-	.4byte gAreaRoomEntities_MinishVillage           @ 0x1
-	.4byte gAreaRoomEntities_HyruleTown              @ 0x2
-	.4byte gAreaRoomEntities_HyruleField             @ 0x3
-	.4byte gAreaRoomEntities_CastorWilds             @ 0x4
-	.4byte gAreaRoomEntities_Ruins                   @ 0x5
-	.4byte gAreaRoomEntities_MtCrenel                @ 0x6
-	.4byte gAreaRoomEntities_CastleGarden            @ 0x7
-	.4byte gAreaRoomEntities_CloudTops               @ 0x8
-	.4byte gAreaRoomEntities_RoyalValley             @ 0x9
-	.4byte gAreaRoomEntities_VeilFalls               @ 0xA
-	.4byte gAreaRoomEntities_LakeHylia               @ 0xB
-	.4byte gAreaRoomEntities_LakeWoodsCave           @ 0xC
-	.4byte gAreaRoomEntities_Beanstalks              @ 0xD
-	.4byte gAreaRoomEntities_Empty                   @ 0xE
-	.4byte gAreaRoomEntities_HyruleDigCaves          @ 0xF
-	.4byte gAreaRoomEntities_MelarisMine             @ 0x10
-	.4byte gAreaRoomEntities_MinishPaths1            @ 0x11
-	.4byte gAreaRoomEntities_CrenelMinishPaths       @ 0x12
-	.4byte gAreaRoomEntities_DigCaves1               @ 0x13
-	.4byte gAreaRoomEntities_CrenelDigCave           @ 0x14
-	.4byte gAreaRoomEntities_FestivalTown            @ 0x15
-	.4byte gAreaRoomEntities_VeilFallsDigCave        @ 0x16
-	.4byte gAreaRoomEntities_CastorWildsDigCave      @ 0x17
-	.4byte gAreaRoomEntities_OuterFortressOfWinds    @ 0x18
-	.4byte gAreaRoomEntities_HyliaDigCaves           @ 0x19
-	.4byte gAreaRoomEntities_VeilFallsTop            @ 0x1A
+Area_GreatFairies:: @ 080D5064
+	.4byte Room_GreatFairies_Graveyard
+	.4byte Room_GreatFairies_MinishWoods
+	.4byte Room_GreatFairies_MtCrenel
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+
+Area_GardenFountains:: @ 080D5084
+	.4byte Room_GardenFountains_East
+	.4byte Room_GardenFountains_West
+
+Area_CastorCaves:: @ 080D508C
+	.4byte Room_CastorCaves_South
+	.4byte Room_CastorCaves_North
+	.4byte Room_CastorCaves_WindRuins
+	.4byte Room_CastorCaves_Darknut
+	.4byte Room_CastorCaves_HeartPiece
+	.4byte 0x0
+	.4byte 0x0
+	.4byte 0x0
+
+Area_CastorDarknut:: @ 080D50AC
+	.4byte Room_CastorDarknut_Main
+	.4byte Room_CastorDarknut_Hall
+	.4byte 0x0
+	.4byte 0x0
+
+Area_ArmosInteriors:: @ 080D50BC
+	.4byte Room_ArmosInteriors_RuinsEntranceNorth
+	.4byte Room_ArmosInteriors_RuinsEntranceSouth
+	.4byte Room_ArmosInteriors_RuinsLeft
+	.4byte Room_ArmosInteriors_RuinsMiddleLeft
+	.4byte Room_ArmosInteriors_RuinsMiddleRight
+	.4byte Room_ArmosInteriors_RuinsRight
+	.4byte Room_ArmosInteriors_6
+	.4byte Room_ArmosInteriors_RuinsGrassPath
+	.4byte Room_ArmosInteriors_8
+	.4byte Room_ArmosInteriors_FortressOfWindsLeft
+	.4byte Room_ArmosInteriors_FortressOfWindsRight
+
+Area_47:: @ 080D50E8
+	.4byte Room_47_0
+	.4byte Room_47_1
+	.4byte Room_47_2
+	.4byte Room_47_3
+	.4byte Room_47_4
+
+gAreaTable:: @ 080D50FC
+	.4byte Area_MinishWoods             @ 0x0
+	.4byte Area_MinishVillage           @ 0x1
+	.4byte Area_HyruleTown              @ 0x2
+	.4byte Area_HyruleField             @ 0x3
+	.4byte Area_CastorWilds             @ 0x4
+	.4byte Area_Ruins                   @ 0x5
+	.4byte Area_MtCrenel                @ 0x6
+	.4byte Area_CastleGarden            @ 0x7
+	.4byte Area_CloudTops               @ 0x8
+	.4byte Area_RoyalValley             @ 0x9
+	.4byte Area_VeilFalls               @ 0xA
+	.4byte Area_LakeHylia               @ 0xB
+	.4byte Area_LakeWoodsCave           @ 0xC
+	.4byte Area_Beanstalks              @ 0xD
+	.4byte Area_Empty                   @ 0xE
+	.4byte Area_HyruleDigCaves          @ 0xF
+	.4byte Area_MelarisMine             @ 0x10
+	.4byte Area_MinishPaths1            @ 0x11
+	.4byte Area_CrenelMinishPaths       @ 0x12
+	.4byte Area_DigCaves1               @ 0x13
+	.4byte Area_CrenelDigCave           @ 0x14
+	.4byte Area_FestivalTown            @ 0x15
+	.4byte Area_VeilFallsDigCave        @ 0x16
+	.4byte Area_CastorWildsDigCave      @ 0x17
+	.4byte Area_OuterFortressOfWinds    @ 0x18
+	.4byte Area_HyliaDigCaves           @ 0x19
+	.4byte Area_VeilFallsTop            @ 0x1A
 	.4byte 0x0                                       @ 0x1B
 	.4byte 0x0                                       @ 0x1C
 	.4byte 0x0                                       @ 0x1D
 	.4byte 0x0                                       @ 0x1E
 	.4byte 0x0                                       @ 0x1F
-	.4byte gAreaRoomEntities_MinishHouseInteriors    @ 0x20
-	.4byte gAreaRoomEntities_HouseInteriors1         @ 0x21
-	.4byte gAreaRoomEntities_HouseInteriors2         @ 0x22
-	.4byte gAreaRoomEntities_HouseInteriors3         @ 0x23
-	.4byte gAreaRoomEntities_TreeInteriors           @ 0x24
-	.4byte gAreaRoomEntities_Dojos                   @ 0x25
-	.4byte gAreaRoomEntities_CrenelCaves             @ 0x26
-	.4byte gAreaRoomEntities_MinishCracks            @ 0x27
-	.4byte gAreaRoomEntities_HouseInteriors4         @ 0x28
-	.4byte gAreaRoomEntities_GreatFairies            @ 0x29
-	.4byte gAreaRoomEntities_CastorCaves             @ 0x2A
-	.4byte gAreaRoomEntities_CastorDarknut           @ 0x2B
-	.4byte gAreaRoomEntities_ArmosInteriors          @ 0x2C
-	.4byte gAreaRoomEntities_TownMinishHoles         @ 0x2D
-	.4byte gAreaRoomEntities_MinishRafters           @ 0x2E
-	.4byte gAreaRoomEntities_GoronCave               @ 0x2F
-	.4byte gAreaRoomEntities_WindTribeTower          @ 0x30
-	.4byte gAreaRoomEntities_WindTribeTowerRoof      @ 0x31
-	.4byte gAreaRoomEntities_Caves                   @ 0x32
-	.4byte gAreaRoomEntities_VeilFallsCaves          @ 0x33
-	.4byte gAreaRoomEntities_RoyalValleyGraves       @ 0x34
-	.4byte gAreaRoomEntities_MinishCaves             @ 0x35
-	.4byte gAreaRoomEntities_CastleGardenMinishHoles @ 0x36
-	.4byte gAreaRoomEntities_37                      @ 0x37
-	.4byte gAreaRoomEntities_EzloCutscene            @ 0x38
+	.4byte Area_MinishHouseInteriors    @ 0x20
+	.4byte Area_HouseInteriors1         @ 0x21
+	.4byte Area_HouseInteriors2         @ 0x22
+	.4byte Area_HouseInteriors3         @ 0x23
+	.4byte Area_TreeInteriors           @ 0x24
+	.4byte Area_Dojos                   @ 0x25
+	.4byte Area_CrenelCaves             @ 0x26
+	.4byte Area_MinishCracks            @ 0x27
+	.4byte Area_HouseInteriors4         @ 0x28
+	.4byte Area_GreatFairies            @ 0x29
+	.4byte Area_CastorCaves             @ 0x2A
+	.4byte Area_CastorDarknut           @ 0x2B
+	.4byte Area_ArmosInteriors          @ 0x2C
+	.4byte Area_TownMinishHoles         @ 0x2D
+	.4byte Area_MinishRafters           @ 0x2E
+	.4byte Area_GoronCave               @ 0x2F
+	.4byte Area_WindTribeTower          @ 0x30
+	.4byte Area_WindTribeTowerRoof      @ 0x31
+	.4byte Area_Caves                   @ 0x32
+	.4byte Area_VeilFallsCaves          @ 0x33
+	.4byte Area_RoyalValleyGraves       @ 0x34
+	.4byte Area_MinishCaves             @ 0x35
+	.4byte Area_CastleGardenMinishHoles @ 0x36
+	.4byte Area_37                      @ 0x37
+	.4byte Area_EzloCutscene            @ 0x38
 	.4byte 0x0                                       @ 0x39
 	.4byte 0x0                                       @ 0x3A
 	.4byte 0x0                                       @ 0x3B
@@ -1252,83 +1252,83 @@ gAreaEntities:: @ 080D50FC
 	.4byte 0x0                                       @ 0x3D
 	.4byte 0x0                                       @ 0x3E
 	.4byte 0x0                                       @ 0x3F
-	.4byte gAreaRoomEntities_40                      @ 0x40
-	.4byte gAreaRoomEntities_HyruleTownUnderground   @ 0x41
-	.4byte gAreaRoomEntities_GardenFountains         @ 0x42
-	.4byte gAreaRoomEntities_HyruleCastleCellar      @ 0x43
-	.4byte gAreaRoomEntities_SimonsSimulation        @ 0x44
-	.4byte gAreaRoomEntities_45                      @ 0x45
+	.4byte Area_40                      @ 0x40
+	.4byte Area_HyruleTownUnderground   @ 0x41
+	.4byte Area_GardenFountains         @ 0x42
+	.4byte Area_HyruleCastleCellar      @ 0x43
+	.4byte Area_SimonsSimulation        @ 0x44
+	.4byte Area_45                      @ 0x45
 	.4byte 0x0                                       @ 0x46
-	.4byte gAreaRoomEntities_47                      @ 0x47
-	.4byte gAreaRoomEntities_DeepwoodShrine          @ 0x48
-	.4byte gAreaRoomEntities_DeepwoodShrineBoss      @ 0x49
-	.4byte gAreaRoomEntities_DeepwoodShrineEntry     @ 0x4A
+	.4byte Area_47                      @ 0x47
+	.4byte Area_DeepwoodShrine          @ 0x48
+	.4byte Area_DeepwoodShrineBoss      @ 0x49
+	.4byte Area_DeepwoodShrineEntry     @ 0x4A
 	.4byte 0x0                                       @ 0x4B
 	.4byte 0x0                                       @ 0x4C
-	.4byte gAreaRoomEntities_4D                      @ 0x4D
+	.4byte Area_4D                      @ 0x4D
 	.4byte 0x0                                       @ 0x4E
 	.4byte 0x0                                       @ 0x4F
-	.4byte gAreaRoomEntities_CaveOfFlames            @ 0x50
-	.4byte gAreaRoomEntities_CaveOfFlamesBoss        @ 0x51
+	.4byte Area_CaveOfFlames            @ 0x50
+	.4byte Area_CaveOfFlamesBoss        @ 0x51
 	.4byte 0x0                                       @ 0x52
 	.4byte 0x0                                       @ 0x53
 	.4byte 0x0                                       @ 0x54
 	.4byte 0x0                                       @ 0x55
 	.4byte 0x0                                       @ 0x56
-	.4byte gAreaRoomEntities_57                      @ 0x57
-	.4byte gAreaRoomEntities_FortressOfWinds         @ 0x58
-	.4byte gAreaRoomEntities_FortressOfWindsTop      @ 0x59
-	.4byte gAreaRoomEntities_InnerMazaal             @ 0x5A
+	.4byte Area_57                      @ 0x57
+	.4byte Area_FortressOfWinds         @ 0x58
+	.4byte Area_FortressOfWindsTop      @ 0x59
+	.4byte Area_InnerMazaal             @ 0x5A
 	.4byte 0x0                                       @ 0x5B
 	.4byte 0x0                                       @ 0x5C
 	.4byte 0x0                                       @ 0x5D
 	.4byte 0x0                                       @ 0x5E
-	.4byte gAreaRoomEntities_5F                      @ 0x5F
-	.4byte gAreaRoomEntities_TempleOfDroplets        @ 0x60
+	.4byte Area_5F                      @ 0x5F
+	.4byte Area_TempleOfDroplets        @ 0x60
 	.4byte 0x0                                       @ 0x61
-	.4byte gAreaRoomEntities_HyruleTownMinishCaves   @ 0x62
+	.4byte Area_HyruleTownMinishCaves   @ 0x62
 	.4byte 0x0                                       @ 0x63
 	.4byte 0x0                                       @ 0x64
 	.4byte 0x0                                       @ 0x65
 	.4byte 0x0                                       @ 0x66
-	.4byte gAreaRoomEntities_67                      @ 0x67
-	.4byte gAreaRoomEntities_RoyalCrypt              @ 0x68
+	.4byte Area_67                      @ 0x67
+	.4byte Area_RoyalCrypt              @ 0x68
 	.4byte 0x0                                       @ 0x69
 	.4byte 0x0                                       @ 0x6A
 	.4byte 0x0                                       @ 0x6B
 	.4byte 0x0                                       @ 0x6C
 	.4byte 0x0                                       @ 0x6D
 	.4byte 0x0                                       @ 0x6E
-	.4byte gAreaRoomEntities_6F                      @ 0x6F
-	.4byte gAreaRoomEntities_PalaceOfWinds           @ 0x70
-	.4byte gAreaRoomEntities_PalaceOfWindsBoss       @ 0x71
+	.4byte Area_6F                      @ 0x6F
+	.4byte Area_PalaceOfWinds           @ 0x70
+	.4byte Area_PalaceOfWindsBoss       @ 0x71
 	.4byte 0x0                                       @ 0x72
 	.4byte 0x0                                       @ 0x73
 	.4byte 0x0                                       @ 0x74
 	.4byte 0x0                                       @ 0x75
 	.4byte 0x0                                       @ 0x76
-	.4byte gAreaRoomEntities_77                      @ 0x77
-	.4byte gAreaRoomEntities_Sanctuary               @ 0x78
+	.4byte Area_77                      @ 0x77
+	.4byte Area_Sanctuary               @ 0x78
 	.4byte 0x0                                       @ 0x79
 	.4byte 0x0                                       @ 0x7A
 	.4byte 0x0                                       @ 0x7B
 	.4byte 0x0                                       @ 0x7C
 	.4byte 0x0                                       @ 0x7D
 	.4byte 0x0                                       @ 0x7E
-	.4byte gAreaRoomEntities_7F                      @ 0x7F
-	.4byte gAreaRoomEntities_HyruleCastle            @ 0x80
-	.4byte gAreaRoomEntities_SanctuaryEntrance       @ 0x81
+	.4byte Area_7F                      @ 0x7F
+	.4byte Area_HyruleCastle            @ 0x80
+	.4byte Area_SanctuaryEntrance       @ 0x81
 	.4byte 0x0                                       @ 0x82
 	.4byte 0x0                                       @ 0x83
 	.4byte 0x0                                       @ 0x84
 	.4byte 0x0                                       @ 0x85
 	.4byte 0x0                                       @ 0x86
-	.4byte gAreaRoomEntities_87                      @ 0x87
-	.4byte gAreaRoomEntities_DarkHyruleCastle        @ 0x88
-	.4byte gAreaRoomEntities_DarkHyruleCastleOutside @ 0x89
-	.4byte gAreaRoomEntities_VaatisArms              @ 0x8A
-	.4byte gAreaRoomEntities_Vaati3                  @ 0x8B
-	.4byte gAreaRoomEntities_Vaati2                  @ 0x8C
-	.4byte gAreaRoomEntities_DarkHyruleCastleBridge  @ 0x8D
+	.4byte Area_87                      @ 0x87
+	.4byte Area_DarkHyruleCastle        @ 0x88
+	.4byte Area_DarkHyruleCastleOutside @ 0x89
+	.4byte Area_VaatisArms              @ 0x8A
+	.4byte Area_Vaati3                  @ 0x8B
+	.4byte Area_Vaati2                  @ 0x8C
+	.4byte Area_DarkHyruleCastleBridge  @ 0x8D
 	.4byte 0x0                                       @ 0x8E
-	.4byte gAreaRoomEntities_8F                      @ 0x8F
+	.4byte Area_8F                      @ 0x8F

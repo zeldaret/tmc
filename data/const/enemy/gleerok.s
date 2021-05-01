@@ -58,7 +58,7 @@ gUnk_080CD828:: @ 080CD828
 	.4byte sub_0802E300
 
 gUnk_080CD840:: @ 080CD840
-	.4byte gUnk_08100804
+	.4byte 0x08100804 @ not a pointer!
 
 gUnk_080CD844:: @ 080CD844
 	.incbin "baserom.gba", 0x0CD844, 0x0000004

@@ -430,7 +430,7 @@ _080A3F96:
 	bl SoundReq
 	ldr r0, _080A3FC8 @ =0x00000702
 	movs r1, #0xe
-	bl sub_080563C8
+	bl TextBoxAtYPosition
 	movs r0, #1
 	strb r0, [r5, #6]
 	movs r0, #0x78

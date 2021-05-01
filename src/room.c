@@ -5595,7 +5595,7 @@ extern void sub_0804F5E8();
 extern u32 gUnk_080F7C80;
 extern void sub_0804F4E4();
 
-u32 sub_0804F468(void) {
+u32 Vars_HyruleField_OutsideCastle(void) {
     if (CheckGlobalFlag(TABIDACHI) && !GetInventoryValue(0x11)) {
         gRoomVars.field_0x6c = &gUnk_080F7CD0;
         gRoomVars.field_0x88 = sub_0804F5E8;
@@ -5618,7 +5618,7 @@ void sub_0804F4E4() {
 
 extern EntityData gUnk_080F7D70;
 
-void sub_0804F4F4(void) {
+void Load_HyruleField_OutsideCastle(void) {
     sub_0804F4E4();
     if (!CheckLocalFlag(0x8b)) {
         LoadRoomEntityList(&gUnk_080F7D70);
@@ -5781,13 +5781,13 @@ void sub_0804F9C8(void) {
     sub_0807BA8C(0x4d9, 1);
 }
 
-u32 sub_0804F9FC() {
+u32 Vars_HyruleField_OutsideCastleWest() {
     return 1;
 }
 
 extern EntityData gUnk_080F806C;
 
-void sub_0804FA00(void) {
+void Load_HyruleField_OutsideCastleWest(void) {
 
     sub_0805ADD8(0);
     if ((gSave.unk8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
@@ -5795,13 +5795,13 @@ void sub_0804FA00(void) {
     }
 }
 
-u32 sub_0804FA2C() {
+u32 Vars_HyruleField_TrilbyHighlands() {
     return 1;
 }
 
 extern EntityData gUnk_080F82E0;
 
-void sub_0804FA30(void) {
+void Load_HyruleField_TrilbyHighlands(void) {
 
     sub_0805ADD8(0);
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x9c)) {

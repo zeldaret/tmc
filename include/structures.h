@@ -148,23 +148,10 @@ typedef struct {
     } data;
 } Dialog;
 
-typedef struct {
-    u8 filler0[0x29C];
-    u16 unk29C;
-    u8 filler29E[0x562];
-} BGBuffer;
-extern BGBuffer gBG0Buffer;
-extern BGBuffer gBG1Buffer;
-extern BGBuffer gBG2Buffer;
-static_assert(sizeof(BGBuffer) == 0x800);
-
-/*
-typedef struct {
-    u16 filler0[0x800];
-} BG3Buffer;
-extern BG3Buffer gBG3Buffer;
-static_assert(sizeof(BG3Buffer) == 0x1000);
-*/
+extern u16 gBG0Buffer[0x400];
+extern u16 gBG1Buffer[0x400];
+extern u16 gBG2Buffer[0x400];
+extern u16 gBG3Buffer[0x800];
 
 struct {
     u8 filler[0x70];
@@ -184,5 +171,15 @@ extern EntityHandler gUnk_03003DC0;
 
 extern u8 gUnk_02022740[];
 extern u8 gUnk_02034490[];
+
+typedef struct {
+    u8 unk0;
+    u8 unk1;
+    u8 unk2;
+    u8 unk3;
+    u16 unk4;
+    u16 unk6;
+    void* unk8;
+} WStruct;
 
 #endif

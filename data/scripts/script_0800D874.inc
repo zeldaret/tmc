@@ -31,6 +31,7 @@ script_0800D8D6:
 	_0807E878 
 	Jump script_0800D88E
 	.2byte 0x0000
+SCRIPT_START script_0800D8E4
 	BeginBlock 
 	DoPostScriptAction 0x0008
 	CheckInventory1 0x0017

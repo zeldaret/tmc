@@ -88,7 +88,7 @@ SECTIONS {
         . = 0x00022730; gUnk_02022730 = .;
         . = 0x00022740; gUnk_02022740 = .;
         . = 0x00022750; gPlayerScriptExecutionContext = .;
-        . = 0x00022780; gUnk_02022780 = .;
+        . = 0x00022780; gCurrentTextBox = .;
         . = 0x000227DC; gUnk_020227DC = .;
         . = 0x000227E8; gUnk_020227E8 = .;
         . = 0x000227F0; gUnk_020227F0 = .;
@@ -149,8 +149,8 @@ SECTIONS {
         . = 0x00036540; gUnk_02036540 = .;
         . = 0x00036570; gScriptExecutionContextArray = .;
         . = 0x000369F0; gUnk_020369F0 = .;
-        . = 0x00036A38; gUnk_02036A38 = .;
-        . = 0x00036A40; gUnk_02036A40 = .;
+        . = 0x00036A38; gCurrentWindow = .;
+        . = 0x00036A40; gNewWindow = .;
         . = 0x00036A50; gEEPROMConfig = .;
         . = 0x00036A58; gUnk_02036A58 = .;
         . = 0x00036AD8; gUnk_02036AD8 = .;
@@ -708,7 +708,7 @@ SECTIONS {
         src/object/pot.o(.text);
         asm/object6.o(.text);
         asm/blockPushed.o(.text);
-        asm/lockedDoor.o(.text);
+        src/object/lockedDoor.o(.text);
         asm/object9.o(.text);
         src/object/objectA.o(.text);
         asm/objectB.o(.text);
@@ -1413,7 +1413,7 @@ SECTIONS {
         data/const/object/object6.o(.rodata);
         data/animations/object/object6.o(.rodata);
         data/const/object/blockPushed.o(.rodata);
-        data/const/object/lockedDoor.o(.rodata);
+        src/object/lockedDoor.o(.rodata);
         data/const/object/object9.o(.rodata);
         data/animations/object/object9.o(.rodata);
         data/const/object/objectB.o(.rodata);

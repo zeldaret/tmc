@@ -19,6 +19,7 @@ script_08012338:
 script_0801235A:
 	_0807E878 
 	Jump script_08012338
+SCRIPT_START script_08012360
 	BeginBlock 
 	DoPostScriptAction 0x0008
 	EndBlock 

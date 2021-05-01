@@ -14,6 +14,7 @@ script_0800B5FA:
 	_0807E878 
 	_0807EB44 0x0004
 	Jump script_0800B5FA
+SCRIPT_START script_0800B614
 	BeginBlock 
 	EndBlock 
 script_0800B618:

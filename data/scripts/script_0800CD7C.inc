@@ -145,6 +145,7 @@ script_0800CF40:
 	_0807E878 
 	Jump script_0800CD92
 	.2byte 0x0000
+SCRIPT_START script_0800CF50
 	BeginBlock 
 	Call sub_08068104
 	DoPostScriptAction 0x000a
@@ -164,6 +165,7 @@ script_0800CF72:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800CF5E
+SCRIPT_START script_0800CF88
 	BeginBlock 
 	Call sub_08068104
 	DoPostScriptAction 0x000a
@@ -176,6 +178,7 @@ script_0800CF96:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800CF96
+SCRIPT_START script_0800CFAC
 	BeginBlock 
 	_0807E9D4 
 	DoPostScriptAction 0x000a

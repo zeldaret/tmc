@@ -45,6 +45,7 @@ script_0800E138:
 	_0807E878 
 	Jump script_0800E138
 	.2byte 0x0000
+SCRIPT_START script_0800E154
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x000a
@@ -92,6 +93,7 @@ script_0800E1E0:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800E1E0
+SCRIPT_START script_0800E200
 	BeginBlock 
 	SetEntitySpeed 0x0100
 	_0807EB44 0x0004
@@ -181,6 +183,7 @@ script_0800E32E:
 	_0807E878 
 	Jump script_0800E32E
 	.2byte 0x0000
+SCRIPT_START script_0800E350
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x000a
@@ -241,6 +244,7 @@ script_0800E3EE:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800E3EE
+SCRIPT_START script_0800E408
 	BeginBlock 
 	_0807EB44 0x0002
 	DoPostScriptAction 0x000a
@@ -256,6 +260,7 @@ script_0800E41A:
 	Wait 0x000f
 	_0807E878 
 	Jump script_0800E41A
+SCRIPT_START script_0800E434
 	BeginBlock 
 	_0807EB44 0x0002
 	CallWithArg sub_0807F3D8, 0x00000000
@@ -272,6 +277,7 @@ script_0800E44C:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800E44C
+SCRIPT_START script_0800E46C
 	BeginBlock 
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x00000000
@@ -288,6 +294,7 @@ script_0800E484:
 	_0807EA94 
 	_0807E878 
 	Jump script_0800E484
+SCRIPT_START script_0800E4A4
 	BeginBlock 
 	Call sub_0807F354
 	EndBlock 

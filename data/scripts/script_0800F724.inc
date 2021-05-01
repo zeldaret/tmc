@@ -7,6 +7,7 @@ script_0800F72C:
 	JumpIfNot script_0800F72C
 	DoPostScriptAction 0x0007
 	Jump script_0800F584
+SCRIPT_START script_0800F73C
 	CheckLocalFlag 0x00cd
 	JumpIf script_0800FA4C
 	_0807E864 

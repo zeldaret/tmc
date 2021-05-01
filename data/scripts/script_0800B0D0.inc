@@ -36,6 +36,7 @@ script_0800B160:
 	Call sub_0806BCB8
 	CallWithArg sub_0806BC94, 0x00000000
 	Jump script_0800B0E8
+SCRIPT_START script_0800B17C
 	BeginBlock 
 	Call sub_0807DF28
 	SetLocalFlag 0x0039

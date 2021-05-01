@@ -17,6 +17,7 @@ script_08009622:
 	_0807E878 
 	DoPostScriptAction 0x0000
 	Jump script_080095DE
+SCRIPT_START script_0800962C
 	BeginBlock 
 	DoPostScriptAction 0x000b
 	DoPostScriptAction 0x0008
@@ -51,6 +52,7 @@ script_0800968E:
 	_0807E878 
 	DoPostScriptAction 0x0000
 	Jump script_08009660
+SCRIPT_START script_08009698
 	BeginBlock 
 	DoPostScriptAction 0x0007
 	Jump script_080096FC
