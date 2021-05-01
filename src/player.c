@@ -1929,7 +1929,7 @@ void sub_08073094(Entity* this) {
 
 extern void (*const gUnk_0811BBF8[])(Entity*);
 
-void PlayerUseEntrance(Entity *this) {
+void PlayerUseEntrance(Entity* this) {
     gPlayerState.field_0xa8 = 0x1c;
     sub_0805E4E0(NULL, 8);
     gUnk_0811BBF8[this->subAction](this);
