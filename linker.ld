@@ -185,7 +185,6 @@ SECTIONS {
         . = 0x00001020; gUnk_03001020 = .;
         . = 0x000010A0; gScreenTransition = .;
         . = 0x000010AC; gUnk_030010AC = .;
-        . = 0x000010D8; gUnk_030010D8 = .;
         . = 0x000010EC; gUnk_030010EC = .;
         . = 0x0000110C; gUnk_0300110C = .;
         . = 0x00001150; gRand = .;
@@ -397,7 +396,7 @@ SECTIONS {
         src/enemy/wisp.o(.text);
         asm/spinyBeetle.o(.text);
         src/enemy/mazaalHead.o(.text);
-        asm/mazaalMacro.o(.text);
+        src/enemy/mazaalMacro.o(.text);
         src/enemy/mazaalHand.o(.text);
         asm/octorokBoss.o(.text);
         asm/flyingPot.o(.text);
@@ -1095,7 +1094,7 @@ SECTIONS {
         data/animations/enemy/spinyBeetle.o(.rodata);
         src/enemy/mazaalHead.o(.rodata);
         data/animations/enemy/mazaalHead.o(.rodata);
-        data/const/enemy/mazaalMacro.o(.rodata);
+        src/enemy/mazaalMacro.o(.rodata);
         data/animations/enemy/mazaalMacro.o(.rodata);
         src/enemy/mazaalHand.o(.rodata);
         data/animations/enemy/mazaalHand.o(.rodata);
