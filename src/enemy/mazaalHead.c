@@ -123,7 +123,6 @@ void sub_08033F1C(Entity* this) {
 void sub_08033F3C(Entity* this) {
     Entity* pEVar1;
     Entity* pEVar2;
-    u8* pbVar3;
 
     if (gEntCount < 0x43) {
         if (gScreenTransition.field_0x38 != 0) {
@@ -378,7 +377,7 @@ void sub_08034420(Entity* this) {
 
 void sub_0803442C(Entity* this, u32 unk) {
     this->action = 4;
-    this->actionDelay = (u8)unk;
+    this->actionDelay = unk;
     this->field_0x7c.BYTES.byte1 = 3;
 }
 

@@ -2,6 +2,7 @@
 #include "enemy.h"
 #include "audio.h"
 #include "random.h"
+#include "object.h"
 #include "functions.h"
 
 void sub_0803B538(Entity*);
@@ -182,7 +183,7 @@ void sub_0803A274(Entity* this) {
             pEVar1 = CreateEnemy(0x44, 2);
             pEVar1->parent = this;
             *(Entity**)&this->field_0x74 = pEVar1;
-            pEVar1 = CreateObject(0x7e, 1, 0);
+            pEVar1 = CreateObject(OBJECT_7E, 1, 0);
             pEVar1->parent = this;
             pEVar1->attachedEntity = this->attachedEntity;
             PositionRelative(this->parent, this, 0x100000, 0x200000);
@@ -193,7 +194,7 @@ void sub_0803A274(Entity* this) {
             pEVar1 = CreateEnemy(0x44, 3);
             pEVar1->parent = this;
             *(Entity**)&this->field_0x74 = pEVar1;
-            pEVar1 = CreateObject(0x7e, 2, 0);
+            pEVar1 = CreateObject(OBJECT_7E, 2, 0);
             pEVar1->parent = this;
             pEVar1->attachedEntity = this->attachedEntity;
             this->spriteSettings.b.flipX = 1;
@@ -214,7 +215,6 @@ void sub_0803A274(Entity* this) {
 
 void sub_0803A364(Entity* this) {
     u8 uVar1;
-    int iVar2;
     Entity* pEVar3;
     u32 index;
     s8* ptr;
@@ -244,8 +244,7 @@ void sub_0803A364(Entity* this) {
             }
             break;
         case 5:
-            iVar2 = sub_0803B4E4(this);
-            if (iVar2 == 0) {
+            if (sub_0803B4E4(this) == 0) {
                 sub_0806F69C(this);
                 return;
             }
@@ -375,7 +374,6 @@ void sub_0803A60C(Entity* this) {
 }
 
 void sub_0803A660(Entity* this) {
-    s32 sVar1;
     u32 uVar2;
     u8* pbVar3;
 
@@ -406,7 +404,7 @@ void sub_0803A660(Entity* this) {
 }
 
 void sub_0803A6E8(Entity* this) {
-    s32 iVar1;
+    s32 y;
 
     if (sub_0803B610(this)) {
         this->action = 8;
@@ -414,28 +412,26 @@ void sub_0803A6E8(Entity* this) {
     } else {
         sub_0803B63C(this);
         sub_0806F69C(this);
-        iVar1 = this->parent->y.HALF.HI + 8;
-        if (iVar1 > this->y.HALF.HI) {
-            this->y.HALF.HI = iVar1;
+        y = this->parent->y.HALF.HI + 8;
+        if (y > this->y.HALF.HI) {
+            this->y.HALF.HI = y;
         }
     }
 }
 
 void sub_0803A720(Entity* this) {
-    this->actionDelay--;
-    if (this->actionDelay == 0) {
+    if (--this->actionDelay == 0) {
         this->action = 9;
         sub_0803B8E8(this, 0x16);
     }
 }
 
 void sub_0803A740(Entity* this) {
-    u16 uVar1;
+    u16 height;
 
-    // TODO this is bad, but it matches
-    uVar1 = this->height.HALF.HI + 4;
+    height = this->height.HALF.HI + 4;
     this->height.HALF.HI += 4;
-    if (-1 < uVar1 * 0x10000) {
+    if (-1 < height * 0x10000) {
         this->height.HALF.HI = 0;
         this->action = 10;
         this->actionDelay = 10;
@@ -986,8 +982,8 @@ void sub_0803B1B8(Entity* this) {
             temp->action = 0xb;
             temp->actionDelay = 0x78;
             temp->field_0x20 = 0;
-            *(u16*)(*(int*)&temp->field_0x74 + 0x7e) = val = 0x708;
-            *(u16*)(*(int*)&temp->field_0x78 + 0x7e) = val;
+            (*(Entity**)&temp->field_0x74)->field_0x7c.HALF_U.HI = 0x708;
+            (*(Entity**)&temp->field_0x78)->field_0x7c.HALF_U.HI = 0x708;
         }
     } else {
         if (--this->field_0x7c.HALF.HI == 0) {
@@ -997,28 +993,28 @@ void sub_0803B1B8(Entity* this) {
 }
 
 void sub_0803B2D0(Entity* this) {
-    Entity* temp;
+    Entity* entity;
 
     GetNextFrame(this);
     if ((this->frames.all & 0x80) != 0) {
         this->action = 0x2d;
         this->spriteSettings.b.draw = 0;
-        temp = *(Entity**)&this->field_0x74;
-        temp->action = 2;
-        temp->field_0x74.HALF.LO = 0;
-        temp->field_0x78.HWORD = 0;
-        InitializeAnimation(temp, 3);
+        entity = *(Entity**)&this->field_0x74;
+        entity->action = 2;
+        entity->field_0x74.HALF.LO = 0;
+        entity->field_0x78.HWORD = 0;
+        InitializeAnimation(entity, 3);
     }
 }
 
 void sub_0803B30C(Entity* this) {
-    Entity* pEVar1;
+    Entity* entity;
 
-    pEVar1 = *(Entity**)&this->field_0x74;
-    if ((pEVar1->frames.all & 0x80) != 0) {
+    entity = *(Entity**)&this->field_0x74;
+    if ((entity->frames.all & 0x80) != 0) {
         this->action = 0x2e;
         sub_0803B8E8(this, 0x13);
-        InitializeAnimation(pEVar1, 0);
+        InitializeAnimation(entity, 0);
     }
 }
 

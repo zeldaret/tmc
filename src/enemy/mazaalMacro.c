@@ -82,10 +82,7 @@ void sub_08034CC4(Entity* this) {
         this->field_0x78.HWORD = 0x4b0;
         sub_08034F70(this);
         InitializeAnimation(this, this->type);
-        SetTile(0x4022,
-                ((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4 & 0x3f) |
-                    (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4 & 0x3f) << 6),
-                this->collisionLayer);
+        SetTile(0x4022, COORD_TO_TILE(this), this->collisionLayer);
         entity = CreateEnemy(0x37, 2);
         if (entity != NULL) {
             this->attachedEntity = entity;
@@ -102,7 +99,7 @@ void sub_08034D4C(Entity* this) {
     if (--this->field_0x78.HWORD == 0) {
         if ((this->field_0xf < 8) && (entity = CreateEnemy(0x4b, 0), entity != (Entity*)0x0)) {
             entity->direction = (s32)Random() % 5 + 0xc;
-            entity->x.HALF.HI = (gRoomControls.width >> 1) + gRoomControls.roomOriginX;
+            entity->x.HALF.HI = (gRoomControls.width / 2) + gRoomControls.roomOriginX;
             entity->y.HALF.HI = gRoomControls.roomOriginY + 8;
             entity->collisionLayer = 3;
             entity->parent = this;
@@ -118,9 +115,7 @@ void sub_08034D4C(Entity* this) {
 void sub_08034DC8(Entity* this) {
     if (gScreenTransition.field_0x39 == 0) {
         CreateFx(this, 0x51, 0);
-        sub_0807BA8C(((this->x.HALF.HI - gRoomControls.roomOriginX) >> 4 & 0x3fU) |
-                         (((this->y.HALF.HI - gRoomControls.roomOriginY) >> 4 & 0x3fU) << 6),
-                     this->collisionLayer);
+        sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
         DeleteThisEntity();
     }
 }
@@ -139,7 +134,7 @@ void sub_08034E30(Entity* this) {
 }
 
 void sub_08034E68(Entity* this) {
-    ScriptExecutionContext* pSVar2;
+    ScriptExecutionContext* scriptExecutionContext;
 
     if (this->parent->next == NULL) {
         if (this->spriteSettings.b.draw != 0) {
@@ -149,8 +144,8 @@ void sub_08034E68(Entity* this) {
         if (gScreenTransition.field_0x39 == 0) {
             if (sub_08079F8C() != 0) {
                 this->action = 3;
-                pSVar2 = StartCutscene(this, (u16*)script_08012E20);
-                *(ScriptExecutionContext**)&this->cutsceneBeh = pSVar2;
+                scriptExecutionContext = StartCutscene(this, (u16*)script_08012E20);
+                *(ScriptExecutionContext**)&this->cutsceneBeh = scriptExecutionContext;
             }
         } else {
             DeleteThisEntity();
@@ -269,7 +264,7 @@ u32 sub_08035084(Entity* this) {
             entity->y.HALF.HI = gRoomControls.roomOriginY + *(coords + 1);
             entity->collisionLayer = 1;
             UpdateSpriteForCollisionLayer(entity);
-        };
+        }
     }
     return 1;
 }
