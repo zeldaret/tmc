@@ -595,9 +595,7 @@ SECTIONS {
         src/npc/carpenter.o(.text);
         asm/carpenter.o(.text);
         asm/castorWildsStatue.o(.text);
-        asm/npc/cat.o(.text);
         src/npc/cat.o(.text);
-        asm/cat.o(.text);
         asm/mountainMinish.o(.text);
         src/npc/zeldaFollower.o(.text);
         asm/zeldaFollower.o(.text);
