@@ -605,7 +605,7 @@ SECTIONS {
         src/npc/goron.o(.text);
         src/npc/goronMerchant.o(.text);
         asm/gorman.o(.text);
-        asm/dog.o(.text);
+        src/npc/dog.o(.text);
         src/npc/syrup.o(.text);
         asm/syrup.o(.text);
         src/npc/rem.o(.text);
