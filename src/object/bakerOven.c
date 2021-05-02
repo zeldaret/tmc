@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "object.h"
 #include "functions.h"
 
 extern void sub_0800449C(Entity*, u32);
@@ -23,7 +24,7 @@ void sub_0809CC74(Entity* this) {
         this->spritePriority.b0 = 5;
         /* Create steam clouds */
         for (i = 0; i < 3; i++) {
-            ent = CreateObject(0x92, 1, i);
+            ent = CreateObject(BAKER_OVEN, 1, i);
             if (ent) {
                 ent->parent = this;
                 PositionRelative(this, ent, (((i + 1) / 2) * 0x100000) - 0x80000, -0xe0000);

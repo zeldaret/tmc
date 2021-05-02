@@ -242,7 +242,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
                 UpdateSpriteOrderAndFlip(itemEntity);
             }
         } else {
-            itemEntity = CreateObject(0, itemID, adjustedParam);
+            itemEntity = CreateObject(GROUND_ITEM, itemID, adjustedParam);
             if (itemEntity != NULL) {
                 if (arg0 == &gPlayerEntity) {
                     itemEntity->actionDelay = 1;

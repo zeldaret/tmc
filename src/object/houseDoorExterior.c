@@ -4,6 +4,7 @@
 #include "room.h"
 #include "script.h"
 #include "audio.h"
+#include "object.h"
 #include "functions.h"
 
 typedef struct {
@@ -53,7 +54,7 @@ void sub_080866D8(Entity* this) {
         int mask = 1 << i;
         if ((*((u32*)(&this->field_0x68)) & mask) == 0 && sub_080867CC(prop->unk5) &&
             sub_080562CC(prop->unk0, prop->unk2, 32, 32)) {
-            entity = CreateObject(0x19, prop->unk7, prop->unk6);
+            entity = CreateObject(HOUSE_DOOR_EXT, prop->unk7, prop->unk6);
             if (entity) {
                 entity->field_0x6c.HALF.LO = i;
                 entity->x.HALF.HI = gRoomControls.roomOriginX + prop->unk0 + 16;

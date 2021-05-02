@@ -5,8 +5,9 @@
 #include "player.h"
 #include "flags.h"
 #include "random.h"
-#include "functions.h"
+#include "object.h"
 #include "structures.h"
+#include "functions.h"
 
 extern void sub_0809F7BC(Entity*);
 extern void sub_0809F7F4(Entity*);
@@ -148,7 +149,7 @@ Entity* sub_0809F770(Entity* this) {
     Entity* cloud;
     int uVar1;
 
-    cloud = CreateObject(163, 1, 0);
+    cloud = CreateObject(CLOUD, 1, 0);
     if (cloud) {
         PositionEntityOnTop(this, cloud);
         uVar1 = Random();

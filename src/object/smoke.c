@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "random.h"
+#include "object.h"
 #include "functions.h"
 
 extern void (*const gUnk_08121060[])(Entity*);
@@ -21,7 +22,7 @@ void sub_0808A40C(Entity* this) {
     }
     if (--this->actionDelay == 0) {
         this->actionDelay = 0x40 - (Random() & 0x1f);
-        ent = CreateObject(0x2d, 1, 0);
+        ent = CreateObject(SMOKE, 1, 0);
         if (ent != NULL) {
             CopyPosition(this, ent);
             ent->x.HALF.HI += gUnk_08121068[(Random() & 7)];

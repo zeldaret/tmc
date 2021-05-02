@@ -1,5 +1,6 @@
 #include "enemy.h"
 #include "random.h"
+#include "object.h"
 #include "functions.h"
 
 extern void sub_08008796(Entity*, u32, u32, u32);
@@ -347,7 +348,7 @@ bool32 sub_0802C0E8(Entity* this) {
 void sub_0802C18C(Entity* this) {
     this->field_0x78.HALF.LO--;
     if ((this->field_0x78.HALF.LO & 7) == 0) {
-        Entity* ent = CreateObject(0xf, 0x11, 0x40);
+        Entity* ent = CreateObject(SPECIAL_FX, 0x11, 0x40);
         if (ent) {
             PositionRelative(this, ent, 0, 0x10000);
         }

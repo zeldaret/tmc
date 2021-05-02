@@ -3,6 +3,7 @@
 #include "entity.h"
 #include "flags.h"
 #include "room.h"
+#include "object.h"
 #include "functions.h"
 
 typedef struct {
@@ -37,7 +38,7 @@ void sub_0805C6D0(Manager26* this) {
     this->unk_29 = 0;
     while (tmp->unk_00 != 0xFF && this->manager.unk_0e < 0x20) {
         Entity* obj;
-        obj = CreateObject(0x4C, tmp->unk_01, tmp->unk_02);
+        obj = CreateObject(PUSHABLE_FURNITURE, tmp->unk_01, tmp->unk_02);
         if (obj) {
             obj->actionDelay = tmp->unk_03;
             obj->x.HALF.HI = gRoomControls.roomOriginX + tmp->unk_04;

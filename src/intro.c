@@ -2,11 +2,12 @@
 #include "global.h"
 #include "main.h"
 #include "entity.h"
-#include "functions.h"
 #include "utils.h"
 #include "screen.h"
-#include "structures.h"
+#include "object.h"
 #include "textbox.h"
+#include "structures.h"
+#include "functions.h"
 
 typedef struct {
     u8 filler0[0x4];
@@ -251,7 +252,7 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
                 gFadeControl.field_0x4 = -1;
                 gIntroState.subState++;
                 gIntroState.timer = 90;
-                pEVar2 = CreateObject(0xb4, 0, 0);
+                pEVar2 = CreateObject(OBJECT_B4, 0, 0);
                 if (pEVar2 != NULL) {
                     pEVar2->x.HALF.HI = 0;
                     pEVar2->y.HALF.HI = DISPLAY_HEIGHT / 2 - 8;
@@ -289,7 +290,7 @@ static void HandleTitlescreenAnimationIntro(void) {
             if (--gIntroState.timer == 0) {
                 gIntroState.timer = 300;
                 gIntroState.subState++;
-                CreateObject(0xBD, 0, 0);
+                CreateObject(OBJECT_BD, 0, 0);
                 DoFade(6, 16);
                 SoundReq(SFX_F8);
             }

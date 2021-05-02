@@ -2,8 +2,9 @@
 #include "audio.h"
 #include "entity.h"
 #include "flags.h"
-#include "functions.h"
 #include "player.h"
+#include "object.h"
+#include "functions.h"
 
 void sub_08081150(Entity*);
 u8 sub_0808147C(u32);
@@ -124,7 +125,7 @@ void sub_08080F20(Entity* this) {
         this->field_0x1c = sub_0808147C(this->type);
         gUnk_0811E7E8[this->field_0x68.HALF.HI](this);
     } else {
-        Entity* entity = CreateObject(0x40, 0x60, 0);
+        Entity* entity = CreateObject(FAIRY, 0x60, 0);
         if (entity) {
             entity->actionDelay = 0;
             if (this->actionDelay == 1) {

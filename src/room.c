@@ -962,12 +962,12 @@ void sub_0804BF38(u32 arg0, struct_0804BF38* arg1)
 
   if (numEnts != 0) {
     for (xOff = 0; entCnt < numEnts; xOff += 0x10, entCnt++) {
-      fx = CreateObject(0xf, 0xf, 0);
+      fx = CreateObject(SPECIAL_FX, 0xf, 0);
       if (fx != NULL) {
         fx->x.HALF.HI = gUnk_080D8E50[iVar3].x + gRoomControls.roomOriginX + xOff;
         fx->y.HALF.HI = gUnk_080D8E50[iVar3].y + gRoomControls.roomOriginY + (entCnt & 1) * 8;
       }
-      fx = CreateObject(0xf, 0x54, 0);
+      fx = CreateObject(SPECIAL_FX, 0x54, 0);
       if (fx != NULL) {
         fx->x.HALF.HI = gUnk_080D8E50[iVar3].x + gRoomControls.roomOriginX + xOff;
         fx->y.HALF.HI = gUnk_080D8E50[iVar3].y + gRoomControls.roomOriginY + -0xc + (entCnt & 1) * 8;

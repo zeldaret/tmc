@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "room.h"
+#include "object.h"
 
 void sub_080A29BC(Entity* parent) { // TODO this is CreateDust, why is it here again? Fogot to delete file?
     CreateFx(parent, 2, 0);
@@ -9,7 +10,7 @@ void sub_080A29BC(Entity* parent) { // TODO this is CreateDust, why is it here a
 void sub_080A29C8(s32 xOff, s32 yOff, u32 layer) {
     Entity* pEVar1;
 
-    pEVar1 = CreateObject(0xf, 2, 0);
+    pEVar1 = CreateObject(SPECIAL_FX, 2, 0);
     if (pEVar1 != NULL) {
         pEVar1->x.HALF.HI = gRoomControls.roomOriginX + xOff;
         pEVar1->y.HALF.HI = gRoomControls.roomOriginY + yOff;
@@ -32,7 +33,7 @@ void sub_080A2A14(Entity* parent) {
 Entity* sub_080A2A20(Entity* parent, u32 form, u32 parameter) {
     Entity* pEVar1;
 
-    pEVar1 = CreateObjectWithParent(parent, 0, form, parameter);
+    pEVar1 = CreateObjectWithParent(parent, GROUND_ITEM, form, parameter);
     if (pEVar1 != NULL) {
         pEVar1->actionDelay = 5;
     }
@@ -42,7 +43,7 @@ Entity* sub_080A2A20(Entity* parent, u32 form, u32 parameter) {
 Entity* sub_080A2A3C(Entity* parent, u32 form, u32 subtype, u32 param_4) {
     Entity* ent;
 
-    ent = CreateObjectWithParent(parent, 0, form, subtype);
+    ent = CreateObjectWithParent(parent, GROUND_ITEM, form, subtype);
     if (ent != NULL) {
         ent->actionDelay = 5;
         *(u32*)(&ent->field_0x86) = param_4;

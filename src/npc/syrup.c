@@ -46,7 +46,7 @@ void sub_0806A26C(Entity* this) {
     u8 unk;
     u32 uVar2;
     Entity* pEVar1;
-    pEVar1 = CreateObject(0xf, 0x2f, 0);
+    pEVar1 = CreateObject(SPECIAL_FX, 0x2f, 0);
     if (pEVar1 != NULL) {
         PositionEntityOnTop(this, pEVar1);
         if (uVar2 = Random(), uVar2) {

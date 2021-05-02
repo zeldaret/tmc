@@ -2,8 +2,9 @@
 #include "entity.h"
 #include "screen.h"
 #include "random.h"
-#include "functions.h"
+#include "object.h"
 #include "structures.h"
+#include "functions.h"
 
 void sub_0802A39C(Entity*);
 void sub_0802A334(Entity*);
@@ -28,7 +29,7 @@ void sub_0802A250(Entity* this) {
     InitializeAnimation(this, 0);
     UpdateSpriteForCollisionLayer(this);
 
-    ent = CreateObject(0x66, 0, 0);
+    ent = CreateObject(OBJECT_66, 0, 0);
     if (ent) {
         ent->parent = this;
     }

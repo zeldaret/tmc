@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "player.h"
 #include "random.h"
+#include "object.h"
 #include "functions.h"
 
 extern void sub_08078954(Entity*);
@@ -522,7 +523,7 @@ void sub_0802B048(Entity* this) {
                     if (this->parent->next) {
                         this->parent->field_0x80.HALF.HI = 0;
                     }
-                    ent = CreateObjectWithParent(this, 0x20, 0, 0);
+                    ent = CreateObjectWithParent(this, OBJECT_20, 0, 0);
                     if (ent != NULL) {
                         this->collisionLayer = 1;
                     } else {

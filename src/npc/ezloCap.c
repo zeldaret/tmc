@@ -4,6 +4,7 @@
 #include "save.h"
 #include "script.h"
 #include "audio.h"
+#include "object.h"
 #include "functions.h"
 
 extern Hitbox gUnk_080FD170;
@@ -200,12 +201,12 @@ void sub_0806DB44(Entity* this, ScriptExecutionContext* context) {
 void sub_0806DB84(Entity* this, ScriptExecutionContext* context) {
     Entity* ent;
     this->hitbox = (Hitbox*)&gUnk_08114154;
-    ent = CreateObject(0x3e, 4, 0);
+    ent = CreateObject(OBJECT_3E, 4, 0);
     if (ent != NULL) {
         PositionRelative(this, ent, -0x80000, 0);
         *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_08016030);
     }
-    ent = CreateObject(0x3e, 5, 0);
+    ent = CreateObject(OBJECT_3E, 5, 0);
     if (ent != NULL) {
         PositionRelative(this, ent, 0x80000, 0);
         *(ScriptExecutionContext**)&ent->cutsceneBeh = StartCutscene(ent, &script_0801606C);

@@ -1,6 +1,7 @@
 #include "global.h"
 #include "enemy.h"
 #include "entity.h"
+#include "object.h"
 #include "functions.h"
 
 static bool32 ShouldSpawnTreeItem(Entity*);
@@ -35,14 +36,14 @@ void TreeItem(Entity* this) {
     if (var0 >= 0) {
         if (var0 > 7) {
             if (var0 == 8) {
-                itemEntity = CreateObject(0x40, 0x60, 0);
+                itemEntity = CreateObject(FAIRY, 0x60, 0);
                 if (itemEntity) {
                     itemEntity->actionDelay = 0;
                     CopyPosition(this, itemEntity);
                 }
             }
         } else {
-            itemEntity = CreateObject(0x96, 0x7, gUnk_080D2AB0[var0]);
+            itemEntity = CreateObject(OBJECT_96, 0x7, gUnk_080D2AB0[var0]);
             if (itemEntity) {
                 CopyPosition(this, itemEntity);
                 itemEntity->y.HALF.HI += 16;

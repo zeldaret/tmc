@@ -7,6 +7,7 @@
 #include "area.h"
 #include "save.h"
 #include "game.h"
+#include "object.h"
 #include "functions.h"
 
 static void (*const sPlayerActions[])(Entity*);
@@ -616,7 +617,7 @@ void PortalActivateInit(Entity* this) {
     this->subAction = 3;
     this->field_0xf = 0x1e;
     gPlayerState.field_0x8 = 0x738;
-    CreateObjectWithParent(this, 6, 1, 0);
+    CreateObjectWithParent(this, OBJECT_6, 1, 0);
     sub_08077B20();
     sub_0805E544();
 }
@@ -746,7 +747,7 @@ void sub_0807193C(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (this->frames.all & 0x80) {
         this->subAction++;
-        child = CreateObjectWithParent(this, 6, 0, 0);
+        child = CreateObjectWithParent(this, OBJECT_6, 0, 0);
         this->attachedEntity = child;
         if (child != NULL) {
             if (this->animationState == 2)
@@ -943,7 +944,7 @@ void sub_08071D04(Entity* this) {
     idx = GetBottleContaining(0x28);
     if (idx != 0) {
         gSave.stats.bottles[idx - 1] = 0x20;
-        CreateObject(0x40, 0x60, 2);
+        CreateObject(FAIRY, 0x60, 2);
         deltaHealth = 32;
     }
 

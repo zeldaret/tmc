@@ -1,9 +1,10 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 #include "flags.h"
 #include "player.h"
 #include "room.h"
+#include "object.h"
+#include "functions.h"
 
 void sub_08082824(Entity*);
 static void sub_08082850(Entity*, Entity*);
@@ -283,7 +284,7 @@ u32 sub_0808288C(Entity* this, u32 form, u32 arg2, u32 arg3) {
             result = 0x80;
             break;
         default:
-            entity = CreateObjectWithParent(this, 0, form, arg2);
+            entity = CreateObjectWithParent(this, GROUND_ITEM, form, arg2);
             if (entity) {
                 if (arg3 == 2) {
                     entity->actionDelay = 5;

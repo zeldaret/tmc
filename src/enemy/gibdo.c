@@ -3,6 +3,7 @@
 #include "sprite.h"
 #include "enemy.h"
 #include "random.h"
+#include "object.h"
 #include "functions.h"
 // Gibudo
 void sub_08037794();
@@ -373,7 +374,7 @@ void sub_08037B10(Entity* this) {
 }
 NONMATCH("asm/non_matching/gibdo/sub_08037B48.inc", void sub_08037B48(Entity* this)) {
     Entity* E;
-    E = CreateObject(0x2a, 3, 0);
+    E = CreateObject(OBJECT_2A, 3, 0);
     if (E != 0) {
         E->type2 = this->actionDelay;
         E->spritePriority.b0 = (E->spritePriority.b0 & 0xf8) | 3;
@@ -382,7 +383,7 @@ NONMATCH("asm/non_matching/gibdo/sub_08037B48.inc", void sub_08037B48(Entity* th
         E->parent = this;
     }
     *(Entity**)&this->field_0x80.HWORD = E;
-    E = CreateObject(0x2a, 3, 0);
+    E = CreateObject(OBJECT_2A, 3, 0);
     if (E != 0) {
         E->type2 = this->actionDelay;
         E->spritePriority.b0 = (E->spritePriority.b0 & 0xf8) | 3;
@@ -391,7 +392,7 @@ NONMATCH("asm/non_matching/gibdo/sub_08037B48.inc", void sub_08037B48(Entity* th
         E->parent = this;
     }
     *(Entity**)&this->cutsceneBeh.HWORD = E;
-    E = CreateObject(0x2a, 3, 0);
+    E = CreateObject(OBJECT_2A, 3, 0);
     if (E != 0) {
         E->type2 = this->actionDelay;
         E->spritePriority.b0 = (E->spritePriority.b0 & 0xf8) | 3;

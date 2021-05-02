@@ -1,5 +1,6 @@
 #include "enemy.h"
 #include "entity.h"
+#include "object.h"
 #include "functions.h"
 
 extern void (*const gUnk_080CD234[])(Entity*);
@@ -114,7 +115,7 @@ void sub_0802B35C(Entity* this) {
 
 void sub_0802B4A8(Entity* this) {
     if (--this->actionDelay == 0) {
-        Entity* ent = CreateObjectWithParent(this, 0, 0x60, 0);
+        Entity* ent = CreateObjectWithParent(this, GROUND_ITEM, 0x60, 0);
         if (ent) {
             ent->y.HALF.HI -= 4;
         }

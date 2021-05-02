@@ -1,6 +1,7 @@
 #include "enemy.h"
 #include "entity.h"
 #include "random.h"
+#include "object.h"
 #include "functions.h"
 
 extern u32 sub_080002E0(u32, u32);
@@ -85,7 +86,7 @@ void sub_08025020(Entity* this) {
             break;
         default:
             if (this->damageType == 0x82 && this->iframes < 0) {
-                Entity* ent = CreateObject(0x21, 2, 0);
+                Entity* ent = CreateObject(OBJECT_21, 2, 0);
                 if (ent != NULL) {
                     ent->spritePriority.b0 = 3;
                     CopyPosition(this, ent);
@@ -550,7 +551,7 @@ void sub_08025B18(Entity* this) {
     for (; i < 9; i++, offset += 2) {
         sub_08025AB8((((x + offset[0]) >> 4) & 0x3fU) | ((((y + offset[1]) >> 4) & 0x3fU) << 6), layer);
 
-        ent = CreateObject(0x21, 2, 0);
+        ent = CreateObject(OBJECT_21, 2, 0);
         if (ent) {
             PositionRelative(this, ent, offset[0] * 0x10000, offset[1] * 0x10000);
             ent->x.HALF.HI &= -0x10;
@@ -564,7 +565,7 @@ void sub_08025B18(Entity* this) {
 
 void sub_08025BD4(Entity* this) {
     if (this->field_0x82.HALF.LO && (this->frames.all & 1) == 0) {
-        Entity* ent = CreateObject(0x21, 0, 0);
+        Entity* ent = CreateObject(OBJECT_21, 0, 0);
         if (ent) {
             PositionRelative(this, ent, gUnk_080CC0BA[this->animationState * 2 + 0] * 0x10000,
                              gUnk_080CC0BA[this->animationState * 2 + 1] * 0x10000);
