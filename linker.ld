@@ -545,7 +545,7 @@ SECTIONS {
         asm/manager2A.o(.text);
         asm/manager2B.o(.text);
         asm/manager2C.o(.text);
-        asm/manager2D.o(.text);
+        src/manager/manager2D.o(.text);
         src/manager/manager2E.o(.text);
         asm/manager2E.o(.text);
         asm/manager2F.o(.text);
@@ -557,7 +557,7 @@ SECTIONS {
         asm/manager35.o(.text);
         asm/manager36.o(.text);
         asm/manager37.o(.text);
-        asm/manager38.o(.text);
+        src/manager/manager38.o(.text);
         src/manager/manager39.o(.text);
         asm/sub_0805E248.o(.text);
         src/sub_0805E374.o(.text);
