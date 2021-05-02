@@ -185,7 +185,6 @@ SECTIONS {
         . = 0x00001020; gUnk_03001020 = .;
         . = 0x000010A0; gScreenTransition = .;
         . = 0x000010AC; gUnk_030010AC = .;
-        . = 0x000010D8; gUnk_030010D8 = .;
         . = 0x000010EC; gUnk_030010EC = .;
         . = 0x0000110C; gUnk_0300110C = .;
         . = 0x00001150; gRand = .;
@@ -396,9 +395,9 @@ SECTIONS {
         asm/bombarossa.o(.text);
         src/enemy/wisp.o(.text);
         asm/spinyBeetle.o(.text);
-        asm/mazaalHead.o(.text);
-        asm/mazaalMacro.o(.text);
-        asm/mazaalHand.o(.text);
+        src/enemy/mazaalHead.o(.text);
+        src/enemy/mazaalMacro.o(.text);
+        src/enemy/mazaalHand.o(.text);
         asm/octorokBoss.o(.text);
         asm/flyingPot.o(.text);
         src/enemy/gibdo.o(.text);
@@ -410,7 +409,7 @@ SECTIONS {
         asm/cuccoAggr.o(.text);
         asm/stalfos.o(.text);
         asm/flyingSkull.o(.text);
-        asm/mazaalBracelet.o(.text);
+        src/enemy/mazaalBracelet.o(.text);
         asm/takkuri.o(.text);
         src/enemy/bowMoblin.o(.text);
         asm/bowMoblin.o(.text);
@@ -660,7 +659,6 @@ SECTIONS {
         asm/playerItem/playerItemPacciCane.o(.text);
         asm/code_0807059C.o(.text);
         src/player.o(.text);
-        asm/code_08070698.o(.text);
         asm/stairsInteract.o(.text);
         asm/code_080732D0.o(.text);
         asm/item/itemDebug.o(.text);
@@ -1093,11 +1091,11 @@ SECTIONS {
         data/animations/enemy/wisp.o(.rodata);
         data/const/enemy/spinyBeetle.o(.rodata);
         data/animations/enemy/spinyBeetle.o(.rodata);
-        data/const/enemy/mazaalHead.o(.rodata);
+        src/enemy/mazaalHead.o(.rodata);
         data/animations/enemy/mazaalHead.o(.rodata);
-        data/const/enemy/mazaalMacro.o(.rodata);
+        src/enemy/mazaalMacro.o(.rodata);
         data/animations/enemy/mazaalMacro.o(.rodata);
-        data/const/enemy/mazaalHand.o(.rodata);
+        src/enemy/mazaalHand.o(.rodata);
         data/animations/enemy/mazaalHand.o(.rodata);
         data/const/enemy/octorokBoss.o(.rodata);
         data/animations/enemy/octorokBoss.o(.rodata);
@@ -1117,7 +1115,7 @@ SECTIONS {
         data/animations/enemy/stalfos.o(.rodata);
         data/const/enemy/flyingSkull.o(.rodata);
         data/animations/enemy/flyingSkull.o(.rodata);
-        data/const/enemy/mazaalBracelet.o(.rodata);
+        src/enemy/mazaalBracelet.o(.rodata);
         data/animations/enemy/mazaalBracelet.o(.rodata);
         data/const/enemy/takkuri.o(.rodata);
         data/const/enemy/bowMoblin.o(.rodata);
