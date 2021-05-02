@@ -93,7 +93,7 @@ void sub_0802BCA8(Entity* this) {
         this->damageType = 0x19;
         this->field_0x3a = this->field_0x3a & 0xfb;
         this->field_0x1c = 0x12;
-        ent = CreateEnemy(0x20, 1);
+        ent = CreateEnemy(HELMASAUR, 1);
         if (ent) {
             ent->animationState = this->animationState;
             CopyPosition(this, ent);

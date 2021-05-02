@@ -99,7 +99,7 @@ void sub_080450A8(Entity* this) {
 
     /* Create 2-4 new MiniSlime */
     for (i = 0; i < count; i++)
-        entities[i] = CreateEnemy(0x57, this->type);
+        entities[i] = CreateEnemy(MINI_SLIME, this->type);
 
     off = gUnk_080D16D4;
     for (i = 0; i < count; i++) {

@@ -82,32 +82,32 @@ void sub_0802999C(Entity* this) {
     if (gEntCount < 0x44) {
         Entity *ent1, *ent2, *ent3, *ent4, *ent5, *ent6;
 
-        ent1 = CreateEnemy(0x18, 1);
+        ent1 = CreateEnemy(MADDERPILLAR, 1);
         ent1->parent = this;
         PositionRelative(this, ent1, 0, 5);
         this->attachedEntity = ent1;
 
-        ent2 = CreateEnemy(0x18, 2);
+        ent2 = CreateEnemy(MADDERPILLAR, 2);
         ent2->parent = this;
         PositionRelative(this, ent2, 0, 4);
         ent1->attachedEntity = ent2;
 
-        ent3 = CreateEnemy(0x18, 3);
+        ent3 = CreateEnemy(MADDERPILLAR, 3);
         ent3->parent = this;
         PositionRelative(this, ent3, 0, 3);
         ent2->attachedEntity = ent3;
 
-        ent4 = CreateEnemy(0x18, 4);
+        ent4 = CreateEnemy(MADDERPILLAR, 4);
         ent4->parent = this;
         PositionRelative(this, ent4, 0, 2);
         ent3->attachedEntity = ent4;
 
-        ent5 = CreateEnemy(0x18, 5);
+        ent5 = CreateEnemy(MADDERPILLAR, 5);
         ent5->parent = this;
         PositionRelative(this, ent5, 0, 1);
         ent4->attachedEntity = ent5;
 
-        ent6 = CreateEnemy(0x18, 6);
+        ent6 = CreateEnemy(MADDERPILLAR, 6);
         ent6->attachedEntity = this;
         ent6->parent = this;
         PositionRelative(this, ent6, 0, 0);

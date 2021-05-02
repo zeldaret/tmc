@@ -190,7 +190,7 @@ void sub_0803773C(Entity* this) {
 void sub_0803775C(Entity* this) {
     Entity* x;
     if (!(--this->actionDelay)) {
-        x = CreateEnemy(0x42, 0);
+        x = CreateEnemy(STALFOS, 0);
         if (x != 0) {
             sub_0804A4E4(this, x);
             sub_08037C0C(this, x);

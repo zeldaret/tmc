@@ -41,7 +41,7 @@ void sub_08022254(Entity* this) {
             case 0x16:
             case 0x1c:
                 CreateFx(this, 4, 0);
-                ent = CreateEnemy(1, 1);
+                ent = CreateEnemy(CHUCHU, 1);
                 if (ent) {
                     ent->type2 = 1;
                     ent->iframes = -8;

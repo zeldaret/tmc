@@ -1,10 +1,10 @@
 #include "global.h"
 #include "entity.h"
+#include "enemy.h"
 #include "coord.h"
 #include "random.h"
 #include "functions.h"
 
-extern u32 GetNextFunction(Entity*);
 extern void sub_080317F8(Entity*);
 
 extern void (*gUnk_080CE530[])(Entity*);
@@ -122,7 +122,7 @@ void sub_080317F8(Entity* this) {
 }
 
 void sub_08031840(Entity* this) {
-    Entity* enemy = CreateEnemy(0x2d, this->type);
+    Entity* enemy = CreateEnemy(SMALL_PESTO, this->type);
     if (enemy != NULL) {
         CopyPosition(this, enemy);
         enemy->parent = this;

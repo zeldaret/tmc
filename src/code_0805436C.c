@@ -234,7 +234,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
     }
     if (itemID != 0) {
         if (itemID == 0xff) {
-            itemEntity = CreateEnemy(7, 0);
+            itemEntity = CreateEnemy(BEETLE, 0);
             if (itemEntity != NULL) {
                 itemEntity->x.HALF.HI = arg0->x.HALF.HI;
                 itemEntity->y.HALF.HI = arg0->y.HALF.HI;

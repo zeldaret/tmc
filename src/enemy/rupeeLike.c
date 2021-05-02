@@ -91,7 +91,7 @@ void sub_080293DC(Entity* this) {
 void sub_0802940C(Entity* this) {
     Entity* ent;
 
-    ent = CreateEnemy(0x17, this->type);
+    ent = CreateEnemy(RUPEE_LIKE, this->type);
     if (ent != NULL) {
         sub_0804A720(this);
         ent->parent = this;
