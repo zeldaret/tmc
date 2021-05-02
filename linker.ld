@@ -659,7 +659,6 @@ SECTIONS {
         asm/playerItem/playerItemPacciCane.o(.text);
         asm/code_0807059C.o(.text);
         src/player.o(.text);
-        asm/code_08070698.o(.text);
         asm/stairsInteract.o(.text);
         asm/code_080732D0.o(.text);
         asm/item/itemDebug.o(.text);
