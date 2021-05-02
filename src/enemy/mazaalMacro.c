@@ -83,7 +83,7 @@ void sub_08034CC4(Entity* this) {
         sub_08034F70(this);
         InitializeAnimation(this, this->type);
         SetTile(0x4022, COORD_TO_TILE(this), this->collisionLayer);
-        entity = CreateEnemy(0x37, 2);
+        entity = CreateEnemy(MAZAAL_MACRO, 2);
         if (entity != NULL) {
             this->attachedEntity = entity;
             entity->parent = this;
@@ -97,7 +97,7 @@ void sub_08034D4C(Entity* this) {
 
     GetNextFrame(this);
     if (--this->field_0x78.HWORD == 0) {
-        if ((this->field_0xf < 8) && (entity = CreateEnemy(0x4b, 0), entity != (Entity*)0x0)) {
+        if ((this->field_0xf < 8) && (entity = CreateEnemy(VAATI_PROJECTILE, 0), entity != (Entity*)0x0)) {
             entity->direction = (s32)Random() % 5 + 0xc;
             entity->x.HALF.HI = (gRoomControls.width / 2) + gRoomControls.roomOriginX;
             entity->y.HALF.HI = gRoomControls.roomOriginY + 8;
@@ -231,7 +231,7 @@ void sub_08035050(Entity* this) {
 
     this->flags = this->flags & 0x7f;
     this->currentHealth = 0;
-    entity = CreateEnemy(0x4b, 0);
+    entity = CreateEnemy(VAATI_PROJECTILE, 0);
     if (entity != NULL) {
         entity->type2 = 1;
         entity->collisionLayer = 3;
@@ -258,7 +258,7 @@ u32 sub_08035084(Entity* this) {
             if (i == vulnPillar) {
                 entity = this;
             } else {
-                entity = CreateEnemy(0x37, 1);
+                entity = CreateEnemy(MAZAAL_MACRO, 1);
             }
             entity->x.HALF.HI = gRoomControls.roomOriginX + *coords;
             entity->y.HALF.HI = gRoomControls.roomOriginY + *(coords + 1);

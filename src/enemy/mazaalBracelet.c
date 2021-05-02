@@ -177,10 +177,10 @@ void sub_0803A274(Entity* this) {
 
     if (gEntCount < 0x45) {
         if (this->type == 0) {
-            pEVar1 = CreateEnemy(0x38, 0);
+            pEVar1 = CreateEnemy(MAZAAL_HAND, 0);
             pEVar1->parent = this;
             this->attachedEntity = pEVar1;
-            pEVar1 = CreateEnemy(0x44, 2);
+            pEVar1 = CreateEnemy(MAZAAL_BRACELET, 2);
             pEVar1->parent = this;
             *(Entity**)&this->field_0x74 = pEVar1;
             pEVar1 = CreateObject(OBJECT_7E, 1, 0);
@@ -188,10 +188,10 @@ void sub_0803A274(Entity* this) {
             pEVar1->attachedEntity = this->attachedEntity;
             PositionRelative(this->parent, this, 0x100000, 0x200000);
         } else {
-            pEVar1 = CreateEnemy(0x38, 1);
+            pEVar1 = CreateEnemy(MAZAAL_HAND, 1);
             pEVar1->parent = this;
             this->attachedEntity = pEVar1;
-            pEVar1 = CreateEnemy(0x44, 3);
+            pEVar1 = CreateEnemy(MAZAAL_BRACELET, 3);
             pEVar1->parent = this;
             *(Entity**)&this->field_0x74 = pEVar1;
             pEVar1 = CreateObject(OBJECT_7E, 2, 0);
@@ -968,7 +968,7 @@ void sub_0803B1B8(Entity* this) {
             temp->y.HALF.HI += this->hitbox->offset_y;
             temp->spritePriority.b0 = 3;
         }
-        temp = CreateObject(0, 0x5e, 0);
+        temp = CreateObject(GROUND_ITEM, 0x5e, 0);
         if (temp != (Entity*)0x0) {
             temp->actionDelay = 0;
             temp->direction = 0x90;
@@ -1083,7 +1083,7 @@ void sub_0803B3F4(Entity* this) {
 void sub_0803B480(Entity* this) {
     Entity* target;
 
-    if (((this->field_0x7c.HALF.HI & 0x1f) == 0) && (target = CreateObject(0x2d, 1, 0), target != (Entity*)0x0)) {
+    if (((this->field_0x7c.HALF.HI & 0x1f) == 0) && (target = CreateObject(SMOKE, 1, 0), target != (Entity*)0x0)) {
         PositionRelative(this, target, gUnk_080CFD08[this->type] << 0x10, 0);
     }
     if (--this->field_0x7c.HALF.HI == 0) {
@@ -1210,7 +1210,7 @@ void sub_0803B724(Entity* param_1) {
     u8 temp;
 
     if (((param_1->field_0xf < 3) && (param_1->cutsceneBeh.HALF.LO != 0)) &&
-        (pEVar1 = CreateEnemy(7, 1), pEVar1 != (Entity*)0x0)) {
+        (pEVar1 = CreateEnemy(BEETLE, 1), pEVar1 != (Entity*)0x0)) {
         pEVar1->type2 = 1;
         random_value = Random();
         temp = gUnk_080CFD1B[param_1->type];
