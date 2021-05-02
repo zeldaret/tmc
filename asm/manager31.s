@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0805D630
-sub_0805D630: @ 0x0805D630
+	thumb_func_start Manager31_Main
+Manager31_Main: @ 0x0805D630
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
 	mov r6, r8

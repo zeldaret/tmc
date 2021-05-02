@@ -19,7 +19,7 @@ void sub_08058084(u16*, u16*);
 
 extern u16 gMapDataTopSpecial[];
 
-void sub_08057ED0(Manager8* this) {
+void Manager8_Main(Manager8* this) {
     sub_08057F20(this);
     if (!this->manager.action) {
         this->manager.action = 1;

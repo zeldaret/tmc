@@ -21,7 +21,7 @@ void Manager1E_ObserveRegion(Manager1E*);
 
 void (*const Manager1E_ActionFuncs[2])(Manager1E*) = { Manager1E_Init, Manager1E_ObserveRegion };
 
-void Manager1E_Handler(Manager1E* this) {
+void Manager1E_Main(Manager1E* this) {
     Manager1E_ActionFuncs[this->manager.action](this);
 }
 

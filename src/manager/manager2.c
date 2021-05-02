@@ -6,7 +6,7 @@
 extern void sub_080576A0();
 extern void sub_0805754C(Entity*);
 
-void Manager2(Entity* this) {
+void Manager2_Main(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
         gScreen.affine.bg3Updated = 0;

@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0805D7A4
-sub_0805D7A4: @ 0x0805D7A4
+	thumb_func_start Manager32_Main
+Manager32_Main: @ 0x0805D7A4
 	push {r4, lr}
 	adds r4, r0, #0
 	ldr r1, _0805D7D4 @ =gUnk_08108D7C

@@ -12,7 +12,7 @@ extern void (*const gUnk_08107C48[])(Entity*);
 
 extern u8 gUnk_08107C40[];
 
-void Manager1(Entity* this) {
+void Manager1_Main(Entity* this) {
     u8 bVar1;
     u8* pbVar2;
 

@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0805B8EC
-sub_0805B8EC: @ 0x0805B8EC
+	thumb_func_start Manager22_Main
+Manager22_Main: @ 0x0805B8EC
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	ldr r4, _0805B964 @ =gArea
@@ -345,7 +345,7 @@ _0805BB82:
 	bl DeepFindEntityByID
 	cmp r0, #0
 	beq _0805BBAE
-	bl sub_0805B8EC
+	bl Manager22_Main
 	ldr r0, _0805BBB8 @ =gScreen
 	ldrh r1, [r0]
 	movs r3, #0x80

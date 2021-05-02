@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_08059DAC
-sub_08059DAC: @ 0x08059DAC
+	thumb_func_start Manager13_Main
+Manager13_Main: @ 0x08059DAC
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}

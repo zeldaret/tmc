@@ -30,7 +30,7 @@ extern u32 sub_08057810(void);
 extern u32 sub_080002C0(u16, u16, u8);
 extern void sub_080577AC(u32, u32, u32);
 
-void sub_080576C0(Manager3* this) {
+void Manager3_Main(Manager3* this) {
     s8 tmp;
     if (this->manager.action == 0) {
         this->manager.action = 1;

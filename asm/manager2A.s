@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0805CFC0
-sub_0805CFC0: @ 0x0805CFC0
+	thumb_func_start Manager2A_Main
+Manager2A_Main: @ 0x0805CFC0
 	push {r4, lr}
 	adds r1, r0, #0
 	ldrb r0, [r1, #0xc]

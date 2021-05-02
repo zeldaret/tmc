@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_08058ECC
-sub_08058ECC: @ 0x08058ECC
+	thumb_func_start ManagerF_Main
+ManagerF_Main: @ 0x08058ECC
 	push {lr}
 	ldr r2, _08058EE0 @ =gUnk_08108314
 	ldrb r1, [r0, #0xa]
@@ -495,7 +495,7 @@ sub_08059278: @ 0x08059278
 	bl FindEntityByID
 	cmp r0, #0
 	beq _0805928C
-	bl sub_08058ECC
+	bl ManagerF_Main
 _0805928C:
 	pop {pc}
 	.align 2, 0

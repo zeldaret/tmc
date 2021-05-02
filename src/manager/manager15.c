@@ -28,7 +28,7 @@ typedef struct {
 
 extern void (*const gUnk_081085D8[])(Manager*);
 
-void sub_0805A280(Manager* this) {
+void Manager15_Main(Manager* this) {
     gUnk_081085D8[this->unk_0a](this);
 }
 
@@ -477,7 +477,7 @@ void sub_0805AA58(Manager15* this) {
 
 void sub_0805AAC8(Manager15* this) {
     sub_0805AAF0(this->unk_23);
-    sub_0805A280(&this->manager);
+    Manager15_Main(&this->manager);
 }
 
 extern u16 gUnk_08108648[];

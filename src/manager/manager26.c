@@ -22,7 +22,7 @@ void (*const gUnk_08108D04[])(Manager26*) = { sub_0805C6D0, sub_0805C7A0, sub_08
 
 void sub_0805C7CC(Manager26*);
 
-void sub_0805C6B8(Manager26* this) {
+void Manager26_Main(Manager26* this) {
     gUnk_08108D04[this->manager.action](this);
 }
 

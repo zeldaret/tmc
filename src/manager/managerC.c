@@ -60,7 +60,7 @@ void nullsub_108(ManagerC*);
 
 void (*const gUnk_0810821C[])(ManagerC*) = { sub_08058894, sub_080588CC, nullsub_108 };
 
-void sub_0805884C(ManagerC* this) {
+void ManagerC_Main(ManagerC* this) {
     u32 tmp;
     gUnk_0810821C[this->manager.action](this);
     sub_08058BC8(this);

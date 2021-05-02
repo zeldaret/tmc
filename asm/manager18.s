@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0805ADD8
-sub_0805ADD8: @ 0x0805ADD8
+	thumb_func_start Manager18_Main
+Manager18_Main: @ 0x0805ADD8
 	push {r4, lr}
 	adds r4, r0, #0
 	cmp r4, #0
@@ -166,7 +166,7 @@ _0805AF06:
 	cmp r3, #0
 	beq _0805AF28
 	adds r0, r3, #0
-	bl sub_0805ADD8
+	bl Manager18_Main
 _0805AF28:
 	pop {r4, pc}
 	.align 2, 0

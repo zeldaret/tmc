@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0805AB4C
-sub_0805AB4C: @ 0x0805AB4C
+	thumb_func_start Manager16_Main
+Manager16_Main: @ 0x0805AB4C
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb

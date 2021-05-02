@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0805AF60
-sub_0805AF60: @ 0x0805AF60
+	thumb_func_start Manager19_Main
+Manager19_Main: @ 0x0805AF60
 	push {r4, lr}
 	adds r4, r0, #0
 	cmp r4, #0

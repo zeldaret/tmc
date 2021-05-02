@@ -7,7 +7,7 @@
 
 extern void (*gUnk_08107C70[])(Manager*);
 
-void sub_08057854(Manager* this) {
+void Manager4_Main(Manager* this) {
     gUnk_08107C70[this->action](this);
 }
 

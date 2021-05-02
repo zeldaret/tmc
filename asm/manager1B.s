@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0805B3B4
-sub_0805B3B4: @ 0x0805B3B4
+	thumb_func_start Manager1B_Main
+Manager1B_Main: @ 0x0805B3B4
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	bl EntityHasDuplicateID
@@ -147,7 +147,7 @@ sub_0805B4B4: @ 0x0805B4B4
 	bl sub_0806D0F8
 _0805B4C8:
 	adds r0, r4, #0
-	bl sub_0805B3B4
+	bl Manager1B_Main
 	pop {r4, pc}
 
 	thumb_func_start sub_0805B4D0

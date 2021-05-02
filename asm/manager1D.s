@@ -6,8 +6,8 @@
 
 	.text
 
-	thumb_func_start sub_0805B5C8
-sub_0805B5C8: @ 0x0805B5C8
+	thumb_func_start Manager1D_Main
+Manager1D_Main: @ 0x0805B5C8
 	push {lr}
 	ldr r2, _0805B5DC @ =gUnk_08108C80
 	ldrb r1, [r0, #0xc]

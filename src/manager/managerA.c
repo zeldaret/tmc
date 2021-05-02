@@ -14,7 +14,7 @@ void sub_080585B0(ManagerA*);
 
 void (*const gUnk_081081F4[])(ManagerA*) = { sub_08058398, sub_080583EC, sub_08058408, sub_08058514, sub_080585B0 };
 
-void sub_08058380(ManagerA* this) {
+void ManagerA_Main(ManagerA* this) {
     gUnk_081081F4[this->manager.action](this);
 }
 
