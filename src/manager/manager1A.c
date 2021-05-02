@@ -5,6 +5,7 @@
 #include "room.h"
 #include "screen.h"
 #include "utils.h"
+#include "object.h"
 #include "functions.h"
 
 typedef struct {
@@ -100,14 +101,14 @@ void sub_0805B048(Manager1A* this) {
     }
     if (!tmp->unk_10)
         return;
-    obj = CreateObject(0x28, tmp->unk_10->unk_00, tmp->unk_10->unk_01);
+    obj = CreateObject(OBJECT_28, tmp->unk_10->unk_00, tmp->unk_10->unk_01);
     if (obj) {
         obj->x.HALF.HI = tmp->unk_10->unk_04 + gRoomControls.roomOriginX;
         obj->y.HALF.HI = tmp->unk_10->unk_06 + gRoomControls.roomOriginY;
     }
     if (this->manager.unk_0a != 0xa || CheckLocalFlag(0x4B))
         return;
-    obj = CreateObject(0x28, 3, 3);
+    obj = CreateObject(OBJECT_28, 3, 3);
     if (obj) {
         obj->x.HALF.HI = tmp->unk_10->unk_04 + gRoomControls.roomOriginX;
         obj->y.HALF.HI = tmp->unk_10->unk_06 + gRoomControls.roomOriginY;

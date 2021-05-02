@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "player.h"
 #include "utils.h"
+#include "object.h"
 #include "functions.h"
 
 typedef struct {
@@ -110,7 +111,7 @@ void sub_08077F84(void) {
         GetTileTypeByPos(gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI - 0xc, 2) - 0x343U < 4) {
         sub_0807AA80(&gPlayerEntity);
         gPlayerState.jumpStatus |= 8;
-        obj = CreateObject(0x44, 0, 0);
+        obj = CreateObject(OBJECT_44, 0, 0);
         if (obj != NULL) {
             obj->x = gPlayerEntity.x;
             obj->y.HALF.HI = gPlayerEntity.y.HALF.HI - 0xc;

@@ -3,6 +3,7 @@
 #include "coord.h"
 #include "room.h"
 #include "createObject.h"
+#include "object.h"
 
 Entity* CreateObject(u32 subtype, u32 form, u32 parameter) {
     Entity* entity;
@@ -31,7 +32,7 @@ Entity* CreateObjectWithParent(Entity* parentEnt, u32 subtype, u32 form, u32 par
 }
 
 Entity* CreateFx(Entity* parentEnt, u32 form, u32 parameter) {
-    return CreateObjectWithParent(parentEnt, 0xf, form, parameter);
+    return CreateObjectWithParent(parentEnt, SPECIAL_FX, form, parameter);
 }
 
 void CreateDust(Entity* parent) {
@@ -41,7 +42,7 @@ void CreateDust(Entity* parent) {
 void CreateDustAt(s32 xOff, s32 yOff, u32 layer) {
     Entity* ent;
 
-    ent = CreateObject(0xf, 2, 0);
+    ent = CreateObject(SPECIAL_FX, 2, 0);
     if (ent != NULL) {
         ent->x.HALF.HI = gRoomControls.roomOriginX + xOff;
         ent->y.HALF.HI = gRoomControls.roomOriginY + yOff;
@@ -64,7 +65,7 @@ void CreateWaterSplash(Entity* parent) {
 Entity* sub_080A2A20(Entity* parent, u32 form, u32 parameter) {
     Entity* ent;
 
-    ent = CreateObjectWithParent(parent, 0, form, parameter);
+    ent = CreateObjectWithParent(parent, GROUND_ITEM, form, parameter);
     if (ent != NULL) {
         ent->actionDelay = 5;
     }
@@ -74,7 +75,7 @@ Entity* sub_080A2A20(Entity* parent, u32 form, u32 parameter) {
 Entity* sub_080A2A3C(Entity* parent, u32 form, u32 subtype, u32 param_4) {
     Entity* ent;
 
-    ent = CreateObjectWithParent(parent, 0, form, subtype);
+    ent = CreateObjectWithParent(parent, GROUND_ITEM, form, subtype);
     if (ent != NULL) {
         ent->actionDelay = 5;
         ent->field_0x86.HWORD = param_4;

@@ -111,28 +111,28 @@ void sub_080231BC(Entity* this) {
     if (gEntCount < 0x40) {
         Entity* ent;
 
-        ent = this->attachedEntity = CreateEnemy(0xf, 1);
+        ent = this->attachedEntity = CreateEnemy(MOLDWORM, 1);
         ent->parent = this;
 
-        ent = ent->attachedEntity = CreateEnemy(0xf, 2);
+        ent = ent->attachedEntity = CreateEnemy(MOLDWORM, 2);
         ent->parent = this;
 
-        ent = ent->attachedEntity = CreateEnemy(0xf, 3);
+        ent = ent->attachedEntity = CreateEnemy(MOLDWORM, 3);
         ent->parent = this;
 
-        ent = ent->attachedEntity = CreateEnemy(0xf, 4);
+        ent = ent->attachedEntity = CreateEnemy(MOLDWORM, 4);
         ent->parent = this;
 
-        ent = ent->attachedEntity = CreateEnemy(0xf, 5);
+        ent = ent->attachedEntity = CreateEnemy(MOLDWORM, 5);
         ent->parent = this;
 
-        ent = ent->attachedEntity = CreateEnemy(0xf, 6);
+        ent = ent->attachedEntity = CreateEnemy(MOLDWORM, 6);
         ent->parent = this;
 
-        ent = ent->attachedEntity = CreateEnemy(0xf, 7);
+        ent = ent->attachedEntity = CreateEnemy(MOLDWORM, 7);
         ent->parent = this;
 
-        ent->attachedEntity = CreateEnemy(0xf, 8);
+        ent->attachedEntity = CreateEnemy(MOLDWORM, 8);
         *(Entity**)&ent->attachedEntity->field_0x74 = ent;
         ent = ent->attachedEntity;
         ent->parent = this;

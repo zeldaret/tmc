@@ -1,6 +1,7 @@
 #include "global.h"
 #include "entity.h"
 #include "random.h"
+#include "object.h"
 #include "functions.h"
 
 extern void sub_08086A6C();
@@ -21,7 +22,7 @@ void sub_080869DC(Entity* ent) {
     ent->spriteSettings.b.draw = 0;
     ent->hitbox = &gUnk_080FD1A8;
     ent->field_0x3c |= 16;
-    itemEntity = CreateObject(0, ent->type, 0);
+    itemEntity = CreateObject(GROUND_ITEM, ent->type, 0);
     if (itemEntity != NULL) {
         itemEntity->actionDelay = 10;
         itemEntity->parent = ent;

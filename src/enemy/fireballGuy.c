@@ -71,7 +71,7 @@ void sub_08045454(Entity* this) {
 
     /* Create 2-5 new MiniFireballGuy */
     for (i = 0; i < count; i++)
-        entities[i] = CreateEnemy(0x59, this->type);
+        entities[i] = CreateEnemy(MINI_FIREBALL_GUY, this->type);
 
     off = gUnk_080D1810;
     for (i = 0; i < count; i++) {

@@ -6,6 +6,7 @@
 #include "player.h"
 #include "random.h"
 #include "audio.h"
+#include "object.h"
 
 // Facilitates the usage of minish portals.
 
@@ -75,7 +76,7 @@ void sub_080577AC(u32 baseX, u32 baseY, u32 layer) {
     r = Random();
     if ((r & 0x7) != 0)
         return;
-    spark = CreateObject(0xF, 0x26, 0);
+    spark = CreateObject(SPECIAL_FX, 0x26, 0);
     if (!spark)
         return;
     offsetX = (r >> 0x8) & 0xF;

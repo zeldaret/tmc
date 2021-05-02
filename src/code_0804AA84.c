@@ -3,8 +3,9 @@
 #include "area.h"
 #include "main.h"
 #include "utils.h"
-#include "functions.h"
 #include "screen.h"
+#include "object.h"
+#include "functions.h"
 
 typedef struct {
     u8 filler[18];
@@ -39,7 +40,7 @@ void sub_0804AAD4(void) {
     MemClear(&gUnk_02018EB0, 0x28);
     gUnk_02018EB0.unk = 0;
     EraseAllEntities();
-    CreateObject(0x3d, gArea.curPortalType, 0);
+    CreateObject(OBJECT_3D, gArea.curPortalType, 0);
     gArea.filler[8]++;
 }
 

@@ -1,10 +1,11 @@
 #include "global.h"
 #include "audio.h"
 #include "entity.h"
-#include "functions.h"
 #include "room.h"
 #include "flags.h"
 #include "script.h"
+#include "object.h"
+#include "functions.h"
 
 typedef struct {
     u8 filler[4];
@@ -31,7 +32,7 @@ void sub_0806C224(void) {
 }
 
 void Simon_CreateChest(Entity* this) {
-    CreateObjectWithParent(this, 0xf, 0x43, 0);
+    CreateObjectWithParent(this, SPECIAL_FX, 0x43, 0);
     SetTileType(0x73, COORD_TO_TILE(this), this->collisionLayer);
     SoundReq(SFX_SECRET_BIG);
 }

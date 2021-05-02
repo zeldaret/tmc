@@ -1,13 +1,14 @@
 #include "global.h"
 #include "entity.h"
+#include "enemy.h"
 #include "player.h"
 #include "random.h"
+#include "object.h"
 #include "functions.h"
 
 extern void sub_08078954(Entity*);
 extern void sub_08078930(Entity*);
 extern s32 sub_080012DC(Entity*);
-extern u32 GetNextFunction(Entity*);
 extern Entity* sub_08049DF4(u32);
 extern void sub_08079BD8(Entity*);
 
@@ -339,7 +340,7 @@ void sub_0802AD54(Entity* this) {
 }
 
 void sub_0802ADDC(Entity* this) {
-    Entity* ent = CreateEnemy(0x1b, this->type + 2);
+    Entity* ent = CreateEnemy(BOMB_PEAHAT, this->type + 2);
     if (ent != NULL) {
         ent->type2 = !!sub_0802B234(this);
         ent->parent = this;
@@ -522,7 +523,7 @@ void sub_0802B048(Entity* this) {
                     if (this->parent->next) {
                         this->parent->field_0x80.HALF.HI = 0;
                     }
-                    ent = CreateObjectWithParent(this, 0x20, 0, 0);
+                    ent = CreateObjectWithParent(this, OBJECT_20, 0, 0);
                     if (ent != NULL) {
                         this->collisionLayer = 1;
                     } else {
@@ -567,7 +568,7 @@ void sub_0802B1BC(Entity* this) {
 
 void sub_0802B204(Entity* this) {
     if (sub_080044EC(this, 0x2800) == 1) {
-        Entity* ent = CreateEnemy(0x22, 1);
+        Entity* ent = CreateEnemy(BOBOMB, 1);
         if (ent) {
             CopyPosition(this, ent);
             ent->parent = this->parent;

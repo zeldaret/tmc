@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "coord.h"
 #include "room.h"
+#include "object.h"
 #include "functions.h"
 
 extern Hitbox gUnk_080FD168;
@@ -28,7 +29,7 @@ void Object9E(Entity* this) {
             SetTile(0x4066, tilePos - 1, *layer);
             SetTile(0x4065, tilePos, *layer);
             UpdateSpriteForCollisionLayer(this);
-            ent = CreateObject(0x9e, 1, 0);
+            ent = CreateObject(OBJECT_9E, 1, 0);
             if (ent != NULL) {
                 this->attachedEntity = ent;
                 CopyPosition(this, ent);

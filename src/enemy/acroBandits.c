@@ -1,5 +1,6 @@
 #include "global.h"
 #include "entity.h"
+#include "enemy.h"
 #include "random.h"
 #include "functions.h"
 
@@ -12,7 +13,6 @@ extern u32 sub_080322A4(Entity*);
 void sub_080322E8(Entity*);
 extern void sub_08032338(Entity*);
 extern Entity* sub_08049DF4(u32);
-extern u32 GetNextFunction(Entity*);
 
 extern Entity* gUnk_020000B0;
 extern u8 gEntCount;
@@ -212,33 +212,33 @@ void sub_08031C58(Entity* this) {
             u32 tmp = Random();
             tmp &= 3;
 
-            a = CreateEnemy(0x2e, 1);
+            a = CreateEnemy(ACRO_BANDIT, 1);
             a->type2 = 0;
             a->parent = NULL;
             a->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, a);
-            a->attachedEntity = CreateEnemy(0x2e, 1);
+            a->attachedEntity = CreateEnemy(ACRO_BANDIT, 1);
 
             b = a->attachedEntity;
             b->type2 = 1;
             b->parent = a;
             b->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, b);
-            b->attachedEntity = CreateEnemy(0x2e, 1);
+            b->attachedEntity = CreateEnemy(ACRO_BANDIT, 1);
 
             a = b->attachedEntity;
             a->type2 = 2;
             a->parent = b;
             a->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, a);
-            a->attachedEntity = CreateEnemy(0x2e, 1);
+            a->attachedEntity = CreateEnemy(ACRO_BANDIT, 1);
 
             b = a->attachedEntity;
             b->type2 = 3;
             b->parent = a;
             b->field_0x74.HALF.LO = tmp;
             sub_08031E48(this, b);
-            b->attachedEntity = CreateEnemy(0x2e, 1);
+            b->attachedEntity = CreateEnemy(ACRO_BANDIT, 1);
 
             a = b->attachedEntity;
             a->type2 = 4;

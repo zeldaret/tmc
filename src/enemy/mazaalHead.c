@@ -4,6 +4,7 @@
 #include "screen.h"
 #include "audio.h"
 #include "random.h"
+#include "object.h"
 #include "functions.h"
 
 extern void UnloadOBJPalette(Entity*);
@@ -135,9 +136,9 @@ void sub_08033F3C(Entity* this) {
         this->field_0x6c.HALF.HI |= 1;
         this->field_0x80.HALF.LO = 0;
         InitializeAnimation(this, 0);
-        pEVar1 = CreateEnemy(0x36, 1);
+        pEVar1 = CreateEnemy(MAZAAL_HEAD, 1);
         pEVar1->parent = this;
-        pEVar2 = CreateObject(0x7e, 0, 0);
+        pEVar2 = CreateObject(OBJECT_7E, 0, 0);
         pEVar2->parent = this;
         if (gScreenTransition.field_0x39 == 0) {
             this->action = 0xd;
@@ -145,15 +146,15 @@ void sub_08033F3C(Entity* this) {
             this->actionDelay = 0xfc;
             this->flags = this->flags & 0x7f;
         } else {
-            pEVar2 = CreateEnemy(0x44, 0);
+            pEVar2 = CreateEnemy(MAZAAL_BRACELET, 0);
             pEVar2->parent = this;
             *(Entity**)&pEVar2->field_0x78 = this;
             *(Entity**)&this->field_0x74 = pEVar2;
-            pEVar2 = CreateEnemy(0x44, 1);
+            pEVar2 = CreateEnemy(MAZAAL_BRACELET, 1);
             pEVar2->parent = this;
             *(Entity**)&pEVar2->field_0x78 = pEVar1;
             *(Entity**)&this->field_0x78 = pEVar2;
-            CreateEnemy(0x36, 4)->parent = this;
+            CreateEnemy(MAZAAL_HEAD, 4)->parent = this;
         }
     }
 }
@@ -670,7 +671,7 @@ NONMATCH("asm/non_matching/mazaal/sub_080348A4.inc", u32 sub_080348A4(Entity* th
                 InitializeAnimation(hand_, 5);
                 break;
             case 8:
-                pEVar4 = CreateEnemy(0x36, hand_->type + 2);
+                pEVar4 = CreateEnemy(MAZAAL_HEAD, hand_->type + 2);
                 if (pEVar4 != NULL) {
                     pEVar4->parent = this;
                 }

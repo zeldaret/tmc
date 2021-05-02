@@ -8,6 +8,7 @@
 #include "save.h"
 #include "random.h"
 #include "script.h"
+#include "object.h"
 #include "structures.h"
 #include "functions.h"
 
@@ -481,7 +482,7 @@ Entity* GreatFairy_CreateForm(Entity* this, u32 curForm, u32 parameter) {
     nextForm = this->type;
     nextForm /= 11;
 
-    ent = CreateObject(0x1b, (u8)nextForm * 11 + curForm, parameter);
+    ent = CreateObject(GREAT_FAIRY, (u8)nextForm * 11 + curForm, parameter);
     return ent;
 }
 
@@ -514,7 +515,7 @@ void sub_08087424(Entity* this, ScriptExecutionContext* context) {
     Entity* ent;
 
     sub_080791D0();
-    ent = CreateObject(0x64, 0, 0);
+    ent = CreateObject(OBJECT_64, 0, 0);
     if (ent != NULL) {
         ent->parent = &gPlayerEntity;
         CopyPosition(&gPlayerEntity, ent);

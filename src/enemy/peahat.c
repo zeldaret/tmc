@@ -51,7 +51,7 @@ void Peahat_OnTick(Entity* this) {
 void sub_0801FFDC(Entity* this) {
     if (this->field_0x82.HALF.LO) {
         if (this->bitfield == 0x94) {
-            Entity* ent = CreateEnemy(3, PeahatForm_Propeller);
+            Entity* ent = CreateEnemy(PEAHAT, PeahatForm_Propeller);
             if (ent) {
                 CopyPosition(this, ent);
                 ent->height.HALF.HI -= 8;

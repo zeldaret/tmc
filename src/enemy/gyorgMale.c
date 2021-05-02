@@ -669,7 +669,7 @@ void sub_08047508(Entity* this) {
         this->field_0x76.HWORD = this->direction << 8;
     }
     if (--this->field_0x7c.HALF.HI == 0) {
-        Entity* tmp = CreateEnemy(0x62, Random() & 3);
+        Entity* tmp = CreateEnemy(ENEMY_62, Random() & 3);
         if (tmp) {
             tmp->parent = this;
         }
@@ -724,7 +724,7 @@ void sub_0804763C(Entity* this) {
         this->field_0x76.HWORD = this->direction << 8;
     }
     if (--this->field_0x7c.HALF.HI == 0) {
-        Entity* tmp = CreateEnemy(0x62, Random() & 3);
+        Entity* tmp = CreateEnemy(ENEMY_62, Random() & 3);
         if (tmp) {
             tmp->parent = this;
         }
@@ -831,7 +831,7 @@ void sub_08047978(Entity* this) {
     if (--this->field_0x7c.HALF.HI == 0) {
         Entity* tmp;
         this->field_0x7c.HALF.HI = 0xF0;
-        tmp = CreateEnemy(0x62, Random() & 3);
+        tmp = CreateEnemy(ENEMY_62, Random() & 3);
         if (tmp) {
             tmp->parent = this;
         }

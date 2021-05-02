@@ -1,7 +1,8 @@
 #include "global.h"
 #include "entity.h"
-#include "functions.h"
 #include "flags.h"
+#include "object.h"
+#include "functions.h"
 
 extern void sub_08098E3C(Entity*);
 extern void sub_08098E88(Entity*);
@@ -98,12 +99,12 @@ void sub_08098E88(Entity* this) {
     Entity* ent1;
     Entity* ent2;
 
-    ent1 = CreateObject(0x82, 1, 0);
+    ent1 = CreateObject(BIG_VORTEX, 1, 0);
     if (ent1 != NULL) {
         PositionRelative(this, ent1, 0, -0x10000);
         ent1->spriteOffsetY = 8;
     }
-    ent2 = CreateObject(0x82, 2, 0);
+    ent2 = CreateObject(BIG_VORTEX, 2, 0);
     if (ent2 != NULL) {
         PositionRelative(this, ent2, 0, -0x20000);
         ent2->spriteOffsetY = 0x10;

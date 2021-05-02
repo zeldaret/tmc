@@ -1,6 +1,7 @@
 #include "enemy.h"
 #include "random.h"
 #include "createObject.h"
+#include "object.h"
 #include "functions.h"
 
 extern void sub_08078930(Entity*);
@@ -283,7 +284,7 @@ void sub_0802CBC4(Entity* this) {
     }
     sub_08078954(this);
 
-    ent = CreateObjectWithParent(this, 0x20, 0, 0);
+    ent = CreateObjectWithParent(this, OBJECT_20, 0, 0);
     if (ent) {
         ent->collisionLayer = this->collisionLayer;
     }

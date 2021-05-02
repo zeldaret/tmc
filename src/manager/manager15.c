@@ -3,8 +3,9 @@
 #include "flags.h"
 #include "screen.h"
 #include "manager.h"
-#include "functions.h"
+#include "object.h"
 #include "structures.h"
+#include "functions.h"
 
 typedef struct {
     Manager manager;
@@ -159,7 +160,7 @@ void sub_0805A4B4(Manager15* this) {
 
 void sub_0805A4CC(Manager15* this, u32 unk_0) {
     Entity* tmp;
-    tmp = CreateObject(0x8e, unk_0, 0);
+    tmp = CreateObject(OBJECT_8E, unk_0, 0);
     if (tmp) {
         tmp->x.HALF.HI = this->unk_38 + gRoomControls.roomOriginX;
         tmp->y.HALF.HI = this->unk_3a + gRoomControls.roomOriginY - 0x30;

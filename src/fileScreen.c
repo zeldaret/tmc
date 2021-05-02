@@ -6,6 +6,7 @@
 #include "menu.h"
 #include "random.h"
 #include "textbox.h"
+#include "object.h"
 #include "functions.h"
 
 // copy, erase, start
@@ -213,7 +214,7 @@ static void HandleFileScreenEnter(void) {
     sub_080503A8(0x5);
     LoadPaletteGroup(0x9);
     for (i = 0; i < 26; i++) {
-        CreateObject(0x48, i, 0);
+        CreateObject(FILE_SCREEN_OBJECTS, i, 0);
     }
 
     sub_080A70AC(&gUnk_080FC8D0);

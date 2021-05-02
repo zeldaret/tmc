@@ -130,7 +130,7 @@ void sub_08023CE0(Entity* this) {
             GetNextFrame(this);
             if (this->frames.all) {
                 if (this->frames.all & 0x80) {
-                    Entity* ent = CreateEnemy(0x10, 1);
+                    Entity* ent = CreateEnemy(SLUGGULA, 1);
                     if (ent) {
                         sub_0804A4E4(this, ent);
                         DeleteThisEntity();
@@ -161,7 +161,7 @@ void sub_08023E54(Entity* this) {
 
     if (this->field_0xf++ > 27) {
         this->field_0xf = 0;
-        ent = CreateEnemy(0x10, 2);
+        ent = CreateEnemy(SLUGGULA, 2);
         if (ent) {
             const s8* ptr = &gUnk_080CBDF7[this->animationState * 2];
             PositionRelative(this, ent, ptr[0] << 0x10, ptr[1] << 0x10);

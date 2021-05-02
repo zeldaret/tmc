@@ -55,19 +55,19 @@ void sub_08022C58(Entity* this) {
     if (gEntCount >= 0x45)
         return;
 
-    tail0 = CreateEnemy(0xd, 1);
+    tail0 = CreateEnemy(MOLDORM, 1);
     this->attachedEntity = tail0;
     tail0->spritePriority.b0 = 5;
     tail0->parent = this;
     CopyPosition(this, tail0);
 
-    tail1 = CreateEnemy(0xd, 2);
+    tail1 = CreateEnemy(MOLDORM, 2);
     tail0->attachedEntity = tail1;
     tail1->spritePriority.b0 = 5;
     tail1->parent = this;
     CopyPosition(this, tail1);
 
-    tail2 = CreateEnemy(0xd, 3);
+    tail2 = CreateEnemy(MOLDORM, 3);
     tail1->attachedEntity = tail2;
     tail2->spritePriority.b0 = 5;
     tail2->parent = this;

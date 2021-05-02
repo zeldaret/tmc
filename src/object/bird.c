@@ -4,6 +4,7 @@
 #include "flags.h"
 #include "save.h"
 #include "random.h"
+#include "object.h"
 #include "functions.h"
 
 extern void (*const gUnk_08123EC0[])(Entity*);
@@ -37,7 +38,7 @@ void sub_0809CF54(Entity* this) {
     SoundReq(SFX_123);
     UpdateSpriteForCollisionLayer(this);
     InitAnimationForceUpdate(this, 0);
-    target = CreateObject(0x95, 1, 0);
+    target = CreateObject(BIRD, 1, 0);
     if (target != NULL) {
         target->parent = this;
         PositionRelative(this, target, 0, 0x80000);
