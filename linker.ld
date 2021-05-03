@@ -551,7 +551,6 @@ SECTIONS {
         /* npcs */
         src/npc/gentari.o(.text);
         src/npc/festari.o(.text);
-        asm/festari.o(.text);
         src/npc/forestMinish.o(.text);
         src/npc/postman.o(.text);
         asm/postman.o(.text);

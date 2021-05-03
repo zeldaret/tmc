@@ -5,9 +5,11 @@
 #include "player.h"
 #include "script.h"
 
-extern void sub_0805FF2C(Entity*, void*);
+extern void sub_0805FF2C(Entity*, ScriptExecutionContext*);
 
 extern void (*const gUnk_08109BBC[])(Entity*);
+
+extern void HandlePostScriptActions(Entity*, ScriptExecutionContext*);
 
 void Festari(Entity* this) {
     gUnk_08109BBC[this->action](this);
@@ -35,7 +37,7 @@ void sub_0805FE48(Entity* this) {
         sub_0806F118(this);
     } else {
         ExecuteScript(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
-        sub_0805FF2C(this, *(void**)&this->cutsceneBeh);
+        sub_0805FF2C(this, *(ScriptExecutionContext**)&this->cutsceneBeh);
         uVar4 = this->field_0x80.HWORD;
         if (uVar4 < 8) {
             if ((this->field_0x82.HWORD & 1) != 0) {
@@ -69,5 +71,53 @@ void sub_0805FE48(Entity* this) {
 void sub_0805FF18(Entity* this) {
     if (UpdateFuseInteraction(this)) {
         this->action = 1;
+    }
+}
+
+void sub_0805FF2C(Entity* this, ScriptExecutionContext* context) {
+    u32 actions;
+    u32 bit;
+
+    // Handle some postScriptActions already before calling HandlePostScriptActions
+    actions = context->postScriptActions & 0xfff00004;
+    context->postScriptActions = context->postScriptActions ^ actions;
+    if (actions != 0) {
+         while (actions != 0) {
+            bit = (~actions + 1) & actions;
+            actions ^= bit;
+            switch(bit) {
+                case 4:
+                    this->field_0x80.HWORD = 9;
+                    break;
+  
+                case 0x200000:
+                    this->field_0x80.HWORD = 10;
+                break;
+                case 0x400000:
+                    if (this->animationState == 2) {
+                        this->field_0x80.HWORD = 0xb;
+                    } else {
+                        this->field_0x80.HWORD = 0xc;
+                    }
+                    break;
+              case 0x100000:
+                    this->field_0x80.HWORD = 8;
+                break;
+
+            }
+        }
+    }
+    HandlePostScriptActions(this, context);
+}
+
+
+void Festari_Fusion(Entity* this) {
+    if (this->action == 0) {
+        this->action += 1;
+        this->spriteSettings.b.draw = 1;
+        sub_0805E3A0(this, 2);
+        InitAnimationForceUpdate(this, 8);
+    } else {
+        UpdateAnimationSingleFrame(this);
     }
 }
