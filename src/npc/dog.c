@@ -54,7 +54,7 @@ void sub_08069B44(Entity* this) {
             sVar3 = uVar5 >> 0x10;
             uVar2 = uVar5;
         }
-        
+
         uVar4 = this->actionDelay == 0 ? 0x20 : this->actionDelay;
 
         this->field_0x6e.HWORD = sVar3 - uVar4;

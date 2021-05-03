@@ -82,17 +82,17 @@ void sub_0805FF2C(Entity* this, ScriptExecutionContext* context) {
     actions = context->postScriptActions & 0xfff00004;
     context->postScriptActions = context->postScriptActions ^ actions;
     if (actions != 0) {
-         while (actions != 0) {
+        while (actions != 0) {
             bit = (~actions + 1) & actions;
             actions ^= bit;
-            switch(bit) {
+            switch (bit) {
                 case 4:
                     this->field_0x80.HWORD = 9;
                     break;
-  
+
                 case 0x200000:
                     this->field_0x80.HWORD = 10;
-                break;
+                    break;
                 case 0x400000:
                     if (this->animationState == 2) {
                         this->field_0x80.HWORD = 0xb;
@@ -100,16 +100,14 @@ void sub_0805FF2C(Entity* this, ScriptExecutionContext* context) {
                         this->field_0x80.HWORD = 0xc;
                     }
                     break;
-              case 0x100000:
+                case 0x100000:
                     this->field_0x80.HWORD = 8;
-                break;
-
+                    break;
             }
         }
     }
     HandlePostScriptActions(this, context);
 }
-
 
 void Festari_Fusion(Entity* this) {
     if (this->action == 0) {

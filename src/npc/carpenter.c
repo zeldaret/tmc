@@ -91,7 +91,7 @@ void sub_08067314(Entity* this) {
 
 void Carpenter_Fusion(Entity* this) {
     if (this->action == 0) {
-        if (LoadExtraSpriteData(this, &gUnk_08110CA8[this->type*4]) != 0) {
+        if (LoadExtraSpriteData(this, &gUnk_08110CA8[this->type * 4]) != 0) {
             this->action = this->action + 1;
             this->spriteSettings.b.draw = 1;
             sub_0805E3A0(this, 2);

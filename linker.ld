@@ -620,7 +620,7 @@ SECTIONS {
         src/npc/dampe.o(.text);
         asm/drLeft.o(.text);
         src/npc/kingGustaf.o(.text);
-        asm/gina.o(.text);
+        src/npc/gina.o(.text);
         src/npc/simon.o(.text);
         src/npc/anju.o(.text);
         asm/mama.o(.text);
