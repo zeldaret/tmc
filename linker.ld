@@ -593,7 +593,6 @@ SECTIONS {
         src/npc/zelda.o(.text);
         src/npc/mutoh.o(.text);
         src/npc/carpenter.o(.text);
-        asm/carpenter.o(.text);
         asm/castorWildsStatue.o(.text);
         src/npc/cat.o(.text);
         asm/mountainMinish.o(.text);

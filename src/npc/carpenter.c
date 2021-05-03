@@ -5,8 +5,14 @@
 #include "npc.h"
 #include "functions.h"
 #include "script.h"
+#include "flags.h"
+#include "textbox.h"
 
 extern SpriteLoadData gUnk_08110CA8[];
+
+extern u16 gUnk_08110CE8[];
+
+extern Dialog gUnk_08110D00;
 
 void Carpenter(Entity* this) {
     if (*(u32*)&this->cutsceneBeh == 0) {
@@ -62,4 +68,36 @@ void Carpenter_Head(Entity* this) {
 
 void sub_080672B0(Entity* this, ScriptExecutionContext* context) {
     InitializeAnimation(this, context->intVariable + (this->animationState >> 1) + this->type * 8);
+}
+
+void sub_080672C8(Entity* this) {
+    u32 dialog = 0;
+    u32 tmp;
+    if (GetInventoryValue(0x11) == 0) {
+        tmp = CheckGlobalFlag(TABIDACHI);
+        dialog = BOOLCAST(tmp);
+    }
+    TextboxNoOverlap(gUnk_08110CE8[(dialog * 2 + this->type * 6) / 2], this);
+}
+
+void sub_08067304(Entity* this) {
+    ShowNPCDialogue(this, &gUnk_08110D00);
+}
+
+void sub_08067314(Entity* this) {
+    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    sub_08078784(this, this->field_0x68.HALF.LO);
+}
+
+void Carpenter_Fusion(Entity* this) {
+    if (this->action == 0) {
+        if (LoadExtraSpriteData(this, &gUnk_08110CA8[this->type*4]) != 0) {
+            this->action = this->action + 1;
+            this->spriteSettings.b.draw = 1;
+            sub_0805E3A0(this, 2);
+            InitializeAnimation(this, (u32)this->type * 8 + 2);
+        }
+    } else {
+        GetNextFrame(this);
+    }
 }
