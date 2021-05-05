@@ -59,7 +59,7 @@ def GetNonMatchingSize(path):
 
                 for asmLine in asmLines:
                     if len(re.findall(NON_ASM_PATTERN, asmLine, re.DOTALL)) == 0:
-                        size += 4
+                        size += 2
 
     return size
 
