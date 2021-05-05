@@ -1779,7 +1779,7 @@ NONMATCH("asm/non_matching/player/sub_08072D54.s", void sub_08072D54(Entity* thi
         }
         sub_08008790(this, 7);
         if (gPlayerState.field_0x14 != 0) {
-            if (!sub_08008B22() != 0) {
+            if (sub_08008B22() == 0) {
                 gPlayerState.field_0x10[1] = 7;
                 if (!(gPlayerState.flags.all & 0x80)) {
                     sub_080791BC();

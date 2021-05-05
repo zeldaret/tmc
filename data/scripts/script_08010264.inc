@@ -487,7 +487,7 @@ script_08010860:
 	_0807EA94 
 	_0807E3E8 
 	JumpIfNot script_080108B2
-	Call sub_08069718
+	Call GoronMerchant_TryToBuyKinstone
 	JumpIfNot script_080108B2
 	WaitPlayerAction8 
 	_0807EA94 

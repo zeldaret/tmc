@@ -469,7 +469,7 @@ bool32 sub_0802915C(Entity* this) {
                 return TRUE;
             break;
         case 0x1c:
-            if (CheckGlobalFlag(0x5a) == 0)
+            if (CheckGlobalFlag(AKINDO_BOTTLE_SELL) == 0)
                 return TRUE;
             break;
         case 0x5c:
@@ -486,7 +486,7 @@ bool32 sub_08029198(const struct SalesOffering* offer) {
     if ((offer->field_0x0 & 0xfc) != 0xc) {
         switch (offer->field_0x8) {
             case 0x1c:
-                tmp = CheckGlobalFlag(0x5a);
+                tmp = CheckGlobalFlag(AKINDO_BOTTLE_SELL);
                 break;
             case 0x9:
             case 0x44:

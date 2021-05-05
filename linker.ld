@@ -551,7 +551,6 @@ SECTIONS {
         /* npcs */
         src/npc/gentari.o(.text);
         src/npc/festari.o(.text);
-        asm/festari.o(.text);
         src/npc/forestMinish.o(.text);
         src/npc/postman.o(.text);
         asm/postman.o(.text);
@@ -588,16 +587,13 @@ SECTIONS {
         asm/npc23.o(.text);
         asm/kingDaltus.o(.text);
         asm/ministerPotho.o(.text);
-        asm/npc26.o(.text);
+        src/npc/npc26.o(.text);
         asm/vaati.o(.text);
         src/npc/zelda.o(.text);
         src/npc/mutoh.o(.text);
         src/npc/carpenter.o(.text);
-        asm/carpenter.o(.text);
         asm/castorWildsStatue.o(.text);
-        asm/npc/cat.o(.text);
         src/npc/cat.o(.text);
-        asm/cat.o(.text);
         asm/mountainMinish.o(.text);
         src/npc/zeldaFollower.o(.text);
         asm/zeldaFollower.o(.text);
@@ -606,9 +602,8 @@ SECTIONS {
         src/npc/cow.o(.text);
         src/npc/goron.o(.text);
         src/npc/goronMerchant.o(.text);
-        asm/goronMerchant.o(.text);
         asm/gorman.o(.text);
-        asm/dog.o(.text);
+        src/npc/dog.o(.text);
         src/npc/syrup.o(.text);
         asm/syrup.o(.text);
         src/npc/rem.o(.text);
@@ -624,8 +619,8 @@ SECTIONS {
         src/npc/carlov.o(.text);
         src/npc/dampe.o(.text);
         asm/drLeft.o(.text);
-        asm/kingGustaf.o(.text);
-        asm/gina.o(.text);
+        src/npc/kingGustaf.o(.text);
+        src/npc/gina.o(.text);
         src/npc/simon.o(.text);
         src/npc/anju.o(.text);
         asm/mama.o(.text);
@@ -638,15 +633,16 @@ SECTIONS {
         src/npc/bigGoron.o(.text);
         asm/bigGoron.o(.text);
         src/npc/ezloCap.o(.text);
-        asm/npc4E.o(.text);
+        src/npc/npc4E.o(.text);
+        src/npc/npc4F.o(.text);
         src/npc/clothesRack.o(.text);
         asm/clothesRack.o(.text);
         asm/picolyteBottles.o(.text);
-        asm/smallTownMinish.o(.text);
+        src/npc/smallTownMinish.o(.text);
         asm/hurdyGurdyMan.o(.text);
         asm/cucco.o(.text);
         asm/cuccoChick.o(.text);
-        asm/fusionMenuNPC.o(.text);
+        src/npc/fusionMenuNPC.o(.text);
         asm/phonograph.o(.text);
         asm/npc58.o(.text);
         /* END npcs */
@@ -1294,7 +1290,7 @@ SECTIONS {
         data/animations/npc/kingDaltus.o(.rodata);
         data/const/npc/ministerPotho.o(.rodata);
         data/animations/npc/ministerPotho.o(.rodata);
-        data/const/npc/npc26.o(.rodata);
+        src/npc/npc26.o(.rodata);
         data/animations/npc/npc26.o(.rodata);
         data/const/npc/vaati.o(.rodata);
         data/animations/npc/vaati.o(.rodata);
@@ -1317,7 +1313,7 @@ SECTIONS {
         data/animations/npc/cow.o(.rodata);
         data/const/npc/goron.o(.rodata);
         data/animations/npc/goron.o(.rodata);
-        data/const/npc/goronMerchant.o(.rodata);
+        src/npc/goronMerchant.o(.rodata);
         data/animations/npc/goronMerchant.o(.rodata);
         data/const/npc/gorman.o(.rodata);
         data/animations/npc/gorman.o(.rodata);
@@ -1346,7 +1342,7 @@ SECTIONS {
         data/animations/npc/dampe.o(.rodata);
         data/const/npc/drLeft.o(.rodata);
         data/animations/npc/drLeft.o(.rodata);
-        data/animations/npc/kingGustav.o(.rodata);
+        data/animations/npc/kingGustaf.o(.rodata);
         data/animations/npc/gina.o(.rodata);
         data/animations/npc/simon.o(.rodata);
         data/animations/npc/anju.o(.rodata);
@@ -1363,7 +1359,9 @@ SECTIONS {
         data/animations/npc/mayorHagen.o(.rodata);
         data/const/npc/bigGoron.o(.rodata);
         src/npc/ezloCap.o(.rodata);
-        data/animations/npc/npc4f.o(.rodata);
+        src/npc/npc4E.o(.rodata);
+        src/npc/npc4F.o(.rodata);
+        data/animations/npc/npc4F.o(.rodata);
         data/const/npc/clothesRack.o(.rodata);
         data/animations/npc/clothesRack.o(.rodata);
         data/const/npc/picolyteBottle.o(.rodata);
