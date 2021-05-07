@@ -554,6 +554,7 @@ SECTIONS {
         src/npc/forestMinish.o(.text);
         src/npc/postman.o(.text);
         asm/postman.o(.text);
+        src/npc/npc5.o(.text);
         asm/npc5.o(.text);
         src/npc/townsperson.o(.text);
         asm/kid.o(.text);
@@ -571,7 +572,7 @@ SECTIONS {
         src/npc/guard.o(.text);
         asm/guardWithSpear.o(.text);
         asm/castleMaid.o(.text);
-        asm/din.o(.text);
+        src/npc/din.o(.text);
         asm/nayru.o(.text);
         asm/farore.o(.text);
         asm/sturgeon.o(.text);
