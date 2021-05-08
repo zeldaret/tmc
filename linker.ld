@@ -562,6 +562,7 @@ SECTIONS {
         src/npc/stamp.o(.text);
         asm/marcy.o(.text);
         src/npc/wheaton.o(.text);
+        src/npc/pita.o(.text);
         asm/pita.o(.text);
         asm/minishEzlo.o(.text);
         src/npc/mailbox.o(.text);
@@ -573,8 +574,8 @@ SECTIONS {
         asm/guardWithSpear.o(.text);
         asm/castleMaid.o(.text);
         src/npc/din.o(.text);
-        asm/nayru.o(.text);
-        asm/farore.o(.text);
+        src/npc/nayru.o(.text);
+        src/npc/farore.o(.text);
         asm/sturgeon.o(.text);
         src/npc/tingleSiblings.o(.text);
         asm/tingleSiblings.o(.text);
