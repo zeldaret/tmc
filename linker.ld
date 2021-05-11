@@ -555,7 +555,6 @@ SECTIONS {
         src/npc/postman.o(.text);
         asm/postman.o(.text);
         src/npc/npc5.o(.text);
-        asm/npc5.o(.text);
         src/npc/townsperson.o(.text);
         asm/kid.o(.text);
         src/npc/npc9.o(.text);
