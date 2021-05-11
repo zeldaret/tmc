@@ -588,7 +588,7 @@ SECTIONS {
         asm/kingDaltus.o(.text);
         asm/ministerPotho.o(.text);
         src/npc/npc26.o(.text);
-        asm/vaati.o(.text);
+        src/npc/vaati.o(.text);
         src/npc/zelda.o(.text);
         src/npc/mutoh.o(.text);
         src/npc/carpenter.o(.text);
@@ -1292,7 +1292,7 @@ SECTIONS {
         data/animations/npc/ministerPotho.o(.rodata);
         src/npc/npc26.o(.rodata);
         data/animations/npc/npc26.o(.rodata);
-        data/const/npc/vaati.o(.rodata);
+        src/npc/vaati.o(.rodata);
         data/animations/npc/vaati.o(.rodata);
         data/const/npc/zelda.o(.rodata);
         data/const/npc/mutoh.o(.rodata);
