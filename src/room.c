@@ -981,10 +981,7 @@ void sub_0804BF38(u32 arg0, struct_0804BF38* arg1)
   SoundReq(gUnk_080D8E50[iVar2].sfx);
 }
 #else
-NAKED
-void sub_0804BF38(Entity* this, ScriptExecutionContext* context) {
-    asm(".include \"asm/non_matching/sub_0804BF38.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_0804BF38.inc", void sub_0804BF38(Entity* this, ScriptExecutionContext* context))
 #endif
 
 u32 sub_0804C00C() {
@@ -1041,20 +1038,11 @@ void sub_0804C108(void) {
     sub_0804C128(gArea.filler[7] |= 1);
 }
 
-NAKED
-void sub_0804C128(u32 arg0) {
-    asm(".include \"asm/non_matching/sub_0804C128.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_0804C128.inc", void sub_0804C128(u32 arg0))
 
-NAKED
-void sub_0804C258(void) {
-    asm(".include \"asm/non_matching/sub_0804C258.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_0804C258.inc", void sub_0804C258(void))
 
-NAKED
-void sub_0804C290(void) {
-    asm(".include \"asm/non_matching/sub_0804C290.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_0804C290.inc", void sub_0804C290(void))
 
 u32 sub_0804C2BC() {
     return 1;
@@ -4203,10 +4191,7 @@ u32 sub_0804DDF8() {
 void nullsub_374() {
 }
 
-NAKED
-u32 sub_0804DE00(void) {
-    asm(".include \"asm/non_matching/sub_0804DE00.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_0804DE00.inc", u32 sub_0804DE00(void))
 
 extern EntityData gUnk_080EEB6C;
 extern EntityData gUnk_080EEB8C;
@@ -4313,10 +4298,7 @@ void sub_0804E130(void) {
     }
 }
 
-NAKED
-void sub_0804E150(void) {
-    asm(".include \"asm/non_matching/sub_0804E150.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_0804E150.inc", void sub_0804E150(void))
 
 u32 sub_0804E1F4() {
     return 1;

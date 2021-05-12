@@ -62,11 +62,10 @@ void sub_08057920(Manager* this) {
 
 void sub_08057A18(Manager*, DiggingCaveEntrance*);
 
-#ifdef NON_MATCHING
-u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
+NONMATCH("asm/non_matching/manager4/sub_0805795C.inc", u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr)) {
     u16 offsetX, offsetY, offsetX2, offsetY2;
     u32 tmp;
-    if (gUnk_03004030.address_width) {
+    if (gUnk_03004030.unk_00) { // TODO .address_width (?)
         offsetX = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
         offsetY = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
         offsetX2 = (entr->unk_00 & 0x3F) * 16 + 8;
@@ -93,12 +92,7 @@ u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
     sub_08057A18(this, entr);
     return 1;
 }
-#else
-NAKED
-u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
-    asm(".include \"asm/non_matching/manager4/sub_0805795C.inc\"");
-}
-#endif
+END_NONMATCH
 
 extern void sub_08080930();
 

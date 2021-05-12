@@ -240,14 +240,13 @@ void sub_08028528(Entity* this) {
     }
 }
 
-#if NON_MATCHING
-void sub_08028604(Entity* this) {
+NONMATCH("asm/non_matching/spearMoblin/sub_08028604.inc", void sub_08028604(Entity* this)) {
     this->field_0xf = 0;
     if (this->field_0x82.HALF.LO == 1) {
         this->actionDelay = gUnk_080CC7BC[Random() & 3];
         this->speed = 0x80;
         if (sub_08049FA0(this) != 0) {
-            this->direction = gUnk_080CC7D0[Random() & 7] + 0x18 + this->direction & 0x18;
+            this->direction = gUnk_080CC7D0[Random() & 7] + 0x18 + (this->direction & 0x18);
         } else {
             u32 iVar3 = sub_08049EE4(this);
             u32 uVar1;
@@ -258,7 +257,7 @@ void sub_08028604(Entity* this) {
                 this->actionDelay = this->actionDelay + 0x10;
                 this->field_0x82.HALF.HI--;
             }
-            this->direction = iVar3 + uVar1 + 4U & 0x18;
+            this->direction = iVar3 + uVar1 + (4U & 0x18);
         }
     } else {
         this->actionDelay = 0xc;
@@ -270,12 +269,7 @@ void sub_08028604(Entity* this) {
         sub_080287E0(this);
     }
 }
-#else
-NAKED
-void sub_08028604(Entity* this) {
-    asm(".include \"asm/non_matching/spearMoblin/sub_08028604.inc\"");
-}
-#endif
+END_NONMATCH
 
 bool32 sub_080286CC(Entity* this) {
     if (this->field_0x80.HALF.HI == 0) {

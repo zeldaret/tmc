@@ -204,8 +204,7 @@ void sub_0802805C(Entity* this) {
     }
 }
 
-#if NON_MATCHING
-void sub_0802810C(Entity* this) {
+NONMATCH("asm/non_matching/likeLike/sub_0802810C.inc", void sub_0802810C(Entity* this)) {
     gPlayerState.jumpStatus = 0x41;
     gPlayerState.field_0xa = 0;
     gPlayerState.flags.all &= 0xffffffef;
@@ -224,12 +223,7 @@ void sub_0802810C(Entity* this) {
         this->iframes = -18;
     }
 }
-#else
-NAKED
-void sub_0802810C(Entity* this) {
-    asm(".include \"asm/non_matching/likeLike/sub_0802810C.inc\"");
-}
-#endif
+END_NONMATCH
 
 void sub_080281A0(Entity* this) {
     this->field_0xf = 0x19;

@@ -523,8 +523,7 @@ bool32 sub_080291DC(Entity* this) {
     return FALSE;
 }
 
-#if NON_MATCHING
-void sub_0802922C(Entity* this) {
+NONMATCH("asm/non_matching/businessScrub/sub_0802925C.inc", void sub_0802922C(Entity* this)) {
     const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
 
     this->action = 6;
@@ -538,12 +537,7 @@ void sub_0802922C(Entity* this) {
 
     sub_080290E0(this, 3);
 }
-#else
-NAKED
-void sub_0802922C(Entity* this) {
-    asm(".include \"asm/non_matching/businessScrub/sub_0802925C.inc\"");
-}
-#endif
+END_NONMATCH
 
 void sub_0802925C(Entity* this) {
     sub_08078784(this, sub_0801E99C(this));

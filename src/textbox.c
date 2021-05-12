@@ -682,10 +682,8 @@ void CreateWindow(void) {
     sub_0801C494();
 }
 
-NONMATCH("asm/non_matching/textbox/DispMessageFrame.inc",
-         void DispMessageFrame(u16* buffer, u32 width_, u32 height_, u32 flags_)) {
-}
-END_NONMATCH
+ASM_FUNC("asm/non_matching/textbox/DispMessageFrame.inc",
+         void DispMessageFrame(u16* buffer, u32 width_, u32 height_, u32 flags_))
 
 extern u16 gUnk_02034CB2[];
 extern u16 gUnk_0202281E[];

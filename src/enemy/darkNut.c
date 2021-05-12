@@ -391,10 +391,7 @@ void sub_0802124C(Entity* this) {
     }
 }
 
-NAKED
-u32 sub_08021274(u32 a, u32 b) {
-    asm(".include \"asm/non_matching/darkNut/sub_08021274.inc\"");
-}
+ASM_FUNC("asm/non_matching/darkNut/sub_08021274.inc", u32 sub_08021274(u32 a, u32 b))
 
 void sub_080212B0(Entity* this) {
     u8 tmp;

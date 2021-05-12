@@ -444,8 +444,7 @@ void sub_0802AF9C(Entity* this) {
     }
 }
 
-#if NON_MATCHING
-void sub_0802AFC8(Entity* this) {
+NONMATCH("asm/non_matching/bombPeahat/sub_0802AFC8.inc", void sub_0802AFC8(Entity* this)) {
     u32 flag = 8;
     if (this->field_0xf < 0x29) {
         u32 tmp;
@@ -470,12 +469,7 @@ void sub_0802AFC8(Entity* this) {
         this->palette.b.b0 = this->palette.b.b4;
     }
 }
-#else
-NAKED
-void sub_0802AFC8(Entity* this) {
-    asm(".include \"asm/non_matching/bombPeahat/sub_0802AFC8.inc\"");
-}
-#endif
+END_NONMATCH
 
 void sub_0802B048(Entity* this) {
     Entity* ent;

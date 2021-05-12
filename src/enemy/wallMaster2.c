@@ -160,10 +160,7 @@ void sub_0802CF64(Entity* this) {
     sub_0802CF8C(this);
 }
 
-NAKED
-void sub_0802CF8C(Entity* this) {
-    asm(".include \"asm/non_matching/wallMaster2/sub_0802CF8C.inc\"");
-}
+ASM_FUNC("asm/non_matching/wallMaster2/sub_0802CF8C.inc", void sub_0802CF8C(Entity* this))
 
 void sub_0802CFD8(Entity* this) {
     u32 unk = gUnk_080CD740[(this->field_0x7a.HALF.LO++ >> 3) & 7];
