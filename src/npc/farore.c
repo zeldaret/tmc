@@ -8,23 +8,23 @@
 extern u32 sub_08002632(Entity*);
 
 void Farore(Entity* this) {
-    switch(this->action) {
+    switch (this->action) {
         case 0:
             this->action = 1;
             this->spriteSettings.b.draw = 1;
             sub_0807DD50(this);
             break;
         case 1:
-            if (this->interactType ==2) {
-            this->action = 2;
-            this->interactType = 0;
-            sub_0806F118(this);
-            this->field_0x68.HALF.LO = this->animIndex;
-            InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
+            if (this->interactType == 2) {
+                this->action = 2;
+                this->interactType = 0;
+                sub_0806F118(this);
+                this->field_0x68.HALF.LO = this->animIndex;
+                InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
             } else {
                 sub_0807DD94(this, NULL);
             }
-        break;
+            break;
         case 2:
             if (UpdateFuseInteraction(this) != 0) {
                 this->action = 1;

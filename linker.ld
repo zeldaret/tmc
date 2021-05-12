@@ -559,7 +559,7 @@ SECTIONS {
         asm/kid.o(.text);
         src/npc/npc9.o(.text);
         src/npc/stamp.o(.text);
-        asm/marcy.o(.text);
+        src/npc/marcy.o(.text);
         src/npc/wheaton.o(.text);
         src/npc/pita.o(.text);
         asm/pita.o(.text);

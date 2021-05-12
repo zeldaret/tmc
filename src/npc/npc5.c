@@ -908,25 +908,25 @@ void sub_08061AFC(Entity* this) {
 NONMATCH("asm/non_matching/npc5/sub_08061B18.inc", void sub_08061B18(Entity* this)) {
     u8 bVar1;
     u16* puVar2;
-    
+
     typedef struct {
         u16 unk_0;
         u16 unk_2;
     } Tmp;
 
-    switch(this->interactType) {
-    case 0:
-        break;
-    case 1:
-        this->interactType = 0;
-        sub_08061AFC(this);
-        //puVar2 = (u16*)(*(int*)&this->field_0x68 + (((u32)this->actionDelay << 0x18) >> 0x17));
-        // if puVar2[1] == 0
-        if ((((Tmp**)&this->field_0x68))[++this->actionDelay]->unk_2 == 0) {
-            this->actionDelay = 0;
-        }
-        TextboxNoOverlap((u32)*puVar2, this);
-        break;
+    switch (this->interactType) {
+        case 0:
+            break;
+        case 1:
+            this->interactType = 0;
+            sub_08061AFC(this);
+            // puVar2 = (u16*)(*(int*)&this->field_0x68 + (((u32)this->actionDelay << 0x18) >> 0x17));
+            // if puVar2[1] == 0
+            if ((((Tmp**)&this->field_0x68))[++this->actionDelay]->unk_2 == 0) {
+                this->actionDelay = 0;
+            }
+            TextboxNoOverlap((u32)*puVar2, this);
+            break;
     }
 }
 END_NONMATCH

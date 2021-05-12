@@ -28,10 +28,10 @@ void Pita(Entity* this) {
 }
 
 void sub_08062EB8(void) {
-  sub_0807CAA0(0x68,0);
-  sub_0807CAA0(0x69,0);
-  sub_0807CAA0(0x6a,0);
-  sub_0807CAA0(0x6b,0);
+    sub_0807CAA0(0x68, 0);
+    sub_0807CAA0(0x69, 0);
+    sub_0807CAA0(0x6a, 0);
+    sub_0807CAA0(0x6b, 0);
 }
 
 bool32 sub_08062EDC(Entity* this, ScriptExecutionContext* context) {
