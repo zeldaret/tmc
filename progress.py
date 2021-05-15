@@ -1,17 +1,18 @@
 import argparse
 import git
 import os
-
+import re
 
 def collect_non_matching_funcs():
     result = []
-    for r, d, f in os.walk('asm/non_matching'):
-        for file in f:
-            if file.endswith('.inc'):
-                # Assume that the filename is the function name
-                result.append(file[0:-4])
-            else:
-                print(r,file)
+    for root, dirs, files in os.walk('src'):
+        for file in files:
+            if file.endswith('.c'):
+                with open(os.path.join(root, file), 'r') as f:
+                    data = f.read()
+                    # Find all NONMATCH and ASM_FUNC macros
+                    for match in re.findall(r'(NONMATCH|ASM_FUNC)\(".*",\W*\w*\W*(\w*).*\)', data):
+                        result.append(match)
     return result
 
 
@@ -85,8 +86,15 @@ def main():
     matching = args.matching
 
     non_matching_funcs = []
+    funcs = collect_non_matching_funcs()
     if matching:
-        non_matching_funcs = collect_non_matching_funcs()
+        # Remove all non matching funcs from count
+        non_matching_funcs = [x[1] for x in funcs]
+    else:
+        # Only remove ASM_FUNC functions from count
+        for func in funcs:
+            if func[0] == 'ASM_FUNC':
+                non_matching_funcs.append(func[1])
 
     (src, asm, src_data, data) = parse_map(non_matching_funcs)
 
