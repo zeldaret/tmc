@@ -40,7 +40,8 @@ typedef struct {
     /*0x0D0*/ u8 fillerD0[0x71];
     /*0x141*/ u8 unk141[0x34f];
     /*0x490*/ u32 unk490;
-    /*0x494*/ u8 filler494[0x20];
+    /*0x494*/ u32 unk494;
+    /*0x498*/ u8 filler498[0x1C];
 } SaveFile;
 
 extern SaveFile gSave;

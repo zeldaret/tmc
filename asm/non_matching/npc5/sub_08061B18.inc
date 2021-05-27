@@ -1,7 +1,6 @@
 	.syntax unified
 	.text
 
-sub_08061B18: @ 0x08061B18
 	push {r4, lr}
 	adds r4, r0, #0
 	adds r1, r4, #0

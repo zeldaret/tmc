@@ -1,0 +1,128 @@
+#include "entity.h"
+#include "functions.h"
+#include "npc.h"
+#include "textbox.h"
+#include "createObject.h"
+#include "flags.h"
+#include "script.h"
+
+extern u16 gUnk_0810FA54[];
+
+extern SpriteLoadData gUnk_0810FA38;
+
+extern void sub_0806EE04(Entity*, void*, u32);
+extern u32 gUnk_0810FA5A;
+void sub_08064CC0(Entity* this);
+
+extern void (*const gUnk_0810FA44[])(Entity*);
+void sub_08064C9C(Entity* this);
+
+NONMATCH("asm/non_matching/sturgeon/Sturgeon.inc", void Sturgeon(Entity* this)) {
+    u8 uVar2;
+
+    if ((this->flags & 2) == 0) {
+        gUnk_0810FA44[this->action](this);
+        sub_0806ED78(this);
+    } else {
+        uVar2 = this->action;
+        if (uVar2 == 0) {
+            if (LoadExtraSpriteData(this, &gUnk_0810FA38) != 0) {
+                this->action = 1;
+                this->actionDelay = 0;
+                sub_0807DD50(this);
+            }
+        } else {
+            if ((uVar2 & 0x80) != 0) {
+                if (UpdateFuseInteraction(this) != 0) {
+                    this->action = 1;
+                }
+            } else {
+                if (this->interactType == 2) {
+                    this->action = 0xff;
+                    this->interactType = uVar2 & 0x80;
+                    InitAnimationForceUpdate(this, sub_0806F5A4(GetFacingDirection(this, &gPlayerEntity)));
+                    sub_0806F118(this);
+                } else {
+                    sub_0807DD94(this, NULL);
+                    sub_08064C9C(this);
+                }
+            }
+        }
+    }
+}
+END_NONMATCH
+
+void sub_08064B44(Entity* this) {
+    if (LoadExtraSpriteData(this, &gUnk_0810FA38) != 0) {
+        InitializeAnimation(this, 2);
+        sub_0806EE04(this, &gUnk_0810FA5A, 0);
+        sub_08064CC0(this);
+        this->action = 1;
+        this->subAction = 0;
+        this->spriteSettings.b.draw = 1;
+    }
+}
+
+ASM_FUNC("asm/non_matching/sturgeon/sub_08064B88.inc", void sub_08064B88(Entity* this))
+
+void sub_08064C2C(Entity* this) {
+    if ((gTextBox.doTextBox & 0x7f) == 0) {
+        this->action = 1;
+        InitializeAnimation(this, (u32)this->field_0xf);
+    }
+}
+
+void sub_08064C50(Entity* this) {
+    if (UpdateFuseInteraction(this) != 0) {
+        this->action = 1;
+        InitializeAnimation(this, this->field_0xf);
+    }
+}
+
+void Sturgeon_Head(Entity* this) {
+    SetExtraSpriteFrame(this, 0, (u8)this->frames.all & 0x3f);
+    SetExtraSpriteFrame(this, 1, (u32)this->frameIndex);
+    SetSpriteSubEntryOffsetData1(this, 1, 0);
+    sub_0807000C(this);
+}
+
+void sub_08064C9C(Entity* this) {
+    if ((this->actionDelay != 0) && ((gScreenTransition.frameCount & 3U) == 0)) {
+        CreateDust(this);
+    }
+}
+
+void sub_08064CC0(Entity* this) {
+    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    sub_08078784(this, this->field_0x68.HALF.LO);
+}
+
+void sub_08064CD8(Entity* this) {
+    u32 flag;
+    u32 tmp = 2;
+    if (GetInventoryValue(0x46) == 0) {
+        flag = CheckLocalFlag(0x73);
+        tmp = BOOLCAST(flag);
+    }
+    TextboxNoOverlap(gUnk_0810FA54[tmp], this);
+}
+
+void sub_08064D08(Entity* this) {
+    this->actionDelay = 1;
+}
+
+void sub_08064D10(Entity* this) {
+    this->actionDelay = 0;
+}
+
+void Sturgeon_Fusion(Entity* this) {
+    if (this->action == 0) {
+        if (LoadExtraSpriteData(this, &gUnk_0810FA38) != 0) {
+            this->action += 1;
+            this->spriteSettings.b.draw = 1;
+            InitializeAnimation(this, 6);
+        }
+    } else {
+        GetNextFrame(this);
+    }
+}

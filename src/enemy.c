@@ -4,7 +4,7 @@
 
 // clang-format off
 void (*const gEnemyFunctions[])(Entity* ent) = {
-    [OCTOROCK] = Octorok,
+    [OCTOROK] = Octorok,
     [CHUCHU] = Chuchu,
     [LEEVER] = Leever,
     [PEAHAT] = Peahat,
@@ -61,10 +61,10 @@ void (*const gEnemyFunctions[])(Entity* ent) = {
     [MAZAAL_HEAD] = MazaalHead,
     [MAZAAL_MACRO] = MazaalMacro,
     [MAZAAL_HAND] = MazaalHand,
-    [OCTOROCK_BOSS] = OctorokBoss,
+    [OCTOROK_BOSS] = OctorokBoss,
     [FLYING_POT] = FlyingPot,
     [GOBDO] = Gibdo,
-    [OCTOROCK_GOLDEN] = OctorokGolden,
+    [OCTOROK_GOLDEN] = OctorokGolden,
     [TEKTITE_GOLDEN] = TektiteGolden,
     [ROPE_GOLDEN] = RopeGolden,
     [CLOUD_PIRANHA] = CloudPiranha,
@@ -89,7 +89,7 @@ void (*const gEnemyFunctions[])(Entity* ent) = {
     [VAATI_ARM] = VaatiArm,
     [DUST] = Dust,
     [VAATI_BALL] = VaatiBall,
-    [OCTOROCK2] = Octorok,
+    [OCTOROK2] = Octorok,
     [SLIME] = Slime,
     [MINI_SLIME] = MiniSlime,
     [FIREBALL_GUY] = FireballGuy,

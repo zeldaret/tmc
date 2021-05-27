@@ -201,10 +201,9 @@ NONMATCH("asm/non_matching/kid/sub_0806252C.inc", void sub_0806252C(Entity* this
 END_NONMATCH
 
 NONMATCH("asm/non_matching/kid/sub_08062634.inc", void sub_08062634(Entity* this)) {
-    u8 arr = this->type2;
-    u32 arr2 = arr * 2 + (Random() & 1);
-    u16 id = gUnk_0810BDE8[arr2];
-    TextboxNoOverlap(id, this);
+    u32 a = this->type2;
+    u32 b = (Random() & 1);
+    TextboxNoOverlap(*((u16*)gUnk_0810BDE8 + b + a * 2), this);
 }
 END_NONMATCH
 

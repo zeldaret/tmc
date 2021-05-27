@@ -223,8 +223,8 @@ void sub_080377B0(Entity* this) {
     this->animationState = this->direction / 8;
     InitAnimationForceUpdate(this, this->animationState + 4);
 }
-// Nonmatching
-NONMATCH("asm/non_matching/gibdo/sub_08037810.inc", u32 sub_08037810(Entity* this)) {
+
+u32 sub_08037810(Entity* this) {
     u32 x;
     u32 y;
     if (this->field_0x76.HALF.LO == 0) {
@@ -236,9 +236,8 @@ NONMATCH("asm/non_matching/gibdo/sub_08037810.inc", u32 sub_08037810(Entity* thi
                     this->actionDelay = 0x18;
                     this->field_0xf = 0x8;
                     this->speed = 0xc0;
-                    y = DirectionRoundUp(GetFacingDirection(this, gUnk_020000B0));
-                    this->direction = y;
-                    this->animationState = y / 8;
+                    this->direction = DirectionRoundUp(GetFacingDirection(this, gUnk_020000B0));
+                    this->animationState = this->direction >> 3;
                     this->field_0x74.HWORD = 300;
                     this->field_0x78.HWORD = gUnk_020000B0->x.HALF.HI;
                     this->field_0x7a.HWORD = gUnk_020000B0->y.HALF.HI;
@@ -252,7 +251,6 @@ NONMATCH("asm/non_matching/gibdo/sub_08037810.inc", u32 sub_08037810(Entity* thi
     }
     return 0;
 }
-END_NONMATCH
 
 u32 sub_080378B0(Entity* this) {
     if (this->field_0x76.HALF.HI == 0) {
@@ -333,12 +331,11 @@ void sub_08037A14(Entity* this) {
     CopyPosition(this, this->field_0x4c);
     InitAnimationForceUpdate(this, this->animationState + 0xc);
 }
-// Not match
 // Take Damage maybe?
-NONMATCH("asm/non_matching/gibdo/sub_08037A58.inc", void sub_08037A58(Entity* this)) {
+void sub_08037A58(Entity* this) {
     sub_08037ACC(this);
     this->action = 7;
-    this->spritePriority.b0 = (this->spritePriority.b0 & 0xf8) | 4;
+    this->spritePriority.b0 = 4;
     if (this->iframes == 0) {
         this->iframes = 0xec;
     }
@@ -351,7 +348,6 @@ NONMATCH("asm/non_matching/gibdo/sub_08037A58.inc", void sub_08037A58(Entity* th
     this->field_0x76.HALF.LO = 0x3c;
     InitAnimationForceUpdate(this, this->animationState + 0x10);
 }
-END_NONMATCH
 
 void sub_08037ACC(Entity* this) {
     gPlayerState.flags.all &= 0xFFFFFEFF;

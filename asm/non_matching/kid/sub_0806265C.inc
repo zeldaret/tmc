@@ -1,7 +1,6 @@
     .syntax unified
     .text
 
-sub_0806265C: @ 0x0806265C
 	push {lr}
 	adds r2, r0, #0
 	ldr r3, _08062674 @ =gSave

@@ -22,7 +22,6 @@ extern void (*const gUnk_081207A4[])(Entity*);
 
 extern u32 gUnk_0810C2E4;
 extern const s16 GreatFairy_RippleOffsets[10];
-extern u32 gUnk_02034350;
 extern u8 gUnk_0812079C[8];
 extern s8 gUnk_081207AC[];
 

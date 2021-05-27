@@ -1,7 +1,6 @@
 	.syntax unified
 	.text
 
-sub_080621AC: @ 0x080621AC
 	push {r4, r5, r6, lr}
 	adds r4, r0, #0
 	ldrb r5, [r4, #0xc]

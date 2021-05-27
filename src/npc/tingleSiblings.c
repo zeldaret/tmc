@@ -2,6 +2,8 @@
 #include "entity.h"
 #include "npc.h"
 #include "textbox.h"
+#include "script.h"
+#include "functions.h"
 
 extern void sub_08064DE4(Entity*);
 extern void sub_08064D78(Entity*);
@@ -79,3 +81,43 @@ void sub_08064DE4(Entity* this) {
         }
     }
 }*/
+ASM_FUNC("asm/non_matching/tingleSiblings/sub_08064DE4.inc", void sub_08064DE4(Entity* this))
+
+void sub_08064EA4(Entity* this) {
+    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    switch (this->type) {
+        case 0:
+            if ((CheckKinstoneFused(0x59) != 0) && (GetInventoryValue(0xc) == 0)) {
+                this->field_0x68.HALF.LO = 0;
+            }
+            break;
+        case 3:
+            if ((CheckKinstoneFused(0x5a) != 0) && (GetInventoryValue(0xc) == 0)) {
+                this->field_0x68.HALF.LO = 0;
+            }
+            break;
+        default:
+            break;
+    }
+    sub_08078784(this, this->field_0x68.HALF.LO);
+}
+
+ASM_FUNC("asm/non_matching/tingleSiblings/sub_08064EE8.inc", void sub_08064EE8(Entity* this))
+
+ASM_FUNC("asm/non_matching/tingleSiblings/sub_08064F28.inc",
+         void sub_08064F28(Entity* this, ScriptExecutionContext* context))
+
+void TingleSiblings_Fusion(Entity* this) {
+    u32 tmp;
+    if (this->action == 0) {
+        this->action += 1;
+        this->spriteSettings.b.draw = 1;
+        tmp = 6;
+        if (this->type == 0) {
+            tmp = 10;
+        }
+        InitAnimationForceUpdate(this, tmp);
+    } else {
+        sub_08064EE8(this);
+    }
+}

@@ -1,4 +1,3 @@
-sub_0805795C: @ 0x0805795C
 	push {r4, r5, r6, r7, lr}
 	add r7, r0, #0
 	add r6, r1, #0

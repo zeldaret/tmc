@@ -1,7 +1,6 @@
 	.syntax unified
 	.text
 
-sub_08061464: @ 0x08061464
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
 	mov r6, r8

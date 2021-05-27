@@ -1,7 +1,6 @@
 	.syntax unified
 	.text
 
-sub_08061170: @ 0x08061170
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	bl UpdateAnimationSingleFrame

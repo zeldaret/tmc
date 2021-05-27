@@ -1,7 +1,6 @@
     .syntax unified
     .text
 
-Kid_Head: @ 0x08062834
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
 	ldrb r4, [r5, #0xa]
