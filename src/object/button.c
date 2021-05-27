@@ -197,11 +197,12 @@ u32 sub_08081F00(u32*, u32*);
 
 extern u16 gMapDataTopSpecial[0x2000];
 
-#ifdef NON_MATCHING
-void sub_08081E6C(Entity* this) {
+extern u16* GetLayerByIndex(u32);
+extern u16 gUnk_02019EE0[];
+NONMATCH("asm/non_matching/button/sub_08081E6C.inc", void sub_08081E6C(Entity* this)) {
     u32 r4;
     u16 *tmp, *r1;
-    u8* tmp2;
+    u16* tmp2;
     u32 r6 = this->field_0x74.HWORD;
     u32 r5 = this->collisionLayer;
     u32 tile = GetTileType(r6, r5);
@@ -212,19 +213,14 @@ void sub_08081E6C(Entity* this) {
     tmp = r1 + 0x3802;
     r1 += 0x3002 + r4;
     tmp = tmp + (*r1 << 2);
-    tmp2 = (r5 == 2 ? gMapDataTopSpecial : (u8*)&gUnk_02019EE0);
+    tmp2 = (r5 == 2 ? gMapDataTopSpecial : gUnk_02019EE0);
     tmp2 += (((0x3f & r6) << 1) + ((0xfc0 & r6) << 2)) << 1;
     if (sub_08081F00((u32*)tmp2, (u32*)tmp))
         return;
     SetTileType(r4, r6, r5);
     SetTile(tile, r6, r5);
 }
-#else
-NAKED
-void sub_08081E6C(Entity* this) {
-    asm(".include \"asm/non_matching/button/sub_08081E6C.s\"");
-}
-#endif
+END_NONMATCH
 
 u32 sub_08081F00(u32* unk1, u32* unk2) {
     if (*unk1 != *unk2)

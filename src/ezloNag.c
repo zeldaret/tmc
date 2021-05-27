@@ -34,10 +34,10 @@ void EzloNag(Element* arg0) {
     gUnk_080C904C[arg0->unk4](arg0);
 }
 
-#ifdef NON_MATCHING // REG SWAP
 extern u32 gUnk_080C9094;
+extern void sub_0801CAB8(Element*, u32*);
 
-void sub_0801CED8(Element* arg0) {
+NONMATCH("asm/non_matching/sub_0801CED8.inc", void sub_0801CED8(Element* arg0)) {
     if (gUnk_0200AF00.ezloNagFuncIndex == 1) {
         gUnk_0200AF00.ezloNagFuncIndex = 2;
         arg0->unkC = 0x10;
@@ -49,43 +49,7 @@ void sub_0801CED8(Element* arg0) {
         sub_0801CAB8(arg0, &gUnk_080C9094);
     }
 }
-#else
-NAKED
-void sub_0801CED8(Element* arg0) {
-    asm_unified("\
-        push {r4, lr}\n\
-        adds r3, r0, #0\n\
-        ldr r0, _0801CF10 @ =gUnk_0200AF00\n\
-        adds r1, r0, #0\n\
-        adds r1, #0x24\n\
-        ldrb r4, [r1]\n\
-        cmp r4, #1\n\
-        bne _0801CF0E\n\
-        movs r2, #2\n\
-        movs r0, #2\n\
-        strb r0, [r1]\n\
-        movs r1, #0\n\
-        movs r0, #0x10\n\
-        strh r0, [r3, #0xc]\n\
-        movs r0, #0x90\n\
-        strh r0, [r3, #0xe]\n\
-        strb r1, [r3, #6]\n\
-        movs r0, #7\n\
-        strb r0, [r3, #1]\n\
-        strb r4, [r3, #4]\n\
-        ldrb r0, [r3]\n\
-        orrs r0, r2\n\
-        strb r0, [r3]\n\
-        ldr r1, _0801CF14 @ =gUnk_080C9094\n\
-        adds r0, r3, #0\n\
-        bl sub_0801CAB8\n\
-    _0801CF0E:\n\
-        pop {r4, pc}\n\
-        .align 2, 0\n\
-    _0801CF10: .4byte gUnk_0200AF00\n\
-    _0801CF14: .4byte gUnk_080C9094");
-}
-#endif
+END_NONMATCH
 
 void sub_0801CF18(Element* arg0) {
     u32 temp;

@@ -468,8 +468,7 @@ bool32 sub_080258C4(Entity* this) {
     }
 }
 
-#if NON_MATCHING
-bool32 sub_0802594C(Entity* this, u32 param_2) {
+NONMATCH("asm/non_matching/puffstool/sub_0802594C.inc", bool32 sub_0802594C(Entity* this, u32 param_2)) {
     const s8* unk = gUnk_080CC090[param_2];
     u32 uVar1 = this->collisionLayer;
     RoomControls* ctrl = &gRoomControls;
@@ -492,12 +491,7 @@ bool32 sub_0802594C(Entity* this, u32 param_2) {
 
     return 0;
 }
-#else
-NAKED
-bool32 sub_0802594C(Entity* this, u32 param_2) {
-    asm(".include \"asm/non_matching/puffstool/sub_0802594C.inc\"");
-}
-#endif
+END_NONMATCH
 
 void sub_08025A54(Entity* this) {
     u32 layer = this->collisionLayer;

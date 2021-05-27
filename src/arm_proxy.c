@@ -345,7 +345,7 @@ void ManagerUpdate(Entity* this) {
 }
 
 // regalloc
-NONMATCH("asm/non_matching/arm_proxy/sub_08017530.inc", void NPCUpdate(Entity* this)) {
+NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this)) {
     if ((this->currentHealth & 0x7f) && !ReadBit(&gUnk_020342F8, this->currentHealth - 1))
         DeleteThisEntity();
     if ((this->action == 0) && ((this->flags & 1) == 0))

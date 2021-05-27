@@ -1066,7 +1066,7 @@ void CgbModVol(CgbChannel* chan) {
         // Force chan->rightVolume and chan->leftVolume to be read from memory again,
         // even though there is no reason to do so.
         // The command line option "-fno-gcse" achieves the same result as this.
-#ifndef NONMATCHING
+#ifndef NON_MATCHING
         asm("" : : : "memory");
 #endif
 

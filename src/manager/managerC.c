@@ -8,6 +8,8 @@
 #include "coord.h"
 #include "functions.h"
 #include "save.h"
+#include "area.h"
+#include "utils.h"
 
 typedef struct {
     Manager manager;
@@ -275,8 +277,7 @@ void sub_08058CFC() {
     }
 }
 
-#ifdef NON_MATCHING
-void sub_08058D34() {
+NONMATCH("asm/non_matching/managerC/sub_08058D34.inc", void sub_08058D34()) {
     LoadPaletteGroup(0x28);
     MemCopy(gUnk_02017700, gUnk_02017700 + 0x240, 0x20);
     gUsedPalettes |= 0x200000;
@@ -285,7 +286,7 @@ void sub_08058D34() {
     gScreen.affine.bg2Control = 0xBC82;
     gScreen.bg.bg1xOffset = 0x5E86;
     gScreen.bg.bg1yOffset = 0;
-    gScreen.bg.bg2xOffset = 0;
+    gScreen.bg.bg1Tilemap = 0;
     gScreen.controls.layerFXControl = 0x3456;
     gScreen.controls.alphaBlend = 0x909;
     gArea.musicIndex = gArea.pMusicIndex;
@@ -294,9 +295,4 @@ void sub_08058D34() {
         LoadGfxGroup(0x4A);
     }
 }
-#else
-NAKED
-void sub_08058D34() {
-    asm(".include \"asm/non_matching/managerC/sub_08058D34.inc\"");
-}
-#endif
+END_NONMATCH

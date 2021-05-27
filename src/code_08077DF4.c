@@ -83,10 +83,7 @@ void sub_08077F10(ItemBehavior* arg0) {
     sub_08077F24(arg0, (u16)gPlayerState.field_0x90.HALF.HI);
 }
 
-NAKED
-void sub_08077F24(ItemBehavior* beh, u32 arg1) {
-    asm(".include \"asm/non_matching/sub_08077F24.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_08077F24.inc", void sub_08077F24(ItemBehavior* beh, u32 arg1))
 
 void sub_08077F50(ItemBehavior* beh, u32 arg1) {
     sub_08079184();

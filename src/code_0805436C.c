@@ -2,6 +2,8 @@
 #include "player.h"
 #include "room.h"
 #include "menu.h"
+#include "area.h"
+#include "utils.h"
 
 typedef struct {
     u8 filler[0xa8];
@@ -29,6 +31,9 @@ extern u8 gUnk_080FE1C6[];
 extern u32 gUnk_02034398;
 extern void (*const gUnk_080FE2A0[])();
 
+void ForceEquipItem(u32, u8);
+extern void sub_0807CAA0(u32, u32);
+
 u32 IsItemEquipped(u32 itemID) {
     u32 ret;
 
@@ -41,11 +46,11 @@ u32 IsItemEquipped(u32 itemID) {
     return ret;
 }
 
-#if NON_MATCHING // reg-alloc
-void PutItemOnSlot(u32 itemID) {
+NONMATCH("asm/non_matching/PutItemOnSlot.inc", void PutItemOnSlot(u32 itemID)) {
+    // reg-alloc
     u32 itemSlot;
     if (itemID < 0x47) {
-        ModifyInventory(0, 1);
+        sub_0807CAA0(0, 1);
     }
     if (itemID - 1 < 0x1f) {
         itemSlot = 2;
@@ -70,12 +75,9 @@ void PutItemOnSlot(u32 itemID) {
         ForceEquipItem(itemID, itemSlot);
     }
 }
-#else
-NAKED
-void PutItemOnSlot(u32 itemID) {
-    asm(".include \"asm/non_matching/putItemOnSlot.s\"");
-}
-#endif
+END_NONMATCH
+
+ASM_FUNC("asm/non_matching/ForceEquipItem.inc", void ForceEquipItem(u32 itemID, u8 itemSlot))
 
 u32 SetBottleContents(u32 itemID, u32 bottleIndex) {
 
@@ -146,8 +148,8 @@ u32 GetBottleContaining(u32 arg0) {
     }
 }
 
-#if NON_MATCHING // reg-alloc
-void sub_08054524(void) {
+NONMATCH("asm/non_matching/sub_08054524.inc", void sub_08054524(void)) {
+    // reg-alloc
     u32 bVar1;
 
     bVar1 = gArea.locationIndex;
@@ -160,12 +162,7 @@ void sub_08054524(void) {
 
     MemCopy(&gUnk_080015BC + gUnk_080FE1C6[bVar1] * 0x8, &gUnk_02034398, 0x20);
 }
-#else
-NAKED
-void sub_08054524(void) {
-    asm(".include \"asm/non_matching/sub_08054524.inc\"");
-}
-#endif
+END_NONMATCH
 
 void sub_08054564(void) {
     gRoomVars.filler[2] = 1;
@@ -175,11 +172,12 @@ void sub_08054570(void) {
     gRoomVars.filler[2] = 0;
 }
 
-NAKED
-u32 sub_0805457C(u32 arg0, u32 arg1) {
-    asm(".include \"asm/non_matching/code_0805457C.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_0805457C.inc", u32 sub_0805457C(u32 arg0, u32 arg1));
 
+NONMATCH("asm/non_matching/CreateItemDrop.inc", u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter)) {
+    // TODO see below
+}
+END_NONMATCH
 /*
 extern u8 gUnk_080FE1DD[];
 

@@ -4,6 +4,7 @@
 #include "createObject.h"
 #include "game.h"
 #include "functions.h"
+#include "save.h"
 
 extern u32 sub_080002E0(u16, u32);
 extern void sub_0800449C(Entity*, u32);
@@ -559,20 +560,14 @@ void sub_080249DC(Entity* this) {
     InitializeAnimation(this, this->animationState);
 }
 
-#if NON_MATCHING
-void sub_080249F4(Entity* this) {
+NONMATCH("asm/non_matching/pesto/sub_080249F4.inc", void sub_080249F4(Entity* this)) {
     u8 direction = ((this->direction + 2) & 0x1c) >> 2;
     if (direction != this->animationState) {
         this->animationState = direction;
         InitializeAnimation(this, this->animationState);
     }
 }
-#else
-NAKED
-void sub_080249F4(Entity* this) {
-    asm(".include \"asm/non_matching/pesto/sub_080249F4.inc\"");
-}
-#endif
+END_NONMATCH
 
 void sub_08024A14(Entity* this, u32 param_2, u32 param_3) {
     u8 unk = FALSE;
@@ -703,10 +698,7 @@ bool32 sub_08024B38(Entity* this) {
     return iVar4;
 }
 
-NAKED
-bool32 sub_08024C48(Entity* this, bool32 unk) {
-    asm(".include \"asm/non_matching/pesto/sub_08024C48.inc\"");
-}
+ASM_FUNC("asm/non_matching/pesto/sub_08024C48.inc", bool32 sub_08024C48(Entity* this, bool32 unk))
 
 void sub_08024C7C(Entity* this) {
     this->action = 1;
@@ -794,8 +786,7 @@ u32 sub_08024E34(void) {
     return gUnk_080CBF20[idx];
 }
 
-#if NON_MATCHING
-void sub_08024E4C(Entity* this) {
+NONMATCH("asm/non_matching/pesto/sub_08024E4C.inc", void sub_08024E4C(Entity* this)) {
     if (this->field_0x82.HALF.HI == 3) {
         this->field_0xf++;
         this->field_0xf &= 0xff;
@@ -829,7 +820,7 @@ void sub_08024E4C(Entity* this) {
             player->animationState = 4;
             player->spritePriority.b1 = 0;
             if (this->field_0xf == 0) {
-                (this->field_0x86.HALF.HI++;
+                this->field_0x86.HALF.HI++;
                 player->iframes = 8;
                 ModHealth(-2);
                 sub_0800449C(player, 0x7a);
@@ -837,12 +828,7 @@ void sub_08024E4C(Entity* this) {
         }
     }
 }
-#else
-NAKED
-void sub_08024E4C(Entity* this) {
-    asm(".include \"asm/non_matching/pesto/sub_08024E4C.inc\"");
-}
-#endif
+END_NONMATCH
 
 void sub_08024F50(Entity* this) {
     gPlayerState.field_0xa = 0;

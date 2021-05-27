@@ -11,6 +11,8 @@ extern const u16 gUnk_080CD568[];
 extern const u8 gUnk_080CD580[];
 extern const s16 gUnk_080CD58C[];
 
+extern void sub_080AEFB4(Entity*);
+
 void FallingBoulder(Entity* this) {
     EnemyFunctionHandler(this, gUnk_080CD540);
 }
@@ -58,8 +60,7 @@ void sub_0802C318(Entity* this) {
     }
 }
 
-#if NON_MATCHING
-void sub_0802C334(Entity* this) {
+NONMATCH("asm/non_matching/fallingBoulder/sub_0802C334.inc", void sub_0802C334(Entity* this)) {
     if ((u16)this->field_0x7c.HALF.LO == 0) {
         u32 tmp = gRoomControls.roomOriginY;
         if (&gPlayerEntity == NULL)
@@ -99,7 +100,7 @@ void sub_0802C334(Entity* this) {
                             diff += 0x18;
                         }
                         sub_0802C62C(this);
-                        this->field_0x7a.HWORD = Random() & 0xff | 0x100;
+                        this->field_0x7a.HWORD = (Random() & 0xff) | 0x100;
                         return;
                     }
                     break;
@@ -124,12 +125,7 @@ void sub_0802C334(Entity* this) {
     this->spritePriority.b0 = 1;
     UpdateSpriteForCollisionLayer(this);
 }
-#else
-NAKED
-void sub_0802C334(Entity* this) {
-    asm(".include \"asm/non_matching/fallingBoulder/sub_0802C334.inc\"");
-}
-#endif
+END_NONMATCH
 
 void nullsub_148(Entity* this) {
     /* ... */

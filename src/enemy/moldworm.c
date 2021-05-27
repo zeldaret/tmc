@@ -27,8 +27,7 @@ extern void (*const gUnk_080CBC98[])(Entity*);
 extern void (*const gUnk_080CBCA8[])(Entity*);
 extern const s8 gUnk_080CBCB8[];
 
-#if NON_MATCHING
-void Moldworm(Entity* this) {
+NONMATCH("asm/non_matching/moldworm/Moldworm.inc", void Moldworm(Entity* this)) {
     u16 prevX = this->x.HALF.HI;
     u16 prevY = this->y.HALF.HI;
 
@@ -56,12 +55,7 @@ void Moldworm(Entity* this) {
             (((this->x.HALF.HI - prevX + 8) & 0xf) << 4) | ((this->y.HALF.HI - prevY + 8U) & 0xf);
     }
 }
-#else
-NAKED
-void Moldworm(Entity* this) {
-    asm(".include \"asm/non_matching/moldworm/moldworm.inc\"");
-}
-#endif
+END_NONMATCH
 
 void sub_080230CC(Entity* this) {
     gUnk_080CBC50[this->action](this);
@@ -472,10 +466,7 @@ void sub_08023990(Entity* this, u32 param_2, u32 param_3) {
 }
 
 /* TODO: fix struct */
-NAKED
-void sub_080239F0(Entity* this) {
-    asm(".include \"asm/non_matching/moldworm/sub_080239F0.inc\"");
-}
+ASM_FUNC("asm/non_matching/moldworm/sub_080239F0.inc", void sub_080239F0(Entity* this))
 
 bool32 sub_08023A38(u32 unk) {
     if (unk == 0x1a || unk == 0x29) {
@@ -522,10 +513,7 @@ void sub_08023AB0(Entity* this) {
     }
 }
 
-NAKED
-bool32 sub_08023B38(Entity* this) {
-    asm(".include \"asm/non_matching/moldworm/sub_08023B38.inc\"");
-}
+ASM_FUNC("asm/non_matching/moldworm/sub_08023B38.inc", bool32 sub_08023B38(Entity* this))
 
 // clang-format off
 void (*const gUnk_080CBC38[])(Entity*) = {

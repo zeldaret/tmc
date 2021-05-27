@@ -141,15 +141,9 @@ void sub_08022DE8(Entity* this) {
     }
 }
 
-NAKED
-void sub_08022E40(Entity* this) {
-    asm(".include \"asm/non_matching/moldorm/sub_08022E40.inc\"");
-}
+ASM_FUNC("asm/non_matching/moldorm/sub_08022E40.inc", void sub_08022E40(Entity* this))
 
-NAKED
-void sub_08022EAC(Entity* this) {
-    asm(".include \"asm/non_matching/moldorm/sub_08022EAC.inc\"");
-}
+ASM_FUNC("asm/non_matching/moldorm/sub_08022EAC.inc", void sub_08022EAC(Entity* this))
 
 void sub_08022F14(Entity* this) {
     if (sub_08049FA0(this) == 0) {
