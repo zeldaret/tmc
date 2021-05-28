@@ -36,7 +36,8 @@ extern struct_02000010 gUnk_02000010;
 
 typedef struct {
     s32 frameCount; // regular frame count? does anything reset it?
-    u8 field_0x4[0x4];
+    u8 field_0x4[0x2];
+    u16 field_0x8;
     bool8 transitioningOut;
     u8 transitionType; // transition when changing areas
     u16 field_0xa;     // seems to be a tile type

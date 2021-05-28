@@ -1,7 +1,5 @@
 	.syntax unified
 	.text
-
-ForceEquipItem: @ 0x08054414
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	subs r0, r4, #1

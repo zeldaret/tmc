@@ -1,4 +1,3 @@
-sub_08058D34: @ 0x08058D34
         push    {r4, lr}
         mov     r0, #0x28
         bl      LoadPaletteGroup

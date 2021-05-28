@@ -1,5 +1,4 @@
 .syntax unified
-CreateItemDrop: @ 0x08054754
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
 	adds r4, r1, #0

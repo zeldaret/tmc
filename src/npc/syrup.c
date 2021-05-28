@@ -60,3 +60,5 @@ NONMATCH("asm/non_matching/syrup/sub_0806A26C.inc", void sub_0806A26C(Entity* th
     }
 }
 END_NONMATCH
+
+ASM_FUNC("asm/non_matching/syrup/Syrup_Head.inc", void Syrup_Head(Entity* this))

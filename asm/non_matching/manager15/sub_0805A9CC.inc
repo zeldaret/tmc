@@ -1,4 +1,3 @@
-sub_0805A9CC: @ 0x0805A9CC
 	push {r4, r5, lr}
 	add r4, r0, #0
 	ldr r3, _0805AA4C @ =gScreen

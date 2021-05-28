@@ -8,6 +8,7 @@
 #include "structures.h"
 #include "save.h"
 #include "script.h"
+#include "flags.h"
 
 extern void sub_08060528(Entity*);
 extern void sub_0806EE04(Entity*, void*, u32);
@@ -201,4 +202,30 @@ void sub_08060700(Entity* entity, ScriptExecutionContext* context) {
 void sub_0806075C(Entity* this) {
     this->field_0x68.HALF.LO = 0xb;
     this->field_0x68.HALF.HI = 0xff;
+}
+
+ASM_FUNC("asm/non_matching/postman/sub_0806076C.inc", void sub_0806076C(Entity* this, ScriptExecutionContext* context))
+
+ASM_FUNC("asm/non_matching/postman/sub_080608E4.inc", void sub_080608E4(Entity* this, ScriptExecutionContext* context))
+
+void Postman_Fusion(Entity* this) {
+    if (this->action == 0) {
+        this->action += 1;
+        this->spriteSettings.b.draw = 1;
+        InitAnimationForceUpdate(this, 2);
+    } else {
+        UpdateAnimationSingleFrame(this);
+    }
+}
+
+void CreateZeldaFollower(void) {
+    Entity* npc;
+    if (CheckGlobalFlag(0x1c) != 0) {
+        npc = CreateNPC(0x2e, 0, 0);
+        if (npc != NULL) {
+            CopyPosition(&gPlayerEntity, npc);
+            npc->flags |= 0x20;
+            npc->animationState = GetAnimationState(npc);
+        }
+    }
 }

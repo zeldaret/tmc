@@ -18,6 +18,22 @@ extern u16 script_08014A80;
 extern Dialog gUnk_08113ABC[];
 extern u16 gUnk_08113B0C[];
 
+extern Dialog gUnk_08113B28;
+
+extern Dialog gUnk_08113B30;
+
+extern u16 gUnk_08113B12[];
+
+extern u16 gUnk_08113B22[];
+
+extern u16 gUnk_08113B1E[];
+
+extern u16 gUnk_08113B16[];
+
+extern u8 gUnk_08113B38[];
+
+extern SpriteLoadData gUnk_08113A1C[];
+
 void WindTribespeople(Entity* this) {
     gUnk_08113A7C[this->action](this);
 }
@@ -125,4 +141,78 @@ void sub_0806C944(Entity* this) {
         }
     }
     TextboxNoOverlap(gUnk_08113B0C[iVar2], this);
+}
+
+void sub_0806C978(Entity* this) {
+    u32 flag;
+    u32 flagAsBool;
+    flag = CheckGlobalFlag(0x58);
+    flagAsBool = BOOLCAST(flag);
+    TextboxNoOverlap(gUnk_08113B12[flagAsBool], this);
+}
+
+void sub_0806C99C(Entity* this) {
+    s32 flag;
+    u32 flagAsBool;
+
+    flag = CheckGlobalFlag(0x58);
+    flagAsBool = BOOLCAST(flag) & 2;
+    if (CheckLocalFlag(99) != 0) {
+        flagAsBool += 1;
+    }
+    TextboxNoOverlap(gUnk_08113B16[flagAsBool], this);
+}
+
+void sub_0806C9D0(Entity* this) {
+    u32 tmp = 0;
+    if (CheckLocalFlag(100) == 0) {
+        tmp = 1;
+    }
+    TextboxNoOverlap(gUnk_08113B1E[tmp], this);
+}
+
+void sub_0806C9F8(Entity* this) {
+    u32 flag;
+    u32 flagAsBool;
+    flag = CheckGlobalFlag(0x58);
+    flagAsBool = BOOLCAST(flag);
+    TextboxNoOverlap(gUnk_08113B22[flagAsBool], this);
+}
+
+void sub_0806CA1C(Entity* this) {
+    TextboxNoOverlap(0x251b, this);
+}
+
+void sub_0806CA2C(Entity* this) {
+    TextboxNoOverlap(0x2527, this);
+}
+
+void sub_0806CA3C(Entity* this) {
+    ShowNPCDialogue(this, &gUnk_08113B28);
+}
+
+void sub_0806CA4C(Entity* this) {
+    ShowNPCDialogue(this, &gUnk_08113B30);
+}
+
+void sub_0806CA5C(Entity* this, ScriptExecutionContext* context) {
+    context->wait = gUnk_08113B38[context->unk_18++];
+    if (this->type2 == 10) {
+        EnqueueSFX(0xe8);
+    }
+    if (context->wait != 0) {
+        gActiveScriptInfo.commandSize = 0;
+    }
+}
+
+void WindTribespeople_Fusion(Entity* this) {
+    if (this->action == 0) {
+        if (LoadExtraSpriteData(this, &gUnk_08113A1C[this->type * 4]) != 0) {
+            this->action += 1;
+            this->spriteSettings.b.draw = 1;
+            InitializeAnimation(this, 6);
+        }
+    } else {
+        GetNextFrame(this);
+    }
 }

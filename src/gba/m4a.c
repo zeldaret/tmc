@@ -1,6 +1,5 @@
 #include "global.h"
 #include "gba/m4a.h"
-
 #include "gba/gba.h"
 
 // ASCII encoding of 'Smsh' in reverse
