@@ -376,7 +376,7 @@ SECTIONS {
         src/enemy/bobomb.o(.text);
         src/enemy/wallMaster2.o(.text);
         asm/gleerok.o(.text);
-        asm/vaatiEyesMacro.o(.text);
+        src/enemy/vaatiEyesMacro.o(.text);
         src/enemy/tektite.o(.text);
         asm/wizzrobeWind.o(.text);
         asm/wizzrobeFire.o(.text);
@@ -417,7 +417,7 @@ SECTIONS {
         src/enemy/lakituCloud.o(.text);
         asm/enemy49.o(.text);
         asm/vaatiRebornEnemy.o(.text);
-        asm/vaatiProjectile.o(.text);
+        src/enemy/vaatiProjectile.o(.text);
         asm/ballChainSoldier.o(.text);
         src/enemy/enemy4D.o(.text);
         asm/enemy4D.o(.text);
@@ -425,7 +425,7 @@ SECTIONS {
         asm/vaatiTransfigured.o(.text);
         asm/enemy50.o(.text);
         asm/vaatiWrath.o(.text);
-        asm/vaatiArm.o(.text);
+        src/enemy/vaatiArm.o(.text);
         asm/dust.o(.text);
         src/enemy/vaatiBall.o(.text);
         src/enemy/slime.o(.text);
@@ -586,7 +586,7 @@ SECTIONS {
         src/npc/kingDaltus.o(.text);
         src/npc/ministerPotho.o(.text);
         src/npc/npc26.o(.text);
-        asm/vaati.o(.text);
+        src/npc/vaati.o(.text);
         src/npc/zelda.o(.text);
         src/npc/mutoh.o(.text);
         src/npc/carpenter.o(.text);
@@ -1048,7 +1048,7 @@ SECTIONS {
         src/enemy/wallMaster2.o(.rodata);
         data/const/enemy/gleerok.o(.rodata);
         data/animations/enemy/gleerok.o(.rodata);
-        data/const/enemy/vaatiEyesMacro.o(.rodata);
+        src/enemy/vaatiEyesMacro.o(.rodata);
         data/animations/enemy/vaatiEyesMacro.o(.rodata);
         data/const/enemy/tektite.o(.rodata);
         data/animations/enemy/tektite.o(.rodata);
@@ -1107,13 +1107,14 @@ SECTIONS {
         data/animations/enemy/mazaalBracelet.o(.rodata);
         data/const/enemy/takkuri.o(.rodata);
         data/const/enemy/bowMoblin.o(.rodata);
-        data/animations/enemy/bowMoblin.o(.rodata);        src/enemy/lakitu.o(.rodata);
+        data/animations/enemy/bowMoblin.o(.rodata);
+        src/enemy/lakitu.o(.rodata);
         data/animations/enemy/lakitu.o(.rodata);
         src/enemy/lakituCloud.o(.rodata);
         data/const/enemy/enemy49.o(.rodata);
         data/const/enemy/vaatiRebornEnemy.o(.rodata);
         data/animations/enemy/vaatiRebornEnemy.o(.rodata);
-        data/const/enemy/vaatiProjectile.o(.rodata);
+        src/enemy/vaatiProjectile.o(.rodata);
         data/animations/enemy/vaatiProjectile.o(.rodata);
         data/const/enemy/ballChainSoldier.o(.rodata);
         data/animations/enemy/ballChainSoldier.o(.rodata);
@@ -1125,7 +1126,7 @@ SECTIONS {
         data/const/enemy/enemy50.o(.rodata);
         data/const/enemy/vaatiWrath.o(.rodata);
         data/animations/enemy/vaatiWrath.o(.rodata);
-        data/const/enemy/vaatiArm.o(.rodata);
+        src/enemy/vaatiArm.o(.rodata);
         data/animations/enemy/vaatiArm.o(.rodata);
         data/const/enemy/dust.o(.rodata);
         data/const/enemy/vaatiBall.o(.rodata);
@@ -1284,7 +1285,7 @@ SECTIONS {
         data/animations/npc/ministerPotho.o(.rodata);
         src/npc/npc26.o(.rodata);
         data/animations/npc/npc26.o(.rodata);
-        data/const/npc/vaati.o(.rodata);
+        src/npc/vaati.o(.rodata);
         data/animations/npc/vaati.o(.rodata);
         data/const/npc/zelda.o(.rodata);
         data/const/npc/mutoh.o(.rodata);

@@ -36,6 +36,7 @@ void sub_0807DEDC(Entity*, ScriptExecutionContext*, u32, u32);
 
 ScriptExecutionContext* StartCutscene(Entity* entity, u16* script);
 void ExecuteScriptForEntity(Entity* entity, void (*postScriptCallback)(Entity*, ScriptExecutionContext*));
+void HandlePostScriptActions(Entity* entity, ScriptExecutionContext* context);
 void HandleEntity0x82Actions(Entity* entity);
 void sub_0807DD94(Entity*, void (*function)(Entity*, ScriptExecutionContext*));
 #endif
