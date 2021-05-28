@@ -376,7 +376,7 @@ SECTIONS {
         src/enemy/bobomb.o(.text);
         src/enemy/wallMaster2.o(.text);
         asm/gleerok.o(.text);
-        asm/vaatiEyesMacro.o(.text);
+        src/enemy/vaatiEyesMacro.o(.text);
         src/enemy/tektite.o(.text);
         asm/wizzrobeWind.o(.text);
         asm/wizzrobeFire.o(.text);
@@ -1056,7 +1056,7 @@ SECTIONS {
         src/enemy/wallMaster2.o(.rodata);
         data/const/enemy/gleerok.o(.rodata);
         data/animations/enemy/gleerok.o(.rodata);
-        data/const/enemy/vaatiEyesMacro.o(.rodata);
+        src/enemy/vaatiEyesMacro.o(.rodata);
         data/animations/enemy/vaatiEyesMacro.o(.rodata);
         data/const/enemy/tektite.o(.rodata);
         data/animations/enemy/tektite.o(.rodata);
@@ -1115,7 +1115,8 @@ SECTIONS {
         data/animations/enemy/mazaalBracelet.o(.rodata);
         data/const/enemy/takkuri.o(.rodata);
         data/const/enemy/bowMoblin.o(.rodata);
-        data/animations/enemy/bowMoblin.o(.rodata);        src/enemy/lakitu.o(.rodata);
+        data/animations/enemy/bowMoblin.o(.rodata);
+        src/enemy/lakitu.o(.rodata);
         data/animations/enemy/lakitu.o(.rodata);
         src/enemy/lakituCloud.o(.rodata);
         data/const/enemy/enemy49.o(.rodata);
