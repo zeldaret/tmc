@@ -612,7 +612,7 @@ SECTIONS {
         src/npc/librari.o(.text);
         src/npc/percy.o(.text);
         asm/percy.o(.text);
-        asm/vaatiReborn.o(.text);
+        src/npc/vaatiReborn.o(.text);
         src/npc/moblinLady.o(.text);
         asm/librarians.o(.text);
         asm/farmers.o(.text);
@@ -1330,7 +1330,7 @@ SECTIONS {
         data/animations/npc/librari.o(.rodata);
         data/const/npc/percy.o(.rodata);
         data/animations/npc/percy.o(.rodata);
-        data/const/npc/vaatiReborn.o(.rodata);
+        src/npc/vaatiReborn.o(.rodata);
         data/animations/npc/vaatiReborn.o(.rodata);
         data/const/npc/moblinLady.o(.rodata);
         data/animations/npc/moblinLady.o(.rodata);

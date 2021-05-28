@@ -241,10 +241,7 @@ bool32 sub_0803E4A0(Entity* this) {
         if (this->parent->currentHealth == 0) {
             return TRUE;
         } else {
-            ret = FALSE;
-            if (this->parent->next == NULL) {
-                ret = TRUE;
-            }
+            ret = this->parent->next == NULL;
         }
     } else {
         return TRUE;
