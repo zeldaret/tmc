@@ -1329,47 +1329,45 @@ void sub_08043D08(Entity* this) {
     EnqueueSFX(SFX_HIT);
 }
 
-NONMATCH("asm/non_matching/vaati/sub_08043DB0.inc", void sub_08043DB0(Entity* this)) {
+void sub_08043DB0(Entity* this) {
     s32 cVar1;
-    u32 uVar2;
+    Entity* pEVar2;
     Entity* pEVar3;
     Entity* pEVar4;
-    VaatiArm_HeapStruct1* iVar5;
 
-    if (((gPlayerState.flags.all & 0x80) != 0) &&
-        (pEVar3 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3],
-         uVar2 = CheckPlayerInRegion(pEVar3->x.HALF.HI - gRoomControls.roomOriginX,
-                                     pEVar3->y.HALF.HI - gRoomControls.roomOriginY + 2, 3, 3),
-         uVar2 != 0)) {
-        DoExitTransition((ScreenTransitionData*)&gUnk_080D13EC);
-        if ((gScreenTransition.field_0x39 & 3) != 3) {
-            gScreenTransition.roomID = 1;
-        }
-        cVar1 = this->field_0x7a.HWORD / 0x3c;
-        gScreenTransition.field_0x3d = 0x1e - cVar1;
-        gScreenTransition.field_0x3c = this->type2;
-        pEVar3 = ((VaatiArm_HeapStruct*)this->myHeap)->parent;
-        gScreenTransition.field_0x40 = pEVar3->x.HALF.HI;
-        gScreenTransition.field_0x42 = pEVar3->y.HALF.HI;
-        pEVar4 = ((VaatiArm_HeapStruct*)pEVar3->myHeap)->parent;
-        if (pEVar4 != NULL) {
-            gScreenTransition.field_0x44 = pEVar4->x.HALF.HI;
-            gScreenTransition.field_0x46 = pEVar4->y.HALF.HI;
-        } else {
-            gScreenTransition.field_0x44 = gRoomControls.roomOriginX + 0x110;
-            gScreenTransition.field_0x46 = gRoomControls.roomOriginY + 0x60;
-        }
-        iVar5 = (VaatiArm_HeapStruct1*)(*(int*)((VaatiArm_HeapStruct*)pEVar3->myHeap)->s1);
-        if (iVar5 != NULL) {
-            gScreenTransition.field_0x48 = iVar5[2].unk0e;
-            gScreenTransition.field_0x4a = iVar5[3].unk02;
-        } else {
-            gScreenTransition.field_0x48 = gRoomControls.roomOriginX + 0x110;
-            gScreenTransition.field_0x4a = gRoomControls.roomOriginY + 0x60;
+    if (((gPlayerState.flags.all & 0x80) != 0)) {
+        pEVar3 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
+        if (CheckPlayerInRegion(pEVar3->x.HALF.HI - gRoomControls.roomOriginX,
+                                pEVar3->y.HALF.HI - gRoomControls.roomOriginY + 2, 3, 3)) {
+            DoExitTransition((ScreenTransitionData*)&gUnk_080D13EC);
+            if ((gScreenTransition.field_0x39 & 3) != 3) {
+                gScreenTransition.roomID = 1;
+            }
+            cVar1 = this->field_0x7a.HWORD;
+            gScreenTransition.field_0x3d = 0x1e - (cVar1 / 0x3c);
+            gScreenTransition.field_0x3c = this->type2;
+            pEVar2 = ((VaatiArm_HeapStruct*)this->myHeap)->parent;
+            gScreenTransition.field_0x40 = pEVar2->x.HALF.HI;
+            gScreenTransition.field_0x42 = pEVar2->y.HALF.HI;
+            pEVar4 = ((VaatiArm_HeapStruct*)pEVar2->myHeap)->parent;
+            if (pEVar4 != NULL) {
+                gScreenTransition.field_0x44 = pEVar4->x.HALF.HI;
+                gScreenTransition.field_0x46 = pEVar4->y.HALF.HI;
+            } else {
+                gScreenTransition.field_0x44 = gRoomControls.roomOriginX + 0x110;
+                gScreenTransition.field_0x46 = gRoomControls.roomOriginY + 0x60;
+            }
+            pEVar4 = (Entity*)(*(int*)((VaatiArm_HeapStruct*)pEVar2->myHeap)->s1);
+            if (pEVar4 != NULL) {
+                gScreenTransition.field_0x48 = pEVar4->x.HALF.HI;
+                gScreenTransition.field_0x4a = pEVar4->y.HALF.HI;
+            } else {
+                gScreenTransition.field_0x48 = gRoomControls.roomOriginX + 0x110;
+                gScreenTransition.field_0x4a = gRoomControls.roomOriginY + 0x60;
+            }
         }
     }
 }
-END_NONMATCH
 
 void sub_08043EB8(Entity* this) {
     u32 i;
