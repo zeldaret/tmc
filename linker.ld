@@ -425,7 +425,7 @@ SECTIONS {
         asm/vaatiTransfigured.o(.text);
         asm/enemy50.o(.text);
         asm/vaatiWrath.o(.text);
-        asm/vaatiArm.o(.text);
+        src/enemy/vaatiArm.o(.text);
         asm/dust.o(.text);
         src/enemy/vaatiBall.o(.text);
         src/enemy/slime.o(.text);
@@ -1133,7 +1133,7 @@ SECTIONS {
         data/const/enemy/enemy50.o(.rodata);
         data/const/enemy/vaatiWrath.o(.rodata);
         data/animations/enemy/vaatiWrath.o(.rodata);
-        data/const/enemy/vaatiArm.o(.rodata);
+        src/enemy/vaatiArm.o(.rodata);
         data/animations/enemy/vaatiArm.o(.rodata);
         data/const/enemy/dust.o(.rodata);
         data/const/enemy/vaatiBall.o(.rodata);
