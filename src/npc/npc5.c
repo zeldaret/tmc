@@ -343,65 +343,7 @@ u32 sub_08060F80(Entity* this) {
     return 0;
 }
 
-NONMATCH("asm/non_matching/npc5/sub_08060FD0.inc", bool32 sub_08060FD0(Entity* this, u32 a, u32 b)) {
-    u32 sVar1;
-    u32 sVar2;
-    u32 uVar3;
-    s32 iVar4;
-    s32 iVar5;
-    s32 iVar6;
-    u32 r6;
-    u32 r7;
-    Entity* puVar9;
-    r7 = this->x.HALF.HI;
-    r6 = this->y.HALF.HI;
-    // asm("c");
-    uVar3 = sub_080045DA(a - r7, b - r6);
-    // asm("b");
-    r7 = r7 << 8;
-    r6 = r6 << 8;
-    // asm("a");
-    sVar1 = gSineTable[uVar3];
-    // asm("b");
-    sVar2 = gSineTable[uVar3 + 0x40];
-    asm("c");
-    puVar9 = &gUnk_0200D654;
-    if (this->collisionLayer != 2) {
-        puVar9 = &gUnk_02027EB4;
-    }
-code0:
-    // for(;;) {
-    asm("k");
-    if (r7 < 0) {
-        r7 += 0xff;
-    }
-    // asm("i");
-    if (r6 < 0) {
-        // asm("j");
-        r6 += 0xff;
-    }
-    // asm("k");
-    // asm("m");
-    if (sub_080AE4CC(puVar9, r7 >> 8, r6 >> 8, 6) != 0) {
-        return FALSE;
-    }
-    if (!(((a - (r7 >> 8)) + 6 < 0xd) && ((b - (r6 >> 8)) + 6 < 0xd))) {
-        r7 += sVar1 * 6;
-        r6 -= sVar2 * -6;
-        // asm("q");
-        // asm("r");
-    } else {
-        return TRUE;
-
-        // asm("p");
-    }
-    goto code0;
-//    };
-code4:
-    // asm("l");
-    return FALSE;
-}
-END_NONMATCH
+ASM_FUNC("asm/non_matching/npc5/sub_08060FD0.inc", bool32 sub_08060FD0(Entity* this, u32 a, u32 b))
 
 void sub_08061090(Entity* this, u32 a, u32 b) {
     s32 xDist;
