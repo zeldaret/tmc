@@ -22,7 +22,10 @@ void Farmers_Head(Entity* this) {
     sub_0807000C(this);
 }
 
-ASM_FUNC("asm/non_matching/farmers/sub_0806BC94.inc", void sub_0806BC94(Entity* this, ScriptExecutionContext* context))
+void sub_0806BC94(Entity* this, ScriptExecutionContext* context) {
+    InitializeAnimation(this, context->intVariable + (BOOLCAST(this->spriteSettings.b.flipX) & 8U) +
+                                  (this->animationState >> 1));
+}
 
 void sub_0806BCB8(Entity* this) {
     this->animationState = this->actionDelay;

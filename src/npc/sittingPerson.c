@@ -48,7 +48,10 @@ void sub_08063830(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/sittingPerson/sub_08063850.inc", void sub_08063850(Entity* this))
+void sub_08063850(Entity* this, ScriptExecutionContext* context) {
+    InitializeAnimation(this, context->intVariable + (BOOLCAST(this->spriteSettings.b.flipX) & 4U) +
+                                  (this->animationState >> 1));
+}
 
 void sub_08063874(Entity* this) {
     this->animationState = this->actionDelay;

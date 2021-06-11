@@ -148,6 +148,8 @@ typedef struct {
     /*0x4*/ u8 stateID;
     /*0x5*/ u8 field_0x5[10];
     /*0xf*/ u8 field_0xf;
+    /*0x10*/ u8 field_0x10[8];
+    /*0x18*/ u32 field_0x18;
 } ItemBehavior;
 
 extern void (*const gPlayerItemFunctions[])(Entity*);

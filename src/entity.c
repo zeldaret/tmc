@@ -76,7 +76,7 @@ extern void sub_0806FE84();
 extern void sub_080788E0();
 extern void sub_08078954();
 extern void sub_0805EC60();
-extern void sub_08017744();
+extern void sub_08017744(Entity*);
 extern void sub_0805E92C();
 extern void UnloadHitbox();
 extern void sub_0804AA1C();

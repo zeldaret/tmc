@@ -25,7 +25,8 @@ void sub_08077B98(UnkItemStruct* unk) {
     }
 }
 
-void sub_08077BB8(UnkItemStruct* unk) {
+void sub_08077BB8(ItemBehavior* beh) {
+    UnkItemStruct* unk = (UnkItemStruct*)beh; // @nocheckin
     u8* temp = sub_08077C54(unk);
     if (temp != NULL) {
         temp[0x10] = 0x20;

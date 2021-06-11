@@ -34,16 +34,22 @@ extern void (*const gUnk_080FE2A0[])();
 void ForceEquipItem(u32, u8);
 extern void sub_0807CAA0(u32, u32);
 
+/*
+Returns the slot the item is equipped in.
+0: A
+1: B
+2: Not equipped
+*/
 u32 IsItemEquipped(u32 itemID) {
-    u32 ret;
+    u32 itemSlot;
 
     if (itemID == gSave.stats.itemOnA)
-        ret = 0;
+        itemSlot = 0;
     else if (itemID == gSave.stats.itemOnB)
-        ret = 1;
+        itemSlot = 1;
     else
-        ret = 2;
-    return ret;
+        itemSlot = 2;
+    return itemSlot;
 }
 
 NONMATCH("asm/non_matching/PutItemOnSlot.inc", void PutItemOnSlot(u32 itemID)) {

@@ -14,34 +14,36 @@ typedef struct {
     u8 unk[16];
 } Unk_struct;
 
-void sub_08077DF4(Entity* ent, u32 arg1) {
+void sub_08077DF4(ItemBehavior* beh, u32 arg1) {
+    Entity* ent = (Entity*)beh; // @nocheckin
     *(u16*)&ent->flags = arg1;
     if ((arg1 & 0xff) > 0xb8) {
         arg1 += ent->type >> 1;
     }
     gPlayerEntity.spriteIndex = (short)(arg1 >> 8);
     InitAnimationForceUpdate(&gPlayerEntity, (u8)arg1);
-    sub_08077E54(ent);
+    sub_08077E54(beh);
 }
 
-void UpdateItemAnim(Entity* ent) {
+void UpdateItemAnim(ItemBehavior* beh) {
     UpdateAnimationSingleFrame(&gPlayerEntity);
-    sub_08077E54(ent);
+    sub_08077E54(beh);
 }
 
-void sub_08077E3C(Entity* ent, u32 idx) {
+void sub_08077E3C(ItemBehavior* ent, u32 idx) {
     sub_080042BA(&gPlayerEntity, idx);
     sub_08077E54(ent);
 }
 
-void sub_08077E54(Entity* ent) {
+void sub_08077E54(ItemBehavior* beh) {
+    Entity* ent = (Entity*)beh; // @nocheckin
     ent->action = gPlayerEntity.animIndex;
     *(u8*)&ent->spriteIndex = gPlayerEntity.frameIndex;
     ent->subAction = gPlayerEntity.frameDuration;
     ent->actionDelay = gPlayerEntity.frames.all;
 }
 
-void sub_08077E78(void* arg0, u32 bits) {
+void sub_08077E78(ItemBehavior* arg0, u32 bits) {
     u8* pbVar1;
     u32 not ;
 
@@ -62,10 +64,11 @@ void sub_08077E78(void* arg0, u32 bits) {
     MemClear(arg0, 0x1c);
 }
 
-u32 sub_08077EC8(Unk_struct* arg0) {
+u32 sub_08077EC8(ItemBehavior* beh) {
+    Unk_struct* arg0 = (Unk_struct*)beh; // @nocheckin
 
     if ((gPlayerState.field_0x1a[1] & 8) != 0) {
-        sub_08077DF4((Entity*)arg0, 0x170);
+        sub_08077DF4(beh, 0x170);
         arg0->unk[7] = 0x28;
         arg0->unk[4] = 7;
         arg0->unk[15] = 6;
@@ -75,15 +78,15 @@ u32 sub_08077EC8(Unk_struct* arg0) {
     }
 }
 
-void sub_08077EFC(ItemBehavior* arg0) {
-    sub_08077F24(arg0, (u16)gPlayerState.field_0x90.HALF.LO);
+bool32 sub_08077EFC(ItemBehavior* arg0) {
+    return sub_08077F24(arg0, (u16)gPlayerState.field_0x90.HALF.LO);
 }
 
-void sub_08077F10(ItemBehavior* arg0) {
-    sub_08077F24(arg0, (u16)gPlayerState.field_0x90.HALF.HI);
+bool32 sub_08077F10(ItemBehavior* arg0) {
+    return sub_08077F24(arg0, (u16)gPlayerState.field_0x90.HALF.HI);
 }
 
-ASM_FUNC("asm/non_matching/sub_08077F24.inc", void sub_08077F24(ItemBehavior* beh, u32 arg1))
+ASM_FUNC("asm/non_matching/sub_08077F24.inc", bool32 sub_08077F24(ItemBehavior* beh, u32 arg1))
 
 void sub_08077F50(ItemBehavior* beh, u32 arg1) {
     sub_08079184();
