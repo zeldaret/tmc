@@ -61,10 +61,15 @@ void sub_0805212C(void) {
             gMenu.transitionTimer--;
             if (gMenu.transitionTimer == 0) {
                 sub_080520C4(2);
+                #ifdef DEMO
+                SoundReq(0x80080000);
+                DoFade(7,4);
+                #else
                 sub_08052418(0, 0);
                 gScreen.lcd.displayControl |= 0x600;
                 gFadeControl.field_0x4 = 0xffff;
                 DoFade(4, 0x10);
+                #endif
             }
         }
     } else {
@@ -72,6 +77,13 @@ void sub_0805212C(void) {
     }
 }
 
+#ifdef DEMO
+void sub_080521A0(void) {
+  if (gFadeControl.active == 0) {
+    DoSoftReset();
+  }
+}
+#else
 void sub_080521A0(void) {
     s32 temp3;
     u32 temp2;
@@ -147,6 +159,7 @@ void sub_080521A0(void) {
             break;
     }
 }
+#endif
 
 void sub_080522F4(void) {
     switch (gMenu.menuType) {

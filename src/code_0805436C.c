@@ -265,5 +265,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
 */
 
 void sub_08054870(void) {
+    #ifndef DEMO
     gUnk_080FE2A0[gMenu.menuType]();
+    #endif
 }

@@ -591,7 +591,11 @@ sub_0808C650: @ 0x0808C650
 	movs r0, #0
 	b _0808C674
 	.align 2, 0
+.ifdef DEMO
+_0808C66C: .4byte gUnk_02036BB0
+.else
 _0808C66C: .4byte gUnk_02036BB8
+.endif
 _0808C670:
 	ldr r1, _0808C678 @ =gUnk_02036BB8
 	movs r0, #1
@@ -599,7 +603,11 @@ _0808C674:
 	str r0, [r1]
 	pop {r4, pc}
 	.align 2, 0
+.ifdef DEMO
+_0808C678: .4byte gUnk_02036BB0
+.else
 _0808C678: .4byte gUnk_02036BB8
+.endif
 
 	thumb_func_start sub_0808C67C
 sub_0808C67C: @ 0x0808C67C
@@ -607,7 +615,11 @@ sub_0808C67C: @ 0x0808C67C
 	ldr r0, [r0]
 	bx lr
 	.align 2, 0
+.ifdef DEMO
+_0808C684: .4byte gUnk_02036BB0
+.else
 _0808C684: .4byte gUnk_02036BB8
+.endif
 
 	thumb_func_start sub_0808C688
 sub_0808C688: @ 0x0808C688
@@ -618,4 +630,8 @@ sub_0808C688: @ 0x0808C688
 	str r0, [r1]
 	pop {pc}
 	.align 2, 0
+.ifdef DEMO
+_0808C698: .4byte gUnk_02036BB0
+.else
 _0808C698: .4byte gUnk_02036BB8
+.endif

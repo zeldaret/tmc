@@ -202,7 +202,11 @@ _080A570C:
 	cmp r0, #1
 	bne _080A575E
 	ldrb r3, [r2, #3]
+	.ifdef DEMO
+	movs r4, #0
+	.else
 	movs r1, #0
+	.endif
 	cmp r3, #2
 	beq _080A572E
 	cmp r3, #2
@@ -223,23 +227,48 @@ _080A572E:
 	ldrb r0, [r0]
 	cmp r0, #0
 	beq _080A574E
+	.ifdef DEMO
+	movs r4, #8
+	.else
 	movs r1, #8
+	.endif
 	cmp r3, #0
 	bne _080A574E
+	.ifdef DEMO
+	movs r4, #7
+	.else
 	movs r1, #7
+	.endif
 	b _080A5752
 	.align 2, 0
 _080A5744: .4byte gMenu
 _080A5748:
+.ifdef DEMO
+	movs r0, #0x6d
+	bl SoundReq
+	b _080A574E
+_080A574C:
+	movs r0, #0x6d
+	bl SoundReq
+.else
 	movs r1, #9
 	b _080A5752
 _080A574C:
 	movs r1, #0xa
+.endif
 _080A574E:
+	.ifdef DEMO
+	cmp r4, #0
+	.else
 	cmp r1, #0
+	.endif
 	beq _080A575E
 _080A5752:
+	.ifdef DEMO
+	adds r0, r4, #0
+	.else
 	adds r0, r1, #0
+	.endif
 	bl sub_080A4E84
 	movs r0, #0x6a
 	bl SoundReq

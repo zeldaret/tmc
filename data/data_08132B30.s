@@ -2477,6 +2477,7 @@ gUnk_0813A7F0:: @ 0813A7F0
 	.4byte gUnk_08133FDC
 	.4byte gUnk_08133FDC
 	.4byte gUnk_08133FDC
+	.ifndef DEMO
 	.4byte gUnk_08139108
 	.4byte gUnk_081391D0
 	.4byte gUnk_081391FC
@@ -2485,6 +2486,7 @@ gUnk_0813A7F0:: @ 0813A7F0
 	.4byte gUnk_08133FDC
 	.4byte gUnk_08133FDC
 	.4byte gUnk_08133FDC
+	.endif
 	.4byte gUnk_081395D8
 	.4byte gUnk_08139714
 	.4byte gUnk_08138848

@@ -5,17 +5,34 @@ COMPARE ?= 0
 CPP := $(CC) -E
 LD := $(DEVKITARM)/bin/arm-none-eabi-ld
 
-GAME_VERSION := THEMINISHCAP
+GAME_VERSION ?= USA
 REVISION := 0
 GAME_LANGUAGE := ENGLISH
 
 TITLE       := GBAZELDA MC
-GAME_CODE   := BZME
 MAKER_CODE  := 01
+
+ifeq ($(GAME_VERSION), USA)
+GAME_CODE   := BZME
+BUILD_NAME  := tmc
+else
+ifeq ($(GAME_VERSION), DEMO)
+GAME_CODE   := BZHE
+BUILD_NAME  := tmc
+else
+ifeq ($(GAME_VERSION), JP)
+GAME_CODE   := BZMJ
+BUILD_NAME  := tmc
+else
+$(error unknown version $(GAME_VERSION))
+endif
+endif
+endif
+
 
 SHELL := /bin/bash -o pipefail
 
-BUILD_NAME  := tmc
+
 ROM := $(BUILD_NAME).gba
 OBJ_DIR := build/$(BUILD_NAME)
 
@@ -120,11 +137,11 @@ MAKEFLAGS += --no-print-directory
 AUTO_GEN_TARGETS :=
 
 all: $(ROM)
-	@$(SHA1) tmc.sha1
+	@$(SHA1) $(BUILD_NAME).sha1
 
 # kept for backwards compat
 compare: $(ROM)
-	@$(SHA1) tmc.sha1
+	@$(SHA1) $(BUILD_NAME).sha1
 
 setup: $(TOOLDIRS)
 
@@ -205,3 +222,8 @@ $(ELF): $(OBJS) linker.ld
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary --gap-fill 0xFF --pad-to 0x9000000 $< $@
+
+usa: ; @$(MAKE) GAME_VERSION=USA
+demo: ; @$(MAKE) GAME_VERSION=DEMO
+jp: ; @$(MAKE) GAME_VERSION=JP
+eu: ; @$(MAKE) GAME_VERSION=EU

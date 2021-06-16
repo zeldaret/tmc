@@ -223,7 +223,11 @@ _0808C828:
 	bl sub_0801E49C
 	pop {r4, r5, r6, pc}
 	.align 2, 0
+.ifdef DEMO
+_0808C83C: .4byte gUnk_02036BB0
+.else
 _0808C83C: .4byte gUnk_02036BB8
+.endif
 
 	thumb_func_start sub_0808C840
 sub_0808C840: @ 0x0808C840

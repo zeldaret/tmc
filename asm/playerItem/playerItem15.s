@@ -199,3 +199,27 @@ _080A31FC:
 _080A3200:
 	pop {r4, r5, pc}
 	.align 2, 0
+
+
+
+
+// DEMO only functions
+
+.ifdef DEMO
+// @nocheckin
+thumb_func_start HandleChooseDemoScreen
+HandleChooseDemoScreen: @ 0x080A2E18
+.incbin "baserom_demo.gba", 0x0a2e18, 0x28
+
+thumb_func_start sub_080A2E40
+sub_080A2E40: @ 0x080A2E40
+.incbin "baserom_demo.gba", 0x0a2e40, 0x14c
+
+thumb_func_start sub_080A2F8C
+sub_080A2F8C: @ 0x080A2F8C
+.incbin "baserom_demo.gba", 0x0A2F8C, 0x44
+
+thumb_func_start sub_080A2FD0
+sub_080A2FD0: @ 0x080A2FD0
+.incbin "baserom_demo.gba", 0x0A2FD0, 0x210
+.endif

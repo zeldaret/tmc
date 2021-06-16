@@ -12,13 +12,20 @@
 
 extern void HandleIntroScreen(void);
 extern void HandleChooseFileScreen(void);
+extern void HandleChooseDemoScreen(void);
 extern void HandleGameplayScreen(void);
 extern void HandleGameOverScreen(void);
 extern void HandleCreditsScreen(void);
 extern void HandleDebugTextScreen(void);
 
 static void (*const sScreenHandlers[])(void) = {
-    [SCREEN_INTRO] = HandleIntroScreen,       [SCREEN_CHOOSE_FILE] = HandleChooseFileScreen,
+    [SCREEN_INTRO] = HandleIntroScreen,      
+    #ifdef DEMO
+     [SCREEN_CHOOSE_FILE] = HandleChooseDemoScreen,
+    #else
+    [SCREEN_CHOOSE_FILE] = HandleChooseFileScreen,
+    #endif
+
     [SCREEN_GAMEPLAY] = HandleGameplayScreen, [SCREEN_GAME_OVER] = HandleGameOverScreen,
     [SCREEN_CREDITS] = HandleCreditsScreen,   [SCREEN_DEBUG_TEXT] = HandleDebugTextScreen,
 };
@@ -83,7 +90,11 @@ void AgbMain(void) {
 // Interrupt handlers that are loaded into RAM.
 extern u8 sub_080B197C[];
 extern u8 gUnk_030056F0[];
+#ifdef DEMO
+extern u8 gUnk_02038558[];
+#else
 extern u8 gUnk_02038560[];
+#endif
 extern u8 gUnk_080B2CD8[];
 extern u8 gUnk_080B2CD8_2[];
 extern u8 gUnk_080B2CD8_3[];
@@ -105,7 +116,11 @@ static void sub_08055F70(void) {
 
     size = (u32)gUnk_080B2CD8_2 - (u32)gUnk_080B2CD8_3;
     if (size != 0) {
+        #ifdef DEMO
+        MemCopy(gUnk_080B2CD8_3, gUnk_02038558, size);
+        #else
         MemCopy(gUnk_080B2CD8_3, gUnk_02038560, size);
+        #endif
     }
 
     DispReset(0);

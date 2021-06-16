@@ -152,10 +152,15 @@ SECTIONS {
         . = 0x00036A38; gCurrentWindow = .;
         . = 0x00036A40; gNewWindow = .;
         . = 0x00036A50; gEEPROMConfig = .;
+        . = 0x00036A50; gUnk_02036A50 = .; /* DEMO is 8 bytes earlier due to missing eeprom*/
         . = 0x00036A58; gUnk_02036A58 = .;
-        . = 0x00036AD8; gUnk_02036AD8 = .;
+        . = 0x00036AD0; gUnk_02036AD0 = .; /* DEMO is 8 bytes earlier due to missing eeprom*/
+        . = 0x00036AD8; gUnk_02036AD8 = .; 
+        . = 0x00036BB0; gUnk_02036BB0 = .; /* DEMO is 8 bytes earlier due to missing eeprom*/
         . = 0x00036BB8; gUnk_02036BB8 = .;
+        . = 0x00036BB8; gMPlayTracksDEMO = .; /* DEMO is 8 bytes earlier due to missing eeprom*/
         . = 0x00036BC0; gMPlayTracks = .;
+        . = 0x00038558; gUnk_02038558 = .; /* DEMO is 8 bytes earlier due to missing eeprom*/
         . = 0x00038560; gUnk_02038560 = .;
         . = 0x00040000;
     } >ewram

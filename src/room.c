@@ -2161,8 +2161,18 @@ u32 sub_0804CD0C() {
     return 1;
 }
 
+#ifdef DEMO
+void nullsub_251() {
+    if (gUnk_02000000->saveFileId != 0 && GetInventoryValue(0x40) == 0) {
+        SetTileType(0x365,0x349,1);
+        SetTileType(0x365,0x34a,1);
+        SetTileType(0x365,0x34b,1);
+    }
+}
+#else
 void nullsub_251() {
 }
+#endif
 
 u32 sub_0804CD14() {
     return 1;
@@ -2288,8 +2298,18 @@ u32 sub_0804CE38() {
     return 1;
 }
 
+#ifdef DEMO
+void nullsub_262() {
+    if (GetInventoryValue(0x41) == 0) {
+        SetTileType(0x365,0x287,2);
+        SetTileType(0x365,0x288,2);
+        SetTileType(0x365,0x289,2);
+    }
+}
+#else
 void nullsub_262() {
 }
+#endif
 
 u32 sub_0804CE40() {
     return 1;
@@ -5049,6 +5069,10 @@ void sub_0804EC00(void) {
     if ((s32)gSave.windcrests > -1) {
         LoadRoomEntityList(&gUnk_080F4E10);
     }
+    #ifdef DEMO
+    SetTileType(0x177,0x5b4,1);
+    SetTileType(0x177,0x5f4,1);
+    #endif
 }
 
 void sub_0804EC98(void) {

@@ -1206,6 +1206,10 @@ _080A45A2:
 
 	thumb_func_start sub_080A45A4
 sub_080A45A4: @ 0x080A45A4
+.ifdef DEMO
+	bx lr
+	.align 2, 0
+.else
 	push {lr}
 	bl FlushSprites
 	ldr r0, _080A45C4 @ =gUnk_02032EC0
@@ -1244,6 +1248,7 @@ _080A45E0:
 	.align 2, 0
 _080A4600: .4byte gUnk_0812814C
 _080A4604: .4byte gMenu
+.endif
 
 	thumb_func_start sub_080A4608
 sub_080A4608: @ 0x080A4608
@@ -2890,9 +2895,15 @@ _080A52DC: .4byte gInput
 _080A52E0:
 	cmp r4, #0x10
 	bne _080A52EC
+.ifdef DEMO
+	movs r0, #0x6d
+	bl SoundReq
+	b _080A5336
+.else
 	movs r0, #0xb
 	bl sub_080A4E84
 	b _080A530A
+.endif
 _080A52EC:
 	ldr r0, _080A5314 @ =gMenu
 	adds r0, #0x10

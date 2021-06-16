@@ -104,6 +104,24 @@ static void HandleNintendoCapcomLogos(void) {
         gScreen.bg.bg1Updated = 1;
         DoFade(6, 8);
         advance = ADVANCE_NONE;
+        #ifdef DEMO
+        if (gUnk_02000010.listenForKeyPresses == 0) {
+        if ((gInput.heldKeys & 0x204) == 0x204) { // TODO
+            gUnk_02000010.field_0x7 = 1;
+            SoundReq(0x73);
+        }
+        else {
+            if ((gInput.heldKeys & 0x104) == 0x104) { // TODO
+            gUnk_02000010.field_0x7 = 2;
+            SoundReq(0xcd);
+            }
+            else {
+            gUnk_02000010.field_0x7 = 0;
+            }
+        }
+        }
+        #endif
+
     } else {
         if (advance == ADVANCE_TIMER_EXPIRED) {
             advance = ADVANCE_KEY_PRESSED;

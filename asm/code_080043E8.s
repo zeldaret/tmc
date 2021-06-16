@@ -2254,7 +2254,12 @@ gUnk_08007CAC:: @ 08007CAC
 	.incbin "baserom.gba", 0x007CAC, 0x000005B
 
 gUnk_08007D07:: @ 08007D07
+.ifdef DEMO
+@ TODO only one byte differs
+	.incbin "baserom_demo.gba", 0x007D07, 0x00000CF
+.else
 	.incbin "baserom.gba", 0x007D07, 0x00000CF
+.endif
 
 	non_word_aligned_thumb_func_start sub_08007DD6
 sub_08007DD6: @ 0x08007DD6

@@ -5,6 +5,45 @@
 
 	.text
 
+.ifdef DEMO
+    thumb_func_start HandleGameplayScreen
+HandleGameplayScreen: @ 08051A28
+    push {r4, lr}
+    ldr r1, _08051A68 @ =0x030010A0
+    ldr r0, [r1, #0x00]
+    adds r0, #0x01
+    str r0, [r1, #0x00]
+    ldr r1, _08051A6C @ =0x080FC55C
+    ldr r4, _08051A70x @ =0x03001000
+    ldrb r0, [r4, #0x03]
+    lsls r0, r0, #0x02
+    adds r0, r0, r1
+    ldr r0, [r0, #0x00]
+    bl _call_via_r0
+    ldr r0, _08051A74x @ =0x02002A40
+    movs r2, #0x95
+    lsls r2, r2, #0x03
+    adds r1, r0, r2
+    ldr r0, [r1, #0x00]
+    cmp r0, #0x00
+    beq _08051A64
+    subs r0, #0x01
+    str r0, [r1, #0x00]
+    cmp r0, #0x00
+    bne _08051A64
+    movs r0, #0x07
+    movs r1, #0x02
+    bl DoFade
+    movs r0, #0x03
+    strb r0, [r4, #0x03]
+_08051A64:
+    pop {r4, pc}
+    .byte 0x00, 0x00
+_08051A68: .4byte 0x030010A0 @TODO ptr
+_08051A6C: .4byte 0x080FC55C @TODO ptr
+_08051A70x: .4byte 0x03001000 @TODO ptr
+_08051A74x: .4byte 0x02002A40 @TODO ptr
+.else
 	thumb_func_start HandleGameplayScreen
 HandleGameplayScreen: @ 0x08051988
 	push {lr}
@@ -24,6 +63,8 @@ HandleGameplayScreen: @ 0x08051988
 _080519A4: .4byte gScreenTransition
 _080519A8: .4byte gUnk_080FC9D8
 _080519AC: .4byte gMain
+.endif
+
 
 	thumb_func_start sub_080519B0
 sub_080519B0: @ 0x080519B0
@@ -382,6 +423,9 @@ _08051D28: .4byte gScreenTransition
 
 	thumb_func_start sub_08051D2C
 sub_08051D2C: @ 0x08051D2C
+.ifdef DEMO
+	.incbin "baserom_demo.gba", 0x051df4, 0x14 @nocheckin
+.else
 	push {lr}
 	movs r0, #7
 	movs r1, #8
@@ -390,6 +434,7 @@ sub_08051D2C: @ 0x08051D2C
 	bl InitScreen
 	pop {pc}
 	.align 2, 0
+.endif
 
 	thumb_func_start InitializeEntities
 InitializeEntities: @ 0x08051D40

@@ -1,6 +1,10 @@
 #include "global.h"
 #include "gba/eeprom.h"
 
+#ifdef DEMO
+const u8 unk[] = {0xff, 0xff, 0xff, 0xff};
+const u8 padding[0x18] = {};
+#else
 typedef struct EEPROMConfig {
     u32 unk_00;
     u16 size;
@@ -9,12 +13,15 @@ typedef struct EEPROMConfig {
     // u8 filler[3];
 } EEPROMConfig;
 
+
 const char EEPROM_V124[] = "EEPROM_V124";
 extern const EEPROMConfig* gEEPROMConfig;
 const EEPROMConfig gEEPROMConfig512 = { 0x200, 0x40, 0x300, 0x6 };
 const EEPROMConfig gEEPROMConfig8k = { 0x2000, 0x400, 0x300, 0xe };
 
 u16 EEPROMWrite(u16, const u16*, u8);
+
+
 
 u16 EEPROMConfigure(u16 unk_1) {
     u16 ret;
@@ -248,3 +255,5 @@ u16 EEPROMWrite0_8k_Check(u16 address, const u16* data) {
 }
 
 const char thing[0x1c] = "\xff\xff\xff\xff";
+
+#endif
