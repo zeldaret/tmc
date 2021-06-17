@@ -46,10 +46,20 @@ gUnk_08113B22:: @ 08113B22
 	.incbin "baserom.gba", 0x113B22, 0x0000006
 
 gUnk_08113B28:: @ 08113B28
+.ifdef JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x1137EC, 0x0000008
+.else
 	.incbin "baserom.gba", 0x113B28, 0x0000008
+.endif
 
 gUnk_08113B30:: @ 08113B30
+.ifdef JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x1137F4, 0x0000008
+.else
 	.incbin "baserom.gba", 0x113B30, 0x0000008
+.endif
 
 gUnk_08113B38:: @ 08113B38
 	.incbin "baserom.gba", 0x113B38, 0x0000007

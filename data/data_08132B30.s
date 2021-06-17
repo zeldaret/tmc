@@ -2617,7 +2617,12 @@ gUnk_0813ABE4:: @ 0813ABE4
 	.incbin "baserom.gba", 0x13ABE4, 0x0000014
 
 gUnk_0813ABF8:: @ 0813ABF8
+.ifdef JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x13A824, 0x0000014
+.else
 	.incbin "baserom.gba", 0x13ABF8, 0x0000014
+.endif
 
 gUnk_0813AC0C:: @ 0813AC0C
 	.incbin "baserom.gba", 0x13AC0C, 0x0000014
@@ -10874,6 +10879,11 @@ gUnk_08544301:: @ 08544301
 gUnk_08545666:: @ 08545666
 	.incbin "baserom.gba", 0x545666, 0x0000F00
 
+@ TODO JP differs from here
+.ifdef JP
+	.incbin "baserom_jp.gba", 0x546192, 0x5C98E
+.else
+
 gUnk_08546566:: @ 08546566
 	.incbin "baserom.gba", 0x546566, 0x00019E4
 
@@ -11174,6 +11184,9 @@ gUnk_085A0464:: @ 085A0464
 gUnk_085A0806:: @ 085A0806
 	.incbin "baserom.gba", 0x5A0806, 0x000267A
 
+.endif
+
+@ TODO JP differs to here
 gGlobalGfxAndPalettes:: @ 085A2E80
 	.incbin "baserom.gba", 0x5A2E80, 0x0001382
 

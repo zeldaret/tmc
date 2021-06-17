@@ -18,7 +18,9 @@ script_08012440:
 	SetLocalFlag 0x00b3
 	_0807F034 0x0062
 	WaitPlayerAction8 
+.ifndef JP
 	SetLocalFlag 0x00d0
+.endif
 script_08012474:
 	_0807E878 
 	_0807E930 0x0000

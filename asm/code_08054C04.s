@@ -383,7 +383,11 @@ sub_08054EB8: @ 0x08054EB8
 	adds r1, #0x35
 	movs r0, #1
 	strb r0, [r1]
+.ifdef JP
+	movs r0, #0x77
+.else
 	movs r0, #0x79
+.endif
 	strh r0, [r3, #0x3e]
 	adds r0, r3, #0
 	movs r1, #6

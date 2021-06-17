@@ -74,7 +74,11 @@ void sub_08069B44(Entity* this) {
         if (((this->type == 0) && ((gPlayerState.flags.all & 0x80) == 0)) && (GetInventoryValue(0x36) != 2)) {
             this->action = 4;
         }
+#ifdef JP
+        if ((this->type == 2) && (CheckLocalFlag(0xcc) == 0)) {
+#else
         if ((this->type == 2) && (CheckLocalFlag(0xcf) == 0)) {
+#endif
             SetTile(0x4072, TILE(this->x.HALF.HI, this->y.HALF.HI - 8), this->collisionLayer);
         }
     }
@@ -258,7 +262,11 @@ void sub_08069F6C(Entity* this) {
 }
 
 u32 sub_08069F90(Entity* this) {
+#ifdef JP
+    if ((this->type == 2) && (CheckLocalFlag(0xcc) == 0)) {
+#else
     if ((this->type == 2) && (CheckLocalFlag(0xcf) == 0)) {
+#endif
         return 1;
     } else {
         return sub_080041A0(this, &gPlayerEntity, 0x14, 0x14);
@@ -312,19 +320,39 @@ void sub_0806A0A4(Entity* this) {
 
     if ((gPlayerState.flags.all & 0x80) != 0) {
         dialog = 4;
+#ifdef JP
+        if (CheckLocalFlag(0xcc) == 0) {
+#else
         if (CheckLocalFlag(0xcf) == 0) {
+#endif
             dialog = 3;
+#ifdef JP
+            SetLocalFlag(0xcc);
+#else
             SetLocalFlag(0xcf);
+#endif
             sub_0807BA8C(TILE(this->x.HALF.HI, this->y.HALF.HI - 8), (u32)this->collisionLayer);
         }
     } else {
 
         dialog = 2;
+#ifdef JP
+        if (CheckLocalFlag(0xcc) == 0) {
+#else
         if (CheckLocalFlag(0xcf) == 0) {
+#endif
             dialog = 1;
+#ifdef JP
+            if (CheckLocalFlag(0xd8) == 0) {
+#else
             if (CheckLocalFlag(0xdb) == 0) {
+#endif
                 dialog = 0;
+#ifdef JP
+                SetLocalFlag(0xd8);
+#else
                 SetLocalFlag(0xdb);
+#endif
             }
         }
     }

@@ -360,8 +360,10 @@ script_08012070:
 	TextboxNoOverlap 0x3125
 	_0807EA94 
 	_0807F034 0x0031
-	WaitPlayerAction8 
+	WaitPlayerAction8
+.ifndef JP 
 	Call sub_0807FC24
+.endif
 	Jump script_0801209E
 script_0801209A:
 	TextboxNoOverlap 0x3127
@@ -371,7 +373,11 @@ script_0801209E:
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_0801203A
+.ifndef JP
 	.2byte 0x0000
+.endif
+
+
 SCRIPT_START script_080120B0
 	BeginBlock 
 	Call sub_08064928
@@ -407,8 +413,10 @@ script_080120FC:
 	TextboxNoOverlap 0x3119
 	_0807EA94 
 	_0807F034 0x002f
-	WaitPlayerAction8 
+	WaitPlayerAction8
+.ifndef JP
 	Call sub_0807FC24
+.endif
 	Jump script_0801212A
 script_08012126:
 	TextboxNoOverlap 0x311b
@@ -418,7 +426,10 @@ script_0801212A:
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_080120C6
+.ifndef JP
 	.2byte 0x0000
+.endif
+
 SCRIPT_START script_0801213C
 	BeginBlock 
 	Call sub_08064A28
@@ -455,7 +466,9 @@ script_08012188:
 	_0807EA94 
 	_0807F034 0x0030
 	WaitPlayerAction8 
+.ifndef JP
 	Call sub_0807FC24
+.endif
 	Jump script_080121B6
 script_080121B2:
 	TextboxNoOverlap 0x3121
@@ -465,7 +478,10 @@ script_080121B6:
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0001
 	Jump script_08012152
+.ifndef JP
 	.2byte 0x0000
+.endif
+
 SCRIPT_START script_080121C8
 	BeginBlock 
 	Call sub_08064828

@@ -34,6 +34,9 @@ _0805DE64: .4byte gUnk_08108DC4
 
 	thumb_func_start sub_0805DE68
 sub_0805DE68: @ 0x0805DE68
+.ifdef JP
+	.incbin "baserom_jp.gba", 0x05dcbc, 0x3c @TODO disassemble
+.else
 	push {r4, lr}
 	adds r4, r0, #0
 	movs r0, #0x7b
@@ -70,6 +73,7 @@ _0805DE7A:
 _0805DEAC: .4byte gScreenTransition
 _0805DEB0: .4byte gSave
 _0805DEB4: .4byte 0x00001194
+.endif
 
 	thumb_func_start sub_0805DEB8
 sub_0805DEB8: @ 0x0805DEB8

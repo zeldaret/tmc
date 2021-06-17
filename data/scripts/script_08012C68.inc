@@ -15,6 +15,7 @@ script_08012C7E:
 	SetGlobalFlag 0x0022
 	_0807E878 
 	Jump script_08012C7E
+
 SCRIPT_START script_08012C98
 	CheckGlobalFlag 0x0014
 	JumpIfNot script_08012C98
@@ -30,7 +31,11 @@ script_08012CA0:
 	Call sub_0807DF28
 	_0807EB28 0x2202
 	_0807EA94 
+.ifdef JP
+	SetLocalFlag 0x003a
+.else
 	SetLocalFlag 0x003b
+.endif
 	Call sub_0807DF50
 	_0807E878 
 script_08012CD2:

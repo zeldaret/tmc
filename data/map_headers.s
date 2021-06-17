@@ -2363,208 +2363,463 @@ gAreaRoomMaps_RoyalCrypt:: @ 081062CC
 	.4byte 0x0
 
 gAreaRoomMap_PalaceOfWinds_0:: @ 0810630C
+.ifdef JP
+	map_bottom 0x2246C0+0x74, 0xA8C, 1
+	map_top 0x224A00+0x74, 0xA8C, 1, 1
+.else
 	map_bottom 0x2246C0, 0xA8C, 1
 	map_top 0x224A00, 0xA8C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_1:: @ 08106324
+.ifdef JP
+	map_bottom 0x224D14+0x74, 0x12C, 1
+	map_top 0x224E04+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x224D14, 0x12C, 1
 	map_top 0x224E04, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_2:: @ 0810633C
+.ifdef JP
+	map_bottom 0x224E64+0x74, 0x1A4, 1
+	map_top 0x224FBC+0x74, 0x1A4, 1, 1
+.else
 	map_bottom 0x224E64, 0x1A4, 1
 	map_top 0x224FBC, 0x1A4, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_3:: @ 08106354
+.ifdef JP
+	map_bottom 0x22505C+0x74, 0x384, 1
+	map_top 0x2252A4+0x74, 0x384, 1, 1
+.else
 	map_bottom 0x22505C, 0x384, 1
 	map_top 0x2252A4, 0x384, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_4:: @ 0810636C
+.ifdef JP
+	map_bottom 0x2253FC+0x74, 0x12C, 1
+	map_top 0x2254C8+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x2253FC, 0x12C, 1
 	map_top 0x2254C8, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_5:: @ 08106384
+.ifdef JP
+	map_bottom 0x225524+0x74, 0x384, 1
+	map_top 0x22572C+0x74, 0x384, 1, 1
+.else
 	map_bottom 0x225524, 0x384, 1
 	map_top 0x22572C, 0x384, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_6:: @ 0810639C
+.ifdef JP
+	map_bottom 0x225850+0x74, 0x384, 1
+	map_top 0x225A40+0x74, 0x384, 1, 1
+.else
 	map_bottom 0x225850, 0x384, 1
 	map_top 0x225A40, 0x384, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_7:: @ 081063B4
+.ifdef JP
+	map_bottom 0x225B60+0x74, 0x384, 1
+	map_top 0x225D68+0x74, 0x384, 1, 1
+.else
 	map_bottom 0x225B60, 0x384, 1
 	map_top 0x225D68, 0x384, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_8:: @ 081063CC
+.ifdef JP
+	map_bottom 0x225E98+0x74, 0x258, 1
+	map_top 0x22601C+0x74, 0x258, 1, 1
+.else
 	map_bottom 0x225E98, 0x258, 1
 	map_top 0x22601C, 0x258, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_9:: @ 081063E4
+.ifdef JP
+	map_bottom 0x226128+0x74, 0x12C, 1
+	map_top 0x226200+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x226128, 0x12C, 1
 	map_top 0x226200, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_10:: @ 081063FC
+.ifdef JP
+	map_bottom 0x226264+0x74, 0x186, 1
+	map_top 0x226364+0x74, 0x186, 1, 1
+.else
 	map_bottom 0x226264, 0x186, 1
 	map_top 0x226364, 0x186, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_11:: @ 08106414
+.ifdef JP
+	map_bottom 0x226418+0x74, 0x12C, 1
+	map_top 0x2264FC+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x226418, 0x12C, 1
 	map_top 0x2264FC, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_12:: @ 0810642C
+.ifdef JP
+	map_bottom 0x226578+0x74, 0x1E0, 1
+	map_top 0x22663C+0x74, 0x1E0, 1, 1
+.else
 	map_bottom 0x226578, 0x1E0, 1
 	map_top 0x22663C, 0x1E0, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_13:: @ 08106444
+.ifdef JP
+	map_bottom 0x2266BC+0x74, 0x12C, 1
+	map_top 0x22679C+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x2266BC, 0x12C, 1
 	map_top 0x22679C, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_14:: @ 0810645C
+.ifdef JP
+	map_bottom 0x226818+0x74, 0x258, 1
+	map_top 0x226948+0x74, 0x258, 1, 1
+.else
 	map_bottom 0x226818, 0x258, 1
 	map_top 0x226948, 0x258, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_15:: @ 08106474
+.ifdef JP
+	map_bottom 0x2269F4+0x74, 0x708, 1
+	map_top 0x226C3C+0x74, 0x708, 1, 1
+.else
 	map_bottom 0x2269F4, 0x708, 1
 	map_top 0x226C3C, 0x708, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_16:: @ 0810648C
+.ifdef JP
+	map_bottom 0x226E70+0x74, 0xA8C, 1
+	map_top 0x2271A4+0x74, 0xA8C, 1, 1
+.else
 	map_bottom 0x226E70, 0xA8C, 1
 	map_top 0x2271A4, 0xA8C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_17:: @ 081064A4
+.ifdef JP
+	map_bottom 0x22745C+0x74, 0x384, 1
+	map_top 0x227668+0x74, 0x384, 1, 1
+.else
 	map_bottom 0x22745C, 0x384, 1
 	map_top 0x227668, 0x384, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_18:: @ 081064BC
+.ifdef JP
+	map_bottom 0x227774+0x74, 0x258, 1
+	map_top 0x227860+0x74, 0x258, 1, 1
+.else
 	map_bottom 0x227774, 0x258, 1
 	map_top 0x227860, 0x258, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_19:: @ 081064D4
+.ifdef JP
+	map_bottom 0x227924+0x74, 0x4B0, 1
+	map_top 0x227B6C+0x74, 0x4B0, 1, 1
+.else
 	map_bottom 0x227924, 0x4B0, 1
 	map_top 0x227B6C, 0x4B0, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_20:: @ 081064EC
+.ifdef JP
+	map_bottom 0x227D34+0x74, 0x258, 1
+	map_top 0x227EA8+0x74, 0x258, 1, 1
+.else
 	map_bottom 0x227D34, 0x258, 1
 	map_top 0x227EA8, 0x258, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_21:: @ 08106504
+.ifdef JP
+	map_bottom 0x227F48+0x74, 0x708, 1
+	map_top 0x228330+0x74, 0x708, 1, 1
+.else
 	map_bottom 0x227F48, 0x708, 1
 	map_top 0x228330, 0x708, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_22:: @ 0810651C
+.ifdef JP
+	map_bottom 0x22856C+0x74, 0x4B0, 1
+	map_top 0x2287B8+0x74, 0x4B0, 1, 1
+.else
 	map_bottom 0x22856C, 0x4B0, 1
 	map_top 0x2287B8, 0x4B0, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_23:: @ 08106534
+.ifdef JP
+	map_bottom 0x228988+0x74, 0x258, 1
+	map_top 0x228A58+0x74, 0x258, 1, 1
+.else
 	map_bottom 0x228988, 0x258, 1
 	map_top 0x228A58, 0x258, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_24:: @ 0810654C
+.ifdef JP
+	map_bottom 0x228AFC+0x74, 0x4B0, 1
+	map_top 0x228C7C+0x74, 0x4B0, 1, 1
+.else
 	map_bottom 0x228AFC, 0x4B0, 1
 	map_top 0x228C7C, 0x4B0, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_25:: @ 08106564
+.ifdef JP
+	map_bottom 0x228DE4+0x74, 0x4B0, 1
+	map_top 0x228F90+0x74, 0x4B0, 1, 1
+.else
 	map_bottom 0x228DE4, 0x4B0, 1
 	map_top 0x228F90, 0x4B0, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_26:: @ 0810657C
+.ifdef JP
+	map_bottom 0x229138+0x74, 0x4B0, 1
+	map_top 0x2293A4+0x74, 0x4B0, 1, 1
+.else
 	map_bottom 0x229138, 0x4B0, 1
 	map_top 0x2293A4, 0x4B0, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_27:: @ 08106594
+.ifdef JP
+	map_bottom 0x229574+0x74, 0x12C, 1
+	map_top 0x22964C+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x229574, 0x12C, 1
 	map_top 0x22964C, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_28:: @ 081065AC
+.ifdef JP
+	map_bottom 0x2296D8+0x74, 0x12C, 1
+	map_top 0x2297C0+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x2296D8, 0x12C, 1
 	map_top 0x2297C0, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_29:: @ 081065C4
+.ifdef JP
+	map_bottom 0x229820+0x74, 0x12C, 1
+	map_top 0x2298F8+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x229820, 0x12C, 1
 	map_top 0x2298F8, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_30:: @ 081065DC
+.ifdef JP
+	map_bottom 0x229978+0x74, 0x12C, 1
+	map_top 0x229A58+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x229978, 0x12C, 1
 	map_top 0x229A58, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_31:: @ 081065F4
+.ifdef JP
+	map_bottom 0x229AD4+0x74, 0x12C, 1
+	map_top 0x229BA4+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x229AD4, 0x12C, 1
 	map_top 0x229BA4, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_32:: @ 0810660C
+.ifdef JP
+	map_bottom 0x229C14+0x74, 0x12C, 1
+	map_top 0x229CE8+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x229C14, 0x12C, 1
 	map_top 0x229CE8, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_33:: @ 08106624
+.ifdef JP
+	map_bottom 0x229D5C+0x74, 0xA8C, 1
+	map_top 0x22A0F0+0x74, 0xA8C, 1, 1
+.else
 	map_bottom 0x229D5C, 0xA8C, 1
 	map_top 0x22A0F0, 0xA8C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_34:: @ 0810663C
+.ifdef JP
+	map_bottom 0x22A454+0x74, 0x708, 1
+	map_top 0x22A760+0x74, 0x708, 1, 1
+.else
 	map_bottom 0x22A454, 0x708, 1
 	map_top 0x22A760, 0x708, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_35:: @ 08106654
+.ifdef JP
+	map_bottom 0x22A99C+0x74, 0x258, 1
+	map_top 0x22AB10+0x74, 0x258, 1, 1
+.else
 	map_bottom 0x22A99C, 0x258, 1
 	map_top 0x22AB10, 0x258, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_36:: @ 0810666C
+.ifdef JP
+	map_bottom 0x22ABF0+0x74, 0x4B0, 1
+	map_top 0x22AD78+0x74, 0x4B0, 1, 1
+.else
 	map_bottom 0x22ABF0, 0x4B0, 1
 	map_top 0x22AD78, 0x4B0, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_37:: @ 08106684
+.ifdef JP
+	map_bottom 0x22AEC4+0x74, 0x12C, 1
+	map_top 0x22AFC4+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x22AEC4, 0x12C, 1
 	map_top 0x22AFC4, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_38:: @ 0810669C
+.ifdef JP
+	map_bottom 0x22B03C+0x74, 0x12C, 1
+	map_top 0x22B150+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x22B03C, 0x12C, 1
 	map_top 0x22B150, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_39:: @ 081066B4
+.ifdef JP
+	map_bottom 0x22B1B0+0x74, 0x12C, 1
+	map_top 0x22B2A8+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x22B1B0, 0x12C, 1
 	map_top 0x22B2A8, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_40:: @ 081066CC
+.ifdef JP
+	map_bottom 0x22B324+0x74, 0x12C, 1
+	map_top 0x22B414+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x22B324, 0x12C, 1
 	map_top 0x22B414, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_41:: @ 081066E4
+.ifdef JP
+	map_bottom 0x22B498+0x74, 0x12C, 1
+	map_top 0x22B56C+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x22B498, 0x12C, 1
 	map_top 0x22B56C, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_42:: @ 081066FC
+.ifdef JP
+	map_bottom 0x22B5EC+0x74, 0x12C, 1
+	map_top 0x22B6D8+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x22B5EC, 0x12C, 1
 	map_top 0x22B6D8, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_43:: @ 08106714
+.ifdef JP
+	map_bottom 0x22B758+0x74, 0x258, 1
+	map_top 0x22B8B4+0x74, 0x258, 1, 1
+.else
 	map_bottom 0x22B758, 0x258, 1
 	map_top 0x22B8B4, 0x258, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_44:: @ 0810672C
+.ifdef JP
+	map_bottom 0x22B994+0x74, 0x708, 1
+	map_top 0x22BC78+0x74, 0x708, 1, 1
+.else
 	map_bottom 0x22B994, 0x708, 1
 	map_top 0x22BC78, 0x708, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_45:: @ 08106744
+.ifdef JP
+	map_bottom 0x22BE68+0x74, 0x708, 1
+	map_top 0x22C07C+0x74, 0x708, 1, 1
+.else
 	map_bottom 0x22BE68, 0x708, 1
 	map_top 0x22C07C, 0x708, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_46:: @ 0810675C
+.ifdef JP
+	map_bottom 0x22C304+0x74, 0x550, 1
+	map_top 0x22C4B0+0x74, 0x550, 1, 1
+.else
 	map_bottom 0x22C304, 0x550, 1
 	map_top 0x22C4B0, 0x550, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_47:: @ 08106774
+.ifdef JP
+	map_bottom 0x22C648+0x74, 0x12C, 1
+	map_top 0x22C6C8+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x22C648, 0x12C, 1
 	map_top 0x22C6C8, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_48:: @ 0810678C
+.ifdef JP
+	map_bottom 0x22C71C+0x74, 0x500, 1
+	map_top 0x22C9C0+0x74, 0x500, 1, 1
+.else
 	map_bottom 0x22C71C, 0x500, 1
 	map_top 0x22C9C0, 0x500, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_49:: @ 081067A4
+.ifdef JP
+	map_bottom 0x22CB00+0x74, 0x3DE, 1
+	map_top 0x22CC68+0x74, 0x3DE, 1, 1
+.else
 	map_bottom 0x22CB00, 0x3DE, 1
 	map_top 0x22CC68, 0x3DE, 1, 1
+.endif
 
 gAreaRoomMap_PalaceOfWinds_50:: @ 081067BC
+.ifdef JP
+	map_bottom 0x22CD70+0x74, 0x708, 1
+	map_top 0x22D070+0x74, 0x708, 1, 1
+.else
 	map_bottom 0x22CD70, 0x708, 1
 	map_top 0x22D070, 0x708, 1, 1
+.endif
 
 gAreaRoomMaps_PalaceOfWinds:: @ 081067D4
 	.4byte gAreaRoomMap_PalaceOfWinds_0
@@ -2620,22 +2875,41 @@ gAreaRoomMaps_PalaceOfWinds:: @ 081067D4
 	.4byte gAreaRoomMap_PalaceOfWinds_50
 
 gAreaRoomMap_PalaceOfWindsBoss_0:: @ 081068A0
+.ifdef JP
+	map_top 0x22D2B8+0x74, 0x1F80, 1, 1
+.else
 	map_top 0x22D2B8, 0x1F80, 1, 1
+.endif
 
 gAreaRoomMaps_PalaceOfWindsBoss:: @ 081068AC
 	.4byte gAreaRoomMap_PalaceOfWindsBoss_0
 
 gAreaRoomMap_Sanctuary_0:: @ 081068B0
+.ifdef JP
+	map_bottom 0x236A08+0x74, 0x6D6, 1
+	map_top 0x236D1C+0x74, 0x6D6, 1, 1
+.else
 	map_bottom 0x236A08, 0x6D6, 1
 	map_top 0x236D1C, 0x6D6, 1, 1
+.endif
 
 gAreaRoomMap_Sanctuary_1:: @ 081068C8
+.ifdef JP
+	map_bottom 0x236E14+0x74, 0x910, 1
+	map_top 0x237320+0x74, 0x910, 1, 1
+.else
 	map_bottom 0x236E14, 0x910, 1
 	map_top 0x237320, 0x910, 1, 1
+.endif
 
 gAreaRoomMap_Sanctuary_2:: @ 081068E0
+.ifdef JP
+	map_bottom 0x2375D8+0x74, 0x344, 1
+	map_top 0x23788C+0x74, 0x344, 1, 1
+.else
 	map_bottom 0x2375D8, 0x344, 1
 	map_top 0x23788C, 0x344, 1, 1
+.endif
 
 gAreaRoomMaps_Sanctuary:: @ 081068F8
 	.4byte gAreaRoomMap_Sanctuary_0
@@ -2648,32 +2922,67 @@ gAreaRoomMaps_Sanctuary:: @ 081068F8
 	.4byte 0x0
 
 gAreaRoomMap_HyruleCastle_0:: @ 08106918
+.ifdef JP
+	map_bottom 0x240B44+0x74, 0x7CE, 1
+	map_top 0x240F30+0x74, 0x7CE, 1, 1
+.else
 	map_bottom 0x240B44, 0x7CE, 1
 	map_top 0x240F30, 0x7CE, 1, 1
+.endif
 
 gAreaRoomMap_HyruleCastle_1:: @ 08106930
+.ifdef JP
+	map_bottom 0x241118+0x74, 0x7FE, 1
+	map_top 0x241424+0x74, 0x7FE, 1, 1
+.else
 	map_bottom 0x241118, 0x7FE, 1
 	map_top 0x241424, 0x7FE, 1, 1
+.endif
 
 gAreaRoomMap_HyruleCastle_2:: @ 08106948
+.ifdef JP
+	map_bottom 0x2415B0+0x74, 0x2EC, 1
+	map_top 0x2417B8+0x74, 0x2EC, 1, 1
+.else
 	map_bottom 0x2415B0, 0x2EC, 1
 	map_top 0x2417B8, 0x2EC, 1, 1
+.endif
 
 gAreaRoomMap_HyruleCastle_3:: @ 08106960
+.ifdef JP
+	map_bottom 0x24186C+0x74, 0xC94, 1
+	map_top 0x241D18+0x74, 0xC94, 1, 1
+.else
 	map_bottom 0x24186C, 0xC94, 1
 	map_top 0x241D18, 0xC94, 1, 1
+.endif
 
 gAreaRoomMap_HyruleCastle_4:: @ 08106978
+.ifdef JP
+	map_bottom 0x241EF0+0x74, 0x1FE, 1
+	map_top 0x242044+0x74, 0x1FE, 1, 1
+.else
 	map_bottom 0x241EF0, 0x1FE, 1
 	map_top 0x242044, 0x1FE, 1, 1
+.endif
 
 gAreaRoomMap_HyruleCastle_5:: @ 08106990
+.ifdef JP
+	map_bottom 0x2420A4+0x74, 0x12C, 1
+	map_top 0x24217C+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x2420A4, 0x12C, 1
 	map_top 0x24217C, 0x12C, 1, 1
+.endif
 
 gAreaRoomMap_HyruleCastle_6:: @ 081069A8
+.ifdef JP
+	map_bottom 0x2421A8+0x74, 0x12C, 1
+	map_top 0x242274+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x2421A8, 0x12C, 1
 	map_top 0x242274, 0x12C, 1, 1
+.endif
 
 gAreaRoomMaps_HyruleCastle:: @ 081069C0
 	.4byte gAreaRoomMap_HyruleCastle_0
@@ -2694,251 +3003,556 @@ gAreaRoomMaps_HyruleCastle:: @ 081069C0
 	.4byte 0x0
 
 gAreaRoomMap_SanctuaryEntrance_0:: @ 08106A00
+.ifdef JP
+	map_bottom 0x247218+0x74, 0x396, 1
+	map_top 0x24745C+0x74, 0x396, 1, 1
+.else
 	map_bottom 0x247218, 0x396, 1
 	map_top 0x24745C, 0x396, 1, 1
+.endif
 
 gAreaRoomMaps_SanctuaryEntrance:: @ 08106A18
 	.4byte gAreaRoomMap_SanctuaryEntrance_0
 
 gAreaRoomMap_DarkHyruleCastle_0:: @ 08106A1C
+.ifdef JP
+	map_bottom 0x264EF4+0x74, 0xE58, 1
+	map_top 0x265378+0x74, 0xE58, 1, 1
+.else
 	map_bottom 0x264EF4, 0xE58, 1
 	map_top 0x265378, 0xE58, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_1:: @ 08106A34
+.ifdef JP
+	map_bottom 0x2657C8+0x74, 0x1BA, 1
+	map_top 0x2658A4+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x2657C8, 0x1BA, 1
 	map_top 0x2658A4, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_2:: @ 08106A4C
+.ifdef JP
+	map_bottom 0x265964+0x74, 0x1BA, 1
+	map_top 0x265A44+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x265964, 0x1BA, 1
 	map_top 0x265A44, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_3:: @ 08106A64
+.ifdef JP
+	map_bottom 0x265B18+0x74, 0x1BA, 1
+	map_top 0x265C08+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x265B18, 0x1BA, 1
 	map_top 0x265C08, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_4:: @ 08106A7C
+.ifdef JP
+	map_bottom 0x265CD4+0x74, 0x1BA, 1
+	map_top 0x265DC8+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x265CD4, 0x1BA, 1
 	map_top 0x265DC8, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_5:: @ 08106A94
+.ifdef JP
+	map_bottom 0x265E98+0x74, 0x444, 1
+	map_top 0x2660BC+0x74, 0x444, 1, 1
+.else
 	map_bottom 0x265E98, 0x444, 1
 	map_top 0x2660BC, 0x444, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_6:: @ 08106AAC
+.ifdef JP
+	map_bottom 0x26620C+0x74, 0x2A0, 1
+	map_top 0x2663A0+0x74, 0x2A0, 1, 1
+.else
 	map_bottom 0x26620C, 0x2A0, 1
 	map_top 0x2663A0, 0x2A0, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_7:: @ 08106AC4
+.ifdef JP
+	map_bottom 0x2664A0+0x74, 0x374, 1
+	map_top 0x2665EC+0x74, 0x374, 1, 1
+.else
 	map_bottom 0x2664A0, 0x374, 1
 	map_top 0x2665EC, 0x374, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_8:: @ 08106ADC
+.ifdef JP
+	map_bottom 0x266730+0x74, 0x374, 1
+	map_top 0x266910+0x74, 0x374, 1, 1
+.else
 	map_bottom 0x266730, 0x374, 1
 	map_top 0x266910, 0x374, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_9:: @ 08106AF4
+.ifdef JP
+	map_bottom 0x266A44+0x74, 0x1FE, 1
+	map_top 0x266B98+0x74, 0x1FE, 1, 1
+.else
 	map_bottom 0x266A44, 0x1FE, 1
 	map_top 0x266B98, 0x1FE, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_10:: @ 08106B0C
+.ifdef JP
+	map_bottom 0x266C78+0x74, 0x1BA, 1
+	map_top 0x266DA4+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x266C78, 0x1BA, 1
 	map_top 0x266DA4, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_11:: @ 08106B24
+.ifdef JP
+	map_bottom 0x266E70+0x74, 0x1BA, 1
+	map_top 0x266F7C+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x266E70, 0x1BA, 1
 	map_top 0x266F7C, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_12:: @ 08106B3C
+.ifdef JP
+	map_bottom 0x26701C+0x74, 0x1BA, 1
+	map_top 0x26712C+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26701C, 0x1BA, 1
 	map_top 0x26712C, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_13:: @ 08106B54
+.ifdef JP
+	map_bottom 0x2671DC+0x74, 0x1BA, 1
+	map_top 0x2672E8+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x2671DC, 0x1BA, 1
 	map_top 0x2672E8, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_14:: @ 08106B6C
+.ifdef JP
+	map_bottom 0x2673B4+0x74, 0x1BA, 1
+	map_top 0x2674F0+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x2673B4, 0x1BA, 1
 	map_top 0x2674F0, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_15:: @ 08106B84
+.ifdef JP
+	map_bottom 0x2675D4+0x74, 0x1BA, 1
+	map_top 0x2676F8+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x2675D4, 0x1BA, 1
 	map_top 0x2676F8, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_16:: @ 08106B9C
+.ifdef JP
+	map_bottom 0x2677BC+0x74, 0x1BA, 1
+	map_top 0x2678F0+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x2677BC, 0x1BA, 1
 	map_top 0x2678F0, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_17:: @ 08106BB4
+.ifdef JP
+	map_bottom 0x2679D0+0x74, 0x2A8, 1
+	map_top 0x267B70+0x74, 0x2A8, 1, 1
+.else
 	map_bottom 0x2679D0, 0x2A8, 1
 	map_top 0x267B70, 0x2A8, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_18:: @ 08106BCC
+.ifdef JP
+	map_bottom 0x267C98+0x74, 0x2A8, 1
+	map_top 0x267E00+0x74, 0x2A8, 1, 1
+.else
 	map_bottom 0x267C98, 0x2A8, 1
 	map_top 0x267E00, 0x2A8, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_19:: @ 08106BE4
+.ifdef JP
+	map_bottom 0x267F48+0x74, 0x1BA, 1
+	map_top 0x268080+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x267F48, 0x1BA, 1
 	map_top 0x268080, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_20:: @ 08106BFC
+.ifdef JP
+	map_bottom 0x268168+0x74, 0x1BA, 1
+	map_top 0x2682C8+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x268168, 0x1BA, 1
 	map_top 0x2682C8, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_21:: @ 08106C14
+.ifdef JP
+	map_bottom 0x2683A4+0x74, 0x1BA, 1
+	map_top 0x2684CC+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x2683A4, 0x1BA, 1
 	map_top 0x2684CC, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_22:: @ 08106C2C
+.ifdef JP
+	map_bottom 0x2685A8+0x74, 0x1BA, 1
+	map_top 0x2686B0+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x2685A8, 0x1BA, 1
 	map_top 0x2686B0, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_23:: @ 08106C44
+.ifdef JP
+	map_bottom 0x26876C+0x74, 0x374, 1
+	map_top 0x268930+0x74, 0x374, 1, 1
+.else
 	map_bottom 0x26876C, 0x374, 1
 	map_top 0x268930, 0x374, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_24:: @ 08106C5C
+.ifdef JP
+	map_bottom 0x268A98+0x74, 0x374, 1
+	map_top 0x268C2C+0x74, 0x374, 1, 1
+.else
 	map_bottom 0x268A98, 0x374, 1
 	map_top 0x268C2C, 0x374, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_25:: @ 08106C74
+.ifdef JP
+	map_bottom 0x268D54+0x74, 0x1BA, 1
+	map_top 0x268E3C+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x268D54, 0x1BA, 1
 	map_top 0x268E3C, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_26:: @ 08106C8C
+.ifdef JP
+	map_bottom 0x268F0C+0x74, 0x1BA, 1
+	map_top 0x269010+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x268F0C, 0x1BA, 1
 	map_top 0x269010, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_27:: @ 08106CA4
+.ifdef JP
+	map_bottom 0x2690AC+0x74, 0x1BA, 1
+	map_top 0x2690E8+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x2690AC, 0x1BA, 1
 	map_top 0x2690E8, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_28:: @ 08106CBC
+.ifdef JP
+	map_bottom 0x269168+0x74, 0x1BA, 1
+	map_top 0x269290+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x269168, 0x1BA, 1
 	map_top 0x269290, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_29:: @ 08106CD4
+.ifdef JP
+	map_bottom 0x26936C+0x74, 0x374, 1
+	map_top 0x2694B0+0x74, 0x374, 1, 1
+.else
 	map_bottom 0x26936C, 0x374, 1
 	map_top 0x2694B0, 0x374, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_30:: @ 08106CEC
+.ifdef JP
+	map_bottom 0x2695F0+0x74, 0x1BA, 1
+	map_top 0x2696D4+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x2695F0, 0x1BA, 1
 	map_top 0x2696D4, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_31:: @ 08106D04
+.ifdef JP
+	map_bottom 0x269794+0x74, 0x1BA, 1
+	map_top 0x2698E4+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x269794, 0x1BA, 1
 	map_top 0x2698E4, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_32:: @ 08106D1C
+.ifdef JP
+	map_bottom 0x2699BC+0x74, 0x1BA, 1
+	map_top 0x269AF0+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x2699BC, 0x1BA, 1
 	map_top 0x269AF0, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_33:: @ 08106D34
+.ifdef JP
+	map_bottom 0x269BD8+0x74, 0x1BA, 1
+	map_top 0x269CE0+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x269BD8, 0x1BA, 1
 	map_top 0x269CE0, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_34:: @ 08106D4C
+.ifdef JP
+	map_bottom 0x269DB4+0x74, 0x1BA, 1
+	map_top 0x269ED0+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x269DB4, 0x1BA, 1
 	map_top 0x269ED0, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_35:: @ 08106D64
+.ifdef JP
+	map_bottom 0x269FAC+0x74, 0x1BA, 1
+	map_top 0x269FE8+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x269FAC, 0x1BA, 1
 	map_top 0x269FE8, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_36:: @ 08106D7C
+.ifdef JP
+	map_bottom 0x26A168+0x74, 0x1BA, 1
+	map_top 0x26A1A4+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26A168, 0x1BA, 1
 	map_top 0x26A1A4, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_37:: @ 08106D94
+.ifdef JP
+	map_bottom 0x26A2F8+0x74, 0x1BA, 1
+	map_top 0x26A334+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26A2F8, 0x1BA, 1
 	map_top 0x26A334, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_38:: @ 08106DAC
+.ifdef JP
+	map_bottom 0x26A4A0+0x74, 0x2A8, 1
+	map_top 0x26A5CC+0x74, 0x2A8, 1, 1
+.else
 	map_bottom 0x26A4A0, 0x2A8, 1
 	map_top 0x26A5CC, 0x2A8, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_39:: @ 08106DC4
+.ifdef JP
+	map_bottom 0x26A70C+0x74, 0x2A8, 1
+	map_top 0x26A7BC+0x74, 0x2A8, 1, 1
+.else
 	map_bottom 0x26A70C, 0x2A8, 1
 	map_top 0x26A7BC, 0x2A8, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_40:: @ 08106DDC
+.ifdef JP
+	map_bottom 0x26A940+0x74, 0x1BA, 1
+	map_top 0x26AA24+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26A940, 0x1BA, 1
 	map_top 0x26AA24, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_41:: @ 08106DF4
+.ifdef JP
+	map_bottom 0x26AAF8+0x74, 0x1BA, 1
+	map_top 0x26ABB4+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26AAF8, 0x1BA, 1
 	map_top 0x26ABB4, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_42:: @ 08106E0C
+.ifdef JP
+	map_bottom 0x26AC78+0x74, 0x1BA, 1
+	map_top 0x26AD44+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26AC78, 0x1BA, 1
 	map_top 0x26AD44, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_43:: @ 08106E24
+.ifdef JP
+	map_bottom 0x26AE18+0x74, 0x1BA, 1
+	map_top 0x26AEF8+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26AE18, 0x1BA, 1
 	map_top 0x26AEF8, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_44:: @ 08106E3C
+.ifdef JP
+	map_bottom 0x26AFBC+0x74, 0x1BA, 1
+	map_top 0x26B094+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26AFBC, 0x1BA, 1
 	map_top 0x26B094, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_45:: @ 08106E54
+.ifdef JP
+	map_bottom 0x26B15C+0x74, 0x1BA, 1
+	map_top 0x26B250+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26B15C, 0x1BA, 1
 	map_top 0x26B250, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_46:: @ 08106E6C
+.ifdef JP
+	map_bottom 0x26B2F4+0x74, 0x1BA, 1
+	map_top 0x26B408+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26B2F4, 0x1BA, 1
 	map_top 0x26B408, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_47:: @ 08106E84
+.ifdef JP
+	map_bottom 0x26B4BC+0x74, 0x1BA, 1
+	map_top 0x26B4F8+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26B4BC, 0x1BA, 1
 	map_top 0x26B4F8, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_48:: @ 08106E9C
+.ifdef JP
+	map_bottom 0x26B658+0x74, 0x1BA, 1
+	map_top 0x26B694+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26B658, 0x1BA, 1
 	map_top 0x26B694, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_49:: @ 08106EB4
+.ifdef JP
+	map_bottom 0x26B7EC+0x74, 0x1BA, 1
+	map_top 0x26B828+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26B7EC, 0x1BA, 1
 	map_top 0x26B828, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_50:: @ 08106ECC
+.ifdef JP
+	map_bottom 0x26B984+0x74, 0x1BA, 1
+	map_top 0x26B9C0+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26B984, 0x1BA, 1
 	map_top 0x26B9C0, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_51:: @ 08106EE4
+.ifdef JP
+	map_bottom 0x26BB34+0x74, 0x2A8, 1
+	map_top 0x26BB8C+0x74, 0x2A8, 1, 1
+.else
 	map_bottom 0x26BB34, 0x2A8, 1
 	map_top 0x26BB8C, 0x2A8, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_52:: @ 08106EFC
+.ifdef JP
+	map_bottom 0x26BD88+0x74, 0x2A8, 1
+	map_top 0x26BDE0+0x74, 0x2A8, 1, 1
+.else
 	map_bottom 0x26BD88, 0x2A8, 1
 	map_top 0x26BDE0, 0x2A8, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_53:: @ 08106F14
+.ifdef JP
+	map_bottom 0x26BFB4+0x74, 0x1BA, 1
+	map_top 0x26C060+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26BFB4, 0x1BA, 1
 	map_top 0x26C060, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_54:: @ 08106F2C
+.ifdef JP
+	map_bottom 0x26C190+0x74, 0x1BA, 1
+	map_top 0x26C23C+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26C190, 0x1BA, 1
 	map_top 0x26C23C, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_55:: @ 08106F44
+.ifdef JP
+	map_bottom 0x26C36C+0x74, 0xA5C, 1
+	map_top 0x26C578+0x74, 0xA5C, 1, 1
+.else
 	map_bottom 0x26C36C, 0xA5C, 1
 	map_top 0x26C578, 0xA5C, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_56:: @ 08106F5C
+.ifdef JP
+	map_bottom 0x26CB1C+0x74, 0x1FE, 1
+	map_top 0x26CC54+0x74, 0x1FE, 1, 1
+.else
 	map_bottom 0x26CB1C, 0x1FE, 1
 	map_top 0x26CC54, 0x1FE, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_57:: @ 08106F74
+.ifdef JP
+	map_bottom 0x26CD14+0x74, 0x3FC, 1
+	map_top 0x26CE94+0x74, 0x3FC, 1, 1
+.else
 	map_bottom 0x26CD14, 0x3FC, 1
 	map_top 0x26CE94, 0x3FC, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_58:: @ 08106F8C
+.ifdef JP
+	map_bottom 0x26CFD0+0x74, 0x264, 1
+	map_top 0x26D0C4+0x74, 0x264, 1, 1
+.else
 	map_bottom 0x26CFD0, 0x264, 1
 	map_top 0x26D0C4, 0x264, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastle_59:: @ 08106FA4
+.ifdef JP
+	map_bottom 0x26D194+0x74, 0x1BA, 1
+	map_top 0x26D1D0+0x74, 0x1BA, 1, 1
+.else
 	map_bottom 0x26D194, 0x1BA, 1
 	map_top 0x26D1D0, 0x1BA, 1, 1
+.endif
 
 gAreaRoomMaps_DarkHyruleCastle:: @ 08106FBC
 	.4byte gAreaRoomMap_DarkHyruleCastle_0
@@ -3003,40 +3617,85 @@ gAreaRoomMaps_DarkHyruleCastle:: @ 08106FBC
 	.4byte gAreaRoomMap_DarkHyruleCastle_59
 
 gAreaRoomMap_DarkHyruleCastleOutside_0:: @ 081070AC
+.ifdef JP
+	map_bottom 0x27647C+0x74, 0x2EE, 1
+	map_top 0x276694+0x74, 0x2EE, 1, 1
+.else
 	map_bottom 0x27647C, 0x2EE, 1
 	map_top 0x276694, 0x2EE, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastleOutside_1:: @ 081070C4
+.ifdef JP
+	map_bottom 0x276704+0x74, 0x396, 1
+	map_top 0x276924+0x74, 0x396, 1, 1
+.else
 	map_bottom 0x276704, 0x396, 1
 	map_top 0x276924, 0x396, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastleOutside_2:: @ 081070DC
+.ifdef JP
+	map_bottom 0x2769A0+0x74, 0x374, 1
+	map_top 0x276A8C+0x74, 0x374, 1, 1
+.else
 	map_bottom 0x2769A0, 0x374, 1
 	map_top 0x276A8C, 0x374, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastleOutside_3:: @ 081070F4
+.ifdef JP
+	map_bottom 0x276BE8+0x74, 0x52E, 1
+	map_top 0x276D2C+0x74, 0x52E, 1, 1
+.else
 	map_bottom 0x276BE8, 0x52E, 1
 	map_top 0x276D2C, 0x52E, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastleOutside_4:: @ 0810710C
+.ifdef JP
+	map_bottom 0x276EEC+0x74, 0x2A8, 1
+	map_top 0x276F78+0x74, 0x2A8, 1, 1
+.else
 	map_bottom 0x276EEC, 0x2A8, 1
 	map_top 0x276F78, 0x2A8, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastleOutside_5:: @ 08107124
+.ifdef JP
+	map_bottom 0x27705C+0x74, 0x374, 1
+	map_top 0x277164+0x74, 0x374, 1, 1
+.else
 	map_bottom 0x27705C, 0x374, 1
 	map_top 0x277164, 0x374, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastleOutside_6:: @ 0810713C
+.ifdef JP
+	map_bottom 0x2772D0+0x74, 0xA5C, 1
+	map_top 0x277480+0x74, 0xA5C, 1, 1
+.else
 	map_bottom 0x2772D0, 0xA5C, 1
 	map_top 0x277480, 0xA5C, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastleOutside_7:: @ 08107154
+.ifdef JP
+	map_bottom 0x2776C8+0x74, 0x6E8, 1
+	map_top 0x277848+0x74, 0x6E8, 1, 1
+.else
 	map_bottom 0x2776C8, 0x6E8, 1
 	map_top 0x277848, 0x6E8, 1, 1
+.endif
 
 gAreaRoomMap_DarkHyruleCastleOutside_8:: @ 0810716C
+.ifdef JP
+	map_bottom 0x277A28+0x74, 0x630, 1
+	map_top 0x277AEC+0x74, 0x630, 1, 1
+.else
 	map_bottom 0x277A28, 0x630, 1
 	map_top 0x277AEC, 0x630, 1, 1
+.endif
 
 gAreaRoomMaps_DarkHyruleCastleOutside:: @ 08107184
 	.4byte gAreaRoomMap_DarkHyruleCastleOutside_0
@@ -3050,23 +3709,43 @@ gAreaRoomMaps_DarkHyruleCastleOutside:: @ 08107184
 	.4byte gAreaRoomMap_DarkHyruleCastleOutside_8
 
 gAreaRoomMap_DarkHyruleCastleBridge_0:: @ 081071A8
+.ifdef JP
+	map_bottom 0x26D27C+0x74, 0x2A8, 1
+	map_top 0x26D470+0x74, 0x2A8, 1, 1
+.else
 	map_bottom 0x26D27C, 0x2A8, 1
 	map_top 0x26D470, 0x2A8, 1, 1
+.endif
 
 gAreaRoomMaps_DarkHyruleCastleBridge:: @ 081071C0
 	.4byte gAreaRoomMap_DarkHyruleCastleBridge_0
 
 gAreaRoomMap_VaatisArms_0:: @ 081071C4
+.ifdef JP
+	map_bottom 0x26DA80+0x74, 0x214, 1
+	map_top 0x26DC40+0x74, 0x214, 1, 1
+.else
 	map_bottom 0x26DA80, 0x214, 1
 	map_top 0x26DC40, 0x214, 1, 1
+.endif
 
 gAreaRoomMap_VaatisArms_1:: @ 081071DC
+.ifdef JP
+	map_bottom 0x26DC98+0x74, 0x214, 1
+	map_top 0x26DE58+0x74, 0x214, 1, 1
+.else
 	map_bottom 0x26DC98, 0x214, 1
 	map_top 0x26DE58, 0x214, 1, 1
+.endif
 
 gAreaRoomMap_VaatisArms_2:: @ 081071F4
+.ifdef JP
+	map_bottom 0x26DEB0+0x74, 0x214, 1
+	map_top 0x26E070+0x74, 0x214, 1, 1
+.else
 	map_bottom 0x26DEB0, 0x214, 1
 	map_top 0x26E070, 0x214, 1, 1
+.endif
 
 gAreaRoomMaps_VaatisArms:: @ 0810720C
 	.4byte gAreaRoomMap_VaatisArms_0
@@ -3074,35 +3753,65 @@ gAreaRoomMaps_VaatisArms:: @ 0810720C
 	.4byte gAreaRoomMap_VaatisArms_2
 
 gAreaRoomMap_Vaati3_0:: @ 08107218
+.ifdef JP
+	map_bottom 0x26D564+0x74, 0x294, 1
+	map_top 0x26D704+0x74, 0x294, 1, 1
+.else
 	map_bottom 0x26D564, 0x294, 1
 	map_top 0x26D704, 0x294, 1, 1
+.endif
 
 gAreaRoomMap_Vaati3_1:: @ 08107230
+.ifdef JP
+	map_bottom 0x26D75C+0x74, 0x210, 1
+	map_top 0x26D89C+0x74, 0x210, 1, 1
+.else
 	map_bottom 0x26D75C, 0x210, 1
 	map_top 0x26D89C, 0x210, 1, 1
+.endif
 
 gAreaRoomMaps_Vaati3:: @ 08107248
 	.4byte gAreaRoomMap_Vaati3_0
 	.4byte gAreaRoomMap_Vaati3_1
 
 gAreaRoomMap_Vaati2_0:: @ 08107250
+.ifdef JP
+	map_bottom 0x26D8E4+0x74, 0x294, 1
+	map_top 0x26DA24+0x74, 0x294, 1, 1
+.else
 	map_bottom 0x26D8E4, 0x294, 1
 	map_top 0x26DA24, 0x294, 1, 1
+.endif
 
 gAreaRoomMaps_Vaati2:: @ 08107268
 	.4byte gAreaRoomMap_Vaati2_0
 
 gAreaRoomMap_47_0:: @ 0810726C
+.ifdef JP
+	map_bottom 0x277BB0+0x74, 0x256, 1
+	map_top 0x277CD8+0x74, 0x256, 1, 1
+.else
 	map_bottom 0x277BB0, 0x256, 1
 	map_top 0x277CD8, 0x256, 1, 1
+.endif
 
 gAreaRoomMap_47_1:: @ 08107284
+.ifdef JP
+	map_bottom 0x277D38+0x74, 0x2B2, 1
+	map_top 0x277E5C+0x74, 0x2B2, 1, 1
+.else
 	map_bottom 0x277D38, 0x2B2, 1
 	map_top 0x277E5C, 0x2B2, 1, 1
+.endif
 
 gAreaRoomMap_47_2:: @ 0810729C
+.ifdef JP
+	map_bottom 0x277ECC+0x74, 0x47E, 1
+	map_top 0x2780BC+0x74, 0x47E, 1, 1
+.else
 	map_bottom 0x277ECC, 0x47E, 1
 	map_top 0x2780BC, 0x47E, 1, 1
+.endif
 
 gAreaRoomMaps_47:: @ 081072B4
 	.4byte gAreaRoomMap_47_0
@@ -3335,43 +4044,88 @@ gAreaRoomMaps_RoyalValleyGraves:: @ 0810776C
 	.4byte gAreaRoomMap_RoyalValleyGraves_1
 
 gAreaRoomMap_45_0:: @ 08107774
+.ifdef JP
+	map_bottom 0x278158+0x74, 0x1FE, 1
+	map_top 0x27828C+0x74, 0x1FE, 1, 1
+.else
 	map_bottom 0x278158, 0x1FE, 1
 	map_top 0x27828C, 0x1FE, 1, 1
+.endif
 
 gAreaRoomMaps_45:: @ 0810778C
 	.4byte gAreaRoomMap_45_0
 
 gAreaRoomMap_46_0:: @ 08107790
+.ifdef JP
+	map_bottom 0x2782D0+0x74, 0x286, 1
+	map_top 0x278454+0x74, 0x286, 1, 1
+.else
 	map_bottom 0x2782D0, 0x286, 1
 	map_top 0x278454, 0x286, 1, 1
+.endif
 
 gAreaRoomMap_46_1:: @ 081077A8
+.ifdef JP
+	map_bottom 0x2784C4+0x74, 0x30E, 1
+	map_top 0x2786E0+0x74, 0x30E, 1, 1
+.else
 	map_bottom 0x2784C4, 0x30E, 1
 	map_top 0x2786E0, 0x30E, 1, 1
+.endif
 
 gAreaRoomMap_46_2:: @ 081077C0
+.ifdef JP
+	map_bottom 0x278790+0x74, 0x286, 1
+	map_top 0x278908+0x74, 0x286, 1, 1
+.else
 	map_bottom 0x278790, 0x286, 1
 	map_top 0x278908, 0x286, 1, 1
+.endif
 
 gAreaRoomMap_46_3:: @ 081077D8
+.ifdef JP
+	map_bottom 0x2789A0+0x74, 0x286, 1
+	map_top 0x278AEC+0x74, 0x286, 1, 1
+.else
 	map_bottom 0x2789A0, 0x286, 1
 	map_top 0x278AEC, 0x286, 1, 1
+.endif
 
 gAreaRoomMap_46_4:: @ 081077F0
+.ifdef JP
+	map_bottom 0x278B88+0x74, 0x30E, 1
+	map_top 0x278D38+0x74, 0x30E, 1, 1
+.else
 	map_bottom 0x278B88, 0x30E, 1
 	map_top 0x278D38, 0x30E, 1, 1
+.endif
 
 gAreaRoomMap_46_5:: @ 08107808
+.ifdef JP
+	map_bottom 0x278DDC+0x74, 0x286, 1
+	map_top 0x278F2C+0x74, 0x286, 1, 1
+.else
 	map_bottom 0x278DDC, 0x286, 1
 	map_top 0x278F2C, 0x286, 1, 1
+.endif
 
 gAreaRoomMap_46_6:: @ 08107820
+.ifdef JP
+	map_bottom 0x278FA8+0x74, 0x720, 1
+	map_top 0x27921C+0x74, 0x720, 1, 1
+.else
 	map_bottom 0x278FA8, 0x720, 1
 	map_top 0x27921C, 0x720, 1, 1
+.endif
 
 gAreaRoomMap_46_7:: @ 08107838
+.ifdef JP
+	map_bottom 0x27932C+0x74, 0x2F2, 1
+	map_top 0x2794A4+0x74, 0x2F2, 1, 1
+.else
 	map_bottom 0x27932C, 0x2F2, 1
 	map_top 0x2794A4, 0x2F2, 1, 1
+.endif
 
 gAreaRoomMaps_46:: @ 08107850
 	.4byte gAreaRoomMap_46_0
@@ -3384,72 +4138,122 @@ gAreaRoomMaps_46:: @ 08107850
 	.4byte gAreaRoomMap_46_7
 
 gAreaRoomMap_08107870:: @ 08107870
+.ifdef JP
+	map_bottom 0x279520+0x74, 0xC80, 1
+	map_top 0x2799B0+0x74, 0xC80, 1, 1
+.else
 	map_bottom 0x279520, 0xC80, 1
 	map_top 0x2799B0, 0xC80, 1, 1
+.endif
 
 @ Unused
 gAreaRoomMaps_08107888:: @ 08107888
 	.4byte gAreaRoomMap_08107870
 
 gAreaRoomMap_4D_0:: @ 0810788C
+.ifdef JP
+	map_bottom 0x279D28+0x74, 0xCD0, 1
+	map_top 0x27A2F4+0x74, 0xCD0, 1, 1
+.else
 	map_bottom 0x279D28, 0xCD0, 1
 	map_top 0x27A2F4, 0xCD0, 1, 1
+.endif
 
 gAreaRoomMaps_4D:: @ 081078A4
 	.4byte gAreaRoomMap_4D_0
 
 gAreaRoomMap_57_0:: @ 081078A8
+.ifdef JP
+	map_bottom 0x27A574+0x74, 0xC80, 1
+	map_top 0x27AAE4+0x74, 0xC80, 1, 1
+.else
 	map_bottom 0x27A574, 0xC80, 1
 	map_top 0x27AAE4, 0xC80, 1, 1
+.endif
 
 gAreaRoomMaps_57:: @ 081078C0
 	.4byte gAreaRoomMap_57_0
 
 gAreaRoomMap_5F_0:: @ 081078C4
+.ifdef JP
+	map_bottom 0x27AD50+0x74, 0xC80, 1
+	map_top 0x27B118+0x74, 0xC80, 1, 1
+.else
 	map_bottom 0x27AD50, 0xC80, 1
 	map_top 0x27B118, 0xC80, 1, 1
+.endif
 
 gAreaRoomMaps_5F:: @ 081078DC
 	.4byte gAreaRoomMap_5F_0
 
 gAreaRoomMap_67_0:: @ 081078E0
+.ifdef JP
+	map_bottom 0x27B3A0+0x74, 0x12C, 1
+	map_top 0x27B470+0x74, 0x12C, 1, 1
+.else
 	map_bottom 0x27B3A0, 0x12C, 1
 	map_top 0x27B470, 0x12C, 1, 1
+.endif
 
 gAreaRoomMaps_67:: @ 081078F8
 	.4byte gAreaRoomMap_67_0
 
 gAreaRoomMap_6F_0:: @ 081078FC
+.ifdef JP
+	map_bottom 0x27B4AC+0x74, 0xC80, 1
+	map_top 0x27B974+0x74, 0xC80, 1, 1
+.else
 	map_bottom 0x27B4AC, 0xC80, 1
 	map_top 0x27B974, 0xC80, 1, 1
+.endif
 
 gAreaRoomMaps_6F:: @ 08107914
 	.4byte gAreaRoomMap_6F_0
 
 gAreaRoomMap_77_0:: @ 08107918
+.ifdef JP
+	map_bottom 0x27BCCC+0x74, 0x1040, 1
+	map_top 0x27C2C8+0x74, 0x1040, 1, 1
+.else
 	map_bottom 0x27BCCC, 0x1040, 1
 	map_top 0x27C2C8, 0x1040, 1, 1
+.endif
 
 gAreaRoomMaps_77:: @ 08107930
 	.4byte gAreaRoomMap_77_0
 
 gAreaRoomMap_7F_0:: @ 08107934
+.ifdef JP
+	map_bottom 0x27C720+0x74, 0xC80, 1
+	map_top 0x27CC28+0x74, 0xC80, 1, 1
+.else
 	map_bottom 0x27C720, 0xC80, 1
 	map_top 0x27CC28, 0xC80, 1, 1
+.endif
 
 gAreaRoomMaps_7F:: @ 0810794C
 	.4byte gAreaRoomMap_7F_0
 
 gAreaRoomMap_87_0:: @ 08107950
+.ifdef JP
+	map_bottom 0x27CF58+0x74, 0xF3C, 1
+	map_top 0x27D71C+0x74, 0xF3C, 1, 1
+.else
 	map_bottom 0x27CF58, 0xF3C, 1
 	map_top 0x27D71C, 0xF3C, 1, 1
+.endif
 
 gAreaRoomMaps_87:: @ 08107968
 	.4byte gAreaRoomMap_87_0
 
 gAreaRoomMap_8F_0:: @ 0810796C
+.ifdef JP
+	map_bottom 0x27DA00+0x74, 0xFA0, 1
+	map_top 0x27DFF4+0x74, 0xFA0, 1, 1
+.else
 	map_bottom 0x27DA00, 0xFA0, 1
 	map_top 0x27DFF4, 0xFA0, 1, 1
+.endif
 
 gAreaRoomMaps_8F:: @ 08107984
 	.4byte gAreaRoomMap_8F_0

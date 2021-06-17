@@ -1,6 +1,10 @@
 SCRIPT_START script_08015BA8
 	BeginBlock 
+.ifdef JP
+	SetLocalFlag 0x008c
+.else
 	SetLocalFlag 0x008e
+.endif
 	_0807E864 
 	MoveEntityToPlayer 
 	CameraTargetEntity 

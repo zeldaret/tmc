@@ -255,6 +255,9 @@ _08051B5A:
 	bl sub_08078A90
 	ldr r0, _08051BC8 @ =gUnk_02034490
 	strb r4, [r0]
+.ifdef JP
+	bl sub_08053178
+.endif
 	adds r0, r5, #0
 	adds r0, #0x28
 	ldrb r0, [r0]
@@ -262,8 +265,10 @@ _08051B5A:
 	beq _08051B96
 	bl sub_0801855C
 _08051B96:
+.ifndef JP
 	bl sub_08052BF8
 	bl sub_08053178
+.endif
 	ldr r0, _08051BCC @ =gRoomVars
 	ldrb r0, [r0]
 	cmp r0, #0
@@ -424,7 +429,7 @@ _08051D28: .4byte gScreenTransition
 	thumb_func_start sub_08051D2C
 sub_08051D2C: @ 0x08051D2C
 .ifdef DEMO
-	.incbin "baserom_demo.gba", 0x051df4, 0x14 @nocheckin
+	.incbin "baserom_demo.gba", 0x051df4, 0x14 @TODO disassemble
 .else
 	push {lr}
 	movs r0, #7

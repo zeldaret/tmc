@@ -269,62 +269,132 @@ gAreaMetatiles_PalaceOfWinds:: @ 08102EA4
 	metatile_types_top 0x220C54, 0xD88, 1, 1
 
 gAreaMetatiles_PalaceOfWindsBoss:: @ 08102ED4
+.ifdef JP
+	metatiles_top 0x223680, 0x108, 1
+	metatile_types_top 0x2236C8, 0x42, 1, 1
+.else
 	metatiles_top 0x22360C, 0x108, 1
 	metatile_types_top 0x223654, 0x42, 1, 1
+.endif
 
 gAreaMetatiles_Sanctuary:: @ 08102EEC
+.ifdef JP
+	metatiles_bottom 0x233418, 0x3620, 1
+	metatiles_top 0x235320, 0x3620, 1
+	metatile_types_bottom 0x236424, 0xD88, 1
+	metatile_types_top 0x236788, 0xD88, 1, 1
+.else
 	metatiles_bottom 0x2333A4, 0x3620, 1
 	metatiles_top 0x2352AC, 0x3620, 1
 	metatile_types_bottom 0x2363B0, 0xD88, 1
 	metatile_types_top 0x236714, 0xD88, 1, 1
+.endif
+
 
 gAreaMetatiles_HyruleCastle:: @ 08102F1C
+.ifdef JP
+	metatiles_bottom 0x23D224, 0x37C0, 1
+	metatiles_top 0x23EF98, 0x3610, 1
+	metatile_types_bottom 0x240440, 0xDF0, 1
+	metatile_types_top 0x24086C, 0xD84, 1, 1
+.else
 	metatiles_bottom 0x23D1B0, 0x37C0, 1
 	metatiles_top 0x23EF24, 0x3610, 1
 	metatile_types_bottom 0x2403CC, 0xDF0, 1
 	metatile_types_top 0x2407F8, 0xD84, 1, 1
+.endif
 
 gAreaMetatiles_SanctuaryEntrance:: @ 08102F4C
+.ifdef JP
+	metatiles_bottom 0x246158, 0x1478, 1
+	metatiles_top 0x246CAC, 0xFF0, 1
+	metatile_types_bottom 0x24702C, 0x51E, 1
+	metatile_types_top 0x24719C, 0x3FC, 1, 1
+.else
 	metatiles_bottom 0x2460E4, 0x1478, 1
 	metatiles_top 0x246C38, 0xFF0, 1
 	metatile_types_bottom 0x246FB8, 0x51E, 1
 	metatile_types_top 0x247128, 0x3FC, 1, 1
+.endif
 
 gAreaMetatiles_DarkHyruleCastle:: @ 08102F7C
+.ifdef JP
+	metatiles_bottom 0x24D940, 0x3FD8, 1
+	metatiles_top 0x250680, 0x37C0, 1
+	metatile_types_bottom 0x2524F4, 0xFF6, 1
+	metatile_types_top 0x252A7C, 0xDF0, 1, 1
+.else
 	metatiles_bottom 0x24D8CC, 0x3FD8, 1
 	metatiles_top 0x25060C, 0x37C0, 1
 	metatile_types_bottom 0x252480, 0xFF6, 1
 	metatile_types_top 0x252A08, 0xDF0, 1, 1
+.endif
 
 gAreaMetatiles_DarkHyruleCastleOutside:: @ 08102FAC
+.ifdef JP
+	metatiles_bottom 0x273EE8, 0x3340, 1
+	metatiles_top 0x27540C, 0x1EF0, 1
+	metatile_types_bottom 0x276048, 0xCD0, 1
+	metatile_types_top 0x276324, 0x7BC, 1, 1
+.else
 	metatiles_bottom 0x273E74, 0x3340, 1
 	metatiles_top 0x275398, 0x1EF0, 1
 	metatile_types_bottom 0x275FD4, 0xCD0, 1
 	metatile_types_top 0x2762B0, 0x7BC, 1, 1
+.endif
 
 gAreaMetatiles_DarkHyruleCastleBridge:: @ 08102FDC
+.ifdef JP
+	metatiles_bottom 0x256688, 0x3610, 1
+	metatiles_top 0x257468, 0x3610, 1
+	metatile_types_bottom 0x257D78, 0xD84, 1
+	metatile_types_top 0x257FEC, 0xD84, 1, 1
+.else
 	metatiles_bottom 0x256614, 0x3610, 1
 	metatiles_top 0x2573F4, 0x3610, 1
 	metatile_types_bottom 0x257D04, 0xD84, 1
 	metatile_types_top 0x257F78, 0xD84, 1, 1
+.endif
 
 gAreaMetatiles_VaatisArms:: @ 0810300C
+.ifdef JP
+	metatiles_bottom 0x263D70, 0x17C8, 1
+	metatiles_top 0x264A38, 0xBC0, 1
+	metatile_types_bottom 0x264DBC, 0x5F2, 1
+	metatile_types_top 0x264EC0, 0x2F0, 1, 1
+.else
 	metatiles_bottom 0x263CFC, 0x17C8, 1
 	metatiles_top 0x2649C4, 0xBC0, 1
 	metatile_types_bottom 0x264D48, 0x5F2, 1
 	metatile_types_top 0x264E4C, 0x2F0, 1, 1
+.endif
 
 gAreaMetatiles_Vaati3:: @ 0810303C
+.ifdef JP
+	metatiles_bottom 0x25C730, 0xE80, 1
+	metatiles_top 0x25CDE8, 0x9B8, 1
+	metatile_types_bottom 0x25CFC4, 0x3A0, 1
+	metatile_types_top 0x25D098, 0x26E, 1, 1
+.else
 	metatiles_bottom 0x25C6BC, 0xE80, 1
 	metatiles_top 0x25CD74, 0x9B8, 1
 	metatile_types_bottom 0x25CF50, 0x3A0, 1
 	metatile_types_top 0x25D024, 0x26E, 1, 1
+.endif
 
 gAreaMetatiles_Vaati2:: @ 0810306C
+.ifdef JP
+	metatiles_bottom 0x260864, 0x850, 1
+	metatiles_top 0x260C90, 0x298, 1
+	metatile_types_bottom 0x260D30, 0x214, 1
+	metatile_types_top 0x260DAC, 0xA6, 1, 1
+.else
 	metatiles_bottom 0x2607F0, 0x850, 1
 	metatiles_top 0x260C1C, 0x298, 1
 	metatile_types_bottom 0x260CBC, 0x214, 1
 	metatile_types_top 0x260D38, 0xA6, 1, 1
+.endif
+
 
 gAreaMetatiles:: @ 0810309C
 	.4byte gAreaMetatiles_MinishWoods             @ 0x0

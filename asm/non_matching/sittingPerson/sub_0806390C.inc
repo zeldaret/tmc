@@ -2,12 +2,20 @@
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	movs r5, #1
+.ifdef JP
+	movs r0, #0xd6
+.else
 	movs r0, #0xd9
+.endif
 	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0806392E
 	movs r5, #0
+.ifdef JP
+	movs r0, #0xd6
+.else
 	movs r0, #0xd9
+.endif
 	bl SetLocalFlag
 	adds r0, r4, #0
 	adds r0, #0x84

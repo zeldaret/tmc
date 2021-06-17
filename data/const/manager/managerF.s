@@ -20,7 +20,9 @@ gUnk_08108314:: @ 08108314
 	.4byte sub_08059424
 	.4byte sub_0805947C
 	.4byte sub_080594DC
+.ifndef JP
 	.4byte sub_08059548
+.endif
 
 gUnk_08108354:: @ 08108354
 	.incbin "baserom.gba", 0x108354, 0x000002C

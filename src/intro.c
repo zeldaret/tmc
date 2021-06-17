@@ -192,11 +192,17 @@ static void HandleTitlescreen(void) {
             }
             break;
         case 2:
+            #ifdef JP
+            if (GetAdvanceState()) {
+            #else
             if (--gIntroState.timer == 0) {
+            #endif
                 gIntroState.timer = 3600;
                 gIntroState.state++;
             }
+            #ifndef JP
             UpdatePressStartIcon();
+            #endif
             break;
         default:
             advance = GetAdvanceState();
@@ -209,7 +215,16 @@ static void HandleTitlescreen(void) {
                 AdvanceIntroSequence(advance);
                 SoundReq(SONG_VOL_FADE_OUT);
             }
+            #ifdef JP
+            gOamCmd._4 = 0;
+            gOamCmd._6 = 0;
+            gOamCmd._8 = 0xE020;
+            gOamCmd.x = 120;
+            gOamCmd.y = 152;
+            sub_080ADA14(511, 1);
+            #else
             UpdatePressStartIcon();
+            #endif
             if ((gIntroState.timer & 0x20) == 0) {
                 gOamCmd._8 = 0xe000;
                 gOamCmd.y = 0x84;
@@ -225,6 +240,7 @@ static void HandleTitlescreen(void) {
     sub_080AD9B0();
 }
 
+#ifndef JP
 static void UpdatePressStartIcon(void) {
     gOamCmd._4 = 0;
     gOamCmd._6 = 0;
@@ -233,6 +249,7 @@ static void UpdatePressStartIcon(void) {
     gOamCmd.y = 152;
     sub_080ADA14(511, 1);
 }
+#endif
 
 static void UpdateSwordBgAffineData(void) {
     struct BgAffineSrcData aff;
@@ -269,7 +286,11 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
             if (!gFadeControl.active) {
                 gFadeControl.field_0x4 = -1;
                 gIntroState.subState++;
+#ifdef JP
+                gIntroState.timer = 120;
+#else
                 gIntroState.timer = 90;
+#endif
                 pEVar2 = CreateObject(OBJECT_B4, 0, 0);
                 if (pEVar2 != NULL) {
                     pEVar2->x.HALF.HI = 0;
@@ -280,7 +301,11 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
         case 2:
             if (GetAdvanceState() != ADVANCE_NONE) {
                 gIntroState.state++;
+#ifdef JP
+                gIntroState.timer = 30;
+#else
                 gIntroState.timer = 60;
+#endif
             }
     }
 }
@@ -306,7 +331,11 @@ static void HandleTitlescreenAnimationIntro(void) {
             break;
         case 2:
             if (--gIntroState.timer == 0) {
+#ifdef JP
+                gIntroState.timer = 360;
+#else
                 gIntroState.timer = 300;
+#endif
                 gIntroState.subState++;
                 CreateObject(OBJECT_BD, 0, 0);
                 DoFade(6, 16);
@@ -316,7 +345,11 @@ static void HandleTitlescreenAnimationIntro(void) {
         default:
             if (!gFadeControl.active && GetAdvanceState() != ADVANCE_NONE) {
                 gIntroState.state++;
+#ifdef JP
+                gIntroState.timer = 30;
+#else
                 gIntroState.timer = 60;
+#endif
             }
             break;
     }

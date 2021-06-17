@@ -58,7 +58,11 @@ void sub_08067418(Entity* this) {
         this->spriteOrientation.flipY = 1;
         this->spriteRendering.b3 = 1;
         this->spritePriority.b0 = 2;
+#ifdef JP
+        if (CheckLocalFlag(0x1e) == 0) {
+#else
         if (CheckLocalFlag(0x1d) == 0) {
+#endif
             SetTile(0x4022, 0xe81, 1);
             SetTile(0x4022, 0xe82, 1);
             SetTile(0x4022, 0xe83, 1);

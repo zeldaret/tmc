@@ -593,7 +593,12 @@ gUnk_080C2F35:: @ 080C2F35
 	.incbin "baserom.gba", 0x0C2F35, 0x000010A
 
 gUnk_080C303F:: @ 080C303F
+.ifdef JP
+	@ TODO only small differences
+	.incbin "baserom_jp.gba", 0x0C2DDF, 0x00032A4
+.else
 	.incbin "baserom.gba", 0x0C303F, 0x00032A4
+.endif
 
 gUnk_080C62E3:: @ 080C62E3
 	.incbin "baserom.gba", 0x0C62E3, 0x000207D

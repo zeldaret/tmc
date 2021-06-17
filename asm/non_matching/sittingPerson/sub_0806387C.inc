@@ -2,16 +2,28 @@
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
 	movs r4, #3
+.ifdef JP
+	movs r0, #0xd7
+.else
 	movs r0, #0xda
+.endif
 	bl CheckLocalFlag
 	cmp r0, #0
 	bne _08063896
 	movs r4, #0
+.ifdef JP
+	movs r0, #0xd7
+.else
 	movs r0, #0xda
+.endif
 	bl SetLocalFlag
 	b _080638D6
 _08063896:
+.ifdef JP
+	movs r0, #0xce
+.else
 	movs r0, #0xd1
+.endif
 	bl CheckLocalFlag
 	cmp r0, #0
 	bne _080638D6
@@ -32,7 +44,11 @@ _080638B2:
 	cmp r5, #0x81
 	ble _080638D6
 	movs r4, #2
+.ifdef JP
+	movs r0, #0xce
+.else
 	movs r0, #0xd1
+.endif
 	bl SetLocalFlag
 	ldr r0, _080638FC @ =0x00000A17
 	movs r1, #1

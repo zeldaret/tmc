@@ -14,10 +14,16 @@ script_08010994:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_08010964
+
+
 SCRIPT_START script_080109A0
 	BeginBlock 
 	EndBlock 
+.ifdef JP
+	CheckLocalFlag 0x00ce
+.else
 	CheckLocalFlag 0x00d1
+.endif
 	JumpIf script_080109EA
 	CheckPlayerInRegion2 0x0808
 	JumpIfNot script_080109A0

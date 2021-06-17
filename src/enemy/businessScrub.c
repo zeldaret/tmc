@@ -266,7 +266,9 @@ void sub_08028CE8(Entity* this) {
                         this->actionDelay = 4;
                         this->field_0x80.HALF.HI = 0;
                         sub_080290E0(this, 3);
+                        #ifndef JP
                         SetLocalFlag(0x87);
+                        #endif
                         return;
                     case 1:
                         CreateItemEntity(offer->field_0x8, offer->field_0x9, 0);

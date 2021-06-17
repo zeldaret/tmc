@@ -19,7 +19,7 @@ something:
 	.4byte sub_080A2F8C
 
 something2::
-.incbin "baserom_demo.gba", 0x127c98, 0x38 @nocheckin
+.incbin "baserom_demo.gba", 0x127c98, 0x38 
 .endif
 
     

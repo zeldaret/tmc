@@ -985,10 +985,12 @@ _08019DE4:
 	bne _08019DEE
 	b _0801A2A4
 _08019DEE:
+.ifndef JP
 	ldrb r0, [r4, #0xa]
 	cmp r0, #0
 	beq _08019DF6
 	b _0801A2A4
+.endif
 _08019DF6:
 	ldr r2, _08019E40 @ =gPlayerEntity
 	ldrb r0, [r2, #0x14]

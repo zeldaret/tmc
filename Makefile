@@ -18,11 +18,12 @@ BUILD_NAME  := tmc
 else
 ifeq ($(GAME_VERSION), DEMO)
 GAME_CODE   := BZHE
-BUILD_NAME  := tmc
+BUILD_NAME  := tmc_demo
 else
 ifeq ($(GAME_VERSION), JP)
 GAME_CODE   := BZMJ
-BUILD_NAME  := tmc
+BUILD_NAME  := tmc_jp
+GAME_LANGUAGE := JAPANESE
 else
 $(error unknown version $(GAME_VERSION))
 endif

@@ -17,6 +17,7 @@ script_08014608:
 	Call sub_0807DF50
 	_0807E878 
 	Jump script_080145F8
+
 SCRIPT_START script_08014628
 	BeginBlock 
 	_0807E9D4 
@@ -40,7 +41,11 @@ script_0801463A:
 	TextboxNoOverlapFollowPos 0x432b, 0x000c
 	Jump script_080147CE
 script_08014672:
+.ifdef JP
+	CheckPlayerInRegion 0x0078, 0x0078, 0x0810
+.else
 	Call sub_08088658
+.endif
 	JumpIfNot script_0801463A
 	_0807E864 
 	_0807EB28 0x431f
@@ -144,4 +149,6 @@ script_080147CE:
 	Wait 0x0004
 	_0807E878 
 	Jump script_0801463A
+.ifndef JP
 	.2byte 0x0000
+.endif

@@ -23,10 +23,20 @@ gUnk_0810F60E:: @ 0810F60E
 	.incbin "baserom.gba", 0x10F60E, 0x0000005
 
 gUnk_0810F613:: @ 0810F613
+.ifdef JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x10F2D7, 0x0000007
+.else
 	.incbin "baserom.gba", 0x10F613, 0x0000007
+.endif
 
 gUnk_0810F61A:: @ 0810F61A
+.ifdef JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x10F2DE, 0x000002E
+.else
 	.incbin "baserom.gba", 0x10F61A, 0x000002E
+.endif
 
 gUnk_0810F648:: @ 0810F648
 	.incbin "baserom.gba", 0x10F648, 0x000003A

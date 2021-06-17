@@ -620,7 +620,11 @@ sub_08052BB8: @ 0x08052BB8
 	push {lr}
 	ldr r0, _08052BE0 @ =gScreenTransition
 	adds r2, r0, #0
+.ifdef JP
+	adds r2, #0x34
+.else
 	adds r2, #0x35
+.endif
 	ldrb r1, [r2]
 	adds r3, r0, #0
 	cmp r1, #0
@@ -649,6 +653,7 @@ _08052BEE:
 	bl TextBoxAtYPosition
 	pop {pc}
 
+.ifndef JP
 	thumb_func_start sub_08052BF8
 sub_08052BF8: @ 0x08052BF8
 	push {lr}
@@ -682,6 +687,7 @@ _08052C30:
 	.align 2, 0
 _08052C34: .4byte gScreenTransition
 _08052C38: .4byte gArea
+.endif
 
 	thumb_func_start sub_08052C3C
 sub_08052C3C: @ 0x08052C3C
@@ -1309,7 +1315,11 @@ _0805310C:
 _0805311A:
 	movs r0, #0x80
 	lsls r0, r0, #1
+.ifdef JP
+	movs r1, #0x9b
+.else
 	movs r1, #0x9c
+.endif
 	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _0805312C

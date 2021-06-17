@@ -30,7 +30,11 @@ gUnk_0813210C:: @ 0813210C
 	.incbin "baserom.gba", 0x1321B4, 0x000000C
 	.4byte gUnk_080FD150
 	.incbin "baserom.gba", 0x1321C4, 0x000000C
+.ifdef JP
+	.4byte gUnk_080FD150
+.else
 	.4byte gUnk_080FD180
+.endif
 	.incbin "baserom.gba", 0x1321D4, 0x000000C
 	.4byte gUnk_080FD150
 	.incbin "baserom.gba", 0x1321E4, 0x000000C

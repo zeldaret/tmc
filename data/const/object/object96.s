@@ -20,7 +20,11 @@ gUnk_08123FB0:: @ 08123FB0
 	.4byte 00000000
 	.4byte 0x00001800
 	.4byte 0x00180000
+.ifdef JP
+	.4byte 0x000000CD
+.else
 	.4byte 0x000000d0
+.endif
 	.4byte sub_0809D91C
 	.4byte 00000000
 	.4byte 00000000

@@ -12,7 +12,11 @@ SCRIPT_START script_08012CD8
 	EndBlock 
 	_0807EB28 0x2203
 	_0807EA94 
+.ifdef JP
+	SetLocalFlag 0x003d
+.else
 	SetLocalFlag 0x003e
+.endif
 	Call sub_0807DF50
 	_0807E878 
 	DoPostScriptAction 0x0006

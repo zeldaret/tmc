@@ -2190,6 +2190,9 @@ _0801E8D2:
 
 	thumb_func_start sub_0801E8D4
 sub_0801E8D4: @ 0x0801E8D4
+.ifdef JP
+	.incbin "baserom_jp.gba", 0x01E8B8, 0x90 @nocheckin
+.else
 	push {r4, r5, lr}
 	movs r5, #0xa
 _0801E8D8:
@@ -2289,6 +2292,7 @@ _0801E990:
 	pop {r4, r5, pc}
 	.align 2, 0
 _0801E998: .4byte gUnk_02002C8E
+.endif
 
 	thumb_func_start sub_0801E99C
 sub_0801E99C: @ 0x0801E99C

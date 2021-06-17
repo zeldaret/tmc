@@ -64,6 +64,9 @@ _0804139C: .4byte gUnk_080D0E1C
 
 	thumb_func_start sub_080413A0
 sub_080413A0: @ 0x080413A0
+.ifdef JP
+	.incbin "baserom_jp.gba", 0x041344, 0x18 @TODO disassemble
+.else
 	push {r4, lr}
 	adds r4, r0, #0
 	bl sub_080423A4
@@ -77,6 +80,7 @@ sub_080413A0: @ 0x080413A0
 	pop {r4, pc}
 	.align 2, 0
 _080413BC: .4byte gUnk_080D0E2C
+.endif
 
 	thumb_func_start sub_080413C0
 sub_080413C0: @ 0x080413C0
@@ -2130,6 +2134,7 @@ sub_0804235C: @ 0x0804235C
 	bl InitializeAnimation
 	pop {r4, r5, pc}
 
+.ifndef JP
 	thumb_func_start sub_080423A4
 sub_080423A4: @ 0x080423A4
 	push {r4, lr}
@@ -2196,6 +2201,7 @@ _0804241C:
 	.align 2, 0
 _08042420: .4byte gPlayerState
 _08042424: .4byte gPlayerEntity
+.endif
 
 	thumb_func_start sub_08042428
 sub_08042428: @ 0x08042428

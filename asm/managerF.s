@@ -851,8 +851,10 @@ _08059540:
 	.align 2, 0
 _08059544: .4byte gArea
 
+
 	thumb_func_start sub_08059548
 sub_08059548: @ 0x08059548
+.ifndef JP
 	push {lr}
 	movs r1, #6
 	bl sub_0805E3A0
@@ -871,3 +873,4 @@ _0805955C:
 	.align 2, 0
 _08059568: .4byte gPlayerEntity
 _0805956C: .4byte gInput
+.endif

@@ -1,11 +1,19 @@
 SCRIPT_START script_0800FD0C
+.ifdef JP
+	CheckLocalFlag 0x00ca
+.else
 	CheckLocalFlag 0x00cd
+.endif
 	JumpIf script_0800FD50
 	WaitForSomething2 0x00000010
 script_0800FD1A:
 	CheckPlayerInRegion 0x00c8, 0x03c0, 0x1040
 	JumpIfNot script_0800FD1A
+.ifdef JP
+	CheckLocalFlag 0x00ca
+.else
 	CheckLocalFlag 0x00cd
+.endif
 	JumpIf script_0800FD5C
 	_0807E864 
 	Call sub_0807F9A4

@@ -42,4 +42,9 @@ gUnk_080B3D14:: @ 080B3D14
 	.incbin "baserom.gba", 0x0B3D14, 0x000000C
 
 gUnk_080B3D20:: @ 080B3D20
+.ifdef JP
+	@ TODO only small differences
+	.incbin "baserom_jp.gba", 0x0B3AC0, 0x00000B0
+.else
 	.incbin "baserom.gba", 0x0B3D20, 0x00000B0
+.endif

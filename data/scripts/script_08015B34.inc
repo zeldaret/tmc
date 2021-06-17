@@ -1,7 +1,11 @@
 SCRIPT_START script_08015B34
 	EndBlock 
 	BeginBlock 
+.ifdef JP
+	CheckLocalFlag 0x0089
+.else
 	CheckLocalFlag 0x008b
+.endif
 	JumpIf script_08015B7E
 	CallWithArg sub_0807F6B4, 0x00000318
 	JumpIfNot script_08015B34

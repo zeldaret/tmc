@@ -428,6 +428,14 @@ _08087ED8:
 	movs r3, #0xa
 _08087EF0:
 	ldrh r1, [r6, #4]
+.ifdef JP
+	cmp r1, #0x40
+	beq _08087F04
+	cmp r1, #0x80
+	beq _08087F0E
+	b _08087F16
+	.align 2, 0
+.else
 	ldr r0, _08087F00 @ =0xFFFFFEFF
 	ands r1, r0
 	cmp r1, #0x40
@@ -437,6 +445,7 @@ _08087EF0:
 	b _08087F16
 	.align 2, 0
 _08087F00: .4byte 0xFFFFFEFF
+.endif
 _08087F04:
 	adds r0, r4, #0
 	adds r1, r3, #0
@@ -512,6 +521,9 @@ _08087F90: .4byte 0x00004022
 
 	thumb_func_start sub_08087F94
 sub_08087F94: @ 0x08087F94
+.ifdef JP
+	.incbin "baserom_jp.gba", 0x087dac, 0xb0 @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
 	adds r4, r1, #0
@@ -596,6 +608,7 @@ _08088028:
 	bl SoundReq
 _08088032:
 	pop {r4, r5, r6, r7, pc}
+.endif
 
 	thumb_func_start sub_08088034
 sub_08088034: @ 0x08088034
@@ -667,7 +680,11 @@ _080880A4:
 _080880B2:
 	movs r0, #0x80
 	lsls r0, r0, #1
+.ifdef JP
+	movs r1, #0x9b
+.else
 	movs r1, #0x9c
+.endif
 	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _080880C4
@@ -759,6 +776,9 @@ _0808815C: .4byte gSave
 
 	thumb_func_start sub_08088160
 sub_08088160: @ 0x08088160
+.ifdef JP
+	.incbin "baserom_jp.gba", 0x087f88, 0xe8
+.else
 	push {r4, lr}
 	adds r2, r0, #0
 	lsls r1, r1, #3
@@ -793,7 +813,9 @@ _08088194:
 	b _08088262
 _0808819E:
 	ldrh r0, [r1, #4]
+.ifndef JP
 	bl CheckKinstoneFused
+.endif
 	b _08088262
 _080881A6:
 	ldrh r0, [r1, #4]
@@ -886,6 +908,7 @@ _08088266:
 _08088268:
 	adds r0, r4, #0
 	pop {r4, pc}
+.endif
 
 	thumb_func_start sub_0808826C
 sub_0808826C: @ 0x0808826C
@@ -1366,6 +1389,9 @@ _08088618: .4byte gSave
 
 	thumb_func_start sub_0808861C
 sub_0808861C: @ 0x0808861C
+.ifdef JP
+	.incbin "baserom_jp.gba", 0x088420, 0x34 @TODO disassemble
+.else
 	push {r4, lr}
 	adds r4, r1, #0
 	movs r0, #0xa8
@@ -1395,7 +1421,9 @@ _08088642:
 	.align 2, 0
 _08088650: .4byte gPlayerEntity
 _08088654: .4byte gActiveScriptInfo
+.endif
 
+.ifndef JP
 	thumb_func_start sub_08088658
 sub_08088658: @ 0x08088658
 	push {r4, lr}
@@ -1423,3 +1451,4 @@ _08088678:
 	.align 2, 0
 _08088684: .4byte gPlayerEntity
 _08088688: .4byte gActiveScriptInfo
+.endif

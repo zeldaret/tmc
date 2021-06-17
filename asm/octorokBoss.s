@@ -176,6 +176,9 @@ _080352FA:
 
 	thumb_func_start sub_080352FC
 sub_080352FC: @ 0x080352FC
+.ifdef JP
+	.incbin "baserom_jp.gba", 0x0352a0, 0x1fc @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -421,6 +424,7 @@ _080354E8:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080354F4: .4byte 0x00000109
+.endif
 
 	thumb_func_start sub_080354F8
 sub_080354F8: @ 0x080354F8

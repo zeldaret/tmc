@@ -56,7 +56,9 @@ void Manager7_Main(Manager7* this) {
     }
     if (gRoomControls.unk2)
         return;
+    #ifndef JP
     tmp = this->unk_20;
+    #endif
     tmp2 = &gUnk_081080A4[tmp << 4];
     switch (this->manager.unk_0e) {
         case 0:

@@ -1,11 +1,19 @@
 SCRIPT_START script_0800D6D0
 	BeginBlock 
+.ifdef JP
+	CheckLocalFlag 0x00f0
+.else
 	CheckLocalFlag 0x00f3
+.endif
 	JumpIf script_0800D6E8
 	DoPostScriptAction 0x0008
 	EndBlock 
 script_0800D6E0:
+.ifdef JP
+	CheckLocalFlag 0x00f0
+.else
 	CheckLocalFlag 0x00f3
+.endif
 	JumpIfNot script_0800D6E0
 script_0800D6E8:
 	DoPostScriptAction 0x0007

@@ -5,7 +5,12 @@
     .align 2
 
 gUnk_080B4410:: @ 080B4410
+.ifdef JP
+	@ TODO only small differences
+	.incbin "baserom_jp.gba", 0x0B41B0, 0x0000048	
+.else
 	.incbin "baserom.gba", 0x0B4410, 0x0000048
+.endif
 
 gUnk_080B4458:: @ 080B4458
 	.4byte sub_08019698

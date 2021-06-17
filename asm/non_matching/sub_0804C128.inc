@@ -116,7 +116,11 @@ _0804C206:
 	bne _0804C250
 	movs r0, #1
 	bl sub_080AF250
+.ifdef JP
+	movs r0, #0x5a
+.else
 	movs r0, #0x5c
+.endif
 	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0804C228

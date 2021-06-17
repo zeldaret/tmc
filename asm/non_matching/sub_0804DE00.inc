@@ -67,7 +67,11 @@ _0804DE5C:
 	strh r0, [r1, #0x10]
 	bl sub_08052EA0
 	bl sub_0804AF90
+.ifdef JP
+	movs r0, #0xca
+.else
 	movs r0, #0xcd
+.endif
 	bl CheckLocalFlag
 	cmp r0, #0
 	bne _0804DEC4

@@ -1,5 +1,9 @@
 SCRIPT_START script_0800939A
+.ifdef JP
+	CheckLocalFlag 0x00ac
+.else
 	CheckLocalFlag 0x00ae
+.endif
 	JumpIf script_0800943E
 	CheckInventory1 0x000d
 	JumpIf script_080093BC
@@ -18,7 +22,11 @@ script_080093BC:
 	Jump script_08009376
 script_080093DA:
 	SetIntVariable 0x00001d05
+.ifdef JP
+	CheckLocalFlag 0x00ab
+.else
 	CheckLocalFlag 0x00ad
+.endif
 	JumpIf script_080093EE
 	SetIntVariable 0x00001d04
 script_080093EE:
@@ -35,8 +43,13 @@ script_080093EE:
 	Wait 0x00b4
 	Call sub_0806D70C
 	Wait 0x0078
+.ifdef JP
+	SetLocalFlag 0x00ac
+	SetLocalFlag 0x00ab
+.else
 	SetLocalFlag 0x00ae
 	SetLocalFlag 0x00ad
+.endif
 	Call sub_0806D5D4
 	_0807EB8C 
 	TextboxNoOverlap 0x1d09

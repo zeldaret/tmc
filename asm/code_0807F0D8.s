@@ -1582,6 +1582,7 @@ sub_0807FBFC: @ 0x0807FBFC
 	.align 2, 0
 _0807FC20: .4byte gSave
 
+.ifndef JP
 	thumb_func_start sub_0807FC24
 sub_0807FC24: @ 0x0807FC24
 	push {lr}
@@ -1597,6 +1598,7 @@ _0807FC32:
 	pop {pc}
 	.align 2, 0
 _0807FC3C: .4byte gRoomControls
+.endif
 
 	thumb_func_start UpdateScroll
 UpdateScroll: @ 0xUpdateScroll

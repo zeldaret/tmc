@@ -83,16 +83,31 @@ gUnk_0810B8EB:: @ 0810B8EB
 	.incbin "baserom.gba", 0x10B8EB, 0x0000037
 
 gUnk_0810B922:: @ 0810B922
+.ifdef JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x10B5E6, 0x0000049
+.else
 	.incbin "baserom.gba", 0x10B922, 0x0000049
+.endif
 
 gUnk_0810B96B:: @ 0810B96B
+.ifdef JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x10B62F, 0x0000065
+.else
 	.incbin "baserom.gba", 0x10B96B, 0x0000065
+.endif
 
 gUnk_0810B9D0:: @ 0810B9D0
 	.incbin "baserom.gba", 0x10B9D0, 0x0000031
 
 gUnk_0810BA01:: @ 0810BA01
+.ifdef JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x10B6C5, 0x0000117
+.else
 	.incbin "baserom.gba", 0x10BA01, 0x0000117
+.endif
 
 gUnk_0810BB18:: @ 0810BB18
 	.incbin "baserom.gba", 0x10BB18, 0x0000044
@@ -103,7 +118,12 @@ gUnk_0810BB71:: @ 0810BB71
 	.incbin "baserom.gba", 0x10BB71, 0x000005B
 
 gUnk_0810BBCC:: @ 0810BBCC
+.ifdef JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x10B890, 0x000009C
+.else
 	.incbin "baserom.gba", 0x10BBCC, 0x000009C
+.endif
 
 gUnk_0810BC68:: @ 0810BC68
 	.incbin "baserom.gba", 0x10BC68, 0x0000098

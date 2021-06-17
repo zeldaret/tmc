@@ -105,6 +105,8 @@ script_0800F662:
 	DoPostScriptAction 0x0000
 	Jump script_0800F662
 	.2byte 0x0000
+
+
 SCRIPT_START script_0800F688
 	BeginBlock 
 	_0807EB44 0x0004
@@ -119,7 +121,11 @@ script_0800F6A0:
 	_0807E864 
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000004
+.ifdef JP
+	CheckLocalFlag 0x00ca
+.else
 	CheckLocalFlag 0x00cd
+.endif
 	JumpIf script_0800F6C4
 	TextboxNoOverlap 0x2512
 	Jump script_0800F6C8
@@ -140,7 +146,11 @@ SCRIPT_START script_0800F6E0
 	Call sub_08062788
 	EndBlock 
 script_0800F6F4:
+.ifdef JP
+	CheckLocalFlag 0x00ca
+.else
 	CheckLocalFlag 0x00cd
+.endif
 	JumpIf script_0800F718
 	CheckEntityInteractType 
 	JumpIfNot script_0800F6F4

@@ -413,7 +413,7 @@ void sub_08050940(void) {
         keys &= ~(DPAD_UP | DPAD_DOWN);
     }
 
-    num_rows = gUnk_02000000->gameLanguage > GAME_LANGUAGE ? NUM_SAVE_SLOTS + 1 : NUM_SAVE_SLOTS;
+    num_rows = gUnk_02000000->gameLanguage > 1 ? NUM_SAVE_SLOTS + 1 : NUM_SAVE_SLOTS;
     mode = gUnk_02032EC0.lastState;
     switch (keys) {
         case DPAD_UP:

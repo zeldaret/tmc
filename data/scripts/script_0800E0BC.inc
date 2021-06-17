@@ -301,10 +301,17 @@ SCRIPT_START script_0800E4A4
 	CheckLocalFlag 0x007c
 	JumpIf script_0800E4FA
 script_0800E4B6:
+.ifdef JP
+	CheckPlayerInRegion 0x0088, 0x0100, 0x0820
+.else
 	CheckPlayerInRegion 0x0088, 0x00f8, 0x0820
+.endif
 	JumpIfNot script_0800E4B6
 	BeginBlock 
-	_0807E864 
+	_0807E864
+.ifdef JP
+	Call sub_0805E544
+.endif
 	EndBlock 
 	Call sub_0807F3F8
 	Wait 0x003c
@@ -320,6 +327,9 @@ script_0800E4B6:
 	BeginBlock 
 	PlayBgm BGM_FIGHT_THEME2
 	SetLocalFlag 0x007c
+.ifdef JP
+	Call UnfreezeTime
+.endif
 script_0800E4FA:
 	_0807E878 
 	DoPostScriptAction 0x0006

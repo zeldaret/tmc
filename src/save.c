@@ -53,9 +53,14 @@ static SaveResult (*const sSaveHandlers[])(u32) = { HandleSaveInit, HandleSaveIn
 
 
 #ifdef DEMO
-asm(".incbin \"baserom_demo.gba\", 0x11e010, 0xf0c"); // @nocheckin
+asm(".incbin \"baserom_demo.gba\", 0x11e010, 0xf0c"); // TODO 
+#else
+
+#ifdef JP
+static const char sSignatureLong[32] = "AGBZELDA:THE MINISH CAP:ZELDA 3";
 #else
 static const char sSignatureLong[32] = "AGBZELDA:THE MINISH CAP:ZELDA 5";
+#endif
 
 // Save file is untouched
 static const SaveFileStatus sSaveDescInit = { 0xffff, 0xffff, 'TINI' };

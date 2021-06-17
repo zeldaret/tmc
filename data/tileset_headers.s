@@ -868,89 +868,150 @@ gAreaTilesets_PalaceOfWinds:: @ 08102150
 gAreaTileset_PalaceOfWindsBoss_0:: @ 08102154
 	tileset_tiles 0x22131C, 0x6000000, 0x4000, 1
 	tileset_tiles 0x222634, 0x6004000, 0x4000, 1
+.ifdef JP
+	tileset_tiles 0x224510, 0x600F000, 0x800, 1
+.else
 	tileset_tiles 0x22449C, 0x600F000, 0x800, 1
+.endif
 	tileset_palette_set 162, 1
 
 gAreaTilesets_PalaceOfWindsBoss:: @ 08102184
 	.4byte gAreaTileset_PalaceOfWindsBoss_0
 
 gAreaTileset_Sanctuary_0:: @ 08102188
+.ifdef JP
+	tileset_tiles 0x22E250, 0x6000000, 0x4000, 1
+	tileset_tiles 0x22FFA4, 0x6004000, 0x4000, 1
+	tileset_tiles 0x232028, 0x6008000, 0x4000, 1
+.else
 	tileset_tiles 0x22E1DC, 0x6000000, 0x4000, 1
 	tileset_tiles 0x22FF30, 0x6004000, 0x4000, 1
 	tileset_tiles 0x231FB4, 0x6008000, 0x4000, 1
+.endif
 	tileset_palette_set 57, 1
 
 gAreaTilesets_Sanctuary:: @ 081021B8
 	.4byte gAreaTileset_Sanctuary_0
 
 gAreaTileset_HyruleCastle_0:: @ 081021BC
+.ifdef JP
+	tileset_tiles 0x2379C0, 0x6000000, 0x4000, 1
+	tileset_tiles 0x239B50, 0x6004000, 0x4000, 1
+	tileset_tiles 0x23B8C8, 0x6008000, 0x4000, 1
+.else
 	tileset_tiles 0x23794C, 0x6000000, 0x4000, 1
 	tileset_tiles 0x239ADC, 0x6004000, 0x4000, 1
 	tileset_tiles 0x23B854, 0x6008000, 0x4000, 1
+.endif
 	tileset_palette_set 58, 1
 
 gAreaTilesets_HyruleCastle:: @ 081021EC
 	.4byte gAreaTileset_HyruleCastle_0
 
 gAreaTileset_SanctuaryEntrance_0:: @ 081021F0
+.ifdef JP
+	tileset_tiles 0x242430, 0x6000000, 0x4000, 1
+	tileset_tiles 0x243F6C, 0x6004000, 0x4000, 1
+	tileset_tiles 0x245558, 0x6008000, 0x4000, 1
+.else
 	tileset_tiles 0x2423BC, 0x6000000, 0x4000, 1
 	tileset_tiles 0x243EF8, 0x6004000, 0x4000, 1
 	tileset_tiles 0x2454E4, 0x6008000, 0x4000, 1
+.endif
+
 	tileset_palette_set 145, 1
 
 gAreaTilesets_SanctuaryEntrance:: @ 08102220
 	.4byte gAreaTileset_SanctuaryEntrance_0
 
 gAreaTileset_DarkHyruleCastle_0:: @ 08102224
+.ifdef JP
+	tileset_tiles 0x247560, 0x6000000, 0x4000, 1
+	tileset_tiles 0x249734, 0x6004000, 0x4000, 1
+	tileset_tiles 0x24B99C, 0x6008000, 0x4000, 1
+.else
 	tileset_tiles 0x2474EC, 0x6000000, 0x4000, 1
 	tileset_tiles 0x2496C0, 0x6004000, 0x4000, 1
 	tileset_tiles 0x24B928, 0x6008000, 0x4000, 1
+.endif
 	tileset_palette_set 59, 1
 
 gAreaTilesets_DarkHyruleCastle:: @ 08102254
 	.4byte gAreaTileset_DarkHyruleCastle_0
 
 gAreaTileset_DarkHyruleCastleOutside_0:: @ 08102258
+.ifdef JP
+	tileset_tiles 0x26E430, 0x6000000, 0x4000, 1
+	tileset_tiles 0x270420, 0x6004000, 0x4000, 1
+	tileset_tiles 0x2720A4, 0x6008000, 0x4000, 1
+.else
 	tileset_tiles 0x26E3BC, 0x6000000, 0x4000, 1
 	tileset_tiles 0x2703AC, 0x6004000, 0x4000, 1
 	tileset_tiles 0x272030, 0x6008000, 0x4000, 1
+.endif
+
 	tileset_palette_set 144, 1
 
 gAreaTilesets_DarkHyruleCastleOutside:: @ 08102288
 	.4byte gAreaTileset_DarkHyruleCastleOutside_0
 
 gAreaTileset_DarkHyruleCastleBridge_0:: @ 0810228C
+.ifdef JP
+	tileset_tiles 0x252F6C, 0x6000000, 0x4000, 1
+	tileset_tiles 0x254090, 0x6004000, 0x4000, 1
+	tileset_tiles 0x2557CC, 0x6008000, 0x4000, 1
+.else
 	tileset_tiles 0x252EF8, 0x6000000, 0x4000, 1
 	tileset_tiles 0x25401C, 0x6004000, 0x4000, 1
 	tileset_tiles 0x255758, 0x6008000, 0x4000, 1
+.endif
 	tileset_palette_set 180, 1
 
 gAreaTilesets_DarkHyruleCastleBridge:: @ 081022BC
 	.4byte gAreaTileset_DarkHyruleCastleBridge_0
 
 gAreaTileset_VaatisArms_0:: @ 081022C0
+.ifdef JP
+	tileset_tiles 0x260DFC, 0x6000000, 0x4000, 1
+	tileset_tiles 0x2625A4, 0x6004000, 0x4000, 1
+	tileset_tiles 0x262F78, 0x6008000, 0x4000, 1
+.else
 	tileset_tiles 0x260D88, 0x6000000, 0x4000, 1
 	tileset_tiles 0x262530, 0x6004000, 0x4000, 1
 	tileset_tiles 0x262F04, 0x6008000, 0x4000, 1
+.endif
 	tileset_palette_set 155, 1
 
 gAreaTilesets_VaatisArms:: @ 081022F0
 	.4byte gAreaTileset_VaatisArms_0
 
 gAreaTileset_Vaati3_0:: @ 081022F4
+.ifdef JP
+	tileset_tiles 0x258204, 0x6000000, 0x4000, 1
+	tileset_tiles 0x259310, 0x6004000, 0x4000, 1
+	tileset_tiles 0x25A52C, 0x6008000, 0x4000, 1
+.else
 	tileset_tiles 0x258190, 0x6000000, 0x4000, 1
 	tileset_tiles 0x25929C, 0x6004000, 0x4000, 1
 	tileset_tiles 0x25A4B8, 0x6008000, 0x4000, 1
+.endif
 	tileset_palette_set 156, 1
 
 gAreaTilesets_Vaati3:: @ 08102324
 	.4byte gAreaTileset_Vaati3_0
 
 gAreaTileset_Vaati2_0:: @ 08102328
+.ifdef JP
+	tileset_tiles 0x25D128, 0x6000000, 0x4000, 1
+	tileset_tiles 0x25DC08, 0x6004000, 0x4000, 1
+	tileset_tiles 0x25EE50, 0x6008000, 0x4000, 1
+	tileset_tiles 0x26E13C, 0x600F000, 0x800, 1
+.else
 	tileset_tiles 0x25D0B4, 0x6000000, 0x4000, 1
 	tileset_tiles 0x25DB94, 0x6004000, 0x4000, 1
 	tileset_tiles 0x25EDDC, 0x6008000, 0x4000, 1
 	tileset_tiles 0x26E0C8, 0x600F000, 0x800, 1
+.endif
 	tileset_palette_set 169, 1
 
 gAreaTilesets_Vaati2:: @ 08102364

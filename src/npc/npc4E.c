@@ -105,19 +105,39 @@ void sub_0806DAD0(Entity* this) {
 void sub_0806DAE8(Entity* this) {
     switch (this->type - 1) {
         case 0:
+#ifdef JP
+            SetLocalFlag(0xeb);
+#else
             SetLocalFlag(0xee);
+#endif
             break;
         case 1:
+#ifdef JP
+            SetLocalFlag(0xec);
+#else
             SetLocalFlag(0xef);
+#endif
             break;
         case 2:
+#ifdef JP
+            SetLocalFlag(0xed);
+#else
             SetLocalFlag(0xf0);
+#endif
             break;
         case 3:
+#ifdef JP
+            SetLocalFlag(0xee);
+#else
             SetLocalFlag(0xf1);
+#endif
             break;
         case 4:
+#ifdef JP
+            SetLocalFlag(0xef);
+#else
             SetLocalFlag(0xf2);
+#endif
             break;
     }
 
@@ -127,8 +147,14 @@ void sub_0806DAE8(Entity* this) {
 void sub_0806DB44(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
 
+#ifdef JP
+    if (CheckLocalFlag(0xeb) != 0 && CheckLocalFlag(0xec) != 0 && CheckLocalFlag(0xed) != 0 &&
+        CheckLocalFlag(0xee) != 0 && CheckLocalFlag(0xef) != 0) {
+#else
     if (CheckLocalFlag(0xee) != 0 && CheckLocalFlag(0xef) != 0 && CheckLocalFlag(0xf0) != 0 &&
         CheckLocalFlag(0xf1) != 0 && CheckLocalFlag(0xf2) != 0) {
+#endif
+
         context->condition = 1;
     }
 }

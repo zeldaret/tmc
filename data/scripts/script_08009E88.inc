@@ -2,7 +2,11 @@ SCRIPT_START script_08009E88
 	BeginBlock 
 	Call sub_0807DF28
 	_0807E864 
+.ifdef JP
+	SetLocalFlag 0x009e
+.else
 	SetLocalFlag 0x009f
+.endif
 	EndBlock 
 	Wait 0x003c
 	_0807E778 0x0004
