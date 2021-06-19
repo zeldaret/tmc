@@ -6,6 +6,7 @@
 #include "audio.h"
 #include "functions.h"
 
+extern u32 __modsi3(u32, u32);
 extern void sub_080AEFB4(Entity*);
 extern u8 gEntCount;
 
@@ -51,7 +52,7 @@ void (*const gUnk_080D04A0[])(Entity*) = {
 };
 
 extern const xy gUnk_080D04A8[];
-extern const u16 gUnk_080D04AC[];
+extern const Coords gUnk_080D04AC[];
 
 void VaatiRebornEnemy(Entity* this) {
     switch (this->type) {
@@ -203,6 +204,62 @@ void sub_0803D264(Entity* this) {
             }
             sub_080AEFB4(this);
         }
+    }
+    UpdateAnimationSingleFrame(this);
+}
+
+void sub_0803D408(Entity* this) {
+    const Coords* ptr;
+
+    switch (this->field_0x74.HALF.LO) {
+        case 0:
+            if (--this->actionDelay == 0) {
+                this->field_0x74.HALF.LO++;
+                this->actionDelay = 0x20;
+                InitAnimationForceUpdate(this, 3);
+                SoundReq(SFX_19B);
+            }
+            break;
+        case 1:
+            if ((this->frames.all & 0x80) != 0) {
+                this->field_0x74.HALF.LO = 2;
+                this->spriteSettings.b.draw = 0;
+                this->actionDelay = 0x10;
+            }
+            break;
+        case 2:
+            if (--this->actionDelay == 0) {
+                this->field_0x74.HALF.LO++;
+                if (sub_0803E028(this) == 0) {
+                    this->field_0x80.HALF.HI += 1 + (Random() & 3);
+                    this->field_0x80.HALF.HI = __modsi3(this->field_0x80.HALF.HI, 5);
+                    ptr = &gUnk_080D04AC[this->field_0x80.HALF.HI];
+                    this->x.HALF.HI = gRoomControls.roomOriginX + ptr->HALF.x + 0x10;
+                    this->y.HALF.HI = gRoomControls.roomOriginY + ptr->HALF.y + 0x10;
+                }
+                this->spriteSettings.b.draw = 1;
+                this->actionDelay = 0x20;
+                InitAnimationForceUpdate(this, 4);
+                SoundReq(SFX_F5);
+            }
+            break;
+        case 3:
+            if ((this->frames.all & 0x80) != 0) {
+                this->spriteSettings.b.draw = 1;
+                if (4 < this->field_0x80.HALF.HI) {
+                    this->x.HALF.HI = gPlayerEntity.x.HALF.HI;
+                    this->y.HALF.HI = gPlayerEntity.y.HALF.HI - 0x18;
+                }
+                if (--this->field_0x76.HALF.HI == 0) {
+                    this->action = 1;
+                    this->actionDelay = 1;
+                } else {
+                    this->field_0x74.HALF.LO = 0;
+                    this->actionDelay = 0x10;
+                }
+                InitAnimationForceUpdate(this, 0);
+            }
+            break;
     }
     UpdateAnimationSingleFrame(this);
 }
