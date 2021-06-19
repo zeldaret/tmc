@@ -88,7 +88,105 @@ void sub_0806B67C(Entity* this) {
     }
 }
 
-ASM_FUNC("asm/non_matching/vaati/sub_0806B7BC.inc", void sub_0806B7BC(Entity* this))
+void sub_0806B7BC(Entity* this) {
+    Entity* entity;
+
+    if (CheckRoomFlag(3) == 0) {
+        return;
+    }
+    switch (this->type) {
+        case 0:
+            this->y.HALF.HI++;
+            if (--this->actionDelay == 0) {
+                entity = CreateNPC(VAATI_REBORN, 3, 0);
+                if (entity == NULL) {
+                    break;
+                }
+                CopyPosition(this, entity);
+                TextboxNoOverlapFollow(0x1634);
+                this->subAction = this->subAction + 1;
+                DeleteThisEntity();
+                return;
+            }
+            if (this->field_0xf-- == 1) {
+                this->field_0xf = 0x20;
+                SoundReq(SFX_1A9);
+            }
+            UpdateAnimationSingleFrame(this);
+            break;
+        case 1:
+            entity = sub_0806B9BC(this);
+            if (entity == NULL) {
+                DeleteThisEntity();
+            }
+            PositionRelative(entity, this, 0, 0x210000);
+            UpdateAnimationSingleFrame(this);
+            break;
+        case 2:
+            sub_0806B96C(this);
+            UpdateAnimationSingleFrame(this);
+            break;
+        case 3:
+            switch (this->subAction) {
+                case 0:
+                    if (--this->actionDelay == 0) {
+                        this->subAction += 1;
+                    }
+                    break;
+                case 1:
+                    if (this->frames.b.f3 != 0) {
+                        this->subAction = 2;
+                        sub_0801D2B4(this, 0x13f);
+                        InitAnimationForceUpdate(this, this->subAction - 1);
+                    }
+                    break;
+                case 2:
+                    if ((this->frames.all & 0x10) != 0) {
+                        this->frames.all &= 0xef;
+
+                        switch (++this->actionDelay) {
+                            case 1:
+                                break;
+                            case 10:
+                                this->subAction++;
+                                EnqueueSFX(SFX_SUMMON);
+                                this->actionDelay = 0;
+                                InitAnimationForceUpdate(this, this->subAction - 1);
+                                break;
+                        }
+                    }
+                    break;
+                case 3:
+                    if (this->frames.b.f3 != 0) {
+                        SetRoomFlag(0);
+                        DeleteThisEntity();
+                    }
+                    break;
+            }
+
+            if (--this->field_0xf == 0) {
+                this->field_0xf = 0x20;
+                SoundReq(SFX_1A9);
+            }
+            UpdateAnimationSingleFrame(this);
+            break;
+        default:
+            entity = sub_0806B9BC(this);
+            if (entity == NULL) {
+                DeleteThisEntity();
+                break;
+            }
+            if (entity->subAction == 0) {
+                break;
+            }
+            if (this->type != 4) {
+                UpdateAnimationSingleFrame(this);
+            } else {
+                GetNextFrame(this);
+            }
+            break;
+    }
+}
 
 void sub_0806B96C(Entity* this) {
     Entity* entity;
