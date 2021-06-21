@@ -744,11 +744,7 @@ extern const SongHeader sfx21F;
 extern const SongHeader sfx220;
 extern const SongHeader sfx221;
 
-#ifdef DEMO
-extern MusicPlayerTrack gMPlayTracksDEMO[];
-#else
 extern MusicPlayerTrack gMPlayTracks[];
-#endif
 
 extern MusicPlayerInfo gMPlayInfos[0x1C];
 extern u8 gMPlayMemAccArea[0x10];
@@ -789,42 +785,6 @@ typedef enum {
     MUSIC_PLAYER_BGM,
 } MusicPlayerE;
 
-#ifdef DEMO
-const MusicPlayer gMusicPlayers[] = {
-    [MUSIC_PLAYER_00] = { &gMPlayInfos[0x08], &gMPlayTracksDEMO[0x00], 2, 1 },
-    [MUSIC_PLAYER_PLY_VO] = { &gMPlayInfos[0x12], &gMPlayTracksDEMO[0x02], 1, 1 },
-    [MUSIC_PLAYER_02] = { &gMPlayInfos[0x13], &gMPlayTracksDEMO[0x03], 1, 1 },
-    [MUSIC_PLAYER_03] = { &gMPlayInfos2[0x2], &gMPlayTracksDEMO[0x04], 2, 1 },
-    [MUSIC_PLAYER_04] = { &gMPlayInfos[0x1B], &gMPlayTracksDEMO[0x06], 2, 1 },
-    [MUSIC_PLAYER_05] = { &gMPlayInfos[0x03], &gMPlayTracksDEMO[0x08], 2, 1 },
-    [MUSIC_PLAYER_06] = { &gMPlayInfos[0x07], &gMPlayTracksDEMO[0x0A], 2, 1 },
-    [MUSIC_PLAYER_07] = { &gMPlayInfos[0x11], &gMPlayTracksDEMO[0x0C], 2, 1 },
-    [MUSIC_PLAYER_08] = { &gMPlayInfos2[0x1], &gMPlayTracksDEMO[0x0E], 2, 1 },
-    [MUSIC_PLAYER_09] = { &gMPlayInfos[0x06], &gMPlayTracksDEMO[0x10], 2, 1 },
-    [MUSIC_PLAYER_0A] = { &gMPlayInfos[0x14], &gMPlayTracksDEMO[0x12], 2, 1 },
-    [MUSIC_PLAYER_0B] = { &gMPlayInfos2[0x3], &gMPlayTracksDEMO[0x14], 2, 1 },
-    [MUSIC_PLAYER_0C] = { &gMPlayInfos[0x19], &gMPlayTracksDEMO[0x16], 2, 1 },
-    [MUSIC_PLAYER_0D] = { &gMPlayInfos[0x02], &gMPlayTracksDEMO[0x18], 2, 1 },
-    [MUSIC_PLAYER_0E] = { &gMPlayInfos[0x0E], &gMPlayTracksDEMO[0x1A], 2, 1 },
-    [MUSIC_PLAYER_0F] = { &gMPlayInfos[0x18], &gMPlayTracksDEMO[0x1C], 2, 1 },
-    [MUSIC_PLAYER_10] = { &gMPlayInfos[0x05], &gMPlayTracksDEMO[0x1E], 2, 1 },
-    [MUSIC_PLAYER_11] = { &gMPlayInfos[0x1A], &gMPlayTracksDEMO[0x20], 2, 1 },
-    [MUSIC_PLAYER_12] = { &gMPlayInfos[0x0D], &gMPlayTracksDEMO[0x22], 2, 1 },
-    [MUSIC_PLAYER_13] = { &gMPlayInfos[0x00], &gMPlayTracksDEMO[0x24], 2, 1 },
-    [MUSIC_PLAYER_14] = { &gMPlayInfos[0x0A], &gMPlayTracksDEMO[0x26], 2, 1 },
-    [MUSIC_PLAYER_15] = { &gMPlayInfos[0x0C], &gMPlayTracksDEMO[0x28], 2, 1 },
-    [MUSIC_PLAYER_16] = { &gMPlayInfos[0x17], &gMPlayTracksDEMO[0x2A], 2, 1 },
-    [MUSIC_PLAYER_17] = { &gMPlayInfos[0x01], &gMPlayTracksDEMO[0x2C], 2, 1 },
-    [MUSIC_PLAYER_18] = { &gMPlayInfos[0x0B], &gMPlayTracksDEMO[0x2E], 2, 1 },
-    [MUSIC_PLAYER_19] = { &gMPlayInfos[0x15], &gMPlayTracksDEMO[0x30], 2, 1 },
-    [MUSIC_PLAYER_1A] = { &gMPlayInfos[0x09], &gMPlayTracksDEMO[0x32], 2, 1 },
-    [MUSIC_PLAYER_1B] = { &gMPlayInfos2[0x0], &gMPlayTracksDEMO[0x34], 2, 1 },
-    [MUSIC_PLAYER_1C] = { &gMPlayInfos[0x0F], &gMPlayTracksDEMO[0x36], 2, 1 },
-    [MUSIC_PLAYER_1D] = { &gMPlayInfos[0x16], &gMPlayTracksDEMO[0x38], 2, 1 },
-    [MUSIC_PLAYER_1E] = { &gMPlayInfos[0x04], &gMPlayTracksDEMO[0x3A], 0xc, 0 },
-    [MUSIC_PLAYER_BGM] = { &gMPlayInfos[0x10], &gMPlayTracksDEMO[0x46], 0xc, 0 },
-};
-#else
 const MusicPlayer gMusicPlayers[] = {
     [MUSIC_PLAYER_00] = { &gMPlayInfos[0x08], &gMPlayTracks[0x00], 2, 1 },
     [MUSIC_PLAYER_PLY_VO] = { &gMPlayInfos[0x12], &gMPlayTracks[0x02], 1, 1 },
@@ -859,7 +819,6 @@ const MusicPlayer gMusicPlayers[] = {
     [MUSIC_PLAYER_1E] = { &gMPlayInfos[0x04], &gMPlayTracks[0x3A], 0xc, 0 },
     [MUSIC_PLAYER_BGM] = { &gMPlayInfos[0x10], &gMPlayTracks[0x46], 0xc, 0 },
 };
-#endif
 
 const Song gSongTable[] = {
     [SFX_NONE] = { &sfxNone, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },

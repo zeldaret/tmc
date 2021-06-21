@@ -151,17 +151,20 @@ SECTIONS {
         . = 0x000369F0; gUnk_020369F0 = .;
         . = 0x00036A38; gCurrentWindow = .;
         . = 0x00036A40; gNewWindow = .;
+#ifdef DEMO
+        . = 0x00036A50; gUnk_02036A58 = .;
+        . = 0x00036AD0; gUnk_02036AD8 = .;
+        . = 0x00036BB0; gUnk_02036BB8 = .;
+        . = 0x00036BB8; gMPlayTracks = .;
+        . = 0x00038558; gUnk_02038560 = .;
+#else
         . = 0x00036A50; gEEPROMConfig = .;
-        . = 0x00036A50; gUnk_02036A50 = .; /* DEMO is 8 bytes earlier due to missing eeprom*/
         . = 0x00036A58; gUnk_02036A58 = .;
-        . = 0x00036AD0; gUnk_02036AD0 = .; /* DEMO is 8 bytes earlier due to missing eeprom*/
         . = 0x00036AD8; gUnk_02036AD8 = .; 
-        . = 0x00036BB0; gUnk_02036BB0 = .; /* DEMO is 8 bytes earlier due to missing eeprom*/
         . = 0x00036BB8; gUnk_02036BB8 = .;
-        . = 0x00036BB8; gMPlayTracksDEMO = .; /* DEMO is 8 bytes earlier due to missing eeprom*/
         . = 0x00036BC0; gMPlayTracks = .;
-        . = 0x00038558; gUnk_02038558 = .; /* DEMO is 8 bytes earlier due to missing eeprom*/
         . = 0x00038560; gUnk_02038560 = .;
+#endif
         . = 0x00040000;
     } >ewram
 
@@ -277,12 +280,21 @@ SECTIONS {
         . = 0x00005FF0; gUnk_03005FF0 = .;
         . = 0x000060F0; gUnk_030060F0 = .;
         . = 0x00006164; gUnk_03006164 = .;
+#ifdef EU
+        . = 0x000065AC; gUnk_03006580 = .;
+        . = 0x000065C8; gUnk_0300659C = .;
+        . = 0x000069AC; gUnk_030067E4 = .;
+        . = 0x00006A94; gUnk_030068CC = .;
+        . = 0x00006B14; gUnk_0300694C = .;
+        . = 0x00006B24; gUnk_0300695C = .;
+#else
         . = 0x00006580; gUnk_03006580 = .;
         . = 0x0000659C; gUnk_0300659C = .;
         . = 0x000067E4; gUnk_030067E4 = .;
         . = 0x000068CC; gUnk_030068CC = .;
         . = 0x0000694C; gUnk_0300694C = .;
         . = 0x0000695C; gUnk_0300695C = .;
+#endif
         . = 0x00007F00; gUnk_03007F00 = .;
         . = 0x00007FA0; gUnk_03007FA0 = .;
         . = 0x00007FFA; gUnk_03007FFA = .;

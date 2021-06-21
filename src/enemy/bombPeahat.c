@@ -365,7 +365,7 @@ void sub_0802AD54(Entity* this) {
 #ifdef EU
 // TODO regalloc in EU version
 NAKED void sub_0802ADDC(Entity* this) {
-    asm(".incbin \"baserom_eu.gba\", 0x02AD48, 0x000004C"); // TODOg disassemble
+    asm(".incbin \"baserom_eu.gba\", 0x02AD48, 0x000004C"); // TODO disassemble
 }
 #else
 void sub_0802ADDC(Entity* this) {

@@ -590,11 +590,7 @@ _080B20E0:
 	b _080B20E0
 	.align 2, 0
 _080B20E4: .4byte 0x0000208C
-.ifdef EU
-_080B20E8: .4byte gUnk_030069AC
-.else
 _080B20E8: .4byte gUnk_030067E4
-.endif
 
 	arm_func_start sub_080B20EC
 sub_080B20EC: @ 0x080B20EC

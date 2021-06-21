@@ -98,7 +98,7 @@ extern void sub_08080930();
 
 #ifdef EU
 NAKED void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
-    asm(".incbin \"baserom_eu.gba\", 0x057580, 0x0000078"); // TODOg disassemble
+    asm(".incbin \"baserom_eu.gba\", 0x057580, 0x0000078"); // TODO disassemble
 }
 #else
 void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {

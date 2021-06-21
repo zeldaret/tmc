@@ -12,8 +12,6 @@ GAME_LANGUAGE := ENGLISH
 TITLE       := GBAZELDA MC
 MAKER_CODE  := 01
 
-LINKER_FILE = linker.ld
-
 ifeq ($(GAME_VERSION), USA)
 GAME_CODE   := BZME
 BUILD_NAME  := tmc
@@ -30,7 +28,6 @@ else
 ifeq ($(GAME_VERSION), EU)
 GAME_CODE   := BZMP
 BUILD_NAME  := tmc_eu
-LINKER_FILE := linker_EU.ld
 else
 $(error unknown version $(GAME_VERSION))
 endif

@@ -125,7 +125,7 @@ void sub_080A9FD0(Entity* this) {
 
 #ifdef EU
 NAKED void sub_080AA044(Entity* this) {
-    asm(".incbin \"baserom_eu.gba\", 0x0A983C, 0x00000C4"); // TODOg disassemble
+    asm(".incbin \"baserom_eu.gba\", 0x0A983C, 0x00000C4"); // TODO disassemble
 }
 #else
 void sub_080AA044(Entity* this) {
