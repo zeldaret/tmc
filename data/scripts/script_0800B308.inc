@@ -3,7 +3,11 @@ SCRIPT_START script_0800B308
 .ifdef JP
 	CheckLocalFlag 0x001e
 .else
+.ifdef EU
+	CheckLocalFlag 0x001e
+.else
 	CheckLocalFlag 0x001d
+.endif
 .endif
 	JumpIf script_0800B39C
 	DoPostScriptAction 0x0001
@@ -43,7 +47,11 @@ script_0800B350:
 .ifdef JP
 	SetLocalFlag 0x001e
 .else
+.ifdef EU
+	SetLocalFlag 0x001e
+.else
 	SetLocalFlag 0x001d
+.endif
 .endif
 	PlaySound SFX_SECRET
 script_0800B39C:

@@ -116,7 +116,10 @@ _080A0FFE:
 	thumb_func_start sub_080A1000
 sub_080A1000: @ 0x080A1000
 .ifdef JP
-	.incbin "baserom_jp.gba", 0x0a0dc8, 0xd0
+	.incbin "baserom_jp.gba", 0x0a0dc8, 0xd0 @TODO disassemble
+.else
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0A084C, 0xd0 @TODO same as JP
 .else
 	push {r4, lr}
 	adds r4, r0, #0
@@ -235,6 +238,7 @@ _080A10D4:
 	.align 2, 0
 _080A10D8: .4byte gScreenTransition
 _080A10DC: .4byte gPlayerEntity
+.endif
 .endif
 
 	thumb_func_start sub_080A10E0

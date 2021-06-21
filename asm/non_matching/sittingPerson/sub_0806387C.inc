@@ -5,7 +5,11 @@
 .ifdef JP
 	movs r0, #0xd7
 .else
+.ifdef EU
+	movs r0, #0xd7
+.else
 	movs r0, #0xda
+.endif
 .endif
 	bl CheckLocalFlag
 	cmp r0, #0
@@ -14,7 +18,11 @@
 .ifdef JP
 	movs r0, #0xd7
 .else
+.ifdef EU
+	movs r0, #0xd7
+.else
 	movs r0, #0xda
+.endif
 .endif
 	bl SetLocalFlag
 	b _080638D6
@@ -22,7 +30,11 @@ _08063896:
 .ifdef JP
 	movs r0, #0xce
 .else
+.ifdef EU
+	movs r0, #0xce
+.else
 	movs r0, #0xd1
+.endif
 .endif
 	bl CheckLocalFlag
 	cmp r0, #0
@@ -47,7 +59,11 @@ _080638B2:
 .ifdef JP
 	movs r0, #0xce
 .else
+.ifdef EU
+	movs r0, #0xce
+.else
 	movs r0, #0xd1
+.endif
 .endif
 	bl SetLocalFlag
 	ldr r0, _080638FC @ =0x00000A17

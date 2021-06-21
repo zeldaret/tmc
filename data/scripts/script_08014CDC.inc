@@ -56,7 +56,11 @@ script_08014D96:
 .ifdef JP
 	SetLocalFlag 0x006b
 .else
+.ifdef EU
+	SetLocalFlag 0x006b
+.else
 	SetLocalFlag 0x006d
+.endif
 .endif
 	Call sub_0807DF50
 	_0807E878 

@@ -46,17 +46,16 @@ const char gUnk_0811E470[4] = "LINK";
 #ifdef DEMO
 const u8 unknown[] = { 0x0, 0x0f, 0x0a, 0x0a, 0x0f, 0x0f, 0x0f, 0x08, 0x05, 0x05, 0x00, 0x00 };
 #else
-const u8 padding[2] = {0,0};
+const u8 padding[2] = { 0, 0 };
 #endif
 
 static SaveResult (*const sSaveHandlers[])(u32) = { HandleSaveInit, HandleSaveInProgress, HandleSaveDone };
 
-
 #ifdef DEMO
-asm(".incbin \"baserom_demo.gba\", 0x11e010, 0xf0c"); // TODO 
+asm(".incbin \"baserom_demo.gba\", 0x11e010, 0xf0c"); // TODO disassemble
 #else
 
-#ifdef JP
+#if defined(JP) || defined(EU)
 static const char sSignatureLong[32] = "AGBZELDA:THE MINISH CAP:ZELDA 3";
 #else
 static const char sSignatureLong[32] = "AGBZELDA:THE MINISH CAP:ZELDA 5";
@@ -137,11 +136,10 @@ SaveResult HandleSaveDone(u32 arg0) {
     return result;
 }
 
-
 u32 InitSaveData(void) {
 #ifdef DEMO
-  CpuSet(NULL,&gSave,0x4b4);
-  return 1;
+    CpuSet(NULL, &gSave, 0x4b4);
+    return 1;
 #else
     const SaveFileEEPROMAddresses* eepromAddresses;
     u32 error;
@@ -171,65 +169,62 @@ u32 InitSaveData(void) {
 }
 
 u32 WriteSaveFile(u32 index, SaveFile* saveFile) {
-    #ifdef DEMO
+#ifdef DEMO
     return 1;
-    #else
+#else
     return DataDoubleWriteWithStatus(index, saveFile);
-    #endif
+#endif
 }
 
 u32 Write_02000000(struct_02000000* arg0) {
-    #ifdef DEMO
+#ifdef DEMO
     return 1;
-    #else
+#else
     return DataDoubleWriteWithStatus(3, arg0);
-    #endif
+#endif
 }
 
 u32 sub_0807CF1C(u8* arg0) {
-    #ifdef DEMO
+#ifdef DEMO
     return 1;
-    #else
+#else
     return DataDoubleWriteWithStatus(5, arg0);
-    #endif
+#endif
 }
 
 s32 ReadSaveFile(u32 index, SaveFile* saveFile) {
-    #ifdef DEMO
+#ifdef DEMO
     return 1;
-    #else
+#else
     return DataDoubleReadWithStatus(index, saveFile);
-    #endif
+#endif
 }
 
 u32 Read_02000000(struct_02000000* arg0) {
-    #ifdef DEMO
+#ifdef DEMO
     return 0;
-    #else
+#else
     return DataDoubleReadWithStatus(3, arg0);
-    #endif
+#endif
 }
 
 u32 sub_0807CF3C(u8* arg0) {
-    #ifdef DEMO
+#ifdef DEMO
     return 0;
-    #else
+#else
     return DataDoubleReadWithStatus(5, arg0);
-    #endif
+#endif
 }
 
-
-
 void SetFileStatusDeleted(u32 index) {
-    #ifndef DEMO
+#ifndef DEMO
     const SaveFileEEPROMAddresses* eepromAddresses;
 
     eepromAddresses = GetSaveFileEEPROMAddresses(index);
     WriteSaveFileStatus(eepromAddresses->checksum2, &sSaveDescDeleted);
     WriteSaveFileStatus(eepromAddresses->checksum1, &sSaveDescDeleted);
-    #endif
+#endif
 }
-
 
 #ifndef DEMO
 void SetFileStatusInit(u32 index) {

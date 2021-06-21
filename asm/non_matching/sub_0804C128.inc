@@ -119,7 +119,11 @@ _0804C206:
 .ifdef JP
 	movs r0, #0x5a
 .else
+.ifdef EU
+	movs r0, #0x5a
+.else
 	movs r0, #0x5c
+.endif
 .endif
 	bl CheckLocalFlag
 	cmp r0, #0

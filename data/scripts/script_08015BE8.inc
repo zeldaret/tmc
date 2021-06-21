@@ -34,7 +34,11 @@ script_08015BF0:
 .ifdef JP
 	SetLocalFlag 0x009b
 .else
+.ifdef EU
+	SetLocalFlag 0x009b
+.else
 	SetLocalFlag 0x009c
+.endif
 .endif
 	Call sub_0807FBCC
 	Call sub_0807DF50

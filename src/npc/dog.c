@@ -74,7 +74,7 @@ void sub_08069B44(Entity* this) {
         if (((this->type == 0) && ((gPlayerState.flags.all & 0x80) == 0)) && (GetInventoryValue(0x36) != 2)) {
             this->action = 4;
         }
-#ifdef JP
+#if defined(JP) || defined(EU)
         if ((this->type == 2) && (CheckLocalFlag(0xcc) == 0)) {
 #else
         if ((this->type == 2) && (CheckLocalFlag(0xcf) == 0)) {
@@ -221,7 +221,15 @@ void sub_08069E50(Entity* this) {
 
 void sub_08069ECC(Entity* this) {
     if (UpdateFuseInteraction(this) != 0) {
+#ifdef EU
+        if (GetInventoryValue(0x36) != 2) {
+            this->action = 5;
+        } else {
+            this->action = 1;
+        }
+#else
         this->action = 1;
+#endif
     }
 }
 
@@ -262,7 +270,7 @@ void sub_08069F6C(Entity* this) {
 }
 
 u32 sub_08069F90(Entity* this) {
-#ifdef JP
+#if defined(JP) || defined(EU)
     if ((this->type == 2) && (CheckLocalFlag(0xcc) == 0)) {
 #else
     if ((this->type == 2) && (CheckLocalFlag(0xcf) == 0)) {
@@ -320,13 +328,13 @@ void sub_0806A0A4(Entity* this) {
 
     if ((gPlayerState.flags.all & 0x80) != 0) {
         dialog = 4;
-#ifdef JP
+#if defined(JP) || defined(EU)
         if (CheckLocalFlag(0xcc) == 0) {
 #else
         if (CheckLocalFlag(0xcf) == 0) {
 #endif
             dialog = 3;
-#ifdef JP
+#if defined(JP) || defined(EU)
             SetLocalFlag(0xcc);
 #else
             SetLocalFlag(0xcf);
@@ -336,19 +344,19 @@ void sub_0806A0A4(Entity* this) {
     } else {
 
         dialog = 2;
-#ifdef JP
+#if defined(JP) || defined(EU)
         if (CheckLocalFlag(0xcc) == 0) {
 #else
         if (CheckLocalFlag(0xcf) == 0) {
 #endif
             dialog = 1;
-#ifdef JP
+#if defined(JP) || defined(EU)
             if (CheckLocalFlag(0xd8) == 0) {
 #else
             if (CheckLocalFlag(0xdb) == 0) {
 #endif
                 dialog = 0;
-#ifdef JP
+#if defined(JP) || defined(EU)
                 SetLocalFlag(0xd8);
 #else
                 SetLocalFlag(0xdb);

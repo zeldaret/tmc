@@ -257,7 +257,11 @@ bool32 sub_080281E0(u32 param_1) {
 }
 
 void sub_08028224(u32 param_1) {
+#ifdef EU
+    CreateItemEntity(param_1, 0, 1);
+#else
     sub_080A7C18(param_1, 0, 1);
+#endif
     TextboxNoOverlapFollow(0x579);
 }
 

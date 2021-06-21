@@ -5,25 +5,59 @@
     .align 2
 
 gUnk_08132B30:: @ 08132B30
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x132180, 0x0000203
+.else
 	.incbin "baserom.gba", 0x132B30, 0x0000203
+.endif
 
 gUnk_08132D33:: @ 08132D33
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x132383, 0x00002E6
+.else
 	.incbin "baserom.gba", 0x132D33, 0x00002E6
+.endif
 
 gUnk_08133019:: @ 08133019
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x132669, 0x00000F8
+.else
 	.incbin "baserom.gba", 0x133019, 0x00000F8
+.endif
 
 gUnk_08133111:: @ 08133111
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x132761, 0x0000200
+.else
 	.incbin "baserom.gba", 0x133111, 0x0000200
+.endif
 
 gUnk_08133311:: @ 08133311
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x132961, 0x0000022
+.else
 	.incbin "baserom.gba", 0x133311, 0x0000022
+.endif
 
 gUnk_08133333:: @ 08133333
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x132983, 0x0000031
+.else
 	.incbin "baserom.gba", 0x133333, 0x0000035
+.endif
 
 gUnk_08133368:: @ 08133368
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x1329B4, 0x00005B0
+.else
 	.incbin "baserom.gba", 0x133368, 0x00005B0
+.endif
 
 gUnk_08133918:: @ 08133918
 	.incbin "baserom.gba", 0x133918, 0x0000020
@@ -319,7 +353,12 @@ gUnk_0813509C:: @ 0813509C
 	.4byte gUnk_08135074
 
 gUnk_081350A0:: @ 081350A0
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x1346EC, 0x00000C8
+.else
 	.incbin "baserom.gba", 0x1350A0, 0x00000C8
+.endif
 
 gUnk_08135168:: @ 08135168
 	.incbin "baserom.gba", 0x135168, 0x0000028
@@ -1614,22 +1653,46 @@ gUnk_08138958:: @ 08138958
 	.4byte gUnk_08133FC8
 
 gUnk_0813897C:: @ 0813897C
+.ifdef EU
 	.incbin "baserom.gba", 0x13897C, 0x0000028
+.else
+	.incbin "baserom.gba", 0x13897C, 0x0000028
+.endif
 
 gUnk_081389A4:: @ 081389A4
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x137FF0, 0x0000028
+.else
 	.incbin "baserom.gba", 0x1389A4, 0x0000014
+.endif
 
 gUnk_081389B8:: @ 081389B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x138018, 0x0000028
+.else
 	.incbin "baserom.gba", 0x1389B8, 0x0000014
+.endif
 
 gUnk_081389CC:: @ 081389CC
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x138040, 0x0000028
+.else
 	.incbin "baserom.gba", 0x1389CC, 0x0000014
+.endif	
 
 gUnk_081389E0:: @ 081389E0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x138068, 0x0000028
+.else
 	.incbin "baserom.gba", 0x1389E0, 0x0000014
+.endif
 
 gUnk_081389F4:: @ 081389F4
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x138090, 0x00000B4
+.else
 	.incbin "baserom.gba", 0x1389F4, 0x0000064
+.endif
 
 gUnk_08138A58:: @ 08138A58
 	.incbin "baserom.gba", 0x138A58, 0x0000050
@@ -2621,7 +2684,11 @@ gUnk_0813ABF8:: @ 0813ABF8
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x13A824, 0x0000014
 .else
+.ifdef EU
+	.incbin "baserom_jp.gba", 0x13A824, 0x0000014
+.else
 	.incbin "baserom.gba", 0x13ABF8, 0x0000014
+.endif
 .endif
 
 gUnk_0813AC0C:: @ 0813AC0C
@@ -2682,7 +2749,12 @@ gUnk_0813AD74:: @ 0813AD74
 	.incbin "baserom.gba", 0x13AD74, 0x0000014
 
 gUnk_0813AD88:: @ 0813AD88
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x13A474, 0x0000064
+.else
 	.incbin "baserom.gba", 0x13AD88, 0x0000064
+.endif
 
 gUnk_0813ADEC:: @ 0813ADEC
 	.incbin "baserom.gba", 0x13ADEC, 0x0000028
@@ -6437,7 +6509,12 @@ gUnk_08221119:: @ 08221119
 	.incbin "baserom.gba", 0x221119, 0x00004E2
 
 gUnk_082215FB:: @ 082215FB
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x220CE7, 0x00003F6
+.else
 	.incbin "baserom.gba", 0x2215FB, 0x00003F6
+.endif
 
 gUnk_082219F1:: @ 082219F1
 	.incbin "baserom.gba", 0x2219F1, 0x0000027
@@ -7724,40 +7801,100 @@ gUnk_082F2B0F:: @ 082F2B0F
 	.incbin "baserom.gba", 0x2F2B0F, 0x0001265
 
 gUnk_082F3D74:: @ 082F3D74
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x2F3460, 0x000018F
+.else
 	.incbin "baserom.gba", 0x2F3D74, 0x000018F
+.endif
 
 gUnk_082F3F03:: @ 082F3F03
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x2F35EF, 0x0000015
+.else
 	.incbin "baserom.gba", 0x2F3F03, 0x0000015
+.endif
 
 gUnk_082F3F18:: @ 082F3F18
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x2F3604, 0x0000215
+.else
 	.incbin "baserom.gba", 0x2F3F18, 0x0000215
+.endif
 
 gUnk_082F412D:: @ 082F412D
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x2F3819, 0x000030B
+.else
 	.incbin "baserom.gba", 0x2F412D, 0x000030B
+.endif
 
 gUnk_082F4438:: @ 082F4438
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x2F3B24, 0x0000BCF
+.else
 	.incbin "baserom.gba", 0x2F4438, 0x0000BCF
+.endif
 
 gUnk_082F5007:: @ 082F5007
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x2F46F3, 0x0000051
+.else
 	.incbin "baserom.gba", 0x2F5007, 0x0000051
+.endif
 
 gUnk_082F5058:: @ 082F5058
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x2F4744, 0x00000B9
+.else
 	.incbin "baserom.gba", 0x2F5058, 0x00000B9
+.endif
 
 gUnk_082F5111:: @ 082F5111
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x2F47FD, 0x000015B
+.else
 	.incbin "baserom.gba", 0x2F5111, 0x000015B
+.endif
 
 gUnk_082F526C:: @ 082F526C
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x2F4958, 0x00079B8
+.else
 	.incbin "baserom.gba", 0x2F526C, 0x00079B8
+.endif
 
 gUnk_082FCC24:: @ 082FCC24
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x2FC310, 0x00011D5
+.else
 	.incbin "baserom.gba", 0x2FCC24, 0x00011D5
+.endif
 
 gUnk_082FDDF9:: @ 082FDDF9
+.ifdef EU
+	@ TODO remove the 4 bytes at the correct place
+	.incbin "baserom_eu.gba", 0x2FD4E5, 0x00004E4
+.else
 	.incbin "baserom.gba", 0x2FDDF9, 0x00004E8
+.endif
 
 gUnk_082FE2E1:: @ 082FE2E1
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x2FD9C9, 0x0001CBE
+.else
 	.incbin "baserom.gba", 0x2FE2E1, 0x0001CBE
+.endif
 
 gUnk_082FFF9F:: @ 082FFF9F
 	.incbin "baserom.gba", 0x2FFF9F, 0x0000061
@@ -7958,7 +8095,12 @@ gUnk_08308716:: @ 08308716
 	.incbin "baserom.gba", 0x308716, 0x00006F3
 
 gUnk_08308E09:: @ 08308E09
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x3084F1, 0x0000817
+.else
 	.incbin "baserom.gba", 0x308E09, 0x0000817
+.endif
 
 gUnk_08309620:: @ 08309620
 	.incbin "baserom.gba", 0x309620, 0x000027A
@@ -8402,13 +8544,23 @@ gUnk_08315F6C:: @ 08315F6C
 	.incbin "baserom.gba", 0x315F6C, 0x0001B94
 
 gUnk_08317B00:: @ 08317B00
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x3171E8, 0x00026A1
+.else
 	.incbin "baserom.gba", 0x317B00, 0x00026A1
+.endif
 
 gUnk_0831A1A1:: @ 0831A1A1
 	.incbin "baserom.gba", 0x31A1A1, 0x0001993
 
 gUnk_0831BB34:: @ 0831BB34
 	.incbin "baserom.gba", 0x31BB34, 0x00009FB
+
+.ifdef EU
+@ TODO differs to gUnk_08324AE4
+    .incbin "baserom_eu.gba", 0x31BC17, 0x00083D5
+.else
 
 gUnk_0831C52F:: @ 0831C52F
 	.incbin "baserom.gba", 0x31C52F, 0x00012C6
@@ -8493,6 +8645,7 @@ gUnk_0832413F:: @ 0832413F
 
 gUnk_08324A37:: @ 08324A37
 	.incbin "baserom.gba", 0x324A37, 0x00000AD
+.endif
 
 gUnk_08324AE4:: @ 08324AE4
 	.incbin "baserom.gba", 0x324AE4, 0x000018F
@@ -8694,6 +8847,11 @@ gUnk_08344A77:: @ 08344A77
 
 gUnk_0834535C:: @ 0834535C
 	.incbin "baserom.gba", 0x34535C, 0x000031B
+
+@ TODO EU differs from here
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x344B7F, 0x025D851
+.else
 
 gUnk_08345677:: @ 08345677
 	.incbin "baserom.gba", 0x345677, 0x0000325
@@ -11185,8 +11343,10 @@ gUnk_085A0806:: @ 085A0806
 	.incbin "baserom.gba", 0x5A0806, 0x000267A
 
 .endif
+.endif
 
-@ TODO JP differs to here
+@ TODO JP and EU differ to here
+
 gGlobalGfxAndPalettes:: @ 085A2E80
 	.incbin "baserom.gba", 0x5A2E80, 0x0001382
 
@@ -11299,11 +11459,14 @@ gUnk_085B1094:: @ 085B1094
 	.incbin "baserom.gba", 0x5B1094, 0x00030EC
 
 gUnk_085B4180:: @ 085B4180
+.ifdef EU
+	@TODO differs to
+	.incbin "baserom_eu.gba", 0x5B36D0, 0x0001D00
+.else
 	.incbin "baserom.gba", 0x5B4180, 0x0000EB5
-
 gUnk_085B5035:: @ 085B5035
 	.incbin "baserom.gba", 0x5B5035, 0x0000E8B
-
+.endif
 
 @ TODO figurine Data
 gUnk_085B5EC0:: @ 085B5EC0
@@ -12245,6 +12408,10 @@ gUnk_08645533:: @ 08645533
 gUnk_08645536:: @ 08645536
 	.incbin "baserom.gba", 0x645536, 0x00001EF
 
+.ifdef EU
+	@ TODO differs to gUnk_086926A0
+	.incbin "baserom_eu.gba", 0x644C35, 0x004D23B
+.else
 gUnk_08645725:: @ 08645725
 	.incbin "baserom.gba", 0x645725, 0x0005330
 
@@ -12548,6 +12715,7 @@ gUnk_086925DA:: @ 086925DA
 gUnk_0869261A:: @ 0869261A
 	.incbin "baserom.gba", 0x69261A, 0x0000086
 
+.endif
 gUnk_086926A0:: @ 086926A0
 	.incbin "baserom.gba", 0x6926A0, 0x000001A
 
@@ -15036,6 +15204,11 @@ gUnk_08900110:: @ 08900110
 gUnk_08900380:: @ 08900380
 	.incbin "baserom.gba", 0x900380, 0x00002A0
 
+.ifdef EU
+@ TODO differs to gUnk_089B1D90
+    .incbin "baserom_eu.gba", 0x8FFDF0, 0x00AED70
+.else
+
 gUnk_08900620:: @ 08900620
 	.incbin "baserom.gba", 0x900620, 0x0003D2B
 
@@ -15686,3 +15859,5 @@ gUnk_089B0310:: @ 089B0310
 
 gUnk_089B1000:: @ 089B1000
 	.incbin "baserom.gba", 0x9B1000, 0x0000D90
+
+.endif

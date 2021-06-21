@@ -7,7 +7,7 @@
 extern void (*const gUnk_081280C4[])();
 
 void DrawKinstoneMenu(void) {
-    #ifndef DEMO
+#ifndef DEMO
     gScreenTransition.field_0x24[8] = 2;
     FlushSprites();
     gUnk_081280C4[gMenu.menuType]();
@@ -19,7 +19,7 @@ void DrawKinstoneMenu(void) {
     sub_080AD9B0();
     sub_080AD918();
     gScreenTransition.field_0x24[8] = 0;
-    #endif
+#endif
 }
 
 extern void gUnk_081280DC;

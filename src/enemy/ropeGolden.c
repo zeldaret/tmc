@@ -80,9 +80,7 @@ void sub_080382EC(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/ropeGolden/sub_08038304.inc", void sub_08038304(Entity* this)) {
-}
-END_NONMATCH
+ASM_FUNC("asm/non_matching/ropeGolden/sub_08038304.inc", void sub_08038304(Entity* this))
 
 void sub_080383AC(Entity* this) {
     u32 v;

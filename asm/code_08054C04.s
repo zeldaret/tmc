@@ -386,7 +386,11 @@ sub_08054EB8: @ 0x08054EB8
 .ifdef JP
 	movs r0, #0x77
 .else
+.ifdef EU
+	movs r0, #0x77
+.else
 	movs r0, #0x79
+.endif
 .endif
 	strh r0, [r3, #0x3e]
 	adds r0, r3, #0
@@ -888,8 +892,10 @@ _080552B4:
 	ldrb r0, [r3, #6]
 	adds r0, #1
 	strb r0, [r3, #6]
+.ifndef EU
 	movs r0, #0x73
 	bl SoundReq
+.endif
 _080552D6:
 	pop {r4, pc}
 	.align 2, 0

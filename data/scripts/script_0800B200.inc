@@ -4,7 +4,11 @@ SCRIPT_START script_0800B200
 .ifdef JP
 	CheckLocalFlag 0x001e
 .else
+.ifdef EU
+	CheckLocalFlag 0x001e
+.else
 	CheckLocalFlag 0x001d
+.endif
 .endif
 	JumpIf script_0800B252
 	SetEntitySpeed 0x00c0
@@ -25,7 +29,11 @@ script_0800B216:
 .ifdef JP
 	CheckLocalFlag 0x001e
 .else
+.ifdef EU
+	CheckLocalFlag 0x001e
+.else
 	CheckLocalFlag 0x001d
+.endif
 .endif
 	JumpIfNot script_0800B216
 script_0800B252:

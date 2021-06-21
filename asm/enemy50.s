@@ -9,6 +9,9 @@
 
 	thumb_func_start Enemy50
 Enemy50: @ 0x08040B2C
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x040a2c, 0x5c @TODO disassemble
+.else
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xa]
@@ -48,6 +51,7 @@ _08040B5C:
 	pop {r4, r5, pc}
 	.align 2, 0
 _08040B80: .4byte gUnk_080D0DC4
+.endif
 
 	thumb_func_start sub_08040B84
 sub_08040B84: @ 0x08040B84
@@ -1042,6 +1046,7 @@ _080412C8:
 	.align 2, 0
 _080412FC: .4byte gRoomControls
 
+.ifndef EU
 	thumb_func_start sub_08041300
 sub_08041300: @ 0x08041300
 	push {lr}
@@ -1071,3 +1076,4 @@ _0804132A:
 _0804132C:
 	pop {pc}
 	.align 2, 0
+.endif

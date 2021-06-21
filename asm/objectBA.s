@@ -28,6 +28,9 @@ _080A1700: .4byte gUnk_08124ED0
 
 	thumb_func_start sub_080A1704
 sub_080A1704: @ 0x080A1704
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A0F40, 0x0000128 @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -178,6 +181,7 @@ _080A183C: .4byte gPlayerState
 _080A1840: .4byte 0x80100000
 _080A1844: .4byte gArea
 _080A1848: .4byte 0x00000864
+.endif
 
 	thumb_func_start sub_080A184C
 sub_080A184C: @ 0x080A184C

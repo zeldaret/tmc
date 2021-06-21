@@ -728,6 +728,9 @@ sub_08094F98: @ 0x08094F98
 
 	thumb_func_start sub_08094FA8
 sub_08094FA8: @ 0x08094FA8
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x09487C, 0x000009C @TODO disassemble
+.else
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -833,6 +836,7 @@ _08095070:
 	bl sub_08078A90
 _08095086:
 	pop {r4, pc}
+.endif
 
 	thumb_func_start sub_08095088
 sub_08095088: @ 0x08095088

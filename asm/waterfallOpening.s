@@ -9,6 +9,9 @@
 
 	thumb_func_start WaterfallOpening
 WaterfallOpening: @ 0x0809FF68
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x09F7C8, 0x000013C @TODO disassemble
+.else
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0xc]
@@ -169,6 +172,7 @@ _080A00AA:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A00AC: .4byte gRoomControls
+.endif
 
 	thumb_func_start sub_080A00B0
 sub_080A00B0: @ 0x080A00B0

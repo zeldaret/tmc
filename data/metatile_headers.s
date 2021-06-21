@@ -23,258 +23,551 @@ gAreaMetatiles_CastorWilds:: @ 0810270C
 	metatile_types_top 0x2062C, 0xFFC, 1, 1
 
 gAreaMetatiles_HyruleTown:: @ 0810273C
+.ifdef EU
+	metatiles_bottom 0x29774-0x4, 0x4000, 1
+	metatiles_top 0x2B788-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x2D47C-0x4, 0x1000, 1
+	metatile_types_top 0x2D984-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x29774, 0x4000, 1
 	metatiles_top 0x2B788, 0x3FF0, 1
 	metatile_types_bottom 0x2D47C, 0x1000, 1
 	metatile_types_top 0x2D984, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_MtCrenel:: @ 0810276C
+.ifdef EU
+	metatiles_bottom 0x43FF0-0x4, 0x4000, 1
+	metatiles_top 0x45D0C-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x46BA4-0x4, 0x1000, 1
+	metatile_types_top 0x4712C-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x43FF0, 0x4000, 1
 	metatiles_top 0x45D0C, 0x3FF0, 1
 	metatile_types_bottom 0x46BA4, 0x1000, 1
 	metatile_types_top 0x4712C, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_HyruleField:: @ 0810279C
+.ifdef EU
+	metatiles_bottom 0x5D3B8-0x4, 0x4000, 1
+	metatiles_top 0x5F584-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x6064C-0x4, 0x1000, 1
+	metatile_types_top 0x60C64-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x5D3B8, 0x4000, 1
 	metatiles_top 0x5F584, 0x3FF0, 1
 	metatile_types_bottom 0x6064C, 0x1000, 1
 	metatile_types_top 0x60C64, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_CastleGarden:: @ 081027CC
+.ifdef EU
+	metatiles_bottom 0x6B79C-0x4, 0x3000, 1
+	metatiles_top 0x6CD14-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x6D7A8-0x4, 0xC00, 1
+	metatile_types_top 0x6DAE4-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x6B79C, 0x3000, 1
 	metatiles_top 0x6CD14, 0x3FF0, 1
 	metatile_types_bottom 0x6D7A8, 0xC00, 1
 	metatile_types_top 0x6DAE4, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_CloudTops:: @ 081027FC
+.ifdef EU
+	metatiles_bottom 0x72898-0x4, 0x3FB0, 1
+	metatiles_top 0x73B54-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x74534-0x4, 0xFEC, 1
+	metatile_types_top 0x74824-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x72898, 0x3FB0, 1
 	metatiles_top 0x73B54, 0x3FF0, 1
 	metatile_types_bottom 0x74534, 0xFEC, 1
 	metatile_types_top 0x74824, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_RoyalValley:: @ 0810282C
+.ifdef EU
+	metatiles_bottom 0x7CAB8-0x4, 0x4000, 1
+	metatiles_top 0x7DBEC-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x7E6F8-0x4, 0x1000, 1
+	metatile_types_top 0x7EA4C-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x7CAB8, 0x4000, 1
 	metatiles_top 0x7DBEC, 0x3FF0, 1
 	metatile_types_bottom 0x7E6F8, 0x1000, 1
 	metatile_types_top 0x7EA4C, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_Beanstalks:: @ 0810285C
+.ifdef EU
+	metatiles_bottom 0x8B610-0x4, 0x5A8, 1
+	metatile_types_bottom 0x8B930-0x4, 0x16A, 1, 1
+.else
 	metatiles_bottom 0x8B610, 0x5A8, 1
 	metatile_types_bottom 0x8B930, 0x16A, 1, 1
+.endif
 
 gAreaMetatiles_CrenelCaves:: @ 08102874
+.ifdef EU
+	metatiles_bottom 0x93F04-0x4, 0x3F80, 1
+	metatiles_top 0x95ED0-0x4, 0x3F40, 1
+	metatile_types_bottom 0x9775C-0x4, 0xFE0, 1
+	metatile_types_top 0x97D58-0x4, 0xFD0, 1, 1
+.else
 	metatiles_bottom 0x93F04, 0x3F80, 1
 	metatiles_top 0x95ED0, 0x3F40, 1
 	metatile_types_bottom 0x9775C, 0xFE0, 1
 	metatile_types_top 0x97D58, 0xFD0, 1, 1
+.endif
 
 gAreaMetatiles_GreatFairies:: @ 081028A4
+.ifdef EU
+	metatiles_bottom 0x9E2D0-0x4, 0x17A8, 1
+	metatiles_top 0x9EF9C-0x4, 0x1070, 1
+	metatile_types_bottom 0x9F4D0-0x4, 0x5EA, 1
+	metatile_types_top 0x9F650-0x4, 0x41C, 1, 1
+.else
 	metatiles_bottom 0x9E2D0, 0x17A8, 1
 	metatiles_top 0x9EF9C, 0x1070, 1
 	metatile_types_bottom 0x9F4D0, 0x5EA, 1
 	metatile_types_top 0x9F650, 0x41C, 1, 1
+.endif
 
 gAreaMetatiles_MinishVillage:: @ 081028D4
+.ifdef EU
+	metatiles_bottom 0xD9690-0x4, 0x35A8, 1
+	metatiles_top 0xDB294-0x4, 0x3228, 1
+	metatile_types_bottom 0xDC79C-0x4, 0xD6A, 1
+	metatile_types_top 0xDCA88-0x4, 0xC8A, 1, 1
+.else
 	metatiles_bottom 0xD9690, 0x35A8, 1
 	metatiles_top 0xDB294, 0x3228, 1
 	metatile_types_bottom 0xDC79C, 0xD6A, 1
 	metatile_types_top 0xDCA88, 0xC8A, 1, 1
+.endif
 
 gAreaMetatiles_MelarisMine:: @ 08102904
+.ifdef EU
+	metatiles_bottom 0xE8D1C-0x4, 0x27C0, 1
+	metatiles_top 0xEA3A0-0x4, 0x308, 1
+	metatile_types_bottom 0xEA464-0x4, 0x9F0, 1
+	metatile_types_top 0xEA684-0x4, 0xC2, 1, 1
+.else
 	metatiles_bottom 0xE8D1C, 0x27C0, 1
 	metatiles_top 0xEA3A0, 0x308, 1
 	metatile_types_bottom 0xEA464, 0x9F0, 1
 	metatile_types_top 0xEA684, 0xC2, 1, 1
+.endif
 
 gAreaMetatiles_MnishPaths1:: @ 08102934
+.ifdef EU
+	metatiles_bottom 0xEE698-0x4, 0x1420, 1
+	metatile_types_bottom 0xEF330-0x4, 0x508, 1, 1
+.else
 	metatiles_bottom 0xEE698, 0x1420, 1
 	metatile_types_bottom 0xEF330, 0x508, 1, 1
+.endif
 
 gAreaMetatiles_CrenelMinishPaths:: @ 0810294C
+.ifdef EU
+	metatiles_bottom 0xF5734-0x4, 0x1EB8, 1
+	metatile_types_bottom 0xF698C-0x4, 0x7AE, 1, 1
+.else
 	metatiles_bottom 0xF5734, 0x1EB8, 1
 	metatile_types_bottom 0xF698C, 0x7AE, 1, 1
+.endif
 
 gAreaMetatiles_MinishHouseInteriors:: @ 08102964
+.ifdef EU
+	metatiles_bottom 0x93F04-0x4, 0x3F80, 1
+	metatiles_top 0x95ED0-0x4, 0x3F40, 1
+	metatile_types_bottom 0x9775C-0x4, 0xFE0, 1
+	metatile_types_top 0x97D58-0x4, 0xFD0, 1, 1
+.else
 	metatiles_bottom 0x93F04, 0x3F80, 1
 	metatiles_top 0x95ED0, 0x3F40, 1
 	metatile_types_bottom 0x9775C, 0xFE0, 1
 	metatile_types_top 0x97D58, 0xFD0, 1, 1
+.endif
 
 gAreaMetatiles_HouseInteriors1:: @ 08102994
+.ifdef EU
+	metatiles_bottom 0xFCE7C-0x4, 0x3188, 1
+	metatiles_top 0xF7AD8-0x4, 0x3FF0, 1
+	metatile_types_bottom 0xFE120-0x4, 0xC62, 1
+	metatile_types_top 0xF8A5C-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0xFCE7C, 0x3188, 1
 	metatiles_top 0xF7AD8, 0x3FF0, 1
 	metatile_types_bottom 0xFE120, 0xC62, 1
 	metatile_types_top 0xF8A5C, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_HouseInteriors2:: @ 081029C4
+.ifdef EU
+	metatiles_bottom 0x102AB8-0x4, 0x33A0, 1
+	metatiles_top 0xF7AD8-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x103D54-0x4, 0xCE8, 1
+	metatile_types_top 0xF8A5C-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x102AB8, 0x33A0, 1
 	metatiles_top 0xF7AD8, 0x3FF0, 1
 	metatile_types_bottom 0x103D54, 0xCE8, 1
 	metatile_types_top 0xF8A5C, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_HouseInteriors4:: @ 081029F4
+.ifdef EU
+	metatiles_bottom 0x10823C-0x4, 0x33A0, 1
+	metatiles_top 0xF7AD8-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x109530-0x4, 0xCE8, 1
+	metatile_types_top 0xF8A5C-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x10823C, 0x33A0, 1
 	metatiles_top 0xF7AD8, 0x3FF0, 1
 	metatile_types_bottom 0x109530, 0xCE8, 1
 	metatile_types_top 0xF8A5C, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_HouseInteriors3:: @ 08102A24
+.ifdef EU
+	metatiles_bottom 0x10DAA8-0x4, 0x2F20, 1
+	metatiles_top 0xF7AD8-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x10E9F0-0x4, 0xBC8, 1
+	metatile_types_top 0xF8A5C-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x10DAA8, 0x2F20, 1
 	metatiles_top 0xF7AD8, 0x3FF0, 1
 	metatile_types_bottom 0x10E9F0, 0xBC8, 1
 	metatile_types_top 0xF8A5C, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_TreeInteriors:: @ 08102A54
+.ifdef EU
+	metatiles_bottom 0x112BF0-0x4, 0x3000, 1
+	metatiles_top 0xF7AD8-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x113A88-0x4, 0xC00, 1
+	metatile_types_top 0xF8A5C-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x112BF0, 0x3000, 1
 	metatiles_top 0xF7AD8, 0x3FF0, 1
 	metatile_types_bottom 0x113A88, 0xC00, 1
 	metatile_types_top 0xF8A5C, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_Dojos:: @ 08102A84
+.ifdef EU
+	metatiles_bottom 0x11D198-0x4, 0x33A0, 1
+	metatiles_top 0xF7AD8-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x11E030-0x4, 0xCE8, 1
+	metatile_types_top 0xF8A5C-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x11D198, 0x33A0, 1
 	metatiles_top 0xF7AD8, 0x3FF0, 1
 	metatile_types_bottom 0x11E030, 0xCE8, 1
 	metatile_types_top 0xF8A5C, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_MinishCracks:: @ 08102AB4
+.ifdef EU
+	metatiles_bottom 0x118044-0x4, 0x3180, 1
+	metatiles_top 0xF7AD8-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x118F94-0x4, 0xC60, 1
+	metatile_types_top 0xF8A5C-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x118044, 0x3180, 1
 	metatiles_top 0xF7AD8, 0x3FF0, 1
 	metatile_types_bottom 0x118F94, 0xC60, 1
 	metatile_types_top 0xF8A5C, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_ArmosInteriors:: @ 08102AE4
+.ifdef EU
+	metatiles_bottom 0xA4840-0x4, 0xC50, 1
+	metatiles_top 0xA4FB4-0x4, 0xC50, 1
+	metatile_types_bottom 0xA5728-0x4, 0x314, 1
+	metatile_types_top 0xA5840-0x4, 0x314, 1, 1
+.else
 	metatiles_bottom 0xA4840, 0xC50, 1
 	metatiles_top 0xA4FB4, 0xC50, 1
 	metatile_types_bottom 0xA5728, 0x314, 1
 	metatile_types_top 0xA5840, 0x314, 1, 1
+.endif
 
 gAreaMetatiles_MinishRafters:: @ 08102B14
+.ifdef EU
+	metatiles_bottom 0x120478-0x4, 0x1A30, 1
+	metatiles_top 0xF7AD8-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x1210C8-0x4, 0x68C, 1
+	metatile_types_top 0xF8A5C-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x120478, 0x1A30, 1
 	metatiles_top 0xF7AD8, 0x3FF0, 1
 	metatile_types_bottom 0x1210C8, 0x68C, 1
 	metatile_types_top 0xF8A5C, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_GoronCave:: @ 08102B44
+.ifdef EU
+	metatiles_bottom 0xAC444-0x4, 0x3F80, 1
+	metatiles_top 0xADE48-0x4, 0x3400, 1
+	metatile_types_bottom 0xAF650-0x4, 0xFE0, 1
+	metatile_types_top 0xAFB8C-0x4, 0xD00, 1, 1
+.else
 	metatiles_bottom 0xAC444, 0x3F80, 1
 	metatiles_top 0xADE48, 0x3400, 1
 	metatile_types_bottom 0xAF650, 0xFE0, 1
 	metatile_types_top 0xAFB8C, 0xD00, 1, 1
+.endif
 
 gAreaMetatiles_WindTribeTower:: @ 08102B74
+.ifdef EU
+	metatiles_bottom 0x125100-0x4, 0x2EB0, 1
+	metatiles_top 0xF7AD8-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x126040-0x4, 0xBAC, 1
+	metatile_types_top 0xF8A5C-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x125100, 0x2EB0, 1
 	metatiles_top 0xF7AD8, 0x3FF0, 1
 	metatile_types_bottom 0x126040, 0xBAC, 1
 	metatile_types_top 0xF8A5C, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_WindTribeTowerRoof:: @ 08102BA4
+.ifdef EU
+	metatiles_bottom 0x12AAB0-0x4, 0xBC0, 1
+	metatiles_top 0x12B13C-0x4, 0xBC0, 1
+	metatile_types_bottom 0x12B784-0x4, 0x2F0, 1
+	metatile_types_top 0x12B840-0x4, 0x2F0, 1, 1
+.else
 	metatiles_bottom 0x12AAB0, 0xBC0, 1
 	metatiles_top 0x12B13C, 0xBC0, 1
 	metatile_types_bottom 0x12B784, 0x2F0, 1
 	metatile_types_top 0x12B840, 0x2F0, 1, 1
+.endif
 
 gAreaMetatiles_MinishCaves:: @ 08102BD4
+.ifdef EU
+	metatiles_bottom 0xB9118-0x4, 0x3F80, 1
+	metatiles_top 0xBAF54-0x4, 0x3F80, 1
+	metatile_types_bottom 0xBC0CC-0x4, 0xFE0, 1
+	metatile_types_top 0xBC570-0x4, 0xFE0, 1, 1
+.else
 	metatiles_bottom 0xB9118, 0x3F80, 1
 	metatiles_top 0xBAF54, 0x3F80, 1
 	metatile_types_bottom 0xBC0CC, 0xFE0, 1
 	metatile_types_top 0xBC570, 0xFE0, 1, 1
+.endif
 
 gAreaMetatiles_CastleGardenMinishHoles:: @ 08102C04
+.ifdef EU
+	metatiles_bottom 0xBFB4C-0x4, 0x13A8, 1
+	metatiles_top 0xC0570-0x4, 0x1680, 1
+	metatile_types_bottom 0xC1030-0x4, 0x4EA, 1
+	metatile_types_top 0xC11B8-0x4, 0x5A0, 1, 1
+.else
 	metatiles_bottom 0xBFB4C, 0x13A8, 1
 	metatiles_top 0xC0570, 0x1680, 1
 	metatile_types_bottom 0xC1030, 0x4EA, 1
 	metatile_types_top 0xC11B8, 0x5A0, 1, 1
+.endif
 
 gAreaMetatiles_EzloCutscene:: @ 08102C34
+.ifdef EU
+	metatiles_bottom 0x12EEBC-0x4, 0x1A20, 1
+	metatiles_top 0xF7AD8-0x4, 0x3FF0, 1
+	metatile_types_bottom 0x12F564-0x4, 0x688, 1
+	metatile_types_top 0xF8A5C-0x4, 0xFFC, 1, 1
+.else
 	metatiles_bottom 0x12EEBC, 0x1A20, 1
 	metatiles_top 0xF7AD8, 0x3FF0, 1
 	metatile_types_bottom 0x12F564, 0x688, 1
 	metatile_types_top 0xF8A5C, 0xFFC, 1, 1
+.endif
 
 gAreaMetatiles_HyruleTownUnderground:: @ 08102C64
+.ifdef EU
+	metatiles_bottom 0x1A51B8-0x4, 0x3E80, 1
+	metatiles_top 0x1A7454-0x4, 0x3610, 1
+	metatile_types_bottom 0x1A8B10-0x4, 0xFA0, 1
+	metatile_types_top 0x1A9000-0x4, 0xD84, 1, 1
+.else
 	metatiles_bottom 0x1A51B8, 0x3E80, 1
 	metatiles_top 0x1A7454, 0x3610, 1
 	metatile_types_bottom 0x1A8B10, 0xFA0, 1
 	metatile_types_top 0x1A9000, 0xD84, 1, 1
+.endif
 
 gAreaMetatiles_DeepwoodShrine:: @ 08102C94
+.ifdef EU
+	metatiles_bottom 0x1B20C4-0x4, 0x3B28, 1
+	metatiles_top 0x1B4644-0x4, 0x3620, 1
+	metatile_types_bottom 0x1B6044-0x4, 0xECA, 1
+	metatile_types_top 0x1B64F8-0x4, 0xD88, 1, 1
+.else
 	metatiles_bottom 0x1B20C4, 0x3B28, 1
 	metatiles_top 0x1B4644, 0x3620, 1
 	metatile_types_bottom 0x1B6044, 0xECA, 1
 	metatile_types_top 0x1B64F8, 0xD88, 1, 1
+.endif
 
 gAreaMetatiles_DeepwoodShrineBoss:: @ 08102CC4
+.ifdef EU
+	metatiles_bottom 0x1B9E08-0x4, 0x3620, 1
+	metatiles_top 0x1BAF34-0x4, 0x11F8, 1
+	metatile_types_bottom 0x1BB24C-0x4, 0xD88, 1
+	metatile_types_top 0x1BB4BC-0x4, 0x47E, 1, 1
+.else
 	metatiles_bottom 0x1B9E08, 0x3620, 1
 	metatiles_top 0x1BAF34, 0x11F8, 1
 	metatile_types_bottom 0x1BB24C, 0xD88, 1
 	metatile_types_top 0x1BB4BC, 0x47E, 1, 1
+.endif
 
 gAreaMetatiles_DeepwoodShrineEntry:: @ 08102CF4
+.ifdef EU
+	metatiles_bottom 0x1BE520-0x4, 0xD08, 1
+	metatiles_top 0x1BEB0C-0x4, 0x9F8, 1
+	metatile_types_bottom 0x1BEF10-0x4, 0x342, 1
+	metatile_types_top 0x1BEFC0-0x4, 0x27E, 1, 1
+.else
 	metatiles_bottom 0x1BE520, 0xD08, 1
 	metatiles_top 0x1BEB0C, 0x9F8, 1
 	metatile_types_bottom 0x1BEF10, 0x342, 1
 	metatile_types_top 0x1BEFC0, 0x27E, 1, 1
+.endif
 
 gAreaMetatiles_CaveOfFlames:: @ 08102D24
+.ifdef EU
+	metatiles_bottom 0x1CA0C8-0x4, 0x3B08, 1
+	metatiles_top 0x1CBCF4-0x4, 0x3F28, 1
+	metatile_types_bottom 0x1CD6F4-0x4, 0xEC2, 1
+	metatile_types_top 0x1CDB88-0x4, 0xFCA, 1, 1
+.else
 	metatiles_bottom 0x1CA0C8, 0x3B08, 1
 	metatiles_top 0x1CBCF4, 0x3F28, 1
 	metatile_types_bottom 0x1CD6F4, 0xEC2, 1
 	metatile_types_top 0x1CDB88, 0xFCA, 1, 1
+.endif
 
 gAreaMetatiles_CaveOfFlamesBoss:: @ 08102D54
+.ifdef EU
+	metatiles_bottom 0x1D378C-0x4, 0x3B08, 1
+	metatiles_top 0x1D4B14-0x4, 0x3610, 1
+	metatile_types_bottom 0x1D5C70-0x4, 0xEC2, 1
+	metatile_types_top 0x1D5EFC-0x4, 0xD84, 1, 1
+.else
 	metatiles_bottom 0x1D378C, 0x3B08, 1
 	metatiles_top 0x1D4B14, 0x3610, 1
 	metatile_types_bottom 0x1D5C70, 0xEC2, 1
 	metatile_types_top 0x1D5EFC, 0xD84, 1, 1
+.endif
 
 gAreaMetatiles_FortressOfWinds:: @ 08102D84
+.ifdef EU
+	metatiles_bottom 0x1E163C-0x4, 0x3868, 1
+	metatiles_top 0x1E3670-0x4, 0x3850, 1
+	metatile_types_bottom 0x1E4E8C-0x4, 0xE1A, 1
+	metatile_types_top 0x1E52DC-0x4, 0xE14, 1, 1
+.else
 	metatiles_bottom 0x1E163C, 0x3868, 1
 	metatiles_top 0x1E3670, 0x3850, 1
 	metatile_types_bottom 0x1E4E8C, 0xE1A, 1
 	metatile_types_top 0x1E52DC, 0xE14, 1, 1
+.endif
 
 gAreaMetatiles_FortressOfWindsTop:: @ 08102DB4
+.ifdef EU
+	metatiles_bottom 0x1F06E4-0x4, 0x1440, 1
+	metatiles_top 0x1F11AC-0x4, 0x1368, 1
+	metatile_types_bottom 0x1F1740-0x4, 0x510, 1
+	metatile_types_top 0x1F18D4-0x4, 0x4DA, 1, 1
+.else
 	metatiles_bottom 0x1F06E4, 0x1440, 1
 	metatiles_top 0x1F11AC, 0x1368, 1
 	metatile_types_bottom 0x1F1740, 0x510, 1
 	metatile_types_top 0x1F18D4, 0x4DA, 1, 1
+.endif
 
 gAreaMetatiles_InnerMazaal:: @ 08102DE4
+.ifdef EU
+	metatiles_bottom 0x1E9E38-0x4, 0x3C00, 1
+	metatiles_top 0x1EABE0-0x4, 0x3E70, 1
+	metatile_types_bottom 0x1EBAAC-0x4, 0xF00, 1
+	metatile_types_top 0x1EBD60-0x4, 0xF9C, 1, 1
+.else
 	metatiles_bottom 0x1E9E38, 0x3C00, 1
 	metatiles_top 0x1EABE0, 0x3E70, 1
 	metatile_types_bottom 0x1EBAAC, 0xF00, 1
 	metatile_types_top 0x1EBD60, 0xF9C, 1, 1
+.endif
 
 gAreaMetatiles_TempleOfDroplets:: @ 08102E14
+.ifdef EU
+	metatiles_bottom 0x1FC4F4-0x4, 0x3D68, 1
+	metatiles_top 0x1FE6E0-0x4, 0x4000, 1
+	metatile_types_bottom 0x200A9C-0x4, 0xF5A, 1
+	metatile_types_top 0x200F70-0x4, 0x1000, 1, 1
+.else
 	metatiles_bottom 0x1FC4F4, 0x3D68, 1
 	metatiles_top 0x1FE6E0, 0x4000, 1
 	metatile_types_bottom 0x200A9C, 0xF5A, 1
 	metatile_types_top 0x200F70, 0x1000, 1, 1
+.endif
 
 gAreaMetatiles_61:: @ 08102E44
+.ifdef EU
+	metatiles_bottom 0x204BD4-0x4, 0x600, 1
+	metatiles_top 0x20509C-0x4, 0x398, 1
+	metatile_types_bottom 0x2051BC-0x4, 0x180, 1
+	metatile_types_top 0x205254-0x4, 0xE6, 1, 1
+.else
 	metatiles_bottom 0x204BD4, 0x600, 1
 	metatiles_top 0x20509C, 0x398, 1
 	metatile_types_bottom 0x2051BC, 0x180, 1
 	metatile_types_top 0x205254, 0xE6, 1, 1
+.endif
 
 gAreaMetatiles_RoyalCrypt:: @ 08102E74
+.ifdef EU
+	metatiles_bottom 0x212144-0x2C, 0x3610, 1
+	metatiles_top 0x213D34-0x2C, 0x3610, 1
+	metatile_types_bottom 0x215134-0x2C, 0xD84, 1
+	metatile_types_top 0x2155E0-0x2C, 0xD84, 1, 1
+.else
 	metatiles_bottom 0x212144, 0x3610, 1
 	metatiles_top 0x213D34, 0x3610, 1
 	metatile_types_bottom 0x215134, 0xD84, 1
 	metatile_types_top 0x2155E0, 0xD84, 1, 1
+.endif
 
 gAreaMetatiles_PalaceOfWinds:: @ 08102EA4
+.ifdef EU
+	metatiles_bottom 0x21D230-0x2C, 0x3620, 1
+	metatiles_top 0x21EEA4-0x2C, 0x3620, 1
+	metatile_types_bottom 0x220788-0x2C, 0xD88, 1
+	metatile_types_top 0x220C54-0x2C, 0xD88, 1, 1
+.else
 	metatiles_bottom 0x21D230, 0x3620, 1
 	metatiles_top 0x21EEA4, 0x3620, 1
 	metatile_types_bottom 0x220788, 0xD88, 1
 	metatile_types_top 0x220C54, 0xD88, 1, 1
+.endif
 
 gAreaMetatiles_PalaceOfWindsBoss:: @ 08102ED4
 .ifdef JP
 	metatiles_top 0x223680, 0x108, 1
 	metatile_types_top 0x2236C8, 0x42, 1, 1
 .else
+.ifdef EU
+	metatiles_top 0x22360C+0x48, 0x108, 1
+	metatile_types_top 0x223654+0x48, 0x42, 1, 1
+.else
 	metatiles_top 0x22360C, 0x108, 1
 	metatile_types_top 0x223654, 0x42, 1, 1
+.endif
 .endif
 
 gAreaMetatiles_Sanctuary:: @ 08102EEC
@@ -284,10 +577,17 @@ gAreaMetatiles_Sanctuary:: @ 08102EEC
 	metatile_types_bottom 0x236424, 0xD88, 1
 	metatile_types_top 0x236788, 0xD88, 1, 1
 .else
+.ifdef EU
+	metatiles_bottom 0x2333A4+0x48, 0x3620, 1
+	metatiles_top 0x2352AC+0x48, 0x3620, 1
+	metatile_types_bottom 0x2363B0+0x48, 0xD88, 1
+	metatile_types_top 0x236714+0x48, 0xD88, 1, 1
+.else
 	metatiles_bottom 0x2333A4, 0x3620, 1
 	metatiles_top 0x2352AC, 0x3620, 1
 	metatile_types_bottom 0x2363B0, 0xD88, 1
 	metatile_types_top 0x236714, 0xD88, 1, 1
+.endif
 .endif
 
 
@@ -298,10 +598,17 @@ gAreaMetatiles_HyruleCastle:: @ 08102F1C
 	metatile_types_bottom 0x240440, 0xDF0, 1
 	metatile_types_top 0x24086C, 0xD84, 1, 1
 .else
+.ifdef EU
+	metatiles_bottom 0x23D1B0+0x48, 0x37C0, 1
+	metatiles_top 0x23EF24+0x48, 0x3610, 1
+	metatile_types_bottom 0x2403CC+0x48, 0xDF0, 1
+	metatile_types_top 0x2407F8+0x48, 0xD84, 1, 1
+.else
 	metatiles_bottom 0x23D1B0, 0x37C0, 1
 	metatiles_top 0x23EF24, 0x3610, 1
 	metatile_types_bottom 0x2403CC, 0xDF0, 1
 	metatile_types_top 0x2407F8, 0xD84, 1, 1
+.endif
 .endif
 
 gAreaMetatiles_SanctuaryEntrance:: @ 08102F4C
@@ -311,10 +618,17 @@ gAreaMetatiles_SanctuaryEntrance:: @ 08102F4C
 	metatile_types_bottom 0x24702C, 0x51E, 1
 	metatile_types_top 0x24719C, 0x3FC, 1, 1
 .else
+.ifdef EU
+	metatiles_bottom 0x2460E4+0x48, 0x1478, 1
+	metatiles_top 0x246C38+0x48, 0xFF0, 1
+	metatile_types_bottom 0x246FB8+0x48, 0x51E, 1
+	metatile_types_top 0x247128+0x48, 0x3FC, 1, 1
+.else
 	metatiles_bottom 0x2460E4, 0x1478, 1
 	metatiles_top 0x246C38, 0xFF0, 1
 	metatile_types_bottom 0x246FB8, 0x51E, 1
 	metatile_types_top 0x247128, 0x3FC, 1, 1
+.endif
 .endif
 
 gAreaMetatiles_DarkHyruleCastle:: @ 08102F7C
@@ -324,10 +638,17 @@ gAreaMetatiles_DarkHyruleCastle:: @ 08102F7C
 	metatile_types_bottom 0x2524F4, 0xFF6, 1
 	metatile_types_top 0x252A7C, 0xDF0, 1, 1
 .else
+.ifdef EU
+	metatiles_bottom 0x24D8CC+0x48, 0x3FD8, 1
+	metatiles_top 0x25060C+0x48, 0x37C0, 1
+	metatile_types_bottom 0x252480+0x48, 0xFF6, 1
+	metatile_types_top 0x252A08+0x48, 0xDF0, 1, 1
+.else
 	metatiles_bottom 0x24D8CC, 0x3FD8, 1
 	metatiles_top 0x25060C, 0x37C0, 1
 	metatile_types_bottom 0x252480, 0xFF6, 1
 	metatile_types_top 0x252A08, 0xDF0, 1, 1
+.endif
 .endif
 
 gAreaMetatiles_DarkHyruleCastleOutside:: @ 08102FAC
@@ -337,10 +658,17 @@ gAreaMetatiles_DarkHyruleCastleOutside:: @ 08102FAC
 	metatile_types_bottom 0x276048, 0xCD0, 1
 	metatile_types_top 0x276324, 0x7BC, 1, 1
 .else
+.ifdef EU
+	metatiles_bottom 0x273E74+0x48, 0x3340, 1
+	metatiles_top 0x275398+0x48, 0x1EF0, 1
+	metatile_types_bottom 0x275FD4+0x48, 0xCD0, 1
+	metatile_types_top 0x2762B0+0x48, 0x7BC, 1, 1
+.else
 	metatiles_bottom 0x273E74, 0x3340, 1
 	metatiles_top 0x275398, 0x1EF0, 1
 	metatile_types_bottom 0x275FD4, 0xCD0, 1
 	metatile_types_top 0x2762B0, 0x7BC, 1, 1
+.endif
 .endif
 
 gAreaMetatiles_DarkHyruleCastleBridge:: @ 08102FDC
@@ -350,10 +678,17 @@ gAreaMetatiles_DarkHyruleCastleBridge:: @ 08102FDC
 	metatile_types_bottom 0x257D78, 0xD84, 1
 	metatile_types_top 0x257FEC, 0xD84, 1, 1
 .else
+.ifdef EU
+	metatiles_bottom 0x256614+0x48, 0x3610, 1
+	metatiles_top 0x2573F4+0x48, 0x3610, 1
+	metatile_types_bottom 0x257D04+0x48, 0xD84, 1
+	metatile_types_top 0x257F78+0x48, 0xD84, 1, 1
+.else
 	metatiles_bottom 0x256614, 0x3610, 1
 	metatiles_top 0x2573F4, 0x3610, 1
 	metatile_types_bottom 0x257D04, 0xD84, 1
 	metatile_types_top 0x257F78, 0xD84, 1, 1
+.endif
 .endif
 
 gAreaMetatiles_VaatisArms:: @ 0810300C
@@ -363,10 +698,17 @@ gAreaMetatiles_VaatisArms:: @ 0810300C
 	metatile_types_bottom 0x264DBC, 0x5F2, 1
 	metatile_types_top 0x264EC0, 0x2F0, 1, 1
 .else
+.ifdef EU
+	metatiles_bottom 0x263CFC+0x48, 0x17C8, 1
+	metatiles_top 0x2649C4+0x48, 0xBC0, 1
+	metatile_types_bottom 0x264D48+0x48, 0x5F2, 1
+	metatile_types_top 0x264E4C+0x48, 0x2F0, 1, 1
+.else
 	metatiles_bottom 0x263CFC, 0x17C8, 1
 	metatiles_top 0x2649C4, 0xBC0, 1
 	metatile_types_bottom 0x264D48, 0x5F2, 1
 	metatile_types_top 0x264E4C, 0x2F0, 1, 1
+.endif
 .endif
 
 gAreaMetatiles_Vaati3:: @ 0810303C
@@ -376,10 +718,17 @@ gAreaMetatiles_Vaati3:: @ 0810303C
 	metatile_types_bottom 0x25CFC4, 0x3A0, 1
 	metatile_types_top 0x25D098, 0x26E, 1, 1
 .else
+.ifdef EU
+	metatiles_bottom 0x25C6BC+0x48, 0xE80, 1
+	metatiles_top 0x25CD74+0x48, 0x9B8, 1
+	metatile_types_bottom 0x25CF50+0x48, 0x3A0, 1
+	metatile_types_top 0x25D024+0x48, 0x26E, 1, 1
+.else
 	metatiles_bottom 0x25C6BC, 0xE80, 1
 	metatiles_top 0x25CD74, 0x9B8, 1
 	metatile_types_bottom 0x25CF50, 0x3A0, 1
 	metatile_types_top 0x25D024, 0x26E, 1, 1
+.endif
 .endif
 
 gAreaMetatiles_Vaati2:: @ 0810306C
@@ -389,10 +738,17 @@ gAreaMetatiles_Vaati2:: @ 0810306C
 	metatile_types_bottom 0x260D30, 0x214, 1
 	metatile_types_top 0x260DAC, 0xA6, 1, 1
 .else
+.ifdef EU
+	metatiles_bottom 0x2607F0+0x48, 0x850, 1
+	metatiles_top 0x260C1C+0x48, 0x298, 1
+	metatile_types_bottom 0x260CBC+0x48, 0x214, 1
+	metatile_types_top 0x260D38+0x48, 0xA6, 1, 1
+.else
 	metatiles_bottom 0x2607F0, 0x850, 1
 	metatiles_top 0x260C1C, 0x298, 1
 	metatile_types_bottom 0x260CBC, 0x214, 1
 	metatile_types_top 0x260D38, 0xA6, 1, 1
+.endif
 .endif
 
 

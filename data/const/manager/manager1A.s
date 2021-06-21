@@ -9,37 +9,87 @@ gUnk_08108668:: @ 08108668
 	.4byte sub_0805B168
 
 gUnk_08108670:: @ 08108670
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x107DC4, 0x000000C
+.else
 	.incbin "baserom.gba", 0x108670, 0x000000C
+.endif
 
 gUnk_0810867C:: @ 0810867C
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x107DD0, 0x000000C
+.else
 	.incbin "baserom.gba", 0x10867C, 0x000000C
+.endif
 
 gUnk_08108688:: @ 08108688
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x107DDC, 0x000000C
+.else
 	.incbin "baserom.gba", 0x108688, 0x000000C
+.endif
 
 gUnk_08108694:: @ 08108694
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x107DE8, 0x000000C
+.else
 	.incbin "baserom.gba", 0x108694, 0x000000C
+.endif
 
 gUnk_081086A0:: @ 081086A0
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x107DF4, 0x0000009
+.else
 	.incbin "baserom.gba", 0x1086A0, 0x0000009
+.endif
 
 gUnk_081086A9:: @ 081086A9
 	.incbin "baserom.gba", 0x1086A9, 0x0000003
 
 gUnk_081086AC:: @ 081086AC
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x107E00, 0x000000C
+.else
 	.incbin "baserom.gba", 0x1086AC, 0x000000C
+.endif
 
 gUnk_081086B8:: @ 081086B8
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x107E0C, 0x000000C
+.else
 	.incbin "baserom.gba", 0x1086B8, 0x000000C
+.endif
 
 gUnk_081086C4:: @ 081086C4
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x107E18, 0x000000C
+.else
 	.incbin "baserom.gba", 0x1086C4, 0x000000C
+.endif
 
 gUnk_081086D0:: @ 081086D0
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x107E24, 0x0000001
+.else
 	.incbin "baserom.gba", 0x1086D0, 0x0000001
+.endif
 
 gUnk_081086D1:: @ 081086D1
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x107E25, 0x000000B
+.else
 	.incbin "baserom.gba", 0x1086D1, 0x000000B
+.endif
 
 gUnk_081086DC:: @ 081086DC
 	.incbin "baserom.gba", 0x1086DC, 0x0000008

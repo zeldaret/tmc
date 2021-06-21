@@ -9,6 +9,9 @@
 
 	thumb_func_start LadderUp
 LadderUp: @ 0x0808DB54
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x08D44C, 0x0000200 @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -279,3 +282,4 @@ _0808DD72:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0808DD78: .4byte 0x00004014
+.endif

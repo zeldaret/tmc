@@ -154,6 +154,7 @@ void sub_080AAF10(Entity* this) {
     if (this->type != 0) {
         this->currentHealth = this->parent->currentHealth;
     }
+#ifndef EU
     if (this->parent->action == 2) {
         if ((this->flags & 0x80) != 0) {
             this->flags &= 0x7f;
@@ -163,6 +164,7 @@ void sub_080AAF10(Entity* this) {
             this->flags |= 0x80;
         }
     }
+#endif
 }
 
 void sub_080AAF74(Entity* this) {

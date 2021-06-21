@@ -51,6 +51,9 @@ _0803E0D8: .4byte gUnk_080D0660
 
 	thumb_func_start sub_0803E0DC
 sub_0803E0DC: @ 0x0803E0DC
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x03E038, 0x68 @TODO disassemble
+.else
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	adds r0, #0x41
@@ -132,6 +135,7 @@ _0803E178: .4byte gPlayerState
 _0803E17C: .4byte 0xFFFFFEFF
 _0803E180: .4byte gPlayerEntity
 _0803E184: .4byte gUnk_080D0648
+.endif
 
 	thumb_func_start sub_0803E188
 sub_0803E188: @ 0x0803E188
@@ -555,6 +559,9 @@ _0803E49E:
 
 	thumb_func_start sub_0803E4A0
 sub_0803E4A0: @ 0x0803E4A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x03e3b8, 0x30 @TODO disassemble
+.else
 	push {lr}
 	adds r1, r0, #0
 	ldr r0, _0803E4B8 @ =gScreenTransition
@@ -588,6 +595,7 @@ _0803E4D4:
 	adds r0, r2, #0
 _0803E4D6:
 	pop {pc}
+.endif
 
 	thumb_func_start sub_0803E4D8
 sub_0803E4D8: @ 0x0803E4D8

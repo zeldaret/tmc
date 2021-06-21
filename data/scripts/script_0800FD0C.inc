@@ -2,7 +2,11 @@ SCRIPT_START script_0800FD0C
 .ifdef JP
 	CheckLocalFlag 0x00ca
 .else
+.ifdef EU
+	CheckLocalFlag 0x00ca
+.else
 	CheckLocalFlag 0x00cd
+.endif
 .endif
 	JumpIf script_0800FD50
 	WaitForSomething2 0x00000010
@@ -12,7 +16,11 @@ script_0800FD1A:
 .ifdef JP
 	CheckLocalFlag 0x00ca
 .else
+.ifdef EU
+	CheckLocalFlag 0x00ca
+.else
 	CheckLocalFlag 0x00cd
+.endif
 .endif
 	JumpIf script_0800FD5C
 	_0807E864 

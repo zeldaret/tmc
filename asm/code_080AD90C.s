@@ -140,7 +140,11 @@ sub_080ADA04: @ 0x080ADA04
 	bl _call_via_r2
 	pop {pc}
 	.align 2, 0
+.ifdef EU
+_080ADA10: .4byte gUnk_030065C8
+.else
 _080ADA10: .4byte gUnk_0300659C
+.endif
 
 	thumb_func_start sub_080ADA14
 sub_080ADA14: @ 0x080ADA14

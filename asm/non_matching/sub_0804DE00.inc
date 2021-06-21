@@ -70,7 +70,11 @@ _0804DE5C:
 .ifdef JP
 	movs r0, #0xca
 .else
+.ifdef EU
+	movs r0, #0xca
+.else
 	movs r0, #0xcd
+.endif
 .endif
 	bl CheckLocalFlag
 	cmp r0, #0

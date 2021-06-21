@@ -55,7 +55,11 @@ gUnk_0810C00F:: @ 0810C00F
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x10BCD3, 0x0000091
 .else
+.ifdef EU
+	.incbin "baserom_jp.gba", 0x10BCD3, 0x0000091
+.else
 	.incbin "baserom.gba", 0x10C00F, 0x0000091
+.endif
 .endif
 
 gUnk_0810C0A0:: @ 0810C0A0

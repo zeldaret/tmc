@@ -20,7 +20,11 @@ SCRIPT_START script_08016384
 .ifdef JP
 	CheckLocalFlagByOffset 0x0100, 0x0069
 .else
+.ifdef EU
+	CheckLocalFlagByOffset 0x0100, 0x0069
+.else
 	CheckLocalFlagByOffset 0x0100, 0x006b
+.endif
 .endif
 	CheckGlobalFlag 0x0013
 	CheckRoomFlag 0x0000

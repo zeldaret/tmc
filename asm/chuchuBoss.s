@@ -1727,6 +1727,9 @@ _080269C8: .4byte 0xFFFFFF00
 
 	thumb_func_start sub_080269CC
 sub_080269CC: @ 0x080269CC
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0269B0, 0x218 @ TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -1999,7 +2002,7 @@ _08026BD4:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _08026BE4: .4byte 0xFFFF8000
-
+.endif
 	thumb_func_start sub_08026BE8
 sub_08026BE8: @ 0x08026BE8
 	push {r4, r5, lr}
@@ -4285,6 +4288,9 @@ _08027D1E:
 
 	thumb_func_start sub_08027D20
 sub_08027D20: @ 0x08027D20
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x027D00, 0x48 @TODO disassemble
+.else
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r1, #0x15
@@ -4321,3 +4327,4 @@ _08027D66:
 	adds r0, r4, #0
 	pop {r4, r5, pc}
 	.align 2, 0
+.endif

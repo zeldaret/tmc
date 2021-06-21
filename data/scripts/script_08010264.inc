@@ -501,8 +501,12 @@ script_08010860:
 	TextboxNoOverlap 0x2c21
 	Jump script_080108B2
 script_080108AA:
-.ifndef JP
+.ifdef USA
 	SetLocalFlag 0x00fa
+.else
+.ifdef DEMO
+	SetLocalFlag 0x00fa
+.endif
 .endif
 	TextboxNoOverlap 0x2c20
 script_080108B2:

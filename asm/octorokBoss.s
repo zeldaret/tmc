@@ -179,6 +179,9 @@ sub_080352FC: @ 0x080352FC
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x0352a0, 0x1fc @TODO disassemble
 .else
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x03527C, 0x1fc @TODO disassemble same as JP
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -424,6 +427,7 @@ _080354E8:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080354F4: .4byte 0x00000109
+.endif
 .endif
 
 	thumb_func_start sub_080354F8

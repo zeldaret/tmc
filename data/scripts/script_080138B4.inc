@@ -77,9 +77,11 @@ script_080138D0:
 	TextboxNoOverlapFollowPos 0x0505, 0x000c
 	_0807EA94 
 	_0807E5F8 0x00040000
+.ifndef EU
 	_0807F0B4 0x0002
 	SetEntityPositionRelative 0x00e8, 0x00d8
 	CameraTargetEntity 
+.endif
 	Call sub_0806DC3C
 	CallWithArg sub_0807F244, 0x00010001
 	CallWithArg sub_0807F29C, gUnk_080049FE
@@ -87,7 +89,9 @@ script_080138D0:
 	CallWithArg sub_0807F29C, 0x00000000
 	Call sub_0806DC58
 script_08013A8E:
+.ifndef EU
 	CheckRoomFlag 0x0004
 	JumpIfNot script_08013A8E
+.endif
 	CallWithArg sub_0805DDEC, 0x00000001
 	_0807F0C8 0xffff, 0x0000

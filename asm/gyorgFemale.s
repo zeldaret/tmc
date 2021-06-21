@@ -290,12 +290,17 @@ _08046374:
 	bne _0804638A
 	adds r0, r4, #0
 	adds r0, #0x78
+.ifdef EU
+_08046388: @TODO fix jump
+.endif
 	strb r5, [r0]
+.ifndef EU
 	adds r0, #5
 	strb r5, [r0]
 	adds r0, #2
 _08046388:
 	strb r5, [r0]
+.endif
 _0804638A:
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0]
@@ -336,10 +341,16 @@ _080463B8:
 	movs r0, #0x3c
 	strh r0, [r1]
 	adds r0, r4, #0
+.ifdef EU
+	adds r0, #0x80
+.else
 	adds r0, #0x78
+.endif
 	strb r2, [r0]
+.ifndef EU
 	adds r0, #8
 	strb r2, [r0]
+.endif
 _080463E0:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -406,20 +417,43 @@ _08046454:
 	bne _0804646A
 	adds r0, r4, #0
 	adds r0, #0x78
+.ifdef EU
+_08046468:
+.endif
 	strb r5, [r0]
+.ifndef EU
 	adds r0, #5
 	strb r5, [r0]
 	adds r0, #2
 _08046468:
 	strb r5, [r0]
+.endif
 _0804646A:
 	adds r0, r4, #0
 	adds r0, #0x45
+.ifdef EU
+	ldrb r1, [r0]
+	cmp r1, #0
+	bne _08046494
+.else
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08046494
+.endif
 	movs r0, #1
 	strb r0, [r4, #0xc]
+.ifdef EU
+	adds r0, r4, #0
+	adds r0, #0x78
+	strb r1, [r0]
+	adds r1, r4, #0
+	adds r1, #0x70
+	movs r2, #0
+	movs r0, #0x3c
+	strh r0, [r1]
+	adds r0, r4, #0x0
+	adds r0, #0x80
+.else
 	adds r1, r4, #0
 	adds r1, #0x70
 	movs r2, #0
@@ -429,6 +463,7 @@ _0804646A:
 	adds r0, #0x78
 	strb r2, [r0]
 	adds r0, #8
+.endif
 	strb r2, [r0]
 	movs r0, #0x94
 	lsls r0, r0, #1
@@ -437,8 +472,10 @@ _08046494:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 
+@ TODO move inside, if EU no longer references this function
 	thumb_func_start sub_08046498
 sub_08046498: @ 0x08046498
+.ifndef EU
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r0, _080464B8 @ =gUnk_02019EE0
@@ -455,6 +492,7 @@ sub_08046498: @ 0x08046498
 	.align 2, 0
 _080464B8: .4byte gUnk_02019EE0
 _080464BC: .4byte gMapDataTopSpecial
+.endif
 
 	thumb_func_start sub_080464C0
 sub_080464C0: @ 0x080464C0
@@ -669,6 +707,9 @@ _0804665A:
 
 	thumb_func_start sub_08046668
 sub_08046668: @ 0x08046668
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x046438, 0x38 @TODO disassemble
+.else
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r0, #0x45
@@ -699,9 +740,13 @@ _080466A0:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080466A4: .4byte gUnk_080D1AF8
+.endif
 
 	thumb_func_start sub_080466A8
 sub_080466A8: @ 0x080466A8
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x046470, 0x12c @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r0, #0x7c
@@ -855,6 +900,7 @@ _080467CC:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080467D8: .4byte gPlayerEntity
+.endif
 
 	thumb_func_start sub_080467DC
 sub_080467DC: @ 0x080467DC
@@ -869,3 +915,4 @@ _080467E6:
 	cmp r1, #7
 	bls _080467E6
 	pop {pc}
+

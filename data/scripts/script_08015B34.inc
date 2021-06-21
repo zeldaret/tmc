@@ -4,7 +4,11 @@ SCRIPT_START script_08015B34
 .ifdef JP
 	CheckLocalFlag 0x0089
 .else
+.ifdef EU
+	CheckLocalFlag 0x0089
+.else
 	CheckLocalFlag 0x008b
+.endif
 .endif
 	JumpIf script_08015B7E
 	CallWithArg sub_0807F6B4, 0x00000318

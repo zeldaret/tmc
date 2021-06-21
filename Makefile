@@ -12,6 +12,8 @@ GAME_LANGUAGE := ENGLISH
 TITLE       := GBAZELDA MC
 MAKER_CODE  := 01
 
+LINKER_FILE = linker.ld
+
 ifeq ($(GAME_VERSION), USA)
 GAME_CODE   := BZME
 BUILD_NAME  := tmc
@@ -25,7 +27,13 @@ GAME_CODE   := BZMJ
 BUILD_NAME  := tmc_jp
 GAME_LANGUAGE := JAPANESE
 else
+ifeq ($(GAME_VERSION), EU)
+GAME_CODE   := BZMP
+BUILD_NAME  := tmc_eu
+LINKER_FILE := linker_EU.ld
+else
 $(error unknown version $(GAME_VERSION))
+endif
 endif
 endif
 endif
@@ -217,8 +225,8 @@ $(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s $$(data_dep)
 $(SONG_BUILDDIR)/%.o: $(SONG_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) -I sound -o $@ $<
 
-$(ELF): $(OBJS) linker.ld
-	cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -n -T ../../linker.ld -o ../../$@ $(LIB)
+$(ELF): $(OBJS) $(LINKER_FILE)
+	cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -n -T ../../$(LINKER_FILE) -o ../../$@ $(LIB)
 	$(FIX) $@ -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(REVISION) --silent
 
 $(ROM): $(ELF)

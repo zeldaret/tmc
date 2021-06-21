@@ -5,7 +5,12 @@
     .align 2
 
 gUnk_08111D58:: @ 08111D58
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x1114A8, 0x0000030
+.else
 	.incbin "baserom.gba", 0x111D58, 0x0000030
+.endif
 
 gUnk_08111D88:: @ 08111D88
 	.4byte sub_08069B44

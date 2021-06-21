@@ -66,6 +66,9 @@ _0801B4C4: .4byte 0xFFFFE000
 
 	thumb_func_start sub_0801B4C8
 sub_0801B4C8: @ 0x0801B4C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x01B4F4, 0xc8 @ TODO disassemble
+.else
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldr r3, _0801B52C @ =gPlayerState
@@ -161,6 +164,7 @@ _0801B56C:
 	adds r0, r4, #0
 	bl sub_0801B584
 	pop {r4, r5, pc}
+.endif
 
 	thumb_func_start sub_0801B584
 sub_0801B584: @ 0x0801B584

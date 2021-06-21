@@ -31,7 +31,9 @@ void sub_08065080(Entity* this) {
     sub_0805E3A0(this, 2);
     InitializeAnimation(this, 4);
     sub_08078778(this);
+#ifndef EU
     sub_08078850(this, 0, 0, &gUnk_0810FDA0);
+#endif
     context = StartCutscene(this, &script_080142B0);
     *(ScriptExecutionContext**)&this->cutsceneBeh = context;
 }

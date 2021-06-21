@@ -97,13 +97,13 @@ void sub_0806464C(Entity* this) {
     s32 tmp;
     if (CheckGlobalFlag(0x15) != 0) {
         tmp = 2;
-#ifdef JP
+#if defined(JP) || defined(EU)
     } else if (CheckLocalFlag(0x9f) == 0) {
 #else
     } else if (CheckLocalFlag(0xa0) == 0) {
 #endif
         tmp = 0;
-#ifdef JP
+#if defined(JP) || defined(EU)
         SetLocalFlag(0x9f);
 #else
         SetLocalFlag(0xa0);

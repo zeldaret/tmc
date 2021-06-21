@@ -61,15 +61,15 @@ void sub_0805212C(void) {
             gMenu.transitionTimer--;
             if (gMenu.transitionTimer == 0) {
                 sub_080520C4(2);
-                #ifdef DEMO
+#ifdef DEMO
                 SoundReq(0x80080000);
-                DoFade(7,4);
-                #else
+                DoFade(7, 4);
+#else
                 sub_08052418(0, 0);
                 gScreen.lcd.displayControl |= 0x600;
                 gFadeControl.field_0x4 = 0xffff;
                 DoFade(4, 0x10);
-                #endif
+#endif
             }
         }
     } else {
@@ -79,9 +79,9 @@ void sub_0805212C(void) {
 
 #ifdef DEMO
 void sub_080521A0(void) {
-  if (gFadeControl.active == 0) {
-    DoSoftReset();
-  }
+    if (gFadeControl.active == 0) {
+        DoSoftReset();
+    }
 }
 #else
 void sub_080521A0(void) {
@@ -224,7 +224,11 @@ void sub_080523D4(void) {
     gOamCmd.y = gMenu.focusCoords[0];
     for (i = 0; i < 8; ++i) {
         gOamCmd.x = gUnk_080FCA84[i];
+#ifdef EU
+        sub_080ADA14(0x1fc, i);
+#else
         sub_080ADA14(0x1fd, i);
+#endif
     }
 }
 
@@ -302,16 +306,26 @@ void InitializePlayer(void) {
 }
 
 bool32 sub_08052620(u32 r0) {
+#ifdef EU
+    return gArea == 0x01;
+#else
     return gArea == 0x81;
+#endif
 }
 
 bool32 sub_08052638(u32 r0) {
+#if EU
+    return gUnk_08127D30[r0 * 4] == 0x01;
+#else
     return gUnk_08127D30[r0 * 4] == 0x81;
+#endif
 }
 
+#ifndef EU
 u32 sub_08052654() {
     return (gArea >> 7) & 1;
 }
+#endif
 
 u32 CheckIsDungeon(void) {
     return (gArea >> 2) & 1;

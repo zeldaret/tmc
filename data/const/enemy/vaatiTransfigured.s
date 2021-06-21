@@ -5,7 +5,11 @@
     .align 2
 
 gUnk_080D0ABC:: @ 080D0ABC
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0D01E8, 0x0000003
+.else
 	.incbin "baserom.gba", 0x0D0ABC, 0x0000003
+.endif
 
 gUnk_080D0ABF:: @ 080D0ABF
 	.incbin "baserom.gba", 0x0D0ABF, 0x0000009

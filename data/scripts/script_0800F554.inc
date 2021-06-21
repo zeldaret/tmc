@@ -124,7 +124,11 @@ script_0800F6A0:
 .ifdef JP
 	CheckLocalFlag 0x00ca
 .else
+.ifdef EU
+	CheckLocalFlag 0x00ca
+.else
 	CheckLocalFlag 0x00cd
+.endif
 .endif
 	JumpIf script_0800F6C4
 	TextboxNoOverlap 0x2512
@@ -149,7 +153,11 @@ script_0800F6F4:
 .ifdef JP
 	CheckLocalFlag 0x00ca
 .else
+.ifdef EU
+	CheckLocalFlag 0x00ca
+.else
 	CheckLocalFlag 0x00cd
+.endif
 .endif
 	JumpIf script_0800F718
 	CheckEntityInteractType 

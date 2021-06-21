@@ -266,9 +266,9 @@ void sub_08028CE8(Entity* this) {
                         this->actionDelay = 4;
                         this->field_0x80.HALF.HI = 0;
                         sub_080290E0(this, 3);
-                        #ifndef JP
+#if defined(USA) || defined(DEMO)
                         SetLocalFlag(0x87);
-                        #endif
+#endif
                         return;
                     case 1:
                         CreateItemEntity(offer->field_0x8, offer->field_0x9, 0);
@@ -565,7 +565,11 @@ const struct SalesOffering gUnk_080CC954[] = {
     {0x04, 0x00, 0x0014, 0x2910, 0x2911, 0x1c, 0xff, 0xffff},
     {0x0c, 0x00, 0xffff, 0x2912, 0x2913, 0xff, 0xff, 0x0046},
     {0x04, 0x00, 0x0064, 0x2913, 0x2902, 0x5c, 0x75, 0xffff},
+#ifdef EU
+    {0x00, 0x00, 0x0064, 0x290d, 0x2902, 0x5c, 0xff, 0xffff},
+#else
     {0x00, 0x00, 0x00C8, 0x290d, 0x2902, 0x5c, 0xff, 0xffff},
+#endif
 };
 
 const u8 gUnk_080CC9C0[] = {

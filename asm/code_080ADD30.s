@@ -43,6 +43,9 @@ _080ADD6C: .4byte gUnk_02024490
 
 	thumb_func_start sub_080ADD70
 sub_080ADD70: @ 0x080ADD70
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0AD514, 0x0000058 @TODO disassemble
+.else
 	push {r4, r5, lr}
 	ldr r1, _080ADD88 @ =gUnk_02024490
 	ldrb r0, [r1]
@@ -96,6 +99,7 @@ _080ADDCE:
 	bls _080ADD90
 _080ADDD6:
 	pop {r4, r5, pc}
+.endif
 
 	thumb_func_start sub_080ADDD8
 sub_080ADDD8: @ 0x080ADDD8
@@ -317,6 +321,9 @@ _080ADF7C:
 
 	thumb_func_start LoadFixedGFX
 LoadFixedGFX: @ 0x080ADF80
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0AD714, 0x0000070 @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -382,9 +389,13 @@ _080ADFFE:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080AE004: .4byte gUnk_08132B30
+.endif
 
 	thumb_func_start sub_080AE008
 sub_080AE008: @ 0x080AE008
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0AD784, 0x0000050 @TODO disassemble
+.else
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
 	adds r5, r1, #0
@@ -431,6 +442,7 @@ _080AE060:
 	pop {r4, r5, r6, pc}
 	.align 2, 0
 _080AE064: .4byte gUnk_02024490
+.endif
 
 	thumb_func_start sub_080AE068
 sub_080AE068: @ 0x080AE068
@@ -617,7 +629,11 @@ _080AE1AC:
 	lsls r0, r0, #0x1c
 	lsrs r0, r0, #0x1c
 	cmp r0, #1
+.ifdef EU
+	bne _080AE1C8
+.else
 	bhi _080AE1C8
+.endif
 	adds r1, #1
 	cmp r4, r1
 	bhi _080AE1CA
@@ -639,6 +655,7 @@ _080AE1D4:
 	pop {r4, pc}
 	.align 2, 0
 
+.ifndef EU
 	thumb_func_start sub_080AE1D8
 sub_080AE1D8: @ 0x080AE1D8
 	push {r4, r5, lr}
@@ -923,6 +940,7 @@ _080AE3D8:
 	movs r0, #0
 _080AE3E2:
 	pop {pc}
+.endif
 
 	thumb_func_start sub_080AE3E4
 sub_080AE3E4: @ 0x080AE3E4

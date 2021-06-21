@@ -6,7 +6,11 @@ script_0800F72C:
 .ifdef JP
 	CheckLocalFlag 0x00ca
 .else
+.ifdef EU
+	CheckLocalFlag 0x00ca
+.else
 	CheckLocalFlag 0x00cd
+.endif
 .endif
 	JumpIfNot script_0800F72C
 	DoPostScriptAction 0x0007
@@ -17,7 +21,11 @@ SCRIPT_START script_0800F73C
 .ifdef JP
 	CheckLocalFlag 0x00ca
 .else
+.ifdef EU
+	CheckLocalFlag 0x00ca
+.else
 	CheckLocalFlag 0x00cd
+.endif
 .endif
 	JumpIf script_0800FA4C
 	_0807E864 
@@ -181,7 +189,11 @@ SCRIPT_START script_0800F73C
 .ifdef JP
 	SetLocalFlag 0x00ca
 .else
+.ifdef EU
+	SetLocalFlag 0x00ca
+.else
 	SetLocalFlag 0x00cd
+.endif
 .endif
 	Call sub_0807DF50
 	_0807E878 

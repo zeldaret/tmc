@@ -128,7 +128,11 @@ _08083942:
 	bl sub_0805E3A0
 	pop {r4, pc}
 	.align 2, 0
+.ifdef EU
+_08083958: .4byte 0x010277E0
+.else
 _08083958: .4byte 0x01027820
+.endif
 
 	thumb_func_start sub_0808395C
 sub_0808395C: @ 0x0808395C

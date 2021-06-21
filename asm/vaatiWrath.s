@@ -67,6 +67,9 @@ sub_080413A0: @ 0x080413A0
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x041344, 0x18 @TODO disassemble
 .else
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x041274, 0x18 @TODO same as JP
+.else
 	push {r4, lr}
 	adds r4, r0, #0
 	bl sub_080423A4
@@ -80,6 +83,7 @@ sub_080413A0: @ 0x080413A0
 	pop {r4, pc}
 	.align 2, 0
 _080413BC: .4byte gUnk_080D0E2C
+.endif
 .endif
 
 	thumb_func_start sub_080413C0
@@ -1121,6 +1125,9 @@ _08041BE4: .4byte gUnk_080D0E68
 
 	thumb_func_start sub_08041BE8
 sub_08041BE8: @ 0x08041BE8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x041AB4, 0xCA @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -1221,6 +1228,7 @@ _08041CC0: .4byte 0x000001F5
 _08041CC4: .4byte 0x0000016B
 _08041CC8: .4byte gRoomControls
 _08041CCC: .4byte gPlayerEntity
+.endif
 
 	thumb_func_start sub_08041CD0
 sub_08041CD0: @ 0x08041CD0
@@ -2134,7 +2142,7 @@ sub_0804235C: @ 0x0804235C
 	bl InitializeAnimation
 	pop {r4, r5, pc}
 
-.ifndef JP
+.ifdef USA
 	thumb_func_start sub_080423A4
 sub_080423A4: @ 0x080423A4
 	push {r4, lr}
@@ -2201,6 +2209,76 @@ _0804241C:
 	.align 2, 0
 _08042420: .4byte gPlayerState
 _08042424: .4byte gPlayerEntity
+.else
+.ifdef DEMO
+@ TODO is there a way to not duplicate this?
+	thumb_func_start sub_080423A4
+sub_080423A4: @ 0x080423A4
+	push {r4, lr}
+	ldr r0, _080423CC @ =gScreenTransition
+	adds r4, r0, #0
+	adds r4, #0x38
+	ldrb r1, [r4]
+	movs r0, #2
+	ands r0, r1
+	cmp r0, #0
+	bne _0804241C
+	ldr r0, _080423D0 @ =gSave
+	movs r2, #0x93
+	lsls r2, r2, #3
+	adds r1, r0, r2
+	ldr r0, [r1]
+	cmp r0, #0
+	beq _080423D4
+	subs r0, #1
+	str r0, [r1]
+	b _0804241C
+	.align 2, 0
+_080423CC: .4byte gScreenTransition
+_080423D0: .4byte gSave
+_080423D4:
+	ldr r2, _08042420 @ =gPlayerState
+	adds r0, r2, #0
+	adds r0, #0xa9
+	ldrb r0, [r0]
+	cmp r0, #1
+	bgt _0804241C
+	cmp r0, #0
+	blt _0804241C
+	ldr r0, [r2, #0x2c]
+	cmp r0, #0
+	bne _0804241C
+	ldr r1, _08042424 @ =gPlayerEntity
+	adds r0, r1, #0
+	adds r0, #0x7a
+	ldrh r0, [r0]
+	cmp r0, #0
+	bne _0804241C
+	movs r3, #0x36
+	ldrsh r0, [r1, r3]
+	movs r1, #0x80
+	lsls r1, r1, #8
+	ands r0, r1
+	cmp r0, #0
+	beq _0804240A
+	ldrb r0, [r2, #0xa]
+	cmp r0, #0
+	beq _0804241C
+_0804240A:
+	movs r0, #0xb7
+	lsls r0, r0, #4
+	movs r1, #0
+	bl sub_08078AA8
+	ldrb r0, [r4]
+	movs r1, #2
+	orrs r0, r1
+	strb r0, [r4]
+_0804241C:
+	pop {r4, pc}
+	.align 2, 0
+_08042420: .4byte gPlayerState
+_08042424: .4byte gPlayerEntity
+.endif
 .endif
 
 	thumb_func_start sub_08042428

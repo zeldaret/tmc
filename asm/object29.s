@@ -30,6 +30,9 @@ _08089870: .4byte gUnk_08120D90
 
 	thumb_func_start sub_08089874
 sub_08089874: @ 0x08089874
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x089184, 0x00000C4 @TODO disassemble
+.else
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	ldrb r1, [r4, #0x10]
@@ -135,6 +138,7 @@ _08089934:
 _08089940:
 	pop {r4, r5, pc}
 	.align 2, 0
+.endif
 
 	thumb_func_start sub_08089944
 sub_08089944: @ 0x08089944

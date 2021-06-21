@@ -1,4 +1,8 @@
 	.syntax unified
+
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x06E3DC, 0x000011C @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
 	mov r6, r8
@@ -179,4 +183,5 @@ _0806EAAA:
 	.align 2, 0
 _0806EAB4: .4byte 0x80010000
 _0806EAB8: .4byte gActiveScriptInfo
+.endif
 	.syntax divided

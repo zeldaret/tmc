@@ -1007,7 +1007,11 @@ _08042C9E:
 .ifdef JP
 	subs r0, #0x20
 .else
+.ifdef EU
+	subs r0, #0x20
+.else
 	subs r0, #0x40
+.endif
 .endif
 	cmp r0, r5
 	bge _08042CAA
@@ -3163,6 +3167,9 @@ sub_08043C98: @ 0x08043C98
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x043BB0, 0x20 @TODO disassemble
 .else
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x043AC4, 0x20 @TODO same as JP
+.else
 	push {lr}
 	adds r3, r0, #0
 	ldr r0, [r3, #0x64]
@@ -3194,6 +3201,7 @@ _08043CD0:
 	movs r0, #0
 _08043CD2:
 	pop {pc}
+.endif
 .endif
 
 	thumb_func_start sub_08043CD4

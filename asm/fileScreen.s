@@ -189,7 +189,9 @@ InitializeNewRoom: @ 0x08051AAC
 	movs r0, #0
 	bl sub_0801C370
 	bl InitializeEntities
+.ifndef EU
 	bl sub_0801855C
+.endif
 	pop {pc}
 	.align 2, 0
 _08051AE4: .4byte gScreen
@@ -198,6 +200,9 @@ _08051AEC: .4byte gScreenTransition
 
 	thumb_func_start sub_08051AF0
 sub_08051AF0: @ 0x08051AF0
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x05172C, 0x00000D0 @TODO disassemble
+.else
 	push {r4, r5, lr}
 	bl sub_0805E5C0
 	bl sub_0805BBBC
@@ -227,7 +232,11 @@ _08051B02:
 	movs r0, #0x86
 	lsls r0, r0, #4
 	adds r3, r5, r0
+.ifdef EU
+	adds r1, 4
+.else
 	ldr r1, _08051BBC @ =0x00000864
+.endif
 	adds r0, r5, r1
 	ldr r1, [r3]
 	ldr r2, [r0]
@@ -258,16 +267,23 @@ _08051B5A:
 .ifdef JP
 	bl sub_08053178
 .endif
+.ifndef EU
 	adds r0, r5, #0
 	adds r0, #0x28
 	ldrb r0, [r0]
 	cmp r0, #0xff
 	beq _08051B96
 	bl sub_0801855C
+.endif
 _08051B96:
+.ifdef EU
+	bl sub_08053178 @ TODO fix addresses
+	bl sub_08053178
+.else
 .ifndef JP
 	bl sub_08052BF8
 	bl sub_08053178
+.endif
 .endif
 	ldr r0, _08051BCC @ =gRoomVars
 	ldrb r0, [r0]
@@ -282,11 +298,14 @@ _08051BAE:
 _08051BB0: .4byte gFadeControl
 _08051BB4: .4byte gRoomControls
 _08051BB8: .4byte gArea
+.ifndef EU
 _08051BBC: .4byte 0x00000864
+.endif
 _08051BC0: .4byte 0x800B0000
 _08051BC4: .4byte gMain
 _08051BC8: .4byte gUnk_02034490
 _08051BCC: .4byte gRoomVars
+.endif
 
 	thumb_func_start sub_08051BD0
 sub_08051BD0: @ 0x08051BD0

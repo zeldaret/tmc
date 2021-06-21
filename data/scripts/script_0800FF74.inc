@@ -7,7 +7,9 @@ SCRIPT_START script_0800FF74
 .ifdef JP
 	ClearLocalFlag 0x00c4
 .else
+.ifndef EU
 	ClearLocalFlag 0x00c7
+.endif
 .endif
 	EndBlock 
 script_0800FF92:
@@ -17,7 +19,11 @@ script_0800FF92:
 .ifdef JP
 	CheckLocalFlag 0x00cb
 .else
+.ifdef EU
+	CheckLocalFlag 0x00cb
+.else
 	CheckLocalFlag 0x00ce
+.endif
 .endif
 	JumpIf script_0800FFCC
 	DoPostScriptAction 0x000b
@@ -25,7 +31,11 @@ script_0800FF92:
 .ifdef JP
 	CheckLocalFlag 0x00c4
 .else
+.ifdef EU
+	CheckLocalFlag 0x00c4
+.else
 	CheckLocalFlag 0x00c7
+.endif
 .endif
 	JumpIfNot script_0800FFCC
 	Call sub_08064488
@@ -40,7 +50,11 @@ script_0800FFCC:
 .ifdef JP
 	SetLocalFlag 0x00c4
 .else
+.ifdef EU
+	SetLocalFlag 0x00c4
+.else
 	SetLocalFlag 0x00c7
+.endif
 .endif
 	_0807E864 
 	_0807EB74 
@@ -54,7 +68,11 @@ script_0800FFF8:
 .ifdef JP
 	CheckLocalFlag 0x00cb
 .else
+.ifdef EU
+	CheckLocalFlag 0x00cb
+.else
 	CheckLocalFlag 0x00ce
+.endif
 .endif
 	JumpIfNot script_0801000A
 	TextboxNoOverlap 0x340b
@@ -83,7 +101,11 @@ script_08010014:
 .ifdef JP
 	SetLocalFlag 0x00cb
 .else
+.ifdef EU
+	SetLocalFlag 0x00cb
+.else
 	SetLocalFlag 0x00ce
+.endif
 .endif
 script_08010060:
 	Call sub_080644A4

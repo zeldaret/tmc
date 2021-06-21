@@ -590,7 +590,11 @@ _080B20E0:
 	b _080B20E0
 	.align 2, 0
 _080B20E4: .4byte 0x0000208C
+.ifdef EU
+_080B20E8: .4byte gUnk_030069AC
+.else
 _080B20E8: .4byte gUnk_030067E4
+.endif
 
 	arm_func_start sub_080B20EC
 sub_080B20EC: @ 0x080B20EC
@@ -814,6 +818,9 @@ _080B23EC: .4byte gUnk_0800464E
 
 	arm_func_start sub_080B23F0
 sub_080B23F0: @ 0x080B23F0
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0B1950, 0x00000A8 @TODO disassemble
+.else
 	push {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	ldr fp, _080B2A30 @ =gUnk_03000000
 	ldrb r2, [fp, #3]
@@ -852,6 +859,7 @@ sub_080B2448: @ 0x080B2448
 	bl sub_080B2534
 	ldm sp!, {lr}
 	b _080B26B4
+.endif
 
 	arm_func_start sub_080B2478
 sub_080B2478: @ 0x080B2478
@@ -927,6 +935,9 @@ _080B2540:
 
 	arm_func_start sub_080B255C
 sub_080B255C: @ 0x080B255C
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0B1ADC, 0x00001C8 @TODO disassemble
+.else
 	stmdb sp!, {lr}
 	mov r4, r0
 	bl sub_080B299C
@@ -1048,6 +1059,8 @@ _080B26D0:
 	bgt _080B26D0
 	ldm sp!, {lr}
 	bx lr
+
+.endif
 _080B2718:
 	ldrsb r0, [r4, #0x28]
 	cmp r0, #0
@@ -1271,7 +1284,15 @@ _080B2A0C:
 	orr r8, r8, r5, lsl #22
 	bx lr
 	.align 2, 0
+
+.ifdef EU
+	    .incbin "baserom_eu.gba", 0x0B1FBC, 0x0000194 @TODO disassemble
+.endif
+	
 _080B2A30: .4byte gUnk_03000000
+.ifdef EU
+	.4byte 0x03006958 @TODO make pointer?
+.endif
 _080B2A34: .4byte gUnk_081326EC
 _080B2A38: .4byte gUnk_081326EC
 _080B2A3C: .4byte gUnk_081326EC
@@ -1287,3 +1308,6 @@ _080B2A60: .4byte gUnk_082F3D74
 _080B2A64: .4byte gUnk_03000000
 _080B2A68: .4byte gUnk_0300695C
 _080B2A6C: .4byte 0x3E003F00
+.ifdef EU
+	.4byte 0x03003DF8 @TODO pointer?
+.endif

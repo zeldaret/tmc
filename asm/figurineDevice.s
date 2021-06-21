@@ -126,7 +126,11 @@ _08087C7C:
 	strb r5, [r0]
 	adds r0, #1
 	strb r5, [r0]
+.ifdef EU
+	adds r0, #1
+.else
 	adds r0, #5
+.endif
 	strb r5, [r0]
 	adds r0, r4, #0
 	bl sub_0808804C
@@ -248,7 +252,11 @@ _08087D60:
 	beq _08087DAA
 	str r5, [r4, #0x50]
 	adds r0, r5, #0
+.ifdef EU
+	adds r0, #0x7e
+.else
 	adds r0, #0x7d
+.endif
 	ldrb r0, [r0]
 	strb r0, [r4, #0xf]
 	ldr r1, _08087DB4 @ =gUnk_080FC3E4
@@ -344,7 +352,11 @@ _08087E3C:
 	rsbs r0, r0, #0
 	ands r0, r1
 	strb r0, [r4, #0x18]
+.ifdef EU
+	movs r0, #9
+.else
 	movs r0, #4
+.endif
 	bl ClearRoomFlag
 	bl DeleteThisEntity
 _08087E5A:
@@ -352,6 +364,9 @@ _08087E5A:
 
 	thumb_func_start sub_08087E5C
 sub_08087E5C: @ 0x08087E5C
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x087838, 0x00000E0 @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r5, r4, #0
@@ -488,6 +503,7 @@ _08087F4E:
 	.align 2, 0
 _08087F50: .4byte 0x0000431A
 _08087F54: .4byte gTextBox
+.endif
 
 	thumb_func_start sub_08087F58
 sub_08087F58: @ 0x08087F58
@@ -523,6 +539,9 @@ _08087F90: .4byte 0x00004022
 sub_08087F94: @ 0x08087F94
 .ifdef JP
 	.incbin "baserom_jp.gba", 0x087dac, 0xb0 @TODO disassemble
+.else
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x087954, 0x000009C @TODO disassemble
 .else
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
@@ -609,6 +628,7 @@ _08088028:
 _08088032:
 	pop {r4, r5, r6, r7, pc}
 .endif
+.endif
 
 	thumb_func_start sub_08088034
 sub_08088034: @ 0x08088034
@@ -683,7 +703,11 @@ _080880B2:
 .ifdef JP
 	movs r1, #0x9b
 .else
+.ifdef EU
+	movs r1, #0x9b
+.else
 	movs r1, #0x9c
+.endif
 .endif
 	bl CheckLocalFlagByOffset
 	cmp r0, #0
@@ -698,7 +722,11 @@ _080880C4:
 	movs r4, #1
 _080880D0:
 	adds r0, r5, #0
+.ifdef EU
+	adds r0, #0x7d
+.else
 	adds r0, #0x7c
+.endif
 	strb r4, [r0]
 	pop {r4, r5, pc}
 
@@ -715,7 +743,11 @@ sub_080880D8: @ 0x080880D8
 	cmp r4, r0
 	bhs _0808810A
 	adds r5, r7, #0
+.ifdef EU
+	adds r5, #0x7c
+.else
 	adds r5, #0x80
+.endif
 _080880F0:
 	adds r0, r7, #0
 	adds r1, r4, #0
@@ -742,7 +774,11 @@ _0808810A:
 	bne _08088156
 	ldr r5, _0808815C @ =gSave
 	adds r0, r7, #0
+.ifdef EU
+	adds r0, #0x7c
+.else
 	adds r0, #0x80
+.endif
 	ldrb r1, [r5, #9]
 	adds r4, r0, #0
 	ldrb r0, [r4]
@@ -777,7 +813,10 @@ _0808815C: .4byte gSave
 	thumb_func_start sub_08088160
 sub_08088160: @ 0x08088160
 .ifdef JP
-	.incbin "baserom_jp.gba", 0x087f88, 0xe8
+	.incbin "baserom_jp.gba", 0x087f88, 0xe8 @TODO disassemble
+.else
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x087B1C, 0x00000E8 @ TODO same as JP
 .else
 	push {r4, lr}
 	adds r2, r0, #0
@@ -909,13 +948,18 @@ _08088268:
 	adds r0, r4, #0
 	pop {r4, pc}
 .endif
+.endif
 
 	thumb_func_start sub_0808826C
 sub_0808826C: @ 0x0808826C
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	movs r4, #0x64
+.ifdef EU
+	adds r0, #0x7c
+.else
 	adds r0, #0x80
+.endif
 	ldrb r1, [r0]
 	ldr r0, _080882A4 @ =gSave
 	adds r0, #0xb0
@@ -958,8 +1002,10 @@ sub_080882A8: @ 0x080882A8
 	adds r0, r6, #0
 	adds r0, #0x83
 	ldrb r0, [r0]
+.ifndef EU
 	lsls r0, r0, #0x18
 	asrs r0, r0, #0x18
+.endif
 	adds r4, #8
 	adds r1, r4, #0
 	adds r2, r5, #0
@@ -1002,6 +1048,9 @@ _08088324: .4byte gScreen
 
 	thumb_func_start sub_08088328
 sub_08088328: @ 0x08088328
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x087CBC, 0x00000F8 @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -1129,6 +1178,7 @@ _08088414:
 	pop {r3}
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
+.endif
 
 	thumb_func_start sub_08088424
 sub_08088424: @ 0x08088424
@@ -1140,10 +1190,16 @@ sub_08088424: @ 0x08088424
 	cmp r0, #0x31
 	bhi _08088444
 	adds r1, #0x83
+.ifdef EU
+	ldrb r0, [r1, #0x0]
+	cmp r0, #0xe
+	bhi _08088476
+.else
 	movs r0, #0
 	ldrsb r0, [r1, r0]
 	cmp r0, #0xe
 	bgt _08088476
+.endif
 	movs r0, #0xf
 	b _08088474
 	.align 2, 0
@@ -1152,28 +1208,46 @@ _08088444:
 	cmp r0, #0x4f
 	bhi _08088456
 	adds r1, #0x83
+.ifdef EU
+	ldrb r0, [r1, #0x0]
+	cmp r0, #0xb
+	bhi _08088476
+.else
 	movs r0, #0
 	ldrsb r0, [r1, r0]
 	cmp r0, #0xb
 	bgt _08088476
+.endif
 	movs r0, #0xc
 	b _08088474
 _08088456:
 	cmp r0, #0x6d
 	bhi _08088468
 	adds r1, #0x83
+.ifdef EU
+	ldrb r0, [r1, #0x0]
+	cmp r0, #8
+	bhi _08088476
+.else
 	movs r0, #0
 	ldrsb r0, [r1, r0]
 	cmp r0, #8
 	bgt _08088476
+.endif
 	movs r0, #9
 	b _08088474
 _08088468:
 	adds r1, #0x83
+.ifdef EU
+	ldrb r0, [r1, #0x0]
+	cmp r0, #5
+	bhi _08088476
+.else
 	movs r0, #0
 	ldrsb r0, [r1, r0]
 	cmp r0, #5
 	bgt _08088476
+.endif
 	movs r0, #6
 _08088474:
 	strb r0, [r1]
@@ -1239,15 +1313,19 @@ _080884D2:
 	movs r0, #5
 	str r0, [r1, #0x10]
 _080884EA:
+.ifndef EU
 	ldr r1, _08088500 @ =gPlayerEntity
 	movs r0, #6
 	strb r0, [r1, #0x14]
+.endif
 	pop {r4, pc}
 	.align 2, 0
 _080884F4: .4byte 0x00004328
 _080884F8: .4byte 0x00004327
 _080884FC: .4byte gTextBox
+.ifndef EU
 _08088500: .4byte gPlayerEntity
+.endif
 
 	thumb_func_start sub_08088504
 sub_08088504: @ 0x08088504
@@ -1310,7 +1388,11 @@ _08088570: .4byte gTextBox
 	thumb_func_start sub_08088574
 sub_08088574: @ 0x08088574
 	push {lr}
+.ifdef EU
+	movs r0, #0xa
+.else
 	movs r0, #9
+.endif
 	bl CheckRoomFlag
 	cmp r0, #0
 	beq _08088594
@@ -1387,6 +1469,7 @@ _0808860A:
 	.align 2, 0
 _08088618: .4byte gSave
 
+.ifndef EU
 	thumb_func_start sub_0808861C
 sub_0808861C: @ 0x0808861C
 .ifdef JP
@@ -1451,4 +1534,5 @@ _08088678:
 	.align 2, 0
 _08088684: .4byte gPlayerEntity
 _08088688: .4byte gActiveScriptInfo
+.endif
 .endif

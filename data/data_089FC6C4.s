@@ -1108,13 +1108,30 @@ gUnk_08A071A0:: @ 08A071A0
 	.incbin "baserom.gba", 0xA07390, 0x0000004
 
 gUnk_08A07394:: @ 08A07394
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0xB12CA4, 0x0000154
+	.4byte 0x2
+	.incbin "baserom_eu.gba", 0xB12DFC, 0x0000008
+.else
 	.incbin "baserom.gba", 0xA07394, 0x0000154
 	.4byte gUnk_08A12ED0
 	.incbin "baserom.gba", 0xA074EC, 0x0000008
+.endif
 	.4byte gUnk_08A16610
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0xB12E08, 0x0000008
+.else
 	.incbin "baserom.gba", 0xA074F8, 0x0000008
+.endif
 	.4byte gUnk_08A12ED0
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0xB12E14, 0x0000008
+.else
 	.incbin "baserom.gba", 0xA07504, 0x0000008
+.endif
 	.4byte gUnk_08A1A54C
 	.incbin "baserom.gba", 0xA07510, 0x00000EC
 	.4byte gUnk_08A84DCC
@@ -1686,6 +1703,23 @@ gUnk_08A0CE22:: @ 08A0CE22
 	.incbin "baserom.gba", 0xA0CF40, 0x0000004
 
 gUnk_08A0CF44:: @ 08A0CF44
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0xB18854, 0x0000178
+	.4byte 0x2
+	.incbin "baserom_eu.gba", 0xB189D0, 0x00000C8
+	.4byte 0x2
+	.incbin "baserom_eu.gba", 0xB18A9C, 0x000008C
+	.4byte 0x2
+	.incbin "baserom_eu.gba", 0xB18B2C, 0x000002C
+	.4byte 0x2
+	.incbin "baserom_eu.gba", 0xB18B5C, 0x0000008
+	.4byte 0x2
+	.incbin "baserom_eu.gba", 0xB18B68, 0x0000008
+	.4byte 0x2
+	.incbin "baserom_eu.gba", 0xB18B74, 0x0000008
+
+.else
 	.incbin "baserom.gba", 0xA0CF44, 0x0000178
 	.4byte gUnk_08A1A54C
 	.incbin "baserom.gba", 0xA0D0C0, 0x00000C8
@@ -1699,14 +1733,19 @@ gUnk_08A0CF44:: @ 08A0CF44
 	.incbin "baserom.gba", 0xA0D258, 0x0000008
 	.4byte gUnk_08B2A77C
 	.incbin "baserom.gba", 0xA0D264, 0x0000008
+.endif
 	.4byte gUnk_08B08B14
 	.incbin "baserom.gba", 0xA0D270, 0x0000008
 	.4byte gUnk_08B3F61C
 	.incbin "baserom.gba", 0xA0D27C, 0x0000008
 	.4byte gUnk_08B47114
+.ifdef EU
+	.4byte 0x7FFF00FF
+.else
 	.incbin "baserom.gba", 0xA0D288, 0x00002B4
 	.4byte gUnk_08A0FCE0
 	.incbin "baserom.gba", 0xA0D540, 0x0000004
+.endif
 
 gUnk_08A0D544:: @ 08A0D544
 	.incbin "baserom.gba", 0xA0D544, 0x0000004

@@ -44,7 +44,9 @@ void sub_08022254(Entity* this) {
                 ent = CreateEnemy(CHUCHU, 1);
                 if (ent) {
                     ent->type2 = 1;
+#ifndef EU
                     ent->iframes = -8;
+#endif
                     sub_0804A4E4(this, ent);
                     this->action = 2;
                     this->flags &= ~0x80;
@@ -98,8 +100,10 @@ void sub_080223E4(Entity* this) {
     if (ent) {
         ent->bitfield = 0x94;
         ent->iframes = 0x10;
+#ifndef EU
         ent->field_0x42 = 0xc;
         ent->field_0x3e = this->direction;
+#endif
     }
 
     DeleteEntity(this);

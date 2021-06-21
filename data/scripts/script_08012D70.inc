@@ -11,7 +11,11 @@ SCRIPT_START script_08012D70
 .ifdef JP
 	SetLocalFlag 0x0015
 .else
+.ifdef EU
+	SetLocalFlag 0x0015
+.else
 	SetLocalFlag 0x0014
+.endif
 .endif
 	Call sub_0807DF50
 	_0807E878 

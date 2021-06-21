@@ -4,8 +4,10 @@
 	.section .rodata
     .align 2
 
+.ifndef EU
 gUnk_0810FDA0:: @ 0810FDA0
 	.incbin "baserom.gba", 0x10FDA0, 0x0000004
+.endif
 
 gUnk_0810FDA4:: @ 0810FDA4
 	.4byte sub_08065080

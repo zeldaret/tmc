@@ -2,7 +2,11 @@ SCRIPT_START script_0800939A
 .ifdef JP
 	CheckLocalFlag 0x00ac
 .else
+.ifdef EU
+	CheckLocalFlag 0x00ac
+.else
 	CheckLocalFlag 0x00ae
+.endif
 .endif
 	JumpIf script_0800943E
 	CheckInventory1 0x000d
@@ -25,7 +29,11 @@ script_080093DA:
 .ifdef JP
 	CheckLocalFlag 0x00ab
 .else
+.ifdef EU
+	CheckLocalFlag 0x00ab
+.else
 	CheckLocalFlag 0x00ad
+.endif
 .endif
 	JumpIf script_080093EE
 	SetIntVariable 0x00001d04
@@ -47,8 +55,13 @@ script_080093EE:
 	SetLocalFlag 0x00ac
 	SetLocalFlag 0x00ab
 .else
+.ifdef EU
+	SetLocalFlag 0x00ac
+	SetLocalFlag 0x00ab
+.else
 	SetLocalFlag 0x00ae
 	SetLocalFlag 0x00ad
+.endif
 .endif
 	Call sub_0806D5D4
 	_0807EB8C 

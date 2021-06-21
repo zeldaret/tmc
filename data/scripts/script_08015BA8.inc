@@ -3,7 +3,11 @@ SCRIPT_START script_08015BA8
 .ifdef JP
 	SetLocalFlag 0x008c
 .else
+.ifdef EU
+	SetLocalFlag 0x008c
+.else
 	SetLocalFlag 0x008e
+.endif
 .endif
 	_0807E864 
 	MoveEntityToPlayer 

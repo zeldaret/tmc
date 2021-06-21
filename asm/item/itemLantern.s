@@ -118,6 +118,9 @@ _08075AD8: .4byte gUnk_08126EEC
 
 	thumb_func_start sub_08075ADC
 sub_08075ADC: @ 0x08075ADC
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x07550C, 0x0000074 @TODO disassemble
+.else
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r5, r1, #0
@@ -177,6 +180,7 @@ _08075B4C:
 	bl UpdateItemAnim
 _08075B52:
 	pop {r4, r5, pc}
+.endif
 
 	thumb_func_start sub_08075B54
 sub_08075B54: @ 0x08075B54

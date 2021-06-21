@@ -64,11 +64,11 @@ void sub_0805F820(WStruct* r0, u32* r1) {
     VStruct* temp3;
 
     if (r0->unk4 - r0->unk6 > 0) {
-        #ifdef DEMO
+#ifdef DEMO
         sub_08002724(r1, &gUnk_02036A50);
-        #else
+#else
         sub_08002724(r1, &gUnk_02036A58);
-        #endif
+#endif
         if (r0->unk1 == 0) {
             u32 tmp = sub_0805F7A0(*r1);
             uVar6 = tmp & 0xf;
@@ -86,11 +86,11 @@ void sub_0805F820(WStruct* r0, u32* r1) {
             uVar3 = uVar4;
         }
 
-        #ifdef DEMO
+#ifdef DEMO
         puVar8 = &gUnk_02036A50 + uVar6;
-        #else
+#else
         puVar8 = &gUnk_02036A58 + uVar6;
-        #endif
+#endif
         temp2 = r0->unk8;
         temp = gUnk_0810942E[r0->unk3].filler0[r0->unk2 * 2];
         uVar7 = r0->unk6;
@@ -133,40 +133,40 @@ void sub_0805F918(u32 idx, u32 idx2, void* dest) {
     u8* temp;
     u8* temp2;
 
-    #ifdef DEMO
+#ifdef DEMO
     MemFill32(sub_0805F8F8(idx2), &gUnk_02036AD0, 0xe0);
-    #else
+#else
     MemFill32(sub_0805F8F8(idx2), &gUnk_02036AD8, 0xe0);
-    #endif
+#endif
     puVar1 = gUnk_081092AC[idx];
 
     temp = &gUnk_081094CE + idx2 * 0xc0;
     idx3 = 0;
     for (i = 0; i < 3; i++) {
-        #ifdef DEMO
+#ifdef DEMO
         puVar2 = &gUnk_02036A50;
         sub_08002724(puVar1, &gUnk_02036A50);
-        #else
+#else
         puVar2 = &gUnk_02036A58;
         sub_08002724(puVar1, &gUnk_02036A58);
-        #endif
+#endif
         puVar1 += 0x40;
 
         for (j = 0; j < 8; j++) {
-            #ifdef DEMO
+#ifdef DEMO
             sub_080026C4(puVar2, &gUnk_02036AD0, temp, idx3);
-            #else
+#else
             sub_080026C4(puVar2, &gUnk_02036AD8, temp, idx3);
-            #endif
+#endif
             puVar2++;
             idx3++;
         }
     }
-    #ifdef DEMO
+#ifdef DEMO
     LoadResourceAsync((const void*)&gUnk_02036AD0, (u32)dest, 0xe0);
-    #else
+#else
     LoadResourceAsync((const void*)&gUnk_02036AD8, (u32)dest, 0xe0);
-    #endif
+#endif
 }
 
 u32 sub_0805F9A0(u32 r0) {

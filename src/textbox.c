@@ -475,6 +475,13 @@ void sub_080569C4(CurrentTextBox* ctb, u32 unk) {
 
 extern u8 gUnk_08107C14;
 extern u8 gUnk_08107C0F;
+
+#ifdef EU
+NAKED void TextBoxHandlerQuestion(CurrentTextBox* ctb) {
+    asm(".incbin \"baserom_eu.gba\", 0x05654c, 0x138"); // TODO disassemble
+}
+#else
+
 void TextBoxHandlerQuestion(CurrentTextBox* ctb) {
     s32 r1, r5, r6;
     u32 error;
@@ -539,6 +546,8 @@ void sub_08056ABC(u32 unk_0, u32 unk_1) {
     gCurrentTextBox._50.unk6 = t;
     gCurrentTextBox._9d = 1;
 }
+
+#endif
 
 void TextBoxHandlerNextBox(CurrentTextBox* ctb) {
     u32 t;

@@ -650,16 +650,20 @@ _0802D4D6:
 	adds r0, #8
 	strb r3, [r0]
 _0802D52E:
+.ifndef EU
 	ldr r0, _0802D540 @ =gPlayerState
 	adds r0, #0x8b
 	movs r1, #3
 	strb r1, [r0]
+.endif
 	adds r0, r4, #0
 	movs r1, #0x4c
 	bl InitializeAnimation
 	b _0802D63C
 	.align 2, 0
+.ifndef EU
 _0802D540: .4byte gPlayerState
+.endif
 _0802D544:
 	ldrb r0, [r4, #0xb]
 	cmp r0, #1
@@ -797,6 +801,9 @@ _0802D648:
 sub_0802D650: @ 0x0802D650
 	push {r4, lr}
 	adds r4, r0, #0
+.ifdef EU
+    bl sub_08078B48
+.endif
 	ldr r1, _0802D670 @ =gUnk_080CD7E4
 	ldrb r0, [r4, #0xd]
 	lsls r0, r0, #2
@@ -985,6 +992,9 @@ _0802D7B0: .4byte gScreenTransition
 
 	thumb_func_start sub_0802D7B4
 sub_0802D7B4: @ 0x0802D7B4
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x02d73c, 0xb0 @TODO disassemble
+.else
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xe]
@@ -1073,6 +1083,7 @@ _0802D85C:
 _0802D868:
 	pop {r4, r5, pc}
 	.align 2, 0
+.endif
 
 	thumb_func_start sub_0802D86C
 sub_0802D86C: @ 0x0802D86C

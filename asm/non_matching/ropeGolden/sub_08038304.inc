@@ -18,7 +18,11 @@
 	ldrb r1, [r4, #0x15]
 	cmp r0, r1
 	bne _08038330
+.ifdef EU
+	movs r0, #0x1e
+.else
 	movs r0, #0x5a
+.endif
 	strb r0, [r4, #0xf]
 	adds r0, r4, #0
 	bl sub_080383AC

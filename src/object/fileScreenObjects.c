@@ -139,7 +139,11 @@ static bool32 sub_0808E950(void) {
 void sub_0808E988(Entity* this) {
     if (this->action == 0) {
         this->action = 1;
+#ifdef EU
+        this->spriteIndex = 0x141;
+#else
         this->spriteIndex = 0x142;
+#endif
         this->type2 = 0xFF;
         sub_080AE008(this, 1, 3);
     }

@@ -350,6 +350,9 @@ _080A57F0:
 
 	thumb_func_start sub_080A57F4
 sub_080A57F4: @ 0x080A57F4
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A5008, 0x000019C @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
 	mov r6, r8
@@ -553,6 +556,7 @@ _080A5980: .4byte gUnk_080FDFD8
 _080A5984: .4byte gMenu
 _080A5988: .4byte gOamCmd
 _080A598C: .4byte gSave
+.endif
 
 	thumb_func_start sub_080A5990
 sub_080A5990: @ 0x080A5990
@@ -748,13 +752,21 @@ _080A5AF0: .4byte gMenu
 
 	thumb_func_start sub_080A5AF4
 sub_080A5AF4: @ 0x080A5AF4
+.ifdef EU
+	push {lr}
+	ldr r1, _080A5B18 @ =gMenu
+	movs r0, #0
+	strb r0, [r1, #3]
+.else
 	push {r4, lr}
 	ldr r0, _080A5B18 @ =gMenu
 	movs r4, #0
 	strb r4, [r0, #3]
+.endif
 	movs r0, #2
 	movs r1, #0
 	bl sub_08052418
+.ifndef EU
 	movs r0, #0x80
 	lsls r0, r0, #0x12
 	ldrb r0, [r0, #7]
@@ -771,12 +783,21 @@ _080A5B20: .4byte 0x0000FFFC
 _080A5B24:
 	ldr r0, _080A5B30 @ =gScreen
 	strh r4, [r0, #0x18]
+.endif
 _080A5B28:
 	movs r0, #1
 	bl sub_080A7114
+.ifdef EU 
+	pop {pc}
+.else
 	pop {r4, pc}
+.endif
 	.align 2, 0
+.ifdef EU
+_080A5B18: .4byte gMenu
+.else
 _080A5B30: .4byte gScreen
+.endif
 
 	thumb_func_start sub_080A5B34
 sub_080A5B34: @ 0x080A5B34
@@ -1017,6 +1038,9 @@ _080A5D18: .4byte gUnk_02019EE0
 
 	thumb_func_start sub_080A5D1C
 sub_080A5D1C: @ 0x080A5D1C
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A550C, 0x000020C @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -1270,6 +1294,7 @@ _080A5F14:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A5F20: .4byte 0x000001FB
+.endif
 
 	thumb_func_start sub_080A5F24
 sub_080A5F24: @ 0x080A5F24
@@ -1571,6 +1596,9 @@ _080A6178:
 
 	thumb_func_start sub_080A617C
 sub_080A617C: @ 0x080A617C
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A5970, 0x00000F4 @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -1686,6 +1714,7 @@ _080A6260: .4byte gOamCmd
 _080A6264: .4byte gMenu
 _080A6268: .4byte gMain
 _080A626C: .4byte gUnk_08128D70
+.endif
 
 	thumb_func_start sub_080A6270
 sub_080A6270: @ 0x080A6270
@@ -1820,6 +1849,9 @@ _080A6374: .4byte gMenu
 
 	thumb_func_start sub_080A6378
 sub_080A6378: @ 0x080A6378
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A5B6C, 0x00000C0 @TODO disassemble
+.else
 	push {r4, r5, r6, lr}
 	ldr r0, _080A6420 @ =gMenu
 	adds r4, r0, #0
@@ -1907,9 +1939,13 @@ _080A6428: .4byte gScreenTransition
 _080A642C: .4byte gPlayerState
 _080A6430: .4byte 0x000001FB
 _080A6434: .4byte gUnk_08128DE8
+.endif
 
 	thumb_func_start sub_080A6438
 sub_080A6438: @ 0x080A6438
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A5C2C, 0x0000060 @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	ldr r2, _080A6484 @ =gOamCmd
 	movs r1, #0
@@ -1956,9 +1992,13 @@ _080A6488: .4byte gSave
 _080A648C: .4byte gMenu
 _080A6490: .4byte gUnk_08128F58
 _080A6494: .4byte 0x000001FB
+.endif
 
 	thumb_func_start sub_080A6498
 sub_080A6498: @ 0x080A6498
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A5C8C, 0x0000064 @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	ldr r0, _080A64E4 @ =gOamCmd
 	movs r2, #0
@@ -2005,6 +2045,7 @@ _080A64EC: .4byte gUnk_08128DE8
 _080A64F0: .4byte 0x000001FB
 _080A64F4: .4byte gScreen
 _080A64F8: .4byte 0x00003D3F
+.endif
 
 	thumb_func_start sub_080A64FC
 sub_080A64FC: @ 0x080A64FC
@@ -2230,6 +2271,9 @@ _080A66C2:
 
 	thumb_func_start sub_080A66D0
 sub_080A66D0: @ 0x080A66D0
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A5EC4, 0x00000F4 @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -2351,6 +2395,7 @@ _080A67BA:
 	mov sb, r4
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
+.endif
 
 	thumb_func_start sub_080A67C4
 sub_080A67C4: @ 0x080A67C4
@@ -2487,6 +2532,9 @@ _080A68D0: .4byte gUnk_02019EE0
 
 	thumb_func_start sub_080A68D4
 sub_080A68D4: @ 0x080A68D4
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A60C8, 0x00000B4 @TODO disassemble
+.else
 	push {r4, r5, r6, lr}
 	ldr r0, _080A690C @ =gPlayerState
 	ldr r0, [r0, #0x30]
@@ -2571,6 +2619,7 @@ _080A6976:
 _080A6980: .4byte 0x000001FB
 _080A6984: .4byte gUnk_080C9CBC
 _080A6988: .4byte gUnk_080FE320
+.endif
 
 	thumb_func_start sub_080A698C
 sub_080A698C: @ 0x080A698C
@@ -2832,7 +2881,12 @@ _080A6B84:
 	ldr r1, _080A6C10 @ =gScreenTransition
 	ldrh r0, [r1, #0x20]
 	ldrh r1, [r1, #0x22]
+.ifdef EU
+	movs r4, #0xfd
+	lsls r4, r4, #0x1
+.else
 	ldr r4, _080A6C14 @ =0x000001FB
+.endif
 	movs r3, #0x80
 	lsls r3, r3, #1
 	adds r3, r2, r3
@@ -2889,7 +2943,9 @@ _080A6C04: .4byte 0x00005001
 _080A6C08: .4byte gBG3Buffer
 _080A6C0C: .4byte gPlayerState
 _080A6C10: .4byte gScreenTransition
+.ifndef EU
 _080A6C14: .4byte 0x000001FB
+.endif
 _080A6C18: .4byte gUnk_08128E94
 
 	thumb_func_start sub_080A6C1C
@@ -3118,6 +3174,9 @@ _080A6DC6:
 
 	thumb_func_start sub_080A6DD0
 sub_080A6DD0: @ 0x080A6DD0
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A65BC, 0x0000034 @TODO disassemble
+.else
 	push {lr}
 	bl sub_08056338
 	cmp r0, #0
@@ -3139,6 +3198,7 @@ _080A6DF2:
 	bl sub_080A7114
 _080A6DF6:
 	pop {pc}
+.endif
 
 	thumb_func_start sub_080A6DF8
 sub_080A6DF8: @ 0x080A6DF8
@@ -3199,6 +3259,9 @@ _080A6E6C: .4byte gUnk_08128024
 
 	thumb_func_start sub_080A6E70
 sub_080A6E70: @ 0x080A6E70
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A6668, 0x0000070 @TODO disassemble
+.else
 	push {r4, r5, lr}
 	ldr r1, _080A6ED0 @ =gOamCmd
 	movs r0, #0
@@ -3251,6 +3314,7 @@ _080A6ED0: .4byte gOamCmd
 _080A6ED4: .4byte gMenu
 _080A6ED8: .4byte 0x000001FB
 _080A6EDC: .4byte gSave
+.endif
 
 	thumb_func_start sub_080A6EE0
 sub_080A6EE0: @ 0x080A6EE0

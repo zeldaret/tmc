@@ -22,7 +22,11 @@ SCRIPT_START script_080109A0
 .ifdef JP
 	CheckLocalFlag 0x00ce
 .else
+.ifdef EU
+	CheckLocalFlag 0x00ce
+.else
 	CheckLocalFlag 0x00d1
+.endif
 .endif
 	JumpIf script_080109EA
 	CheckPlayerInRegion2 0x0808

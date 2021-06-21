@@ -544,6 +544,9 @@ _080A407C: .4byte gUnk_02019EE0
 
 	thumb_func_start sub_080A4080
 sub_080A4080: @ 0x080A4080
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A3898, 0x00000CC @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	ldr r4, _080A4134 @ =gOamCmd
 	movs r0, #0
@@ -637,6 +640,7 @@ _080A413C: .4byte 0x000001FB
 _080A4140: .4byte gMain
 _080A4144: .4byte gUnk_08128110
 _080A4148: .4byte 0x0000FFFF
+.endif
 
 	thumb_func_start sub_080A414C
 sub_080A414C: @ 0x080A414C
@@ -1707,6 +1711,9 @@ _080A4974: .4byte gSave
 
 	thumb_func_start sub_080A4978
 sub_080A4978: @ 0x080A4978
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A4190, 0x00001CC @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
 	push {r7}
@@ -1927,6 +1934,7 @@ _080A4B3A:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080A4B40: .4byte 0x06014000
+.endif
 
 	thumb_func_start sub_080A4B44
 sub_080A4B44: @ 0x080A4B44
@@ -2731,7 +2739,12 @@ _080A5182:
 	strh r0, [r4]
 	ldr r0, [sp, #4]
 	strh r0, [r4, #2]
+.ifdef EU
+	movs r5, #0xfd
+	lsls r5, r5, #0x1
+.else
 	ldr r5, _080A51D0 @ =0x000001FB
+.endif
 	adds r0, r5, #0
 	movs r1, #0
 	bl sub_080ADA14
@@ -2754,7 +2767,9 @@ _080A51C6:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080A51CC: .4byte gOamCmd
+.ifndef EU
 _080A51D0: .4byte 0x000001FB
+.endif
 
 	thumb_func_start sub_080A51D4
 sub_080A51D4: @ 0x080A51D4
@@ -2991,6 +3006,9 @@ _080A5380:
 
 	thumb_func_start sub_080A5384
 sub_080A5384: @ 0x080A5384
+.ifdef EU
+    .incbin "baserom_eu.gba", 0x0A4B98, 0x00001C8 @TODO disassemble
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -3212,3 +3230,4 @@ _080A553C: .4byte gUnk_08128B64
 _080A5540: .4byte gMain
 _080A5544: .4byte 0x000001FB
 _080A5548: .4byte gSave
+.endif

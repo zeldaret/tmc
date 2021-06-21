@@ -105,14 +105,19 @@ void sub_0802A924(Entity* this) {
     this->actionDelay = 0;
     this->field_0xf = 0;
     this->hitbox = (Hitbox*)&gUnk_080CD16C;
+#ifdef EU
+    this->field_0x3c |= 0x10;
+#endif
     this->height.HALF.HI = -0x30;
     this->field_0x80.HALF.LO = Random() & 1;
     this->field_0x82.HWORD = 0;
     this->field_0x7a.HALF.HI = 0;
     this->field_0x80.HALF.HI = 0;
     this->field_0x7a.HALF.LO = 0;
+#ifndef EU
     this->field_0x78.HALF.LO = 0;
     this->field_0x78.HALF.HI = 0;
+#endif
     this->collisionLayer = 3;
     this->spriteOrientation.flipY = 1;
     this->spriteRendering.b3 = 1;
@@ -183,6 +188,11 @@ void sub_0802AA40(Entity* this) {
     }
 }
 
+#ifdef EU
+NAKED void sub_0802AAC0(Entity* this) {
+    asm(".incbin \"baserom_eu.gba\", 0x02aa94, 0xc8"); // TODO disassemble
+}
+#else
 void sub_0802AAC0(Entity* this) {
     sub_0802AC40(this);
     if (--this->field_0xf == 0) {
@@ -210,7 +220,13 @@ void sub_0802AAC0(Entity* this) {
         InitializeAnimation(this, 0);
     }
 }
+#endif
 
+#ifdef EU
+NAKED void sub_0802AB40(Entity* this) {
+    asm(".incbin \"baserom_eu.gba\", 0x02ab5c, 0x60"); // TODO disassemble
+}
+#else
 void sub_0802AB40(Entity* this) {
     sub_0802AC40(this);
     switch (this->field_0x78.HALF.LO) {
@@ -249,6 +265,7 @@ void sub_0802AB40(Entity* this) {
             break;
     }
 }
+#endif
 
 void sub_0802AC08(Entity* this) {
     if (this->frames.all & 0x80) {
@@ -262,6 +279,11 @@ void sub_0802AC08(Entity* this) {
     GetNextFrame(this);
 }
 
+#ifdef EU
+NAKED void sub_0802AC40(Entity* this) {
+    asm(".incbin \"baserom_eu.gba\", 0x02ABF4, 0x54"); // TODO disassemble
+}
+#else
 void sub_0802AC40(Entity* this) {
     GetNextFrame(this);
     sub_0806F69C(this);
@@ -291,6 +313,7 @@ void sub_0802AC40(Entity* this) {
         }
     }
 }
+#endif
 
 void sub_0802ACDC(Entity* this, u32 param_2) {
     u32 x;
@@ -339,6 +362,12 @@ void sub_0802AD54(Entity* this) {
     }
 }
 
+#ifdef EU
+// TODO regalloc in EU version
+NAKED void sub_0802ADDC(Entity* this) {
+    asm(".incbin \"baserom_eu.gba\", 0x02AD48, 0x000004C"); // TODOg disassemble
+}
+#else
 void sub_0802ADDC(Entity* this) {
     Entity* ent = CreateEnemy(BOMB_PEAHAT, this->type + 2);
     if (ent != NULL) {
@@ -346,12 +375,16 @@ void sub_0802ADDC(Entity* this) {
         ent->parent = this;
         this->attachedEntity = ent;
         CopyPosition(this, ent);
+        /*#ifdef EU
+                this->height.HALF.HI += 8;
+        #endif*/
         this->field_0x80.HALF.HI = 1;
         if (this->type == 0) {
             this->field_0x7a.HALF.LO++;
         }
     }
 }
+#endif
 
 void sub_0802AE24(Entity* this) {
     this->action = 1;
@@ -366,6 +399,11 @@ void sub_0802AE24(Entity* this) {
     InitializeAnimation(this, 3);
 }
 
+#ifdef EU
+NAKED void sub_0802AE68(Entity* this) {
+    asm(".incbin \"baserom_eu.gba\", 0x02add8, 0x94"); // TODO disassemble
+}
+#else
 void sub_0802AE68(Entity* this) {
     Entity* ent = sub_0802B250(this);
     if (ent == 0) {
@@ -383,6 +421,7 @@ void sub_0802AE68(Entity* this) {
         }
     }
 }
+#endif
 
 void sub_0802AEBC(Entity* this) {
     gUnk_080CD158[this->subAction](this);
@@ -539,6 +578,11 @@ void sub_0802B1A0(Entity* this) {
     InitializeAnimation(this, 0);
 }
 
+#ifdef EU
+NAKED void sub_0802B1BC(Entity* this) {
+    asm(".incbin \"baserom_eu.gba\", 0x02b16c, 0x84"); // TODO disassemble
+}
+#else
 void sub_0802B1BC(Entity* this) {
     Entity* ent;
 
@@ -559,6 +603,7 @@ void sub_0802B1BC(Entity* this) {
         }
     }
 }
+#endif
 
 void sub_0802B204(Entity* this) {
     if (sub_080044EC(this, 0x2800) == 1) {
@@ -578,6 +623,7 @@ bool32 sub_0802B234(Entity* this) {
     return ret;
 }
 
+#ifndef EU
 Entity* sub_0802B250(Entity* this) {
     Entity* parent = this->parent;
     if (parent && parent->next == NULL) {
@@ -596,6 +642,7 @@ void sub_0802B264(Entity* this) {
     }
     GetNextFrame(this);
 }
+#endif
 
 // clang-format off
 void (*const gUnk_080CD0F0[])(Entity*) = {
@@ -648,14 +695,26 @@ void (*const gUnk_080CD158[])(Entity*) = {
 };
 
 const Hitbox gUnk_080CD16C = {
+#ifdef EU
+    0x00, 0xFD, 0x05, 0x03, 0x03, 0x05, 0x06, 0x06,
+#else
     0x00, 0xFB, 0x05, 0x03, 0x03, 0x05, 0x06, 0x06,
+#endif
 };
+
+#ifdef EU
+const u8 unk_data[] = { // TODO
+    0x0c, 0x0, 0x0, 0x0
+};
+#endif
 
 const Hitbox gUnk_080CD174 = {
     0x00, 0x00, 0x06, 0x00, 0x00, 0x06, 0x04, 0x04,
 };
 
+
 const Hitbox gUnk_080CD17C = {
     0x00, 0x00, 0x04, 0x00, 0x00, 0x04, 0x16, 0x16,
 };
+
 // clang-format on

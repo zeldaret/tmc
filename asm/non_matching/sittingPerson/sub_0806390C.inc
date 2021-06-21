@@ -5,7 +5,11 @@
 .ifdef JP
 	movs r0, #0xd6
 .else
+.ifdef EU
+	movs r0, #0xd6
+.else
 	movs r0, #0xd9
+.endif
 .endif
 	bl CheckLocalFlag
 	cmp r0, #0
@@ -14,7 +18,11 @@
 .ifdef JP
 	movs r0, #0xd6
 .else
+.ifdef EU
+	movs r0, #0xd6
+.else
 	movs r0, #0xd9
+.endif
 .endif
 	bl SetLocalFlag
 	adds r0, r4, #0

@@ -9,7 +9,11 @@ gUnk_080B4410:: @ 080B4410
 	@ TODO only small differences
 	.incbin "baserom_jp.gba", 0x0B41B0, 0x0000048	
 .else
+.ifdef EU
+	.incbin "baserom_jp.gba", 0x0B41B0, 0x0000048	
+.else
 	.incbin "baserom.gba", 0x0B4410, 0x0000048
+.endif
 .endif
 
 gUnk_080B4458:: @ 080B4458
@@ -76,16 +80,33 @@ gUnk_080B4550:: @ 080B4550
 	.4byte gUnk_080B4540
 
 gUnk_080B4568:: @ 080B4568
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3C90, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4568, 0x0000008
+.endif
 
 gUnk_080B4570:: @ 080B4570
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3C98, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4570, 0x0000008
+.endif
 
 gUnk_080B4578:: @ 080B4578
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3CA0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4578, 0x0000008
+.endif
+	
 
 gUnk_080B4580:: @ 080B4580
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3CA8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4580, 0x0000008
+.endif
 
 gUnk_080B4588:: @ 080B4588
 	.4byte gUnk_080B4568
@@ -98,16 +119,32 @@ gUnk_080B4588:: @ 080B4588
 	.incbin "baserom.gba", 0x0B45A4, 0x000000C
 
 gUnk_080B45B0:: @ 080B45B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3CD8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B45B0, 0x0000008
+.endif
 
 gUnk_080B45B8:: @ 080B45B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3CE0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B45B8, 0x0000008
+.endif
 
 gUnk_080B45C0:: @ 080B45C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3CE8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B45C0, 0x0000008
+.endif
 
 gUnk_080B45C8:: @ 080B45C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3CF0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B45C8, 0x0000008
+.endif
 
 gUnk_080B45D0:: @ 080B45D0
 	.4byte gUnk_080B45B0
@@ -120,16 +157,32 @@ gUnk_080B45D0:: @ 080B45D0
 	.incbin "baserom.gba", 0x0B45EC, 0x000000C
 
 gUnk_080B45F8:: @ 080B45F8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3D20, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B45F8, 0x0000008
+.endif
 
 gUnk_080B4600:: @ 080B4600
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3D28, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4600, 0x0000008
+.endif
 
 gUnk_080B4608:: @ 080B4608
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3D30, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4608, 0x0000008
+.endif
 
 gUnk_080B4610:: @ 080B4610
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3D38, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4610, 0x0000008
+.endif
 
 gUnk_080B4618:: @ 080B4618
 	.4byte gUnk_080B45F8
@@ -142,16 +195,32 @@ gUnk_080B4618:: @ 080B4618
 	.incbin "baserom.gba", 0x0B4634, 0x000000C
 
 gUnk_080B4640:: @ 080B4640
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3D68, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4640, 0x0000008
+.endif
 
 gUnk_080B4648:: @ 080B4648
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3D70, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4648, 0x0000008
+.endif
 
 gUnk_080B4650:: @ 080B4650
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3D78, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4650, 0x0000008
+.endif
 
 gUnk_080B4658:: @ 080B4658
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3D80, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4658, 0x0000008
+.endif
 
 gUnk_080B4660:: @ 080B4660
 	.4byte gUnk_080B4640
@@ -164,16 +233,32 @@ gUnk_080B4660:: @ 080B4660
 	.incbin "baserom.gba", 0x0B467C, 0x000000C
 
 gUnk_080B4688:: @ 080B4688
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3DB0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4688, 0x0000008
+.endif
 
 gUnk_080B4690:: @ 080B4690
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3DB8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4690, 0x0000008
+.endif
 
 gUnk_080B4698:: @ 080B4698
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3DC0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4698, 0x0000008
+.endif
 
 gUnk_080B46A0:: @ 080B46A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3DC8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B46A0, 0x0000008
+.endif
 
 gUnk_080B46A8:: @ 080B46A8
 	.4byte gUnk_080B4688
@@ -186,16 +271,32 @@ gUnk_080B46A8:: @ 080B46A8
 	.incbin "baserom.gba", 0x0B46C4, 0x000000C
 
 gUnk_080B46D0:: @ 080B46D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3DF8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B46D0, 0x0000008
+.endif
 
 gUnk_080B46D8:: @ 080B46D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3E00, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B46D8, 0x0000008
+.endif
 
 gUnk_080B46E0:: @ 080B46E0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3E08, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B46E0, 0x0000008
+.endif
 
 gUnk_080B46E8:: @ 080B46E8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3E10, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B46E8, 0x0000008
+.endif
 
 gUnk_080B46F0:: @ 080B46F0
 	.4byte gUnk_080B46D0
@@ -208,16 +309,32 @@ gUnk_080B46F0:: @ 080B46F0
 	.incbin "baserom.gba", 0x0B470C, 0x000000C
 
 gUnk_080B4718:: @ 080B4718
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3E40, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4718, 0x0000008
+.endif
 
 gUnk_080B4720:: @ 080B4720
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3E48, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4720, 0x0000008
+.endif
 
 gUnk_080B4728:: @ 080B4728
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3E50, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4728, 0x0000008
+.endif
 
 gUnk_080B4730:: @ 080B4730
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3E58, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4730, 0x0000008
+.endif
 
 gUnk_080B4738:: @ 080B4738
 	.4byte gUnk_080B4718
@@ -230,16 +347,32 @@ gUnk_080B4738:: @ 080B4738
 	.incbin "baserom.gba", 0x0B4754, 0x000000C
 
 gUnk_080B4760:: @ 080B4760
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3E88, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4760, 0x0000008
+.endif
 
 gUnk_080B4768:: @ 080B4768
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3E90, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4768, 0x0000008
+.endif
 
 gUnk_080B4770:: @ 080B4770
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3E98, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4770, 0x0000008
+.endif
 
 gUnk_080B4778:: @ 080B4778
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3EA0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4778, 0x0000008
+.endif
 
 gUnk_080B4780:: @ 080B4780
 	.4byte gUnk_080B4760
@@ -252,16 +385,32 @@ gUnk_080B4780:: @ 080B4780
 	.incbin "baserom.gba", 0x0B479C, 0x000000C
 
 gUnk_080B47A8:: @ 080B47A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3ED0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B47A8, 0x0000008
+.endif
 
 gUnk_080B47B0:: @ 080B47B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3ED8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B47B0, 0x0000008
+.endif
 
 gUnk_080B47B8:: @ 080B47B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3EE0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B47B8, 0x0000008
+.endif
 
 gUnk_080B47C0:: @ 080B47C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3EE8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B47C0, 0x0000008
+.endif
 
 gUnk_080B47C8:: @ 080B47C8
 	.4byte gUnk_080B47A8
@@ -274,16 +423,32 @@ gUnk_080B47C8:: @ 080B47C8
 	.incbin "baserom.gba", 0x0B47E4, 0x000000C
 
 gUnk_080B47F0:: @ 080B47F0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3F18, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B47F0, 0x0000008
+.endif
 
 gUnk_080B47F8:: @ 080B47F8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3F20, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B47F8, 0x0000008
+.endif
 
 gUnk_080B4800:: @ 080B4800
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3F28, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4800, 0x0000008
+.endif
 
 gUnk_080B4808:: @ 080B4808
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3F30, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4808, 0x0000008
+.endif
 
 gUnk_080B4810:: @ 080B4810
 	.4byte gUnk_080B47F0
@@ -296,16 +461,32 @@ gUnk_080B4810:: @ 080B4810
 	.incbin "baserom.gba", 0x0B482C, 0x000000C
 
 gUnk_080B4838:: @ 080B4838
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3F60, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B4838, 0x0000010
+.endif
 
 gUnk_080B4848:: @ 080B4848
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3F70, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B4848, 0x0000010
+.endif
 
 gUnk_080B4858:: @ 080B4858
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3F80, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B4858, 0x0000010
+.endif
 
 gUnk_080B4868:: @ 080B4868
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3F90, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B4868, 0x0000010
+.endif
 
 gUnk_080B4878:: @ 080B4878
 	.4byte gUnk_080B4838
@@ -318,22 +499,46 @@ gUnk_080B4878:: @ 080B4878
 	.incbin "baserom.gba", 0x0B4894, 0x000000C
 
 gUnk_080B48A0:: @ 080B48A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3FC8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B48A0, 0x0000008
+.endif
 
 gUnk_080B48A8:: @ 080B48A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3FD0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B48A8, 0x0000008
+.endif
 
 gUnk_080B48B0:: @ 080B48B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3FD8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B48B0, 0x0000008
+.endif
 
 gUnk_080B48B8:: @ 080B48B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3FE0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B48B8, 0x0000008
+.endif
 
 gUnk_080B48C0:: @ 080B48C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3FE8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B48C0, 0x0000008
+.endif
 
 gUnk_080B48C8:: @ 080B48C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B3FF0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B48C8, 0x0000008
+.endif
 
 gUnk_080B48D0:: @ 080B48D0
 	.4byte gUnk_080B48A0
@@ -350,22 +555,46 @@ gUnk_080B48D0:: @ 080B48D0
 	.incbin "baserom.gba", 0x0B48FC, 0x000000C
 
 gUnk_080B4908:: @ 080B4908
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4030, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4908, 0x0000008
+.endif
 
 gUnk_080B4910:: @ 080B4910
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4038, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4910, 0x0000008
+.endif
 
 gUnk_080B4918:: @ 080B4918
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4040, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4918, 0x0000008
+.endif
 
 gUnk_080B4920:: @ 080B4920
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4048, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4920, 0x0000008
+.endif
 
 gUnk_080B4928:: @ 080B4928
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4050, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4928, 0x0000008
+.endif
 
 gUnk_080B4930:: @ 080B4930
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4058, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4930, 0x0000008
+.endif
 
 gUnk_080B4938:: @ 080B4938
 	.4byte gUnk_080B4908
@@ -382,22 +611,46 @@ gUnk_080B4938:: @ 080B4938
 	.incbin "baserom.gba", 0x0B4964, 0x000000C
 
 gUnk_080B4970:: @ 080B4970
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4098, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4970, 0x0000008
+.endif
 
 gUnk_080B4978:: @ 080B4978
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B40A0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4978, 0x0000008
+.endif
 
 gUnk_080B4980:: @ 080B4980
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B40A8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4980, 0x0000008
+.endif
 
 gUnk_080B4988:: @ 080B4988
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B40B0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4988, 0x0000008
+.endif
 
 gUnk_080B4990:: @ 080B4990
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B40B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4990, 0x0000008
+.endif
 
 gUnk_080B4998:: @ 080B4998
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B40C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4998, 0x0000008
+.endif
 
 gUnk_080B49A0:: @ 080B49A0
 	.4byte gUnk_080B4970
@@ -414,16 +667,32 @@ gUnk_080B49A0:: @ 080B49A0
 	.incbin "baserom.gba", 0x0B49CC, 0x000000C
 
 gUnk_080B49D8:: @ 080B49D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4100, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B49D8, 0x0000008
+.endif
 
 gUnk_080B49E0:: @ 080B49E0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4108, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B49E0, 0x0000008
+.endif
 
 gUnk_080B49E8:: @ 080B49E8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4110, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B49E8, 0x0000008
+.endif
 
 gUnk_080B49F0:: @ 080B49F0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4118, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B49F0, 0x0000008
+.endif
 
 gUnk_080B49F8:: @ 080B49F8
 	.4byte gUnk_080B49D8
@@ -436,16 +705,32 @@ gUnk_080B49F8:: @ 080B49F8
 	.incbin "baserom.gba", 0x0B4A14, 0x000000C
 
 gUnk_080B4A20:: @ 080B4A20
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4148, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4A20, 0x0000008
+.endif
 
 gUnk_080B4A28:: @ 080B4A28
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4150, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4A28, 0x0000008
+.endif
 
 gUnk_080B4A30:: @ 080B4A30
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4158, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4A30, 0x0000008
+.endif
 
 gUnk_080B4A38:: @ 080B4A38
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4160, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4A38, 0x0000008
+.endif
 
 gUnk_080B4A40:: @ 080B4A40
 	.4byte gUnk_080B4A20
@@ -458,16 +743,32 @@ gUnk_080B4A40:: @ 080B4A40
 	.incbin "baserom.gba", 0x0B4A5C, 0x000000C
 
 gUnk_080B4A68:: @ 080B4A68
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4190, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4A68, 0x0000008
+.endif
 
 gUnk_080B4A70:: @ 080B4A70
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4198, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4A70, 0x0000008
+.endif
 
 gUnk_080B4A78:: @ 080B4A78
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B41A0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4A78, 0x0000008
+.endif
 
 gUnk_080B4A80:: @ 080B4A80
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B41A8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4A80, 0x0000008
+.endif
 
 gUnk_080B4A88:: @ 080B4A88
 	.4byte gUnk_080B4A68
@@ -480,16 +781,32 @@ gUnk_080B4A88:: @ 080B4A88
 	.incbin "baserom.gba", 0x0B4AA4, 0x000000C
 
 gUnk_080B4AB0:: @ 080B4AB0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B41D8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4AB0, 0x0000008
+.endif
 
 gUnk_080B4AB8:: @ 080B4AB8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B41E0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4AB8, 0x0000008
+.endif
 
 gUnk_080B4AC0:: @ 080B4AC0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B41E8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4AC0, 0x0000008
+.endif
 
 gUnk_080B4AC8:: @ 080B4AC8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B41F0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4AC8, 0x0000008
+.endif
 
 gUnk_080B4AD0:: @ 080B4AD0
 	.4byte gUnk_080B4AB0
@@ -502,16 +819,32 @@ gUnk_080B4AD0:: @ 080B4AD0
 	.incbin "baserom.gba", 0x0B4AEC, 0x000000C
 
 gUnk_080B4AF8:: @ 080B4AF8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4220, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4AF8, 0x0000008
+.endif
 
 gUnk_080B4B00:: @ 080B4B00
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4228, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4B00, 0x0000008
+.endif
 
 gUnk_080B4B08:: @ 080B4B08
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4230, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4B08, 0x0000008
+.endif
 
 gUnk_080B4B10:: @ 080B4B10
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4238, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4B10, 0x0000008
+.endif
 
 gUnk_080B4B18:: @ 080B4B18
 	.4byte gUnk_080B4AF8
@@ -524,16 +857,32 @@ gUnk_080B4B18:: @ 080B4B18
 	.incbin "baserom.gba", 0x0B4B34, 0x000000C
 
 gUnk_080B4B40:: @ 080B4B40
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4268, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4B40, 0x0000008
+.endif
 
 gUnk_080B4B48:: @ 080B4B48
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4270, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4B48, 0x0000008
+.endif
 
 gUnk_080B4B50:: @ 080B4B50
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4278, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4B50, 0x0000008
+.endif
 
 gUnk_080B4B58:: @ 080B4B58
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4280, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4B58, 0x0000008
+.endif
 
 gUnk_080B4B60:: @ 080B4B60
 	.4byte gUnk_080B4B40
@@ -546,16 +895,32 @@ gUnk_080B4B60:: @ 080B4B60
 	.incbin "baserom.gba", 0x0B4B7C, 0x000000C
 
 gUnk_080B4B88:: @ 080B4B88
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B42B0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4B88, 0x0000008
+.endif
 
 gUnk_080B4B90:: @ 080B4B90
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B42B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4B90, 0x0000008
+.endif
 
 gUnk_080B4B98:: @ 080B4B98
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B42C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4B98, 0x0000008
+.endif
 
 gUnk_080B4BA0:: @ 080B4BA0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B42C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4BA0, 0x0000008
+.endif
 
 gUnk_080B4BA8:: @ 080B4BA8
 	.4byte gUnk_080B4B88
@@ -568,16 +933,32 @@ gUnk_080B4BA8:: @ 080B4BA8
 	.incbin "baserom.gba", 0x0B4BC4, 0x000000C
 
 gUnk_080B4BD0:: @ 080B4BD0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B42F8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4BD0, 0x0000008
+.endif
 
 gUnk_080B4BD8:: @ 080B4BD8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4300, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4BD8, 0x0000008
+.endif
 
 gUnk_080B4BE0:: @ 080B4BE0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4308, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4BE0, 0x0000008
+.endif
 
 gUnk_080B4BE8:: @ 080B4BE8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4310, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4BE8, 0x0000008
+.endif
 
 gUnk_080B4BF0:: @ 080B4BF0
 	.4byte gUnk_080B4BD0
@@ -590,16 +971,32 @@ gUnk_080B4BF0:: @ 080B4BF0
 	.incbin "baserom.gba", 0x0B4C0C, 0x000000C
 
 gUnk_080B4C18:: @ 080B4C18
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4340, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4C18, 0x0000008
+.endif
 
 gUnk_080B4C20:: @ 080B4C20
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4348, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4C20, 0x0000008
+.endif
 
 gUnk_080B4C28:: @ 080B4C28
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4350, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4C28, 0x0000008
+.endif
 
 gUnk_080B4C30:: @ 080B4C30
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4358, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4C30, 0x0000008
+.endif
 
 gUnk_080B4C38:: @ 080B4C38
 	.4byte gUnk_080B4C18
@@ -612,16 +1009,32 @@ gUnk_080B4C38:: @ 080B4C38
 	.incbin "baserom.gba", 0x0B4C54, 0x000000C
 
 gUnk_080B4C60:: @ 080B4C60
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4388, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4C60, 0x0000008
+.endif
 
 gUnk_080B4C68:: @ 080B4C68
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4390, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4C68, 0x0000008
+.endif
 
 gUnk_080B4C70:: @ 080B4C70
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4398, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4C70, 0x0000008
+.endif
 
 gUnk_080B4C78:: @ 080B4C78
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B43A0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4C78, 0x0000008
+.endif
 
 gUnk_080B4C80:: @ 080B4C80
 	.4byte gUnk_080B4C60
@@ -634,16 +1047,32 @@ gUnk_080B4C80:: @ 080B4C80
 	.incbin "baserom.gba", 0x0B4C9C, 0x000000C
 
 gUnk_080B4CA8:: @ 080B4CA8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B43D0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4CA8, 0x0000008
+.endif
 
 gUnk_080B4CB0:: @ 080B4CB0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B43D8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4CB0, 0x0000008
+.endif
 
 gUnk_080B4CB8:: @ 080B4CB8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B43E0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4CB8, 0x0000008
+.endif
 
 gUnk_080B4CC0:: @ 080B4CC0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B43E8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4CC0, 0x0000008
+.endif
 
 gUnk_080B4CC8:: @ 080B4CC8
 	.4byte gUnk_080B4CA8
@@ -668,52 +1097,116 @@ gUnk_080B4D10:: @ 080B4D10
 	.incbin "baserom.gba", 0x0B4D1C, 0x000000C
 
 gUnk_080B4D28:: @ 080B4D28
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4450, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D28, 0x0000008
+.endif
 
 gUnk_080B4D30:: @ 080B4D30
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4458, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D30, 0x0000008
+.endif
 
 gUnk_080B4D38:: @ 080B4D38
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4460, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D38, 0x0000008
+.endif
 
 gUnk_080B4D40:: @ 080B4D40
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4468, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D40, 0x0000008
+.endif
 
 gUnk_080B4D48:: @ 080B4D48
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4470, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D48, 0x0000008
+.endif
 
 gUnk_080B4D50:: @ 080B4D50
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4478, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D50, 0x0000008
+.endif
 
 gUnk_080B4D58:: @ 080B4D58
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4480, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D58, 0x0000008
+.endif
 
 gUnk_080B4D60:: @ 080B4D60
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4488, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D60, 0x0000008
+.endif
 
 gUnk_080B4D68:: @ 080B4D68
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4490, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D68, 0x0000008
+.endif
 
 gUnk_080B4D70:: @ 080B4D70
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4498, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D70, 0x0000008
+.endif
 
 gUnk_080B4D78:: @ 080B4D78
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B44A0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D78, 0x0000008
+.endif
 
 gUnk_080B4D80:: @ 080B4D80
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B44A8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D80, 0x0000008
+.endif
 
 gUnk_080B4D88:: @ 080B4D88
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B44B0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D88, 0x0000008
+.endif
 
 gUnk_080B4D90:: @ 080B4D90
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B44B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D90, 0x0000008
+.endif
 
 gUnk_080B4D98:: @ 080B4D98
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B44C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4D98, 0x0000008
+.endif
 
 gUnk_080B4DA0:: @ 080B4DA0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B44C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4DA0, 0x0000008
+.endif
 
 gUnk_080B4DA8:: @ 080B4DA8
 	.4byte gUnk_080B4D28
@@ -750,16 +1243,32 @@ gUnk_080B4DA8:: @ 080B4DA8
 	.incbin "baserom.gba", 0x0B4E24, 0x000000C
 
 gUnk_080B4E30:: @ 080B4E30
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4558, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4E30, 0x0000008
+.endif
 
 gUnk_080B4E38:: @ 080B4E38
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4560, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4E38, 0x0000008
+.endif
 
 gUnk_080B4E40:: @ 080B4E40
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4568, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4E40, 0x0000008
+.endif
 
 gUnk_080B4E48:: @ 080B4E48
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4570, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4E48, 0x0000008
+.endif
 
 gUnk_080B4E50:: @ 080B4E50
 	.4byte gUnk_080B4E30
@@ -772,16 +1281,32 @@ gUnk_080B4E50:: @ 080B4E50
 	.incbin "baserom.gba", 0x0B4E6C, 0x000000C
 
 gUnk_080B4E78:: @ 080B4E78
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B45A0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4E78, 0x0000008
+.endif
 
 gUnk_080B4E80:: @ 080B4E80
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B45A8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4E80, 0x0000008
+.endif
 
 gUnk_080B4E88:: @ 080B4E88
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B45B0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4E88, 0x0000008
+.endif
 
 gUnk_080B4E90:: @ 080B4E90
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B45B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4E90, 0x0000008
+.endif
 
 gUnk_080B4E98:: @ 080B4E98
 	.4byte gUnk_080B4E78
@@ -794,16 +1319,32 @@ gUnk_080B4E98:: @ 080B4E98
 	.incbin "baserom.gba", 0x0B4EB4, 0x000000C
 
 gUnk_080B4EC0:: @ 080B4EC0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B45E8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4EC0, 0x0000008
+.endif
 
 gUnk_080B4EC8:: @ 080B4EC8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B45F0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4EC8, 0x0000008
+.endif
 
 gUnk_080B4ED0:: @ 080B4ED0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B45F8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4ED0, 0x0000008
+.endif
 
 gUnk_080B4ED8:: @ 080B4ED8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4600, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4ED8, 0x0000008
+.endif
 
 gUnk_080B4EE0:: @ 080B4EE0
 	.4byte gUnk_080B4EC0
@@ -816,16 +1357,32 @@ gUnk_080B4EE0:: @ 080B4EE0
 	.incbin "baserom.gba", 0x0B4EFC, 0x000000C
 
 gUnk_080B4F08:: @ 080B4F08
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4630, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4F08, 0x0000008
+.endif
 
 gUnk_080B4F10:: @ 080B4F10
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4638, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4F10, 0x0000008
+.endif
 
 gUnk_080B4F18:: @ 080B4F18
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4640, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4F18, 0x0000008
+.endif
 
 gUnk_080B4F20:: @ 080B4F20
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4648, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4F20, 0x0000008
+.endif
 
 gUnk_080B4F28:: @ 080B4F28
 	.4byte gUnk_080B4F08
@@ -838,16 +1395,32 @@ gUnk_080B4F28:: @ 080B4F28
 	.incbin "baserom.gba", 0x0B4F44, 0x000000C
 
 gUnk_080B4F50:: @ 080B4F50
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4678, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4F50, 0x0000008
+.endif
 
 gUnk_080B4F58:: @ 080B4F58
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4680, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4F58, 0x0000008
+.endif
 
 gUnk_080B4F60:: @ 080B4F60
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4688, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4F60, 0x0000008
+.endif
 
 gUnk_080B4F68:: @ 080B4F68
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4690, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B4F68, 0x0000008
+.endif
 
 gUnk_080B4F70:: @ 080B4F70
 	.4byte gUnk_080B4F50
@@ -860,16 +1433,32 @@ gUnk_080B4F70:: @ 080B4F70
 	.incbin "baserom.gba", 0x0B4F8C, 0x000000C
 
 gUnk_080B4F98:: @ 080B4F98
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B46C0, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B4F98, 0x0000010
+.endif
 
 gUnk_080B4FA8:: @ 080B4FA8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B46D0, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B4FA8, 0x0000010
+.endif
 
 gUnk_080B4FB8:: @ 080B4FB8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B46E0, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B4FB8, 0x0000010
+.endif
 
 gUnk_080B4FC8:: @ 080B4FC8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B46F0, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B4FC8, 0x0000010
+.endif
 
 gUnk_080B4FD8:: @ 080B4FD8
 	.4byte gUnk_080B4F98
@@ -882,16 +1471,32 @@ gUnk_080B4FD8:: @ 080B4FD8
 	.incbin "baserom.gba", 0x0B4FF4, 0x000000C
 
 gUnk_080B5000:: @ 080B5000
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4728, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5000, 0x0000008
+.endif
 
 gUnk_080B5008:: @ 080B5008
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4730, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5008, 0x0000008
+.endif
 
 gUnk_080B5010:: @ 080B5010
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4738, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5010, 0x0000008
+.endif
 
 gUnk_080B5018:: @ 080B5018
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4740, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5018, 0x0000008
+.endif
 
 gUnk_080B5020:: @ 080B5020
 	.4byte gUnk_080B5000
@@ -904,52 +1509,116 @@ gUnk_080B5020:: @ 080B5020
 	.incbin "baserom.gba", 0x0B503C, 0x000000C
 
 gUnk_080B5048:: @ 080B5048
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4770, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5048, 0x0000008
+.endif
 
 gUnk_080B5050:: @ 080B5050
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4778, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5050, 0x0000008
+.endif
 
 gUnk_080B5058:: @ 080B5058
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4780, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5058, 0x0000008
+.endif
 
 gUnk_080B5060:: @ 080B5060
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4788, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5060, 0x0000008
+.endif
 
 gUnk_080B5068:: @ 080B5068
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4790, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5068, 0x0000008
+.endif
 
 gUnk_080B5070:: @ 080B5070
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4798, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5070, 0x0000008
+.endif
 
 gUnk_080B5078:: @ 080B5078
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B47A0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5078, 0x0000008
+.endif
 
 gUnk_080B5080:: @ 080B5080
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B47A8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5080, 0x0000008
+.endif
 
 gUnk_080B5088:: @ 080B5088
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B47B0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5088, 0x0000008
+.endif
 
 gUnk_080B5090:: @ 080B5090
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B47B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5090, 0x0000008
+.endif
 
 gUnk_080B5098:: @ 080B5098
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B47C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5098, 0x0000008
+.endif
 
 gUnk_080B50A0:: @ 080B50A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B47C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B50A0, 0x0000008
+.endif
 
 gUnk_080B50A8:: @ 080B50A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B47D0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B50A8, 0x0000008
+.endif
 
 gUnk_080B50B0:: @ 080B50B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B47D8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B50B0, 0x0000008
+.endif
 
 gUnk_080B50B8:: @ 080B50B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B47E0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B50B8, 0x0000008
+.endif
 
 gUnk_080B50C0:: @ 080B50C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B47E8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B50C0, 0x0000008
+.endif
 
 gUnk_080B50C8:: @ 080B50C8
 	.4byte gUnk_080B5048
@@ -986,16 +1655,32 @@ gUnk_080B50C8:: @ 080B50C8
 	.incbin "baserom.gba", 0x0B5144, 0x000000C
 
 gUnk_080B5150:: @ 080B5150
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4878, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5150, 0x0000008
+.endif
 
 gUnk_080B5158:: @ 080B5158
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4880, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5158, 0x0000008
+.endif
 
 gUnk_080B5160:: @ 080B5160
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4888, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5160, 0x0000008
+.endif
 
 gUnk_080B5168:: @ 080B5168
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4890, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5168, 0x0000008
+.endif
 
 gUnk_080B5170:: @ 080B5170
 	.4byte gUnk_080B5150
@@ -1008,16 +1693,32 @@ gUnk_080B5170:: @ 080B5170
 	.incbin "baserom.gba", 0x0B518C, 0x000000C
 
 gUnk_080B5198:: @ 080B5198
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B48C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5198, 0x0000008
+.endif
 
 gUnk_080B51A0:: @ 080B51A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B48C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B51A0, 0x0000008
+.endif
 
 gUnk_080B51A8:: @ 080B51A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B48D0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B51A8, 0x0000008
+.endif
 
 gUnk_080B51B0:: @ 080B51B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B48D8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B51B0, 0x0000008
+.endif
 
 gUnk_080B51B8:: @ 080B51B8
 	.4byte gUnk_080B5198
@@ -1030,52 +1731,116 @@ gUnk_080B51B8:: @ 080B51B8
 	.incbin "baserom.gba", 0x0B51D4, 0x000000C
 
 gUnk_080B51E0:: @ 080B51E0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4908, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B51E0, 0x0000008
+.endif
 
 gUnk_080B51E8:: @ 080B51E8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4910, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B51E8, 0x0000008
+.endif
 
 gUnk_080B51F0:: @ 080B51F0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4918, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B51F0, 0x0000008
+.endif
 
 gUnk_080B51F8:: @ 080B51F8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4920, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B51F8, 0x0000008
+.endif
 
 gUnk_080B5200:: @ 080B5200
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4928, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5200, 0x0000008
+.endif
 
 gUnk_080B5208:: @ 080B5208
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4930, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5208, 0x0000008
+.endif
 
 gUnk_080B5210:: @ 080B5210
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4938, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5210, 0x0000008
+.endif
 
 gUnk_080B5218:: @ 080B5218
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4940, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5218, 0x0000008
+.endif
 
 gUnk_080B5220:: @ 080B5220
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4948, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5220, 0x0000008
+.endif
 
 gUnk_080B5228:: @ 080B5228
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4950, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5228, 0x0000008
+.endif
 
 gUnk_080B5230:: @ 080B5230
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4958, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5230, 0x0000008
+.endif
 
 gUnk_080B5238:: @ 080B5238
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4960, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5238, 0x0000008
+.endif
 
 gUnk_080B5240:: @ 080B5240
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4968, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5240, 0x0000008
+.endif
 
 gUnk_080B5248:: @ 080B5248
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4970, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5248, 0x0000008
+.endif
 
 gUnk_080B5250:: @ 080B5250
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4978, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5250, 0x0000008
+.endif
 
 gUnk_080B5258:: @ 080B5258
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4980, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5258, 0x0000008
+.endif
 
 gUnk_080B5260:: @ 080B5260
 	.4byte gUnk_080B51E0
@@ -1112,16 +1877,32 @@ gUnk_080B5260:: @ 080B5260
 	.incbin "baserom.gba", 0x0B52DC, 0x000000C
 
 gUnk_080B52E8:: @ 080B52E8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4A10, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B52E8, 0x0000008
+.endif
 
 gUnk_080B52F0:: @ 080B52F0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4A18, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B52F0, 0x0000008
+.endif
 
 gUnk_080B52F8:: @ 080B52F8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4A20, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B52F8, 0x0000008
+.endif
 
 gUnk_080B5300:: @ 080B5300
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4A28, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5300, 0x0000008
+.endif
 
 gUnk_080B5308:: @ 080B5308
 	.4byte gUnk_080B52E8
@@ -1134,16 +1915,32 @@ gUnk_080B5308:: @ 080B5308
 	.incbin "baserom.gba", 0x0B5324, 0x000000C
 
 gUnk_080B5330:: @ 080B5330
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4A58, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5330, 0x0000008
+.endif
 
 gUnk_080B5338:: @ 080B5338
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4A60, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5338, 0x0000008
+.endif
 
 gUnk_080B5340:: @ 080B5340
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4A68, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5340, 0x0000008
+.endif
 
 gUnk_080B5348:: @ 080B5348
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4A70, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5348, 0x0000008
+.endif
 
 gUnk_080B5350:: @ 080B5350
 	.4byte gUnk_080B5330
@@ -1156,16 +1953,32 @@ gUnk_080B5350:: @ 080B5350
 	.incbin "baserom.gba", 0x0B536C, 0x000000C
 
 gUnk_080B5378:: @ 080B5378
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4AA0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5378, 0x0000008
+.endif
 
 gUnk_080B5380:: @ 080B5380
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4AA8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5380, 0x0000008
+.endif
 
 gUnk_080B5388:: @ 080B5388
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4AB0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5388, 0x0000008
+.endif
 
 gUnk_080B5390:: @ 080B5390
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4AB8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5390, 0x0000008
+.endif
 
 gUnk_080B5398:: @ 080B5398
 	.4byte gUnk_080B5378
@@ -1178,16 +1991,32 @@ gUnk_080B5398:: @ 080B5398
 	.incbin "baserom.gba", 0x0B53B4, 0x000000C
 
 gUnk_080B53C0:: @ 080B53C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4AE8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B53C0, 0x0000008
+.endif
 
 gUnk_080B53C8:: @ 080B53C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4AF0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B53C8, 0x0000008
+.endif
 
 gUnk_080B53D0:: @ 080B53D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4AF8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B53D0, 0x0000008
+.endif
 
 gUnk_080B53D8:: @ 080B53D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4B00, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B53D8, 0x0000008
+.endif
 
 gUnk_080B53E0:: @ 080B53E0
 	.4byte gUnk_080B53C0
@@ -1200,16 +2029,32 @@ gUnk_080B53E0:: @ 080B53E0
 	.incbin "baserom.gba", 0x0B53FC, 0x000000C
 
 gUnk_080B5408:: @ 080B5408
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4B30, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5408, 0x0000008
+.endif
 
 gUnk_080B5410:: @ 080B5410
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4B38, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5410, 0x0000008
+.endif
 
 gUnk_080B5418:: @ 080B5418
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4B40, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5418, 0x0000008
+.endif
 
 gUnk_080B5420:: @ 080B5420
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4B48, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5420, 0x0000008
+.endif
 
 gUnk_080B5428:: @ 080B5428
 	.4byte gUnk_080B5408
@@ -1222,52 +2067,116 @@ gUnk_080B5428:: @ 080B5428
 	.incbin "baserom.gba", 0x0B5444, 0x000000C
 
 gUnk_080B5450:: @ 080B5450
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4B78, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5450, 0x0000008
+.endif
 
 gUnk_080B5458:: @ 080B5458
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4B80, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5458, 0x0000008
+.endif
 
 gUnk_080B5460:: @ 080B5460
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4B88, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5460, 0x0000008
+.endif
 
 gUnk_080B5468:: @ 080B5468
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4B90, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5468, 0x0000008
+.endif
 
 gUnk_080B5470:: @ 080B5470
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4B98, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5470, 0x0000008
+.endif
 
 gUnk_080B5478:: @ 080B5478
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4BA0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5478, 0x0000008
+.endif
 
 gUnk_080B5480:: @ 080B5480
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4BA8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5480, 0x0000008
+.endif
 
 gUnk_080B5488:: @ 080B5488
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4BB0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5488, 0x0000008
+.endif
 
 gUnk_080B5490:: @ 080B5490
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4BB8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5490, 0x0000008
+.endif
 
 gUnk_080B5498:: @ 080B5498
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4BC0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5498, 0x0000008
+.endif
 
 gUnk_080B54A0:: @ 080B54A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4BC8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B54A0, 0x0000008
+.endif
 
 gUnk_080B54A8:: @ 080B54A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4BD0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B54A8, 0x0000008
+.endif
 
 gUnk_080B54B0:: @ 080B54B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4BD8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B54B0, 0x0000008
+.endif
 
 gUnk_080B54B8:: @ 080B54B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4BE0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B54B8, 0x0000008
+.endif
 
 gUnk_080B54C0:: @ 080B54C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4BE8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B54C0, 0x0000008
+.endif
 
 gUnk_080B54C8:: @ 080B54C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4BF0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B54C8, 0x0000008
+.endif
 
 gUnk_080B54D0:: @ 080B54D0
 	.4byte gUnk_080B5450
@@ -1305,52 +2214,116 @@ gUnk_080B54D0:: @ 080B54D0
 	.incbin "baserom.gba", 0x0B554C, 0x000000C
 
 gUnk_080B5558:: @ 080B5558
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4C80, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5558, 0x0000008
+.endif
 
 gUnk_080B5560:: @ 080B5560
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4C88, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5560, 0x0000008
+.endif
 
 gUnk_080B5568:: @ 080B5568
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4C90, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5568, 0x0000008
+.endif
 
 gUnk_080B5570:: @ 080B5570
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4C98, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5570, 0x0000008
+.endif
 
 gUnk_080B5578:: @ 080B5578
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4CA0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5578, 0x0000008
+.endif
 
 gUnk_080B5580:: @ 080B5580
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4CA8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5580, 0x0000008
+.endif
 
 gUnk_080B5588:: @ 080B5588
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4CB0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5588, 0x0000008
+.endif
 
 gUnk_080B5590:: @ 080B5590
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4CB8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5590, 0x0000008
+.endif
 
 gUnk_080B5598:: @ 080B5598
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4CC0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5598, 0x0000008
+.endif
 
 gUnk_080B55A0:: @ 080B55A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4CC8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B55A0, 0x0000008
+.endif
 
 gUnk_080B55A8:: @ 080B55A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4CD0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B55A8, 0x0000008
+.endif
 
 gUnk_080B55B0:: @ 080B55B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4CD8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B55B0, 0x0000008
+.endif
 
 gUnk_080B55B8:: @ 080B55B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4CE0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B55B8, 0x0000008
+.endif
 
 gUnk_080B55C0:: @ 080B55C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4CE8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B55C0, 0x0000008
+.endif
 
 gUnk_080B55C8:: @ 080B55C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4CF0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B55C8, 0x0000008
+.endif
 
 gUnk_080B55D0:: @ 080B55D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4CF8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B55D0, 0x0000008
+.endif
 
 gUnk_080B55D8:: @ 080B55D8
 	.4byte gUnk_080B5558
@@ -1387,52 +2360,116 @@ gUnk_080B55D8:: @ 080B55D8
 	.incbin "baserom.gba", 0x0B5654, 0x000000C
 
 gUnk_080B5660:: @ 080B5660
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4D88, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5660, 0x0000008
+.endif
 
 gUnk_080B5668:: @ 080B5668
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4D90, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5668, 0x0000008
+.endif
 
 gUnk_080B5670:: @ 080B5670
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4D98, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5670, 0x0000008
+.endif
 
 gUnk_080B5678:: @ 080B5678
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4DA0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5678, 0x0000008
+.endif
 
 gUnk_080B5680:: @ 080B5680
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4DA8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5680, 0x0000008
+.endif
 
 gUnk_080B5688:: @ 080B5688
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4DB0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5688, 0x0000008
+.endif
 
 gUnk_080B5690:: @ 080B5690
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4DB8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5690, 0x0000008
+.endif
 
 gUnk_080B5698:: @ 080B5698
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4DC0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5698, 0x0000008
+.endif
 
 gUnk_080B56A0:: @ 080B56A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4DC8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B56A0, 0x0000008
+.endif
 
 gUnk_080B56A8:: @ 080B56A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4DD0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B56A8, 0x0000008
+.endif
 
 gUnk_080B56B0:: @ 080B56B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4DD8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B56B0, 0x0000008
+.endif
 
 gUnk_080B56B8:: @ 080B56B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4DE0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B56B8, 0x0000008
+.endif
 
 gUnk_080B56C0:: @ 080B56C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4DE8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B56C0, 0x0000008
+.endif
 
 gUnk_080B56C8:: @ 080B56C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4DF0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B56C8, 0x0000008
+.endif
 
 gUnk_080B56D0:: @ 080B56D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4DF8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B56D0, 0x0000008
+.endif
 
 gUnk_080B56D8:: @ 080B56D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4E00, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B56D8, 0x0000008
+.endif
 
 gUnk_080B56E0:: @ 080B56E0
 	.4byte gUnk_080B5660
@@ -1469,52 +2506,116 @@ gUnk_080B56E0:: @ 080B56E0
 	.incbin "baserom.gba", 0x0B575C, 0x000000C
 
 gUnk_080B5768:: @ 080B5768
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4E90, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5768, 0x0000008
+.endif
 
 gUnk_080B5770:: @ 080B5770
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4E98, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5770, 0x0000008
+.endif
 
 gUnk_080B5778:: @ 080B5778
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4EA0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5778, 0x0000008
+.endif
 
 gUnk_080B5780:: @ 080B5780
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4EA8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5780, 0x0000008
+.endif
 
 gUnk_080B5788:: @ 080B5788
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4EB0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5788, 0x0000008
+.endif
 
 gUnk_080B5790:: @ 080B5790
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4EB8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5790, 0x0000008
+.endif
 
 gUnk_080B5798:: @ 080B5798
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4EC0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5798, 0x0000008
+.endif
 
 gUnk_080B57A0:: @ 080B57A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4EC8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B57A0, 0x0000008
+.endif
 
 gUnk_080B57A8:: @ 080B57A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4ED0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B57A8, 0x0000008
+.endif
 
 gUnk_080B57B0:: @ 080B57B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4ED8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B57B0, 0x0000008
+.endif
 
 gUnk_080B57B8:: @ 080B57B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4EE0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B57B8, 0x0000008
+.endif
 
 gUnk_080B57C0:: @ 080B57C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4EE8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B57C0, 0x0000008
+.endif
 
 gUnk_080B57C8:: @ 080B57C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4EF0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B57C8, 0x0000008
+.endif
 
 gUnk_080B57D0:: @ 080B57D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4EF8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B57D0, 0x0000008
+.endif
 
 gUnk_080B57D8:: @ 080B57D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4F00, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B57D8, 0x0000008
+.endif
 
 gUnk_080B57E0:: @ 080B57E0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4F08, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B57E0, 0x0000008
+.endif
 
 gUnk_080B57E8:: @ 080B57E8
 	.4byte gUnk_080B5768
@@ -1551,52 +2652,116 @@ gUnk_080B57E8:: @ 080B57E8
 	.incbin "baserom.gba", 0x0B5864, 0x000000C
 
 gUnk_080B5870:: @ 080B5870
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4F98, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5870, 0x0000008
+.endif
 
 gUnk_080B5878:: @ 080B5878
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4FA0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5878, 0x0000008
+.endif
 
 gUnk_080B5880:: @ 080B5880
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4FA8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5880, 0x0000008
+.endif
 
 gUnk_080B5888:: @ 080B5888
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4FB0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5888, 0x0000008
+.endif
 
 gUnk_080B5890:: @ 080B5890
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4FB8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5890, 0x0000008
+.endif
 
 gUnk_080B5898:: @ 080B5898
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4FC0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5898, 0x0000008
+.endif
 
 gUnk_080B58A0:: @ 080B58A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4FC8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B58A0, 0x0000008
+.endif
 
 gUnk_080B58A8:: @ 080B58A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4FD0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B58A8, 0x0000008
+.endif
 
 gUnk_080B58B0:: @ 080B58B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4FD8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B58B0, 0x0000008
+.endif
 
 gUnk_080B58B8:: @ 080B58B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4FE0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B58B8, 0x0000008
+.endif
 
 gUnk_080B58C0:: @ 080B58C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4FE8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B58C0, 0x0000008
+.endif
 
 gUnk_080B58C8:: @ 080B58C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4FF0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B58C8, 0x0000008
+.endif
 
 gUnk_080B58D0:: @ 080B58D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B4FF8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B58D0, 0x0000008
+.endif
 
 gUnk_080B58D8:: @ 080B58D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5000, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B58D8, 0x0000008
+.endif
 
 gUnk_080B58E0:: @ 080B58E0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5008, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B58E0, 0x0000008
+.endif
 
 gUnk_080B58E8:: @ 080B58E8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5010, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B58E8, 0x0000008
+.endif
 
 gUnk_080B58F0:: @ 080B58F0
 	.4byte gUnk_080B5870
@@ -1633,16 +2798,32 @@ gUnk_080B58F0:: @ 080B58F0
 	.incbin "baserom.gba", 0x0B596C, 0x000000C
 
 gUnk_080B5978:: @ 080B5978
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B50A0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5978, 0x0000008
+.endif
 
 gUnk_080B5980:: @ 080B5980
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B50A8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5980, 0x0000008
+.endif
 
 gUnk_080B5988:: @ 080B5988
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B50B0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5988, 0x0000008
+.endif
 
 gUnk_080B5990:: @ 080B5990
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B50B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5990, 0x0000008
+.endif
 
 gUnk_080B5998:: @ 080B5998
 	.4byte gUnk_080B5978
@@ -1655,16 +2836,32 @@ gUnk_080B5998:: @ 080B5998
 	.incbin "baserom.gba", 0x0B59B4, 0x000000C
 
 gUnk_080B59C0:: @ 080B59C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B50E8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B59C0, 0x0000008
+.endif
 
 gUnk_080B59C8:: @ 080B59C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B50F0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B59C8, 0x0000008
+.endif
 
 gUnk_080B59D0:: @ 080B59D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B50F8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B59D0, 0x0000008
+.endif
 
 gUnk_080B59D8:: @ 080B59D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5100, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B59D8, 0x0000008
+.endif
 
 gUnk_080B59E0:: @ 080B59E0
 	.4byte gUnk_080B59C0
@@ -1677,16 +2874,32 @@ gUnk_080B59E0:: @ 080B59E0
 	.incbin "baserom.gba", 0x0B59FC, 0x000000C
 
 gUnk_080B5A08:: @ 080B5A08
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5130, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5A08, 0x0000008
+.endif
 
 gUnk_080B5A10:: @ 080B5A10
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5138, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5A10, 0x0000008
+.endif
 
 gUnk_080B5A18:: @ 080B5A18
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5140, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5A18, 0x0000008
+.endif
 
 gUnk_080B5A20:: @ 080B5A20
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5148, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5A20, 0x0000008
+.endif
 
 gUnk_080B5A28:: @ 080B5A28
 	.4byte gUnk_080B5A08
@@ -1699,16 +2912,32 @@ gUnk_080B5A28:: @ 080B5A28
 	.incbin "baserom.gba", 0x0B5A44, 0x000000C
 
 gUnk_080B5A50:: @ 080B5A50
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5178, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5A50, 0x0000008
+.endif
 
 gUnk_080B5A58:: @ 080B5A58
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5180, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5A58, 0x0000008
+.endif
 
 gUnk_080B5A60:: @ 080B5A60
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5188, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5A60, 0x0000008
+.endif
 
 gUnk_080B5A68:: @ 080B5A68
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5190, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5A68, 0x0000008
+.endif
 
 gUnk_080B5A70:: @ 080B5A70
 	.4byte gUnk_080B5A50
@@ -1721,16 +2950,32 @@ gUnk_080B5A70:: @ 080B5A70
 	.incbin "baserom.gba", 0x0B5A8C, 0x000000C
 
 gUnk_080B5A98:: @ 080B5A98
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B51C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5A98, 0x0000008
+.endif
 
 gUnk_080B5AA0:: @ 080B5AA0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B51C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5AA0, 0x0000008
+.endif
 
 gUnk_080B5AA8:: @ 080B5AA8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B51D0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5AA8, 0x0000008
+.endif
 
 gUnk_080B5AB0:: @ 080B5AB0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B51D8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5AB0, 0x0000008
+.endif
 
 gUnk_080B5AB8:: @ 080B5AB8
 	.4byte gUnk_080B5A98
@@ -1743,16 +2988,32 @@ gUnk_080B5AB8:: @ 080B5AB8
 	.incbin "baserom.gba", 0x0B5AD4, 0x000000C
 
 gUnk_080B5AE0:: @ 080B5AE0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5208, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B5AE0, 0x0000010
+.endif
 
 gUnk_080B5AF0:: @ 080B5AF0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5218, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B5AF0, 0x0000010
+.endif
 
 gUnk_080B5B00:: @ 080B5B00
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5228, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B5B00, 0x0000010
+.endif
 
 gUnk_080B5B10:: @ 080B5B10
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5238, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B5B10, 0x0000010
+.endif
 
 gUnk_080B5B20:: @ 080B5B20
 	.4byte gUnk_080B5AE0
@@ -1765,16 +3026,32 @@ gUnk_080B5B20:: @ 080B5B20
 	.incbin "baserom.gba", 0x0B5B3C, 0x000000C
 
 gUnk_080B5B48:: @ 080B5B48
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5270, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5B48, 0x0000008
+.endif
 
 gUnk_080B5B50:: @ 080B5B50
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5278, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5B50, 0x0000008
+.endif
 
 gUnk_080B5B58:: @ 080B5B58
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5280, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5B58, 0x0000008
+.endif
 
 gUnk_080B5B60:: @ 080B5B60
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5288, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5B60, 0x0000008
+.endif
 
 gUnk_080B5B68:: @ 080B5B68
 	.4byte gUnk_080B5B48
@@ -1787,16 +3064,32 @@ gUnk_080B5B68:: @ 080B5B68
 	.incbin "baserom.gba", 0x0B5B84, 0x000000C
 
 gUnk_080B5B90:: @ 080B5B90
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B52B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5B90, 0x0000008
+.endif
 
 gUnk_080B5B98:: @ 080B5B98
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B52C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5B98, 0x0000008
+.endif
 
 gUnk_080B5BA0:: @ 080B5BA0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B52C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5BA0, 0x0000008
+.endif
 
 gUnk_080B5BA8:: @ 080B5BA8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B52D0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5BA8, 0x0000008
+.endif
 
 gUnk_080B5BB0:: @ 080B5BB0
 	.4byte gUnk_080B5B90
@@ -1809,52 +3102,116 @@ gUnk_080B5BB0:: @ 080B5BB0
 	.incbin "baserom.gba", 0x0B5BCC, 0x000000C
 
 gUnk_080B5BD8:: @ 080B5BD8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5300, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5BD8, 0x0000008
+.endif
 
 gUnk_080B5BE0:: @ 080B5BE0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5308, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5BE0, 0x0000008
+.endif
 
 gUnk_080B5BE8:: @ 080B5BE8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5310, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5BE8, 0x0000008
+.endif
 
 gUnk_080B5BF0:: @ 080B5BF0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5318, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5BF0, 0x0000008
+.endif
 
 gUnk_080B5BF8:: @ 080B5BF8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5320, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5BF8, 0x0000008
+.endif
 
 gUnk_080B5C00:: @ 080B5C00
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5328, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5C00, 0x0000008
+.endif
 
 gUnk_080B5C08:: @ 080B5C08
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5330, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5C08, 0x0000008
+.endif
 
 gUnk_080B5C10:: @ 080B5C10
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5338, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5C10, 0x0000008
+.endif
 
 gUnk_080B5C18:: @ 080B5C18
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5340, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5C18, 0x0000008
+.endif
 
 gUnk_080B5C20:: @ 080B5C20
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5348, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5C20, 0x0000008
+.endif
 
 gUnk_080B5C28:: @ 080B5C28
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5350, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5C28, 0x0000008
+.endif
 
 gUnk_080B5C30:: @ 080B5C30
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5358, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5C30, 0x0000008
+.endif
 
 gUnk_080B5C38:: @ 080B5C38
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5360, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5C38, 0x0000008
+.endif
 
 gUnk_080B5C40:: @ 080B5C40
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5368, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5C40, 0x0000008
+.endif
 
 gUnk_080B5C48:: @ 080B5C48
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5370, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5C48, 0x0000008
+.endif
 
 gUnk_080B5C50:: @ 080B5C50
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5378, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5C50, 0x0000008
+.endif
 
 gUnk_080B5C58:: @ 080B5C58
 	.4byte gUnk_080B5BD8
@@ -1891,16 +3248,32 @@ gUnk_080B5C58:: @ 080B5C58
 	.incbin "baserom.gba", 0x0B5CD4, 0x000000C
 
 gUnk_080B5CE0:: @ 080B5CE0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5408, 0x0000018
+.else
 	.incbin "baserom.gba", 0x0B5CE0, 0x0000018
+.endif
 
 gUnk_080B5CF8:: @ 080B5CF8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5420, 0x0000018
+.else
 	.incbin "baserom.gba", 0x0B5CF8, 0x0000018
+.endif
 
 gUnk_080B5D10:: @ 080B5D10
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5438, 0x0000018
+.else
 	.incbin "baserom.gba", 0x0B5D10, 0x0000018
+.endif
 
 gUnk_080B5D28:: @ 080B5D28
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5450, 0x0000018
+.else
 	.incbin "baserom.gba", 0x0B5D28, 0x0000018
+.endif
 
 gUnk_080B5D40:: @ 080B5D40
 	.4byte gUnk_080B5CE0
@@ -1913,16 +3286,32 @@ gUnk_080B5D40:: @ 080B5D40
 	.incbin "baserom.gba", 0x0B5D5C, 0x000000C
 
 gUnk_080B5D68:: @ 080B5D68
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5490, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B5D68, 0x0000010
+.endif
 
 gUnk_080B5D78:: @ 080B5D78
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B54A0, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B5D78, 0x0000010
+.endif
 
 gUnk_080B5D88:: @ 080B5D88
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B54B0, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B5D88, 0x0000010
+.endif
 
 gUnk_080B5D98:: @ 080B5D98
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B54C0, 0x0000010
+.else
 	.incbin "baserom.gba", 0x0B5D98, 0x0000010
+.endif
 
 gUnk_080B5DA8:: @ 080B5DA8
 	.4byte gUnk_080B5D68
@@ -1935,16 +3324,32 @@ gUnk_080B5DA8:: @ 080B5DA8
 	.incbin "baserom.gba", 0x0B5DC4, 0x000000C
 
 gUnk_080B5DD0:: @ 080B5DD0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B54F8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5DD0, 0x0000008
+.endif
 
 gUnk_080B5DD8:: @ 080B5DD8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5500, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5DD8, 0x0000008
+.endif
 
 gUnk_080B5DE0:: @ 080B5DE0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5508, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5DE0, 0x0000008
+.endif
 
 gUnk_080B5DE8:: @ 080B5DE8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5510, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5DE8, 0x0000008
+.endif
 
 gUnk_080B5DF0:: @ 080B5DF0
 	.4byte gUnk_080B5DD0
@@ -1957,16 +3362,32 @@ gUnk_080B5DF0:: @ 080B5DF0
 	.incbin "baserom.gba", 0x0B5E0C, 0x000000C
 
 gUnk_080B5E18:: @ 080B5E18
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5540, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5E18, 0x0000008
+.endif
 
 gUnk_080B5E20:: @ 080B5E20
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5548, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5E20, 0x0000008
+.endif
 
 gUnk_080B5E28:: @ 080B5E28
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5550, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5E28, 0x0000008
+.endif
 
 gUnk_080B5E30:: @ 080B5E30
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5558, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5E30, 0x0000008
+.endif
 
 gUnk_080B5E38:: @ 080B5E38
 	.4byte gUnk_080B5E18
@@ -1979,19 +3400,39 @@ gUnk_080B5E38:: @ 080B5E38
 	.incbin "baserom.gba", 0x0B5E54, 0x000000C
 
 gUnk_080B5E60:: @ 080B5E60
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5588, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5E60, 0x0000008
+.endif
 
 gUnk_080B5E68:: @ 080B5E68
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5590, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5E68, 0x0000008
+.endif
 
 gUnk_080B5E70:: @ 080B5E70
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5598, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5E70, 0x0000008
+.endif
 
 gUnk_080B5E78:: @ 080B5E78
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B55A0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5E78, 0x0000008
+.endif
 
 gUnk_080B5E80:: @ 080B5E80
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B55A8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5E80, 0x0000008
+.endif
 
 gUnk_080B5E88:: @ 080B5E88
 	.4byte gUnk_080B5E60
@@ -2006,16 +3447,32 @@ gUnk_080B5E88:: @ 080B5E88
 	.incbin "baserom.gba", 0x0B5EAC, 0x000000C
 
 gUnk_080B5EB8:: @ 080B5EB8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B55E0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5EB8, 0x0000008
+.endif
 
 gUnk_080B5EC0:: @ 080B5EC0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B55E8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5EC0, 0x0000008
+.endif
 
 gUnk_080B5EC8:: @ 080B5EC8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B55F0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5EC8, 0x0000008
+.endif
 
 gUnk_080B5ED0:: @ 080B5ED0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B55F8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5ED0, 0x0000008
+.endif
 
 gUnk_080B5ED8:: @ 080B5ED8
 	.4byte gUnk_080B5EB8
@@ -2028,19 +3485,39 @@ gUnk_080B5ED8:: @ 080B5ED8
 	.incbin "baserom.gba", 0x0B5EF4, 0x000000C
 
 gUnk_080B5F00:: @ 080B5F00
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5628, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5F00, 0x0000008
+.endif
 
 gUnk_080B5F08:: @ 080B5F08
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5630, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5F08, 0x0000008
+.endif
 
 gUnk_080B5F10:: @ 080B5F10
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5638, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5F10, 0x0000008
+.endif
 
 gUnk_080B5F18:: @ 080B5F18
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5640, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5F18, 0x0000008
+.endif
 
 gUnk_080B5F20:: @ 080B5F20
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5648, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5F20, 0x0000008
+.endif
 
 gUnk_080B5F28:: @ 080B5F28
 	.4byte gUnk_080B5F00
@@ -2055,19 +3532,39 @@ gUnk_080B5F28:: @ 080B5F28
 	.incbin "baserom.gba", 0x0B5F4C, 0x000000C
 
 gUnk_080B5F58:: @ 080B5F58
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5680, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5F58, 0x0000008
+.endif
 
 gUnk_080B5F60:: @ 080B5F60
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5688, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5F60, 0x0000008
+.endif
 
 gUnk_080B5F68:: @ 080B5F68
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5690, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5F68, 0x0000008
+.endif
 
 gUnk_080B5F70:: @ 080B5F70
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5698, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5F70, 0x0000008
+.endif
 
 gUnk_080B5F78:: @ 080B5F78
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B56A0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5F78, 0x0000008
+.endif
 
 gUnk_080B5F80:: @ 080B5F80
 	.4byte gUnk_080B5F58
@@ -2082,16 +3579,32 @@ gUnk_080B5F80:: @ 080B5F80
 	.incbin "baserom.gba", 0x0B5FA4, 0x000000C
 
 gUnk_080B5FB0:: @ 080B5FB0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B56D8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5FB0, 0x0000008
+.endif
 
 gUnk_080B5FB8:: @ 080B5FB8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B56E0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5FB8, 0x0000008
+.endif
 
 gUnk_080B5FC0:: @ 080B5FC0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B56E8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5FC0, 0x0000008
+.endif
 
 gUnk_080B5FC8:: @ 080B5FC8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B56F0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5FC8, 0x0000008
+.endif
 
 gUnk_080B5FD0:: @ 080B5FD0
 	.4byte gUnk_080B5FB0
@@ -2104,52 +3617,116 @@ gUnk_080B5FD0:: @ 080B5FD0
 	.incbin "baserom.gba", 0x0B5FEC, 0x000000C
 
 gUnk_080B5FF8:: @ 080B5FF8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5720, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B5FF8, 0x0000008
+.endif
 
 gUnk_080B6000:: @ 080B6000
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5728, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6000, 0x0000008
+.endif
 
 gUnk_080B6008:: @ 080B6008
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5730, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6008, 0x0000008
+.endif
 
 gUnk_080B6010:: @ 080B6010
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5738, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6010, 0x0000008
+.endif
 
 gUnk_080B6018:: @ 080B6018
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5740, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6018, 0x0000008
+.endif
 
 gUnk_080B6020:: @ 080B6020
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5748, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6020, 0x0000008
+.endif
 
 gUnk_080B6028:: @ 080B6028
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5750, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6028, 0x0000008
+.endif
 
 gUnk_080B6030:: @ 080B6030
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5758, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6030, 0x0000008
+.endif
 
 gUnk_080B6038:: @ 080B6038
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5760, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6038, 0x0000008
+.endif
 
 gUnk_080B6040:: @ 080B6040
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5768, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6040, 0x0000008
+.endif
 
 gUnk_080B6048:: @ 080B6048
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5770, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6048, 0x0000008
+.endif
 
 gUnk_080B6050:: @ 080B6050
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5778, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6050, 0x0000008
+.endif
 
 gUnk_080B6058:: @ 080B6058
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5780, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6058, 0x0000008
+.endif
 
 gUnk_080B6060:: @ 080B6060
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5788, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6060, 0x0000008
+.endif
 
 gUnk_080B6068:: @ 080B6068
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5790, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6068, 0x0000008
+.endif
 
 gUnk_080B6070:: @ 080B6070
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5798, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6070, 0x0000008
+.endif
 
 gUnk_080B6078:: @ 080B6078
 	.4byte gUnk_080B5FF8
@@ -2186,16 +3763,32 @@ gUnk_080B6078:: @ 080B6078
 	.incbin "baserom.gba", 0x0B60F4, 0x000000C
 
 gUnk_080B6100:: @ 080B6100
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5828, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6100, 0x0000008
+.endif
 
 gUnk_080B6108:: @ 080B6108
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5830, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6108, 0x0000008
+.endif
 
 gUnk_080B6110:: @ 080B6110
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5838, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6110, 0x0000008
+.endif
 
 gUnk_080B6118:: @ 080B6118
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5840, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6118, 0x0000008
+.endif
 
 gUnk_080B6120:: @ 080B6120
 	.4byte gUnk_080B6100
@@ -2208,16 +3801,32 @@ gUnk_080B6120:: @ 080B6120
 	.incbin "baserom.gba", 0x0B613C, 0x000000C
 
 gUnk_080B6148:: @ 080B6148
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5870, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6148, 0x0000008
+.endif
 
 gUnk_080B6150:: @ 080B6150
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5878, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6150, 0x0000008
+.endif
 
 gUnk_080B6158:: @ 080B6158
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5880, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6158, 0x0000008
+.endif
 
 gUnk_080B6160:: @ 080B6160
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5888, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6160, 0x0000008
+.endif
 
 gUnk_080B6168:: @ 080B6168
 	.4byte gUnk_080B6148
@@ -2230,16 +3839,32 @@ gUnk_080B6168:: @ 080B6168
 	.incbin "baserom.gba", 0x0B6184, 0x000000C
 
 gUnk_080B6190:: @ 080B6190
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B58B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6190, 0x0000008
+.endif
 
 gUnk_080B6198:: @ 080B6198
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B58C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6198, 0x0000008
+.endif
 
 gUnk_080B61A0:: @ 080B61A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B58C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B61A0, 0x0000008
+.endif
 
 gUnk_080B61A8:: @ 080B61A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B58D0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B61A8, 0x0000008
+.endif
 
 gUnk_080B61B0:: @ 080B61B0
 	.4byte gUnk_080B6190
@@ -2252,16 +3877,32 @@ gUnk_080B61B0:: @ 080B61B0
 	.incbin "baserom.gba", 0x0B61CC, 0x000000C
 
 gUnk_080B61D8:: @ 080B61D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5900, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B61D8, 0x0000008
+.endif
 
 gUnk_080B61E0:: @ 080B61E0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5908, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B61E0, 0x0000008
+.endif
 
 gUnk_080B61E8:: @ 080B61E8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5910, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B61E8, 0x0000008
+.endif
 
 gUnk_080B61F0:: @ 080B61F0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5918, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B61F0, 0x0000008
+.endif
 
 gUnk_080B61F8:: @ 080B61F8
 	.4byte gUnk_080B61D8
@@ -2274,52 +3915,116 @@ gUnk_080B61F8:: @ 080B61F8
 	.incbin "baserom.gba", 0x0B6214, 0x000000C
 
 gUnk_080B6220:: @ 080B6220
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5948, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6220, 0x0000008
+.endif
 
 gUnk_080B6228:: @ 080B6228
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5950, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6228, 0x0000008
+.endif
 
 gUnk_080B6230:: @ 080B6230
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5958, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6230, 0x0000008
+.endif
 
 gUnk_080B6238:: @ 080B6238
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5960, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6238, 0x0000008
+.endif
 
 gUnk_080B6240:: @ 080B6240
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5968, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6240, 0x0000008
+.endif
 
 gUnk_080B6248:: @ 080B6248
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5970, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6248, 0x0000008
+.endif
 
 gUnk_080B6250:: @ 080B6250
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5978, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6250, 0x0000008
+.endif
 
 gUnk_080B6258:: @ 080B6258
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5980, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6258, 0x0000008
+.endif
 
 gUnk_080B6260:: @ 080B6260
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5988, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6260, 0x0000008
+.endif
 
 gUnk_080B6268:: @ 080B6268
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5990, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6268, 0x0000008
+.endif
 
 gUnk_080B6270:: @ 080B6270
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5998, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6270, 0x0000008
+.endif
 
 gUnk_080B6278:: @ 080B6278
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B59A0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6278, 0x0000008
+.endif
 
 gUnk_080B6280:: @ 080B6280
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B59A8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6280, 0x0000008
+.endif
 
 gUnk_080B6288:: @ 080B6288
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B59B0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6288, 0x0000008
+.endif
 
 gUnk_080B6290:: @ 080B6290
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B59B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6290, 0x0000008
+.endif
 
 gUnk_080B6298:: @ 080B6298
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B59C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6298, 0x0000008
+.endif
 
 gUnk_080B62A0:: @ 080B62A0
 	.4byte gUnk_080B6220
@@ -2356,52 +4061,116 @@ gUnk_080B62A0:: @ 080B62A0
 	.incbin "baserom.gba", 0x0B631C, 0x000000C
 
 gUnk_080B6328:: @ 080B6328
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5A50, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6328, 0x0000008
+.endif
 
 gUnk_080B6330:: @ 080B6330
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5A58, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6330, 0x0000008
+.endif
 
 gUnk_080B6338:: @ 080B6338
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5A60, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6338, 0x0000008
+.endif
 
 gUnk_080B6340:: @ 080B6340
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5A68, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6340, 0x0000008
+.endif
 
 gUnk_080B6348:: @ 080B6348
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5A70, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6348, 0x0000008
+.endif
 
 gUnk_080B6350:: @ 080B6350
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5A78, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6350, 0x0000008
+.endif
 
 gUnk_080B6358:: @ 080B6358
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5A80, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6358, 0x0000008
+.endif
 
 gUnk_080B6360:: @ 080B6360
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5A88, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6360, 0x0000008
+.endif
 
 gUnk_080B6368:: @ 080B6368
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5A90, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6368, 0x0000008
+.endif
 
 gUnk_080B6370:: @ 080B6370
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5A98, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6370, 0x0000008
+.endif
 
 gUnk_080B6378:: @ 080B6378
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5AA0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6378, 0x0000008
+.endif
 
 gUnk_080B6380:: @ 080B6380
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5AA8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6380, 0x0000008
+.endif
 
 gUnk_080B6388:: @ 080B6388
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5AB0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6388, 0x0000008
+.endif
 
 gUnk_080B6390:: @ 080B6390
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5AB8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6390, 0x0000008
+.endif
 
 gUnk_080B6398:: @ 080B6398
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5AC0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6398, 0x0000008
+.endif
 
 gUnk_080B63A0:: @ 080B63A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5AC8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B63A0, 0x0000008
+.endif
 
 gUnk_080B63A8:: @ 080B63A8
 	.4byte gUnk_080B6328
@@ -2438,16 +4207,32 @@ gUnk_080B63A8:: @ 080B63A8
 	.incbin "baserom.gba", 0x0B6424, 0x000000C
 
 gUnk_080B6430:: @ 080B6430
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5B58, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6430, 0x0000008
+.endif
 
 gUnk_080B6438:: @ 080B6438
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5B60, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6438, 0x0000008
+.endif
 
 gUnk_080B6440:: @ 080B6440
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5B68, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6440, 0x0000008
+.endif
 
 gUnk_080B6448:: @ 080B6448
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5B70, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6448, 0x0000008
+.endif
 
 gUnk_080B6450:: @ 080B6450
 	.4byte gUnk_080B6430
@@ -2460,16 +4245,32 @@ gUnk_080B6450:: @ 080B6450
 	.incbin "baserom.gba", 0x0B646C, 0x000000C
 
 gUnk_080B6478:: @ 080B6478
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5BA0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6478, 0x0000008
+.endif
 
 gUnk_080B6480:: @ 080B6480
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5BA8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6480, 0x0000008
+.endif
 
 gUnk_080B6488:: @ 080B6488
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5BB0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6488, 0x0000008
+.endif
 
 gUnk_080B6490:: @ 080B6490
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5BB8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6490, 0x0000008
+.endif
 
 gUnk_080B6498:: @ 080B6498
 	.4byte gUnk_080B6478
@@ -2482,16 +4283,32 @@ gUnk_080B6498:: @ 080B6498
 	.incbin "baserom.gba", 0x0B64B4, 0x000000C
 
 gUnk_080B64C0:: @ 080B64C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5BE8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B64C0, 0x0000008
+.endif
 
 gUnk_080B64C8:: @ 080B64C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5BF0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B64C8, 0x0000008
+.endif
 
 gUnk_080B64D0:: @ 080B64D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5BF8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B64D0, 0x0000008
+.endif
 
 gUnk_080B64D8:: @ 080B64D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5C00, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B64D8, 0x0000008
+.endif
 
 gUnk_080B64E0:: @ 080B64E0
 	.4byte gUnk_080B64C0
@@ -2504,16 +4321,32 @@ gUnk_080B64E0:: @ 080B64E0
 	.incbin "baserom.gba", 0x0B64FC, 0x000000C
 
 gUnk_080B6508:: @ 080B6508
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5C30, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6508, 0x0000008
+.endif
 
 gUnk_080B6510:: @ 080B6510
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5C38, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6510, 0x0000008
+.endif
 
 gUnk_080B6518:: @ 080B6518
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5C40, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6518, 0x0000008
+.endif
 
 gUnk_080B6520:: @ 080B6520
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5C48, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6520, 0x0000008
+.endif
 
 gUnk_080B6528:: @ 080B6528
 	.4byte gUnk_080B6508
@@ -2526,16 +4359,32 @@ gUnk_080B6528:: @ 080B6528
 	.incbin "baserom.gba", 0x0B6544, 0x000000C
 
 gUnk_080B6550:: @ 080B6550
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5C78, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6550, 0x0000008
+.endif
 
 gUnk_080B6558:: @ 080B6558
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5C80, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6558, 0x0000008
+.endif
 
 gUnk_080B6560:: @ 080B6560
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5C88, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6560, 0x0000008
+.endif
 
 gUnk_080B6568:: @ 080B6568
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5C90, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6568, 0x0000008
+.endif
 
 gUnk_080B6570:: @ 080B6570
 	.4byte gUnk_080B6550
@@ -2548,52 +4397,116 @@ gUnk_080B6570:: @ 080B6570
 	.incbin "baserom.gba", 0x0B658C, 0x000000C
 
 gUnk_080B6598:: @ 080B6598
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5CC0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6598, 0x0000008
+.endif
 
 gUnk_080B65A0:: @ 080B65A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5CC8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B65A0, 0x0000008
+.endif
 
 gUnk_080B65A8:: @ 080B65A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5CD0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B65A8, 0x0000008
+.endif
 
 gUnk_080B65B0:: @ 080B65B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5CD8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B65B0, 0x0000008
+.endif
 
 gUnk_080B65B8:: @ 080B65B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5CE0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B65B8, 0x0000008
+.endif
 
 gUnk_080B65C0:: @ 080B65C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5CE8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B65C0, 0x0000008
+.endif
 
 gUnk_080B65C8:: @ 080B65C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5CF0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B65C8, 0x0000008
+.endif
 
 gUnk_080B65D0:: @ 080B65D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5CF8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B65D0, 0x0000008
+.endif
 
 gUnk_080B65D8:: @ 080B65D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5D00, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B65D8, 0x0000008
+.endif
 
 gUnk_080B65E0:: @ 080B65E0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5D08, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B65E0, 0x0000008
+.endif
 
 gUnk_080B65E8:: @ 080B65E8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5D10, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B65E8, 0x0000008
+.endif
 
 gUnk_080B65F0:: @ 080B65F0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5D18, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B65F0, 0x0000008
+.endif
 
 gUnk_080B65F8:: @ 080B65F8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5D20, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B65F8, 0x0000008
+.endif
 
 gUnk_080B6600:: @ 080B6600
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5D28, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6600, 0x0000008
+.endif
 
 gUnk_080B6608:: @ 080B6608
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5D30, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6608, 0x0000008
+.endif
 
 gUnk_080B6610:: @ 080B6610
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5D38, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6610, 0x0000008
+.endif
 
 gUnk_080B6618:: @ 080B6618
 	.4byte gUnk_080B6598
@@ -2630,52 +4543,116 @@ gUnk_080B6618:: @ 080B6618
 	.incbin "baserom.gba", 0x0B6694, 0x000000C
 
 gUnk_080B66A0:: @ 080B66A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5DC8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B66A0, 0x0000008
+.endif
 
 gUnk_080B66A8:: @ 080B66A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5DD0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B66A8, 0x0000008
+.endif
 
 gUnk_080B66B0:: @ 080B66B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5DD8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B66B0, 0x0000008
+.endif
 
 gUnk_080B66B8:: @ 080B66B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5DE0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B66B8, 0x0000008
+.endif
 
 gUnk_080B66C0:: @ 080B66C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5DE8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B66C0, 0x0000008
+.endif
 
 gUnk_080B66C8:: @ 080B66C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5DF0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B66C8, 0x0000008
+.endif
 
 gUnk_080B66D0:: @ 080B66D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5DF8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B66D0, 0x0000008
+.endif
 
 gUnk_080B66D8:: @ 080B66D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5E00, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B66D8, 0x0000008
+.endif
 
 gUnk_080B66E0:: @ 080B66E0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5E08, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B66E0, 0x0000008
+.endif
 
 gUnk_080B66E8:: @ 080B66E8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5E10, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B66E8, 0x0000008
+.endif
 
 gUnk_080B66F0:: @ 080B66F0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5E18, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B66F0, 0x0000008
+.endif
 
 gUnk_080B66F8:: @ 080B66F8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5E20, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B66F8, 0x0000008
+.endif
 
 gUnk_080B6700:: @ 080B6700
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5E28, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6700, 0x0000008
+.endif
 
 gUnk_080B6708:: @ 080B6708
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5E30, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6708, 0x0000008
+.endif
 
 gUnk_080B6710:: @ 080B6710
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5E38, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6710, 0x0000008
+.endif
 
 gUnk_080B6718:: @ 080B6718
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5E40, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6718, 0x0000008
+.endif
 
 gUnk_080B6720:: @ 080B6720
 	.4byte gUnk_080B66A0
@@ -2712,16 +4689,32 @@ gUnk_080B6720:: @ 080B6720
 	.incbin "baserom.gba", 0x0B679C, 0x000000C
 
 gUnk_080B67A8:: @ 080B67A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5ED0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B67A8, 0x0000008
+.endif
 
 gUnk_080B67B0:: @ 080B67B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5ED8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B67B0, 0x0000008
+.endif
 
 gUnk_080B67B8:: @ 080B67B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5EE0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B67B8, 0x0000008
+.endif
 
 gUnk_080B67C0:: @ 080B67C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5EE8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B67C0, 0x0000008
+.endif
 
 gUnk_080B67C8:: @ 080B67C8
 	.4byte gUnk_080B67A8
@@ -2734,16 +4727,32 @@ gUnk_080B67C8:: @ 080B67C8
 	.incbin "baserom.gba", 0x0B67E4, 0x000000C
 
 gUnk_080B67F0:: @ 080B67F0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5F18, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B67F0, 0x0000008
+.endif
 
 gUnk_080B67F8:: @ 080B67F8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5F20, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B67F8, 0x0000008
+.endif
 
 gUnk_080B6800:: @ 080B6800
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5F28, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6800, 0x0000008
+.endif
 
 gUnk_080B6808:: @ 080B6808
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5F30, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6808, 0x0000008
+.endif
 
 gUnk_080B6810:: @ 080B6810
 	.4byte gUnk_080B67F0
@@ -2756,16 +4765,32 @@ gUnk_080B6810:: @ 080B6810
 	.incbin "baserom.gba", 0x0B682C, 0x000000C
 
 gUnk_080B6838:: @ 080B6838
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5F60, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6838, 0x0000008
+.endif
 
 gUnk_080B6840:: @ 080B6840
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5F68, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6840, 0x0000008
+.endif
 
 gUnk_080B6848:: @ 080B6848
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5F70, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6848, 0x0000008
+.endif
 
 gUnk_080B6850:: @ 080B6850
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5F78, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6850, 0x0000008
+.endif
 
 gUnk_080B6858:: @ 080B6858
 	.4byte gUnk_080B6838
@@ -2778,16 +4803,32 @@ gUnk_080B6858:: @ 080B6858
 	.incbin "baserom.gba", 0x0B6874, 0x000000C
 
 gUnk_080B6880:: @ 080B6880
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5FA8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6880, 0x0000008
+.endif
 
 gUnk_080B6888:: @ 080B6888
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5FB0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6888, 0x0000008
+.endif
 
 gUnk_080B6890:: @ 080B6890
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5FB8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6890, 0x0000008
+.endif
 
 gUnk_080B6898:: @ 080B6898
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5FC0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6898, 0x0000008
+.endif
 
 gUnk_080B68A0:: @ 080B68A0
 	.4byte gUnk_080B6880
@@ -2800,16 +4841,32 @@ gUnk_080B68A0:: @ 080B68A0
 	.incbin "baserom.gba", 0x0B68BC, 0x000000C
 
 gUnk_080B68C8:: @ 080B68C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5FF0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B68C8, 0x0000008
+.endif
 
 gUnk_080B68D0:: @ 080B68D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B5FF8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B68D0, 0x0000008
+.endif
 
 gUnk_080B68D8:: @ 080B68D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6000, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B68D8, 0x0000008
+.endif
 
 gUnk_080B68E0:: @ 080B68E0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6008, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B68E0, 0x0000008
+.endif
 
 gUnk_080B68E8:: @ 080B68E8
 	.4byte gUnk_080B68C8
@@ -2822,19 +4879,39 @@ gUnk_080B68E8:: @ 080B68E8
 	.incbin "baserom.gba", 0x0B6904, 0x000000C
 
 gUnk_080B6910:: @ 080B6910
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6038, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6910, 0x0000008
+.endif
 
 gUnk_080B6918:: @ 080B6918
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6040, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6918, 0x0000008
+.endif
 
 gUnk_080B6920:: @ 080B6920
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6048, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6920, 0x0000008
+.endif
 
 gUnk_080B6928:: @ 080B6928
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6050, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6928, 0x0000008
+.endif
 
 gUnk_080B6930:: @ 080B6930
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6058, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6930, 0x0000008
+.endif
 
 gUnk_080B6938:: @ 080B6938
 	.4byte gUnk_080B6910
@@ -2855,52 +4932,116 @@ gUnk_080B6938:: @ 080B6938
 	.incbin "baserom.gba", 0x0B6974, 0x000000C
 
 gUnk_080B6980:: @ 080B6980
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B60A8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6980, 0x0000008
+.endif
 
 gUnk_080B6988:: @ 080B6988
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B60B0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6988, 0x0000008
+.endif
 
 gUnk_080B6990:: @ 080B6990
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B60B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6990, 0x0000008
+.endif
 
 gUnk_080B6998:: @ 080B6998
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B60C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6998, 0x0000008
+.endif
 
 gUnk_080B69A0:: @ 080B69A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B60C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B69A0, 0x0000008
+.endif
 
 gUnk_080B69A8:: @ 080B69A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B60D0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B69A8, 0x0000008
+.endif
 
 gUnk_080B69B0:: @ 080B69B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B60D8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B69B0, 0x0000008
+.endif
 
 gUnk_080B69B8:: @ 080B69B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B60E0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B69B8, 0x0000008
+.endif
 
 gUnk_080B69C0:: @ 080B69C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B60E8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B69C0, 0x0000008
+.endif
 
 gUnk_080B69C8:: @ 080B69C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B60F0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B69C8, 0x0000008
+.endif
 
 gUnk_080B69D0:: @ 080B69D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B60F8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B69D0, 0x0000008
+.endif
 
 gUnk_080B69D8:: @ 080B69D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6100, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B69D8, 0x0000008
+.endif
 
 gUnk_080B69E0:: @ 080B69E0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6108, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B69E0, 0x0000008
+.endif
 
 gUnk_080B69E8:: @ 080B69E8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6110, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B69E8, 0x0000008
+.endif
 
 gUnk_080B69F0:: @ 080B69F0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6118, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B69F0, 0x0000008
+.endif
 
 gUnk_080B69F8:: @ 080B69F8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6120, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B69F8, 0x0000008
+.endif
 
 gUnk_080B6A00:: @ 080B6A00
 	.4byte gUnk_080B6980
@@ -2937,52 +5078,116 @@ gUnk_080B6A00:: @ 080B6A00
 	.incbin "baserom.gba", 0x0B6A7C, 0x000000C
 
 gUnk_080B6A88:: @ 080B6A88
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B61B0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6A88, 0x0000008
+.endif
 
 gUnk_080B6A90:: @ 080B6A90
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B61B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6A90, 0x0000008
+.endif
 
 gUnk_080B6A98:: @ 080B6A98
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B61C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6A98, 0x0000008
+.endif
 
 gUnk_080B6AA0:: @ 080B6AA0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B61C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6AA0, 0x0000008
+.endif
 
 gUnk_080B6AA8:: @ 080B6AA8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B61D0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6AA8, 0x0000008
+.endif
 
 gUnk_080B6AB0:: @ 080B6AB0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B61D8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6AB0, 0x0000008
+.endif
 
 gUnk_080B6AB8:: @ 080B6AB8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B61E0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6AB8, 0x0000008
+.endif
 
 gUnk_080B6AC0:: @ 080B6AC0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B61E8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6AC0, 0x0000008
+.endif
 
 gUnk_080B6AC8:: @ 080B6AC8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B61F0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6AC8, 0x0000008
+.endif
 
 gUnk_080B6AD0:: @ 080B6AD0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B61F8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6AD0, 0x0000008
+.endif
 
 gUnk_080B6AD8:: @ 080B6AD8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6200, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6AD8, 0x0000008
+.endif
 
 gUnk_080B6AE0:: @ 080B6AE0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6208, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6AE0, 0x0000008
+.endif
 
 gUnk_080B6AE8:: @ 080B6AE8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6210, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6AE8, 0x0000008
+.endif
 
 gUnk_080B6AF0:: @ 080B6AF0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6218, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6AF0, 0x0000008
+.endif
 
 gUnk_080B6AF8:: @ 080B6AF8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6220, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6AF8, 0x0000008
+.endif
 
 gUnk_080B6B00:: @ 080B6B00
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6228, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6B00, 0x0000008
+.endif
 
 gUnk_080B6B08:: @ 080B6B08
 	.4byte gUnk_080B6A88
@@ -3019,16 +5224,32 @@ gUnk_080B6B08:: @ 080B6B08
 	.incbin "baserom.gba", 0x0B6B84, 0x000000C
 
 gUnk_080B6B90:: @ 080B6B90
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B62B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6B90, 0x0000008
+.endif
 
 gUnk_080B6B98:: @ 080B6B98
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B62C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6B98, 0x0000008
+.endif
 
 gUnk_080B6BA0:: @ 080B6BA0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B62C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6BA0, 0x0000008
+.endif
 
 gUnk_080B6BA8:: @ 080B6BA8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B62D0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6BA8, 0x0000008
+.endif
 
 gUnk_080B6BB0:: @ 080B6BB0
 	.4byte gUnk_080B6B90
@@ -3041,16 +5262,32 @@ gUnk_080B6BB0:: @ 080B6BB0
 	.incbin "baserom.gba", 0x0B6BCC, 0x000000C
 
 gUnk_080B6BD8:: @ 080B6BD8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6300, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6BD8, 0x0000008
+.endif
 
 gUnk_080B6BE0:: @ 080B6BE0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6308, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6BE0, 0x0000008
+.endif
 
 gUnk_080B6BE8:: @ 080B6BE8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6310, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6BE8, 0x0000008
+.endif
 
 gUnk_080B6BF0:: @ 080B6BF0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6318, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6BF0, 0x0000008
+.endif
 
 gUnk_080B6BF8:: @ 080B6BF8
 	.4byte gUnk_080B6BD8
@@ -3063,25 +5300,53 @@ gUnk_080B6BF8:: @ 080B6BF8
 	.incbin "baserom.gba", 0x0B6C14, 0x000000C
 
 gUnk_080B6C20:: @ 080B6C20
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6348, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6C20, 0x0000008
+.endif
 
 gUnk_080B6C28:: @ 080B6C28
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6350, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6C28, 0x0000008
+.endif
 
 gUnk_080B6C30:: @ 080B6C30
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6358, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6C30, 0x0000008
+.endif
 
 gUnk_080B6C38:: @ 080B6C38
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6360, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6C38, 0x0000008
+.endif
 
 gUnk_080B6C40:: @ 080B6C40
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6368, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6C40, 0x0000008
+.endif
 
 gUnk_080B6C48:: @ 080B6C48
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6370, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6C48, 0x0000008
+.endif
 
 gUnk_080B6C50:: @ 080B6C50
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6378, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6C50, 0x0000008
+.endif
 
 gUnk_080B6C58:: @ 080B6C58
 	.4byte gUnk_080B6C20
@@ -3100,16 +5365,32 @@ gUnk_080B6C58:: @ 080B6C58
 	.incbin "baserom.gba", 0x0B6C8C, 0x000000C
 
 gUnk_080B6C98:: @ 080B6C98
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B63C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6C98, 0x0000008
+.endif
 
 gUnk_080B6CA0:: @ 080B6CA0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B63C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6CA0, 0x0000008
+.endif
 
 gUnk_080B6CA8:: @ 080B6CA8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B63D0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6CA8, 0x0000008
+.endif
 
 gUnk_080B6CB0:: @ 080B6CB0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B63D8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6CB0, 0x0000008
+.endif
 
 gUnk_080B6CB8:: @ 080B6CB8
 	.4byte gUnk_080B6C98
@@ -3122,16 +5403,32 @@ gUnk_080B6CB8:: @ 080B6CB8
 	.incbin "baserom.gba", 0x0B6CD4, 0x000000C
 
 gUnk_080B6CE0:: @ 080B6CE0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6408, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6CE0, 0x0000008
+.endif
 
 gUnk_080B6CE8:: @ 080B6CE8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6410, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6CE8, 0x0000008
+.endif
 
 gUnk_080B6CF0:: @ 080B6CF0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6418, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6CF0, 0x0000008
+.endif
 
 gUnk_080B6CF8:: @ 080B6CF8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6420, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6CF8, 0x0000008
+.endif
 
 gUnk_080B6D00:: @ 080B6D00
 	.4byte gUnk_080B6CE0
@@ -3144,52 +5441,116 @@ gUnk_080B6D00:: @ 080B6D00
 	.incbin "baserom.gba", 0x0B6D1C, 0x000000C
 
 gUnk_080B6D28:: @ 080B6D28
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6450, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D28, 0x0000008
+.endif
 
 gUnk_080B6D30:: @ 080B6D30
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6458, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D30, 0x0000008
+.endif
 
 gUnk_080B6D38:: @ 080B6D38
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6460, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D38, 0x0000008
+.endif
 
 gUnk_080B6D40:: @ 080B6D40
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6468, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D40, 0x0000008
+.endif
 
 gUnk_080B6D48:: @ 080B6D48
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6470, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D48, 0x0000008
+.endif
 
 gUnk_080B6D50:: @ 080B6D50
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6478, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D50, 0x0000008
+.endif
 
 gUnk_080B6D58:: @ 080B6D58
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6480, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D58, 0x0000008
+.endif
 
 gUnk_080B6D60:: @ 080B6D60
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6488, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D60, 0x0000008
+.endif
 
 gUnk_080B6D68:: @ 080B6D68
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6490, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D68, 0x0000008
+.endif
 
 gUnk_080B6D70:: @ 080B6D70
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6498, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D70, 0x0000008
+.endif
 
 gUnk_080B6D78:: @ 080B6D78
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B64A0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D78, 0x0000008
+.endif
 
 gUnk_080B6D80:: @ 080B6D80
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B64A8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D80, 0x0000008
+.endif
 
 gUnk_080B6D88:: @ 080B6D88
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B64B0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D88, 0x0000008
+.endif
 
 gUnk_080B6D90:: @ 080B6D90
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B64B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D90, 0x0000008
+.endif
 
 gUnk_080B6D98:: @ 080B6D98
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B64C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6D98, 0x0000008
+.endif
 
 gUnk_080B6DA0:: @ 080B6DA0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B64C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6DA0, 0x0000008
+.endif
 
 gUnk_080B6DA8:: @ 080B6DA8
 	.4byte gUnk_080B6D28
@@ -3258,52 +5619,116 @@ gUnk_080B6E60:: @ 080B6E60
 	.incbin "baserom.gba", 0x0B6E9C, 0x000000C
 
 gUnk_080B6EA8:: @ 080B6EA8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B65D0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6EA8, 0x0000008
+.endif
 
 gUnk_080B6EB0:: @ 080B6EB0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B65D8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6EB0, 0x0000008
+.endif
 
 gUnk_080B6EB8:: @ 080B6EB8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B65E0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6EB8, 0x0000008
+.endif
 
 gUnk_080B6EC0:: @ 080B6EC0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B65E8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6EC0, 0x0000008
+.endif
 
 gUnk_080B6EC8:: @ 080B6EC8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B65F0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6EC8, 0x0000008
+.endif
 
 gUnk_080B6ED0:: @ 080B6ED0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B65F8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6ED0, 0x0000008
+.endif
 
 gUnk_080B6ED8:: @ 080B6ED8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6600, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6ED8, 0x0000008
+.endif
 
 gUnk_080B6EE0:: @ 080B6EE0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6608, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6EE0, 0x0000008
+.endif
 
 gUnk_080B6EE8:: @ 080B6EE8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6610, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6EE8, 0x0000008
+.endif
 
 gUnk_080B6EF0:: @ 080B6EF0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6618, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6EF0, 0x0000008
+.endif
 
 gUnk_080B6EF8:: @ 080B6EF8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6620, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6EF8, 0x0000008
+.endif
 
 gUnk_080B6F00:: @ 080B6F00
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6628, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6F00, 0x0000008
+.endif
 
 gUnk_080B6F08:: @ 080B6F08
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6630, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6F08, 0x0000008
+.endif
 
 gUnk_080B6F10:: @ 080B6F10
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6638, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6F10, 0x0000008
+.endif
 
 gUnk_080B6F18:: @ 080B6F18
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6640, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6F18, 0x0000008
+.endif
 
 gUnk_080B6F20:: @ 080B6F20
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6648, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6F20, 0x0000008
+.endif
 
 gUnk_080B6F28:: @ 080B6F28
 	.4byte gUnk_080B6EA8
@@ -3340,28 +5765,60 @@ gUnk_080B6F28:: @ 080B6F28
 	.incbin "baserom.gba", 0x0B6FA4, 0x000000C
 
 gUnk_080B6FB0:: @ 080B6FB0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B66D8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6FB0, 0x0000008
+.endif
 
 gUnk_080B6FB8:: @ 080B6FB8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B66E0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6FB8, 0x0000008
+.endif
 
 gUnk_080B6FC0:: @ 080B6FC0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B66E8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6FC0, 0x0000008
+.endif
 
 gUnk_080B6FC8:: @ 080B6FC8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B66F0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6FC8, 0x0000008
+.endif
 
 gUnk_080B6FD0:: @ 080B6FD0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B66F8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6FD0, 0x0000008
+.endif
 
 gUnk_080B6FD8:: @ 080B6FD8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6700, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6FD8, 0x0000008
+.endif
 
 gUnk_080B6FE0:: @ 080B6FE0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6708, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6FE0, 0x0000008
+.endif
 
 gUnk_080B6FE8:: @ 080B6FE8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6710, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B6FE8, 0x0000008
+.endif
 
 gUnk_080B6FF0:: @ 080B6FF0
 	.4byte gUnk_080B6FB0
@@ -3394,52 +5851,116 @@ gUnk_080B6FF0:: @ 080B6FF0
 	.incbin "baserom.gba", 0x0B705C, 0x000000C
 
 gUnk_080B7068:: @ 080B7068
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6790, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B7068, 0x0000008
+.endif
 
 gUnk_080B7070:: @ 080B7070
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6798, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B7070, 0x0000008
+.endif
 
 gUnk_080B7078:: @ 080B7078
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B67A0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B7078, 0x0000008
+.endif
 
 gUnk_080B7080:: @ 080B7080
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B67A8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B7080, 0x0000008
+.endif
 
 gUnk_080B7088:: @ 080B7088
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B67B0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B7088, 0x0000008
+.endif
 
 gUnk_080B7090:: @ 080B7090
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B67B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B7090, 0x0000008
+.endif
 
 gUnk_080B7098:: @ 080B7098
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B67C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B7098, 0x0000008
+.endif
 
 gUnk_080B70A0:: @ 080B70A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B67C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B70A0, 0x0000008
+.endif
 
 gUnk_080B70A8:: @ 080B70A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B67D0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B70A8, 0x0000008
+.endif
 
 gUnk_080B70B0:: @ 080B70B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B67D8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B70B0, 0x0000008
+.endif
 
 gUnk_080B70B8:: @ 080B70B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B67E0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B70B8, 0x0000008
+.endif
 
 gUnk_080B70C0:: @ 080B70C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B67E8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B70C0, 0x0000008
+.endif
 
 gUnk_080B70C8:: @ 080B70C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B67F0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B70C8, 0x0000008
+.endif
 
 gUnk_080B70D0:: @ 080B70D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B67F8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B70D0, 0x0000008
+.endif
 
 gUnk_080B70D8:: @ 080B70D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6800, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B70D8, 0x0000008
+.endif
 
 gUnk_080B70E0:: @ 080B70E0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6808, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B70E0, 0x0000008
+.endif
 
 gUnk_080B70E8:: @ 080B70E8
 	.4byte gUnk_080B7068
@@ -3476,52 +5997,116 @@ gUnk_080B70E8:: @ 080B70E8
 	.incbin "baserom.gba", 0x0B7164, 0x000000C
 
 gUnk_080B7170:: @ 080B7170
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6898, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B7170, 0x0000008
+.endif
 
 gUnk_080B7178:: @ 080B7178
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B68A0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B7178, 0x0000008
+.endif
 
 gUnk_080B7180:: @ 080B7180
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B68A8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B7180, 0x0000008
+.endif
 
 gUnk_080B7188:: @ 080B7188
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B68B0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B7188, 0x0000008
+.endif
 
 gUnk_080B7190:: @ 080B7190
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B68B8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B7190, 0x0000008
+.endif
 
 gUnk_080B7198:: @ 080B7198
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B68C0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B7198, 0x0000008
+.endif
 
 gUnk_080B71A0:: @ 080B71A0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B68C8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B71A0, 0x0000008
+.endif
 
 gUnk_080B71A8:: @ 080B71A8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B68D0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B71A8, 0x0000008
+.endif
 
 gUnk_080B71B0:: @ 080B71B0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B68D8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B71B0, 0x0000008
+.endif
 
 gUnk_080B71B8:: @ 080B71B8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B68E0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B71B8, 0x0000008
+.endif
 
 gUnk_080B71C0:: @ 080B71C0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B68E8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B71C0, 0x0000008
+.endif
 
 gUnk_080B71C8:: @ 080B71C8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B68F0, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B71C8, 0x0000008
+.endif
 
 gUnk_080B71D0:: @ 080B71D0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B68F8, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B71D0, 0x0000008
+.endif
 
 gUnk_080B71D8:: @ 080B71D8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6900, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B71D8, 0x0000008
+.endif
 
 gUnk_080B71E0:: @ 080B71E0
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6908, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B71E0, 0x0000008
+.endif
 
 gUnk_080B71E8:: @ 080B71E8
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B6910, 0x0000008
+.else
 	.incbin "baserom.gba", 0x0B71E8, 0x0000008
+.endif
 
 gUnk_080B71F0:: @ 080B71F0
 	.4byte gUnk_080B7170

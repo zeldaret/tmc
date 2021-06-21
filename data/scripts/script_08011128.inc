@@ -5,6 +5,11 @@ SCRIPT_START script_08011128
 .ifdef JP
 	_0807E9D4 
 	DoPostScriptAction 0x000a
+.else
+.ifdef EU
+	_0807E9D4 
+	DoPostScriptAction 0x000a
+.endif
 .endif
 	EndBlock 
 script_08011134:
@@ -41,4 +46,8 @@ script_08011134:
 SCRIPT_END
 .ifdef JP
 	.2byte 0x0000
+.else
+.ifdef EU
+	.2byte 0x0000
+.endif
 .endif

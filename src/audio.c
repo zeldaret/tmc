@@ -24,7 +24,9 @@ void InitSoundPlayingInfo(void) {
     InitVolume();
     gSoundPlayingInfo.volumeSfx = 0x100;
     gSoundPlayingInfo.unk_04 = 0x100;
+#ifndef EU
     m4aMPlayAllStop();
+#endif
 }
 
 void SetMasterVolume(u32 volume) {
@@ -787,7 +789,6 @@ typedef enum {
     MUSIC_PLAYER_BGM,
 } MusicPlayerE;
 
-
 #ifdef DEMO
 const MusicPlayer gMusicPlayers[] = {
     [MUSIC_PLAYER_00] = { &gMPlayInfos[0x08], &gMPlayTracksDEMO[0x00], 2, 1 },
@@ -975,7 +976,11 @@ const Song gSongTable[] = {
     [SFX_RUPEE_GET] = { &sfxRupeeGet, MUSIC_PLAYER_00, MUSIC_PLAYER_00 },
     [SFX_HEART_BOUNCE] = { &sfxHeartBounce, MUSIC_PLAYER_12, MUSIC_PLAYER_12 },
     [SFX_HEART_GET] = { &sfxHeartGet, MUSIC_PLAYER_00, MUSIC_PLAYER_00 },
+#ifdef EU
+    [SFX_SECRET] = { &sfxSecret, MUSIC_PLAYER_10, MUSIC_PLAYER_10 },
+#else
     [SFX_SECRET] = { &sfxSecret, MUSIC_PLAYER_03, MUSIC_PLAYER_03 },
+#endif
     [SFX_SECRET_BIG] = { &sfxSecretBig, MUSIC_PLAYER_03, MUSIC_PLAYER_03 },
     [SFX_METAL_CLINK] = { &sfxMetalClink, MUSIC_PLAYER_0E, MUSIC_PLAYER_0E },
     [SFX_PLY_VO1] = { &sfxPlyVo1, MUSIC_PLAYER_PLY_VO, MUSIC_PLAYER_PLY_VO },
@@ -1066,7 +1071,11 @@ const Song gSongTable[] = {
     [SFX_CA] = { &sfxCA, MUSIC_PLAYER_0E, MUSIC_PLAYER_0E },
     [SFX_CB] = { &sfxCB, MUSIC_PLAYER_0F, MUSIC_PLAYER_0F },
     [SFX_REM_SLEEP] = { &sfxRemSleep, MUSIC_PLAYER_10, MUSIC_PLAYER_10 },
+#ifdef EU
+    [SFX_TASK_COMPLETE] = { &sfxTaskComplete, MUSIC_PLAYER_17, MUSIC_PLAYER_17 },
+#else
     [SFX_TASK_COMPLETE] = { &sfxTaskComplete, MUSIC_PLAYER_03, MUSIC_PLAYER_03 },
+#endif
     [SFX_KEY_APPEAR] = { &sfxKeyAppear, MUSIC_PLAYER_16, MUSIC_PLAYER_16 },
     [SFX_CF] = { &sfxCF, MUSIC_PLAYER_11, MUSIC_PLAYER_11 },
     [SFX_D0] = { &sfxD0, MUSIC_PLAYER_12, MUSIC_PLAYER_12 },

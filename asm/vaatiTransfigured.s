@@ -1273,6 +1273,7 @@ _080400C2:
 	ldrh r0, [r5, #0x32]
 	adds r2, r2, r0
 	strh r2, [r5, #0x32]
+.ifndef EU
 	adds r2, r5, #0
 	adds r2, #0x29
 	ldrb r1, [r2]
@@ -1282,6 +1283,7 @@ _080400C2:
 	movs r1, #2
 	orrs r0, r1
 	strb r0, [r2]
+.endif
 	movs r0, #0xb7
 	lsls r0, r0, #1
 	bl SoundReq

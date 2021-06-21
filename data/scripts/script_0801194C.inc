@@ -140,7 +140,11 @@ script_08011AFA:
 .ifdef JP
 	SetLocalFlag 0x0011
 .else
+.ifdef EU
+	SetLocalFlag 0x0011
+.else
 	SetLocalFlag 0x0010
+.endif
 .endif
 	CallWithArg sub_0806DA1C, 0x00000003
 	_0807E878 

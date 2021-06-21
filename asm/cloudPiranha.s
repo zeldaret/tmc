@@ -87,6 +87,9 @@ _080384C0:
 	adds r1, #0x45
 	movs r0, #0
 	strb r0, [r1]
+.ifdef EU
+_080384CA: @TODO fix labels
+.else
 	b _080384D8
 _080384CA:
 	movs r0, #0x3f
@@ -95,6 +98,7 @@ _080384CA:
 	bne _080384D8
 	adds r0, r4, #0
 	bl sub_08038754
+.endif
 _080384D8:
 	pop {r4, pc}
 	.align 2, 0
@@ -441,7 +445,11 @@ sub_08038754: @ 0x08038754
 	movs r0, #0x5a
 	strb r0, [r1]
 	movs r1, #0
+.ifdef EU
+	adds r0, #0xa6
+.else
 	movs r0, #0xc0
+.endif
 	strh r0, [r4, #0x24]
 	movs r0, #0x80
 	lsls r0, r0, #0xa
