@@ -225,8 +225,11 @@ $(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s $$(data_dep)
 $(SONG_BUILDDIR)/%.o: $(SONG_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) -I sound -o $@ $<
 
-$(ELF): $(OBJS) $(LINKER_FILE)
-	cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -n -T ../../$(LINKER_FILE) -o ../../$@ $(LIB)
+$(OBJ_DIR)/linker.ld: linker.ld
+	$(CPP) $(CPPFLAGS) -x c linker.ld | grep -v '^#' >$(OBJ_DIR)/linker.ld
+
+$(ELF): $(OBJS) $(OBJ_DIR)/linker.ld
+	cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -n -T linker.ld -o ../../$@ $(LIB)
 	$(FIX) $@ -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(REVISION) --silent
 
 $(ROM): $(ELF)
