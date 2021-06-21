@@ -738,7 +738,7 @@ SECTIONS {
         asm/pushableRock.o(.text);
         asm/hittableLever.o(.text);
         asm/object30.o(.text);
-        asm/object31.o(.text);
+        src/object/frozenFlower.o(.text);
         asm/pullableMushroom.o(.text);
         asm/bollard.o(.text);
         asm/warpPoint.o(.text);

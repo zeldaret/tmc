@@ -54,7 +54,7 @@ typedef enum {
     PUSHABLE_ROCK,
     HITTABLE_LEVER,
     OBJECT_30,
-    OBJECT_31,
+    FROZEN_FLOWER,
     PULLABLE_MUSHROOM,
     BOLLARD,
     WARP_POINT,
@@ -250,7 +250,7 @@ extern void Smoke(Entity*);
 extern void PushableRock(Entity*);
 extern void HittableLever(Entity*);
 extern void Object30(Entity*);
-extern void Object31(Entity*);
+extern void FrozenFlower(Entity*);
 extern void PullableMushroom(Entity*);
 extern void Bollard(Entity*);
 extern void WarpPoint(Entity*);
