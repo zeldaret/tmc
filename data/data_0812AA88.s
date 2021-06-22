@@ -2237,7 +2237,6 @@ ENUM_12AED0_LV1_CLEAR_MES:
 	.4byte gUnk_0812AC84
 .endif
 
-.ifndef JP
 gUnk_0812B604:: @ 0812B604
 	.incbin "baserom.gba", 0x12B604, 0x0000008
 
@@ -2249,12 +2248,6 @@ gUnk_0812B614:: @ 0812B614
 
 gUnk_0812B61C:: @ 0812B61C
 	.incbin "baserom.gba", 0x12B61C, 0x0000008
-.else
-gUnk_0812B61C::
-.space 0x3c
-.endif
-
-
 
 
 gUnk_0812B624:: @ 0812B624

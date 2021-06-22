@@ -29,7 +29,145 @@ _080A1700: .4byte gUnk_08124ED0
 	thumb_func_start sub_080A1704
 sub_080A1704: @ 0x080A1704
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0A0F40, 0x0000128 @TODO disassemble
+	push {r4, r5, r6, r7, lr}
+	mov r7, sl
+	mov r6, sb
+	mov r5, r8
+	push {r5, r6, r7}
+	mov sl, r0
+	movs r0, #0x7b
+	bl CheckFlags
+	cmp r0, #0
+	beq _080A0F5A
+	bl DeleteThisEntity
+_080A0F5A:
+	ldr r0, _080A1050 @ =gEntCount
+	ldrb r0, [r0]
+	cmp r0, #0x45
+	bhi _080A1044
+	movs r0, #0x40
+	bl zMalloc
+	adds r7, r0, #0
+	cmp r7, #0
+	beq _080A1044
+	movs r6, #0
+	movs r0, #1
+	mov sb, r0
+	mov r2, sb
+	mov r1, sl
+	strb r2, [r1, #0xc]
+	str r7, [r1, #0x64]
+	adds r1, #0x6e
+	movs r3, #0
+	mov r8, r3
+	movs r0, #0x96
+	lsls r0, r0, #2
+	strh r0, [r1]
+	mov r0, sl
+	adds r0, #0x6c
+	strh r6, [r0]
+	mov r0, sl
+	str r0, [r7]
+	movs r0, #0x5c
+	movs r1, #0
+	bl CreateEnemy
+	adds r1, r0, #0
+	str r7, [r1, #0x64]
+	str r1, [r7, #4]
+	movs r0, #0x5d
+	movs r1, #0
+	bl CreateEnemy
+	adds r1, r0, #0
+	ldr r4, _080A1054 @ =gRoomControls
+	movs r2, #0x80
+	lsls r2, r2, #2
+	adds r5, r2, #0
+	ldrh r3, [r4, #6]
+	adds r0, r5, r3
+	strh r0, [r1, #0x2e]
+	movs r2, #0xe0
+	lsls r2, r2, #2
+	adds r0, r2, #0
+	ldrh r3, [r4, #8]
+	adds r0, r0, r3
+	strh r0, [r1, #0x32]
+	str r7, [r1, #0x64]
+	str r1, [r7, #8]
+	movs r0, #0x5d
+	movs r1, #1
+	bl CreateEnemy
+	adds r1, r0, #0
+	movs r2, #0x98
+	lsls r2, r2, #2
+	adds r0, r2, #0
+	ldrh r3, [r4, #6]
+	adds r0, r0, r3
+	strh r0, [r1, #0x2e]
+	movs r2, #0xd8
+	lsls r2, r2, #2
+	adds r0, r2, #0
+	ldrh r3, [r4, #8]
+	adds r0, r0, r3
+	strh r0, [r1, #0x32]
+	str r7, [r1, #0x64]
+	str r1, [r7, #0xc]
+	ldr r2, _080A1058 @ =gScreen
+	ldr r0, _080A105C @ =0x00001E07
+	strh r0, [r2, #0x2c]
+	ldrh r0, [r2]
+	movs r3, #0x80
+	lsls r3, r3, #4
+	adds r1, r3, #0
+	orrs r0, r1
+	strh r0, [r2]
+	mov r0, sl
+	adds r0, #0x70
+	strh r6, [r0]
+	adds r0, #2
+	strh r6, [r0]
+	adds r0, #2
+	mov r1, r8
+	strb r1, [r0]
+	adds r0, #6
+	strb r1, [r0]
+	subs r0, #4
+	movs r1, #0xc0
+	strh r1, [r0]
+	adds r0, #2
+	strh r1, [r0]
+	ldr r0, _080A1060 @ =gScreenTransition
+	adds r0, #0x39
+	mov r2, sb
+	strb r2, [r0]
+	ldr r2, _080A1064 @ =gPlayerState
+	ldr r0, [r2, #0x30]
+	movs r1, #0x80
+	lsls r1, r1, #0xa
+	orrs r0, r1
+	str r0, [r2, #0x30]
+	ldrh r3, [r4, #6]
+	adds r5, r5, r3
+	strh r5, [r2, #0x16]
+	movs r1, #0x84
+	lsls r1, r1, #2
+	adds r0, r1, #0
+	ldrh r4, [r4, #8]
+	adds r0, r0, r4
+	strh r0, [r2, #0x18]
+_080A1044:
+	pop {r3, r4, r5}
+	mov r8, r3
+	mov sb, r4
+	mov sl, r5
+	pop {r4, r5, r6, r7, pc}
+	.align 2, 0
+_080A1050: .4byte gEntCount
+_080A1054: .4byte gRoomControls
+_080A1058: .4byte gScreen
+_080A105C: .4byte 0x00001E07
+_080A1060: .4byte gScreenTransition
+_080A1064: .4byte gPlayerState
+
 .else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl

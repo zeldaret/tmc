@@ -158,9 +158,7 @@ void PlayerUpdate(Entity* this) {
 
 // Responsible for some life things like low health beep and initiating the death sequence
 #ifdef EU
-NAKED void HandlePlayerLife(Entity* this) {
-    asm(".incbin \"baserom_eu.gba\", 0x017038, 0x1f0"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/HandlePlayerLife.inc", void HandlePlayerLife(Entity* this));
 #else
 void HandlePlayerLife(Entity* this) {
     u32 temp;

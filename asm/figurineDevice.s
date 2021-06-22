@@ -365,7 +365,118 @@ _08087E5A:
 	thumb_func_start sub_08087E5C
 sub_08087E5C: @ 0x08087E5C
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x087838, 0x00000E0 @TODO disassemble
+	push {r4, r5, r6, lr}
+	adds r4, r0, #0
+	adds r5, r4, #0
+	adds r5, #0x7a
+	ldrb r1, [r5]
+	cmp r1, #1
+	beq _08087888
+	cmp r1, #1
+	bgt _08087850
+	cmp r1, #0
+	beq _08087856
+	b _0808790C
+_08087850:
+	cmp r1, #2
+	beq _080878EA
+	b _0808790C
+_08087856:
+	adds r0, r4, #0
+	adds r0, #0x7b
+	ldrb r0, [r0]
+	cmp r0, #4
+	bne _08087880
+	movs r0, #1
+	bl CheckRoomFlag
+	cmp r0, #0
+	beq _0808790C
+	movs r0, #1
+	strb r0, [r5]
+	adds r1, r4, #0
+	adds r1, #0x81
+	strb r0, [r1]
+	bl ClearRoomFlag
+	adds r0, r4, #0
+	bl sub_0808826C
+	b _080878E2
+_08087880:
+	adds r0, r4, #0
+	bl sub_080880D8
+	b _0808790C
+_08087888:
+	ldrb r0, [r4, #0xe]
+	cmp r0, #0
+	beq _08087892
+	subs r0, #1
+	strb r0, [r4, #0xe]
+_08087892:
+	ldr r2, _080878B0 @ =gInput
+	ldrh r0, [r2, #2]
+	ands r1, r0
+	cmp r1, #0
+	beq _080878B4
+	movs r0, #0x6a
+	bl SoundReq
+	movs r0, #2
+	strb r0, [r5]
+	movs r0, #0x3c
+	strb r0, [r4, #0xe]
+	bl sub_08050384
+	b _0808790C
+	.align 2, 0
+_080878B0: .4byte gInput
+_080878B4:
+	adds r0, r4, #0
+	adds r0, #0x81
+	ldrb r6, [r0]
+	ldrh r1, [r2, #4]
+	adds r5, r0, #0
+	cmp r1, #0x40
+	beq _080878C8
+	cmp r1, #0x80
+	beq _080878D2
+	b _080878DC
+_080878C8:
+	adds r0, r4, #0
+	movs r1, #1
+	bl sub_08087F94
+	b _080878DC
+_080878D2:
+	movs r1, #1
+	rsbs r1, r1, #0
+	adds r0, r4, #0
+	bl sub_08087F94
+_080878DC:
+	ldrb r5, [r5]
+	cmp r6, r5
+	beq _0808790C
+_080878E2:
+	adds r0, r4, #0
+	bl sub_080882A8
+	b _0808790C
+_080878EA:
+	movs r0, #0
+	strb r0, [r5]
+	adds r1, r4, #0
+	adds r1, #0x7b
+	movs r0, #4
+	strb r0, [r1]
+	movs r0, #3
+	bl SetRoomFlag
+	ldr r0, _08087910 @ =0x0000431A
+	bl TextboxNoOverlapFollow
+	ldr r1, _08087914 @ =gTextBox
+	adds r0, r4, #0
+	adds r0, #0x81
+	ldrb r0, [r0]
+	str r0, [r1, #0x10]
+_0808790C:
+	pop {r4, r5, r6, pc}
+	.align 2, 0
+_08087910: .4byte 0x0000431A
+_08087914: .4byte gTextBox
+
 .else
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
@@ -538,10 +649,181 @@ _08087F90: .4byte 0x00004022
 	thumb_func_start sub_08087F94
 sub_08087F94: @ 0x08087F94
 .ifdef JP
-	.incbin "baserom_jp.gba", 0x087dac, 0xb0 @TODO disassemble
+	push {r4, r5, r6, r7, lr}
+	adds r5, r0, #0
+	adds r4, r1, #0
+	movs r0, #0x5f
+	bl CheckLocalFlag
+	cmp r0, #0
+	bne _08087E3E
+	adds r0, r5, #0
+	adds r0, #0x83
+	movs r7, #0
+	ldrsb r7, [r0, r7]
+	adds r3, r7, r4
+	mov ip, r0
+	cmp r4, #0
+	bge _08087E0A
+	adds r2, r5, #0
+	adds r2, #0x82
+	movs r0, #0
+	ldrsb r0, [r2, r0]
+	cmp r3, r0
+	bge _08087DF4
+	mov r0, ip
+	movs r1, #0
+	ldrsb r1, [r0, r1]
+	ldrb r3, [r2]
+	movs r0, #0
+	ldrsb r0, [r2, r0]
+	cmp r1, r0
+	beq _08087E3E
+	mov r2, ip
+	strb r3, [r2]
+	adds r1, r5, #0
+	adds r1, #0x81
+	movs r0, #1
+	b _08087E00
+_08087DF4:
+	mov r0, ip
+	strb r3, [r0]
+	adds r1, r5, #0
+	adds r1, #0x81
+	ldrb r0, [r1]
+	adds r0, r0, r4
+_08087E00:
+	strb r0, [r1]
+	movs r0, #0x69
+	bl SoundReq
+	b _08087E58
+_08087E0A:
+	adds r1, r5, #0
+	adds r1, #0x81
+	ldrb r6, [r1]
+	adds r2, r6, r4
+	ldr r0, _08087E2C @ =0x02002A40
+	adds r0, #0xc2
+	ldrh r0, [r0]
+	cmp r2, r0
+	ble _08087E30
+	cmp r0, r6
+	beq _08087E3E
+	adds r2, r0, #0
+	subs r4, r2, r6
+	adds r3, r7, r4
+	cmp r3, #0x64
+	ble _08087E4C
+	b _08087E46
+	.align 2, 0
+_08087E2C: .4byte 0x02002A40
+_08087E30:
+	cmp r3, #0x64
+	ble _08087E4C
+	mov r2, ip
+	movs r0, #0
+	ldrsb r0, [r2, r0]
+	cmp r0, #0x64
+	bne _08087E46
+_08087E3E:
+	adds r0, r5, #0
+	bl sub_08088034
+	b _08087E58
+_08087E46:
+	movs r3, #0x64
+	subs r4, r3, r7
+	adds r2, r6, r4
+_08087E4C:
+	mov r0, ip
+	strb r3, [r0]
+	strb r2, [r1]
+	movs r0, #0x69
+	bl SoundReq
+_08087E58:
+	pop {r4, r5, r6, r7, pc}
+	.align 2, 0
 .else
 .ifdef EU
-	.incbin "baserom_eu.gba", 0x087954, 0x000009C @TODO disassemble
+	push {r4, r5, r6, r7, lr}
+	adds r5, r0, #0
+	adds r6, r1, #0
+	adds r7, r5, #0
+	adds r7, #0x83
+	ldrb r0, [r7]
+	adds r4, r0, r6
+	movs r0, #0x5f
+	bl CheckLocalFlag
+	cmp r0, #0
+	bne _080879CE
+	cmp r6, #0
+	bge _0808799E
+	adds r0, r5, #0
+	adds r0, #0x82
+	ldrb r1, [r0]
+	cmp r4, r1
+	bhs _0808798A
+	ldrb r0, [r7]
+	cmp r0, r1
+	beq _080879CE
+	strb r1, [r7]
+	adds r1, r5, #0
+	adds r1, #0x81
+	movs r0, #1
+	b _08087994
+_0808798A:
+	strb r4, [r7]
+	adds r1, r5, #0
+	adds r1, #0x81
+	ldrb r0, [r1]
+	adds r0, r0, r6
+_08087994:
+	strb r0, [r1]
+	movs r0, #0x69
+	bl SoundReq
+	b _080879EC
+_0808799E:
+	adds r1, r5, #0
+	adds r1, #0x81
+	ldrb r3, [r1]
+	adds r2, r3, r6
+	ldr r0, _080879C0 @ =gSave
+	adds r0, #0xc2
+	ldrh r0, [r0]
+	cmp r2, r0
+	bls _080879C4
+	cmp r0, r3
+	beq _080879CE
+	adds r2, r0, #0
+	subs r0, r2, r3
+	ldrb r7, [r7]
+	adds r4, r0, r7
+	b _080879DE
+	.align 2, 0
+_080879C0: .4byte gSave
+_080879C4:
+	cmp r4, #0x64
+	bls _080879DE
+	ldrb r0, [r7]
+	cmp r0, #0x64
+	bne _080879D6
+_080879CE:
+	adds r0, r5, #0
+	bl sub_08088034
+	b _080879EC
+_080879D6:
+	movs r4, #0x64
+	ldrb r0, [r7]
+	subs r6, r4, r0
+	adds r2, r3, r6
+_080879DE:
+	adds r0, r5, #0
+	adds r0, #0x83
+	strb r4, [r0]
+	strb r2, [r1]
+	movs r0, #0x69
+	bl SoundReq
+_080879EC:
+	pop {r4, r5, r6, r7, pc}
+	.align 2, 0
 .else
 	push {r4, r5, r6, r7, lr}
 	adds r5, r0, #0
@@ -813,10 +1095,237 @@ _0808815C: .4byte gSave
 	thumb_func_start sub_08088160
 sub_08088160: @ 0x08088160
 .ifdef JP
-	.incbin "baserom_jp.gba", 0x087f88, 0xe8 @TODO disassemble
+	push {r4, lr}
+	adds r2, r0, #0
+	lsls r1, r1, #3
+	ldr r0, _08087FB0 @ =0x080FC094
+	adds r1, r1, r0
+	movs r4, #0
+	adds r0, r2, #0
+	adds r0, #0x7c
+	ldrb r0, [r0]
+	ldrb r3, [r1, #6]
+	cmp r0, r3
+	bhs _08088068
+	ldrb r0, [r1, #6]
+	cmp r0, #0x10
+	beq _08087FC6
+	cmp r0, #0x10
+	bgt _08087FB4
+	cmp r0, #8
+	beq _08087FBC
+	b _0808806A
+	.align 2, 0
+_08087FB0: .4byte 0x080FC094
+_08087FB4:
+	cmp r0, #0x20
+	beq _08087FCA
+	cmp r0, #0x40
+	bne _0808806A
+_08087FBC:
+	ldr r0, [r1]
+	ldrh r1, [r1, #4]
+	bl CheckLocalFlagByOffset
+	b _08088064EU
+_08087FC6:
+	ldrh r0, [r1, #4]
+	b _08088060EU
+_08087FCA:
+	ldrh r0, [r1, #4]
+	cmp r0, #4
+	bhi _0808806A
+	lsls r0, r0, #2
+	ldr r1, _08087FDC @ =_08087FE0
+	adds r0, r0, r1
+	ldr r0, [r0]
+	mov pc, r0
+	.align 2, 0
+_08087FDC: .4byte _08087FE0
+_08087FE0: @ jump table
+	.4byte _08087FF4 @ case 0
+	.4byte _0808800C @ case 1
+	.4byte _0808801A @ case 2
+	.4byte _08088032 @ case 3
+	.4byte _0808804A @ case 4
+_08087FF4:
+	movs r0, #0x20
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08088068
+	movs r0, #0x10
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08088068
+	movs r0, #0x19
+	b _08088060EU
+_0808800C:
+	adds r0, r2, #0
+	adds r0, #0x7c
+	ldrb r0, [r0]
+	cmp r0, #4
+	bls _0808806A
+	movs r0, #0x28
+	b _08088060EU
+_0808801A:
+	movs r0, #0x54
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08088068
+	movs r0, #0x56
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08088068
+	movs r0, #0x3d
+	b _08088060EU
+_08088032:
+	movs r0, #0x3b
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08088068
+	movs r0, #0x4a
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08088068
+	movs r0, #0xd
+	b _08088060EU
+_0808804A:
+	movs r0, #0x49
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08088068
+	movs r0, #0x55
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08088068
+	movs r0, #0x3c
+_08088060EU:
+	bl CheckKinstoneFused
+_08088064EU:
+	cmp r0, #0
+	beq _0808806A
+_08088068:
+	movs r4, #1
+_0808806A:
+	adds r0, r4, #0
+	pop {r4, pc}
+	.align 2, 0
+
 .else
 .ifdef EU
-	.incbin "baserom_eu.gba", 0x087B1C, 0x00000E8 @ TODO same as JP
+	push {r4, lr}
+	adds r2, r0, #0
+	lsls r1, r1, #3
+	ldr r0, _08087B44 @ =gUnk_080FC3E4
+	adds r1, r1, r0
+	movs r4, #0
+	adds r0, r2, #0
+	adds r0, #0x7d
+	ldrb r0, [r0]
+	ldrb r3, [r1, #6]
+	cmp r0, r3
+	bhs _08087BFC
+	ldrb r0, [r1, #6]
+	cmp r0, #0x10
+	beq _08087B5A
+	cmp r0, #0x10
+	bgt _08087B48
+	cmp r0, #8
+	beq _08087B50
+	b _08087BFE
+	.align 2, 0
+_08087B44: .4byte gUnk_080FC3E4
+_08087B48:
+	cmp r0, #0x20
+	beq _08087B5E
+	cmp r0, #0x40
+	bne _08087BFE
+_08087B50:
+	ldr r0, [r1]
+	ldrh r1, [r1, #4]
+	bl CheckLocalFlagByOffset
+	b _08087BF8
+_08087B5A:
+	ldrh r0, [r1, #4]
+	b _08087BF4
+_08087B5E:
+	ldrh r0, [r1, #4]
+	cmp r0, #4
+	bhi _08087BFE
+	lsls r0, r0, #2
+	ldr r1, _08087B70 @ =_08087B74
+	adds r0, r0, r1
+	ldr r0, [r0]
+	mov pc, r0
+	.align 2, 0
+_08087B70: .4byte _08087B74
+_08087B74: @ jump table
+	.4byte _08087B88 @ case 0
+	.4byte _08087BA0 @ case 1
+	.4byte _08087BAE @ case 2
+	.4byte _08087BC6 @ case 3
+	.4byte _08087BDE @ case 4
+_08087B88:
+	movs r0, #0x20
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08087BFC
+	movs r0, #0x10
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08087BFC
+	movs r0, #0x19
+	b _08087BF4
+_08087BA0:
+	adds r0, r2, #0
+	adds r0, #0x7d
+	ldrb r0, [r0]
+	cmp r0, #4
+	bls _08087BFE
+	movs r0, #0x28
+	b _08087BF4
+_08087BAE:
+	movs r0, #0x54
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08087BFC
+	movs r0, #0x56
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08087BFC
+	movs r0, #0x3d
+	b _08087BF4
+_08087BC6:
+	movs r0, #0x3b
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08087BFC
+	movs r0, #0x4a
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08087BFC
+	movs r0, #0xd
+	b _08087BF4
+_08087BDE:
+	movs r0, #0x49
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08087BFC
+	movs r0, #0x55
+	bl CheckKinstoneFused
+	cmp r0, #0
+	bne _08087BFC
+	movs r0, #0x3c
+_08087BF4:
+	bl CheckKinstoneFused
+_08087BF8:
+	cmp r0, #0
+	beq _08087BFE
+_08087BFC:
+	movs r4, #1
+_08087BFE:
+	adds r0, r4, #0
+	pop {r4, pc}
+	.align 2, 0
 .else
 	push {r4, lr}
 	adds r2, r0, #0
@@ -1049,7 +1558,132 @@ _08088324: .4byte gScreen
 	thumb_func_start sub_08088328
 sub_08088328: @ 0x08088328
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x087CBC, 0x00000F8 @TODO disassemble
+	push {r4, r5, r6, r7, lr}
+	mov r7, r8
+	push {r7}
+	adds r6, r0, #0
+	movs r4, #0x7f
+_08087CC6:
+	bl Random
+	adds r5, r0, #0
+	ands r5, r4
+	cmp r5, #0x63
+	bhi _08087CC6
+	adds r0, r6, #0
+	adds r0, #0x81
+	ldrb r0, [r0]
+	rsbs r0, r0, #0
+	bl sub_080542C0
+	bl Random
+	movs r1, #0x7f
+	ands r1, r0
+	adds r4, r1, #1
+	adds r7, r4, #0
+	adds r0, r6, #0
+	bl sub_08088424
+	adds r0, r6, #0
+	adds r0, #0x83
+	ldrb r0, [r0]
+	cmp r5, r0
+	bhs _08087D34EU
+	movs r5, #0
+	movs r0, #0x7e
+	adds r0, r0, r6
+	mov r8, r0
+_08087D02EU:
+	cmp r5, #0
+	bne _08087D72
+	cmp r4, #0x88
+	bls _08087D0C
+	movs r4, #1
+_08087D0C:
+	adds r0, r6, #0
+	adds r1, r4, #0
+	bl sub_08088160
+	cmp r0, #0
+	beq _08087D2C
+	ldr r0, _08087D28 @ =gUnk_02002B0E
+	adds r1, r4, #0
+	bl ReadBit
+	cmp r0, #0
+	bne _08087D2C
+	movs r5, #1
+	b _08087D2E
+	.align 2, 0
+_08087D28: .4byte gUnk_02002B0E
+_08087D2C:
+	adds r4, #1
+_08087D2E:
+	cmp r7, r4
+	bne _08087D02EU
+	b _08087D6E
+_08087D34EU:
+	movs r5, #1
+	movs r0, #0x7e
+	adds r0, r0, r6
+	mov r8, r0
+_08087D3C:
+	cmp r5, #0
+	beq _08087DA4
+	cmp r4, #0x88
+	bls _08087D46
+	movs r4, #1
+_08087D46:
+	adds r0, r6, #0
+	adds r1, r4, #0
+	bl sub_08088160
+	cmp r0, #0
+	beq _08087D68
+	ldr r0, _08087D64 @ =gUnk_02002B0E
+	adds r1, r4, #0
+	bl ReadBit
+	cmp r0, #0
+	beq _08087D68
+	movs r5, #0
+	b _08087D6A
+	.align 2, 0
+_08087D64: .4byte gUnk_02002B0E
+_08087D68:
+	adds r4, #1
+_08087D6A:
+	cmp r7, r4
+	bne _08087D3C
+_08087D6E:
+	cmp r5, #0
+	beq _08087DA4
+_08087D72:
+	ldr r0, _08087D94 @ =gSave
+	adds r0, #0xb0
+	ldrb r1, [r0]
+	adds r1, #1
+	strb r1, [r0]
+	adds r0, r6, #0
+	adds r0, #0x7c
+	lsls r1, r1, #0x18
+	lsrs r1, r1, #0x18
+	ldrb r0, [r0]
+	cmp r1, r0
+	beq _08087D98
+	movs r0, #7
+	bl SetRoomFlag
+	b _08087DA4
+	.align 2, 0
+_08087D94: .4byte gSave
+_08087D98:
+	movs r0, #0x5f
+	bl SetLocalFlag
+	movs r0, #8
+	bl SetRoomFlag
+_08087DA4:
+	mov r0, r8
+	strb r4, [r0]
+	ldr r0, [r6, #0x50]
+	adds r0, #0x7e
+	strb r4, [r0]
+	pop {r3}
+	mov r8, r3
+	pop {r4, r5, r6, r7, pc}
+
 .else
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
@@ -1473,7 +2107,31 @@ _08088618: .4byte gSave
 	thumb_func_start sub_0808861C
 sub_0808861C: @ 0x0808861C
 .ifdef JP
-	.incbin "baserom_jp.gba", 0x088420, 0x34 @TODO disassemble
+	push {r4, lr}
+	adds r4, r1, #0
+	movs r0, #0xa8
+	movs r1, #0x54
+	movs r2, #0xc
+	movs r3, #8
+	bl CheckPlayerInRegion
+	str r0, [r4, #0x14]
+	ldr r0, _0808844C @ =0x03001160
+	ldrb r0, [r0, #0x14]
+	cmp r0, #0
+	beq _0808843E
+	movs r0, #0
+	str r0, [r4, #0x14]
+_0808843E:
+	ldr r2, _08088450 @ =0x02033280
+	ldrb r1, [r2, #7]
+	movs r0, #1
+	orrs r0, r1
+	strb r0, [r2, #7]
+	pop {r4, pc}
+	.align 2, 0
+_0808844C: .4byte 0x03001160
+_08088450: .4byte 0x02033280
+
 .else
 	push {r4, lr}
 	adds r4, r1, #0

@@ -45,7 +45,71 @@ _080489C8: .4byte gUnk_080D1F7C
 	thumb_func_start sub_080489CC
 sub_080489CC: @ 0x080489CC
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x048788, 0x84 @TODO disassemble
+	push {r4, r5, r6, lr}
+	adds r5, r0, #0
+	movs r0, #0x45
+	adds r0, r0, r5
+	mov ip, r0
+	ldrb r0, [r0]
+	cmp r0, #0xff
+	beq _080487F4
+	ldr r3, [r5, #0x50]
+	adds r2, r3, #0
+	adds r2, #0x7c
+	movs r0, #1
+	ldrb r1, [r5, #0xa]
+	lsls r0, r1
+	ldrb r1, [r2]
+	orrs r0, r1
+	strb r0, [r2]
+	ldr r4, [r3, #0x64]
+	ldrb r0, [r5, #0xa]
+	lsls r0, r0, #2
+	adds r1, r4, #0
+	adds r1, #0x18
+	adds r1, r1, r0
+	ldr r0, [r5, #0x4c]
+	str r0, [r1]
+	ldr r2, _08048804 @ =gPlayerEntity
+	movs r6, #0x2e
+	ldrsh r0, [r2, r6]
+	movs r6, #0x2e
+	ldrsh r1, [r5, r6]
+	adds r0, r0, r1
+	lsrs r1, r0, #0x1f
+	adds r0, r0, r1
+	asrs r0, r0, #1
+	strh r0, [r4, #0x38]
+	ldr r4, [r3, #0x64]
+	movs r1, #0x32
+	ldrsh r0, [r2, r1]
+	movs r2, #0x32
+	ldrsh r1, [r5, r2]
+	adds r0, r0, r1
+	lsrs r1, r0, #0x1f
+	adds r0, r0, r1
+	asrs r0, r0, #1
+	strh r0, [r4, #0x3a]
+	ldr r2, [r3, #0x64]
+	adds r3, r5, #0
+	adds r3, #0x3e
+	ldrb r0, [r3]
+	movs r1, #0x10
+	eors r0, r1
+	strb r0, [r3]
+	adds r2, #0x3c
+	strb r0, [r2]
+_080487F4:
+	movs r0, #0xff
+	mov r6, ip
+	strb r0, [r6]
+	ldr r1, _08048808 @ =gUnk_080D1F64
+	adds r0, r5, #0
+	bl sub_0804AA30
+	pop {r4, r5, r6, pc}
+	.align 2, 0
+_08048804: .4byte gPlayerEntity
+_08048808: .4byte gUnk_080D1F64
 .else
 	push {r4, r5, r6, lr}
 	mov ip, r0

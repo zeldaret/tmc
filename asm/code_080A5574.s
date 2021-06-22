@@ -351,7 +351,211 @@ _080A57F0:
 	thumb_func_start sub_080A57F4
 sub_080A57F4: @ 0x080A57F4
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0A5008, 0x000019C @TODO disassemble
+	push {r4, r5, r6, r7, lr}
+	mov r7, sb
+	mov r6, r8
+	push {r6, r7}
+	ldr r2, _080A50A8 @ =gOamCmd
+	movs r1, #0
+	movs r0, #0x80
+	lsls r0, r0, #3
+	strh r0, [r2, #4]
+	strh r1, [r2, #6]
+	movs r0, #0x80
+	lsls r0, r0, #0x12
+	ldrb r0, [r0, #7]
+	ldr r1, _080A50AC @ =gUnk_08128C94
+	mov sb, r1
+	cmp r0, #0
+	bne _080A502E
+	ldr r3, _080A50B0 @ =gUnk_08128C14
+	mov sb, r3
+_080A502E:
+	ldr r0, _080A50B4 @ =gChooseFileState
+	ldrb r0, [r0, #3]
+	lsls r0, r0, #3
+	mov r1, sb
+	adds r3, r1, r0
+	movs r0, #0x80
+	lsls r0, r0, #4
+	strh r0, [r2, #8]
+	ldrb r0, [r3, #6]
+	strh r0, [r2]
+	ldrb r0, [r3, #7]
+	strh r0, [r2, #2]
+	ldrb r2, [r3, #4]
+	ldr r0, _080A50B8 @ =gMain
+	ldrh r1, [r0, #0xc]
+	movs r0, #0x10
+	ands r0, r1
+	adds r1, r2, #0
+	adds r1, #0xa
+	cmp r0, #0
+	bne _080A505A
+	adds r1, #1
+_080A505A:
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	bl sub_080ADA14
+	movs r3, #0
+	mov r8, r3
+	mov r7, sb
+	adds r7, #5
+_080A506A:
+	ldr r0, _080A50B4 @ =gChooseFileState
+	adds r0, #0x10
+	mov r1, r8
+	adds r6, r1, r0
+	ldrb r1, [r6]
+	cmp r1, #0
+	beq _080A50FA
+	mov r3, r8
+	lsls r5, r3, #3
+	mov r0, sb
+	adds r3, r0, r5
+	ldr r4, _080A50A8 @ =gOamCmd
+	ldrb r0, [r7, #1]
+	strh r0, [r4]
+	ldrb r2, [r7, #2]
+	strh r2, [r4, #2]
+	movs r0, #0xe8
+	lsls r0, r0, #8
+	strh r0, [r4, #8]
+	cmp r1, #0x33
+	bhi _080A50CA
+	mov r1, r8
+	cmp r1, #2
+	bne _080A50BC
+	ldrb r0, [r7]
+	adds r1, r0, #0
+	adds r1, #0xa
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	b _080A50F6
+	.align 2, 0
+_080A50A8: .4byte gOamCmd
+_080A50AC: .4byte gUnk_08128C94
+_080A50B0: .4byte gUnk_08128C14
+_080A50B4: .4byte gChooseFileState
+_080A50B8: .4byte gMain
+_080A50BC:
+	ldrb r0, [r6]
+	adds r0, #9
+	ldrb r3, [r3, #5]
+	adds r1, r0, r3
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	b _080A50F6
+_080A50CA:
+	ldr r3, _080A50E0 @ =0x0000EB80
+	adds r0, r5, r3
+	strh r0, [r4, #8]
+	cmp r1, #0x3d
+	beq _080A50E4
+	cmp r1, #0x3e
+	bne _080A50EA
+	adds r0, r2, #0
+	adds r0, #8
+	b _080A50E8
+	.align 2, 0
+_080A50E0: .4byte 0x0000EB80
+_080A50E4:
+	adds r0, r2, #0
+	adds r0, #0xd
+_080A50E8:
+	strh r0, [r4, #2]
+_080A50EA:
+	ldr r0, _080A5190 @ =gUnk_080FDFD8
+	lsls r1, r1, #2
+	adds r1, r1, r0
+	ldr r0, [r1]
+	ldrb r1, [r0]
+	ldr r0, _080A5194 @ =0x00000141
+_080A50F6:
+	bl sub_080ADA14
+_080A50FA:
+	adds r7, #8
+	movs r0, #1
+	add r8, r0
+	mov r1, r8
+	cmp r1, #0xf
+	bls _080A506A
+	ldr r4, _080A5198 @ =gChooseFileState
+	ldrb r0, [r4, #0x12]
+	cmp r0, #0
+	beq _080A5132
+	ldr r2, _080A519C @ =gOamCmd
+	movs r3, #0x80
+	lsls r3, r3, #4
+	adds r1, r3, #0
+	adds r0, r0, r1
+	strh r0, [r2, #8]
+	mov r3, sb
+	adds r3, #0x10
+	ldrb r0, [r3, #6]
+	adds r0, #9
+	strh r0, [r2]
+	ldrb r0, [r3, #7]
+	adds r0, #7
+	strh r0, [r2, #2]
+	movs r0, #0
+	movs r1, #1
+	bl sub_080ADA14
+_080A5132:
+	ldrb r0, [r4, #0x13]
+	cmp r0, #0x3f
+	bne _080A5188
+	mov r3, sb
+	adds r3, #0x18
+	ldr r1, _080A519C @ =gOamCmd
+	ldrb r0, [r3, #6]
+	adds r0, #8
+	strh r0, [r1]
+	ldrb r0, [r3, #7]
+	adds r0, #8
+	strh r0, [r1, #2]
+	ldr r0, _080A51A0 @ =gSave
+	adds r0, #0xc2
+	ldrh r4, [r0]
+	movs r0, #0
+	mov r8, r0
+	adds r5, r1, #0
+_080A5156:
+	adds r0, r4, #0
+	movs r1, #0xa
+	bl __modsi3
+	movs r1, #0x80
+	lsls r1, r1, #4
+	adds r0, r0, r1
+	strh r0, [r5, #8]
+	movs r0, #0
+	movs r1, #1
+	bl sub_080ADA14
+	adds r0, r4, #0
+	movs r1, #0xa
+	bl __divsi3
+	adds r4, r0, #0
+	ldrh r0, [r5]
+	subs r0, #8
+	strh r0, [r5]
+	movs r3, #1
+	add r8, r3
+	mov r0, r8
+	cmp r0, #2
+	bls _080A5156
+_080A5188:
+	pop {r3, r4}
+	mov r8, r3
+	mov sb, r4
+	pop {r4, r5, r6, r7, pc}
+	.align 2, 0
+_080A5190: .4byte gUnk_080FDFD8
+_080A5194: .4byte 0x00000141
+_080A5198: .4byte gChooseFileState
+_080A519C: .4byte gOamCmd
+_080A51A0: .4byte gSave
+
+
 .else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
@@ -1039,7 +1243,263 @@ _080A5D18: .4byte gUnk_02019EE0
 	thumb_func_start sub_080A5D1C
 sub_080A5D1C: @ 0x080A5D1C
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0A550C, 0x000020C @TODO disassemble
+	push {r4, r5, r6, r7, lr}
+	mov r7, sl
+	mov r6, sb
+	mov r5, r8
+	push {r5, r6, r7}
+	ldr r0, _080A5690 @ =gArea
+	ldrb r0, [r0, #3]
+	lsls r0, r0, #2
+	ldr r1, _080A5694 @ =gUnk_080C9C6C
+	adds r7, r0, r1
+	ldr r1, _080A5698EU @ =gUnk_08128D3C
+	ldrb r0, [r7]
+	adds r0, r0, r1
+	ldrb r6, [r0]
+	bl sub_0801DB94
+	mov r8, r0
+	ldr r5, _080A569CEU @ =gOamCmd
+	movs r0, #0x80
+	lsls r0, r0, #3
+	strh r0, [r5, #4]
+	movs r0, #0
+	strh r0, [r5, #6]
+	strh r0, [r5, #8]
+	movs r0, #0x34
+	strh r0, [r5]
+	ldr r0, _080A56A0 @ =gChooseFileState
+	ldrb r1, [r0, #3]
+	lsls r0, r1, #1
+	adds r0, r0, r1
+	lsls r0, r0, #2
+	adds r0, r6, r0
+	strh r0, [r5, #2]
+	ldr r1, _080A56A4 @ =gMain
+	mov sl, r1
+	ldrh r1, [r1, #0xc]
+	movs r0, #0x10
+	ands r0, r1
+	movs r1, #0x74
+	cmp r0, #0
+	bne _080A5560
+	movs r1, #0x75
+_080A5560:
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	bl sub_080ADA14
+	movs r0, #0x20
+	mov sb, r0
+	mov r1, sb
+	strh r1, [r5]
+	mov r1, r8
+	lsls r0, r1, #1
+	add r0, r8
+	lsls r0, r0, #2
+	adds r0, r6, r0
+	strh r0, [r5, #2]
+	mov r0, sl
+	ldrh r1, [r0, #0xc]
+	mov r0, sb
+	ands r0, r1
+	movs r1, #0x79
+	cmp r0, #0
+	beq _080A558C
+	movs r1, #0x78
+_080A558C:
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	bl sub_080ADA14
+	movs r0, #0x7e
+	strh r0, [r5, #2]
+	movs r0, #0x87
+	lsls r0, r0, #7
+	strh r0, [r5, #8]
+	bl sub_080527CC
+	cmp r0, #0
+	beq _080A55BE
+	movs r0, #0x18
+	strh r0, [r5]
+	ldr r0, _080A56A8 @ =gUnk_080FDFD8
+	movs r1, #0xa0
+	lsls r1, r1, #1
+	adds r0, r0, r1
+	ldr r0, [r0]
+	ldrb r4, [r0]
+	ldr r0, _080A56ACEU @ =0x00000143
+	adds r1, r4, #0
+	bl sub_080ADA14
+_080A55BE:
+	bl sub_08052764
+	cmp r0, #0
+	beq _080A55DE
+	movs r0, #0x2e
+	strh r0, [r5]
+	ldr r0, _080A56A8 @ =gUnk_080FDFD8
+	movs r1, #0xa4
+	lsls r1, r1, #1
+	adds r0, r0, r1
+	ldr r0, [r0]
+	ldrb r4, [r0]
+	ldr r0, _080A56ACEU @ =0x00000143
+	adds r1, r4, #0
+	bl sub_080ADA14
+_080A55DE:
+	bl sub_0805279C
+	cmp r0, #0
+	beq _080A563CEU
+	movs r0, #0x45
+	strh r0, [r5]
+	movs r0, #0xe0
+	lsls r0, r0, #2
+	strh r0, [r5, #8]
+	ldr r0, _080A56A8 @ =gUnk_080FDFD8
+	movs r1, #0xa2
+	lsls r1, r1, #1
+	adds r0, r0, r1
+	ldr r0, [r0]
+	ldrb r4, [r0]
+	ldr r0, _080A56ACEU @ =0x00000143
+	adds r1, r4, #0
+	bl sub_080ADA14
+	bl sub_080A5F24
+	cmp r0, #0
+	beq _080A563CEU
+	movs r0, #0
+	strh r0, [r5, #8]
+	movs r0, #0x46
+	strh r0, [r5]
+	ldrb r1, [r7, #1]
+	ldrb r0, [r7, #2]
+	subs r1, r1, r0
+	lsls r0, r1, #1
+	adds r0, r0, r1
+	lsls r0, r0, #2
+	adds r0, r6, r0
+	strh r0, [r5, #2]
+	mov r0, sl
+	ldrh r1, [r0, #0xc]
+	mov r0, sb
+	ands r0, r1
+	movs r1, #0x7b
+	cmp r0, #0
+	beq _080A5634EU
+	movs r1, #0x7a
+_080A5634EU:
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	bl sub_080ADA14
+_080A563CEU:
+	ldr r1, _080A569CEU @ =gOamCmd
+	movs r0, #0
+	strh r0, [r1, #8]
+	movs r0, #0x34
+	strh r0, [r1]
+	strh r6, [r1, #2]
+	ldrb r0, [r7, #1]
+	adds r4, r0, #0
+	adds r4, #0x82
+	movs r5, #0
+	ldrb r0, [r7]
+	cmp r5, r0
+	bhs _080A5672
+	adds r6, r1, #0
+_080A5658:
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	adds r1, r4, #0
+	bl sub_080ADA14
+	subs r4, #1
+	ldrh r0, [r6, #2]
+	adds r0, #0xc
+	strh r0, [r6, #2]
+	adds r5, #1
+	ldrb r1, [r7]
+	cmp r5, r1
+	blo _080A5658
+_080A5672:
+	ldr r5, _080A56B0 @ =gUnk_02019EE0
+	ldrb r0, [r5]
+	cmp r0, #0
+	beq _080A570E
+	ldr r7, _080A569CEU @ =gOamCmd
+	ldr r6, _080A56B4 @ =gScreen
+_080A567E:
+	ldrb r0, [r5]
+	cmp r0, #2
+	beq _080A56D4EU
+	cmp r0, #2
+	bgt _080A56B8
+	cmp r0, #1
+	beq _080A56C2
+	b _080A56E6
+	.align 2, 0
+_080A5690: .4byte gArea
+_080A5694: .4byte gUnk_080C9C6C
+_080A5698EU: .4byte gUnk_08128D3C
+_080A569CEU: .4byte gOamCmd
+_080A56A0: .4byte gChooseFileState
+_080A56A4: .4byte gMain
+_080A56A8: .4byte gUnk_080FDFD8
+_080A56ACEU: .4byte 0x00000143
+_080A56B0: .4byte gUnk_02019EE0
+_080A56B4: .4byte gScreen
+_080A56B8:
+	cmp r0, #3
+	beq _080A56D8EU
+	cmp r0, #4
+	beq _080A56DCEU
+	b _080A56E6
+_080A56C2:
+	movs r4, #0x7d
+	ldr r0, _080A56D0EU @ =gChooseFileState
+	ldrb r0, [r0, #3]
+	cmp r8, r0
+	beq _080A56E8
+	movs r4, #0x7e
+	b _080A56E8
+	.align 2, 0
+_080A56D0EU: .4byte gChooseFileState
+_080A56D4EU:
+	movs r4, #0x80
+	b _080A56E8
+_080A56D8EU:
+	movs r4, #0x81
+	b _080A56E8
+_080A56DCEU:
+	bl sub_080A5F24
+	movs r4, #0x7f
+	cmp r0, #0
+	bne _080A56E8
+_080A56E6:
+	movs r4, #0xff
+_080A56E8:
+	ldrb r0, [r5, #1]
+	adds r0, #0x50
+	ldrh r1, [r6, #0x16]
+	subs r0, r0, r1
+	strh r0, [r7]
+	ldrb r0, [r5, #2]
+	adds r0, #0x10
+	ldrh r1, [r6, #0x18]
+	subs r0, r0, r1
+	strh r0, [r7, #2]
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	adds r1, r4, #0
+	bl sub_080ADA14
+	adds r5, #3
+	ldrb r0, [r5]
+	cmp r0, #0
+	bne _080A567E
+_080A570E:
+	pop {r3, r4, r5}
+	mov r8, r3
+	mov sb, r4
+	mov sl, r5
+	pop {r4, r5, r6, r7, pc}
+
+
 .else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
@@ -1597,7 +2057,121 @@ _080A6178:
 	thumb_func_start sub_080A617C
 sub_080A617C: @ 0x080A617C
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0A5970, 0x00000F4 @TODO disassemble
+	push {r4, r5, r6, r7, lr}
+	mov r7, r8
+	push {r7}
+	ldr r6, _080A5A50 @ =gOamCmd
+	movs r0, #0
+	strh r0, [r6, #4]
+	strh r0, [r6, #6]
+	movs r7, #0xc0
+	lsls r7, r7, #4
+	strh r7, [r6, #8]
+	movs r0, #0x2f
+	mov r8, r0
+	mov r2, r8
+	strh r2, [r6, #2]
+	ldr r4, _080A5A54 @ =gChooseFileState
+	ldrb r1, [r4, #3]
+	lsls r0, r1, #3
+	subs r0, r0, r1
+	lsls r0, r0, #2
+	subs r0, r0, r1
+	adds r0, #0x1a
+	strh r0, [r6]
+	ldr r0, _080A5A58 @ =gMain
+	ldrh r1, [r0, #0xc]
+	movs r0, #0x20
+	ands r0, r1
+	movs r1, #9
+	cmp r0, #0
+	beq _080A59AC
+	movs r1, #8
+_080A59AC:
+	ldr r5, _080A5A5C @ =0x000001FB
+	adds r0, r5, #0
+	bl sub_080ADA14
+	ldrb r0, [r4, #3]
+	lsls r0, r0, #3
+	ldr r1, _080A5A60 @ =gUnk_08128D70
+	adds r4, r0, r1
+	ldrb r0, [r4]
+	bl GetInventoryValue
+	cmp r0, #0
+	beq _080A5A0E
+	strh r7, [r6, #8]
+	movs r0, #0xcc
+	strh r0, [r6]
+	movs r0, #0x88
+	strh r0, [r6, #2]
+	adds r0, r5, #0
+	movs r1, #0xb
+	bl sub_080ADA14
+	movs r0, #0x30
+	strh r0, [r6]
+	movs r0, #0x6c
+	strh r0, [r6, #2]
+	ldrb r0, [r4, #1]
+	lsls r0, r0, #0xc
+	movs r2, #0xd8
+	lsls r2, r2, #4
+	adds r1, r2, #0
+	orrs r0, r1
+	strh r0, [r6, #8]
+	ldrb r1, [r4, #2]
+	adds r0, r5, #0
+	bl sub_080ADA14
+	ldrb r0, [r4, #1]
+	lsls r0, r0, #0xc
+	orrs r0, r7
+	strh r0, [r6, #8]
+	movs r0, #0x78
+	strh r0, [r6]
+	movs r0, #0x68
+	strh r0, [r6, #2]
+	adds r0, r5, #0
+	movs r1, #0xc
+	bl sub_080ADA14
+_080A5A0E:
+	mov r0, r8
+	strh r0, [r6, #2]
+	movs r5, #0
+	adds r7, r6, #0
+	movs r6, #0x18
+_080A5A18:
+	lsls r1, r5, #3
+	ldr r0, _080A5A60 @ =gUnk_08128D70
+	adds r4, r1, r0
+	ldrb r0, [r4]
+	bl GetInventoryValue
+	cmp r0, #0
+	beq _080A5A40
+	ldrb r0, [r4, #1]
+	lsls r0, r0, #0xc
+	movs r2, #0xc0
+	lsls r2, r2, #4
+	adds r1, r2, #0
+	orrs r0, r1
+	strh r0, [r7, #8]
+	strh r6, [r7]
+	ldr r0, _080A5A5C @ =0x000001FB
+	movs r1, #0xa
+	bl sub_080ADA14
+_080A5A40:
+	adds r6, #0x1b
+	adds r5, #1
+	cmp r5, #7
+	bls _080A5A18
+	pop {r3}
+	mov r8, r3
+	pop {r4, r5, r6, r7, pc}
+	.align 2, 0
+_080A5A50: .4byte gOamCmd
+_080A5A54: .4byte gChooseFileState
+_080A5A58: .4byte gMain
+_080A5A5C: .4byte 0x000001FB
+_080A5A60: .4byte gUnk_08128D70
+
 .else
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
@@ -1850,7 +2424,95 @@ _080A6374: .4byte gMenu
 	thumb_func_start sub_080A6378
 sub_080A6378: @ 0x080A6378
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0A5B6C, 0x00000C0 @TODO disassemble
+	push {r4, r5, r6, lr}
+	ldr r0, _080A5C18 @ =gChooseFileState
+	adds r4, r0, #0
+	adds r4, #0x2c
+	ldrb r0, [r4]
+	adds r0, #1
+	strb r0, [r4]
+	movs r6, #0x20
+	ands r0, r6
+	cmp r0, #0
+	beq _080A5B86
+	bl sub_080A6438
+_080A5B86:
+	ldr r5, _080A5C1C @ =gOamCmd
+	movs r0, #0x80
+	lsls r0, r0, #3
+	strh r0, [r5, #4]
+	movs r0, #0
+	strh r0, [r5, #6]
+	movs r0, #0xe0
+	lsls r0, r0, #7
+	strh r0, [r5, #8]
+	ldrb r1, [r4]
+	adds r0, r6, #0
+	ands r0, r1
+	cmp r0, #0
+	bne _080A5BE0
+	ldr r4, _080A5C20 @ =gScreenTransition
+	ldrh r1, [r4, #0x20]
+	lsls r0, r1, #2
+	adds r0, r0, r1
+	lsls r0, r0, #5
+	movs r1, #0xf9
+	lsls r1, r1, #4
+	bl __divsi3
+	adds r0, #0x28
+	strh r0, [r5]
+	ldrh r0, [r4, #0x22]
+	lsls r0, r0, #7
+	movs r1, #0xc6
+	lsls r1, r1, #4
+	bl __divsi3
+	adds r0, #0xc
+	strh r0, [r5, #2]
+	ldr r0, _080A5C24 @ =gPlayerState
+	ldr r0, [r0, #0x30]
+	movs r1, #8
+	ands r0, r1
+	movs r1, #0x59
+	cmp r0, #0
+	beq _080A5BD8
+	movs r1, #0x5a
+_080A5BD8:
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	bl sub_080ADA14
+_080A5BE0:
+	ldr r3, _080A5C18 @ =gChooseFileState
+	ldrb r0, [r3, #3]
+	lsls r0, r0, #3
+	ldr r1, _080A5C28 @ =gUnk_08128DE8
+	adds r0, r0, r1
+	ldr r2, _080A5C1C @ =gOamCmd
+	ldrb r1, [r0, #6]
+	strh r1, [r2]
+	ldrb r0, [r0, #7]
+	strh r0, [r2, #2]
+	ldrb r0, [r3, #3]
+	lsls r2, r0, #1
+	adds r2, r2, r0
+	adds r2, #0x26
+	adds r3, #0x2c
+	ldrb r1, [r3]
+	lsrs r1, r1, #4
+	movs r0, #1
+	bics r0, r1
+	adds r1, r2, r0
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	bl sub_080ADA14
+	bl sub_080A6498
+	pop {r4, r5, r6, pc}
+	.align 2, 0
+_080A5C18: .4byte gChooseFileState
+_080A5C1C: .4byte gOamCmd
+_080A5C20: .4byte gScreenTransition
+_080A5C24: .4byte gPlayerState
+_080A5C28: .4byte gUnk_08128DE8
+
 .else
 	push {r4, r5, r6, lr}
 	ldr r0, _080A6420 @ =gMenu
@@ -1944,7 +2606,53 @@ _080A6434: .4byte gUnk_08128DE8
 	thumb_func_start sub_080A6438
 sub_080A6438: @ 0x080A6438
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0A5C2C, 0x0000060 @TODO disassemble
+	push {r4, r5, r6, r7, lr}
+	ldr r2, _080A5C7C @ =gOamCmd
+	movs r1, #0
+	movs r0, #0x80
+	lsls r0, r0, #3
+	strh r0, [r2, #4]
+	strh r1, [r2, #6]
+	strh r1, [r2, #8]
+	ldr r0, _080A5C80 @ =gSave
+	ldr r1, _080A5C84 @ =gChooseFileState
+	ldrh r0, [r0, #0x20]
+	ldrh r5, [r1, #0x10]
+	ands r5, r0
+	ldr r4, _080A5C88EU @ =gUnk_08128F58
+	movs r6, #0
+	ldrb r0, [r4]
+	cmp r0, #0
+	beq _080A5C78
+	adds r7, r2, #0
+_080A5C52:
+	movs r0, #1
+	lsls r0, r6
+	ands r0, r5
+	cmp r0, #0
+	beq _080A5C6E
+	ldrb r0, [r4, #1]
+	strh r0, [r7]
+	ldrb r0, [r4, #2]
+	strh r0, [r7, #2]
+	ldrb r1, [r4]
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	bl sub_080ADA14
+_080A5C6E:
+	adds r6, #1
+	adds r4, #8
+	ldrb r0, [r4]
+	cmp r0, #0
+	bne _080A5C52
+_080A5C78:
+	pop {r4, r5, r6, r7, pc}
+	.align 2, 0
+_080A5C7C: .4byte gOamCmd
+_080A5C80: .4byte gSave
+_080A5C84: .4byte gChooseFileState
+_080A5C88EU: .4byte gUnk_08128F58
+
 .else
 	push {r4, r5, r6, r7, lr}
 	ldr r2, _080A6484 @ =gOamCmd
@@ -1997,7 +2705,53 @@ _080A6494: .4byte 0x000001FB
 	thumb_func_start sub_080A6498
 sub_080A6498: @ 0x080A6498
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0A5C8C, 0x0000064 @TODO disassemble
+	push {r4, r5, r6, r7, lr}
+	ldr r0, _080A5CDCEU @ =gOamCmd
+	movs r2, #0
+	movs r1, #0x80
+	lsls r1, r1, #4
+	strh r1, [r0, #4]
+	strh r2, [r0, #6]
+	strh r2, [r0, #8]
+	movs r4, #0
+	ldr r7, _080A5CE0 @ =gSave
+	adds r6, r0, #0
+	movs r5, #0x28
+_080A5CA4:
+	movs r1, #1
+	lsls r1, r4
+	ldr r0, [r7, #0x40]
+	ands r0, r1
+	cmp r0, #0
+	bne _080A5CC8EU
+	lsls r1, r4, #3
+	ldr r0, _080A5CE4 @ =gUnk_08128DE8
+	adds r1, r1, r0
+	ldrb r0, [r1, #6]
+	strh r0, [r6]
+	ldrb r0, [r1, #7]
+	strh r0, [r6, #2]
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	adds r1, r5, #0
+	bl sub_080ADA14
+_080A5CC8EU:
+	adds r5, #3
+	adds r4, #1
+	cmp r4, #0x10
+	bls _080A5CA4
+	ldr r0, _080A5CE8 @ =gScreen
+	adds r0, #0x62
+	ldr r1, _080A5CEC @ =0x00003D3F
+	strh r1, [r0]
+	pop {r4, r5, r6, r7, pc}
+	.align 2, 0
+_080A5CDCEU: .4byte gOamCmd
+_080A5CE0: .4byte gSave
+_080A5CE4: .4byte gUnk_08128DE8
+_080A5CE8: .4byte gScreen
+_080A5CEC: .4byte 0x00003D3F
+
 .else
 	push {r4, r5, r6, r7, lr}
 	ldr r0, _080A64E4 @ =gOamCmd
@@ -2272,7 +3026,129 @@ _080A66C2:
 	thumb_func_start sub_080A66D0
 sub_080A66D0: @ 0x080A66D0
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0A5EC4, 0x00000F4 @TODO disassemble
+	push {r4, r5, r6, r7, lr}
+	mov r7, sl
+	mov r6, sb
+	mov r5, r8
+	push {r5, r6, r7}
+	ldr r6, _080A5F74 @ =gOamCmd
+	movs r0, #0
+	strh r0, [r6, #4]
+	strh r0, [r6, #6]
+	movs r0, #0x78
+	strh r0, [r6]
+	ldr r4, _080A5F78 @ =gChooseFileState
+	ldrb r0, [r4, #3]
+	lsls r0, r0, #3
+	ldr r1, _080A5F7C @ =gUnk_08128E94
+	adds r5, r0, r1
+	adds r1, r4, #0
+	adds r1, #0x2c
+	ldrb r0, [r1]
+	adds r2, r0, #1
+	strb r2, [r1]
+	adds r0, r4, #0
+	adds r0, #0x2b
+	ldrb r0, [r0]
+	cmp r0, #1
+	beq _080A5F30
+	movs r0, #0x10
+	ands r2, r0
+	cmp r2, #0
+	beq _080A5F30
+	movs r0, #0x80
+	lsls r0, r0, #4
+	strh r0, [r6, #8]
+	ldrh r0, [r4, #0xa]
+	cmp r0, #0
+	beq _080A5F1A
+	movs r0, #0xc
+	strh r0, [r6, #2]
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	movs r1, #0x71
+	bl sub_080ADA14
+_080A5F1A:
+	ldrb r0, [r5, #2]
+	ldrh r4, [r4, #0xa]
+	cmp r0, r4
+	bls _080A5F30
+	movs r0, #0x84
+	strh r0, [r6, #2]
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	movs r1, #0x72
+	bl sub_080ADA14
+_080A5F30:
+	ldrb r0, [r5, #7]
+	mov sl, r0
+	ldrb r5, [r5, #3]
+	mov sb, r5
+	ldr r1, _080A5F78 @ =gChooseFileState
+	ldrh r0, [r1, #0xa]
+	mov r8, r0
+	ldr r2, _080A5F74 @ =gOamCmd
+	movs r0, #0
+	strh r0, [r2, #4]
+	strh r0, [r2, #6]
+	movs r0, #0xc0
+	lsls r0, r0, #4
+	strh r0, [r2, #8]
+	adds r1, #0x2c
+	ldrb r1, [r1]
+	movs r0, #0x20
+	ands r0, r1
+	lsls r0, r0, #0x18
+	lsrs r6, r0, #0x18
+	ldr r4, _080A5F80 @ =gUnk_02019EE0
+	ldrh r0, [r4, #2]
+	cmp r0, #0
+	beq _080A5FAE
+	rsbs r5, r6, #0
+	orrs r5, r6
+	adds r7, r2, #0
+_080A5F66:
+	movs r1, #0
+	ldrb r0, [r4]
+	cmp r0, #1
+	bne _080A5F84
+	lsrs r1, r5, #0x1f
+	b _080A5F8A
+	.align 2, 0
+_080A5F74: .4byte gOamCmd
+_080A5F78: .4byte gChooseFileState
+_080A5F7C: .4byte gUnk_08128E94
+_080A5F80: .4byte gUnk_02019EE0
+_080A5F84:
+	cmp r6, #0
+	bne _080A5F8A
+	movs r1, #1
+_080A5F8A:
+	cmp r1, #0
+	beq _080A5FA6
+	ldrh r0, [r4, #4]
+	add r0, sl
+	strh r0, [r7]
+	ldrh r0, [r4, #6]
+	add r0, sb
+	mov r1, r8
+	subs r0, r0, r1
+	strh r0, [r7, #2]
+	ldrh r0, [r4, #2]
+	ldrb r1, [r4, #1]
+	bl sub_080ADA14
+_080A5FA6:
+	adds r4, #8
+	ldrh r0, [r4, #2]
+	cmp r0, #0
+	bne _080A5F66
+_080A5FAE:
+	pop {r3, r4, r5}
+	mov r8, r3
+	mov sb, r4
+	mov sl, r5
+	pop {r4, r5, r6, r7, pc}
+
 .else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
@@ -2533,7 +3409,93 @@ _080A68D0: .4byte gUnk_02019EE0
 	thumb_func_start sub_080A68D4
 sub_080A68D4: @ 0x080A68D4
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0A60C8, 0x00000B4 @TODO disassemble
+	push {r4, r5, r6, lr}
+	ldr r0, _080A6100EU @ =gPlayerState
+	ldr r0, [r0, #0x30]
+	movs r1, #8
+	ands r0, r1
+	movs r4, #0x64
+	cmp r0, #0
+	beq _080A60DA
+	movs r4, #0x65
+_080A60DA:
+	ldr r1, _080A6104EU @ =gScreenTransition
+	ldrh r0, [r1, #0x20]
+	ldrh r1, [r1, #0x22]
+	movs r2, #0xfd
+	lsls r2, r2, #1
+	movs r3, #0x80
+	lsls r3, r3, #1
+	adds r3, r4, r3
+	bl sub_080A698C
+	bl sub_080A6F40
+	adds r6, r0, #0
+	ldr r0, _080A6108 @ =gSave
+	ldrh r0, [r0, #0x20]
+	ands r6, r0
+	ldr r4, _080A610C @ =gUnk_08128F58
+	movs r5, #0
+	b _080A612C
+	.align 2, 0
+_080A6100EU: .4byte gPlayerState
+_080A6104EU: .4byte gScreenTransition
+_080A6108: .4byte gSave
+_080A610C: .4byte gUnk_08128F58
+_080A6110:
+	movs r0, #1
+	lsls r0, r5
+	ands r0, r6
+	cmp r0, #0
+	beq _080A6128EU
+	ldrh r0, [r4, #4]
+	ldrh r1, [r4, #6]
+	ldrb r3, [r4, #3]
+	movs r2, #0xfd
+	lsls r2, r2, #1
+	bl sub_080A698C
+_080A6128EU:
+	adds r5, #1
+	adds r4, #8
+_080A612C:
+	ldrb r0, [r4]
+	cmp r0, #0
+	bne _080A6110
+	movs r5, #0xa
+_080A6134:
+	adds r0, r5, #0
+	bl CheckKinstoneFused
+	cmp r0, #0
+	beq _080A616A
+	adds r0, r5, #0
+	bl sub_0801E810
+	cmp r0, #0
+	bne _080A616A
+	ldr r1, _080A6174 @ =gUnk_080C9CBC
+	lsls r0, r5, #3
+	adds r0, r0, r1
+	ldrb r3, [r0, #7]
+	ldrb r0, [r0, #4]
+	lsls r1, r0, #2
+	adds r1, r1, r0
+	lsls r1, r1, #2
+	ldr r0, _080A6178EU @ =gUnk_080FE320
+	adds r1, r1, r0
+	ldrh r0, [r1, #0xc]
+	ldrh r1, [r1, #0xe]
+	adds r3, #0x64
+	movs r2, #0xfd
+	lsls r2, r2, #1
+	bl sub_080A698C
+_080A616A:
+	adds r5, #1
+	cmp r5, #0x64
+	bls _080A6134
+	pop {r4, r5, r6, pc}
+	.align 2, 0
+_080A6174: .4byte gUnk_080C9CBC
+_080A6178EU: .4byte gUnk_080FE320
+
+
 .else
 	push {r4, r5, r6, lr}
 	ldr r0, _080A690C @ =gPlayerState
@@ -3175,7 +4137,34 @@ _080A6DC6:
 	thumb_func_start sub_080A6DD0
 sub_080A6DD0: @ 0x080A6DD0
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0A65BC, 0x0000034 @TODO disassemble
+	push {lr}
+	bl sub_08056338
+	cmp r0, #0
+	beq _080A65CC
+	cmp r0, #1
+	beq _080A65D8
+	b _080A65EA
+_080A65CC:
+	ldr r1, _080A65D4 @ =gChooseFileState
+	movs r0, #2
+	b _080A65DC
+	.align 2, 0
+_080A65D4: .4byte gChooseFileState
+_080A65D8:
+	ldr r1, _080A65ECEU @ =gChooseFileState
+	movs r0, #3
+_080A65DC:
+	strb r0, [r1]
+	movs r0, #1
+	cmp r0, #0
+	beq _080A65EA
+	movs r0, #3
+	bl sub_080A7114
+_080A65EA:
+	pop {pc}
+	.align 2, 0
+_080A65ECEU: .4byte gChooseFileState
+
 .else
 	push {lr}
 	bl sub_08056338
@@ -3260,7 +4249,60 @@ _080A6E6C: .4byte gUnk_08128024
 	thumb_func_start sub_080A6E70
 sub_080A6E70: @ 0x080A6E70
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0A6668, 0x0000070 @TODO disassemble
+	push {r4, r5, lr}
+	ldr r1, _080A66CC @ =gOamCmd
+	movs r0, #0
+	strh r0, [r1, #4]
+	strh r0, [r1, #6]
+	movs r0, #0x80
+	lsls r0, r0, #3
+	strh r0, [r1, #8]
+	ldr r1, _080A66D0 @ =gChooseFileState
+	adds r4, r1, #0
+	adds r4, #0x2c
+	ldrb r0, [r4]
+	adds r0, #1
+	strb r0, [r4]
+	ldrb r0, [r1, #3]
+	bl sub_080A6EE0
+	ldrb r1, [r4]
+	movs r0, #0x10
+	ands r0, r1
+	movs r1, #0x5e
+	cmp r0, #0
+	beq _080A6698
+	movs r1, #0x5d
+_080A6698:
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	bl sub_080ADA14
+	movs r4, #0
+	ldr r5, _080A66D4 @ =gSave
+_080A66A4EU:
+	adds r0, r4, #0
+	adds r0, #0x18
+	movs r1, #1
+	lsls r1, r0
+	ldr r0, [r5, #0x40]
+	ands r0, r1
+	cmp r0, #0
+	beq _080A66C4
+	adds r0, r4, #0
+	bl sub_080A6EE0
+	movs r0, #0xfd
+	lsls r0, r0, #1
+	movs r1, #0x5c
+	bl sub_080ADA14
+_080A66C4:
+	adds r4, #1
+	cmp r4, #7
+	bls _080A66A4EU
+	pop {r4, r5, pc}
+	.align 2, 0
+_080A66CC: .4byte gOamCmd
+_080A66D0: .4byte gChooseFileState
+_080A66D4: .4byte gSave
+
 .else
 	push {r4, r5, lr}
 	ldr r1, _080A6ED0 @ =gOamCmd

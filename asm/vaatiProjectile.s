@@ -52,7 +52,57 @@ _0803E0D8: .4byte gUnk_080D0660
 	thumb_func_start sub_0803E0DC
 sub_0803E0DC: @ 0x0803E0DC
 .ifdef EU
-	.incbin "baserom_eu.gba", 0x03E038, 0x68 @TODO disassemble
+	push {r4, r5, lr}
+	adds r5, r0, #0
+	adds r0, #0x41
+	ldrb r0, [r0]
+	cmp r0, #0x80
+	bne _0803E08E
+	movs r0, #5
+	strb r0, [r5, #0xc]
+	ldrb r2, [r5, #0x10]
+	movs r1, #0x7f
+	adds r0, r1, #0
+	ands r0, r2
+	strb r0, [r5, #0x10]
+	adds r3, r5, #0
+	adds r3, #0x29
+	ldrb r2, [r3]
+	movs r0, #0x39
+	rsbs r0, r0, #0
+	ands r0, r2
+	strb r0, [r3]
+	ldr r3, _0803E098 @ =gPlayerEntity
+	ldrb r0, [r3, #0x10]
+	ands r1, r0
+	strb r1, [r3, #0x10]
+	ldrb r2, [r5, #0x1b]
+	lsrs r2, r2, #6
+	lsls r2, r2, #6
+	ldrb r4, [r3, #0x1b]
+	movs r1, #0x3f
+	adds r0, r1, #0
+	ands r0, r4
+	orrs r0, r2
+	strb r0, [r3, #0x1b]
+	ldrb r0, [r5, #0x19]
+	lsrs r0, r0, #6
+	lsls r0, r0, #6
+	ldrb r2, [r3, #0x19]
+	ands r1, r2
+	orrs r1, r0
+	strb r1, [r3, #0x19]
+	adds r0, r5, #0
+	bl sub_0803E444
+_0803E08E:
+	ldr r1, _0803E09C @ =gUnk_080D0648
+	adds r0, r5, #0
+	bl sub_0804AA30
+	pop {r4, r5, pc}
+	.align 2, 0
+_0803E098: .4byte gPlayerEntity
+_0803E09C: .4byte gUnk_080D0648
+
 .else
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
@@ -560,7 +610,33 @@ _0803E49E:
 	thumb_func_start sub_0803E4A0
 sub_0803E4A0: @ 0x0803E4A0
 .ifdef EU
-	.incbin "baserom_eu.gba", 0x03e3b8, 0x30 @TODO disassemble
+	push {lr}
+	adds r1, r0, #0
+	ldr r0, _0803E3CCEU @ =gScreenTransition
+	adds r0, #0x39
+	ldrb r0, [r0]
+	cmp r0, #0
+	bne _0803E3D0EU
+	movs r0, #1
+	b _0803E3E6
+	.align 2, 0
+_0803E3CCEU: .4byte gScreenTransition
+_0803E3D0EU:
+	ldr r0, [r1, #0x50]
+	cmp r0, #0
+	bne _0803E3DA
+	movs r0, #0
+	b _0803E3E6
+_0803E3DA:
+	movs r1, #0
+	ldr r0, [r0, #4]
+	cmp r0, #0
+	bne _0803E3E4EU
+	movs r1, #1
+_0803E3E4EU:
+	adds r0, r1, #0
+_0803E3E6:
+	pop {pc}
 .else
 	push {lr}
 	adds r1, r0, #0

@@ -35,5 +35,5 @@ sp_usr: .4byte gUnk_03007F00
 INTR_VECTOR_BUF: .4byte 0x03007FFC
 intr_main: .4byte IntrMain
 .ifdef EU
-unk_function: .4byte 0x08000119 @ TODO ptr
+unk_function: .4byte sub_08000118
 .endif

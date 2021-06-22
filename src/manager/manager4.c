@@ -97,9 +97,7 @@ END_NONMATCH
 extern void sub_08080930();
 
 #ifdef EU
-NAKED void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
-    asm(".incbin \"baserom_eu.gba\", 0x057580, 0x0000078"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/sub_08057A18.inc", void sub_08057A18(Manager* this, DiggingCaveEntrance* entr))
 #else
 void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
     u16 tmp;

@@ -56,9 +56,7 @@ const u32 gUnk_081080A4[0x50] = {
 const u8 gUnk_081081E4[] = { 0x16, 0x17, 0x17, 0x18, 0x18 };
 
 #ifdef EU
-NAKED void Manager7_Main(Manager7* this) {
-    asm(".incbin \"baserom_eu.gba\", 0x0578A0, 0x00000CC"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/Manager7_Main.inc", void Manager7_Main(Manager7* this))
 #else
 void Manager7_Main(Manager7* this) {
     u32 tmp;
@@ -133,9 +131,7 @@ void sub_08057E64() {
 }
 
 #ifdef EU
-NAKED void sub_08057E7C(u32 unk1) {
-    asm(".incbin \"baserom_eu.gba\", 0x0579B8, 0x0000050"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/sub_08057E7C.inc", void sub_08057E7C(u32 unk1))
 #else
 void sub_08057E7C(u32 unk1) {
     u32 tmp;

@@ -44,7 +44,53 @@ _080ADD6C: .4byte gUnk_02024490
 	thumb_func_start sub_080ADD70
 sub_080ADD70: @ 0x080ADD70
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0AD514, 0x0000058 @TODO disassemble
+	push {r4, r5, lr}
+	ldr r0, _080AD540 @ =gUnk_02024490
+	ldrb r0, [r0]
+	cmp r0, #0
+	beq _080AD56A
+	movs r4, #0
+	movs r5, #0
+_080AD522:
+	ldr r0, _080AD544 @ =gUnk_02024494
+	adds r2, r5, r0
+	ldrb r1, [r2]
+	lsls r0, r1, #0x1c
+	lsrs r0, r0, #0x1c
+	cmp r0, #2
+	bne _080AD548
+	movs r3, #0x10
+	rsbs r3, r3, #0
+	adds r0, r3, #0
+	ands r0, r1
+	movs r1, #1
+	orrs r0, r1
+	strb r0, [r2]
+	b _080AD562
+	.align 2, 0
+_080AD540: .4byte gUnk_02024490
+_080AD544: .4byte gUnk_02024494
+_080AD548:
+	cmp r0, #2
+	blt _080AD562
+	cmp r0, #6
+	bgt _080AD562
+	cmp r0, #4
+	blt _080AD562
+	movs r0, #0xf0
+	ands r0, r1
+	cmp r0, #0x30
+	bne _080AD562
+	adds r0, r4, #0
+	bl sub_080ADE74
+_080AD562:
+	adds r5, #0xc
+	adds r4, #1
+	cmp r4, #0x2b
+	bls _080AD522
+_080AD56A:
+	pop {r4, r5, pc}
+
 .else
 	push {r4, r5, lr}
 	ldr r1, _080ADD88 @ =gUnk_02024490
@@ -322,7 +368,63 @@ _080ADF7C:
 	thumb_func_start LoadFixedGFX
 LoadFixedGFX: @ 0x080ADF80
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0AD714, 0x0000070 @TODO disassemble
+	push {r4, r5, r6, r7, lr}
+	mov r7, r8
+	push {r7}
+	mov r8, r0
+	adds r5, r1, #0
+	cmp r5, #0
+	bne _080AD726
+	movs r0, #1
+	b _080AD77E
+_080AD726:
+	movs r4, #4
+	ldr r0, _080AD774 @ =gUnk_02024490
+	adds r0, #0x30
+_080AD72C:
+	ldrh r1, [r0, #8]
+	cmp r5, r1
+	beq _080AD766
+	adds r0, #0xc
+	adds r4, #1
+	cmp r4, #0x2b
+	bls _080AD72C
+	ldr r0, _080AD778 @ =gUnk_08132B30
+	lsls r1, r5, #2
+	adds r1, r1, r0
+	ldr r7, [r1]
+	movs r0, #0xfe
+	lsls r0, r0, #0x17
+	ands r0, r7
+	lsrs r6, r0, #0x18
+	adds r0, r6, #0
+	bl sub_080AE174
+	adds r4, r0, #0
+	cmp r4, #0
+	beq _080AD77C
+	adds r1, r5, #0
+	adds r2, r6, #0
+	bl sub_080AE104
+	adds r0, r4, #0
+	adds r1, r7, #0
+	bl sub_080ADDD8
+_080AD766:
+	adds r0, r4, #0
+	mov r1, r8
+	movs r2, #4
+	bl sub_080AE0C8
+	movs r0, #1
+	b _080AD77E
+	.align 2, 0
+_080AD774: .4byte gUnk_02024490
+_080AD778: .4byte gUnk_08132B30
+_080AD77C:
+	movs r0, #0
+_080AD77E:
+	pop {r3}
+	mov r8, r3
+	pop {r4, r5, r6, r7, pc}
+
 .else
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8
@@ -394,7 +496,47 @@ _080AE004: .4byte gUnk_08132B30
 	thumb_func_start sub_080AE008
 sub_080AE008: @ 0x080AE008
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x0AD784, 0x0000050 @TODO disassemble
+	push {r4, r5, r6, lr}
+	adds r6, r0, #0
+	adds r5, r1, #0
+	adds r4, r2, #0
+	cmp r4, #0
+	bne _080AD79C
+	adds r0, r5, #0
+	bl sub_080AE174
+	adds r4, r0, #0
+	cmp r4, #0
+	beq _080AD7C4
+_080AD79C:
+	ldr r0, _080AD7D0 @ =gUnk_02024490
+	lsls r1, r4, #1
+	adds r1, r1, r4
+	lsls r1, r1, #2
+	adds r1, r1, r0
+	ldrb r0, [r1, #4]
+	lsls r0, r0, #0x1c
+	lsrs r2, r0, #0x1c
+	cmp r2, #6
+	beq _080AD7BC
+	adds r0, r4, #0
+	movs r1, #0
+	adds r2, r5, #0
+	bl sub_080AE104
+	movs r2, #5
+_080AD7BC:
+	adds r0, r4, #0
+	adds r1, r6, #0
+	bl sub_080AE0C8
+_080AD7C4:
+	adds r0, r4, #0
+	cmp r0, #0
+	beq _080AD7CC
+	movs r0, #1
+_080AD7CC:
+	pop {r4, r5, r6, pc}
+	.align 2, 0
+_080AD7D0: .4byte gUnk_02024490
+
 .else
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0

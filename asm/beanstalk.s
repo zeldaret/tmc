@@ -23,7 +23,253 @@ _08089D18: .4byte gUnk_08120DF4
 	thumb_func_start sub_08089D1C
 sub_08089D1C: @ 0x08089D1C
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x089620, 0x00001E0 @TODO disassemble
+	push {r4, r5, r6, lr}
+	adds r5, r0, #0
+	ldrb r1, [r5, #0x19]
+	movs r4, #0x3f
+	adds r0, r4, #0
+	ands r0, r1
+	movs r6, #0x80
+	orrs r0, r6
+	strb r0, [r5, #0x19]
+	ldrb r1, [r5, #0x1b]
+	adds r0, r4, #0
+	ands r0, r1
+	movs r1, #0x40
+	orrs r0, r1
+	strb r0, [r5, #0x1b]
+	adds r0, r5, #0
+	movs r1, #4
+	bl sub_0805E3A0
+	ldrb r0, [r5, #0xa]
+	cmp r0, #7
+	bne _08089688
+	ldrb r0, [r5, #0xb]
+	cmp r0, #0
+	bne _0808966C
+	ldrb r0, [r5, #0xe]
+	cmp r0, #0
+	beq _0808966C
+	bl CheckLocalFlag
+	cmp r0, #0
+	bne _08089662
+	b _080897FE
+_08089662:
+	ldrb r1, [r5, #0x1b]
+	adds r0, r4, #0
+	ands r0, r1
+	orrs r0, r6
+	strb r0, [r5, #0x1b]
+_0808966C:
+	ldr r4, _08089684 @ =gUnk_08120E3C
+	ldrb r0, [r5, #0xb]
+	lsls r0, r0, #2
+	adds r0, r0, r4
+	ldrb r1, [r0]
+	adds r0, r5, #0
+	bl InitializeAnimation
+	ldrb r0, [r5, #0xb]
+	lsls r0, r0, #2
+	adds r0, r0, r4
+	b _080896C6
+	.align 2, 0
+_08089684: .4byte gUnk_08120E3C
+_08089688:
+	cmp r0, #0
+	beq _080896A4
+	ldr r0, _080896A0 @ =gUnk_08120E14
+	ldrb r1, [r5, #0xa]
+	lsls r1, r1, #2
+	adds r1, r1, r0
+	ldrb r1, [r1]
+	adds r0, r5, #0
+	bl InitializeAnimation
+	b _080896BE
+	.align 2, 0
+_080896A0: .4byte gUnk_08120E14
+_080896A4:
+	adds r0, r5, #0
+	movs r1, #1
+	movs r2, #2
+	bl sub_080AE008
+	ldr r0, _08089700 @ =gUnk_08120E14
+	ldrb r1, [r5, #0xa]
+	lsls r1, r1, #2
+	adds r1, r1, r0
+	ldrb r1, [r1]
+	adds r0, r5, #0
+	bl InitAnimationForceUpdate
+_080896BE:
+	ldr r1, _08089700 @ =gUnk_08120E14
+	ldrb r0, [r5, #0xa]
+	lsls r0, r0, #2
+	adds r0, r0, r1
+_080896C6:
+	ldrb r0, [r0, #1]
+	adds r3, r5, #0
+	adds r3, #0x29
+	movs r1, #7
+	ands r1, r0
+	ldrb r2, [r3]
+	movs r0, #8
+	rsbs r0, r0, #0
+	ands r0, r2
+	orrs r0, r1
+	strb r0, [r3]
+	movs r2, #1
+	movs r0, #1
+	strb r0, [r5, #0xc]
+	ldrb r1, [r5, #0x18]
+	subs r0, #5
+	ands r0, r1
+	orrs r0, r2
+	strb r0, [r5, #0x18]
+	ldrb r0, [r5, #0xa]
+	cmp r0, #1
+	bge _080896F4
+	b _080897F8
+_080896F4:
+	cmp r0, #6
+	ble _08089704
+	cmp r0, #7
+	beq _08089714
+	b _080897F8
+	.align 2, 0
+_08089700: .4byte gUnk_08120E14
+_08089704:
+	adds r0, r5, #0
+	adds r0, #0x60
+	movs r2, #0
+	movs r1, #0xe0
+	lsls r1, r1, #1
+	strh r1, [r0]
+	strb r2, [r5, #0xe]
+	b _080897F8
+_08089714:
+	ldrb r1, [r5, #0xb]
+	cmp r1, #3
+	bgt _08089724
+	cmp r1, #2
+	bge _080897E4
+	cmp r1, #0
+	beq _0808972A
+	b _080897F8
+_08089724:
+	cmp r1, #4
+	beq _080897F0
+	b _080897F8
+_0808972A:
+	movs r0, #0x10
+	str r0, [r5, #0x6c]
+	strb r1, [r5, #0xe]
+_08089730:
+	movs r0, #0x2c
+	movs r1, #7
+	movs r2, #1
+	bl CreateObject
+	adds r1, r0, #0
+	str r1, [r5, #0x54]
+	cmp r1, #0
+	beq _080897C0
+	ldrh r0, [r5, #0x2e]
+	strh r0, [r1, #0x2e]
+	ldr r2, [r5, #0x54]
+	ldr r1, [r5, #0x6c]
+	ldrh r0, [r5, #0x32]
+	subs r0, r0, r1
+	strh r0, [r2, #0x32]
+	movs r0, #3
+	strb r0, [r5, #0xf]
+_08089754:
+	ldrb r0, [r5, #0xe]
+	lsls r0, r0, #2
+	ldr r1, _080897DC @ =gUnk_08120DFC
+	adds r4, r0, r1
+	ldrb r2, [r4]
+	subs r2, #2
+	movs r0, #0x2c
+	movs r1, #7
+	bl CreateObject
+	adds r1, r0, #0
+	str r1, [r5, #0x54]
+	cmp r1, #0
+	beq _080897A2
+	movs r0, #1
+	ldrsb r0, [r4, r0]
+	ldrh r2, [r5, #0x2e]
+	adds r0, r0, r2
+	strh r0, [r1, #0x2e]
+	ldr r2, [r5, #0x54]
+	ldr r1, [r5, #0x6c]
+	ldrh r0, [r5, #0x32]
+	subs r0, r0, r1
+	movs r1, #2
+	ldrsb r1, [r4, r1]
+	subs r0, r0, r1
+	strh r0, [r2, #0x32]
+	ldr r3, [r5, #0x54]
+	ldrb r2, [r4, #3]
+	movs r0, #1
+	ands r2, r0
+	lsls r2, r2, #6
+	ldrb r0, [r3, #0x18]
+	movs r4, #0x41
+	rsbs r4, r4, #0
+	adds r1, r4, #0
+	ands r0, r1
+	orrs r0, r2
+	strb r0, [r3, #0x18]
+_080897A2:
+	ldrb r0, [r5, #0xe]
+	adds r2, r0, #1
+	strb r2, [r5, #0xe]
+	ldrb r0, [r5, #0xf]
+	subs r0, #1
+	strb r0, [r5, #0xf]
+	lsls r0, r0, #0x18
+	lsrs r1, r0, #0x18
+	cmp r1, #0
+	bne _08089754
+	lsls r0, r2, #0x18
+	lsrs r0, r0, #0x18
+	cmp r0, #5
+	bls _080897C0
+	strb r1, [r5, #0xe]
+_080897C0:
+	ldr r0, [r5, #0x6c]
+	adds r0, #0x38
+	str r0, [r5, #0x6c]
+	ldrh r1, [r5, #0x32]
+	subs r1, r1, r0
+	lsls r1, r1, #0x10
+	asrs r1, r1, #0x10
+	ldr r0, _080897E0 @ =gRoomControls
+	ldrh r0, [r0, #8]
+	cmp r1, r0
+	bge _08089730
+	movs r0, #1
+	strb r0, [r5, #0xe]
+	b _080897F8
+	.align 2, 0
+_080897DC: .4byte gUnk_08120DFC
+_080897E0: .4byte gRoomControls
+_080897E4:
+	ldrb r0, [r5, #0x19]
+	movs r1, #0x3f
+	ands r1, r0
+	movs r0, #0x40
+	orrs r1, r0
+	strb r1, [r5, #0x19]
+_080897F0:
+	adds r1, r5, #0
+	adds r1, #0x38
+	movs r0, #3
+	strb r0, [r1]
+_080897F8:
+	adds r0, r5, #0
+	bl sub_08089F08
+_080897FE:
+	pop {r4, r5, r6, pc}
 .else
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0

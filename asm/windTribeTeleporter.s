@@ -116,10 +116,231 @@ _080A0FFE:
 	thumb_func_start sub_080A1000
 sub_080A1000: @ 0x080A1000
 .ifdef JP
-	.incbin "baserom_jp.gba", 0x0a0dc8, 0xd0 @TODO disassemble
+	push {lr}
+	adds r1, r0, #0
+	ldrb r2, [r1, #0xd]
+	cmp r2, #1
+	beq _080A0DF2
+	cmp r2, #1
+	bgt _080A0DDC
+	cmp r2, #0
+	beq _080A0DE6
+	b _080A0E50
+_080A0DDC:
+	cmp r2, #2
+	beq _080A0E00
+	cmp r2, #3
+	beq _080A0E2C
+	b _080A0E50
+_080A0DE6:
+	movs r0, #0x1e
+	strb r0, [r1, #0xe]
+	ldrb r0, [r1, #0xd]
+	adds r0, #1
+	strb r0, [r1, #0xd]
+	b _080A0E8C
+_080A0DF2:
+	ldrb r0, [r1, #0xe]
+	subs r0, #1
+	strb r0, [r1, #0xe]
+	lsls r0, r0, #0x18
+	cmp r0, #0
+	bne _080A0E8C
+	b _080A0E38
+_080A0E00:
+	ldrb r0, [r1, #0xe]
+	subs r0, #1
+	strb r0, [r1, #0xe]
+	lsls r0, r0, #0x18
+	cmp r0, #0
+	bne _080A0E1E
+	ldrb r0, [r1, #0xd]
+	adds r0, #1
+	strb r0, [r1, #0xd]
+	movs r0, #0x1e
+	strb r0, [r1, #0xe]
+	adds r0, #0xf5
+	bl SoundReq
+	b _080A0E8C
+_080A0E1E:
+	ldr r0, _080A0E28 @ =0x030010A0
+	ldr r0, [r0]
+	movs r1, #7
+	b _080A0E7A
+	.align 2, 0
+_080A0E28: .4byte 0x030010A0
+_080A0E2C:
+	ldrb r0, [r1, #0xe]
+	subs r0, #1
+	strb r0, [r1, #0xe]
+	lsls r0, r0, #0x18
+	cmp r0, #0
+	bne _080A0E44
+_080A0E38:
+	ldrb r0, [r1, #0xd]
+	adds r0, #1
+	strb r0, [r1, #0xd]
+	movs r0, #0x1e
+	strb r0, [r1, #0xe]
+	b _080A0E8C
+_080A0E44:
+	ldr r0, _080A0E4C @ =0x030010A0
+	ldr r0, [r0]
+	ands r0, r2
+	b _080A0E7C
+	.align 2, 0
+_080A0E4C: .4byte 0x030010A0
+_080A0E50:
+	ldrb r0, [r1, #0xe]
+	subs r0, #1
+	strb r0, [r1, #0xe]
+	lsls r0, r0, #0x18
+	cmp r0, #0
+	bne _080A0E74
+	ldrb r1, [r1, #0xb]
+	lsls r0, r1, #2
+	adds r0, r0, r1
+	lsls r0, r0, #2
+	ldr r1, _080A0E70 @ =0x0813AA18
+	adds r0, r0, r1
+	bl DoExitTransition
+	b _080A0E8C
+	.align 2, 0
+_080A0E70: .4byte 0x0813AA18
+_080A0E74:
+	ldr r0, _080A0E90 @ =0x030010A0
+	ldr r0, [r0]
+	movs r1, #1
+_080A0E7A:
+	ands r0, r1
+_080A0E7C:
+	cmp r0, #0
+	bne _080A0E8C
+	ldr r0, _080A0E94 @ =0x03001160
+	ldrb r1, [r0, #0x14]
+	adds r1, #2
+	movs r2, #6
+	ands r1, r2
+	strb r1, [r0, #0x14]
+_080A0E8C:
+	pop {pc}
+	.align 2, 0
+_080A0E90: .4byte 0x030010A0
+_080A0E94: .4byte 0x03001160
 .else
 .ifdef EU
-	.incbin "baserom_eu.gba", 0x0A084C, 0xd0 @TODO same as JP
+	push {lr}
+	adds r1, r0, #0
+	ldrb r2, [r1, #0xd]
+	cmp r2, #1
+	beq _080A0876
+	cmp r2, #1
+	bgt _080A0860
+	cmp r2, #0
+	beq _080A086A
+	b _080A08D4
+_080A0860:
+	cmp r2, #2
+	beq _080A0884
+	cmp r2, #3
+	beq _080A08B0
+	b _080A08D4
+_080A086A:
+	movs r0, #0x1e
+	strb r0, [r1, #0xe]
+	ldrb r0, [r1, #0xd]
+	adds r0, #1
+	strb r0, [r1, #0xd]
+	b _080A0910
+_080A0876:
+	ldrb r0, [r1, #0xe]
+	subs r0, #1
+	strb r0, [r1, #0xe]
+	lsls r0, r0, #0x18
+	cmp r0, #0
+	bne _080A0910
+	b _080A08BC
+_080A0884:
+	ldrb r0, [r1, #0xe]
+	subs r0, #1
+	strb r0, [r1, #0xe]
+	lsls r0, r0, #0x18
+	cmp r0, #0
+	bne _080A08A2
+	ldrb r0, [r1, #0xd]
+	adds r0, #1
+	strb r0, [r1, #0xd]
+	movs r0, #0x1e
+	strb r0, [r1, #0xe]
+	adds r0, #0xf5
+	bl SoundReq
+	b _080A0910
+_080A08A2:
+	ldr r0, _080A08AC @ =gScreenTransition
+	ldr r0, [r0]
+	movs r1, #7
+	b _080A08FE
+	.align 2, 0
+_080A08AC: .4byte gScreenTransition
+_080A08B0:
+	ldrb r0, [r1, #0xe]
+	subs r0, #1
+	strb r0, [r1, #0xe]
+	lsls r0, r0, #0x18
+	cmp r0, #0
+	bne _080A08C8
+_080A08BC:
+	ldrb r0, [r1, #0xd]
+	adds r0, #1
+	strb r0, [r1, #0xd]
+	movs r0, #0x1e
+	strb r0, [r1, #0xe]
+	b _080A0910
+_080A08C8:
+	ldr r0, _080A08D0 @ =gScreenTransition
+	ldr r0, [r0]
+	ands r0, r2
+	b _080A0900
+	.align 2, 0
+_080A08D0: .4byte gScreenTransition
+_080A08D4:
+	ldrb r0, [r1, #0xe]
+	subs r0, #1
+	strb r0, [r1, #0xe]
+	lsls r0, r0, #0x18
+	cmp r0, #0
+	bne _080A08F8
+	ldrb r1, [r1, #0xb]
+	lsls r0, r1, #2
+	adds r0, r0, r1
+	lsls r0, r0, #2
+	ldr r1, _080A08F4 @ =gUnk_0813ADEC
+	adds r0, r0, r1
+	bl DoExitTransition
+	b _080A0910
+	.align 2, 0
+_080A08F4: .4byte gUnk_0813ADEC
+_080A08F8:
+	ldr r0, _080A0914 @ =gScreenTransition
+	ldr r0, [r0]
+	movs r1, #1
+_080A08FE:
+	ands r0, r1
+_080A0900:
+	cmp r0, #0
+	bne _080A0910
+	ldr r0, _080A0918 @ =gPlayerEntity
+	ldrb r1, [r0, #0x14]
+	adds r1, #2
+	movs r2, #6
+	ands r1, r2
+	strb r1, [r0, #0x14]
+_080A0910:
+	pop {pc}
+	.align 2, 0
+_080A0914: .4byte gScreenTransition
+_080A0918: .4byte gPlayerEntity
+
 .else
 	push {r4, lr}
 	adds r4, r0, #0

@@ -6,7 +6,41 @@
 	.text
 
 .ifdef EU
-	.incbin "baserom_eu.gba", 0x000118, 0x38 @TODO disassemble
+	thumb_func_start sub_08000118
+sub_08000118: @ 0x08000118
+	add r0, pc, #0x28
+	ldm r0!, {r1, r2, r3}
+_0800011C:
+	subs r2, #4
+	str r1, [r2]
+	cmp r2, r3
+	bgt _0800011C
+	bx lr
+
+	non_word_aligned_thumb_func_start sub_08000126
+sub_08000126: @ 0x08000126
+	add r0, pc, #0x1C
+	ldm r0!, {r1, r2, r3}
+_0800012A:
+	ldr r0, [r3]
+	adds r3, #4
+	cmp r0, r1
+	beq _0800012A
+	subs r2, #0xa0
+_08000134:
+	ldr r0, [r2]
+	adds r2, #4
+	cmp r0, r1
+	beq _08000134
+	subs r1, r2, #4
+	subs r0, r3, #4
+	bx lr
+	.align 2, 0
+_08000144EU:
+	.byte 0x33, 0x5A, 0x43, 0x4D
+	.4byte gUnk_03007FA0
+	.4byte gUnk_03006C14
+
 .endif
 
 	thumb_func_start sub_08000108

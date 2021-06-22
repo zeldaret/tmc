@@ -3955,8 +3955,6 @@ gAreaRoomMap_TempleOfDroplets_31:: @ 08105EAC
 	map_bottom 0x20A614+0x154, 0x1BA, 1
 	map_top 0x20A64C+0x1CC, 0x1BA, 1, 1
 .else
-@nocheckin	map_bottom 0x20A614, 0x186, 1
-	@nocheckin map_top 0x20A64C, 0x186, 1, 1
 	map_bottom 0x20A784, 0x1BA, 1
 	map_top 0x20A834, 0x1BA, 1, 1
 .endif

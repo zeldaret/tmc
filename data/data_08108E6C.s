@@ -420,7 +420,7 @@ gUnk_08109230:: @ 08109230
 gUnk_08109244:: @ 08109244
 	.incbin "baserom.gba", 0x109244, 0x0000004
 
-gUnk_08109248:: @ 08109248 TODO might be a pointer array?
+gUnk_08109248:: @ 08109248
 	.4byte gUnk_08692F60
 	.4byte gUnk_08692F60
 	.4byte gUnk_086978E0

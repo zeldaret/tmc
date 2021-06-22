@@ -44,7 +44,8 @@ const u16 gUnk_0811E454[] = { 0x0,   0x0,   0x100, 0x200, 0x300, 0x400, 0x500,
 const char gUnk_0811E470[4] = "LINK";
 
 #ifdef DEMO
-const u8 unknown[] = { 0x0, 0x0f, 0x0a, 0x0a, 0x0f, 0x0f, 0x0f, 0x08, 0x05, 0x05, 0x00, 0x00 };
+const u8 demoUnknown0 = 0x0;
+const u8 demoUnknown1[] = { 0x0f, 0x0a, 0x0a, 0x0f, 0x0f, 0x0f, 0x08, 0x05, 0x05, 0x00, 0x00 };
 #else
 const u8 padding[2] = { 0, 0 };
 #endif
@@ -52,7 +53,16 @@ const u8 padding[2] = { 0, 0 };
 static SaveResult (*const sSaveHandlers[])(u32) = { HandleSaveInit, HandleSaveInProgress, HandleSaveDone };
 
 #ifdef DEMO
-asm(".incbin \"baserom_demo.gba\", 0x11e010, 0xf0c"); // TODO disassemble
+asm("demoPointer1: .incbin \"baserom_demo.gba\", 0x11e010, 0x500");
+asm("demoPointer2: .incbin \"baserom_demo.gba\", 0x11e510, 0x500");
+asm("demoPointer3: .incbin \"baserom_demo.gba\", 0x11ea10, 0x500");
+
+extern const u32 demoPointer1;
+extern const u32 demoPointer2;
+extern const u32 demoPointer3;
+
+const u32 demoPointers[] = { (u32)&demoPointer1, (u32)&demoPointer2, (u32)&demoPointer3 };
+
 #else
 
 #if defined(JP) || defined(EU)

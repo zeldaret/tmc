@@ -65,10 +65,28 @@ _0804139C: .4byte gUnk_080D0E1C
 	thumb_func_start sub_080413A0
 sub_080413A0: @ 0x080413A0
 .ifdef JP
-	.incbin "baserom_jp.gba", 0x041344, 0x18 @TODO disassemble
+	push {lr}
+	ldr r2, _08041358 @ =gUnk_080D0E2C
+	ldrb r1, [r0, #0xc]
+	lsls r1, r1, #2
+	adds r1, r1, r2
+	ldr r1, [r1]
+	bl _call_via_r1
+	pop {pc}
+	.align 2, 0
+_08041358: .4byte gUnk_080D0E2C
 .else
 .ifdef EU
-	.incbin "baserom_eu.gba", 0x041274, 0x18 @TODO same as JP
+	push {lr}
+	ldr r2, _08041288 @ =gUnk_080D0E2C
+	ldrb r1, [r0, #0xc]
+	lsls r1, r1, #2
+	adds r1, r1, r2
+	ldr r1, [r1]
+	bl _call_via_r1
+	pop {pc}
+	.align 2, 0
+_08041288: .4byte gUnk_080D0E2C
 .else
 	push {r4, lr}
 	adds r4, r0, #0
@@ -1126,7 +1144,96 @@ _08041BE4: .4byte gUnk_080D0E68
 	thumb_func_start sub_08041BE8
 sub_08041BE8: @ 0x08041BE8
 .ifdef EU
-	.incbin "baserom_eu.gba", 0x041AB4, 0xCA @TODO disassemble
+	push {r4, r5, r6, r7, lr}
+	mov r7, r8
+	push {r7}
+	adds r6, r0, #0
+	bl sub_08079F8C
+	cmp r0, #0
+	beq _08041B72
+	movs r5, #0
+	movs r0, #1
+	strb r0, [r6, #0xd]
+	movs r0, #0x78
+	strb r0, [r6, #0xe]
+	ldrb r1, [r6, #0x11]
+	movs r4, #0x10
+	rsbs r4, r4, #0
+	adds r0, r4, #0
+	ands r0, r1
+	movs r1, #3
+	mov r8, r1
+	mov r1, r8
+	orrs r0, r1
+	strb r0, [r6, #0x11]
+	adds r0, r6, #0
+	movs r1, #0xa
+	bl InitAnimationForceUpdate
+	ldr r0, [r6, #0x64]
+	ldr r7, [r0, #4]
+	str r5, [r7, #0x64]
+	adds r0, r7, #0
+	bl DeleteEntity
+	ldr r0, [r6, #0x64]
+	str r5, [r0, #4]
+	ldr r7, [r0, #8]
+	ldrb r0, [r7, #0x11]
+	ands r4, r0
+	mov r0, r8
+	orrs r4, r0
+	strb r4, [r7, #0x11]
+	adds r0, r7, #0
+	bl sub_080AE068
+	ldr r1, _08041B78 @ =0x000001F5
+	adds r0, r7, #0
+	bl LoadFixedGFX
+	ldr r1, _08041B7C @ =0x0000016B
+	adds r0, r7, #0
+	bl sub_0801D2B4
+	adds r0, r7, #0
+	movs r1, #0x1a
+	bl InitializeAnimation
+	ldr r0, [r6, #0x64]
+	ldr r7, [r0, #0xc]
+	str r5, [r7, #0x64]
+	adds r0, r7, #0
+	bl DeleteEntity
+	ldr r0, [r6, #0x64]
+	str r5, [r0, #0xc]
+	ldr r7, [r0, #0x1c]
+	str r5, [r7, #0x64]
+	adds r0, r7, #0
+	bl DeleteEntity
+	ldr r0, [r6, #0x64]
+	str r5, [r0, #0x1c]
+	ldr r7, [r0, #0x20]
+	str r5, [r7, #0x64]
+	adds r0, r7, #0
+	bl DeleteEntity
+	ldr r0, [r6, #0x64]
+	str r5, [r0, #0x20]
+	ldr r7, [r0, #0x24]
+	str r5, [r7, #0x64]
+	adds r0, r7, #0
+	bl DeleteEntity
+	ldr r0, [r6, #0x64]
+	str r5, [r0, #0x24]
+	ldr r7, [r0, #0x28]
+	str r5, [r7, #0x64]
+	adds r0, r7, #0
+	bl DeleteEntity
+	ldr r0, [r6, #0x64]
+	str r5, [r0, #0x28]
+	movs r0, #2
+	bl sub_08078A90
+_08041B72:
+	pop {r3}
+	mov r8, r3
+	pop {r4, r5, r6, r7, pc}
+	.align 2, 0
+_08041B78: .4byte 0x000001F5
+_08041B7C: .4byte 0x0000016B
+
 .else
 	push {r4, r5, r6, r7, lr}
 	mov r7, r8

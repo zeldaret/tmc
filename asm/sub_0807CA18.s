@@ -107,13 +107,13 @@ _0807CA04:
 	str r0, [r2, #0x00]
 	movs r0, #0x01
 	pop {r4, r5, r6, pc}
-_0807CA38: .4byte 0x02002A40 @TODO ptr
-_0807CA3C: .4byte 0x0811DFF4 @TODO ptr
-_0807CA40: .4byte 0x0811EF10 @TODO ptr
+_0807CA38: .4byte gSave
+_0807CA3C: .4byte gUnk_0811E470
+_0807CA40: .4byte demoPointers
 _0807CA44: .4byte 0x000004B4
 _0807CA48: .4byte 0xFFFFD8F1
-_0807CA4C: .4byte 0x02000010 @TODO ptr
-_0807CA50: .4byte 0x0811DFF9 @TODO ptr
+_0807CA4C: .4byte gUnk_02000010
+_0807CA50: .4byte demoUnknown1
 .else
 	thumb_func_start sub_0807CA18
 sub_0807CA18: @ 0x0807CA18

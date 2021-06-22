@@ -173,9 +173,7 @@ void sub_08054570(void) {
 }
 
 #ifdef EU
-NAKED u32 sub_0805457C(u32 arg0, u32 arg1) {
-    asm(".incbin \"baserom_eu.gba\", 0x054114, 0x1c0"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/sub_0805457C.inc", u32 sub_0805457C(u32 arg0, u32 arg1));
 #else
 ASM_FUNC("asm/non_matching/sub_0805457C.inc", u32 sub_0805457C(u32 arg0, u32 arg1));
 #endif

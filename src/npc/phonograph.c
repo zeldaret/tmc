@@ -26,9 +26,7 @@ ASM_FUNC("asm/non_matching/phonograph/sub_0806E964.inc",
          void sub_0806E964(Entity* this, ScriptExecutionContext* context))
 
 #ifdef EU
-NAKED void sub_0806EABC(Entity* this, u32 param) {
-    asm(".incbin \"baserom_eu.gba\", 0x06E4F8, 0x000003C"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/sub_0806EABC.inc", void sub_0806EABC(Entity* this, u32 param))
 #else
 void sub_0806EABC(Entity* this, u32 param) {
     sub_08050384();

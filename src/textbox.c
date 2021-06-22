@@ -477,9 +477,7 @@ extern u8 gUnk_08107C14;
 extern u8 gUnk_08107C0F;
 
 #ifdef EU
-NAKED void TextBoxHandlerQuestion(CurrentTextBox* ctb) {
-    asm(".incbin \"baserom_eu.gba\", 0x05654c, 0x138"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/TextBoxHandlerQuestion.inc", void TextBoxHandlerQuestion(CurrentTextBox* ctb))
 #else
 
 void TextBoxHandlerQuestion(CurrentTextBox* ctb) {

@@ -39,10 +39,10 @@ HandleGameplayScreen: @ 08051A28
 _08051A64:
     pop {r4, pc}
     .byte 0x00, 0x00
-_08051A68: .4byte 0x030010A0 @TODO ptr
-_08051A6C: .4byte 0x080FC55C @TODO ptr
-_08051A70x: .4byte 0x03001000 @TODO ptr
-_08051A74x: .4byte 0x02002A40 @TODO ptr
+_08051A68: .4byte gUnk_030010A0
+_08051A6C: .4byte gUnk_080FC9D8
+_08051A70x: .4byte gMain
+_08051A74x: .4byte gUnk_02002A40
 .else
 	thumb_func_start HandleGameplayScreen
 HandleGameplayScreen: @ 0x08051988
@@ -201,7 +201,83 @@ _08051AEC: .4byte gScreenTransition
 	thumb_func_start sub_08051AF0
 sub_08051AF0: @ 0x08051AF0
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x05172C, 0x00000D0 @TODO disassemble
+	push {r4, lr}
+	bl sub_0805E5C0
+	bl sub_0805BBBC
+	cmp r0, #0
+	bne _0805173E
+	bl UpdateScroll
+_0805173E:
+	bl UpdateBgAnim
+	bl sub_08000108
+	bl sub_0801C344
+	bl sub_0805E5F8
+	bl FlushSprites
+	bl sub_0801C208
+	bl sub_08078CB4
+	bl sub_080AD9B0
+	bl sub_080AD918
+	ldr r0, _080517E0 @ =gFadeControl
+	ldrb r0, [r0]
+	cmp r0, #0
+	bne _080517DC
+	ldr r0, _080517E4 @ =gRoomControls
+	ldrh r0, [r0]
+	cmp r0, #0
+	bne _080517DC
+	bl sub_08052F1C
+	ldr r0, _080517E8 @ =gArea
+	movs r1, #0x86
+	lsls r1, r1, #4
+	adds r3, r0, r1
+	adds r1, #4
+	adds r0, r0, r1
+	ldr r1, [r3]
+	ldr r2, [r0]
+	cmp r1, r2
+	beq _08051796
+	str r2, [r3]
+	ldr r0, _080517EC @ =0x800B0000
+	orrs r2, r0
+	adds r0, r2, #0
+	bl SoundReq
+_08051796:
+	bl sub_0805E9F4
+	bl sub_0805BC04
+	adds r4, r0, #0
+	cmp r4, #0
+	bne _080517DC
+	bl sub_08052C5C
+	bl sub_0805E5B4
+	bl sub_08051E04
+	bl sub_080300C4
+	ldr r1, _080517F0 @ =gMain
+	movs r0, #2
+	strb r0, [r1, #4]
+	movs r0, #0
+	bl sub_08078A90
+	ldr r0, _080517F4 @ =gUnk_02034490
+	strb r4, [r0]
+	bl sub_08053178
+	bl sub_0801855C
+	ldr r0, _080517F8 @ =gRoomVars
+	ldrb r0, [r0]
+	cmp r0, #0
+	bne _080517DC
+	movs r0, #0
+	movs r1, #1
+	bl sub_0805E4E0
+_080517DC:
+	pop {r4, pc}
+	.align 2, 0
+_080517E0: .4byte gFadeControl
+_080517E4: .4byte gRoomControls
+_080517E8: .4byte gArea
+_080517EC: .4byte 0x800B0000
+_080517F0: .4byte gMain
+_080517F4: .4byte gUnk_02034490
+_080517F8: .4byte gRoomVars
+
 .else
 	push {r4, r5, lr}
 	bl sub_0805E5C0
@@ -448,7 +524,16 @@ _08051D28: .4byte gScreenTransition
 	thumb_func_start sub_08051D2C
 sub_08051D2C: @ 0x08051D2C
 .ifdef DEMO
-	.incbin "baserom_demo.gba", 0x051df4, 0x14 @TODO disassemble
+	push {lr}
+	ldr r0, _08051E04 @ =0x03000FD0
+	ldrb r0, [r0]
+	cmp r0, #0
+	bne _08051E02
+	bl DoSoftReset
+_08051E02:
+	pop {pc}
+	.align 2, 0
+_08051E04: .4byte 0x03000FD0
 .else
 	push {lr}
 	movs r0, #7

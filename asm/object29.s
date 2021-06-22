@@ -31,7 +31,106 @@ _08089870: .4byte gUnk_08120D90
 	thumb_func_start sub_08089874
 sub_08089874: @ 0x08089874
 .ifdef EU
-    .incbin "baserom_eu.gba", 0x089184, 0x00000C4 @TODO disassemble
+	push {r4, lr}
+	adds r4, r0, #0
+	adds r0, #0x38
+	movs r2, #3
+	strb r2, [r0]
+	ldrb r1, [r4, #0xb]
+	cmp r1, #0
+	bne _08089200
+	ldrb r0, [r4, #0xa]
+	cmp r0, #0x80
+	bne _080891B4
+	strb r2, [r4, #0xc]
+	ldrb r0, [r4, #0x19]
+	movs r1, #0xc0
+	orrs r0, r1
+	strb r0, [r4, #0x19]
+	adds r0, r4, #0
+	movs r1, #0
+	bl InitializeAnimation
+	adds r0, r4, #0
+	bl sub_08089AE0
+	b _08089246
+_080891B4:
+	str r1, [r4, #0x50]
+	adds r0, r4, #0
+	movs r1, #0x29
+	movs r2, #0
+	movs r3, #0xff
+	bl CreateObjectWithParent
+	ldrb r0, [r4, #0xa]
+	cmp r0, #0
+	beq _080891FA
+_080891C8:
+	ldrb r3, [r4, #0xa]
+	adds r0, r4, #0
+	movs r1, #0x29
+	movs r2, #0
+	bl CreateObjectWithParent
+	adds r1, r0, #0
+	str r1, [r4, #0x54]
+	cmp r1, #0
+	beq _080891EE
+	ldr r0, [r4, #0x50]
+	str r0, [r1, #0x50]
+	ldr r1, [r4, #0x50]
+	cmp r1, #0
+	beq _080891EA
+	ldr r0, [r4, #0x54]
+	str r0, [r1, #0x54]
+_080891EA:
+	ldr r0, [r4, #0x54]
+	str r0, [r4, #0x50]
+_080891EE:
+	ldrb r0, [r4, #0xa]
+	subs r0, #1
+	strb r0, [r4, #0xa]
+	lsls r0, r0, #0x18
+	cmp r0, #0
+	bne _080891C8
+_080891FA:
+	bl DeleteThisEntity
+	b _08089246
+_08089200:
+	movs r0, #1
+	strb r0, [r4, #0xc]
+	ldr r0, [r4, #0x50]
+	cmp r0, #0
+	bne _08089214
+	adds r0, r4, #0
+	movs r1, #0
+	bl InitializeAnimation
+	b _0808921C
+_08089214:
+	adds r0, r4, #0
+	movs r1, #1
+	bl InitializeAnimation
+_0808921C:
+	ldrb r0, [r4, #0xb]
+	cmp r0, #0xff
+	bne _0808923A
+	adds r1, r4, #0
+	adds r1, #0x38
+	movs r0, #1
+	strb r0, [r1]
+	adds r0, r4, #0
+	bl sub_08016A30
+	adds r0, r4, #0
+	movs r1, #0x15
+	bl sub_0801D2B4
+	b _08089246
+_0808923A:
+	ldrb r1, [r4, #0xb]
+	lsls r0, r1, #3
+	adds r0, r0, r1
+	lsls r0, r0, #2
+	rsbs r0, r0, #0
+	strh r0, [r4, #0x36]
+_08089246:
+	pop {r4, pc}
+
 .else
 	push {r4, r5, lr}
 	adds r4, r0, #0

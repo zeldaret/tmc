@@ -124,9 +124,7 @@ void sub_080A9FD0(Entity* this) {
 }
 
 #ifdef EU
-NAKED void sub_080AA044(Entity* this) {
-    asm(".incbin \"baserom_eu.gba\", 0x0A983C, 0x00000C4"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/sub_080AA044.inc", void sub_080AA044(Entity* this))
 #else
 void sub_080AA044(Entity* this) {
     u32 uVar1;

@@ -189,9 +189,7 @@ void sub_0802AA40(Entity* this) {
 }
 
 #ifdef EU
-NAKED void sub_0802AAC0(Entity* this) {
-    asm(".incbin \"baserom_eu.gba\", 0x02aa94, 0xc8"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/sub_0802AAC0.inc", void sub_0802AAC0(Entity* this))
 #else
 void sub_0802AAC0(Entity* this) {
     sub_0802AC40(this);
@@ -223,9 +221,7 @@ void sub_0802AAC0(Entity* this) {
 #endif
 
 #ifdef EU
-NAKED void sub_0802AB40(Entity* this) {
-    asm(".incbin \"baserom_eu.gba\", 0x02ab5c, 0x60"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/sub_0802AB40.inc", void sub_0802AB40(Entity* this));
 #else
 void sub_0802AB40(Entity* this) {
     sub_0802AC40(this);
@@ -280,9 +276,7 @@ void sub_0802AC08(Entity* this) {
 }
 
 #ifdef EU
-NAKED void sub_0802AC40(Entity* this) {
-    asm(".incbin \"baserom_eu.gba\", 0x02ABF4, 0x54"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/sub_0802AC40.inc", void sub_0802AC40(Entity* this))
 #else
 void sub_0802AC40(Entity* this) {
     GetNextFrame(this);
@@ -364,9 +358,7 @@ void sub_0802AD54(Entity* this) {
 
 #ifdef EU
 // TODO regalloc in EU version
-NAKED void sub_0802ADDC(Entity* this) {
-    asm(".incbin \"baserom_eu.gba\", 0x02AD48, 0x000004C"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/sub_0802ADDC.inc", void sub_0802ADDC(Entity* this))
 #else
 void sub_0802ADDC(Entity* this) {
     Entity* ent = CreateEnemy(BOMB_PEAHAT, this->type + 2);
@@ -400,9 +392,7 @@ void sub_0802AE24(Entity* this) {
 }
 
 #ifdef EU
-NAKED void sub_0802AE68(Entity* this) {
-    asm(".incbin \"baserom_eu.gba\", 0x02add8, 0x94"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/sub_0802AE68.inc", void sub_0802AE68(Entity* this))
 #else
 void sub_0802AE68(Entity* this) {
     Entity* ent = sub_0802B250(this);
@@ -579,9 +569,7 @@ void sub_0802B1A0(Entity* this) {
 }
 
 #ifdef EU
-NAKED void sub_0802B1BC(Entity* this) {
-    asm(".incbin \"baserom_eu.gba\", 0x02b16c, 0x84"); // TODO disassemble
-}
+ASM_FUNC("asm/non_matching/eu/sub_0802B1BC.inc", void sub_0802B1BC(Entity* this))
 #else
 void sub_0802B1BC(Entity* this) {
     Entity* ent;

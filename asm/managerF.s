@@ -805,10 +805,9 @@ _080594D2:
 _080594D4: .4byte gUnk_08108380
 _080594D8: .4byte gPlayerEntity
 
-@TODO move down once EU pointers are fixed
+.ifndef EU
 	thumb_func_start sub_080594DC
 sub_080594DC: @ 0x080594DC
-.ifndef EU
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
