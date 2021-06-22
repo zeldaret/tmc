@@ -1,4 +1,16 @@
+# Install
 First, you must put a The Legend of Zelda: The Minish Cap (U) ROM (with SHA1: `b4bd50e4131b027c334547b4524e2dbbd4227130`) in the root directory of the repository and name it `baserom.gba`. 
+
+
+## Building other variants
+To build other variants, you currently need a combination of different baseroms, depending on the variant.
+| | USA | DEMO | JP | EU |
+| - | :-: | :-: | :-: | :-: |
+| baserom.gba | X | X | X | X |
+| baserom_demo.gba | | X | | |
+| baserom_jp.gba | | | X | X |
+| baserom_eu.gba | | | | X |
+
 
 ## Prerequisites
 

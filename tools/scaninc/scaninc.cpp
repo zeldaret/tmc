@@ -93,7 +93,10 @@ int main(int argc, char **argv)
         includeDirs.push_back(file.GetSrcDir());
         for (auto incbin : file.GetIncbins())
         {
-            dependencies.insert(incbin);
+            // Don't include incbins starting with baserom, as they might not be necessary if another variant is being built.
+            if (incbin.rfind("baserom", 0) != 0) {
+                dependencies.insert(incbin);
+            }
         }
         for (auto include : file.GetIncludes())
         {
