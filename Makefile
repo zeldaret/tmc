@@ -35,6 +35,43 @@ endif
 endif
 endif
 
+# Check that the required baseroms are available.
+ifeq ($(GAME_VERSION), USA)
+baserom.gba:
+	$(error Missing baserom.gba)
+.PHONY: baserom_demo.gba baserom_jp.gba baserom_eu.gba 
+baserom_demo.gba:
+baserom_jp.gba:
+baserom_eu.gba:
+endif
+ifeq ($(GAME_VERSION), DEMO)
+baserom.gba:
+	$(error Missing baserom.gba)
+baserom_demo.gba:
+	$(error Missing baserom_demo.gba)
+.PHONY: baserom_jp.gba baserom_eu.gba 
+baserom_jp.gba:
+baserom_eu.gba:
+endif
+ifeq ($(GAME_VERSION), JP)
+baserom.gba:
+	$(error Missing baserom.gba)
+baserom_jp.gba:
+	$(error Missing baserom_jp.gba)
+.PHONY: baserom_demo.gba baserom_eu.gba 
+baserom_demo.gba:
+baserom_eu.gba:
+endif
+ifeq ($(GAME_VERSION), EU)
+baserom.gba:
+	$(error Missing baserom.gba)
+baserom_jp.gba:
+	$(error Missing baserom_jp.gba)
+baserom_eu.gba:
+	$(error Missing baserom_eu.gba)
+.PHONY: baserom_demo.gba 
+baserom_demo.gba:
+endif
 
 SHELL := /bin/bash -o pipefail
 
