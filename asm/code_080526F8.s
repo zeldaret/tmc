@@ -151,7 +151,9 @@ sub_080527FC: @ 0x080527FC
 	push {r4, lr}
 	adds r4, r0, #0
 	bl sub_08053320
+.ifndef EU
 	bl sub_080AE1D8
+.endif
 	bl sub_080ADE24
 	movs r0, #1
 	bl sub_0801C370
@@ -201,6 +203,7 @@ _0805286C: .4byte 0x00000864
 _08052870: .4byte gUnk_08127D30
 _08052874: .4byte gRoomControls
 
+.ifndef EU
 	thumb_func_start sub_08052878
 sub_08052878: @ 0x08052878
 	push {lr}
@@ -232,6 +235,7 @@ sub_0805289C: @ 0x0805289C
 	.align 2, 0
 _080528AC: .4byte gArea
 _080528B0: .4byte 0x00000864
+.endif
 
 	thumb_func_start sub_080528B4
 sub_080528B4: @ 0x080528B4
@@ -620,7 +624,15 @@ sub_08052BB8: @ 0x08052BB8
 	push {lr}
 	ldr r0, _08052BE0 @ =gScreenTransition
 	adds r2, r0, #0
+.ifdef JP
+	adds r2, #0x34
+.else
+.ifdef EU
+	adds r2, #0x34
+.else
 	adds r2, #0x35
+.endif
+.endif
 	ldrb r1, [r2]
 	adds r3, r0, #0
 	cmp r1, #0
@@ -649,6 +661,7 @@ _08052BEE:
 	bl TextBoxAtYPosition
 	pop {pc}
 
+.ifdef USA
 	thumb_func_start sub_08052BF8
 sub_08052BF8: @ 0x08052BF8
 	push {lr}
@@ -682,6 +695,43 @@ _08052C30:
 	.align 2, 0
 _08052C34: .4byte gScreenTransition
 _08052C38: .4byte gArea
+.else
+.ifdef DEMO @TODO deduplicate
+	thumb_func_start sub_08052BF8
+sub_08052BF8: @ 0x08052BF8
+	push {lr}
+	ldr r2, _08052C34 @ =gScreenTransition
+	adds r1, r2, #0
+	adds r1, #0x31
+	ldrb r0, [r1]
+	cmp r0, #0
+	bne _08052C30
+	movs r0, #1
+	strb r0, [r1]
+	ldr r0, _08052C38 @ =gArea
+	ldrb r1, [r0, #1]
+	adds r0, r2, #0
+	adds r0, #0x2e
+	strb r1, [r0]
+	bl GetEmptyManager
+	adds r1, r0, #0
+	cmp r1, #0
+	beq _08052C30
+	movs r0, #9
+	strb r0, [r1, #8]
+	movs r0, #0xf
+	strb r0, [r1, #9]
+	strb r0, [r1, #0xa]
+	adds r0, r1, #0
+	movs r1, #0
+	bl AppendEntityToList
+_08052C30:
+	pop {pc}
+	.align 2, 0
+_08052C34: .4byte gScreenTransition
+_08052C38: .4byte gArea
+.endif
+.endif
 
 	thumb_func_start sub_08052C3C
 sub_08052C3C: @ 0x08052C3C
@@ -1309,7 +1359,15 @@ _0805310C:
 _0805311A:
 	movs r0, #0x80
 	lsls r0, r0, #1
+.ifdef JP
+	movs r1, #0x9b
+.else
+.ifdef EU
+	movs r1, #0x9b
+.else
 	movs r1, #0x9c
+.endif
+.endif
 	bl CheckLocalFlagByOffset
 	cmp r0, #0
 	beq _0805312C

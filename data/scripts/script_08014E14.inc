@@ -239,7 +239,15 @@ script_08015104:
 	PlaySound SFX_SECRET
 	_0807F0B4 0x0004
 	CameraTargetPlayer 
+.ifdef JP
+	SetLocalFlag 0x008a
+.else
+.ifdef EU
+	SetLocalFlag 0x008a
+.else
 	SetLocalFlag 0x008c
+.endif
+.endif
 	_0807EB28 0x130c
 	_0807EA94 
 	CameraTargetPlayer 

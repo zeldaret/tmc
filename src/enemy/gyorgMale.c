@@ -143,7 +143,11 @@ void sub_08046930(Entity* this) {
     if (this->type) {
         this->subAction = 5;
         this->direction = 0x20;
+#ifdef EU
+        this->speed = 0x200;
+#else
         this->speed = 0x280;
+#endif
     }
     sub_08047D88(this);
     if (this->field_0x7c.BYTES.byte0 == 0)
@@ -152,7 +156,11 @@ void sub_08046930(Entity* this) {
     this->actionDelay = 1;
     this->animationState = 0;
     this->direction = 0;
+#ifdef EU
+    this->speed = 0x200;
+#else
     this->speed = 0x280;
+#endif
 }
 
 void sub_0804696C(Entity* this) {
@@ -163,10 +171,16 @@ void sub_0804696C(Entity* this) {
         this->speed = 0x100;
         this->spriteOrientation.flipY = 3;
         this->spriteRendering.b3 = 3;
+#ifndef EU
         SoundReq(BGM_BOSS_THEME);
+#endif
     }
     if (this->actionDelay) {
+#ifdef EU
+        if (gRoomControls.roomOriginY + 0x210 > this->y.HALF.HI) {
+#else
         if (gRoomControls.roomOriginY + 0x258 > this->y.HALF.HI) {
+#endif
             this->actionDelay = 0;
             SoundReq(SFX_APPARATE);
         }

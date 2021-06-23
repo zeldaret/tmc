@@ -166,7 +166,15 @@ sub_0801BB2C: @ 0x0801BB2C
 	ldrb r0, [r5, #0xb]
 	adds r1, r4, #0
 	movs r2, #5
+.ifdef JP
+	bl CreateItemEntity
+.else
+.ifdef EU
+	bl CreateItemEntity
+.else
 	bl sub_080A7C18
+.endif
+.endif
 	ldr r0, _0801BB8C @ =0x00000109
 	bl SoundReq
 _0801BB64:

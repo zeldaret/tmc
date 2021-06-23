@@ -9,10 +9,19 @@ script_080145C2:
 	JumpIfNot script_080145C2
 	_0807E864 
 	ClearRoomFlag 0x0005
+.ifdef EU
+	Wait 0x0018
+	_0807E8E4_1 
+	_0807EB44 0x0006
+.else
 	Wait 0x000c
 	_0807EB8C 
+.endif
 	TextboxNoOverlapFollowPos 0x432e, 0x000c
 	_0807EA94 
+.ifdef EU
+	Wait 0x0018
+.endif
 	_0807E878 
 	Jump script_080145C2
 script_080145E4:

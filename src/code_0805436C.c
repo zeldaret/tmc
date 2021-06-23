@@ -172,7 +172,11 @@ void sub_08054570(void) {
     gRoomVars.filler[2] = 0;
 }
 
+#ifdef EU
+ASM_FUNC("asm/non_matching/eu/sub_0805457C.inc", u32 sub_0805457C(u32 arg0, u32 arg1));
+#else
 ASM_FUNC("asm/non_matching/sub_0805457C.inc", u32 sub_0805457C(u32 arg0, u32 arg1));
+#endif
 
 NONMATCH("asm/non_matching/CreateItemDrop.inc", u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter)) {
     // TODO see below
@@ -265,5 +269,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
 */
 
 void sub_08054870(void) {
+#ifndef DEMO
     gUnk_080FE2A0[gMenu.menuType]();
+#endif
 }

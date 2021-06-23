@@ -958,7 +958,11 @@ sub_08017F40: @ 0x08017F40
 	beq _0801801E
 	ldr r2, _08017FB0 @ =gPlayerState
 	ldr r3, [r2, #0x30]
+.ifdef EU
+	movs r0, #0x81
+.else
 	movs r0, #0x80
+.endif
 	ands r0, r3
 	cmp r0, #0
 	bne _0801801E
@@ -1247,7 +1251,11 @@ sub_08018168: @ 0x08018168
 	beq _0801821C
 	ldr r2, _080181F8 @ =gPlayerState
 	ldr r3, [r2, #0x30]
+.ifdef EU
+	movs r0, #0x81
+.else
 	ldr r0, _080181FC @ =0x00040080
+.endif
 	ands r0, r3
 	cmp r0, #0
 	bne _0801821C
@@ -1302,7 +1310,9 @@ sub_08018168: @ 0x08018168
 	.align 2, 0
 _080181F4: .4byte gPlayerEntity
 _080181F8: .4byte gPlayerState
+.ifndef EU
 _080181FC: .4byte 0x00040080
+.endif
 _08018200:
 	adds r0, r4, #0
 	adds r0, #0x45

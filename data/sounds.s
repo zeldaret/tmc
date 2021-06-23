@@ -3839,6 +3839,34 @@ bgmDarkHyruleCastle:: @ 08DD6BFC
 	sound_header 7 0 0 0xb2 gUnk_08A06D94 bgmDarkHyruleCastle_track0 bgmDarkHyruleCastle_track1 bgmDarkHyruleCastle_track2 bgmDarkHyruleCastle_track3 bgmDarkHyruleCastle_track4 bgmDarkHyruleCastle_track5 bgmDarkHyruleCastle_track6
 
 bgmSecretCastleEntrance_track0:: @ 08DD6C20
+.ifdef EU
+	.incbin "baserom_eu.gba", 0xEE2278, 0x000000B
+gUnk_08EE2283::
+	.incbin "baserom_eu.gba", 0xEE2283, 0x000000D
+gUnk_08EE2290::
+	.incbin "baserom_eu.gba", 0xEE2290, 0x000000F
+	.4byte gUnk_08EE2290
+	.byte 0xB3
+	.4byte gUnk_08EE2290
+	.byte 0xB3
+	.4byte gUnk_08EE2290
+	.byte 0xB3
+	.4byte gUnk_08EE2290
+	.incbin "baserom_eu.gba", 0xEE22B2, 0x0000010
+	.4byte gUnk_08EE2290
+gUnk_08EE22C6::
+	.incbin "baserom_eu.gba", 0xEE22C6, 0x000000F
+	.4byte gUnk_08EE22C6
+	.byte 0xB3
+	.4byte gUnk_08EE22C6
+	.byte 0xB3
+	.4byte gUnk_08EE22C6
+	.byte 0xBB
+	.byte 0x3C
+	.byte 0xB2
+	.4byte gUnk_08EE2283
+	.byte 0xB1
+.else
 	.incbin "baserom.gba", 0xDD6C20, 0x000000B
 gUnk_08DD6C2B:: @ 08DD6C2B
 	.incbin "baserom.gba", 0xDD6C2B, 0x000000D
@@ -3858,7 +3886,37 @@ gUnk_08DD6C85:: @ 08DD6C85
 	.incbin "baserom.gba", 0xDD6CAC, 0x0000005
 	.4byte gUnk_08DD6C2B
 	.incbin "baserom.gba", 0xDD6CB5, 0x0000001
+.endif
+
 bgmSecretCastleEntrance_track1:: @ 08DD6CB6
+.ifdef EU
+	.incbin "baserom_eu.gba", 0xEE22EB, 0x0000007
+gUnk_08EE22F2:: @ 08EE22F2
+	.incbin "baserom_eu.gba", 0xEE22F2, 0x000000D
+gUnk_08EE22FF:: @ 08EE22FF
+	.incbin "baserom_eu.gba", 0xEE22FF, 0x000000F
+	.4byte gUnk_08EE22FF
+	.incbin "baserom_eu.gba", 0xEE2312, 0x0000001
+	.4byte gUnk_08EE22FF
+	.incbin "baserom_eu.gba", 0xEE2317, 0x0000001
+	.4byte gUnk_08EE22FF
+	.incbin "baserom_eu.gba", 0xEE231C, 0x0000001
+	.4byte gUnk_08EE22FF
+	.incbin "baserom_eu.gba", 0xEE2321, 0x0000001
+	.4byte gUnk_08EE22FF
+	.incbin "baserom_eu.gba", 0xEE2326, 0x0000001
+	.4byte gUnk_08EE22FF
+gUnk_08EE232B:: @ 08EE232B
+	.incbin "baserom_eu.gba", 0xEE232B, 0x000000F
+	.4byte gUnk_08EE232B
+	.incbin "baserom_eu.gba", 0xEE233E, 0x0000001
+	.4byte gUnk_08EE232B
+	.incbin "baserom_eu.gba", 0xEE2343, 0x0000001
+	.4byte gUnk_08EE232B
+	.incbin "baserom_eu.gba", 0xEE2348, 0x0000001
+	.4byte gUnk_08EE22F2
+	.incbin "baserom_eu.gba", 0xEE234D, 0x0000001
+.else
 	.incbin "baserom.gba", 0xDD6CB6, 0x0000007
 gUnk_08DD6CBD:: @ 08DD6CBD
 	.incbin "baserom.gba", 0xDD6CBD, 0x000000D
@@ -3882,20 +3940,37 @@ gUnk_08DD6D0C:: @ 08DD6D0C
 	.incbin "baserom.gba", 0xDD6D33, 0x0000003
 	.4byte gUnk_08DD6CBD
 	.incbin "baserom.gba", 0xDD6D3A, 0x0000001
+.endif
+
 bgmSecretCastleEntrance_track2:: @ 08DD6D3B
 	.incbin "baserom.gba", 0xDD6D3B, 0x0000004
 gUnk_08DD6D3F:: @ 08DD6D3F
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0xEE2352, 0x0000009
+.else
 	.incbin "baserom.gba", 0xDD6D3F, 0x0000009
+.endif
 gUnk_08DD6D48:: @ 08DD6D48
 	.incbin "baserom.gba", 0xDD6D48, 0x0000019
 	.4byte gUnk_08DD6D48
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0xEE2378, 0x000003B
+.else
 	.incbin "baserom.gba", 0xDD6D65, 0x000003B
+.endif
 	.4byte gUnk_08DD6D3F
 	.incbin "baserom.gba", 0xDD6DA4, 0x0000001
 bgmSecretCastleEntrance_track3:: @ 08DD6DA5
 	.incbin "baserom.gba", 0xDD6DA5, 0x0000006
 gUnk_08DD6DAB:: @ 08DD6DAB
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0xEE23BE, 0x0000005
+.else
 	.incbin "baserom.gba", 0xDD6DAB, 0x0000005
+.endif
 gUnk_08DD6DB0:: @ 08DD6DB0
 	.incbin "baserom.gba", 0xDD6DB0, 0x0000019
 	.4byte gUnk_08DD6DB0
@@ -3903,7 +3978,12 @@ gUnk_08DD6DB0:: @ 08DD6DB0
 	.4byte gUnk_08DD6DAB
 	.incbin "baserom.gba", 0xDD6DEB, 0x0000001
 bgmSecretCastleEntrance_track4:: @ 08DD6DEC
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0xEE23FF, 0x0000008
+.else
 	.incbin "baserom.gba", 0xDD6DEC, 0x0000008
+.endif
 gUnk_08DD6DF4:: @ 08DD6DF4
 	.incbin "baserom.gba", 0xDD6DF4, 0x0000017
 gUnk_08DD6E0B:: @ 08DD6E0B
@@ -3947,12 +4027,23 @@ gUnk_08DD6ECD:: @ 08DD6ECD
 	.incbin "baserom.gba", 0xDD6ECD, 0x00000B8
 	.4byte gUnk_08DD6ECD
 	.incbin "baserom.gba", 0xDD6F89, 0x0000001
+
 bgmSecretCastleEntrance_track7:: @ 08DD6F8A
+.ifdef EU
+	.incbin "baserom_eu.gba", 0xEE259D, 0x0000003
+gUnk_08EE25A0:: @ 08EE25A0
+	.incbin "baserom_eu.gba", 0xEE25A0, 0x0000030
+	.4byte gUnk_08EE25A0
+	.incbin "baserom_eu.gba", 0xEE25D4, 0x0000004
+.else
 	.incbin "baserom.gba", 0xDD6F8A, 0x0000003
 gUnk_08DD6F8D:: @ 08DD6F8D
 	.incbin "baserom.gba", 0xDD6F8D, 0x0000030
 	.4byte gUnk_08DD6F8D
 	.incbin "baserom.gba", 0xDD6FC1, 0x0000003
+.endif
+
+
 bgmSecretCastleEntrance:: @ 08DD6FC4
 	sound_header 8 0 0 0xbc gUnk_08A07394 bgmSecretCastleEntrance_track0 bgmSecretCastleEntrance_track1 bgmSecretCastleEntrance_track2 bgmSecretCastleEntrance_track3 bgmSecretCastleEntrance_track4 bgmSecretCastleEntrance_track5 bgmSecretCastleEntrance_track6 bgmSecretCastleEntrance_track7
 
@@ -6020,11 +6111,28 @@ bgmDiggingCave:: @ 08DDC394
 	sound_header 6 0 0 0xb2 gUnk_08A0C944 bgmDiggingCave_track0 bgmDiggingCave_track1 bgmDiggingCave_track2 bgmDiggingCave_track3 bgmDiggingCave_track4 bgmDiggingCave_track5
 
 bgmSwiftbladeDojo_track0:: @ 08DDC3B4
+.ifdef EU
+	.incbin "baserom_eu.gba", 0xEE79C8, 0x000000B
+gUnk_08EE79D3:: @ 08EE79D3
+	.incbin "baserom_eu.gba", 0xEE79D3, 0x000001B
+	.4byte gUnk_08EE79D3
+	.incbin "baserom_eu.gba", 0xEE79F2, 0x0000001
+.else
 	.incbin "baserom.gba", 0xDDC3B4, 0x000000B
 gUnk_08DDC3BF:: @ 08DDC3BF
 	.incbin "baserom.gba", 0xDDC3BF, 0x000001E
 	.4byte gUnk_08DDC3BF
 	.incbin "baserom.gba", 0xDDC3E1, 0x0000001
+.endif
+
+.ifdef EU
+gUnk_08EE79F3:: @ 08EE79F3
+	.incbin "baserom_eu.gba", 0xEE79F3, 0x0000007
+gUnk_08EE79FA:: @ 08EE79FA
+	.incbin "baserom_eu.gba", 0xEE79FA, 0x000008E
+	.4byte gUnk_08EE79FA
+	.incbin "baserom_eu.gba", 0xEE7A8C, 0x0000004
+.else
 bgmSwiftbladeDojo_track1:: @ 08DDC3E2
 	.incbin "baserom.gba", 0xDDC3E2, 0x0000007
 gUnk_08DDC3E9:: @ 08DDC3E9
@@ -6043,8 +6151,17 @@ gUnk_08DDC423:: @ 08DDC423
 	.incbin "baserom.gba", 0xDDC423, 0x000008C
 	.4byte gUnk_08DDC423
 	.incbin "baserom.gba", 0xDDC4B3, 0x0000001
+.endif
+
 bgmSwiftbladeDojo:: @ 08DDC4B4
+.ifdef EU
+	.incbin "baserom_eu.gba", 0xEE7A90, 0x0000004
+	.4byte gUnk_08A0CF44
+	.4byte bgmSwiftbladeDojo_track0
+	.4byte gUnk_08EE79F3
+.else
 	sound_header 4 0 0 0x9e gUnk_08A0CF44 bgmSwiftbladeDojo_track0 bgmSwiftbladeDojo_track1 bgmSwiftbladeDojo_track2 bgmSwiftbladeDojo_track3
+.endif
 
 bgmMinishCap_track0:: @ 08DDC4CC
 	.incbin "baserom.gba", 0xDDC4CC, 0x000000B
@@ -7090,6 +7207,22 @@ gUnk_08DDEBF3:: @ 08DDEBF3
 bgmWindRuins:: @ 08DDEC38
 	sound_header 7 0 0 0xa8 gUnk_08A0F014 bgmWindRuins_track0 bgmWindRuins_track1 bgmWindRuins_track2 bgmWindRuins_track3 bgmWindRuins_track4 bgmWindRuins_track5 bgmWindRuins_track6
 
+.ifdef EU
+gUnk_08EEA230:: @ 08EEA230
+	.incbin "baserom_eu.gba", 0xEEA230, 0x000000E
+gUnk_08EEA23E:: @ 08EEA23E
+	.incbin "baserom_eu.gba", 0xEEA23E, 0x000001B
+	.4byte gUnk_08EEA23E
+	.incbin "baserom_eu.gba", 0xEEA25D, 0x0000001
+gUnk_08EEA25E:: @ 08EEA25E
+	.incbin "baserom_eu.gba", 0xEEA25E, 0x000000B
+gUnk_08EEA269:: @ 08EEA269
+	.incbin "baserom_eu.gba", 0xEEA269, 0x0000010
+gUnk_08EEA279:: @ 08EEA279
+	.incbin "baserom_eu.gba", 0xEEA279, 0x000008E
+	.4byte gUnk_08EEA279
+	.incbin "baserom_eu.gba", 0xEEA30B, 0x0000001
+.else
 bgmLearnScroll_track0:: @ 08DDEC5C
 	.incbin "baserom.gba", 0xDDEC5C, 0x000000C
 gUnk_08DDEC68:: @ 08DDEC68
@@ -7116,8 +7249,18 @@ gUnk_08DDECDA:: @ 08DDECDA
 	.incbin "baserom.gba", 0xDDECDA, 0x000008C
 	.4byte gUnk_08DDECDA
 	.incbin "baserom.gba", 0xDDED6A, 0x0000002
+.endif
+
 bgmLearnScroll:: @ 08DDED6C
+.ifdef EU
+	.incbin "baserom_eu.gba", 0xEEA30C, 0x0000004
+	.4byte gUnk_08A0CF44
+	.4byte gUnk_08EEA230
+	.4byte gUnk_08EEA25E
+	.4byte gUnk_08EEA269
+.else
 	sound_header 5 0 0 0x9e gUnk_08A0CF44 bgmLearnScroll_track0 bgmLearnScroll_track1 bgmLearnScroll_track2 bgmLearnScroll_track3 bgmLearnScroll_track4
+.endif
 
 bgmEzloGet_track0:: @ 08DDED88
 	.incbin "baserom.gba", 0xDDED88, 0x0000026
@@ -7218,7 +7361,11 @@ sfxSecretBig_track0:: @ 08DDF1A8
 sfxSecretBig_track1:: @ 08DDF1CF
 	.incbin "baserom.gba", 0xDDF1CF, 0x0000025
 sfxSecretBig:: @ 08DDF1F4
+.ifdef EU
+	sound_header 2 0 0xc0 0 gUnk_08A1004C sfxSecretBig_track0 sfxSecretBig_track1
+.else
 	sound_header 2 0 0xd0 0 gUnk_08A1004C sfxSecretBig_track0 sfxSecretBig_track1
+.endif
 
 sfxMetalClink_track0:: @ 08DDF204
 	.incbin "baserom.gba", 0xDDF204, 0x0000018
@@ -7672,7 +7819,11 @@ sfxRemSleep:: @ 08DDFDA8
 sfxTaskComplete_track0:: @ 08DDFDB4
 	.incbin "baserom.gba", 0xDDFDB4, 0x0000020
 sfxTaskComplete:: @ 08DDFDD4
+.ifdef EU
+	sound_header 1 0 0xc0 0 gUnk_08A104E4 sfxTaskComplete_track0
+.else
 	sound_header 1 0 0xb0 0 gUnk_08A104E4 sfxTaskComplete_track0
+.endif
 
 sfxKeyAppear_track0:: @ 08DDFDE0
 	.incbin "baserom.gba", 0xDDFDE0, 0x0000034
@@ -7685,7 +7836,12 @@ sfxCF:: @ 08DDFE30
 	sound_header 1 0 0x48 0 gUnk_08A10514 sfxCF_track0
 
 sfxD0_track0:: @ 08DDFE3C
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0xEEB3D4, 0x0000010
+.else
 	.incbin "baserom.gba", 0xDDFE3C, 0x0000010
+.endif
 sfxD0:: @ 08DDFE4C
 	sound_header 1 0 0x48 0 gUnk_08A10520 sfxD0_track0
 

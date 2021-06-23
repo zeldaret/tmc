@@ -1141,6 +1141,7 @@ _0803D918:
 	ldrh r0, [r4, #0x32]
 	adds r2, r2, r0
 	strh r2, [r4, #0x32]
+.ifndef EU
 	adds r2, r4, #0
 	adds r2, #0x29
 	ldrb r1, [r2]
@@ -1150,6 +1151,7 @@ _0803D918:
 	movs r1, #2
 	orrs r0, r1
 	strb r0, [r2]
+.endif
 _0803D968:
 	pop {r4, r5, pc}
 	.align 2, 0

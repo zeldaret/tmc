@@ -9,6 +9,49 @@
 
 	thumb_func_start Enemy50
 Enemy50: @ 0x08040B2C
+.ifdef EU
+	push {r4, r5, lr}
+	adds r5, r0, #0
+	ldrb r0, [r5, #0xa]
+	cmp r0, #1
+	bne _08040A5E
+	ldr r0, [r5, #0x50]
+	ldr r0, [r0, #4]
+	cmp r0, #0
+	bne _08040A5E
+	ldrb r0, [r5, #0xc]
+	subs r0, #8
+	lsls r0, r0, #0x18
+	lsrs r0, r0, #0x18
+	cmp r0, #1
+	bhi _08040A50
+	adds r0, r5, #0
+	bl sub_0803F6EC
+_08040A50:
+	adds r0, r5, #0
+	movs r1, #2
+	movs r2, #0
+	bl CreateFx
+	bl DeleteThisEntity
+_08040A5E:
+	ldr r4, _08040A84 @ =gUnk_080D0DC4
+	adds r0, r5, #0
+	bl GetNextFunction
+	lsls r0, r0, #2
+	adds r0, r0, r4
+	ldr r1, [r0]
+	adds r0, r5, #0
+	bl _call_via_r1
+	movs r3, #0x10
+	rsbs r3, r3, #0
+	adds r0, r5, #0
+	movs r1, #0
+	movs r2, #1
+	bl SetChildOffset
+	pop {r4, r5, pc}
+	.align 2, 0
+_08040A84: .4byte gUnk_080D0DC4
+.else
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xa]
@@ -48,6 +91,7 @@ _08040B5C:
 	pop {r4, r5, pc}
 	.align 2, 0
 _08040B80: .4byte gUnk_080D0DC4
+.endif
 
 	thumb_func_start sub_08040B84
 sub_08040B84: @ 0x08040B84
@@ -1042,6 +1086,7 @@ _080412C8:
 	.align 2, 0
 _080412FC: .4byte gRoomControls
 
+.ifndef EU
 	thumb_func_start sub_08041300
 sub_08041300: @ 0x08041300
 	push {lr}
@@ -1071,3 +1116,4 @@ _0804132A:
 _0804132C:
 	pop {pc}
 	.align 2, 0
+.endif

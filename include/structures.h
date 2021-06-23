@@ -30,6 +30,8 @@ typedef struct {
     s32 signature;
     u8 field_0x4;
     u8 listenForKeyPresses;
+    u8 field_0x6;
+    u8 field_0x7;
 } struct_02000010;
 
 extern struct_02000010 gUnk_02000010;

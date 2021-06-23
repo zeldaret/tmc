@@ -7,9 +7,25 @@ script_080098D8:
 script_080098E0:
 	CheckInventory1 0x003c
 	JumpIfNot script_080098E0
-	CheckLocalFlag 0x005d
+.ifdef JP
+	CheckLocalFlag 0x5b
+.else
+.ifdef EU
+	CheckLocalFlag 0x5b
+.else
+	CheckLocalFlag 0x5d
+.endif
+.endif
 	JumpIf script_08009910
+.ifdef JP
+	SetLocalFlag 0x005b
+.else
+.ifdef EU
+	SetLocalFlag 0x005b
+.else
 	SetLocalFlag 0x005d
+.endif
+.endif
 	_0807E864 
 	Call sub_0807F9A4
 	Call sub_0807DF28

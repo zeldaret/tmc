@@ -1004,7 +1004,15 @@ _08042C92:
 _08042C9E:
 	ldrh r0, [r3, #0x20]
 	adds r0, r1, r0
+.ifdef JP
+	subs r0, #0x20
+.else
+.ifdef EU
+	subs r0, #0x20
+.else
 	subs r0, #0x40
+.endif
+.endif
 	cmp r0, r5
 	bge _08042CAA
 	adds r5, r0, #0
@@ -3156,6 +3164,44 @@ _08043C8C:
 
 	thumb_func_start sub_08043C98
 sub_08043C98: @ 0x08043C98
+.ifdef JP
+	push {lr}
+	adds r1, r0, #0
+	ldr r0, [r1, #0x64]
+	ldr r0, [r0, #0xc]
+	adds r0, #0x41
+	ldrb r0, [r0]
+	cmp r0, #0x9d
+	beq _08043BC4JP
+	movs r0, #0
+	b _08043BCC
+_08043BC4JP:
+	adds r0, r1, #0
+	bl sub_08043D08
+	movs r0, #1
+_08043BCC:
+	pop {pc}
+	.align 2, 0
+.else
+.ifdef EU
+	push {lr}
+	adds r1, r0, #0
+	ldr r0, [r1, #0x64]
+	ldr r0, [r0, #0xc]
+	adds r0, #0x41
+	ldrb r0, [r0]
+	cmp r0, #0x9d
+	beq _08043AD8
+	movs r0, #0
+	b _08043AE0
+_08043AD8:
+	adds r0, r1, #0
+	bl sub_08043D08
+	movs r0, #1
+_08043AE0:
+	pop {pc}
+	.align 2, 0
+.else
 	push {lr}
 	adds r3, r0, #0
 	ldr r0, [r3, #0x64]
@@ -3187,6 +3233,8 @@ _08043CD0:
 	movs r0, #0
 _08043CD2:
 	pop {pc}
+.endif
+.endif
 
 	thumb_func_start sub_08043CD4
 sub_08043CD4: @ 0x08043CD4

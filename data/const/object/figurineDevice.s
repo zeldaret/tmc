@@ -18,10 +18,20 @@ gUnk_08120AAC:: @ 08120AAC
 	.incbin "baserom.gba", 0x120AAC, 0x0000008
 
 gUnk_08120AB4:: @ 08120AB4
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x1201FC, 0x0000018
+.else
 	.incbin "baserom.gba", 0x120AB4, 0x0000018
+.endif
 
 gUnk_08120ACC:: @ 08120ACC
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x120214, 0x0000018
+.else
 	.incbin "baserom.gba", 0x120ACC, 0x0000018
+.endif
 
 gUnk_08120AE4:: @ 08120AE4
 	.incbin "baserom.gba", 0x120AE4, 0x0000004

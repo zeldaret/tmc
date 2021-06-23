@@ -39,11 +39,16 @@ SCRIPT_START script_08008BC0
 	_0807EB44 0x0004
 	DoPostScriptAction 0x000a
 	_0807E930 0x0000
+.ifdef EU
+	SetGlobalFlag 0x0061
+.endif
 	EndBlock 
 script_08008BD2:
 	_0807E944 
 	_0807E864 
+.ifndef EU
 	SetGlobalFlag 0x0061
+.endif
 	_0807E930 0x0004
 	Call sub_0807F2D4
 	_0807EA94 

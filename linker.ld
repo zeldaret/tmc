@@ -32,6 +32,7 @@ SECTIONS {
         . = 0x00001A40; gBG3Buffer = .;
         . = 0x00001B40; gUnk_02001B40 = .;
         . = 0x00002A40; gSave = .;
+        . = 0x00002A40; gUnk_02002A40 = .;
         . = 0x00002AA0; gUnk_02002AA0 = .;
         . = 0x00002AC0; gUnk_02002AC0 = .;
         . = 0x00002AC8; gUnk_02002AC8 = .;
@@ -68,6 +69,7 @@ SECTIONS {
         . = 0x000176A0; gPaletteBuffer = .;
         . = 0x000176E0; gUnk_020176E0 = .;
         . = 0x00017700; gUnk_02017700 = .;
+        . = 0x00017760; gUnk_02017760 = .;
         . = 0x00017830; gUnk_02017830 = .;
         . = 0x000178E0; gUnk_020178E0 = .;
         . = 0x00017AA0; gUnk_02017AA0 = .;
@@ -151,12 +153,20 @@ SECTIONS {
         . = 0x000369F0; gUnk_020369F0 = .;
         . = 0x00036A38; gCurrentWindow = .;
         . = 0x00036A40; gNewWindow = .;
+#ifdef DEMO
+        . = 0x00036A50; gUnk_02036A58 = .;
+        . = 0x00036AD0; gUnk_02036AD8 = .;
+        . = 0x00036BB0; gUnk_02036BB8 = .;
+        . = 0x00036BB8; gMPlayTracks = .;
+        . = 0x00038558; gUnk_02038560 = .;
+#else
         . = 0x00036A50; gEEPROMConfig = .;
         . = 0x00036A58; gUnk_02036A58 = .;
-        . = 0x00036AD8; gUnk_02036AD8 = .;
+        . = 0x00036AD8; gUnk_02036AD8 = .; 
         . = 0x00036BB8; gUnk_02036BB8 = .;
         . = 0x00036BC0; gMPlayTracks = .;
         . = 0x00038560; gUnk_02038560 = .;
+#endif
         . = 0x00040000;
     } >ewram
 
@@ -184,6 +194,7 @@ SECTIONS {
         . = 0x00001010; gOamCmd = .;
         . = 0x00001020; gUnk_03001020 = .;
         . = 0x000010A0; gScreenTransition = .;
+        . = 0x000010A0; gUnk_030010A0 = .;
         . = 0x000010AC; gUnk_030010AC = .;
         . = 0x000010EC; gUnk_030010EC = .;
         . = 0x0000110C; gUnk_0300110C = .;
@@ -272,12 +283,25 @@ SECTIONS {
         . = 0x00005FF0; gUnk_03005FF0 = .;
         . = 0x000060F0; gUnk_030060F0 = .;
         . = 0x00006164; gUnk_03006164 = .;
+#ifdef EU
+        . = 0x000065AC; gUnk_03006580 = .;
+        . = 0x000065C8; gUnk_0300659C = .;
+        . = 0x0000689C; gUnk_0300689C = .;
+        . = 0x000068F0; gUnk_030068F0 = .;
+        . = 0x00006954; gUnk_03006954 = .;
+        . = 0x000069AC; gUnk_030067E4 = .;
+        . = 0x00006A94; gUnk_030068CC = .;
+        . = 0x00006B14; gUnk_0300694C = .;
+        . = 0x00006B24; gUnk_0300695C = .;
+        . = 0x00006C14; gUnk_03006C14 = .;
+#else
         . = 0x00006580; gUnk_03006580 = .;
         . = 0x0000659C; gUnk_0300659C = .;
         . = 0x000067E4; gUnk_030067E4 = .;
         . = 0x000068CC; gUnk_030068CC = .;
         . = 0x0000694C; gUnk_0300694C = .;
         . = 0x0000695C; gUnk_0300695C = .;
+#endif
         . = 0x00007F00; gUnk_03007F00 = .;
         . = 0x00007FA0; gUnk_03007FA0 = .;
         . = 0x00007FFA; gUnk_03007FFA = .;
@@ -897,6 +921,9 @@ SECTIONS {
         asm/code_080A29BC.o(.text);
         asm/playerItem/playerItemShield.o(.text);
         asm/playerItem/playerItem15.o(.text);
+#ifdef DEMO
+        src/demoScreen.o(.text);
+#endif
         src/audio.o(.text);
         asm/code_080A3480.o(.text);
         src/sub_080A3B84.o(.text);
@@ -1629,6 +1656,9 @@ data/const/object/object1D.o(.rodata);
         data/data_08125104.o(.rodata);
         data/const/playerItem/playerItemShield.o(.rodata);
         data/const/playerItem/playerItem15.o(.rodata);
+#ifdef DEMO
+    data/const/demoScreen.o(.rodata);
+#endif
         data/data_08127280.o(.rodata);
         data/const/playerItem/playerItemSword.o(.rodata);
         data/data_08129320.o(.rodata);

@@ -8,7 +8,15 @@ SCRIPT_START script_08012D70
 	WaitForSomething2 0x00000001
 	_0807EB28 0x132d
 	_0807EA94 
+.ifdef JP
+	SetLocalFlag 0x0015
+.else
+.ifdef EU
+	SetLocalFlag 0x0015
+.else
 	SetLocalFlag 0x0014
+.endif
+.endif
 	Call sub_0807DF50
 	_0807E878 
 	DoPostScriptAction 0x0006

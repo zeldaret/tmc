@@ -61,6 +61,11 @@ sub_08081854: @ 0x08081854
 	ands r0, r1
 	strb r0, [r2]
 	strb r3, [r4, #0x16]
+.ifdef EU
+	adds r0, r4, #0x0
+	movs r1, #0x6
+	bl sub_0805E3A0
+.endif
 	str r4, [r4, #0x54]
 	adds r0, r4, #0
 	bl sub_08081A5C

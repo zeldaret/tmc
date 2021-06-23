@@ -25,9 +25,13 @@ void Phonograph(Entity* this) {
 ASM_FUNC("asm/non_matching/phonograph/sub_0806E964.inc",
          void sub_0806E964(Entity* this, ScriptExecutionContext* context))
 
+#ifdef EU
+ASM_FUNC("asm/non_matching/eu/sub_0806EABC.inc", void sub_0806EABC(Entity* this, u32 param))
+#else
 void sub_0806EABC(Entity* this, u32 param) {
     sub_08050384();
     sub_08057044(param, &gUnk_020227E8, 0x202020);
     sub_0805F46C(0x3302, &gUnk_081146B8);
     gScreen.bg.bg0Updated = 1;
 }
+#endif

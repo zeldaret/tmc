@@ -2,6 +2,15 @@ SCRIPT_START script_08011128
 	BeginBlock 
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
+.ifdef JP
+	_0807E9D4 
+	DoPostScriptAction 0x000a
+.else
+.ifdef EU
+	_0807E9D4 
+	DoPostScriptAction 0x000a
+.endif
+.endif
 	EndBlock 
 script_08011134:
 	CheckPlayerInRegion 0x01f8, 0x0048, 0x1040
@@ -35,3 +44,10 @@ script_08011134:
 	_0807E5F8 0x00000008
 	DoPostScriptAction 0x0006
 SCRIPT_END
+.ifdef JP
+	.2byte 0x0000
+.else
+.ifdef EU
+	.2byte 0x0000
+.endif
+.endif

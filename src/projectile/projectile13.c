@@ -123,6 +123,9 @@ void sub_080A9FD0(Entity* this) {
     }
 }
 
+#ifdef EU
+ASM_FUNC("asm/non_matching/eu/sub_080AA044.inc", void sub_080AA044(Entity* this))
+#else
 void sub_080AA044(Entity* this) {
     u32 uVar1;
     s8* tmp;
@@ -163,6 +166,7 @@ void sub_080AA044(Entity* this) {
         }
     }
 }
+#endif
 
 void sub_080AA110(Entity* this) {
     s32 iVar1;

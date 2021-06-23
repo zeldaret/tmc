@@ -538,9 +538,11 @@ _080592C8:
 	bl sub_080592EC
 	adds r0, r4, #0
 	bl sub_0805930C
+.ifndef EU
 	movs r0, #0xb7
 	lsls r0, r0, #1
 	bl SoundReq
+.endif
 	bl DeleteThisEntity
 _080592EA:
 	pop {r4, pc}
@@ -569,7 +571,11 @@ sub_0805930C: @ 0x0805930C
 	adds r4, r0, #0
 	movs r0, #0xf
 	movs r1, #0x43
+.ifdef EU
+	movs r2, #0x0
+.else
 	movs r2, #0x40
+.endif
 	bl CreateObject
 	adds r2, r0, #0
 	cmp r2, #0
@@ -799,6 +805,7 @@ _080594D2:
 _080594D4: .4byte gUnk_08108380
 _080594D8: .4byte gPlayerEntity
 
+.ifndef EU
 	thumb_func_start sub_080594DC
 sub_080594DC: @ 0x080594DC
 	push {r4, lr}
@@ -850,9 +857,12 @@ _08059540:
 	pop {r4, pc}
 	.align 2, 0
 _08059544: .4byte gArea
+.endif
+
 
 	thumb_func_start sub_08059548
 sub_08059548: @ 0x08059548
+.ifdef USA
 	push {lr}
 	movs r1, #6
 	bl sub_0805E3A0
@@ -871,3 +881,25 @@ _0805955C:
 	.align 2, 0
 _08059568: .4byte gPlayerEntity
 _0805956C: .4byte gInput
+.else
+.ifdef DEMO @ TODO deduplicate
+	push {lr}
+	movs r1, #6
+	bl sub_0805E3A0
+	ldr r0, _08059568 @ =gPlayerEntity
+	ldrb r0, [r0, #0xc]
+	cmp r0, #0x16
+	bne _0805955C
+	bl DeleteThisEntity
+_0805955C:
+	ldr r2, _0805956C @ =gInput
+	ldrh r1, [r2]
+	movs r0, #4
+	orrs r0, r1
+	strh r0, [r2]
+	pop {pc}
+	.align 2, 0
+_08059568: .4byte gPlayerEntity
+_0805956C: .4byte gInput
+.endif
+.endif

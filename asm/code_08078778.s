@@ -312,7 +312,15 @@ sub_08078AA8: @ 0x08078AA8
 	strb r2, [r3, #0xc]
 	ldr r2, _08078ABC @ =gScreenTransition
 	strh r0, [r2, #0x36]
+.ifdef JP
+	adds r2, #0x34
+.else
+.ifdef EU
+	adds r2, #0x34
+.else
 	adds r2, #0x35
+.endif
+.endif
 	strb r1, [r2]
 	bx lr
 	.align 2, 0
@@ -5636,9 +5644,11 @@ sub_0807B264: @ 0x0807B264
 	ldrb r0, [r1]
 	adds r0, #1
 	strb r0, [r1]
+.ifndef EU
 	movs r0, #0xa9
 	lsls r0, r0, #1
 	bl SoundReq
+.endif
 _0807B2B0:
 	pop {r4, pc}
 	.align 2, 0

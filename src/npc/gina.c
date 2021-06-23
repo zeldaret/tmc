@@ -29,7 +29,9 @@ void Gina(Entity* this) {
         case 2:
             if (UpdateFuseInteraction(this) != 0) {
                 this->action = 1;
+#if defined(USA) || defined(DEMO)
                 SetLocalFlag(0x88);
+#endif
             }
             break;
     }

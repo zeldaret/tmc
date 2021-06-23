@@ -19,7 +19,16 @@ gUnk_080B2A70:: @ 080B2A70
 	.4byte sub_08016B30
 	.4byte sub_08016B30
 	.4byte sub_08016B30
+
+
+@ TODO contains some pointers to iwram
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0B21D0, 0x0000230
+.else
 	.incbin "baserom.gba", 0x0B2AA8, 0x0000230
+.endif
+
+
 
 gUnk_080B2CD8:: @ 080B2CD8
 gUnk_080B2CD8_2:: @ 080B2CD8

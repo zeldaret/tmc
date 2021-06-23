@@ -199,10 +199,18 @@ sub_08087640: @ 0x08087640
 	ldr r0, _08087688 @ =gRoomControls
 	ldrh r1, [r0, #4]
 	ldr r0, _0808768C @ =0x00000403
+.ifdef EU
+	movs r2, #0x17
+.else
 	movs r2, #0x16
+.endif
 	cmp r1, r0
 	bne _08087676
+.ifdef EU
+	movs r2, #0x18
+.else
 	movs r2, #0x17
+.endif
 _08087676:
 	adds r0, r4, #0
 	adds r1, r2, #0

@@ -68,7 +68,9 @@ void sub_080AB26C(Entity* this) {
         this->action = 1;
         this->actionDelay = 5;
         this->frameIndex = 0;
+#ifndef EU
         this->spritePriority.b1 = 0;
+#endif
     }
     if (--this->actionDelay == 0) {
         DeleteThisEntity();

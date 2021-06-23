@@ -274,7 +274,11 @@ void sub_080297F0(Entity* this) {
     this->spriteSettings.b.draw = TRUE;
     this->damageType = 0x8e;
     sub_080AE068(this);
+#ifdef EU
+    this->spriteIndex = 0x142;
+#else
     this->spriteIndex = 0x143;
+#endif
     temp = gUnk_080CCC47[this->type];
     this->palette.b.b0 = temp;
     this->spriteVramOffset = 9;

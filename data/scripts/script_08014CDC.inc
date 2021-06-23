@@ -53,7 +53,15 @@ script_08014D96:
 	TextboxNoOverlap 0x1014
 	_0807EA94 
 	_0807EC64 0x0018
+.ifdef JP
+	SetLocalFlag 0x006b
+.else
+.ifdef EU
+	SetLocalFlag 0x006b
+.else
 	SetLocalFlag 0x006d
+.endif
+.endif
 	Call sub_0807DF50
 	_0807E878 
 	DoPostScriptAction 0x0006

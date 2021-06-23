@@ -1,4 +1,155 @@
 	.syntax unified
+
+.ifdef EU
+	push {r4, r5, r6, r7, lr}
+	mov r7, r8
+	push {r7}
+	mov r8, r0
+	adds r2, r1, #0
+	ldr r4, _0806E3F8 @ =gInput
+	ldrh r1, [r4, #2]
+	movs r0, #2
+	ands r0, r1
+	cmp r0, #0
+	beq _0806E3FC
+	bl sub_08050384
+	b _0806E4EA
+	.align 2, 0
+_0806E3F8: .4byte gInput
+_0806E3FC:
+	ldrb r0, [r2, #0x18]
+	adds r1, r0, #0
+	mov r6, r8
+	adds r6, #0x6c
+	cmp r1, #0
+	bne _0806E414
+	adds r0, #1
+	strb r0, [r2, #0x18]
+	strh r1, [r6]
+	mov r0, r8
+	bl sub_0806EABC
+_0806E414:
+	ldrh r2, [r4, #4]
+	movs r0, #0xc0
+	ands r0, r2
+	cmp r0, #0
+	beq _0806E466
+	mov r1, r8
+	adds r1, #0x68
+	movs r0, #0
+	ldrsh r4, [r1, r0]
+	movs r0, #0x40
+	ands r0, r2
+	adds r7, r1, #0
+	cmp r0, #0
+	beq _0806E434
+	adds r4, #1
+	b _0806E436
+_0806E434:
+	subs r4, #1
+_0806E436:
+	cmp r4, #0
+	bgt _0806E43C
+	movs r4, #1
+_0806E43C:
+	movs r5, #0x1c
+	movs r0, #0x55
+	bl CheckGlobalFlag
+	cmp r0, #0
+	beq _0806E44A
+	movs r5, #0x34
+_0806E44A:
+	cmp r4, r5
+	ble _0806E450
+	adds r4, r5, #0
+_0806E450:
+	strh r4, [r7]
+	mov r0, r8
+	bl sub_0806EABC
+	ldrh r1, [r6]
+	movs r2, #0
+	ldrsh r0, [r6, r2]
+	cmp r0, #0
+	ble _0806E466
+	subs r0, r1, #1
+	strh r0, [r6]
+_0806E466:
+	ldr r0, _0806E4B4 @ =gInput
+	ldrh r1, [r0, #2]
+	movs r0, #1
+	ands r0, r1
+	cmp r0, #0
+	beq _0806E4C6
+	mov r5, r8
+	adds r5, #0x68
+	mov r7, r8
+	adds r7, #0x6a
+	movs r0, #0
+	ldrsh r1, [r5, r0]
+	movs r2, #0
+	ldrsh r0, [r7, r2]
+	cmp r1, r0
+	bne _0806E48E
+	movs r1, #0
+	ldrsh r0, [r6, r1]
+	cmp r0, #0
+	bne _0806E4BC
+_0806E48E:
+	ldr r4, _0806E4B8 @ =gUnk_081145E4
+	movs r2, #0
+	ldrsh r0, [r5, r2]
+	lsls r0, r0, #2
+	adds r0, r0, r4
+	movs r1, #0
+	ldrsh r0, [r0, r1]
+	bl SoundReq
+	ldrh r0, [r5]
+	strh r0, [r7]
+	movs r2, #0
+	ldrsh r0, [r5, r2]
+	lsls r0, r0, #2
+	adds r4, #2
+	adds r0, r0, r4
+	ldrh r0, [r0]
+	strh r0, [r6]
+	b _0806E4C6
+	.align 2, 0
+_0806E4B4: .4byte gInput
+_0806E4B8: .4byte gUnk_081145E4
+_0806E4BC:
+	ldr r0, _0806E4F0 @ =0x80010000
+	bl SoundReq
+	movs r0, #0
+	strh r0, [r7]
+_0806E4C6:
+	ldrh r1, [r6]
+	movs r2, #0
+	ldrsh r0, [r6, r2]
+	cmp r0, #0
+	ble _0806E4E4
+	subs r0, r1, #1
+	movs r1, #0
+	strh r0, [r6]
+	lsls r0, r0, #0x10
+	cmp r0, #0
+	bgt _0806E4E4
+	mov r0, r8
+	adds r0, #0x6a
+	strh r1, [r0]
+	strh r1, [r6]
+_0806E4E4:
+	ldr r1, _0806E4F4 @ =gActiveScriptInfo
+	movs r0, #0
+	strb r0, [r1, #6]
+_0806E4EA:
+	pop {r3}
+	mov r8, r3
+	pop {r4, r5, r6, r7, pc}
+	.align 2, 0
+_0806E4F0: .4byte 0x80010000
+_0806E4F4: .4byte gActiveScriptInfo
+
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sb
 	mov r6, r8
@@ -179,4 +330,5 @@ _0806EAAA:
 	.align 2, 0
 _0806EAB4: .4byte 0x80010000
 _0806EAB8: .4byte gActiveScriptInfo
+.endif
 	.syntax divided

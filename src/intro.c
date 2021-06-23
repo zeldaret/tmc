@@ -104,6 +104,22 @@ static void HandleNintendoCapcomLogos(void) {
         gScreen.bg.bg1Updated = 1;
         DoFade(6, 8);
         advance = ADVANCE_NONE;
+#ifdef DEMO
+        if (gUnk_02000010.listenForKeyPresses == 0) {
+            if ((gInput.heldKeys & 0x204) == 0x204) { // TODO
+                gUnk_02000010.field_0x7 = 1;
+                SoundReq(0x73);
+            } else {
+                if ((gInput.heldKeys & 0x104) == 0x104) { // TODO
+                    gUnk_02000010.field_0x7 = 2;
+                    SoundReq(0xcd);
+                } else {
+                    gUnk_02000010.field_0x7 = 0;
+                }
+            }
+        }
+#endif
+
     } else {
         if (advance == ADVANCE_TIMER_EXPIRED) {
             advance = ADVANCE_KEY_PRESSED;
@@ -174,11 +190,17 @@ static void HandleTitlescreen(void) {
             }
             break;
         case 2:
+#if defined(JP) || defined(EU)
+            if (GetAdvanceState()) {
+#else
             if (--gIntroState.timer == 0) {
+#endif
                 gIntroState.timer = 3600;
                 gIntroState.state++;
             }
+#if defined(USA) || defined(DEMO)
             UpdatePressStartIcon();
+#endif
             break;
         default:
             advance = GetAdvanceState();
@@ -191,11 +213,31 @@ static void HandleTitlescreen(void) {
                 AdvanceIntroSequence(advance);
                 SoundReq(SONG_VOL_FADE_OUT);
             }
-            UpdatePressStartIcon();
+#ifdef JP
+            gOamCmd._4 = 0;
+            gOamCmd._6 = 0;
+            gOamCmd._8 = 0xE020;
+            gOamCmd.x = 120;
+            gOamCmd.y = 152;
+            sub_080ADA14(511, 1);
+#elif defined(EU)
+            gOamCmd._4 = 0;
+            gOamCmd._6 = 0;
+            gOamCmd._8 = 0xE020;
+            gOamCmd.x = 120;
+            gOamCmd.y = 152;
+            sub_080ADA14(510, 1);
+#else
+        UpdatePressStartIcon();
+#endif
             if ((gIntroState.timer & 0x20) == 0) {
                 gOamCmd._8 = 0xe000;
                 gOamCmd.y = 0x84;
+#ifdef EU
+                sub_080ADA14(0x1fe, 0);
+#else
                 sub_080ADA14(0x1ff, 0);
+#endif
             }
     }
     if (gIntroState.gameLanguage != gUnk_02000000->gameLanguage) {
@@ -207,6 +249,7 @@ static void HandleTitlescreen(void) {
     sub_080AD9B0();
 }
 
+#if defined(USA) || defined(DEMO)
 static void UpdatePressStartIcon(void) {
     gOamCmd._4 = 0;
     gOamCmd._6 = 0;
@@ -215,6 +258,7 @@ static void UpdatePressStartIcon(void) {
     gOamCmd.y = 152;
     sub_080ADA14(511, 1);
 }
+#endif
 
 static void UpdateSwordBgAffineData(void) {
     struct BgAffineSrcData aff;
@@ -251,7 +295,11 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
             if (!gFadeControl.active) {
                 gFadeControl.field_0x4 = -1;
                 gIntroState.subState++;
+#if defined(JP) || defined(EU)
+                gIntroState.timer = 120;
+#else
                 gIntroState.timer = 90;
+#endif
                 pEVar2 = CreateObject(OBJECT_B4, 0, 0);
                 if (pEVar2 != NULL) {
                     pEVar2->x.HALF.HI = 0;
@@ -262,7 +310,11 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
         case 2:
             if (GetAdvanceState() != ADVANCE_NONE) {
                 gIntroState.state++;
+#if defined(JP) || defined(EU)
+                gIntroState.timer = 30;
+#else
                 gIntroState.timer = 60;
+#endif
             }
     }
 }
@@ -288,7 +340,11 @@ static void HandleTitlescreenAnimationIntro(void) {
             break;
         case 2:
             if (--gIntroState.timer == 0) {
+#if defined(JP) || defined(EU)
+                gIntroState.timer = 360;
+#else
                 gIntroState.timer = 300;
+#endif
                 gIntroState.subState++;
                 CreateObject(OBJECT_BD, 0, 0);
                 DoFade(6, 16);
@@ -298,7 +354,11 @@ static void HandleTitlescreenAnimationIntro(void) {
         default:
             if (!gFadeControl.active && GetAdvanceState() != ADVANCE_NONE) {
                 gIntroState.state++;
+#if defined(JP) || defined(EU)
+                gIntroState.timer = 30;
+#else
                 gIntroState.timer = 60;
+#endif
             }
             break;
     }

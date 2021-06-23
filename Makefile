@@ -5,17 +5,39 @@ COMPARE ?= 0
 CPP := $(CC) -E
 LD := $(DEVKITARM)/bin/arm-none-eabi-ld
 
-GAME_VERSION := THEMINISHCAP
+GAME_VERSION ?= USA
 REVISION := 0
 GAME_LANGUAGE := ENGLISH
 
 TITLE       := GBAZELDA MC
-GAME_CODE   := BZME
 MAKER_CODE  := 01
+
+ifeq ($(GAME_VERSION), USA)
+GAME_CODE   := BZME
+BUILD_NAME  := tmc
+else
+ifeq ($(GAME_VERSION), DEMO)
+GAME_CODE   := BZHE
+BUILD_NAME  := tmc_demo
+else
+ifeq ($(GAME_VERSION), JP)
+GAME_CODE   := BZMJ
+BUILD_NAME  := tmc_jp
+GAME_LANGUAGE := JAPANESE
+else
+ifeq ($(GAME_VERSION), EU)
+GAME_CODE   := BZMP
+BUILD_NAME  := tmc_eu
+else
+$(error unknown version $(GAME_VERSION))
+endif
+endif
+endif
+endif
 
 SHELL := /bin/bash -o pipefail
 
-BUILD_NAME  := tmc
+
 ROM := $(BUILD_NAME).gba
 OBJ_DIR := build/$(BUILD_NAME)
 
@@ -120,11 +142,11 @@ MAKEFLAGS += --no-print-directory
 AUTO_GEN_TARGETS :=
 
 all: $(ROM)
-	@$(SHA1) tmc.sha1
+	@$(SHA1) $(BUILD_NAME).sha1
 
 # kept for backwards compat
 compare: $(ROM)
-	@$(SHA1) tmc.sha1
+	@$(SHA1) $(BUILD_NAME).sha1
 
 setup: $(TOOLDIRS)
 
@@ -143,7 +165,10 @@ clean-tools:
 clean: mostlyclean clean-tools
 
 tidy:
-	rm -f $(ROM) $(ELF) $(MAP)
+	rm -f tmc.gba tmc.elf tmc.map
+	rm -f tmc_demo.gba tmc_demo.elf tmc_demo.map
+	rm -f tmc_jp.gba tmc_jp.elf tmc_jp.map
+	rm -f tmc_eu.gba tmc_eu.elf tmc_eu.map
 	rm -r build/*
 
 include graphics_file_rules.mk
@@ -165,6 +190,11 @@ sound/%.bin: sound/%.aif ; $(AIF) $< $@
 sound/songs/%.s: sound/songs/%.mid
 	cd $(@D) && ../../$(MID) $(<F)
 translations/USA.bin: translations/USA.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x499E0
+translations/English.bin: translations/English.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x488C0
+translations/French.bin: translations/French.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x47A90
+translations/German.bin: translations/German.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x42FC0
+translations/Spanish.bin: translations/Spanish.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x41930
+translations/Italian.bin: translations/Italian.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x438E0
 
 ifeq ($(NODEP),1)
 $(C_BUILDDIR)/%.o: c_dep :=
@@ -199,9 +229,54 @@ $(DATA_ASM_BUILDDIR)/%.o: $(DATA_ASM_SUBDIR)/%.s $$(data_dep)
 $(SONG_BUILDDIR)/%.o: $(SONG_SUBDIR)/%.s
 	$(AS) $(ASFLAGS) -I sound -o $@ $<
 
-$(ELF): $(OBJS) linker.ld
-	cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -n -T ../../linker.ld -o ../../$@ $(LIB)
+$(OBJ_DIR)/linker.ld: linker.ld
+	$(CPP) $(CPPFLAGS) -x c linker.ld | grep -v '^#' >$(OBJ_DIR)/linker.ld
+
+$(ELF): $(OBJS) $(OBJ_DIR)/linker.ld
+	cd $(OBJ_DIR) && $(LD) $(LDFLAGS) -n -T linker.ld -o ../../$@ $(LIB)
 	$(FIX) $@ -t"$(TITLE)" -c$(GAME_CODE) -m$(MAKER_CODE) -r$(REVISION) --silent
 
 $(ROM): $(ELF)
 	$(OBJCOPY) -O binary --gap-fill 0xFF --pad-to 0x9000000 $< $@
+
+usa: ; @$(MAKE) GAME_VERSION=USA
+demo: ; @$(MAKE) GAME_VERSION=DEMO
+jp: ; @$(MAKE) GAME_VERSION=JP
+eu: ; @$(MAKE) GAME_VERSION=EU
+
+ifeq ($(GAME_VERSION), USA)
+baserom.gba:
+	$(error "You need to provide a USA ROM as baserom.gba")
+.PHONY: baserom_demo.gba baserom_jp.gba baserom_eu.gba
+baserom_demo.gba:
+baserom_jp.gba:
+baserom_eu.gba:
+endif
+ifeq ($(GAME_VERSION), DEMO)
+baserom.gba:
+	$(error "You need to provide a USA ROM as baserom.gba")
+baserom_demo.gba:
+	$(error "You need to provide a DEMO ROM as baserom_demo.gba")
+.PHONY: baserom_jp.gba baserom_eu.gba
+baserom_jp.gba:
+baserom_eu.gba:
+endif
+ifeq ($(GAME_VERSION), JP)
+baserom.gba:
+	$(error "You need to provide a USA ROM as baserom.gba")
+baserom_jp.gba:
+	$(error "You need to provide a JP ROM as baserom_jp.gba")
+.PHONY: baserom_demo.gba baserom_eu.gba
+baserom_demo.gba:
+baserom_eu.gba:
+endif
+ifeq ($(GAME_VERSION), EU)
+baserom.gba:
+	$(error "You need to provide a USA ROM as baserom.gba")
+baserom_jp.gba:
+	$(error "You need to provide a JP ROM as baserom_jp.gba")
+baserom_eu.gba:
+	$(error "You need to provide a EU ROM as baserom_eu.gba")
+.PHONY: baserom_demo.gba
+baserom_demo.gba:
+endif

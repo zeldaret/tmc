@@ -630,7 +630,11 @@ _0809D6FE:
 CreateBird: @ 0x0809D700
 	push {r4, lr}
 	sub sp, #4
+.ifdef EU
+	bl sub_08052620 @ TODO correct function?
+.else
 	bl sub_08052654
+.endif
 	cmp r0, #0
 	beq _0809D732
 	movs r0, #0

@@ -63,7 +63,15 @@ script_08015888:
 	_0807EA94 
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
+.ifdef JP
+	SetLocalFlag 0x0089
+.else
+.ifdef EU
+	SetLocalFlag 0x0089
+.else
 	SetLocalFlag 0x008b
+.endif
+.endif
 	Call sub_08066FB8
 	Call sub_0807DF50
 	_0807E878 

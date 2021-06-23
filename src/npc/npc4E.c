@@ -105,19 +105,39 @@ void sub_0806DAD0(Entity* this) {
 void sub_0806DAE8(Entity* this) {
     switch (this->type - 1) {
         case 0:
+#if defined(JP) || defined(EU)
+            SetLocalFlag(0xeb);
+#else
             SetLocalFlag(0xee);
+#endif
             break;
         case 1:
+#if defined(JP) || defined(EU)
+            SetLocalFlag(0xec);
+#else
             SetLocalFlag(0xef);
+#endif
             break;
         case 2:
+#if defined(JP) || defined(EU)
+            SetLocalFlag(0xed);
+#else
             SetLocalFlag(0xf0);
+#endif
             break;
         case 3:
+#if defined(JP) || defined(EU)
+            SetLocalFlag(0xee);
+#else
             SetLocalFlag(0xf1);
+#endif
             break;
         case 4:
+#if defined(JP) || defined(EU)
+            SetLocalFlag(0xef);
+#else
             SetLocalFlag(0xf2);
+#endif
             break;
     }
 
@@ -127,8 +147,14 @@ void sub_0806DAE8(Entity* this) {
 void sub_0806DB44(Entity* this, ScriptExecutionContext* context) {
     context->condition = 0;
 
+#if defined(JP) || defined(EU)
+    if (CheckLocalFlag(0xeb) != 0 && CheckLocalFlag(0xec) != 0 && CheckLocalFlag(0xed) != 0 &&
+        CheckLocalFlag(0xee) != 0 && CheckLocalFlag(0xef) != 0) {
+#else
     if (CheckLocalFlag(0xee) != 0 && CheckLocalFlag(0xef) != 0 && CheckLocalFlag(0xf0) != 0 &&
         CheckLocalFlag(0xf1) != 0 && CheckLocalFlag(0xf2) != 0) {
+#endif
+
         context->condition = 1;
     }
 }
@@ -236,10 +262,14 @@ void NPC4E_Fusion(Entity* this) {
 const Hitbox gUnk_08114154 = { 0, -8, 0, 0, 0, 0, 24, 8 };
 
 const u8 gUnk_0811415C[] = { //
-    0x00, 0x00, 0x08, 0x08, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1a, 0x08, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x10, 0x04, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x0a,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x06, 0x04, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x08, 0x10, 0x04, 0x0e, 0x00,
-    0x00, 0x00, 0x00, 0xf8, 0x18, 0x08, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x58, 0x08, 0x0e, 0x00, 0x00, 0x00
+                             0x00, 0x00, 0x08, 0x08, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00, 0x1a, 0x08, 0x0e,
+                             0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x04, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x00,
+                             0x0a, 0x0a, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0a, 0x0a, 0x00, 0x00, 0x00,
+                             0x00, 0x00, 0x00, 0x06, 0x04, 0x0e, 0x00, 0x00, 0x00, 0x00, 0x08, 0x10, 0x04,
+                             0x0e, 0x00, 0x00, 0x00, 0x00, 0xf8, 0x18, 0x08, 0x0e, 0x00, 0x00, 0x00,
+#ifndef EU
+                             0x00, 0x00, 0x58, 0x08, 0x0e, 0x00, 0x00, 0x00
+#endif
 };
 extern ScreenTransitionData gUnk_0813AB6C;
 extern ScreenTransitionData gUnk_0813ABBC;
@@ -259,14 +289,16 @@ extern ScreenTransitionData gUnk_0813ACFC;
 
 // Array of pointers to ScreenTransitionData
 const ScreenTransitionData* const gUnk_081141A4[] = { //
-    &gUnk_0813AB6C, &gUnk_0813ABBC, &gUnk_0813ABE4, &gUnk_0813ABF8, &gUnk_0813AC0C, &gUnk_0813AC20,
-    &gUnk_0813AC5C, &gUnk_0813AC70, &gUnk_0813AC84, &gUnk_0813AC98, &gUnk_0813ACAC, &gUnk_0813ACC0,
-    &gUnk_0813ACD4, &gUnk_0813ACE8, &gUnk_0813AC5C, &gUnk_0813ACFC
+                                                      &gUnk_0813AB6C, &gUnk_0813ABBC, &gUnk_0813ABE4, &gUnk_0813ABF8,
+                                                      &gUnk_0813AC0C, &gUnk_0813AC20, &gUnk_0813AC5C, &gUnk_0813AC70,
+                                                      &gUnk_0813AC84, &gUnk_0813AC98, &gUnk_0813ACAC, &gUnk_0813ACC0,
+                                                      &gUnk_0813ACD4, &gUnk_0813ACE8, &gUnk_0813AC5C, &gUnk_0813ACFC
 };
 
 // param_2 for the call to sub_0808091C, same indices as gUnk_081141A4
 const u8 gUnk_081141E4[] = { //
-    0x02, 0x02, 0x04, 0x04, 0x02, 0x02, 0x09, 0x02, 0x02, 0x04, 0x02, 0x04, 0x04, 0x04, 0x04, 0x02
+                             0x02, 0x02, 0x04, 0x04, 0x02, 0x02, 0x09, 0x02,
+                             0x02, 0x04, 0x02, 0x04, 0x04, 0x04, 0x04, 0x02
 };
 
 // tiles that are changed?

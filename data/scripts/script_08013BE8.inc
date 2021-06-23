@@ -25,7 +25,9 @@ script_08013C32:
 	Call sub_0807F934
 	DoPostScriptAction 0x000a
 	CallWithArg sub_080962F8, 0x00000000
+.ifndef EU
 	CallWithArg sub_0807F8E8, 0x00000004
+.endif
 	EndBlock 
 script_08013C58:
 	EndBlock 
@@ -55,4 +57,4 @@ script_08013C98:
 	DoPostScriptAction 0x0008
 	DoPostScriptAction 0x0006
 SCRIPT_END
-	.2byte 0x0000
+	.align 2, 0

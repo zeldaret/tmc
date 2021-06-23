@@ -27,10 +27,12 @@ script_080143FA:
 	_0807EA94 
 	SetIntVariable 0x00000303
 	Call sub_0807F420
+.ifndef EU
 	Wait 0x001e
 	_0807EB8C 
 	TextboxNoOverlap 0x2c22
 	_0807EA94 
+.endif
 script_0801443E:
 	_0807E930 0x0004
 	_0807E908 0x0001

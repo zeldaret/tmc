@@ -12,15 +12,24 @@
 
 extern void HandleIntroScreen(void);
 extern void HandleChooseFileScreen(void);
+extern void HandleChooseDemoScreen(void);
 extern void HandleGameplayScreen(void);
 extern void HandleGameOverScreen(void);
 extern void HandleCreditsScreen(void);
 extern void HandleDebugTextScreen(void);
 
 static void (*const sScreenHandlers[])(void) = {
-    [SCREEN_INTRO] = HandleIntroScreen,       [SCREEN_CHOOSE_FILE] = HandleChooseFileScreen,
-    [SCREEN_GAMEPLAY] = HandleGameplayScreen, [SCREEN_GAME_OVER] = HandleGameOverScreen,
-    [SCREEN_CREDITS] = HandleCreditsScreen,   [SCREEN_DEBUG_TEXT] = HandleDebugTextScreen,
+    [SCREEN_INTRO] = HandleIntroScreen,
+#ifdef DEMO
+    [SCREEN_CHOOSE_FILE] = HandleChooseDemoScreen,
+#else
+    [SCREEN_CHOOSE_FILE] = HandleChooseFileScreen,
+#endif
+
+    [SCREEN_GAMEPLAY] = HandleGameplayScreen,
+    [SCREEN_GAME_OVER] = HandleGameOverScreen,
+    [SCREEN_CREDITS] = HandleCreditsScreen,
+    [SCREEN_DEBUG_TEXT] = HandleDebugTextScreen,
 };
 
 static void sub_080560B8(void);
@@ -158,7 +167,11 @@ const Defaults sDefaultSettings = {
     .saveFileId = 0,
     .messageSpeed = 1,
     .brightnessPref = 1,
+#ifdef EU
+    .gameLanguage = 2, // TODO in EU 2 is english?
+#else
     .gameLanguage = GAME_LANGUAGE,
+#endif
     .name = "LINK",
     ._e = 0,
     ._f = 0,
@@ -197,9 +210,16 @@ NONMATCH("asm/non_matching/sub_080560B8.inc", static void sub_080560B8(void)) {
 END_NONMATCH
 
 u32 sub_08056134(void) {
+#ifdef EU
+    if ((gUnk_02000000->signature != SIGNATURE) || (gUnk_02000000->saveFileId >= NUM_SAVE_SLOTS) ||
+        (gUnk_02000000->messageSpeed >= MAX_MSG_SPEED) || (gUnk_02000000->brightnessPref >= MAX_BRIGHTNESS) ||
+        (gUnk_02000000->gameLanguage <= GAME_LANGUAGE) || (gUnk_02000000->gameLanguage >= 7) ||
+        (gUnk_02000000->_e != 0))
+#else
     if ((gUnk_02000000->signature != SIGNATURE) || (gUnk_02000000->saveFileId >= NUM_SAVE_SLOTS) ||
         (gUnk_02000000->messageSpeed >= MAX_MSG_SPEED) || (gUnk_02000000->brightnessPref >= MAX_BRIGHTNESS) ||
         (gUnk_02000000->gameLanguage != GAME_LANGUAGE) || (gUnk_02000000->_e != 0))
+#endif
         return FALSE;
 
     return TRUE;

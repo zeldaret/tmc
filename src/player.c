@@ -99,7 +99,9 @@ void PlayerInit(Entity* this) {
     this->damageType = 0x79;
     this->hitbox = &gUnk_08114F88;
     this->spriteIndex = 1;
+#ifndef EU
     gPlayerState.field_0x8 = 0x100;
+#endif
     sub_0806FDA0(this);
     sub_080AE008(this, 1, 2);
     InitAnimationForceUpdate(this, 2);

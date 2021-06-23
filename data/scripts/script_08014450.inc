@@ -35,7 +35,13 @@ script_080144B8:
 	Jump script_080144C8
 script_080144C0:
 	SetLocalFlag 0x0093
+.ifdef USA
 	SetLocalFlag 0x00d3
+.else
+.ifdef DEMO
+	SetLocalFlag 0x00d3
+.endif
+.endif
 script_080144C8:
 	ModRupees 0xfff6
 	TextboxNoOverlapFollow 0x420c
@@ -54,6 +60,13 @@ script_080144FC:
 	_0807E878 
 	CheckRoomFlag 0x0000
 	JumpIfNot script_08014462
+.ifdef USA
 	_0807E9DC 
+.else
+.ifdef DEMO
+	_0807E9DC 
+.endif
+.endif
 SCRIPT_END
-	.2byte 0x0000
+	.align 2, 0
+

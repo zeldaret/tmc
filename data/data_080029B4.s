@@ -1226,10 +1226,12 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 	.4byte gUnk_08124BFC
+.ifndef EU
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 	.4byte gUnk_08124BFC
+.endif
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
@@ -1365,6 +1367,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
+
 gUnk_08003DD4:: @ 08003DD4
 	.4byte gUnk_080FDFD8
 	.4byte gUnk_0811B578

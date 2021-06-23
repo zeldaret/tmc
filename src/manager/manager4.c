@@ -96,6 +96,9 @@ END_NONMATCH
 
 extern void sub_08080930();
 
+#ifdef EU
+ASM_FUNC("asm/non_matching/eu/sub_08057A18.inc", void sub_08057A18(Manager* this, DiggingCaveEntrance* entr))
+#else
 void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
     u16 tmp;
     sub_0805E5A8();
@@ -118,6 +121,7 @@ void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
     sub_08080930(entr->unk_03);
     DeleteManager(this);
 }
+#endif
 
 DiggingCaveEntrance* sub_08057AA8(DiggingCaveEntrance* entr, int roomID) {
     for (; entr->unk_00 != 0xFFFF; entr++) {

@@ -34,7 +34,11 @@ void VaatiBall(Entity* this) {
             ModHealth(-2);
         }
 
+#ifdef EU
+        if (this->currentHealth < 0xfa) {
+#else
         if (this->currentHealth < 0xfd) {
+#endif
             this->spriteSettings.b.draw = 0;
             this->flags &= 0x7f;
             this->currentHealth = -1;

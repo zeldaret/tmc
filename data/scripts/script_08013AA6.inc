@@ -1,6 +1,12 @@
 SCRIPT_START script_08013AA6
 	Call sub_0807F3F8
 	Wait 0x003c
+.ifdef EU
+	_0807F0B4 0x0007
+	SetEntityPositionRelative 0x00e8, 0x00a8
+	CameraTargetEntity 
+	Wait 0x003c
+.endif
 	_0807E5F8 0x00000008
 	Wait 0x0078
 	CallWithArg sub_0805DE18, 0x00000001

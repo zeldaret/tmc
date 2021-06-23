@@ -728,6 +728,89 @@ sub_08094F98: @ 0x08094F98
 
 	thumb_func_start sub_08094FA8
 sub_08094FA8: @ 0x08094FA8
+.ifdef EU
+	push {r4, lr}
+	adds r4, r0, #0
+	ldrb r1, [r4, #0xc]
+	cmp r1, #1
+	beq _080948B4
+	cmp r1, #1
+	bgt _08094890
+	cmp r1, #0
+	beq _0809489A
+	b _08094912
+_08094890:
+	cmp r1, #2
+	beq _080948E0
+	cmp r1, #3
+	beq _080948FC
+	b _08094912
+_0809489A:
+	movs r0, #1
+	strb r0, [r4, #0xc]
+	strb r1, [r4, #0x1e]
+	adds r2, r4, #0
+	adds r2, #0x29
+	ldrb r0, [r2]
+	movs r1, #7
+	orrs r0, r1
+	strb r0, [r2]
+	adds r0, r4, #0
+	bl sub_080787B4
+	b _08094912
+_080948B4:
+	adds r1, r4, #0
+	adds r1, #0x39
+	movs r0, #0
+	ldrsb r0, [r1, r0]
+	cmp r0, #0
+	beq _08094912
+	movs r0, #0
+	strb r0, [r1]
+	movs r0, #2
+	strb r0, [r4, #0xc]
+	adds r0, r4, #0
+	bl sub_080788E0
+	ldr r0, _080948DC @ =gPlayerState
+	movs r1, #0xc
+	strb r1, [r0, #0xc]
+	adds r0, #0x38
+	movs r1, #0x36
+	strb r1, [r0]
+	b _08094912
+	.align 2, 0
+_080948DC: .4byte gPlayerState
+_080948E0:
+	movs r0, #0x36
+	bl GetInventoryValue
+	cmp r0, #2
+	bne _08094912
+	movs r0, #3
+	strb r0, [r4, #0xc]
+	ldrb r1, [r4, #0x18]
+	subs r0, #7
+	ands r0, r1
+	movs r1, #1
+	orrs r0, r1
+	strb r0, [r4, #0x18]
+	b _08094912
+_080948FC:
+	ldr r0, _08094914 @ =gPlayerEntity
+	ldrb r0, [r0, #0xc]
+	cmp r0, #0xc
+	beq _08094912
+	movs r0, #4
+	strb r0, [r4, #0xc]
+	movs r0, #0x1c
+	movs r1, #0
+	movs r2, #0
+	bl CreateItemEntity
+_08094912:
+	pop {r4, pc}
+	.align 2, 0
+_08094914: .4byte gPlayerEntity
+
+.else
 	push {r4, lr}
 	adds r4, r0, #0
 	ldrb r0, [r4, #0xc]
@@ -833,6 +916,7 @@ _08095070:
 	bl sub_08078A90
 _08095086:
 	pop {r4, pc}
+.endif
 
 	thumb_func_start sub_08095088
 sub_08095088: @ 0x08095088

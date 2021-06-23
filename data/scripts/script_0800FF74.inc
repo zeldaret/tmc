@@ -4,17 +4,39 @@ SCRIPT_START script_0800FF74
 	_0807E9D4 
 	CallWithArg sub_0807F3D8, 0x00000008
 	Call sub_080644A4
+.ifdef JP
+	ClearLocalFlag 0x00c4
+.else
+.ifndef EU
 	ClearLocalFlag 0x00c7
+.endif
+.endif
 	EndBlock 
 script_0800FF92:
 	EndBlock 
 	BeginBlock 
 	DoPostScriptAction 0x000a
+.ifdef JP
+	CheckLocalFlag 0x00cb
+.else
+.ifdef EU
+	CheckLocalFlag 0x00cb
+.else
 	CheckLocalFlag 0x00ce
+.endif
+.endif
 	JumpIf script_0800FFCC
 	DoPostScriptAction 0x000b
 	Call sub_08064198
+.ifdef JP
+	CheckLocalFlag 0x00c4
+.else
+.ifdef EU
+	CheckLocalFlag 0x00c4
+.else
 	CheckLocalFlag 0x00c7
+.endif
+.endif
 	JumpIfNot script_0800FFCC
 	Call sub_08064488
 	CheckPlayerInRegion2 0x4040
@@ -25,7 +47,15 @@ script_0800FFCC:
 	CheckEntityInteractType 
 	JumpIfNot script_0800FF92
 	EndBlock 
+.ifdef JP
+	SetLocalFlag 0x00c4
+.else
+.ifdef EU
+	SetLocalFlag 0x00c4
+.else
 	SetLocalFlag 0x00c7
+.endif
+.endif
 	_0807E864 
 	_0807EB74 
 	CallWithArg sub_0807F3D8, 0x00000008
@@ -35,7 +65,15 @@ script_0800FFCC:
 	_0807EA94 
 	Jump script_08010060
 script_0800FFF8:
+.ifdef JP
+	CheckLocalFlag 0x00cb
+.else
+.ifdef EU
+	CheckLocalFlag 0x00cb
+.else
 	CheckLocalFlag 0x00ce
+.endif
+.endif
 	JumpIfNot script_0801000A
 	TextboxNoOverlap 0x340b
 	_0807EA94 
@@ -60,7 +98,15 @@ script_08010014:
 	_0807EDD4 0x0018, 0x0108
 	_0807EB44 0x0002
 	CallWithArg sub_0807F3D8, 0x00000008
+.ifdef JP
+	SetLocalFlag 0x00cb
+.else
+.ifdef EU
+	SetLocalFlag 0x00cb
+.else
 	SetLocalFlag 0x00ce
+.endif
+.endif
 script_08010060:
 	Call sub_080644A4
 	CallWithArg sub_0807F5B0, 0x0000000a

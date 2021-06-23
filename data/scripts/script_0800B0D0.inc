@@ -28,7 +28,9 @@ script_0800B134:
 	CallWithArg sub_0806BC94, 0x00000004
 	Call sub_0807F650
 	_0807E9F0 
+.ifndef EU
 	JumpIfNot script_0800B160
+.endif
 	Call sub_0806BCC0
 script_0800B160:
 	Call sub_0807DF50

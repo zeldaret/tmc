@@ -299,7 +299,12 @@ gUnk_08001701:: @ 08001701
 	.incbin "baserom.gba", 0x001701, 0x0000001
 
 gUnk_08001702:: @ 08001702
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x00174A, 0x0000014
+.else
 	.incbin "baserom.gba", 0x001702, 0x0000014
+.endif
 
 gUnk_08001716:: @ 08001716
 	.incbin "baserom.gba", 0x001716, 0x0000017
@@ -334,8 +339,12 @@ gUnk_08001860:: @ 08001860
 gUnk_080018A0:: @ 080018A0
 	.incbin "baserom.gba", 0x0018A0, 0x0000004
 
+.ifdef EU
+	.incbin "baserom_eu.gba", 0x0018EC, 0x7E
+.else
 gUnk_080018A4:: @ 080018A4
 	.incbin "baserom.gba", 0x0018A4, 0x000005E
+.endif
 
 gUnk_08001902:: @ 08001902
 	.incbin "baserom.gba", 0x001902, 0x000000F
@@ -344,7 +353,12 @@ gUnk_08001911:: @ 08001911
 	.incbin "baserom.gba", 0x001911, 0x000000B
 
 gUnk_0800191C:: @ 0800191C
+.ifdef EU
+	@ TODO mostly 0 bytes?
+	.incbin "baserom_eu.gba", 0x001984, 0x000008F
+.else
 	.incbin "baserom.gba", 0x00191C, 0x000004F
+.endif
 
 gUnk_0800196B:: @ 0800196B
 	.incbin "baserom.gba", 0x00196B, 0x0000015
