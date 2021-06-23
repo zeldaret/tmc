@@ -399,19 +399,19 @@ gUnk_08109202:: @ 08109202
 	.incbin "baserom.gba", 0x109202, 0x0000012
 
 gUnk_08109214:: @ 08109214
-	.4byte gUnk_089B1D90
-	.4byte gUnk_089B1D90
-	.4byte gUnk_089B1D90
+	.4byte translation
+	.4byte translation
+	.4byte translation
 .ifdef EU
-	.4byte gUnk_089F7420
-	.4byte gUnk_08A3EEB0
-	.4byte gUnk_08A81E70
-	.4byte gUnk_08AC37A0
+	.4byte translationFrench
+	.4byte translationGerman
+	.4byte translationSpanish
+	.4byte translationItalian
 .else
-	.4byte gUnk_089B1D90
-	.4byte gUnk_089B1D90
-	.4byte gUnk_089B1D90
-	.4byte gUnk_089B1D90
+	.4byte translation
+	.4byte translation
+	.4byte translation
+	.4byte translation
 .endif
 
 gUnk_08109230:: @ 08109230

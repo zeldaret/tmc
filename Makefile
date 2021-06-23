@@ -190,6 +190,11 @@ sound/%.bin: sound/%.aif ; $(AIF) $< $@
 sound/songs/%.s: sound/songs/%.mid
 	cd $(@D) && ../../$(MID) $(<F)
 translations/USA.bin: translations/USA.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x499E0
+translations/English.bin: translations/English.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x488C0
+translations/French.bin: translations/French.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x47A90
+translations/German.bin: translations/German.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x42FC0
+translations/Spanish.bin: translations/Spanish.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x41930
+translations/Italian.bin: translations/Italian.json ; tools/tmc_strings/tmc_strings -p --source $< --dest $@ --size 0x438E0
 
 ifeq ($(NODEP),1)
 $(C_BUILDDIR)/%.o: c_dep :=

@@ -15205,7 +15205,6 @@ gUnk_08900380:: @ 08900380
 	.incbin "baserom.gba", 0x900380, 0x00002A0
 
 .ifdef EU
-@ TODO differs to gUnk_089B1D90
     .incbin "baserom_eu.gba", 0x8FFDF0, 0x00AED70
 .else
 
