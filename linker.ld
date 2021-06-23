@@ -69,6 +69,7 @@ SECTIONS {
         . = 0x000176A0; gPaletteBuffer = .;
         . = 0x000176E0; gUnk_020176E0 = .;
         . = 0x00017700; gUnk_02017700 = .;
+        . = 0x00017760; gUnk_02017760 = .;
         . = 0x00017830; gUnk_02017830 = .;
         . = 0x000178E0; gUnk_020178E0 = .;
         . = 0x00017AA0; gUnk_02017AA0 = .;
@@ -920,6 +921,9 @@ SECTIONS {
         asm/code_080A29BC.o(.text);
         asm/playerItem/playerItemShield.o(.text);
         asm/playerItem/playerItem15.o(.text);
+#ifdef DEMO
+        src/demoScreen.o(.text);
+#endif
         src/audio.o(.text);
         asm/code_080A3480.o(.text);
         src/sub_080A3B84.o(.text);
@@ -1652,6 +1656,9 @@ data/const/object/object1D.o(.rodata);
         data/data_08125104.o(.rodata);
         data/const/playerItem/playerItemShield.o(.rodata);
         data/const/playerItem/playerItem15.o(.rodata);
+#ifdef DEMO
+    data/const/demoScreen.o(.rodata);
+#endif
         data/data_08127280.o(.rodata);
         data/const/playerItem/playerItemSword.o(.rodata);
         data/data_08129320.o(.rodata);
