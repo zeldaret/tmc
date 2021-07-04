@@ -141,6 +141,9 @@ void sub_08022DE8(Entity* this) {
     }
 }
 
+// this definition is only here, so clang-tidy does not mess gUnk_080CBBBC up.
+extern void sub_08022E40(Entity* this);
+
 ASM_FUNC("asm/non_matching/moldorm/sub_08022E40.inc", void sub_08022E40(Entity* this))
 
 ASM_FUNC("asm/non_matching/moldorm/sub_08022EAC.inc", void sub_08022EAC(Entity* this))

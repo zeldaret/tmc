@@ -1,6 +1,8 @@
 #ifndef GUARD_GBA_EEPROM
 #define GUARD_GBA_EEPROM
 
+#include "types.h"
+
 // error codes
 #define EEPROM_OUT_OF_RANGE 0x80ff
 #define EEPROM_COMPARE_FAILED 0x8000

@@ -8,7 +8,7 @@ typedef struct {
     u8 textIndex;
     u8 filler[11];
     u16 pauseTime;
-    u8 filler[2];
+    u8 filler2[2];
     s32 targetX;
     s32 targetY;
 } CutsceneBehavior;

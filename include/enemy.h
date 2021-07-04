@@ -1,5 +1,5 @@
 #ifndef ENEMY_H
-#define EMEMY_H
+#define ENEMY_H
 
 #include "global.h"
 #include "entity.h"
