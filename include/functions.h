@@ -14,7 +14,7 @@
 extern void ShowNPCDialogue(Entity*, Dialog*);
 extern void DoFade(u32, u32);
 extern u32 CheckKinstoneFused(u32);
-extern void ForceEquipItem(u32, u8);
+extern void ForceEquipItem(u32, u32);
 extern void LoadRoomEntityList(EntityData* listPtr);
 extern u32 GetAnimationState(Entity*);
 extern void SetChildOffset(Entity*, s32, s32, s32);
@@ -54,7 +54,7 @@ extern void sub_080787A8(Entity*, u32);
 extern void sub_0806F118(Entity*);
 extern void sub_080791D0();
 extern void sub_0805EC9C();
-extern void sub_0805EC60();
+extern void sub_0805EC60(Entity*);
 extern u32 sub_080045D4(s16, s16, u32, u32);
 extern void sub_0806F69C(Entity*);
 extern void sub_0805E3A0(void*, u32);
@@ -82,9 +82,9 @@ extern u32 sub_080041A0(Entity*, Entity*, u32, u32);
 extern u32 sub_08049EE4(Entity*);
 extern Entity* sub_0804A98C(Entity*, u8, u8);
 extern u32 GetBottleContaining(u32);
-extern void sub_08077E54(Entity*);
+extern void sub_08077E54(ItemBehavior*);
 extern void sub_080042BA(Entity*, u32);
-extern void sub_08077F24(ItemBehavior*, u32);
+extern bool32 sub_08077F24(ItemBehavior*, u32);
 extern void sub_08079184();
 extern void sub_08077F50(ItemBehavior* beh, u32 arg1);
 extern void sub_0807AA80(Entity*);
@@ -257,7 +257,7 @@ extern void sub_08056360();
 extern u32 sub_080542AC(u32);
 extern u32 sub_08079FC4(u32);
 extern void sub_0800455E(Entity*);
-extern void sub_08008790(Entity*, u32);
+extern u32* sub_08008790(Entity*, u32);
 extern void sub_0804ACF8();
 extern void sub_08073904(Entity*);
 extern u32 sub_08056134(void);
@@ -267,4 +267,18 @@ extern void sub_0805EEB4(u8*, u32);
 extern void sub_08056BDC(u32);
 extern void sub_08056F88(u32, u32);
 extern void sub_0805F8E4(u32 r0, WStruct* r1);
+
+extern Entity* sub_08077C94(ItemBehavior*, u32);
+extern Entity* sub_08077C0C(ItemBehavior*, u32);
+extern void sub_08077D38(ItemBehavior*, u32);
+extern void sub_08077E78(ItemBehavior*, u32);
+extern void UpdateItemAnim(ItemBehavior*);
+extern void sub_0806F948(Entity*);
+extern void sub_08077DF4(ItemBehavior*, u32);
+extern void sub_08077BB8(ItemBehavior*);
+extern bool32 sub_08077EFC(ItemBehavior*);
+
+extern void sub_08078E84(Entity*, Entity*);
+extern void sub_080042D0(Entity*, u32, u16);
+
 #endif

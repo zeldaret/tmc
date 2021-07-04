@@ -370,20 +370,17 @@ void sub_08087114(Entity* this) {
     }
 }
 
-NONMATCH("asm/greatFairy/sub_08087150.inc", void sub_08087150(Entity* this)) {
-    u32 temp;
-
+void sub_08087150(Entity* this) {
     GreatFairy_InitializeAnimation(this);
-    this->spriteSettings.b.draw = TRUE;
+    this->spriteSettings.b.draw = 1;
     this->spriteOrientation.flipY = 0;
-    this->spriteRendering.b0 = 0;
+    this->spriteRendering.b3 = 0;
     this->spritePriority.b0 = 3;
-    this->speed = 128;
+    this->speed = 0x80;
     this->direction = 0x10;
-    temp = gUnk_0812079C[0];
-    this->palette.raw = ((temp & 0xf) << 4) | 0xf;
+    this->palette.b.b4 = gUnk_0812079C[0];
+    this->palette.b.b0 = gUnk_0812079C[0];
 }
-END_NONMATCH
 
 void nullsub_516(Entity* this) {
 }

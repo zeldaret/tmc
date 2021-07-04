@@ -122,7 +122,45 @@ ASM_FUNC("asm/non_matching/bigGoron/sub_0806D138.inc", void sub_0806D138(u8* par
 
 ASM_FUNC("asm/non_matching/bigGoron/sub_0806D164.inc", void sub_0806D164(Entity* this))
 
-ASM_FUNC("asm/non_matching/bigGoron/sub_0806D1D0.inc", void sub_0806D1D0(Entity* this))
+void sub_0806D1D0(Entity* this) {
+    if (this->action == 0) {
+        if (sub_0806D00C(this) == NULL) {
+            DeleteThisEntity();
+        }
+        this->action = 1;
+        this->spriteOrientation.flipY = 3;
+        this->spriteRendering.b3 = 3;
+        this->spritePriority.b0 = 7;
+        this->spriteSettings.b.draw = 3;
+        this->frameIndex = 0;
+        this->actionDelay = 0x1e;
+        sub_0805E3A0(this, 2);
+    }
+
+    switch (this->subAction) {
+        case 0:
+        default:
+            if (--this->actionDelay == 0) {
+                this->actionDelay = (Random() & 0x7f) + 0x30;
+                this->field_0xf = 8;
+                this->frameIndex = 1;
+            }
+            if (this->field_0xf != 0) {
+                if (--this->field_0xf == 0) {
+                    this->frameIndex = 0;
+                }
+            }
+            break;
+        case 1:
+            this->frameIndex = this->subAction;
+            break;
+        case 2:
+            this->spriteSettings.b.draw = 0;
+            break;
+    }
+    this->x.HALF.HI = this->parent->x.HALF.HI;
+    this->y.HALF.HI = this->parent->y.HALF.HI;
+}
 
 void sub_0806D274(Entity* this) {
     Entity* npc;
