@@ -1,6 +1,7 @@
 #ifndef GREATFAIRY_H
 #define GREATFAIRY_H
 
+#include "entity.h"
 #include "screen.h"
 
 void GreatFairy_InitializeAnimation(Entity*);

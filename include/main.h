@@ -1,6 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include "global.h"
+
 typedef struct { // 0x03001000
     u8 field_0x0;
     u8 field_0x1;
