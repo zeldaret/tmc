@@ -8,7 +8,12 @@ export INCLUDES	:=	-I./
 export DIFF		:= diff
 export HEXDUMP	:= hexdump -C
 
-all:
+.PHONY: all run extract pack dump inject diff-rom diff clean
+
+all: tmc_strings
+	@:
+
+tmc_strings: main.cpp
 	$(CC) -o tmc_strings main.cpp $(CXXFLAGS) $(INCLUDES)
 
 run: extract pack
