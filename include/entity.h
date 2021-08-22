@@ -81,7 +81,7 @@ typedef struct Entity {
     /*    */        u8 b0 : 4;
     /*    */        u8 b4 : 4;
     /*    */    } PACKED b;
-    /*    */} PACKED palette;
+    /*    */ } PACKED palette;
     /*0x1b*/ struct {
     /*    */     u32 b0    : 1;
     /*    */     u32 b1    : 5; //0x10
