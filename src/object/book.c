@@ -83,7 +83,7 @@ void sub_0809B4A8(Entity* this) {
         this->field_0x80.HALF.LO--;
         return;
     }
-    
+
     if (sub_0809B688(this)) {
         if (--this->actionDelay) {
             return;
@@ -102,8 +102,7 @@ void sub_0809B4A8(Entity* this) {
         gPlayerEntity.y.HALF.LO = 0;
         gPlayerEntity.direction = gPlayerEntity.animationState << 2;
         EnqueueSFX(0x10f);
-    }
-    else {
+    } else {
         this->actionDelay = 0x16;
     }
 }
@@ -114,8 +113,7 @@ void sub_0809B524(Entity* this) {
             this->action = 3;
             this->y.HALF.HI += 32;
             this->height.HALF.HI -= 32;
-        }
-        else {
+        } else {
             this->action = 1;
             this->actionDelay = 22;
             this->field_0x80.HALF.LO = 24;
@@ -146,8 +144,7 @@ void sub_0809B56C(Entity* this) {
 void sub_0809B5B4(Entity* this) {
     if (gPlayerState.flags.all & 0x80) {
         sub_0800445C(this);
-    }
-    else if (sub_08017850(this)) {
+    } else if (sub_08017850(this)) {
         CreateItemEntity(this->type + 0x39, 0, 0);
         DeleteThisEntity();
     }
@@ -159,9 +156,15 @@ void sub_0809B5EC(Entity* this) {
             case 0: {
                 Entity* parent;
                 parent = FindEntityByID(7, 26, 7);
-                if (!parent) return;
-                if (parent->x.HALF.HI < this->x.HALF.HI) return;
-                if (parent->animationState != 4) return;
+                if (!parent) {
+                    return;
+                }
+                if (parent->x.HALF.HI < this->x.HALF.HI) {
+                    return;
+                }
+                if (parent->animationState != 4) {
+                    return;
+                }
 
                 this->parent = parent;
                 this->subAction = 1;
@@ -176,12 +179,11 @@ void sub_0809B5EC(Entity* this) {
                 sub_0809B6B0(this->parent, this);
                 break;
             }
-            default: return;
+            default:
+                return;
         }
 
-        
-    }
-    else {
+    } else {
         switch (this->subAction) {
             default: {
                 DeleteThisEntity();
@@ -196,7 +198,7 @@ void sub_0809B5EC(Entity* this) {
             case 1: {
                 u8 doTextBox = gTextBox.doTextBox & 0x7f;
                 if (!doTextBox) {
-                    this->spriteSettings.b.draw = 1; 
+                    this->spriteSettings.b.draw = 1;
                     this->subAction = doTextBox;
                 }
                 break;
@@ -227,12 +229,7 @@ void sub_0809B6B0(Entity* parent, Entity* this) {
 }
 
 void (*const BookActionFuncs[])(Entity*) = {
-    sub_0809B3C4,
-    sub_0809B4A8,
-    sub_0809B524,
-    sub_0809B56C,
-    sub_0809B5B4,
-    sub_0809B5EC
+    sub_0809B3C4, sub_0809B4A8, sub_0809B524, sub_0809B56C, sub_0809B5B4, sub_0809B5EC,
 };
 
 const s8 gUnk_08123D94[] = { -22, -20, -20, -20 };
