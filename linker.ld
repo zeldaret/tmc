@@ -850,7 +850,7 @@ SECTIONS {
         asm/object89.o(.text);
         asm/object8A.o(.text);
         asm/object8B.o(.text);
-        asm/book.o(.text);
+        src/object/book.o(.text);
         asm/fireplace.o(.text);
         asm/object8E.o(.text);
         asm/frozenWaterElement.o(.text);
@@ -1129,7 +1129,8 @@ SECTIONS {
         data/animations/enemy/mazaalBracelet.o(.rodata);
         data/const/enemy/takkuri.o(.rodata);
         data/const/enemy/bowMoblin.o(.rodata);
-        data/animations/enemy/bowMoblin.o(.rodata);        src/enemy/lakitu.o(.rodata);
+        data/animations/enemy/bowMoblin.o(.rodata);
+        src/enemy/lakitu.o(.rodata);
         data/animations/enemy/lakitu.o(.rodata);
         src/enemy/lakituCloud.o(.rodata);
         data/const/enemy/enemy49.o(.rodata);
@@ -1591,7 +1592,7 @@ data/const/object/object1D.o(.rodata);
         data/const/object/object89.o(.rodata);
         data/const/object/object8A.o(.rodata);
         data/const/object/object8B.o(.rodata);
-        data/const/object/books.o(.rodata);
+        src/object/book.o(.rodata);
         data/const/object/fireplace.o(.rodata);
         data/const/object/object8E.o(.rodata);
         data/const/object/frozenWaterElement.o(.rodata);
