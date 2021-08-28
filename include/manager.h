@@ -176,7 +176,7 @@ extern void Manager21_Main(Entity*);
 extern void Manager22_Main(Entity*);
 extern void Manager23_Main(Entity*);
 extern void Manager24_Main();
-extern void Manager25_Main(Entity*);
+extern void Manager25_Main();
 extern void Manager26_Main();
 extern void Manager27_Main();
 extern void Manager28_Main();

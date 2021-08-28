@@ -8,27 +8,7 @@
 
 typedef struct {
     Manager manager;
-    u8 field_0x20;
-    u8 field_0x21;
-    u8 field_0x22;
-    u8 field_0x23;
-    u8 field_0x24;
-    u8 field_0x25;
-    u8 field_0x26;
-    u8 field_0x27;
-    u8 field_0x28;
-    u8 field_0x29;
-    u8 field_0x2a;
-    u8 field_0x2b;
-    u8 field_0x2c;
-    u8 field_0x2d;
-    u8 field_0x2e;
-    u8 field_0x2f;
-    u8 field_0x30;
-    u8 field_0x31;
-    u8 field_0x32;
-    u8 field_0x33;
-    u8 field_0x34;
+    u8 field_0x20[0x15];
     u8 field_0x35;
     u8 field_0x36;
     u8 field_0x37;
