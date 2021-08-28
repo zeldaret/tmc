@@ -152,7 +152,7 @@ extern void Manager9_Main();
 extern void ManagerA_Main();
 extern void ManagerB_Main();
 extern void ManagerC_Main();
-extern void ManagerD_Main(Entity*);
+extern void ManagerD_Main();
 extern void ManagerE_Main();
 extern void ManagerF_Main(Entity*);
 extern void Manager10_Main(Entity*);
