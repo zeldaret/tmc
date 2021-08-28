@@ -15,3 +15,11 @@ void Manager2_Main(Entity* this) {
     }
     sub_0805754C(this);
 }
+
+ASM_FUNC("asm/non_matching/manager2/sub_0805754C.inc", void sub_0805754C(Entity* this))
+
+ASM_FUNC("asm/non_matching/manager2/sub_080575C8.inc", void sub_080575C8(u32 param))
+
+ASM_FUNC("asm/non_matching/manager2/sub_08057688.inc", void sub_08057688())
+
+ASM_FUNC("asm/non_matching/manager2/sub_080576A0.inc", void sub_080576A0())
