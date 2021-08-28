@@ -183,7 +183,7 @@ extern void Manager28_Main();
 extern void Manager29_Main(Entity*);
 extern void Manager2A_Main(Manager*);
 extern void Manager2B_Main(Entity*);
-extern void Manager2C_Main(Entity*);
+extern void Manager2C_Main();
 extern void Manager2D_Main(Entity*);
 extern void Manager2E_Main();
 extern void Manager2F_Main();
