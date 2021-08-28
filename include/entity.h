@@ -265,4 +265,6 @@ Entity* FindNextDuplicateID(Entity* ent, int listIndex);
  */
 Entity* FindEntity(u32 kind, u32 id, u32 listIndex, u32 type, u32 type2);
 
+void DeleteEntityAny(Entity* ent);
+
 #endif
