@@ -3,8 +3,6 @@
 #include "manager.h"
 #include "functions.h"
 
-extern void DoExitTransition(void*);
-
 void Manager6_Main(Manager6* this) {
     u32 tmp;
     Manager6WarpData* i;

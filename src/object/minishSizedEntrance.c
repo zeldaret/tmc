@@ -4,8 +4,6 @@
 #include "player.h"
 #include "functions.h"
 
-extern void DoExitTransition(void*);
-
 extern void (*const gUnk_08122254[])(Entity*);
 extern u16 gUnk_0812225C[];
 
@@ -35,6 +33,6 @@ void sub_08090F00(Entity* this) {
     }
     if ((gPlayerState.flags.all & 0x80) && sub_080041A0(this, &gPlayerEntity, 4, 4) &&
         (gPlayerEntity.height.HALF.HI == 0) && (((u16)gPlayerState.field_0x90.HALF.LO) & gUnk_0812225C[this->type2])) {
-        DoExitTransition((Entity*)GetCurrentRoomProperty(this->actionDelay));
+        DoExitTransition(GetCurrentRoomProperty(this->actionDelay));
     }
 }

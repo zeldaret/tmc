@@ -18,12 +18,12 @@ void Manager2C_Main(Manager2C* manager) {
         manager->manager.action = 1;
         manager->field_0x3a = 0;
     }
-    if (((CheckPlayerInRegion(manager->field_0x38, manager->field_0x3a, 0x14, 0x40) != 0) && 
-    (((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) +gPlayerEntity.height.HALF.HI) < 0)) &&
+    if (((CheckPlayerInRegion(manager->field_0x38, manager->field_0x3a, 0x14, 0x40) != 0) &&
+         (((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) + gPlayerEntity.height.HALF.HI) < 0)) &&
         (gRoomControls.roomScrollY == gRoomControls.roomOriginY)) {
         MemClear(&gScreenTransition.areaID, 0x20);
         gScreenTransition.transitioningOut = 1;
-        gScreenTransition.transitionType = 0; 
+        gScreenTransition.transitionType = 0;
         gScreenTransition.field_0xf = 0xb;
         gScreenTransition.areaID = manager->manager.unk_0b;
         gScreenTransition.roomID = manager->manager.unk_0e;

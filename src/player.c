@@ -31,7 +31,6 @@ extern void sub_0806F948();
 extern void sub_08077698();
 extern void sub_0805E544();
 extern void sub_080717F8();
-extern void DoExitTransition();
 extern void UnfreezeTime();
 extern void sub_08071A6C();
 extern void sub_08052BB8();

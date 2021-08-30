@@ -305,7 +305,6 @@ void sub_0805C4E0(u32 pos, u32 layer) {
     }
 }
 
-u32 sub_0805C608(void)
-{
-  return gUnk_08108CFC[gArea.regret];
+u32 sub_0805C608(void) {
+    return gUnk_08108CFC[gArea.regret];
 }

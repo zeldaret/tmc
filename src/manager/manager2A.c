@@ -9,7 +9,7 @@ typedef struct {
     u16 flag;
     u16 tilePos;
     u16 tileType; // If the tile type at tilePos, tileLayer is tileType, set the local flag.
-} Manager2A_unk; // TODO result of GetCurrentRoomProperty(3)?
+} Manager2A_unk;  // TODO result of GetCurrentRoomProperty(3)?
 
 void sub_0805CFF0(Manager2A_unk*);
 

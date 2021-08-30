@@ -28,8 +28,7 @@ void sub_0805B70C(Manager1F* this) {
         this->manager.unk_0b = 1;
     }
     this->manager.action = 1;
-    this->field_0x38 =
-        (this->field_0x38 >> 4 & 0x3fU) | (((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6);
+    this->field_0x38 = (this->field_0x38 >> 4 & 0x3fU) | (((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6);
     sub_0805B778(this);
 }
 
@@ -48,6 +47,5 @@ void sub_0805B744(Manager1F* this) {
 }
 
 void sub_0805B778(Manager1F* this) {
-    SetTileType(gUnk_08108C9C[this->manager.unk_0a * 2 + this->manager.unk_0b],
-                this->field_0x38, this->field_0x36);
+    SetTileType(gUnk_08108C9C[this->manager.unk_0a * 2 + this->manager.unk_0b], this->field_0x38, this->field_0x36);
 }

@@ -16,9 +16,7 @@ typedef struct {
 
 extern void (*const gUnk_08108654[])(Manager17*);
 
-
 void sub_0805AD80(Manager17*);
-
 
 void Manager17_Main(Manager17* manager) {
     gUnk_08108654[manager->manager.action](manager);

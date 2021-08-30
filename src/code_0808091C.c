@@ -10,8 +10,6 @@ extern u32 gUnk_0200B650;
 extern u32 gUnk_02025EB0;
 extern u8 gUnk_02000070;
 
-extern void DoExitTransition(ScreenTransitionData*);
-
 void sub_080808D8(void) {
     gScreenTransition.transitionType = 0;
 }

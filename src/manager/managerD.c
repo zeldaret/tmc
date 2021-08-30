@@ -32,7 +32,6 @@ typedef struct {
     u16 field_0x3e;
 } ManagerD;
 
-
 extern void (*const gUnk_08108308[])(ManagerD*);
 
 extern u16* GetLayerByIndex(u32);
@@ -52,7 +51,6 @@ void sub_08058DE8(ManagerD* this) {
         puVar3 = (this->field_0x38 + 2) + puVar2;
         this->field_0x30 = puVar3;
         this->field_0x28 = *puVar3;
-    
     }
 }
 

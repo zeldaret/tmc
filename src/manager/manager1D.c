@@ -23,18 +23,18 @@ void sub_0805B5E0(Manager* this) {
         default:
             gScreen.affine.bg3yOffset = 0;
             gScreen.affine.bg3xOffset = 0;
-        break;
+            break;
         case 1:
             gScreen.affine.bg3xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
             gScreen.affine.bg3yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
-        break;
+            break;
     }
 }
 
 void sub_0805B638(Manager* this) {
     if (this->unk_0a == 1) {
         gRoomControls.bg3OffsetX.WORD = gRoomControls.bg3OffsetX.WORD + 0x2000;
-        gScreen.affine.bg3xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI ;
+        gScreen.affine.bg3xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
         gScreen.affine.bg3yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
     }
 }

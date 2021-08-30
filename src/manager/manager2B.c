@@ -1,13 +1,13 @@
 #include "manager.h"
 #include "flags.h"
-#include "room.h"   
+#include "room.h"
 #include "functions.h"
 #include "object.h"
 #include "audio.h"
 
 typedef struct {
     Manager manager;
-    Entity * field_0x20;
+    Entity* field_0x20;
     u8 field_0x24;
     u8 field_0x25;
     u8 field_0x26;
@@ -37,8 +37,6 @@ typedef struct {
     u16 field_0x3e;
 } Manager2B;
 
-
-
 extern void (*const gUnk_08108D30[])(Entity*);
 
 extern u8 gEntCount;
@@ -62,7 +60,7 @@ NONMATCH("asm/non_matching/manager2B/sub_0805D02C.inc", void sub_0805D02C(Manage
         objectData = GetCurrentRoomProperty(this->manager.unk_0a);
         counter = 0;
         createdObjects = &this->field_0x20;
-        while(counter < 4) {
+        while (counter < 4) {
             object = CreateObject(OBJECT_A0, objectData[2], counter);
             object->x.HALF.HI = objectData[0] + gRoomControls.roomOriginX;
             object->y.HALF.HI = objectData[1] + gRoomControls.roomOriginY;
@@ -72,7 +70,7 @@ NONMATCH("asm/non_matching/manager2B/sub_0805D02C.inc", void sub_0805D02C(Manage
             counter += 1;
             objectData += 3;
             createdObjects += 1;
-        } 
+        }
         this->manager.action = 1;
         this->manager.unk_0f = 0x3c;
         this->field_0x36 = 0;
@@ -106,7 +104,7 @@ NONMATCH("asm/non_matching/manager2B/sub_0805D11C.inc", void sub_0805D11C(Manage
     u32 counter;
 
     counter = 0;
-    createdObjects = &this->field_0x20; 
+    createdObjects = &this->field_0x20;
     while (counter < 4) {
         entity = *createdObjects;
         *createdObjects = NULL;

@@ -9,7 +9,7 @@ void sub_0805AFFC(Manager*);
 void Manager19_Main(Manager* this) {
     if (this == NULL) {
         if ((void*)gArea.unk3 != sub_0805AFFC) {
-           sub_0805AFFC(this);
+            sub_0805AFFC(this);
         }
     } else {
         if (this->action == 0) {
@@ -23,7 +23,7 @@ void Manager19_Main(Manager* this) {
             }
         } else {
             gRoomControls.bg3OffsetX.WORD = gRoomControls.bg3OffsetX.WORD - 0x2000;
-            gScreen.affine.bg3xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI ;
+            gScreen.affine.bg3xOffset = gRoomControls.roomScrollX + gRoomControls.bg3OffsetX.HALF.HI;
             gScreen.affine.bg3yOffset = gRoomControls.roomScrollY + gRoomControls.bg3OffsetY.HALF.HI;
         }
     }

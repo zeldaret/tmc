@@ -8,7 +8,6 @@
 #include "functions.h"
 
 extern void UnloadOBJPalette(Entity*);
-extern void DoExitTransition(ScreenTransitionData*);
 
 extern u8 gEntCount;
 

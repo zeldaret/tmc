@@ -267,6 +267,7 @@ extern void sub_0805EEB4(u8*, u32);
 extern void sub_08056BDC(u32);
 extern void sub_08056F88(u32, u32);
 extern void sub_0805F8E4(u32 r0, WStruct* r1);
+extern void DoExitTransition(ScreenTransitionData*);
 
 extern Entity* sub_08077C94(ItemBehavior*, u32);
 extern Entity* sub_08077C0C(ItemBehavior*, u32);
@@ -280,5 +281,4 @@ extern bool32 sub_08077EFC(ItemBehavior*);
 
 extern void sub_08078E84(Entity*, Entity*);
 extern void sub_080042D0(Entity*, u32, u16);
-
 #endif
