@@ -12,8 +12,6 @@ gUnk_080D292D:: @ 080D292D
 
 gUnk_080D293E:: @ 080D293E
 	.incbin "baserom.gba", 0x0D293E, 0x000000C
-
-gUnk_080D294A:: @ 080D294A
 	.incbin "baserom.gba", 0x0D294A, 0x0000005
 
 gUnk_080D294F:: @ 080D294F

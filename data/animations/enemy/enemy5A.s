@@ -18,14 +18,10 @@ gUnk_080D18F3:: @ 080D18F3
 
 gUnk_080D1914:: @ 080D1914
 	.incbin "baserom.gba", 0x0D1914, 0x0000004
-
-gUnk_080D1918:: @ 080D1918
 	.incbin "baserom.gba", 0x0D1918, 0x0000005
 
 gUnk_080D191D:: @ 080D191D
 	.incbin "baserom.gba", 0x0D191D, 0x0000007
-
-gUnk_080D1924:: @ 080D1924
 	.incbin "baserom.gba", 0x0D1924, 0x0000002
 
 gUnk_080D1926:: @ 080D1926

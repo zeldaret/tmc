@@ -21,8 +21,6 @@ gUnk_08111FF6:: @ 08111FF6
 
 gUnk_08112007:: @ 08112007
 	.incbin "baserom.gba", 0x112007, 0x0000007
-
-gUnk_0811200E:: @ 0811200E
 	.incbin "baserom.gba", 0x11200E, 0x000000A
 
 gUnk_08112018:: @ 08112018

@@ -6,11 +6,7 @@
 
 gUnk_080D141E:: @ 080D141E
 	.incbin "baserom.gba", 0x0D141E, 0x0000001
-
-gUnk_080D141F:: @ 080D141F
 	.incbin "baserom.gba", 0x0D141F, 0x0000004
-
-gUnk_080D1423:: @ 080D1423
 	.incbin "baserom.gba", 0x0D1423, 0x0000008
 
 gUnk_080D142B:: @ 080D142B
@@ -66,11 +62,7 @@ gUnk_080D14F3:: @ 080D14F3
 
 gUnk_080D150C:: @ 080D150C
 	.incbin "baserom.gba", 0x0D150C, 0x0000009
-
-gUnk_080D1515:: @ 080D1515
 	.incbin "baserom.gba", 0x0D1515, 0x0000005
-
-gUnk_080D151A:: @ 080D151A
 	.incbin "baserom.gba", 0x0D151A, 0x000000B
 
 gUnk_080D1525:: @ 080D1525

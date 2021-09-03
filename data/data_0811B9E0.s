@@ -65,8 +65,6 @@ gUnk_0811BB2C:: @ 0811BB2C
 	.4byte sub_08071BDC
 	.4byte sub_08071CAC
 	.4byte sub_08071D04
-
-gUnk_0811BB38:: @ 0811BB38
 	.4byte sub_08071D80
 
 gUnk_0811BB3C:: @ 0811BB3C

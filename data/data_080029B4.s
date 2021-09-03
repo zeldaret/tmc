@@ -1380,8 +1380,6 @@ gUnk_08003DD4:: @ 08003DD4
 	.4byte gUnk_080FDFD8
 	.4byte 00000000
 	.4byte 00000000
-
-gUnk_08003E00:: @ 08003E00
 	.4byte 00000000
 	.4byte gUnk_08121E50
 	.4byte 00000000
@@ -1402,12 +1400,6 @@ gUnk_08003E00:: @ 08003E00
 
 gUnk_08003E44:: @ 08003E44
 	.incbin "baserom.gba", 0x003E44, 0x0000032
-
-gUnk_08003E76:: @ 08003E76
 	.incbin "baserom.gba", 0x003E76, 0x000000A
-
-gUnk_08003E80:: @ 08003E80
 	.incbin "baserom.gba", 0x003E80, 0x0000087
-
-gUnk_08003F07:: @ 08003F07
 	.incbin "baserom.gba", 0x003F07, 0x00000BD

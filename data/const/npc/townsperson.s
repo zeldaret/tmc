@@ -6,11 +6,7 @@
 
 gUnk_0810B680:: @ 0810B680
 	.incbin "baserom.gba", 0x10B680, 0x000002A
-
-gUnk_0810B6AA:: @ 0810B6AA
 	.incbin "baserom.gba", 0x10B6AA, 0x0000009
-
-gUnk_0810B6B3:: @ 0810B6B3
 	.incbin "baserom.gba", 0x10B6B3, 0x0000021
 
 gUnk_0810B6D4:: @ 0810B6D4
@@ -50,8 +46,6 @@ gUnk_0810B748:: @ 0810B748
 
 gUnk_0810B74A:: @ 0810B74A
 	.incbin "baserom.gba", 0x10B74A, 0x0000018
-
-gUnk_0810B762:: @ 0810B762
 	.incbin "baserom.gba", 0x10B762, 0x0000012
 
 gUnk_0810B774:: @ 0810B774
@@ -69,8 +63,6 @@ gUnk_0810B78C:: @ 0810B78C
 
 gUnk_0810B790:: @ 0810B790
 	.incbin "baserom.gba", 0x10B790, 0x000001C
-
-gUnk_0810B7AC:: @ 0810B7AC
 	.incbin "baserom.gba", 0x10B7AC, 0x000000E
 
 gUnk_0810B7BA:: @ 0810B7BA
@@ -78,11 +70,7 @@ gUnk_0810B7BA:: @ 0810B7BA
 
 gUnk_0810B7C0:: @ 0810B7C0
 	.incbin "baserom.gba", 0x10B7C0, 0x000012B
-
-gUnk_0810B8EB:: @ 0810B8EB
 	.incbin "baserom.gba", 0x10B8EB, 0x0000037
-
-gUnk_0810B922:: @ 0810B922
 .ifdef JP
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x10B5E6, 0x0000049
@@ -99,7 +87,6 @@ gUnk_0810B922:: @ 0810B922
 .endif
 .endif
 
-gUnk_0810B96B:: @ 0810B96B
 .ifdef JP
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x10B62F, 0x0000065
@@ -116,10 +103,7 @@ gUnk_0810B96B:: @ 0810B96B
 .endif
 .endif
 
-gUnk_0810B9D0:: @ 0810B9D0
 	.incbin "baserom.gba", 0x10B9D0, 0x0000031
-
-gUnk_0810BA01:: @ 0810BA01
 .ifdef JP
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x10B6C5, 0x0000117
@@ -135,16 +119,10 @@ gUnk_0810BA01:: @ 0810BA01
 .endif
 .endif
 .endif
-
-gUnk_0810BB18:: @ 0810BB18
 	.incbin "baserom.gba", 0x10BB18, 0x0000044
 	.4byte sub_0806200C
 	.incbin "baserom.gba", 0x10BB60, 0x0000011
-
-gUnk_0810BB71:: @ 0810BB71
 	.incbin "baserom.gba", 0x10BB71, 0x000005B
-
-gUnk_0810BBCC:: @ 0810BBCC
 .ifdef JP
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x10B890, 0x000009C
@@ -160,6 +138,4 @@ gUnk_0810BBCC:: @ 0810BBCC
 .endif
 .endif
 .endif
-
-gUnk_0810BC68:: @ 0810BC68
 	.incbin "baserom.gba", 0x10BC68, 0x0000098

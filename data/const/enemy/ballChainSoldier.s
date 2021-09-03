@@ -7,8 +7,6 @@
 gUnk_080D06E0:: @ 080D06E0
 	.4byte sub_0803E538
 	.4byte sub_0803E550
-
-gUnk_080D06E8:: @ 080D06E8
 	.4byte sub_0803E560
 	.4byte sub_0803E570
 	.4byte sub_08001242
@@ -16,11 +14,7 @@ gUnk_080D06E8:: @ 080D06E8
 
 gUnk_080D06F8:: @ 080D06F8
 	.4byte sub_0803E580
-
-gUnk_080D06FC:: @ 080D06FC
 	.4byte sub_0803E5E8
-
-gUnk_080D0700:: @ 080D0700
 	.4byte sub_0803E61C
 	.4byte sub_0803E66C
 	.4byte sub_0803E6B4

@@ -99,8 +99,6 @@ gUnk_08108F48:: @ 08108F48
 .else
 	.incbin "baserom.gba", 0x108F48, 0x0000004
 .endif
-
-gUnk_08108F4C:: @ 08108F4C
 .ifdef EU
 	.incbin "baserom_eu.gba", 0x1086A0, 0x0000008
 .else
@@ -185,15 +183,11 @@ gUnk_08109004:: @ 08109004
 .else
 	.incbin "baserom.gba", 0x109004, 0x0000001
 .endif
-
-gUnk_08109005:: @ 08109005
 .ifdef EU
 	.incbin "baserom_eu.gba", 0x108759, 0x0000014
 .else
 	.incbin "baserom.gba", 0x109005, 0x0000014
 .endif
-
-gUnk_08109019:: @ 08109019
 .ifdef EU
 	.incbin "baserom_eu.gba", 0x10876D, 0x0000003
 .else
@@ -217,8 +211,6 @@ gUnk_08109030:: @ 08109030
 .else
 	.incbin "baserom.gba", 0x109030, 0x0000003
 .endif
-
-gUnk_08109033:: @ 08109033
 .ifdef EU
 	.incbin "baserom_eu.gba", 0x108787, 0x0000015
 .else
@@ -448,14 +440,8 @@ gUnk_081092AC:: @ 081092AC
 
 gUnk_081092D4:: @ 081092D4
 	.incbin "baserom.gba", 0x1092D4, 0x000002F
-
-gUnk_08109303:: @ 08109303
 	.incbin "baserom.gba", 0x109303, 0x000005E
-
-gUnk_08109361:: @ 08109361
 	.incbin "baserom.gba", 0x109361, 0x00000A5
-
-gUnk_08109406:: @ 08109406
 	.incbin "baserom.gba", 0x109406, 0x0000028
 
 gUnk_0810942E:: @ 0810942E
@@ -463,29 +449,13 @@ gUnk_0810942E:: @ 0810942E
 
 gUnk_081094CE:: @ 081094CE
 	.incbin "baserom.gba", 0x1094CE, 0x00000FB
-
-gUnk_081095C9:: @ 081095C9
 	.incbin "baserom.gba", 0x1095C9, 0x000014C
-
-gUnk_08109715:: @ 08109715
 	.incbin "baserom.gba", 0x109715, 0x0000063
-
-gUnk_08109778:: @ 08109778
 	.incbin "baserom.gba", 0x109778, 0x0000005
-
-gUnk_0810977D:: @ 0810977D
 	.incbin "baserom.gba", 0x10977D, 0x0000017
-
-gUnk_08109794:: @ 08109794
 	.incbin "baserom.gba", 0x109794, 0x0000104
-
-gUnk_08109898:: @ 08109898
 	.incbin "baserom.gba", 0x109898, 0x000000F
-
-gUnk_081098A7:: @ 081098A7
 	.incbin "baserom.gba", 0x1098A7, 0x000005F
-
-gUnk_08109906:: @ 08109906
 	.incbin "baserom.gba", 0x109906, 0x000012A
 
 gUnk_08109A30:: @ 08109A30
@@ -514,8 +484,6 @@ gUnk_08109A88:: @ 08109A88
 
 gUnk_08109A98:: @ 08109A98
 	.incbin "baserom.gba", 0x109A98, 0x0000006
-
-gUnk_08109A9E:: @ 08109A9E
 	.incbin "baserom.gba", 0x109A9E, 0x000000A
 
 gUnk_08109AA8:: @ 08109AA8

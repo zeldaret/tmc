@@ -7849,7 +7849,6 @@ gAreaRoomMap_08107870:: @ 08107870
 .endif
 
 @ Unused
-gAreaRoomMaps_08107888:: @ 08107888
 	.4byte gAreaRoomMap_08107870
 
 gAreaRoomMap_4D_0:: @ 0810788C

@@ -43,14 +43,8 @@ gUnk_080D08C8:: @ 080D08C8
 	.4byte sub_0803EF70
 	.4byte sub_0803EF70
 	.4byte sub_0803EF70
-
-gUnk_080D0900:: @ 080D0900
 	.4byte sub_0803EF70
-
-gUnk_080D0904:: @ 080D0904
 	.4byte sub_0803EFAC
-
-gUnk_080D0908:: @ 080D0908
 	.4byte sub_0803EF70
 	.4byte sub_0803EFAC
 	.4byte sub_0803EFAC

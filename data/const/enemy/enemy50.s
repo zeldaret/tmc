@@ -27,8 +27,6 @@ gUnk_080D0DDC:: @ 080D0DDC
 	
 gUnk_080D0E08:: @ 080D0E08
 	.4byte sub_08040DC8
-
-gUnk_080D0E0C:: @ 080D0E0C
 	.4byte sub_08040DE4
 	.4byte sub_08040DF4
 

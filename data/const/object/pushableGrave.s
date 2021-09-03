@@ -13,8 +13,6 @@ gUnk_081232AC:: @ 081232AC
 
 gUnk_081232C0:: @ 081232C0
 	.incbin "baserom.gba", 0x1232C0, 0x000001D
-
-gUnk_081232DD:: @ 081232DD
 	.incbin "baserom.gba", 0x1232DD, 0x0000001
 
 gUnk_081232DE:: @ 081232DE

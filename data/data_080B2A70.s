@@ -3,8 +3,6 @@
 
 	.section .rodata
 	.align 2
-
-gUnk_080B2A70:: @ 080B2A70
 	.4byte sub_08016B30
 	.4byte sub_08016B30
 	.4byte sub_08016B30

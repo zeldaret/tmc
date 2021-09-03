@@ -15,8 +15,6 @@ gUnk_080CFD82:: @ 080CFD82
 
 gUnk_080CFDD6:: @ 080CFDD6
 	.incbin "baserom.gba", 0x0CFDD6, 0x0000013
-
-gUnk_080CFDE9:: @ 080CFDE9
 	.incbin "baserom.gba", 0x0CFDE9, 0x0000041
 
 gUnk_080CFE2A:: @ 080CFE2A
@@ -93,8 +91,6 @@ gUnk_080CFED4:: @ 080CFED4
 	.4byte gUnk_080CFE4C
 	.4byte gUnk_080CFE54
 	.4byte gUnk_080CFE58
-
-gUnk_080CFEFC:: @ 080CFEFC
 	.4byte gUnk_080CFE5C
 	.4byte gUnk_080CFE60
 	.4byte gUnk_080CFE71

@@ -35,8 +35,6 @@ gUnk_080D0AF0:: @ 080D0AF0
 
 gUnk_080D0AFC:: @ 080D0AFC
 	.4byte sub_080403CC
-
-gUnk_080D0B00:: @ 080D0B00
 	.4byte sub_080403EC
 
 gUnk_080D0B04:: @ 080D0B04
@@ -45,15 +43,11 @@ gUnk_080D0B04:: @ 080D0B04
 
 gUnk_080D0B0C:: @ 080D0B0C
 	.4byte sub_080404D0
-
-gUnk_080D0B10:: @ 080D0B10
 	.4byte sub_0804051C
 	.4byte sub_080405D8
 
 gUnk_080D0B18:: @ 080D0B18
 	.incbin "baserom.gba", 0x0D0B18, 0x0000011
-
-gUnk_080D0B29:: @ 080D0B29
 	.incbin "baserom.gba", 0x0D0B29, 0x000002F
 
 gUnk_080D0B58:: @ 080D0B58

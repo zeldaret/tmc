@@ -26,8 +26,6 @@ gUnk_08108408:: @ 08108408
 .else
 	.incbin "baserom.gba", 0x108408, 0x000003C
 .endif
-
-gUnk_08108444:: @ 08108444
 .ifdef EU
     @ TODO only small differences
 	.incbin "baserom_eu.gba", 0x107B98, 0x0000024
@@ -42,14 +40,10 @@ gUnk_08108468:: @ 08108468
 .else
 	.incbin "baserom.gba", 0x108468, 0x0000026
 .endif
-
-gUnk_0810848E:: @ 0810848E
 .ifdef EU
     @ TODO only small differences
 	.incbin "baserom_eu.gba", 0x107BE2, 0x0000035
 .else
 	.incbin "baserom.gba", 0x10848E, 0x0000035
 .endif
-
-gUnk_081084C3:: @ 081084C3
 	.incbin "baserom.gba", 0x1084C3, 0x0000005

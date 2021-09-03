@@ -16,6 +16,4 @@ gUnk_080CF4B8:: @ 080CF4B8
 	.4byte sub_08037FA0
 	.4byte sub_08037Fe0
 	.4byte sub_08038048
-
-gUnk_080CF4C4:: @ 080CF4C4
 	.4byte sub_08038110

@@ -6,8 +6,6 @@
 
 gUnk_08107C1C:: @ 08107C1C
 	.incbin "baserom.gba", 0x107C1C, 0x000000E
-
-gUnk_08107C2A:: @ 08107C2A
 	.incbin "baserom.gba", 0x107C2A, 0x0000006
 
 gUnk_08107C30:: @ 08107C30

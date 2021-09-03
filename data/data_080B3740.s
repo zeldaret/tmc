@@ -39,8 +39,6 @@ gUnk_080B37A0:: @ 080B37A0
 .else
 	.incbin "baserom.gba", 0x0B37A0, 0x0000192
 .endif
-
-gUnk_080B3932:: @ 080B3932
 .ifdef EU
     @ TODO only small differences
 	.incbin "baserom_eu.gba", 0x0B305A, 0x00003E2

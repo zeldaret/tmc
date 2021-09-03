@@ -5603,8 +5603,6 @@ gUnk_080B6DA8:: @ 080B6DA8
 	.incbin "baserom.gba", 0x0B6E54, 0x0000004
 	.4byte gUnk_080B6D68
 	.incbin "baserom.gba", 0x0B6E5C, 0x0000004
-
-gUnk_080B6E60:: @ 080B6E60
 	.4byte gUnk_080B6D60
 	.incbin "baserom.gba", 0x0B6E64, 0x0000004
 	.4byte gUnk_080B6D58
