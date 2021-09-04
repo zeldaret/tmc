@@ -1900,11 +1900,7 @@ gUnk_08100AA8:: @ 08100218
 
 
 gUnk_080FFB90:: @ 080FFB90
-.ifdef EU
-	.incbin "baserom_eu.gba", 0x0FF0C4, 0x0000018
-.else
 	.incbin "baserom.gba", 0x0FFB90, 0x0000018
-.endif
 
 gUnk_080FFBA8:: @ 080FFBA8
 .ifdef JP

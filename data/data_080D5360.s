@@ -4,7 +4,7 @@
 	.section .rodata
 	.align 2
 
-
+unusedLabel_0D533C::
 	.incbin "baserom.gba", 0x0D533C, 0x0000024
 	
 gUnk_080D5360:: @ 080D5360

@@ -4,6 +4,7 @@
 	.section .rodata
     .align 2
 
+unusedLabel_0CEBDC::
 	.incbin "baserom.gba", 0x0CEBDC, 0x000010
 
 gUnk_080CEBEC:: @ 080CEBEC 
