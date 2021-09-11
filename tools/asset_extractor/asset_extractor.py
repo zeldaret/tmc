@@ -6,7 +6,7 @@ import yaml
 
 verbose = False
 
-def extract_assets(variant):
+def extract_assets(variant, assets_folder):
     print(f'Extract assets from {variant}.')
     map = {
         'USA': 'baserom.gba',
@@ -37,7 +37,7 @@ def extract_assets(variant):
                         # This asset is not used in the current variant
                         continue
 
-                path = asset['path']
+                path = os.path.join(assets_folder, asset['path'])
                 if os.path.isfile(path):
                     if verbose:
                         print(f'{path} already extracted.')
@@ -83,10 +83,10 @@ def extract_tileset(path):
 def main():
     if len(sys.argv) == 1:
         extract_assets('USA')
-    elif len(sys.argv) == 2:
-        extract_assets(sys.argv[1].upper())
+    elif len(sys.argv) == 3:
+        extract_assets(sys.argv[1].upper(), sys.argv[2])
     else:
-        print('Usage: asset_extractor.py VARIANT')
+        print('Usage: asset_extractor.py VARIANT BUILD_FOLDER')
 
 if __name__ == '__main__':
     main()

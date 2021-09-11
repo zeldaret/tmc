@@ -93,7 +93,8 @@ int main(int argc, char **argv)
         includeDirs.push_back(file.GetSrcDir());
         for (auto incbin : file.GetIncbins())
         {
-            dependencies.insert(incbin);
+            // TODO add incbin dependencies in correct folder?
+            //dependencies.insert(incbin);
         }
         for (auto include : file.GetIncludes())
         {

@@ -56,14 +56,16 @@ ASM_SUBDIR = asm
 DATA_ASM_SUBDIR = data
 SONG_SUBDIR = sound/songs
 MID_SUBDIR = sound/songs/midi
+ASSET_SUBDIR = assets
 
 C_BUILDDIR = $(OBJ_DIR)/$(C_SUBDIR)
 ASM_BUILDDIR = $(OBJ_DIR)/$(ASM_SUBDIR)
 DATA_ASM_BUILDDIR = $(OBJ_DIR)/$(DATA_ASM_SUBDIR)
 SONG_BUILDDIR = $(OBJ_DIR)/$(SONG_SUBDIR)
 MID_BUILDDIR = $(OBJ_DIR)/$(MID_SUBDIR)
+ASSET_BUILDDIR = $(OBJ_DIR)/$(ASSET_SUBDIR)
 
-ASFLAGS := -mcpu=arm7tdmi --defsym $(GAME_VERSION)=1 --defsym REVISION=$(REVISION) --defsym $(GAME_LANGUAGE)=1
+ASFLAGS := -mcpu=arm7tdmi --defsym $(GAME_VERSION)=1 --defsym REVISION=$(REVISION) --defsym $(GAME_LANGUAGE)=1  -I $(ASSET_BUILDDIR)
 
 CC1             := tools/agbcc/bin/agbcc
 override CFLAGS += -O2 -Wimplicit -Wparentheses -Werror -Wno-multichar
@@ -147,7 +149,11 @@ MAKEFLAGS += --no-print-directory
 
 AUTO_GEN_TARGETS :=
 
-all: extractassets $(ROM)
+# TODO do we really need this extra step just so that extractassets always runs at first?
+all: extractassets
+	 @$(MAKE) target
+
+target: $(ROM)
 	@$(SHA1) $(BUILD_NAME).sha1
 
 # kept for backwards compat
@@ -157,7 +163,7 @@ compare: $(ROM)
 setup: $(TOOLDIRS)
 
 extractassets:
-	python tools/asset_extractor/asset_extractor.py $(GAME_VERSION)
+	python tools/asset_extractor/asset_extractor.py $(GAME_VERSION) $(ASSET_BUILDDIR)
 
 $(TOOLDIRS):
 	@$(MAKE) -C $@
