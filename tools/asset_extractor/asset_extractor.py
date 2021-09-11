@@ -12,7 +12,8 @@ def extract_assets(variant, assets_folder):
         'USA': 'baserom.gba',
         'EU': 'baserom_eu.gba',
         'JP': 'baserom_jp.gba',
-        'DEMO': 'baserom_demo.gba'
+        'DEMO_USA': 'baserom_demo.gba',
+        'DEMO_JP': 'baserom_demo_jp.gba',
     }
 
     if not os.path.exists(map[variant]):
