@@ -6,28 +6,28 @@
 
 
 gUnk_081136D8:: @ 081136D8
-	.incbin "baserom.gba", 0x1136D8, 0x0000011
+	.incbin "assets/anju/gUnk_081136D8.bin"
 
 gUnk_081136E9:: @ 081136E9
-	.incbin "baserom.gba", 0x1136E9, 0x0000011
+	.incbin "assets/anju/gUnk_081136E9.bin"
 
 gUnk_081136FA:: @ 081136FA
-	.incbin "baserom.gba", 0x1136FA, 0x0000011
+	.incbin "assets/anju/gUnk_081136FA.bin"
 
 gUnk_0811370B:: @ 0811370B
-	.incbin "baserom.gba", 0x11370B, 0x0000011
+	.incbin "assets/anju/gUnk_0811370B.bin"
 
 gUnk_0811371C:: @ 0811371C
-	.incbin "baserom.gba", 0x11371C, 0x0000005
+	.incbin "assets/anju/gUnk_0811371C.bin"
 
 gUnk_08113721:: @ 08113721
-	.incbin "baserom.gba", 0x113721, 0x0000005
+	.incbin "assets/anju/gUnk_08113721.bin"
 
 gUnk_08113726:: @ 08113726
-	.incbin "baserom.gba", 0x113726, 0x0000005
+	.incbin "assets/anju/gUnk_08113726.bin"
 
 gUnk_0811372B:: @ 0811372B
-	.incbin "baserom.gba", 0x11372B, 0x0000005
+	.incbin "assets/anju/gUnk_0811372B.bin"
 
 gUnk_08113730:: @ 08113730
 	.4byte gUnk_0811371C

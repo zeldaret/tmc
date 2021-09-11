@@ -5,10 +5,10 @@
     .align 2
 
 gUnk_081138DC:: @ 081138DC
-	.incbin "baserom.gba", 0x1138DC, 0x0000005
+	.incbin "assets/emma/gUnk_081138DC.bin"
 
 gUnk_081138E1:: @ 081138E1
-	.incbin "baserom.gba", 0x1138E1, 0x000001B
+	.incbin "assets/emma/gUnk_081138E1.bin"
 
 gUnk_081138FC:: @ 081138FC
 	.4byte gUnk_081138DC

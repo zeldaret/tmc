@@ -5,10 +5,10 @@
  @   .align 2
 
 gUnk_0810C445:: @ 0810C445
-	.incbin "baserom.gba", 0x10C445, 0x0000005
+	.incbin "assets/pita/gUnk_0810C445.bin"
 
 gUnk_0810C44A:: @ 0810C44A
-	.incbin "baserom.gba", 0x10C44A, 0x000001E
+	.incbin "assets/pita/gUnk_0810C44A.bin"
 
 gUnk_0810C468:: @ 0810C468
 	.4byte gUnk_0810C445

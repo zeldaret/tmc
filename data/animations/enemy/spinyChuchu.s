@@ -4,25 +4,25 @@
 	.section .rodata
 
 gUnk_080CBA64:: @ 080CBA64
-	.incbin "baserom.gba", 0x0CBA64, 0x0000041
+	.incbin "assets/spinyChuchu/gUnk_080CBA64.bin"
 
 gUnk_080CBAA5:: @ 080CBAA5
-	.incbin "baserom.gba", 0x0CBAA5, 0x0000040
+	.incbin "assets/spinyChuchu/gUnk_080CBAA5.bin"
 
 gUnk_080CBAE5:: @ 080CBAE5
-	.incbin "baserom.gba", 0x0CBAE5, 0x0000018
+	.incbin "assets/spinyChuchu/gUnk_080CBAE5.bin"
 
 gUnk_080CBAFD:: @ 080CBAFD
-	.incbin "baserom.gba", 0x0CBAFD, 0x0000024
+	.incbin "assets/spinyChuchu/gUnk_080CBAFD.bin"
 
 gUnk_080CBB21:: @ 080CBB21
-	.incbin "baserom.gba", 0x0CBB21, 0x0000011
+	.incbin "assets/spinyChuchu/gUnk_080CBB21.bin"
 
 gUnk_080CBB32:: @ 080CBB32
-	.incbin "baserom.gba", 0x0CBB32, 0x000000D
+	.incbin "assets/spinyChuchu/gUnk_080CBB32.bin"
 
 gUnk_080CBB3F:: @ 080CBB3F
-	.incbin "baserom.gba", 0x0CBB3F, 0x0000005
+	.incbin "assets/spinyChuchu/gUnk_080CBB3F.bin"
 
 gUnk_080CBB44:: @ 080CBB44
 	.4byte gUnk_080CBA64

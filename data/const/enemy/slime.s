@@ -20,8 +20,8 @@ gUnk_080D16BC:: @ 080D16BC
 	.4byte sub_080450A8
 
 gUnk_080D16D0:: @ 080D16D0
-	.incbin "baserom.gba", 0x0D16D0, 0x0000004
+	.incbin "assets/slime/gUnk_080D16D0.bin"
 
 gUnk_080D16D4:: @ 080D16D4
-	.incbin "baserom.gba", 0x0D16D4, 0x0000008
+	.incbin "assets/slime/gUnk_080D16D4.bin"
 

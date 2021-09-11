@@ -22,4 +22,4 @@ gUnk_08121688:: @ 08121688
 	.4byte sub_0808CEC0
 
 gUnk_081216B4:: @ 081216B4
-	.incbin "baserom.gba", 0x1216B4, 0x0000008
+	.incbin "assets/macroPlayer/gUnk_081216B4.bin"

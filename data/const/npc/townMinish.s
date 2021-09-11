@@ -5,119 +5,119 @@
     .align 2
 
 gUnk_081125F4:: @ 081125F4
-	.incbin "baserom.gba", 0x1125F4, 0x0000080
+	.incbin "assets/townMinish/gUnk_081125F4.bin"
 
 gUnk_08112674:: @ 08112674
-	.incbin "baserom.gba", 0x112674, 0x0000060
+	.incbin "assets/townMinish/gUnk_08112674.bin"
 
 gUnk_081126D4:: @ 081126D4
-	.incbin "baserom.gba", 0x1126D4, 0x0000010
+	.incbin "assets/townMinish/gUnk_081126D4.bin"
 
 gUnk_081126E4:: @ 081126E4
-	.incbin "baserom.gba", 0x1126E4, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126E4.bin"
 
 gUnk_081126E8:: @ 081126E8
 	.4byte sub_0806ABFC
 	.4byte sub_0806AC3C
 
 gUnk_081126F0:: @ 081126F0
-	.incbin "baserom.gba", 0x1126F0, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0.bin"
 	.4byte sub_0806B004
-	.incbin "baserom.gba", 0x1126F8, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_1.bin"
 	.4byte sub_0806B004
-	.incbin "baserom.gba", 0x112700, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_2.bin"
 	.4byte sub_0806B004
-	.incbin "baserom.gba", 0x112708, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_3.bin"
 	.4byte sub_0806B004
-	.incbin "baserom.gba", 0x112710, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_4.bin"
 	.4byte sub_0806B004
-	.incbin "baserom.gba", 0x112718, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_5.bin"
 	.4byte sub_0806B004
-	.incbin "baserom.gba", 0x112720, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_6.bin"
 	.4byte sub_0806B004
-	.incbin "baserom.gba", 0x112728, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_7.bin"
 	.4byte sub_0806B004
-	.incbin "baserom.gba", 0x112730, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_8.bin"
 	.4byte sub_0806B064
-	.incbin "baserom.gba", 0x112738, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_9.bin"
 	.4byte sub_0806B064
-	.incbin "baserom.gba", 0x112740, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_10.bin"
 	.4byte sub_0806B064
-	.incbin "baserom.gba", 0x112748, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_11.bin"
 	.4byte sub_0806B064
-	.incbin "baserom.gba", 0x112750, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_12.bin"
 	.4byte sub_0806B064
-	.incbin "baserom.gba", 0x112758, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_13.bin"
 	.4byte sub_0806B064
-	.incbin "baserom.gba", 0x112760, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_14.bin"
 	.4byte sub_0806B064
-	.incbin "baserom.gba", 0x112768, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_15.bin"
 	.4byte sub_0806B064
-	.incbin "baserom.gba", 0x112770, 0x0000144
+	.incbin "assets/townMinish/gUnk_081126F0_16.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x1128B8, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_17.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x1128C0, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_18.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x1128C8, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_19.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x1128D0, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_20.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x1128D8, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_21.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x1128E0, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_22.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x1128E8, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_23.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x1128F0, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_24.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x1128F8, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_25.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x112900, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_26.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x112908, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_27.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x112910, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_28.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x112918, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_29.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x112920, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_30.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x112928, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_31.bin"
 	.4byte sub_0806B098
-	.incbin "baserom.gba", 0x112930, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_32.bin"
 	.4byte sub_0806B0E0
-	.incbin "baserom.gba", 0x112938, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_33.bin"
 	.4byte sub_0806B0E0
-	.incbin "baserom.gba", 0x112940, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_34.bin"
 	.4byte sub_0806B0E0
-	.incbin "baserom.gba", 0x112948, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_35.bin"
 	.4byte sub_0806B0E0
-	.incbin "baserom.gba", 0x112950, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_36.bin"
 	.4byte sub_0806B0E0
-	.incbin "baserom.gba", 0x112958, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_37.bin"
 	.4byte sub_0806B0E0
-	.incbin "baserom.gba", 0x112960, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_38.bin"
 	.4byte sub_0806B0E0
-	.incbin "baserom.gba", 0x112968, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_39.bin"
 	.4byte sub_0806B0E0
-	.incbin "baserom.gba", 0x112970, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_40.bin"
 	.4byte sub_0806B134
-	.incbin "baserom.gba", 0x112978, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_41.bin"
 	.4byte sub_0806B134
-	.incbin "baserom.gba", 0x112980, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_42.bin"
 	.4byte sub_0806B134
-	.incbin "baserom.gba", 0x112988, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_43.bin"
 	.4byte sub_0806B134
-	.incbin "baserom.gba", 0x112990, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_44.bin"
 	.4byte sub_0806B134
-	.incbin "baserom.gba", 0x112998, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_45.bin"
 	.4byte sub_0806B134
-	.incbin "baserom.gba", 0x1129A0, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_46.bin"
 	.4byte sub_0806B134
-	.incbin "baserom.gba", 0x1129A8, 0x0000004
+	.incbin "assets/townMinish/gUnk_081126F0_47.bin"
 	.4byte sub_0806B134
-	.incbin "baserom.gba", 0x1129B0, 0x0000240
+	.incbin "assets/townMinish/gUnk_081126F0_48.bin"
 
 gUnk_08112BF0:: @ 08112BF0
 	.4byte sub_0806B004
@@ -142,17 +142,17 @@ gUnk_08112BF0:: @ 08112BF0
 	.4byte sub_0806AFBC
 
 gUnk_08112C40:: @ 08112C40
-	.incbin "baserom.gba", 0x112C40, 0x000000A
+	.incbin "assets/townMinish/gUnk_08112C40.bin"
 
 gUnk_08112C4A:: @ 08112C4A
-	.incbin "baserom.gba", 0x112C4A, 0x0000006
+	.incbin "assets/townMinish/gUnk_08112C4A.bin"
 
 gUnk_08112C50:: @ 08112C50
-	.incbin "baserom.gba", 0x112C50, 0x000000C
+	.incbin "assets/townMinish/gUnk_08112C50.bin"
 
 gUnk_08112C5C:: @ 08112C5C
-	.incbin "baserom.gba", 0x112C5C, 0x0000004
+	.incbin "assets/townMinish/gUnk_08112C5C.bin"
 
 gUnk_08112C60:: @ 08112C60
-	.incbin "baserom.gba", 0x112C60, 0x0000008
+	.incbin "assets/townMinish/gUnk_08112C60.bin"
 

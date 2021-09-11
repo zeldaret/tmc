@@ -20,14 +20,14 @@ gUnk_080CFF90:: @ 080CFF90
 	.4byte sub_0803C400
 
 gUnk_080CFFA4:: @ 080CFFA4
-	.incbin "baserom.gba", 0x0CFFA4, 0x0000008
+	.incbin "assets/bowMoblin/gUnk_080CFFA4.bin"
 
 gUnk_080CFFAC:: @ 080CFFAC
-	.incbin "baserom.gba", 0x0CFFAC, 0x0000010
+	.incbin "assets/bowMoblin/gUnk_080CFFAC.bin"
 
 gUnk_080CFFBC:: @ 080CFFBC
-	.incbin "baserom.gba", 0x0CFFBC, 0x0000008
+	.incbin "assets/bowMoblin/gUnk_080CFFBC.bin"
 
 gUnk_080CFFC4:: @ 080CFFC4
-	.incbin "baserom.gba", 0x0CFFC4, 0x0000008
+	.incbin "assets/bowMoblin/gUnk_080CFFC4.bin"
 

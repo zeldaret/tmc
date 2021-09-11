@@ -5,28 +5,28 @@
     .align 2
 
 gUnk_08112E5C:: @ 08112E5C
-	.incbin "baserom.gba", 0x112E5C, 0x0000049
+	.incbin "assets/percy/gUnk_08112E5C.bin"
 
 gUnk_08112EA5:: @ 08112EA5
-	.incbin "baserom.gba", 0x112EA5, 0x0000005
+	.incbin "assets/percy/gUnk_08112EA5.bin"
 
 gUnk_08112EAA:: @ 08112EAA
-	.incbin "baserom.gba", 0x112EAA, 0x0000005
+	.incbin "assets/percy/gUnk_08112EAA.bin"
 
 gUnk_08112EAF:: @ 08112EAF
-	.incbin "baserom.gba", 0x112EAF, 0x0000005
+	.incbin "assets/percy/gUnk_08112EAF.bin"
 
 gUnk_08112EB4:: @ 08112EB4
-	.incbin "baserom.gba", 0x112EB4, 0x0000071
+	.incbin "assets/percy/gUnk_08112EB4.bin"
 
 gUnk_08112F25:: @ 08112F25
-	.incbin "baserom.gba", 0x112F25, 0x0000005
+	.incbin "assets/percy/gUnk_08112F25.bin"
 
 gUnk_08112F2A:: @ 08112F2A
-	.incbin "baserom.gba", 0x112F2A, 0x0000005
+	.incbin "assets/percy/gUnk_08112F2A.bin"
 
 gUnk_08112F2F:: @ 08112F2F
-	.incbin "baserom.gba", 0x112F2F, 0x0000005
+	.incbin "assets/percy/gUnk_08112F2F.bin"
 
 gUnk_08112F34:: @ 08112F34
 	.4byte gUnk_08112E5C

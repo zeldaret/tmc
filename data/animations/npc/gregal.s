@@ -5,34 +5,34 @@
     .align 2
 
 gUnk_08113D9C:: @ 08113D9C
-	.incbin "baserom.gba", 0x113D9C, 0x0000011
+	.incbin "assets/gregal/gUnk_08113D9C.bin"
 
 gUnk_08113DAD:: @ 08113DAD
-	.incbin "baserom.gba", 0x113DAD, 0x0000005
+	.incbin "assets/gregal/gUnk_08113DAD.bin"
 
 gUnk_08113DB2:: @ 08113DB2
-	.incbin "baserom.gba", 0x113DB2, 0x0000029
+	.incbin "assets/gregal/gUnk_08113DB2.bin"
 
 gUnk_08113DDB:: @ 08113DDB
-	.incbin "baserom.gba", 0x113DDB, 0x00000D9
+	.incbin "assets/gregal/gUnk_08113DDB.bin"
 
 gUnk_08113EB4:: @ 08113EB4
-	.incbin "baserom.gba", 0x113EB4, 0x0000011
+	.incbin "assets/gregal/gUnk_08113EB4.bin"
 
 gUnk_08113EC5:: @ 08113EC5
-	.incbin "baserom.gba", 0x113EC5, 0x0000011
+	.incbin "assets/gregal/gUnk_08113EC5.bin"
 
 gUnk_08113ED6:: @ 08113ED6
-	.incbin "baserom.gba", 0x113ED6, 0x0000011
+	.incbin "assets/gregal/gUnk_08113ED6.bin"
 
 gUnk_08113EE7:: @ 08113EE7
-	.incbin "baserom.gba", 0x113EE7, 0x0000005
+	.incbin "assets/gregal/gUnk_08113EE7.bin"
 
 gUnk_08113EEC:: @ 08113EEC
-	.incbin "baserom.gba", 0x113EEC, 0x0000005
+	.incbin "assets/gregal/gUnk_08113EEC.bin"
 
 gUnk_08113EF1:: @ 08113EF1
-	.incbin "baserom.gba", 0x113EF1, 0x0000007
+	.incbin "assets/gregal/gUnk_08113EF1.bin"
 
 gUnk_08113EF8:: @ 08113EF8
 	.4byte gUnk_08113D9C

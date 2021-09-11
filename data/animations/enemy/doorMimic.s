@@ -4,22 +4,22 @@
 	.section .rodata
 
 gUnk_080CB8B4:: @ 080CB8B4
-	.incbin "baserom.gba", 0x0CB8B4, 0x0000005
+	.incbin "assets/doorMimic/gUnk_080CB8B4.bin"
 
 gUnk_080CB8B9:: @ 080CB8B9
-	.incbin "baserom.gba", 0x0CB8B9, 0x0000005
+	.incbin "assets/doorMimic/gUnk_080CB8B9.bin"
 
 gUnk_080CB8BE:: @ 080CB8BE
-	.incbin "baserom.gba", 0x0CB8BE, 0x0000019
+	.incbin "assets/doorMimic/gUnk_080CB8BE.bin"
 
 gUnk_080CB8D7:: @ 080CB8D7
-	.incbin "baserom.gba", 0x0CB8D7, 0x0000019
+	.incbin "assets/doorMimic/gUnk_080CB8D7.bin"
 
 gUnk_080CB8F0:: @ 080CB8F0
-	.incbin "baserom.gba", 0x0CB8F0, 0x0000011
+	.incbin "assets/doorMimic/gUnk_080CB8F0.bin"
 
 gUnk_080CB901:: @ 080CB901
-	.incbin "baserom.gba", 0x0CB901, 0x0000013
+	.incbin "assets/doorMimic/gUnk_080CB901.bin"
 
 gUnk_080CB914:: @ 080CB914
 	.4byte gUnk_080CB8B4

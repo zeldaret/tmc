@@ -5,217 +5,217 @@
     .align 2
 
 gUnk_0811FB10:: @ 0811FB10
-	.incbin "baserom.gba", 0x11FB10, 0x0000015
+	.incbin "assets/specialFx/gUnk_0811FB10.bin"
 
 gUnk_0811FB25:: @ 0811FB25
-	.incbin "baserom.gba", 0x11FB25, 0x0000058
+	.incbin "assets/specialFx/gUnk_0811FB25.bin"
 
 gUnk_0811FB7D:: @ 0811FB7D
-	.incbin "baserom.gba", 0x11FB7D, 0x0000044
+	.incbin "assets/specialFx/gUnk_0811FB7D.bin"
 
 gUnk_0811FBC1:: @ 0811FBC1
-	.incbin "baserom.gba", 0x11FBC1, 0x0000020
+	.incbin "assets/specialFx/gUnk_0811FBC1.bin"
 
 gUnk_0811FBE1:: @ 0811FBE1
-	.incbin "baserom.gba", 0x11FBE1, 0x000001C
+	.incbin "assets/specialFx/gUnk_0811FBE1.bin"
 
 gUnk_0811FBFD:: @ 0811FBFD
-	.incbin "baserom.gba", 0x11FBFD, 0x0000014
+	.incbin "assets/specialFx/gUnk_0811FBFD.bin"
 
 gUnk_0811FC11:: @ 0811FC11
-	.incbin "baserom.gba", 0x11FC11, 0x000001C
+	.incbin "assets/specialFx/gUnk_0811FC11.bin"
 
 gUnk_0811FC2D:: @ 0811FC2D
-	.incbin "baserom.gba", 0x11FC2D, 0x0000024
+	.incbin "assets/specialFx/gUnk_0811FC2D.bin"
 
 gUnk_0811FC51:: @ 0811FC51
-	.incbin "baserom.gba", 0x11FC51, 0x0000021
+	.incbin "assets/specialFx/gUnk_0811FC51.bin"
 
 gUnk_0811FC72:: @ 0811FC72
-	.incbin "baserom.gba", 0x11FC72, 0x0000015
+	.incbin "assets/specialFx/gUnk_0811FC72.bin"
 
 gUnk_0811FC87:: @ 0811FC87
-	.incbin "baserom.gba", 0x11FC87, 0x0000024
+	.incbin "assets/specialFx/gUnk_0811FC87.bin"
 
 gUnk_0811FCAB:: @ 0811FCAB
-	.incbin "baserom.gba", 0x11FCAB, 0x0000034
+	.incbin "assets/specialFx/gUnk_0811FCAB.bin"
 
 gUnk_0811FCDF:: @ 0811FCDF
-	.incbin "baserom.gba", 0x11FCDF, 0x0000044
+	.incbin "assets/specialFx/gUnk_0811FCDF.bin"
 
 gUnk_0811FD23:: @ 0811FD23
-	.incbin "baserom.gba", 0x11FD23, 0x0000018
+	.incbin "assets/specialFx/gUnk_0811FD23.bin"
 
 gUnk_0811FD3B:: @ 0811FD3B
-	.incbin "baserom.gba", 0x11FD3B, 0x000001C
+	.incbin "assets/specialFx/gUnk_0811FD3B.bin"
 
 gUnk_0811FD57:: @ 0811FD57
-	.incbin "baserom.gba", 0x11FD57, 0x000001C
+	.incbin "assets/specialFx/gUnk_0811FD57.bin"
 
 gUnk_0811FD73:: @ 0811FD73
-	.incbin "baserom.gba", 0x11FD73, 0x000000C
+	.incbin "assets/specialFx/gUnk_0811FD73.bin"
 
 gUnk_0811FD7F:: @ 0811FD7F
-	.incbin "baserom.gba", 0x11FD7F, 0x0000010
+	.incbin "assets/specialFx/gUnk_0811FD7F.bin"
 
 gUnk_0811FD8F:: @ 0811FD8F
-	.incbin "baserom.gba", 0x11FD8F, 0x0000014
+	.incbin "assets/specialFx/gUnk_0811FD8F.bin"
 
 gUnk_0811FDA3:: @ 0811FDA3
-	.incbin "baserom.gba", 0x11FDA3, 0x0000015
+	.incbin "assets/specialFx/gUnk_0811FDA3.bin"
 
 gUnk_0811FDB8:: @ 0811FDB8
-	.incbin "baserom.gba", 0x11FDB8, 0x0000014
+	.incbin "assets/specialFx/gUnk_0811FDB8.bin"
 
 gUnk_0811FDCC:: @ 0811FDCC
-	.incbin "baserom.gba", 0x11FDCC, 0x0000008
+	.incbin "assets/specialFx/gUnk_0811FDCC.bin"
 
 gUnk_0811FDD4:: @ 0811FDD4
-	.incbin "baserom.gba", 0x11FDD4, 0x0000018
+	.incbin "assets/specialFx/gUnk_0811FDD4.bin"
 
 gUnk_0811FDEC:: @ 0811FDEC
-	.incbin "baserom.gba", 0x11FDEC, 0x0000010
+	.incbin "assets/specialFx/gUnk_0811FDEC.bin"
 
 gUnk_0811FDFC:: @ 0811FDFC
-	.incbin "baserom.gba", 0x11FDFC, 0x0000019
+	.incbin "assets/specialFx/gUnk_0811FDFC.bin"
 
 gUnk_0811FE15:: @ 0811FE15
-	.incbin "baserom.gba", 0x11FE15, 0x0000041
+	.incbin "assets/specialFx/gUnk_0811FE15.bin"
 
 gUnk_0811FE56:: @ 0811FE56
-	.incbin "baserom.gba", 0x11FE56, 0x0000008
+	.incbin "assets/specialFx/gUnk_0811FE56.bin"
 
 gUnk_0811FE5E:: @ 0811FE5E
-	.incbin "baserom.gba", 0x11FE5E, 0x0000018
+	.incbin "assets/specialFx/gUnk_0811FE5E.bin"
 
 gUnk_0811FE76:: @ 0811FE76
-	.incbin "baserom.gba", 0x11FE76, 0x0000018
+	.incbin "assets/specialFx/gUnk_0811FE76.bin"
 
 gUnk_0811FE8E:: @ 0811FE8E
-	.incbin "baserom.gba", 0x11FE8E, 0x0000014
+	.incbin "assets/specialFx/gUnk_0811FE8E.bin"
 
 gUnk_0811FEA2:: @ 0811FEA2
-	.incbin "baserom.gba", 0x11FEA2, 0x000000C
+	.incbin "assets/specialFx/gUnk_0811FEA2.bin"
 
 gUnk_0811FEAE:: @ 0811FEAE
-	.incbin "baserom.gba", 0x11FEAE, 0x000000C
+	.incbin "assets/specialFx/gUnk_0811FEAE.bin"
 
 gUnk_0811FEBA:: @ 0811FEBA
-	.incbin "baserom.gba", 0x11FEBA, 0x0000028
+	.incbin "assets/specialFx/gUnk_0811FEBA.bin"
 
 gUnk_0811FEE2:: @ 0811FEE2
-	.incbin "baserom.gba", 0x11FEE2, 0x000000D
+	.incbin "assets/specialFx/gUnk_0811FEE2.bin"
 
 gUnk_0811FEEF:: @ 0811FEEF
-	.incbin "baserom.gba", 0x11FEEF, 0x0000020
+	.incbin "assets/specialFx/gUnk_0811FEEF.bin"
 
 gUnk_0811FF0F:: @ 0811FF0F
-	.incbin "baserom.gba", 0x11FF0F, 0x0000020
+	.incbin "assets/specialFx/gUnk_0811FF0F.bin"
 
 gUnk_0811FF2F:: @ 0811FF2F
-	.incbin "baserom.gba", 0x11FF2F, 0x0000020
+	.incbin "assets/specialFx/gUnk_0811FF2F.bin"
 
 gUnk_0811FF4F:: @ 0811FF4F
-	.incbin "baserom.gba", 0x11FF4F, 0x0000020
+	.incbin "assets/specialFx/gUnk_0811FF4F.bin"
 
 gUnk_0811FF6F:: @ 0811FF6F
-	.incbin "baserom.gba", 0x11FF6F, 0x0000020
+	.incbin "assets/specialFx/gUnk_0811FF6F.bin"
 
 gUnk_0811FF8F:: @ 0811FF8F
-	.incbin "baserom.gba", 0x11FF8F, 0x0000018
+	.incbin "assets/specialFx/gUnk_0811FF8F.bin"
 
 gUnk_0811FFA7:: @ 0811FFA7
-	.incbin "baserom.gba", 0x11FFA7, 0x0000020
+	.incbin "assets/specialFx/gUnk_0811FFA7.bin"
 
 gUnk_0811FFC7:: @ 0811FFC7
-	.incbin "baserom.gba", 0x11FFC7, 0x0000018
+	.incbin "assets/specialFx/gUnk_0811FFC7.bin"
 
 gUnk_0811FFDF:: @ 0811FFDF
-	.incbin "baserom.gba", 0x11FFDF, 0x0000018
+	.incbin "assets/specialFx/gUnk_0811FFDF.bin"
 
 gUnk_0811FFF7:: @ 0811FFF7
-	.incbin "baserom.gba", 0x11FFF7, 0x0000020
+	.incbin "assets/specialFx/gUnk_0811FFF7.bin"
 
 gUnk_08120017:: @ 08120017
-	.incbin "baserom.gba", 0x120017, 0x0000024
+	.incbin "assets/specialFx/gUnk_08120017.bin"
 
 gUnk_0812003B:: @ 0812003B
-	.incbin "baserom.gba", 0x12003B, 0x0000028
+	.incbin "assets/specialFx/gUnk_0812003B.bin"
 
 gUnk_08120063:: @ 08120063
-	.incbin "baserom.gba", 0x120063, 0x000001C
+	.incbin "assets/specialFx/gUnk_08120063.bin"
 
 gUnk_0812007F:: @ 0812007F
-	.incbin "baserom.gba", 0x12007F, 0x000001C
+	.incbin "assets/specialFx/gUnk_0812007F.bin"
 
 gUnk_0812009B:: @ 0812009B
-	.incbin "baserom.gba", 0x12009B, 0x0000014
+	.incbin "assets/specialFx/gUnk_0812009B.bin"
 
 gUnk_081200AF:: @ 081200AF
-	.incbin "baserom.gba", 0x1200AF, 0x000001C
+	.incbin "assets/specialFx/gUnk_081200AF.bin"
 
 gUnk_081200CB:: @ 081200CB
-	.incbin "baserom.gba", 0x1200CB, 0x0000020
+	.incbin "assets/specialFx/gUnk_081200CB.bin"
 
 gUnk_081200EB:: @ 081200EB
-	.incbin "baserom.gba", 0x1200EB, 0x0000014
+	.incbin "assets/specialFx/gUnk_081200EB.bin"
 
 gUnk_081200FF:: @ 081200FF
-	.incbin "baserom.gba", 0x1200FF, 0x0000024
+	.incbin "assets/specialFx/gUnk_081200FF.bin"
 
 gUnk_08120123:: @ 08120123
-	.incbin "baserom.gba", 0x120123, 0x0000024
+	.incbin "assets/specialFx/gUnk_08120123.bin"
 
 gUnk_08120147:: @ 08120147
-	.incbin "baserom.gba", 0x120147, 0x0000020
+	.incbin "assets/specialFx/gUnk_08120147.bin"
 
 gUnk_08120167:: @ 08120167
-	.incbin "baserom.gba", 0x120167, 0x0000018
+	.incbin "assets/specialFx/gUnk_08120167.bin"
 
 gUnk_0812017F:: @ 0812017F
-	.incbin "baserom.gba", 0x12017F, 0x0000018
+	.incbin "assets/specialFx/gUnk_0812017F.bin"
 
 gUnk_08120197:: @ 08120197
-	.incbin "baserom.gba", 0x120197, 0x0000018
+	.incbin "assets/specialFx/gUnk_08120197.bin"
 
 gUnk_081201AF:: @ 081201AF
-	.incbin "baserom.gba", 0x1201AF, 0x0000031
+	.incbin "assets/specialFx/gUnk_081201AF.bin"
 
 gUnk_081201E0:: @ 081201E0
-	.incbin "baserom.gba", 0x1201E0, 0x0000029
+	.incbin "assets/specialFx/gUnk_081201E0.bin"
 
 gUnk_08120209:: @ 08120209
-	.incbin "baserom.gba", 0x120209, 0x0000038
+	.incbin "assets/specialFx/gUnk_08120209.bin"
 
 gUnk_08120241:: @ 08120241
-	.incbin "baserom.gba", 0x120241, 0x0000038
+	.incbin "assets/specialFx/gUnk_08120241.bin"
 
 gUnk_08120279:: @ 08120279
-	.incbin "baserom.gba", 0x120279, 0x0000034
+	.incbin "assets/specialFx/gUnk_08120279.bin"
 
 gUnk_081202AD:: @ 081202AD
-	.incbin "baserom.gba", 0x1202AD, 0x0000011
+	.incbin "assets/specialFx/gUnk_081202AD.bin"
 
 gUnk_081202BE:: @ 081202BE
-	.incbin "baserom.gba", 0x1202BE, 0x0000025
+	.incbin "assets/specialFx/gUnk_081202BE.bin"
 
 gUnk_081202E3:: @ 081202E3
-	.incbin "baserom.gba", 0x1202E3, 0x0000029
+	.incbin "assets/specialFx/gUnk_081202E3.bin"
 
 gUnk_0812030C:: @ 0812030C
-	.incbin "baserom.gba", 0x12030C, 0x0000044
+	.incbin "assets/specialFx/gUnk_0812030C.bin"
 
 gUnk_08120350:: @ 08120350
-	.incbin "baserom.gba", 0x120350, 0x000001C
+	.incbin "assets/specialFx/gUnk_08120350.bin"
 
 gUnk_0812036C:: @ 0812036C
-	.incbin "baserom.gba", 0x12036C, 0x0000020
+	.incbin "assets/specialFx/gUnk_0812036C.bin"
 
 gUnk_0812038C:: @ 0812038C
-	.incbin "baserom.gba", 0x12038C, 0x0000038
+	.incbin "assets/specialFx/gUnk_0812038C.bin"
 
 gUnk_081203C4:: @ 081203C4
-	.incbin "baserom.gba", 0x1203C4, 0x0000038
+	.incbin "assets/specialFx/gUnk_081203C4.bin"
 
 gUnk_081203FC:: @ 081203FC
 	.4byte gUnk_0811FB10

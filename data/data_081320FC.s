@@ -6,36 +6,36 @@
 
 .ifdef DEMO_JP
 	@ TODO check whether this is the same save as one of the DEMO_USA ones
-	.incbin "baserom_demo_jp.gba", 0x131830, 0x0000500
+	.incbin "assets/data_081320FC/_DEMO_JP.bin"
 .endif
 
 
 gUnk_0813210C:: @ 0813210C
-	.incbin "baserom.gba", 0x13210C, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_0813210C.bin"
 	.4byte gUnk_0813235C
-	.incbin "baserom.gba", 0x132114, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_1.bin"
 	.4byte gUnk_080FD1C4
-	.incbin "baserom.gba", 0x132124, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_2.bin"
 	.4byte gUnk_080FD1C4
-	.incbin "baserom.gba", 0x132134, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_3.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132144, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_4.bin"
 	.4byte gUnk_080FD1C4
-	.incbin "baserom.gba", 0x132154, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_5.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132164, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_6.bin"
 	.4byte gUnk_081323AC
-	.incbin "baserom.gba", 0x132174, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_7.bin"
 	.4byte gUnk_081323DC
-	.incbin "baserom.gba", 0x132184, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_8.bin"
 	.4byte gUnk_0813240C
-	.incbin "baserom.gba", 0x132194, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_9.bin"
 	.4byte gUnk_0813242C
-	.incbin "baserom.gba", 0x1321A4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_10.bin"
 	.4byte gUnk_0813244C
-	.incbin "baserom.gba", 0x1321B4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_11.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1321C4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_12.bin"
 .ifdef JP
 	.4byte gUnk_080FD150
 .else
@@ -45,354 +45,354 @@ gUnk_0813210C:: @ 0813210C
 	.4byte gUnk_080FD180
 .endif
 .endif
-	.incbin "baserom.gba", 0x1321D4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_13.bin"
 	.4byte gUnk_080FD150
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131834, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_14_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1321E4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_15_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_0813248C
-	.incbin "baserom.gba", 0x1321F4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_16.bin"
 	.4byte gUnk_081324AC
-	.incbin "baserom.gba", 0x132204, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_17.bin"
 	.4byte gUnk_081324EC
-	.incbin "baserom.gba", 0x132214, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_18.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132224, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_19.bin"
 	.4byte gUnk_080FD168
-	.incbin "baserom.gba", 0x132234, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_20.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132244, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_21.bin"
 	.4byte gUnk_0813250C
-	.incbin "baserom.gba", 0x132254, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_22.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132264, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_23.bin"
 	.4byte gUnk_080FD448
-	.incbin "baserom.gba", 0x132274, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_24.bin"
 	.4byte gUnk_080FD448
-	.incbin "baserom.gba", 0x132284, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_25.bin"
 	.4byte gUnk_080FD150
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x1318E4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_26_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132294, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_27_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD168
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x1318F4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_28_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1322A4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_29_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1322B4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_30.bin"
 	.4byte gUnk_0813252C
-	.incbin "baserom.gba", 0x1322C4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_31.bin"
 	.4byte gUnk_080FD150
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131924, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_32_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1322D4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_33_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_0813256C
-	.incbin "baserom.gba", 0x1322E4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_34.bin"
 	.4byte gUnk_081325BC
-	.incbin "baserom.gba", 0x1322F4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_35.bin"
 	.4byte gUnk_0813269C
-	.incbin "baserom.gba", 0x132304, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_36.bin"
 	.4byte gUnk_080FD448
-	.incbin "baserom.gba", 0x132314, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_37.bin"
 	.4byte gUnk_080FD448
-	.incbin "baserom.gba", 0x132324, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_38.bin"
 	.4byte gUnk_081326CC
-	.incbin "baserom.gba", 0x132334, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_39.bin"
 	.4byte gUnk_080FD460
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131994, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_40_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132344, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813210C_41_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD460
-	.incbin "baserom.gba", 0x132354, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_0813210C_42.bin"
 
 gUnk_0813235C:: @ 0813235C
-	.incbin "baserom.gba", 0x13235C, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_0813235C.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132364, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813235C_1.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132374, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813235C_2.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132384, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813235C_3.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132394, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813235C_4.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1323A4, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_0813235C_5.bin"
 
 gUnk_081323AC:: @ 081323AC
-	.incbin "baserom.gba", 0x1323AC, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_081323AC.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1323B4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081323AC_1.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1323C4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081323AC_2.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1323D4, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_081323AC_3.bin"
 
 gUnk_081323DC:: @ 081323DC
-	.incbin "baserom.gba", 0x1323DC, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_081323DC.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1323E4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081323DC_1.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1323F4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081323DC_2.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132404, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_081323DC_3.bin"
 
 gUnk_0813240C:: @ 0813240C
-	.incbin "baserom.gba", 0x13240C, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_0813240C.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132414, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813240C_1.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132424, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_0813240C_2.bin"
 
 gUnk_0813242C:: @ 0813242C
-	.incbin "baserom.gba", 0x13242C, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_0813242C.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132434, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813242C_1.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132444, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_0813242C_2.bin"
 
 gUnk_0813244C:: @ 0813244C
-	.incbin "baserom.gba", 0x13244C, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_0813244C.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132454, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813244C_1.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132464, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813244C_2.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132474, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813244C_3.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132484, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_0813244C_4.bin"
 
 gUnk_0813248C:: @ 0813248C
-	.incbin "baserom.gba", 0x13248C, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_0813248C.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132494, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813248C_1.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1324A4, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_0813248C_2.bin"
 
 gUnk_081324AC:: @ 081324AC
-	.incbin "baserom.gba", 0x1324AC, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_081324AC.bin"
 	.4byte gUnk_080FD3F4
-	.incbin "baserom.gba", 0x1324B4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081324AC_1.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1324C4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081324AC_2.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1324D4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081324AC_3.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1324E4, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_081324AC_4.bin"
 
 gUnk_081324EC:: @ 081324EC
-	.incbin "baserom.gba", 0x1324EC, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_081324EC.bin"
 	.4byte gUnk_080FD3FC
-	.incbin "baserom.gba", 0x1324F4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081324EC_1.bin"
 	.4byte gUnk_080FD3FC
-	.incbin "baserom.gba", 0x132504, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_081324EC_2.bin"
 
 gUnk_0813250C:: @ 0813250C
-	.incbin "baserom.gba", 0x13250C, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_0813250C.bin"
 	.4byte gUnk_080FD170
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131B64, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813250C_1_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132514, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813250C_2_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD43C
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131B74, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_0813250C_3_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132524, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_0813250C_4_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_0813252C:: @ 0813252C
-	.incbin "baserom.gba", 0x13252C, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_0813252C.bin"
 	.4byte gUnk_080FD168
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131B84, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813252C_1_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132534, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813252C_2_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD168
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131B94, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813252C_3_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132544, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813252C_4_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD168
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131BA4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813252C_5_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132554, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813252C_6_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD168
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131BB4, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_0813252C_7_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132564, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_0813252C_8_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_0813256C:: @ 0813256C
-	.incbin "baserom.gba", 0x13256C, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_0813256C.bin"
 	.4byte gUnk_080FD558
-	.incbin "baserom.gba", 0x132574, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813256C_1.bin"
 	.4byte gUnk_080FD560
-	.incbin "baserom.gba", 0x132584, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813256C_2.bin"
 	.4byte gUnk_080FD560
-	.incbin "baserom.gba", 0x132594, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813256C_3.bin"
 	.4byte gUnk_080FD560
-	.incbin "baserom.gba", 0x1325A4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813256C_4.bin"
 	.4byte gUnk_080FD560
-	.incbin "baserom.gba", 0x1325B4, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_0813256C_5.bin"
 
 gUnk_081325BC:: @ 081325BC
-	.incbin "baserom.gba", 0x1325BC, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_081325BC.bin"
 	.4byte gUnk_080FD4B8
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131C14, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_1_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1325C4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_2_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD4C0
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131C24, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_3_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1325D4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_4_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD4C8
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131C34, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_5_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1325E4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_6_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD4D0
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131C44, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_7_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1325F4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_8_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD4D8
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131C54, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_9_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132604, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_10_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD4E0
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131C64, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_11_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132614, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_12_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD4E8
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131C74, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_13_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132624, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_14_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD4F0
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131C84, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_15_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132634, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_16_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD4F8
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131C94, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_17_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132644, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_18_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD500
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131CA4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_19_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132654, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_20_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD508
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131CB4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_21_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132664, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_22_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD510
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131CC4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_23_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132674, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_24_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD518
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131CD4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_25_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132684, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081325BC_26_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD520
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131CE4, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_081325BC_27_EU.bin"
 .else
-	.incbin "baserom.gba", 0x132694, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_081325BC_28_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_0813269C:: @ 0813269C
-	.incbin "baserom.gba", 0x13269C, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_0813269C.bin"
 	.4byte gUnk_080FD150
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131CF4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813269C_1_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1326A4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813269C_2_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1326B4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_0813269C_3.bin"
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x1326C4, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_0813269C_4.bin"
 
 gUnk_081326CC:: @ 081326CC
-	.incbin "baserom.gba", 0x1326CC, 0x0000004
+	.incbin "assets/data_081320FC/gUnk_081326CC.bin"
 	.4byte gUnk_080FD168
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131D24, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081326CC_1_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1326D4, 0x000000C
+	.incbin "assets/data_081320FC/gUnk_081326CC_2_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 	.4byte gUnk_080FD448
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x131D34, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_081326CC_3_EU.bin"
 .else
-	.incbin "baserom.gba", 0x1326E4, 0x0000008
+	.incbin "assets/data_081320FC/gUnk_081326CC_4_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_081326EC:: @ 081326EC
-	.incbin "baserom.gba", 0x1326EC, 0x0000014
+	.incbin "assets/data_081320FC/gUnk_081326EC.bin"

@@ -5,55 +5,55 @@
     .align 2
 
 gUnk_0810C0C4:: @ 0810C0C4
-	.incbin "baserom.gba", 0x10C0C4, 0x0000005
+	.incbin "assets/kid/gUnk_0810C0C4.bin"
 
 gUnk_0810C0C9:: @ 0810C0C9
-	.incbin "baserom.gba", 0x10C0C9, 0x0000005
+	.incbin "assets/kid/gUnk_0810C0C9.bin"
 
 gUnk_0810C0CE:: @ 0810C0CE
-	.incbin "baserom.gba", 0x10C0CE, 0x0000005
+	.incbin "assets/kid/gUnk_0810C0CE.bin"
 
 gUnk_0810C0D3:: @ 0810C0D3
-	.incbin "baserom.gba", 0x10C0D3, 0x0000005
+	.incbin "assets/kid/gUnk_0810C0D3.bin"
 
 gUnk_0810C0D8:: @ 0810C0D8
-	.incbin "baserom.gba", 0x10C0D8, 0x0000011
+	.incbin "assets/kid/gUnk_0810C0D8.bin"
 
 gUnk_0810C0E9:: @ 0810C0E9
-	.incbin "baserom.gba", 0x10C0E9, 0x0000011
+	.incbin "assets/kid/gUnk_0810C0E9.bin"
 
 gUnk_0810C0FA:: @ 0810C0FA
-	.incbin "baserom.gba", 0x10C0FA, 0x0000011
+	.incbin "assets/kid/gUnk_0810C0FA.bin"
 
 gUnk_0810C10B:: @ 0810C10B
-	.incbin "baserom.gba", 0x10C10B, 0x0000011
+	.incbin "assets/kid/gUnk_0810C10B.bin"
 
 gUnk_0810C11C:: @ 0810C11C
-	.incbin "baserom.gba", 0x10C11C, 0x0000019
+	.incbin "assets/kid/gUnk_0810C11C.bin"
 
 gUnk_0810C135:: @ 0810C135
-	.incbin "baserom.gba", 0x10C135, 0x0000019
+	.incbin "assets/kid/gUnk_0810C135.bin"
 
 gUnk_0810C14E:: @ 0810C14E
-	.incbin "baserom.gba", 0x10C14E, 0x0000019
+	.incbin "assets/kid/gUnk_0810C14E.bin"
 
 gUnk_0810C167:: @ 0810C167
-	.incbin "baserom.gba", 0x10C167, 0x0000019
+	.incbin "assets/kid/gUnk_0810C167.bin"
 
 gUnk_0810C180:: @ 0810C180
-	.incbin "baserom.gba", 0x10C180, 0x0000019
+	.incbin "assets/kid/gUnk_0810C180.bin"
 
 gUnk_0810C199:: @ 0810C199
-	.incbin "baserom.gba", 0x10C199, 0x000000D
+	.incbin "assets/kid/gUnk_0810C199.bin"
 
 gUnk_0810C1A6:: @ 0810C1A6
-	.incbin "baserom.gba", 0x10C1A6, 0x0000031
+	.incbin "assets/kid/gUnk_0810C1A6.bin"
 
 gUnk_0810C1D7:: @ 0810C1D7
-	.incbin "baserom.gba", 0x10C1D7, 0x0000005
+	.incbin "assets/kid/gUnk_0810C1D7.bin"
 
 gUnk_0810C1DC:: @ 0810C1DC
-	.incbin "baserom.gba", 0x10C1DC, 0x0000008
+	.incbin "assets/kid/gUnk_0810C1DC.bin"
 
 gUnk_0810C1E4:: @ 0810C1E4
 	.4byte gUnk_0810C0C4
@@ -95,13 +95,13 @@ gUnk_0810C268:: @ 0810C268
 	.4byte sub_08062AD4
 
 gUnk_0810C270:: @ 0810C270
-	.incbin "baserom.gba", 0x10C270, 0x0000005
+	.incbin "assets/kid/gUnk_0810C270.bin"
 
 gUnk_0810C275:: @ 0810C275
-	.incbin "baserom.gba", 0x10C275, 0x0000005
+	.incbin "assets/kid/gUnk_0810C275.bin"
 
 gUnk_0810C27A:: @ 0810C27A
-	.incbin "baserom.gba", 0x10C27A, 0x0000006
+	.incbin "assets/kid/gUnk_0810C27A.bin"
 	.4byte gUnk_0810C270
 	.4byte gUnk_0810C275
 	.4byte gUnk_0810C27A

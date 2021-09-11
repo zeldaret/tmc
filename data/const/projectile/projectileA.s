@@ -18,10 +18,10 @@ gUnk_08129968:: @ 08129968
 	.4byte sub_080A90BC
 
 gUnk_08129978:: @ 08129978
-	.incbin "baserom.gba", 0x129978, 0x0000008
+	.incbin "assets/projectileA/gUnk_08129978.bin"
 
 gUnk_08129980:: @ 08129980
-	.incbin "baserom.gba", 0x129980, 0x0000008
+	.incbin "assets/projectileA/gUnk_08129980.bin"
 
 gUnk_08129988:: @ 08129988
-	.incbin "baserom.gba", 0x129988, 0x0000010
+	.incbin "assets/projectileA/gUnk_08129988.bin"

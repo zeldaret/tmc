@@ -31,4 +31,4 @@ gUnk_080CF278:: @ 080CF278
 	.4byte sub_08037218
 
 gUnk_080CF290:: @ 080CF290
-	.incbin "baserom.gba", 0x0CF290, 0x0000004
+	.incbin "assets/flyingPot/gUnk_080CF290.bin"

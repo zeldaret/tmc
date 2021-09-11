@@ -20,10 +20,10 @@ gUnk_080CF618:: @ 080CF618
 	.4byte sub_08038B64
 
 gUnk_080CF62C:: @ 080CF62C
-	.incbin "baserom.gba", 0x0CF62C, 0x0000008
+	.incbin "assets/scissorsBeetle/gUnk_080CF62C.bin"
 
 gUnk_080CF634:: @ 080CF634
-	.incbin "baserom.gba", 0x0CF634, 0x0000008
+	.incbin "assets/scissorsBeetle/gUnk_080CF634.bin"
 
 gUnk_080CF63C:: @ 080CF63C
-	.incbin "baserom.gba", 0x0CF63C, 0x0000008
+	.incbin "assets/scissorsBeetle/gUnk_080CF63C.bin"

@@ -18,7 +18,7 @@ gUnk_080D1800:: @ 080D1800
 	.4byte sub_08045454
 
 gUnk_080D180C:: @ 080D180C
-	.incbin "baserom.gba", 0x0D180C, 0x0000004
+	.incbin "assets/fireballGuy/gUnk_080D180C.bin"
 
 gUnk_080D1810:: @ 080D1810
-	.incbin "baserom.gba", 0x0D1810, 0x0000008
+	.incbin "assets/fireballGuy/gUnk_080D1810.bin"

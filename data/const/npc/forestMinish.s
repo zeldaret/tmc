@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08109C98:: @ 08109C98
-	.incbin "baserom.gba", 0x109C98, 0x0000080
+	.incbin "assets/forestMinish/gUnk_08109C98.bin"
 
 gUnk_08109D18:: @ 08109D18
 	.4byte script_08009F14
@@ -54,57 +54,57 @@ gUnk_08109D18:: @ 08109D18
 	.4byte script_0800CD04
 
 gUnk_08109DC8:: @ 08109DC8
-	.incbin "baserom.gba", 0x109DC8, 0x00001A4
+	.incbin "assets/forestMinish/gUnk_08109DC8.bin"
 .ifdef JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x109C30, 0x000002B
+	.incbin "assets/forestMinish/gUnk_08109DC8_1_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x109C30, 0x000002B
+	.incbin "assets/forestMinish/gUnk_08109DC8_2_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "baserom_jp.gba", 0x109C30, 0x000002B
+	.incbin "assets/forestMinish/gUnk_08109DC8_3_EU.bin"
 .else
-	.incbin "baserom.gba", 0x109F6C, 0x000002B
+	.incbin "assets/forestMinish/gUnk_08109DC8_4_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
 
 .ifdef JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x109C5B, 0x00000B1
+	.incbin "assets/forestMinish/gUnk_08109DC8_5_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x109C5B, 0x00000B1
+	.incbin "assets/forestMinish/gUnk_08109DC8_6_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "baserom_jp.gba", 0x109C5B, 0x00000B1
+	.incbin "assets/forestMinish/gUnk_08109DC8_7_EU.bin"
 .else
-	.incbin "baserom.gba", 0x109F97, 0x00000B1
+	.incbin "assets/forestMinish/gUnk_08109DC8_8_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
 
-	.incbin "baserom.gba", 0x10A048, 0x0000024
+	.incbin "assets/forestMinish/gUnk_08109DC8_9.bin"
 	.4byte sub_080601D4
-	.incbin "baserom.gba", 0x10A070, 0x0000004
+	.incbin "assets/forestMinish/gUnk_08109DC8_10.bin"
 	.4byte sub_080601D4
-	.incbin "baserom.gba", 0x10A078, 0x0000004
+	.incbin "assets/forestMinish/gUnk_08109DC8_11.bin"
 	.4byte sub_080601D4
-	.incbin "baserom.gba", 0x10A080, 0x0000004
+	.incbin "assets/forestMinish/gUnk_08109DC8_12.bin"
 	.4byte sub_080601D4
-	.incbin "baserom.gba", 0x10A088, 0x00002C0
+	.incbin "assets/forestMinish/gUnk_08109DC8_13.bin"
 
 gUnk_0810A348:: @ 0810A348
-	.incbin "baserom.gba", 0x10A348, 0x000000C
+	.incbin "assets/forestMinish/gUnk_0810A348.bin"
 
 gUnk_0810A354:: @ 0810A354
-	.incbin "baserom.gba", 0x10A354, 0x0000006
+	.incbin "assets/forestMinish/gUnk_0810A354.bin"
 
 gUnk_0810A35A:: @ 0810A35A
-	.incbin "baserom.gba", 0x10A35A, 0x0000008
+	.incbin "assets/forestMinish/gUnk_0810A35A.bin"
 
 gUnk_0810A362:: @ 0810A362
-	.incbin "baserom.gba", 0x10A362, 0x0000008
+	.incbin "assets/forestMinish/gUnk_0810A362.bin"

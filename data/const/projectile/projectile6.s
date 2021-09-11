@@ -18,5 +18,5 @@ gUnk_08129754:: @ 08129754
 	.4byte sub_080A8A48
 
 gUnk_08129764:: @ 08129764
-	.incbin "baserom.gba", 0x129764, 0x000000C
+	.incbin "assets/projectile6/gUnk_08129764.bin"
 

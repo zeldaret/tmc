@@ -9,4 +9,4 @@ gUnk_08120650:: @ 08120650
 	.4byte sub_0808611C
 
 gUnk_08120658:: @ 08120658
-	.incbin "baserom.gba", 0x120658, 0x0000008
+	.incbin "assets/floatingPlatform/gUnk_08120658.bin"

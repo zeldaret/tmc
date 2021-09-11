@@ -6,34 +6,34 @@
 
 
 gUnk_080CEF7C:: @ 080CEF7C
-	.incbin "baserom.gba", 0x0CEF7C, 0x0000021
+	.incbin "assets/mazaalHand/gUnk_080CEF7C.bin"
 
 gUnk_080CEF9D:: @ 080CEF9D
-	.incbin "baserom.gba", 0x0CEF9D, 0x0000008
+	.incbin "assets/mazaalHand/gUnk_080CEF9D.bin"
 
 gUnk_080CEFA5:: @ 080CEFA5
-	.incbin "baserom.gba", 0x0CEFA5, 0x0000009
+	.incbin "assets/mazaalHand/gUnk_080CEFA5.bin"
 
 gUnk_080CEFAE:: @ 080CEFAE
-	.incbin "baserom.gba", 0x0CEFAE, 0x0000004
+	.incbin "assets/mazaalHand/gUnk_080CEFAE.bin"
 
 gUnk_080CEFB2:: @ 080CEFB2
-	.incbin "baserom.gba", 0x0CEFB2, 0x0000004
+	.incbin "assets/mazaalHand/gUnk_080CEFB2.bin"
 
 gUnk_080CEFB6:: @ 080CEFB6
-	.incbin "baserom.gba", 0x0CEFB6, 0x0000015
+	.incbin "assets/mazaalHand/gUnk_080CEFB6.bin"
 
 gUnk_080CEFCB:: @ 080CEFCB
-	.incbin "baserom.gba", 0x0CEFCB, 0x0000015
+	.incbin "assets/mazaalHand/gUnk_080CEFCB.bin"
 
 gUnk_080CEFE0:: @ 080CEFE0
-	.incbin "baserom.gba", 0x0CEFE0, 0x0000009
+	.incbin "assets/mazaalHand/gUnk_080CEFE0.bin"
 
 gUnk_080CEFE9:: @ 080CEFE9
-	.incbin "baserom.gba", 0x0CEFE9, 0x0000019
+	.incbin "assets/mazaalHand/gUnk_080CEFE9.bin"
 
 gUnk_080CF002:: @ 080CF002
-	.incbin "baserom.gba", 0x0CF002, 0x0000012
+	.incbin "assets/mazaalHand/gUnk_080CF002.bin"
 
 gUnk_080CF014:: @ 080CF014
 	.4byte gUnk_080CEF7C

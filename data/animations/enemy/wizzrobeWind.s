@@ -6,28 +6,28 @@
 
 
 gUnk_080CDF78:: @ 080CDF78
-	.incbin "baserom.gba", 0x0CDF78, 0x0000005
+	.incbin "assets/wizzrobeWind/gUnk_080CDF78.bin"
 
 gUnk_080CDF7D:: @ 080CDF7D
-	.incbin "baserom.gba", 0x0CDF7D, 0x0000005
+	.incbin "assets/wizzrobeWind/gUnk_080CDF7D.bin"
 
 gUnk_080CDF82:: @ 080CDF82
-	.incbin "baserom.gba", 0x0CDF82, 0x0000005
+	.incbin "assets/wizzrobeWind/gUnk_080CDF82.bin"
 
 gUnk_080CDF87:: @ 080CDF87
-	.incbin "baserom.gba", 0x0CDF87, 0x0000005
+	.incbin "assets/wizzrobeWind/gUnk_080CDF87.bin"
 
 gUnk_080CDF8C:: @ 080CDF8C
-	.incbin "baserom.gba", 0x0CDF8C, 0x0000005
+	.incbin "assets/wizzrobeWind/gUnk_080CDF8C.bin"
 
 gUnk_080CDF91:: @ 080CDF91
-	.incbin "baserom.gba", 0x0CDF91, 0x0000005
+	.incbin "assets/wizzrobeWind/gUnk_080CDF91.bin"
 
 gUnk_080CDF96:: @ 080CDF96
-	.incbin "baserom.gba", 0x0CDF96, 0x0000005
+	.incbin "assets/wizzrobeWind/gUnk_080CDF96.bin"
 
 gUnk_080CDF9B:: @ 080CDF9B
-	.incbin "baserom.gba", 0x0CDF9B, 0x0000005
+	.incbin "assets/wizzrobeWind/gUnk_080CDF9B.bin"
 
 gUnk_080CDFA0:: @ 080CDFA0
 	.4byte gUnk_080CDF78

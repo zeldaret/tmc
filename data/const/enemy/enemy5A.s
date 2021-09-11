@@ -21,4 +21,4 @@ gUnk_080D18A0:: @ 080D18A0
 	.4byte sub_08045984
 
 gUnk_080D18B4:: @ 080D18B4
-	.incbin "baserom.gba", 0x0D18B4, 0x0000010
+	.incbin "assets/enemy5A/gUnk_080D18B4.bin"

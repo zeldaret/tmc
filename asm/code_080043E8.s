@@ -369,1102 +369,1102 @@ _0800469C: .4byte 0x00000106
 _080046A0: .4byte 0x00000280
 
 gUnk_080046A4:: @ 080046A4
-	.incbin "baserom.gba", 0x0046A4, 0x0000152
+	.incbin "assets/code_080043E8/gUnk_080046A4.bin"
 
 gUnk_080047F6:: @ 080047F6
-	.incbin "baserom.gba", 0x0047F6, 0x00001E0
+	.incbin "assets/code_080043E8/gUnk_080047F6.bin"
 
 gUnk_080049D6:: @ 080049D6
-	.incbin "baserom.gba", 0x0049D6, 0x0000020
+	.incbin "assets/code_080043E8/gUnk_080049D6.bin"
 
 gUnk_080049F6:: @ 080049F6
-	.incbin "baserom.gba", 0x0049F6, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_080049F6.bin"
 
 gUnk_080049FE:: @ gUnk_080049FE
-	.incbin "baserom.gba", 0x0049FE, 0x000000E
+	.incbin "assets/code_080043E8/gUnk_080049FE.bin"
 
 gUnk_08004A0C:: @ 08004A0C
-	.incbin "baserom.gba", 0x004A0C, 0x000000A
+	.incbin "assets/code_080043E8/gUnk_08004A0C.bin"
 
 gUnk_08004A16:: @ 08004A16
-	.incbin "baserom.gba", 0x004A16, 0x000000E
+	.incbin "assets/code_080043E8/gUnk_08004A16.bin"
 
 gUnk_08004A24:: @ 08004A24
-	.incbin "baserom.gba", 0x004A24, 0x000000E
+	.incbin "assets/code_080043E8/gUnk_08004A24.bin"
 
 gUnk_08004A32:: @ 08004A32
-	.incbin "baserom.gba", 0x004A32, 0x0000016
+	.incbin "assets/code_080043E8/gUnk_08004A32.bin"
 
 gUnk_08004A48:: @ 08004A48
-	.incbin "baserom.gba", 0x004A48, 0x000002A
+	.incbin "assets/code_080043E8/gUnk_08004A48.bin"
 
 gUnk_08004A72:: @ 08004A72
-	.incbin "baserom.gba", 0x004A72, 0x000001A
+	.incbin "assets/code_080043E8/gUnk_08004A72.bin"
 
 gUnk_08004A8C:: @ 08004A8C
-	.incbin "baserom.gba", 0x004A8C, 0x000001A
+	.incbin "assets/code_080043E8/gUnk_08004A8C.bin"
 
 gUnk_08004AA6:: @ 08004AA6
-	.incbin "baserom.gba", 0x004AA6, 0x0000046
+	.incbin "assets/code_080043E8/gUnk_08004AA6.bin"
 
 gUnk_08004AEC:: @ 08004AEC
-	.incbin "baserom.gba", 0x004AEC, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_08004AEC.bin"
 
 gUnk_08004AF1:: @ 08004AF1
-	.incbin "baserom.gba", 0x004AF1, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08004AF1.bin"
 
 gUnk_08004B1A:: @ 08004B1A
-	.incbin "baserom.gba", 0x004B1A, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08004B1A.bin"
 
 gUnk_08004B43:: @ 08004B43
-	.incbin "baserom.gba", 0x004B43, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08004B43.bin"
 
 gUnk_08004B6C:: @ 08004B6C
-	.incbin "baserom.gba", 0x004B6C, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08004B6C.bin"
 
 gUnk_08004B95:: @ 08004B95
-	.incbin "baserom.gba", 0x004B95, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08004B95.bin"
 
 gUnk_08004BBE:: @ 08004BBE
-	.incbin "baserom.gba", 0x004BBE, 0x0000030
+	.incbin "assets/code_080043E8/gUnk_08004BBE.bin"
 
 gUnk_08004BEE:: @ 08004BEE
-	.incbin "baserom.gba", 0x004BEE, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08004BEE.bin"
 
 gUnk_08004BF7:: @ 08004BF7
-	.incbin "baserom.gba", 0x004BF7, 0x0000030
+	.incbin "assets/code_080043E8/gUnk_08004BF7.bin"
 
 gUnk_08004C27:: @ 08004C27
-	.incbin "baserom.gba", 0x004C27, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08004C27.bin"
 
 gUnk_08004C30:: @ 08004C30
-	.incbin "baserom.gba", 0x004C30, 0x0000030
+	.incbin "assets/code_080043E8/gUnk_08004C30.bin"
 
 gUnk_08004C60:: @ 08004C60
-	.incbin "baserom.gba", 0x004C60, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08004C60.bin"
 
 gUnk_08004C69:: @ 08004C69
-	.incbin "baserom.gba", 0x004C69, 0x0000069
+	.incbin "assets/code_080043E8/gUnk_08004C69.bin"
 
 gUnk_08004CD2:: @ 08004CD2
-	.incbin "baserom.gba", 0x004CD2, 0x0000055
+	.incbin "assets/code_080043E8/gUnk_08004CD2.bin"
 
 gUnk_08004D27:: @ 08004D27
-	.incbin "baserom.gba", 0x004D27, 0x0000069
+	.incbin "assets/code_080043E8/gUnk_08004D27.bin"
 
 gUnk_08004D90:: @ 08004D90
-	.incbin "baserom.gba", 0x004D90, 0x0000055
+	.incbin "assets/code_080043E8/gUnk_08004D90.bin"
 
 gUnk_08004DE5:: @ 08004DE5
-	.incbin "baserom.gba", 0x004DE5, 0x0000069
+	.incbin "assets/code_080043E8/gUnk_08004DE5.bin"
 
 gUnk_08004E4E:: @ 08004E4E
-	.incbin "baserom.gba", 0x004E4E, 0x0000055
+	.incbin "assets/code_080043E8/gUnk_08004E4E.bin"
 
 gUnk_08004EA3:: @ 08004EA3
-	.incbin "baserom.gba", 0x004EA3, 0x0000069
+	.incbin "assets/code_080043E8/gUnk_08004EA3.bin"
 
 gUnk_08004F0C:: @ 08004F0C
-	.incbin "baserom.gba", 0x004F0C, 0x0000055
+	.incbin "assets/code_080043E8/gUnk_08004F0C.bin"
 
 gUnk_08004F61:: @ 08004F61
-	.incbin "baserom.gba", 0x004F61, 0x0000041
+	.incbin "assets/code_080043E8/gUnk_08004F61.bin"
 
 gUnk_08004FA2:: @ 08004FA2
-	.incbin "baserom.gba", 0x004FA2, 0x0000041
+	.incbin "assets/code_080043E8/gUnk_08004FA2.bin"
 
 gUnk_08004FE3:: @ 08004FE3
-	.incbin "baserom.gba", 0x004FE3, 0x0000041
+	.incbin "assets/code_080043E8/gUnk_08004FE3.bin"
 
 gUnk_08005024:: @ 08005024
-	.incbin "baserom.gba", 0x005024, 0x0000041
+	.incbin "assets/code_080043E8/gUnk_08005024.bin"
 
 gUnk_08005065:: @ 08005065
-	.incbin "baserom.gba", 0x005065, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08005065.bin"
 
 gUnk_0800507A:: @ 0800507A
-	.incbin "baserom.gba", 0x00507A, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_0800507A.bin"
 
 gUnk_0800508F:: @ 0800508F
-	.incbin "baserom.gba", 0x00508F, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_0800508F.bin"
 
 gUnk_080050A4:: @ 080050A4
-	.incbin "baserom.gba", 0x0050A4, 0x0000011
+	.incbin "assets/code_080043E8/gUnk_080050A4.bin"
 
 gUnk_080050B5:: @ 080050B5
-	.incbin "baserom.gba", 0x0050B5, 0x0000011
+	.incbin "assets/code_080043E8/gUnk_080050B5.bin"
 
 gUnk_080050C6:: @ 080050C6
-	.incbin "baserom.gba", 0x0050C6, 0x0000011
+	.incbin "assets/code_080043E8/gUnk_080050C6.bin"
 
 gUnk_080050D7:: @ 080050D7
-	.incbin "baserom.gba", 0x0050D7, 0x0000034
+	.incbin "assets/code_080043E8/gUnk_080050D7.bin"
 
 gUnk_0800510B:: @ 0800510B
-	.incbin "baserom.gba", 0x00510B, 0x0000034
+	.incbin "assets/code_080043E8/gUnk_0800510B.bin"
 
 gUnk_0800513F:: @ 0800513F
-	.incbin "baserom.gba", 0x00513F, 0x0000034
+	.incbin "assets/code_080043E8/gUnk_0800513F.bin"
 
 gUnk_08005173:: @ 08005173
-	.incbin "baserom.gba", 0x005173, 0x0000024
+	.incbin "assets/code_080043E8/gUnk_08005173.bin"
 
 gUnk_08005197:: @ 08005197
-	.incbin "baserom.gba", 0x005197, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_08005197.bin"
 
 gUnk_0800519F:: @ 0800519F
-	.incbin "baserom.gba", 0x00519F, 0x0000024
+	.incbin "assets/code_080043E8/gUnk_0800519F.bin"
 
 gUnk_080051C3:: @ 080051C3
-	.incbin "baserom.gba", 0x0051C3, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_080051C3.bin"
 
 gUnk_080051CB:: @ 080051CB
-	.incbin "baserom.gba", 0x0051CB, 0x0000024
+	.incbin "assets/code_080043E8/gUnk_080051CB.bin"
 
 gUnk_080051EF:: @ 080051EF
-	.incbin "baserom.gba", 0x0051EF, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_080051EF.bin"
 
 gUnk_080051F7:: @ 080051F7
-	.incbin "baserom.gba", 0x0051F7, 0x000001D
+	.incbin "assets/code_080043E8/gUnk_080051F7.bin"
 
 gUnk_08005214:: @ 08005214
-	.incbin "baserom.gba", 0x005214, 0x000001D
+	.incbin "assets/code_080043E8/gUnk_08005214.bin"
 
 gUnk_08005231:: @ 08005231
-	.incbin "baserom.gba", 0x005231, 0x000001D
+	.incbin "assets/code_080043E8/gUnk_08005231.bin"
 
 gUnk_0800524E:: @ 0800524E
-	.incbin "baserom.gba", 0x00524E, 0x0000025
+	.incbin "assets/code_080043E8/gUnk_0800524E.bin"
 
 gUnk_08005273:: @ 08005273
-	.incbin "baserom.gba", 0x005273, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08005273.bin"
 
 gUnk_0800528C:: @ 0800528C
-	.incbin "baserom.gba", 0x00528C, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_0800528C.bin"
 
 gUnk_08005299:: @ 08005299
-	.incbin "baserom.gba", 0x005299, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005299.bin"
 
 gUnk_080052A6:: @ 080052A6
-	.incbin "baserom.gba", 0x0052A6, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_080052A6.bin"
 
 gUnk_080052B3:: @ 080052B3
-	.incbin "baserom.gba", 0x0052B3, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_080052B3.bin"
 
 gUnk_080052C3:: @ 080052C3
-	.incbin "baserom.gba", 0x0052C3, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_080052C3.bin"
 
 gUnk_080052C8:: @ 080052C8
-	.incbin "baserom.gba", 0x0052C8, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_080052C8.bin"
 
 gUnk_080052D8:: @ 080052D8
-	.incbin "baserom.gba", 0x0052D8, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_080052D8.bin"
 
 gUnk_080052DD:: @ 080052DD
-	.incbin "baserom.gba", 0x0052DD, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_080052DD.bin"
 
 gUnk_080052ED:: @ 080052ED
-	.incbin "baserom.gba", 0x0052ED, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_080052ED.bin"
 
 gUnk_080052F2:: @ 080052F2
-	.incbin "baserom.gba", 0x0052F2, 0x0000018
+	.incbin "assets/code_080043E8/gUnk_080052F2.bin"
 
 gUnk_0800530A:: @ 0800530A
-	.incbin "baserom.gba", 0x00530A, 0x0000018
+	.incbin "assets/code_080043E8/gUnk_0800530A.bin"
 
 gUnk_08005322:: @ 08005322
-	.incbin "baserom.gba", 0x005322, 0x0000018
+	.incbin "assets/code_080043E8/gUnk_08005322.bin"
 
 gUnk_0800533A:: @ 0800533A
-	.incbin "baserom.gba", 0x00533A, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_0800533A.bin"
 
 gUnk_08005363:: @ 08005363
-	.incbin "baserom.gba", 0x005363, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08005363.bin"
 
 gUnk_0800538C:: @ 0800538C
-	.incbin "baserom.gba", 0x00538C, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_0800538C.bin"
 
 gUnk_080053B5:: @ 080053B5
-	.incbin "baserom.gba", 0x0053B5, 0x0000061
+	.incbin "assets/code_080043E8/gUnk_080053B5.bin"
 
 gUnk_08005416:: @ 08005416
-	.incbin "baserom.gba", 0x005416, 0x0000061
+	.incbin "assets/code_080043E8/gUnk_08005416.bin"
 
 gUnk_08005477:: @ 08005477
-	.incbin "baserom.gba", 0x005477, 0x0000061
+	.incbin "assets/code_080043E8/gUnk_08005477.bin"
 
 gUnk_080054D8:: @ 080054D8
-	.incbin "baserom.gba", 0x0054D8, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_080054D8.bin"
 
 gUnk_080054E5:: @ 080054E5
-	.incbin "baserom.gba", 0x0054E5, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_080054E5.bin"
 
 gUnk_080054F5:: @ 080054F5
-	.incbin "baserom.gba", 0x0054F5, 0x0000061
+	.incbin "assets/code_080043E8/gUnk_080054F5.bin"
 
 gUnk_08005556:: @ 08005556
-	.incbin "baserom.gba", 0x005556, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005556.bin"
 
 gUnk_08005563:: @ 08005563
-	.incbin "baserom.gba", 0x005563, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08005563.bin"
 
 gUnk_08005573:: @ 08005573
-	.incbin "baserom.gba", 0x005573, 0x0000061
+	.incbin "assets/code_080043E8/gUnk_08005573.bin"
 
 gUnk_080055D4:: @ 080055D4
-	.incbin "baserom.gba", 0x0055D4, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_080055D4.bin"
 
 gUnk_080055E1:: @ 080055E1
-	.incbin "baserom.gba", 0x0055E1, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_080055E1.bin"
 
 gUnk_080055F1:: @ 080055F1
-	.incbin "baserom.gba", 0x0055F1, 0x0000061
+	.incbin "assets/code_080043E8/gUnk_080055F1.bin"
 
 gUnk_08005652:: @ 08005652
-	.incbin "baserom.gba", 0x005652, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005652.bin"
 
 gUnk_08005673:: @ 08005673
-	.incbin "baserom.gba", 0x005673, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005673.bin"
 
 gUnk_08005694:: @ 08005694
-	.incbin "baserom.gba", 0x005694, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005694.bin"
 
 gUnk_080056B5:: @ 080056B5
-	.incbin "baserom.gba", 0x0056B5, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_080056B5.bin"
 
 gUnk_080056C2:: @ 080056C2
-	.incbin "baserom.gba", 0x0056C2, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_080056C2.bin"
 
 gUnk_080056CF:: @ 080056CF
-	.incbin "baserom.gba", 0x0056CF, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_080056CF.bin"
 
 gUnk_080056DC:: @ 080056DC
-	.incbin "baserom.gba", 0x0056DC, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_080056DC.bin"
 
 gUnk_080056EC:: @ 080056EC
-	.incbin "baserom.gba", 0x0056EC, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_080056EC.bin"
 
 gUnk_080056F9:: @ 080056F9
-	.incbin "baserom.gba", 0x0056F9, 0x000001D
+	.incbin "assets/code_080043E8/gUnk_080056F9.bin"
 
 gUnk_08005716:: @ 08005716
-	.incbin "baserom.gba", 0x005716, 0x000001D
+	.incbin "assets/code_080043E8/gUnk_08005716.bin"
 
 gUnk_08005733:: @ 08005733
-	.incbin "baserom.gba", 0x005733, 0x000001D
+	.incbin "assets/code_080043E8/gUnk_08005733.bin"
 
 gUnk_08005750:: @ 08005750
-	.incbin "baserom.gba", 0x005750, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_08005750.bin"
 
 gUnk_08005758:: @ 08005758
-	.incbin "baserom.gba", 0x005758, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_08005758.bin"
 
 gUnk_0800575D:: @ 0800575D
-	.incbin "baserom.gba", 0x00575D, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_0800575D.bin"
 
 gUnk_08005771:: @ 08005771
-	.incbin "baserom.gba", 0x005771, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_08005771.bin"
 
 gUnk_08005779:: @ 08005779
-	.incbin "baserom.gba", 0x005779, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_08005779.bin"
 
 gUnk_0800577E:: @ 0800577E
-	.incbin "baserom.gba", 0x00577E, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_0800577E.bin"
 
 gUnk_08005792:: @ 08005792
-	.incbin "baserom.gba", 0x005792, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_08005792.bin"
 
 gUnk_0800579A:: @ 0800579A
-	.incbin "baserom.gba", 0x00579A, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_0800579A.bin"
 
 gUnk_0800579F:: @ 0800579F
-	.incbin "baserom.gba", 0x00579F, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_0800579F.bin"
 
 gUnk_080057B3:: @ 080057B3
-	.incbin "baserom.gba", 0x0057B3, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_080057B3.bin"
 
 gUnk_080057D4:: @ 080057D4
-	.incbin "baserom.gba", 0x0057D4, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_080057D4.bin"
 
 gUnk_080057F5:: @ 080057F5
-	.incbin "baserom.gba", 0x0057F5, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_080057F5.bin"
 
 gUnk_08005816:: @ 08005816
-	.incbin "baserom.gba", 0x005816, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08005816.bin"
 
 gUnk_08005826:: @ 08005826
-	.incbin "baserom.gba", 0x005826, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08005826.bin"
 
 gUnk_0800582F:: @ 0800582F
-	.incbin "baserom.gba", 0x00582F, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_0800582F.bin"
 
 gUnk_0800583F:: @ 0800583F
-	.incbin "baserom.gba", 0x00583F, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_0800583F.bin"
 
 gUnk_08005848:: @ 08005848
-	.incbin "baserom.gba", 0x005848, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08005848.bin"
 
 gUnk_08005858:: @ 08005858
-	.incbin "baserom.gba", 0x005858, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08005858.bin"
 
 gUnk_08005861:: @ 08005861
-	.incbin "baserom.gba", 0x005861, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005861.bin"
 
 gUnk_08005882:: @ 08005882
-	.incbin "baserom.gba", 0x005882, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005882.bin"
 
 gUnk_080058A3:: @ 080058A3
-	.incbin "baserom.gba", 0x0058A3, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_080058A3.bin"
 
 gUnk_080058C4:: @ 080058C4
-	.incbin "baserom.gba", 0x0058C4, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_080058C4.bin"
 
 gUnk_080058DD:: @ 080058DD
-	.incbin "baserom.gba", 0x0058DD, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_080058DD.bin"
 
 gUnk_080058F6:: @ 080058F6
-	.incbin "baserom.gba", 0x0058F6, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_080058F6.bin"
 
 gUnk_0800590F:: @ 0800590F
-	.incbin "baserom.gba", 0x00590F, 0x0000011
+	.incbin "assets/code_080043E8/gUnk_0800590F.bin"
 
 gUnk_08005920:: @ 08005920
-	.incbin "baserom.gba", 0x005920, 0x0000011
+	.incbin "assets/code_080043E8/gUnk_08005920.bin"
 
 gUnk_08005931:: @ 08005931
-	.incbin "baserom.gba", 0x005931, 0x0000011
+	.incbin "assets/code_080043E8/gUnk_08005931.bin"
 
 gUnk_08005942:: @ 08005942
-	.incbin "baserom.gba", 0x005942, 0x0000011
+	.incbin "assets/code_080043E8/gUnk_08005942.bin"
 
 gUnk_08005953:: @ 08005953
-	.incbin "baserom.gba", 0x005953, 0x0000011
+	.incbin "assets/code_080043E8/gUnk_08005953.bin"
 
 gUnk_08005964:: @ 08005964
-	.incbin "baserom.gba", 0x005964, 0x0000011
+	.incbin "assets/code_080043E8/gUnk_08005964.bin"
 
 gUnk_08005975:: @ 08005975
-	.incbin "baserom.gba", 0x005975, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08005975.bin"
 
 gUnk_0800597E:: @ 0800597E
-	.incbin "baserom.gba", 0x00597E, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_0800597E.bin"
 
 gUnk_08005987:: @ 08005987
-	.incbin "baserom.gba", 0x005987, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08005987.bin"
 
 gUnk_08005990:: @ 08005990
-	.incbin "baserom.gba", 0x005990, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_08005990.bin"
 
 gUnk_080059A4:: @ 080059A4
-	.incbin "baserom.gba", 0x0059A4, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_080059A4.bin"
 
 gUnk_080059A9:: @ 080059A9
-	.incbin "baserom.gba", 0x0059A9, 0x0000098
+	.incbin "assets/code_080043E8/gUnk_080059A9.bin"
 
 gUnk_08005A41:: @ 08005A41
-	.incbin "baserom.gba", 0x005A41, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_08005A41.bin"
 
 gUnk_08005A55:: @ 08005A55
-	.incbin "baserom.gba", 0x005A55, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_08005A55.bin"
 
 gUnk_08005A5A:: @ 08005A5A
-	.incbin "baserom.gba", 0x005A5A, 0x000002C
+	.incbin "assets/code_080043E8/gUnk_08005A5A.bin"
 
 gUnk_08005A86:: @ 08005A86
-	.incbin "baserom.gba", 0x005A86, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08005A86.bin"
 
 gUnk_08005A9B:: @ 08005A9B
-	.incbin "baserom.gba", 0x005A9B, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_08005A9B.bin"
 
 gUnk_08005AA0:: @ 08005AA0
-	.incbin "baserom.gba", 0x005AA0, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08005AA0.bin"
 
 gUnk_08005AB9:: @ 08005AB9
-	.incbin "baserom.gba", 0x005AB9, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08005AB9.bin"
 
 gUnk_08005AD2:: @ 08005AD2
-	.incbin "baserom.gba", 0x005AD2, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08005AD2.bin"
 
 gUnk_08005AEB:: @ 08005AEB
-	.incbin "baserom.gba", 0x005AEB, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08005AEB.bin"
 
 gUnk_08005AF4:: @ 08005AF4
-	.incbin "baserom.gba", 0x005AF4, 0x0000024
+	.incbin "assets/code_080043E8/gUnk_08005AF4.bin"
 
 gUnk_08005B18:: @ 08005B18
-	.incbin "baserom.gba", 0x005B18, 0x000000C
+	.incbin "assets/code_080043E8/gUnk_08005B18.bin"
 
 gUnk_08005B24:: @ 08005B24
-	.incbin "baserom.gba", 0x005B24, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08005B24.bin"
 
 gUnk_08005B4D:: @ 08005B4D
-	.incbin "baserom.gba", 0x005B4D, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08005B4D.bin"
 
 gUnk_08005B76:: @ 08005B76
-	.incbin "baserom.gba", 0x005B76, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08005B76.bin"
 
 gUnk_08005B9F:: @ 08005B9F
-	.incbin "baserom.gba", 0x005B9F, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08005B9F.bin"
 
 gUnk_08005BA8:: @ 08005BA8
-	.incbin "baserom.gba", 0x005BA8, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08005BA8.bin"
 
 gUnk_08005BB1:: @ 08005BB1
-	.incbin "baserom.gba", 0x005BB1, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08005BB1.bin"
 
 gUnk_08005BBA:: @ 08005BBA
-	.incbin "baserom.gba", 0x005BBA, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08005BBA.bin"
 
 gUnk_08005BC3:: @ 08005BC3
-	.incbin "baserom.gba", 0x005BC3, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08005BC3.bin"
 
 gUnk_08005BCC:: @ 08005BCC
-	.incbin "baserom.gba", 0x005BCC, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08005BCC.bin"
 
 gUnk_08005BE5:: @ 08005BE5
-	.incbin "baserom.gba", 0x005BE5, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08005BE5.bin"
 
 gUnk_08005BFE:: @ 08005BFE
-	.incbin "baserom.gba", 0x005BFE, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08005BFE.bin"
 
 gUnk_08005C17:: @ 08005C17
-	.incbin "baserom.gba", 0x005C17, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08005C17.bin"
 
 gUnk_08005C30:: @ 08005C30
-	.incbin "baserom.gba", 0x005C30, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08005C30.bin"
 
 gUnk_08005C49:: @ 08005C49
-	.incbin "baserom.gba", 0x005C49, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08005C49.bin"
 
 gUnk_08005C62:: @ 08005C62
-	.incbin "baserom.gba", 0x005C62, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08005C62.bin"
 
 gUnk_08005C7B:: @ 08005C7B
-	.incbin "baserom.gba", 0x005C7B, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005C7B.bin"
 
 gUnk_08005C88:: @ 08005C88
-	.incbin "baserom.gba", 0x005C88, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005C88.bin"
 
 gUnk_08005C95:: @ 08005C95
-	.incbin "baserom.gba", 0x005C95, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_08005C95.bin"
 
 gUnk_08005C9A:: @ 08005C9A
-	.incbin "baserom.gba", 0x005C9A, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_08005C9A.bin"
 
 gUnk_08005C9F:: @ 08005C9F
-	.incbin "baserom.gba", 0x005C9F, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_08005C9F.bin"
 
 gUnk_08005CA4:: @ 08005CA4
-	.incbin "baserom.gba", 0x005CA4, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08005CA4.bin"
 
 gUnk_08005CCD:: @ 08005CCD
-	.incbin "baserom.gba", 0x005CCD, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08005CCD.bin"
 
 gUnk_08005CF6:: @ 08005CF6
-	.incbin "baserom.gba", 0x005CF6, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08005CF6.bin"
 
 gUnk_08005D1F:: @ 08005D1F
-	.incbin "baserom.gba", 0x005D1F, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005D1F.bin"
 
 gUnk_08005D40:: @ 08005D40
-	.incbin "baserom.gba", 0x005D40, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08005D40.bin"
 
 gUnk_08005D50:: @ 08005D50
-	.incbin "baserom.gba", 0x005D50, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_08005D50.bin"
 
 gUnk_08005D64:: @ 08005D64
-	.incbin "baserom.gba", 0x005D64, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005D64.bin"
 
 gUnk_08005D85:: @ 08005D85
-	.incbin "baserom.gba", 0x005D85, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005D85.bin"
 
 gUnk_08005DA6:: @ 08005DA6
-	.incbin "baserom.gba", 0x005DA6, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08005DA6.bin"
 
 gUnk_08005DB6:: @ 08005DB6
-	.incbin "baserom.gba", 0x005DB6, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_08005DB6.bin"
 
 gUnk_08005DCA:: @ 08005DCA
-	.incbin "baserom.gba", 0x005DCA, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005DCA.bin"
 
 gUnk_08005DEB:: @ 08005DEB
-	.incbin "baserom.gba", 0x005DEB, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005DEB.bin"
 
 gUnk_08005E0C:: @ 08005E0C
-	.incbin "baserom.gba", 0x005E0C, 0x0000011
+	.incbin "assets/code_080043E8/gUnk_08005E0C.bin"
 
 gUnk_08005E1D:: @ 08005E1D
-	.incbin "baserom.gba", 0x005E1D, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_08005E1D.bin"
 
 gUnk_08005E31:: @ 08005E31
-	.incbin "baserom.gba", 0x005E31, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005E31.bin"
 
 gUnk_08005E52:: @ 08005E52
-	.incbin "baserom.gba", 0x005E52, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005E52.bin"
 
 gUnk_08005E73:: @ 08005E73
-	.incbin "baserom.gba", 0x005E73, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08005E73.bin"
 
 gUnk_08005E88:: @ 08005E88
-	.incbin "baserom.gba", 0x005E88, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08005E88.bin"
 
 gUnk_08005E9D:: @ 08005E9D
-	.incbin "baserom.gba", 0x005E9D, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08005E9D.bin"
 
 gUnk_08005EB2:: @ 08005EB2
-	.incbin "baserom.gba", 0x005EB2, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005EB2.bin"
 
 gUnk_08005ED3:: @ 08005ED3
-	.incbin "baserom.gba", 0x005ED3, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005ED3.bin"
 
 gUnk_08005EF4:: @ 08005EF4
-	.incbin "baserom.gba", 0x005EF4, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08005EF4.bin"
 
 gUnk_08005F15:: @ 08005F15
-	.incbin "baserom.gba", 0x005F15, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005F15.bin"
 
 gUnk_08005F22:: @ 08005F22
-	.incbin "baserom.gba", 0x005F22, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005F22.bin"
 
 gUnk_08005F2F:: @ 08005F2F
-	.incbin "baserom.gba", 0x005F2F, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005F2F.bin"
 
 gUnk_08005F3C:: @ 08005F3C
-	.incbin "baserom.gba", 0x005F3C, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005F3C.bin"
 
 gUnk_08005F49:: @ 08005F49
-	.incbin "baserom.gba", 0x005F49, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005F49.bin"
 
 gUnk_08005F56:: @ 08005F56
-	.incbin "baserom.gba", 0x005F56, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005F56.bin"
 
 gUnk_08005F63:: @ 08005F63
-	.incbin "baserom.gba", 0x005F63, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_08005F63.bin"
 
 gUnk_08005F6B:: @ 08005F6B
-	.incbin "baserom.gba", 0x005F6B, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005F6B.bin"
 
 gUnk_08005F78:: @ 08005F78
-	.incbin "baserom.gba", 0x005F78, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_08005F78.bin"
 
 gUnk_08005F80:: @ 08005F80
-	.incbin "baserom.gba", 0x005F80, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005F80.bin"
 
 gUnk_08005F8D:: @ 08005F8D
-	.incbin "baserom.gba", 0x005F8D, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_08005F8D.bin"
 
 gUnk_08005F95:: @ 08005F95
-	.incbin "baserom.gba", 0x005F95, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005F95.bin"
 
 gUnk_08005FA2:: @ 08005FA2
-	.incbin "baserom.gba", 0x005FA2, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_08005FA2.bin"
 
 gUnk_08005FAA:: @ 08005FAA
-	.incbin "baserom.gba", 0x005FAA, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005FAA.bin"
 
 gUnk_08005FB7:: @ 08005FB7
-	.incbin "baserom.gba", 0x005FB7, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_08005FB7.bin"
 
 gUnk_08005FBF:: @ 08005FBF
-	.incbin "baserom.gba", 0x005FBF, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005FBF.bin"
 
 gUnk_08005FCC:: @ 08005FCC
-	.incbin "baserom.gba", 0x005FCC, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_08005FCC.bin"
 
 gUnk_08005FD4:: @ 08005FD4
-	.incbin "baserom.gba", 0x005FD4, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005FD4.bin"
 
 gUnk_08005FE1:: @ 08005FE1
-	.incbin "baserom.gba", 0x005FE1, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_08005FE1.bin"
 
 gUnk_08005FE9:: @ 08005FE9
-	.incbin "baserom.gba", 0x005FE9, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005FE9.bin"
 
 gUnk_08005FF6:: @ 08005FF6
-	.incbin "baserom.gba", 0x005FF6, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_08005FF6.bin"
 
 gUnk_08005FFE:: @ 08005FFE
-	.incbin "baserom.gba", 0x005FFE, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08005FFE.bin"
 
 gUnk_0800600B:: @ 0800600B
-	.incbin "baserom.gba", 0x00600B, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_0800600B.bin"
 
 gUnk_08006013:: @ 08006013
-	.incbin "baserom.gba", 0x006013, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08006013.bin"
 
 gUnk_08006020:: @ 08006020
-	.incbin "baserom.gba", 0x006020, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08006020.bin"
 
 gUnk_08006041:: @ 08006041
-	.incbin "baserom.gba", 0x006041, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08006041.bin"
 
 gUnk_08006062:: @ 08006062
-	.incbin "baserom.gba", 0x006062, 0x0000021
+	.incbin "assets/code_080043E8/gUnk_08006062.bin"
 
 gUnk_08006083:: @ 08006083
-	.incbin "baserom.gba", 0x006083, 0x0000060
+	.incbin "assets/code_080043E8/gUnk_08006083.bin"
 
 gUnk_080060E3:: @ 080060E3
-	.incbin "baserom.gba", 0x0060E3, 0x000003C
+	.incbin "assets/code_080043E8/gUnk_080060E3.bin"
 
 gUnk_0800611F:: @ 0800611F
-	.incbin "baserom.gba", 0x00611F, 0x000003C
+	.incbin "assets/code_080043E8/gUnk_0800611F.bin"
 
 gUnk_0800615B:: @ 0800615B
-	.incbin "baserom.gba", 0x00615B, 0x000003C
+	.incbin "assets/code_080043E8/gUnk_0800615B.bin"
 
 gUnk_08006197:: @ 08006197
-	.incbin "baserom.gba", 0x006197, 0x0000041
+	.incbin "assets/code_080043E8/gUnk_08006197.bin"
 
 gUnk_080061D8:: @ 080061D8
-	.incbin "baserom.gba", 0x0061D8, 0x0000041
+	.incbin "assets/code_080043E8/gUnk_080061D8.bin"
 
 gUnk_08006219:: @ 08006219
-	.incbin "baserom.gba", 0x006219, 0x0000041
+	.incbin "assets/code_080043E8/gUnk_08006219.bin"
 
 gUnk_0800625A:: @ 0800625A
-	.incbin "baserom.gba", 0x00625A, 0x0000020
+	.incbin "assets/code_080043E8/gUnk_0800625A.bin"
 
 gUnk_0800627A:: @ 0800627A
-	.incbin "baserom.gba", 0x00627A, 0x0000020
+	.incbin "assets/code_080043E8/gUnk_0800627A.bin"
 
 gUnk_0800629A:: @ 0800629A
-	.incbin "baserom.gba", 0x00629A, 0x0000020
+	.incbin "assets/code_080043E8/gUnk_0800629A.bin"
 
 gUnk_080062BA:: @ 080062BA
-	.incbin "baserom.gba", 0x0062BA, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_080062BA.bin"
 
 gUnk_080062C2:: @ 080062C2
-	.incbin "baserom.gba", 0x0062C2, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_080062C2.bin"
 
 gUnk_080062C7:: @ 080062C7
-	.incbin "baserom.gba", 0x0062C7, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_080062C7.bin"
 
 gUnk_080062CF:: @ 080062CF
-	.incbin "baserom.gba", 0x0062CF, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_080062CF.bin"
 
 gUnk_080062D4:: @ 080062D4
-	.incbin "baserom.gba", 0x0062D4, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_080062D4.bin"
 
 gUnk_080062DC:: @ 080062DC
-	.incbin "baserom.gba", 0x0062DC, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_080062DC.bin"
 
 gUnk_080062E1:: @ 080062E1
-	.incbin "baserom.gba", 0x0062E1, 0x0000024
+	.incbin "assets/code_080043E8/gUnk_080062E1.bin"
 
 gUnk_08006305:: @ 08006305
-	.incbin "baserom.gba", 0x006305, 0x0000024
+	.incbin "assets/code_080043E8/gUnk_08006305.bin"
 
 gUnk_08006329:: @ 08006329
-	.incbin "baserom.gba", 0x006329, 0x0000024
+	.incbin "assets/code_080043E8/gUnk_08006329.bin"
 
 gUnk_0800634D:: @ 0800634D
-	.incbin "baserom.gba", 0x00634D, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_0800634D.bin"
 
 gUnk_08006361:: @ 08006361
-	.incbin "baserom.gba", 0x006361, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_08006361.bin"
 
 gUnk_08006375:: @ 08006375
-	.incbin "baserom.gba", 0x006375, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_08006375.bin"
 
 gUnk_08006389:: @ 08006389
-	.incbin "baserom.gba", 0x006389, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_08006389.bin"
 
 gUnk_0800639D:: @ 0800639D
-	.incbin "baserom.gba", 0x00639D, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_0800639D.bin"
 
 gUnk_080063B2:: @ 080063B2
-	.incbin "baserom.gba", 0x0063B2, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_080063B2.bin"
 
 gUnk_080063C6:: @ 080063C6
-	.incbin "baserom.gba", 0x0063C6, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_080063C6.bin"
 
 gUnk_080063DB:: @ 080063DB
-	.incbin "baserom.gba", 0x0063DB, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_080063DB.bin"
 
 gUnk_080063EF:: @ 080063EF
-	.incbin "baserom.gba", 0x0063EF, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_080063EF.bin"
 
 gUnk_08006404:: @ 08006404
-	.incbin "baserom.gba", 0x006404, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_08006404.bin"
 
 gUnk_08006418:: @ 08006418
-	.incbin "baserom.gba", 0x006418, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08006418.bin"
 
 gUnk_0800642D:: @ 0800642D
-	.incbin "baserom.gba", 0x00642D, 0x0000024
+	.incbin "assets/code_080043E8/gUnk_0800642D.bin"
 
 gUnk_08006451:: @ 08006451
-	.incbin "baserom.gba", 0x006451, 0x0000024
+	.incbin "assets/code_080043E8/gUnk_08006451.bin"
 
 gUnk_08006475:: @ 08006475
-	.incbin "baserom.gba", 0x006475, 0x0000024
+	.incbin "assets/code_080043E8/gUnk_08006475.bin"
 
 gUnk_08006499:: @ 08006499
-	.incbin "baserom.gba", 0x006499, 0x0000024
+	.incbin "assets/code_080043E8/gUnk_08006499.bin"
 
 gUnk_080064BD:: @ 080064BD
-	.incbin "baserom.gba", 0x0064BD, 0x0000025
+	.incbin "assets/code_080043E8/gUnk_080064BD.bin"
 
 gUnk_080064E2:: @ 080064E2
-	.incbin "baserom.gba", 0x0064E2, 0x0000025
+	.incbin "assets/code_080043E8/gUnk_080064E2.bin"
 
 gUnk_08006507:: @ 08006507
-	.incbin "baserom.gba", 0x006507, 0x0000025
+	.incbin "assets/code_080043E8/gUnk_08006507.bin"
 
 gUnk_0800652C:: @ 0800652C
-	.incbin "baserom.gba", 0x00652C, 0x0000025
+	.incbin "assets/code_080043E8/gUnk_0800652C.bin"
 
 gUnk_08006551:: @ 08006551
-	.incbin "baserom.gba", 0x006551, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08006551.bin"
 
 gUnk_0800657A:: @ 0800657A
-	.incbin "baserom.gba", 0x00657A, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_0800657A.bin"
 
 gUnk_080065A3:: @ 080065A3
-	.incbin "baserom.gba", 0x0065A3, 0x000002C
+	.incbin "assets/code_080043E8/gUnk_080065A3.bin"
 
 gUnk_080065CF:: @ 080065CF
-	.incbin "baserom.gba", 0x0065CF, 0x000002C
+	.incbin "assets/code_080043E8/gUnk_080065CF.bin"
 
 gUnk_080065FB:: @ 080065FB
-	.incbin "baserom.gba", 0x0065FB, 0x000002C
+	.incbin "assets/code_080043E8/gUnk_080065FB.bin"
 
 gUnk_08006627:: @ 08006627
-	.incbin "baserom.gba", 0x006627, 0x000002C
+	.incbin "assets/code_080043E8/gUnk_08006627.bin"
 
 gUnk_08006653:: @ 08006653
-	.incbin "baserom.gba", 0x006653, 0x000001C
+	.incbin "assets/code_080043E8/gUnk_08006653.bin"
 
 gUnk_0800666F:: @ 0800666F
-	.incbin "baserom.gba", 0x00666F, 0x000001C
+	.incbin "assets/code_080043E8/gUnk_0800666F.bin"
 
 gUnk_0800668B:: @ 0800668B
-	.incbin "baserom.gba", 0x00668B, 0x000001C
+	.incbin "assets/code_080043E8/gUnk_0800668B.bin"
 
 gUnk_080066A7:: @ 080066A7
-	.incbin "baserom.gba", 0x0066A7, 0x0000018
+	.incbin "assets/code_080043E8/gUnk_080066A7.bin"
 
 gUnk_080066BF:: @ 080066BF
-	.incbin "baserom.gba", 0x0066BF, 0x0000018
+	.incbin "assets/code_080043E8/gUnk_080066BF.bin"
 
 gUnk_080066D7:: @ 080066D7
-	.incbin "baserom.gba", 0x0066D7, 0x0000018
+	.incbin "assets/code_080043E8/gUnk_080066D7.bin"
 
 gUnk_080066EF:: @ 080066EF
-	.incbin "baserom.gba", 0x0066EF, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_080066EF.bin"
 
 gUnk_08006718:: @ 08006718
-	.incbin "baserom.gba", 0x006718, 0x000006D
+	.incbin "assets/code_080043E8/gUnk_08006718.bin"
 
 gUnk_08006785:: @ 08006785
-	.incbin "baserom.gba", 0x006785, 0x0000018
+	.incbin "assets/code_080043E8/gUnk_08006785.bin"
 
 gUnk_0800679D:: @ 0800679D
-	.incbin "baserom.gba", 0x00679D, 0x0000018
+	.incbin "assets/code_080043E8/gUnk_0800679D.bin"
 
 gUnk_080067B5:: @ 080067B5
-	.incbin "baserom.gba", 0x0067B5, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_080067B5.bin"
 
 gUnk_080067DE:: @ 080067DE
-	.incbin "baserom.gba", 0x0067DE, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_080067DE.bin"
 
 gUnk_08006807:: @ 08006807
-	.incbin "baserom.gba", 0x006807, 0x0000018
+	.incbin "assets/code_080043E8/gUnk_08006807.bin"
 
 gUnk_0800681F:: @ 0800681F
-	.incbin "baserom.gba", 0x00681F, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_0800681F.bin"
 
 gUnk_08006848:: @ 08006848
-	.incbin "baserom.gba", 0x006848, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08006848.bin"
 
 gUnk_08006871:: @ 08006871
-	.incbin "baserom.gba", 0x006871, 0x0000018
+	.incbin "assets/code_080043E8/gUnk_08006871.bin"
 
 gUnk_08006889:: @ 08006889
-	.incbin "baserom.gba", 0x006889, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08006889.bin"
 
 gUnk_0800689E:: @ 0800689E
-	.incbin "baserom.gba", 0x00689E, 0x000002C
+	.incbin "assets/code_080043E8/gUnk_0800689E.bin"
 
 gUnk_080068CA:: @ 080068CA
-	.incbin "baserom.gba", 0x0068CA, 0x000002C
+	.incbin "assets/code_080043E8/gUnk_080068CA.bin"
 
 gUnk_080068F6:: @ 080068F6
-	.incbin "baserom.gba", 0x0068F6, 0x000002C
+	.incbin "assets/code_080043E8/gUnk_080068F6.bin"
 
 gUnk_08006922:: @ 08006922
-	.incbin "baserom.gba", 0x006922, 0x0000034
+	.incbin "assets/code_080043E8/gUnk_08006922.bin"
 
 gUnk_08006956:: @ 08006956
-	.incbin "baserom.gba", 0x006956, 0x0000034
+	.incbin "assets/code_080043E8/gUnk_08006956.bin"
 
 gUnk_0800698A:: @ 0800698A
-	.incbin "baserom.gba", 0x00698A, 0x0000034
+	.incbin "assets/code_080043E8/gUnk_0800698A.bin"
 
 gUnk_080069BE:: @ 080069BE
-	.incbin "baserom.gba", 0x0069BE, 0x0000044
+	.incbin "assets/code_080043E8/gUnk_080069BE.bin"
 
 gUnk_08006A02:: @ 08006A02
-	.incbin "baserom.gba", 0x006A02, 0x0000044
+	.incbin "assets/code_080043E8/gUnk_08006A02.bin"
 
 gUnk_08006A46:: @ 08006A46
-	.incbin "baserom.gba", 0x006A46, 0x0000044
+	.incbin "assets/code_080043E8/gUnk_08006A46.bin"
 
 gUnk_08006A8A:: @ 08006A8A
-	.incbin "baserom.gba", 0x006A8A, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08006A8A.bin"
 
 gUnk_08006A9F:: @ 08006A9F
-	.incbin "baserom.gba", 0x006A9F, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08006A9F.bin"
 
 gUnk_08006AAF:: @ 08006AAF
-	.incbin "baserom.gba", 0x006AAF, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08006AAF.bin"
 
 gUnk_08006AC4:: @ 08006AC4
-	.incbin "baserom.gba", 0x006AC4, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08006AC4.bin"
 
 gUnk_08006AD4:: @ 08006AD4
-	.incbin "baserom.gba", 0x006AD4, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08006AD4.bin"
 
 gUnk_08006AE9:: @ 08006AE9
-	.incbin "baserom.gba", 0x006AE9, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08006AE9.bin"
 
 gUnk_08006AF9:: @ 08006AF9
-	.incbin "baserom.gba", 0x006AF9, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08006AF9.bin"
 
 gUnk_08006B09:: @ 08006B09
-	.incbin "baserom.gba", 0x006B09, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08006B09.bin"
 
 gUnk_08006B32:: @ 08006B32
-	.incbin "baserom.gba", 0x006B32, 0x000001C
+	.incbin "assets/code_080043E8/gUnk_08006B32.bin"
 
 gUnk_08006B4E:: @ 08006B4E
-	.incbin "baserom.gba", 0x006B4E, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08006B4E.bin"
 
 gUnk_08006B5E:: @ 08006B5E
-	.incbin "baserom.gba", 0x006B5E, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08006B5E.bin"
 
 gUnk_08006B87:: @ 08006B87
-	.incbin "baserom.gba", 0x006B87, 0x000001C
+	.incbin "assets/code_080043E8/gUnk_08006B87.bin"
 
 gUnk_08006BA3:: @ 08006BA3
-	.incbin "baserom.gba", 0x006BA3, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08006BA3.bin"
 
 gUnk_08006BB3:: @ 08006BB3
-	.incbin "baserom.gba", 0x006BB3, 0x0000005
+	.incbin "assets/code_080043E8/gUnk_08006BB3.bin"
 
 gUnk_08006BB8:: @ 08006BB8
-	.incbin "baserom.gba", 0x006BB8, 0x000001C
+	.incbin "assets/code_080043E8/gUnk_08006BB8.bin"
 
 gUnk_08006BD4:: @ 08006BD4
-	.incbin "baserom.gba", 0x006BD4, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08006BD4.bin"
 
 gUnk_08006BFD:: @ 08006BFD
-	.incbin "baserom.gba", 0x006BFD, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08006BFD.bin"
 
 gUnk_08006C26:: @ 08006C26
-	.incbin "baserom.gba", 0x006C26, 0x0000029
+	.incbin "assets/code_080043E8/gUnk_08006C26.bin"
 
 gUnk_08006C4F:: @ 08006C4F
-	.incbin "baserom.gba", 0x006C4F, 0x0000044
+	.incbin "assets/code_080043E8/gUnk_08006C4F.bin"
 
 gUnk_08006C93:: @ 08006C93
-	.incbin "baserom.gba", 0x006C93, 0x0000044
+	.incbin "assets/code_080043E8/gUnk_08006C93.bin"
 
 gUnk_08006CD7:: @ 08006CD7
-	.incbin "baserom.gba", 0x006CD7, 0x0000044
+	.incbin "assets/code_080043E8/gUnk_08006CD7.bin"
 
 gUnk_08006D1B:: @ 08006D1B
-	.incbin "baserom.gba", 0x006D1B, 0x0000030
+	.incbin "assets/code_080043E8/gUnk_08006D1B.bin"
 
 gUnk_08006D4B:: @ 08006D4B
-	.incbin "baserom.gba", 0x006D4B, 0x0000030
+	.incbin "assets/code_080043E8/gUnk_08006D4B.bin"
 
 gUnk_08006D7B:: @ 08006D7B
-	.incbin "baserom.gba", 0x006D7B, 0x0000030
+	.incbin "assets/code_080043E8/gUnk_08006D7B.bin"
 
 gUnk_08006DAB:: @ 08006DAB
-	.incbin "baserom.gba", 0x006DAB, 0x000000C
+	.incbin "assets/code_080043E8/gUnk_08006DAB.bin"
 
 gUnk_08006DB7:: @ 08006DB7
-	.incbin "baserom.gba", 0x006DB7, 0x000000C
+	.incbin "assets/code_080043E8/gUnk_08006DB7.bin"
 
 gUnk_08006DC3:: @ 08006DC3
-	.incbin "baserom.gba", 0x006DC3, 0x000000C
+	.incbin "assets/code_080043E8/gUnk_08006DC3.bin"
 
 gUnk_08006DCF:: @ 08006DCF
-	.incbin "baserom.gba", 0x006DCF, 0x000003C
+	.incbin "assets/code_080043E8/gUnk_08006DCF.bin"
 
 gUnk_08006E0B:: @ 08006E0B
-	.incbin "baserom.gba", 0x006E0B, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08006E0B.bin"
 
 gUnk_08006E1B:: @ 08006E1B
-	.incbin "baserom.gba", 0x006E1B, 0x0000004
+	.incbin "assets/code_080043E8/gUnk_08006E1B.bin"
 
 gUnk_08006E1F:: @ 08006E1F
-	.incbin "baserom.gba", 0x006E1F, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08006E1F.bin"
 
 gUnk_08006E38:: @ 08006E38
-	.incbin "baserom.gba", 0x006E38, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08006E38.bin"
 
 gUnk_08006E48:: @ 08006E48
-	.incbin "baserom.gba", 0x006E48, 0x0000004
+	.incbin "assets/code_080043E8/gUnk_08006E48.bin"
 
 gUnk_08006E4C:: @ 08006E4C
-	.incbin "baserom.gba", 0x006E4C, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08006E4C.bin"
 
 gUnk_08006E65:: @ 08006E65
-	.incbin "baserom.gba", 0x006E65, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08006E65.bin"
 
 gUnk_08006E75:: @ 08006E75
-	.incbin "baserom.gba", 0x006E75, 0x0000004
+	.incbin "assets/code_080043E8/gUnk_08006E75.bin"
 
 gUnk_08006E79:: @ 08006E79
-	.incbin "baserom.gba", 0x006E79, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_08006E79.bin"
 
 gUnk_08006E92:: @ 08006E92
-	.incbin "baserom.gba", 0x006E92, 0x000001C
+	.incbin "assets/code_080043E8/gUnk_08006E92.bin"
 
 gUnk_08006EAE:: @ 08006EAE
-	.incbin "baserom.gba", 0x006EAE, 0x000001C
+	.incbin "assets/code_080043E8/gUnk_08006EAE.bin"
 
 gUnk_08006ECA:: @ 08006ECA
-	.incbin "baserom.gba", 0x006ECA, 0x000001C
+	.incbin "assets/code_080043E8/gUnk_08006ECA.bin"
 
 gUnk_08006EE6:: @ 08006EE6
-	.incbin "baserom.gba", 0x006EE6, 0x000001C
+	.incbin "assets/code_080043E8/gUnk_08006EE6.bin"
 
 gUnk_08006F02:: @ 08006F02
-	.incbin "baserom.gba", 0x006F02, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08006F02.bin"
 
 gUnk_08006F12:: @ 08006F12
-	.incbin "baserom.gba", 0x006F12, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08006F12.bin"
 
 gUnk_08006F1B:: @ 08006F1B
-	.incbin "baserom.gba", 0x006F1B, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08006F1B.bin"
 
 gUnk_08006F2B:: @ 08006F2B
-	.incbin "baserom.gba", 0x006F2B, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08006F2B.bin"
 
 gUnk_08006F34:: @ 08006F34
-	.incbin "baserom.gba", 0x006F34, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08006F34.bin"
 
 gUnk_08006F44:: @ 08006F44
-	.incbin "baserom.gba", 0x006F44, 0x0000009
+	.incbin "assets/code_080043E8/gUnk_08006F44.bin"
 
 gUnk_08006F4D:: @ 08006F4D
-	.incbin "baserom.gba", 0x006F4D, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08006F4D.bin"
 
 gUnk_08006F62:: @ 08006F62
-	.incbin "baserom.gba", 0x006F62, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08006F62.bin"
 
 gUnk_08006F77:: @ 08006F77
-	.incbin "baserom.gba", 0x006F77, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08006F77.bin"
 
 gUnk_08006F8C:: @ 08006F8C
-	.incbin "baserom.gba", 0x006F8C, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08006F8C.bin"
 
 gUnk_08006FA1:: @ 08006FA1
-	.incbin "baserom.gba", 0x006FA1, 0x0000015
+	.incbin "assets/code_080043E8/gUnk_08006FA1.bin"
 
 gUnk_08006FB6:: @ 08006FB6
-	.incbin "baserom.gba", 0x006FB6, 0x0000044
+	.incbin "assets/code_080043E8/gUnk_08006FB6.bin"
 
 gUnk_08006FFA:: @ 08006FFA
-	.incbin "baserom.gba", 0x006FFA, 0x0000041
+	.incbin "assets/code_080043E8/gUnk_08006FFA.bin"
 
 gUnk_0800703B:: @ 0800703B
-	.incbin "baserom.gba", 0x00703B, 0x0000071
+	.incbin "assets/code_080043E8/gUnk_0800703B.bin"
 
 gUnk_080070AC:: @ 080070AC
-	.incbin "baserom.gba", 0x0070AC, 0x00000AD
+	.incbin "assets/code_080043E8/gUnk_080070AC.bin"
 
 gUnk_08007159:: @ 08007159
-	.incbin "baserom.gba", 0x007159, 0x0000038
+	.incbin "assets/code_080043E8/gUnk_08007159.bin"
 
 gUnk_08007191:: @ 08007191
-	.incbin "baserom.gba", 0x007191, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_08007191.bin"
 
 gUnk_08007199:: @ 08007199
-	.incbin "baserom.gba", 0x007199, 0x0000038
+	.incbin "assets/code_080043E8/gUnk_08007199.bin"
 
 gUnk_080071D1:: @ 080071D1
-	.incbin "baserom.gba", 0x0071D1, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_080071D1.bin"
 
 gUnk_080071D9:: @ 080071D9
-	.incbin "baserom.gba", 0x0071D9, 0x0000020
+	.incbin "assets/code_080043E8/gUnk_080071D9.bin"
 
 gUnk_080071F9:: @ 080071F9
-	.incbin "baserom.gba", 0x0071F9, 0x0000008
+	.incbin "assets/code_080043E8/gUnk_080071F9.bin"
 
 gUnk_08007201:: @ 08007201
-	.incbin "baserom.gba", 0x007201, 0x000001D
+	.incbin "assets/code_080043E8/gUnk_08007201.bin"
 
 gUnk_0800721E:: @ 0800721E
-	.incbin "baserom.gba", 0x00721E, 0x000001D
+	.incbin "assets/code_080043E8/gUnk_0800721E.bin"
 
 gUnk_0800723B:: @ 0800723B
-	.incbin "baserom.gba", 0x00723B, 0x000001D
+	.incbin "assets/code_080043E8/gUnk_0800723B.bin"
 
 gUnk_08007258:: @ 08007258
-	.incbin "baserom.gba", 0x007258, 0x0000028
+	.incbin "assets/code_080043E8/gUnk_08007258.bin"
 
 gUnk_08007280:: @ 08007280
-	.incbin "baserom.gba", 0x007280, 0x0000028
+	.incbin "assets/code_080043E8/gUnk_08007280.bin"
 
 gUnk_080072A8:: @ 080072A8
-	.incbin "baserom.gba", 0x0072A8, 0x0000028
+	.incbin "assets/code_080043E8/gUnk_080072A8.bin"
 
 gUnk_080072D0:: @ 080072D0
-	.incbin "baserom.gba", 0x0072D0, 0x0000025
+	.incbin "assets/code_080043E8/gUnk_080072D0.bin"
 
 gUnk_080072F5:: @ 080072F5
-	.incbin "baserom.gba", 0x0072F5, 0x0000019
+	.incbin "assets/code_080043E8/gUnk_080072F5.bin"
 
 gUnk_0800730E:: @ 0800730E
-	.incbin "baserom.gba", 0x00730E, 0x0000014
+	.incbin "assets/code_080043E8/gUnk_0800730E.bin"
 
 gUnk_08007322:: @ 08007322
-	.incbin "baserom.gba", 0x007322, 0x0000044
+	.incbin "assets/code_080043E8/gUnk_08007322.bin"
 
 gUnk_08007366:: @ 08007366
-	.incbin "baserom.gba", 0x007366, 0x0000044
+	.incbin "assets/code_080043E8/gUnk_08007366.bin"
 
 gUnk_080073AA:: @ 080073AA
-	.incbin "baserom.gba", 0x0073AA, 0x0000044
+	.incbin "assets/code_080043E8/gUnk_080073AA.bin"
 
 gUnk_080073EE:: @ 080073EE
-	.incbin "baserom.gba", 0x0073EE, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_080073EE.bin"
 
 gUnk_080073FE:: @ 080073FE
-	.incbin "baserom.gba", 0x0073FE, 0x0000004
+	.incbin "assets/code_080043E8/gUnk_080073FE.bin"
 
 gUnk_08007402:: @ 08007402
-	.incbin "baserom.gba", 0x007402, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08007402.bin"
 
 gUnk_08007412:: @ 08007412
-	.incbin "baserom.gba", 0x007412, 0x0000004
+	.incbin "assets/code_080043E8/gUnk_08007412.bin"
 
 gUnk_08007416:: @ 08007416
-	.incbin "baserom.gba", 0x007416, 0x0000010
+	.incbin "assets/code_080043E8/gUnk_08007416.bin"
 
 gUnk_08007426:: @ 08007426
-	.incbin "baserom.gba", 0x007426, 0x0000004
+	.incbin "assets/code_080043E8/gUnk_08007426.bin"
 
 gUnk_0800742A:: @ 0800742A
-	.incbin "baserom.gba", 0x00742A, 0x0000011
+	.incbin "assets/code_080043E8/gUnk_0800742A.bin"
 
 gUnk_0800743B:: @ 0800743B
-	.incbin "baserom.gba", 0x00743B, 0x0000011
+	.incbin "assets/code_080043E8/gUnk_0800743B.bin"
 
 gUnk_0800744C:: @ 0800744C
-	.incbin "baserom.gba", 0x00744C, 0x0000004
+	.incbin "assets/code_080043E8/gUnk_0800744C.bin"
 
 gUnk_08007450:: @ 08007450
-	.incbin "baserom.gba", 0x007450, 0x000000D
+	.incbin "assets/code_080043E8/gUnk_08007450.bin"
 
 gUnk_0800745D:: @ 0800745D
-	.incbin "baserom.gba", 0x00745D, 0x000003B
+	.incbin "assets/code_080043E8/gUnk_0800745D.bin"
 
 gUnk_08007498:: @ 08007498
 	.4byte gUnk_08004AEC
@@ -1996,24 +1996,24 @@ gUnk_08007B28:: @ 08007B28
 	.4byte 00000000
 
 gUnk_08007CAC:: @ 08007CAC
-	.incbin "baserom.gba", 0x007CAC, 0x000005B
+	.incbin "assets/code_080043E8/gUnk_08007CAC.bin"
 .ifdef DEMO_JP
 @ TODO only one byte differs
-	.incbin "baserom_demo_jp.gba", 0x007D4F, 0x00000CF
+	.incbin "assets/code_080043E8/gUnk_08007CAC_1_DEMO_JP.bin"
 .else
 .ifdef DEMO_USA
 @ TODO only one byte differs
-	.incbin "baserom_demo.gba", 0x007D07, 0x00000CF
+	.incbin "assets/code_080043E8/gUnk_08007CAC_2_DEMO_USA.bin"
 .else
 .ifdef JP
 @ TODO only one byte differs
-	.incbin "baserom_jp.gba", 0x007D07, 0x00000CF
+	.incbin "assets/code_080043E8/gUnk_08007CAC_3_JP.bin"
 .else
 .ifdef EU
 @ TODO only two bytes differ
-	.incbin "baserom_eu.gba", 0x007D9F, 0x00000CF
+	.incbin "assets/code_080043E8/gUnk_08007CAC_4_EU.bin"
 .else
-	.incbin "baserom.gba", 0x007D07, 0x00000CF
+	.incbin "assets/code_080043E8/gUnk_08007CAC_5_USA.bin"
 .endif
 .endif
 .endif

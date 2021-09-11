@@ -22,13 +22,13 @@ gUnk_080CE2A0:: @ 080CE2A0
 	.4byte sub_08030E20
 
 gUnk_080CE2BC:: @ 080CE2BC
-	.incbin "baserom.gba", 0x0CE2BC, 0x0000004
+	.incbin "assets/eyegore/gUnk_080CE2BC.bin"
 
 gUnk_080CE2C0:: @ 080CE2C0
-	.incbin "baserom.gba", 0x0CE2C0, 0x0000034
+	.incbin "assets/eyegore/gUnk_080CE2C0.bin"
 
 gUnk_080CE2F4:: @ 080CE2F4
-	.incbin "baserom.gba", 0x0CE2F4, 0x0000010
+	.incbin "assets/eyegore/gUnk_080CE2F4.bin"
 
 gUnk_080CE304:: @ 080CE304
-	.incbin "baserom.gba", 0x0CE304, 0x0000008
+	.incbin "assets/eyegore/gUnk_080CE304.bin"

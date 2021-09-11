@@ -27,7 +27,7 @@ gUnk_080D0E2C:: @ 080D0E2C
 	.4byte sub_08041BD0
 
 gUnk_080D0E64:: @ 080D0E64
-	.incbin "baserom.gba", 0x0D0E64, 0x0000004
+	.incbin "assets/vaatiWrath/gUnk_080D0E64.bin"
 
 gUnk_080D0E68:: @ 080D0E68
 	.4byte sub_08041BE8
@@ -38,19 +38,19 @@ gUnk_080D0E68:: @ 080D0E68
 	.4byte sub_08041E50
 
 gUnk_080D0E80:: @ 080D0E80
-	.incbin "baserom.gba", 0x0D0E80, 0x0000010
+	.incbin "assets/vaatiWrath/gUnk_080D0E80.bin"
 
 gUnk_080D0E90:: @ 080D0E90
-	.incbin "baserom.gba", 0x0D0E90, 0x0000010
+	.incbin "assets/vaatiWrath/gUnk_080D0E90.bin"
 
 gUnk_080D0EA0:: @ 080D0EA0
-	.incbin "baserom.gba", 0x0D0EA0, 0x0000008
+	.incbin "assets/vaatiWrath/gUnk_080D0EA0.bin"
 
 gUnk_080D0EA8:: @ 080D0EA8
-	.incbin "baserom.gba", 0x0D0EA8, 0x0000004
+	.incbin "assets/vaatiWrath/gUnk_080D0EA8.bin"
 
 gUnk_080D0EAC:: @ 080D0EAC
-	.incbin "baserom.gba", 0x0D0EAC, 0x0000004
+	.incbin "assets/vaatiWrath/gUnk_080D0EAC.bin"
 
 gUnk_080D0EB0:: @ 080D0EB0
-	.incbin "baserom.gba", 0x0D0EB0, 0x0000020
+	.incbin "assets/vaatiWrath/gUnk_080D0EB0.bin"

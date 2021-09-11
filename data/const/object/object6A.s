@@ -50,25 +50,25 @@ gUnk_08122A34:: @ 08122A34
 	.4byte sub_08096290
 
 gUnk_08122AE0:: @ 08122AE0
-	.incbin "baserom.gba", 0x122AE0, 0x0000008
+	.incbin "assets/object6A/gUnk_08122AE0.bin"
 
 gUnk_08122AE8:: @ 08122AE8
-	.incbin "baserom.gba", 0x122AE8, 0x0000010
+	.incbin "assets/object6A/gUnk_08122AE8.bin"
 
 gUnk_08122AF8:: @ 08122AF8
-	.incbin "baserom.gba", 0x122AF8, 0x0000008
+	.incbin "assets/object6A/gUnk_08122AF8.bin"
 
 gUnk_08122B00:: @ 08122B00
-	.incbin "baserom.gba", 0x122B00, 0x000000E
+	.incbin "assets/object6A/gUnk_08122B00.bin"
 
 gUnk_08122B0E:: @ 08122B0E
-	.incbin "baserom.gba", 0x122B0E, 0x0000010
+	.incbin "assets/object6A/gUnk_08122B0E.bin"
 
 gUnk_08122B1E:: @ 08122B1E
-	.incbin "baserom.gba", 0x122B1E, 0x0000010
+	.incbin "assets/object6A/gUnk_08122B1E.bin"
 
 gUnk_08122B2E:: @ 08122B2E
-	.incbin "baserom.gba", 0x122B2E, 0x000000E
+	.incbin "assets/object6A/gUnk_08122B2E.bin"
 
 gUnk_08122B3C:: @ 08122B3C
-	.incbin "baserom.gba", 0x122B3C, 0x0000010
+	.incbin "assets/object6A/gUnk_08122B3C.bin"

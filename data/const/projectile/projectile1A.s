@@ -18,4 +18,4 @@ gUnk_0812A4DC:: @ 0812A4DC
 	.4byte sub_080AB488
 
 gUnk_0812A4EC:: @ 0812A4EC
-	.incbin "baserom.gba", 0x12A4EC, 0x00000A0
+	.incbin "assets/projectile1A/gUnk_0812A4EC.bin"

@@ -5,4 +5,4 @@
     .align 2
 
 gUnk_080B7B6C:: @ 080B7B6C
-	.incbin "baserom.gba", 0x0B7B6C, 0x0000008
+	.incbin "assets/playerItemCellOverwriteSet/gUnk_080B7B6C.bin"

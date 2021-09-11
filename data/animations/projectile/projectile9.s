@@ -5,28 +5,28 @@
     .align 2
 
 gUnk_081298C8:: @ 081298C8
-	.incbin "baserom.gba", 0x1298C8, 0x0000009
+	.incbin "assets/projectile9/gUnk_081298C8.bin"
 
 gUnk_081298D1:: @ 081298D1
-	.incbin "baserom.gba", 0x1298D1, 0x0000009
+	.incbin "assets/projectile9/gUnk_081298D1.bin"
 
 gUnk_081298DA:: @ 081298DA
-	.incbin "baserom.gba", 0x1298DA, 0x0000009
+	.incbin "assets/projectile9/gUnk_081298DA.bin"
 
 gUnk_081298E3:: @ 081298E3
-	.incbin "baserom.gba", 0x1298E3, 0x0000009
+	.incbin "assets/projectile9/gUnk_081298E3.bin"
 
 gUnk_081298EC:: @ 081298EC
-	.incbin "baserom.gba", 0x1298EC, 0x0000011
+	.incbin "assets/projectile9/gUnk_081298EC.bin"
 
 gUnk_081298FD:: @ 081298FD
-	.incbin "baserom.gba", 0x1298FD, 0x0000011
+	.incbin "assets/projectile9/gUnk_081298FD.bin"
 
 gUnk_0812990E:: @ 0812990E
-	.incbin "baserom.gba", 0x12990E, 0x0000011
+	.incbin "assets/projectile9/gUnk_0812990E.bin"
 
 gUnk_0812991F:: @ 0812991F
-	.incbin "baserom.gba", 0x12991F, 0x0000011
+	.incbin "assets/projectile9/gUnk_0812991F.bin"
 
 gUnk_08129930:: @ 08129930
 	.4byte gUnk_081298C8

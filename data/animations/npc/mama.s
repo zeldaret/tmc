@@ -5,19 +5,19 @@
     .align 2
 
 gUnk_081137B0:: @ 081137B0
-	.incbin "baserom.gba", 0x1137B0, 0x0000039
+	.incbin "assets/mama/gUnk_081137B0.bin"
 
 gUnk_081137E9:: @ 081137E9
-	.incbin "baserom.gba", 0x1137E9, 0x00000A9
+	.incbin "assets/mama/gUnk_081137E9.bin"
 
 gUnk_08113892:: @ 08113892
-	.incbin "baserom.gba", 0x113892, 0x0000005
+	.incbin "assets/mama/gUnk_08113892.bin"
 
 gUnk_08113897:: @ 08113897
-	.incbin "baserom.gba", 0x113897, 0x0000019
+	.incbin "assets/mama/gUnk_08113897.bin"
 
 gUnk_081138B0:: @ 081138B0
-	.incbin "baserom.gba", 0x1138B0, 0x0000008
+	.incbin "assets/mama/gUnk_081138B0.bin"
 
 gUnk_081138B8:: @ 081138B8
 	.4byte gUnk_081137E9

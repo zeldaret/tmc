@@ -5,100 +5,100 @@
     .align 2
 
 gUnk_080D0ED0:: @ 080D0ED0
-	.incbin "baserom.gba", 0x0D0ED0, 0x0000019
+	.incbin "assets/vaatiWrath/gUnk_080D0ED0.bin"
 
 gUnk_080D0EE9:: @ 080D0EE9
-	.incbin "baserom.gba", 0x0D0EE9, 0x0000019
+	.incbin "assets/vaatiWrath/gUnk_080D0EE9.bin"
 
 gUnk_080D0F02:: @ 080D0F02
-	.incbin "baserom.gba", 0x0D0F02, 0x0000011
+	.incbin "assets/vaatiWrath/gUnk_080D0F02.bin"
 
 gUnk_080D0F13:: @ 080D0F13
-	.incbin "baserom.gba", 0x0D0F13, 0x0000015
+	.incbin "assets/vaatiWrath/gUnk_080D0F13.bin"
 
 gUnk_080D0F28:: @ 080D0F28
-	.incbin "baserom.gba", 0x0D0F28, 0x0000045
+	.incbin "assets/vaatiWrath/gUnk_080D0F28.bin"
 
 gUnk_080D0F6D:: @ 080D0F6D
-	.incbin "baserom.gba", 0x0D0F6D, 0x0000015
+	.incbin "assets/vaatiWrath/gUnk_080D0F6D.bin"
 
 gUnk_080D0F82:: @ 080D0F82
-	.incbin "baserom.gba", 0x0D0F82, 0x0000019
+	.incbin "assets/vaatiWrath/gUnk_080D0F82.bin"
 
 gUnk_080D0F9B:: @ 080D0F9B
-	.incbin "baserom.gba", 0x0D0F9B, 0x0000015
+	.incbin "assets/vaatiWrath/gUnk_080D0F9B.bin"
 
 gUnk_080D0FB0:: @ 080D0FB0
-	.incbin "baserom.gba", 0x0D0FB0, 0x0000011
+	.incbin "assets/vaatiWrath/gUnk_080D0FB0.bin"
 
 gUnk_080D0FC1:: @ 080D0FC1
-	.incbin "baserom.gba", 0x0D0FC1, 0x0000015
+	.incbin "assets/vaatiWrath/gUnk_080D0FC1.bin"
 
 gUnk_080D0FD6:: @ 080D0FD6
-	.incbin "baserom.gba", 0x0D0FD6, 0x000001D
+	.incbin "assets/vaatiWrath/gUnk_080D0FD6.bin"
 
 gUnk_080D0FF3:: @ 080D0FF3
-	.incbin "baserom.gba", 0x0D0FF3, 0x0000005
+	.incbin "assets/vaatiWrath/gUnk_080D0FF3.bin"
 
 gUnk_080D0FF8:: @ 080D0FF8
-	.incbin "baserom.gba", 0x0D0FF8, 0x0000021
+	.incbin "assets/vaatiWrath/gUnk_080D0FF8.bin"
 
 gUnk_080D1019:: @ 080D1019
-	.incbin "baserom.gba", 0x0D1019, 0x000001D
+	.incbin "assets/vaatiWrath/gUnk_080D1019.bin"
 
 gUnk_080D1036:: @ 080D1036
-	.incbin "baserom.gba", 0x0D1036, 0x0000019
+	.incbin "assets/vaatiWrath/gUnk_080D1036.bin"
 
 gUnk_080D104F:: @ 080D104F
-	.incbin "baserom.gba", 0x0D104F, 0x0000011
+	.incbin "assets/vaatiWrath/gUnk_080D104F.bin"
 
 gUnk_080D1060:: @ 080D1060
-	.incbin "baserom.gba", 0x0D1060, 0x000000D
+	.incbin "assets/vaatiWrath/gUnk_080D1060.bin"
 
 gUnk_080D106D:: @ 080D106D
-	.incbin "baserom.gba", 0x0D106D, 0x000000D
+	.incbin "assets/vaatiWrath/gUnk_080D106D.bin"
 
 gUnk_080D107A:: @ 080D107A
-	.incbin "baserom.gba", 0x0D107A, 0x0000005
+	.incbin "assets/vaatiWrath/gUnk_080D107A.bin"
 
 gUnk_080D107F:: @ 080D107F
-	.incbin "baserom.gba", 0x0D107F, 0x0000021
+	.incbin "assets/vaatiWrath/gUnk_080D107F.bin"
 
 gUnk_080D10A0:: @ 080D10A0
-	.incbin "baserom.gba", 0x0D10A0, 0x0000015
+	.incbin "assets/vaatiWrath/gUnk_080D10A0.bin"
 
 gUnk_080D10B5:: @ 080D10B5
-	.incbin "baserom.gba", 0x0D10B5, 0x0000011
+	.incbin "assets/vaatiWrath/gUnk_080D10B5.bin"
 
 gUnk_080D10C6:: @ 080D10C6
-	.incbin "baserom.gba", 0x0D10C6, 0x0000011
+	.incbin "assets/vaatiWrath/gUnk_080D10C6.bin"
 
 gUnk_080D10D7:: @ 080D10D7
-	.incbin "baserom.gba", 0x0D10D7, 0x0000015
+	.incbin "assets/vaatiWrath/gUnk_080D10D7.bin"
 
 gUnk_080D10EC:: @ 080D10EC
-	.incbin "baserom.gba", 0x0D10EC, 0x0000005
+	.incbin "assets/vaatiWrath/gUnk_080D10EC.bin"
 
 gUnk_080D10F1:: @ 080D10F1
-	.incbin "baserom.gba", 0x0D10F1, 0x0000015
+	.incbin "assets/vaatiWrath/gUnk_080D10F1.bin"
 
 gUnk_080D1106:: @ 080D1106
-	.incbin "baserom.gba", 0x0D1106, 0x0000011
+	.incbin "assets/vaatiWrath/gUnk_080D1106.bin"
 
 gUnk_080D1117:: @ 080D1117
-	.incbin "baserom.gba", 0x0D1117, 0x0000021
+	.incbin "assets/vaatiWrath/gUnk_080D1117.bin"
 
 gUnk_080D1138:: @ 080D1138
-	.incbin "baserom.gba", 0x0D1138, 0x0000015
+	.incbin "assets/vaatiWrath/gUnk_080D1138.bin"
 
 gUnk_080D114D:: @ 080D114D
-	.incbin "baserom.gba", 0x0D114D, 0x0000031
+	.incbin "assets/vaatiWrath/gUnk_080D114D.bin"
 
 gUnk_080D117E:: @ 080D117E
-	.incbin "baserom.gba", 0x0D117E, 0x0000019
+	.incbin "assets/vaatiWrath/gUnk_080D117E.bin"
 
 gUnk_080D1197:: @ 080D1197
-	.incbin "baserom.gba", 0x0D1197, 0x0000015
+	.incbin "assets/vaatiWrath/gUnk_080D1197.bin"
 
 gUnk_080D11AC:: @ 080D11AC
 	.4byte gUnk_080D0ED0

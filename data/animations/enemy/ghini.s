@@ -5,34 +5,34 @@
     .align 2
 
 gUnk_080D0988:: @ 080D0988
-	.incbin "baserom.gba", 0x0D0988, 0x000001C
+	.incbin "assets/ghini/gUnk_080D0988.bin"
 
 gUnk_080D09A4:: @ 080D09A4
-	.incbin "baserom.gba", 0x0D09A4, 0x0000025
+	.incbin "assets/ghini/gUnk_080D09A4.bin"
 
 gUnk_080D09C9:: @ 080D09C9
-	.incbin "baserom.gba", 0x0D09C9, 0x0000025
+	.incbin "assets/ghini/gUnk_080D09C9.bin"
 
 gUnk_080D09EE:: @ 080D09EE
-	.incbin "baserom.gba", 0x0D09EE, 0x0000044
+	.incbin "assets/ghini/gUnk_080D09EE.bin"
 
 gUnk_080D0A32:: @ 080D0A32
-	.incbin "baserom.gba", 0x0D0A32, 0x0000039
+	.incbin "assets/ghini/gUnk_080D0A32.bin"
 
 gUnk_080D0A6B:: @ 080D0A6B
-	.incbin "baserom.gba", 0x0D0A6B, 0x0000004
+	.incbin "assets/ghini/gUnk_080D0A6B.bin"
 
 gUnk_080D0A6F:: @ 080D0A6F
-	.incbin "baserom.gba", 0x0D0A6F, 0x0000004
+	.incbin "assets/ghini/gUnk_080D0A6F.bin"
 
 gUnk_080D0A73:: @ 080D0A73
-	.incbin "baserom.gba", 0x0D0A73, 0x000000C
+	.incbin "assets/ghini/gUnk_080D0A73.bin"
 
 gUnk_080D0A7F:: @ 080D0A7F
-	.incbin "baserom.gba", 0x0D0A7F, 0x000000C
+	.incbin "assets/ghini/gUnk_080D0A7F.bin"
 
 gUnk_080D0A8B:: @ 080D0A8B
-	.incbin "baserom.gba", 0x0D0A8B, 0x0000005
+	.incbin "assets/ghini/gUnk_080D0A8B.bin"
 
 gUnk_080D0A90:: @ 080D0A90
 	.4byte gUnk_080D0988

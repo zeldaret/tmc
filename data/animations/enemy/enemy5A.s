@@ -5,46 +5,46 @@
     .align 2
 
 gUnk_080D18C4:: @ 080D18C4
-	.incbin "baserom.gba", 0x0D18C4, 0x0000005
+	.incbin "assets/enemy5A/gUnk_080D18C4.bin"
 
 gUnk_080D18C9:: @ 080D18C9
-	.incbin "baserom.gba", 0x0D18C9, 0x0000011
+	.incbin "assets/enemy5A/gUnk_080D18C9.bin"
 
 gUnk_080D18DA:: @ 080D18DA
-	.incbin "baserom.gba", 0x0D18DA, 0x0000019
+	.incbin "assets/enemy5A/gUnk_080D18DA.bin"
 
 gUnk_080D18F3:: @ 080D18F3
-	.incbin "baserom.gba", 0x0D18F3, 0x0000021
+	.incbin "assets/enemy5A/gUnk_080D18F3.bin"
 
 gUnk_080D1914:: @ 080D1914
-	.incbin "baserom.gba", 0x0D1914, 0x0000009
+	.incbin "assets/enemy5A/gUnk_080D1914.bin"
 
 gUnk_080D191D:: @ 080D191D
-	.incbin "baserom.gba", 0x0D191D, 0x0000009
+	.incbin "assets/enemy5A/gUnk_080D191D.bin"
 
 gUnk_080D1926:: @ 080D1926
-	.incbin "baserom.gba", 0x0D1926, 0x0000009
+	.incbin "assets/enemy5A/gUnk_080D1926.bin"
 
 gUnk_080D192F:: @ 080D192F
-	.incbin "baserom.gba", 0x0D192F, 0x0000005
+	.incbin "assets/enemy5A/gUnk_080D192F.bin"
 
 gUnk_080D1934:: @ 080D1934
-	.incbin "baserom.gba", 0x0D1934, 0x0000011
+	.incbin "assets/enemy5A/gUnk_080D1934.bin"
 
 gUnk_080D1945:: @ 080D1945
-	.incbin "baserom.gba", 0x0D1945, 0x0000015
+	.incbin "assets/enemy5A/gUnk_080D1945.bin"
 
 gUnk_080D195A:: @ 080D195A
-	.incbin "baserom.gba", 0x0D195A, 0x000000D
+	.incbin "assets/enemy5A/gUnk_080D195A.bin"
 
 gUnk_080D1967:: @ 080D1967
-	.incbin "baserom.gba", 0x0D1967, 0x0000021
+	.incbin "assets/enemy5A/gUnk_080D1967.bin"
 
 gUnk_080D1988:: @ 080D1988
-	.incbin "baserom.gba", 0x0D1988, 0x0000025
+	.incbin "assets/enemy5A/gUnk_080D1988.bin"
 
 gUnk_080D19AD:: @ 080D19AD
-	.incbin "baserom.gba", 0x0D19AD, 0x000000B
+	.incbin "assets/enemy5A/gUnk_080D19AD.bin"
 
 gUnk_080D19B8:: @ 080D19B8
 	.4byte gUnk_080D18C4

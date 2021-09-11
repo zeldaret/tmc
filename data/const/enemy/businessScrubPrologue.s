@@ -24,10 +24,10 @@ gUnk_080D1A14:: @ 080D1A14
 	.4byte nullsub_25
 
 gUnk_080D1A38:: @ 080D1A38
-	.incbin "baserom.gba", 0x0D1A38, 0x0000006
+	.incbin "assets/businessScrubPrologue/gUnk_080D1A38.bin"
 
 gUnk_080D1A3E:: @ 080D1A3E
-	.incbin "baserom.gba", 0x0D1A3E, 0x0000010
+	.incbin "assets/businessScrubPrologue/gUnk_080D1A3E.bin"
 
 gUnk_080D1A4E:: @ 080D1A4E
-	.incbin "baserom.gba", 0x0D1A4E, 0x0000016
+	.incbin "assets/businessScrubPrologue/gUnk_080D1A4E.bin"

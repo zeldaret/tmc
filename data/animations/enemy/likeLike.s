@@ -4,13 +4,13 @@
 	.section .rodata
 
 gUnk_080CC734:: @ 080CC734
-	.incbin "baserom.gba", 0x0CC734, 0x0000025
+	.incbin "assets/likeLike/gUnk_080CC734.bin"
 
 gUnk_080CC759:: @ 080CC759
-	.incbin "baserom.gba", 0x0CC759, 0x0000015
+	.incbin "assets/likeLike/gUnk_080CC759.bin"
 
 gUnk_080CC76E:: @ 080CC76E
-	.incbin "baserom.gba", 0x0CC76E, 0x0000012
+	.incbin "assets/likeLike/gUnk_080CC76E.bin"
 
 gUnk_080CC780:: @ 080CC780
 	.4byte gUnk_080CC734

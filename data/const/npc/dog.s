@@ -7,9 +7,9 @@
 gUnk_08111D58:: @ 08111D58
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x1114A8, 0x0000030
+	.incbin "assets/dog/gUnk_08111D58_EU.bin"
 .else
-	.incbin "baserom.gba", 0x111D58, 0x0000030
+	.incbin "assets/dog/gUnk_08111D58_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_08111D88:: @ 08111D88
@@ -23,58 +23,58 @@ gUnk_08111D88:: @ 08111D88
 	.4byte sub_08069EE0
 
 gUnk_08111DA8:: @ 08111DA8
-	.incbin "baserom.gba", 0x111DA8, 0x0000008
+	.incbin "assets/dog/gUnk_08111DA8.bin"
 
 gUnk_08111DB0:: @ 08111DB0
-	.incbin "baserom.gba", 0x111DB0, 0x0000080
+	.incbin "assets/dog/gUnk_08111DB0.bin"
 
 gUnk_08111E30:: @ 08111E30
-	.incbin "baserom.gba", 0x111E30, 0x0000004
+	.incbin "assets/dog/gUnk_08111E30.bin"
 
 gUnk_08111E34:: @ 08111E34
-	.incbin "baserom.gba", 0x111E34, 0x00000A4
+	.incbin "assets/dog/gUnk_08111E34.bin"
 	.4byte sub_0806A0A4
-	.incbin "baserom.gba", 0x111EDC, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_1.bin"
 	.4byte sub_0806A0A4
-	.incbin "baserom.gba", 0x111EE4, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_2.bin"
 	.4byte sub_0806A0A4
-	.incbin "baserom.gba", 0x111EEC, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_3.bin"
 	.4byte sub_0806A0A4
-	.incbin "baserom.gba", 0x111EF4, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_4.bin"
 	.4byte sub_0806A0A4
-	.incbin "baserom.gba", 0x111EFC, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_5.bin"
 	.4byte sub_0806A0A4
-	.incbin "baserom.gba", 0x111F04, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_6.bin"
 	.4byte sub_0806A0A4
-	.incbin "baserom.gba", 0x111F0C, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_7.bin"
 	.4byte sub_0806A0A4
-	.incbin "baserom.gba", 0x111F14, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_8.bin"
 	.4byte sub_0806A0A4
-	.incbin "baserom.gba", 0x111F1C, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_9.bin"
 	.4byte sub_0806A0A4
-	.incbin "baserom.gba", 0x111F24, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_10.bin"
 	.4byte sub_0806A144
-	.incbin "baserom.gba", 0x111F2C, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_11.bin"
 	.4byte sub_0806A144
-	.incbin "baserom.gba", 0x111F34, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_12.bin"
 	.4byte sub_0806A144
-	.incbin "baserom.gba", 0x111F3C, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_13.bin"
 	.4byte sub_0806A144
-	.incbin "baserom.gba", 0x111F44, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_14.bin"
 	.4byte sub_0806A144
-	.incbin "baserom.gba", 0x111F4C, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_15.bin"
 	.4byte sub_0806A144
-	.incbin "baserom.gba", 0x111F54, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_16.bin"
 	.4byte sub_0806A144
-	.incbin "baserom.gba", 0x111F5C, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_17.bin"
 	.4byte sub_0806A144
-	.incbin "baserom.gba", 0x111F64, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_18.bin"
 	.4byte sub_0806A144
-	.incbin "baserom.gba", 0x111F6C, 0x0000004
+	.incbin "assets/dog/gUnk_08111E34_19.bin"
 	.4byte sub_0806A144
 
 gUnk_08111F74:: @ 08111F74
-	.incbin "baserom.gba", 0x111F74, 0x0000064
+	.incbin "assets/dog/gUnk_08111F74.bin"
 
 gUnk_08111FD8:: @ 08111FD8
-	.incbin "baserom.gba", 0x111FD8, 0x000000A
+	.incbin "assets/dog/gUnk_08111FD8.bin"

@@ -28,13 +28,13 @@ gUnk_080CE58C:: @ 080CE58C
 	.4byte sub_08031DC4
 
 gUnk_080CE5B0:: @ 080CE5B0
-	.incbin "baserom.gba", 0x0CE5B0, 0x0000008
+	.incbin "assets/acroBandits/gUnk_080CE5B0.bin"
 
 gUnk_080CE5B8:: @ 080CE5B8
-	.incbin "baserom.gba", 0x0CE5B8, 0x0000008
+	.incbin "assets/acroBandits/gUnk_080CE5B8.bin"
 
 gUnk_080CE5C0:: @ 080CE5C0
-	.incbin "baserom.gba", 0x0CE5C0, 0x0000008
+	.incbin "assets/acroBandits/gUnk_080CE5C0.bin"
 
 gUnk_080CE5C8:: @ 080CE5C8
 	.4byte sub_08031EA8
@@ -49,7 +49,7 @@ gUnk_080CE5C8:: @ 080CE5C8
 	.4byte sub_08032248
 
 gUnk_080CE5F0:: @ 080CE5F0
-	.incbin "baserom.gba", 0x0CE5F0, 0x000000A
+	.incbin "assets/acroBandits/gUnk_080CE5F0.bin"
 
 gUnk_080CE5FA:: @ 080CE5FA
-	.incbin "baserom.gba", 0x0CE5FA, 0x0000014
+	.incbin "assets/acroBandits/gUnk_080CE5FA.bin"

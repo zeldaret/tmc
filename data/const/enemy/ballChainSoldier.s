@@ -26,19 +26,19 @@ gUnk_080D06F8:: @ 080D06F8
 	.4byte sub_0803E818
 
 gUnk_080D0724:: @ 080D0724
-	.incbin "baserom.gba", 0x0D0724, 0x0000004
+	.incbin "assets/ballChainSoldier/gUnk_080D0724.bin"
 
 gUnk_080D0728:: @ 080D0728
-	.incbin "baserom.gba", 0x0D0728, 0x0000008
+	.incbin "assets/ballChainSoldier/gUnk_080D0728.bin"
 
 gUnk_080D0730:: @ 080D0730
-	.incbin "baserom.gba", 0x0D0730, 0x0000008
+	.incbin "assets/ballChainSoldier/gUnk_080D0730.bin"
 
 gUnk_080D0738:: @ 080D0738
-	.incbin "baserom.gba", 0x0D0738, 0x0000004
+	.incbin "assets/ballChainSoldier/gUnk_080D0738.bin"
 
 gUnk_080D073C:: @ 080D073C
-	.incbin "baserom.gba", 0x0D073C, 0x0000004
+	.incbin "assets/ballChainSoldier/gUnk_080D073C.bin"
 
 gUnk_080D0740:: @ 080D0740
-	.incbin "baserom.gba", 0x0D0740, 0x0000004
+	.incbin "assets/ballChainSoldier/gUnk_080D0740.bin"

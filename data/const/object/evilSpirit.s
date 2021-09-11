@@ -11,22 +11,22 @@ gUnk_08120668:: @ 08120668
 	.4byte sub_08086594
 
 gUnk_08120678:: @ 08120678
-	.incbin "baserom.gba", 0x120678, 0x000000A
+	.incbin "assets/evilSpirit/gUnk_08120678.bin"
 
 gUnk_08120682:: @ 08120682
-	.incbin "baserom.gba", 0x120682, 0x0000004
+	.incbin "assets/evilSpirit/gUnk_08120682.bin"
 
 gUnk_08120686:: @ 08120686
-	.incbin "baserom.gba", 0x120686, 0x0000004
+	.incbin "assets/evilSpirit/gUnk_08120686.bin"
 
 gUnk_0812068A:: @ 0812068A
-	.incbin "baserom.gba", 0x12068A, 0x0000004
+	.incbin "assets/evilSpirit/gUnk_0812068A.bin"
 
 gUnk_0812068E:: @ 0812068E
-	.incbin "baserom.gba", 0x12068E, 0x0000004
+	.incbin "assets/evilSpirit/gUnk_0812068E.bin"
 
 gUnk_08120692:: @ 08120692
-	.incbin "baserom.gba", 0x120692, 0x0000006
+	.incbin "assets/evilSpirit/gUnk_08120692.bin"
 
 gUnk_08120698:: @ 08120698
 	.4byte gUnk_08120682

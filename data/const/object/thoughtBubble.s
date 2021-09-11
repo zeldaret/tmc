@@ -5,7 +5,7 @@
     .align 2
 
 ThoughtBubble_SFX:: @ 08122590
-	.incbin "baserom.gba", 0x122590, 0x0000008
+	.incbin "assets/thoughtBubble/ThoughtBubble_SFX.bin"
 
 ThoughtBubble_Behaviors:: @ 08122598
 	.4byte ThoughtBubble_Init

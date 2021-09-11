@@ -23,4 +23,4 @@ gUnk_080CE554:: @ 080CE554
 	.4byte sub_080316F0
 
 gUnk_080CE560:: @ 080CE560
-	.incbin "baserom.gba", 0x0CE560, 0x000000C
+	.incbin "assets/smallPesto/gUnk_080CE560.bin"

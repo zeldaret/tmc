@@ -5,64 +5,64 @@
     .align 2
 
 gUnk_08111960:: @ 08111960
-	.incbin "baserom.gba", 0x111960, 0x0000005
+	.incbin "assets/cow/gUnk_08111960.bin"
 
 gUnk_08111965:: @ 08111965
-	.incbin "baserom.gba", 0x111965, 0x0000005
+	.incbin "assets/cow/gUnk_08111965.bin"
 
 gUnk_0811196A:: @ 0811196A
-	.incbin "baserom.gba", 0x11196A, 0x0000005
+	.incbin "assets/cow/gUnk_0811196A.bin"
 
 gUnk_0811196F:: @ 0811196F
-	.incbin "baserom.gba", 0x11196F, 0x0000005
+	.incbin "assets/cow/gUnk_0811196F.bin"
 
 gUnk_08111974:: @ 08111974
-	.incbin "baserom.gba", 0x111974, 0x0000011
+	.incbin "assets/cow/gUnk_08111974.bin"
 
 gUnk_08111985:: @ 08111985
-	.incbin "baserom.gba", 0x111985, 0x0000011
+	.incbin "assets/cow/gUnk_08111985.bin"
 
 gUnk_08111996:: @ 08111996
-	.incbin "baserom.gba", 0x111996, 0x0000011
+	.incbin "assets/cow/gUnk_08111996.bin"
 
 gUnk_081119A7:: @ 081119A7
-	.incbin "baserom.gba", 0x1119A7, 0x0000011
+	.incbin "assets/cow/gUnk_081119A7.bin"
 
 gUnk_081119B8:: @ 081119B8
-	.incbin "baserom.gba", 0x1119B8, 0x000000C
+	.incbin "assets/cow/gUnk_081119B8.bin"
 
 gUnk_081119C4:: @ 081119C4
-	.incbin "baserom.gba", 0x1119C4, 0x000000C
+	.incbin "assets/cow/gUnk_081119C4.bin"
 
 gUnk_081119D0:: @ 081119D0
-	.incbin "baserom.gba", 0x1119D0, 0x000000C
+	.incbin "assets/cow/gUnk_081119D0.bin"
 
 gUnk_081119DC:: @ 081119DC
-	.incbin "baserom.gba", 0x1119DC, 0x000000C
+	.incbin "assets/cow/gUnk_081119DC.bin"
 
 gUnk_081119E8:: @ 081119E8
-	.incbin "baserom.gba", 0x1119E8, 0x0000009
+	.incbin "assets/cow/gUnk_081119E8.bin"
 
 gUnk_081119F1:: @ 081119F1
-	.incbin "baserom.gba", 0x1119F1, 0x0000009
+	.incbin "assets/cow/gUnk_081119F1.bin"
 
 gUnk_081119FA:: @ 081119FA
-	.incbin "baserom.gba", 0x1119FA, 0x0000009
+	.incbin "assets/cow/gUnk_081119FA.bin"
 
 gUnk_08111A03:: @ 08111A03
-	.incbin "baserom.gba", 0x111A03, 0x0000009
+	.incbin "assets/cow/gUnk_08111A03.bin"
 
 gUnk_08111A0C:: @ 08111A0C
-	.incbin "baserom.gba", 0x111A0C, 0x0000008
+	.incbin "assets/cow/gUnk_08111A0C.bin"
 
 gUnk_08111A14:: @ 08111A14
-	.incbin "baserom.gba", 0x111A14, 0x0000008
+	.incbin "assets/cow/gUnk_08111A14.bin"
 
 gUnk_08111A1C:: @ 08111A1C
-	.incbin "baserom.gba", 0x111A1C, 0x0000008
+	.incbin "assets/cow/gUnk_08111A1C.bin"
 
 gUnk_08111A24:: @ 08111A24
-	.incbin "baserom.gba", 0x111A24, 0x0000008
+	.incbin "assets/cow/gUnk_08111A24.bin"
 
 gUnk_08111A2C:: @ 08111A2C
 	.4byte gUnk_08111960

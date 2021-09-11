@@ -4,25 +4,25 @@
 	.section .rodata
 
 gUnk_080CB5EC:: @ 080CB5EC
-	.incbin "baserom.gba", 0x0CB5EC, 0x0000014
+	.incbin "assets/beetle/gUnk_080CB5EC.bin"
 
 gUnk_080CB600:: @ 080CB600
-	.incbin "baserom.gba", 0x0CB600, 0x000001C
+	.incbin "assets/beetle/gUnk_080CB600.bin"
 
 gUnk_080CB61C:: @ 080CB61C
-	.incbin "baserom.gba", 0x0CB61C, 0x0000011
+	.incbin "assets/beetle/gUnk_080CB61C.bin"
 
 gUnk_080CB62D:: @ 080CB62D
-	.incbin "baserom.gba", 0x0CB62D, 0x0000018
+	.incbin "assets/beetle/gUnk_080CB62D.bin"
 
 gUnk_080CB645:: @ 080CB645
-	.incbin "baserom.gba", 0x0CB645, 0x0000018
+	.incbin "assets/beetle/gUnk_080CB645.bin"
 
 gUnk_080CB65D:: @ 080CB65D
-	.incbin "baserom.gba", 0x0CB65D, 0x0000014
+	.incbin "assets/beetle/gUnk_080CB65D.bin"
 
 gUnk_080CB671:: @ 080CB671
-	.incbin "baserom.gba", 0x0CB671, 0x000000B
+	.incbin "assets/beetle/gUnk_080CB671.bin"
 
 gUnk_080CB67C:: @ 080CB67C
 	.4byte gUnk_080CB5EC

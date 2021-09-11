@@ -6,7 +6,7 @@
 	.text
 
 gUnk_08016984:: @ 08016984
-	.incbin "baserom.gba", 0x016984, 0x0000002
+	.incbin "assets/code_08016984/gUnk_08016984.bin"
 
 	.text
 

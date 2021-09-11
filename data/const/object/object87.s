@@ -10,10 +10,10 @@ gUnk_08123840:: @ 08123840
 	.4byte sub_0809A648
 
 gUnk_0812384C:: @ 0812384C
-	.incbin "baserom.gba", 0x12384C, 0x0000040
+	.incbin "assets/object87/gUnk_0812384C.bin"
 
 gUnk_0812388C:: @ 0812388C
-	.incbin "baserom.gba", 0x12388C, 0x0000014
+	.incbin "assets/object87/gUnk_0812388C.bin"
 
 gUnk_081238A0:: @ 081238A0
-	.incbin "baserom.gba", 0x1238A0, 0x00003E0
+	.incbin "assets/object87/gUnk_081238A0.bin"

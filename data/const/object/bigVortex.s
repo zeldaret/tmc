@@ -12,5 +12,5 @@ gUnk_0812367C:: @ 0812367C
 	.4byte sub_08098E34
 
 gUnk_08123690:: @ 08123690
-	.incbin "baserom.gba", 0x123690, 0x0000008
+	.incbin "assets/bigVortex/gUnk_08123690.bin"
 

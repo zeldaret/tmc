@@ -9,10 +9,10 @@
 translation:: @ 089B1D90
 .ifdef DEMO_JP
 	@ some strings seem to be added compared to JP
-	.incbin "baserom_demo_jp.gba", 0x9B1A28, 0x002BD90
+	.incbin "assets/strings/translation_DEMO_JP.bin"
 .else
 .ifdef JP
-	.incbin "baserom_jp.gba", 0x9B1A30, 0x002BCC0
+	.incbin "assets/strings/translation_1_JP.bin"
 .else
 .ifdef EU
 	.incbin "translations/English.bin"

@@ -5,13 +5,13 @@
     .align 2
 
 gUnk_0810CF4C:: @ 0810CF4C
-	.incbin "baserom.gba", 0x10CF4C, 0x0000158
+	.incbin "assets/guard/gUnk_0810CF4C.bin"
 
 gUnk_0810D0A4:: @ 0810D0A4
-	.incbin "baserom.gba", 0x10D0A4, 0x0002480
+	.incbin "assets/guard/gUnk_0810D0A4.bin"
 
 gUnk_0810F524:: @ 0810F524
-	.incbin "baserom.gba", 0x10F524, 0x0000020
+	.incbin "assets/guard/gUnk_0810F524.bin"
 
 gUnk_0810F544:: @ 0810F544
 	.4byte sub_08063E90

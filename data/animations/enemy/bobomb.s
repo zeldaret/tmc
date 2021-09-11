@@ -4,34 +4,34 @@
 	.section .rodata
 
 gUnk_080CD628:: @ 080CD628
-	.incbin "baserom.gba", 0x0CD628, 0x0000011
+	.incbin "assets/bobomb/gUnk_080CD628.bin"
 
 gUnk_080CD639:: @ 080CD639
-	.incbin "baserom.gba", 0x0CD639, 0x0000011
+	.incbin "assets/bobomb/gUnk_080CD639.bin"
 
 gUnk_080CD64A:: @ 080CD64A
-	.incbin "baserom.gba", 0x0CD64A, 0x0000011
+	.incbin "assets/bobomb/gUnk_080CD64A.bin"
 
 gUnk_080CD65B:: @ 080CD65B
-	.incbin "baserom.gba", 0x0CD65B, 0x0000011
+	.incbin "assets/bobomb/gUnk_080CD65B.bin"
 
 gUnk_080CD66C:: @ 080CD66C
-	.incbin "baserom.gba", 0x0CD66C, 0x0000005
+	.incbin "assets/bobomb/gUnk_080CD66C.bin"
 
 gUnk_080CD671:: @ 080CD671
-	.incbin "baserom.gba", 0x0CD671, 0x0000005
+	.incbin "assets/bobomb/gUnk_080CD671.bin"
 
 gUnk_080CD676:: @ 080CD676
-	.incbin "baserom.gba", 0x0CD676, 0x0000009
+	.incbin "assets/bobomb/gUnk_080CD676.bin"
 
 gUnk_080CD67F:: @ 080CD67F
-	.incbin "baserom.gba", 0x0CD67F, 0x0000009
+	.incbin "assets/bobomb/gUnk_080CD67F.bin"
 
 gUnk_080CD688:: @ 080CD688
-	.incbin "baserom.gba", 0x0CD688, 0x0000024
+	.incbin "assets/bobomb/gUnk_080CD688.bin"
 
 gUnk_080CD6AC:: @ 080CD6AC
-	.incbin "baserom.gba", 0x0CD6AC, 0x0000024
+	.incbin "assets/bobomb/gUnk_080CD6AC.bin"
 
 gUnk_080CD6D0:: @ 080CD6D0
 	.4byte gUnk_080CD628

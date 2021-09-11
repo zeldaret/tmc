@@ -12,26 +12,26 @@ gUnk_08120A94:: @ 08120A94
 	.4byte sub_08087E5C
 
 gUnk_08120AA8:: @ 08120AA8
-	.incbin "baserom.gba", 0x120AA8, 0x0000004
+	.incbin "assets/figurineDevice/gUnk_08120AA8.bin"
 
 gUnk_08120AAC:: @ 08120AAC
-	.incbin "baserom.gba", 0x120AAC, 0x0000008
+	.incbin "assets/figurineDevice/gUnk_08120AAC.bin"
 
 gUnk_08120AB4:: @ 08120AB4
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x1201FC, 0x0000018
+	.incbin "assets/figurineDevice/gUnk_08120AB4_EU.bin"
 .else
-	.incbin "baserom.gba", 0x120AB4, 0x0000018
+	.incbin "assets/figurineDevice/gUnk_08120AB4_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_08120ACC:: @ 08120ACC
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x120214, 0x0000018
+	.incbin "assets/figurineDevice/gUnk_08120ACC_EU.bin"
 .else
-	.incbin "baserom.gba", 0x120ACC, 0x0000018
+	.incbin "assets/figurineDevice/gUnk_08120ACC_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_08120AE4:: @ 08120AE4
-	.incbin "baserom.gba", 0x120AE4, 0x0000004
+	.incbin "assets/figurineDevice/gUnk_08120AE4.bin"

@@ -5,64 +5,64 @@
     .align 2
 
 gUnk_080CF2D0:: @ 080CF2D0
-	.incbin "baserom.gba", 0x0CF2D0, 0x0000004
+	.incbin "assets/gibdo/gUnk_080CF2D0.bin"
 
 gUnk_080CF2D4:: @ 080CF2D4
-	.incbin "baserom.gba", 0x0CF2D4, 0x0000004
+	.incbin "assets/gibdo/gUnk_080CF2D4.bin"
 
 gUnk_080CF2D8:: @ 080CF2D8
-	.incbin "baserom.gba", 0x0CF2D8, 0x0000004
+	.incbin "assets/gibdo/gUnk_080CF2D8.bin"
 
 gUnk_080CF2DC:: @ 080CF2DC
-	.incbin "baserom.gba", 0x0CF2DC, 0x0000004
+	.incbin "assets/gibdo/gUnk_080CF2DC.bin"
 
 gUnk_080CF2E0:: @ 080CF2E0
-	.incbin "baserom.gba", 0x0CF2E0, 0x0000019
+	.incbin "assets/gibdo/gUnk_080CF2E0.bin"
 
 gUnk_080CF2F9:: @ 080CF2F9
-	.incbin "baserom.gba", 0x0CF2F9, 0x0000019
+	.incbin "assets/gibdo/gUnk_080CF2F9.bin"
 
 gUnk_080CF312:: @ 080CF312
-	.incbin "baserom.gba", 0x0CF312, 0x0000019
+	.incbin "assets/gibdo/gUnk_080CF312.bin"
 
 gUnk_080CF32B:: @ 080CF32B
-	.incbin "baserom.gba", 0x0CF32B, 0x0000019
+	.incbin "assets/gibdo/gUnk_080CF32B.bin"
 
 gUnk_080CF344:: @ 080CF344
-	.incbin "baserom.gba", 0x0CF344, 0x0000018
+	.incbin "assets/gibdo/gUnk_080CF344.bin"
 
 gUnk_080CF35C:: @ 080CF35C
-	.incbin "baserom.gba", 0x0CF35C, 0x0000018
+	.incbin "assets/gibdo/gUnk_080CF35C.bin"
 
 gUnk_080CF374:: @ 080CF374
-	.incbin "baserom.gba", 0x0CF374, 0x0000018
+	.incbin "assets/gibdo/gUnk_080CF374.bin"
 
 gUnk_080CF38C:: @ 080CF38C
-	.incbin "baserom.gba", 0x0CF38C, 0x0000018
+	.incbin "assets/gibdo/gUnk_080CF38C.bin"
 
 gUnk_080CF3A4:: @ 080CF3A4
-	.incbin "baserom.gba", 0x0CF3A4, 0x0000009
+	.incbin "assets/gibdo/gUnk_080CF3A4.bin"
 
 gUnk_080CF3AD:: @ 080CF3AD
-	.incbin "baserom.gba", 0x0CF3AD, 0x0000009
+	.incbin "assets/gibdo/gUnk_080CF3AD.bin"
 
 gUnk_080CF3B6:: @ 080CF3B6
-	.incbin "baserom.gba", 0x0CF3B6, 0x0000009
+	.incbin "assets/gibdo/gUnk_080CF3B6.bin"
 
 gUnk_080CF3BF:: @ 080CF3BF
-	.incbin "baserom.gba", 0x0CF3BF, 0x0000009
+	.incbin "assets/gibdo/gUnk_080CF3BF.bin"
 
 gUnk_080CF3C8:: @ 080CF3C8
-	.incbin "baserom.gba", 0x0CF3C8, 0x0000014
+	.incbin "assets/gibdo/gUnk_080CF3C8.bin"
 
 gUnk_080CF3DC:: @ 080CF3DC
-	.incbin "baserom.gba", 0x0CF3DC, 0x0000014
+	.incbin "assets/gibdo/gUnk_080CF3DC.bin"
 
 gUnk_080CF3F0:: @ 080CF3F0
-	.incbin "baserom.gba", 0x0CF3F0, 0x0000014
+	.incbin "assets/gibdo/gUnk_080CF3F0.bin"
 
 gUnk_080CF404:: @ 080CF404
-	.incbin "baserom.gba", 0x0CF404, 0x0000014
+	.incbin "assets/gibdo/gUnk_080CF404.bin"
 
 gUnk_080CF418:: @ 080CF418
 	.4byte gUnk_080CF2D0

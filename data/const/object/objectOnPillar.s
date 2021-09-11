@@ -12,14 +12,14 @@ gUnk_08123250:: @ 08123250
 	.4byte nullsub_122
 
 gUnk_08123264:: @ 08123264
-	.incbin "baserom.gba", 0x123264, 0x0000008
+	.incbin "assets/objectOnPillar/gUnk_08123264.bin"
 
 gUnk_0812326C:: @ 0812326C
 	.4byte sub_08096F6C
 	.4byte sub_08096FE4
 
 gUnk_08123274:: @ 08123274
-	.incbin "baserom.gba", 0x123274, 0x0000008
+	.incbin "assets/objectOnPillar/gUnk_08123274.bin"
 
 gUnk_0812327C:: @ 0812327C
-	.incbin "baserom.gba", 0x12327C, 0x000001C
+	.incbin "assets/objectOnPillar/gUnk_0812327C.bin"

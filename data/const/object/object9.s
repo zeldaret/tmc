@@ -7,9 +7,9 @@
 gUnk_0811F744:: @ 0811F744
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x11EE8C, 0x0000010
+	.incbin "assets/object9/gUnk_0811F744_EU.bin"
 .else
-	.incbin "baserom.gba", 0x11F744, 0x0000010
+	.incbin "assets/object9/gUnk_0811F744_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_0811F754:: @ 0811F754

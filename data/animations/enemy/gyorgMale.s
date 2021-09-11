@@ -5,10 +5,10 @@
     .align 2
 
 gUnk_080D1C70:: @ 080D1C70
-	.incbin "baserom.gba", 0x0D1C70, 0x0000021
+	.incbin "assets/gyorgMale/gUnk_080D1C70.bin"
 
 gUnk_080D1C91:: @ 080D1C91
-	.incbin "baserom.gba", 0x0D1C91, 0x000002B
+	.incbin "assets/gyorgMale/gUnk_080D1C91.bin"
 
 gUnk_080D1CBC:: @ 080D1CBC
 	.4byte gUnk_080D1C70

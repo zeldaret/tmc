@@ -5,13 +5,13 @@
     .align 2
 
 gUnk_08120AE8:: @ 08120AE8
-	.incbin "baserom.gba", 0x120AE8, 0x0000005
+	.incbin "assets/figurineDevice/gUnk_08120AE8.bin"
 
 gUnk_08120AED:: @ 08120AED
-	.incbin "baserom.gba", 0x120AED, 0x0000014
+	.incbin "assets/figurineDevice/gUnk_08120AED.bin"
 
 gUnk_08120B01:: @ 08120B01
-	.incbin "baserom.gba", 0x120B01, 0x000000F
+	.incbin "assets/figurineDevice/gUnk_08120B01.bin"
 
 gUnk_08120B10:: @ 08120B10
 	.4byte gUnk_08120AE8

@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_0811ECD4:: @ 0811ECD4
-	.incbin "baserom.gba", 0x11ECD4, 0x0000079
+	.incbin "assets/deathFx/gUnk_0811ECD4.bin"
 
 gUnk_0811ED4D:: @ 0811ED4D
-	.incbin "baserom.gba", 0x11ED4D, 0x0000039
+	.incbin "assets/deathFx/gUnk_0811ED4D.bin"
 
 gUnk_0811ED86:: @ 0811ED86
-	.incbin "baserom.gba", 0x11ED86, 0x0000031
+	.incbin "assets/deathFx/gUnk_0811ED86.bin"
 
 gUnk_0811EDB7:: @ 0811EDB7
-	.incbin "baserom.gba", 0x11EDB7, 0x0000059
+	.incbin "assets/deathFx/gUnk_0811EDB7.bin"
 
 gUnk_0811EE10:: @ 0811EE10
 	.4byte gUnk_0811ECD4

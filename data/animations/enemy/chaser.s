@@ -4,13 +4,13 @@
 	.section .rodata
 
 gUnk_080CD2A8:: @ 080CD2A8
-	.incbin "baserom.gba", 0x0CD2A8, 0x0000004
+	.incbin "assets/chaser/gUnk_080CD2A8.bin"
 
 gUnk_080CD2AC:: @ 080CD2AC
-	.incbin "baserom.gba", 0x0CD2AC, 0x0000011
+	.incbin "assets/chaser/gUnk_080CD2AC.bin"
 
 gUnk_080CD2BD:: @ 080CD2BD
-	.incbin "baserom.gba", 0x0CD2BD, 0x000000B
+	.incbin "assets/chaser/gUnk_080CD2BD.bin"
 
 gUnk_080CD2C8:: @ 080CD2C8
 	.4byte gUnk_080CD2A8

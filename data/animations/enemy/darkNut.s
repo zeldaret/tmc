@@ -5,232 +5,232 @@
 	.align 2
 
 gUnk_080CAB6C:: @ 080CAB6C
-	.incbin "baserom.gba", 0x0CAB6C, 0x0000004
+	.incbin "assets/darkNut/gUnk_080CAB6C.bin"
 
 gUnk_080CAB70:: @ 080CAB70
-	.incbin "baserom.gba", 0x0CAB70, 0x0000004
+	.incbin "assets/darkNut/gUnk_080CAB70.bin"
 
 gUnk_080CAB74:: @ 080CAB74
-	.incbin "baserom.gba", 0x0CAB74, 0x0000004
+	.incbin "assets/darkNut/gUnk_080CAB74.bin"
 
 gUnk_080CAB78:: @ 080CAB78
-	.incbin "baserom.gba", 0x0CAB78, 0x0000004
+	.incbin "assets/darkNut/gUnk_080CAB78.bin"
 
 gUnk_080CAB7C:: @ 080CAB7C
-	.incbin "baserom.gba", 0x0CAB7C, 0x0000010
+	.incbin "assets/darkNut/gUnk_080CAB7C.bin"
 
 gUnk_080CAB8C:: @ 080CAB8C
-	.incbin "baserom.gba", 0x0CAB8C, 0x0000010
+	.incbin "assets/darkNut/gUnk_080CAB8C.bin"
 
 gUnk_080CAB9C:: @ 080CAB9C
-	.incbin "baserom.gba", 0x0CAB9C, 0x0000010
+	.incbin "assets/darkNut/gUnk_080CAB9C.bin"
 
 gUnk_080CABAC:: @ 080CABAC
-	.incbin "baserom.gba", 0x0CABAC, 0x0000010
+	.incbin "assets/darkNut/gUnk_080CABAC.bin"
 
 gUnk_080CABBC:: @ 080CABBC
-	.incbin "baserom.gba", 0x0CABBC, 0x0000004
+	.incbin "assets/darkNut/gUnk_080CABBC.bin"
 
 gUnk_080CABC0:: @ 080CABC0
-	.incbin "baserom.gba", 0x0CABC0, 0x0000004
+	.incbin "assets/darkNut/gUnk_080CABC0.bin"
 
 gUnk_080CABC4:: @ 080CABC4
-	.incbin "baserom.gba", 0x0CABC4, 0x0000004
+	.incbin "assets/darkNut/gUnk_080CABC4.bin"
 
 gUnk_080CABC8:: @ 080CABC8
-	.incbin "baserom.gba", 0x0CABC8, 0x0000004
+	.incbin "assets/darkNut/gUnk_080CABC8.bin"
 
 gUnk_080CABCC:: @ 080CABCC
-	.incbin "baserom.gba", 0x0CABCC, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CABCC.bin"
 
 gUnk_080CABE5:: @ 080CABE5
-	.incbin "baserom.gba", 0x0CABE5, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CABE5.bin"
 
 gUnk_080CABFE:: @ 080CABFE
-	.incbin "baserom.gba", 0x0CABFE, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CABFE.bin"
 
 gUnk_080CAC17:: @ 080CAC17
-	.incbin "baserom.gba", 0x0CAC17, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CAC17.bin"
 
 gUnk_080CAC30:: @ 080CAC30
-	.incbin "baserom.gba", 0x0CAC30, 0x000000C
+	.incbin "assets/darkNut/gUnk_080CAC30.bin"
 
 gUnk_080CAC3C:: @ 080CAC3C
-	.incbin "baserom.gba", 0x0CAC3C, 0x000000C
+	.incbin "assets/darkNut/gUnk_080CAC3C.bin"
 
 gUnk_080CAC48:: @ 080CAC48
-	.incbin "baserom.gba", 0x0CAC48, 0x000000C
+	.incbin "assets/darkNut/gUnk_080CAC48.bin"
 
 gUnk_080CAC54:: @ 080CAC54
-	.incbin "baserom.gba", 0x0CAC54, 0x000000C
+	.incbin "assets/darkNut/gUnk_080CAC54.bin"
 
 gUnk_080CAC60:: @ 080CAC60
-	.incbin "baserom.gba", 0x0CAC60, 0x0000028
+	.incbin "assets/darkNut/gUnk_080CAC60.bin"
 
 gUnk_080CAC88:: @ 080CAC88
-	.incbin "baserom.gba", 0x0CAC88, 0x0000028
+	.incbin "assets/darkNut/gUnk_080CAC88.bin"
 
 gUnk_080CACB0:: @ 080CACB0
-	.incbin "baserom.gba", 0x0CACB0, 0x0000028
+	.incbin "assets/darkNut/gUnk_080CACB0.bin"
 
 gUnk_080CACD8:: @ 080CACD8
-	.incbin "baserom.gba", 0x0CACD8, 0x0000028
+	.incbin "assets/darkNut/gUnk_080CACD8.bin"
 
 gUnk_080CAD00:: @ 080CAD00
-	.incbin "baserom.gba", 0x0CAD00, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CAD00.bin"
 
 gUnk_080CAD19:: @ 080CAD19
-	.incbin "baserom.gba", 0x0CAD19, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CAD19.bin"
 
 gUnk_080CAD32:: @ 080CAD32
-	.incbin "baserom.gba", 0x0CAD32, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CAD32.bin"
 
 gUnk_080CAD4B:: @ 080CAD4B
-	.incbin "baserom.gba", 0x0CAD4B, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CAD4B.bin"
 
 gUnk_080CAD64:: @ 080CAD64
-	.incbin "baserom.gba", 0x0CAD64, 0x000000C
+	.incbin "assets/darkNut/gUnk_080CAD64.bin"
 
 gUnk_080CAD70:: @ 080CAD70
-	.incbin "baserom.gba", 0x0CAD70, 0x000000C
+	.incbin "assets/darkNut/gUnk_080CAD70.bin"
 
 gUnk_080CAD7C:: @ 080CAD7C
-	.incbin "baserom.gba", 0x0CAD7C, 0x000000C
+	.incbin "assets/darkNut/gUnk_080CAD7C.bin"
 
 gUnk_080CAD88:: @ 080CAD88
-	.incbin "baserom.gba", 0x0CAD88, 0x000000C
+	.incbin "assets/darkNut/gUnk_080CAD88.bin"
 
 gUnk_080CAD94:: @ 080CAD94
-	.incbin "baserom.gba", 0x0CAD94, 0x0000015
+	.incbin "assets/darkNut/gUnk_080CAD94.bin"
 
 gUnk_080CADA9:: @ 080CADA9
-	.incbin "baserom.gba", 0x0CADA9, 0x0000015
+	.incbin "assets/darkNut/gUnk_080CADA9.bin"
 
 gUnk_080CADBE:: @ 080CADBE
-	.incbin "baserom.gba", 0x0CADBE, 0x0000015
+	.incbin "assets/darkNut/gUnk_080CADBE.bin"
 
 gUnk_080CADD3:: @ 080CADD3
-	.incbin "baserom.gba", 0x0CADD3, 0x0000015
+	.incbin "assets/darkNut/gUnk_080CADD3.bin"
 
 gUnk_080CADE8:: @ 080CADE8
-	.incbin "baserom.gba", 0x0CADE8, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CADE8.bin"
 
 gUnk_080CAE01:: @ 080CAE01
-	.incbin "baserom.gba", 0x0CAE01, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CAE01.bin"
 
 gUnk_080CAE1A:: @ 080CAE1A
-	.incbin "baserom.gba", 0x0CAE1A, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CAE1A.bin"
 
 gUnk_080CAE33:: @ 080CAE33
-	.incbin "baserom.gba", 0x0CAE33, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CAE33.bin"
 
 gUnk_080CAE4C:: @ 080CAE4C
-	.incbin "baserom.gba", 0x0CAE4C, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CAE4C.bin"
 
 gUnk_080CAE65:: @ 080CAE65
-	.incbin "baserom.gba", 0x0CAE65, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CAE65.bin"
 
 gUnk_080CAE7E:: @ 080CAE7E
-	.incbin "baserom.gba", 0x0CAE7E, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CAE7E.bin"
 
 gUnk_080CAE97:: @ 080CAE97
-	.incbin "baserom.gba", 0x0CAE97, 0x0000019
+	.incbin "assets/darkNut/gUnk_080CAE97.bin"
 
 gUnk_080CAEB0:: @ 080CAEB0
-	.incbin "baserom.gba", 0x0CAEB0, 0x0000010
+	.incbin "assets/darkNut/gUnk_080CAEB0.bin"
 
 gUnk_080CAEC0:: @ 080CAEC0
-	.incbin "baserom.gba", 0x0CAEC0, 0x0000010
+	.incbin "assets/darkNut/gUnk_080CAEC0.bin"
 
 gUnk_080CAED0:: @ 080CAED0
-	.incbin "baserom.gba", 0x0CAED0, 0x0000010
+	.incbin "assets/darkNut/gUnk_080CAED0.bin"
 
 gUnk_080CAEE0:: @ 080CAEE0
-	.incbin "baserom.gba", 0x0CAEE0, 0x0000010
+	.incbin "assets/darkNut/gUnk_080CAEE0.bin"
 
 gUnk_080CAEF0:: @ 080CAEF0
-	.incbin "baserom.gba", 0x0CAEF0, 0x0000030
+	.incbin "assets/darkNut/gUnk_080CAEF0.bin"
 
 gUnk_080CAF20:: @ 080CAF20
-	.incbin "baserom.gba", 0x0CAF20, 0x0000030
+	.incbin "assets/darkNut/gUnk_080CAF20.bin"
 
 gUnk_080CAF50:: @ 080CAF50
-	.incbin "baserom.gba", 0x0CAF50, 0x0000030
+	.incbin "assets/darkNut/gUnk_080CAF50.bin"
 
 gUnk_080CAF80:: @ 080CAF80
-	.incbin "baserom.gba", 0x0CAF80, 0x0000030
+	.incbin "assets/darkNut/gUnk_080CAF80.bin"
 
 gUnk_080CAFB0:: @ 080CAFB0
-	.incbin "baserom.gba", 0x0CAFB0, 0x0000018
+	.incbin "assets/darkNut/gUnk_080CAFB0.bin"
 
 gUnk_080CAFC8:: @ 080CAFC8
-	.incbin "baserom.gba", 0x0CAFC8, 0x0000018
+	.incbin "assets/darkNut/gUnk_080CAFC8.bin"
 
 gUnk_080CAFE0:: @ 080CAFE0
-	.incbin "baserom.gba", 0x0CAFE0, 0x0000018
+	.incbin "assets/darkNut/gUnk_080CAFE0.bin"
 
 gUnk_080CAFF8:: @ 080CAFF8
-	.incbin "baserom.gba", 0x0CAFF8, 0x0000018
+	.incbin "assets/darkNut/gUnk_080CAFF8.bin"
 
 gUnk_080CB010:: @ 080CB010
-	.incbin "baserom.gba", 0x0CB010, 0x0000035
+	.incbin "assets/darkNut/gUnk_080CB010.bin"
 
 gUnk_080CB045:: @ 080CB045
-	.incbin "baserom.gba", 0x0CB045, 0x0000035
+	.incbin "assets/darkNut/gUnk_080CB045.bin"
 
 gUnk_080CB07A:: @ 080CB07A
-	.incbin "baserom.gba", 0x0CB07A, 0x0000035
+	.incbin "assets/darkNut/gUnk_080CB07A.bin"
 
 gUnk_080CB0AF:: @ 080CB0AF
-	.incbin "baserom.gba", 0x0CB0AF, 0x0000035
+	.incbin "assets/darkNut/gUnk_080CB0AF.bin"
 
 gUnk_080CB0E4:: @ 080CB0E4
-	.incbin "baserom.gba", 0x0CB0E4, 0x0000008
+	.incbin "assets/darkNut/gUnk_080CB0E4.bin"
 
 gUnk_080CB0EC:: @ 080CB0EC
-	.incbin "baserom.gba", 0x0CB0EC, 0x0000008
+	.incbin "assets/darkNut/gUnk_080CB0EC.bin"
 
 gUnk_080CB0F4:: @ 080CB0F4
-	.incbin "baserom.gba", 0x0CB0F4, 0x0000008
+	.incbin "assets/darkNut/gUnk_080CB0F4.bin"
 
 gUnk_080CB0FC:: @ 080CB0FC
-	.incbin "baserom.gba", 0x0CB0FC, 0x0000008
+	.incbin "assets/darkNut/gUnk_080CB0FC.bin"
 
 gUnk_080CB104:: @ 080CB104
-	.incbin "baserom.gba", 0x0CB104, 0x0000070
+	.incbin "assets/darkNut/gUnk_080CB104.bin"
 
 gUnk_080CB174:: @ 080CB174
-	.incbin "baserom.gba", 0x0CB174, 0x0000070
+	.incbin "assets/darkNut/gUnk_080CB174.bin"
 
 gUnk_080CB1E4:: @ 080CB1E4
-	.incbin "baserom.gba", 0x0CB1E4, 0x0000070
+	.incbin "assets/darkNut/gUnk_080CB1E4.bin"
 
 gUnk_080CB254:: @ 080CB254
-	.incbin "baserom.gba", 0x0CB254, 0x0000070
+	.incbin "assets/darkNut/gUnk_080CB254.bin"
 
 gUnk_080CB2C4:: @ 080CB2C4
-	.incbin "baserom.gba", 0x0CB2C4, 0x0000034
+	.incbin "assets/darkNut/gUnk_080CB2C4.bin"
 
 gUnk_080CB2F8:: @ 080CB2F8
-	.incbin "baserom.gba", 0x0CB2F8, 0x0000034
+	.incbin "assets/darkNut/gUnk_080CB2F8.bin"
 
 gUnk_080CB32C:: @ 080CB32C
-	.incbin "baserom.gba", 0x0CB32C, 0x0000034
+	.incbin "assets/darkNut/gUnk_080CB32C.bin"
 
 gUnk_080CB360:: @ 080CB360
-	.incbin "baserom.gba", 0x0CB360, 0x0000034
+	.incbin "assets/darkNut/gUnk_080CB360.bin"
 
 gUnk_080CB394:: @ 080CB394
-	.incbin "baserom.gba", 0x0CB394, 0x0000029
+	.incbin "assets/darkNut/gUnk_080CB394.bin"
 
 gUnk_080CB3BD:: @ 080CB3BD
-	.incbin "baserom.gba", 0x0CB3BD, 0x0000029
+	.incbin "assets/darkNut/gUnk_080CB3BD.bin"
 
 gUnk_080CB3E6:: @ 080CB3E6
-	.incbin "baserom.gba", 0x0CB3E6, 0x0000029
+	.incbin "assets/darkNut/gUnk_080CB3E6.bin"
 
 gUnk_080CB40F:: @ 080CB40F
-	.incbin "baserom.gba", 0x0CB40F, 0x0000029
+	.incbin "assets/darkNut/gUnk_080CB40F.bin"
 
 gUnk_080CB438:: @ 080CB438
 	.4byte gUnk_080CAB6C

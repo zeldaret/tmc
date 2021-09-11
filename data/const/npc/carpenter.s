@@ -5,10 +5,10 @@
     .align 2
 
 gUnk_08110CA8:: @ 08110CA8
-	.incbin "baserom.gba", 0x110CA8, 0x0000040
+	.incbin "assets/carpenter/gUnk_08110CA8.bin"
 
 gUnk_08110CE8:: @ 08110CE8
-	.incbin "baserom.gba", 0x110CE8, 0x0000018
+	.incbin "assets/carpenter/gUnk_08110CE8.bin"
 
 gUnk_08110D00:: @ 08110D00
-	.incbin "baserom.gba", 0x110D00, 0x0000008
+	.incbin "assets/carpenter/gUnk_08110D00.bin"

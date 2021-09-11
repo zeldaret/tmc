@@ -20,17 +20,17 @@ gUnk_0812A5F4:: @ 0812A5F4
 	.4byte gUnk_0812A624
 
 gUnk_0812A614:: @ 0812A614
-	.incbin "baserom.gba", 0x12A614, 0x0000008
+	.incbin "assets/projectile1C/gUnk_0812A614.bin"
 
 gUnk_0812A61C:: @ 0812A61C
-	.incbin "baserom.gba", 0x12A61C, 0x0000008
+	.incbin "assets/projectile1C/gUnk_0812A61C.bin"
 
 gUnk_0812A624:: @ 0812A624
-	.incbin "baserom.gba", 0x12A624, 0x0000008
+	.incbin "assets/projectile1C/gUnk_0812A624.bin"
 
 gUnk_0812A62C:: @ 0812A62C
-	.incbin "baserom.gba", 0x12A62C, 0x0000008
+	.incbin "assets/projectile1C/gUnk_0812A62C.bin"
 
 gUnk_0812A634:: @ 0812A634
-	.incbin "baserom.gba", 0x12A634, 0x0000008
+	.incbin "assets/projectile1C/gUnk_0812A634.bin"
 

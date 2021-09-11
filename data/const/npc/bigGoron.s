@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_081140CC:: @ 081140CC
-	.incbin "baserom.gba", 0x1140CC, 0x0000008
+	.incbin "assets/bigGoron/gUnk_081140CC.bin"
 
 gUnk_081140D4:: @ 081140D4
 	.4byte sub_0806CF30
@@ -21,7 +21,7 @@ gUnk_081140D4:: @ 081140D4
 	.4byte sub_0806D40C
 
 gUnk_08114100:: @ 08114100
-	.incbin "baserom.gba", 0x114100, 0x0000004
+	.incbin "assets/bigGoron/gUnk_08114100.bin"
 
 gUnk_08114104:: @ 08114104
-	.incbin "baserom.gba", 0x114104, 0x0000030
+	.incbin "assets/bigGoron/gUnk_08114104.bin"

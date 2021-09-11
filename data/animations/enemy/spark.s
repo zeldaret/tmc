@@ -4,7 +4,7 @@
 	.section .rodata
 
 gUnk_080CD258:: @ 080CD258
-	.incbin "baserom.gba", 0x0CD258, 0x000001C
+	.incbin "assets/spark/gUnk_080CD258.bin"
 
 gUnk_080CD274:: @ 080CD274
 	.4byte gUnk_080CD258

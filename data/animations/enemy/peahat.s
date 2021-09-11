@@ -5,25 +5,25 @@
 	.align 2
 
 gUnk_080CA5D4:: @ 080CA5D4
-	.incbin "baserom.gba", 0x0CA5D4, 0x0000002
+	.incbin "assets/peahat/gUnk_080CA5D4.bin"
 
 gUnk_080CA5D6:: @ 080CA5D6
-	.incbin "baserom.gba", 0x0CA5D6, 0x0000011
+	.incbin "assets/peahat/gUnk_080CA5D6.bin"
 
 gUnk_080CA5E7:: @ 080CA5E7
-	.incbin "baserom.gba", 0x0CA5E7, 0x0000011
+	.incbin "assets/peahat/gUnk_080CA5E7.bin"
 
 gUnk_080CA5F8:: @ 080CA5F8
-	.incbin "baserom.gba", 0x0CA5F8, 0x000001D
+	.incbin "assets/peahat/gUnk_080CA5F8.bin"
 
 gUnk_080CA615:: @ 080CA615
-	.incbin "baserom.gba", 0x0CA615, 0x0000011
+	.incbin "assets/peahat/gUnk_080CA615.bin"
 
 gUnk_080CA626:: @ 080CA626
-	.incbin "baserom.gba", 0x0CA626, 0x0000014
+	.incbin "assets/peahat/gUnk_080CA626.bin"
 
 gUnk_080CA63A:: @ 080CA63A
-	.incbin "baserom.gba", 0x0CA63A, 0x0000016
+	.incbin "assets/peahat/gUnk_080CA63A.bin"
 
 gUnk_080CA650:: @ 080CA650
 	.4byte gUnk_080CA5D6

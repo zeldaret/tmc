@@ -5,22 +5,22 @@
 @    .align 2
 
 gUnk_0812357A:: @ 0812357A
-	.incbin "baserom.gba", 0x12357A, 0x0000019
+	.incbin "assets/picoBloom/gUnk_0812357A.bin"
 
 gUnk_08123593:: @ 08123593
-	.incbin "baserom.gba", 0x123593, 0x0000019
+	.incbin "assets/picoBloom/gUnk_08123593.bin"
 
 gUnk_081235AC:: @ 081235AC
-	.incbin "baserom.gba", 0x1235AC, 0x0000005
+	.incbin "assets/picoBloom/gUnk_081235AC.bin"
 
 gUnk_081235B1:: @ 081235B1
-	.incbin "baserom.gba", 0x1235B1, 0x0000005
+	.incbin "assets/picoBloom/gUnk_081235B1.bin"
 
 gUnk_081235B6:: @ 081235B6
-	.incbin "baserom.gba", 0x1235B6, 0x0000035
+	.incbin "assets/picoBloom/gUnk_081235B6.bin"
 
 gUnk_081235EB:: @ 081235EB
-	.incbin "baserom.gba", 0x1235EB, 0x0000035
+	.incbin "assets/picoBloom/gUnk_081235EB.bin"
 
 gUnk_08123620:: @ 08123620
 	.4byte gUnk_0812357A
@@ -32,6 +32,6 @@ gUnk_08123620:: @ 08123620
 	.4byte 00000000
 
 gUnk_0812363C:: @ 0812363C
-	.incbin "baserom.gba", 0x12363C, 0x0000020
+	.incbin "assets/picoBloom/gUnk_0812363C.bin"
 	.4byte gUnk_0812363C
 	.4byte 00000000

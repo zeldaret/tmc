@@ -11,7 +11,7 @@ gUnk_081243D4:: @ 081243D4
 	.4byte sub_0809EDE4
 
 gUnk_081243E4:: @ 081243E4
-	.incbin "baserom.gba", 0x1243E4, 0x0000008
+	.incbin "assets/fan/gUnk_081243E4.bin"
 
 gUnk_081243EC:: @ 081243EC
-	.incbin "baserom.gba", 0x1243EC, 0x0000008
+	.incbin "assets/fan/gUnk_081243EC.bin"

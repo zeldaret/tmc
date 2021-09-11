@@ -5,43 +5,43 @@
 @    .align 2
 
 gUnk_08120EF9:: @ 08120EF9
-	.incbin "baserom.gba", 0x120EF9, 0x0000031
+	.incbin "assets/beanstalk/gUnk_08120EF9.bin"
 
 gUnk_08120F2A:: @ 08120F2A
-	.incbin "baserom.gba", 0x120F2A, 0x0000004
+	.incbin "assets/beanstalk/gUnk_08120F2A.bin"
 
 gUnk_08120F2E:: @ 08120F2E
-	.incbin "baserom.gba", 0x120F2E, 0x0000004
+	.incbin "assets/beanstalk/gUnk_08120F2E.bin"
 
 gUnk_08120F32:: @ 08120F32
-	.incbin "baserom.gba", 0x120F32, 0x0000028
+	.incbin "assets/beanstalk/gUnk_08120F32.bin"
 
 gUnk_08120F5A:: @ 08120F5A
-	.incbin "baserom.gba", 0x120F5A, 0x0000004
+	.incbin "assets/beanstalk/gUnk_08120F5A.bin"
 
 gUnk_08120F5E:: @ 08120F5E
-	.incbin "baserom.gba", 0x120F5E, 0x0000020
+	.incbin "assets/beanstalk/gUnk_08120F5E.bin"
 
 gUnk_08120F7E:: @ 08120F7E
-	.incbin "baserom.gba", 0x120F7E, 0x0000028
+	.incbin "assets/beanstalk/gUnk_08120F7E.bin"
 
 gUnk_08120FA6:: @ 08120FA6
-	.incbin "baserom.gba", 0x120FA6, 0x0000004
+	.incbin "assets/beanstalk/gUnk_08120FA6.bin"
 
 gUnk_08120FAA:: @ 08120FAA
-	.incbin "baserom.gba", 0x120FAA, 0x0000020
+	.incbin "assets/beanstalk/gUnk_08120FAA.bin"
 
 gUnk_08120FCA:: @ 08120FCA
-	.incbin "baserom.gba", 0x120FCA, 0x0000028
+	.incbin "assets/beanstalk/gUnk_08120FCA.bin"
 
 gUnk_08120FF2:: @ 08120FF2
-	.incbin "baserom.gba", 0x120FF2, 0x0000004
+	.incbin "assets/beanstalk/gUnk_08120FF2.bin"
 
 gUnk_08120FF6:: @ 08120FF6
-	.incbin "baserom.gba", 0x120FF6, 0x0000020
+	.incbin "assets/beanstalk/gUnk_08120FF6.bin"
 
 gUnk_08121016:: @ 08121016
-	.incbin "baserom.gba", 0x121016, 0x0000006
+	.incbin "assets/beanstalk/gUnk_08121016.bin"
 
 gUnk_0812101C:: @ 0812101C
 	.4byte gUnk_08120E8C

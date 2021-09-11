@@ -31,25 +31,25 @@ gUnk_0811F818:: @ 0811F818
 	.4byte nullsub_114
 
 gUnk_0811F838:: @ 0811F838
-	.incbin "baserom.gba", 0x11F838, 0x0000008
+	.incbin "assets/chestSpawner/gUnk_0811F838.bin"
 
 gUnk_0811F840:: @ 0811F840
-	.incbin "baserom.gba", 0x11F840, 0x0000010
+	.incbin "assets/chestSpawner/gUnk_0811F840.bin"
 
 gUnk_0811F850:: @ 0811F850
-	.incbin "baserom.gba", 0x11F850, 0x0000004
+	.incbin "assets/chestSpawner/gUnk_0811F850.bin"
 
 gUnk_0811F854:: @ 0811F854
-	.incbin "baserom.gba", 0x11F854, 0x0000012
+	.incbin "assets/chestSpawner/gUnk_0811F854.bin"
 
 gUnk_0811F866:: @ 0811F866
-	.incbin "baserom.gba", 0x11F866, 0x000001A
+	.incbin "assets/chestSpawner/gUnk_0811F866.bin"
 
 gUnk_0811F880:: @ 0811F880
-	.incbin "baserom.gba", 0x11F880, 0x000000A
+	.incbin "assets/chestSpawner/gUnk_0811F880.bin"
 
 gUnk_0811F88A:: @ 0811F88A
-	.incbin "baserom.gba", 0x11F88A, 0x000000E
+	.incbin "assets/chestSpawner/gUnk_0811F88A.bin"
 
 gUnk_0811F898:: @ 0811F898
 	.4byte gUnk_0811F854
@@ -58,7 +58,7 @@ gUnk_0811F898:: @ 0811F898
 	.4byte gUnk_0811F88A
 
 gUnk_0811F8A8:: @ 0811F8A8
-	.incbin "baserom.gba", 0x11F8A8, 0x0000008
+	.incbin "assets/chestSpawner/gUnk_0811F8A8.bin"
 
 gUnk_0811F8B0:: @ 0811F8B0
-	.incbin "baserom.gba", 0x11F8B0, 0x0000008
+	.incbin "assets/chestSpawner/gUnk_0811F8B0.bin"

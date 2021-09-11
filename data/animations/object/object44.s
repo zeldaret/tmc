@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08121B94:: @ 08121B94
-	.incbin "baserom.gba", 0x121B94, 0x000003C
+	.incbin "assets/object44/gUnk_08121B94.bin"
 
 gUnk_08121BD0:: @ 08121BD0
 	.4byte gUnk_08121B94

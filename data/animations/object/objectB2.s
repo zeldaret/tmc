@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_081249B8:: @ 081249B8
-	.incbin "baserom.gba", 0x1249B8, 0x0000011
+	.incbin "assets/objectB2/gUnk_081249B8.bin"
 
 gUnk_081249C9:: @ 081249C9
-	.incbin "baserom.gba", 0x1249C9, 0x0000011
+	.incbin "assets/objectB2/gUnk_081249C9.bin"
 
 gUnk_081249DA:: @ 081249DA
-	.incbin "baserom.gba", 0x1249DA, 0x0000011
+	.incbin "assets/objectB2/gUnk_081249DA.bin"
 
 gUnk_081249EB:: @ 081249EB
-	.incbin "baserom.gba", 0x1249EB, 0x0000011
+	.incbin "assets/objectB2/gUnk_081249EB.bin"
 
 gUnk_081249FC:: @ 081249FC
 	.4byte gUnk_081249B8

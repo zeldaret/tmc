@@ -49,4 +49,4 @@ gUnk_0811E840:: @ 0811E840
 	.4byte sub_080813F0
 
 gUnk_0811E84C:: @ 0811E84C
-	.incbin "baserom.gba", 0x11E84C, 0x00003B0
+	.incbin "assets/itemOnGround/gUnk_0811E84C.bin"

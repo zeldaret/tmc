@@ -17,8 +17,8 @@ gUnk_0812A3D4:: @ 0812A3D4
 	.4byte sub_080AAB64
 
 gUnk_0812A3E0:: @ 0812A3E0
-	.incbin "baserom.gba", 0x12A3E0, 0x0000014
+	.incbin "assets/projectile16/gUnk_0812A3E0.bin"
 
 gUnk_0812A3F4:: @ 0812A3F4
 	.4byte gUnk_0812A3E0
-	.incbin "baserom.gba", 0x12A3F8, 0x0000004
+	.incbin "assets/projectile16/gUnk_0812A3F4.bin"

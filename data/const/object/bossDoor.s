@@ -14,10 +14,10 @@ gUnk_081214D8:: @ 081214D8
 	.4byte sub_0808C4A4
 
 gUnk_081214F4:: @ 081214F4
-	.incbin "baserom.gba", 0x1214F4, 0x0000008
+	.incbin "assets/bossDoor/gUnk_081214F4.bin"
 
 gUnk_081214FC:: @ 081214FC
-	.incbin "baserom.gba", 0x1214FC, 0x0000010
+	.incbin "assets/bossDoor/gUnk_081214FC.bin"
 
 gUnk_0812150C:: @ 0812150C
-	.incbin "baserom.gba", 0x12150C, 0x0000008
+	.incbin "assets/bossDoor/gUnk_0812150C.bin"

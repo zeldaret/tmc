@@ -10,7 +10,7 @@ gUnk_08121EA4:: @ 08121EA4
 	.4byte sub_0808F70C
 
 gUnk_08121EB0:: @ 08121EB0
-	.incbin "baserom.gba", 0x121EB0, 0x0000003
+	.incbin "assets/backgroundCloud/gUnk_08121EB0.bin"
 
 gUnk_08121EB3:: @ 08121EB3
-	.incbin "baserom.gba", 0x121EB3, 0x0000005
+	.incbin "assets/backgroundCloud/gUnk_08121EB3.bin"

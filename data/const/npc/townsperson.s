@@ -5,13 +5,13 @@
     .align 2
 
 gUnk_0810B680:: @ 0810B680
-	.incbin "baserom.gba", 0x10B680, 0x0000054
+	.incbin "assets/townsperson/gUnk_0810B680.bin"
 
 gUnk_0810B6D4:: @ 0810B6D4
-	.incbin "baserom.gba", 0x10B6D4, 0x000000C
+	.incbin "assets/townsperson/gUnk_0810B6D4.bin"
 
 gUnk_0810B6E0:: @ 0810B6E0
-	.incbin "baserom.gba", 0x10B6E0, 0x000000C
+	.incbin "assets/townsperson/gUnk_0810B6E0.bin"
 
 gUnk_0810B6EC:: @ 0810B6EC
 	.4byte gUnk_0810B6D4
@@ -37,13 +37,13 @@ gUnk_0810B6EC:: @ 0810B6EC
 	.4byte gUnk_0810B6D4
 
 gUnk_0810B740:: @ 0810B740
-	.incbin "baserom.gba", 0x10B740, 0x0000008
+	.incbin "assets/townsperson/gUnk_0810B740.bin"
 
 gUnk_0810B748:: @ 0810B748
-	.incbin "baserom.gba", 0x10B748, 0x0000002
+	.incbin "assets/townsperson/gUnk_0810B748.bin"
 
 gUnk_0810B74A:: @ 0810B74A
-	.incbin "baserom.gba", 0x10B74A, 0x000002A
+	.incbin "assets/townsperson/gUnk_0810B74A.bin"
 
 gUnk_0810B774:: @ 0810B774
 	.4byte sub_08061BC8
@@ -56,80 +56,80 @@ gUnk_0810B77C:: @ 0810B77C
 	.4byte sub_08061E50
 
 gUnk_0810B78C:: @ 0810B78C
-	.incbin "baserom.gba", 0x10B78C, 0x0000004
+	.incbin "assets/townsperson/gUnk_0810B78C.bin"
 
 gUnk_0810B790:: @ 0810B790
-	.incbin "baserom.gba", 0x10B790, 0x000002A
+	.incbin "assets/townsperson/gUnk_0810B790.bin"
 
 gUnk_0810B7BA:: @ 0810B7BA
-	.incbin "baserom.gba", 0x10B7BA, 0x0000006
+	.incbin "assets/townsperson/gUnk_0810B7BA.bin"
 
 gUnk_0810B7C0:: @ 0810B7C0
-	.incbin "baserom.gba", 0x10B7C0, 0x0000162
+	.incbin "assets/townsperson/gUnk_0810B7C0.bin"
 .ifdef JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x10B5E6, 0x0000049
+	.incbin "assets/townsperson/gUnk_0810B7C0_1_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x10B5E6, 0x0000049
+	.incbin "assets/townsperson/gUnk_0810B7C0_2_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "baserom_jp.gba", 0x10B5E6, 0x0000049
+	.incbin "assets/townsperson/gUnk_0810B7C0_3_EU.bin"
 .else
-	.incbin "baserom.gba", 0x10B922, 0x0000049
+	.incbin "assets/townsperson/gUnk_0810B7C0_4_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
 
 .ifdef JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x10B62F, 0x0000065
+	.incbin "assets/townsperson/gUnk_0810B7C0_5_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x10B62F, 0x0000065
+	.incbin "assets/townsperson/gUnk_0810B7C0_6_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "baserom_jp.gba", 0x10B62F, 0x0000065
+	.incbin "assets/townsperson/gUnk_0810B7C0_7_EU.bin"
 .else
-	.incbin "baserom.gba", 0x10B96B, 0x0000065
+	.incbin "assets/townsperson/gUnk_0810B7C0_8_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
 
-	.incbin "baserom.gba", 0x10B9D0, 0x0000031
+	.incbin "assets/townsperson/gUnk_0810B7C0_9.bin"
 .ifdef JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x10B6C5, 0x0000117
+	.incbin "assets/townsperson/gUnk_0810B7C0_10_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x10B6C5, 0x0000117
+	.incbin "assets/townsperson/gUnk_0810B7C0_11_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "baserom_jp.gba", 0x10B6C5, 0x0000117
+	.incbin "assets/townsperson/gUnk_0810B7C0_12_EU.bin"
 .else
-	.incbin "baserom.gba", 0x10BA01, 0x0000117
+	.incbin "assets/townsperson/gUnk_0810B7C0_13_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
-	.incbin "baserom.gba", 0x10BB18, 0x0000044
+	.incbin "assets/townsperson/gUnk_0810B7C0_14.bin"
 	.4byte sub_0806200C
-	.incbin "baserom.gba", 0x10BB60, 0x000006C
+	.incbin "assets/townsperson/gUnk_0810B7C0_15.bin"
 .ifdef JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x10B890, 0x000009C
+	.incbin "assets/townsperson/gUnk_0810B7C0_16_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x10B890, 0x000009C
+	.incbin "assets/townsperson/gUnk_0810B7C0_17_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "baserom_jp.gba", 0x10B890, 0x000009C
+	.incbin "assets/townsperson/gUnk_0810B7C0_18_EU.bin"
 .else
-	.incbin "baserom.gba", 0x10BBCC, 0x000009C
+	.incbin "assets/townsperson/gUnk_0810B7C0_19_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
-	.incbin "baserom.gba", 0x10BC68, 0x0000098
+	.incbin "assets/townsperson/gUnk_0810B7C0_20.bin"

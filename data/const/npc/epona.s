@@ -12,4 +12,4 @@ gUnk_0811006C:: @ 0811006C
 	.4byte sub_08065A34
 
 gUnk_08110080:: @ 08110080
-	.incbin "baserom.gba", 0x110080, 0x0000008
+	.incbin "assets/epona/gUnk_08110080.bin"

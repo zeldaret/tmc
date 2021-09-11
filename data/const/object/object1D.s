@@ -9,6 +9,6 @@ gUnk_081208A0:: @ 081208A0
 	.4byte nullsub_117
 
 gUnk_081208A8:: @ 081208A8
-	.incbin "baserom.gba", 0x1208A8, 0x0000008
+	.incbin "assets/object1D/gUnk_081208A8.bin"
 	.4byte gUnk_081208A8
-	.incbin "baserom.gba", 0x1208B4, 0x0000004
+	.incbin "assets/object1D/gUnk_081208A8_1.bin"

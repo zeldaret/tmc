@@ -24,4 +24,4 @@ gUnk_080CEB98:: @ 080CEB98
 
 
 gUnk_080CEBA4:: @ 080CEBA4
-	.incbin "baserom.gba", 0x0CEBA4, 0x0000008
+	.incbin "assets/wisp/gUnk_080CEBA4.bin"

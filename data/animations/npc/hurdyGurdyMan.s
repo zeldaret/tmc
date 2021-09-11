@@ -5,22 +5,22 @@
     .align 2
 
 gUnk_0811453C:: @ 0811453C
-	.incbin "baserom.gba", 0x11453C, 0x0000011
+	.incbin "assets/hurdyGurdyMan/gUnk_0811453C.bin"
 
 gUnk_0811454D:: @ 0811454D
-	.incbin "baserom.gba", 0x11454D, 0x0000011
+	.incbin "assets/hurdyGurdyMan/gUnk_0811454D.bin"
 
 gUnk_0811455E:: @ 0811455E
-	.incbin "baserom.gba", 0x11455E, 0x0000011
+	.incbin "assets/hurdyGurdyMan/gUnk_0811455E.bin"
 
 gUnk_0811456F:: @ 0811456F
-	.incbin "baserom.gba", 0x11456F, 0x0000005
+	.incbin "assets/hurdyGurdyMan/gUnk_0811456F.bin"
 
 gUnk_08114574:: @ 08114574
-	.incbin "baserom.gba", 0x114574, 0x0000005
+	.incbin "assets/hurdyGurdyMan/gUnk_08114574.bin"
 
 gUnk_08114579:: @ 08114579
-	.incbin "baserom.gba", 0x114579, 0x0000007
+	.incbin "assets/hurdyGurdyMan/gUnk_08114579.bin"
 
 gUnk_08114580:: @ 08114580
 	.4byte gUnk_0811456F

@@ -5,42 +5,42 @@
     .align 2
 
 gUnk_0810F560:: @ 0810F560
-	.incbin "baserom.gba", 0x10F560, 0x000003A
+	.incbin "assets/guard/gUnk_0810F560.bin"
 
 gUnk_0810F59A:: @ 0810F59A
-	.incbin "baserom.gba", 0x10F59A, 0x000003A
+	.incbin "assets/guard/gUnk_0810F59A.bin"
 
 gUnk_0810F5D4:: @ 0810F5D4
-	.incbin "baserom.gba", 0x10F5D4, 0x000003A
+	.incbin "assets/guard/gUnk_0810F5D4.bin"
 
 gUnk_0810F60E:: @ 0810F60E
-	.incbin "baserom.gba", 0x10F60E, 0x0000005
+	.incbin "assets/guard/gUnk_0810F60E.bin"
 .ifdef JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x10F2D7, 0x0000007
+	.incbin "assets/guard/gUnk_0810F60E_1_JP.bin"
 .else
 .ifdef EU
-	.incbin "baserom_jp.gba", 0x10F2D7, 0x0000007
+	.incbin "assets/guard/gUnk_0810F60E_2_EU.bin"
 .else
-	.incbin "baserom.gba", 0x10F613, 0x0000007
+	.incbin "assets/guard/gUnk_0810F60E_3_USA-DEMO_USA-DEMO_JP.bin"
 .endif
 .endif
 .ifdef JP
     @ TODO only small differences
-	.incbin "baserom_jp.gba", 0x10F2DE, 0x000002E
+	.incbin "assets/guard/gUnk_0810F60E_4_JP.bin"
 .else
 .ifdef EU
-	.incbin "baserom_jp.gba", 0x10F2DE, 0x000002E
+	.incbin "assets/guard/gUnk_0810F60E_5_EU.bin"
 .else
-	.incbin "baserom.gba", 0x10F61A, 0x000002E
+	.incbin "assets/guard/gUnk_0810F60E_6_USA-DEMO_USA-DEMO_JP.bin"
 .endif
 .endif
 
 gUnk_0810F648:: @ 0810F648
-	.incbin "baserom.gba", 0x10F648, 0x000003A
+	.incbin "assets/guard/gUnk_0810F648.bin"
 
 gUnk_0810F682:: @ 0810F682
-	.incbin "baserom.gba", 0x10F682, 0x000003A
+	.incbin "assets/guard/gUnk_0810F682.bin"
 
 gUnk_0810F6BC:: @ 0810F6BC
 	.4byte gUnk_0810F560

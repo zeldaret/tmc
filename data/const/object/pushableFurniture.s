@@ -10,7 +10,7 @@ gUnk_08121ED8:: @ 08121ED8
 	.4byte sub_0808FC3C
 
 gUnk_08121EE4:: @ 08121EE4
-	.incbin "baserom.gba", 0x121EE4, 0x000000C
+	.incbin "assets/pushableFurniture/gUnk_08121EE4.bin"
 
 gUnk_08121EF0:: @ 08121EF0
-	.incbin "baserom.gba", 0x121EF0, 0x0000008
+	.incbin "assets/pushableFurniture/gUnk_08121EF0.bin"

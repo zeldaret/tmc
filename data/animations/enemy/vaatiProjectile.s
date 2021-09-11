@@ -5,13 +5,13 @@
     .align 2
 
 gUnk_080D0688:: @ 080D0688
-	.incbin "baserom.gba", 0x0D0688, 0x0000019
+	.incbin "assets/vaatiProjectile/gUnk_080D0688.bin"
 
 gUnk_080D06A1:: @ 080D06A1
-	.incbin "baserom.gba", 0x0D06A1, 0x0000011
+	.incbin "assets/vaatiProjectile/gUnk_080D06A1.bin"
 
 gUnk_080D06B2:: @ 080D06B2
-	.incbin "baserom.gba", 0x0D06B2, 0x000001E
+	.incbin "assets/vaatiProjectile/gUnk_080D06B2.bin"
 
 gUnk_080D06D0:: @ 080D06D0
 	.4byte gUnk_080D0688

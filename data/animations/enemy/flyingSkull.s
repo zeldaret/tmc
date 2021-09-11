@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_080CFBE8:: @ 080CFBE8
-	.incbin "baserom.gba", 0x0CFBE8, 0x0000024
+	.incbin "assets/flyingSkull/gUnk_080CFBE8.bin"
 
 gUnk_080CFC0C:: @ 080CFC0C
 	.4byte gUnk_080CFBE8

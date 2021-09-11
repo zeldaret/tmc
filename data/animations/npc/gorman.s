@@ -5,28 +5,28 @@
     .align 2
 
 gUnk_08111CBC:: @ 08111CBC
-	.incbin "baserom.gba", 0x111CBC, 0x0000005
+	.incbin "assets/gorman/gUnk_08111CBC.bin"
 
 gUnk_08111CC1:: @ 08111CC1
-	.incbin "baserom.gba", 0x111CC1, 0x0000005
+	.incbin "assets/gorman/gUnk_08111CC1.bin"
 
 gUnk_08111CC6:: @ 08111CC6
-	.incbin "baserom.gba", 0x111CC6, 0x0000005
+	.incbin "assets/gorman/gUnk_08111CC6.bin"
 
 gUnk_08111CCB:: @ 08111CCB
-	.incbin "baserom.gba", 0x111CCB, 0x0000005
+	.incbin "assets/gorman/gUnk_08111CCB.bin"
 
 gUnk_08111CD0:: @ 08111CD0
-	.incbin "baserom.gba", 0x111CD0, 0x0000019
+	.incbin "assets/gorman/gUnk_08111CD0.bin"
 
 gUnk_08111CE9:: @ 08111CE9
-	.incbin "baserom.gba", 0x111CE9, 0x0000019
+	.incbin "assets/gorman/gUnk_08111CE9.bin"
 
 gUnk_08111D02:: @ 08111D02
-	.incbin "baserom.gba", 0x111D02, 0x0000019
+	.incbin "assets/gorman/gUnk_08111D02.bin"
 
 gUnk_08111D1B:: @ 08111D1B
-	.incbin "baserom.gba", 0x111D1B, 0x0000019
+	.incbin "assets/gorman/gUnk_08111D1B.bin"
 
 gUnk_08111D34:: @ 08111D34
 	.4byte gUnk_08111CBC

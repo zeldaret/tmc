@@ -11,4 +11,4 @@ gUnk_081237A0:: @ 081237A0
 	.4byte sub_08099880
 
 gUnk_081237B0:: @ 081237B0
-	.incbin "baserom.gba", 0x1237B0, 0x000000A
+	.incbin "assets/bigIceBlock/gUnk_081237B0.bin"

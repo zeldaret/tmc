@@ -12,7 +12,7 @@ gUnk_081217BC:: @ 081217BC
 	.4byte sub_0808E264
 
 gUnk_081217D0:: @ 081217D0
-	.incbin "baserom.gba", 0x1217D0, 0x0000008
+	.incbin "assets/object43/gUnk_081217D0.bin"
 
 gUnk_081217D8:: @ 081217D8
-	.incbin "baserom.gba", 0x1217D8, 0x0000008
+	.incbin "assets/object43/gUnk_081217D8.bin"

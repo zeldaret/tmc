@@ -15,7 +15,7 @@ gUnk_081223A8:: @ 081223A8
 	.4byte sub_08091D90
 
 gUnk_081223C8:: @ 081223C8
-	.incbin "baserom.gba", 0x1223C8, 0x0000008
+	.incbin "assets/minecart/gUnk_081223C8.bin"
 
 gUnk_081223D0:: @ 081223D0
-	.incbin "baserom.gba", 0x1223D0, 0x0000008
+	.incbin "assets/minecart/gUnk_081223D0.bin"

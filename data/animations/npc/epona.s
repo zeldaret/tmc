@@ -5,19 +5,19 @@
     .align 2
 
 gUnk_08110088:: @ 08110088
-	.incbin "baserom.gba", 0x110088, 0x0000005
+	.incbin "assets/epona/gUnk_08110088.bin"
 
 gUnk_0811008D:: @ 0811008D
-	.incbin "baserom.gba", 0x11008D, 0x0000005
+	.incbin "assets/epona/gUnk_0811008D.bin"
 
 gUnk_08110092:: @ 08110092
-	.incbin "baserom.gba", 0x110092, 0x0000005
+	.incbin "assets/epona/gUnk_08110092.bin"
 
 gUnk_08110097:: @ 08110097
-	.incbin "baserom.gba", 0x110097, 0x0000021
+	.incbin "assets/epona/gUnk_08110097.bin"
 
 gUnk_081100B8:: @ 081100B8
-	.incbin "baserom.gba", 0x1100B8, 0x000002C
+	.incbin "assets/epona/gUnk_081100B8.bin"
 
 gUnk_081100E4:: @ 081100E4
 	.4byte gUnk_08110088

@@ -6,13 +6,13 @@
 gUnk_080CD044:: @ 080CD044
 .ifdef EU
     @ TODO only small differences
-	.incbin "baserom_eu.gba", 0x0CC76C, 0x0000025
+	.incbin "assets/waterDrop/gUnk_080CD044_EU.bin"
 .else
-	.incbin "baserom.gba", 0x0CD044, 0x0000025
+	.incbin "assets/waterDrop/gUnk_080CD044_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_080CD069:: @ 080CD069
-	.incbin "baserom.gba", 0x0CD069, 0x0000007
+	.incbin "assets/waterDrop/gUnk_080CD069.bin"
 
 gUnk_080CD070:: @ 080CD070
 	.4byte gUnk_080CD044

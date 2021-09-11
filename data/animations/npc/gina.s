@@ -6,25 +6,25 @@
 
 
 gUnk_0811352C:: @ 0811352C
-	.incbin "baserom.gba", 0x11352C, 0x0000021
+	.incbin "assets/gina/gUnk_0811352C.bin"
 
 gUnk_0811354D:: @ 0811354D
-	.incbin "baserom.gba", 0x11354D, 0x0000021
+	.incbin "assets/gina/gUnk_0811354D.bin"
 
 gUnk_0811356E:: @ 0811356E
-	.incbin "baserom.gba", 0x11356E, 0x0000021
+	.incbin "assets/gina/gUnk_0811356E.bin"
 
 gUnk_0811358F:: @ 0811358F
-	.incbin "baserom.gba", 0x11358F, 0x0000021
+	.incbin "assets/gina/gUnk_0811358F.bin"
 
 gUnk_081135B0:: @ 081135B0
-	.incbin "baserom.gba", 0x1135B0, 0x000002D
+	.incbin "assets/gina/gUnk_081135B0.bin"
 
 gUnk_081135DD:: @ 081135DD
-	.incbin "baserom.gba", 0x1135DD, 0x0000005
+	.incbin "assets/gina/gUnk_081135DD.bin"
 
 gUnk_081135E2:: @ 081135E2
-	.incbin "baserom.gba", 0x1135E2, 0x0000006
+	.incbin "assets/gina/gUnk_081135E2.bin"
 
 gUnk_081135E8:: @ 081135E8
 	.4byte gUnk_0811352C

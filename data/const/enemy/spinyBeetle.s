@@ -5,7 +5,7 @@
     .align 2
 
 unusedLabel_0CEBDC::
-	.incbin "baserom.gba", 0x0CEBDC, 0x0000010
+	.incbin "assets/spinyBeetle/unusedLabel_0CEBDC.bin"
 
 gUnk_080CEBEC:: @ 080CEBEC 
 	.4byte sub_080337BC
@@ -24,4 +24,4 @@ gUnk_080CEC04:: @ 080CEC04
 	.4byte sub_08033C94
 
 gUnk_080CEC1C:: @ 080CEC1C
-	.incbin "baserom.gba", 0x0CEC1C, 0x0000008
+	.incbin "assets/spinyBeetle/gUnk_080CEC1C.bin"

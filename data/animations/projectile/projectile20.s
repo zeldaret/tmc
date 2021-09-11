@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_0812A860:: @ 0812A860
-	.incbin "baserom.gba", 0x12A860, 0x0000011
+	.incbin "assets/projectile20/gUnk_0812A860.bin"
 
 gUnk_0812A871:: @ 0812A871
-	.incbin "baserom.gba", 0x12A871, 0x0000059
+	.incbin "assets/projectile20/gUnk_0812A871.bin"
 
 gUnk_0812A8CA:: @ 0812A8CA
-	.incbin "baserom.gba", 0x12A8CA, 0x0000061
+	.incbin "assets/projectile20/gUnk_0812A8CA.bin"
 
 gUnk_0812A92B:: @ 0812A92B
-	.incbin "baserom.gba", 0x12A92B, 0x0000015
+	.incbin "assets/projectile20/gUnk_0812A92B.bin"
 
 gUnk_0812A940:: @ 0812A940
 	.4byte gUnk_0812A860

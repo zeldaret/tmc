@@ -5,13 +5,13 @@
     .align 2
 
 gUnk_081106E8:: @ 081106E8
-	.incbin "baserom.gba", 0x1106E8, 0x0000005
+	.incbin "assets/npc26/gUnk_081106E8.bin"
 
 gUnk_081106ED:: @ 081106ED
-	.incbin "baserom.gba", 0x1106ED, 0x0000011
+	.incbin "assets/npc26/gUnk_081106ED.bin"
 
 gUnk_081106FE:: @ 081106FE
-	.incbin "baserom.gba", 0x1106FE, 0x0000012
+	.incbin "assets/npc26/gUnk_081106FE.bin"
 
 gUnk_08110710:: @ 08110710
 	.4byte gUnk_081106E8

@@ -27,13 +27,13 @@ gUnk_080CDE64:: @ 080CDE64
 	.4byte sub_0802EE8C
 
 gUnk_080CDE6C:: @ 080CDE6C
-	.incbin "baserom.gba", 0x0CDE6C, 0x0000004
+	.incbin "assets/vaatiEyesMacro/gUnk_080CDE6C.bin"
 
 gUnk_080CDE70:: @ 080CDE70
-	.incbin "baserom.gba", 0x0CDE70, 0x0000020
+	.incbin "assets/vaatiEyesMacro/gUnk_080CDE70.bin"
 
 gUnk_080CDE90:: @ 080CDE90
-	.incbin "baserom.gba", 0x0CDE90, 0x0000008
+	.incbin "assets/vaatiEyesMacro/gUnk_080CDE90.bin"
 
 gUnk_080CDE98:: @ 080CDE98
-	.incbin "baserom.gba", 0x0CDE98, 0x0000008
+	.incbin "assets/vaatiEyesMacro/gUnk_080CDE98.bin"

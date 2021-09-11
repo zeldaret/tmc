@@ -22,10 +22,10 @@ gUnk_080CEA34:: @ 080CEA34
 	.4byte sub_08032ED0
 
 gUnk_080CEA50:: @ 080CEA50
-	.incbin "baserom.gba", 0x0CEA50, 0x0000004
+	.incbin "assets/mulldozer/gUnk_080CEA50.bin"
 
 gUnk_080CEA54:: @ 080CEA54
-	.incbin "baserom.gba", 0x0CEA54, 0x0000002
+	.incbin "assets/mulldozer/gUnk_080CEA54.bin"
 
 gUnk_080CEA56:: @ 080CEA56
-	.incbin "baserom.gba", 0x0CEA56, 0x0000010
+	.incbin "assets/mulldozer/gUnk_080CEA56.bin"

@@ -6,13 +6,13 @@
 
 gUnk_080D0ABC:: @ 080D0ABC
 .ifdef EU
-	.incbin "baserom_eu.gba", 0x0D01E8, 0x0000003
+	.incbin "assets/vaatiTransfigured/gUnk_080D0ABC_EU.bin"
 .else
-	.incbin "baserom.gba", 0x0D0ABC, 0x0000003
+	.incbin "assets/vaatiTransfigured/gUnk_080D0ABC_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_080D0ABF:: @ 080D0ABF
-	.incbin "baserom.gba", 0x0D0ABF, 0x0000009
+	.incbin "assets/vaatiTransfigured/gUnk_080D0ABF.bin"
 
 gUnk_080D0AC8:: @ 080D0AC8
 	.4byte sub_0803F818
@@ -47,16 +47,16 @@ gUnk_080D0B0C:: @ 080D0B0C
 	.4byte sub_080405D8
 
 gUnk_080D0B18:: @ 080D0B18
-	.incbin "baserom.gba", 0x0D0B18, 0x0000040
+	.incbin "assets/vaatiTransfigured/gUnk_080D0B18.bin"
 
 gUnk_080D0B58:: @ 080D0B58
-	.incbin "baserom.gba", 0x0D0B58, 0x000000C
+	.incbin "assets/vaatiTransfigured/gUnk_080D0B58.bin"
 
 gUnk_080D0B64:: @ 080D0B64
-	.incbin "baserom.gba", 0x0D0B64, 0x0000010
+	.incbin "assets/vaatiTransfigured/gUnk_080D0B64.bin"
 
 gUnk_080D0B74:: @ 080D0B74
-	.incbin "baserom.gba", 0x0D0B74, 0x0000010
+	.incbin "assets/vaatiTransfigured/gUnk_080D0B74.bin"
 
 gUnk_080D0B84:: @ 080D0B84
-	.incbin "baserom.gba", 0x0D0B84, 0x0000020
+	.incbin "assets/vaatiTransfigured/gUnk_080D0B84.bin"

@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08113344:: @ 08113344
-	.incbin "baserom.gba", 0x113344, 0x0000006
+	.incbin "assets/dampe/gUnk_08113344.bin"
 
 gUnk_0811334A:: @ 0811334A
-	.incbin "baserom.gba", 0x11334A, 0x0000006
+	.incbin "assets/dampe/gUnk_0811334A.bin"

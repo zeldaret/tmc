@@ -31,7 +31,7 @@ gUnk_080D0E08:: @ 080D0E08
 	.4byte sub_08040DF4
 
 gUnk_080D0E14:: @ 080D0E14
-	.incbin "baserom.gba", 0x0D0E14, 0x0000004
+	.incbin "assets/enemy50/gUnk_080D0E14.bin"
 
 gUnk_080D0E18:: @ 080D0E18
-	.incbin "baserom.gba", 0x0D0E18, 0x0000004
+	.incbin "assets/enemy50/gUnk_080D0E18.bin"

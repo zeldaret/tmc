@@ -5,28 +5,28 @@
     .align 2
 
 gUnk_08111114:: @ 08111114
-	.incbin "baserom.gba", 0x111114, 0x0000008
+	.incbin "assets/cat/gUnk_08111114.bin"
 
 gUnk_0811111C:: @ 0811111C
-	.incbin "baserom.gba", 0x11111C, 0x0000008
+	.incbin "assets/cat/gUnk_0811111C.bin"
 
 gUnk_08111124:: @ 08111124
-	.incbin "baserom.gba", 0x111124, 0x0000008
+	.incbin "assets/cat/gUnk_08111124.bin"
 
 gUnk_0811112C:: @ 0811112C
-	.incbin "baserom.gba", 0x11112C, 0x0000008
+	.incbin "assets/cat/gUnk_0811112C.bin"
 
 gUnk_08111134:: @ 08111134
-	.incbin "baserom.gba", 0x111134, 0x0000008
+	.incbin "assets/cat/gUnk_08111134.bin"
 
 gUnk_0811113C:: @ 0811113C
-	.incbin "baserom.gba", 0x11113C, 0x0000008
+	.incbin "assets/cat/gUnk_0811113C.bin"
 
 gUnk_08111144:: @ 08111144
-	.incbin "baserom.gba", 0x111144, 0x0000008
+	.incbin "assets/cat/gUnk_08111144.bin"
 
 gUnk_0811114C:: @ 0811114C
-	.incbin "baserom.gba", 0x11114C, 0x0000008
+	.incbin "assets/cat/gUnk_0811114C.bin"
 
 gUnk_08111154:: @ 08111154
 	.4byte gUnk_08111114
@@ -39,31 +39,31 @@ gUnk_08111154:: @ 08111154
 	.4byte gUnk_0811114C
 
 gUnk_08111174:: @ 08111174
-	.incbin "baserom.gba", 0x111174, 0x000003C
+	.incbin "assets/cat/gUnk_08111174.bin"
 
 gUnk_081111B0:: @ 081111B0
-	.incbin "baserom.gba", 0x1111B0, 0x0000009
+	.incbin "assets/cat/gUnk_081111B0.bin"
 
 gUnk_081111B9:: @ 081111B9
-	.incbin "baserom.gba", 0x1111B9, 0x0000009
+	.incbin "assets/cat/gUnk_081111B9.bin"
 
 gUnk_081111C2:: @ 081111C2
-	.incbin "baserom.gba", 0x1111C2, 0x0000011
+	.incbin "assets/cat/gUnk_081111C2.bin"
 
 gUnk_081111D3:: @ 081111D3
-	.incbin "baserom.gba", 0x1111D3, 0x0000018
+	.incbin "assets/cat/gUnk_081111D3.bin"
 
 gUnk_081111EB:: @ 081111EB
-	.incbin "baserom.gba", 0x1111EB, 0x0000019
+	.incbin "assets/cat/gUnk_081111EB.bin"
 
 gUnk_08111204:: @ 08111204
-	.incbin "baserom.gba", 0x111204, 0x0000028
+	.incbin "assets/cat/gUnk_08111204.bin"
 
 gUnk_0811122C:: @ 0811122C
-	.incbin "baserom.gba", 0x11122C, 0x000000C
+	.incbin "assets/cat/gUnk_0811122C.bin"
 
 gUnk_08111238:: @ 08111238
-	.incbin "baserom.gba", 0x111238, 0x0000024
+	.incbin "assets/cat/gUnk_08111238.bin"
 
 gUnk_0811125C:: @ 0811125C
 	.4byte gUnk_08111174

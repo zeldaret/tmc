@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_08123CB8:: @ 08123CB8
-	.incbin "baserom.gba", 0x123CB8, 0x0000005
+	.incbin "assets/macroBook/gUnk_08123CB8.bin"
 
 gUnk_08123CBD:: @ 08123CBD
-	.incbin "baserom.gba", 0x123CBD, 0x0000011
+	.incbin "assets/macroBook/gUnk_08123CBD.bin"
 
 gUnk_08123CCE:: @ 08123CCE
-	.incbin "baserom.gba", 0x123CCE, 0x000001D
+	.incbin "assets/macroBook/gUnk_08123CCE.bin"
 
 gUnk_08123CEB:: @ 08123CEB
-	.incbin "baserom.gba", 0x123CEB, 0x0000029
+	.incbin "assets/macroBook/gUnk_08123CEB.bin"
 
 gUnk_08123D14:: @ 08123D14
 	.4byte gUnk_08123CB8

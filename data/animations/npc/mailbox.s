@@ -5,13 +5,13 @@
     .align 2
 
 gUnk_0810C814:: @ 0810C814
-	.incbin "baserom.gba", 0x10C814, 0x0000005
+	.incbin "assets/mailbox/gUnk_0810C814.bin"
 
 gUnk_0810C819:: @ 0810C819
-	.incbin "baserom.gba", 0x10C819, 0x0000031
+	.incbin "assets/mailbox/gUnk_0810C819.bin"
 
 gUnk_0810C84A:: @ 0810C84A
-	.incbin "baserom.gba", 0x10C84A, 0x000001E
+	.incbin "assets/mailbox/gUnk_0810C84A.bin"
 
 gUnk_0810C868:: @ 0810C868
 	.4byte gUnk_0810C814

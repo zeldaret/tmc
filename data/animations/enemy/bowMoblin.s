@@ -5,52 +5,52 @@
     .align 2
 
 gUnk_080CFFCC:: @ 080CFFCC
-	.incbin "baserom.gba", 0x0CFFCC, 0x0000009
+	.incbin "assets/bowMoblin/gUnk_080CFFCC.bin"
 
 gUnk_080CFFD5:: @ 080CFFD5
-	.incbin "baserom.gba", 0x0CFFD5, 0x0000009
+	.incbin "assets/bowMoblin/gUnk_080CFFD5.bin"
 
 gUnk_080CFFDE:: @ 080CFFDE
-	.incbin "baserom.gba", 0x0CFFDE, 0x0000009
+	.incbin "assets/bowMoblin/gUnk_080CFFDE.bin"
 
 gUnk_080CFFE7:: @ 080CFFE7
-	.incbin "baserom.gba", 0x0CFFE7, 0x0000009
+	.incbin "assets/bowMoblin/gUnk_080CFFE7.bin"
 
 gUnk_080CFFF0:: @ 080CFFF0
-	.incbin "baserom.gba", 0x0CFFF0, 0x0000011
+	.incbin "assets/bowMoblin/gUnk_080CFFF0.bin"
 
 gUnk_080D0001:: @ 080D0001
-	.incbin "baserom.gba", 0x0D0001, 0x0000011
+	.incbin "assets/bowMoblin/gUnk_080D0001.bin"
 
 gUnk_080D0012:: @ 080D0012
-	.incbin "baserom.gba", 0x0D0012, 0x0000011
+	.incbin "assets/bowMoblin/gUnk_080D0012.bin"
 
 gUnk_080D0023:: @ 080D0023
-	.incbin "baserom.gba", 0x0D0023, 0x0000011
+	.incbin "assets/bowMoblin/gUnk_080D0023.bin"
 
 gUnk_080D0034:: @ 080D0034
-	.incbin "baserom.gba", 0x0D0034, 0x0000011
+	.incbin "assets/bowMoblin/gUnk_080D0034.bin"
 
 gUnk_080D0045:: @ 080D0045
-	.incbin "baserom.gba", 0x0D0045, 0x0000011
+	.incbin "assets/bowMoblin/gUnk_080D0045.bin"
 
 gUnk_080D0056:: @ 080D0056
-	.incbin "baserom.gba", 0x0D0056, 0x0000011
+	.incbin "assets/bowMoblin/gUnk_080D0056.bin"
 
 gUnk_080D0067:: @ 080D0067
-	.incbin "baserom.gba", 0x0D0067, 0x0000011
+	.incbin "assets/bowMoblin/gUnk_080D0067.bin"
 
 gUnk_080D0078:: @ 080D0078
-	.incbin "baserom.gba", 0x0D0078, 0x0000015
+	.incbin "assets/bowMoblin/gUnk_080D0078.bin"
 
 gUnk_080D008D:: @ 080D008D
-	.incbin "baserom.gba", 0x0D008D, 0x0000015
+	.incbin "assets/bowMoblin/gUnk_080D008D.bin"
 
 gUnk_080D00A2:: @ 080D00A2
-	.incbin "baserom.gba", 0x0D00A2, 0x0000015
+	.incbin "assets/bowMoblin/gUnk_080D00A2.bin"
 
 gUnk_080D00B7:: @ 080D00B7
-	.incbin "baserom.gba", 0x0D00B7, 0x0000015
+	.incbin "assets/bowMoblin/gUnk_080D00B7.bin"
 
 gUnk_080D00CC:: @ 080D00CC
 	.4byte gUnk_080CFFCC

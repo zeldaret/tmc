@@ -5,10 +5,10 @@
 	.align 2
 
 gUnk_08107C0C:: @ 08107C0C
-	.incbin "baserom.gba", 0x107C0C, 0x0000003
+	.incbin "assets/data_08107BC8/gUnk_08107C0C.bin"
 
 gUnk_08107C0F:: @ 08107C0F
-	.incbin "baserom.gba", 0x107C0F, 0x0000005
+	.incbin "assets/data_08107BC8/gUnk_08107C0F.bin"
 
 gUnk_08107C14:: @ 08107C14
-	.incbin "baserom.gba", 0x107C14, 0x0000008
+	.incbin "assets/data_08107BC8/gUnk_08107C14.bin"

@@ -13,4 +13,4 @@ gUnk_0811EE38:: @ 0811EE38
 	.4byte sub_08081C98
 
 gUnk_0811EE50:: @ 0811EE50
-	.incbin "baserom.gba", 0x11EE50, 0x000000C
+	.incbin "assets/button/gUnk_0811EE50.bin"

@@ -5,43 +5,43 @@
     .align 2
 
 gUnk_08121204:: @ 08121204
-	.incbin "baserom.gba", 0x121204, 0x0000004
+	.incbin "assets/pullableMushroom/gUnk_08121204.bin"
 
 gUnk_08121208:: @ 08121208
-	.incbin "baserom.gba", 0x121208, 0x000001D
+	.incbin "assets/pullableMushroom/gUnk_08121208.bin"
 
 gUnk_08121225:: @ 08121225
-	.incbin "baserom.gba", 0x121225, 0x0000010
+	.incbin "assets/pullableMushroom/gUnk_08121225.bin"
 
 gUnk_08121235:: @ 08121235
-	.incbin "baserom.gba", 0x121235, 0x000001D
+	.incbin "assets/pullableMushroom/gUnk_08121235.bin"
 
 gUnk_08121252:: @ 08121252
-	.incbin "baserom.gba", 0x121252, 0x0000011
+	.incbin "assets/pullableMushroom/gUnk_08121252.bin"
 
 gUnk_08121263:: @ 08121263
-	.incbin "baserom.gba", 0x121263, 0x000001D
+	.incbin "assets/pullableMushroom/gUnk_08121263.bin"
 
 gUnk_08121280:: @ 08121280
-	.incbin "baserom.gba", 0x121280, 0x0000011
+	.incbin "assets/pullableMushroom/gUnk_08121280.bin"
 
 gUnk_08121291:: @ 08121291
-	.incbin "baserom.gba", 0x121291, 0x0000009
+	.incbin "assets/pullableMushroom/gUnk_08121291.bin"
 
 gUnk_0812129A:: @ 0812129A
-	.incbin "baserom.gba", 0x12129A, 0x0000009
+	.incbin "assets/pullableMushroom/gUnk_0812129A.bin"
 
 gUnk_081212A3:: @ 081212A3
-	.incbin "baserom.gba", 0x1212A3, 0x0000009
+	.incbin "assets/pullableMushroom/gUnk_081212A3.bin"
 
 gUnk_081212AC:: @ 081212AC
-	.incbin "baserom.gba", 0x1212AC, 0x0000004
+	.incbin "assets/pullableMushroom/gUnk_081212AC.bin"
 
 gUnk_081212B0:: @ 081212B0
-	.incbin "baserom.gba", 0x1212B0, 0x0000004
+	.incbin "assets/pullableMushroom/gUnk_081212B0.bin"
 
 gUnk_081212B4:: @ 081212B4
-	.incbin "baserom.gba", 0x1212B4, 0x0000004
+	.incbin "assets/pullableMushroom/gUnk_081212B4.bin"
 
 gUnk_081212B8:: @ 081212B8
 	.4byte gUnk_08121204

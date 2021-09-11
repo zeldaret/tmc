@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08113140:: @ 08113140
-	.incbin "baserom.gba", 0x113140, 0x0000018
+	.incbin "assets/farmers/gUnk_08113140.bin"
 
 gUnk_08113158:: @ 08113158
-	.incbin "baserom.gba", 0x113158, 0x0000010
+	.incbin "assets/farmers/gUnk_08113158.bin"

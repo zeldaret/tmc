@@ -14,7 +14,7 @@ gUnk_08123168:: @ 08123168
 	.4byte sub_08096834
 
 gUnk_08123184:: @ 08123184
-	.incbin "baserom.gba", 0x123184, 0x0000008
+	.incbin "assets/crenalBeanSprout/gUnk_08123184.bin"
 
 gUnk_0812318C:: @ 0812318C
 	.4byte sub_0809671C
@@ -23,7 +23,7 @@ gUnk_0812318C:: @ 0812318C
 	.4byte sub_08096740
 
 gUnk_0812319C:: @ 0812319C
-	.incbin "baserom.gba", 0x12319C, 0x0000004
+	.incbin "assets/crenalBeanSprout/gUnk_0812319C.bin"
 
 gUnk_081231A0:: @ 081231A0
 	.4byte sub_08096858
@@ -31,10 +31,10 @@ gUnk_081231A0:: @ 081231A0
 	.4byte sub_08096988
 
 gUnk_081231AC:: @ 081231AC
-	.incbin "baserom.gba", 0x1231AC, 0x0000002
+	.incbin "assets/crenalBeanSprout/gUnk_081231AC.bin"
 
 gUnk_081231AE:: @ 081231AE
-	.incbin "baserom.gba", 0x1231AE, 0x0000006
+	.incbin "assets/crenalBeanSprout/gUnk_081231AE.bin"
 
 gUnk_081231B4:: @ 081231B4
-	.incbin "baserom.gba", 0x1231B4, 0x0000006
+	.incbin "assets/crenalBeanSprout/gUnk_081231B4.bin"

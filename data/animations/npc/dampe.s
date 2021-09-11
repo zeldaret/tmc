@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_08113350:: @ 08113350
-	.incbin "baserom.gba", 0x113350, 0x0000019
+	.incbin "assets/dampe/gUnk_08113350.bin"
 
 gUnk_08113369:: @ 08113369
-	.incbin "baserom.gba", 0x113369, 0x0000005
+	.incbin "assets/dampe/gUnk_08113369.bin"
 
 gUnk_0811336E:: @ 0811336E
-	.incbin "baserom.gba", 0x11336E, 0x0000009
+	.incbin "assets/dampe/gUnk_0811336E.bin"
 
 gUnk_08113377:: @ 08113377
-	.incbin "baserom.gba", 0x113377, 0x0000009
+	.incbin "assets/dampe/gUnk_08113377.bin"
 
 gUnk_08113380:: @ 08113380
 	.4byte gUnk_08113350

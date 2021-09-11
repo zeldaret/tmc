@@ -17,4 +17,4 @@ gUnk_08129AD0:: @ 08129AD0
 	.4byte sub_080A99F0
 
 gUnk_08129ADC:: @ 08129ADC
-	.incbin "baserom.gba", 0x129ADC, 0x0000004
+	.incbin "assets/projectileF/gUnk_08129ADC.bin"

@@ -9,8 +9,8 @@ gUnk_08123384:: @ 08123384
 	.4byte sub_08097DCC
 
 gUnk_0812338C:: @ 0812338C
-	.incbin "baserom.gba", 0x12338C, 0x0000024
+	.incbin "assets/bell/gUnk_0812338C.bin"
 
 gUnk_081233B0:: @ 081233B0
 	.4byte gUnk_0812338C
-	.incbin "baserom.gba", 0x1233B4, 0x0000004
+	.incbin "assets/bell/gUnk_081233B0.bin"

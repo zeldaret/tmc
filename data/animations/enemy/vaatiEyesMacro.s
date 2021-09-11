@@ -7,10 +7,10 @@
 
 
 gUnk_080CDEA0:: @ 080CDEA0
-	.incbin "baserom.gba", 0x0CDEA0, 0x0000011
+	.incbin "assets/vaatiEyesMacro/gUnk_080CDEA0.bin"
 
 gUnk_080CDEB1:: @ 080CDEB1
-	.incbin "baserom.gba", 0x0CDEB1, 0x0000013
+	.incbin "assets/vaatiEyesMacro/gUnk_080CDEB1.bin"
 
 gUnk_080CDEC4:: @ 080CDEC4
 	.4byte gUnk_080CDEA0

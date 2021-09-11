@@ -5,43 +5,43 @@
     .align 2
 
 gUnk_081217E0:: @ 081217E0
-	.incbin "baserom.gba", 0x1217E0, 0x0000084
+	.incbin "assets/object43/gUnk_081217E0.bin"
 
 gUnk_08121864:: @ 08121864
-	.incbin "baserom.gba", 0x121864, 0x0000084
+	.incbin "assets/object43/gUnk_08121864.bin"
 
 gUnk_081218E8:: @ 081218E8
-	.incbin "baserom.gba", 0x1218E8, 0x0000084
+	.incbin "assets/object43/gUnk_081218E8.bin"
 
 gUnk_0812196C:: @ 0812196C
-	.incbin "baserom.gba", 0x12196C, 0x0000084
+	.incbin "assets/object43/gUnk_0812196C.bin"
 
 gUnk_081219F0:: @ 081219F0
-	.incbin "baserom.gba", 0x1219F0, 0x000003D
+	.incbin "assets/object43/gUnk_081219F0.bin"
 
 gUnk_08121A2D:: @ 08121A2D
-	.incbin "baserom.gba", 0x121A2D, 0x000003D
+	.incbin "assets/object43/gUnk_08121A2D.bin"
 
 gUnk_08121A6A:: @ 08121A6A
-	.incbin "baserom.gba", 0x121A6A, 0x000003D
+	.incbin "assets/object43/gUnk_08121A6A.bin"
 
 gUnk_08121AA7:: @ 08121AA7
-	.incbin "baserom.gba", 0x121AA7, 0x000003D
+	.incbin "assets/object43/gUnk_08121AA7.bin"
 
 gUnk_08121AE4:: @ 08121AE4
-	.incbin "baserom.gba", 0x121AE4, 0x0000010
+	.incbin "assets/object43/gUnk_08121AE4.bin"
 
 gUnk_08121AF4:: @ 08121AF4
-	.incbin "baserom.gba", 0x121AF4, 0x0000010
+	.incbin "assets/object43/gUnk_08121AF4.bin"
 
 gUnk_08121B04:: @ 08121B04
-	.incbin "baserom.gba", 0x121B04, 0x0000010
+	.incbin "assets/object43/gUnk_08121B04.bin"
 
 gUnk_08121B14:: @ 08121B14
-	.incbin "baserom.gba", 0x121B14, 0x0000010
+	.incbin "assets/object43/gUnk_08121B14.bin"
 
 gUnk_08121B24:: @ 08121B24
-	.incbin "baserom.gba", 0x121B24, 0x0000024
+	.incbin "assets/object43/gUnk_08121B24.bin"
 
 gUnk_08121B48:: @ 08121B48
 	.4byte gUnk_081217E0

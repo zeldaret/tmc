@@ -5,10 +5,10 @@
     .align 2
 
 gUnk_081234B4:: @ 081234B4
-	.incbin "baserom.gba", 0x1234B4, 0x0000015
+	.incbin "assets/pushableLever/gUnk_081234B4.bin"
 
 gUnk_081234C9:: @ 081234C9
-	.incbin "baserom.gba", 0x1234C9, 0x0000017
+	.incbin "assets/pushableLever/gUnk_081234C9.bin"
 
 gUnk_081234E0:: @ 081234E0
 	.4byte gUnk_081234B4

@@ -5,19 +5,19 @@
     .align 2
 
 gUnk_080CEC24:: @ 080CEC24
-	.incbin "baserom.gba", 0x0CEC24, 0x0000005
+	.incbin "assets/spinyBeetle/gUnk_080CEC24.bin"
 
 gUnk_080CEC29:: @ 080CEC29
-	.incbin "baserom.gba", 0x0CEC29, 0x0000019
+	.incbin "assets/spinyBeetle/gUnk_080CEC29.bin"
 
 gUnk_080CEC42:: @ 080CEC42
-	.incbin "baserom.gba", 0x0CEC42, 0x0000009
+	.incbin "assets/spinyBeetle/gUnk_080CEC42.bin"
 
 gUnk_080CEC4B:: @ 080CEC4B
-	.incbin "baserom.gba", 0x0CEC4B, 0x0000011
+	.incbin "assets/spinyBeetle/gUnk_080CEC4B.bin"
 
 gUnk_080CEC5C:: @ 080CEC5C
-	.incbin "baserom.gba", 0x0CEC5C, 0x0000014
+	.incbin "assets/spinyBeetle/gUnk_080CEC5C.bin"
 
 gUnk_080CEC70:: @ 080CEC70
 	.4byte gUnk_080CEC24

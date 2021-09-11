@@ -5,43 +5,43 @@
     .align 2
 
 gUnk_0810C4A0:: @ 0810C4A0
-	.incbin "baserom.gba", 0x10C4A0, 0x0000005
+	.incbin "assets/minishEzlo/gUnk_0810C4A0.bin"
 
 gUnk_0810C4A5:: @ 0810C4A5
-	.incbin "baserom.gba", 0x10C4A5, 0x0000005
+	.incbin "assets/minishEzlo/gUnk_0810C4A5.bin"
 
 gUnk_0810C4AA:: @ 0810C4AA
-	.incbin "baserom.gba", 0x10C4AA, 0x0000005
+	.incbin "assets/minishEzlo/gUnk_0810C4AA.bin"
 
 gUnk_0810C4AF:: @ 0810C4AF
-	.incbin "baserom.gba", 0x10C4AF, 0x0000005
+	.incbin "assets/minishEzlo/gUnk_0810C4AF.bin"
 
 gUnk_0810C4B4:: @ 0810C4B4
-	.incbin "baserom.gba", 0x10C4B4, 0x0000015
+	.incbin "assets/minishEzlo/gUnk_0810C4B4.bin"
 
 gUnk_0810C4C9:: @ 0810C4C9
-	.incbin "baserom.gba", 0x10C4C9, 0x0000015
+	.incbin "assets/minishEzlo/gUnk_0810C4C9.bin"
 
 gUnk_0810C4DE:: @ 0810C4DE
-	.incbin "baserom.gba", 0x10C4DE, 0x00000DD
+	.incbin "assets/minishEzlo/gUnk_0810C4DE.bin"
 
 gUnk_0810C5BB:: @ 0810C5BB
-	.incbin "baserom.gba", 0x10C5BB, 0x00000DD
+	.incbin "assets/minishEzlo/gUnk_0810C5BB.bin"
 
 gUnk_0810C698:: @ 0810C698
-	.incbin "baserom.gba", 0x10C698, 0x000004D
+	.incbin "assets/minishEzlo/gUnk_0810C698.bin"
 
 gUnk_0810C6E5:: @ 0810C6E5
-	.incbin "baserom.gba", 0x10C6E5, 0x000008D
+	.incbin "assets/minishEzlo/gUnk_0810C6E5.bin"
 
 gUnk_0810C772:: @ 0810C772
-	.incbin "baserom.gba", 0x10C772, 0x000000D
+	.incbin "assets/minishEzlo/gUnk_0810C772.bin"
 
 gUnk_0810C77F:: @ 0810C77F
-	.incbin "baserom.gba", 0x10C77F, 0x000002D
+	.incbin "assets/minishEzlo/gUnk_0810C77F.bin"
 
 gUnk_0810C7AC:: @ 0810C7AC
-	.incbin "baserom.gba", 0x10C7AC, 0x0000008
+	.incbin "assets/minishEzlo/gUnk_0810C7AC.bin"
 
 gUnk_0810C7B4:: @ 0810C7B4
 	.4byte gUnk_0810C4AF

@@ -5,40 +5,40 @@
  @   .align 2
 
 gUnk_080CEA66:: @ 080CEA66
-	.incbin "baserom.gba", 0x0CEA66, 0x0000005
+	.incbin "assets/mulldozer/gUnk_080CEA66.bin"
 
 gUnk_080CEA6B:: @ 080CEA6B
-	.incbin "baserom.gba", 0x0CEA6B, 0x0000005
+	.incbin "assets/mulldozer/gUnk_080CEA6B.bin"
 
 gUnk_080CEA70:: @ 080CEA70
-	.incbin "baserom.gba", 0x0CEA70, 0x0000005
+	.incbin "assets/mulldozer/gUnk_080CEA70.bin"
 
 gUnk_080CEA75:: @ 080CEA75
-	.incbin "baserom.gba", 0x0CEA75, 0x0000005
+	.incbin "assets/mulldozer/gUnk_080CEA75.bin"
 
 gUnk_080CEA7A:: @ 080CEA7A
-	.incbin "baserom.gba", 0x0CEA7A, 0x0000011
+	.incbin "assets/mulldozer/gUnk_080CEA7A.bin"
 
 gUnk_080CEA8B:: @ 080CEA8B
-	.incbin "baserom.gba", 0x0CEA8B, 0x0000011
+	.incbin "assets/mulldozer/gUnk_080CEA8B.bin"
 
 gUnk_080CEA9C:: @ 080CEA9C
-	.incbin "baserom.gba", 0x0CEA9C, 0x0000011
+	.incbin "assets/mulldozer/gUnk_080CEA9C.bin"
 
 gUnk_080CEAAD:: @ 080CEAAD
-	.incbin "baserom.gba", 0x0CEAAD, 0x0000011
+	.incbin "assets/mulldozer/gUnk_080CEAAD.bin"
 
 gUnk_080CEABE:: @ 080CEABE
-	.incbin "baserom.gba", 0x0CEABE, 0x0000011
+	.incbin "assets/mulldozer/gUnk_080CEABE.bin"
 
 gUnk_080CEACF:: @ 080CEACF
-	.incbin "baserom.gba", 0x0CEACF, 0x0000011
+	.incbin "assets/mulldozer/gUnk_080CEACF.bin"
 
 gUnk_080CEAE0:: @ 080CEAE0
-	.incbin "baserom.gba", 0x0CEAE0, 0x0000011
+	.incbin "assets/mulldozer/gUnk_080CEAE0.bin"
 
 gUnk_080CEAF1:: @ 080CEAF1
-	.incbin "baserom.gba", 0x0CEAF1, 0x0000013
+	.incbin "assets/mulldozer/gUnk_080CEAF1.bin"
 
 gUnk_080CEB04:: @ 080CEB04
 	.4byte gUnk_080CEA66

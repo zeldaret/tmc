@@ -4,31 +4,31 @@
 	.section .rodata
 
 gUnk_080CC0CA:: @ 080CC0CA
-	.incbin "baserom.gba", 0x0CC0CA, 0x0000041
+	.incbin "assets/puffstool/gUnk_080CC0CA.bin"
 
 gUnk_080CC10B:: @ 080CC10B
-	.incbin "baserom.gba", 0x0CC10B, 0x000000D
+	.incbin "assets/puffstool/gUnk_080CC10B.bin"
 
 gUnk_080CC118:: @ 080CC118
-	.incbin "baserom.gba", 0x0CC118, 0x0000009
+	.incbin "assets/puffstool/gUnk_080CC118.bin"
 
 gUnk_080CC121:: @ 080CC121
-	.incbin "baserom.gba", 0x0CC121, 0x0000010
+	.incbin "assets/puffstool/gUnk_080CC121.bin"
 
 gUnk_080CC131:: @ 080CC131
-	.incbin "baserom.gba", 0x0CC131, 0x000000D
+	.incbin "assets/puffstool/gUnk_080CC131.bin"
 
 gUnk_080CC13E:: @ 080CC13E
-	.incbin "baserom.gba", 0x0CC13E, 0x000000D
+	.incbin "assets/puffstool/gUnk_080CC13E.bin"
 
 gUnk_080CC14B:: @ 080CC14B
-	.incbin "baserom.gba", 0x0CC14B, 0x000000D
+	.incbin "assets/puffstool/gUnk_080CC14B.bin"
 
 gUnk_080CC158:: @ 080CC158
-	.incbin "baserom.gba", 0x0CC158, 0x000000D
+	.incbin "assets/puffstool/gUnk_080CC158.bin"
 
 gUnk_080CC165:: @ 080CC165
-	.incbin "baserom.gba", 0x0CC165, 0x000000F
+	.incbin "assets/puffstool/gUnk_080CC165.bin"
 
 gUnk_080CC174:: @ 080CC174
 	.4byte gUnk_080CC0CA

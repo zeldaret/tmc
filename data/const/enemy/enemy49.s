@@ -11,7 +11,7 @@ gUnk_080D0448:: @ 080D0448
 	.4byte sub_0803CF94
 
 gUnk_080D0458:: @ 080D0458
-	.incbin "baserom.gba", 0x0D0458, 0x0000010
+	.incbin "assets/enemy49/gUnk_080D0458.bin"
 
 gUnk_080D0468:: @ 080D0468
-	.incbin "baserom.gba", 0x0D0468, 0x0000008
+	.incbin "assets/enemy49/gUnk_080D0468.bin"

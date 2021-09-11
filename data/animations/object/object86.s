@@ -5,10 +5,10 @@
     .align 2
 
 gUnk_0812380C:: @ 0812380C
-	.incbin "baserom.gba", 0x12380C, 0x0000014
+	.incbin "assets/object86/gUnk_0812380C.bin"
 
 gUnk_08123820:: @ 08123820
-	.incbin "baserom.gba", 0x123820, 0x0000014
+	.incbin "assets/object86/gUnk_08123820.bin"
 
 gUnk_08123834:: @ 08123834
 	.4byte gUnk_0812380C

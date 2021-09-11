@@ -5,79 +5,79 @@
     .align 2
 
 gUnk_080CFD60:: @ 080CFD60
-	.incbin "baserom.gba", 0x0CFD60, 0x0000011
+	.incbin "assets/mazaalBracelet/gUnk_080CFD60.bin"
 
 gUnk_080CFD71:: @ 080CFD71
-	.incbin "baserom.gba", 0x0CFD71, 0x0000011
+	.incbin "assets/mazaalBracelet/gUnk_080CFD71.bin"
 
 gUnk_080CFD82:: @ 080CFD82
-	.incbin "baserom.gba", 0x0CFD82, 0x0000054
+	.incbin "assets/mazaalBracelet/gUnk_080CFD82.bin"
 
 gUnk_080CFDD6:: @ 080CFDD6
-	.incbin "baserom.gba", 0x0CFDD6, 0x0000054
+	.incbin "assets/mazaalBracelet/gUnk_080CFDD6.bin"
 
 gUnk_080CFE2A:: @ 080CFE2A
-	.incbin "baserom.gba", 0x0CFE2A, 0x000000D
+	.incbin "assets/mazaalBracelet/gUnk_080CFE2A.bin"
 
 gUnk_080CFE37:: @ 080CFE37
-	.incbin "baserom.gba", 0x0CFE37, 0x000000D
+	.incbin "assets/mazaalBracelet/gUnk_080CFE37.bin"
 
 gUnk_080CFE44:: @ 080CFE44
-	.incbin "baserom.gba", 0x0CFE44, 0x0000008
+	.incbin "assets/mazaalBracelet/gUnk_080CFE44.bin"
 
 gUnk_080CFE4C:: @ 080CFE4C
-	.incbin "baserom.gba", 0x0CFE4C, 0x0000008
+	.incbin "assets/mazaalBracelet/gUnk_080CFE4C.bin"
 
 gUnk_080CFE54:: @ 080CFE54
-	.incbin "baserom.gba", 0x0CFE54, 0x0000004
+	.incbin "assets/mazaalBracelet/gUnk_080CFE54.bin"
 
 gUnk_080CFE58:: @ 080CFE58
-	.incbin "baserom.gba", 0x0CFE58, 0x0000004
+	.incbin "assets/mazaalBracelet/gUnk_080CFE58.bin"
 
 gUnk_080CFE5C:: @ 080CFE5C
-	.incbin "baserom.gba", 0x0CFE5C, 0x0000004
+	.incbin "assets/mazaalBracelet/gUnk_080CFE5C.bin"
 
 gUnk_080CFE60:: @ 080CFE60
-	.incbin "baserom.gba", 0x0CFE60, 0x0000011
+	.incbin "assets/mazaalBracelet/gUnk_080CFE60.bin"
 
 gUnk_080CFE71:: @ 080CFE71
-	.incbin "baserom.gba", 0x0CFE71, 0x0000005
+	.incbin "assets/mazaalBracelet/gUnk_080CFE71.bin"
 
 gUnk_080CFE76:: @ 080CFE76
-	.incbin "baserom.gba", 0x0CFE76, 0x0000005
+	.incbin "assets/mazaalBracelet/gUnk_080CFE76.bin"
 
 gUnk_080CFE7B:: @ 080CFE7B
-	.incbin "baserom.gba", 0x0CFE7B, 0x0000005
+	.incbin "assets/mazaalBracelet/gUnk_080CFE7B.bin"
 
 gUnk_080CFE80:: @ 080CFE80
-	.incbin "baserom.gba", 0x0CFE80, 0x0000005
+	.incbin "assets/mazaalBracelet/gUnk_080CFE80.bin"
 
 gUnk_080CFE85:: @ 080CFE85
-	.incbin "baserom.gba", 0x0CFE85, 0x0000005
+	.incbin "assets/mazaalBracelet/gUnk_080CFE85.bin"
 
 gUnk_080CFE8A:: @ 080CFE8A
-	.incbin "baserom.gba", 0x0CFE8A, 0x0000005
+	.incbin "assets/mazaalBracelet/gUnk_080CFE8A.bin"
 
 gUnk_080CFE8F:: @ 080CFE8F
-	.incbin "baserom.gba", 0x0CFE8F, 0x0000005
+	.incbin "assets/mazaalBracelet/gUnk_080CFE8F.bin"
 
 gUnk_080CFE94:: @ 080CFE94
-	.incbin "baserom.gba", 0x0CFE94, 0x0000005
+	.incbin "assets/mazaalBracelet/gUnk_080CFE94.bin"
 
 gUnk_080CFE99:: @ 080CFE99
-	.incbin "baserom.gba", 0x0CFE99, 0x0000005
+	.incbin "assets/mazaalBracelet/gUnk_080CFE99.bin"
 
 gUnk_080CFE9E:: @ 080CFE9E
-	.incbin "baserom.gba", 0x0CFE9E, 0x0000005
+	.incbin "assets/mazaalBracelet/gUnk_080CFE9E.bin"
 
 gUnk_080CFEA3:: @ 080CFEA3
-	.incbin "baserom.gba", 0x0CFEA3, 0x000000D
+	.incbin "assets/mazaalBracelet/gUnk_080CFEA3.bin"
 
 gUnk_080CFEB0:: @ 080CFEB0
-	.incbin "baserom.gba", 0x0CFEB0, 0x0000011
+	.incbin "assets/mazaalBracelet/gUnk_080CFEB0.bin"
 
 gUnk_080CFEC1:: @ 080CFEC1
-	.incbin "baserom.gba", 0x0CFEC1, 0x0000013
+	.incbin "assets/mazaalBracelet/gUnk_080CFEC1.bin"
 
 gUnk_080CFED4:: @ 080CFED4
 	.4byte gUnk_080CFD60

@@ -5,25 +5,25 @@
 @    .align 2
 
 gUnk_08111771:: @ 08111771
-	.incbin "baserom.gba", 0x111771, 0x0000005
+	.incbin "assets/bladeBrothers/gUnk_08111771.bin"
 
 gUnk_08111776:: @ 08111776
-	.incbin "baserom.gba", 0x111776, 0x0000005
+	.incbin "assets/bladeBrothers/gUnk_08111776.bin"
 
 gUnk_0811177B:: @ 0811177B
-	.incbin "baserom.gba", 0x11177B, 0x000004D
+	.incbin "assets/bladeBrothers/gUnk_0811177B.bin"
 
 gUnk_081117C8:: @ 081117C8
-	.incbin "baserom.gba", 0x1117C8, 0x0000031
+	.incbin "assets/bladeBrothers/gUnk_081117C8.bin"
 
 gUnk_081117F9:: @ 081117F9
-	.incbin "baserom.gba", 0x1117F9, 0x0000031
+	.incbin "assets/bladeBrothers/gUnk_081117F9.bin"
 
 gUnk_0811182A:: @ 0811182A
-	.incbin "baserom.gba", 0x11182A, 0x0000031
+	.incbin "assets/bladeBrothers/gUnk_0811182A.bin"
 
 gUnk_0811185B:: @ 0811185B
-	.incbin "baserom.gba", 0x11185B, 0x0000071
+	.incbin "assets/bladeBrothers/gUnk_0811185B.bin"
 
 gUnk_081118CC:: @ 081118CC
 	.4byte gUnk_08111771

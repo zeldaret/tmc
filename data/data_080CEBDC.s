@@ -5,5 +5,5 @@
     .align 2
 
 unusedLabel_0CEBDC:: @ 080CEBDC
-	.incbin "baserom.gba", 0x0CEBDC, 0x0000010
+	.incbin "assets/data_080CEBDC/unusedLabel_0CEBDC.bin"
 

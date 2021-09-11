@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_0810FEB0:: @ 0810FEB0
-	.incbin "baserom.gba", 0x10FEB0, 0x000000C
+	.incbin "assets/talon/gUnk_0810FEB0.bin"
 
 gUnk_0810FEBC:: @ 0810FEBC
 	.4byte sub_08065570
@@ -19,4 +19,4 @@ gUnk_0810FEC4:: @ 0810FEC4
 	.4byte sub_08065680
 
 gUnk_0810FED8:: @ 0810FED8
-	.incbin "baserom.gba", 0x10FED8, 0x0000008
+	.incbin "assets/talon/gUnk_0810FED8.bin"

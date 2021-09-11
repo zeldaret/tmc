@@ -28,4 +28,4 @@ gUnk_08121E98:: @ 08121E98
 	.4byte sub_0808F244
 
 gUnk_08121EA0:: @ 08121EA0
-	.incbin "baserom.gba", 0x121EA0, 0x0000004
+	.incbin "assets/object49/gUnk_08121EA0.bin"

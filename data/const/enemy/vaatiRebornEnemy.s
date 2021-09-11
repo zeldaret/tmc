@@ -27,23 +27,23 @@ gUnk_080D04A0:: @ 080D04A0
 	.4byte sub_0803DBB8
 
 gUnk_080D04A8:: @ 080D04A8
-	.incbin "baserom.gba", 0x0D04A8, 0x0000004
+	.incbin "assets/vaatiRebornEnemy/gUnk_080D04A8.bin"
 
 gUnk_080D04AC:: @ 080D04AC
-	.incbin "baserom.gba", 0x0D04AC, 0x0000014
+	.incbin "assets/vaatiRebornEnemy/gUnk_080D04AC.bin"
 
 gUnk_080D04C0:: @ 080D04C0
-	.incbin "baserom.gba", 0x0D04C0, 0x0000008
+	.incbin "assets/vaatiRebornEnemy/gUnk_080D04C0.bin"
 
 gUnk_080D04C8:: @ 080D04C8
-	.incbin "baserom.gba", 0x0D04C8, 0x0000008
+	.incbin "assets/vaatiRebornEnemy/gUnk_080D04C8.bin"
 
 gUnk_080D04D0:: @ 080D04D0
 .ifdef EU
-	.incbin "baserom_eu.gba", 0x0CFBFC, 0x0000003
+	.incbin "assets/vaatiRebornEnemy/gUnk_080D04D0_EU.bin"
 .else
-	.incbin "baserom.gba", 0x0D04D0, 0x0000003
+	.incbin "assets/vaatiRebornEnemy/gUnk_080D04D0_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_080D04D3:: @ 080D04D3
-	.incbin "baserom.gba", 0x0D04D3, 0x0000004
+	.incbin "assets/vaatiRebornEnemy/gUnk_080D04D3.bin"

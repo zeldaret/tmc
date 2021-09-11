@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_08121314:: @ 08121314
-	.incbin "baserom.gba", 0x121314, 0x0000004
+	.incbin "assets/bollard/gUnk_08121314.bin"
 
 gUnk_08121318:: @ 08121318
-	.incbin "baserom.gba", 0x121318, 0x0000004
+	.incbin "assets/bollard/gUnk_08121318.bin"
 
 gUnk_0812131C:: @ 0812131C
-	.incbin "baserom.gba", 0x12131C, 0x0000020
+	.incbin "assets/bollard/gUnk_0812131C.bin"
 
 gUnk_0812133C:: @ 0812133C
-	.incbin "baserom.gba", 0x12133C, 0x000001C
+	.incbin "assets/bollard/gUnk_0812133C.bin"
 
 gUnk_08121358:: @ 08121358
 	.4byte gUnk_08121314

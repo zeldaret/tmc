@@ -5,100 +5,100 @@
     .align 2
 
 gUnk_08129D1C:: @ 08129D1C
-	.incbin "baserom.gba", 0x129D1C, 0x0000005
+	.incbin "assets/projectile13/gUnk_08129D1C.bin"
 
 gUnk_08129D21:: @ 08129D21
-	.incbin "baserom.gba", 0x129D21, 0x0000005
+	.incbin "assets/projectile13/gUnk_08129D21.bin"
 
 gUnk_08129D26:: @ 08129D26
-	.incbin "baserom.gba", 0x129D26, 0x0000005
+	.incbin "assets/projectile13/gUnk_08129D26.bin"
 
 gUnk_08129D2B:: @ 08129D2B
-	.incbin "baserom.gba", 0x129D2B, 0x0000005
+	.incbin "assets/projectile13/gUnk_08129D2B.bin"
 
 gUnk_08129D30:: @ 08129D30
-	.incbin "baserom.gba", 0x129D30, 0x0000005
+	.incbin "assets/projectile13/gUnk_08129D30.bin"
 
 gUnk_08129D35:: @ 08129D35
-	.incbin "baserom.gba", 0x129D35, 0x0000005
+	.incbin "assets/projectile13/gUnk_08129D35.bin"
 
 gUnk_08129D3A:: @ 08129D3A
-	.incbin "baserom.gba", 0x129D3A, 0x0000005
+	.incbin "assets/projectile13/gUnk_08129D3A.bin"
 
 gUnk_08129D3F:: @ 08129D3F
-	.incbin "baserom.gba", 0x129D3F, 0x0000005
+	.incbin "assets/projectile13/gUnk_08129D3F.bin"
 
 gUnk_08129D44:: @ 08129D44
-	.incbin "baserom.gba", 0x129D44, 0x0000011
+	.incbin "assets/projectile13/gUnk_08129D44.bin"
 
 gUnk_08129D55:: @ 08129D55
-	.incbin "baserom.gba", 0x129D55, 0x0000011
+	.incbin "assets/projectile13/gUnk_08129D55.bin"
 
 gUnk_08129D66:: @ 08129D66
-	.incbin "baserom.gba", 0x129D66, 0x0000011
+	.incbin "assets/projectile13/gUnk_08129D66.bin"
 
 gUnk_08129D77:: @ 08129D77
-	.incbin "baserom.gba", 0x129D77, 0x0000011
+	.incbin "assets/projectile13/gUnk_08129D77.bin"
 
 gUnk_08129D88:: @ 08129D88
-	.incbin "baserom.gba", 0x129D88, 0x0000011
+	.incbin "assets/projectile13/gUnk_08129D88.bin"
 
 gUnk_08129D99:: @ 08129D99
-	.incbin "baserom.gba", 0x129D99, 0x0000011
+	.incbin "assets/projectile13/gUnk_08129D99.bin"
 
 gUnk_08129DAA:: @ 08129DAA
-	.incbin "baserom.gba", 0x129DAA, 0x0000011
+	.incbin "assets/projectile13/gUnk_08129DAA.bin"
 
 gUnk_08129DBB:: @ 08129DBB
-	.incbin "baserom.gba", 0x129DBB, 0x0000011
+	.incbin "assets/projectile13/gUnk_08129DBB.bin"
 
 gUnk_08129DCC:: @ 08129DCC
-	.incbin "baserom.gba", 0x129DCC, 0x000000C
+	.incbin "assets/projectile13/gUnk_08129DCC.bin"
 
 gUnk_08129DD8:: @ 08129DD8
-	.incbin "baserom.gba", 0x129DD8, 0x000000C
+	.incbin "assets/projectile13/gUnk_08129DD8.bin"
 
 gUnk_08129DE4:: @ 08129DE4
-	.incbin "baserom.gba", 0x129DE4, 0x000000C
+	.incbin "assets/projectile13/gUnk_08129DE4.bin"
 
 gUnk_08129DF0:: @ 08129DF0
-	.incbin "baserom.gba", 0x129DF0, 0x000000C
+	.incbin "assets/projectile13/gUnk_08129DF0.bin"
 
 gUnk_08129DFC:: @ 08129DFC
-	.incbin "baserom.gba", 0x129DFC, 0x000000C
+	.incbin "assets/projectile13/gUnk_08129DFC.bin"
 
 gUnk_08129E08:: @ 08129E08
-	.incbin "baserom.gba", 0x129E08, 0x000000C
+	.incbin "assets/projectile13/gUnk_08129E08.bin"
 
 gUnk_08129E14:: @ 08129E14
-	.incbin "baserom.gba", 0x129E14, 0x000000C
+	.incbin "assets/projectile13/gUnk_08129E14.bin"
 
 gUnk_08129E20:: @ 08129E20
-	.incbin "baserom.gba", 0x129E20, 0x000000C
+	.incbin "assets/projectile13/gUnk_08129E20.bin"
 
 gUnk_08129E2C:: @ 08129E2C
-	.incbin "baserom.gba", 0x129E2C, 0x0000021
+	.incbin "assets/projectile13/gUnk_08129E2C.bin"
 
 gUnk_08129E4D:: @ 08129E4D
-	.incbin "baserom.gba", 0x129E4D, 0x0000021
+	.incbin "assets/projectile13/gUnk_08129E4D.bin"
 
 gUnk_08129E6E:: @ 08129E6E
-	.incbin "baserom.gba", 0x129E6E, 0x0000021
+	.incbin "assets/projectile13/gUnk_08129E6E.bin"
 
 gUnk_08129E8F:: @ 08129E8F
-	.incbin "baserom.gba", 0x129E8F, 0x0000021
+	.incbin "assets/projectile13/gUnk_08129E8F.bin"
 
 gUnk_08129EB0:: @ 08129EB0
-	.incbin "baserom.gba", 0x129EB0, 0x0000021
+	.incbin "assets/projectile13/gUnk_08129EB0.bin"
 
 gUnk_08129ED1:: @ 08129ED1
-	.incbin "baserom.gba", 0x129ED1, 0x0000021
+	.incbin "assets/projectile13/gUnk_08129ED1.bin"
 
 gUnk_08129EF2:: @ 08129EF2
-	.incbin "baserom.gba", 0x129EF2, 0x0000021
+	.incbin "assets/projectile13/gUnk_08129EF2.bin"
 
 gUnk_08129F13:: @ 08129F13
-	.incbin "baserom.gba", 0x129F13, 0x0000021
+	.incbin "assets/projectile13/gUnk_08129F13.bin"
 
 gUnk_08129F34:: @ 08129F34
 	.4byte gUnk_08129D1C
