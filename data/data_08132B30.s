@@ -2745,11 +2745,7 @@ gUnk_081DF834:: @ 081DF834
 
 gUnk_081FF1B4:: @ 081FF1B4
 	.incbin "assets/data_08132B30/gUnk_081FF1B4.bin"
-
-@ 0x2184B4 - 0x21DCB3
 	.incbin "graphics/npc/postman.4bpp"
-
-@ 0x21DCB4 - 0x21E913
 	.incbin "graphics/npc/malon.4bpp"
 	.incbin "assets/data_08132B30/gUnk_081FF1B4_1.bin"
 .ifdef EU
@@ -2871,7 +2867,9 @@ gUnk_082F3D74:: @ 082F3D74
 
 gUnk_08324AE4:: @ 08324AE4
 	.incbin "assets/data_08132B30/gUnk_08324AE4.bin"
-	.incbin "data/tilesets/minish_woods/tiles_bottom.4bpp.lz"
+	.incbin "tilesets/gTileset_MinishWoods_0_0.4bpp.lz"
+	.incbin "tilesets/gTileset_MinishWoods_0_1.4bpp.lz"
+	.incbin "tilesets/gTileset_MinishWoods_0_2.4bpp.lz"
 	.incbin "assets/data_08132B30/gUnk_08324AE4_1.bin"
 
 @ TODO EU differs from here

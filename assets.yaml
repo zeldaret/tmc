@@ -54773,6 +54773,18 @@
 - path: assets/data_08132B30/gUnk_081FF1B4.bin
   start: 0x1ff1b4
   size: 0x19300
+- path: graphics/npc/postman.4bpp
+  start: 0x2184b4
+  size: 0x5800
+  type: graphic
+  options:
+    width: 2
+- path: graphics/npc/malon.4bpp
+  start: 0x21dcb4
+  size: 0xc40
+  type: graphic
+  options:
+    width: 2
 - path: assets/data_08132B30/gUnk_081FF1B4_1.bin
   start: 0x21e8f4
   size: 0x2d07
@@ -54796,6 +54808,10 @@
 - path: assets/data_08132B30/gUnk_082474D4.bin
   start: 0x2474d4
   size: 0x8d3c0
+- path: graphics/pot_portal.4bpp
+  start: 0x2d4894
+  size: 0x1200
+  type: graphic
 - path: assets/data_08132B30/gUnk_082D4894.bin
   start: 0x2d5a94
   size: 0x10e60
@@ -55031,9 +55047,21 @@
 - path: assets/data_08132B30/gUnk_08324AE4.bin
   start: 0x324ae4
   size: 0x3d0
-- path: assets/data_08132B30/gUnk_08324AE4_1.bin
+- path: tilesets/gTileset_MinishWoods_0_0.4bpp.lz
+  start: 0x324eb4
+  size: 0x2c54
+  type: tileset
+- path: tilesets/gTileset_MinishWoods_0_1.4bpp.lz
   start: 0x327b08
-  size: 0x1db6f
+  size: 0x25f0
+  type: tileset
+- path: tilesets/gTileset_MinishWoods_0_2.4bpp.lz
+  start: 0x32a0f8
+  size: 0x20f0
+  type: tileset
+- path: assets/data_08132B30/gUnk_08324AE4_1.bin
+  start: 0x32c1e8
+  size: 0x1948f
 - path: assets/data_08132B30/gUnk_08324AE4_2_EU.bin
   variants:
   - EU
@@ -55503,6 +55531,14 @@
 - path: assets/data_08132B30/gUnk_085BD520.bin
   start: 0x5bd520
   size: 0x100
+- path: graphics/intro/capcom.gbapal
+  start: 0x5bd620
+  size: 0x20
+  type: palette
+- path: graphics/intro/nintendo.gbapal
+  start: 0x5bd640
+  size: 0x20
+  type: palette
 - path: assets/data_08132B30/gUnk_085BD520_1.bin
   start: 0x5bd660
   size: 0x6fc0
@@ -56014,6 +56050,10 @@
 - path: assets/data_08132B30/gUnk_088C00E0.bin
   start: 0x8c00e0
   size: 0x21a0
+- path: graphics/intro/nintendo_capcom.4bpp
+  start: 0x8c2280
+  size: 0xf60
+  type: graphic
 - path: assets/data_08132B30/gUnk_088C00E0_1.bin
   start: 0x8c31e0
   size: 0x3d440
