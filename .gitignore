@@ -66,3 +66,4 @@ _Deparsed_XSubs.pm
 *.sna
 __pycache__
 .vscode/settings.json
+assets/

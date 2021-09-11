@@ -185,6 +185,7 @@ include songs.mk
 %.png: ;
 %.pal: ;
 %.aif: ;
+%.bin: ;
 
 %.1bpp: %.png  ; $(GFX) $< $@
 %.4bpp: %.png  ; $(GFX) $< $@
@@ -262,44 +263,38 @@ baserom_eu.gba:
 baserom_demo_jp.gba:
 endif
 ifeq ($(GAME_VERSION), DEMO_USA)
-baserom.gba:
-	$(error "You need to provide a USA ROM as baserom.gba")
 baserom_demo.gba:
 	$(error "You need to provide a DEMO ROM as baserom_demo.gba")
-.PHONY: baserom_jp.gba baserom_eu.gba baserom_demo_jp.gba
+.PHONY: baserom_jp.gba baserom_eu.gba baserom.gba baserom_demo_jp.gba
+baserom.gba:
 baserom_jp.gba:
 baserom_eu.gba:
 baserom_demo_jp.gba:
 endif
 ifeq ($(GAME_VERSION), JP)
-baserom.gba:
-	$(error "You need to provide a USA ROM as baserom.gba")
 baserom_jp.gba:
 	$(error "You need to provide a JP ROM as baserom_jp.gba")
-.PHONY: baserom_demo.gba baserom_eu.gba baserom_demo_jp.gba
+.PHONY: baserom_demo.gba baserom_eu.gba baserom.gba baserom_demo_jp.gba
+baserom.gba:
 baserom_demo.gba:
 baserom_eu.gba:
 baserom_demo_jp.gba:
 endif
 ifeq ($(GAME_VERSION), DEMO_JP)
-baserom.gba:
-	$(error "You need to provide a USA ROM as baserom.gba")
-baserom_jp.gba:
-	$(error "You need to provide a JP ROM as baserom_jp.gba")
 baserom_demo_jp.gba:
 	$(error "You need to provide a DEMO JP ROM as baserom_demo_jp.gba")
-.PHONY: baserom_demo.gba baserom_eu.gba
-baserom_demo.gba:
+.PHONY: baserom_jp.gba baserom_eu.gba baserom.gba baserom_demo.gba
+baserom.gba:
+baserom_jp.gba:
 baserom_eu.gba:
+baserom_demo.gba:
 endif
 ifeq ($(GAME_VERSION), EU)
-baserom.gba:
-	$(error "You need to provide a USA ROM as baserom.gba")
-baserom_jp.gba:
-	$(error "You need to provide a JP ROM as baserom_jp.gba")
 baserom_eu.gba:
 	$(error "You need to provide a EU ROM as baserom_eu.gba")
-.PHONY: baserom_demo.gba baserom_demo_jp.gba
+.PHONY: baserom_demo.gba baserom.gba baserom_jp.gba baserom_demo_jp.gba
+baserom.gba:
+baserom_jp.gba:
 baserom_demo.gba:
 baserom_demo_jp.gba:
 endif
