@@ -141,13 +141,13 @@ TOOLDIRS := $(filter-out tools/agbcc tools/binutils,$(wildcard tools/*))
 TOOLBASE = $(TOOLDIRS:tools/%=%)
 TOOLS = $(foreach tool,$(TOOLBASE),tools/$(tool)/$(tool)$(EXE))
 
-.PHONY: all setup clean-tools mostlyclean clean tidy $(TOOLDIRS)
+.PHONY: all setup clean-tools mostlyclean clean tidy $(TOOLDIRS) extractassets
 
 MAKEFLAGS += --no-print-directory
 
 AUTO_GEN_TARGETS :=
 
-all: $(ROM)
+all: extractassets $(ROM)
 	@$(SHA1) $(BUILD_NAME).sha1
 
 # kept for backwards compat
@@ -155,6 +155,9 @@ compare: $(ROM)
 	@$(SHA1) $(BUILD_NAME).sha1
 
 setup: $(TOOLDIRS)
+
+extractassets:
+	python tools/asset_extractor/asset_extractor.py $(GAME_VERSION)
 
 $(TOOLDIRS):
 	@$(MAKE) -C $@

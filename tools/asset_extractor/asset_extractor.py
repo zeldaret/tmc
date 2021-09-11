@@ -2,12 +2,9 @@ from pathlib import Path
 import os
 import sys
 import subprocess
-import parser
+import yaml
 
-# Allow to parse expressions instead of just hex numbers to be able to quickly adapt offsets for different versions
-def parse_hex(text):
-    code = parser.expr(text).compile()
-    return eval(code)
+verbose = False
 
 def extract_assets(variant):
     print(f'Extract assets from {variant}.')
@@ -17,26 +14,57 @@ def extract_assets(variant):
         'JP': 'baserom_jp.gba',
         'DEMO': 'baserom_demo.gba'
     }
+
+    if not os.path.exists(map[variant]):
+        print(f'Error: Baserom {map[variant]} is missing.', file=sys.stderr)
+        exit(1)
+
     baserom = None
     with open(map[variant], 'rb') as file:
         baserom = bytearray(file.read())
 
-    with open(f'assets_{variant}.csv', 'r') as file:
-        for line in file:
-            (path,start,size,mode) = line.split(',')
-            mode = mode.strip()
-            start = parse_hex(start)
-            size = parse_hex(size)
+    with open('assets.yaml') as file:
+        current_offset = 0
+        assets = yaml.safe_load(file)
+        for asset in assets:
+            if 'offsets' in asset: # Offset definition
+                if variant in asset['offsets']:
+                    current_offset = asset['offsets'][variant]
+            elif 'path' in asset: # Asset definition
 
-            if os.path.isfile(path):
-               print(f'{path} already extracted.') 
-            else:
-                print(f'Extracting {path}...')
-                Path(os.path.dirname(path)).mkdir(parents=True, exist_ok=True)
-                with open(path, 'wb') as output:
-                    output.write(baserom[start:start+size])
-                if mode == 'tileset':
-                    extract_tileset(path)
+                if 'variants' in asset:
+                    if variant not in asset['variants']:
+                        # This asset is not used in the current variant
+                        continue
+
+                path = asset['path']
+                if os.path.isfile(path):
+                    if verbose:
+                        print(f'{path} already extracted.')
+                else:
+                    print(f'Extracting {path}...')
+
+                    start = 0
+                    if 'start' in asset:
+                        # Apply offset to the start of the USA variant
+                        start = asset['start'] + current_offset
+                    elif 'starts' in asset:
+                        # Use start for the current variant
+                        start = asset['starts'][variant]
+
+                    size = asset['size'] # TODO can different sizes for the different variants ever occur?
+
+                    mode = ''
+                    if 'type' in asset:
+                        mode = asset['type']
+
+
+                    Path(os.path.dirname(path)).mkdir(parents=True, exist_ok=True)
+                    with open(path, 'wb') as output:
+                        output.write(baserom[start:start+size])
+                    if mode == 'tileset':
+                        extract_tileset(path)
+
 
 
 def run_gbagfx(path_in: str, path_out:str, options: list[str]) -> None:
@@ -45,7 +73,6 @@ def run_gbagfx(path_in: str, path_out:str, options: list[str]) -> None:
 def extract_tileset(path):
     assert(path.endswith('.4bpp.lz'))
     base = path[0:-8]
-    print(base)
     subprocess.call(['cp', path, path+'.bkp'])
     run_gbagfx(path, base+'.4bpp', []) # decompress
     run_gbagfx(base+'.4bpp', base+'.png', ['-mwidth', '32']) # convert to png
