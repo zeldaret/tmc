@@ -3,3 +3,4 @@
 	.include "asm/macros/m4a.inc"
 	.include "asm/macros/map.inc"
 	.include "asm/macros/entity.inc"
+	.include "asm/macros/music_voice.inc"
