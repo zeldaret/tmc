@@ -163,7 +163,7 @@ compare: $(ROM)
 setup: $(TOOLDIRS)
 
 extractassets:
-	python tools/asset_extractor/asset_extractor.py $(GAME_VERSION) $(ASSET_BUILDDIR)
+	python3 tools/asset_extractor/asset_extractor.py $(GAME_VERSION) $(ASSET_BUILDDIR)
 
 $(TOOLDIRS):
 	@$(MAKE) -C $@

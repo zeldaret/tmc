@@ -67,7 +67,7 @@ def extract_assets(variant, assets_folder):
 
 
 
-def run_gbagfx(path_in: str, path_out:str, options: list[str]) -> None:
+def run_gbagfx(path_in, path_out, options):
     subprocess.check_call([os.path.join('tools', 'gbagfx', 'gbagfx'), path_in, path_out] + options)
 
 def extract_tileset(path):
