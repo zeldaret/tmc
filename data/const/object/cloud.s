@@ -21,10 +21,10 @@ gUnk_081247AC:: @ 081247AC
 	.4byte sub_0809F6CC
 
 gUnk_081247C0:: @ 081247C0
-	.incbin "assets/cloud/gUnk_081247C0.bin"
+	.incbin "cloud/gUnk_081247C0.bin"
 
 gUnk_081247C8:: @ 081247C8
-	.incbin "assets/cloud/gUnk_081247C8.bin"
+	.incbin "cloud/gUnk_081247C8.bin"
 
 gUnk_081247D0:: @ 081247D0
-	.incbin "assets/cloud/gUnk_081247D0.bin"
+	.incbin "cloud/gUnk_081247D0.bin"

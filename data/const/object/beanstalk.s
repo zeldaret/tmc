@@ -9,13 +9,13 @@ gUnk_08120DF4:: @ 08120DF4
 	.4byte sub_08089F08
 
 gUnk_08120DFC:: @ 08120DFC
-	.incbin "assets/beanstalk/gUnk_08120DFC.bin"
+	.incbin "beanstalk/gUnk_08120DFC.bin"
 
 gUnk_08120E14:: @ 08120E14
-	.incbin "assets/beanstalk/gUnk_08120E14.bin"
+	.incbin "beanstalk/gUnk_08120E14.bin"
 
 gUnk_08120E3C:: @ 08120E3C
-	.incbin "assets/beanstalk/gUnk_08120E3C.bin"
+	.incbin "beanstalk/gUnk_08120E3C.bin"
 
 gUnk_08120E50:: @ 08120E50
 	.4byte sub_08089F20
@@ -39,7 +39,7 @@ gUnk_08120E84:: @ 08120E84
 	.4byte nullsub_518
 
 gUnk_08120E8C:: @ 08120E8C
-	.incbin "assets/beanstalk/gUnk_08120E8C.bin"
+	.incbin "beanstalk/gUnk_08120E8C.bin"
 
 gUnk_08120ED1:: @ 08120ED1
-	.incbin "assets/beanstalk/gUnk_08120ED1.bin"
+	.incbin "beanstalk/gUnk_08120ED1.bin"

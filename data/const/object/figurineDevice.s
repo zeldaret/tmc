@@ -12,26 +12,26 @@ gUnk_08120A94:: @ 08120A94
 	.4byte sub_08087E5C
 
 gUnk_08120AA8:: @ 08120AA8
-	.incbin "assets/figurineDevice/gUnk_08120AA8.bin"
+	.incbin "figurineDevice/gUnk_08120AA8.bin"
 
 gUnk_08120AAC:: @ 08120AAC
-	.incbin "assets/figurineDevice/gUnk_08120AAC.bin"
+	.incbin "figurineDevice/gUnk_08120AAC.bin"
 
 gUnk_08120AB4:: @ 08120AB4
 .ifdef EU
     @ TODO only small differences
-	.incbin "assets/figurineDevice/gUnk_08120AB4_EU.bin"
+	.incbin "figurineDevice/gUnk_08120AB4_EU.bin"
 .else
-	.incbin "assets/figurineDevice/gUnk_08120AB4_1_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "figurineDevice/gUnk_08120AB4_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_08120ACC:: @ 08120ACC
 .ifdef EU
     @ TODO only small differences
-	.incbin "assets/figurineDevice/gUnk_08120ACC_EU.bin"
+	.incbin "figurineDevice/gUnk_08120ACC_EU.bin"
 .else
-	.incbin "assets/figurineDevice/gUnk_08120ACC_1_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "figurineDevice/gUnk_08120ACC_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_08120AE4:: @ 08120AE4
-	.incbin "assets/figurineDevice/gUnk_08120AE4.bin"
+	.incbin "figurineDevice/gUnk_08120AE4.bin"

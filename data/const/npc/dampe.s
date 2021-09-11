@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08113344:: @ 08113344
-	.incbin "assets/dampe/gUnk_08113344.bin"
+	.incbin "dampe/gUnk_08113344.bin"
 
 gUnk_0811334A:: @ 0811334A
-	.incbin "assets/dampe/gUnk_0811334A.bin"
+	.incbin "dampe/gUnk_0811334A.bin"

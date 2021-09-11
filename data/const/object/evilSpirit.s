@@ -11,22 +11,22 @@ gUnk_08120668:: @ 08120668
 	.4byte sub_08086594
 
 gUnk_08120678:: @ 08120678
-	.incbin "assets/evilSpirit/gUnk_08120678.bin"
+	.incbin "evilSpirit/gUnk_08120678.bin"
 
 gUnk_08120682:: @ 08120682
-	.incbin "assets/evilSpirit/gUnk_08120682.bin"
+	.incbin "evilSpirit/gUnk_08120682.bin"
 
 gUnk_08120686:: @ 08120686
-	.incbin "assets/evilSpirit/gUnk_08120686.bin"
+	.incbin "evilSpirit/gUnk_08120686.bin"
 
 gUnk_0812068A:: @ 0812068A
-	.incbin "assets/evilSpirit/gUnk_0812068A.bin"
+	.incbin "evilSpirit/gUnk_0812068A.bin"
 
 gUnk_0812068E:: @ 0812068E
-	.incbin "assets/evilSpirit/gUnk_0812068E.bin"
+	.incbin "evilSpirit/gUnk_0812068E.bin"
 
 gUnk_08120692:: @ 08120692
-	.incbin "assets/evilSpirit/gUnk_08120692.bin"
+	.incbin "evilSpirit/gUnk_08120692.bin"
 
 gUnk_08120698:: @ 08120698
 	.4byte gUnk_08120682

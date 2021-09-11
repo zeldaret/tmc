@@ -21,10 +21,10 @@ gUnk_080CE7C8:: @ 080CE7C8
 	.4byte sub_080325C4
 
 gUnk_080CE7E0:: @ 080CE7E0
-	.incbin "assets/keaton/gUnk_080CE7E0.bin"
+	.incbin "keaton/gUnk_080CE7E0.bin"
 
 gUnk_080CE7F0:: @ 080CE7F0
-	.incbin "assets/keaton/gUnk_080CE7F0.bin"
+	.incbin "keaton/gUnk_080CE7F0.bin"
 
 gUnk_080CE810:: @ 080CE810
-	.incbin "assets/keaton/gUnk_080CE810.bin"
+	.incbin "keaton/gUnk_080CE810.bin"

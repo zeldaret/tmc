@@ -4,7 +4,7 @@
 	.section .rodata
 
 gUnk_080CBBEC:: @ 080CBBEC
-	.incbin "assets/enemyE/gUnk_080CBBEC.bin"
+	.incbin "enemyE/gUnk_080CBBEC.bin"
 	.4byte gUnk_080CBBEC
     .4byte 00000000
 

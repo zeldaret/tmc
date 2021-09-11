@@ -5,4 +5,4 @@
     .align 2
 
 gUnk_081145E4:: @ 081145E4
-	.incbin "assets/phonograph/gUnk_081145E4.bin"
+	.incbin "phonograph/gUnk_081145E4.bin"

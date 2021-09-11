@@ -5,28 +5,28 @@
 	.align 2
 
 gUnk_080CA180:: @ 080CA180
-	.incbin "assets/octorok/gUnk_080CA180.bin"
+	.incbin "octorok/gUnk_080CA180.bin"
 
 gUnk_080CA189:: @ 080CA189
-	.incbin "assets/octorok/gUnk_080CA189.bin"
+	.incbin "octorok/gUnk_080CA189.bin"
 
 gUnk_080CA192:: @ 080CA192
-	.incbin "assets/octorok/gUnk_080CA192.bin"
+	.incbin "octorok/gUnk_080CA192.bin"
 
 gUnk_080CA19B:: @ 080CA19B
-	.incbin "assets/octorok/gUnk_080CA19B.bin"
+	.incbin "octorok/gUnk_080CA19B.bin"
 
 gUnk_080CA1A4:: @ 080CA1A4
-	.incbin "assets/octorok/gUnk_080CA1A4.bin"
+	.incbin "octorok/gUnk_080CA1A4.bin"
 
 gUnk_080CA1B9:: @ 080CA1B9
-	.incbin "assets/octorok/gUnk_080CA1B9.bin"
+	.incbin "octorok/gUnk_080CA1B9.bin"
 
 gUnk_080CA1CE:: @ 080CA1CE
-	.incbin "assets/octorok/gUnk_080CA1CE.bin"
+	.incbin "octorok/gUnk_080CA1CE.bin"
 
 gUnk_080CA1E3:: @ 080CA1E3
-	.incbin "assets/octorok/gUnk_080CA1E3.bin"
+	.incbin "octorok/gUnk_080CA1E3.bin"
 
 gUnk_080CA1F8:: @ 080CA1F8
 	.4byte gUnk_080CA180

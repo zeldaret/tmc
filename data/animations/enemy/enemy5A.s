@@ -5,46 +5,46 @@
     .align 2
 
 gUnk_080D18C4:: @ 080D18C4
-	.incbin "assets/enemy5A/gUnk_080D18C4.bin"
+	.incbin "enemy5A/gUnk_080D18C4.bin"
 
 gUnk_080D18C9:: @ 080D18C9
-	.incbin "assets/enemy5A/gUnk_080D18C9.bin"
+	.incbin "enemy5A/gUnk_080D18C9.bin"
 
 gUnk_080D18DA:: @ 080D18DA
-	.incbin "assets/enemy5A/gUnk_080D18DA.bin"
+	.incbin "enemy5A/gUnk_080D18DA.bin"
 
 gUnk_080D18F3:: @ 080D18F3
-	.incbin "assets/enemy5A/gUnk_080D18F3.bin"
+	.incbin "enemy5A/gUnk_080D18F3.bin"
 
 gUnk_080D1914:: @ 080D1914
-	.incbin "assets/enemy5A/gUnk_080D1914.bin"
+	.incbin "enemy5A/gUnk_080D1914.bin"
 
 gUnk_080D191D:: @ 080D191D
-	.incbin "assets/enemy5A/gUnk_080D191D.bin"
+	.incbin "enemy5A/gUnk_080D191D.bin"
 
 gUnk_080D1926:: @ 080D1926
-	.incbin "assets/enemy5A/gUnk_080D1926.bin"
+	.incbin "enemy5A/gUnk_080D1926.bin"
 
 gUnk_080D192F:: @ 080D192F
-	.incbin "assets/enemy5A/gUnk_080D192F.bin"
+	.incbin "enemy5A/gUnk_080D192F.bin"
 
 gUnk_080D1934:: @ 080D1934
-	.incbin "assets/enemy5A/gUnk_080D1934.bin"
+	.incbin "enemy5A/gUnk_080D1934.bin"
 
 gUnk_080D1945:: @ 080D1945
-	.incbin "assets/enemy5A/gUnk_080D1945.bin"
+	.incbin "enemy5A/gUnk_080D1945.bin"
 
 gUnk_080D195A:: @ 080D195A
-	.incbin "assets/enemy5A/gUnk_080D195A.bin"
+	.incbin "enemy5A/gUnk_080D195A.bin"
 
 gUnk_080D1967:: @ 080D1967
-	.incbin "assets/enemy5A/gUnk_080D1967.bin"
+	.incbin "enemy5A/gUnk_080D1967.bin"
 
 gUnk_080D1988:: @ 080D1988
-	.incbin "assets/enemy5A/gUnk_080D1988.bin"
+	.incbin "enemy5A/gUnk_080D1988.bin"
 
 gUnk_080D19AD:: @ 080D19AD
-	.incbin "assets/enemy5A/gUnk_080D19AD.bin"
+	.incbin "enemy5A/gUnk_080D19AD.bin"
 
 gUnk_080D19B8:: @ 080D19B8
 	.4byte gUnk_080D18C4

@@ -20,10 +20,10 @@ gUnk_080CF618:: @ 080CF618
 	.4byte sub_08038B64
 
 gUnk_080CF62C:: @ 080CF62C
-	.incbin "assets/scissorsBeetle/gUnk_080CF62C.bin"
+	.incbin "scissorsBeetle/gUnk_080CF62C.bin"
 
 gUnk_080CF634:: @ 080CF634
-	.incbin "assets/scissorsBeetle/gUnk_080CF634.bin"
+	.incbin "scissorsBeetle/gUnk_080CF634.bin"
 
 gUnk_080CF63C:: @ 080CF63C
-	.incbin "assets/scissorsBeetle/gUnk_080CF63C.bin"
+	.incbin "scissorsBeetle/gUnk_080CF63C.bin"

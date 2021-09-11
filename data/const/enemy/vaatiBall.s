@@ -14,7 +14,7 @@ gUnk_080D1604:: @ 080D1604
 	.4byte sub_08044B04
 
 gUnk_080D1620:: @ 080D1620
-	.incbin "assets/vaatiBall/gUnk_080D1620.bin"
+	.incbin "vaatiBall/gUnk_080D1620.bin"
 
 gUnk_080D1628:: @ 080D1628
-	.incbin "assets/vaatiBall/gUnk_080D1628.bin"
+	.incbin "vaatiBall/gUnk_080D1628.bin"

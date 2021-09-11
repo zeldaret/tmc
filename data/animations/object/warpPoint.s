@@ -5,10 +5,10 @@
 @    .align 2
 
 gUnk_08121383:: @ 08121383
-	.incbin "assets/warpPoint/gUnk_08121383.bin"
+	.incbin "warpPoint/gUnk_08121383.bin"
 
 gUnk_08121394:: @ 08121394
-	.incbin "assets/warpPoint/gUnk_08121394.bin"
+	.incbin "warpPoint/gUnk_08121394.bin"
 
 gUnk_081213B8:: @ 081213B8
 	.4byte gUnk_08121383

@@ -5,4 +5,4 @@
 	.align 2
 
 gUnk_08000360:: @ 08000360
-	.incbin "assets/data_08000360/gUnk_08000360.bin"
+	.incbin "data_08000360/gUnk_08000360.bin"

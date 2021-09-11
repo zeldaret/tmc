@@ -5,223 +5,223 @@
     .align 2
 
 gUnk_0810AC78:: @ 0810AC78
-	.incbin "assets/npc5/gUnk_0810AC78.bin"
+	.incbin "npc5/gUnk_0810AC78.bin"
 
 gUnk_0810AC81:: @ 0810AC81
-	.incbin "assets/npc5/gUnk_0810AC81.bin"
+	.incbin "npc5/gUnk_0810AC81.bin"
 
 gUnk_0810AC9A:: @ 0810AC9A
-	.incbin "assets/npc5/gUnk_0810AC9A.bin"
+	.incbin "npc5/gUnk_0810AC9A.bin"
 
 gUnk_0810ACB3:: @ 0810ACB3
-	.incbin "assets/npc5/gUnk_0810ACB3.bin"
+	.incbin "npc5/gUnk_0810ACB3.bin"
 
 gUnk_0810ACCC:: @ 0810ACCC
-	.incbin "assets/npc5/gUnk_0810ACCC.bin"
+	.incbin "npc5/gUnk_0810ACCC.bin"
 
 gUnk_0810ACED:: @ 0810ACED
-	.incbin "assets/npc5/gUnk_0810ACED.bin"
+	.incbin "npc5/gUnk_0810ACED.bin"
 
 gUnk_0810AD0E:: @ 0810AD0E
-	.incbin "assets/npc5/gUnk_0810AD0E.bin"
+	.incbin "npc5/gUnk_0810AD0E.bin"
 
 gUnk_0810AD2F:: @ 0810AD2F
-	.incbin "assets/npc5/gUnk_0810AD2F.bin"
+	.incbin "npc5/gUnk_0810AD2F.bin"
 
 gUnk_0810AD50:: @ 0810AD50
-	.incbin "assets/npc5/gUnk_0810AD50.bin"
+	.incbin "npc5/gUnk_0810AD50.bin"
 
 gUnk_0810AD71:: @ 0810AD71
-	.incbin "assets/npc5/gUnk_0810AD71.bin"
+	.incbin "npc5/gUnk_0810AD71.bin"
 
 gUnk_0810AD92:: @ 0810AD92
-	.incbin "assets/npc5/gUnk_0810AD92.bin"
+	.incbin "npc5/gUnk_0810AD92.bin"
 
 gUnk_0810ADB3:: @ 0810ADB3
-	.incbin "assets/npc5/gUnk_0810ADB3.bin"
+	.incbin "npc5/gUnk_0810ADB3.bin"
 
 gUnk_0810ADD4:: @ 0810ADD4
-	.incbin "assets/npc5/gUnk_0810ADD4.bin"
+	.incbin "npc5/gUnk_0810ADD4.bin"
 
 gUnk_0810ADF5:: @ 0810ADF5
-	.incbin "assets/npc5/gUnk_0810ADF5.bin"
+	.incbin "npc5/gUnk_0810ADF5.bin"
 
 gUnk_0810AE16:: @ 0810AE16
-	.incbin "assets/npc5/gUnk_0810AE16.bin"
+	.incbin "npc5/gUnk_0810AE16.bin"
 
 gUnk_0810AE37:: @ 0810AE37
-	.incbin "assets/npc5/gUnk_0810AE37.bin"
+	.incbin "npc5/gUnk_0810AE37.bin"
 
 gUnk_0810AE58:: @ 0810AE58
-	.incbin "assets/npc5/gUnk_0810AE58.bin"
+	.incbin "npc5/gUnk_0810AE58.bin"
 
 gUnk_0810AE7C:: @ 0810AE7C
-	.incbin "assets/npc5/gUnk_0810AE7C.bin"
+	.incbin "npc5/gUnk_0810AE7C.bin"
 
 gUnk_0810AEA0:: @ 0810AEA0
-	.incbin "assets/npc5/gUnk_0810AEA0.bin"
+	.incbin "npc5/gUnk_0810AEA0.bin"
 
 gUnk_0810AEC4:: @ 0810AEC4
-	.incbin "assets/npc5/gUnk_0810AEC4.bin"
+	.incbin "npc5/gUnk_0810AEC4.bin"
 
 gUnk_0810AEE8:: @ 0810AEE8
-	.incbin "assets/npc5/gUnk_0810AEE8.bin"
+	.incbin "npc5/gUnk_0810AEE8.bin"
 
 gUnk_0810AF19:: @ 0810AF19
-	.incbin "assets/npc5/gUnk_0810AF19.bin"
+	.incbin "npc5/gUnk_0810AF19.bin"
 
 gUnk_0810AF4A:: @ 0810AF4A
-	.incbin "assets/npc5/gUnk_0810AF4A.bin"
+	.incbin "npc5/gUnk_0810AF4A.bin"
 
 gUnk_0810AF7B:: @ 0810AF7B
-	.incbin "assets/npc5/gUnk_0810AF7B.bin"
+	.incbin "npc5/gUnk_0810AF7B.bin"
 
 gUnk_0810AFAC:: @ 0810AFAC
-	.incbin "assets/npc5/gUnk_0810AFAC.bin"
+	.incbin "npc5/gUnk_0810AFAC.bin"
 
 gUnk_0810AFCD:: @ 0810AFCD
-	.incbin "assets/npc5/gUnk_0810AFCD.bin"
+	.incbin "npc5/gUnk_0810AFCD.bin"
 
 gUnk_0810AFEE:: @ 0810AFEE
-	.incbin "assets/npc5/gUnk_0810AFEE.bin"
+	.incbin "npc5/gUnk_0810AFEE.bin"
 
 gUnk_0810B00F:: @ 0810B00F
-	.incbin "assets/npc5/gUnk_0810B00F.bin"
+	.incbin "npc5/gUnk_0810B00F.bin"
 
 gUnk_0810B030:: @ 0810B030
-	.incbin "assets/npc5/gUnk_0810B030.bin"
+	.incbin "npc5/gUnk_0810B030.bin"
 
 gUnk_0810B03C:: @ 0810B03C
-	.incbin "assets/npc5/gUnk_0810B03C.bin"
+	.incbin "npc5/gUnk_0810B03C.bin"
 
 gUnk_0810B048:: @ 0810B048
-	.incbin "assets/npc5/gUnk_0810B048.bin"
+	.incbin "npc5/gUnk_0810B048.bin"
 
 gUnk_0810B054:: @ 0810B054
-	.incbin "assets/npc5/gUnk_0810B054.bin"
+	.incbin "npc5/gUnk_0810B054.bin"
 
 gUnk_0810B060:: @ 0810B060
-	.incbin "assets/npc5/gUnk_0810B060.bin"
+	.incbin "npc5/gUnk_0810B060.bin"
 
 gUnk_0810B071:: @ 0810B071
-	.incbin "assets/npc5/gUnk_0810B071.bin"
+	.incbin "npc5/gUnk_0810B071.bin"
 
 gUnk_0810B082:: @ 0810B082
-	.incbin "assets/npc5/gUnk_0810B082.bin"
+	.incbin "npc5/gUnk_0810B082.bin"
 
 gUnk_0810B093:: @ 0810B093
-	.incbin "assets/npc5/gUnk_0810B093.bin"
+	.incbin "npc5/gUnk_0810B093.bin"
 
 gUnk_0810B0A4:: @ 0810B0A4
-	.incbin "assets/npc5/gUnk_0810B0A4.bin"
+	.incbin "npc5/gUnk_0810B0A4.bin"
 
 gUnk_0810B0B5:: @ 0810B0B5
-	.incbin "assets/npc5/gUnk_0810B0B5.bin"
+	.incbin "npc5/gUnk_0810B0B5.bin"
 
 gUnk_0810B0C6:: @ 0810B0C6
-	.incbin "assets/npc5/gUnk_0810B0C6.bin"
+	.incbin "npc5/gUnk_0810B0C6.bin"
 
 gUnk_0810B0D7:: @ 0810B0D7
-	.incbin "assets/npc5/gUnk_0810B0D7.bin"
+	.incbin "npc5/gUnk_0810B0D7.bin"
 
 gUnk_0810B0E8:: @ 0810B0E8
-	.incbin "assets/npc5/gUnk_0810B0E8.bin"
+	.incbin "npc5/gUnk_0810B0E8.bin"
 
 gUnk_0810B0F9:: @ 0810B0F9
-	.incbin "assets/npc5/gUnk_0810B0F9.bin"
+	.incbin "npc5/gUnk_0810B0F9.bin"
 
 gUnk_0810B10A:: @ 0810B10A
-	.incbin "assets/npc5/gUnk_0810B10A.bin"
+	.incbin "npc5/gUnk_0810B10A.bin"
 
 gUnk_0810B11B:: @ 0810B11B
-	.incbin "assets/npc5/gUnk_0810B11B.bin"
+	.incbin "npc5/gUnk_0810B11B.bin"
 
 gUnk_0810B12C:: @ 0810B12C
-	.incbin "assets/npc5/gUnk_0810B12C.bin"
+	.incbin "npc5/gUnk_0810B12C.bin"
 
 gUnk_0810B13D:: @ 0810B13D
-	.incbin "assets/npc5/gUnk_0810B13D.bin"
+	.incbin "npc5/gUnk_0810B13D.bin"
 
 gUnk_0810B14E:: @ 0810B14E
-	.incbin "assets/npc5/gUnk_0810B14E.bin"
+	.incbin "npc5/gUnk_0810B14E.bin"
 
 gUnk_0810B15F:: @ 0810B15F
-	.incbin "assets/npc5/gUnk_0810B15F.bin"
+	.incbin "npc5/gUnk_0810B15F.bin"
 
 gUnk_0810B170:: @ 0810B170
-	.incbin "assets/npc5/gUnk_0810B170.bin"
+	.incbin "npc5/gUnk_0810B170.bin"
 
 gUnk_0810B18C:: @ 0810B18C
-	.incbin "assets/npc5/gUnk_0810B18C.bin"
+	.incbin "npc5/gUnk_0810B18C.bin"
 
 gUnk_0810B1A8:: @ 0810B1A8
-	.incbin "assets/npc5/gUnk_0810B1A8.bin"
+	.incbin "npc5/gUnk_0810B1A8.bin"
 
 gUnk_0810B1C4:: @ 0810B1C4
-	.incbin "assets/npc5/gUnk_0810B1C4.bin"
+	.incbin "npc5/gUnk_0810B1C4.bin"
 
 gUnk_0810B1E0:: @ 0810B1E0
-	.incbin "assets/npc5/gUnk_0810B1E0.bin"
+	.incbin "npc5/gUnk_0810B1E0.bin"
 
 gUnk_0810B1FC:: @ 0810B1FC
-	.incbin "assets/npc5/gUnk_0810B1FC.bin"
+	.incbin "npc5/gUnk_0810B1FC.bin"
 
 gUnk_0810B218:: @ 0810B218
-	.incbin "assets/npc5/gUnk_0810B218.bin"
+	.incbin "npc5/gUnk_0810B218.bin"
 
 gUnk_0810B234:: @ 0810B234
-	.incbin "assets/npc5/gUnk_0810B234.bin"
+	.incbin "npc5/gUnk_0810B234.bin"
 
 gUnk_0810B250:: @ 0810B250
-	.incbin "assets/npc5/gUnk_0810B250.bin"
+	.incbin "npc5/gUnk_0810B250.bin"
 
 gUnk_0810B280:: @ 0810B280
-	.incbin "assets/npc5/gUnk_0810B280.bin"
+	.incbin "npc5/gUnk_0810B280.bin"
 
 gUnk_0810B2B0:: @ 0810B2B0
-	.incbin "assets/npc5/gUnk_0810B2B0.bin"
+	.incbin "npc5/gUnk_0810B2B0.bin"
 
 gUnk_0810B2E0:: @ 0810B2E0
-	.incbin "assets/npc5/gUnk_0810B2E0.bin"
+	.incbin "npc5/gUnk_0810B2E0.bin"
 
 gUnk_0810B310:: @ 0810B310
-	.incbin "assets/npc5/gUnk_0810B310.bin"
+	.incbin "npc5/gUnk_0810B310.bin"
 
 gUnk_0810B340:: @ 0810B340
-	.incbin "assets/npc5/gUnk_0810B340.bin"
+	.incbin "npc5/gUnk_0810B340.bin"
 
 gUnk_0810B370:: @ 0810B370
-	.incbin "assets/npc5/gUnk_0810B370.bin"
+	.incbin "npc5/gUnk_0810B370.bin"
 
 gUnk_0810B3A0:: @ 0810B3A0
-	.incbin "assets/npc5/gUnk_0810B3A0.bin"
+	.incbin "npc5/gUnk_0810B3A0.bin"
 
 gUnk_0810B3D0:: @ 0810B3D0
-	.incbin "assets/npc5/gUnk_0810B3D0.bin"
+	.incbin "npc5/gUnk_0810B3D0.bin"
 
 gUnk_0810B3F8:: @ 0810B3F8
-	.incbin "assets/npc5/gUnk_0810B3F8.bin"
+	.incbin "npc5/gUnk_0810B3F8.bin"
 
 gUnk_0810B420:: @ 0810B420
-	.incbin "assets/npc5/gUnk_0810B420.bin"
+	.incbin "npc5/gUnk_0810B420.bin"
 
 gUnk_0810B448:: @ 0810B448
-	.incbin "assets/npc5/gUnk_0810B448.bin"
+	.incbin "npc5/gUnk_0810B448.bin"
 
 gUnk_0810B470:: @ 0810B470
-	.incbin "assets/npc5/gUnk_0810B470.bin"
+	.incbin "npc5/gUnk_0810B470.bin"
 
 gUnk_0810B489:: @ 0810B489
-	.incbin "assets/npc5/gUnk_0810B489.bin"
+	.incbin "npc5/gUnk_0810B489.bin"
 
 gUnk_0810B48E:: @ 0810B48E
-	.incbin "assets/npc5/gUnk_0810B48E.bin"
+	.incbin "npc5/gUnk_0810B48E.bin"
 
 gUnk_0810B4A7:: @ 0810B4A7
-	.incbin "assets/npc5/gUnk_0810B4A7.bin"
+	.incbin "npc5/gUnk_0810B4A7.bin"
 
 gUnk_0810B4DC:: @ 0810B4DC
-	.incbin "assets/npc5/gUnk_0810B4DC.bin"
+	.incbin "npc5/gUnk_0810B4DC.bin"
 
 gUnk_0810B4EC:: @ 0810B4EC
 	.4byte gUnk_0810AC78
@@ -316,28 +316,28 @@ gUnk_0810B4EC:: @ 0810B4EC
 
 
 gUnk_0810B650:: @ 0810B650
-	.incbin "assets/npc5/gUnk_0810B650.bin"
+	.incbin "npc5/gUnk_0810B650.bin"
 
 gUnk_0810B652:: @ 0810B652
-	.incbin "assets/npc5/gUnk_0810B652.bin"
+	.incbin "npc5/gUnk_0810B652.bin"
 
 gUnk_0810B654:: @ 0810B654
-	.incbin "assets/npc5/gUnk_0810B654.bin"
+	.incbin "npc5/gUnk_0810B654.bin"
 
 gUnk_0810B656:: @ 0810B656
-	.incbin "assets/npc5/gUnk_0810B656.bin"
+	.incbin "npc5/gUnk_0810B656.bin"
 
 gUnk_0810B658:: @ 0810B658
-	.incbin "assets/npc5/gUnk_0810B658.bin"
+	.incbin "npc5/gUnk_0810B658.bin"
 
 gUnk_0810B65A:: @ 0810B65A
-	.incbin "assets/npc5/gUnk_0810B65A.bin"
+	.incbin "npc5/gUnk_0810B65A.bin"
 
 gUnk_0810B65C:: @ 0810B65C
-	.incbin "assets/npc5/gUnk_0810B65C.bin"
+	.incbin "npc5/gUnk_0810B65C.bin"
 
 gUnk_0810B65E:: @ 0810B65E
-	.incbin "assets/npc5/gUnk_0810B65E.bin"
+	.incbin "npc5/gUnk_0810B65E.bin"
 
 gUnk_0810B660:: @ 0810B660
 	.4byte gUnk_0810B650

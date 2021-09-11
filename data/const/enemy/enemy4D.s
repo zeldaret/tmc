@@ -26,7 +26,7 @@ gUnk_080D0898:: @ 080D0898
 	.4byte sub_0803EE38
 
 gUnk_080D08C4:: @ 080D08C4
-	.incbin "assets/enemy4D/gUnk_080D08C4.bin"
+	.incbin "enemy4D/gUnk_080D08C4.bin"
 
 gUnk_080D08C8:: @ 080D08C8
 	.4byte sub_0803EF70

@@ -5,10 +5,10 @@
     .align 2
 
 gUnk_08110120:: @ 08110120
-	.incbin "assets/milkCart/gUnk_08110120.bin"
+	.incbin "milkCart/gUnk_08110120.bin"
 
 gUnk_08110125:: @ 08110125
-	.incbin "assets/milkCart/gUnk_08110125.bin"
+	.incbin "milkCart/gUnk_08110125.bin"
 
 gUnk_08110138:: @ 08110138
 	.4byte gUnk_08110120

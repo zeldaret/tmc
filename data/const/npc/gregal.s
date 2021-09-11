@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08113D84:: @ 08113D84
-	.incbin "assets/gregal/gUnk_08113D84.bin"
+	.incbin "gregal/gUnk_08113D84.bin"
 
 gUnk_08113D8C:: @ 08113D8C
 	.4byte sub_0806CAF4

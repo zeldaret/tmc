@@ -5,10 +5,10 @@
     .align 2
 
 gUnk_081236FC:: @ 081236FC
-	.incbin "assets/bigPushableLever/gUnk_081236FC.bin"
+	.incbin "bigPushableLever/gUnk_081236FC.bin"
 
 gUnk_08123711:: @ 08123711
-	.incbin "assets/bigPushableLever/gUnk_08123711.bin"
+	.incbin "bigPushableLever/gUnk_08123711.bin"
 
 gUnk_08123728:: @ 08123728
 	.4byte gUnk_081236FC

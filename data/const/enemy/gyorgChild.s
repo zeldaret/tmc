@@ -24,6 +24,6 @@ gUnk_080D1E94:: @ 080D1E94
 	.4byte sub_080486E0
 
 gUnk_080D1EA0:: @ 080D1EA0
-	.incbin "assets/gyorgChild/gUnk_080D1EA0.bin"
+	.incbin "gyorgChild/gUnk_080D1EA0.bin"
 
 

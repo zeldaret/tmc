@@ -10,10 +10,10 @@ gUnk_0811EBFC:: @ 0811EBFC
 	.4byte sub_08081760
 
 gUnk_0811EC08:: @ 0811EC08
-	.incbin "assets/deathFx/gUnk_0811EC08.bin"
+	.incbin "deathFx/gUnk_0811EC08.bin"
 
 gUnk_0811EC20:: @ 0811EC20
-	.incbin "assets/deathFx/gUnk_0811EC20.bin"
+	.incbin "deathFx/gUnk_0811EC20.bin"
 
 gUnk_0811EC24:: @ 0811EC24
 	.4byte sub_080817CC
@@ -34,4 +34,4 @@ gUnk_0811EC24:: @ 0811EC24
 	.4byte sub_080817FC
 
 gUnk_0811EC64:: @ 0811EC64
-	.incbin "assets/deathFx/gUnk_0811EC64.bin"
+	.incbin "deathFx/gUnk_0811EC64.bin"

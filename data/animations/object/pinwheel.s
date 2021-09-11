@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08125068:: @ 08125068
-	.incbin "assets/pinwheel/gUnk_08125068.bin"
+	.incbin "pinwheel/gUnk_08125068.bin"
 
 gUnk_0812507C:: @ 0812507C
 	.4byte gUnk_08125068

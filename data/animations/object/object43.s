@@ -5,43 +5,43 @@
     .align 2
 
 gUnk_081217E0:: @ 081217E0
-	.incbin "assets/object43/gUnk_081217E0.bin"
+	.incbin "object43/gUnk_081217E0.bin"
 
 gUnk_08121864:: @ 08121864
-	.incbin "assets/object43/gUnk_08121864.bin"
+	.incbin "object43/gUnk_08121864.bin"
 
 gUnk_081218E8:: @ 081218E8
-	.incbin "assets/object43/gUnk_081218E8.bin"
+	.incbin "object43/gUnk_081218E8.bin"
 
 gUnk_0812196C:: @ 0812196C
-	.incbin "assets/object43/gUnk_0812196C.bin"
+	.incbin "object43/gUnk_0812196C.bin"
 
 gUnk_081219F0:: @ 081219F0
-	.incbin "assets/object43/gUnk_081219F0.bin"
+	.incbin "object43/gUnk_081219F0.bin"
 
 gUnk_08121A2D:: @ 08121A2D
-	.incbin "assets/object43/gUnk_08121A2D.bin"
+	.incbin "object43/gUnk_08121A2D.bin"
 
 gUnk_08121A6A:: @ 08121A6A
-	.incbin "assets/object43/gUnk_08121A6A.bin"
+	.incbin "object43/gUnk_08121A6A.bin"
 
 gUnk_08121AA7:: @ 08121AA7
-	.incbin "assets/object43/gUnk_08121AA7.bin"
+	.incbin "object43/gUnk_08121AA7.bin"
 
 gUnk_08121AE4:: @ 08121AE4
-	.incbin "assets/object43/gUnk_08121AE4.bin"
+	.incbin "object43/gUnk_08121AE4.bin"
 
 gUnk_08121AF4:: @ 08121AF4
-	.incbin "assets/object43/gUnk_08121AF4.bin"
+	.incbin "object43/gUnk_08121AF4.bin"
 
 gUnk_08121B04:: @ 08121B04
-	.incbin "assets/object43/gUnk_08121B04.bin"
+	.incbin "object43/gUnk_08121B04.bin"
 
 gUnk_08121B14:: @ 08121B14
-	.incbin "assets/object43/gUnk_08121B14.bin"
+	.incbin "object43/gUnk_08121B14.bin"
 
 gUnk_08121B24:: @ 08121B24
-	.incbin "assets/object43/gUnk_08121B24.bin"
+	.incbin "object43/gUnk_08121B24.bin"
 
 gUnk_08121B48:: @ 08121B48
 	.4byte gUnk_081217E0

@@ -20,12 +20,12 @@ gUnk_08122650:: @ 08122650
 	.4byte sub_08092590
 
 gUnk_08122670:: @ 08122670
-	.incbin "assets/lavaPlatform/gUnk_08122670.bin"
+	.incbin "lavaPlatform/gUnk_08122670.bin"
 
 gUnk_08122684:: @ 08122684
-	.incbin "assets/lavaPlatform/gUnk_08122684.bin"
+	.incbin "lavaPlatform/gUnk_08122684.bin"
 
 gUnk_08122698:: @ 08122698
 	.4byte gUnk_08122670
 	.4byte gUnk_08122684
-	.incbin "assets/lavaPlatform/gUnk_08122698.bin"
+	.incbin "lavaPlatform/gUnk_08122698.bin"

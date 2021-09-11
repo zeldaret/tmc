@@ -21,13 +21,13 @@ gUnk_0810AC2C:: @ 0810AC2C
 	.4byte sub_08060E34
 
 gUnk_0810AC4C:: @ 0810AC4C
-	.incbin "assets/npc5/gUnk_0810AC4C.bin"
+	.incbin "npc5/gUnk_0810AC4C.bin"
 
 gUnk_0810AC54:: @ 0810AC54
-	.incbin "assets/npc5/gUnk_0810AC54.bin"
+	.incbin "npc5/gUnk_0810AC54.bin"
 
 gUnk_0810AC5D:: @ 0810AC5D
-	.incbin "assets/npc5/gUnk_0810AC5D.bin"
+	.incbin "npc5/gUnk_0810AC5D.bin"
 
 gUnk_0810AC70:: @ 0810AC70
 	.4byte sub_08061ACC

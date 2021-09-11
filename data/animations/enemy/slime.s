@@ -5,37 +5,37 @@
     .align 2
 
 gUnk_080D16DC:: @ 080D16DC
-	.incbin "assets/slime/gUnk_080D16DC.bin"
+	.incbin "slime/gUnk_080D16DC.bin"
 
 gUnk_080D16E5:: @ 080D16E5
-	.incbin "assets/slime/gUnk_080D16E5.bin"
+	.incbin "slime/gUnk_080D16E5.bin"
 
 gUnk_080D16F5:: @ 080D16F5
-	.incbin "assets/slime/gUnk_080D16F5.bin"
+	.incbin "slime/gUnk_080D16F5.bin"
 
 gUnk_080D170D:: @ 080D170D
-	.incbin "assets/slime/gUnk_080D170D.bin"
+	.incbin "slime/gUnk_080D170D.bin"
 
 gUnk_080D171D:: @ 080D171D
-	.incbin "assets/slime/gUnk_080D171D.bin"
+	.incbin "slime/gUnk_080D171D.bin"
 
 gUnk_080D1741:: @ 080D1741
-	.incbin "assets/slime/gUnk_080D1741.bin"
+	.incbin "slime/gUnk_080D1741.bin"
 
 gUnk_080D1761:: @ 080D1761
-	.incbin "assets/slime/gUnk_080D1761.bin"
+	.incbin "slime/gUnk_080D1761.bin"
 
 gUnk_080D176A:: @ 080D176A
-	.incbin "assets/slime/gUnk_080D176A.bin"
+	.incbin "slime/gUnk_080D176A.bin"
 
 gUnk_080D1773:: @ 080D1773
-	.incbin "assets/slime/gUnk_080D1773.bin"
+	.incbin "slime/gUnk_080D1773.bin"
 
 gUnk_080D1778:: @ 080D1778
-	.incbin "assets/slime/gUnk_080D1778.bin"
+	.incbin "slime/gUnk_080D1778.bin"
 
 gUnk_080D177D:: @ 080D177D
-	.incbin "assets/slime/gUnk_080D177D.bin"
+	.incbin "slime/gUnk_080D177D.bin"
 
 gUnk_080D1790:: @ 080D1790
 	.4byte gUnk_080D16DC

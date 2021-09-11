@@ -4,13 +4,13 @@
 	.section .rodata
 
 gUnk_080CD2A8:: @ 080CD2A8
-	.incbin "assets/chaser/gUnk_080CD2A8.bin"
+	.incbin "chaser/gUnk_080CD2A8.bin"
 
 gUnk_080CD2AC:: @ 080CD2AC
-	.incbin "assets/chaser/gUnk_080CD2AC.bin"
+	.incbin "chaser/gUnk_080CD2AC.bin"
 
 gUnk_080CD2BD:: @ 080CD2BD
-	.incbin "assets/chaser/gUnk_080CD2BD.bin"
+	.incbin "chaser/gUnk_080CD2BD.bin"
 
 gUnk_080CD2C8:: @ 080CD2C8
 	.4byte gUnk_080CD2A8

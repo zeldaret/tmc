@@ -16,4 +16,4 @@ gUnk_0812972C:: @ 0812972C
 	.4byte sub_080A878C
 
 gUnk_08129734:: @ 08129734
-	.incbin "assets/projectile5/gUnk_08129734.bin"
+	.incbin "projectile5/gUnk_08129734.bin"

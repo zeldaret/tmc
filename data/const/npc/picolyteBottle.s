@@ -11,7 +11,7 @@ gUnk_081142BC:: @ 081142BC
 	.4byte nullsub_111
 
 gUnk_081142CC:: @ 081142CC
-	.incbin "assets/picolyteBottle/gUnk_081142CC.bin"
+	.incbin "picolyteBottle/gUnk_081142CC.bin"
 
 gUnk_081142DC:: @ 081142DC
-	.incbin "assets/picolyteBottle/gUnk_081142DC.bin"
+	.incbin "picolyteBottle/gUnk_081142DC.bin"

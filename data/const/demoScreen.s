@@ -12,7 +12,7 @@ demoFunctions::
 	.4byte sub_080A2F8C
 
 gUnk_08127C98::
-	.incbin "assets/demoScreen/gUnk_08127C98_DEMO_USA.bin"
+	.incbin "demoScreen/gUnk_08127C98_DEMO_USA.bin"
 gUnk_08127CC8::
-	.incbin "assets/demoScreen/gUnk_08127CC8_DEMO_USA.bin"
+	.incbin "demoScreen/gUnk_08127CC8_DEMO_USA.bin"
 .endif

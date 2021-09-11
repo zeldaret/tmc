@@ -369,1102 +369,1102 @@ _0800469C: .4byte 0x00000106
 _080046A0: .4byte 0x00000280
 
 gUnk_080046A4:: @ 080046A4
-	.incbin "assets/code_080043E8/gUnk_080046A4.bin"
+	.incbin "code_080043E8/gUnk_080046A4.bin"
 
 gUnk_080047F6:: @ 080047F6
-	.incbin "assets/code_080043E8/gUnk_080047F6.bin"
+	.incbin "code_080043E8/gUnk_080047F6.bin"
 
 gUnk_080049D6:: @ 080049D6
-	.incbin "assets/code_080043E8/gUnk_080049D6.bin"
+	.incbin "code_080043E8/gUnk_080049D6.bin"
 
 gUnk_080049F6:: @ 080049F6
-	.incbin "assets/code_080043E8/gUnk_080049F6.bin"
+	.incbin "code_080043E8/gUnk_080049F6.bin"
 
 gUnk_080049FE:: @ gUnk_080049FE
-	.incbin "assets/code_080043E8/gUnk_080049FE.bin"
+	.incbin "code_080043E8/gUnk_080049FE.bin"
 
 gUnk_08004A0C:: @ 08004A0C
-	.incbin "assets/code_080043E8/gUnk_08004A0C.bin"
+	.incbin "code_080043E8/gUnk_08004A0C.bin"
 
 gUnk_08004A16:: @ 08004A16
-	.incbin "assets/code_080043E8/gUnk_08004A16.bin"
+	.incbin "code_080043E8/gUnk_08004A16.bin"
 
 gUnk_08004A24:: @ 08004A24
-	.incbin "assets/code_080043E8/gUnk_08004A24.bin"
+	.incbin "code_080043E8/gUnk_08004A24.bin"
 
 gUnk_08004A32:: @ 08004A32
-	.incbin "assets/code_080043E8/gUnk_08004A32.bin"
+	.incbin "code_080043E8/gUnk_08004A32.bin"
 
 gUnk_08004A48:: @ 08004A48
-	.incbin "assets/code_080043E8/gUnk_08004A48.bin"
+	.incbin "code_080043E8/gUnk_08004A48.bin"
 
 gUnk_08004A72:: @ 08004A72
-	.incbin "assets/code_080043E8/gUnk_08004A72.bin"
+	.incbin "code_080043E8/gUnk_08004A72.bin"
 
 gUnk_08004A8C:: @ 08004A8C
-	.incbin "assets/code_080043E8/gUnk_08004A8C.bin"
+	.incbin "code_080043E8/gUnk_08004A8C.bin"
 
 gUnk_08004AA6:: @ 08004AA6
-	.incbin "assets/code_080043E8/gUnk_08004AA6.bin"
+	.incbin "code_080043E8/gUnk_08004AA6.bin"
 
 gUnk_08004AEC:: @ 08004AEC
-	.incbin "assets/code_080043E8/gUnk_08004AEC.bin"
+	.incbin "code_080043E8/gUnk_08004AEC.bin"
 
 gUnk_08004AF1:: @ 08004AF1
-	.incbin "assets/code_080043E8/gUnk_08004AF1.bin"
+	.incbin "code_080043E8/gUnk_08004AF1.bin"
 
 gUnk_08004B1A:: @ 08004B1A
-	.incbin "assets/code_080043E8/gUnk_08004B1A.bin"
+	.incbin "code_080043E8/gUnk_08004B1A.bin"
 
 gUnk_08004B43:: @ 08004B43
-	.incbin "assets/code_080043E8/gUnk_08004B43.bin"
+	.incbin "code_080043E8/gUnk_08004B43.bin"
 
 gUnk_08004B6C:: @ 08004B6C
-	.incbin "assets/code_080043E8/gUnk_08004B6C.bin"
+	.incbin "code_080043E8/gUnk_08004B6C.bin"
 
 gUnk_08004B95:: @ 08004B95
-	.incbin "assets/code_080043E8/gUnk_08004B95.bin"
+	.incbin "code_080043E8/gUnk_08004B95.bin"
 
 gUnk_08004BBE:: @ 08004BBE
-	.incbin "assets/code_080043E8/gUnk_08004BBE.bin"
+	.incbin "code_080043E8/gUnk_08004BBE.bin"
 
 gUnk_08004BEE:: @ 08004BEE
-	.incbin "assets/code_080043E8/gUnk_08004BEE.bin"
+	.incbin "code_080043E8/gUnk_08004BEE.bin"
 
 gUnk_08004BF7:: @ 08004BF7
-	.incbin "assets/code_080043E8/gUnk_08004BF7.bin"
+	.incbin "code_080043E8/gUnk_08004BF7.bin"
 
 gUnk_08004C27:: @ 08004C27
-	.incbin "assets/code_080043E8/gUnk_08004C27.bin"
+	.incbin "code_080043E8/gUnk_08004C27.bin"
 
 gUnk_08004C30:: @ 08004C30
-	.incbin "assets/code_080043E8/gUnk_08004C30.bin"
+	.incbin "code_080043E8/gUnk_08004C30.bin"
 
 gUnk_08004C60:: @ 08004C60
-	.incbin "assets/code_080043E8/gUnk_08004C60.bin"
+	.incbin "code_080043E8/gUnk_08004C60.bin"
 
 gUnk_08004C69:: @ 08004C69
-	.incbin "assets/code_080043E8/gUnk_08004C69.bin"
+	.incbin "code_080043E8/gUnk_08004C69.bin"
 
 gUnk_08004CD2:: @ 08004CD2
-	.incbin "assets/code_080043E8/gUnk_08004CD2.bin"
+	.incbin "code_080043E8/gUnk_08004CD2.bin"
 
 gUnk_08004D27:: @ 08004D27
-	.incbin "assets/code_080043E8/gUnk_08004D27.bin"
+	.incbin "code_080043E8/gUnk_08004D27.bin"
 
 gUnk_08004D90:: @ 08004D90
-	.incbin "assets/code_080043E8/gUnk_08004D90.bin"
+	.incbin "code_080043E8/gUnk_08004D90.bin"
 
 gUnk_08004DE5:: @ 08004DE5
-	.incbin "assets/code_080043E8/gUnk_08004DE5.bin"
+	.incbin "code_080043E8/gUnk_08004DE5.bin"
 
 gUnk_08004E4E:: @ 08004E4E
-	.incbin "assets/code_080043E8/gUnk_08004E4E.bin"
+	.incbin "code_080043E8/gUnk_08004E4E.bin"
 
 gUnk_08004EA3:: @ 08004EA3
-	.incbin "assets/code_080043E8/gUnk_08004EA3.bin"
+	.incbin "code_080043E8/gUnk_08004EA3.bin"
 
 gUnk_08004F0C:: @ 08004F0C
-	.incbin "assets/code_080043E8/gUnk_08004F0C.bin"
+	.incbin "code_080043E8/gUnk_08004F0C.bin"
 
 gUnk_08004F61:: @ 08004F61
-	.incbin "assets/code_080043E8/gUnk_08004F61.bin"
+	.incbin "code_080043E8/gUnk_08004F61.bin"
 
 gUnk_08004FA2:: @ 08004FA2
-	.incbin "assets/code_080043E8/gUnk_08004FA2.bin"
+	.incbin "code_080043E8/gUnk_08004FA2.bin"
 
 gUnk_08004FE3:: @ 08004FE3
-	.incbin "assets/code_080043E8/gUnk_08004FE3.bin"
+	.incbin "code_080043E8/gUnk_08004FE3.bin"
 
 gUnk_08005024:: @ 08005024
-	.incbin "assets/code_080043E8/gUnk_08005024.bin"
+	.incbin "code_080043E8/gUnk_08005024.bin"
 
 gUnk_08005065:: @ 08005065
-	.incbin "assets/code_080043E8/gUnk_08005065.bin"
+	.incbin "code_080043E8/gUnk_08005065.bin"
 
 gUnk_0800507A:: @ 0800507A
-	.incbin "assets/code_080043E8/gUnk_0800507A.bin"
+	.incbin "code_080043E8/gUnk_0800507A.bin"
 
 gUnk_0800508F:: @ 0800508F
-	.incbin "assets/code_080043E8/gUnk_0800508F.bin"
+	.incbin "code_080043E8/gUnk_0800508F.bin"
 
 gUnk_080050A4:: @ 080050A4
-	.incbin "assets/code_080043E8/gUnk_080050A4.bin"
+	.incbin "code_080043E8/gUnk_080050A4.bin"
 
 gUnk_080050B5:: @ 080050B5
-	.incbin "assets/code_080043E8/gUnk_080050B5.bin"
+	.incbin "code_080043E8/gUnk_080050B5.bin"
 
 gUnk_080050C6:: @ 080050C6
-	.incbin "assets/code_080043E8/gUnk_080050C6.bin"
+	.incbin "code_080043E8/gUnk_080050C6.bin"
 
 gUnk_080050D7:: @ 080050D7
-	.incbin "assets/code_080043E8/gUnk_080050D7.bin"
+	.incbin "code_080043E8/gUnk_080050D7.bin"
 
 gUnk_0800510B:: @ 0800510B
-	.incbin "assets/code_080043E8/gUnk_0800510B.bin"
+	.incbin "code_080043E8/gUnk_0800510B.bin"
 
 gUnk_0800513F:: @ 0800513F
-	.incbin "assets/code_080043E8/gUnk_0800513F.bin"
+	.incbin "code_080043E8/gUnk_0800513F.bin"
 
 gUnk_08005173:: @ 08005173
-	.incbin "assets/code_080043E8/gUnk_08005173.bin"
+	.incbin "code_080043E8/gUnk_08005173.bin"
 
 gUnk_08005197:: @ 08005197
-	.incbin "assets/code_080043E8/gUnk_08005197.bin"
+	.incbin "code_080043E8/gUnk_08005197.bin"
 
 gUnk_0800519F:: @ 0800519F
-	.incbin "assets/code_080043E8/gUnk_0800519F.bin"
+	.incbin "code_080043E8/gUnk_0800519F.bin"
 
 gUnk_080051C3:: @ 080051C3
-	.incbin "assets/code_080043E8/gUnk_080051C3.bin"
+	.incbin "code_080043E8/gUnk_080051C3.bin"
 
 gUnk_080051CB:: @ 080051CB
-	.incbin "assets/code_080043E8/gUnk_080051CB.bin"
+	.incbin "code_080043E8/gUnk_080051CB.bin"
 
 gUnk_080051EF:: @ 080051EF
-	.incbin "assets/code_080043E8/gUnk_080051EF.bin"
+	.incbin "code_080043E8/gUnk_080051EF.bin"
 
 gUnk_080051F7:: @ 080051F7
-	.incbin "assets/code_080043E8/gUnk_080051F7.bin"
+	.incbin "code_080043E8/gUnk_080051F7.bin"
 
 gUnk_08005214:: @ 08005214
-	.incbin "assets/code_080043E8/gUnk_08005214.bin"
+	.incbin "code_080043E8/gUnk_08005214.bin"
 
 gUnk_08005231:: @ 08005231
-	.incbin "assets/code_080043E8/gUnk_08005231.bin"
+	.incbin "code_080043E8/gUnk_08005231.bin"
 
 gUnk_0800524E:: @ 0800524E
-	.incbin "assets/code_080043E8/gUnk_0800524E.bin"
+	.incbin "code_080043E8/gUnk_0800524E.bin"
 
 gUnk_08005273:: @ 08005273
-	.incbin "assets/code_080043E8/gUnk_08005273.bin"
+	.incbin "code_080043E8/gUnk_08005273.bin"
 
 gUnk_0800528C:: @ 0800528C
-	.incbin "assets/code_080043E8/gUnk_0800528C.bin"
+	.incbin "code_080043E8/gUnk_0800528C.bin"
 
 gUnk_08005299:: @ 08005299
-	.incbin "assets/code_080043E8/gUnk_08005299.bin"
+	.incbin "code_080043E8/gUnk_08005299.bin"
 
 gUnk_080052A6:: @ 080052A6
-	.incbin "assets/code_080043E8/gUnk_080052A6.bin"
+	.incbin "code_080043E8/gUnk_080052A6.bin"
 
 gUnk_080052B3:: @ 080052B3
-	.incbin "assets/code_080043E8/gUnk_080052B3.bin"
+	.incbin "code_080043E8/gUnk_080052B3.bin"
 
 gUnk_080052C3:: @ 080052C3
-	.incbin "assets/code_080043E8/gUnk_080052C3.bin"
+	.incbin "code_080043E8/gUnk_080052C3.bin"
 
 gUnk_080052C8:: @ 080052C8
-	.incbin "assets/code_080043E8/gUnk_080052C8.bin"
+	.incbin "code_080043E8/gUnk_080052C8.bin"
 
 gUnk_080052D8:: @ 080052D8
-	.incbin "assets/code_080043E8/gUnk_080052D8.bin"
+	.incbin "code_080043E8/gUnk_080052D8.bin"
 
 gUnk_080052DD:: @ 080052DD
-	.incbin "assets/code_080043E8/gUnk_080052DD.bin"
+	.incbin "code_080043E8/gUnk_080052DD.bin"
 
 gUnk_080052ED:: @ 080052ED
-	.incbin "assets/code_080043E8/gUnk_080052ED.bin"
+	.incbin "code_080043E8/gUnk_080052ED.bin"
 
 gUnk_080052F2:: @ 080052F2
-	.incbin "assets/code_080043E8/gUnk_080052F2.bin"
+	.incbin "code_080043E8/gUnk_080052F2.bin"
 
 gUnk_0800530A:: @ 0800530A
-	.incbin "assets/code_080043E8/gUnk_0800530A.bin"
+	.incbin "code_080043E8/gUnk_0800530A.bin"
 
 gUnk_08005322:: @ 08005322
-	.incbin "assets/code_080043E8/gUnk_08005322.bin"
+	.incbin "code_080043E8/gUnk_08005322.bin"
 
 gUnk_0800533A:: @ 0800533A
-	.incbin "assets/code_080043E8/gUnk_0800533A.bin"
+	.incbin "code_080043E8/gUnk_0800533A.bin"
 
 gUnk_08005363:: @ 08005363
-	.incbin "assets/code_080043E8/gUnk_08005363.bin"
+	.incbin "code_080043E8/gUnk_08005363.bin"
 
 gUnk_0800538C:: @ 0800538C
-	.incbin "assets/code_080043E8/gUnk_0800538C.bin"
+	.incbin "code_080043E8/gUnk_0800538C.bin"
 
 gUnk_080053B5:: @ 080053B5
-	.incbin "assets/code_080043E8/gUnk_080053B5.bin"
+	.incbin "code_080043E8/gUnk_080053B5.bin"
 
 gUnk_08005416:: @ 08005416
-	.incbin "assets/code_080043E8/gUnk_08005416.bin"
+	.incbin "code_080043E8/gUnk_08005416.bin"
 
 gUnk_08005477:: @ 08005477
-	.incbin "assets/code_080043E8/gUnk_08005477.bin"
+	.incbin "code_080043E8/gUnk_08005477.bin"
 
 gUnk_080054D8:: @ 080054D8
-	.incbin "assets/code_080043E8/gUnk_080054D8.bin"
+	.incbin "code_080043E8/gUnk_080054D8.bin"
 
 gUnk_080054E5:: @ 080054E5
-	.incbin "assets/code_080043E8/gUnk_080054E5.bin"
+	.incbin "code_080043E8/gUnk_080054E5.bin"
 
 gUnk_080054F5:: @ 080054F5
-	.incbin "assets/code_080043E8/gUnk_080054F5.bin"
+	.incbin "code_080043E8/gUnk_080054F5.bin"
 
 gUnk_08005556:: @ 08005556
-	.incbin "assets/code_080043E8/gUnk_08005556.bin"
+	.incbin "code_080043E8/gUnk_08005556.bin"
 
 gUnk_08005563:: @ 08005563
-	.incbin "assets/code_080043E8/gUnk_08005563.bin"
+	.incbin "code_080043E8/gUnk_08005563.bin"
 
 gUnk_08005573:: @ 08005573
-	.incbin "assets/code_080043E8/gUnk_08005573.bin"
+	.incbin "code_080043E8/gUnk_08005573.bin"
 
 gUnk_080055D4:: @ 080055D4
-	.incbin "assets/code_080043E8/gUnk_080055D4.bin"
+	.incbin "code_080043E8/gUnk_080055D4.bin"
 
 gUnk_080055E1:: @ 080055E1
-	.incbin "assets/code_080043E8/gUnk_080055E1.bin"
+	.incbin "code_080043E8/gUnk_080055E1.bin"
 
 gUnk_080055F1:: @ 080055F1
-	.incbin "assets/code_080043E8/gUnk_080055F1.bin"
+	.incbin "code_080043E8/gUnk_080055F1.bin"
 
 gUnk_08005652:: @ 08005652
-	.incbin "assets/code_080043E8/gUnk_08005652.bin"
+	.incbin "code_080043E8/gUnk_08005652.bin"
 
 gUnk_08005673:: @ 08005673
-	.incbin "assets/code_080043E8/gUnk_08005673.bin"
+	.incbin "code_080043E8/gUnk_08005673.bin"
 
 gUnk_08005694:: @ 08005694
-	.incbin "assets/code_080043E8/gUnk_08005694.bin"
+	.incbin "code_080043E8/gUnk_08005694.bin"
 
 gUnk_080056B5:: @ 080056B5
-	.incbin "assets/code_080043E8/gUnk_080056B5.bin"
+	.incbin "code_080043E8/gUnk_080056B5.bin"
 
 gUnk_080056C2:: @ 080056C2
-	.incbin "assets/code_080043E8/gUnk_080056C2.bin"
+	.incbin "code_080043E8/gUnk_080056C2.bin"
 
 gUnk_080056CF:: @ 080056CF
-	.incbin "assets/code_080043E8/gUnk_080056CF.bin"
+	.incbin "code_080043E8/gUnk_080056CF.bin"
 
 gUnk_080056DC:: @ 080056DC
-	.incbin "assets/code_080043E8/gUnk_080056DC.bin"
+	.incbin "code_080043E8/gUnk_080056DC.bin"
 
 gUnk_080056EC:: @ 080056EC
-	.incbin "assets/code_080043E8/gUnk_080056EC.bin"
+	.incbin "code_080043E8/gUnk_080056EC.bin"
 
 gUnk_080056F9:: @ 080056F9
-	.incbin "assets/code_080043E8/gUnk_080056F9.bin"
+	.incbin "code_080043E8/gUnk_080056F9.bin"
 
 gUnk_08005716:: @ 08005716
-	.incbin "assets/code_080043E8/gUnk_08005716.bin"
+	.incbin "code_080043E8/gUnk_08005716.bin"
 
 gUnk_08005733:: @ 08005733
-	.incbin "assets/code_080043E8/gUnk_08005733.bin"
+	.incbin "code_080043E8/gUnk_08005733.bin"
 
 gUnk_08005750:: @ 08005750
-	.incbin "assets/code_080043E8/gUnk_08005750.bin"
+	.incbin "code_080043E8/gUnk_08005750.bin"
 
 gUnk_08005758:: @ 08005758
-	.incbin "assets/code_080043E8/gUnk_08005758.bin"
+	.incbin "code_080043E8/gUnk_08005758.bin"
 
 gUnk_0800575D:: @ 0800575D
-	.incbin "assets/code_080043E8/gUnk_0800575D.bin"
+	.incbin "code_080043E8/gUnk_0800575D.bin"
 
 gUnk_08005771:: @ 08005771
-	.incbin "assets/code_080043E8/gUnk_08005771.bin"
+	.incbin "code_080043E8/gUnk_08005771.bin"
 
 gUnk_08005779:: @ 08005779
-	.incbin "assets/code_080043E8/gUnk_08005779.bin"
+	.incbin "code_080043E8/gUnk_08005779.bin"
 
 gUnk_0800577E:: @ 0800577E
-	.incbin "assets/code_080043E8/gUnk_0800577E.bin"
+	.incbin "code_080043E8/gUnk_0800577E.bin"
 
 gUnk_08005792:: @ 08005792
-	.incbin "assets/code_080043E8/gUnk_08005792.bin"
+	.incbin "code_080043E8/gUnk_08005792.bin"
 
 gUnk_0800579A:: @ 0800579A
-	.incbin "assets/code_080043E8/gUnk_0800579A.bin"
+	.incbin "code_080043E8/gUnk_0800579A.bin"
 
 gUnk_0800579F:: @ 0800579F
-	.incbin "assets/code_080043E8/gUnk_0800579F.bin"
+	.incbin "code_080043E8/gUnk_0800579F.bin"
 
 gUnk_080057B3:: @ 080057B3
-	.incbin "assets/code_080043E8/gUnk_080057B3.bin"
+	.incbin "code_080043E8/gUnk_080057B3.bin"
 
 gUnk_080057D4:: @ 080057D4
-	.incbin "assets/code_080043E8/gUnk_080057D4.bin"
+	.incbin "code_080043E8/gUnk_080057D4.bin"
 
 gUnk_080057F5:: @ 080057F5
-	.incbin "assets/code_080043E8/gUnk_080057F5.bin"
+	.incbin "code_080043E8/gUnk_080057F5.bin"
 
 gUnk_08005816:: @ 08005816
-	.incbin "assets/code_080043E8/gUnk_08005816.bin"
+	.incbin "code_080043E8/gUnk_08005816.bin"
 
 gUnk_08005826:: @ 08005826
-	.incbin "assets/code_080043E8/gUnk_08005826.bin"
+	.incbin "code_080043E8/gUnk_08005826.bin"
 
 gUnk_0800582F:: @ 0800582F
-	.incbin "assets/code_080043E8/gUnk_0800582F.bin"
+	.incbin "code_080043E8/gUnk_0800582F.bin"
 
 gUnk_0800583F:: @ 0800583F
-	.incbin "assets/code_080043E8/gUnk_0800583F.bin"
+	.incbin "code_080043E8/gUnk_0800583F.bin"
 
 gUnk_08005848:: @ 08005848
-	.incbin "assets/code_080043E8/gUnk_08005848.bin"
+	.incbin "code_080043E8/gUnk_08005848.bin"
 
 gUnk_08005858:: @ 08005858
-	.incbin "assets/code_080043E8/gUnk_08005858.bin"
+	.incbin "code_080043E8/gUnk_08005858.bin"
 
 gUnk_08005861:: @ 08005861
-	.incbin "assets/code_080043E8/gUnk_08005861.bin"
+	.incbin "code_080043E8/gUnk_08005861.bin"
 
 gUnk_08005882:: @ 08005882
-	.incbin "assets/code_080043E8/gUnk_08005882.bin"
+	.incbin "code_080043E8/gUnk_08005882.bin"
 
 gUnk_080058A3:: @ 080058A3
-	.incbin "assets/code_080043E8/gUnk_080058A3.bin"
+	.incbin "code_080043E8/gUnk_080058A3.bin"
 
 gUnk_080058C4:: @ 080058C4
-	.incbin "assets/code_080043E8/gUnk_080058C4.bin"
+	.incbin "code_080043E8/gUnk_080058C4.bin"
 
 gUnk_080058DD:: @ 080058DD
-	.incbin "assets/code_080043E8/gUnk_080058DD.bin"
+	.incbin "code_080043E8/gUnk_080058DD.bin"
 
 gUnk_080058F6:: @ 080058F6
-	.incbin "assets/code_080043E8/gUnk_080058F6.bin"
+	.incbin "code_080043E8/gUnk_080058F6.bin"
 
 gUnk_0800590F:: @ 0800590F
-	.incbin "assets/code_080043E8/gUnk_0800590F.bin"
+	.incbin "code_080043E8/gUnk_0800590F.bin"
 
 gUnk_08005920:: @ 08005920
-	.incbin "assets/code_080043E8/gUnk_08005920.bin"
+	.incbin "code_080043E8/gUnk_08005920.bin"
 
 gUnk_08005931:: @ 08005931
-	.incbin "assets/code_080043E8/gUnk_08005931.bin"
+	.incbin "code_080043E8/gUnk_08005931.bin"
 
 gUnk_08005942:: @ 08005942
-	.incbin "assets/code_080043E8/gUnk_08005942.bin"
+	.incbin "code_080043E8/gUnk_08005942.bin"
 
 gUnk_08005953:: @ 08005953
-	.incbin "assets/code_080043E8/gUnk_08005953.bin"
+	.incbin "code_080043E8/gUnk_08005953.bin"
 
 gUnk_08005964:: @ 08005964
-	.incbin "assets/code_080043E8/gUnk_08005964.bin"
+	.incbin "code_080043E8/gUnk_08005964.bin"
 
 gUnk_08005975:: @ 08005975
-	.incbin "assets/code_080043E8/gUnk_08005975.bin"
+	.incbin "code_080043E8/gUnk_08005975.bin"
 
 gUnk_0800597E:: @ 0800597E
-	.incbin "assets/code_080043E8/gUnk_0800597E.bin"
+	.incbin "code_080043E8/gUnk_0800597E.bin"
 
 gUnk_08005987:: @ 08005987
-	.incbin "assets/code_080043E8/gUnk_08005987.bin"
+	.incbin "code_080043E8/gUnk_08005987.bin"
 
 gUnk_08005990:: @ 08005990
-	.incbin "assets/code_080043E8/gUnk_08005990.bin"
+	.incbin "code_080043E8/gUnk_08005990.bin"
 
 gUnk_080059A4:: @ 080059A4
-	.incbin "assets/code_080043E8/gUnk_080059A4.bin"
+	.incbin "code_080043E8/gUnk_080059A4.bin"
 
 gUnk_080059A9:: @ 080059A9
-	.incbin "assets/code_080043E8/gUnk_080059A9.bin"
+	.incbin "code_080043E8/gUnk_080059A9.bin"
 
 gUnk_08005A41:: @ 08005A41
-	.incbin "assets/code_080043E8/gUnk_08005A41.bin"
+	.incbin "code_080043E8/gUnk_08005A41.bin"
 
 gUnk_08005A55:: @ 08005A55
-	.incbin "assets/code_080043E8/gUnk_08005A55.bin"
+	.incbin "code_080043E8/gUnk_08005A55.bin"
 
 gUnk_08005A5A:: @ 08005A5A
-	.incbin "assets/code_080043E8/gUnk_08005A5A.bin"
+	.incbin "code_080043E8/gUnk_08005A5A.bin"
 
 gUnk_08005A86:: @ 08005A86
-	.incbin "assets/code_080043E8/gUnk_08005A86.bin"
+	.incbin "code_080043E8/gUnk_08005A86.bin"
 
 gUnk_08005A9B:: @ 08005A9B
-	.incbin "assets/code_080043E8/gUnk_08005A9B.bin"
+	.incbin "code_080043E8/gUnk_08005A9B.bin"
 
 gUnk_08005AA0:: @ 08005AA0
-	.incbin "assets/code_080043E8/gUnk_08005AA0.bin"
+	.incbin "code_080043E8/gUnk_08005AA0.bin"
 
 gUnk_08005AB9:: @ 08005AB9
-	.incbin "assets/code_080043E8/gUnk_08005AB9.bin"
+	.incbin "code_080043E8/gUnk_08005AB9.bin"
 
 gUnk_08005AD2:: @ 08005AD2
-	.incbin "assets/code_080043E8/gUnk_08005AD2.bin"
+	.incbin "code_080043E8/gUnk_08005AD2.bin"
 
 gUnk_08005AEB:: @ 08005AEB
-	.incbin "assets/code_080043E8/gUnk_08005AEB.bin"
+	.incbin "code_080043E8/gUnk_08005AEB.bin"
 
 gUnk_08005AF4:: @ 08005AF4
-	.incbin "assets/code_080043E8/gUnk_08005AF4.bin"
+	.incbin "code_080043E8/gUnk_08005AF4.bin"
 
 gUnk_08005B18:: @ 08005B18
-	.incbin "assets/code_080043E8/gUnk_08005B18.bin"
+	.incbin "code_080043E8/gUnk_08005B18.bin"
 
 gUnk_08005B24:: @ 08005B24
-	.incbin "assets/code_080043E8/gUnk_08005B24.bin"
+	.incbin "code_080043E8/gUnk_08005B24.bin"
 
 gUnk_08005B4D:: @ 08005B4D
-	.incbin "assets/code_080043E8/gUnk_08005B4D.bin"
+	.incbin "code_080043E8/gUnk_08005B4D.bin"
 
 gUnk_08005B76:: @ 08005B76
-	.incbin "assets/code_080043E8/gUnk_08005B76.bin"
+	.incbin "code_080043E8/gUnk_08005B76.bin"
 
 gUnk_08005B9F:: @ 08005B9F
-	.incbin "assets/code_080043E8/gUnk_08005B9F.bin"
+	.incbin "code_080043E8/gUnk_08005B9F.bin"
 
 gUnk_08005BA8:: @ 08005BA8
-	.incbin "assets/code_080043E8/gUnk_08005BA8.bin"
+	.incbin "code_080043E8/gUnk_08005BA8.bin"
 
 gUnk_08005BB1:: @ 08005BB1
-	.incbin "assets/code_080043E8/gUnk_08005BB1.bin"
+	.incbin "code_080043E8/gUnk_08005BB1.bin"
 
 gUnk_08005BBA:: @ 08005BBA
-	.incbin "assets/code_080043E8/gUnk_08005BBA.bin"
+	.incbin "code_080043E8/gUnk_08005BBA.bin"
 
 gUnk_08005BC3:: @ 08005BC3
-	.incbin "assets/code_080043E8/gUnk_08005BC3.bin"
+	.incbin "code_080043E8/gUnk_08005BC3.bin"
 
 gUnk_08005BCC:: @ 08005BCC
-	.incbin "assets/code_080043E8/gUnk_08005BCC.bin"
+	.incbin "code_080043E8/gUnk_08005BCC.bin"
 
 gUnk_08005BE5:: @ 08005BE5
-	.incbin "assets/code_080043E8/gUnk_08005BE5.bin"
+	.incbin "code_080043E8/gUnk_08005BE5.bin"
 
 gUnk_08005BFE:: @ 08005BFE
-	.incbin "assets/code_080043E8/gUnk_08005BFE.bin"
+	.incbin "code_080043E8/gUnk_08005BFE.bin"
 
 gUnk_08005C17:: @ 08005C17
-	.incbin "assets/code_080043E8/gUnk_08005C17.bin"
+	.incbin "code_080043E8/gUnk_08005C17.bin"
 
 gUnk_08005C30:: @ 08005C30
-	.incbin "assets/code_080043E8/gUnk_08005C30.bin"
+	.incbin "code_080043E8/gUnk_08005C30.bin"
 
 gUnk_08005C49:: @ 08005C49
-	.incbin "assets/code_080043E8/gUnk_08005C49.bin"
+	.incbin "code_080043E8/gUnk_08005C49.bin"
 
 gUnk_08005C62:: @ 08005C62
-	.incbin "assets/code_080043E8/gUnk_08005C62.bin"
+	.incbin "code_080043E8/gUnk_08005C62.bin"
 
 gUnk_08005C7B:: @ 08005C7B
-	.incbin "assets/code_080043E8/gUnk_08005C7B.bin"
+	.incbin "code_080043E8/gUnk_08005C7B.bin"
 
 gUnk_08005C88:: @ 08005C88
-	.incbin "assets/code_080043E8/gUnk_08005C88.bin"
+	.incbin "code_080043E8/gUnk_08005C88.bin"
 
 gUnk_08005C95:: @ 08005C95
-	.incbin "assets/code_080043E8/gUnk_08005C95.bin"
+	.incbin "code_080043E8/gUnk_08005C95.bin"
 
 gUnk_08005C9A:: @ 08005C9A
-	.incbin "assets/code_080043E8/gUnk_08005C9A.bin"
+	.incbin "code_080043E8/gUnk_08005C9A.bin"
 
 gUnk_08005C9F:: @ 08005C9F
-	.incbin "assets/code_080043E8/gUnk_08005C9F.bin"
+	.incbin "code_080043E8/gUnk_08005C9F.bin"
 
 gUnk_08005CA4:: @ 08005CA4
-	.incbin "assets/code_080043E8/gUnk_08005CA4.bin"
+	.incbin "code_080043E8/gUnk_08005CA4.bin"
 
 gUnk_08005CCD:: @ 08005CCD
-	.incbin "assets/code_080043E8/gUnk_08005CCD.bin"
+	.incbin "code_080043E8/gUnk_08005CCD.bin"
 
 gUnk_08005CF6:: @ 08005CF6
-	.incbin "assets/code_080043E8/gUnk_08005CF6.bin"
+	.incbin "code_080043E8/gUnk_08005CF6.bin"
 
 gUnk_08005D1F:: @ 08005D1F
-	.incbin "assets/code_080043E8/gUnk_08005D1F.bin"
+	.incbin "code_080043E8/gUnk_08005D1F.bin"
 
 gUnk_08005D40:: @ 08005D40
-	.incbin "assets/code_080043E8/gUnk_08005D40.bin"
+	.incbin "code_080043E8/gUnk_08005D40.bin"
 
 gUnk_08005D50:: @ 08005D50
-	.incbin "assets/code_080043E8/gUnk_08005D50.bin"
+	.incbin "code_080043E8/gUnk_08005D50.bin"
 
 gUnk_08005D64:: @ 08005D64
-	.incbin "assets/code_080043E8/gUnk_08005D64.bin"
+	.incbin "code_080043E8/gUnk_08005D64.bin"
 
 gUnk_08005D85:: @ 08005D85
-	.incbin "assets/code_080043E8/gUnk_08005D85.bin"
+	.incbin "code_080043E8/gUnk_08005D85.bin"
 
 gUnk_08005DA6:: @ 08005DA6
-	.incbin "assets/code_080043E8/gUnk_08005DA6.bin"
+	.incbin "code_080043E8/gUnk_08005DA6.bin"
 
 gUnk_08005DB6:: @ 08005DB6
-	.incbin "assets/code_080043E8/gUnk_08005DB6.bin"
+	.incbin "code_080043E8/gUnk_08005DB6.bin"
 
 gUnk_08005DCA:: @ 08005DCA
-	.incbin "assets/code_080043E8/gUnk_08005DCA.bin"
+	.incbin "code_080043E8/gUnk_08005DCA.bin"
 
 gUnk_08005DEB:: @ 08005DEB
-	.incbin "assets/code_080043E8/gUnk_08005DEB.bin"
+	.incbin "code_080043E8/gUnk_08005DEB.bin"
 
 gUnk_08005E0C:: @ 08005E0C
-	.incbin "assets/code_080043E8/gUnk_08005E0C.bin"
+	.incbin "code_080043E8/gUnk_08005E0C.bin"
 
 gUnk_08005E1D:: @ 08005E1D
-	.incbin "assets/code_080043E8/gUnk_08005E1D.bin"
+	.incbin "code_080043E8/gUnk_08005E1D.bin"
 
 gUnk_08005E31:: @ 08005E31
-	.incbin "assets/code_080043E8/gUnk_08005E31.bin"
+	.incbin "code_080043E8/gUnk_08005E31.bin"
 
 gUnk_08005E52:: @ 08005E52
-	.incbin "assets/code_080043E8/gUnk_08005E52.bin"
+	.incbin "code_080043E8/gUnk_08005E52.bin"
 
 gUnk_08005E73:: @ 08005E73
-	.incbin "assets/code_080043E8/gUnk_08005E73.bin"
+	.incbin "code_080043E8/gUnk_08005E73.bin"
 
 gUnk_08005E88:: @ 08005E88
-	.incbin "assets/code_080043E8/gUnk_08005E88.bin"
+	.incbin "code_080043E8/gUnk_08005E88.bin"
 
 gUnk_08005E9D:: @ 08005E9D
-	.incbin "assets/code_080043E8/gUnk_08005E9D.bin"
+	.incbin "code_080043E8/gUnk_08005E9D.bin"
 
 gUnk_08005EB2:: @ 08005EB2
-	.incbin "assets/code_080043E8/gUnk_08005EB2.bin"
+	.incbin "code_080043E8/gUnk_08005EB2.bin"
 
 gUnk_08005ED3:: @ 08005ED3
-	.incbin "assets/code_080043E8/gUnk_08005ED3.bin"
+	.incbin "code_080043E8/gUnk_08005ED3.bin"
 
 gUnk_08005EF4:: @ 08005EF4
-	.incbin "assets/code_080043E8/gUnk_08005EF4.bin"
+	.incbin "code_080043E8/gUnk_08005EF4.bin"
 
 gUnk_08005F15:: @ 08005F15
-	.incbin "assets/code_080043E8/gUnk_08005F15.bin"
+	.incbin "code_080043E8/gUnk_08005F15.bin"
 
 gUnk_08005F22:: @ 08005F22
-	.incbin "assets/code_080043E8/gUnk_08005F22.bin"
+	.incbin "code_080043E8/gUnk_08005F22.bin"
 
 gUnk_08005F2F:: @ 08005F2F
-	.incbin "assets/code_080043E8/gUnk_08005F2F.bin"
+	.incbin "code_080043E8/gUnk_08005F2F.bin"
 
 gUnk_08005F3C:: @ 08005F3C
-	.incbin "assets/code_080043E8/gUnk_08005F3C.bin"
+	.incbin "code_080043E8/gUnk_08005F3C.bin"
 
 gUnk_08005F49:: @ 08005F49
-	.incbin "assets/code_080043E8/gUnk_08005F49.bin"
+	.incbin "code_080043E8/gUnk_08005F49.bin"
 
 gUnk_08005F56:: @ 08005F56
-	.incbin "assets/code_080043E8/gUnk_08005F56.bin"
+	.incbin "code_080043E8/gUnk_08005F56.bin"
 
 gUnk_08005F63:: @ 08005F63
-	.incbin "assets/code_080043E8/gUnk_08005F63.bin"
+	.incbin "code_080043E8/gUnk_08005F63.bin"
 
 gUnk_08005F6B:: @ 08005F6B
-	.incbin "assets/code_080043E8/gUnk_08005F6B.bin"
+	.incbin "code_080043E8/gUnk_08005F6B.bin"
 
 gUnk_08005F78:: @ 08005F78
-	.incbin "assets/code_080043E8/gUnk_08005F78.bin"
+	.incbin "code_080043E8/gUnk_08005F78.bin"
 
 gUnk_08005F80:: @ 08005F80
-	.incbin "assets/code_080043E8/gUnk_08005F80.bin"
+	.incbin "code_080043E8/gUnk_08005F80.bin"
 
 gUnk_08005F8D:: @ 08005F8D
-	.incbin "assets/code_080043E8/gUnk_08005F8D.bin"
+	.incbin "code_080043E8/gUnk_08005F8D.bin"
 
 gUnk_08005F95:: @ 08005F95
-	.incbin "assets/code_080043E8/gUnk_08005F95.bin"
+	.incbin "code_080043E8/gUnk_08005F95.bin"
 
 gUnk_08005FA2:: @ 08005FA2
-	.incbin "assets/code_080043E8/gUnk_08005FA2.bin"
+	.incbin "code_080043E8/gUnk_08005FA2.bin"
 
 gUnk_08005FAA:: @ 08005FAA
-	.incbin "assets/code_080043E8/gUnk_08005FAA.bin"
+	.incbin "code_080043E8/gUnk_08005FAA.bin"
 
 gUnk_08005FB7:: @ 08005FB7
-	.incbin "assets/code_080043E8/gUnk_08005FB7.bin"
+	.incbin "code_080043E8/gUnk_08005FB7.bin"
 
 gUnk_08005FBF:: @ 08005FBF
-	.incbin "assets/code_080043E8/gUnk_08005FBF.bin"
+	.incbin "code_080043E8/gUnk_08005FBF.bin"
 
 gUnk_08005FCC:: @ 08005FCC
-	.incbin "assets/code_080043E8/gUnk_08005FCC.bin"
+	.incbin "code_080043E8/gUnk_08005FCC.bin"
 
 gUnk_08005FD4:: @ 08005FD4
-	.incbin "assets/code_080043E8/gUnk_08005FD4.bin"
+	.incbin "code_080043E8/gUnk_08005FD4.bin"
 
 gUnk_08005FE1:: @ 08005FE1
-	.incbin "assets/code_080043E8/gUnk_08005FE1.bin"
+	.incbin "code_080043E8/gUnk_08005FE1.bin"
 
 gUnk_08005FE9:: @ 08005FE9
-	.incbin "assets/code_080043E8/gUnk_08005FE9.bin"
+	.incbin "code_080043E8/gUnk_08005FE9.bin"
 
 gUnk_08005FF6:: @ 08005FF6
-	.incbin "assets/code_080043E8/gUnk_08005FF6.bin"
+	.incbin "code_080043E8/gUnk_08005FF6.bin"
 
 gUnk_08005FFE:: @ 08005FFE
-	.incbin "assets/code_080043E8/gUnk_08005FFE.bin"
+	.incbin "code_080043E8/gUnk_08005FFE.bin"
 
 gUnk_0800600B:: @ 0800600B
-	.incbin "assets/code_080043E8/gUnk_0800600B.bin"
+	.incbin "code_080043E8/gUnk_0800600B.bin"
 
 gUnk_08006013:: @ 08006013
-	.incbin "assets/code_080043E8/gUnk_08006013.bin"
+	.incbin "code_080043E8/gUnk_08006013.bin"
 
 gUnk_08006020:: @ 08006020
-	.incbin "assets/code_080043E8/gUnk_08006020.bin"
+	.incbin "code_080043E8/gUnk_08006020.bin"
 
 gUnk_08006041:: @ 08006041
-	.incbin "assets/code_080043E8/gUnk_08006041.bin"
+	.incbin "code_080043E8/gUnk_08006041.bin"
 
 gUnk_08006062:: @ 08006062
-	.incbin "assets/code_080043E8/gUnk_08006062.bin"
+	.incbin "code_080043E8/gUnk_08006062.bin"
 
 gUnk_08006083:: @ 08006083
-	.incbin "assets/code_080043E8/gUnk_08006083.bin"
+	.incbin "code_080043E8/gUnk_08006083.bin"
 
 gUnk_080060E3:: @ 080060E3
-	.incbin "assets/code_080043E8/gUnk_080060E3.bin"
+	.incbin "code_080043E8/gUnk_080060E3.bin"
 
 gUnk_0800611F:: @ 0800611F
-	.incbin "assets/code_080043E8/gUnk_0800611F.bin"
+	.incbin "code_080043E8/gUnk_0800611F.bin"
 
 gUnk_0800615B:: @ 0800615B
-	.incbin "assets/code_080043E8/gUnk_0800615B.bin"
+	.incbin "code_080043E8/gUnk_0800615B.bin"
 
 gUnk_08006197:: @ 08006197
-	.incbin "assets/code_080043E8/gUnk_08006197.bin"
+	.incbin "code_080043E8/gUnk_08006197.bin"
 
 gUnk_080061D8:: @ 080061D8
-	.incbin "assets/code_080043E8/gUnk_080061D8.bin"
+	.incbin "code_080043E8/gUnk_080061D8.bin"
 
 gUnk_08006219:: @ 08006219
-	.incbin "assets/code_080043E8/gUnk_08006219.bin"
+	.incbin "code_080043E8/gUnk_08006219.bin"
 
 gUnk_0800625A:: @ 0800625A
-	.incbin "assets/code_080043E8/gUnk_0800625A.bin"
+	.incbin "code_080043E8/gUnk_0800625A.bin"
 
 gUnk_0800627A:: @ 0800627A
-	.incbin "assets/code_080043E8/gUnk_0800627A.bin"
+	.incbin "code_080043E8/gUnk_0800627A.bin"
 
 gUnk_0800629A:: @ 0800629A
-	.incbin "assets/code_080043E8/gUnk_0800629A.bin"
+	.incbin "code_080043E8/gUnk_0800629A.bin"
 
 gUnk_080062BA:: @ 080062BA
-	.incbin "assets/code_080043E8/gUnk_080062BA.bin"
+	.incbin "code_080043E8/gUnk_080062BA.bin"
 
 gUnk_080062C2:: @ 080062C2
-	.incbin "assets/code_080043E8/gUnk_080062C2.bin"
+	.incbin "code_080043E8/gUnk_080062C2.bin"
 
 gUnk_080062C7:: @ 080062C7
-	.incbin "assets/code_080043E8/gUnk_080062C7.bin"
+	.incbin "code_080043E8/gUnk_080062C7.bin"
 
 gUnk_080062CF:: @ 080062CF
-	.incbin "assets/code_080043E8/gUnk_080062CF.bin"
+	.incbin "code_080043E8/gUnk_080062CF.bin"
 
 gUnk_080062D4:: @ 080062D4
-	.incbin "assets/code_080043E8/gUnk_080062D4.bin"
+	.incbin "code_080043E8/gUnk_080062D4.bin"
 
 gUnk_080062DC:: @ 080062DC
-	.incbin "assets/code_080043E8/gUnk_080062DC.bin"
+	.incbin "code_080043E8/gUnk_080062DC.bin"
 
 gUnk_080062E1:: @ 080062E1
-	.incbin "assets/code_080043E8/gUnk_080062E1.bin"
+	.incbin "code_080043E8/gUnk_080062E1.bin"
 
 gUnk_08006305:: @ 08006305
-	.incbin "assets/code_080043E8/gUnk_08006305.bin"
+	.incbin "code_080043E8/gUnk_08006305.bin"
 
 gUnk_08006329:: @ 08006329
-	.incbin "assets/code_080043E8/gUnk_08006329.bin"
+	.incbin "code_080043E8/gUnk_08006329.bin"
 
 gUnk_0800634D:: @ 0800634D
-	.incbin "assets/code_080043E8/gUnk_0800634D.bin"
+	.incbin "code_080043E8/gUnk_0800634D.bin"
 
 gUnk_08006361:: @ 08006361
-	.incbin "assets/code_080043E8/gUnk_08006361.bin"
+	.incbin "code_080043E8/gUnk_08006361.bin"
 
 gUnk_08006375:: @ 08006375
-	.incbin "assets/code_080043E8/gUnk_08006375.bin"
+	.incbin "code_080043E8/gUnk_08006375.bin"
 
 gUnk_08006389:: @ 08006389
-	.incbin "assets/code_080043E8/gUnk_08006389.bin"
+	.incbin "code_080043E8/gUnk_08006389.bin"
 
 gUnk_0800639D:: @ 0800639D
-	.incbin "assets/code_080043E8/gUnk_0800639D.bin"
+	.incbin "code_080043E8/gUnk_0800639D.bin"
 
 gUnk_080063B2:: @ 080063B2
-	.incbin "assets/code_080043E8/gUnk_080063B2.bin"
+	.incbin "code_080043E8/gUnk_080063B2.bin"
 
 gUnk_080063C6:: @ 080063C6
-	.incbin "assets/code_080043E8/gUnk_080063C6.bin"
+	.incbin "code_080043E8/gUnk_080063C6.bin"
 
 gUnk_080063DB:: @ 080063DB
-	.incbin "assets/code_080043E8/gUnk_080063DB.bin"
+	.incbin "code_080043E8/gUnk_080063DB.bin"
 
 gUnk_080063EF:: @ 080063EF
-	.incbin "assets/code_080043E8/gUnk_080063EF.bin"
+	.incbin "code_080043E8/gUnk_080063EF.bin"
 
 gUnk_08006404:: @ 08006404
-	.incbin "assets/code_080043E8/gUnk_08006404.bin"
+	.incbin "code_080043E8/gUnk_08006404.bin"
 
 gUnk_08006418:: @ 08006418
-	.incbin "assets/code_080043E8/gUnk_08006418.bin"
+	.incbin "code_080043E8/gUnk_08006418.bin"
 
 gUnk_0800642D:: @ 0800642D
-	.incbin "assets/code_080043E8/gUnk_0800642D.bin"
+	.incbin "code_080043E8/gUnk_0800642D.bin"
 
 gUnk_08006451:: @ 08006451
-	.incbin "assets/code_080043E8/gUnk_08006451.bin"
+	.incbin "code_080043E8/gUnk_08006451.bin"
 
 gUnk_08006475:: @ 08006475
-	.incbin "assets/code_080043E8/gUnk_08006475.bin"
+	.incbin "code_080043E8/gUnk_08006475.bin"
 
 gUnk_08006499:: @ 08006499
-	.incbin "assets/code_080043E8/gUnk_08006499.bin"
+	.incbin "code_080043E8/gUnk_08006499.bin"
 
 gUnk_080064BD:: @ 080064BD
-	.incbin "assets/code_080043E8/gUnk_080064BD.bin"
+	.incbin "code_080043E8/gUnk_080064BD.bin"
 
 gUnk_080064E2:: @ 080064E2
-	.incbin "assets/code_080043E8/gUnk_080064E2.bin"
+	.incbin "code_080043E8/gUnk_080064E2.bin"
 
 gUnk_08006507:: @ 08006507
-	.incbin "assets/code_080043E8/gUnk_08006507.bin"
+	.incbin "code_080043E8/gUnk_08006507.bin"
 
 gUnk_0800652C:: @ 0800652C
-	.incbin "assets/code_080043E8/gUnk_0800652C.bin"
+	.incbin "code_080043E8/gUnk_0800652C.bin"
 
 gUnk_08006551:: @ 08006551
-	.incbin "assets/code_080043E8/gUnk_08006551.bin"
+	.incbin "code_080043E8/gUnk_08006551.bin"
 
 gUnk_0800657A:: @ 0800657A
-	.incbin "assets/code_080043E8/gUnk_0800657A.bin"
+	.incbin "code_080043E8/gUnk_0800657A.bin"
 
 gUnk_080065A3:: @ 080065A3
-	.incbin "assets/code_080043E8/gUnk_080065A3.bin"
+	.incbin "code_080043E8/gUnk_080065A3.bin"
 
 gUnk_080065CF:: @ 080065CF
-	.incbin "assets/code_080043E8/gUnk_080065CF.bin"
+	.incbin "code_080043E8/gUnk_080065CF.bin"
 
 gUnk_080065FB:: @ 080065FB
-	.incbin "assets/code_080043E8/gUnk_080065FB.bin"
+	.incbin "code_080043E8/gUnk_080065FB.bin"
 
 gUnk_08006627:: @ 08006627
-	.incbin "assets/code_080043E8/gUnk_08006627.bin"
+	.incbin "code_080043E8/gUnk_08006627.bin"
 
 gUnk_08006653:: @ 08006653
-	.incbin "assets/code_080043E8/gUnk_08006653.bin"
+	.incbin "code_080043E8/gUnk_08006653.bin"
 
 gUnk_0800666F:: @ 0800666F
-	.incbin "assets/code_080043E8/gUnk_0800666F.bin"
+	.incbin "code_080043E8/gUnk_0800666F.bin"
 
 gUnk_0800668B:: @ 0800668B
-	.incbin "assets/code_080043E8/gUnk_0800668B.bin"
+	.incbin "code_080043E8/gUnk_0800668B.bin"
 
 gUnk_080066A7:: @ 080066A7
-	.incbin "assets/code_080043E8/gUnk_080066A7.bin"
+	.incbin "code_080043E8/gUnk_080066A7.bin"
 
 gUnk_080066BF:: @ 080066BF
-	.incbin "assets/code_080043E8/gUnk_080066BF.bin"
+	.incbin "code_080043E8/gUnk_080066BF.bin"
 
 gUnk_080066D7:: @ 080066D7
-	.incbin "assets/code_080043E8/gUnk_080066D7.bin"
+	.incbin "code_080043E8/gUnk_080066D7.bin"
 
 gUnk_080066EF:: @ 080066EF
-	.incbin "assets/code_080043E8/gUnk_080066EF.bin"
+	.incbin "code_080043E8/gUnk_080066EF.bin"
 
 gUnk_08006718:: @ 08006718
-	.incbin "assets/code_080043E8/gUnk_08006718.bin"
+	.incbin "code_080043E8/gUnk_08006718.bin"
 
 gUnk_08006785:: @ 08006785
-	.incbin "assets/code_080043E8/gUnk_08006785.bin"
+	.incbin "code_080043E8/gUnk_08006785.bin"
 
 gUnk_0800679D:: @ 0800679D
-	.incbin "assets/code_080043E8/gUnk_0800679D.bin"
+	.incbin "code_080043E8/gUnk_0800679D.bin"
 
 gUnk_080067B5:: @ 080067B5
-	.incbin "assets/code_080043E8/gUnk_080067B5.bin"
+	.incbin "code_080043E8/gUnk_080067B5.bin"
 
 gUnk_080067DE:: @ 080067DE
-	.incbin "assets/code_080043E8/gUnk_080067DE.bin"
+	.incbin "code_080043E8/gUnk_080067DE.bin"
 
 gUnk_08006807:: @ 08006807
-	.incbin "assets/code_080043E8/gUnk_08006807.bin"
+	.incbin "code_080043E8/gUnk_08006807.bin"
 
 gUnk_0800681F:: @ 0800681F
-	.incbin "assets/code_080043E8/gUnk_0800681F.bin"
+	.incbin "code_080043E8/gUnk_0800681F.bin"
 
 gUnk_08006848:: @ 08006848
-	.incbin "assets/code_080043E8/gUnk_08006848.bin"
+	.incbin "code_080043E8/gUnk_08006848.bin"
 
 gUnk_08006871:: @ 08006871
-	.incbin "assets/code_080043E8/gUnk_08006871.bin"
+	.incbin "code_080043E8/gUnk_08006871.bin"
 
 gUnk_08006889:: @ 08006889
-	.incbin "assets/code_080043E8/gUnk_08006889.bin"
+	.incbin "code_080043E8/gUnk_08006889.bin"
 
 gUnk_0800689E:: @ 0800689E
-	.incbin "assets/code_080043E8/gUnk_0800689E.bin"
+	.incbin "code_080043E8/gUnk_0800689E.bin"
 
 gUnk_080068CA:: @ 080068CA
-	.incbin "assets/code_080043E8/gUnk_080068CA.bin"
+	.incbin "code_080043E8/gUnk_080068CA.bin"
 
 gUnk_080068F6:: @ 080068F6
-	.incbin "assets/code_080043E8/gUnk_080068F6.bin"
+	.incbin "code_080043E8/gUnk_080068F6.bin"
 
 gUnk_08006922:: @ 08006922
-	.incbin "assets/code_080043E8/gUnk_08006922.bin"
+	.incbin "code_080043E8/gUnk_08006922.bin"
 
 gUnk_08006956:: @ 08006956
-	.incbin "assets/code_080043E8/gUnk_08006956.bin"
+	.incbin "code_080043E8/gUnk_08006956.bin"
 
 gUnk_0800698A:: @ 0800698A
-	.incbin "assets/code_080043E8/gUnk_0800698A.bin"
+	.incbin "code_080043E8/gUnk_0800698A.bin"
 
 gUnk_080069BE:: @ 080069BE
-	.incbin "assets/code_080043E8/gUnk_080069BE.bin"
+	.incbin "code_080043E8/gUnk_080069BE.bin"
 
 gUnk_08006A02:: @ 08006A02
-	.incbin "assets/code_080043E8/gUnk_08006A02.bin"
+	.incbin "code_080043E8/gUnk_08006A02.bin"
 
 gUnk_08006A46:: @ 08006A46
-	.incbin "assets/code_080043E8/gUnk_08006A46.bin"
+	.incbin "code_080043E8/gUnk_08006A46.bin"
 
 gUnk_08006A8A:: @ 08006A8A
-	.incbin "assets/code_080043E8/gUnk_08006A8A.bin"
+	.incbin "code_080043E8/gUnk_08006A8A.bin"
 
 gUnk_08006A9F:: @ 08006A9F
-	.incbin "assets/code_080043E8/gUnk_08006A9F.bin"
+	.incbin "code_080043E8/gUnk_08006A9F.bin"
 
 gUnk_08006AAF:: @ 08006AAF
-	.incbin "assets/code_080043E8/gUnk_08006AAF.bin"
+	.incbin "code_080043E8/gUnk_08006AAF.bin"
 
 gUnk_08006AC4:: @ 08006AC4
-	.incbin "assets/code_080043E8/gUnk_08006AC4.bin"
+	.incbin "code_080043E8/gUnk_08006AC4.bin"
 
 gUnk_08006AD4:: @ 08006AD4
-	.incbin "assets/code_080043E8/gUnk_08006AD4.bin"
+	.incbin "code_080043E8/gUnk_08006AD4.bin"
 
 gUnk_08006AE9:: @ 08006AE9
-	.incbin "assets/code_080043E8/gUnk_08006AE9.bin"
+	.incbin "code_080043E8/gUnk_08006AE9.bin"
 
 gUnk_08006AF9:: @ 08006AF9
-	.incbin "assets/code_080043E8/gUnk_08006AF9.bin"
+	.incbin "code_080043E8/gUnk_08006AF9.bin"
 
 gUnk_08006B09:: @ 08006B09
-	.incbin "assets/code_080043E8/gUnk_08006B09.bin"
+	.incbin "code_080043E8/gUnk_08006B09.bin"
 
 gUnk_08006B32:: @ 08006B32
-	.incbin "assets/code_080043E8/gUnk_08006B32.bin"
+	.incbin "code_080043E8/gUnk_08006B32.bin"
 
 gUnk_08006B4E:: @ 08006B4E
-	.incbin "assets/code_080043E8/gUnk_08006B4E.bin"
+	.incbin "code_080043E8/gUnk_08006B4E.bin"
 
 gUnk_08006B5E:: @ 08006B5E
-	.incbin "assets/code_080043E8/gUnk_08006B5E.bin"
+	.incbin "code_080043E8/gUnk_08006B5E.bin"
 
 gUnk_08006B87:: @ 08006B87
-	.incbin "assets/code_080043E8/gUnk_08006B87.bin"
+	.incbin "code_080043E8/gUnk_08006B87.bin"
 
 gUnk_08006BA3:: @ 08006BA3
-	.incbin "assets/code_080043E8/gUnk_08006BA3.bin"
+	.incbin "code_080043E8/gUnk_08006BA3.bin"
 
 gUnk_08006BB3:: @ 08006BB3
-	.incbin "assets/code_080043E8/gUnk_08006BB3.bin"
+	.incbin "code_080043E8/gUnk_08006BB3.bin"
 
 gUnk_08006BB8:: @ 08006BB8
-	.incbin "assets/code_080043E8/gUnk_08006BB8.bin"
+	.incbin "code_080043E8/gUnk_08006BB8.bin"
 
 gUnk_08006BD4:: @ 08006BD4
-	.incbin "assets/code_080043E8/gUnk_08006BD4.bin"
+	.incbin "code_080043E8/gUnk_08006BD4.bin"
 
 gUnk_08006BFD:: @ 08006BFD
-	.incbin "assets/code_080043E8/gUnk_08006BFD.bin"
+	.incbin "code_080043E8/gUnk_08006BFD.bin"
 
 gUnk_08006C26:: @ 08006C26
-	.incbin "assets/code_080043E8/gUnk_08006C26.bin"
+	.incbin "code_080043E8/gUnk_08006C26.bin"
 
 gUnk_08006C4F:: @ 08006C4F
-	.incbin "assets/code_080043E8/gUnk_08006C4F.bin"
+	.incbin "code_080043E8/gUnk_08006C4F.bin"
 
 gUnk_08006C93:: @ 08006C93
-	.incbin "assets/code_080043E8/gUnk_08006C93.bin"
+	.incbin "code_080043E8/gUnk_08006C93.bin"
 
 gUnk_08006CD7:: @ 08006CD7
-	.incbin "assets/code_080043E8/gUnk_08006CD7.bin"
+	.incbin "code_080043E8/gUnk_08006CD7.bin"
 
 gUnk_08006D1B:: @ 08006D1B
-	.incbin "assets/code_080043E8/gUnk_08006D1B.bin"
+	.incbin "code_080043E8/gUnk_08006D1B.bin"
 
 gUnk_08006D4B:: @ 08006D4B
-	.incbin "assets/code_080043E8/gUnk_08006D4B.bin"
+	.incbin "code_080043E8/gUnk_08006D4B.bin"
 
 gUnk_08006D7B:: @ 08006D7B
-	.incbin "assets/code_080043E8/gUnk_08006D7B.bin"
+	.incbin "code_080043E8/gUnk_08006D7B.bin"
 
 gUnk_08006DAB:: @ 08006DAB
-	.incbin "assets/code_080043E8/gUnk_08006DAB.bin"
+	.incbin "code_080043E8/gUnk_08006DAB.bin"
 
 gUnk_08006DB7:: @ 08006DB7
-	.incbin "assets/code_080043E8/gUnk_08006DB7.bin"
+	.incbin "code_080043E8/gUnk_08006DB7.bin"
 
 gUnk_08006DC3:: @ 08006DC3
-	.incbin "assets/code_080043E8/gUnk_08006DC3.bin"
+	.incbin "code_080043E8/gUnk_08006DC3.bin"
 
 gUnk_08006DCF:: @ 08006DCF
-	.incbin "assets/code_080043E8/gUnk_08006DCF.bin"
+	.incbin "code_080043E8/gUnk_08006DCF.bin"
 
 gUnk_08006E0B:: @ 08006E0B
-	.incbin "assets/code_080043E8/gUnk_08006E0B.bin"
+	.incbin "code_080043E8/gUnk_08006E0B.bin"
 
 gUnk_08006E1B:: @ 08006E1B
-	.incbin "assets/code_080043E8/gUnk_08006E1B.bin"
+	.incbin "code_080043E8/gUnk_08006E1B.bin"
 
 gUnk_08006E1F:: @ 08006E1F
-	.incbin "assets/code_080043E8/gUnk_08006E1F.bin"
+	.incbin "code_080043E8/gUnk_08006E1F.bin"
 
 gUnk_08006E38:: @ 08006E38
-	.incbin "assets/code_080043E8/gUnk_08006E38.bin"
+	.incbin "code_080043E8/gUnk_08006E38.bin"
 
 gUnk_08006E48:: @ 08006E48
-	.incbin "assets/code_080043E8/gUnk_08006E48.bin"
+	.incbin "code_080043E8/gUnk_08006E48.bin"
 
 gUnk_08006E4C:: @ 08006E4C
-	.incbin "assets/code_080043E8/gUnk_08006E4C.bin"
+	.incbin "code_080043E8/gUnk_08006E4C.bin"
 
 gUnk_08006E65:: @ 08006E65
-	.incbin "assets/code_080043E8/gUnk_08006E65.bin"
+	.incbin "code_080043E8/gUnk_08006E65.bin"
 
 gUnk_08006E75:: @ 08006E75
-	.incbin "assets/code_080043E8/gUnk_08006E75.bin"
+	.incbin "code_080043E8/gUnk_08006E75.bin"
 
 gUnk_08006E79:: @ 08006E79
-	.incbin "assets/code_080043E8/gUnk_08006E79.bin"
+	.incbin "code_080043E8/gUnk_08006E79.bin"
 
 gUnk_08006E92:: @ 08006E92
-	.incbin "assets/code_080043E8/gUnk_08006E92.bin"
+	.incbin "code_080043E8/gUnk_08006E92.bin"
 
 gUnk_08006EAE:: @ 08006EAE
-	.incbin "assets/code_080043E8/gUnk_08006EAE.bin"
+	.incbin "code_080043E8/gUnk_08006EAE.bin"
 
 gUnk_08006ECA:: @ 08006ECA
-	.incbin "assets/code_080043E8/gUnk_08006ECA.bin"
+	.incbin "code_080043E8/gUnk_08006ECA.bin"
 
 gUnk_08006EE6:: @ 08006EE6
-	.incbin "assets/code_080043E8/gUnk_08006EE6.bin"
+	.incbin "code_080043E8/gUnk_08006EE6.bin"
 
 gUnk_08006F02:: @ 08006F02
-	.incbin "assets/code_080043E8/gUnk_08006F02.bin"
+	.incbin "code_080043E8/gUnk_08006F02.bin"
 
 gUnk_08006F12:: @ 08006F12
-	.incbin "assets/code_080043E8/gUnk_08006F12.bin"
+	.incbin "code_080043E8/gUnk_08006F12.bin"
 
 gUnk_08006F1B:: @ 08006F1B
-	.incbin "assets/code_080043E8/gUnk_08006F1B.bin"
+	.incbin "code_080043E8/gUnk_08006F1B.bin"
 
 gUnk_08006F2B:: @ 08006F2B
-	.incbin "assets/code_080043E8/gUnk_08006F2B.bin"
+	.incbin "code_080043E8/gUnk_08006F2B.bin"
 
 gUnk_08006F34:: @ 08006F34
-	.incbin "assets/code_080043E8/gUnk_08006F34.bin"
+	.incbin "code_080043E8/gUnk_08006F34.bin"
 
 gUnk_08006F44:: @ 08006F44
-	.incbin "assets/code_080043E8/gUnk_08006F44.bin"
+	.incbin "code_080043E8/gUnk_08006F44.bin"
 
 gUnk_08006F4D:: @ 08006F4D
-	.incbin "assets/code_080043E8/gUnk_08006F4D.bin"
+	.incbin "code_080043E8/gUnk_08006F4D.bin"
 
 gUnk_08006F62:: @ 08006F62
-	.incbin "assets/code_080043E8/gUnk_08006F62.bin"
+	.incbin "code_080043E8/gUnk_08006F62.bin"
 
 gUnk_08006F77:: @ 08006F77
-	.incbin "assets/code_080043E8/gUnk_08006F77.bin"
+	.incbin "code_080043E8/gUnk_08006F77.bin"
 
 gUnk_08006F8C:: @ 08006F8C
-	.incbin "assets/code_080043E8/gUnk_08006F8C.bin"
+	.incbin "code_080043E8/gUnk_08006F8C.bin"
 
 gUnk_08006FA1:: @ 08006FA1
-	.incbin "assets/code_080043E8/gUnk_08006FA1.bin"
+	.incbin "code_080043E8/gUnk_08006FA1.bin"
 
 gUnk_08006FB6:: @ 08006FB6
-	.incbin "assets/code_080043E8/gUnk_08006FB6.bin"
+	.incbin "code_080043E8/gUnk_08006FB6.bin"
 
 gUnk_08006FFA:: @ 08006FFA
-	.incbin "assets/code_080043E8/gUnk_08006FFA.bin"
+	.incbin "code_080043E8/gUnk_08006FFA.bin"
 
 gUnk_0800703B:: @ 0800703B
-	.incbin "assets/code_080043E8/gUnk_0800703B.bin"
+	.incbin "code_080043E8/gUnk_0800703B.bin"
 
 gUnk_080070AC:: @ 080070AC
-	.incbin "assets/code_080043E8/gUnk_080070AC.bin"
+	.incbin "code_080043E8/gUnk_080070AC.bin"
 
 gUnk_08007159:: @ 08007159
-	.incbin "assets/code_080043E8/gUnk_08007159.bin"
+	.incbin "code_080043E8/gUnk_08007159.bin"
 
 gUnk_08007191:: @ 08007191
-	.incbin "assets/code_080043E8/gUnk_08007191.bin"
+	.incbin "code_080043E8/gUnk_08007191.bin"
 
 gUnk_08007199:: @ 08007199
-	.incbin "assets/code_080043E8/gUnk_08007199.bin"
+	.incbin "code_080043E8/gUnk_08007199.bin"
 
 gUnk_080071D1:: @ 080071D1
-	.incbin "assets/code_080043E8/gUnk_080071D1.bin"
+	.incbin "code_080043E8/gUnk_080071D1.bin"
 
 gUnk_080071D9:: @ 080071D9
-	.incbin "assets/code_080043E8/gUnk_080071D9.bin"
+	.incbin "code_080043E8/gUnk_080071D9.bin"
 
 gUnk_080071F9:: @ 080071F9
-	.incbin "assets/code_080043E8/gUnk_080071F9.bin"
+	.incbin "code_080043E8/gUnk_080071F9.bin"
 
 gUnk_08007201:: @ 08007201
-	.incbin "assets/code_080043E8/gUnk_08007201.bin"
+	.incbin "code_080043E8/gUnk_08007201.bin"
 
 gUnk_0800721E:: @ 0800721E
-	.incbin "assets/code_080043E8/gUnk_0800721E.bin"
+	.incbin "code_080043E8/gUnk_0800721E.bin"
 
 gUnk_0800723B:: @ 0800723B
-	.incbin "assets/code_080043E8/gUnk_0800723B.bin"
+	.incbin "code_080043E8/gUnk_0800723B.bin"
 
 gUnk_08007258:: @ 08007258
-	.incbin "assets/code_080043E8/gUnk_08007258.bin"
+	.incbin "code_080043E8/gUnk_08007258.bin"
 
 gUnk_08007280:: @ 08007280
-	.incbin "assets/code_080043E8/gUnk_08007280.bin"
+	.incbin "code_080043E8/gUnk_08007280.bin"
 
 gUnk_080072A8:: @ 080072A8
-	.incbin "assets/code_080043E8/gUnk_080072A8.bin"
+	.incbin "code_080043E8/gUnk_080072A8.bin"
 
 gUnk_080072D0:: @ 080072D0
-	.incbin "assets/code_080043E8/gUnk_080072D0.bin"
+	.incbin "code_080043E8/gUnk_080072D0.bin"
 
 gUnk_080072F5:: @ 080072F5
-	.incbin "assets/code_080043E8/gUnk_080072F5.bin"
+	.incbin "code_080043E8/gUnk_080072F5.bin"
 
 gUnk_0800730E:: @ 0800730E
-	.incbin "assets/code_080043E8/gUnk_0800730E.bin"
+	.incbin "code_080043E8/gUnk_0800730E.bin"
 
 gUnk_08007322:: @ 08007322
-	.incbin "assets/code_080043E8/gUnk_08007322.bin"
+	.incbin "code_080043E8/gUnk_08007322.bin"
 
 gUnk_08007366:: @ 08007366
-	.incbin "assets/code_080043E8/gUnk_08007366.bin"
+	.incbin "code_080043E8/gUnk_08007366.bin"
 
 gUnk_080073AA:: @ 080073AA
-	.incbin "assets/code_080043E8/gUnk_080073AA.bin"
+	.incbin "code_080043E8/gUnk_080073AA.bin"
 
 gUnk_080073EE:: @ 080073EE
-	.incbin "assets/code_080043E8/gUnk_080073EE.bin"
+	.incbin "code_080043E8/gUnk_080073EE.bin"
 
 gUnk_080073FE:: @ 080073FE
-	.incbin "assets/code_080043E8/gUnk_080073FE.bin"
+	.incbin "code_080043E8/gUnk_080073FE.bin"
 
 gUnk_08007402:: @ 08007402
-	.incbin "assets/code_080043E8/gUnk_08007402.bin"
+	.incbin "code_080043E8/gUnk_08007402.bin"
 
 gUnk_08007412:: @ 08007412
-	.incbin "assets/code_080043E8/gUnk_08007412.bin"
+	.incbin "code_080043E8/gUnk_08007412.bin"
 
 gUnk_08007416:: @ 08007416
-	.incbin "assets/code_080043E8/gUnk_08007416.bin"
+	.incbin "code_080043E8/gUnk_08007416.bin"
 
 gUnk_08007426:: @ 08007426
-	.incbin "assets/code_080043E8/gUnk_08007426.bin"
+	.incbin "code_080043E8/gUnk_08007426.bin"
 
 gUnk_0800742A:: @ 0800742A
-	.incbin "assets/code_080043E8/gUnk_0800742A.bin"
+	.incbin "code_080043E8/gUnk_0800742A.bin"
 
 gUnk_0800743B:: @ 0800743B
-	.incbin "assets/code_080043E8/gUnk_0800743B.bin"
+	.incbin "code_080043E8/gUnk_0800743B.bin"
 
 gUnk_0800744C:: @ 0800744C
-	.incbin "assets/code_080043E8/gUnk_0800744C.bin"
+	.incbin "code_080043E8/gUnk_0800744C.bin"
 
 gUnk_08007450:: @ 08007450
-	.incbin "assets/code_080043E8/gUnk_08007450.bin"
+	.incbin "code_080043E8/gUnk_08007450.bin"
 
 gUnk_0800745D:: @ 0800745D
-	.incbin "assets/code_080043E8/gUnk_0800745D.bin"
+	.incbin "code_080043E8/gUnk_0800745D.bin"
 
 gUnk_08007498:: @ 08007498
 	.4byte gUnk_08004AEC
@@ -1996,24 +1996,24 @@ gUnk_08007B28:: @ 08007B28
 	.4byte 00000000
 
 gUnk_08007CAC:: @ 08007CAC
-	.incbin "assets/code_080043E8/gUnk_08007CAC.bin"
+	.incbin "code_080043E8/gUnk_08007CAC.bin"
 .ifdef DEMO_JP
 @ TODO only one byte differs
-	.incbin "assets/code_080043E8/gUnk_08007CAC_1_DEMO_JP.bin"
+	.incbin "code_080043E8/gUnk_08007CAC_1_DEMO_JP.bin"
 .else
 .ifdef DEMO_USA
 @ TODO only one byte differs
-	.incbin "assets/code_080043E8/gUnk_08007CAC_2_DEMO_USA.bin"
+	.incbin "code_080043E8/gUnk_08007CAC_2_DEMO_USA.bin"
 .else
 .ifdef JP
 @ TODO only one byte differs
-	.incbin "assets/code_080043E8/gUnk_08007CAC_3_JP.bin"
+	.incbin "code_080043E8/gUnk_08007CAC_3_JP.bin"
 .else
 .ifdef EU
 @ TODO only two bytes differ
-	.incbin "assets/code_080043E8/gUnk_08007CAC_4_EU.bin"
+	.incbin "code_080043E8/gUnk_08007CAC_4_EU.bin"
 .else
-	.incbin "assets/code_080043E8/gUnk_08007CAC_5_USA.bin"
+	.incbin "code_080043E8/gUnk_08007CAC_5_USA.bin"
 .endif
 .endif
 .endif

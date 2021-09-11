@@ -5,10 +5,10 @@
     .align 2
 
 gUnk_081138DC:: @ 081138DC
-	.incbin "assets/emma/gUnk_081138DC.bin"
+	.incbin "emma/gUnk_081138DC.bin"
 
 gUnk_081138E1:: @ 081138E1
-	.incbin "assets/emma/gUnk_081138E1.bin"
+	.incbin "emma/gUnk_081138E1.bin"
 
 gUnk_081138FC:: @ 081138FC
 	.4byte gUnk_081138DC

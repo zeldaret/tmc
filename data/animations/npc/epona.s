@@ -5,19 +5,19 @@
     .align 2
 
 gUnk_08110088:: @ 08110088
-	.incbin "assets/epona/gUnk_08110088.bin"
+	.incbin "epona/gUnk_08110088.bin"
 
 gUnk_0811008D:: @ 0811008D
-	.incbin "assets/epona/gUnk_0811008D.bin"
+	.incbin "epona/gUnk_0811008D.bin"
 
 gUnk_08110092:: @ 08110092
-	.incbin "assets/epona/gUnk_08110092.bin"
+	.incbin "epona/gUnk_08110092.bin"
 
 gUnk_08110097:: @ 08110097
-	.incbin "assets/epona/gUnk_08110097.bin"
+	.incbin "epona/gUnk_08110097.bin"
 
 gUnk_081100B8:: @ 081100B8
-	.incbin "assets/epona/gUnk_081100B8.bin"
+	.incbin "epona/gUnk_081100B8.bin"
 
 gUnk_081100E4:: @ 081100E4
 	.4byte gUnk_08110088

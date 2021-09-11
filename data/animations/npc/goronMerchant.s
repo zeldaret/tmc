@@ -5,19 +5,19 @@
 @    .align 2
 
 gUnk_08111BBE:: @ 08111BBE
-	.incbin "assets/goronMerchant/gUnk_08111BBE.bin"
+	.incbin "goronMerchant/gUnk_08111BBE.bin"
 
 gUnk_08111BC3:: @ 08111BC3
-	.incbin "assets/goronMerchant/gUnk_08111BC3.bin"
+	.incbin "goronMerchant/gUnk_08111BC3.bin"
 
 gUnk_08111BC8:: @ 08111BC8
-	.incbin "assets/goronMerchant/gUnk_08111BC8.bin"
+	.incbin "goronMerchant/gUnk_08111BC8.bin"
 
 gUnk_08111BCD:: @ 08111BCD
-	.incbin "assets/goronMerchant/gUnk_08111BCD.bin"
+	.incbin "goronMerchant/gUnk_08111BCD.bin"
 
 gUnk_08111BF2:: @ 08111BF2
-	.incbin "assets/goronMerchant/gUnk_08111BF2.bin"
+	.incbin "goronMerchant/gUnk_08111BF2.bin"
 
 gUnk_08111C18:: @ 08111C18
 	.4byte gUnk_08111BC3

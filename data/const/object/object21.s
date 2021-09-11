@@ -11,10 +11,10 @@ gUnk_08120A68:: @ 08120A68
 	.4byte sub_08087B58
 
 gUnk_08120A78:: @ 08120A78
-	.incbin "assets/object21/gUnk_08120A78.bin"
+	.incbin "object21/gUnk_08120A78.bin"
 
 gUnk_08120A7A:: @ 08120A7A
-	.incbin "assets/object21/gUnk_08120A7A.bin"
+	.incbin "object21/gUnk_08120A7A.bin"
 
 gUnk_08120A80:: @ 08120A80
 	.4byte sub_08087B88
@@ -22,4 +22,4 @@ gUnk_08120A80:: @ 08120A80
 	.4byte sub_08087B9C
 
 gUnk_08120A8C:: @ 08120A8C
-	.incbin "assets/object21/gUnk_08120A8C.bin"
+	.incbin "object21/gUnk_08120A8C.bin"

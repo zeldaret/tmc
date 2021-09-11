@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08129634:: @ 08129634
-	.incbin "assets/projectile2/gUnk_08129634.bin"
+	.incbin "projectile2/gUnk_08129634.bin"
 
 gUnk_08129648:: @ 08129648
 	.4byte gUnk_08129634

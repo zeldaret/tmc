@@ -7,10 +7,10 @@
 
 
 gUnk_080CDEA0:: @ 080CDEA0
-	.incbin "assets/vaatiEyesMacro/gUnk_080CDEA0.bin"
+	.incbin "vaatiEyesMacro/gUnk_080CDEA0.bin"
 
 gUnk_080CDEB1:: @ 080CDEB1
-	.incbin "assets/vaatiEyesMacro/gUnk_080CDEB1.bin"
+	.incbin "vaatiEyesMacro/gUnk_080CDEB1.bin"
 
 gUnk_080CDEC4:: @ 080CDEC4
 	.4byte gUnk_080CDEA0

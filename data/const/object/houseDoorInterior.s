@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_081227B4:: @ 081227B4
-	.incbin "assets/houseDoorInterior/gUnk_081227B4.bin"
+	.incbin "houseDoorInterior/gUnk_081227B4.bin"
 
 gUnk_081227C0:: @ 081227C0
 	.4byte sub_08092B8C
@@ -13,8 +13,8 @@ gUnk_081227C0:: @ 081227C0
 	.4byte sub_08092C98
 
 gUnk_081227CC:: @ 081227CC
-	.incbin "assets/houseDoorInterior/gUnk_081227CC.bin"
+	.incbin "houseDoorInterior/gUnk_081227CC.bin"
 
 gUnk_081227EC:: @ 081227EC
-	.incbin "assets/houseDoorInterior/gUnk_081227EC.bin"
+	.incbin "houseDoorInterior/gUnk_081227EC.bin"
 

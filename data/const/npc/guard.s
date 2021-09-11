@@ -5,13 +5,13 @@
     .align 2
 
 gUnk_0810CF4C:: @ 0810CF4C
-	.incbin "assets/guard/gUnk_0810CF4C.bin"
+	.incbin "guard/gUnk_0810CF4C.bin"
 
 gUnk_0810D0A4:: @ 0810D0A4
-	.incbin "assets/guard/gUnk_0810D0A4.bin"
+	.incbin "guard/gUnk_0810D0A4.bin"
 
 gUnk_0810F524:: @ 0810F524
-	.incbin "assets/guard/gUnk_0810F524.bin"
+	.incbin "guard/gUnk_0810F524.bin"
 
 gUnk_0810F544:: @ 0810F544
 	.4byte sub_08063E90

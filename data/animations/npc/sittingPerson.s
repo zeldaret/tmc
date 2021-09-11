@@ -5,13 +5,13 @@
     .align 2
 
 gUnk_0810CDA0:: @ 0810CDA0
-	.incbin "assets/sittingPerson/gUnk_0810CDA0.bin"
+	.incbin "sittingPerson/gUnk_0810CDA0.bin"
 
 gUnk_0810CDB1:: @ 0810CDB1
-	.incbin "assets/sittingPerson/gUnk_0810CDB1.bin"
+	.incbin "sittingPerson/gUnk_0810CDB1.bin"
 
 gUnk_0810CDC2:: @ 0810CDC2
-	.incbin "assets/sittingPerson/gUnk_0810CDC2.bin"
+	.incbin "sittingPerson/gUnk_0810CDC2.bin"
 
 gUnk_0810CDD4:: @ 0810CDD4
 	.4byte gUnk_0810CDA0

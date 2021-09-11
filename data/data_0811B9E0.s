@@ -42,10 +42,10 @@ gUnk_0811BA9C:: @ 0811BA9C
 	.4byte PortalUnknownUpdate
 
 gUnk_0811BABC:: @ 0811BABC
-	.incbin "assets/data_0811B9E0/gUnk_0811BABC.bin"
+	.incbin "data_0811B9E0/gUnk_0811BABC.bin"
 
 gUnk_0811BAC4:: @ 0811BAC4
-	.incbin "assets/data_0811B9E0/gUnk_0811BAC4.bin"
+	.incbin "data_0811B9E0/gUnk_0811BAC4.bin"
 
 gUnk_0811BAD4:: @ 0811BAD4
 	.4byte sub_080718A0
@@ -59,7 +59,7 @@ gUnk_0811BAE4:: @ 0811BAE4
 	.4byte sub_08071B60
 
 gUnk_0811BAF0:: @ 0811BAF0
-	.incbin "assets/data_0811B9E0/gUnk_0811BAF0.bin"
+	.incbin "data_0811B9E0/gUnk_0811BAF0.bin"
 
 gUnk_0811BB2C:: @ 0811BB2C
 	.4byte sub_08071BDC
@@ -124,16 +124,16 @@ gUnk_0811BBAC:: @ 0811BBAC
 	.4byte sub_08072F14
 
 gUnk_0811BBBC:: @ 0811BBBC
-	.incbin "assets/data_0811B9E0/gUnk_0811BBBC.bin"
+	.incbin "data_0811B9E0/gUnk_0811BBBC.bin"
 
 gUnk_0811BBC2:: @ 0811BBC2
-	.incbin "assets/data_0811B9E0/gUnk_0811BBC2.bin"
+	.incbin "data_0811B9E0/gUnk_0811BBC2.bin"
 
 gUnk_0811BBC8:: @ 0811BBC8
-	.incbin "assets/data_0811B9E0/gUnk_0811BBC8.bin"
+	.incbin "data_0811B9E0/gUnk_0811BBC8.bin"
 
 gUnk_0811BBCE:: @ 0811BBCE
-	.incbin "assets/data_0811B9E0/gUnk_0811BBCE.bin"
+	.incbin "data_0811B9E0/gUnk_0811BBCE.bin"
 
 gUnk_0811BBD4:: @ 0811BBD4
 	.4byte gUnk_0811BBBC
@@ -146,7 +146,7 @@ gUnk_0811BBE4:: @ 0811BBE4
 	.4byte sub_08073094
 
 gUnk_0811BBEC:: @ 0811BBEC
-	.incbin "assets/data_0811B9E0/gUnk_0811BBEC.bin"
+	.incbin "data_0811B9E0/gUnk_0811BBEC.bin"
 
 gUnk_0811BBF8:: @ 0811BBF8
 	.4byte sub_080731D8
@@ -165,16 +165,16 @@ gUnk_0811BC08:: @ 0811BC08
 	.4byte sub_08073884
 
 gUnk_0811BC28:: @ 0811BC28
-	.incbin "assets/data_0811B9E0/gUnk_0811BC28.bin"
+	.incbin "data_0811B9E0/gUnk_0811BC28.bin"
 
 gUnk_0811BC30:: @ 0811BC30
-	.incbin "assets/data_0811B9E0/gUnk_0811BC30.bin"
+	.incbin "data_0811B9E0/gUnk_0811BC30.bin"
 
 gUnk_0811BC38:: @ 0811BC38
-	.incbin "assets/data_0811B9E0/gUnk_0811BC38.bin"
+	.incbin "data_0811B9E0/gUnk_0811BC38.bin"
 
 gUnk_0811BC40:: @ 0811BC40
-	.incbin "assets/data_0811B9E0/gUnk_0811BC40.bin"
+	.incbin "data_0811B9E0/gUnk_0811BC40.bin"
 
 gUnk_0811BC48:: @ 0811BC48
 	.4byte sub_08073924
@@ -195,7 +195,7 @@ gUnk_0811BC60:: @ 0811BC60
 	.4byte sub_080740D8
 
 gUnk_0811BC80:: @ 0811BC80
-	.incbin "assets/data_0811B9E0/gUnk_0811BC80.bin"
+	.incbin "data_0811B9E0/gUnk_0811BC80.bin"
 
 gUnk_0811BC88:: @ 0811BC88
 	.4byte sub_08074C68

@@ -5,40 +5,40 @@
  @   .align 2
 
 gUnk_080CEA66:: @ 080CEA66
-	.incbin "assets/mulldozer/gUnk_080CEA66.bin"
+	.incbin "mulldozer/gUnk_080CEA66.bin"
 
 gUnk_080CEA6B:: @ 080CEA6B
-	.incbin "assets/mulldozer/gUnk_080CEA6B.bin"
+	.incbin "mulldozer/gUnk_080CEA6B.bin"
 
 gUnk_080CEA70:: @ 080CEA70
-	.incbin "assets/mulldozer/gUnk_080CEA70.bin"
+	.incbin "mulldozer/gUnk_080CEA70.bin"
 
 gUnk_080CEA75:: @ 080CEA75
-	.incbin "assets/mulldozer/gUnk_080CEA75.bin"
+	.incbin "mulldozer/gUnk_080CEA75.bin"
 
 gUnk_080CEA7A:: @ 080CEA7A
-	.incbin "assets/mulldozer/gUnk_080CEA7A.bin"
+	.incbin "mulldozer/gUnk_080CEA7A.bin"
 
 gUnk_080CEA8B:: @ 080CEA8B
-	.incbin "assets/mulldozer/gUnk_080CEA8B.bin"
+	.incbin "mulldozer/gUnk_080CEA8B.bin"
 
 gUnk_080CEA9C:: @ 080CEA9C
-	.incbin "assets/mulldozer/gUnk_080CEA9C.bin"
+	.incbin "mulldozer/gUnk_080CEA9C.bin"
 
 gUnk_080CEAAD:: @ 080CEAAD
-	.incbin "assets/mulldozer/gUnk_080CEAAD.bin"
+	.incbin "mulldozer/gUnk_080CEAAD.bin"
 
 gUnk_080CEABE:: @ 080CEABE
-	.incbin "assets/mulldozer/gUnk_080CEABE.bin"
+	.incbin "mulldozer/gUnk_080CEABE.bin"
 
 gUnk_080CEACF:: @ 080CEACF
-	.incbin "assets/mulldozer/gUnk_080CEACF.bin"
+	.incbin "mulldozer/gUnk_080CEACF.bin"
 
 gUnk_080CEAE0:: @ 080CEAE0
-	.incbin "assets/mulldozer/gUnk_080CEAE0.bin"
+	.incbin "mulldozer/gUnk_080CEAE0.bin"
 
 gUnk_080CEAF1:: @ 080CEAF1
-	.incbin "assets/mulldozer/gUnk_080CEAF1.bin"
+	.incbin "mulldozer/gUnk_080CEAF1.bin"
 
 gUnk_080CEB04:: @ 080CEB04
 	.4byte gUnk_080CEA66

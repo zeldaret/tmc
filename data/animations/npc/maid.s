@@ -6,31 +6,31 @@
 
 
 gUnk_0810F8E4:: @ 0810F8E4
-	.incbin "assets/maid/gUnk_0810F8E4.bin"
+	.incbin "maid/gUnk_0810F8E4.bin"
 
 gUnk_0810F8E9:: @ 0810F8E9
-	.incbin "assets/maid/gUnk_0810F8E9.bin"
+	.incbin "maid/gUnk_0810F8E9.bin"
 
 gUnk_0810F8EE:: @ 0810F8EE
-	.incbin "assets/maid/gUnk_0810F8EE.bin"
+	.incbin "maid/gUnk_0810F8EE.bin"
 
 gUnk_0810F8F3:: @ 0810F8F3
-	.incbin "assets/maid/gUnk_0810F8F3.bin"
+	.incbin "maid/gUnk_0810F8F3.bin"
 
 gUnk_0810F8F8:: @ 0810F8F8
-	.incbin "assets/maid/gUnk_0810F8F8.bin"
+	.incbin "maid/gUnk_0810F8F8.bin"
 
 gUnk_0810F909:: @ 0810F909
-	.incbin "assets/maid/gUnk_0810F909.bin"
+	.incbin "maid/gUnk_0810F909.bin"
 
 gUnk_0810F91A:: @ 0810F91A
-	.incbin "assets/maid/gUnk_0810F91A.bin"
+	.incbin "maid/gUnk_0810F91A.bin"
 
 gUnk_0810F92B:: @ 0810F92B
-	.incbin "assets/maid/gUnk_0810F92B.bin"
+	.incbin "maid/gUnk_0810F92B.bin"
 
 gUnk_0810F93C:: @ 0810F93C
-	.incbin "assets/maid/gUnk_0810F93C.bin"
+	.incbin "maid/gUnk_0810F93C.bin"
 
 gUnk_0810F944:: @ 0810F944
 	.4byte gUnk_0810F8E4

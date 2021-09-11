@@ -5,4 +5,4 @@
     .align 2
 
 gUnk_08121C40:: @ 08121C40
-	.incbin "assets/giantBookLadder/gUnk_08121C40.bin"
+	.incbin "giantBookLadder/gUnk_08121C40.bin"

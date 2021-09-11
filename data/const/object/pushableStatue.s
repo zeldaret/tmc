@@ -16,13 +16,13 @@ gUnk_08120CAC:: @ 08120CAC
 	.4byte sub_080893E0
 
 gUnk_08120CB4:: @ 08120CB4
-	.incbin "assets/pushableStatue/gUnk_08120CB4.bin"
+	.incbin "pushableStatue/gUnk_08120CB4.bin"
 
 gUnk_08120CBC:: @ 08120CBC
-	.incbin "assets/pushableStatue/gUnk_08120CBC.bin"
+	.incbin "pushableStatue/gUnk_08120CBC.bin"
 
 gUnk_08120CCC:: @ 08120CCC
-	.incbin "assets/pushableStatue/gUnk_08120CCC.bin"
+	.incbin "pushableStatue/gUnk_08120CCC.bin"
 
 gUnk_08120D6C:: @ 08120D6C
-	.incbin "assets/pushableStatue/gUnk_08120D6C.bin"
+	.incbin "pushableStatue/gUnk_08120D6C.bin"

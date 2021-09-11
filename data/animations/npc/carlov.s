@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_08113258:: @ 08113258
-	.incbin "assets/carlov/gUnk_08113258.bin"
+	.incbin "carlov/gUnk_08113258.bin"
 
 gUnk_0811325D:: @ 0811325D
-	.incbin "assets/carlov/gUnk_0811325D.bin"
+	.incbin "carlov/gUnk_0811325D.bin"
 
 gUnk_0811326E:: @ 0811326E
-	.incbin "assets/carlov/gUnk_0811326E.bin"
+	.incbin "carlov/gUnk_0811326E.bin"
 
 gUnk_0811329F:: @ 0811329F
-	.incbin "assets/carlov/gUnk_0811329F.bin"
+	.incbin "carlov/gUnk_0811329F.bin"
 
 gUnk_081132E4:: @ 081132E4
 	.4byte gUnk_08113258

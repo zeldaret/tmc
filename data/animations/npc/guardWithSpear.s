@@ -5,73 +5,73 @@
     .align 2
 
 gUnk_0810F6E4:: @ 0810F6E4
-	.incbin "assets/guardWithSpear/gUnk_0810F6E4.bin"
+	.incbin "guardWithSpear/gUnk_0810F6E4.bin"
 
 gUnk_0810F6E9:: @ 0810F6E9
-	.incbin "assets/guardWithSpear/gUnk_0810F6E9.bin"
+	.incbin "guardWithSpear/gUnk_0810F6E9.bin"
 
 gUnk_0810F6EE:: @ 0810F6EE
-	.incbin "assets/guardWithSpear/gUnk_0810F6EE.bin"
+	.incbin "guardWithSpear/gUnk_0810F6EE.bin"
 
 gUnk_0810F6F3:: @ 0810F6F3
-	.incbin "assets/guardWithSpear/gUnk_0810F6F3.bin"
+	.incbin "guardWithSpear/gUnk_0810F6F3.bin"
 
 gUnk_0810F6F8:: @ 0810F6F8
-	.incbin "assets/guardWithSpear/gUnk_0810F6F8.bin"
+	.incbin "guardWithSpear/gUnk_0810F6F8.bin"
 
 gUnk_0810F6FD:: @ 0810F6FD
-	.incbin "assets/guardWithSpear/gUnk_0810F6FD.bin"
+	.incbin "guardWithSpear/gUnk_0810F6FD.bin"
 
 gUnk_0810F702:: @ 0810F702
-	.incbin "assets/guardWithSpear/gUnk_0810F702.bin"
+	.incbin "guardWithSpear/gUnk_0810F702.bin"
 
 gUnk_0810F707:: @ 0810F707
-	.incbin "assets/guardWithSpear/gUnk_0810F707.bin"
+	.incbin "guardWithSpear/gUnk_0810F707.bin"
 
 gUnk_0810F70C:: @ 0810F70C
-	.incbin "assets/guardWithSpear/gUnk_0810F70C.bin"
+	.incbin "guardWithSpear/gUnk_0810F70C.bin"
 
 gUnk_0810F71D:: @ 0810F71D
-	.incbin "assets/guardWithSpear/gUnk_0810F71D.bin"
+	.incbin "guardWithSpear/gUnk_0810F71D.bin"
 
 gUnk_0810F72E:: @ 0810F72E
-	.incbin "assets/guardWithSpear/gUnk_0810F72E.bin"
+	.incbin "guardWithSpear/gUnk_0810F72E.bin"
 
 gUnk_0810F73F:: @ 0810F73F
-	.incbin "assets/guardWithSpear/gUnk_0810F73F.bin"
+	.incbin "guardWithSpear/gUnk_0810F73F.bin"
 
 gUnk_0810F750:: @ 0810F750
-	.incbin "assets/guardWithSpear/gUnk_0810F750.bin"
+	.incbin "guardWithSpear/gUnk_0810F750.bin"
 
 gUnk_0810F761:: @ 0810F761
-	.incbin "assets/guardWithSpear/gUnk_0810F761.bin"
+	.incbin "guardWithSpear/gUnk_0810F761.bin"
 
 gUnk_0810F772:: @ 0810F772
-	.incbin "assets/guardWithSpear/gUnk_0810F772.bin"
+	.incbin "guardWithSpear/gUnk_0810F772.bin"
 
 gUnk_0810F783:: @ 0810F783
-	.incbin "assets/guardWithSpear/gUnk_0810F783.bin"
+	.incbin "guardWithSpear/gUnk_0810F783.bin"
 
 gUnk_0810F794:: @ 0810F794
-	.incbin "assets/guardWithSpear/gUnk_0810F794.bin"
+	.incbin "guardWithSpear/gUnk_0810F794.bin"
 
 gUnk_0810F799:: @ 0810F799
-	.incbin "assets/guardWithSpear/gUnk_0810F799.bin"
+	.incbin "guardWithSpear/gUnk_0810F799.bin"
 
 gUnk_0810F7BE:: @ 0810F7BE
-	.incbin "assets/guardWithSpear/gUnk_0810F7BE.bin"
+	.incbin "guardWithSpear/gUnk_0810F7BE.bin"
 
 gUnk_0810F7C3:: @ 0810F7C3
-	.incbin "assets/guardWithSpear/gUnk_0810F7C3.bin"
+	.incbin "guardWithSpear/gUnk_0810F7C3.bin"
 
 gUnk_0810F7E8:: @ 0810F7E8
-	.incbin "assets/guardWithSpear/gUnk_0810F7E8.bin"
+	.incbin "guardWithSpear/gUnk_0810F7E8.bin"
 
 gUnk_0810F7FD:: @ 0810F7FD
-	.incbin "assets/guardWithSpear/gUnk_0810F7FD.bin"
+	.incbin "guardWithSpear/gUnk_0810F7FD.bin"
 
 gUnk_0810F802:: @ 0810F802
-	.incbin "assets/guardWithSpear/gUnk_0810F802.bin"
+	.incbin "guardWithSpear/gUnk_0810F802.bin"
 
 gUnk_0810F814:: @ 0810F814
 	.4byte gUnk_0810F6E4

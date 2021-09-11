@@ -10,7 +10,7 @@ gUnk_08124850:: @ 08124850
 	.4byte DeleteEntity
 
 gUnk_0812485C:: @ 0812485C
-	.incbin "assets/objectA9/gUnk_0812485C.bin"
+	.incbin "objectA9/gUnk_0812485C.bin"
 
 gUnk_08124860:: @ 08124860
-	.incbin "assets/objectA9/gUnk_08124860.bin"
+	.incbin "objectA9/gUnk_08124860.bin"

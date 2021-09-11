@@ -5,4 +5,4 @@
     .align 2
 
 gUnk_08108D5C:: @ 08108D5C
-	.incbin "assets/manager31/gUnk_08108D5C.bin"
+	.incbin "manager31/gUnk_08108D5C.bin"

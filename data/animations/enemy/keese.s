@@ -4,10 +4,10 @@
 	.section .rodata
 
 gUnk_080CB706:: @ 080CB706
-	.incbin "assets/keese/gUnk_080CB706.bin"
+	.incbin "keese/gUnk_080CB706.bin"
 
 gUnk_080CB71E:: @ 080CB71E
-	.incbin "assets/keese/gUnk_080CB71E.bin"
+	.incbin "keese/gUnk_080CB71E.bin"
 
 gUnk_080CB728:: @ 080CB728
 	.4byte gUnk_080CB706

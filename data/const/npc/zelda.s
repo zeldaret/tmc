@@ -9,7 +9,7 @@ gUnk_08110BD8:: @ 08110BD8
 	.4byte sub_08066CF8
 
 gUnk_08110BE0:: @ 08110BE0
-	.incbin "assets/zelda/gUnk_08110BE0.bin"
+	.incbin "zelda/gUnk_08110BE0.bin"
 
 gUnk_08110C00:: @ 08110C00
-	.incbin "assets/zelda/gUnk_08110C00.bin"
+	.incbin "zelda/gUnk_08110C00.bin"

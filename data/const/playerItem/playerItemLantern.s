@@ -9,4 +9,4 @@ gUnk_080FEEA8:: @ 080FEEA8
 	.4byte sub_08054AC8
 
 gUnk_080FEEB0:: @ 080FEEB0
-	.incbin "assets/playerItemLantern/gUnk_080FEEB0.bin"
+	.incbin "playerItemLantern/gUnk_080FEEB0.bin"

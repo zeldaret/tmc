@@ -5,25 +5,25 @@
     .align 2
 
 gUnk_0812A63C:: @ 0812A63C
-	.incbin "assets/projectile1C/gUnk_0812A63C.bin"
+	.incbin "projectile1C/gUnk_0812A63C.bin"
 
 gUnk_0812A65C:: @ 0812A65C
-	.incbin "assets/projectile1C/gUnk_0812A65C.bin"
+	.incbin "projectile1C/gUnk_0812A65C.bin"
 
 gUnk_0812A665:: @ 0812A665
-	.incbin "assets/projectile1C/gUnk_0812A665.bin"
+	.incbin "projectile1C/gUnk_0812A665.bin"
 
 gUnk_0812A66E:: @ 0812A66E
-	.incbin "assets/projectile1C/gUnk_0812A66E.bin"
+	.incbin "projectile1C/gUnk_0812A66E.bin"
 
 gUnk_0812A677:: @ 0812A677
-	.incbin "assets/projectile1C/gUnk_0812A677.bin"
+	.incbin "projectile1C/gUnk_0812A677.bin"
 
 gUnk_0812A680:: @ 0812A680
-	.incbin "assets/projectile1C/gUnk_0812A680.bin"
+	.incbin "projectile1C/gUnk_0812A680.bin"
 
 gUnk_0812A689:: @ 0812A689
-	.incbin "assets/projectile1C/gUnk_0812A689.bin"
+	.incbin "projectile1C/gUnk_0812A689.bin"
 
 gUnk_0812A694:: @ 0812A694
 	.4byte gUnk_0812A63C

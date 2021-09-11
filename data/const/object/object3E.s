@@ -17,10 +17,10 @@ gUnk_081216DC:: @ 081216DC
 	.4byte sub_0808D194
 
 gUnk_08121704:: @ 08121704
-	.incbin "assets/object3E/gUnk_08121704.bin"
+	.incbin "object3E/gUnk_08121704.bin"
 
 gUnk_08121720:: @ 08121720
-	.incbin "assets/object3E/gUnk_08121720.bin"
+	.incbin "object3E/gUnk_08121720.bin"
 
 gUnk_0812172C:: @ 0812172C
 	.4byte sub_0808D474
@@ -28,4 +28,4 @@ gUnk_0812172C:: @ 0812172C
 	.4byte sub_0808D59C
 
 gUnk_08121738:: @ 08121738
-	.incbin "assets/object3E/gUnk_08121738.bin"
+	.incbin "object3E/gUnk_08121738.bin"

@@ -5,5 +5,5 @@
     .align 2
 
 gUnk_08113078:: @ 08113078
-	.incbin "assets/librarians/gUnk_08113078.bin"
+	.incbin "librarians/gUnk_08113078.bin"
 

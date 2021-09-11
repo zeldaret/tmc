@@ -13,7 +13,7 @@ gUnk_08120608:: @ 08120608
 	.4byte sub_08085D10
 
 gUnk_08120620:: @ 08120620
-	.incbin "assets/lilypadLarge/gUnk_08120620.bin"
+	.incbin "lilypadLarge/gUnk_08120620.bin"
 
 gUnk_0812062C:: @ 0812062C
 	.4byte sub_08085A44
@@ -21,7 +21,7 @@ gUnk_0812062C:: @ 0812062C
 	.4byte sub_08085B40
 
 gUnk_08120638:: @ 08120638
-	.incbin "assets/lilypadLarge/gUnk_08120638.bin"
+	.incbin "lilypadLarge/gUnk_08120638.bin"
 
 gUnk_08120640:: @ 08120640
-	.incbin "assets/lilypadLarge/gUnk_08120640.bin"
+	.incbin "lilypadLarge/gUnk_08120640.bin"

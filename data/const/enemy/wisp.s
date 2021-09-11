@@ -24,4 +24,4 @@ gUnk_080CEB98:: @ 080CEB98
 
 
 gUnk_080CEBA4:: @ 080CEBA4
-	.incbin "assets/wisp/gUnk_080CEBA4.bin"
+	.incbin "wisp/gUnk_080CEBA4.bin"

@@ -5,13 +5,13 @@
 	.align 2
 
 gUnk_0811E750:: @ 0811E750
-	.incbin "assets/data_0811E750/gUnk_0811E750.bin"
+	.incbin "data_0811E750/gUnk_0811E750.bin"
 
 gUnk_0811E758:: @ 0811E758
-	.incbin "assets/data_0811E750/gUnk_0811E758.bin"
+	.incbin "data_0811E750/gUnk_0811E758.bin"
 
 gUnk_0811E760:: @ 0811E760
-	.incbin "assets/data_0811E750/gUnk_0811E760.bin"
+	.incbin "data_0811E750/gUnk_0811E760.bin"
 
 gUnk_0811E768:: @ 0811E768
 	.4byte sub_0807FC64
@@ -45,4 +45,4 @@ gUnk_0811E7AC:: @ 0811E7AC
 	.4byte sub_08080808
 
 gUnk_0811E7BC:: @ 0811E7BC
-	.incbin "assets/data_0811E750/gUnk_0811E7BC.bin"
+	.incbin "data_0811E750/gUnk_0811E7BC.bin"

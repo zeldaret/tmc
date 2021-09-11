@@ -1399,4 +1399,4 @@ gUnk_08003DD4:: @ 08003DD4
 	.4byte 00000000
 
 gUnk_08003E44:: @ 08003E44
-	.incbin "assets/data_080029B4/gUnk_08003E44.bin"
+	.incbin "data_080029B4/gUnk_08003E44.bin"

@@ -5,28 +5,28 @@
     .align 2
 
 gUnk_080CDFE8:: @ 080CDFE8
-	.incbin "assets/wizzrobeFire/gUnk_080CDFE8.bin"
+	.incbin "wizzrobeFire/gUnk_080CDFE8.bin"
 
 gUnk_080CDFF5:: @ 080CDFF5
-	.incbin "assets/wizzrobeFire/gUnk_080CDFF5.bin"
+	.incbin "wizzrobeFire/gUnk_080CDFF5.bin"
 
 gUnk_080CE002:: @ 080CE002
-	.incbin "assets/wizzrobeFire/gUnk_080CE002.bin"
+	.incbin "wizzrobeFire/gUnk_080CE002.bin"
 
 gUnk_080CE00F:: @ 080CE00F
-	.incbin "assets/wizzrobeFire/gUnk_080CE00F.bin"
+	.incbin "wizzrobeFire/gUnk_080CE00F.bin"
 
 gUnk_080CE01C:: @ 080CE01C
-	.incbin "assets/wizzrobeFire/gUnk_080CE01C.bin"
+	.incbin "wizzrobeFire/gUnk_080CE01C.bin"
 
 gUnk_080CE029:: @ 080CE029
-	.incbin "assets/wizzrobeFire/gUnk_080CE029.bin"
+	.incbin "wizzrobeFire/gUnk_080CE029.bin"
 
 gUnk_080CE036:: @ 080CE036
-	.incbin "assets/wizzrobeFire/gUnk_080CE036.bin"
+	.incbin "wizzrobeFire/gUnk_080CE036.bin"
 
 gUnk_080CE043:: @ 080CE043
-	.incbin "assets/wizzrobeFire/gUnk_080CE043.bin"
+	.incbin "wizzrobeFire/gUnk_080CE043.bin"
 
 gUnk_080CE050:: @ 080CE050
 	.4byte gUnk_080CDFE8

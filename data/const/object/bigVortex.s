@@ -12,5 +12,5 @@ gUnk_0812367C:: @ 0812367C
 	.4byte sub_08098E34
 
 gUnk_08123690:: @ 08123690
-	.incbin "assets/bigVortex/gUnk_08123690.bin"
+	.incbin "bigVortex/gUnk_08123690.bin"
 

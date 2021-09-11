@@ -21,4 +21,4 @@ gUnk_080CF508:: @ 080CF508
 	.4byte sub_08038724
 
 gUnk_080CF520:: @ 080CF520
-	.incbin "assets/cloudPiranha/gUnk_080CF520.bin"
+	.incbin "cloudPiranha/gUnk_080CF520.bin"

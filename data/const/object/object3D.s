@@ -12,7 +12,7 @@ gUnk_081216BC:: @ 081216BC
 gUnk_081216C8:: @ 081216C8
 .ifdef EU
     @ TODO only small differences
-	.incbin "assets/object3D/gUnk_081216C8_EU.bin"
+	.incbin "object3D/gUnk_081216C8_EU.bin"
 .else
-	.incbin "assets/object3D/gUnk_081216C8_1_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "object3D/gUnk_081216C8_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif

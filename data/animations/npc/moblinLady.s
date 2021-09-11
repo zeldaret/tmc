@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_0811302C:: @ 0811302C
-	.incbin "assets/moblinLady/gUnk_0811302C.bin"
+	.incbin "moblinLady/gUnk_0811302C.bin"
 
 gUnk_08113070:: @ 08113070
 	.4byte gUnk_0811302C

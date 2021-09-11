@@ -5,49 +5,49 @@
     .align 2
 
 gUnk_081103E4:: @ 081103E4
-	.incbin "assets/smith/gUnk_081103E4.bin"
+	.incbin "smith/gUnk_081103E4.bin"
 
 gUnk_081103E9:: @ 081103E9
-	.incbin "assets/smith/gUnk_081103E9.bin"
+	.incbin "smith/gUnk_081103E9.bin"
 
 gUnk_081103EE:: @ 081103EE
-	.incbin "assets/smith/gUnk_081103EE.bin"
+	.incbin "smith/gUnk_081103EE.bin"
 
 gUnk_081103F3:: @ 081103F3
-	.incbin "assets/smith/gUnk_081103F3.bin"
+	.incbin "smith/gUnk_081103F3.bin"
 
 gUnk_081103F8:: @ 081103F8
-	.incbin "assets/smith/gUnk_081103F8.bin"
+	.incbin "smith/gUnk_081103F8.bin"
 
 gUnk_08110409:: @ 08110409
-	.incbin "assets/smith/gUnk_08110409.bin"
+	.incbin "smith/gUnk_08110409.bin"
 
 gUnk_0811041A:: @ 0811041A
-	.incbin "assets/smith/gUnk_0811041A.bin"
+	.incbin "smith/gUnk_0811041A.bin"
 
 gUnk_0811042B:: @ 0811042B
-	.incbin "assets/smith/gUnk_0811042B.bin"
+	.incbin "smith/gUnk_0811042B.bin"
 
 gUnk_0811043C:: @ 0811043C
-	.incbin "assets/smith/gUnk_0811043C.bin"
+	.incbin "smith/gUnk_0811043C.bin"
 
 gUnk_08110441:: @ 08110441
-	.incbin "assets/smith/gUnk_08110441.bin"
+	.incbin "smith/gUnk_08110441.bin"
 
 gUnk_08110446:: @ 08110446
-	.incbin "assets/smith/gUnk_08110446.bin"
+	.incbin "smith/gUnk_08110446.bin"
 
 gUnk_0811044B:: @ 0811044B
-	.incbin "assets/smith/gUnk_0811044B.bin"
+	.incbin "smith/gUnk_0811044B.bin"
 
 gUnk_08110474:: @ 08110474
-	.incbin "assets/smith/gUnk_08110474.bin"
+	.incbin "smith/gUnk_08110474.bin"
 
 gUnk_08110479:: @ 08110479
-	.incbin "assets/smith/gUnk_08110479.bin"
+	.incbin "smith/gUnk_08110479.bin"
 
 gUnk_0811047E:: @ 0811047E
-	.incbin "assets/smith/gUnk_0811047E.bin"
+	.incbin "smith/gUnk_0811047E.bin"
 
 gUnk_08110484:: @ 08110484
 	.4byte gUnk_081103E4

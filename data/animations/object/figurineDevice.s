@@ -5,13 +5,13 @@
     .align 2
 
 gUnk_08120AE8:: @ 08120AE8
-	.incbin "assets/figurineDevice/gUnk_08120AE8.bin"
+	.incbin "figurineDevice/gUnk_08120AE8.bin"
 
 gUnk_08120AED:: @ 08120AED
-	.incbin "assets/figurineDevice/gUnk_08120AED.bin"
+	.incbin "figurineDevice/gUnk_08120AED.bin"
 
 gUnk_08120B01:: @ 08120B01
-	.incbin "assets/figurineDevice/gUnk_08120B01.bin"
+	.incbin "figurineDevice/gUnk_08120B01.bin"
 
 gUnk_08120B10:: @ 08120B10
 	.4byte gUnk_08120AE8

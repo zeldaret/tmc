@@ -16,7 +16,7 @@ gUnk_080B77D8:: @ 080B77D8
 	.4byte sub_0801B354
 	.4byte sub_0801B368
 	.4byte sub_0801B384
-	.incbin "assets/playerItemBomb/gUnk_080B77D8.bin"
+	.incbin "playerItemBomb/gUnk_080B77D8.bin"
 
 gUnk_080B77F4:: @ 080B77F4
-	.incbin "assets/playerItemBomb/gUnk_080B77F4.bin"
+	.incbin "playerItemBomb/gUnk_080B77F4.bin"

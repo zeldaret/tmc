@@ -20,14 +20,14 @@ gUnk_080CFF90:: @ 080CFF90
 	.4byte sub_0803C400
 
 gUnk_080CFFA4:: @ 080CFFA4
-	.incbin "assets/bowMoblin/gUnk_080CFFA4.bin"
+	.incbin "bowMoblin/gUnk_080CFFA4.bin"
 
 gUnk_080CFFAC:: @ 080CFFAC
-	.incbin "assets/bowMoblin/gUnk_080CFFAC.bin"
+	.incbin "bowMoblin/gUnk_080CFFAC.bin"
 
 gUnk_080CFFBC:: @ 080CFFBC
-	.incbin "assets/bowMoblin/gUnk_080CFFBC.bin"
+	.incbin "bowMoblin/gUnk_080CFFBC.bin"
 
 gUnk_080CFFC4:: @ 080CFFC4
-	.incbin "assets/bowMoblin/gUnk_080CFFC4.bin"
+	.incbin "bowMoblin/gUnk_080CFFC4.bin"
 

@@ -30,4 +30,4 @@ gUnk_08123540:: @ 08123540
 	.4byte sub_080988E0
 
 gUnk_08123558:: @ 08123558
-	.incbin "assets/objectOnSpinyBeetle/gUnk_08123558.bin"
+	.incbin "objectOnSpinyBeetle/gUnk_08123558.bin"

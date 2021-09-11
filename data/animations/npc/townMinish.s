@@ -5,40 +5,40 @@
     .align 2
 
 gUnk_08112C68:: @ 08112C68
-	.incbin "assets/townMinish/gUnk_08112C68.bin"
+	.incbin "townMinish/gUnk_08112C68.bin"
 
 gUnk_08112C6D:: @ 08112C6D
-	.incbin "assets/townMinish/gUnk_08112C6D.bin"
+	.incbin "townMinish/gUnk_08112C6D.bin"
 
 gUnk_08112C72:: @ 08112C72
-	.incbin "assets/townMinish/gUnk_08112C72.bin"
+	.incbin "townMinish/gUnk_08112C72.bin"
 
 gUnk_08112C77:: @ 08112C77
-	.incbin "assets/townMinish/gUnk_08112C77.bin"
+	.incbin "townMinish/gUnk_08112C77.bin"
 
 gUnk_08112C7C:: @ 08112C7C
-	.incbin "assets/townMinish/gUnk_08112C7C.bin"
+	.incbin "townMinish/gUnk_08112C7C.bin"
 
 gUnk_08112C9D:: @ 08112C9D
-	.incbin "assets/townMinish/gUnk_08112C9D.bin"
+	.incbin "townMinish/gUnk_08112C9D.bin"
 
 gUnk_08112CBE:: @ 08112CBE
-	.incbin "assets/townMinish/gUnk_08112CBE.bin"
+	.incbin "townMinish/gUnk_08112CBE.bin"
 
 gUnk_08112CDF:: @ 08112CDF
-	.incbin "assets/townMinish/gUnk_08112CDF.bin"
+	.incbin "townMinish/gUnk_08112CDF.bin"
 
 gUnk_08112D00:: @ 08112D00
-	.incbin "assets/townMinish/gUnk_08112D00.bin"
+	.incbin "townMinish/gUnk_08112D00.bin"
 
 gUnk_08112D05:: @ 08112D05
-	.incbin "assets/townMinish/gUnk_08112D05.bin"
+	.incbin "townMinish/gUnk_08112D05.bin"
 
 gUnk_08112D0A:: @ 08112D0A
-	.incbin "assets/townMinish/gUnk_08112D0A.bin"
+	.incbin "townMinish/gUnk_08112D0A.bin"
 
 gUnk_08112D0F:: @ 08112D0F
-	.incbin "assets/townMinish/gUnk_08112D0F.bin"
+	.incbin "townMinish/gUnk_08112D0F.bin"
 
 gUnk_08112D14:: @ 08112D14
 	.4byte gUnk_08112C68

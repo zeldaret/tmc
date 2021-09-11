@@ -5,4 +5,4 @@
     .align 2
 
 gUnk_080B7B6C:: @ 080B7B6C
-	.incbin "assets/playerItemCellOverwriteSet/gUnk_080B7B6C.bin"
+	.incbin "playerItemCellOverwriteSet/gUnk_080B7B6C.bin"

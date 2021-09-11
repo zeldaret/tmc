@@ -6,25 +6,25 @@
 
 
 gUnk_0811352C:: @ 0811352C
-	.incbin "assets/gina/gUnk_0811352C.bin"
+	.incbin "gina/gUnk_0811352C.bin"
 
 gUnk_0811354D:: @ 0811354D
-	.incbin "assets/gina/gUnk_0811354D.bin"
+	.incbin "gina/gUnk_0811354D.bin"
 
 gUnk_0811356E:: @ 0811356E
-	.incbin "assets/gina/gUnk_0811356E.bin"
+	.incbin "gina/gUnk_0811356E.bin"
 
 gUnk_0811358F:: @ 0811358F
-	.incbin "assets/gina/gUnk_0811358F.bin"
+	.incbin "gina/gUnk_0811358F.bin"
 
 gUnk_081135B0:: @ 081135B0
-	.incbin "assets/gina/gUnk_081135B0.bin"
+	.incbin "gina/gUnk_081135B0.bin"
 
 gUnk_081135DD:: @ 081135DD
-	.incbin "assets/gina/gUnk_081135DD.bin"
+	.incbin "gina/gUnk_081135DD.bin"
 
 gUnk_081135E2:: @ 081135E2
-	.incbin "assets/gina/gUnk_081135E2.bin"
+	.incbin "gina/gUnk_081135E2.bin"
 
 gUnk_081135E8:: @ 081135E8
 	.4byte gUnk_0811352C

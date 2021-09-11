@@ -17,10 +17,10 @@ gUnk_080D1D48:: @ 080D1D48
 	.4byte sub_080485A0
 
 gUnk_080D1D70:: @ 080D1D70
-	.incbin "assets/enemy5F/gUnk_080D1D70.bin"
+	.incbin "enemy5F/gUnk_080D1D70.bin"
 
 gUnk_080D1D78:: @ 080D1D78
-	.incbin "assets/enemy5F/gUnk_080D1D78.bin"
+	.incbin "enemy5F/gUnk_080D1D78.bin"
 
 gUnk_080D1D98:: @ 080D1D98
-	.incbin "assets/enemy5F/gUnk_080D1D98.bin"
+	.incbin "enemy5F/gUnk_080D1D98.bin"

@@ -9,10 +9,10 @@
 translation:: @ 089B1D90
 .ifdef DEMO_JP
 	@ some strings seem to be added compared to JP
-	.incbin "assets/strings/translation_DEMO_JP.bin"
+	.incbin "strings/translation_DEMO_JP.bin"
 .else
 .ifdef JP
-	.incbin "assets/strings/translation_1_JP.bin"
+	.incbin "strings/translation_1_JP.bin"
 .else
 .ifdef EU
 	.incbin "translations/English.bin"

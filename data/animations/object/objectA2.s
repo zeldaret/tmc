@@ -6,13 +6,13 @@
 
 @ TODO might as well be palaceArchway
 gUnk_08124712:: @ 08124712
-	.incbin "assets/objectA2/gUnk_08124712.bin"
+	.incbin "objectA2/gUnk_08124712.bin"
 
 gUnk_08124743:: @ 08124743
-	.incbin "assets/objectA2/gUnk_08124743.bin"
+	.incbin "objectA2/gUnk_08124743.bin"
 
 gUnk_08124764:: @ 08124764
-	.incbin "assets/objectA2/gUnk_08124764.bin"
+	.incbin "objectA2/gUnk_08124764.bin"
 
 gUnk_08124788:: @ 08124788
 	.4byte gUnk_08124712

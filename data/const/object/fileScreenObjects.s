@@ -37,19 +37,19 @@ gUnk_08121CCC:: @ 08121CCC
 	.4byte sub_0808E818
 
 gUnk_08121CD4:: @ 08121CD4
-	.incbin "assets/fileScreenObjects/gUnk_08121CD4.bin"
+	.incbin "fileScreenObjects/gUnk_08121CD4.bin"
 
 gUnk_08121D10:: @ 08121D10
-	.incbin "assets/fileScreenObjects/gUnk_08121D10.bin"
+	.incbin "fileScreenObjects/gUnk_08121D10.bin"
 
 gUnk_08121D18:: @ 08121D18
-	.incbin "assets/fileScreenObjects/gUnk_08121D18.bin"
+	.incbin "fileScreenObjects/gUnk_08121D18.bin"
 
 gUnk_08121D38:: @ 08121D38
-	.incbin "assets/fileScreenObjects/gUnk_08121D38.bin"
+	.incbin "fileScreenObjects/gUnk_08121D38.bin"
 
 gUnk_08121D48:: @ 08121D48
-	.incbin "assets/fileScreenObjects/gUnk_08121D48.bin"
+	.incbin "fileScreenObjects/gUnk_08121D48.bin"
 
 gUnk_08121D54:: @ 08121D54
-	.incbin "assets/fileScreenObjects/gUnk_08121D54.bin"
+	.incbin "fileScreenObjects/gUnk_08121D54.bin"

@@ -15,4 +15,4 @@ gStampBehaviors2:: @ 0810C2DC
 	.4byte sub_08062CA4
 
 gUnk_0810C2E4:: @ 0810C2E4
-	.incbin "assets/stamp/gUnk_0810C2E4.bin"
+	.incbin "stamp/gUnk_0810C2E4.bin"

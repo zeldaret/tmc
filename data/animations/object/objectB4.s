@@ -5,14 +5,14 @@
     .align 2
 
 gUnk_08124B38:: @ 08124B38
-	.incbin "assets/objectB4/gUnk_08124B38.bin"
+	.incbin "objectB4/gUnk_08124B38.bin"
 
 gUnk_08124BA9:: @ 08124BA9
 .ifdef EU
     @ TODO only small differences
-	.incbin "assets/objectB4/gUnk_08124BA9_EU.bin"
+	.incbin "objectB4/gUnk_08124BA9_EU.bin"
 .else
-	.incbin "assets/objectB4/gUnk_08124BA9_1_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "objectB4/gUnk_08124BA9_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_08124BFC:: @ 08124BFC

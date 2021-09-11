@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_0810F96C:: @ 0810F96C
-	.incbin "assets/din/gUnk_0810F96C.bin"
+	.incbin "din/gUnk_0810F96C.bin"
 
 gUnk_0810F971:: @ 0810F971
-	.incbin "assets/din/gUnk_0810F971.bin"
+	.incbin "din/gUnk_0810F971.bin"
 
 gUnk_0810F976:: @ 0810F976
-	.incbin "assets/din/gUnk_0810F976.bin"
+	.incbin "din/gUnk_0810F976.bin"
 
 gUnk_0810F97B:: @ 0810F97B
-	.incbin "assets/din/gUnk_0810F97B.bin"
+	.incbin "din/gUnk_0810F97B.bin"
 
 gUnk_0810F98C:: @ 0810F98C
 	.4byte gUnk_0810F96C

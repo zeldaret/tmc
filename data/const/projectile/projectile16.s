@@ -17,8 +17,8 @@ gUnk_0812A3D4:: @ 0812A3D4
 	.4byte sub_080AAB64
 
 gUnk_0812A3E0:: @ 0812A3E0
-	.incbin "assets/projectile16/gUnk_0812A3E0.bin"
+	.incbin "projectile16/gUnk_0812A3E0.bin"
 
 gUnk_0812A3F4:: @ 0812A3F4
 	.4byte gUnk_0812A3E0
-	.incbin "assets/projectile16/gUnk_0812A3F4.bin"
+	.incbin "projectile16/gUnk_0812A3F4.bin"

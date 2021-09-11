@@ -12,7 +12,7 @@ gUnk_081145B4:: @ 081145B4
 	.4byte sub_0806E648
 
 gUnk_081145C8:: @ 081145C8
-	.incbin "assets/cucco/gUnk_081145C8.bin"
+	.incbin "cucco/gUnk_081145C8.bin"
 
 gUnk_081145D0:: @ 081145D0
-	.incbin "assets/cucco/gUnk_081145D0.bin"
+	.incbin "cucco/gUnk_081145D0.bin"

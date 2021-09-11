@@ -5,31 +5,31 @@
     .align 2
 
 gUnk_08122128:: @ 08122128
-	.incbin "assets/furniture/gUnk_08122128.bin"
+	.incbin "furniture/gUnk_08122128.bin"
 
 gUnk_08122198:: @ 08122198
-	.incbin "assets/furniture/gUnk_08122198.bin"
+	.incbin "furniture/gUnk_08122198.bin"
 
 gUnk_081221A8:: @ 081221A8
-	.incbin "assets/furniture/gUnk_081221A8.bin"
+	.incbin "furniture/gUnk_081221A8.bin"
 
 gUnk_081221B8:: @ 081221B8
-	.incbin "assets/furniture/gUnk_081221B8.bin"
+	.incbin "furniture/gUnk_081221B8.bin"
 
 gUnk_081221C8:: @ 081221C8
-	.incbin "assets/furniture/gUnk_081221C8.bin"
+	.incbin "furniture/gUnk_081221C8.bin"
 
 gUnk_081221D8:: @ 081221D8
-	.incbin "assets/furniture/gUnk_081221D8.bin"
+	.incbin "furniture/gUnk_081221D8.bin"
 
 gUnk_081221E8:: @ 081221E8
-	.incbin "assets/furniture/gUnk_081221E8.bin"
+	.incbin "furniture/gUnk_081221E8.bin"
 
 gUnk_081221F8:: @ 081221F8
-	.incbin "assets/furniture/gUnk_081221F8.bin"
+	.incbin "furniture/gUnk_081221F8.bin"
 
 gUnk_08122208:: @ 08122208
-	.incbin "assets/furniture/gUnk_08122208.bin"
+	.incbin "furniture/gUnk_08122208.bin"
 
 gUnk_08122218:: @ 08122218
 	.4byte sub_080905B8
@@ -47,4 +47,4 @@ gUnk_08122220:: @ 08122220
 	.4byte gUnk_08122208
 
 gUnk_08122244:: @ 08122244
-	.incbin "assets/furniture/gUnk_08122244.bin"
+	.incbin "furniture/gUnk_08122244.bin"

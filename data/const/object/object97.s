@@ -43,23 +43,23 @@ gUnk_08124118:: @ 08124118
 	.4byte sub_0809DFE0
 
 gUnk_08124128:: @ 08124128
-	.incbin "assets/object97/gUnk_08124128.bin"
+	.incbin "object97/gUnk_08124128.bin"
 
 gUnk_0812412D:: @ 0812412D
-	.incbin "assets/object97/gUnk_0812412D.bin"
+	.incbin "object97/gUnk_0812412D.bin"
 
 gUnk_08124132:: @ 08124132
-	.incbin "assets/object97/gUnk_08124132.bin"
+	.incbin "object97/gUnk_08124132.bin"
 
 gUnk_08124146:: @ 08124146
-	.incbin "assets/object97/gUnk_08124146.bin"
+	.incbin "object97/gUnk_08124146.bin"
 
 gUnk_08124150:: @ 08124150
 	.4byte sub_0809E050
 	.4byte sub_0809E088
 
 gUnk_08124158:: @ 08124158
-	.incbin "assets/object97/gUnk_08124158.bin"
+	.incbin "object97/gUnk_08124158.bin"
 
 gUnk_08124178:: @ 08124178
-	.incbin "assets/object97/gUnk_08124178.bin"
+	.incbin "object97/gUnk_08124178.bin"

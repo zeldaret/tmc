@@ -20,10 +20,10 @@ gUnk_080D1F7C:: @ 080D1F7C
 	.4byte sub_08048CEC
 
 gUnk_080D1F90:: @ 080D1F90
-	.incbin "assets/gyorgFemaleEye/gUnk_080D1F90.bin"
+	.incbin "gyorgFemaleEye/gUnk_080D1F90.bin"
 
 gUnk_080D2010:: @ 080D2010
-	.incbin "assets/gyorgFemaleEye/gUnk_080D2010.bin"
+	.incbin "gyorgFemaleEye/gUnk_080D2010.bin"
 
 gUnk_080D2030:: @ 080D2030
-	.incbin "assets/gyorgFemaleEye/gUnk_080D2030.bin"
+	.incbin "gyorgFemaleEye/gUnk_080D2030.bin"

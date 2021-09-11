@@ -4,28 +4,28 @@
 	.section .rodata
 
 gUnk_080CCC4A:: @ 080CCC4A
-	.incbin "assets/rupeeLike/gUnk_080CCC4A.bin"
+	.incbin "rupeeLike/gUnk_080CCC4A.bin"
 
 gUnk_080CCC5F:: @ 080CCC5F
-	.incbin "assets/rupeeLike/gUnk_080CCC5F.bin"
+	.incbin "rupeeLike/gUnk_080CCC5F.bin"
 
 gUnk_080CCC74:: @ 080CCC74
-	.incbin "assets/rupeeLike/gUnk_080CCC74.bin"
+	.incbin "rupeeLike/gUnk_080CCC74.bin"
 
 gUnk_080CCC9C:: @ 080CCC9C
-	.incbin "assets/rupeeLike/gUnk_080CCC9C.bin"
+	.incbin "rupeeLike/gUnk_080CCC9C.bin"
 
 gUnk_080CCCB4:: @ 080CCCB4
-	.incbin "assets/rupeeLike/gUnk_080CCCB4.bin"
+	.incbin "rupeeLike/gUnk_080CCCB4.bin"
 
 gUnk_080CCCC9:: @ 080CCCC9
-	.incbin "assets/rupeeLike/gUnk_080CCCC9.bin"
+	.incbin "rupeeLike/gUnk_080CCCC9.bin"
 
 gUnk_080CCCDE:: @ 080CCCDE
-	.incbin "assets/rupeeLike/gUnk_080CCCDE.bin"
+	.incbin "rupeeLike/gUnk_080CCCDE.bin"
 
 gUnk_080CCD06:: @ 080CCD06
-	.incbin "assets/rupeeLike/gUnk_080CCD06.bin"
+	.incbin "rupeeLike/gUnk_080CCD06.bin"
 
 gUnk_080CCD20:: @ 080CCD20
 	.4byte gUnk_080CCC4A

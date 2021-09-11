@@ -9,4 +9,4 @@ MineralWaterSourceActionFuncs:: @ 08123298
 	.4byte sub_080973DC
 
 MineralWaterSourceParameters:: @ 081232A0
-	.incbin "assets/mineralWaterSource/MineralWaterSourceParameters.bin"
+	.incbin "mineralWaterSource/MineralWaterSourceParameters.bin"

@@ -10,4 +10,4 @@ gUnk_08123568:: @ 08123568
 	.4byte sub_08098AE8
 
 gUnk_08123574:: @ 08123574
-	.incbin "assets/picoBloom/gUnk_08123574.bin"
+	.incbin "picoBloom/gUnk_08123574.bin"

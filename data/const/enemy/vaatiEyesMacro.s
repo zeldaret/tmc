@@ -27,13 +27,13 @@ gUnk_080CDE64:: @ 080CDE64
 	.4byte sub_0802EE8C
 
 gUnk_080CDE6C:: @ 080CDE6C
-	.incbin "assets/vaatiEyesMacro/gUnk_080CDE6C.bin"
+	.incbin "vaatiEyesMacro/gUnk_080CDE6C.bin"
 
 gUnk_080CDE70:: @ 080CDE70
-	.incbin "assets/vaatiEyesMacro/gUnk_080CDE70.bin"
+	.incbin "vaatiEyesMacro/gUnk_080CDE70.bin"
 
 gUnk_080CDE90:: @ 080CDE90
-	.incbin "assets/vaatiEyesMacro/gUnk_080CDE90.bin"
+	.incbin "vaatiEyesMacro/gUnk_080CDE90.bin"
 
 gUnk_080CDE98:: @ 080CDE98
-	.incbin "assets/vaatiEyesMacro/gUnk_080CDE98.bin"
+	.incbin "vaatiEyesMacro/gUnk_080CDE98.bin"

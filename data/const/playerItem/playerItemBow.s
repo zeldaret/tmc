@@ -11,11 +11,11 @@ gUnk_080B3E30:: @ 080B3E30
 	.4byte sub_08019444
 
 gUnk_080B3E40:: @ 080B3E40
-	.incbin "assets/playerItemBow/gUnk_080B3E40.bin"
+	.incbin "playerItemBow/gUnk_080B3E40.bin"
 	.4byte gUnk_080B3E78
-	.incbin "assets/playerItemBow/gUnk_080B3E40_1.bin"
+	.incbin "playerItemBow/gUnk_080B3E40_1.bin"
 	.4byte gUnk_080B3E70
-	.incbin "assets/playerItemBow/gUnk_080B3E40_2.bin"
+	.incbin "playerItemBow/gUnk_080B3E40_2.bin"
 	.4byte gUnk_080B3E78
-	.incbin "assets/playerItemBow/gUnk_080B3E40_3.bin"
+	.incbin "playerItemBow/gUnk_080B3E40_3.bin"
 	.4byte gUnk_080B3E70

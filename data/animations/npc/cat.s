@@ -5,28 +5,28 @@
     .align 2
 
 gUnk_08111114:: @ 08111114
-	.incbin "assets/cat/gUnk_08111114.bin"
+	.incbin "cat/gUnk_08111114.bin"
 
 gUnk_0811111C:: @ 0811111C
-	.incbin "assets/cat/gUnk_0811111C.bin"
+	.incbin "cat/gUnk_0811111C.bin"
 
 gUnk_08111124:: @ 08111124
-	.incbin "assets/cat/gUnk_08111124.bin"
+	.incbin "cat/gUnk_08111124.bin"
 
 gUnk_0811112C:: @ 0811112C
-	.incbin "assets/cat/gUnk_0811112C.bin"
+	.incbin "cat/gUnk_0811112C.bin"
 
 gUnk_08111134:: @ 08111134
-	.incbin "assets/cat/gUnk_08111134.bin"
+	.incbin "cat/gUnk_08111134.bin"
 
 gUnk_0811113C:: @ 0811113C
-	.incbin "assets/cat/gUnk_0811113C.bin"
+	.incbin "cat/gUnk_0811113C.bin"
 
 gUnk_08111144:: @ 08111144
-	.incbin "assets/cat/gUnk_08111144.bin"
+	.incbin "cat/gUnk_08111144.bin"
 
 gUnk_0811114C:: @ 0811114C
-	.incbin "assets/cat/gUnk_0811114C.bin"
+	.incbin "cat/gUnk_0811114C.bin"
 
 gUnk_08111154:: @ 08111154
 	.4byte gUnk_08111114
@@ -39,31 +39,31 @@ gUnk_08111154:: @ 08111154
 	.4byte gUnk_0811114C
 
 gUnk_08111174:: @ 08111174
-	.incbin "assets/cat/gUnk_08111174.bin"
+	.incbin "cat/gUnk_08111174.bin"
 
 gUnk_081111B0:: @ 081111B0
-	.incbin "assets/cat/gUnk_081111B0.bin"
+	.incbin "cat/gUnk_081111B0.bin"
 
 gUnk_081111B9:: @ 081111B9
-	.incbin "assets/cat/gUnk_081111B9.bin"
+	.incbin "cat/gUnk_081111B9.bin"
 
 gUnk_081111C2:: @ 081111C2
-	.incbin "assets/cat/gUnk_081111C2.bin"
+	.incbin "cat/gUnk_081111C2.bin"
 
 gUnk_081111D3:: @ 081111D3
-	.incbin "assets/cat/gUnk_081111D3.bin"
+	.incbin "cat/gUnk_081111D3.bin"
 
 gUnk_081111EB:: @ 081111EB
-	.incbin "assets/cat/gUnk_081111EB.bin"
+	.incbin "cat/gUnk_081111EB.bin"
 
 gUnk_08111204:: @ 08111204
-	.incbin "assets/cat/gUnk_08111204.bin"
+	.incbin "cat/gUnk_08111204.bin"
 
 gUnk_0811122C:: @ 0811122C
-	.incbin "assets/cat/gUnk_0811122C.bin"
+	.incbin "cat/gUnk_0811122C.bin"
 
 gUnk_08111238:: @ 08111238
-	.incbin "assets/cat/gUnk_08111238.bin"
+	.incbin "cat/gUnk_08111238.bin"
 
 gUnk_0811125C:: @ 0811125C
 	.4byte gUnk_08111174

@@ -6,28 +6,28 @@
 
 
 gUnk_0810BD00:: @ 0810BD00
-	.incbin "assets/townsperson/gUnk_0810BD00.bin"
+	.incbin "townsperson/gUnk_0810BD00.bin"
 
 gUnk_0810BD05:: @ 0810BD05
-	.incbin "assets/townsperson/gUnk_0810BD05.bin"
+	.incbin "townsperson/gUnk_0810BD05.bin"
 
 gUnk_0810BD0A:: @ 0810BD0A
-	.incbin "assets/townsperson/gUnk_0810BD0A.bin"
+	.incbin "townsperson/gUnk_0810BD0A.bin"
 
 gUnk_0810BD0F:: @ 0810BD0F
-	.incbin "assets/townsperson/gUnk_0810BD0F.bin"
+	.incbin "townsperson/gUnk_0810BD0F.bin"
 
 gUnk_0810BD14:: @ 0810BD14
-	.incbin "assets/townsperson/gUnk_0810BD14.bin"
+	.incbin "townsperson/gUnk_0810BD14.bin"
 
 gUnk_0810BD25:: @ 0810BD25
-	.incbin "assets/townsperson/gUnk_0810BD25.bin"
+	.incbin "townsperson/gUnk_0810BD25.bin"
 
 gUnk_0810BD36:: @ 0810BD36
-	.incbin "assets/townsperson/gUnk_0810BD36.bin"
+	.incbin "townsperson/gUnk_0810BD36.bin"
 
 gUnk_0810BD47:: @ 0810BD47
-	.incbin "assets/townsperson/gUnk_0810BD47.bin"
+	.incbin "townsperson/gUnk_0810BD47.bin"
 
 gUnk_0810BD58:: @ 0810BD58
 	.4byte gUnk_0810BD00

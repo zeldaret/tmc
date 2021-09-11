@@ -31,4 +31,4 @@ gUnk_080CF278:: @ 080CF278
 	.4byte sub_08037218
 
 gUnk_080CF290:: @ 080CF290
-	.incbin "assets/flyingPot/gUnk_080CF290.bin"
+	.incbin "flyingPot/gUnk_080CF290.bin"

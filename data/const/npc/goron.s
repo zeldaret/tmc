@@ -14,4 +14,4 @@ gUnk_08111A8C:: @ 08111A8C
 	.4byte sub_080693D0
 
 gUnk_08111A94:: @ 08111A94
-	.incbin "assets/goron/gUnk_08111A94.bin"
+	.incbin "goron/gUnk_08111A94.bin"

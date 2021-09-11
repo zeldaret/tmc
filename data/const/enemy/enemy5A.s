@@ -21,4 +21,4 @@ gUnk_080D18A0:: @ 080D18A0
 	.4byte sub_08045984
 
 gUnk_080D18B4:: @ 080D18B4
-	.incbin "assets/enemy5A/gUnk_080D18B4.bin"
+	.incbin "enemy5A/gUnk_080D18B4.bin"

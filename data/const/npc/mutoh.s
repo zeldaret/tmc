@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08110C0C:: @ 08110C0C
-	.incbin "assets/mutoh/gUnk_08110C0C.bin"
+	.incbin "mutoh/gUnk_08110C0C.bin"
 
 gUnk_08110C10:: @ 08110C10
-	.incbin "assets/mutoh/gUnk_08110C10.bin"
+	.incbin "mutoh/gUnk_08110C10.bin"

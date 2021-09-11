@@ -9,7 +9,7 @@ gUnk_080B7870:: @ 080B7870
 	.4byte sub_0801BB2C
 
 gUnk_080B7878:: @ 080B7878
-	.incbin "assets/playerItemSwordSpin/gUnk_080B7878.bin"
+	.incbin "playerItemSwordSpin/gUnk_080B7878.bin"
 
 gUnk_080B788A:: @ 080B788A
-	.incbin "assets/playerItemSwordSpin/gUnk_080B788A.bin"
+	.incbin "playerItemSwordSpin/gUnk_080B788A.bin"

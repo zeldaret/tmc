@@ -5,40 +5,40 @@
     .align 2
 
 gUnk_08111380:: @ 08111380
-	.incbin "assets/mountainMinish/gUnk_08111380.bin"
+	.incbin "mountainMinish/gUnk_08111380.bin"
 
 gUnk_08111385:: @ 08111385
-	.incbin "assets/mountainMinish/gUnk_08111385.bin"
+	.incbin "mountainMinish/gUnk_08111385.bin"
 
 gUnk_0811138A:: @ 0811138A
-	.incbin "assets/mountainMinish/gUnk_0811138A.bin"
+	.incbin "mountainMinish/gUnk_0811138A.bin"
 
 gUnk_0811138F:: @ 0811138F
-	.incbin "assets/mountainMinish/gUnk_0811138F.bin"
+	.incbin "mountainMinish/gUnk_0811138F.bin"
 
 gUnk_08111394:: @ 08111394
-	.incbin "assets/mountainMinish/gUnk_08111394.bin"
+	.incbin "mountainMinish/gUnk_08111394.bin"
 
 gUnk_081113B9:: @ 081113B9
-	.incbin "assets/mountainMinish/gUnk_081113B9.bin"
+	.incbin "mountainMinish/gUnk_081113B9.bin"
 
 gUnk_081113DE:: @ 081113DE
-	.incbin "assets/mountainMinish/gUnk_081113DE.bin"
+	.incbin "mountainMinish/gUnk_081113DE.bin"
 
 gUnk_081113FF:: @ 081113FF
-	.incbin "assets/mountainMinish/gUnk_081113FF.bin"
+	.incbin "mountainMinish/gUnk_081113FF.bin"
 
 gUnk_08111424:: @ 08111424
-	.incbin "assets/mountainMinish/gUnk_08111424.bin"
+	.incbin "mountainMinish/gUnk_08111424.bin"
 
 gUnk_08111449:: @ 08111449
-	.incbin "assets/mountainMinish/gUnk_08111449.bin"
+	.incbin "mountainMinish/gUnk_08111449.bin"
 
 gUnk_081114BA:: @ 081114BA
-	.incbin "assets/mountainMinish/gUnk_081114BA.bin"
+	.incbin "mountainMinish/gUnk_081114BA.bin"
 
 gUnk_081114E3:: @ 081114E3
-	.incbin "assets/mountainMinish/gUnk_081114E3.bin"
+	.incbin "mountainMinish/gUnk_081114E3.bin"
 
 gUnk_081114E8:: @ 081114E8
 	.4byte gUnk_08111380

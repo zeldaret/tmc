@@ -34,8 +34,8 @@ gUnk_08123F04:: @ 08123F04
 	.4byte sub_0809D130
 
 gUnk_08123F0C:: @ 08123F0C
-	.incbin "assets/bird/gUnk_08123F0C.bin"
+	.incbin "bird/gUnk_08123F0C.bin"
 
 gUnk_08123F20:: @ 08123F20
 	.4byte gUnk_08123F0C
-	.incbin "assets/bird/gUnk_08123F20.bin"
+	.incbin "bird/gUnk_08123F20.bin"

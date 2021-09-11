@@ -4,76 +4,76 @@
 	.section .rodata
 
 gUnk_080CBCC8:: @ 080CBCC8
-	.incbin "assets/moldworm/gUnk_080CBCC8.bin"
+	.incbin "moldworm/gUnk_080CBCC8.bin"
 
 gUnk_080CBCCC:: @ 080CBCCC
-	.incbin "assets/moldworm/gUnk_080CBCCC.bin"
+	.incbin "moldworm/gUnk_080CBCCC.bin"
 
 gUnk_080CBCD0:: @ 080CBCD0
-	.incbin "assets/moldworm/gUnk_080CBCD0.bin"
+	.incbin "moldworm/gUnk_080CBCD0.bin"
 
 gUnk_080CBCD4:: @ 080CBCD4
-	.incbin "assets/moldworm/gUnk_080CBCD4.bin"
+	.incbin "moldworm/gUnk_080CBCD4.bin"
 
 gUnk_080CBCD8:: @ 080CBCD8
-	.incbin "assets/moldworm/gUnk_080CBCD8.bin"
+	.incbin "moldworm/gUnk_080CBCD8.bin"
 
 gUnk_080CBCDC:: @ 080CBCDC
-	.incbin "assets/moldworm/gUnk_080CBCDC.bin"
+	.incbin "moldworm/gUnk_080CBCDC.bin"
 
 gUnk_080CBCE0:: @ 080CBCE0
-	.incbin "assets/moldworm/gUnk_080CBCE0.bin"
+	.incbin "moldworm/gUnk_080CBCE0.bin"
 
 gUnk_080CBCE4:: @ 080CBCE4
-	.incbin "assets/moldworm/gUnk_080CBCE4.bin"
+	.incbin "moldworm/gUnk_080CBCE4.bin"
 
 gUnk_080CBCE8:: @ 080CBCE8
-	.incbin "assets/moldworm/gUnk_080CBCE8.bin"
+	.incbin "moldworm/gUnk_080CBCE8.bin"
 
 gUnk_080CBCEC:: @ 080CBCEC
-	.incbin "assets/moldworm/gUnk_080CBCEC.bin"
+	.incbin "moldworm/gUnk_080CBCEC.bin"
 
 gUnk_080CBCF0:: @ 080CBCF0
-	.incbin "assets/moldworm/gUnk_080CBCF0.bin"
+	.incbin "moldworm/gUnk_080CBCF0.bin"
 
 gUnk_080CBCF4:: @ 080CBCF4
-	.incbin "assets/moldworm/gUnk_080CBCF4.bin"
+	.incbin "moldworm/gUnk_080CBCF4.bin"
 
 gUnk_080CBCF8:: @ 080CBCF8
-	.incbin "assets/moldworm/gUnk_080CBCF8.bin"
+	.incbin "moldworm/gUnk_080CBCF8.bin"
 
 gUnk_080CBCFC:: @ 080CBCFC
-	.incbin "assets/moldworm/gUnk_080CBCFC.bin"
+	.incbin "moldworm/gUnk_080CBCFC.bin"
 
 gUnk_080CBD00:: @ 080CBD00
-	.incbin "assets/moldworm/gUnk_080CBD00.bin"
+	.incbin "moldworm/gUnk_080CBD00.bin"
 
 gUnk_080CBD04:: @ 080CBD04
-	.incbin "assets/moldworm/gUnk_080CBD04.bin"
+	.incbin "moldworm/gUnk_080CBD04.bin"
 
 gUnk_080CBD08:: @ 080CBD08
-	.incbin "assets/moldworm/gUnk_080CBD08.bin"
+	.incbin "moldworm/gUnk_080CBD08.bin"
 
 gUnk_080CBD0C:: @ 080CBD0C
-	.incbin "assets/moldworm/gUnk_080CBD0C.bin"
+	.incbin "moldworm/gUnk_080CBD0C.bin"
 
 gUnk_080CBD10:: @ 080CBD10
-	.incbin "assets/moldworm/gUnk_080CBD10.bin"
+	.incbin "moldworm/gUnk_080CBD10.bin"
 
 gUnk_080CBD14:: @ 080CBD14
-	.incbin "assets/moldworm/gUnk_080CBD14.bin"
+	.incbin "moldworm/gUnk_080CBD14.bin"
 
 gUnk_080CBD18:: @ 080CBD18
-	.incbin "assets/moldworm/gUnk_080CBD18.bin"
+	.incbin "moldworm/gUnk_080CBD18.bin"
 
 gUnk_080CBD1C:: @ 080CBD1C
-	.incbin "assets/moldworm/gUnk_080CBD1C.bin"
+	.incbin "moldworm/gUnk_080CBD1C.bin"
 
 gUnk_080CBD20:: @ 080CBD20
-	.incbin "assets/moldworm/gUnk_080CBD20.bin"
+	.incbin "moldworm/gUnk_080CBD20.bin"
 
 gUnk_080CBD4C:: @ 080CBD4C
-	.incbin "assets/moldworm/gUnk_080CBD4C.bin"
+	.incbin "moldworm/gUnk_080CBD4C.bin"
 
 gUnk_080CBD58:: @ 080CBD58
 	.4byte gUnk_080CBCC8

@@ -6,13 +6,13 @@
 
 gUnk_080D0ABC:: @ 080D0ABC
 .ifdef EU
-	.incbin "assets/vaatiTransfigured/gUnk_080D0ABC_EU.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0ABC_EU.bin"
 .else
-	.incbin "assets/vaatiTransfigured/gUnk_080D0ABC_1_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0ABC_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_080D0ABF:: @ 080D0ABF
-	.incbin "assets/vaatiTransfigured/gUnk_080D0ABF.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0ABF.bin"
 
 gUnk_080D0AC8:: @ 080D0AC8
 	.4byte sub_0803F818
@@ -47,16 +47,16 @@ gUnk_080D0B0C:: @ 080D0B0C
 	.4byte sub_080405D8
 
 gUnk_080D0B18:: @ 080D0B18
-	.incbin "assets/vaatiTransfigured/gUnk_080D0B18.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0B18.bin"
 
 gUnk_080D0B58:: @ 080D0B58
-	.incbin "assets/vaatiTransfigured/gUnk_080D0B58.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0B58.bin"
 
 gUnk_080D0B64:: @ 080D0B64
-	.incbin "assets/vaatiTransfigured/gUnk_080D0B64.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0B64.bin"
 
 gUnk_080D0B74:: @ 080D0B74
-	.incbin "assets/vaatiTransfigured/gUnk_080D0B74.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0B74.bin"
 
 gUnk_080D0B84:: @ 080D0B84
-	.incbin "assets/vaatiTransfigured/gUnk_080D0B84.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0B84.bin"

@@ -9,7 +9,7 @@ gUnk_08123DD4:: @ 08123DD4
 	.4byte sub_0809C5C4
 
 gUnk_08123DDC:: @ 08123DDC
-	.incbin "assets/object91/gUnk_08123DDC.bin"
+	.incbin "object91/gUnk_08123DDC.bin"
 
 gUnk_08123DF8:: @ 08123DF8
 	.4byte sub_0809C7E4
@@ -22,7 +22,7 @@ gUnk_08123DF8:: @ 08123DF8
 	.4byte sub_0809CB4C
 
 gUnk_08123E18:: @ 08123E18
-	.incbin "assets/object91/gUnk_08123E18.bin"
+	.incbin "object91/gUnk_08123E18.bin"
 
 gUnk_08123E1C:: @ 08123E1C
-	.incbin "assets/object91/gUnk_08123E1C.bin"
+	.incbin "object91/gUnk_08123E1C.bin"

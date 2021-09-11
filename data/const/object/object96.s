@@ -73,7 +73,7 @@ gUnk_08123FB0:: @ 08123FB0
 	.4byte 0x00001800
 	.4byte 0x00400060
 
-	.incbin "assets/object96/gUnk_08123FB0.bin"
+	.incbin "object96/gUnk_08123FB0.bin"
 
 gUnk_081240B0:: @ 081240B0
 	.4byte sub_0809D7A8

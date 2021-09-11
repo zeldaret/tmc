@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08109C98:: @ 08109C98
-	.incbin "assets/forestMinish/gUnk_08109C98.bin"
+	.incbin "forestMinish/gUnk_08109C98.bin"
 
 gUnk_08109D18:: @ 08109D18
 	.4byte script_08009F14
@@ -54,57 +54,57 @@ gUnk_08109D18:: @ 08109D18
 	.4byte script_0800CD04
 
 gUnk_08109DC8:: @ 08109DC8
-	.incbin "assets/forestMinish/gUnk_08109DC8.bin"
+	.incbin "forestMinish/gUnk_08109DC8.bin"
 .ifdef JP
     @ TODO only small differences
-	.incbin "assets/forestMinish/gUnk_08109DC8_1_JP.bin"
+	.incbin "forestMinish/gUnk_08109DC8_1_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "assets/forestMinish/gUnk_08109DC8_2_DEMO_JP.bin"
+	.incbin "forestMinish/gUnk_08109DC8_2_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "assets/forestMinish/gUnk_08109DC8_3_EU.bin"
+	.incbin "forestMinish/gUnk_08109DC8_3_EU.bin"
 .else
-	.incbin "assets/forestMinish/gUnk_08109DC8_4_USA-DEMO_USA.bin"
+	.incbin "forestMinish/gUnk_08109DC8_4_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
 
 .ifdef JP
     @ TODO only small differences
-	.incbin "assets/forestMinish/gUnk_08109DC8_5_JP.bin"
+	.incbin "forestMinish/gUnk_08109DC8_5_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "assets/forestMinish/gUnk_08109DC8_6_DEMO_JP.bin"
+	.incbin "forestMinish/gUnk_08109DC8_6_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "assets/forestMinish/gUnk_08109DC8_7_EU.bin"
+	.incbin "forestMinish/gUnk_08109DC8_7_EU.bin"
 .else
-	.incbin "assets/forestMinish/gUnk_08109DC8_8_USA-DEMO_USA.bin"
+	.incbin "forestMinish/gUnk_08109DC8_8_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
 
-	.incbin "assets/forestMinish/gUnk_08109DC8_9.bin"
+	.incbin "forestMinish/gUnk_08109DC8_9.bin"
 	.4byte sub_080601D4
-	.incbin "assets/forestMinish/gUnk_08109DC8_10.bin"
+	.incbin "forestMinish/gUnk_08109DC8_10.bin"
 	.4byte sub_080601D4
-	.incbin "assets/forestMinish/gUnk_08109DC8_11.bin"
+	.incbin "forestMinish/gUnk_08109DC8_11.bin"
 	.4byte sub_080601D4
-	.incbin "assets/forestMinish/gUnk_08109DC8_12.bin"
+	.incbin "forestMinish/gUnk_08109DC8_12.bin"
 	.4byte sub_080601D4
-	.incbin "assets/forestMinish/gUnk_08109DC8_13.bin"
+	.incbin "forestMinish/gUnk_08109DC8_13.bin"
 
 gUnk_0810A348:: @ 0810A348
-	.incbin "assets/forestMinish/gUnk_0810A348.bin"
+	.incbin "forestMinish/gUnk_0810A348.bin"
 
 gUnk_0810A354:: @ 0810A354
-	.incbin "assets/forestMinish/gUnk_0810A354.bin"
+	.incbin "forestMinish/gUnk_0810A354.bin"
 
 gUnk_0810A35A:: @ 0810A35A
-	.incbin "assets/forestMinish/gUnk_0810A35A.bin"
+	.incbin "forestMinish/gUnk_0810A35A.bin"
 
 gUnk_0810A362:: @ 0810A362
-	.incbin "assets/forestMinish/gUnk_0810A362.bin"
+	.incbin "forestMinish/gUnk_0810A362.bin"

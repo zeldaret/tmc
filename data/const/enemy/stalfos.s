@@ -32,25 +32,25 @@ gUnk_080CF8EC:: @ 080CF8EC
 	.4byte sub_08039470
 
 gUnk_080CF8F8:: @ 080CF8F8
-	.incbin "assets/stalfos/gUnk_080CF8F8.bin"
+	.incbin "stalfos/gUnk_080CF8F8.bin"
 
 gUnk_080CF900:: @ 080CF900
-	.incbin "assets/stalfos/gUnk_080CF900.bin"
+	.incbin "stalfos/gUnk_080CF900.bin"
 
 gUnk_080CF910:: @ 080CF910
-	.incbin "assets/stalfos/gUnk_080CF910.bin"
+	.incbin "stalfos/gUnk_080CF910.bin"
 
 gUnk_080CF918:: @ 080CF918
-	.incbin "assets/stalfos/gUnk_080CF918.bin"
+	.incbin "stalfos/gUnk_080CF918.bin"
 
 gUnk_080CF928:: @ 080CF928
-	.incbin "assets/stalfos/gUnk_080CF928.bin"
+	.incbin "stalfos/gUnk_080CF928.bin"
 
 gUnk_080CF92C:: @ 080CF92C
-	.incbin "assets/stalfos/gUnk_080CF92C.bin"
+	.incbin "stalfos/gUnk_080CF92C.bin"
 
 gUnk_080CF930:: @ 080CF930
-	.incbin "assets/stalfos/gUnk_080CF930.bin"
+	.incbin "stalfos/gUnk_080CF930.bin"
 
 gUnk_080CF938:: @ 080CF938
-	.incbin "assets/stalfos/gUnk_080CF938.bin"
+	.incbin "stalfos/gUnk_080CF938.bin"

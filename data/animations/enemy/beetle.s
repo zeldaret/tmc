@@ -4,25 +4,25 @@
 	.section .rodata
 
 gUnk_080CB5EC:: @ 080CB5EC
-	.incbin "assets/beetle/gUnk_080CB5EC.bin"
+	.incbin "beetle/gUnk_080CB5EC.bin"
 
 gUnk_080CB600:: @ 080CB600
-	.incbin "assets/beetle/gUnk_080CB600.bin"
+	.incbin "beetle/gUnk_080CB600.bin"
 
 gUnk_080CB61C:: @ 080CB61C
-	.incbin "assets/beetle/gUnk_080CB61C.bin"
+	.incbin "beetle/gUnk_080CB61C.bin"
 
 gUnk_080CB62D:: @ 080CB62D
-	.incbin "assets/beetle/gUnk_080CB62D.bin"
+	.incbin "beetle/gUnk_080CB62D.bin"
 
 gUnk_080CB645:: @ 080CB645
-	.incbin "assets/beetle/gUnk_080CB645.bin"
+	.incbin "beetle/gUnk_080CB645.bin"
 
 gUnk_080CB65D:: @ 080CB65D
-	.incbin "assets/beetle/gUnk_080CB65D.bin"
+	.incbin "beetle/gUnk_080CB65D.bin"
 
 gUnk_080CB671:: @ 080CB671
-	.incbin "assets/beetle/gUnk_080CB671.bin"
+	.incbin "beetle/gUnk_080CB671.bin"
 
 gUnk_080CB67C:: @ 080CB67C
 	.4byte gUnk_080CB5EC

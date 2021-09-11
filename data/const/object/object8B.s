@@ -11,4 +11,4 @@ gUnk_08123D58:: @ 08123D58
 	.4byte sub_0809B0A8
 
 gUnk_08123D68:: @ 08123D68
-	.incbin "assets/object8B/gUnk_08123D68.bin"
+	.incbin "object8B/gUnk_08123D68.bin"

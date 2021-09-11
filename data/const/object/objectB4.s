@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08124B10:: @ 08124B10
-	.incbin "assets/objectB4/gUnk_08124B10.bin"
+	.incbin "objectB4/gUnk_08124B10.bin"
 
 gUnk_08124B20:: @ 08124B20
 	.4byte sub_080A0BA8
@@ -14,4 +14,4 @@ gUnk_08124B20:: @ 08124B20
 	.4byte sub_080A0E08
 
 gUnk_08124B30:: @ 08124B30
-	.incbin "assets/objectB4/gUnk_08124B30.bin"
+	.incbin "objectB4/gUnk_08124B30.bin"

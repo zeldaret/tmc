@@ -10,4 +10,4 @@ gUnk_08110644:: @ 08110644
 	.4byte sub_0806685C
 
 gUnk_08110650:: @ 08110650
-	.incbin "assets/ministerPotho/gUnk_08110650.bin"
+	.incbin "ministerPotho/gUnk_08110650.bin"

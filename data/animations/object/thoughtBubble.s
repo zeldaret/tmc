@@ -5,13 +5,13 @@
     .align 2
 
 gUnk_081225A0:: @ 081225A0
-	.incbin "assets/thoughtBubble/gUnk_081225A0.bin"
+	.incbin "thoughtBubble/gUnk_081225A0.bin"
 
 gUnk_081225BC:: @ 081225BC
-	.incbin "assets/thoughtBubble/gUnk_081225BC.bin"
+	.incbin "thoughtBubble/gUnk_081225BC.bin"
 
 gUnk_081225D8:: @ 081225D8
-	.incbin "assets/thoughtBubble/gUnk_081225D8.bin"
+	.incbin "thoughtBubble/gUnk_081225D8.bin"
 
 gUnk_081225F4:: @ 081225F4
 	.4byte gUnk_081225A0

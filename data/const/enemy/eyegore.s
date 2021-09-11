@@ -22,13 +22,13 @@ gUnk_080CE2A0:: @ 080CE2A0
 	.4byte sub_08030E20
 
 gUnk_080CE2BC:: @ 080CE2BC
-	.incbin "assets/eyegore/gUnk_080CE2BC.bin"
+	.incbin "eyegore/gUnk_080CE2BC.bin"
 
 gUnk_080CE2C0:: @ 080CE2C0
-	.incbin "assets/eyegore/gUnk_080CE2C0.bin"
+	.incbin "eyegore/gUnk_080CE2C0.bin"
 
 gUnk_080CE2F4:: @ 080CE2F4
-	.incbin "assets/eyegore/gUnk_080CE2F4.bin"
+	.incbin "eyegore/gUnk_080CE2F4.bin"
 
 gUnk_080CE304:: @ 080CE304
-	.incbin "assets/eyegore/gUnk_080CE304.bin"
+	.incbin "eyegore/gUnk_080CE304.bin"

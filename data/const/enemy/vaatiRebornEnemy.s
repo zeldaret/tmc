@@ -27,23 +27,23 @@ gUnk_080D04A0:: @ 080D04A0
 	.4byte sub_0803DBB8
 
 gUnk_080D04A8:: @ 080D04A8
-	.incbin "assets/vaatiRebornEnemy/gUnk_080D04A8.bin"
+	.incbin "vaatiRebornEnemy/gUnk_080D04A8.bin"
 
 gUnk_080D04AC:: @ 080D04AC
-	.incbin "assets/vaatiRebornEnemy/gUnk_080D04AC.bin"
+	.incbin "vaatiRebornEnemy/gUnk_080D04AC.bin"
 
 gUnk_080D04C0:: @ 080D04C0
-	.incbin "assets/vaatiRebornEnemy/gUnk_080D04C0.bin"
+	.incbin "vaatiRebornEnemy/gUnk_080D04C0.bin"
 
 gUnk_080D04C8:: @ 080D04C8
-	.incbin "assets/vaatiRebornEnemy/gUnk_080D04C8.bin"
+	.incbin "vaatiRebornEnemy/gUnk_080D04C8.bin"
 
 gUnk_080D04D0:: @ 080D04D0
 .ifdef EU
-	.incbin "assets/vaatiRebornEnemy/gUnk_080D04D0_EU.bin"
+	.incbin "vaatiRebornEnemy/gUnk_080D04D0_EU.bin"
 .else
-	.incbin "assets/vaatiRebornEnemy/gUnk_080D04D0_1_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "vaatiRebornEnemy/gUnk_080D04D0_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_080D04D3:: @ 080D04D3
-	.incbin "assets/vaatiRebornEnemy/gUnk_080D04D3.bin"
+	.incbin "vaatiRebornEnemy/gUnk_080D04D3.bin"

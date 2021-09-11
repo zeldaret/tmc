@@ -5,5 +5,5 @@
     .align 2
 
 unusedLabel_0CEBDC:: @ 080CEBDC
-	.incbin "assets/data_080CEBDC/unusedLabel_0CEBDC.bin"
+	.incbin "data_080CEBDC/unusedLabel_0CEBDC.bin"
 

@@ -10,4 +10,4 @@ gUnk_0810CAA0:: @ 0810CAA0
 	.4byte sub_08063608
 
 gUnk_0810CAAC:: @ 0810CAAC
-	.incbin "assets/brocco/gUnk_0810CAAC.bin"
+	.incbin "brocco/gUnk_0810CAAC.bin"

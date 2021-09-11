@@ -21,27 +21,27 @@ gUnk_081211C0:: @ 081211C0
 	.4byte sub_0808ADF0
 
 gUnk_081211CC:: @ 081211CC
-	.incbin "assets/pullableMushroom/gUnk_081211CC.bin"
+	.incbin "pullableMushroom/gUnk_081211CC.bin"
 
 gUnk_081211DC:: @ 081211DC
 	.4byte sub_0808AEB0
 	.4byte sub_0808AFD4
 
 gUnk_081211E4:: @ 081211E4
-	.incbin "assets/pullableMushroom/gUnk_081211E4.bin"
+	.incbin "pullableMushroom/gUnk_081211E4.bin"
 
 gUnk_081211EC:: @ 081211EC
 	.4byte sub_0808B05C
 	.4byte sub_0808B0BC
 
 gUnk_081211F4:: @ 081211F4
-	.incbin "assets/pullableMushroom/gUnk_081211F4.bin"
+	.incbin "pullableMushroom/gUnk_081211F4.bin"
 
 gUnk_081211F5:: @ 081211F5
-	.incbin "assets/pullableMushroom/gUnk_081211F5.bin"
+	.incbin "pullableMushroom/gUnk_081211F5.bin"
 
 gUnk_081211FC:: @ 081211FC
-	.incbin "assets/pullableMushroom/gUnk_081211FC.bin"
+	.incbin "pullableMushroom/gUnk_081211FC.bin"
 
 gUnk_081211FD:: @ 081211FD
-	.incbin "assets/pullableMushroom/gUnk_081211FD.bin"
+	.incbin "pullableMushroom/gUnk_081211FD.bin"

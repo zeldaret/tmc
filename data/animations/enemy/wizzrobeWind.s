@@ -6,28 +6,28 @@
 
 
 gUnk_080CDF78:: @ 080CDF78
-	.incbin "assets/wizzrobeWind/gUnk_080CDF78.bin"
+	.incbin "wizzrobeWind/gUnk_080CDF78.bin"
 
 gUnk_080CDF7D:: @ 080CDF7D
-	.incbin "assets/wizzrobeWind/gUnk_080CDF7D.bin"
+	.incbin "wizzrobeWind/gUnk_080CDF7D.bin"
 
 gUnk_080CDF82:: @ 080CDF82
-	.incbin "assets/wizzrobeWind/gUnk_080CDF82.bin"
+	.incbin "wizzrobeWind/gUnk_080CDF82.bin"
 
 gUnk_080CDF87:: @ 080CDF87
-	.incbin "assets/wizzrobeWind/gUnk_080CDF87.bin"
+	.incbin "wizzrobeWind/gUnk_080CDF87.bin"
 
 gUnk_080CDF8C:: @ 080CDF8C
-	.incbin "assets/wizzrobeWind/gUnk_080CDF8C.bin"
+	.incbin "wizzrobeWind/gUnk_080CDF8C.bin"
 
 gUnk_080CDF91:: @ 080CDF91
-	.incbin "assets/wizzrobeWind/gUnk_080CDF91.bin"
+	.incbin "wizzrobeWind/gUnk_080CDF91.bin"
 
 gUnk_080CDF96:: @ 080CDF96
-	.incbin "assets/wizzrobeWind/gUnk_080CDF96.bin"
+	.incbin "wizzrobeWind/gUnk_080CDF96.bin"
 
 gUnk_080CDF9B:: @ 080CDF9B
-	.incbin "assets/wizzrobeWind/gUnk_080CDF9B.bin"
+	.incbin "wizzrobeWind/gUnk_080CDF9B.bin"
 
 gUnk_080CDFA0:: @ 080CDFA0
 	.4byte gUnk_080CDF78

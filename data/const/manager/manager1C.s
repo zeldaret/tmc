@@ -9,7 +9,7 @@ gUnk_08108C64:: @ 08108C64
 	.4byte sub_0805B55C
 
 gUnk_08108C6C:: @ 08108C6C
-	.incbin "assets/manager1C/gUnk_08108C6C.bin"
+	.incbin "manager1C/gUnk_08108C6C.bin"
 
 gUnk_08108C7C:: @ 08108C7C
-	.incbin "assets/manager1C/gUnk_08108C7C.bin"
+	.incbin "manager1C/gUnk_08108C7C.bin"

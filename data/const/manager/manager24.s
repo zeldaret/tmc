@@ -17,4 +17,4 @@ gUnk_08108CE8:: @ 08108CE8
 	.4byte sub_0805C4E0
 
 gUnk_08108CFC:: @ 08108CFC
-	.incbin "assets/manager24/gUnk_08108CFC.bin"
+	.incbin "manager24/gUnk_08108CFC.bin"

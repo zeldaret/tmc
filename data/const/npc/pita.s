@@ -7,16 +7,16 @@
 gUnk_0810C428:: @ 0810C428
 .ifdef EU
     @ TODO only small differences
-	.incbin "assets/pita/gUnk_0810C428_EU.bin"
+	.incbin "pita/gUnk_0810C428_EU.bin"
 .else
-	.incbin "assets/pita/gUnk_0810C428_1_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "pita/gUnk_0810C428_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_0810C430:: @ 0810C430
-	.incbin "assets/pita/gUnk_0810C430.bin"
+	.incbin "pita/gUnk_0810C430.bin"
 
 gUnk_0810C435:: @ 0810C435
-	.incbin "assets/pita/gUnk_0810C435.bin"
+	.incbin "pita/gUnk_0810C435.bin"
 
 gUnk_0810C43D:: @ 0810C43D
-	.incbin "assets/pita/gUnk_0810C43D.bin"
+	.incbin "pita/gUnk_0810C43D.bin"

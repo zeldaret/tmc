@@ -5,13 +5,13 @@
     .align 2
 
 gUnk_081106E8:: @ 081106E8
-	.incbin "assets/npc26/gUnk_081106E8.bin"
+	.incbin "npc26/gUnk_081106E8.bin"
 
 gUnk_081106ED:: @ 081106ED
-	.incbin "assets/npc26/gUnk_081106ED.bin"
+	.incbin "npc26/gUnk_081106ED.bin"
 
 gUnk_081106FE:: @ 081106FE
-	.incbin "assets/npc26/gUnk_081106FE.bin"
+	.incbin "npc26/gUnk_081106FE.bin"
 
 gUnk_08110710:: @ 08110710
 	.4byte gUnk_081106E8

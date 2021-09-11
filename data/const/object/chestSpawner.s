@@ -31,25 +31,25 @@ gUnk_0811F818:: @ 0811F818
 	.4byte nullsub_114
 
 gUnk_0811F838:: @ 0811F838
-	.incbin "assets/chestSpawner/gUnk_0811F838.bin"
+	.incbin "chestSpawner/gUnk_0811F838.bin"
 
 gUnk_0811F840:: @ 0811F840
-	.incbin "assets/chestSpawner/gUnk_0811F840.bin"
+	.incbin "chestSpawner/gUnk_0811F840.bin"
 
 gUnk_0811F850:: @ 0811F850
-	.incbin "assets/chestSpawner/gUnk_0811F850.bin"
+	.incbin "chestSpawner/gUnk_0811F850.bin"
 
 gUnk_0811F854:: @ 0811F854
-	.incbin "assets/chestSpawner/gUnk_0811F854.bin"
+	.incbin "chestSpawner/gUnk_0811F854.bin"
 
 gUnk_0811F866:: @ 0811F866
-	.incbin "assets/chestSpawner/gUnk_0811F866.bin"
+	.incbin "chestSpawner/gUnk_0811F866.bin"
 
 gUnk_0811F880:: @ 0811F880
-	.incbin "assets/chestSpawner/gUnk_0811F880.bin"
+	.incbin "chestSpawner/gUnk_0811F880.bin"
 
 gUnk_0811F88A:: @ 0811F88A
-	.incbin "assets/chestSpawner/gUnk_0811F88A.bin"
+	.incbin "chestSpawner/gUnk_0811F88A.bin"
 
 gUnk_0811F898:: @ 0811F898
 	.4byte gUnk_0811F854
@@ -58,7 +58,7 @@ gUnk_0811F898:: @ 0811F898
 	.4byte gUnk_0811F88A
 
 gUnk_0811F8A8:: @ 0811F8A8
-	.incbin "assets/chestSpawner/gUnk_0811F8A8.bin"
+	.incbin "chestSpawner/gUnk_0811F8A8.bin"
 
 gUnk_0811F8B0:: @ 0811F8B0
-	.incbin "assets/chestSpawner/gUnk_0811F8B0.bin"
+	.incbin "chestSpawner/gUnk_0811F8B0.bin"

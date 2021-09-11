@@ -5,28 +5,28 @@
     .align 2
 
 gUnk_0812983C:: @ 0812983C
-	.incbin "assets/projectile8/gUnk_0812983C.bin"
+	.incbin "projectile8/gUnk_0812983C.bin"
 
 gUnk_08129845:: @ 08129845
-	.incbin "assets/projectile8/gUnk_08129845.bin"
+	.incbin "projectile8/gUnk_08129845.bin"
 
 gUnk_0812984E:: @ 0812984E
-	.incbin "assets/projectile8/gUnk_0812984E.bin"
+	.incbin "projectile8/gUnk_0812984E.bin"
 
 gUnk_08129857:: @ 08129857
-	.incbin "assets/projectile8/gUnk_08129857.bin"
+	.incbin "projectile8/gUnk_08129857.bin"
 
 gUnk_08129860:: @ 08129860
-	.incbin "assets/projectile8/gUnk_08129860.bin"
+	.incbin "projectile8/gUnk_08129860.bin"
 
 gUnk_0812986D:: @ 0812986D
-	.incbin "assets/projectile8/gUnk_0812986D.bin"
+	.incbin "projectile8/gUnk_0812986D.bin"
 
 gUnk_0812987A:: @ 0812987A
-	.incbin "assets/projectile8/gUnk_0812987A.bin"
+	.incbin "projectile8/gUnk_0812987A.bin"
 
 gUnk_08129887:: @ 08129887
-	.incbin "assets/projectile8/gUnk_08129887.bin"
+	.incbin "projectile8/gUnk_08129887.bin"
 
 gUnk_08129894:: @ 08129894
 	.4byte gUnk_0812983C

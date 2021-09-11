@@ -5,55 +5,55 @@
     .align 2
 
 gUnk_0810C0C4:: @ 0810C0C4
-	.incbin "assets/kid/gUnk_0810C0C4.bin"
+	.incbin "kid/gUnk_0810C0C4.bin"
 
 gUnk_0810C0C9:: @ 0810C0C9
-	.incbin "assets/kid/gUnk_0810C0C9.bin"
+	.incbin "kid/gUnk_0810C0C9.bin"
 
 gUnk_0810C0CE:: @ 0810C0CE
-	.incbin "assets/kid/gUnk_0810C0CE.bin"
+	.incbin "kid/gUnk_0810C0CE.bin"
 
 gUnk_0810C0D3:: @ 0810C0D3
-	.incbin "assets/kid/gUnk_0810C0D3.bin"
+	.incbin "kid/gUnk_0810C0D3.bin"
 
 gUnk_0810C0D8:: @ 0810C0D8
-	.incbin "assets/kid/gUnk_0810C0D8.bin"
+	.incbin "kid/gUnk_0810C0D8.bin"
 
 gUnk_0810C0E9:: @ 0810C0E9
-	.incbin "assets/kid/gUnk_0810C0E9.bin"
+	.incbin "kid/gUnk_0810C0E9.bin"
 
 gUnk_0810C0FA:: @ 0810C0FA
-	.incbin "assets/kid/gUnk_0810C0FA.bin"
+	.incbin "kid/gUnk_0810C0FA.bin"
 
 gUnk_0810C10B:: @ 0810C10B
-	.incbin "assets/kid/gUnk_0810C10B.bin"
+	.incbin "kid/gUnk_0810C10B.bin"
 
 gUnk_0810C11C:: @ 0810C11C
-	.incbin "assets/kid/gUnk_0810C11C.bin"
+	.incbin "kid/gUnk_0810C11C.bin"
 
 gUnk_0810C135:: @ 0810C135
-	.incbin "assets/kid/gUnk_0810C135.bin"
+	.incbin "kid/gUnk_0810C135.bin"
 
 gUnk_0810C14E:: @ 0810C14E
-	.incbin "assets/kid/gUnk_0810C14E.bin"
+	.incbin "kid/gUnk_0810C14E.bin"
 
 gUnk_0810C167:: @ 0810C167
-	.incbin "assets/kid/gUnk_0810C167.bin"
+	.incbin "kid/gUnk_0810C167.bin"
 
 gUnk_0810C180:: @ 0810C180
-	.incbin "assets/kid/gUnk_0810C180.bin"
+	.incbin "kid/gUnk_0810C180.bin"
 
 gUnk_0810C199:: @ 0810C199
-	.incbin "assets/kid/gUnk_0810C199.bin"
+	.incbin "kid/gUnk_0810C199.bin"
 
 gUnk_0810C1A6:: @ 0810C1A6
-	.incbin "assets/kid/gUnk_0810C1A6.bin"
+	.incbin "kid/gUnk_0810C1A6.bin"
 
 gUnk_0810C1D7:: @ 0810C1D7
-	.incbin "assets/kid/gUnk_0810C1D7.bin"
+	.incbin "kid/gUnk_0810C1D7.bin"
 
 gUnk_0810C1DC:: @ 0810C1DC
-	.incbin "assets/kid/gUnk_0810C1DC.bin"
+	.incbin "kid/gUnk_0810C1DC.bin"
 
 gUnk_0810C1E4:: @ 0810C1E4
 	.4byte gUnk_0810C0C4
@@ -95,13 +95,13 @@ gUnk_0810C268:: @ 0810C268
 	.4byte sub_08062AD4
 
 gUnk_0810C270:: @ 0810C270
-	.incbin "assets/kid/gUnk_0810C270.bin"
+	.incbin "kid/gUnk_0810C270.bin"
 
 gUnk_0810C275:: @ 0810C275
-	.incbin "assets/kid/gUnk_0810C275.bin"
+	.incbin "kid/gUnk_0810C275.bin"
 
 gUnk_0810C27A:: @ 0810C27A
-	.incbin "assets/kid/gUnk_0810C27A.bin"
+	.incbin "kid/gUnk_0810C27A.bin"
 	.4byte gUnk_0810C270
 	.4byte gUnk_0810C275
 	.4byte gUnk_0810C27A

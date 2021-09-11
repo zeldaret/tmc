@@ -22,10 +22,10 @@ gUnk_080CEA34:: @ 080CEA34
 	.4byte sub_08032ED0
 
 gUnk_080CEA50:: @ 080CEA50
-	.incbin "assets/mulldozer/gUnk_080CEA50.bin"
+	.incbin "mulldozer/gUnk_080CEA50.bin"
 
 gUnk_080CEA54:: @ 080CEA54
-	.incbin "assets/mulldozer/gUnk_080CEA54.bin"
+	.incbin "mulldozer/gUnk_080CEA54.bin"
 
 gUnk_080CEA56:: @ 080CEA56
-	.incbin "assets/mulldozer/gUnk_080CEA56.bin"
+	.incbin "mulldozer/gUnk_080CEA56.bin"

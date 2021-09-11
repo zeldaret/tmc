@@ -21,7 +21,7 @@ gUnk_080CF054:: @ 080CF054
 	.4byte sub_080355B4
 
 gUnk_080CF070:: @ 080CF070
-	.incbin "assets/octorokBoss/gUnk_080CF070.bin"
+	.incbin "octorokBoss/gUnk_080CF070.bin"
 
 gUnk_080CF078:: @ 080CF078
 	.4byte sub_0803571C
@@ -31,7 +31,7 @@ gUnk_080CF078:: @ 080CF078
 	.4byte sub_0803670C
 
 gUnk_080CF08C:: @ 080CF08C
-	.incbin "assets/octorokBoss/gUnk_080CF08C.bin"
+	.incbin "octorokBoss/gUnk_080CF08C.bin"
 
 gUnk_080CF0AC:: @ 080CF0AC
 	.4byte sub_080359F8
@@ -49,10 +49,10 @@ gUnk_080CF0C4:: @ 080CF0C4
 	.4byte sub_08036188
 
 gUnk_080CF0D8:: @ 080CF0D8
-	.incbin "assets/octorokBoss/gUnk_080CF0D8.bin"
+	.incbin "octorokBoss/gUnk_080CF0D8.bin"
 
 gUnk_080CF0DC:: @ 080CF0DC
-	.incbin "assets/octorokBoss/gUnk_080CF0DC.bin"
+	.incbin "octorokBoss/gUnk_080CF0DC.bin"
 
 gUnk_080CF0E0:: @ 080CF0E0
 	.4byte sub_080361F4
@@ -72,19 +72,19 @@ gUnk_080CF100:: @ 080CF100
 	.4byte sub_08036870
 
 gUnk_080CF10C:: @ 080CF10C
-	.incbin "assets/octorokBoss/gUnk_080CF10C.bin"
+	.incbin "octorokBoss/gUnk_080CF10C.bin"
 
 gUnk_080CF110:: @ 080CF110
-	.incbin "assets/octorokBoss/gUnk_080CF110.bin"
+	.incbin "octorokBoss/gUnk_080CF110.bin"
 
 gUnk_080CF114:: @ 080CF114
-	.incbin "assets/octorokBoss/gUnk_080CF114.bin"
+	.incbin "octorokBoss/gUnk_080CF114.bin"
 
 gUnk_080CF119:: @ 080CF119
-	.incbin "assets/octorokBoss/gUnk_080CF119.bin"
+	.incbin "octorokBoss/gUnk_080CF119.bin"
 
 gUnk_080CF11E:: @ 080CF11E
-	.incbin "assets/octorokBoss/gUnk_080CF11E.bin"
+	.incbin "octorokBoss/gUnk_080CF11E.bin"
 
 gUnk_080CF124:: @ 080CF124
 	.4byte gUnk_080CF114
@@ -93,19 +93,19 @@ gUnk_080CF124:: @ 080CF124
 	.4byte gUnk_080CF119
 
 gUnk_080CF134:: @ 080CF134
-	.incbin "assets/octorokBoss/gUnk_080CF134.bin"
+	.incbin "octorokBoss/gUnk_080CF134.bin"
 
 gUnk_080CF138:: @ 080CF138
-	.incbin "assets/octorokBoss/gUnk_080CF138.bin"
+	.incbin "octorokBoss/gUnk_080CF138.bin"
 
 gUnk_080CF13C:: @ 080CF13C
-	.incbin "assets/octorokBoss/gUnk_080CF13C.bin"
+	.incbin "octorokBoss/gUnk_080CF13C.bin"
 
 gUnk_080CF13F:: @ 080CF13F
-	.incbin "assets/octorokBoss/gUnk_080CF13F.bin"
+	.incbin "octorokBoss/gUnk_080CF13F.bin"
 
 gUnk_080CF142:: @ 080CF142
-	.incbin "assets/octorokBoss/gUnk_080CF142.bin"
+	.incbin "octorokBoss/gUnk_080CF142.bin"
 
 gUnk_080CF147:: @ 080CF147
-	.incbin "assets/octorokBoss/gUnk_080CF147.bin"
+	.incbin "octorokBoss/gUnk_080CF147.bin"

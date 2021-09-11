@@ -13,13 +13,13 @@ gUnk_08129FB8:: @ 08129FB8
 	.4byte sub_080AA464
 
 gUnk_08129FD0:: @ 08129FD0
-	.incbin "assets/projectile14/gUnk_08129FD0.bin"
+	.incbin "projectile14/gUnk_08129FD0.bin"
 
 gUnk_08129FE4:: @ 08129FE4
-	.incbin "assets/projectile14/gUnk_08129FE4.bin"
+	.incbin "projectile14/gUnk_08129FE4.bin"
 
 gUnk_08129FF8:: @ 08129FF8
-	.incbin "assets/projectile14/gUnk_08129FF8.bin"
+	.incbin "projectile14/gUnk_08129FF8.bin"
 
 gUnk_0812A004:: @ 0812A004
-	.incbin "assets/projectile14/gUnk_0812A004.bin"
+	.incbin "projectile14/gUnk_0812A004.bin"

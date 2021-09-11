@@ -5,10 +5,10 @@
  @   .align 2
 
 gUnk_0810C445:: @ 0810C445
-	.incbin "assets/pita/gUnk_0810C445.bin"
+	.incbin "pita/gUnk_0810C445.bin"
 
 gUnk_0810C44A:: @ 0810C44A
-	.incbin "assets/pita/gUnk_0810C44A.bin"
+	.incbin "pita/gUnk_0810C44A.bin"
 
 gUnk_0810C468:: @ 0810C468
 	.4byte gUnk_0810C445

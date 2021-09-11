@@ -13,4 +13,4 @@ gUnk_080CEB38:: @ 080CEB38
 	.4byte nullsub_158
 
 gUnk_080CEB50:: @ 080CEB50
-	.incbin "assets/bombarossa/gUnk_080CEB50.bin"
+	.incbin "bombarossa/gUnk_080CEB50.bin"

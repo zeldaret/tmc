@@ -9,7 +9,7 @@ gUnk_080B7840:: @ 080B7840
 	.4byte sub_0801B8FC
     
 gUnk_080B7848:: @ 080B7848
-	.incbin "assets/playerItemC/gUnk_080B7848.bin"
+	.incbin "playerItemC/gUnk_080B7848.bin"
 
 gUnk_080B7850:: @ 080B7850
-	.incbin "assets/playerItemC/gUnk_080B7850.bin"
+	.incbin "playerItemC/gUnk_080B7850.bin"

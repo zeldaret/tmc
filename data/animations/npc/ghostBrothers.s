@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_08110300:: @ 08110300
-	.incbin "assets/ghostBrothers/gUnk_08110300.bin"
+	.incbin "ghostBrothers/gUnk_08110300.bin"
 
 gUnk_08110311:: @ 08110311
-	.incbin "assets/ghostBrothers/gUnk_08110311.bin"
+	.incbin "ghostBrothers/gUnk_08110311.bin"
 
 gUnk_08110322:: @ 08110322
-	.incbin "assets/ghostBrothers/gUnk_08110322.bin"
+	.incbin "ghostBrothers/gUnk_08110322.bin"
 
 gUnk_08110333:: @ 08110333
-	.incbin "assets/ghostBrothers/gUnk_08110333.bin"
+	.incbin "ghostBrothers/gUnk_08110333.bin"
 
 gUnk_0811033C:: @ 0811033C
 	.4byte gUnk_08110300

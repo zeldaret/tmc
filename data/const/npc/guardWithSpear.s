@@ -5,4 +5,4 @@
     .align 2
 
 gUnk_0810F6D4:: @ 0810F6D4
-	.incbin "assets/guardWithSpear/gUnk_0810F6D4.bin"
+	.incbin "guardWithSpear/gUnk_0810F6D4.bin"

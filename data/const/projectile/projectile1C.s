@@ -20,17 +20,17 @@ gUnk_0812A5F4:: @ 0812A5F4
 	.4byte gUnk_0812A624
 
 gUnk_0812A614:: @ 0812A614
-	.incbin "assets/projectile1C/gUnk_0812A614.bin"
+	.incbin "projectile1C/gUnk_0812A614.bin"
 
 gUnk_0812A61C:: @ 0812A61C
-	.incbin "assets/projectile1C/gUnk_0812A61C.bin"
+	.incbin "projectile1C/gUnk_0812A61C.bin"
 
 gUnk_0812A624:: @ 0812A624
-	.incbin "assets/projectile1C/gUnk_0812A624.bin"
+	.incbin "projectile1C/gUnk_0812A624.bin"
 
 gUnk_0812A62C:: @ 0812A62C
-	.incbin "assets/projectile1C/gUnk_0812A62C.bin"
+	.incbin "projectile1C/gUnk_0812A62C.bin"
 
 gUnk_0812A634:: @ 0812A634
-	.incbin "assets/projectile1C/gUnk_0812A634.bin"
+	.incbin "projectile1C/gUnk_0812A634.bin"
 

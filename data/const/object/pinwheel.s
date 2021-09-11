@@ -6,15 +6,15 @@
 
 gUnk_08125050:: @ 08125050
 .ifdef JP
-	.incbin "assets/pinwheel/gUnk_08125050_JP.bin"
+	.incbin "pinwheel/gUnk_08125050_JP.bin"
 .else
 .ifdef DEMO_JP
-	.incbin "assets/pinwheel/gUnk_08125050_1_DEMO_JP.bin"
+	.incbin "pinwheel/gUnk_08125050_1_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "assets/pinwheel/gUnk_08125050_2_EU.bin"
+	.incbin "pinwheel/gUnk_08125050_2_EU.bin"
 .else
-	.incbin "assets/pinwheel/gUnk_08125050_3_USA-DEMO_USA.bin"
+	.incbin "pinwheel/gUnk_08125050_3_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif

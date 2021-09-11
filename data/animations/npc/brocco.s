@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_0810CAFC:: @ 0810CAFC
-	.incbin "assets/brocco/gUnk_0810CAFC.bin"
+	.incbin "brocco/gUnk_0810CAFC.bin"
 
 gUnk_0810CB45:: @ 0810CB45
-	.incbin "assets/brocco/gUnk_0810CB45.bin"
+	.incbin "brocco/gUnk_0810CB45.bin"
 
 gUnk_0810CB4A:: @ 0810CB4A
-	.incbin "assets/brocco/gUnk_0810CB4A.bin"
+	.incbin "brocco/gUnk_0810CB4A.bin"
 
 gUnk_0810CB4F:: @ 0810CB4F
-	.incbin "assets/brocco/gUnk_0810CB4F.bin"
+	.incbin "brocco/gUnk_0810CB4F.bin"
 
 gUnk_0810CB54:: @ 0810CB54
 	.4byte gUnk_0810CAFC

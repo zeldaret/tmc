@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_081144C8:: @ 081144C8
-	.incbin "assets/smallTownMinish/gUnk_081144C8.bin"
+	.incbin "smallTownMinish/gUnk_081144C8.bin"
 
 gUnk_081144CD:: @ 081144CD
-	.incbin "assets/smallTownMinish/gUnk_081144CD.bin"
+	.incbin "smallTownMinish/gUnk_081144CD.bin"
 
 gUnk_081144D2:: @ 081144D2
-	.incbin "assets/smallTownMinish/gUnk_081144D2.bin"
+	.incbin "smallTownMinish/gUnk_081144D2.bin"
 
 gUnk_081144D7:: @ 081144D7
-	.incbin "assets/smallTownMinish/gUnk_081144D7.bin"
+	.incbin "smallTownMinish/gUnk_081144D7.bin"
 
 gUnk_081144DC:: @ 081144DC
 	.4byte gUnk_081144C8

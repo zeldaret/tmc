@@ -9,7 +9,7 @@ gUnk_081232E4:: @ 081232E4
 	.4byte nullsub_529
 
 gUnk_081232EC:: @ 081232EC
-	.incbin "assets/object72/gUnk_081232EC.bin"
+	.incbin "object72/gUnk_081232EC.bin"
 
 gUnk_081232FE:: @ 081232FE
-	.incbin "assets/object72/gUnk_081232FE.bin"
+	.incbin "object72/gUnk_081232FE.bin"

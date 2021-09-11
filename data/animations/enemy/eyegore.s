@@ -5,49 +5,49 @@
     .align 2
 
 gUnk_080CE30C:: @ 080CE30C
-	.incbin "assets/eyegore/gUnk_080CE30C.bin"
+	.incbin "eyegore/gUnk_080CE30C.bin"
 
 gUnk_080CE31C:: @ 080CE31C
-	.incbin "assets/eyegore/gUnk_080CE31C.bin"
+	.incbin "eyegore/gUnk_080CE31C.bin"
 
 gUnk_080CE335:: @ 080CE335
-	.incbin "assets/eyegore/gUnk_080CE335.bin"
+	.incbin "eyegore/gUnk_080CE335.bin"
 
 gUnk_080CE345:: @ 080CE345
-	.incbin "assets/eyegore/gUnk_080CE345.bin"
+	.incbin "eyegore/gUnk_080CE345.bin"
 
 gUnk_080CE35E:: @ 080CE35E
-	.incbin "assets/eyegore/gUnk_080CE35E.bin"
+	.incbin "eyegore/gUnk_080CE35E.bin"
 
 gUnk_080CE36E:: @ 080CE36E
-	.incbin "assets/eyegore/gUnk_080CE36E.bin"
+	.incbin "eyegore/gUnk_080CE36E.bin"
 
 gUnk_080CE387:: @ 080CE387
-	.incbin "assets/eyegore/gUnk_080CE387.bin"
+	.incbin "eyegore/gUnk_080CE387.bin"
 
 gUnk_080CE397:: @ 080CE397
-	.incbin "assets/eyegore/gUnk_080CE397.bin"
+	.incbin "eyegore/gUnk_080CE397.bin"
 
 gUnk_080CE3B0:: @ 080CE3B0
-	.incbin "assets/eyegore/gUnk_080CE3B0.bin"
+	.incbin "eyegore/gUnk_080CE3B0.bin"
 
 gUnk_080CE3BC:: @ 080CE3BC
-	.incbin "assets/eyegore/gUnk_080CE3BC.bin"
+	.incbin "eyegore/gUnk_080CE3BC.bin"
 
 gUnk_080CE3C8:: @ 080CE3C8
-	.incbin "assets/eyegore/gUnk_080CE3C8.bin"
+	.incbin "eyegore/gUnk_080CE3C8.bin"
 
 gUnk_080CE3D4:: @ 080CE3D4
-	.incbin "assets/eyegore/gUnk_080CE3D4.bin"
+	.incbin "eyegore/gUnk_080CE3D4.bin"
 
 gUnk_080CE3E0:: @ 080CE3E0
-	.incbin "assets/eyegore/gUnk_080CE3E0.bin"
+	.incbin "eyegore/gUnk_080CE3E0.bin"
 
 gUnk_080CE3EC:: @ 080CE3EC
-	.incbin "assets/eyegore/gUnk_080CE3EC.bin"
+	.incbin "eyegore/gUnk_080CE3EC.bin"
 
 gUnk_080CE3F8:: @ 080CE3F8
-	.incbin "assets/eyegore/gUnk_080CE3F8.bin"
+	.incbin "eyegore/gUnk_080CE3F8.bin"
 
 gUnk_080CE404:: @ 080CE404
 	.4byte gUnk_080CE335

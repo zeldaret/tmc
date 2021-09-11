@@ -4,10 +4,10 @@
 	.section .rodata
 
 gUnk_080CD5A4:: @ 080CD5A4
-	.incbin "assets/fallingBoulder/gUnk_080CD5A4.bin"
+	.incbin "fallingBoulder/gUnk_080CD5A4.bin"
 
 gUnk_080CD5B5:: @ 080CD5B5
-	.incbin "assets/fallingBoulder/gUnk_080CD5B5.bin"
+	.incbin "fallingBoulder/gUnk_080CD5B5.bin"
 
 gUnk_080CD5C8:: @ 080CD5C8
 	.4byte gUnk_080CD5A4

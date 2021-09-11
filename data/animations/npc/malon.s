@@ -5,31 +5,31 @@
     .align 2
 
 gUnk_0810FF70:: @ 0810FF70
-	.incbin "assets/malon/gUnk_0810FF70.bin"
+	.incbin "malon/gUnk_0810FF70.bin"
 
 gUnk_0810FF75:: @ 0810FF75
-	.incbin "assets/malon/gUnk_0810FF75.bin"
+	.incbin "malon/gUnk_0810FF75.bin"
 
 gUnk_0810FF7A:: @ 0810FF7A
-	.incbin "assets/malon/gUnk_0810FF7A.bin"
+	.incbin "malon/gUnk_0810FF7A.bin"
 
 gUnk_0810FF7F:: @ 0810FF7F
-	.incbin "assets/malon/gUnk_0810FF7F.bin"
+	.incbin "malon/gUnk_0810FF7F.bin"
 
 gUnk_0810FF84:: @ 0810FF84
-	.incbin "assets/malon/gUnk_0810FF84.bin"
+	.incbin "malon/gUnk_0810FF84.bin"
 
 gUnk_0810FFA5:: @ 0810FFA5
-	.incbin "assets/malon/gUnk_0810FFA5.bin"
+	.incbin "malon/gUnk_0810FFA5.bin"
 
 gUnk_0810FFB6:: @ 0810FFB6
-	.incbin "assets/malon/gUnk_0810FFB6.bin"
+	.incbin "malon/gUnk_0810FFB6.bin"
 
 gUnk_0810FFD7:: @ 0810FFD7
-	.incbin "assets/malon/gUnk_0810FFD7.bin"
+	.incbin "malon/gUnk_0810FFD7.bin"
 
 gUnk_08110014:: @ 08110014
-	.incbin "assets/malon/gUnk_08110014.bin"
+	.incbin "malon/gUnk_08110014.bin"
 
 gUnk_08110028:: @ 08110028
 	.4byte gUnk_0810FF70

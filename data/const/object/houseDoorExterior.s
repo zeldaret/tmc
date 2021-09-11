@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_081206AC:: @ 081206AC
-	.incbin "assets/houseDoorExterior/gUnk_081206AC.bin"
+	.incbin "houseDoorExterior/gUnk_081206AC.bin"
 
 gUnk_081206B4:: @ 081206B4
 	.4byte sub_080866D8

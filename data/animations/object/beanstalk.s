@@ -5,43 +5,43 @@
 @    .align 2
 
 gUnk_08120EF9:: @ 08120EF9
-	.incbin "assets/beanstalk/gUnk_08120EF9.bin"
+	.incbin "beanstalk/gUnk_08120EF9.bin"
 
 gUnk_08120F2A:: @ 08120F2A
-	.incbin "assets/beanstalk/gUnk_08120F2A.bin"
+	.incbin "beanstalk/gUnk_08120F2A.bin"
 
 gUnk_08120F2E:: @ 08120F2E
-	.incbin "assets/beanstalk/gUnk_08120F2E.bin"
+	.incbin "beanstalk/gUnk_08120F2E.bin"
 
 gUnk_08120F32:: @ 08120F32
-	.incbin "assets/beanstalk/gUnk_08120F32.bin"
+	.incbin "beanstalk/gUnk_08120F32.bin"
 
 gUnk_08120F5A:: @ 08120F5A
-	.incbin "assets/beanstalk/gUnk_08120F5A.bin"
+	.incbin "beanstalk/gUnk_08120F5A.bin"
 
 gUnk_08120F5E:: @ 08120F5E
-	.incbin "assets/beanstalk/gUnk_08120F5E.bin"
+	.incbin "beanstalk/gUnk_08120F5E.bin"
 
 gUnk_08120F7E:: @ 08120F7E
-	.incbin "assets/beanstalk/gUnk_08120F7E.bin"
+	.incbin "beanstalk/gUnk_08120F7E.bin"
 
 gUnk_08120FA6:: @ 08120FA6
-	.incbin "assets/beanstalk/gUnk_08120FA6.bin"
+	.incbin "beanstalk/gUnk_08120FA6.bin"
 
 gUnk_08120FAA:: @ 08120FAA
-	.incbin "assets/beanstalk/gUnk_08120FAA.bin"
+	.incbin "beanstalk/gUnk_08120FAA.bin"
 
 gUnk_08120FCA:: @ 08120FCA
-	.incbin "assets/beanstalk/gUnk_08120FCA.bin"
+	.incbin "beanstalk/gUnk_08120FCA.bin"
 
 gUnk_08120FF2:: @ 08120FF2
-	.incbin "assets/beanstalk/gUnk_08120FF2.bin"
+	.incbin "beanstalk/gUnk_08120FF2.bin"
 
 gUnk_08120FF6:: @ 08120FF6
-	.incbin "assets/beanstalk/gUnk_08120FF6.bin"
+	.incbin "beanstalk/gUnk_08120FF6.bin"
 
 gUnk_08121016:: @ 08121016
-	.incbin "assets/beanstalk/gUnk_08121016.bin"
+	.incbin "beanstalk/gUnk_08121016.bin"
 
 gUnk_0812101C:: @ 0812101C
 	.4byte gUnk_08120E8C

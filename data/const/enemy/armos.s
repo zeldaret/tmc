@@ -24,4 +24,4 @@ gUnk_080CE13C:: @ 080CE13C
 	.4byte sub_08030554
 
 gUnk_080CE160:: @ 080CE160
-	.incbin "assets/armos/gUnk_080CE160.bin"
+	.incbin "armos/gUnk_080CE160.bin"

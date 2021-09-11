@@ -18,4 +18,4 @@ gUnk_08111928:: @ 08111928
 	.4byte sub_080691BC
 
 gUnk_08111938:: @ 08111938
-	.incbin "assets/cow/gUnk_08111938.bin"
+	.incbin "cow/gUnk_08111938.bin"

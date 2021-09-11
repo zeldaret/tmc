@@ -12,7 +12,7 @@ gUnk_08123734:: @ 08123734
 	.4byte sub_080993CC
 
 gUnk_08123748:: @ 08123748
-	.incbin "assets/smallIceBlock/gUnk_08123748.bin"
+	.incbin "smallIceBlock/gUnk_08123748.bin"
 
 gUnk_08123750:: @ 08123750
-	.incbin "assets/smallIceBlock/gUnk_08123750.bin"
+	.incbin "smallIceBlock/gUnk_08123750.bin"

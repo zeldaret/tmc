@@ -6,10 +6,10 @@
 
 @ TODO might as well be giantRock or archway
 gUnk_08122264:: @ 08122264
-	.incbin "assets/minishSizedEntrance/gUnk_08122264.bin"
+	.incbin "minishSizedEntrance/gUnk_08122264.bin"
 
 gUnk_08122268:: @ 08122268
-	.incbin "assets/minishSizedEntrance/gUnk_08122268.bin"
+	.incbin "minishSizedEntrance/gUnk_08122268.bin"
 
 gUnk_0812226C:: @ 0812226C
 	.4byte gUnk_08122264

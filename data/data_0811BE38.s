@@ -5,17 +5,17 @@
     .align 2
 
 gUnk_0811BE38:: @ 0811BE38
-	.incbin "assets/data_0811BE38/gUnk_0811BE38.bin"
+	.incbin "data_0811BE38/gUnk_0811BE38.bin"
 
 gUnk_0811BE40:: @ 0811BE40
-	.incbin "assets/data_0811BE38/gUnk_0811BE40.bin"
+	.incbin "data_0811BE38/gUnk_0811BE40.bin"
 
 gUnk_0811BE48:: @ 0811BE48
 .ifdef EU
     @ TODO only small differences
-	.incbin "assets/data_0811BE38/gUnk_0811BE48_EU.bin"
+	.incbin "data_0811BE38/gUnk_0811BE48_EU.bin"
 .else
-	.incbin "assets/data_0811BE38/gUnk_0811BE48_1_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "data_0811BE38/gUnk_0811BE48_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_0811BFC8:: @ 0811BFC8
@@ -27,7 +27,7 @@ gUnk_0811BFC8:: @ 0811BFC8
 	.4byte sub_08077AC8
 
 gUnk_0811BFE0:: @ 0811BFE0
-	.incbin "assets/data_0811BE38/gUnk_0811BFE0.bin"
+	.incbin "data_0811BE38/gUnk_0811BFE0.bin"
 
 gUnk_0811BFE8:: @ 0811BFE8
 	.4byte sub_08078008
@@ -38,35 +38,35 @@ gUnk_0811BFE8:: @ 0811BFE8
 	.4byte sub_08078108
 
 gUnk_0811C000:: @ 0811C000
-	.incbin "assets/data_0811BE38/gUnk_0811C000.bin"
+	.incbin "data_0811BE38/gUnk_0811C000.bin"
 
 gUnk_0811C00C:: @ 0811C00C
-	.incbin "assets/data_0811BE38/gUnk_0811C00C.bin"
+	.incbin "data_0811BE38/gUnk_0811C00C.bin"
 
 gUnk_0811C014:: @ 0811C014
-	.incbin "assets/data_0811BE38/gUnk_0811C014.bin"
+	.incbin "data_0811BE38/gUnk_0811C014.bin"
 
 gUnk_0811C01C:: @ 0811C01C
-	.incbin "assets/data_0811BE38/gUnk_0811C01C.bin"
+	.incbin "data_0811BE38/gUnk_0811C01C.bin"
 
 gUnk_0811C070:: @ 0811C070
-	.incbin "assets/data_0811BE38/gUnk_0811C070.bin"
+	.incbin "data_0811BE38/gUnk_0811C070.bin"
 
 gUnk_0811C090:: @ 0811C090
-	.incbin "assets/data_0811BE38/gUnk_0811C090.bin"
+	.incbin "data_0811BE38/gUnk_0811C090.bin"
 
 gUnk_0811C0B0:: @ 0811C0B0
 	.4byte gUnk_0811C070
 	.4byte gUnk_0811C090
 
 gUnk_0811C0B8:: @ 0811C0B8
-	.incbin "assets/data_0811BE38/gUnk_0811C0B8.bin"
+	.incbin "data_0811BE38/gUnk_0811C0B8.bin"
 
 gUnk_0811C0C8:: @ 0811C0C8
-	.incbin "assets/data_0811BE38/gUnk_0811C0C8.bin"
+	.incbin "data_0811BE38/gUnk_0811C0C8.bin"
 
 gUnk_0811C0D8:: @ 0811C0D8
-	.incbin "assets/data_0811BE38/gUnk_0811C0D8.bin"
+	.incbin "data_0811BE38/gUnk_0811C0D8.bin"
 
 gUnk_0811C0E8:: @ 0811C0E8
 	.4byte gUnk_0811C0B8
@@ -75,19 +75,19 @@ gUnk_0811C0E8:: @ 0811C0E8
 	.4byte gUnk_0811C0C8
 
 gUnk_0811C0F8:: @ 0811C0F8
-	.incbin "assets/data_0811BE38/gUnk_0811C0F8.bin"
+	.incbin "data_0811BE38/gUnk_0811C0F8.bin"
 
 gUnk_0811C100:: @ 0811C100
-	.incbin "assets/data_0811BE38/gUnk_0811C100.bin"
+	.incbin "data_0811BE38/gUnk_0811C100.bin"
 
 gUnk_0811C108:: @ 0811C108
-	.incbin "assets/data_0811BE38/gUnk_0811C108.bin"
+	.incbin "data_0811BE38/gUnk_0811C108.bin"
 
 gUnk_0811C110:: @ 0811C110
-	.incbin "assets/data_0811BE38/gUnk_0811C110.bin"
+	.incbin "data_0811BE38/gUnk_0811C110.bin"
 
 gUnk_0811C118:: @ 0811C118
-	.incbin "assets/data_0811BE38/gUnk_0811C118.bin"
+	.incbin "data_0811BE38/gUnk_0811C118.bin"
 
 gUnk_0811C120:: @ 0811C120
 	.4byte nullsub_112
@@ -150,31 +150,31 @@ gUnk_0811C1E8:: @ 0811C1E8
 	.4byte gUnk_0811C22E
 
 gUnk_0811C1F8:: @ 0811C1F8
-	.incbin "assets/data_0811BE38/gUnk_0811C1F8.bin"
+	.incbin "data_0811BE38/gUnk_0811C1F8.bin"
 
 gUnk_0811C20A:: @ 0811C20A
-	.incbin "assets/data_0811BE38/gUnk_0811C20A.bin"
+	.incbin "data_0811BE38/gUnk_0811C20A.bin"
 
 gUnk_0811C21C:: @ 0811C21C
-	.incbin "assets/data_0811BE38/gUnk_0811C21C.bin"
+	.incbin "data_0811BE38/gUnk_0811C21C.bin"
 
 gUnk_0811C22E:: @ 0811C22E
-	.incbin "assets/data_0811BE38/gUnk_0811C22E.bin"
+	.incbin "data_0811BE38/gUnk_0811C22E.bin"
 
 gUnk_0811C240:: @ 0811C240
-	.incbin "assets/data_0811BE38/gUnk_0811C240.bin"
+	.incbin "data_0811BE38/gUnk_0811C240.bin"
 
 gUnk_0811C24A:: @ 0811C24A
-	.incbin "assets/data_0811BE38/gUnk_0811C24A.bin"
+	.incbin "data_0811BE38/gUnk_0811C24A.bin"
 
 gUnk_0811C254:: @ 0811C254
-	.incbin "assets/data_0811BE38/gUnk_0811C254.bin"
+	.incbin "data_0811BE38/gUnk_0811C254.bin"
 
 gUnk_0811C25E:: @ 0811C25E
-	.incbin "assets/data_0811BE38/gUnk_0811C25E.bin"
+	.incbin "data_0811BE38/gUnk_0811C25E.bin"
 
 gUnk_0811C268:: @ 0811C268
-	.incbin "assets/data_0811BE38/gUnk_0811C268.bin"
+	.incbin "data_0811BE38/gUnk_0811C268.bin"
 
 gUnk_0811C27C:: @ 0811C27C
 	.4byte sub_0807B114
@@ -195,16 +195,16 @@ gUnk_0811C298:: @ 0811C298
 	.4byte sub_0807B2B8
 
 gUnk_0811C2AC:: @ 0811C2AC
-	.incbin "assets/data_0811BE38/gUnk_0811C2AC.bin"
+	.incbin "data_0811BE38/gUnk_0811C2AC.bin"
 
 gUnk_0811C2CC:: @ 0811C2CC
-	.incbin "assets/data_0811BE38/gUnk_0811C2CC.bin"
+	.incbin "data_0811BE38/gUnk_0811C2CC.bin"
 
 gUnk_0811C2EC:: @ 0811C2EC
-	.incbin "assets/data_0811BE38/gUnk_0811C2EC.bin"
+	.incbin "data_0811BE38/gUnk_0811C2EC.bin"
 
 gUnk_0811C456:: @ 0811C456
-	.incbin "assets/data_0811BE38/gUnk_0811C456.bin"
+	.incbin "data_0811BE38/gUnk_0811C456.bin"
 
 gUnk_0811C466:: @ 0811C466
-	.incbin "assets/data_0811BE38/gUnk_0811C466.bin"
+	.incbin "data_0811BE38/gUnk_0811C466.bin"

@@ -5,22 +5,22 @@
     .align 2
 
 gUnk_081226A4:: @ 081226A4
-	.incbin "assets/lavaPlatform/gUnk_081226A4.bin"
+	.incbin "lavaPlatform/gUnk_081226A4.bin"
 
 gUnk_081226A8:: @ 081226A8
-	.incbin "assets/lavaPlatform/gUnk_081226A8.bin"
+	.incbin "lavaPlatform/gUnk_081226A8.bin"
 
 gUnk_081226AC:: @ 081226AC
-	.incbin "assets/lavaPlatform/gUnk_081226AC.bin"
+	.incbin "lavaPlatform/gUnk_081226AC.bin"
 
 gUnk_0812273D:: @ 0812273D
-	.incbin "assets/lavaPlatform/gUnk_0812273D.bin"
+	.incbin "lavaPlatform/gUnk_0812273D.bin"
 
 gUnk_08122742:: @ 08122742
-	.incbin "assets/lavaPlatform/gUnk_08122742.bin"
+	.incbin "lavaPlatform/gUnk_08122742.bin"
 
 gUnk_08122753:: @ 08122753
-	.incbin "assets/lavaPlatform/gUnk_08122753.bin"
+	.incbin "lavaPlatform/gUnk_08122753.bin"
 
 gUnk_08122764:: @ 08122764
 	.4byte gUnk_081226A4

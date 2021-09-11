@@ -28,4 +28,4 @@ gUnk_08121E98:: @ 08121E98
 	.4byte sub_0808F244
 
 gUnk_08121EA0:: @ 08121EA0
-	.incbin "assets/object49/gUnk_08121EA0.bin"
+	.incbin "object49/gUnk_08121EA0.bin"

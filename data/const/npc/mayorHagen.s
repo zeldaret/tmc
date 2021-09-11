@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08113F44:: @ 08113F44
-	.incbin "assets/mayorHagen/gUnk_08113F44.bin"
+	.incbin "mayorHagen/gUnk_08113F44.bin"
 
 gUnk_08113F48:: @ 08113F48
-	.incbin "assets/mayorHagen/gUnk_08113F48.bin"
+	.incbin "mayorHagen/gUnk_08113F48.bin"

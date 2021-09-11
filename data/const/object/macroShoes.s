@@ -9,10 +9,10 @@ gUnk_081234EC:: @ 081234EC
 	.4byte gUnk_081234FC
 
 gUnk_081234F4:: @ 081234F4
-	.incbin "assets/macroShoes/gUnk_081234F4.bin"
+	.incbin "macroShoes/gUnk_081234F4.bin"
 
 gUnk_081234FC:: @ 081234FC
-	.incbin "assets/macroShoes/gUnk_081234FC.bin"
+	.incbin "macroShoes/gUnk_081234FC.bin"
 
 gUnk_08123504:: @ 08123504
 	.4byte sub_080984EC

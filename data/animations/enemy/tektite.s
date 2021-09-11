@@ -7,19 +7,19 @@
 
 
 gUnk_080CDEFC:: @ 080CDEFC
-	.incbin "assets/tektite/gUnk_080CDEFC.bin"
+	.incbin "tektite/gUnk_080CDEFC.bin"
 
 gUnk_080CDF09:: @ 080CDF09
-	.incbin "assets/tektite/gUnk_080CDF09.bin"
+	.incbin "tektite/gUnk_080CDF09.bin"
 
 gUnk_080CDF1A:: @ 080CDF1A
-	.incbin "assets/tektite/gUnk_080CDF1A.bin"
+	.incbin "tektite/gUnk_080CDF1A.bin"
 
 gUnk_080CDF27:: @ 080CDF27
-	.incbin "assets/tektite/gUnk_080CDF27.bin"
+	.incbin "tektite/gUnk_080CDF27.bin"
 
 gUnk_080CDF33:: @ 080CDF33
-	.incbin "assets/tektite/gUnk_080CDF33.bin"
+	.incbin "tektite/gUnk_080CDF33.bin"
 
 gUnk_080CDF38:: @ 080CDF38
 	.4byte gUnk_080CDEFC

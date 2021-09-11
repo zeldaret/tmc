@@ -9,6 +9,6 @@ gUnk_081208A0:: @ 081208A0
 	.4byte nullsub_117
 
 gUnk_081208A8:: @ 081208A8
-	.incbin "assets/object1D/gUnk_081208A8.bin"
+	.incbin "object1D/gUnk_081208A8.bin"
 	.4byte gUnk_081208A8
-	.incbin "assets/object1D/gUnk_081208A8_1.bin"
+	.incbin "object1D/gUnk_081208A8_1.bin"

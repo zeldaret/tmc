@@ -22,4 +22,4 @@ gUnk_080D15A8:: @ 080D15A8
 	.4byte sub_080441CC
 
 gUnk_080D15B4:: @ 080D15B4
-	.incbin "assets/dust/gUnk_080D15B4.bin"
+	.incbin "dust/gUnk_080D15B4.bin"

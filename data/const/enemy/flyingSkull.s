@@ -37,4 +37,4 @@ gUnk_080CFBD4:: @ 080CFBD4
 	.4byte sub_08039FA4
 
 gUnk_080CFBE4:: @ 080CFBE4
-	.incbin "assets/flyingSkull/gUnk_080CFBE4.bin"
+	.incbin "flyingSkull/gUnk_080CFBE4.bin"

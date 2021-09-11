@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_0811ECD4:: @ 0811ECD4
-	.incbin "assets/deathFx/gUnk_0811ECD4.bin"
+	.incbin "deathFx/gUnk_0811ECD4.bin"
 
 gUnk_0811ED4D:: @ 0811ED4D
-	.incbin "assets/deathFx/gUnk_0811ED4D.bin"
+	.incbin "deathFx/gUnk_0811ED4D.bin"
 
 gUnk_0811ED86:: @ 0811ED86
-	.incbin "assets/deathFx/gUnk_0811ED86.bin"
+	.incbin "deathFx/gUnk_0811ED86.bin"
 
 gUnk_0811EDB7:: @ 0811EDB7
-	.incbin "assets/deathFx/gUnk_0811EDB7.bin"
+	.incbin "deathFx/gUnk_0811EDB7.bin"
 
 gUnk_0811EE10:: @ 0811EE10
 	.4byte gUnk_0811ECD4

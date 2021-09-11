@@ -4,88 +4,88 @@
 	.section .rodata
 
 gUnk_080CC2DF:: @ 080CC2DF
-	.incbin "assets/chuchuBoss/gUnk_080CC2DF.bin"
+	.incbin "chuchuBoss/gUnk_080CC2DF.bin"
 
 gUnk_080CC2E3:: @ 080CC2E3
-	.incbin "assets/chuchuBoss/gUnk_080CC2E3.bin"
+	.incbin "chuchuBoss/gUnk_080CC2E3.bin"
 
 gUnk_080CC2E7:: @ 080CC2E7
-	.incbin "assets/chuchuBoss/gUnk_080CC2E7.bin"
+	.incbin "chuchuBoss/gUnk_080CC2E7.bin"
 
 gUnk_080CC2EB:: @ 080CC2EB
-	.incbin "assets/chuchuBoss/gUnk_080CC2EB.bin"
+	.incbin "chuchuBoss/gUnk_080CC2EB.bin"
 
 gUnk_080CC2EF:: @ 080CC2EF
-	.incbin "assets/chuchuBoss/gUnk_080CC2EF.bin"
+	.incbin "chuchuBoss/gUnk_080CC2EF.bin"
 
 gUnk_080CC2F4:: @ 080CC2F4
-	.incbin "assets/chuchuBoss/gUnk_080CC2F4.bin"
+	.incbin "chuchuBoss/gUnk_080CC2F4.bin"
 
 gUnk_080CC305:: @ 080CC305
-	.incbin "assets/chuchuBoss/gUnk_080CC305.bin"
+	.incbin "chuchuBoss/gUnk_080CC305.bin"
 
 gUnk_080CC31E:: @ 080CC31E
-	.incbin "assets/chuchuBoss/gUnk_080CC31E.bin"
+	.incbin "chuchuBoss/gUnk_080CC31E.bin"
 
 gUnk_080CC32B:: @ 080CC32B
-	.incbin "assets/chuchuBoss/gUnk_080CC32B.bin"
+	.incbin "chuchuBoss/gUnk_080CC32B.bin"
 
 gUnk_080CC338:: @ 080CC338
-	.incbin "assets/chuchuBoss/gUnk_080CC338.bin"
+	.incbin "chuchuBoss/gUnk_080CC338.bin"
 
 gUnk_080CC33D:: @ 080CC33D
-	.incbin "assets/chuchuBoss/gUnk_080CC33D.bin"
+	.incbin "chuchuBoss/gUnk_080CC33D.bin"
 
 gUnk_080CC346:: @ 080CC346
-	.incbin "assets/chuchuBoss/gUnk_080CC346.bin"
+	.incbin "chuchuBoss/gUnk_080CC346.bin"
 
 gUnk_080CC353:: @ 080CC353
-	.incbin "assets/chuchuBoss/gUnk_080CC353.bin"
+	.incbin "chuchuBoss/gUnk_080CC353.bin"
 
 gUnk_080CC35C:: @ 080CC35C
-	.incbin "assets/chuchuBoss/gUnk_080CC35C.bin"
+	.incbin "chuchuBoss/gUnk_080CC35C.bin"
 
 gUnk_080CC369:: @ 080CC369
-	.incbin "assets/chuchuBoss/gUnk_080CC369.bin"
+	.incbin "chuchuBoss/gUnk_080CC369.bin"
 
 gUnk_080CC372:: @ 080CC372
-	.incbin "assets/chuchuBoss/gUnk_080CC372.bin"
+	.incbin "chuchuBoss/gUnk_080CC372.bin"
 
 gUnk_080CC37B:: @ 080CC37B
-	.incbin "assets/chuchuBoss/gUnk_080CC37B.bin"
+	.incbin "chuchuBoss/gUnk_080CC37B.bin"
 
 gUnk_080CC39C:: @ 080CC39C
-	.incbin "assets/chuchuBoss/gUnk_080CC39C.bin"
+	.incbin "chuchuBoss/gUnk_080CC39C.bin"
 
 gUnk_080CC3D4:: @ 080CC3D4
-	.incbin "assets/chuchuBoss/gUnk_080CC3D4.bin"
+	.incbin "chuchuBoss/gUnk_080CC3D4.bin"
 
 gUnk_080CC40C:: @ 080CC40C
-	.incbin "assets/chuchuBoss/gUnk_080CC40C.bin"
+	.incbin "chuchuBoss/gUnk_080CC40C.bin"
 
 gUnk_080CC440:: @ 080CC440
-	.incbin "assets/chuchuBoss/gUnk_080CC440.bin"
+	.incbin "chuchuBoss/gUnk_080CC440.bin"
 
 gUnk_080CC478:: @ 080CC478
-	.incbin "assets/chuchuBoss/gUnk_080CC478.bin"
+	.incbin "chuchuBoss/gUnk_080CC478.bin"
 
 gUnk_080CC4B0:: @ 080CC4B0
-	.incbin "assets/chuchuBoss/gUnk_080CC4B0.bin"
+	.incbin "chuchuBoss/gUnk_080CC4B0.bin"
 
 gUnk_080CC515:: @ 080CC515
-	.incbin "assets/chuchuBoss/gUnk_080CC515.bin"
+	.incbin "chuchuBoss/gUnk_080CC515.bin"
 
 gUnk_080CC582:: @ 080CC582
-	.incbin "assets/chuchuBoss/gUnk_080CC582.bin"
+	.incbin "chuchuBoss/gUnk_080CC582.bin"
 
 gUnk_080CC5EF:: @ 080CC5EF
-	.incbin "assets/chuchuBoss/gUnk_080CC5EF.bin"
+	.incbin "chuchuBoss/gUnk_080CC5EF.bin"
 
 gUnk_080CC65C:: @ 080CC65C
-	.incbin "assets/chuchuBoss/gUnk_080CC65C.bin"
+	.incbin "chuchuBoss/gUnk_080CC65C.bin"
 
 gUnk_080CC67D:: @ 080CC67D
-	.incbin "assets/chuchuBoss/gUnk_080CC67D.bin"
+	.incbin "chuchuBoss/gUnk_080CC67D.bin"
 
 gUnk_080CC684:: @ 080CC684
 	.4byte gUnk_080CC2DF

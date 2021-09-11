@@ -12,16 +12,16 @@ gUnk_0812283C:: @ 0812283C
 	.4byte nullsub_120
 
 gUnk_08122850:: @ 08122850
-	.incbin "assets/objectBlockingStairs/gUnk_08122850.bin"
+	.incbin "objectBlockingStairs/gUnk_08122850.bin"
 
 gUnk_08122862:: @ 08122862
-	.incbin "assets/objectBlockingStairs/gUnk_08122862.bin"
+	.incbin "objectBlockingStairs/gUnk_08122862.bin"
 
 gUnk_08122874:: @ 08122874
-	.incbin "assets/objectBlockingStairs/gUnk_08122874.bin"
+	.incbin "objectBlockingStairs/gUnk_08122874.bin"
 
 gUnk_08122886:: @ 08122886
-	.incbin "assets/objectBlockingStairs/gUnk_08122886.bin"
+	.incbin "objectBlockingStairs/gUnk_08122886.bin"
 
 gUnk_08122898:: @ 08122898
-	.incbin "assets/objectBlockingStairs/gUnk_08122898.bin"
+	.incbin "objectBlockingStairs/gUnk_08122898.bin"

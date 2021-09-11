@@ -9,4 +9,4 @@ gUnk_08122254:: @ 08122254
 	.4byte sub_08090F00
 
 gUnk_0812225C:: @ 0812225C
-	.incbin "assets/minishSizedEntrance/gUnk_0812225C.bin"
+	.incbin "minishSizedEntrance/gUnk_0812225C.bin"

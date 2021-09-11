@@ -11,4 +11,4 @@ gUnk_081205D0:: @ 081205D0
 	.4byte sub_08085308
 
 gUnk_081205E0:: @ 081205E0
-	.incbin "assets/railtrack/gUnk_081205E0.bin"
+	.incbin "railtrack/gUnk_081205E0.bin"

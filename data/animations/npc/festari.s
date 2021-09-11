@@ -5,34 +5,34 @@
     .align 2
 
 gUnk_08109BC8:: @ 08109BC8
-	.incbin "assets/festari/gUnk_08109BC8.bin"
+	.incbin "festari/gUnk_08109BC8.bin"
 
 gUnk_08109BCD:: @ 08109BCD
-	.incbin "assets/festari/gUnk_08109BCD.bin"
+	.incbin "festari/gUnk_08109BCD.bin"
 
 gUnk_08109BD2:: @ 08109BD2
-	.incbin "assets/festari/gUnk_08109BD2.bin"
+	.incbin "festari/gUnk_08109BD2.bin"
 
 gUnk_08109BD7:: @ 08109BD7
-	.incbin "assets/festari/gUnk_08109BD7.bin"
+	.incbin "festari/gUnk_08109BD7.bin"
 
 gUnk_08109BE8:: @ 08109BE8
-	.incbin "assets/festari/gUnk_08109BE8.bin"
+	.incbin "festari/gUnk_08109BE8.bin"
 
 gUnk_08109BF9:: @ 08109BF9
-	.incbin "assets/festari/gUnk_08109BF9.bin"
+	.incbin "festari/gUnk_08109BF9.bin"
 
 gUnk_08109C2E:: @ 08109C2E
-	.incbin "assets/festari/gUnk_08109C2E.bin"
+	.incbin "festari/gUnk_08109C2E.bin"
 
 gUnk_08109C4B:: @ 08109C4B
-	.incbin "assets/festari/gUnk_08109C4B.bin"
+	.incbin "festari/gUnk_08109C4B.bin"
 
 gUnk_08109C54:: @ 08109C54
-	.incbin "assets/festari/gUnk_08109C54.bin"
+	.incbin "festari/gUnk_08109C54.bin"
 
 gUnk_08109C59:: @ 08109C59
-	.incbin "assets/festari/gUnk_08109C59.bin"
+	.incbin "festari/gUnk_08109C59.bin"
 
 gUnk_08109C60:: @ 08109C60
 	.4byte gUnk_08109BCD

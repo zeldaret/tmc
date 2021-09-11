@@ -10,10 +10,10 @@ gUnk_08123494:: @ 08123494
 	.4byte sub_08098304
 
 gUnk_081234A0:: @ 081234A0
-	.incbin "assets/pushableLever/gUnk_081234A0.bin"
+	.incbin "pushableLever/gUnk_081234A0.bin"
 
 gUnk_081234A4:: @ 081234A4
-	.incbin "assets/pushableLever/gUnk_081234A4.bin"
+	.incbin "pushableLever/gUnk_081234A4.bin"
 
 gUnk_081234AC:: @ 081234AC
-	.incbin "assets/pushableLever/gUnk_081234AC.bin"
+	.incbin "pushableLever/gUnk_081234AC.bin"

@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08123E2C:: @ 08123E2C
-	.incbin "assets/bakerOven/gUnk_08123E2C.bin"
+	.incbin "bakerOven/gUnk_08123E2C.bin"
 
 gUnk_08123E78:: @ 08123E78
 	.4byte gUnk_08123E2C

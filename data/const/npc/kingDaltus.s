@@ -15,4 +15,4 @@ gUnk_081104EC:: @ 081104EC
 	.4byte sub_08066718
 
 gUnk_081104F8:: @ 081104F8
-	.incbin "assets/kingDaltus/gUnk_081104F8.bin"
+	.incbin "kingDaltus/gUnk_081104F8.bin"

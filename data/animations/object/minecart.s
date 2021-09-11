@@ -11,64 +11,64 @@ gUnk_081223D8:: @ 081223D8
 	.4byte gUnk_08122436
 
 gUnk_081223E8:: @ 081223E8
-	.incbin "assets/minecart/gUnk_081223E8.bin"
+	.incbin "minecart/gUnk_081223E8.bin"
 
 gUnk_08122402:: @ 08122402
-	.incbin "assets/minecart/gUnk_08122402.bin"
+	.incbin "minecart/gUnk_08122402.bin"
 
 gUnk_0812241C:: @ 0812241C
-	.incbin "assets/minecart/gUnk_0812241C.bin"
+	.incbin "minecart/gUnk_0812241C.bin"
 
 gUnk_08122436:: @ 08122436
-	.incbin "assets/minecart/gUnk_08122436.bin"
+	.incbin "minecart/gUnk_08122436.bin"
 
 gUnk_08122450:: @ 08122450
-	.incbin "assets/minecart/gUnk_08122450.bin"
+	.incbin "minecart/gUnk_08122450.bin"
 
 gUnk_08122459:: @ 08122459
-	.incbin "assets/minecart/gUnk_08122459.bin"
+	.incbin "minecart/gUnk_08122459.bin"
 
 gUnk_08122462:: @ 08122462
-	.incbin "assets/minecart/gUnk_08122462.bin"
+	.incbin "minecart/gUnk_08122462.bin"
 
 gUnk_0812246B:: @ 0812246B
-	.incbin "assets/minecart/gUnk_0812246B.bin"
+	.incbin "minecart/gUnk_0812246B.bin"
 
 gUnk_08122474:: @ 08122474
-	.incbin "assets/minecart/gUnk_08122474.bin"
+	.incbin "minecart/gUnk_08122474.bin"
 
 gUnk_08122489:: @ 08122489
-	.incbin "assets/minecart/gUnk_08122489.bin"
+	.incbin "minecart/gUnk_08122489.bin"
 
 gUnk_0812249E:: @ 0812249E
-	.incbin "assets/minecart/gUnk_0812249E.bin"
+	.incbin "minecart/gUnk_0812249E.bin"
 
 gUnk_081224B3:: @ 081224B3
-	.incbin "assets/minecart/gUnk_081224B3.bin"
+	.incbin "minecart/gUnk_081224B3.bin"
 
 gUnk_081224C8:: @ 081224C8
-	.incbin "assets/minecart/gUnk_081224C8.bin"
+	.incbin "minecart/gUnk_081224C8.bin"
 
 gUnk_081224E1:: @ 081224E1
-	.incbin "assets/minecart/gUnk_081224E1.bin"
+	.incbin "minecart/gUnk_081224E1.bin"
 
 gUnk_081224F9:: @ 081224F9
-	.incbin "assets/minecart/gUnk_081224F9.bin"
+	.incbin "minecart/gUnk_081224F9.bin"
 
 gUnk_08122511:: @ 08122511
-	.incbin "assets/minecart/gUnk_08122511.bin"
+	.incbin "minecart/gUnk_08122511.bin"
 
 gUnk_08122529:: @ 08122529
-	.incbin "assets/minecart/gUnk_08122529.bin"
+	.incbin "minecart/gUnk_08122529.bin"
 
 gUnk_0812252E:: @ 0812252E
-	.incbin "assets/minecart/gUnk_0812252E.bin"
+	.incbin "minecart/gUnk_0812252E.bin"
 
 gUnk_08122533:: @ 08122533
-	.incbin "assets/minecart/gUnk_08122533.bin"
+	.incbin "minecart/gUnk_08122533.bin"
 
 gUnk_08122538:: @ 08122538
-	.incbin "assets/minecart/gUnk_08122538.bin"
+	.incbin "minecart/gUnk_08122538.bin"
 
 gUnk_08122540:: @ 08122540
 	.4byte gUnk_08122450

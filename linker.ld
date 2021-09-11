@@ -1721,7 +1721,7 @@ data/const/object/object1D.o(.rodata);
         data/strings.o(.rodata);
         data/sprite_table.o(.rodata);
         src/gba/m4a.o(.rodata);
-        data/data_089FC6C4.o(.rodata);
+        data/voicegroups.o(.rodata);
         src/audio.o(.rodata);
         data/data_08A127A1.o(.rodata);
         data/sounds.o(.rodata);

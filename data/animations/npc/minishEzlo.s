@@ -5,43 +5,43 @@
     .align 2
 
 gUnk_0810C4A0:: @ 0810C4A0
-	.incbin "assets/minishEzlo/gUnk_0810C4A0.bin"
+	.incbin "minishEzlo/gUnk_0810C4A0.bin"
 
 gUnk_0810C4A5:: @ 0810C4A5
-	.incbin "assets/minishEzlo/gUnk_0810C4A5.bin"
+	.incbin "minishEzlo/gUnk_0810C4A5.bin"
 
 gUnk_0810C4AA:: @ 0810C4AA
-	.incbin "assets/minishEzlo/gUnk_0810C4AA.bin"
+	.incbin "minishEzlo/gUnk_0810C4AA.bin"
 
 gUnk_0810C4AF:: @ 0810C4AF
-	.incbin "assets/minishEzlo/gUnk_0810C4AF.bin"
+	.incbin "minishEzlo/gUnk_0810C4AF.bin"
 
 gUnk_0810C4B4:: @ 0810C4B4
-	.incbin "assets/minishEzlo/gUnk_0810C4B4.bin"
+	.incbin "minishEzlo/gUnk_0810C4B4.bin"
 
 gUnk_0810C4C9:: @ 0810C4C9
-	.incbin "assets/minishEzlo/gUnk_0810C4C9.bin"
+	.incbin "minishEzlo/gUnk_0810C4C9.bin"
 
 gUnk_0810C4DE:: @ 0810C4DE
-	.incbin "assets/minishEzlo/gUnk_0810C4DE.bin"
+	.incbin "minishEzlo/gUnk_0810C4DE.bin"
 
 gUnk_0810C5BB:: @ 0810C5BB
-	.incbin "assets/minishEzlo/gUnk_0810C5BB.bin"
+	.incbin "minishEzlo/gUnk_0810C5BB.bin"
 
 gUnk_0810C698:: @ 0810C698
-	.incbin "assets/minishEzlo/gUnk_0810C698.bin"
+	.incbin "minishEzlo/gUnk_0810C698.bin"
 
 gUnk_0810C6E5:: @ 0810C6E5
-	.incbin "assets/minishEzlo/gUnk_0810C6E5.bin"
+	.incbin "minishEzlo/gUnk_0810C6E5.bin"
 
 gUnk_0810C772:: @ 0810C772
-	.incbin "assets/minishEzlo/gUnk_0810C772.bin"
+	.incbin "minishEzlo/gUnk_0810C772.bin"
 
 gUnk_0810C77F:: @ 0810C77F
-	.incbin "assets/minishEzlo/gUnk_0810C77F.bin"
+	.incbin "minishEzlo/gUnk_0810C77F.bin"
 
 gUnk_0810C7AC:: @ 0810C7AC
-	.incbin "assets/minishEzlo/gUnk_0810C7AC.bin"
+	.incbin "minishEzlo/gUnk_0810C7AC.bin"
 
 gUnk_0810C7B4:: @ 0810C7B4
 	.4byte gUnk_0810C4AF

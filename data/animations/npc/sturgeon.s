@@ -5,22 +5,22 @@
     .align 2
 
 gUnk_0810FB78:: @ 0810FB78
-	.incbin "assets/sturgeon/gUnk_0810FB78.bin"
+	.incbin "sturgeon/gUnk_0810FB78.bin"
 
 gUnk_0810FB7D:: @ 0810FB7D
-	.incbin "assets/sturgeon/gUnk_0810FB7D.bin"
+	.incbin "sturgeon/gUnk_0810FB7D.bin"
 
 gUnk_0810FB82:: @ 0810FB82
-	.incbin "assets/sturgeon/gUnk_0810FB82.bin"
+	.incbin "sturgeon/gUnk_0810FB82.bin"
 
 gUnk_0810FB87:: @ 0810FB87
-	.incbin "assets/sturgeon/gUnk_0810FB87.bin"
+	.incbin "sturgeon/gUnk_0810FB87.bin"
 
 gUnk_0810FB8C:: @ 0810FB8C
-	.incbin "assets/sturgeon/gUnk_0810FB8C.bin"
+	.incbin "sturgeon/gUnk_0810FB8C.bin"
 
 gUnk_0810FBAD:: @ 0810FBAD
-	.incbin "assets/sturgeon/gUnk_0810FBAD.bin"
+	.incbin "sturgeon/gUnk_0810FBAD.bin"
 
 gUnk_0810FBD0:: @ 0810FBD0
 	.4byte gUnk_0810FB78

@@ -15,16 +15,16 @@ gUnk_08110E5C:: @ 08110E5C
 	.4byte sub_08067514
 
 gUnk_08110E64:: @ 08110E64
-	.incbin "assets/castorWildsStatue/gUnk_08110E64.bin"
+	.incbin "castorWildsStatue/gUnk_08110E64.bin"
 
 gUnk_08110E68:: @ 08110E68
-	.incbin "assets/castorWildsStatue/gUnk_08110E68.bin"
+	.incbin "castorWildsStatue/gUnk_08110E68.bin"
 
 gUnk_08110E78:: @ 08110E78
-	.incbin "assets/castorWildsStatue/gUnk_08110E78.bin"
+	.incbin "castorWildsStatue/gUnk_08110E78.bin"
 
 gUnk_08110E8A:: @ 08110E8A
-	.incbin "assets/castorWildsStatue/gUnk_08110E8A.bin"
+	.incbin "castorWildsStatue/gUnk_08110E8A.bin"
 
 gUnk_08110E94:: @ 08110E94
-	.incbin "assets/castorWildsStatue/gUnk_08110E94.bin"
+	.incbin "castorWildsStatue/gUnk_08110E94.bin"

@@ -6,7 +6,7 @@
 	.text
 
 gUnk_08016984:: @ 08016984
-	.incbin "assets/code_08016984/gUnk_08016984.bin"
+	.incbin "code_08016984/gUnk_08016984.bin"
 
 	.text
 

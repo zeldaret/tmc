@@ -12,7 +12,7 @@ gUnk_081232AC:: @ 081232AC
 	.4byte nullsub_528
 
 gUnk_081232C0:: @ 081232C0
-	.incbin "assets/pushableGrave/gUnk_081232C0.bin"
+	.incbin "pushableGrave/gUnk_081232C0.bin"
 
 gUnk_081232DE:: @ 081232DE
-	.incbin "assets/pushableGrave/gUnk_081232DE.bin"
+	.incbin "pushableGrave/gUnk_081232DE.bin"

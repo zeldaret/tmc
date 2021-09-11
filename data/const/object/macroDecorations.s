@@ -9,4 +9,4 @@ gUnk_081233B8:: @ 081233B8
 	.4byte sub_08097EA4
 
 gUnk_081233C0:: @ 081233C0
-	.incbin "assets/macroDecorations/gUnk_081233C0.bin"
+	.incbin "macroDecorations/gUnk_081233C0.bin"

@@ -5,31 +5,31 @@
     .align 2
 
 gUnk_08109AD8:: @ 08109AD8
-	.incbin "assets/gentari/gUnk_08109AD8.bin"
+	.incbin "gentari/gUnk_08109AD8.bin"
 
 gUnk_08109ADD:: @ 08109ADD
-	.incbin "assets/gentari/gUnk_08109ADD.bin"
+	.incbin "gentari/gUnk_08109ADD.bin"
 
 gUnk_08109AE2:: @ 08109AE2
-	.incbin "assets/gentari/gUnk_08109AE2.bin"
+	.incbin "gentari/gUnk_08109AE2.bin"
 
 gUnk_08109AE7:: @ 08109AE7
-	.incbin "assets/gentari/gUnk_08109AE7.bin"
+	.incbin "gentari/gUnk_08109AE7.bin"
 
 gUnk_08109AEC:: @ 08109AEC
-	.incbin "assets/gentari/gUnk_08109AEC.bin"
+	.incbin "gentari/gUnk_08109AEC.bin"
 
 gUnk_08109AFD:: @ 08109AFD
-	.incbin "assets/gentari/gUnk_08109AFD.bin"
+	.incbin "gentari/gUnk_08109AFD.bin"
 
 gUnk_08109B0E:: @ 08109B0E
-	.incbin "assets/gentari/gUnk_08109B0E.bin"
+	.incbin "gentari/gUnk_08109B0E.bin"
 
 gUnk_08109B3B:: @ 08109B3B
-	.incbin "assets/gentari/gUnk_08109B3B.bin"
+	.incbin "gentari/gUnk_08109B3B.bin"
 
 gUnk_08109B60:: @ 08109B60
-	.incbin "assets/gentari/gUnk_08109B60.bin"
+	.incbin "gentari/gUnk_08109B60.bin"
 
 gUnk_08109B80:: @ 08109B80
 	.4byte gUnk_08109AD8

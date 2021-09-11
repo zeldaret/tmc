@@ -5,100 +5,100 @@
     .align 2
 
 gUnk_08129D1C:: @ 08129D1C
-	.incbin "assets/projectile13/gUnk_08129D1C.bin"
+	.incbin "projectile13/gUnk_08129D1C.bin"
 
 gUnk_08129D21:: @ 08129D21
-	.incbin "assets/projectile13/gUnk_08129D21.bin"
+	.incbin "projectile13/gUnk_08129D21.bin"
 
 gUnk_08129D26:: @ 08129D26
-	.incbin "assets/projectile13/gUnk_08129D26.bin"
+	.incbin "projectile13/gUnk_08129D26.bin"
 
 gUnk_08129D2B:: @ 08129D2B
-	.incbin "assets/projectile13/gUnk_08129D2B.bin"
+	.incbin "projectile13/gUnk_08129D2B.bin"
 
 gUnk_08129D30:: @ 08129D30
-	.incbin "assets/projectile13/gUnk_08129D30.bin"
+	.incbin "projectile13/gUnk_08129D30.bin"
 
 gUnk_08129D35:: @ 08129D35
-	.incbin "assets/projectile13/gUnk_08129D35.bin"
+	.incbin "projectile13/gUnk_08129D35.bin"
 
 gUnk_08129D3A:: @ 08129D3A
-	.incbin "assets/projectile13/gUnk_08129D3A.bin"
+	.incbin "projectile13/gUnk_08129D3A.bin"
 
 gUnk_08129D3F:: @ 08129D3F
-	.incbin "assets/projectile13/gUnk_08129D3F.bin"
+	.incbin "projectile13/gUnk_08129D3F.bin"
 
 gUnk_08129D44:: @ 08129D44
-	.incbin "assets/projectile13/gUnk_08129D44.bin"
+	.incbin "projectile13/gUnk_08129D44.bin"
 
 gUnk_08129D55:: @ 08129D55
-	.incbin "assets/projectile13/gUnk_08129D55.bin"
+	.incbin "projectile13/gUnk_08129D55.bin"
 
 gUnk_08129D66:: @ 08129D66
-	.incbin "assets/projectile13/gUnk_08129D66.bin"
+	.incbin "projectile13/gUnk_08129D66.bin"
 
 gUnk_08129D77:: @ 08129D77
-	.incbin "assets/projectile13/gUnk_08129D77.bin"
+	.incbin "projectile13/gUnk_08129D77.bin"
 
 gUnk_08129D88:: @ 08129D88
-	.incbin "assets/projectile13/gUnk_08129D88.bin"
+	.incbin "projectile13/gUnk_08129D88.bin"
 
 gUnk_08129D99:: @ 08129D99
-	.incbin "assets/projectile13/gUnk_08129D99.bin"
+	.incbin "projectile13/gUnk_08129D99.bin"
 
 gUnk_08129DAA:: @ 08129DAA
-	.incbin "assets/projectile13/gUnk_08129DAA.bin"
+	.incbin "projectile13/gUnk_08129DAA.bin"
 
 gUnk_08129DBB:: @ 08129DBB
-	.incbin "assets/projectile13/gUnk_08129DBB.bin"
+	.incbin "projectile13/gUnk_08129DBB.bin"
 
 gUnk_08129DCC:: @ 08129DCC
-	.incbin "assets/projectile13/gUnk_08129DCC.bin"
+	.incbin "projectile13/gUnk_08129DCC.bin"
 
 gUnk_08129DD8:: @ 08129DD8
-	.incbin "assets/projectile13/gUnk_08129DD8.bin"
+	.incbin "projectile13/gUnk_08129DD8.bin"
 
 gUnk_08129DE4:: @ 08129DE4
-	.incbin "assets/projectile13/gUnk_08129DE4.bin"
+	.incbin "projectile13/gUnk_08129DE4.bin"
 
 gUnk_08129DF0:: @ 08129DF0
-	.incbin "assets/projectile13/gUnk_08129DF0.bin"
+	.incbin "projectile13/gUnk_08129DF0.bin"
 
 gUnk_08129DFC:: @ 08129DFC
-	.incbin "assets/projectile13/gUnk_08129DFC.bin"
+	.incbin "projectile13/gUnk_08129DFC.bin"
 
 gUnk_08129E08:: @ 08129E08
-	.incbin "assets/projectile13/gUnk_08129E08.bin"
+	.incbin "projectile13/gUnk_08129E08.bin"
 
 gUnk_08129E14:: @ 08129E14
-	.incbin "assets/projectile13/gUnk_08129E14.bin"
+	.incbin "projectile13/gUnk_08129E14.bin"
 
 gUnk_08129E20:: @ 08129E20
-	.incbin "assets/projectile13/gUnk_08129E20.bin"
+	.incbin "projectile13/gUnk_08129E20.bin"
 
 gUnk_08129E2C:: @ 08129E2C
-	.incbin "assets/projectile13/gUnk_08129E2C.bin"
+	.incbin "projectile13/gUnk_08129E2C.bin"
 
 gUnk_08129E4D:: @ 08129E4D
-	.incbin "assets/projectile13/gUnk_08129E4D.bin"
+	.incbin "projectile13/gUnk_08129E4D.bin"
 
 gUnk_08129E6E:: @ 08129E6E
-	.incbin "assets/projectile13/gUnk_08129E6E.bin"
+	.incbin "projectile13/gUnk_08129E6E.bin"
 
 gUnk_08129E8F:: @ 08129E8F
-	.incbin "assets/projectile13/gUnk_08129E8F.bin"
+	.incbin "projectile13/gUnk_08129E8F.bin"
 
 gUnk_08129EB0:: @ 08129EB0
-	.incbin "assets/projectile13/gUnk_08129EB0.bin"
+	.incbin "projectile13/gUnk_08129EB0.bin"
 
 gUnk_08129ED1:: @ 08129ED1
-	.incbin "assets/projectile13/gUnk_08129ED1.bin"
+	.incbin "projectile13/gUnk_08129ED1.bin"
 
 gUnk_08129EF2:: @ 08129EF2
-	.incbin "assets/projectile13/gUnk_08129EF2.bin"
+	.incbin "projectile13/gUnk_08129EF2.bin"
 
 gUnk_08129F13:: @ 08129F13
-	.incbin "assets/projectile13/gUnk_08129F13.bin"
+	.incbin "projectile13/gUnk_08129F13.bin"
 
 gUnk_08129F34:: @ 08129F34
 	.4byte gUnk_08129D1C

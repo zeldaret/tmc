@@ -24,10 +24,10 @@ gUnk_080D1A14:: @ 080D1A14
 	.4byte nullsub_25
 
 gUnk_080D1A38:: @ 080D1A38
-	.incbin "assets/businessScrubPrologue/gUnk_080D1A38.bin"
+	.incbin "businessScrubPrologue/gUnk_080D1A38.bin"
 
 gUnk_080D1A3E:: @ 080D1A3E
-	.incbin "assets/businessScrubPrologue/gUnk_080D1A3E.bin"
+	.incbin "businessScrubPrologue/gUnk_080D1A3E.bin"
 
 gUnk_080D1A4E:: @ 080D1A4E
-	.incbin "assets/businessScrubPrologue/gUnk_080D1A4E.bin"
+	.incbin "businessScrubPrologue/gUnk_080D1A4E.bin"

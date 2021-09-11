@@ -5,10 +5,10 @@
 @    .align 2
 
 gUnk_08120C66:: @ 08120C66
-	.incbin "assets/bigBarrel/gUnk_08120C66.bin"
+	.incbin "bigBarrel/gUnk_08120C66.bin"
 
 gUnk_08120C6F:: @ 08120C6F
-	.incbin "assets/bigBarrel/gUnk_08120C6F.bin"
+	.incbin "bigBarrel/gUnk_08120C6F.bin"
 
 gUnk_08120C78:: @ 08120C78
 	.4byte gUnk_08120C66

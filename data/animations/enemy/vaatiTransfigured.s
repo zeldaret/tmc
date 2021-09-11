@@ -5,10 +5,10 @@
     .align 2
 
 gUnk_080D0BA4:: @ 080D0BA4
-	.incbin "assets/vaatiTransfigured/gUnk_080D0BA4.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0BA4.bin"
 
 gUnk_080D0BB5:: @ 080D0BB5
-	.incbin "assets/vaatiTransfigured/gUnk_080D0BB5.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0BB5.bin"
 
 gUnk_080D0BC4:: @ 080D0BC4
 	.4byte gUnk_080D0BA4
@@ -19,22 +19,22 @@ gUnk_080D0BC4:: @ 080D0BC4
 	.4byte 00000000
 
 gUnk_080D0BDC:: @ 080D0BDC
-	.incbin "assets/vaatiTransfigured/gUnk_080D0BDC.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0BDC.bin"
 
 gUnk_080D0BE1:: @ 080D0BE1
-	.incbin "assets/vaatiTransfigured/gUnk_080D0BE1.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0BE1.bin"
 
 gUnk_080D0BED:: @ 080D0BED
-	.incbin "assets/vaatiTransfigured/gUnk_080D0BED.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0BED.bin"
 
 gUnk_080D0BF2:: @ 080D0BF2
-	.incbin "assets/vaatiTransfigured/gUnk_080D0BF2.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0BF2.bin"
 
 gUnk_080D0BF7:: @ 080D0BF7
-	.incbin "assets/vaatiTransfigured/gUnk_080D0BF7.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0BF7.bin"
 
 gUnk_080D0BFC:: @ 080D0BFC
-	.incbin "assets/vaatiTransfigured/gUnk_080D0BFC.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0BFC.bin"
 
 gUnk_080D0C0C:: @ 080D0C0C
 	.4byte gUnk_080D0BDC
@@ -49,10 +49,10 @@ gUnk_080D0C0C:: @ 080D0C0C
 	.4byte 00000000
 
 gUnk_080D0C34:: @ 080D0C34
-	.incbin "assets/vaatiTransfigured/gUnk_080D0C34.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0C34.bin"
 
 gUnk_080D0C55:: @ 080D0C55
-	.incbin "assets/vaatiTransfigured/gUnk_080D0C55.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0C55.bin"
 
 gUnk_080D0C88:: @ 080D0C88
 	.4byte gUnk_080D0C34
@@ -63,16 +63,16 @@ gUnk_080D0C88:: @ 080D0C88
 	.4byte 00000000
 
 gUnk_080D0CA0:: @ 080D0CA0
-	.incbin "assets/vaatiTransfigured/gUnk_080D0CA0.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0CA0.bin"
 
 gUnk_080D0CA5:: @ 080D0CA5
-	.incbin "assets/vaatiTransfigured/gUnk_080D0CA5.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0CA5.bin"
 
 gUnk_080D0CD5:: @ 080D0CD5
-	.incbin "assets/vaatiTransfigured/gUnk_080D0CD5.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0CD5.bin"
 
 gUnk_080D0CE6:: @ 080D0CE6
-	.incbin "assets/vaatiTransfigured/gUnk_080D0CE6.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0CE6.bin"
 
 gUnk_080D0CF4:: @ 080D0CF4
 	.4byte gUnk_080D0CA0
@@ -83,23 +83,23 @@ gUnk_080D0CF4:: @ 080D0CF4
 	.4byte 00000000
 
 gUnk_080D0D0C:: @ 080D0D0C
-	.incbin "assets/vaatiTransfigured/gUnk_080D0D0C.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0D0C.bin"
 
 gUnk_080D0D40:: @ 080D0D40
 	.4byte gUnk_080D0D0C
-	.incbin "assets/vaatiTransfigured/gUnk_080D0D40.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0D40.bin"
 
 gUnk_080D0D48:: @ 080D0D48
-	.incbin "assets/vaatiTransfigured/gUnk_080D0D48.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0D48.bin"
 
 gUnk_080D0D78:: @ 080D0D78
-	.incbin "assets/vaatiTransfigured/gUnk_080D0D78.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0D78.bin"
 
 gUnk_080D0D91:: @ 080D0D91
-	.incbin "assets/vaatiTransfigured/gUnk_080D0D91.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0D91.bin"
 
 gUnk_080D0DA1:: @ 080D0DA1
-	.incbin "assets/vaatiTransfigured/gUnk_080D0DA1.bin"
+	.incbin "vaatiTransfigured/gUnk_080D0DA1.bin"
 
 gUnk_080D0DB0:: @ 080D0DB0
 	.4byte gUnk_080D0D48

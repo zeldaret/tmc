@@ -12,4 +12,4 @@ gUnk_0812A494:: @ 0812A494
 	.4byte sub_080AB26C
 
 gUnk_0812A4A8:: @ 0812A4A8
-	.incbin "assets/projectile19/gUnk_0812A4A8.bin"
+	.incbin "projectile19/gUnk_0812A4A8.bin"

@@ -5,10 +5,10 @@
     .align 2
 
 gUnk_08121E24:: @ 08121E24
-	.incbin "assets/fileScreenObjects/gUnk_08121E24.bin"
+	.incbin "fileScreenObjects/gUnk_08121E24.bin"
 
 gUnk_08121E31:: @ 08121E31
-	.incbin "assets/fileScreenObjects/gUnk_08121E31.bin"
+	.incbin "fileScreenObjects/gUnk_08121E31.bin"
 
 gUnk_08121E50:: @ 08121E50
 	.4byte gUnk_08121E24

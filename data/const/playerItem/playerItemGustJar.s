@@ -22,31 +22,31 @@ gUnk_08132714:: @ 08132714
 	.4byte gUnk_08132B0C
 
 gUnk_08132734:: @ 08132734
-	.incbin "assets/playerItemGustJar/gUnk_08132734.bin"
+	.incbin "playerItemGustJar/gUnk_08132734.bin"
 
 gUnk_08132744:: @ 08132744
-	.incbin "assets/playerItemGustJar/gUnk_08132744.bin"
+	.incbin "playerItemGustJar/gUnk_08132744.bin"
 
 gUnk_08132754:: @ 08132754
-	.incbin "assets/playerItemGustJar/gUnk_08132754.bin"
+	.incbin "playerItemGustJar/gUnk_08132754.bin"
 
 gUnk_08132764:: @ 08132764
-	.incbin "assets/playerItemGustJar/gUnk_08132764.bin"
+	.incbin "playerItemGustJar/gUnk_08132764.bin"
 
 gUnk_08132774:: @ 08132774
-	.incbin "assets/playerItemGustJar/gUnk_08132774.bin"
+	.incbin "playerItemGustJar/gUnk_08132774.bin"
 
 gUnk_08132784:: @ 08132784
-	.incbin "assets/playerItemGustJar/gUnk_08132784.bin"
+	.incbin "playerItemGustJar/gUnk_08132784.bin"
 
 gUnk_08132794:: @ 08132794
-	.incbin "assets/playerItemGustJar/gUnk_08132794.bin"
+	.incbin "playerItemGustJar/gUnk_08132794.bin"
 
 gUnk_081327AC:: @ 081327AC
-	.incbin "assets/playerItemGustJar/gUnk_081327AC.bin"
+	.incbin "playerItemGustJar/gUnk_081327AC.bin"
 
 gUnk_081327C4:: @ 081327C4
-	.incbin "assets/playerItemGustJar/gUnk_081327C4.bin"
+	.incbin "playerItemGustJar/gUnk_081327C4.bin"
 
 gUnk_081327DC:: @ 081327DC
 	.4byte gUnk_08132754
@@ -64,25 +64,25 @@ gUnk_081327DC:: @ 081327DC
 	.4byte 00000000
 
 gUnk_08132810:: @ 08132810
-	.incbin "assets/playerItemGustJar/gUnk_08132810.bin"
+	.incbin "playerItemGustJar/gUnk_08132810.bin"
 
 gUnk_08132AE0:: @ 08132AE0
-	.incbin "assets/playerItemGustJar/gUnk_08132AE0.bin"
+	.incbin "playerItemGustJar/gUnk_08132AE0.bin"
 
 gUnk_08132AEA:: @ 08132AEA
-	.incbin "assets/playerItemGustJar/gUnk_08132AEA.bin"
+	.incbin "playerItemGustJar/gUnk_08132AEA.bin"
 
 gUnk_08132AF4:: @ 08132AF4
-	.incbin "assets/playerItemGustJar/gUnk_08132AF4.bin"
+	.incbin "playerItemGustJar/gUnk_08132AF4.bin"
 
 gUnk_08132AFE:: @ 08132AFE
-	.incbin "assets/playerItemGustJar/gUnk_08132AFE.bin"
+	.incbin "playerItemGustJar/gUnk_08132AFE.bin"
 
 gUnk_08132B0C:: @ 08132B0C
-	.incbin "assets/playerItemGustJar/gUnk_08132B0C.bin"
+	.incbin "playerItemGustJar/gUnk_08132B0C.bin"
 
 gUnk_08132B1A:: @ 08132B1A
-	.incbin "assets/playerItemGustJar/gUnk_08132B1A.bin"
+	.incbin "playerItemGustJar/gUnk_08132B1A.bin"
 
 gUnk_08132B28:: @ 08132B28
-	.incbin "assets/playerItemGustJar/gUnk_08132B28.bin"
+	.incbin "playerItemGustJar/gUnk_08132B28.bin"

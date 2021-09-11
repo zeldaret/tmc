@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_08114244:: @ 08114244
-	.incbin "assets/clothesRack/gUnk_08114244.bin"
+	.incbin "clothesRack/gUnk_08114244.bin"
 
 gUnk_0811425D:: @ 0811425D
-	.incbin "assets/clothesRack/gUnk_0811425D.bin"
+	.incbin "clothesRack/gUnk_0811425D.bin"
 
 gUnk_08114276:: @ 08114276
-	.incbin "assets/clothesRack/gUnk_08114276.bin"
+	.incbin "clothesRack/gUnk_08114276.bin"
 
 gUnk_0811428F:: @ 0811428F
-	.incbin "assets/clothesRack/gUnk_0811428F.bin"
+	.incbin "clothesRack/gUnk_0811428F.bin"
 
 gUnk_081142A8:: @ 081142A8
 	.4byte gUnk_08114244

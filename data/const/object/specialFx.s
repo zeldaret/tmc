@@ -5,12 +5,12 @@
     .align 2
 
 gUnk_0811F960:: @ 0811F960
-	.incbin "assets/specialFx/gUnk_0811F960.bin"
+	.incbin "specialFx/gUnk_0811F960.bin"
 .ifdef EU
     @ TODO only small differences
-	.incbin "assets/specialFx/gUnk_0811F960_1_EU.bin"
+	.incbin "specialFx/gUnk_0811F960_1_EU.bin"
 .else
-	.incbin "assets/specialFx/gUnk_0811F960_2_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "specialFx/gUnk_0811F960_2_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_0811FAC0:: @ 0811FAC0
@@ -18,10 +18,10 @@ gUnk_0811FAC0:: @ 0811FAC0
 	.4byte sub_080845B8
 
 gUnk_0811FAC8:: @ 0811FAC8
-	.incbin "assets/specialFx/gUnk_0811FAC8.bin"
+	.incbin "specialFx/gUnk_0811FAC8.bin"
 
 gUnk_0811FACC:: @ 0811FACC
-	.incbin "assets/specialFx/gUnk_0811FACC.bin"
+	.incbin "specialFx/gUnk_0811FACC.bin"
 
 gUnk_0811FAD0:: @ 0811FAD0
 	.4byte sub_080845DC
@@ -40,4 +40,4 @@ gUnk_0811FAD0:: @ 0811FAD0
 	.4byte sub_080847E0
 
 gUnk_0811FB08:: @ 0811FB08
-	.incbin "assets/specialFx/gUnk_0811FB08.bin"
+	.incbin "specialFx/gUnk_0811FB08.bin"

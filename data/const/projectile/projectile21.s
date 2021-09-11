@@ -19,10 +19,10 @@ gUnk_0812A968:: @ 0812A968
 	.4byte sub_080AC200
 
 gUnk_0812A97C:: @ 0812A97C
-	.incbin "assets/projectile21/gUnk_0812A97C.bin"
+	.incbin "projectile21/gUnk_0812A97C.bin"
 
 gUnk_0812A982:: @ 0812A982
-	.incbin "assets/projectile21/gUnk_0812A982.bin"
+	.incbin "projectile21/gUnk_0812A982.bin"
 
 gUnk_0812A98A:: @ 0812A98A
-	.incbin "assets/projectile21/gUnk_0812A98A.bin"
+	.incbin "projectile21/gUnk_0812A98A.bin"

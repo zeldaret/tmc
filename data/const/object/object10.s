@@ -10,7 +10,7 @@ gUnk_08120560:: @ 08120560
 	.4byte sub_080849D8
 
 gUnk_0812056C:: @ 0812056C
-	.incbin "assets/object10/gUnk_0812056C.bin"
+	.incbin "object10/gUnk_0812056C.bin"
 
 gUnk_08120574:: @ 08120574
-	.incbin "assets/object10/gUnk_08120574.bin"
+	.incbin "object10/gUnk_08120574.bin"

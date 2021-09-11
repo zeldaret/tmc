@@ -9,4 +9,4 @@ gUnk_08108C80:: @ 08108C80
 	.4byte sub_0805B638
 
 gUnk_08108C88:: @ 08108C88
-	.incbin "assets/manager1D/gUnk_08108C88.bin"
+	.incbin "manager1D/gUnk_08108C88.bin"

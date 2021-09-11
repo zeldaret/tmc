@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_0810C3C8:: @ 0810C3C8
-	.incbin "assets/wheaton/gUnk_0810C3C8.bin"
+	.incbin "wheaton/gUnk_0810C3C8.bin"
 
 gUnk_0810C3E1:: @ 0810C3E1
-	.incbin "assets/wheaton/gUnk_0810C3E1.bin"
+	.incbin "wheaton/gUnk_0810C3E1.bin"
 
 gUnk_0810C3F2:: @ 0810C3F2
-	.incbin "assets/wheaton/gUnk_0810C3F2.bin"
+	.incbin "wheaton/gUnk_0810C3F2.bin"
 
 gUnk_0810C403:: @ 0810C403
-	.incbin "assets/wheaton/gUnk_0810C403.bin"
+	.incbin "wheaton/gUnk_0810C403.bin"
 
 gUnk_0810C414:: @ 0810C414
 	.4byte gUnk_0810C3C8

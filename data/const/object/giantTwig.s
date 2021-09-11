@@ -21,7 +21,7 @@ gUnk_081228F0:: @ 081228F0
 	.4byte nullsub_526
 
 gUnk_081228F8:: @ 081228F8
-	.incbin "assets/giantTwig/gUnk_081228F8.bin"
+	.incbin "giantTwig/gUnk_081228F8.bin"
 
 gUnk_0812291E:: @ 0812291E
-	.incbin "assets/giantTwig/gUnk_0812291E.bin"
+	.incbin "giantTwig/gUnk_0812291E.bin"

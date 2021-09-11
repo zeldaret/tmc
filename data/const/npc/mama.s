@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08113754:: @ 08113754
-	.incbin "assets/mama/gUnk_08113754.bin"
+	.incbin "mama/gUnk_08113754.bin"
 
 gUnk_08113760:: @ 08113760
-	.incbin "assets/mama/gUnk_08113760.bin"
+	.incbin "mama/gUnk_08113760.bin"

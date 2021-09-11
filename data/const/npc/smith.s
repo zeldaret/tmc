@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_08110354:: @ 08110354
-	.incbin "assets/smith/gUnk_08110354.bin"
+	.incbin "smith/gUnk_08110354.bin"
 
 gUnk_08110360:: @ 08110360
 	.4byte sub_080660EC
@@ -20,13 +20,13 @@ gUnk_0811036C:: @ 0811036C
 	.4byte sub_08066218
 
 gUnk_08110380:: @ 08110380
-	.incbin "assets/smith/gUnk_08110380.bin"
+	.incbin "smith/gUnk_08110380.bin"
 
 gUnk_08110390:: @ 08110390
-	.incbin "assets/smith/gUnk_08110390.bin"
+	.incbin "smith/gUnk_08110390.bin"
 
 gUnk_081103D0:: @ 081103D0
-	.incbin "assets/smith/gUnk_081103D0.bin"
+	.incbin "smith/gUnk_081103D0.bin"
 
 gUnk_081103E0:: @ 081103E0
-	.incbin "assets/smith/gUnk_081103E0.bin"
+	.incbin "smith/gUnk_081103E0.bin"

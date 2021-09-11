@@ -5,31 +5,31 @@
     .align 2
 
 gUnk_080CE164:: @ 080CE164
-	.incbin "assets/armos/gUnk_080CE164.bin"
+	.incbin "armos/gUnk_080CE164.bin"
 
 gUnk_080CE16C:: @ 080CE16C
-	.incbin "assets/armos/gUnk_080CE16C.bin"
+	.incbin "armos/gUnk_080CE16C.bin"
 
 gUnk_080CE185:: @ 080CE185
-	.incbin "assets/armos/gUnk_080CE185.bin"
+	.incbin "armos/gUnk_080CE185.bin"
 
 gUnk_080CE19E:: @ 080CE19E
-	.incbin "assets/armos/gUnk_080CE19E.bin"
+	.incbin "armos/gUnk_080CE19E.bin"
 
 gUnk_080CE1B7:: @ 080CE1B7
-	.incbin "assets/armos/gUnk_080CE1B7.bin"
+	.incbin "armos/gUnk_080CE1B7.bin"
 
 gUnk_080CE1D0:: @ 080CE1D0
-	.incbin "assets/armos/gUnk_080CE1D0.bin"
+	.incbin "armos/gUnk_080CE1D0.bin"
 
 gUnk_080CE205:: @ 080CE205
-	.incbin "assets/armos/gUnk_080CE205.bin"
+	.incbin "armos/gUnk_080CE205.bin"
 
 gUnk_080CE246:: @ 080CE246
-	.incbin "assets/armos/gUnk_080CE246.bin"
+	.incbin "armos/gUnk_080CE246.bin"
 
 gUnk_080CE25E:: @ 080CE25E
-	.incbin "assets/armos/gUnk_080CE25E.bin"
+	.incbin "armos/gUnk_080CE25E.bin"
 
 gUnk_080CE264:: @ 080CE264
 	.4byte gUnk_080CE16C

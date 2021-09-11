@@ -19,28 +19,28 @@ gUnk_08000F54:: @ 08000F54
 	.4byte 00000000
 
 gUnk_08000F84:: @ 08000F84
-	.incbin "assets/data_08000F54/gUnk_08000F84.bin"
+	.incbin "data_08000F54/gUnk_08000F84.bin"
 
 gUnk_08000FC4:: @ 08000FC4
-	.incbin "assets/data_08000F54/gUnk_08000FC4.bin"
+	.incbin "data_08000F54/gUnk_08000FC4.bin"
 
 gUnk_08001004:: @ 08001004
-	.incbin "assets/data_08000F54/gUnk_08001004.bin"
+	.incbin "data_08000F54/gUnk_08001004.bin"
 
 gUnk_08001044:: @ 08001044
-	.incbin "assets/data_08000F54/gUnk_08001044.bin"
+	.incbin "data_08000F54/gUnk_08001044.bin"
 
 gUnk_08001084:: @ 08001084
-	.incbin "assets/data_08000F54/gUnk_08001084.bin"
+	.incbin "data_08000F54/gUnk_08001084.bin"
 
 gUnk_080010C4:: @ 080010C4
-	.incbin "assets/data_08000F54/gUnk_080010C4.bin"
+	.incbin "data_08000F54/gUnk_080010C4.bin"
 
 gUnk_08001104:: @ 08001104
-	.incbin "assets/data_08000F54/gUnk_08001104.bin"
+	.incbin "data_08000F54/gUnk_08001104.bin"
 
 gUnk_08001144:: @ 08001144
-	.incbin "assets/data_08000F54/gUnk_08001144.bin"
+	.incbin "data_08000F54/gUnk_08001144.bin"
 
 gUnk_08001184:: @ 08001184
-	.incbin "assets/data_08000F54/gUnk_08001184.bin"
+	.incbin "data_08000F54/gUnk_08001184.bin"

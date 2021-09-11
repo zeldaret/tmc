@@ -9,4 +9,4 @@ gUnk_08120650:: @ 08120650
 	.4byte sub_0808611C
 
 gUnk_08120658:: @ 08120658
-	.incbin "assets/floatingPlatform/gUnk_08120658.bin"
+	.incbin "floatingPlatform/gUnk_08120658.bin"

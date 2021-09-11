@@ -22,19 +22,19 @@ gUnk_08112278:: @ 08112278
 	.4byte sub_0806A5C0
 
 gUnk_08112294:: @ 08112294
-	.incbin "assets/rem/gUnk_08112294.bin"
+	.incbin "rem/gUnk_08112294.bin"
 
 gUnk_0811229C:: @ 0811229C
-	.incbin "assets/rem/gUnk_0811229C.bin"
+	.incbin "rem/gUnk_0811229C.bin"
 
 gUnk_081122A0:: @ 081122A0
-	.incbin "assets/rem/gUnk_081122A0.bin"
+	.incbin "rem/gUnk_081122A0.bin"
 
 gUnk_081122A8:: @ 081122A8
-	.incbin "assets/rem/gUnk_081122A8.bin"
+	.incbin "rem/gUnk_081122A8.bin"
 
 gUnk_081122B0:: @ 081122B0
-	.incbin "assets/rem/gUnk_081122B0.bin"
+	.incbin "rem/gUnk_081122B0.bin"
 
 gUnk_081122B8:: @ 081122B8
-	.incbin "assets/rem/gUnk_081122B8.bin"
+	.incbin "rem/gUnk_081122B8.bin"

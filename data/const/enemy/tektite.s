@@ -19,4 +19,4 @@ gUnk_080CDEE8:: @ 080CDEE8
 	.4byte sub_0802F3F4
 
 gUnk_080CDEF8:: @ 080CDEF8
-	.incbin "assets/tektite/gUnk_080CDEF8.bin"
+	.incbin "tektite/gUnk_080CDEF8.bin"

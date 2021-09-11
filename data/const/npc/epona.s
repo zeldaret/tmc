@@ -12,4 +12,4 @@ gUnk_0811006C:: @ 0811006C
 	.4byte sub_08065A34
 
 gUnk_08110080:: @ 08110080
-	.incbin "assets/epona/gUnk_08110080.bin"
+	.incbin "epona/gUnk_08110080.bin"

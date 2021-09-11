@@ -5,7 +5,7 @@
     .align 2
 
 gUnk_081144F0:: @ 081144F0
-	.incbin "assets/hurdyGurdyMan/gUnk_081144F0.bin"
+	.incbin "hurdyGurdyMan/gUnk_081144F0.bin"
 
 gUnk_081144FC:: @ 081144FC
-	.incbin "assets/hurdyGurdyMan/gUnk_081144FC.bin"
+	.incbin "hurdyGurdyMan/gUnk_081144FC.bin"

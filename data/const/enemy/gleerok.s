@@ -21,7 +21,7 @@ gUnk_080CD75C:: @ 080CD75C
 	.4byte sub_0802D33C
 
 gUnk_080CD774:: @ 080CD774
-	.incbin "assets/gleerok/gUnk_080CD774.bin"
+	.incbin "gleerok/gUnk_080CD774.bin"
 
 gUnk_080CD7B8:: @ 080CD7B8
 	.4byte sub_0802D3B8
@@ -29,7 +29,7 @@ gUnk_080CD7B8:: @ 080CD7B8
 	.4byte sub_0802D650
 
 gUnk_080CD7C4:: @ 080CD7C4
-	.incbin "assets/gleerok/gUnk_080CD7C4.bin"
+	.incbin "gleerok/gUnk_080CD7C4.bin"
 
 gUnk_080CD7E4:: @ 080CD7E4
 	.4byte sub_0802D674
@@ -39,7 +39,7 @@ gUnk_080CD7E4:: @ 080CD7E4
 	.4byte sub_0802D7B4
 
 gUnk_080CD7F8:: @ 080CD7F8
-	.incbin "assets/gleerok/gUnk_080CD7F8.bin"
+	.incbin "gleerok/gUnk_080CD7F8.bin"
 
 gUnk_080CD810:: @ 080CD810
 	.4byte sub_0802DB84
@@ -61,35 +61,35 @@ gUnk_080CD840:: @ 080CD840
 	.4byte 0x08100804 @ not a pointer!
 
 gUnk_080CD844:: @ 080CD844
-	.incbin "assets/gleerok/gUnk_080CD844.bin"
+	.incbin "gleerok/gUnk_080CD844.bin"
 
 gUnk_080CD848:: @ 080CD848
 	.4byte sub_0802E448
 	.4byte sub_0802E4C0
 
 gUnk_080CD850:: @ 080CD850
-	.incbin "assets/gleerok/gUnk_080CD850.bin"
+	.incbin "gleerok/gUnk_080CD850.bin"
 
 gUnk_080CD854:: @ 080CD854
-	.incbin "assets/gleerok/gUnk_080CD854.bin"
+	.incbin "gleerok/gUnk_080CD854.bin"
 
 gUnk_080CD858:: @ 080CD858
-	.incbin "assets/gleerok/gUnk_080CD858.bin"
+	.incbin "gleerok/gUnk_080CD858.bin"
 
 gUnk_080CD85B:: @ 080CD85B
-	.incbin "assets/gleerok/gUnk_080CD85B.bin"
+	.incbin "gleerok/gUnk_080CD85B.bin"
 
 gUnk_080CD85E:: @ 080CD85E
-	.incbin "assets/gleerok/gUnk_080CD85E.bin"
+	.incbin "gleerok/gUnk_080CD85E.bin"
 
 gUnk_080CD861:: @ 080CD861
-	.incbin "assets/gleerok/gUnk_080CD861.bin"
+	.incbin "gleerok/gUnk_080CD861.bin"
 
 gUnk_080CD864:: @ 080CD864
-	.incbin "assets/gleerok/gUnk_080CD864.bin"
+	.incbin "gleerok/gUnk_080CD864.bin"
 
 gUnk_080CD867:: @ 080CD867
-	.incbin "assets/gleerok/gUnk_080CD867.bin"
+	.incbin "gleerok/gUnk_080CD867.bin"
 
 gUnk_080CD86C:: @ 080CD86C
 	.4byte gUnk_080CD858
@@ -102,4 +102,4 @@ gUnk_080CD878:: @ 080CD878
 	.4byte gUnk_080CD867
 
 gUnk_080CD884:: @ 080CD884
-	.incbin "assets/gleerok/gUnk_080CD884.bin"
+	.incbin "gleerok/gUnk_080CD884.bin"

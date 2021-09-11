@@ -5,6 +5,6 @@
     .align 2
 
 gUnk_08123484:: @ 08123484
-	.incbin "assets/steam/gUnk_08123484.bin"
+	.incbin "steam/gUnk_08123484.bin"
 
 

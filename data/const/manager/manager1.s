@@ -5,13 +5,13 @@
     .align 2
 
 gUnk_08107C1C:: @ 08107C1C
-	.incbin "assets/manager1/gUnk_08107C1C.bin"
+	.incbin "manager1/gUnk_08107C1C.bin"
 
 gUnk_08107C30:: @ 08107C30
-	.incbin "assets/manager1/gUnk_08107C30.bin"
+	.incbin "manager1/gUnk_08107C30.bin"
 
 gUnk_08107C40:: @ 08107C40
-	.incbin "assets/manager1/gUnk_08107C40.bin"
+	.incbin "manager1/gUnk_08107C40.bin"
 
 gUnk_08107C48:: @ 08107C48
 	.4byte nullsub_494

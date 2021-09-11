@@ -10,7 +10,7 @@ gUnk_080FC908:: @ 080FC908
 	.4byte sub_08050910
 
 gUnk_080FC914:: @ 080FC914
-	.incbin "assets/data_080FC8A4/gUnk_080FC914.bin"
+	.incbin "data_080FC8A4/gUnk_080FC914.bin"
 
 gUnk_080FC93C:: @ 080FC93C
 	.4byte sub_08050C54
@@ -34,13 +34,13 @@ gUnk_080FC960:: @ 080FC960
 	.4byte sub_0805144C
 
 gUnk_080FC970:: @ 080FC970
-	.incbin "assets/data_080FC8A4/gUnk_080FC970.bin"
+	.incbin "data_080FC8A4/gUnk_080FC970.bin"
 
 gUnk_080FC980:: @ 080FC980
-	.incbin "assets/data_080FC8A4/gUnk_080FC980.bin"
+	.incbin "data_080FC8A4/gUnk_080FC980.bin"
 
 gUnk_080FC9A0:: @ 080FC9A0
-	.incbin "assets/data_080FC8A4/gUnk_080FC9A0.bin"
+	.incbin "data_080FC8A4/gUnk_080FC9A0.bin"
 
 gUnk_080FC9B0:: @ 080FC9B0
 	.4byte sub_080513A8
@@ -85,7 +85,7 @@ gUnk_080FCA14:: @ 080FCA14
 	.4byte sub_08053C90
 
 gUnk_080FCA20:: @ 080FCA20
-	.incbin "assets/data_080FC8A4/gUnk_080FCA20.bin"
+	.incbin "data_080FC8A4/gUnk_080FCA20.bin"
 
 gUnk_080FCA70:: @ 080FCA70
 	.4byte sub_080520D8
@@ -95,22 +95,22 @@ gUnk_080FCA70:: @ 080FCA70
 	.4byte nullsub_107
 
 gUnk_080FCA84:: @ 080FCA84
-	.incbin "assets/data_080FC8A4/gUnk_080FCA84.bin"
+	.incbin "data_080FC8A4/gUnk_080FCA84.bin"
 
 gUnk_080FCA8C:: @ 080FCA8C
-	.incbin "assets/data_080FC8A4/gUnk_080FCA8C.bin"
+	.incbin "data_080FC8A4/gUnk_080FCA8C.bin"
 
 gUnk_080FCAA4:: @ 080FCAA4
-	.incbin "assets/data_080FC8A4/gUnk_080FCAA4.bin"
+	.incbin "data_080FC8A4/gUnk_080FCAA4.bin"
 
 gUnk_080FCAC8:: @ 080FCAC8
-	.incbin "assets/data_080FC8A4/gUnk_080FCAC8.bin"
+	.incbin "data_080FC8A4/gUnk_080FCAC8.bin"
 
 gUnk_080FCAD6:: @ 080FCAD6
-	.incbin "assets/data_080FC8A4/gUnk_080FCAD6.bin"
+	.incbin "data_080FC8A4/gUnk_080FCAD6.bin"
 
 gUnk_080FCAF8:: @ 080FCAF8
-	.incbin "assets/data_080FC8A4/gUnk_080FCAF8.bin"
+	.incbin "data_080FC8A4/gUnk_080FCAF8.bin"
 
 gUnk_080FCB18:: @ 080FCB18
 	.4byte sub_08053434
@@ -123,27 +123,27 @@ gUnk_080FCB18:: @ 080FCB18
 	.4byte nullsub_480
 
 gUnk_080FCB38:: @ 080FCB38
-	.incbin "assets/data_080FC8A4/gUnk_080FCB38.bin"
+	.incbin "data_080FC8A4/gUnk_080FCB38.bin"
 
 gUnk_080FCB62:: @ 080FCB62
 .ifdef JP
     @ TODO only small differences
-	.incbin "assets/data_080FC8A4/gUnk_080FCB62_JP.bin"
+	.incbin "data_080FC8A4/gUnk_080FCB62_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "assets/data_080FC8A4/gUnk_080FCB62_1_DEMO_JP.bin"
+	.incbin "data_080FC8A4/gUnk_080FCB62_1_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "assets/data_080FC8A4/gUnk_080FCB62_2_EU.bin"
+	.incbin "data_080FC8A4/gUnk_080FCB62_2_EU.bin"
 .else
-	.incbin "assets/data_080FC8A4/gUnk_080FCB62_3_USA-DEMO_USA.bin"
+	.incbin "data_080FC8A4/gUnk_080FCB62_3_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
 
 gUnk_080FCB94:: @ 080FCB94
-	.incbin "assets/data_080FC8A4/gUnk_080FCB94.bin"
+	.incbin "data_080FC8A4/gUnk_080FCB94.bin"
 
 gUnk_080FCBB4:: @ 080FCBB4
 	.4byte sub_080535AC
@@ -152,49 +152,49 @@ gUnk_080FCBB4:: @ 080FCBB4
 	.4byte sub_08053618
 
 gUnk_080FCBC4:: @ 080FCBC4
-	.incbin "assets/data_080FC8A4/gUnk_080FCBC4.bin"
+	.incbin "data_080FC8A4/gUnk_080FCBC4.bin"
 	.4byte script_08009A50
-	.incbin "assets/data_080FC8A4/gUnk_080FCBC4_1.bin"
+	.incbin "data_080FC8A4/gUnk_080FCBC4_1.bin"
 	.4byte script_08009A84
-	.incbin "assets/data_080FC8A4/gUnk_080FCBC4_2.bin"
+	.incbin "data_080FC8A4/gUnk_080FCBC4_2.bin"
 	.4byte script_08009AF8
-	.incbin "assets/data_080FC8A4/gUnk_080FCBC4_3.bin"
+	.incbin "data_080FC8A4/gUnk_080FCBC4_3.bin"
 	.4byte script_08009A34
-	.incbin "assets/data_080FC8A4/gUnk_080FCBC4_4.bin"
+	.incbin "data_080FC8A4/gUnk_080FCBC4_4.bin"
 
 gUnk_080FCC14:: @ 080FCC14
-	.incbin "assets/data_080FC8A4/gUnk_080FCC14.bin"
+	.incbin "data_080FC8A4/gUnk_080FCC14.bin"
 	.4byte script_08009918
-	.incbin "assets/data_080FC8A4/gUnk_080FCC14_1.bin"
+	.incbin "data_080FC8A4/gUnk_080FCC14_1.bin"
 	.4byte script_08009950
-	.incbin "assets/data_080FC8A4/gUnk_080FCC14_2.bin"
+	.incbin "data_080FC8A4/gUnk_080FCC14_2.bin"
 	.4byte script_080099DC
-	.incbin "assets/data_080FC8A4/gUnk_080FCC14_3.bin"
+	.incbin "data_080FC8A4/gUnk_080FCC14_3.bin"
 
 gUnk_080FCC54:: @ 080FCC54
-	.incbin "assets/data_080FC8A4/gUnk_080FCC54.bin"
+	.incbin "data_080FC8A4/gUnk_080FCC54.bin"
 	.4byte script_08009D6C
-	.incbin "assets/data_080FC8A4/gUnk_080FCC54_1.bin"
+	.incbin "data_080FC8A4/gUnk_080FCC54_1.bin"
 
 gUnk_080FCC84:: @ 080FCC84
-	.incbin "assets/data_080FC8A4/gUnk_080FCC84.bin"
+	.incbin "data_080FC8A4/gUnk_080FCC84.bin"
 
 gUnk_080FCC9C:: @ 080FCC9C
-	.incbin "assets/data_080FC8A4/gUnk_080FCC9C.bin"
+	.incbin "data_080FC8A4/gUnk_080FCC9C.bin"
 
 gUnk_080FCCB4:: @ 080FCCB4
 	.4byte gUnk_080FCC84
-	.incbin "assets/data_080FC8A4/gUnk_080FCCB4.bin"
+	.incbin "data_080FC8A4/gUnk_080FCCB4.bin"
 	.4byte gUnk_080FCC84
-	.incbin "assets/data_080FC8A4/gUnk_080FCCB4_1.bin"
+	.incbin "data_080FC8A4/gUnk_080FCCB4_1.bin"
 	.4byte gUnk_080FCC9C
-	.incbin "assets/data_080FC8A4/gUnk_080FCCB4_2.bin"
+	.incbin "data_080FC8A4/gUnk_080FCCB4_2.bin"
 	.4byte gUnk_080FCC9C
-	.incbin "assets/data_080FC8A4/gUnk_080FCCB4_3.bin"
+	.incbin "data_080FC8A4/gUnk_080FCCB4_3.bin"
 	.4byte gUnk_080FCC84
-	.incbin "assets/data_080FC8A4/gUnk_080FCCB4_4.bin"
+	.incbin "data_080FC8A4/gUnk_080FCCB4_4.bin"
 	.4byte gUnk_080FCC84
-	.incbin "assets/data_080FC8A4/gUnk_080FCCB4_5.bin"
+	.incbin "data_080FC8A4/gUnk_080FCCB4_5.bin"
 
 gUnk_080FCCFC:: @ 080FCCFC
 	.4byte sub_08053758
@@ -237,15 +237,15 @@ gUnk_080FCD40:: @ 080FCD40
 	.4byte sub_08053A90
 
 gUnk_080FCD84:: @ 080FCD84
-	.incbin "assets/data_080FC8A4/gUnk_080FCD84.bin"
+	.incbin "data_080FC8A4/gUnk_080FCD84.bin"
 	.4byte script_080153EC
-	.incbin "assets/data_080FC8A4/gUnk_080FCD84_1.bin"
+	.incbin "data_080FC8A4/gUnk_080FCD84_1.bin"
 	.4byte script_0801550C
-	.incbin "assets/data_080FC8A4/gUnk_080FCD84_2.bin"
+	.incbin "data_080FC8A4/gUnk_080FCD84_2.bin"
 	.4byte script_08015618
-	.incbin "assets/data_080FC8A4/gUnk_080FCD84_3.bin"
+	.incbin "data_080FC8A4/gUnk_080FCD84_3.bin"
 	.4byte script_08015684
-	.incbin "assets/data_080FC8A4/gUnk_080FCD84_4.bin"
+	.incbin "data_080FC8A4/gUnk_080FCD84_4.bin"
 
 gUnk_080FCDD4:: @ 080FCDD4
 	.4byte sub_08053ACC
@@ -253,32 +253,32 @@ gUnk_080FCDD4:: @ 080FCDD4
 	.4byte sub_08053B10
 
 gUnk_080FCDE0:: @ 080FCDE0
-	.incbin "assets/data_080FC8A4/gUnk_080FCDE0.bin"
+	.incbin "data_080FC8A4/gUnk_080FCDE0.bin"
 	.4byte script_08015CD4
-	.incbin "assets/data_080FC8A4/gUnk_080FCDE0_1.bin"
+	.incbin "data_080FC8A4/gUnk_080FCDE0_1.bin"
 	.4byte script_08015DF0
-	.incbin "assets/data_080FC8A4/gUnk_080FCDE0_2.bin"
+	.incbin "data_080FC8A4/gUnk_080FCDE0_2.bin"
 	.4byte script_08015E58
-	.incbin "assets/data_080FC8A4/gUnk_080FCDE0_3.bin"
+	.incbin "data_080FC8A4/gUnk_080FCDE0_3.bin"
 	.4byte script_08015FA4
-	.incbin "assets/data_080FC8A4/gUnk_080FCDE0_4.bin"
+	.incbin "data_080FC8A4/gUnk_080FCDE0_4.bin"
 
 gUnk_080FCE30:: @ 080FCE30
-	.incbin "assets/data_080FC8A4/gUnk_080FCE30.bin"
+	.incbin "data_080FC8A4/gUnk_080FCE30.bin"
 	.4byte script_08015F08
-	.incbin "assets/data_080FC8A4/gUnk_080FCE30_1.bin"
+	.incbin "data_080FC8A4/gUnk_080FCE30_1.bin"
 	.4byte script_08015F3C
-	.incbin "assets/data_080FC8A4/gUnk_080FCE30_2.bin"
+	.incbin "data_080FC8A4/gUnk_080FCE30_2.bin"
 	.4byte script_08015F3C
-	.incbin "assets/data_080FC8A4/gUnk_080FCE30_3.bin"
+	.incbin "data_080FC8A4/gUnk_080FCE30_3.bin"
 	.4byte script_08015F3C
-	.incbin "assets/data_080FC8A4/gUnk_080FCE30_4.bin"
+	.incbin "data_080FC8A4/gUnk_080FCE30_4.bin"
 	.4byte script_08015F3C
-	.incbin "assets/data_080FC8A4/gUnk_080FCE30_5.bin"
+	.incbin "data_080FC8A4/gUnk_080FCE30_5.bin"
 	.4byte script_08015F3C
-	.incbin "assets/data_080FC8A4/gUnk_080FCE30_6.bin"
+	.incbin "data_080FC8A4/gUnk_080FCE30_6.bin"
 	.4byte script_08015F3C
-	.incbin "assets/data_080FC8A4/gUnk_080FCE30_7.bin"
+	.incbin "data_080FC8A4/gUnk_080FCE30_7.bin"
 
 gUnk_080FCEB0:: @ 080FCEB0
 	.4byte sub_08053B74
@@ -286,11 +286,11 @@ gUnk_080FCEB0:: @ 080FCEB0
 	.4byte sub_08053BBC
 
 gUnk_080FCEBC:: @ 080FCEBC
-	.incbin "assets/data_080FC8A4/gUnk_080FCEBC.bin"
+	.incbin "data_080FC8A4/gUnk_080FCEBC.bin"
 	.4byte script_0800DB18
-	.incbin "assets/data_080FC8A4/gUnk_080FCEBC_1.bin"
+	.incbin "data_080FC8A4/gUnk_080FCEBC_1.bin"
 	.4byte script_0800E58C
-	.incbin "assets/data_080FC8A4/gUnk_080FCEBC_2.bin"
+	.incbin "data_080FC8A4/gUnk_080FCEBC_2.bin"
 
 gUnk_080FCEEC:: @ 080FCEEC
 	.4byte sub_08053C20
@@ -313,16 +313,16 @@ gUnk_080FCF04:: @ 080FCF04
 	.4byte 0x00002258
 
 gUnk_080FCF24:: @ 080FCF24
-	.incbin "assets/data_080FC8A4/gUnk_080FCF24.bin"
+	.incbin "data_080FC8A4/gUnk_080FCF24.bin"
 
 gUnk_080FCF44:: @ 080FCF44
-	.incbin "assets/data_080FC8A4/gUnk_080FCF44.bin"
+	.incbin "data_080FC8A4/gUnk_080FCF44.bin"
 
 gUnk_080FCF64:: @ 080FCF64
-	.incbin "assets/data_080FC8A4/gUnk_080FCF64.bin"
+	.incbin "data_080FC8A4/gUnk_080FCF64.bin"
 
 gUnk_080FCF84:: @ 080FCF84
-	.incbin "assets/data_080FC8A4/gUnk_080FCF84.bin"
+	.incbin "data_080FC8A4/gUnk_080FCF84.bin"
 
 gUnk_080FCFA4:: @ 080FCFA4
 	.4byte sub_08053CC8
@@ -346,28 +346,28 @@ gUnk_080FCFB8:: @ 080FCFB8
 	.4byte 0x10101588
 
 gUnk_080FCFE8:: @ 080FCFE8
-	.incbin "assets/data_080FC8A4/gUnk_080FCFE8.bin"
+	.incbin "data_080FC8A4/gUnk_080FCFE8.bin"
 
 gUnk_080FD008:: @ 080FD008
-	.incbin "assets/data_080FC8A4/gUnk_080FD008.bin"
+	.incbin "data_080FC8A4/gUnk_080FD008.bin"
 
 gUnk_080FD028:: @ 080FD028
-	.incbin "assets/data_080FC8A4/gUnk_080FD028.bin"
+	.incbin "data_080FC8A4/gUnk_080FD028.bin"
 
 gUnk_080FD048:: @ 080FD048
-	.incbin "assets/data_080FC8A4/gUnk_080FD048.bin"
+	.incbin "data_080FC8A4/gUnk_080FD048.bin"
 
 gUnk_080FD078:: @ 080FD078
-	.incbin "assets/data_080FC8A4/gUnk_080FD078.bin"
+	.incbin "data_080FC8A4/gUnk_080FD078.bin"
 
 gUnk_080FD098:: @ 080FD098
-	.incbin "assets/data_080FC8A4/gUnk_080FD098.bin"
+	.incbin "data_080FC8A4/gUnk_080FD098.bin"
 
 gUnk_080FD0C8:: @ 080FD0C8
-	.incbin "assets/data_080FC8A4/gUnk_080FD0C8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD0C8.bin"
 
 gUnk_080FD0E8:: @ 080FD0E8
-	.incbin "assets/data_080FC8A4/gUnk_080FD0E8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD0E8.bin"
 
 gUnk_080FD108:: @ 080FD108
 	.4byte sub_08053E74
@@ -392,675 +392,675 @@ gUnk_080FD138:: @ 080FD138
 	.4byte sub_08053C04
 
 gUnk_080FD150:: @ 080FD150
-	.incbin "assets/data_080FC8A4/gUnk_080FD150.bin"
+	.incbin "data_080FC8A4/gUnk_080FD150.bin"
 
 gUnk_080FD158:: @ 080FD158
-	.incbin "assets/data_080FC8A4/gUnk_080FD158.bin"
+	.incbin "data_080FC8A4/gUnk_080FD158.bin"
 
 gUnk_080FD160:: @ 080FD160
-	.incbin "assets/data_080FC8A4/gUnk_080FD160.bin"
+	.incbin "data_080FC8A4/gUnk_080FD160.bin"
 
 gUnk_080FD168:: @ 080FD168
-	.incbin "assets/data_080FC8A4/gUnk_080FD168.bin"
+	.incbin "data_080FC8A4/gUnk_080FD168.bin"
 
 gUnk_080FD170:: @ 080FD170
-	.incbin "assets/data_080FC8A4/gUnk_080FD170.bin"
+	.incbin "data_080FC8A4/gUnk_080FD170.bin"
 
 gUnk_080FD178:: @ 080FD178
-	.incbin "assets/data_080FC8A4/gUnk_080FD178.bin"
+	.incbin "data_080FC8A4/gUnk_080FD178.bin"
 
 gUnk_080FD180:: @ 080FD180
-	.incbin "assets/data_080FC8A4/gUnk_080FD180.bin"
+	.incbin "data_080FC8A4/gUnk_080FD180.bin"
 
 gUnk_080FD188:: @ 080FD188
-	.incbin "assets/data_080FC8A4/gUnk_080FD188.bin"
+	.incbin "data_080FC8A4/gUnk_080FD188.bin"
 
 gUnk_080FD190:: @ 080FD190
-	.incbin "assets/data_080FC8A4/gUnk_080FD190.bin"
+	.incbin "data_080FC8A4/gUnk_080FD190.bin"
 
 gUnk_080FD198:: @ 080FD198
-	.incbin "assets/data_080FC8A4/gUnk_080FD198.bin"
+	.incbin "data_080FC8A4/gUnk_080FD198.bin"
 
 gUnk_080FD1A0:: @ 080FD1A0
-	.incbin "assets/data_080FC8A4/gUnk_080FD1A0.bin"
+	.incbin "data_080FC8A4/gUnk_080FD1A0.bin"
 
 gUnk_080FD1A8:: @ 080FD1A8
-	.incbin "assets/data_080FC8A4/gUnk_080FD1A8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD1A8.bin"
 
 gUnk_080FD1B4:: @ 080FD1B4
-	.incbin "assets/data_080FC8A4/gUnk_080FD1B4.bin"
+	.incbin "data_080FC8A4/gUnk_080FD1B4.bin"
 
 gUnk_080FD1C4:: @ 080FD1C4
-	.incbin "assets/data_080FC8A4/gUnk_080FD1C4.bin"
+	.incbin "data_080FC8A4/gUnk_080FD1C4.bin"
 
 gUnk_080FD1CC:: @ 080FD1CC
-	.incbin "assets/data_080FC8A4/gUnk_080FD1CC.bin"
+	.incbin "data_080FC8A4/gUnk_080FD1CC.bin"
 
 gUnk_080FD1D4:: @ 080FD1D4
-	.incbin "assets/data_080FC8A4/gUnk_080FD1D4.bin"
+	.incbin "data_080FC8A4/gUnk_080FD1D4.bin"
 
 gUnk_080FD1DC:: @ 080FD1DC
-	.incbin "assets/data_080FC8A4/gUnk_080FD1DC.bin"
+	.incbin "data_080FC8A4/gUnk_080FD1DC.bin"
 
 gUnk_080FD1E4:: @ 080FD1E4
-	.incbin "assets/data_080FC8A4/gUnk_080FD1E4.bin"
+	.incbin "data_080FC8A4/gUnk_080FD1E4.bin"
 
 gUnk_080FD1EC:: @ 080FD1EC
-	.incbin "assets/data_080FC8A4/gUnk_080FD1EC.bin"
+	.incbin "data_080FC8A4/gUnk_080FD1EC.bin"
 
 gUnk_080FD1F4:: @ 080FD1F4
-	.incbin "assets/data_080FC8A4/gUnk_080FD1F4.bin"
+	.incbin "data_080FC8A4/gUnk_080FD1F4.bin"
 
 gUnk_080FD1FC:: @ 080FD1FC
-	.incbin "assets/data_080FC8A4/gUnk_080FD1FC.bin"
+	.incbin "data_080FC8A4/gUnk_080FD1FC.bin"
 
 gUnk_080FD204:: @ 080FD204
-	.incbin "assets/data_080FC8A4/gUnk_080FD204.bin"
+	.incbin "data_080FC8A4/gUnk_080FD204.bin"
 
 gUnk_080FD20C:: @ 080FD20C
-	.incbin "assets/data_080FC8A4/gUnk_080FD20C.bin"
+	.incbin "data_080FC8A4/gUnk_080FD20C.bin"
 
 gUnk_080FD214:: @ 080FD214
-	.incbin "assets/data_080FC8A4/gUnk_080FD214.bin"
+	.incbin "data_080FC8A4/gUnk_080FD214.bin"
 
 gUnk_080FD21C:: @ 080FD21C
-	.incbin "assets/data_080FC8A4/gUnk_080FD21C.bin"
+	.incbin "data_080FC8A4/gUnk_080FD21C.bin"
 
 gUnk_080FD224:: @ 080FD224
-	.incbin "assets/data_080FC8A4/gUnk_080FD224.bin"
+	.incbin "data_080FC8A4/gUnk_080FD224.bin"
 
 gUnk_080FD22C:: @ 080FD22C
-	.incbin "assets/data_080FC8A4/gUnk_080FD22C.bin"
+	.incbin "data_080FC8A4/gUnk_080FD22C.bin"
 
 gUnk_080FD238:: @ 080FD238
-	.incbin "assets/data_080FC8A4/gUnk_080FD238.bin"
+	.incbin "data_080FC8A4/gUnk_080FD238.bin"
 
 gUnk_080FD240:: @ 080FD240
-	.incbin "assets/data_080FC8A4/gUnk_080FD240.bin"
+	.incbin "data_080FC8A4/gUnk_080FD240.bin"
 
 gUnk_080FD248:: @ 080FD248
-	.incbin "assets/data_080FC8A4/gUnk_080FD248.bin"
+	.incbin "data_080FC8A4/gUnk_080FD248.bin"
 
 gUnk_080FD250:: @ 080FD250
-	.incbin "assets/data_080FC8A4/gUnk_080FD250.bin"
+	.incbin "data_080FC8A4/gUnk_080FD250.bin"
 
 gUnk_080FD258:: @ 080FD258
-	.incbin "assets/data_080FC8A4/gUnk_080FD258.bin"
+	.incbin "data_080FC8A4/gUnk_080FD258.bin"
 
 gUnk_080FD260:: @ 080FD260
-	.incbin "assets/data_080FC8A4/gUnk_080FD260.bin"
+	.incbin "data_080FC8A4/gUnk_080FD260.bin"
 
 gUnk_080FD268:: @ 080FD268
-	.incbin "assets/data_080FC8A4/gUnk_080FD268.bin"
+	.incbin "data_080FC8A4/gUnk_080FD268.bin"
 
 gUnk_080FD270:: @ 080FD270
-	.incbin "assets/data_080FC8A4/gUnk_080FD270.bin"
+	.incbin "data_080FC8A4/gUnk_080FD270.bin"
 
 gUnk_080FD278:: @ 080FD278
-	.incbin "assets/data_080FC8A4/gUnk_080FD278.bin"
+	.incbin "data_080FC8A4/gUnk_080FD278.bin"
 
 gUnk_080FD280:: @ 080FD280
-	.incbin "assets/data_080FC8A4/gUnk_080FD280.bin"
+	.incbin "data_080FC8A4/gUnk_080FD280.bin"
 
 gUnk_080FD288:: @ 080FD288
-	.incbin "assets/data_080FC8A4/gUnk_080FD288.bin"
+	.incbin "data_080FC8A4/gUnk_080FD288.bin"
 
 gUnk_080FD290:: @ 080FD290
-	.incbin "assets/data_080FC8A4/gUnk_080FD290.bin"
+	.incbin "data_080FC8A4/gUnk_080FD290.bin"
 
 gUnk_080FD298:: @ 080FD298
-	.incbin "assets/data_080FC8A4/gUnk_080FD298.bin"
+	.incbin "data_080FC8A4/gUnk_080FD298.bin"
 
 gUnk_080FD2A0:: @ 080FD2A0
-	.incbin "assets/data_080FC8A4/gUnk_080FD2A0.bin"
+	.incbin "data_080FC8A4/gUnk_080FD2A0.bin"
 
 gUnk_080FD2A8:: @ 080FD2A8
-	.incbin "assets/data_080FC8A4/gUnk_080FD2A8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD2A8.bin"
 
 gUnk_080FD2B0:: @ 080FD2B0
-	.incbin "assets/data_080FC8A4/gUnk_080FD2B0.bin"
+	.incbin "data_080FC8A4/gUnk_080FD2B0.bin"
 
 gUnk_080FD2B8:: @ 080FD2B8
-	.incbin "assets/data_080FC8A4/gUnk_080FD2B8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD2B8.bin"
 
 gUnk_080FD2C0:: @ 080FD2C0
-	.incbin "assets/data_080FC8A4/gUnk_080FD2C0.bin"
+	.incbin "data_080FC8A4/gUnk_080FD2C0.bin"
 
 gUnk_080FD2C8:: @ 080FD2C8
-	.incbin "assets/data_080FC8A4/gUnk_080FD2C8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD2C8.bin"
 
 gUnk_080FD2D0:: @ 080FD2D0
-	.incbin "assets/data_080FC8A4/gUnk_080FD2D0.bin"
+	.incbin "data_080FC8A4/gUnk_080FD2D0.bin"
 
 gUnk_080FD2D8:: @ 080FD2D8
-	.incbin "assets/data_080FC8A4/gUnk_080FD2D8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD2D8.bin"
 
 gUnk_080FD2E0:: @ 080FD2E0
-	.incbin "assets/data_080FC8A4/gUnk_080FD2E0.bin"
+	.incbin "data_080FC8A4/gUnk_080FD2E0.bin"
 
 gUnk_080FD2E8:: @ 080FD2E8
-	.incbin "assets/data_080FC8A4/gUnk_080FD2E8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD2E8.bin"
 
 gUnk_080FD2F0:: @ 080FD2F0
-	.incbin "assets/data_080FC8A4/gUnk_080FD2F0.bin"
+	.incbin "data_080FC8A4/gUnk_080FD2F0.bin"
 
 gUnk_080FD2F8:: @ 080FD2F8
-	.incbin "assets/data_080FC8A4/gUnk_080FD2F8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD2F8.bin"
 
 gUnk_080FD300:: @ 080FD300
-	.incbin "assets/data_080FC8A4/gUnk_080FD300.bin"
+	.incbin "data_080FC8A4/gUnk_080FD300.bin"
 
 gUnk_080FD308:: @ 080FD308
-	.incbin "assets/data_080FC8A4/gUnk_080FD308.bin"
+	.incbin "data_080FC8A4/gUnk_080FD308.bin"
 
 gUnk_080FD310:: @ 080FD310
-	.incbin "assets/data_080FC8A4/gUnk_080FD310.bin"
+	.incbin "data_080FC8A4/gUnk_080FD310.bin"
 
 gUnk_080FD318:: @ 080FD318
-	.incbin "assets/data_080FC8A4/gUnk_080FD318.bin"
+	.incbin "data_080FC8A4/gUnk_080FD318.bin"
 
 gUnk_080FD320:: @ 080FD320
-	.incbin "assets/data_080FC8A4/gUnk_080FD320.bin"
+	.incbin "data_080FC8A4/gUnk_080FD320.bin"
 
 gUnk_080FD328:: @ 080FD328
-	.incbin "assets/data_080FC8A4/gUnk_080FD328.bin"
+	.incbin "data_080FC8A4/gUnk_080FD328.bin"
 
 gUnk_080FD330:: @ 080FD330
-	.incbin "assets/data_080FC8A4/gUnk_080FD330.bin"
+	.incbin "data_080FC8A4/gUnk_080FD330.bin"
 
 gUnk_080FD338:: @ 080FD338
-	.incbin "assets/data_080FC8A4/gUnk_080FD338.bin"
+	.incbin "data_080FC8A4/gUnk_080FD338.bin"
 
 gUnk_080FD340:: @ 080FD340
-	.incbin "assets/data_080FC8A4/gUnk_080FD340.bin"
+	.incbin "data_080FC8A4/gUnk_080FD340.bin"
 
 gUnk_080FD34C:: @ 080FD34C
-	.incbin "assets/data_080FC8A4/gUnk_080FD34C.bin"
+	.incbin "data_080FC8A4/gUnk_080FD34C.bin"
 
 gUnk_080FD354:: @ 080FD354
-	.incbin "assets/data_080FC8A4/gUnk_080FD354.bin"
+	.incbin "data_080FC8A4/gUnk_080FD354.bin"
 
 gUnk_080FD35C:: @ 080FD35C
-	.incbin "assets/data_080FC8A4/gUnk_080FD35C.bin"
+	.incbin "data_080FC8A4/gUnk_080FD35C.bin"
 
 gUnk_080FD364:: @ 080FD364
-	.incbin "assets/data_080FC8A4/gUnk_080FD364.bin"
+	.incbin "data_080FC8A4/gUnk_080FD364.bin"
 
 gUnk_080FD36C:: @ 080FD36C
-	.incbin "assets/data_080FC8A4/gUnk_080FD36C.bin"
+	.incbin "data_080FC8A4/gUnk_080FD36C.bin"
 
 gUnk_080FD374:: @ 080FD374
-	.incbin "assets/data_080FC8A4/gUnk_080FD374.bin"
+	.incbin "data_080FC8A4/gUnk_080FD374.bin"
 
 gUnk_080FD37C:: @ 080FD37C
-	.incbin "assets/data_080FC8A4/gUnk_080FD37C.bin"
+	.incbin "data_080FC8A4/gUnk_080FD37C.bin"
 
 gUnk_080FD384:: @ 080FD384
-	.incbin "assets/data_080FC8A4/gUnk_080FD384.bin"
+	.incbin "data_080FC8A4/gUnk_080FD384.bin"
 
 gUnk_080FD38C:: @ 080FD38C
-	.incbin "assets/data_080FC8A4/gUnk_080FD38C.bin"
+	.incbin "data_080FC8A4/gUnk_080FD38C.bin"
 
 gUnk_080FD394:: @ 080FD394
-	.incbin "assets/data_080FC8A4/gUnk_080FD394.bin"
+	.incbin "data_080FC8A4/gUnk_080FD394.bin"
 
 gUnk_080FD39C:: @ 080FD39C
-	.incbin "assets/data_080FC8A4/gUnk_080FD39C.bin"
+	.incbin "data_080FC8A4/gUnk_080FD39C.bin"
 
 gUnk_080FD3A4:: @ 080FD3A4
-	.incbin "assets/data_080FC8A4/gUnk_080FD3A4.bin"
+	.incbin "data_080FC8A4/gUnk_080FD3A4.bin"
 
 gUnk_080FD3AC:: @ 080FD3AC
-	.incbin "assets/data_080FC8A4/gUnk_080FD3AC.bin"
+	.incbin "data_080FC8A4/gUnk_080FD3AC.bin"
 
 gUnk_080FD3B4:: @ 080FD3B4
-	.incbin "assets/data_080FC8A4/gUnk_080FD3B4.bin"
+	.incbin "data_080FC8A4/gUnk_080FD3B4.bin"
 
 gUnk_080FD3BC:: @ 080FD3BC
-	.incbin "assets/data_080FC8A4/gUnk_080FD3BC.bin"
+	.incbin "data_080FC8A4/gUnk_080FD3BC.bin"
 
 gUnk_080FD3C4:: @ 080FD3C4
-	.incbin "assets/data_080FC8A4/gUnk_080FD3C4.bin"
+	.incbin "data_080FC8A4/gUnk_080FD3C4.bin"
 
 gUnk_080FD3CC:: @ 080FD3CC
-	.incbin "assets/data_080FC8A4/gUnk_080FD3CC.bin"
+	.incbin "data_080FC8A4/gUnk_080FD3CC.bin"
 
 gUnk_080FD3DC:: @ 080FD3DC
-	.incbin "assets/data_080FC8A4/gUnk_080FD3DC.bin"
+	.incbin "data_080FC8A4/gUnk_080FD3DC.bin"
 
 gUnk_080FD3E4:: @ 080FD3E4
-	.incbin "assets/data_080FC8A4/gUnk_080FD3E4.bin"
+	.incbin "data_080FC8A4/gUnk_080FD3E4.bin"
 
 gUnk_080FD3EC:: @ 080FD3EC
-	.incbin "assets/data_080FC8A4/gUnk_080FD3EC.bin"
+	.incbin "data_080FC8A4/gUnk_080FD3EC.bin"
 
 gUnk_080FD3F4:: @ 080FD3F4
-	.incbin "assets/data_080FC8A4/gUnk_080FD3F4.bin"
+	.incbin "data_080FC8A4/gUnk_080FD3F4.bin"
 
 gUnk_080FD3FC:: @ 080FD3FC
-	.incbin "assets/data_080FC8A4/gUnk_080FD3FC.bin"
+	.incbin "data_080FC8A4/gUnk_080FD3FC.bin"
 
 gUnk_080FD408:: @ 080FD408
-	.incbin "assets/data_080FC8A4/gUnk_080FD408.bin"
+	.incbin "data_080FC8A4/gUnk_080FD408.bin"
 
 gUnk_080FD410:: @ 080FD410
-	.incbin "assets/data_080FC8A4/gUnk_080FD410.bin"
+	.incbin "data_080FC8A4/gUnk_080FD410.bin"
 
 gUnk_080FD41C:: @ 080FD41C
-	.incbin "assets/data_080FC8A4/gUnk_080FD41C.bin"
+	.incbin "data_080FC8A4/gUnk_080FD41C.bin"
 
 gUnk_080FD424:: @ 080FD424
-	.incbin "assets/data_080FC8A4/gUnk_080FD424.bin"
+	.incbin "data_080FC8A4/gUnk_080FD424.bin"
 
 gUnk_080FD42C:: @ 080FD42C
-	.incbin "assets/data_080FC8A4/gUnk_080FD42C.bin"
+	.incbin "data_080FC8A4/gUnk_080FD42C.bin"
 
 gUnk_080FD434:: @ 080FD434
-	.incbin "assets/data_080FC8A4/gUnk_080FD434.bin"
+	.incbin "data_080FC8A4/gUnk_080FD434.bin"
 
 gUnk_080FD43C:: @ 080FD43C
-	.incbin "assets/data_080FC8A4/gUnk_080FD43C.bin"
+	.incbin "data_080FC8A4/gUnk_080FD43C.bin"
 
 gUnk_080FD448:: @ 080FD448
-	.incbin "assets/data_080FC8A4/gUnk_080FD448.bin"
+	.incbin "data_080FC8A4/gUnk_080FD448.bin"
 
 gUnk_080FD450:: @ 080FD450
-	.incbin "assets/data_080FC8A4/gUnk_080FD450.bin"
+	.incbin "data_080FC8A4/gUnk_080FD450.bin"
 
 gUnk_080FD458:: @ 080FD458
-	.incbin "assets/data_080FC8A4/gUnk_080FD458.bin"
+	.incbin "data_080FC8A4/gUnk_080FD458.bin"
 
 gUnk_080FD460:: @ 080FD460
-	.incbin "assets/data_080FC8A4/gUnk_080FD460.bin"
+	.incbin "data_080FC8A4/gUnk_080FD460.bin"
 
 gUnk_080FD468:: @ 080FD468
-	.incbin "assets/data_080FC8A4/gUnk_080FD468.bin"
+	.incbin "data_080FC8A4/gUnk_080FD468.bin"
 
 gUnk_080FD470:: @ 080FD470
-	.incbin "assets/data_080FC8A4/gUnk_080FD470.bin"
+	.incbin "data_080FC8A4/gUnk_080FD470.bin"
 
 gUnk_080FD480:: @ 080FD480
-	.incbin "assets/data_080FC8A4/gUnk_080FD480.bin"
+	.incbin "data_080FC8A4/gUnk_080FD480.bin"
 
 gUnk_080FD488:: @ 080FD488
-	.incbin "assets/data_080FC8A4/gUnk_080FD488.bin"
+	.incbin "data_080FC8A4/gUnk_080FD488.bin"
 
 gUnk_080FD490:: @ 080FD490
-	.incbin "assets/data_080FC8A4/gUnk_080FD490.bin"
+	.incbin "data_080FC8A4/gUnk_080FD490.bin"
 
 gUnk_080FD498:: @ 080FD498
-	.incbin "assets/data_080FC8A4/gUnk_080FD498.bin"
+	.incbin "data_080FC8A4/gUnk_080FD498.bin"
 
 gUnk_080FD4A4:: @ 080FD4A4
-	.incbin "assets/data_080FC8A4/gUnk_080FD4A4.bin"
+	.incbin "data_080FC8A4/gUnk_080FD4A4.bin"
 
 gUnk_080FD4B8:: @ 080FD4B8
-	.incbin "assets/data_080FC8A4/gUnk_080FD4B8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD4B8.bin"
 
 gUnk_080FD4C0:: @ 080FD4C0
-	.incbin "assets/data_080FC8A4/gUnk_080FD4C0.bin"
+	.incbin "data_080FC8A4/gUnk_080FD4C0.bin"
 
 gUnk_080FD4C8:: @ 080FD4C8
-	.incbin "assets/data_080FC8A4/gUnk_080FD4C8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD4C8.bin"
 
 gUnk_080FD4D0:: @ 080FD4D0
-	.incbin "assets/data_080FC8A4/gUnk_080FD4D0.bin"
+	.incbin "data_080FC8A4/gUnk_080FD4D0.bin"
 
 gUnk_080FD4D8:: @ 080FD4D8
-	.incbin "assets/data_080FC8A4/gUnk_080FD4D8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD4D8.bin"
 
 gUnk_080FD4E0:: @ 080FD4E0
-	.incbin "assets/data_080FC8A4/gUnk_080FD4E0.bin"
+	.incbin "data_080FC8A4/gUnk_080FD4E0.bin"
 
 gUnk_080FD4E8:: @ 080FD4E8
-	.incbin "assets/data_080FC8A4/gUnk_080FD4E8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD4E8.bin"
 
 gUnk_080FD4F0:: @ 080FD4F0
-	.incbin "assets/data_080FC8A4/gUnk_080FD4F0.bin"
+	.incbin "data_080FC8A4/gUnk_080FD4F0.bin"
 
 gUnk_080FD4F8:: @ 080FD4F8
-	.incbin "assets/data_080FC8A4/gUnk_080FD4F8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD4F8.bin"
 
 gUnk_080FD500:: @ 080FD500
-	.incbin "assets/data_080FC8A4/gUnk_080FD500.bin"
+	.incbin "data_080FC8A4/gUnk_080FD500.bin"
 
 gUnk_080FD508:: @ 080FD508
-	.incbin "assets/data_080FC8A4/gUnk_080FD508.bin"
+	.incbin "data_080FC8A4/gUnk_080FD508.bin"
 
 gUnk_080FD510:: @ 080FD510
-	.incbin "assets/data_080FC8A4/gUnk_080FD510.bin"
+	.incbin "data_080FC8A4/gUnk_080FD510.bin"
 
 gUnk_080FD518:: @ 080FD518
-	.incbin "assets/data_080FC8A4/gUnk_080FD518.bin"
+	.incbin "data_080FC8A4/gUnk_080FD518.bin"
 
 gUnk_080FD520:: @ 080FD520
-	.incbin "assets/data_080FC8A4/gUnk_080FD520.bin"
+	.incbin "data_080FC8A4/gUnk_080FD520.bin"
 
 gUnk_080FD528:: @ 080FD528
-	.incbin "assets/data_080FC8A4/gUnk_080FD528.bin"
+	.incbin "data_080FC8A4/gUnk_080FD528.bin"
 
 gUnk_080FD530:: @ 080FD530
-	.incbin "assets/data_080FC8A4/gUnk_080FD530.bin"
+	.incbin "data_080FC8A4/gUnk_080FD530.bin"
 
 gUnk_080FD538:: @ 080FD538
-	.incbin "assets/data_080FC8A4/gUnk_080FD538.bin"
+	.incbin "data_080FC8A4/gUnk_080FD538.bin"
 
 gUnk_080FD544:: @ 080FD544
-	.incbin "assets/data_080FC8A4/gUnk_080FD544.bin"
+	.incbin "data_080FC8A4/gUnk_080FD544.bin"
 
 gUnk_080FD54C:: @ 080FD54C
-	.incbin "assets/data_080FC8A4/gUnk_080FD54C.bin"
+	.incbin "data_080FC8A4/gUnk_080FD54C.bin"
 
 gUnk_080FD558:: @ 080FD558
-	.incbin "assets/data_080FC8A4/gUnk_080FD558.bin"
+	.incbin "data_080FC8A4/gUnk_080FD558.bin"
 
 gUnk_080FD560:: @ 080FD560
-	.incbin "assets/data_080FC8A4/gUnk_080FD560.bin"
+	.incbin "data_080FC8A4/gUnk_080FD560.bin"
 
 gUnk_080FD568:: @ 080FD568
-	.incbin "assets/data_080FC8A4/gUnk_080FD568.bin"
+	.incbin "data_080FC8A4/gUnk_080FD568.bin"
 
 gUnk_080FD570:: @ 080FD570
-	.incbin "assets/data_080FC8A4/gUnk_080FD570.bin"
+	.incbin "data_080FC8A4/gUnk_080FD570.bin"
 
 gUnk_080FD578:: @ 080FD578
-	.incbin "assets/data_080FC8A4/gUnk_080FD578.bin"
+	.incbin "data_080FC8A4/gUnk_080FD578.bin"
 
 gUnk_080FD580:: @ 080FD580
-	.incbin "assets/data_080FC8A4/gUnk_080FD580.bin"
+	.incbin "data_080FC8A4/gUnk_080FD580.bin"
 
 gUnk_080FD588:: @ 080FD588
-	.incbin "assets/data_080FC8A4/gUnk_080FD588.bin"
+	.incbin "data_080FC8A4/gUnk_080FD588.bin"
 
 gWalletSizes:: @ 080FD590
-	.incbin "assets/data_080FC8A4/gWalletSizes.bin"
+	.incbin "data_080FC8A4/gWalletSizes.bin"
 
 gBombBagSizes:: @ 080FD5A0
-	.incbin "assets/data_080FC8A4/gBombBagSizes.bin"
+	.incbin "data_080FC8A4/gBombBagSizes.bin"
 
 gQuiverSizes:: @ 080FD5A4
-	.incbin "assets/data_080FC8A4/gQuiverSizes.bin"
+	.incbin "data_080FC8A4/gQuiverSizes.bin"
 
 gUnk_080FD5A8:: @ 080FD5A8
-	.incbin "assets/data_080FC8A4/gUnk_080FD5A8.bin"
+	.incbin "data_080FC8A4/gUnk_080FD5A8.bin"
 
 gUnk_080FD5B4:: @ 080FD5B4
-	.incbin "assets/data_080FC8A4/gUnk_080FD5B4.bin"
+	.incbin "data_080FC8A4/gUnk_080FD5B4.bin"
 
 gUnk_080FD964:: @ 080FD964
 .ifdef EU
     @ TODO only small differences
-	.incbin "assets/data_080FC8A4/gUnk_080FD964_EU.bin"
+	.incbin "data_080FC8A4/gUnk_080FD964_EU.bin"
 .else
-	.incbin "assets/data_080FC8A4/gUnk_080FD964_1_USA-JP-DEMO_USA-DEMO_JP.bin"
+	.incbin "data_080FC8A4/gUnk_080FD964_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
 gUnk_080FDD14:: @ 080FDD14
-	.incbin "assets/data_080FC8A4/gUnk_080FDD14.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD14.bin"
 
 gUnk_080FDD19:: @ 080FDD19
-	.incbin "assets/data_080FC8A4/gUnk_080FDD19.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD19.bin"
 
 gUnk_080FDD1E:: @ 080FDD1E
-	.incbin "assets/data_080FC8A4/gUnk_080FDD1E.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD1E.bin"
 
 gUnk_080FDD23:: @ 080FDD23
-	.incbin "assets/data_080FC8A4/gUnk_080FDD23.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD23.bin"
 
 gUnk_080FDD28:: @ 080FDD28
-	.incbin "assets/data_080FC8A4/gUnk_080FDD28.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD28.bin"
 
 gUnk_080FDD2D:: @ 080FDD2D
-	.incbin "assets/data_080FC8A4/gUnk_080FDD2D.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD2D.bin"
 
 gUnk_080FDD32:: @ 080FDD32
-	.incbin "assets/data_080FC8A4/gUnk_080FDD32.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD32.bin"
 
 gUnk_080FDD37:: @ 080FDD37
-	.incbin "assets/data_080FC8A4/gUnk_080FDD37.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD37.bin"
 
 gUnk_080FDD48:: @ 080FDD48
-	.incbin "assets/data_080FC8A4/gUnk_080FDD48.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD48.bin"
 
 gUnk_080FDD4D:: @ 080FDD4D
-	.incbin "assets/data_080FC8A4/gUnk_080FDD4D.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD4D.bin"
 
 gUnk_080FDD52:: @ 080FDD52
-	.incbin "assets/data_080FC8A4/gUnk_080FDD52.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD52.bin"
 
 gUnk_080FDD57:: @ 080FDD57
-	.incbin "assets/data_080FC8A4/gUnk_080FDD57.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD57.bin"
 
 gUnk_080FDD5C:: @ 080FDD5C
-	.incbin "assets/data_080FC8A4/gUnk_080FDD5C.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD5C.bin"
 
 gUnk_080FDD61:: @ 080FDD61
-	.incbin "assets/data_080FC8A4/gUnk_080FDD61.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD61.bin"
 
 gUnk_080FDD92:: @ 080FDD92
-	.incbin "assets/data_080FC8A4/gUnk_080FDD92.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD92.bin"
 
 gUnk_080FDD97:: @ 080FDD97
-	.incbin "assets/data_080FC8A4/gUnk_080FDD97.bin"
+	.incbin "data_080FC8A4/gUnk_080FDD97.bin"
 
 gUnk_080FDDA8:: @ 080FDDA8
-	.incbin "assets/data_080FC8A4/gUnk_080FDDA8.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDA8.bin"
 
 gUnk_080FDDAD:: @ 080FDDAD
-	.incbin "assets/data_080FC8A4/gUnk_080FDDAD.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDAD.bin"
 
 gUnk_080FDDB2:: @ 080FDDB2
-	.incbin "assets/data_080FC8A4/gUnk_080FDDB2.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDB2.bin"
 
 gUnk_080FDDB7:: @ 080FDDB7
-	.incbin "assets/data_080FC8A4/gUnk_080FDDB7.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDB7.bin"
 
 gUnk_080FDDBC:: @ 080FDDBC
-	.incbin "assets/data_080FC8A4/gUnk_080FDDBC.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDBC.bin"
 
 gUnk_080FDDC1:: @ 080FDDC1
-	.incbin "assets/data_080FC8A4/gUnk_080FDDC1.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDC1.bin"
 
 gUnk_080FDDC6:: @ 080FDDC6
-	.incbin "assets/data_080FC8A4/gUnk_080FDDC6.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDC6.bin"
 
 gUnk_080FDDCB:: @ 080FDDCB
-	.incbin "assets/data_080FC8A4/gUnk_080FDDCB.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDCB.bin"
 
 gUnk_080FDDD0:: @ 080FDDD0
-	.incbin "assets/data_080FC8A4/gUnk_080FDDD0.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDD0.bin"
 
 gUnk_080FDDD5:: @ 080FDDD5
-	.incbin "assets/data_080FC8A4/gUnk_080FDDD5.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDD5.bin"
 
 gUnk_080FDDDA:: @ 080FDDDA
-	.incbin "assets/data_080FC8A4/gUnk_080FDDDA.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDDA.bin"
 
 gUnk_080FDDDF:: @ 080FDDDF
-	.incbin "assets/data_080FC8A4/gUnk_080FDDDF.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDDF.bin"
 
 gUnk_080FDDE4:: @ 080FDDE4
-	.incbin "assets/data_080FC8A4/gUnk_080FDDE4.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDE4.bin"
 
 gUnk_080FDDF5:: @ 080FDDF5
-	.incbin "assets/data_080FC8A4/gUnk_080FDDF5.bin"
+	.incbin "data_080FC8A4/gUnk_080FDDF5.bin"
 
 gUnk_080FDE0E:: @ 080FDE0E
-	.incbin "assets/data_080FC8A4/gUnk_080FDE0E.bin"
+	.incbin "data_080FC8A4/gUnk_080FDE0E.bin"
 
 gUnk_080FDE27:: @ 080FDE27
-	.incbin "assets/data_080FC8A4/gUnk_080FDE27.bin"
+	.incbin "data_080FC8A4/gUnk_080FDE27.bin"
 
 gUnk_080FDE40:: @ 080FDE40
-	.incbin "assets/data_080FC8A4/gUnk_080FDE40.bin"
+	.incbin "data_080FC8A4/gUnk_080FDE40.bin"
 
 gUnk_080FDE59:: @ 080FDE59
-	.incbin "assets/data_080FC8A4/gUnk_080FDE59.bin"
+	.incbin "data_080FC8A4/gUnk_080FDE59.bin"
 
 gUnk_080FDE72:: @ 080FDE72
-	.incbin "assets/data_080FC8A4/gUnk_080FDE72.bin"
+	.incbin "data_080FC8A4/gUnk_080FDE72.bin"
 
 gUnk_080FDE8B:: @ 080FDE8B
-	.incbin "assets/data_080FC8A4/gUnk_080FDE8B.bin"
+	.incbin "data_080FC8A4/gUnk_080FDE8B.bin"
 
 gUnk_080FDE90:: @ 080FDE90
-	.incbin "assets/data_080FC8A4/gUnk_080FDE90.bin"
+	.incbin "data_080FC8A4/gUnk_080FDE90.bin"
 
 gUnk_080FDE95:: @ 080FDE95
-	.incbin "assets/data_080FC8A4/gUnk_080FDE95.bin"
+	.incbin "data_080FC8A4/gUnk_080FDE95.bin"
 
 gUnk_080FDE9A:: @ 080FDE9A
-	.incbin "assets/data_080FC8A4/gUnk_080FDE9A.bin"
+	.incbin "data_080FC8A4/gUnk_080FDE9A.bin"
 
 gUnk_080FDE9F:: @ 080FDE9F
-	.incbin "assets/data_080FC8A4/gUnk_080FDE9F.bin"
+	.incbin "data_080FC8A4/gUnk_080FDE9F.bin"
 
 gUnk_080FDEA4:: @ 080FDEA4
-	.incbin "assets/data_080FC8A4/gUnk_080FDEA4.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEA4.bin"
 
 gUnk_080FDEA9:: @ 080FDEA9
-	.incbin "assets/data_080FC8A4/gUnk_080FDEA9.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEA9.bin"
 
 gUnk_080FDEAE:: @ 080FDEAE
-	.incbin "assets/data_080FC8A4/gUnk_080FDEAE.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEAE.bin"
 
 gUnk_080FDEB3:: @ 080FDEB3
-	.incbin "assets/data_080FC8A4/gUnk_080FDEB3.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEB3.bin"
 
 gUnk_080FDEB8:: @ 080FDEB8
-	.incbin "assets/data_080FC8A4/gUnk_080FDEB8.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEB8.bin"
 
 gUnk_080FDEBD:: @ 080FDEBD
-	.incbin "assets/data_080FC8A4/gUnk_080FDEBD.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEBD.bin"
 
 gUnk_080FDEC2:: @ 080FDEC2
-	.incbin "assets/data_080FC8A4/gUnk_080FDEC2.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEC2.bin"
 
 gUnk_080FDEC7:: @ 080FDEC7
-	.incbin "assets/data_080FC8A4/gUnk_080FDEC7.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEC7.bin"
 
 gUnk_080FDECC:: @ 080FDECC
-	.incbin "assets/data_080FC8A4/gUnk_080FDECC.bin"
+	.incbin "data_080FC8A4/gUnk_080FDECC.bin"
 
 gUnk_080FDED1:: @ 080FDED1
-	.incbin "assets/data_080FC8A4/gUnk_080FDED1.bin"
+	.incbin "data_080FC8A4/gUnk_080FDED1.bin"
 
 gUnk_080FDED6:: @ 080FDED6
-	.incbin "assets/data_080FC8A4/gUnk_080FDED6.bin"
+	.incbin "data_080FC8A4/gUnk_080FDED6.bin"
 
 gUnk_080FDEDB:: @ 080FDEDB
-	.incbin "assets/data_080FC8A4/gUnk_080FDEDB.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEDB.bin"
 
 gUnk_080FDEE0:: @ 080FDEE0
-	.incbin "assets/data_080FC8A4/gUnk_080FDEE0.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEE0.bin"
 
 gUnk_080FDEE5:: @ 080FDEE5
-	.incbin "assets/data_080FC8A4/gUnk_080FDEE5.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEE5.bin"
 
 gUnk_080FDEEA:: @ 080FDEEA
-	.incbin "assets/data_080FC8A4/gUnk_080FDEEA.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEEA.bin"
 
 gUnk_080FDEEF:: @ 080FDEEF
-	.incbin "assets/data_080FC8A4/gUnk_080FDEEF.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEEF.bin"
 
 gUnk_080FDEF4:: @ 080FDEF4
-	.incbin "assets/data_080FC8A4/gUnk_080FDEF4.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEF4.bin"
 
 gUnk_080FDEF9:: @ 080FDEF9
-	.incbin "assets/data_080FC8A4/gUnk_080FDEF9.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEF9.bin"
 
 gUnk_080FDEFE:: @ 080FDEFE
-	.incbin "assets/data_080FC8A4/gUnk_080FDEFE.bin"
+	.incbin "data_080FC8A4/gUnk_080FDEFE.bin"
 
 gUnk_080FDF03:: @ 080FDF03
-	.incbin "assets/data_080FC8A4/gUnk_080FDF03.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF03.bin"
 
 gUnk_080FDF08:: @ 080FDF08
-	.incbin "assets/data_080FC8A4/gUnk_080FDF08.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF08.bin"
 
 gUnk_080FDF0D:: @ 080FDF0D
-	.incbin "assets/data_080FC8A4/gUnk_080FDF0D.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF0D.bin"
 
 gUnk_080FDF12:: @ 080FDF12
-	.incbin "assets/data_080FC8A4/gUnk_080FDF12.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF12.bin"
 
 gUnk_080FDF17:: @ 080FDF17
-	.incbin "assets/data_080FC8A4/gUnk_080FDF17.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF17.bin"
 
 gUnk_080FDF28:: @ 080FDF28
-	.incbin "assets/data_080FC8A4/gUnk_080FDF28.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF28.bin"
 
 gUnk_080FDF45:: @ 080FDF45
-	.incbin "assets/data_080FC8A4/gUnk_080FDF45.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF45.bin"
 
 gUnk_080FDF4A:: @ 080FDF4A
-	.incbin "assets/data_080FC8A4/gUnk_080FDF4A.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF4A.bin"
 
 gUnk_080FDF4F:: @ 080FDF4F
-	.incbin "assets/data_080FC8A4/gUnk_080FDF4F.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF4F.bin"
 
 gUnk_080FDF54:: @ 080FDF54
-	.incbin "assets/data_080FC8A4/gUnk_080FDF54.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF54.bin"
 
 gUnk_080FDF59:: @ 080FDF59
-	.incbin "assets/data_080FC8A4/gUnk_080FDF59.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF59.bin"
 
 gUnk_080FDF5E:: @ 080FDF5E
-	.incbin "assets/data_080FC8A4/gUnk_080FDF5E.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF5E.bin"
 
 gUnk_080FDF63:: @ 080FDF63
-	.incbin "assets/data_080FC8A4/gUnk_080FDF63.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF63.bin"
 
 gUnk_080FDF68:: @ 080FDF68
-	.incbin "assets/data_080FC8A4/gUnk_080FDF68.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF68.bin"
 
 gUnk_080FDF6D:: @ 080FDF6D
-	.incbin "assets/data_080FC8A4/gUnk_080FDF6D.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF6D.bin"
 
 gUnk_080FDF72:: @ 080FDF72
-	.incbin "assets/data_080FC8A4/gUnk_080FDF72.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF72.bin"
 
 gUnk_080FDF77:: @ 080FDF77
-	.incbin "assets/data_080FC8A4/gUnk_080FDF77.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF77.bin"
 
 gUnk_080FDF7C:: @ 080FDF7C
-	.incbin "assets/data_080FC8A4/gUnk_080FDF7C.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF7C.bin"
 
 gUnk_080FDF81:: @ 080FDF81
-	.incbin "assets/data_080FC8A4/gUnk_080FDF81.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF81.bin"
 
 gUnk_080FDF86:: @ 080FDF86
-	.incbin "assets/data_080FC8A4/gUnk_080FDF86.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF86.bin"
 
 gUnk_080FDF8F:: @ 080FDF8F
-	.incbin "assets/data_080FC8A4/gUnk_080FDF8F.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF8F.bin"
 
 gUnk_080FDF94:: @ 080FDF94
-	.incbin "assets/data_080FC8A4/gUnk_080FDF94.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF94.bin"
 
 gUnk_080FDF99:: @ 080FDF99
-	.incbin "assets/data_080FC8A4/gUnk_080FDF99.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF99.bin"
 
 gUnk_080FDF9E:: @ 080FDF9E
-	.incbin "assets/data_080FC8A4/gUnk_080FDF9E.bin"
+	.incbin "data_080FC8A4/gUnk_080FDF9E.bin"
 
 gUnk_080FDFA3:: @ 080FDFA3
-	.incbin "assets/data_080FC8A4/gUnk_080FDFA3.bin"
+	.incbin "data_080FC8A4/gUnk_080FDFA3.bin"
 
 gUnk_080FDFA8:: @ 080FDFA8
-	.incbin "assets/data_080FC8A4/gUnk_080FDFA8.bin"
+	.incbin "data_080FC8A4/gUnk_080FDFA8.bin"
 
 gUnk_080FDFC1:: @ 080FDFC1
-	.incbin "assets/data_080FC8A4/gUnk_080FDFC1.bin"
+	.incbin "data_080FC8A4/gUnk_080FDFC1.bin"
 
 gUnk_080FDFC6:: @ 080FDFC6
-	.incbin "assets/data_080FC8A4/gUnk_080FDFC6.bin"
+	.incbin "data_080FC8A4/gUnk_080FDFC6.bin"
 
 gUnk_080FDFCB:: @ 080FDFCB
-	.incbin "assets/data_080FC8A4/gUnk_080FDFCB.bin"
+	.incbin "data_080FC8A4/gUnk_080FDFCB.bin"
 
 gUnk_080FDFD0:: @ 080FDFD0
-	.incbin "assets/data_080FC8A4/gUnk_080FDFD0.bin"
+	.incbin "data_080FC8A4/gUnk_080FDFD0.bin"
 
 gUnk_080FDFD8:: @ 080FDFD8
 	.4byte gUnk_080FDD14
@@ -1184,13 +1184,13 @@ gUnk_080FDFD8:: @ 080FDFD8
 	.4byte 00000000
 
 gUnk_080FE1B4:: @ 080FE1B4
-	.incbin "assets/data_080FC8A4/gUnk_080FE1B4.bin"
+	.incbin "data_080FC8A4/gUnk_080FE1B4.bin"
 
 gUnk_080FE1C6:: @ 080FE1C6
-	.incbin "assets/data_080FC8A4/gUnk_080FE1C6.bin"
+	.incbin "data_080FC8A4/gUnk_080FE1C6.bin"
 
 gUnk_080FE1DD:: @ 080FE1DD
-	.incbin "assets/data_080FC8A4/gUnk_080FE1DD.bin"
+	.incbin "data_080FC8A4/gUnk_080FE1DD.bin"
 
 gUnk_080FE2A0:: @ 080FE2A0
 	.4byte sub_0805488C
@@ -1231,86 +1231,86 @@ gUnk_080FE2AC:: @ 080FE2AC
 gUnk_080FE320:: @ 080FE320
 .ifdef JP
     @ TODO only small differences
-	.incbin "assets/data_080FC8A4/gUnk_080FE320_JP.bin"
+	.incbin "data_080FC8A4/gUnk_080FE320_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "assets/data_080FC8A4/gUnk_080FE320_1_DEMO_JP.bin"
+	.incbin "data_080FC8A4/gUnk_080FE320_1_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "assets/data_080FC8A4/gUnk_080FE320_2_EU.bin"
+	.incbin "data_080FC8A4/gUnk_080FE320_2_EU.bin"
 .else
-	.incbin "assets/data_080FC8A4/gUnk_080FE320_3_USA-DEMO_USA.bin"
+	.incbin "data_080FC8A4/gUnk_080FE320_3_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
 
 .ifdef JP
     @ TODO only small differences
-	.incbin "assets/data_080FC8A4/gUnk_080FE320_4_JP.bin"
+	.incbin "data_080FC8A4/gUnk_080FE320_4_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "assets/data_080FC8A4/gUnk_080FE320_5_DEMO_JP.bin"
+	.incbin "data_080FC8A4/gUnk_080FE320_5_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "assets/data_080FC8A4/gUnk_080FE320_6_EU.bin"
+	.incbin "data_080FC8A4/gUnk_080FE320_6_EU.bin"
 .else
-	.incbin "assets/data_080FC8A4/gUnk_080FE320_7_USA-DEMO_USA.bin"
+	.incbin "data_080FC8A4/gUnk_080FE320_7_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
 
 gUnk_080FEAC8:: @ 080FEAC8
-	.incbin "assets/data_080FC8A4/gUnk_080FEAC8.bin"
+	.incbin "data_080FC8A4/gUnk_080FEAC8.bin"
 .ifdef JP
     @ TODO only small differences
-	.incbin "assets/data_080FC8A4/gUnk_080FEAC8_1_JP.bin"
+	.incbin "data_080FC8A4/gUnk_080FEAC8_1_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "assets/data_080FC8A4/gUnk_080FEAC8_2_DEMO_JP.bin"
+	.incbin "data_080FC8A4/gUnk_080FEAC8_2_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "assets/data_080FC8A4/gUnk_080FEAC8_3_EU.bin"
+	.incbin "data_080FC8A4/gUnk_080FEAC8_3_EU.bin"
 .else
-	.incbin "assets/data_080FC8A4/gUnk_080FEAC8_4_USA-DEMO_USA.bin"
+	.incbin "data_080FC8A4/gUnk_080FEAC8_4_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
 
 .ifdef JP
     @ TODO only small differences
-	.incbin "assets/data_080FC8A4/gUnk_080FEAC8_5_JP.bin"
+	.incbin "data_080FC8A4/gUnk_080FEAC8_5_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "assets/data_080FC8A4/gUnk_080FEAC8_6_DEMO_JP.bin"
+	.incbin "data_080FC8A4/gUnk_080FEAC8_6_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "assets/data_080FC8A4/gUnk_080FEAC8_7_EU.bin"
+	.incbin "data_080FC8A4/gUnk_080FEAC8_7_EU.bin"
 .else
-	.incbin "assets/data_080FC8A4/gUnk_080FEAC8_8_USA-DEMO_USA.bin"
+	.incbin "data_080FC8A4/gUnk_080FEAC8_8_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
 
-	.incbin "assets/data_080FC8A4/gUnk_080FEAC8_9.bin"
+	.incbin "data_080FC8A4/gUnk_080FEAC8_9.bin"
 
 gUnk_080FEBE8:: @ 080FEBE8
-	.incbin "assets/data_080FC8A4/gUnk_080FEBE8.bin"
+	.incbin "data_080FC8A4/gUnk_080FEBE8.bin"
 
 gUnk_080FEC28:: @ 080FEC28
-	.incbin "assets/data_080FC8A4/gUnk_080FEC28.bin"
+	.incbin "data_080FC8A4/gUnk_080FEC28.bin"
 
 gUnk_080FECC8:: @ 080FECC8
-	.incbin "assets/data_080FC8A4/gUnk_080FECC8.bin"
+	.incbin "data_080FC8A4/gUnk_080FECC8.bin"
 
 gUnk_080FED18:: @ 080FED18
-	.incbin "assets/data_080FC8A4/gUnk_080FED18.bin"
+	.incbin "data_080FC8A4/gUnk_080FED18.bin"
 
 gUnk_080FED58:: @ 080FED58
-	.incbin "assets/data_080FC8A4/gUnk_080FED58.bin"
+	.incbin "data_080FC8A4/gUnk_080FED58.bin"
 
 gUnk_080FED98:: @ 080FED98
 	.4byte gUnk_080FEDA4
@@ -1318,39 +1318,39 @@ gUnk_080FED98:: @ 080FED98
 	.4byte gUnk_080FEDF8
 
 gUnk_080FEDA4:: @ 080FEDA4
-	.incbin "assets/data_080FC8A4/gUnk_080FEDA4.bin"
+	.incbin "data_080FC8A4/gUnk_080FEDA4.bin"
 
 gUnk_080FEDDA:: @ 080FEDDA
-	.incbin "assets/data_080FC8A4/gUnk_080FEDDA.bin"
+	.incbin "data_080FC8A4/gUnk_080FEDDA.bin"
 
 gUnk_080FEDF8:: @ 080FEDF8
-	.incbin "assets/data_080FC8A4/gUnk_080FEDF8.bin"
+	.incbin "data_080FC8A4/gUnk_080FEDF8.bin"
 
 gUnk_080FEE18:: @ 080FEE18
-	.incbin "assets/data_080FC8A4/gUnk_080FEE18.bin"
+	.incbin "data_080FC8A4/gUnk_080FEE18.bin"
 
 gUnk_080FEE38:: @ 080FEE38
-	.incbin "assets/data_080FC8A4/gUnk_080FEE38.bin"
+	.incbin "data_080FC8A4/gUnk_080FEE38.bin"
 
 gUnk_080FEE48:: @ 080FEE48
-	.incbin "assets/data_080FC8A4/gUnk_080FEE48.bin"
+	.incbin "data_080FC8A4/gUnk_080FEE48.bin"
 
 gUnk_080FEE58:: @ 080FEE58
 .ifdef JP
     @ TODO only small differences
-	.incbin "assets/data_080FC8A4/gUnk_080FEE58_JP.bin"
+	.incbin "data_080FC8A4/gUnk_080FEE58_JP.bin"
 .else
 .ifdef DEMO_JP
     @ TODO only small differences
-	.incbin "assets/data_080FC8A4/gUnk_080FEE58_1_DEMO_JP.bin"
+	.incbin "data_080FC8A4/gUnk_080FEE58_1_DEMO_JP.bin"
 .else
 .ifdef EU
-	.incbin "assets/data_080FC8A4/gUnk_080FEE58_2_EU.bin"
+	.incbin "data_080FC8A4/gUnk_080FEE58_2_EU.bin"
 .else
-	.incbin "assets/data_080FC8A4/gUnk_080FEE58_3_USA-DEMO_USA.bin"
+	.incbin "data_080FC8A4/gUnk_080FEE58_3_USA-DEMO_USA.bin"
 .endif
 .endif
 .endif
 
 gUnk_080FEE78:: @ 080FEE78
-	.incbin "assets/data_080FC8A4/gUnk_080FEE78.bin"
+	.incbin "data_080FC8A4/gUnk_080FEE78.bin"

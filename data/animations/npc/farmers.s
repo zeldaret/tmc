@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_08113168:: @ 08113168
-	.incbin "assets/farmers/gUnk_08113168.bin"
+	.incbin "farmers/gUnk_08113168.bin"
 
 gUnk_0811318D:: @ 0811318D
-	.incbin "assets/farmers/gUnk_0811318D.bin"
+	.incbin "farmers/gUnk_0811318D.bin"
 
 gUnk_08113192:: @ 08113192
-	.incbin "assets/farmers/gUnk_08113192.bin"
+	.incbin "farmers/gUnk_08113192.bin"
 
 gUnk_08113197:: @ 08113197
-	.incbin "assets/farmers/gUnk_08113197.bin"
+	.incbin "farmers/gUnk_08113197.bin"
 
 gUnk_0811319C:: @ 0811319C
 	.4byte gUnk_08113168
@@ -36,16 +36,16 @@ gUnk_0811319C:: @ 0811319C
 	.4byte 00000000
 
 gUnk_081131E0:: @ 081131E0
-	.incbin "assets/farmers/gUnk_081131E0.bin"
+	.incbin "farmers/gUnk_081131E0.bin"
 
 gUnk_08113205:: @ 08113205
-	.incbin "assets/farmers/gUnk_08113205.bin"
+	.incbin "farmers/gUnk_08113205.bin"
 
 gUnk_0811320A:: @ 0811320A
-	.incbin "assets/farmers/gUnk_0811320A.bin"
+	.incbin "farmers/gUnk_0811320A.bin"
 
 gUnk_0811320F:: @ 0811320F
-	.incbin "assets/farmers/gUnk_0811320F.bin"
+	.incbin "farmers/gUnk_0811320F.bin"
 
 gUnk_08113214:: @ 08113214
 	.4byte gUnk_081131E0

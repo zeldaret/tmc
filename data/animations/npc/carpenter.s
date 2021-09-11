@@ -5,52 +5,52 @@
     .align 2
 
 gUnk_08110D08:: @ 08110D08
-	.incbin "assets/carpenter/gUnk_08110D08.bin"
+	.incbin "carpenter/gUnk_08110D08.bin"
 
 gUnk_08110D2D:: @ 08110D2D
-	.incbin "assets/carpenter/gUnk_08110D2D.bin"
+	.incbin "carpenter/gUnk_08110D2D.bin"
 
 gUnk_08110D32:: @ 08110D32
-	.incbin "assets/carpenter/gUnk_08110D32.bin"
+	.incbin "carpenter/gUnk_08110D32.bin"
 
 gUnk_08110D37:: @ 08110D37
-	.incbin "assets/carpenter/gUnk_08110D37.bin"
+	.incbin "carpenter/gUnk_08110D37.bin"
 
 gUnk_08110D3C:: @ 08110D3C
-	.incbin "assets/carpenter/gUnk_08110D3C.bin"
+	.incbin "carpenter/gUnk_08110D3C.bin"
 
 gUnk_08110D61:: @ 08110D61
-	.incbin "assets/carpenter/gUnk_08110D61.bin"
+	.incbin "carpenter/gUnk_08110D61.bin"
 
 gUnk_08110D66:: @ 08110D66
-	.incbin "assets/carpenter/gUnk_08110D66.bin"
+	.incbin "carpenter/gUnk_08110D66.bin"
 
 gUnk_08110D6B:: @ 08110D6B
-	.incbin "assets/carpenter/gUnk_08110D6B.bin"
+	.incbin "carpenter/gUnk_08110D6B.bin"
 
 gUnk_08110D70:: @ 08110D70
-	.incbin "assets/carpenter/gUnk_08110D70.bin"
+	.incbin "carpenter/gUnk_08110D70.bin"
 
 gUnk_08110D8D:: @ 08110D8D
-	.incbin "assets/carpenter/gUnk_08110D8D.bin"
+	.incbin "carpenter/gUnk_08110D8D.bin"
 
 gUnk_08110D92:: @ 08110D92
-	.incbin "assets/carpenter/gUnk_08110D92.bin"
+	.incbin "carpenter/gUnk_08110D92.bin"
 
 gUnk_08110D97:: @ 08110D97
-	.incbin "assets/carpenter/gUnk_08110D97.bin"
+	.incbin "carpenter/gUnk_08110D97.bin"
 
 gUnk_08110D9C:: @ 08110D9C
-	.incbin "assets/carpenter/gUnk_08110D9C.bin"
+	.incbin "carpenter/gUnk_08110D9C.bin"
 
 gUnk_08110DB9:: @ 08110DB9
-	.incbin "assets/carpenter/gUnk_08110DB9.bin"
+	.incbin "carpenter/gUnk_08110DB9.bin"
 
 gUnk_08110DBE:: @ 08110DBE
-	.incbin "assets/carpenter/gUnk_08110DBE.bin"
+	.incbin "carpenter/gUnk_08110DBE.bin"
 
 gUnk_08110DC3:: @ 08110DC3
-	.incbin "assets/carpenter/gUnk_08110DC3.bin"
+	.incbin "carpenter/gUnk_08110DC3.bin"
 
 gUnk_08110DC8:: @ 08110DC8
 	.4byte gUnk_08110D08

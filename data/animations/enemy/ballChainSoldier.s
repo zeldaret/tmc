@@ -5,103 +5,103 @@
     .align 2
 
 gUnk_080D0744:: @ 080D0744
-	.incbin "assets/ballChainSoldier/gUnk_080D0744.bin"
+	.incbin "ballChainSoldier/gUnk_080D0744.bin"
 
 gUnk_080D0748:: @ 080D0748
-	.incbin "assets/ballChainSoldier/gUnk_080D0748.bin"
+	.incbin "ballChainSoldier/gUnk_080D0748.bin"
 
 gUnk_080D074C:: @ 080D074C
-	.incbin "assets/ballChainSoldier/gUnk_080D074C.bin"
+	.incbin "ballChainSoldier/gUnk_080D074C.bin"
 
 gUnk_080D0750:: @ 080D0750
-	.incbin "assets/ballChainSoldier/gUnk_080D0750.bin"
+	.incbin "ballChainSoldier/gUnk_080D0750.bin"
 
 gUnk_080D0754:: @ 080D0754
-	.incbin "assets/ballChainSoldier/gUnk_080D0754.bin"
+	.incbin "ballChainSoldier/gUnk_080D0754.bin"
 
 gUnk_080D0758:: @ 080D0758
-	.incbin "assets/ballChainSoldier/gUnk_080D0758.bin"
+	.incbin "ballChainSoldier/gUnk_080D0758.bin"
 
 gUnk_080D075C:: @ 080D075C
-	.incbin "assets/ballChainSoldier/gUnk_080D075C.bin"
+	.incbin "ballChainSoldier/gUnk_080D075C.bin"
 
 gUnk_080D0760:: @ 080D0760
-	.incbin "assets/ballChainSoldier/gUnk_080D0760.bin"
+	.incbin "ballChainSoldier/gUnk_080D0760.bin"
 
 gUnk_080D0764:: @ 080D0764
-	.incbin "assets/ballChainSoldier/gUnk_080D0764.bin"
+	.incbin "ballChainSoldier/gUnk_080D0764.bin"
 
 gUnk_080D0768:: @ 080D0768
-	.incbin "assets/ballChainSoldier/gUnk_080D0768.bin"
+	.incbin "ballChainSoldier/gUnk_080D0768.bin"
 
 gUnk_080D076C:: @ 080D076C
-	.incbin "assets/ballChainSoldier/gUnk_080D076C.bin"
+	.incbin "ballChainSoldier/gUnk_080D076C.bin"
 
 gUnk_080D0770:: @ 080D0770
-	.incbin "assets/ballChainSoldier/gUnk_080D0770.bin"
+	.incbin "ballChainSoldier/gUnk_080D0770.bin"
 
 gUnk_080D0774:: @ 080D0774
-	.incbin "assets/ballChainSoldier/gUnk_080D0774.bin"
+	.incbin "ballChainSoldier/gUnk_080D0774.bin"
 
 gUnk_080D0778:: @ 080D0778
-	.incbin "assets/ballChainSoldier/gUnk_080D0778.bin"
+	.incbin "ballChainSoldier/gUnk_080D0778.bin"
 
 gUnk_080D077C:: @ 080D077C
-	.incbin "assets/ballChainSoldier/gUnk_080D077C.bin"
+	.incbin "ballChainSoldier/gUnk_080D077C.bin"
 
 gUnk_080D0780:: @ 080D0780
-	.incbin "assets/ballChainSoldier/gUnk_080D0780.bin"
+	.incbin "ballChainSoldier/gUnk_080D0780.bin"
 
 gUnk_080D0784:: @ 080D0784
-	.incbin "assets/ballChainSoldier/gUnk_080D0784.bin"
+	.incbin "ballChainSoldier/gUnk_080D0784.bin"
 
 gUnk_080D0788:: @ 080D0788
-	.incbin "assets/ballChainSoldier/gUnk_080D0788.bin"
+	.incbin "ballChainSoldier/gUnk_080D0788.bin"
 
 gUnk_080D078C:: @ 080D078C
-	.incbin "assets/ballChainSoldier/gUnk_080D078C.bin"
+	.incbin "ballChainSoldier/gUnk_080D078C.bin"
 
 gUnk_080D0790:: @ 080D0790
-	.incbin "assets/ballChainSoldier/gUnk_080D0790.bin"
+	.incbin "ballChainSoldier/gUnk_080D0790.bin"
 
 gUnk_080D0794:: @ 080D0794
-	.incbin "assets/ballChainSoldier/gUnk_080D0794.bin"
+	.incbin "ballChainSoldier/gUnk_080D0794.bin"
 
 gUnk_080D0798:: @ 080D0798
-	.incbin "assets/ballChainSoldier/gUnk_080D0798.bin"
+	.incbin "ballChainSoldier/gUnk_080D0798.bin"
 
 gUnk_080D079C:: @ 080D079C
-	.incbin "assets/ballChainSoldier/gUnk_080D079C.bin"
+	.incbin "ballChainSoldier/gUnk_080D079C.bin"
 
 gUnk_080D07A0:: @ 080D07A0
-	.incbin "assets/ballChainSoldier/gUnk_080D07A0.bin"
+	.incbin "ballChainSoldier/gUnk_080D07A0.bin"
 
 gUnk_080D07A4:: @ 080D07A4
-	.incbin "assets/ballChainSoldier/gUnk_080D07A4.bin"
+	.incbin "ballChainSoldier/gUnk_080D07A4.bin"
 
 gUnk_080D07A8:: @ 080D07A8
-	.incbin "assets/ballChainSoldier/gUnk_080D07A8.bin"
+	.incbin "ballChainSoldier/gUnk_080D07A8.bin"
 
 gUnk_080D07AC:: @ 080D07AC
-	.incbin "assets/ballChainSoldier/gUnk_080D07AC.bin"
+	.incbin "ballChainSoldier/gUnk_080D07AC.bin"
 
 gUnk_080D07B0:: @ 080D07B0
-	.incbin "assets/ballChainSoldier/gUnk_080D07B0.bin"
+	.incbin "ballChainSoldier/gUnk_080D07B0.bin"
 
 gUnk_080D07B4:: @ 080D07B4
-	.incbin "assets/ballChainSoldier/gUnk_080D07B4.bin"
+	.incbin "ballChainSoldier/gUnk_080D07B4.bin"
 
 gUnk_080D07B8:: @ 080D07B8
-	.incbin "assets/ballChainSoldier/gUnk_080D07B8.bin"
+	.incbin "ballChainSoldier/gUnk_080D07B8.bin"
 
 gUnk_080D07C5:: @ 080D07C5
-	.incbin "assets/ballChainSoldier/gUnk_080D07C5.bin"
+	.incbin "ballChainSoldier/gUnk_080D07C5.bin"
 
 gUnk_080D07D2:: @ 080D07D2
-	.incbin "assets/ballChainSoldier/gUnk_080D07D2.bin"
+	.incbin "ballChainSoldier/gUnk_080D07D2.bin"
 
 gUnk_080D07DF:: @ 080D07DF
-	.incbin "assets/ballChainSoldier/gUnk_080D07DF.bin"
+	.incbin "ballChainSoldier/gUnk_080D07DF.bin"
 
 gUnk_080D07EC:: @ 080D07EC
 	.4byte gUnk_080D0744

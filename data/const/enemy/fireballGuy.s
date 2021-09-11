@@ -18,7 +18,7 @@ gUnk_080D1800:: @ 080D1800
 	.4byte sub_08045454
 
 gUnk_080D180C:: @ 080D180C
-	.incbin "assets/fireballGuy/gUnk_080D180C.bin"
+	.incbin "fireballGuy/gUnk_080D180C.bin"
 
 gUnk_080D1810:: @ 080D1810
-	.incbin "assets/fireballGuy/gUnk_080D1810.bin"
+	.incbin "fireballGuy/gUnk_080D1810.bin"

@@ -18,7 +18,7 @@ gUnk_080CF484:: @ 080CF484
 	.4byte sub_08037D54
 
 gUnk_080CF490:: @ 080CF490
-	.incbin "assets/octorokGolden/gUnk_080CF490.bin"
+	.incbin "octorokGolden/gUnk_080CF490.bin"
 
 gUnk_080CF498:: @ 080CF498
-	.incbin "assets/octorokGolden/gUnk_080CF498.bin"
+	.incbin "octorokGolden/gUnk_080CF498.bin"

@@ -5,10 +5,10 @@
     .align 2
 
 gUnk_08129A70:: @ 08129A70
-	.incbin "assets/projectileE/gUnk_08129A70.bin"
+	.incbin "projectileE/gUnk_08129A70.bin"
 
 gUnk_08129A89:: @ 08129A89
-	.incbin "assets/projectileE/gUnk_08129A89.bin"
+	.incbin "projectileE/gUnk_08129A89.bin"
 
 gUnk_08129AB0:: @ 08129AB0
 	.4byte gUnk_08129A70

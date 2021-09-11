@@ -23,4 +23,4 @@ gUnk_080CE554:: @ 080CE554
 	.4byte sub_080316F0
 
 gUnk_080CE560:: @ 080CE560
-	.incbin "assets/smallPesto/gUnk_080CE560.bin"
+	.incbin "smallPesto/gUnk_080CE560.bin"

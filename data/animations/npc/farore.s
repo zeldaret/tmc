@@ -5,16 +5,16 @@
     .align 2
 
 gUnk_0810F9F4:: @ 0810F9F4
-	.incbin "assets/farore/gUnk_0810F9F4.bin"
+	.incbin "farore/gUnk_0810F9F4.bin"
 
 gUnk_0810F9F9:: @ 0810F9F9
-	.incbin "assets/farore/gUnk_0810F9F9.bin"
+	.incbin "farore/gUnk_0810F9F9.bin"
 
 gUnk_0810F9FE:: @ 0810F9FE
-	.incbin "assets/farore/gUnk_0810F9FE.bin"
+	.incbin "farore/gUnk_0810F9FE.bin"
 
 gUnk_0810FA03:: @ 0810FA03
-	.incbin "assets/farore/gUnk_0810FA03.bin"
+	.incbin "farore/gUnk_0810FA03.bin"
 
 gUnk_0810FA14:: @ 0810FA14
 	.4byte gUnk_0810F9F4

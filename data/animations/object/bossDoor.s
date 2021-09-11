@@ -5,28 +5,28 @@
     .align 2
 
 gUnk_08121514:: @ 08121514
-	.incbin "assets/bossDoor/gUnk_08121514.bin"
+	.incbin "bossDoor/gUnk_08121514.bin"
 
 gUnk_08121538:: @ 08121538
-	.incbin "assets/bossDoor/gUnk_08121538.bin"
+	.incbin "bossDoor/gUnk_08121538.bin"
 
 gUnk_0812155C:: @ 0812155C
-	.incbin "assets/bossDoor/gUnk_0812155C.bin"
+	.incbin "bossDoor/gUnk_0812155C.bin"
 
 gUnk_08121580:: @ 08121580
-	.incbin "assets/bossDoor/gUnk_08121580.bin"
+	.incbin "bossDoor/gUnk_08121580.bin"
 
 gUnk_081215A4:: @ 081215A4
-	.incbin "assets/bossDoor/gUnk_081215A4.bin"
+	.incbin "bossDoor/gUnk_081215A4.bin"
 
 gUnk_081215A8:: @ 081215A8
-	.incbin "assets/bossDoor/gUnk_081215A8.bin"
+	.incbin "bossDoor/gUnk_081215A8.bin"
 
 gUnk_081215AC:: @ 081215AC
-	.incbin "assets/bossDoor/gUnk_081215AC.bin"
+	.incbin "bossDoor/gUnk_081215AC.bin"
 
 gUnk_081215B0:: @ 081215B0
-	.incbin "assets/bossDoor/gUnk_081215B0.bin"
+	.incbin "bossDoor/gUnk_081215B0.bin"
 
 gUnk_081215B4:: @ 081215B4
 	.4byte gUnk_08121514

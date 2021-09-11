@@ -5,4 +5,4 @@
     .align 2
 
 gUnk_0810C3C0:: @ 0810C3C0
-	.incbin "assets/wheaton/gUnk_0810C3C0.bin"
+	.incbin "wheaton/gUnk_0810C3C0.bin"

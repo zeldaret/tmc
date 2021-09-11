@@ -10,10 +10,10 @@ gUnk_081271D4:: @ 081271D4
 	.4byte sub_080A2E00
 
 gUnk_081271DC:: @ 081271DC
-	.incbin "assets/playerItemShield/gUnk_081271DC.bin"
+	.incbin "playerItemShield/gUnk_081271DC.bin"
 
 gUnk_08127220:: @ 08127220
-	.incbin "assets/playerItemShield/gUnk_08127220.bin"
+	.incbin "playerItemShield/gUnk_08127220.bin"
 
 gUnk_08127240:: @ 08127240
 	.4byte gUnk_08127250
@@ -22,13 +22,13 @@ gUnk_08127240:: @ 08127240
 	.4byte gUnk_08127268
 
 gUnk_08127250:: @ 08127250
-	.incbin "assets/playerItemShield/gUnk_08127250.bin"
+	.incbin "playerItemShield/gUnk_08127250.bin"
 
 gUnk_08127258:: @ 08127258
-	.incbin "assets/playerItemShield/gUnk_08127258.bin"
+	.incbin "playerItemShield/gUnk_08127258.bin"
 
 gUnk_08127260:: @ 08127260
-	.incbin "assets/playerItemShield/gUnk_08127260.bin"
+	.incbin "playerItemShield/gUnk_08127260.bin"
 
 gUnk_08127268:: @ 08127268
-	.incbin "assets/playerItemShield/gUnk_08127268.bin"
+	.incbin "playerItemShield/gUnk_08127268.bin"
