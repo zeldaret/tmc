@@ -61195,819 +61195,1091 @@
 - path: data_08A127A1/gUnk_08A12ED0.bin
   start: 0xa12ed0
   size: 0x3740
+  type: aif
 - path: data_08A127A1/gUnk_08A16610.bin
   start: 0xa16610
   size: 0x3f3c
+  type: aif
 - path: data_08A127A1/gUnk_08A1A54C.bin
   start: 0xa1a54c
   size: 0x50f4
+  type: aif
 - path: data_08A127A1/gUnk_08A1F640.bin
   start: 0xa1f640
   size: 0x3b64
+  type: aif
 - path: data_08A127A1/gUnk_08A231A4.bin
   start: 0xa231a4
   size: 0xf54
+  type: aif
 - path: data_08A127A1/gUnk_08A240F8.bin
   start: 0xa240f8
   size: 0x4254
+  type: aif
 - path: data_08A127A1/gUnk_08A2834C.bin
   start: 0xa2834c
   size: 0x420c
+  type: aif
 - path: data_08A127A1/gUnk_08A2C558.bin
   start: 0xa2c558
   size: 0x899c
+  type: aif
 - path: data_08A127A1/gUnk_08A34EF4.bin
   start: 0xa34ef4
   size: 0x7828
+  type: aif
 - path: data_08A127A1/gUnk_08A3C71C.bin
   start: 0xa3c71c
   size: 0x8a44
+  type: aif
 - path: data_08A127A1/gUnk_08A45160.bin
   start: 0xa45160
   size: 0x2e38
+  type: aif
 - path: data_08A127A1/gUnk_08A47F98.bin
   start: 0xa47f98
   size: 0x6e50
+  type: aif
 - path: data_08A127A1/gUnk_08A4EDE8.bin
   start: 0xa4ede8
   size: 0x5b84
+  type: aif
 - path: data_08A127A1/gUnk_08A5496C.bin
   start: 0xa5496c
   size: 0x5fa0
+  type: aif
 - path: data_08A127A1/gUnk_08A5A90C.bin
   start: 0xa5a90c
   size: 0x362c
+  type: aif
 - path: data_08A127A1/gUnk_08A5DF38.bin
   start: 0xa5df38
   size: 0x8464
+  type: aif
 - path: data_08A127A1/gUnk_08A6639C.bin
   start: 0xa6639c
   size: 0x6794
+  type: aif
 - path: data_08A127A1/gUnk_08A6CB30.bin
   start: 0xa6cb30
   size: 0xc790
+  type: aif
 - path: data_08A127A1/gUnk_08A792C0.bin
   start: 0xa792c0
   size: 0x2c9c
+  type: aif
 - path: data_08A127A1/gUnk_08A7BF5C.bin
   start: 0xa7bf5c
   size: 0x182c
+  type: aif
 - path: data_08A127A1/gUnk_08A7D788.bin
   start: 0xa7d788
   size: 0x319c
+  type: aif
 - path: data_08A127A1/gUnk_08A80924.bin
   start: 0xa80924
   size: 0x44a8
+  type: aif
 - path: data_08A127A1/gUnk_08A84DCC.bin
   start: 0xa84dcc
   size: 0x3a88
+  type: aif
 - path: data_08A127A1/gUnk_08A88854.bin
   start: 0xa88854
   size: 0x6e54
+  type: aif
 - path: data_08A127A1/gUnk_08A8F6A8.bin
   start: 0xa8f6a8
   size: 0x5854
+  type: aif
 - path: data_08A127A1/gUnk_08A94EFC.bin
   start: 0xa94efc
   size: 0x7b4c
+  type: aif
 - path: data_08A127A1/gUnk_08A9CA48.bin
   start: 0xa9ca48
   size: 0x5cd8
+  type: aif
 - path: data_08A127A1/gUnk_08AA2720.bin
   start: 0xaa2720
   size: 0x7ab0
+  type: aif
 - path: data_08A127A1/gUnk_08AAA1D0.bin
   start: 0xaaa1d0
   size: 0x1f08
+  type: aif
 - path: data_08A127A1/gUnk_08AAC0D8.bin
   start: 0xaac0d8
   size: 0x13d14
+  type: aif
 - path: data_08A127A1/gUnk_08ABFDEC.bin
   start: 0xabfdec
   size: 0x7b98
+  type: aif
 - path: data_08A127A1/gUnk_08AC7984.bin
   start: 0xac7984
   size: 0x158d4
+  type: aif
 - path: data_08A127A1/gUnk_08ADD258.bin
   start: 0xadd258
   size: 0x14be4
+  type: aif
 - path: data_08A127A1/gUnk_08AF1E3C.bin
   start: 0xaf1e3c
   size: 0x3e54
+  type: aif
 - path: data_08A127A1/gUnk_08AF5C90.bin
   start: 0xaf5c90
   size: 0x12e84
+  type: aif
 - path: data_08A127A1/gUnk_08B08B14.bin
   start: 0xb08b14
   size: 0x7a54
+  type: aif
 - path: data_08A127A1/gUnk_08B10568.bin
   start: 0xb10568
   size: 0xc714
+  type: aif
 - path: data_08A127A1/gUnk_08B1CC7C.bin
   start: 0xb1cc7c
   size: 0x9054
+  type: aif
 - path: data_08A127A1/gUnk_08B25CD0.bin
   start: 0xb25cd0
   size: 0x4aac
+  type: aif
 - path: data_08A127A1/gUnk_08B2A77C.bin
   start: 0xb2a77c
   size: 0x4414
+  type: aif
 - path: data_08A127A1/gUnk_08B2EB90.bin
   start: 0xb2eb90
   size: 0xb1d0
+  type: aif
 - path: data_08A127A1/gUnk_08B39D60.bin
   start: 0xb39d60
   size: 0x58bc
+  type: aif
 - path: data_08A127A1/gUnk_08B3F61C.bin
   start: 0xb3f61c
   size: 0x7af8
+  type: aif
 - path: data_08A127A1/gUnk_08B47114.bin
   start: 0xb47114
   size: 0x2b6c
+  type: aif
 - path: data_08A127A1/gUnk_08B49C80.bin
   start: 0xb49c80
   size: 0xf54
+  type: aif
 - path: data_08A127A1/gUnk_08B4ABD4.bin
   start: 0xb4abd4
   size: 0x1a9c
+  type: aif
 - path: data_08A127A1/gUnk_08B4C670.bin
   start: 0xb4c670
   size: 0x544
+  type: aif
 - path: data_08A127A1/gUnk_08B4CBB4.bin
   start: 0xb4cbb4
   size: 0x16d8
+  type: aif
 - path: data_08A127A1/gUnk_08B4E28C.bin
   start: 0xb4e28c
   size: 0x35ac
+  type: aif
 - path: data_08A127A1/gUnk_08B51838.bin
   start: 0xb51838
   size: 0x4374
+  type: aif
 - path: data_08A127A1/gUnk_08B55BAC.bin
   start: 0xb55bac
   size: 0xea4
+  type: aif
 - path: data_08A127A1/gUnk_08B56A50.bin
   start: 0xb56a50
   size: 0x2874
+  type: aif
 - path: data_08A127A1/gUnk_08B592C4.bin
   start: 0xb592c4
   size: 0x1fa8
+  type: aif
 - path: data_08A127A1/gUnk_08B5B26C.bin
   start: 0xb5b26c
   size: 0xb1c
+  type: aif
 - path: data_08A127A1/gUnk_08B5BD88.bin
   start: 0xb5bd88
   size: 0xf78
+  type: aif
 - path: data_08A127A1/gUnk_08B5CD00.bin
   start: 0xb5cd00
   size: 0x132c
+  type: aif
 - path: data_08A127A1/gUnk_08B5E02C.bin
   start: 0xb5e02c
   size: 0x5470
+  type: aif
 - path: data_08A127A1/gUnk_08B6349C.bin
   start: 0xb6349c
   size: 0xa3c
+  type: aif
 - path: data_08A127A1/gUnk_08B63ED8.bin
   start: 0xb63ed8
   size: 0xa84
+  type: aif
 - path: data_08A127A1/gUnk_08B6495C.bin
   start: 0xb6495c
   size: 0x40c0
+  type: aif
 - path: data_08A127A1/gUnk_08B68A1C.bin
   start: 0xb68a1c
   size: 0x1804
+  type: aif
 - path: data_08A127A1/gUnk_08B6A220.bin
   start: 0xb6a220
   size: 0x275c
+  type: aif
 - path: data_08A127A1/gUnk_08B6C97C.bin
   start: 0xb6c97c
   size: 0x1bc0
+  type: aif
 - path: data_08A127A1/gUnk_08B6E53C.bin
   start: 0xb6e53c
   size: 0x1f58
+  type: aif
 - path: data_08A127A1/gUnk_08B70494.bin
   start: 0xb70494
   size: 0x2184
+  type: aif
 - path: data_08A127A1/gUnk_08B72618.bin
   start: 0xb72618
   size: 0xf84
+  type: aif
 - path: data_08A127A1/gUnk_08B7359C.bin
   start: 0xb7359c
   size: 0x4614
+  type: aif
 - path: data_08A127A1/gUnk_08B77BB0.bin
   start: 0xb77bb0
   size: 0x343c
+  type: aif
 - path: data_08A127A1/gUnk_08B7AFEC.bin
   start: 0xb7afec
   size: 0x2340
+  type: aif
 - path: data_08A127A1/gUnk_08B7D32C.bin
   start: 0xb7d32c
   size: 0x40e4
+  type: aif
 - path: data_08A127A1/gUnk_08B81410.bin
   start: 0xb81410
   size: 0x1b34
+  type: aif
 - path: data_08A127A1/gUnk_08B82F44.bin
   start: 0xb82f44
   size: 0x32a8
+  type: aif
 - path: data_08A127A1/gUnk_08B861EC.bin
   start: 0xb861ec
   size: 0x18b8
+  type: aif
 - path: data_08A127A1/gUnk_08B87AA4.bin
   start: 0xb87aa4
   size: 0x3320
+  type: aif
 - path: data_08A127A1/gUnk_08B8ADC4.bin
   start: 0xb8adc4
   size: 0x2cbc
+  type: aif
 - path: data_08A127A1/gUnk_08B8DA80.bin
   start: 0xb8da80
   size: 0x5f10
+  type: aif
 - path: data_08A127A1/gUnk_08B93990.bin
   start: 0xb93990
   size: 0x37c4
+  type: aif
 - path: data_08A127A1/gUnk_08B97154.bin
   start: 0xb97154
   size: 0x2cd0
+  type: aif
 - path: data_08A127A1/gUnk_08B99E24.bin
   start: 0xb99e24
   size: 0x1dfc
+  type: aif
 - path: data_08A127A1/gUnk_08B9BC20.bin
   start: 0xb9bc20
   size: 0x4898
+  type: aif
 - path: data_08A127A1/gUnk_08BA04B8.bin
   start: 0xba04b8
   size: 0x5bd4
+  type: aif
 - path: data_08A127A1/gUnk_08BA608C.bin
   start: 0xba608c
   size: 0x1960
+  type: aif
 - path: data_08A127A1/gUnk_08BA79EC.bin
   start: 0xba79ec
   size: 0x776c
+  type: aif
 - path: data_08A127A1/gUnk_08BAF158.bin
   start: 0xbaf158
   size: 0x2ed8
+  type: aif
 - path: data_08A127A1/gUnk_08BB2030.bin
   start: 0xbb2030
   size: 0x40c4
+  type: aif
 - path: data_08A127A1/gUnk_08BB60F4.bin
   start: 0xbb60f4
   size: 0x1204
+  type: aif
 - path: data_08A127A1/gUnk_08BB72F8.bin
   start: 0xbb72f8
   size: 0xfe8
+  type: aif
 - path: data_08A127A1/gUnk_08BB82E0.bin
   start: 0xbb82e0
   size: 0x408c
+  type: aif
 - path: data_08A127A1/gUnk_08BBC36C.bin
   start: 0xbbc36c
   size: 0x3714
+  type: aif
 - path: data_08A127A1/gUnk_08BBFA80.bin
   start: 0xbbfa80
   size: 0x34c8
+  type: aif
 - path: data_08A127A1/gUnk_08BC2F48.bin
   start: 0xbc2f48
   size: 0x1c48
+  type: aif
 - path: data_08A127A1/gUnk_08BC4B90.bin
   start: 0xbc4b90
   size: 0x1790
+  type: aif
 - path: data_08A127A1/gUnk_08BC6320.bin
   start: 0xbc6320
   size: 0x19b0
+  type: aif
 - path: data_08A127A1/gUnk_08BC7CD0.bin
   start: 0xbc7cd0
   size: 0xe6d0
+  type: aif
 - path: data_08A127A1/gUnk_08BD63A0.bin
   start: 0xbd63a0
   size: 0x4bc0
+  type: aif
 - path: data_08A127A1/gUnk_08BDAF60.bin
   start: 0xbdaf60
   size: 0x2ef4
+  type: aif
 - path: data_08A127A1/gUnk_08BDDE54.bin
   start: 0xbdde54
   size: 0x3e24
+  type: aif
 - path: data_08A127A1/gUnk_08BE1C78.bin
   start: 0xbe1c78
   size: 0x4634
+  type: aif
 - path: data_08A127A1/gUnk_08BE62AC.bin
   start: 0xbe62ac
   size: 0x2900
+  type: aif
 - path: data_08A127A1/gUnk_08BE8BAC.bin
   start: 0xbe8bac
   size: 0x2624
+  type: aif
 - path: data_08A127A1/gUnk_08BEB1D0.bin
   start: 0xbeb1d0
   size: 0x1188
+  type: aif
 - path: data_08A127A1/gUnk_08BEC358.bin
   start: 0xbec358
   size: 0x3f0c
+  type: aif
 - path: data_08A127A1/gUnk_08BF0264.bin
   start: 0xbf0264
   size: 0x3a50
+  type: aif
 - path: data_08A127A1/gUnk_08BF3CB4.bin
   start: 0xbf3cb4
   size: 0x4010
+  type: aif
 - path: data_08A127A1/gUnk_08BF7CC4.bin
   start: 0xbf7cc4
   size: 0x3b30
+  type: aif
 - path: data_08A127A1/gUnk_08BFB7F4.bin
   start: 0xbfb7f4
   size: 0x2db4
+  type: aif
 - path: data_08A127A1/gUnk_08BFE5A8.bin
   start: 0xbfe5a8
   size: 0x3b20
+  type: aif
 - path: data_08A127A1/gUnk_08C020C8.bin
   start: 0xc020c8
   size: 0x4414
+  type: aif
 - path: data_08A127A1/gUnk_08C064DC.bin
   start: 0xc064dc
   size: 0x3d2c
+  type: aif
 - path: data_08A127A1/gUnk_08C0A208.bin
   start: 0xc0a208
   size: 0x3250
+  type: aif
 - path: data_08A127A1/gUnk_08C0D458.bin
   start: 0xc0d458
   size: 0x2024
+  type: aif
 - path: data_08A127A1/gUnk_08C0F47C.bin
   start: 0xc0f47c
   size: 0x1d38
+  type: aif
 - path: data_08A127A1/gUnk_08C111B4.bin
   start: 0xc111b4
   size: 0x425c
+  type: aif
 - path: data_08A127A1/gUnk_08C15410.bin
   start: 0xc15410
   size: 0x4768
+  type: aif
 - path: data_08A127A1/gUnk_08C19B78.bin
   start: 0xc19b78
   size: 0x2958
+  type: aif
 - path: data_08A127A1/gUnk_08C1C4D0.bin
   start: 0xc1c4d0
   size: 0x32f0
+  type: aif
 - path: data_08A127A1/gUnk_08C1F7C0.bin
   start: 0xc1f7c0
   size: 0x52fc
+  type: aif
 - path: data_08A127A1/gUnk_08C24ABC.bin
   start: 0xc24abc
   size: 0x3eb0
+  type: aif
 - path: data_08A127A1/gUnk_08C2896C.bin
   start: 0xc2896c
   size: 0x21f4
+  type: aif
 - path: data_08A127A1/gUnk_08C2AB60.bin
   start: 0xc2ab60
   size: 0x2b74
+  type: aif
 - path: data_08A127A1/gUnk_08C2D6D4.bin
   start: 0xc2d6d4
   size: 0x2134
+  type: aif
 - path: data_08A127A1/gUnk_08C2F808.bin
   start: 0xc2f808
   size: 0x12f4
+  type: aif
 - path: data_08A127A1/gUnk_08C30AFC.bin
   start: 0xc30afc
   size: 0x1de4
+  type: aif
 - path: data_08A127A1/gUnk_08C328E0.bin
   start: 0xc328e0
   size: 0x5fcc
+  type: aif
 - path: data_08A127A1/gUnk_08C388AC.bin
   start: 0xc388ac
   size: 0x1848
+  type: aif
 - path: data_08A127A1/gUnk_08C3A0F4.bin
   start: 0xc3a0f4
   size: 0x3eb0
+  type: aif
 - path: data_08A127A1/gUnk_08C3DFA4.bin
   start: 0xc3dfa4
   size: 0xa04
+  type: aif
 - path: data_08A127A1/gUnk_08C3E9A8.bin
   start: 0xc3e9a8
   size: 0x302c
+  type: aif
 - path: data_08A127A1/gUnk_08C419D4.bin
   start: 0xc419d4
   size: 0x3708
+  type: aif
 - path: data_08A127A1/gUnk_08C450DC.bin
   start: 0xc450dc
   size: 0x3698
+  type: aif
 - path: data_08A127A1/gUnk_08C48774.bin
   start: 0xc48774
   size: 0x4bd8
+  type: aif
 - path: data_08A127A1/gUnk_08C4D34C.bin
   start: 0xc4d34c
   size: 0xa68
+  type: aif
 - path: data_08A127A1/gUnk_08C4DDB4.bin
   start: 0xc4ddb4
   size: 0x13d0
+  type: aif
 - path: data_08A127A1/gUnk_08C4F184.bin
   start: 0xc4f184
   size: 0x2190
+  type: aif
 - path: data_08A127A1/gUnk_08C51314.bin
   start: 0xc51314
   size: 0x5f08
+  type: aif
 - path: data_08A127A1/gUnk_08C5721C.bin
   start: 0xc5721c
   size: 0x431c
+  type: aif
 - path: data_08A127A1/gUnk_08C5B538.bin
   start: 0xc5b538
   size: 0x4dc4
+  type: aif
 - path: data_08A127A1/gUnk_08C602FC.bin
   start: 0xc602fc
   size: 0x17f4
+  type: aif
 - path: data_08A127A1/gUnk_08C61AF0.bin
   start: 0xc61af0
   size: 0x1a84
+  type: aif
 - path: data_08A127A1/gUnk_08C63574.bin
   start: 0xc63574
   size: 0x13e8
+  type: aif
 - path: data_08A127A1/gUnk_08C6495C.bin
   start: 0xc6495c
   size: 0x8560
+  type: aif
 - path: data_08A127A1/gUnk_08C6CEBC.bin
   start: 0xc6cebc
   size: 0x1740
+  type: aif
 - path: data_08A127A1/gUnk_08C6E5FC.bin
   start: 0xc6e5fc
   size: 0x16cc
+  type: aif
 - path: data_08A127A1/gUnk_08C6FCC8.bin
   start: 0xc6fcc8
   size: 0x2ba8
+  type: aif
 - path: data_08A127A1/gUnk_08C72870.bin
   start: 0xc72870
   size: 0x1c0c
+  type: aif
 - path: data_08A127A1/gUnk_08C7447C.bin
   start: 0xc7447c
   size: 0x52c
+  type: aif
 - path: data_08A127A1/gUnk_08C749A8.bin
   start: 0xc749a8
   size: 0xbca8
+  type: aif
 - path: data_08A127A1/gUnk_08C80650.bin
   start: 0xc80650
   size: 0x11918
+  type: aif
 - path: data_08A127A1/gUnk_08C91F68.bin
   start: 0xc91f68
   size: 0x18e8
+  type: aif
 - path: data_08A127A1/gUnk_08C93850.bin
   start: 0xc93850
   size: 0x3888
+  type: aif
 - path: data_08A127A1/gUnk_08C970D8.bin
   start: 0xc970d8
   size: 0x130c
+  type: aif
 - path: data_08A127A1/gUnk_08C983E4.bin
   start: 0xc983e4
   size: 0x8830
+  type: aif
 - path: data_08A127A1/gUnk_08CA0C14.bin
   start: 0xca0c14
   size: 0x1f0c
+  type: aif
 - path: data_08A127A1/gUnk_08CA2B20.bin
   start: 0xca2b20
   size: 0x5f5c
+  type: aif
 - path: data_08A127A1/gUnk_08CA8A7C.bin
   start: 0xca8a7c
   size: 0x19e4
+  type: aif
 - path: data_08A127A1/gUnk_08CAA460.bin
   start: 0xcaa460
   size: 0x15f4
+  type: aif
 - path: data_08A127A1/gUnk_08CABA54.bin
   start: 0xcaba54
   size: 0x24b0
+  type: aif
 - path: data_08A127A1/gUnk_08CADF04.bin
   start: 0xcadf04
   size: 0x2748
+  type: aif
 - path: data_08A127A1/gUnk_08CB064C.bin
   start: 0xcb064c
   size: 0x27c0
+  type: aif
 - path: data_08A127A1/gUnk_08CB2E0C.bin
   start: 0xcb2e0c
   size: 0x1b94
+  type: aif
 - path: data_08A127A1/gUnk_08CB49A0.bin
   start: 0xcb49a0
   size: 0x32d4
+  type: aif
 - path: data_08A127A1/gUnk_08CB7C74.bin
   start: 0xcb7c74
   size: 0x1eec
+  type: aif
 - path: data_08A127A1/gUnk_08CB9B60.bin
   start: 0xcb9b60
   size: 0x258c
+  type: aif
 - path: data_08A127A1/gUnk_08CBC0EC.bin
   start: 0xcbc0ec
   size: 0x15d8
+  type: aif
 - path: data_08A127A1/gUnk_08CBD6C4.bin
   start: 0xcbd6c4
   size: 0x12d0
+  type: aif
 - path: data_08A127A1/gUnk_08CBE994.bin
   start: 0xcbe994
   size: 0x4168
+  type: aif
 - path: data_08A127A1/gUnk_08CC2AFC.bin
   start: 0xcc2afc
   size: 0xbd4
+  type: aif
 - path: data_08A127A1/gUnk_08CC36D0.bin
   start: 0xcc36d0
   size: 0xad4
+  type: aif
 - path: data_08A127A1/gUnk_08CC41A4.bin
   start: 0xcc41a4
   size: 0x1aa8
+  type: aif
 - path: data_08A127A1/gUnk_08CC5C4C.bin
   start: 0xcc5c4c
   size: 0x58
+  type: aif
 - path: data_08A127A1/gUnk_08CC5CA4.bin
   start: 0xcc5ca4
   size: 0x17b0
+  type: aif
 - path: data_08A127A1/gUnk_08CC7454.bin
   start: 0xcc7454
   size: 0x260c
+  type: aif
 - path: data_08A127A1/gUnk_08CC9A60.bin
   start: 0xcc9a60
   size: 0x24e4
+  type: aif
 - path: data_08A127A1/gUnk_08CCBF44.bin
   start: 0xccbf44
   size: 0x1b88
+  type: aif
 - path: data_08A127A1/gUnk_08CCDACC.bin
   start: 0xccdacc
   size: 0x2344
+  type: aif
 - path: data_08A127A1/gUnk_08CCFE10.bin
   start: 0xccfe10
   size: 0x1688
+  type: aif
 - path: data_08A127A1/gUnk_08CD1498.bin
   start: 0xcd1498
   size: 0x1614
+  type: aif
 - path: data_08A127A1/gUnk_08CD2AAC.bin
   start: 0xcd2aac
   size: 0x135c
+  type: aif
 - path: data_08A127A1/gUnk_08CD3E08.bin
   start: 0xcd3e08
   size: 0x2910
+  type: aif
 - path: data_08A127A1/gUnk_08CD6718.bin
   start: 0xcd6718
   size: 0xed4
+  type: aif
 - path: data_08A127A1/gUnk_08CD75EC.bin
   start: 0xcd75ec
   size: 0x4ab8
+  type: aif
 - path: data_08A127A1/gUnk_08CDC0A4.bin
   start: 0xcdc0a4
   size: 0x4b68
+  type: aif
 - path: data_08A127A1/gUnk_08CE0C0C.bin
   start: 0xce0c0c
   size: 0x1728
+  type: aif
 - path: data_08A127A1/gUnk_08CE2334.bin
   start: 0xce2334
   size: 0x4638
+  type: aif
 - path: data_08A127A1/gUnk_08CE696C.bin
   start: 0xce696c
   size: 0x3c38
+  type: aif
 - path: data_08A127A1/gUnk_08CEA5A4.bin
   start: 0xcea5a4
   size: 0x1e60
+  type: aif
 - path: data_08A127A1/gUnk_08CEC404.bin
   start: 0xcec404
   size: 0x4f48
+  type: aif
 - path: data_08A127A1/gUnk_08CF134C.bin
   start: 0xcf134c
   size: 0x4f68
+  type: aif
 - path: data_08A127A1/gUnk_08CF62B4.bin
   start: 0xcf62b4
   size: 0x3e20
+  type: aif
 - path: data_08A127A1/gUnk_08CFA0D4.bin
   start: 0xcfa0d4
   size: 0x3360
+  type: aif
 - path: data_08A127A1/gUnk_08CFD434.bin
   start: 0xcfd434
   size: 0x2d20
+  type: aif
 - path: data_08A127A1/gUnk_08D00154.bin
   start: 0xd00154
   size: 0x7ac8
+  type: aif
 - path: data_08A127A1/gUnk_08D07C1C.bin
   start: 0xd07c1c
   size: 0x2b98
+  type: aif
 - path: data_08A127A1/gUnk_08D0A7B4.bin
   start: 0xd0a7b4
   size: 0x3fc4
+  type: aif
 - path: data_08A127A1/gUnk_08D0E778.bin
   start: 0xd0e778
   size: 0x1938
+  type: aif
 - path: data_08A127A1/gUnk_08D100B0.bin
   start: 0xd100b0
   size: 0x25ec
+  type: aif
 - path: data_08A127A1/gUnk_08D1269C.bin
   start: 0xd1269c
   size: 0x2ebc
+  type: aif
 - path: data_08A127A1/gUnk_08D15558.bin
   start: 0xd15558
   size: 0xfe8
+  type: aif
 - path: data_08A127A1/gUnk_08D16540.bin
   start: 0xd16540
   size: 0x4784
+  type: aif
 - path: data_08A127A1/gUnk_08D1ACC4.bin
   start: 0xd1acc4
   size: 0x3f98
+  type: aif
 - path: data_08A127A1/gUnk_08D1EC5C.bin
   start: 0xd1ec5c
   size: 0x1c00
+  type: aif
 - path: data_08A127A1/gUnk_08D2085C.bin
   start: 0xd2085c
   size: 0x1408
+  type: aif
 - path: data_08A127A1/gUnk_08D21C64.bin
   start: 0xd21c64
   size: 0x2264
+  type: aif
 - path: data_08A127A1/gUnk_08D23EC8.bin
   start: 0xd23ec8
   size: 0xc6c
+  type: aif
 - path: data_08A127A1/gUnk_08D24B34.bin
   start: 0xd24b34
   size: 0x229c
+  type: aif
 - path: data_08A127A1/gUnk_08D26DD0.bin
   start: 0xd26dd0
   size: 0x16e8
+  type: aif
 - path: data_08A127A1/gUnk_08D284B8.bin
   start: 0xd284b8
   size: 0xd44
+  type: aif
 - path: data_08A127A1/gUnk_08D291FC.bin
   start: 0xd291fc
   size: 0x1a0c
+  type: aif
 - path: data_08A127A1/gUnk_08D2AC08.bin
   start: 0xd2ac08
   size: 0x34d4
+  type: aif
 - path: data_08A127A1/gUnk_08D2E0DC.bin
   start: 0xd2e0dc
   size: 0x1b10
+  type: aif
 - path: data_08A127A1/gUnk_08D2FBEC.bin
   start: 0xd2fbec
   size: 0x4ce4
+  type: aif
 - path: data_08A127A1/gUnk_08D348D0.bin
   start: 0xd348d0
   size: 0x27b4
+  type: aif
 - path: data_08A127A1/gUnk_08D37084.bin
   start: 0xd37084
   size: 0x219c
+  type: aif
 - path: data_08A127A1/gUnk_08D39220.bin
   start: 0xd39220
   size: 0x2174
+  type: aif
 - path: data_08A127A1/gUnk_08D3B394.bin
   start: 0xd3b394
   size: 0x4c94
+  type: aif
 - path: data_08A127A1/gUnk_08D40028.bin
   start: 0xd40028
   size: 0x1d28
+  type: aif
 - path: data_08A127A1/gUnk_08D41D50.bin
   start: 0xd41d50
   size: 0x2224
+  type: aif
 - path: data_08A127A1/gUnk_08D43F74.bin
   start: 0xd43f74
   size: 0x3c74
+  type: aif
 - path: data_08A127A1/gUnk_08D47BE8.bin
   start: 0xd47be8
   size: 0x234c
+  type: aif
 - path: data_08A127A1/gUnk_08D49F34.bin
   start: 0xd49f34
   size: 0x20a0
+  type: aif
 - path: data_08A127A1/gUnk_08D4BFD4.bin
   start: 0xd4bfd4
   size: 0x21a4
+  type: aif
 - path: data_08A127A1/gUnk_08D4E178.bin
   start: 0xd4e178
   size: 0x38dc
+  type: aif
 - path: data_08A127A1/gUnk_08D51A54.bin
   start: 0xd51a54
   size: 0x1608
+  type: aif
 - path: data_08A127A1/gUnk_08D5305C.bin
   start: 0xd5305c
   size: 0x1a44
+  type: aif
 - path: data_08A127A1/gUnk_08D54AA0.bin
   start: 0xd54aa0
   size: 0x2cb8
+  type: aif
 - path: data_08A127A1/gUnk_08D57758.bin
   start: 0xd57758
   size: 0x18b8
+  type: aif
 - path: data_08A127A1/gUnk_08D59010.bin
   start: 0xd59010
   size: 0x42f8
+  type: aif
 - path: data_08A127A1/gUnk_08D5D308.bin
   start: 0xd5d308
   size: 0x3060
+  type: aif
 - path: data_08A127A1/gUnk_08D60368.bin
   start: 0xd60368
   size: 0x11d0
+  type: aif
 - path: data_08A127A1/gUnk_08D61538.bin
   start: 0xd61538
   size: 0x1ec4
+  type: aif
 - path: data_08A127A1/gUnk_08D633FC.bin
   start: 0xd633fc
   size: 0x2820
+  type: aif
 - path: data_08A127A1/gUnk_08D65C1C.bin
   start: 0xd65c1c
   size: 0x2380
+  type: aif
 - path: data_08A127A1/gUnk_08D67F9C.bin
   start: 0xd67f9c
   size: 0x12b4
+  type: aif
 - path: data_08A127A1/gUnk_08D69250.bin
   start: 0xd69250
   size: 0x23f4
+  type: aif
 - path: data_08A127A1/gUnk_08D6B644.bin
   start: 0xd6b644
   size: 0x2524
+  type: aif
 - path: data_08A127A1/gUnk_08D6DB68.bin
   start: 0xd6db68
   size: 0x1410
+  type: aif
 - path: data_08A127A1/gUnk_08D6EF78.bin
   start: 0xd6ef78
   size: 0x11b4
+  type: aif
 - path: data_08A127A1/gUnk_08D7012C.bin
   start: 0xd7012c
   size: 0x195c
+  type: aif
 - path: data_08A127A1/gUnk_08D71A88.bin
   start: 0xd71a88
   size: 0x1ce0
+  type: aif
 - path: data_08A127A1/gUnk_08D73768.bin
   start: 0xd73768
   size: 0x18c8
+  type: aif
 - path: data_08A127A1/gUnk_08D75030.bin
   start: 0xd75030
   size: 0xf68
+  type: aif
 - path: data_08A127A1/gUnk_08D75F98.bin
   start: 0xd75f98
   size: 0x1738
+  type: aif
 - path: data_08A127A1/gUnk_08D776D0.bin
   start: 0xd776d0
   size: 0x1664
+  type: aif
 - path: data_08A127A1/gUnk_08D78D34.bin
   start: 0xd78d34
   size: 0x175c
+  type: aif
 - path: data_08A127A1/gUnk_08D7A490.bin
   start: 0xd7a490
   size: 0xd44
+  type: aif
 - path: data_08A127A1/gUnk_08D7B1D4.bin
   start: 0xd7b1d4
   size: 0x15f4
+  type: aif
 - path: data_08A127A1/gUnk_08D7C7C8.bin
   start: 0xd7c7c8
   size: 0x1c7c
+  type: aif
 - path: data_08A127A1/gUnk_08D7E444.bin
   start: 0xd7e444
   size: 0x1a0c
+  type: aif
 - path: data_08A127A1/gUnk_08D7FE50.bin
   start: 0xd7fe50
   size: 0x2bf4
+  type: aif
 - path: data_08A127A1/gUnk_08D82A44.bin
   start: 0xd82a44
   size: 0x2d54
+  type: aif
 - path: data_08A127A1/gUnk_08D85798.bin
   start: 0xd85798
   size: 0x19bc
+  type: aif
 - path: data_08A127A1/gUnk_08D87154.bin
   start: 0xd87154
   size: 0x3130
+  type: aif
 - path: data_08A127A1/gUnk_08D8A284.bin
   start: 0xd8a284
   size: 0x3824
+  type: aif
 - path: data_08A127A1/gUnk_08D8DAA8.bin
   start: 0xd8daa8
   size: 0x3840
+  type: aif
 - path: data_08A127A1/gUnk_08D912E8.bin
   start: 0xd912e8
   size: 0x3564
+  type: aif
 - path: data_08A127A1/gUnk_08D9484C.bin
   start: 0xd9484c
   size: 0x1dac
+  type: aif
 - path: data_08A127A1/gUnk_08D965F8.bin
   start: 0xd965f8
   size: 0x21e8
+  type: aif
 - path: data_08A127A1/gUnk_08D987E0.bin
   start: 0xd987e0
   size: 0x2090
+  type: aif
 - path: data_08A127A1/gUnk_08D9A870.bin
   start: 0xd9a870
   size: 0x21c4
+  type: aif
 - path: data_08A127A1/gUnk_08D9CA34.bin
   start: 0xd9ca34
   size: 0x4044
+  type: aif
 - path: data_08A127A1/gUnk_08DA0A78.bin
   start: 0xda0a78
   size: 0x3b0c
+  type: aif
 - path: data_08A127A1/gUnk_08DA4584.bin
   start: 0xda4584
   size: 0x61c0
+  type: aif
 - path: data_08A127A1/gUnk_08DAA744.bin
   start: 0xdaa744
   size: 0x3fb8
+  type: aif
 - path: data_08A127A1/gUnk_08DAE6FC.bin
   start: 0xdae6fc
   size: 0x51ac
+  type: aif
 - path: data_08A127A1/gUnk_08DB38A8.bin
   start: 0xdb38a8
   size: 0x45a4
+  type: aif
 - path: data_08A127A1/gUnk_08DB7E4C.bin
   start: 0xdb7e4c
   size: 0x6500
+  type: aif
 - path: data_08A127A1/gUnk_08DBE34C.bin
   start: 0xdbe34c
   size: 0x270
+  type: aif
 - path: data_08A127A1/gUnk_08DBE5BC.bin
   start: 0xdbe5bc
   size: 0x1064
+  type: aif
 - path: data_08A127A1/gUnk_08DBF620.bin
   start: 0xdbf620
   size: 0x2118
+  type: aif
 - path: data_08A127A1/gUnk_08DC1738.bin
   start: 0xdc1738
   size: 0x3714
+  type: aif
 - path: data_08A127A1/gUnk_08DC4E4C.bin
   start: 0xdc4e4c
   size: 0x3370
+  type: aif
 - path: data_08A127A1/gUnk_08DC81BC.bin
   start: 0xdc81bc
   size: 0x42c0
+  type: aif
 - path: sounds/sfxNone_track0.bin
   start: 0xdcc47c
   size: 0x10
@@ -64258,78 +64530,19 @@
 - path: sounds/bgmStory_track7.bin
   start: 0xdd0a5d
   size: 0x37
-- path: sounds/bgmFestivalApproach_track0.bin
-  start: 0xdd0abc
-  size: 0xb
-- path: sounds/gUnk_08DD0AC7.bin
-  start: 0xdd0ac7
-  size: 0x38
-- path: sounds/gUnk_08DD0AFF.bin
-  start: 0xdd0aff
-  size: 0x37
-- path: sounds/gUnk_08DD0B36.bin
-  start: 0xdd0b36
-  size: 0x39
-- path: sounds/gUnk_08DD0B6F.bin
-  start: 0xdd0b6f
-  size: 0x37
-- path: sounds/gUnk_08DD0B6F_1.bin
-  start: 0xdd0baa
-  size: 0x1
-- path: sounds/gUnk_08DD0B6F_2.bin
-  start: 0xdd0baf
-  size: 0x1
-- path: sounds/gUnk_08DD0B6F_3.bin
-  start: 0xdd0bb4
-  size: 0x1
-- path: sounds/gUnk_08DD0BB9.bin
-  start: 0xdd0bb9
-  size: 0x72
-- path: sounds/gUnk_08DD0BB9_1.bin
-  start: 0xdd0c2f
-  size: 0x36
-- path: sounds/gUnk_08DD0BB9_2.bin
-  start: 0xdd0c69
-  size: 0x1
-- path: sounds/bgmFestivalApproach_track1.bin
-  start: 0xdd0c6a
-  size: 0x7
-- path: sounds/gUnk_08DD0C71.bin
-  start: 0xdd0c71
-  size: 0x11
-- path: sounds/gUnk_08DD0C82.bin
-  start: 0xdd0c82
-  size: 0xe
-- path: sounds/gUnk_08DD0C90.bin
-  start: 0xdd0c90
-  size: 0x11
-- path: sounds/gUnk_08DD0CA1.bin
-  start: 0xdd0ca1
-  size: 0xd
-- path: sounds/gUnk_08DD0CAE.bin
-  start: 0xdd0cae
-  size: 0x13
-- path: sounds/gUnk_08DD0CAE_1.bin
-  start: 0xdd0cc5
-  size: 0x1
-- path: sounds/gUnk_08DD0CAE_2.bin
-  start: 0xdd0cca
-  size: 0x1
-- path: sounds/gUnk_08DD0CAE_3.bin
-  start: 0xdd0ccf
-  size: 0x1
-- path: sounds/gUnk_08DD0CAE_4.bin
-  start: 0xdd0cd4
-  size: 0x1
-- path: sounds/gUnk_08DD0CAE_5.bin
-  start: 0xdd0cd9
-  size: 0x1
-- path: sounds/gUnk_08DD0CAE_6.bin
-  start: 0xdd0cde
-  size: 0x10
-- path: sounds/gUnk_08DD0CAE_7.bin
-  start: 0xdd0cf2
-  size: 0x2
+- path: sounds/bgmFestivalApproach.s
+  start: 0xDD0CF4
+  options:
+    group: 15
+    priority: 0
+    reverb: 0x28
+    nominator: 4
+    denominator: 2
+    timeChanges:
+      nominator: 4
+      denominator: 4
+      time: 192
+  type: midi
 - path: sounds/bgmBeatVaati_track0.bin
   start: 0xdd0d04
   size: 0xe
@@ -72710,18 +72923,42 @@
 - path: sounds/sfxRupeeGet_track0.bin
   start: 0xddf0c8
   size: 0x24
-- path: sounds/sfxHeartBounce_track0.bin
-  start: 0xddf0f8
-  size: 0x4c
-- path: sounds/sfxHeartGet_track0.bin
-  start: 0xddf150
-  size: 0x1c
-- path: sounds/sfxSecret_track0.bin
-  start: 0xddf178
-  size: 0x24
-- path: sounds/sfxSecretBig_track0.bin
-  start: 0xddf1a8
-  size: 0x27
+- path: sounds/sfxHeartBounce.s
+  start: 0xDDF144
+  options:
+    G: 72
+    P: 0x58
+  type: midi
+- path: sounds/sfxHeartGet.s
+  start: 0xDDF16C
+  options:
+    G: 73
+    P: 0x60
+  type: midi
+- path: sounds/sfxSecret.s
+  start: 0xddf19c
+  options:
+    G: 74
+    P: 0xc0
+  type: midi
+- path: sounds/sfxSecretBig.s
+  start: 0xddf1f4
+  options:
+    G: 75
+    P: 0xd0
+  type: midi
+  variants:
+  - USA
+  - JP
+  - DEMO
+- path: sounds/sfxSecretBig.s
+  start: 0xddf1f4
+  options:
+    G: 75
+    P: 0xc0
+  type: midi
+  variants:
+  - EU
 - path: sounds/sfxSecretBig_track1.bin
   start: 0xddf1cf
   size: 0x25

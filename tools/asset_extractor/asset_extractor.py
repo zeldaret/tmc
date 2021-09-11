@@ -21,7 +21,8 @@ def extract_assets(variant, assets_folder):
         exit(1)
 
     baserom = None
-    with open(map[variant], 'rb') as file:
+    baserom_path = map[variant]
+    with open(baserom_path, 'rb') as file:
         baserom = bytearray(file.read())
 
     with open('assets.yaml') as file:
@@ -54,22 +55,31 @@ def extract_assets(variant, assets_folder):
                         # Use start for the current variant
                         start = asset['starts'][variant]
 
-                    size = asset['size'] # TODO can different sizes for the different variants ever occur?
-
                     mode = ''
                     if 'type' in asset:
                         mode = asset['type']
 
-
                     Path(os.path.dirname(path)).mkdir(parents=True, exist_ok=True)
-                    with open(path, 'wb') as output:
-                        output.write(baserom[start:start+size])
+
+                    if 'size' in asset: # The asset has a size and want to be extracted first.
+                        size = asset['size'] # TODO can different sizes for the different variants ever occur?
+    
+                        with open(path, 'wb') as output:
+                            output.write(baserom[start:start+size])
+                    # If an asset has no size, the extraction tool reads the baserom iself.
+
+                    options = asset['options'] if 'options' in asset else []
+
                     if mode == 'tileset':
                         extract_tileset(path)
                     elif mode == 'palette':
                         extract_palette(path)
                     elif mode == 'graphic':
-                        extract_graphic(path, asset['options'] if 'options' in asset else [])
+                        extract_graphic(path, options)
+                    elif mode == 'midi':
+                        extract_midi(path, baserom_path, start, options)
+                    elif mode == 'aif':
+                        extract_aif(path, options)
 
 
 
@@ -98,6 +108,49 @@ def extract_graphic(path, options):
         params.append('-'+key)
         params.append(str(options[key]))
     run_gbagfx(path, base+'.png', params)
+
+def extract_midi(path, baserom_path, start, options):
+    assert(path.endswith('.s'))
+    base = path[0:-2]
+
+    common_params = []
+    agb2mid_params = []
+
+    for key in options:
+        if key == 'group' or key == 'G':
+            common_params.append('-G')
+            common_params.append(str(options[key]))
+        elif key == 'priority' or key == 'P':
+            common_params.append('-P')
+            common_params.append(str(options[key]))
+        elif key == 'reverb' or key == 'R':
+            common_params.append('-R')
+            common_params.append(str(options[key]))
+        elif key == 'nominator':
+            agb2mid_params.append('-n')
+            agb2mid_params.append(str(options[key]))
+        elif key == 'denominator':
+            agb2mid_params.append('-d')
+            agb2mid_params.append(str(options[key]))
+        elif key == 'timeChanges':
+            changes = options['timeChanges']
+            agb2mid_params.append('-t')
+            agb2mid_params.append(str(changes['nominator']))
+            agb2mid_params.append(str(changes['denominator']))
+            agb2mid_params.append(str(changes['time']))
+        else:
+            common_params.append('-'+key)
+            common_params.append(str(options[key]))
+    # To midi
+    subprocess.check_call([os.path.join('tools', 'agb2mid', 'agb2mid'), baserom_path, hex(start), baserom_path, base+'.mid'] + common_params + agb2mid_params)
+    # To assembly (TODO only do in build step, not if only extracting)
+    subprocess.check_call([os.path.join('tools', 'mid2agb', 'mid2agb'), base+'.mid', path] + common_params)
+
+def extract_aif(path, options):
+    assert(path.endswith('.bin'))
+    base = path[0:-4]
+    subprocess.check_call([os.path.join('tools', 'aif2pcm', 'aif2pcm'), path, base+'.aif'])
+
 
 def main():
     if len(sys.argv) == 1:

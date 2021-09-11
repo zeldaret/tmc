@@ -7,6 +7,8 @@
 bgmUnused:: @ 08A12ECC
 	.incbin "data_08A127A1/bgmUnused.bin"
 
+@ direct sound files
+
 gUnk_08A12ED0:: @ 08A12ED0
 	.incbin "data_08A127A1/gUnk_08A12ED0.bin"
 
