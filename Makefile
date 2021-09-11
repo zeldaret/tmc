@@ -151,7 +151,7 @@ AUTO_GEN_TARGETS :=
 
 # TODO do we really need this extra step just so that extractassets always runs at first?
 all: extractassets
-	 @$(MAKE) target
+	 @$(MAKE) target GAME_VERSION=$(GAME_VERSION)
 
 target: $(ROM)
 	@$(SHA1) $(BUILD_NAME).sha1
@@ -162,7 +162,8 @@ compare: $(ROM)
 
 setup: $(TOOLDIRS)
 
-extractassets:
+# TODO temporary workaround to have translation bins as dependencies manually here as scaninc somehow does not work?
+extractassets: translations/USA.bin translations/English.bin translations/French.bin translations/German.bin translations/Spanish.bin translations/Italian.bin
 	python3 tools/asset_extractor/asset_extractor.py $(GAME_VERSION) $(ASSET_BUILDDIR)
 
 $(TOOLDIRS):
@@ -194,7 +195,6 @@ include songs.mk
 %.png: ;
 %.pal: ;
 %.aif: ;
-%.bin: ;
 
 %.1bpp: %.png  ; $(GFX) $< $@
 %.4bpp: %.png  ; $(GFX) $< $@

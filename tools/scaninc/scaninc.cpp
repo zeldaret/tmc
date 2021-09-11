@@ -94,7 +94,9 @@ int main(int argc, char **argv)
         for (auto incbin : file.GetIncbins())
         {
             // TODO add incbin dependencies in correct folder?
-            //dependencies.insert(incbin);
+            if (incbin.rfind("translations", 0) == 0) {
+                dependencies.insert(incbin);
+            }
         }
         for (auto include : file.GetIncludes())
         {
