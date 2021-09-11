@@ -65,7 +65,7 @@ SONG_BUILDDIR = $(OBJ_DIR)/$(SONG_SUBDIR)
 MID_BUILDDIR = $(OBJ_DIR)/$(MID_SUBDIR)
 ASSET_BUILDDIR = $(OBJ_DIR)/$(ASSET_SUBDIR)
 
-ASFLAGS := -mcpu=arm7tdmi --defsym $(GAME_VERSION)=1 --defsym REVISION=$(REVISION) --defsym $(GAME_LANGUAGE)=1  -I $(ASSET_BUILDDIR)
+ASFLAGS := -mcpu=arm7tdmi --defsym $(GAME_VERSION)=1 --defsym REVISION=$(REVISION) --defsym $(GAME_LANGUAGE)=1 -I $(ASSET_SUBDIR) -I $(ASSET_BUILDDIR)
 
 CC1             := tools/agbcc/bin/agbcc
 override CFLAGS += -O2 -Wimplicit -Wparentheses -Werror -Wno-multichar

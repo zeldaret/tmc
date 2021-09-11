@@ -42,7 +42,8 @@ def extract_assets(variant, assets_folder):
                     if verbose:
                         print(f'{path} already extracted.')
                 else:
-                    print(f'Extracting {path}...')
+                    if verbose:
+                        print(f'Extracting {path}...')
 
                     start = 0
                     if 'start' in asset:
@@ -64,6 +65,10 @@ def extract_assets(variant, assets_folder):
                         output.write(baserom[start:start+size])
                     if mode == 'tileset':
                         extract_tileset(path)
+                    elif mode == 'palette':
+                        extract_palette(path)
+                    elif mode == 'graphic':
+                        extract_graphic(path, asset['options'] if 'options' in asset else [])
 
 
 
@@ -73,12 +78,25 @@ def run_gbagfx(path_in, path_out, options):
 def extract_tileset(path):
     assert(path.endswith('.4bpp.lz'))
     base = path[0:-8]
-    subprocess.call(['cp', path, path+'.bkp'])
+    # subprocess.call(['cp', path, path+'.bkp'])
     run_gbagfx(path, base+'.4bpp', []) # decompress
     run_gbagfx(base+'.4bpp', base+'.png', ['-mwidth', '32']) # convert to png
     # TODO automatically generate tileset entries from tileset_headers.s
     # TODO Possible to set the correct palette? Or not, because there is a set of palettes that can be chosen and the correct palette is only defined by the metatile?
 
+def extract_palette(path):
+    assert(path.endswith('.gbapal'))
+    base = path[0:-7]
+    run_gbagfx(path, base+'.pal', [])
+
+def extract_graphic(path, options):
+    assert(path.endswith('.4bpp'))
+    base = path[0:-5]
+    params = []
+    for key in options:
+        params.append('-'+key)
+        params.append(str(options[key]))
+    run_gbagfx(path, base+'.png', params)
 
 def main():
     if len(sys.argv) == 1:
