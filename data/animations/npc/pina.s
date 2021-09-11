@@ -5,8 +5,7 @@
     .align 2
 
 gUnk_0810CE54:: @ 0810CE54
-	.incbin "baserom.gba", 0x10CE54, 0x0000013
-	.incbin "baserom.gba", 0x10CE67, 0x000003A
+	.incbin "baserom.gba", 0x10CE54, 0x000004D
 
 gUnk_0810CEA1:: @ 0810CEA1
 	.incbin "baserom.gba", 0x10CEA1, 0x000004D

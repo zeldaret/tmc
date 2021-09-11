@@ -5,8 +5,7 @@
     .align 2
 
 gUnk_081243F4:: @ 081243F4
-	.incbin "baserom.gba", 0x1243F4, 0x000003F
-	.incbin "baserom.gba", 0x124433, 0x0000032
+	.incbin "baserom.gba", 0x1243F4, 0x0000071
 
 gUnk_08124465:: @ 08124465
 	.incbin "baserom.gba", 0x124465, 0x0000071

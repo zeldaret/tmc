@@ -11,9 +11,7 @@ gUnk_08120AED:: @ 08120AED
 	.incbin "baserom.gba", 0x120AED, 0x0000014
 
 gUnk_08120B01:: @ 08120B01
-	.incbin "baserom.gba", 0x120B01, 0x0000003
-	.incbin "baserom.gba", 0x120B04, 0x0000006
-	.incbin "baserom.gba", 0x120B0A, 0x0000006
+	.incbin "baserom.gba", 0x120B01, 0x000000F
 
 gUnk_08120B10:: @ 08120B10
 	.4byte gUnk_08120AE8

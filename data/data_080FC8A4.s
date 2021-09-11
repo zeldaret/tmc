@@ -1262,8 +1262,7 @@ gUnk_080FE320:: @ 080FE320
 .endif
 
 gUnk_080FEAC8:: @ 080FEAC8
-	.incbin "baserom.gba", 0x0FEAC8, 0x0000003
-	.incbin "baserom.gba", 0x0FEACB, 0x0000023
+	.incbin "baserom.gba", 0x0FEAC8, 0x0000026
 .ifdef JP
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x0FE79E, 0x000002C
@@ -1299,9 +1298,7 @@ gUnk_080FEAC8:: @ 080FEAC8
 	.incbin "baserom.gba", 0x0FEBDC, 0x000000C
 
 gUnk_080FEBE8:: @ 080FEBE8
-	.incbin "baserom.gba", 0x0FEBE8, 0x0000006
-	.incbin "baserom.gba", 0x0FEBEE, 0x000001B
-	.incbin "baserom.gba", 0x0FEC09, 0x000001F
+	.incbin "baserom.gba", 0x0FEBE8, 0x0000040
 
 gUnk_080FEC28:: @ 080FEC28
 	.incbin "baserom.gba", 0x0FEC28, 0x00000A0

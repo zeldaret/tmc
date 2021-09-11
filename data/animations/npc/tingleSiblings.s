@@ -17,9 +17,7 @@ gUnk_0810FCAD:: @ 0810FCAD
 	.incbin "baserom.gba", 0x10FCAD, 0x0000021
 
 gUnk_0810FCCE:: @ 0810FCCE
-	.incbin "baserom.gba", 0x10FCCE, 0x0000026
-	.incbin "baserom.gba", 0x10FCF4, 0x0000022
-	.incbin "baserom.gba", 0x10FD16, 0x0000056
+	.incbin "baserom.gba", 0x10FCCE, 0x000009E
 
 gUnk_0810FD6C:: @ 0810FD6C
 	.4byte gUnk_0810FC5E

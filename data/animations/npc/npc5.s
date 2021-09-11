@@ -35,8 +35,7 @@ gUnk_0810AD71:: @ 0810AD71
 	.incbin "baserom.gba", 0x10AD71, 0x0000021
 
 gUnk_0810AD92:: @ 0810AD92
-	.incbin "baserom.gba", 0x10AD92, 0x000001B
-	.incbin "baserom.gba", 0x10ADAD, 0x0000006
+	.incbin "baserom.gba", 0x10AD92, 0x0000021
 
 gUnk_0810ADB3:: @ 0810ADB3
 	.incbin "baserom.gba", 0x10ADB3, 0x0000021
@@ -57,8 +56,7 @@ gUnk_0810AE58:: @ 0810AE58
 	.incbin "baserom.gba", 0x10AE58, 0x0000024
 
 gUnk_0810AE7C:: @ 0810AE7C
-	.incbin "baserom.gba", 0x10AE7C, 0x0000021
-	.incbin "baserom.gba", 0x10AE9D, 0x0000003
+	.incbin "baserom.gba", 0x10AE7C, 0x0000024
 
 gUnk_0810AEA0:: @ 0810AEA0
 	.incbin "baserom.gba", 0x10AEA0, 0x0000024
@@ -67,12 +65,10 @@ gUnk_0810AEC4:: @ 0810AEC4
 	.incbin "baserom.gba", 0x10AEC4, 0x0000024
 
 gUnk_0810AEE8:: @ 0810AEE8
-	.incbin "baserom.gba", 0x10AEE8, 0x000001F
-	.incbin "baserom.gba", 0x10AF07, 0x0000012
+	.incbin "baserom.gba", 0x10AEE8, 0x0000031
 
 gUnk_0810AF19:: @ 0810AF19
-	.incbin "baserom.gba", 0x10AF19, 0x000002B
-	.incbin "baserom.gba", 0x10AF44, 0x0000006
+	.incbin "baserom.gba", 0x10AF19, 0x0000031
 
 gUnk_0810AF4A:: @ 0810AF4A
 	.incbin "baserom.gba", 0x10AF4A, 0x0000031
@@ -87,8 +83,7 @@ gUnk_0810AFCD:: @ 0810AFCD
 	.incbin "baserom.gba", 0x10AFCD, 0x0000021
 
 gUnk_0810AFEE:: @ 0810AFEE
-	.incbin "baserom.gba", 0x10AFEE, 0x000001A
-	.incbin "baserom.gba", 0x10B008, 0x0000007
+	.incbin "baserom.gba", 0x10AFEE, 0x0000021
 
 gUnk_0810B00F:: @ 0810B00F
 	.incbin "baserom.gba", 0x10B00F, 0x0000021
@@ -160,8 +155,7 @@ gUnk_0810B18C:: @ 0810B18C
 	.incbin "baserom.gba", 0x10B18C, 0x000001C
 
 gUnk_0810B1A8:: @ 0810B1A8
-	.incbin "baserom.gba", 0x10B1A8, 0x0000009
-	.incbin "baserom.gba", 0x10B1B1, 0x0000013
+	.incbin "baserom.gba", 0x10B1A8, 0x000001C
 
 gUnk_0810B1C4:: @ 0810B1C4
 	.incbin "baserom.gba", 0x10B1C4, 0x000001C
@@ -200,15 +194,13 @@ gUnk_0810B370:: @ 0810B370
 	.incbin "baserom.gba", 0x10B370, 0x0000030
 
 gUnk_0810B3A0:: @ 0810B3A0
-	.incbin "baserom.gba", 0x10B3A0, 0x0000022
-	.incbin "baserom.gba", 0x10B3C2, 0x000000E
+	.incbin "baserom.gba", 0x10B3A0, 0x0000030
 
 gUnk_0810B3D0:: @ 0810B3D0
 	.incbin "baserom.gba", 0x10B3D0, 0x0000028
 
 gUnk_0810B3F8:: @ 0810B3F8
-	.incbin "baserom.gba", 0x10B3F8, 0x000000F
-	.incbin "baserom.gba", 0x10B407, 0x0000019
+	.incbin "baserom.gba", 0x10B3F8, 0x0000028
 
 gUnk_0810B420:: @ 0810B420
 	.incbin "baserom.gba", 0x10B420, 0x0000028

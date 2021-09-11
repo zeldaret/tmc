@@ -47,9 +47,7 @@ gUnk_0810C199:: @ 0810C199
 	.incbin "baserom.gba", 0x10C199, 0x000000D
 
 gUnk_0810C1A6:: @ 0810C1A6
-	.incbin "baserom.gba", 0x10C1A6, 0x0000018
-	.incbin "baserom.gba", 0x10C1BE, 0x000000F
-	.incbin "baserom.gba", 0x10C1CD, 0x000000A
+	.incbin "baserom.gba", 0x10C1A6, 0x0000031
 
 gUnk_0810C1D7:: @ 0810C1D7
 	.incbin "baserom.gba", 0x10C1D7, 0x0000005

@@ -9,12 +9,7 @@ gUnk_08120DF4:: @ 08120DF4
 	.4byte sub_08089F08
 
 gUnk_08120DFC:: @ 08120DFC
-	.incbin "baserom.gba", 0x120DFC, 0x0000004
-	.incbin "baserom.gba", 0x120E00, 0x0000001
-	.incbin "baserom.gba", 0x120E01, 0x0000001
-	.incbin "baserom.gba", 0x120E02, 0x0000006
-	.incbin "baserom.gba", 0x120E08, 0x000000B
-	.incbin "baserom.gba", 0x120E13, 0x0000001
+	.incbin "baserom.gba", 0x120DFC, 0x0000018
 
 gUnk_08120E14:: @ 08120E14
 	.incbin "baserom.gba", 0x120E14, 0x0000028

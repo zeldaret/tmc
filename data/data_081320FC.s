@@ -6,7 +6,7 @@
 
 .ifdef DEMO_JP
 	@ TODO check whether this is the same save as one of the DEMO_USA ones
-	.incbin "baserom_demo_jp.gba", 0x131830, 0x500
+	.incbin "baserom_demo_jp.gba", 0x131830, 0x0000500
 .endif
 
 
@@ -58,8 +58,7 @@ gUnk_0813210C:: @ 0813210C
 	.4byte gUnk_081324AC
 	.incbin "baserom.gba", 0x132204, 0x000000C
 	.4byte gUnk_081324EC
-	.incbin "baserom.gba", 0x132214, 0x000000B
-	.incbin "baserom.gba", 0x13221F, 0x0000001
+	.incbin "baserom.gba", 0x132214, 0x000000C
 	.4byte gUnk_080FD150
 	.incbin "baserom.gba", 0x132224, 0x000000C
 	.4byte gUnk_080FD168
@@ -155,8 +154,7 @@ gUnk_081323DC:: @ 081323DC
 gUnk_0813240C:: @ 0813240C
 	.incbin "baserom.gba", 0x13240C, 0x0000004
 	.4byte gUnk_080FD150
-	.incbin "baserom.gba", 0x132414, 0x0000008
-	.incbin "baserom.gba", 0x13241C, 0x0000004
+	.incbin "baserom.gba", 0x132414, 0x000000C
 	.4byte gUnk_080FD150
 	.incbin "baserom.gba", 0x132424, 0x0000008
 
@@ -201,8 +199,7 @@ gUnk_081324EC:: @ 081324EC
 	.4byte gUnk_080FD3FC
 	.incbin "baserom.gba", 0x1324F4, 0x000000C
 	.4byte gUnk_080FD3FC
-	.incbin "baserom.gba", 0x132504, 0x0000002
-	.incbin "baserom.gba", 0x132506, 0x0000006
+	.incbin "baserom.gba", 0x132504, 0x0000008
 
 gUnk_0813250C:: @ 0813250C
 	.incbin "baserom.gba", 0x13250C, 0x0000004

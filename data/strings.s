@@ -12,7 +12,7 @@ translation:: @ 089B1D90
 	.incbin "baserom_demo_jp.gba", 0x9B1A28, 0x002BD90
 .else
 .ifdef JP
-	.incbin "baserom_jp.gba", 0x9B1A30, 0x2BCC0
+	.incbin "baserom_jp.gba", 0x9B1A30, 0x002BCC0
 .else
 .ifdef EU
 	.incbin "translations/English.bin"

@@ -248,54 +248,30 @@ _08001374: .4byte sub_080AF1BC
 _08001378: .4byte GetFacingDirection
 
 gUnk_0800137C:: @ 0800137C
-	.incbin "baserom.gba", 0x00137C, 0x0000004
-	.incbin "baserom.gba", 0x001380, 0x0000074
-	.incbin "baserom.gba", 0x0013F4, 0x000000C
-	.incbin "baserom.gba", 0x001400, 0x0000006
-	.incbin "baserom.gba", 0x001406, 0x000000A
-	.incbin "baserom.gba", 0x001410, 0x000000C
-	.incbin "baserom.gba", 0x00141C, 0x0000020
+	.incbin "baserom.gba", 0x00137C, 0x00000C0
 
 gUnk_0800143C:: @ 0800143C
-	.incbin "baserom.gba", 0x00143C, 0x00000E5
-	.incbin "baserom.gba", 0x001521, 0x0000012
-	.incbin "baserom.gba", 0x001533, 0x000000D
-	.incbin "baserom.gba", 0x001540, 0x000007C
+	.incbin "baserom.gba", 0x00143C, 0x0000180
 
 gUnk_080015BC:: @ 080015BC
-	.incbin "baserom.gba", 0x0015BC, 0x0000035
-	.incbin "baserom.gba", 0x0015F1, 0x000002B
+	.incbin "baserom.gba", 0x0015BC, 0x0000060
 
 gUnk_0800161C:: @ 0800161C
-	.incbin "baserom.gba", 0x00161C, 0x000001B
-	.incbin "baserom.gba", 0x001637, 0x00000C9
-	.incbin "baserom.gba", 0x001700, 0x0000001
-	.incbin "baserom.gba", 0x001701, 0x0000001
+	.incbin "baserom.gba", 0x00161C, 0x00000E6
 .ifdef EU
     @ TODO only small differences
 	.incbin "baserom_eu.gba", 0x00174A, 0x0000014
 .else
 	.incbin "baserom.gba", 0x001702, 0x0000014
 .endif
-	.incbin "baserom.gba", 0x001716, 0x0000017
-	.incbin "baserom.gba", 0x00172D, 0x00000D4
-	.incbin "baserom.gba", 0x001801, 0x000000F
-	.incbin "baserom.gba", 0x001810, 0x0000008
-	.incbin "baserom.gba", 0x001818, 0x0000027
-	.incbin "baserom.gba", 0x00183F, 0x0000005
-	.incbin "baserom.gba", 0x001844, 0x0000006
-	.incbin "baserom.gba", 0x00184A, 0x0000006
-	.incbin "baserom.gba", 0x001850, 0x0000010
-	.incbin "baserom.gba", 0x001860, 0x0000040
-	.incbin "baserom.gba", 0x0018A0, 0x0000004
+	.incbin "baserom.gba", 0x001716, 0x000018E
 
 .ifdef EU
-	.incbin "baserom_eu.gba", 0x0018EC, 0x7E
+	.incbin "baserom_eu.gba", 0x0018EC, 0x000007E
 .else
 	.incbin "baserom.gba", 0x0018A4, 0x000005E
 .endif
-	.incbin "baserom.gba", 0x001902, 0x000000F
-	.incbin "baserom.gba", 0x001911, 0x000000B
+	.incbin "baserom.gba", 0x001902, 0x000001A
 
 gUnk_0800191C:: @ 0800191C
 .ifdef EU
@@ -304,9 +280,7 @@ gUnk_0800191C:: @ 0800191C
 .else
 	.incbin "baserom.gba", 0x00191C, 0x000004F
 .endif
-	.incbin "baserom.gba", 0x00196B, 0x0000015
-	.incbin "baserom.gba", 0x001980, 0x0000098
-	.incbin "baserom.gba", 0x001A18, 0x0000004
+	.incbin "baserom.gba", 0x00196B, 0x00000B1
 
 gUnk_08001A1C:: @ 08001A1C
 	.incbin "baserom.gba", 0x001A1C, 0x0000060
@@ -467,8 +441,7 @@ gUnk_08001C98:: @ 08001C98
 	.incbin "baserom.gba", 0x001C98, 0x0000006
 
 gUnk_08001C9E:: @ 08001C9E
-	.incbin "baserom.gba", 0x001C9E, 0x0000002
-	.incbin "baserom.gba", 0x001CA0, 0x0000004
+	.incbin "baserom.gba", 0x001C9E, 0x0000006
 
 gUnk_08001CA4:: @ 08001CA4
 	.incbin "baserom.gba", 0x001CA4, 0x0000006
@@ -519,12 +492,10 @@ gUnk_08001CFE:: @ 08001CFE
 	.incbin "baserom.gba", 0x001CFE, 0x0000006
 
 gUnk_08001D04:: @ 08001D04
-	.incbin "baserom.gba", 0x001D04, 0x0000001
-	.incbin "baserom.gba", 0x001D05, 0x0000005
+	.incbin "baserom.gba", 0x001D04, 0x0000006
 
 gUnk_08001D0A:: @ 08001D0A
-	.incbin "baserom.gba", 0x001D0A, 0x0000006
-	.incbin "baserom.gba", 0x001D10, 0x0000006
+	.incbin "baserom.gba", 0x001D0A, 0x000000C
 
 gUnk_08001D16:: @ 08001D16
 	.incbin "baserom.gba", 0x001D16, 0x0000006
@@ -542,8 +513,7 @@ gUnk_08001D2E:: @ 08001D2E
 	.incbin "baserom.gba", 0x001D2E, 0x0000006
 
 gUnk_08001D34:: @ 08001D34
-	.incbin "baserom.gba", 0x001D34, 0x0000002
-	.incbin "baserom.gba", 0x001D36, 0x0000004
+	.incbin "baserom.gba", 0x001D34, 0x0000006
 
 gUnk_08001D3A:: @ 08001D3A
 	.incbin "baserom.gba", 0x001D3A, 0x0000006
@@ -770,9 +740,7 @@ gUnk_08001FF8:: @ 08001FF8
 	.incbin "baserom.gba", 0x001FF8, 0x0000007
 
 gUnk_08001FFF:: @ 08001FFF
-	.incbin "baserom.gba", 0x001FFF, 0x0000001
-	.incbin "baserom.gba", 0x002000, 0x0000005
-	.incbin "baserom.gba", 0x002005, 0x0000001
+	.incbin "baserom.gba", 0x001FFF, 0x0000007
 
 gUnk_08002006:: @ 08002006
 	.incbin "baserom.gba", 0x002006, 0x0000007
@@ -823,8 +791,7 @@ gUnk_08002071:: @ 08002071
 	.incbin "baserom.gba", 0x002071, 0x0000009
 
 gUnk_0800207A:: @ 0800207A
-	.incbin "baserom.gba", 0x00207A, 0x0000006
-	.incbin "baserom.gba", 0x002080, 0x0000001
+	.incbin "baserom.gba", 0x00207A, 0x0000007
 
 gUnk_08002081:: @ 08002081
 	.incbin "baserom.gba", 0x002081, 0x0000009
@@ -839,8 +806,7 @@ gUnk_08002098:: @ 08002098
 	.incbin "baserom.gba", 0x002098, 0x0000007
 
 gUnk_0800209F:: @ 0800209F
-	.incbin "baserom.gba", 0x00209F, 0x0000001
-	.incbin "baserom.gba", 0x0020A0, 0x0000006
+	.incbin "baserom.gba", 0x00209F, 0x0000007
 
 gUnk_080020A6:: @ 080020A6
 	.incbin "baserom.gba", 0x0020A6, 0x0000007
@@ -906,12 +872,10 @@ gUnk_08002135:: @ 08002135
 	.incbin "baserom.gba", 0x002135, 0x0000008
 
 gUnk_0800213D:: @ 0800213D
-	.incbin "baserom.gba", 0x00213D, 0x0000006
-	.incbin "baserom.gba", 0x002143, 0x0000001
+	.incbin "baserom.gba", 0x00213D, 0x0000007
 
 gUnk_08002144:: @ 08002144
-	.incbin "baserom.gba", 0x002144, 0x0000001
-	.incbin "baserom.gba", 0x002145, 0x0000006
+	.incbin "baserom.gba", 0x002144, 0x0000007
 
 gUnk_0800214B:: @ 0800214B
 	.incbin "baserom.gba", 0x00214B, 0x0000007
@@ -1025,8 +989,7 @@ gUnk_0800225C:: @ 0800225C
 	.incbin "baserom.gba", 0x00225C, 0x0000007
 
 gUnk_08002263:: @ 08002263
-	.incbin "baserom.gba", 0x002263, 0x0000001
-	.incbin "baserom.gba", 0x002264, 0x0000006
+	.incbin "baserom.gba", 0x002263, 0x0000007
 
 gUnk_0800226A:: @ 0800226A
 	.incbin "baserom.gba", 0x00226A, 0x0000007
@@ -1104,15 +1067,10 @@ gUnk_0800232C:: @ 0800232C
 	.incbin "baserom.gba", 0x00232C, 0x0000002
 
 gUnk_0800232E:: @ 0800232E
-	.incbin "baserom.gba", 0x00232E, 0x0000005
-	.incbin "baserom.gba", 0x002333, 0x000000F
+	.incbin "baserom.gba", 0x00232E, 0x0000014
 
 gUnk_08002342:: @ 08002342
-	.incbin "baserom.gba", 0x002342, 0x00000CE
-	.incbin "baserom.gba", 0x002410, 0x0000040
-	.incbin "baserom.gba", 0x002450, 0x00000D0
-	.incbin "baserom.gba", 0x002520, 0x0000107
-	.incbin "baserom.gba", 0x002627, 0x000000B
+	.incbin "baserom.gba", 0x002342, 0x00002F0
 
 	non_word_aligned_thumb_func_start sub_08002632
 sub_08002632: @ 0x08002632

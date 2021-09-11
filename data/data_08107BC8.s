@@ -11,5 +11,4 @@ gUnk_08107C0F:: @ 08107C0F
 	.incbin "baserom.gba", 0x107C0F, 0x0000005
 
 gUnk_08107C14:: @ 08107C14
-	.incbin "baserom.gba", 0x107C14, 0x0000004
-	.incbin "baserom.gba", 0x107C18, 0x0000004
+	.incbin "baserom.gba", 0x107C14, 0x0000008

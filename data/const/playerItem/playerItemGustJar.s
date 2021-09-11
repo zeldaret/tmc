@@ -22,9 +22,7 @@ gUnk_08132714:: @ 08132714
 	.4byte gUnk_08132B0C
 
 gUnk_08132734:: @ 08132734
-	.incbin "baserom.gba", 0x132734, 0x0000001
-	.incbin "baserom.gba", 0x132735, 0x0000001
-	.incbin "baserom.gba", 0x132736, 0x000000E
+	.incbin "baserom.gba", 0x132734, 0x0000010
 
 gUnk_08132744:: @ 08132744
 	.incbin "baserom.gba", 0x132744, 0x0000010
@@ -66,8 +64,7 @@ gUnk_081327DC:: @ 081327DC
 	.4byte 00000000
 
 gUnk_08132810:: @ 08132810
-	.incbin "baserom.gba", 0x132810, 0x0000017
-	.incbin "baserom.gba", 0x132827, 0x00002B9
+	.incbin "baserom.gba", 0x132810, 0x00002D0
 
 gUnk_08132AE0:: @ 08132AE0
 	.incbin "baserom.gba", 0x132AE0, 0x000000A

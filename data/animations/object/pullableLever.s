@@ -68,8 +68,7 @@ gUnk_08122314:: @ 08122314
 	.incbin "baserom.gba", 0x122314, 0x0000004
 
 gUnk_08122318:: @ 08122318
-	.incbin "baserom.gba", 0x122318, 0x0000003
-	.incbin "baserom.gba", 0x12231B, 0x0000001
+	.incbin "baserom.gba", 0x122318, 0x0000004
 
 gUnk_0812231C:: @ 0812231C
 	.incbin "baserom.gba", 0x12231C, 0x0000004
@@ -78,8 +77,7 @@ gUnk_08122320:: @ 08122320
 	.incbin "baserom.gba", 0x122320, 0x0000004
 
 gUnk_08122324:: @ 08122324
-	.incbin "baserom.gba", 0x122324, 0x0000003
-	.incbin "baserom.gba", 0x122327, 0x0000001
+	.incbin "baserom.gba", 0x122324, 0x0000004
 
 gUnk_08122328:: @ 08122328
 	.incbin "baserom.gba", 0x122328, 0x0000004

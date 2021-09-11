@@ -1399,7 +1399,4 @@ gUnk_08003DD4:: @ 08003DD4
 	.4byte 00000000
 
 gUnk_08003E44:: @ 08003E44
-	.incbin "baserom.gba", 0x003E44, 0x0000032
-	.incbin "baserom.gba", 0x003E76, 0x000000A
-	.incbin "baserom.gba", 0x003E80, 0x0000087
-	.incbin "baserom.gba", 0x003F07, 0x00000BD
+	.incbin "baserom.gba", 0x003E44, 0x0000180

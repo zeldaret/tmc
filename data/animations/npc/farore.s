@@ -5,15 +5,13 @@
     .align 2
 
 gUnk_0810F9F4:: @ 0810F9F4
-	.incbin "baserom.gba", 0x10F9F4, 0x0000004
-	.incbin "baserom.gba", 0x10F9F8, 0x0000001
+	.incbin "baserom.gba", 0x10F9F4, 0x0000005
 
 gUnk_0810F9F9:: @ 0810F9F9
 	.incbin "baserom.gba", 0x10F9F9, 0x0000005
 
 gUnk_0810F9FE:: @ 0810F9FE
-	.incbin "baserom.gba", 0x10F9FE, 0x0000002
-	.incbin "baserom.gba", 0x10FA00, 0x0000003
+	.incbin "baserom.gba", 0x10F9FE, 0x0000005
 
 gUnk_0810FA03:: @ 0810FA03
 	.incbin "baserom.gba", 0x10FA03, 0x0000011

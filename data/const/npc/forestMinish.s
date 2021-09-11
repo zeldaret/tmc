@@ -54,10 +54,7 @@ gUnk_08109D18:: @ 08109D18
 	.4byte script_0800CD04
 
 gUnk_08109DC8:: @ 08109DC8
-	.incbin "baserom.gba", 0x109DC8, 0x000003F
-	.incbin "baserom.gba", 0x109E07, 0x000010E
-	.incbin "baserom.gba", 0x109F15, 0x0000052
-	.incbin "baserom.gba", 0x109F67, 0x0000005
+	.incbin "baserom.gba", 0x109DC8, 0x00001A4
 .ifdef JP
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x109C30, 0x000002B
@@ -98,9 +95,7 @@ gUnk_08109DC8:: @ 08109DC8
 	.4byte sub_080601D4
 	.incbin "baserom.gba", 0x10A080, 0x0000004
 	.4byte sub_080601D4
-	.incbin "baserom.gba", 0x10A088, 0x00000D1
-	.incbin "baserom.gba", 0x10A159, 0x0000048
-	.incbin "baserom.gba", 0x10A1A1, 0x00001A7
+	.incbin "baserom.gba", 0x10A088, 0x00002C0
 
 gUnk_0810A348:: @ 0810A348
 	.incbin "baserom.gba", 0x10A348, 0x000000C

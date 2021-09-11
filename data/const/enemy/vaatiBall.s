@@ -17,5 +17,4 @@ gUnk_080D1620:: @ 080D1620
 	.incbin "baserom.gba", 0x0D1620, 0x0000008
 
 gUnk_080D1628:: @ 080D1628
-	.incbin "baserom.gba", 0x0D1628, 0x0000007
-	.incbin "baserom.gba", 0x0D162F, 0x0000009
+	.incbin "baserom.gba", 0x0D1628, 0x0000010

@@ -39,10 +39,7 @@ gUnk_0810BE0C:: @ 0810BE0C
 gUnk_0810BE10:: @ 0810BE10
 	.4byte sub_08062130
 	.4byte sub_08062194
-	.incbin "baserom.gba", 0x10BE18, 0x0000029
-	.incbin "baserom.gba", 0x10BE41, 0x00000C2
-	.incbin "baserom.gba", 0x10BF03, 0x0000104
-	.incbin "baserom.gba", 0x10C007, 0x0000008
+	.incbin "baserom.gba", 0x10BE18, 0x00001F7
 .ifdef JP
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x10BCD3, 0x0000091

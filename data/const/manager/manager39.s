@@ -15,8 +15,7 @@ gUnk_08108E30:: @ 08108E30
 	.incbin "baserom.gba", 0x108E30, 0x0000018
 
 gUnk_08108E48:: @ 08108E48
-	.incbin "baserom.gba", 0x108E48, 0x0000002
-	.incbin "baserom.gba", 0x108E4A, 0x0000016
+	.incbin "baserom.gba", 0x108E48, 0x0000018
 
 gUnk_08108E60:: @ 08108E60
 	.incbin "baserom.gba", 0x108E60, 0x000000C

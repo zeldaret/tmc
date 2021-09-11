@@ -5,9 +5,7 @@
     .align 2
 
 gUnk_080D1818:: @ 080D1818
-	.incbin "baserom.gba", 0x0D1818, 0x0000004
-	.incbin "baserom.gba", 0x0D181C, 0x0000010
-	.incbin "baserom.gba", 0x0D182C, 0x000000D
+	.incbin "baserom.gba", 0x0D1818, 0x0000021
 
 gUnk_080D1839:: @ 080D1839
 	.incbin "baserom.gba", 0x0D1839, 0x0000023

@@ -78,8 +78,7 @@ gUnk_080D2C58:: @ 080D2C58
 	.4byte gUnk_080D3598
 	.incbin "baserom.gba", 0x0D2E10, 0x000000C
 	.4byte gUnk_080FD318
-	.incbin "baserom.gba", 0x0D2E20, 0x0000006
-	.incbin "baserom.gba", 0x0D2E26, 0x0000006
+	.incbin "baserom.gba", 0x0D2E20, 0x000000C
 	.4byte gUnk_080FD2C0
 	.incbin "baserom.gba", 0x0D2E30, 0x000000C
 	.4byte gUnk_080FD150

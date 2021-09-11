@@ -55,8 +55,7 @@ bgmVaatiMotif_track1:: @ 08DCC728
 bgmVaatiMotif_track2:: @ 08DCC764
 	.incbin "baserom.gba", 0xDCC764, 0x000003C
 bgmVaatiMotif_track3:: @ 08DCC7A0
-	.incbin "baserom.gba", 0xDCC7A0, 0x000000B
-	.incbin "baserom.gba", 0xDCC7AB, 0x0000031
+	.incbin "baserom.gba", 0xDCC7A0, 0x000003C
 bgmVaatiMotif_track4:: @ 08DCC7DC
 	.incbin "baserom.gba", 0xDCC7DC, 0x000003C
 bgmVaatiMotif_track5:: @ 08DCC818
@@ -77,8 +76,7 @@ bgmTitleScreen_track4:: @ 08DCC952
 bgmTitleScreen_track5:: @ 08DCC98D
 	.incbin "baserom.gba", 0xDCC98D, 0x0000007
 gUnk_08DCC994:: @ 08DCC994
-	.incbin "baserom.gba", 0xDCC994, 0x0000005
-	.incbin "baserom.gba", 0xDCC999, 0x0000009
+	.incbin "baserom.gba", 0xDCC994, 0x000000E
 	.4byte gUnk_08DCC994
 	.incbin "baserom.gba", 0xDCC9A6, 0x0000009
 bgmTitleScreen_track6:: @ 08DCC9AF
@@ -118,8 +116,7 @@ gUnk_08DCCC95:: @ 08DCCC95
 bgmElementGet_track6:: @ 08DCCCB1
 	.incbin "baserom.gba", 0xDCCCB1, 0x0000014
 bgmElementGet_track7:: @ 08DCCCC5
-	.incbin "baserom.gba", 0xDCCCC5, 0x0000007
-	.incbin "baserom.gba", 0xDCCCCC, 0x000000B
+	.incbin "baserom.gba", 0xDCCCC5, 0x0000012
 gUnk_08DCCCD7:: @ 08DCCCD7
 	.incbin "baserom.gba", 0xDCCCD7, 0x0000013
 	.4byte gUnk_08DCCCD7
@@ -378,8 +375,7 @@ gUnk_08DCD2AA:: @ 08DCD2AA
 	.4byte gUnk_08DCD265
 	.incbin "baserom.gba", 0xDCD2E9, 0x0000001
 bgmFileSelect_track4:: @ 08DCD2EA
-	.incbin "baserom.gba", 0xDCD2EA, 0x0000002
-	.incbin "baserom.gba", 0xDCD2EC, 0x0000005
+	.incbin "baserom.gba", 0xDCD2EA, 0x0000007
 gUnk_08DCD2F1:: @ 08DCD2F1
 	.incbin "baserom.gba", 0xDCD2F1, 0x000005D
 gUnk_08DCD34E:: @ 08DCD34E
@@ -597,8 +593,7 @@ gUnk_08DCDB0F:: @ 08DCDB0F
 gUnk_08DCDB6F:: @ 08DCDB6F
 	.incbin "baserom.gba", 0xDCDB6F, 0x0000037
 	.4byte gUnk_08DCDB6F
-	.incbin "baserom.gba", 0xDCDBAA, 0x0000010
-	.incbin "baserom.gba", 0xDCDBBA, 0x000000F
+	.incbin "baserom.gba", 0xDCDBAA, 0x000001F
 gUnk_08DCDBC9:: @ 08DCDBC9
 	.incbin "baserom.gba", 0xDCDBC9, 0x0000037
 	.4byte gUnk_08DCDBC9
@@ -692,8 +687,7 @@ gUnk_08DCE0A2:: @ 08DCE0A2
 	.4byte gUnk_08DCE0A2
 	.incbin "baserom.gba", 0xDCE0B3, 0x0000009
 	.4byte gUnk_08DCE0A2
-	.incbin "baserom.gba", 0xDCE0C0, 0x0000020
-	.incbin "baserom.gba", 0xDCE0E0, 0x0000032
+	.incbin "baserom.gba", 0xDCE0C0, 0x0000052
 gUnk_08DCE112:: @ 08DCE112
 	.incbin "baserom.gba", 0xDCE112, 0x000000B
 gUnk_08DCE11D:: @ 08DCE11D
@@ -985,8 +979,7 @@ gUnk_08DCEB31:: @ 08DCEB31
 	.4byte gUnk_08DCEB31
 	.incbin "baserom.gba", 0xDCEB84, 0x0000001
 	.4byte gUnk_08DCEA1A
-	.incbin "baserom.gba", 0xDCEB89, 0x0000075
-	.incbin "baserom.gba", 0xDCEBFE, 0x0000010
+	.incbin "baserom.gba", 0xDCEB89, 0x0000085
 	.4byte gUnk_08DCEA1A
 	.incbin "baserom.gba", 0xDCEC12, 0x0000001
 	.4byte gUnk_08DCEA06
@@ -1381,8 +1374,7 @@ gUnk_08DCFE7F:: @ 08DCFE7F
 	.4byte gUnk_08DCFE7F
 	.incbin "baserom.gba", 0xDCFF0C, 0x0000001
 bgmVaatiTheme_track2:: @ 08DCFF0D
-	.incbin "baserom.gba", 0xDCFF0D, 0x0000023
-	.incbin "baserom.gba", 0xDCFF30, 0x0000010
+	.incbin "baserom.gba", 0xDCFF0D, 0x0000033
 gUnk_08DCFF40:: @ 08DCFF40
 	.incbin "baserom.gba", 0xDCFF40, 0x0000013
 gUnk_08DCFF53:: @ 08DCFF53
@@ -1434,8 +1426,7 @@ gUnk_08DD0097:: @ 08DD0097
 bgmVaatiTheme_track5:: @ 08DD00D5
 	.incbin "baserom.gba", 0xDD00D5, 0x0000008
 gUnk_08DD00DD:: @ 08DD00DD
-	.incbin "baserom.gba", 0xDD00DD, 0x0000023
-	.incbin "baserom.gba", 0xDD0100, 0x000004F
+	.incbin "baserom.gba", 0xDD00DD, 0x0000072
 	.4byte gUnk_08DD00DD
 	.incbin "baserom.gba", 0xDD0153, 0x0000001
 bgmVaatiTheme_track6:: @ 08DD0154
@@ -1454,13 +1445,11 @@ bgmVaatiTheme:: @ 08DD0244
 bgmEzloTheme_track0:: @ 08DD0268
 	.incbin "baserom.gba", 0xDD0268, 0x000000B
 gUnk_08DD0273:: @ 08DD0273
-	.incbin "baserom.gba", 0xDD0273, 0x0000069
-	.incbin "baserom.gba", 0xDD02DC, 0x000001E
+	.incbin "baserom.gba", 0xDD0273, 0x0000087
 	.4byte gUnk_08DD0273
 	.incbin "baserom.gba", 0xDD02FE, 0x0000001
 bgmEzloTheme_track1:: @ 08DD02FF
-	.incbin "baserom.gba", 0xDD02FF, 0x0000001
-	.incbin "baserom.gba", 0xDD0300, 0x0000006
+	.incbin "baserom.gba", 0xDD02FF, 0x0000007
 gUnk_08DD0306:: @ 08DD0306
 	.incbin "baserom.gba", 0xDD0306, 0x000001E
 gUnk_08DD0324:: @ 08DD0324
@@ -1560,8 +1549,7 @@ bgmStory_track4:: @ 08DD08C3
 gUnk_08DD08DE:: @ 08DD08DE
 	.incbin "baserom.gba", 0xDD08DE, 0x0000017
 gUnk_08DD08F5:: @ 08DD08F5
-	.incbin "baserom.gba", 0xDD08F5, 0x000000B
-	.incbin "baserom.gba", 0xDD0900, 0x0000025
+	.incbin "baserom.gba", 0xDD08F5, 0x0000030
 	.4byte gUnk_08DD08F5
 	.incbin "baserom.gba", 0xDD0929, 0x0000001
 	.4byte gUnk_08DD08DE
@@ -1598,8 +1586,7 @@ bgmFestivalApproach_track0:: @ 08DD0ABC
 gUnk_08DD0AC7:: @ 08DD0AC7
 	.incbin "baserom.gba", 0xDD0AC7, 0x0000038
 gUnk_08DD0AFF:: @ 08DD0AFF
-	.incbin "baserom.gba", 0xDD0AFF, 0x0000001
-	.incbin "baserom.gba", 0xDD0B00, 0x0000036
+	.incbin "baserom.gba", 0xDD0AFF, 0x0000037
 gUnk_08DD0B36:: @ 08DD0B36
 	.incbin "baserom.gba", 0xDD0B36, 0x0000039
 gUnk_08DD0B6F:: @ 08DD0B6F
@@ -1935,8 +1922,7 @@ bgmHouse:: @ 08DD1990
 bgmCuccoMinigame_track0:: @ 08DD19B8
 	.incbin "baserom.gba", 0xDD19B8, 0x000000B
 gUnk_08DD19C3:: @ 08DD19C3
-	.incbin "baserom.gba", 0xDD19C3, 0x0000040
-	.incbin "baserom.gba", 0xDD1A03, 0x0000054
+	.incbin "baserom.gba", 0xDD19C3, 0x0000094
 	.4byte gUnk_08DD19C3
 	.incbin "baserom.gba", 0xDD1A5B, 0x0000001
 bgmCuccoMinigame_track1:: @ 08DD1A5C
@@ -1997,8 +1983,7 @@ gUnk_08DD1CBA:: @ 08DD1CBA
 gUnk_08DD1CC7:: @ 08DD1CC7
 	.incbin "baserom.gba", 0xDD1CC7, 0x000001F
 	.4byte gUnk_08DD1CC7
-	.incbin "baserom.gba", 0xDD1CEA, 0x000003C
-	.incbin "baserom.gba", 0xDD1D26, 0x0000011
+	.incbin "baserom.gba", 0xDD1CEA, 0x000004D
 	.4byte gUnk_08DD1CBA
 	.incbin "baserom.gba", 0xDD1D3B, 0x0000001
 bgmSyrupTheme_track2:: @ 08DD1D3C
@@ -2055,8 +2040,7 @@ gUnk_08DD1F6E:: @ 08DD1F6E
 gUnk_08DD1F87:: @ 08DD1F87
 	.incbin "baserom.gba", 0xDD1F87, 0x0000033
 	.4byte gUnk_08DD1F87
-	.incbin "baserom.gba", 0xDD1FBE, 0x0000042
-	.incbin "baserom.gba", 0xDD2000, 0x0000001
+	.incbin "baserom.gba", 0xDD1FBE, 0x0000043
 	.4byte gUnk_08DD1F6E
 	.incbin "baserom.gba", 0xDD2005, 0x0000001
 bgmDungeon_track3:: @ 08DD2006
@@ -2168,8 +2152,7 @@ gUnk_08DD2832:: @ 08DD2832
 gUnk_08DD2841:: @ 08DD2841
 	.incbin "baserom.gba", 0xDD2841, 0x00000C2
 	.4byte gUnk_08DD2841
-	.incbin "baserom.gba", 0xDD2907, 0x000000F
-	.incbin "baserom.gba", 0xDD2916, 0x000001A
+	.incbin "baserom.gba", 0xDD2907, 0x0000029
 gUnk_08DD2930:: @ 08DD2930
 	.incbin "baserom.gba", 0xDD2930, 0x0000027
 	.4byte gUnk_08DD2930
@@ -3596,8 +3579,7 @@ gUnk_08DD63CA:: @ 08DD63CA
 gUnk_08DD63DA:: @ 08DD63DA
 	.incbin "baserom.gba", 0xDD63DA, 0x000000C
 gUnk_08DD63E6:: @ 08DD63E6
-	.incbin "baserom.gba", 0xDD63E6, 0x0000019
-	.incbin "baserom.gba", 0xDD63FF, 0x0000001
+	.incbin "baserom.gba", 0xDD63E6, 0x000001A
 	.4byte gUnk_08DD63AA
 	.incbin "baserom.gba", 0xDD6404, 0x0000001
 	.4byte gUnk_08DD63B6
@@ -4216,8 +4198,7 @@ gUnk_08DD7714:: @ 08DD7714
 gUnk_08DD772A:: @ 08DD772A
 	.incbin "baserom.gba", 0xDD772A, 0x0000016
 gUnk_08DD7740:: @ 08DD7740
-	.incbin "baserom.gba", 0xDD7740, 0x0000026
-	.incbin "baserom.gba", 0xDD7766, 0x0000009
+	.incbin "baserom.gba", 0xDD7740, 0x000002F
 	.4byte gUnk_08DD76AD
 	.incbin "baserom.gba", 0xDD7773, 0x0000001
 	.4byte gUnk_08DD76CB
@@ -4477,8 +4458,7 @@ gUnk_08DD7FBA:: @ 08DD7FBA
 	.4byte gUnk_08DD7FAA
 	.incbin "baserom.gba", 0xDD7FCB, 0x000003A
 gUnk_08DD8005:: @ 08DD8005
-	.incbin "baserom.gba", 0xDD8005, 0x000002B
-	.incbin "baserom.gba", 0xDD8030, 0x0000020
+	.incbin "baserom.gba", 0xDD8005, 0x000004B
 	.4byte gUnk_08DD8005
 	.incbin "baserom.gba", 0xDD8054, 0x0000053
 	.4byte gUnk_08DD7FAA
@@ -4504,8 +4484,7 @@ gUnk_08DD8101:: @ 08DD8101
 gUnk_08DD8121:: @ 08DD8121
 	.incbin "baserom.gba", 0xDD8121, 0x00000EF
 	.4byte gUnk_08DD8121
-	.incbin "baserom.gba", 0xDD8214, 0x0000008
-	.incbin "baserom.gba", 0xDD821C, 0x0000006
+	.incbin "baserom.gba", 0xDD8214, 0x000000E
 gUnk_08DD8222:: @ 08DD8222
 	.incbin "baserom.gba", 0xDD8222, 0x0000013
 	.4byte gUnk_08DD8222
@@ -4731,8 +4710,7 @@ bgmPalaceOfWinds_track7:: @ 08DD8D7E
 gUnk_08DD8DA2:: @ 08DD8DA2
 	.incbin "baserom.gba", 0xDD8DA2, 0x0000024
 gUnk_08DD8DC6:: @ 08DD8DC6
-	.incbin "baserom.gba", 0xDD8DC6, 0x0000012
-	.incbin "baserom.gba", 0xDD8DD8, 0x0000015
+	.incbin "baserom.gba", 0xDD8DC6, 0x0000027
 	.4byte gUnk_08DD8DC6
 	.incbin "baserom.gba", 0xDD8DF1, 0x0000001
 	.4byte gUnk_08DD8DC6
@@ -5176,8 +5154,7 @@ gUnk_08DDA0A1:: @ 08DDA0A1
 bgmBossTheme_track3:: @ 08DDA0B9
 	.incbin "baserom.gba", 0xDDA0B9, 0x000001A
 gUnk_08DDA0D3:: @ 08DDA0D3
-	.incbin "baserom.gba", 0xDDA0D3, 0x0000009
-	.incbin "baserom.gba", 0xDDA0DC, 0x0000004
+	.incbin "baserom.gba", 0xDDA0D3, 0x000000D
 gUnk_08DDA0E0:: @ 08DDA0E0
 	.incbin "baserom.gba", 0xDDA0E0, 0x000000F
 	.4byte gUnk_08DDA0E0
@@ -5849,8 +5826,7 @@ gUnk_08DDB67A:: @ 08DDB67A
 	.4byte gUnk_08DDB67A
 	.incbin "baserom.gba", 0xDDB698, 0x0000001
 	.4byte gUnk_08DDB67A
-	.incbin "baserom.gba", 0xDDB69D, 0x000005C
-	.incbin "baserom.gba", 0xDDB6F9, 0x000001E
+	.incbin "baserom.gba", 0xDDB69D, 0x000007A
 	.4byte gUnk_08DDB65D
 	.incbin "baserom.gba", 0xDDB71B, 0x0000001
 bgmVaatiWrath_track1:: @ 08DDB71C
@@ -5876,8 +5852,7 @@ gUnk_08DDB8B6:: @ 08DDB8B6
 bgmVaatiWrath_track3:: @ 08DDBA54
 	.incbin "baserom.gba", 0xDDBA54, 0x0000024
 gUnk_08DDBA78:: @ 08DDBA78
-	.incbin "baserom.gba", 0xDDBA78, 0x0000025
-	.incbin "baserom.gba", 0xDDBA9D, 0x000001C
+	.incbin "baserom.gba", 0xDDBA78, 0x0000041
 gUnk_08DDBAB9:: @ 08DDBAB9
 	.incbin "baserom.gba", 0xDDBAB9, 0x0000021
 	.4byte gUnk_08DDBAB9
@@ -5893,8 +5868,7 @@ bgmVaatiWrath_track4:: @ 08DDBB43
 gUnk_08DDBB59:: @ 08DDBB59
 	.incbin "baserom.gba", 0xDDBB59, 0x0000027
 gUnk_08DDBB80:: @ 08DDBB80
-	.incbin "baserom.gba", 0xDDBB80, 0x000002A
-	.incbin "baserom.gba", 0xDDBBAA, 0x0000004
+	.incbin "baserom.gba", 0xDDBB80, 0x000002E
 	.4byte gUnk_08DDBB80
 	.incbin "baserom.gba", 0xDDBBB2, 0x0000001
 	.4byte gUnk_08DDBB80
@@ -6323,8 +6297,7 @@ gUnk_08DDCB6B:: @ 08DDCB6B
 	.4byte gUnk_08DDCB6B
 	.incbin "baserom.gba", 0xDDCBA6, 0x000001F
 gUnk_08DDCBC5:: @ 08DDCBC5
-	.incbin "baserom.gba", 0xDDCBC5, 0x0000006
-	.incbin "baserom.gba", 0xDDCBCB, 0x0000031
+	.incbin "baserom.gba", 0xDDCBC5, 0x0000037
 	.4byte gUnk_08DDCBC5
 	.incbin "baserom.gba", 0xDDCC00, 0x000001C
 	.4byte gUnk_08DDCBC5
@@ -6395,9 +6368,7 @@ gUnk_08DDCEA2:: @ 08DDCEA2
 	.4byte gUnk_08DDCEA2
 	.incbin "baserom.gba", 0xDDCEBF, 0x0000001
 	.4byte gUnk_08DDCE99
-	.incbin "baserom.gba", 0xDDCEC4, 0x0000003
-	.incbin "baserom.gba", 0xDDCEC7, 0x000001E
-	.incbin "baserom.gba", 0xDDCEE5, 0x000003B
+	.incbin "baserom.gba", 0xDDCEC4, 0x000005C
 	.4byte gUnk_08DDCE91
 	.incbin "baserom.gba", 0xDDCF24, 0x0000004
 bgmMinishCap:: @ 08DDCF28
@@ -6608,8 +6579,7 @@ bgmPicoriFestival_track0:: @ 08DDD534
 gUnk_08DDD53C:: @ 08DDD53C
 	.incbin "baserom.gba", 0xDDD53C, 0x0000017
 gUnk_08DDD553:: @ 08DDD553
-	.incbin "baserom.gba", 0xDDD553, 0x0000024
-	.incbin "baserom.gba", 0xDDD577, 0x0000008
+	.incbin "baserom.gba", 0xDDD553, 0x000002C
 gUnk_08DDD57F:: @ 08DDD57F
 	.incbin "baserom.gba", 0xDDD57F, 0x0000010
 gUnk_08DDD58F:: @ 08DDD58F
@@ -7085,8 +7055,7 @@ gUnk_08DDE862:: @ 08DDE862
 bgmWindRuins_track1:: @ 08DDE8CE
 	.incbin "baserom.gba", 0xDDE8CE, 0x000000B
 gUnk_08DDE8D9:: @ 08DDE8D9
-	.incbin "baserom.gba", 0xDDE8D9, 0x0000002
-	.incbin "baserom.gba", 0xDDE8DB, 0x0000004
+	.incbin "baserom.gba", 0xDDE8D9, 0x0000006
 gUnk_08DDE8DF:: @ 08DDE8DF
 	.incbin "baserom.gba", 0xDDE8DF, 0x0000008
 	.4byte gUnk_08DDE8DF
@@ -7126,8 +7095,7 @@ gUnk_08DDE8DF:: @ 08DDE8DF
 bgmWindRuins_track2:: @ 08DDE95A
 	.incbin "baserom.gba", 0xDDE95A, 0x000000D
 gUnk_08DDE967:: @ 08DDE967
-	.incbin "baserom.gba", 0xDDE967, 0x0000019
-	.incbin "baserom.gba", 0xDDE980, 0x0000013
+	.incbin "baserom.gba", 0xDDE967, 0x000002C
 	.4byte gUnk_08DDE967
 	.incbin "baserom.gba", 0xDDE997, 0x0000001
 bgmWindRuins_track3:: @ 08DDE998
@@ -7254,8 +7222,7 @@ sfxTextboxOpen:: @ 08DDEEBC
 sfxTextboxClose_track0:: @ 08DDEECC
 	.incbin "baserom.gba", 0xDDEECC, 0x000002A
 sfxTextboxClose_track1:: @ 08DDEEF6
-	.incbin "baserom.gba", 0xDDEEF6, 0x0000009
-	.incbin "baserom.gba", 0xDDEEFF, 0x0000021
+	.incbin "baserom.gba", 0xDDEEF6, 0x000002A
 sfxTextboxClose:: @ 08DDEF20
 	sound_header 2 0 0x30 0 gUnk_08A0FF80 sfxTextboxClose_track0 sfxTextboxClose_track1
 
@@ -7653,8 +7620,7 @@ sfxMinish3:: @ 08DDFAEC
 	sound_header 1 0 0x48 0 gUnk_08A103AC sfxMinish3_track0
 
 sfxMinish4_track0:: @ 08DDFAF8
-	.incbin "baserom.gba", 0xDDFAF8, 0x0000005
-	.incbin "baserom.gba", 0xDDFAFD, 0x000000B
+	.incbin "baserom.gba", 0xDDFAF8, 0x0000010
 sfxMinish4:: @ 08DDFB08
 	sound_header 1 0 0x48 0 gUnk_08A103B8 sfxMinish4_track0
 
@@ -7923,8 +7889,7 @@ sfxWind1:: @ 08DE00EC
 	sound_header 1 0 0x30 0 gUnk_08A10634 sfxWind1_track0
 
 sfxWind2_track0:: @ 08DE00F8
-	.incbin "baserom.gba", 0xDE00F8, 0x0000010
-	.incbin "baserom.gba", 0xDE0108, 0x0000030
+	.incbin "baserom.gba", 0xDE00F8, 0x0000040
 sfxWind2:: @ 08DE0138
 	sound_header 1 0 0x30 0 gUnk_08A10640 sfxWind2_track0
 
@@ -8094,9 +8059,7 @@ sfx104:: @ 08DE08FC
 gUnk_08DE0908:: @ 08DE0908
 	.incbin "baserom.gba", 0xDE0908, 0x0000010
 gUnk_08DE0918:: @ 08DE0918
-	.incbin "baserom.gba", 0xDE0918, 0x00000A8
-	.incbin "baserom.gba", 0xDE09C0, 0x0000743
-	.incbin "baserom.gba", 0xDE1103, 0x0000282
+	.incbin "baserom.gba", 0xDE0918, 0x0000A6D
 gUnk_08DE1385:: @ 08DE1385
 	.incbin "baserom.gba", 0xDE1385, 0x0000185
 gUnk_08DE150A:: @ 08DE150A
@@ -8280,8 +8243,7 @@ sfxChargingUp:: @ 08DE26E4
 	sound_header 1 0 0x40 0 gUnk_08A10A9C sfxChargingUp_track0
 
 sfxStairs_track0:: @ 08DE26F0
-	.incbin "baserom.gba", 0xDE26F0, 0x0000004
-	.incbin "baserom.gba", 0xDE26F4, 0x0000024
+	.incbin "baserom.gba", 0xDE26F0, 0x0000028
 sfxStairs:: @ 08DE2718
 	sound_header 1 0 0x40 0 gUnk_08A10AA8 sfxStairs_track0
 
@@ -8313,8 +8275,7 @@ sfx126:: @ 08DE287C
 	sound_header 2 0 0x40 0 gUnk_08A10AF0 sfx126_track0 sfx126_track1
 
 sfxBossHit_track0:: @ 08DE288C
-	.incbin "baserom.gba", 0xDE288C, 0x000004B
-	.incbin "baserom.gba", 0xDE28D7, 0x000002B
+	.incbin "baserom.gba", 0xDE288C, 0x0000076
 sfxBossHit_track1:: @ 08DE2902
 	.incbin "baserom.gba", 0xDE2902, 0x0000042
 sfxBossHit:: @ 08DE2944
@@ -8323,8 +8284,7 @@ sfxBossHit:: @ 08DE2944
 sfxBossDie_track0:: @ 08DE2954
 	.incbin "baserom.gba", 0xDE2954, 0x000008A
 sfxBossDie_track1:: @ 08DE29DE
-	.incbin "baserom.gba", 0xDE29DE, 0x0000074
-	.incbin "baserom.gba", 0xDE2A52, 0x0000016
+	.incbin "baserom.gba", 0xDE29DE, 0x000008A
 sfxBossDie:: @ 08DE2A68
 	sound_header 2 0 0x70 0 gUnk_08A10B20 sfxBossDie_track0 sfxBossDie_track1
 

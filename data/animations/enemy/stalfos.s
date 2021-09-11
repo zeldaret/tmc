@@ -47,9 +47,7 @@ gUnk_080CF9D7:: @ 080CF9D7
 	.incbin "baserom.gba", 0x0CF9D7, 0x0000011
 
 gUnk_080CF9E8:: @ 080CF9E8
-	.incbin "baserom.gba", 0x0CF9E8, 0x000000B
-	.incbin "baserom.gba", 0x0CF9F3, 0x0000004
-	.incbin "baserom.gba", 0x0CF9F7, 0x0000002
+	.incbin "baserom.gba", 0x0CF9E8, 0x0000011
 
 gUnk_080CF9F9:: @ 080CF9F9
 	.incbin "baserom.gba", 0x0CF9F9, 0x0000011

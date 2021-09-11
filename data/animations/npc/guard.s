@@ -11,9 +11,7 @@ gUnk_0810F59A:: @ 0810F59A
 	.incbin "baserom.gba", 0x10F59A, 0x000003A
 
 gUnk_0810F5D4:: @ 0810F5D4
-	.incbin "baserom.gba", 0x10F5D4, 0x000001F
-	.incbin "baserom.gba", 0x10F5F3, 0x0000005
-	.incbin "baserom.gba", 0x10F5F8, 0x0000016
+	.incbin "baserom.gba", 0x10F5D4, 0x000003A
 
 gUnk_0810F60E:: @ 0810F60E
 	.incbin "baserom.gba", 0x10F60E, 0x0000005

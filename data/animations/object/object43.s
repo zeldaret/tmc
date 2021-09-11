@@ -5,36 +5,19 @@
     .align 2
 
 gUnk_081217E0:: @ 081217E0
-	.incbin "baserom.gba", 0x1217E0, 0x000003A
-	.incbin "baserom.gba", 0x12181A, 0x0000001
-	.incbin "baserom.gba", 0x12181B, 0x0000001
-	.incbin "baserom.gba", 0x12181C, 0x0000001
-	.incbin "baserom.gba", 0x12181D, 0x0000047
+	.incbin "baserom.gba", 0x1217E0, 0x0000084
 
 gUnk_08121864:: @ 08121864
 	.incbin "baserom.gba", 0x121864, 0x0000084
 
 gUnk_081218E8:: @ 081218E8
-	.incbin "baserom.gba", 0x1218E8, 0x0000031
-	.incbin "baserom.gba", 0x121919, 0x0000001
-	.incbin "baserom.gba", 0x12191A, 0x0000002
-	.incbin "baserom.gba", 0x12191C, 0x0000001
-	.incbin "baserom.gba", 0x12191D, 0x0000001
-	.incbin "baserom.gba", 0x12191E, 0x0000001
-	.incbin "baserom.gba", 0x12191F, 0x0000001
-	.incbin "baserom.gba", 0x121920, 0x0000001
-	.incbin "baserom.gba", 0x121921, 0x000004B
+	.incbin "baserom.gba", 0x1218E8, 0x0000084
 
 gUnk_0812196C:: @ 0812196C
 	.incbin "baserom.gba", 0x12196C, 0x0000084
 
 gUnk_081219F0:: @ 081219F0
-	.incbin "baserom.gba", 0x1219F0, 0x000000C
-	.incbin "baserom.gba", 0x1219FC, 0x0000020
-	.incbin "baserom.gba", 0x121A1C, 0x0000002
-	.incbin "baserom.gba", 0x121A1E, 0x0000001
-	.incbin "baserom.gba", 0x121A1F, 0x0000001
-	.incbin "baserom.gba", 0x121A20, 0x000000D
+	.incbin "baserom.gba", 0x1219F0, 0x000003D
 
 gUnk_08121A2D:: @ 08121A2D
 	.incbin "baserom.gba", 0x121A2D, 0x000003D
@@ -43,8 +26,7 @@ gUnk_08121A6A:: @ 08121A6A
 	.incbin "baserom.gba", 0x121A6A, 0x000003D
 
 gUnk_08121AA7:: @ 08121AA7
-	.incbin "baserom.gba", 0x121AA7, 0x0000001
-	.incbin "baserom.gba", 0x121AA8, 0x000003C
+	.incbin "baserom.gba", 0x121AA7, 0x000003D
 
 gUnk_08121AE4:: @ 08121AE4
 	.incbin "baserom.gba", 0x121AE4, 0x0000010
@@ -56,9 +38,7 @@ gUnk_08121B04:: @ 08121B04
 	.incbin "baserom.gba", 0x121B04, 0x0000010
 
 gUnk_08121B14:: @ 08121B14
-	.incbin "baserom.gba", 0x121B14, 0x000000B
-	.incbin "baserom.gba", 0x121B1F, 0x0000004
-	.incbin "baserom.gba", 0x121B23, 0x0000001
+	.incbin "baserom.gba", 0x121B14, 0x0000010
 
 gUnk_08121B24:: @ 08121B24
 	.incbin "baserom.gba", 0x121B24, 0x0000024
