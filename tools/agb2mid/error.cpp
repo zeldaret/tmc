@@ -18,38 +18,19 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#ifndef PREPROC_H
-#define PREPROC_H
-
 #include <cstdio>
 #include <cstdlib>
-#include "charmap.h"
+#include <cstdarg>
 
-#ifdef _MSC_VER
-
-#define FATAL_ERROR(format, ...)               \
-do                                             \
-{                                              \
-    std::fprintf(stderr, format, __VA_ARGS__); \
-    std::exit(1);                              \
-} while (0)
-
-#else
-
-#define FATAL_ERROR(format, ...)                 \
-do                                               \
-{                                                \
-    std::fprintf(stderr, format, ##__VA_ARGS__); \
-    std::exit(1);                                \
-} while (0)
-
-#endif // _MSC_VER
-
-const int kMaxPath = 256;
-const int kMaxStringLength = 1024;
-const unsigned long kMaxCharmapSequenceLength = 16;
-
-extern Charmap* g_charmap;
-extern std::string g_buildName;
-
-#endif // PREPROC_H
+// Reports an error diagnostic and terminates the program.
+[[noreturn]] void RaiseError(const char* format, ...)
+{
+    const int bufferSize = 1024;
+    char buffer[bufferSize];
+    std::va_list args;
+    va_start(args, format);
+    std::vsnprintf(buffer, bufferSize, format, args);
+    std::fprintf(stderr, "error: %s\n", buffer);
+    va_end(args);
+    std::exit(1);
+}

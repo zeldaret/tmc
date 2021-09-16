@@ -62280,9 +62280,14 @@
   start: 0xdc81bc
   size: 0x42c0
   type: aif
-- path: sounds/sfxNone_track0.bin
-  start: 0xdcc47c
+- path: sounds/sfxNone.s
+  start: 0xDCC48C
   size: 0x10
+  type: midi
+  options:
+    group: 0
+    priority: 0xff
+    reverb: 0
 - path: sounds/bgmCastleTournament_track0.bin
   start: 0xdcc498
   size: 0x3e
@@ -62340,51 +62345,27 @@
 - path: sounds/gUnk_08DCC6BC_1.bin
   start: 0xdcc6cb
   size: 0x1
-- path: sounds/bgmVaatiMotif_track0.bin
-  start: 0xdcc6f0
-  size: 0x38
-- path: sounds/bgmVaatiMotif_track1.bin
-  start: 0xdcc728
-  size: 0x3c
-- path: sounds/bgmVaatiMotif_track2.bin
-  start: 0xdcc764
-  size: 0x3c
-- path: sounds/bgmVaatiMotif_track3.bin
-  start: 0xdcc7a0
-  size: 0x3c
-- path: sounds/bgmVaatiMotif_track4.bin
-  start: 0xdcc7dc
-  size: 0x3c
-- path: sounds/bgmVaatiMotif_track5.bin
-  start: 0xdcc818
-  size: 0x2c
-- path: sounds/bgmTitleScreen_track0.bin
-  start: 0xdcc864
-  size: 0x34
-- path: sounds/bgmTitleScreen_track1.bin
-  start: 0xdcc898
-  size: 0x2f
-- path: sounds/bgmTitleScreen_track2.bin
-  start: 0xdcc8c7
-  size: 0x3b
-- path: sounds/bgmTitleScreen_track3.bin
-  start: 0xdcc902
-  size: 0x50
-- path: sounds/bgmTitleScreen_track4.bin
-  start: 0xdcc952
-  size: 0x3b
-- path: sounds/bgmTitleScreen_track5.bin
-  start: 0xdcc98d
-  size: 0x7
-- path: sounds/gUnk_08DCC994.bin
-  start: 0xdcc994
-  size: 0xe
-- path: sounds/gUnk_08DCC994_1.bin
-  start: 0xdcc9a6
-  size: 0x9
-- path: sounds/bgmTitleScreen_track6.bin
-  start: 0xdcc9af
-  size: 0x45
+- path: sounds/bgmCastleTournament.s
+  start: 0xDCC6CC
+  type: midi
+  options:
+    group: 1
+    priority: 0
+    reverb: 0x1e
+- path: sounds/bgmVaatiMotif.s
+  start: 0xDCC844
+  type: midi
+  options:
+    group: 2
+    priority: 0
+    reverb: 0x28
+- path: sounds/bgmTitleScreen.s
+  start: 0xDCC9F4
+  type: midi
+  options:
+    group: 3
+    priority: 0
+    reverb: 0x28
 - path: sounds/bgmCastleMotif_track0.bin
   start: 0xdcca18
   size: 0x3e
@@ -62400,45 +62381,26 @@
 - path: sounds/bgmCastleMotif_track4.bin
   start: 0xdccafa
   size: 0x42
-- path: sounds/bgmElementGet_track0.bin
-  start: 0xdccb58
-  size: 0x38
-- path: sounds/bgmElementGet_track1.bin
-  start: 0xdccb90
-  size: 0x18
-- path: sounds/bgmElementGet_track2.bin
-  start: 0xdccba8
-  size: 0x44
-- path: sounds/bgmElementGet_track3.bin
-  start: 0xdccbec
-  size: 0x61
-- path: sounds/bgmElementGet_track4.bin
-  start: 0xdccc4d
-  size: 0x3a
-- path: sounds/bgmElementGet_track5.bin
-  start: 0xdccc87
-  size: 0xe
-- path: sounds/gUnk_08DCCC95.bin
-  start: 0xdccc95
-  size: 0xf
-- path: sounds/gUnk_08DCCC95_1.bin
-  start: 0xdccca8
-  size: 0x9
-- path: sounds/bgmElementGet_track6.bin
-  start: 0xdcccb1
-  size: 0x14
-- path: sounds/bgmElementGet_track7.bin
-  start: 0xdcccc5
-  size: 0x12
-- path: sounds/gUnk_08DCCCD7.bin
-  start: 0xdcccd7
-  size: 0x13
-- path: sounds/gUnk_08DCCCD7_1.bin
-  start: 0xdcccee
-  size: 0xc
-- path: sounds/bgmElementGet_track8.bin
-  start: 0xdcccfa
-  size: 0x46
+- path: sounds/bgmCastleMotif.s
+  start: 0xDCCB3C
+  type: midi
+  options:
+    group: 4
+    priority: 0
+    reverb: 0x28
+    nominator: 7
+    denominator: 4
+- path: sounds/bgmElementGet.s
+  start: 0xDCCD40
+  type: midi
+  options:
+    group: 5
+    priority: 0
+    reverb: 0x28
+    timeChanges:
+      nominator: 4
+      denominator: 4
+      time: 24
 - path: sounds/bgmFairyFountain_track0.bin
   start: 0xdccd6c
   size: 0x30
@@ -62658,6 +62620,13 @@
 - path: sounds/gUnk_08DCD0A4_1.bin
   start: 0xdcd0c6
   size: 0x2
+- path: sounds/bgmFairyFountain.s
+  start: 0xDCD0C8
+  type: midi
+  options:
+    group: 6
+    priority: 0
+    reverb: 0x32
 - path: sounds/bgmFileSelect_track0.bin
   start: 0xdcd0ec
   size: 0xb
@@ -62829,7 +62798,14 @@
 - path: sounds/gUnk_08DCD460_2.bin
   start: 0xdcd4a8
   size: 0x4
-- path: sounds/bgmIntorCutscene_track0.bin
+- path: sounds/bgmFileSelect.s
+  start: 0xDCD4AC
+  type: midi
+  options:
+    group: 7
+    priority: 0
+    reverb: 0x3c
+- path: sounds/bgmIntroCutscene_track0.bin
   start: 0xdcd4d0
   size: 0xb
 - path: sounds/gUnk_08DCD4DB.bin
@@ -62928,7 +62904,7 @@
 - path: sounds/gUnk_08DCD5C3_6.bin
   start: 0xdcd62e
   size: 0x1
-- path: sounds/bgmIntorCutscene_track1.bin
+- path: sounds/bgmIntroCutscene_track1.bin
   start: 0xdcd62f
   size: 0x7
 - path: sounds/gUnk_08DCD636.bin
@@ -63003,7 +62979,7 @@
 - path: sounds/gUnk_08DCD774_2.bin
   start: 0xdcd872
   size: 0x1
-- path: sounds/bgmIntorCutscene_track2.bin
+- path: sounds/bgmIntroCutscene_track2.bin
   start: 0xdcd873
   size: 0x7
 - path: sounds/gUnk_08DCD87A.bin
@@ -63057,7 +63033,7 @@
 - path: sounds/gUnk_08DCD8D8_6.bin
   start: 0xdcd986
   size: 0x1
-- path: sounds/bgmIntorCutscene_track3.bin
+- path: sounds/bgmIntroCutscene_track3.bin
   start: 0xdcd987
   size: 0x7
 - path: sounds/gUnk_08DCD98E.bin
@@ -63078,7 +63054,7 @@
 - path: sounds/gUnk_08DCDA69_2.bin
   start: 0xdcdaf0
   size: 0x1
-- path: sounds/bgmIntorCutscene_track4.bin
+- path: sounds/bgmIntroCutscene_track4.bin
   start: 0xdcdaf1
   size: 0x7
 - path: sounds/gUnk_08DCDAF8.bin
@@ -63114,7 +63090,7 @@
 - path: sounds/gUnk_08DCDBC9_3.bin
   start: 0xdcdca9
   size: 0x1
-- path: sounds/bgmIntorCutscene_track5.bin
+- path: sounds/bgmIntroCutscene_track5.bin
   start: 0xdcdcaa
   size: 0xa
 - path: sounds/gUnk_08DCDCB4.bin
@@ -63183,7 +63159,7 @@
 - path: sounds/gUnk_08DCDD77_8.bin
   start: 0xdcde8d
   size: 0x1
-- path: sounds/bgmIntorCutscene_track6.bin
+- path: sounds/bgmIntroCutscene_track6.bin
   start: 0xdcde8e
   size: 0x7
 - path: sounds/gUnk_08DCDE95.bin
@@ -63213,735 +63189,30 @@
 - path: sounds/gUnk_08DCDEA6_6.bin
   start: 0xdcdf28
   size: 0x4
-- path: sounds/bgmCredits_track0.bin
-  start: 0xdcdf50
-  size: 0x12c
-- path: sounds/gUnk_08DCE07C.bin
-  start: 0xdce07c
-  size: 0x8
-- path: sounds/gUnk_08DCE084.bin
-  start: 0xdce084
-  size: 0xb
-- path: sounds/gUnk_08DCE084_1.bin
-  start: 0xdce093
-  size: 0xf
-- path: sounds/gUnk_08DCE0A2.bin
-  start: 0xdce0a2
-  size: 0x8
-- path: sounds/gUnk_08DCE0A2_1.bin
-  start: 0xdce0ae
-  size: 0x1
-- path: sounds/gUnk_08DCE0A2_2.bin
-  start: 0xdce0b3
-  size: 0x9
-- path: sounds/gUnk_08DCE0A2_3.bin
-  start: 0xdce0c0
-  size: 0x52
-- path: sounds/gUnk_08DCE112.bin
-  start: 0xdce112
-  size: 0xb
-- path: sounds/gUnk_08DCE11D.bin
-  start: 0xdce11d
-  size: 0xc
-- path: sounds/gUnk_08DCE12D.bin
-  start: 0xdce12d
-  size: 0x18
-- path: sounds/gUnk_08DCE12D_1.bin
-  start: 0xdce149
-  size: 0x1
-- path: sounds/gUnk_08DCE12D_2.bin
-  start: 0xdce14e
-  size: 0x1
-- path: sounds/gUnk_08DCE12D_3.bin
-  start: 0xdce153
-  size: 0x5
-- path: sounds/gUnk_08DCE12D_4.bin
-  start: 0xdce15c
-  size: 0x1
-- path: sounds/gUnk_08DCE12D_5.bin
-  start: 0xdce161
-  size: 0x65
-- path: sounds/gUnk_08DCE1C6.bin
-  start: 0xdce1c6
-  size: 0x14
-- path: sounds/gUnk_08DCE1C6_1.bin
-  start: 0xdce1de
-  size: 0x2e
-- path: sounds/gUnk_08DCE20C.bin
-  start: 0xdce20c
-  size: 0xb
-- path: sounds/gUnk_08DCE217.bin
-  start: 0xdce217
-  size: 0x11
-- path: sounds/gUnk_08DCE228.bin
-  start: 0xdce228
-  size: 0x19
-- path: sounds/gUnk_08DCE228_1.bin
-  start: 0xdce245
-  size: 0x1
-- path: sounds/gUnk_08DCE228_2.bin
-  start: 0xdce24a
-  size: 0x1
-- path: sounds/gUnk_08DCE228_3.bin
-  start: 0xdce24f
-  size: 0x47
-- path: sounds/bgmCredits_track1.bin
-  start: 0xdce296
-  size: 0xb
-- path: sounds/gUnk_08DCE2A1.bin
-  start: 0xdce2a1
-  size: 0x26
-- path: sounds/gUnk_08DCE2A1_1.bin
-  start: 0xdce2cb
-  size: 0x1
-- path: sounds/gUnk_08DCE2A1_2.bin
-  start: 0xdce2d0
-  size: 0x1
-- path: sounds/gUnk_08DCE2A1_3.bin
-  start: 0xdce2d5
-  size: 0x1
-- path: sounds/gUnk_08DCE2A1_4.bin
-  start: 0xdce2da
-  size: 0x1
-- path: sounds/gUnk_08DCE2DF.bin
-  start: 0xdce2df
-  size: 0x26
-- path: sounds/gUnk_08DCE2DF_1.bin
-  start: 0xdce309
-  size: 0x1
-- path: sounds/gUnk_08DCE2DF_2.bin
-  start: 0xdce30e
-  size: 0x1
-- path: sounds/gUnk_08DCE2DF_3.bin
-  start: 0xdce313
-  size: 0x25
-- path: sounds/gUnk_08DCE33C.bin
-  start: 0xdce33c
-  size: 0x2c
-- path: sounds/gUnk_08DCE368.bin
-  start: 0xdce368
-  size: 0x2d
-- path: sounds/gUnk_08DCE368_1.bin
-  start: 0xdce399
-  size: 0x1
-- path: sounds/gUnk_08DCE368_2.bin
-  start: 0xdce39e
-  size: 0x68
-- path: sounds/gUnk_08DCE406.bin
-  start: 0xdce406
-  size: 0x26
-- path: sounds/gUnk_08DCE406_1.bin
-  start: 0xdce430
-  size: 0x1
-- path: sounds/gUnk_08DCE406_2.bin
-  start: 0xdce435
-  size: 0x1
-- path: sounds/gUnk_08DCE406_3.bin
-  start: 0xdce43a
-  size: 0x1
-- path: sounds/gUnk_08DCE406_4.bin
-  start: 0xdce43f
-  size: 0x1
-- path: sounds/gUnk_08DCE406_5.bin
-  start: 0xdce444
-  size: 0x1
-- path: sounds/gUnk_08DCE406_6.bin
-  start: 0xdce449
-  size: 0x1
-- path: sounds/gUnk_08DCE406_7.bin
-  start: 0xdce44e
-  size: 0x1
-- path: sounds/gUnk_08DCE406_8.bin
-  start: 0xdce453
-  size: 0x1
-- path: sounds/gUnk_08DCE458.bin
-  start: 0xdce458
-  size: 0x26
-- path: sounds/gUnk_08DCE482.bin
-  start: 0xdce482
-  size: 0x26
-- path: sounds/gUnk_08DCE482_1.bin
-  start: 0xdce4ac
-  size: 0x1
-- path: sounds/gUnk_08DCE482_2.bin
-  start: 0xdce4b1
-  size: 0x1
-- path: sounds/gUnk_08DCE482_3.bin
-  start: 0xdce4b6
-  size: 0x1
-- path: sounds/gUnk_08DCE482_4.bin
-  start: 0xdce4bb
-  size: 0x25
-- path: sounds/gUnk_08DCE482_5.bin
-  start: 0xdce4e4
-  size: 0x1
-- path: sounds/gUnk_08DCE482_6.bin
-  start: 0xdce4e9
-  size: 0x9
-- path: sounds/gUnk_08DCE4F6.bin
-  start: 0xdce4f6
-  size: 0x2b
-- path: sounds/gUnk_08DCE4F6_1.bin
-  start: 0xdce525
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_2.bin
-  start: 0xdce52a
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_3.bin
-  start: 0xdce52f
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_4.bin
-  start: 0xdce534
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_5.bin
-  start: 0xdce539
-  size: 0x2a
-- path: sounds/gUnk_08DCE4F6_6.bin
-  start: 0xdce567
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_7.bin
-  start: 0xdce56c
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_8.bin
-  start: 0xdce571
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_9.bin
-  start: 0xdce576
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_10.bin
-  start: 0xdce57b
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_11.bin
-  start: 0xdce580
-  size: 0x8f
-- path: sounds/gUnk_08DCE4F6_12.bin
-  start: 0xdce613
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_13.bin
-  start: 0xdce618
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_14.bin
-  start: 0xdce61d
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_15.bin
-  start: 0xdce622
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_16.bin
-  start: 0xdce627
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_17.bin
-  start: 0xdce62c
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_18.bin
-  start: 0xdce631
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_19.bin
-  start: 0xdce636
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_20.bin
-  start: 0xdce63b
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_21.bin
-  start: 0xdce640
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_22.bin
-  start: 0xdce645
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_23.bin
-  start: 0xdce64a
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_24.bin
-  start: 0xdce64f
-  size: 0x1
-- path: sounds/gUnk_08DCE4F6_25.bin
-  start: 0xdce654
-  size: 0x4
-- path: sounds/bgmCredits_track2.bin
-  start: 0xdce658
-  size: 0x101
-- path: sounds/gUnk_08DCE759.bin
-  start: 0xdce759
-  size: 0x14
-- path: sounds/gUnk_08DCE759_1.bin
-  start: 0xdce771
-  size: 0x76
-- path: sounds/gUnk_08DCE7E7.bin
-  start: 0xdce7e7
-  size: 0x11
-- path: sounds/gUnk_08DCE7E7_1.bin
-  start: 0xdce7fc
-  size: 0x60
-- path: sounds/gUnk_08DCE85C.bin
-  start: 0xdce85c
-  size: 0x11
-- path: sounds/gUnk_08DCE86D.bin
-  start: 0xdce86d
-  size: 0x8
-- path: sounds/gUnk_08DCE86D_1.bin
-  start: 0xdce879
-  size: 0x5
-- path: sounds/gUnk_08DCE86D_2.bin
-  start: 0xdce882
-  size: 0x1
-- path: sounds/gUnk_08DCE86D_3.bin
-  start: 0xdce887
-  size: 0x1
-- path: sounds/gUnk_08DCE86D_4.bin
-  start: 0xdce88c
-  size: 0x1
-- path: sounds/gUnk_08DCE86D_5.bin
-  start: 0xdce891
-  size: 0x7e
-- path: sounds/gUnk_08DCE90F.bin
-  start: 0xdce90f
-  size: 0x13
-- path: sounds/gUnk_08DCE922.bin
-  start: 0xdce922
-  size: 0x12
-- path: sounds/gUnk_08DCE934.bin
-  start: 0xdce934
-  size: 0x11
-- path: sounds/gUnk_08DCE934_1.bin
-  start: 0xdce949
-  size: 0x1
-- path: sounds/gUnk_08DCE934_2.bin
-  start: 0xdce94e
-  size: 0x1
-- path: sounds/gUnk_08DCE934_3.bin
-  start: 0xdce953
-  size: 0x56
-- path: sounds/bgmCredits_track3.bin
-  start: 0xdce9a9
-  size: 0x4b
-- path: sounds/gUnk_08DCE9F4.bin
-  start: 0xdce9f4
-  size: 0x12
-- path: sounds/gUnk_08DCEA06.bin
-  start: 0xdcea06
-  size: 0x14
-- path: sounds/gUnk_08DCEA1A.bin
-  start: 0xdcea1a
-  size: 0x11
-- path: sounds/gUnk_08DCEA1A_1.bin
-  start: 0xdcea2f
-  size: 0x1
-- path: sounds/gUnk_08DCEA1A_2.bin
-  start: 0xdcea34
-  size: 0x1
-- path: sounds/gUnk_08DCEA1A_3.bin
-  start: 0xdcea39
-  size: 0x1
-- path: sounds/gUnk_08DCEA1A_4.bin
-  start: 0xdcea3e
-  size: 0x1
-- path: sounds/gUnk_08DCEA1A_5.bin
-  start: 0xdcea43
-  size: 0x1
-- path: sounds/gUnk_08DCEA1A_6.bin
-  start: 0xdcea48
-  size: 0x1
-- path: sounds/gUnk_08DCEA1A_7.bin
-  start: 0xdcea4d
-  size: 0x1
-- path: sounds/gUnk_08DCEA1A_8.bin
-  start: 0xdcea52
-  size: 0x1
-- path: sounds/gUnk_08DCEA57.bin
-  start: 0xdcea57
-  size: 0x13
-- path: sounds/gUnk_08DCEA57_1.bin
-  start: 0xdcea6e
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_2.bin
-  start: 0xdcea73
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_3.bin
-  start: 0xdcea78
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_4.bin
-  start: 0xdcea7d
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_5.bin
-  start: 0xdcea82
-  size: 0x1a
-- path: sounds/gUnk_08DCEA57_6.bin
-  start: 0xdceaa0
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_7.bin
-  start: 0xdceaa5
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_8.bin
-  start: 0xdceaaa
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_9.bin
-  start: 0xdceaaf
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_10.bin
-  start: 0xdceab4
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_11.bin
-  start: 0xdceab9
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_12.bin
-  start: 0xdceabe
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_13.bin
-  start: 0xdceac3
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_14.bin
-  start: 0xdceac8
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_15.bin
-  start: 0xdceacd
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_16.bin
-  start: 0xdcead2
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_17.bin
-  start: 0xdcead7
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_18.bin
-  start: 0xdceadc
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_19.bin
-  start: 0xdceae1
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_20.bin
-  start: 0xdceae6
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_21.bin
-  start: 0xdceaeb
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_22.bin
-  start: 0xdceaf0
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_23.bin
-  start: 0xdceaf5
-  size: 0x1
-- path: sounds/gUnk_08DCEA57_24.bin
-  start: 0xdceafa
-  size: 0x33
-- path: sounds/gUnk_08DCEB31.bin
-  start: 0xdceb31
-  size: 0x18
-- path: sounds/gUnk_08DCEB31_1.bin
-  start: 0xdceb4d
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_2.bin
-  start: 0xdceb52
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_3.bin
-  start: 0xdceb57
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_4.bin
-  start: 0xdceb5c
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_5.bin
-  start: 0xdceb61
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_6.bin
-  start: 0xdceb66
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_7.bin
-  start: 0xdceb6b
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_8.bin
-  start: 0xdceb70
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_9.bin
-  start: 0xdceb75
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_10.bin
-  start: 0xdceb7a
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_11.bin
-  start: 0xdceb7f
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_12.bin
-  start: 0xdceb84
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_13.bin
-  start: 0xdceb89
-  size: 0x85
-- path: sounds/gUnk_08DCEB31_14.bin
-  start: 0xdcec12
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_15.bin
-  start: 0xdcec17
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_16.bin
-  start: 0xdcec1c
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_17.bin
-  start: 0xdcec21
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_18.bin
-  start: 0xdcec26
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_19.bin
-  start: 0xdcec2b
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_20.bin
-  start: 0xdcec30
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_21.bin
-  start: 0xdcec35
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_22.bin
-  start: 0xdcec3a
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_23.bin
-  start: 0xdcec3f
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_24.bin
-  start: 0xdcec44
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_25.bin
-  start: 0xdcec49
-  size: 0x1
-- path: sounds/gUnk_08DCEB31_26.bin
-  start: 0xdcec4e
-  size: 0x18
-- path: sounds/bgmCredits_track4.bin
-  start: 0xdcec66
-  size: 0x69
-- path: sounds/gUnk_08DCECCF.bin
-  start: 0xdceccf
-  size: 0x21
-- path: sounds/gUnk_08DCECF0.bin
-  start: 0xdcecf0
-  size: 0x1f
-- path: sounds/gUnk_08DCECF0_1.bin
-  start: 0xdced13
-  size: 0x1
-- path: sounds/gUnk_08DCECF0_2.bin
-  start: 0xdced18
-  size: 0xf5
-- path: sounds/gUnk_08DCEE0D.bin
-  start: 0xdcee0d
-  size: 0x46
-- path: sounds/gUnk_08DCEE0D_1.bin
-  start: 0xdcee57
-  size: 0x5f
-- path: sounds/gUnk_08DCEEB6.bin
-  start: 0xdceeb6
-  size: 0x20
-- path: sounds/gUnk_08DCEED6.bin
-  start: 0xdceed6
-  size: 0x2b
-- path: sounds/gUnk_08DCEF01.bin
-  start: 0xdcef01
-  size: 0x1f
-- path: sounds/gUnk_08DCEF01_1.bin
-  start: 0xdcef24
-  size: 0x1
-- path: sounds/gUnk_08DCEF01_2.bin
-  start: 0xdcef29
-  size: 0x1
-- path: sounds/gUnk_08DCEF01_3.bin
-  start: 0xdcef2e
-  size: 0x1
-- path: sounds/gUnk_08DCEF01_4.bin
-  start: 0xdcef33
-  size: 0x1
-- path: sounds/gUnk_08DCEF01_5.bin
-  start: 0xdcef38
-  size: 0x1
-- path: sounds/gUnk_08DCEF01_6.bin
-  start: 0xdcef3d
-  size: 0x1
-- path: sounds/gUnk_08DCEF01_7.bin
-  start: 0xdcef42
-  size: 0xd
-- path: sounds/gUnk_08DCEF01_8.bin
-  start: 0xdcef53
-  size: 0x1
-- path: sounds/gUnk_08DCEF01_9.bin
-  start: 0xdcef58
-  size: 0x1
-- path: sounds/gUnk_08DCEF01_10.bin
-  start: 0xdcef5d
-  size: 0x1
-- path: sounds/gUnk_08DCEF01_11.bin
-  start: 0xdcef62
-  size: 0x1
-- path: sounds/gUnk_08DCEF01_12.bin
-  start: 0xdcef67
-  size: 0x1
-- path: sounds/gUnk_08DCEF01_13.bin
-  start: 0xdcef6c
-  size: 0x5a
-- path: sounds/gUnk_08DCEFC6.bin
-  start: 0xdcefc6
-  size: 0x23
-- path: sounds/gUnk_08DCEFE9.bin
-  start: 0xdcefe9
-  size: 0x1e
-- path: sounds/gUnk_08DCEFE9_1.bin
-  start: 0xdcf00b
-  size: 0x1
-- path: sounds/gUnk_08DCEFE9_2.bin
-  start: 0xdcf010
-  size: 0x1
-- path: sounds/gUnk_08DCEFE9_3.bin
-  start: 0xdcf015
-  size: 0x1e
-- path: sounds/gUnk_08DCF033.bin
-  start: 0xdcf033
-  size: 0x29
-- path: sounds/gUnk_08DCF033_1.bin
-  start: 0xdcf060
-  size: 0x1
-- path: sounds/gUnk_08DCF033_2.bin
-  start: 0xdcf065
-  size: 0x1
-- path: sounds/gUnk_08DCF033_3.bin
-  start: 0xdcf06a
-  size: 0x1
-- path: sounds/gUnk_08DCF033_4.bin
-  start: 0xdcf06f
-  size: 0x1
-- path: sounds/gUnk_08DCF033_5.bin
-  start: 0xdcf074
-  size: 0x1
-- path: sounds/gUnk_08DCF033_6.bin
-  start: 0xdcf079
-  size: 0x65
-- path: sounds/gUnk_08DCF0DE.bin
-  start: 0xdcf0de
-  size: 0x1c
-- path: sounds/gUnk_08DCF0FA.bin
-  start: 0xdcf0fa
-  size: 0x1d
-- path: sounds/gUnk_08DCF0FA_1.bin
-  start: 0xdcf11b
-  size: 0x1
-- path: sounds/gUnk_08DCF0FA_2.bin
-  start: 0xdcf120
-  size: 0x1
-- path: sounds/gUnk_08DCF0FA_3.bin
-  start: 0xdcf125
-  size: 0x1
-- path: sounds/gUnk_08DCF0FA_4.bin
-  start: 0xdcf12a
-  size: 0x1
-- path: sounds/gUnk_08DCF0FA_5.bin
-  start: 0xdcf12f
-  size: 0x1
-- path: sounds/gUnk_08DCF0FA_6.bin
-  start: 0xdcf134
-  size: 0x1
-- path: sounds/gUnk_08DCF139.bin
-  start: 0xdcf139
-  size: 0x1d
-- path: sounds/gUnk_08DCF139_1.bin
-  start: 0xdcf15a
-  size: 0x1
-- path: sounds/gUnk_08DCF139_2.bin
-  start: 0xdcf15f
-  size: 0x1
-- path: sounds/gUnk_08DCF139_3.bin
-  start: 0xdcf164
-  size: 0x25
-- path: sounds/bgmCredits_track5.bin
-  start: 0xdcf189
-  size: 0x15d
-- path: sounds/bgmCredits_track6.bin
-  start: 0xdcf2e6
-  size: 0x10b
-- path: sounds/gUnk_08DCF3F1.bin
-  start: 0xdcf3f1
-  size: 0x9
-- path: sounds/gUnk_08DCF3FA.bin
-  start: 0xdcf3fa
-  size: 0xc
-- path: sounds/gUnk_08DCF3FA_1.bin
-  start: 0xdcf40a
-  size: 0x14
-- path: sounds/gUnk_08DCF41E.bin
-  start: 0xdcf41e
-  size: 0x9
-- path: sounds/gUnk_08DCF41E_1.bin
-  start: 0xdcf42b
-  size: 0x1
-- path: sounds/gUnk_08DCF41E_2.bin
-  start: 0xdcf430
-  size: 0xb
-- path: sounds/gUnk_08DCF41E_3.bin
-  start: 0xdcf43f
-  size: 0x38
-- path: sounds/gUnk_08DCF477.bin
-  start: 0xdcf477
-  size: 0x11
-- path: sounds/gUnk_08DCF488.bin
-  start: 0xdcf488
-  size: 0x9
-- path: sounds/gUnk_08DCF491.bin
-  start: 0xdcf491
-  size: 0x1d
-- path: sounds/gUnk_08DCF491_1.bin
-  start: 0xdcf4b2
-  size: 0x9
-- path: sounds/gUnk_08DCF491_2.bin
-  start: 0xdcf4bf
-  size: 0x7
-- path: sounds/gUnk_08DCF491_3.bin
-  start: 0xdcf4ca
-  size: 0x1
-- path: sounds/gUnk_08DCF491_4.bin
-  start: 0xdcf4cf
-  size: 0x95
-- path: sounds/gUnk_08DCF564.bin
-  start: 0xdcf564
-  size: 0x15
-- path: sounds/gUnk_08DCF564_1.bin
-  start: 0xdcf57d
-  size: 0x2e
-- path: sounds/gUnk_08DCF5AB.bin
-  start: 0xdcf5ab
-  size: 0xf
-- path: sounds/gUnk_08DCF5BA.bin
-  start: 0xdcf5ba
-  size: 0x12
-- path: sounds/gUnk_08DCF5CC.bin
-  start: 0xdcf5cc
-  size: 0x1a
-- path: sounds/gUnk_08DCF5CC_1.bin
-  start: 0xdcf5ea
-  size: 0x1
-- path: sounds/gUnk_08DCF5CC_2.bin
-  start: 0xdcf5ef
-  size: 0x1
-- path: sounds/gUnk_08DCF5CC_3.bin
-  start: 0xdcf5f4
-  size: 0x38
-- path: sounds/bgmCredits_track7.bin
-  start: 0xdcf62c
-  size: 0x65
-- path: sounds/gUnk_08DCF691.bin
-  start: 0xdcf691
-  size: 0x26
-- path: sounds/gUnk_08DCF691_1.bin
-  start: 0xdcf6bb
-  size: 0x26
-- path: sounds/gUnk_08DCF6E1.bin
-  start: 0xdcf6e1
-  size: 0x8
-- path: sounds/gUnk_08DCF6E9.bin
-  start: 0xdcf6e9
-  size: 0x9
-- path: sounds/gUnk_08DCF6E9_1.bin
-  start: 0xdcf6f6
-  size: 0x2
-- path: sounds/gUnk_08DCF6E9_2.bin
-  start: 0xdcf6fc
-  size: 0x2
-- path: sounds/gUnk_08DCF6E9_3.bin
-  start: 0xdcf702
-  size: 0x2
-- path: sounds/gUnk_08DCF6E9_4.bin
-  start: 0xdcf708
-  size: 0x2c
+- path: sounds/bgmIntroCutscene.s
+  start: 0xDCDF2C
+  type: midi
+  options:
+    group: 51
+    priority: 0
+    reverb: 0x32
+    timeChanges:
+    - nominator: 3
+      denominator: 4
+      time: 96
+    - nominator: 4
+      denominator: 4
+      time: 2952
+    - nominator: 3
+      denominator: 4
+      time: 3144
+- path: sounds/bgmCredits.s
+  start: 0xDCF734
+  type: midi
+  options:
+    group: 8
+    priority: 0
+    reverb: 0x28
 - path: sounds/bgmGameover_track0.bin
   start: 0xdcf75c
   size: 0xb
@@ -64041,6 +63312,16 @@
 - path: sounds/gUnk_08DCFA04_5.bin
   start: 0xdcfa3f
   size: 0x1
+- path: sounds/bgmGameover.s
+  start: 0xDCFA40
+  type: midi
+  options:
+    group: 9
+    reverb: 0x32
+    timeChanges:
+      nominator: 3
+      denominator: 4
+      time: 96
 - path: sounds/bgmSavingZelda_track0.bin
   start: 0xdcfa58
   size: 0xb
@@ -64146,54 +63427,22 @@
 - path: sounds/gUnk_08DCFBD6_1.bin
   start: 0xdcfbf2
   size: 0x2
-- path: sounds/bgmLttpTitle_track0.bin
-  start: 0xdcfc1c
-  size: 0x15
-- path: sounds/gUnk_08DCFC31.bin
-  start: 0xdcfc31
-  size: 0x1a
-- path: sounds/gUnk_08DCFC31_1.bin
-  start: 0xdcfc4f
-  size: 0x1d
-- path: sounds/bgmLttpTitle_track1.bin
-  start: 0xdcfc6c
-  size: 0x2c
-- path: sounds/bgmLttpTitle_track2.bin
-  start: 0xdcfc98
-  size: 0x2e
-- path: sounds/bgmLttpTitle_track3.bin
-  start: 0xdcfcc6
-  size: 0x49
-- path: sounds/bgmLttpTitle_track4.bin
-  start: 0xdcfd0f
-  size: 0x7
-- path: sounds/gUnk_08DCFD16.bin
-  start: 0xdcfd16
-  size: 0x7
-- path: sounds/gUnk_08DCFD1D.bin
-  start: 0xdcfd1d
-  size: 0x8
-- path: sounds/gUnk_08DCFD1D_1.bin
-  start: 0xdcfd29
-  size: 0x1
-- path: sounds/gUnk_08DCFD1D_2.bin
-  start: 0xdcfd2e
-  size: 0x1
-- path: sounds/gUnk_08DCFD1D_3.bin
-  start: 0xdcfd33
-  size: 0x1
-- path: sounds/gUnk_08DCFD1D_4.bin
-  start: 0xdcfd38
-  size: 0xd
-- path: sounds/bgmLttpTitle_track5.bin
-  start: 0xdcfd45
-  size: 0x13
-- path: sounds/gUnk_08DCFD58.bin
-  start: 0xdcfd58
-  size: 0x1b
-- path: sounds/gUnk_08DCFD58_1.bin
-  start: 0xdcfd77
-  size: 0x21
+- path: sounds/bgmSavingZelda.s
+  start: 0xdcfbf4
+  type: midi
+  options:
+    group: 10
+    reverb: 0x32
+- path: sounds/bgmLttpTitle.s
+  start: 0xdcfd98
+  type: midi
+  options:
+    group: 11
+    reverb: 0x1e
+    timeChanges:
+      nominator: 4
+      denominator: 4
+      time: 24
 - path: sounds/bgmVaatiTheme_track0.bin
   start: 0xdcfdb8
   size: 0x33
@@ -64332,6 +63581,12 @@
 - path: sounds/gUnk_08DD0189_2.bin
   start: 0xdd0240
   size: 0x4
+- path: sounds/bgmVaatiTheme.s
+  start: 0xdd0244
+  type: midi
+  options:
+    group: 12
+    reverb: 0x3c
 - path: sounds/bgmEzloTheme_track0.bin
   start: 0xdd0268
   size: 0xb
@@ -64446,90 +63701,22 @@
 - path: sounds/gUnk_08DD0649_4.bin
   start: 0xdd068c
   size: 0x4
-- path: sounds/bgmStory_track0.bin
-  start: 0xdd06b4
-  size: 0x31
-- path: sounds/gUnk_08DD06E5.bin
-  start: 0xdd06e5
-  size: 0x19
-- path: sounds/gUnk_08DD06FE.bin
-  start: 0xdd06fe
-  size: 0x12
-- path: sounds/gUnk_08DD0710.bin
-  start: 0xdd0710
-  size: 0x1a
-- path: sounds/gUnk_08DD0710_1.bin
-  start: 0xdd072e
-  size: 0x1
-- path: sounds/gUnk_08DD0710_2.bin
-  start: 0xdd0733
-  size: 0x3d
-- path: sounds/gUnk_08DD0774.bin
-  start: 0xdd0774
-  size: 0x25
-- path: sounds/gUnk_08DD0774_1.bin
-  start: 0xdd079d
-  size: 0x3f
-- path: sounds/bgmStory_track1.bin
-  start: 0xdd07dc
-  size: 0x39
-- path: sounds/bgmStory_track2.bin
-  start: 0xdd0815
-  size: 0x52
-- path: sounds/bgmStory_track3.bin
-  start: 0xdd0867
-  size: 0x5c
-- path: sounds/bgmStory_track4.bin
-  start: 0xdd08c3
-  size: 0x1b
-- path: sounds/gUnk_08DD08DE.bin
-  start: 0xdd08de
-  size: 0x17
-- path: sounds/gUnk_08DD08F5.bin
-  start: 0xdd08f5
-  size: 0x30
-- path: sounds/gUnk_08DD08F5_1.bin
-  start: 0xdd0929
-  size: 0x1
-- path: sounds/gUnk_08DD08F5_2.bin
-  start: 0xdd092e
-  size: 0x1
-- path: sounds/gUnk_08DD08F5_3.bin
-  start: 0xdd0933
-  size: 0x1
-- path: sounds/gUnk_08DD08F5_4.bin
-  start: 0xdd0938
-  size: 0x1
-- path: sounds/gUnk_08DD08F5_5.bin
-  start: 0xdd093d
-  size: 0x1
-- path: sounds/gUnk_08DD08F5_6.bin
-  start: 0xdd0942
-  size: 0x3c
-- path: sounds/gUnk_08DD097E.bin
-  start: 0xdd097e
-  size: 0x1a
-- path: sounds/gUnk_08DD0998.bin
-  start: 0xdd0998
-  size: 0x1b
-- path: sounds/gUnk_08DD0998_1.bin
-  start: 0xdd09b7
-  size: 0x1
-- path: sounds/gUnk_08DD0998_2.bin
-  start: 0xdd09bc
-  size: 0x1
-- path: sounds/gUnk_08DD0998_3.bin
-  start: 0xdd09c1
-  size: 0x2e
-- path: sounds/bgmStory_track5.bin
-  start: 0xdd09ef
-  size: 0x3f
-- path: sounds/bgmStory_track6.bin
-  start: 0xdd0a2e
-  size: 0x2f
-- path: sounds/bgmStory_track7.bin
-  start: 0xdd0a5d
-  size: 0x37
+- path: sounds/bgmEzloTheme.s
+  start: 0xdd0690
+  type: midi
+  options:
+    group: 13
+    reverb: 0x1e
+- path: sounds/bgmStory.s
+  start: 0xdd0a94
+  type: midi
+  options:
+    group: 14
+    reverb: 0x32
+    timeChanges:
+      nominator: 3
+      denominator: 4
+      time: 96
 - path: sounds/bgmFestivalApproach.s
   start: 0xDD0CF4
   options:
@@ -64711,6 +63898,16 @@
 - path: sounds/gUnk_08DD10EB_7.bin
   start: 0xdd11a5
   size: 0x3
+- path: sounds/bgmBeatVaati.s
+  start: 0xdd11a8
+  type: midi
+  options:
+    group: 16
+    reverb: 0x28
+    timeChanges:
+      nominator: 3
+      denominator: 4
+      time: 96
 - path: sounds/bgmBeanstalk_track0.bin
   start: 0xdd11c8
   size: 0xb
@@ -64879,6 +64076,12 @@
 - path: sounds/gUnk_08DD152C_1.bin
   start: 0xdd1544
   size: 0x4
+- path: sounds/bgmBeanstalk.s
+  start: 0xdd1548
+  type: midi
+  options:
+    group: 17
+    reverb: 0x1e
 - path: sounds/bgmHouse_track0.bin
   start: 0xdd156c
   size: 0x27
@@ -64951,6 +64154,12 @@
 - path: sounds/gUnk_08DD1890_1.bin
   start: 0xdd198f
   size: 0x1
+- path: sounds/bgmHouse.s
+  start: 0xdd1990
+  type: midi
+  options:
+    group: 18
+    reverb: 0x28
 - path: sounds/bgmCuccoMinigame_track0.bin
   start: 0xdd19b8
   size: 0xb
@@ -65023,6 +64232,12 @@
 - path: sounds/gUnk_08DD1C03_3.bin
   start: 0xdd1c2a
   size: 0x2
+- path: sounds/bgmCuccoMinigame.s
+  start: 0xdd1c2c
+  type: midi
+  options:
+    group: 19
+    reverb: 0x28
 - path: sounds/bgmSyrupTheme_track0.bin
   start: 0xdd1c4c
   size: 0xb
@@ -65089,6 +64304,12 @@
 - path: sounds/gUnk_08DD1E3C_1.bin
   start: 0xdd1ea0
   size: 0x4
+- path: sounds/bgmSyrupTheme.s
+  start: 0xdd1ea4
+  type: midi
+  options:
+    group: 20
+    reverb: 0x28
 - path: sounds/bgmDungeon_track0.bin
   start: 0xdd1ec4
   size: 0xb
@@ -65164,6 +64385,12 @@
 - path: sounds/gUnk_08DD20D1_3.bin
   start: 0xdd212e
   size: 0x2
+- path: sounds/bgmDungeon.s
+  start: 0xdd2130
+  type: midi
+  options:
+    group: 21
+    reverb: 0x3c
 - path: sounds/bgmElementTheme_track0.bin
   start: 0xdd214c
   size: 0x6c
@@ -65191,6 +64418,12 @@
 - path: sounds/gUnk_08DD22D6_1.bin
   start: 0xdd233e
   size: 0x2
+- path: sounds/bgmElementTheme.s
+  start: 0xdd2340
+  type: midi
+  options:
+    group: 22
+    reverb: 0x3c
 - path: sounds/bgmHyruleField_track0.bin
   start: 0xdd2354
   size: 0x25
@@ -65452,6 +64685,12 @@
 - path: sounds/gUnk_08DD2D14_8.bin
   start: 0xdd2d4e
   size: 0x2
+- path: sounds/bgmHyruleField.s
+  start: 0xdd2d50
+  type: midi
+  options:
+    group: 23
+    reverb: 0x1e
 - path: sounds/bgmHyruleCastle_track0.bin
   start: 0xdd2d7c
   size: 0x3e
@@ -65536,6 +64775,16 @@
 - path: sounds/gUnk_08DD30DF_1.bin
   start: 0xdd30ec
   size: 0x4
+- path: sounds/bgmHyruleCastle.s
+  start: 0xdd30f0
+  type: midi
+  options:
+    group: 24
+    reverb: 0x28
+    timeChanges:
+      nominator: 6
+      denominator: 4
+      time: 288
 - path: sounds/bgmHyruleCastleNointro_track0.bin
   start: 0xdd3114
   size: 0xd
@@ -65617,6 +64866,16 @@
 - path: sounds/gUnk_08DD334D_1.bin
   start: 0xdd335a
   size: 0x2
+- path: sounds/bgmHyruleCastleNointro.s
+  start: 0xdd335c
+  type: midi
+  options:
+    group: 24
+    reverb: 0x28
+    timeChanges:
+      nominator: 6
+      denominator: 4
+      time: 96
 - path: sounds/bgmMinishVillage_track0.bin
   start: 0xdd337c
   size: 0x2a
@@ -66040,6 +65299,16 @@
 - path: sounds/gUnk_08DD3C1B_2.bin
   start: 0xdd3cba
   size: 0x1
+- path: sounds/bgmMinishVillage.s
+  start: 0xdd3bcc
+  type: midi
+  options:
+    group: 25
+    reverb: 0x28
+    timeChanges:
+      nominator: 3
+      denominator: 4
+      time: 96
 - path: sounds/bgmMinishWoods_track1.bin
   start: 0xdd3cbb
   size: 0x7
@@ -66304,6 +65573,12 @@
 - path: sounds/gUnk_08DD41D6_6.bin
   start: 0xdd4215
   size: 0x1
+- path: sounds/bgmMinishWoods.s
+  start: 0xdd40e8
+  type: midi
+  options:
+    group: 26
+    reverb: 0x28
 - path: sounds/bgmCrenelStorm_track1.bin
   start: 0xdd4216
   size: 0x1e
@@ -66469,6 +65744,12 @@
 - path: sounds/gUnk_08DD481A_5.bin
   start: 0xdd4855
   size: 0x3
+- path: sounds/bgmCrenelStorm.s
+  start: 0xdd4858
+  type: midi
+  options:
+    group: 27
+    reverb: 0x32
 - path: sounds/bgmCastorWilds_track0.bin
   start: 0xdd487c
   size: 0x13
@@ -66598,6 +65879,12 @@
 - path: sounds/gUnk_08DD4AB9_4.bin
   start: 0xdd4b41
   size: 0x3
+- path: sounds/bgmCastorWilds.s
+  start: 0xdd4b44
+  type: midi
+  options:
+    group: 28
+    reverb: 0x1e
 - path: sounds/bgmHyruleTown_track0.bin
   start: 0xdd4b60
   size: 0x1e
@@ -66838,6 +66125,12 @@
 - path: sounds/gUnk_08DD520E_2.bin
   start: 0xdd52fa
   size: 0x2
+- path: sounds/bgmHyruleTown.s
+  start: 0xdd52fc
+  type: midi
+  options:
+    group: 29
+    reverb: 0x1e
 - path: sounds/bgmRoyalValley_track0.bin
   start: 0xdd5320
   size: 0x7
@@ -66997,6 +66290,12 @@
 - path: sounds/gUnk_08DD583E_4.bin
   start: 0xdd5891
   size: 0x3
+- path: sounds/bgmRoyalValley.s
+  start: 0xdd5894
+  type: midi
+  options:
+    group: 30
+    reverb: 0x32
 - path: sounds/bgmCloudTops_track0.bin
   start: 0xdd58b8
   size: 0x1c
@@ -67405,6 +66704,12 @@
 - path: sounds/gUnk_08DD6497_6.bin
   start: 0xdd64f8
   size: 0x4
+- path: sounds/bgmCloudTops.s
+  start: 0xdd64fc
+  type: midi
+  options:
+    group: 31
+    reverb: 0x1e
 - path: sounds/bgmDarkHyruleCastle_track0.bin
   start: 0xdd6524
   size: 0x3f
@@ -67675,6 +66980,16 @@
 - path: sounds/gUnk_08DD6BC4_3.bin
   start: 0xdd6bf8
   size: 0x4
+- path: sounds/bgmDarkHyruleCastle.s
+  start: 0xdd6bfc
+  type: midi
+  options:
+    group: 32
+    reverb: 0x32
+    timeChanges:
+      nominator: 4
+      denominator: 4
+      time: 120
 - path: sounds/bgmSecretCastleEntrance_track0_EU.bin
   variants:
   - EU
@@ -68129,6 +67444,12 @@
   size: 0x3
 - offsets:
     EU: 0x10b614
+- path: sounds/bgmSecretCastleEntrance.s
+  start: 0xdd6fc4
+  type: midi
+  options:
+    group: 33
+    reverb: 0x3c
 - path: sounds/bgmDeepwoodShrine_track0.bin
   start: 0xdd6fec
   size: 0x30
@@ -68177,6 +67498,16 @@
 - path: sounds/gUnk_08DD7151_1.bin
   start: 0xdd7173
   size: 0x1
+- path: sounds/bgmDeepwoodShrine.s
+  start: 0xdd7174
+  type: midi
+  options:
+    group: 34
+    reverb: 0x3c
+    timeChanges:
+      nominator: 3
+      denominator: 4
+      time: 96
 - path: sounds/bgmCaveOfFlames_track0.bin
   start: 0xdd7188
   size: 0x26
@@ -68372,6 +67703,12 @@
 - path: sounds/gUnk_08DD75F6_1.bin
   start: 0xdd766e
   size: 0x2
+- path: sounds/bgmCaveOfFlames.s
+  start: 0xdd7670
+  type: midi
+  options:
+    group: 35
+    reverb: 0x3c
 - path: sounds/bgmFortressOfWinds_track0.bin
   start: 0xdd769c
   size: 0xb
@@ -68711,6 +68048,12 @@
 - path: sounds/gUnk_08DD7DA1_5.bin
   start: 0xdd7e06
   size: 0x2
+- path: sounds/bgmFortressOfWinds.s
+  start: 0xdd7e08
+  type: midi
+  options:
+    group: 36
+    reverb: 0x3c
 - path: sounds/bgmTempleOfDroplets_track0.bin
   start: 0xdd7e2c
   size: 0xb
@@ -68864,6 +68207,12 @@
 - path: sounds/gUnk_08DD83A6_2.bin
   start: 0xdd83cb
   size: 0x1
+- path: sounds/bgmTempleOfDroplets.s
+  start: 0xdd83cc
+  type: midi
+  options:
+    group: 37
+    reverb: 0x3c
 - path: sounds/bgmPalaceOfWinds_track0.bin
   start: 0xdd83ec
   size: 0x55
@@ -69200,6 +68549,12 @@
 - path: sounds/gUnk_08DD8E0A_8.bin
   start: 0xdd8e59
   size: 0x3
+- path: sounds/bgmPalaceOfWinds.s
+  start: 0xdd8e5c
+  type: midi
+  options:
+    group: 38
+    reverb: 0x28
 - path: sounds/bgmEzloStory_track0.bin
   start: 0xdd8e84
   size: 0xb
@@ -69272,6 +68627,16 @@
 - path: sounds/gUnk_08DD900B_1.bin
   start: 0xdd902a
   size: 0x2
+- path: sounds/bgmEzloStory.s
+  start: 0xdd902c
+  type: midi
+  options:
+    group: 39
+    reverb: 0x28
+    timeChanges:
+      nominator: 3
+      denominator: 4
+      time: 96
 - path: sounds/bgmRoyalCrypt_track0.bin
   start: 0xdd9048
   size: 0x4b
@@ -69455,6 +68820,12 @@
 - path: sounds/gUnk_08DD9A32_2.bin
   start: 0xdd9aa9
   size: 0x3
+- path: sounds/bgmElementalSanctuary.s
+  start: 0xdd9aac
+  type: midi
+  options:
+    group: 41
+    reverb: 0x3c
 - path: sounds/bgmFightTheme_track0.bin
   start: 0xdd9ac8
   size: 0x1b
@@ -69995,6 +69366,17 @@
 - path: sounds/gUnk_08DDA37F_13.bin
   start: 0xdda3f4
   size: 0x4
+- path: sounds/bgmBossTheme.s
+  start: 0xdda3f8
+  type: midi
+  options:
+    group: 43
+    reverb: 0x28
+    timeChanges:
+      nominator: 4
+      denominator: 4
+      time: 144
+
 - path: sounds/bgmVaatiReborn_track0.bin
   start: 0xdda420
   size: 0xb
@@ -70349,6 +69731,16 @@
 - path: sounds/gUnk_08DDAA2B_6.bin
   start: 0xddaac5
   size: 0x3
+- path: sounds/bgmVaatiReborn.s
+  start: 0xddaac8
+  type: midi
+  options:
+    group: 44
+    reverb: 0x28
+    timeChanges:
+      nominator: 3
+      denominator: 4
+      time: 24
 - path: sounds/bgmVaatiTransfigured_track0.bin
   start: 0xddaaf0
   size: 0x12
@@ -70622,6 +70014,12 @@
 - path: sounds/gUnk_08DDB18F_1.bin
   start: 0xddb1d0
   size: 0x4
+- path: sounds/bgmVaatiTransfigured.s
+  start: 0xddb1d4
+  type: midi
+  options:
+    group: 45
+    reverb: 0x28
 - path: sounds/bgmCastleCollapse_track0.bin
   start: 0xddb204
   size: 0x9
@@ -70745,6 +70143,16 @@
 - path: sounds/gUnk_08DDB5C9_1.bin
   start: 0xddb5e0
   size: 0x4
+- path: sounds/bgmCastleCollapse.s
+  start: 0xddb5e4
+  type: midi
+  options:
+    group: 46
+    reverb: 0x28
+    timeChanges:
+      nominator: 4
+      denominator: 4
+      time: 48
 - path: sounds/bgmVaatiWrath_track0.bin
   start: 0xddb60c
   size: 0x51
@@ -71225,6 +70633,34 @@
   starts:
     EU: 0xee7a90
   size: 0x4
+- path: sounds/bgmSwiftbladeDojo.s
+  start: 0xddc4b4
+  type: midi
+  options:
+    group: 50
+    reverb: 0x1e
+    timeChanges:
+      nominator: 4
+      denominator: 4
+      time: 48
+  variants:
+  - USA
+  - JP
+  - DEMO_USA
+  - DEMO_JP
+- path: sounds/bgmSwiftbladeDojo.s
+  starts:
+    EU: 0xee7a90
+  type: midi
+  options:
+    group: 50
+    reverb: 0x28
+    timeChanges:
+      nominator: 4
+      denominator: 4
+      time: 96
+  variants:
+  - EU
 - offsets:
     EU: 0x10b5d4
 - path: sounds/bgmMinishCap_track0.bin
@@ -72064,6 +71500,12 @@
 - path: sounds/gUnk_08DDDA0B_7.bin
   start: 0xddda4f
   size: 0x1
+- path: sounds/bgmPicoriFestival.s
+  start: 0xddda50
+  type: midi
+  options:
+    group: 53
+    reverb: 0x1e
 - path: sounds/bgmLostWoods_track0.bin
   start: 0xddda74
   size: 0x21
@@ -72418,6 +71860,12 @@
 - path: sounds/gUnk_08DDE3A6_10.bin
   start: 0xdde40a
   size: 0xda
+- path: sounds/bgmLostWoods.s
+  start: 0xdde4e4
+  type: midi
+  options:
+    group: 54
+    reverb: 0x1e
 - path: sounds/bgmFairyFountain2_track0.bin
   start: 0xdde508
   size: 0xb
@@ -72535,6 +71983,12 @@
 - path: sounds/gUnk_08DDE7DB_2.bin
   start: 0xdde823
   size: 0x1
+- path: sounds/bgmFairyFountain2.s
+  start: 0xdde824
+  type: midi
+  options:
+    group: 55
+    reverb: 0x28
 - path: sounds/bgmWindRuins_track0.bin
   start: 0xdde848
   size: 0x13
@@ -72864,6 +72318,26 @@
   starts:
     EU: 0xeea30c
   size: 0x4
+- path: sounds/bgmLearnScroll.s
+  start: 0xdded6c
+  type: midi
+  options:
+    group: 50
+    reverb: 0x1e
+  variants:
+  - USA
+  - JP
+  - DEMO_USA
+  - DEMO_JP
+- path: sounds/bgmLearnScroll.s
+  starts:
+    EU: 0xeea30c
+  type: midi
+  options:
+    group: 50
+    reverb: 0x32
+  variants:
+  - EU
 - offsets:
     EU: 0x10b598
 - path: sounds/bgmEzloGet_track0.bin
@@ -72881,48 +72355,85 @@
 - path: sounds/bgmEzloGet_track4.bin
   start: 0xddedf5
   size: 0x23
-- path: sounds/sfxBeep_track0.bin
-  start: 0xddee34
-  size: 0x10
-- path: sounds/sfxTextboxOpen_track0.bin
-  start: 0xddee50
-  size: 0x36
-- path: sounds/sfxTextboxOpen_track1.bin
-  start: 0xddee86
-  size: 0x36
-- path: sounds/sfxTextboxClose_track0.bin
-  start: 0xddeecc
-  size: 0x2a
-- path: sounds/sfxTextboxClose_track1.bin
-  start: 0xddeef6
-  size: 0x2a
-- path: sounds/sfxTextboxNext_track0.bin
-  start: 0xddef30
-  size: 0x14
-- path: sounds/sfxTextboxSwap_track0.bin
-  start: 0xddef50
-  size: 0x2c
-- path: sounds/sfxTextboxChoice_track0.bin
-  start: 0xddef88
-  size: 0x14
-- path: sounds/sfxTextboxSelect_track0.bin
-  start: 0xddefa8
-  size: 0x60
-- path: sounds/sfx6B_track0.bin
-  start: 0xddf014
-  size: 0x2c
-- path: sounds/sfxMenuCancel_track0.bin
-  start: 0xddf04c
-  size: 0x1c
-- path: sounds/sfxMenuError_track0.bin
-  start: 0xddf074
-  size: 0x20
-- path: sounds/sfxRupeeBounce_track0.bin
-  start: 0xddf0a0
-  size: 0x1c
-- path: sounds/sfxRupeeGet_track0.bin
-  start: 0xddf0c8
-  size: 0x24
+- path: sounds/bgmEzloGet.s
+  start: 0xddee18
+  type: midi
+  options:
+    group: 57
+    reverb: 0x32
+
+- path: sounds/sfxBeep.s
+  start: 0xDDEE44
+  type: midi
+  options:
+    group: 60
+    priority: 0xff
+- path: sounds/sfxTextboxOpen.s
+  start: 0xDDEEBC
+  type: midi
+  options:
+    group: 61
+    priority: 0x30
+- path: sounds/sfxTextboxClose.s
+  start: 0xDDEF20
+  type: midi
+  options:
+    group: 62
+    priority: 0x30
+- path: sounds/sfxTextboxNext.s
+  start: 0xDDEF44
+  type: midi
+  options:
+    group: 63
+    priority: 0x40
+- path: sounds/sfxTextboxSwap.s
+  start: 0xDDEF7C
+  type: midi
+  options:
+    group: 64
+    priority: 0x40
+- path: sounds/sfxTextboxChoice.s
+  start: 0xDDEF9C
+  type: midi
+  options:
+    group: 65
+    priority: 0x40
+- path: sounds/sfxTextboxSelect.s
+  start: 0xDDF008
+  type: midi
+  options:
+    group: 66
+    priority: 0x40
+- path: sounds/sfx6B.s
+  start: 0xDDF040
+  type: midi
+  options:
+    group: 67
+    priority: 0x40
+- path: sounds/sfxMenuCancel.s
+  start: 0xDDF068
+  type: midi
+  options:
+    group: 68
+    priority: 0x40
+- path: sounds/sfxMenuError.s
+  start: 0xDDF094
+  type: midi
+  options:
+    group: 69
+    priority: 0x40
+- path: sounds/sfxRupeeBounce.s
+  start: 0xDDF0BC
+  type: midi
+  options:
+    group: 70
+    priority: 0x58
+- path: sounds/sfxRupeeGet.s
+  start: 0xDDF0EC
+  type: midi
+  options:
+    group: 71
+    priority: 0x60
 - path: sounds/sfxHeartBounce.s
   start: 0xDDF144
   options:
@@ -72950,7 +72461,8 @@
   variants:
   - USA
   - JP
-  - DEMO
+  - DEMO_USA
+  - DEMO_JP
 - path: sounds/sfxSecretBig.s
   start: 0xddf1f4
   options:
@@ -72959,758 +72471,1255 @@
   type: midi
   variants:
   - EU
-- path: sounds/sfxSecretBig_track1.bin
-  start: 0xddf1cf
-  size: 0x25
-- path: sounds/sfxMetalClink_track0.bin
-  start: 0xddf204
-  size: 0x18
-- path: sounds/sfxPlyVo1_track0.bin
-  start: 0xddf228
-  size: 0x10
-- path: sounds/sfxPlyVo2_track0.bin
-  start: 0xddf244
-  size: 0x10
-- path: sounds/sfxPlyVo3_track0.bin
-  start: 0xddf260
-  size: 0x10
-- path: sounds/sfxPlyVo4_track0.bin
-  start: 0xddf27c
-  size: 0x10
-- path: sounds/sfxPlyVo5_track0.bin
-  start: 0xddf298
-  size: 0x10
-- path: sounds/sfxPlyVo6_track0.bin
-  start: 0xddf2b4
-  size: 0x10
-- path: sounds/sfxPlyVo7_track0.bin
-  start: 0xddf2d0
-  size: 0x10
-- path: sounds/sfxPlyJump_track0.bin
-  start: 0xddf2ec
-  size: 0x10
-- path: sounds/sfxPlyLand_track0.bin
-  start: 0xddf308
-  size: 0x14
-- path: sounds/sfx7E_track0.bin
-  start: 0xddf328
-  size: 0x14
-- path: sounds/sfxPlyLift_track0.bin
-  start: 0xddf348
-  size: 0x44
-- path: sounds/sfx80_track0.bin
-  start: 0xddf398
-  size: 0x18
-- path: sounds/sfx81_track0.bin
-  start: 0xddf3bc
-  size: 0x28
-- path: sounds/sfx82_track0.bin
-  start: 0xddf3f0
-  size: 0x10
-- path: sounds/sfxWaterWalk_track0.bin
-  start: 0xddf40c
-  size: 0x17
-- path: sounds/sfxWaterWalk_track1.bin
-  start: 0xddf423
-  size: 0x19
-- path: sounds/sfxWaterSplash_track0.bin
-  start: 0xddf44c
-  size: 0x38
-- path: sounds/sfxFallHole_track0.bin
-  start: 0xddf490
-  size: 0xec
-- path: sounds/sfx86_track0.bin
-  start: 0xddf588
-  size: 0x10
-- path: sounds/sfxPlyDie_track0.bin
-  start: 0xddf5a4
-  size: 0x64
-- path: sounds/sfx88_track0.bin
-  start: 0xddf614
-  size: 0x1c
-- path: sounds/sfxBarrelRelease_track0.bin
-  start: 0xddf63c
-  size: 0x10
-- path: sounds/sfxBarrelEnter_track0.bin
-  start: 0xddf658
-  size: 0x10
-- path: sounds/sfxBarrelRoll_track0.bin
-  start: 0xddf674
-  size: 0x10
-- path: sounds/sfxBarrelRollStop_track0.bin
-  start: 0xddf690
-  size: 0x10
-- path: sounds/sfxVoEzlo1_track0.bin
-  start: 0xddf6ac
-  size: 0x10
-- path: sounds/sfxVoEzlo2_track0.bin
-  start: 0xddf6c8
-  size: 0x10
-- path: sounds/sfxVoEzlo3_track0.bin
-  start: 0xddf6e4
-  size: 0x10
-- path: sounds/sfxVoEzlo4_track0.bin
-  start: 0xddf700
-  size: 0x10
-- path: sounds/sfxVoEzlo5_track0.bin
-  start: 0xddf71c
-  size: 0x10
-- path: sounds/sfxVoEzlo6_track0.bin
-  start: 0xddf738
-  size: 0x10
-- path: sounds/sfxVoEzlo7_track0.bin
-  start: 0xddf754
-  size: 0x10
-- path: sounds/sfxVoZelda1_track0.bin
-  start: 0xddf770
-  size: 0x10
-- path: sounds/sfxVoZelda2_track0.bin
-  start: 0xddf78c
-  size: 0x10
-- path: sounds/sfxVoZelda3_track0.bin
-  start: 0xddf7a8
-  size: 0x10
-- path: sounds/sfxVoZelda4_track0.bin
-  start: 0xddf7c4
-  size: 0x10
-- path: sounds/sfxVoZelda5_track0.bin
-  start: 0xddf7e0
-  size: 0x10
-- path: sounds/sfxVoZelda6_track0.bin
-  start: 0xddf7fc
-  size: 0x10
-- path: sounds/sfxVoZelda7_track0.bin
-  start: 0xddf818
-  size: 0x10
-- path: sounds/sfx9B_track0.bin
-  start: 0xddf834
-  size: 0x10
-- path: sounds/sfx9C_track0.bin
-  start: 0xddf850
-  size: 0x10
-- path: sounds/sfx9D_track0.bin
-  start: 0xddf86c
-  size: 0x10
-- path: sounds/sfx9E_track0.bin
-  start: 0xddf888
-  size: 0x10
-- path: sounds/sfx9F_track0.bin
-  start: 0xddf8a4
-  size: 0x10
-- path: sounds/sfxA0_track0.bin
-  start: 0xddf8c0
-  size: 0x14
-- path: sounds/sfxVoTingle1_track0.bin
-  start: 0xddf8e0
-  size: 0x10
-- path: sounds/sfxVoTingle2_track0.bin
-  start: 0xddf8fc
-  size: 0x10
-- path: sounds/sfxVoKing1_track0.bin
-  start: 0xddf918
-  size: 0x10
-- path: sounds/sfxVoKing2_track0.bin
-  start: 0xddf934
-  size: 0x10
-- path: sounds/sfxVoKing3_track0.bin
-  start: 0xddf950
-  size: 0x10
-- path: sounds/sfxVoKing4_track0.bin
-  start: 0xddf96c
-  size: 0x10
-- path: sounds/sfxVoKing5_track0.bin
-  start: 0xddf988
-  size: 0x10
-- path: sounds/sfxA8_track0.bin
-  start: 0xddf9a4
-  size: 0x10
-- path: sounds/sfxA9_track0.bin
-  start: 0xddf9c0
-  size: 0x10
-- path: sounds/sfxAA_track0.bin
-  start: 0xddf9dc
-  size: 0x10
-- path: sounds/sfxSpiritsRelease_track0.bin
-  start: 0xddf9f8
-  size: 0x14
-- path: sounds/sfxAC_track0.bin
-  start: 0xddfa18
-  size: 0x10
-- path: sounds/sfxVoBeedle_track0.bin
-  start: 0xddfa34
-  size: 0x10
-- path: sounds/sfxAE_track0.bin
-  start: 0xddfa50
-  size: 0x10
-- path: sounds/sfxAF_track0.bin
-  start: 0xddfa6c
-  size: 0x10
-- path: sounds/sfxB0_track0.bin
-  start: 0xddfa88
-  size: 0x10
-- path: sounds/sfxMinish1_track0.bin
-  start: 0xddfaa4
-  size: 0x10
-- path: sounds/sfxMinish2_track0.bin
-  start: 0xddfac0
-  size: 0x10
-- path: sounds/sfxMinish3_track0.bin
-  start: 0xddfadc
-  size: 0x10
-- path: sounds/sfxMinish4_track0.bin
-  start: 0xddfaf8
-  size: 0x10
-- path: sounds/sfxB5_track0.bin
-  start: 0xddfb14
-  size: 0x10
-- path: sounds/sfxB6_track0.bin
-  start: 0xddfb30
-  size: 0x10
-- path: sounds/sfxB7_track0.bin
-  start: 0xddfb4c
-  size: 0x10
-- path: sounds/sfxB8_track0.bin
-  start: 0xddfb68
-  size: 0x10
-- path: sounds/sfxB9_track0.bin
-  start: 0xddfb84
-  size: 0x10
-- path: sounds/sfxBA_track0.bin
-  start: 0xddfba0
-  size: 0x10
-- path: sounds/sfxBB_track0.bin
-  start: 0xddfbbc
-  size: 0x10
-- path: sounds/sfxBC_track0.bin
-  start: 0xddfbd8
-  size: 0x10
-- path: sounds/sfxBD_track0.bin
-  start: 0xddfbf4
-  size: 0x10
-- path: sounds/sfxBE_track0.bin
-  start: 0xddfc10
-  size: 0x10
-- path: sounds/sfxBF_track0.bin
-  start: 0xddfc2c
-  size: 0x10
-- path: sounds/sfxC0_track0.bin
-  start: 0xddfc48
-  size: 0x10
-- path: sounds/sfxC1_track0.bin
-  start: 0xddfc64
-  size: 0x10
-- path: sounds/sfxC2_track0.bin
-  start: 0xddfc80
-  size: 0x10
-- path: sounds/sfxC3_track0.bin
-  start: 0xddfc9c
-  size: 0x10
-- path: sounds/sfxC4_track0.bin
-  start: 0xddfcb8
-  size: 0x10
-- path: sounds/sfxC5_track0.bin
-  start: 0xddfcd4
-  size: 0x10
-- path: sounds/sfxC6_track0.bin
-  start: 0xddfcf0
-  size: 0x10
-- path: sounds/sfxC7_track0.bin
-  start: 0xddfd0c
-  size: 0x10
-- path: sounds/sfxC8_track0.bin
-  start: 0xddfd28
-  size: 0x10
-- path: sounds/sfxC9_track0.bin
-  start: 0xddfd44
-  size: 0x10
-- path: sounds/sfxCA_track0.bin
-  start: 0xddfd60
-  size: 0x10
-- path: sounds/sfxCB_track0.bin
-  start: 0xddfd7c
-  size: 0x10
-- path: sounds/sfxRemSleep_track0.bin
-  start: 0xddfd98
-  size: 0x10
-- path: sounds/sfxTaskComplete_track0.bin
-  start: 0xddfdb4
-  size: 0x20
-- path: sounds/sfxKeyAppear_track0.bin
-  start: 0xddfde0
-  size: 0x34
-- path: sounds/sfxCF_track0.bin
-  start: 0xddfe20
-  size: 0x10
-- path: sounds/sfxD0_track0_EU.bin
+- path: sounds/sfxMetalClink.s
+  start: 0xDDF21C
+  type: midi
+  options:
+    group: 76
+    priority: 0x44
+- path: sounds/sfxPlyVo1.s
+  start: 0xDDF238
+  type: midi
+  options:
+    group: 77
+    priority: 0x48
+- path: sounds/sfxPlyVo2.s
+  start: 0xDDF254
+  type: midi
+  options:
+    group: 78
+    priority: 0x48
+- path: sounds/sfxPlyVo3.s
+  start: 0xDDF270
+  type: midi
+  options:
+    group: 79
+    priority: 0x48
+- path: sounds/sfxPlyVo4.s
+  start: 0xDDF28C
+  type: midi
+  options:
+    group: 80
+    priority: 0x48
+- path: sounds/sfxPlyVo5.s
+  start: 0xDDF2A8
+  type: midi
+  options:
+    group: 81
+    priority: 0x48
+- path: sounds/sfxPlyVo6.s
+  start: 0xDDF2C4
+  type: midi
+  options:
+    group: 82
+    priority: 0x48
+- path: sounds/sfxPlyVo7.s
+  start: 0xDDF2E0
+  type: midi
+  options:
+    group: 83
+    priority: 0x48
+- path: sounds/sfxPlyJump.s
+  start: 0xddf2fc
+  type: midi
+  options:
+    group: 084
+    priority: 0x40
+- path: sounds/sfxPlyLand.s
+  start: 0xddf31c
+  type: midi
+  options:
+    group: 085
+    priority: 0x40
+- path: sounds/sfx7E.s
+  start: 0xddf33c
+  type: midi
+  options:
+    group: 086
+    priority: 0x30
+- path: sounds/sfxPlyLift.s
+  start: 0xddf38c
+  type: midi
+  options:
+    group: 087
+    priority: 0x40
+- path: sounds/sfx80.s
+  start: 0xddf3b0
+  type: midi
+  options:
+    group: 088
+    priority: 0x30
+- path: sounds/sfx81.s
+  start: 0xddf3e4
+  type: midi
+  options:
+    group: 089
+    priority: 0x40
+- path: sounds/sfx82.s
+  start: 0xddf400
+  type: midi
+  options:
+    group: 090
+    priority: 0x40
+- path: sounds/sfxWaterWalk.s
+  start: 0xddf43c
+  type: midi
+  options:
+    group: 091
+    priority: 0x28
+- path: sounds/sfxWaterSplash.s
+  start: 0xddf484
+  type: midi
+  options:
+    group: 092
+    priority: 0x40
+- path: sounds/sfxFallHole.s
+  start: 0xddf57c
+  type: midi
+  options:
+    group: 093
+    priority: 0x40
+- path: sounds/sfx86.s
+  start: 0xddf598
+  type: midi
+  options:
+    group: 094
+    priority: 0x40
+- path: sounds/sfxPlyDie.s
+  start: 0xddf608
+  type: midi
+  options:
+    group: 095
+    priority: 0x40
+- path: sounds/sfx88.s
+  start: 0xddf630
+  type: midi
+  options:
+    group: 096
+    priority: 0x40
+- path: sounds/sfxBarrelRelease.s
+  start: 0xddf64c
+  type: midi
+  options:
+    group: 097
+    priority: 0x40
+- path: sounds/sfxBarrelEnter.s
+  start: 0xddf668
+  type: midi
+  options:
+    group: 098
+    priority: 0x40
+- path: sounds/sfxBarrelRoll.s
+  start: 0xddf684
+  type: midi
+  options:
+    group: 099
+    priority: 0x40
+- path: sounds/sfxBarrelRollStop.s
+  start: 0xddf6a0
+  type: midi
+  options:
+    group: 100
+    priority: 0x40
+- path: sounds/sfxVoEzlo1.s
+  start: 0xddf6bc
+  type: midi
+  options:
+    group: 101
+    priority: 0x48
+- path: sounds/sfxVoEzlo2.s
+  start: 0xddf6d8
+  type: midi
+  options:
+    group: 102
+    priority: 0x48
+- path: sounds/sfxVoEzlo3.s
+  start: 0xddf6f4
+  type: midi
+  options:
+    group: 103
+    priority: 0x48
+- path: sounds/sfxVoEzlo4.s
+  start: 0xddf710
+  type: midi
+  options:
+    group: 104
+    priority: 0x48
+- path: sounds/sfxVoEzlo5.s
+  start: 0xddf72c
+  type: midi
+  options:
+    group: 105
+    priority: 0x48
+- path: sounds/sfxVoEzlo6.s
+  start: 0xddf748
+  type: midi
+  options:
+    group: 106
+    priority: 0x48
+- path: sounds/sfxVoEzlo7.s
+  start: 0xddf764
+  type: midi
+  options:
+    group: 107
+    priority: 0x48
+- path: sounds/sfxVoZelda1.s
+  start: 0xddf780
+  type: midi
+  options:
+    group: 108
+    priority: 0x48
+- path: sounds/sfxVoZelda2.s
+  start: 0xddf79c
+  type: midi
+  options:
+    group: 109
+    priority: 0x48
+- path: sounds/sfxVoZelda3.s
+  start: 0xddf7b8
+  type: midi
+  options:
+    group: 110
+    priority: 0x48
+- path: sounds/sfxVoZelda4.s
+  start: 0xddf7d4
+  type: midi
+  options:
+    group: 111
+    priority: 0x48
+- path: sounds/sfxVoZelda5.s
+  start: 0xddf7f0
+  type: midi
+  options:
+    group: 112
+    priority: 0x48
+- path: sounds/sfxVoZelda6.s
+  start: 0xddf80c
+  type: midi
+  options:
+    group: 113
+    priority: 0x48
+- path: sounds/sfxVoZelda7.s
+  start: 0xddf828
+  type: midi
+  options:
+    group: 114
+    priority: 0x48
+- path: sounds/sfx9B.s
+  start: 0xddf844
+  type: midi
+  options:
+    group: 115
+    priority: 0x48
+- path: sounds/sfx9C.s
+  start: 0xddf860
+  type: midi
+  options:
+    group: 116
+    priority: 0x48
+- path: sounds/sfx9D.s
+  start: 0xddf87c
+  type: midi
+  options:
+    group: 117
+    priority: 0x48
+- path: sounds/sfx9E.s
+  start: 0xddf898
+  type: midi
+  options:
+    group: 118
+    priority: 0x48
+- path: sounds/sfx9F.s
+  start: 0xddf8b4
+  type: midi
+  options:
+    group: 119
+    priority: 0x48
+- path: sounds/sfxA0.s
+  start: 0xddf8d4
+  type: midi
+  options:
+    group: 120
+    priority: 0x48
+- path: sounds/sfxVoTingle1.s
+  start: 0xddf8f0
+  type: midi
+  options:
+    group: 121
+    priority: 0x48
+- path: sounds/sfxVoTingle2.s
+  start: 0xddf90c
+  type: midi
+  options:
+    group: 122
+    priority: 0x48
+- path: sounds/sfxVoKing1.s
+  start: 0xddf928
+  type: midi
+  options:
+    group: 123
+    priority: 0x48
+- path: sounds/sfxVoKing2.s
+  start: 0xddf944
+  type: midi
+  options:
+    group: 124
+    priority: 0x48
+- path: sounds/sfxVoKing3.s
+  start: 0xddf960
+  type: midi
+  options:
+    group: 125
+    priority: 0x48
+- path: sounds/sfxVoKing4.s
+  start: 0xddf97c
+  type: midi
+  options:
+    group: 126
+    priority: 0x48
+- path: sounds/sfxVoKing5.s
+  start: 0xddf998
+  type: midi
+  options:
+    group: 127
+    priority: 0x48
+- path: sounds/sfxA8.s
+  start: 0xddf9b4
+  type: midi
+  options:
+    group: 128
+    priority: 0x48
+- path: sounds/sfxA9.s
+  start: 0xddf9d0
+  type: midi
+  options:
+    group: 129
+    priority: 0x48
+- path: sounds/sfxAA.s
+  start: 0xddf9ec
+  type: midi
+  options:
+    group: 130
+    priority: 0x48
+- path: sounds/sfxSpiritsRelease.s
+  start: 0xddfa0c
+  type: midi
+  options:
+    group: 131
+    priority: 0x48
+- path: sounds/sfxAC.s
+  start: 0xddfa28
+  type: midi
+  options:
+    group: 132
+    priority: 0x48
+- path: sounds/sfxVoBeedle.s
+  start: 0xddfa44
+  type: midi
+  options:
+    group: 133
+    priority: 0x48
+- path: sounds/sfxAE.s
+  start: 0xddfa60
+  type: midi
+  options:
+    group: 134
+    priority: 0x48
+- path: sounds/sfxAF.s
+  start: 0xddfa7c
+  type: midi
+  options:
+    group: 135
+    priority: 0x48
+- path: sounds/sfxB0.s
+  start: 0xddfa98
+  type: midi
+  options:
+    group: 136
+    priority: 0x48
+- path: sounds/sfxMinish1.s
+  start: 0xddfab4
+  type: midi
+  options:
+    group: 137
+    priority: 0x48
+- path: sounds/sfxMinish2.s
+  start: 0xddfad0
+  type: midi
+  options:
+    group: 138
+    priority: 0x48
+- path: sounds/sfxMinish3.s
+  start: 0xddfaec
+  type: midi
+  options:
+    group: 139
+    priority: 0x48
+- path: sounds/sfxMinish4.s
+  start: 0xddfb08
+  type: midi
+  options:
+    group: 140
+    priority: 0x48
+- path: sounds/sfxB5.s
+  start: 0xddfb24
+  type: midi
+  options:
+    group: 141
+    priority: 0x48
+- path: sounds/sfxB6.s
+  start: 0xddfb40
+  type: midi
+  options:
+    group: 142
+    priority: 0x48
+- path: sounds/sfxB7.s
+  start: 0xddfb5c
+  type: midi
+  options:
+    group: 143
+    priority: 0x48
+- path: sounds/sfxB8.s
+  start: 0xddfb78
+  type: midi
+  options:
+    group: 144
+    priority: 0x48
+- path: sounds/sfxB9.s
+  start: 0xddfb94
+  type: midi
+  options:
+    group: 145
+    priority: 0x48
+- path: sounds/sfxBA.s
+  start: 0xddfbb0
+  type: midi
+  options:
+    group: 146
+    priority: 0x48
+- path: sounds/sfxBB.s
+  start: 0xddfbcc
+  type: midi
+  options:
+    group: 147
+    priority: 0x48
+- path: sounds/sfxBC.s
+  start: 0xddfbe8
+  type: midi
+  options:
+    group: 148
+    priority: 0x48
+- path: sounds/sfxBD.s
+  start: 0xddfc04
+  type: midi
+  options:
+    group: 149
+    priority: 0x48
+- path: sounds/sfxBE.s
+  start: 0xddfc20
+  type: midi
+  options:
+    group: 150
+    priority: 0x48
+- path: sounds/sfxBF.s
+  start: 0xddfc3c
+  type: midi
+  options:
+    group: 151
+    priority: 0x48
+- path: sounds/sfxC0.s
+  start: 0xddfc58
+  type: midi
+  options:
+    group: 152
+    priority: 0x48
+- path: sounds/sfxC1.s
+  start: 0xddfc74
+  type: midi
+  options:
+    group: 153
+    priority: 0x48
+- path: sounds/sfxC2.s
+  start: 0xddfc90
+  type: midi
+  options:
+    group: 154
+    priority: 0x48
+- path: sounds/sfxC3.s
+  start: 0xddfcac
+  type: midi
+  options:
+    group: 155
+    priority: 0x48
+- path: sounds/sfxC4.s
+  start: 0xddfcc8
+  type: midi
+  options:
+    group: 156
+    priority: 0x48
+- path: sounds/sfxC5.s
+  start: 0xddfce4
+  type: midi
+  options:
+    group: 157
+    priority: 0x48
+- path: sounds/sfxC6.s
+  start: 0xddfd00
+  type: midi
+  options:
+    group: 158
+    priority: 0x48
+- path: sounds/sfxC7.s
+  start: 0xddfd1c
+  type: midi
+  options:
+    group: 159
+    priority: 0x48
+- path: sounds/sfxC8.s
+  start: 0xddfd38
+  type: midi
+  options:
+    group: 160
+    priority: 0x48
+- path: sounds/sfxC9.s
+  start: 0xddfd54
+  type: midi
+  options:
+    group: 161
+    priority: 0x48
+- path: sounds/sfxCA.s
+  start: 0xddfd70
+  type: midi
+  options:
+    group: 162
+    priority: 0x48
+- path: sounds/sfxCB.s
+  start: 0xddfd8c
+  type: midi
+  options:
+    group: 163
+    priority: 0x48
+- path: sounds/sfxRemSleep.s
+  start: 0xddfda8
+  type: midi
+  options:
+    group: 164
+    priority: 0x48
+- path: sounds/sfxTaskComplete.s
+  start: 0xddfdd4
+  type: midi
+  options:
+    group: 165
+    priority: 0xc0
   variants:
   - EU
-  starts:
-    EU: 0xeeb3d4
-  size: 0x10
-- path: sounds/sfxD0_track0_1_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: sounds/sfxTaskComplete.s
+  start: 0xddfdd4
+  type: midi
+  options:
+    group: 165
+    priority: 0xb0
   variants:
   - USA
   - JP
   - DEMO_USA
   - DEMO_JP
-  start: 0xddfe3c
-  size: 0x10
-- path: sounds/sfxVoDog_track0.bin
-  start: 0xddfe58
-  size: 0x10
-- path: sounds/sfxVoCat_track0.bin
-  start: 0xddfe74
-  size: 0x10
-- path: sounds/sfxVoEpona_track0.bin
-  start: 0xddfe90
-  size: 0x10
-- path: sounds/sfxVoCow_track0.bin
-  start: 0xddfeac
-  size: 0x10
-- path: sounds/sfxVoCuccoCall_track0.bin
-  start: 0xddfec8
-  size: 0x10
-- path: sounds/sfxVoCheep_track0.bin
-  start: 0xddfee4
-  size: 0x10
-- path: sounds/sfxItemSwordCharge_track0.bin
-  start: 0xddff00
-  size: 0x10
-- path: sounds/sfxItemSwordChargeFinish_track0.bin
-  start: 0xddff1c
-  size: 0x10
-- path: sounds/sfxD9_track0.bin
-  start: 0xddff38
-  size: 0x10
-- path: sounds/sfxDA_track0.bin
-  start: 0xddff54
-  size: 0x10
-- path: sounds/sfxVoSturgeon_track0.bin
-  start: 0xddff70
-  size: 0x10
-- path: sounds/sfxHammer1_track0.bin
-  start: 0xddff8c
-  size: 0x10
-- path: sounds/sfxHammer2_track0.bin
-  start: 0xddffa8
-  size: 0x10
-- path: sounds/sfxHammer3_track0.bin
-  start: 0xddffc4
-  size: 0x10
-- path: sounds/sfxHammer4_track0.bin
-  start: 0xddffe0
-  size: 0x10
-- path: sounds/sfxHammer5_track0.bin
-  start: 0xddfffc
-  size: 0x10
-- path: sounds/sfxHammer6_track0.bin
-  start: 0xde0018
-  size: 0x10
-- path: sounds/sfxCuccoMinigameBell_track0.bin
-  start: 0xde0034
-  size: 0x14
-- path: sounds/sfxE3_track0.bin
-  start: 0xde0054
-  size: 0x10
-- path: sounds/sfxE4_track0.bin
-  start: 0xde0070
-  size: 0x10
-- path: sounds/sfxButtonDepress_track0.bin
-  start: 0xde008c
-  size: 0x14
-- path: sounds/sfxThudHeavy_track0.bin
-  start: 0xde00ac
-  size: 0x10
-- path: sounds/sfxWind1_track0.bin
-  start: 0xde00c8
-  size: 0x24
-- path: sounds/sfxWind2_track0.bin
-  start: 0xde00f8
-  size: 0x40
-- path: sounds/sfxWind3_track0.bin
-  start: 0xde0144
-  size: 0x3c
-- path: sounds/sfxEA_track0.bin
-  start: 0xde018c
-  size: 0x28
-- path: sounds/sfxEB_track0.bin
-  start: 0xde01c0
-  size: 0x34
-- path: sounds/sfxEC_track0.bin
-  start: 0xde0200
-  size: 0x44
-- path: sounds/sfxED_track0.bin
-  start: 0xde0250
-  size: 0x2b
-- path: sounds/sfxED_track1.bin
-  start: 0xde027b
-  size: 0x11
-- path: sounds/sfxEE_track0.bin
-  start: 0xde029c
-  size: 0x10
-- path: sounds/sfxEF_track0.bin
-  start: 0xde02b8
-  size: 0x10
-- path: sounds/sfxF0_track0.bin
-  start: 0xde02d4
-  size: 0x18
-- path: sounds/sfxF1_track0.bin
-  start: 0xde02f8
-  size: 0x18
-- path: sounds/sfxF2_track0.bin
-  start: 0xde031c
-  size: 0x35
-- path: sounds/sfxF2_track1.bin
-  start: 0xde0351
-  size: 0x37
-- path: sounds/sfxF3_track0.bin
-  start: 0xde0398
-  size: 0x2c
-- path: sounds/sfxSummon_track0.bin
-  start: 0xde03d0
-  size: 0x4c
-- path: sounds/sfxF5_track0.bin
-  start: 0xde0428
-  size: 0xbc
-- path: sounds/sfxEvaporate_track0.bin
-  start: 0xde04f0
-  size: 0x44
-- path: sounds/sfxApparate_track0.bin
-  start: 0xde0540
-  size: 0x44
-- path: sounds/sfxF8_track0.bin
-  start: 0xde0590
-  size: 0x29
-- path: sounds/sfxF8_track1.bin
-  start: 0xde05b9
-  size: 0x23
-- path: sounds/sfxTeleporter_track0.bin
-  start: 0xde05ec
-  size: 0x48
-- path: sounds/sfxFA_track0.bin
-  start: 0xde0640
-  size: 0x29
-- path: sounds/sfxFA_track1.bin
-  start: 0xde0669
-  size: 0x23
-- path: sounds/sfxFB_track0.bin
-  start: 0xde069c
-  size: 0x48
-- path: sounds/sfxFC_track0.bin
-  start: 0xde06f0
-  size: 0x17
-- path: sounds/sfxFC_track1.bin
-  start: 0xde0707
-  size: 0x21
-- path: sounds/sfxItemBombExplode_track0.bin
-  start: 0xde0738
-  size: 0x4c
-- path: sounds/gUnk_08DE0790.bin
-  start: 0xde0790
-  size: 0x28
-- path: sounds/gUnk_08DE07B8.bin
-  start: 0xde07b8
-  size: 0x1c
-- path: sounds/sfxHit.bin
+- path: sounds/sfxKeyAppear.s
+  start: 0xddfe14
+  type: midi
+  options:
+    group: 166
+    priority: 0xc0
+- path: sounds/sfxCF.s
+  start: 0xddfe30
+  type: midi
+  options:
+    group: 167
+    priority: 0x48
+- path: sounds/sfxD0.s
+  start: 0xddfe4c
+  type: midi
+  options:
+    group: 168
+    priority: 0x48
+- path: sounds/sfxVoDog.s
+  start: 0xddfe68
+  type: midi
+  options:
+    group: 169
+    priority: 0x48
+- path: sounds/sfxVoCat.s
+  start: 0xddfe84
+  type: midi
+  options:
+    group: 170
+    priority: 0x48
+- path: sounds/sfxVoEpona.s
+  start: 0xddfea0
+  type: midi
+  options:
+    group: 171
+    priority: 0x48
+- path: sounds/sfxVoCow.s
+  start: 0xddfebc
+  type: midi
+  options:
+    group: 172
+    priority: 0x48
+- path: sounds/sfxVoCuccoCall.s
+  start: 0xddfed8
+  type: midi
+  options:
+    group: 173
+    priority: 0x48
+- path: sounds/sfxVoCheep.s
+  start: 0xddfef4
+  type: midi
+  options:
+    group: 174
+    priority: 0x48
+- path: sounds/sfxItemSwordCharge.s
+  start: 0xddff10
+  type: midi
+  options:
+    group: 175
+    priority: 0x40
+- path: sounds/sfxItemSwordChargeFinish.s
+  start: 0xddff2c
+  type: midi
+  options:
+    group: 176
+    priority: 0x60
+- path: sounds/sfxD9.s
+  start: 0xddff48
+  type: midi
+  options:
+    group: 177
+    priority: 0x40
+- path: sounds/sfxDA.s
+  start: 0xddff64
+  type: midi
+  options:
+    group: 178
+    priority: 0x48
+- path: sounds/sfxVoSturgeon.s
+  start: 0xddff80
+  type: midi
+  options:
+    group: 179
+    priority: 0x48
+- path: sounds/sfxHammer1.s
+  start: 0xddff9c
+  type: midi
+  options:
+    group: 180
+    priority: 0x40
+- path: sounds/sfxHammer2.s
+  start: 0xddffb8
+  type: midi
+  options:
+    group: 181
+    priority: 0x40
+- path: sounds/sfxHammer3.s
+  start: 0xddffd4
+  type: midi
+  options:
+    group: 182
+    priority: 0x40
+- path: sounds/sfxHammer4.s
+  start: 0xddfff0
+  type: midi
+  options:
+    group: 183
+    priority: 0x40
+- path: sounds/sfxHammer5.s
+  start: 0xde000c
+  type: midi
+  options:
+    group: 184
+    priority: 0x40
+- path: sounds/sfxHammer6.s
+  start: 0xde0028
+  type: midi
+  options:
+    group: 185
+    priority: 0x40
+- path: sounds/sfxCuccoMinigameBell.s
+  start: 0xde0048
+  type: midi
+  options:
+    group: 186
+    priority: 0x40
+- path: sounds/sfxE3.s
+  start: 0xde0064
+  type: midi
+  options:
+    group: 187
+    priority: 0x60
+- path: sounds/sfxE4.s
+  start: 0xde0080
+  type: midi
+  options:
+    group: 188
+    priority: 0x60
+- path: sounds/sfxButtonDepress.s
+  start: 0xde00a0
+  type: midi
+  options:
+    group: 189
+    priority: 0x40
+- path: sounds/sfxThudHeavy.s
+  start: 0xde00bc
+  type: midi
+  options:
+    group: 190
+    priority: 0x40
+- path: sounds/sfxWind1.s
+  start: 0xde00ec
+  type: midi
+  options:
+    group: 191
+    priority: 0x30
+- path: sounds/sfxWind2.s
+  start: 0xde0138
+  type: midi
+  options:
+    group: 192
+    priority: 0x30
+- path: sounds/sfxWind3.s
+  start: 0xde0180
+  type: midi
+  options:
+    group: 193
+    priority: 0x30
+- path: sounds/sfxEA.s
+  start: 0xde01b4
+  type: midi
+  options:
+    group: 194
+    priority: 0x40
+- path: sounds/sfxEB.s
+  start: 0xde01f4
+  type: midi
+  options:
+    group: 195
+    priority: 0x40
+- path: sounds/sfxEC.s
+  start: 0xde0244
+  type: midi
+  options:
+    group: 196
+    priority: 0x40
+- path: sounds/sfxED.s
+  start: 0xde028c
+  type: midi
+  options:
+    group: 197
+    priority: 0x44
+- path: sounds/sfxEE.s
+  start: 0xde02ac
+  type: midi
+  options:
+    group: 198
+    priority: 0x40
+- path: sounds/sfxEF.s
+  start: 0xde02c8
+  type: midi
+  options:
+    group: 199
+    priority: 0x44
+- path: sounds/sfxF0.s
+  start: 0xde02ec
+  type: midi
+  options:
+    group: 200
+    priority: 0x40
+- path: sounds/sfxF1.s
+  start: 0xde0310
+  type: midi
+  options:
+    group: 201
+    priority: 0x40
+- path: sounds/sfxF2.s
+  start: 0xde0388
+  type: midi
+  options:
+    group: 202
+    priority: 0x40
+- path: sounds/sfxF3.s
+  start: 0xde03c4
+  type: midi
+  options:
+    group: 203
+    priority: 0x44
+- path: sounds/sfxSummon.s
+  start: 0xde041c
+  type: midi
+  options:
+    group: 204
+    priority: 0x40
+- path: sounds/sfxF5.s
+  start: 0xde04e4
+  type: midi
+  options:
+    group: 205
+    priority: 0x40
+- path: sounds/sfxEvaporate.s
+  start: 0xde0534
+  type: midi
+  options:
+    group: 206
+    priority: 0x40
+- path: sounds/sfxApparate.s
+  start: 0xde0584
+  type: midi
+  options:
+    group: 207
+    priority: 0x40
+- path: sounds/sfxF8.s
+  start: 0xde05dc
+  type: midi
+  options:
+    group: 208
+    priority: 0x44
+- path: sounds/sfxTeleporter.s
+  start: 0xde0634
+  type: midi
+  options:
+    group: 209
+    priority: 0x40
+- path: sounds/sfxFA.s
+  start: 0xde068c
+  type: midi
+  options:
+    group: 210
+    priority: 0x44
+- path: sounds/sfxFB.s
+  start: 0xde06e4
+  type: midi
+  options:
+    group: 211
+    priority: 0x40
+- path: sounds/sfxFC.s
+  start: 0xde0728
+  type: midi
+  options:
+    group: 212
+    priority: 0x40
+- path: sounds/sfxItemBombExplode.s
+  start: 0xde0784
+  type: midi
+  options:
+    group: 213
+    priority: 0x7f
+- path: sounds/sfxHit.s
   start: 0xde07d4
-  size: 0x4
-- path: sounds/gUnk_08DE07E4.bin
-  start: 0xde07e4
-  size: 0x30
-- path: sounds/gUnk_08DE0814.bin
-  start: 0xde0814
-  size: 0x2c
-- path: sounds/sfxFF.bin
+  type: midi
+  options:
+    group: 214
+    priority: 0x44
+- path: sounds/sfxFF.s
   start: 0xde0840
-  size: 0x4
-- path: sounds/gUnk_08DE0850.bin
-  start: 0xde0850
-  size: 0x10
-- path: sounds/sfx100.bin
+  type: midi
+  options:
+    group: 215
+    priority: 0x48
+- path: sounds/sfx100.s
   start: 0xde0860
-  size: 0x4
-- path: sounds/gUnk_08DE086C.bin
-  start: 0xde086c
-  size: 0x10
-- path: sounds/sfx101.bin
+  type: midi
+  options:
+    group: 216
+    priority: 0x40
+- path: sounds/sfx101.s
   start: 0xde087c
-  size: 0x4
-- path: sounds/gUnk_08DE0888.bin
-  start: 0xde0888
-  size: 0x10
-- path: sounds/sfx102.bin
+  type: midi
+  options:
+    group: 217
+    priority: 0x30
+- path: sounds/sfx102.s
   start: 0xde0898
-  size: 0x4
-- path: sounds/gUnk_08DE08A4.bin
-  start: 0xde08a4
-  size: 0x20
-- path: sounds/sfx103.bin
+  type: midi
+  options:
+    group: 218
+    priority: 0x40
+- path: sounds/sfx103.s
   start: 0xde08c4
-  size: 0x4
-- path: sounds/gUnk_08DE08D0.bin
-  start: 0xde08d0
-  size: 0x2c
-- path: sounds/sfx104.bin
+  type: midi
+  options:
+    group: 219
+    priority: 0x60
+- path: sounds/sfx104.s
   start: 0xde08fc
-  size: 0x4
-- path: sounds/gUnk_08DE0908.bin
-  start: 0xde0908
-  size: 0x10
-- path: sounds/gUnk_08DE0918.bin
-  start: 0xde0918
-  size: 0xa6d
-- path: sounds/gUnk_08DE1385.bin
-  start: 0xde1385
-  size: 0x185
-- path: sounds/gUnk_08DE150A.bin
-  start: 0xde150a
-  size: 0x185
-- path: sounds/gUnk_08DE168F.bin
-  start: 0xde168f
-  size: 0x185
-- path: sounds/gUnk_08DE1814.bin
-  start: 0xde1814
-  size: 0x188
-- path: sounds/sfx105.bin
+  type: midi
+  options:
+    group: 220
+    priority: 0x38
+- path: sounds/sfx105.s
   start: 0xde199c
-  size: 0x4
-- path: sounds/sfx106_track0.bin
-  start: 0xde19bc
-  size: 0x14
-- path: sounds/sfx107_track0.bin
-  start: 0xde19dc
-  size: 0x24
-- path: sounds/sfx108_track0.bin
-  start: 0xde1a0c
-  size: 0x20
-- path: sounds/sfx109_track0.bin
-  start: 0xde1a38
-  size: 0x43
-- path: sounds/sfx109_track1.bin
-  start: 0xde1a7b
-  size: 0x41
-- path: sounds/sfx109_track2.bin
-  start: 0xde1abc
-  size: 0x1b
-- path: sounds/sfx109_track3.bin
-  start: 0xde1ad7
-  size: 0x20
-- path: sounds/sfx109_track4.bin
-  start: 0xde1af7
-  size: 0x41
-- path: sounds/sfx109_track5.bin
-  start: 0xde1b38
-  size: 0x41
-- path: sounds/sfx109_track6.bin
-  start: 0xde1b79
-  size: 0x1b
-- path: sounds/sfx109_track7.bin
-  start: 0xde1b94
-  size: 0x43
-- path: sounds/sfx109_track8.bin
-  start: 0xde1bd7
-  size: 0x129
-- path: sounds/sfx109_track9.bin
-  start: 0xde1d00
-  size: 0x129
-- path: sounds/sfx109_trackA.bin
-  start: 0xde1e29
-  size: 0x129
-- path: sounds/sfx109_trackB.bin
-  start: 0xde1f52
-  size: 0x12a
-- path: sounds/sfx10A_track0.bin
-  start: 0xde20b4
-  size: 0x14
-- path: sounds/sfx10B_track0.bin
-  start: 0xde20d4
-  size: 0x28
-- path: sounds/sfx10C_track0.bin
-  start: 0xde2108
-  size: 0x1c
-- path: sounds/sfx10D_track0.bin
-  start: 0xde2130
-  size: 0x44
-- path: sounds/sfx10E_track0.bin
-  start: 0xde2180
-  size: 0x2c
-- path: sounds/sfx10F_track0.bin
-  start: 0xde21b8
-  size: 0x30
-- path: sounds/sfx110_track0.bin
-  start: 0xde21f4
-  size: 0x38
-- path: sounds/sfx111_track0.bin
-  start: 0xde2238
-  size: 0x28
-- path: sounds/sfx112_track0.bin
-  start: 0xde226c
-  size: 0xcc
-- path: sounds/sfx113_track0.bin
-  start: 0xde2344
-  size: 0x63
-- path: sounds/sfx113_track1.bin
-  start: 0xde23a7
-  size: 0x61
-- path: sounds/sfx114_track0.bin
-  start: 0xde2418
-  size: 0x60
-- path: sounds/sfx115_track0.bin
-  start: 0xde2484
-  size: 0x38
-- path: sounds/sfx116_track0.bin
-  start: 0xde24c8
-  size: 0x38
-- path: sounds/sfx117_track0.bin
-  start: 0xde250c
-  size: 0x10
-- path: sounds/sfxItemShieldBounce_track0.bin
-  start: 0xde2528
-  size: 0xf
-- path: sounds/sfxItemShieldBounce_track1.bin
-  start: 0xde2537
-  size: 0xd
-- path: sounds/sfxItemGlovesKnockback_track0.bin
-  start: 0xde2554
-  size: 0x1b
-- path: sounds/sfxItemGlovesKnockback_track1.bin
-  start: 0xde256f
-  size: 0x15
-- path: sounds/sfxEmArmosOn_track0.bin
-  start: 0xde2594
-  size: 0x10
-- path: sounds/sfx11B_track0.bin
-  start: 0xde25b0
-  size: 0x20
-- path: sounds/sfx11C_track0.bin
-  start: 0xde25dc
-  size: 0x14
-- path: sounds/sfx11D_track0.bin
-  start: 0xde25fc
-  size: 0x50
-- path: sounds/sfx11D_track1.bin
-  start: 0xde264c
-  size: 0x30
-- path: sounds/sfxEmMoblinSpear_track0.bin
-  start: 0xde268c
-  size: 0x10
-- path: sounds/sfxLowHealth_track0.bin
-  start: 0xde26a8
-  size: 0x1c
-- path: sounds/sfxChargingUp_track0.bin
-  start: 0xde26d0
-  size: 0x14
-- path: sounds/sfxStairs_track0.bin
-  start: 0xde26f0
-  size: 0x28
-- path: sounds/sfx122_track0.bin
-  start: 0xde2724
-  size: 0x10
-- path: sounds/sfx123_track0.bin
-  start: 0xde2740
-  size: 0x38
-- path: sounds/sfx124_track0.bin
-  start: 0xde2784
-  size: 0x3c
-- path: sounds/sfx125_track0.bin
-  start: 0xde27cc
-  size: 0x10
-- path: sounds/sfx126_track0.bin
-  start: 0xde27e8
-  size: 0x32
-- path: sounds/sfx126_track1.bin
-  start: 0xde281a
-  size: 0x62
-- path: sounds/sfxBossHit_track0.bin
-  start: 0xde288c
-  size: 0x76
-- path: sounds/sfxBossHit_track1.bin
-  start: 0xde2902
-  size: 0x42
-- path: sounds/sfxBossDie_track0.bin
-  start: 0xde2954
-  size: 0x8a
-- path: sounds/sfxBossDie_track1.bin
-  start: 0xde29de
-  size: 0x8a
-- path: sounds/sfxBossExplode_track0.bin
-  start: 0xde2a78
-  size: 0x70
-- path: sounds/sfx12A_track0.bin
-  start: 0xde2af4
-  size: 0x28
-- path: sounds/sfx12B_track0.bin
-  start: 0xde2b28
-  size: 0x14
-- path: sounds/sfx12C_track0.bin
-  start: 0xde2b48
-  size: 0x10
-- path: sounds/sfx12D_track0.bin
-  start: 0xde2b64
-  size: 0x14
-- path: sounds/sfx12E_track0.bin
-  start: 0xde2b84
-  size: 0x18
-- path: sounds/sfx12F_track0.bin
-  start: 0xde2ba8
-  size: 0x28
-- path: sounds/sfx130_track0.bin
-  start: 0xde2bdc
-  size: 0x18
-- path: sounds/sfx131_track0.bin
-  start: 0xde2c00
-  size: 0x10
-- path: sounds/sfx132_track0.bin
-  start: 0xde2c1c
-  size: 0x10
-- path: sounds/sfx133_track0.bin
-  start: 0xde2c38
-  size: 0x10
-- path: sounds/sfx134_track0.bin
-  start: 0xde2c54
-  size: 0x10
-- path: sounds/sfx135_track0.bin
-  start: 0xde2c70
-  size: 0x1c
-- path: sounds/sfx136_track0.bin
-  start: 0xde2c98
-  size: 0x64
-- path: sounds/sfx137_track0.bin
-  start: 0xde2d08
-  size: 0x10
-- path: sounds/sfx138_track0.bin
-  start: 0xde2d24
-  size: 0x10
-- path: sounds/sfx139_track0.bin
-  start: 0xde2d40
-  size: 0x10
-- path: sounds/sfx13A_track0.bin
-  start: 0xde2d5c
-  size: 0x10
-- path: sounds/sfx13B_track0.bin
-  start: 0xde2d78
-  size: 0x10
-- path: sounds/sfx13C_track0.bin
-  start: 0xde2d94
-  size: 0x10
-- path: sounds/sfxItemLanternOn_track0.bin
-  start: 0xde2db0
-  size: 0x10
-- path: sounds/sfxItemLanternOff_track0.bin
-  start: 0xde2dcc
-  size: 0x10
-- path: sounds/sfxItemSwordBeam_track0.bin
-  start: 0xde2de8
-  size: 0x8c
-- path: sounds/sfx140_track0.bin
-  start: 0xde2e80
-  size: 0x5c
-- path: sounds/sfxHeartContainerSpawn_track0.bin
-  start: 0xde2ee8
-  size: 0x61
-- path: sounds/sfxHeartContainerSpawn_track1.bin
-  start: 0xde2f49
-  size: 0x4f
+  type: midi
+  options:
+    group: 221
+    priority: 0x20
+- path: sounds/sfx106.s
+  start: 0xde19d0
+  type: midi
+  options:
+    group: 222
+    priority: 0x40
+- path: sounds/sfx107.s
+  start: 0xde1a00
+  type: midi
+  options:
+    group: 223
+    priority: 0x40
+- path: sounds/sfx108.s
+  start: 0xde1a2c
+  type: midi
+  options:
+    group: 224
+    priority: 0x40
+- path: sounds/sfx109.s
+  start: 0xde207c
+  type: midi
+  options:
+    group: 058
+    priority: 0x20
+- path: sounds/sfx10A.s
+  start: 0xde20c8
+  type: midi
+  options:
+    group: 225
+    priority: 0x60
+- path: sounds/sfx10B.s
+  start: 0xde20fc
+  type: midi
+  options:
+    group: 226
+    priority: 0x7f
+- path: sounds/sfx10C.s
+  start: 0xde2124
+  type: midi
+  options:
+    group: 227
+    priority: 0x50
+- path: sounds/sfx10D.s
+  start: 0xde2174
+  type: midi
+  options:
+    group: 228
+    priority: 0x40
+- path: sounds/sfx10E.s
+  start: 0xde21ac
+  type: midi
+  options:
+    group: 229
+    priority: 0x40
+- path: sounds/sfx10F.s
+  start: 0xde21e8
+  type: midi
+  options:
+    group: 230
+    priority: 0x40
+- path: sounds/sfx110.s
+  start: 0xde222c
+  type: midi
+  options:
+    group: 231
+    priority: 0x60
+- path: sounds/sfx111.s
+  start: 0xde2260
+  type: midi
+  options:
+    group: 232
+    priority: 0x60
+- path: sounds/sfx112.s
+  start: 0xde2338
+  type: midi
+  options:
+    group: 233
+    priority: 0x60
+- path: sounds/sfx113.s
+  start: 0xde2408
+  type: midi
+  options:
+    group: 234
+    priority: 0x60
+- path: sounds/sfx114.s
+  start: 0xde2478
+  type: midi
+  options:
+    group: 235
+    priority: 0x60
+- path: sounds/sfx115.s
+  start: 0xde24bc
+  type: midi
+  options:
+    group: 236
+    priority: 0x40
+- path: sounds/sfx116.s
+  start: 0xde2500
+  type: midi
+  options:
+    group: 237
+    priority: 0x40
+- path: sounds/sfx117.s
+  start: 0xde251c
+  type: midi
+  options:
+    group: 238
+    priority: 0x40
+- path: sounds/sfxItemShieldBounce.s
+  start: 0xde2544
+  type: midi
+  options:
+    group: 239
+    priority: 0x44
+- path: sounds/sfxItemGlovesKnockback.s
+  start: 0xde2584
+  type: midi
+  options:
+    group: 240
+    priority: 0x44
+- path: sounds/sfxEmArmosOn.s
+  start: 0xde25a4
+  type: midi
+  options:
+    group: 241
+    priority: 0x40
+- path: sounds/sfx11B.s
+  start: 0xde25d0
+  type: midi
+  options:
+    group: 242
+    priority: 0x40
+- path: sounds/sfx11C.s
+  start: 0xde25f0
+  type: midi
+  options:
+    group: 243
+    priority: 0x40
+- path: sounds/sfx11D.s
+  start: 0xde267c
+  type: midi
+  options:
+    group: 244
+    priority: 0x40
+- path: sounds/sfxEmMoblinSpear.s
+  start: 0xde269c
+  type: midi
+  options:
+    group: 245
+    priority: 0x40
+- path: sounds/sfxLowHealth.s
+  start: 0xde26c4
+  type: midi
+  options:
+    group: 246
+    priority: 0x40
+- path: sounds/sfxChargingUp.s
+  start: 0xde26e4
+  type: midi
+  options:
+    group: 247
+    priority: 0x40
+- path: sounds/sfxStairs.s
+  start: 0xde2718
+  type: midi
+  options:
+    group: 248
+    priority: 0x40
+- path: sounds/sfx122.s
+  start: 0xde2734
+  type: midi
+  options:
+    group: 249
+    priority: 0x40
+- path: sounds/sfx123.s
+  start: 0xde2778
+  type: midi
+  options:
+    group: 250
+    priority: 0x40
+- path: sounds/sfx124.s
+  start: 0xde27c0
+  type: midi
+  options:
+    group: 251
+    priority: 0x30
+- path: sounds/sfx125.s
+  start: 0xde27dc
+  type: midi
+  options:
+    group: 252
+    priority: 0x40
+- path: sounds/sfx126.s
+  start: 0xde287c
+  type: midi
+  options:
+    group: 253
+    priority: 0x40
+- path: sounds/sfxBossHit.s
+  start: 0xde2944
+  type: midi
+  options:
+    group: 254
+    priority: 0x70
+- path: sounds/sfxBossDie.s
+  start: 0xde2a68
+  type: midi
+  options:
+    group: 255
+    priority: 0x70
+- path: sounds/sfxBossExplode.s
+  start: 0xde2ae8
+  type: midi
+  options:
+    group: 256
+    priority: 0x90
+- path: sounds/sfx12A.s
+  start: 0xde2b1c
+  type: midi
+  options:
+    group: 257
+    priority: 0x40
+- path: sounds/sfx12B.s
+  start: 0xde2b3c
+  type: midi
+  options:
+    group: 258
+    priority: 0x40
+- path: sounds/sfx12C.s
+  start: 0xde2b58
+  type: midi
+  options:
+    group: 259
+    priority: 0x40
+- path: sounds/sfx12D.s
+  start: 0xde2b78
+  type: midi
+  options:
+    group: 260
+    priority: 0x40
+- path: sounds/sfx12E.s
+  start: 0xde2b9c
+  type: midi
+  options:
+    group: 261
+    priority: 0x40
+- path: sounds/sfx12F.s
+  start: 0xde2bd0
+  type: midi
+  options:
+    group: 262
+    priority: 0x40
+- path: sounds/sfx130.s
+  start: 0xde2bf4
+  type: midi
+  options:
+    group: 263
+    priority: 0x40
+- path: sounds/sfx131.s
+  start: 0xde2c10
+  type: midi
+  options:
+    group: 264
+    priority: 0x40
+- path: sounds/sfx132.s
+  start: 0xde2c2c
+  type: midi
+  options:
+    group: 265
+    priority: 0x40
+- path: sounds/sfx133.s
+  start: 0xde2c48
+  type: midi
+  options:
+    group: 266
+    priority: 0x40
+- path: sounds/sfx134.s
+  start: 0xde2c64
+  type: midi
+  options:
+    group: 267
+    priority: 0x40
+- path: sounds/sfx135.s
+  start: 0xde2c8c
+  type: midi
+  options:
+    group: 268
+    priority: 0x40
+- path: sounds/sfx136.s
+  start: 0xde2cfc
+  type: midi
+  options:
+    group: 269
+    priority: 0x40
+- path: sounds/sfx137.s
+  start: 0xde2d18
+  type: midi
+  options:
+    group: 270
+    priority: 0x40
+- path: sounds/sfx138.s
+  start: 0xde2d34
+  type: midi
+  options:
+    group: 271
+    priority: 0x40
+- path: sounds/sfx139.s
+  start: 0xde2d50
+  type: midi
+  options:
+    group: 272
+    priority: 0x40
+- path: sounds/sfx13A.s
+  start: 0xde2d6c
+  type: midi
+  options:
+    group: 273
+    priority: 0x40
+- path: sounds/sfx13B.s
+  start: 0xde2d88
+  type: midi
+  options:
+    group: 274
+    priority: 0x40
+- path: sounds/sfx13C.s
+  start: 0xde2da4
+  type: midi
+  options:
+    group: 275
+    priority: 0x40
+- path: sounds/sfxItemLanternOn.s
+  start: 0xde2dc0
+  type: midi
+  options:
+    group: 276
+    priority: 0x40
+- path: sounds/sfxItemLanternOff.s
+  start: 0xde2ddc
+  type: midi
+  options:
+    group: 277
+    priority: 0x40
+- path: sounds/sfxItemSwordBeam.s
+  start: 0xde2e74
+  type: midi
+  options:
+    group: 278
+    priority: 0x48
+- path: sounds/sfx140.s
+  start: 0xde2edc
+  type: midi
+  options:
+    group: 279
+    priority: 0x40
+- path: sounds/sfxHeartContainerSpawn.s
+  start: 0xde2f98
+  type: midi
+  options:
+    group: 280
+    priority: 0x40
 - path: sounds/sfxSparkles_track0.bin
   start: 0xde2fa8
   size: 0x116
@@ -73720,852 +73729,1347 @@
 - path: sounds/gUnk_08DE30BE_1.bin
   start: 0xde30fc
   size: 0x4
-- path: sounds/sfx143_track0.bin
-  start: 0xde310c
-  size: 0x10
-- path: sounds/sfx144_track0.bin
-  start: 0xde3128
-  size: 0x2c
-- path: sounds/sfx145_track0.bin
-  start: 0xde3160
-  size: 0x28
-- path: sounds/sfx146_track0.bin
-  start: 0xde3194
-  size: 0x30
-- path: sounds/sfx147_track0.bin
-  start: 0xde31d0
-  size: 0x69
-- path: sounds/sfx147_track1.bin
-  start: 0xde3239
-  size: 0x6b
-- path: sounds/sfx148_track0.bin
-  start: 0xde32b4
-  size: 0xd0
-- path: sounds/sfx148_track1.bin
-  start: 0xde3384
-  size: 0x30
-- path: sounds/sfx149_track0.bin
-  start: 0xde33c4
-  size: 0x24
-- path: sounds/sfx14A_track0.bin
-  start: 0xde33f4
-  size: 0xb0
-- path: sounds/sfx14B_track0.bin
-  start: 0xde34b0
-  size: 0x34
-- path: sounds/sfx14C_track0.bin
-  start: 0xde34f0
-  size: 0x48
-- path: sounds/sfx14C_track1.bin
-  start: 0xde3538
-  size: 0x2c
-- path: sounds/sfx14D_track0.bin
-  start: 0xde3574
-  size: 0x14
-- path: sounds/sfx14E_track0.bin
-  start: 0xde3594
-  size: 0x18
-- path: sounds/sfx14F_track0.bin
-  start: 0xde35b8
-  size: 0x60
-- path: sounds/sfx150_track0.bin
-  start: 0xde3624
-  size: 0x20
-- path: sounds/sfx150_track1.bin
-  start: 0xde3644
-  size: 0x30
-- path: sounds/sfx151_track0.bin
-  start: 0xde3684
-  size: 0x2c
-- path: sounds/sfx152_track0.bin
-  start: 0xde36bc
-  size: 0x86
-- path: sounds/sfx152_track1.bin
-  start: 0xde3742
-  size: 0x8a
-- path: sounds/sfx153_track0.bin
-  start: 0xde37dc
-  size: 0x30
-- path: sounds/sfx154_track0.bin
-  start: 0xde3818
-  size: 0x38
-- path: sounds/sfx155_track0.bin
-  start: 0xde385c
-  size: 0x2c
-- path: sounds/sfx156_track0.bin
-  start: 0xde3894
-  size: 0x5c
-- path: sounds/sfx157_track0.bin
-  start: 0xde38fc
-  size: 0x1c
-- path: sounds/sfx158_track0.bin
-  start: 0xde3924
-  size: 0x44
-- path: sounds/sfx159_track0.bin
-  start: 0xde3974
-  size: 0x40
-- path: sounds/sfx15A_track0.bin
-  start: 0xde39c0
-  size: 0x26
-- path: sounds/sfx15A_track1.bin
-  start: 0xde39e6
-  size: 0x2a
-- path: sounds/sfx15B_track0.bin
-  start: 0xde3a20
-  size: 0x50
-- path: sounds/sfx15C_track0.bin
-  start: 0xde3a7c
-  size: 0x24
-- path: sounds/sfx15D_track0.bin
-  start: 0xde3aac
-  size: 0x27
-- path: sounds/sfx15D_track1.bin
-  start: 0xde3ad3
-  size: 0x25
-- path: sounds/sfx15E_track0.bin
-  start: 0xde3b08
-  size: 0x28
-- path: sounds/sfx15F_track0.bin
-  start: 0xde3b3c
-  size: 0x30
-- path: sounds/sfx160_track0.bin
-  start: 0xde3b78
-  size: 0x5c
-- path: sounds/sfx161_track0.bin
-  start: 0xde3be0
-  size: 0x10
-- path: sounds/sfx162_track0.bin
-  start: 0xde3bfc
-  size: 0x18
-- path: sounds/sfx163_track0.bin
-  start: 0xde3c20
-  size: 0x20
-- path: sounds/sfx163_track1.bin
-  start: 0xde3c40
-  size: 0x24
-- path: sounds/sfx164_track0.bin
-  start: 0xde3c74
-  size: 0x4c
-- path: sounds/sfx165_track0.bin
-  start: 0xde3ccc
-  size: 0x68
-- path: sounds/sfx166_track0.bin
-  start: 0xde3d40
-  size: 0x70
-- path: sounds/sfx167_track0.bin
-  start: 0xde3dbc
-  size: 0x78
-- path: sounds/sfx168_track0.bin
-  start: 0xde3e40
-  size: 0x1c
-- path: sounds/sfx169_track0.bin
-  start: 0xde3e68
-  size: 0x3c
-- path: sounds/sfx16A_track0.bin
-  start: 0xde3eb0
-  size: 0x30
-- path: sounds/sfx16B_track0.bin
-  start: 0xde3eec
-  size: 0x30
-- path: sounds/sfx16C_track0.bin
-  start: 0xde3f28
-  size: 0x34
-- path: sounds/sfx16D_track0.bin
-  start: 0xde3f68
-  size: 0x4c
-- path: sounds/sfx16D_track1.bin
-  start: 0xde3fb4
-  size: 0x74
-- path: sounds/sfx16E_track0.bin
-  start: 0xde4038
-  size: 0x34
-- path: sounds/sfxPlyShrinking_track0.bin
-  start: 0xde4078
-  size: 0x98
-- path: sounds/sfxPlyGrow_track0.bin
-  start: 0xde411c
-  size: 0x60
-- path: sounds/sfx171_track0.bin
-  start: 0xde4188
-  size: 0x10
-- path: sounds/sfx172_track0.bin
-  start: 0xde41a4
-  size: 0x2c
-- path: sounds/sfxEzloUi_track0.bin
-  start: 0xde41dc
-  size: 0x18
-- path: sounds/sfxEzloUi_track1.bin
-  start: 0xde41f4
-  size: 0x18
-- path: sounds/sfx174_track0.bin
-  start: 0xde421c
-  size: 0x28
-- path: sounds/sfx175_track0.bin
-  start: 0xde4250
-  size: 0x28
-- path: sounds/sfx176_track0.bin
-  start: 0xde4284
-  size: 0x20
-- path: sounds/sfx176_track1.bin
-  start: 0xde42a4
-  size: 0x1c
-- path: sounds/sfx177_track0.bin
-  start: 0xde42d0
-  size: 0x5b
-- path: sounds/sfx177_track1.bin
-  start: 0xde432b
-  size: 0x55
-- path: sounds/sfx178_track0.bin
-  start: 0xde4390
-  size: 0x44
-- path: sounds/sfx179_track0.bin
-  start: 0xde43e0
-  size: 0x44
-- path: sounds/sfx17A_track0.bin
-  start: 0xde4430
-  size: 0x56
-- path: sounds/sfx17A_track1.bin
-  start: 0xde4486
-  size: 0x3e
-- path: sounds/sfxLavaTitleStep_track0.bin
-  start: 0xde44d4
-  size: 0x10
-- path: sounds/sfxLavaTitleWobble_track0.bin
-  start: 0xde44f0
-  size: 0x10
-- path: sounds/sfxLavaTitleSink_track0.bin
-  start: 0xde450c
-  size: 0x10
-- path: sounds/sfxLavaTitleFlip_track0.bin
-  start: 0xde4528
-  size: 0x10
-- path: sounds/sfxLavaTitleLand_track0.bin
-  start: 0xde4544
-  size: 0x10
-- path: sounds/sfx180_track0.bin
-  start: 0xde4560
-  size: 0x14
-- path: sounds/sfx181_track0.bin
-  start: 0xde4580
-  size: 0x14
-- path: sounds/sfx182_track0.bin
-  start: 0xde45a0
-  size: 0x22
-- path: sounds/sfx182_track1.bin
-  start: 0xde45c2
-  size: 0x2e
-- path: sounds/sfx183_track0.bin
-  start: 0xde4600
-  size: 0x6b
-- path: sounds/sfx183_track1.bin
-  start: 0xde466b
-  size: 0x3d
-- path: sounds/sfx184_track0.bin
-  start: 0xde46b8
-  size: 0x10
-- path: sounds/sfx185_track0.bin
-  start: 0xde46d4
-  size: 0x3d
-- path: sounds/sfx185_track1.bin
-  start: 0xde4711
-  size: 0x4b
-- path: sounds/sfx186_track0.bin
-  start: 0xde476c
-  size: 0x24
-- path: sounds/sfxStairsAscend_track0.bin
-  start: 0xde479c
-  size: 0x48
-- path: sounds/sfxStairsDescend_track0.bin
-  start: 0xde47f0
-  size: 0x48
-- path: sounds/sfx189_track0.bin
-  start: 0xde4844
-  size: 0x34
-- path: sounds/sfx18A_track0.bin
-  start: 0xde4884
-  size: 0x1f
-- path: sounds/sfx18A_track1.bin
-  start: 0xde48a3
-  size: 0x19
-- path: sounds/sfx18B_track0.bin
-  start: 0xde48cc
-  size: 0x3d
-- path: sounds/sfx18B_track1.bin
-  start: 0xde4909
-  size: 0x27
-- path: sounds/sfx18C_track0.bin
-  start: 0xde4940
-  size: 0x1b
-- path: sounds/sfx18C_track1.bin
-  start: 0xde495b
-  size: 0xd
-- path: sounds/sfx18D_track0.bin
-  start: 0xde4978
-  size: 0x34
-- path: sounds/sfx18E_track0.bin
-  start: 0xde49b8
-  size: 0x18
-- path: sounds/sfx18F_track0.bin
-  start: 0xde49dc
-  size: 0x30
-- path: sounds/sfx190_track0.bin
-  start: 0xde4a18
-  size: 0x10
-- path: sounds/sfx191_track0.bin
-  start: 0xde4a34
-  size: 0x2c
-- path: sounds/sfx192_track0.bin
-  start: 0xde4a6c
-  size: 0x38
-- path: sounds/sfx192_track1.bin
-  start: 0xde4aa4
-  size: 0x28
-- path: sounds/sfx193_track0.bin
-  start: 0xde4adc
-  size: 0x24
-- path: sounds/sfx194_track0.bin
-  start: 0xde4b0c
-  size: 0x1e
-- path: sounds/sfx194_track1.bin
-  start: 0xde4b2a
-  size: 0x26
-- path: sounds/sfx195_track0.bin
-  start: 0xde4b60
-  size: 0x44
-- path: sounds/sfx195_track1.bin
-  start: 0xde4ba4
-  size: 0x48
-- path: sounds/sfx196_track0.bin
-  start: 0xde4bfc
-  size: 0xd0
-- path: sounds/sfx197_track0.bin
-  start: 0xde4cd8
-  size: 0x4c
-- path: sounds/sfx198_track0.bin
-  start: 0xde4d30
-  size: 0x134
-- path: sounds/sfx199_track0.bin
-  start: 0xde4e70
-  size: 0x27
-- path: sounds/sfx199_track1.bin
-  start: 0xde4e97
-  size: 0x19
-- path: sounds/sfx19A_track0.bin
-  start: 0xde4ec0
-  size: 0x16
-- path: sounds/sfx19A_track1.bin
-  start: 0xde4ed6
-  size: 0x4a
-- path: sounds/sfx19B_track0.bin
-  start: 0xde4f30
-  size: 0x49
-- path: sounds/sfx19B_track1.bin
-  start: 0xde4f79
-  size: 0x3b
-- path: sounds/sfx19C_track0.bin
-  start: 0xde4fc4
-  size: 0x24
-- path: sounds/sfx19D_track0.bin
-  start: 0xde4ff4
-  size: 0x30
-- path: sounds/sfx19D_track1.bin
-  start: 0xde5024
-  size: 0x48
-- path: sounds/sfx19E_track0.bin
-  start: 0xde507c
-  size: 0x40
-- path: sounds/sfx19F_track0.bin
-  start: 0xde50c8
-  size: 0x26
-- path: sounds/sfx19F_track1.bin
-  start: 0xde50ee
-  size: 0x3e
-- path: sounds/sfx1A0_track0.bin
-  start: 0xde513c
-  size: 0x48
-- path: sounds/sfx1A0_track1.bin
-  start: 0xde5184
-  size: 0x2c
-- path: sounds/sfx1A1_track0.bin
-  start: 0xde51c0
-  size: 0x24
-- path: sounds/sfx1A1_track1.bin
-  start: 0xde51e4
-  size: 0x34
-- path: sounds/sfx1A2_track0.bin
-  start: 0xde5228
-  size: 0x20
-- path: sounds/sfx1A3_track0.bin
-  start: 0xde5254
-  size: 0x4b
-- path: sounds/sfx1A3_track1.bin
-  start: 0xde529f
-  size: 0x51
-- path: sounds/sfx1A4_track0.bin
-  start: 0xde5300
-  size: 0x18
-- path: sounds/sfx1A5_track0.bin
-  start: 0xde5324
-  size: 0x24
-- path: sounds/sfx1A6_track0.bin
-  start: 0xde5354
-  size: 0x3c
-- path: sounds/sfx1A7_track0.bin
-  start: 0xde539c
-  size: 0x60
-- path: sounds/sfx1A8_track0.bin
-  start: 0xde5408
-  size: 0x38
-- path: sounds/sfx1A9_track0.bin
-  start: 0xde544c
-  size: 0xf4
-- path: sounds/sfx1AA_track0.bin
-  start: 0xde554c
-  size: 0x56
-- path: sounds/gUnk_08DE55A2.bin
-  start: 0xde55a2
-  size: 0x29
-- path: sounds/gUnk_08DE55A2_1.bin
-  start: 0xde55cf
-  size: 0x1
-- path: sounds/sfx1AA_track1.bin
-  start: 0xde55d0
-  size: 0x54
-- path: sounds/gUnk_08DE5624.bin
-  start: 0xde5624
-  size: 0x28
-- path: sounds/gUnk_08DE5624_1.bin
-  start: 0xde5650
-  size: 0x4
-- path: sounds/sfx1AB_track0.bin
-  start: 0xde5664
-  size: 0x6e
-- path: sounds/sfx1AB_track1.bin
-  start: 0xde56d2
-  size: 0x56
-- path: sounds/sfx1AC_track0.bin
-  start: 0xde5738
-  size: 0x74
-- path: sounds/sfx1AD_track0.bin
-  start: 0xde57b8
-  size: 0x22
-- path: sounds/sfx1AD_track1.bin
-  start: 0xde57da
-  size: 0x2e
-- path: sounds/sfx1AE_track0.bin
-  start: 0xde5818
-  size: 0x1f
-- path: sounds/sfx1AE_track1.bin
-  start: 0xde5837
-  size: 0x19
-- path: sounds/sfx1AF_track0.bin
-  start: 0xde5860
-  size: 0x1b
-- path: sounds/sfx1AF_track1.bin
-  start: 0xde587b
-  size: 0x19
-- path: sounds/sfx1B0_track0.bin
-  start: 0xde58a4
-  size: 0x3c
-- path: sounds/sfxIceBlockSlide_track0.bin
-  start: 0xde58ec
-  size: 0x10
-- path: sounds/sfxIceBlockStop_track0.bin
-  start: 0xde5908
-  size: 0x10
-- path: sounds/sfxIceBlockMelt_track0.bin
-  start: 0xde5924
-  size: 0x10
-- path: sounds/sfx1B4_track0.bin
-  start: 0xde5940
-  size: 0x4c
-- path: sounds/sfx1B5_track0.bin
-  start: 0xde5998
-  size: 0x30
-- path: sounds/sfx1B6_track0.bin
-  start: 0xde59d4
-  size: 0x6c
-- path: sounds/sfx1B6_track1.bin
-  start: 0xde5a40
-  size: 0x9c
-- path: sounds/sfxVoGoron1_track0.bin
-  start: 0xde5aec
-  size: 0x10
-- path: sounds/sfxVoGoron2_track0.bin
-  start: 0xde5b08
-  size: 0x10
-- path: sounds/sfxVoGoron3_track0.bin
-  start: 0xde5b24
-  size: 0x10
-- path: sounds/sfxVoGoron4_track0.bin
-  start: 0xde5b40
-  size: 0x14
-- path: sounds/sfxEmDekuscrubHit_track0.bin
-  start: 0xde5b60
-  size: 0x48
-- path: sounds/sfx1BC_track0.bin
-  start: 0xde5bb4
-  size: 0x10
-- path: sounds/sfx1BD_track0.bin
-  start: 0xde5bd0
-  size: 0x10
-- path: sounds/sfx1BE_track0.bin
-  start: 0xde5bec
-  size: 0x10
-- path: sounds/sfx1BF_track0.bin
-  start: 0xde5c08
-  size: 0x10
-- path: sounds/sfx1C0_track0.bin
-  start: 0xde5c24
-  size: 0x10
-- path: sounds/sfx1C1_track0.bin
-  start: 0xde5c40
-  size: 0x10
-- path: sounds/sfx1C2_track0.bin
-  start: 0xde5c5c
-  size: 0x10
-- path: sounds/sfx1C3_track0.bin
-  start: 0xde5c78
-  size: 0x10
-- path: sounds/sfx1C4_track0.bin
-  start: 0xde5c94
-  size: 0x14
-- path: sounds/sfx1C5_track0.bin
-  start: 0xde5cb4
-  size: 0x10
-- path: sounds/sfx1C6_track0.bin
-  start: 0xde5cd0
-  size: 0x10
-- path: sounds/sfx1C7_track0.bin
-  start: 0xde5cec
-  size: 0x10
-- path: sounds/sfx1C8_track0.bin
-  start: 0xde5d08
-  size: 0x20
-- path: sounds/sfx1C9_track0.bin
-  start: 0xde5d34
-  size: 0x10
-- path: sounds/sfx1CA_track0.bin
-  start: 0xde5d50
-  size: 0x10
-- path: sounds/sfx1CA_track1.bin
-  start: 0xde5d60
-  size: 0x10
-- path: sounds/sfx1CB_track0.bin
-  start: 0xde5d80
-  size: 0x10
-- path: sounds/sfx1CC_track0.bin
-  start: 0xde5d9c
-  size: 0x10
-- path: sounds/sfxElementPlace_track0.bin
-  start: 0xde5db8
-  size: 0x10
-- path: sounds/sfxElementFloat_track0.bin
-  start: 0xde5dd4
-  size: 0x10
-- path: sounds/sfxElementCharge_track0.bin
-  start: 0xde5df0
-  size: 0x10
-- path: sounds/sfx1D0_track0.bin
-  start: 0xde5e0c
-  size: 0x10
-- path: sounds/sfxElementInfuse_track0.bin
-  start: 0xde5e28
-  size: 0x10
-- path: sounds/sfx1D2_track0.bin
-  start: 0xde5e44
-  size: 0x10
-- path: sounds/sfx1D3_track0.bin
-  start: 0xde5e60
-  size: 0x10
-- path: sounds/sfx1D4_track0.bin
-  start: 0xde5e7c
-  size: 0x10
-- path: sounds/sfx1D5_track0.bin
-  start: 0xde5e98
-  size: 0x10
-- path: sounds/sfxVoCucco1_track0.bin
-  start: 0xde5eb4
-  size: 0x10
-- path: sounds/sfxVoCucco2_track0.bin
-  start: 0xde5ed0
-  size: 0x10
-- path: sounds/sfxVoCucco3_track0.bin
-  start: 0xde5eec
-  size: 0x10
-- path: sounds/sfxVoCucco4_track0.bin
-  start: 0xde5f08
-  size: 0x10
-- path: sounds/sfxVoCucco5_track0.bin
-  start: 0xde5f24
-  size: 0x10
-- path: sounds/sfx1DB_track0.bin
-  start: 0xde5f40
-  size: 0x44
-- path: sounds/sfx1DB_track1.bin
-  start: 0xde5f84
-  size: 0x48
-- path: sounds/sfx1DC_track0.bin
-  start: 0xde5fdc
-  size: 0x28
-- path: sounds/sfx1DD_track0.bin
-  start: 0xde6010
-  size: 0x34
-- path: sounds/sfx1DE_track0.bin
-  start: 0xde6050
-  size: 0x10
-- path: sounds/sfx1DF_track0.bin
-  start: 0xde606c
-  size: 0x10
-- path: sounds/sfx1E0_track0.bin
-  start: 0xde6088
-  size: 0x10
-- path: sounds/sfx1E1_track0.bin
-  start: 0xde60a4
-  size: 0x10
-- path: sounds/sfx1E2_track0.bin
-  start: 0xde60c0
-  size: 0x10
-- path: sounds/sfx1E3_track0.bin
-  start: 0xde60dc
-  size: 0x10
-- path: sounds/sfx1E4_track0.bin
-  start: 0xde60f8
-  size: 0x10
-- path: sounds/sfx1E5_track0.bin
-  start: 0xde6114
-  size: 0x10
-- path: sounds/sfx1E6_track0.bin
-  start: 0xde6130
-  size: 0x10
-- path: sounds/sfx1E7_track0.bin
-  start: 0xde614c
-  size: 0x10
-- path: sounds/sfx1E8_track0.bin
-  start: 0xde6168
-  size: 0x10
-- path: sounds/sfx1E9_track0.bin
-  start: 0xde6184
-  size: 0x10
-- path: sounds/sfx1EA_track0.bin
-  start: 0xde61a0
-  size: 0x10
-- path: sounds/sfx1EB_track0.bin
-  start: 0xde61bc
-  size: 0x10
-- path: sounds/sfx1EC_track0.bin
-  start: 0xde61d8
-  size: 0x10
-- path: sounds/sfx1ED_track0.bin
-  start: 0xde61f4
-  size: 0x10
-- path: sounds/sfx1EE_track0.bin
-  start: 0xde6210
-  size: 0x10
-- path: sounds/sfx1EF_track0.bin
-  start: 0xde622c
-  size: 0x10
-- path: sounds/sfx1F0_track0.bin
-  start: 0xde6248
-  size: 0x10
-- path: sounds/sfx1F1_track0.bin
-  start: 0xde6264
-  size: 0x10
-- path: sounds/sfx1F2_track0.bin
-  start: 0xde6280
-  size: 0x10
-- path: sounds/sfx1F3_track0.bin
-  start: 0xde629c
-  size: 0x10
-- path: sounds/sfx1F4_track0.bin
-  start: 0xde62b8
-  size: 0x10
-- path: sounds/sfx1F5_track0.bin
-  start: 0xde62d4
-  size: 0x10
-- path: sounds/sfx1F6_track0.bin
-  start: 0xde62f0
-  size: 0x10
-- path: sounds/sfx1F7_track0.bin
-  start: 0xde630c
-  size: 0x10
-- path: sounds/sfx1F8_track0.bin
-  start: 0xde6328
-  size: 0x10
-- path: sounds/sfx1F9_track0.bin
-  start: 0xde6344
-  size: 0x10
-- path: sounds/sfx1FA_track0.bin
-  start: 0xde6360
-  size: 0x10
-- path: sounds/sfx1FB_track0.bin
-  start: 0xde637c
-  size: 0x10
-- path: sounds/sfx1FC_track0.bin
-  start: 0xde6398
-  size: 0x10
-- path: sounds/sfx1FD_track0.bin
-  start: 0xde63b4
-  size: 0x10
-- path: sounds/sfx1FE_track0.bin
-  start: 0xde63d0
-  size: 0x10
-- path: sounds/sfx1FF_track0.bin
-  start: 0xde63ec
-  size: 0x10
-- path: sounds/sfx200_track0.bin
-  start: 0xde6408
-  size: 0x10
-- path: sounds/sfx201_track0.bin
-  start: 0xde6424
-  size: 0x10
-- path: sounds/sfx202_track0.bin
-  start: 0xde6440
-  size: 0x10
-- path: sounds/sfx203_track0.bin
-  start: 0xde645c
-  size: 0x10
-- path: sounds/sfx204_track0.bin
-  start: 0xde6478
-  size: 0x10
-- path: sounds/sfx205_track0.bin
-  start: 0xde6494
-  size: 0x10
-- path: sounds/sfx206_track0.bin
-  start: 0xde64b0
-  size: 0x10
-- path: sounds/sfx207_track0.bin
-  start: 0xde64cc
-  size: 0x10
-- path: sounds/sfx208_track0.bin
-  start: 0xde64e8
-  size: 0x10
-- path: sounds/sfx209_track0.bin
-  start: 0xde6504
-  size: 0x10
-- path: sounds/sfx20A_track0.bin
-  start: 0xde6520
-  size: 0x10
-- path: sounds/sfx20B_track0.bin
-  start: 0xde653c
-  size: 0x10
-- path: sounds/sfx20C_track0.bin
-  start: 0xde6558
-  size: 0x10
-- path: sounds/sfx20D_track0.bin
-  start: 0xde6574
-  size: 0x10
-- path: sounds/sfx20E_track0.bin
-  start: 0xde6590
-  size: 0x10
-- path: sounds/sfx20F_track0.bin
-  start: 0xde65ac
-  size: 0x10
-- path: sounds/sfx210_track0.bin
-  start: 0xde65c8
-  size: 0x14
-- path: sounds/sfx211_track0.bin
-  start: 0xde65e8
-  size: 0x10
-- path: sounds/sfx212_track0.bin
-  start: 0xde6604
-  size: 0x10
-- path: sounds/sfx213_track0.bin
-  start: 0xde6620
-  size: 0x10
-- path: sounds/sfx214_track0.bin
-  start: 0xde663c
-  size: 0x14
-- path: sounds/sfx215_track0.bin
-  start: 0xde665c
-  size: 0x18
-- path: sounds/sfx216_track0.bin
-  start: 0xde6680
-  size: 0x7d
-- path: sounds/sfx216_track1.bin
-  start: 0xde66fd
-  size: 0x5f
-- path: sounds/sfx216_track2.bin
-  start: 0xde675c
-  size: 0x3b
-- path: sounds/sfx216_track3.bin
-  start: 0xde6797
-  size: 0x789
-- path: sounds/sfx216_track4.bin
-  start: 0xde6f20
-  size: 0x189
-- path: sounds/sfx216_track5.bin
-  start: 0xde70a9
-  size: 0x189
-- path: sounds/sfx216_track6.bin
-  start: 0xde7232
-  size: 0x189
-- path: sounds/sfx216_track7.bin
-  start: 0xde73bb
-  size: 0x189
-- path: sounds/sfx217_track0.bin
-  start: 0xde756c
-  size: 0x2c
-- path: sounds/sfx217_track1.bin
-  start: 0xde7598
-  size: 0x2a
-- path: sounds/sfx217_track2.bin
-  start: 0xde75c2
-  size: 0x26
-- path: sounds/sfx217_track3.bin
-  start: 0xde75e8
-  size: 0x29
-- path: sounds/sfx217_track4.bin
-  start: 0xde7611
-  size: 0x2a
-- path: sounds/sfx217_track5.bin
-  start: 0xde763b
-  size: 0x2a
-- path: sounds/sfx217_track6.bin
-  start: 0xde7665
-  size: 0x33
-- path: sounds/sfx217_track7.bin
-  start: 0xde7698
-  size: 0x31
-- path: sounds/sfx217_track8.bin
-  start: 0xde76c9
-  size: 0x129
-- path: sounds/sfx217_track9.bin
-  start: 0xde77f2
-  size: 0x129
-- path: sounds/sfx217_trackA.bin
-  start: 0xde791b
-  size: 0x129
-- path: sounds/sfx217_trackB.bin
-  start: 0xde7a44
-  size: 0x12c
-- path: sounds/sfx218_track0.bin
-  start: 0xde7ba8
-  size: 0x10
-- path: sounds/sfx219_track0.bin
-  start: 0xde7bc4
-  size: 0x10
-- path: sounds/sfx21A_track0.bin
-  start: 0xde7be0
-  size: 0x1c
-- path: sounds/sfx21B_track0.bin
-  start: 0xde7c08
-  size: 0x20
-- path: sounds/sfx21C_track0.bin
-  start: 0xde7c34
-  size: 0x44
-- path: sounds/sfx21D_track0.bin
-  start: 0xde7c84
-  size: 0x10
-- path: sounds/sfx21E_track0.bin
-  start: 0xde7ca0
-  size: 0x14
-- path: sounds/sfx21F_track0.bin
-  start: 0xde7cc0
-  size: 0x30
-- path: sounds/sfx220_track0.bin
-  start: 0xde7cfc
-  size: 0x10
-- path: sounds/sfx221_track0.bin
-  start: 0xde7d18
-  size: 0x10
+- path: sounds/sfxSparkles.s
+  start: 0xde3100
+  type: midi
+  options:
+    group: 281
+    priority: 0x40
+- path: sounds/sfx143.s
+  start: 0xde311c
+  type: midi
+  options:
+    group: 282
+    priority: 0xf0
+- path: sounds/sfx144.s
+  start: 0xde3154
+  type: midi
+  options:
+    group: 283
+    priority: 0x40
+- path: sounds/sfx145.s
+  start: 0xde3188
+  type: midi
+  options:
+    group: 284
+    priority: 0x40
+- path: sounds/sfx146.s
+  start: 0xde31c4
+  type: midi
+  options:
+    group: 285
+    priority: 0x40
+- path: sounds/sfx147.s
+  start: 0xde32a4
+  type: midi
+  options:
+    group: 286
+    priority: 0x40
+- path: sounds/sfx148.s
+  start: 0xde33b4
+  type: midi
+  options:
+    group: 287
+    priority: 0x40
+- path: sounds/sfx149.s
+  start: 0xde33e8
+  type: midi
+  options:
+    group: 288
+    priority: 0x40
+- path: sounds/sfx14A.s
+  start: 0xde34a4
+  type: midi
+  options:
+    group: 289
+    priority: 0x7f
+- path: sounds/sfx14B.s
+  start: 0xde34e4
+  type: midi
+  options:
+    group: 290
+    priority: 0x40
+- path: sounds/sfx14C.s
+  start: 0xde3564
+  type: midi
+  options:
+    group: 291
+    priority: 0x40
+- path: sounds/sfx14D.s
+  start: 0xde3588
+  type: midi
+  options:
+    group: 292
+    priority: 0x60
+- path: sounds/sfx14E.s
+  start: 0xde35ac
+  type: midi
+  options:
+    group: 293
+    priority: 0x40
+- path: sounds/sfx14F.s
+  start: 0xde3618
+  type: midi
+  options:
+    group: 294
+    priority: 0x40
+- path: sounds/sfx150.s
+  start: 0xde3674
+  type: midi
+  options:
+    group: 295
+    priority: 0x40
+- path: sounds/sfx151.s
+  start: 0xde36b0
+  type: midi
+  options:
+    group: 296
+    priority: 0x60
+- path: sounds/sfx152.s
+  start: 0xde37cc
+  type: midi
+  options:
+    group: 297
+    priority: 0x40
+- path: sounds/sfx153.s
+  start: 0xde380c
+  type: midi
+  options:
+    group: 298
+    priority: 0x60
+- path: sounds/sfx154.s
+  start: 0xde3850
+  type: midi
+  options:
+    group: 299
+    priority: 0x40
+- path: sounds/sfx155.s
+  start: 0xde3888
+  type: midi
+  options:
+    group: 300
+    priority: 0x40
+- path: sounds/sfx156.s
+  start: 0xde38f0
+  type: midi
+  options:
+    group: 301
+    priority: 0x40
+- path: sounds/sfx157.s
+  start: 0xde3918
+  type: midi
+  options:
+    group: 302
+    priority: 0x40
+- path: sounds/sfx158.s
+  start: 0xde3968
+  type: midi
+  options:
+    group: 303
+    priority: 0x40
+- path: sounds/sfx159.s
+  start: 0xde39b4
+  type: midi
+  options:
+    group: 304
+    priority: 0x40
+- path: sounds/sfx15A.s
+  start: 0xde3a10
+  type: midi
+  options:
+    group: 305
+    priority: 0x40
+- path: sounds/sfx15B.s
+  start: 0xde3a70
+  type: midi
+  options:
+    group: 306
+    priority: 0x40
+- path: sounds/sfx15C.s
+  start: 0xde3aa0
+  type: midi
+  options:
+    group: 307
+    priority: 0x40
+- path: sounds/sfx15D.s
+  start: 0xde3af8
+  type: midi
+  options:
+    group: 308
+    priority: 0x40
+- path: sounds/sfx15E.s
+  start: 0xde3b30
+  type: midi
+  options:
+    group: 309
+    priority: 0x40
+- path: sounds/sfx15F.s
+  start: 0xde3b6c
+  type: midi
+  options:
+    group: 310
+    priority: 0x40
+- path: sounds/sfx160.s
+  start: 0xde3bd4
+  type: midi
+  options:
+    group: 311
+    priority: 0x40
+- path: sounds/sfx161.s
+  start: 0xde3bf0
+  type: midi
+  options:
+    group: 312
+    priority: 0x28
+- path: sounds/sfx162.s
+  start: 0xde3c14
+  type: midi
+  options:
+    group: 313
+    priority: 0x40
+- path: sounds/sfx163.s
+  start: 0xde3c64
+  type: midi
+  options:
+    group: 314
+    priority: 0x40
+- path: sounds/sfx164.s
+  start: 0xde3cc0
+  type: midi
+  options:
+    group: 315
+    priority: 0x40
+- path: sounds/sfx165.s
+  start: 0xde3d34
+  type: midi
+  options:
+    group: 316
+    priority: 0x40
+- path: sounds/sfx166.s
+  start: 0xde3db0
+  type: midi
+  options:
+    group: 317
+    priority: 0x40
+- path: sounds/sfx167.s
+  start: 0xde3e34
+  type: midi
+  options:
+    group: 318
+    priority: 0x40
+- path: sounds/sfx168.s
+  start: 0xde3e5c
+  type: midi
+  options:
+    group: 319
+    priority: 0x40
+- path: sounds/sfx169.s
+  start: 0xde3ea4
+  type: midi
+  options:
+    group: 320
+    priority: 0x40
+- path: sounds/sfx16A.s
+  start: 0xde3ee0
+  type: midi
+  options:
+    group: 321
+    priority: 0x40
+- path: sounds/sfx16B.s
+  start: 0xde3f1c
+  type: midi
+  options:
+    group: 322
+    priority: 0x40
+- path: sounds/sfx16C.s
+  start: 0xde3f5c
+  type: midi
+  options:
+    group: 323
+    priority: 0x40
+- path: sounds/sfx16D.s
+  start: 0xde4028
+  type: midi
+  options:
+    group: 324
+    priority: 0x40
+- path: sounds/sfx16E.s
+  start: 0xde406c
+  type: midi
+  options:
+    group: 325
+    priority: 0x40
+- path: sounds/sfxPlyShrinking.s
+  start: 0xde4110
+  type: midi
+  options:
+    group: 326
+    priority: 0x40
+- path: sounds/sfxPlyGrow.s
+  start: 0xde417c
+  type: midi
+  options:
+    group: 327
+    priority: 0x40
+- path: sounds/sfx171.s
+  start: 0xde4198
+  type: midi
+  options:
+    group: 328
+    priority: 0x40
+- path: sounds/sfx172.s
+  start: 0xde41d0
+  type: midi
+  options:
+    group: 329
+    priority: 0x40
+- path: sounds/sfxEzloUi.s
+  start: 0xde420c
+  type: midi
+  options:
+    group: 330
+    priority: 0x7f
+- path: sounds/sfx174.s
+  start: 0xde4244
+  type: midi
+  options:
+    group: 331
+    priority: 0x40
+- path: sounds/sfx175.s
+  start: 0xde4278
+  type: midi
+  options:
+    group: 332
+    priority: 0x30
+- path: sounds/sfx176.s
+  start: 0xde42c0
+  type: midi
+  options:
+    group: 333
+    priority: 0x40
+- path: sounds/sfx177.s
+  start: 0xde4380
+  type: midi
+  options:
+    group: 334
+    priority: 0x60
+- path: sounds/sfx178.s
+  start: 0xde43d4
+  type: midi
+  options:
+    group: 335
+    priority: 0x40
+- path: sounds/sfx179.s
+  start: 0xde4424
+  type: midi
+  options:
+    group: 336
+    priority: 0x40
+- path: sounds/sfx17A.s
+  start: 0xde44c4
+  type: midi
+  options:
+    group: 337
+    priority: 0x78
+- path: sounds/sfxLavaTitleStep.s
+  start: 0xde44e4
+  type: midi
+  options:
+    group: 338
+    priority: 0x40
+- path: sounds/sfxLavaTitleWobble.s
+  start: 0xde4500
+  type: midi
+  options:
+    group: 339
+    priority: 0x40
+- path: sounds/sfxLavaTitleSink.s
+  start: 0xde451c
+  type: midi
+  options:
+    group: 340
+    priority: 0x40
+- path: sounds/sfxLavaTitleFlip.s
+  start: 0xde4538
+  type: midi
+  options:
+    group: 341
+    priority: 0x40
+- path: sounds/sfxLavaTitleLand.s
+  start: 0xde4554
+  type: midi
+  options:
+    group: 342
+    priority: 0x40
+- path: sounds/sfx180.s
+  start: 0xde4574
+  type: midi
+  options:
+    group: 343
+    priority: 0x40
+- path: sounds/sfx181.s
+  start: 0xde4594
+  type: midi
+  options:
+    group: 344
+    priority: 0x40
+- path: sounds/sfx182.s
+  start: 0xde45f0
+  type: midi
+  options:
+    group: 345
+    priority: 0x40
+- path: sounds/sfx183.s
+  start: 0xde46a8
+  type: midi
+  options:
+    group: 346
+    priority: 0x30
+- path: sounds/sfx184.s
+  start: 0xde46c8
+  type: midi
+  options:
+    group: 347
+    priority: 0x40
+- path: sounds/sfx185.s
+  start: 0xde475c
+  type: midi
+  options:
+    group: 348
+    priority: 0x40
+- path: sounds/sfx186.s
+  start: 0xde4790
+  type: midi
+  options:
+    group: 349
+    priority: 0x40
+- path: sounds/sfxStairsAscend.s
+  start: 0xde47e4
+  type: midi
+  options:
+    group: 350
+    priority: 0x40
+- path: sounds/sfxStairsDescend.s
+  start: 0xde4838
+  type: midi
+  options:
+    group: 351
+    priority: 0x40
+- path: sounds/sfx189.s
+  start: 0xde4878
+  type: midi
+  options:
+    group: 352
+    priority: 0x60
+- path: sounds/sfx18A.s
+  start: 0xde48bc
+  type: midi
+  options:
+    group: 353
+    priority: 0x40
+- path: sounds/sfx18B.s
+  start: 0xde4930
+  type: midi
+  options:
+    group: 354
+    priority: 0x40
+- path: sounds/sfx18C.s
+  start: 0xde4968
+  type: midi
+  options:
+    group: 355
+    priority: 0x40
+- path: sounds/sfx18D.s
+  start: 0xde49ac
+  type: midi
+  options:
+    group: 356
+    priority: 0x40
+- path: sounds/sfx18E.s
+  start: 0xde49d0
+  type: midi
+  options:
+    group: 357
+    priority: 0x40
+- path: sounds/sfx18F.s
+  start: 0xde4a0c
+  type: midi
+  options:
+    group: 358
+    priority: 0x50
+- path: sounds/sfx190.s
+  start: 0xde4a28
+  type: midi
+  options:
+    group: 359
+    priority: 0x40
+- path: sounds/sfx191.s
+  start: 0xde4a60
+  type: midi
+  options:
+    group: 360
+    priority: 0x40
+- path: sounds/sfx192.s
+  start: 0xde4acc
+  type: midi
+  options:
+    group: 361
+    priority: 0x40
+- path: sounds/sfx193.s
+  start: 0xde4b00
+  type: midi
+  options:
+    group: 362
+    priority: 0x40
+- path: sounds/sfx194.s
+  start: 0xde4b50
+  type: midi
+  options:
+    group: 363
+    priority: 0x40
+- path: sounds/sfx195.s
+  start: 0xde4bec
+  type: midi
+  options:
+    group: 364
+    priority: 0x40
+- path: sounds/sfx196.s
+  start: 0xde4ccc
+  type: midi
+  options:
+    group: 365
+    priority: 0x60
+- path: sounds/sfx197.s
+  start: 0xde4d24
+  type: midi
+  options:
+    group: 366
+    priority: 0x60
+- path: sounds/sfx198.s
+  start: 0xde4e64
+  type: midi
+  options:
+    group: 367
+    priority: 0x40
+- path: sounds/sfx199.s
+  start: 0xde4eb0
+  type: midi
+  options:
+    group: 368
+    priority: 0x40
+- path: sounds/sfx19A.s
+  start: 0xde4f20
+  type: midi
+  options:
+    group: 369
+    priority: 0x40
+- path: sounds/sfx19B.s
+  start: 0xde4fb4
+  type: midi
+  options:
+    group: 370
+    priority: 0x40
+- path: sounds/sfx19C.s
+  start: 0xde4fe8
+  type: midi
+  options:
+    group: 371
+    priority: 0x40
+- path: sounds/sfx19D.s
+  start: 0xde506c
+  type: midi
+  options:
+    group: 372
+    priority: 0x40
+- path: sounds/sfx19E.s
+  start: 0xde50bc
+  type: midi
+  options:
+    group: 373
+    priority: 0x40
+- path: sounds/sfx19F.s
+  start: 0xde512c
+  type: midi
+  options:
+    group: 374
+    priority: 0x40
+- path: sounds/sfx1A0.s
+  start: 0xde51b0
+  type: midi
+  options:
+    group: 375
+    priority: 0x40
+- path: sounds/sfx1A1.s
+  start: 0xde5218
+  type: midi
+  options:
+    group: 376
+    priority: 0x40
+- path: sounds/sfx1A2.s
+  start: 0xde5248
+  type: midi
+  options:
+    group: 377
+    priority: 0x40
+- path: sounds/sfx1A3.s
+  start: 0xde52f0
+  type: midi
+  options:
+    group: 378
+    priority: 0x40
+- path: sounds/sfx1A4.s
+  start: 0xde5318
+  type: midi
+  options:
+    group: 379
+    priority: 0x40
+- path: sounds/sfx1A5.s
+  start: 0xde5348
+  type: midi
+  options:
+    group: 380
+    priority: 0x40
+- path: sounds/sfx1A6.s
+  start: 0xde5390
+  type: midi
+  options:
+    group: 381
+    priority: 0x40
+- path: sounds/sfx1A7.s
+  start: 0xde53fc
+  type: midi
+  options:
+    group: 382
+    priority: 0x40
+- path: sounds/sfx1A8.s
+  start: 0xde5440
+  type: midi
+  options:
+    group: 383
+    priority: 0x40
+- path: sounds/sfx1A9.s
+  start: 0xde5540
+  type: midi
+  options:
+    group: 384
+    priority: 0x38
+- path: sounds/sfx1AA.s
+  start: 0xde5654
+  type: midi
+  options:
+    group: 385
+    priority: 0x40
+- path: sounds/sfx1AB.s
+  start: 0xde5728
+  type: midi
+  options:
+    group: 386
+    priority: 0x40
+- path: sounds/sfx1AC.s
+  start: 0xde57ac
+  type: midi
+  options:
+    group: 387
+    priority: 0x40
+- path: sounds/sfx1AD.s
+  start: 0xde5808
+  type: midi
+  options:
+    group: 388
+    priority: 0x40
+- path: sounds/sfx1AE.s
+  start: 0xde5850
+  type: midi
+  options:
+    group: 389
+    priority: 0x40
+- path: sounds/sfx1AF.s
+  start: 0xde5894
+  type: midi
+  options:
+    group: 390
+    priority: 0x40
+- path: sounds/sfx1B0.s
+  start: 0xde58e0
+  type: midi
+  options:
+    group: 391
+    priority: 0x40
+- path: sounds/sfxIceBlockSlide.s
+  start: 0xde58fc
+  type: midi
+  options:
+    group: 392
+    priority: 0x40
+- path: sounds/sfxIceBlockStop.s
+  start: 0xde5918
+  type: midi
+  options:
+    group: 393
+    priority: 0x40
+- path: sounds/sfxIceBlockMelt.s
+  start: 0xde5934
+  type: midi
+  options:
+    group: 394
+    priority: 0x40
+- path: sounds/sfx1B4.s
+  start: 0xde598c
+  type: midi
+  options:
+    group: 395
+    priority: 0x40
+- path: sounds/sfx1B5.s
+  start: 0xde59c8
+  type: midi
+  options:
+    group: 396
+    priority: 0x40
+- path: sounds/sfx1B6.s
+  start: 0xde5adc
+  type: midi
+  options:
+    group: 397
+    priority: 0x40
+- path: sounds/sfxVoGoron1.s
+  start: 0xde5afc
+  type: midi
+  options:
+    group: 398
+    priority: 0x48
+- path: sounds/sfxVoGoron2.s
+  start: 0xde5b18
+  type: midi
+  options:
+    group: 399
+    priority: 0x48
+- path: sounds/sfxVoGoron3.s
+  start: 0xde5b34
+  type: midi
+  options:
+    group: 400
+    priority: 0x48
+- path: sounds/sfxVoGoron4.s
+  start: 0xde5b54
+  type: midi
+  options:
+    group: 401
+    priority: 0x48
+- path: sounds/sfxEmDekuscrubHit.s
+  start: 0xde5ba8
+  type: midi
+  options:
+    group: 402
+    priority: 0x48
+- path: sounds/sfx1BC.s
+  start: 0xde5bc4
+  type: midi
+  options:
+    group: 403
+    priority: 0x48
+- path: sounds/sfx1BD.s
+  start: 0xde5be0
+  type: midi
+  options:
+    group: 404
+    priority: 0x48
+- path: sounds/sfx1BE.s
+  start: 0xde5bfc
+  type: midi
+  options:
+    group: 405
+    priority: 0x48
+- path: sounds/sfx1BF.s
+  start: 0xde5c18
+  type: midi
+  options:
+    group: 406
+    priority: 0x48
+- path: sounds/sfx1C0.s
+  start: 0xde5c34
+  type: midi
+  options:
+    group: 407
+    priority: 0x48
+- path: sounds/sfx1C1.s
+  start: 0xde5c50
+  type: midi
+  options:
+    group: 408
+    priority: 0x48
+- path: sounds/sfx1C2.s
+  start: 0xde5c6c
+  type: midi
+  options:
+    group: 409
+    priority: 0x40
+- path: sounds/sfx1C3.s
+  start: 0xde5c88
+  type: midi
+  options:
+    group: 410
+    priority: 0x40
+- path: sounds/sfx1C4.s
+  start: 0xde5ca8
+  type: midi
+  options:
+    group: 411
+    priority: 0x40
+- path: sounds/sfx1C5.s
+  start: 0xde5cc4
+  type: midi
+  options:
+    group: 412
+    priority: 0x40
+- path: sounds/sfx1C6.s
+  start: 0xde5ce0
+  type: midi
+  options:
+    group: 413
+    priority: 0x40
+- path: sounds/sfx1C7.s
+  start: 0xde5cfc
+  type: midi
+  options:
+    group: 414
+    priority: 0x40
+- path: sounds/sfx1C8.s
+  start: 0xde5d28
+  type: midi
+  options:
+    group: 415
+    priority: 0x40
+- path: sounds/sfx1C9.s
+  start: 0xde5d44
+  type: midi
+  options:
+    group: 416
+    priority: 0x40
+- path: sounds/sfx1CA.s
+  start: 0xde5d70
+  type: midi
+  options:
+    group: 417
+    priority: 0x44
+- path: sounds/sfx1CB.s
+  start: 0xde5d90
+  type: midi
+  options:
+    group: 418
+    priority: 0x40
+- path: sounds/sfx1CC.s
+  start: 0xde5dac
+  type: midi
+  options:
+    group: 419
+    priority: 0x40
+- path: sounds/sfxElementPlace.s
+  start: 0xde5dc8
+  type: midi
+  options:
+    group: 420
+    priority: 0x40
+- path: sounds/sfxElementFloat.s
+  start: 0xde5de4
+  type: midi
+  options:
+    group: 421
+    priority: 0x40
+- path: sounds/sfxElementCharge.s
+  start: 0xde5e00
+  type: midi
+  options:
+    group: 422
+    priority: 0x40
+- path: sounds/sfx1D0.s
+  start: 0xde5e1c
+  type: midi
+  options:
+    group: 423
+    priority: 0x40
+- path: sounds/sfxElementInfuse.s
+  start: 0xde5e38
+  type: midi
+  options:
+    group: 424
+    priority: 0x40
+- path: sounds/sfx1D2.s
+  start: 0xde5e54
+  type: midi
+  options:
+    group: 425
+    priority: 0x40
+- path: sounds/sfx1D3.s
+  start: 0xde5e70
+  type: midi
+  options:
+    group: 426
+    priority: 0x40
+- path: sounds/sfx1D4.s
+  start: 0xde5e8c
+  type: midi
+  options:
+    group: 427
+    priority: 0x40
+- path: sounds/sfx1D5.s
+  start: 0xde5ea8
+  type: midi
+  options:
+    group: 428
+    priority: 0x40
+- path: sounds/sfxVoCucco1.s
+  start: 0xde5ec4
+  type: midi
+  options:
+    group: 429
+    priority: 0x48
+- path: sounds/sfxVoCucco2.s
+  start: 0xde5ee0
+  type: midi
+  options:
+    group: 430
+    priority: 0x48
+- path: sounds/sfxVoCucco3.s
+  start: 0xde5efc
+  type: midi
+  options:
+    group: 431
+    priority: 0x48
+- path: sounds/sfxVoCucco4.s
+  start: 0xde5f18
+  type: midi
+  options:
+    group: 432
+    priority: 0x48
+- path: sounds/sfxVoCucco5.s
+  start: 0xde5f34
+  type: midi
+  options:
+    group: 433
+    priority: 0x48
+- path: sounds/sfx1DB.s
+  start: 0xde5fcc
+  type: midi
+  options:
+    group: 434
+    priority: 0x40
+- path: sounds/sfx1DC.s
+  start: 0xde6004
+  type: midi
+  options:
+    group: 435
+    priority: 0x40
+- path: sounds/sfx1DD.s
+  start: 0xde6044
+  type: midi
+  options:
+    group: 436
+    priority: 0x48
+- path: sounds/sfx1DE.s
+  start: 0xde6060
+  type: midi
+  options:
+    group: 437
+    priority: 0x48
+- path: sounds/sfx1DF.s
+  start: 0xde607c
+  type: midi
+  options:
+    group: 438
+    priority: 0x48
+- path: sounds/sfx1E0.s
+  start: 0xde6098
+  type: midi
+  options:
+    group: 439
+    priority: 0x48
+- path: sounds/sfx1E1.s
+  start: 0xde60b4
+  type: midi
+  options:
+    group: 440
+    priority: 0x48
+- path: sounds/sfx1E2.s
+  start: 0xde60d0
+  type: midi
+  options:
+    group: 441
+    priority: 0x48
+- path: sounds/sfx1E3.s
+  start: 0xde60ec
+  type: midi
+  options:
+    group: 442
+    priority: 0x48
+- path: sounds/sfx1E4.s
+  start: 0xde6108
+  type: midi
+  options:
+    group: 443
+    priority: 0x48
+- path: sounds/sfx1E5.s
+  start: 0xde6124
+  type: midi
+  options:
+    group: 444
+    priority: 0x48
+- path: sounds/sfx1E6.s
+  start: 0xde6140
+  type: midi
+  options:
+    group: 445
+    priority: 0x48
+- path: sounds/sfx1E7.s
+  start: 0xde615c
+  type: midi
+  options:
+    group: 446
+    priority: 0x48
+- path: sounds/sfx1E8.s
+  start: 0xde6178
+  type: midi
+  options:
+    group: 447
+    priority: 0x48
+- path: sounds/sfx1E9.s
+  start: 0xde6194
+  type: midi
+  options:
+    group: 448
+    priority: 0x48
+- path: sounds/sfx1EA.s
+  start: 0xde61b0
+  type: midi
+  options:
+    group: 449
+    priority: 0x48
+- path: sounds/sfx1EB.s
+  start: 0xde61cc
+  type: midi
+  options:
+    group: 450
+    priority: 0x48
+- path: sounds/sfx1EC.s
+  start: 0xde61e8
+  type: midi
+  options:
+    group: 451
+    priority: 0x48
+- path: sounds/sfx1ED.s
+  start: 0xde6204
+  type: midi
+  options:
+    group: 452
+    priority: 0x48
+- path: sounds/sfx1EE.s
+  start: 0xde6220
+  type: midi
+  options:
+    group: 453
+    priority: 0x48
+- path: sounds/sfx1EF.s
+  start: 0xde623c
+  type: midi
+  options:
+    group: 454
+    priority: 0x48
+- path: sounds/sfx1F0.s
+  start: 0xde6258
+  type: midi
+  options:
+    group: 455
+    priority: 0x48
+- path: sounds/sfx1F1.s
+  start: 0xde6274
+  type: midi
+  options:
+    group: 456
+    priority: 0x48
+- path: sounds/sfx1F2.s
+  start: 0xde6290
+  type: midi
+  options:
+    group: 457
+    priority: 0x48
+- path: sounds/sfx1F3.s
+  start: 0xde62ac
+  type: midi
+  options:
+    group: 458
+    priority: 0x48
+- path: sounds/sfx1F4.s
+  start: 0xde62c8
+  type: midi
+  options:
+    group: 459
+    priority: 0x48
+- path: sounds/sfx1F5.s
+  start: 0xde62e4
+  type: midi
+  options:
+    group: 460
+    priority: 0x48
+- path: sounds/sfx1F6.s
+  start: 0xde6300
+  type: midi
+  options:
+    group: 461
+    priority: 0x48
+- path: sounds/sfx1F7.s
+  start: 0xde631c
+  type: midi
+  options:
+    group: 462
+    priority: 0x48
+- path: sounds/sfx1F8.s
+  start: 0xde6338
+  type: midi
+  options:
+    group: 463
+    priority: 0x48
+- path: sounds/sfx1F9.s
+  start: 0xde6354
+  type: midi
+  options:
+    group: 464
+    priority: 0x48
+- path: sounds/sfx1FA.s
+  start: 0xde6370
+  type: midi
+  options:
+    group: 465
+    priority: 0x48
+- path: sounds/sfx1FB.s
+  start: 0xde638c
+  type: midi
+  options:
+    group: 466
+    priority: 0x48
+- path: sounds/sfx1FC.s
+  start: 0xde63a8
+  type: midi
+  options:
+    group: 467
+    priority: 0x48
+- path: sounds/sfx1FD.s
+  start: 0xde63c4
+  type: midi
+  options:
+    group: 468
+    priority: 0x48
+- path: sounds/sfx1FE.s
+  start: 0xde63e0
+  type: midi
+  options:
+    group: 469
+    priority: 0x48
+- path: sounds/sfx1FF.s
+  start: 0xde63fc
+  type: midi
+  options:
+    group: 470
+    priority: 0x48
+- path: sounds/sfx200.s
+  start: 0xde6418
+  type: midi
+  options:
+    group: 471
+    priority: 0x48
+- path: sounds/sfx201.s
+  start: 0xde6434
+  type: midi
+  options:
+    group: 472
+    priority: 0x48
+- path: sounds/sfx202.s
+  start: 0xde6450
+  type: midi
+  options:
+    group: 473
+    priority: 0x48
+- path: sounds/sfx203.s
+  start: 0xde646c
+  type: midi
+  options:
+    group: 474
+    priority: 0x48
+- path: sounds/sfx204.s
+  start: 0xde6488
+  type: midi
+  options:
+    group: 475
+    priority: 0x48
+- path: sounds/sfx205.s
+  start: 0xde64a4
+  type: midi
+  options:
+    group: 476
+    priority: 0x48
+- path: sounds/sfx206.s
+  start: 0xde64c0
+  type: midi
+  options:
+    group: 477
+    priority: 0x48
+- path: sounds/sfx207.s
+  start: 0xde64dc
+  type: midi
+  options:
+    group: 478
+    priority: 0x48
+- path: sounds/sfx208.s
+  start: 0xde64f8
+  type: midi
+  options:
+    group: 479
+    priority: 0x48
+- path: sounds/sfx209.s
+  start: 0xde6514
+  type: midi
+  options:
+    group: 480
+    priority: 0x48
+- path: sounds/sfx20A.s
+  start: 0xde6530
+  type: midi
+  options:
+    group: 481
+    priority: 0x48
+- path: sounds/sfx20B.s
+  start: 0xde654c
+  type: midi
+  options:
+    group: 482
+    priority: 0x48
+- path: sounds/sfx20C.s
+  start: 0xde6568
+  type: midi
+  options:
+    group: 483
+    priority: 0x48
+- path: sounds/sfx20D.s
+  start: 0xde6584
+  type: midi
+  options:
+    group: 484
+    priority: 0x48
+- path: sounds/sfx20E.s
+  start: 0xde65a0
+  type: midi
+  options:
+    group: 485
+    priority: 0x48
+- path: sounds/sfx20F.s
+  start: 0xde65bc
+  type: midi
+  options:
+    group: 486
+    priority: 0x48
+- path: sounds/sfx210.s
+  start: 0xde65dc
+  type: midi
+  options:
+    group: 487
+    priority: 0x48
+- path: sounds/sfx211.s
+  start: 0xde65f8
+  type: midi
+  options:
+    group: 488
+    priority: 0x48
+- path: sounds/sfx212.s
+  start: 0xde6614
+  type: midi
+  options:
+    group: 489
+    priority: 0x48
+- path: sounds/sfx213.s
+  start: 0xde6630
+  type: midi
+  options:
+    group: 490
+    priority: 0x48
+- path: sounds/sfx214.s
+  start: 0xde6650
+  type: midi
+  options:
+    group: 491
+    priority: 0x48
+- path: sounds/sfx215.s
+  start: 0xde6674
+  type: midi
+  options:
+    group: 492
+    priority: 0xc0
+- path: sounds/sfx216.s
+  start: 0xde7544
+  type: midi
+  options:
+    group: 058
+    priority: 0x20
+- path: sounds/sfx217.s
+  start: 0xde7b70
+  type: midi
+  options:
+    group: 058
+    priority: 0x20
+- path: sounds/sfx218.s
+  start: 0xde7bb8
+  type: midi
+  options:
+    group: 493
+    priority: 0x40
+- path: sounds/sfx219.s
+  start: 0xde7bd4
+  type: midi
+  options:
+    group: 494
+    priority: 0x40
+- path: sounds/sfx21A.s
+  start: 0xde7bfc
+  type: midi
+  options:
+    group: 495
+    priority: 0x40
+- path: sounds/sfx21B.s
+  start: 0xde7c28
+  type: midi
+  options:
+    group: 496
+    priority: 0x40
+- path: sounds/sfx21C.s
+  start: 0xde7c78
+  type: midi
+  options:
+    group: 497
+    priority: 0x40
+- path: sounds/sfx21D.s
+  start: 0xde7c94
+  type: midi
+  options:
+    group: 498
+    priority: 0x40
+- path: sounds/sfx21E.s
+  start: 0xde7cb4
+  type: midi
+  options:
+    group: 499
+    priority: 0x40
+- path: sounds/sfx21F.s
+  start: 0xde7cf0
+  type: midi
+  options:
+    group: 500
+    priority: 0x40
+- path: sounds/sfx220.s
+  start: 0xde7d0c
+  type: midi
+  options:
+    group: 501
+    priority: 0x48
+- path: sounds/sfx221.s
+  start: 0xde7d28
+  type: midi
+  options:
+    group: 502
+    priority: 0x48

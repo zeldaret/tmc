@@ -523,14 +523,35 @@ bool ReadTrackEvent(Event& event)
     if (category == MidiEventCategory::Meta)
     {
         int metaEventType = ReadInt8();
-        SkipEventData();
 
-        if (metaEventType == 0x2F)
+        if (metaEventType >= 1 && metaEventType <= 7)
         {
+            // text event
+            std::string text = ReadEventText();
+
+            if (text == "[")
+                MakeBlockEvent(event, EventType::LoopBegin);
+            else if (text == "][")
+                MakeBlockEvent(event, EventType::LoopEndBegin);
+            else if (text == "]")
+                MakeBlockEvent(event, EventType::LoopEnd);
+            else if (text == ":")
+                MakeBlockEvent(event, EventType::Label);
+            else
+                return false;
+            return true;
+        }
+        else if (metaEventType == 0x2F)
+        {
+            SkipEventData();
             event.type = EventType::EndOfTrack;
             event.param1 = 0;
             event.param2 = 0;
             return true;
+        }
+        else
+        {
+            SkipEventData();
         }
 
         return false;
@@ -651,6 +672,16 @@ void ConvertTimes(std::vector<Event>& events)
     }
 }
 
+void insertAtCorrectTimeFromEnd(const std::unique_ptr<std::vector<Event>>& events, const Event& event) {
+    for (auto it = events->rbegin(); it != events->rend(); it++) {
+        if (it->time <= event.time) {
+            events->insert(it.base(), event);
+            return;
+        }
+    }
+    events->insert(events->begin(), event);
+}
+
 std::unique_ptr<std::vector<Event>> InsertTimingEvents(std::vector<Event>& inEvents)
 {
     std::unique_ptr<std::vector<Event>> outEvents(new std::vector<Event>());
@@ -739,17 +770,19 @@ std::unique_ptr<std::vector<Event>> CreateTies(std::vector<Event>& inEvents)
         {
             Event tieEvent = event;
             tieEvent.param2 = -1;
-            outEvents->push_back(tieEvent);
+            insertAtCorrectTimeFromEnd(outEvents, tieEvent);
 
             Event eotEvent = {};
             eotEvent.time = event.time + event.param2;
             eotEvent.type = EventType::EndOfTie;
             eotEvent.note = event.note;
-            outEvents->push_back(eotEvent);
+            // directly insert at the correct position, so it does not need to be sorted later.
+            // TODO rather keep eotEvent in queue until it's time is reached?
+            insertAtCorrectTimeFromEnd(outEvents, eotEvent);
         }
         else
         {
-            outEvents->push_back(event);
+            insertAtCorrectTimeFromEnd(outEvents, event);
         }
     }
 
@@ -948,7 +981,6 @@ void ReadMidiTracks()
                 ConvertTimes(*events);
                 events = InsertTimingEvents(*events);
                 events = CreateTies(*events);
-                std::stable_sort(events->begin(), events->end(), EventCompare);
                 events = SplitTime(*events);
                 CalculateWaits(*events);
 

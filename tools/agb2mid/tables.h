@@ -18,38 +18,12 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#ifndef PREPROC_H
-#define PREPROC_H
+#ifndef TABLES_H
+#define TABLES_H
 
-#include <cstdio>
-#include <cstdlib>
-#include "charmap.h"
-
-#ifdef _MSC_VER
-
-#define FATAL_ERROR(format, ...)               \
-do                                             \
-{                                              \
-    std::fprintf(stderr, format, __VA_ARGS__); \
-    std::exit(1);                              \
-} while (0)
-
-#else
-
-#define FATAL_ERROR(format, ...)                 \
-do                                               \
-{                                                \
-    std::fprintf(stderr, format, ##__VA_ARGS__); \
-    std::exit(1);                                \
-} while (0)
-
-#endif // _MSC_VER
-
-const int kMaxPath = 256;
-const int kMaxStringLength = 1024;
-const unsigned long kMaxCharmapSequenceLength = 16;
-
-extern Charmap* g_charmap;
-extern std::string g_buildName;
-
-#endif // PREPROC_H
+extern const int g_noteDurationLUT[97];
+extern const int g_noteVelocityLUT[];
+extern const char* g_noteTable[];
+extern const char* g_minusNoteTable[];
+extern const int g_noteDurationInverseLUT[];
+#endif // TABLES_H

@@ -18,38 +18,19 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#ifndef PREPROC_H
-#define PREPROC_H
+#ifndef AGB_H
+#define AGB_H
 
-#include <cstdio>
-#include <cstdlib>
-#include "charmap.h"
+#include <vector>
+#include "midi.h"
 
-#ifdef _MSC_VER
+void ReadAgbSong();
+void ReadAgbTracks();
 
-#define FATAL_ERROR(format, ...)               \
-do                                             \
-{                                              \
-    std::fprintf(stderr, format, __VA_ARGS__); \
-    std::exit(1);                              \
-} while (0)
+extern int g_agbTrack;
+extern std::vector<std::vector<Event>> trackEvents;
+extern std::vector<Event> metaEvents;
 
-#else
+void insertAtCorrectTimeFromStart(std::vector<Event>& events, const Event& event);
 
-#define FATAL_ERROR(format, ...)                 \
-do                                               \
-{                                                \
-    std::fprintf(stderr, format, ##__VA_ARGS__); \
-    std::exit(1);                                \
-} while (0)
-
-#endif // _MSC_VER
-
-const int kMaxPath = 256;
-const int kMaxStringLength = 1024;
-const unsigned long kMaxCharmapSequenceLength = 16;
-
-extern Charmap* g_charmap;
-extern std::string g_buildName;
-
-#endif // PREPROC_H
+#endif // AGB_H

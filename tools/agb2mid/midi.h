@@ -33,15 +33,9 @@ enum class EventType
 {
     EndOfTie = 0x01,
     Label = 0x11,
-    LoopEnd = 0x38,// To place it last if at the same time as other meta events, but before notes on the same frame
+    LoopEnd = 0x12,
     LoopEndBegin = 0x13,
-    LoopBegin = 0x24, 
-    // Original: 0x14
-    // TODO sfx1AA wants a LoopBegin before a Volume Change -> < 0x22
-    // bgmFestivalApproach wants a LoopBegin after a Tempo -> >0x19  -> 0x20
-    // sfxSparkles wants a LoopBegin after a VOL --> NOT POSSIBLE
-    // bgmCuccoMinigame as well
-    // To place it last if at the same time as other meta events, but before notes on the same frame
+    LoopBegin = 0x14,
     OriginalTimeSignature = 0x15,
     WholeNoteMark = 0x16,
     Pattern = 0x17,
@@ -54,15 +48,18 @@ enum class EventType
     Note = 0x40,
     TimeSplit = 0xFE,
     EndOfTrack = 0xFF,
+    Extended,
+    Wait,
+    NoteOff,
 };
 
 struct Event
 {
-    std::int32_t time;
+    std::int32_t time = 0;
     EventType type;
-    std::uint8_t note;
-    std::uint8_t param1;
-    std::int32_t param2;
+    std::uint8_t note = 0;
+    std::uint8_t param1 = 0;
+    std::int32_t param2 = 0;
 
     bool operator==(const Event& other)
     {
@@ -79,8 +76,7 @@ struct Event
     }
 };
 
-void ReadMidiFileHeader();
-void ReadMidiTracks();
+void WriteMidiFile();
 
 extern int g_midiChan;
 extern std::int32_t g_initialWait;
@@ -89,5 +85,6 @@ inline bool IsPatternBoundary(EventType type)
 {
     return type == EventType::EndOfTrack || (int)type <= 0x17;
 }
+extern std::int16_t g_midiTimeDiv;
 
 #endif // MIDI_H

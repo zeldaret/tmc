@@ -3,11 +3,13 @@ import os
 import sys
 import subprocess
 import yaml
+from distutils.util import strtobool
+import json
 
 verbose = False
 
 def extract_assets(variant, assets_folder):
-    print(f'Extract assets from {variant}.')
+    print(f'Extract assets from {variant}.', flush=True)
     map = {
         'USA': 'baserom.gba',
         'EU': 'baserom_eu.gba',
@@ -24,10 +26,21 @@ def extract_assets(variant, assets_folder):
     baserom_path = map[variant]
     with open(baserom_path, 'rb') as file:
         baserom = bytearray(file.read())
+    
+    config_modified = os.path.getmtime('assets.yaml')
+    json_modified = os.path.getmtime('assets.json')
+    if json_modified < config_modified:
+        print('Convert yaml to json...', flush=True)
+        subprocess.check_call('cat assets.yaml | yq . > assets.json', shell=True)
 
-    with open('assets.yaml') as file:
+    with open('assets.json') as file:
         current_offset = 0
-        assets = yaml.safe_load(file)
+        #print('Parsing yaml...', flush=True)
+        #assets = yaml.safe_load(file)
+        #print('done', flush=True)
+        print('Parsing json...', flush=True)
+        assets = json.load(file)
+        print('done', flush=True)
         for asset in assets:
             if 'offsets' in asset: # Offset definition
                 if variant in asset['offsets']:
@@ -40,13 +53,26 @@ def extract_assets(variant, assets_folder):
                         continue
 
                 path = os.path.join(assets_folder, asset['path'])
+
+                extract_file = False
+
                 if os.path.isfile(path):
-                    if verbose:
-                        print(f'{path} already extracted.')
+                    file_modified = os.path.getmtime(path)
+                    if file_modified < config_modified:
+                        if verbose:
+                            print(f'{path} was created before the config was modified.')
+                        extract_file = True
+                    # TODO Extract when source file (depends on type) was modified after target file
+                    #print(f'{file_modified} {config_modified}')
                 else:
                     if verbose:
-                        print(f'Extracting {path}...')
+                        print(f'{path} does not yet exist.')
+                    extract_file = True
+                        
 
+                if extract_file:
+                    if verbose:
+                        print(f'Extracting {path}...')
                     start = 0
                     if 'start' in asset:
                         # Apply offset to the start of the USA variant
@@ -116,6 +142,8 @@ def extract_midi(path, baserom_path, start, options):
     common_params = []
     agb2mid_params = []
 
+    exactGateTime = True # Set exactGateTime by default
+
     for key in options:
         if key == 'group' or key == 'G':
             common_params.append('-G')
@@ -134,13 +162,32 @@ def extract_midi(path, baserom_path, start, options):
             agb2mid_params.append(str(options[key]))
         elif key == 'timeChanges':
             changes = options['timeChanges']
-            agb2mid_params.append('-t')
-            agb2mid_params.append(str(changes['nominator']))
-            agb2mid_params.append(str(changes['denominator']))
-            agb2mid_params.append(str(changes['time']))
+            if isinstance(changes, list):
+                # Multiple time changes
+                for change in changes:
+                    agb2mid_params.append('-t')
+                    agb2mid_params.append(str(change['nominator']))
+                    agb2mid_params.append(str(change['denominator']))
+                    agb2mid_params.append(str(change['time']))    
+            else:
+                agb2mid_params.append('-t')
+                agb2mid_params.append(str(changes['nominator']))
+                agb2mid_params.append(str(changes['denominator']))
+                agb2mid_params.append(str(changes['time']))
+        elif key == 'exactGateTime':
+            if options[key] == 1:
+                exactGateTime = True
+            elif options[key] == 0:
+                exactGateTime = False
+            else:
+                exactGateTime = strtobool(options[key])
         else:
             common_params.append('-'+key)
             common_params.append(str(options[key]))
+
+    if exactGateTime:
+        common_params.append('-E')
+
     # To midi
     subprocess.check_call([os.path.join('tools', 'agb2mid', 'agb2mid'), baserom_path, hex(start), baserom_path, base+'.mid'] + common_params + agb2mid_params)
     # To assembly (TODO only do in build step, not if only extracting)

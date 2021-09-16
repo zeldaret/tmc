@@ -18,38 +18,34 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#ifndef PREPROC_H
-#define PREPROC_H
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <cstdio>
-#include <cstdlib>
-#include "charmap.h"
+#include <string>
 
-#ifdef _MSC_VER
+extern FILE* g_inputFile;
+extern FILE* g_outputFile;
 
-#define FATAL_ERROR(format, ...)               \
-do                                             \
-{                                              \
-    std::fprintf(stderr, format, __VA_ARGS__); \
-    std::exit(1);                              \
-} while (0)
+extern std::string g_asmLabel;
+extern int g_masterVolume;
+extern int g_voiceGroup;
+extern int g_priority;
+extern int g_reverb;
+extern int g_clocksPerBeat;
+extern bool g_exactGateTime;
+extern bool g_compressionEnabled;
+extern int g_nominator;
+extern int g_denominatorExp;
+extern int g_timeSignatureChange;
+extern bool g_nonmatching;
+extern bool g_verbose;
 
-#else
+struct TimeSignatureChange {
+    int nominator;
+    int denominator;
+    int time;
+};
+extern std::vector<TimeSignatureChange> timeSignatureChanges;
 
-#define FATAL_ERROR(format, ...)                 \
-do                                               \
-{                                                \
-    std::fprintf(stderr, format, ##__VA_ARGS__); \
-    std::exit(1);                                \
-} while (0)
-
-#endif // _MSC_VER
-
-const int kMaxPath = 256;
-const int kMaxStringLength = 1024;
-const unsigned long kMaxCharmapSequenceLength = 16;
-
-extern Charmap* g_charmap;
-extern std::string g_buildName;
-
-#endif // PREPROC_H
+#endif // MAIN_H

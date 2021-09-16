@@ -243,7 +243,7 @@ extern const SongHeader bgmCastleMotif;
 extern const SongHeader bgmElementGet;
 extern const SongHeader bgmFairyFountain;
 extern const SongHeader bgmFileSelect;
-extern const SongHeader bgmIntorCutscene;
+extern const SongHeader bgmIntroCutscene;
 extern const SongHeader bgmCredits;
 extern const SongHeader bgmGameover;
 extern const SongHeader bgmSavingZelda;
@@ -829,7 +829,7 @@ const Song gSongTable[] = {
     [BGM_ELEMENT_GET] = { &bgmElementGet, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
     [BGM_FAIRY_FOUNTAIN] = { &bgmFairyFountain, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
     [BGM_FILE_SELECT] = { &bgmFileSelect, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
-    [BGM_INTRO_CUTSCENE] = { &bgmIntorCutscene, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
+    [BGM_INTRO_CUTSCENE] = { &bgmIntroCutscene, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
     [BGM_CREDITS] = { &bgmCredits, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
     [BGM_GAMEOVER] = { &bgmGameover, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },
     [BGM_SAVING_ZELDA] = { &bgmSavingZelda, MUSIC_PLAYER_BGM, MUSIC_PLAYER_BGM },

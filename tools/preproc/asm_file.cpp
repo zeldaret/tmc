@@ -32,8 +32,8 @@ AsmFile::AsmFile(std::string filename) : m_filename(filename)
     FILE *fp = std::fopen(filename.c_str(), "rb");
 
     if (fp == NULL) {
-        // TODO pass current build assets path to preproc
-        fp = std::fopen(("build/tmc_eu/assets/" + filename).c_str(), "rb");
+        // The include might be an asset.
+        fp = std::fopen(("build/" + g_buildName + "/assets/" + filename).c_str(), "rb");
 
         if (fp == NULL)
             FATAL_ERROR("Failed to open \"%s\" for reading.\n", filename.c_str());
