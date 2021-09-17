@@ -62388,8 +62388,10 @@
     group: 4
     priority: 0
     reverb: 0x28
-    nominator: 7
-    denominator: 4
+    timeChanges:
+      nominator: 4
+      denominator: 4
+      time: 168
 - path: sounds/bgmElementGet.s
   start: 0xDCCD40
   type: midi
@@ -63707,6 +63709,10 @@
   options:
     group: 13
     reverb: 0x1e
+    timeChanges:
+      nominator: 4
+      denominator: 4
+      time: 912
 - path: sounds/bgmStory.s
   start: 0xdd0a94
   type: midi
@@ -68691,6 +68697,23 @@
 - path: sounds/gUnk_08DD955A_1.bin
   start: 0xdd95f9
   size: 0xb
+- path: sounds/bgmRoyalCrypt.s
+  start: 0xdd9604
+  type: midi
+  comment: Crazy timeChanges to avoid pattern creation by mid2agb.
+  options:
+    group: 40
+    reverb: 0x3c
+    timeChanges:
+    - nominator: 8
+      denominator: 4
+      time: 960
+    - nominator: 4
+      denominator: 4
+      time: 1080
+    - nominator: 12
+      denominator: 4
+      time: 1560
 - path: sounds/bgmElementalSanctuary_track0.bin
   start: 0xdd9620
   size: 0x6b
@@ -69105,6 +69128,16 @@
 - path: sounds/gUnk_08DD9F29_2.bin
   start: 0xdd9f4c
   size: 0x4
+- path: sounds/bgmFightTheme.s
+  start: 0xdd9f50
+  type: midi
+  options:
+    group: 42
+    reverb: 0x28
+    timeChanges:
+      nominator: 2
+      denominator: 4
+      time: 96
 - path: sounds/bgmBossTheme_track0.bin
   start: 0xdd9f74
   size: 0xc
@@ -70360,6 +70393,19 @@
 - path: sounds/gUnk_08DDBFE9_6.bin
   start: 0xddc06d
   size: 0x3
+- path: sounds/bgmVaatiWrath.s
+  start: 0xddc070
+  type: midi
+  options:
+    group: 47
+    reverb: 0x28
+    timeChanges:
+    - nominator: 3
+      denominator: 4
+      time: 108
+    - nominator: 4
+      denominator: 4
+      time: 540
 - path: sounds/bgmFightTheme2_track0.bin
   start: 0xddc09c
   size: 0xc
@@ -70441,6 +70487,16 @@
 - path: sounds/gUnk_08DDC233_1.bin
   start: 0xddc24e
   size: 0x2
+- path: sounds/bgmFightTheme2.s
+  start: 0xddc250
+  type: midi
+  options:
+    group: 48
+    reverb: 0x28
+    timeChanges:
+      nominator: 4
+      denominator: 4
+      time: 48
 - path: sounds/bgmDiggingCave_track0.bin
   start: 0xddc274
   size: 0xb
@@ -70495,6 +70551,16 @@
 - path: sounds/gUnk_08DDC35F_1.bin
   start: 0xddc391
   size: 0x3
+- path: sounds/bgmDiggingCave.s
+  start: 0xddc394
+  type: midi
+  options:
+    group: 49
+    reverb: 0x32
+    timeChanges:
+      nominator: 4
+      denominator: 4
+      time: 108
 - path: sounds/bgmSwiftbladeDojo_track0_EU.bin
   variants:
   - EU
@@ -71047,6 +71113,22 @@
 - path: sounds/gUnk_08DDCEA2_6.bin
   start: 0xddcf24
   size: 0x4
+- path: sounds/bgmMinishCap.s
+  start: 0xddcf28
+  type: midi
+  options:
+    group: 51
+    reverb: 0x32
+    timeChanges:
+    - nominator: 3
+      denominator: 4
+      time: 96
+    - nominator: 4
+      denominator: 4
+      time: 2952
+    - nominator: 3
+      denominator: 4
+      time: 3144
 - path: sounds/bgmMtCrenel_track0.bin
   start: 0xddcf4c
   size: 0xf
@@ -71335,6 +71417,12 @@
 - path: sounds/gUnk_08DDD4A1_4.bin
   start: 0xddd50e
   size: 0x2
+- path: sounds/bgmMtCrenel.s
+  start: 0xddd510
+  type: midi
+  options:
+    group: 52
+    reverb: 0x32
 - path: sounds/bgmPicoriFestival_track0.bin
   start: 0xddd534
   size: 0x8
@@ -72208,6 +72296,12 @@
   starts:
     EU: 0xeea30b
   size: 0x1
+- path: sounds/bgmWindRuins.s
+  start: 0xddec38
+  type: midi
+  options:
+    group: 56
+    reverb: 0x28
 - path: sounds/bgmLearnScroll_track0_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA

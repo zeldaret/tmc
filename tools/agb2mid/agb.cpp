@@ -152,7 +152,7 @@ void ReadAgbTracks() {
 
 
 
-    int addedPadding = 0;
+    int addedPadding = 8;
 
     // TODO configurable???
     g_midiTimeDiv = 24;
@@ -180,19 +180,27 @@ void ReadAgbTracks() {
         int loopStartTime = 0;
 
         unsigned int trackEnd =
-            (trackPointers.size() > count ? trackPointers[count] : (g_fileStartOffset + REDUCE_POINTERS)) - 10 -
-            addedPadding; // Use offset to header as end for last track
+            (trackPointers.size() > count ? trackPointers[count] : (g_fileStartOffset + REDUCE_POINTERS)) ; // Use offset to header as end for last track
         if (g_verbose)
             std::printf("End of track: %X\n", trackEnd);
         Seek(FILE_OFFSET + trackEnd - REDUCE_POINTERS);
 
         // search for a few bytes whether there is a loop end
-        for (int i = 0; i < 5 + addedPadding; i++) {
+        for (int i = 5; i < 10 + addedPadding; i++) {
+            if (trackEnd - i < trackPointer) {
+                // Ignore GOTOs from the previous track.
+                continue;
+            }
+            Seek(FILE_OFFSET + trackEnd - REDUCE_POINTERS -i);
             if (ReadInt8() == GOTO) {
                 if (g_verbose)
                     std::printf("Has loop: %d\n", i);
-                hasLoop = true;
                 loopAddress = lReadInt32() + FILE_OFFSET - REDUCE_POINTERS;
+                if (loopAddress > 0x1000000) {
+                    // The 0xB1 was probably part of the pointer or something.
+                    continue;
+                }
+                hasLoop = true;
                 if (g_verbose) {
                     std::printf("Addr: %X\n", GetCurrentPtr());
                     std::printf("Addr: %X\n", loopAddress);
@@ -266,6 +274,17 @@ void ReadAgbTracks() {
 
         while (!endOfTrack) {
             // std::printf("type: %X\n", type);
+            if (hasLoop && !foundLoop && GetCurrentPtr()-1 == loopAddress) {
+                if (g_verbose) 
+                    std::printf("<<<< inserted loop start\n");
+                //foundLoop = true;
+                loopStartTime = currentTime;
+                Event event;
+                event.time = loopStartTime;
+                event.type = EventType::LoopBegin;
+                events.push_back(event);
+            }
+
             if (g_verbose)
                 std::printf("%X|@%d\t ", GetCurrentPtr() - 1, currentTime);
             if (type < 0x80) {
@@ -449,6 +468,7 @@ void ReadAgbTracks() {
                     } else {
                         type = note;
                         note = lastNote;
+                        velocity = lastVelocity;
                         lastNoteUsed = true;
                         lastVelocityUsed = true;
                     }
@@ -769,16 +789,7 @@ void ReadAgbTracks() {
                     break;
             }
 
-            if (hasLoop && !foundLoop && GetCurrentPtr() == loopAddress) {
-                if (g_verbose) 
-                    std::printf("<<<< inserted loop start\n");
-                //foundLoop = true;
-                loopStartTime = currentTime;
-                Event event;
-                event.time = loopStartTime;
-                event.type = EventType::LoopBegin;
-                events.push_back(event);
-            }
+
 
             // TODO notes, waits,
             type = ReadInt8();

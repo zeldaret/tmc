@@ -470,9 +470,10 @@ void PrintAgbTrack(std::vector<Event>& events)
             PrintSeqLoopLabel(event);
             break;
         case EventType::LoopEnd:
-            PrintByte("GOTO");
+            PrintByte("GOTO"); 
             PrintWord("%s_%u_B%u", g_asmLabel.c_str(), g_agbTrack, loopEndBlockNum);
-            PrintSeqLoopLabel(event);
+            //PrintSeqLoopLabel(event); // Breaks same note in EOT bgmCrenelStorm 0xDD4356
+            PrintWait(event.time); // instead just print the wait
             break;
         case EventType::LoopEndBegin:
             PrintByte("GOTO");
