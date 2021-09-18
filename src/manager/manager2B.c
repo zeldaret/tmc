@@ -37,7 +37,7 @@ typedef struct {
     u16 field_0x3e;
 } Manager2B;
 
-extern void (*const gUnk_08108D30[])(Entity*);
+extern void (*const gUnk_08108D30[])(Manager2B*);
 
 extern u8 gEntCount;
 
