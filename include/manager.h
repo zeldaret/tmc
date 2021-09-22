@@ -108,7 +108,7 @@ typedef struct {
     u8 unk_20[0x18];
     s16 unk_38;
     s16 unk_3a;
-    u16 unk_3c;//speculative
+    u16 unk_3c; // speculative
     u16 unk_3e;
 } ManagerF;
 
