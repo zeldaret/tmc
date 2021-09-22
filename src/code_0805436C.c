@@ -171,11 +171,11 @@ NONMATCH("asm/non_matching/sub_08054524.inc", void sub_08054524(void)) {
 END_NONMATCH
 
 void sub_08054564(void) {
-    gRoomVars.filler[2] = 1;
+    gRoomVars.field_0x2 = 1;
 }
 
 void sub_08054570(void) {
-    gRoomVars.filler[2] = 0;
+    gRoomVars.field_0x2 = 0;
 }
 
 #ifdef EU

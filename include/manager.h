@@ -103,6 +103,15 @@ typedef struct {
     u16 unk_3e;
 } ManagerE;
 
+typedef struct {
+    Manager manager;
+    u8 unk_20[0x18];
+    s16 unk_38;
+    s16 unk_3a;
+    u16 unk_3c;//speculative
+    u16 unk_3e;
+} ManagerF;
+
 typedef struct Manager11 {
     Manager manager;
     u8 unk_20[0x1C];
@@ -154,7 +163,7 @@ extern void sub_080585F0();
 extern void sub_0805884C();
 extern void sub_08058DD0(Entity*);
 extern void sub_08058E60();
-extern void sub_08058ECC(Entity*);
+extern void sub_08058ECC(ManagerF*);
 extern void sub_08059570(Entity*);
 extern void sub_080599B8(Manager11*);
 extern void sub_080599EC(Entity*);

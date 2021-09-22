@@ -32,7 +32,8 @@ typedef struct {
     u16 _22;
     u16 _24;
     u16 _26;
-    u8 _28[0x4];
+    u16 _28;
+    u8 _2a[0x2];
     void* _2c;
     u8 _30[0x20];
     WStruct _50;

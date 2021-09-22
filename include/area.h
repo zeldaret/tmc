@@ -9,7 +9,9 @@ typedef struct {
     u8 unk;
     u8 regret;
     u16 localFlagOffset;
-    u8 filler[10];
+    u8 filler[4];
+    u16 unk_0a;
+    u8 filler3[4];
     u16 field_0x10;
     u16 curPortalX;
     u16 curPortalY;
@@ -20,7 +22,8 @@ typedef struct {
     bool8 playShrinkSeq;
     u8 unk1A;
     u8 filler2[13];
-    u8 filler4[0x835];
+    u8 field_0x28;
+    u8 filler4[0x834];
     u32 musicIndex;
     u32 pMusicIndex;
     u8 filler5[0x20];
