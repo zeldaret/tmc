@@ -42,7 +42,7 @@ void sub_08080930(void)
     gRoomControls.unk3 = 5;
     gRoomControls.unk4 = 0;
     gRoomControls.unk2 = 2;
-    gRoomControls.filler[0] = 0;
+    gRoomControls.unk_10 = 0;
     sub_0805E5A8();
 }
 

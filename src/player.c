@@ -1375,7 +1375,7 @@ void sub_080724DC(Entity* this) {
     } else {
         this->spriteSettings.b.draw = 3;
         this->subAction = 1;
-        if (gRoomVars.filler[0] == 0) {
+        if (gRoomVars.field_0x0 == 0) {
             if (gPlayerState.flags.all & 0x80) {
                 gPlayerState.field_0x8 = 0xc18;
             } else {

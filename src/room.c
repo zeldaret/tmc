@@ -521,7 +521,7 @@ void sub_0804BA0C(void) {
     if (gSave.unk8 < 8) {
         LoadRoomEntityList(&gUnk_080D7038);
     }
-    if (gRoomVars.filler[0] == 0) {
+    if (gRoomVars.field_0x0 == 0) {
         sub_08052CA4(2, 0, 0x2c8, 0xa8);
     }
 }

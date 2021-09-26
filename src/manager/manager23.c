@@ -25,8 +25,6 @@ void sub_0805BEC4(Manager23*);
 
 void sub_0805BE70(Manager23*, u32);
 
-extern void CreateDustAt(s32, s32, u32);
-
 void Manager23_Main(Manager* this) {
     gUnk_08108CCC[this->unk_0a](this);
 }

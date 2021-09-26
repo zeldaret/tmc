@@ -117,7 +117,7 @@ void sub_08060A00(Entity* this) {
         this->action = 1;
         this->spriteSettings.b.draw = 1;
         this->speed = 0x120;
-        tmp = gRoomControls.filler[0];
+        tmp = gRoomControls.unk_10;
         this->animationState = tmp * 2;
         InitAnimationForceUpdate(this, tmp << 0x19 >> 0x19); // TODO some conversion between u8 and u32?
         this->frameDuration = (Random() & 0x7f) + 0x80;
