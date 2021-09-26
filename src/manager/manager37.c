@@ -37,7 +37,7 @@ void sub_0805DE68(Manager* this) {
     gScreenTransition.field_0x38 = 0;
     gScreenTransition.field_0x39 = 0x0f;
     *(u8*)&gScreenTransition.field_0x3a = 0x20;
-    *((u8*)&gScreenTransition.field_0x3a+1) = 0x20;
+    *((u8*)&gScreenTransition.field_0x3a + 1) = 0x20;
 #if !defined(EU) && !defined(JP) && !defined(DEMO_JP)
     gSave.unk498 = 0x1194;
 #endif
@@ -48,8 +48,8 @@ void sub_0805DEB8(Manager* this) {
     s32 distY;
     Entity* object;
 
-    distX = gPlayerEntity.x.HALF.HI - (gRoomControls.roomOriginX+0x88);
-    distY = gPlayerEntity.y.HALF.HI - (gRoomControls.roomOriginY+0x40);
+    distX = gPlayerEntity.x.HALF.HI - (gRoomControls.roomOriginX + 0x88);
+    distY = gPlayerEntity.y.HALF.HI - (gRoomControls.roomOriginY + 0x40);
     if (distX * distX + distY * distY < 0x901) {
         this->action = 2;
         this->unk_0d = 0;

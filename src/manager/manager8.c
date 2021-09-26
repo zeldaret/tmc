@@ -30,7 +30,7 @@ void Manager8_Main(Manager8* this) {
 }
 
 void sub_08057EFC(Manager8* this) {
-    LoadGfxGroup(gRoomVars.unk_10);
+    LoadGfxGroup((u32)gRoomVars.unk_10[0]);
     sub_08058034();
     this->unk_3c = 0;
     this->unk_38 = 0;
@@ -110,7 +110,7 @@ void sub_080580B0(u32 unk1) {
     gUnk_0200B650 = 0;
     REG_DISPCNT = 0;
     LoadGfxGroup(unk1);
-    gRoomVars.unk_10 = unk1;
+    gRoomVars.unk_10[0] = unk1;
     sub_08058034();
     tmp = gRoomControls.roomScrollX - gRoomControls.roomOriginX; // r7
     tmp = tmp + (tmp >> 3) + (0x400 - gRoomControls.width) / 2;

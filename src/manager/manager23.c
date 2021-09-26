@@ -46,7 +46,7 @@ void sub_0805BC8C(Manager23* this) {
 }
 
 void sub_0805BCD4(Manager23* this) {
-    switch(this->manager.action) {
+    switch (this->manager.action) {
         case 0:
             this->manager.action = 1;
             this->manager.unk_0f = 0x1e;
@@ -76,8 +76,8 @@ void sub_0805BD5C(Manager23* this) {
         if (CheckFlags(this->field_0x3e) != 0) {
             sub_0805BE94(this);
         }
-        this->field_0x20 = ((s16)this->field_0x38 >> 4 & 0x3fU) |
-                           ((s32)((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6);
+        this->field_0x20 =
+            ((s16)this->field_0x38 >> 4 & 0x3fU) | ((s32)((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6);
         this->manager.action = 1;
     } else {
         if (GetTileType(this->field_0x20, this->manager.unk_0b) == 0x76) {
@@ -87,7 +87,6 @@ void sub_0805BD5C(Manager23* this) {
         }
     }
 }
-
 
 void sub_0805BDB4(Manager23* this) {
     u8 bVar1;
@@ -99,8 +98,8 @@ void sub_0805BDB4(Manager23* this) {
             if (CheckFlags(this->field_0x3e) != 0 || CheckFlags(this->field_0x3c) != 0) {
                 sub_0805BE94(this);
             }
-            this->field_0x20 = ((s16)this->field_0x38 >> 4 & 0x3fU) |
-                           (((s32)(this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6);
+            this->field_0x20 =
+                ((s16)this->field_0x38 >> 4 & 0x3fU) | (((s32)(this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6);
             this->manager.action = 1;
             break;
 
@@ -135,15 +134,12 @@ void sub_0805BDB4(Manager23* this) {
 
 void sub_0805BE70(Manager23* this, u32 param_2) {
     SetTileType(param_2,
-                ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) |
-                    ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
+                ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
                 this->manager.unk_0b);
 }
 
 void sub_0805BE94(Manager23* this) {
-    SetTileType(0x76,
-                ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) |
-                    ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
+    SetTileType(0x76, ((this->field_0x38 << 0x10) >> 0x14 & 0x3fU) | ((this->field_0x3a << 0x10) >> 0x14 & 0x3fU) << 6,
                 this->manager.unk_0b);
     sub_0805308C(this->manager.unk_0e);
     DeleteThisEntity();
@@ -152,7 +148,7 @@ void sub_0805BE94(Manager23* this) {
 void sub_0805BEC4(Manager23* this) {
     Entity* object = CreateObject(OBJECT_2A, 1, 0);
     if (object != NULL) {
-        *(s8*)(&object->flags+1) = ((*(s8*)(&object->flags+1)) & (-0x10)) | 3;
+        *(s8*)(&object->flags + 1) = ((*(s8*)(&object->flags + 1)) & (-0x10)) | 3;
         object->x.HALF.HI = this->field_0x38 + gRoomControls.roomOriginX;
         object->y.HALF.HI = this->field_0x3a + gRoomControls.roomOriginY;
         object->collisionLayer = this->manager.unk_0b;

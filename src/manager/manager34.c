@@ -48,7 +48,7 @@ void sub_0805DBF0(Manager34* this) {
 
         if (this->field_0x20 < 0x78) {
             if ((this->field_0x20 & 0xf) == 0) {
-               SoundReq(SFX_126);
+                SoundReq(SFX_126);
             }
         } else if (0xd1 >= this->field_0x20) {
             if ((this->field_0x20 & 0x1f) == 0) {

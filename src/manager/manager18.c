@@ -31,8 +31,7 @@ void Manager18_Main(Manager18* this) {
                 DeleteThisEntity();
             }
         } else {
-            if ((gUnk_0810865C[this->manager.unk_0e] != 0) &&
-                (--this->manager.unk_0f == 0)) {
+            if ((gUnk_0810865C[this->manager.unk_0e] != 0) && (--this->manager.unk_0f == 0)) {
                 this->manager.unk_0f = 4;
                 if (gUnk_0810865C[++this->manager.unk_0e] != 0) {
                     this->field_0x20 = gUnk_0810865C[this->manager.unk_0e];

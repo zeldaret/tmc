@@ -48,5 +48,4 @@ _08059540:
 	pop {r4, pc}
 	.align 2, 0
 _08059544: .4byte gArea
-.endif
 	.syntax divided

@@ -22,7 +22,8 @@ typedef struct {
 bool32 sub_0805B8CC(u32);
 
 /*
-Spawns MINISH_SIZED_ENTRANCE at the locations in the room property this->manager.unk_0a when they are visible on the screen.
+Spawns MINISH_SIZED_ENTRANCE at the locations in the room property this->manager.unk_0a when they are visible on the
+screen.
 */
 void Manager21_Main(Manager21* this) {
     MinishEntranceSpawnData* spawnData;

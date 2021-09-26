@@ -40,7 +40,6 @@ extern Unknown gUnk_08108468[];
 extern Unknown gUnk_08108408[];
 extern const u8 gGlobalGfxAndPalettes[];
 
-
 void Manager12_Main(Manager12* this) {
     if (this->manager.action == 0) {
         this->manager.action = 1;
@@ -87,22 +86,23 @@ void sub_08059A58(Manager12* this) {
     }
 }
 
-
-#define COMMON(tmp2, tmp1) ((tmp2) >> 4 & 0x3f) | (((tmp1)+0x188U) >> 4 & 0x3f) << 6
+#define COMMON(tmp2, tmp1) ((tmp2) >> 4 & 0x3f) | (((tmp1) + 0x188U) >> 4 & 0x3f) << 6
 void sub_08059B18(void) {
     u32 loopVar;
     u32 innerLoopVar;
 
     if (CheckGlobalFlag(TATEKAKE_HOUSE) != 0) {
-        for(loopVar = 0; loopVar < 4; ++loopVar) {
-            for(innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                sub_0807B9B8(loopVar * 0x10 + 0x4ab + innerLoopVar, COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
+        for (loopVar = 0; loopVar < 4; ++loopVar) {
+            for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
+                sub_0807B9B8(loopVar * 0x10 + 0x4ab + innerLoopVar, COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10),
+                             1);
             }
         }
 
-        for(loopVar = 0; loopVar < 3; ++loopVar) {
-            for(innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                sub_0807B9B8(loopVar * 0x10 + 0x440 + innerLoopVar, COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 2);
+        for (loopVar = 0; loopVar < 3; ++loopVar) {
+            for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
+                sub_0807B9B8(loopVar * 0x10 + 0x440 + innerLoopVar, COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10),
+                             2);
             }
         }
         sub_0807B9B8(0xd6, 0x5c2, 2);
@@ -110,9 +110,10 @@ void sub_08059B18(void) {
         LoadResourceAsync(&gUnk_086E8460, 0x6001800, 0x800);
     } else {
         if (CheckGlobalFlag(TATEKAKE_TOCHU) != 0) {
-            for(loopVar = 0; loopVar < 5; ++loopVar) {
-                for(innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
-                    sub_0807B9B8(loopVar * 0x10 + 0x4a6 + innerLoopVar, COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
+            for (loopVar = 0; loopVar < 5; ++loopVar) {
+                for (innerLoopVar = 0; innerLoopVar < 4; ++innerLoopVar) {
+                    sub_0807B9B8(loopVar * 0x10 + 0x4a6 + innerLoopVar,
+                                 COMMON(0x28 + 0x10 * innerLoopVar, loopVar * 0x10), 1);
                 }
             }
             sub_0807B9B8(0x444, 0x602, 2);
@@ -134,7 +135,6 @@ bool32 sub_08059C8C(Manager12* this, u32 param_2, u8* param_3, u16* param_4) {
         return FALSE;
     }
 }
-
 
 void sub_08059CC0(u32 param_1, u32 param_2) {
     Unknown* unknown;

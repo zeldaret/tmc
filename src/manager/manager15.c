@@ -427,7 +427,7 @@ void sub_0805A94C(Manager15* this) {
     gScreen.controls.window1VerticalDimensions = (tmp1 << 8 | tmp2);
 }
 
-NONMATCH("asm/non_matching/manager15/sub_0805A9CC.inc", void sub_0805A9CC(Manager15* this)) {
+void sub_0805A9CC(Manager15* this) {
     int tmp1, tmp2;
     void* tmp3;
     gScreen.affine.bg3xOffset = gRoomControls.roomScrollX - this->unk_24 + this->unk_34;
@@ -444,17 +444,14 @@ NONMATCH("asm/non_matching/manager15/sub_0805A9CC.inc", void sub_0805A9CC(Manage
     gScreen.controls.window1HorizontalDimensions = tmp1 << 8 | tmp2;
     tmp1 = gRoomControls.roomScrollY - this->unk_26 + this->unk_36;
     gScreen.affine.bg3yOffset = tmp1 & 0x3F;
-    if (tmp1 < 0)
-        tmp1 += 0x3F;
-    tmp3 = (&gBG3Buffer[(tmp1 >> 6 << 9)]);
-    gScreen.affine.bg2Tilemap = (u32*)tmp3; // TODO .unk5
+    tmp3 = (&gBG3Buffer[((tmp1 / 0x40) << 8)]);
+    gScreen.affine.bg3Tilemap = (u32*)tmp3;
     gScreen.controls.window1VerticalDimensions = 0xa0;
     if (this->unk_28 == tmp3)
         return;
     this->unk_28 = tmp3;
-    gScreen.affine.bg2Updated = 1; // TODO .unk4
+    gScreen.affine.bg3Updated = 1;
 }
-END_NONMATCH
 
 extern struct { u8 unk_00[0x20]; } gUnk_085A97A0[];
 extern u16 gUnk_081085B8[];

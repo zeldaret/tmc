@@ -41,5 +41,4 @@ _080594D2:
 	.align 2, 0
 _080594D4: .4byte gUnk_08108380
 _080594D8: .4byte gPlayerEntity
-.ifndef EU
 	.syntax divided

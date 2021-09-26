@@ -45,7 +45,9 @@ typedef struct {
     u8 field_0x8;
     u8 field_0x9;
     u8 unk2;
-    u8 filler2[5];
+    u8 filler2;
+    u16 field_0xc;
+    u8 filler3[2];
     u8 unk_10[4];
     u32 roomFlags;
     u32 unk3;

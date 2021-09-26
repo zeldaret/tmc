@@ -29,9 +29,8 @@ void Manager31_Main(Manager31* this) {
 
     if (this->manager.action == 0) {
         this->manager.action += 1;
-        if (CheckGlobalFlag(GORON_KAKERA_L) != 0
-            && CheckGlobalFlag(GORON_KAKERA_M) != 0
-            && CheckGlobalFlag(GORON_KAKERA_R) != 0) {
+        if (CheckGlobalFlag(GORON_KAKERA_L) != 0 && CheckGlobalFlag(GORON_KAKERA_M) != 0 &&
+            CheckGlobalFlag(GORON_KAKERA_R) != 0) {
             if (CheckGlobalFlag(GORON_KAKERA_LV2) == 0) {
                 if (CheckGlobalFlag(LV1_CLEAR) != 0) {
                     SetGlobalFlag(GORON_KAKERA_LV2);
@@ -48,13 +47,11 @@ void Manager31_Main(Manager31* this) {
                         if (CheckGlobalFlag(LV3_CLEAR) != 0) {
                             SetGlobalFlag(GORON_KAKERA_LV4);
                             goto clearGlobalFlags;
-
                         }
                     } else {
-                        if (CheckGlobalFlag(GORON_KAKERA_LV5) == 0
-                            && CheckGlobalFlag(LV4_CLEAR) != 0) {
+                        if (CheckGlobalFlag(GORON_KAKERA_LV5) == 0 && CheckGlobalFlag(LV4_CLEAR) != 0) {
                             SetGlobalFlag(GORON_KAKERA_LV5);
-clearGlobalFlags:
+                        clearGlobalFlags:
                             ClearGlobalFlag(GORON_KAKERA_L);
                             ClearGlobalFlag(GORON_KAKERA_M);
                             ClearGlobalFlag(GORON_KAKERA_R);
@@ -70,7 +67,8 @@ clearGlobalFlags:
         count = 0;
         for (count = 0; count < 3;) {
             if (CheckGlobalFlag(GORON_KAKERA_L + count) == 0) {
-                Entity* object = CreateObject(SHOP_ITEM, 0x5c, ((s32)Random() % spawnData->maxType) + spawnData->minType);
+                Entity* object =
+                    CreateObject(SHOP_ITEM, 0x5c, ((s32)Random() % spawnData->maxType) + spawnData->minType);
                 if (object != NULL) {
                     object->actionDelay = 1;
                     object->field_0xf = count;
@@ -91,7 +89,7 @@ clearGlobalFlags:
         if (CheckGlobalFlag(GORON_KAKERA_L + count) == 0) {
             if ((s8)this->itemActive[count] >= FALSE) {
             } else {
-                SetGlobalFlag(GORON_KAKERA_L + count);  
+                SetGlobalFlag(GORON_KAKERA_L + count);
             }
         }
     }

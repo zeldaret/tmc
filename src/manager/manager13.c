@@ -2,7 +2,7 @@
 #include "room.h"
 #include "object.h"
 
-typedef struct{
+typedef struct {
     Manager manager;
     u32 bitfield;
 } Manager13;
@@ -41,7 +41,7 @@ void Manager13_Main(Manager13* this) {
     while ((spawnData->x != 0) && (type2 < 0x20)) {
         u32 bitfieldFlag = 1 << type2;
         if ((((this->bitfield & bitfieldFlag) == 0) &&
-                (CheckRectOnScreen(spawnData->x, spawnData->y, 0x10, 0x10) != 0))) {
+             (CheckRectOnScreen(spawnData->x, spawnData->y, 0x10, 0x10) != 0))) {
             Entity* object = CreateObject(OBJECT_1C, spawnData->type, type2);
             if (object != NULL) {
                 object->frameIndex = spawnData->frameIndex;
