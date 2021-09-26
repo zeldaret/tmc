@@ -66,7 +66,6 @@ void SetFileStatusDeleted(u32 index);
 
 extern const char gUnk_0811E470[];
 
-
 #ifdef DEMO
 extern const u8* const demoPointers[];
 extern const u8 demoUnknown1[];
