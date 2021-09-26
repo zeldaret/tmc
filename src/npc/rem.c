@@ -308,7 +308,7 @@ void sub_0806AA18(Entity* this) {
 ASM_FUNC("asm/non_matching/rem/sub_0806AA50.inc", void sub_0806AA50(Entity* this, ScriptExecutionContext* context))
 
 void sub_0806AB74(Entity* this) {
-    gRoomVars.filler[3] = 1;
+    gRoomVars.field_0x3 = 1;
     if ((s32)(this->y.HALF.HI - (u32)gRoomControls.roomOriginY) < 0xa8) {
         this->y.HALF.HI = gRoomControls.roomOriginY + 0xa8;
     }

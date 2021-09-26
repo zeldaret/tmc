@@ -515,7 +515,7 @@ SECTIONS {
         src/manager/managerC.o(.text);
         asm/managerD.o(.text);
         src/manager/managerE.o(.text);
-        asm/managerF.o(.text);
+        src/manager/managerF.o(.text);
         asm/manager10.o(.text);
         src/manager/manager11.o(.text);
         asm/manager12.o(.text);
@@ -1206,7 +1206,7 @@ SECTIONS {
         src/manager/managerB.o(.rodata);
         src/manager/managerC.o(.rodata);
         data/const/manager/managerD.o(.rodata);
-        data/const/manager/managerF.o(.rodata);
+        src/manager/managerF.o(.rodata);
         data/const/manager/manager10.o(.rodata);
         data/const/manager/manager12.o(.rodata);
         data/const/manager/manager13.o(.rodata);

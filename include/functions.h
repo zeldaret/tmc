@@ -281,4 +281,11 @@ extern bool32 sub_08077EFC(ItemBehavior*);
 extern void sub_08078E84(Entity*, Entity*);
 extern void sub_080042D0(Entity*, u32, u16);
 
+extern u32 sub_080002A8(u32, u32, u32);
+extern void CreateDustAt(u32, u32, u32);
+extern void sub_080806BC(u32, u32, u32, u32);
+
+extern void sub_080186C0(u32);
+extern void sub_0801855C(void);
+
 #endif
