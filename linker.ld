@@ -695,7 +695,7 @@ SECTIONS {
         src/sub_0807B820.o(.text);
         asm/code_0807B9B8.o(.text);
         src/sub_0807C998.o(.text);
-        asm/sub_0807CA18.o(.text);
+        src/sub_0807CA18.o(.text);
         asm/getInventoryValue.o(.text);
         asm/code_0807CAA0.o(.text);
         src/flags.o(.text);
