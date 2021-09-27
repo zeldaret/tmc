@@ -49,7 +49,6 @@ typedef struct {
 extern struct_03003DD0 gUnk_03003DD0;
 extern u32 _call_via_r0(u32*);
 extern u32 _EntUpdate;
-void DeleteEntityAny(Entity*);
 
 void DeleteThisEntity(void) {
     DeleteEntityAny(gUnk_03003DD0.field_0x8);

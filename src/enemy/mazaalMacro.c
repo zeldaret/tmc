@@ -6,7 +6,6 @@
 #include "structures.h"
 #include "functions.h"
 
-extern void DoExitTransition(ScreenTransitionData*);
 extern void sub_0807B600(u32);
 
 extern const u16 script_08012E20[];

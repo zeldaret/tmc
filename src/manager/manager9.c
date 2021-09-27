@@ -20,7 +20,7 @@ extern u32 gUnk_02006F00[];
 
 const u16 gUnk_081081EC[] = { 0x30, 0x30, 0x30, 0x38 };
 
-void sub_080581D8(Manager9* this) {
+void Manager9_Main(Manager9* this) {
     sub_08058210(this);
     if (!this->manager.action) {
         this->manager.action = 1;

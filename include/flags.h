@@ -28,7 +28,7 @@ void SetRoomFlag(u32);
 extern u32 gGlobalFlags;
 extern u32 gRoomFlags;
 
-enum {
+typedef enum {
     FLAG_NONE,
     /*0x01*/ LV0_CLEAR,           /*                             */
     /*0x02*/ LV1_CLEAR,           /*                             */
@@ -130,6 +130,6 @@ enum {
     /*0x62*/ MAZE_CLEAR,          /* Cleared Castle maze         */
     /*0x63*/ TINY_ENTRANCE,       /* Ezlo described entrances    */
     /*0x64*/ CASTLE_BGM,          /* Castle intro BGM            */
-};
+} Flag;
 
 #endif

@@ -6,7 +6,7 @@
 #include "audio.h"
 #include "functions.h"
 
-void sub_08058E60(ManagerE* this) {
+void ManagerE_Main(ManagerE* this) {
     if (!this->manager.action) {
         this->manager.action = 1;
         if (CheckFlags(this->unk_3e)) {

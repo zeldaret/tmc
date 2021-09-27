@@ -18,7 +18,7 @@
 
 void (*const ManagerB_ActionFuncs[])(Manager*);
 
-void sub_080585F0(Manager* this) {
+void ManagerB_Main(Manager* this) {
     // make a distincion if this is a controller (volumeMasterTarget = 0) or a helper (volumeMasterTarget = 1)
     ManagerB_ActionFuncs[this->unk_0a](this);
 }
@@ -27,7 +27,7 @@ enum ManagerB_State { Init, WaitForFlag, WaitForDone };
 
 void (*const ManagerB_StateFuncs[])(ManagerB*);
 
-void ManagerB_Main(ManagerB* this) {
+void ManagerB_Main2(ManagerB* this) {
     // make a distinction based on the state of this controller
     ManagerB_StateFuncs[this->manager.action](this);
 }
@@ -192,6 +192,6 @@ void ReplaceMonitoredEntity(Entity* old, Entity* new) {
     }
 }
 
-void (*const ManagerB_ActionFuncs[])(Manager*) = { (void (*)(Manager*))ManagerB_Main,
+void (*const ManagerB_ActionFuncs[])(Manager*) = { (void (*)(Manager*))ManagerB_Main2,
                                                    (void (*)(Manager*))ManagerBHelper_Main };
 void (*const ManagerB_StateFuncs[])(ManagerB*) = { ManagerB_Init, ManagerB_WaitForFlag, ManagerB_WaitForDone };

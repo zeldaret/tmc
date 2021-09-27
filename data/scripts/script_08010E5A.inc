@@ -24,7 +24,7 @@ SCRIPT_START script_08010E5A
 	_0807E778 0x0002
 	DoFade6 
 	WaitFor_2 
-	CallWithArg sub_0805DE18, 0x00000002
+	CallWithArg DeleteManager36, 0x00000002
 	_0807F0C8 0x0000, 0x0000
 	Call sub_0806DC3C
 	Call sub_080791BC
@@ -51,5 +51,5 @@ SCRIPT_START script_08010E5A
 	_0807EA94 
 	TextboxNoOverlapFollowPos 0x1046, 0x0000
 	_0807EA94 
-	CallWithArg sub_0805DDEC, 0x00000002
+	CallWithArg CreateManager36, 0x00000002
 	_0807F0C8 0xffff, 0x0000

@@ -130,7 +130,7 @@ _08066B40:
 	movs r0, #4
 	str r0, [r1, #4]
 	adds r0, r4, #0
-	bl sub_0805DDEC
+	bl CreateManager36
 	b _08066B66
 _08066B52:
 	adds r0, r4, #0
@@ -138,7 +138,7 @@ _08066B52:
 	ldr r1, [r0]
 	str r2, [r1, #4]
 	adds r0, r4, #0
-	bl sub_0805DE18
+	bl DeleteManager36
 	ldr r0, _08066B70 @ =0x0000021D
 	bl EnqueueSFX
 _08066B66:

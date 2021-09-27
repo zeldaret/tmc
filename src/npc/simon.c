@@ -12,10 +12,8 @@ typedef struct {
     u32 unk;
 } struct_0806C2A0;
 
-extern void DoExitTransition(void*);
-
-extern void gUnk_0813AD60;
-extern void gUnk_0813AD74;
+extern ScreenTransitionData gUnk_0813AD60;
+extern ScreenTransitionData gUnk_0813AD74;
 
 void Simon(Entity* this) {
     if (this->action == 0) {

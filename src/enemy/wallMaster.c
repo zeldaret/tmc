@@ -6,9 +6,7 @@
 
 extern void sub_08001328(Entity*);
 extern Entity* sub_08049DF4(u32);
-extern void DoExitTransition(u32*);
-
-extern u32* gUnk_0813AB1C[];
+extern ScreenTransitionData* gUnk_0813AB1C[];
 
 void sub_0802A78C(Entity*);
 void sub_0802A7D0(Entity*);

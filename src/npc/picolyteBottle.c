@@ -4,7 +4,6 @@
 #include "functions.h"
 #include "textbox.h"
 
-extern void DoExitTransition(ScreenTransitionData*);
 extern ScreenTransitionData gUnk_0813AD4C;
 
 void sub_0806E014(Entity* this);

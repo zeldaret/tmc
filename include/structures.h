@@ -169,6 +169,9 @@ typedef struct {
     u8 unk3;
     u8 freezeTime;
     u8 unk9;
+    u8 unk_0xa;
+    u8 unk_0xb;
+    u16 unk_0xc;
 } EntityHandler;
 
 extern EntityHandler gUnk_03003DC0;

@@ -27,7 +27,7 @@ extern void (*const gUnk_08108668[])(Manager1A*);
 
 extern u8 gGlobalGfxAndPalettes[];
 
-void sub_0805B030(Manager1A* this) {
+void Manager1A_Main(Manager1A* this) {
     gUnk_08108668[this->manager.action](this);
 }
 
