@@ -38,7 +38,7 @@ void sub_0806DF00(Entity* this) {
         npc->parent = this;
         this->field_0x74.HWORD = 0;
         this->field_0x76.HWORD = 10;
-        gScreenTransition.field_0x8 = 10;
+        gScreenTransition.field_0x6 = 10;
         sub_0806E014(this);
         sub_0807DD50(this);
     } else {
@@ -108,17 +108,17 @@ void sub_0806E1FC(Entity* this) {
 }
 
 void sub_0806E20C(void) {
-    if (gScreenTransition.field_0x8 != 0) {
+    if (gScreenTransition.field_0x6 != 0) {
         TextboxNoOverlapFollow(0x421f);
-        gTextBox.field_0x10 = gScreenTransition.field_0x8;
+        gTextBox.field_0x10 = gScreenTransition.field_0x6;
     } else {
         TextboxNoOverlapFollow(0x4220);
     }
 }
 
 void sub_0806E23C(void) {
-    if (gScreenTransition.field_0x8 != 0) {
-        ModRupees(gScreenTransition.field_0x8);
+    if (gScreenTransition.field_0x6 != 0) {
+        ModRupees(gScreenTransition.field_0x6);
     }
 }
 

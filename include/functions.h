@@ -289,4 +289,8 @@ extern void sub_080806BC(u32, u32, u32, u32);
 extern void sub_080186C0(u32);
 extern void sub_0801855C(void);
 
+extern u32 sub_0807CAEC(u32);
+extern void sub_0807CAC8(u32);
+extern void sub_0805E4E0(Entity*, u32);
+
 #endif
