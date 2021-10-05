@@ -296,8 +296,6 @@ void sub_0805A758(Manager15* this) {
     }
 }
 
-extern void sub_0805E4E0(Manager*, u32);
-
 void sub_0805A76C(Manager15* this) {
     if ((gPlayerEntity.currentHealth != 0) && (gPlayerEntity.height.HALF.HI == 0) && (!gPlayerState.field_0x2c)) {
         switch (gPlayerState.field_0xa9) {
@@ -307,7 +305,7 @@ void sub_0805A76C(Manager15* this) {
                     this->manager.action++;
                     sub_08004168(&gPlayerEntity);
                     gPlayerEntity.animationState = 4;
-                    sub_0805E4E0(&this->manager, 0x258);
+                    sub_0805E4E0((Entity*)this, 0x258);
                     sub_08078A90(0xFF);
                     gUnk_02034490[0] = 1;
                     gRoomControls.cameraTarget = 0;

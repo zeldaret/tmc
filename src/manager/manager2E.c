@@ -19,7 +19,6 @@ extern void (*const gUnk_08108D3C[])(Manager2E*);
 extern void (*const gUnk_08108D44[])(Manager2E*);
 
 void sub_0805D2F4(Manager2E*);
-extern void sub_0805E4E0(void*, u32);
 
 extern void (*const gUnk_08108D50[])(Manager2E*);
 
@@ -52,7 +51,7 @@ void sub_0805D2C0(Manager2E* this) {
         if (this->manager.unk_0e == 1) {
             sub_0805D2F4(this);
         }
-        sub_0805E4E0(this, this->manager.unk_0e);
+        sub_0805E4E0((Entity*)this, this->manager.unk_0e);
     }
 }
 
