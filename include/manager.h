@@ -112,6 +112,15 @@ typedef struct {
     u16 unk_3e;
 } ManagerF;
 
+typedef struct {
+    Manager manager;
+    u8 unk_20;
+    u8 unk_21;
+    u8 unk_22;
+    u8 unk_23;
+    u8 filler_0x24[0x1C];
+} Manager10;
+
 typedef struct Manager11 {
     Manager manager;
     u8 unk_20[0x1C];
@@ -164,7 +173,7 @@ extern void ManagerC_Main();
 extern void ManagerD_Main();
 extern void ManagerE_Main();
 extern void sub_08058ECC(ManagerF*);
-extern void Manager10_Main();
+extern void Manager10_Main(Manager10*);
 extern void Manager11_Main(Manager11*);
 extern void Manager12_Main();
 extern void Manager13_Main();
