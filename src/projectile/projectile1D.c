@@ -25,7 +25,7 @@ void sub_080AB8E8(Entity* this) {
     }
     InitializeAnimation(this, 0);
     if (this->type < 4) {
-        entity = sub_080A7EE0(0x1d);
+        entity = CreateProjectile(0x1d);
         entity->type = this->type + 1;
         entity->parent = this->parent;
         entity->attachedEntity = this;

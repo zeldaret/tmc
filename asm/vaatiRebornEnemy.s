@@ -812,7 +812,7 @@ _0803D6C8:
 	ldrb r2, [r5]
 	adds r0, r4, #0
 	movs r1, #0x1a
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0803D6EE
@@ -1041,7 +1041,7 @@ _0803D870:
 	adds r0, r5, #0
 	movs r1, #0x18
 	movs r2, #0
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0803D8EE

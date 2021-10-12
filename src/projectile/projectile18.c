@@ -101,7 +101,7 @@ void sub_080AADBC(Entity* this) {
         this->direction = GetFacingDirection(this, &gPlayerEntity);
         this->field_0x86.HALF.LO = 0;
         this->cutsceneBeh.HWORD = 300;
-        entity = sub_080A7EE0(0x18);
+        entity = CreateProjectile(0x18);
         if (entity != NULL) {
             entity->type = 1;
             entity->type2 = this->type2;

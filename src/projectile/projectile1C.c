@@ -59,7 +59,7 @@ ASM_FUNC("asm/non_matching/projectile1C/sub_080AB758.inc", void sub_080AB758(Ent
 void sub_080AB844(Entity* this, s32 param_1, s32 param_2) {
     Entity* entity;
 
-    entity = sub_080A7EE0(0x1c);
+    entity = CreateProjectile(0x1c);
     if (entity != NULL) {
         entity->type = 1;
         entity->actionDelay = param_1;

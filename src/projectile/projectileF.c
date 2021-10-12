@@ -133,7 +133,7 @@ void sub_080A976C(Entity* this) {
                 return;
             }
             for (index = 0; index < 3; ++index) {
-                this->attachedEntity = sub_0804A98C(this, 0xf, 1);
+                this->attachedEntity = CreateProjectileWithParent(this, 0xf, 1);
                 if (this->attachedEntity != NULL) {
                     this->attachedEntity->parent = this->parent;
                     this->attachedEntity->direction = this->direction + gUnk_08129ADC[index];

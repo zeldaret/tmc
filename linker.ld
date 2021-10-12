@@ -277,8 +277,8 @@ SECTIONS {
         . = 0x00005D90; IntrMain = .;
         . = 0x00005E60; gUnk_03005E60 = .;
         . = 0x00005E98; gUnk_03005E98 = .;
-        . = 0x00005F24; _EntUpdate = .;
-        . = 0x00005F40; gUnk_03005F40 = .;
+        . = 0x00005F24; _ClearAndUpdateEntities = .;
+        . = 0x00005F40; _UpdateEntities = .;
         . = 0x00005FBC; gUnk_03005FBC = .;
         . = 0x00005FF0; gUnk_03005FF0 = .;
         . = 0x000060F0; gUnk_030060F0 = .;

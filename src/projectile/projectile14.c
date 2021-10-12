@@ -91,7 +91,8 @@ void sub_080AA534(Entity* this) {
     UpdateSpriteForCollisionLayer(this);
 }
 
-NONMATCH("asm/non_matching/projectile14/sub_080AA544.inc", void sub_080AA544(Entity* this)) {
+
+void sub_080AA544(Entity* this) {
     u8* pbVar1;
     s32 iVar2;
     u32 uVar3;
@@ -125,9 +126,7 @@ NONMATCH("asm/non_matching/projectile14/sub_080AA544.inc", void sub_080AA544(Ent
             SetFlag((u16)this->speed);
         } else {
             sub_0807B7D8(gUnk_08129FE4[this->type2],
-                         param -
-                             // TODO this array access is wrong
-                             *((s8*)gUnk_08129FE4 + this->type2),
+                         param - tmp[this->type2],
                          this->collisionLayer);
         }
     } else {
@@ -135,7 +134,6 @@ NONMATCH("asm/non_matching/projectile14/sub_080AA544.inc", void sub_080AA544(Ent
         SetFlag((u16)this->speed);
     }
 }
-END_NONMATCH
 
 void sub_080AA654(Entity* this, u32 param) {
     EntityData* entityData;

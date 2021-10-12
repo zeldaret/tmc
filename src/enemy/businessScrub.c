@@ -138,7 +138,7 @@ void sub_08028A74(Entity* this) {
             unk = 1;
             sub_080290FC(this);
             if (this->frames.all & 1) {
-                Entity* ent = sub_0804A98C(this, 4, 0);
+                Entity* ent = CreateProjectileWithParent(this, 4, 0);
                 if (ent != NULL) {
                     ent->parent = this;
                     ent->direction = this->direction;

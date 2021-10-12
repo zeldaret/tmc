@@ -142,7 +142,7 @@ _08039390:
 	adds r0, r5, #0
 	movs r1, #0x10
 	movs r2, #1
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080393DC
@@ -258,7 +258,7 @@ sub_08039470: @ 0x08039470
 	bne _08039494
 	movs r1, #0x10
 	movs r2, #1
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0803949C
@@ -1007,7 +1007,7 @@ sub_08039A20: @ 0x08039A20
 	adds r4, r0, #0
 	movs r1, #2
 	movs r2, #0
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08039A44
@@ -1107,7 +1107,7 @@ sub_08039AD4: @ 0x08039AD4
 	ldrb r2, [r4, #0xb]
 	adds r0, r4, #0
 	movs r1, #0x10
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08039B20

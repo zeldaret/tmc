@@ -31,7 +31,7 @@ void ProjectileC(Entity* this) {
         } else {
             if (sub_080644C8(this) != 0) {
                 if (((this->actionDelay++) & 3) == 0) {
-                    entity = sub_080A7EE0(0xc);
+                    entity = CreateProjectile(0xc);
                     if (entity != NULL) {
                         entity->type = 1;
                         tmp = this->parent->field_0x3e;

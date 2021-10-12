@@ -279,7 +279,7 @@ _080484BC:
 	ands r0, r1
 	strb r0, [r3]
 	movs r0, #0x24
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080484E6

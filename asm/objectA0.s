@@ -92,7 +92,7 @@ sub_0809F1B0: @ 0x0809F1B0
 	ands r0, r1
 	strb r0, [r2]
 	movs r0, #0x1b
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0809F21E

@@ -2160,7 +2160,7 @@ sub_080422C0: @ 0x080422C0
 	cmp r0, r4
 	bne _08042306
 	movs r0, #0x21
-	bl sub_080A7EE0
+	bl CreateProjectile
 	cmp r0, #0
 	beq _08042354
 	mov r1, r8

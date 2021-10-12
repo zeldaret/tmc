@@ -16,7 +16,7 @@
 	movs r0, #0x11
 	strb r0, [r1]
 	movs r0, #0x22
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r6, r0, #0
 	ldrb r0, [r5, #0xa]
 	strb r0, [r6, #0xa]
@@ -30,7 +30,7 @@
 	strb r0, [r1]
 	str r6, [r5, #0x54]
 	movs r0, #0x22
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r7, r0, #0
 	ldrb r0, [r5, #0xa]
 	strb r0, [r7, #0xa]
@@ -46,7 +46,7 @@
 	strb r1, [r0]
 	str r7, [r6, #0x54]
 	movs r0, #0x22
-	bl sub_080A7EE0
+	bl CreateProjectile
 	ldrb r1, [r5, #0xa]
 	strb r1, [r0, #0xa]
 	movs r1, #3
@@ -79,7 +79,7 @@ _080AC678:
 	movs r0, #0xf
 	strb r0, [r1]
 	movs r0, #0x22
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r6, r0, #0
 	ldrb r0, [r5, #0xa]
 	strb r0, [r6, #0xa]
@@ -95,7 +95,7 @@ _080AC678:
 	strb r1, [r0]
 	str r6, [r5, #0x54]
 	movs r0, #0x22
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r7, r0, #0
 	ldrb r0, [r5, #0xa]
 	strb r0, [r7, #0xa]
@@ -112,7 +112,7 @@ _080AC678:
 	str r7, [r6, #0x54]
 _080AC6C8:
 	movs r0, #0x22
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r6, r0, #0
 	ldrb r0, [r5, #0xa]
 	strb r0, [r6, #0xa]

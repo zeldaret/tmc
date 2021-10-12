@@ -15,6 +15,8 @@ extern void sub_080043A8(Entity*);
 extern void CreateItemOnGround(Entity*);
 extern void CreateChestSpawner(Entity*);
 
+extern u32 sub_080177A0(Entity*, Entity*);
+
 void Projectile1B(Entity* this) {
     gUnk_0812A58C[GetNextFunction(this)](this);
 }
@@ -63,8 +65,6 @@ void sub_080AB5C4(Entity* this) {
 }
 
 bool32 sub_080AB5F4(Entity* this) {
-    u32 uVar1;
-
     switch (sub_080043E8(this)) {
         case 1:
             CreateItemOnGround(this);
@@ -79,4 +79,20 @@ bool32 sub_080AB5F4(Entity* this) {
     return FALSE;
 }
 
-ASM_FUNC("asm/non_matching/projectile1B/sub_080AB634.inc", bool32 sub_080AB634(Entity* this))
+bool32 sub_080AB634(Entity* this) {
+    Entity** entities = ((Entity**)&this->parent->field_0x20);
+    u32 i;
+    for (i = 0; i <= 3; ++i) {
+        if(entities[i] != NULL && (sub_080177A0(this, entities[i]) != 0)) {
+            if (entities[i]->action < 3) {
+                entities[i]->action = 3;
+                entities[i]->actionDelay = 0x1e;
+                entities[i]->spriteSettings.b.draw = 0;
+                CreateFx(entities[i], 0x45, 0);
+            }
+            DeleteEntity(this);
+            return TRUE;
+        }
+    }
+    return FALSE;
+}

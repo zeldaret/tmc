@@ -12,7 +12,7 @@
 	movs r0, #0x10
 	strb r0, [r4, #0xe]
 	movs r0, #0x21
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _080AC23C

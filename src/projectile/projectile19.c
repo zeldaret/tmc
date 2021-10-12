@@ -35,7 +35,7 @@ void sub_080AB074(Entity* this) {
 
     this->height.HALF.HI += (s8)parent->field_0x7c.BYTES.byte3;
     if (parent->field_0x7a.HALF.HI != 0) {
-        parent = sub_080A7EE0(0x19);
+        parent = CreateProjectile(0x19);
         if (parent != NULL) {
             parent->type = 4;
             CopyPositionAndSpriteOffset(this, parent);
@@ -49,13 +49,13 @@ bool32 sub_080AB12C(Entity* this) {
     if (gEntCount > 0x44) {
         return FALSE;
     }
-    entity = sub_080A7EE0(0x19);
+    entity = CreateProjectile(0x19);
     entity->type = 1;
     entity->parent = this;
-    entity = sub_080A7EE0(0x19);
+    entity = CreateProjectile(0x19);
     entity->type = 2;
     entity->parent = this;
-    entity = sub_080A7EE0(0x19);
+    entity = CreateProjectile(0x19);
     entity->type = 3;
     entity->parent = this;
     return TRUE;

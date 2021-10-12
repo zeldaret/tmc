@@ -139,20 +139,20 @@ NONMATCH("asm/non_matching/projectile22/sub_080AC5E4.inc", bool32 sub_080AC5E4(E
             return 0;
         }
         this->field_0x78.HALF.HI = 0x11;
-        entity = sub_080A7EE0(0x22);
+        entity = CreateProjectile(0x22);
         entity->type = this->type;
         entity->type2 = 1;
         entity->parent = this->parent;
         entity->field_0x78.HALF.HI = 0x12;
         this->attachedEntity = entity;
-        entity2 = sub_080A7EE0(0x22);
+        entity2 = CreateProjectile(0x22);
         entity2->type = this->type;
         entity2->type2 = 2;
         entity2->parent = this->parent;
         entity2->field_0x78.HALF.HI = 0x14;
         uVar3 = entity2->field_0x78.HALF.HI;
         entity->attachedEntity = entity2;
-        entity3 = sub_080A7EE0(0x22);
+        entity3 = CreateProjectile(0x22);
         entity3->type = this->type;
         entity3->type2 = 3;
         entity3->parent = this->parent;
@@ -164,14 +164,14 @@ NONMATCH("asm/non_matching/projectile22/sub_080AC5E4.inc", bool32 sub_080AC5E4(E
             return 0;
         }
         this->field_0x78.HALF.HI = 0xf;
-        entity = sub_080A7EE0(0x22);
+        entity = CreateProjectile(0x22);
         entity->type = this->type;
         entity->type2 = 1;
         entity->parent = this->parent;
         entity->field_0x78.HALF.HI = 0x10;
         uVar3 = entity->field_0x78.HALF.HI;
         this->attachedEntity = entity;
-        entity2 = sub_080A7EE0(0x22);
+        entity2 = CreateProjectile(0x22);
         entity2->type = this->type;
         entity2->type2 = 2;
         entity2->parent = this->parent;
@@ -179,7 +179,7 @@ NONMATCH("asm/non_matching/projectile22/sub_080AC5E4.inc", bool32 sub_080AC5E4(E
         entity2->field_0x78.HALF.HI = 0x20;
         entity->attachedEntity = entity2;
     }
-    entity4 = sub_080A7EE0(0x22);
+    entity4 = CreateProjectile(0x22);
     entity4->type = this->type;
     entity4->type2 = 4;
     entity4->parent = this->parent;
