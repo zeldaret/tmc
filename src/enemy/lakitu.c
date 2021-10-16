@@ -117,7 +117,7 @@ void sub_0803C86C(Entity* this) {
 }
 
 void Lakitu_Initialize(Entity* this) {
-    Entity* cloud = sub_0804A98C(this, 17, 0);
+    Entity* cloud = CreateProjectileWithParent(this, 17, 0);
     if (cloud == NULL) {
         return;
     }
@@ -303,7 +303,7 @@ void Lakitu_SpawnLightning(Entity* this) {
     Entity* lightning;
     const OffsetCoords* offset;
 
-    lightning = sub_0804A98C(this, 18, 0);
+    lightning = CreateProjectileWithParent(this, 18, 0);
 
     if (lightning == NULL) {
         return;

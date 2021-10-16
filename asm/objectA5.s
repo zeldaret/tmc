@@ -20,7 +20,7 @@ ObjectA5: @ 0x0809F8A4
 	movs r5, #0
 _0809F8B6:
 	movs r0, #0x1d
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r4, r0, #0
 	cmp r5, #0
 	bne _0809F8C6

@@ -344,7 +344,7 @@ _0803C46C:
 	lsrs r2, r2, #0x19
 	adds r0, r4, #0
 	movs r1, #0xd
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _0803C49A

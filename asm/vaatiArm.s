@@ -1455,7 +1455,7 @@ sub_08042FD8: @ 0x08042FD8
 	cmp r0, #0
 	beq _08043018
 	movs r0, #0x20
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _08043046

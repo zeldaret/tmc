@@ -906,7 +906,7 @@ _0803FE34:
 	ldrb r2, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #0x1f
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 _0803FE46:
 	ldrb r0, [r4, #0xf]
 	cmp r0, #0
@@ -1015,7 +1015,7 @@ _0803FEFC:
 	ldrb r2, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #0x1f
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 _0803FF14:
 	ldrb r0, [r4, #0xe]
 	cmp r0, #5
@@ -1033,7 +1033,7 @@ _0803FF24:
 	adds r0, r4, #0
 	movs r1, #0x1f
 	movs r2, #2
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _0803FF74
@@ -1137,7 +1137,7 @@ _0803FFE4:
 	ldrb r2, [r4, #0xf]
 	adds r0, r4, #0
 	movs r1, #0x1f
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 _0803FFFC:
 	ldrb r0, [r4, #0xe]
 	cmp r0, #5
@@ -1155,7 +1155,7 @@ _0804000C:
 	adds r0, r4, #0
 	movs r1, #0x1f
 	movs r2, #2
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08040062

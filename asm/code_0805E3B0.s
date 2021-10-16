@@ -333,7 +333,7 @@ sub_0805E5C0: @ 0x0805E5C0
 	bl sub_0805E428
 	bl ClearHitboxList
 	bl sub_0806F0A4
-	ldr r1, _0805E5F4 @ =gUnk_03005F40
+	ldr r1, _0805E5F4 @ =_UpdateEntities
 	movs r0, #0
 	bl _call_via_r1
 	bl ClearAllDeletedEntities
@@ -341,18 +341,18 @@ sub_0805E5C0: @ 0x0805E5C0
 	pop {pc}
 	.align 2, 0
 _0805E5F0: .4byte gRoomVars
-_0805E5F4: .4byte gUnk_03005F40
+_0805E5F4: .4byte _UpdateEntities
 
 	thumb_func_start sub_0805E5F8
 sub_0805E5F8: @ 0x0805E5F8
 	push {lr}
-	ldr r1, _0805E608 @ =gUnk_03005F40
+	ldr r1, _0805E608 @ =_UpdateEntities
 	movs r0, #1
 	bl _call_via_r1
 	bl ClearAllDeletedEntities
 	pop {pc}
 	.align 2, 0
-_0805E608: .4byte gUnk_03005F40
+_0805E608: .4byte _UpdateEntities
 
 	thumb_func_start EraseAllEntities
 EraseAllEntities: @ 0x0805E60C
