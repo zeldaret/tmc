@@ -1,23 +1,23 @@
 SCRIPT_START script_0800D874
-	BeginBlock 
+	BeginBlock
 	Call sub_0807F934
 	DoPostScriptAction 0x0008
 	SetIntVariable 0x00000001
 	Call sub_0806DA04
-	EndBlock 
+	EndBlock
 script_0800D88E:
-	CheckEntityInteractType 
+	CheckEntityInteractType
 	JumpIfNot script_0800D88E
-	_0807E864 
+	_0807E864
 	Call sub_0807DF28
 	CheckLocalFlag 0x0045
 	JumpIf script_0800D8B0
 	StartPlayerScript script_0800D92C
 	WaitForSomething2 0x00000001
 script_0800D8B0:
-	_0807E8E4_0 
+	_0807E8E4_0
 	TextboxNoOverlap 0x1324
-	_0807EA94 
+	_0807EA94
 	CheckInventory1 0x0017
 	JumpIf script_0800D8D6
 	CheckLocalFlag 0x0045
@@ -28,27 +28,27 @@ script_0800D8CE:
 	JumpIfNot script_0800D8CE
 script_0800D8D6:
 	Call sub_0807DF50
-	_0807E878 
+	_0807E878
 	Jump script_0800D88E
 	.2byte 0x0000
 SCRIPT_START script_0800D8E4
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x0008
 	CheckInventory1 0x0017
 	JumpIf script_0800D924
-	EndBlock 
+	EndBlock
 script_0800D8F4:
 	CheckInventory1 0x0017
 	JumpIfNot script_0800D8F4
 	Call sub_0807DF28
-	_0807E864 
-	WaitPlayerAction8 
+	_0807E864
+	WaitPlayerAction8
 	_0807EB28 0x1325
-	_0807EA94 
+	_0807EA94
 	PlaySound SFX_113
 	SetIntVariable 0x00000000
 	Call sub_0806DA1C
-	_0807E878 
+	_0807E878
 	Call sub_0807DF50
 script_0800D924:
 	DoPostScriptAction 0x0006

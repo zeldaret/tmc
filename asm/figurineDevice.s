@@ -988,7 +988,11 @@ _080880B2:
 .ifdef EU
 	movs r1, #0x9b
 .else
+.ifdef DEMO_JP
+	movs r1, #0x9b @ TODO deduplicate
+.else
 	movs r1, #0x9c
+.endif
 .endif
 .endif
 	bl CheckLocalFlagByOffset
@@ -2192,5 +2196,36 @@ _08088678:
 	.align 2, 0
 _08088684: .4byte gPlayerEntity
 _08088688: .4byte gActiveScriptInfo
+.else
+.ifdef DEMO_JP @ TODO deduplicate
+	thumb_func_start sub_08088658
+sub_08088658: @ 0x08088658
+	push {r4, lr}
+	adds r4, r1, #0
+	movs r0, #0x78
+	movs r1, #0x78
+	movs r2, #0x10
+	movs r3, #8
+	bl CheckPlayerInRegion
+	str r0, [r4, #0x14]
+	ldr r0, _08088684 @ =gPlayerEntity
+	movs r1, #0x36
+	ldrsh r0, [r0, r1]
+	cmp r0, #0
+	beq _08088678
+	movs r0, #0
+	str r0, [r4, #0x14]
+_08088678:
+	ldr r2, _08088688 @ =gActiveScriptInfo
+	ldrb r1, [r2, #7]
+	movs r0, #1
+	orrs r0, r1
+	strb r0, [r2, #7]
+	pop {r4, pc}
+	.align 2, 0
+_08088684: .4byte gPlayerEntity
+_08088688: .4byte gActiveScriptInfo
+
+.endif
 .endif
 .endif

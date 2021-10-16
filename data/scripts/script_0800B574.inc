@@ -1,9 +1,9 @@
 SCRIPT_START script_0800B574
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x0007
 	CheckGlobalFlag 0x001d
 	JumpIf script_0800B5BC
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00000010
 	DoPostScriptAction 0x0008
 	PlaySound SFX_111

@@ -1302,7 +1302,11 @@ _080A45A2:
 
 	thumb_func_start sub_080A45A4
 sub_080A45A4: @ 0x080A45A4
-.ifdef DEMO
+.ifdef DEMO_USA
+	bx lr
+	.align 2, 0
+.else
+.ifdef DEMO_JP
 	bx lr
 	.align 2, 0
 .else
@@ -1344,6 +1348,7 @@ _080A45E0:
 	.align 2, 0
 _080A4600: .4byte gUnk_0812814C
 _080A4604: .4byte gMenu
+.endif
 .endif
 
 	thumb_func_start sub_080A4608
@@ -3219,7 +3224,12 @@ _080A52DC: .4byte gInput
 _080A52E0:
 	cmp r4, #0x10
 	bne _080A52EC
-.ifdef DEMO
+.ifdef DEMO_USA
+	movs r0, #0x6d
+	bl SoundReq
+	b _080A5336
+.else
+.ifdef DEMO_JP @ TODO same as DEMO_USA
 	movs r0, #0x6d
 	bl SoundReq
 	b _080A5336
@@ -3227,6 +3237,7 @@ _080A52E0:
 	movs r0, #0xb
 	bl sub_080A4E84
 	b _080A530A
+.endif
 .endif
 _080A52EC:
 	ldr r0, _080A5314 @ =gMenu

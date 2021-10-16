@@ -1,10 +1,10 @@
 SCRIPT_START script_08015E58
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x0008
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
 	DoPostScriptAction 0x001d
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00000010
 	Call sub_08066C94
 	Wait 0x00e9
@@ -33,7 +33,7 @@ SCRIPT_START script_08015E58
 	DoPostScriptAction 0x0014
 	Wait 0x001e
 	TextboxNoOverlap 0x131b
-	_0807EA94 
+	_0807EA94
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000010
 	DoPostScriptAction 0x0006

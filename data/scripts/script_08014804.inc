@@ -1,29 +1,29 @@
 SCRIPT_START script_08014804
-	BeginBlock 
-	_0807E9D4 
+	BeginBlock
+	_0807E9D4
 	_0807EB44 0x0000
 	DoPostScriptAction 0x000a
-	EndBlock 
-	_0807E864 
+	EndBlock
+	_0807E864
 	Call sub_0807DF38
 	Wait 0x0010
 	CheckLocalFlag 0x0093
 	JumpIf script_080148B6
 	TextboxNoOverlapFollowPos 0x4215, 0x000c
-	_0807E878 
+	_0807E878
 script_0801482E:
 	TestBit 0x00000001
 	JumpIf script_08014862
 	TestBit 0x00000004
 	JumpIf script_08014878
-	_0807E30C 
+	_0807E30C
 	JumpIfNot script_0801482E
-	_0807E864 
+	_0807E864
 	_0807E930 0x0008
 	Wait 0x0020
 	_0807E930 0x0002
 	TextboxNoOverlapFollowPos 0x4215, 0x000c
-	_0807E878 
+	_0807E878
 	Jump script_0801482E
 script_08014862:
 	_0807E930 0x0008
@@ -42,15 +42,15 @@ script_0801488E:
 	JumpIf script_080148C2
 	TestBit 0x00000004
 	JumpIf script_080148D8
-	_0807E30C 
+	_0807E30C
 	JumpIfNot script_0801488E
-	_0807E864 
+	_0807E864
 	_0807E930 0x0008
 	Wait 0x0020
 	_0807E930 0x0002
 script_080148B6:
 	TextboxNoOverlapFollowPos 0x4216, 0x000c
-	_0807E878 
+	_0807E878
 	Jump script_0801488E
 script_080148C2:
 	_0807E930 0x0008
@@ -66,27 +66,27 @@ script_080148D8:
 	Jump script_0801488E
 	.2byte 0x0000
 SCRIPT_START script_080148F0
-	BeginBlock 
-	EndBlock 
+	BeginBlock
+	EndBlock
 script_080148F4:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_080148F4
 	ClearRoomFlag 0x0000
 	Call sub_0806E140
 	JumpIfNot script_08014932
-	_0807EA94 
-	_0807E3E8 
+	_0807EA94
+	_0807E3E8
 	JumpIfNot script_08014938
-	_0807E864 
+	_0807E864
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
 	Call sub_0806E1E0
-	_0807EA94 
+	_0807EA94
 	Wait 0x0018
-	_0807E878 
+	_0807E878
 	Jump script_080148F4
 script_08014932:
-	_0807EA94 
+	_0807EA94
 	Jump script_08014938
 script_08014938:
 	_0807E5F8 0x00000004

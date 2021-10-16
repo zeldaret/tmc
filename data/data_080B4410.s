@@ -12,7 +12,11 @@ gUnk_080B4410:: @ 080B4410
 .ifdef EU
 	.incbin "baserom_jp.gba", 0x0B41B0, 0x0000048	
 .else
+.ifdef DEMO_JP
+	.incbin "baserom_jp.gba", 0x0B41B0, 0x0000048 @ TODO deduplicate
+.else
 	.incbin "baserom.gba", 0x0B4410, 0x0000048
+.endif
 .endif
 .endif
 

@@ -122,7 +122,11 @@ _0804C206:
 .ifdef EU
 	movs r0, #0x5a
 .else
+.ifdef DEMO_JP
+	movs r0, #0x5a @ TODO deduplicate
+.else
 	movs r0, #0x5c
+.endif
 .endif
 .endif
 	bl CheckLocalFlag

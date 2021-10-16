@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'make usa demo jp eu -j'
+                sh 'make usa demo_usa jp demo_jp eu -j'
             }
         }
         stage('Report Progress') {

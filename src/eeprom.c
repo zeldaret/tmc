@@ -1,7 +1,7 @@
 #include "global.h"
 #include "gba/eeprom.h"
 
-#ifdef DEMO
+#if defined(DEMO_USA) || defined(DEMO_JP)
 const u8 unk[] = { 0xff, 0xff, 0xff, 0xff };
 const u8 padding[0x18] = {};
 #else

@@ -5,7 +5,7 @@
 
 	.text
 
-.ifdef DEMO
+.ifdef DEMO_USA
 thumb_func_start sub_0807CA18
 sub_0807CA18:
 	push {r4, r5, r6, lr}

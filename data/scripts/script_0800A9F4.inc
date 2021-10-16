@@ -1,10 +1,10 @@
 SCRIPT_START script_0800A9F4
-	BeginBlock 
-	_0807E864 
+	BeginBlock
+	_0807E864
 	Call sub_0807DF28
 	SetEntityPositionRelative 0x0128, 0x0058
 	Call sub_0807F844
-	EndBlock 
+	EndBlock
 	Wait 0x003c
 	_0807E5F8 0x00000001
 	Wait 0x000a

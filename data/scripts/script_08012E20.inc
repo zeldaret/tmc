@@ -1,7 +1,7 @@
 SCRIPT_START script_08012E20
-	BeginBlock 
-	_0807E864 
-	EndBlock 
+	BeginBlock
+	_0807E864
+	EndBlock
 	Wait 0x0078
 	_0807E908 0x0004
 	StartPlayerScript script_08012E44

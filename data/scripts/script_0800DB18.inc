@@ -1,6 +1,6 @@
 SCRIPT_START script_0800DB18
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x000a
 	Call sub_08066E38
-	EndBlock 
+	EndBlock
 SCRIPT_END

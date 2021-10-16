@@ -266,7 +266,7 @@ void sub_08028CE8(Entity* this) {
                         this->actionDelay = 4;
                         this->field_0x80.HALF.HI = 0;
                         sub_080290E0(this, 3);
-#if defined(USA) || defined(DEMO)
+#if defined(USA) || defined(DEMO_USA)
                         SetLocalFlag(0x87);
 #endif
                         return;

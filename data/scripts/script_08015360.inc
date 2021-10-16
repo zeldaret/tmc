@@ -1,8 +1,8 @@
 SCRIPT_START script_08015360
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x0100
 	SetEntityPositionRelative 0x0208, 0x0148
-	EndBlock 
+	EndBlock
 	_0807EB44 0x0006
 	DoPostScriptAction 0x0000
 	_0807E5F8 0x00000001

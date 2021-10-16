@@ -59,6 +59,10 @@ gUnk_080B3D20:: @ 080B3D20
 .ifdef EU
 	.incbin "baserom_jp.gba", 0x0B3AC0, 0x00000B0
 .else
+.ifdef DEMO_JP 
+	.incbin "baserom_jp.gba", 0x0B3AC0, 0x00000B0 @ TODO deduplicate
+.else
 	.incbin "baserom.gba", 0x0B3D20, 0x00000B0
+.endif
 .endif
 .endif

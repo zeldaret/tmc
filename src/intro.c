@@ -104,7 +104,7 @@ static void HandleNintendoCapcomLogos(void) {
         gScreen.bg.bg1Updated = 1;
         DoFade(6, 8);
         advance = ADVANCE_NONE;
-#ifdef DEMO
+#if defined(DEMO_USA)
         if (gUnk_02000010.listenForKeyPresses == 0) {
             if ((gInput.heldKeys & 0x204) == 0x204) { // TODO
                 gUnk_02000010.field_0x7 = 1;
@@ -190,7 +190,7 @@ static void HandleTitlescreen(void) {
             }
             break;
         case 2:
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(DEMO_JP) || defined(EU)
             if (GetAdvanceState()) {
 #else
             if (--gIntroState.timer == 0) {
@@ -198,7 +198,7 @@ static void HandleTitlescreen(void) {
                 gIntroState.timer = 3600;
                 gIntroState.state++;
             }
-#if defined(USA) || defined(DEMO)
+#if defined(USA) || defined(DEMO_USA)
             UpdatePressStartIcon();
 #endif
             break;
@@ -213,7 +213,7 @@ static void HandleTitlescreen(void) {
                 AdvanceIntroSequence(advance);
                 SoundReq(SONG_VOL_FADE_OUT);
             }
-#ifdef JP
+#if defined(JP) || defined(DEMO_JP) || defined(DEMO_JP)
             gOamCmd._4 = 0;
             gOamCmd._6 = 0;
             gOamCmd._8 = 0xE020;
@@ -249,7 +249,7 @@ static void HandleTitlescreen(void) {
     sub_080AD9B0();
 }
 
-#if defined(USA) || defined(DEMO)
+#if defined(USA) || defined(DEMO_USA)
 static void UpdatePressStartIcon(void) {
     gOamCmd._4 = 0;
     gOamCmd._6 = 0;
@@ -295,7 +295,7 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
             if (!gFadeControl.active) {
                 gFadeControl.field_0x4 = -1;
                 gIntroState.subState++;
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
                 gIntroState.timer = 120;
 #else
                 gIntroState.timer = 90;
@@ -310,7 +310,7 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
         case 2:
             if (GetAdvanceState() != ADVANCE_NONE) {
                 gIntroState.state++;
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
                 gIntroState.timer = 30;
 #else
                 gIntroState.timer = 60;
@@ -340,7 +340,7 @@ static void HandleTitlescreenAnimationIntro(void) {
             break;
         case 2:
             if (--gIntroState.timer == 0) {
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
                 gIntroState.timer = 360;
 #else
                 gIntroState.timer = 300;
@@ -354,7 +354,7 @@ static void HandleTitlescreenAnimationIntro(void) {
         default:
             if (!gFadeControl.active && GetAdvanceState() != ADVANCE_NONE) {
                 gIntroState.state++;
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
                 gIntroState.timer = 30;
 #else
                 gIntroState.timer = 60;
@@ -364,9 +364,18 @@ static void HandleTitlescreenAnimationIntro(void) {
     }
 }
 
+#ifdef DEMO_JP
+extern u8 gUnk_02002A40;
+#endif
+
 static void ExitTitlescreen(void) {
     if (!gFadeControl.active) {
+#ifdef DEMO_JP
+        MemCopy(&sLightRaysAlphaBlends[8], &gUnk_02002A40, 0x4B4);
+        InitScreen(SCREEN_GAMEPLAY);
+#else
         InitScreen(SCREEN_CHOOSE_FILE);
+#endif
     }
 }
 

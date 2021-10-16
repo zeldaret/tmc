@@ -4,7 +4,7 @@
 	.section .rodata
     .align 2
 
-.ifdef DEMO
+.ifdef DEMO_USA
 @ TODO choose demo screen
 demoFunctions::
 	.4byte sub_080A2E40

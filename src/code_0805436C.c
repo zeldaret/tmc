@@ -275,7 +275,7 @@ u32 CreateItemDrop(Entity* arg0, u32 itemID, u32 itemParameter) {
 */
 
 void sub_08054870(void) {
-#ifndef DEMO
+#if !(defined(DEMO_USA) || defined(DEMO_JP))
     gUnk_080FE2A0[gMenu.menuType]();
 #endif
 }

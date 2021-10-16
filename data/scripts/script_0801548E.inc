@@ -6,7 +6,7 @@ SCRIPT_START script_0801548E
 	_0807E5F8 0x00048000
 	WaitForSomething2 0x00090000
 	TextboxNoOverlapFollowPos 0x1311, 0x0002
-	_0807EA94 
+	_0807EA94
 	_0807E5F8 0x00008000
 	WaitForSomething2 0x00010000
 	_0807E5F8 0x00048000
@@ -14,13 +14,13 @@ SCRIPT_START script_0801548E
 	CallWithArg DeleteManager36, 0x00000001
 	_0807F0C8 0x0000, 0x0000
 	TextboxNoOverlapFollowPos 0x1312, 0x000c
-	_0807EA94 
+	_0807EA94
 	_0807E5F8 0x00000800
 	WaitForSomething2 0x00001000
 	StopBgm
 	_0807E778 0x0004
-	DoFade5 
-	WaitFor_2 
+	DoFade5
+	WaitFor_2
 	SetRoomFlag 0x0001
 	DoPostScriptAction 0x0006
 SCRIPT_END

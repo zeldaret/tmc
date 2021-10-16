@@ -24,10 +24,15 @@ gUnk_080D1A94:: @ 080D1A94
 	@ TODO only small differences
 	.incbin "baserom_jp.gba", 0x0D1834, 0x0000018
 .else
+.ifdef DEMO_JP
+	@ TODO only small differences
+	.incbin "baserom_jp.gba", 0x0D1834, 0x0000018
+.else
 .ifdef EU
 	.incbin "baserom_eu.gba", 0x0D11C0, 0x0000018
 .else
 	.incbin "baserom.gba", 0x0D1A94, 0x0000018
+.endif
 .endif
 .endif
 
@@ -37,15 +42,24 @@ gUnk_080D1AAC:: @ 080D1AAC
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x0D184C, 0x0000018
 .else
+.ifdef DEMO_JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x0D184C, 0x0000018
+.else
 .ifdef EU
 	.incbin "baserom_eu.gba", 0x0D11D8, 0x0000018
 .else
 	.incbin "baserom.gba", 0x0D1AAC, 0x0000018
 .endif
 .endif
+.endif
 
 gUnk_080D1AC4:: @ 080D1AC4
 .ifdef JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x0D1864, 0x0000018
+.else
+.ifdef DEMO_JP
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x0D1864, 0x0000018
 .else
@@ -55,9 +69,14 @@ gUnk_080D1AC4:: @ 080D1AC4
 	.incbin "baserom.gba", 0x0D1AC4, 0x0000018
 .endif
 .endif
+.endif
 
 gUnk_080D1ADC:: @ 080D1ADC
 .ifdef JP
+    @ TODO only small differences
+	.incbin "baserom_jp.gba", 0x0D187C, 0x0000018
+.else
+.ifdef DEMO_JP
     @ TODO only small differences
 	.incbin "baserom_jp.gba", 0x0D187C, 0x0000018
 .else
@@ -65,6 +84,7 @@ gUnk_080D1ADC:: @ 080D1ADC
 	.incbin "baserom_eu.gba", 0x0D1208, 0x0000018
 .else
 	.incbin "baserom.gba", 0x0D1ADC, 0x0000018
+.endif
 .endif
 .endif
 

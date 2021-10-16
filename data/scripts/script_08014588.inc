@@ -1,5 +1,5 @@
 SCRIPT_START script_08014588
-	EndBlock 
+	EndBlock
 	WaitForSomething2 0x00000001
 	SetEntitySpeed 0x00e0
 	_0807EDD4 0x0078, 0x0078

@@ -1,9 +1,9 @@
 SCRIPT_START script_0800D414
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x0100
 	Call sub_08068104
 	DoPostScriptAction 0x000a
-	EndBlock 
+	EndBlock
 script_0800D426:
 	_0807EB44 0x0002
 	SetIntVariable 0x00000000
@@ -39,13 +39,13 @@ script_0800D426:
 	_0807EDD4 0x0228, 0x01e8
 	Jump script_0800D426
 	.2byte 0x0000
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x000a
 	Call sub_08062A48
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
 script_0800D4E4:
-	EndBlock 
+	EndBlock
 	Call sub_08062698
 	Call sub_080626AC
 	CallWithArg sub_0807F0EC, 0x00000009
@@ -77,31 +77,31 @@ script_0800D556:
 script_0800D560:
 	_0807EE04 0x00b8, 0x00b8
 script_0800D566:
-	EndBlock 
-	BeginBlock 
+	EndBlock
+	BeginBlock
 	Call sub_080626C0
 	JumpIf script_0800D4E4
-	CheckEntityInteractType 
+	CheckEntityInteractType
 	JumpIf script_0800D584
-	_0807EE30 
+	_0807EE30
 	JumpIfNot script_0800D566
 	Jump script_0800D4E4
 script_0800D584:
-	EndBlock 
-	_0807E864 
-	_0807EB74 
+	EndBlock
+	_0807E864
+	_0807EB74
 	Call sub_0806265C
-	_0807EA94 
+	_0807EA94
 	Wait 0x000f
-	_0807E878 
+	_0807E878
 	Jump script_0800D4E4
 SCRIPT_START script_0800D59C
-	BeginBlock 
+	BeginBlock
 	DoPostScriptAction 0x000a
 	Call sub_08062A48
 	DoPostScriptAction 0x0000
 script_0800D5AC:
-	EndBlock 
+	EndBlock
 	Call sub_08062698
 	Call sub_080626AC
 	CallWithArg sub_0807F0EC, 0x00000004
@@ -118,16 +118,16 @@ script_0800D5E2:
 script_0800D5EC:
 	_0807EE04 0x0058, 0x00c8
 script_0800D5F2:
-	EndBlock 
-	BeginBlock 
+	EndBlock
+	BeginBlock
 	Call sub_080626C0
 	JumpIf script_0800D5AC
-	_0807EE30 
+	_0807EE30
 	JumpIfNot script_0800D5F2
 	Jump script_0800D5AC
 	.2byte 0x0000
 SCRIPT_START script_0800D60C
-	BeginBlock 
+	BeginBlock
 	_0807EB44 0x0004
 	DoPostScriptAction 0x000b
 	DoPostScriptAction 0x0008
@@ -135,23 +135,23 @@ SCRIPT_START script_0800D60C
 	JumpIf script_0800D6AE
 	Call sub_0806DAD0
 	CallWithArg sub_0806DA04, 0x00000002
-	EndBlock 
+	EndBlock
 script_0800D636:
-	_0807EA4C 
-	_0807E9F0 
+	_0807EA4C
+	_0807E9F0
 	Call sub_0806DAAC
 	JumpIf script_0800D650
 	Call sub_0807DF50
-	_0807E878 
+	_0807E878
 	Jump script_0800D636
 script_0800D650:
-	_0807E864 
+	_0807E864
 	Call sub_0807DF28
 	Call sub_0807FBC4
 	Call sub_0807FBA0
 	SetEntitySpeed 0x0700
 	_0807F0B4 0x0007
-	CameraTargetEntity 
+	CameraTargetEntity
 	_0807EDD4 0x01e8, 0x01b8
 	Wait 0x003c
 	Call sub_0806DAE8

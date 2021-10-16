@@ -28,7 +28,7 @@ void sub_0805947C(ManagerF*);
 #ifndef EU
 void sub_080594DC(ManagerF*);
 #endif
-#if defined(USA) || defined(DEMO)
+#if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
 void sub_08059548(ManagerF*);
 #endif
 
@@ -51,7 +51,7 @@ void (*const gUnk_08108314[])(ManagerF*) = {
 #ifndef EU
     sub_080594DC,
 #endif
-#if defined(USA) || defined(DEMO)
+#if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
     sub_08059548,
 #endif
 };
@@ -424,7 +424,7 @@ void sub_080594DC(ManagerF* this) {
 }
 #endif
 
-#if defined(USA) || defined(DEMO)
+#if defined(USA) || defined(DEMO_USA) || defined(DEMO_JP)
 void sub_08059548(ManagerF* this) {
     sub_0805E3A0(this, 6);
     if (gPlayerEntity.action == 0x16) {

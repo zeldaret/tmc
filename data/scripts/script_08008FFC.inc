@@ -1,8 +1,8 @@
 SCRIPT_START script_08008FFC
-	BeginBlock 
+	BeginBlock
 	_0807EB44 0x0000
 	_0807E930 0x0000
-	EndBlock 
+	EndBlock
 	WaitForSomething 0x00000010
 	PlaySound SFX_11C
 	_0807E930 0x0001

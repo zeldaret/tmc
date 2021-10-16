@@ -1,7 +1,7 @@
 SCRIPT_START script_0800DDD0
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x0100
-	EndBlock 
+	EndBlock
 	CallWithArg sub_0807F4F8, 0x000000a0
 	_0807EDD4 0x0078, 0x00a0
 	_0807EB44 0x0000

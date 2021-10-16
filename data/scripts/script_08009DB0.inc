@@ -1,44 +1,44 @@
 SCRIPT_START script_08009DB0
-	BeginBlock 
+	BeginBlock
 	Call sub_0807F348
 	Call sub_08066288
 	Call sub_08066274
 	DoPostScriptAction 0x000a
 	_0807E930 0x000c
 	_0807E908 0x0003
-	EndBlock 
+	EndBlock
 script_08009DD2:
-	_0807E944 
+	_0807E944
 	_0807E908 0x0002
 	Call sub_0806622C
-	_0807EA94 
+	_0807EA94
 	_0807E908 0x0003
 	_0807E930 0x000c
 	Jump script_08009DD2
 SCRIPT_START script_08009DEC
-	BeginBlock 
-	EndBlock 
+	BeginBlock
+	EndBlock
 script_08009DF0:
 	CheckPlayerInRegion 0x00a0, 0x0038, 0x1830
 	JumpIfNot script_08009DF0
-	_0807E864 
+	_0807E864
 	Call sub_0807F9A4
 	Wait 0x0008
 	_0807EB28 0x3207
-	_0807E3E8 
+	_0807E3E8
 	JumpIfNot script_08009E4E
 	Call sub_0807DF28
 	_0807E778 0x0002
-	DoFade5 
-	WaitFor_2 
+	DoFade5
+	WaitFor_2
 	Call sub_0804E864
 	Wait 0x001e
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000001
 	_0807EB28 0x3209
 	Wait 0x000f
-	_0807EA94 
-	_0807E878 
+	_0807EA94
+	_0807E878
 	Call sub_0807DF50
 	DoPostScriptAction 0x0006
 SCRIPT_END

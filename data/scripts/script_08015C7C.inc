@@ -1,7 +1,7 @@
 SCRIPT_START script_08015C7C
-	BeginBlock 
+	BeginBlock
 	SetEntitySpeed 0x0080
-	EndBlock 
+	EndBlock
 	DoPostScriptAction 0x0001
 	_0807EDD4 0x0168, 0x0058
 	_0807EB44 0x0004
@@ -9,7 +9,7 @@ SCRIPT_START script_08015C7C
 	CallWithArg sub_0807F238, 0x000003c5
 	Call sub_0807F304
 	TextboxNoOverlapFollowPos 0x1318, 0x000c
-	_0807EA94 
+	_0807EA94
 	CallWithArg sub_0807F238, 0x000003c9
 	Call sub_0807F304
 	_0807EB44 0x0004

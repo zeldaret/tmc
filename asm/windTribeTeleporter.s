@@ -115,6 +115,121 @@ _080A0FFE:
 
 	thumb_func_start sub_080A1000
 sub_080A1000: @ 0x080A1000
+.ifdef DEMO_JP
+	push {r4, lr}
+	adds r4, r0, #0
+	ldrb r1, [r4, #0xd]
+	cmp r1, #1
+	beq _080A0B52
+	cmp r1, #1
+	bgt _080A0B3C
+	cmp r1, #0
+	beq _080A0B46
+	b _080A0BB0
+_080A0B3C:
+	cmp r1, #2
+	beq _080A0B60
+	cmp r1, #3
+	beq _080A0B8C
+	b _080A0BB0
+_080A0B46:
+	movs r0, #0x1e
+	strb r0, [r4, #0xe]
+	ldrb r0, [r4, #0xd]
+	adds r0, #1
+	strb r0, [r4, #0xd]
+	b _080A0BF0
+_080A0B52:
+	ldrb r0, [r4, #0xe]
+	subs r0, #1
+	strb r0, [r4, #0xe]
+	lsls r0, r0, #0x18
+	cmp r0, #0
+	bne _080A0BF0
+	b _080A0B98
+_080A0B60:
+	ldrb r0, [r4, #0xe]
+	subs r0, #1
+	strb r0, [r4, #0xe]
+	lsls r0, r0, #0x18
+	cmp r0, #0
+	bne _080A0B7E
+	ldrb r0, [r4, #0xd]
+	adds r0, #1
+	strb r0, [r4, #0xd]
+	movs r0, #0x1e
+	strb r0, [r4, #0xe]
+	adds r0, #0xf5
+	bl SoundReq
+	b _080A0BF0
+_080A0B7E:
+	ldr r0, _080A0B88 @ =gScreenTransition
+	ldr r0, [r0]
+	movs r1, #7
+	b _080A0BDE
+	.align 2, 0
+_080A0B88: .4byte gScreenTransition
+_080A0B8C:
+	ldrb r0, [r4, #0xe]
+	subs r0, #1
+	strb r0, [r4, #0xe]
+	lsls r0, r0, #0x18
+	cmp r0, #0
+	bne _080A0BA4
+_080A0B98:
+	ldrb r0, [r4, #0xd]
+	adds r0, #1
+	strb r0, [r4, #0xd]
+	movs r0, #0x1e
+	strb r0, [r4, #0xe]
+	b _080A0BF0
+_080A0BA4:
+	ldr r0, _080A0BAC @ =gScreenTransition
+	ldr r0, [r0]
+	b _080A0BDE
+	.align 2, 0
+_080A0BAC: .4byte gScreenTransition
+_080A0BB0:
+	ldrb r0, [r4, #0xe]
+	subs r0, #1
+	strb r0, [r4, #0xe]
+	lsls r0, r0, #0x18
+	cmp r0, #0
+	bne _080A0BD8
+	movs r0, #0xfc
+	bl SetLocalFlag
+	ldrb r1, [r4, #0xb]
+	lsls r0, r1, #2
+	adds r0, r0, r1
+	lsls r0, r0, #2
+	ldr r1, _080A0BD4 @ =0x0813AA10
+	adds r0, r0, r1
+	bl DoExitTransition
+	b _080A0BF0
+	.align 2, 0
+_080A0BD4: .4byte 0x0813AA10
+_080A0BD8:
+	ldr r0, _080A0BF4 @ =gScreenTransition
+	ldr r0, [r0]
+	movs r1, #1
+_080A0BDE:
+	ands r0, r1
+	cmp r0, #0
+	bne _080A0BF0
+	ldr r0, _080A0BF8 @ =gPlayerEntity
+	ldrb r1, [r0, #0x14]
+	adds r1, #2
+	movs r2, #6
+	ands r1, r2
+	strb r1, [r0, #0x14]
+_080A0BF0:
+	pop {r4, pc}
+	.align 2, 0
+_080A0BF4: .4byte gScreenTransition
+_080A0BF8: .4byte gPlayerEntity
+
+
+.else
 .ifdef JP
 	push {lr}
 	adds r1, r0, #0
@@ -459,6 +574,7 @@ _080A10D4:
 	.align 2, 0
 _080A10D8: .4byte gScreenTransition
 _080A10DC: .4byte gPlayerEntity
+.endif
 .endif
 .endif
 

@@ -1010,7 +1010,11 @@ _08042C9E:
 .ifdef EU
 	subs r0, #0x20
 .else
+.ifdef DEMO_JP
+	subs r0, #0x20 @ TODO deduplicate
+.else
 	subs r0, #0x40
+.endif
 .endif
 .endif
 	cmp r0, r5

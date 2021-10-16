@@ -58,7 +58,7 @@ void sub_08067418(Entity* this) {
         this->spriteOrientation.flipY = 1;
         this->spriteRendering.b3 = 1;
         this->spritePriority.b0 = 2;
-#if defined(JP) || defined(EU)
+#if defined(JP) || defined(EU) || defined(DEMO_JP)
         if (CheckLocalFlag(0x1e) == 0) {
 #else
         if (CheckLocalFlag(0x1d) == 0) {

@@ -864,6 +864,56 @@ sub_080B19C8: @ 0x080B19C8
 	ldm sp!, {lr}
 	b _080B1C40EU
 .else
+.ifdef DEMO_JP @ TODO deduplicate same as EU
+	push {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+	ldr fp, _080B2A30 @ =gUnk_03000000
+	ldrb r2, [fp, #3]
+	cmp r2, #0x80
+	bhs _080B19C0EU
+	add r0, pc, #0x54 @ =_080B19C0
+	str r0, [fp, #0x18]
+	str sp, [fp, #0x14]
+	ldrb r0, [fp, #0xf]
+	cmp r0, #0xff
+	bne _080B1984
+	bl _080B1FBC
+_080B1980:
+	mov r0, #0x0
+_080B1984:
+	ldr r1, _080B2154 @ =0x03006958
+	ldr r1, [r1, r0, lsl #2]
+	str r1, [fp, #0x1c]
+	ldr r0, _080B2A34 @ =gUnk_081326EC
+	ldr r0, [r0]
+	bl sub_080B19C8
+	ldr r0, _080B2A38 @ =gUnk_081326EC
+	ldr r0, [r0, #4]
+	bl sub_080B19C8
+	ldr r0, _080B2A3C @ =gUnk_081326EC
+	ldr r0, [r0, #8]
+	bl sub_080B19C8
+	ldr r0, _080B2A40 @ =gUnk_081326EC
+	ldr r0, [r0, #0xc]
+	bl sub_080B19C8
+_080B19C0EU:
+	pop {r4, r5, r6, r7, r8, sb, sl, fp, lr}
+	bx lr
+
+	arm_func_start sub_080B19C8
+sub_080B19C8: @ 0x080B19C8
+	ldrb r2, [r0]
+	cmp r2, #0
+	bxeq lr
+	ldr r1, _080B2A44 @ =0x08131D3C
+	ldr r1, [r1, #0x10]
+	mov r2, #0
+	strb r2, [r1]
+	stmdb sp!, {lr}
+	bl sub_080B2478
+	bl sub_080B2534
+	ldm sp!, {lr}
+	b _080B1C40EU
+.else
 	push {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	ldr fp, _080B2A30 @ =gUnk_03000000
 	ldrb r2, [fp, #3]
@@ -902,6 +952,7 @@ sub_080B2448: @ 0x080B2448
 	bl sub_080B2534
 	ldm sp!, {lr}
 	b _080B26B4
+.endif
 .endif
 
 	arm_func_start sub_080B2478
@@ -984,7 +1035,142 @@ sub_080B255C: @ 0x080B255C
 	bl sub_080B299C
 	ldr r3, [fp, #0x1c]
 	mov lr, pc
+.ifdef DEMO_JP
+	bx r3
+.else
 	bxne r3
+.endif
+	mov r5, #0
+	strb r5, [fp, #0x12]
+	ldrsb r2, [r4, #0x29]
+	ands r2, r2, #8
+	beq _080B1BB8
+	ldrsh r3, [r4, #0x36]
+	cmp r3, #0
+	bmi _080B1BA4
+	mov r1, #0
+	mov r2, #0
+	bl sub_080B1BCC
+	ldrb r1, [r4, #0x18]
+	and r1, r1, #0x30
+	mov r1, r1
+	cmp r0, #0x19
+	beq _080B1B98
+	cmp r0, #0x2f
+	beq _080B1B64
+	cmp r0, #0xf
+	bne _080B1BA4
+	mov r5, #2
+	strb r5, [fp, #0x12]
+	add r7, r7, r5
+	ldrb r2, [fp, #1]
+	and r2, r2, #0x18
+	add r2, r2, #0x80
+	lsr r2, r2, #2
+	b _080B1B74
+_080B1B64:
+	ldrb r2, [r4, #0x2e]
+	ldrb r3, [r4, #0x32]
+	eor r2, r2, r3
+	and r2, r2, #6
+_080B1B74:
+	ldr r3, _080B2A48 @ =gUnk_030068CC
+	add r2, r1, r2, lsl #1
+	ldr sl, [r3, r2]
+	push {r4, r8, sb}
+	mov r8, #0
+	and sb, sb, #0xc00
+	bl _080B2874
+	pop {r4, r8, sb, lr}
+	b _080B2718
+_080B1B98:
+	mov r5, #2
+	strb r5, [fp, #0x12]
+	add r7, r7, r5
+_080B1BA4:
+	stmdb sp!, {r4}
+	mov r0, r4
+	bl _080B2718
+	pop {r4, lr}
+	b _080B1BC0
+_080B1BB8:
+	ldm sp!, {lr}
+	b _080B2718
+_080B1BC0:
+	ldrsh r1, [r4, #0x36]
+	ldrb r0, [r4, #0x29]
+	tst r0, #0x10
+	beq _080B1BD8
+	cmp r1, #0
+	bxpl lr
+_080B1BD8:
+	tst r0, #0x20
+	beq _080B1BEC
+	ldrb r0, [fp, #1]
+	tst r0, #1
+	bxne lr
+_080B1BEC:
+	mov r2, r7
+	cmp r1, #0
+	submi r2, r2, r1
+	ldr r3, _080B2A4C @ =gUnk_081326EC
+	ldr r3, [r3, #0x10]
+	ldrb r0, [r3]
+	cmp r0, #0x40
+	bxhs lr
+	add r0, r0, #1
+	strb r0, [r3]
+	add r3, r3, r0, lsl #2
+	lsr r0, sb, #0xa
+	and r0, r0, #3
+	orr r0, r0, r2, lsl #6
+	strh r0, [r3, #2]
+	ldrb r0, [r4, #0x18]
+	and r0, r0, #0x30
+	lsr r0, r0, #4
+	orr r0, r0, r6, lsl #6
+	strh r0, [r3]
+	bx lr
+_080B1C40EU:
+	ldr r4, _080B2A50 @ =gUnk_081326EC
+	ldr r4, [r4, #0x10]
+	ldrb r5, [r4]
+	cmp r5, #0
+	bxeq lr
+	stmdb sp!, {lr}
+	add r4, r4, #4
+_080B1C5C:
+	ldrsh r0, [r4]
+	asr r6, r0, #6
+	and r1, r0, #7
+	ldr sl, _080B2A54 @ =gUnk_0300694C
+	ldr sl, [sl, r1, lsl #2]
+	ldrsh r0, [r4, #2]
+	asr r7, r0, #6
+	and r1, r0, #3
+	lsl sb, r1, #0xa
+	mov r8, #0
+	push {r4, r5}
+	bl _080B2874
+	pop {r4, r5}
+	add r4, r4, #4
+	subs r5, r5, #1
+	bgt _080B1C5C
+	ldm sp!, {lr}
+	bx lr
+
+.else
+.ifdef DEMO_JP  @ TODO deduplicate nearly same as EU
+	stmdb sp!, {lr}
+	mov r4, r0
+	bl sub_080B299C
+	ldr r3, [fp, #0x1c]
+	mov lr, pc
+.ifdef DEMO_JP
+	bx r3
+.else
+	bxne r3
+.endif
 	mov r5, #0
 	strb r5, [fp, #0x12]
 	ldrsb r2, [r4, #0x29]
@@ -1227,6 +1413,7 @@ _080B26D0:
 	ldm sp!, {lr}
 	bx lr
 
+.endif
 .endif
 
 
@@ -1569,9 +1756,127 @@ _080B2144:
 	.4byte gUnk_030068F0
 	.4byte gUnk_0300689C
 .endif
+.ifdef DEMO_JP @ TODO deduplicate same as EU
+_080B1FBC:
+	mov sl, lr
+	ldrsh r0, [fp, #0x1c]
+	ldrsh r1, [fp, #0x1e]
+	ldrsh r2, [fp, #4]
+	sub r0, r0, r2
+	ldrsh r3, [fp, #6]
+	sub r1, r1, r3
+	mov r2, #0
+	mov r3, #0
+	bl sub_080B20ECEU
+	mov r5, #0
+	ldr r4, _080B2194 @ =0x03003DF8
+_080B1FECEU:
+	ldr r0, [r4, #8]
+	cmp r0, #0
+	beq _080B2074EU
+	ldrsh r6, [r0, #0x2e]
+	ldrsh r7, [r0, #0x32]
+	ldr r3, [r4, #4]
+	cmp r3, #0
+	beq _080B2024
+	ldrsb r0, [r3]
+	add r6, r6, r0
+	ldrsb r0, [r3, #1]
+	add r7, r7, r0
+	add r3, r3, #2
+	b _080B202C
+_080B2024:
+	ldr r3, [r0, #0x48]
+	add r3, r3, #6
+_080B202C:
+	ldrsh r0, [fp, #4]
+	sub r6, r6, r0
+	ldrsh r0, [fp, #6]
+	sub r7, r7, r0
+	ldrb r0, [r3]
+	ldrb r1, [r3, #1]
+	ldr r2, [fp, #1]
+	and r2, r2, #3
+	lsl r3, r2, #0x1c
+	lsrs r2, r2, #1
+	rsblo r0, r0, #0
+	subhs r0, r0, #8
+	rsbeq r1, r1, #0
+	subne r1, r1, #8
+	add r0, r0, r6
+	add r1, r1, r7
+	mov r2, #0
+	bl sub_080B20ECEU
+_080B2074EU:
+	add r4, r4, #0xc
+	add r5, r5, #1
+	cmp r5, #0x1f
+	bls _080B1FECEU
+	bx sl
+	arm_func_start sub_080B2088
+sub_080B2088: @ 0x080B2088
+	ldr r5, [r4, #0x48]
+	cmp r5, #0
+	bxeq lr
+	ldrb r0, [r5, #6]
+	ldrb r1, [r5, #7]
+	ldr r2, [fp, #1]
+	and r2, r2, #3
+	lsl r3, r2, #0x1c
+	lsrs r2, r2, #1
+	rsblo r0, r0, #0
+	subhs r0, r0, #8
+	rsbeq r1, r1, #0
+	subne r1, r1, #8
+	ldrsb r2, [r5]
+	add r0, r6, r0
+	add r0, r0, r2
+	ldrsb r2, [r5, #1]
+	add r1, r7, r1
+	add r1, r1, r2
+	mov r2, sb
+	b sub_080B20ECEU
+_080B20DC:
+	mov r0, r6
+	mov r1, r7
+	mov r2, r9
+	mov r3, #0x0
+
+	arm_func_start sub_080B20ECEU
+sub_080B20ECEU: @ 0x080B20EC
+	add ip, r1, #7
+	cmp ip, #0xa8
+	bxhs lr
+	add ip, r0, #7
+	cmp ip, #0xf8
+	bxhs lr
+	and r1, r1, #0xff
+	lsl r0, r0, #0x17
+	orr r0, r1, r0, lsr #7
+	eor r0, r0, r3
+	and r1, r2, #0xc00
+	add r1, r1, #0xff
+	ldrb r3, [fp, #3]
+	add ip, fp, #0x20
+	add ip, ip, r3, lsl #3
+	str r0, [ip]
+	strh r1, [ip, #4]
+	add r3, r3, #1
+	cmp r3, #0x80
+	bhs _080B298C
+	strb r3, [fp, #3]
+	bx lr
+_080B2144:
+	.4byte gUnk_03006954
+	.4byte gUnk_030068F0
+	.4byte gUnk_0300689C
+.endif
 	
 _080B2A30: .4byte gUnk_03000000
 .ifdef EU
+_080B2154: .4byte 0x03006958 @TODO make pointer?
+.endif
+.ifdef DEMO_JP @ TODO deduplicate same as EU
 _080B2154: .4byte 0x03006958 @TODO make pointer?
 .endif
 _080B2A34: .4byte gUnk_081326EC
@@ -1590,5 +1895,8 @@ _080B2A64: .4byte gUnk_03000000
 _080B2A68: .4byte gUnk_0300695C
 _080B2A6C: .4byte 0x3E003F00
 .ifdef EU
+_080B2194: .4byte 0x03003DF8 @TODO pointer?
+.endif
+.ifdef DEMO_JP @ TODO deduplicate same as EU
 _080B2194: .4byte 0x03003DF8 @TODO pointer?
 .endif

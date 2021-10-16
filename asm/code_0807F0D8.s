@@ -1601,7 +1601,7 @@ _0807FC32:
 	.align 2, 0
 _0807FC3C: .4byte gRoomControls
 .else
-.ifdef DEMO @ TODO deduplicate
+.ifdef DEMO_USA @ TODO deduplicate
 	thumb_func_start sub_0807FC24
 sub_0807FC24: @ 0x0807FC24
 	push {lr}
@@ -1617,6 +1617,24 @@ _0807FC32:
 	pop {pc}
 	.align 2, 0
 _0807FC3C: .4byte gRoomControls
+.else
+.ifdef DEMO_JP @ TODO deduplicate, one byte different
+	thumb_func_start sub_0807FC24
+sub_0807FC24: @ 0x0807FC24
+	push {lr}
+	ldr r0, _0807FC3C @ =gRoomControls
+	ldrb r0, [r0, #5]
+	movs r1, #0xd0
+	cmp r0, #1
+	bne _0807FC32
+	movs r1, #0xcf
+_0807FC32:
+	adds r0, r1, #0
+	bl SetLocalFlag
+	pop {pc}
+	.align 2, 0
+_0807FC3C: .4byte gRoomControls
+.endif
 .endif
 .endif
 
