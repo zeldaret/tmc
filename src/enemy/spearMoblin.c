@@ -94,7 +94,7 @@ void sub_08028314(Entity* this) {
         sub_08028604(this);
     }
 
-    pEVar2 = sub_080A7EE0(3);
+    pEVar2 = CreateProjectile(3);
     if (pEVar2 != NULL) {
         pEVar2->parent = this;
         this->attachedEntity = pEVar2;

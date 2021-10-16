@@ -1682,13 +1682,13 @@ _0804A982:
 	mov sl, r5
 	pop {r4, r5, r6, r7, pc}
 
-	thumb_func_start sub_0804A98C
-sub_0804A98C: @ 0x0804A98C
+	thumb_func_start CreateProjectileWithParent
+CreateProjectileWithParent: @ 0x0804A98C
 	push {r4, r5, r6, lr}
 	adds r6, r0, #0
 	adds r0, r1, #0
 	adds r5, r2, #0
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r4, r0, #0
 	cmp r4, #0
 	beq _0804A9A8

@@ -411,8 +411,8 @@ _080A7EDC:
 _080A7EDE:
 	pop {pc}
 
-	thumb_func_start sub_080A7EE0
-sub_080A7EE0: @ 0x080A7EE0
+	thumb_func_start CreateProjectile
+CreateProjectile: @ 0x080A7EE0
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	bl GetEmptyEntity

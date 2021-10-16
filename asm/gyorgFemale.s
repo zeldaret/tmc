@@ -29,7 +29,7 @@ sub_0804614C: @ 0x0804614C
 	cmp r0, #0x3d
 	bhi _08046244
 	movs r0, #0x22
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r1, r0, #0
 	movs r4, #0
 	strb r4, [r1, #0xa]

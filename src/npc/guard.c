@@ -64,7 +64,7 @@ void sub_08063D44(Entity* this) {
     sub_0806EE04(this, gUnk_0810F6BC[this->type], 0);
     switch (this->type) {
         case 0 ... 3:
-            ent = sub_080A7EE0(0xc);
+            ent = CreateProjectile(0xc);
             ent->parent = this;
             ent->field_0xf = 0x3c;
             break;
