@@ -405,7 +405,7 @@ gUnk_080CDBC4:: @ 080CDBC4
 gUnk_080CDBDD:: @ 080CDBDD
 	.incbin "gleerok/gUnk_080CDBDD.bin"
 
-gUnk_080CDC00:: @ 080CDC00
+gSpriteAnimations_Gleerok_1:: @ 080CDC00
 	.4byte gUnk_080CD933
 	.4byte gUnk_080CD937
 	.4byte gUnk_080CD93B
@@ -496,7 +496,7 @@ gUnk_080CDC00:: @ 080CDC00
 	.4byte gUnk_080CDAD5
 	.4byte 00000000
 
-gUnk_080CDD64:: @ 080CDD64
+gSpriteAnimations_Gleerok_0:: @ 080CDD64
 	.4byte gUnk_080CD9FB
 	.4byte gUnk_080CD9FF
 	.4byte gUnk_080CDA03

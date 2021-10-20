@@ -10,7 +10,7 @@ gUnk_08121383:: @ 08121383
 gUnk_08121394:: @ 08121394
 	.incbin "warpPoint/gUnk_08121394.bin"
 
-gUnk_081213B8:: @ 081213B8
+gSpriteAnimations_WarpPoint:: @ 081213B8
 	.4byte gUnk_08121383
 	.4byte gUnk_08121394
 	.4byte 00000000

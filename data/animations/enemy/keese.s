@@ -9,7 +9,7 @@ gUnk_080CB706:: @ 080CB706
 gUnk_080CB71E:: @ 080CB71E
 	.incbin "keese/gUnk_080CB71E.bin"
 
-gUnk_080CB728:: @ 080CB728
+gSpriteAnimations_Keese:: @ 080CB728
 	.4byte gUnk_080CB706
 	.4byte gUnk_080CB71E
 	.4byte 00000000

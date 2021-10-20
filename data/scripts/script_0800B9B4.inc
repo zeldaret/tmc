@@ -13,7 +13,7 @@ script_0800B9D8:
 	_0807EB74
 	DoPostScriptAction 0x0000
 	Call sub_080694D8
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_080694EC
 	_0807E878
 	Jump script_0800B9CA
@@ -26,13 +26,13 @@ script_0800B9F4:
 	_0807E864
 	Call sub_0806948C
 	JumpIf script_0800BA24
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_080694EC
 	Call sub_0807DF50
 	_0807E878
 	Jump script_0800B9CA
 script_0800BA24:
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E9DC
 	_0807E9D4
 	Call sub_080694EC
@@ -49,7 +49,7 @@ script_0800BA46:
 	_0807E864
 	Call sub_0807DF28
 	TextboxNoOverlapFollow 0x3301
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E3E8
 	JumpIfNot script_0800BA6C
 	StopBgm
@@ -78,7 +78,7 @@ script_0800BA8E:
 	_0807EDD4 0x02f0, 0x0350
 	Wait 0x001e
 	TextboxNoOverlap 0x0e00
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x0078
 	Call sub_08054968
 SCRIPT_END

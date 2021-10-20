@@ -10,7 +10,7 @@ gUnk_0810C2F4:: @ 0810C2F4
 gUnk_0810C325:: @ 0810C325
 	.incbin "stamp/gUnk_0810C325.bin"
 
-gUnk_0810C32C:: @ 0810C32C
+gSpriteAnimations_Stamp:: @ 0810C32C
 	.4byte gUnk_0810C2F4
 	.4byte gUnk_0810C2F4
 	.4byte gUnk_0810C2F4

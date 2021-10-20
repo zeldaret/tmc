@@ -78,7 +78,7 @@ script_0800FFCC:
 	CheckInventory1 0x0048
 	JumpIf script_0800FFF8
 	TextboxNoOverlap 0x3401
-	_0807EA94
+	WaitUntilTextboxCloses
 	Jump script_08010060
 script_0800FFF8:
 .ifdef JP
@@ -96,11 +96,11 @@ script_0800FFF8:
 .endif
 	JumpIfNot script_0801000A
 	TextboxNoOverlap 0x340b
-	_0807EA94
+	WaitUntilTextboxCloses
 	Jump script_08010060
 script_0801000A:
 	TextboxNoOverlap 0x3402
-	_0807EA94
+	WaitUntilTextboxCloses
 	Jump script_08010060
 script_08010014:
 	EndBlock
@@ -111,7 +111,7 @@ script_08010014:
 	CallWithArg sub_0807F3D8, 0x00000008
 	PlaySound SFX_TASK_COMPLETE
 	TextboxNoOverlap 0x340a
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x0000000c
 	SetEntitySpeed 0x0100
@@ -150,7 +150,7 @@ script_08010090:
 	_0807EB74
 	CallWithArg sub_080672B0, 0x00000004
 	TextboxNoOverlapFollow 0x0a01
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	_0807EB44 0x0004

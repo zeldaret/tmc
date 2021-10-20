@@ -2393,7 +2393,7 @@ gAreaRoomMaps_MinishCracks:: @ 08104DF0
 	.4byte gAreaRoomMap_MinishCracks_16
 	.4byte gAreaRoomMap_MinishCracks_17
 
-gAreaRoomMap_ArmosInterios_0:: @ 08104E38
+gAreaRoomMap_ArmosInteriors_0:: @ 08104E38
 .ifdef EU
 	map_bottom 0xA595C-0x4, 0x12C, 0
 	map_top 0xA5A88-0x4, 0x12C, 1, 1
@@ -2402,7 +2402,7 @@ gAreaRoomMap_ArmosInterios_0:: @ 08104E38
 	map_top 0xA5A88, 0x12C, 1, 1
 .endif
 
-gAreaRoomMap_ArmosInterios_1:: @ 08104E50
+gAreaRoomMap_ArmosInteriors_1:: @ 08104E50
 .ifdef EU
 	map_bottom 0xA5AC8-0x4, 0x12C, 0
 	map_top 0xA5BF4-0x4, 0x12C, 1, 1
@@ -2411,7 +2411,7 @@ gAreaRoomMap_ArmosInterios_1:: @ 08104E50
 	map_top 0xA5BF4, 0x12C, 1, 1
 .endif
 
-gAreaRoomMap_ArmosInterios_2:: @ 08104E68
+gAreaRoomMap_ArmosInteriors_2:: @ 08104E68
 .ifdef EU
 	map_bottom 0xA5C34-0x4, 0x12C, 0
 	map_top 0xA5D60-0x4, 0x12C, 1, 1
@@ -2420,7 +2420,7 @@ gAreaRoomMap_ArmosInterios_2:: @ 08104E68
 	map_top 0xA5D60, 0x12C, 1, 1
 .endif
 
-gAreaRoomMap_ArmosInterios_3:: @ 08104E80
+gAreaRoomMap_ArmosInteriors_3:: @ 08104E80
 .ifdef EU
 	map_bottom 0xA5DA0-0x4, 0x12C, 0
 	map_top 0xA5ECC-0x4, 0x12C, 1, 1
@@ -2429,7 +2429,7 @@ gAreaRoomMap_ArmosInterios_3:: @ 08104E80
 	map_top 0xA5ECC, 0x12C, 1, 1
 .endif
 
-gAreaRoomMap_ArmosInterios_4:: @ 08104E98
+gAreaRoomMap_ArmosInteriors_4:: @ 08104E98
 .ifdef EU
 	map_bottom 0xA5F0C-0x4, 0x12C, 0
 	map_top 0xA6038-0x4, 0x12C, 1, 1
@@ -2438,7 +2438,7 @@ gAreaRoomMap_ArmosInterios_4:: @ 08104E98
 	map_top 0xA6038, 0x12C, 1, 1
 .endif
 
-gAreaRoomMap_ArmosInterios_5:: @ 08104EB0
+gAreaRoomMap_ArmosInteriors_5:: @ 08104EB0
 .ifdef EU
 	map_bottom 0xA6078-0x4, 0x12C, 0
 	map_top 0xA61A4-0x4, 0x12C, 1, 1
@@ -2447,7 +2447,7 @@ gAreaRoomMap_ArmosInterios_5:: @ 08104EB0
 	map_top 0xA61A4, 0x12C, 1, 1
 .endif
 
-gAreaRoomMap_ArmosInterios_6:: @ 08104EC8
+gAreaRoomMap_ArmosInteriors_6:: @ 08104EC8
 .ifdef EU
 	map_bottom 0xA61E4-0x4, 0x12C, 0
 	map_top 0xA6310-0x4, 0x12C, 1, 1
@@ -2456,7 +2456,7 @@ gAreaRoomMap_ArmosInterios_6:: @ 08104EC8
 	map_top 0xA6310, 0x12C, 1, 1
 .endif
 
-gAreaRoomMap_ArmosInterios_7:: @ 08104EE0
+gAreaRoomMap_ArmosInteriors_7:: @ 08104EE0
 .ifdef EU
 	map_bottom 0xA6350-0x4, 0x12C, 0
 	map_top 0xA647C-0x4, 0x12C, 1, 1
@@ -2465,7 +2465,7 @@ gAreaRoomMap_ArmosInterios_7:: @ 08104EE0
 	map_top 0xA647C, 0x12C, 1, 1
 .endif
 
-gAreaRoomMap_ArmosInterios_8:: @ 08104EF8
+gAreaRoomMap_ArmosInteriors_8:: @ 08104EF8
 .ifdef EU
 	map_bottom 0xA64BC-0x4, 0x12C, 0
 	map_top 0xA65E8-0x4, 0x12C, 1, 1
@@ -2474,7 +2474,7 @@ gAreaRoomMap_ArmosInterios_8:: @ 08104EF8
 	map_top 0xA65E8, 0x12C, 1, 1
 .endif
 
-gAreaRoomMap_ArmosInterios_9:: @ 08104F10
+gAreaRoomMap_ArmosInteriors_9:: @ 08104F10
 .ifdef EU
 	map_bottom 0xA6628-0x4, 0x12C, 0
 	map_top 0xA6754-0x4, 0x12C, 1, 1
@@ -2483,7 +2483,7 @@ gAreaRoomMap_ArmosInterios_9:: @ 08104F10
 	map_top 0xA6754, 0x12C, 1, 1
 .endif
 
-gAreaRoomMap_ArmosInterios_10:: @ 08104F28
+gAreaRoomMap_ArmosInteriors_10:: @ 08104F28
 .ifdef EU
 	map_bottom 0xA6794-0x4, 0x12C, 0
 	map_top 0xA68C0-0x4, 0x12C, 1, 1
@@ -2493,17 +2493,17 @@ gAreaRoomMap_ArmosInterios_10:: @ 08104F28
 .endif
 
 gAreaRoomMaps_ArmosInteriors:: @ 08104F40
-	.4byte gAreaRoomMap_ArmosInterios_0
-	.4byte gAreaRoomMap_ArmosInterios_1
-	.4byte gAreaRoomMap_ArmosInterios_2
-	.4byte gAreaRoomMap_ArmosInterios_3
-	.4byte gAreaRoomMap_ArmosInterios_4
-	.4byte gAreaRoomMap_ArmosInterios_5
-	.4byte gAreaRoomMap_ArmosInterios_6
-	.4byte gAreaRoomMap_ArmosInterios_7
-	.4byte gAreaRoomMap_ArmosInterios_8
-	.4byte gAreaRoomMap_ArmosInterios_9
-	.4byte gAreaRoomMap_ArmosInterios_10
+	.4byte gAreaRoomMap_ArmosInteriors_0
+	.4byte gAreaRoomMap_ArmosInteriors_1
+	.4byte gAreaRoomMap_ArmosInteriors_2
+	.4byte gAreaRoomMap_ArmosInteriors_3
+	.4byte gAreaRoomMap_ArmosInteriors_4
+	.4byte gAreaRoomMap_ArmosInteriors_5
+	.4byte gAreaRoomMap_ArmosInteriors_6
+	.4byte gAreaRoomMap_ArmosInteriors_7
+	.4byte gAreaRoomMap_ArmosInteriors_8
+	.4byte gAreaRoomMap_ArmosInteriors_9
+	.4byte gAreaRoomMap_ArmosInteriors_10
 
 gAreaRoomMap_MinishRafters_0:: @ 08104F6C
 .ifdef EU

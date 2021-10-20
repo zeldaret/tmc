@@ -13,7 +13,7 @@ gUnk_080CEF0C:: @ 080CEF0C
 gUnk_080CEF1D:: @ 080CEF1D
 	.incbin "mazaalMacro/gUnk_080CEF1D.bin"
 
-gUnk_080CEF24:: @ 080CEF24
+gSpriteAnimations_MazaalMacro:: @ 080CEF24
 	.4byte gUnk_080CEF0C
 	.4byte gUnk_080CEF08
 	.4byte gUnk_080CEF1D

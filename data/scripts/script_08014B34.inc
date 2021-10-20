@@ -16,7 +16,7 @@ script_08014B48:
 	_0807E864
 	_0807EB74
 	TextboxNoOverlap 0x2f01
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_08014B48
@@ -57,14 +57,14 @@ script_08014BF2:
 	JumpIf script_08014C1C
 	SetLocalFlag 0x0065
 	TextboxNoOverlap 0x2f07
-	_0807EA94
+	WaitUntilTextboxCloses
 	SetIntVariable 0x00000064
 	_0807F034 0x003f
 	WaitPlayerAction8
 	Jump script_08014C22
 script_08014C1C:
 	TextboxNoOverlap 0x2f08
-	_0807EA94
+	WaitUntilTextboxCloses
 script_08014C22:
 	Wait 0x000f
 	_0807E878
@@ -91,13 +91,13 @@ script_08014C56:
 	JumpIf script_08014C7C
 	SetLocalFlag 0x0066
 	TextboxNoOverlap 0x2f0d
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807F034 0x000a
 	WaitPlayerAction8
 	Jump script_08014C82
 script_08014C7C:
 	TextboxNoOverlap 0x2f09
-	_0807EA94
+	WaitUntilTextboxCloses
 script_08014C82:
 	Wait 0x000f
 	_0807E878
@@ -123,7 +123,7 @@ script_08014CAE:
 	_0807E864
 	_0807EB74
 	Call sub_0806C90C
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_08014CAE
 script_08014CD4:

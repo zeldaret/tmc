@@ -22,7 +22,7 @@ gUnk_081235B6:: @ 081235B6
 gUnk_081235EB:: @ 081235EB
 	.incbin "picoBloom/gUnk_081235EB.bin"
 
-gUnk_08123620:: @ 08123620
+gSpriteAnimations_PicoBloom:: @ 08123620
 	.4byte gUnk_0812357A
 	.4byte gUnk_081235B6
 	.4byte gUnk_081235AC

@@ -16,7 +16,7 @@ gUnk_08123CCE:: @ 08123CCE
 gUnk_08123CEB:: @ 08123CEB
 	.incbin "macroBook/gUnk_08123CEB.bin"
 
-gUnk_08123D14:: @ 08123D14
+gSpriteAnimations_MacroBook:: @ 08123D14
 	.4byte gUnk_08123CB8
 	.4byte gUnk_08123CBD
 	.4byte gUnk_08123CCE

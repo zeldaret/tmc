@@ -24,7 +24,7 @@ gUnk_080CBE8A:: @ 080CBE8A
 gUnk_080CBE9E:: @ 080CBE9E
 	.incbin "sluggula/gUnk_080CBE9E.bin"
 
-gUnk_080CBEA4:: @ 080CBEA4
+gSpriteAnimations_Sluggula:: @ 080CBEA4
 	.4byte gUnk_080CBE02
 	.4byte gUnk_080CBE1B
 	.4byte gUnk_080CBE34

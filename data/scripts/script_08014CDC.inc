@@ -12,7 +12,7 @@ SCRIPT_START script_08014CDC
 	Call sub_08066E08
 	_0807E864
 	TextboxNoOverlapFollowPos 0x1010, 0x000c
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000002
 script_08014D1E:
 	EndBlock
@@ -24,7 +24,7 @@ script_08014D1E:
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	TextboxNoOverlap 0x1012
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807EC64 0x0040
 	_0807EB44 0x0004
 	Call sub_08066E08
@@ -37,7 +37,7 @@ script_08014D60:
 	_0807E864
 	Call sub_0807DF28
 	TextboxNoOverlap 0x1013
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807EC64 0x0040
 	_0807EB44 0x0004
 	DoPostScriptAction 0x0000
@@ -51,7 +51,7 @@ script_08014D96:
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	TextboxNoOverlap 0x1014
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807EC64 0x0018
 .ifdef JP
 	SetLocalFlag 0x006b

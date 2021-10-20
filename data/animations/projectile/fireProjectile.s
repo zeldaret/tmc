@@ -28,7 +28,7 @@ gUnk_0812987A:: @ 0812987A
 gUnk_08129887:: @ 08129887
 	.incbin "projectile8/gUnk_08129887.bin"
 
-gUnk_08129894:: @ 08129894
+gSpriteAnimations_FireProjectile:: @ 08129894
 	.4byte gUnk_0812983C
 	.4byte gUnk_08129845
 	.4byte gUnk_0812984E

@@ -49,7 +49,7 @@ gUnk_08110479:: @ 08110479
 gUnk_0811047E:: @ 0811047E
 	.incbin "smith/gUnk_0811047E.bin"
 
-gUnk_08110484:: @ 08110484
+gSpriteAnimations_Smith:: @ 08110484
 	.4byte gUnk_081103E4
 	.4byte gUnk_081103E9
 	.4byte gUnk_081103EE

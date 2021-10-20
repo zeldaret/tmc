@@ -19,7 +19,7 @@ gUnk_081237C6:: @ 081237C6
 gUnk_081237CA:: @ 081237CA
 	.incbin "bigIceBlock/gUnk_081237CA.bin"
 
-gUnk_081237E0:: @ 081237E0
+gSpriteAnimations_BigIceBlock:: @ 081237E0
 	.4byte gUnk_081237BA
 	.4byte gUnk_081237BE
 	.4byte gUnk_081237C2

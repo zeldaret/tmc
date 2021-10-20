@@ -52,7 +52,7 @@ gUnk_080D00A2:: @ 080D00A2
 gUnk_080D00B7:: @ 080D00B7
 	.incbin "bowMoblin/gUnk_080D00B7.bin"
 
-gUnk_080D00CC:: @ 080D00CC
+gSpriteAnimations_BowMoblin:: @ 080D00CC
 	.4byte gUnk_080CFFCC
 	.4byte gUnk_080CFFD5
 	.4byte gUnk_080CFFDE

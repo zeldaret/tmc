@@ -11,7 +11,7 @@ SCRIPT_START script_08012CD8
 	Call sub_0807DF28
 	EndBlock
 	_0807EB28 0x2203
-	_0807EA94
+	WaitUntilTextboxCloses
 .ifdef JP
 	SetLocalFlag 0x003d
 .else

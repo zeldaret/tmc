@@ -21,7 +21,7 @@ gUnk_080CB8F0:: @ 080CB8F0
 gUnk_080CB901:: @ 080CB901
 	.incbin "doorMimic/gUnk_080CB901.bin"
 
-gUnk_080CB914:: @ 080CB914
+gSpriteAnimations_DoorMimic:: @ 080CB914
 	.4byte gUnk_080CB8B4
 	.4byte gUnk_080CB8B9
 	.4byte gUnk_080CB8B9

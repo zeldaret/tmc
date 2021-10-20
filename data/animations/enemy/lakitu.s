@@ -103,7 +103,7 @@ gUnk_080D0392:: @ 080D0392
 gUnk_080D03A3:: @ 080D03A3
 	.incbin "lakitu/gUnk_080D03A3.bin"
 
-gUnk_080D03B4:: @ 080D03B4
+gSpriteAnimations_Lakitu:: @ 080D03B4
 	.4byte gUnk_080D015C
 	.4byte gUnk_080D016D
 	.4byte gUnk_080D017E

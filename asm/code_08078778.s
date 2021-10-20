@@ -1966,7 +1966,7 @@ sub_08079708: @ 0x08079708
 	ands r0, r1
 	cmp r0, #0
 	bne _0807973E
-	bl sub_0805E544
+	bl FreezeTime
 _0807973E:
 	pop {r4, pc}
 	.align 2, 0

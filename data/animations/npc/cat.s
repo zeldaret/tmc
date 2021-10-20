@@ -65,7 +65,7 @@ gUnk_0811122C:: @ 0811122C
 gUnk_08111238:: @ 08111238
 	.incbin "cat/gUnk_08111238.bin"
 
-gUnk_0811125C:: @ 0811125C
+gSpriteAnimations_Cat:: @ 0811125C
 	.4byte gUnk_08111174
 	.4byte gUnk_081111B0
 	.4byte gUnk_081111B9

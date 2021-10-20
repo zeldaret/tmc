@@ -40,7 +40,7 @@ gUnk_080CE8F2:: @ 080CE8F2
 gUnk_080CE91B:: @ 080CE91B
 	.incbin "keaton/gUnk_080CE91B.bin"
 
-gUnk_080CE944:: @ 080CE944
+gSpriteAnimations_Keaton:: @ 080CE944
 	.4byte gUnk_080CE818
 	.4byte gUnk_080CE829
 	.4byte gUnk_080CE83A

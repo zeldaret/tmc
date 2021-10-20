@@ -100,7 +100,7 @@ gUnk_08129EF2:: @ 08129EF2
 gUnk_08129F13:: @ 08129F13
 	.incbin "projectile13/gUnk_08129F13.bin"
 
-gUnk_08129F34:: @ 08129F34
+gSpriteAnimations_MandiblesProjectile:: @ 08129F34
 	.4byte gUnk_08129D1C
 	.4byte gUnk_08129D21
 	.4byte gUnk_08129D26

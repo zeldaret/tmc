@@ -11,7 +11,7 @@ script_0800F564:
 	_0807EB74
 	Call sub_08061FE4
 	Call sub_08061FF4
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_0800F564
 	.2byte 0x0000
@@ -27,7 +27,7 @@ script_0800F592:
 	_0807E864
 	_0807EB74
 	Call sub_0806265C
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	DoPostScriptAction 0x0001
 	Jump script_0800F592
@@ -46,7 +46,7 @@ script_0800F5C8:
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000008
 	Call sub_08064428
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_0800F5C8
 	.2byte 0x0000
@@ -65,7 +65,7 @@ script_0800F604:
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000008
 	TextboxNoOverlap 0x2511
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800F604
@@ -81,7 +81,7 @@ script_0800F636:
 	_0807E864
 	_0807EB74
 	Call sub_0806C90C
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_0800F636
 	.2byte 0x0000
@@ -99,7 +99,7 @@ script_0800F662:
 	_0807EB74
 	DoPostScriptAction 0x0001
 	Call sub_0806B4F0
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	DoPostScriptAction 0x0000
@@ -140,7 +140,7 @@ script_0800F6A0:
 script_0800F6C4:
 	TextboxNoOverlap 0x251f
 script_0800F6C8:
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	CallWithArg sub_0807F3D8, 0x00000000
@@ -173,7 +173,7 @@ script_0800F6F4:
 	_0807E864
 	_0807EB74
 	Call sub_0806265C
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	DoPostScriptAction 0x0001
 	Jump script_0800F6F4

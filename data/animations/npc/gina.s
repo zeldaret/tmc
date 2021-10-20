@@ -26,7 +26,7 @@ gUnk_081135DD:: @ 081135DD
 gUnk_081135E2:: @ 081135E2
 	.incbin "gina/gUnk_081135E2.bin"
 
-gUnk_081135E8:: @ 081135E8
+gSpriteAnimations_Gina:: @ 081135E8
 	.4byte gUnk_0811352C
 	.4byte gUnk_0811354D
 	.4byte gUnk_0811352C

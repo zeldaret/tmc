@@ -11,7 +11,7 @@ script_08012C7E:
 	_0807E864
 	_0807E8E4_0
 	TextboxNoOverlapFollow 0x111d
-	_0807EA94
+	WaitUntilTextboxCloses
 	SetGlobalFlag 0x0022
 	_0807E878
 	Jump script_08012C7E
@@ -30,7 +30,7 @@ script_08012CA0:
 	_0807E864
 	Call sub_0807DF28
 	_0807EB28 0x2202
-	_0807EA94
+	WaitUntilTextboxCloses
 .ifdef JP
 	SetLocalFlag 0x003a
 .else

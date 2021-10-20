@@ -762,7 +762,7 @@ _0801DE46:
 	beq _0801DEE0
 	ldr r2, _0801DEF8 @ =0x040000D4
 	ldr r0, [r4, #4]
-	ldr r1, _0801DEFC @ =gUnk_08324AE4
+	ldr r1, _0801DEFC @ =gAssets
 	adds r0, r0, r1
 	str r0, [r2]
 	ldr r0, _0801DF00 @ =gUnk_02019EE0
@@ -847,7 +847,7 @@ _0801DEEA:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _0801DEF8: .4byte 0x040000D4
-_0801DEFC: .4byte gUnk_08324AE4
+_0801DEFC: .4byte gAssets
 _0801DF00: .4byte gUnk_02019EE0
 _0801DF04: .4byte 0x84000100
 _0801DF08: .4byte gAreaRoomHeaders

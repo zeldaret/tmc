@@ -28,7 +28,7 @@ gUnk_08113446:: @ 08113446
 gUnk_0811344F:: @ 0811344F
 	.incbin "drLeft/gUnk_0811344F.bin"
 
-gUnk_08113490:: @ 08113490
+gSpriteAnimations_DrLeft:: @ 08113490
 	.4byte gUnk_081133B8
 	.4byte gUnk_081133B8
 	.4byte gUnk_081133B8

@@ -12,7 +12,7 @@ script_08014E2C:
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000000
 	Call sub_08064428
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_08014E2C
 	.2byte 0x0000
@@ -30,7 +30,7 @@ script_08014E64:
 	Call sub_0807DF28
 	_0807EB74
 	CallWithArg sub_0807F78C, 0x00000022
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E3E8
 	JumpIfNot script_08014EBC
 	CallWithArg sub_0807F7C4, 0x00000022
@@ -47,7 +47,7 @@ script_08014EB0:
 script_08014EB8:
 	TextboxNoOverlap 0x0a02
 script_08014EBC:
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
 	Jump script_08014E64
@@ -65,7 +65,7 @@ script_08014EE0:
 	_0807E864
 	_0807EB74
 	TextboxNoOverlap 0x200d
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_08014EE0
 	.2byte 0x0000
@@ -83,7 +83,7 @@ script_08014F0C:
 	_0807EB74
 	DoPostScriptAction 0x0000
 	TextboxNoOverlap 0x200e
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	_0807EB44 0x0004
 	_0807E930 0x000a
@@ -108,7 +108,7 @@ script_08014F4A:
 	TextboxNoOverlap 0x3b0b
 	CallWithArg sub_0807F854, 0x00010064
 	EndBlock
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E3E8
 	JumpIfNot script_08014FA6
 	HasRupees 0x0064
@@ -126,7 +126,7 @@ script_08014F9A:
 script_08014FA2:
 	TextboxNoOverlap 0x3b0f
 script_08014FA6:
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
 	_0807EB44 0x0004
@@ -149,7 +149,7 @@ script_08014FCC:
 	StartPlayerScript script_080152B4
 	WaitForSomething2 0x00000001
 	TextboxNoOverlapFollowPos 0x1301, 0x0002
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0807F3F8
 	Wait 0x003c
 	_0807E5F8 0x00000002
@@ -158,17 +158,17 @@ script_08014FCC:
 	WaitForSomething2 0x00000004
 	PlayBgm BGM_VAATI_THEME
 	_0807EB28 0x1302
-	_0807EA94
+	WaitUntilTextboxCloses
 	TextboxNoOverlapFollowPos 0x1303, 0x0002
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807EB28 0x1304
-	_0807EA94
+	WaitUntilTextboxCloses
 	TextboxNoOverlapFollowPos 0x1305, 0x0002
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000002
 	WaitForSomething2 0x00000004
 	_0807EB28 0x1306
-	_0807EA94
+	WaitUntilTextboxCloses
 	StopBgm
 	StartPlayerScript script_080152DC
 	CameraTargetEntity
@@ -253,7 +253,7 @@ script_08015104:
 .endif
 .endif
 	_0807EB28 0x130c
-	_0807EA94
+	WaitUntilTextboxCloses
 	CameraTargetPlayer
 	_0807E778 0x0004
 	_0807E80C 0x00000000
@@ -281,7 +281,7 @@ script_08015104:
 	_0807E8E4_2
 	_0807EB28 0x1315
 	EndBlock
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807F0B4 0x0004
 	CameraTargetPlayer
 	Call sub_08054570

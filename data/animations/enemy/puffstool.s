@@ -30,7 +30,7 @@ gUnk_080CC158:: @ 080CC158
 gUnk_080CC165:: @ 080CC165
 	.incbin "puffstool/gUnk_080CC165.bin"
 
-gUnk_080CC174:: @ 080CC174
+gSpriteAnimations_Puffstool:: @ 080CC174
 	.4byte gUnk_080CC0CA
 	.4byte gUnk_080CC10B
 	.4byte gUnk_080CC118

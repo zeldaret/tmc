@@ -18,7 +18,7 @@ extern void HandleGameOverScreen(void);
 extern void HandleCreditsScreen(void);
 extern void HandleDebugTextScreen(void);
 
-static void (*const sScreenHandlers[])(void) = {
+void (*const sScreenHandlers[])(void) = {
     [SCREEN_INTRO] = HandleIntroScreen,
 #ifdef DEMO_USA
     [SCREEN_CHOOSE_FILE] = HandleChooseDemoScreen,

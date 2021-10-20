@@ -13,7 +13,7 @@ gUnk_081139CD:: @ 081139CD
 gUnk_081139EA:: @ 081139EA
 	.incbin "teachers/gUnk_081139EA.bin"
 
-gUnk_08113A08:: @ 08113A08
+gSpriteAnimations_Teachers:: @ 08113A08
 	.4byte gUnk_081139B0
 	.4byte gUnk_081139EA
 	.4byte gUnk_081139B0

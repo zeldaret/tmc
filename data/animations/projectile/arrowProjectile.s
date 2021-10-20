@@ -17,7 +17,7 @@ gUnk_08129A32:: @ 08129A32
 gUnk_08129A43:: @ 08129A43
 	.incbin "projectileD/gUnk_08129A43.bin"
 
-gUnk_08129A54:: @ 08129A54
+gSpriteAnimations_ArrowProjectile:: @ 08129A54
 	.4byte gUnk_08129A28
 	.4byte gUnk_08129A2D
 	.4byte gUnk_08129A32

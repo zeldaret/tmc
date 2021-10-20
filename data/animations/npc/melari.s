@@ -19,7 +19,7 @@ gUnk_08111553:: @ 08111553
 gUnk_0811158C:: @ 0811158C
 	.incbin "melari/gUnk_0811158C.bin"
 
-gUnk_08111594:: @ 08111594
+gSpriteAnimations_Melari:: @ 08111594
 	.4byte gUnk_08111549
 	.4byte gUnk_08111544
 	.4byte gUnk_08111549

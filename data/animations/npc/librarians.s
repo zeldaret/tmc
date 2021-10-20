@@ -13,7 +13,7 @@ gUnk_08113083:: @ 08113083
 gUnk_08113090:: @ 08113090
 	.incbin "librarians/gUnk_08113090.bin"
 
-gUnk_081130A0:: @ 081130A0
+gSpriteAnimations_Librarians_0:: @ 081130A0
 	.4byte gUnk_0811307E
 	.4byte gUnk_0811307E
 	.4byte gUnk_0811307E
@@ -41,7 +41,7 @@ gUnk_081130EA:: @ 081130EA
 gUnk_081130F7:: @ 081130F7
 	.incbin "librarians/gUnk_081130F7.bin"
 
-gUnk_08113108:: @ 08113108
+gSpriteAnimations_Librarians_1:: @ 08113108
 	.4byte gUnk_081130D8
 	.4byte gUnk_081130D8
 	.4byte gUnk_081130D8

@@ -18,7 +18,7 @@ script_0800FF34:
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000008
 	Call sub_08064428
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800FF34

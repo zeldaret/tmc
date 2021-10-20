@@ -16,7 +16,7 @@ gUnk_0810F9FE:: @ 0810F9FE
 gUnk_0810FA03:: @ 0810FA03
 	.incbin "farore/gUnk_0810FA03.bin"
 
-gUnk_0810FA14:: @ 0810FA14
+gSpriteAnimations_Farore:: @ 0810FA14
 	.4byte gUnk_0810F9F4
 	.4byte gUnk_0810F9FE
 	.4byte gUnk_0810F9F4

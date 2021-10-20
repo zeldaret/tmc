@@ -16,7 +16,7 @@ gUnk_0810F976:: @ 0810F976
 gUnk_0810F97B:: @ 0810F97B
 	.incbin "din/gUnk_0810F97B.bin"
 
-gUnk_0810F98C:: @ 0810F98C
+gSpriteAnimations_Din:: @ 0810F98C
 	.4byte gUnk_0810F96C
 	.4byte gUnk_0810F976
 	.4byte gUnk_0810F96C

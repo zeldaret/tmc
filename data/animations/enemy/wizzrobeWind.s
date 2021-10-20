@@ -29,7 +29,7 @@ gUnk_080CDF96:: @ 080CDF96
 gUnk_080CDF9B:: @ 080CDF9B
 	.incbin "wizzrobeWind/gUnk_080CDF9B.bin"
 
-gUnk_080CDFA0:: @ 080CDFA0
+gSpriteAnimations_WizzrobeWind:: @ 080CDFA0
 	.4byte gUnk_080CDF78
 	.4byte gUnk_080CDF7D
 	.4byte gUnk_080CDF82

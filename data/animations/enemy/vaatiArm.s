@@ -67,7 +67,7 @@ gUnk_080D1525:: @ 080D1525
 gUnk_080D152A:: @ 080D152A
 	.incbin "vaatiArm/gUnk_080D152A.bin"
 
-gUnk_080D1530:: @ 080D1530
+gSpriteAnimations_VaatiArm:: @ 080D1530
 	.4byte gUnk_080D141E
 	.4byte gUnk_080D142B
 	.4byte gUnk_080D1430

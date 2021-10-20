@@ -70,7 +70,7 @@ gUnk_08122533:: @ 08122533
 gUnk_08122538:: @ 08122538
 	.incbin "minecart/gUnk_08122538.bin"
 
-gUnk_08122540:: @ 08122540
+gSpriteAnimations_Minecart:: @ 08122540
 	.4byte gUnk_08122450
 	.4byte gUnk_08122462
 	.4byte gUnk_08122459

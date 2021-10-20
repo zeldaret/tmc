@@ -16,7 +16,7 @@ gUnk_081249DA:: @ 081249DA
 gUnk_081249EB:: @ 081249EB
 	.incbin "objectB2/gUnk_081249EB.bin"
 
-gUnk_081249FC:: @ 081249FC
+gSpriteAnimations_ObjectB2:: @ 081249FC
 	.4byte gUnk_081249B8
 	.4byte gUnk_081249C9
 	.4byte gUnk_081249DA

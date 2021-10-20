@@ -33,7 +33,7 @@ gUnk_080CD688:: @ 080CD688
 gUnk_080CD6AC:: @ 080CD6AC
 	.incbin "bobomb/gUnk_080CD6AC.bin"
 
-gUnk_080CD6D0:: @ 080CD6D0
+gSpriteAnimations_Bobomb:: @ 080CD6D0
 	.4byte gUnk_080CD628
 	.4byte gUnk_080CD639
 	.4byte gUnk_080CD64A

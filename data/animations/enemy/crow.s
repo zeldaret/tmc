@@ -23,7 +23,7 @@ gUnk_080CE9DC:: @ 080CE9DC
 gUnk_080CE9ED:: @ 080CE9ED
 	.incbin "crow/gUnk_080CE9ED.bin"
 
-gUnk_080CEA00:: @ 080CEA00
+gSpriteAnimations_Crow:: @ 080CEA00
 	.4byte gUnk_080CE9B0
 	.4byte gUnk_080CE9B5
 	.4byte gUnk_080CE9BA

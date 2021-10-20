@@ -37,11 +37,12 @@ gUnk_080C8F2C:: @ 080C8F2C
 gUnk_080C8F54:: @ 080C8F54
 	.incbin "data_080B7B74/gUnk_080C8F54.bin"
 
+@ TODO this data is accessed using DMA in sub_0801C85C
 gUnk_080C8F7C:: @ 080C8F7C
-	.4byte gUnk_085C4DA0
-	.4byte gUnk_085C4E60
-	.4byte gUnk_085C4F20
-	.4byte gUnk_085C4FE0
+	.4byte gUnk_data0_085C4DA0
+	.4byte gUnk_data1_085C4E60
+	.4byte gUnk_data2_085C4F20
+	.4byte gUnk_data3_085C4FE0
 
 
 gUnk_080C8F8C:: @ 080C8F8C

@@ -48,7 +48,7 @@ gUnk_081327AC:: @ 081327AC
 gUnk_081327C4:: @ 081327C4
 	.incbin "playerItemGustJar/gUnk_081327C4.bin"
 
-gUnk_081327DC:: @ 081327DC
+gSpriteAnimations_ItemGustJar:: @ 081327DC
 	.4byte gUnk_08132754
 	.4byte gUnk_08132744
 	.4byte gUnk_08132734
@@ -63,8 +63,8 @@ gUnk_081327DC:: @ 081327DC
 	.4byte gUnk_081327AC
 	.4byte 00000000
 
-gUnk_08132810:: @ 08132810
-	.incbin "playerItemGustJar/gUnk_08132810.bin"
+gSpriteFrames_23:: @ 08132810
+	.incbin "playerItemGustJar/gSpriteFrames_23.bin"
 
 gUnk_08132AE0:: @ 08132AE0
 	.incbin "playerItemGustJar/gUnk_08132AE0.bin"

@@ -28,7 +28,7 @@ gUnk_08111D02:: @ 08111D02
 gUnk_08111D1B:: @ 08111D1B
 	.incbin "gorman/gUnk_08111D1B.bin"
 
-gUnk_08111D34:: @ 08111D34
+gSpriteAnimations_Gorman:: @ 08111D34
 	.4byte gUnk_08111CBC
 	.4byte gUnk_08111CC1
 	.4byte gUnk_08111CC6

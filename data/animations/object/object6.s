@@ -112,7 +112,7 @@ gUnk_0811F575:: @ 0811F575
 gUnk_0811F58A:: @ 0811F58A
 	.incbin "object6/gUnk_0811F58A.bin"
 
-gUnk_0811F590:: @ 0811F590
+gSpriteAnimations_Object6:: @ 0811F590
 	.4byte gUnk_0811F190
 	.4byte gUnk_0811F1AD
 	.4byte gUnk_0811F1CA

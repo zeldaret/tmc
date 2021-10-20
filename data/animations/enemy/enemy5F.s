@@ -31,7 +31,7 @@ gUnk_080D1E21:: @ 080D1E21
 gUnk_080D1E32:: @ 080D1E32
 	.incbin "enemy5F/gUnk_080D1E32.bin"
 
-gUnk_080D1E44:: @ 080D1E44
+gSpriteAnimations_Enemy5F:: @ 080D1E44
 	.4byte gUnk_080D1DA0
 	.4byte gUnk_080D1DC8
 	.4byte gUnk_080D1DCC

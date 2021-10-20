@@ -64,7 +64,7 @@ gUnk_08111A1C:: @ 08111A1C
 gUnk_08111A24:: @ 08111A24
 	.incbin "cow/gUnk_08111A24.bin"
 
-gUnk_08111A2C:: @ 08111A2C
+gSpriteAnimations_Cow:: @ 08111A2C
 	.4byte gUnk_08111960
 	.4byte gUnk_08111965
 	.4byte gUnk_0811196A

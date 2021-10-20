@@ -12,7 +12,7 @@ script_08010AB4:
 	_0807EB74
 	CallWithArg sub_080672B0, 0x00000004
 	Call sub_08067304
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	_0807EB44 0x0004
 	CallWithArg sub_080672B0, 0x00000000
@@ -27,7 +27,7 @@ SCRIPT_START script_08010AE4
 	CallWithArg sub_0807F348
 	Call sub_0806075C
 	EndBlock
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_080606C0
 script_08010B10:
 	EndBlock

@@ -6,6 +6,6 @@
 gUnk_080CD258:: @ 080CD258
 	.incbin "spark/gUnk_080CD258.bin"
 
-gUnk_080CD274:: @ 080CD274
+gSpriteAnimations_Spark:: @ 080CD274
 	.4byte gUnk_080CD258
 	.4byte 00000000

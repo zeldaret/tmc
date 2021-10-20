@@ -19,7 +19,7 @@ gUnk_0810FCAD:: @ 0810FCAD
 gUnk_0810FCCE:: @ 0810FCCE
 	.incbin "tingleSiblings/gUnk_0810FCCE.bin"
 
-gUnk_0810FD6C:: @ 0810FD6C
+gSpriteAnimations_TingleSiblings:: @ 0810FD6C
 	.4byte gUnk_0810FC5E
 	.4byte gUnk_0810FC54
 	.4byte gUnk_0810FC5E

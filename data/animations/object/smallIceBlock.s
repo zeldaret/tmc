@@ -16,7 +16,7 @@ gUnk_08123772:: @ 08123772
 gUnk_08123776:: @ 08123776
 	.incbin "smallIceBlock/gUnk_08123776.bin"
 
-gUnk_0812378C:: @ 0812378C
+gSpriteAnimations_SmallIceBlock:: @ 0812378C
 	.4byte gUnk_0812376A
 	.4byte gUnk_0812376E
 	.4byte gUnk_08123772

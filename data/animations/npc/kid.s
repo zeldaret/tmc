@@ -55,7 +55,7 @@ gUnk_0810C1D7:: @ 0810C1D7
 gUnk_0810C1DC:: @ 0810C1DC
 	.incbin "kid/gUnk_0810C1DC.bin"
 
-gUnk_0810C1E4:: @ 0810C1E4
+gSpriteAnimations_Kid:: @ 0810C1E4
 	.4byte gUnk_0810C0C4
 	.4byte gUnk_0810C0C9
 	.4byte gUnk_0810C0CE

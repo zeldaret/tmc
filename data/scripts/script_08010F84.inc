@@ -5,7 +5,7 @@ SCRIPT_START script_08010F84
 	StartPlayerScript script_080110BC
 	WaitForSomething2 0x00000400
 	TextboxNoOverlapFollowPos 0x1047, 0x0000
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0806DC3C
 	Call sub_080791BC
 	CallWithArg sub_0807F244, 0x0000000d
@@ -29,11 +29,11 @@ SCRIPT_START script_08010F84
 	StopBgm
 	Wait 0x003c
 	TextboxNoOverlapFollowPos 0x104a, 0x0000
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000100
 	WaitForSomething2 0x00000200
 	TextboxNoOverlapFollowPos 0x1049, 0x0000
-	_0807EA94
+	WaitUntilTextboxCloses
 	SetEntityPositionRelative 0x01f8, 0x0098
 	Wait 0x0078
 	_0807E5F8 0x00000100

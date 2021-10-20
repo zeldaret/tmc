@@ -13,7 +13,7 @@ gUnk_080CA500:: @ 080CA500
 gUnk_080CA51C:: @ 080CA51C
 	.incbin "leever/gUnk_080CA51C.bin"
 
-gUnk_080CA560:: @ 080CA560
+gSpriteAnimations_Leever:: @ 080CA560
 	.4byte gUnk_080CA4D4
 	.4byte gUnk_080CA500
 	.4byte gUnk_080CA51C

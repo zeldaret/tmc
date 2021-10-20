@@ -28,7 +28,7 @@ gUnk_080CA1CE:: @ 080CA1CE
 gUnk_080CA1E3:: @ 080CA1E3
 	.incbin "octorok/gUnk_080CA1E3.bin"
 
-gUnk_080CA1F8:: @ 080CA1F8
+gSpriteAnimations_Octorok:: @ 080CA1F8
 	.4byte gUnk_080CA180
 	.4byte gUnk_080CA189
 	.4byte gUnk_080CA192

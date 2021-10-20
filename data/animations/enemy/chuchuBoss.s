@@ -87,7 +87,7 @@ gUnk_080CC65C:: @ 080CC65C
 gUnk_080CC67D:: @ 080CC67D
 	.incbin "chuchuBoss/gUnk_080CC67D.bin"
 
-gUnk_080CC684:: @ 080CC684
+gSpriteAnimations_ChuchuBoss_1:: @ 080CC684
 	.4byte gUnk_080CC2DF
 	.4byte gUnk_080CC2E3
 	.4byte gUnk_080CC2E7
@@ -95,7 +95,7 @@ gUnk_080CC684:: @ 080CC684
 	.4byte gUnk_080CC67D
 	.4byte 00000000
 
-gUnk_080CC69C:: @ 080CC69C
+gSpriteAnimations_ChuchuBoss_0:: @ 080CC69C
 	.4byte gUnk_080CC2EF
 	.4byte gUnk_080CC2F4
 	.4byte gUnk_080CC305
@@ -111,7 +111,7 @@ gUnk_080CC69C:: @ 080CC69C
 	.4byte gUnk_080CC372
 	.4byte 00000000
 
-gUnk_080CC6D4:: @ 080CC6D4
+gSpriteAnimations_ChuchuBoss_2:: @ 080CC6D4
 	.4byte gUnk_080CC39C
 	.4byte gUnk_080CC3D4
 	.4byte gUnk_080CC40C

@@ -180,7 +180,7 @@ sub_0805283C: @ 0x0805283C
 	ldr r0, _08052868 @ =gArea
 	ldr r1, _0805286C @ =0x00000864
 	adds r4, r0, r1
-	ldr r1, _08052870 @ =gUnk_08127D30
+	ldr r1, _08052870 @ =gAreaMetadata
 	ldr r0, _08052874 @ =gRoomControls
 	ldrb r0, [r0, #4]
 	lsls r0, r0, #2
@@ -200,7 +200,7 @@ _08052864:
 	.align 2, 0
 _08052868: .4byte gArea
 _0805286C: .4byte 0x00000864
-_08052870: .4byte gUnk_08127D30
+_08052870: .4byte gAreaMetadata
 _08052874: .4byte gRoomControls
 
 .ifndef EU
@@ -613,7 +613,7 @@ _08052BA4:
 	bl sub_0801862C
 	movs r0, #0x13
 	bl sub_08078160
-	bl sub_0805E544
+	bl FreezeTime
 	movs r0, #1
 _08052BB4:
 	pop {pc}
@@ -876,7 +876,7 @@ sub_08052CFC: @ 0x08052CFC
 	ldr r0, _08052D4C @ =gRoomControls
 	ldrb r1, [r0, #4]
 	lsls r1, r1, #2
-	ldr r0, _08052D50 @ =gUnk_08127D30
+	ldr r0, _08052D50 @ =gAreaMetadata
 	adds r1, r1, r0
 	ldrb r0, [r1]
 	strb r0, [r4]
@@ -904,13 +904,13 @@ sub_08052CFC: @ 0x08052CFC
 _08052D44: .4byte gArea
 _08052D48: .4byte 0x00000894
 _08052D4C: .4byte gRoomControls
-_08052D50: .4byte gUnk_08127D30
+_08052D50: .4byte gAreaMetadata
 _08052D54: .4byte gUnk_0811E454
 
 	thumb_func_start sub_08052D58
 sub_08052D58: @ 0x08052D58
 	lsls r0, r0, #2
-	ldr r1, _08052D6C @ =gUnk_08127D30
+	ldr r1, _08052D6C @ =gAreaMetadata
 	adds r0, r0, r1
 	ldr r1, _08052D70 @ =gUnk_0811E454
 	ldrb r0, [r0, #2]
@@ -919,7 +919,7 @@ sub_08052D58: @ 0x08052D58
 	ldrh r0, [r0]
 	bx lr
 	.align 2, 0
-_08052D6C: .4byte gUnk_08127D30
+_08052D6C: .4byte gAreaMetadata
 _08052D70: .4byte gUnk_0811E454
 
 	thumb_func_start sub_08052D74
@@ -1035,7 +1035,7 @@ sub_08052E10: @ 0x08052E10
 	adds r0, r2, r0
 	ldr r0, [r0]
 	str r0, [r5, #0x14]
-	ldr r0, _08052E84 @ =gUnk_0813A7F0
+	ldr r0, _08052E84 @ =gExitLists
 	adds r0, r2, r0
 	ldr r0, [r0]
 	adds r0, r3, r0
@@ -1056,7 +1056,7 @@ _08052E74: .4byte gAreaTilesets
 _08052E78: .4byte gAreaRoomMaps
 _08052E7C: .4byte gAreaMetatiles
 _08052E80: .4byte gUnk_080B755C
-_08052E84: .4byte gUnk_0813A7F0
+_08052E84: .4byte gExitLists
 _08052E88: .4byte gAreaTable
 
 	thumb_func_start sub_08052E8C
@@ -1086,7 +1086,7 @@ sub_08052EA0: @ 0x08052EA0
 	adds r0, #1
 	strh r0, [r4, #0xc]
 	ldr r2, _08052EE8 @ =gArea
-	ldr r1, _08052EEC @ =gUnk_08127D30
+	ldr r1, _08052EEC @ =gAreaMetadata
 	ldr r0, _08052EF0 @ =gRoomControls
 	ldrb r0, [r0, #4]
 	lsls r0, r0, #2
@@ -1103,7 +1103,7 @@ sub_08052EA0: @ 0x08052EA0
 	.align 2, 0
 _08052EE4: .4byte gRoomVars
 _08052EE8: .4byte gArea
-_08052EEC: .4byte gUnk_08127D30
+_08052EEC: .4byte gAreaMetadata
 _08052EF0: .4byte gRoomControls
 
 	thumb_func_start sub_08052EF4
@@ -1115,7 +1115,7 @@ sub_08052EF4: @ 0x08052EF4
 	ldrb r0, [r0, #4]
 _08052EFE:
 	lsls r0, r0, #2
-	ldr r1, _08052F14 @ =gUnk_08127D30
+	ldr r1, _08052F14 @ =gAreaMetadata
 	adds r0, r0, r1
 	ldr r1, _08052F18 @ =gUnk_0811E454
 	ldrb r0, [r0, #2]
@@ -1125,7 +1125,7 @@ _08052EFE:
 	pop {pc}
 	.align 2, 0
 _08052F10: .4byte gRoomControls
-_08052F14: .4byte gUnk_08127D30
+_08052F14: .4byte gAreaMetadata
 _08052F18: .4byte gUnk_0811E454
 
 	thumb_func_start sub_08052F1C

@@ -17,7 +17,7 @@ script_0800D88E:
 script_0800D8B0:
 	_0807E8E4_0
 	TextboxNoOverlap 0x1324
-	_0807EA94
+	WaitUntilTextboxCloses
 	CheckInventory1 0x0017
 	JumpIf script_0800D8D6
 	CheckLocalFlag 0x0045
@@ -44,7 +44,7 @@ script_0800D8F4:
 	_0807E864
 	WaitPlayerAction8
 	_0807EB28 0x1325
-	_0807EA94
+	WaitUntilTextboxCloses
 	PlaySound SFX_113
 	SetIntVariable 0x00000000
 	Call sub_0806DA1C

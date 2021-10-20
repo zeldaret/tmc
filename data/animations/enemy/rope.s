@@ -28,7 +28,7 @@ gUnk_080CE4E2:: @ 080CE4E2
 gUnk_080CE4F3:: @ 080CE4F3
 	.incbin "rope/gUnk_080CE4F3.bin"
 
-gUnk_080CE50C:: @ 080CE50C
+gSpriteAnimations_Rope:: @ 080CE50C
 	.4byte gUnk_080CE47C
 	.4byte gUnk_080CE48D
 	.4byte gUnk_080CE49E

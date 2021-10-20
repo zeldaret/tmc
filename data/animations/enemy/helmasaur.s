@@ -39,7 +39,7 @@ gUnk_080CD504:: @ 080CD504
 gUnk_080CD508:: @ 080CD508
 	.incbin "helmasaur/gUnk_080CD508.bin"
 
-gUnk_080CD50C:: @ 080CD50C
+gSpriteAnimations_Helmasaur:: @ 080CD50C
 	.4byte gUnk_080CD474
 	.4byte gUnk_080CD485
 	.4byte gUnk_080CD496

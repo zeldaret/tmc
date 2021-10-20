@@ -22,7 +22,7 @@ gUnk_0810CF14:: @ 0810CF14
 gUnk_0810CF19:: @ 0810CF19
 	.incbin "pina/gUnk_0810CF19.bin"
 
-gUnk_0810CF20:: @ 0810CF20
+gSpriteAnimations_Pina:: @ 0810CF20
 	.4byte gUnk_0810CE54
 	.4byte gUnk_0810CE54
 	.4byte gUnk_0810CE54

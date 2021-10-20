@@ -29,7 +29,7 @@ gUnk_08113726:: @ 08113726
 gUnk_0811372B:: @ 0811372B
 	.incbin "anju/gUnk_0811372B.bin"
 
-gUnk_08113730:: @ 08113730
+gSpriteAnimations_Anju:: @ 08113730
 	.4byte gUnk_0811371C
 	.4byte gUnk_08113721
 	.4byte gUnk_08113726

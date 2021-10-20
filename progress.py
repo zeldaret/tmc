@@ -48,7 +48,7 @@ def parse_map(non_matching_funcs):
                         asm += size
                     elif dir == 'data':
                         # scripts
-                        data += size
+                        src_data += size
                     elif dir == '..':
                         # libc
                         src += size
@@ -56,7 +56,18 @@ def parse_map(non_matching_funcs):
                     if dir == 'src':
                         src_data += size
                     elif dir == 'data':
-                        data += size
+                        subdir = filepath.split('/')[1]
+                        #print(subdir)
+                        if subdir == 'sound':
+                            src_data += size
+                        elif subdir == 'map':
+                            src_data += size
+                        elif subdir == 'animations':
+                            src_data += size
+                        elif subdir == 'strings.o':
+                            src_data += size
+                        else:
+                            data += size
 
             elif line.startswith('  '):
                 arr = line.split()

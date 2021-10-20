@@ -28,7 +28,7 @@ gUnk_08113B75:: @ 08113B75
 gUnk_08113B86:: @ 08113B86
 	.incbin "windTribespeople/gUnk_08113B86.bin"
 
-gUnk_08113B98:: @ 08113B98
+gSpriteAnimations_WindTribespeople_0:: @ 08113B98
 	.4byte gUnk_08113B3F
 	.4byte gUnk_08113B44
 	.4byte gUnk_08113B49
@@ -63,7 +63,7 @@ gUnk_08113BF2:: @ 08113BF2
 gUnk_08113C03:: @ 08113C03
 	.incbin "windTribespeople/gUnk_08113C03.bin"
 
-gUnk_08113C14:: @ 08113C14
+gSpriteAnimations_WindTribespeople_1:: @ 08113C14
 	.4byte gUnk_08113BBC
 	.4byte gUnk_08113BC1
 	.4byte gUnk_08113BC6
@@ -86,7 +86,7 @@ gUnk_08113C42:: @ 08113C42
 gUnk_08113C47:: @ 08113C47
 	.incbin "windTribespeople/gUnk_08113C47.bin"
 
-gUnk_08113C58:: @ 08113C58
+gSpriteAnimations_WindTribespeople_2:: @ 08113C58
 	.4byte gUnk_08113C3D
 	.4byte gUnk_08113C38
 	.4byte gUnk_08113C3D
@@ -121,7 +121,7 @@ gUnk_08113CB2:: @ 08113CB2
 gUnk_08113CC3:: @ 08113CC3
 	.incbin "windTribespeople/gUnk_08113CC3.bin"
 
-gUnk_08113CD4:: @ 08113CD4
+gSpriteAnimations_WindTribespeople_3:: @ 08113CD4
 	.4byte gUnk_08113C7C
 	.4byte gUnk_08113C81
 	.4byte gUnk_08113C86
@@ -144,7 +144,7 @@ gUnk_08113D02:: @ 08113D02
 gUnk_08113D07:: @ 08113D07
 	.incbin "windTribespeople/gUnk_08113D07.bin"
 
-gUnk_08113D1C:: @ 08113D1C
+gSpriteAnimations_WindTribespeople_4:: @ 08113D1C
 	.4byte gUnk_08113CFD
 	.4byte gUnk_08113CF8
 	.4byte gUnk_08113CFD
@@ -167,7 +167,7 @@ gUnk_08113D4A:: @ 08113D4A
 gUnk_08113D4F:: @ 08113D4F
 	.incbin "windTribespeople/gUnk_08113D4F.bin"
 
-gUnk_08113D60:: @ 08113D60
+gSpriteAnimations_WindTribespeople_5:: @ 08113D60
 	.4byte gUnk_08113D45
 	.4byte gUnk_08113D40
 	.4byte gUnk_08113D45

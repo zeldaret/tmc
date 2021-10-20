@@ -16,7 +16,7 @@ gUnk_0812A8CA:: @ 0812A8CA
 gUnk_0812A92B:: @ 0812A92B
 	.incbin "projectile20/gUnk_0812A92B.bin"
 
-gUnk_0812A940:: @ 0812A940
+gSpriteAnimations_V3HandProjectile:: @ 0812A940
 	.4byte gUnk_0812A860
 	.4byte gUnk_0812A871
 	.4byte gUnk_0812A8CA

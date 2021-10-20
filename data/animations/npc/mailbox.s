@@ -13,7 +13,7 @@ gUnk_0810C819:: @ 0810C819
 gUnk_0810C84A:: @ 0810C84A
 	.incbin "mailbox/gUnk_0810C84A.bin"
 
-gUnk_0810C868:: @ 0810C868
+gSpriteAnimations_Mailbox:: @ 0810C868
 	.4byte gUnk_0810C814
 	.4byte gUnk_0810C814
 	.4byte gUnk_0810C814

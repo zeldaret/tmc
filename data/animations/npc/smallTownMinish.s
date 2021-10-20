@@ -16,7 +16,7 @@ gUnk_081144D2:: @ 081144D2
 gUnk_081144D7:: @ 081144D7
 	.incbin "smallTownMinish/gUnk_081144D7.bin"
 
-gUnk_081144DC:: @ 081144DC
+gSpriteAnimations_SmallTownMinish:: @ 081144DC
 	.4byte gUnk_081144C8
 	.4byte gUnk_081144CD
 	.4byte gUnk_081144D2

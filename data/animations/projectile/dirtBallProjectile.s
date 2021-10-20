@@ -10,7 +10,7 @@ gUnk_08129770:: @ 08129770
 gUnk_08129775:: @ 08129775
 	.incbin "projectile6/gUnk_08129775.bin"
 
-gUnk_08129790:: @ 08129790
+gSpriteAnimations_DirtBallProjectile:: @ 08129790
 	.4byte gUnk_08129770
 	.4byte gUnk_08129775
 	.4byte 00000000

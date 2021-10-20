@@ -389,7 +389,7 @@ _080AD72C:
 	adds r4, #1
 	cmp r4, #0x2b
 	bls _080AD72C
-	ldr r0, _080AD778 @ =gUnk_08132B30
+	ldr r0, _080AD778 @ =gFixedTypeGfxData
 	lsls r1, r5, #2
 	adds r1, r1, r0
 	ldr r7, [r1]
@@ -417,7 +417,7 @@ _080AD766:
 	b _080AD77E
 	.align 2, 0
 _080AD774: .4byte gUnk_02024490
-_080AD778: .4byte gUnk_08132B30
+_080AD778: .4byte gFixedTypeGfxData
 _080AD77C:
 	movs r0, #0
 _080AD77E:
@@ -444,7 +444,7 @@ _080ADF94:
 	adds r5, #1
 	cmp r5, #0x2b
 	bls _080ADF94
-	ldr r0, _080ADFD8 @ =gUnk_08132B30
+	ldr r0, _080ADFD8 @ =gFixedTypeGfxData
 	lsls r4, r7, #2
 	adds r0, r4, r0
 	ldr r0, [r0]
@@ -467,13 +467,13 @@ _080ADF94:
 	b _080ADFFE
 	.align 2, 0
 _080ADFD4: .4byte gUnk_02024490
-_080ADFD8: .4byte gUnk_08132B30
+_080ADFD8: .4byte gFixedTypeGfxData
 _080ADFDC:
 	adds r0, r5, #0
 	adds r1, r7, #0
 	adds r2, r6, #0
 	bl sub_080AE104
-	ldr r0, _080AE004 @ =gUnk_08132B30
+	ldr r0, _080AE004 @ =gFixedTypeGfxData
 	adds r0, r4, r0
 	ldr r1, [r0]
 	adds r0, r5, #0
@@ -490,7 +490,7 @@ _080ADFFE:
 	mov r8, r3
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
-_080AE004: .4byte gUnk_08132B30
+_080AE004: .4byte gFixedTypeGfxData
 .endif
 
 	thumb_func_start sub_080AE008

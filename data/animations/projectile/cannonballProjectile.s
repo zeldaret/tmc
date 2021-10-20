@@ -13,7 +13,7 @@ gUnk_0812A5B9:: @ 0812A5B9
 gUnk_0812A5C6:: @ 0812A5C6
 	.incbin "projectile1B/gUnk_0812A5C6.bin"
 
-gUnk_0812A5D4:: @ 0812A5D4
+gSpriteAnimations_CannonballProjectile:: @ 0812A5D4
 	.4byte gUnk_0812A5B9
 	.4byte gUnk_0812A5AC
 	.4byte gUnk_0812A5B9

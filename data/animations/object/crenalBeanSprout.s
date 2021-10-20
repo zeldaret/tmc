@@ -25,7 +25,7 @@ gUnk_081231FB:: @ 081231FB
 gUnk_08123204:: @ 08123204
 	.incbin "crenalBeanSprout/gUnk_08123204.bin"
 
-gUnk_08123208:: @ 08123208
+gSpriteAnimations_CrenalBeanSprout:: @ 08123208
 	.4byte gUnk_081231BA
 	.4byte gUnk_081231FB
 	.4byte gUnk_081231BA

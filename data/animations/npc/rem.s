@@ -64,7 +64,7 @@ gUnk_0811253D:: @ 0811253D
 gUnk_08112582:: @ 08112582
 	.incbin "rem/gUnk_08112582.bin"
 
-gUnk_08112598:: @ 08112598
+gSpriteAnimations_Rem:: @ 08112598
 	.4byte gUnk_081122C9
 	.4byte gUnk_081122C0
 	.4byte gUnk_081122C9

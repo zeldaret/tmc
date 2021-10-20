@@ -52,7 +52,7 @@ gUnk_080CC8B6:: @ 080CC8B6
 gUnk_080CC8CB:: @ 080CC8CB
 	.incbin "spearMoblin/gUnk_080CC8CB.bin"
 
-gUnk_080CC8E0:: @ 080CC8E0
+gSpriteAnimations_SpearMoblin:: @ 080CC8E0
 	.4byte gUnk_080CC7E0
 	.4byte gUnk_080CC7E9
 	.4byte gUnk_080CC7F2

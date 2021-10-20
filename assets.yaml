@@ -17117,7 +17117,7 @@
 - path: vaatiTransfigured/gUnk_080D0D0C.bin
   start: 0xd0d0c
   size: 0x34
-- path: vaatiTransfigured/gUnk_080D0D40.bin
+- path: vaatiTransfigured/gSpriteAnimations_VaatiTransfigured_4.bin
   start: 0xd0d44
   size: 0x4
 - path: vaatiTransfigured/gUnk_080D0D48.bin
@@ -34261,7 +34261,7 @@
   starts:
     EU: 0x1001f8
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFB90_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_1_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34269,55 +34269,55 @@
   - DEMO_JP
   start: 0xffb90
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFBA8_JP.bin
+- path: data_080FEEB8/gGfxGroup_2_JP.bin
   variants:
   - JP
   starts:
     JP: 0xff858
   size: 0x35
-- path: data_080FEEB8/gUnk_080FFBA8_1_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_2_1_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xff38c
   size: 0x35
-- path: data_080FEEB8/gUnk_080FFBA8_2_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_2_2_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0xffba8
   size: 0x35
-- path: data_080FEEB8/gUnk_080FFBA8_3_JP.bin
+- path: data_080FEEB8/gGfxGroup_2_3_JP.bin
   variants:
   - JP
   starts:
     JP: 0xff88d
   size: 0x1f
-- path: data_080FEEB8/gUnk_080FFBA8_4_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_2_4_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xff3c1
   size: 0x1f
-- path: data_080FEEB8/gUnk_080FFBA8_5_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_2_5_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0xffbdd
   size: 0x13
-- path: data_080FEEB8/gUnk_080FFBF0_JP.bin
+- path: data_080FEEB8/gGfxGroup_3_JP.bin
   variants:
   - JP
   starts:
     JP: 0xff8ac
   size: 0x24
-- path: data_080FEEB8/gUnk_080FFBF0_1_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_3_1_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xff3e0
   size: 0x24
-- path: data_080FEEB8/gUnk_080FFBF0_2_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_3_2_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
@@ -34326,7 +34326,7 @@
 - offsets:
     JP: -0x344
     DEMO_JP: -0x810
-- path: data_080FEEB8/gUnk_080FFC14_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_4_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34334,7 +34334,7 @@
   - DEMO_JP
   start: 0xffc14
   size: 0x24
-- path: data_080FEEB8/gUnk_080FFC38_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_5_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34342,25 +34342,25 @@
   - DEMO_JP
   start: 0xffc38
   size: 0x30
-- path: data_080FEEB8/gUnk_080FFC68_JP.bin
+- path: data_080FEEB8/gGfxGroup_6_JP.bin
   variants:
   - JP
   starts:
     JP: 0xff924
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFC68_1_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_6_1_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xff458
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFC68_2_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_6_2_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0xffc68
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFC80_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_7_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34368,7 +34368,7 @@
   - DEMO_JP
   start: 0xffc80
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFC8C_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_8_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34376,7 +34376,7 @@
   - DEMO_JP
   start: 0xffc8c
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFC98_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_12_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34384,7 +34384,7 @@
   - DEMO_JP
   start: 0xffc98
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFCB0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_13_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34392,7 +34392,7 @@
   - DEMO_JP
   start: 0xffcb0
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFCC8_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_14_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34400,25 +34400,25 @@
   - DEMO_JP
   start: 0xffcc8
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFCD4_JP.bin
+- path: data_080FEEB8/gGfxGroup_15_JP.bin
   variants:
   - JP
   starts:
     JP: 0xff990
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFCD4_1_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_15_1_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xff4c4
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFCD4_2_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_15_2_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0xffcd4
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFCEC_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_9_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34426,37 +34426,37 @@
   - DEMO_JP
   start: 0xffcec
   size: 0x1
-- path: data_080FEEB8/gUnk_080FFCEC_1_JP.bin
+- path: data_080FEEB8/gGfxGroup_9_1_JP.bin
   variants:
   - JP
   starts:
     JP: 0xff9a9
   size: 0x17
-- path: data_080FEEB8/gUnk_080FFCEC_2_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_9_2_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xff4dd
   size: 0x17
-- path: data_080FEEB8/gUnk_080FFCEC_3_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_9_3_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0xffced
   size: 0x17
-- path: data_080FEEB8/gUnk_080FFD04_JP.bin
+- path: data_080FEEB8/gGfxGroup_10_JP.bin
   variants:
   - JP
   starts:
     JP: 0xff9c0
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFD04_1_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_10_1_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xff4f4
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFD04_2_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_10_2_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
@@ -34477,7 +34477,7 @@
 - offsets:
     JP: -0x338
     DEMO_JP: -0x804
-- path: data_080FEEB8/gUnk_080FFD1C_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_11_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34485,7 +34485,7 @@
   - DEMO_JP
   start: 0xffd1c
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFD28_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_16_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34493,7 +34493,7 @@
   - DEMO_JP
   start: 0xffd28
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFD40_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_23_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34501,7 +34501,7 @@
   - DEMO_JP
   start: 0xffd40
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFD4C_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_24_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34509,7 +34509,7 @@
   - DEMO_JP
   start: 0xffd4c
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFD58_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_25_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34517,7 +34517,7 @@
   - DEMO_JP
   start: 0xffd58
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFD64_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_26_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34525,7 +34525,7 @@
   - DEMO_JP
   start: 0xffd64
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFD70_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_27_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34533,7 +34533,7 @@
   - DEMO_JP
   start: 0xffd70
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFD7C_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_28_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34541,7 +34541,7 @@
   - DEMO_JP
   start: 0xffd7c
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFD88_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_29_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34549,7 +34549,7 @@
   - DEMO_JP
   start: 0xffd88
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFD94_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_36_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34557,7 +34557,7 @@
   - DEMO_JP
   start: 0xffd94
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFDAC_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_37_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34565,7 +34565,7 @@
   - DEMO_JP
   start: 0xffdac
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFDC4_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_38_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34573,7 +34573,7 @@
   - DEMO_JP
   start: 0xffdc4
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFDD0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_39_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34581,7 +34581,7 @@
   - DEMO_JP
   start: 0xffdd0
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFDE8_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_40_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34589,7 +34589,7 @@
   - DEMO_JP
   start: 0xffde8
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFE00_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_41_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34597,7 +34597,7 @@
   - DEMO_JP
   start: 0xffe00
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFE18_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_42_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34605,7 +34605,7 @@
   - DEMO_JP
   start: 0xffe18
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFE30_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_30_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34613,7 +34613,7 @@
   - DEMO_JP
   start: 0xffe30
   size: 0x3c
-- path: data_080FEEB8/gUnk_080FFE6C_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_33_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34621,7 +34621,7 @@
   - DEMO_JP
   start: 0xffe6c
   size: 0x3c
-- path: data_080FEEB8/gUnk_080FFEA8_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_32_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34629,7 +34629,7 @@
   - DEMO_JP
   start: 0xffea8
   size: 0x3c
-- path: data_080FEEB8/gUnk_080FFEE4_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_31_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34637,7 +34637,7 @@
   - DEMO_JP
   start: 0xffee4
   size: 0x3c
-- path: data_080FEEB8/gUnk_080FFF20_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_35_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34645,7 +34645,7 @@
   - DEMO_JP
   start: 0xfff20
   size: 0x3c
-- path: data_080FEEB8/gUnk_080FFF5C_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_34_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34653,7 +34653,7 @@
   - DEMO_JP
   start: 0xfff5c
   size: 0x3c
-- path: data_080FEEB8/gUnk_080FFF98_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_22_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34661,7 +34661,7 @@
   - DEMO_JP
   start: 0xfff98
   size: 0x30
-- path: data_080FEEB8/gUnk_080FFFC8_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_17_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34669,7 +34669,7 @@
   - DEMO_JP
   start: 0xfffc8
   size: 0x18
-- path: data_080FEEB8/gUnk_080FFFE0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_18_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34677,7 +34677,7 @@
   - DEMO_JP
   start: 0xfffe0
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFFEC_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_19_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34685,7 +34685,7 @@
   - DEMO_JP
   start: 0xfffec
   size: 0xc
-- path: data_080FEEB8/gUnk_080FFFF8_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_43_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34693,7 +34693,7 @@
   - DEMO_JP
   start: 0xffff8
   size: 0xc
-- path: data_080FEEB8/gUnk_08100004_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_44_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34701,7 +34701,7 @@
   - DEMO_JP
   start: 0x100004
   size: 0xc
-- path: data_080FEEB8/gUnk_08100010_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_45_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34709,7 +34709,7 @@
   - DEMO_JP
   start: 0x100010
   size: 0xc
-- path: data_080FEEB8/gUnk_0810001C_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_46_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34717,7 +34717,7 @@
   - DEMO_JP
   start: 0x10001c
   size: 0xc
-- path: data_080FEEB8/gUnk_08100028_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_20_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34725,7 +34725,7 @@
   - DEMO_JP
   start: 0x100028
   size: 0xc
-- path: data_080FEEB8/gUnk_08100034_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_21_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34733,7 +34733,7 @@
   - DEMO_JP
   start: 0x100034
   size: 0xc
-- path: data_080FEEB8/gUnk_08100040_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_47_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34741,7 +34741,7 @@
   - DEMO_JP
   start: 0x100040
   size: 0xc
-- path: data_080FEEB8/gUnk_0810004C_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_48_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34749,7 +34749,7 @@
   - DEMO_JP
   start: 0x10004c
   size: 0xc
-- path: data_080FEEB8/gUnk_08100058_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_49_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34757,7 +34757,7 @@
   - DEMO_JP
   start: 0x100058
   size: 0xc
-- path: data_080FEEB8/gUnk_08100064_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_50_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34765,7 +34765,7 @@
   - DEMO_JP
   start: 0x100064
   size: 0xc
-- path: data_080FEEB8/gUnk_08100070_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_51_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34773,7 +34773,7 @@
   - DEMO_JP
   start: 0x100070
   size: 0xc
-- path: data_080FEEB8/gUnk_0810007C_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_52_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34781,7 +34781,7 @@
   - DEMO_JP
   start: 0x10007c
   size: 0xc
-- path: data_080FEEB8/gUnk_08100088_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_53_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34789,7 +34789,7 @@
   - DEMO_JP
   start: 0x100088
   size: 0xc
-- path: data_080FEEB8/gUnk_08100094_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_75_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34797,7 +34797,7 @@
   - DEMO_JP
   start: 0x100094
   size: 0xc
-- path: data_080FEEB8/gUnk_081000A0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_76_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34805,7 +34805,7 @@
   - DEMO_JP
   start: 0x1000a0
   size: 0xc
-- path: data_080FEEB8/gUnk_081000AC_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_77_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34813,7 +34813,7 @@
   - DEMO_JP
   start: 0x1000ac
   size: 0xc
-- path: data_080FEEB8/gUnk_081000B8_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_78_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34821,7 +34821,7 @@
   - DEMO_JP
   start: 0x1000b8
   size: 0xc
-- path: data_080FEEB8/gUnk_081000C4_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_79_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34829,7 +34829,7 @@
   - DEMO_JP
   start: 0x1000c4
   size: 0xc
-- path: data_080FEEB8/gUnk_081000D0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_80_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34837,7 +34837,7 @@
   - DEMO_JP
   start: 0x1000d0
   size: 0xc
-- path: data_080FEEB8/gUnk_081000DC_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_81_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34845,7 +34845,7 @@
   - DEMO_JP
   start: 0x1000dc
   size: 0xc
-- path: data_080FEEB8/gUnk_081000E8_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_82_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34853,7 +34853,7 @@
   - DEMO_JP
   start: 0x1000e8
   size: 0xc
-- path: data_080FEEB8/gUnk_081000F4_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_83_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34861,7 +34861,7 @@
   - DEMO_JP
   start: 0x1000f4
   size: 0xc
-- path: data_080FEEB8/gUnk_08100100_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_84_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34869,7 +34869,7 @@
   - DEMO_JP
   start: 0x100100
   size: 0xc
-- path: data_080FEEB8/gUnk_0810010C_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_85_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34877,7 +34877,7 @@
   - DEMO_JP
   start: 0x10010c
   size: 0xc
-- path: data_080FEEB8/gUnk_08100118_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_54_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34885,7 +34885,7 @@
   - DEMO_JP
   start: 0x100118
   size: 0x18
-- path: data_080FEEB8/gUnk_08100130_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_55_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34893,7 +34893,7 @@
   - DEMO_JP
   start: 0x100130
   size: 0x18
-- path: data_080FEEB8/gUnk_08100148_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_56_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34901,7 +34901,7 @@
   - DEMO_JP
   start: 0x100148
   size: 0x18
-- path: data_080FEEB8/gUnk_08100160_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_57_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34909,7 +34909,7 @@
   - DEMO_JP
   start: 0x100160
   size: 0x18
-- path: data_080FEEB8/gUnk_08100178_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_58_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34917,7 +34917,7 @@
   - DEMO_JP
   start: 0x100178
   size: 0x18
-- path: data_080FEEB8/gUnk_08100190_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_59_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34925,7 +34925,7 @@
   - DEMO_JP
   start: 0x100190
   size: 0x18
-- path: data_080FEEB8/gUnk_081001A8_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_60_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34933,7 +34933,7 @@
   - DEMO_JP
   start: 0x1001a8
   size: 0x18
-- path: data_080FEEB8/gUnk_081001C0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_61_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34941,7 +34941,7 @@
   - DEMO_JP
   start: 0x1001c0
   size: 0x18
-- path: data_080FEEB8/gUnk_081001D8_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_62_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34949,7 +34949,7 @@
   - DEMO_JP
   start: 0x1001d8
   size: 0x18
-- path: data_080FEEB8/gUnk_081001F0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_63_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34957,7 +34957,7 @@
   - DEMO_JP
   start: 0x1001f0
   size: 0x18
-- path: data_080FEEB8/gUnk_08100208_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_64_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34965,7 +34965,7 @@
   - DEMO_JP
   start: 0x100208
   size: 0x18
-- path: data_080FEEB8/gUnk_08100220_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_65_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34973,7 +34973,7 @@
   - DEMO_JP
   start: 0x100220
   size: 0x18
-- path: data_080FEEB8/gUnk_08100238_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_66_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34981,7 +34981,7 @@
   - DEMO_JP
   start: 0x100238
   size: 0x18
-- path: data_080FEEB8/gUnk_08100250_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_67_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34989,7 +34989,7 @@
   - DEMO_JP
   start: 0x100250
   size: 0x18
-- path: data_080FEEB8/gUnk_08100268_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_68_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -34997,7 +34997,7 @@
   - DEMO_JP
   start: 0x100268
   size: 0x18
-- path: data_080FEEB8/gUnk_08100280_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_69_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35005,7 +35005,7 @@
   - DEMO_JP
   start: 0x100280
   size: 0x18
-- path: data_080FEEB8/gUnk_08100298_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_70_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35013,7 +35013,7 @@
   - DEMO_JP
   start: 0x100298
   size: 0x18
-- path: data_080FEEB8/gUnk_081002B0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_71_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35021,7 +35021,7 @@
   - DEMO_JP
   start: 0x1002b0
   size: 0x18
-- path: data_080FEEB8/gUnk_081002C8_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_72_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35029,7 +35029,7 @@
   - DEMO_JP
   start: 0x1002c8
   size: 0x18
-- path: data_080FEEB8/gUnk_081002E0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_73_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35037,7 +35037,7 @@
   - DEMO_JP
   start: 0x1002e0
   size: 0xc
-- path: data_080FEEB8/gUnk_081002EC_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_74_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35045,7 +35045,7 @@
   - DEMO_JP
   start: 0x1002ec
   size: 0xc
-- path: data_080FEEB8/gUnk_081002F8_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_86_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35053,7 +35053,7 @@
   - DEMO_JP
   start: 0x1002f8
   size: 0x30
-- path: data_080FEEB8/gUnk_08100328_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_87_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35061,7 +35061,7 @@
   - DEMO_JP
   start: 0x100328
   size: 0x30
-- path: data_080FEEB8/gUnk_08100358_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_88_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35069,25 +35069,25 @@
   - DEMO_JP
   start: 0x100358
   size: 0x30
-- path: data_080FEEB8/gUnk_08100388_JP.bin
+- path: data_080FEEB8/gGfxGroup_89_JP.bin
   variants:
   - JP
   starts:
     JP: 0x100050
   size: 0x54
-- path: data_080FEEB8/gUnk_08100388_1_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_89_1_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xffb84
   size: 0x54
-- path: data_080FEEB8/gUnk_08100388_2_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_89_2_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0x100388
   size: 0x54
-- path: data_080FEEB8/gUnk_081003DC_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_90_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35095,133 +35095,133 @@
   - DEMO_JP
   start: 0x1003dc
   size: 0x25
-- path: data_080FEEB8/gUnk_081003DC_1_JP.bin
+- path: data_080FEEB8/gGfxGroup_90_1_JP.bin
   variants:
   - JP
   starts:
     JP: 0x1000c9
   size: 0x6
-- path: data_080FEEB8/gUnk_081003DC_2_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_90_2_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xffbfd
   size: 0x6
-- path: data_080FEEB8/gUnk_081003DC_3_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_90_3_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0x100401
   size: 0x6
-- path: data_080FEEB8/gUnk_081003DC_4_JP.bin
+- path: data_080FEEB8/gGfxGroup_90_4_JP.bin
   variants:
   - JP
   starts:
     JP: 0x1000cf
   size: 0x1d
-- path: data_080FEEB8/gUnk_081003DC_5_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_90_5_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xffc03
   size: 0x1d
-- path: data_080FEEB8/gUnk_081003DC_6_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_90_6_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0x100407
   size: 0x1d
-- path: data_080FEEB8/gUnk_08100424_JP.bin
+- path: data_080FEEB8/gGfxGroup_91_JP.bin
   variants:
   - JP
   starts:
     JP: 0x1000ec
   size: 0x48
-- path: data_080FEEB8/gUnk_08100424_1_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_91_1_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xffc20
   size: 0x48
-- path: data_080FEEB8/gUnk_08100424_2_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_91_2_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0x100424
   size: 0x48
-- path: data_080FEEB8/gUnk_0810046C_JP.bin
+- path: data_080FEEB8/gGfxGroup_92_JP.bin
   variants:
   - JP
   starts:
     JP: 0x100134
   size: 0x48
-- path: data_080FEEB8/gUnk_0810046C_1_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_92_1_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xffc68
   size: 0x48
-- path: data_080FEEB8/gUnk_0810046C_2_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_92_2_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0x10046c
   size: 0x48
-- path: data_080FEEB8/gUnk_081004B4_JP.bin
+- path: data_080FEEB8/gGfxGroup_129_JP.bin
   variants:
   - JP
   starts:
     JP: 0x10017c
   size: 0x18
-- path: data_080FEEB8/gUnk_081004B4_1_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_129_1_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xffcb0
   size: 0x18
-- path: data_080FEEB8/gUnk_081004B4_2_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_129_2_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0x1004b4
   size: 0x18
-- path: data_080FEEB8/gUnk_081004CC_JP.bin
+- path: data_080FEEB8/gGfxGroup_127_JP.bin
   variants:
   - JP
   starts:
     JP: 0x100194
   size: 0x24
-- path: data_080FEEB8/gUnk_081004CC_1_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_127_1_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xffcc8
   size: 0x24
-- path: data_080FEEB8/gUnk_081004CC_2_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_127_2_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0x1004cc
   size: 0x24
-- path: data_080FEEB8/gUnk_081004F0_JP.bin
+- path: data_080FEEB8/gGfxGroup_128_JP.bin
   variants:
   - JP
   starts:
     JP: 0x1001b8
   size: 0x8
-- path: data_080FEEB8/gUnk_081004F0_1_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_128_1_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xffcec
   size: 0x8
-- path: data_080FEEB8/gUnk_081004F0_2_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_128_2_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0x1004f0
   size: 0x8
-- path: data_080FEEB8/gUnk_081004F0_3_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_128_3_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35229,43 +35229,43 @@
   - DEMO_JP
   start: 0x1004f8
   size: 0x2
-- path: data_080FEEB8/gUnk_081004F0_4_JP.bin
+- path: data_080FEEB8/gGfxGroup_128_4_JP.bin
   variants:
   - JP
   starts:
     JP: 0x1001c2
   size: 0x4
-- path: data_080FEEB8/gUnk_081004F0_5_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_128_5_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xffcf6
   size: 0x4
-- path: data_080FEEB8/gUnk_081004F0_6_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_128_6_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0x1004fa
   size: 0x4
-- path: data_080FEEB8/gUnk_081004F0_7_JP.bin
+- path: data_080FEEB8/gGfxGroup_128_7_JP.bin
   variants:
   - JP
   starts:
     JP: 0x1001c6
   size: 0x12
-- path: data_080FEEB8/gUnk_081004F0_8_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_128_8_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0xffcfa
   size: 0x12
-- path: data_080FEEB8/gUnk_081004F0_9_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_128_9_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0x1004fe
   size: 0x12
-- path: data_080FEEB8/gUnk_081004F0_10_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_128_10_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35273,7 +35273,7 @@
   - DEMO_JP
   start: 0x100510
   size: 0x4
-- path: data_080FEEB8/gUnk_08100514_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_93_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35281,7 +35281,7 @@
   - DEMO_JP
   start: 0x100514
   size: 0x3c
-- path: data_080FEEB8/gUnk_08100550_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_94_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35289,7 +35289,7 @@
   - DEMO_JP
   start: 0x100550
   size: 0x30
-- path: data_080FEEB8/gUnk_08100580_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_95_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35297,7 +35297,7 @@
   - DEMO_JP
   start: 0x100580
   size: 0x30
-- path: data_080FEEB8/gUnk_081005B0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_96_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35305,7 +35305,7 @@
   - DEMO_JP
   start: 0x1005b0
   size: 0x30
-- path: data_080FEEB8/gUnk_081005E0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_97_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35313,7 +35313,7 @@
   - DEMO_JP
   start: 0x1005e0
   size: 0x30
-- path: data_080FEEB8/gUnk_08100610_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_98_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35321,7 +35321,7 @@
   - DEMO_JP
   start: 0x100610
   size: 0x30
-- path: data_080FEEB8/gUnk_08100640_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_99_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35329,7 +35329,7 @@
   - DEMO_JP
   start: 0x100640
   size: 0x30
-- path: data_080FEEB8/gUnk_08100670_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_100_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35337,7 +35337,7 @@
   - DEMO_JP
   start: 0x100670
   size: 0x30
-- path: data_080FEEB8/gUnk_081006A0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_101_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35345,7 +35345,7 @@
   - DEMO_JP
   start: 0x1006a0
   size: 0x30
-- path: data_080FEEB8/gUnk_081006D0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_102_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35353,7 +35353,7 @@
   - DEMO_JP
   start: 0x1006d0
   size: 0x30
-- path: data_080FEEB8/gUnk_08100700_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_103_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35361,7 +35361,7 @@
   - DEMO_JP
   start: 0x100700
   size: 0x30
-- path: data_080FEEB8/gUnk_08100730_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_104_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35369,7 +35369,7 @@
   - DEMO_JP
   start: 0x100730
   size: 0x30
-- path: data_080FEEB8/gUnk_08100760_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_112_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35377,7 +35377,7 @@
   - DEMO_JP
   start: 0x100760
   size: 0x30
-- path: data_080FEEB8/gUnk_08100790_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_105_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35385,7 +35385,7 @@
   - DEMO_JP
   start: 0x100790
   size: 0x30
-- path: data_080FEEB8/gUnk_081007C0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_106_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35393,7 +35393,7 @@
   - DEMO_JP
   start: 0x1007c0
   size: 0x30
-- path: data_080FEEB8/gUnk_081007F0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_113_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35401,7 +35401,7 @@
   - DEMO_JP
   start: 0x1007f0
   size: 0x30
-- path: data_080FEEB8/gUnk_08100820_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_107_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35409,7 +35409,7 @@
   - DEMO_JP
   start: 0x100820
   size: 0x30
-- path: data_080FEEB8/gUnk_08100850_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_108_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35417,7 +35417,7 @@
   - DEMO_JP
   start: 0x100850
   size: 0x30
-- path: data_080FEEB8/gUnk_08100880_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_116_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35425,7 +35425,7 @@
   - DEMO_JP
   start: 0x100880
   size: 0x30
-- path: data_080FEEB8/gUnk_081008B0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_115_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35433,7 +35433,7 @@
   - DEMO_JP
   start: 0x1008b0
   size: 0x30
-- path: data_080FEEB8/gUnk_081008E0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_109_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35441,7 +35441,7 @@
   - DEMO_JP
   start: 0x1008e0
   size: 0x30
-- path: data_080FEEB8/gUnk_08100910_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_110_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35449,7 +35449,7 @@
   - DEMO_JP
   start: 0x100910
   size: 0x30
-- path: data_080FEEB8/gUnk_08100940_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_111_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35457,25 +35457,25 @@
   - DEMO_JP
   start: 0x100940
   size: 0x30
-- path: data_080FEEB8/gUnk_08100970_JP.bin
+- path: data_080FEEB8/gGfxGroup_117_JP.bin
   variants:
   - JP
   starts:
     JP: 0x100638
   size: 0x3c
-- path: data_080FEEB8/gUnk_08100970_1_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_117_1_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0x10016c
   size: 0x3c
-- path: data_080FEEB8/gUnk_08100970_2_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_117_2_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0x100970
   size: 0x3c
-- path: data_080FEEB8/gUnk_081009AC_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_118_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35483,7 +35483,7 @@
   - DEMO_JP
   start: 0x1009ac
   size: 0xc
-- path: data_080FEEB8/gUnk_081009B8_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_119_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35491,7 +35491,7 @@
   - DEMO_JP
   start: 0x1009b8
   size: 0xc
-- path: data_080FEEB8/gUnk_081009C4_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_120_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35499,7 +35499,7 @@
   - DEMO_JP
   start: 0x1009c4
   size: 0xc
-- path: data_080FEEB8/gUnk_081009D0_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_121_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35507,7 +35507,7 @@
   - DEMO_JP
   start: 0x1009d0
   size: 0xc
-- path: data_080FEEB8/gUnk_081009DC_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_122_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35515,7 +35515,7 @@
   - DEMO_JP
   start: 0x1009dc
   size: 0xc
-- path: data_080FEEB8/gUnk_081009E8_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_123_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35523,7 +35523,7 @@
   - DEMO_JP
   start: 0x1009e8
   size: 0xc
-- path: data_080FEEB8/gUnk_081009F4_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_124_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35531,7 +35531,7 @@
   - DEMO_JP
   start: 0x1009f4
   size: 0xc
-- path: data_080FEEB8/gUnk_08100A00_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_125_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35539,43 +35539,43 @@
   - DEMO_JP
   start: 0x100a00
   size: 0x11
-- path: data_080FEEB8/gUnk_08100A00_1_JP.bin
+- path: data_080FEEB8/gGfxGroup_125_1_JP.bin
   variants:
   - JP
   starts:
     JP: 0x1006d9
   size: 0x1f
-- path: data_080FEEB8/gUnk_08100A00_2_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_125_2_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0x10020d
   size: 0x1f
-- path: data_080FEEB8/gUnk_08100A00_3_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_125_3_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0x100a11
   size: 0x1f
-- path: data_080FEEB8/gUnk_08100A30_JP.bin
+- path: data_080FEEB8/gGfxGroup_126_JP.bin
   variants:
   - JP
   starts:
     JP: 0x1006f8
   size: 0x54
-- path: data_080FEEB8/gUnk_08100A30_1_DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_126_1_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0x10022c
   size: 0x54
-- path: data_080FEEB8/gUnk_08100A30_2_USA-DEMO_USA.bin
+- path: data_080FEEB8/gGfxGroup_126_2_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
   start: 0x100a30
   size: 0x54
-- path: data_080FEEB8/gUnk_08100A84_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_130_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35583,7 +35583,7 @@
   - DEMO_JP
   start: 0x100a84
   size: 0xc
-- path: data_080FEEB8/gUnk_08100A90_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_131_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -35591,7 +35591,7 @@
   - DEMO_JP
   start: 0x100a90
   size: 0xc
-- path: data_080FEEB8/gUnk_08100A9C_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_080FEEB8/gGfxGroup_132_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -39678,7 +39678,7 @@
 - path: moblinLady/gUnk_08113004.bin
   start: 0x113004
   size: 0x20
-- path: moblinLady/gUnk_08113024.bin
+- path: moblinLady/gSpriteAnimations_MoblinLady_1.bin
   start: 0x113028
   size: 0x4
 - path: librarians/gUnk_0811307E.bin
@@ -40488,418 +40488,418 @@
 - path: data_081146D0/gUnk_08114F88.bin
   start: 0x114f88
   size: 0x10
-- path: data_081146D0/gUnk_08114F98.bin
+- path: data_081146D0/gSpriteFrames_1.bin
   start: 0x114f98
   size: 0x3f4
-- path: data_081146D0/gUnk_0811538C.bin
+- path: data_081146D0/gSpriteFrames_2.bin
   start: 0x11538c
   size: 0x398
-- path: data_081146D0/gUnk_08115724.bin
+- path: data_081146D0/gSpriteFrames_3.bin
   start: 0x115724
   size: 0x3d4
-- path: data_081146D0/gUnk_08115AF8.bin
+- path: data_081146D0/gSpriteFrames_4.bin
   start: 0x115af8
   size: 0x3a4
-- path: data_081146D0/gUnk_08115E9C.bin
+- path: data_081146D0/gSpriteFrames_5.bin
   start: 0x115e9c
   size: 0x3e4
-- path: data_081146D0/gUnk_08116280.bin
+- path: data_081146D0/gSpriteFrames_6.bin
   start: 0x116280
   size: 0x2b0
-- path: data_081146D0/gUnk_08116530.bin
+- path: data_081146D0/gSpriteFrames_7.bin
   start: 0x116530
   size: 0x358
-- path: data_081146D0/gUnk_08116888.bin
+- path: data_081146D0/gSpriteFrames_8.bin
   start: 0x116888
   size: 0x214
-- path: data_081146D0/gUnk_08116A9C.bin
+- path: data_081146D0/gSpriteFrames_9.bin
   start: 0x116a9c
   size: 0x270
-- path: data_081146D0/gUnk_08116D0C.bin
+- path: data_081146D0/gSpriteFrames_Object4.bin
   start: 0x116d0c
   size: 0xc8
-- path: data_081146D0/gUnk_08116DD4.bin
+- path: data_081146D0/gSpriteFrames_Object6.bin
   start: 0x116dd4
   size: 0x190
-- path: data_081146D0/gUnk_08116F64.bin
+- path: data_081146D0/gSpriteFrames_12.bin
   start: 0x116f64
   size: 0x2a4
-- path: data_081146D0/gUnk_08117208.bin
+- path: data_081146D0/gSpriteFrames_13.bin
   start: 0x117208
   size: 0x38
-- path: data_081146D0/gUnk_08117240.bin
+- path: data_081146D0/gSpriteFrames_14.bin
   start: 0x117240
   size: 0x39c
-- path: data_081146D0/gUnk_081175DC.bin
+- path: data_081146D0/gSpriteFrames_15.bin
   start: 0x1175dc
   size: 0x2d4
-- path: data_081146D0/gUnk_081178B0.bin
+- path: data_081146D0/gSpriteFrames_16.bin
   start: 0x1178b0
   size: 0x2d4
-- path: data_081146D0/gUnk_08117B84.bin
+- path: data_081146D0/gSpriteFrames_17.bin
   start: 0x117b84
   size: 0x1e0
-- path: data_081146D0/gUnk_08117D64.bin
+- path: data_081146D0/gSpriteFrames_18.bin
   start: 0x117d64
   size: 0xdc
-- path: data_081146D0/gUnk_08117E40.bin
+- path: data_081146D0/gSpriteFrames_19.bin
   start: 0x117e40
   size: 0x128
-- path: data_081146D0/gUnk_08117F68.bin
+- path: data_081146D0/gSpriteFrames_20.bin
   start: 0x117f68
   size: 0x6c
-- path: data_081146D0/gUnk_08117FD4.bin
+- path: data_081146D0/gSpriteFrames_21.bin
   start: 0x117fd4
   size: 0x1e0
-- path: data_081146D0/gUnk_081181B4.bin
+- path: data_081146D0/gSpriteFrames_22.bin
   start: 0x1181b4
   size: 0x30
-- path: data_081146D0/gUnk_081181E4.bin
+- path: data_081146D0/gSpriteFrames_24.bin
   start: 0x1181e4
   size: 0x54
-- path: data_081146D0/gUnk_08118238.bin
+- path: data_081146D0/gSpriteFrames_25.bin
   start: 0x118238
   size: 0x2c
-- path: data_081146D0/gUnk_08118264.bin
+- path: data_081146D0/gSpriteFrames_26.bin
   start: 0x118264
   size: 0x34
-- path: data_081146D0/gUnk_08118298.bin
+- path: data_081146D0/gSpriteFrames_27.bin
   start: 0x118298
   size: 0x100
-- path: data_081146D0/gUnk_08118398.bin
+- path: data_081146D0/gSpriteFrames_28.bin
   start: 0x118398
   size: 0x24
-- path: data_081146D0/gUnk_081183BC.bin
+- path: data_081146D0/gSpriteFrames_29.bin
   start: 0x1183bc
   size: 0xb0
-- path: data_081146D0/gUnk_0811846C.bin
+- path: data_081146D0/gSpriteFrames_30.bin
   start: 0x11846c
   size: 0x3c
-- path: data_081146D0/gUnk_081184A8.bin
+- path: data_081146D0/gSpriteFrames_31.bin
   start: 0x1184a8
   size: 0xb0
-- path: data_081146D0/gUnk_08118558.bin
+- path: data_081146D0/gSpriteFrames_32.bin
   start: 0x118558
   size: 0x1c8
-- path: data_081146D0/gUnk_08118720.bin
+- path: data_081146D0/gSpriteFrames_33.bin
   start: 0x118720
   size: 0x48
-- path: data_081146D0/gUnk_08118768.bin
+- path: data_081146D0/gSpriteFrames_Object6A_0.bin
   start: 0x118768
   size: 0x18
-- path: data_081146D0/gUnk_08118780.bin
+- path: data_081146D0/gSpriteFrames_Object6A_1.bin
   start: 0x118780
   size: 0x8
-- path: data_081146D0/gUnk_08118788.bin
+- path: data_081146D0/gSpriteFrames_Object6A_2.bin
   start: 0x118788
   size: 0xc
-- path: data_081146D0/gUnk_08118794.bin
+- path: data_081146D0/gSpriteFrames_MinishEzlo.bin
   start: 0x118794
   size: 0x12c
-- path: data_081146D0/gUnk_081188C0.bin
+- path: data_081146D0/gSpriteFrames_Object6A_3.bin
   start: 0x1188c0
   size: 0x88
-- path: data_081146D0/gUnk_08118948.bin
+- path: data_081146D0/gSpriteFrames_Din.bin
   start: 0x118948
   size: 0x18
-- path: data_081146D0/gUnk_08118960.bin
+- path: data_081146D0/gSpriteFrames_Nayru.bin
   start: 0x118960
   size: 0x14
-- path: data_081146D0/gUnk_08118974.bin
+- path: data_081146D0/gSpriteFrames_Farore.bin
   start: 0x118974
   size: 0x14
-- path: data_081146D0/gUnk_08118988.bin
+- path: data_081146D0/gSpriteFrames_Npc5.bin
   start: 0x118988
   size: 0x278
-- path: data_081146D0/gUnk_08118C00.bin
+- path: data_081146D0/gSpriteFrames_GuardWithSpear.bin
   start: 0x118c00
   size: 0x138
-- path: data_081146D0/gUnk_08118D38.bin
+- path: data_081146D0/gSpriteFrames_KingDaltus.bin
   start: 0x118d38
   size: 0x6c
-- path: data_081146D0/gUnk_08118DA4.bin
+- path: data_081146D0/gSpriteFrames_MinisterPotho.bin
   start: 0x118da4
   size: 0x2c
-- path: data_081146D0/gUnk_08118DD0.bin
+- path: data_081146D0/gSpriteFrames_Npc26.bin
   start: 0x118dd0
   size: 0xc
-- path: data_081146D0/gUnk_08118DDC.bin
+- path: data_081146D0/gSpriteFrames_Maid.bin
   start: 0x118ddc
   size: 0x80
-- path: data_081146D0/gUnk_08118E5C.bin
+- path: data_081146D0/gSpriteFrames_TingleSiblings.bin
   start: 0x118e5c
   size: 0xa8
-- path: data_081146D0/gUnk_08118F04.bin
+- path: data_081146D0/gSpriteFrames_Beedle.bin
   start: 0x118f04
   size: 0x38
-- path: data_081146D0/gUnk_08118F3C.bin
+- path: data_081146D0/gSpriteFrames_Brocco.bin
   start: 0x118f3c
   size: 0x28
-- path: data_081146D0/gUnk_08118F64.bin
+- path: data_081146D0/gSpriteFrames_Pina.bin
   start: 0x118f64
   size: 0x34
-- path: data_081146D0/gUnk_08118F98.bin
+- path: data_081146D0/gSpriteFrames_Postman.bin
   start: 0x118f98
   size: 0x108
-- path: data_081146D0/gUnk_081190A0.bin
+- path: data_081146D0/gSpriteFrames_Malon.bin
   start: 0x1190a0
   size: 0x44
-- path: data_081146D0/gUnk_081190E4.bin
+- path: data_081146D0/gSpriteFrames_Epona.bin
   start: 0x1190e4
   size: 0x38
-- path: data_081146D0/gUnk_0811911C.bin
+- path: data_081146D0/gSpriteFrames_MilkCart.bin
   start: 0x11911c
   size: 0x10
-- path: data_081146D0/gUnk_0811912C.bin
+- path: data_081146D0/gSpriteFrames_Smith.bin
   start: 0x11912c
   size: 0x5c
-- path: data_081146D0/gUnk_08119188.bin
+- path: data_081146D0/gSpriteFrames_Townsperson.bin
   start: 0x119188
   size: 0x120
-- path: data_081146D0/gUnk_081192A8.bin
+- path: data_081146D0/gSpriteFrames_58.bin
   start: 0x1192a8
   size: 0x2a0
-- path: data_081146D0/gUnk_08119548.bin
+- path: data_081146D0/gSpriteFrames_Kid.bin
   start: 0x119548
   size: 0x27c
-- path: data_081146D0/gUnk_081197C4.bin
+- path: data_081146D0/gSpriteFrames_Mailbox.bin
   start: 0x1197c4
   size: 0x30
-- path: data_081146D0/gUnk_081197F4.bin
+- path: data_081146D0/gSpriteFrames_SittingPerson.bin
   start: 0x1197f4
   size: 0xd0
-- path: data_081146D0/gUnk_081198C4.bin
+- path: data_081146D0/gSpriteFrames_Mutoh.bin
   start: 0x1198c4
   size: 0x28
-- path: data_081146D0/gUnk_081198EC.bin
+- path: data_081146D0/gSpriteFrames_Carpenter.bin
   start: 0x1198ec
   size: 0xb8
-- path: data_081146D0/gUnk_081199A4.bin
+- path: data_081146D0/gSpriteFrames_Gorman.bin
   start: 0x1199a4
   size: 0x54
-- path: data_081146D0/gUnk_081199F8.bin
+- path: data_081146D0/gSpriteFrames_Cat.bin
   start: 0x1199f8
   size: 0x7c
-- path: data_081146D0/gUnk_08119A74.bin
+- path: data_081146D0/gSpriteFrames_66.bin
   start: 0x119a74
   size: 0x7c
-- path: data_081146D0/gUnk_08119AF0.bin
+- path: data_081146D0/gSpriteFrames_Dog.bin
   start: 0x119af0
   size: 0x8c
-- path: data_081146D0/gUnk_08119B7C.bin
+- path: data_081146D0/gSpriteFrames_68.bin
   start: 0x119b7c
   size: 0x74
-- path: data_081146D0/gUnk_08119BF0.bin
+- path: data_081146D0/gSpriteFrames_69.bin
   start: 0x119bf0
   size: 0x74
-- path: data_081146D0/gUnk_08119C64.bin
+- path: data_081146D0/gSpriteFrames_Syrup.bin
   start: 0x119c64
   size: 0x90
-- path: data_081146D0/gUnk_08119CF4.bin
+- path: data_081146D0/gSpriteFrames_Percy.bin
   start: 0x119cf4
   size: 0x60
-- path: data_081146D0/gUnk_08119D54.bin
+- path: data_081146D0/gSpriteFrames_Farmers_0.bin
   start: 0x119d54
   size: 0x54
-- path: data_081146D0/gUnk_08119DA8.bin
+- path: data_081146D0/gSpriteFrames_Farmers_1.bin
   start: 0x119da8
   size: 0x54
-- path: data_081146D0/gUnk_08119DFC.bin
+- path: data_081146D0/gSpriteFrames_Dampe.bin
   start: 0x119dfc
   size: 0x1c
-- path: data_081146D0/gUnk_08119E18.bin
+- path: data_081146D0/gSpriteFrames_KingGustaf.bin
   start: 0x119e18
   size: 0x2c
-- path: data_081146D0/gUnk_08119E44.bin
+- path: data_081146D0/gSpriteFrames_Gina.bin
   start: 0x119e44
   size: 0x6c
-- path: data_081146D0/gUnk_08119EB0.bin
+- path: data_081146D0/gSpriteFrames_Simon.bin
   start: 0x119eb0
   size: 0x28
-- path: data_081146D0/gUnk_08119ED8.bin
+- path: data_081146D0/gSpriteFrames_Mama.bin
   start: 0x119ed8
   size: 0xa8
-- path: data_081146D0/gUnk_08119F80.bin
+- path: data_081146D0/gSpriteFrames_Teachers.bin
   start: 0x119f80
   size: 0x24
-- path: data_081146D0/gUnk_08119FA4.bin
+- path: data_081146D0/gSpriteFrames_80.bin
   start: 0x119fa4
   size: 0x30
-- path: data_081146D0/gUnk_08119FD4.bin
+- path: data_081146D0/gSpriteFrames_WindTribespeople_0.bin
   start: 0x119fd4
   size: 0x48
-- path: data_081146D0/gUnk_0811A01C.bin
+- path: data_081146D0/gSpriteFrames_WindTribespeople_1.bin
   start: 0x11a01c
   size: 0x30
-- path: data_081146D0/gUnk_0811A04C.bin
+- path: data_081146D0/gSpriteFrames_WindTribespeople_2.bin
   start: 0x11a04c
   size: 0x1c
-- path: data_081146D0/gUnk_0811A068.bin
+- path: data_081146D0/gSpriteFrames_WindTribespeople_3.bin
   start: 0x11a068
   size: 0x3c
-- path: data_081146D0/gUnk_0811A0A4.bin
+- path: data_081146D0/gSpriteFrames_WindTribespeople_4.bin
   start: 0x11a0a4
   size: 0x28
-- path: data_081146D0/gUnk_0811A0CC.bin
+- path: data_081146D0/gSpriteFrames_WindTribespeople_5.bin
   start: 0x11a0cc
   size: 0x18
-- path: data_081146D0/gUnk_0811A0E4.bin
+- path: data_081146D0/gSpriteFrames_MayorHagen.bin
   start: 0x11a0e4
   size: 0x40
-- path: data_081146D0/gUnk_0811A124.bin
+- path: data_081146D0/gSpriteFrames_GhostBrothers.bin
   start: 0x11a124
   size: 0x20
-- path: data_081146D0/gUnk_0811A144.bin
+- path: data_081146D0/gSpriteFrames_HurdyGurdyMan.bin
   start: 0x11a144
   size: 0x38
-- path: data_081146D0/gUnk_0811A17C.bin
+- path: data_081146D0/gSpriteFrames_Cow.bin
   start: 0x11a17c
   size: 0x4c
-- path: data_081146D0/gUnk_0811A1C8.bin
+- path: data_081146D0/gSpriteFrames_GoronMerchant.bin
   start: 0x11a1c8
   size: 0x30
-- path: data_081146D0/gUnk_0811A1F8.bin
+- path: data_081146D0/gSpriteFrames_92.bin
   start: 0x11a1f8
   size: 0x30
-- path: data_081146D0/gUnk_0811A228.bin
+- path: data_081146D0/gSpriteFrames_Goron.bin
   start: 0x11a228
   size: 0x58
-- path: data_081146D0/gUnk_0811A280.bin
+- path: data_081146D0/gSpriteFrames_CastorWildsStatue.bin
   start: 0x11a280
   size: 0xc
-- path: data_081146D0/gUnk_0811A28C.bin
+- path: data_081146D0/gSpriteFrames_Npc4F.bin
   start: 0x11a28c
   size: 0x1c
-- path: data_081146D0/gUnk_0811A2A8.bin
+- path: data_081146D0/gSpriteFrames_Object6A_4.bin
   start: 0x11a2a8
   size: 0x28
-- path: data_081146D0/gUnk_0811A2D0.bin
+- path: data_081146D0/gSpriteFrames_97.bin
   start: 0x11a2d0
   size: 0x2c
-- path: data_081146D0/gUnk_0811A2FC.bin
+- path: data_081146D0/gSpriteFrames_DarkNut_0.bin
   start: 0x11a2fc
   size: 0x214
-- path: data_081146D0/gUnk_0811A510.bin
+- path: data_081146D0/gSpriteFrames_DarkNut_1.bin
   start: 0x11a510
   size: 0x24c
-- path: data_081146D0/gUnk_0811A75C.bin
+- path: data_081146D0/gSpriteFrames_ChuchuBoss_0.bin
   start: 0x11a75c
   size: 0x4c
-- path: data_081146D0/gUnk_0811A7A8.bin
+- path: data_081146D0/gSpriteFrames_DeathFx_0.bin
   start: 0x11a7a8
   size: 0xc4
-- path: data_081146D0/gUnk_0811A86C.bin
+- path: data_081146D0/gSpriteFrames_Madderpillar_0.bin
   start: 0x11a86c
   size: 0x60
-- path: data_081146D0/gUnk_0811A8CC.bin
+- path: data_081146D0/gSpriteFrames_Gleerok_0.bin
   start: 0x11a8cc
   size: 0xe8
-- path: data_081146D0/gUnk_0811A9B4.bin
+- path: data_081146D0/gSpriteFrames_Keaton.bin
   start: 0x11a9b4
   size: 0x78
-- path: data_081146D0/gUnk_0811AA2C.bin
+- path: data_081146D0/gSpriteFrames_MazaalHand.bin
   start: 0x11aa2c
   size: 0x50
-- path: data_081146D0/gUnk_0811AA7C.bin
+- path: data_081146D0/gSpriteFrames_ScissorsBeetle.bin
   start: 0x11aa7c
   size: 0x9c
-- path: data_081146D0/gUnk_0811AB18.bin
+- path: data_081146D0/gSpriteFrames_MandiblesProjectile.bin
   start: 0x11ab18
   size: 0xe0
-- path: data_081146D0/gUnk_0811ABF8.bin
+- path: data_081146D0/gSpriteFrames_Stalfos.bin
   start: 0x11abf8
   size: 0x12c
-- path: data_081146D0/gUnk_0811AD24.bin
+- path: data_081146D0/gSpriteFrames_Gibdo.bin
   start: 0x11ad24
   size: 0xa8
-- path: data_081146D0/gUnk_0811ADCC.bin
+- path: data_081146D0/gSpriteFrames_Lakitu.bin
   start: 0x11adcc
   size: 0xe4
-- path: data_081146D0/gUnk_0811AEB0.bin
+- path: data_081146D0/gSpriteFrames_LakituCloudProjectile.bin
   start: 0x11aeb0
   size: 0x28
-- path: data_081146D0/gUnk_0811AED8.bin
+- path: data_081146D0/gSpriteFrames_VaatiRebornEnemy_0.bin
   start: 0x11aed8
   size: 0x4c
-- path: data_081146D0/gUnk_0811AF24.bin
+- path: data_081146D0/gSpriteFrames_VaatiRebornEnemy_1.bin
   start: 0x11af24
   size: 0x10
-- path: data_081146D0/gUnk_0811AF34.bin
+- path: data_081146D0/gSpriteFrames_VaatiRebornEnemy_2.bin
   start: 0x11af34
   size: 0x30
-- path: data_081146D0/gUnk_0811AF64.bin
+- path: data_081146D0/gSpriteFrames_VaatiRebornEnemy_3.bin
   start: 0x11af64
   size: 0x28
-- path: data_081146D0/gUnk_0811AF8C.bin
+- path: data_081146D0/gSpriteFrames_VaatiBall.bin
   start: 0x11af8c
   size: 0x30
-- path: data_081146D0/gUnk_0811AFBC.bin
+- path: data_081146D0/gSpriteFrames_VaatiTransfigured_0.bin
   start: 0x11afbc
   size: 0x14
-- path: data_081146D0/gUnk_0811AFD0.bin
+- path: data_081146D0/gSpriteFrames_VaatiTransfigured_1.bin
   start: 0x11afd0
   size: 0x30
-- path: data_081146D0/gUnk_0811B000.bin
+- path: data_081146D0/gSpriteFrames_VaatiTransfigured_2.bin
   start: 0x11b000
   size: 0x1c
-- path: data_081146D0/gUnk_0811B01C.bin
+- path: data_081146D0/gSpriteFrames_VaatiTransfigured_3.bin
   start: 0x11b01c
   size: 0x10
-- path: data_081146D0/gUnk_0811B02C.bin
+- path: data_081146D0/gSpriteFrames_VaatiArm.bin
   start: 0x11b02c
   size: 0x84
-- path: data_081146D0/gUnk_0811B0B0.bin
+- path: data_081146D0/gSpriteFrames_VaatiWrath.bin
   start: 0x11b0b0
   size: 0x80
-- path: data_081146D0/gUnk_0811B130.bin
+- path: data_081146D0/gSpriteFrames_VaatiReborn.bin
   start: 0x11b130
   size: 0x48
-- path: data_081146D0/gUnk_0811B178.bin
+- path: data_081146D0/gSpriteFrames_MoblinLady_1.bin
   start: 0x11b178
   size: 0x18
-- path: data_081146D0/gUnk_0811B190.bin
+- path: data_081146D0/gSpriteFrames_BallChainSoldier.bin
   start: 0x11b190
   size: 0x84
-- path: data_081146D0/gUnk_0811B214.bin
+- path: data_081146D0/gSpriteFrames_GyorgMale.bin
   start: 0x11b214
   size: 0x44
-- path: data_081146D0/gUnk_0811B258.bin
+- path: data_081146D0/gSpriteFrames_JarPortal.bin
   start: 0x11b258
   size: 0x3c
-- path: data_081146D0/gUnk_0811B294.bin
+- path: data_081146D0/gSpriteFrames_Beanstalk_0.bin
   start: 0x11b294
   size: 0x68
-- path: data_081146D0/gUnk_0811B2FC.bin
+- path: data_081146D0/gSpriteFrames_Minecart.bin
   start: 0x11b2fc
   size: 0x50
-- path: data_081146D0/gUnk_0811B34C.bin
+- path: data_081146D0/gSpriteFrames_LavaPlatform_1.bin
   start: 0x11b34c
   size: 0x48
-- path: data_081146D0/gUnk_0811B394.bin
+- path: data_081146D0/gSpriteFrames_BigVortex.bin
   start: 0x11b394
   size: 0x10
-- path: data_081146D0/gUnk_0811B3A4.bin
+- path: data_081146D0/gSpriteFrames_MacroBook.bin
   start: 0x11b3a4
   size: 0x10
-- path: data_081146D0/gUnk_0811B3B4.bin
+- path: data_081146D0/gSpriteFrames_GentariCurtains.bin
   start: 0x11b3b4
   size: 0x14
-- path: data_081146D0/gUnk_0811B3C8.bin
+- path: data_081146D0/gSpriteFrames_SpiderWeb.bin
   start: 0x11b3c8
   size: 0x40
-- path: data_081146D0/gUnk_0811B408.bin
+- path: data_081146D0/gSpriteFrames_Object79.bin
   start: 0x11b408
   size: 0x138
-- path: data_081146D0/gUnk_0811B540.bin
+- path: data_081146D0/gSpriteFrames_OctorokBoss_0.bin
   start: 0x11b540
   size: 0x24
-- path: data_081146D0/gUnk_0811B564.bin
+- path: data_081146D0/gSpriteFrames_Bell.bin
   start: 0x11b564
   size: 0x14
-- path: data_081146D0/gUnk_0811B578.bin
+- path: data_081146D0/gSpriteFrames_322.bin
   start: 0x11b578
   size: 0x3c8
-- path: data_081146D0/gUnk_0811B940.bin
+- path: data_081146D0/gSpriteFrames_Vaati_1.bin
   start: 0x11b940
   size: 0x4c
 - path: playerItem12/gUnk_0811B9A0.bin
@@ -42573,7 +42573,7 @@
 - path: lavaPlatform/gUnk_08122684.bin
   start: 0x122684
   size: 0x14
-- path: lavaPlatform/gUnk_08122698.bin
+- path: lavaPlatform/gSpriteAnimations_LavaPlatform_1.bin
   start: 0x1226a0
   size: 0x4
 - path: houseDoorInterior/gUnk_081227B4.bin
@@ -42834,7 +42834,7 @@
 - path: object6A/gUnk_081230C8.bin
   start: 0x1230c8
   size: 0x54
-- path: object6A/gUnk_0812311C.bin
+- path: object6A/gSpriteAnimations_Object6A_4.bin
   start: 0x123120
   size: 0x4
 - path: object6A/gUnk_08123124.bin
@@ -42948,7 +42948,7 @@
 - path: bell/gUnk_0812338C.bin
   start: 0x12338c
   size: 0x24
-- path: bell/gUnk_081233B0.bin
+- path: bell/gSpriteAnimations_Bell.bin
   start: 0x1233b4
   size: 0x4
 - path: macroDecorations/gUnk_081233C0.bin
@@ -43134,13 +43134,13 @@
 - path: object93/gUnk_08123E88.bin
   start: 0x123e88
   size: 0x14
-- path: object93/gUnk_08123E9C.bin
+- path: object93/gSpriteAnimations_Object93_0.bin
   start: 0x123ea0
   size: 0x4
 - path: object93/gUnk_08123EA4.bin
   start: 0x123ea4
   size: 0x14
-- path: object93/gUnk_08123EB8.bin
+- path: object93/gSpriteAnimations_Object93_1.bin
   start: 0x123ebc
   size: 0x4
 - path: bird/gUnk_08123F28.bin
@@ -43158,7 +43158,7 @@
 - path: bird/gUnk_08123F0C.bin
   start: 0x123f0c
   size: 0x14
-- path: bird/gUnk_08123F20.bin
+- path: bird/gSpriteAnimations_Bird_1.bin
   start: 0x123f24
   size: 0x4
 - path: object96/gUnk_08123FB0.bin
@@ -44881,13 +44881,13 @@
 - path: data_08127280/gUnk_08127CEC.bin
   start: 0x127cec
   size: 0x14
-- path: data_08127280/gUnk_08127D30_EU.bin
+- path: data_08127280/gAreaMetadata_EU.bin
   variants:
   - EU
   starts:
     EU: 0x127468
   size: 0x264
-- path: data_08127280/gUnk_08127D30_1_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08127280/gAreaMetadata_1_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -45650,7 +45650,7 @@
 - path: projectile16/gUnk_0812A3E0.bin
   start: 0x12a3e0
   size: 0x14
-- path: projectile16/gUnk_0812A3F4.bin
+- path: projectile16/gSpriteAnimations_TorchTrapProjectile_0.bin
   start: 0x12a3f8
   size: 0x4
 - path: projectile18/gUnk_0812A44C.bin
@@ -53125,7 +53125,7 @@
 - path: playerItemGustJar/gUnk_081327C4.bin
   start: 0x1327c4
   size: 0x18
-- path: playerItemGustJar/gUnk_08132810.bin
+- path: playerItemGustJar/gSpriteFrames_23.bin
   start: 0x132810
   size: 0x2d0
 - path: playerItemGustJar/gUnk_08132AE0.bin
@@ -53149,13 +53149,13 @@
 - path: playerItemGustJar/gUnk_08132B28.bin
   start: 0x132b28
   size: 0x8
-- path: data_08132B30/gUnk_08132B30_EU.bin
+- path: data_08132B30/gFixedTypeGfxData_EU.bin
   variants:
   - EU
   starts:
     EU: 0x132180
   size: 0x203
-- path: data_08132B30/gUnk_08132B30_1_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFixedTypeGfxData_1_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -53163,13 +53163,13 @@
   - DEMO_JP
   start: 0x132b30
   size: 0x203
-- path: data_08132B30/gUnk_08132B30_2_EU.bin
+- path: data_08132B30/gFixedTypeGfxData_2_EU.bin
   variants:
   - EU
   starts:
     EU: 0x132383
   size: 0x2e6
-- path: data_08132B30/gUnk_08132B30_3_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFixedTypeGfxData_3_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -53177,13 +53177,13 @@
   - DEMO_JP
   start: 0x132d33
   size: 0x2e6
-- path: data_08132B30/gUnk_08132B30_4_EU.bin
+- path: data_08132B30/gFixedTypeGfxData_4_EU.bin
   variants:
   - EU
   starts:
     EU: 0x132669
   size: 0xf8
-- path: data_08132B30/gUnk_08132B30_5_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFixedTypeGfxData_5_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -53191,13 +53191,13 @@
   - DEMO_JP
   start: 0x133019
   size: 0xf8
-- path: data_08132B30/gUnk_08132B30_6_EU.bin
+- path: data_08132B30/gFixedTypeGfxData_6_EU.bin
   variants:
   - EU
   starts:
     EU: 0x132761
   size: 0x200
-- path: data_08132B30/gUnk_08132B30_7_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFixedTypeGfxData_7_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -53205,13 +53205,13 @@
   - DEMO_JP
   start: 0x133111
   size: 0x200
-- path: data_08132B30/gUnk_08132B30_8_EU.bin
+- path: data_08132B30/gFixedTypeGfxData_8_EU.bin
   variants:
   - EU
   starts:
     EU: 0x132961
   size: 0x22
-- path: data_08132B30/gUnk_08132B30_9_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFixedTypeGfxData_9_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -53219,13 +53219,13 @@
   - DEMO_JP
   start: 0x133311
   size: 0x22
-- path: data_08132B30/gUnk_08132B30_10_EU.bin
+- path: data_08132B30/gFixedTypeGfxData_10_EU.bin
   variants:
   - EU
   starts:
     EU: 0x132983
   size: 0x31
-- path: data_08132B30/gUnk_08132B30_11_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFixedTypeGfxData_11_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -53282,10 +53282,10 @@
 - path: data_08132B30/gUnk_08133A67.bin
   start: 0x133a67
   size: 0x4e1
-- path: data_08132B30/gUnk_08133FC8.bin
+- path: data_08132B30/gExitLists_NoExitList.bin
   start: 0x133fc8
   size: 0x14
-- path: data_08132B30/gUnk_081340DC.bin
+- path: data_08132B30/gExitLists_MinishWoods_Main.bin
   start: 0x1340dc
   size: 0x12c
 - path: data_08132B30/gUnk_0813420C.bin
@@ -54758,21 +54758,36 @@
 - path: data_08132B30/gUnk_0813ADEC.bin
   start: 0x13adec
   size: 0x28
-- path: data_08132B30/gUnk_0813AE14.bin
+- path: data_08132B30/gSprite_Link.4bpp
   start: 0x13ae14
   size: 0x8de60
-- path: data_08132B30/gUnk_081C8C74.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gSprite_081C8C74.4bpp
   start: 0x1c8c74
   size: 0xea00
-- path: data_08132B30/gUnk_081D7674.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gSprite_081D7674.4bpp
   start: 0x1d7674
   size: 0x81c0
-- path: data_08132B30/gUnk_081DF834.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gSprite_081DF834.4bpp
   start: 0x1df834
   size: 0x1f980
-- path: data_08132B30/gUnk_081FF1B4.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gSprite_081FF1B4.4bpp
   start: 0x1ff1b4
   size: 0x19300
+  type: graphic
+  options:
+    width: 4
 - path: graphics/npc/postman.4bpp
   start: 0x2184b4
   size: 0x5800
@@ -54785,16 +54800,22 @@
   type: graphic
   options:
     width: 2
-- path: data_08132B30/gUnk_081FF1B4_1.bin
+- path: data_08132B30/gSprite_081FF1B4_1.4bpp
   start: 0x21e8f4
   size: 0x2d07
-- path: data_08132B30/gUnk_081FF1B4_2_EU.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gSprite_081FF1B4_2_EU.4bpp
   variants:
   - EU
   starts:
     EU: 0x220ce7
   size: 0x3f6
-- path: data_08132B30/gUnk_081FF1B4_3_USA-JP-DEMO_USA-DEMO_JP.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gSprite_081FF1B4_3_USA-JP-DEMO_USA-DEMO_JP.4bpp
   variants:
   - USA
   - JP
@@ -54802,32 +54823,50 @@
   - DEMO_JP
   start: 0x2215fb
   size: 0x3f6
-- path: data_08132B30/gUnk_081FF1B4_4.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gSprite_081FF1B4_4.4bpp
   start: 0x2219f1
   size: 0x25ae3
-- path: data_08132B30/gUnk_082474D4.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gSprite_082474D4.4bpp
   start: 0x2474d4
   size: 0x8d3c0
+  type: graphic
+  options:
+    width: 4
 - path: graphics/pot_portal.4bpp
   start: 0x2d4894
   size: 0x1200
   type: graphic
-- path: data_08132B30/gUnk_082D4894.bin
+- path: data_08132B30/gSprite_082D4894.4bpp
   start: 0x2d5a94
   size: 0x10e60
-- path: data_08132B30/gUnk_082E68F4.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gSprite_082E68F4.4bpp
   start: 0x2e68f4
   size: 0xbf00
-- path: data_08132B30/gUnk_082F27F4.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gSprite_082F27F4.4bpp
   start: 0x2f27f4
   size: 0x1580
-- path: data_08132B30/gUnk_082F3D74_EU.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFrameObjLists_EU.bin
   variants:
   - EU
   starts:
     EU: 0x2f3460
   size: 0x18f
-- path: data_08132B30/gUnk_082F3D74_1_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_1_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -54835,13 +54874,13 @@
   - DEMO_JP
   start: 0x2f3d74
   size: 0x18f
-- path: data_08132B30/gUnk_082F3D74_2_EU.bin
+- path: data_08132B30/gFrameObjLists_2_EU.bin
   variants:
   - EU
   starts:
     EU: 0x2f35ef
   size: 0x15
-- path: data_08132B30/gUnk_082F3D74_3_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_3_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -54849,13 +54888,13 @@
   - DEMO_JP
   start: 0x2f3f03
   size: 0x15
-- path: data_08132B30/gUnk_082F3D74_4_EU.bin
+- path: data_08132B30/gFrameObjLists_4_EU.bin
   variants:
   - EU
   starts:
     EU: 0x2f3604
   size: 0x215
-- path: data_08132B30/gUnk_082F3D74_5_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_5_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -54863,13 +54902,13 @@
   - DEMO_JP
   start: 0x2f3f18
   size: 0x215
-- path: data_08132B30/gUnk_082F3D74_6_EU.bin
+- path: data_08132B30/gFrameObjLists_6_EU.bin
   variants:
   - EU
   starts:
     EU: 0x2f3819
   size: 0x30b
-- path: data_08132B30/gUnk_082F3D74_7_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_7_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -54877,13 +54916,13 @@
   - DEMO_JP
   start: 0x2f412d
   size: 0x30b
-- path: data_08132B30/gUnk_082F3D74_8_EU.bin
+- path: data_08132B30/gFrameObjLists_8_EU.bin
   variants:
   - EU
   starts:
     EU: 0x2f3b24
   size: 0xbcf
-- path: data_08132B30/gUnk_082F3D74_9_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_9_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -54891,13 +54930,13 @@
   - DEMO_JP
   start: 0x2f4438
   size: 0xbcf
-- path: data_08132B30/gUnk_082F3D74_10_EU.bin
+- path: data_08132B30/gFrameObjLists_10_EU.bin
   variants:
   - EU
   starts:
     EU: 0x2f46f3
   size: 0x51
-- path: data_08132B30/gUnk_082F3D74_11_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_11_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -54905,13 +54944,13 @@
   - DEMO_JP
   start: 0x2f5007
   size: 0x51
-- path: data_08132B30/gUnk_082F3D74_12_EU.bin
+- path: data_08132B30/gFrameObjLists_12_EU.bin
   variants:
   - EU
   starts:
     EU: 0x2f4744
   size: 0xb9
-- path: data_08132B30/gUnk_082F3D74_13_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_13_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -54919,13 +54958,13 @@
   - DEMO_JP
   start: 0x2f5058
   size: 0xb9
-- path: data_08132B30/gUnk_082F3D74_14_EU.bin
+- path: data_08132B30/gFrameObjLists_14_EU.bin
   variants:
   - EU
   starts:
     EU: 0x2f47fd
   size: 0x15b
-- path: data_08132B30/gUnk_082F3D74_15_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_15_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -54933,13 +54972,13 @@
   - DEMO_JP
   start: 0x2f5111
   size: 0x15b
-- path: data_08132B30/gUnk_082F3D74_16_EU.bin
+- path: data_08132B30/gFrameObjLists_16_EU.bin
   variants:
   - EU
   starts:
     EU: 0x2f4958
   size: 0x79b8
-- path: data_08132B30/gUnk_082F3D74_17_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_17_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -54947,13 +54986,13 @@
   - DEMO_JP
   start: 0x2f526c
   size: 0x79b8
-- path: data_08132B30/gUnk_082F3D74_18_EU.bin
+- path: data_08132B30/gFrameObjLists_18_EU.bin
   variants:
   - EU
   starts:
     EU: 0x2fc310
   size: 0x11d5
-- path: data_08132B30/gUnk_082F3D74_19_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_19_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -54961,13 +55000,13 @@
   - DEMO_JP
   start: 0x2fcc24
   size: 0x11d5
-- path: data_08132B30/gUnk_082F3D74_20_EU.bin
+- path: data_08132B30/gFrameObjLists_20_EU.bin
   variants:
   - EU
   starts:
     EU: 0x2fd4e5
   size: 0x4e4
-- path: data_08132B30/gUnk_082F3D74_21_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_21_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -54975,13 +55014,13 @@
   - DEMO_JP
   start: 0x2fddf9
   size: 0x4e8
-- path: data_08132B30/gUnk_082F3D74_22_EU.bin
+- path: data_08132B30/gFrameObjLists_22_EU.bin
   variants:
   - EU
   starts:
     EU: 0x2fd9c9
   size: 0x1cbe
-- path: data_08132B30/gUnk_082F3D74_23_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_23_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -54991,16 +55030,16 @@
   size: 0x1cbe
 - offsets:
     EU: -0x918
-- path: data_08132B30/gUnk_082F3D74_24.bin
+- path: data_08132B30/gFrameObjLists_24.bin
   start: 0x2fff9f
   size: 0x8e6a
-- path: data_08132B30/gUnk_082F3D74_25_EU.bin
+- path: data_08132B30/gFrameObjLists_25_EU.bin
   variants:
   - EU
   starts:
     EU: 0x3084f1
   size: 0x817
-- path: data_08132B30/gUnk_082F3D74_26_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_26_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -55008,16 +55047,16 @@
   - DEMO_JP
   start: 0x308e09
   size: 0x817
-- path: data_08132B30/gUnk_082F3D74_27.bin
+- path: data_08132B30/gFrameObjLists_27.bin
   start: 0x309620
   size: 0xe4e0
-- path: data_08132B30/gUnk_082F3D74_28_EU.bin
+- path: data_08132B30/gFrameObjLists_28_EU.bin
   variants:
   - EU
   starts:
     EU: 0x3171e8
   size: 0x26a1
-- path: data_08132B30/gUnk_082F3D74_29_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_29_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -55025,16 +55064,16 @@
   - DEMO_JP
   start: 0x317b00
   size: 0x26a1
-- path: data_08132B30/gUnk_082F3D74_30.bin
+- path: data_08132B30/gFrameObjLists_30.bin
   start: 0x31a1a1
   size: 0x238e
-- path: data_08132B30/gUnk_082F3D74_31_EU.bin
+- path: data_08132B30/gFrameObjLists_31_EU.bin
   variants:
   - EU
   starts:
     EU: 0x31bc17
   size: 0x83d5
-- path: data_08132B30/gUnk_082F3D74_32_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFrameObjLists_32_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -55044,7 +55083,7 @@
   size: 0x85b5
 - offsets:
     EU: -0xaf8
-- path: data_08132B30/gUnk_08324AE4.bin
+- path: data_08132B30/gAssets.bin
   start: 0x324ae4
   size: 0x3d0
 - path: tilesets/gTileset_MinishWoods_0_0.4bpp.lz
@@ -55059,16 +55098,16 @@
   start: 0x32a0f8
   size: 0x20f0
   type: tileset
-- path: data_08132B30/gUnk_08324AE4_1.bin
+- path: data_08132B30/gAssets_1.bin
   start: 0x32c1e8
   size: 0x1948f
-- path: data_08132B30/gUnk_08324AE4_2_EU.bin
+- path: data_08132B30/gAssets_2_EU.bin
   variants:
   - EU
   starts:
     EU: 0x344b7f
   size: 0x25d851
-- path: data_08132B30/gUnk_08324AE4_3_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gAssets_3_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -55076,19 +55115,19 @@
   - DEMO_JP
   start: 0x345677
   size: 0x200eef
-- path: data_08132B30/gUnk_08324AE4_4_JP.bin
+- path: data_08132B30/gAssets_4_JP.bin
   variants:
   - JP
   starts:
     JP: 0x546192
   size: 0x5c98e
-- path: data_08132B30/gUnk_08324AE4_5_DEMO_JP.bin
+- path: data_08132B30/gAssets_5_DEMO_JP.bin
   variants:
   - DEMO_JP
   starts:
     DEMO_JP: 0x54618a
   size: 0x5c98e
-- path: data_08132B30/gUnk_08324AE4_6_USA-DEMO_USA.bin
+- path: data_08132B30/gAssets_6_USA-DEMO_USA.bin
   variants:
   - USA
   - DEMO_USA
@@ -55123,412 +55162,412 @@
   size: 0x1d40
 - offsets:
     EU: -0xaf0
-- path: data_08132B30/gUnk_085B5EC0.bin
+- path: data_08132B30/gFigurinePal1.bin
   start: 0x5b5ec0
   size: 0xe0
-- path: data_08132B30/gUnk_085B5FA0.bin
+- path: data_08132B30/gFigurinePal2.bin
   start: 0x5b5fa0
   size: 0xe0
-- path: data_08132B30/gUnk_085B6080.bin
+- path: data_08132B30/gFigurinePal3.bin
   start: 0x5b6080
   size: 0xe0
-- path: data_08132B30/gUnk_085B6160.bin
+- path: data_08132B30/gFigurinePal4.bin
   start: 0x5b6160
   size: 0xe0
-- path: data_08132B30/gUnk_085B6240.bin
+- path: data_08132B30/gFigurinePal5.bin
   start: 0x5b6240
   size: 0xe0
-- path: data_08132B30/gUnk_085B6320.bin
+- path: data_08132B30/gFigurinePal6.bin
   start: 0x5b6320
   size: 0xe0
-- path: data_08132B30/gUnk_085B6400.bin
+- path: data_08132B30/gFigurinePal7.bin
   start: 0x5b6400
   size: 0xe0
-- path: data_08132B30/gUnk_085B64E0.bin
+- path: data_08132B30/gFigurinePal8.bin
   start: 0x5b64e0
   size: 0xe0
-- path: data_08132B30/gUnk_085B65C0.bin
+- path: data_08132B30/gFigurinePal9.bin
   start: 0x5b65c0
   size: 0xe0
-- path: data_08132B30/gUnk_085B66A0.bin
+- path: data_08132B30/gFigurinePal10.bin
   start: 0x5b66a0
   size: 0xe0
-- path: data_08132B30/gUnk_085B6780.bin
+- path: data_08132B30/gFigurinePal11.bin
   start: 0x5b6780
   size: 0xe0
-- path: data_08132B30/gUnk_085B6860.bin
+- path: data_08132B30/gFigurinePal12.bin
   start: 0x5b6860
   size: 0xe0
-- path: data_08132B30/gUnk_085B6940.bin
+- path: data_08132B30/gFigurinePal13.bin
   start: 0x5b6940
   size: 0xe0
-- path: data_08132B30/gUnk_085B6A20.bin
+- path: data_08132B30/gFigurinePal14.bin
   start: 0x5b6a20
   size: 0xe0
-- path: data_08132B30/gUnk_085B6B00.bin
+- path: data_08132B30/gFigurinePal15.bin
   start: 0x5b6b00
   size: 0xe0
-- path: data_08132B30/gUnk_085B6BE0.bin
+- path: data_08132B30/gFigurinePal16.bin
   start: 0x5b6be0
   size: 0xe0
-- path: data_08132B30/gUnk_085B6CC0.bin
+- path: data_08132B30/gFigurinePal17.bin
   start: 0x5b6cc0
   size: 0xe0
-- path: data_08132B30/gUnk_085B6DA0.bin
+- path: data_08132B30/gFigurinePal18.bin
   start: 0x5b6da0
   size: 0xe0
-- path: data_08132B30/gUnk_085B6E80.bin
+- path: data_08132B30/gFigurinePal19.bin
   start: 0x5b6e80
   size: 0xe0
-- path: data_08132B30/gUnk_085B6F60.bin
+- path: data_08132B30/gFigurinePal20.bin
   start: 0x5b6f60
   size: 0xe0
-- path: data_08132B30/gUnk_085B7040.bin
+- path: data_08132B30/gFigurinePal21.bin
   start: 0x5b7040
   size: 0xe0
-- path: data_08132B30/gUnk_085B7120.bin
+- path: data_08132B30/gFigurinePal22.bin
   start: 0x5b7120
   size: 0xe0
-- path: data_08132B30/gUnk_085B7200.bin
+- path: data_08132B30/gFigurinePal23.bin
   start: 0x5b7200
   size: 0xe0
-- path: data_08132B30/gUnk_085B72E0.bin
+- path: data_08132B30/gFigurinePal24.bin
   start: 0x5b72e0
   size: 0xe0
-- path: data_08132B30/gUnk_085B73C0.bin
+- path: data_08132B30/gFigurinePal25.bin
   start: 0x5b73c0
   size: 0xe0
-- path: data_08132B30/gUnk_085B74A0.bin
+- path: data_08132B30/gFigurinePal26.bin
   start: 0x5b74a0
   size: 0xe0
-- path: data_08132B30/gUnk_085B7580.bin
+- path: data_08132B30/gFigurinePal27.bin
   start: 0x5b7580
   size: 0xe0
-- path: data_08132B30/gUnk_085B7660.bin
+- path: data_08132B30/gFigurinePal28.bin
   start: 0x5b7660
   size: 0xe0
-- path: data_08132B30/gUnk_085B7740.bin
+- path: data_08132B30/gFigurinePal29.bin
   start: 0x5b7740
   size: 0xe0
-- path: data_08132B30/gUnk_085B7820.bin
+- path: data_08132B30/gFigurinePal30.bin
   start: 0x5b7820
   size: 0xe0
-- path: data_08132B30/gUnk_085B7900.bin
+- path: data_08132B30/gFigurinePal31.bin
   start: 0x5b7900
   size: 0xe0
-- path: data_08132B30/gUnk_085B79E0.bin
+- path: data_08132B30/gFigurinePal32.bin
   start: 0x5b79e0
   size: 0xe0
-- path: data_08132B30/gUnk_085B7AC0.bin
+- path: data_08132B30/gFigurinePal33.bin
   start: 0x5b7ac0
   size: 0xe0
-- path: data_08132B30/gUnk_085B7BA0.bin
+- path: data_08132B30/gFigurinePal34.bin
   start: 0x5b7ba0
   size: 0xe0
-- path: data_08132B30/gUnk_085B7C80.bin
+- path: data_08132B30/gFigurinePal35.bin
   start: 0x5b7c80
   size: 0xe0
-- path: data_08132B30/gUnk_085B7D60.bin
+- path: data_08132B30/gFigurinePal36.bin
   start: 0x5b7d60
   size: 0xe0
-- path: data_08132B30/gUnk_085B7E40.bin
+- path: data_08132B30/gFigurinePal37.bin
   start: 0x5b7e40
   size: 0xe0
-- path: data_08132B30/gUnk_085B7F20.bin
+- path: data_08132B30/gFigurinePal38.bin
   start: 0x5b7f20
   size: 0xe0
-- path: data_08132B30/gUnk_085B8000.bin
+- path: data_08132B30/gFigurinePal39.bin
   start: 0x5b8000
   size: 0xe0
-- path: data_08132B30/gUnk_085B80E0.bin
+- path: data_08132B30/gFigurinePal40.bin
   start: 0x5b80e0
   size: 0xe0
-- path: data_08132B30/gUnk_085B81C0.bin
+- path: data_08132B30/gFigurinePal41.bin
   start: 0x5b81c0
   size: 0xe0
-- path: data_08132B30/gUnk_085B82A0.bin
+- path: data_08132B30/gFigurinePal42.bin
   start: 0x5b82a0
   size: 0xe0
-- path: data_08132B30/gUnk_085B8380.bin
+- path: data_08132B30/gFigurinePal43.bin
   start: 0x5b8380
   size: 0xe0
-- path: data_08132B30/gUnk_085B8460.bin
+- path: data_08132B30/gFigurinePal44.bin
   start: 0x5b8460
   size: 0xe0
-- path: data_08132B30/gUnk_085B8540.bin
+- path: data_08132B30/gFigurinePal45.bin
   start: 0x5b8540
   size: 0xe0
-- path: data_08132B30/gUnk_085B8620.bin
+- path: data_08132B30/gFigurinePal46.bin
   start: 0x5b8620
   size: 0xe0
-- path: data_08132B30/gUnk_085B8700.bin
+- path: data_08132B30/gFigurinePal47.bin
   start: 0x5b8700
   size: 0xe0
-- path: data_08132B30/gUnk_085B87E0.bin
+- path: data_08132B30/gFigurinePal48.bin
   start: 0x5b87e0
   size: 0xe0
-- path: data_08132B30/gUnk_085B88C0.bin
+- path: data_08132B30/gFigurinePal49.bin
   start: 0x5b88c0
   size: 0x120
-- path: data_08132B30/gUnk_085B89E0.bin
+- path: data_08132B30/gFigurinePal50.bin
   start: 0x5b89e0
   size: 0xe0
-- path: data_08132B30/gUnk_085B8AC0.bin
+- path: data_08132B30/gFigurinePal51.bin
   start: 0x5b8ac0
   size: 0xe0
-- path: data_08132B30/gUnk_085B8BA0.bin
+- path: data_08132B30/gFigurinePal52.bin
   start: 0x5b8ba0
   size: 0xe0
-- path: data_08132B30/gUnk_085B8C80.bin
+- path: data_08132B30/gFigurinePal53.bin
   start: 0x5b8c80
   size: 0xe0
-- path: data_08132B30/gUnk_085B8D60.bin
+- path: data_08132B30/gFigurinePal54.bin
   start: 0x5b8d60
   size: 0xe0
-- path: data_08132B30/gUnk_085B8E40.bin
+- path: data_08132B30/gFigurinePal55.bin
   start: 0x5b8e40
   size: 0xe0
-- path: data_08132B30/gUnk_085B8F20.bin
+- path: data_08132B30/gFigurinePal56.bin
   start: 0x5b8f20
   size: 0xe0
-- path: data_08132B30/gUnk_085B9000.bin
+- path: data_08132B30/gFigurinePal57.bin
   start: 0x5b9000
   size: 0xe0
-- path: data_08132B30/gUnk_085B90E0.bin
+- path: data_08132B30/gFigurinePal58.bin
   start: 0x5b90e0
   size: 0xe0
-- path: data_08132B30/gUnk_085B91C0.bin
+- path: data_08132B30/gFigurinePal59.bin
   start: 0x5b91c0
   size: 0xe0
-- path: data_08132B30/gUnk_085B92A0.bin
+- path: data_08132B30/gFigurinePal60.bin
   start: 0x5b92a0
   size: 0xe0
-- path: data_08132B30/gUnk_085B9380.bin
+- path: data_08132B30/gFigurinePal61.bin
   start: 0x5b9380
   size: 0xe0
-- path: data_08132B30/gUnk_085B9460.bin
+- path: data_08132B30/gFigurinePal62.bin
   start: 0x5b9460
   size: 0xe0
-- path: data_08132B30/gUnk_085B9540.bin
+- path: data_08132B30/gFigurinePal63.bin
   start: 0x5b9540
   size: 0xe0
-- path: data_08132B30/gUnk_085B9620.bin
+- path: data_08132B30/gFigurinePal64.bin
   start: 0x5b9620
   size: 0xe0
-- path: data_08132B30/gUnk_085B9700.bin
+- path: data_08132B30/gFigurinePal65.bin
   start: 0x5b9700
   size: 0xe0
-- path: data_08132B30/gUnk_085B97E0.bin
+- path: data_08132B30/gFigurinePal66.bin
   start: 0x5b97e0
   size: 0xe0
-- path: data_08132B30/gUnk_085B98C0.bin
+- path: data_08132B30/gFigurinePal67.bin
   start: 0x5b98c0
   size: 0xe0
-- path: data_08132B30/gUnk_085B99A0.bin
+- path: data_08132B30/gFigurinePal68.bin
   start: 0x5b99a0
   size: 0xe0
-- path: data_08132B30/gUnk_085B9A80.bin
+- path: data_08132B30/gFigurinePal69.bin
   start: 0x5b9a80
   size: 0xe0
-- path: data_08132B30/gUnk_085B9B60.bin
+- path: data_08132B30/gFigurinePal70.bin
   start: 0x5b9b60
   size: 0xe0
-- path: data_08132B30/gUnk_085B9C40.bin
+- path: data_08132B30/gFigurinePal71.bin
   start: 0x5b9c40
   size: 0xe0
-- path: data_08132B30/gUnk_085B9D20.bin
+- path: data_08132B30/gFigurinePal72.bin
   start: 0x5b9d20
   size: 0xe0
-- path: data_08132B30/gUnk_085B9E00.bin
+- path: data_08132B30/gFigurinePal73.bin
   start: 0x5b9e00
   size: 0xe0
-- path: data_08132B30/gUnk_085B9EE0.bin
+- path: data_08132B30/gFigurinePal74.bin
   start: 0x5b9ee0
   size: 0xe0
-- path: data_08132B30/gUnk_085B9FC0.bin
+- path: data_08132B30/gFigurinePal75.bin
   start: 0x5b9fc0
   size: 0xe0
-- path: data_08132B30/gUnk_085BA0A0.bin
+- path: data_08132B30/gFigurinePal76.bin
   start: 0x5ba0a0
   size: 0xe0
-- path: data_08132B30/gUnk_085BA180.bin
+- path: data_08132B30/gFigurinePal77.bin
   start: 0x5ba180
   size: 0xe0
-- path: data_08132B30/gUnk_085BA260.bin
+- path: data_08132B30/gFigurinePal78.bin
   start: 0x5ba260
   size: 0xe0
-- path: data_08132B30/gUnk_085BA340.bin
+- path: data_08132B30/gFigurinePal79.bin
   start: 0x5ba340
   size: 0xe0
-- path: data_08132B30/gUnk_085BA420.bin
+- path: data_08132B30/gFigurinePal80.bin
   start: 0x5ba420
   size: 0xe0
-- path: data_08132B30/gUnk_085BA500.bin
+- path: data_08132B30/gFigurinePal81.bin
   start: 0x5ba500
   size: 0xe0
-- path: data_08132B30/gUnk_085BA5E0.bin
+- path: data_08132B30/gFigurinePal82.bin
   start: 0x5ba5e0
   size: 0xe0
-- path: data_08132B30/gUnk_085BA6C0.bin
+- path: data_08132B30/gFigurinePal83.bin
   start: 0x5ba6c0
   size: 0xe0
-- path: data_08132B30/gUnk_085BA7A0.bin
+- path: data_08132B30/gFigurinePal84.bin
   start: 0x5ba7a0
   size: 0xe0
-- path: data_08132B30/gUnk_085BA880.bin
+- path: data_08132B30/gFigurinePal85.bin
   start: 0x5ba880
   size: 0xe0
-- path: data_08132B30/gUnk_085BA960.bin
+- path: data_08132B30/gFigurinePal86.bin
   start: 0x5ba960
   size: 0xe0
-- path: data_08132B30/gUnk_085BAA40.bin
+- path: data_08132B30/gFigurinePal87.bin
   start: 0x5baa40
   size: 0xe0
-- path: data_08132B30/gUnk_085BAB20.bin
+- path: data_08132B30/gFigurinePal88.bin
   start: 0x5bab20
   size: 0xe0
-- path: data_08132B30/gUnk_085BAC00.bin
+- path: data_08132B30/gFigurinePal89.bin
   start: 0x5bac00
   size: 0xe0
-- path: data_08132B30/gUnk_085BACE0.bin
+- path: data_08132B30/gFigurinePal90.bin
   start: 0x5bace0
   size: 0xe0
-- path: data_08132B30/gUnk_085BADC0.bin
+- path: data_08132B30/gFigurinePal91.bin
   start: 0x5badc0
   size: 0xe0
-- path: data_08132B30/gUnk_085BAEA0.bin
+- path: data_08132B30/gFigurinePal92.bin
   start: 0x5baea0
   size: 0xe0
-- path: data_08132B30/gUnk_085BAF80.bin
+- path: data_08132B30/gFigurinePal93.bin
   start: 0x5baf80
   size: 0xe0
-- path: data_08132B30/gUnk_085BB060.bin
+- path: data_08132B30/gFigurinePal94.bin
   start: 0x5bb060
   size: 0xe0
-- path: data_08132B30/gUnk_085BB140.bin
+- path: data_08132B30/gFigurinePal95.bin
   start: 0x5bb140
   size: 0xe0
-- path: data_08132B30/gUnk_085BB220.bin
+- path: data_08132B30/gFigurinePal96.bin
   start: 0x5bb220
   size: 0xe0
-- path: data_08132B30/gUnk_085BB300.bin
+- path: data_08132B30/gFigurinePal97.bin
   start: 0x5bb300
   size: 0xe0
-- path: data_08132B30/gUnk_085BB3E0.bin
+- path: data_08132B30/gFigurinePal98.bin
   start: 0x5bb3e0
   size: 0xe0
-- path: data_08132B30/gUnk_085BB4C0.bin
+- path: data_08132B30/gFigurinePal99.bin
   start: 0x5bb4c0
   size: 0xe0
-- path: data_08132B30/gUnk_085BB5A0.bin
+- path: data_08132B30/gFigurinePal100.bin
   start: 0x5bb5a0
   size: 0xe0
-- path: data_08132B30/gUnk_085BB680.bin
+- path: data_08132B30/gFigurinePal101.bin
   start: 0x5bb680
   size: 0xe0
-- path: data_08132B30/gUnk_085BB760.bin
+- path: data_08132B30/gFigurinePal102.bin
   start: 0x5bb760
   size: 0xe0
-- path: data_08132B30/gUnk_085BB840.bin
+- path: data_08132B30/gFigurinePal103.bin
   start: 0x5bb840
   size: 0xe0
-- path: data_08132B30/gUnk_085BB920.bin
+- path: data_08132B30/gFigurinePal104.bin
   start: 0x5bb920
   size: 0xe0
-- path: data_08132B30/gUnk_085BBA00.bin
+- path: data_08132B30/gFigurinePal105.bin
   start: 0x5bba00
   size: 0xe0
-- path: data_08132B30/gUnk_085BBAE0.bin
+- path: data_08132B30/gFigurinePal106.bin
   start: 0x5bbae0
   size: 0xe0
-- path: data_08132B30/gUnk_085BBBC0.bin
+- path: data_08132B30/gFigurinePal107.bin
   start: 0x5bbbc0
   size: 0xe0
-- path: data_08132B30/gUnk_085BBCA0.bin
+- path: data_08132B30/gFigurinePal108.bin
   start: 0x5bbca0
   size: 0xe0
-- path: data_08132B30/gUnk_085BBD80.bin
+- path: data_08132B30/gFigurinePal109.bin
   start: 0x5bbd80
   size: 0xe0
-- path: data_08132B30/gUnk_085BBE60.bin
+- path: data_08132B30/gFigurinePal110.bin
   start: 0x5bbe60
   size: 0xe0
-- path: data_08132B30/gUnk_085BBF40.bin
+- path: data_08132B30/gFigurinePal111.bin
   start: 0x5bbf40
   size: 0xe0
-- path: data_08132B30/gUnk_085BC020.bin
+- path: data_08132B30/gFigurinePal112.bin
   start: 0x5bc020
   size: 0xe0
-- path: data_08132B30/gUnk_085BC100.bin
+- path: data_08132B30/gFigurinePal113.bin
   start: 0x5bc100
   size: 0xe0
-- path: data_08132B30/gUnk_085BC1E0.bin
+- path: data_08132B30/gFigurinePal114.bin
   start: 0x5bc1e0
   size: 0xe0
-- path: data_08132B30/gUnk_085BC2C0.bin
+- path: data_08132B30/gFigurinePal115.bin
   start: 0x5bc2c0
   size: 0xe0
-- path: data_08132B30/gUnk_085BC3A0.bin
+- path: data_08132B30/gFigurinePal116.bin
   start: 0x5bc3a0
   size: 0xe0
-- path: data_08132B30/gUnk_085BC480.bin
+- path: data_08132B30/gFigurinePal117.bin
   start: 0x5bc480
   size: 0xe0
-- path: data_08132B30/gUnk_085BC560.bin
+- path: data_08132B30/gFigurinePal118.bin
   start: 0x5bc560
   size: 0xe0
-- path: data_08132B30/gUnk_085BC640.bin
+- path: data_08132B30/gFigurinePal119.bin
   start: 0x5bc640
   size: 0xe0
-- path: data_08132B30/gUnk_085BC720.bin
+- path: data_08132B30/gFigurinePal120.bin
   start: 0x5bc720
   size: 0xe0
-- path: data_08132B30/gUnk_085BC800.bin
+- path: data_08132B30/gFigurinePal121.bin
   start: 0x5bc800
   size: 0xe0
-- path: data_08132B30/gUnk_085BC8E0.bin
+- path: data_08132B30/gFigurinePal122.bin
   start: 0x5bc8e0
   size: 0xe0
-- path: data_08132B30/gUnk_085BC9C0.bin
+- path: data_08132B30/gFigurinePal123.bin
   start: 0x5bc9c0
   size: 0xe0
-- path: data_08132B30/gUnk_085BCAA0.bin
+- path: data_08132B30/gFigurinePal124.bin
   start: 0x5bcaa0
   size: 0xe0
-- path: data_08132B30/gUnk_085BCB80.bin
+- path: data_08132B30/gFigurinePal125.bin
   start: 0x5bcb80
   size: 0xe0
-- path: data_08132B30/gUnk_085BCC60.bin
+- path: data_08132B30/gFigurinePal126.bin
   start: 0x5bcc60
   size: 0xe0
-- path: data_08132B30/gUnk_085BCD40.bin
+- path: data_08132B30/gFigurinePal127.bin
   start: 0x5bcd40
   size: 0xe0
-- path: data_08132B30/gUnk_085BCE20.bin
+- path: data_08132B30/gFigurinePal128.bin
   start: 0x5bce20
   size: 0xe0
-- path: data_08132B30/gUnk_085BCF00.bin
+- path: data_08132B30/gFigurinePal129.bin
   start: 0x5bcf00
   size: 0xe0
-- path: data_08132B30/gUnk_085BCFE0.bin
+- path: data_08132B30/gFigurinePal130.bin
   start: 0x5bcfe0
   size: 0xe0
-- path: data_08132B30/gUnk_085BD0C0.bin
+- path: data_08132B30/gFigurinePal131.bin
   start: 0x5bd0c0
   size: 0xe0
-- path: data_08132B30/gUnk_085BD1A0.bin
+- path: data_08132B30/gFigurinePal132.bin
   start: 0x5bd1a0
   size: 0xe0
-- path: data_08132B30/gUnk_085BD280.bin
+- path: data_08132B30/gFigurinePal133.bin
   start: 0x5bd280
   size: 0xe0
-- path: data_08132B30/gUnk_085BD360.bin
+- path: data_08132B30/gFigurinePal134.bin
   start: 0x5bd360
   size: 0xe0
-- path: data_08132B30/gUnk_085BD440.bin
+- path: data_08132B30/gFigurinePal135.bin
   start: 0x5bd440
   size: 0xe0
-- path: data_08132B30/gUnk_085BD520.bin
+- path: data_08132B30/gFigurinePal136.bin
   start: 0x5bd520
   size: 0x100
 - path: graphics/intro/capcom.gbapal
@@ -55539,7 +55578,7 @@
   start: 0x5bd640
   size: 0x20
   type: palette
-- path: data_08132B30/gUnk_085BD520_1.bin
+- path: data_08132B30/gFigurinePal136_1.bin
   start: 0x5bd660
   size: 0x6fc0
 - path: data_08132B30/gUnk_085C4620.bin
@@ -55548,25 +55587,25 @@
 - path: data_08132B30/gUnk_085C4B20.bin
   start: 0x5c4b20
   size: 0x280
-- path: data_08132B30/gUnk_085C4DA0.bin
+- path: data_08132B30/gUnk_data0_085C4DA0.bin
   start: 0x5c4da0
   size: 0xc0
-- path: data_08132B30/gUnk_085C4E60.bin
+- path: data_08132B30/gUnk_data1_085C4E60.bin
   start: 0x5c4e60
   size: 0xc0
-- path: data_08132B30/gUnk_085C4F20.bin
+- path: data_08132B30/gUnk_data2_085C4F20.bin
   start: 0x5c4f20
   size: 0xc0
-- path: data_08132B30/gUnk_085C4FE0.bin
+- path: data_08132B30/gUnk_data3_085C4FE0.bin
   start: 0x5c4fe0
   size: 0x80745
-- path: data_08132B30/gUnk_085C4FE0_1_EU.bin
+- path: data_08132B30/gUnk_data3_085C4FE0_1_EU.bin
   variants:
   - EU
   starts:
     EU: 0x644c35
   size: 0x4d23b
-- path: data_08132B30/gUnk_085C4FE0_2_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gUnk_data3_085C4FE0_2_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -55642,428 +55681,836 @@
 - path: data_08132B30/gUnk_086E8460.bin
   start: 0x6e8460
   size: 0x1576a0
-- path: data_08132B30/gUnk_0883FB00.bin
+- path: data_08132B30/gFigurineGfx1.4bpp
   start: 0x83fb00
   size: 0x580
-- path: data_08132B30/gUnk_08840080.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx2.4bpp
   start: 0x840080
   size: 0x5e0
-- path: data_08132B30/gUnk_08840660.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx3.4bpp
   start: 0x840660
   size: 0x480
-- path: data_08132B30/gUnk_08840AE0.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx4.4bpp
   start: 0x840ae0
   size: 0x4c0
-- path: data_08132B30/gUnk_08840FA0.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx5.4bpp
   start: 0x840fa0
   size: 0x500
-- path: data_08132B30/gUnk_088414A0.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx6.4bpp
   start: 0x8414a0
   size: 0x380
-- path: data_08132B30/gUnk_08841820.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx7.4bpp
   start: 0x841820
   size: 0x2c0
-- path: data_08132B30/gUnk_08841AE0.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx8.4bpp
   start: 0x841ae0
   size: 0x4e0
-- path: data_08132B30/gUnk_08841FC0.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx9.4bpp
   start: 0x841fc0
   size: 0x320
-- path: data_08132B30/gUnk_088422E0.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx10.4bpp
   start: 0x8422e0
   size: 0xda0
-- path: data_08132B30/gUnk_08843080.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx11.4bpp
   start: 0x843080
   size: 0xe60
-- path: data_08132B30/gUnk_08843EE0.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx12.4bpp
   start: 0x843ee0
   size: 0xee0
-- path: data_08132B30/gUnk_08844DC0.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx13.4bpp
   start: 0x844dc0
   size: 0xde0
-- path: data_08132B30/gUnk_08845BA0.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx14.4bpp
   start: 0x845ba0
   size: 0x1a00
-- path: data_08132B30/gUnk_088475A0.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx15.4bpp
   start: 0x8475a0
   size: 0x19c0
-- path: data_08132B30/gUnk_08848F60.bin
+  type: graphic
+  options:
+    width: 4
+- path: data_08132B30/gFigurineGfx16.4bpp
   start: 0x848f60
   size: 0x10c0
-- path: data_08132B30/gUnk_0884A020.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx17.4bpp
   start: 0x84a020
   size: 0x3e0
-- path: data_08132B30/gUnk_0884A400.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx18.4bpp
   start: 0x84a400
   size: 0x3a0
-- path: data_08132B30/gUnk_0884A7A0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx19.4bpp
   start: 0x84a7a0
   size: 0x360
-- path: data_08132B30/gUnk_0884AB00.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx20.4bpp
   start: 0x84ab00
   size: 0xb80
-- path: data_08132B30/gUnk_0884B680.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx21.4bpp
   start: 0x84b680
   size: 0xb00
-- path: data_08132B30/gUnk_0884C180.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx22.4bpp
   start: 0x84c180
   size: 0xae0
-- path: data_08132B30/gUnk_0884CC60.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx23.4bpp
   start: 0x84cc60
   size: 0x480
-- path: data_08132B30/gUnk_0884D0E0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx24.4bpp
   start: 0x84d0e0
   size: 0x320
-- path: data_08132B30/gUnk_0884D400.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx25.4bpp
   start: 0x84d400
   size: 0x360
-- path: data_08132B30/gUnk_0884D760.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx26.4bpp
   start: 0x84d760
   size: 0x3a0
-- path: data_08132B30/gUnk_0884DB00.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx27.4bpp
   start: 0x84db00
   size: 0x400
-- path: data_08132B30/gUnk_0884DF00.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx28.4bpp
   start: 0x84df00
   size: 0x7e0
-- path: data_08132B30/gUnk_0884E6E0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx29.4bpp
   start: 0x84e6e0
   size: 0x2a00
-- path: data_08132B30/gUnk_088510E0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx30.4bpp
   start: 0x8510e0
   size: 0x2a00
-- path: data_08132B30/gUnk_08853AE0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx31.4bpp
   start: 0x853ae0
   size: 0x2a00
-- path: data_08132B30/gUnk_088564E0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx32.4bpp
   start: 0x8564e0
   size: 0x3c0
-- path: data_08132B30/gUnk_088568A0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx33.4bpp
   start: 0x8568a0
   size: 0x380
-- path: data_08132B30/gUnk_08856C20.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx34.4bpp
   start: 0x856c20
   size: 0x380
-- path: data_08132B30/gUnk_08856FA0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx35.4bpp
   start: 0x856fa0
   size: 0x380
-- path: data_08132B30/gUnk_08857320.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx36.4bpp
   start: 0x857320
   size: 0x560
-- path: data_08132B30/gUnk_08857880.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx37.4bpp
   start: 0x857880
   size: 0x480
-- path: data_08132B30/gUnk_08857D00.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx38.4bpp
   start: 0x857d00
   size: 0x480
-- path: data_08132B30/gUnk_08858180.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx39.4bpp
   start: 0x858180
   size: 0x500
-- path: data_08132B30/gUnk_08858680.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx40.4bpp
   start: 0x858680
   size: 0x14c0
-- path: data_08132B30/gUnk_08859B40.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx41.4bpp
   start: 0x859b40
   size: 0x660
-- path: data_08132B30/gUnk_0885A1A0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx42.4bpp
   start: 0x85a1a0
   size: 0x1080
-- path: data_08132B30/gUnk_0885B220.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx43.4bpp
   start: 0x85b220
   size: 0x800
-- path: data_08132B30/gUnk_0885BA20.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx44.4bpp
   start: 0x85ba20
   size: 0x800
-- path: data_08132B30/gUnk_0885C220.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx45.4bpp
   start: 0x85c220
   size: 0x500
-- path: data_08132B30/gUnk_0885C720.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx46.4bpp
   start: 0x85c720
   size: 0x500
-- path: data_08132B30/gUnk_0885CC20.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx47.4bpp
   start: 0x85cc20
   size: 0x3080
-- path: data_08132B30/gUnk_0885FCA0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx48.4bpp
   start: 0x85fca0
   size: 0x29e0
-- path: data_08132B30/gUnk_08862680.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx49.4bpp
   start: 0x862680
   size: 0x3a00
-- path: data_08132B30/gUnk_08866080.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx50.4bpp
   start: 0x866080
   size: 0x29c0
-- path: data_08132B30/gUnk_08868A40.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx51.4bpp
   start: 0x868a40
   size: 0x34e0
-- path: data_08132B30/gUnk_0886BF20.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx52.4bpp
   start: 0x86bf20
   size: 0x3900
-- path: data_08132B30/gUnk_0886F820.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx53.4bpp
   start: 0x86f820
   size: 0x30e0
-- path: data_08132B30/gUnk_08872900.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx54.4bpp
   start: 0x872900
   size: 0x2c80
-- path: data_08132B30/gUnk_08875580.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx55.4bpp
   start: 0x875580
   size: 0x3500
-- path: data_08132B30/gUnk_08878A80.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx56.4bpp
   start: 0x878a80
   size: 0x2780
-- path: data_08132B30/gUnk_0887B200.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx57.4bpp
   start: 0x87b200
   size: 0x2ea0
-- path: data_08132B30/gUnk_0887E0A0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx58.4bpp
   start: 0x87e0a0
   size: 0x3320
-- path: data_08132B30/gUnk_088813C0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx59.4bpp
   start: 0x8813c0
   size: 0x2ae0
-- path: data_08132B30/gUnk_08883EA0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx60.4bpp
   start: 0x883ea0
   size: 0x1f00
-- path: data_08132B30/gUnk_08885DA0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx61.4bpp
   start: 0x885da0
   size: 0x4000
-- path: data_08132B30/gUnk_08889DA0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx62.4bpp
   start: 0x889da0
   size: 0x3f80
-- path: data_08132B30/gUnk_0888DD20.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx63.4bpp
   start: 0x88dd20
   size: 0x1c40
-- path: data_08132B30/gUnk_0888F960.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx64.4bpp
   start: 0x88f960
   size: 0x1660
-- path: data_08132B30/gUnk_08890FC0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx65.4bpp
   start: 0x890fc0
   size: 0x1c80
-- path: data_08132B30/gUnk_08892C40.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx66.4bpp
   start: 0x892c40
   size: 0x2300
-- path: data_08132B30/gUnk_08894F40.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx67.4bpp
   start: 0x894f40
   size: 0x2480
-- path: data_08132B30/gUnk_088973C0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx68.4bpp
   start: 0x8973c0
   size: 0x440
-- path: data_08132B30/gUnk_08897800.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx69.4bpp
   start: 0x897800
   size: 0x8c0
-- path: data_08132B30/gUnk_088980C0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx70.4bpp
   start: 0x8980c0
   size: 0xe00
-- path: data_08132B30/gUnk_08898EC0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx71.4bpp
   start: 0x898ec0
   size: 0x380
-- path: data_08132B30/gUnk_08899240.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx72.4bpp
   start: 0x899240
   size: 0x920
-- path: data_08132B30/gUnk_08899B60.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx73.4bpp
   start: 0x899b60
   size: 0x2e0
-- path: data_08132B30/gUnk_08899E40.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx74.4bpp
   start: 0x899e40
   size: 0x7a0
-- path: data_08132B30/gUnk_0889A5E0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx75.4bpp
   start: 0x89a5e0
   size: 0x300
-- path: data_08132B30/gUnk_0889A8E0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx76.4bpp
   start: 0x89a8e0
   size: 0xf00
-- path: data_08132B30/gUnk_0889B7E0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx77.4bpp
   start: 0x89b7e0
   size: 0x360
-- path: data_08132B30/gUnk_0889BB40.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx78.4bpp
   start: 0x89bb40
   size: 0x780
-- path: data_08132B30/gUnk_0889C2C0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx79.4bpp
   start: 0x89c2c0
   size: 0x400
-- path: data_08132B30/gUnk_0889C6C0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx80.4bpp
   start: 0x89c6c0
   size: 0x380
-- path: data_08132B30/gUnk_0889CA40.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx81.4bpp
   start: 0x89ca40
   size: 0xa00
-- path: data_08132B30/gUnk_0889D440.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx82.4bpp
   start: 0x89d440
   size: 0xa00
-- path: data_08132B30/gUnk_0889DE40.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx83.4bpp
   start: 0x89de40
   size: 0x300
-- path: data_08132B30/gUnk_0889E140.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx84.4bpp
   start: 0x89e140
   size: 0x4c0
-- path: data_08132B30/gUnk_0889E600.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx85.4bpp
   start: 0x89e600
   size: 0x7c0
-- path: data_08132B30/gUnk_0889EDC0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx86.4bpp
   start: 0x89edc0
   size: 0xb20
-- path: data_08132B30/gUnk_0889F8E0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx87.4bpp
   start: 0x89f8e0
   size: 0x7e0
-- path: data_08132B30/gUnk_088A00C0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx88.4bpp
   start: 0x8a00c0
   size: 0x360
-- path: data_08132B30/gUnk_088A0420.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx89.4bpp
   start: 0x8a0420
   size: 0x8c0
-- path: data_08132B30/gUnk_088A0CE0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx90.4bpp
   start: 0x8a0ce0
   size: 0x7c0
-- path: data_08132B30/gUnk_088A14A0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx91.4bpp
   start: 0x8a14a0
   size: 0xdc0
-- path: data_08132B30/gUnk_088A2260.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx92.4bpp
   start: 0x8a2260
   size: 0x300
-- path: data_08132B30/gUnk_088A2560.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx93.4bpp
   start: 0x8a2560
   size: 0x2e0
-- path: data_08132B30/gUnk_088A2840.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx94.4bpp
   start: 0x8a2840
   size: 0x500
-- path: data_08132B30/gUnk_088A2D40.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx95.4bpp
   start: 0x8a2d40
   size: 0x7c0
-- path: data_08132B30/gUnk_088A3500.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx96.4bpp
   start: 0x8a3500
   size: 0x300
-- path: data_08132B30/gUnk_088A3800.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx97.4bpp
   start: 0x8a3800
   size: 0x7a0
-- path: data_08132B30/gUnk_088A3FA0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx98.4bpp
   start: 0x8a3fa0
   size: 0x500
-- path: data_08132B30/gUnk_088A44A0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx99.4bpp
   start: 0x8a44a0
   size: 0x3c0
-- path: data_08132B30/gUnk_088A4860.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx100.4bpp
   start: 0x8a4860
   size: 0x9a0
-- path: data_08132B30/gUnk_088A5200.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx101.4bpp
   start: 0x8a5200
   size: 0xdc0
-- path: data_08132B30/gUnk_088A5FC0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx102.4bpp
   start: 0x8a5fc0
   size: 0x3a0
-- path: data_08132B30/gUnk_088A6360.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx103.4bpp
   start: 0x8a6360
   size: 0x980
-- path: data_08132B30/gUnk_088A6CE0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx104.4bpp
   start: 0x8a6ce0
   size: 0x7c0
-- path: data_08132B30/gUnk_088A74A0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx105.4bpp
   start: 0x8a74a0
   size: 0x820
-- path: data_08132B30/gUnk_088A7CC0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx106.4bpp
   start: 0x8a7cc0
   size: 0x340
-- path: data_08132B30/gUnk_088A8000.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx107.4bpp
   start: 0x8a8000
   size: 0x500
-- path: data_08132B30/gUnk_088A8500.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx108.4bpp
   start: 0x8a8500
   size: 0x500
-- path: data_08132B30/gUnk_088A8A00.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx109.4bpp
   start: 0x8a8a00
   size: 0x7c0
-- path: data_08132B30/gUnk_088A91C0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx110.4bpp
   start: 0x8a91c0
   size: 0x660
-- path: data_08132B30/gUnk_088A9820.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx111.4bpp
   start: 0x8a9820
   size: 0x3c0
-- path: data_08132B30/gUnk_088A9BE0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx112.4bpp
   start: 0x8a9be0
   size: 0x460
-- path: data_08132B30/gUnk_088AA040.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx113.4bpp
   start: 0x8aa040
   size: 0x380
-- path: data_08132B30/gUnk_088AA3C0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx114.4bpp
   start: 0x8aa3c0
   size: 0x820
-- path: data_08132B30/gUnk_088AABE0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx115.4bpp
   start: 0x8aabe0
   size: 0x6a0
-- path: data_08132B30/gUnk_088AB280.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx116.4bpp
   start: 0x8ab280
   size: 0x980
-- path: data_08132B30/gUnk_088ABC00.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx117.4bpp
   start: 0x8abc00
   size: 0x5e0
-- path: data_08132B30/gUnk_088AC1E0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx118.4bpp
   start: 0x8ac1e0
   size: 0x8a0
-- path: data_08132B30/gUnk_088ACA80.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx119.4bpp
   start: 0x8aca80
   size: 0x8c0
-- path: data_08132B30/gUnk_088AD340.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx120.4bpp
   start: 0x8ad340
   size: 0x5a0
-- path: data_08132B30/gUnk_088AD8E0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx121.4bpp
   start: 0x8ad8e0
   size: 0x620
-- path: data_08132B30/gUnk_088ADF00.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx122.4bpp
   start: 0x8adf00
   size: 0xf00
-- path: data_08132B30/gUnk_088AEE00.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx123.4bpp
   start: 0x8aee00
   size: 0x640
-- path: data_08132B30/gUnk_088AF440.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx124.4bpp
   start: 0x8af440
   size: 0x2580
-- path: data_08132B30/gUnk_088B19C0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx125.4bpp
   start: 0x8b19c0
   size: 0x17a0
-- path: data_08132B30/gUnk_088B3160.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx126.4bpp
   start: 0x8b3160
   size: 0x19a0
-- path: data_08132B30/gUnk_088B4B00.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx127.4bpp
   start: 0x8b4b00
   size: 0x1300
-- path: data_08132B30/gUnk_088B5E00.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx128.4bpp
   start: 0x8b5e00
   size: 0x1ea0
-- path: data_08132B30/gUnk_088B7CA0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx129.4bpp
   start: 0x8b7ca0
   size: 0x1640
-- path: data_08132B30/gUnk_088B92E0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx130.4bpp
   start: 0x8b92e0
   size: 0x17c0
-- path: data_08132B30/gUnk_088BAAA0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx131.4bpp
   start: 0x8baaa0
   size: 0xe00
-- path: data_08132B30/gUnk_088BB8A0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx132.4bpp
   start: 0x8bb8a0
   size: 0x580
-- path: data_08132B30/gUnk_088BBE20.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx133.4bpp
   start: 0x8bbe20
   size: 0xc40
-- path: data_08132B30/gUnk_088BCA60.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx134.4bpp
   start: 0x8bca60
   size: 0x1100
-- path: data_08132B30/gUnk_088BDB60.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx135.4bpp
   start: 0x8bdb60
   size: 0x2580
-- path: data_08132B30/gUnk_088C00E0.bin
+  type: graphic
+  options:
+    width: 2
+- path: data_08132B30/gFigurineGfx136.4bpp
   start: 0x8c00e0
   size: 0x21a0
+  type: graphic
+  options:
+    width: 2
 - path: graphics/intro/nintendo_capcom.4bpp
   start: 0x8c2280
   size: 0xf60
   type: graphic
-- path: data_08132B30/gUnk_088C00E0_1.bin
+- path: data_08132B30/gFigurineGfx136_1.bin
   start: 0x8c31e0
   size: 0x3d440
-- path: data_08132B30/gUnk_088C00E0_2_EU.bin
+- path: data_08132B30/gFigurineGfx136_2_EU.bin
   variants:
   - EU
   starts:
     EU: 0x8ffdf0
   size: 0xaed70
-- path: data_08132B30/gUnk_088C00E0_3_USA-JP-DEMO_USA-DEMO_JP.bin
+- path: data_08132B30/gFigurineGfx136_3_USA-JP-DEMO_USA-DEMO_JP.bin
   variants:
   - USA
   - JP
@@ -61189,1094 +61636,1094 @@
 - path: voicegroups/gUnk_08A11C1C.bin
   start: 0xa11c1c
   size: 0x20
-- path: data_08A127A1/bgmUnused.bin
+- path: direct_sound_samples/bgmUnused.bin
   start: 0xa12ecc
   size: 0x4
-- path: data_08A127A1/gUnk_08A12ED0.bin
+- path: direct_sound_samples/gUnk_08A12ED0.bin
   start: 0xa12ed0
   size: 0x3740
   type: aif
-- path: data_08A127A1/gUnk_08A16610.bin
+- path: direct_sound_samples/gUnk_08A16610.bin
   start: 0xa16610
   size: 0x3f3c
   type: aif
-- path: data_08A127A1/gUnk_08A1A54C.bin
+- path: direct_sound_samples/gUnk_08A1A54C.bin
   start: 0xa1a54c
   size: 0x50f4
   type: aif
-- path: data_08A127A1/gUnk_08A1F640.bin
+- path: direct_sound_samples/gUnk_08A1F640.bin
   start: 0xa1f640
   size: 0x3b64
   type: aif
-- path: data_08A127A1/gUnk_08A231A4.bin
+- path: direct_sound_samples/gUnk_08A231A4.bin
   start: 0xa231a4
   size: 0xf54
   type: aif
-- path: data_08A127A1/gUnk_08A240F8.bin
+- path: direct_sound_samples/gUnk_08A240F8.bin
   start: 0xa240f8
   size: 0x4254
   type: aif
-- path: data_08A127A1/gUnk_08A2834C.bin
+- path: direct_sound_samples/gUnk_08A2834C.bin
   start: 0xa2834c
   size: 0x420c
   type: aif
-- path: data_08A127A1/gUnk_08A2C558.bin
+- path: direct_sound_samples/gUnk_08A2C558.bin
   start: 0xa2c558
   size: 0x899c
   type: aif
-- path: data_08A127A1/gUnk_08A34EF4.bin
+- path: direct_sound_samples/gUnk_08A34EF4.bin
   start: 0xa34ef4
   size: 0x7828
   type: aif
-- path: data_08A127A1/gUnk_08A3C71C.bin
+- path: direct_sound_samples/gUnk_08A3C71C.bin
   start: 0xa3c71c
   size: 0x8a44
   type: aif
-- path: data_08A127A1/gUnk_08A45160.bin
+- path: direct_sound_samples/gUnk_08A45160.bin
   start: 0xa45160
   size: 0x2e38
   type: aif
-- path: data_08A127A1/gUnk_08A47F98.bin
+- path: direct_sound_samples/gUnk_08A47F98.bin
   start: 0xa47f98
   size: 0x6e50
   type: aif
-- path: data_08A127A1/gUnk_08A4EDE8.bin
+- path: direct_sound_samples/gUnk_08A4EDE8.bin
   start: 0xa4ede8
   size: 0x5b84
   type: aif
-- path: data_08A127A1/gUnk_08A5496C.bin
+- path: direct_sound_samples/gUnk_08A5496C.bin
   start: 0xa5496c
   size: 0x5fa0
   type: aif
-- path: data_08A127A1/gUnk_08A5A90C.bin
+- path: direct_sound_samples/gUnk_08A5A90C.bin
   start: 0xa5a90c
   size: 0x362c
   type: aif
-- path: data_08A127A1/gUnk_08A5DF38.bin
+- path: direct_sound_samples/gUnk_08A5DF38.bin
   start: 0xa5df38
   size: 0x8464
   type: aif
-- path: data_08A127A1/gUnk_08A6639C.bin
+- path: direct_sound_samples/gUnk_08A6639C.bin
   start: 0xa6639c
   size: 0x6794
   type: aif
-- path: data_08A127A1/gUnk_08A6CB30.bin
+- path: direct_sound_samples/gUnk_08A6CB30.bin
   start: 0xa6cb30
   size: 0xc790
   type: aif
-- path: data_08A127A1/gUnk_08A792C0.bin
+- path: direct_sound_samples/gUnk_08A792C0.bin
   start: 0xa792c0
   size: 0x2c9c
   type: aif
-- path: data_08A127A1/gUnk_08A7BF5C.bin
+- path: direct_sound_samples/gUnk_08A7BF5C.bin
   start: 0xa7bf5c
   size: 0x182c
   type: aif
-- path: data_08A127A1/gUnk_08A7D788.bin
+- path: direct_sound_samples/gUnk_08A7D788.bin
   start: 0xa7d788
   size: 0x319c
   type: aif
-- path: data_08A127A1/gUnk_08A80924.bin
+- path: direct_sound_samples/gUnk_08A80924.bin
   start: 0xa80924
   size: 0x44a8
   type: aif
-- path: data_08A127A1/gUnk_08A84DCC.bin
+- path: direct_sound_samples/gUnk_08A84DCC.bin
   start: 0xa84dcc
   size: 0x3a88
   type: aif
-- path: data_08A127A1/gUnk_08A88854.bin
+- path: direct_sound_samples/gUnk_08A88854.bin
   start: 0xa88854
   size: 0x6e54
   type: aif
-- path: data_08A127A1/gUnk_08A8F6A8.bin
+- path: direct_sound_samples/gUnk_08A8F6A8.bin
   start: 0xa8f6a8
   size: 0x5854
   type: aif
-- path: data_08A127A1/gUnk_08A94EFC.bin
+- path: direct_sound_samples/gUnk_08A94EFC.bin
   start: 0xa94efc
   size: 0x7b4c
   type: aif
-- path: data_08A127A1/gUnk_08A9CA48.bin
+- path: direct_sound_samples/gUnk_08A9CA48.bin
   start: 0xa9ca48
   size: 0x5cd8
   type: aif
-- path: data_08A127A1/gUnk_08AA2720.bin
+- path: direct_sound_samples/gUnk_08AA2720.bin
   start: 0xaa2720
   size: 0x7ab0
   type: aif
-- path: data_08A127A1/gUnk_08AAA1D0.bin
+- path: direct_sound_samples/gUnk_08AAA1D0.bin
   start: 0xaaa1d0
   size: 0x1f08
   type: aif
-- path: data_08A127A1/gUnk_08AAC0D8.bin
+- path: direct_sound_samples/gUnk_08AAC0D8.bin
   start: 0xaac0d8
   size: 0x13d14
   type: aif
-- path: data_08A127A1/gUnk_08ABFDEC.bin
+- path: direct_sound_samples/gUnk_08ABFDEC.bin
   start: 0xabfdec
   size: 0x7b98
   type: aif
-- path: data_08A127A1/gUnk_08AC7984.bin
+- path: direct_sound_samples/gUnk_08AC7984.bin
   start: 0xac7984
   size: 0x158d4
   type: aif
-- path: data_08A127A1/gUnk_08ADD258.bin
+- path: direct_sound_samples/gUnk_08ADD258.bin
   start: 0xadd258
   size: 0x14be4
   type: aif
-- path: data_08A127A1/gUnk_08AF1E3C.bin
+- path: direct_sound_samples/gUnk_08AF1E3C.bin
   start: 0xaf1e3c
   size: 0x3e54
   type: aif
-- path: data_08A127A1/gUnk_08AF5C90.bin
+- path: direct_sound_samples/gUnk_08AF5C90.bin
   start: 0xaf5c90
   size: 0x12e84
   type: aif
-- path: data_08A127A1/gUnk_08B08B14.bin
+- path: direct_sound_samples/gUnk_08B08B14.bin
   start: 0xb08b14
   size: 0x7a54
   type: aif
-- path: data_08A127A1/gUnk_08B10568.bin
+- path: direct_sound_samples/gUnk_08B10568.bin
   start: 0xb10568
   size: 0xc714
   type: aif
-- path: data_08A127A1/gUnk_08B1CC7C.bin
+- path: direct_sound_samples/gUnk_08B1CC7C.bin
   start: 0xb1cc7c
   size: 0x9054
   type: aif
-- path: data_08A127A1/gUnk_08B25CD0.bin
+- path: direct_sound_samples/gUnk_08B25CD0.bin
   start: 0xb25cd0
   size: 0x4aac
   type: aif
-- path: data_08A127A1/gUnk_08B2A77C.bin
+- path: direct_sound_samples/gUnk_08B2A77C.bin
   start: 0xb2a77c
   size: 0x4414
   type: aif
-- path: data_08A127A1/gUnk_08B2EB90.bin
+- path: direct_sound_samples/gUnk_08B2EB90.bin
   start: 0xb2eb90
   size: 0xb1d0
   type: aif
-- path: data_08A127A1/gUnk_08B39D60.bin
+- path: direct_sound_samples/gUnk_08B39D60.bin
   start: 0xb39d60
   size: 0x58bc
   type: aif
-- path: data_08A127A1/gUnk_08B3F61C.bin
+- path: direct_sound_samples/gUnk_08B3F61C.bin
   start: 0xb3f61c
   size: 0x7af8
   type: aif
-- path: data_08A127A1/gUnk_08B47114.bin
+- path: direct_sound_samples/gUnk_08B47114.bin
   start: 0xb47114
   size: 0x2b6c
   type: aif
-- path: data_08A127A1/gUnk_08B49C80.bin
+- path: direct_sound_samples/gUnk_08B49C80.bin
   start: 0xb49c80
   size: 0xf54
   type: aif
-- path: data_08A127A1/gUnk_08B4ABD4.bin
+- path: direct_sound_samples/gUnk_08B4ABD4.bin
   start: 0xb4abd4
   size: 0x1a9c
   type: aif
-- path: data_08A127A1/gUnk_08B4C670.bin
+- path: direct_sound_samples/gUnk_08B4C670.bin
   start: 0xb4c670
   size: 0x544
   type: aif
-- path: data_08A127A1/gUnk_08B4CBB4.bin
+- path: direct_sound_samples/gUnk_08B4CBB4.bin
   start: 0xb4cbb4
   size: 0x16d8
   type: aif
-- path: data_08A127A1/gUnk_08B4E28C.bin
+- path: direct_sound_samples/gUnk_08B4E28C.bin
   start: 0xb4e28c
   size: 0x35ac
   type: aif
-- path: data_08A127A1/gUnk_08B51838.bin
+- path: direct_sound_samples/gUnk_08B51838.bin
   start: 0xb51838
   size: 0x4374
   type: aif
-- path: data_08A127A1/gUnk_08B55BAC.bin
+- path: direct_sound_samples/gUnk_08B55BAC.bin
   start: 0xb55bac
   size: 0xea4
   type: aif
-- path: data_08A127A1/gUnk_08B56A50.bin
+- path: direct_sound_samples/gUnk_08B56A50.bin
   start: 0xb56a50
   size: 0x2874
   type: aif
-- path: data_08A127A1/gUnk_08B592C4.bin
+- path: direct_sound_samples/gUnk_08B592C4.bin
   start: 0xb592c4
   size: 0x1fa8
   type: aif
-- path: data_08A127A1/gUnk_08B5B26C.bin
+- path: direct_sound_samples/gUnk_08B5B26C.bin
   start: 0xb5b26c
   size: 0xb1c
   type: aif
-- path: data_08A127A1/gUnk_08B5BD88.bin
+- path: direct_sound_samples/gUnk_08B5BD88.bin
   start: 0xb5bd88
   size: 0xf78
   type: aif
-- path: data_08A127A1/gUnk_08B5CD00.bin
+- path: direct_sound_samples/gUnk_08B5CD00.bin
   start: 0xb5cd00
   size: 0x132c
   type: aif
-- path: data_08A127A1/gUnk_08B5E02C.bin
+- path: direct_sound_samples/gUnk_08B5E02C.bin
   start: 0xb5e02c
   size: 0x5470
   type: aif
-- path: data_08A127A1/gUnk_08B6349C.bin
+- path: direct_sound_samples/gUnk_08B6349C.bin
   start: 0xb6349c
   size: 0xa3c
   type: aif
-- path: data_08A127A1/gUnk_08B63ED8.bin
+- path: direct_sound_samples/gUnk_08B63ED8.bin
   start: 0xb63ed8
   size: 0xa84
   type: aif
-- path: data_08A127A1/gUnk_08B6495C.bin
+- path: direct_sound_samples/gUnk_08B6495C.bin
   start: 0xb6495c
   size: 0x40c0
   type: aif
-- path: data_08A127A1/gUnk_08B68A1C.bin
+- path: direct_sound_samples/gUnk_08B68A1C.bin
   start: 0xb68a1c
   size: 0x1804
   type: aif
-- path: data_08A127A1/gUnk_08B6A220.bin
+- path: direct_sound_samples/gUnk_08B6A220.bin
   start: 0xb6a220
   size: 0x275c
   type: aif
-- path: data_08A127A1/gUnk_08B6C97C.bin
+- path: direct_sound_samples/gUnk_08B6C97C.bin
   start: 0xb6c97c
   size: 0x1bc0
   type: aif
-- path: data_08A127A1/gUnk_08B6E53C.bin
+- path: direct_sound_samples/gUnk_08B6E53C.bin
   start: 0xb6e53c
   size: 0x1f58
   type: aif
-- path: data_08A127A1/gUnk_08B70494.bin
+- path: direct_sound_samples/gUnk_08B70494.bin
   start: 0xb70494
   size: 0x2184
   type: aif
-- path: data_08A127A1/gUnk_08B72618.bin
+- path: direct_sound_samples/gUnk_08B72618.bin
   start: 0xb72618
   size: 0xf84
   type: aif
-- path: data_08A127A1/gUnk_08B7359C.bin
+- path: direct_sound_samples/gUnk_08B7359C.bin
   start: 0xb7359c
   size: 0x4614
   type: aif
-- path: data_08A127A1/gUnk_08B77BB0.bin
+- path: direct_sound_samples/gUnk_08B77BB0.bin
   start: 0xb77bb0
   size: 0x343c
   type: aif
-- path: data_08A127A1/gUnk_08B7AFEC.bin
+- path: direct_sound_samples/gUnk_08B7AFEC.bin
   start: 0xb7afec
   size: 0x2340
   type: aif
-- path: data_08A127A1/gUnk_08B7D32C.bin
+- path: direct_sound_samples/gUnk_08B7D32C.bin
   start: 0xb7d32c
   size: 0x40e4
   type: aif
-- path: data_08A127A1/gUnk_08B81410.bin
+- path: direct_sound_samples/gUnk_08B81410.bin
   start: 0xb81410
   size: 0x1b34
   type: aif
-- path: data_08A127A1/gUnk_08B82F44.bin
+- path: direct_sound_samples/gUnk_08B82F44.bin
   start: 0xb82f44
   size: 0x32a8
   type: aif
-- path: data_08A127A1/gUnk_08B861EC.bin
+- path: direct_sound_samples/gUnk_08B861EC.bin
   start: 0xb861ec
   size: 0x18b8
   type: aif
-- path: data_08A127A1/gUnk_08B87AA4.bin
+- path: direct_sound_samples/gUnk_08B87AA4.bin
   start: 0xb87aa4
   size: 0x3320
   type: aif
-- path: data_08A127A1/gUnk_08B8ADC4.bin
+- path: direct_sound_samples/gUnk_08B8ADC4.bin
   start: 0xb8adc4
   size: 0x2cbc
   type: aif
-- path: data_08A127A1/gUnk_08B8DA80.bin
+- path: direct_sound_samples/gUnk_08B8DA80.bin
   start: 0xb8da80
   size: 0x5f10
   type: aif
-- path: data_08A127A1/gUnk_08B93990.bin
+- path: direct_sound_samples/gUnk_08B93990.bin
   start: 0xb93990
   size: 0x37c4
   type: aif
-- path: data_08A127A1/gUnk_08B97154.bin
+- path: direct_sound_samples/gUnk_08B97154.bin
   start: 0xb97154
   size: 0x2cd0
   type: aif
-- path: data_08A127A1/gUnk_08B99E24.bin
+- path: direct_sound_samples/gUnk_08B99E24.bin
   start: 0xb99e24
   size: 0x1dfc
   type: aif
-- path: data_08A127A1/gUnk_08B9BC20.bin
+- path: direct_sound_samples/gUnk_08B9BC20.bin
   start: 0xb9bc20
   size: 0x4898
   type: aif
-- path: data_08A127A1/gUnk_08BA04B8.bin
+- path: direct_sound_samples/gUnk_08BA04B8.bin
   start: 0xba04b8
   size: 0x5bd4
   type: aif
-- path: data_08A127A1/gUnk_08BA608C.bin
+- path: direct_sound_samples/gUnk_08BA608C.bin
   start: 0xba608c
   size: 0x1960
   type: aif
-- path: data_08A127A1/gUnk_08BA79EC.bin
+- path: direct_sound_samples/gUnk_08BA79EC.bin
   start: 0xba79ec
   size: 0x776c
   type: aif
-- path: data_08A127A1/gUnk_08BAF158.bin
+- path: direct_sound_samples/gUnk_08BAF158.bin
   start: 0xbaf158
   size: 0x2ed8
   type: aif
-- path: data_08A127A1/gUnk_08BB2030.bin
+- path: direct_sound_samples/gUnk_08BB2030.bin
   start: 0xbb2030
   size: 0x40c4
   type: aif
-- path: data_08A127A1/gUnk_08BB60F4.bin
+- path: direct_sound_samples/gUnk_08BB60F4.bin
   start: 0xbb60f4
   size: 0x1204
   type: aif
-- path: data_08A127A1/gUnk_08BB72F8.bin
+- path: direct_sound_samples/gUnk_08BB72F8.bin
   start: 0xbb72f8
   size: 0xfe8
   type: aif
-- path: data_08A127A1/gUnk_08BB82E0.bin
+- path: direct_sound_samples/gUnk_08BB82E0.bin
   start: 0xbb82e0
   size: 0x408c
   type: aif
-- path: data_08A127A1/gUnk_08BBC36C.bin
+- path: direct_sound_samples/gUnk_08BBC36C.bin
   start: 0xbbc36c
   size: 0x3714
   type: aif
-- path: data_08A127A1/gUnk_08BBFA80.bin
+- path: direct_sound_samples/gUnk_08BBFA80.bin
   start: 0xbbfa80
   size: 0x34c8
   type: aif
-- path: data_08A127A1/gUnk_08BC2F48.bin
+- path: direct_sound_samples/gUnk_08BC2F48.bin
   start: 0xbc2f48
   size: 0x1c48
   type: aif
-- path: data_08A127A1/gUnk_08BC4B90.bin
+- path: direct_sound_samples/gUnk_08BC4B90.bin
   start: 0xbc4b90
   size: 0x1790
   type: aif
-- path: data_08A127A1/gUnk_08BC6320.bin
+- path: direct_sound_samples/gUnk_08BC6320.bin
   start: 0xbc6320
   size: 0x19b0
   type: aif
-- path: data_08A127A1/gUnk_08BC7CD0.bin
+- path: direct_sound_samples/gUnk_08BC7CD0.bin
   start: 0xbc7cd0
   size: 0xe6d0
   type: aif
-- path: data_08A127A1/gUnk_08BD63A0.bin
+- path: direct_sound_samples/gUnk_08BD63A0.bin
   start: 0xbd63a0
   size: 0x4bc0
   type: aif
-- path: data_08A127A1/gUnk_08BDAF60.bin
+- path: direct_sound_samples/gUnk_08BDAF60.bin
   start: 0xbdaf60
   size: 0x2ef4
   type: aif
-- path: data_08A127A1/gUnk_08BDDE54.bin
+- path: direct_sound_samples/gUnk_08BDDE54.bin
   start: 0xbdde54
   size: 0x3e24
   type: aif
-- path: data_08A127A1/gUnk_08BE1C78.bin
+- path: direct_sound_samples/gUnk_08BE1C78.bin
   start: 0xbe1c78
   size: 0x4634
   type: aif
-- path: data_08A127A1/gUnk_08BE62AC.bin
+- path: direct_sound_samples/gUnk_08BE62AC.bin
   start: 0xbe62ac
   size: 0x2900
   type: aif
-- path: data_08A127A1/gUnk_08BE8BAC.bin
+- path: direct_sound_samples/gUnk_08BE8BAC.bin
   start: 0xbe8bac
   size: 0x2624
   type: aif
-- path: data_08A127A1/gUnk_08BEB1D0.bin
+- path: direct_sound_samples/gUnk_08BEB1D0.bin
   start: 0xbeb1d0
   size: 0x1188
   type: aif
-- path: data_08A127A1/gUnk_08BEC358.bin
+- path: direct_sound_samples/gUnk_08BEC358.bin
   start: 0xbec358
   size: 0x3f0c
   type: aif
-- path: data_08A127A1/gUnk_08BF0264.bin
+- path: direct_sound_samples/gUnk_08BF0264.bin
   start: 0xbf0264
   size: 0x3a50
   type: aif
-- path: data_08A127A1/gUnk_08BF3CB4.bin
+- path: direct_sound_samples/gUnk_08BF3CB4.bin
   start: 0xbf3cb4
   size: 0x4010
   type: aif
-- path: data_08A127A1/gUnk_08BF7CC4.bin
+- path: direct_sound_samples/gUnk_08BF7CC4.bin
   start: 0xbf7cc4
   size: 0x3b30
   type: aif
-- path: data_08A127A1/gUnk_08BFB7F4.bin
+- path: direct_sound_samples/gUnk_08BFB7F4.bin
   start: 0xbfb7f4
   size: 0x2db4
   type: aif
-- path: data_08A127A1/gUnk_08BFE5A8.bin
+- path: direct_sound_samples/gUnk_08BFE5A8.bin
   start: 0xbfe5a8
   size: 0x3b20
   type: aif
-- path: data_08A127A1/gUnk_08C020C8.bin
+- path: direct_sound_samples/gUnk_08C020C8.bin
   start: 0xc020c8
   size: 0x4414
   type: aif
-- path: data_08A127A1/gUnk_08C064DC.bin
+- path: direct_sound_samples/gUnk_08C064DC.bin
   start: 0xc064dc
   size: 0x3d2c
   type: aif
-- path: data_08A127A1/gUnk_08C0A208.bin
+- path: direct_sound_samples/gUnk_08C0A208.bin
   start: 0xc0a208
   size: 0x3250
   type: aif
-- path: data_08A127A1/gUnk_08C0D458.bin
+- path: direct_sound_samples/gUnk_08C0D458.bin
   start: 0xc0d458
   size: 0x2024
   type: aif
-- path: data_08A127A1/gUnk_08C0F47C.bin
+- path: direct_sound_samples/gUnk_08C0F47C.bin
   start: 0xc0f47c
   size: 0x1d38
   type: aif
-- path: data_08A127A1/gUnk_08C111B4.bin
+- path: direct_sound_samples/gUnk_08C111B4.bin
   start: 0xc111b4
   size: 0x425c
   type: aif
-- path: data_08A127A1/gUnk_08C15410.bin
+- path: direct_sound_samples/gUnk_08C15410.bin
   start: 0xc15410
   size: 0x4768
   type: aif
-- path: data_08A127A1/gUnk_08C19B78.bin
+- path: direct_sound_samples/gUnk_08C19B78.bin
   start: 0xc19b78
   size: 0x2958
   type: aif
-- path: data_08A127A1/gUnk_08C1C4D0.bin
+- path: direct_sound_samples/gUnk_08C1C4D0.bin
   start: 0xc1c4d0
   size: 0x32f0
   type: aif
-- path: data_08A127A1/gUnk_08C1F7C0.bin
+- path: direct_sound_samples/gUnk_08C1F7C0.bin
   start: 0xc1f7c0
   size: 0x52fc
   type: aif
-- path: data_08A127A1/gUnk_08C24ABC.bin
+- path: direct_sound_samples/gUnk_08C24ABC.bin
   start: 0xc24abc
   size: 0x3eb0
   type: aif
-- path: data_08A127A1/gUnk_08C2896C.bin
+- path: direct_sound_samples/gUnk_08C2896C.bin
   start: 0xc2896c
   size: 0x21f4
   type: aif
-- path: data_08A127A1/gUnk_08C2AB60.bin
+- path: direct_sound_samples/gUnk_08C2AB60.bin
   start: 0xc2ab60
   size: 0x2b74
   type: aif
-- path: data_08A127A1/gUnk_08C2D6D4.bin
+- path: direct_sound_samples/gUnk_08C2D6D4.bin
   start: 0xc2d6d4
   size: 0x2134
   type: aif
-- path: data_08A127A1/gUnk_08C2F808.bin
+- path: direct_sound_samples/gUnk_08C2F808.bin
   start: 0xc2f808
   size: 0x12f4
   type: aif
-- path: data_08A127A1/gUnk_08C30AFC.bin
+- path: direct_sound_samples/gUnk_08C30AFC.bin
   start: 0xc30afc
   size: 0x1de4
   type: aif
-- path: data_08A127A1/gUnk_08C328E0.bin
+- path: direct_sound_samples/gUnk_08C328E0.bin
   start: 0xc328e0
   size: 0x5fcc
   type: aif
-- path: data_08A127A1/gUnk_08C388AC.bin
+- path: direct_sound_samples/gUnk_08C388AC.bin
   start: 0xc388ac
   size: 0x1848
   type: aif
-- path: data_08A127A1/gUnk_08C3A0F4.bin
+- path: direct_sound_samples/gUnk_08C3A0F4.bin
   start: 0xc3a0f4
   size: 0x3eb0
   type: aif
-- path: data_08A127A1/gUnk_08C3DFA4.bin
+- path: direct_sound_samples/gUnk_08C3DFA4.bin
   start: 0xc3dfa4
   size: 0xa04
   type: aif
-- path: data_08A127A1/gUnk_08C3E9A8.bin
+- path: direct_sound_samples/gUnk_08C3E9A8.bin
   start: 0xc3e9a8
   size: 0x302c
   type: aif
-- path: data_08A127A1/gUnk_08C419D4.bin
+- path: direct_sound_samples/gUnk_08C419D4.bin
   start: 0xc419d4
   size: 0x3708
   type: aif
-- path: data_08A127A1/gUnk_08C450DC.bin
+- path: direct_sound_samples/gUnk_08C450DC.bin
   start: 0xc450dc
   size: 0x3698
   type: aif
-- path: data_08A127A1/gUnk_08C48774.bin
+- path: direct_sound_samples/gUnk_08C48774.bin
   start: 0xc48774
   size: 0x4bd8
   type: aif
-- path: data_08A127A1/gUnk_08C4D34C.bin
+- path: direct_sound_samples/gUnk_08C4D34C.bin
   start: 0xc4d34c
   size: 0xa68
   type: aif
-- path: data_08A127A1/gUnk_08C4DDB4.bin
+- path: direct_sound_samples/gUnk_08C4DDB4.bin
   start: 0xc4ddb4
   size: 0x13d0
   type: aif
-- path: data_08A127A1/gUnk_08C4F184.bin
+- path: direct_sound_samples/gUnk_08C4F184.bin
   start: 0xc4f184
   size: 0x2190
   type: aif
-- path: data_08A127A1/gUnk_08C51314.bin
+- path: direct_sound_samples/gUnk_08C51314.bin
   start: 0xc51314
   size: 0x5f08
   type: aif
-- path: data_08A127A1/gUnk_08C5721C.bin
+- path: direct_sound_samples/gUnk_08C5721C.bin
   start: 0xc5721c
   size: 0x431c
   type: aif
-- path: data_08A127A1/gUnk_08C5B538.bin
+- path: direct_sound_samples/gUnk_08C5B538.bin
   start: 0xc5b538
   size: 0x4dc4
   type: aif
-- path: data_08A127A1/gUnk_08C602FC.bin
+- path: direct_sound_samples/gUnk_08C602FC.bin
   start: 0xc602fc
   size: 0x17f4
   type: aif
-- path: data_08A127A1/gUnk_08C61AF0.bin
+- path: direct_sound_samples/gUnk_08C61AF0.bin
   start: 0xc61af0
   size: 0x1a84
   type: aif
-- path: data_08A127A1/gUnk_08C63574.bin
+- path: direct_sound_samples/gUnk_08C63574.bin
   start: 0xc63574
   size: 0x13e8
   type: aif
-- path: data_08A127A1/gUnk_08C6495C.bin
+- path: direct_sound_samples/gUnk_08C6495C.bin
   start: 0xc6495c
   size: 0x8560
   type: aif
-- path: data_08A127A1/gUnk_08C6CEBC.bin
+- path: direct_sound_samples/gUnk_08C6CEBC.bin
   start: 0xc6cebc
   size: 0x1740
   type: aif
-- path: data_08A127A1/gUnk_08C6E5FC.bin
+- path: direct_sound_samples/gUnk_08C6E5FC.bin
   start: 0xc6e5fc
   size: 0x16cc
   type: aif
-- path: data_08A127A1/gUnk_08C6FCC8.bin
+- path: direct_sound_samples/gUnk_08C6FCC8.bin
   start: 0xc6fcc8
   size: 0x2ba8
   type: aif
-- path: data_08A127A1/gUnk_08C72870.bin
+- path: direct_sound_samples/gUnk_08C72870.bin
   start: 0xc72870
   size: 0x1c0c
   type: aif
-- path: data_08A127A1/gUnk_08C7447C.bin
+- path: direct_sound_samples/gUnk_08C7447C.bin
   start: 0xc7447c
   size: 0x52c
   type: aif
-- path: data_08A127A1/gUnk_08C749A8.bin
+- path: direct_sound_samples/gUnk_08C749A8.bin
   start: 0xc749a8
   size: 0xbca8
   type: aif
-- path: data_08A127A1/gUnk_08C80650.bin
+- path: direct_sound_samples/gUnk_08C80650.bin
   start: 0xc80650
   size: 0x11918
   type: aif
-- path: data_08A127A1/gUnk_08C91F68.bin
+- path: direct_sound_samples/gUnk_08C91F68.bin
   start: 0xc91f68
   size: 0x18e8
   type: aif
-- path: data_08A127A1/gUnk_08C93850.bin
+- path: direct_sound_samples/gUnk_08C93850.bin
   start: 0xc93850
   size: 0x3888
   type: aif
-- path: data_08A127A1/gUnk_08C970D8.bin
+- path: direct_sound_samples/gUnk_08C970D8.bin
   start: 0xc970d8
   size: 0x130c
   type: aif
-- path: data_08A127A1/gUnk_08C983E4.bin
+- path: direct_sound_samples/gUnk_08C983E4.bin
   start: 0xc983e4
   size: 0x8830
   type: aif
-- path: data_08A127A1/gUnk_08CA0C14.bin
+- path: direct_sound_samples/gUnk_08CA0C14.bin
   start: 0xca0c14
   size: 0x1f0c
   type: aif
-- path: data_08A127A1/gUnk_08CA2B20.bin
+- path: direct_sound_samples/gUnk_08CA2B20.bin
   start: 0xca2b20
   size: 0x5f5c
   type: aif
-- path: data_08A127A1/gUnk_08CA8A7C.bin
+- path: direct_sound_samples/gUnk_08CA8A7C.bin
   start: 0xca8a7c
   size: 0x19e4
   type: aif
-- path: data_08A127A1/gUnk_08CAA460.bin
+- path: direct_sound_samples/gUnk_08CAA460.bin
   start: 0xcaa460
   size: 0x15f4
   type: aif
-- path: data_08A127A1/gUnk_08CABA54.bin
+- path: direct_sound_samples/gUnk_08CABA54.bin
   start: 0xcaba54
   size: 0x24b0
   type: aif
-- path: data_08A127A1/gUnk_08CADF04.bin
+- path: direct_sound_samples/gUnk_08CADF04.bin
   start: 0xcadf04
   size: 0x2748
   type: aif
-- path: data_08A127A1/gUnk_08CB064C.bin
+- path: direct_sound_samples/gUnk_08CB064C.bin
   start: 0xcb064c
   size: 0x27c0
   type: aif
-- path: data_08A127A1/gUnk_08CB2E0C.bin
+- path: direct_sound_samples/gUnk_08CB2E0C.bin
   start: 0xcb2e0c
   size: 0x1b94
   type: aif
-- path: data_08A127A1/gUnk_08CB49A0.bin
+- path: direct_sound_samples/gUnk_08CB49A0.bin
   start: 0xcb49a0
   size: 0x32d4
   type: aif
-- path: data_08A127A1/gUnk_08CB7C74.bin
+- path: direct_sound_samples/gUnk_08CB7C74.bin
   start: 0xcb7c74
   size: 0x1eec
   type: aif
-- path: data_08A127A1/gUnk_08CB9B60.bin
+- path: direct_sound_samples/gUnk_08CB9B60.bin
   start: 0xcb9b60
   size: 0x258c
   type: aif
-- path: data_08A127A1/gUnk_08CBC0EC.bin
+- path: direct_sound_samples/gUnk_08CBC0EC.bin
   start: 0xcbc0ec
   size: 0x15d8
   type: aif
-- path: data_08A127A1/gUnk_08CBD6C4.bin
+- path: direct_sound_samples/gUnk_08CBD6C4.bin
   start: 0xcbd6c4
   size: 0x12d0
   type: aif
-- path: data_08A127A1/gUnk_08CBE994.bin
+- path: direct_sound_samples/gUnk_08CBE994.bin
   start: 0xcbe994
   size: 0x4168
   type: aif
-- path: data_08A127A1/gUnk_08CC2AFC.bin
+- path: direct_sound_samples/gUnk_08CC2AFC.bin
   start: 0xcc2afc
   size: 0xbd4
   type: aif
-- path: data_08A127A1/gUnk_08CC36D0.bin
+- path: direct_sound_samples/gUnk_08CC36D0.bin
   start: 0xcc36d0
   size: 0xad4
   type: aif
-- path: data_08A127A1/gUnk_08CC41A4.bin
+- path: direct_sound_samples/gUnk_08CC41A4.bin
   start: 0xcc41a4
   size: 0x1aa8
   type: aif
-- path: data_08A127A1/gUnk_08CC5C4C.bin
+- path: direct_sound_samples/gUnk_08CC5C4C.bin
   start: 0xcc5c4c
   size: 0x58
   type: aif
-- path: data_08A127A1/gUnk_08CC5CA4.bin
+- path: direct_sound_samples/gUnk_08CC5CA4.bin
   start: 0xcc5ca4
   size: 0x17b0
   type: aif
-- path: data_08A127A1/gUnk_08CC7454.bin
+- path: direct_sound_samples/gUnk_08CC7454.bin
   start: 0xcc7454
   size: 0x260c
   type: aif
-- path: data_08A127A1/gUnk_08CC9A60.bin
+- path: direct_sound_samples/gUnk_08CC9A60.bin
   start: 0xcc9a60
   size: 0x24e4
   type: aif
-- path: data_08A127A1/gUnk_08CCBF44.bin
+- path: direct_sound_samples/gUnk_08CCBF44.bin
   start: 0xccbf44
   size: 0x1b88
   type: aif
-- path: data_08A127A1/gUnk_08CCDACC.bin
+- path: direct_sound_samples/gUnk_08CCDACC.bin
   start: 0xccdacc
   size: 0x2344
   type: aif
-- path: data_08A127A1/gUnk_08CCFE10.bin
+- path: direct_sound_samples/gUnk_08CCFE10.bin
   start: 0xccfe10
   size: 0x1688
   type: aif
-- path: data_08A127A1/gUnk_08CD1498.bin
+- path: direct_sound_samples/gUnk_08CD1498.bin
   start: 0xcd1498
   size: 0x1614
   type: aif
-- path: data_08A127A1/gUnk_08CD2AAC.bin
+- path: direct_sound_samples/gUnk_08CD2AAC.bin
   start: 0xcd2aac
   size: 0x135c
   type: aif
-- path: data_08A127A1/gUnk_08CD3E08.bin
+- path: direct_sound_samples/gUnk_08CD3E08.bin
   start: 0xcd3e08
   size: 0x2910
   type: aif
-- path: data_08A127A1/gUnk_08CD6718.bin
+- path: direct_sound_samples/gUnk_08CD6718.bin
   start: 0xcd6718
   size: 0xed4
   type: aif
-- path: data_08A127A1/gUnk_08CD75EC.bin
+- path: direct_sound_samples/gUnk_08CD75EC.bin
   start: 0xcd75ec
   size: 0x4ab8
   type: aif
-- path: data_08A127A1/gUnk_08CDC0A4.bin
+- path: direct_sound_samples/gUnk_08CDC0A4.bin
   start: 0xcdc0a4
   size: 0x4b68
   type: aif
-- path: data_08A127A1/gUnk_08CE0C0C.bin
+- path: direct_sound_samples/gUnk_08CE0C0C.bin
   start: 0xce0c0c
   size: 0x1728
   type: aif
-- path: data_08A127A1/gUnk_08CE2334.bin
+- path: direct_sound_samples/gUnk_08CE2334.bin
   start: 0xce2334
   size: 0x4638
   type: aif
-- path: data_08A127A1/gUnk_08CE696C.bin
+- path: direct_sound_samples/gUnk_08CE696C.bin
   start: 0xce696c
   size: 0x3c38
   type: aif
-- path: data_08A127A1/gUnk_08CEA5A4.bin
+- path: direct_sound_samples/gUnk_08CEA5A4.bin
   start: 0xcea5a4
   size: 0x1e60
   type: aif
-- path: data_08A127A1/gUnk_08CEC404.bin
+- path: direct_sound_samples/gUnk_08CEC404.bin
   start: 0xcec404
   size: 0x4f48
   type: aif
-- path: data_08A127A1/gUnk_08CF134C.bin
+- path: direct_sound_samples/gUnk_08CF134C.bin
   start: 0xcf134c
   size: 0x4f68
   type: aif
-- path: data_08A127A1/gUnk_08CF62B4.bin
+- path: direct_sound_samples/gUnk_08CF62B4.bin
   start: 0xcf62b4
   size: 0x3e20
   type: aif
-- path: data_08A127A1/gUnk_08CFA0D4.bin
+- path: direct_sound_samples/gUnk_08CFA0D4.bin
   start: 0xcfa0d4
   size: 0x3360
   type: aif
-- path: data_08A127A1/gUnk_08CFD434.bin
+- path: direct_sound_samples/gUnk_08CFD434.bin
   start: 0xcfd434
   size: 0x2d20
   type: aif
-- path: data_08A127A1/gUnk_08D00154.bin
+- path: direct_sound_samples/gUnk_08D00154.bin
   start: 0xd00154
   size: 0x7ac8
   type: aif
-- path: data_08A127A1/gUnk_08D07C1C.bin
+- path: direct_sound_samples/gUnk_08D07C1C.bin
   start: 0xd07c1c
   size: 0x2b98
   type: aif
-- path: data_08A127A1/gUnk_08D0A7B4.bin
+- path: direct_sound_samples/gUnk_08D0A7B4.bin
   start: 0xd0a7b4
   size: 0x3fc4
   type: aif
-- path: data_08A127A1/gUnk_08D0E778.bin
+- path: direct_sound_samples/gUnk_08D0E778.bin
   start: 0xd0e778
   size: 0x1938
   type: aif
-- path: data_08A127A1/gUnk_08D100B0.bin
+- path: direct_sound_samples/gUnk_08D100B0.bin
   start: 0xd100b0
   size: 0x25ec
   type: aif
-- path: data_08A127A1/gUnk_08D1269C.bin
+- path: direct_sound_samples/gUnk_08D1269C.bin
   start: 0xd1269c
   size: 0x2ebc
   type: aif
-- path: data_08A127A1/gUnk_08D15558.bin
+- path: direct_sound_samples/gUnk_08D15558.bin
   start: 0xd15558
   size: 0xfe8
   type: aif
-- path: data_08A127A1/gUnk_08D16540.bin
+- path: direct_sound_samples/gUnk_08D16540.bin
   start: 0xd16540
   size: 0x4784
   type: aif
-- path: data_08A127A1/gUnk_08D1ACC4.bin
+- path: direct_sound_samples/gUnk_08D1ACC4.bin
   start: 0xd1acc4
   size: 0x3f98
   type: aif
-- path: data_08A127A1/gUnk_08D1EC5C.bin
+- path: direct_sound_samples/gUnk_08D1EC5C.bin
   start: 0xd1ec5c
   size: 0x1c00
   type: aif
-- path: data_08A127A1/gUnk_08D2085C.bin
+- path: direct_sound_samples/gUnk_08D2085C.bin
   start: 0xd2085c
   size: 0x1408
   type: aif
-- path: data_08A127A1/gUnk_08D21C64.bin
+- path: direct_sound_samples/gUnk_08D21C64.bin
   start: 0xd21c64
   size: 0x2264
   type: aif
-- path: data_08A127A1/gUnk_08D23EC8.bin
+- path: direct_sound_samples/gUnk_08D23EC8.bin
   start: 0xd23ec8
   size: 0xc6c
   type: aif
-- path: data_08A127A1/gUnk_08D24B34.bin
+- path: direct_sound_samples/gUnk_08D24B34.bin
   start: 0xd24b34
   size: 0x229c
   type: aif
-- path: data_08A127A1/gUnk_08D26DD0.bin
+- path: direct_sound_samples/gUnk_08D26DD0.bin
   start: 0xd26dd0
   size: 0x16e8
   type: aif
-- path: data_08A127A1/gUnk_08D284B8.bin
+- path: direct_sound_samples/gUnk_08D284B8.bin
   start: 0xd284b8
   size: 0xd44
   type: aif
-- path: data_08A127A1/gUnk_08D291FC.bin
+- path: direct_sound_samples/gUnk_08D291FC.bin
   start: 0xd291fc
   size: 0x1a0c
   type: aif
-- path: data_08A127A1/gUnk_08D2AC08.bin
+- path: direct_sound_samples/gUnk_08D2AC08.bin
   start: 0xd2ac08
   size: 0x34d4
   type: aif
-- path: data_08A127A1/gUnk_08D2E0DC.bin
+- path: direct_sound_samples/gUnk_08D2E0DC.bin
   start: 0xd2e0dc
   size: 0x1b10
   type: aif
-- path: data_08A127A1/gUnk_08D2FBEC.bin
+- path: direct_sound_samples/gUnk_08D2FBEC.bin
   start: 0xd2fbec
   size: 0x4ce4
   type: aif
-- path: data_08A127A1/gUnk_08D348D0.bin
+- path: direct_sound_samples/gUnk_08D348D0.bin
   start: 0xd348d0
   size: 0x27b4
   type: aif
-- path: data_08A127A1/gUnk_08D37084.bin
+- path: direct_sound_samples/gUnk_08D37084.bin
   start: 0xd37084
   size: 0x219c
   type: aif
-- path: data_08A127A1/gUnk_08D39220.bin
+- path: direct_sound_samples/gUnk_08D39220.bin
   start: 0xd39220
   size: 0x2174
   type: aif
-- path: data_08A127A1/gUnk_08D3B394.bin
+- path: direct_sound_samples/gUnk_08D3B394.bin
   start: 0xd3b394
   size: 0x4c94
   type: aif
-- path: data_08A127A1/gUnk_08D40028.bin
+- path: direct_sound_samples/gUnk_08D40028.bin
   start: 0xd40028
   size: 0x1d28
   type: aif
-- path: data_08A127A1/gUnk_08D41D50.bin
+- path: direct_sound_samples/gUnk_08D41D50.bin
   start: 0xd41d50
   size: 0x2224
   type: aif
-- path: data_08A127A1/gUnk_08D43F74.bin
+- path: direct_sound_samples/gUnk_08D43F74.bin
   start: 0xd43f74
   size: 0x3c74
   type: aif
-- path: data_08A127A1/gUnk_08D47BE8.bin
+- path: direct_sound_samples/gUnk_08D47BE8.bin
   start: 0xd47be8
   size: 0x234c
   type: aif
-- path: data_08A127A1/gUnk_08D49F34.bin
+- path: direct_sound_samples/gUnk_08D49F34.bin
   start: 0xd49f34
   size: 0x20a0
   type: aif
-- path: data_08A127A1/gUnk_08D4BFD4.bin
+- path: direct_sound_samples/gUnk_08D4BFD4.bin
   start: 0xd4bfd4
   size: 0x21a4
   type: aif
-- path: data_08A127A1/gUnk_08D4E178.bin
+- path: direct_sound_samples/gUnk_08D4E178.bin
   start: 0xd4e178
   size: 0x38dc
   type: aif
-- path: data_08A127A1/gUnk_08D51A54.bin
+- path: direct_sound_samples/gUnk_08D51A54.bin
   start: 0xd51a54
   size: 0x1608
   type: aif
-- path: data_08A127A1/gUnk_08D5305C.bin
+- path: direct_sound_samples/gUnk_08D5305C.bin
   start: 0xd5305c
   size: 0x1a44
   type: aif
-- path: data_08A127A1/gUnk_08D54AA0.bin
+- path: direct_sound_samples/gUnk_08D54AA0.bin
   start: 0xd54aa0
   size: 0x2cb8
   type: aif
-- path: data_08A127A1/gUnk_08D57758.bin
+- path: direct_sound_samples/gUnk_08D57758.bin
   start: 0xd57758
   size: 0x18b8
   type: aif
-- path: data_08A127A1/gUnk_08D59010.bin
+- path: direct_sound_samples/gUnk_08D59010.bin
   start: 0xd59010
   size: 0x42f8
   type: aif
-- path: data_08A127A1/gUnk_08D5D308.bin
+- path: direct_sound_samples/gUnk_08D5D308.bin
   start: 0xd5d308
   size: 0x3060
   type: aif
-- path: data_08A127A1/gUnk_08D60368.bin
+- path: direct_sound_samples/gUnk_08D60368.bin
   start: 0xd60368
   size: 0x11d0
   type: aif
-- path: data_08A127A1/gUnk_08D61538.bin
+- path: direct_sound_samples/gUnk_08D61538.bin
   start: 0xd61538
   size: 0x1ec4
   type: aif
-- path: data_08A127A1/gUnk_08D633FC.bin
+- path: direct_sound_samples/gUnk_08D633FC.bin
   start: 0xd633fc
   size: 0x2820
   type: aif
-- path: data_08A127A1/gUnk_08D65C1C.bin
+- path: direct_sound_samples/gUnk_08D65C1C.bin
   start: 0xd65c1c
   size: 0x2380
   type: aif
-- path: data_08A127A1/gUnk_08D67F9C.bin
+- path: direct_sound_samples/gUnk_08D67F9C.bin
   start: 0xd67f9c
   size: 0x12b4
   type: aif
-- path: data_08A127A1/gUnk_08D69250.bin
+- path: direct_sound_samples/gUnk_08D69250.bin
   start: 0xd69250
   size: 0x23f4
   type: aif
-- path: data_08A127A1/gUnk_08D6B644.bin
+- path: direct_sound_samples/gUnk_08D6B644.bin
   start: 0xd6b644
   size: 0x2524
   type: aif
-- path: data_08A127A1/gUnk_08D6DB68.bin
+- path: direct_sound_samples/gUnk_08D6DB68.bin
   start: 0xd6db68
   size: 0x1410
   type: aif
-- path: data_08A127A1/gUnk_08D6EF78.bin
+- path: direct_sound_samples/gUnk_08D6EF78.bin
   start: 0xd6ef78
   size: 0x11b4
   type: aif
-- path: data_08A127A1/gUnk_08D7012C.bin
+- path: direct_sound_samples/gUnk_08D7012C.bin
   start: 0xd7012c
   size: 0x195c
   type: aif
-- path: data_08A127A1/gUnk_08D71A88.bin
+- path: direct_sound_samples/gUnk_08D71A88.bin
   start: 0xd71a88
   size: 0x1ce0
   type: aif
-- path: data_08A127A1/gUnk_08D73768.bin
+- path: direct_sound_samples/gUnk_08D73768.bin
   start: 0xd73768
   size: 0x18c8
   type: aif
-- path: data_08A127A1/gUnk_08D75030.bin
+- path: direct_sound_samples/gUnk_08D75030.bin
   start: 0xd75030
   size: 0xf68
   type: aif
-- path: data_08A127A1/gUnk_08D75F98.bin
+- path: direct_sound_samples/gUnk_08D75F98.bin
   start: 0xd75f98
   size: 0x1738
   type: aif
-- path: data_08A127A1/gUnk_08D776D0.bin
+- path: direct_sound_samples/gUnk_08D776D0.bin
   start: 0xd776d0
   size: 0x1664
   type: aif
-- path: data_08A127A1/gUnk_08D78D34.bin
+- path: direct_sound_samples/gUnk_08D78D34.bin
   start: 0xd78d34
   size: 0x175c
   type: aif
-- path: data_08A127A1/gUnk_08D7A490.bin
+- path: direct_sound_samples/gUnk_08D7A490.bin
   start: 0xd7a490
   size: 0xd44
   type: aif
-- path: data_08A127A1/gUnk_08D7B1D4.bin
+- path: direct_sound_samples/gUnk_08D7B1D4.bin
   start: 0xd7b1d4
   size: 0x15f4
   type: aif
-- path: data_08A127A1/gUnk_08D7C7C8.bin
+- path: direct_sound_samples/gUnk_08D7C7C8.bin
   start: 0xd7c7c8
   size: 0x1c7c
   type: aif
-- path: data_08A127A1/gUnk_08D7E444.bin
+- path: direct_sound_samples/gUnk_08D7E444.bin
   start: 0xd7e444
   size: 0x1a0c
   type: aif
-- path: data_08A127A1/gUnk_08D7FE50.bin
+- path: direct_sound_samples/gUnk_08D7FE50.bin
   start: 0xd7fe50
   size: 0x2bf4
   type: aif
-- path: data_08A127A1/gUnk_08D82A44.bin
+- path: direct_sound_samples/gUnk_08D82A44.bin
   start: 0xd82a44
   size: 0x2d54
   type: aif
-- path: data_08A127A1/gUnk_08D85798.bin
+- path: direct_sound_samples/gUnk_08D85798.bin
   start: 0xd85798
   size: 0x19bc
   type: aif
-- path: data_08A127A1/gUnk_08D87154.bin
+- path: direct_sound_samples/gUnk_08D87154.bin
   start: 0xd87154
   size: 0x3130
   type: aif
-- path: data_08A127A1/gUnk_08D8A284.bin
+- path: direct_sound_samples/gUnk_08D8A284.bin
   start: 0xd8a284
   size: 0x3824
   type: aif
-- path: data_08A127A1/gUnk_08D8DAA8.bin
+- path: direct_sound_samples/gUnk_08D8DAA8.bin
   start: 0xd8daa8
   size: 0x3840
   type: aif
-- path: data_08A127A1/gUnk_08D912E8.bin
+- path: direct_sound_samples/gUnk_08D912E8.bin
   start: 0xd912e8
   size: 0x3564
   type: aif
-- path: data_08A127A1/gUnk_08D9484C.bin
+- path: direct_sound_samples/gUnk_08D9484C.bin
   start: 0xd9484c
   size: 0x1dac
   type: aif
-- path: data_08A127A1/gUnk_08D965F8.bin
+- path: direct_sound_samples/gUnk_08D965F8.bin
   start: 0xd965f8
   size: 0x21e8
   type: aif
-- path: data_08A127A1/gUnk_08D987E0.bin
+- path: direct_sound_samples/gUnk_08D987E0.bin
   start: 0xd987e0
   size: 0x2090
   type: aif
-- path: data_08A127A1/gUnk_08D9A870.bin
+- path: direct_sound_samples/gUnk_08D9A870.bin
   start: 0xd9a870
   size: 0x21c4
   type: aif
-- path: data_08A127A1/gUnk_08D9CA34.bin
+- path: direct_sound_samples/gUnk_08D9CA34.bin
   start: 0xd9ca34
   size: 0x4044
   type: aif
-- path: data_08A127A1/gUnk_08DA0A78.bin
+- path: direct_sound_samples/gUnk_08DA0A78.bin
   start: 0xda0a78
   size: 0x3b0c
   type: aif
-- path: data_08A127A1/gUnk_08DA4584.bin
+- path: direct_sound_samples/gUnk_08DA4584.bin
   start: 0xda4584
   size: 0x61c0
   type: aif
-- path: data_08A127A1/gUnk_08DAA744.bin
+- path: direct_sound_samples/gUnk_08DAA744.bin
   start: 0xdaa744
   size: 0x3fb8
   type: aif
-- path: data_08A127A1/gUnk_08DAE6FC.bin
+- path: direct_sound_samples/gUnk_08DAE6FC.bin
   start: 0xdae6fc
   size: 0x51ac
   type: aif
-- path: data_08A127A1/gUnk_08DB38A8.bin
+- path: direct_sound_samples/gUnk_08DB38A8.bin
   start: 0xdb38a8
   size: 0x45a4
   type: aif
-- path: data_08A127A1/gUnk_08DB7E4C.bin
+- path: direct_sound_samples/gUnk_08DB7E4C.bin
   start: 0xdb7e4c
   size: 0x6500
   type: aif
-- path: data_08A127A1/gUnk_08DBE34C.bin
+- path: direct_sound_samples/gUnk_08DBE34C.bin
   start: 0xdbe34c
   size: 0x270
   type: aif
-- path: data_08A127A1/gUnk_08DBE5BC.bin
+- path: direct_sound_samples/gUnk_08DBE5BC.bin
   start: 0xdbe5bc
   size: 0x1064
   type: aif
-- path: data_08A127A1/gUnk_08DBF620.bin
+- path: direct_sound_samples/gUnk_08DBF620.bin
   start: 0xdbf620
   size: 0x2118
   type: aif
-- path: data_08A127A1/gUnk_08DC1738.bin
+- path: direct_sound_samples/gUnk_08DC1738.bin
   start: 0xdc1738
   size: 0x3714
   type: aif
-- path: data_08A127A1/gUnk_08DC4E4C.bin
+- path: direct_sound_samples/gUnk_08DC4E4C.bin
   start: 0xdc4e4c
   size: 0x3370
   type: aif
-- path: data_08A127A1/gUnk_08DC81BC.bin
+- path: direct_sound_samples/gUnk_08DC81BC.bin
   start: 0xdc81bc
   size: 0x42c0
   type: aif

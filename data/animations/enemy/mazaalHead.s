@@ -25,7 +25,7 @@ gUnk_080CEE3F:: @ 080CEE3F
 gUnk_080CEE57:: @ 080CEE57
 	.incbin "mazaalHead/gUnk_080CEE57.bin"
 
-gUnk_080CEE70:: @ 080CEE70
+gSpriteAnimations_MazaalHead:: @ 080CEE70
 	.4byte gUnk_080CEDB0
 	.4byte gUnk_080CEDB5
 	.4byte gUnk_080CEDBA

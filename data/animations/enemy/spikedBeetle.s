@@ -33,7 +33,7 @@ gUnk_080CD380:: @ 080CD380
 gUnk_080CD391:: @ 080CD391
 	.incbin "spikedBeetle/gUnk_080CD391.bin"
 
-gUnk_080CD398:: @ 080CD398
+gSpriteAnimations_SpikedBeetle:: @ 080CD398
 	.4byte gUnk_080CD31C
 	.4byte gUnk_080CD32D
 	.4byte gUnk_080CD33E

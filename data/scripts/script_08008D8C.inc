@@ -11,7 +11,7 @@ script_08008DA0:
 	_0807EB74
 	Call sub_08061FD8
 	Call sub_08062048
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_08008DA0
 	.2byte 0x0000
@@ -29,7 +29,7 @@ script_08008DD8:
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000000
 	Call sub_080643D8
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	_0807EB44 0x0004
 	CallWithArg sub_0807F3D8, 0x00000000
@@ -65,7 +65,7 @@ script_08008E12:
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000008
 	TextboxNoOverlapFollowPos 0x1053, 0x000e
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000080
 	WaitForSomething2 0x00000100
 	_0807E5F8 0x00000080

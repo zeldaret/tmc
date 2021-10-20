@@ -13,7 +13,7 @@ gUnk_080D06A1:: @ 080D06A1
 gUnk_080D06B2:: @ 080D06B2
 	.incbin "vaatiProjectile/gUnk_080D06B2.bin"
 
-gUnk_080D06D0:: @ 080D06D0
+gSpriteAnimations_VaatiProjectile:: @ 080D06D0
 	.4byte gUnk_080D0688
 	.4byte gUnk_080D06A1
 	.4byte gUnk_080D06B2

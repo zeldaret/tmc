@@ -34,7 +34,7 @@ gUnk_080D0A7F:: @ 080D0A7F
 gUnk_080D0A8B:: @ 080D0A8B
 	.incbin "ghini/gUnk_080D0A8B.bin"
 
-gUnk_080D0A90:: @ 080D0A90
+gSpriteAnimations_Ghini:: @ 080D0A90
 	.4byte gUnk_080D0988
 	.4byte gUnk_080D09C9
 	.4byte gUnk_080D09A4

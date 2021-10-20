@@ -28,7 +28,7 @@ gUnk_08112F2A:: @ 08112F2A
 gUnk_08112F2F:: @ 08112F2F
 	.incbin "percy/gUnk_08112F2F.bin"
 
-gUnk_08112F34:: @ 08112F34
+gSpriteAnimations_Percy:: @ 08112F34
 	.4byte gUnk_08112E5C
 	.4byte gUnk_08112E5C
 	.4byte gUnk_08112E5C

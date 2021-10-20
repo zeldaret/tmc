@@ -24,7 +24,7 @@ gUnk_080CBB32:: @ 080CBB32
 gUnk_080CBB3F:: @ 080CBB3F
 	.incbin "spinyChuchu/gUnk_080CBB3F.bin"
 
-gUnk_080CBB44:: @ 080CBB44
+gSpriteAnimations_SpinyChuchu:: @ 080CBB44
 	.4byte gUnk_080CBA64
 	.4byte gUnk_080CBAA5
 	.4byte gUnk_080CBAE5

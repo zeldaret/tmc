@@ -64,7 +64,7 @@ gUnk_080CF70C:: @ 080CF70C
 gUnk_080CF718:: @ 080CF718
 	.incbin "scissorsBeetle/gUnk_080CF718.bin"
 
-gUnk_080CF724:: @ 080CF724
+gSpriteAnimations_ScissorsBeetle:: @ 080CF724
 	.4byte gUnk_080CF644
 	.4byte gUnk_080CF649
 	.4byte gUnk_080CF64E

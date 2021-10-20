@@ -79,7 +79,7 @@ gUnk_080CFEB0:: @ 080CFEB0
 gUnk_080CFEC1:: @ 080CFEC1
 	.incbin "mazaalBracelet/gUnk_080CFEC1.bin"
 
-gUnk_080CFED4:: @ 080CFED4
+gSpriteAnimations_MazaalBracelet:: @ 080CFED4
 	.4byte gUnk_080CFD60
 	.4byte gUnk_080CFD71
 	.4byte gUnk_080CFD82

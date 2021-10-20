@@ -10,6 +10,6 @@ gUnk_08120C66:: @ 08120C66
 gUnk_08120C6F:: @ 08120C6F
 	.incbin "bigBarrel/gUnk_08120C6F.bin"
 
-gUnk_08120C78:: @ 08120C78
+gSpriteAnimations_BigBarrel:: @ 08120C78
 	.4byte gUnk_08120C66
 	.4byte gUnk_08120C6F

@@ -52,7 +52,7 @@ gUnk_080D1F16:: @ 080D1F16
 gUnk_080D1F1A:: @ 080D1F1A
 	.incbin "gyorgChild/gUnk_080D1F1A.bin"
 
-gUnk_080D1F20:: @ 080D1F20
+gSpriteAnimations_GyorgChild:: @ 080D1F20
 	.4byte gUnk_080D1EB6
 	.4byte gUnk_080D1EBF
 	.4byte gUnk_080D1EC8

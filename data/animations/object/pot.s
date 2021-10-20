@@ -40,7 +40,7 @@ gUnk_0811F10E:: @ 0811F10E
 gUnk_0811F113:: @ 0811F113
 	.incbin "pot/gUnk_0811F113.bin"
 
-gUnk_0811F118:: @ 0811F118
+gSpriteAnimations_Pot:: @ 0811F118
 	.4byte gUnk_0811F0DC
 	.4byte gUnk_0811F0E1
 	.4byte gUnk_0811F0E6

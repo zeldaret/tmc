@@ -43,12 +43,12 @@ gUnk_08120FF6:: @ 08120FF6
 gUnk_08121016:: @ 08121016
 	.incbin "beanstalk/gUnk_08121016.bin"
 
-gUnk_0812101C:: @ 0812101C
+gSpriteAnimations_Beanstalk_0:: @ 0812101C
 	.4byte gUnk_08120E8C
 	.4byte gUnk_08120ED1
 	.4byte 00000000
 
-gUnk_08121028:: @ 08121028
+gSpriteAnimations_Beanstalk_1:: @ 08121028
 	.4byte gUnk_08120EF9
 	.4byte gUnk_08120F2A
 	.4byte gUnk_08120F2E

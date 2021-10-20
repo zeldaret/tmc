@@ -46,7 +46,7 @@ gUnk_080D1988:: @ 080D1988
 gUnk_080D19AD:: @ 080D19AD
 	.incbin "enemy5A/gUnk_080D19AD.bin"
 
-gUnk_080D19B8:: @ 080D19B8
+gSpriteAnimations_Enemy5A:: @ 080D19B8
 	.4byte gUnk_080D18C4
 	.4byte gUnk_080D18C9
 	.4byte gUnk_080D18DA

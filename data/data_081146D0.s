@@ -206,416 +206,416 @@ gUnk_08114F80:: @ 08114F80
 gUnk_08114F88:: @ 08114F88
 	.incbin "data_081146D0/gUnk_08114F88.bin"
 
-gUnk_08114F98:: @ 08114F98
-	.incbin "data_081146D0/gUnk_08114F98.bin"
+gSpriteFrames_1:: @ 08114F98
+	.incbin "data_081146D0/gSpriteFrames_1.bin"
 
-gUnk_0811538C:: @ 0811538C
-	.incbin "data_081146D0/gUnk_0811538C.bin"
+gSpriteFrames_2:: @ 0811538C
+	.incbin "data_081146D0/gSpriteFrames_2.bin"
 
-gUnk_08115724:: @ 08115724
-	.incbin "data_081146D0/gUnk_08115724.bin"
+gSpriteFrames_3:: @ 08115724
+	.incbin "data_081146D0/gSpriteFrames_3.bin"
 
-gUnk_08115AF8:: @ 08115AF8
-	.incbin "data_081146D0/gUnk_08115AF8.bin"
+gSpriteFrames_4:: @ 08115AF8
+	.incbin "data_081146D0/gSpriteFrames_4.bin"
 
-gUnk_08115E9C:: @ 08115E9C
-	.incbin "data_081146D0/gUnk_08115E9C.bin"
+gSpriteFrames_5:: @ 08115E9C
+	.incbin "data_081146D0/gSpriteFrames_5.bin"
 
-gUnk_08116280:: @ 08116280
-	.incbin "data_081146D0/gUnk_08116280.bin"
+gSpriteFrames_6:: @ 08116280
+	.incbin "data_081146D0/gSpriteFrames_6.bin"
 
-gUnk_08116530:: @ 08116530
-	.incbin "data_081146D0/gUnk_08116530.bin"
+gSpriteFrames_7:: @ 08116530
+	.incbin "data_081146D0/gSpriteFrames_7.bin"
 
-gUnk_08116888:: @ 08116888
-	.incbin "data_081146D0/gUnk_08116888.bin"
+gSpriteFrames_8:: @ 08116888
+	.incbin "data_081146D0/gSpriteFrames_8.bin"
 
-gUnk_08116A9C:: @ 08116A9C
-	.incbin "data_081146D0/gUnk_08116A9C.bin"
+gSpriteFrames_9:: @ 08116A9C
+	.incbin "data_081146D0/gSpriteFrames_9.bin"
 
-gUnk_08116D0C:: @ 08116D0C
-	.incbin "data_081146D0/gUnk_08116D0C.bin"
+gSpriteFrames_Object4:: @ 08116D0C
+	.incbin "data_081146D0/gSpriteFrames_Object4.bin"
 
-gUnk_08116DD4:: @ 08116DD4
-	.incbin "data_081146D0/gUnk_08116DD4.bin"
+gSpriteFrames_Object6:: @ 08116DD4
+	.incbin "data_081146D0/gSpriteFrames_Object6.bin"
 
-gUnk_08116F64:: @ 08116F64
-	.incbin "data_081146D0/gUnk_08116F64.bin"
+gSpriteFrames_12:: @ 08116F64
+	.incbin "data_081146D0/gSpriteFrames_12.bin"
 
-gUnk_08117208:: @ 08117208
-	.incbin "data_081146D0/gUnk_08117208.bin"
+gSpriteFrames_13:: @ 08117208
+	.incbin "data_081146D0/gSpriteFrames_13.bin"
 
-gUnk_08117240:: @ 08117240
-	.incbin "data_081146D0/gUnk_08117240.bin"
+gSpriteFrames_14:: @ 08117240
+	.incbin "data_081146D0/gSpriteFrames_14.bin"
 
-gUnk_081175DC:: @ 081175DC
-	.incbin "data_081146D0/gUnk_081175DC.bin"
+gSpriteFrames_15:: @ 081175DC
+	.incbin "data_081146D0/gSpriteFrames_15.bin"
 
-gUnk_081178B0:: @ 081178B0
-	.incbin "data_081146D0/gUnk_081178B0.bin"
+gSpriteFrames_16:: @ 081178B0
+	.incbin "data_081146D0/gSpriteFrames_16.bin"
 
-gUnk_08117B84:: @ 08117B84
-	.incbin "data_081146D0/gUnk_08117B84.bin"
+gSpriteFrames_17:: @ 08117B84
+	.incbin "data_081146D0/gSpriteFrames_17.bin"
 
-gUnk_08117D64:: @ 08117D64
-	.incbin "data_081146D0/gUnk_08117D64.bin"
+gSpriteFrames_18:: @ 08117D64
+	.incbin "data_081146D0/gSpriteFrames_18.bin"
 
-gUnk_08117E40:: @ 08117E40
-	.incbin "data_081146D0/gUnk_08117E40.bin"
+gSpriteFrames_19:: @ 08117E40
+	.incbin "data_081146D0/gSpriteFrames_19.bin"
 
-gUnk_08117F68:: @ 08117F68
-	.incbin "data_081146D0/gUnk_08117F68.bin"
+gSpriteFrames_20:: @ 08117F68
+	.incbin "data_081146D0/gSpriteFrames_20.bin"
 
-gUnk_08117FD4:: @ 08117FD4
-	.incbin "data_081146D0/gUnk_08117FD4.bin"
+gSpriteFrames_21:: @ 08117FD4
+	.incbin "data_081146D0/gSpriteFrames_21.bin"
 
-gUnk_081181B4:: @ 081181B4
-	.incbin "data_081146D0/gUnk_081181B4.bin"
+gSpriteFrames_22:: @ 081181B4
+	.incbin "data_081146D0/gSpriteFrames_22.bin"
 
-gUnk_081181E4:: @ 081181E4
-	.incbin "data_081146D0/gUnk_081181E4.bin"
+gSpriteFrames_24:: @ 081181E4
+	.incbin "data_081146D0/gSpriteFrames_24.bin"
 
-gUnk_08118238:: @ 08118238
-	.incbin "data_081146D0/gUnk_08118238.bin"
+gSpriteFrames_25:: @ 08118238
+	.incbin "data_081146D0/gSpriteFrames_25.bin"
 
-gUnk_08118264:: @ 08118264
-	.incbin "data_081146D0/gUnk_08118264.bin"
+gSpriteFrames_26:: @ 08118264
+	.incbin "data_081146D0/gSpriteFrames_26.bin"
 
-gUnk_08118298:: @ 08118298
-	.incbin "data_081146D0/gUnk_08118298.bin"
+gSpriteFrames_27:: @ 08118298
+	.incbin "data_081146D0/gSpriteFrames_27.bin"
 
-gUnk_08118398:: @ 08118398
-	.incbin "data_081146D0/gUnk_08118398.bin"
+gSpriteFrames_28:: @ 08118398
+	.incbin "data_081146D0/gSpriteFrames_28.bin"
 
-gUnk_081183BC:: @ 081183BC
-	.incbin "data_081146D0/gUnk_081183BC.bin"
+gSpriteFrames_29:: @ 081183BC
+	.incbin "data_081146D0/gSpriteFrames_29.bin"
 
-gUnk_0811846C:: @ 0811846C
-	.incbin "data_081146D0/gUnk_0811846C.bin"
+gSpriteFrames_30:: @ 0811846C
+	.incbin "data_081146D0/gSpriteFrames_30.bin"
 
-gUnk_081184A8:: @ 081184A8
-	.incbin "data_081146D0/gUnk_081184A8.bin"
+gSpriteFrames_31:: @ 081184A8
+	.incbin "data_081146D0/gSpriteFrames_31.bin"
 
-gUnk_08118558:: @ 08118558
-	.incbin "data_081146D0/gUnk_08118558.bin"
+gSpriteFrames_32:: @ 08118558
+	.incbin "data_081146D0/gSpriteFrames_32.bin"
 
-gUnk_08118720:: @ 08118720
-	.incbin "data_081146D0/gUnk_08118720.bin"
+gSpriteFrames_33:: @ 08118720
+	.incbin "data_081146D0/gSpriteFrames_33.bin"
 
-gUnk_08118768:: @ 08118768
-	.incbin "data_081146D0/gUnk_08118768.bin"
+gSpriteFrames_Object6A_0:: @ 08118768
+	.incbin "data_081146D0/gSpriteFrames_Object6A_0.bin"
 
-gUnk_08118780:: @ 08118780
-	.incbin "data_081146D0/gUnk_08118780.bin"
+gSpriteFrames_Object6A_1:: @ 08118780
+	.incbin "data_081146D0/gSpriteFrames_Object6A_1.bin"
 
-gUnk_08118788:: @ 08118788
-	.incbin "data_081146D0/gUnk_08118788.bin"
+gSpriteFrames_Object6A_2:: @ 08118788
+	.incbin "data_081146D0/gSpriteFrames_Object6A_2.bin"
 
-gUnk_08118794:: @ 08118794
-	.incbin "data_081146D0/gUnk_08118794.bin"
+gSpriteFrames_MinishEzlo:: @ 08118794
+	.incbin "data_081146D0/gSpriteFrames_MinishEzlo.bin"
 
-gUnk_081188C0:: @ 081188C0
-	.incbin "data_081146D0/gUnk_081188C0.bin"
+gSpriteFrames_Object6A_3:: @ 081188C0
+	.incbin "data_081146D0/gSpriteFrames_Object6A_3.bin"
 
-gUnk_08118948:: @ 08118948
-	.incbin "data_081146D0/gUnk_08118948.bin"
+gSpriteFrames_Din:: @ 08118948
+	.incbin "data_081146D0/gSpriteFrames_Din.bin"
 
-gUnk_08118960:: @ 08118960
-	.incbin "data_081146D0/gUnk_08118960.bin"
+gSpriteFrames_Nayru:: @ 08118960
+	.incbin "data_081146D0/gSpriteFrames_Nayru.bin"
 
-gUnk_08118974:: @ 08118974
-	.incbin "data_081146D0/gUnk_08118974.bin"
+gSpriteFrames_Farore:: @ 08118974
+	.incbin "data_081146D0/gSpriteFrames_Farore.bin"
 
-gUnk_08118988:: @ 08118988
-	.incbin "data_081146D0/gUnk_08118988.bin"
+gSpriteFrames_Npc5:: @ 08118988
+	.incbin "data_081146D0/gSpriteFrames_Npc5.bin"
 
-gUnk_08118C00:: @ 08118C00
-	.incbin "data_081146D0/gUnk_08118C00.bin"
+gSpriteFrames_GuardWithSpear:: @ 08118C00
+	.incbin "data_081146D0/gSpriteFrames_GuardWithSpear.bin"
 
-gUnk_08118D38:: @ 08118D38
-	.incbin "data_081146D0/gUnk_08118D38.bin"
+gSpriteFrames_KingDaltus:: @ 08118D38
+	.incbin "data_081146D0/gSpriteFrames_KingDaltus.bin"
 
-gUnk_08118DA4:: @ 08118DA4
-	.incbin "data_081146D0/gUnk_08118DA4.bin"
+gSpriteFrames_MinisterPotho:: @ 08118DA4
+	.incbin "data_081146D0/gSpriteFrames_MinisterPotho.bin"
 
-gUnk_08118DD0:: @ 08118DD0
-	.incbin "data_081146D0/gUnk_08118DD0.bin"
+gSpriteFrames_Npc26:: @ 08118DD0
+	.incbin "data_081146D0/gSpriteFrames_Npc26.bin"
 
-gUnk_08118DDC:: @ 08118DDC
-	.incbin "data_081146D0/gUnk_08118DDC.bin"
+gSpriteFrames_Maid:: @ 08118DDC
+	.incbin "data_081146D0/gSpriteFrames_Maid.bin"
 
-gUnk_08118E5C:: @ 08118E5C
-	.incbin "data_081146D0/gUnk_08118E5C.bin"
+gSpriteFrames_TingleSiblings:: @ 08118E5C
+	.incbin "data_081146D0/gSpriteFrames_TingleSiblings.bin"
 
-gUnk_08118F04:: @ 08118F04
-	.incbin "data_081146D0/gUnk_08118F04.bin"
+gSpriteFrames_Beedle:: @ 08118F04
+	.incbin "data_081146D0/gSpriteFrames_Beedle.bin"
 
-gUnk_08118F3C:: @ 08118F3C
-	.incbin "data_081146D0/gUnk_08118F3C.bin"
+gSpriteFrames_Brocco:: @ 08118F3C
+	.incbin "data_081146D0/gSpriteFrames_Brocco.bin"
 
-gUnk_08118F64:: @ 08118F64
-	.incbin "data_081146D0/gUnk_08118F64.bin"
+gSpriteFrames_Pina:: @ 08118F64
+	.incbin "data_081146D0/gSpriteFrames_Pina.bin"
 
-gUnk_08118F98:: @ 08118F98
-	.incbin "data_081146D0/gUnk_08118F98.bin"
+gSpriteFrames_Postman:: @ 08118F98
+	.incbin "data_081146D0/gSpriteFrames_Postman.bin"
 
-gUnk_081190A0:: @ 081190A0
-	.incbin "data_081146D0/gUnk_081190A0.bin"
+gSpriteFrames_Malon:: @ 081190A0
+	.incbin "data_081146D0/gSpriteFrames_Malon.bin"
 
-gUnk_081190E4:: @ 081190E4
-	.incbin "data_081146D0/gUnk_081190E4.bin"
+gSpriteFrames_Epona:: @ 081190E4
+	.incbin "data_081146D0/gSpriteFrames_Epona.bin"
 
-gUnk_0811911C:: @ 0811911C
-	.incbin "data_081146D0/gUnk_0811911C.bin"
+gSpriteFrames_MilkCart:: @ 0811911C
+	.incbin "data_081146D0/gSpriteFrames_MilkCart.bin"
 
-gUnk_0811912C:: @ 0811912C
-	.incbin "data_081146D0/gUnk_0811912C.bin"
+gSpriteFrames_Smith:: @ 0811912C
+	.incbin "data_081146D0/gSpriteFrames_Smith.bin"
 
-gUnk_08119188:: @ 08119188
-	.incbin "data_081146D0/gUnk_08119188.bin"
+gSpriteFrames_Townsperson:: @ 08119188
+	.incbin "data_081146D0/gSpriteFrames_Townsperson.bin"
 
-gUnk_081192A8:: @ 081192A8
-	.incbin "data_081146D0/gUnk_081192A8.bin"
+gSpriteFrames_58:: @ 081192A8
+	.incbin "data_081146D0/gSpriteFrames_58.bin"
 
-gUnk_08119548:: @ 08119548
-	.incbin "data_081146D0/gUnk_08119548.bin"
+gSpriteFrames_Kid:: @ 08119548
+	.incbin "data_081146D0/gSpriteFrames_Kid.bin"
 
-gUnk_081197C4:: @ 081197C4
-	.incbin "data_081146D0/gUnk_081197C4.bin"
+gSpriteFrames_Mailbox:: @ 081197C4
+	.incbin "data_081146D0/gSpriteFrames_Mailbox.bin"
 
-gUnk_081197F4:: @ 081197F4
-	.incbin "data_081146D0/gUnk_081197F4.bin"
+gSpriteFrames_SittingPerson:: @ 081197F4
+	.incbin "data_081146D0/gSpriteFrames_SittingPerson.bin"
 
-gUnk_081198C4:: @ 081198C4
-	.incbin "data_081146D0/gUnk_081198C4.bin"
+gSpriteFrames_Mutoh:: @ 081198C4
+	.incbin "data_081146D0/gSpriteFrames_Mutoh.bin"
 
-gUnk_081198EC:: @ 081198EC
-	.incbin "data_081146D0/gUnk_081198EC.bin"
+gSpriteFrames_Carpenter:: @ 081198EC
+	.incbin "data_081146D0/gSpriteFrames_Carpenter.bin"
 
-gUnk_081199A4:: @ 081199A4
-	.incbin "data_081146D0/gUnk_081199A4.bin"
+gSpriteFrames_Gorman:: @ 081199A4
+	.incbin "data_081146D0/gSpriteFrames_Gorman.bin"
 
-gUnk_081199F8:: @ 081199F8
-	.incbin "data_081146D0/gUnk_081199F8.bin"
+gSpriteFrames_Cat:: @ 081199F8
+	.incbin "data_081146D0/gSpriteFrames_Cat.bin"
 
-gUnk_08119A74:: @ 08119A74
-	.incbin "data_081146D0/gUnk_08119A74.bin"
+gSpriteFrames_66:: @ 08119A74
+	.incbin "data_081146D0/gSpriteFrames_66.bin"
 
-gUnk_08119AF0:: @ 08119AF0
-	.incbin "data_081146D0/gUnk_08119AF0.bin"
+gSpriteFrames_Dog:: @ 08119AF0
+	.incbin "data_081146D0/gSpriteFrames_Dog.bin"
 
-gUnk_08119B7C:: @ 08119B7C
-	.incbin "data_081146D0/gUnk_08119B7C.bin"
+gSpriteFrames_68:: @ 08119B7C
+	.incbin "data_081146D0/gSpriteFrames_68.bin"
 
-gUnk_08119BF0:: @ 08119BF0
-	.incbin "data_081146D0/gUnk_08119BF0.bin"
+gSpriteFrames_69:: @ 08119BF0
+	.incbin "data_081146D0/gSpriteFrames_69.bin"
 
-gUnk_08119C64:: @ 08119C64
-	.incbin "data_081146D0/gUnk_08119C64.bin"
+gSpriteFrames_Syrup:: @ 08119C64
+	.incbin "data_081146D0/gSpriteFrames_Syrup.bin"
 
-gUnk_08119CF4:: @ 08119CF4
-	.incbin "data_081146D0/gUnk_08119CF4.bin"
+gSpriteFrames_Percy:: @ 08119CF4
+	.incbin "data_081146D0/gSpriteFrames_Percy.bin"
 
-gUnk_08119D54:: @ 08119D54
-	.incbin "data_081146D0/gUnk_08119D54.bin"
+gSpriteFrames_Farmers_0:: @ 08119D54
+	.incbin "data_081146D0/gSpriteFrames_Farmers_0.bin"
 
-gUnk_08119DA8:: @ 08119DA8
-	.incbin "data_081146D0/gUnk_08119DA8.bin"
+gSpriteFrames_Farmers_1:: @ 08119DA8
+	.incbin "data_081146D0/gSpriteFrames_Farmers_1.bin"
 
-gUnk_08119DFC:: @ 08119DFC
-	.incbin "data_081146D0/gUnk_08119DFC.bin"
+gSpriteFrames_Dampe:: @ 08119DFC
+	.incbin "data_081146D0/gSpriteFrames_Dampe.bin"
 
-gUnk_08119E18:: @ 08119E18
-	.incbin "data_081146D0/gUnk_08119E18.bin"
+gSpriteFrames_KingGustaf:: @ 08119E18
+	.incbin "data_081146D0/gSpriteFrames_KingGustaf.bin"
 
-gUnk_08119E44:: @ 08119E44
-	.incbin "data_081146D0/gUnk_08119E44.bin"
+gSpriteFrames_Gina:: @ 08119E44
+	.incbin "data_081146D0/gSpriteFrames_Gina.bin"
 
-gUnk_08119EB0:: @ 08119EB0
-	.incbin "data_081146D0/gUnk_08119EB0.bin"
+gSpriteFrames_Simon:: @ 08119EB0
+	.incbin "data_081146D0/gSpriteFrames_Simon.bin"
 
-gUnk_08119ED8:: @ 08119ED8
-	.incbin "data_081146D0/gUnk_08119ED8.bin"
+gSpriteFrames_Mama:: @ 08119ED8
+	.incbin "data_081146D0/gSpriteFrames_Mama.bin"
 
-gUnk_08119F80:: @ 08119F80
-	.incbin "data_081146D0/gUnk_08119F80.bin"
+gSpriteFrames_Teachers:: @ 08119F80
+	.incbin "data_081146D0/gSpriteFrames_Teachers.bin"
 
-gUnk_08119FA4:: @ 08119FA4
-	.incbin "data_081146D0/gUnk_08119FA4.bin"
+gSpriteFrames_80:: @ 08119FA4
+	.incbin "data_081146D0/gSpriteFrames_80.bin"
 
-gUnk_08119FD4:: @ 08119FD4
-	.incbin "data_081146D0/gUnk_08119FD4.bin"
+gSpriteFrames_WindTribespeople_0:: @ 08119FD4
+	.incbin "data_081146D0/gSpriteFrames_WindTribespeople_0.bin"
 
-gUnk_0811A01C:: @ 0811A01C
-	.incbin "data_081146D0/gUnk_0811A01C.bin"
+gSpriteFrames_WindTribespeople_1:: @ 0811A01C
+	.incbin "data_081146D0/gSpriteFrames_WindTribespeople_1.bin"
 
-gUnk_0811A04C:: @ 0811A04C
-	.incbin "data_081146D0/gUnk_0811A04C.bin"
+gSpriteFrames_WindTribespeople_2:: @ 0811A04C
+	.incbin "data_081146D0/gSpriteFrames_WindTribespeople_2.bin"
 
-gUnk_0811A068:: @ 0811A068
-	.incbin "data_081146D0/gUnk_0811A068.bin"
+gSpriteFrames_WindTribespeople_3:: @ 0811A068
+	.incbin "data_081146D0/gSpriteFrames_WindTribespeople_3.bin"
 
-gUnk_0811A0A4:: @ 0811A0A4
-	.incbin "data_081146D0/gUnk_0811A0A4.bin"
+gSpriteFrames_WindTribespeople_4:: @ 0811A0A4
+	.incbin "data_081146D0/gSpriteFrames_WindTribespeople_4.bin"
 
-gUnk_0811A0CC:: @ 0811A0CC
-	.incbin "data_081146D0/gUnk_0811A0CC.bin"
+gSpriteFrames_WindTribespeople_5:: @ 0811A0CC
+	.incbin "data_081146D0/gSpriteFrames_WindTribespeople_5.bin"
 
-gUnk_0811A0E4:: @ 0811A0E4
-	.incbin "data_081146D0/gUnk_0811A0E4.bin"
+gSpriteFrames_MayorHagen:: @ 0811A0E4
+	.incbin "data_081146D0/gSpriteFrames_MayorHagen.bin"
 
-gUnk_0811A124:: @ 0811A124
-	.incbin "data_081146D0/gUnk_0811A124.bin"
+gSpriteFrames_GhostBrothers:: @ 0811A124
+	.incbin "data_081146D0/gSpriteFrames_GhostBrothers.bin"
 
-gUnk_0811A144:: @ 0811A144
-	.incbin "data_081146D0/gUnk_0811A144.bin"
+gSpriteFrames_HurdyGurdyMan:: @ 0811A144
+	.incbin "data_081146D0/gSpriteFrames_HurdyGurdyMan.bin"
 
-gUnk_0811A17C:: @ 0811A17C
-	.incbin "data_081146D0/gUnk_0811A17C.bin"
+gSpriteFrames_Cow:: @ 0811A17C
+	.incbin "data_081146D0/gSpriteFrames_Cow.bin"
 
-gUnk_0811A1C8:: @ 0811A1C8
-	.incbin "data_081146D0/gUnk_0811A1C8.bin"
+gSpriteFrames_GoronMerchant:: @ 0811A1C8
+	.incbin "data_081146D0/gSpriteFrames_GoronMerchant.bin"
 
-gUnk_0811A1F8:: @ 0811A1F8
-	.incbin "data_081146D0/gUnk_0811A1F8.bin"
+gSpriteFrames_92:: @ 0811A1F8
+	.incbin "data_081146D0/gSpriteFrames_92.bin"
 
-gUnk_0811A228:: @ 0811A228
-	.incbin "data_081146D0/gUnk_0811A228.bin"
+gSpriteFrames_Goron:: @ 0811A228
+	.incbin "data_081146D0/gSpriteFrames_Goron.bin"
 
-gUnk_0811A280:: @ 0811A280
-	.incbin "data_081146D0/gUnk_0811A280.bin"
+gSpriteFrames_CastorWildsStatue:: @ 0811A280
+	.incbin "data_081146D0/gSpriteFrames_CastorWildsStatue.bin"
 
-gUnk_0811A28C:: @ 0811A28C
-	.incbin "data_081146D0/gUnk_0811A28C.bin"
+gSpriteFrames_Npc4F:: @ 0811A28C
+	.incbin "data_081146D0/gSpriteFrames_Npc4F.bin"
 
-gUnk_0811A2A8:: @ 0811A2A8
-	.incbin "data_081146D0/gUnk_0811A2A8.bin"
+gSpriteFrames_Object6A_4:: @ 0811A2A8
+	.incbin "data_081146D0/gSpriteFrames_Object6A_4.bin"
 
-gUnk_0811A2D0:: @ 0811A2D0
-	.incbin "data_081146D0/gUnk_0811A2D0.bin"
+gSpriteFrames_97:: @ 0811A2D0
+	.incbin "data_081146D0/gSpriteFrames_97.bin"
 
-gUnk_0811A2FC:: @ 0811A2FC
-	.incbin "data_081146D0/gUnk_0811A2FC.bin"
+gSpriteFrames_DarkNut_0:: @ 0811A2FC
+	.incbin "data_081146D0/gSpriteFrames_DarkNut_0.bin"
 
-gUnk_0811A510:: @ 0811A510
-	.incbin "data_081146D0/gUnk_0811A510.bin"
+gSpriteFrames_DarkNut_1:: @ 0811A510
+	.incbin "data_081146D0/gSpriteFrames_DarkNut_1.bin"
 
-gUnk_0811A75C:: @ 0811A75C
-	.incbin "data_081146D0/gUnk_0811A75C.bin"
+gSpriteFrames_ChuchuBoss_0:: @ 0811A75C
+	.incbin "data_081146D0/gSpriteFrames_ChuchuBoss_0.bin"
 
-gUnk_0811A7A8:: @ 0811A7A8
-	.incbin "data_081146D0/gUnk_0811A7A8.bin"
+gSpriteFrames_DeathFx_0:: @ 0811A7A8
+	.incbin "data_081146D0/gSpriteFrames_DeathFx_0.bin"
 
-gUnk_0811A86C:: @ 0811A86C
-	.incbin "data_081146D0/gUnk_0811A86C.bin"
+gSpriteFrames_Madderpillar_0:: @ 0811A86C
+	.incbin "data_081146D0/gSpriteFrames_Madderpillar_0.bin"
 
-gUnk_0811A8CC:: @ 0811A8CC
-	.incbin "data_081146D0/gUnk_0811A8CC.bin"
+gSpriteFrames_Gleerok_0:: @ 0811A8CC
+	.incbin "data_081146D0/gSpriteFrames_Gleerok_0.bin"
 
-gUnk_0811A9B4:: @ 0811A9B4
-	.incbin "data_081146D0/gUnk_0811A9B4.bin"
+gSpriteFrames_Keaton:: @ 0811A9B4
+	.incbin "data_081146D0/gSpriteFrames_Keaton.bin"
 
-gUnk_0811AA2C:: @ 0811AA2C
-	.incbin "data_081146D0/gUnk_0811AA2C.bin"
+gSpriteFrames_MazaalHand:: @ 0811AA2C
+	.incbin "data_081146D0/gSpriteFrames_MazaalHand.bin"
 
-gUnk_0811AA7C:: @ 0811AA7C
-	.incbin "data_081146D0/gUnk_0811AA7C.bin"
+gSpriteFrames_ScissorsBeetle:: @ 0811AA7C
+	.incbin "data_081146D0/gSpriteFrames_ScissorsBeetle.bin"
 
-gUnk_0811AB18:: @ 0811AB18
-	.incbin "data_081146D0/gUnk_0811AB18.bin"
+gSpriteFrames_MandiblesProjectile:: @ 0811AB18
+	.incbin "data_081146D0/gSpriteFrames_MandiblesProjectile.bin"
 
-gUnk_0811ABF8:: @ 0811ABF8
-	.incbin "data_081146D0/gUnk_0811ABF8.bin"
+gSpriteFrames_Stalfos:: @ 0811ABF8
+	.incbin "data_081146D0/gSpriteFrames_Stalfos.bin"
 
-gUnk_0811AD24:: @ 0811AD24
-	.incbin "data_081146D0/gUnk_0811AD24.bin"
+gSpriteFrames_Gibdo:: @ 0811AD24
+	.incbin "data_081146D0/gSpriteFrames_Gibdo.bin"
 
-gUnk_0811ADCC:: @ 0811ADCC
-	.incbin "data_081146D0/gUnk_0811ADCC.bin"
+gSpriteFrames_Lakitu:: @ 0811ADCC
+	.incbin "data_081146D0/gSpriteFrames_Lakitu.bin"
 
-gUnk_0811AEB0:: @ 0811AEB0
-	.incbin "data_081146D0/gUnk_0811AEB0.bin"
+gSpriteFrames_LakituCloudProjectile:: @ 0811AEB0
+	.incbin "data_081146D0/gSpriteFrames_LakituCloudProjectile.bin"
 
-gUnk_0811AED8:: @ 0811AED8
-	.incbin "data_081146D0/gUnk_0811AED8.bin"
+gSpriteFrames_VaatiRebornEnemy_0:: @ 0811AED8
+	.incbin "data_081146D0/gSpriteFrames_VaatiRebornEnemy_0.bin"
 
-gUnk_0811AF24:: @ 0811AF24
-	.incbin "data_081146D0/gUnk_0811AF24.bin"
+gSpriteFrames_VaatiRebornEnemy_1:: @ 0811AF24
+	.incbin "data_081146D0/gSpriteFrames_VaatiRebornEnemy_1.bin"
 
-gUnk_0811AF34:: @ 0811AF34
-	.incbin "data_081146D0/gUnk_0811AF34.bin"
+gSpriteFrames_VaatiRebornEnemy_2:: @ 0811AF34
+	.incbin "data_081146D0/gSpriteFrames_VaatiRebornEnemy_2.bin"
 
-gUnk_0811AF64:: @ 0811AF64
-	.incbin "data_081146D0/gUnk_0811AF64.bin"
+gSpriteFrames_VaatiRebornEnemy_3:: @ 0811AF64
+	.incbin "data_081146D0/gSpriteFrames_VaatiRebornEnemy_3.bin"
 
-gUnk_0811AF8C:: @ 0811AF8C
-	.incbin "data_081146D0/gUnk_0811AF8C.bin"
+gSpriteFrames_VaatiBall:: @ 0811AF8C
+	.incbin "data_081146D0/gSpriteFrames_VaatiBall.bin"
 
-gUnk_0811AFBC:: @ 0811AFBC
-	.incbin "data_081146D0/gUnk_0811AFBC.bin"
+gSpriteFrames_VaatiTransfigured_0:: @ 0811AFBC
+	.incbin "data_081146D0/gSpriteFrames_VaatiTransfigured_0.bin"
 
-gUnk_0811AFD0:: @ 0811AFD0
-	.incbin "data_081146D0/gUnk_0811AFD0.bin"
+gSpriteFrames_VaatiTransfigured_1:: @ 0811AFD0
+	.incbin "data_081146D0/gSpriteFrames_VaatiTransfigured_1.bin"
 
-gUnk_0811B000:: @ 0811B000
-	.incbin "data_081146D0/gUnk_0811B000.bin"
+gSpriteFrames_VaatiTransfigured_2:: @ 0811B000
+	.incbin "data_081146D0/gSpriteFrames_VaatiTransfigured_2.bin"
 
-gUnk_0811B01C:: @ 0811B01C
-	.incbin "data_081146D0/gUnk_0811B01C.bin"
+gSpriteFrames_VaatiTransfigured_3:: @ 0811B01C
+	.incbin "data_081146D0/gSpriteFrames_VaatiTransfigured_3.bin"
 
-gUnk_0811B02C:: @ 0811B02C
-	.incbin "data_081146D0/gUnk_0811B02C.bin"
+gSpriteFrames_VaatiArm:: @ 0811B02C
+	.incbin "data_081146D0/gSpriteFrames_VaatiArm.bin"
 
-gUnk_0811B0B0:: @ 0811B0B0
-	.incbin "data_081146D0/gUnk_0811B0B0.bin"
+gSpriteFrames_VaatiWrath:: @ 0811B0B0
+	.incbin "data_081146D0/gSpriteFrames_VaatiWrath.bin"
 
-gUnk_0811B130:: @ 0811B130
-	.incbin "data_081146D0/gUnk_0811B130.bin"
+gSpriteFrames_VaatiReborn:: @ 0811B130
+	.incbin "data_081146D0/gSpriteFrames_VaatiReborn.bin"
 
-gUnk_0811B178:: @ 0811B178
-	.incbin "data_081146D0/gUnk_0811B178.bin"
+gSpriteFrames_MoblinLady_1:: @ 0811B178
+	.incbin "data_081146D0/gSpriteFrames_MoblinLady_1.bin"
 
-gUnk_0811B190:: @ 0811B190
-	.incbin "data_081146D0/gUnk_0811B190.bin"
+gSpriteFrames_BallChainSoldier:: @ 0811B190
+	.incbin "data_081146D0/gSpriteFrames_BallChainSoldier.bin"
 
-gUnk_0811B214:: @ 0811B214
-	.incbin "data_081146D0/gUnk_0811B214.bin"
+gSpriteFrames_GyorgMale:: @ 0811B214
+	.incbin "data_081146D0/gSpriteFrames_GyorgMale.bin"
 
-gUnk_0811B258:: @ 0811B258
-	.incbin "data_081146D0/gUnk_0811B258.bin"
+gSpriteFrames_JarPortal:: @ 0811B258
+	.incbin "data_081146D0/gSpriteFrames_JarPortal.bin"
 
-gUnk_0811B294:: @ 0811B294
-	.incbin "data_081146D0/gUnk_0811B294.bin"
+gSpriteFrames_Beanstalk_0:: @ 0811B294
+	.incbin "data_081146D0/gSpriteFrames_Beanstalk_0.bin"
 
-gUnk_0811B2FC:: @ 0811B2FC
-	.incbin "data_081146D0/gUnk_0811B2FC.bin"
+gSpriteFrames_Minecart:: @ 0811B2FC
+	.incbin "data_081146D0/gSpriteFrames_Minecart.bin"
 
-gUnk_0811B34C:: @ 0811B34C
-	.incbin "data_081146D0/gUnk_0811B34C.bin"
+gSpriteFrames_LavaPlatform_1:: @ 0811B34C
+	.incbin "data_081146D0/gSpriteFrames_LavaPlatform_1.bin"
 
-gUnk_0811B394:: @ 0811B394
-	.incbin "data_081146D0/gUnk_0811B394.bin"
+gSpriteFrames_BigVortex:: @ 0811B394
+	.incbin "data_081146D0/gSpriteFrames_BigVortex.bin"
 
-gUnk_0811B3A4:: @ 0811B3A4
-	.incbin "data_081146D0/gUnk_0811B3A4.bin"
+gSpriteFrames_MacroBook:: @ 0811B3A4
+	.incbin "data_081146D0/gSpriteFrames_MacroBook.bin"
 
-gUnk_0811B3B4:: @ 0811B3B4
-	.incbin "data_081146D0/gUnk_0811B3B4.bin"
+gSpriteFrames_GentariCurtains:: @ 0811B3B4
+	.incbin "data_081146D0/gSpriteFrames_GentariCurtains.bin"
 
-gUnk_0811B3C8:: @ 0811B3C8
-	.incbin "data_081146D0/gUnk_0811B3C8.bin"
+gSpriteFrames_SpiderWeb:: @ 0811B3C8
+	.incbin "data_081146D0/gSpriteFrames_SpiderWeb.bin"
 
-gUnk_0811B408:: @ 0811B408
-	.incbin "data_081146D0/gUnk_0811B408.bin"
+gSpriteFrames_Object79:: @ 0811B408
+	.incbin "data_081146D0/gSpriteFrames_Object79.bin"
 
-gUnk_0811B540:: @ 0811B540
-	.incbin "data_081146D0/gUnk_0811B540.bin"
+gSpriteFrames_OctorokBoss_0:: @ 0811B540
+	.incbin "data_081146D0/gSpriteFrames_OctorokBoss_0.bin"
 
-gUnk_0811B564:: @ 0811B564
-	.incbin "data_081146D0/gUnk_0811B564.bin"
+gSpriteFrames_Bell:: @ 0811B564
+	.incbin "data_081146D0/gSpriteFrames_Bell.bin"
 
-gUnk_0811B578:: @ 0811B578
-	.incbin "data_081146D0/gUnk_0811B578.bin"
+gSpriteFrames_322:: @ 0811B578
+	.incbin "data_081146D0/gSpriteFrames_322.bin"
 
-gUnk_0811B940:: @ 0811B940
-	.incbin "data_081146D0/gUnk_0811B940.bin"
+gSpriteFrames_Vaati_1:: @ 0811B940
+	.incbin "data_081146D0/gSpriteFrames_Vaati_1.bin"

@@ -16,7 +16,7 @@ gUnk_08110C7A:: @ 08110C7A
 gUnk_08110C7F:: @ 08110C7F
 	.incbin "mutoh/gUnk_08110C7F.bin"
 
-gUnk_08110C84:: @ 08110C84
+gSpriteAnimations_Mutoh:: @ 08110C84
 	.4byte gUnk_08110C60
 	.4byte gUnk_08110C60
 	.4byte gUnk_08110C60

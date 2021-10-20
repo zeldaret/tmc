@@ -31,7 +31,7 @@ gUnk_08109B3B:: @ 08109B3B
 gUnk_08109B60:: @ 08109B60
 	.incbin "gentari/gUnk_08109B60.bin"
 
-gUnk_08109B80:: @ 08109B80
+gSpriteAnimations_Gentari:: @ 08109B80
 	.4byte gUnk_08109AD8
 	.4byte gUnk_08109ADD
 	.4byte gUnk_08109AE2

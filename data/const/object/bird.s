@@ -32,10 +32,3 @@ gUnk_08123EFC:: @ 08123EFC
 gUnk_08123F04:: @ 08123F04
 	.4byte sub_0809D10C
 	.4byte sub_0809D130
-
-gUnk_08123F0C:: @ 08123F0C
-	.incbin "bird/gUnk_08123F0C.bin"
-
-gUnk_08123F20:: @ 08123F20
-	.4byte gUnk_08123F0C
-	.incbin "bird/gUnk_08123F20.bin"

@@ -25,7 +25,7 @@ gUnk_0810FE1F:: @ 0810FE1F
 gUnk_0810FE68:: @ 0810FE68
 	.incbin "stockwell/gUnk_0810FE68.bin"
 
-gUnk_0810FE90:: @ 0810FE90
+gSpriteAnimations_Stockwell:: @ 0810FE90
 	.4byte gUnk_0810FDED
 	.4byte gUnk_0810FDE8
 	.4byte gUnk_0810FDED

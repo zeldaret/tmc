@@ -27,7 +27,7 @@ gUnk_080CCE42:: @ 080CCE42
 gUnk_080CCE53:: @ 080CCE53
 	.incbin "madderpillar/gUnk_080CCE53.bin"
 
-gUnk_080CCE64:: @ 080CCE64
+gSpriteAnimations_Madderpillar_0:: @ 080CCE64
 	.4byte gUnk_080CCDDC
 	.4byte gUnk_080CCDED
 	.4byte gUnk_080CCDFE
@@ -98,7 +98,7 @@ gUnk_080CCFBA:: @ 080CCFBA
 gUnk_080CCFCB:: @ 080CCFCB
 	.incbin "madderpillar/gUnk_080CCFCB.bin"
 
-gUnk_080CCFDC:: @ 080CCFDC
+gSpriteAnimations_Madderpillar_1:: @ 080CCFDC
 	.4byte gUnk_080CCE88
 	.4byte gUnk_080CCE99
 	.4byte gUnk_080CCEAA

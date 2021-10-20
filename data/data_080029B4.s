@@ -10,1392 +10,1645 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gUnk_08007498
-	.4byte gUnk_08114F98
-	.4byte gUnk_0813AE14
+	.4byte gSpriteAnimations_1
+	.4byte gSpriteFrames_1
+	.4byte gSprite_Link
 	.4byte 00000000
 
-	.4byte gUnk_08007498
-	.4byte gUnk_0811538C
-	.4byte gUnk_0813AE14
+	.4byte gSpriteAnimations_1
+	.4byte gSpriteFrames_2
+	.4byte gSprite_Link
 	.4byte 00000000
 
-	.4byte gUnk_08007498
-	.4byte gUnk_08115724
-	.4byte gUnk_0813AE14
-	.4byte 00000000
-	
-	.4byte gUnk_08007B28
-	.4byte gUnk_08115AF8
-	.4byte gUnk_0813AE14
+	.4byte gSpriteAnimations_1
+	.4byte gSpriteFrames_3
+	.4byte gSprite_Link
 	.4byte 00000000
 
-	.4byte gUnk_08007830
-	.4byte gUnk_08115E9C
-	.4byte gUnk_0813AE14
+	.4byte gSpriteAnimations_4
+	.4byte gSpriteFrames_4
+	.4byte gSprite_Link
 	.4byte 00000000
 
-	.4byte gUnk_08007904
-	.4byte gUnk_08116280
-	.4byte gUnk_0813AE14
+	.4byte gSpriteAnimations_5
+	.4byte gSpriteFrames_5
+	.4byte gSprite_Link
 	.4byte 00000000
 
-	.4byte gUnk_080079B8
-	.4byte gUnk_08116530
-	.4byte gUnk_0813AE14
+	.4byte gSpriteAnimations_6
+	.4byte gSpriteFrames_6
+	.4byte gSprite_Link
 	.4byte 00000000
 
-	.4byte gUnk_08007498
-	.4byte gUnk_08116888
-	.4byte gUnk_0813AE14
+	.4byte gSpriteAnimations_7
+	.4byte gSpriteFrames_7
+	.4byte gSprite_Link
 	.4byte 00000000
 
-	.4byte gUnk_08007B28
-	.4byte gUnk_08116A9C
-	.4byte gUnk_0813AE14
-	.4byte 00000000
-	
-	.4byte gUnk_0811F018
-	.4byte gUnk_08116D0C
-	.4byte gUnk_0813AE14
+	.4byte gSpriteAnimations_1
+	.4byte gSpriteFrames_8
+	.4byte gSprite_Link
 	.4byte 00000000
 
-	.4byte gUnk_0811F590
-	.4byte gUnk_08116DD4
-	.4byte gUnk_0813AE14
+	.4byte gSpriteAnimations_4
+	.4byte gSpriteFrames_9
+	.4byte gSprite_Link
 	.4byte 00000000
 
-	.4byte gUnk_08007AB0
-	.4byte gUnk_08116F64
-	.4byte gUnk_0813AE14
+	.4byte gSpriteAnimations_Object4
+	.4byte gSpriteFrames_Object4
+	.4byte gSprite_Link
 	.4byte 00000000
 
+	.4byte gSpriteAnimations_Object6
+	.4byte gSpriteFrames_Object6
+	.4byte gSprite_Link
 	.4byte 00000000
-	.4byte gUnk_08117208
-	.4byte gUnk_0813AE14
+
+	.4byte gSpriteAnimations_12
+	.4byte gSpriteFrames_12
+	.4byte gSprite_Link
 	.4byte 00000000
 
 	.4byte 00000000
-	.4byte gUnk_08117240
-	.4byte gUnk_081C8C74
+	.4byte gSpriteFrames_13
+	.4byte gSprite_Link
 	.4byte 00000000
 
 	.4byte 00000000
-	.4byte gUnk_081175DC
-	.4byte gUnk_081C8C74
+	.4byte gSpriteFrames_14
+	.4byte gSprite_081C8C74
 	.4byte 00000000
 
 	.4byte 00000000
-	.4byte gUnk_081178B0
-	.4byte gUnk_081C8C74
+	.4byte gSpriteFrames_15
+	.4byte gSprite_081C8C74
 	.4byte 00000000
 
 	.4byte 00000000
-	.4byte gUnk_08117B84
-	.4byte gUnk_081C8C74
+	.4byte gSpriteFrames_16
+	.4byte gSprite_081C8C74
 	.4byte 00000000
 
 	.4byte 00000000
-	.4byte gUnk_08117D64
-	.4byte gUnk_081C8C74
+	.4byte gSpriteFrames_17
+	.4byte gSprite_081C8C74
 	.4byte 00000000
 
 	.4byte 00000000
-	.4byte gUnk_08117E40
-	.4byte gUnk_081C8C74
+	.4byte gSpriteFrames_18
+	.4byte gSprite_081C8C74
 	.4byte 00000000
 
 	.4byte 00000000
-	.4byte gUnk_08117F68
-	.4byte gUnk_081C8C74
+	.4byte gSpriteFrames_19
+	.4byte gSprite_081C8C74
 	.4byte 00000000
 
 	.4byte 00000000
-	.4byte gUnk_08117FD4
-	.4byte gUnk_081C8C74
+	.4byte gSpriteFrames_20
+	.4byte gSprite_081C8C74
 	.4byte 00000000
 
 	.4byte 00000000
-	.4byte gUnk_081181B4
-	.4byte gUnk_081C8C74
-	.4byte 00000000
-
-	.4byte gUnk_081327DC
-	.4byte gUnk_08132810
-	.4byte gUnk_081D7674
-	.4byte 00000000
-
-	.4byte gUnk_08109B80
-	.4byte gUnk_081181E4
-	.4byte gUnk_081DF834
-	.4byte 00000000
-
-	.4byte gUnk_08109C60
-	.4byte gUnk_08118238
-	.4byte gUnk_081DF834
-	.4byte 00000000
-
-	.4byte gUnk_08111594
-	.4byte gUnk_08118264
-	.4byte gUnk_081DF834
-	.4byte 00000000
-
-	.4byte gUnk_081114E8
-	.4byte gUnk_08118298
-	.4byte gUnk_081DF834
+	.4byte gSpriteFrames_21
+	.4byte gSprite_081C8C74
 	.4byte 00000000
 
 	.4byte 00000000
-	.4byte gUnk_08118398
-	.4byte gUnk_081DF834
+	.4byte gSpriteFrames_22
+	.4byte gSprite_081C8C74
 	.4byte 00000000
 
-	.4byte gUnk_08112D14
-	.4byte gUnk_081183BC
-	.4byte gUnk_081DF834
+	.4byte gSpriteAnimations_ItemGustJar
+	.4byte gSpriteFrames_23
+	.4byte gSprite_081D7674
 	.4byte 00000000
 
-	.4byte gUnk_08112DEC
-	.4byte gUnk_0811846C
-	.4byte gUnk_081DF834
+	.4byte gSpriteAnimations_Gentari
+	.4byte gSpriteFrames_24
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_0810A5B8
-	.4byte gUnk_081184A8
-	.4byte gUnk_081DF834
+	.4byte gSpriteAnimations_Festari
+	.4byte gSpriteFrames_25
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_08110B04
-	.4byte gUnk_08118558
-	.4byte gUnk_081DF834
+	.4byte gSpriteAnimations_Melari
+	.4byte gSpriteFrames_26
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_08122C90
-	.4byte gUnk_08118720
-	.4byte gUnk_081DF834
-	.4byte 00000000
-
-	.4byte gUnk_08122CE4
-	.4byte gUnk_08118768
-	.4byte gUnk_081DF834
-	.4byte 00000000
-
-	.4byte gUnk_08122D04
-	.4byte gUnk_08118780
-	.4byte gUnk_081DF834
-	.4byte 00000000
-	
-	.4byte gUnk_08122CBC
-	.4byte gUnk_08118788
-	.4byte gUnk_081DF834
-	.4byte 00000000
-
-	.4byte gUnk_0810C7B4
-	.4byte gUnk_08118794
-	.4byte gUnk_081DF834
-	.4byte 00000000
-
-	.4byte gUnk_0812308C
-	.4byte gUnk_081188C0
-	.4byte gUnk_081DF834
-	.4byte 00000000
-
-	.4byte gUnk_0810F98C
-	.4byte gUnk_08118948
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_0810F9D0
-	.4byte gUnk_08118960
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-	
-	.4byte gUnk_0810FA14
-	.4byte gUnk_08118974
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_0810B4EC
-	.4byte gUnk_08118988
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_0810F814
-	.4byte gUnk_08118C00
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_08110608
-	.4byte gUnk_08118D38
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_081106A8
-	.4byte gUnk_08118DA4
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_08110710
-	.4byte gUnk_08118DD0
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_0810F944
-	.4byte gUnk_08118DDC
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_0810FD6C
-	.4byte gUnk_08118E5C
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_0810CA6C
-	.4byte gUnk_08118F04
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_0810CB54
-	.4byte gUnk_08118F3C
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_0810CF20
-	.4byte gUnk_08118F64
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_0810ABF8
-	.4byte gUnk_08118F98
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_08110028
-	.4byte gUnk_081190A0
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_081100E4
-	.4byte gUnk_081190E4
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_08110138
-	.4byte gUnk_0811911C
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-	
-	.4byte gUnk_08110484
-	.4byte gUnk_0811912C
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-
-	.4byte gUnk_0810BD58
-	.4byte gUnk_08119188
-	.4byte gUnk_081FF1B4
+	.4byte gSpriteAnimations_MountainMinish
+	.4byte gSpriteFrames_27
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
 	.4byte 00000000
-	.4byte gUnk_081192A8
-	.4byte gUnk_081FF1B4
+	.4byte gSpriteFrames_28
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_0810C1E4
-	.4byte gUnk_08119548
-	.4byte gUnk_081FF1B4
+	.4byte gSpriteAnimations_TownMinish
+	.4byte gSpriteFrames_29
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_0810C868
-	.4byte gUnk_081197C4
-	.4byte gUnk_081FF1B4
+	.4byte gSpriteAnimations_Librari
+	.4byte gSpriteFrames_30
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_0810CDD4
-	.4byte gUnk_081197F4
-	.4byte gUnk_081FF1B4
+	.4byte gSpriteAnimations_ForestMinish
+	.4byte gSpriteFrames_31
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_08110C84
-	.4byte gUnk_081198C4
-	.4byte gUnk_081FF1B4
+	.4byte gSpriteAnimations_Vaati
+	.4byte gSpriteFrames_32
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_08110DC8
-	.4byte gUnk_081198EC
-	.4byte gUnk_081FF1B4
+	.4byte gSpriteAnimations_Object6A
+	.4byte gSpriteFrames_33
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_08111D34
-	.4byte gUnk_081199A4
-	.4byte gUnk_081FF1B4
+	.4byte gSpriteAnimations_Object6A_0
+	.4byte gSpriteFrames_Object6A_0
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_0811125C
-	.4byte gUnk_081199F8
-	.4byte gUnk_081FF1B4
+	.4byte gSpriteAnimations_Object6A_1
+	.4byte gSpriteFrames_Object6A_1
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_0811125C
-	.4byte gUnk_08119A74
-	.4byte gUnk_081FF1B4
+	.4byte gSpriteAnimations_Object6A_2
+	.4byte gSpriteFrames_Object6A_2
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_08112100
-	.4byte gUnk_08119AF0
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-	
-	.4byte gUnk_08112100
-	.4byte gUnk_08119B7C
-	.4byte gUnk_081FF1B4
+	.4byte gSpriteAnimations_MinishEzlo
+	.4byte gSpriteFrames_MinishEzlo
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_08112100
-	.4byte gUnk_08119BF0
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-	
-	.4byte gUnk_0811222C
-	.4byte gUnk_08119C64
-	.4byte gUnk_081FF1B4
+	.4byte gSpriteAnimations_Object6A_3
+	.4byte gSpriteFrames_Object6A_3
+	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gUnk_08112F34
-	.4byte gUnk_08119CF4
-	.4byte gUnk_081FF1B4
-	.4byte 00000000
-	
-	.4byte gUnk_0811319C
-	.4byte gUnk_08119D54
-	.4byte gUnk_081FF1B4
+	.4byte gSpriteAnimations_Din
+	.4byte gSpriteFrames_Din
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Nayru
+	.4byte gSpriteFrames_Nayru
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Farore
+	.4byte gSpriteFrames_Farore
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Npc5
+	.4byte gSpriteFrames_Npc5
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_GuardWithSpear
+	.4byte gSpriteFrames_GuardWithSpear
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_KingDaltus
+	.4byte gSpriteFrames_KingDaltus
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_MinisterPotho
+	.4byte gSpriteFrames_MinisterPotho
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Npc26
+	.4byte gSpriteFrames_Npc26
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Maid
+	.4byte gSpriteFrames_Maid
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_TingleSiblings
+	.4byte gSpriteFrames_TingleSiblings
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Beedle
+	.4byte gSpriteFrames_Beedle
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Brocco
+	.4byte gSpriteFrames_Brocco
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Pina
+	.4byte gSpriteFrames_Pina
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Postman
+	.4byte gSpriteFrames_Postman
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Malon
+	.4byte gSpriteFrames_Malon
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Epona
+	.4byte gSpriteFrames_Epona
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_MilkCart
+	.4byte gSpriteFrames_MilkCart
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Smith
+	.4byte gSpriteFrames_Smith
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Townsperson
+	.4byte gSpriteFrames_Townsperson
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte 00000000
+	.4byte gSpriteFrames_58
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Kid
+	.4byte gSpriteFrames_Kid
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Mailbox
+	.4byte gSpriteFrames_Mailbox
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_SittingPerson
+	.4byte gSpriteFrames_SittingPerson
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Mutoh
+	.4byte gSpriteFrames_Mutoh
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Carpenter
+	.4byte gSpriteFrames_Carpenter
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Gorman
+	.4byte gSpriteFrames_Gorman
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Cat
+	.4byte gSpriteFrames_Cat
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Cat
+	.4byte gSpriteFrames_66
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Dog
+	.4byte gSpriteFrames_Dog
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Dog
+	.4byte gSpriteFrames_68
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Dog
+	.4byte gSpriteFrames_69
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Syrup
+	.4byte gSpriteFrames_Syrup
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Percy
+	.4byte gSpriteFrames_Percy
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Farmers_0
+	.4byte gSpriteFrames_Farmers_0
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Farmers_1
+	.4byte gSpriteFrames_Farmers_1
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Dampe
+	.4byte gSpriteFrames_Dampe
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_KingGustaf
+	.4byte gSpriteFrames_KingGustaf
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Gina
+	.4byte gSpriteFrames_Gina
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Simon
+	.4byte gSpriteFrames_Simon
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Mama
+	.4byte gSpriteFrames_Mama
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Teachers
+	.4byte gSpriteFrames_Teachers
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Teachers
+	.4byte gSpriteFrames_80
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_WindTribespeople_0
+	.4byte gSpriteFrames_WindTribespeople_0
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_WindTribespeople_1
+	.4byte gSpriteFrames_WindTribespeople_1
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_WindTribespeople_2
+	.4byte gSpriteFrames_WindTribespeople_2
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_WindTribespeople_3
+	.4byte gSpriteFrames_WindTribespeople_3
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_WindTribespeople_4
+	.4byte gSpriteFrames_WindTribespeople_4
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_WindTribespeople_5
+	.4byte gSpriteFrames_WindTribespeople_5
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_MayorHagen
+	.4byte gSpriteFrames_MayorHagen
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_GhostBrothers
+	.4byte gSpriteFrames_GhostBrothers
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_HurdyGurdyMan
+	.4byte gSpriteFrames_HurdyGurdyMan
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Cow
+	.4byte gSpriteFrames_Cow
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_GoronMerchant
+	.4byte gSpriteFrames_GoronMerchant
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_GoronMerchant
+	.4byte gSpriteFrames_92
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Goron
+	.4byte gSpriteFrames_Goron
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_CastorWildsStatue
+	.4byte gSpriteFrames_CastorWildsStatue
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Npc4F
+	.4byte gSpriteFrames_Npc4F
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Object6A_4
+	.4byte gSpriteFrames_Object6A_4
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte 00000000
+	.4byte gSpriteFrames_97
+	.4byte gSprite_081FF1B4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_DarkNut_0
+	.4byte gSpriteFrames_DarkNut_0
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_DarkNut_1
+	.4byte gSpriteFrames_DarkNut_1
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_ChuchuBoss_0
+	.4byte gSpriteFrames_ChuchuBoss_0
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_DeathFx_0
+	.4byte gSpriteFrames_DeathFx_0
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Madderpillar_0
+	.4byte gSpriteFrames_Madderpillar_0
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Gleerok_0
+	.4byte gSpriteFrames_Gleerok_0
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Keaton
+	.4byte gSpriteFrames_Keaton
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_MazaalHand
+	.4byte gSpriteFrames_MazaalHand
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_ScissorsBeetle
+	.4byte gSpriteFrames_ScissorsBeetle
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_MandiblesProjectile
+	.4byte gSpriteFrames_MandiblesProjectile
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Stalfos
+	.4byte gSpriteFrames_Stalfos
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Gibdo
+	.4byte gSpriteFrames_Gibdo
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Lakitu
+	.4byte gSpriteFrames_Lakitu
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_LakituCloudProjectile
+	.4byte gSpriteFrames_LakituCloudProjectile
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiRebornEnemy_0
+	.4byte gSpriteFrames_VaatiRebornEnemy_0
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiRebornEnemy_1
+	.4byte gSpriteFrames_VaatiRebornEnemy_1
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiRebornEnemy_2
+	.4byte gSpriteFrames_VaatiRebornEnemy_2
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiRebornEnemy_3
+	.4byte gSpriteFrames_VaatiRebornEnemy_3
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiBall
+	.4byte gSpriteFrames_VaatiBall
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiTransfigured_0
+	.4byte gSpriteFrames_VaatiTransfigured_0
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiTransfigured_1
+	.4byte gSpriteFrames_VaatiTransfigured_1
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiTransfigured_2
+	.4byte gSpriteFrames_VaatiTransfigured_2
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiTransfigured_3
+	.4byte gSpriteFrames_VaatiTransfigured_3
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiArm
+	.4byte gSpriteFrames_VaatiArm
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiWrath
+	.4byte gSpriteFrames_VaatiWrath
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiReborn
+	.4byte gSpriteFrames_VaatiReborn
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_MoblinLady_1
+	.4byte gSpriteFrames_MoblinLady_1
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_BallChainSoldier
+	.4byte gSpriteFrames_BallChainSoldier
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_GyorgMale
+	.4byte gSpriteFrames_GyorgMale
+	.4byte gSprite_082474D4
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_JarPortal
+	.4byte gSpriteFrames_JarPortal
+	.4byte gSprite_082D4894
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Beanstalk_0
+	.4byte gSpriteFrames_Beanstalk_0
+	.4byte gSprite_082D4894
 	.4byte 00000000
-	.4byte gUnk_08113214
-	.4byte gUnk_08119DA8
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_Minecart
+	.4byte gSpriteFrames_Minecart
+	.4byte gSprite_082D4894
 	.4byte 00000000
-	.4byte gUnk_08113380
-	.4byte gUnk_08119DFC
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_LavaPlatform_1
+	.4byte gSpriteFrames_LavaPlatform_1
+	.4byte gSprite_082D4894
 	.4byte 00000000
-	.4byte gUnk_08113508
-	.4byte gUnk_08119E18
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_Whirlwind
 	.4byte 00000000
-	.4byte gUnk_081135E8
-	.4byte gUnk_08119E44
-	.4byte gUnk_081FF1B4
 	.4byte 00000000
-	.4byte gUnk_081136B0
-	.4byte gUnk_08119EB0
-	.4byte gUnk_081FF1B4
 	.4byte 00000000
-	.4byte gUnk_081138B8
-	.4byte gUnk_08119ED8
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_BigVortex
+	.4byte gSpriteFrames_BigVortex
+	.4byte gSprite_082D4894
 	.4byte 00000000
-	.4byte gUnk_08113A08
-	.4byte gUnk_08119F80
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_MacroBook
+	.4byte gSpriteFrames_MacroBook
+	.4byte gSprite_082D4894
 	.4byte 00000000
-	.4byte gUnk_08113A08
-	.4byte gUnk_08119FA4
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_GentariCurtains
+	.4byte gSpriteFrames_GentariCurtains
+	.4byte gSprite_082D4894
 	.4byte 00000000
-	.4byte gUnk_08113B98
-	.4byte gUnk_08119FD4
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_SpiderWeb
+	.4byte gSpriteFrames_SpiderWeb
+	.4byte gSprite_082D4894
 	.4byte 00000000
-	.4byte gUnk_08113C14
-	.4byte gUnk_0811A01C
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_Object79
+	.4byte gSpriteFrames_Object79
+	.4byte gSprite_082D4894
 	.4byte 00000000
-	.4byte gUnk_08113C58
-	.4byte gUnk_0811A04C
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_OctorokBoss_0
+	.4byte gSpriteFrames_OctorokBoss_0
+	.4byte gSprite_082D4894
 	.4byte 00000000
-	.4byte gUnk_08113CD4
-	.4byte gUnk_0811A068
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_Bell
+	.4byte gSpriteFrames_Bell
+	.4byte gSprite_082D4894
 	.4byte 00000000
-	.4byte gUnk_08113D1C
-	.4byte gUnk_0811A0A4
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_Talon
 	.4byte 00000000
-	.4byte gUnk_08113D60
-	.4byte gUnk_0811A0CC
-	.4byte gUnk_081FF1B4
 	.4byte 00000000
-	.4byte gUnk_08114098
-	.4byte gUnk_0811A0E4
-	.4byte gUnk_081FF1B4
 	.4byte 00000000
-	.4byte gUnk_0811033C
-	.4byte gUnk_0811A124
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_Sturgeon
 	.4byte 00000000
-	.4byte gUnk_08114580
-	.4byte gUnk_0811A144
-	.4byte gUnk_081FF1B4
 	.4byte 00000000
-	.4byte gUnk_08111A2C
-	.4byte gUnk_0811A17C
-	.4byte gUnk_081FF1B4
 	.4byte 00000000
-	.4byte gUnk_08111C18
-	.4byte gUnk_0811A1C8
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_Librarians_0
 	.4byte 00000000
-	.4byte gUnk_08111C18
-	.4byte gUnk_0811A1F8
-	.4byte gUnk_081FF1B4
 	.4byte 00000000
-	.4byte gUnk_08111B60
-	.4byte gUnk_0811A228
-	.4byte gUnk_081FF1B4
 	.4byte 00000000
-	.4byte gUnk_08110EAC
-	.4byte gUnk_0811A280
-	.4byte gUnk_081FF1B4
+
+	.4byte gSpriteAnimations_Librarians_1
 	.4byte 00000000
-	.4byte gUnk_08114228
-	.4byte gUnk_0811A28C
-	.4byte gUnk_081FF1B4
 	.4byte 00000000
-	.4byte gUnk_0812311C
-	.4byte gUnk_0811A2A8
-	.4byte gUnk_081FF1B4
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_Stamp
 	.4byte 00000000
-	.4byte gUnk_0811A2D0
-	.4byte gUnk_081FF1B4
 	.4byte 00000000
-	.4byte gUnk_080CB438
-	.4byte gUnk_0811A2FC
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080CB4FC
-	.4byte gUnk_0811A510
-	.4byte gUnk_082474D4
+
+	.4byte gSpriteAnimations_Marcy
 	.4byte 00000000
-	.4byte gUnk_080CC69C
-	.4byte gUnk_0811A75C
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_0811EE20
-	.4byte gUnk_0811A7A8
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080CCE64
-	.4byte gUnk_0811A86C
-	.4byte gUnk_082474D4
+
+	.4byte gSpriteAnimations_Stockwell
 	.4byte 00000000
-	.4byte gUnk_080CDD64
-	.4byte gUnk_0811A8CC
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080CE944
-	.4byte gUnk_0811A9B4
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080CF014
-	.4byte gUnk_0811AA2C
-	.4byte gUnk_082474D4
+
+	.4byte gSpriteAnimations_Wheaton
 	.4byte 00000000
-	.4byte gUnk_080CF724
-	.4byte gUnk_0811AA7C
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_08129F34
-	.4byte gUnk_0811AB18
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080CFAF0
-	.4byte gUnk_0811ABF8
-	.4byte gUnk_082474D4
+
+	.4byte gSpriteAnimations_Pita
 	.4byte 00000000
-	.4byte gUnk_080CF418
-	.4byte gUnk_0811AD24
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080D03B4
-	.4byte gUnk_0811ADCC
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_08129BC8
-	.4byte gUnk_0811AEB0
-	.4byte gUnk_082474D4
+
+	.4byte gSpriteAnimations_CuccoAggr
 	.4byte 00000000
-	.4byte gUnk_080D0558
-	.4byte gUnk_0811AED8
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080D058C
-	.4byte gUnk_0811AF24
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080D05E0
-	.4byte gUnk_0811AF34
-	.4byte gUnk_082474D4
+
+	.4byte gSpriteAnimations_BladeBrothers_0
 	.4byte 00000000
-	.4byte gUnk_080D0634
-	.4byte gUnk_0811AF64
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080D1694
-	.4byte gUnk_0811AF8C
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080D0BC4
-	.4byte gUnk_0811AFBC
-	.4byte gUnk_082474D4
+
+	.4byte gSpriteAnimations_BladeBrothers_1
 	.4byte 00000000
-	.4byte gUnk_080D0C88
-	.4byte gUnk_0811AFD0
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080D0C0C
-	.4byte gUnk_0811B000
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080D0CF4
-	.4byte gUnk_0811B01C
-	.4byte gUnk_082474D4
+
+	.4byte gSpriteAnimations_Rem
 	.4byte 00000000
-	.4byte gUnk_080D1530
-	.4byte gUnk_0811B02C
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080D11AC
-	.4byte gUnk_0811B0B0
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_08112FF4
-	.4byte gUnk_0811B130
-	.4byte gUnk_082474D4
+
+	.4byte gSpriteAnimations_Carlov_0
 	.4byte 00000000
-	.4byte gUnk_08113024
-	.4byte gUnk_0811B178
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080D07EC
-	.4byte gUnk_0811B190
-	.4byte gUnk_082474D4
 	.4byte 00000000
-	.4byte gUnk_080D1CBC
-	.4byte gUnk_0811B214
-	.4byte gUnk_082474D4
+
+	.4byte gSpriteAnimations_Carlov_1
 	.4byte 00000000
-	.4byte gUnk_081214C8
-	.4byte gUnk_0811B258
-	.4byte gUnk_082D4894
 	.4byte 00000000
-	.4byte gUnk_0812101C
-	.4byte gUnk_0811B294
-	.4byte gUnk_082D4894
 	.4byte 00000000
-	.4byte gUnk_08122540
-	.4byte gUnk_0811B2FC
-	.4byte gUnk_082D4894
+
+	.4byte gSpriteAnimations_DrLeft
 	.4byte 00000000
-	.4byte gUnk_08122698
-	.4byte gUnk_0811B34C
-	.4byte gUnk_082D4894
 	.4byte 00000000
-	.4byte gUnk_08122834
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081236CC
-	.4byte gUnk_0811B394
-	.4byte gUnk_082D4894
 	.4byte 00000000
-	.4byte gUnk_08123D14
-	.4byte gUnk_0811B3A4
-	.4byte gUnk_082D4894
 	.4byte 00000000
-	.4byte gUnk_08122638
-	.4byte gUnk_0811B3B4
-	.4byte gUnk_082D4894
+
+	.4byte gSpriteAnimations_Anju
 	.4byte 00000000
-	.4byte gUnk_0812A36C
-	.4byte gUnk_0811B3C8
-	.4byte gUnk_082D4894
 	.4byte 00000000
-	.4byte gUnk_08123474
-	.4byte gUnk_0811B408
-	.4byte gUnk_082D4894
 	.4byte 00000000
-	.4byte gUnk_080CF234
-	.4byte gUnk_0811B540
-	.4byte gUnk_082D4894
+
+	.4byte gSpriteAnimations_Emma
 	.4byte 00000000
-	.4byte gUnk_081233B0
-	.4byte gUnk_0811B564
-	.4byte gUnk_082D4894
 	.4byte 00000000
-	.4byte gUnk_0810FF38
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_Gregal
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_0810FBD0
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081130A0
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_CastorWildsStatue
 	.4byte 00000000
-	.4byte gUnk_08113108
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_Chuchu
 	.4byte 00000000
-	.4byte gUnk_0810C32C
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_SpecialFx
 	.4byte 00000000
-	.4byte gUnk_0810C390
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_SpecialFx
 	.4byte 00000000
-	.4byte gUnk_0810FE90
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_Object64
 	.4byte 00000000
-	.4byte gUnk_0810C414
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_Beetle
 	.4byte 00000000
-	.4byte gUnk_0810C468
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_166
 	.4byte 00000000
-	.4byte gUnk_080CF890
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_Pot
 	.4byte 00000000
-	.4byte gUnk_081118F0
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_DeathFx_1
 	.4byte 00000000
-	.4byte gUnk_081118CC
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_Peahat
 	.4byte 00000000
-	.4byte gUnk_08112598
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_Railtrack
 	.4byte 00000000
-	.4byte gUnk_081132E4
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_Rollobite
 	.4byte 00000000
-	.4byte gUnk_08113314
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_ObjectD
 	.4byte 00000000
-	.4byte gUnk_08113490
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_Object2A
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_Octorok
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08113730
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_Object43
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081138FC
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_RockProjectile
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08113EF8
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_Keese
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
+
+	.4byte gSpriteAnimations_DoorMimic
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08110EAC
+
+	.4byte gSpriteAnimations_DoorMimic
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CA470
+
+	.4byte gSpriteAnimations_RockChuchu
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081203FC
+
+	.4byte gSpriteAnimations_SpinyChuchu
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081203FC
+
+	.4byte gSpriteAnimations_Object24
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081229A4
+
+	.4byte gSpriteAnimations_Object1E
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CB67C
+
+	.4byte gSpriteAnimations_ChestSpawner
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_0812714C
+
+	.4byte gSpriteAnimations_BigBarrel
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_0811F118
+
+	.4byte gSpriteAnimations_PushableStatue
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_0811EE10
+
+	.4byte gSpriteAnimations_Moldworm
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CA650
+
+	.4byte gSpriteAnimations_Sluggula
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081205F4
+
+	.4byte gSpriteAnimations_Sluggula
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CAA34
+
+	.4byte gSpriteAnimations_Sluggula
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_0811F954
+
+	.4byte gSpriteAnimations_Pesto
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08120DEC
+
+	.4byte gSpriteAnimations_Puffstool
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CA1F8
+
+	.4byte gSpriteAnimations_PushableRock
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08121B48
+
+	.4byte gSpriteAnimations_Beanstalk_1
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08129604
+
+	.4byte gSpriteAnimations_ObjectB3
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CB728
+
+	.4byte gSpriteAnimations_PullableMushroom
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CB914
+
+	.4byte gSpriteAnimations_Bollard
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CB914
+
+	.4byte gSpriteAnimations_WarpPoint
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CBA18
+
+	.4byte gSpriteAnimations_Object29
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CBB44
+
+	.4byte gSpriteAnimations_ChuchuBoss_1
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08120C08
+
+	.4byte gSpriteAnimations_ChuchuBoss_2
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081209E8
+
+	.4byte gSpriteAnimations_Object9
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_0811F8F0
+
+	.4byte gSpriteAnimations_BossDoor
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08120C78
+
+	.4byte gSpriteAnimations_Object45
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08120D8C
+
+	.4byte gSpriteAnimations_LikeLike
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CBD58
+
+	.4byte gSpriteAnimations_SpearMoblin
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CBEA4
+
+	.4byte gSpriteAnimations_BowMoblin
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CBEA4
+
+	.4byte gSpriteAnimations_BusinessScrub
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CBEA4
+
+	.4byte gSpriteAnimations_RupeeLike
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CBF78
+
+	.4byte gSpriteAnimations_MinishSizedEntrance
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CC174
+
+	.4byte gSpriteAnimations_PullableLever
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08121158
+
+	.4byte gSpriteAnimations_ThoughtBubble
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08121028
+
+	.4byte gSpriteAnimations_Madderpillar_1
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08124AF8
+
+	.4byte gSpriteAnimations_LavaPlatform
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081212B8
+
+	.4byte gSpriteAnimations_WaterDrop
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08121358
+
+	.4byte gSpriteAnimations_WallMaster
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081213B8
+
+	.4byte gSpriteAnimations_DirtBallProjectile
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08120DC4
+
+	.4byte gSpriteAnimations_CrenalBeanSprout
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CC684
+
+	.4byte gSpriteAnimations_BombPeahat
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CC6D4
+
+	.4byte gSpriteAnimations_Spark
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_0811F7CC
+
+	.4byte gSpriteAnimations_Chaser
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081215B4
+
+	.4byte gSpriteAnimations_SpikedBeetle
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08121C34
+
+	.4byte gSpriteAnimations_Helmasaur
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CC780
+
+	.4byte gSpriteAnimations_FallingBoulder
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CC8E0
+
+	.4byte gSpriteAnimations_Bobomb
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080D00CC
+
+	.4byte gSpriteAnimations_Gleerok_1
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CCB94
+
+	.4byte gSpriteAnimations_GreatFairy
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CCD20
+
+	.4byte gSpriteAnimations_Tektite
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_0812226C
+
+	.4byte gSpriteAnimations_WizzrobeWind
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08122334
+
+	.4byte gSpriteAnimations_WizzrobeFire
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081225F4
+
+	.4byte gSpriteAnimations_WizzrobeIce
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CCFDC
+
+	.4byte gSpriteAnimations_WindProjectile
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08122764
+
+	.4byte gSpriteAnimations_FireProjectile
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CD070
+
+	.4byte gSpriteAnimations_234
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CD0E0
+
+	.4byte gSpriteAnimations_Armos
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08129790
+
+	.4byte gSpriteAnimations_Leever
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08123208
+
+	.4byte gSpriteAnimations_Rope
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CD220
+
+	.4byte gSpriteAnimations_Eyegore
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CD274
+
+	.4byte gSpriteAnimations_Pesto
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CD2C8
+
+	.4byte gSpriteAnimations_AcroBandits
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CD398
+
+	.4byte gSpriteAnimations_Crow
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CD50C
+
+	.4byte gSpriteAnimations_Mulldozer
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CD5C8
+
+	.4byte gSpriteAnimations_PushableLever
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CD6D0
+
+	.4byte gSpriteAnimations_BigPushableLever
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CDC00
+
+	.4byte gSpriteAnimations_Bombarossa
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08120878
+
+	.4byte gSpriteAnimations_Wisp
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CDF38
+
+	.4byte gSpriteAnimations_SpinyBeetle
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CDFA0
+
+	.4byte gSpriteAnimations_MazaalHead
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CE050
+
+	.4byte gSpriteAnimations_MazaalBracelet
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CE100
+
+	.4byte gSpriteAnimations_MazaalEnergyBeam
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081297F8
+
+	.4byte gSpriteAnimations_MazaalEnergyBeam
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08129894
+
+	.4byte gSpriteAnimations_MazaalMacro
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08129930
+
+	.4byte gSpriteAnimations_EyeSwitch
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CE264
+
+	.4byte gSpriteAnimations_OctorokBoss_1
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CA560
+
+	.4byte gSpriteAnimations_PicoBloom
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CE50C
+
+	.4byte gSpriteAnimations_Object35
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CE404
+
+	.4byte gSpriteAnimations_BigIceBlock
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CBF78
+
+	.4byte gSpriteAnimations_BigIceBlock
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CE770
+
+	.4byte gSpriteAnimations_SmallIceBlock
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CEA00
+
+	.4byte gSpriteAnimations_Object86
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CEB04
+
+	.4byte gSpriteAnimations_EvilSpirit
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081234E0
+
+	.4byte gSpriteAnimations_CloudPiranha
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08123728
+
+	.4byte gSpriteAnimations_FlyingSkull
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CEB6C
+
+	.4byte gSpriteAnimations_BoneProjectile
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CEBD0
+
+	.4byte gSpriteAnimations_BakerOven
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CEC70
+
+	.4byte gSpriteAnimations_Object93_0
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CEE70
+
+	.4byte gSpriteAnimations_LakituLightning
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CFED4
+
+	.4byte gSpriteAnimations_Object6A_5
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08129AB0
+
+	.4byte gSpriteAnimations_Bird_1
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08129AB0
+
+	.4byte gSpriteAnimations_Bird
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CEF24
+
+	.4byte gSpriteAnimations_TorchTrapProjectile_0
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08120BBC
+
+	.4byte gSpriteAnimations_TorchTrapProjectile_1
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CF204
+
+	.4byte gSpriteAnimations_Object98
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08123620
+
+	.4byte gSpriteAnimations_Object93_1
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08121430
+
+	.4byte gSpriteAnimations_FigurineDevice
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081237E0
+
+	.4byte gSpriteAnimations_PullableLever
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081237E0
+
+	.4byte gSpriteAnimations_VaatiProjectile
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_0812378C
+
+	.4byte gSpriteAnimations_Object44
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08123834
+
+	.4byte gSpriteAnimations_Ghini
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08120698
+
+	.4byte gSpriteAnimations_VaatiArm
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CF5CC
+
+	.4byte gSpriteAnimations_VaatiWrath
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080CFC0C
+
+	.4byte gSpriteAnimations_ObjectAF
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08129648
+
+	.4byte gSpriteAnimations_Enemy5F
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08123E78
+
+	.4byte gSpriteAnimations_V3HandProjectile
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08123E9C
+
+	.4byte gSpriteAnimations_VaatiWrath
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08129C74
+
+	.4byte gSpriteAnimations_VaatiEyesMacro
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08122BC8
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08123F20
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08123F9C
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_0812A3F4
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_0812A410
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_081242B4
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08123EB8
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08120B10
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08122334
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D06D0
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08121BD0
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D0A90
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D1530
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D11AC
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08124928
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D1E44
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_0812A940
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D11AC
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080CDEC4
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08124BFC
+
+	.4byte gSpriteAnimations_ObjectB4
 .ifndef EU
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08124BFC
+
+	.4byte gSpriteAnimations_ObjectB4
 .endif
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_0812464C
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_081246C8
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_0812A5D4
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_0812A694
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_0812A488
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D1790
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D1D34
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08124348
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D19B8
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D0D40
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D0DB0
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_0812481C
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D185C
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_0812A798
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08122ED0
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08113070
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08124890
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_0812AA50
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_081142A8
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08123140
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_081249AC
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_081249FC
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D27A8
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D2274
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D1F20
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_081144DC
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D2960
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_0812A840
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08123160
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_0812507C
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080CC8E0
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_080D00CC
-	.4byte 00000000
-	.4byte 00000000
-	.4byte 00000000
-	.4byte gUnk_08129A54
+
+	.4byte gSpriteAnimations_Fan
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 
-gUnk_08003DD4:: @ 08003DD4
-	.4byte gUnk_080FDFD8
-	.4byte gUnk_0811B578
-	.4byte gUnk_082E68F4
-	.4byte 00000000
-	.4byte gUnk_080FDFD8
+	.4byte gSpriteAnimations_ObjectA0
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_080FDFD8
+
+	.4byte gSpriteAnimations_CannonballProjectile
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08121E50
+
+	.4byte gSpriteAnimations_V1EyeLaser
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08124788
+
+	.4byte gSpriteAnimations_V1DarkMagicProjectile
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_08122B64
+
+	.4byte gSpriteAnimations_Slime
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
-	.4byte gUnk_081107CC
-	.4byte gUnk_0811B940
-	.4byte gUnk_082F27F4
+
+	.4byte gSpriteAnimations_Curtain
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Object9B
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Enemy5A
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiTransfigured_4
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_VaatiTransfigured_5
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_ObjectA6
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_FireballGuy
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_SpikedRollers
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Object6A_6
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_MoblinLady
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_ObjectAB
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_GyorgMaleEnergyProjectile
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_ClothesRack
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Object6A_7
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_JailBars
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_ObjectB2
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Enemy62
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_GyorgFemaleEye
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_GyorgChild
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_SmallTownMinish
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_GyorgFemaleMouth
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_V2Projectile
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Object6A_8
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_Pinwheel
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_SpearMoblin
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_BowMoblin
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimations_ArrowProjectile
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+gMoreSpritePtrs:: @ 08003DD4
+	.4byte gSpriteAnimation_322
+	.4byte gSpriteFrames_322
+	.4byte gSprite_082E68F4
+	.4byte 00000000
+
+	.4byte gSpriteAnimation_322
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimation_322
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimation_FileScreenObjects
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimation_ObjectA2
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimation_Object6A_9
+	.4byte 00000000
+	.4byte 00000000
+	.4byte 00000000
+
+	.4byte gSpriteAnimation_Vaati_1
+	.4byte gSpriteFrames_Vaati_1
+	.4byte gSprite_082F27F4
 	.4byte 00000000
 
 gUnk_08003E44:: @ 08003E44

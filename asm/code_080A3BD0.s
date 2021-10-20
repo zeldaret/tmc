@@ -1996,7 +1996,7 @@ _080A42D0:
 	strb r1, [r4, #0x1d]
 	ldrb r4, [r4, #0x1c]
 	lsls r4, r4, #4
-	ldr r0, _080A4344 @ =gUnk_081281A8
+	ldr r0, _080A4344 @ =gFigurines
 	adds r4, r4, r0
 	ldr r0, [r4]
 	movs r1, #0x16
@@ -2016,7 +2016,7 @@ _080A4334: .4byte gSave
 _080A4338: .4byte gChooseFileState
 _080A433C: .4byte gMain
 _080A4340: .4byte 0x000001F7
-_080A4344: .4byte gUnk_081281A8
+_080A4344: .4byte gFigurines
 _080A4348EU: .4byte 0x06014000
 _080A434CEU:
 	ldr r1, _080A4358EU @ =0x06014000
@@ -2219,7 +2219,7 @@ _080A4ABE:
 	strb r1, [r4, #0x1d]
 	ldrb r4, [r4, #0x1c]
 	lsls r4, r4, #4
-	ldr r0, _080A4B2C @ =gUnk_081281A8
+	ldr r0, _080A4B2C @ =gFigurines
 	adds r4, r4, r0
 	ldr r0, [r4]
 	movs r1, #0x16
@@ -2237,7 +2237,7 @@ _080A4B1C: .4byte gOamCmd
 _080A4B20: .4byte gSave
 _080A4B24: .4byte gMenu
 _080A4B28: .4byte gMain
-_080A4B2C: .4byte gUnk_081281A8
+_080A4B2C: .4byte gFigurines
 _080A4B30: .4byte 0x06014000
 _080A4B34:
 	ldr r1, _080A4B40 @ =0x06014000
@@ -3424,7 +3424,7 @@ _080A4C42:
 	orrs r2, r0
 	ldr r0, _080A4D44 @ =gOamCmd
 	strh r2, [r0, #8]
-	ldr r1, _080A4D48 @ =gUnk_080FDFD8
+	ldr r1, _080A4D48 @ =gSpriteAnimation_322
 	lsls r0, r3, #2
 	adds r0, r0, r1
 	ldr r0, [r0]
@@ -3542,7 +3542,7 @@ _080A4D36:
 	.align 2, 0
 _080A4D40: .4byte gQuiverSizes
 _080A4D44: .4byte gOamCmd
-_080A4D48: .4byte gUnk_080FDFD8
+_080A4D48: .4byte gSpriteAnimation_322
 _080A4D4C: .4byte 0x00000141
 _080A4D50EU: .4byte gChooseFileState
 _080A4D54EU: .4byte gUnk_08128B64
@@ -3646,7 +3646,7 @@ _080A542E:
 	orrs r2, r0
 	ldr r0, _080A5530 @ =gOamCmd
 	strh r2, [r0, #8]
-	ldr r1, _080A5534 @ =gUnk_080FDFD8
+	ldr r1, _080A5534 @ =gSpriteAnimation_322
 	lsls r0, r3, #2
 	adds r0, r0, r1
 	ldr r0, [r0]
@@ -3764,7 +3764,7 @@ _080A5522:
 	.align 2, 0
 _080A552C: .4byte gQuiverSizes
 _080A5530: .4byte gOamCmd
-_080A5534: .4byte gUnk_080FDFD8
+_080A5534: .4byte gSpriteAnimation_322
 _080A5538: .4byte gMenu
 _080A553C: .4byte gUnk_08128B64
 _080A5540: .4byte gMain

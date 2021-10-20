@@ -7,6 +7,6 @@
 gUnk_081295F4:: @ 081295F4
 	.incbin "projectile1/gUnk_081295F4.bin"
 
-gUnk_08129604:: @ 08129604
+gSpriteAnimations_RockProjectile:: @ 08129604
 	.4byte gUnk_081295F4
 	.4byte 00000000

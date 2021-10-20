@@ -18,7 +18,7 @@ script_080145C2:
 	_0807EB8C
 .endif
 	TextboxNoOverlapFollowPos 0x432e, 0x000c
-	_0807EA94
+	WaitUntilTextboxCloses
 .ifdef EU
 	Wait 0x0018
 .endif

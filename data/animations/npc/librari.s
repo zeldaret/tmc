@@ -22,7 +22,7 @@ gUnk_08112D9A:: @ 08112D9A
 gUnk_08112DE7:: @ 08112DE7
 	.incbin "librari/gUnk_08112DE7.bin"
 
-gUnk_08112DEC:: @ 08112DEC
+gSpriteAnimations_Librari:: @ 08112DEC
 	.4byte gUnk_08112D5A
 	.4byte gUnk_08112D5A
 	.4byte gUnk_08112D5A

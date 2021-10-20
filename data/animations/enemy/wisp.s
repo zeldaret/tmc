@@ -10,7 +10,7 @@ gUnk_080CEBAC:: @ 080CEBAC
 gUnk_080CEBBD:: @ 080CEBBD
 	.incbin "wisp/gUnk_080CEBBD.bin"
 
-gUnk_080CEBD0:: @ 080CEBD0
+gSpriteAnimations_Wisp:: @ 080CEBD0
 	.4byte gUnk_080CEBAC
 	.4byte gUnk_080CEBBD
 	.4byte 00000000

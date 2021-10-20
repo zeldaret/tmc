@@ -28,7 +28,7 @@ gUnk_08124602:: @ 08124602
 gUnk_08124627:: @ 08124627
 	.incbin "fan/gUnk_08124627.bin"
 
-gUnk_0812464C:: @ 0812464C
+gSpriteAnimations_Fan:: @ 0812464C
 	.4byte gUnk_081243F4
 	.4byte gUnk_08124465
 	.4byte gUnk_081244D6

@@ -10,7 +10,7 @@ gUnk_0812A44C:: @ 0812A44C
 gUnk_0812A46D:: @ 0812A46D
 	.incbin "projectile18/gUnk_0812A46D.bin"
 
-gUnk_0812A488:: @ 0812A488
+gSpriteAnimations_V1DarkMagicProjectile:: @ 0812A488
 	.4byte gUnk_0812A44C
 	.4byte gUnk_0812A46D
 	.4byte 00000000

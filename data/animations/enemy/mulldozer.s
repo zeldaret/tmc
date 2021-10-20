@@ -40,7 +40,7 @@ gUnk_080CEAE0:: @ 080CEAE0
 gUnk_080CEAF1:: @ 080CEAF1
 	.incbin "mulldozer/gUnk_080CEAF1.bin"
 
-gUnk_080CEB04:: @ 080CEB04
+gSpriteAnimations_Mulldozer:: @ 080CEB04
 	.4byte gUnk_080CEA66
 	.4byte gUnk_080CEA6B
 	.4byte gUnk_080CEA70

@@ -52,7 +52,7 @@ gUnk_08110DBE:: @ 08110DBE
 gUnk_08110DC3:: @ 08110DC3
 	.incbin "carpenter/gUnk_08110DC3.bin"
 
-gUnk_08110DC8:: @ 08110DC8
+gSpriteAnimations_Carpenter:: @ 08110DC8
 	.4byte gUnk_08110D08
 	.4byte gUnk_08110D08
 	.4byte gUnk_08110D08

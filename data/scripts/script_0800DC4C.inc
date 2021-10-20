@@ -4,7 +4,7 @@ SCRIPT_START script_0800DC4C
 	StartPlayerScript script_0800DE50
 	WaitForSomething2 0x00000006
 	_0807EB28 0x1646
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000001
 	StartPlayerScript script_0800DE2C
 	CameraTargetPlayer

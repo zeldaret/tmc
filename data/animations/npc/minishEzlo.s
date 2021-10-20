@@ -43,7 +43,7 @@ gUnk_0810C77F:: @ 0810C77F
 gUnk_0810C7AC:: @ 0810C7AC
 	.incbin "minishEzlo/gUnk_0810C7AC.bin"
 
-gUnk_0810C7B4:: @ 0810C7B4
+gSpriteAnimations_MinishEzlo:: @ 0810C7B4
 	.4byte gUnk_0810C4AF
 	.4byte gUnk_0810C4AA
 	.4byte gUnk_0810C4A0

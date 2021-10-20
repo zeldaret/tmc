@@ -27,7 +27,7 @@ extern const PaletteGroup* gPaletteGroups[];
 extern const u8 gGlobalGfxAndPalettes[];
 extern u32 gUsedPalettes;
 extern u16 gPaletteBuffer[];
-extern const GfxItem* gUnk_08100AA8[];
+extern const GfxItem* gGfxGroups[];
 
 void MemFill16(u32 value, void* dest, u32 size) {
     DmaFill16(3, value, dest, size);
@@ -145,7 +145,7 @@ void LoadGfxGroup(u32 group) {
     const u8* src;
     u32 dest;
     int size;
-    const GfxItem* gfxItem = gUnk_08100AA8[group];
+    const GfxItem* gfxItem = gGfxGroups[group];
     while (1) {
         u32 loadGfx = FALSE;
         u32 ctrl = gfxItem->unk0.bytes.unk3;

@@ -32,7 +32,7 @@ gUnk_0810F92B:: @ 0810F92B
 gUnk_0810F93C:: @ 0810F93C
 	.incbin "maid/gUnk_0810F93C.bin"
 
-gUnk_0810F944:: @ 0810F944
+gSpriteAnimations_Maid:: @ 0810F944
 	.4byte gUnk_0810F8E4
 	.4byte gUnk_0810F8E9
 	.4byte gUnk_0810F8EE

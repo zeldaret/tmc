@@ -14,7 +14,7 @@ extern Dialog gUnk_08110280[];
 
 extern u32 gUnk_0811022E;
 
-extern u32 gUnk_0811033C[];
+extern u32 gSpriteAnimations_GhostBrothers[];
 
 extern u32 gUnk_08110188;
 
@@ -117,7 +117,7 @@ void sub_08065F20(Entity* this) {
         this->interactType = 0;
         TextboxNoOverlapFollow(0);
         this->animIndex += 1;
-        if (gUnk_0811033C[this->animIndex] == 0) {
+        if (gSpriteAnimations_GhostBrothers[this->animIndex] == 0) {
             this->animIndex = 0;
         }
         InitAnimationForceUpdate(this, this->animIndex);

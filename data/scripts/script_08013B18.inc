@@ -15,7 +15,7 @@ script_08013B1E:
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	_0807EB28 0x1507
-	_0807EA94
+	WaitUntilTextboxCloses
 	StartPlayerScript script_08010A14
 	WaitForSomething2 0x00000001
 	Call sub_0807DF50

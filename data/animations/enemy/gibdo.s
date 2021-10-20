@@ -64,7 +64,7 @@ gUnk_080CF3F0:: @ 080CF3F0
 gUnk_080CF404:: @ 080CF404
 	.incbin "gibdo/gUnk_080CF404.bin"
 
-gUnk_080CF418:: @ 080CF418
+gSpriteAnimations_Gibdo:: @ 080CF418
 	.4byte gUnk_080CF2D0
 	.4byte gUnk_080CF2D4
 	.4byte gUnk_080CF2D8

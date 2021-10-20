@@ -28,7 +28,7 @@ gUnk_080CE0E6:: @ 080CE0E6
 gUnk_080CE0F3:: @ 080CE0F3
 	.incbin "wizzrobeIce/gUnk_080CE0F3.bin"
 
-gUnk_080CE100:: @ 080CE100
+gSpriteAnimations_WizzrobeIce:: @ 080CE100
 	.4byte gUnk_080CE098
 	.4byte gUnk_080CE0A5
 	.4byte gUnk_080CE0B2

@@ -79,7 +79,7 @@ gUnk_080CA9B1:: @ 080CA9B1
 gUnk_080CA9F2:: @ 080CA9F2
 	.incbin "rollobite/gUnk_080CA9F2.bin"
 
-gUnk_080CAA34:: @ 080CAA34
+gSpriteAnimations_Rollobite:: @ 080CAA34
 	.4byte gUnk_080CA6D7
 	.4byte gUnk_080CA6F8
 	.4byte gUnk_080CA719

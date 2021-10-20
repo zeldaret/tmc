@@ -25,7 +25,7 @@ gUnk_080CA626:: @ 080CA626
 gUnk_080CA63A:: @ 080CA63A
 	.incbin "peahat/gUnk_080CA63A.bin"
 
-gUnk_080CA650:: @ 080CA650
+gSpriteAnimations_Peahat:: @ 080CA650
 	.4byte gUnk_080CA5D6
 	.4byte gUnk_080CA5E7
 	.4byte gUnk_080CA5F8

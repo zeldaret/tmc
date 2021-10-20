@@ -223,7 +223,7 @@ gUnk_0810B4A7:: @ 0810B4A7
 gUnk_0810B4DC:: @ 0810B4DC
 	.incbin "npc5/gUnk_0810B4DC.bin"
 
-gUnk_0810B4EC:: @ 0810B4EC
+gSpriteAnimations_Npc5:: @ 0810B4EC
 	.4byte gUnk_0810AC78
 	.4byte gUnk_0810AC81
 	.4byte gUnk_0810AC9A

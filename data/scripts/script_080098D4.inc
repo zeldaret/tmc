@@ -38,7 +38,7 @@ script_080098E0:
 	Call sub_0807F9A4
 	Call sub_0807DF28
 	_0807EB28 0x280a
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
 script_08009910:

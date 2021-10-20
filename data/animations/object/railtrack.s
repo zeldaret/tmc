@@ -16,7 +16,7 @@ gUnk_081205EC:: @ 081205EC
 gUnk_081205F0:: @ 081205F0
 	.incbin "railtrack/gUnk_081205F0.bin"
 
-gUnk_081205F4:: @ 081205F4
+gSpriteAnimations_Railtrack:: @ 081205F4
 	.4byte gUnk_081205E4
 	.4byte gUnk_081205E8
 	.4byte gUnk_081205EC

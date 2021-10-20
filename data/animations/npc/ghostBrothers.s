@@ -16,7 +16,7 @@ gUnk_08110322:: @ 08110322
 gUnk_08110333:: @ 08110333
 	.incbin "ghostBrothers/gUnk_08110333.bin"
 
-gUnk_0811033C:: @ 0811033C
+gSpriteAnimations_GhostBrothers:: @ 0811033C
 	.4byte gUnk_08110300
 	.4byte gUnk_08110322
 	.4byte gUnk_08110300

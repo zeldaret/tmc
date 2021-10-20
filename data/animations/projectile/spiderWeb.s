@@ -64,7 +64,7 @@ gUnk_0812A2F4:: @ 0812A2F4
 gUnk_0812A330:: @ 0812A330
 	.incbin "projectile15/gUnk_0812A330.bin"
 
-gUnk_0812A36C:: @ 0812A36C
+gSpriteAnimations_SpiderWeb:: @ 0812A36C
 	.4byte gUnk_0812A08C
 	.4byte gUnk_0812A090
 	.4byte gUnk_0812A094

@@ -31,7 +31,7 @@ gUnk_080CE246:: @ 080CE246
 gUnk_080CE25E:: @ 080CE25E
 	.incbin "armos/gUnk_080CE25E.bin"
 
-gUnk_080CE264:: @ 080CE264
+gSpriteAnimations_Armos:: @ 080CE264
 	.4byte gUnk_080CE16C
 	.4byte gUnk_080CE185
 	.4byte gUnk_080CE19E

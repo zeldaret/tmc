@@ -30,7 +30,7 @@ script_08015BF0:
 	WaitFor_2
 	PlayBGM
 	_0807EB28 0x131f
-	_0807EA94
+	WaitUntilTextboxCloses
 .ifdef JP
 	SetLocalFlag 0x009b
 .else

@@ -10,7 +10,7 @@ gUnk_08110120:: @ 08110120
 gUnk_08110125:: @ 08110125
 	.incbin "milkCart/gUnk_08110125.bin"
 
-gUnk_08110138:: @ 08110138
+gSpriteAnimations_MilkCart:: @ 08110138
 	.4byte gUnk_08110120
 	.4byte gUnk_08110120
 	.4byte gUnk_08110120

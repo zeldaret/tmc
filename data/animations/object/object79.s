@@ -13,7 +13,7 @@ gUnk_0812343B:: @ 0812343B
 gUnk_0812344C:: @ 0812344C
 	.incbin "object79/gUnk_0812344C.bin"
 
-gUnk_08123474:: @ 08123474
+gSpriteAnimations_Object79:: @ 08123474
 	.4byte gUnk_08123422
 	.4byte gUnk_0812343B
 	.4byte gUnk_0812344C

@@ -46,7 +46,7 @@ gUnk_080CF1FB:: @ 080CF1FB
 gUnk_080CF1FF:: @ 080CF1FF
 	.incbin "octorokBoss/gUnk_080CF1FF.bin"
 
-gUnk_080CF204:: @ 080CF204
+gSpriteAnimations_OctorokBoss_1:: @ 080CF204
 	.4byte gUnk_080CF14C
 	.4byte gUnk_080CF150
 	.4byte gUnk_080CF154
@@ -60,7 +60,7 @@ gUnk_080CF204:: @ 080CF204
 	.4byte gUnk_080CF1FF
 	.4byte 00000000
 
-gUnk_080CF234:: @ 080CF234
+gSpriteAnimations_OctorokBoss_0:: @ 080CF234
 	.4byte gUnk_080CF186
 	.4byte gUnk_080CF158
 	.4byte gUnk_080CF16D

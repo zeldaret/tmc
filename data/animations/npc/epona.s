@@ -19,7 +19,7 @@ gUnk_08110097:: @ 08110097
 gUnk_081100B8:: @ 081100B8
 	.incbin "epona/gUnk_081100B8.bin"
 
-gUnk_081100E4:: @ 081100E4
+gSpriteAnimations_Epona:: @ 081100E4
 	.4byte gUnk_08110088
 	.4byte gUnk_08110092
 	.4byte gUnk_0811008D

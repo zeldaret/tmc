@@ -14,7 +14,7 @@ script_0800E6D2:
 	EndBlock
 	_0807E864
 	Call sub_0806025C
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800E6BE
@@ -34,15 +34,15 @@ script_0800E708:
 	_0807E864
 	Call sub_0806AFE8
 	JumpIf script_0800E722
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800E6F4
 script_0800E722:
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807F034 0x0057
 	WaitPlayerAction8
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_0800E6F4
 	.2byte 0x0000
@@ -58,7 +58,7 @@ script_0800E73E:
 	_0807EB74
 	CallWithArg sub_0806AF60, 0x00000000
 	Call sub_0806AFE8
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_0800E73E
 SCRIPT_START script_0800E760
@@ -88,7 +88,7 @@ script_0800E7A4:
 	EndBlock
 	_0807E864
 	Call sub_0806AFE8
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800E788
@@ -120,7 +120,7 @@ script_0800E806:
 	_0807E864
 	_0807EB74
 	Call sub_0806C70C
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	_0807EB44 0x0004
 	Jump script_0800E806
@@ -142,7 +142,7 @@ script_0800E832:
 	CallWithArg sub_0807F854, 0x000200c8
 	CallWithArg sub_0807F854, 0x00030190
 	EndBlock
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807EB38
 	JumpTable script_0800E910, script_0800E8D6, script_0800E8A4, script_0800E872
 script_0800E872:
@@ -150,12 +150,12 @@ script_0800E872:
 	TextboxNoOverlapFollow 0x4505
 	CallWithArg sub_0807F854, 0x00010190
 	EndBlock
-	_0807EA94
+	WaitUntilTextboxCloses
 	HasRupees 0x0190
 	JumpIfNot script_0800E908
 	ModRupees 0xfe70
 	SetLocalFlag 0x0091
 	TextboxNoOverlapFollow 0x4508
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0806C578
 SCRIPT_END

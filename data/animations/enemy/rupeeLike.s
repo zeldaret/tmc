@@ -27,7 +27,7 @@ gUnk_080CCCDE:: @ 080CCCDE
 gUnk_080CCD06:: @ 080CCD06
 	.incbin "rupeeLike/gUnk_080CCD06.bin"
 
-gUnk_080CCD20:: @ 080CCD20
+gSpriteAnimations_RupeeLike:: @ 080CCD20
 	.4byte gUnk_080CCC4A
 	.4byte gUnk_080CCC5F
 	.4byte gUnk_080CCC74

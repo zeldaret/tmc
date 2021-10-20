@@ -15,7 +15,7 @@ gUnk_080CD1D6:: @ 080CD1D6
 gUnk_080CD217:: @ 080CD217
 	.incbin "bombPeahat/gUnk_080CD217.bin"
 
-gUnk_080CD220:: @ 080CD220
+gSpriteAnimations_BombPeahat:: @ 080CD220
 	.4byte gUnk_080CD184
 	.4byte gUnk_080CD195
 	.4byte gUnk_080CD1D6

@@ -10,7 +10,7 @@ gUnk_0812380C:: @ 0812380C
 gUnk_08123820:: @ 08123820
 	.incbin "object86/gUnk_08123820.bin"
 
-gUnk_08123834:: @ 08123834
+gSpriteAnimations_Object86:: @ 08123834
 	.4byte gUnk_0812380C
 	.4byte gUnk_08123820
 	.4byte 00000000

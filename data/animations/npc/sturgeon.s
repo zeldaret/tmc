@@ -22,7 +22,7 @@ gUnk_0810FB8C:: @ 0810FB8C
 gUnk_0810FBAD:: @ 0810FBAD
 	.incbin "sturgeon/gUnk_0810FBAD.bin"
 
-gUnk_0810FBD0:: @ 0810FBD0
+gSpriteAnimations_Sturgeon:: @ 0810FBD0
 	.4byte gUnk_0810FB78
 	.4byte gUnk_0810FB7D
 	.4byte gUnk_0810FB82

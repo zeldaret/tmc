@@ -217,7 +217,7 @@ gUnk_0812038C:: @ 0812038C
 gUnk_081203C4:: @ 081203C4
 	.incbin "specialFx/gUnk_081203C4.bin"
 
-gUnk_081203FC:: @ 081203FC
+gSpriteAnimations_SpecialFx:: @ 081203FC
 	.4byte gUnk_0811FB10
 	.4byte gUnk_0811FB25
 	.4byte gUnk_0811FBC1

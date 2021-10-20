@@ -13,7 +13,7 @@ gUnk_08120AED:: @ 08120AED
 gUnk_08120B01:: @ 08120B01
 	.incbin "figurineDevice/gUnk_08120B01.bin"
 
-gUnk_08120B10:: @ 08120B10
+gSpriteAnimations_FigurineDevice:: @ 08120B10
 	.4byte gUnk_08120AE8
 	.4byte gUnk_08120AED
 	.4byte gUnk_08120B01

@@ -12,7 +12,7 @@ script_0800DB7C:
 	CameraTargetEntity
 	Call sub_0807F5C0
 	_0807EB28 0x1648
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0804D7EC
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
@@ -35,9 +35,9 @@ script_0800DBCA:
 	StartPlayerScript script_0800DE00
 	WaitForSomething2 0x00000006
 	TextboxNoOverlapFollowPos 0x1643, 0x0002
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807EB28 0x1645
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0807F3F8
 	_0807E5F8 0x00000001
 	StopBgm

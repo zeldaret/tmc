@@ -31,7 +31,7 @@ gUnk_0810FFD7:: @ 0810FFD7
 gUnk_08110014:: @ 08110014
 	.incbin "malon/gUnk_08110014.bin"
 
-gUnk_08110028:: @ 08110028
+gSpriteAnimations_Malon:: @ 08110028
 	.4byte gUnk_0810FF70
 	.4byte gUnk_0810FF75
 	.4byte gUnk_0810FF7A

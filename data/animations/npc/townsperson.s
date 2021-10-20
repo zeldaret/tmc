@@ -29,7 +29,7 @@ gUnk_0810BD36:: @ 0810BD36
 gUnk_0810BD47:: @ 0810BD47
 	.incbin "townsperson/gUnk_0810BD47.bin"
 
-gUnk_0810BD58:: @ 0810BD58
+gSpriteAnimations_Townsperson:: @ 0810BD58
 	.4byte gUnk_0810BD00
 	.4byte gUnk_0810BD05
 	.4byte gUnk_0810BD0A

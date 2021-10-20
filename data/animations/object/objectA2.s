@@ -14,7 +14,7 @@ gUnk_08124743:: @ 08124743
 gUnk_08124764:: @ 08124764
 	.incbin "objectA2/gUnk_08124764.bin"
 
-gUnk_08124788:: @ 08124788
+gSpriteAnimation_ObjectA2:: @ 08124788
 	.4byte gUnk_08124712
 	.4byte gUnk_08124743
 	.4byte gUnk_08124764

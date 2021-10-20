@@ -12,7 +12,7 @@ gUnk_080CC759:: @ 080CC759
 gUnk_080CC76E:: @ 080CC76E
 	.incbin "likeLike/gUnk_080CC76E.bin"
 
-gUnk_080CC780:: @ 080CC780
+gSpriteAnimations_LikeLike:: @ 080CC780
 	.4byte gUnk_080CC734
 	.4byte gUnk_080CC759
 	.4byte gUnk_080CC76E

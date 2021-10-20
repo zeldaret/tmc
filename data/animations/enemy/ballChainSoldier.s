@@ -103,7 +103,7 @@ gUnk_080D07D2:: @ 080D07D2
 gUnk_080D07DF:: @ 080D07DF
 	.incbin "ballChainSoldier/gUnk_080D07DF.bin"
 
-gUnk_080D07EC:: @ 080D07EC
+gSpriteAnimations_BallChainSoldier:: @ 080D07EC
 	.4byte gUnk_080D0744
 	.4byte gUnk_080D0740
 	.4byte gUnk_080D073C

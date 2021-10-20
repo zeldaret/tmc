@@ -49,7 +49,7 @@ gUnk_080CE3EC:: @ 080CE3EC
 gUnk_080CE3F8:: @ 080CE3F8
 	.incbin "eyegore/gUnk_080CE3F8.bin"
 
-gUnk_080CE404:: @ 080CE404
+gSpriteAnimations_Eyegore:: @ 080CE404
 	.4byte gUnk_080CE335
 	.4byte gUnk_080CE387
 	.4byte gUnk_080CE30C

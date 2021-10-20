@@ -10,7 +10,7 @@ gUnk_0812A9FC:: @ 0812A9FC
 gUnk_0812AA31:: @ 0812AA31
 	.incbin "projectile23/gUnk_0812AA31.bin"
 
-gUnk_0812AA50:: @ 0812AA50
+gSpriteAnimations_GyorgMaleEnergyProjectile:: @ 0812AA50
 	.4byte gUnk_0812A9FC
 	.4byte gUnk_0812AA31
 	.4byte 00000000

@@ -34,7 +34,7 @@ gUnk_08109C54:: @ 08109C54
 gUnk_08109C59:: @ 08109C59
 	.incbin "festari/gUnk_08109C59.bin"
 
-gUnk_08109C60:: @ 08109C60
+gSpriteAnimations_Festari:: @ 08109C60
 	.4byte gUnk_08109BCD
 	.4byte gUnk_08109BC8
 	.4byte gUnk_08109BCD

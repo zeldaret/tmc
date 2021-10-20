@@ -28,7 +28,7 @@ gUnk_080CE036:: @ 080CE036
 gUnk_080CE043:: @ 080CE043
 	.incbin "wizzrobeFire/gUnk_080CE043.bin"
 
-gUnk_080CE050:: @ 080CE050
+gSpriteAnimations_WizzrobeFire:: @ 080CE050
 	.4byte gUnk_080CDFE8
 	.4byte gUnk_080CDFF5
 	.4byte gUnk_080CE002

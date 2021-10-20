@@ -21,7 +21,7 @@ gUnk_080CDF27:: @ 080CDF27
 gUnk_080CDF33:: @ 080CDF33
 	.incbin "tektite/gUnk_080CDF33.bin"
 
-gUnk_080CDF38:: @ 080CDF38
+gSpriteAnimations_Tektite:: @ 080CDF38
 	.4byte gUnk_080CDEFC
 	.4byte gUnk_080CDF09
 	.4byte gUnk_080CDF1A

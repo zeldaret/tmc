@@ -13,7 +13,7 @@ gUnk_080D163D:: @ 080D163D
 gUnk_080D166E:: @ 080D166E
 	.incbin "vaatiBall/gUnk_080D166E.bin"
 
-gUnk_080D1694:: @ 080D1694
+gSpriteAnimations_VaatiBall:: @ 080D1694
 	.4byte gUnk_080D1638
 	.4byte gUnk_080D163D
 	.4byte gUnk_080D166E

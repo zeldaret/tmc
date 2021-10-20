@@ -40,7 +40,7 @@ gUnk_08112D0A:: @ 08112D0A
 gUnk_08112D0F:: @ 08112D0F
 	.incbin "townMinish/gUnk_08112D0F.bin"
 
-gUnk_08112D14:: @ 08112D14
+gSpriteAnimations_TownMinish:: @ 08112D14
 	.4byte gUnk_08112C68
 	.4byte gUnk_08112C6D
 	.4byte gUnk_08112C72

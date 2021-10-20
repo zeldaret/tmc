@@ -22,7 +22,7 @@ gUnk_08121148:: @ 08121148
 gUnk_08121154:: @ 08121154
 	.incbin "pushableRock/gUnk_08121154.bin"
 
-gUnk_08121158:: @ 08121158
+gSpriteAnimations_PushableRock:: @ 08121158
 	.4byte gUnk_08121090
 	.4byte gUnk_08121094
 	.4byte gUnk_081210D0

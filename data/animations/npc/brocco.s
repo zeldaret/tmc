@@ -16,7 +16,7 @@ gUnk_0810CB4A:: @ 0810CB4A
 gUnk_0810CB4F:: @ 0810CB4F
 	.incbin "brocco/gUnk_0810CB4F.bin"
 
-gUnk_0810CB54:: @ 0810CB54
+gSpriteAnimations_Brocco:: @ 0810CB54
 	.4byte gUnk_0810CAFC
 	.4byte gUnk_0810CAFC
 	.4byte gUnk_0810CAFC

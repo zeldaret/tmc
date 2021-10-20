@@ -19,7 +19,7 @@ gUnk_08113897:: @ 08113897
 gUnk_081138B0:: @ 081138B0
 	.incbin "mama/gUnk_081138B0.bin"
 
-gUnk_081138B8:: @ 081138B8
+gSpriteAnimations_Mama:: @ 081138B8
 	.4byte gUnk_081137E9
 	.4byte gUnk_08113892
 	.4byte gUnk_08113897

@@ -76,7 +76,7 @@ gUnk_080D2254:: @ 080D2254
 gUnk_080D2264:: @ 080D2264
 	.incbin "gyorgFemaleEye/gUnk_080D2264.bin"
 
-gUnk_080D2274:: @ 080D2274
+gSpriteAnimations_GyorgFemaleEye:: @ 080D2274
 	.4byte gUnk_080D2050
 	.4byte gUnk_080D2064
 	.4byte gUnk_080D2078

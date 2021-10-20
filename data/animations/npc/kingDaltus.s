@@ -46,7 +46,7 @@ gUnk_081105DC:: @ 081105DC
 gUnk_081105E1:: @ 081105E1
 	.incbin "kingDaltus/gUnk_081105E1.bin"
 
-gUnk_08110608:: @ 08110608
+gSpriteAnimations_KingDaltus:: @ 08110608
 	.4byte gUnk_08110500
 	.4byte gUnk_08110505
 	.4byte gUnk_0811050A

@@ -35,7 +35,7 @@ gUnk_080CEFE9:: @ 080CEFE9
 gUnk_080CF002:: @ 080CF002
 	.incbin "mazaalHand/gUnk_080CF002.bin"
 
-gUnk_080CF014:: @ 080CF014
+gSpriteAnimations_MazaalHand:: @ 080CF014
 	.4byte gUnk_080CEF7C
 	.4byte gUnk_080CEF9D
 	.4byte gUnk_080CEFA5

@@ -10,7 +10,7 @@ gUnk_0811F918:: @ 0811F918
 gUnk_0811F945:: @ 0811F945
 	.incbin "objectD/gUnk_0811F945.bin"
 
-gUnk_0811F954:: @ 0811F954
+gSpriteAnimations_ObjectD:: @ 0811F954
 	.4byte gUnk_0811F918
 	.4byte gUnk_0811F945
 	.4byte 00000000

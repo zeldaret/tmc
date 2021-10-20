@@ -16,7 +16,7 @@ gUnk_08113192:: @ 08113192
 gUnk_08113197:: @ 08113197
 	.incbin "farmers/gUnk_08113197.bin"
 
-gUnk_0811319C:: @ 0811319C
+gSpriteAnimations_Farmers_0:: @ 0811319C
 	.4byte gUnk_08113168
 	.4byte gUnk_08113168
 	.4byte gUnk_08113168
@@ -47,7 +47,7 @@ gUnk_0811320A:: @ 0811320A
 gUnk_0811320F:: @ 0811320F
 	.incbin "farmers/gUnk_0811320F.bin"
 
-gUnk_08113214:: @ 08113214
+gSpriteAnimations_Farmers_1:: @ 08113214
 	.4byte gUnk_081131E0
 	.4byte gUnk_081131E0
 	.4byte gUnk_081131E0

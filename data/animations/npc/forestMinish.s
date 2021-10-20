@@ -136,7 +136,7 @@ gUnk_0810A59C:: @ 0810A59C
 gUnk_0810A5A9:: @ 0810A5A9
 	.incbin "forestMinish/gUnk_0810A5A9.bin"
 
-gUnk_0810A5B8:: @ 0810A5B8 
+gSpriteAnimations_ForestMinish:: @ 0810A5B8 
 	.4byte gUnk_0810A36A
 	.4byte gUnk_0810A36F
 	.4byte gUnk_0810A374

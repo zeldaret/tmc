@@ -842,4 +842,4 @@ GetSpriteSubEntryOffsetDataPointer: @ 0x080700C8
 	adds r0, r1, r0
 	bx lr
 	.align 2, 0
-_080700E4: .4byte gUnk_089FB780
+_080700E4: .4byte gExtraFrameOffsets+0x10

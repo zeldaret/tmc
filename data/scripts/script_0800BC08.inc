@@ -10,7 +10,7 @@ script_0800BC18:
 	DoPostScriptAction 0x0004
 	Wait 0x003c
 	TextboxNoOverlap 0x0e07
-	_0807EA94
+	WaitUntilTextboxCloses
 	BeginBlock
 	_0807EB44 0x0000
 	_0807E930 0x0004

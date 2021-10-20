@@ -25,7 +25,7 @@ gUnk_0811067D:: @ 0811067D
 gUnk_08110682:: @ 08110682
 	.incbin "ministerPotho/gUnk_08110682.bin"
 
-gUnk_081106A8:: @ 081106A8
+gSpriteAnimations_MinisterPotho:: @ 081106A8
 	.4byte gUnk_08110658
 	.4byte gUnk_0811065D
 	.4byte gUnk_08110662

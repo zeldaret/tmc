@@ -37,7 +37,7 @@ gUnk_08114061:: @ 08114061
 gUnk_0811408A:: @ 0811408A
 	.incbin "mayorHagen/gUnk_0811408A.bin"
 
-gUnk_08114098:: @ 08114098
+gSpriteAnimations_MayorHagen:: @ 08114098
 	.4byte gUnk_08113FC0
 	.4byte gUnk_08113FC5
 	.4byte gUnk_08113FCA

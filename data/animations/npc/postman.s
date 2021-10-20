@@ -28,7 +28,7 @@ gUnk_0810AB96:: @ 0810AB96
 gUnk_0810ABC7:: @ 0810ABC7
 	.incbin "postman/gUnk_0810ABC7.bin"
 
-gUnk_0810ABF8:: @ 0810ABF8
+gSpriteAnimations_Postman:: @ 0810ABF8
 	.4byte gUnk_0810AA90
 	.4byte gUnk_0810AAB9
 	.4byte gUnk_0810AAE2

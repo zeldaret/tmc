@@ -43,7 +43,7 @@ gUnk_081107B3:: @ 081107B3
 gUnk_081107BC:: @ 081107BC
 	.incbin "vaati/gUnk_081107BC.bin"
 
-gUnk_081107CC:: @ 081107CC
+gSpriteAnimation_Vaati_1:: @ 081107CC
 	.4byte gUnk_0811073C
 	.4byte gUnk_08110741
 	.4byte gUnk_08110746
@@ -134,7 +134,7 @@ gUnk_08110AD7:: @ 08110AD7
 gUnk_08110AEC:: @ 08110AEC
 	.incbin "vaati/gUnk_08110AEC.bin"
 
-gUnk_08110B04:: @ 08110B04
+gSpriteAnimations_Vaati:: @ 08110B04
 	.4byte gUnk_08110840
 	.4byte gUnk_08110859
 	.4byte gUnk_0811085E

@@ -40,7 +40,7 @@ gUnk_080CF5B2:: @ 080CF5B2
 gUnk_080CF5BF:: @ 080CF5BF
 	.incbin "cloudPiranha/gUnk_080CF5BF.bin"
 
-gUnk_080CF5CC:: @ 080CF5CC
+gSpriteAnimations_CloudPiranha:: @ 080CF5CC
 	.4byte gUnk_080CF530
 	.4byte gUnk_080CF53D
 	.4byte gUnk_080CF54A

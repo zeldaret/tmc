@@ -29,7 +29,7 @@ extern void sub_08079E08();
 extern void sub_08078F60();
 extern void sub_0806F948();
 extern void sub_08077698();
-extern void sub_0805E544();
+extern void FreezeTime();
 extern void sub_080717F8();
 extern void UnfreezeTime();
 extern void sub_08071A6C();
@@ -647,7 +647,7 @@ void PortalActivateInit(Entity* this) {
     gPlayerState.field_0x8 = 0x738;
     CreateObjectWithParent(this, OBJECT_6, 1, 0);
     sub_08077B20();
-    sub_0805E544();
+    FreezeTime();
 }
 
 void PortalActivateUpdate(Entity* this) {

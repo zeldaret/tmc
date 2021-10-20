@@ -34,7 +34,7 @@ gUnk_08113EEC:: @ 08113EEC
 gUnk_08113EF1:: @ 08113EF1
 	.incbin "gregal/gUnk_08113EF1.bin"
 
-gUnk_08113EF8:: @ 08113EF8
+gSpriteAnimations_Gregal:: @ 08113EF8
 	.4byte gUnk_08113D9C
 	.4byte gUnk_08113D9C
 	.4byte gUnk_08113D9C

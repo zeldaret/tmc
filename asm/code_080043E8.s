@@ -1466,7 +1466,7 @@ gUnk_08007450:: @ 08007450
 gUnk_0800745D:: @ 0800745D
 	.incbin "code_080043E8/gUnk_0800745D.bin"
 
-gUnk_08007498:: @ 08007498
+gSpriteAnimations_1:: @ 08007498
 	.4byte gUnk_08004AEC
 	.4byte gUnk_08004AF1
 	.4byte gUnk_08004B1A
@@ -1698,7 +1698,7 @@ gUnk_08007498:: @ 08007498
 	.4byte gUnk_08006FFA
 	.4byte 00000000
 
-gUnk_08007830:: @ 08007830
+gSpriteAnimations_5:: @ 08007830
 	.4byte gUnk_08005E0C
 	.4byte gUnk_08005DA6
 	.4byte gUnk_08005D40
@@ -1753,7 +1753,7 @@ gUnk_08007830:: @ 08007830
 	.4byte gUnk_080062CF
 	.4byte 00000000
 
-gUnk_08007904:: @ 08007904
+gSpriteAnimations_6:: @ 08007904
 	.4byte gUnk_08006BA3
 	.4byte gUnk_08006B4E
 	.4byte gUnk_08006AF9
@@ -1800,7 +1800,7 @@ gUnk_08007904:: @ 08007904
 	.4byte gUnk_08006956
 	.4byte 00000000
 
-gUnk_080079B8:: @ 080079B8
+gSpriteAnimations_7:: @ 080079B8
 	.4byte gUnk_08005F2F
 	.4byte gUnk_08005F22
 	.4byte gUnk_08005F15
@@ -1864,7 +1864,7 @@ gUnk_080079B8:: @ 080079B8
 	.4byte gUnk_0800657A
 	.4byte 00000000
 
-gUnk_08007AB0:: @ 08007AB0
+gSpriteAnimations_12:: @ 08007AB0
 	.4byte gUnk_08005B76
 	.4byte gUnk_08005B4D
 	.4byte gUnk_08005B24
@@ -1896,7 +1896,7 @@ gUnk_08007AB0:: @ 08007AB0
 	.4byte gUnk_08005BC3
 	.4byte 00000000
 
-gUnk_08007B28:: @ 08007B28
+gSpriteAnimations_4:: @ 08007B28
 	.4byte gUnk_08004AEC
 	.4byte gUnk_08004AF1
 	.4byte gUnk_08004B1A

@@ -74,19 +74,19 @@ script_080148F4:
 	ClearRoomFlag 0x0000
 	Call sub_0806E140
 	JumpIfNot script_08014932
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E3E8
 	JumpIfNot script_08014938
 	_0807E864
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
 	Call sub_0806E1E0
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x0018
 	_0807E878
 	Jump script_080148F4
 script_08014932:
-	_0807EA94
+	WaitUntilTextboxCloses
 	Jump script_08014938
 script_08014938:
 	_0807E5F8 0x00000004

@@ -1062,7 +1062,7 @@ gUnk_080FDFCB:: @ 080FDFCB
 gUnk_080FDFD0:: @ 080FDFD0
 	.incbin "data_080FC8A4/gUnk_080FDFD0.bin"
 
-gUnk_080FDFD8:: @ 080FDFD8
+gSpriteAnimation_322:: @ 080FDFD8
 	.4byte gUnk_080FDD14
 	.4byte gUnk_080FDD19
 	.4byte gUnk_080FDD1E

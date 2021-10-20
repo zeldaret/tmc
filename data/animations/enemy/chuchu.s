@@ -37,7 +37,7 @@ gUnk_080CA3C5:: @ 080CA3C5
 gUnk_080CA42E:: @ 080CA42E
 	.incbin "chuchu/gUnk_080CA42E.bin"
 
-gUnk_080CA470:: @ 080CA470
+gSpriteAnimations_Chuchu:: @ 080CA470
 	.4byte gUnk_080CA2BE
 	.4byte gUnk_080CA2EA
 	.4byte gUnk_080CA2FB

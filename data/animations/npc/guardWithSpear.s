@@ -73,7 +73,7 @@ gUnk_0810F7FD:: @ 0810F7FD
 gUnk_0810F802:: @ 0810F802
 	.incbin "guardWithSpear/gUnk_0810F802.bin"
 
-gUnk_0810F814:: @ 0810F814
+gSpriteAnimations_GuardWithSpear:: @ 0810F814
 	.4byte gUnk_0810F6E4
 	.4byte gUnk_0810F6E9
 	.4byte gUnk_0810F6EE

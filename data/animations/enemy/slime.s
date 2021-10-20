@@ -37,7 +37,7 @@ gUnk_080D1778:: @ 080D1778
 gUnk_080D177D:: @ 080D177D
 	.incbin "slime/gUnk_080D177D.bin"
 
-gUnk_080D1790:: @ 080D1790
+gSpriteAnimations_Slime:: @ 080D1790
 	.4byte gUnk_080D16DC
 	.4byte gUnk_080D16E5
 	.4byte gUnk_080D16F5

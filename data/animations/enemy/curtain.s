@@ -17,7 +17,7 @@ gUnk_080D1D02:: @ 080D1D02
 gUnk_080D1D26:: @ 080D1D26
 	.incbin "curtain/gUnk_080D1D26.bin"
 
-gUnk_080D1D34:: @ 080D1D34
+gSpriteAnimations_Curtain:: @ 080D1D34
 	.4byte gUnk_080D1CF0
 	.4byte gUnk_080D1CF9
 	.4byte gUnk_080D1D02

@@ -44,7 +44,7 @@ gUnk_08120850:: @ 08120850
 gUnk_08120855:: @ 08120855
 	.incbin "greatFairy/gUnk_08120855.bin"
 
-gUnk_08120878:: @ 08120878
+gSpriteAnimations_GreatFairy:: @ 08120878
 	.4byte gUnk_081207B0
 	.4byte gUnk_081207D2
 	.4byte gUnk_081207C1

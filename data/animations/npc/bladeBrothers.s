@@ -25,7 +25,7 @@ gUnk_0811182A:: @ 0811182A
 gUnk_0811185B:: @ 0811185B
 	.incbin "bladeBrothers/gUnk_0811185B.bin"
 
-gUnk_081118CC:: @ 081118CC
+gSpriteAnimations_BladeBrothers_1:: @ 081118CC
 	.4byte gUnk_08111771
 	.4byte gUnk_0811176C
 	.4byte gUnk_08111771
@@ -36,7 +36,7 @@ gUnk_081118CC:: @ 081118CC
 	.4byte gUnk_0811177B
 	.4byte 00000000
 
-gUnk_081118F0:: @ 081118F0
+gSpriteAnimations_BladeBrothers_0:: @ 081118F0
 	.4byte gUnk_081117F9
 	.4byte gUnk_081117C8
 	.4byte gUnk_081117F9

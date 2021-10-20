@@ -16,7 +16,7 @@ gUnk_0811326E:: @ 0811326E
 gUnk_0811329F:: @ 0811329F
 	.incbin "carlov/gUnk_0811329F.bin"
 
-gUnk_081132E4:: @ 081132E4
+gSpriteAnimations_Carlov_0:: @ 081132E4
 	.4byte gUnk_08113258
 	.4byte gUnk_08113258
 	.4byte gUnk_08113258
@@ -30,7 +30,7 @@ gUnk_081132E4:: @ 081132E4
 	.4byte gUnk_0811329F
 	.4byte 00000000
 
-gUnk_08113314:: @ 08113314
+gSpriteAnimations_Carlov_1:: @ 08113314
 	.4byte gUnk_08113258
 	.4byte gUnk_08113258
 	.4byte gUnk_08113258

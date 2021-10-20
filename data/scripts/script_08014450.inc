@@ -14,7 +14,7 @@ script_08014462:
 	_0807E930 0x0002
 	TextboxNoOverlapFollow 0x4202
 	TextboxNoOverlapFollow 0x4203
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E3E8
 	JumpIfNot script_080144F0
 	DoPostScriptAction 0x0001

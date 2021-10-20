@@ -16,7 +16,7 @@ gUnk_080D293E:: @ 080D293E
 gUnk_080D294F:: @ 080D294F
 	.incbin "gyorgFemaleMouth/gUnk_080D294F.bin"
 
-gUnk_080D2960:: @ 080D2960
+gSpriteAnimations_GyorgFemaleMouth:: @ 080D2960
 	.4byte gUnk_080D291C
 	.4byte gUnk_080D292D
 	.4byte gUnk_080D293E

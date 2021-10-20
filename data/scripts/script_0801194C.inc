@@ -29,7 +29,7 @@ script_0801197C:
 script_080119A0:
 	TextboxNoOverlapFollow 0x103f
 script_080119A4:
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0801197C
@@ -70,7 +70,7 @@ script_08011A08:
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000000
 	Call sub_08064428
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_08011A08
 	.2byte 0x0000
@@ -88,7 +88,7 @@ script_08011A44:
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000000
 	TextboxNoOverlapFollow 0x1320
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_08011A44
 SCRIPT_START script_08011A64
@@ -107,7 +107,7 @@ script_08011A7C:
 	CallWithArg sub_080644B4, 0x00000006
 	JumpIf script_08011AFA
 	TextboxNoOverlapFollow 0x1320
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_08011A7C
 	.2byte 0x0000
@@ -124,7 +124,7 @@ script_08011AC4:
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000000
 	TextboxNoOverlapFollow 0x1322
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_08011AC4
 
@@ -136,7 +136,7 @@ SCRIPT_START script_08011AE4
 	Call sub_0807DF28
 script_08011AFA:
 	TextboxNoOverlapFollowPos 0x1321, 0x0007
-	_0807EA94
+	WaitUntilTextboxCloses
 .ifdef JP
 	SetLocalFlag 0x0011
 .else

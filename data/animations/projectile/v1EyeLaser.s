@@ -25,7 +25,7 @@ gUnk_0812A680:: @ 0812A680
 gUnk_0812A689:: @ 0812A689
 	.incbin "projectile1C/gUnk_0812A689.bin"
 
-gUnk_0812A694:: @ 0812A694
+gSpriteAnimations_V1EyeLaser:: @ 0812A694
 	.4byte gUnk_0812A63C
 	.4byte gUnk_0812A65C
 	.4byte gUnk_0812A665

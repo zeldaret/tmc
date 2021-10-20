@@ -13,7 +13,7 @@ gUnk_081106ED:: @ 081106ED
 gUnk_081106FE:: @ 081106FE
 	.incbin "npc26/gUnk_081106FE.bin"
 
-gUnk_08110710:: @ 08110710
+gSpriteAnimations_Npc26:: @ 08110710
 	.4byte gUnk_081106E8
 	.4byte gUnk_081106E8
 	.4byte gUnk_081106E8

@@ -13,7 +13,7 @@ gUnk_081236A9:: @ 081236A9
 gUnk_081236BA:: @ 081236BA
 	.incbin "bigVortex/gUnk_081236BA.bin"
 
-gUnk_081236CC:: @ 081236CC
+gSpriteAnimations_BigVortex:: @ 081236CC
 	.4byte gUnk_08123698
 	.4byte gUnk_081236A9
 	.4byte gUnk_081236BA

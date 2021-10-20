@@ -13,7 +13,7 @@ gUnk_08112FC4:: @ 08112FC4
 gUnk_08112FD5:: @ 08112FD5
 	.incbin "vaatiReborn/gUnk_08112FD5.bin"
 
-gUnk_08112FF4:: @ 08112FF4
+gSpriteAnimations_VaatiReborn:: @ 08112FF4
 	.4byte gUnk_08112F88
 	.4byte gUnk_08112FC4
 	.4byte gUnk_08112FD5

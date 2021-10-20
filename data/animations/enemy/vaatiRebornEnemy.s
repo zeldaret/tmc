@@ -19,7 +19,7 @@ gUnk_080D050D:: @ 080D050D
 gUnk_080D0531:: @ 080D0531
 	.incbin "vaatiRebornEnemy/gUnk_080D0531.bin"
 
-gUnk_080D0558:: @ 080D0558
+gSpriteAnimations_VaatiRebornEnemy_0:: @ 080D0558
 	.4byte gUnk_080D04D7
 	.4byte gUnk_080D04E8
 	.4byte gUnk_080D0501
@@ -36,7 +36,7 @@ gUnk_080D0575:: @ 080D0575
 gUnk_080D0585:: @ 080D0585
 	.incbin "vaatiRebornEnemy/gUnk_080D0585.bin"
 
-gUnk_080D058C:: @ 080D058C
+gSpriteAnimations_VaatiRebornEnemy_1:: @ 080D058C
 	.4byte gUnk_080D0570
 	.4byte gUnk_080D0575
 	.4byte gUnk_080D0585
@@ -54,7 +54,7 @@ gUnk_080D05BE:: @ 080D05BE
 gUnk_080D05CF:: @ 080D05CF
 	.incbin "vaatiRebornEnemy/gUnk_080D05CF.bin"
 
-gUnk_080D05E0:: @ 080D05E0
+gSpriteAnimations_VaatiRebornEnemy_2:: @ 080D05E0
 	.4byte gUnk_080D059C
 	.4byte gUnk_080D05BE
 	.4byte gUnk_080D05AD
@@ -70,7 +70,7 @@ gUnk_080D0609:: @ 080D0609
 gUnk_080D061E:: @ 080D061E
 	.incbin "vaatiRebornEnemy/gUnk_080D061E.bin"
 
-gUnk_080D0634:: @ 080D0634
+gSpriteAnimations_VaatiRebornEnemy_3:: @ 080D0634
 	.4byte gUnk_080D05F4
 	.4byte gUnk_080D0609
 	.4byte gUnk_080D05F4

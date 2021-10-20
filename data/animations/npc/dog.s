@@ -97,7 +97,7 @@ gUnk_081120CF:: @ 081120CF
 gUnk_081120E0:: @ 081120E0
 	.incbin "dog/gUnk_081120E0.bin"
 
-gUnk_08112100:: @ 08112100
+gSpriteAnimations_Dog:: @ 08112100
 	.4byte gUnk_08111FE2
 	.4byte gUnk_08111FE7
 	.4byte gUnk_08111FEC

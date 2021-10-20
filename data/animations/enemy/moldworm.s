@@ -75,7 +75,7 @@ gUnk_080CBD20:: @ 080CBD20
 gUnk_080CBD4C:: @ 080CBD4C
 	.incbin "moldworm/gUnk_080CBD4C.bin"
 
-gUnk_080CBD58:: @ 080CBD58
+gSpriteAnimations_Moldworm:: @ 080CBD58
 	.4byte gUnk_080CBCC8
 	.4byte gUnk_080CBCCC
 	.4byte gUnk_080CBCD0

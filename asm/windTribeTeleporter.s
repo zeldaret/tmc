@@ -58,7 +58,7 @@ sub_080A0F44: @ 0x080A0F44
 	movs r0, #3
 	bl sub_08078A90
 	bl sub_08078B48
-	bl sub_0805E544
+	bl FreezeTime
 	movs r0, #0x89
 	lsls r0, r0, #1
 	bl SoundReq
@@ -96,7 +96,7 @@ sub_080A0FB0: @ 0x080A0FB0
 	movs r0, #3
 	bl sub_08078A90
 	bl sub_08078B48
-	bl sub_0805E544
+	bl FreezeTime
 	movs r0, #0x89
 	lsls r0, r0, #1
 	bl SoundReq

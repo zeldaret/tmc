@@ -12,7 +12,7 @@ gUnk_080CD2AC:: @ 080CD2AC
 gUnk_080CD2BD:: @ 080CD2BD
 	.incbin "chaser/gUnk_080CD2BD.bin"
 
-gUnk_080CD2C8:: @ 080CD2C8
+gSpriteAnimations_Chaser:: @ 080CD2C8
 	.4byte gUnk_080CD2A8
 	.4byte gUnk_080CD2AC
 	.4byte gUnk_080CD2BD

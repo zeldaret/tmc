@@ -33,7 +33,7 @@ script_080157DA:
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
 	TextboxNoOverlapFollowPos 0x1066, 0x0002
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
 	Call sub_0807DF50
@@ -44,7 +44,7 @@ script_08015880:
 	CheckRoomFlag 0x0000
 	JumpIfNot script_08015880
 script_08015888:
-	_0807EA94
+	WaitUntilTextboxCloses
 	ComparePlayerAction 0x001c
 	JumpIf script_08015888
 	_0807E864
@@ -55,12 +55,12 @@ script_08015888:
 	StartPlayerScript script_08015938
 	WaitForSomething2 0x00000010
 	TextboxNoOverlapFollowPos 0x106a, 0x000c
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000008
 	Wait 0x0078
 	_0807E8E4_2
 	TextboxNoOverlapFollowPos 0x1068, 0x0002
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000001
 	WaitForSomething2 0x00000002
 .ifdef JP

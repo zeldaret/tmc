@@ -24,7 +24,7 @@ gUnk_080CB65D:: @ 080CB65D
 gUnk_080CB671:: @ 080CB671
 	.incbin "beetle/gUnk_080CB671.bin"
 
-gUnk_080CB67C:: @ 080CB67C
+gSpriteAnimations_Beetle:: @ 080CB67C
 	.4byte gUnk_080CB5EC
 	.4byte gUnk_080CB600
 	.4byte gUnk_080CB61C

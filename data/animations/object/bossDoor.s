@@ -28,7 +28,7 @@ gUnk_081215AC:: @ 081215AC
 gUnk_081215B0:: @ 081215B0
 	.incbin "bossDoor/gUnk_081215B0.bin"
 
-gUnk_081215B4:: @ 081215B4
+gSpriteAnimations_BossDoor:: @ 081215B4
 	.4byte gUnk_08121514
 	.4byte gUnk_08121538
 	.4byte gUnk_0812155C

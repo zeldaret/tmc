@@ -40,7 +40,7 @@ gUnk_081114BA:: @ 081114BA
 gUnk_081114E3:: @ 081114E3
 	.incbin "mountainMinish/gUnk_081114E3.bin"
 
-gUnk_081114E8:: @ 081114E8
+gSpriteAnimations_MountainMinish:: @ 081114E8
 	.4byte gUnk_08111380
 	.4byte gUnk_08111385
 	.4byte gUnk_0811138A

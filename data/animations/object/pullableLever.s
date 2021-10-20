@@ -88,7 +88,7 @@ gUnk_0812232C:: @ 0812232C
 gUnk_08122330:: @ 08122330
 	.incbin "pullableLever/gUnk_08122330.bin"
 
-gUnk_08122334:: @ 08122334
+gSpriteAnimations_PullableLever:: @ 08122334
 	.4byte gUnk_081222C4
 	.4byte gUnk_081222C8
 	.4byte gUnk_081222CC

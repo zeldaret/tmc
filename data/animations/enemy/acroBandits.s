@@ -49,7 +49,7 @@ gUnk_080CE6E7:: @ 080CE6E7
 gUnk_080CE727:: @ 080CE727
 	.incbin "acroBandits/gUnk_080CE727.bin"
 
-gUnk_080CE770:: @ 080CE770
+gSpriteAnimations_AcroBandits:: @ 080CE770
 	.4byte gUnk_080CE60E
 	.4byte gUnk_080CE626
 	.4byte gUnk_080CE657

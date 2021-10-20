@@ -11,7 +11,7 @@ gUnk_08122264:: @ 08122264
 gUnk_08122268:: @ 08122268
 	.incbin "minishSizedEntrance/gUnk_08122268.bin"
 
-gUnk_0812226C:: @ 0812226C
+gSpriteAnimations_MinishSizedEntrance:: @ 0812226C
 	.4byte gUnk_08122264
 	.4byte gUnk_08122268
 	.4byte 00000000

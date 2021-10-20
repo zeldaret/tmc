@@ -20,7 +20,7 @@ script_08013FF0:
 	Call sub_0807DF28
 	EndBlock
 	_0807EB28 0x1508
-	_0807EA94
+	WaitUntilTextboxCloses
 	StartPlayerScript script_08010A14
 	WaitForSomething2 0x00000001
 	Call sub_0807DF50

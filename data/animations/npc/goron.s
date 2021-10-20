@@ -28,7 +28,7 @@ gUnk_08111B1A:: @ 08111B1A
 gUnk_08111B3B:: @ 08111B3B
 	.incbin "goron/gUnk_08111B3B.bin"
 
-gUnk_08111B60:: @ 08111B60
+gSpriteAnimations_Goron:: @ 08111B60
 	.4byte gUnk_08111AC4
 	.4byte gUnk_08111AC9
 	.4byte gUnk_08111ACE

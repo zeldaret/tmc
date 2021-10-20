@@ -5,7 +5,7 @@
 extern void (*const gOcarinaStates[4])(ItemBehavior*, u32);
 
 extern void sub_08078F60(void);
-extern void sub_0805E544(void);
+extern void FreezeTime(void);
 
 extern void CreateBird(void);
 extern void UnfreezeTime(void);
@@ -32,7 +32,7 @@ void OcarinaUse(ItemBehavior* this, u32 arg1) {
         sub_08078F60();
         sub_08077D38(this, arg1);
         SoundReq(SFX_216);
-        sub_0805E544();
+        FreezeTime();
     }
 }
 

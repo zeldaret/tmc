@@ -28,7 +28,7 @@ gUnk_08120B9A:: @ 08120B9A
 gUnk_08120BAB:: @ 08120BAB
 	.incbin "eyeSwitch/gUnk_08120BAB.bin"
 
-gUnk_08120BBC:: @ 08120BBC
+gSpriteAnimations_EyeSwitch:: @ 08120BBC
 	.4byte gUnk_08120B34
 	.4byte gUnk_08120B45
 	.4byte gUnk_08120B56

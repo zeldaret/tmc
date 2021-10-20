@@ -10,7 +10,7 @@ script_080149DE:
 	_0807E864
 	_0807EB74
 	Call sub_0806C90C
-	_0807EA94
+	WaitUntilTextboxCloses
 	CheckLocalFlag 0x0064
 	JumpIfNot script_08014A20
 	CheckLocalFlag 0x00b1
@@ -38,7 +38,7 @@ script_08014A36:
 	_0807E864
 	_0807EB74
 	Call sub_0806C90C
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_08014A36
@@ -54,7 +54,7 @@ script_08014A62:
 	_0807E864
 	_0807EB74
 	Call sub_0806C90C
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_08014A62

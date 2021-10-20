@@ -43,7 +43,7 @@ gUnk_081212B0:: @ 081212B0
 gUnk_081212B4:: @ 081212B4
 	.incbin "pullableMushroom/gUnk_081212B4.bin"
 
-gUnk_081212B8:: @ 081212B8
+gSpriteAnimations_PullableMushroom:: @ 081212B8
 	.4byte gUnk_08121204
 	.4byte gUnk_08121208
 	.4byte gUnk_08121235

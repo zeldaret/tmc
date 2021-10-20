@@ -13,7 +13,7 @@ script_0800975A:
 	_0807EB74
 	DoPostScriptAction 0x0000
 	Call sub_08065F64
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_0800975A
 	.2byte 0x0000
@@ -40,7 +40,7 @@ SCRIPT_START script_08009778
 	_0807E8E4_3
 	Wait 0x001e
 	_0807EB28 0x2809
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
 	DoPostScriptAction 0x0006

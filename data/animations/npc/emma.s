@@ -10,7 +10,7 @@ gUnk_081138DC:: @ 081138DC
 gUnk_081138E1:: @ 081138E1
 	.incbin "emma/gUnk_081138E1.bin"
 
-gUnk_081138FC:: @ 081138FC
+gSpriteAnimations_Emma:: @ 081138FC
 	.4byte gUnk_081138DC
 	.4byte gUnk_081138DC
 	.4byte gUnk_081138E1

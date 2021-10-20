@@ -13,7 +13,7 @@ gUnk_0810C365:: @ 0810C365
 gUnk_0810C382:: @ 0810C382
 	.incbin "marcy/gUnk_0810C382.bin"
 
-gUnk_0810C390:: @ 0810C390
+gSpriteAnimations_Marcy:: @ 0810C390
 	.4byte gUnk_0810C360
 	.4byte gUnk_0810C360
 	.4byte gUnk_0810C360

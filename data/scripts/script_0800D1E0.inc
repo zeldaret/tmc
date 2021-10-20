@@ -5,7 +5,7 @@ SCRIPT_START script_0800D1E0
 	CallWithArg sub_0807F238, 0x000001e2
 	Call sub_0807F304
 	TextboxNoOverlap 0x0502
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000008
 	Call sub_080791BC
 SCRIPT_END

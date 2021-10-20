@@ -19,7 +19,7 @@ gUnk_08111BCD:: @ 08111BCD
 gUnk_08111BF2:: @ 08111BF2
 	.incbin "goronMerchant/gUnk_08111BF2.bin"
 
-gUnk_08111C18:: @ 08111C18
+gSpriteAnimations_GoronMerchant:: @ 08111C18
 	.4byte gUnk_08111BC3
 	.4byte gUnk_08111BBE
 	.4byte gUnk_08111BC3

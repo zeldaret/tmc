@@ -11,13 +11,13 @@ gUnk_08123E80:: @ 08123E80
 gUnk_08123E88:: @ 08123E88
 	.incbin "object93/gUnk_08123E88.bin"
 
-gUnk_08123E9C:: @ 08123E9C
+gSpriteAnimations_Object93_0:: @ 08123E9C
 	.4byte gUnk_08123E88
-	.incbin "object93/gUnk_08123E9C.bin"
+	.incbin "object93/gSpriteAnimations_Object93_0.bin"
 
 gUnk_08123EA4:: @ 08123EA4
 	.incbin "object93/gUnk_08123EA4.bin"
 
-gUnk_08123EB8:: @ 08123EB8
+gSpriteAnimations_Object93_1:: @ 08123EB8
 	.4byte gUnk_08123EA4
-	.incbin "object93/gUnk_08123EB8.bin"
+	.incbin "object93/gSpriteAnimations_Object93_1.bin"

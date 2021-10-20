@@ -17,7 +17,7 @@ script_080145F8:
 	_0807E8E4_3
 	_0807EB44 0x0002
 	TextboxNoOverlapFollowPos 0x432b, 0x000c
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x0018
 	_0807E878
 	Jump script_080145F8
@@ -73,7 +73,7 @@ script_0801463A:
 	JumpIfNot script_0801463A
 	_0807E864
 	_0807EB28 0x431f
-	_0807EA94
+	WaitUntilTextboxCloses
 script_0801469A:
 	StartPlayerScript script_080147DC
 	Wait 0x0010
@@ -128,7 +128,7 @@ script_08014672:
 	JumpIfNot script_0801463A
 	_0807E864
 	_0807EB28 0x431f
-	_0807EA94
+	WaitUntilTextboxCloses
 	StartPlayerScript script_080147DC
 	Wait 0x0010
 	_0807E5F8 0x00000002
@@ -175,7 +175,7 @@ script_0801474A:
 	SetRoomFlag 0x000a
 .endif
 	TextboxNoOverlapFollowPos 0x4305, 0x000c
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E3BC 0x0001
 	JumpIfNot script_080147C4
 	TextboxNoOverlapFollowPos 0x4306, 0x000c
@@ -199,7 +199,7 @@ script_0801472E:
 script_0801473C:
 	_0807E3E8
 	JumpIfNot script_08014770
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E3BC 0x0001
 	JumpIfNot script_080147C4
 	SetRoomFlag 0x0001
@@ -208,7 +208,7 @@ script_08014754:
 	CheckRoomFlag 0x0003
 	JumpIfNot script_08014754
 	ClearRoomFlag 0x0003
-	_0807EA94
+	WaitUntilTextboxCloses
 .ifdef EU
 	SetRoomFlag 0x0009
 .else
@@ -222,7 +222,7 @@ script_08014770:
 .else
 	SetRoomFlag 0x0009
 .endif
-	_0807EA94
+	WaitUntilTextboxCloses
 	Jump script_080147CE
 script_0801477A:
 	CheckRoomFlag 0x0008
@@ -231,7 +231,7 @@ script_0801477A:
 	JumpIf script_080147A4
 script_0801478A:
 	Call sub_08088478
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_080885B0
 	WaitPlayerAction8
 	_0807E5F8 0x00000008
@@ -254,7 +254,7 @@ script_080147C4:
 .endif
 	TextboxNoOverlapFollowPos 0x4307, 0x000c
 script_080147CE:
-	_0807EA94
+	WaitUntilTextboxCloses
 .ifdef EU
 	Wait 0x000F
 .else

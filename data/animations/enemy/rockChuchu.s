@@ -12,7 +12,7 @@ gUnk_080CB995:: @ 080CB995
 gUnk_080CB9D6:: @ 080CB9D6
 	.incbin "rockChuchu/gUnk_080CB9D6.bin"
 
-gUnk_080CBA18:: @ 080CBA18
+gSpriteAnimations_RockChuchu:: @ 080CBA18
 	.4byte gUnk_080CB96C
 	.4byte gUnk_080CB995
 	.4byte gUnk_080CB9D6

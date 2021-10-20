@@ -16,7 +16,7 @@ gUnk_08129BA6:: @ 08129BA6
 gUnk_08129BB7:: @ 08129BB7
 	.incbin "projectile11/gUnk_08129BB7.bin"
 
-gUnk_08129BC8:: @ 08129BC8
+gSpriteAnimations_LakituCloudProjectile:: @ 08129BC8
 	.4byte gUnk_08129B84
 	.4byte gUnk_08129B95
 	.4byte gUnk_08129B84

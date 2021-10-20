@@ -475,7 +475,7 @@
 	.2byte \s
 .endm
 
-.macro _0807EA94 
+.macro WaitUntilTextboxCloses 
 	.2byte 0x0459
 .endm
 

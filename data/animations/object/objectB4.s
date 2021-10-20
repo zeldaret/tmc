@@ -15,7 +15,7 @@ gUnk_08124BA9:: @ 08124BA9
 	.incbin "objectB4/gUnk_08124BA9_1_USA-JP-DEMO_USA-DEMO_JP.bin"
 .endif
 
-gUnk_08124BFC:: @ 08124BFC
+gSpriteAnimations_ObjectB4:: @ 08124BFC
 	.4byte gUnk_08124B38
 	.4byte gUnk_08124BA9
 	.4byte 00000000

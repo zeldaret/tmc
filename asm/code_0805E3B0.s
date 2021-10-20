@@ -246,8 +246,8 @@ _0805E53C:
 	.align 2, 0
 _0805E540: .4byte gUnk_03003DC0
 
-	thumb_func_start sub_0805E544
-sub_0805E544: @ 0x0805E544
+	thumb_func_start FreezeTime
+FreezeTime: @ 0x0805E544
 	ldr r1, _0805E55C @ =gUnk_03003DC0
 	movs r3, #6
 	movs r0, #6

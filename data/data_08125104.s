@@ -854,7 +854,7 @@ gUnk_0812713A:: @ 0812713A
 gUnk_08127143:: @ 08127143
 	.incbin "data_08125104/gUnk_08127143.bin"
 
-gUnk_0812714C:: @ 0812714C
+gSpriteAnimations_166:: @ 0812714C
 	.4byte gUnk_08126EF4
 	.4byte gUnk_08126EF8
 	.4byte gUnk_08126EFD

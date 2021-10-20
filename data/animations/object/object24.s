@@ -19,7 +19,7 @@ gUnk_08120BFD:: @ 08120BFD
 gUnk_08120C01:: @ 08120C01
 	.incbin "object24/gUnk_08120C01.bin"
 
-gUnk_08120C08:: @ 08120C08
+gSpriteAnimations_Object24:: @ 08120C08
 	.4byte gUnk_08120BF1
 	.4byte gUnk_08120BF5
 	.4byte gUnk_08120BF9

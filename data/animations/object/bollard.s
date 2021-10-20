@@ -16,7 +16,7 @@ gUnk_0812131C:: @ 0812131C
 gUnk_0812133C:: @ 0812133C
 	.incbin "bollard/gUnk_0812133C.bin"
 
-gUnk_08121358:: @ 08121358
+gSpriteAnimations_Bollard:: @ 08121358
 	.4byte gUnk_08121314
 	.4byte gUnk_08121318
 	.4byte gUnk_0812131C

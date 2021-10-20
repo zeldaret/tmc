@@ -82,7 +82,7 @@ gUnk_080CCB6E:: @ 080CCB6E
 gUnk_080CCB7F:: @ 080CCB7F
 	.incbin "businessScrub/gUnk_080CCB7F.bin"
 
-gUnk_080CCB94:: @ 080CCB94
+gSpriteAnimations_BusinessScrub:: @ 080CCB94
 	.4byte gUnk_080CCA1F
 	.4byte gUnk_080CCA34
 	.4byte gUnk_080CCA0A

@@ -16,7 +16,7 @@ gUnk_08114276:: @ 08114276
 gUnk_0811428F:: @ 0811428F
 	.incbin "clothesRack/gUnk_0811428F.bin"
 
-gUnk_081142A8:: @ 081142A8
+gSpriteAnimations_ClothesRack:: @ 081142A8
 	.4byte gUnk_08114244
 	.4byte gUnk_0811425D
 	.4byte gUnk_08114276

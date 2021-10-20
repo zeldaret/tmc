@@ -1482,7 +1482,7 @@ _080B27E4:
 
 	arm_func_start sub_080B27F4
 sub_080B27F4: @ 0x080B27F4
-	ldr sl, _080B2A5C @ =gUnk_082F3D74
+	ldr sl, _080B2A5C @ =gFrameObjLists
 	ldr r2, [sl, r1, lsl #2]
 	add r2, r2, sl
 	ldr r0, [r2, r0, lsl #2]
@@ -1493,7 +1493,7 @@ sub_080B27F4: @ 0x080B27F4
 sub_080B280C: @ 0x080B280C
 	cmp r2, #0xff
 	bxeq lr
-	ldr r3, _080B2A60 @ =gUnk_082F3D74
+	ldr r3, _080B2A60 @ =gFrameObjLists
 	ldr r1, [r3, r1, lsl #2]
 	add r1, r1, r2, lsl #2
 	ldr r1, [r3, r1]
@@ -1890,8 +1890,8 @@ _080B2A4C: .4byte gUnk_081326EC
 _080B2A50: .4byte gUnk_081326EC
 _080B2A54: .4byte gUnk_0300694C
 _080B2A58: .4byte gUnk_020000C0
-_080B2A5C: .4byte gUnk_082F3D74
-_080B2A60: .4byte gUnk_082F3D74
+_080B2A5C: .4byte gFrameObjLists
+_080B2A60: .4byte gFrameObjLists
 _080B2A64: .4byte gUnk_03000000
 _080B2A68: .4byte gUnk_0300695C
 _080B2A6C: .4byte 0x3E003F00

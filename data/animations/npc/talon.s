@@ -28,7 +28,7 @@ gUnk_0810FF16:: @ 0810FF16
 gUnk_0810FF27:: @ 0810FF27
 	.incbin "talon/gUnk_0810FF27.bin"
 
-gUnk_0810FF38:: @ 0810FF38
+gSpriteAnimations_Talon:: @ 0810FF38
 	.4byte gUnk_0810FEE5
 	.4byte gUnk_0810FEEF
 	.4byte gUnk_0810FEE0

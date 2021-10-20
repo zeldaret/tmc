@@ -13,7 +13,7 @@ gUnk_081225BC:: @ 081225BC
 gUnk_081225D8:: @ 081225D8
 	.incbin "thoughtBubble/gUnk_081225D8.bin"
 
-gUnk_081225F4:: @ 081225F4
+gSpriteAnimations_ThoughtBubble:: @ 081225F4
 	.4byte gUnk_081225A0
 	.4byte gUnk_081225BC
 	.4byte gUnk_081225D8

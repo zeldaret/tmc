@@ -25,7 +25,7 @@ gUnk_0810C9F1:: @ 0810C9F1
 gUnk_0810CA2E:: @ 0810CA2E
 	.incbin "beedle/gUnk_0810CA2E.bin"
 
-gUnk_0810CA6C:: @ 0810CA6C
+gSpriteAnimations_Beedle:: @ 0810CA6C
 	.4byte gUnk_0810C968
 	.4byte gUnk_0810C968
 	.4byte gUnk_0810C968

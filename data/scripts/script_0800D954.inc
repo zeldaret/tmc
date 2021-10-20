@@ -18,18 +18,18 @@ script_0800D962:
 	PlaySound SFX_ELEMENT_FLOAT
 	SetEntity0x20 0xffff8000
 	TextboxNoOverlap 0x1701
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
 	TextboxNoOverlap 0x1702
-	_0807EA94
+	WaitUntilTextboxCloses
 	SetEntity0x20 0x00010000
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
 	_0807F050 0x006d
 	WaitPlayerAction8
 	_0807EB28 0x1703
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x003c
 	SetLocalFlag 0x0032
 	PlaySound SFX_113

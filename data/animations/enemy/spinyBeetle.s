@@ -19,7 +19,7 @@ gUnk_080CEC4B:: @ 080CEC4B
 gUnk_080CEC5C:: @ 080CEC5C
 	.incbin "spinyBeetle/gUnk_080CEC5C.bin"
 
-gUnk_080CEC70:: @ 080CEC70
+gSpriteAnimations_SpinyBeetle:: @ 080CEC70
 	.4byte gUnk_080CEC24
 	.4byte gUnk_080CEC29
 	.4byte gUnk_080CEC42

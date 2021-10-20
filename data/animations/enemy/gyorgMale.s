@@ -10,7 +10,7 @@ gUnk_080D1C70:: @ 080D1C70
 gUnk_080D1C91:: @ 080D1C91
 	.incbin "gyorgMale/gUnk_080D1C91.bin"
 
-gUnk_080D1CBC:: @ 080D1CBC
+gSpriteAnimations_GyorgMale:: @ 080D1CBC
 	.4byte gUnk_080D1C70
 	.4byte gUnk_080D1C91
 	.4byte 00000000

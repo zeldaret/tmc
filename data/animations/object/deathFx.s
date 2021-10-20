@@ -16,12 +16,12 @@ gUnk_0811ED86:: @ 0811ED86
 gUnk_0811EDB7:: @ 0811EDB7
 	.incbin "deathFx/gUnk_0811EDB7.bin"
 
-gUnk_0811EE10:: @ 0811EE10
+gSpriteAnimations_DeathFx_1:: @ 0811EE10
 	.4byte gUnk_0811ECD4
 	.4byte gUnk_0811ED86
 	.4byte gUnk_0811ED4D
 	.4byte 00000000
 
-gUnk_0811EE20:: @ 0811EE20
+gSpriteAnimations_DeathFx_0:: @ 0811EE20
 	.4byte gUnk_0811EDB7
 	.4byte 00000000

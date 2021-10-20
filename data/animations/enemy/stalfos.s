@@ -112,7 +112,7 @@ gUnk_080CFAE6:: @ 080CFAE6
 gUnk_080CFAEA:: @ 080CFAEA
 	.incbin "stalfos/gUnk_080CFAEA.bin"
 
-gUnk_080CFAF0:: @ 080CFAF0
+gSpriteAnimations_Stalfos:: @ 080CFAF0
 	.4byte gUnk_080CF942
 	.4byte gUnk_080CF946
 	.4byte gUnk_080CF94A

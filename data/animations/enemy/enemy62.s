@@ -196,7 +196,7 @@ gUnk_080D2786:: @ 080D2786
 gUnk_080D2797:: @ 080D2797
 	.incbin "enemy62/gUnk_080D2797.bin"
 
-gUnk_080D27A8:: @ 080D27A8
+gSpriteAnimations_Enemy62:: @ 080D27A8
 	.4byte gUnk_080D2368
 	.4byte gUnk_080D2379
 	.4byte gUnk_080D238A

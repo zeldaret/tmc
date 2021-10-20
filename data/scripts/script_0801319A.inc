@@ -14,7 +14,7 @@ SCRIPT_START script_080131AC
 	StartPlayerScript script_080132E4
 	WaitForSomething2 0x00000002
 	_0807EB28 0x1601
-	_0807EA94
+	WaitUntilTextboxCloses
 	StartPlayerScript script_0801330C
 	WaitForSomething2 0x00000002
 	_0807E778 0x0004
@@ -32,7 +32,7 @@ SCRIPT_START script_080131AC
 	Call sub_0807DF28
 	WaitFor_2
 	TextboxNoOverlapFollowPos 0x1602, 0x000c
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000008
 	WaitForSomething2 0x00000010
 	_0807E5F8 0x00000020
@@ -46,7 +46,7 @@ SCRIPT_START script_080131AC
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000042
 	TextboxNoOverlapFollowPos 0x1603, 0x000c
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E5F8 0x00000020
 	WaitForSomething2 0x00000040
 	_0807E788 0xffff7fff
@@ -59,7 +59,7 @@ SCRIPT_START script_080131AC
 	CameraTargetPlayer
 	Call sub_0807F5C0
 	TextboxNoOverlapFollowPos 0x1604, 0x0007
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E788 0xffffffff
 	_0807E778 0x0004
 	DoFade4
@@ -67,7 +67,7 @@ SCRIPT_START script_080131AC
 	_0807E5F8 0x00000004
 	WaitForSomething2 0x00000002
 	_0807EB28 0x1605
-	_0807EA94
+	WaitUntilTextboxCloses
 	SetLocalFlag 0x0078
 	PlayBgm BGM_CASTLE_COLLAPSE
 	SetGlobalFlag 0x005d

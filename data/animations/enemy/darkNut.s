@@ -232,7 +232,7 @@ gUnk_080CB3E6:: @ 080CB3E6
 gUnk_080CB40F:: @ 080CB40F
 	.incbin "darkNut/gUnk_080CB40F.bin"
 
-gUnk_080CB438:: @ 080CB438
+gSpriteAnimations_DarkNut_0:: @ 080CB438
 	.4byte gUnk_080CAB6C
 	.4byte gUnk_080CAB70
 	.4byte gUnk_080CAB74
@@ -283,7 +283,7 @@ gUnk_080CB438:: @ 080CB438
 	.4byte gUnk_080CAEE0
 	.4byte 00000000
 
-gUnk_080CB4FC:: @ 080CB4FC
+gSpriteAnimations_DarkNut_1:: @ 080CB4FC
 	.4byte gUnk_080CAEF0
 	.4byte gUnk_080CAF20
 	.4byte gUnk_080CAF50

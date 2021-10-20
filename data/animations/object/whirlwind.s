@@ -10,6 +10,6 @@ gUnk_08122800:: @ 08122800
 gUnk_08122819:: @ 08122819
 	.incbin "whirlwind/gUnk_08122819.bin"
 
-gUnk_08122834:: @ 08122834
+gSpriteAnimations_Whirlwind:: @ 08122834
 	.4byte gUnk_08122800
 	.4byte gUnk_08122819

@@ -28,7 +28,7 @@ SCRIPT_START script_08016482
 	_0807E9DC
 	_0807E9E4 0x0000
 	_0807EA88 0x0001
-	_0807EA94
+	WaitUntilTextboxCloses
 	TextboxNoOverlapFollow 0x0601
 	TextboxNoOverlap 0x0601
 	TextboxNoOverlapFollowPos_1 0x0601

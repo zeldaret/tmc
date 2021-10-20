@@ -19,7 +19,7 @@ gUnk_080CF85F:: @ 080CF85F
 gUnk_080CF87F:: @ 080CF87F
 	.incbin "cuccoAggr/gUnk_080CF87F.bin"
 
-gUnk_080CF890:: @ 080CF890
+gSpriteAnimations_CuccoAggr:: @ 080CF890
 	.4byte gUnk_080CF831
 	.4byte gUnk_080CF836
 	.4byte gUnk_080CF847

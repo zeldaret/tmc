@@ -14,7 +14,7 @@ script_08014978:
 	_0807E864
 	_0807EB74
 	Call sub_0806C90C
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_08014978
@@ -31,7 +31,7 @@ script_080149AA:
 	_0807E864
 	_0807EB74
 	Call sub_0806C90C
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_080149AA

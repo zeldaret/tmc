@@ -25,7 +25,7 @@ gUnk_08113645:: @ 08113645
 gUnk_0811364A:: @ 0811364A
 	.incbin "simon/gUnk_0811364A.bin"
 
-gUnk_081136B0:: @ 081136B0
+gSpriteAnimations_Simon:: @ 081136B0
 	.4byte gUnk_0811362C
 	.4byte gUnk_08113631
 	.4byte gUnk_0811362C

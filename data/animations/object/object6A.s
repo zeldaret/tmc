@@ -11,7 +11,7 @@ gUnk_08122B4C:: @ 08122B4C
 gUnk_08122B55:: @ 08122B55
 	.incbin "object6A/gUnk_08122B55.bin"
 
-gUnk_08122B64:: @ 08122B64
+gSpriteAnimation_Object6A_9:: @ 08122B64
 	.4byte gUnk_08122B4C
 	.4byte gUnk_08122B55
 	.4byte 00000000
@@ -46,7 +46,7 @@ gUnk_08122B98:: @ 08122B98
 gUnk_08122BB1:: @ 08122BB1
 	.incbin "object6A/gUnk_08122BB1.bin"
 
-gUnk_08122BC8:: @ 08122BC8
+gSpriteAnimations_Object6A_5:: @ 08122BC8
 	.4byte gUnk_08122B98
 	.4byte gUnk_08122BB1
 	.4byte gUnk_08122B70
@@ -77,7 +77,7 @@ gUnk_08122C74:: @ 08122C74
 gUnk_08122C89:: @ 08122C89
 	.incbin "object6A/gUnk_08122C89.bin"
 
-gUnk_08122C90:: @ 08122C90
+gSpriteAnimations_Object6A:: @ 08122C90
 	.4byte gUnk_08122BF4
 	.4byte gUnk_08122C0B
 	.4byte gUnk_08122BFD
@@ -92,7 +92,7 @@ gUnk_08122CAC:: @ 08122CAC
 gUnk_08122CB5:: @ 08122CB5
 	.incbin "object6A/gUnk_08122CB5.bin"
 
-gUnk_08122CBC:: @ 08122CBC
+gSpriteAnimations_Object6A_2:: @ 08122CBC
 	.4byte gUnk_08122CAC
 	.4byte gUnk_08122CB5
 	.4byte 00000000
@@ -109,7 +109,7 @@ gUnk_08122CD6:: @ 08122CD6
 gUnk_08122CDB:: @ 08122CDB
 	.incbin "object6A/gUnk_08122CDB.bin"
 
-gUnk_08122CE4:: @ 08122CE4
+gSpriteAnimations_Object6A_0:: @ 08122CE4
 	.4byte gUnk_08122CC8
 	.4byte gUnk_08122CD1
 	.4byte gUnk_08122CD6
@@ -122,7 +122,7 @@ gUnk_08122CF8:: @ 08122CF8
 gUnk_08122CFD:: @ 08122CFD
 	.incbin "object6A/gUnk_08122CFD.bin"
 
-gUnk_08122D04:: @ 08122D04
+gSpriteAnimations_Object6A_1:: @ 08122D04
 	.4byte gUnk_08122CF8
 	.4byte gUnk_08122CFD
 	.4byte 00000000
@@ -193,7 +193,7 @@ gUnk_08122EA4:: @ 08122EA4
 gUnk_08122EAD:: @ 08122EAD
 	.incbin "object6A/gUnk_08122EAD.bin"
 
-gUnk_08122ED0:: @ 08122ED0
+gSpriteAnimations_Object6A_6:: @ 08122ED0
 	.4byte gUnk_08122D10
 	.4byte gUnk_08122D19
 	.4byte gUnk_08122D22
@@ -260,7 +260,7 @@ gUnk_0812302C:: @ 0812302C
 gUnk_08123059:: @ 08123059
 	.incbin "object6A/gUnk_08123059.bin"
 
-gUnk_0812308C:: @ 0812308C
+gSpriteAnimations_Object6A_3:: @ 0812308C
 	.4byte gUnk_08122F2C
 	.4byte gUnk_08122F31
 	.4byte gUnk_08122F52
@@ -280,9 +280,9 @@ gUnk_0812308C:: @ 0812308C
 gUnk_081230C8:: @ 081230C8
 	.incbin "object6A/gUnk_081230C8.bin"
 
-gUnk_0812311C:: @ 0812311C
+gSpriteAnimations_Object6A_4:: @ 0812311C
 	.4byte gUnk_081230C8
-	.incbin "object6A/gUnk_0812311C.bin"
+	.incbin "object6A/gSpriteAnimations_Object6A_4.bin"
 
 gUnk_08123124:: @ 08123124
 	.incbin "object6A/gUnk_08123124.bin"
@@ -293,7 +293,7 @@ gUnk_08123129:: @ 08123129
 gUnk_0812312E:: @ 0812312E
 	.incbin "object6A/gUnk_0812312E.bin"
 
-gUnk_08123140:: @ 08123140
+gSpriteAnimations_Object6A_7:: @ 08123140
 	.4byte gUnk_08123124
 	.4byte gUnk_0812312E
 	.4byte gUnk_08123129
@@ -302,6 +302,6 @@ gUnk_08123140:: @ 08123140
 gUnk_08123150:: @ 08123150
 	.incbin "object6A/gUnk_08123150.bin"
 
-gUnk_08123160:: @ 08123160
+gSpriteAnimations_Object6A_8:: @ 08123160
 	.4byte gUnk_08123150
 	.4byte 00000000

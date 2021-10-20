@@ -100,7 +100,7 @@ gUnk_080D117E:: @ 080D117E
 gUnk_080D1197:: @ 080D1197
 	.incbin "vaatiWrath/gUnk_080D1197.bin"
 
-gUnk_080D11AC:: @ 080D11AC
+gSpriteAnimations_VaatiWrath:: @ 080D11AC
 	.4byte gUnk_080D0ED0
 	.4byte gUnk_080D0EE9
 	.4byte gUnk_080D0F02

@@ -40,7 +40,7 @@ gUnk_081297EE:: @ 081297EE
 gUnk_081297F3:: @ 081297F3
 	.incbin "projectile7/gUnk_081297F3.bin"
 
-gUnk_081297F8:: @ 081297F8
+gSpriteAnimations_WindProjectile:: @ 081297F8
 	.4byte gUnk_081297AC
 	.4byte gUnk_081297B5
 	.4byte gUnk_081297BE

@@ -12,7 +12,7 @@ script_0801027A:
 	_0807E864
 	_0807EB74
 	Call sub_08065F64
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_0801027A
 	.align 2
@@ -30,7 +30,7 @@ script_080102A6:
 	_0807E864
 	_0807EB74
 	Call sub_0806265C
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Call sub_08062500
 	Jump script_080102A6
@@ -38,7 +38,7 @@ script_080102CC:
 	_0807E864
 	_0807EB74
 	Call sub_0806265C
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_080102A6
 	.2byte 0x0000
@@ -54,7 +54,7 @@ script_080102F2:
 	_0807E864
 	_0807EB74
 	Call sub_0806265C
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_080102F2
 	.2byte 0x0000
@@ -138,7 +138,7 @@ script_08010410:
 	_0807E864
 	_0807EB74
 	Call sub_08064428
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_08010410
 SCRIPT_START script_08010428
@@ -169,7 +169,7 @@ script_08010470:
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000004
 	Call sub_080636D8
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	CallWithArg sub_0807F3D8, 0x00000000
@@ -189,7 +189,7 @@ script_080104BC:
 	_0807EB74
 	CallWithArg sub_0807F3D8, 0x00000004
 	Call sub_08063C90
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	CallWithArg sub_0807F3D8, 0x00000000
@@ -212,7 +212,7 @@ script_08010502:
 	JumpIf script_0801052E
 	SetRoomFlag 0x000e
 	TextboxNoOverlap 0x2b10
-	_0807EA94
+	WaitUntilTextboxCloses
 script_0801052E:
 	Call sub_080634E4
 	JumpTable script_08010544, script_08010558, script_08010570, script_08010570, script_0801054C, script_08010564, script_08010570
@@ -234,7 +234,7 @@ script_08010564:
 script_08010570:
 	Call sub_080634EC
 	CallWithArg sub_0807F78C, 0x00000000
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E3E8
 	JumpIfNot script_080105E0
 	CallWithArg sub_0807F7C4, 0x00000000
@@ -244,10 +244,10 @@ script_08010570:
 	Call sub_08063504
 	JumpIf script_080105D4
 	TextboxNoOverlap 0x2b07
-	_0807EA94
+	WaitUntilTextboxCloses
 	CallWithArg sub_0807F800, 0x00000000
 	WaitPlayerAction8
-	_0807EA94
+	WaitUntilTextboxCloses
 	TextboxNoOverlap 0x2b0c
 	Jump script_080105E0
 script_080105C4:
@@ -262,7 +262,7 @@ script_080105D4:
 script_080105DC:
 	TextboxNoOverlap 0x2b0e
 script_080105E0:
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
 	Jump script_08010502
@@ -279,7 +279,7 @@ script_08010602:
 	_0807E864
 	_0807EB74
 	TextboxNoOverlapFollow 0x0a01
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	_0807EB44 0x0004
 	Jump script_08010602
@@ -295,7 +295,7 @@ script_0801062E:
 	JumpIfNot script_0801062E
 	_0807E864
 	Call sub_0806265C
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	Jump script_0801062E
 SCRIPT_START script_08010644
@@ -331,7 +331,7 @@ script_08010686:
 	HasRoomItemForSale
 	Call sub_0807F77C
 	TextboxNoOverlapFollowTable 0x3c08, 0x3c09
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	_0807EB44 0x0004
 	Jump script_08010686
@@ -357,10 +357,10 @@ script_080106BE:
 script_080106E0:
 	Call sub_08062EB8
 	CallWithArg sub_0807F78C, 0x00000000
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E3E8
 	JumpIfNot script_08010726
-	_0807EA94
+	WaitUntilTextboxCloses
 	BuyItem 0x0000, 0x0000
 	JumpIf script_0801070C
 	TextboxNoOverlap 0x3c04
@@ -375,7 +375,7 @@ script_0801070C:
 script_08010724:
 	WaitPlayerAction8
 script_08010726:
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	DoPostScriptAction 0x0001
 	Jump script_080106BE
@@ -396,7 +396,7 @@ script_08010746:
 	Call sub_08062D18
 	JumpIfNot script_08010786
 	EndBlock
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E3E8
 	JumpIfNot script_08010786
 	HasRupees 0x00c8
@@ -409,7 +409,7 @@ script_08010778:
 	TextboxNoOverlap 0x4007
 script_08010786:
 	EndBlock
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	_0807E930 0x0008
 	Jump script_08010746
@@ -428,7 +428,7 @@ script_080107AA:
 	Call sub_0807F2D4
 	DoPostScriptAction 0x0001
 	Call sub_08062CBC
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E878
 	DoPostScriptAction 0x0000
 	Jump script_080107AA
@@ -484,13 +484,13 @@ script_08010860:
 	Call sub_0807DF38
 	_0807EB74
 	Call sub_08069660
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807E3E8
 	JumpIfNot script_080108B2
 	Call GoronMerchant_TryToBuyKinstone
 	JumpIfNot script_080108B2
 	WaitPlayerAction8
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807EB8C
 	CheckGlobalFlag 0x0042
 	JumpIfNot script_080108AA
@@ -510,10 +510,10 @@ script_080108AA:
 .endif
 	TextboxNoOverlap 0x2c20
 script_080108B2:
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0807F83C
 script_080108BA:
-	_0807EA94
+	WaitUntilTextboxCloses
 	Call sub_0807DF50
 	_0807E878
 	_0807EB44 0x0004
@@ -530,7 +530,7 @@ SCRIPT_START script_080108D0
 	CheckRoomFlag 0x0001
 	JumpIf script_08010900
 	_0807EB28 0x0b63
-	_0807EA94
+	WaitUntilTextboxCloses
 script_08010900:
 	Call sub_0807DF50
 	_0807E878
@@ -550,7 +550,7 @@ script_0801091C:
 	CheckRoomFlag 0x0001
 	JumpIf script_08010942
 	_0807EB28 0x0b62
-	_0807EA94
+	WaitUntilTextboxCloses
 script_08010942:
 	StartPlayerScript script_080109F0
 	WaitForSomething2 0x00000001

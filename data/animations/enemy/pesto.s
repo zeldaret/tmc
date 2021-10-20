@@ -27,7 +27,7 @@ gUnk_080CBF66:: @ 080CBF66
 gUnk_080CBF6F:: @ 080CBF6F
 	.incbin "pesto/gUnk_080CBF6F.bin"
 
-gUnk_080CBF78:: @ 080CBF78
+gSpriteAnimations_Pesto:: @ 080CBF78
 	.4byte gUnk_080CBF30
 	.4byte gUnk_080CBF39
 	.4byte gUnk_080CBF42

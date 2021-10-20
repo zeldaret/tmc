@@ -10,7 +10,7 @@ gUnk_0810C445:: @ 0810C445
 gUnk_0810C44A:: @ 0810C44A
 	.incbin "pita/gUnk_0810C44A.bin"
 
-gUnk_0810C468:: @ 0810C468
+gSpriteAnimations_Pita:: @ 0810C468
 	.4byte gUnk_0810C445
 	.4byte gUnk_0810C445
 	.4byte gUnk_0810C445

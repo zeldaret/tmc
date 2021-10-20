@@ -46,7 +46,7 @@ gUnk_0812A77E:: @ 0812A77E
 gUnk_0812A78B:: @ 0812A78B
 	.incbin "projectile1E/gUnk_0812A78B.bin"
 
-gUnk_0812A798:: @ 0812A798
+gSpriteAnimations_SpikedRollers:: @ 0812A798
 	.4byte gUnk_0812A6E2
 	.4byte gUnk_0812A6EF
 	.4byte gUnk_0812A6FC

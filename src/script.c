@@ -103,7 +103,7 @@ void ScriptCommand_0807E9E4(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807E9F0(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EA4C(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_0807EA88(Entity* entity, ScriptExecutionContext* context);
-void ScriptCommand_0807EA94(Entity* entity, ScriptExecutionContext* context);
+void ScriptCommand_WaitUntilTextboxCloses(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_TextboxNoOverlapFollow(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_TextboxNoOverlap(Entity* entity, ScriptExecutionContext* context);
 void ScriptCommand_TextboxNoOverlapFollowPos(Entity* entity, ScriptExecutionContext* context);
@@ -250,7 +250,7 @@ const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
                                           ScriptCommand_0807E9F0,
                                           ScriptCommand_0807EA4C,
                                           ScriptCommand_0807EA88,
-                                          ScriptCommand_0807EA94,
+                                          ScriptCommand_WaitUntilTextboxCloses,
                                           ScriptCommand_TextboxNoOverlapFollow,
                                           ScriptCommand_TextboxNoOverlap,
                                           ScriptCommand_TextboxNoOverlapFollowPos,
@@ -1189,7 +1189,7 @@ void ScriptCommand_0807EA88(Entity* entity, ScriptExecutionContext* context) {
     sub_08078790(entity, context->scriptInstructionPointer[1]);
 }
 
-void ScriptCommand_0807EA94(Entity* entity, ScriptExecutionContext* context) {
+void ScriptCommand_WaitUntilTextboxCloses(Entity* entity, ScriptExecutionContext* context) {
     if (gTextBox.doTextBox & 0x7F) {
         gActiveScriptInfo.commandSize = 0;
     }

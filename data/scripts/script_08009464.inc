@@ -23,7 +23,7 @@ SCRIPT_START script_08009464
 	WaitPlayerAction8
 	_0807EB8C
 	TextboxNoOverlap 0x1d0c
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000a
 	Jump script_08009376
 	.2byte 0x0000

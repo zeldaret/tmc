@@ -21,7 +21,7 @@ script_0800D2B0:
 	EndBlock
 	_0807E864
 	Call sub_08068190
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800D282
@@ -40,7 +40,7 @@ script_0800D2EE:
 	JumpIfNot script_0800D2EE
 	_0807E864
 	Call sub_08068190
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800D2EE
@@ -63,7 +63,7 @@ script_0800D31E:
 	SetIntVariable 0x00000000
 	Call sub_0806C028
 	TextboxNoOverlapFollow 0x1219
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	_0807E878
 	Jump script_0800D31E
@@ -83,7 +83,7 @@ script_0800D372:
 	EndBlock
 	_0807E864
 	Call sub_08068190
-	_0807EA94
+	WaitUntilTextboxCloses
 	Wait 0x000f
 	CheckLocalFlag 0x007f
 	JumpIf script_0800D3E4

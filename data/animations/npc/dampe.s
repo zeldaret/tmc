@@ -16,7 +16,7 @@ gUnk_0811336E:: @ 0811336E
 gUnk_08113377:: @ 08113377
 	.incbin "dampe/gUnk_08113377.bin"
 
-gUnk_08113380:: @ 08113380
+gSpriteAnimations_Dampe:: @ 08113380
 	.4byte gUnk_08113350
 	.4byte gUnk_08113350
 	.4byte gUnk_08113350

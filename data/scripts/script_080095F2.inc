@@ -5,13 +5,13 @@ SCRIPT_START script_080095F2
 	_0807EB74
 	DoPostScriptAction 0x0001
 	Call sub_0806BE84
-	_0807EA94
+	WaitUntilTextboxCloses
 	JumpIfNot script_08009622
 	PlaySound SFX_109
 	_0807F088 0x003c
 	TextboxNoOverlapFollow 0x053c
 	WaitPlayerAction8
-	_0807EA94
+	WaitUntilTextboxCloses
 	_0807F078 0x003c, 0x0001
 script_08009622:
 	_0807E878
@@ -42,7 +42,7 @@ script_08009660:
 	_0807EB74
 	DoPostScriptAction 0x0001
 	Call sub_0806BEC8
-	_0807EA94
+	WaitUntilTextboxCloses
 	JumpIfNot script_0800968E
 	PlaySound SFX_111
 	PlaySound SFX_SECRET
