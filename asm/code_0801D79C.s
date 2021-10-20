@@ -2202,14 +2202,14 @@ _0801E8BC:
 	bl sub_0801E810
 	cmp r0, #0
 	bne _0801E93A
-	ldr r1, _0801E8F4 @ =0x080C9A5C
+	ldr r1, _0801E8F4 @ =gUnk_080FC3E4
 	lsls r0, r4, #3
 	adds r0, r0, r1
 	ldrb r1, [r0, #4]
 	lsls r0, r1, #2
 	adds r0, r0, r1
 	lsls r0, r0, #2
-	ldr r1, _0801E8F8 @ =0x080FDFD0
+	ldr r1, _0801E8F8 @ =gUnk_080FE320
 	adds r2, r0, r1
 	ldrb r0, [r2, #0x10]
 	cmp r0, #4
@@ -2220,8 +2220,8 @@ _0801E8BC:
 	ldr r0, [r0]
 	mov pc, r0
 	.align 2, 0
-_0801E8F4: .4byte 0x080C9A5C
-_0801E8F8: .4byte 0x080FDFD0
+_0801E8F4: .4byte gUnk_080C9CBC
+_0801E8F8: .4byte gUnk_080FE320
 _0801E8FC: .4byte _0801E900
 _0801E900: @ jump table
 	.4byte _0801E914 @ case 0
