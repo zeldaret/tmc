@@ -433,7 +433,7 @@ SECTIONS {
         src/enemy/miniSlime.o(.text);
         src/enemy/fireballGuy.o(.text);
         src/enemy/miniFireballGuy.o(.text);
-        asm/enemy5A.o(.text);
+        src/enemy/enemy5A.o(.text);
         asm/businessScrubPrologue.o(.text);
         asm/gyorgFemale.o(.text);
         src/enemy/gyorgMale.o(.text);
@@ -1145,7 +1145,7 @@ SECTIONS {
         data/const/enemy/fireballGuy.o(.rodata);
         data/animations/enemy/fireballGuy.o(.rodata);
         data/const/enemy/miniFireballGuy.o(.rodata);
-        data/const/enemy/enemy5A.o(.rodata);
+        src/enemy/enemy5A.o(.rodata);
         data/animations/enemy/enemy5A.o(.rodata);
         data/const/enemy/businessScrubPrologue.o(.rodata);
         data/const/enemy/gyorgFemale.o(.rodata);
