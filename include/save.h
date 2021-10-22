@@ -39,7 +39,9 @@ typedef struct {
     /*0x0A8*/ Stats stats;
     /*0x0D0*/ u8 fillerD0[0x3c0];
     /*0x490*/ u32 unk490;
-    /*0x494*/ u8 filler494[0x20];
+    /*0x494*/ u8 filler494[4];
+    /*0x498*/ u32 filler498;
+    /*0x49c*/ u8 filler49C[0x18];
 } SaveFile;
 
 extern SaveFile gSave;
