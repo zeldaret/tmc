@@ -884,7 +884,7 @@ SECTIONS {
         src/object/objectB2.o(.text);
         asm/objectB3.o(.text);
         asm/objectB4.o(.text);
-        asm/objectB5.o(.text);
+        src/object/objectB5.o(.text);
         asm/objectB6.o(.text);
         src/object/well.o(.text);
         asm/windTribeTeleporter.o(.text);
