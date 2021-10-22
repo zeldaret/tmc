@@ -438,7 +438,7 @@ SECTIONS {
         asm/gyorgFemale.o(.text);
         src/enemy/gyorgMale.o(.text);
         asm/curtain.o(.text);
-        asm/enemy5F.o(.text);
+        src/enemy/enemy5F.o(.text);
         asm/gyorgChild.o(.text);
         asm/gyorgFemaleEye.o(.text);
         asm/enemy62.o(.text);
@@ -1153,7 +1153,7 @@ SECTIONS {
         data/animations/enemy/gyorgMale.o(.rodata);
         data/const/enemy/curtain.o(.rodata);
         data/animations/enemy/curtain.o(.rodata);
-        data/const/enemy/enemy5F.o(.rodata);
+        src/enemy/enemy5F.o(.rodata);
         data/animations/enemy/enemy5F.o(.rodata);
         data/const/enemy/gyorgChild.o(.rodata);
         data/animations/enemy/gyorgChild.o(.rodata);
