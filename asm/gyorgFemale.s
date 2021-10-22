@@ -29,7 +29,7 @@ sub_0804614C: @ 0x0804614C
 	cmp r0, #0x3d
 	bhi _08046244
 	movs r0, #0x22
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r1, r0, #0
 	movs r4, #0
 	strb r4, [r1, #0xa]
@@ -290,12 +290,17 @@ _08046374:
 	bne _0804638A
 	adds r0, r4, #0
 	adds r0, #0x78
+.ifdef EU
+_08046388: @TODO fix jump
+.endif
 	strb r5, [r0]
+.ifndef EU
 	adds r0, #5
 	strb r5, [r0]
 	adds r0, #2
 _08046388:
 	strb r5, [r0]
+.endif
 _0804638A:
 	ldr r0, [r4, #0x64]
 	ldr r0, [r0]
@@ -336,10 +341,16 @@ _080463B8:
 	movs r0, #0x3c
 	strh r0, [r1]
 	adds r0, r4, #0
+.ifdef EU
+	adds r0, #0x80
+.else
 	adds r0, #0x78
+.endif
 	strb r2, [r0]
+.ifndef EU
 	adds r0, #8
 	strb r2, [r0]
+.endif
 _080463E0:
 	pop {r4, r5, pc}
 	.align 2, 0
@@ -406,20 +417,43 @@ _08046454:
 	bne _0804646A
 	adds r0, r4, #0
 	adds r0, #0x78
+.ifdef EU
+_08046468:
+.endif
 	strb r5, [r0]
+.ifndef EU
 	adds r0, #5
 	strb r5, [r0]
 	adds r0, #2
 _08046468:
 	strb r5, [r0]
+.endif
 _0804646A:
 	adds r0, r4, #0
 	adds r0, #0x45
+.ifdef EU
+	ldrb r1, [r0]
+	cmp r1, #0
+	bne _08046494
+.else
 	ldrb r0, [r0]
 	cmp r0, #0
 	bne _08046494
+.endif
 	movs r0, #1
 	strb r0, [r4, #0xc]
+.ifdef EU
+	adds r0, r4, #0
+	adds r0, #0x78
+	strb r1, [r0]
+	adds r1, r4, #0
+	adds r1, #0x70
+	movs r2, #0
+	movs r0, #0x3c
+	strh r0, [r1]
+	adds r0, r4, #0x0
+	adds r0, #0x80
+.else
 	adds r1, r4, #0
 	adds r1, #0x70
 	movs r2, #0
@@ -429,6 +463,7 @@ _0804646A:
 	adds r0, #0x78
 	strb r2, [r0]
 	adds r0, #8
+.endif
 	strb r2, [r0]
 	movs r0, #0x94
 	lsls r0, r0, #1
@@ -439,6 +474,7 @@ _08046494:
 
 	thumb_func_start sub_08046498
 sub_08046498: @ 0x08046498
+.ifndef EU
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldr r0, _080464B8 @ =gUnk_02019EE0
@@ -455,6 +491,7 @@ sub_08046498: @ 0x08046498
 	.align 2, 0
 _080464B8: .4byte gUnk_02019EE0
 _080464BC: .4byte gMapDataTopSpecial
+.endif
 
 	thumb_func_start sub_080464C0
 sub_080464C0: @ 0x080464C0
@@ -669,6 +706,35 @@ _0804665A:
 
 	thumb_func_start sub_08046668
 sub_08046668: @ 0x08046668
+.ifdef EU
+	push {r4, lr}
+	adds r4, r0, #0
+	adds r0, #0x45
+	ldrb r0, [r0]
+	cmp r0, #0
+	beq _08046468EU
+	bl Random
+	ldr r2, _0804646C @ =gUnk_080D1AF8
+	movs r1, #3
+	ands r1, r0
+	adds r1, r1, r2
+	ldrb r1, [r1]
+	adds r0, r4, #0
+	adds r0, #0x78
+	movs r2, #0
+	strb r1, [r0]
+	adds r0, #7
+	strb r2, [r0]
+	adds r0, #3
+	strb r2, [r0]
+	adds r0, r4, #0
+	bl sub_080467DC
+_08046468EU:
+	pop {r4, pc}
+	.align 2, 0
+_0804646C: .4byte gUnk_080D1AF8
+
+.else
 	push {r4, r5, lr}
 	adds r4, r0, #0
 	adds r0, #0x45
@@ -699,9 +765,163 @@ _080466A0:
 	pop {r4, r5, pc}
 	.align 2, 0
 _080466A4: .4byte gUnk_080D1AF8
+.endif
 
 	thumb_func_start sub_080466A8
 sub_080466A8: @ 0x080466A8
+.ifdef EU
+	push {r4, r5, r6, r7, lr}
+	adds r4, r0, #0
+	adds r0, #0x7c
+	ldrb r2, [r0]
+	cmp r2, #0
+	beq _08046514EU
+	adds r0, #1
+	ldrb r1, [r0]
+	orrs r1, r2
+	strb r1, [r0]
+	ldrb r1, [r4, #0xe]
+	adds r5, r0, #0
+	cmp r1, #0
+	bne _08046498
+	subs r0, #5
+	ldrb r0, [r0]
+	cmp r0, #0xff
+	beq _08046498
+	movs r0, #3
+	strb r0, [r4, #0xe]
+_08046498:
+	ldrb r0, [r5]
+	bl sub_08000E62
+	cmp r0, #2
+	bls _08046514EU
+	movs r0, #0
+	strb r0, [r4, #0xe]
+	strb r0, [r5]
+	adds r7, r4, #0
+	adds r7, #0x78
+	subs r0, #1
+	adds r6, r0, #0
+	movs r0, #0xff
+	strb r0, [r7]
+	adds r0, #0x28
+	bl SoundReq
+	adds r5, r4, #0
+	adds r5, #0x45
+	ldrb r0, [r5]
+	cmp r0, #0
+	beq _0804650E
+	movs r0, #8
+	movs r1, #0
+	bl sub_08080964
+	adds r1, r4, #0
+	adds r1, #0x82
+	ldrb r0, [r1]
+	adds r0, #1
+	strb r0, [r1]
+	ands r0, r6
+	lsls r0, r0, #0x18
+	lsrs r0, r0, #0x18
+	cmp r0, #0xc
+	bhi _080464E6
+	ldrb r0, [r5]
+	subs r0, #1
+	strb r0, [r5]
+_080464E6:
+	ldrb r0, [r5]
+	cmp r0, #0
+	bne _080464F8
+	strb r0, [r7]
+	adds r1, r4, #0
+	adds r1, #0x7a
+	movs r0, #0xa5
+	lsls r0, r0, #3
+	b _0804650CEU
+_080464F8:
+	adds r1, r4, #0
+	adds r1, #0x7f
+	ldrb r0, [r1]
+	cmp r0, #0
+	bne _0804650E
+	movs r0, #1
+	strb r0, [r1]
+	subs r1, #5
+	movs r0, #0x87
+	lsls r0, r0, #3
+_0804650CEU:
+	strh r0, [r1]
+_0804650E:
+	adds r0, r4, #0
+	bl sub_080467DC
+_08046514EU:
+	ldrb r1, [r4, #0xe]
+	cmp r1, #0
+	beq _0804658C
+	adds r0, r4, #0
+	adds r0, #0x78
+	ldrb r0, [r0]
+	cmp r0, #0xff
+	beq _0804658C
+	subs r0, r1, #1
+	strb r0, [r4, #0xe]
+	lsls r0, r0, #0x18
+	lsrs r5, r0, #0x18
+	cmp r5, #0
+	bne _0804658C
+	adds r2, r4, #0
+	adds r2, #0x80
+	adds r3, r4, #0
+	adds r3, #0x7d
+	ldrb r0, [r2]
+	ldrb r1, [r3]
+	orrs r0, r1
+	strb r0, [r2]
+	strb r5, [r3]
+	adds r0, r4, #0
+	bl sub_080467DC
+	ldr r2, _08046598 @ =gPlayerEntity
+	ldr r0, [r4, #0x64]
+	adds r0, #0x3c
+	ldrb r0, [r0]
+	adds r1, r2, #0
+	adds r1, #0x3e
+	strb r0, [r1]
+	subs r1, #1
+	movs r0, #0xf4
+	strb r0, [r1]
+	adds r1, #5
+	movs r0, #0xa
+	strb r0, [r1]
+	adds r0, r4, #0
+	movs r1, #0x2c
+	movs r2, #0
+	bl CreateFx
+	adds r2, r0, #0
+	cmp r2, #0
+	beq _0804658C
+	ldr r0, [r4, #0x64]
+	ldrh r0, [r0, #0x38]
+	strh r0, [r2, #0x2e]
+	ldr r0, [r4, #0x64]
+	ldrh r0, [r0, #0x3a]
+	strh r0, [r2, #0x32]
+	adds r1, r2, #0
+	adds r1, #0x38
+	movs r0, #1
+	strb r0, [r1]
+	adds r0, r2, #0
+	bl UpdateSpriteForCollisionLayer
+_0804658C:
+	adds r1, r4, #0
+	adds r1, #0x7c
+	movs r0, #0
+	strb r0, [r1]
+	pop {r4, r5, r6, r7, pc}
+	.align 2, 0
+_08046598: .4byte gPlayerEntity
+
+
+.else
 	push {r4, r5, r6, r7, lr}
 	adds r4, r0, #0
 	adds r0, #0x7c
@@ -855,6 +1075,7 @@ _080467CC:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080467D8: .4byte gPlayerEntity
+.endif
 
 	thumb_func_start sub_080467DC
 sub_080467DC: @ 0x080467DC
@@ -869,3 +1090,4 @@ _080467E6:
 	cmp r1, #7
 	bls _080467E6
 	pop {pc}
+

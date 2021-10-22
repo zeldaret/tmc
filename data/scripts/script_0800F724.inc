@@ -3,12 +3,30 @@ SCRIPT_START script_0800F724
 	DoPostScriptAction 0x0008
 	EndBlock 
 script_0800F72C:
+.ifdef JP
+	CheckLocalFlag 0x00ca
+.else
+.ifdef EU
+	CheckLocalFlag 0x00ca
+.else
 	CheckLocalFlag 0x00cd
+.endif
+.endif
 	JumpIfNot script_0800F72C
 	DoPostScriptAction 0x0007
 	Jump script_0800F584
+
+
 SCRIPT_START script_0800F73C
+.ifdef JP
+	CheckLocalFlag 0x00ca
+.else
+.ifdef EU
+	CheckLocalFlag 0x00ca
+.else
 	CheckLocalFlag 0x00cd
+.endif
+.endif
 	JumpIf script_0800FA4C
 	_0807E864 
 	Call sub_0807DF28
@@ -168,7 +186,15 @@ SCRIPT_START script_0800F73C
 	Wait 0x000a
 	_0807E5F8 0x00000002
 	Call sub_08063C44
+.ifdef JP
+	SetLocalFlag 0x00ca
+.else
+.ifdef EU
+	SetLocalFlag 0x00ca
+.else
 	SetLocalFlag 0x00cd
+.endif
+.endif
 	Call sub_0807DF50
 	_0807E878 
 script_0800FA4C:

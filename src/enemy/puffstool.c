@@ -6,7 +6,6 @@
 
 extern u32 sub_080002E0(u32, u32);
 extern u32 sub_080002C8(u16, u8);
-extern u16 sub_080002A8(u32, u32, u32);
 extern u16 sub_080002D4(u32, u32, u32);
 extern void sub_0804AA1C(Entity*);
 extern Entity* sub_08049DF4(u32);
@@ -468,8 +467,7 @@ bool32 sub_080258C4(Entity* this) {
     }
 }
 
-#if NON_MATCHING
-bool32 sub_0802594C(Entity* this, u32 param_2) {
+NONMATCH("asm/non_matching/puffstool/sub_0802594C.inc", bool32 sub_0802594C(Entity* this, u32 param_2)) {
     const s8* unk = gUnk_080CC090[param_2];
     u32 uVar1 = this->collisionLayer;
     RoomControls* ctrl = &gRoomControls;
@@ -492,12 +490,7 @@ bool32 sub_0802594C(Entity* this, u32 param_2) {
 
     return 0;
 }
-#else
-NAKED
-bool32 sub_0802594C(Entity* this, u32 param_2) {
-    asm(".include \"asm/non_matching/puffstool/sub_0802594C.inc\"");
-}
-#endif
+END_NONMATCH
 
 void sub_08025A54(Entity* this) {
     u32 layer = this->collisionLayer;

@@ -30,13 +30,16 @@ typedef struct {
     s32 signature;
     u8 field_0x4;
     u8 listenForKeyPresses;
+    u8 field_0x6;
+    u8 field_0x7;
 } struct_02000010;
 
 extern struct_02000010 gUnk_02000010;
 
 typedef struct {
     s32 frameCount; // regular frame count? does anything reset it?
-    u8 field_0x4[0x4];
+    u8 field_0x4[0x2];
+    u16 field_0x6;
     bool8 transitioningOut;
     u8 transitionType; // transition when changing areas
     u16 field_0xa;     // seems to be a tile type
@@ -160,6 +163,7 @@ extern u16 gBG3Buffer[0x800];
 struct {
     u8 filler[0x70];
 } extern gUnk_03000B80;
+// TODO extern ItemBehavior gUnk_03000B80[4];
 static_assert(sizeof(gUnk_03000B80) == 0x70);
 
 typedef struct {
@@ -169,6 +173,9 @@ typedef struct {
     u8 unk3;
     u8 freezeTime;
     u8 unk9;
+    u8 unk_0xa;
+    u8 unk_0xb;
+    u16 unk_0xc;
 } EntityHandler;
 
 extern EntityHandler gUnk_03003DC0;

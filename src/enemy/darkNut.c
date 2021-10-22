@@ -224,7 +224,7 @@ void sub_08020F48(Entity* this) {
 
                 this->action = 14;
                 sub_08021218(this, 13, uVar2 >> 3);
-                pEVar3 = sub_0804A98C(this, 0, 1);
+                pEVar3 = CreateProjectileWithParent(this, 0, 1);
                 if (pEVar3) {
                     pEVar3->parent = this;
                     this->attachedEntity = pEVar3;
@@ -270,7 +270,7 @@ void sub_08021010(Entity* this) {
 
 void sub_08021038(Entity* this) {
     if (this->attachedEntity == NULL && this->frames.all) {
-        Entity* pEVar2 = (Entity*)sub_0804A98C(this, 0, 0);
+        Entity* pEVar2 = (Entity*)CreateProjectileWithParent(this, 0, 0);
         if (pEVar2) {
             pEVar2->parent = this;
             this->attachedEntity = pEVar2;
@@ -309,7 +309,7 @@ void sub_080210E4(Entity* this) {
         Entity* ent;
 
         this->frames.all &= ~1;
-        ent = sub_0804A98C(this, 0, 2);
+        ent = CreateProjectileWithParent(this, 0, 2);
         if (ent) {
             ent->parent = this;
             this->attachedEntity = ent;
@@ -391,10 +391,7 @@ void sub_0802124C(Entity* this) {
     }
 }
 
-NAKED
-u32 sub_08021274(u32 a, u32 b) {
-    asm(".include \"asm/non_matching/darkNut/sub_08021274.inc\"");
-}
+ASM_FUNC("asm/non_matching/darkNut/sub_08021274.inc", u32 sub_08021274(u32 a, u32 b))
 
 void sub_080212B0(Entity* this) {
     u8 tmp;
@@ -572,7 +569,7 @@ void sub_0802159C(Entity* this) {
 
         this->frames.all = 0;
         this->damageType = 0x51;
-        ent = sub_0804A98C(this, 0, 3);
+        ent = CreateProjectileWithParent(this, 0, 3);
         if (ent) {
             ent->parent = this;
             this->attachedEntity = ent;
@@ -593,7 +590,7 @@ void sub_08021600(Entity* this) {
 
         this->frames.all = 0;
         this->damageType = 0x51;
-        ent = sub_0804A98C(this, 0, 4);
+        ent = CreateProjectileWithParent(this, 0, 4);
         if (ent) {
             ent->parent = this;
             this->attachedEntity = ent;

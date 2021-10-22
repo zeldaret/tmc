@@ -34,8 +34,12 @@ script_080160E0:
 	Jump script_08016132
 script_0801610C:
 	WaitPlayerAction8 
+.ifndef EU
 	_0807EB8C 
 	TextboxNoOverlapFollow 0x2d0d
+.else
+	TextboxNoOverlapFollow 0x2d08
+.endif
 	_0807EA94 
 	Jump script_08016132
 script_0801611A:
@@ -51,6 +55,8 @@ script_08016132:
 	_0807E878 
 	_0807EB44 0x0004
 	Jump script_080160B0
+	.align 2, 0
+
 SCRIPT_START script_0801613C
 	BeginBlock 
 	Call sub_080787B4
@@ -78,6 +84,8 @@ script_08016184:
 script_0801618A:
 	_0807E878 
 	Jump script_08016146
+	.align 2, 0
+
 SCRIPT_START script_08016190
 	BeginBlock 
 	Call sub_080787B4
@@ -100,13 +108,19 @@ script_080161C6:
 	TextboxNoOverlapFollow 0x2d0b
 	Jump script_080161E2
 script_080161D8:
+.ifndef EU
 	WaitPlayerAction8 
 	_0807EA94 
 	_0807EB8C 
 	TextboxNoOverlap 0x2d06
+.else
+	TextboxNoOverlapFollow 0x2d06
+.endif
 script_080161E2:
 	_0807E878 
 	Jump script_0801619A
+	.align 2, 0
+
 SCRIPT_START script_080161E8
 	BeginBlock 
 	Call sub_0807F348

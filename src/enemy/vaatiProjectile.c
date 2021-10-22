@@ -54,7 +54,9 @@ void sub_0803E0DC(Entity* this) {
     Entity* entity;
 
     if (this->bitfield == 0x80) {
+#ifndef EU
         if (this->currentHealth != 0) {
+#endif
             this->action = 5;
             this->flags = this->flags & 0x7f;
             this->spritePriority.b1 = 0;
@@ -62,6 +64,7 @@ void sub_0803E0DC(Entity* this) {
             gPlayerEntity.spriteOrientation.flipY = this->spriteOrientation.flipY;
             gPlayerEntity.spriteRendering.b3 = this->spriteRendering.b3;
             sub_0803E444(this);
+#ifndef EU
             sub_08078A90(2);
             entity = this->parent;
             if (entity != NULL) {
@@ -72,6 +75,7 @@ void sub_0803E0DC(Entity* this) {
             entity = &gPlayerEntity;
             entity->flags = gPlayerEntity.flags | 0x80;
         }
+#endif
     }
     sub_0804AA30(this, gUnk_080D0648);
 }
@@ -233,6 +237,18 @@ void sub_0803E480(Entity* this) {
 }
 
 bool32 sub_0803E4A0(Entity* this) {
+#ifdef EU
+    bool32 ret;
+    if (gScreenTransition.field_0x39 == 0) {
+        return TRUE;
+    } else {
+        if (this->parent == NULL) {
+            return FALSE;
+        }
+        ret = this->parent->next == NULL;
+    }
+    return ret;
+#else
     bool32 ret;
     if (gScreenTransition.field_0x39 != 0) {
         if (this->parent == NULL) {
@@ -247,6 +263,7 @@ bool32 sub_0803E4A0(Entity* this) {
         return TRUE;
     }
     return ret;
+#endif
 }
 
 void sub_0803E4D8(Entity* this) {

@@ -18,12 +18,20 @@ script_08012440:
 	SetLocalFlag 0x00b3
 	_0807F034 0x0062
 	WaitPlayerAction8 
+.ifdef USA
 	SetLocalFlag 0x00d0
+.else
+.ifdef DEMO
+	SetLocalFlag 0x00d0
+.endif
+.endif
 script_08012474:
 	_0807E878 
 	_0807E930 0x0000
 	Jump script_08012440
-	.2byte 0x0000
+	.align 2, 0
+
+
 SCRIPT_START script_08012480
 	BeginBlock 
 	Call sub_08054564

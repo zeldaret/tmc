@@ -7,7 +7,9 @@ script_0800A0FE:
 	_0807E864 
 	Call sub_0807DF28
 	StopBgm
+.ifndef EU
 	Call sub_0807FBFC
+.endif
 	SetEntityPositionRelative 0x00b0, 0x0058
 	Call sub_0807F844
 	_0807E8E4_3 
@@ -22,4 +24,6 @@ script_0800A0FE:
 	CallWithArg sub_0806DA1C, 0x00000006
 	DoPostScriptAction 0x0006
 SCRIPT_END
+.ifndef EU
 	.2byte 0x0000
+.endif

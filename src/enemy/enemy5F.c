@@ -139,7 +139,7 @@ void sub_08048478(Entity* this) {
         } else {
             if (this->frames.b.f0 != 0) {
                 this->frames.all &= 0xfe;
-                pEVar3 = sub_080A7EE0(0x24);
+                pEVar3 = CreateProjectile(0x24);
                 if (pEVar3 != NULL) {
                     pEVar3->parent = this;
                     this->attachedEntity = pEVar3;

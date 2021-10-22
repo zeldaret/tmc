@@ -51,7 +51,12 @@ gUnk_08127D10:: @ 08127D10
 	.4byte sub_080A3930
 
 gUnk_08127D30:: @ 08127D30
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x127468, 0x0000264
+.else
 	.incbin "baserom.gba", 0x127D30, 0x0000264
+.endif
 
 gUnk_08127F94:: @ 08127F94
 	.incbin "baserom.gba", 0x127F94, 0x0000090
@@ -707,7 +712,12 @@ gUnk_08128A38:: @ 08128A38
 	.4byte sub_080A4F28
 
 gUnk_08128AD8:: @ 08128AD8
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x128210, 0x0000058
+.else
 	.incbin "baserom.gba", 0x128AD8, 0x0000058
+.endif
 
 gUnk_08128B30:: @ 08128B30
 	.4byte sub_080A4F28

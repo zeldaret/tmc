@@ -3,6 +3,8 @@
 #include "npc.h"
 #include "script.h"
 #include "functions.h"
+#include "object.h"
+#include "random.h"
 
 extern void (*gUnk_081121D4[])(Entity*);
 
@@ -41,8 +43,9 @@ void sub_0806A234(Entity* this) {
     }
 }
 
-#ifdef NON_MATCHING
-void sub_0806A26C(Entity* this) {
+extern u8 gUnk_081121DC[];
+
+NONMATCH("asm/non_matching/syrup/sub_0806A26C.inc", void sub_0806A26C(Entity* this)) {
     u8 unk;
     u32 uVar2;
     Entity* pEVar1;
@@ -52,13 +55,10 @@ void sub_0806A26C(Entity* this) {
         if (uVar2 = Random(), uVar2) {
             unk = -unk; // wtf?!
         }
-        pEVar1->spriteOffsetX = gUnk_081121D4[uVar2 & 7];
-        pEVar1->spriteOffsetY = gUnk_081121D4[(uVar2 / 256) & 7] - 8;
+        pEVar1->spriteOffsetX = (u8)gUnk_081121DC[uVar2 & 7];
+        pEVar1->spriteOffsetY = (u8)gUnk_081121DC[(uVar2 / 256) & 7] - 8;
     }
 }
-#else
-NAKED
-void sub_0806A26C(Entity* this) {
-    asm(".include \"asm/non_matching/syrup/sub_0806A26C.inc\"");
-}
-#endif
+END_NONMATCH
+
+ASM_FUNC("asm/non_matching/syrup/Syrup_Head.inc", void Syrup_Head(Entity* this))

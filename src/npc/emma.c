@@ -3,11 +3,9 @@
 #include "script.h"
 #include "functions.h"
 
-extern u32 gUnk_0813AD10;
-extern u32 gUnk_0813AD24;
-extern u32 gUnk_0813AD38;
-
-extern void DoExitTransition(u32*);
+extern ScreenTransitionData gUnk_0813AD10;
+extern ScreenTransitionData gUnk_0813AD24;
+extern ScreenTransitionData gUnk_0813AD38;
 
 void Emma(Entity* this) {
     if (this->action == 0) {

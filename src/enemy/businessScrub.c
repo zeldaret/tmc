@@ -138,7 +138,7 @@ void sub_08028A74(Entity* this) {
             unk = 1;
             sub_080290FC(this);
             if (this->frames.all & 1) {
-                Entity* ent = sub_0804A98C(this, 4, 0);
+                Entity* ent = CreateProjectileWithParent(this, 4, 0);
                 if (ent != NULL) {
                     ent->parent = this;
                     ent->direction = this->direction;
@@ -266,7 +266,9 @@ void sub_08028CE8(Entity* this) {
                         this->actionDelay = 4;
                         this->field_0x80.HALF.HI = 0;
                         sub_080290E0(this, 3);
+#if defined(USA) || defined(DEMO)
                         SetLocalFlag(0x87);
+#endif
                         return;
                     case 1:
                         CreateItemEntity(offer->field_0x8, offer->field_0x9, 0);
@@ -523,8 +525,7 @@ bool32 sub_080291DC(Entity* this) {
     return FALSE;
 }
 
-#if NON_MATCHING
-void sub_0802922C(Entity* this) {
+NONMATCH("asm/non_matching/businessScrub/sub_0802925C.inc", void sub_0802922C(Entity* this)) {
     const struct SalesOffering* offer = (const struct SalesOffering*)this->field_0x7c.WORD;
 
     this->action = 6;
@@ -538,12 +539,7 @@ void sub_0802922C(Entity* this) {
 
     sub_080290E0(this, 3);
 }
-#else
-NAKED
-void sub_0802922C(Entity* this) {
-    asm(".include \"asm/non_matching/businessScrub/sub_0802925C.inc\"");
-}
-#endif
+END_NONMATCH
 
 void sub_0802925C(Entity* this) {
     sub_08078784(this, sub_0801E99C(this));
@@ -569,7 +565,11 @@ const struct SalesOffering gUnk_080CC954[] = {
     {0x04, 0x00, 0x0014, 0x2910, 0x2911, 0x1c, 0xff, 0xffff},
     {0x0c, 0x00, 0xffff, 0x2912, 0x2913, 0xff, 0xff, 0x0046},
     {0x04, 0x00, 0x0064, 0x2913, 0x2902, 0x5c, 0x75, 0xffff},
+#ifdef EU
+    {0x00, 0x00, 0x0064, 0x290d, 0x2902, 0x5c, 0xff, 0xffff},
+#else
     {0x00, 0x00, 0x00C8, 0x290d, 0x2902, 0x5c, 0xff, 0xffff},
+#endif
 };
 
 const u8 gUnk_080CC9C0[] = {

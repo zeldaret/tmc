@@ -48,12 +48,11 @@ typedef struct {
 
 extern struct_03003DD0 gUnk_03003DD0;
 extern u32 _call_via_r0(u32*);
-extern u32 _EntUpdate;
-void DeleteEntityAny(Entity*);
+extern u32 _ClearAndUpdateEntities;
 
 void DeleteThisEntity(void) {
     DeleteEntityAny(gUnk_03003DD0.field_0x8);
-    _call_via_r0((u32*)&_EntUpdate);
+    _call_via_r0((u32*)&_ClearAndUpdateEntities);
 }
 
 void DeleteManager(OtherEntity*);
@@ -76,7 +75,7 @@ extern void sub_0806FE84();
 extern void sub_080788E0();
 extern void sub_08078954();
 extern void sub_0805EC60();
-extern void sub_08017744();
+extern void sub_08017744(Entity*);
 extern void sub_0805E92C();
 extern void UnloadHitbox();
 extern void sub_0804AA1C();

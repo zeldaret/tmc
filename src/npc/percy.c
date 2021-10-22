@@ -5,6 +5,7 @@
 #include "functions.h"
 #include "flags.h"
 #include "script.h"
+#include "save.h"
 
 extern void sub_0806B41C(Entity*);
 extern void sub_0806B3CC(Entity*);
@@ -14,6 +15,8 @@ extern u32 sub_08002632(Entity*);
 extern u16* gUnk_08001A7C[40];
 extern u16 gUnk_08112E54[4];
 extern Dialog gUnk_08112E2C[5];
+extern SpriteLoadData gUnk_08112E1C;
+
 extern SpriteLoadData gUnk_08112E1C;
 
 void Percy_Head(Entity* this) {
@@ -104,4 +107,62 @@ void sub_0806B504(Entity* this) {
     }
 
     TextboxNoOverlap(gUnk_08112E54[idx], this);
+}
+
+void sub_0806B540(Entity* this) {
+    ScriptExecutionContext* context;
+
+    context = *(ScriptExecutionContext**)&this->cutsceneBeh;
+    switch (context->unk_18) {
+        case 0:
+            TextboxNoOverlap(0x2312, this);
+            if (CheckLocalFlag(0x3f) != 0) {
+                return;
+            }
+            context->unk_18 += 1;
+            SetLocalFlag(0x3f);
+            break;
+        case 1:
+            if ((gTextBox.doTextBox & 0x7f) == 0) {
+                context->unk_18 = 2;
+                TextboxNoOverlap(0x2315, this);
+            }
+            break;
+        case 2:
+            if ((gTextBox.doTextBox & 0x7f) == 0) {
+                context->unk_18 = 3;
+                if (gSave.stats.filler3[0] != 0) {
+                    sub_080A7C18(0x58, 0, 0);
+                } else {
+                    sub_080A7C18(0x3f, 100, 0);
+                }
+                SetRoomFlag(0xf);
+            }
+            break;
+        case 3:
+            if ((gPlayerEntity.action != 8)) {
+                context->wait = 0x2d;
+                return;
+            }
+            break;
+    }
+
+    gActiveScriptInfo.commandSize = 0;
+}
+
+void sub_0806B60C(Entity* this) {
+    this->field_0x68.HALF.LO = sub_0801E99C(this);
+    sub_08078784(this, this->field_0x68.HALF.LO);
+}
+
+void Percy_Fusion(Entity* this) {
+    if (this->action == 0) {
+        if (LoadExtraSpriteData(this, &gUnk_08112E1C) != 0) {
+            this->action += 1;
+            this->spriteSettings.b.draw = 1;
+            InitializeAnimation(this, 2);
+        }
+    } else {
+        GetNextFrame(this);
+    }
 }

@@ -44,6 +44,7 @@ void sub_0809F318(Entity* this) {
 
 void sub_0809F374(Entity* this) {
     sub_0806F69C(this);
+#ifndef EU
     if (gUnk_02000000->gameLanguage < 2) {
         if (sub_080044EC(this, 0x2000) < 2) {
             this->height.WORD = 0;
@@ -54,6 +55,7 @@ void sub_0809F374(Entity* this) {
             this->actionDelay++;
         }
     } else {
+#endif
         switch (sub_080044EC(this, 0x2000)) {
             default:
                 this->actionDelay++;
@@ -67,7 +69,9 @@ void sub_0809F374(Entity* this) {
                 sub_0809F448(this);
                 SoundReq(SFX_186);
         }
+#ifndef EU
     }
+#endif
 }
 
 void sub_0809F3E8(Entity* this) {

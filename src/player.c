@@ -31,7 +31,6 @@ extern void sub_0806F948();
 extern void sub_08077698();
 extern void sub_0805E544();
 extern void sub_080717F8();
-extern void DoExitTransition();
 extern void UnfreezeTime();
 extern void sub_08071A6C();
 extern void sub_08052BB8();
@@ -99,7 +98,9 @@ void PlayerInit(Entity* this) {
     this->damageType = 0x79;
     this->hitbox = &gUnk_08114F88;
     this->spriteIndex = 1;
+#ifndef EU
     gPlayerState.field_0x8 = 0x100;
+#endif
     sub_0806FDA0(this);
     sub_080AE008(this, 1, 2);
     InitAnimationForceUpdate(this, 2);
@@ -130,7 +131,7 @@ void PlayerInit(Entity* this) {
 }
 
 // PlayerState.flags need to be 100% before this one can reasonably be done
-ASM_FUNC("asm/non_matching/player/sub_08070794.s", void PlayerNormal(Entity* this))
+ASM_FUNC("asm/non_matching/player/PlayerNormal.inc", void PlayerNormal(Entity* this))
 
 void sub_08070BEC(Entity* this, u32 r0) {
     if (r0 & 1)
@@ -219,7 +220,7 @@ void sub_08070D38(Entity* this) {
 }
 
 // minor regalloc
-NONMATCH("asm/non_matching/player/sub_08070DC4.s", void sub_08070DC4(Entity* this)) {
+NONMATCH("asm/non_matching/player/sub_08070DC4.inc", void sub_08070DC4(Entity* this)) {
     UpdateAnimationSingleFrame(this);
     sub_080085B0(this);
     sub_08079E08();
@@ -673,7 +674,7 @@ void PortalShrinkInit(Entity* this) {
 }
 
 // horrible
-ASM_FUNC("asm/non_matching/player/sub_08071634.s", void PortalShrinkUpdate(Entity* this))
+ASM_FUNC("asm/non_matching/player/PortalShrinkUpdate.inc", void PortalShrinkUpdate(Entity* this))
 
 void PortalEnterUpdate(Entity* this) {
     if (this->actionDelay == 0) {
@@ -1374,7 +1375,7 @@ void sub_080724DC(Entity* this) {
     } else {
         this->spriteSettings.b.draw = 3;
         this->subAction = 1;
-        if (gRoomVars.filler[0] == 0) {
+        if (gRoomVars.field_0x0 == 0) {
             if (gPlayerState.flags.all & 0x80) {
                 gPlayerState.field_0x8 = 0xc18;
             } else {
@@ -1712,7 +1713,7 @@ void sub_08072CFC(Entity* this) {
 
 extern const u16* gUnk_0811BBD4[];
 
-NONMATCH("asm/non_matching/player/sub_08072D54.s", void sub_08072D54(Entity* this)) {
+NONMATCH("asm/non_matching/player/sub_08072D54.inc", void sub_08072D54(Entity* this)) {
     u32 bVar1;
     u32 uVar2;
     u32 iVar3;

@@ -7,8 +7,8 @@
 #include "functions.h"
 
 extern void sub_08095CB0(Entity*);
-extern void sub_0805DDEC(Entity*);
-extern void sub_0805DE18(Entity*);
+extern void CreateManager36(Entity*);
+extern void DeleteManager36(Entity*);
 extern void sub_0805DA90(Entity*, u32);
 
 void sub_08066A94(Entity*);
@@ -49,11 +49,11 @@ NONMATCH("asm/non_matching/vaati/sub_08066ACC.inc", void sub_08066ACC(Entity* th
                 break;
             case 3:
                 (*(ScriptExecutionContext**)&this->cutsceneBeh)->intVariable = 4;
-                sub_0805DDEC(this);
+                CreateManager36(this);
                 break;
             case 4:
                 (*(ScriptExecutionContext**)&this->cutsceneBeh)->intVariable = 4;
-                sub_0805DE18(this);
+                DeleteManager36(this);
                 EnqueueSFX(0x21d);
                 break;
         }

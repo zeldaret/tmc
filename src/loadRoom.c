@@ -71,17 +71,19 @@ void sub_0804B0B0(u32 arg0, u32 arg1) {
     LoadRoomEntityList(GetRoomProperty(arg0, arg1, 1));
 }
 
-void SetCurrentRoomPropertyList(u32 arg0, u32 arg1) {
+void SetCurrentRoomPropertyList(u32 area, u32 room) {
     u32** arr;
     gUnk_02017654 = 0;
     arr = &gAreaTable;
-    if (arr[arg0] != 0) {
-        gUnk_02017654 = arr[arg0][arg1];
+    if (arr[area] != 0) {
+        gUnk_02017654 = arr[area][room];
     }
 }
 
 void sub_0804B0E8(u32 arg0, u32 arg1) {
     void (*func)();
+
+    // init function at index 4 of room data
 
     func = (void (*)())GetRoomProperty(arg0, arg1, 4);
     if (func != NULL) {
@@ -90,13 +92,13 @@ void sub_0804B0E8(u32 arg0, u32 arg1) {
 }
 
 // returns multiple types of data?
-void* GetRoomProperty(u32 arg0, u32 arg1, u32 arg2) {
+void* GetRoomProperty(u32 area, u32 room, u32 arg2) {
     u32 temp;
     u32** arr;
     temp = 0;
     arr = &gAreaTable;
-    if (arr[arg0] != NULL) {
-        temp = arr[arg0][arg1];
+    if (arr[area] != NULL) {
+        temp = arr[area][room];
         if (temp != 0) {
             temp = *(u32*)(arg2 * 4 + temp);
         }

@@ -31,7 +31,15 @@ script_08015BF0:
 	PlayBGM
 	_0807EB28 0x131f
 	_0807EA94 
+.ifdef JP
+	SetLocalFlag 0x009b
+.else
+.ifdef EU
+	SetLocalFlag 0x009b
+.else
 	SetLocalFlag 0x009c
+.endif
+.endif
 	Call sub_0807FBCC
 	Call sub_0807DF50
 	_0807E878 

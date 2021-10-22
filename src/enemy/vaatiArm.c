@@ -545,9 +545,15 @@ void sub_08042C34(Entity* this) {
         if ((gRoomControls.roomOriginY + 0x20) > y) {
             y = gRoomControls.roomOriginY + 0x20;
         }
+#if defined EU || defined JP
+        if (gRoomControls.roomOriginY + gRoomControls.height + -0x20 < y) {
+            y = gRoomControls.roomOriginY + gRoomControls.height + -0x20;
+        }
+#else
         if (gRoomControls.roomOriginY + gRoomControls.height + -0x40 < y) {
             y = gRoomControls.roomOriginY + gRoomControls.height + -0x40;
         }
+#endif
         if (((u32)((x - gRoomControls.roomOriginX) - 0x90) < 0x41) &&
             ((u32)((y - gRoomControls.roomOriginY) - 8) < 0x41)) {
             x = gRoomControls.roomOriginX + 0xb0;
@@ -704,7 +710,7 @@ void sub_08042FD8(Entity* this) {
     UpdateAnimationSingleFrame(this);
     if (!sub_08043C98(this)) {
         if ((this->frames.all & 1) != 0) {
-            entity = sub_080A7EE0(0x20);
+            entity = CreateProjectile(0x20);
             if (entity != NULL) {
                 CopyPosition(this, entity);
                 entity->height.HALF.HI -= 0x18;
@@ -1280,6 +1286,15 @@ void sub_08043C40(Entity* this, VaatiArm_HeapStruct1* heapStruct) {
 }
 
 u32 sub_08043C98(Entity* this) {
+#if defined EU || defined JP
+    Entity* e1 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
+    if ((e1->bitfield == 0x9d)) {
+        sub_08043D08(this);
+        return 1;
+    } else {
+        return 0;
+    }
+#else
     Entity* e1 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[2];
     Entity* e2 = ((VaatiArm_HeapStruct*)this->myHeap)->entities[3];
     if ((e1->bitfield == 0x9d) || (e2->bitfield == 0x9d)) {
@@ -1289,6 +1304,7 @@ u32 sub_08043C98(Entity* this) {
     } else {
         return 0;
     }
+#endif
 }
 
 void sub_08043CD4(Entity* this) {

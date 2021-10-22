@@ -176,6 +176,502 @@ _080352FA:
 
 	thumb_func_start sub_080352FC
 sub_080352FC: @ 0x080352FC
+.ifdef JP
+	push {r4, r5, r6, r7, lr}
+	mov r7, sl
+	mov r6, sb
+	mov r5, r8
+	push {r5, r6, r7}
+	adds r5, r0, #0
+	adds r0, #0x7c
+	ldrb r0, [r0]
+	movs r6, #1
+	adds r4, r6, #0
+	ands r4, r0
+	cmp r4, #0
+	bne _08035390
+	adds r0, r5, #0
+	adds r0, #0x84
+	ldr r1, [r0]
+	ldr r1, [r1, #0xc]
+	adds r1, #0x7d
+	ldrb r2, [r1]
+	mov sb, r0
+	cmp r2, #0
+	beq _080352D0
+	subs r0, r2, #1
+	strb r0, [r1]
+_080352D0:
+	ldr r3, _08035334 @ =gRoomControls
+	movs r0, #0x84
+	lsls r0, r0, #1
+	adds r1, r0, #0
+	ldrh r0, [r3, #6]
+	adds r1, r1, r0
+	ldrh r0, [r5, #0x2e]
+	subs r1, r1, r0
+	adds r1, #4
+	lsls r1, r1, #0x10
+	lsrs r1, r1, #0x10
+	ldrh r0, [r3, #8]
+	ldrh r2, [r5, #0x32]
+	subs r0, r0, r2
+	adds r0, #0x8c
+	lsls r0, r0, #0x10
+	lsrs r0, r0, #0x10
+	cmp r1, #8
+	bhi _080352FAJP
+	cmp r0, #8
+	bls _08035338
+_080352FAJP:
+	mov r1, sb
+	ldr r0, [r1]
+	strb r6, [r0, #2]
+	ldrh r0, [r3, #6]
+	movs r1, #0x84
+	lsls r1, r1, #1
+	adds r0, r0, r1
+	lsls r0, r0, #0x10
+	ldr r1, [r5, #0x2c]
+	subs r0, r0, r1
+	ldrh r1, [r3, #8]
+	adds r1, #0x88
+	lsls r1, r1, #0x10
+	ldr r2, [r5, #0x30]
+	subs r1, r1, r2
+	bl sub_080045DA
+	asrs r0, r0, #3
+	strb r0, [r5, #0x15]
+	movs r0, #0x80
+	lsls r0, r0, #1
+	strh r0, [r5, #0x24]
+	adds r0, r5, #0
+	bl ProcessMovement
+	adds r7, r5, #0
+	adds r7, #0x79
+	b _080353FA
+	.align 2, 0
+_08035334: .4byte gRoomControls
+_08035338:
+	ldrb r0, [r5, #0xb]
+	cmp r0, #0
+	bne _0803537C
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #5
+	movs r3, #0
+	bl CreateObjectWithParent
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #5
+	movs r3, #1
+	bl CreateObjectWithParent
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #5
+	movs r3, #2
+	bl CreateObjectWithParent
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #5
+	movs r3, #3
+	bl CreateObjectWithParent
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #5
+	movs r3, #4
+	bl CreateObjectWithParent
+	strb r6, [r5, #0xb]
+_0803537C:
+	mov r1, sb
+	ldr r0, [r1]
+	strb r4, [r0, #2]
+	adds r1, r5, #0
+	adds r1, #0x79
+	ldrb r0, [r1]
+	subs r0, #1
+	strb r0, [r1]
+	adds r7, r1, #0
+	b _080353FA
+_08035390:
+	adds r0, r5, #0
+	adds r0, #0x84
+	ldr r1, [r0]
+	ldrb r1, [r1, #1]
+	subs r4, r1, #1
+	mov sb, r0
+	adds r7, r5, #0
+	adds r7, #0x79
+	cmp r4, #0
+	beq _080353DC
+	mov ip, sb
+	movs r0, #1
+	mov sl, r0
+	lsls r0, r4, #2
+	subs r6, r0, #4
+	movs r1, #3
+	mov r8, r1
+_080353B2:
+	mov r1, ip
+	ldr r0, [r1]
+	adds r0, #0xc
+	adds r0, r0, r6
+	ldr r3, [r0]
+	ldrb r2, [r3, #0x18]
+	lsls r1, r2, #0x1e
+	lsrs r1, r1, #0x1e
+	mov r0, sl
+	orrs r1, r0
+	mov r0, r8
+	ands r1, r0
+	movs r0, #4
+	rsbs r0, r0, #0
+	ands r0, r2
+	orrs r0, r1
+	strb r0, [r3, #0x18]
+	subs r6, #4
+	subs r4, #1
+	cmp r4, #0
+	bne _080353B2
+_080353DC:
+	ldr r1, _08035450 @ =gScreenTransition
+	ldr r0, [r1]
+	movs r1, #2
+	ands r0, r1
+	cmp r0, #0
+	beq _080353F4
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #6
+	movs r3, #0
+	bl CreateObjectWithParent
+_080353F4:
+	ldrb r0, [r7]
+	subs r0, #1
+	strb r0, [r7]
+_080353FA:
+	ldrb r0, [r7]
+	cmp r0, #0
+	bne _0803548C
+	movs r0, #2
+	strb r0, [r5, #0xd]
+	adds r4, r5, #0
+	adds r4, #0x7c
+	ldrb r0, [r4]
+	adds r0, #1
+	strb r0, [r4]
+	adds r0, r5, #0
+	bl sub_080AE068
+	ldrb r1, [r4]
+	movs r0, #1
+	ands r0, r1
+	cmp r0, #0
+	bne _08035454
+	adds r1, r5, #0
+	adds r1, #0x3f
+	movs r0, #0x5f
+	strb r0, [r1]
+	movs r1, #0x84
+	lsls r1, r1, #1
+	adds r0, r5, #0
+	bl LoadFixedGFX
+	adds r0, r5, #0
+	movs r1, #0xef
+	bl sub_0801D2B4
+	adds r0, r5, #0
+	movs r1, #0xef
+	bl sub_08036F14
+	mov r1, sb
+	ldr r0, [r1]
+	ldr r0, [r0, #0xc]
+	movs r1, #1
+	bl InitAnimationForceUpdate
+	b _08035480
+	.align 2, 0
+_08035450: .4byte gScreenTransition
+_08035454:
+	adds r1, r5, #0
+	adds r1, #0x3f
+	movs r0, #0x61
+	strb r0, [r1]
+	ldr r1, _08035498 @ =0x00000109
+	adds r0, r5, #0
+	bl LoadFixedGFX
+	adds r0, r5, #0
+	movs r1, #0xf0
+	bl sub_0801D2B4
+	adds r0, r5, #0
+	movs r1, #0xf3
+	bl sub_08036F14
+	mov r1, sb
+	ldr r0, [r1]
+	ldr r0, [r0, #0xc]
+	movs r1, #2
+	bl InitAnimationForceUpdate
+_08035480:
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #8
+	movs r3, #0
+	bl CreateObjectWithParent
+_0803548C:
+	pop {r3, r4, r5}
+	mov r8, r3
+	mov sb, r4
+	mov sl, r5
+	pop {r4, r5, r6, r7, pc}
+	.align 2, 0
+_08035498: .4byte 0x00000109
+
+.else
+.ifdef EU
+	push {r4, r5, r6, r7, lr}
+	mov r7, sl
+	mov r6, sb
+	mov r5, r8
+	push {r5, r6, r7}
+	adds r5, r0, #0
+	adds r0, #0x7c
+	ldrb r0, [r0]
+	movs r6, #1
+	adds r4, r6, #0
+	ands r4, r0
+	cmp r4, #0
+	bne _0803536C
+	adds r0, r5, #0
+	adds r0, #0x84
+	ldr r1, [r0]
+	ldr r1, [r1, #0xc]
+	adds r1, #0x7d
+	ldrb r2, [r1]
+	mov sb, r0
+	cmp r2, #0
+	beq _080352AC
+	subs r0, r2, #1
+	strb r0, [r1]
+_080352AC:
+	ldr r3, _08035310 @ =gRoomControls
+	movs r0, #0x84
+	lsls r0, r0, #1
+	adds r1, r0, #0
+	ldrh r0, [r3, #6]
+	adds r1, r1, r0
+	ldrh r0, [r5, #0x2e]
+	subs r1, r1, r0
+	adds r1, #4
+	lsls r1, r1, #0x10
+	lsrs r1, r1, #0x10
+	ldrh r0, [r3, #8]
+	ldrh r2, [r5, #0x32]
+	subs r0, r0, r2
+	adds r0, #0x8c
+	lsls r0, r0, #0x10
+	lsrs r0, r0, #0x10
+	cmp r1, #8
+	bhi _080352D6
+	cmp r0, #8
+	bls _08035314
+_080352D6:
+	mov r1, sb
+	ldr r0, [r1]
+	strb r6, [r0, #2]
+	ldrh r0, [r3, #6]
+	movs r1, #0x84
+	lsls r1, r1, #1
+	adds r0, r0, r1
+	lsls r0, r0, #0x10
+	ldr r1, [r5, #0x2c]
+	subs r0, r0, r1
+	ldrh r1, [r3, #8]
+	adds r1, #0x88
+	lsls r1, r1, #0x10
+	ldr r2, [r5, #0x30]
+	subs r1, r1, r2
+	bl sub_080045DA
+	asrs r0, r0, #3
+	strb r0, [r5, #0x15]
+	movs r0, #0x80
+	lsls r0, r0, #1
+	strh r0, [r5, #0x24]
+	adds r0, r5, #0
+	bl ProcessMovement
+	adds r7, r5, #0
+	adds r7, #0x79
+	b _080353D6
+	.align 2, 0
+_08035310: .4byte gRoomControls
+_08035314:
+	ldrb r0, [r5, #0xb]
+	cmp r0, #0
+	bne _08035358
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #5
+	movs r3, #0
+	bl CreateObjectWithParent
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #5
+	movs r3, #1
+	bl CreateObjectWithParent
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #5
+	movs r3, #2
+	bl CreateObjectWithParent
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #5
+	movs r3, #3
+	bl CreateObjectWithParent
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #5
+	movs r3, #4
+	bl CreateObjectWithParent
+	strb r6, [r5, #0xb]
+_08035358:
+	mov r1, sb
+	ldr r0, [r1]
+	strb r4, [r0, #2]
+	adds r1, r5, #0
+	adds r1, #0x79
+	ldrb r0, [r1]
+	subs r0, #1
+	strb r0, [r1]
+	adds r7, r1, #0
+	b _080353D6
+_0803536C:
+	adds r0, r5, #0
+	adds r0, #0x84
+	ldr r1, [r0]
+	ldrb r1, [r1, #1]
+	subs r4, r1, #1
+	mov sb, r0
+	adds r7, r5, #0
+	adds r7, #0x79
+	cmp r4, #0
+	beq _080353B8
+	mov ip, sb
+	movs r0, #1
+	mov sl, r0
+	lsls r0, r4, #2
+	subs r6, r0, #4
+	movs r1, #3
+	mov r8, r1
+_0803538E:
+	mov r1, ip
+	ldr r0, [r1]
+	adds r0, #0xc
+	adds r0, r0, r6
+	ldr r3, [r0]
+	ldrb r2, [r3, #0x18]
+	lsls r1, r2, #0x1e
+	lsrs r1, r1, #0x1e
+	mov r0, sl
+	orrs r1, r0
+	mov r0, r8
+	ands r1, r0
+	movs r0, #4
+	rsbs r0, r0, #0
+	ands r0, r2
+	orrs r0, r1
+	strb r0, [r3, #0x18]
+	subs r6, #4
+	subs r4, #1
+	cmp r4, #0
+	bne _0803538E
+_080353B8:
+	ldr r1, _0803542C @ =gScreenTransition
+	ldr r0, [r1]
+	movs r1, #2
+	ands r0, r1
+	cmp r0, #0
+	beq _080353D0
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #6
+	movs r3, #0
+	bl CreateObjectWithParent
+_080353D0:
+	ldrb r0, [r7]
+	subs r0, #1
+	strb r0, [r7]
+_080353D6:
+	ldrb r0, [r7]
+	cmp r0, #0
+	bne _08035468
+	movs r0, #2
+	strb r0, [r5, #0xd]
+	adds r4, r5, #0
+	adds r4, #0x7c
+	ldrb r0, [r4]
+	adds r0, #1
+	strb r0, [r4]
+	adds r0, r5, #0
+	bl sub_080AE068
+	ldrb r1, [r4]
+	movs r0, #1
+	ands r0, r1
+	cmp r0, #0
+	bne _08035430
+	adds r1, r5, #0
+	adds r1, #0x3f
+	movs r0, #0x5f
+	strb r0, [r1]
+	movs r1, #0x84
+	lsls r1, r1, #1
+	adds r0, r5, #0
+	bl LoadFixedGFX
+	adds r0, r5, #0
+	movs r1, #0xef
+	bl sub_0801D2B4
+	adds r0, r5, #0
+	movs r1, #0xef
+	bl sub_08036F14
+	mov r1, sb
+	ldr r0, [r1]
+	ldr r0, [r0, #0xc]
+	movs r1, #1
+	bl InitAnimationForceUpdate
+	b _0803545C
+	.align 2, 0
+_0803542C: .4byte gScreenTransition
+_08035430:
+	adds r1, r5, #0
+	adds r1, #0x3f
+	movs r0, #0x61
+	strb r0, [r1]
+	ldr r1, _08035474 @ =0x00000109
+	adds r0, r5, #0
+	bl LoadFixedGFX
+	adds r0, r5, #0
+	movs r1, #0xf0
+	bl sub_0801D2B4
+	adds r0, r5, #0
+	movs r1, #0xf3
+	bl sub_08036F14
+	mov r1, sb
+	ldr r0, [r1]
+	ldr r0, [r0, #0xc]
+	movs r1, #2
+	bl InitAnimationForceUpdate
+_0803545C:
+	adds r0, r5, #0
+	movs r1, #0x87
+	movs r2, #8
+	movs r3, #0
+	bl CreateObjectWithParent
+_08035468:
+	pop {r3, r4, r5}
+	mov r8, r3
+	mov sb, r4
+	mov sl, r5
+	pop {r4, r5, r6, r7, pc}
+	.align 2, 0
+_08035474: .4byte 0x00000109
+
+.else
 	push {r4, r5, r6, r7, lr}
 	mov r7, sl
 	mov r6, sb
@@ -421,6 +917,8 @@ _080354E8:
 	pop {r4, r5, r6, r7, pc}
 	.align 2, 0
 _080354F4: .4byte 0x00000109
+.endif
+.endif
 
 	thumb_func_start sub_080354F8
 sub_080354F8: @ 0x080354F8
@@ -1758,7 +2256,7 @@ _08035F16:
 	adds r0, r5, #0
 	movs r1, #0xf
 	movs r2, #3
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 _08035F48:
 	ldr r1, _08035F78 @ =gUnk_080CF0C4
 	ldrb r0, [r5, #0xd]
@@ -2349,7 +2847,7 @@ sub_08036390: @ 0x08036390
 	adds r4, r0, #0
 	movs r1, #0xf
 	movs r2, #0
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	str r0, [r4, #0x54]
 	cmp r0, #0
 	beq _080363B4
@@ -2779,7 +3277,7 @@ _080366D4:
 	adds r0, r4, #0
 	movs r1, #0xf
 	movs r2, #2
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	str r0, [r4, #0x54]
 	cmp r0, #0
 	beq _08036706
@@ -2825,7 +3323,7 @@ sub_0803670C: @ 0x0803670C
 	adds r0, r4, #0
 	movs r1, #0xf
 	movs r2, #3
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 _08036746:
 	adds r0, r4, #0
 	adds r0, #0x76

@@ -1,11 +1,11 @@
 #ifndef ENEMY_H
-#define EMEMY_H
+#define ENEMY_H
 
 #include "global.h"
 #include "entity.h"
 
 typedef enum {
-    /*0x00*/ OCTOROCK,
+    /*0x00*/ OCTOROK,
     /*0x01*/ CHUCHU,
     /*0x02*/ LEEVER,
     /*0x03*/ PEAHAT,
@@ -62,10 +62,10 @@ typedef enum {
     /*0x36*/ MAZAAL_HEAD,
     /*0x37*/ MAZAAL_MACRO,
     /*0x38*/ MAZAAL_HAND,
-    /*0x39*/ OCTOROCK_BOSS,
+    /*0x39*/ OCTOROK_BOSS,
     /*0x3a*/ FLYING_POT,
     /*0x3b*/ GOBDO,
-    /*0x3c*/ OCTOROCK_GOLDEN,
+    /*0x3c*/ OCTOROK_GOLDEN,
     /*0x3d*/ TEKTITE_GOLDEN,
     /*0x3e*/ ROPE_GOLDEN,
     /*0x3f*/ CLOUD_PIRANHA,
@@ -90,7 +90,7 @@ typedef enum {
     /*0x52*/ VAATI_ARM,
     /*0x53*/ DUST,
     /*0x54*/ VAATI_BALL,
-    /*0x55*/ OCTOROCK2,
+    /*0x55*/ OCTOROK2,
     /*0x56*/ SLIME,
     /*0x57*/ MINI_SLIME,
     /*0x58*/ FIREBALL_GUY,

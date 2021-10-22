@@ -109,7 +109,7 @@ void GyorgMale(Entity* this) {
 }
 
 void sub_08046898(Entity* this) {
-    Entity* tmp = sub_080A7EE0(0x22);
+    Entity* tmp = CreateProjectile(0x22);
     u32 tmp2;
     if (!tmp)
         return;
@@ -143,7 +143,11 @@ void sub_08046930(Entity* this) {
     if (this->type) {
         this->subAction = 5;
         this->direction = 0x20;
+#ifdef EU
+        this->speed = 0x200;
+#else
         this->speed = 0x280;
+#endif
     }
     sub_08047D88(this);
     if (this->field_0x7c.BYTES.byte0 == 0)
@@ -152,7 +156,11 @@ void sub_08046930(Entity* this) {
     this->actionDelay = 1;
     this->animationState = 0;
     this->direction = 0;
+#ifdef EU
+    this->speed = 0x200;
+#else
     this->speed = 0x280;
+#endif
 }
 
 void sub_0804696C(Entity* this) {
@@ -163,10 +171,16 @@ void sub_0804696C(Entity* this) {
         this->speed = 0x100;
         this->spriteOrientation.flipY = 3;
         this->spriteRendering.b3 = 3;
+#ifndef EU
         SoundReq(BGM_BOSS_THEME);
+#endif
     }
     if (this->actionDelay) {
+#ifdef EU
+        if (gRoomControls.roomOriginY + 0x210 > this->y.HALF.HI) {
+#else
         if (gRoomControls.roomOriginY + 0x258 > this->y.HALF.HI) {
+#endif
             this->actionDelay = 0;
             SoundReq(SFX_APPARATE);
         }
@@ -388,7 +402,7 @@ void sub_08046EF4(Entity* this) {
     if ((--this->field_0xf & 0xFF) == 0) {
         Entity* tmp;
         this->field_0xf = (Random() & 0x38) + 0x78;
-        tmp = sub_080A7EE0(0x23);
+        tmp = CreateProjectile(0x23);
         if (tmp) {
             tmp->collisionLayer = 2;
             tmp->parent = this;
@@ -412,7 +426,7 @@ void sub_08046F64(Entity* this) {
     if (--this->field_0x7c.HALF.HI == 0) {
         Entity* tmp;
         this->field_0x7c.HALF.HI = 0x78;
-        tmp = sub_080A7EE0(0x23);
+        tmp = CreateProjectile(0x23);
         if (tmp) {
             tmp->collisionLayer = 2;
             tmp->parent = this;

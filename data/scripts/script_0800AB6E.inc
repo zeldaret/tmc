@@ -8,7 +8,7 @@ SCRIPT_START script_0800AB6E
 	SetEntityPosition 0x0000, 0xffe0
 	Call sub_0807F5C0
 	Wait 0x003c
-	CallWithArg sub_0805DE18, 0x00000001
+	CallWithArg DeleteManager36, 0x00000001
 	_0807F0C8 0x0000, 0x0000
 	Wait 0x003c
 	_0807E5F8 0x00000002

@@ -114,7 +114,9 @@ void VaatiWrath(Entity* this) {
 }
 
 void sub_080413A0(Entity* this) {
+#if !(defined EU || defined JP)
     sub_080423A4(this);
+#endif
     gUnk_080D0E2C[this->action](this);
 }
 
@@ -581,14 +583,14 @@ void sub_08041BE8(Entity* this) {
         entity->myHeap = NULL;
         DeleteEntity(entity);
         ((VaatiWrathHeapStruct*)this->myHeap)->type3 = NULL;
-
+#ifndef EU
         entity = ((VaatiWrathHeapStruct*)this->myHeap)->object5b;
         entity->myHeap = NULL;
         DeleteEntity(entity);
         ((VaatiWrathHeapStruct*)this->myHeap)->object5b = NULL;
 
         gRoomControls.cameraTarget = &gPlayerEntity;
-
+#endif
         entity = ((VaatiWrathHeapStruct*)this->myHeap)->eyes[0];
         entity->myHeap = NULL;
         DeleteEntity(entity);
@@ -951,7 +953,7 @@ u32 sub_080422C0(Entity* this, u32 unk1) {
     type1 = ((VaatiWrathHeapStruct*)this->myHeap)->type1;
     GetNextFrame(type1);
     if (unk1 + 1 == (tmp = type1->frames.all)) {
-        child = sub_080A7EE0(0x21);
+        child = CreateProjectile(0x21);
         if (child != NULL) {
             child->type = unk1;
             child->parent = this;
@@ -992,11 +994,12 @@ void sub_0804235C(Entity* this) {
     InitializeAnimation(((VaatiWrathHeapStruct*)this->myHeap)->type3, 0x1b);
 }
 
+#if defined USA || defined DEMO
 void sub_080423A4(Entity* this) {
     int temp;
     if ((gScreenTransition.field_0x38 & 2) == 0) {
-        if (gSave.filler498 != 0) {
-            gSave.filler498--;
+        if (gSave.unk498 != 0) {
+            gSave.unk498--;
         } else {
             temp = gPlayerState.field_0xa9;
             if (temp < 2) {
@@ -1014,6 +1017,7 @@ void sub_080423A4(Entity* this) {
         }
     }
 }
+#endif
 
 void sub_08042428(Entity* this) {
     if (((VaatiWrathHeapStruct*)this->myHeap)->type0->next == NULL) {

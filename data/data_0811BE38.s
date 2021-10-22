@@ -11,7 +11,12 @@ gUnk_0811BE40:: @ 0811BE40
 	.incbin "baserom.gba", 0x11BE40, 0x0000008
 
 gUnk_0811BE48:: @ 0811BE48
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x11B590, 0x0000180
+.else
 	.incbin "baserom.gba", 0x11BE48, 0x0000180
+.endif
 
 gUnk_0811BFC8:: @ 0811BFC8
 	.4byte sub_080779E8

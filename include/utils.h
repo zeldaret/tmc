@@ -1,3 +1,8 @@
+#ifndef UTILS_H
+#define UTILS_H
+
+#include "global.h"
+
 typedef struct {
     u16 heldKeys;
     u16 newKeys;
@@ -62,3 +67,5 @@ void zFree(void* ptr);
  * @param updateHUD bool32 Request refresh of HUD layer (bg 0)
  */
 void DispReset(bool32 updateHUD);
+
+#endif

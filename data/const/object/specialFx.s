@@ -8,7 +8,12 @@ gUnk_0811F960:: @ 0811F960
 	.incbin "baserom.gba", 0x11F960, 0x000009B
 
 gUnk_0811F9FB:: @ 0811F9FB
+.ifdef EU
+    @ TODO only small differences
+	.incbin "baserom_eu.gba", 0x11F143, 0x00000C5
+.else
 	.incbin "baserom.gba", 0x11F9FB, 0x00000C5
+.endif
 
 gUnk_0811FAC0:: @ 0811FAC0
 	.4byte sub_080844E0

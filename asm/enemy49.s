@@ -262,7 +262,7 @@ sub_0803D058: @ 0x0803D058
 	adds r4, r0, #0
 	movs r1, #0x16
 	movs r2, #0
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _0803D0AE

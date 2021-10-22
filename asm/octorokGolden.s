@@ -177,7 +177,7 @@ sub_08037D54: @ 0x08037D54
 	adds r0, r4, #0
 	movs r1, #1
 	movs r2, #0
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _08037E0C

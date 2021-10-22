@@ -5,7 +5,15 @@ SCRIPT_START script_08009464
 	Wait 0x003c
 	Call sub_0806D70C
 	Wait 0x003c
+.ifdef JP
+	ClearLocalFlag 0x00ac
+.else
+.ifdef EU
+	ClearLocalFlag 0x00ac
+.else
 	ClearLocalFlag 0x00ae
+.endif
+.endif
 	Call sub_0806D620
 	Wait 0x003c
 	WaitPlayerAction8 

@@ -25,7 +25,8 @@ void sub_08077B98(UnkItemStruct* unk) {
     }
 }
 
-void sub_08077BB8(UnkItemStruct* unk) {
+void sub_08077BB8(ItemBehavior* beh) {
+    UnkItemStruct* unk = (UnkItemStruct*)beh; // @nocheckin
     u8* temp = sub_08077C54(unk);
     if (temp != NULL) {
         temp[0x10] = 0x20;
@@ -121,7 +122,4 @@ Entity* sub_08077CF8(u32 subtype, u32 form, u32 parameter, u32 unk) {
     return ent;
 }
 
-NAKED
-void sub_08077D38(ItemBehavior* beh, u32 arg1) {
-    asm(".include \"asm/non_matching/sub_08077D38.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_08077D38.inc", void sub_08077D38(ItemBehavior* beh, u32 arg1))

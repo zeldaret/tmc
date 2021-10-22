@@ -318,10 +318,7 @@ void sub_08029DE4(Entity* this) {
     }
 }
 
-NAKED
-void sub_08029E0C(Entity* this) {
-    asm(".include \"asm/non_matching/madderpillar/sub_08029E0C.inc\"");
-}
+ASM_FUNC("asm/non_matching/madderpillar/sub_08029E0C.inc", void sub_08029E0C(Entity* this))
 
 void sub_08029EEC(Entity* this) {
     u32 uVar1 = (this->direction >> 3) + this->field_0x74.HALF.HI;

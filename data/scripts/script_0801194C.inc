@@ -127,6 +127,7 @@ script_08011AC4:
 	_0807EA94 
 	_0807E878 
 	Jump script_08011AC4
+
 SCRIPT_START script_08011AE4
 	CheckRoomFlag 0x000f
 	JumpIfNot script_08011AE4
@@ -136,7 +137,15 @@ SCRIPT_START script_08011AE4
 script_08011AFA:
 	TextboxNoOverlapFollowPos 0x1321, 0x0007
 	_0807EA94 
+.ifdef JP
+	SetLocalFlag 0x0011
+.else
+.ifdef EU
+	SetLocalFlag 0x0011
+.else
 	SetLocalFlag 0x0010
+.endif
+.endif
 	CallWithArg sub_0806DA1C, 0x00000003
 	_0807E878 
 	Call sub_0807DF50

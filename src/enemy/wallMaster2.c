@@ -4,10 +4,9 @@
 #include "functions.h"
 
 extern void sub_08001328(Entity*);
-extern void DoExitTransition(u32*);
 
 extern Entity* gUnk_020000B0;
-extern u32* gUnk_0813AB1C[];
+extern ScreenTransitionData* gUnk_0813AB1C[];
 
 void sub_0802CF64(Entity*);
 void sub_0802CF8C(Entity*);
@@ -160,10 +159,7 @@ void sub_0802CF64(Entity* this) {
     sub_0802CF8C(this);
 }
 
-NAKED
-void sub_0802CF8C(Entity* this) {
-    asm(".include \"asm/non_matching/wallMaster2/sub_0802CF8C.inc\"");
-}
+ASM_FUNC("asm/non_matching/wallMaster2/sub_0802CF8C.inc", void sub_0802CF8C(Entity* this))
 
 void sub_0802CFD8(Entity* this) {
     u32 unk = gUnk_080CD740[(this->field_0x7a.HALF.LO++ >> 3) & 7];

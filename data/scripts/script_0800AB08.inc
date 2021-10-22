@@ -17,5 +17,5 @@ SCRIPT_START script_0800AB08
 	_0807EA94 
 	TextboxNoOverlapFollowPos 0x165e, 0x000e
 	_0807EA94 
-	CallWithArg sub_0805DDEC, 0x00000001
+	CallWithArg CreateManager36, 0x00000001
 	_0807F0C8 0xffff, 0x0000

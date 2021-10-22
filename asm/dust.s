@@ -130,7 +130,12 @@ _080441F2:
 	ldrb r7, [r4, #0xa]
 	cmp r7, #0
 	bne _08044284
+.ifdef EU
+	movs r0, #0xf5
+	lsls r0, r0, #0x1
+.else
 	ldr r0, _08044244 @ =0x000001EB
+.endif
 	movs r1, #1
 	bl sub_080AD8F0
 	adds r6, r0, #0
@@ -163,7 +168,9 @@ _080441F2:
 	bl zFree
 	b _0804429A
 	.align 2, 0
+.ifndef EU
 _08044244: .4byte 0x000001EB
+.endif
 _08044248:
 	str r2, [r4, #0x48]
 	ldr r0, _0804427C @ =gUnk_080FD188

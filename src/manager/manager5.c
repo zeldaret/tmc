@@ -29,7 +29,7 @@ const u16 gUnk_08108034[] = { 0, 1, -1, 0, 0, -1, 1, 0 };
 
 void (*const gUnk_08108044[])(Manager5*) = { sub_08057AE8, sub_08057BA4, sub_08057C28 };
 
-void sub_08057AD0(Manager5* this) {
+void Manager5_Main(Manager5* this) {
     gUnk_08108044[this->manager.action](this);
 }
 

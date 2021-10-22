@@ -43,7 +43,11 @@ typedef struct {
 } PACKED xy;
 extern u8 gEntCount;
 
+#ifdef EU
+const u8 gUnk_080D0ABC[] = { 0xf0, 0xd0, 0xb0 };
+#else
 const u8 gUnk_080D0ABC[] = { 0xf0, 0xd0, 0xc0 };
+#endif
 const u8 gUnk_080D0ABF[] = { 0x3c, 0x3c, 0x1e, 0x14, 0x14, 0x14, 0, 0, 0 };
 void (*const gUnk_080D0AC8[])(Entity*) = {
     sub_0803F818, sub_0803F914, sub_0803FAC8, sub_0803FAD0, sub_0803FD50, sub_0803FE90, sub_0803FF7C, sub_0804006C,
@@ -405,7 +409,7 @@ void sub_0803FD50(Entity* this) {
                 this->actionDelay = gUnk_080D0ABF[((u32)this->animationState << 1 | 1)];
             } else {
                 if ((this->actionDelay & 7) == 0) {
-                    sub_0804A98C(this, 0x1f, this->field_0xf);
+                    CreateProjectileWithParent(this, 0x1f, this->field_0xf);
                 }
                 if (((this->field_0xf != 0) && (1 < this->animationState)) && (this->actionDelay < 6)) {
                     this->actionDelay = 0x80;
@@ -451,7 +455,7 @@ void sub_0803FE90(Entity* this) {
             } else {
                 if (this->field_0xf) {
                     if ((this->actionDelay & 7) == 0) {
-                        sub_0804A98C(this, 0x1f, this->field_0xf);
+                        CreateProjectileWithParent(this, 0x1f, this->field_0xf);
                     }
                     if (this->actionDelay < 6) {
                         this->actionDelay = 0x40;
@@ -459,7 +463,7 @@ void sub_0803FE90(Entity* this) {
                     }
                 } else {
                     if ((this->actionDelay & 0xf) == 0) {
-                        entity = sub_0804A98C(this, 0x1f, 2);
+                        entity = CreateProjectileWithParent(this, 0x1f, 2);
                         if (entity != NULL) {
                             entity->type2 = 0;
                             if (this->field_0x80.HALF.HI != 0) {
@@ -503,7 +507,7 @@ void sub_0803FF7C(Entity* this) {
             } else {
                 if (this->field_0xf) {
                     if ((this->actionDelay & 7) == 0) {
-                        sub_0804A98C(this, 0x1f, this->field_0xf);
+                        CreateProjectileWithParent(this, 0x1f, this->field_0xf);
                     }
                     if (this->actionDelay < 6) {
                         this->actionDelay = 0x80;
@@ -511,7 +515,7 @@ void sub_0803FF7C(Entity* this) {
                     }
                 } else {
                     if ((this->actionDelay & 0x1f) == 0) {
-                        pEVar2 = sub_0804A98C(this, 0x1f, 2);
+                        pEVar2 = CreateProjectileWithParent(this, 0x1f, 2);
                         if (pEVar2 != NULL) {
                             pEVar2->type2 = 1;
                             pEVar2->y.HALF.HI += -0x20;

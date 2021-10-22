@@ -261,7 +261,7 @@ _08045D60:
 	adds r0, r4, #0
 	movs r1, #4
 	movs r2, #0
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r1, r0, #0
 	cmp r1, #0
 	beq _08045DF8

@@ -521,7 +521,7 @@ void sub_0804BA0C(void) {
     if (gSave.unk8 < 8) {
         LoadRoomEntityList(&gUnk_080D7038);
     }
-    if (gRoomVars.filler[0] == 0) {
+    if (gRoomVars.field_0x0 == 0) {
         sub_08052CA4(2, 0, 0x2c8, 0xa8);
     }
 }
@@ -566,9 +566,18 @@ void sub_0804BAC0(void) {
     if (!CheckGlobalFlag(LV2_CLEAR)) {
         LoadRoomEntityList(&gUnk_080D7328);
     }
+#ifdef JP
+    if (CheckGlobalFlag(CASTLE_BGM) || CheckGlobalFlag(ENDING)) {
+#else
+#ifdef EU
+    if (CheckGlobalFlag(ENDING)) {
+#else
     if (CheckGlobalFlag(CASTLE_BGM)) {
+
         gArea.pMusicIndex = 0x1b;
     } else if (CheckGlobalFlag(ENDING)) {
+#endif
+#endif
         gArea.pMusicIndex = gArea.musicIndex;
     }
 }
@@ -587,6 +596,18 @@ extern EntityData gUnk_080D73B0;
 extern EntityData gUnk_080D73E0;
 
 void sub_0804BB3C(void) {
+#ifdef EU
+    if (CheckGlobalFlag(ENDING)) {
+        gArea.pMusicIndex = gArea.musicIndex;
+    } else {
+        if (!CheckGlobalFlag(LV2_CLEAR)) {
+            LoadRoomEntityList(&gUnk_080D73B0);
+        }
+        if (!CheckGlobalFlag(LV1_CLEAR) && CheckGlobalFlag(TABIDACHI)) {
+            LoadRoomEntityList(&gUnk_080D73E0);
+        }
+    }
+#else
     if (!CheckGlobalFlag(ENDING)) {
         if (!CheckGlobalFlag(LV2_CLEAR)) {
             LoadRoomEntityList(&gUnk_080D73B0);
@@ -600,6 +621,7 @@ void sub_0804BB3C(void) {
     } else {
         gArea.pMusicIndex = gArea.musicIndex;
     }
+#endif
 }
 
 u32 sub_0804BB9C() {
@@ -612,9 +634,11 @@ extern EntityData gUnk_080D75D8;
 extern EntityData gUnk_080D7618;
 
 void sub_0804BBA0(void) {
+#ifndef EU
     if (CheckGlobalFlag(CASTLE_BGM)) {
         gArea.pMusicIndex = gArea.musicIndex;
     }
+#endif
 
     if (CheckGlobalFlag(ENDING)) {
         LoadRoomEntityList(&gUnk_080D7618);
@@ -636,13 +660,21 @@ u32 sub_0804BC34() {
 extern EntityData gUnk_080D7690;
 
 void sub_0804bc38(void) {
+#if defined(JP) || defined(EU)
+    if (CheckLocalFlag(0x9b)) {
+#else
     if (CheckLocalFlag(0x9c)) {
+#endif
         LoadRoomEntityList(&gUnk_080D7690);
     }
 }
 
 u32 sub_0804BC50(void) {
+#if defined(JP) || defined(EU)
+    if (!CheckLocalFlag(0x9e)) {
+#else
     if (!CheckLocalFlag(0x9f)) {
+#endif
         gScreenTransition.field_0xf = 5;
         ClearGlobalFlag(ZELDA_CHASE);
     }
@@ -652,19 +684,40 @@ u32 sub_0804BC50(void) {
 extern u32 script_08009E88;
 
 void sub_0804BC70(void) {
+#if defined(JP) || defined(EU)
+    if (!CheckLocalFlag(0x9e)) {
+#else
     if (!CheckLocalFlag(0x9f)) {
+#endif
         DoFade(5, 0x100);
         gPlayerEntity.x.HALF.HI = gRoomControls.roomOriginX + 0xb0;
         gPlayerEntity.y.HALF.HI = gRoomControls.roomOriginY + 0x40;
         sub_080751E8(0, 6, &script_08009E88);
+#ifdef EU
+        SoundReq(0x80010000);
+        gArea.musicIndex = gArea.pMusicIndex;
     }
+#else
+    }
+
     if (!CheckGlobalFlag(TABIDACHI)) {
         sub_08052878();
+#ifndef JP
     } else {
-        if (CheckGlobalFlag(CASTLE_BGM)) {
-            gArea.pMusicIndex = 0x1b;
-        }
+#else
     }
+#endif
+        if (CheckGlobalFlag(CASTLE_BGM)) {
+#ifdef JP
+            gArea.pMusicIndex = gArea.musicIndex;
+#else
+        gArea.pMusicIndex = 0x1b;
+#endif
+        }
+#ifndef JP
+    }
+#endif
+#endif
 }
 
 extern ScreenTransitionData gUnk_0813AB80;
@@ -981,10 +1034,7 @@ void sub_0804BF38(u32 arg0, struct_0804BF38* arg1)
   SoundReq(gUnk_080D8E50[iVar2].sfx);
 }
 #else
-NAKED
-void sub_0804BF38(Entity* this, ScriptExecutionContext* context) {
-    asm(".include \"asm/non_matching/sub_0804BF38.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_0804BF38.inc", void sub_0804BF38(Entity* this, ScriptExecutionContext* context))
 #endif
 
 u32 sub_0804C00C() {
@@ -1041,20 +1091,11 @@ void sub_0804C108(void) {
     sub_0804C128(gArea.filler[7] |= 1);
 }
 
-NAKED
-void sub_0804C128(u32 arg0) {
-    asm(".include \"asm/non_matching/sub_0804C128.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_0804C128.inc", void sub_0804C128(u32 arg0))
 
-NAKED
-void sub_0804C258(void) {
-    asm(".include \"asm/non_matching/sub_0804C258.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_0804C258.inc", void sub_0804C258(void))
 
-NAKED
-void sub_0804C290(void) {
-    asm(".include \"asm/non_matching/sub_0804C290.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_0804C290.inc", void sub_0804C290(void))
 
 u32 sub_0804C2BC() {
     return 1;
@@ -1964,12 +2005,20 @@ void sub_0804CAA0(void) {
     if (CheckGlobalFlag(KUMOTATSUMAKI)) {
         sub_0809F814(0x6de);
     }
+#if defined(JP) || defined(EU)
+    if (CheckLocalFlag(0xf0)) {
+#else
     if (CheckLocalFlag(0xf3)) {
+#endif
         sub_0809F814(0xe0);
     } else {
         LoadRoomEntityList(&gUnk_080DD7E0);
     }
+#if defined(JP) || defined(EU)
+    if (CheckLocalFlag(0xf2)) {
+#else
     if (CheckLocalFlag(0xf5)) {
+#endif
         sub_0809F814(0xba3);
     } else {
         LoadRoomEntityList(&gUnk_080DD840);
@@ -1982,7 +2031,11 @@ u32 sub_0804CAF4() {
 
 void sub_0804CAF8() {
     sub_080300E8();
+#if defined(JP) || defined(EU)
+    SetLocalFlag(0x25);
+#else
     SetLocalFlag(0x24);
+#endif
 }
 
 u32 sub_0804CB08() {
@@ -2006,8 +2059,11 @@ void sub_0804CB14(void) {
 }
 
 void sub_0804CB2C(void) {
-
+#if defined(JP) || defined(EU)
+    if (CheckLocalFlagByOffset(0x100, 0x28)) {
+#else
     if (CheckLocalFlagByOffset(0x100, 0x27)) {
+#endif
         SetDirtTile(0x85);
     }
 }
@@ -2043,10 +2099,18 @@ extern EntityData gUnk_080DE200;
 void sub_0804CB7C(void) {
 
     sub_080300E8();
+#if defined(JP) || defined(EU)
+    if (!CheckLocalFlag(0x31)) {
+#else
     if (!CheckLocalFlag(0x30)) {
+#endif
         LoadRoomEntityList(&gUnk_080DE1E0);
     }
+#if defined(JP) || defined(EU)
+    if (!CheckLocalFlag(0x32)) {
+#else
     if (!CheckLocalFlag(0x31)) {
+#endif
         LoadRoomEntityList(&gUnk_080DE200);
     }
 }
@@ -2173,8 +2237,18 @@ u32 sub_0804CD0C() {
     return 1;
 }
 
+#ifdef DEMO
+void nullsub_251() {
+    if (gUnk_02000000->saveFileId != 0 && GetInventoryValue(0x40) == 0) {
+        SetTileType(0x365, 0x349, 1);
+        SetTileType(0x365, 0x34a, 1);
+        SetTileType(0x365, 0x34b, 1);
+    }
+}
+#else
 void nullsub_251() {
 }
+#endif
 
 u32 sub_0804CD14() {
     return 1;
@@ -2300,8 +2374,18 @@ u32 sub_0804CE38() {
     return 1;
 }
 
+#ifdef DEMO
+void nullsub_262() {
+    if (GetInventoryValue(0x41) == 0) {
+        SetTileType(0x365, 0x287, 2);
+        SetTileType(0x365, 0x288, 2);
+        SetTileType(0x365, 0x289, 2);
+    }
+}
+#else
 void nullsub_262() {
 }
+#endif
 
 u32 sub_0804CE40() {
     return 1;
@@ -3077,7 +3161,7 @@ extern EntityData gUnk_080E72E4;
 
 void sub_0804D384(void) {
 
-    sub_0805AF60(0);
+    Manager19_Main(0);
     if (CheckGlobalFlag(LV5_CLEAR)) {
         LoadRoomEntityList(&gUnk_080E7314);
     }
@@ -3100,7 +3184,7 @@ u32 sub_0804D3F8() {
 }
 
 void sub_0804D3FC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D408() {
@@ -3108,7 +3192,7 @@ u32 sub_0804D408() {
 }
 
 void sub_0804D40C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D418() {
@@ -3116,7 +3200,7 @@ u32 sub_0804D418() {
 }
 
 void sub_0804D41C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D428() {
@@ -3124,7 +3208,7 @@ u32 sub_0804D428() {
 }
 
 void sub_0804D42C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D438() {
@@ -3132,7 +3216,7 @@ u32 sub_0804D438() {
 }
 
 void sub_0804D43C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D448() {
@@ -3140,7 +3224,7 @@ u32 sub_0804D448() {
 }
 
 void sub_0804D44C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D458() {
@@ -3148,7 +3232,7 @@ u32 sub_0804D458() {
 }
 
 void sub_0804D45C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D468() {
@@ -3156,7 +3240,7 @@ u32 sub_0804D468() {
 }
 
 void sub_0804D46C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D478() {
@@ -3164,7 +3248,7 @@ u32 sub_0804D478() {
 }
 
 void sub_0804D47C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D488() {
@@ -3172,7 +3256,7 @@ u32 sub_0804D488() {
 }
 
 void sub_0804D48C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D498() {
@@ -3180,7 +3264,7 @@ u32 sub_0804D498() {
 }
 
 void sub_0804D49C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D4A8() {
@@ -3188,7 +3272,7 @@ u32 sub_0804D4A8() {
 }
 
 void sub_0804D4AC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D4B8() {
@@ -3196,7 +3280,7 @@ u32 sub_0804D4B8() {
 }
 
 void sub_0804D4BC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D4C8() {
@@ -3204,7 +3288,7 @@ u32 sub_0804D4C8() {
 }
 
 void sub_0804D4CC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D4D8() {
@@ -3212,7 +3296,7 @@ u32 sub_0804D4D8() {
 }
 
 void sub_0804D4DC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D4E8() {
@@ -3220,7 +3304,7 @@ u32 sub_0804D4E8() {
 }
 
 void sub_0804D4EC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D4F8() {
@@ -3228,7 +3312,7 @@ u32 sub_0804D4F8() {
 }
 
 void sub_0804D4FC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D508() {
@@ -3236,7 +3320,7 @@ u32 sub_0804D508() {
 }
 
 void sub_0804D50C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D518() {
@@ -3244,7 +3328,7 @@ u32 sub_0804D518() {
 }
 
 void sub_0804D51C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D528() {
@@ -3252,7 +3336,7 @@ u32 sub_0804D528() {
 }
 
 void sub_0804D52C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D538() {
@@ -3267,7 +3351,7 @@ u32 sub_0804D540() {
 }
 
 void sub_0804D544() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D550() {
@@ -3275,7 +3359,7 @@ u32 sub_0804D550() {
 }
 
 void sub_0804D554() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D560() {
@@ -3283,7 +3367,7 @@ u32 sub_0804D560() {
 }
 
 void sub_0804D564() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D570() {
@@ -3291,7 +3375,7 @@ u32 sub_0804D570() {
 }
 
 void sub_0804D574() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D580() {
@@ -3299,7 +3383,7 @@ u32 sub_0804D580() {
 }
 
 void sub_0804D584() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D590() {
@@ -3349,7 +3433,7 @@ u32 sub_0804D5C0() {
 }
 
 void sub_0804D5C4() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D5D0() {
@@ -3357,7 +3441,7 @@ u32 sub_0804D5D0() {
 }
 
 void sub_0804D5D4() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D5E0() {
@@ -3365,7 +3449,7 @@ u32 sub_0804D5E0() {
 }
 
 void sub_0804D5E4() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D5F0() {
@@ -3373,7 +3457,7 @@ u32 sub_0804D5F0() {
 }
 
 void sub_0804D5F4() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D600() {
@@ -3423,7 +3507,7 @@ u32 sub_0804D630() {
 }
 
 void sub_0804D634() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D640() {
@@ -3433,7 +3517,7 @@ u32 sub_0804D640() {
 extern EntityData gUnk_080EA09C;
 
 void sub_0804D644(void) {
-    sub_0805AF60(0);
+    Manager19_Main(0);
     if (!CheckLocalFlag(0x70)) {
         LoadRoomEntityList(&gUnk_080EA09C);
     }
@@ -3444,7 +3528,7 @@ u32 sub_0804D664() {
 }
 
 void sub_0804D668() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D674() {
@@ -3452,7 +3536,7 @@ u32 sub_0804D674() {
 }
 
 void sub_0804D678() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D684() {
@@ -3460,7 +3544,7 @@ u32 sub_0804D684() {
 }
 
 void sub_0804D688() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D694() {
@@ -3468,7 +3552,7 @@ u32 sub_0804D694() {
 }
 
 void sub_0804D698() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D6A4() {
@@ -3476,7 +3560,7 @@ u32 sub_0804D6A4() {
 }
 
 void sub_0804D6A8() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D6B4() {
@@ -3507,7 +3591,7 @@ u32 sub_0804D6EC() {
 }
 
 void sub_0804D6F0(void) {
-    sub_0805D3C8(0);
+    Manager2F_Main(0);
 
     if ((gScreenTransition.field_0x38 & 1) && gScreenTransition.field_0x39) {
         if (gScreenTransition.field_0x3c == 1) {
@@ -4203,10 +4287,7 @@ u32 sub_0804DDF8() {
 void nullsub_374() {
 }
 
-NAKED
-u32 sub_0804DE00(void) {
-    asm(".include \"asm/non_matching/sub_0804DE00.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_0804DE00.inc", u32 sub_0804DE00(void))
 
 extern EntityData gUnk_080EEB6C;
 extern EntityData gUnk_080EEB8C;
@@ -4233,7 +4314,9 @@ void LoadHyruleTown(void) {
 
     sub_08054570();
     TryLoadPrologueHyruleTown();
+#if defined(USA) || defined(DEMO)
     SetTileType(0x176, 0x66b, 1);
+#endif
     if (gSave.unk8 == 1) {
         sub_0801D000(0);
     } else {
@@ -4291,7 +4374,11 @@ void LoadHyruleTown(void) {
             LoadRoomEntityList(&gUnk_080EEA5C);
         }
         // rocs cape
+#if defined(JP) || defined(EU)
+        if (!CheckLocalFlag(0xcd) && GetInventoryValue(0x14)) {
+#else
         if (!CheckLocalFlag(0xd0) && GetInventoryValue(0x14)) {
+#endif
             LoadRoomEntityList(&gUnk_080EEABC);
         }
         if ((gSave.unk8 > 3) && CheckGlobalFlag(INLOCK)) {
@@ -4313,10 +4400,7 @@ void sub_0804E130(void) {
     }
 }
 
-NAKED
-void sub_0804E150(void) {
-    asm(".include \"asm/non_matching/sub_0804E150.inc\"");
-}
+ASM_FUNC("asm/non_matching/sub_0804E150.inc", void sub_0804E150(void))
 
 u32 sub_0804E1F4() {
     return 1;
@@ -4432,14 +4516,26 @@ void sub_0804E27C(void) {
 
     if (!CheckGlobalFlag(TABIDACHI)) {
         LoadRoomEntityList(&gUnk_080F0650);
+#ifdef EU
+        gArea.pMusicIndex = 0x10;
+#else
         gArea.pMusicIndex = 0x13;
         SetGlobalFlag(CASTLE_BGM);
     } else {
         if (CheckGlobalFlag(CASTLE_BGM)) {
+#ifdef JP
+            gArea.pMusicIndex = gArea.musicIndex;
+#else
             gArea.pMusicIndex = 0x1b;
+#endif
         }
+#endif
     }
+#if defined(JP) || defined(EU)
+    if (!CheckLocalFlag(0x9b)) {
+#else
     if (!CheckLocalFlag(0x9c)) {
+#endif
         LoadRoomEntityList(&gUnk_080F0800);
         SetTileType(0x4072, 600, 1);
         SetTileType(0x4072, 0x298, 1);
@@ -4462,9 +4558,17 @@ void sub_0804E27C(void) {
         }
         SetTileType(0x4072, 600, 1);
         SetTileType(0x4072, 0x298, 1);
+#if defined(JP) || defined(EU)
+        if (CheckLocalFlag(0x11)) {
+#else
         if (CheckLocalFlag(0x10)) {
+#endif
             LoadRoomEntityList(&gUnk_080F0920);
+#if defined(JP) || defined(EU)
+            ClearLocalFlag(0x11);
+#else
             ClearLocalFlag(0x10);
+#endif
         }
     }
     sub_080AF284();
@@ -5053,8 +5157,13 @@ void sub_0804EC00(void) {
     if (!CheckGlobalFlag(EZERO_1ST)) {
         LoadRoomEntityList(&gUnk_080F4D50);
     }
+#if defined(JP) || defined(EU)
+    if (!CheckLocalFlag(0x3d)) {
+        if (!CheckLocalFlag(0x3a)) {
+#else
     if (!CheckLocalFlag(0x3e)) {
         if (!CheckLocalFlag(0x3b)) {
+#endif
             LoadRoomEntityList(&gUnk_080F4DB0);
         } else {
             LoadRoomEntityList(&gUnk_080F4DD0);
@@ -5067,6 +5176,10 @@ void sub_0804EC00(void) {
     if ((s32)gSave.windcrests > -1) {
         LoadRoomEntityList(&gUnk_080F4E10);
     }
+#ifdef DEMO
+    SetTileType(0x177, 0x5b4, 1);
+    SetTileType(0x177, 0x5f4, 1);
+#endif
 }
 
 void sub_0804EC98(void) {
@@ -5100,7 +5213,11 @@ void sub_0804ECEC(void) {
     // white sword
     if (GetInventoryValue(0x2)) {
         LoadRoomEntityList(&gUnk_080F5328);
+#if defined(JP) || defined(EU)
+        if (!CheckLocalFlag(0x15)) {
+#else
         if (!CheckLocalFlag(0x14)) {
+#endif
             LoadRoomEntityList(&gUnk_080F5308);
         }
     }
@@ -5215,10 +5332,12 @@ void sub_0804EEBC(void) {
         }
         if (!GetInventoryValue(0xb) && !GetInventoryValue(0xc)) {
             LoadRoomEntityList(&gUnk_080F5888);
+#ifndef EU
         } else {
             if (!CheckLocalFlag(0xcd)) {
                 LoadRoomEntityList(&gUnk_080F58A8);
             }
+#endif
         }
     }
     if (GetInventoryValue(0x9) || CheckGlobalFlag(LV3_CLEAR)) {
@@ -5248,9 +5367,11 @@ u32 sub_0804EFB8() {
 extern EntityData gUnk_080F5B3C;
 
 void sub_0804EFBC(void) {
+#ifndef EU
     if (GetInventoryValue(0x38) == 1) {
         LoadRoomEntityList(&gUnk_080F5B3C);
     }
+#endif
 }
 
 u32 sub_0804EFD4() {
@@ -5285,7 +5406,11 @@ u32 sub_0804F02C() {
 extern EntityData gUnk_080F5E68;
 
 void sub_0804F030(void) {
+#if defined(JP) || defined(EU)
+    if (!CheckLocalFlagByOffset(0x100, 0xce)) {
+#else
     if (!CheckLocalFlagByOffset(0x100, 0xd1)) {
+#endif
         LoadRoomEntityList(&gUnk_080F5E68);
     }
 }
@@ -5325,7 +5450,11 @@ void nullsub_400() {
 }
 
 u32 sub_0804F09C(void) {
+#if defined(JP) || defined(EU)
+    if (CheckGlobalFlag(KUMOTATSUMAKI) && CheckLocalFlagByOffset(0x100, 0xd9)) {
+#else
     if (CheckGlobalFlag(KUMOTATSUMAKI) && CheckLocalFlagByOffset(0x100, 0xdc)) {
+#endif
         SetGlobalFlag(WARP_EVENT_END);
     }
     return 1;
@@ -5334,7 +5463,11 @@ u32 sub_0804F09C(void) {
 extern EntityData gUnk_080F61BC;
 
 void sub_0804F0C0(void) {
+#if defined(JP) || defined(EU)
+    if (CheckLocalFlagByOffset(0x100, 0xd9)) {
+#else
     if (CheckLocalFlagByOffset(0x100, 0xdc)) {
+#endif
         SetLocalFlag(0x90);
     }
     if (CheckKinstoneFused(0xf)) {
@@ -5399,7 +5532,9 @@ void sub_0804F190(void) {
         LoadRoomEntityList(&gUnk_080F66AC);
     }
     sub_08052CA4(8, 0, 0x1e8, 0x158);
+#ifndef EU
     gArea.areaMetadata |= 0x80;
+#endif
 }
 
 u32 sub_0804F1DC() {
@@ -5477,11 +5612,15 @@ u32 sub_0804F22C() {
 }
 
 void sub_0804F230() {
-    sub_0805ADD8(0);
+    Manager18_Main(0);
 }
 
 u32 sub_0804F23C(void) {
+#if defined(JP) || defined(EU)
+    if (!CheckLocalFlag(0x6b)) {
+#else
     if (!CheckLocalFlag(0x6d)) {
+#endif
         DoFade(7, 0x100);
     }
     SetGlobalFlag(OUTDOOR);
@@ -5493,8 +5632,12 @@ extern EntityData gUnk_080F70D8;
 extern EntityData gUnk_080F7088;
 
 void sub_0804F25C(void) {
-    sub_0805ADD8(0);
+    Manager18_Main(0);
+#if defined(JP) || defined(EU)
+    if (!CheckLocalFlag(0x6b)) {
+#else
     if (!CheckLocalFlag(0x6d)) {
+#endif
         LoadRoomEntityList(&gUnk_080F70A8);
         ClearGlobalFlag(ZELDA_CHASE);
     }
@@ -5520,7 +5663,7 @@ u32 sub_0804F2E8() {
 }
 
 void sub_0804F2EC() {
-    sub_0805ADD8(0);
+    Manager18_Main(0);
 }
 
 u32 sub_0804F2F8() {
@@ -5528,7 +5671,7 @@ u32 sub_0804F2F8() {
 }
 
 void sub_0804F2FC() {
-    sub_0805ADD8(0);
+    Manager18_Main(0);
 }
 
 extern u32 gUnk_080F7680;
@@ -5544,7 +5687,7 @@ extern EntityData gUnk_080F7500;
 extern EntityData gUnk_080F7550;
 
 void sub_0804F330(void) {
-    sub_0805ADD8(0);
+    Manager18_Main(0);
     if (gSave.unk8 > 3) {
         LoadRoomEntityList(&gUnk_080F7500);
     }
@@ -5569,7 +5712,7 @@ extern EntityData gUnk_080F78A0;
 
 void sub_0804F3B0(void) {
 
-    sub_0805ADD8(0);
+    Manager18_Main(0);
     if (CheckLocalFlagByOffset(0x200, 0x8f)) {
         if (!CheckGlobalFlag(INLOCK)) {
             LoadRoomEntityList(&gUnk_080F77C0);
@@ -5600,19 +5743,25 @@ u32 Vars_HyruleField_OutsideCastle(void) {
         gRoomVars.field_0x6c = &gUnk_080F7CD0;
         gRoomVars.field_0x88 = sub_0804F5E8;
     }
+#if defined(JP) || defined(EU)
+    if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x8a)) {
+#else
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x8c)) {
+#endif
         gRoomVars.field_0x6c = &gUnk_080F7C80;
         gRoomVars.field_0x88 = sub_0804F4E4;
         gRoomVars.field_0x74 = NULL;
     }
+#ifndef EU
     if (CheckGlobalFlag(TABIDACHI)) {
         ClearGlobalFlag(CASTLE_BGM);
     }
+#endif
     return 1;
 }
 
 void sub_0804F4E4() {
-    sub_0805ADD8(0);
+    Manager18_Main(0);
     sub_0804F578();
 }
 
@@ -5620,7 +5769,11 @@ extern EntityData gUnk_080F7D70;
 
 void Load_HyruleField_OutsideCastle(void) {
     sub_0804F4E4();
+#if defined(JP) || defined(EU)
+    if (!CheckLocalFlag(0x89)) {
+#else
     if (!CheckLocalFlag(0x8b)) {
+#endif
         LoadRoomEntityList(&gUnk_080F7D70);
         SetTileType(0x174, 0x7a2, 1);
         SetTileType(0x174, 0x7a3, 1);
@@ -5629,14 +5782,22 @@ void Load_HyruleField_OutsideCastle(void) {
         SetTileType(0x174, 0x7a7, 1);
     }
     if (!CheckGlobalFlag(TABIDACHI)) {
+#ifdef EU
+        gArea.pMusicIndex = 0x10;
+#else
         gArea.pMusicIndex = 0x13;
+#endif
     }
 }
 
 extern EntityData gUnk_080F7DC0;
 
 void sub_0804F578(void) {
+#if defined(JP) || defined(EU)
+    if (!CheckLocalFlag(0x8c)) {
+#else
     if (!CheckLocalFlag(0x8e)) {
+#endif
         LoadRoomEntityList(&gUnk_080F7DC0);
     } else {
         SetTileType(0x37, 0x94a, 1);
@@ -5789,7 +5950,7 @@ extern EntityData gUnk_080F806C;
 
 void Load_HyruleField_OutsideCastleWest(void) {
 
-    sub_0805ADD8(0);
+    Manager18_Main(0);
     if ((gSave.unk8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
         LoadRoomEntityList(&gUnk_080F806C);
     }
@@ -5802,9 +5963,12 @@ u32 Vars_HyruleField_TrilbyHighlands() {
 extern EntityData gUnk_080F82E0;
 
 void Load_HyruleField_TrilbyHighlands(void) {
-
-    sub_0805ADD8(0);
+    Manager18_Main(0);
+#if defined(JP) || defined(EU)
+    if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x9b)) {
+#else
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x9c)) {
+#endif
         LoadRoomEntityList(&gUnk_080F82E0);
     }
 }
@@ -5817,7 +5981,7 @@ extern EntityData gUnk_080F8430;
 
 void sub_0804FA68(void) {
 
-    sub_0805ADD8(0);
+    Manager18_Main(0);
     if (CheckKinstoneFused(0x21) && !CheckLocalFlagByOffset(0x200, 0x42)) {
         LoadRoomEntityList(&gUnk_080F8430);
     }
@@ -6456,7 +6620,9 @@ u32 sub_0804FED4() {
 }
 
 void sub_0804FED8(void) {
+#if defined(USA) || defined(DEMO)
     SetTileType(0x176, 0x66f, 1);
+#endif
 }
 
 u32 sub_0804FEEC() {

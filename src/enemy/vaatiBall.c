@@ -34,7 +34,11 @@ void VaatiBall(Entity* this) {
             ModHealth(-2);
         }
 
+#ifdef EU
+        if (this->currentHealth < 0xfa) {
+#else
         if (this->currentHealth < 0xfd) {
+#endif
             this->spriteSettings.b.draw = 0;
             this->flags &= 0x7f;
             this->currentHealth = -1;
@@ -181,7 +185,7 @@ void sub_08044868(Entity* this) {
             if (*(u8*)&vaati->field_0x86 > 1) {
                 u8 draw = this->spriteSettings.b.draw;
                 if (draw == 1 && this->cutsceneBeh.HALF.LO == 0) {
-                    vaati = sub_0804A98C(this, 0x18, 0);
+                    vaati = CreateProjectileWithParent(this, 0x18, 0);
                     if (vaati) {
                         vaati->type2 = 1;
                         vaati->parent = this;
@@ -271,7 +275,7 @@ void sub_080449F8(Entity* this) {
                 this->field_0x74.HALF.LO++;
                 draw = this->spriteSettings.b.draw;
                 if (draw) {
-                    vaati = sub_0804A98C(this, 0x1c, 0);
+                    vaati = CreateProjectileWithParent(this, 0x1c, 0);
                     if (vaati) {
                         vaati->y.HALF.HI += 4;
                         vaati->parent = this;

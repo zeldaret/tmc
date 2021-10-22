@@ -23,7 +23,8 @@ typedef struct {
     /*0x0C*/ s16 roomScrollY;
     /*0x0E*/ u8 unk5;
     /*0x0F*/ u8 unk6;
-    /*0x10*/ u8 filler[4];
+    /*0x10*/ u8 unk_10;
+    /*0x11*/ u8 filler[3];
     /*0x14*/ u8 screenShakeMagnitude;
     /*0x15*/ u8 unk7;
     /*0x16*/ u16 screenShakeTime;
@@ -37,7 +38,10 @@ typedef struct {
 } RoomControls;
 
 typedef struct {
-    u8 filler[4];
+    u8 field_0x0;
+    u8 filler_0x1;
+    u8 field_0x2;
+    u8 field_0x3;
     u8 field_0x4;
     u8 filler1[1];
     u8 itemForSaleIndex;
@@ -45,9 +49,10 @@ typedef struct {
     u8 field_0x8;
     u8 field_0x9;
     u8 unk2;
-    u8 filler2[5];
-    u8 unk_10;
-    u8 filler6[3];
+    u8 filler2;
+    u16 field_0xc;
+    u8 filler3[2];
+    u8 unk_10[4];
     u32 roomFlags;
     u32 unk3;
     u8 filler4[48];

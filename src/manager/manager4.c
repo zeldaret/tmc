@@ -7,7 +7,7 @@
 
 extern void (*gUnk_08107C70[])(Manager*);
 
-void sub_08057854(Manager* this) {
+void Manager4_Main(Manager* this) {
     gUnk_08107C70[this->action](this);
 }
 
@@ -62,46 +62,37 @@ void sub_08057920(Manager* this) {
 
 void sub_08057A18(Manager*, DiggingCaveEntrance*);
 
-#ifdef NON_MATCHING
 u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
     u16 offsetX, offsetY, offsetX2, offsetY2;
-    u32 tmp;
-    if (gUnk_03004030.address_width) {
+    u32 tmp, tmp2;
+    if (gUnk_03004030.unk_08) {
         offsetX = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX;
         offsetY = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY;
         offsetX2 = (entr->unk_00 & 0x3F) * 16 + 8;
         offsetY2 = ((entr->unk_00 & 0xFC0) >> 6) * 16 + 0x18;
-        if ((u32)(offsetX - offsetX2) + 0x18 > 0x30)
+        tmp = offsetX - offsetX2;
+        if (tmp + 0x18 > 0x30 || offsetY - offsetY2 + 8 > 0x10U)
             return 0;
-        if ((u32)(offsetY - offsetY2) + 8 > 0x10)
+        if (offsetY < offsetY2 && tmp + 0xC <= 0x18)
             return 0;
-        if (((offsetY < offsetY2)))
-            if ((u32)(offsetX - offsetX2) + 0xC <= 0x18)
-                return 0;
-
+        sub_08057A18(this, entr);
+        return 1;
     } else {
-        // offsetX = ((gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX) >> 4) & 0x3F;
-        // offsetY = ((gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY) >> 4) & 0x3F;
-        // tmp = offsetX | (offsetY << 6);
-        tmp = COORD_TO_TILE((&gPlayerEntity));
-        if (tmp != entr->unk_00)
+        if (COORD_TO_TILE(&gPlayerEntity) != entr->unk_00)
             return 0;
-        offsetY = gRoomControls.roomOriginY + ((tmp >> 6) * 16) + 6;
-        if (gPlayerEntity.y.HALF.HI >= offsetY)
+        offsetY2 = gRoomControls.roomOriginY + ((entr->unk_00 >> 6) << 4) + 6;
+        if (gPlayerEntity.y.HALF.HI >= offsetY2)
             return 0;
+        sub_08057A18(this, entr);
+        return 1;
     }
-    sub_08057A18(this, entr);
-    return 1;
 }
-#else
-NAKED
-u32 sub_0805795C(Manager* this, DiggingCaveEntrance* entr) {
-    asm(".include \"asm/non_matching/manager4/sub_0805795C.inc\"");
-}
-#endif
 
 extern void sub_08080930();
 
+#ifdef EU
+ASM_FUNC("asm/non_matching/eu/sub_08057A18.inc", void sub_08057A18(Manager* this, DiggingCaveEntrance* entr))
+#else
 void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
     u16 tmp;
     sub_0805E5A8();
@@ -124,6 +115,7 @@ void sub_08057A18(Manager* this, DiggingCaveEntrance* entr) {
     sub_08080930(entr->unk_03);
     DeleteManager(this);
 }
+#endif
 
 DiggingCaveEntrance* sub_08057AA8(DiggingCaveEntrance* entr, int roomID) {
     for (; entr->unk_00 != 0xFFFF; entr++) {

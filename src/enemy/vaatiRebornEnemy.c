@@ -60,7 +60,11 @@ const Coords gUnk_080D04AC[] = { { .HALF = { 0x58, 0x60 } },
                                  { .HALF = { 0xd8, 0x90 } } };
 const u8 gUnk_080D04C0[] = { 2, 0, 0, 2, 2, 2, 4, 4 };
 const xy gUnk_080D04C8[] = { { 10, -29 }, { -10, -29 }, { 15, -21 }, { -15, -21 } };
+#ifdef EU
+const u8 gUnk_080D04D0[] = { -12, -20, -32 };
+#else
 const u8 gUnk_080D04D0[] = { -24, -40, -48 };
+#endif
 const u8 gUnk_080D04D3[] = { 0, 1, 0, -1 };
 
 void VaatiRebornEnemy(Entity* this) {
@@ -346,7 +350,7 @@ void sub_0803D658(Entity* this) {
                 this->field_0xf = 0;
             }
             if ((this->field_0xf < 0x10) &&
-                (entity = sub_0804A98C(this, 0x1a, this->cutsceneBeh.HALF.LO), entity != NULL)) {
+                (entity = CreateProjectileWithParent(this, 0x1a, this->cutsceneBeh.HALF.LO), entity != NULL)) {
                 entity->field_0xf = this->field_0xf;
                 entity->parent = this;
                 entity->height.HALF.HI = this->height.HALF.HI;
@@ -433,7 +437,7 @@ void sub_0803D830(Entity* this) {
             if (--this->actionDelay == 0) {
                 this->field_0x74.HALF.LO++;
                 SoundReq(SFX_150);
-                target = sub_0804A98C(this, 0x18, 0);
+                target = CreateProjectileWithParent(this, 0x18, 0);
                 if (target != NULL) {
                     PositionRelative(this, target, 0, -0x100000);
                     target->parent = this;
@@ -476,7 +480,9 @@ void sub_0803D8FC(Entity* this) {
                     tmp = Random() & 0x3f3f;
                     fx->x.HALF.HI = ((tmp & 0xff) - 0x20) + fx->x.HALF.HI;
                     fx->y.HALF.HI = ((tmp >> 8) & 0xff) - 0x20 + fx->y.HALF.HI;
+#ifndef EU
                     fx->spritePriority.b0 = 2;
+#endif
                 }
             }
         }

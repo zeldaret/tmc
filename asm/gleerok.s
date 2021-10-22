@@ -650,16 +650,20 @@ _0802D4D6:
 	adds r0, #8
 	strb r3, [r0]
 _0802D52E:
+.ifndef EU
 	ldr r0, _0802D540 @ =gPlayerState
 	adds r0, #0x8b
 	movs r1, #3
 	strb r1, [r0]
+.endif
 	adds r0, r4, #0
 	movs r1, #0x4c
 	bl InitializeAnimation
 	b _0802D63C
 	.align 2, 0
+.ifndef EU
 _0802D540: .4byte gPlayerState
+.endif
 _0802D544:
 	ldrb r0, [r4, #0xb]
 	cmp r0, #1
@@ -797,6 +801,9 @@ _0802D648:
 sub_0802D650: @ 0x0802D650
 	push {r4, lr}
 	adds r4, r0, #0
+.ifdef EU
+    bl sub_08078B48
+.endif
 	ldr r1, _0802D670 @ =gUnk_080CD7E4
 	ldrb r0, [r4, #0xd]
 	lsls r0, r0, #2
@@ -985,6 +992,93 @@ _0802D7B0: .4byte gScreenTransition
 
 	thumb_func_start sub_0802D7B4
 sub_0802D7B4: @ 0x0802D7B4
+.ifdef EU
+	push {r4, r5, lr}
+	adds r5, r0, #0
+	ldrb r0, [r5, #0xe]
+	adds r2, r0, #0
+	cmp r2, #0
+	bne _0802D7ACEU
+	ldr r4, _0802D780 @ =gUnk_080CD7F8
+	ldrb r3, [r5, #0xf]
+	adds r0, r3, r4
+	ldrb r1, [r0]
+	adds r0, r1, #0
+	cmp r0, #0xff
+	bne _0802D790
+	strb r2, [r5, #0xf]
+	strb r2, [r5, #0xe]
+	movs r0, #1
+	strb r0, [r5, #0xc]
+	strb r2, [r5, #0xd]
+	adds r0, r5, #0
+	adds r0, #0x84
+	ldr r0, [r0]
+	ldr r1, [r0, #0x50]
+	movs r0, #0x18
+	strb r0, [r1, #0xe]
+	ldr r1, _0802D784 @ =gRoomControls
+	ldr r0, _0802D788 @ =gPlayerEntity
+	str r0, [r1, #0x30]
+	ldr r0, _0802D78C @ =gUnk_02034490
+	strb r2, [r0]
+	movs r0, #0x2e
+	bl SoundReq
+	b _0802D7E8
+	.align 2, 0
+_0802D780: .4byte gUnk_080CD7F8
+_0802D784: .4byte gRoomControls
+_0802D788: .4byte gPlayerEntity
+_0802D78C: .4byte gUnk_02034490
+_0802D790:
+	strb r1, [r5, #0xe]
+	adds r0, r3, #1
+	adds r0, r0, r4
+	ldrb r0, [r0]
+	strb r0, [r5, #0x15]
+	ldrb r0, [r5, #0xf]
+	adds r0, #2
+	strb r0, [r5, #0xf]
+	ldr r0, _0802D7A8 @ =0x00000127
+	bl SoundReq
+	b _0802D7B0EU
+	.align 2, 0
+_0802D7A8: .4byte 0x00000127
+_0802D7ACEU:
+	subs r0, #1
+	strb r0, [r5, #0xe]
+_0802D7B0EU:
+	ldrb r0, [r5, #0x15]
+	cmp r0, #1
+	bhi _0802D7C8
+	adds r4, r5, #0
+	adds r4, #0x84
+	ldr r0, [r4]
+	ldrb r3, [r5, #0x15]
+	movs r1, #5
+	movs r2, #0x40
+	bl sub_0802EA48
+	b _0802D7DC
+_0802D7C8:
+	adds r4, r5, #0
+	adds r4, #0x84
+	cmp r0, #0xff
+	beq _0802D7DC
+	ldr r0, [r4]
+	ldrb r3, [r5, #0x15]
+	movs r1, #5
+	movs r2, #0x40
+	bl sub_0802EA68
+_0802D7DC:
+	ldr r0, [r4]
+	bl sub_0802E768
+	adds r0, r5, #0
+	bl sub_0802E518
+_0802D7E8:
+	pop {r4, r5, pc}
+	.align 2, 0
+
+.else
 	push {r4, r5, lr}
 	adds r5, r0, #0
 	ldrb r0, [r5, #0xe]
@@ -1073,6 +1167,7 @@ _0802D85C:
 _0802D868:
 	pop {r4, r5, pc}
 	.align 2, 0
+.endif
 
 	thumb_func_start sub_0802D86C
 sub_0802D86C: @ 0x0802D86C
@@ -1743,7 +1838,7 @@ _0802DD74:
 	adds r0, r4, #0
 	movs r1, #0xa
 	movs r2, #0
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r1, r0, #0
 	str r1, [r4, #0x54]
 	cmp r1, #0
@@ -1890,7 +1985,7 @@ _0802DE7E:
 	bne _0802DEC4
 	adds r0, r5, #0
 	movs r1, #0xa
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	adds r1, r0, #0
 	str r1, [r5, #0x54]
 	cmp r1, #0
@@ -2616,7 +2711,7 @@ _0802E40C:
 	adds r0, r4, #0
 	movs r1, #0xa
 	movs r2, #3
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 _0802E422:
 	adds r0, r4, #0
 	bl sub_0802E518

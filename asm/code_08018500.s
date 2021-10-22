@@ -169,7 +169,15 @@ sub_0801862C: @ 0x0801862C
 	strb r0, [r1, #0xc]
 	ldr r5, _08018650 @ =gScreenTransition
 	adds r0, r5, #0
+.ifdef JP
+	adds r0, #0x34
+.else
+.ifdef EU
+	adds r0, #0x34
+.else
 	adds r0, #0x35
+.endif
+.endif
 	strb r2, [r0]
 	ldr r4, _08018654 @ =gUnk_02033AB8
 	ldrb r0, [r4]
@@ -627,7 +635,15 @@ _080189D0:
 	beq _080189E4
 	movs r0, #0x80
 	lsls r0, r0, #1
+.ifdef JP
+	movs r1, #0x77
+.else
+.ifdef EU
+	movs r1, #0x77
+.else
 	movs r1, #0x79
+.endif
+.endif
 	bl SetLocalFlagByOffset
 	ldr r0, _080189E8 @ =gUnk_080FEE38
 	bl LoadRoomEntityList

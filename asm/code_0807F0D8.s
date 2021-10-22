@@ -1560,6 +1560,7 @@ _0807FBF4:
 	.align 2, 0
 _0807FBF8: .4byte gActiveScriptInfo
 
+.ifndef EU
 	thumb_func_start sub_0807FBFC
 sub_0807FBFC: @ 0x0807FBFC
 	ldr r3, _0807FC20 @ =gSave
@@ -1581,7 +1582,9 @@ sub_0807FBFC: @ 0x0807FBFC
 	bx lr
 	.align 2, 0
 _0807FC20: .4byte gSave
+.endif
 
+.ifdef USA
 	thumb_func_start sub_0807FC24
 sub_0807FC24: @ 0x0807FC24
 	push {lr}
@@ -1597,6 +1600,25 @@ _0807FC32:
 	pop {pc}
 	.align 2, 0
 _0807FC3C: .4byte gRoomControls
+.else
+.ifdef DEMO @ TODO deduplicate
+	thumb_func_start sub_0807FC24
+sub_0807FC24: @ 0x0807FC24
+	push {lr}
+	ldr r0, _0807FC3C @ =gRoomControls
+	ldrb r0, [r0, #5]
+	movs r1, #0xd1
+	cmp r0, #1
+	bne _0807FC32
+	movs r1, #0xcf
+_0807FC32:
+	adds r0, r1, #0
+	bl SetLocalFlag
+	pop {pc}
+	.align 2, 0
+_0807FC3C: .4byte gRoomControls
+.endif
+.endif
 
 	thumb_func_start UpdateScroll
 UpdateScroll: @ 0xUpdateScroll

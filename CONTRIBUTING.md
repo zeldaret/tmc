@@ -30,7 +30,7 @@ It must be the first include in the file. Other includes will assume you have in
 
 ## 2. Include it in the rom
 
-Include `src/evilSpirit.c` in the rom by adding `src/evilSpirit.o` to `ld_script.ld`:
+Include `src/evilSpirit.c` in the rom by adding `src/evilSpirit.o` to `linker.ld`:
 ```diff
 	asm/room.o(.text);
 	asm/code_08080974.o(.text);

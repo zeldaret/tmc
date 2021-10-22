@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "player.h"
 #include "functions.h"
+#include "audio.h"
 
 extern void sub_08078CD0(Entity*);
 extern void sub_08018FA0(Entity*);
@@ -90,4 +91,27 @@ void sub_08018DE8(Entity* this) {
             break;
     }
     sub_08078CD0(&gPlayerEntity);
+}
+
+ASM_FUNC("asm/non_matching/playerItem11/sub_08018E68.inc", void sub_08018E68(Entity* this))
+
+void sub_08018F6C(Entity* this) {
+    if (this->attachedEntity != NULL) {
+        this->attachedEntity->subAction = 5;
+        this->attachedEntity->spriteSettings.b.draw = 1;
+    } else {
+        GetNextFrame(this);
+        if (this->frames.all == 0) {
+            return;
+        }
+    }
+    DeleteThisEntity();
+}
+
+void sub_08018FA0(Entity* this) {
+    this->collisionLayer = gPlayerEntity.collisionLayer;
+    if (this->collisionLayer == 0x02) {
+        this->type2 = 0x01;
+    }
+    SoundReq(this->type + SFX_EA);
 }

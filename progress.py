@@ -1,118 +1,122 @@
+import argparse
+import git
+import os
+import re
 
-import csv, git, re, argparse, os
-from itertools import chain
-map = open("tmc.map", "r")
-
-src = 0
-asm = 0
-srcData = 0
-data = 0
-
-parser = argparse.ArgumentParser()
-parser.add_argument("-m", "--matching", dest='matching', action='store_true', help="Output matching progress instead of decompilation progress")
-args = parser.parse_args()
-matching = args.matching
-
-NON_MATCHING_PATTERN = r'((?<=NONMATCH\(")asm/non_matching/.*\.inc)|((?<=NONMATCH\(")asm/non_matching/.*\.s)'
-NON_ASM_PATTERN = r'(^\w+:)|(^\s@)|(^\s*\.)|(^\s*thumb_func_start)'
-
-#def remInvalid(x):
-
-def GetNonMatchingFunctions(files):
-    functions = []
-
-    for file in files:
-        with open(file) as f:
-            functions += re.findall(NON_MATCHING_PATTERN, f.read())
-
-    #functions = map(lambda x: x != "", functions)
-    return functions
-
-def ReadAllLines(fileName):
-    lineList = list()
-    with open(fileName) as f:
-        lineList = f.readlines()
-
-    return lineList
-
-def GetFiles(path, ext):
-    files = []
-    for r, d, f in os.walk(path):
-        for file in f:
-            if file.endswith(ext):
-                files.append(os.path.join(r, file))
-
-    return files
-
-nonMatchingFunctions = GetNonMatchingFunctions(GetFiles("src", ".c")) if not args.matching else []
-
-# this is actually the size of all non matching asm, not (total - non matching)
-def GetNonMatchingSize(path):
-    size = 0
-
-    asmFiles = GetFiles(path, ".s") + GetFiles(path, ".inc")
-
-    for asmFilePath in asmFiles:
-        for x in nonMatchingFunctions: # stupid tuple
-            if asmFilePath in x:
-                asmLines = ReadAllLines(asmFilePath)
-
-                for asmLine in asmLines:
-                    if len(re.findall(NON_ASM_PATTERN, asmLine, re.DOTALL)) == 0:
-                        size += 2
-
-    return size
-
-nonMatchingASM = GetNonMatchingSize("asm/non_matching")
-
-for line in map:
-    reg = re.compile(r"^ \.(\w+)\s+0x[0-9a-f]+\s+(0x[0-9a-f]+) (\w+)\/(.+)\.o")
-    matches = reg.split(line)
-
-    if (len(matches) < 5):
-        continue
-
-    section = matches[1]
-    size = int(matches[2], 16)
-    direc = matches[3]
-    basename = matches[4]
-
-    # alignment? idk
-    if (size & 3):
-        size += 4 - (size % 3)
-
-    if (section == "text"):
-        if (direc == "src"):
-            src += size
-        elif (direc == "asm"):
-            asm += size
-    elif (section == "rodata"):
-        if (direc == "src"):
-            srcData += size
-        elif (direc == "data"):
-            data += size
-
-total = src + asm
-dataTotal = srcData + data
-
-if matching:
-    srcPct = "%.4f" % (100 * (src) / total)
-    asmPct = "%.4f" % (100 * (asm) / total)
-else:
-    srcPct = "%.4f" % (100 * (src + nonMatchingASM) / total)
-    asmPct = "%.4f" % (100 * (asm - nonMatchingASM) / total)
+def collect_non_matching_funcs():
+    result = []
+    for root, dirs, files in os.walk('src'):
+        for file in files:
+            if file.endswith('.c'):
+                with open(os.path.join(root, file), 'r') as f:
+                    data = f.read()
+                    # Find all NONMATCH and ASM_FUNC macros
+                    for match in re.findall(r'(NONMATCH|ASM_FUNC)\(".*",\W*\w*\W*(\w*).*\)', data):
+                        result.append(match)
+    return result
 
 
-srcDataPct = "%.4f" % (100 * srcData / dataTotal)
-dataPct = "%.4f" % (100 * data / dataTotal)
+def parse_map(non_matching_funcs):
+    src = 0
+    asm = 0
+    src_data = 0
+    data = 0
+    non_matching = 0
 
-version = 1
-git_object = git.Repo().head.object
-timestamp = str(git_object.committed_date)
-git_hash = git_object.hexsha
+    with open('tmc.map', 'r') as map:
+        # Skip to the linker script section
+        line = map.readline()
+        while not line.startswith('Linker script and memory map'):
+            line = map.readline()
+        while not line.startswith('rom'):
+            line = map.readline()
 
-####################################################
+        prev_symbol = None
+        prev_addr = 0
+        for line in map:
+            if line.startswith(' .'):
+                arr = line.split()
+                section = arr[0]
+                size = int(arr[2], 16)
+                filepath = arr[3]
+                dir = filepath.split('/')[0]
 
-csv_list = [str(version), timestamp, git_hash, str(srcPct), str(asmPct), str(srcDataPct), str(dataPct)]
+                if section == '.text':
+                    if dir == 'src':
+                        src += size
+                    elif dir == 'asm':
+                        asm += size
+                    elif dir == 'data':
+                        # scripts
+                        data += size
+                    elif dir == '..':
+                        # libc
+                        src += size
+                elif section == '.rodata':
+                    if dir == 'src':
+                        src_data += size
+                    elif dir == 'data':
+                        data += size
 
-print(",".join(csv_list))
+            elif line.startswith('  '):
+                arr = line.split()
+                if len(arr) == 2 and arr[1] != '':  # It is actually a symbol
+
+                    if prev_symbol in non_matching_funcs:
+                        # Calculate the length for non matching function
+                        non_matching += int(arr[0], 16) - prev_addr
+
+                    prev_symbol = arr[1]
+                    prev_addr = int(arr[0], 16)
+            elif line.strip() == '':
+                # End of linker script section
+                break
+
+    src -= non_matching
+    asm += non_matching
+
+    return (src, asm, src_data, data)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-m', '--matching', dest='matching', action='store_true',
+                        help='Output matching progress instead of decompilation progress')
+    args = parser.parse_args()
+    matching = args.matching
+
+    non_matching_funcs = []
+    funcs = collect_non_matching_funcs()
+    if matching:
+        # Remove all non matching funcs from count
+        non_matching_funcs = [x[1] for x in funcs]
+    else:
+        # Only remove ASM_FUNC functions from count
+        for func in funcs:
+            if func[0] == 'ASM_FUNC':
+                non_matching_funcs.append(func[1])
+
+    (src, asm, src_data, data) = parse_map(non_matching_funcs)
+
+    total = src + asm
+    data_total = src_data + data
+
+    src_pct = '%.4f' % (100 * src / total)
+    asm_pct = '%.4f' % (100 * asm / total)
+
+    src_data_pct = '%.4f' % (100 * src_data / data_total)
+    data_pct = '%.4f' % (100 * data / data_total)
+
+    version = 1
+    git_object = git.Repo().head.object
+    timestamp = str(git_object.committed_date)
+    git_hash = git_object.hexsha
+
+    csv_list = [str(version), timestamp, git_hash, str(src_pct),
+                str(asm_pct), str(src_data_pct), str(data_pct)]
+
+    print(','.join(csv_list))
+
+
+if __name__ == '__main__':
+    main()

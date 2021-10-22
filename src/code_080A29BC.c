@@ -3,10 +3,6 @@
 #include "room.h"
 #include "object.h"
 
-void sub_080A29BC(Entity* parent) { // TODO this is CreateDust, why is it here again? Fogot to delete file?
-    CreateFx(parent, 2, 0);
-}
-
 void sub_080A29C8(s32 xOff, s32 yOff, u32 layer) {
     Entity* pEVar1;
 

@@ -1,7 +1,7 @@
 #ifndef SCRIPT_H
 #define SCRIPT_H
 
-#include "global.h"
+#include "entity.h"
 
 typedef struct ScriptExecutionContext {
     u16* scriptInstructionPointer;

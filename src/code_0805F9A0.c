@@ -4,8 +4,8 @@
 #include "functions.h"
 
 extern u16 gUnk_081092D4;
-extern u8 gUnk_02036AD8;
 extern u8 gUnk_081094CE;
+extern u8 gUnk_02036AD8;
 extern u8 gUnk_02036A58;
 extern void* gUnk_081092AC[];
 

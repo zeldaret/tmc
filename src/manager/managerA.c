@@ -14,7 +14,7 @@ void sub_080585B0(ManagerA*);
 
 void (*const gUnk_081081F4[])(ManagerA*) = { sub_08058398, sub_080583EC, sub_08058408, sub_08058514, sub_080585B0 };
 
-void sub_08058380(ManagerA* this) {
+void ManagerA_Main(ManagerA* this) {
     gUnk_081081F4[this->manager.action](this);
 }
 
@@ -43,7 +43,6 @@ void sub_080583EC(ManagerA* this) {
 }
 
 extern void sub_0805E544(void);
-extern void sub_080186C0(u16);
 
 u32 sub_0805848C(ManagerA*);
 void sub_080585DC(ManagerA*);
@@ -150,7 +149,7 @@ void sub_08058514(ManagerA* this) {
 extern void sub_0801855C(void);
 
 void sub_080585B0(ManagerA* this) {
-    if (gArea.filler4[0] != 0xFF) {
+    if (gArea.field_0x28 != 0xFF) {
         DeleteThisEntity();
     }
     if (CheckFlags(this->unk_3c)) {

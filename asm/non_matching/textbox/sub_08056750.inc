@@ -51,9 +51,11 @@ _080567B8:
 	adds r1, #0x89
 	movs r0, #5
 	strb r0, [r1]
+.ifndef EU
 	movs r0, #0
 	movs r1, #0
 	bl sub_08056ABC
+.endif
 	b _08056942
 	.align 2, 0
 _080567D4: .4byte gUnk_02000040

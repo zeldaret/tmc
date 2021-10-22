@@ -157,6 +157,9 @@ void PlayerUpdate(Entity* this) {
 }
 
 // Responsible for some life things like low health beep and initiating the death sequence
+#ifdef EU
+ASM_FUNC("asm/non_matching/eu/HandlePlayerLife.inc", void HandlePlayerLife(Entity* this));
+#else
 void HandlePlayerLife(Entity* this) {
     u32 temp;
 
@@ -227,6 +230,7 @@ void HandlePlayerLife(Entity* this) {
         CreateFx(this, 0x55 + gSave.stats.effect, 0);
     }
 }
+#endif
 
 void sub_080171F0(void) {
     if (gPlayerState.field_0x1a[0] != 0)
@@ -345,7 +349,7 @@ void ManagerUpdate(Entity* this) {
 }
 
 // regalloc
-NONMATCH("asm/non_matching/arm_proxy/sub_08017530.inc", void NPCUpdate(Entity* this)) {
+NONMATCH("asm/non_matching/arm_proxy/NPCUpdate.inc", void NPCUpdate(Entity* this)) {
     if ((this->currentHealth & 0x7f) && !ReadBit(&gUnk_020342F8, this->currentHealth - 1))
         DeleteThisEntity();
     if ((this->action == 0) && ((this->flags & 1) == 0))

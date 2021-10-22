@@ -7,7 +7,9 @@ SCRIPT_START script_08014248
 script_08014264:
 	CallWithArg sub_08095EAC, 0x00000001
 	Jump script_08014264
-	.2byte 0x0000
+	.align 2, 0
+
+.ifndef EU
 SCRIPT_START script_08014274
 	BeginBlock 
 	DoPostScriptAction 0x0008
@@ -28,3 +30,4 @@ script_08014298:
 	_0807E878 
 	Jump script_08014298
 	.2byte 0x0000
+.endif
