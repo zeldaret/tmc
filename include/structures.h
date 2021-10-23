@@ -56,9 +56,13 @@ typedef struct {
     u8 field_0x24[0x14];
     u8 field_0x38;
     u8 field_0x39;
-    u16 field_0x3a;
+    u8 field_0x3a;
+    u8 field_0x3b;
     u8 field_0x3c;
-    u8 filler[6];
+    u8 field_0x3d;
+    u16 field_0x3e;
+    u16 field_0x40;
+    u16 field_0x42;
     u16 field_0x44;
     u16 field_0x46;
     u16 field_0x48;
