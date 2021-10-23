@@ -36,7 +36,7 @@ void sub_0803EB44(Entity* this) {
     Entity* pEVar1;
 
     sub_0804A720(this);
-    pEVar1 = sub_0804A98C(this, 0x19, 0);
+    pEVar1 = CreateProjectileWithParent(this, 0x19, 0);
     if (pEVar1 != NULL) {
         pEVar1->parent = this;
         this->attachedEntity = pEVar1;

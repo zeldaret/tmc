@@ -17,7 +17,7 @@
 	b _08034B9A
 _08034B58:
 	movs r0, #0xe
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r5, r0, #0
 	cmp r5, #0
 	beq _08034B9A

@@ -659,6 +659,7 @@ UpdateEntities: @ 0x080B21B0
 	ldr r8, [fp, #4]
 	ldr r0, [fp, #8]
 	add pc, pc, #0x60 @ =_080B2230
+@ UpdateEntities starts here
 	ldr r1, _080B2274 @ =gUnk_080026A4
 	add r1, r1, r0, lsl #4
 	push {r4, r5, r6, r7, r8, sb, sl, fp, lr}
@@ -682,12 +683,12 @@ _080B21FC:
 	ldr r1, [sl, r1, lsl #2]
 	mov r0, r4
 	mov lr, pc
-	bx r1
+	bx r1					@ Jump to address stored in r1
 _080B2224:
 	ldr r0, [fp, #8]
 	cmp r0, r4
 	bleq sub_080B1C54
-_080B2230:
+_080B2230: @ jumped here if ClearAndUpdateEntities
 	ldr r4, [r0, #4]
 	b _080B21FC
 _080B2238:
@@ -695,7 +696,7 @@ _080B2238:
 	str r0, [fp, #8]
 	pop {r4, r5, r6, r7, r8, sb, sl, fp, lr}
 	bx lr
-_080B2248: .4byte DeleteThisEntity
+_080B2248: .4byte DeleteThisEntity @ 0x3005fbc
 _080B224C: .4byte PlayerUpdate
 _080B2250: .4byte DeleteThisEntity
 _080B2254: .4byte EnemyUpdate

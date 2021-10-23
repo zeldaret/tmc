@@ -779,7 +779,7 @@ NONMATCH("asm/non_matching/mazaal/sub_08034B38.inc", void sub_08034B38(Entity* t
         this->action = 3;
         InitializeAnimation(this, this->type + 3);
     } else {
-        target = sub_080A7EE0(0xe);
+        target = CreateProjectile(0xe);
         if (target != NULL) {
             target->type -= 2;
             if (target->type == 0) {

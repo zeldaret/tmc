@@ -126,7 +126,7 @@ void Octorok_Move(Entity* this) {
 void Octorok_ShootNut(Entity* this) {
     GetNextFrame(this);
     if (this->frames.all & 1) {
-        Entity* ent = sub_0804A98C(this, 1, 0);
+        Entity* ent = CreateProjectileWithParent(this, 1, 0);
         if (ent) {
             const s8* off;
             ent->direction = this->direction;

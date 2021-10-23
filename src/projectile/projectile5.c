@@ -1,24 +1,22 @@
-
 #include "entity.h"
 #include "enemy.h"
 #include "player.h"
 #include "room.h"
 #include "coord.h"
 
-extern void (*const gUnk_08129718[])(Entity*);
-
-extern void (*const gUnk_0812972C[])(Entity*);
-
 extern u32 sub_080002E0(u32, u32);
 
-extern Hitbox gUnk_08129734;
+extern void (*const Projectile5_Functions[])(Entity*);
+extern void (*const Projectile5_Actions[])(Entity*);
+
+extern const Hitbox3D gUnk_08129734;
 
 void Projectile5(Entity* this) {
-    gUnk_08129718[GetNextFunction(this)](this);
+    Projectile5_Functions[GetNextFunction(this)](this);
 }
 
-void sub_080A86D8(Entity* this) {
-    gUnk_0812972C[this->action](this);
+void Projectile5_OnTick(Entity* this) {
+    Projectile5_Actions[this->action](this);
 }
 
 void sub_080A86F0(Entity* this) {
@@ -43,16 +41,14 @@ void sub_080A86F0(Entity* this) {
     }
 }
 
-void sub_080A8770(Entity* this) {
+void Projectile5_Init(Entity* this) {
     this->action = 1;
     this->field_0x3c |= 0x10;
-    this->hitbox = &gUnk_08129734;
+    this->hitbox = (Hitbox*)&gUnk_08129734;
 }
 
-void sub_080A878C(Entity* this) {
-    Entity* parent;
-
-    parent = this->parent;
+void Projectile5_Action1(Entity* this) {
+    Entity* parent = this->parent;
     if (parent == NULL) {
         DeleteThisEntity();
     }
@@ -65,3 +61,12 @@ void sub_080A878C(Entity* this) {
     CopyPosition(parent, this);
     this->height.HALF.HI += 2;
 }
+
+void (*const Projectile5_Functions[])(Entity*) = {
+    Projectile5_OnTick, sub_080A86F0, DeleteEntity, DeleteEntity, DeleteEntity,
+};
+void (*const Projectile5_Actions[])(Entity*) = {
+    Projectile5_Init,
+    Projectile5_Action1,
+};
+const Hitbox3D gUnk_08129734 = { 0, 0, { 9, 6, 6, 9 }, 10, 10, 12, { 0, 0, 0 } };
