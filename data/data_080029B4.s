@@ -1173,7 +1173,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte 00000000
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_234
+	.4byte gSpriteAnimations_IceProjectile
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000

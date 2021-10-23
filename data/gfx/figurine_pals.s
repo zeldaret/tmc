@@ -3,414 +3,414 @@
 
 	.section .rodata
     .align 2
-    
+
 @ TODO figurine Data
 gFigurinePal1:: @ 085B5EC0
-	.incbin "data_08132B30/gFigurinePal1.bin"
+	.incbin "palettes/gFigurinePal1.gbapal"
 
 gFigurinePal2:: @ 085B5FA0
-	.incbin "data_08132B30/gFigurinePal2.bin"
+	.incbin "palettes/gFigurinePal2.gbapal"
 
 gFigurinePal3:: @ 085B6080
-	.incbin "data_08132B30/gFigurinePal3.bin"
+	.incbin "palettes/gFigurinePal3.gbapal"
 
 gFigurinePal4:: @ 085B6160
-	.incbin "data_08132B30/gFigurinePal4.bin"
+	.incbin "palettes/gFigurinePal4.gbapal"
 
 gFigurinePal5:: @ 085B6240
-	.incbin "data_08132B30/gFigurinePal5.bin"
+	.incbin "palettes/gFigurinePal5.gbapal"
 
 gFigurinePal6:: @ 085B6320
-	.incbin "data_08132B30/gFigurinePal6.bin"
+	.incbin "palettes/gFigurinePal6.gbapal"
 
 gFigurinePal7:: @ 085B6400
-	.incbin "data_08132B30/gFigurinePal7.bin"
+	.incbin "palettes/gFigurinePal7.gbapal"
 
 gFigurinePal8:: @ 085B64E0
-	.incbin "data_08132B30/gFigurinePal8.bin"
+	.incbin "palettes/gFigurinePal8.gbapal"
 
 gFigurinePal9:: @ 085B65C0
-	.incbin "data_08132B30/gFigurinePal9.bin"
+	.incbin "palettes/gFigurinePal9.gbapal"
 
 gFigurinePal10:: @ 085B66A0
-	.incbin "data_08132B30/gFigurinePal10.bin"
+	.incbin "palettes/gFigurinePal10.gbapal"
 
 gFigurinePal11:: @ 085B6780
-	.incbin "data_08132B30/gFigurinePal11.bin"
+	.incbin "palettes/gFigurinePal11.gbapal"
 
 gFigurinePal12:: @ 085B6860
-	.incbin "data_08132B30/gFigurinePal12.bin"
+	.incbin "palettes/gFigurinePal12.gbapal"
 
 gFigurinePal13:: @ 085B6940
-	.incbin "data_08132B30/gFigurinePal13.bin"
+	.incbin "palettes/gFigurinePal13.gbapal"
 
 gFigurinePal14:: @ 085B6A20
-	.incbin "data_08132B30/gFigurinePal14.bin"
+	.incbin "palettes/gFigurinePal14.gbapal"
 
 gFigurinePal15:: @ 085B6B00
-	.incbin "data_08132B30/gFigurinePal15.bin"
+	.incbin "palettes/gFigurinePal15.gbapal"
 
 gFigurinePal16:: @ 085B6BE0
-	.incbin "data_08132B30/gFigurinePal16.bin"
+	.incbin "palettes/gFigurinePal16.gbapal"
 
 gFigurinePal17:: @ 085B6CC0
-	.incbin "data_08132B30/gFigurinePal17.bin"
+	.incbin "palettes/gFigurinePal17.gbapal"
 
 gFigurinePal18:: @ 085B6DA0
-	.incbin "data_08132B30/gFigurinePal18.bin"
+	.incbin "palettes/gFigurinePal18.gbapal"
 
 gFigurinePal19:: @ 085B6E80
-	.incbin "data_08132B30/gFigurinePal19.bin"
+	.incbin "palettes/gFigurinePal19.gbapal"
 
 gFigurinePal20:: @ 085B6F60
-	.incbin "data_08132B30/gFigurinePal20.bin"
+	.incbin "palettes/gFigurinePal20.gbapal"
 
 gFigurinePal21:: @ 085B7040
-	.incbin "data_08132B30/gFigurinePal21.bin"
+	.incbin "palettes/gFigurinePal21.gbapal"
 
 gFigurinePal22:: @ 085B7120
-	.incbin "data_08132B30/gFigurinePal22.bin"
+	.incbin "palettes/gFigurinePal22.gbapal"
 
 gFigurinePal23:: @ 085B7200
-	.incbin "data_08132B30/gFigurinePal23.bin"
+	.incbin "palettes/gFigurinePal23.gbapal"
 
 gFigurinePal24:: @ 085B72E0
-	.incbin "data_08132B30/gFigurinePal24.bin"
+	.incbin "palettes/gFigurinePal24.gbapal"
 
 gFigurinePal25:: @ 085B73C0
-	.incbin "data_08132B30/gFigurinePal25.bin"
+	.incbin "palettes/gFigurinePal25.gbapal"
 
 gFigurinePal26:: @ 085B74A0
-	.incbin "data_08132B30/gFigurinePal26.bin"
+	.incbin "palettes/gFigurinePal26.gbapal"
 
 gFigurinePal27:: @ 085B7580
-	.incbin "data_08132B30/gFigurinePal27.bin"
+	.incbin "palettes/gFigurinePal27.gbapal"
 
 gFigurinePal28:: @ 085B7660
-	.incbin "data_08132B30/gFigurinePal28.bin"
+	.incbin "palettes/gFigurinePal28.gbapal"
 
 gFigurinePal29:: @ 085B7740
-	.incbin "data_08132B30/gFigurinePal29.bin"
+	.incbin "palettes/gFigurinePal29.gbapal"
 
 gFigurinePal30:: @ 085B7820
-	.incbin "data_08132B30/gFigurinePal30.bin"
+	.incbin "palettes/gFigurinePal30.gbapal"
 
 gFigurinePal31:: @ 085B7900
-	.incbin "data_08132B30/gFigurinePal31.bin"
+	.incbin "palettes/gFigurinePal31.gbapal"
 
 gFigurinePal32:: @ 085B79E0
-	.incbin "data_08132B30/gFigurinePal32.bin"
+	.incbin "palettes/gFigurinePal32.gbapal"
 
 gFigurinePal33:: @ 085B7AC0
-	.incbin "data_08132B30/gFigurinePal33.bin"
+	.incbin "palettes/gFigurinePal33.gbapal"
 
 gFigurinePal34:: @ 085B7BA0
-	.incbin "data_08132B30/gFigurinePal34.bin"
+	.incbin "palettes/gFigurinePal34.gbapal"
 
 gFigurinePal35:: @ 085B7C80
-	.incbin "data_08132B30/gFigurinePal35.bin"
+	.incbin "palettes/gFigurinePal35.gbapal"
 
 gFigurinePal36:: @ 085B7D60
-	.incbin "data_08132B30/gFigurinePal36.bin"
+	.incbin "palettes/gFigurinePal36.gbapal"
 
 gFigurinePal37:: @ 085B7E40
-	.incbin "data_08132B30/gFigurinePal37.bin"
+	.incbin "palettes/gFigurinePal37.gbapal"
 
 gFigurinePal38:: @ 085B7F20
-	.incbin "data_08132B30/gFigurinePal38.bin"
+	.incbin "palettes/gFigurinePal38.gbapal"
 
 gFigurinePal39:: @ 085B8000
-	.incbin "data_08132B30/gFigurinePal39.bin"
+	.incbin "palettes/gFigurinePal39.gbapal"
 
 gFigurinePal40:: @ 085B80E0
-	.incbin "data_08132B30/gFigurinePal40.bin"
+	.incbin "palettes/gFigurinePal40.gbapal"
 
 gFigurinePal41:: @ 085B81C0
-	.incbin "data_08132B30/gFigurinePal41.bin"
+	.incbin "palettes/gFigurinePal41.gbapal"
 
 gFigurinePal42:: @ 085B82A0
-	.incbin "data_08132B30/gFigurinePal42.bin"
+	.incbin "palettes/gFigurinePal42.gbapal"
 
 gFigurinePal43:: @ 085B8380
-	.incbin "data_08132B30/gFigurinePal43.bin"
+	.incbin "palettes/gFigurinePal43.gbapal"
 
 gFigurinePal44:: @ 085B8460
-	.incbin "data_08132B30/gFigurinePal44.bin"
+	.incbin "palettes/gFigurinePal44.gbapal"
 
 gFigurinePal45:: @ 085B8540
-	.incbin "data_08132B30/gFigurinePal45.bin"
+	.incbin "palettes/gFigurinePal45.gbapal"
 
 gFigurinePal46:: @ 085B8620
-	.incbin "data_08132B30/gFigurinePal46.bin"
+	.incbin "palettes/gFigurinePal46.gbapal"
 
 gFigurinePal47:: @ 085B8700
-	.incbin "data_08132B30/gFigurinePal47.bin"
+	.incbin "palettes/gFigurinePal47.gbapal"
 
 gFigurinePal48:: @ 085B87E0
-	.incbin "data_08132B30/gFigurinePal48.bin"
+	.incbin "palettes/gFigurinePal48.gbapal"
 
 gFigurinePal49:: @ 085B88C0
-	.incbin "data_08132B30/gFigurinePal49.bin"
+	.incbin "palettes/gFigurinePal49.gbapal"
 
 gFigurinePal50:: @ 085B89E0
-	.incbin "data_08132B30/gFigurinePal50.bin"
+	.incbin "palettes/gFigurinePal50.gbapal"
 
 gFigurinePal51:: @ 085B8AC0
-	.incbin "data_08132B30/gFigurinePal51.bin"
+	.incbin "palettes/gFigurinePal51.gbapal"
 
 gFigurinePal52:: @ 085B8BA0
-	.incbin "data_08132B30/gFigurinePal52.bin"
+	.incbin "palettes/gFigurinePal52.gbapal"
 
 gFigurinePal53:: @ 085B8C80
-	.incbin "data_08132B30/gFigurinePal53.bin"
+	.incbin "palettes/gFigurinePal53.gbapal"
 
 gFigurinePal54:: @ 085B8D60
-	.incbin "data_08132B30/gFigurinePal54.bin"
+	.incbin "palettes/gFigurinePal54.gbapal"
 
 gFigurinePal55:: @ 085B8E40
-	.incbin "data_08132B30/gFigurinePal55.bin"
+	.incbin "palettes/gFigurinePal55.gbapal"
 
 gFigurinePal56:: @ 085B8F20
-	.incbin "data_08132B30/gFigurinePal56.bin"
+	.incbin "palettes/gFigurinePal56.gbapal"
 
 gFigurinePal57:: @ 085B9000
-	.incbin "data_08132B30/gFigurinePal57.bin"
+	.incbin "palettes/gFigurinePal57.gbapal"
 
 gFigurinePal58:: @ 085B90E0
-	.incbin "data_08132B30/gFigurinePal58.bin"
+	.incbin "palettes/gFigurinePal58.gbapal"
 
 gFigurinePal59:: @ 085B91C0
-	.incbin "data_08132B30/gFigurinePal59.bin"
+	.incbin "palettes/gFigurinePal59.gbapal"
 
 gFigurinePal60:: @ 085B92A0
-	.incbin "data_08132B30/gFigurinePal60.bin"
+	.incbin "palettes/gFigurinePal60.gbapal"
 
 gFigurinePal61:: @ 085B9380
-	.incbin "data_08132B30/gFigurinePal61.bin"
+	.incbin "palettes/gFigurinePal61.gbapal"
 
 gFigurinePal62:: @ 085B9460
-	.incbin "data_08132B30/gFigurinePal62.bin"
+	.incbin "palettes/gFigurinePal62.gbapal"
 
 gFigurinePal63:: @ 085B9540
-	.incbin "data_08132B30/gFigurinePal63.bin"
+	.incbin "palettes/gFigurinePal63.gbapal"
 
 gFigurinePal64:: @ 085B9620
-	.incbin "data_08132B30/gFigurinePal64.bin"
+	.incbin "palettes/gFigurinePal64.gbapal"
 
 gFigurinePal65:: @ 085B9700
-	.incbin "data_08132B30/gFigurinePal65.bin"
+	.incbin "palettes/gFigurinePal65.gbapal"
 
 gFigurinePal66:: @ 085B97E0
-	.incbin "data_08132B30/gFigurinePal66.bin"
+	.incbin "palettes/gFigurinePal66.gbapal"
 
 gFigurinePal67:: @ 085B98C0
-	.incbin "data_08132B30/gFigurinePal67.bin"
+	.incbin "palettes/gFigurinePal67.gbapal"
 
 gFigurinePal68:: @ 085B99A0
-	.incbin "data_08132B30/gFigurinePal68.bin"
+	.incbin "palettes/gFigurinePal68.gbapal"
 
 gFigurinePal69:: @ 085B9A80
-	.incbin "data_08132B30/gFigurinePal69.bin"
+	.incbin "palettes/gFigurinePal69.gbapal"
 
 gFigurinePal70:: @ 085B9B60
-	.incbin "data_08132B30/gFigurinePal70.bin"
+	.incbin "palettes/gFigurinePal70.gbapal"
 
 gFigurinePal71:: @ 085B9C40
-	.incbin "data_08132B30/gFigurinePal71.bin"
+	.incbin "palettes/gFigurinePal71.gbapal"
 
 gFigurinePal72:: @ 085B9D20
-	.incbin "data_08132B30/gFigurinePal72.bin"
+	.incbin "palettes/gFigurinePal72.gbapal"
 
 gFigurinePal73:: @ 085B9E00
-	.incbin "data_08132B30/gFigurinePal73.bin"
+	.incbin "palettes/gFigurinePal73.gbapal"
 
 gFigurinePal74:: @ 085B9EE0
-	.incbin "data_08132B30/gFigurinePal74.bin"
+	.incbin "palettes/gFigurinePal74.gbapal"
 
 gFigurinePal75:: @ 085B9FC0
-	.incbin "data_08132B30/gFigurinePal75.bin"
+	.incbin "palettes/gFigurinePal75.gbapal"
 
 gFigurinePal76:: @ 085BA0A0
-	.incbin "data_08132B30/gFigurinePal76.bin"
+	.incbin "palettes/gFigurinePal76.gbapal"
 
 gFigurinePal77:: @ 085BA180
-	.incbin "data_08132B30/gFigurinePal77.bin"
+	.incbin "palettes/gFigurinePal77.gbapal"
 
 gFigurinePal78:: @ 085BA260
-	.incbin "data_08132B30/gFigurinePal78.bin"
+	.incbin "palettes/gFigurinePal78.gbapal"
 
 gFigurinePal79:: @ 085BA340
-	.incbin "data_08132B30/gFigurinePal79.bin"
+	.incbin "palettes/gFigurinePal79.gbapal"
 
 gFigurinePal80:: @ 085BA420
-	.incbin "data_08132B30/gFigurinePal80.bin"
+	.incbin "palettes/gFigurinePal80.gbapal"
 
 gFigurinePal81:: @ 085BA500
-	.incbin "data_08132B30/gFigurinePal81.bin"
+	.incbin "palettes/gFigurinePal81.gbapal"
 
 gFigurinePal82:: @ 085BA5E0
-	.incbin "data_08132B30/gFigurinePal82.bin"
+	.incbin "palettes/gFigurinePal82.gbapal"
 
 gFigurinePal83:: @ 085BA6C0
-	.incbin "data_08132B30/gFigurinePal83.bin"
+	.incbin "palettes/gFigurinePal83.gbapal"
 
 gFigurinePal84:: @ 085BA7A0
-	.incbin "data_08132B30/gFigurinePal84.bin"
+	.incbin "palettes/gFigurinePal84.gbapal"
 
 gFigurinePal85:: @ 085BA880
-	.incbin "data_08132B30/gFigurinePal85.bin"
+	.incbin "palettes/gFigurinePal85.gbapal"
 
 gFigurinePal86:: @ 085BA960
-	.incbin "data_08132B30/gFigurinePal86.bin"
+	.incbin "palettes/gFigurinePal86.gbapal"
 
 gFigurinePal87:: @ 085BAA40
-	.incbin "data_08132B30/gFigurinePal87.bin"
+	.incbin "palettes/gFigurinePal87.gbapal"
 
 gFigurinePal88:: @ 085BAB20
-	.incbin "data_08132B30/gFigurinePal88.bin"
+	.incbin "palettes/gFigurinePal88.gbapal"
 
 gFigurinePal89:: @ 085BAC00
-	.incbin "data_08132B30/gFigurinePal89.bin"
+	.incbin "palettes/gFigurinePal89.gbapal"
 
 gFigurinePal90:: @ 085BACE0
-	.incbin "data_08132B30/gFigurinePal90.bin"
+	.incbin "palettes/gFigurinePal90.gbapal"
 
 gFigurinePal91:: @ 085BADC0
-	.incbin "data_08132B30/gFigurinePal91.bin"
+	.incbin "palettes/gFigurinePal91.gbapal"
 
 gFigurinePal92:: @ 085BAEA0
-	.incbin "data_08132B30/gFigurinePal92.bin"
+	.incbin "palettes/gFigurinePal92.gbapal"
 
 gFigurinePal93:: @ 085BAF80
-	.incbin "data_08132B30/gFigurinePal93.bin"
+	.incbin "palettes/gFigurinePal93.gbapal"
 
 gFigurinePal94:: @ 085BB060
-	.incbin "data_08132B30/gFigurinePal94.bin"
+	.incbin "palettes/gFigurinePal94.gbapal"
 
 gFigurinePal95:: @ 085BB140
-	.incbin "data_08132B30/gFigurinePal95.bin"
+	.incbin "palettes/gFigurinePal95.gbapal"
 
 gFigurinePal96:: @ 085BB220
-	.incbin "data_08132B30/gFigurinePal96.bin"
+	.incbin "palettes/gFigurinePal96.gbapal"
 
 gFigurinePal97:: @ 085BB300
-	.incbin "data_08132B30/gFigurinePal97.bin"
+	.incbin "palettes/gFigurinePal97.gbapal"
 
 gFigurinePal98:: @ 085BB3E0
-	.incbin "data_08132B30/gFigurinePal98.bin"
+	.incbin "palettes/gFigurinePal98.gbapal"
 
 gFigurinePal99:: @ 085BB4C0
-	.incbin "data_08132B30/gFigurinePal99.bin"
+	.incbin "palettes/gFigurinePal99.gbapal"
 
 gFigurinePal100:: @ 085BB5A0
-	.incbin "data_08132B30/gFigurinePal100.bin"
+	.incbin "palettes/gFigurinePal100.gbapal"
 
 gFigurinePal101:: @ 085BB680
-	.incbin "data_08132B30/gFigurinePal101.bin"
+	.incbin "palettes/gFigurinePal101.gbapal"
 
 gFigurinePal102:: @ 085BB760
-	.incbin "data_08132B30/gFigurinePal102.bin"
+	.incbin "palettes/gFigurinePal102.gbapal"
 
 gFigurinePal103:: @ 085BB840
-	.incbin "data_08132B30/gFigurinePal103.bin"
+	.incbin "palettes/gFigurinePal103.gbapal"
 
 gFigurinePal104:: @ 085BB920
-	.incbin "data_08132B30/gFigurinePal104.bin"
+	.incbin "palettes/gFigurinePal104.gbapal"
 
 gFigurinePal105:: @ 085BBA00
-	.incbin "data_08132B30/gFigurinePal105.bin"
+	.incbin "palettes/gFigurinePal105.gbapal"
 
 gFigurinePal106:: @ 085BBAE0
-	.incbin "data_08132B30/gFigurinePal106.bin"
+	.incbin "palettes/gFigurinePal106.gbapal"
 
 gFigurinePal107:: @ 085BBBC0
-	.incbin "data_08132B30/gFigurinePal107.bin"
+	.incbin "palettes/gFigurinePal107.gbapal"
 
 gFigurinePal108:: @ 085BBCA0
-	.incbin "data_08132B30/gFigurinePal108.bin"
+	.incbin "palettes/gFigurinePal108.gbapal"
 
 gFigurinePal109:: @ 085BBD80
-	.incbin "data_08132B30/gFigurinePal109.bin"
+	.incbin "palettes/gFigurinePal109.gbapal"
 
 gFigurinePal110:: @ 085BBE60
-	.incbin "data_08132B30/gFigurinePal110.bin"
+	.incbin "palettes/gFigurinePal110.gbapal"
 
 gFigurinePal111:: @ 085BBF40
-	.incbin "data_08132B30/gFigurinePal111.bin"
+	.incbin "palettes/gFigurinePal111.gbapal"
 
 gFigurinePal112:: @ 085BC020
-	.incbin "data_08132B30/gFigurinePal112.bin"
+	.incbin "palettes/gFigurinePal112.gbapal"
 
 gFigurinePal113:: @ 085BC100
-	.incbin "data_08132B30/gFigurinePal113.bin"
+	.incbin "palettes/gFigurinePal113.gbapal"
 
 gFigurinePal114:: @ 085BC1E0
-	.incbin "data_08132B30/gFigurinePal114.bin"
+	.incbin "palettes/gFigurinePal114.gbapal"
 
 gFigurinePal115:: @ 085BC2C0
-	.incbin "data_08132B30/gFigurinePal115.bin"
+	.incbin "palettes/gFigurinePal115.gbapal"
 
 gFigurinePal116:: @ 085BC3A0
-	.incbin "data_08132B30/gFigurinePal116.bin"
+	.incbin "palettes/gFigurinePal116.gbapal"
 
 gFigurinePal117:: @ 085BC480
-	.incbin "data_08132B30/gFigurinePal117.bin"
+	.incbin "palettes/gFigurinePal117.gbapal"
 
 gFigurinePal118:: @ 085BC560
-	.incbin "data_08132B30/gFigurinePal118.bin"
+	.incbin "palettes/gFigurinePal118.gbapal"
 
 gFigurinePal119:: @ 085BC640
-	.incbin "data_08132B30/gFigurinePal119.bin"
+	.incbin "palettes/gFigurinePal119.gbapal"
 
 gFigurinePal120:: @ 085BC720
-	.incbin "data_08132B30/gFigurinePal120.bin"
+	.incbin "palettes/gFigurinePal120.gbapal"
 
 gFigurinePal121:: @ 085BC800
-	.incbin "data_08132B30/gFigurinePal121.bin"
+	.incbin "palettes/gFigurinePal121.gbapal"
 
 gFigurinePal122:: @ 085BC8E0
-	.incbin "data_08132B30/gFigurinePal122.bin"
+	.incbin "palettes/gFigurinePal122.gbapal"
 
 gFigurinePal123:: @ 085BC9C0
-	.incbin "data_08132B30/gFigurinePal123.bin"
+	.incbin "palettes/gFigurinePal123.gbapal"
 
 gFigurinePal124:: @ 085BCAA0
-	.incbin "data_08132B30/gFigurinePal124.bin"
+	.incbin "palettes/gFigurinePal124.gbapal"
 
 gFigurinePal125:: @ 085BCB80
-	.incbin "data_08132B30/gFigurinePal125.bin"
+	.incbin "palettes/gFigurinePal125.gbapal"
 
 gFigurinePal126:: @ 085BCC60
-	.incbin "data_08132B30/gFigurinePal126.bin"
+	.incbin "palettes/gFigurinePal126.gbapal"
 
 gFigurinePal127:: @ 085BCD40
-	.incbin "data_08132B30/gFigurinePal127.bin"
+	.incbin "palettes/gFigurinePal127.gbapal"
 
 gFigurinePal128:: @ 085BCE20
-	.incbin "data_08132B30/gFigurinePal128.bin"
+	.incbin "palettes/gFigurinePal128.gbapal"
 
 gFigurinePal129:: @ 085BCF00
-	.incbin "data_08132B30/gFigurinePal129.bin"
+	.incbin "palettes/gFigurinePal129.gbapal"
 
 gFigurinePal130:: @ 085BCFE0
-	.incbin "data_08132B30/gFigurinePal130.bin"
+	.incbin "palettes/gFigurinePal130.gbapal"
 
 gFigurinePal131:: @ 085BD0C0
-	.incbin "data_08132B30/gFigurinePal131.bin"
+	.incbin "palettes/gFigurinePal131.gbapal"
 
 gFigurinePal132:: @ 085BD1A0
-	.incbin "data_08132B30/gFigurinePal132.bin"
+	.incbin "palettes/gFigurinePal132.gbapal"
 
 gFigurinePal133:: @ 085BD280
-	.incbin "data_08132B30/gFigurinePal133.bin"
+	.incbin "palettes/gFigurinePal133.gbapal"
 
 gFigurinePal134:: @ 085BD360
-	.incbin "data_08132B30/gFigurinePal134.bin"
+	.incbin "palettes/gFigurinePal134.gbapal"
 
 gFigurinePal135:: @ 085BD440
-	.incbin "data_08132B30/gFigurinePal135.bin"
+	.incbin "palettes/gFigurinePal135.gbapal"
 
 gFigurinePal136:: @ 085BD520
-	.incbin "data_08132B30/gFigurinePal136.bin"
+	.incbin "palettes/gFigurinePal136.gbapal"
 
 @ TODO end of figurine data

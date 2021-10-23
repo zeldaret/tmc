@@ -52088,1829 +52088,1246 @@
     "size": 16
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF428_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1042796
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF428_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_0.bin",
     "start": 1045544,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF430_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1042804
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF430_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_1.bin",
     "start": 1045552,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF438_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1042812
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF438_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_2.bin",
     "start": 1045560,
-    "size": 12
+    "size": 12,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF444_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1042824
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF444_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_3.bin",
     "start": 1045572,
-    "size": 12
+    "size": 12,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF450_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1042836
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF450_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_4.bin",
     "start": 1045584,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF454_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1042840
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF454_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_5.bin",
     "start": 1045588,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF458_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1042844
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF458_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_6.bin",
     "start": 1045592,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF45C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1042848
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF45C_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_7.bin",
     "start": 1045596,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF460_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1042852
-    },
-    "size": 20
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF460_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_8.bin",
     "start": 1045600,
-    "size": 20
+    "size": 20,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF474_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1042872
-    },
-    "size": 16
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF474_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_9.bin",
     "start": 1045620,
-    "size": 16
+    "size": 16,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF484.bin",
+    "path": "palettes/gPaletteGroup_11.bin",
     "start": 1045636,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF488.bin",
+    "path": "palettes/gPaletteGroup_10.bin",
     "start": 1045640,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF490.bin",
+    "path": "palettes/gPaletteGroup_27.bin",
     "start": 1045648,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF494.bin",
+    "path": "palettes/gPaletteGroup_38.bin",
     "start": 1045652,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF498.bin",
+    "path": "palettes/gPaletteGroup_20.bin",
     "start": 1045656,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF49C.bin",
+    "path": "palettes/gPaletteGroup_19.bin",
     "start": 1045660,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4A0.bin",
+    "path": "palettes/gPaletteGroup_13.bin",
     "start": 1045664,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4A4.bin",
+    "path": "palettes/gPaletteGroup_21.bin",
     "start": 1045668,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4A8.bin",
+    "path": "palettes/gPaletteGroup_22.bin",
     "start": 1045672,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4AC.bin",
+    "path": "palettes/gPaletteGroup_23.bin",
     "start": 1045676,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4B0.bin",
+    "path": "palettes/gPaletteGroup_24.bin",
     "start": 1045680,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4B4.bin",
+    "path": "palettes/gPaletteGroup_60.bin",
     "start": 1045684,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4B8.bin",
+    "path": "palettes/gPaletteGroup_26.bin",
     "start": 1045688,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4BC.bin",
+    "path": "palettes/gPaletteGroup_169.bin",
     "start": 1045692,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4C0.bin",
+    "path": "palettes/gPaletteGroup_53.bin",
     "start": 1045696,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4C4.bin",
+    "path": "palettes/gPaletteGroup_17.bin",
     "start": 1045700,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4C8.bin",
+    "path": "palettes/gPaletteGroup_62.bin",
     "start": 1045704,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4CC.bin",
+    "path": "palettes/gPaletteGroup_63.bin",
     "start": 1045708,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4D0.bin",
+    "path": "palettes/gPaletteGroup_64.bin",
     "start": 1045712,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4D4.bin",
+    "path": "palettes/gPaletteGroup_65.bin",
     "start": 1045716,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4D8.bin",
+    "path": "palettes/gPaletteGroup_92.bin",
     "start": 1045720,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4DC.bin",
+    "path": "palettes/gPaletteGroup_14.bin",
     "start": 1045724,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4E0.bin",
+    "path": "palettes/gPaletteGroup_108.bin",
     "start": 1045728,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4E4.bin",
+    "path": "palettes/gPaletteGroup_16.bin",
     "start": 1045732,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4E8.bin",
+    "path": "palettes/gPaletteGroup_25.bin",
     "start": 1045736,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4EC.bin",
+    "path": "palettes/gPaletteGroup_89.bin",
     "start": 1045740,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4F0.bin",
+    "path": "palettes/gPaletteGroup_35.bin",
     "start": 1045744,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4F4.bin",
+    "path": "palettes/gPaletteGroup_36.bin",
     "start": 1045748,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4F8.bin",
+    "path": "palettes/gPaletteGroup_127.bin",
     "start": 1045752,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF4FC.bin",
+    "path": "palettes/gPaletteGroup_93.bin",
     "start": 1045756,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF500.bin",
+    "path": "palettes/gPaletteGroup_54.bin",
     "start": 1045760,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF504.bin",
+    "path": "palettes/gPaletteGroup_103.bin",
     "start": 1045764,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF508.bin",
+    "path": "palettes/gPaletteGroup_129.bin",
     "start": 1045768,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF50C.bin",
+    "path": "palettes/gPaletteGroup_59.bin",
     "start": 1045772,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF510.bin",
+    "path": "palettes/gPaletteGroup_55.bin",
     "start": 1045776,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF514.bin",
+    "path": "palettes/gPaletteGroup_161.bin",
     "start": 1045780,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF518.bin",
+    "path": "palettes/gPaletteGroup_56.bin",
     "start": 1045784,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF51C.bin",
+    "path": "palettes/gPaletteGroup_57.bin",
     "start": 1045788,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF520.bin",
+    "path": "palettes/gPaletteGroup_144.bin",
     "start": 1045792,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF524.bin",
+    "path": "palettes/gPaletteGroup_58.bin",
     "start": 1045796,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF528.bin",
+    "path": "palettes/gPaletteGroup_143.bin",
     "start": 1045800,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF52C.bin",
+    "path": "palettes/gPaletteGroup_179.bin",
     "start": 1045804,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF530.bin",
+    "path": "palettes/gPaletteGroup_154.bin",
     "start": 1045808,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF534.bin",
+    "path": "palettes/gPaletteGroup_155.bin",
     "start": 1045812,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF538.bin",
+    "path": "palettes/gPaletteGroup_168.bin",
     "start": 1045816,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF53C.bin",
+    "path": "palettes/gPaletteGroup_104.bin",
     "start": 1045820,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF540.bin",
+    "path": "palettes/gPaletteGroup_105.bin",
     "start": 1045824,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF544.bin",
+    "path": "palettes/gPaletteGroup_106.bin",
     "start": 1045828,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF548.bin",
+    "path": "palettes/gPaletteGroup_107.bin",
     "start": 1045832,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF54C.bin",
+    "path": "palettes/gPaletteGroup_119.bin",
     "start": 1045836,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF550.bin",
+    "path": "palettes/gPaletteGroup_162.bin",
     "start": 1045840,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF554.bin",
+    "path": "palettes/gPaletteGroup_163.bin",
     "start": 1045844,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF558.bin",
+    "path": "palettes/gPaletteGroup_164.bin",
     "start": 1045848,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF55C.bin",
+    "path": "palettes/gPaletteGroup_165.bin",
     "start": 1045852,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF560.bin",
+    "path": "palettes/gPaletteGroup_15.bin",
     "start": 1045856,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF564.bin",
+    "path": "palettes/gPaletteGroup_45.bin",
     "start": 1045860,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF568.bin",
+    "path": "palettes/gPaletteGroup_66.bin",
     "start": 1045864,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF56C.bin",
+    "path": "palettes/gPaletteGroup_84.bin",
     "start": 1045868,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF570.bin",
+    "path": "palettes/gPaletteGroup_18.bin",
     "start": 1045872,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF574.bin",
+    "path": "palettes/gPaletteGroup_28.bin",
     "start": 1045876,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF578.bin",
+    "path": "palettes/gPaletteGroup_29.bin",
     "start": 1045880,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF57C.bin",
+    "path": "palettes/gPaletteGroup_32.bin",
     "start": 1045884,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF580.bin",
+    "path": "palettes/gPaletteGroup_98.bin",
     "start": 1045888,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF584.bin",
+    "path": "palettes/gPaletteGroup_99.bin",
     "start": 1045892,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF588.bin",
+    "path": "palettes/gPaletteGroup_166.bin",
     "start": 1045896,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF58C.bin",
+    "path": "palettes/gPaletteGroup_43.bin",
     "start": 1045900,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF590.bin",
+    "path": "palettes/gPaletteGroup_30.bin",
     "start": 1045904,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF594.bin",
+    "path": "palettes/gPaletteGroup_31.bin",
     "start": 1045908,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF598.bin",
+    "path": "palettes/gPaletteGroup_37.bin",
     "start": 1045912,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF59C.bin",
+    "path": "palettes/gPaletteGroup_40.bin",
     "start": 1045916,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5A0.bin",
+    "path": "palettes/gPaletteGroup_61.bin",
     "start": 1045920,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5A4.bin",
+    "path": "palettes/gPaletteGroup_91.bin",
     "start": 1045924,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5A8.bin",
+    "path": "palettes/gPaletteGroup_101.bin",
     "start": 1045928,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5AC.bin",
+    "path": "palettes/gPaletteGroup_102.bin",
     "start": 1045932,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5B0.bin",
+    "path": "palettes/gPaletteGroup_50.bin",
     "start": 1045936,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5B4.bin",
+    "path": "palettes/gPaletteGroup_51.bin",
     "start": 1045940,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5B8.bin",
+    "path": "palettes/gPaletteGroup_88.bin",
     "start": 1045944,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5BC.bin",
+    "path": "palettes/gPaletteGroup_156.bin",
     "start": 1045948,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5C0.bin",
+    "path": "palettes/gPaletteGroup_167.bin",
     "start": 1045952,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5C4.bin",
+    "path": "palettes/gPaletteGroup_52.bin",
     "start": 1045956,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5C8.bin",
+    "path": "palettes/gPaletteGroup_12.bin",
     "start": 1045960,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5CC.bin",
+    "path": "palettes/gPaletteGroup_44.bin",
     "start": 1045964,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5D0.bin",
+    "path": "palettes/gPaletteGroup_145.bin",
     "start": 1045968,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5D4.bin",
+    "path": "palettes/gPaletteGroup_146.bin",
     "start": 1045972,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5D8.bin",
+    "path": "palettes/gPaletteGroup_147.bin",
     "start": 1045976,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5DC.bin",
+    "path": "palettes/gPaletteGroup_148.bin",
     "start": 1045980,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5E0.bin",
+    "path": "palettes/gPaletteGroup_149.bin",
     "start": 1045984,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5E4.bin",
+    "path": "palettes/gPaletteGroup_33.bin",
     "start": 1045988,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5E8.bin",
+    "path": "palettes/gPaletteGroup_150.bin",
     "start": 1045992,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5EC.bin",
+    "path": "palettes/gPaletteGroup_151.bin",
     "start": 1045996,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5F0.bin",
+    "path": "palettes/gPaletteGroup_152.bin",
     "start": 1046000,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5F4.bin",
+    "path": "palettes/gPaletteGroup_153.bin",
     "start": 1046004,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5F8.bin",
+    "path": "palettes/gPaletteGroup_34.bin",
     "start": 1046008,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF5FC.bin",
+    "path": "palettes/gPaletteGroup_100.bin",
     "start": 1046012,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF600.bin",
+    "path": "palettes/gPaletteGroup_109.bin",
     "start": 1046016,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF604.bin",
+    "path": "palettes/gPaletteGroup_120.bin",
     "start": 1046020,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF608.bin",
+    "path": "palettes/gPaletteGroup_124.bin",
     "start": 1046024,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF60C.bin",
+    "path": "palettes/gPaletteGroup_125.bin",
     "start": 1046028,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF610.bin",
+    "path": "palettes/gPaletteGroup_126.bin",
     "start": 1046032,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF614.bin",
+    "path": "palettes/gPaletteGroup_130.bin",
     "start": 1046036,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF618.bin",
+    "path": "palettes/gPaletteGroup_131.bin",
     "start": 1046040,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF61C.bin",
+    "path": "palettes/gPaletteGroup_132.bin",
     "start": 1046044,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF620.bin",
+    "path": "palettes/gPaletteGroup_157.bin",
     "start": 1046048,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF624.bin",
+    "path": "palettes/gPaletteGroup_158.bin",
     "start": 1046052,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF628.bin",
+    "path": "palettes/gPaletteGroup_159.bin",
     "start": 1046056,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF62C.bin",
+    "path": "palettes/gPaletteGroup_160.bin",
     "start": 1046060,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF630.bin",
+    "path": "palettes/gPaletteGroup_110.bin",
     "start": 1046064,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF634.bin",
+    "path": "palettes/gPaletteGroup_111.bin",
     "start": 1046068,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF638.bin",
+    "path": "palettes/gPaletteGroup_112.bin",
     "start": 1046072,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF63C.bin",
+    "path": "palettes/gPaletteGroup_113.bin",
     "start": 1046076,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF640.bin",
+    "path": "palettes/gPaletteGroup_94.bin",
     "start": 1046080,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF644.bin",
+    "path": "palettes/gPaletteGroup_95.bin",
     "start": 1046084,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF648.bin",
+    "path": "palettes/gPaletteGroup_96.bin",
     "start": 1046088,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF64C.bin",
+    "path": "palettes/gPaletteGroup_97.bin",
     "start": 1046092,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF650.bin",
+    "path": "palettes/gPaletteGroup_67.bin",
     "start": 1046096,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF654.bin",
+    "path": "palettes/gPaletteGroup_68.bin",
     "start": 1046100,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF658.bin",
+    "path": "palettes/gPaletteGroup_69.bin",
     "start": 1046104,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF65C.bin",
+    "path": "palettes/gPaletteGroup_70.bin",
     "start": 1046108,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF660.bin",
+    "path": "palettes/gPaletteGroup_71.bin",
     "start": 1046112,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF664.bin",
+    "path": "palettes/gPaletteGroup_72.bin",
     "start": 1046116,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF668.bin",
+    "path": "palettes/gPaletteGroup_73.bin",
     "start": 1046120,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF66C.bin",
+    "path": "palettes/gPaletteGroup_74.bin",
     "start": 1046124,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF670.bin",
+    "path": "palettes/gPaletteGroup_75.bin",
     "start": 1046128,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF674.bin",
+    "path": "palettes/gPaletteGroup_85.bin",
     "start": 1046132,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF678.bin",
+    "path": "palettes/gPaletteGroup_86.bin",
     "start": 1046136,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF67C.bin",
+    "path": "palettes/gPaletteGroup_87.bin",
     "start": 1046140,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF680.bin",
+    "path": "palettes/gPaletteGroup_76.bin",
     "start": 1046144,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF684.bin",
+    "path": "palettes/gPaletteGroup_77.bin",
     "start": 1046148,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF688.bin",
+    "path": "palettes/gPaletteGroup_78.bin",
     "start": 1046152,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF68C.bin",
+    "path": "palettes/gPaletteGroup_79.bin",
     "start": 1046156,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF690.bin",
+    "path": "palettes/gPaletteGroup_80.bin",
     "start": 1046160,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF694.bin",
+    "path": "palettes/gPaletteGroup_81.bin",
     "start": 1046164,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF698.bin",
+    "path": "palettes/gPaletteGroup_82.bin",
     "start": 1046168,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF69C.bin",
+    "path": "palettes/gPaletteGroup_83.bin",
     "start": 1046172,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6A0.bin",
+    "path": "palettes/gPaletteGroup_114.bin",
     "start": 1046176,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6A4.bin",
+    "path": "palettes/gPaletteGroup_115.bin",
     "start": 1046180,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6A8.bin",
+    "path": "palettes/gPaletteGroup_116.bin",
     "start": 1046184,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6AC.bin",
+    "path": "palettes/gPaletteGroup_117.bin",
     "start": 1046188,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6B0.bin",
+    "path": "palettes/gPaletteGroup_118.bin",
     "start": 1046192,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6B4.bin",
+    "path": "palettes/gPaletteGroup_128.bin",
     "start": 1046196,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6B8.bin",
+    "path": "palettes/gPaletteGroup_123.bin",
     "start": 1046200,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6BC.bin",
+    "path": "palettes/gPaletteGroup_122.bin",
     "start": 1046204,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6C0.bin",
+    "path": "palettes/gPaletteGroup_121.bin",
     "start": 1046208,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6C4.bin",
+    "path": "palettes/gPaletteGroup_39.bin",
     "start": 1046212,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6C8.bin",
+    "path": "palettes/gPaletteGroup_41.bin",
     "start": 1046216,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6CC.bin",
+    "path": "palettes/gPaletteGroup_42.bin",
     "start": 1046220,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6D0.bin",
+    "path": "palettes/gPaletteGroup_46.bin",
     "start": 1046224,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6D4.bin",
+    "path": "palettes/gPaletteGroup_47.bin",
     "start": 1046228,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6D8.bin",
+    "path": "palettes/gPaletteGroup_48.bin",
     "start": 1046232,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6DC.bin",
+    "path": "palettes/gPaletteGroup_49.bin",
     "start": 1046236,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6E0.bin",
+    "path": "palettes/gPaletteGroup_90.bin",
     "start": 1046240,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6E4.bin",
+    "path": "palettes/gPaletteGroup_133.bin",
     "start": 1046244,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6E8.bin",
+    "path": "palettes/gPaletteGroup_134.bin",
     "start": 1046248,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6EC.bin",
+    "path": "palettes/gPaletteGroup_135.bin",
     "start": 1046252,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6F0.bin",
+    "path": "palettes/gPaletteGroup_136.bin",
     "start": 1046256,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6F4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043512
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF6F4_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_137.bin",
     "start": 1046260,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6F8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043516
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF6F8_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_138.bin",
     "start": 1046264,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF6FC_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043520
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF6FC_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_139.bin",
     "start": 1046268,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF700_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043524
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF700_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_140.bin",
     "start": 1046272,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF704_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043528
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF704_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_141.bin",
     "start": 1046276,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF708_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043532
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF708_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_142.bin",
     "start": 1046280,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF70C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043536
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF70C_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_170.bin",
     "start": 1046284,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF710_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043540
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF710_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_171.bin",
     "start": 1046288,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF714_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043544
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF714_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_172.bin",
     "start": 1046292,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF718_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043548
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF718_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_173.bin",
     "start": 1046296,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF71C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043552
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF71C_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_174.bin",
     "start": 1046300,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF720_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043556
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF720_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_175.bin",
     "start": 1046304,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF724_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043560
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF724_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_176.bin",
     "start": 1046308,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF728_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043564
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF728_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_177.bin",
     "start": 1046312,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF72C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043568
-    },
-    "size": 4
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF72C_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_178.bin",
     "start": 1046316,
-    "size": 4
+    "size": 4,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF730.bin",
+    "path": "palettes/gPaletteGroup_180.bin",
     "start": 1046320,
-    "size": 12
+    "size": 12,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF73C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043584
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF73C_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_181.bin",
     "start": 1046332,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF744_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043592
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF744_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_182.bin",
     "start": 1046340,
-    "size": 12
+    "size": 12,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF750_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043604
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF750_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_183.bin",
     "start": 1046352,
-    "size": 12
+    "size": 12,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF75C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043616
-    },
-    "size": 20
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF75C_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_184.bin",
     "start": 1046364,
-    "size": 20
+    "size": 20,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF770_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043636
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF770_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_185.bin",
     "start": 1046384,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF778_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043644
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF778_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_186.bin",
     "start": 1046392,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF780_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043652
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF780_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_187.bin",
     "start": 1046400,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF788_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043660
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF788_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_188.bin",
     "start": 1046408,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF790_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043668
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF790_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_189.bin",
     "start": 1046416,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF798_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043676
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF798_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_190.bin",
     "start": 1046424,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF7A0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043684
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF7A0_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_191.bin",
     "start": 1046432,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF7A8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043692
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF7A8_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_192.bin",
     "start": 1046440,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF7B0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043700
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF7B0_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_193.bin",
     "start": 1046448,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF7B8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043708
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF7B8_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_194.bin",
     "start": 1046456,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF7C0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043716
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF7C0_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_195.bin",
     "start": 1046464,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF7C8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043724
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF7C8_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_196.bin",
     "start": 1046472,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF7D0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043732
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF7D0_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_197.bin",
     "start": 1046480,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF7D8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043740
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF7D8_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_198.bin",
     "start": 1046488,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF7E0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043748
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF7E0_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_199.bin",
     "start": 1046496,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF7E8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043756
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF7E8_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_200.bin",
     "start": 1046504,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF7F0_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043764
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF7F0_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_201.bin",
     "start": 1046512,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF7F8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043772
-    },
-    "size": 16
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF7F8_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_202.bin",
     "start": 1046520,
-    "size": 16
+    "size": 16,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF808_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043788
-    },
-    "size": 12
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF808_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_203.bin",
     "start": 1046536,
-    "size": 12
+    "size": 12,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF814.bin",
+    "path": "palettes/gPaletteGroup_204.bin",
     "start": 1046548,
-    "size": 40
+    "size": 40,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF83C_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1043840
-    },
-    "size": 8
-  },
-  {
-    "path": "data_080FEEB8/gUnk_080FF83C_1_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_205.bin",
     "start": 1046588,
-    "size": 8
+    "size": 8,
+    "type": "palette_group"
   },
   {
-    "path": "data_080FEEB8/gUnk_080FF844_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
+    "path": "palettes/gPaletteGroup_206.bin",
     "start": 1046596,
-    "size": 12
+    "size": 12,
+    "type": "palette_group"
   },
   {
     "path": "data_080FEEB8/gUnk_EU_080FF0C4_EU.bin",
@@ -55231,7 +54648,8 @@
       "DEMO_JP"
     ],
     "start": 1047440,
-    "size": 24
+    "size": 24,
+    "type": "gfx_group"
   },
   {
     "path": "data_080FEEB8/gGfxGroup_2_JP.bin",
@@ -85258,17 +84676,18 @@
     "size": 8
   },
   {
-    "path": "data_08132B30/gFixedTypeGfxData_EU.bin",
+    "path": "sprites/gFixedTypeGfxData.bin",
     "variants": [
       "EU"
     ],
     "starts": {
       "EU": 1253760
     },
-    "size": 515
+    "size": 2100,
+    "type": "fixed_type_gfx"
   },
   {
-    "path": "data_08132B30/gFixedTypeGfxData_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "sprites/gFixedTypeGfxData.bin",
     "variants": [
       "USA",
       "JP",
@@ -85276,112 +84695,8 @@
       "DEMO_JP"
     ],
     "start": 1256240,
-    "size": 515
-  },
-  {
-    "path": "data_08132B30/gFixedTypeGfxData_2_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1254275
-    },
-    "size": 742
-  },
-  {
-    "path": "data_08132B30/gFixedTypeGfxData_3_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1256755,
-    "size": 742
-  },
-  {
-    "path": "data_08132B30/gFixedTypeGfxData_4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1255017
-    },
-    "size": 248
-  },
-  {
-    "path": "data_08132B30/gFixedTypeGfxData_5_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1257497,
-    "size": 248
-  },
-  {
-    "path": "data_08132B30/gFixedTypeGfxData_6_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1255265
-    },
-    "size": 512
-  },
-  {
-    "path": "data_08132B30/gFixedTypeGfxData_7_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1257745,
-    "size": 512
-  },
-  {
-    "path": "data_08132B30/gFixedTypeGfxData_8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1255777
-    },
-    "size": 34
-  },
-  {
-    "path": "data_08132B30/gFixedTypeGfxData_9_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1258257,
-    "size": 34
-  },
-  {
-    "path": "data_08132B30/gFixedTypeGfxData_10_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 1255811
-    },
-    "size": 49
-  },
-  {
-    "path": "data_08132B30/gFixedTypeGfxData_11_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 1258291,
-    "size": 53
+    "size": 2104,
+    "type": "fixed_type_gfx"
   },
   {
     "path": "data_08132B30/gUnk_08133368_EU.bin",
@@ -88060,17 +87375,18 @@
     }
   },
   {
-    "path": "data_08132B30/gFrameObjLists_EU.bin",
+    "path": "gfx/gFrameObjLists.bin",
     "variants": [
       "EU"
     ],
     "starts": {
       "EU": 3093600
     },
-    "size": 399
+    "size": 199564,
+    "type": "frame_obj_lists"
   },
   {
-    "path": "data_08132B30/gFrameObjLists_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "gfx/gFrameObjLists.bin",
     "variants": [
       "USA",
       "JP",
@@ -88078,321 +87394,8 @@
       "DEMO_JP"
     ],
     "start": 3095924,
-    "size": 399
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_2_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3093999
-    },
-    "size": 21
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_3_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3096323,
-    "size": 21
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_4_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3094020
-    },
-    "size": 533
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_5_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3096344,
-    "size": 533
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_6_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3094553
-    },
-    "size": 779
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_7_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3096877,
-    "size": 779
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_8_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3095332
-    },
-    "size": 3023
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_9_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3097656,
-    "size": 3023
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_10_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3098355
-    },
-    "size": 81
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_11_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3100679,
-    "size": 81
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_12_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3098436
-    },
-    "size": 185
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_13_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3100760,
-    "size": 185
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_14_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3098621
-    },
-    "size": 347
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_15_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3100945,
-    "size": 347
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_16_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3098968
-    },
-    "size": 31160
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_17_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3101292,
-    "size": 31160
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_18_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3130128
-    },
-    "size": 4565
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_19_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3132452,
-    "size": 4565
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_20_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3134693
-    },
-    "size": 1252
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_21_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3137017,
-    "size": 1256
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_22_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3135945
-    },
-    "size": 7358
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_23_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3138273,
-    "size": 7358
-  },
-  {
-    "offsets": {
-      "EU": -2328
-    }
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_24.bin",
-    "start": 3145631,
-    "size": 36458
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_25_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3179761
-    },
-    "size": 2071
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_26_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3182089,
-    "size": 2071
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_27.bin",
-    "start": 3184160,
-    "size": 58592
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_28_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3240424
-    },
-    "size": 9889
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_29_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3242752,
-    "size": 9889
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_30.bin",
-    "start": 3252641,
-    "size": 9102
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_31_EU.bin",
-    "variants": [
-      "EU"
-    ],
-    "starts": {
-      "EU": 3259415
-    },
-    "size": 33749
-  },
-  {
-    "path": "data_08132B30/gFrameObjLists_32_USA-JP-DEMO_USA-DEMO_JP.bin",
-    "variants": [
-      "USA",
-      "JP",
-      "DEMO_USA",
-      "DEMO_JP"
-    ],
-    "start": 3261743,
-    "size": 34229
+    "size": 200048,
+    "type": "frame_obj_lists"
   },
   {
     "offsets": {
@@ -88526,684 +87529,820 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurinePal1.bin",
+    "path": "palettes/gFigurinePal1.gbapal",
     "start": 5988032,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal2.bin",
+    "path": "palettes/gFigurinePal2.gbapal",
     "start": 5988256,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal3.bin",
+    "path": "palettes/gFigurinePal3.gbapal",
     "start": 5988480,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal4.bin",
+    "path": "palettes/gFigurinePal4.gbapal",
     "start": 5988704,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal5.bin",
+    "path": "palettes/gFigurinePal5.gbapal",
     "start": 5988928,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal6.bin",
+    "path": "palettes/gFigurinePal6.gbapal",
     "start": 5989152,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal7.bin",
+    "path": "palettes/gFigurinePal7.gbapal",
     "start": 5989376,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal8.bin",
+    "path": "palettes/gFigurinePal8.gbapal",
     "start": 5989600,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal9.bin",
+    "path": "palettes/gFigurinePal9.gbapal",
     "start": 5989824,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal10.bin",
+    "path": "palettes/gFigurinePal10.gbapal",
     "start": 5990048,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal11.bin",
+    "path": "palettes/gFigurinePal11.gbapal",
     "start": 5990272,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal12.bin",
+    "path": "palettes/gFigurinePal12.gbapal",
     "start": 5990496,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal13.bin",
+    "path": "palettes/gFigurinePal13.gbapal",
     "start": 5990720,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal14.bin",
+    "path": "palettes/gFigurinePal14.gbapal",
     "start": 5990944,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal15.bin",
+    "path": "palettes/gFigurinePal15.gbapal",
     "start": 5991168,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal16.bin",
+    "path": "palettes/gFigurinePal16.gbapal",
     "start": 5991392,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal17.bin",
+    "path": "palettes/gFigurinePal17.gbapal",
     "start": 5991616,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal18.bin",
+    "path": "palettes/gFigurinePal18.gbapal",
     "start": 5991840,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal19.bin",
+    "path": "palettes/gFigurinePal19.gbapal",
     "start": 5992064,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal20.bin",
+    "path": "palettes/gFigurinePal20.gbapal",
     "start": 5992288,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal21.bin",
+    "path": "palettes/gFigurinePal21.gbapal",
     "start": 5992512,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal22.bin",
+    "path": "palettes/gFigurinePal22.gbapal",
     "start": 5992736,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal23.bin",
+    "path": "palettes/gFigurinePal23.gbapal",
     "start": 5992960,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal24.bin",
+    "path": "palettes/gFigurinePal24.gbapal",
     "start": 5993184,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal25.bin",
+    "path": "palettes/gFigurinePal25.gbapal",
     "start": 5993408,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal26.bin",
+    "path": "palettes/gFigurinePal26.gbapal",
     "start": 5993632,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal27.bin",
+    "path": "palettes/gFigurinePal27.gbapal",
     "start": 5993856,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal28.bin",
+    "path": "palettes/gFigurinePal28.gbapal",
     "start": 5994080,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal29.bin",
+    "path": "palettes/gFigurinePal29.gbapal",
     "start": 5994304,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal30.bin",
+    "path": "palettes/gFigurinePal30.gbapal",
     "start": 5994528,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal31.bin",
+    "path": "palettes/gFigurinePal31.gbapal",
     "start": 5994752,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal32.bin",
+    "path": "palettes/gFigurinePal32.gbapal",
     "start": 5994976,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal33.bin",
+    "path": "palettes/gFigurinePal33.gbapal",
     "start": 5995200,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal34.bin",
+    "path": "palettes/gFigurinePal34.gbapal",
     "start": 5995424,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal35.bin",
+    "path": "palettes/gFigurinePal35.gbapal",
     "start": 5995648,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal36.bin",
+    "path": "palettes/gFigurinePal36.gbapal",
     "start": 5995872,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal37.bin",
+    "path": "palettes/gFigurinePal37.gbapal",
     "start": 5996096,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal38.bin",
+    "path": "palettes/gFigurinePal38.gbapal",
     "start": 5996320,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal39.bin",
+    "path": "palettes/gFigurinePal39.gbapal",
     "start": 5996544,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal40.bin",
+    "path": "palettes/gFigurinePal40.gbapal",
     "start": 5996768,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal41.bin",
+    "path": "palettes/gFigurinePal41.gbapal",
     "start": 5996992,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal42.bin",
+    "path": "palettes/gFigurinePal42.gbapal",
     "start": 5997216,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal43.bin",
+    "path": "palettes/gFigurinePal43.gbapal",
     "start": 5997440,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal44.bin",
+    "path": "palettes/gFigurinePal44.gbapal",
     "start": 5997664,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal45.bin",
+    "path": "palettes/gFigurinePal45.gbapal",
     "start": 5997888,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal46.bin",
+    "path": "palettes/gFigurinePal46.gbapal",
     "start": 5998112,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal47.bin",
+    "path": "palettes/gFigurinePal47.gbapal",
     "start": 5998336,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal48.bin",
+    "path": "palettes/gFigurinePal48.gbapal",
     "start": 5998560,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal49.bin",
+    "path": "palettes/gFigurinePal49.gbapal",
     "start": 5998784,
-    "size": 288
+    "size": 288,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal50.bin",
+    "path": "palettes/gFigurinePal50.gbapal",
     "start": 5999072,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal51.bin",
+    "path": "palettes/gFigurinePal51.gbapal",
     "start": 5999296,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal52.bin",
+    "path": "palettes/gFigurinePal52.gbapal",
     "start": 5999520,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal53.bin",
+    "path": "palettes/gFigurinePal53.gbapal",
     "start": 5999744,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal54.bin",
+    "path": "palettes/gFigurinePal54.gbapal",
     "start": 5999968,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal55.bin",
+    "path": "palettes/gFigurinePal55.gbapal",
     "start": 6000192,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal56.bin",
+    "path": "palettes/gFigurinePal56.gbapal",
     "start": 6000416,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal57.bin",
+    "path": "palettes/gFigurinePal57.gbapal",
     "start": 6000640,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal58.bin",
+    "path": "palettes/gFigurinePal58.gbapal",
     "start": 6000864,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal59.bin",
+    "path": "palettes/gFigurinePal59.gbapal",
     "start": 6001088,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal60.bin",
+    "path": "palettes/gFigurinePal60.gbapal",
     "start": 6001312,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal61.bin",
+    "path": "palettes/gFigurinePal61.gbapal",
     "start": 6001536,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal62.bin",
+    "path": "palettes/gFigurinePal62.gbapal",
     "start": 6001760,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal63.bin",
+    "path": "palettes/gFigurinePal63.gbapal",
     "start": 6001984,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal64.bin",
+    "path": "palettes/gFigurinePal64.gbapal",
     "start": 6002208,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal65.bin",
+    "path": "palettes/gFigurinePal65.gbapal",
     "start": 6002432,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal66.bin",
+    "path": "palettes/gFigurinePal66.gbapal",
     "start": 6002656,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal67.bin",
+    "path": "palettes/gFigurinePal67.gbapal",
     "start": 6002880,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal68.bin",
+    "path": "palettes/gFigurinePal68.gbapal",
     "start": 6003104,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal69.bin",
+    "path": "palettes/gFigurinePal69.gbapal",
     "start": 6003328,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal70.bin",
+    "path": "palettes/gFigurinePal70.gbapal",
     "start": 6003552,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal71.bin",
+    "path": "palettes/gFigurinePal71.gbapal",
     "start": 6003776,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal72.bin",
+    "path": "palettes/gFigurinePal72.gbapal",
     "start": 6004000,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal73.bin",
+    "path": "palettes/gFigurinePal73.gbapal",
     "start": 6004224,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal74.bin",
+    "path": "palettes/gFigurinePal74.gbapal",
     "start": 6004448,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal75.bin",
+    "path": "palettes/gFigurinePal75.gbapal",
     "start": 6004672,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal76.bin",
+    "path": "palettes/gFigurinePal76.gbapal",
     "start": 6004896,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal77.bin",
+    "path": "palettes/gFigurinePal77.gbapal",
     "start": 6005120,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal78.bin",
+    "path": "palettes/gFigurinePal78.gbapal",
     "start": 6005344,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal79.bin",
+    "path": "palettes/gFigurinePal79.gbapal",
     "start": 6005568,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal80.bin",
+    "path": "palettes/gFigurinePal80.gbapal",
     "start": 6005792,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal81.bin",
+    "path": "palettes/gFigurinePal81.gbapal",
     "start": 6006016,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal82.bin",
+    "path": "palettes/gFigurinePal82.gbapal",
     "start": 6006240,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal83.bin",
+    "path": "palettes/gFigurinePal83.gbapal",
     "start": 6006464,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal84.bin",
+    "path": "palettes/gFigurinePal84.gbapal",
     "start": 6006688,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal85.bin",
+    "path": "palettes/gFigurinePal85.gbapal",
     "start": 6006912,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal86.bin",
+    "path": "palettes/gFigurinePal86.gbapal",
     "start": 6007136,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal87.bin",
+    "path": "palettes/gFigurinePal87.gbapal",
     "start": 6007360,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal88.bin",
+    "path": "palettes/gFigurinePal88.gbapal",
     "start": 6007584,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal89.bin",
+    "path": "palettes/gFigurinePal89.gbapal",
     "start": 6007808,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal90.bin",
+    "path": "palettes/gFigurinePal90.gbapal",
     "start": 6008032,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal91.bin",
+    "path": "palettes/gFigurinePal91.gbapal",
     "start": 6008256,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal92.bin",
+    "path": "palettes/gFigurinePal92.gbapal",
     "start": 6008480,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal93.bin",
+    "path": "palettes/gFigurinePal93.gbapal",
     "start": 6008704,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal94.bin",
+    "path": "palettes/gFigurinePal94.gbapal",
     "start": 6008928,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal95.bin",
+    "path": "palettes/gFigurinePal95.gbapal",
     "start": 6009152,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal96.bin",
+    "path": "palettes/gFigurinePal96.gbapal",
     "start": 6009376,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal97.bin",
+    "path": "palettes/gFigurinePal97.gbapal",
     "start": 6009600,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal98.bin",
+    "path": "palettes/gFigurinePal98.gbapal",
     "start": 6009824,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal99.bin",
+    "path": "palettes/gFigurinePal99.gbapal",
     "start": 6010048,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal100.bin",
+    "path": "palettes/gFigurinePal100.gbapal",
     "start": 6010272,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal101.bin",
+    "path": "palettes/gFigurinePal101.gbapal",
     "start": 6010496,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal102.bin",
+    "path": "palettes/gFigurinePal102.gbapal",
     "start": 6010720,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal103.bin",
+    "path": "palettes/gFigurinePal103.gbapal",
     "start": 6010944,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal104.bin",
+    "path": "palettes/gFigurinePal104.gbapal",
     "start": 6011168,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal105.bin",
+    "path": "palettes/gFigurinePal105.gbapal",
     "start": 6011392,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal106.bin",
+    "path": "palettes/gFigurinePal106.gbapal",
     "start": 6011616,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal107.bin",
+    "path": "palettes/gFigurinePal107.gbapal",
     "start": 6011840,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal108.bin",
+    "path": "palettes/gFigurinePal108.gbapal",
     "start": 6012064,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal109.bin",
+    "path": "palettes/gFigurinePal109.gbapal",
     "start": 6012288,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal110.bin",
+    "path": "palettes/gFigurinePal110.gbapal",
     "start": 6012512,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal111.bin",
+    "path": "palettes/gFigurinePal111.gbapal",
     "start": 6012736,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal112.bin",
+    "path": "palettes/gFigurinePal112.gbapal",
     "start": 6012960,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal113.bin",
+    "path": "palettes/gFigurinePal113.gbapal",
     "start": 6013184,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal114.bin",
+    "path": "palettes/gFigurinePal114.gbapal",
     "start": 6013408,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal115.bin",
+    "path": "palettes/gFigurinePal115.gbapal",
     "start": 6013632,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal116.bin",
+    "path": "palettes/gFigurinePal116.gbapal",
     "start": 6013856,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal117.bin",
+    "path": "palettes/gFigurinePal117.gbapal",
     "start": 6014080,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal118.bin",
+    "path": "palettes/gFigurinePal118.gbapal",
     "start": 6014304,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal119.bin",
+    "path": "palettes/gFigurinePal119.gbapal",
     "start": 6014528,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal120.bin",
+    "path": "palettes/gFigurinePal120.gbapal",
     "start": 6014752,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal121.bin",
+    "path": "palettes/gFigurinePal121.gbapal",
     "start": 6014976,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal122.bin",
+    "path": "palettes/gFigurinePal122.gbapal",
     "start": 6015200,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal123.bin",
+    "path": "palettes/gFigurinePal123.gbapal",
     "start": 6015424,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal124.bin",
+    "path": "palettes/gFigurinePal124.gbapal",
     "start": 6015648,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal125.bin",
+    "path": "palettes/gFigurinePal125.gbapal",
     "start": 6015872,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal126.bin",
+    "path": "palettes/gFigurinePal126.gbapal",
     "start": 6016096,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal127.bin",
+    "path": "palettes/gFigurinePal127.gbapal",
     "start": 6016320,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal128.bin",
+    "path": "palettes/gFigurinePal128.gbapal",
     "start": 6016544,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal129.bin",
+    "path": "palettes/gFigurinePal129.gbapal",
     "start": 6016768,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal130.bin",
+    "path": "palettes/gFigurinePal130.gbapal",
     "start": 6016992,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal131.bin",
+    "path": "palettes/gFigurinePal131.gbapal",
     "start": 6017216,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal132.bin",
+    "path": "palettes/gFigurinePal132.gbapal",
     "start": 6017440,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal133.bin",
+    "path": "palettes/gFigurinePal133.gbapal",
     "start": 6017664,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal134.bin",
+    "path": "palettes/gFigurinePal134.gbapal",
     "start": 6017888,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal135.bin",
+    "path": "palettes/gFigurinePal135.gbapal",
     "start": 6018112,
-    "size": 224
+    "size": 224,
+    "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal136.bin",
+    "path": "palettes/gFigurinePal136.gbapal",
     "start": 6018336,
-    "size": 256
+    "size": 256,
+    "type": "palette"
   },
   {
     "path": "graphics/intro/capcom.gbapal",
@@ -89218,7 +88357,7 @@
     "type": "palette"
   },
   {
-    "path": "data_08132B30/gFigurinePal136_1.bin",
+    "path": "data_08132B30/morePalettes.bin",
     "start": 6018656,
     "size": 28608
   },
@@ -89389,7 +88528,7 @@
     "size": 1406624
   },
   {
-    "path": "data_08132B30/gFigurineGfx1.4bpp",
+    "path": "figurines/gFigurineGfx1.4bpp",
     "start": 8649472,
     "size": 1408,
     "type": "graphic",
@@ -89398,7 +88537,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx2.4bpp",
+    "path": "figurines/gFigurineGfx2.4bpp",
     "start": 8650880,
     "size": 1504,
     "type": "graphic",
@@ -89407,7 +88546,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx3.4bpp",
+    "path": "figurines/gFigurineGfx3.4bpp",
     "start": 8652384,
     "size": 1152,
     "type": "graphic",
@@ -89416,7 +88555,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx4.4bpp",
+    "path": "figurines/gFigurineGfx4.4bpp",
     "start": 8653536,
     "size": 1216,
     "type": "graphic",
@@ -89425,7 +88564,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx5.4bpp",
+    "path": "figurines/gFigurineGfx5.4bpp",
     "start": 8654752,
     "size": 1280,
     "type": "graphic",
@@ -89434,7 +88573,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx6.4bpp",
+    "path": "figurines/gFigurineGfx6.4bpp",
     "start": 8656032,
     "size": 896,
     "type": "graphic",
@@ -89443,7 +88582,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx7.4bpp",
+    "path": "figurines/gFigurineGfx7.4bpp",
     "start": 8656928,
     "size": 704,
     "type": "graphic",
@@ -89452,7 +88591,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx8.4bpp",
+    "path": "figurines/gFigurineGfx8.4bpp",
     "start": 8657632,
     "size": 1248,
     "type": "graphic",
@@ -89461,7 +88600,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx9.4bpp",
+    "path": "figurines/gFigurineGfx9.4bpp",
     "start": 8658880,
     "size": 800,
     "type": "graphic",
@@ -89470,7 +88609,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx10.4bpp",
+    "path": "figurines/gFigurineGfx10.4bpp",
     "start": 8659680,
     "size": 3488,
     "type": "graphic",
@@ -89479,7 +88618,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx11.4bpp",
+    "path": "figurines/gFigurineGfx11.4bpp",
     "start": 8663168,
     "size": 3680,
     "type": "graphic",
@@ -89488,7 +88627,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx12.4bpp",
+    "path": "figurines/gFigurineGfx12.4bpp",
     "start": 8666848,
     "size": 3808,
     "type": "graphic",
@@ -89497,7 +88636,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx13.4bpp",
+    "path": "figurines/gFigurineGfx13.4bpp",
     "start": 8670656,
     "size": 3552,
     "type": "graphic",
@@ -89506,7 +88645,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx14.4bpp",
+    "path": "figurines/gFigurineGfx14.4bpp",
     "start": 8674208,
     "size": 6656,
     "type": "graphic",
@@ -89515,7 +88654,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx15.4bpp",
+    "path": "figurines/gFigurineGfx15.4bpp",
     "start": 8680864,
     "size": 6592,
     "type": "graphic",
@@ -89524,7 +88663,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx16.4bpp",
+    "path": "figurines/gFigurineGfx16.4bpp",
     "start": 8687456,
     "size": 4288,
     "type": "graphic",
@@ -89533,7 +88672,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx17.4bpp",
+    "path": "figurines/gFigurineGfx17.4bpp",
     "start": 8691744,
     "size": 992,
     "type": "graphic",
@@ -89542,7 +88681,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx18.4bpp",
+    "path": "figurines/gFigurineGfx18.4bpp",
     "start": 8692736,
     "size": 928,
     "type": "graphic",
@@ -89551,7 +88690,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx19.4bpp",
+    "path": "figurines/gFigurineGfx19.4bpp",
     "start": 8693664,
     "size": 864,
     "type": "graphic",
@@ -89560,7 +88699,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx20.4bpp",
+    "path": "figurines/gFigurineGfx20.4bpp",
     "start": 8694528,
     "size": 2944,
     "type": "graphic",
@@ -89569,7 +88708,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx21.4bpp",
+    "path": "figurines/gFigurineGfx21.4bpp",
     "start": 8697472,
     "size": 2816,
     "type": "graphic",
@@ -89578,7 +88717,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx22.4bpp",
+    "path": "figurines/gFigurineGfx22.4bpp",
     "start": 8700288,
     "size": 2784,
     "type": "graphic",
@@ -89587,7 +88726,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx23.4bpp",
+    "path": "figurines/gFigurineGfx23.4bpp",
     "start": 8703072,
     "size": 1152,
     "type": "graphic",
@@ -89596,7 +88735,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx24.4bpp",
+    "path": "figurines/gFigurineGfx24.4bpp",
     "start": 8704224,
     "size": 800,
     "type": "graphic",
@@ -89605,7 +88744,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx25.4bpp",
+    "path": "figurines/gFigurineGfx25.4bpp",
     "start": 8705024,
     "size": 864,
     "type": "graphic",
@@ -89614,7 +88753,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx26.4bpp",
+    "path": "figurines/gFigurineGfx26.4bpp",
     "start": 8705888,
     "size": 928,
     "type": "graphic",
@@ -89623,7 +88762,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx27.4bpp",
+    "path": "figurines/gFigurineGfx27.4bpp",
     "start": 8706816,
     "size": 1024,
     "type": "graphic",
@@ -89632,7 +88771,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx28.4bpp",
+    "path": "figurines/gFigurineGfx28.4bpp",
     "start": 8707840,
     "size": 2016,
     "type": "graphic",
@@ -89641,7 +88780,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx29.4bpp",
+    "path": "figurines/gFigurineGfx29.4bpp",
     "start": 8709856,
     "size": 10752,
     "type": "graphic",
@@ -89650,7 +88789,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx30.4bpp",
+    "path": "figurines/gFigurineGfx30.4bpp",
     "start": 8720608,
     "size": 10752,
     "type": "graphic",
@@ -89659,7 +88798,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx31.4bpp",
+    "path": "figurines/gFigurineGfx31.4bpp",
     "start": 8731360,
     "size": 10752,
     "type": "graphic",
@@ -89668,7 +88807,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx32.4bpp",
+    "path": "figurines/gFigurineGfx32.4bpp",
     "start": 8742112,
     "size": 960,
     "type": "graphic",
@@ -89677,7 +88816,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx33.4bpp",
+    "path": "figurines/gFigurineGfx33.4bpp",
     "start": 8743072,
     "size": 896,
     "type": "graphic",
@@ -89686,7 +88825,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx34.4bpp",
+    "path": "figurines/gFigurineGfx34.4bpp",
     "start": 8743968,
     "size": 896,
     "type": "graphic",
@@ -89695,7 +88834,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx35.4bpp",
+    "path": "figurines/gFigurineGfx35.4bpp",
     "start": 8744864,
     "size": 896,
     "type": "graphic",
@@ -89704,7 +88843,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx36.4bpp",
+    "path": "figurines/gFigurineGfx36.4bpp",
     "start": 8745760,
     "size": 1376,
     "type": "graphic",
@@ -89713,7 +88852,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx37.4bpp",
+    "path": "figurines/gFigurineGfx37.4bpp",
     "start": 8747136,
     "size": 1152,
     "type": "graphic",
@@ -89722,7 +88861,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx38.4bpp",
+    "path": "figurines/gFigurineGfx38.4bpp",
     "start": 8748288,
     "size": 1152,
     "type": "graphic",
@@ -89731,7 +88870,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx39.4bpp",
+    "path": "figurines/gFigurineGfx39.4bpp",
     "start": 8749440,
     "size": 1280,
     "type": "graphic",
@@ -89740,7 +88879,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx40.4bpp",
+    "path": "figurines/gFigurineGfx40.4bpp",
     "start": 8750720,
     "size": 5312,
     "type": "graphic",
@@ -89749,7 +88888,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx41.4bpp",
+    "path": "figurines/gFigurineGfx41.4bpp",
     "start": 8756032,
     "size": 1632,
     "type": "graphic",
@@ -89758,7 +88897,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx42.4bpp",
+    "path": "figurines/gFigurineGfx42.4bpp",
     "start": 8757664,
     "size": 4224,
     "type": "graphic",
@@ -89767,7 +88906,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx43.4bpp",
+    "path": "figurines/gFigurineGfx43.4bpp",
     "start": 8761888,
     "size": 2048,
     "type": "graphic",
@@ -89776,7 +88915,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx44.4bpp",
+    "path": "figurines/gFigurineGfx44.4bpp",
     "start": 8763936,
     "size": 2048,
     "type": "graphic",
@@ -89785,7 +88924,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx45.4bpp",
+    "path": "figurines/gFigurineGfx45.4bpp",
     "start": 8765984,
     "size": 1280,
     "type": "graphic",
@@ -89794,7 +88933,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx46.4bpp",
+    "path": "figurines/gFigurineGfx46.4bpp",
     "start": 8767264,
     "size": 1280,
     "type": "graphic",
@@ -89803,7 +88942,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx47.4bpp",
+    "path": "figurines/gFigurineGfx47.4bpp",
     "start": 8768544,
     "size": 12416,
     "type": "graphic",
@@ -89812,7 +88951,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx48.4bpp",
+    "path": "figurines/gFigurineGfx48.4bpp",
     "start": 8780960,
     "size": 10720,
     "type": "graphic",
@@ -89821,7 +88960,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx49.4bpp",
+    "path": "figurines/gFigurineGfx49.4bpp",
     "start": 8791680,
     "size": 14848,
     "type": "graphic",
@@ -89830,7 +88969,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx50.4bpp",
+    "path": "figurines/gFigurineGfx50.4bpp",
     "start": 8806528,
     "size": 10688,
     "type": "graphic",
@@ -89839,7 +88978,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx51.4bpp",
+    "path": "figurines/gFigurineGfx51.4bpp",
     "start": 8817216,
     "size": 13536,
     "type": "graphic",
@@ -89848,7 +88987,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx52.4bpp",
+    "path": "figurines/gFigurineGfx52.4bpp",
     "start": 8830752,
     "size": 14592,
     "type": "graphic",
@@ -89857,7 +88996,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx53.4bpp",
+    "path": "figurines/gFigurineGfx53.4bpp",
     "start": 8845344,
     "size": 12512,
     "type": "graphic",
@@ -89866,7 +89005,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx54.4bpp",
+    "path": "figurines/gFigurineGfx54.4bpp",
     "start": 8857856,
     "size": 11392,
     "type": "graphic",
@@ -89875,7 +89014,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx55.4bpp",
+    "path": "figurines/gFigurineGfx55.4bpp",
     "start": 8869248,
     "size": 13568,
     "type": "graphic",
@@ -89884,7 +89023,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx56.4bpp",
+    "path": "figurines/gFigurineGfx56.4bpp",
     "start": 8882816,
     "size": 10112,
     "type": "graphic",
@@ -89893,7 +89032,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx57.4bpp",
+    "path": "figurines/gFigurineGfx57.4bpp",
     "start": 8892928,
     "size": 11936,
     "type": "graphic",
@@ -89902,7 +89041,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx58.4bpp",
+    "path": "figurines/gFigurineGfx58.4bpp",
     "start": 8904864,
     "size": 13088,
     "type": "graphic",
@@ -89911,7 +89050,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx59.4bpp",
+    "path": "figurines/gFigurineGfx59.4bpp",
     "start": 8917952,
     "size": 10976,
     "type": "graphic",
@@ -89920,7 +89059,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx60.4bpp",
+    "path": "figurines/gFigurineGfx60.4bpp",
     "start": 8928928,
     "size": 7936,
     "type": "graphic",
@@ -89929,7 +89068,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx61.4bpp",
+    "path": "figurines/gFigurineGfx61.4bpp",
     "start": 8936864,
     "size": 16384,
     "type": "graphic",
@@ -89938,7 +89077,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx62.4bpp",
+    "path": "figurines/gFigurineGfx62.4bpp",
     "start": 8953248,
     "size": 16256,
     "type": "graphic",
@@ -89947,7 +89086,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx63.4bpp",
+    "path": "figurines/gFigurineGfx63.4bpp",
     "start": 8969504,
     "size": 7232,
     "type": "graphic",
@@ -89956,7 +89095,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx64.4bpp",
+    "path": "figurines/gFigurineGfx64.4bpp",
     "start": 8976736,
     "size": 5728,
     "type": "graphic",
@@ -89965,7 +89104,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx65.4bpp",
+    "path": "figurines/gFigurineGfx65.4bpp",
     "start": 8982464,
     "size": 7296,
     "type": "graphic",
@@ -89974,7 +89113,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx66.4bpp",
+    "path": "figurines/gFigurineGfx66.4bpp",
     "start": 8989760,
     "size": 8960,
     "type": "graphic",
@@ -89983,7 +89122,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx67.4bpp",
+    "path": "figurines/gFigurineGfx67.4bpp",
     "start": 8998720,
     "size": 9344,
     "type": "graphic",
@@ -89992,7 +89131,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx68.4bpp",
+    "path": "figurines/gFigurineGfx68.4bpp",
     "start": 9008064,
     "size": 1088,
     "type": "graphic",
@@ -90001,7 +89140,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx69.4bpp",
+    "path": "figurines/gFigurineGfx69.4bpp",
     "start": 9009152,
     "size": 2240,
     "type": "graphic",
@@ -90010,7 +89149,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx70.4bpp",
+    "path": "figurines/gFigurineGfx70.4bpp",
     "start": 9011392,
     "size": 3584,
     "type": "graphic",
@@ -90019,7 +89158,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx71.4bpp",
+    "path": "figurines/gFigurineGfx71.4bpp",
     "start": 9014976,
     "size": 896,
     "type": "graphic",
@@ -90028,7 +89167,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx72.4bpp",
+    "path": "figurines/gFigurineGfx72.4bpp",
     "start": 9015872,
     "size": 2336,
     "type": "graphic",
@@ -90037,7 +89176,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx73.4bpp",
+    "path": "figurines/gFigurineGfx73.4bpp",
     "start": 9018208,
     "size": 736,
     "type": "graphic",
@@ -90046,7 +89185,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx74.4bpp",
+    "path": "figurines/gFigurineGfx74.4bpp",
     "start": 9018944,
     "size": 1952,
     "type": "graphic",
@@ -90055,7 +89194,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx75.4bpp",
+    "path": "figurines/gFigurineGfx75.4bpp",
     "start": 9020896,
     "size": 768,
     "type": "graphic",
@@ -90064,7 +89203,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx76.4bpp",
+    "path": "figurines/gFigurineGfx76.4bpp",
     "start": 9021664,
     "size": 3840,
     "type": "graphic",
@@ -90073,7 +89212,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx77.4bpp",
+    "path": "figurines/gFigurineGfx77.4bpp",
     "start": 9025504,
     "size": 864,
     "type": "graphic",
@@ -90082,7 +89221,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx78.4bpp",
+    "path": "figurines/gFigurineGfx78.4bpp",
     "start": 9026368,
     "size": 1920,
     "type": "graphic",
@@ -90091,7 +89230,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx79.4bpp",
+    "path": "figurines/gFigurineGfx79.4bpp",
     "start": 9028288,
     "size": 1024,
     "type": "graphic",
@@ -90100,7 +89239,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx80.4bpp",
+    "path": "figurines/gFigurineGfx80.4bpp",
     "start": 9029312,
     "size": 896,
     "type": "graphic",
@@ -90109,7 +89248,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx81.4bpp",
+    "path": "figurines/gFigurineGfx81.4bpp",
     "start": 9030208,
     "size": 2560,
     "type": "graphic",
@@ -90118,7 +89257,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx82.4bpp",
+    "path": "figurines/gFigurineGfx82.4bpp",
     "start": 9032768,
     "size": 2560,
     "type": "graphic",
@@ -90127,7 +89266,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx83.4bpp",
+    "path": "figurines/gFigurineGfx83.4bpp",
     "start": 9035328,
     "size": 768,
     "type": "graphic",
@@ -90136,7 +89275,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx84.4bpp",
+    "path": "figurines/gFigurineGfx84.4bpp",
     "start": 9036096,
     "size": 1216,
     "type": "graphic",
@@ -90145,7 +89284,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx85.4bpp",
+    "path": "figurines/gFigurineGfx85.4bpp",
     "start": 9037312,
     "size": 1984,
     "type": "graphic",
@@ -90154,7 +89293,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx86.4bpp",
+    "path": "figurines/gFigurineGfx86.4bpp",
     "start": 9039296,
     "size": 2848,
     "type": "graphic",
@@ -90163,7 +89302,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx87.4bpp",
+    "path": "figurines/gFigurineGfx87.4bpp",
     "start": 9042144,
     "size": 2016,
     "type": "graphic",
@@ -90172,7 +89311,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx88.4bpp",
+    "path": "figurines/gFigurineGfx88.4bpp",
     "start": 9044160,
     "size": 864,
     "type": "graphic",
@@ -90181,7 +89320,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx89.4bpp",
+    "path": "figurines/gFigurineGfx89.4bpp",
     "start": 9045024,
     "size": 2240,
     "type": "graphic",
@@ -90190,7 +89329,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx90.4bpp",
+    "path": "figurines/gFigurineGfx90.4bpp",
     "start": 9047264,
     "size": 1984,
     "type": "graphic",
@@ -90199,7 +89338,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx91.4bpp",
+    "path": "figurines/gFigurineGfx91.4bpp",
     "start": 9049248,
     "size": 3520,
     "type": "graphic",
@@ -90208,7 +89347,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx92.4bpp",
+    "path": "figurines/gFigurineGfx92.4bpp",
     "start": 9052768,
     "size": 768,
     "type": "graphic",
@@ -90217,7 +89356,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx93.4bpp",
+    "path": "figurines/gFigurineGfx93.4bpp",
     "start": 9053536,
     "size": 736,
     "type": "graphic",
@@ -90226,7 +89365,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx94.4bpp",
+    "path": "figurines/gFigurineGfx94.4bpp",
     "start": 9054272,
     "size": 1280,
     "type": "graphic",
@@ -90235,7 +89374,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx95.4bpp",
+    "path": "figurines/gFigurineGfx95.4bpp",
     "start": 9055552,
     "size": 1984,
     "type": "graphic",
@@ -90244,7 +89383,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx96.4bpp",
+    "path": "figurines/gFigurineGfx96.4bpp",
     "start": 9057536,
     "size": 768,
     "type": "graphic",
@@ -90253,7 +89392,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx97.4bpp",
+    "path": "figurines/gFigurineGfx97.4bpp",
     "start": 9058304,
     "size": 1952,
     "type": "graphic",
@@ -90262,7 +89401,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx98.4bpp",
+    "path": "figurines/gFigurineGfx98.4bpp",
     "start": 9060256,
     "size": 1280,
     "type": "graphic",
@@ -90271,7 +89410,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx99.4bpp",
+    "path": "figurines/gFigurineGfx99.4bpp",
     "start": 9061536,
     "size": 960,
     "type": "graphic",
@@ -90280,7 +89419,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx100.4bpp",
+    "path": "figurines/gFigurineGfx100.4bpp",
     "start": 9062496,
     "size": 2464,
     "type": "graphic",
@@ -90289,7 +89428,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx101.4bpp",
+    "path": "figurines/gFigurineGfx101.4bpp",
     "start": 9064960,
     "size": 3520,
     "type": "graphic",
@@ -90298,7 +89437,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx102.4bpp",
+    "path": "figurines/gFigurineGfx102.4bpp",
     "start": 9068480,
     "size": 928,
     "type": "graphic",
@@ -90307,7 +89446,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx103.4bpp",
+    "path": "figurines/gFigurineGfx103.4bpp",
     "start": 9069408,
     "size": 2432,
     "type": "graphic",
@@ -90316,7 +89455,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx104.4bpp",
+    "path": "figurines/gFigurineGfx104.4bpp",
     "start": 9071840,
     "size": 1984,
     "type": "graphic",
@@ -90325,7 +89464,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx105.4bpp",
+    "path": "figurines/gFigurineGfx105.4bpp",
     "start": 9073824,
     "size": 2080,
     "type": "graphic",
@@ -90334,7 +89473,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx106.4bpp",
+    "path": "figurines/gFigurineGfx106.4bpp",
     "start": 9075904,
     "size": 832,
     "type": "graphic",
@@ -90343,7 +89482,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx107.4bpp",
+    "path": "figurines/gFigurineGfx107.4bpp",
     "start": 9076736,
     "size": 1280,
     "type": "graphic",
@@ -90352,7 +89491,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx108.4bpp",
+    "path": "figurines/gFigurineGfx108.4bpp",
     "start": 9078016,
     "size": 1280,
     "type": "graphic",
@@ -90361,7 +89500,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx109.4bpp",
+    "path": "figurines/gFigurineGfx109.4bpp",
     "start": 9079296,
     "size": 1984,
     "type": "graphic",
@@ -90370,7 +89509,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx110.4bpp",
+    "path": "figurines/gFigurineGfx110.4bpp",
     "start": 9081280,
     "size": 1632,
     "type": "graphic",
@@ -90379,7 +89518,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx111.4bpp",
+    "path": "figurines/gFigurineGfx111.4bpp",
     "start": 9082912,
     "size": 960,
     "type": "graphic",
@@ -90388,7 +89527,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx112.4bpp",
+    "path": "figurines/gFigurineGfx112.4bpp",
     "start": 9083872,
     "size": 1120,
     "type": "graphic",
@@ -90397,7 +89536,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx113.4bpp",
+    "path": "figurines/gFigurineGfx113.4bpp",
     "start": 9084992,
     "size": 896,
     "type": "graphic",
@@ -90406,7 +89545,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx114.4bpp",
+    "path": "figurines/gFigurineGfx114.4bpp",
     "start": 9085888,
     "size": 2080,
     "type": "graphic",
@@ -90415,7 +89554,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx115.4bpp",
+    "path": "figurines/gFigurineGfx115.4bpp",
     "start": 9087968,
     "size": 1696,
     "type": "graphic",
@@ -90424,7 +89563,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx116.4bpp",
+    "path": "figurines/gFigurineGfx116.4bpp",
     "start": 9089664,
     "size": 2432,
     "type": "graphic",
@@ -90433,7 +89572,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx117.4bpp",
+    "path": "figurines/gFigurineGfx117.4bpp",
     "start": 9092096,
     "size": 1504,
     "type": "graphic",
@@ -90442,7 +89581,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx118.4bpp",
+    "path": "figurines/gFigurineGfx118.4bpp",
     "start": 9093600,
     "size": 2208,
     "type": "graphic",
@@ -90451,7 +89590,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx119.4bpp",
+    "path": "figurines/gFigurineGfx119.4bpp",
     "start": 9095808,
     "size": 2240,
     "type": "graphic",
@@ -90460,7 +89599,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx120.4bpp",
+    "path": "figurines/gFigurineGfx120.4bpp",
     "start": 9098048,
     "size": 1440,
     "type": "graphic",
@@ -90469,7 +89608,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx121.4bpp",
+    "path": "figurines/gFigurineGfx121.4bpp",
     "start": 9099488,
     "size": 1568,
     "type": "graphic",
@@ -90478,7 +89617,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx122.4bpp",
+    "path": "figurines/gFigurineGfx122.4bpp",
     "start": 9101056,
     "size": 3840,
     "type": "graphic",
@@ -90487,7 +89626,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx123.4bpp",
+    "path": "figurines/gFigurineGfx123.4bpp",
     "start": 9104896,
     "size": 1600,
     "type": "graphic",
@@ -90496,7 +89635,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx124.4bpp",
+    "path": "figurines/gFigurineGfx124.4bpp",
     "start": 9106496,
     "size": 9600,
     "type": "graphic",
@@ -90505,7 +89644,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx125.4bpp",
+    "path": "figurines/gFigurineGfx125.4bpp",
     "start": 9116096,
     "size": 6048,
     "type": "graphic",
@@ -90514,7 +89653,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx126.4bpp",
+    "path": "figurines/gFigurineGfx126.4bpp",
     "start": 9122144,
     "size": 6560,
     "type": "graphic",
@@ -90523,7 +89662,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx127.4bpp",
+    "path": "figurines/gFigurineGfx127.4bpp",
     "start": 9128704,
     "size": 4864,
     "type": "graphic",
@@ -90532,7 +89671,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx128.4bpp",
+    "path": "figurines/gFigurineGfx128.4bpp",
     "start": 9133568,
     "size": 7840,
     "type": "graphic",
@@ -90541,7 +89680,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx129.4bpp",
+    "path": "figurines/gFigurineGfx129.4bpp",
     "start": 9141408,
     "size": 5696,
     "type": "graphic",
@@ -90550,7 +89689,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx130.4bpp",
+    "path": "figurines/gFigurineGfx130.4bpp",
     "start": 9147104,
     "size": 6080,
     "type": "graphic",
@@ -90559,7 +89698,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx131.4bpp",
+    "path": "figurines/gFigurineGfx131.4bpp",
     "start": 9153184,
     "size": 3584,
     "type": "graphic",
@@ -90568,7 +89707,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx132.4bpp",
+    "path": "figurines/gFigurineGfx132.4bpp",
     "start": 9156768,
     "size": 1408,
     "type": "graphic",
@@ -90577,7 +89716,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx133.4bpp",
+    "path": "figurines/gFigurineGfx133.4bpp",
     "start": 9158176,
     "size": 3136,
     "type": "graphic",
@@ -90586,7 +89725,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx134.4bpp",
+    "path": "figurines/gFigurineGfx134.4bpp",
     "start": 9161312,
     "size": 4352,
     "type": "graphic",
@@ -90595,7 +89734,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx135.4bpp",
+    "path": "figurines/gFigurineGfx135.4bpp",
     "start": 9165664,
     "size": 9600,
     "type": "graphic",
@@ -90604,7 +89743,7 @@
     }
   },
   {
-    "path": "data_08132B30/gFigurineGfx136.4bpp",
+    "path": "figurines/gFigurineGfx136.4bpp",
     "start": 9175264,
     "size": 8608,
     "type": "graphic",
@@ -90619,12 +89758,12 @@
     "type": "graphic"
   },
   {
-    "path": "data_08132B30/gFigurineGfx136_1.bin",
+    "path": "figurines/gFigurineGfx136_1.bin",
     "start": 9187808,
     "size": 250944
   },
   {
-    "path": "data_08132B30/gFigurineGfx136_2_EU.bin",
+    "path": "figurines/gFigurineGfx136_2_EU.bin",
     "variants": [
       "EU"
     ],
@@ -90634,7 +89773,7 @@
     "size": 716144
   },
   {
-    "path": "data_08132B30/gFigurineGfx136_3_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "figurines/gFigurineGfx136_3_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -90665,14 +89804,15 @@
     "size": 179392
   },
   {
-    "path": "sprite_table/gUnk_089FB780_EU.bin",
+    "path": "sprites/extraFrameOffsets.bin",
     "variants": [
       "EU"
     ],
     "starts": {
-      "EU": 11563152
+      "EU": 11563136
     },
-    "size": 3908
+    "size": 3924,
+    "type": "extra_frame_offsets"
   },
   {
     "offsets": {
@@ -90681,18 +89821,19 @@
     }
   },
   {
-    "path": "sprite_table/gUnk_089FB780_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "sprites/extraFrameOffsets.bin",
     "variants": [
       "USA",
       "JP",
       "DEMO_USA",
       "DEMO_JP"
     ],
-    "start": 10467200,
-    "size": 3908
+    "start": 10467184,
+    "size": 3924,
+    "type": "extra_frame_offsets"
   },
   {
-    "path": "sprite_table/gUnk_089FB780_2_DEMO_USA.bin",
+    "path": "sprite_table/gUnk_089FB780.bin",
     "variants": [
       "DEMO_USA"
     ],

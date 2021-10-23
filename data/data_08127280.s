@@ -120,7 +120,7 @@ gUnk_08128190:: @ 08128190
 	.incbin "data_08127280/gUnk_08128190.bin"
 
 @ Definitions for the figurines
-	.include "figurines/figurines.s"
+	.include "data/gfx/figurines.s"
 
 gUnk_08128A38:: @ 08128A38
 	.incbin "data_08127280/gUnk_08128A38.bin"

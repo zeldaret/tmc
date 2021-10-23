@@ -4,43 +4,9 @@
 	.section .rodata
     .align 2
 
-@ gFixedTypeGfxData:: @ 08132B30
-	.include "sprites/fixedTypeGfxDataPointers.s"
-@ .ifdef EU
-@     @ TODO only small differences
-@ 	.incbin "data_08132B30/gFixedTypeGfxData_EU.bin"
-@ .else
-@ 	.incbin "data_08132B30/gFixedTypeGfxData_1_USA-JP-DEMO_USA-DEMO_JP.bin"
-@ .endif
-@ .ifdef EU
-@     @ TODO only small differences
-@ 	.incbin "data_08132B30/gFixedTypeGfxData_2_EU.bin"
-@ .else
-@ 	.incbin "data_08132B30/gFixedTypeGfxData_3_USA-JP-DEMO_USA-DEMO_JP.bin"
-@ .endif
-@ .ifdef EU
-@     @ TODO only small differences
-@ 	.incbin "data_08132B30/gFixedTypeGfxData_4_EU.bin"
-@ .else
-@ 	.incbin "data_08132B30/gFixedTypeGfxData_5_USA-JP-DEMO_USA-DEMO_JP.bin"
-@ .endif
-@ .ifdef EU
-@     @ TODO only small differences
-@ 	.incbin "data_08132B30/gFixedTypeGfxData_6_EU.bin"
-@ .else
-@ 	.incbin "data_08132B30/gFixedTypeGfxData_7_USA-JP-DEMO_USA-DEMO_JP.bin"
-@ .endif
-@ .ifdef EU
-@     @ TODO only small differences
-@ 	.incbin "data_08132B30/gFixedTypeGfxData_8_EU.bin"
-@ .else
-@ 	.incbin "data_08132B30/gFixedTypeGfxData_9_USA-JP-DEMO_USA-DEMO_JP.bin"
-@ .endif
-@ .ifdef EU
-@ 	.incbin "data_08132B30/gFixedTypeGfxData_10_EU.bin"
-@ .else
-@ 	.incbin "data_08132B30/gFixedTypeGfxData_11_USA-JP-DEMO_USA-DEMO_JP.bin"
-@ .endif
+ gFixedTypeGfxData:: @ 08132B30
+ 	.include "sprites/gFixedTypeGfxData.s"
+
 
 gUnk_08133368:: @ 08133368
 .ifdef EU

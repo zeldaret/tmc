@@ -7,7 +7,7 @@
 gUnusedLabel_085BD620::
 	.incbin "graphics/intro/capcom.gbapal"
 	.incbin "graphics/intro/nintendo.gbapal"
-	.incbin "data_08132B30/gFigurinePal136_1.bin"
+	.incbin "data_08132B30/morePalettes.bin"
 
 gUnk_085C4620:: @ 085C4620
 	.incbin "data_08132B30/gUnk_085C4620.bin"

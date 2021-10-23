@@ -3,7 +3,7 @@
 
 	.section .rodata
     .align 2
-    
-@ gFrameObjLists:: @ 082F3D74
-	.include "sprites/frameObjLists.s"
+
+gFrameObjLists:: @ 082F3D74
+	.include "gfx/gFrameObjLists.s"
 	.byte 0xff, 0xff, 0xff

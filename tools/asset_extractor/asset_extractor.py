@@ -2,9 +2,14 @@ from pathlib import Path
 import os
 import sys
 import subprocess
-import yaml
 from distutils.util import strtobool
 import json
+
+from assets.palette_group import PaletteGroup
+from assets.gfx_group import GfxGroup
+from assets.fixed_type_gfx import FixedTypeGfx
+from assets.frame_obj_lists import FrameObjLists
+from assets.extra_frame_offsets import ExtraFrameOffsets
 
 verbose = False
 
@@ -26,12 +31,12 @@ def extract_assets(variant, assets_folder):
     baserom_path = map[variant]
     with open(baserom_path, 'rb') as file:
         baserom = bytearray(file.read())
-    
-    config_modified = os.path.getmtime('assets.yaml')
-    json_modified = os.path.getmtime('assets.json')
-    if json_modified < config_modified:
-        print('Convert yaml to json...', flush=True)
-        subprocess.check_call('cat assets.yaml | yq . > assets.json', shell=True)
+
+    config_modified = os.path.getmtime('assets.json')
+    # json_modified = os.path.getmtime('assets.json')
+    # if json_modified < config_modified:
+    #     print('Convert yaml to json...', flush=True)
+    #     subprocess.check_call('cat assets.yaml | yq . > assets.json', shell=True)
 
     with open('assets.json') as file:
         current_offset = 0
@@ -68,7 +73,7 @@ def extract_assets(variant, assets_folder):
                     if verbose:
                         print(f'{path} does not yet exist.')
                     extract_file = True
-                        
+
 
                 if extract_file:
                     if verbose:
@@ -89,7 +94,7 @@ def extract_assets(variant, assets_folder):
 
                     if 'size' in asset: # The asset has a size and want to be extracted first.
                         size = asset['size'] # TODO can different sizes for the different variants ever occur?
-    
+
                         with open(path, 'wb') as output:
                             output.write(baserom[start:start+size])
                     # If an asset has no size, the extraction tool reads the baserom iself.
@@ -106,6 +111,24 @@ def extract_assets(variant, assets_folder):
                         extract_midi(path, baserom_path, start, options)
                     elif mode == 'aif':
                         extract_aif(path, options)
+                    elif mode == 'palette_group':
+                        palette_group = PaletteGroup(path, start, size, options)
+                        palette_group.extract_binary(baserom)
+                    elif mode == 'gfx_group':
+                        gfx_group = GfxGroup(path, start, size, options)
+                        gfx_group.extract_binary(baserom)
+                    elif mode == 'fixed_type_gfx':
+                        fixed_type_gfx = FixedTypeGfx(path, start, size, options)
+                        fixed_type_gfx.extract_binary(baserom)
+                    elif mode == 'frame_obj_lists':
+                        frame_obj_lists = FrameObjLists(path, start, size, options)
+                        frame_obj_lists.extract_binary(baserom)
+                    elif mode == 'extra_frame_offsets':
+                        extra_frame_offsets = ExtraFrameOffsets(path, start, size, options)
+                        extra_frame_offsets.extract_binary(baserom)
+                    elif mode != '':
+                        print(f'Asset type {mode} not yet implemented')
+
 
 
 
@@ -168,7 +191,7 @@ def extract_midi(path, baserom_path, start, options):
                     agb2mid_params.append('-t')
                     agb2mid_params.append(str(change['nominator']))
                     agb2mid_params.append(str(change['denominator']))
-                    agb2mid_params.append(str(change['time']))    
+                    agb2mid_params.append(str(change['time']))
             else:
                 agb2mid_params.append('-t')
                 agb2mid_params.append(str(changes['nominator']))
