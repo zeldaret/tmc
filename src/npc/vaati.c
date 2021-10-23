@@ -1,5 +1,4 @@
 #include "global.h"
-#include "enemy.h"
 #include "entity.h"
 #include "script.h"
 #include "audio.h"
@@ -11,18 +10,18 @@ extern void CreateManager36(Entity*);
 extern void DeleteManager36(Entity*);
 extern void sub_0805DA90(Entity*, u32);
 
-void sub_08066A94(Entity*);
-void sub_08066ACC(Entity*);
+void VaatiAction0(Entity*);
+void VaatiAction1(Entity*);
 void sub_08066B74(Entity*, ScriptExecutionContext*);
 
-void (*const gUnk_08110734[])(Entity*) = { sub_08066A94, sub_08066ACC };
+void (*const vaatiActions[])(Entity*) = { VaatiAction0, VaatiAction1 };
 
 void Vaati(Entity* this) {
-    gUnk_08110734[this->action](this);
+    vaatiActions[this->action](this);
     this->palette.b.b0 = this->palette.b.b4 + (this->frameSpriteSettings & 1);
 }
 
-void sub_08066A94(Entity* this) {
+void VaatiAction0(Entity* this) {
     this->action = 1;
     this->subAction = 0;
     this->spriteSettings.b.draw = 1;
@@ -30,10 +29,11 @@ void sub_08066A94(Entity* this) {
     this->field_0x68.HALF.HI = 0;
     sub_0805E3A0(this, 2);
     sub_0807DD64(this);
-    sub_08066ACC(this);
+    VaatiAction1(this);
 }
 
-NONMATCH("asm/non_matching/vaati/sub_08066ACC.inc", void sub_08066ACC(Entity* this)) {
+void VaatiAction1(Entity* this){
+    ScriptExecutionContext* tmp;
     sub_0807DD94(this, sub_08066B74);
     if ((*(s8*)&this->field_0x68.HALF.HI != 0) && ((gScreenTransition.frameCount & 3) == 0)) {
         sub_08095CB0(this);
@@ -42,30 +42,30 @@ NONMATCH("asm/non_matching/vaati/sub_08066ACC.inc", void sub_08066ACC(Entity* th
     if ((this->frames.all & ~0x80) != 0) {
         switch (this->frames.all & ~0x80u) {
             case 1:
-                EnqueueSFX(0x21c);
+                EnqueueSFX(SFX_21C);
                 break;
             case 2:
-                EnqueueSFX(0x21e);
+                EnqueueSFX(SFX_21E);
                 break;
             case 3:
-                (*(ScriptExecutionContext**)&this->cutsceneBeh)->intVariable = 4;
+                tmp = (*(ScriptExecutionContext**)&this->cutsceneBeh);
+                tmp->intVariable = 4;
                 CreateManager36(this);
                 break;
             case 4:
-                (*(ScriptExecutionContext**)&this->cutsceneBeh)->intVariable = 4;
+                tmp = (*(ScriptExecutionContext**)&this->cutsceneBeh);
+                tmp->intVariable = 4;
                 DeleteManager36(this);
-                EnqueueSFX(0x21d);
+                EnqueueSFX(SFX_21D);
                 break;
         }
         this->frames.b.f3 = 0;
     }
 }
-END_NONMATCH
 
 void sub_08066B74(Entity* this, ScriptExecutionContext* context) {
     u8 animationState;
     u32 currentAction;
-    short* psVar4;
     u32 actions;
 
     actions = context->postScriptActions & 0xfff00000;

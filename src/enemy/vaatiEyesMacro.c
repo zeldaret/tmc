@@ -7,37 +7,37 @@
 extern u32 sub_080002E0(u32, u32);
 extern s16 gUnk_080B4488[];
 
-void sub_0802EC98(Entity*);
-void sub_0802ECC0(Entity*);
-void sub_0802ED74(Entity*);
-void sub_0802EE20(Entity*);
-void sub_0802EEB8(Entity*);
-void sub_0802EF1C(Entity*);
-void sub_0802ED8C(Entity*);
-void sub_0802EE10(Entity*);
-void sub_0802EE38(Entity*);
-void sub_0802EE8C(Entity*);
+void VaatiEyesMacroFunction0(Entity*);
+void VaatiEyesMacroFunction1(Entity*);
+void VaatiEyesMacroFunction0Type0(Entity*);
+void VaatiEyesMacroFunction0Type1(Entity*);
+void VaatiEyesMacroFunction0Type2(Entity*);
+void VaatiEyesMacroFunction0Type3(Entity*);
+void VaatiEyesMacroFunction0Type0Action0(Entity*);
+void VaatiEyesMacroFunction0Type0Action1(Entity*);
+void VaatiEyesMacroFunction0Type1Action0(Entity*);
+void VaatiEyesMacroFunction0Type1Action1(Entity*);
 void sub_0802EF90(Entity*);
 void sub_0802EFB8(Entity*);
 void sub_0802EF58(Entity*);
 void sub_0802F04C(Entity*);
 
-void (*const gUnk_080CDE34[])(Entity*) = {
-    sub_0802EC98, sub_0802ECC0, sub_08001324, sub_0804A7D4, sub_08001242, sub_0802EC98,
+void (*const vaatiEyesMacroFunctions[])(Entity*) = {
+    VaatiEyesMacroFunction0, VaatiEyesMacroFunction1, sub_08001324, sub_0804A7D4, sub_08001242, VaatiEyesMacroFunction0,
 };
-void (*const gUnk_080CDE4C[])(Entity*) = {
-    sub_0802ED74,
-    sub_0802EE20,
-    sub_0802EEB8,
-    sub_0802EF1C,
+void (*const vaatiEyesMacroFunction0Types[])(Entity*) = {
+    VaatiEyesMacroFunction0Type0,
+    VaatiEyesMacroFunction0Type1,
+    VaatiEyesMacroFunction0Type2,
+    VaatiEyesMacroFunction0Type3,
 };
-void (*const gUnk_080CDE5C[])(Entity*) = {
-    sub_0802ED8C,
-    sub_0802EE10,
+void (*const vaatiEyesMacroFunction0Type0Actions[])(Entity*) = {
+    VaatiEyesMacroFunction0Type0Action0,
+    VaatiEyesMacroFunction0Type0Action1,
 };
-void (*const gUnk_080CDE64[])(Entity*) = {
-    sub_0802EE38,
-    sub_0802EE8C,
+void (*const vaatiEyesMacroFunction0Type1Actions[])(Entity*) = {
+    VaatiEyesMacroFunction0Type1Action0,
+    VaatiEyesMacroFunction0Type1Action1,
 };
 const u8 gUnk_080CDE6C[] = { 0, 8, 0x18, 0 };
 const u8 gUnk_080CDE70[] = {
@@ -49,18 +49,18 @@ const u16 gUnk_080CDE98[] = { 0xc0, 0x100, 0x140, 0x180 };
 extern u8 gEntCount;
 
 void VaatiEyesMacro(Entity* this) {
-    gUnk_080CDE34[GetNextFunction(this)](this);
+    vaatiEyesMacroFunctions[GetNextFunction(this)](this);
     SetChildOffset(this, 0, 1, -0x10);
 }
 
-void sub_0802EC98(Entity* this) {
-    gUnk_080CDE4C[this->type](this);
+void VaatiEyesMacroFunction0(Entity* this) {
+    vaatiEyesMacroFunction0Types[this->type](this);
     if (this->type < 2) {
         sub_0802EF90(this);
     }
 }
 
-void sub_0802ECC0(Entity* this) {
+void VaatiEyesMacroFunction1(Entity* this) {
     if (this->type == 0) {
         if (this->currentHealth == 0) {
             gScreenTransition.field_0x39 &= ~(1 << (gScreenTransition.field_0x3c + 2));
@@ -88,14 +88,14 @@ void sub_0802ECC0(Entity* this) {
     if (this->field_0x43 != 0) {
         sub_0804A9FC(this, 0x1c);
     }
-    sub_0804AA30(this, gUnk_080CDE34);
+    sub_0804AA30(this, vaatiEyesMacroFunctions);
 }
 
-void sub_0802ED74(Entity* this) {
-    gUnk_080CDE5C[this->action](this);
+void VaatiEyesMacroFunction0Type0(Entity* this) {
+    vaatiEyesMacroFunction0Type0Actions[this->action](this);
 }
 
-void sub_0802ED8C(Entity* this) {
+void VaatiEyesMacroFunction0Type0Action0(Entity* this) {
     Manager* manager;
     Entity* enemy;
 
@@ -119,16 +119,16 @@ void sub_0802ED8C(Entity* this) {
     }
 }
 
-void sub_0802EE10(Entity* this) {
+void VaatiEyesMacroFunction0Type0Action1(Entity* this) {
     sub_0802F04C(this);
     GetNextFrame(this);
 }
 
-void sub_0802EE20(Entity* this) {
-    gUnk_080CDE64[this->action](this);
+void VaatiEyesMacroFunction0Type1(Entity* this) {
+    vaatiEyesMacroFunction0Type1Actions[this->action](this);
 }
 
-void sub_0802EE38(Entity* this) {
+void VaatiEyesMacroFunction0Type1Action0(Entity* this) {
     Entity* entity;
     u32 rand;
 
@@ -144,7 +144,7 @@ void sub_0802EE38(Entity* this) {
     }
 }
 
-void sub_0802EE8C(Entity* this) {
+void VaatiEyesMacroFunction0Type1Action1(Entity* this) {
     if (this->parent->next == NULL) {
         this->flags &= 0x7f;
         this->currentHealth = 0;
@@ -159,7 +159,7 @@ typedef struct xy {
     u8 y;
 } xy;
 
-void sub_0802EEB8(Entity* this) {
+void VaatiEyesMacroFunction0Type2(Entity* this) {
     u32 uVar2;
     xy* temp;
 
@@ -182,7 +182,7 @@ void sub_0802EEB8(Entity* this) {
     this->spriteOffsetY -= 1;
 }
 
-void sub_0802EF1C(Entity* this) {
+void VaatiEyesMacroFunction0Type3(Entity* this) {
     if (this->parent->next == NULL) {
         DeleteThisEntity();
     }

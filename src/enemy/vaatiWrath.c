@@ -13,7 +13,7 @@
 
 extern u8 gEntCount;
 
-void sub_080423A4(Entity*);
+void VaatiWrathType0PreAction(Entity*);
 u32 sub_08041FCC(Entity*);
 void sub_08042004(Entity*);
 u32 sub_08041ED4(Entity*);
@@ -32,24 +32,24 @@ void sub_08042264(Entity*);
 u32 sub_080422C0(Entity*, u32);
 void sub_0804228C(Entity*);
 
-void sub_080413A0(Entity*);
-void sub_08042428(Entity*);
-void sub_080424A0(Entity*);
-void sub_0804250C(Entity*);
-void sub_080413C0(Entity*);
-void sub_08041490(Entity*);
-void sub_080415E8(Entity*);
-void sub_08041618(Entity*);
-void sub_080416A4(Entity*);
-void sub_080416DC(Entity*);
-void sub_080417AC(Entity*);
-void sub_08041828(Entity*);
-void sub_08041880(Entity*);
-void sub_08041904(Entity*);
-void sub_0804197C(Entity*);
-void sub_08041A00(Entity*);
-void sub_08041AF4(Entity*);
-void sub_08041BD0(Entity*);
+void VaatiWrathType0(Entity*);
+void VaatiWrathType1(Entity*);
+void VaatiWrathType2(Entity*);
+void VaatiWrathType3(Entity*);
+void VaatiWrathType0Action0(Entity*);
+void VaatiWrathType0Action1(Entity*);
+void VaatiWrathType0Action2(Entity*);
+void VaatiWrathType0Action3(Entity*);
+void VaatiWrathType0Action4(Entity*);
+void VaatiWrathType0Action5(Entity*);
+void VaatiWrathType0Action6(Entity*);
+void VaatiWrathType0Action7(Entity*);
+void VaatiWrathType0Action8(Entity*);
+void VaatiWrathType0Action9(Entity*);
+void VaatiWrathType0ActionA(Entity*);
+void VaatiWrathType0ActionB(Entity*);
+void VaatiWrathType0ActionC(Entity*);
+void VaatiWrathType0ActionD(Entity*);
 void sub_08041BE8(Entity*);
 void sub_08041CD0(Entity*);
 void sub_08041D14(Entity*);
@@ -67,15 +67,17 @@ typedef struct {
     Entity* eyes[4];
 } VaatiWrathHeapStruct;
 
-void (*const gUnk_080D0E1C[])(Entity*) = {
-    sub_080413A0,
-    sub_08042428,
-    sub_080424A0,
-    sub_0804250C,
+void (*const vaatiWrathTypes[])(Entity*) = {
+    VaatiWrathType0,
+    VaatiWrathType1,
+    VaatiWrathType2,
+    VaatiWrathType3,
 };
-void (*const gUnk_080D0E2C[])(Entity*) = {
-    sub_080413C0, sub_08041490, sub_080415E8, sub_08041618, sub_080416A4, sub_080416DC, sub_080417AC,
-    sub_08041828, sub_08041880, sub_08041904, sub_0804197C, sub_08041A00, sub_08041AF4, sub_08041BD0,
+void (*const vaatiWrathType0Actions[])(Entity*) = {
+    VaatiWrathType0Action0, VaatiWrathType0Action1, VaatiWrathType0Action2, VaatiWrathType0Action3,
+    VaatiWrathType0Action4, VaatiWrathType0Action5, VaatiWrathType0Action6, VaatiWrathType0Action7,
+    VaatiWrathType0Action8, VaatiWrathType0Action9, VaatiWrathType0ActionA, VaatiWrathType0ActionB,
+    VaatiWrathType0ActionC, VaatiWrathType0ActionD,
 };
 
 const u8 gUnk_080D0E64[] = { 0, -1, 0, 1 };
@@ -110,17 +112,17 @@ void VaatiWrath(Entity* this) {
             SoundReq(SFX_BOSS_DIE);
         }
     }
-    gUnk_080D0E1C[this->type](this);
+    vaatiWrathTypes[this->type](this);
 }
 
-void sub_080413A0(Entity* this) {
+void VaatiWrathType0(Entity* this) {
 #if !(defined EU || defined JP)
-    sub_080423A4(this);
+    VaatiWrathType0PreAction(this);
 #endif
-    gUnk_080D0E2C[this->action](this);
+    vaatiWrathType0Actions[this->action](this);
 }
 
-void sub_080413C0(Entity* this) {
+void VaatiWrathType0Action0(Entity* this) {
     u32 bVar1;
 
     bVar1 = gScreenTransition.field_0x38 & 1;
@@ -159,7 +161,7 @@ void sub_080413C0(Entity* this) {
     InitAnimationForceUpdate(this, 0);
 }
 
-void sub_08041490(Entity* this) {
+void VaatiWrathType0Action1(Entity* this) {
     UpdateAnimationSingleFrame(this);
     switch (this->subAction) {
         case 0:
@@ -230,7 +232,7 @@ void sub_08041490(Entity* this) {
     }
 }
 
-void sub_080415E8(Entity* this) {
+void VaatiWrathType0Action2(Entity* this) {
     sub_08042004(this);
     UpdateAnimationSingleFrame(this);
     if (--this->actionDelay == 0) {
@@ -239,7 +241,7 @@ void sub_080415E8(Entity* this) {
     }
 }
 
-void sub_08041618(Entity* this) {
+void VaatiWrathType0Action3(Entity* this) {
     s32 bound;
     s32 thisY;
 
@@ -280,7 +282,7 @@ void sub_08041618(Entity* this) {
     sub_080421AC(this);
 }
 
-void sub_080416A4(Entity* this) {
+void VaatiWrathType0Action4(Entity* this) {
     sub_08042004(this);
     UpdateAnimationSingleFrame(this);
     if (--this->actionDelay == 0) {
@@ -292,7 +294,7 @@ void sub_080416A4(Entity* this) {
     }
 }
 
-void sub_080416DC(Entity* this) {
+void VaatiWrathType0Action5(Entity* this) {
     Entity* object;
     u32 subAction;
     Entity* arm;
@@ -345,7 +347,7 @@ void sub_080416DC(Entity* this) {
     }
 }
 
-void sub_080417AC(Entity* this) {
+void VaatiWrathType0Action6(Entity* this) {
     Entity* type1;
 
     if (this->actionDelay == 0) {
@@ -376,7 +378,7 @@ void sub_080417AC(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_08041828(Entity* this) {
+void VaatiWrathType0Action7(Entity* this) {
     sub_08042214(this);
     sub_08042004(this);
     UpdateAnimationSingleFrame(this);
@@ -391,7 +393,7 @@ void sub_08041828(Entity* this) {
     }
 }
 
-void sub_08041880(Entity* this) {
+void VaatiWrathType0Action8(Entity* this) {
     sub_08042004(this);
     UpdateAnimationSingleFrame(this);
     sub_0806F69C(this);
@@ -415,7 +417,7 @@ void sub_08041880(Entity* this) {
     sub_08042214(this);
 }
 
-void sub_08041904(Entity* this) {
+void VaatiWrathType0Action9(Entity* this) {
     sub_08042004(this);
     UpdateAnimationSingleFrame(this);
     if (this->field_0x78.HALF.HI != 0) {
@@ -438,7 +440,7 @@ void sub_08041904(Entity* this) {
     }
 }
 
-void sub_0804197C(Entity* this) {
+void VaatiWrathType0ActionA(Entity* this) {
     Entity* type1;
 
     sub_08042004(this);
@@ -466,7 +468,7 @@ void sub_0804197C(Entity* this) {
     }
 }
 
-void sub_08041A00(Entity* this) {
+void VaatiWrathType0ActionB(Entity* this) {
     switch (this->subAction) {
         case 0:
             sub_0806F69C(this);
@@ -507,7 +509,7 @@ void sub_08041A00(Entity* this) {
     }
 }
 
-void sub_08041AF4(Entity* this) {
+void VaatiWrathType0ActionC(Entity* this) {
     Entity* entity;
 
     UpdateAnimationSingleFrame(this);
@@ -554,7 +556,7 @@ void sub_08041AF4(Entity* this) {
     }
 }
 
-void sub_08041BD0(Entity* this) {
+void VaatiWrathType0ActionD(Entity* this) {
     gUnk_080D0E68[this->subAction](this);
 }
 
@@ -748,16 +750,16 @@ u32 sub_08041F1C(Entity* this) {
         return 0;
     }
 
-    eye = CreateEnemy(ENEMY_5F, 0);
+    eye = CreateEnemy(VAATI_WRATH_EYE, 0);
     eye->parent = this;
     ((VaatiWrathHeapStruct*)this->myHeap)->eyes[0] = eye;
-    eye = CreateEnemy(ENEMY_5F, 1);
+    eye = CreateEnemy(VAATI_WRATH_EYE, 1);
     eye->parent = this;
     ((VaatiWrathHeapStruct*)this->myHeap)->eyes[1] = eye;
-    eye = CreateEnemy(ENEMY_5F, 2);
+    eye = CreateEnemy(VAATI_WRATH_EYE, 2);
     eye->parent = this;
     ((VaatiWrathHeapStruct*)this->myHeap)->eyes[2] = eye;
-    eye = CreateEnemy(ENEMY_5F, 3);
+    eye = CreateEnemy(VAATI_WRATH_EYE, 3);
     eye->parent = this;
     ((VaatiWrathHeapStruct*)this->myHeap)->eyes[3] = eye;
     return 1;
@@ -995,7 +997,7 @@ void sub_0804235C(Entity* this) {
 }
 
 #if defined USA || defined DEMO
-void sub_080423A4(Entity* this) {
+void VaatiWrathType0PreAction(Entity* this) {
     int temp;
     if ((gScreenTransition.field_0x38 & 2) == 0) {
         if (gSave.unk498 != 0) {
@@ -1019,7 +1021,7 @@ void sub_080423A4(Entity* this) {
 }
 #endif
 
-void sub_08042428(Entity* this) {
+void VaatiWrathType1(Entity* this) {
     if (((VaatiWrathHeapStruct*)this->myHeap)->type0->next == NULL) {
         this->myHeap = NULL;
         DeleteThisEntity();
@@ -1040,7 +1042,7 @@ void sub_08042428(Entity* this) {
     this->spriteOffsetY--;
 }
 
-void sub_080424A0(Entity* this) {
+void VaatiWrathType2(Entity* this) {
     u32 uVar1;
 
     if (((VaatiWrathHeapStruct*)this->myHeap)->type0->next == NULL) {
@@ -1059,7 +1061,7 @@ void sub_080424A0(Entity* this) {
     }
 }
 
-void sub_0804250C(Entity* this) {
+void VaatiWrathType3(Entity* this) {
     if (((VaatiWrathHeapStruct*)this->myHeap)->type0->next == NULL) {
         this->myHeap = NULL;
         DeleteThisEntity();

@@ -6,8 +6,8 @@
 #include "textbox.h"
 #include "functions.h"
 
-void sub_0806B67C(Entity*);
-void sub_0806B7BC(Entity*);
+void VaatiRebornAction0(Entity* this);
+void VaatiRebornAction1(Entity* this);
 void sub_0806B96C(Entity*);
 Entity* sub_0806B9BC(Entity*);
 
@@ -16,17 +16,17 @@ typedef struct xy {
     s8 y;
 } PACKED xy;
 
-void (*const gUnk_08112F78[])(Entity*) = {
-    sub_0806B67C,
-    sub_0806B7BC,
+void (*const vaatiRebornActions[])(Entity*) = {
+    VaatiRebornAction0,
+    VaatiRebornAction1,
 };
 const xy gUnk_08112F80[] = { { 10, -29 }, { -10, -29 }, { 15, -21 }, { -15, -21 } };
 
 void VaatiReborn(Entity* this) {
-    gUnk_08112F78[this->action](this);
+    vaatiRebornActions[this->action](this);
 }
 
-void sub_0806B67C(Entity* this) {
+void VaatiRebornAction0(Entity* this) {
     Entity* entity;
     u32 i;
 
@@ -88,7 +88,7 @@ void sub_0806B67C(Entity* this) {
     }
 }
 
-void sub_0806B7BC(Entity* this) {
+void VaatiRebornAction1(Entity* this) {
     Entity* entity;
 
     if (CheckRoomFlag(3) == 0) {

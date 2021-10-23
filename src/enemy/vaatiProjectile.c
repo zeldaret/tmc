@@ -10,31 +10,34 @@ extern Entity* gUnk_020000B0;
 extern const ScreenTransitionData gUnk_0813AB94;
 
 bool32 sub_0803E4A0(Entity*);
-void sub_0803E0C4(Entity*);
-void sub_0803E0DC(Entity*);
+void VaatiProjectileFunction0(Entity*);
+void VaatiProjectileFunction1(Entity*);
 void sub_08001328(Entity*);
-void sub_0803E188(Entity*);
-void nullsub_19(Entity*);
-void sub_0803E1A8(Entity*);
-void sub_0803E258(Entity*);
-void sub_0803E2A8(Entity*);
-void sub_0803E2D0(Entity*);
-void sub_0803E314(Entity*);
-void sub_0803E340(Entity*);
-void sub_0803E370(Entity*);
-void sub_0803E398(Entity*);
-void sub_0803E3D4(Entity*);
-void sub_0803E3FC(Entity*);
+void VaatiProjectileFunction3(Entity*);
+void VaatiProjectileNoop(Entity*);
+void VaatiProjectileFunction0Action0(Entity*);
+void VaatiProjectileFunction0Action1(Entity*);
+void VaatiProjectileFunction0Action2(Entity*);
+void VaatiProjectileFunction0Action3(Entity*);
+void VaatiProjectileFunction0Action4(Entity*);
+void VaatiProjectileFunction0Action5(Entity*);
+void VaatiProjectileFunction0Action6(Entity*);
+void VaatiProjectileFunction0Action7(Entity*);
+void VaatiProjectileFunction0Action8(Entity*);
+void VaatiProjectileFunction0Action9(Entity*);
 void sub_0803E444(Entity*);
 void sub_0803E480(Entity*);
 void sub_0803E4D8(Entity*);
 
-void (*const gUnk_080D0648[])(Entity*) = {
-    sub_0803E0C4, sub_0803E0DC, sub_08001328, sub_0803E188, sub_08001242, nullsub_19,
+void (*const vaatiProjectileFunctions[])(Entity*) = {
+    VaatiProjectileFunction0, VaatiProjectileFunction1, sub_08001328, VaatiProjectileFunction3, sub_08001242,
+    VaatiProjectileNoop,
 };
-void (*const gUnk_080D0660[])(Entity*) = {
-    sub_0803E1A8, sub_0803E258, sub_0803E2A8, sub_0803E2D0, sub_0803E314,
-    sub_0803E340, sub_0803E370, sub_0803E398, sub_0803E3D4, sub_0803E3FC,
+void (*const vaatiProjectileFunction0Actions[])(Entity*) = {
+    VaatiProjectileFunction0Action0, VaatiProjectileFunction0Action1, VaatiProjectileFunction0Action2,
+    VaatiProjectileFunction0Action3, VaatiProjectileFunction0Action4, VaatiProjectileFunction0Action5,
+    VaatiProjectileFunction0Action6, VaatiProjectileFunction0Action7, VaatiProjectileFunction0Action8,
+    VaatiProjectileFunction0Action9,
 };
 
 void VaatiProjectile(Entity* this) {
@@ -43,14 +46,14 @@ void VaatiProjectile(Entity* this) {
         this->currentHealth = 0;
         this->parent = NULL;
     }
-    gUnk_080D0648[GetNextFunction(this)](this);
+    vaatiProjectileFunctions[GetNextFunction(this)](this);
 }
 
-void sub_0803E0C4(Entity* this) {
-    gUnk_080D0660[this->action](this);
+void VaatiProjectileFunction0(Entity* this) {
+    vaatiProjectileFunction0Actions[this->action](this);
 }
 
-void sub_0803E0DC(Entity* this) {
+void VaatiProjectileFunction1(Entity* this) {
     Entity* entity;
 
     if (this->bitfield == 0x80) {
@@ -77,10 +80,10 @@ void sub_0803E0DC(Entity* this) {
         }
 #endif
     }
-    sub_0804AA30(this, gUnk_080D0648);
+    sub_0804AA30(this, vaatiProjectileFunctions);
 }
 
-void sub_0803E188(Entity* this) {
+void VaatiProjectileFunction3(Entity* this) {
     if (this->parent != NULL) {
         this->parent->field_0xf--;
         this->parent = NULL;
@@ -88,10 +91,10 @@ void sub_0803E188(Entity* this) {
     sub_0804A7D4(this);
 }
 
-void nullsub_19(Entity* this) {
+void VaatiProjectileNoop(Entity* this) {
 }
 
-void sub_0803E1A8(Entity* this) {
+void VaatiProjectileFunction0Action0(Entity* this) {
     Entity* entity;
 
     if (this->type == 0) {
@@ -121,7 +124,7 @@ void sub_0803E1A8(Entity* this) {
     }
 }
 
-void sub_0803E258(Entity* this) {
+void VaatiProjectileFunction0Action1(Entity* this) {
     sub_0803E480(this);
     if (PlayerInRange(this, 0, 8) != 0) {
         this->action = 2;
@@ -136,7 +139,7 @@ void sub_0803E258(Entity* this) {
     GetNextFrame(this);
 }
 
-void sub_0803E2A8(Entity* this) {
+void VaatiProjectileFunction0Action2(Entity* this) {
     if (this->actionDelay != 0) {
         this->actionDelay--;
     } else {
@@ -147,7 +150,7 @@ void sub_0803E2A8(Entity* this) {
     GetNextFrame(this);
 }
 
-void sub_0803E2D0(Entity* this) {
+void VaatiProjectileFunction0Action3(Entity* this) {
     if ((this->attachedEntity->frames.b.f3) != 0) {
         if (--this->height.HALF.HI <= -0x18) {
             this->action = 4;
@@ -158,7 +161,7 @@ void sub_0803E2D0(Entity* this) {
     }
 }
 
-void sub_0803E314(Entity* this) {
+void VaatiProjectileFunction0Action4(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 1;
         this->direction = GetFacingDirection(this, &gPlayerEntity);
@@ -166,7 +169,7 @@ void sub_0803E314(Entity* this) {
     GetNextFrame(this);
 }
 
-void sub_0803E340(Entity* this) {
+void VaatiProjectileFunction0Action5(Entity* this) {
     sub_0803E444(this);
     if (this->actionDelay != 0) {
         this->actionDelay--;
@@ -179,7 +182,7 @@ void sub_0803E340(Entity* this) {
     }
 }
 
-void sub_0803E370(Entity* this) {
+void VaatiProjectileFunction0Action6(Entity* this) {
     if (--this->actionDelay == 0) {
         this->action = 7;
         this->direction = 0x10;
@@ -188,7 +191,7 @@ void sub_0803E370(Entity* this) {
     sub_0803E444(this);
 }
 
-void sub_0803E398(Entity* this) {
+void VaatiProjectileFunction0Action7(Entity* this) {
     sub_0803E444(this);
     sub_0806F69C(this);
     sub_0803E4D8(this);
@@ -198,7 +201,7 @@ void sub_0803E398(Entity* this) {
     }
 }
 
-void sub_0803E3D4(Entity* this) {
+void VaatiProjectileFunction0Action8(Entity* this) {
     if (this->parent->next == NULL) {
         DeleteThisEntity();
     }
@@ -206,7 +209,7 @@ void sub_0803E3D4(Entity* this) {
     GetNextFrame(this);
 }
 
-void sub_0803E3FC(Entity* this) {
+void VaatiProjectileFunction0Action9(Entity* this) {
     this->x.HALF.HI = gPlayerEntity.x.HALF.HI;
     this->y.HALF.HI = gPlayerEntity.y.HALF.HI;
     if (this->height.HALF.HI < -8) {
@@ -214,7 +217,7 @@ void sub_0803E3FC(Entity* this) {
             this->actionDelay = 0;
             InitializeAnimation(this->attachedEntity, 2);
         }
-        sub_0803E2A8(this);
+        VaatiProjectileFunction0Action2(this);
     } else {
         this->height.HALF.HI += 8;
     }

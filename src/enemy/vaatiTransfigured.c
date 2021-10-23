@@ -16,26 +16,26 @@ void sub_080AF18C(Entity*);
 u32 sub_08040934(Entity*);
 void sub_08040648(Entity*, u32, u32);
 
-void sub_0803F818(Entity*);
-void sub_0803F914(Entity*);
-void sub_0803FAC8(Entity*);
-void sub_0803FAD0(Entity*);
-void sub_0803FD50(Entity*);
-void sub_0803FE90(Entity*);
-void sub_0803FF7C(Entity*);
-void sub_0804006C(Entity*);
-void sub_08040130(Entity*);
-void sub_0804015C(Entity*);
-void sub_080401E0(Entity*);
-void sub_08040268(Entity*);
-void sub_0804038C(Entity*);
-void sub_080403CC(Entity*);
-void sub_080403EC(Entity*);
-void sub_0804041C(Entity*);
-void sub_0804044C(Entity*);
-void sub_080404D0(Entity*);
-void sub_0804051C(Entity*);
-void sub_080405D8(Entity*);
+void VaatiTransfiguredType0Action0(Entity*);
+void VaatiTransfiguredType0Action1(Entity*);
+void VaatiTransfiguredType0Action2(Entity*);
+void VaatiTransfiguredType0Action3(Entity*);
+void VaatiTransfiguredType0Action4(Entity*);
+void VaatiTransfiguredType0Action5(Entity*);
+void VaatiTransfiguredType0Action6(Entity*);
+void VaatiTransfiguredType0Action7(Entity*);
+void VaatiTransfiguredType1Action0(Entity*);
+void VaatiTransfiguredType1Action1(Entity*);
+void VaatiTransfiguredType2Action0(Entity*);
+void VaatiTransfiguredType2Action1(Entity*);
+void VaatiTransfiguredType2Action2(Entity*);
+void VaatiTransfiguredType3Action0(Entity*);
+void VaatiTransfiguredType3Action1(Entity*);
+void VaatiTransfiguredType4Action0(Entity*);
+void VaatiTransfiguredType4Action1(Entity*);
+void VaatiTransfiguredType5Action0(Entity*);
+void VaatiTransfiguredType5Action1(Entity*);
+void VaatiTransfiguredType5Action2(Entity*);
 
 typedef struct {
     s8 x;
@@ -49,30 +49,32 @@ const u8 gUnk_080D0ABC[] = { 0xf0, 0xd0, 0xb0 };
 const u8 gUnk_080D0ABC[] = { 0xf0, 0xd0, 0xc0 };
 #endif
 const u8 gUnk_080D0ABF[] = { 0x3c, 0x3c, 0x1e, 0x14, 0x14, 0x14, 0, 0, 0 };
-void (*const gUnk_080D0AC8[])(Entity*) = {
-    sub_0803F818, sub_0803F914, sub_0803FAC8, sub_0803FAD0, sub_0803FD50, sub_0803FE90, sub_0803FF7C, sub_0804006C,
+void (*const vaatiTransfiguredType0Actions[])(Entity*) = {
+    VaatiTransfiguredType0Action0, VaatiTransfiguredType0Action1, VaatiTransfiguredType0Action2,
+    VaatiTransfiguredType0Action3, VaatiTransfiguredType0Action4, VaatiTransfiguredType0Action5,
+    VaatiTransfiguredType0Action6, VaatiTransfiguredType0Action7,
 };
-void (*const gUnk_080D0AE8[])(Entity*) = {
-    sub_08040130,
-    sub_0804015C,
+void (*const vaatiTransfiguredType1Actions[])(Entity*) = {
+    VaatiTransfiguredType1Action0,
+    VaatiTransfiguredType1Action1,
 };
-void (*const gUnk_080D0AF0[])(Entity*) = {
-    sub_080401E0,
-    sub_08040268,
-    sub_0804038C,
+void (*const vaatiTransfiguredType2Actions[])(Entity*) = {
+    VaatiTransfiguredType2Action0,
+    VaatiTransfiguredType2Action1,
+    VaatiTransfiguredType2Action2,
 };
-void (*const gUnk_080D0AFC[])(Entity*) = {
-    sub_080403CC,
-    sub_080403EC,
+void (*const vaatiTransfiguredType3Actions[])(Entity*) = {
+    VaatiTransfiguredType3Action0,
+    VaatiTransfiguredType3Action1,
 };
-void (*const gUnk_080D0B04[])(Entity*) = {
-    sub_0804041C,
-    sub_0804044C,
+void (*const vaatiTransfiguredType4Actions[])(Entity*) = {
+    VaatiTransfiguredType4Action0,
+    VaatiTransfiguredType4Action1,
 };
-void (*const gUnk_080D0B0C[])(Entity*) = {
-    sub_080404D0,
-    sub_0804051C,
-    sub_080405D8,
+void (*const vaatiTransfiguredType5Actions[])(Entity*) = {
+    VaatiTransfiguredType5Action0,
+    VaatiTransfiguredType5Action1,
+    VaatiTransfiguredType5Action2,
 };
 
 const xy gUnk_080D0B18[] = { { 0x00, 0xfe }, { 0x01, 0xfe }, { 0x01, 0xfe }, { 0x02, 0xfe }, { 0x02, 0xfe },
@@ -104,29 +106,29 @@ void VaatiTransfigured(Entity* this) {
                 this->field_0x7c.HALF.LO = this->y.HALF.HI;
                 sub_080409B0(this);
             }
-            gUnk_080D0AC8[this->action](this);
+            vaatiTransfiguredType0Actions[this->action](this);
             break;
         case 1:
-            gUnk_080D0AE8[this->action](this);
+            vaatiTransfiguredType1Actions[this->action](this);
             break;
         case 2:
-            gUnk_080D0AF0[this->action](this);
+            vaatiTransfiguredType2Actions[this->action](this);
             break;
         case 3:
-            gUnk_080D0AFC[this->action](this);
+            vaatiTransfiguredType3Actions[this->action](this);
             break;
         case 4:
-            gUnk_080D0B04[this->action](this);
+            vaatiTransfiguredType4Actions[this->action](this);
             break;
         case 5:
-            gUnk_080D0B0C[this->action](this);
+            vaatiTransfiguredType5Actions[this->action](this);
             return;
         default:
             break;
     }
 }
 
-void sub_0803F818(Entity* this) {
+void VaatiTransfiguredType0Action0(Entity* this) {
     Entity* enemy;
     u32 i;
 
@@ -157,7 +159,7 @@ void sub_0803F818(Entity* this) {
         Random();
         sub_080408EC(this);
         for (i = 0; i < 8; ++i) {
-            enemy = CreateEnemy(ENEMY_5A, 0);
+            enemy = CreateEnemy(VAATI_TRANSFIGURED_EYE, 0);
             enemy->parent = this;
             enemy->type2 = i;
             if ((this->field_0x74.HALF.HI >> (i)&1) != 0) {
@@ -170,7 +172,7 @@ void sub_0803F818(Entity* this) {
     }
 }
 
-void sub_0803F914(Entity* this) {
+void VaatiTransfiguredType0Action1(Entity* this) {
     Entity* object;
 
     switch (this->field_0x80.HALF.LO) {
@@ -250,11 +252,11 @@ void sub_0803F914(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803FAC8(Entity* this) {
+void VaatiTransfiguredType0Action2(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803FAD0(Entity* this) {
+void VaatiTransfiguredType0Action3(Entity* this) {
     Entity* pEVar3;
     u32 uVar4;
     u32 tmp;
@@ -368,7 +370,7 @@ void sub_0803FAD0(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803FD50(Entity* this) {
+void VaatiTransfiguredType0Action4(Entity* this) {
     switch (this->field_0x80.HALF.LO) {
         case 0:
             if (--this->actionDelay == 0) {
@@ -434,7 +436,7 @@ void sub_0803FD50(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803FE90(Entity* this) {
+void VaatiTransfiguredType0Action5(Entity* this) {
     Entity* entity;
 
     switch (this->field_0x80.HALF.LO) {
@@ -487,7 +489,7 @@ void sub_0803FE90(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803FF7C(Entity* this) {
+void VaatiTransfiguredType0Action6(Entity* this) {
     Entity* pEVar2;
 
     switch (this->field_0x80.HALF.LO) {
@@ -539,7 +541,7 @@ void sub_0803FF7C(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0804006C(Entity* this) {
+void VaatiTransfiguredType0Action7(Entity* this) {
     Entity* pEVar3;
     u32 uVar4;
 
@@ -579,7 +581,7 @@ void sub_0804006C(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_08040130(Entity* this) {
+void VaatiTransfiguredType1Action0(Entity* this) {
     this->action = 1;
     this->actionDelay = 0;
     this->field_0x80.HALF.LO = 0;
@@ -587,7 +589,7 @@ void sub_08040130(Entity* this) {
     InitAnimationForceUpdate(this, (u32)this->actionDelay);
 }
 
-void sub_0804015C(Entity* this) {
+void VaatiTransfiguredType1Action1(Entity* this) {
     Entity* parent;
 
     parent = this->parent;
@@ -618,7 +620,7 @@ void sub_0804015C(Entity* this) {
     }
 }
 
-void sub_080401E0(Entity* this) {
+void VaatiTransfiguredType2Action0(Entity* this) {
     if (this->type2 != 0) {
         this->action = 1;
         this->spritePriority.b0 = this->type2 + 1;
@@ -637,7 +639,7 @@ void sub_080401E0(Entity* this) {
     }
 }
 
-void sub_08040268(Entity* this) {
+void VaatiTransfiguredType2Action1(Entity* this) {
     u32 uVar3;
 
     const xy* t;
@@ -694,7 +696,7 @@ void sub_08040268(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0804038C(Entity* this) {
+void VaatiTransfiguredType2Action2(Entity* this) {
     if (this->parent->currentHealth == 0) {
         this->field_0x6c.HALF.HI |= 2;
         DeleteThisEntity();
@@ -706,13 +708,13 @@ void sub_0804038C(Entity* this) {
     }
 }
 
-void sub_080403CC(Entity* this) {
+void VaatiTransfiguredType3Action0(Entity* this) {
     this->action = 1;
     this->spritePriority.b0 = 4;
     InitAnimationForceUpdate(this, 0);
 }
 
-void sub_080403EC(Entity* this) {
+void VaatiTransfiguredType3Action1(Entity* this) {
     if (this->parent->currentHealth == 0) {
         this->field_0x6c.HALF.HI |= 2;
         DeleteThisEntity();
@@ -721,7 +723,7 @@ void sub_080403EC(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0804041C(Entity* this) {
+void VaatiTransfiguredType4Action0(Entity* this) {
     this->action = 1;
     this->field_0x80.HALF.LO = 0;
     this->actionDelay = 10;
@@ -730,7 +732,7 @@ void sub_0804041C(Entity* this) {
     InitializeAnimation(this, 0);
 }
 
-void sub_0804044C(Entity* this) {
+void VaatiTransfiguredType4Action1(Entity* this) {
     if (this->parent->currentHealth == 0) {
         this->field_0x6c.HALF.HI |= 2;
         DeleteThisEntity();
@@ -754,7 +756,7 @@ void sub_0804044C(Entity* this) {
     GetNextFrame(this);
 }
 
-void sub_080404D0(Entity* this) {
+void VaatiTransfiguredType5Action0(Entity* this) {
     if (this->type2 != 0) {
         this->action = 2;
         this->actionDelay = 10;
@@ -767,7 +769,7 @@ void sub_080404D0(Entity* this) {
     }
 }
 
-void sub_0804051C(Entity* this) {
+void VaatiTransfiguredType5Action1(Entity* this) {
     if (this->parent->currentHealth == 0) {
         this->field_0x6c.HALF.HI |= 2;
         DeleteThisEntity();
@@ -803,7 +805,7 @@ void sub_0804051C(Entity* this) {
     CopyPosition(this->parent, this);
 }
 
-void sub_080405D8(Entity* this) {
+void VaatiTransfiguredType5Action2(Entity* this) {
     if (this->parent->currentHealth == 0) {
         this->field_0x6c.HALF.HI |= 2;
         DeleteThisEntity();

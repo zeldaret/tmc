@@ -10,22 +10,22 @@
 extern void sub_080AEFB4(Entity*);
 extern u8 gEntCount;
 
-void sub_0803DFBC(Entity*);
-void sub_0803DC58(Entity*);
-void sub_0803D134(Entity*);
-void sub_0803D264(Entity*);
-void sub_0803D408(Entity*);
-void sub_0803D560(Entity*);
-void sub_0803D658(Entity*);
-void sub_0803D700(Entity*);
-void sub_0803D830(Entity*);
-void sub_0803D8FC(Entity*);
-void sub_0803D974(Entity*);
-void sub_0803D9BC(Entity*);
-void sub_0803DAA8(Entity*);
-void sub_0803DAE4(Entity*);
-void sub_0803DB88(Entity*);
-void sub_0803DBB8(Entity*);
+void VaatiRebornEnemyType0PreAction(Entity*);
+void VaatiRebornEnemyType1PreAction(Entity*);
+void VaatiRebornEnemyType0Action0(Entity*);
+void VaatiRebornEnemyType0Action1(Entity*);
+void VaatiRebornEnemyType0Action2(Entity*);
+void VaatiRebornEnemyType0Action3(Entity*);
+void VaatiRebornEnemyType0Action4(Entity*);
+void VaatiRebornEnemyType0Action5(Entity*);
+void VaatiRebornEnemyType0Action6(Entity*);
+void VaatiRebornEnemyType0Action7(Entity*);
+void VaatiRebornEnemyType1Action0(Entity*);
+void VaatiRebornEnemyType1Action1(Entity*);
+void VaatiRebornEnemyType2Action0(Entity*);
+void VaatiRebornEnemyType2Action1(Entity*);
+void VaatiRebornEnemyType3Action0(Entity*);
+void VaatiRebornEnemyType3Action1(Entity*);
 void sub_0803DD78(Entity*);
 u32 sub_0803DEE0(Entity*);
 u32 sub_0803E028(Entity*);
@@ -36,20 +36,22 @@ typedef struct xy {
     s8 y;
 } PACKED xy;
 
-void (*const gUnk_080D0470[])(Entity*) = {
-    sub_0803D134, sub_0803D264, sub_0803D408, sub_0803D560, sub_0803D658, sub_0803D700, sub_0803D830, sub_0803D8FC,
+void (*const vaatiRebornEnemyType0Actions[])(Entity*) = {
+    VaatiRebornEnemyType0Action0, VaatiRebornEnemyType0Action1, VaatiRebornEnemyType0Action2,
+    VaatiRebornEnemyType0Action3, VaatiRebornEnemyType0Action4, VaatiRebornEnemyType0Action5,
+    VaatiRebornEnemyType0Action6, VaatiRebornEnemyType0Action7,
 };
-void (*const gUnk_080D0490[])(Entity*) = {
-    sub_0803D974,
-    sub_0803D9BC,
+void (*const vaatiRebornEnemyType1Actions[])(Entity*) = {
+    VaatiRebornEnemyType1Action0,
+    VaatiRebornEnemyType1Action1,
 };
-void (*const gUnk_080D0498[])(Entity*) = {
-    sub_0803DAA8,
-    sub_0803DAE4,
+void (*const vaatiRebornEnemyType2Actions[])(Entity*) = {
+    VaatiRebornEnemyType2Action0,
+    VaatiRebornEnemyType2Action1,
 };
-void (*const gUnk_080D04A0[])(Entity*) = {
-    sub_0803DB88,
-    sub_0803DBB8,
+void (*const vaatiRebornEnemyType3Actions[])(Entity*) = {
+    VaatiRebornEnemyType3Action0,
+    VaatiRebornEnemyType3Action1,
 };
 
 const xy gUnk_080D04A8[] = { { 16, -43 }, { -16, -43 } };
@@ -70,23 +72,23 @@ const u8 gUnk_080D04D3[] = { 0, 1, 0, -1 };
 void VaatiRebornEnemy(Entity* this) {
     switch (this->type) {
         case 0:
-            sub_0803DFBC(this);
-            gUnk_080D0470[this->action](this);
+            VaatiRebornEnemyType0PreAction(this);
+            vaatiRebornEnemyType0Actions[this->action](this);
             break;
         case 1:
-            sub_0803DC58(this);
-            gUnk_080D0490[this->action](this);
+            VaatiRebornEnemyType1PreAction(this);
+            vaatiRebornEnemyType1Actions[this->action](this);
             break;
         case 2:
-            gUnk_080D0498[this->action](this);
+            vaatiRebornEnemyType2Actions[this->action](this);
             break;
         case 3:
-            gUnk_080D04A0[this->action](this);
+            vaatiRebornEnemyType3Actions[this->action](this);
             break;
     }
 }
 
-void sub_0803D134(Entity* this) {
+void VaatiRebornEnemyType0Action0(Entity* this) {
     s32 i;
     Entity* entity;
     const xy* ptr;
@@ -138,7 +140,7 @@ void sub_0803D134(Entity* this) {
     }
 }
 
-void sub_0803D264(Entity* this) {
+void VaatiRebornEnemyType0Action1(Entity* this) {
     if (this->actionDelay != 0) {
         if (--this->actionDelay == 0) {
             if ((this->field_0x74.HALF.LO & 0x70) == 0) {
@@ -221,7 +223,7 @@ void sub_0803D264(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803D408(Entity* this) {
+void VaatiRebornEnemyType0Action2(Entity* this) {
     const Coords* ptr;
 
     switch (this->field_0x74.HALF.LO) {
@@ -279,7 +281,7 @@ void sub_0803D408(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803D560(Entity* this) {
+void VaatiRebornEnemyType0Action3(Entity* this) {
     u8 temp;
 
     switch (this->field_0x74.HALF.LO) {
@@ -331,7 +333,7 @@ void sub_0803D560(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803D658(Entity* this) {
+void VaatiRebornEnemyType0Action4(Entity* this) {
     u32 index;
     Entity* entity;
 
@@ -361,7 +363,7 @@ void sub_0803D658(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803D700(Entity* this) {
+void VaatiRebornEnemyType0Action5(Entity* this) {
     u32 uVar3;
 
     if (this->field_0x80.HALF.LO == 0) {
@@ -417,7 +419,7 @@ void sub_0803D700(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803D830(Entity* this) {
+void VaatiRebornEnemyType0Action6(Entity* this) {
     Entity* target;
 
     if (this->field_0x80.HALF.LO == 0) {
@@ -466,7 +468,7 @@ void sub_0803D830(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803D8FC(Entity* this) {
+void VaatiRebornEnemyType0Action7(Entity* this) {
     Entity* fx;
     u32 tmp;
 
@@ -489,7 +491,7 @@ void sub_0803D8FC(Entity* this) {
     }
 }
 
-void sub_0803D974(Entity* this) {
+void VaatiRebornEnemyType1Action0(Entity* this) {
     Entity* enemy;
 
     this->action = 1;
@@ -504,7 +506,7 @@ void sub_0803D974(Entity* this) {
     InitAnimationForceUpdate(this, this->field_0x74.HALF.LO);
 }
 
-void sub_0803D9BC(Entity* this) {
+void VaatiRebornEnemyType1Action1(Entity* this) {
     Entity* parent;
 
     parent = this->parent;
@@ -547,7 +549,7 @@ void sub_0803D9BC(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803DAA8(Entity* this) {
+void VaatiRebornEnemyType2Action0(Entity* this) {
     Entity* source;
 
     source = this->parent->parent;
@@ -560,8 +562,8 @@ void sub_0803DAA8(Entity* this) {
     InitAnimationForceUpdate(this, 2);
 }
 
-void sub_0803DAE4(Entity* this) {
-    u8 bVar1;
+void VaatiRebornEnemyType2Action1(Entity* this) {
+    u8 parentDirection;
     Entity* parent;
 
     parent = this->parent;
@@ -569,14 +571,14 @@ void sub_0803DAE4(Entity* this) {
         if (this->field_0x74.HALF.LO != 0) {
             this->field_0x74.HALF.LO = 0;
         }
-        bVar1 = parent->parent->direction;
-        if (bVar1 != 0xff) {
+        parentDirection = parent->parent->direction;
+        if (parentDirection != 0xff) {
             if (this->field_0x74.HALF.HI == 0) {
                 this->field_0x74.HALF.HI = 1;
             }
-            if (bVar1 != this->direction) {
-                this->direction = bVar1;
-                InitAnimationForceUpdate(this, bVar1 >> 3);
+            if (parentDirection != this->direction) {
+                this->direction = parentDirection;
+                InitAnimationForceUpdate(this, parentDirection >> 3);
             }
         } else {
             if (this->field_0x74.HALF.HI != 0) {
@@ -596,7 +598,7 @@ void sub_0803DAE4(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803DB88(Entity* this) {
+void VaatiRebornEnemyType3Action0(Entity* this) {
     this->action = 1;
     this->field_0x74.HALF.LO = 0;
     this->direction = 0xff;
@@ -605,7 +607,7 @@ void sub_0803DB88(Entity* this) {
     sub_0803DC0C(this);
 }
 
-void sub_0803DBB8(Entity* this) {
+void VaatiRebornEnemyType3Action1(Entity* this) {
     Entity* parent = this->parent;
 
     if (this->parent->direction != 0xff) {
@@ -638,7 +640,7 @@ void sub_0803DC0C(Entity* this) {
     UpdateAnimationSingleFrame(this);
 }
 
-void sub_0803DC58(Entity* this) {
+void VaatiRebornEnemyType1PreAction(Entity* this) {
     Entity* parent;
 
     if (this->damageType != 0x30) {
@@ -656,7 +658,7 @@ void sub_0803DC58(Entity* this) {
                 parent->spriteOffsetX = 0;
                 parent->direction = -1;
                 this->actionDelay = 0;
-                SoundReq(0x80100000);
+                SoundReq(SONG_STOP_BGM);
                 gArea.musicIndex = gArea.pMusicIndex;
                 return;
             }
@@ -845,9 +847,8 @@ u32 sub_0803DEE0(Entity* this) {
     return ret;
 }
 
-void sub_0803DFBC(Entity* this) {
+void VaatiRebornEnemyType0PreAction(Entity* this) {
     u32 bVar1;
-    int iVar3;
 
     if (this->action != 0) {
         *(u32*)&this->field_0x78 = this->x.WORD;
@@ -873,24 +874,29 @@ void sub_0803DFBC(Entity* this) {
     }
 }
 
-NONMATCH("asm/non_matching/vaati/sub_0803E028.inc", u32 sub_0803E028(Entity* this)) {
-    u32 uVar4;
-    u32 rx, ry, px;
+u32 sub_0803E028(Entity* this) {
+    u32 ret;
+    s32 tmp;
 
-    uVar4 = 0;
+    ret = 0;
     if ((this->field_0x74.HALF.HI != 2) && ((Random() & 1) != 0)) {
         return 0;
     }
-    if (this->field_0x76.HALF.HI == 1) {
-        if (gRoomControls.roomOriginX + 0x58 <= gPlayerEntity.x.HALF.HI) {
-            if (gRoomControls.roomOriginY + 0x58 <= gPlayerEntity.x.HALF.HI) {
-                if (gRoomControls.roomOriginY + 0xf8 >= gPlayerEntity.x.HALF.HI) {
-                    this->field_0x80.HALF.HI += 5;
-                    uVar4 = 1;
-                }
-            }
-        }
+    if (this->field_0x76.HALF.HI != 1) {
+        return ret;
     }
-    return uVar4;
+    tmp = gRoomControls.roomOriginX + 0x58;
+    if (tmp > gPlayerEntity.x.HALF.HI) {
+        return ret;
+    }
+    tmp = gRoomControls.roomOriginY + 0x58;
+    if (tmp > gPlayerEntity.x.HALF.HI) {
+        return ret;
+    }
+    tmp = gRoomControls.roomOriginY + 0xf8;
+    if (tmp >= gPlayerEntity.x.HALF.HI) {
+        this->field_0x80.HALF.HI += 5;
+        ret = 1;
+    }
+    return ret;
 }
-END_NONMATCH

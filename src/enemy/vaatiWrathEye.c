@@ -5,20 +5,20 @@
 
 void sub_080485D8(Entity*);
 void sub_080485FC(Entity*);
-void sub_080482EC(Entity*);
-void sub_08048330(Entity*);
-void sub_0804835C(Entity*);
-void sub_08048388(Entity*);
-void sub_080483F8(Entity*);
-void sub_08048438(Entity*);
-void sub_08048478(Entity*);
-void sub_080484E8(Entity*);
-void sub_08048550(Entity*);
-void sub_080485A0(Entity*);
+void VaatiWrathEyeAction0(Entity*);
+void VaatiWrathEyeAction1(Entity*);
+void VaatiWrathEyeAction2(Entity*);
+void VaatiWrathEyeAction3(Entity*);
+void VaatiWrathEyeAction4(Entity*);
+void VaatiWrathEyeAction5(Entity*);
+void VaatiWrathEyeAction6(Entity*);
+void VaatiWrathEyeAction7(Entity*);
+void VaatiWrathEyeAction8(Entity*);
+void VaatiWrathEyeAction9(Entity*);
 
-void (*const gUnk_080D1D48[])(Entity*) = {
-    sub_080482EC, sub_08048330, sub_0804835C, sub_08048388, sub_080483F8,
-    sub_08048438, sub_08048478, sub_080484E8, sub_08048550, sub_080485A0,
+void (*const vaatiWrathEyeActions[])(Entity*) = {
+    VaatiWrathEyeAction0, VaatiWrathEyeAction1, VaatiWrathEyeAction2, VaatiWrathEyeAction3, VaatiWrathEyeAction4,
+    VaatiWrathEyeAction5, VaatiWrathEyeAction6, VaatiWrathEyeAction7, VaatiWrathEyeAction8, VaatiWrathEyeAction9,
 };
 
 const s8 gUnk_080D1D70[] = { 0xee, 0x01, 0xfa, 0x04, 0x06, 0x04, 0x13, 0x01 };
@@ -29,14 +29,14 @@ const s8 gUnk_080D1D78[] = { 0xfd, 0xfc, 0xfb, 0xfa, 0xf9, 0xfa, 0xfb, 0xfc, 0xf
 
 const s8 gUnk_080D1D98[] = { 0xe8, 0x04, 0xf8, 0x08, 0x08, 0x08, 0x18, 0x04 };
 
-void Enemy5F(Entity* this) {
+void VaatiWrathEye(Entity* this) {
     if (this->parent->next == NULL) {
         DeleteThisEntity();
     }
-    gUnk_080D1D48[this->action](this);
+    vaatiWrathEyeActions[this->action](this);
 }
 
-void sub_080482EC(Entity* this) {
+void VaatiWrathEyeAction0(Entity* this) {
     if ((gScreenTransition.field_0x38 & 1) != 0) {
         this->action = 2;
         InitializeAnimation(this, 1);
@@ -48,7 +48,7 @@ void sub_080482EC(Entity* this) {
     sub_080485D8(this);
 }
 
-void sub_08048330(Entity* this) {
+void VaatiWrathEyeAction1(Entity* this) {
     sub_080485D8(this);
     GetNextFrame(this);
     if ((this->frames.all & 0x80) != 0) {
@@ -57,7 +57,7 @@ void sub_08048330(Entity* this) {
     }
 }
 
-void sub_0804835C(Entity* this) {
+void VaatiWrathEyeAction2(Entity* this) {
     sub_080485D8(this);
     if ((gScreenTransition.field_0x39 & 3) == 0) {
         this->action = 3;
@@ -66,7 +66,7 @@ void sub_0804835C(Entity* this) {
     }
 }
 
-void sub_08048388(Entity* this) {
+void VaatiWrathEyeAction3(Entity* this) {
     u32 direction;
     Entity* parent;
     u32 x;
@@ -92,7 +92,7 @@ void sub_08048388(Entity* this) {
     }
 }
 
-void sub_080483F8(Entity* this) {
+void VaatiWrathEyeAction4(Entity* this) {
     sub_080485FC(this);
     if (this->actionDelay != 0) {
         if (--this->actionDelay == 0) {
@@ -107,7 +107,7 @@ void sub_080483F8(Entity* this) {
     }
 }
 
-void sub_08048438(Entity* this) {
+void VaatiWrathEyeAction5(Entity* this) {
     if (this->actionDelay != 0) {
         this->action = 6;
         if (this->parent->currentHealth >= 0x15) {
@@ -122,7 +122,7 @@ void sub_08048438(Entity* this) {
     sub_080485FC(this);
 }
 
-void sub_08048478(Entity* this) {
+void VaatiWrathEyeAction6(Entity* this) {
     Entity* pEVar3;
 
     sub_080485FC(this);
@@ -150,7 +150,7 @@ void sub_08048478(Entity* this) {
     }
 }
 
-void sub_080484E8(Entity* this) {
+void VaatiWrathEyeAction7(Entity* this) {
     sub_080485FC(this);
     GetNextFrame(this);
     if (this->field_0xf != 0) {
@@ -170,7 +170,7 @@ void sub_080484E8(Entity* this) {
     }
 }
 
-void sub_08048550(Entity* this) {
+void VaatiWrathEyeAction8(Entity* this) {
     if (this->parent->action == 0xb) {
         this->actionDelay = 0x3c;
     } else {
@@ -185,7 +185,7 @@ void sub_08048550(Entity* this) {
     }
 }
 
-void sub_080485A0(Entity* this) {
+void VaatiWrathEyeAction9(Entity* this) {
     sub_080485FC(this);
     GetNextFrame(this);
     if ((this->frames.all & 0x80) != 0) {
