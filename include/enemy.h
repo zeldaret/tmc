@@ -95,12 +95,12 @@ typedef enum {
     /*0x57*/ MINI_SLIME,
     /*0x58*/ FIREBALL_GUY,
     /*0x59*/ MINI_FIREBALL_GUY,
-    /*0x5a*/ ENEMY_5A,
+    /*0x5a*/ VAATI_TRANSFIGURED_EYE,
     /*0x5b*/ BUSINESS_SCRUB_PROLOGUE,
     /*0x5c*/ GYORG_FEMALE,
     /*0x5d*/ GYORG_MALE,
     /*0x5e*/ CURTAIN,
-    /*0x5f*/ ENEMY_5F,
+    /*0x5f*/ VAATI_WRATH_EYE,
     /*0x60*/ GYORG_CHILD,
     /*0x61*/ GYORG_FEMALE_EYE,
     /*0x62*/ ENEMY_62,
@@ -199,12 +199,12 @@ extern void Slime(Entity*);
 extern void MiniSlime(Entity*);
 extern void FireballGuy(Entity*);
 extern void MiniFireballGuy(Entity*);
-extern void Enemy5A(Entity*);
+extern void VaatiTransfiguredEye(Entity*);
 extern void BusinessScrubPrologue(Entity*);
 extern void GyorgFemale(Entity*);
 extern void GyorgMale(Entity*);
 extern void Curtain(Entity*);
-extern void Enemy5F(Entity*);
+extern void VaatiWrathEye(Entity*);
 extern void GyorgChild(Entity*);
 extern void GyorgFemaleEye(Entity*);
 extern void Enemy62(Entity*);
