@@ -32,7 +32,7 @@ void VaatiAction0(Entity* this) {
     VaatiAction1(this);
 }
 
-void VaatiAction1(Entity* this){
+void VaatiAction1(Entity* this) {
     ScriptExecutionContext* tmp;
     sub_0807DD94(this, sub_08066B74);
     if ((*(s8*)&this->field_0x68.HALF.HI != 0) && ((gScreenTransition.frameCount & 3) == 0)) {
