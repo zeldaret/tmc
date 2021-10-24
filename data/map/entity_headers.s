@@ -508,57 +508,57 @@ Area_RoyalCrypt:: @ 080D47D0
 	.4byte Room_RoyalCrypt_Entrance
 
 Area_PalaceOfWinds:: @ 080D47F4
-	.4byte gUnk_080E7364
-	.4byte gUnk_080E73E4
-	.4byte gUnk_080E74C4
-	.4byte gUnk_080E763C
-	.4byte gUnk_080E76A4
-	.4byte gUnk_080E77D4
-	.4byte gUnk_080E7948
-	.4byte gUnk_080E7A30
-	.4byte gUnk_080E7B10
-	.4byte gUnk_080E7C84
-	.4byte gUnk_080E7D44
-	.4byte gUnk_080E7DEC
-	.4byte gUnk_080E7EC4
-	.4byte gUnk_080E7F50
-	.4byte gUnk_080E8038
-	.4byte gUnk_080E8110
-	.4byte gUnk_080E8348
-	.4byte gUnk_080E83D8
-	.4byte gUnk_080E8438
-	.4byte gUnk_080E8508
-	.4byte gUnk_080E8608
-	.4byte gUnk_080E8824
-	.4byte gUnk_080E8988
-	.4byte gUnk_080E89FC
-	.4byte gUnk_080E8BC0
-	.4byte gUnk_080E8CB0
-	.4byte gUnk_080E8EE4
-	.4byte gUnk_080E8F84
-	.4byte gUnk_080E904C
-	.4byte gUnk_080E90E0
-	.4byte gUnk_080E9180
-	.4byte gUnk_080E9220
-	.4byte gUnk_080E9310
-	.4byte gUnk_080E9518
-	.4byte gUnk_080E96D4
-	.4byte gUnk_080E9828
-	.4byte gUnk_080E9A10
-	.4byte gUnk_080E9AD0
-	.4byte gUnk_080E9B80
-	.4byte gUnk_080E9C40
-	.4byte gUnk_080E9CD0
-	.4byte gUnk_080E9DA8
-	.4byte gUnk_080E9E2C
-	.4byte gUnk_080E9F20
-	.4byte gUnk_080EA214
-	.4byte gUnk_080EA2F8
-	.4byte gUnk_080EA4BC
-	.4byte gUnk_080EA538
-	.4byte gUnk_080EA6E8
-	.4byte gUnk_080EA7C8
-	.4byte gUnk_080EA9E0
+	.4byte Room_PalaceOfWinds_0
+	.4byte Room_PalaceOfWinds_1
+	.4byte Room_PalaceOfWinds_2
+	.4byte Room_PalaceOfWinds_3
+	.4byte Room_PalaceOfWinds_4
+	.4byte Room_PalaceOfWinds_5
+	.4byte Room_PalaceOfWinds_6
+	.4byte Room_PalaceOfWinds_7
+	.4byte Room_PalaceOfWinds_8
+	.4byte Room_PalaceOfWinds_9
+	.4byte Room_PalaceOfWinds_10
+	.4byte Room_PalaceOfWinds_11
+	.4byte Room_PalaceOfWinds_12
+	.4byte Room_PalaceOfWinds_13
+	.4byte Room_PalaceOfWinds_14
+	.4byte Room_PalaceOfWinds_15
+	.4byte Room_PalaceOfWinds_16
+	.4byte Room_PalaceOfWinds_17
+	.4byte Room_PalaceOfWinds_18
+	.4byte Room_PalaceOfWinds_19
+	.4byte Room_PalaceOfWinds_20
+	.4byte Room_PalaceOfWinds_21
+	.4byte Room_PalaceOfWinds_22
+	.4byte Room_PalaceOfWinds_23
+	.4byte Room_PalaceOfWinds_24
+	.4byte Room_PalaceOfWinds_25
+	.4byte Room_PalaceOfWinds_26
+	.4byte Room_PalaceOfWinds_27
+	.4byte Room_PalaceOfWinds_28
+	.4byte Room_PalaceOfWinds_29
+	.4byte Room_PalaceOfWinds_30
+	.4byte Room_PalaceOfWinds_31
+	.4byte Room_PalaceOfWinds_32
+	.4byte Room_PalaceOfWinds_33
+	.4byte Room_PalaceOfWinds_34
+	.4byte Room_PalaceOfWinds_35
+	.4byte Room_PalaceOfWinds_36
+	.4byte Room_PalaceOfWinds_37
+	.4byte Room_PalaceOfWinds_38
+	.4byte Room_PalaceOfWinds_39
+	.4byte Room_PalaceOfWinds_40
+	.4byte Room_PalaceOfWinds_41
+	.4byte Room_PalaceOfWinds_42
+	.4byte Room_PalaceOfWinds_43
+	.4byte Room_PalaceOfWinds_44
+	.4byte Room_PalaceOfWinds_45
+	.4byte Room_PalaceOfWinds_46
+	.4byte Room_PalaceOfWinds_47
+	.4byte Room_PalaceOfWinds_48
+	.4byte Room_PalaceOfWinds_49
+	.4byte Room_PalaceOfWinds_50
 
 Area_PalaceOfWindsBoss:: @ 080D48C0
 	.4byte Room_PalaceOfWindsBoss_Main
@@ -571,76 +571,76 @@ Area_Sanctuary:: @ 080D48C4
 	.4byte Room_Sanctuary_StainedGlass
 
 Area_HyruleCastle:: @ 080D48D8
-	.4byte gUnk_080D7380
-	.4byte gUnk_080D7498
-	.4byte gUnk_080D7650
-	.4byte gUnk_080D76E8
-	.4byte gUnk_080D7744
-	.4byte gUnk_080D778C
+	.4byte Room_HyruleCastle_0
+	.4byte Room_HyruleCastle_1
+	.4byte Room_HyruleCastle_2
+	.4byte Room_HyruleCastle_3
+	.4byte Room_HyruleCastle_4
+	.4byte Room_HyruleCastle_5
 
 Area_SanctuaryEntrance:: @ 080D48F0
 	.4byte Room_SanctuaryEntrance_Main
 
 Area_DarkHyruleCastle:: @ 080D48F4
-	.4byte gUnk_080EB704
-	.4byte gUnk_080EB75C
-	.4byte gUnk_080EB7B4
-	.4byte gUnk_080EB80C
-	.4byte gUnk_080EB864
-	.4byte gUnk_080EB9C4
-	.4byte gUnk_080EBC14
-	.4byte gUnk_080EBC98
-	.4byte gUnk_080EBE38
-	.4byte gUnk_080EBF40
-	.4byte gUnk_080EC038
-	.4byte gUnk_080EC0EC
-	.4byte gUnk_080EC21C
-	.4byte gUnk_080EC28C
-	.4byte gUnk_080EC3C4
-	.4byte gUnk_080EC4A8
-	.4byte gUnk_080EC600
-	.4byte gUnk_080EC77C
-	.4byte gUnk_080EC7E0
-	.4byte gUnk_080EC938
-	.4byte gUnk_080ECA1C
-	.4byte gUnk_080ECB50
-	.4byte gUnk_080ECC44
-	.4byte gUnk_080ECD14
-	.4byte gUnk_080ECE14
-	.4byte gUnk_080ECE64
-	.4byte gUnk_080ECF14
-	.4byte gUnk_080ECF6C
-	.4byte gUnk_080ED00C
-	.4byte gUnk_080ED0FC
-	.4byte gUnk_080ED174
-	.4byte gUnk_080ED2AC
-	.4byte gUnk_080ED318
-	.4byte gUnk_080ED388
-	.4byte gUnk_080ED3D8
-	.4byte gUnk_080ED4C8
-	.4byte gUnk_080ED588
-	.4byte gUnk_080ED648
-	.4byte gUnk_080ED720
-	.4byte gUnk_080ED8CC
-	.4byte gUnk_080ED940
-	.4byte gUnk_080ED9F0
-	.4byte gUnk_080EDA70
-	.4byte gUnk_080EDB20
-	.4byte gUnk_080EDBA8
-	.4byte gUnk_080EDC40
-	.4byte gUnk_080EDCB8
-	.4byte gUnk_080EDD68
-	.4byte gUnk_080EDE60
-	.4byte gUnk_080EDF40
-	.4byte gUnk_080EE078
-	.4byte gUnk_080EE158
-	.4byte gUnk_080EE260
-	.4byte gUnk_080EE354
-	.4byte gUnk_080EE404
-	.4byte gUnk_080EE61C
-	.4byte gUnk_080EE66C
-	.4byte gUnk_080EE78C
-	.4byte gUnk_080EE7EC
+	.4byte Room_DarkHyruleCastle_0
+	.4byte Room_DarkHyruleCastle_1
+	.4byte Room_DarkHyruleCastle_2
+	.4byte Room_DarkHyruleCastle_3
+	.4byte Room_DarkHyruleCastle_4
+	.4byte Room_DarkHyruleCastle_5
+	.4byte Room_DarkHyruleCastle_6
+	.4byte Room_DarkHyruleCastle_7
+	.4byte Room_DarkHyruleCastle_8
+	.4byte Room_DarkHyruleCastle_9
+	.4byte Room_DarkHyruleCastle_10
+	.4byte Room_DarkHyruleCastle_11
+	.4byte Room_DarkHyruleCastle_12
+	.4byte Room_DarkHyruleCastle_13
+	.4byte Room_DarkHyruleCastle_14
+	.4byte Room_DarkHyruleCastle_15
+	.4byte Room_DarkHyruleCastle_16
+	.4byte Room_DarkHyruleCastle_17
+	.4byte Room_DarkHyruleCastle_18
+	.4byte Room_DarkHyruleCastle_19
+	.4byte Room_DarkHyruleCastle_20
+	.4byte Room_DarkHyruleCastle_21
+	.4byte Room_DarkHyruleCastle_22
+	.4byte Room_DarkHyruleCastle_23
+	.4byte Room_DarkHyruleCastle_24
+	.4byte Room_DarkHyruleCastle_25
+	.4byte Room_DarkHyruleCastle_26
+	.4byte Room_DarkHyruleCastle_27
+	.4byte Room_DarkHyruleCastle_28
+	.4byte Room_DarkHyruleCastle_29
+	.4byte Room_DarkHyruleCastle_30
+	.4byte Room_DarkHyruleCastle_31
+	.4byte Room_DarkHyruleCastle_32
+	.4byte Room_DarkHyruleCastle_33
+	.4byte Room_DarkHyruleCastle_34
+	.4byte Room_DarkHyruleCastle_35
+	.4byte Room_DarkHyruleCastle_36
+	.4byte Room_DarkHyruleCastle_37
+	.4byte Room_DarkHyruleCastle_38
+	.4byte Room_DarkHyruleCastle_39
+	.4byte Room_DarkHyruleCastle_40
+	.4byte Room_DarkHyruleCastle_41
+	.4byte Room_DarkHyruleCastle_42
+	.4byte Room_DarkHyruleCastle_43
+	.4byte Room_DarkHyruleCastle_44
+	.4byte Room_DarkHyruleCastle_45
+	.4byte Room_DarkHyruleCastle_46
+	.4byte Room_DarkHyruleCastle_47
+	.4byte Room_DarkHyruleCastle_48
+	.4byte Room_DarkHyruleCastle_49
+	.4byte Room_DarkHyruleCastle_50
+	.4byte Room_DarkHyruleCastle_51
+	.4byte Room_DarkHyruleCastle_52
+	.4byte Room_DarkHyruleCastle_53
+	.4byte Room_DarkHyruleCastle_54
+	.4byte Room_DarkHyruleCastle_55
+	.4byte Room_DarkHyruleCastle_56
+	.4byte Room_DarkHyruleCastle_57
+	.4byte Room_DarkHyruleCastle_58
 
 Area_VaatisArms:: @ 080D49E0
 	.4byte Room_VaatisArms_First
@@ -2328,7 +2328,7 @@ gUnk_080D7368:: @ 080D7368
 gUnk_080D7378:: @ 080D7378
 	.incbin "data_080D5360/gUnk_080D7378.bin"
 
-gUnk_080D7380:: @ 080D7380
+Room_HyruleCastle_0:: @ 080D7380
 	.4byte gUnk_080D72D8
 	.4byte gUnk_080D7308
 	.4byte gUnk_080D7368
@@ -2368,7 +2368,7 @@ gUnk_080D7480:: @ 080D7480
 gUnk_080D7490:: @ 080D7490
 	.incbin "data_080D5360/gUnk_080D7490.bin"
 
-gUnk_080D7498:: @ 080D7498
+Room_HyruleCastle_1:: @ 080D7498
 	.4byte gUnk_080D73A0
 	.4byte 0x00000000
 	.4byte gUnk_080D7480
@@ -2437,7 +2437,7 @@ gUnk_080D7638:: @ 080D7638
 gUnk_080D7648:: @ 080D7648
 	.incbin "data_080D5360/gUnk_080D7648.bin"
 
-gUnk_080D7650:: @ 080D7650
+Room_HyruleCastle_2:: @ 080D7650
 	.4byte gUnk_080D74B8
 	.4byte 0x00000000
 	.4byte gUnk_080D7638
@@ -2459,7 +2459,7 @@ gUnk_080D76D0:: @ 080D76D0
 gUnk_080D76E0:: @ 080D76E0
 	.incbin "data_080D5360/gUnk_080D76E0.bin"
 
-gUnk_080D76E8:: @ 080D76E8
+Room_HyruleCastle_3:: @ 080D76E8
 	.4byte gUnk_080D7670
 	.4byte 0x00000000
 	.4byte gUnk_080D76D0
@@ -2481,7 +2481,7 @@ gUnk_080D772C:: @ 080D772C
 gUnk_080D773C:: @ 080D773C
 	.incbin "data_080D5360/gUnk_080D773C.bin"
 
-gUnk_080D7744:: @ 080D7744
+Room_HyruleCastle_4:: @ 080D7744
 	.4byte gUnk_080D770C
 	.4byte 0x00000000
 	.4byte gUnk_080D772C
@@ -2500,7 +2500,7 @@ gUnk_080D7774:: @ 080D7774
 gUnk_080D7784:: @ 080D7784
 	.incbin "data_080D5360/gUnk_080D7784.bin"
 
-gUnk_080D778C:: @ 080D778C
+Room_HyruleCastle_5:: @ 080D778C
 	.4byte gUnk_080D7764
 	.4byte 0x00000000
 	.4byte gUnk_080D7774
@@ -8967,7 +8967,7 @@ gUnk_080E7344:: @ 080E7344
 gUnk_080E7354:: @ 080E7354
 	.incbin "data_080D5360/gUnk_080E7354.bin"
 
-gUnk_080E7364:: @ 080E7364
+Room_PalaceOfWinds_0:: @ 080E7364
 	.4byte gUnk_080E7224
 	.4byte 0x00000000
 	.4byte gUnk_080E7344
@@ -8988,7 +8988,7 @@ gUnk_080E73AC:: @ 080E73AC
 gUnk_080E73CC:: @ 080E73CC
 	.incbin "data_080D5360/gUnk_080E73CC.bin"
 
-gUnk_080E73E4:: @ 080E73E4
+Room_PalaceOfWinds_1:: @ 080E73E4
 	.4byte gUnk_080E738C
 	.4byte 0x00000000
 	.4byte gUnk_080E73AC
@@ -9007,7 +9007,7 @@ gUnk_080E74A4:: @ 080E74A4
 gUnk_080E74B4:: @ 080E74B4
 	.incbin "data_080D5360/gUnk_080E74B4.bin"
 
-gUnk_080E74C4:: @ 080E74C4
+Room_PalaceOfWinds_2:: @ 080E74C4
 	.4byte gUnk_080E7404
 	.4byte 0x00000000
 	.4byte gUnk_080E74A4
@@ -9026,7 +9026,7 @@ gUnk_080E7614:: @ 080E7614
 gUnk_080E7624:: @ 080E7624
 	.incbin "data_080D5360/gUnk_080E7624.bin"
 
-gUnk_080E763C:: @ 080E763C
+Room_PalaceOfWinds_3:: @ 080E763C
 	.4byte gUnk_080E74E4
 	.4byte 0x00000000
 	.4byte gUnk_080E7614
@@ -9045,7 +9045,7 @@ gUnk_080E767C:: @ 080E767C
 gUnk_080E768C:: @ 080E768C
 	.incbin "data_080D5360/gUnk_080E768C.bin"
 
-gUnk_080E76A4:: @ 080E76A4
+Room_PalaceOfWinds_4:: @ 080E76A4
 	.4byte gUnk_080E765C
 	.4byte 0x00000000
 	.4byte gUnk_080E767C
@@ -9067,7 +9067,7 @@ gUnk_080E7764:: @ 080E7764
 gUnk_080E7774:: @ 080E7774
 	.incbin "data_080D5360/gUnk_080E7774.bin"
 
-gUnk_080E77D4:: @ 080E77D4
+Room_PalaceOfWinds_5:: @ 080E77D4
 	.4byte gUnk_080E76C4
 	.4byte 0x00000000
 	.4byte gUnk_080E7754
@@ -9087,7 +9087,7 @@ gUnk_080E78F8:: @ 080E78F8
 gUnk_080E7938:: @ 080E7938
 	.incbin "data_080D5360/gUnk_080E7938.bin"
 
-gUnk_080E7948:: @ 080E7948
+Room_PalaceOfWinds_6:: @ 080E7948
 	.4byte gUnk_080E77F8
 	.4byte 0x00000000
 	.4byte gUnk_080E78F8
@@ -9106,7 +9106,7 @@ gUnk_080E79D8:: @ 080E79D8
 gUnk_080E7A18:: @ 080E7A18
 	.incbin "data_080D5360/gUnk_080E7A18.bin"
 
-gUnk_080E7A30:: @ 080E7A30
+Room_PalaceOfWinds_7:: @ 080E7A30
 	.4byte gUnk_080E7968
 	.4byte 0x00000000
 	.4byte gUnk_080E79D8
@@ -9128,7 +9128,7 @@ gUnk_080E7AD0:: @ 080E7AD0
 gUnk_080E7AE0:: @ 080E7AE0
 	.incbin "data_080D5360/gUnk_080E7AE0.bin"
 
-gUnk_080E7B10:: @ 080E7B10
+Room_PalaceOfWinds_8:: @ 080E7B10
 	.4byte gUnk_080E7A50
 	.4byte 0x00000000
 	.4byte gUnk_080E7AC0
@@ -9148,7 +9148,7 @@ gUnk_080E7B74:: @ 080E7B74
 gUnk_080E7C74:: @ 080E7C74
 	.incbin "data_080D5360/gUnk_080E7C74.bin"
 
-gUnk_080E7C84:: @ 080E7C84
+Room_PalaceOfWinds_9:: @ 080E7C84
 	.4byte gUnk_080E7B34
 	.4byte 0x00000000
 	.4byte gUnk_080E7B74
@@ -9167,7 +9167,7 @@ gUnk_080E7D24:: @ 080E7D24
 gUnk_080E7D34:: @ 080E7D34
 	.incbin "data_080D5360/gUnk_080E7D34.bin"
 
-gUnk_080E7D44:: @ 080E7D44
+Room_PalaceOfWinds_10:: @ 080E7D44
 	.4byte gUnk_080E7CA4
 	.4byte 0x00000000
 	.4byte gUnk_080E7D24
@@ -9186,7 +9186,7 @@ gUnk_080E7DB4:: @ 080E7DB4
 gUnk_080E7DC4:: @ 080E7DC4
 	.incbin "data_080D5360/gUnk_080E7DC4.bin"
 
-gUnk_080E7DEC:: @ 080E7DEC
+Room_PalaceOfWinds_11:: @ 080E7DEC
 	.4byte gUnk_080E7D64
 	.4byte 0x00000000
 	.4byte gUnk_080E7DB4
@@ -9208,7 +9208,7 @@ gUnk_080E7E8C:: @ 080E7E8C
 gUnk_080E7EA4:: @ 080E7EA4
 	.incbin "data_080D5360/gUnk_080E7EA4.bin"
 
-gUnk_080E7EC4:: @ 080E7EC4
+Room_PalaceOfWinds_12:: @ 080E7EC4
 	.4byte gUnk_080E7E0C
 	.4byte 0x00000000
 	.4byte gUnk_080E7E7C
@@ -9228,7 +9228,7 @@ gUnk_080E7F08:: @ 080E7F08
 gUnk_080E7F38:: @ 080E7F38
 	.incbin "data_080D5360/gUnk_080E7F38.bin"
 
-gUnk_080E7F50:: @ 080E7F50
+Room_PalaceOfWinds_13:: @ 080E7F50
 	.4byte gUnk_080E7EE8
 	.4byte 0x00000000
 	.4byte gUnk_080E7F08
@@ -9247,7 +9247,7 @@ gUnk_080E7FF0:: @ 080E7FF0
 gUnk_080E8020:: @ 080E8020
 	.incbin "data_080D5360/gUnk_080E8020.bin"
 
-gUnk_080E8038:: @ 080E8038
+Room_PalaceOfWinds_14:: @ 080E8038
 	.4byte gUnk_080E7F70
 	.4byte 0x00000000
 	.4byte gUnk_080E7FF0
@@ -9266,7 +9266,7 @@ gUnk_080E80C8:: @ 080E80C8
 gUnk_080E80F8:: @ 080E80F8
 	.incbin "data_080D5360/gUnk_080E80F8.bin"
 
-gUnk_080E8110:: @ 080E8110
+Room_PalaceOfWinds_15:: @ 080E8110
 	.4byte gUnk_080E8058
 	.4byte 0x00000000
 	.4byte gUnk_080E80C8
@@ -9285,7 +9285,7 @@ gUnk_080E8290:: @ 080E8290
 gUnk_080E8330:: @ 080E8330
 	.incbin "data_080D5360/gUnk_080E8330.bin"
 
-gUnk_080E8348:: @ 080E8348
+Room_PalaceOfWinds_16:: @ 080E8348
 	.4byte gUnk_080E8130
 	.4byte 0x00000000
 	.4byte gUnk_080E8290
@@ -9304,7 +9304,7 @@ gUnk_080E8388:: @ 080E8388
 gUnk_080E83C8:: @ 080E83C8
 	.incbin "data_080D5360/gUnk_080E83C8.bin"
 
-gUnk_080E83D8:: @ 080E83D8
+Room_PalaceOfWinds_17:: @ 080E83D8
 	.4byte gUnk_080E8368
 	.4byte 0x00000000
 	.4byte gUnk_080E8388
@@ -9323,7 +9323,7 @@ gUnk_080E8418:: @ 080E8418
 gUnk_080E8428:: @ 080E8428
 	.incbin "data_080D5360/gUnk_080E8428.bin"
 
-gUnk_080E8438:: @ 080E8438
+Room_PalaceOfWinds_18:: @ 080E8438
 	.4byte gUnk_080E83F8
 	.4byte 0x00000000
 	.4byte gUnk_080E8418
@@ -9342,7 +9342,7 @@ gUnk_080E84C8:: @ 080E84C8
 gUnk_080E84F8:: @ 080E84F8
 	.incbin "data_080D5360/gUnk_080E84F8.bin"
 
-gUnk_080E8508:: @ 080E8508
+Room_PalaceOfWinds_19:: @ 080E8508
 	.4byte gUnk_080E8458
 	.4byte 0x00000000
 	.4byte gUnk_080E84C8
@@ -9361,7 +9361,7 @@ gUnk_080E85C8:: @ 080E85C8
 gUnk_080E85F8:: @ 080E85F8
 	.incbin "data_080D5360/gUnk_080E85F8.bin"
 
-gUnk_080E8608:: @ 080E8608
+Room_PalaceOfWinds_20:: @ 080E8608
 	.4byte gUnk_080E8528
 	.4byte 0x00000000
 	.4byte gUnk_080E85C8
@@ -9383,7 +9383,7 @@ gUnk_080E87D8:: @ 080E87D8
 gUnk_080E8800:: @ 080E8800
 	.incbin "data_080D5360/gUnk_080E8800.bin"
 
-gUnk_080E8824:: @ 080E8824
+Room_PalaceOfWinds_21:: @ 080E8824
 	.4byte gUnk_080E8628
 	.4byte 0x00000000
 	.4byte gUnk_080E8768
@@ -9406,7 +9406,7 @@ gUnk_080E8928:: @ 080E8928
 gUnk_080E8938:: @ 080E8938
 	.incbin "data_080D5360/gUnk_080E8938.bin"
 
-gUnk_080E8988:: @ 080E8988
+Room_PalaceOfWinds_22:: @ 080E8988
 	.4byte gUnk_080E8848
 	.4byte 0x00000000
 	.4byte gUnk_080E8918
@@ -9426,7 +9426,7 @@ gUnk_080E89DC:: @ 080E89DC
 gUnk_080E89EC:: @ 080E89EC
 	.incbin "data_080D5360/gUnk_080E89EC.bin"
 
-gUnk_080E89FC:: @ 080E89FC
+Room_PalaceOfWinds_23:: @ 080E89FC
 	.4byte gUnk_080E89AC
 	.4byte 0x00000000
 	.4byte gUnk_080E89DC
@@ -9454,7 +9454,7 @@ gUnk_080E8B6C:: @ 080E8B6C
 gUnk_080E8B9C:: @ 080E8B9C
 	.incbin "data_080D5360/gUnk_080E8B9C.bin"
 
-gUnk_080E8BC0:: @ 080E8BC0
+Room_PalaceOfWinds_24:: @ 080E8BC0
 	.4byte gUnk_080E8A1C
 	.4byte 0x00000000
 	.4byte gUnk_080E8ABC
@@ -9479,7 +9479,7 @@ gUnk_080E8C7C:: @ 080E8C7C
 gUnk_080E8C8C:: @ 080E8C8C
 	.incbin "data_080D5360/gUnk_080E8C8C.bin"
 
-gUnk_080E8CB0:: @ 080E8CB0
+Room_PalaceOfWinds_25:: @ 080E8CB0
 	.4byte gUnk_080E8BEC
 	.4byte 0x00000000
 	.4byte gUnk_080E8C6C
@@ -9499,7 +9499,7 @@ gUnk_080E8EB4:: @ 080E8EB4
 gUnk_080E8ED4:: @ 080E8ED4
 	.incbin "data_080D5360/gUnk_080E8ED4.bin"
 
-gUnk_080E8EE4:: @ 080E8EE4
+Room_PalaceOfWinds_26:: @ 080E8EE4
 	.4byte gUnk_080E8CD4
 	.4byte 0x00000000
 	.4byte gUnk_080E8EB4
@@ -9518,7 +9518,7 @@ gUnk_080E8F44:: @ 080E8F44
 gUnk_080E8F74:: @ 080E8F74
 	.incbin "data_080D5360/gUnk_080E8F74.bin"
 
-gUnk_080E8F84:: @ 080E8F84
+Room_PalaceOfWinds_27:: @ 080E8F84
 	.4byte gUnk_080E8F04
 	.4byte 0x00000000
 	.4byte gUnk_080E8F44
@@ -9540,7 +9540,7 @@ gUnk_080E8FF4:: @ 080E8FF4
 gUnk_080E900C:: @ 080E900C
 	.incbin "data_080D5360/gUnk_080E900C.bin"
 
-gUnk_080E904C:: @ 080E904C
+Room_PalaceOfWinds_28:: @ 080E904C
 	.4byte gUnk_080E8FA4
 	.4byte 0x00000000
 	.4byte gUnk_080E8FE4
@@ -9560,7 +9560,7 @@ gUnk_080E90A0:: @ 080E90A0
 gUnk_080E90D0:: @ 080E90D0
 	.incbin "data_080D5360/gUnk_080E90D0.bin"
 
-gUnk_080E90E0:: @ 080E90E0
+Room_PalaceOfWinds_29:: @ 080E90E0
 	.4byte gUnk_080E9070
 	.4byte 0x00000000
 	.4byte gUnk_080E90A0
@@ -9579,7 +9579,7 @@ gUnk_080E9130:: @ 080E9130
 gUnk_080E9170:: @ 080E9170
 	.incbin "data_080D5360/gUnk_080E9170.bin"
 
-gUnk_080E9180:: @ 080E9180
+Room_PalaceOfWinds_30:: @ 080E9180
 	.4byte gUnk_080E9100
 	.4byte 0x00000000
 	.4byte gUnk_080E9130
@@ -9598,7 +9598,7 @@ gUnk_080E9200:: @ 080E9200
 gUnk_080E9210:: @ 080E9210
 	.incbin "data_080D5360/gUnk_080E9210.bin"
 
-gUnk_080E9220:: @ 080E9220
+Room_PalaceOfWinds_31:: @ 080E9220
 	.4byte gUnk_080E91A0
 	.4byte 0x00000000
 	.4byte gUnk_080E9200
@@ -9617,7 +9617,7 @@ gUnk_080E92D0:: @ 080E92D0
 gUnk_080E9300:: @ 080E9300
 	.incbin "data_080D5360/gUnk_080E9300.bin"
 
-gUnk_080E9310:: @ 080E9310
+Room_PalaceOfWinds_32:: @ 080E9310
 	.4byte gUnk_080E9240
 	.4byte 0x00000000
 	.4byte gUnk_080E92D0
@@ -9645,7 +9645,7 @@ gUnk_080E94EE:: @ 080E94EE
 gUnk_080E9500:: @ 080E9500
 	.incbin "data_080D5360/gUnk_080E9500.bin"
 
-gUnk_080E9518:: @ 080E9518
+Room_PalaceOfWinds_33:: @ 080E9518
 	.4byte gUnk_080E9330
 	.4byte 0x00000000
 	.4byte gUnk_080E93B0
@@ -9670,7 +9670,7 @@ gUnk_080E9694:: @ 080E9694
 gUnk_080E96A4:: @ 080E96A4
 	.incbin "data_080D5360/gUnk_080E96A4.bin"
 
-gUnk_080E96D4:: @ 080E96D4
+Room_PalaceOfWinds_34:: @ 080E96D4
 	.4byte gUnk_080E9544
 	.4byte 0x00000000
 	.4byte gUnk_080E9684
@@ -9690,7 +9690,7 @@ gUnk_080E97D8:: @ 080E97D8
 gUnk_080E9818:: @ 080E9818
 	.incbin "data_080D5360/gUnk_080E9818.bin"
 
-gUnk_080E9828:: @ 080E9828
+Room_PalaceOfWinds_35:: @ 080E9828
 	.4byte gUnk_080E96F8
 	.4byte 0x00000000
 	.4byte gUnk_080E97D8
@@ -9721,7 +9721,7 @@ gUnk_080E99A4:: @ 080E99A4
 gUnk_080E99DA:: @ 080E99DA
 	.incbin "data_080D5360/gUnk_080E99DA.bin"
 
-gUnk_080E9A10:: @ 080E9A10
+Room_PalaceOfWinds_36:: @ 080E9A10
 	.4byte gUnk_080E9848
 	.4byte 0x00000000
 	.4byte gUnk_080E9918
@@ -9744,7 +9744,7 @@ gUnk_080E9A60:: @ 080E9A60
 gUnk_080E9AC0:: @ 080E9AC0
 	.incbin "data_080D5360/gUnk_080E9AC0.bin"
 
-gUnk_080E9AD0:: @ 080E9AD0
+Room_PalaceOfWinds_37:: @ 080E9AD0
 	.4byte gUnk_080E9A40
 	.4byte 0x00000000
 	.4byte gUnk_080E9A60
@@ -9763,7 +9763,7 @@ gUnk_080E9B30:: @ 080E9B30
 gUnk_080E9B70:: @ 080E9B70
 	.incbin "data_080D5360/gUnk_080E9B70.bin"
 
-gUnk_080E9B80:: @ 080E9B80
+Room_PalaceOfWinds_38:: @ 080E9B80
 	.4byte gUnk_080E9AF0
 	.4byte 0x00000000
 	.4byte gUnk_080E9B30
@@ -9782,7 +9782,7 @@ gUnk_080E9C00:: @ 080E9C00
 gUnk_080E9C30:: @ 080E9C30
 	.incbin "data_080D5360/gUnk_080E9C30.bin"
 
-gUnk_080E9C40:: @ 080E9C40
+Room_PalaceOfWinds_39:: @ 080E9C40
 	.4byte gUnk_080E9BA0
 	.4byte 0x00000000
 	.4byte gUnk_080E9C00
@@ -9801,7 +9801,7 @@ gUnk_080E9C90:: @ 080E9C90
 gUnk_080E9CC0:: @ 080E9CC0
 	.incbin "data_080D5360/gUnk_080E9CC0.bin"
 
-gUnk_080E9CD0:: @ 080E9CD0
+Room_PalaceOfWinds_40:: @ 080E9CD0
 	.4byte gUnk_080E9C60
 	.4byte 0x00000000
 	.4byte gUnk_080E9C90
@@ -9823,7 +9823,7 @@ gUnk_080E9D60:: @ 080E9D60
 gUnk_080E9D78:: @ 080E9D78
 	.incbin "data_080D5360/gUnk_080E9D78.bin"
 
-gUnk_080E9DA8:: @ 080E9DA8
+Room_PalaceOfWinds_41:: @ 080E9DA8
 	.4byte gUnk_080E9CF0
 	.4byte 0x00000000
 	.4byte gUnk_080E9D50
@@ -9843,7 +9843,7 @@ gUnk_080E9DEC:: @ 080E9DEC
 gUnk_080E9E1C:: @ 080E9E1C
 	.incbin "data_080D5360/gUnk_080E9E1C.bin"
 
-gUnk_080E9E2C:: @ 080E9E2C
+Room_PalaceOfWinds_42:: @ 080E9E2C
 	.4byte gUnk_080E9DCC
 	.4byte 0x00000000
 	.4byte gUnk_080E9DEC
@@ -9871,7 +9871,7 @@ gUnk_080E9EE2:: @ 080E9EE2
 gUnk_080E9F00:: @ 080E9F00
 	.incbin "data_080D5360/gUnk_080E9F00.bin"
 
-gUnk_080E9F20:: @ 080E9F20
+Room_PalaceOfWinds_43:: @ 080E9F20
 	.4byte gUnk_080E9E4C
 	.4byte 0x00000000
 	.4byte gUnk_080E9E6C
@@ -9909,7 +9909,7 @@ gUnk_080EA154:: @ 080EA154
 gUnk_080EA1A4:: @ 080EA1A4
 	.incbin "data_080D5360/gUnk_080EA1A4.bin"
 
-gUnk_080EA214:: @ 080EA214
+Room_PalaceOfWinds_44:: @ 080EA214
 	.4byte gUnk_080E9F4C
 	.4byte 0x00000000
 	.4byte gUnk_080EA0EC
@@ -9931,7 +9931,7 @@ gUnk_080EA260:: @ 080EA260
 gUnk_080EA2E0:: @ 080EA2E0
 	.incbin "data_080D5360/gUnk_080EA2E0.bin"
 
-gUnk_080EA2F8:: @ 080EA2F8
+Room_PalaceOfWinds_45:: @ 080EA2F8
 	.4byte gUnk_080EA240
 	.4byte 0x00000000
 	.4byte gUnk_080EA260
@@ -9959,7 +9959,7 @@ gUnk_080EA478:: @ 080EA478
 gUnk_080EA496:: @ 080EA496
 	.incbin "data_080D5360/gUnk_080EA496.bin"
 
-gUnk_080EA4BC:: @ 080EA4BC
+Room_PalaceOfWinds_46:: @ 080EA4BC
 	.4byte gUnk_080EA318
 	.4byte 0x00000000
 	.4byte gUnk_080EA408
@@ -9981,7 +9981,7 @@ gUnk_080EA518:: @ 080EA518
 gUnk_080EA528:: @ 080EA528
 	.incbin "data_080D5360/gUnk_080EA528.bin"
 
-gUnk_080EA538:: @ 080EA538
+Room_PalaceOfWinds_47:: @ 080EA538
 	.4byte gUnk_080EA4E8
 	.4byte 0x00000000
 	.4byte gUnk_080EA518
@@ -10000,7 +10000,7 @@ gUnk_080EA658:: @ 080EA658
 gUnk_080EA6D8:: @ 080EA6D8
 	.incbin "data_080D5360/gUnk_080EA6D8.bin"
 
-gUnk_080EA6E8:: @ 080EA6E8
+Room_PalaceOfWinds_48:: @ 080EA6E8
 	.4byte gUnk_080EA558
 	.4byte 0x00000000
 	.4byte gUnk_080EA658
@@ -10019,7 +10019,7 @@ gUnk_080EA7A8:: @ 080EA7A8
 gUnk_080EA7B8:: @ 080EA7B8
 	.incbin "data_080D5360/gUnk_080EA7B8.bin"
 
-gUnk_080EA7C8:: @ 080EA7C8
+Room_PalaceOfWinds_49:: @ 080EA7C8
 	.4byte gUnk_080EA708
 	.4byte 0x00000000
 	.4byte gUnk_080EA7A8
@@ -10038,7 +10038,7 @@ gUnk_080EA968:: @ 080EA968
 gUnk_080EA9B8:: @ 080EA9B8
 	.incbin "data_080D5360/gUnk_080EA9B8.bin"
 
-gUnk_080EA9E0:: @ 080EA9E0
+Room_PalaceOfWinds_50:: @ 080EA9E0
 	.4byte gUnk_080EA7E8
 	.4byte 0x00000000
 	.4byte gUnk_080EA968
@@ -10466,7 +10466,7 @@ gUnk_080EB674:: @ 080EB674
 gUnk_080EB684:: @ 080EB684
 	.incbin "data_080D5360/gUnk_080EB684.bin"
 
-gUnk_080EB704:: @ 080EB704
+Room_DarkHyruleCastle_0:: @ 080EB704
 	.4byte gUnk_080EB594
 	.4byte 0x00000000
 	.4byte gUnk_080EB664
@@ -10485,7 +10485,7 @@ gUnk_080EB734:: @ 080EB734
 gUnk_080EB744:: @ 080EB744
 	.incbin "data_080D5360/gUnk_080EB744.bin"
 
-gUnk_080EB75C:: @ 080EB75C
+Room_DarkHyruleCastle_1:: @ 080EB75C
 	.4byte gUnk_080EB724
 	.4byte 0x00000000
 	.4byte gUnk_080EB734
@@ -10504,7 +10504,7 @@ gUnk_080EB78C:: @ 080EB78C
 gUnk_080EB79C:: @ 080EB79C
 	.incbin "data_080D5360/gUnk_080EB79C.bin"
 
-gUnk_080EB7B4:: @ 080EB7B4
+Room_DarkHyruleCastle_2:: @ 080EB7B4
 	.4byte gUnk_080EB77C
 	.4byte 0x00000000
 	.4byte gUnk_080EB78C
@@ -10523,7 +10523,7 @@ gUnk_080EB7E4:: @ 080EB7E4
 gUnk_080EB7F4:: @ 080EB7F4
 	.incbin "data_080D5360/gUnk_080EB7F4.bin"
 
-gUnk_080EB80C:: @ 080EB80C
+Room_DarkHyruleCastle_3:: @ 080EB80C
 	.4byte gUnk_080EB7D4
 	.4byte 0x00000000
 	.4byte gUnk_080EB7E4
@@ -10542,7 +10542,7 @@ gUnk_080EB83C:: @ 080EB83C
 gUnk_080EB84C:: @ 080EB84C
 	.incbin "data_080D5360/gUnk_080EB84C.bin"
 
-gUnk_080EB864:: @ 080EB864
+Room_DarkHyruleCastle_4:: @ 080EB864
 	.4byte gUnk_080EB82C
 	.4byte 0x00000000
 	.4byte gUnk_080EB83C
@@ -10563,7 +10563,7 @@ gUnk_080EB904:: @ 080EB904
 gUnk_080EB9B4:: @ 080EB9B4
 	.incbin "data_080D5360/gUnk_080EB9B4.bin"
 
-gUnk_080EB9C4:: @ 080EB9C4
+Room_DarkHyruleCastle_5:: @ 080EB9C4
 	.4byte gUnk_080EB884
 	.4byte 0x00000000
 	.4byte gUnk_080EB904
@@ -10612,7 +10612,7 @@ gUnk_080EBBA4:: @ 080EBBA4
 gUnk_080EBBB4:: @ 080EBBB4
 	.incbin "data_080D5360/gUnk_080EBBB4.bin"
 
-gUnk_080EBC14:: @ 080EBC14
+Room_DarkHyruleCastle_6:: @ 080EBC14
 	.4byte gUnk_080EB9E4
 	.4byte 0x00000000
 	.4byte gUnk_080EBB34
@@ -10632,7 +10632,7 @@ gUnk_080EBC78:: @ 080EBC78
 gUnk_080EBC88:: @ 080EBC88
 	.incbin "data_080D5360/gUnk_080EBC88.bin"
 
-gUnk_080EBC98:: @ 080EBC98
+Room_DarkHyruleCastle_7:: @ 080EBC98
 	.4byte gUnk_080EBC38
 	.4byte 0x00000000
 	.4byte gUnk_080EBC78
@@ -10651,7 +10651,7 @@ gUnk_080EBDB8:: @ 080EBDB8
 gUnk_080EBE28:: @ 080EBE28
 	.incbin "data_080D5360/gUnk_080EBE28.bin"
 
-gUnk_080EBE38:: @ 080EBE38
+Room_DarkHyruleCastle_8:: @ 080EBE38
 	.4byte gUnk_080EBCB8
 	.4byte 0x00000000
 	.4byte gUnk_080EBDB8
@@ -10670,7 +10670,7 @@ gUnk_080EBEF8:: @ 080EBEF8
 gUnk_080EBF08:: @ 080EBF08
 	.incbin "data_080D5360/gUnk_080EBF08.bin"
 
-gUnk_080EBF40:: @ 080EBF40
+Room_DarkHyruleCastle_9:: @ 080EBF40
 	.4byte gUnk_080EBE58
 	.4byte 0x00000000
 	.4byte gUnk_080EBEF8
@@ -10694,7 +10694,7 @@ gUnk_080EBFD8:: @ 080EBFD8
 	.4byte script_0800E5C4
 	.incbin "data_080D5360/gUnk_080EBFD8_1.bin"
 
-gUnk_080EC038:: @ 080EC038
+Room_DarkHyruleCastle_10:: @ 080EC038
 	.4byte gUnk_080EBF60
 	.4byte 0x00000000
 	.4byte gUnk_080EBFB0
@@ -10720,7 +10720,7 @@ gUnk_080EC0BC:: @ 080EC0BC
 gUnk_080EC0DC:: @ 080EC0DC
 	.incbin "data_080D5360/gUnk_080EC0DC.bin"
 
-gUnk_080EC0EC:: @ 080EC0EC
+Room_DarkHyruleCastle_11:: @ 080EC0EC
 	.4byte gUnk_080EC05C
 	.4byte 0x00000000
 	.4byte gUnk_080EC09C
@@ -10741,7 +10741,7 @@ gUnk_080EC1F4:: @ 080EC1F4
 gUnk_080EC204:: @ 080EC204
 	.incbin "data_080D5360/gUnk_080EC204.bin"
 
-gUnk_080EC21C:: @ 080EC21C
+Room_DarkHyruleCastle_12:: @ 080EC21C
 	.4byte gUnk_080EC114
 	.4byte 0x00000000
 	.4byte gUnk_080EC1F4
@@ -10760,7 +10760,7 @@ gUnk_080EC24C:: @ 080EC24C
 gUnk_080EC27C:: @ 080EC27C
 	.incbin "data_080D5360/gUnk_080EC27C.bin"
 
-gUnk_080EC28C:: @ 080EC28C
+Room_DarkHyruleCastle_13:: @ 080EC28C
 	.4byte gUnk_080EC23C
 	.4byte 0x00000000
 	.4byte gUnk_080EC24C
@@ -10785,7 +10785,7 @@ gUnk_080EC35C:: @ 080EC35C
 gUnk_080EC374:: @ 080EC374
 	.incbin "data_080D5360/gUnk_080EC374.bin"
 
-gUnk_080EC3C4:: @ 080EC3C4
+Room_DarkHyruleCastle_14:: @ 080EC3C4
 	.4byte gUnk_080EC2AC
 	.4byte 0x00000000
 	.4byte gUnk_080EC34C
@@ -10805,7 +10805,7 @@ gUnk_080EC438:: @ 080EC438
 gUnk_080EC498:: @ 080EC498
 	.incbin "data_080D5360/gUnk_080EC498.bin"
 
-gUnk_080EC4A8:: @ 080EC4A8
+Room_DarkHyruleCastle_15:: @ 080EC4A8
 	.4byte gUnk_080EC3E8
 	.4byte 0x00000000
 	.4byte gUnk_080EC438
@@ -10830,7 +10830,7 @@ gUnk_080EC578:: @ 080EC578
 gUnk_080EC590:: @ 080EC590
 	.incbin "data_080D5360/gUnk_080EC590.bin"
 
-gUnk_080EC600:: @ 080EC600
+Room_DarkHyruleCastle_16:: @ 080EC600
 	.4byte gUnk_080EC4C8
 	.4byte 0x00000000
 	.4byte gUnk_080EC568
@@ -10853,7 +10853,7 @@ gUnk_080EC704:: @ 080EC704
 gUnk_080EC72C:: @ 080EC72C
 	.incbin "data_080D5360/gUnk_080EC72C.bin"
 
-gUnk_080EC77C:: @ 080EC77C
+Room_DarkHyruleCastle_17:: @ 080EC77C
 	.4byte gUnk_080EC624
 	.4byte 0x00000000
 	.4byte gUnk_080EC6F4
@@ -10873,7 +10873,7 @@ gUnk_080EC7C0:: @ 080EC7C0
 gUnk_080EC7D0:: @ 080EC7D0
 	.incbin "data_080D5360/gUnk_080EC7D0.bin"
 
-gUnk_080EC7E0:: @ 080EC7E0
+Room_DarkHyruleCastle_18:: @ 080EC7E0
 	.4byte gUnk_080EC7A0
 	.4byte 0x00000000
 	.4byte gUnk_080EC7C0
@@ -10898,7 +10898,7 @@ gUnk_080EC8B0:: @ 080EC8B0
 gUnk_080EC8C8:: @ 080EC8C8
 	.incbin "data_080D5360/gUnk_080EC8C8.bin"
 
-gUnk_080EC938:: @ 080EC938
+Room_DarkHyruleCastle_19:: @ 080EC938
 	.4byte gUnk_080EC800
 	.4byte 0x00000000
 	.4byte gUnk_080EC8A0
@@ -10921,7 +10921,7 @@ gUnk_080EC9DC:: @ 080EC9DC
 gUnk_080EC9EC:: @ 080EC9EC
 	.incbin "data_080D5360/gUnk_080EC9EC.bin"
 
-gUnk_080ECA1C:: @ 080ECA1C
+Room_DarkHyruleCastle_20:: @ 080ECA1C
 	.4byte gUnk_080EC95C
 	.4byte 0x00000000
 	.4byte gUnk_080EC9CC
@@ -10947,7 +10947,7 @@ gUnk_080ECAF0:: @ 080ECAF0
 gUnk_080ECB00:: @ 080ECB00
 	.incbin "data_080D5360/gUnk_080ECB00.bin"
 
-gUnk_080ECB50:: @ 080ECB50
+Room_DarkHyruleCastle_21:: @ 080ECB50
 	.4byte gUnk_080ECA40
 	.4byte 0x00000000
 	.4byte gUnk_080ECAE0
@@ -10967,7 +10967,7 @@ gUnk_080ECC24:: @ 080ECC24
 gUnk_080ECC34:: @ 080ECC34
 	.incbin "data_080D5360/gUnk_080ECC34.bin"
 
-gUnk_080ECC44:: @ 080ECC44
+Room_DarkHyruleCastle_22:: @ 080ECC44
 	.4byte gUnk_080ECB74
 	.4byte 0x00000000
 	.4byte gUnk_080ECC24
@@ -10986,7 +10986,7 @@ gUnk_080ECCF4:: @ 080ECCF4
 gUnk_080ECD04:: @ 080ECD04
 	.incbin "data_080D5360/gUnk_080ECD04.bin"
 
-gUnk_080ECD14:: @ 080ECD14
+Room_DarkHyruleCastle_23:: @ 080ECD14
 	.4byte gUnk_080ECC64
 	.4byte 0x00000000
 	.4byte gUnk_080ECCF4
@@ -11005,7 +11005,7 @@ gUnk_080ECDF4:: @ 080ECDF4
 gUnk_080ECE04:: @ 080ECE04
 	.incbin "data_080D5360/gUnk_080ECE04.bin"
 
-gUnk_080ECE14:: @ 080ECE14
+Room_DarkHyruleCastle_24:: @ 080ECE14
 	.4byte gUnk_080ECD34
 	.4byte 0x00000000
 	.4byte gUnk_080ECDF4
@@ -11024,7 +11024,7 @@ gUnk_080ECE44:: @ 080ECE44
 gUnk_080ECE54:: @ 080ECE54
 	.incbin "data_080D5360/gUnk_080ECE54.bin"
 
-gUnk_080ECE64:: @ 080ECE64
+Room_DarkHyruleCastle_25:: @ 080ECE64
 	.4byte gUnk_080ECE34
 	.4byte 0x00000000
 	.4byte gUnk_080ECE44
@@ -11049,7 +11049,7 @@ gUnk_080ECEE4:: @ 080ECEE4
 gUnk_080ECF04:: @ 080ECF04
 	.incbin "data_080D5360/gUnk_080ECF04.bin"
 
-gUnk_080ECF14:: @ 080ECF14
+Room_DarkHyruleCastle_26:: @ 080ECF14
 	.4byte gUnk_080ECE84
 	.4byte 0x00000000
 	.4byte gUnk_080ECEC4
@@ -11070,7 +11070,7 @@ gUnk_080ECF4C:: @ 080ECF4C
 gUnk_080ECF5C:: @ 080ECF5C
 	.incbin "data_080D5360/gUnk_080ECF5C.bin"
 
-gUnk_080ECF6C:: @ 080ECF6C
+Room_DarkHyruleCastle_27:: @ 080ECF6C
 	.4byte gUnk_080ECF3C
 	.4byte 0x00000000
 	.4byte gUnk_080ECF4C
@@ -11092,7 +11092,7 @@ gUnk_080ECFBC:: @ 080ECFBC
 gUnk_080ECFCC:: @ 080ECFCC
 	.incbin "data_080D5360/gUnk_080ECFCC.bin"
 
-gUnk_080ED00C:: @ 080ED00C
+Room_DarkHyruleCastle_28:: @ 080ED00C
 	.4byte gUnk_080ECF8C
 	.4byte 0x00000000
 	.4byte gUnk_080ECFAC
@@ -11111,7 +11111,7 @@ gUnk_080ED0AC:: @ 080ED0AC
 gUnk_080ED0DC:: @ 080ED0DC
 	.incbin "data_080D5360/gUnk_080ED0DC.bin"
 
-gUnk_080ED0FC:: @ 080ED0FC
+Room_DarkHyruleCastle_29:: @ 080ED0FC
 	.4byte gUnk_080ED02C
 	.4byte 0x00000000
 	.4byte gUnk_080ED0AC
@@ -11130,7 +11130,7 @@ gUnk_080ED12C:: @ 080ED12C
 gUnk_080ED15C:: @ 080ED15C
 	.incbin "data_080D5360/gUnk_080ED15C.bin"
 
-gUnk_080ED174:: @ 080ED174
+Room_DarkHyruleCastle_30:: @ 080ED174
 	.4byte gUnk_080ED11C
 	.4byte 0x00000000
 	.4byte gUnk_080ED12C
@@ -11160,7 +11160,7 @@ gUnk_080ED264:: @ 080ED264
 gUnk_080ED27C:: @ 080ED27C
 	.incbin "data_080D5360/gUnk_080ED27C.bin"
 
-gUnk_080ED2AC:: @ 080ED2AC
+Room_DarkHyruleCastle_31:: @ 080ED2AC
 	.4byte gUnk_080ED194
 	.4byte gUnk_080ED234
 	.4byte gUnk_080ED254
@@ -11180,7 +11180,7 @@ gUnk_080ED2F0:: @ 080ED2F0
 gUnk_080ED300:: @ 080ED300
 	.incbin "data_080D5360/gUnk_080ED300.bin"
 
-gUnk_080ED318:: @ 080ED318
+Room_DarkHyruleCastle_32:: @ 080ED318
 	.4byte gUnk_080ED2D0
 	.4byte 0x00000000
 	.4byte gUnk_080ED2F0
@@ -11199,7 +11199,7 @@ gUnk_080ED348:: @ 080ED348
 gUnk_080ED378:: @ 080ED378
 	.incbin "data_080D5360/gUnk_080ED378.bin"
 
-gUnk_080ED388:: @ 080ED388
+Room_DarkHyruleCastle_33:: @ 080ED388
 	.4byte gUnk_080ED338
 	.4byte 0x00000000
 	.4byte gUnk_080ED348
@@ -11218,7 +11218,7 @@ gUnk_080ED3B8:: @ 080ED3B8
 gUnk_080ED3C8:: @ 080ED3C8
 	.incbin "data_080D5360/gUnk_080ED3C8.bin"
 
-gUnk_080ED3D8:: @ 080ED3D8
+Room_DarkHyruleCastle_34:: @ 080ED3D8
 	.4byte gUnk_080ED3A8
 	.4byte 0x00000000
 	.4byte gUnk_080ED3B8
@@ -11240,7 +11240,7 @@ gUnk_080ED488:: @ 080ED488
 gUnk_080ED4B8:: @ 080ED4B8
 	.incbin "data_080D5360/gUnk_080ED4B8.bin"
 
-gUnk_080ED4C8:: @ 080ED4C8
+Room_DarkHyruleCastle_35:: @ 080ED4C8
 	.4byte gUnk_080ED3F8
 	.4byte gUnk_080ED468
 	.4byte gUnk_080ED488
@@ -11262,7 +11262,7 @@ gUnk_080ED568:: @ 080ED568
 gUnk_080ED578:: @ 080ED578
 	.incbin "data_080D5360/gUnk_080ED578.bin"
 
-gUnk_080ED588:: @ 080ED588
+Room_DarkHyruleCastle_36:: @ 080ED588
 	.4byte gUnk_080ED4E8
 	.4byte gUnk_080ED538
 	.4byte gUnk_080ED568
@@ -11284,7 +11284,7 @@ gUnk_080ED5D8:: @ 080ED5D8
 gUnk_080ED638:: @ 080ED638
 	.incbin "data_080D5360/gUnk_080ED638.bin"
 
-gUnk_080ED648:: @ 080ED648
+Room_DarkHyruleCastle_37:: @ 080ED648
 	.4byte gUnk_080ED5A8
 	.4byte gUnk_080ED5B8
 	.4byte gUnk_080ED5D8
@@ -11306,7 +11306,7 @@ gUnk_080ED6F8:: @ 080ED6F8
 gUnk_080ED708:: @ 080ED708
 	.incbin "data_080D5360/gUnk_080ED708.bin"
 
-gUnk_080ED720:: @ 080ED720
+Room_DarkHyruleCastle_38:: @ 080ED720
 	.4byte gUnk_080ED668
 	.4byte 0x00000000
 	.4byte gUnk_080ED6E8
@@ -11329,7 +11329,7 @@ gUnk_080ED7D4:: @ 080ED7D4
 gUnk_080ED7EC:: @ 080ED7EC
 	.incbin "data_080D5360/gUnk_080ED7EC.bin"
 
-gUnk_080ED8CC:: @ 080ED8CC
+Room_DarkHyruleCastle_39:: @ 080ED8CC
 	.4byte gUnk_080ED744
 	.4byte 0x00000000
 	.4byte gUnk_080ED7B4
@@ -11349,7 +11349,7 @@ gUnk_080ED900:: @ 080ED900
 gUnk_080ED930:: @ 080ED930
 	.incbin "data_080D5360/gUnk_080ED930.bin"
 
-gUnk_080ED940:: @ 080ED940
+Room_DarkHyruleCastle_40:: @ 080ED940
 	.4byte gUnk_080ED8F0
 	.4byte 0x00000000
 	.4byte gUnk_080ED900
@@ -11368,7 +11368,7 @@ gUnk_080ED970:: @ 080ED970
 gUnk_080ED9E0:: @ 080ED9E0
 	.incbin "data_080D5360/gUnk_080ED9E0.bin"
 
-gUnk_080ED9F0:: @ 080ED9F0
+Room_DarkHyruleCastle_41:: @ 080ED9F0
 	.4byte gUnk_080ED960
 	.4byte 0x00000000
 	.4byte gUnk_080ED970
@@ -11387,7 +11387,7 @@ gUnk_080EDA20:: @ 080EDA20
 gUnk_080EDA60:: @ 080EDA60
 	.incbin "data_080D5360/gUnk_080EDA60.bin"
 
-gUnk_080EDA70:: @ 080EDA70
+Room_DarkHyruleCastle_42:: @ 080EDA70
 	.4byte gUnk_080EDA10
 	.4byte 0x00000000
 	.4byte gUnk_080EDA20
@@ -11406,7 +11406,7 @@ gUnk_080EDB00:: @ 080EDB00
 gUnk_080EDB10:: @ 080EDB10
 	.incbin "data_080D5360/gUnk_080EDB10.bin"
 
-gUnk_080EDB20:: @ 080EDB20
+Room_DarkHyruleCastle_43:: @ 080EDB20
 	.4byte gUnk_080EDA90
 	.4byte 0x00000000
 	.4byte gUnk_080EDB00
@@ -11425,7 +11425,7 @@ gUnk_080EDB50:: @ 080EDB50
 gUnk_080EDB90:: @ 080EDB90
 	.incbin "data_080D5360/gUnk_080EDB90.bin"
 
-gUnk_080EDBA8:: @ 080EDBA8
+Room_DarkHyruleCastle_44:: @ 080EDBA8
 	.4byte gUnk_080EDB40
 	.4byte 0x00000000
 	.4byte gUnk_080EDB50
@@ -11444,7 +11444,7 @@ gUnk_080EDBD8:: @ 080EDBD8
 gUnk_080EDC28:: @ 080EDC28
 	.incbin "data_080D5360/gUnk_080EDC28.bin"
 
-gUnk_080EDC40:: @ 080EDC40
+Room_DarkHyruleCastle_45:: @ 080EDC40
 	.4byte gUnk_080EDBC8
 	.4byte 0x00000000
 	.4byte gUnk_080EDBD8
@@ -11463,7 +11463,7 @@ gUnk_080EDC70:: @ 080EDC70
 gUnk_080EDCA0:: @ 080EDCA0
 	.incbin "data_080D5360/gUnk_080EDCA0.bin"
 
-gUnk_080EDCB8:: @ 080EDCB8
+Room_DarkHyruleCastle_46:: @ 080EDCB8
 	.4byte gUnk_080EDC60
 	.4byte 0x00000000
 	.4byte gUnk_080EDC70
@@ -11485,7 +11485,7 @@ gUnk_080EDD08:: @ 080EDD08
 gUnk_080EDD58:: @ 080EDD58
 	.incbin "data_080D5360/gUnk_080EDD58.bin"
 
-gUnk_080EDD68:: @ 080EDD68
+Room_DarkHyruleCastle_47:: @ 080EDD68
 	.4byte gUnk_080EDCD8
 	.4byte gUnk_080EDCE8
 	.4byte gUnk_080EDD08
@@ -11507,7 +11507,7 @@ gUnk_080EDE08:: @ 080EDE08
 gUnk_080EDE48:: @ 080EDE48
 	.incbin "data_080D5360/gUnk_080EDE48.bin"
 
-gUnk_080EDE60:: @ 080EDE60
+Room_DarkHyruleCastle_48:: @ 080EDE60
 	.4byte gUnk_080EDD88
 	.4byte gUnk_080EDDC8
 	.4byte gUnk_080EDE08
@@ -11529,7 +11529,7 @@ gUnk_080EDEF0:: @ 080EDEF0
 gUnk_080EDF20:: @ 080EDF20
 	.incbin "data_080D5360/gUnk_080EDF20.bin"
 
-gUnk_080EDF40:: @ 080EDF40
+Room_DarkHyruleCastle_49:: @ 080EDF40
 	.4byte gUnk_080EDE80
 	.4byte gUnk_080EDEB0
 	.4byte gUnk_080EDEF0
@@ -11551,7 +11551,7 @@ gUnk_080EDFD0:: @ 080EDFD0
 gUnk_080EE060:: @ 080EE060
 	.incbin "data_080D5360/gUnk_080EE060.bin"
 
-gUnk_080EE078:: @ 080EE078
+Room_DarkHyruleCastle_50:: @ 080EE078
 	.4byte gUnk_080EDF60
 	.4byte gUnk_080EDFB0
 	.4byte gUnk_080EDFD0
@@ -11570,7 +11570,7 @@ gUnk_080EE138:: @ 080EE138
 gUnk_080EE148:: @ 080EE148
 	.incbin "data_080D5360/gUnk_080EE148.bin"
 
-gUnk_080EE158:: @ 080EE158
+Room_DarkHyruleCastle_51:: @ 080EE158
 	.4byte gUnk_080EE098
 	.4byte 0x00000000
 	.4byte gUnk_080EE138
@@ -11592,7 +11592,7 @@ gUnk_080EE238:: @ 080EE238
 gUnk_080EE248:: @ 080EE248
 	.incbin "data_080D5360/gUnk_080EE248.bin"
 
-gUnk_080EE260:: @ 080EE260
+Room_DarkHyruleCastle_52:: @ 080EE260
 	.4byte gUnk_080EE178
 	.4byte 0x00000000
 	.4byte gUnk_080EE228
@@ -11618,7 +11618,7 @@ gUnk_080EE304:: @ 080EE304
 gUnk_080EE314:: @ 080EE314
 	.incbin "data_080D5360/gUnk_080EE314.bin"
 
-gUnk_080EE354:: @ 080EE354
+Room_DarkHyruleCastle_53:: @ 080EE354
 	.4byte gUnk_080EE284
 	.4byte gUnk_080EE2A4
 	.4byte gUnk_080EE2D4
@@ -11640,7 +11640,7 @@ gUnk_080EE3A4:: @ 080EE3A4
 gUnk_080EE3F4:: @ 080EE3F4
 	.incbin "data_080D5360/gUnk_080EE3F4.bin"
 
-gUnk_080EE404:: @ 080EE404
+Room_DarkHyruleCastle_54:: @ 080EE404
 	.4byte gUnk_080EE374
 	.4byte gUnk_080EE384
 	.4byte gUnk_080EE3A4
@@ -11665,7 +11665,7 @@ gUnk_080EE5C4:: @ 080EE5C4
 gUnk_080EE5DC:: @ 080EE5DC
 	.incbin "data_080D5360/gUnk_080EE5DC.bin"
 
-gUnk_080EE61C:: @ 080EE61C
+Room_DarkHyruleCastle_55:: @ 080EE61C
 	.4byte gUnk_080EE424
 	.4byte gUnk_080EE4A4
 	.4byte gUnk_080EE4F4
@@ -11684,7 +11684,7 @@ gUnk_080EE64C:: @ 080EE64C
 gUnk_080EE65C:: @ 080EE65C
 	.incbin "data_080D5360/gUnk_080EE65C.bin"
 
-gUnk_080EE66C:: @ 080EE66C
+Room_DarkHyruleCastle_56:: @ 080EE66C
 	.4byte gUnk_080EE63C
 	.4byte 0x00000000
 	.4byte gUnk_080EE64C
@@ -11714,7 +11714,7 @@ gUnk_080EE75C:: @ 080EE75C
 gUnk_080EE76C:: @ 080EE76C
 	.incbin "data_080D5360/gUnk_080EE76C.bin"
 
-gUnk_080EE78C:: @ 080EE78C
+Room_DarkHyruleCastle_57:: @ 080EE78C
 	.4byte gUnk_080EE68C
 	.4byte 0x00000000
 	.4byte gUnk_080EE75C
@@ -11733,7 +11733,7 @@ gUnk_080EE7BC:: @ 080EE7BC
 gUnk_080EE7DC:: @ 080EE7DC
 	.incbin "data_080D5360/gUnk_080EE7DC.bin"
 
-gUnk_080EE7EC:: @ 080EE7EC
+Room_DarkHyruleCastle_58:: @ 080EE7EC
 	.4byte gUnk_080EE7AC
 	.4byte 0x00000000
 	.4byte gUnk_080EE7BC

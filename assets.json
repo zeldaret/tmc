@@ -87580,139 +87580,166 @@
     "size": 1249
   },
   {
-    "path": "data_08132B30/gExitLists_NoExitList.bin",
+    "path": "exit_lists/gExitList_NoExitList.bin",
     "start": 1261512,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gExitLists_MinishWoods_Main.bin",
+    "path": "exit_lists/gExitList_MinishWoods_Main.bin",
     "start": 1261788,
-    "size": 300
+    "size": 300,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813420C.bin",
+    "path": "exit_lists/gExitList_LakeHylia_Main.bin",
     "start": 1262092,
-    "size": 220
+    "size": 220,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081342E8.bin",
+    "path": "exit_lists/gExitList_LakeHylia_Beanstalk.bin",
     "start": 1262312,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134340.bin",
+    "path": "exit_lists/gExitList_CastorWilds_Main.bin",
     "start": 1262400,
-    "size": 200
+    "size": 200,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813440C.bin",
+    "path": "exit_lists/gExitList_Ruins_Entrance.bin",
     "start": 1262604,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134448.bin",
+    "path": "exit_lists/gExitList_Ruins_Beanstalk.bin",
     "start": 1262664,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813445C.bin",
+    "path": "exit_lists/gExitList_Ruins_LadderToTektites.bin",
     "start": 1262684,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134484.bin",
+    "path": "exit_lists/gExitList_Ruins_FortressEntrance.bin",
     "start": 1262724,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081344C4.bin",
+    "path": "exit_lists/gExitList_HyruleTown_0.bin",
     "start": 1262788,
-    "size": 720
+    "size": 720,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134798.bin",
+    "path": "exit_lists/gExitList_HyruleTown_1.bin",
     "start": 1263512,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081347C4.bin",
+    "path": "exit_lists/gExitList_MtCrenel_MountainTop.bin",
     "start": 1263556,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134800.bin",
+    "path": "exit_lists/gExitList_MtCrenel_WallClimb.bin",
     "start": 1263616,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134850.bin",
+    "path": "exit_lists/gExitList_MtCrenel_CaveOfFlamesEntrance.bin",
     "start": 1263696,
-    "size": 180
+    "size": 180,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134904.bin",
+    "path": "exit_lists/gExitList_MtCrenel_GustJarShortcut.bin",
     "start": 1263876,
-    "size": 100
+    "size": 100,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134968.bin",
+    "path": "exit_lists/gExitList_MtCrenel_Entrance.bin",
     "start": 1263976,
-    "size": 200
+    "size": 200,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134A44.bin",
+    "path": "exit_lists/gExitList_HyruleField_WesternWoodSouth.bin",
     "start": 1264196,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134A6C.bin",
+    "path": "exit_lists/gExitList_HyruleField_LinksHouseExterior.bin",
     "start": 1264236,
-    "size": 160
+    "size": 160,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134B0C.bin",
+    "path": "exit_lists/gExitList_HyruleField_FromMinishWoods.bin",
     "start": 1264396,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134B48.bin",
+    "path": "exit_lists/gExitList_HyruleField_FromMinishWoodsNorth.bin",
     "start": 1264456,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134B70.bin",
+    "path": "exit_lists/gExitList_HyruleField_Farmers.bin",
     "start": 1264496,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134BAC.bin",
+    "path": "exit_lists/gExitList_HyruleField_LonLonRanch.bin",
     "start": 1264556,
-    "size": 220
+    "size": 220,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134C88.bin",
+    "path": "exit_lists/gExitList_HyruleField_OutsideCastle.bin",
     "start": 1264776,
-    "size": 320
+    "size": 320,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134DC8.bin",
+    "path": "exit_lists/gExitList_HyruleField_OutsideCastleWest.bin",
     "start": 1265096,
-    "size": 220
+    "size": 220,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134EA4.bin",
+    "path": "exit_lists/gExitList_HyruleField_TrilbyHighlands.bin",
     "start": 1265316,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134EE0.bin",
+    "path": "exit_lists/gExitList_HyruleField_PercysHouse.bin",
     "start": 1265376,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08134F30.bin",
+    "path": "exit_lists/gExitList_CastleGarden_Main.bin",
     "start": 1265456,
-    "size": 140
+    "size": 140,
+    "type": "exit_list"
   },
   {
     "path": "data_08132B30/gUnk_08134FBC.bin",
@@ -87725,22 +87752,24 @@
     "size": 40
   },
   {
-    "path": "data_08132B30/gUnk_08135074.bin",
+    "path": "exit_lists/gExitList_CloudTops_House.bin",
     "start": 1265780,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081350A0_EU.bin",
+    "path": "exit_lists/gExitList_RoyalValley_Main.bin",
     "variants": [
       "EU"
     ],
     "starts": {
       "EU": 1263340
     },
-    "size": 200
+    "size": 200,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081350A0_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "exit_lists/gExitList_RoyalValley_Main.bin",
     "variants": [
       "USA",
       "JP",
@@ -87748,12 +87777,14 @@
       "DEMO_JP"
     ],
     "start": 1265824,
-    "size": 200
+    "size": 200,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135168.bin",
+    "path": "exit_lists/gExitList_RoyalValley_ForestMaze.bin",
     "start": 1266024,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
     "path": "data_08132B30/gUnk_08135190.bin",
@@ -87761,1267 +87792,1518 @@
     "size": 60
   },
   {
-    "path": "data_08132B30/gUnk_081351D4.bin",
+    "path": "exit_lists/gExitList_VeilFalls_Main.bin",
     "start": 1266132,
-    "size": 260
+    "size": 260,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081352DC.bin",
+    "path": "exit_lists/gExitList_Beanstalks_MountCrenel.bin",
     "start": 1266396,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135304.bin",
+    "path": "exit_lists/gExitList_Beanstalks_LakeHylia.bin",
     "start": 1266436,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813532C.bin",
+    "path": "exit_lists/gExitList_Beanstalks_Ruins.bin",
     "start": 1266476,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135354.bin",
+    "path": "exit_lists/gExitList_Beanstalks_EasternHills.bin",
     "start": 1266516,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813537C.bin",
+    "path": "exit_lists/gExitList_Beanstalks_WesternWoods.bin",
     "start": 1266556,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081353A4.bin",
+    "path": "exit_lists/gExitList_Beanstalks_MountCrenelClimb.bin",
     "start": 1266596,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081353E0.bin",
+    "path": "exit_lists/gExitList_Beanstalks_LakeHyliaClimb.bin",
     "start": 1266656,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813541C.bin",
+    "path": "exit_lists/gExitList_Beanstalks_RuinsClimb.bin",
     "start": 1266716,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135458.bin",
+    "path": "exit_lists/gExitList_Beanstalks_EasternHillsClimb.bin",
     "start": 1266776,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135494.bin",
+    "path": "exit_lists/gExitList_Beanstalks_WesternWoodsClimb.bin",
     "start": 1266836,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135524.bin",
+    "path": "exit_lists/gExitList_LakeWoodsCave_Main.bin",
     "start": 1266980,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135550.bin",
+    "path": "exit_lists/gExitList_HyruleDigCaves_Main.bin",
     "start": 1267024,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813557C.bin",
+    "path": "exit_lists/gExitList_MinishVillage_Main.bin",
     "start": 1267068,
-    "size": 280
+    "size": 280,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135694.bin",
+    "path": "exit_lists/gExitList_MinishVillage_SideHouse.bin",
     "start": 1267348,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081356CC.bin",
+    "path": "exit_lists/gExitList_MelarisMine_Main.bin",
     "start": 1267404,
-    "size": 120
+    "size": 120,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135748.bin",
+    "path": "exit_lists/gExitList_MinishPaths1_ToMinishVillage.bin",
     "start": 1267528,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135784.bin",
+    "path": "exit_lists/gExitList_MinishPaths1_CastorWilds.bin",
     "start": 1267588,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081357C0.bin",
+    "path": "exit_lists/gExitList_MinishPaths1_HyruleTown.bin",
     "start": 1267648,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081357E8.bin",
+    "path": "exit_lists/gExitList_MinishPaths1_LonLonRanch.bin",
     "start": 1267688,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135810.bin",
+    "path": "exit_lists/gExitList_MinishPaths1_MayorsCabin.bin",
     "start": 1267728,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135860.bin",
+    "path": "exit_lists/gExitList_CrenelMinishPaths_CrenelBean.bin",
     "start": 1267808,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135888.bin",
+    "path": "exit_lists/gExitList_CrenelMinishPaths_CrenelWater.bin",
     "start": 1267848,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081358B0.bin",
+    "path": "exit_lists/gExitList_CrenelMinishPaths_Rainfall.bin",
     "start": 1267888,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081358EC.bin",
+    "path": "exit_lists/gExitList_CrenelMinishPaths_MelarisMine.bin",
     "start": 1267948,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135938.bin",
+    "path": "exit_lists/gExitList_DigCaves1_TrilbyHighlands.bin",
     "start": 1268024,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135984.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_GentariMain.bin",
     "start": 1268100,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081359AC.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_GentariExit.bin",
     "start": 1268140,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081359D4.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_Festari.bin",
     "start": 1268180,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135A10.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_Red.bin",
     "start": 1268240,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135A38.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_Green.bin",
     "start": 1268280,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135A60.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_Blue.bin",
     "start": 1268320,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135A88.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_SideArea.bin",
     "start": 1268360,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135AB0.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_ShoeMinish.bin",
     "start": 1268400,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135AD8.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_PotMinish.bin",
     "start": 1268440,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135B00.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_BarrelMinish.bin",
     "start": 1268480,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135B3C.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_NULL1.bin",
     "start": 1268540,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135B64.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_NULL2.bin",
     "start": 1268580,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135B8C.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_MelariMinesSouthwest.bin",
     "start": 1268620,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135BB4.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_MelariMinesSoutheast.bin",
     "start": 1268660,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135BDC.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_MelariMinesEast.bin",
     "start": 1268700,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135C04.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_HyruleFieldSouthwest.bin",
     "start": 1268740,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135C2C.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_HyruleFieldOutsideLinksHouse.bin",
     "start": 1268780,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135C54.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_NextToKnuckle.bin",
     "start": 1268820,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135C7C.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_Librari.bin",
     "start": 1268860,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135CA4.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_HyruleFieldExit.bin",
     "start": 1268900,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135CCC.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_HyruleTown.bin",
     "start": 1268940,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135CF4.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_MinishWoodsBomb.bin",
     "start": 1268980,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135D1C.bin",
+    "path": "exit_lists/gExitList_MinishHouseInteriors_LakeHyliaOcarina.bin",
     "start": 1269020,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135DE4.bin",
+    "path": "exit_lists/gExitList_OuterFortressOfWinds_EntranceHall.bin",
     "start": 1269220,
-    "size": 140
+    "size": 140,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135E70.bin",
+    "path": "exit_lists/gExitList_OuterFortressOfWinds_2F.bin",
     "start": 1269360,
-    "size": 180
+    "size": 180,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135F24.bin",
+    "path": "exit_lists/gExitList_OuterFortressOfWinds_3F.bin",
     "start": 1269540,
-    "size": 180
+    "size": 180,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08135FD8.bin",
+    "path": "exit_lists/gExitList_OuterFortressOfWinds_MoleMitts.bin",
     "start": 1269720,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136000.bin",
+    "path": "exit_lists/gExitList_OuterFortressOfWinds_SmallKey.bin",
     "start": 1269760,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813603C.bin",
+    "path": "exit_lists/gExitList_HyliaDigCaves_North.bin",
     "start": 1269820,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081360A0.bin",
+    "path": "exit_lists/gExitList_VeilFallsTop_Main.bin",
     "start": 1269920,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081360CC.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_Stranger.bin",
     "start": 1269964,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081360F4.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_WestOracle.bin",
     "start": 1270004,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813611C.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_2.bin",
     "start": 1270044,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136144.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_3.bin",
     "start": 1270084,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813616C.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_DrLeft.bin",
     "start": 1270124,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136194.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_NULL1.bin",
     "start": 1270164,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081361BC.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_Romio.bin",
     "start": 1270204,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081361E4.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_Julietta.bin",
     "start": 1270244,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813620C.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_Percy.bin",
     "start": 1270284,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136234.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_EastOracle.bin",
     "start": 1270324,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813625C.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_A.bin",
     "start": 1270364,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136284.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_B.bin",
     "start": 1270404,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081362AC.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_Cucco.bin",
     "start": 1270444,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081362D4.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_LinksHouseEntrance.bin",
     "start": 1270484,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136310.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_Dampe.bin",
     "start": 1270544,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136338.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_NULL2.bin",
     "start": 1270584,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813634C.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_Stockwell.bin",
     "start": 1270604,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136374.bin",
+    "path": "exit_lists/gExitList_HouseInteriors2_LinksHouseBedroom.bin",
     "start": 1270644,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813645C.bin",
+    "path": "exit_lists/gExitList_HouseInteriors4_Carpenter.bin",
     "start": 1270876,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136484.bin",
+    "path": "exit_lists/gExitList_HouseInteriors4_Swiftblade.bin",
     "start": 1270916,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081364AC.bin",
+    "path": "exit_lists/gExitList_HouseInteriors4_RanchHouseWest.bin",
     "start": 1270956,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081364D4.bin",
+    "path": "exit_lists/gExitList_HouseInteriors4_RanchHouseEast.bin",
     "start": 1270996,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081364FC.bin",
+    "path": "exit_lists/gExitList_HouseInteriors4_FarmHouse.bin",
     "start": 1271036,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136524.bin",
+    "path": "exit_lists/gExitList_HouseInteriors4_Mayor.bin",
     "start": 1271076,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813658C.bin",
+    "path": "exit_lists/gExitList_GreatFairies_Graveyard.bin",
     "start": 1271180,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081365B4.bin",
+    "path": "exit_lists/gExitList_GreatFairies_MinishWoods.bin",
     "start": 1271220,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081365DC.bin",
+    "path": "exit_lists/gExitList_GreatFairies_MtCrenel.bin",
     "start": 1271260,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136614.bin",
+    "path": "exit_lists/gExitList_HouseInteriors3_StockwellShop.bin",
     "start": 1271316,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813663C.bin",
+    "path": "exit_lists/gExitList_HouseInteriors3_Cafe.bin",
     "start": 1271356,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136664.bin",
+    "path": "exit_lists/gExitList_HouseInteriors3_RemShoeShop.bin",
     "start": 1271396,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813668C.bin",
+    "path": "exit_lists/gExitList_HouseInteriors3_Bakery.bin",
     "start": 1271436,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081366B4.bin",
+    "path": "exit_lists/gExitList_HouseInteriors3_Simon.bin",
     "start": 1271476,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081366DC.bin",
+    "path": "exit_lists/gExitList_HouseInteriors3_FigurineHouse.bin",
     "start": 1271516,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136718.bin",
+    "path": "exit_lists/gExitList_HouseInteriors3_BorlovEntrance.bin",
     "start": 1271576,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136754.bin",
+    "path": "exit_lists/gExitList_HouseInteriors3_Carlov.bin",
     "start": 1271636,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813677C.bin",
+    "path": "exit_lists/gExitList_HouseInteriors3_Borlov.bin",
     "start": 1271676,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081367E4.bin",
+    "path": "exit_lists/gExitList_HouseInteriors1_Mayor.bin",
     "start": 1271780,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136820.bin",
+    "path": "exit_lists/gExitList_HouseInteriors1_PostOffice.bin",
     "start": 1271840,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136848.bin",
+    "path": "exit_lists/gExitList_HouseInteriors1_Library2F.bin",
     "start": 1271880,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136884.bin",
+    "path": "exit_lists/gExitList_HouseInteriors1_Library1F.bin",
     "start": 1271940,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081368C0.bin",
+    "path": "exit_lists/gExitList_HouseInteriors1_Inn1F.bin",
     "start": 1272000,
-    "size": 120
+    "size": 120,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136938.bin",
+    "path": "exit_lists/gExitList_HouseInteriors1_InnWestRoom.bin",
     "start": 1272120,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136960.bin",
+    "path": "exit_lists/gExitList_HouseInteriors1_InnMiddleRoom.bin",
     "start": 1272160,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136988.bin",
+    "path": "exit_lists/gExitList_HouseInteriors1_InnEastRoom.bin",
     "start": 1272200,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081369B0.bin",
+    "path": "exit_lists/gExitList_HouseInteriors1_InnWest2F.bin",
     "start": 1272240,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081369D8.bin",
+    "path": "exit_lists/gExitList_HouseInteriors1_InnEast2F.bin",
     "start": 1272280,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136A14.bin",
+    "path": "exit_lists/gExitList_HouseInteriors1_SchoolWest.bin",
     "start": 1272340,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136A50.bin",
+    "path": "exit_lists/gExitList_HouseInteriors1_SchoolEast.bin",
     "start": 1272400,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136AF8.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_WitchHut.bin",
     "start": 1272568,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136B20.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_StairsToCarlov.bin",
     "start": 1272608,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136B5C.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_PercysTreehouse.bin",
     "start": 1272668,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136B84.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_HeartPiece.bin",
     "start": 1272708,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136BAC.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_StairsToBladeBrother.bin",
     "start": 1272748,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136BE8.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_14.bin",
     "start": 1272808,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136C10.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_BoomerangNorthwest.bin",
     "start": 1272848,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136C4C.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_BoomerangNortheast.bin",
     "start": 1272908,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136C88.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_BoomerangSouthwest.bin",
     "start": 1272968,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136CC4.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_BoomerangSoutheast.bin",
     "start": 1273028,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136D00.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_HeartPieceSouthwestField.bin",
     "start": 1273088,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136D28.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_StairsToFairyFountain.bin",
     "start": 1273128,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136D64.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_StairsToWalletFairy.bin",
     "start": 1273188,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136DA0.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_1C.bin",
     "start": 1273248,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136DC8.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_StairsToBusinessScrub.bin",
     "start": 1273288,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136E04.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_1E.bin",
     "start": 1273348,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136E18.bin",
+    "path": "exit_lists/gExitList_TreeInteriors_1F.bin",
     "start": 1273368,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136EC0.bin",
+    "path": "exit_lists/gExitList_Dojos_Grayblade.bin",
     "start": 1273536,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136EE8.bin",
+    "path": "exit_lists/gExitList_Dojos_Swiftblade.bin",
     "start": 1273576,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136F10.bin",
+    "path": "exit_lists/gExitList_Dojos_Waveblade.bin",
     "start": 1273616,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136F38.bin",
+    "path": "exit_lists/gExitList_Dojos_ToGrimblade.bin",
     "start": 1273656,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136F60.bin",
+    "path": "exit_lists/gExitList_Dojos_ToSplitblade.bin",
     "start": 1273696,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136F88.bin",
+    "path": "exit_lists/gExitList_Dojos_ToGreatblade.bin",
     "start": 1273736,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08136FB0.bin",
+    "path": "exit_lists/gExitList_Dojos_ToScarblade.bin",
     "start": 1273776,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137018.bin",
+    "path": "exit_lists/gExitList_MinishCracks_LonLonRanchNorth.bin",
     "start": 1273880,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137040.bin",
+    "path": "exit_lists/gExitList_MinishCracks_LakeHyliaEast.bin",
     "start": 1273920,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137068.bin",
+    "path": "exit_lists/gExitList_MinishCracks_HyruleCastleGarden.bin",
     "start": 1273960,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137090.bin",
+    "path": "exit_lists/gExitList_MinishCracks_MtCrenel.bin",
     "start": 1274000,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081370B8.bin",
+    "path": "exit_lists/gExitList_MinishCracks_EastHyruleCastle.bin",
     "start": 1274040,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081370E0.bin",
+    "path": "exit_lists/gExitList_MinishCracks_5.bin",
     "start": 1274080,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081370F4.bin",
+    "path": "exit_lists/gExitList_MinishCracks_CastleWildsBowHole.bin",
     "start": 1274100,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813711C.bin",
+    "path": "exit_lists/gExitList_MinishCracks_RuinsEntrance.bin",
     "start": 1274140,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137144.bin",
+    "path": "exit_lists/gExitList_MinishCracks_MinishWoodsSouth.bin",
     "start": 1274180,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813716C.bin",
+    "path": "exit_lists/gExitList_MinishCracks_CastorWildsNorth.bin",
     "start": 1274220,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137194.bin",
+    "path": "exit_lists/gExitList_MinishCracks_CastorWildsWest.bin",
     "start": 1274260,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081371BC.bin",
+    "path": "exit_lists/gExitList_MinishCracks_CastorWildsMiddle.bin",
     "start": 1274300,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081371E4.bin",
+    "path": "exit_lists/gExitList_MinishCracks_RuinsTektite.bin",
     "start": 1274340,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813720C.bin",
+    "path": "exit_lists/gExitList_MinishCracks_CastorWildsNextToBow.bin",
     "start": 1274380,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137234.bin",
+    "path": "exit_lists/gExitList_MinishCracks_11.bin",
     "start": 1274420,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081372A8.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_BlockPushing.bin",
     "start": 1274536,
-    "size": 100
+    "size": 100,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813730C.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_PillarCave.bin",
     "start": 1274636,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137348.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_BridgeSwitch.bin",
     "start": 1274696,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137384.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_ExitToMines.bin",
     "start": 1274756,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081373C0.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_GripRing.bin",
     "start": 1274816,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081373E8.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_FairyFountain.bin",
     "start": 1274856,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137410.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_SpinyChuPuzzle.bin",
     "start": 1274896,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813744C.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_ChuchuPotChest.bin",
     "start": 1274956,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137488.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_WaterHeartPiece.bin",
     "start": 1275016,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081374B0.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_RupeeFairyFountain.bin",
     "start": 1275056,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081374D8.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_HelmasaurHallway.bin",
     "start": 1275096,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137514.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_MushroomKeese.bin",
     "start": 1275156,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137550.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_LadderToGreenWater.bin",
     "start": 1275216,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813758C.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_BombBusinessScrub.bin",
     "start": 1275276,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081375B4.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_Hermit.bin",
     "start": 1275316,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081375DC.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_HintScrub.bin",
     "start": 1275356,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137604.bin",
+    "path": "exit_lists/gExitList_CrenelCaves_ToGrayblade.bin",
     "start": 1275396,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137684.bin",
+    "path": "exit_lists/gExitList_CastorCaves_South.bin",
     "start": 1275524,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081376AC.bin",
+    "path": "exit_lists/gExitList_CastorCaves_North.bin",
     "start": 1275564,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081376E8.bin",
+    "path": "exit_lists/gExitList_CastorCaves_WindRuins.bin",
     "start": 1275624,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137710.bin",
+    "path": "exit_lists/gExitList_CastorCaves_Darknut.bin",
     "start": 1275664,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813774C.bin",
+    "path": "exit_lists/gExitList_CastorCaves_HeartPiece.bin",
     "start": 1275724,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137794.bin",
+    "path": "exit_lists/gExitList_CastorDarknut_Main.bin",
     "start": 1275796,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081377A8.bin",
+    "path": "exit_lists/gExitList_CastorDarknut_Hall.bin",
     "start": 1275816,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081377E0.bin",
+    "path": "exit_lists/gExitList_ArmosInteriors_RuinsEntranceNorth.bin",
     "start": 1275872,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137808.bin",
+    "path": "exit_lists/gExitList_ArmosInteriors_RuinsEntranceSouth.bin",
     "start": 1275912,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137830.bin",
+    "path": "exit_lists/gExitList_ArmosInteriors_RuinsLeft.bin",
     "start": 1275952,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137858.bin",
+    "path": "exit_lists/gExitList_ArmosInteriors_RuinsMiddleLeft.bin",
     "start": 1275992,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137880.bin",
+    "path": "exit_lists/gExitList_ArmosInteriors_RuinsMiddleRight.bin",
     "start": 1276032,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081378A8.bin",
+    "path": "exit_lists/gExitList_ArmosInteriors_RuinsRight.bin",
     "start": 1276072,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081378D0.bin",
+    "path": "exit_lists/gExitList_ArmosInteriors_6.bin",
     "start": 1276112,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081378F8.bin",
+    "path": "exit_lists/gExitList_ArmosInteriors_RuinsGrassPath.bin",
     "start": 1276152,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137920.bin",
+    "path": "exit_lists/gExitList_ArmosInteriors_8.bin",
     "start": 1276192,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137948.bin",
+    "path": "exit_lists/gExitList_ArmosInteriors_FortressOfWindsLeft.bin",
     "start": 1276232,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137970.bin",
+    "path": "exit_lists/gExitList_ArmosInteriors_FortressOfWindsRight.bin",
     "start": 1276272,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081379C4.bin",
+    "path": "exit_lists/gExitList_TownMinishHoles_MayorsHouse.bin",
     "start": 1276356,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081379EC.bin",
+    "path": "exit_lists/gExitList_TownMinishHoles_WestOracle.bin",
     "start": 1276396,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137A14.bin",
+    "path": "exit_lists/gExitList_TownMinishHoles_DrLeft.bin",
     "start": 1276436,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137A3C.bin",
+    "path": "exit_lists/gExitList_TownMinishHoles_Carpenter.bin",
     "start": 1276476,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137A64.bin",
+    "path": "exit_lists/gExitList_TownMinishHoles_Cafe.bin",
     "start": 1276516,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137A8C.bin",
+    "path": "exit_lists/gExitList_TownMinishHoles_LibraryBookshelf.bin",
     "start": 1276556,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137ADC.bin",
+    "path": "exit_lists/gExitList_TownMinishHoles_LibrariBookHouse.bin",
     "start": 1276636,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137B04.bin",
+    "path": "exit_lists/gExitList_TownMinishHoles_RemShoeShop.bin",
     "start": 1276676,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137B7C.bin",
+    "path": "exit_lists/gExitList_MinishRafters_Cafe.bin",
     "start": 1276796,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137BB8.bin",
+    "path": "exit_lists/gExitList_MinishRafters_Stockwell.bin",
     "start": 1276856,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137BF4.bin",
+    "path": "exit_lists/gExitList_MinishRafters_DrLeft.bin",
     "start": 1276916,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137C1C.bin",
+    "path": "exit_lists/gExitList_MinishRafters_Bakery.bin",
     "start": 1276956,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137C68.bin",
+    "path": "exit_lists/gExitList_GoronCave_StairsToCave.bin",
     "start": 1277032,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137CA4.bin",
+    "path": "exit_lists/gExitList_GoronCave_Main.bin",
     "start": 1277092,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137CD4.bin",
+    "path": "exit_lists/gExitList_WindTribeTower_Entrance.bin",
     "start": 1277140,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137D10.bin",
+    "path": "exit_lists/gExitList_WindTribeTower_Floor2.bin",
     "start": 1277200,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137D4C.bin",
+    "path": "exit_lists/gExitList_WindTribeTower_Floor3.bin",
     "start": 1277260,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137D88.bin",
+    "path": "exit_lists/gExitList_WindTribeTower_Floor4.bin",
     "start": 1277320,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137DD4.bin",
+    "path": "exit_lists/gExitList_WindTribeTowerRoof_Main.bin",
     "start": 1277396,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137E00.bin",
+    "path": "exit_lists/gExitList_Caves_Boomerang.bin",
     "start": 1277440,
-    "size": 120
+    "size": 120,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137E78.bin",
+    "path": "exit_lists/gExitList_Caves_ToGraveyard.bin",
     "start": 1277560,
-    "size": 100
+    "size": 100,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137EDC.bin",
+    "path": "exit_lists/gExitList_Caves_2.bin",
     "start": 1277660,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137F04.bin",
+    "path": "exit_lists/gExitList_Caves_3.bin",
     "start": 1277700,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137F18.bin",
+    "path": "exit_lists/gExitList_Caves_4.bin",
     "start": 1277720,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137F2C.bin",
+    "path": "exit_lists/gExitList_Caves_5.bin",
     "start": 1277740,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137F40.bin",
+    "path": "exit_lists/gExitList_Caves_KeeseChest.bin",
     "start": 1277760,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137F68.bin",
+    "path": "exit_lists/gExitList_Caves_FairyFountainTrilbyHighlands.bin",
     "start": 1277800,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137F90.bin",
+    "path": "exit_lists/gExitList_Caves_FairyFountainLinksHouse.bin",
     "start": 1277840,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137FB8.bin",
+    "path": "exit_lists/gExitList_Caves_A.bin",
     "start": 1277880,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137FCC.bin",
+    "path": "exit_lists/gExitList_Caves_HyruleTownWaterfall.bin",
     "start": 1277900,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08137FF4.bin",
+    "path": "exit_lists/gExitList_Caves_LonLonRanch.bin",
     "start": 1277940,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138030.bin",
+    "path": "exit_lists/gExitList_Caves_TrilbyHighlands.bin",
     "start": 1278000,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813806C.bin",
+    "path": "exit_lists/gExitList_Caves_LonLonRanchWallet.bin",
     "start": 1278060,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138094.bin",
+    "path": "exit_lists/gExitList_Caves_RupeeLinksHouse.bin",
     "start": 1278100,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081380BC.bin",
+    "path": "exit_lists/gExitList_Caves_RupeeTrilbyHighlands.bin",
     "start": 1278140,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081380E4.bin",
+    "path": "exit_lists/gExitList_Caves_FairyFountainMoleMitts.bin",
     "start": 1278180,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813810C.bin",
+    "path": "exit_lists/gExitList_Caves_KeeseChestSoutheastHyrule.bin",
     "start": 1278220,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138134.bin",
+    "path": "exit_lists/gExitList_Caves_BottleBusinessScrub.bin",
     "start": 1278260,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138148.bin",
+    "path": "exit_lists/gExitList_Caves_HeartPieceHallway.bin",
     "start": 1278280,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138184.bin",
+    "path": "exit_lists/gExitList_Caves_FairyFountainBoomerang.bin",
     "start": 1278340,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081381AC.bin",
+    "path": "exit_lists/gExitList_Caves_KinstoneBusinessScrub.bin",
     "start": 1278380,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138234.bin",
+    "path": "exit_lists/gExitList_VeilFallsCaves_Hallway2F.bin",
     "start": 1278516,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138284.bin",
+    "path": "exit_lists/gExitList_VeilFallsCaves_Hallway1F.bin",
     "start": 1278596,
-    "size": 100
+    "size": 100,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081382E8.bin",
+    "path": "exit_lists/gExitList_VeilFallsCaves_Entrance.bin",
     "start": 1278696,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138324.bin",
+    "path": "exit_lists/gExitList_VeilFallsCaves_Exit.bin",
     "start": 1278756,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138360.bin",
+    "path": "exit_lists/gExitList_VeilFallsCaves_SecretChest.bin",
     "start": 1278816,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138388.bin",
+    "path": "exit_lists/gExitList_VeilFallsCaves_SecretStaircases.bin",
     "start": 1278856,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081383C4.bin",
+    "path": "exit_lists/gExitList_VeilFallsCaves_BlockPuzzle.bin",
     "start": 1278916,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138400.bin",
+    "path": "exit_lists/gExitList_VeilFallsCaves_RupeePath.bin",
     "start": 1278976,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813843C.bin",
+    "path": "exit_lists/gExitList_VeilFallsCaves_HeartPiece.bin",
     "start": 1279036,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081384A4.bin",
+    "path": "exit_lists/gExitList_RoyalValleyGraves_HeartPiece.bin",
     "start": 1279140,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081384CC.bin",
+    "path": "exit_lists/gExitList_RoyalValleyGraves_Gina.bin",
     "start": 1279180,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081384FC.bin",
+    "path": "exit_lists/gExitList_MinishCaves_BeanPesto.bin",
     "start": 1279228,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138524.bin",
+    "path": "exit_lists/gExitList_MinishCaves_SoutheastWater1.bin",
     "start": 1279268,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813854C.bin",
+    "path": "exit_lists/gExitList_MinishCaves_Ruins.bin",
     "start": 1279308,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138574.bin",
+    "path": "exit_lists/gExitList_MinishCaves_OutsideLinksHouse.bin",
     "start": 1279348,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813859C.bin",
+    "path": "exit_lists/gExitList_MinishCaves_MinishWoodsNorth1.bin",
     "start": 1279388,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081385C4.bin",
+    "path": "exit_lists/gExitList_MinishCaves_LakeHyliaNorth.bin",
     "start": 1279428,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081385EC.bin",
+    "path": "exit_lists/gExitList_MinishCaves_LakeHyliaLibrari.bin",
     "start": 1279468,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138628.bin",
+    "path": "exit_lists/gExitList_MinishCaves_MinishWoodsSouthwest.bin",
     "start": 1279528,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081386A0.bin",
+    "path": "exit_lists/gExitList_CastleGardenMinishHoles_East.bin",
     "start": 1279648,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081386C8.bin",
+    "path": "exit_lists/gExitList_CastleGardenMinishHoles_West.bin",
     "start": 1279688,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081386F8.bin",
+    "path": "exit_lists/gExitList_37_0.bin",
     "start": 1279736,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138720.bin",
+    "path": "exit_lists/gExitList_37_1.bin",
     "start": 1279776,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138750.bin",
+    "path": "exit_lists/gExitList_HyruleTownUnderground_Main.bin",
     "start": 1279824,
-    "size": 100
+    "size": 100,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081387B4.bin",
+    "path": "exit_lists/gExitList_HyruleTownUnderground_Well.bin",
     "start": 1279924,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081387F8.bin",
+    "path": "exit_lists/gExitList_HyruleTownMinishCaves_Entrance.bin",
     "start": 1279992,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138820.bin",
+    "path": "exit_lists/gExitList_HyruleTownMinishCaves_Entrance2.bin",
     "start": 1280032,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081388A8.bin",
+    "path": "exit_lists/gExitList_GardenFountains_East.bin",
     "start": 1280168,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081388D0.bin",
+    "path": "exit_lists/gExitList_GardenFountains_West.bin",
     "start": 1280208,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138900.bin",
+    "path": "exit_lists/gExitList_GreatFairies_Entrance.bin",
     "start": 1280256,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138928.bin",
+    "path": "exit_lists/gExitList_GreatFairies_Exit.bin",
     "start": 1280296,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813897C_EU.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_StairsToB1.bin",
     "variants": [
       "EU"
     ],
     "starts": {
       "EU": 1277896
     },
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813897C_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_StairsToB1.bin",
     "variants": [
       "USA",
       "JP",
@@ -89029,20 +89311,22 @@
       "DEMO_JP"
     ],
     "start": 1280380,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081389A4_EU.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_BluePortal.bin",
     "variants": [
       "EU"
     ],
     "starts": {
       "EU": 1277936
     },
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081389A4_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_BluePortal.bin",
     "variants": [
       "USA",
       "JP",
@@ -89050,20 +89334,22 @@
       "DEMO_JP"
     ],
     "start": 1280420,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081389B8_EU.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_Map.bin",
     "variants": [
       "EU"
     ],
     "starts": {
       "EU": 1277976
     },
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081389B8_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_Map.bin",
     "variants": [
       "USA",
       "JP",
@@ -89071,20 +89357,22 @@
       "DEMO_JP"
     ],
     "start": 1280440,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081389CC_EU.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_Button.bin",
     "variants": [
       "EU"
     ],
     "starts": {
       "EU": 1278016
     },
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081389CC_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_Button.bin",
     "variants": [
       "USA",
       "JP",
@@ -89092,20 +89380,22 @@
       "DEMO_JP"
     ],
     "start": 1280460,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081389E0_EU.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_Lever.bin",
     "variants": [
       "EU"
     ],
     "starts": {
       "EU": 1278056
     },
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081389E0_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_Lever.bin",
     "variants": [
       "USA",
       "JP",
@@ -89113,20 +89403,22 @@
       "DEMO_JP"
     ],
     "start": 1280480,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081389F4_EU.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_Barrel.bin",
     "variants": [
       "EU"
     ],
     "starts": {
       "EU": 1278096
     },
-    "size": 180
+    "size": 180,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081389F4_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_Barrel.bin",
     "variants": [
       "USA",
       "JP",
@@ -89134,7 +89426,8 @@
       "DEMO_JP"
     ],
     "start": 1280500,
-    "size": 100
+    "size": 100,
+    "type": "exit_list"
   },
   {
     "offsets": {
@@ -89142,624 +89435,748 @@
     }
   },
   {
-    "path": "data_08132B30/gUnk_08138A58.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_Entrance.bin",
     "start": 1280600,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138AA8.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_Compass.bin",
     "start": 1280680,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138AD0.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrineBoss_Main.bin",
     "start": 1280720,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138AF8.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrine_PreBoss.bin",
     "start": 1280760,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138BD0.bin",
+    "path": "exit_lists/gExitList_DeepwoodShrineEntry_Main.bin",
     "start": 1280976,
-    "size": 100
+    "size": 100,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138C38.bin",
+    "path": "exit_lists/gExitList_CaveOfFlames_AfterCane.bin",
     "start": 1281080,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138C60.bin",
+    "path": "exit_lists/gExitList_CaveOfFlames_Entrance.bin",
     "start": 1281120,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138C88.bin",
+    "path": "exit_lists/gExitList_CaveOfFlames_MainCart.bin",
     "start": 1281160,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138CB0.bin",
+    "path": "exit_lists/gExitList_CaveOfFlames_NorthEntrance.bin",
     "start": 1281200,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138CD8.bin",
+    "path": "exit_lists/gExitList_CaveOfFlames_MinishSpikes.bin",
     "start": 1281240,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138D00.bin",
+    "path": "exit_lists/gExitList_CaveOfFlames_BeforeGleerok.bin",
     "start": 1281280,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138D28.bin",
+    "path": "exit_lists/gExitList_CaveOfFlames_BossDoor.bin",
     "start": 1281320,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138DD4.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_BeforeMazaal.bin",
     "start": 1281492,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138DFC.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_EastKeyLever.bin",
     "start": 1281532,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138E38.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_PitPlatforms.bin",
     "start": 1281592,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138E60.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_WestKeyLever.bin",
     "start": 1281632,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138E9C.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_Mazaal.bin",
     "start": 1281692,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138EC4.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_Stalfos.bin",
     "start": 1281732,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138EEC.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_EntranceMoleMitts.bin",
     "start": 1281772,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138F14.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_Main2F.bin",
     "start": 1281812,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138F50.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_MinishHole.bin",
     "start": 1281872,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138F78.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_BossKey.bin",
     "start": 1281912,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138FA0.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_WestStairs2F.bin",
     "start": 1281952,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08138FC8.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_EastStairs2F.bin",
     "start": 1281992,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139004.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_WestStairs1F.bin",
     "start": 1282052,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139040.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_CenterStairs1F.bin",
     "start": 1282112,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813907C.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_EastStairs1F.bin",
     "start": 1282172,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081390B8.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_Wizzrobe.bin",
     "start": 1282232,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081390E0.bin",
+    "path": "exit_lists/gExitList_FortressOfWinds_HeartPiece.bin",
     "start": 1282272,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081391A8.bin",
+    "path": "exit_lists/gExitList_FortressOfWindsTop_Main.bin",
     "start": 1282472,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081391D4.bin",
+    "path": "exit_lists/gExitList_InnerMazaal_Main.bin",
     "start": 1282516,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139204.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_WestHole.bin",
     "start": 1282564,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813922C.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_EastHole.bin",
     "start": 1282604,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139254.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_HoleToBlueChuchu.bin",
     "start": 1282644,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139290.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_BigBlueChuchu.bin",
     "start": 1282704,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081392B8.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_BigBlueChuchuKey.bin",
     "start": 1282744,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081392E0.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_BossKey.bin",
     "start": 1282784,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139308.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_NorthSmallKey.bin",
     "start": 1282824,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139330.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_BlueChuchuKeyLever.bin",
     "start": 1282864,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813936C.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_Entrance.bin",
     "start": 1282924,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139394.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_WaterfallNortheast.bin",
     "start": 1282964,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081393BC.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_Element.bin",
     "start": 1283004,
-    "size": 120
+    "size": 120,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139434.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_IceCorner.bin",
     "start": 1283124,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813945C.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_BigOcto.bin",
     "start": 1283164,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139484.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_NorthwestStairs.bin",
     "start": 1283204,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081394AC.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_ScissorsMiniboss.bin",
     "start": 1283244,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081394D4.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_WaterfallSouthwest.bin",
     "start": 1283284,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081394FC.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_ToBigBlueChuchu.bin",
     "start": 1283324,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139538.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_BlockCloneIceBridge.bin",
     "start": 1283384,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139560.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_StairsToScissorsMiniboss.bin",
     "start": 1283424,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139588.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_LilypadWestB2.bin",
     "start": 1283464,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081395B0.bin",
+    "path": "exit_lists/gExitList_TempleOfDroplets_CompassRoom.bin",
     "start": 1283504,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081396D8.bin",
+    "path": "exit_lists/gExitList_61_0.bin",
     "start": 1283800,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139718.bin",
+    "path": "exit_lists/gExitList_RoyalCrypt_WaterRope.bin",
     "start": 1283864,
-    "size": 20
+    "size": 20,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813972C.bin",
+    "path": "exit_lists/gExitList_RoyalCrypt_Gibdo.bin",
     "start": 1283884,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139754.bin",
+    "path": "exit_lists/gExitList_RoyalCrypt_KeyBlock.bin",
     "start": 1283924,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139790.bin",
+    "path": "exit_lists/gExitList_RoyalCrypt_MushroomPit.bin",
     "start": 1283984,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081397B8.bin",
+    "path": "exit_lists/gExitList_RoyalCrypt_Entrance.bin",
     "start": 1284024,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139804.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_0.bin",
     "start": 1284100,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813982C.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_3.bin",
     "start": 1284140,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139854.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_8.bin",
     "start": 1284180,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813987C.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_9.bin",
     "start": 1284220,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081398A4.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_10.bin",
     "start": 1284260,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081398CC.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_11.bin",
     "start": 1284300,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139908.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_13.bin",
     "start": 1284360,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139944.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_14.bin",
     "start": 1284420,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139980.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_16.bin",
     "start": 1284480,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081399A8.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_18.bin",
     "start": 1284520,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_081399D0.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_21.bin",
     "start": 1284560,
-    "size": 100
+    "size": 100,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139A34.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_23.bin",
     "start": 1284660,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139A5C.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_26.bin",
     "start": 1284700,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139A84.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_30.bin",
     "start": 1284740,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139AAC.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_32.bin",
     "start": 1284780,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139AFC.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_35.bin",
     "start": 1284860,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139B24.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_36.bin",
     "start": 1284900,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139B4C.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_40.bin",
     "start": 1284940,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139B88.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_42.bin",
     "start": 1285000,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139BC4.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_47.bin",
     "start": 1285060,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139BEC.bin",
+    "path": "exit_lists/gExitList_PalaceOfWinds_50.bin",
     "start": 1285100,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139D0C.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_0.bin",
     "start": 1285388,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139D5C.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_1.bin",
     "start": 1285468,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139D84.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_2.bin",
     "start": 1285508,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139DAC.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_3.bin",
     "start": 1285548,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139DD4.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_4.bin",
     "start": 1285588,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139DFC.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_5.bin",
     "start": 1285628,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139E38.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_6.bin",
     "start": 1285688,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139E74.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_7.bin",
     "start": 1285748,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139EC4.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_13.bin",
     "start": 1285828,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139F14.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_18.bin",
     "start": 1285908,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139F50.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_20.bin",
     "start": 1285968,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139F78.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_23.bin",
     "start": 1286008,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139FA0.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_25.bin",
     "start": 1286048,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_08139FF0.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_26.bin",
     "start": 1286128,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A018.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_28.bin",
     "start": 1286168,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A040.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_29.bin",
     "start": 1286208,
-    "size": 80
+    "size": 80,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A090.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_30.bin",
     "start": 1286288,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A0B8.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_31.bin",
     "start": 1286328,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A0E0.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_32.bin",
     "start": 1286368,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A108.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_33.bin",
     "start": 1286408,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A130.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_34.bin",
     "start": 1286448,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A158.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_43.bin",
     "start": 1286488,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A180.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_44.bin",
     "start": 1286528,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A1A8.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_45.bin",
     "start": 1286568,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A1D0.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_46.bin",
     "start": 1286608,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A1F8.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_47.bin",
     "start": 1286648,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A220.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_48.bin",
     "start": 1286688,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A248.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_55.bin",
     "start": 1286728,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A284.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastle_56.bin",
     "start": 1286788,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A3C0.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastleOutside_ZeldaStatuePlatform.bin",
     "start": 1287104,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A3E8.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastleOutside_Garden.bin",
     "start": 1287144,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A424.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastleOutside_OutsideNorthwest.bin",
     "start": 1287204,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A44C.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastleOutside_OutsideNortheast.bin",
     "start": 1287244,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A474.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastleOutside_OutsideEast.bin",
     "start": 1287284,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A4B0.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastleOutside_OutsideSouthwest.bin",
     "start": 1287344,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A4D8.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastleOutside_OutsideSouth.bin",
     "start": 1287384,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A514.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastleOutside_OutsideSoutheast.bin",
     "start": 1287444,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A55C.bin",
+    "path": "exit_lists/gExitList_VaatisArms_First.bin",
     "start": 1287516,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A584.bin",
+    "path": "exit_lists/gExitList_VaatisArms_Second.bin",
     "start": 1287556,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A5B4.bin",
+    "path": "exit_lists/gExitList_DarkHyruleCastleBridge_Main.bin",
     "start": 1287604,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A5F4.bin",
+    "path": "exit_lists/gExitList_HyruleCastle_0.bin",
     "start": 1287668,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A630.bin",
+    "path": "exit_lists/gExitList_HyruleCastle_1.bin",
     "start": 1287728,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A66C.bin",
+    "path": "exit_lists/gExitList_HyruleCastle_3.bin",
     "start": 1287788,
-    "size": 120
+    "size": 120,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A704.bin",
+    "path": "exit_lists/gExitList_SanctuaryEntrance_Main.bin",
     "start": 1287940,
-    "size": 60
+    "size": 60,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A744.bin",
+    "path": "exit_lists/gExitList_Sanctuary_Hall.bin",
     "start": 1288004,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
     "path": "data_08132B30/gUnk_0813A76C.bin",
@@ -89767,14 +90184,16 @@
     "size": 40
   },
   {
-    "path": "data_08132B30/gUnk_0813A794.bin",
+    "path": "exit_lists/gExitList_Sanctuary_Main.bin",
     "start": 1288084,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
-    "path": "data_08132B30/gUnk_0813A7BC.bin",
+    "path": "exit_lists/gExitList_Sanctuary_StainedGlass.bin",
     "start": 1288124,
-    "size": 40
+    "size": 40,
+    "type": "exit_list"
   },
   {
     "offsets": {

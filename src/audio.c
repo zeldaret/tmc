@@ -1376,5 +1376,3 @@ const Song gSongTable[] = {
     [SFX_220] = { &sfx220, MUSIC_PLAYER_18, MUSIC_PLAYER_18 },
     [SFX_221] = { &sfx221, MUSIC_PLAYER_17, MUSIC_PLAYER_17 },
 };
-
-

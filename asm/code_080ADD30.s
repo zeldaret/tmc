@@ -3065,12 +3065,12 @@ _080AF26C: .4byte gArea
 _080AF270: .4byte 0x0000085C
 _080AF274: .4byte gUnk_08135190
 _080AF278:
-	ldr r0, _080AF280 @ =gUnk_08135168
+	ldr r0, _080AF280 @ =gExitList_RoyalValley_ForestMaze
 _080AF27A:
 	str r0, [r1, #0x18]
 	pop {r4, pc}
 	.align 2, 0
-_080AF280: .4byte gUnk_08135168
+_080AF280: .4byte gExitList_RoyalValley_ForestMaze
 
 	thumb_func_start sub_080AF284
 sub_080AF284: @ 0x080AF284

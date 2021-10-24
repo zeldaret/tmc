@@ -4,195 +4,195 @@
 	.section .rodata
     .align 2
 
-gExitLists_NoExitList:: @ 08133FC8
-	.incbin "data_08132B30/gExitLists_NoExitList.bin"
+gExitList_NoExitList:: @ 08133FC8
+	.include "exit_lists/gExitList_NoExitList.s"
 
 gExitLists_NoExit:: @ 08133FDC
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
 
-gExitLists_MinishWoods_Main:: @ 081340DC
-	.incbin "data_08132B30/gExitLists_MinishWoods_Main.bin"
+gExitList_MinishWoods_Main:: @ 081340DC
+	.include "exit_lists/gExitList_MinishWoods_Main.s"
 
 gExitLists_MinishWoods:: @ 08134208
-	.4byte gExitLists_MinishWoods_Main
+	.4byte gExitList_MinishWoods_Main
 
-gUnk_0813420C:: @ 0813420C
-	.incbin "data_08132B30/gUnk_0813420C.bin"
+gExitList_LakeHylia_Main:: @ 0813420C
+	.include "exit_lists/gExitList_LakeHylia_Main.s"
 
-gUnk_081342E8:: @ 081342E8
-	.incbin "data_08132B30/gUnk_081342E8.bin"
+gExitList_LakeHylia_Beanstalk:: @ 081342E8
+	.include "exit_lists/gExitList_LakeHylia_Beanstalk.s"
 
-gUnk_08134338:: @ 08134338
-	.4byte gUnk_0813420C
-	.4byte gUnk_081342E8
+gExitLists_LakeHylia:: @ 08134338
+	.4byte gExitList_LakeHylia_Main
+	.4byte gExitList_LakeHylia_Beanstalk
 
-gUnk_08134340:: @ 08134340
-	.incbin "data_08132B30/gUnk_08134340.bin"
+gExitList_CastorWilds_Main:: @ 08134340
+	.include "exit_lists/gExitList_CastorWilds_Main.s"
 
-gUnk_08134408:: @ 08134408
-	.4byte gUnk_08134340
+gExitLists_CastorWilds:: @ 08134408
+	.4byte gExitList_CastorWilds_Main
 
-gUnk_0813440C:: @ 0813440C
-	.incbin "data_08132B30/gUnk_0813440C.bin"
+gExitList_Ruins_Entrance:: @ 0813440C
+	.include "exit_lists/gExitList_Ruins_Entrance.s"
 
-gUnk_08134448:: @ 08134448
-	.incbin "data_08132B30/gUnk_08134448.bin"
+gExitList_Ruins_Beanstalk:: @ 08134448
+	.include "exit_lists/gExitList_Ruins_Beanstalk.s"
 
-gUnk_0813445C:: @ 0813445C
-	.incbin "data_08132B30/gUnk_0813445C.bin"
+gExitList_Ruins_LadderToTektites:: @ 0813445C
+	.include "exit_lists/gExitList_Ruins_LadderToTektites.s"
 
-gUnk_08134484:: @ 08134484
-	.incbin "data_08132B30/gUnk_08134484.bin"
+gExitList_Ruins_FortressEntrance:: @ 08134484
+	.include "exit_lists/gExitList_Ruins_FortressEntrance.s"
 
-gUnk_081344AC:: @ 081344AC
-	.4byte gUnk_0813440C
-	.4byte gUnk_08134448
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_0813445C
-	.4byte gUnk_08134484
-	.4byte gExitLists_NoExitList
+gExitLists_Ruins:: @ 081344AC
+	.4byte gExitList_Ruins_Entrance
+	.4byte gExitList_Ruins_Beanstalk
+	.4byte gExitList_NoExitList
+	.4byte gExitList_Ruins_LadderToTektites
+	.4byte gExitList_Ruins_FortressEntrance
+	.4byte gExitList_NoExitList
 
-gUnk_081344C4:: @ 081344C4
-	.incbin "data_08132B30/gUnk_081344C4.bin"
+gExitList_HyruleTown_0:: @ 081344C4
+	.include "exit_lists/gExitList_HyruleTown_0.s"
 
-gUnk_08134794:: @ 08134794
-	.4byte gUnk_081344C4
+gExitLists_HyruleTown:: @ 08134794
+	.4byte gExitList_HyruleTown_0
 
-gUnk_08134798:: @ 08134798
-	.incbin "data_08132B30/gUnk_08134798.bin"
+gExitList_HyruleTown_1:: @ 08134798
+	.include "exit_lists/gExitList_HyruleTown_1.s"
 
-gUnk_081347C0:: @ 081347C0
-	.4byte gUnk_08134798
+gExitLists_FestivalTown:: @ 081347C0
+	.4byte gExitList_HyruleTown_1
 
-gUnk_081347C4:: @ 081347C4
-	.incbin "data_08132B30/gUnk_081347C4.bin"
+gExitList_MtCrenel_MountainTop:: @ 081347C4
+	.include "exit_lists/gExitList_MtCrenel_MountainTop.s"
 
-gUnk_08134800:: @ 08134800
-	.incbin "data_08132B30/gUnk_08134800.bin"
+gExitList_MtCrenel_WallClimb:: @ 08134800
+	.include "exit_lists/gExitList_MtCrenel_WallClimb.s"
 
-gUnk_08134850:: @ 08134850
-	.incbin "data_08132B30/gUnk_08134850.bin"
+gExitList_MtCrenel_CaveOfFlamesEntrance:: @ 08134850
+	.include "exit_lists/gExitList_MtCrenel_CaveOfFlamesEntrance.s"
 
-gUnk_08134904:: @ 08134904
-	.incbin "data_08132B30/gUnk_08134904.bin"
+gExitList_MtCrenel_GustJarShortcut:: @ 08134904
+	.include "exit_lists/gExitList_MtCrenel_GustJarShortcut.s"
 
-gUnk_08134968:: @ 08134968
-	.incbin "data_08132B30/gUnk_08134968.bin"
+gExitList_MtCrenel_Entrance:: @ 08134968
+	.include "exit_lists/gExitList_MtCrenel_Entrance.s"
 
-gUnk_08134A30:: @ 08134A30
-	.4byte gUnk_081347C4
-	.4byte gUnk_08134800
-	.4byte gUnk_08134850
-	.4byte gUnk_08134904
-	.4byte gUnk_08134968
+gExitLists_MtCrenel:: @ 08134A30
+	.4byte gExitList_MtCrenel_MountainTop
+	.4byte gExitList_MtCrenel_WallClimb
+	.4byte gExitList_MtCrenel_CaveOfFlamesEntrance
+	.4byte gExitList_MtCrenel_GustJarShortcut
+	.4byte gExitList_MtCrenel_Entrance
 
-gUnk_08134A44:: @ 08134A44
-	.incbin "data_08132B30/gUnk_08134A44.bin"
+gExitList_HyruleField_WesternWoodSouth:: @ 08134A44
+	.include "exit_lists/gExitList_HyruleField_WesternWoodSouth.s"
 
-gUnk_08134A6C:: @ 08134A6C
-	.incbin "data_08132B30/gUnk_08134A6C.bin"
+gExitList_HyruleField_LinksHouseExterior:: @ 08134A6C
+	.include "exit_lists/gExitList_HyruleField_LinksHouseExterior.s"
 
-gUnk_08134B0C:: @ 08134B0C
-	.incbin "data_08132B30/gUnk_08134B0C.bin"
+gExitList_HyruleField_FromMinishWoods:: @ 08134B0C
+	.include "exit_lists/gExitList_HyruleField_FromMinishWoods.s"
 
-gUnk_08134B48:: @ 08134B48
-	.incbin "data_08132B30/gUnk_08134B48.bin"
+gExitList_HyruleField_FromMinishWoodsNorth:: @ 08134B48
+	.include "exit_lists/gExitList_HyruleField_FromMinishWoodsNorth.s"
 
-gUnk_08134B70:: @ 08134B70
-	.incbin "data_08132B30/gUnk_08134B70.bin"
+gExitList_HyruleField_Farmers:: @ 08134B70
+	.include "exit_lists/gExitList_HyruleField_Farmers.s"
 
-gUnk_08134BAC:: @ 08134BAC
-	.incbin "data_08132B30/gUnk_08134BAC.bin"
+gExitList_HyruleField_LonLonRanch:: @ 08134BAC
+	.include "exit_lists/gExitList_HyruleField_LonLonRanch.s"
 
-gUnk_08134C88:: @ 08134C88
-	.incbin "data_08132B30/gUnk_08134C88.bin"
+gExitList_HyruleField_OutsideCastle:: @ 08134C88
+	.include "exit_lists/gExitList_HyruleField_OutsideCastle.s"
 
-gUnk_08134DC8:: @ 08134DC8
-	.incbin "data_08132B30/gUnk_08134DC8.bin"
+gExitList_HyruleField_OutsideCastleWest:: @ 08134DC8
+	.include "exit_lists/gExitList_HyruleField_OutsideCastleWest.s"
 
-gUnk_08134EA4:: @ 08134EA4
-	.incbin "data_08132B30/gUnk_08134EA4.bin"
+gExitList_HyruleField_TrilbyHighlands:: @ 08134EA4
+	.include "exit_lists/gExitList_HyruleField_TrilbyHighlands.s"
 
-gUnk_08134EE0:: @ 08134EE0
-	.incbin "data_08132B30/gUnk_08134EE0.bin"
+gExitList_HyruleField_PercysHouse:: @ 08134EE0
+	.include "exit_lists/gExitList_HyruleField_PercysHouse.s"
 
-gUnk_08134F08:: @ 08134F08
-	.4byte gUnk_08134A44
-	.4byte gUnk_08134A6C
-	.4byte gUnk_08134B0C
-	.4byte gUnk_08134B48
-	.4byte gUnk_08134B70
-	.4byte gUnk_08134BAC
-	.4byte gUnk_08134C88
-	.4byte gUnk_08134DC8
-	.4byte gUnk_08134EA4
-	.4byte gUnk_08134EE0
+gExitLists_HyruleField:: @ 08134F08
+	.4byte gExitList_HyruleField_WesternWoodSouth
+	.4byte gExitList_HyruleField_LinksHouseExterior
+	.4byte gExitList_HyruleField_FromMinishWoods
+	.4byte gExitList_HyruleField_FromMinishWoodsNorth
+	.4byte gExitList_HyruleField_Farmers
+	.4byte gExitList_HyruleField_LonLonRanch
+	.4byte gExitList_HyruleField_OutsideCastle
+	.4byte gExitList_HyruleField_OutsideCastleWest
+	.4byte gExitList_HyruleField_TrilbyHighlands
+	.4byte gExitList_HyruleField_PercysHouse
 
-gUnk_08134F30:: @ 08134F30
-	.incbin "data_08132B30/gUnk_08134F30.bin"
+gExitList_CastleGarden_Main:: @ 08134F30
+	.include "exit_lists/gExitList_CastleGarden_Main.s"
 
 gUnk_08134FBC:: @ 08134FBC
 	.incbin "data_08132B30/gUnk_08134FBC.bin"
@@ -200,2187 +200,2158 @@ gUnk_08134FBC:: @ 08134FBC
 gUnk_08135048:: @ 08135048
 	.incbin "data_08132B30/gUnk_08135048.bin"
 
-gUnk_08135070:: @ 08135070
-	.4byte gUnk_08134F30
+gExitLists_CastleGarden:: @ 08135070
+	.4byte gExitList_CastleGarden_Main
 
-gUnk_08135074:: @ 08135074
-	.incbin "data_08132B30/gUnk_08135074.bin"
+gExitList_CloudTops_House:: @ 08135074
+	.include "exit_lists/gExitList_CloudTops_House.s"
 
-gUnk_0813509C:: @ 0813509C
-	.4byte gUnk_08135074
+gExitLists_CloudTops:: @ 0813509C
+	.4byte gExitList_CloudTops_House
 
-gUnk_081350A0:: @ 081350A0
-.ifdef EU
-    @ TODO only small differences
-	.incbin "data_08132B30/gUnk_081350A0_EU.bin"
-.else
-	.incbin "data_08132B30/gUnk_081350A0_1_USA-JP-DEMO_USA-DEMO_JP.bin"
-.endif
+gExitList_RoyalValley_Main:: @ 081350A0
+.include "exit_lists/gExitList_RoyalValley_Main.s"
 
-gUnk_08135168:: @ 08135168
-	.incbin "data_08132B30/gUnk_08135168.bin"
+gExitList_RoyalValley_ForestMaze:: @ 08135168
+	.include "exit_lists/gExitList_RoyalValley_ForestMaze.s"
 
 gUnk_08135190:: @ 08135190
 	.incbin "data_08132B30/gUnk_08135190.bin"
 
-gUnk_081351CC:: @ 081351CC
-	.4byte gUnk_081350A0
-	.4byte gUnk_08135168
+gExitLists_RoyalValley:: @ 081351CC
+	.4byte gExitList_RoyalValley_Main
+	.4byte gExitList_RoyalValley_ForestMaze
 
-gUnk_081351D4:: @ 081351D4
-	.incbin "data_08132B30/gUnk_081351D4.bin"
+gExitList_VeilFalls_Main:: @ 081351D4
+	.include "exit_lists/gExitList_VeilFalls_Main.s"
 
-gUnk_081352D8:: @ 081352D8
-	.4byte gUnk_081351D4
+gExitLists_VeilFalls:: @ 081352D8
+	.4byte gExitList_VeilFalls_Main
 
-gUnk_081352DC:: @ 081352DC
-	.incbin "data_08132B30/gUnk_081352DC.bin"
+gExitList_Beanstalks_MountCrenel:: @ 081352DC
+	.include "exit_lists/gExitList_Beanstalks_MountCrenel.s"
 
-gUnk_08135304:: @ 08135304
-	.incbin "data_08132B30/gUnk_08135304.bin"
+gExitList_Beanstalks_LakeHylia:: @ 08135304
+	.include "exit_lists/gExitList_Beanstalks_LakeHylia.s"
 
-gUnk_0813532C:: @ 0813532C
-	.incbin "data_08132B30/gUnk_0813532C.bin"
+gExitList_Beanstalks_Ruins:: @ 0813532C
+	.include "exit_lists/gExitList_Beanstalks_Ruins.s"
 
-gUnk_08135354:: @ 08135354
-	.incbin "data_08132B30/gUnk_08135354.bin"
+gExitList_Beanstalks_EasternHills:: @ 08135354
+	.include "exit_lists/gExitList_Beanstalks_EasternHills.s"
 
-gUnk_0813537C:: @ 0813537C
-	.incbin "data_08132B30/gUnk_0813537C.bin"
+gExitList_Beanstalks_WesternWoods:: @ 0813537C
+	.include "exit_lists/gExitList_Beanstalks_WesternWoods.s"
 
-gUnk_081353A4:: @ 081353A4
-	.incbin "data_08132B30/gUnk_081353A4.bin"
+gExitList_Beanstalks_MountCrenelClimb:: @ 081353A4
+	.include "exit_lists/gExitList_Beanstalks_MountCrenelClimb.s"
 
-gUnk_081353E0:: @ 081353E0
-	.incbin "data_08132B30/gUnk_081353E0.bin"
+gExitList_Beanstalks_LakeHyliaClimb:: @ 081353E0
+	.include "exit_lists/gExitList_Beanstalks_LakeHyliaClimb.s"
 
-gUnk_0813541C:: @ 0813541C
-	.incbin "data_08132B30/gUnk_0813541C.bin"
+gExitList_Beanstalks_RuinsClimb:: @ 0813541C
+	.include "exit_lists/gExitList_Beanstalks_RuinsClimb.s"
 
-gUnk_08135458:: @ 08135458
-	.incbin "data_08132B30/gUnk_08135458.bin"
+gExitList_Beanstalks_EasternHillsClimb:: @ 08135458
+	.include "exit_lists/gExitList_Beanstalks_EasternHillsClimb.s"
 
-gUnk_08135494:: @ 08135494
-	.incbin "data_08132B30/gUnk_08135494.bin"
+gExitList_Beanstalks_WesternWoodsClimb:: @ 08135494
+	.include "exit_lists/gExitList_Beanstalks_WesternWoodsClimb.s"
 
-gUnk_081354D0:: @ 081354D0
-	.4byte gUnk_081352DC
-	.4byte gUnk_08135304
-	.4byte gUnk_0813532C
-	.4byte gUnk_08135354
-	.4byte gUnk_0813537C
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_081353A4
-	.4byte gUnk_081353E0
-	.4byte gUnk_0813541C
-	.4byte gUnk_08135458
-	.4byte gUnk_08135494
+gExitLists_Beanstalks:: @ 081354D0
+	.4byte gExitList_Beanstalks_MountCrenel
+	.4byte gExitList_Beanstalks_LakeHylia
+	.4byte gExitList_Beanstalks_Ruins
+	.4byte gExitList_Beanstalks_EasternHills
+	.4byte gExitList_Beanstalks_WesternWoods
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_Beanstalks_MountCrenelClimb
+	.4byte gExitList_Beanstalks_LakeHyliaClimb
+	.4byte gExitList_Beanstalks_RuinsClimb
+	.4byte gExitList_Beanstalks_EasternHillsClimb
+	.4byte gExitList_Beanstalks_WesternWoodsClimb
 
-gUnk_08135524:: @ 08135524
-	.incbin "data_08132B30/gUnk_08135524.bin"
+gExitList_LakeWoodsCave_Main:: @ 08135524
+	.include "exit_lists/gExitList_LakeWoodsCave_Main.s"
 
-gUnk_0813554C:: @ 0813554C
-	.4byte gUnk_08135524
+gExitLists_LakeWoodsCave:: @ 0813554C
+	.4byte gExitList_LakeWoodsCave_Main
 
-gUnk_08135550:: @ 08135550
-	.incbin "data_08132B30/gUnk_08135550.bin"
+gExitList_HyruleDigCaves_Main:: @ 08135550
+	.include "exit_lists/gExitList_HyruleDigCaves_Main.s"
 
-gUnk_08135578:: @ 08135578
-	.4byte gUnk_08135550
+gExitLists_HyruleDigCaves:: @ 08135578
+	.4byte gExitList_HyruleDigCaves_Main
 
-gUnk_0813557C:: @ 0813557C
-	.incbin "data_08132B30/gUnk_0813557C.bin"
+gExitList_MinishVillage_Main:: @ 0813557C
+	.include "exit_lists/gExitList_MinishVillage_Main.s"
 
-gUnk_08135694:: @ 08135694
-	.incbin "data_08132B30/gUnk_08135694.bin"
+gExitList_MinishVillage_SideHouse:: @ 08135694
+	.include "exit_lists/gExitList_MinishVillage_SideHouse.s"
 
-gUnk_081356BC:: @ 081356BC
-	.4byte gUnk_0813557C
-	.4byte gUnk_08135694
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
+gExitLists_MinishVillage:: @ 081356BC
+	.4byte gExitList_MinishVillage_Main
+	.4byte gExitList_MinishVillage_SideHouse
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
 
-gUnk_081356CC:: @ 081356CC
-	.incbin "data_08132B30/gUnk_081356CC.bin"
+gExitList_MelarisMine_Main:: @ 081356CC
+	.include "exit_lists/gExitList_MelarisMine_Main.s"
 
-gUnk_08135744:: @ 08135744
-	.4byte gUnk_081356CC
+gExitLists_MelarisMine:: @ 08135744
+	.4byte gExitList_MelarisMine_Main
 
-gUnk_08135748:: @ 08135748
-	.incbin "data_08132B30/gUnk_08135748.bin"
+gExitList_MinishPaths1_ToMinishVillage:: @ 08135748
+	.include "exit_lists/gExitList_MinishPaths1_ToMinishVillage.s"
 
-gUnk_08135784:: @ 08135784
-	.incbin "data_08132B30/gUnk_08135784.bin"
+gExitList_MinishPaths1_CastorWilds:: @ 08135784
+	.include "exit_lists/gExitList_MinishPaths1_CastorWilds.s"
 
-gUnk_081357C0:: @ 081357C0
-	.incbin "data_08132B30/gUnk_081357C0.bin"
+gExitList_MinishPaths1_HyruleTown:: @ 081357C0
+	.include "exit_lists/gExitList_MinishPaths1_HyruleTown.s"
 
-gUnk_081357E8:: @ 081357E8
-	.incbin "data_08132B30/gUnk_081357E8.bin"
+gExitList_MinishPaths1_LonLonRanch:: @ 081357E8
+	.include "exit_lists/gExitList_MinishPaths1_LonLonRanch.s"
 
-gUnk_08135810:: @ 08135810
-	.incbin "data_08132B30/gUnk_08135810.bin"
+gExitList_MinishPaths1_MayorsCabin:: @ 08135810
+	.include "exit_lists/gExitList_MinishPaths1_MayorsCabin.s"
 
-gUnk_0813584C:: @ 0813584C
-	.4byte gUnk_08135748
-	.4byte gUnk_08135784
-	.4byte gUnk_081357C0
-	.4byte gUnk_081357E8
-	.4byte gUnk_08135810
+gExitLists_MinishPaths1:: @ 0813584C
+	.4byte gExitList_MinishPaths1_ToMinishVillage
+	.4byte gExitList_MinishPaths1_CastorWilds
+	.4byte gExitList_MinishPaths1_HyruleTown
+	.4byte gExitList_MinishPaths1_LonLonRanch
+	.4byte gExitList_MinishPaths1_MayorsCabin
 
-gUnk_08135860:: @ 08135860
-	.incbin "data_08132B30/gUnk_08135860.bin"
+gExitList_CrenelMinishPaths_CrenelBean:: @ 08135860
+	.include "exit_lists/gExitList_CrenelMinishPaths_CrenelBean.s"
 
-gUnk_08135888:: @ 08135888
-	.incbin "data_08132B30/gUnk_08135888.bin"
+gExitList_CrenelMinishPaths_CrenelWater:: @ 08135888
+	.include "exit_lists/gExitList_CrenelMinishPaths_CrenelWater.s"
 
-gUnk_081358B0:: @ 081358B0
-	.incbin "data_08132B30/gUnk_081358B0.bin"
+gExitList_CrenelMinishPaths_Rainfall:: @ 081358B0
+	.include "exit_lists/gExitList_CrenelMinishPaths_Rainfall.s"
 
-gUnk_081358EC:: @ 081358EC
-	.incbin "data_08132B30/gUnk_081358EC.bin"
+gExitList_CrenelMinishPaths_MelarisMine:: @ 081358EC
+	.include "exit_lists/gExitList_CrenelMinishPaths_MelarisMine.s"
 
-gUnk_08135928:: @ 08135928
-	.4byte gUnk_08135860
-	.4byte gUnk_08135888
-	.4byte gUnk_081358B0
-	.4byte gUnk_081358EC
+gExitLists_CrenelMinishPaths:: @ 08135928
+	.4byte gExitList_CrenelMinishPaths_CrenelBean
+	.4byte gExitList_CrenelMinishPaths_CrenelWater
+	.4byte gExitList_CrenelMinishPaths_Rainfall
+	.4byte gExitList_CrenelMinishPaths_MelarisMine
 
-gUnk_08135938:: @ 08135938
-	.incbin "data_08132B30/gUnk_08135938.bin"
+gExitList_DigCaves1_TrilbyHighlands:: @ 08135938
+	.include "exit_lists/gExitList_DigCaves1_TrilbyHighlands.s"
 
-gUnk_08135974:: @ 08135974
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08135938
-
-gUnk_08135984:: @ 08135984
-	.incbin "data_08132B30/gUnk_08135984.bin"
-
-gUnk_081359AC:: @ 081359AC
-	.incbin "data_08132B30/gUnk_081359AC.bin"
-
-gUnk_081359D4:: @ 081359D4
-	.incbin "data_08132B30/gUnk_081359D4.bin"
-
-gUnk_08135A10:: @ 08135A10
-	.incbin "data_08132B30/gUnk_08135A10.bin"
-
-gUnk_08135A38:: @ 08135A38
-	.incbin "data_08132B30/gUnk_08135A38.bin"
-
-gUnk_08135A60:: @ 08135A60
-	.incbin "data_08132B30/gUnk_08135A60.bin"
-
-gUnk_08135A88:: @ 08135A88
-	.incbin "data_08132B30/gUnk_08135A88.bin"
-
-gUnk_08135AB0:: @ 08135AB0
-	.incbin "data_08132B30/gUnk_08135AB0.bin"
-
-gUnk_08135AD8:: @ 08135AD8
-	.incbin "data_08132B30/gUnk_08135AD8.bin"
-
-gUnk_08135B00:: @ 08135B00
-	.incbin "data_08132B30/gUnk_08135B00.bin"
-
-gUnk_08135B3C:: @ 08135B3C
-	.incbin "data_08132B30/gUnk_08135B3C.bin"
-
-gUnk_08135B64:: @ 08135B64
-	.incbin "data_08132B30/gUnk_08135B64.bin"
-
-gUnk_08135B8C:: @ 08135B8C
-	.incbin "data_08132B30/gUnk_08135B8C.bin"
-
-gUnk_08135BB4:: @ 08135BB4
-	.incbin "data_08132B30/gUnk_08135BB4.bin"
-
-gUnk_08135BDC:: @ 08135BDC
-	.incbin "data_08132B30/gUnk_08135BDC.bin"
-
-gUnk_08135C04:: @ 08135C04
-	.incbin "data_08132B30/gUnk_08135C04.bin"
-
-gUnk_08135C2C:: @ 08135C2C
-	.incbin "data_08132B30/gUnk_08135C2C.bin"
-
-gUnk_08135C54:: @ 08135C54
-	.incbin "data_08132B30/gUnk_08135C54.bin"
-
-gUnk_08135C7C:: @ 08135C7C
-	.incbin "data_08132B30/gUnk_08135C7C.bin"
-
-gUnk_08135CA4:: @ 08135CA4
-	.incbin "data_08132B30/gUnk_08135CA4.bin"
-
-gUnk_08135CCC:: @ 08135CCC
-	.incbin "data_08132B30/gUnk_08135CCC.bin"
-
-gUnk_08135CF4:: @ 08135CF4
-	.incbin "data_08132B30/gUnk_08135CF4.bin"
-
-gUnk_08135D1C:: @ 08135D1C
-	.incbin "data_08132B30/gUnk_08135D1C.bin"
-
-gUnk_08135D44:: @ 08135D44
-	.4byte gUnk_08135984
-	.4byte gUnk_081359AC
-	.4byte gUnk_081359D4
-	.4byte gUnk_08135A10
-	.4byte gUnk_08135A38
-	.4byte gUnk_08135A60
-	.4byte gUnk_08135A88
-	.4byte gUnk_08135AB0
-	.4byte gUnk_08135AD8
-	.4byte gUnk_08135B00
-	.4byte gUnk_08135B3C
-	.4byte gUnk_08135B64
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08135B8C
-	.4byte gUnk_08135BB4
-	.4byte gUnk_08135BDC
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08135C04
-	.4byte gUnk_08135C2C
-	.4byte gUnk_08135C54
-	.4byte gUnk_08135C7C
-	.4byte gUnk_08135CA4
-	.4byte gUnk_08135CCC
-	.4byte gUnk_08135CF4
-	.4byte gUnk_08135D1C
-
-gUnk_08135DE4:: @ 08135DE4
-	.incbin "data_08132B30/gUnk_08135DE4.bin"
-
-gUnk_08135E70:: @ 08135E70
-	.incbin "data_08132B30/gUnk_08135E70.bin"
-
-gUnk_08135F24:: @ 08135F24
-	.incbin "data_08132B30/gUnk_08135F24.bin"
-
-gUnk_08135FD8:: @ 08135FD8
-	.incbin "data_08132B30/gUnk_08135FD8.bin"
-
-gUnk_08136000:: @ 08136000
-	.incbin "data_08132B30/gUnk_08136000.bin"
-
-gUnk_08136028:: @ 08136028
-	.4byte gUnk_08135DE4
-	.4byte gUnk_08135E70
-	.4byte gUnk_08135F24
-	.4byte gUnk_08135FD8
-	.4byte gUnk_08136000
-
-gUnk_0813603C:: @ 0813603C
-	.incbin "data_08132B30/gUnk_0813603C.bin"
-
-gUnk_0813608C:: @ 0813608C
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_0813603C
+gExitLists_DigCaves1:: @ 08135974
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DigCaves1_TrilbyHighlands
+
+gExitList_MinishHouseInteriors_GentariMain:: @ 08135984
+	.include "exit_lists/gExitList_MinishHouseInteriors_GentariMain.s"
+
+gExitList_MinishHouseInteriors_GentariExit:: @ 081359AC
+	.include "exit_lists/gExitList_MinishHouseInteriors_GentariExit.s"
+
+gExitList_MinishHouseInteriors_Festari:: @ 081359D4
+	.include "exit_lists/gExitList_MinishHouseInteriors_Festari.s"
+
+gExitList_MinishHouseInteriors_Red:: @ 08135A10
+	.include "exit_lists/gExitList_MinishHouseInteriors_Red.s"
+
+gExitList_MinishHouseInteriors_Green:: @ 08135A38
+	.include "exit_lists/gExitList_MinishHouseInteriors_Green.s"
+
+gExitList_MinishHouseInteriors_Blue:: @ 08135A60
+	.include "exit_lists/gExitList_MinishHouseInteriors_Blue.s"
+
+gExitList_MinishHouseInteriors_SideArea:: @ 08135A88
+	.include "exit_lists/gExitList_MinishHouseInteriors_SideArea.s"
+
+gExitList_MinishHouseInteriors_ShoeMinish:: @ 08135AB0
+	.include "exit_lists/gExitList_MinishHouseInteriors_ShoeMinish.s"
+
+gExitList_MinishHouseInteriors_PotMinish:: @ 08135AD8
+	.include "exit_lists/gExitList_MinishHouseInteriors_PotMinish.s"
+
+gExitList_MinishHouseInteriors_BarrelMinish:: @ 08135B00
+	.include "exit_lists/gExitList_MinishHouseInteriors_BarrelMinish.s"
+
+gExitList_MinishHouseInteriors_NULL1:: @ 08135B3C
+	.include "exit_lists/gExitList_MinishHouseInteriors_NULL1.s"
+
+gExitList_MinishHouseInteriors_NULL2:: @ 08135B64
+	.include "exit_lists/gExitList_MinishHouseInteriors_NULL2.s"
+
+gExitList_MinishHouseInteriors_MelariMinesSouthwest:: @ 08135B8C
+	.include "exit_lists/gExitList_MinishHouseInteriors_MelariMinesSouthwest.s"
+
+gExitList_MinishHouseInteriors_MelariMinesSoutheast:: @ 08135BB4
+	.include "exit_lists/gExitList_MinishHouseInteriors_MelariMinesSoutheast.s"
+
+gExitList_MinishHouseInteriors_MelariMinesEast:: @ 08135BDC
+	.include "exit_lists/gExitList_MinishHouseInteriors_MelariMinesEast.s"
+
+gExitList_MinishHouseInteriors_HyruleFieldSouthwest:: @ 08135C04
+	.include "exit_lists/gExitList_MinishHouseInteriors_HyruleFieldSouthwest.s"
+
+gExitList_MinishHouseInteriors_HyruleFieldOutsideLinksHouse:: @ 08135C2C
+	.include "exit_lists/gExitList_MinishHouseInteriors_HyruleFieldOutsideLinksHouse.s"
+
+gExitList_MinishHouseInteriors_NextToKnuckle:: @ 08135C54
+	.include "exit_lists/gExitList_MinishHouseInteriors_NextToKnuckle.s"
+
+gExitList_MinishHouseInteriors_Librari:: @ 08135C7C
+	.include "exit_lists/gExitList_MinishHouseInteriors_Librari.s"
+
+gExitList_MinishHouseInteriors_HyruleFieldExit:: @ 08135CA4
+	.include "exit_lists/gExitList_MinishHouseInteriors_HyruleFieldExit.s"
+
+gExitList_MinishHouseInteriors_HyruleTown:: @ 08135CCC
+	.include "exit_lists/gExitList_MinishHouseInteriors_HyruleTown.s"
+
+gExitList_MinishHouseInteriors_MinishWoodsBomb:: @ 08135CF4
+	.include "exit_lists/gExitList_MinishHouseInteriors_MinishWoodsBomb.s"
+
+gExitList_MinishHouseInteriors_LakeHyliaOcarina:: @ 08135D1C
+	.include "exit_lists/gExitList_MinishHouseInteriors_LakeHyliaOcarina.s"
+
+gExitLists_MinishHouseInteriors:: @ 08135D44
+	.4byte gExitList_MinishHouseInteriors_GentariMain
+	.4byte gExitList_MinishHouseInteriors_GentariExit
+	.4byte gExitList_MinishHouseInteriors_Festari
+	.4byte gExitList_MinishHouseInteriors_Red
+	.4byte gExitList_MinishHouseInteriors_Green
+	.4byte gExitList_MinishHouseInteriors_Blue
+	.4byte gExitList_MinishHouseInteriors_SideArea
+	.4byte gExitList_MinishHouseInteriors_ShoeMinish
+	.4byte gExitList_MinishHouseInteriors_PotMinish
+	.4byte gExitList_MinishHouseInteriors_BarrelMinish
+	.4byte gExitList_MinishHouseInteriors_NULL1
+	.4byte gExitList_MinishHouseInteriors_NULL2
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_MinishHouseInteriors_MelariMinesSouthwest
+	.4byte gExitList_MinishHouseInteriors_MelariMinesSoutheast
+	.4byte gExitList_MinishHouseInteriors_MelariMinesEast
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_MinishHouseInteriors_HyruleFieldSouthwest
+	.4byte gExitList_MinishHouseInteriors_HyruleFieldOutsideLinksHouse
+	.4byte gExitList_MinishHouseInteriors_NextToKnuckle
+	.4byte gExitList_MinishHouseInteriors_Librari
+	.4byte gExitList_MinishHouseInteriors_HyruleFieldExit
+	.4byte gExitList_MinishHouseInteriors_HyruleTown
+	.4byte gExitList_MinishHouseInteriors_MinishWoodsBomb
+	.4byte gExitList_MinishHouseInteriors_LakeHyliaOcarina
+
+gExitList_OuterFortressOfWinds_EntranceHall:: @ 08135DE4
+	.include "exit_lists/gExitList_OuterFortressOfWinds_EntranceHall.s"
+
+gExitList_OuterFortressOfWinds_2F:: @ 08135E70
+	.include "exit_lists/gExitList_OuterFortressOfWinds_2F.s"
+
+gExitList_OuterFortressOfWinds_3F:: @ 08135F24
+	.include "exit_lists/gExitList_OuterFortressOfWinds_3F.s"
+
+gExitList_OuterFortressOfWinds_MoleMitts:: @ 08135FD8
+	.include "exit_lists/gExitList_OuterFortressOfWinds_MoleMitts.s"
+
+gExitList_OuterFortressOfWinds_SmallKey:: @ 08136000
+	.include "exit_lists/gExitList_OuterFortressOfWinds_SmallKey.s"
+
+gExitLists_OuterFortressOfWinds:: @ 08136028
+	.4byte gExitList_OuterFortressOfWinds_EntranceHall
+	.4byte gExitList_OuterFortressOfWinds_2F
+	.4byte gExitList_OuterFortressOfWinds_3F
+	.4byte gExitList_OuterFortressOfWinds_MoleMitts
+	.4byte gExitList_OuterFortressOfWinds_SmallKey
+
+gExitList_HyliaDigCaves_North:: @ 0813603C
+	.include "exit_lists/gExitList_HyliaDigCaves_North.s"
+
+gExitLists_HyliaDigCaves:: @ 0813608C
+	.4byte gExitList_NoExitList
+	.4byte gExitList_HyliaDigCaves_North
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 
-gUnk_081360A0:: @ 081360A0
-	.incbin "data_08132B30/gUnk_081360A0.bin"
-
-gUnk_081360C8:: @ 081360C8
-	.4byte gUnk_081360A0
-
-gUnk_081360CC:: @ 081360CC
-	.incbin "data_08132B30/gUnk_081360CC.bin"
-
-gUnk_081360F4:: @ 081360F4
-	.incbin "data_08132B30/gUnk_081360F4.bin"
-
-gUnk_0813611C:: @ 0813611C
-	.incbin "data_08132B30/gUnk_0813611C.bin"
-
-gUnk_08136144:: @ 08136144
-	.incbin "data_08132B30/gUnk_08136144.bin"
-
-gUnk_0813616C:: @ 0813616C
-	.incbin "data_08132B30/gUnk_0813616C.bin"
-
-gUnk_08136194:: @ 08136194
-	.incbin "data_08132B30/gUnk_08136194.bin"
-
-gUnk_081361BC:: @ 081361BC
-	.incbin "data_08132B30/gUnk_081361BC.bin"
-
-gUnk_081361E4:: @ 081361E4
-	.incbin "data_08132B30/gUnk_081361E4.bin"
-
-gUnk_0813620C:: @ 0813620C
-	.incbin "data_08132B30/gUnk_0813620C.bin"
-
-gUnk_08136234:: @ 08136234
-	.incbin "data_08132B30/gUnk_08136234.bin"
-
-gUnk_0813625C:: @ 0813625C
-	.incbin "data_08132B30/gUnk_0813625C.bin"
-
-gUnk_08136284:: @ 08136284
-	.incbin "data_08132B30/gUnk_08136284.bin"
-
-gUnk_081362AC:: @ 081362AC
-	.incbin "data_08132B30/gUnk_081362AC.bin"
-
-gUnk_081362D4:: @ 081362D4
-	.incbin "data_08132B30/gUnk_081362D4.bin"
-
-gUnk_08136310:: @ 08136310
-	.incbin "data_08132B30/gUnk_08136310.bin"
-
-gUnk_08136338:: @ 08136338
-	.incbin "data_08132B30/gUnk_08136338.bin"
-
-gUnk_0813634C:: @ 0813634C
-	.incbin "data_08132B30/gUnk_0813634C.bin"
-
-gUnk_08136374:: @ 08136374
-	.incbin "data_08132B30/gUnk_08136374.bin"
-
-gUnk_0813639C:: @ 0813639C
-	.4byte gUnk_081360CC
-	.4byte gUnk_081360F4
-	.4byte gUnk_0813611C
-	.4byte gUnk_08136144
-	.4byte gUnk_0813616C
-	.4byte gUnk_08136194
-	.4byte gUnk_081361BC
-	.4byte gUnk_081361E4
-	.4byte gUnk_0813620C
-	.4byte gUnk_08136234
-	.4byte gUnk_0813625C
-	.4byte gUnk_08136284
-	.4byte gUnk_081362AC
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_081362D4
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08136310
-	.4byte gUnk_08136338
-	.4byte gUnk_0813634C
-	.4byte gUnk_08136374
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_0813645C:: @ 0813645C
-	.incbin "data_08132B30/gUnk_0813645C.bin"
-
-gUnk_08136484:: @ 08136484
-	.incbin "data_08132B30/gUnk_08136484.bin"
-
-gUnk_081364AC:: @ 081364AC
-	.incbin "data_08132B30/gUnk_081364AC.bin"
-
-gUnk_081364D4:: @ 081364D4
-	.incbin "data_08132B30/gUnk_081364D4.bin"
-
-gUnk_081364FC:: @ 081364FC
-	.incbin "data_08132B30/gUnk_081364FC.bin"
-
-gUnk_08136524:: @ 08136524
-	.incbin "data_08132B30/gUnk_08136524.bin"
-
-gUnk_0813654C:: @ 0813654C
-	.4byte gUnk_0813645C
-	.4byte gUnk_08136484
-	.4byte gUnk_081364AC
-	.4byte gUnk_081364D4
-	.4byte gUnk_081364FC
-	.4byte gUnk_08136524
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_0813658C:: @ 0813658C
-	.incbin "data_08132B30/gUnk_0813658C.bin"
-
-gUnk_081365B4:: @ 081365B4
-	.incbin "data_08132B30/gUnk_081365B4.bin"
-
-gUnk_081365DC:: @ 081365DC
-	.incbin "data_08132B30/gUnk_081365DC.bin"
-
-gUnk_08136604:: @ 08136604
-	.4byte gUnk_0813658C
-	.4byte gUnk_081365B4
-	.4byte gUnk_081365DC
-	.4byte gExitLists_NoExitList
-
-gUnk_08136614:: @ 08136614
-	.incbin "data_08132B30/gUnk_08136614.bin"
-
-gUnk_0813663C:: @ 0813663C
-	.incbin "data_08132B30/gUnk_0813663C.bin"
-
-gUnk_08136664:: @ 08136664
-	.incbin "data_08132B30/gUnk_08136664.bin"
-
-gUnk_0813668C:: @ 0813668C
-	.incbin "data_08132B30/gUnk_0813668C.bin"
-
-gUnk_081366B4:: @ 081366B4
-	.incbin "data_08132B30/gUnk_081366B4.bin"
-
-gUnk_081366DC:: @ 081366DC
-	.incbin "data_08132B30/gUnk_081366DC.bin"
-
-gUnk_08136718:: @ 08136718
-	.incbin "data_08132B30/gUnk_08136718.bin"
-
-gUnk_08136754:: @ 08136754
-	.incbin "data_08132B30/gUnk_08136754.bin"
-
-gUnk_0813677C:: @ 0813677C
-	.incbin "data_08132B30/gUnk_0813677C.bin"
-
-gUnk_081367A4:: @ 081367A4
-	.4byte gUnk_08136614
-	.4byte gUnk_0813663C
-	.4byte gUnk_08136664
-	.4byte gUnk_0813668C
-	.4byte gUnk_081366B4
-	.4byte gUnk_081366DC
-	.4byte gUnk_08136718
-	.4byte gUnk_08136754
-	.4byte gUnk_0813677C
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_081367E4:: @ 081367E4
-	.incbin "data_08132B30/gUnk_081367E4.bin"
-
-gUnk_08136820:: @ 08136820
-	.incbin "data_08132B30/gUnk_08136820.bin"
-
-gUnk_08136848:: @ 08136848
-	.incbin "data_08132B30/gUnk_08136848.bin"
-
-gUnk_08136884:: @ 08136884
-	.incbin "data_08132B30/gUnk_08136884.bin"
-
-gUnk_081368C0:: @ 081368C0
-	.incbin "data_08132B30/gUnk_081368C0.bin"
-
-gUnk_08136938:: @ 08136938
-	.incbin "data_08132B30/gUnk_08136938.bin"
-
-gUnk_08136960:: @ 08136960
-	.incbin "data_08132B30/gUnk_08136960.bin"
-
-gUnk_08136988:: @ 08136988
-	.incbin "data_08132B30/gUnk_08136988.bin"
-
-gUnk_081369B0:: @ 081369B0
-	.incbin "data_08132B30/gUnk_081369B0.bin"
-
-gUnk_081369D8:: @ 081369D8
-	.incbin "data_08132B30/gUnk_081369D8.bin"
-
-gUnk_08136A14:: @ 08136A14
-	.incbin "data_08132B30/gUnk_08136A14.bin"
-
-gUnk_08136A50:: @ 08136A50
-	.incbin "data_08132B30/gUnk_08136A50.bin"
-
-gUnk_08136A78:: @ 08136A78
-	.4byte gUnk_081367E4
-	.4byte gUnk_08136820
-	.4byte gUnk_08136848
-	.4byte gUnk_08136884
-	.4byte gUnk_081368C0
-	.4byte gUnk_08136938
-	.4byte gUnk_08136960
-	.4byte gUnk_08136988
-	.4byte gUnk_081369B0
-	.4byte gUnk_081369D8
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08136A14
-	.4byte gUnk_08136A50
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_08136AF8:: @ 08136AF8
-	.incbin "data_08132B30/gUnk_08136AF8.bin"
-
-gUnk_08136B20:: @ 08136B20
-	.incbin "data_08132B30/gUnk_08136B20.bin"
-
-gUnk_08136B5C:: @ 08136B5C
-	.incbin "data_08132B30/gUnk_08136B5C.bin"
-
-gUnk_08136B84:: @ 08136B84
-	.incbin "data_08132B30/gUnk_08136B84.bin"
-
-gUnk_08136BAC:: @ 08136BAC
-	.incbin "data_08132B30/gUnk_08136BAC.bin"
-
-gUnk_08136BE8:: @ 08136BE8
-	.incbin "data_08132B30/gUnk_08136BE8.bin"
-
-gUnk_08136C10:: @ 08136C10
-	.incbin "data_08132B30/gUnk_08136C10.bin"
-
-gUnk_08136C4C:: @ 08136C4C
-	.incbin "data_08132B30/gUnk_08136C4C.bin"
-
-gUnk_08136C88:: @ 08136C88
-	.incbin "data_08132B30/gUnk_08136C88.bin"
-
-gUnk_08136CC4:: @ 08136CC4
-	.incbin "data_08132B30/gUnk_08136CC4.bin"
-
-gUnk_08136D00:: @ 08136D00
-	.incbin "data_08132B30/gUnk_08136D00.bin"
-
-gUnk_08136D28:: @ 08136D28
-	.incbin "data_08132B30/gUnk_08136D28.bin"
-
-gUnk_08136D64:: @ 08136D64
-	.incbin "data_08132B30/gUnk_08136D64.bin"
-
-gUnk_08136DA0:: @ 08136DA0
-	.incbin "data_08132B30/gUnk_08136DA0.bin"
-
-gUnk_08136DC8:: @ 08136DC8
-	.incbin "data_08132B30/gUnk_08136DC8.bin"
-
-gUnk_08136E04:: @ 08136E04
-	.incbin "data_08132B30/gUnk_08136E04.bin"
-
-gUnk_08136E18:: @ 08136E18
-	.incbin "data_08132B30/gUnk_08136E18.bin"
-
-gUnk_08136E40:: @ 08136E40
-	.4byte gUnk_08136AF8
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08136B20
-	.4byte gUnk_08136B5C
-	.4byte gUnk_08136B84
-	.4byte gUnk_08136BAC
-	.4byte gUnk_08136BE8
-	.4byte gUnk_08136C10
-	.4byte gUnk_08136C4C
-	.4byte gUnk_08136C88
-	.4byte gUnk_08136CC4
-	.4byte gUnk_08136D00
-	.4byte gUnk_08136D28
-	.4byte gUnk_08136D64
-	.4byte gUnk_08136DA0
-	.4byte gUnk_08136DC8
-	.4byte gUnk_08136E04
-	.4byte gUnk_08136E18
-
-gUnk_08136EC0:: @ 08136EC0
-	.incbin "data_08132B30/gUnk_08136EC0.bin"
-
-gUnk_08136EE8:: @ 08136EE8
-	.incbin "data_08132B30/gUnk_08136EE8.bin"
-
-gUnk_08136F10:: @ 08136F10
-	.incbin "data_08132B30/gUnk_08136F10.bin"
-
-gUnk_08136F38:: @ 08136F38
-	.incbin "data_08132B30/gUnk_08136F38.bin"
-
-gUnk_08136F60:: @ 08136F60
-	.incbin "data_08132B30/gUnk_08136F60.bin"
-
-gUnk_08136F88:: @ 08136F88
-	.incbin "data_08132B30/gUnk_08136F88.bin"
-
-gUnk_08136FB0:: @ 08136FB0
-	.incbin "data_08132B30/gUnk_08136FB0.bin"
-
-gUnk_08136FD8:: @ 08136FD8
-	.4byte gUnk_08136EC0
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08136EE8
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08136F10
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08136F38
-	.4byte gUnk_08136F60
-	.4byte gUnk_08136F88
-	.4byte gUnk_08136FB0
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_08137018:: @ 08137018
-	.incbin "data_08132B30/gUnk_08137018.bin"
-
-gUnk_08137040:: @ 08137040
-	.incbin "data_08132B30/gUnk_08137040.bin"
-
-gUnk_08137068:: @ 08137068
-	.incbin "data_08132B30/gUnk_08137068.bin"
-
-gUnk_08137090:: @ 08137090
-	.incbin "data_08132B30/gUnk_08137090.bin"
-
-gUnk_081370B8:: @ 081370B8
-	.incbin "data_08132B30/gUnk_081370B8.bin"
-
-gUnk_081370E0:: @ 081370E0
-	.incbin "data_08132B30/gUnk_081370E0.bin"
-
-gUnk_081370F4:: @ 081370F4
-	.incbin "data_08132B30/gUnk_081370F4.bin"
-
-gUnk_0813711C:: @ 0813711C
-	.incbin "data_08132B30/gUnk_0813711C.bin"
-
-gUnk_08137144:: @ 08137144
-	.incbin "data_08132B30/gUnk_08137144.bin"
-
-gUnk_0813716C:: @ 0813716C
-	.incbin "data_08132B30/gUnk_0813716C.bin"
-
-gUnk_08137194:: @ 08137194
-	.incbin "data_08132B30/gUnk_08137194.bin"
-
-gUnk_081371BC:: @ 081371BC
-	.incbin "data_08132B30/gUnk_081371BC.bin"
-
-gUnk_081371E4:: @ 081371E4
-	.incbin "data_08132B30/gUnk_081371E4.bin"
-
-gUnk_0813720C:: @ 0813720C
-	.incbin "data_08132B30/gUnk_0813720C.bin"
-
-gUnk_08137234:: @ 08137234
-	.incbin "data_08132B30/gUnk_08137234.bin"
-
-gUnk_08137248:: @ 08137248
-	.4byte gUnk_08137018
-	.4byte gUnk_08137040
-	.4byte gUnk_08137068
-	.4byte gUnk_08137090
-	.4byte gUnk_081370B8
-	.4byte gUnk_081370E0
-	.4byte gUnk_081370F4
-	.4byte gUnk_0813711C
-	.4byte gUnk_08137144
-	.4byte gUnk_0813716C
-	.4byte gUnk_08137194
-	.4byte gUnk_081371BC
-	.4byte gUnk_081371E4
-	.4byte gUnk_0813720C
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08137234
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_081372A8:: @ 081372A8
-	.incbin "data_08132B30/gUnk_081372A8.bin"
-
-gUnk_0813730C:: @ 0813730C
-	.incbin "data_08132B30/gUnk_0813730C.bin"
-
-gUnk_08137348:: @ 08137348
-	.incbin "data_08132B30/gUnk_08137348.bin"
-
-gUnk_08137384:: @ 08137384
-	.incbin "data_08132B30/gUnk_08137384.bin"
-
-gUnk_081373C0:: @ 081373C0
-	.incbin "data_08132B30/gUnk_081373C0.bin"
-
-gUnk_081373E8:: @ 081373E8
-	.incbin "data_08132B30/gUnk_081373E8.bin"
-
-gUnk_08137410:: @ 08137410
-	.incbin "data_08132B30/gUnk_08137410.bin"
-
-gUnk_0813744C:: @ 0813744C
-	.incbin "data_08132B30/gUnk_0813744C.bin"
-
-gUnk_08137488:: @ 08137488
-	.incbin "data_08132B30/gUnk_08137488.bin"
-
-gUnk_081374B0:: @ 081374B0
-	.incbin "data_08132B30/gUnk_081374B0.bin"
-
-gUnk_081374D8:: @ 081374D8
-	.incbin "data_08132B30/gUnk_081374D8.bin"
-
-gUnk_08137514:: @ 08137514
-	.incbin "data_08132B30/gUnk_08137514.bin"
-
-gUnk_08137550:: @ 08137550
-	.incbin "data_08132B30/gUnk_08137550.bin"
-
-gUnk_0813758C:: @ 0813758C
-	.incbin "data_08132B30/gUnk_0813758C.bin"
-
-gUnk_081375B4:: @ 081375B4
-	.incbin "data_08132B30/gUnk_081375B4.bin"
-
-gUnk_081375DC:: @ 081375DC
-	.incbin "data_08132B30/gUnk_081375DC.bin"
-
-gUnk_08137604:: @ 08137604
-	.incbin "data_08132B30/gUnk_08137604.bin"
-
-gUnk_08137640:: @ 08137640
-	.4byte gUnk_081372A8
-	.4byte gUnk_0813730C
-	.4byte gUnk_08137348
-	.4byte gUnk_08137384
-	.4byte gUnk_081373C0
-	.4byte gUnk_081373E8
-	.4byte gUnk_08137410
-	.4byte gUnk_0813744C
-	.4byte gUnk_08137488
-	.4byte gUnk_081374B0
-	.4byte gUnk_081374D8
-	.4byte gUnk_08137514
-	.4byte gUnk_08137550
-	.4byte gUnk_0813758C
-	.4byte gUnk_081375B4
-	.4byte gUnk_081375DC
-	.4byte gUnk_08137604
-
-gUnk_08137684:: @ 08137684
-	.incbin "data_08132B30/gUnk_08137684.bin"
-
-gUnk_081376AC:: @ 081376AC
-	.incbin "data_08132B30/gUnk_081376AC.bin"
-
-gUnk_081376E8:: @ 081376E8
-	.incbin "data_08132B30/gUnk_081376E8.bin"
-
-gUnk_08137710:: @ 08137710
-	.incbin "data_08132B30/gUnk_08137710.bin"
-
-gUnk_0813774C:: @ 0813774C
-	.incbin "data_08132B30/gUnk_0813774C.bin"
-
-gUnk_08137774:: @ 08137774
-	.4byte gUnk_08137684
-	.4byte gUnk_081376AC
-	.4byte gUnk_081376E8
-	.4byte gUnk_08137710
-	.4byte gUnk_0813774C
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_08137794:: @ 08137794
-	.incbin "data_08132B30/gUnk_08137794.bin"
-
-gUnk_081377A8:: @ 081377A8
-	.incbin "data_08132B30/gUnk_081377A8.bin"
-
-gUnk_081377D0:: @ 081377D0
-	.4byte gUnk_08137794
-	.4byte gUnk_081377A8
+gExitList_VeilFallsTop_Main:: @ 081360A0
+	.include "exit_lists/gExitList_VeilFallsTop_Main.s"
+
+gExitLists_VeilFallsTop:: @ 081360C8
+	.4byte gExitList_VeilFallsTop_Main
+
+gExitList_HouseInteriors2_Stranger:: @ 081360CC
+	.include "exit_lists/gExitList_HouseInteriors2_Stranger.s"
+
+gExitList_HouseInteriors2_WestOracle:: @ 081360F4
+	.include "exit_lists/gExitList_HouseInteriors2_WestOracle.s"
+
+gExitList_HouseInteriors2_2:: @ 0813611C
+	.include "exit_lists/gExitList_HouseInteriors2_2.s"
+
+gExitList_HouseInteriors2_3:: @ 08136144
+	.include "exit_lists/gExitList_HouseInteriors2_3.s"
+
+gExitList_HouseInteriors2_DrLeft:: @ 0813616C
+	.include "exit_lists/gExitList_HouseInteriors2_DrLeft.s"
+
+gExitList_HouseInteriors2_NULL1:: @ 08136194
+	.include "exit_lists/gExitList_HouseInteriors2_NULL1.s"
+
+gExitList_HouseInteriors2_Romio:: @ 081361BC
+	.include "exit_lists/gExitList_HouseInteriors2_Romio.s"
+
+gExitList_HouseInteriors2_Julietta:: @ 081361E4
+	.include "exit_lists/gExitList_HouseInteriors2_Julietta.s"
+
+gExitList_HouseInteriors2_Percy:: @ 0813620C
+	.include "exit_lists/gExitList_HouseInteriors2_Percy.s"
+
+gExitList_HouseInteriors2_EastOracle:: @ 08136234
+	.include "exit_lists/gExitList_HouseInteriors2_EastOracle.s"
+
+gExitList_HouseInteriors2_A:: @ 0813625C
+	.include "exit_lists/gExitList_HouseInteriors2_A.s"
+
+gExitList_HouseInteriors2_B:: @ 08136284
+	.include "exit_lists/gExitList_HouseInteriors2_B.s"
+
+gExitList_HouseInteriors2_Cucco:: @ 081362AC
+	.include "exit_lists/gExitList_HouseInteriors2_Cucco.s"
+
+gExitList_HouseInteriors2_LinksHouseEntrance:: @ 081362D4
+	.include "exit_lists/gExitList_HouseInteriors2_LinksHouseEntrance.s"
+
+gExitList_HouseInteriors2_Dampe:: @ 08136310
+	.include "exit_lists/gExitList_HouseInteriors2_Dampe.s"
+
+gExitList_HouseInteriors2_NULL2:: @ 08136338
+	.include "exit_lists/gExitList_HouseInteriors2_NULL2.s"
+
+gExitList_HouseInteriors2_Stockwell:: @ 0813634C
+	.include "exit_lists/gExitList_HouseInteriors2_Stockwell.s"
+
+gExitList_HouseInteriors2_LinksHouseBedroom:: @ 08136374
+	.include "exit_lists/gExitList_HouseInteriors2_LinksHouseBedroom.s"
+
+gExitLists_HouseInteriors2:: @ 0813639C
+	.4byte gExitList_HouseInteriors2_Stranger
+	.4byte gExitList_HouseInteriors2_WestOracle
+	.4byte gExitList_HouseInteriors2_2
+	.4byte gExitList_HouseInteriors2_3
+	.4byte gExitList_HouseInteriors2_DrLeft
+	.4byte gExitList_HouseInteriors2_NULL1
+	.4byte gExitList_HouseInteriors2_Romio
+	.4byte gExitList_HouseInteriors2_Julietta
+	.4byte gExitList_HouseInteriors2_Percy
+	.4byte gExitList_HouseInteriors2_EastOracle
+	.4byte gExitList_HouseInteriors2_A
+	.4byte gExitList_HouseInteriors2_B
+	.4byte gExitList_HouseInteriors2_Cucco
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_HouseInteriors2_LinksHouseEntrance
+	.4byte gExitList_NoExitList
+	.4byte gExitList_HouseInteriors2_Dampe
+	.4byte gExitList_HouseInteriors2_NULL2
+	.4byte gExitList_HouseInteriors2_Stockwell
+	.4byte gExitList_HouseInteriors2_LinksHouseBedroom
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitList_HouseInteriors4_Carpenter:: @ 0813645C
+	.include "exit_lists/gExitList_HouseInteriors4_Carpenter.s"
+
+gExitList_HouseInteriors4_Swiftblade:: @ 08136484
+	.include "exit_lists/gExitList_HouseInteriors4_Swiftblade.s"
+
+gExitList_HouseInteriors4_RanchHouseWest:: @ 081364AC
+	.include "exit_lists/gExitList_HouseInteriors4_RanchHouseWest.s"
+
+gExitList_HouseInteriors4_RanchHouseEast:: @ 081364D4
+	.include "exit_lists/gExitList_HouseInteriors4_RanchHouseEast.s"
+
+gExitList_HouseInteriors4_FarmHouse:: @ 081364FC
+	.include "exit_lists/gExitList_HouseInteriors4_FarmHouse.s"
+
+gExitList_HouseInteriors4_Mayor:: @ 08136524
+	.include "exit_lists/gExitList_HouseInteriors4_Mayor.s"
+
+gExitLists_HouseInteriors4:: @ 0813654C
+	.4byte gExitList_HouseInteriors4_Carpenter
+	.4byte gExitList_HouseInteriors4_Swiftblade
+	.4byte gExitList_HouseInteriors4_RanchHouseWest
+	.4byte gExitList_HouseInteriors4_RanchHouseEast
+	.4byte gExitList_HouseInteriors4_FarmHouse
+	.4byte gExitList_HouseInteriors4_Mayor
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitList_GreatFairies_Graveyard:: @ 0813658C
+	.include "exit_lists/gExitList_GreatFairies_Graveyard.s"
+
+gExitList_GreatFairies_MinishWoods:: @ 081365B4
+	.include "exit_lists/gExitList_GreatFairies_MinishWoods.s"
+
+gExitList_GreatFairies_MtCrenel:: @ 081365DC
+	.include "exit_lists/gExitList_GreatFairies_MtCrenel.s"
+
+gExitLists_GreatFairies:: @ 08136604
+	.4byte gExitList_GreatFairies_Graveyard
+	.4byte gExitList_GreatFairies_MinishWoods
+	.4byte gExitList_GreatFairies_MtCrenel
+	.4byte gExitList_NoExitList
+
+gExitList_HouseInteriors3_StockwellShop:: @ 08136614
+	.include "exit_lists/gExitList_HouseInteriors3_StockwellShop.s"
+
+gExitList_HouseInteriors3_Cafe:: @ 0813663C
+	.include "exit_lists/gExitList_HouseInteriors3_Cafe.s"
+
+gExitList_HouseInteriors3_RemShoeShop:: @ 08136664
+	.include "exit_lists/gExitList_HouseInteriors3_RemShoeShop.s"
+
+gExitList_HouseInteriors3_Bakery:: @ 0813668C
+	.include "exit_lists/gExitList_HouseInteriors3_Bakery.s"
+
+gExitList_HouseInteriors3_Simon:: @ 081366B4
+	.include "exit_lists/gExitList_HouseInteriors3_Simon.s"
+
+gExitList_HouseInteriors3_FigurineHouse:: @ 081366DC
+	.include "exit_lists/gExitList_HouseInteriors3_FigurineHouse.s"
+
+gExitList_HouseInteriors3_BorlovEntrance:: @ 08136718
+	.include "exit_lists/gExitList_HouseInteriors3_BorlovEntrance.s"
+
+gExitList_HouseInteriors3_Carlov:: @ 08136754
+	.include "exit_lists/gExitList_HouseInteriors3_Carlov.s"
+
+gExitList_HouseInteriors3_Borlov:: @ 0813677C
+	.include "exit_lists/gExitList_HouseInteriors3_Borlov.s"
+
+gExitLists_HouseInteriors3:: @ 081367A4
+	.4byte gExitList_HouseInteriors3_StockwellShop
+	.4byte gExitList_HouseInteriors3_Cafe
+	.4byte gExitList_HouseInteriors3_RemShoeShop
+	.4byte gExitList_HouseInteriors3_Bakery
+	.4byte gExitList_HouseInteriors3_Simon
+	.4byte gExitList_HouseInteriors3_FigurineHouse
+	.4byte gExitList_HouseInteriors3_BorlovEntrance
+	.4byte gExitList_HouseInteriors3_Carlov
+	.4byte gExitList_HouseInteriors3_Borlov
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitList_HouseInteriors1_Mayor:: @ 081367E4
+	.include "exit_lists/gExitList_HouseInteriors1_Mayor.s"
+
+gExitList_HouseInteriors1_PostOffice:: @ 08136820
+	.include "exit_lists/gExitList_HouseInteriors1_PostOffice.s"
+
+gExitList_HouseInteriors1_Library2F:: @ 08136848
+	.include "exit_lists/gExitList_HouseInteriors1_Library2F.s"
+
+gExitList_HouseInteriors1_Library1F:: @ 08136884
+	.include "exit_lists/gExitList_HouseInteriors1_Library1F.s"
+
+gExitList_HouseInteriors1_Inn1F:: @ 081368C0
+	.include "exit_lists/gExitList_HouseInteriors1_Inn1F.s"
+
+gExitList_HouseInteriors1_InnWestRoom:: @ 08136938
+	.include "exit_lists/gExitList_HouseInteriors1_InnWestRoom.s"
+
+gExitList_HouseInteriors1_InnMiddleRoom:: @ 08136960
+	.include "exit_lists/gExitList_HouseInteriors1_InnMiddleRoom.s"
+
+gExitList_HouseInteriors1_InnEastRoom:: @ 08136988
+	.include "exit_lists/gExitList_HouseInteriors1_InnEastRoom.s"
+
+gExitList_HouseInteriors1_InnWest2F:: @ 081369B0
+	.include "exit_lists/gExitList_HouseInteriors1_InnWest2F.s"
+
+gExitList_HouseInteriors1_InnEast2F:: @ 081369D8
+	.include "exit_lists/gExitList_HouseInteriors1_InnEast2F.s"
+
+gExitList_HouseInteriors1_SchoolWest:: @ 08136A14
+	.include "exit_lists/gExitList_HouseInteriors1_SchoolWest.s"
+
+gExitList_HouseInteriors1_SchoolEast:: @ 08136A50
+	.include "exit_lists/gExitList_HouseInteriors1_SchoolEast.s"
+
+gExitLists_HouseInteriors1:: @ 08136A78
+	.4byte gExitList_HouseInteriors1_Mayor
+	.4byte gExitList_HouseInteriors1_PostOffice
+	.4byte gExitList_HouseInteriors1_Library2F
+	.4byte gExitList_HouseInteriors1_Library1F
+	.4byte gExitList_HouseInteriors1_Inn1F
+	.4byte gExitList_HouseInteriors1_InnWestRoom
+	.4byte gExitList_HouseInteriors1_InnMiddleRoom
+	.4byte gExitList_HouseInteriors1_InnEastRoom
+	.4byte gExitList_HouseInteriors1_InnWest2F
+	.4byte gExitList_HouseInteriors1_InnEast2F
+	.4byte gExitList_NoExitList
+	.4byte gExitList_HouseInteriors1_SchoolWest
+	.4byte gExitList_HouseInteriors1_SchoolEast
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitList_TreeInteriors_WitchHut:: @ 08136AF8
+	.include "exit_lists/gExitList_TreeInteriors_WitchHut.s"
+
+gExitList_TreeInteriors_StairsToCarlov:: @ 08136B20
+	.include "exit_lists/gExitList_TreeInteriors_StairsToCarlov.s"
+
+gExitList_TreeInteriors_PercysTreehouse:: @ 08136B5C
+	.include "exit_lists/gExitList_TreeInteriors_PercysTreehouse.s"
+
+gExitList_TreeInteriors_HeartPiece:: @ 08136B84
+	.include "exit_lists/gExitList_TreeInteriors_HeartPiece.s"
+
+gExitList_TreeInteriors_StairsToBladeBrother:: @ 08136BAC
+	.include "exit_lists/gExitList_TreeInteriors_StairsToBladeBrother.s"
+
+gExitList_TreeInteriors_14:: @ 08136BE8
+	.include "exit_lists/gExitList_TreeInteriors_14.s"
+
+gExitList_TreeInteriors_BoomerangNorthwest:: @ 08136C10
+	.include "exit_lists/gExitList_TreeInteriors_BoomerangNorthwest.s"
+
+gExitList_TreeInteriors_BoomerangNortheast:: @ 08136C4C
+	.include "exit_lists/gExitList_TreeInteriors_BoomerangNortheast.s"
+
+gExitList_TreeInteriors_BoomerangSouthwest:: @ 08136C88
+	.include "exit_lists/gExitList_TreeInteriors_BoomerangSouthwest.s"
+
+gExitList_TreeInteriors_BoomerangSoutheast:: @ 08136CC4
+	.include "exit_lists/gExitList_TreeInteriors_BoomerangSoutheast.s"
+
+gExitList_TreeInteriors_HeartPieceSouthwestField:: @ 08136D00
+	.include "exit_lists/gExitList_TreeInteriors_HeartPieceSouthwestField.s"
+
+gExitList_TreeInteriors_StairsToFairyFountain:: @ 08136D28
+	.include "exit_lists/gExitList_TreeInteriors_StairsToFairyFountain.s"
+
+gExitList_TreeInteriors_StairsToWalletFairy:: @ 08136D64
+	.include "exit_lists/gExitList_TreeInteriors_StairsToWalletFairy.s"
+
+gExitList_TreeInteriors_1C:: @ 08136DA0
+	.include "exit_lists/gExitList_TreeInteriors_1C.s"
+
+gExitList_TreeInteriors_StairsToBusinessScrub:: @ 08136DC8
+	.include "exit_lists/gExitList_TreeInteriors_StairsToBusinessScrub.s"
+
+gExitList_TreeInteriors_1E:: @ 08136E04
+	.include "exit_lists/gExitList_TreeInteriors_1E.s"
+
+gExitList_TreeInteriors_1F:: @ 08136E18
+	.include "exit_lists/gExitList_TreeInteriors_1F.s"
+
+gExitLists_TreeInteriors:: @ 08136E40
+	.4byte gExitList_TreeInteriors_WitchHut
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_TreeInteriors_StairsToCarlov
+	.4byte gExitList_TreeInteriors_PercysTreehouse
+	.4byte gExitList_TreeInteriors_HeartPiece
+	.4byte gExitList_TreeInteriors_StairsToBladeBrother
+	.4byte gExitList_TreeInteriors_14
+	.4byte gExitList_TreeInteriors_BoomerangNorthwest
+	.4byte gExitList_TreeInteriors_BoomerangNortheast
+	.4byte gExitList_TreeInteriors_BoomerangSouthwest
+	.4byte gExitList_TreeInteriors_BoomerangSoutheast
+	.4byte gExitList_TreeInteriors_HeartPieceSouthwestField
+	.4byte gExitList_TreeInteriors_StairsToFairyFountain
+	.4byte gExitList_TreeInteriors_StairsToWalletFairy
+	.4byte gExitList_TreeInteriors_1C
+	.4byte gExitList_TreeInteriors_StairsToBusinessScrub
+	.4byte gExitList_TreeInteriors_1E
+	.4byte gExitList_TreeInteriors_1F
+
+gExitList_Dojos_Grayblade:: @ 08136EC0
+	.include "exit_lists/gExitList_Dojos_Grayblade.s"
+
+gExitList_Dojos_Swiftblade:: @ 08136EE8
+	.include "exit_lists/gExitList_Dojos_Swiftblade.s"
+
+gExitList_Dojos_Waveblade:: @ 08136F10
+	.include "exit_lists/gExitList_Dojos_Waveblade.s"
+
+gExitList_Dojos_ToGrimblade:: @ 08136F38
+	.include "exit_lists/gExitList_Dojos_ToGrimblade.s"
+
+gExitList_Dojos_ToSplitblade:: @ 08136F60
+	.include "exit_lists/gExitList_Dojos_ToSplitblade.s"
+
+gExitList_Dojos_ToGreatblade:: @ 08136F88
+	.include "exit_lists/gExitList_Dojos_ToGreatblade.s"
+
+gExitList_Dojos_ToScarblade:: @ 08136FB0
+	.include "exit_lists/gExitList_Dojos_ToScarblade.s"
+
+gExitLists_Dojos:: @ 08136FD8
+	.4byte gExitList_Dojos_Grayblade
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_Dojos_Swiftblade
+	.4byte gExitList_NoExitList
+	.4byte gExitList_Dojos_Waveblade
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_Dojos_ToGrimblade
+	.4byte gExitList_Dojos_ToSplitblade
+	.4byte gExitList_Dojos_ToGreatblade
+	.4byte gExitList_Dojos_ToScarblade
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitList_MinishCracks_LonLonRanchNorth:: @ 08137018
+	.include "exit_lists/gExitList_MinishCracks_LonLonRanchNorth.s"
+
+gExitList_MinishCracks_LakeHyliaEast:: @ 08137040
+	.include "exit_lists/gExitList_MinishCracks_LakeHyliaEast.s"
+
+gExitList_MinishCracks_HyruleCastleGarden:: @ 08137068
+	.include "exit_lists/gExitList_MinishCracks_HyruleCastleGarden.s"
+
+gExitList_MinishCracks_MtCrenel:: @ 08137090
+	.include "exit_lists/gExitList_MinishCracks_MtCrenel.s"
+
+gExitList_MinishCracks_EastHyruleCastle:: @ 081370B8
+	.include "exit_lists/gExitList_MinishCracks_EastHyruleCastle.s"
+
+gExitList_MinishCracks_5:: @ 081370E0
+	.include "exit_lists/gExitList_MinishCracks_5.s"
+
+gExitList_MinishCracks_CastleWildsBowHole:: @ 081370F4
+	.include "exit_lists/gExitList_MinishCracks_CastleWildsBowHole.s"
+
+gExitList_MinishCracks_RuinsEntrance:: @ 0813711C
+	.include "exit_lists/gExitList_MinishCracks_RuinsEntrance.s"
+
+gExitList_MinishCracks_MinishWoodsSouth:: @ 08137144
+	.include "exit_lists/gExitList_MinishCracks_MinishWoodsSouth.s"
+
+gExitList_MinishCracks_CastorWildsNorth:: @ 0813716C
+	.include "exit_lists/gExitList_MinishCracks_CastorWildsNorth.s"
+
+gExitList_MinishCracks_CastorWildsWest:: @ 08137194
+	.include "exit_lists/gExitList_MinishCracks_CastorWildsWest.s"
+
+gExitList_MinishCracks_CastorWildsMiddle:: @ 081371BC
+	.include "exit_lists/gExitList_MinishCracks_CastorWildsMiddle.s"
+
+gExitList_MinishCracks_RuinsTektite:: @ 081371E4
+	.include "exit_lists/gExitList_MinishCracks_RuinsTektite.s"
+
+gExitList_MinishCracks_CastorWildsNextToBow:: @ 0813720C
+	.include "exit_lists/gExitList_MinishCracks_CastorWildsNextToBow.s"
+
+gExitList_MinishCracks_11:: @ 08137234
+	.include "exit_lists/gExitList_MinishCracks_11.s"
+
+gExitLists_MinishCracks:: @ 08137248
+	.4byte gExitList_MinishCracks_LonLonRanchNorth
+	.4byte gExitList_MinishCracks_LakeHyliaEast
+	.4byte gExitList_MinishCracks_HyruleCastleGarden
+	.4byte gExitList_MinishCracks_MtCrenel
+	.4byte gExitList_MinishCracks_EastHyruleCastle
+	.4byte gExitList_MinishCracks_5
+	.4byte gExitList_MinishCracks_CastleWildsBowHole
+	.4byte gExitList_MinishCracks_RuinsEntrance
+	.4byte gExitList_MinishCracks_MinishWoodsSouth
+	.4byte gExitList_MinishCracks_CastorWildsNorth
+	.4byte gExitList_MinishCracks_CastorWildsWest
+	.4byte gExitList_MinishCracks_CastorWildsMiddle
+	.4byte gExitList_MinishCracks_RuinsTektite
+	.4byte gExitList_MinishCracks_CastorWildsNextToBow
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_MinishCracks_11
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitList_CrenelCaves_BlockPushing:: @ 081372A8
+	.include "exit_lists/gExitList_CrenelCaves_BlockPushing.s"
+
+gExitList_CrenelCaves_PillarCave:: @ 0813730C
+	.include "exit_lists/gExitList_CrenelCaves_PillarCave.s"
+
+gExitList_CrenelCaves_BridgeSwitch:: @ 08137348
+	.include "exit_lists/gExitList_CrenelCaves_BridgeSwitch.s"
+
+gExitList_CrenelCaves_ExitToMines:: @ 08137384
+	.include "exit_lists/gExitList_CrenelCaves_ExitToMines.s"
+
+gExitList_CrenelCaves_GripRing:: @ 081373C0
+	.include "exit_lists/gExitList_CrenelCaves_GripRing.s"
+
+gExitList_CrenelCaves_FairyFountain:: @ 081373E8
+	.include "exit_lists/gExitList_CrenelCaves_FairyFountain.s"
+
+gExitList_CrenelCaves_SpinyChuPuzzle:: @ 08137410
+	.include "exit_lists/gExitList_CrenelCaves_SpinyChuPuzzle.s"
+
+gExitList_CrenelCaves_ChuchuPotChest:: @ 0813744C
+	.include "exit_lists/gExitList_CrenelCaves_ChuchuPotChest.s"
+
+gExitList_CrenelCaves_WaterHeartPiece:: @ 08137488
+	.include "exit_lists/gExitList_CrenelCaves_WaterHeartPiece.s"
+
+gExitList_CrenelCaves_RupeeFairyFountain:: @ 081374B0
+	.include "exit_lists/gExitList_CrenelCaves_RupeeFairyFountain.s"
+
+gExitList_CrenelCaves_HelmasaurHallway:: @ 081374D8
+	.include "exit_lists/gExitList_CrenelCaves_HelmasaurHallway.s"
+
+gExitList_CrenelCaves_MushroomKeese:: @ 08137514
+	.include "exit_lists/gExitList_CrenelCaves_MushroomKeese.s"
+
+gExitList_CrenelCaves_LadderToGreenWater:: @ 08137550
+	.include "exit_lists/gExitList_CrenelCaves_LadderToGreenWater.s"
+
+gExitList_CrenelCaves_BombBusinessScrub:: @ 0813758C
+	.include "exit_lists/gExitList_CrenelCaves_BombBusinessScrub.s"
+
+gExitList_CrenelCaves_Hermit:: @ 081375B4
+	.include "exit_lists/gExitList_CrenelCaves_Hermit.s"
+
+gExitList_CrenelCaves_HintScrub:: @ 081375DC
+	.include "exit_lists/gExitList_CrenelCaves_HintScrub.s"
+
+gExitList_CrenelCaves_ToGrayblade:: @ 08137604
+	.include "exit_lists/gExitList_CrenelCaves_ToGrayblade.s"
+
+gExitLists_CrenelCaves:: @ 08137640
+	.4byte gExitList_CrenelCaves_BlockPushing
+	.4byte gExitList_CrenelCaves_PillarCave
+	.4byte gExitList_CrenelCaves_BridgeSwitch
+	.4byte gExitList_CrenelCaves_ExitToMines
+	.4byte gExitList_CrenelCaves_GripRing
+	.4byte gExitList_CrenelCaves_FairyFountain
+	.4byte gExitList_CrenelCaves_SpinyChuPuzzle
+	.4byte gExitList_CrenelCaves_ChuchuPotChest
+	.4byte gExitList_CrenelCaves_WaterHeartPiece
+	.4byte gExitList_CrenelCaves_RupeeFairyFountain
+	.4byte gExitList_CrenelCaves_HelmasaurHallway
+	.4byte gExitList_CrenelCaves_MushroomKeese
+	.4byte gExitList_CrenelCaves_LadderToGreenWater
+	.4byte gExitList_CrenelCaves_BombBusinessScrub
+	.4byte gExitList_CrenelCaves_Hermit
+	.4byte gExitList_CrenelCaves_HintScrub
+	.4byte gExitList_CrenelCaves_ToGrayblade
+
+gExitList_CastorCaves_South:: @ 08137684
+	.include "exit_lists/gExitList_CastorCaves_South.s"
+
+gExitList_CastorCaves_North:: @ 081376AC
+	.include "exit_lists/gExitList_CastorCaves_North.s"
+
+gExitList_CastorCaves_WindRuins:: @ 081376E8
+	.include "exit_lists/gExitList_CastorCaves_WindRuins.s"
+
+gExitList_CastorCaves_Darknut:: @ 08137710
+	.include "exit_lists/gExitList_CastorCaves_Darknut.s"
+
+gExitList_CastorCaves_HeartPiece:: @ 0813774C
+	.include "exit_lists/gExitList_CastorCaves_HeartPiece.s"
+
+gExitLists_CastorCaves:: @ 08137774
+	.4byte gExitList_CastorCaves_South
+	.4byte gExitList_CastorCaves_North
+	.4byte gExitList_CastorCaves_WindRuins
+	.4byte gExitList_CastorCaves_Darknut
+	.4byte gExitList_CastorCaves_HeartPiece
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitList_CastorDarknut_Main:: @ 08137794
+	.include "exit_lists/gExitList_CastorDarknut_Main.s"
+
+gExitList_CastorDarknut_Hall:: @ 081377A8
+	.include "exit_lists/gExitList_CastorDarknut_Hall.s"
+
+gExitLists_CastorDarknut:: @ 081377D0
+	.4byte gExitList_CastorDarknut_Main
+	.4byte gExitList_CastorDarknut_Hall
 	.4byte 00000000
 	.4byte 00000000
 
-gUnk_081377E0:: @ 081377E0
-	.incbin "data_08132B30/gUnk_081377E0.bin"
-
-gUnk_08137808:: @ 08137808
-	.incbin "data_08132B30/gUnk_08137808.bin"
-
-gUnk_08137830:: @ 08137830
-	.incbin "data_08132B30/gUnk_08137830.bin"
-
-gUnk_08137858:: @ 08137858
-	.incbin "data_08132B30/gUnk_08137858.bin"
-
-gUnk_08137880:: @ 08137880
-	.incbin "data_08132B30/gUnk_08137880.bin"
-
-gUnk_081378A8:: @ 081378A8
-	.incbin "data_08132B30/gUnk_081378A8.bin"
-
-gUnk_081378D0:: @ 081378D0
-	.incbin "data_08132B30/gUnk_081378D0.bin"
-
-gUnk_081378F8:: @ 081378F8
-	.incbin "data_08132B30/gUnk_081378F8.bin"
-
-gUnk_08137920:: @ 08137920
-	.incbin "data_08132B30/gUnk_08137920.bin"
-
-gUnk_08137948:: @ 08137948
-	.incbin "data_08132B30/gUnk_08137948.bin"
-
-gUnk_08137970:: @ 08137970
-	.incbin "data_08132B30/gUnk_08137970.bin"
+gExitList_ArmosInteriors_RuinsEntranceNorth:: @ 081377E0
+	.include "exit_lists/gExitList_ArmosInteriors_RuinsEntranceNorth.s"
+
+gExitList_ArmosInteriors_RuinsEntranceSouth:: @ 08137808
+	.include "exit_lists/gExitList_ArmosInteriors_RuinsEntranceSouth.s"
+
+gExitList_ArmosInteriors_RuinsLeft:: @ 08137830
+	.include "exit_lists/gExitList_ArmosInteriors_RuinsLeft.s"
+
+gExitList_ArmosInteriors_RuinsMiddleLeft:: @ 08137858
+	.include "exit_lists/gExitList_ArmosInteriors_RuinsMiddleLeft.s"
+
+gExitList_ArmosInteriors_RuinsMiddleRight:: @ 08137880
+	.include "exit_lists/gExitList_ArmosInteriors_RuinsMiddleRight.s"
+
+gExitList_ArmosInteriors_RuinsRight:: @ 081378A8
+	.include "exit_lists/gExitList_ArmosInteriors_RuinsRight.s"
+
+gExitList_ArmosInteriors_6:: @ 081378D0
+	.include "exit_lists/gExitList_ArmosInteriors_6.s"
+
+gExitList_ArmosInteriors_RuinsGrassPath:: @ 081378F8
+	.include "exit_lists/gExitList_ArmosInteriors_RuinsGrassPath.s"
+
+gExitList_ArmosInteriors_8:: @ 08137920
+	.include "exit_lists/gExitList_ArmosInteriors_8.s"
+
+gExitList_ArmosInteriors_FortressOfWindsLeft:: @ 08137948
+	.include "exit_lists/gExitList_ArmosInteriors_FortressOfWindsLeft.s"
+
+gExitList_ArmosInteriors_FortressOfWindsRight:: @ 08137970
+	.include "exit_lists/gExitList_ArmosInteriors_FortressOfWindsRight.s"
 
-gUnk_08137998:: @ 08137998
-	.4byte gUnk_081377E0
-	.4byte gUnk_08137808
-	.4byte gUnk_08137830
-	.4byte gUnk_08137858
-	.4byte gUnk_08137880
-	.4byte gUnk_081378A8
-	.4byte gUnk_081378D0
-	.4byte gUnk_081378F8
-	.4byte gUnk_08137920
-	.4byte gUnk_08137948
-	.4byte gUnk_08137970
-
-gUnk_081379C4:: @ 081379C4
-	.incbin "data_08132B30/gUnk_081379C4.bin"
+gExitLists_ArmosInteriors:: @ 08137998
+	.4byte gExitList_ArmosInteriors_RuinsEntranceNorth
+	.4byte gExitList_ArmosInteriors_RuinsEntranceSouth
+	.4byte gExitList_ArmosInteriors_RuinsLeft
+	.4byte gExitList_ArmosInteriors_RuinsMiddleLeft
+	.4byte gExitList_ArmosInteriors_RuinsMiddleRight
+	.4byte gExitList_ArmosInteriors_RuinsRight
+	.4byte gExitList_ArmosInteriors_6
+	.4byte gExitList_ArmosInteriors_RuinsGrassPath
+	.4byte gExitList_ArmosInteriors_8
+	.4byte gExitList_ArmosInteriors_FortressOfWindsLeft
+	.4byte gExitList_ArmosInteriors_FortressOfWindsRight
+
+gExitList_TownMinishHoles_MayorsHouse:: @ 081379C4
+	.include "exit_lists/gExitList_TownMinishHoles_MayorsHouse.s"
 
-gUnk_081379EC:: @ 081379EC
-	.incbin "data_08132B30/gUnk_081379EC.bin"
+gExitList_TownMinishHoles_WestOracle:: @ 081379EC
+	.include "exit_lists/gExitList_TownMinishHoles_WestOracle.s"
 
-gUnk_08137A14:: @ 08137A14
-	.incbin "data_08132B30/gUnk_08137A14.bin"
+gExitList_TownMinishHoles_DrLeft:: @ 08137A14
+	.include "exit_lists/gExitList_TownMinishHoles_DrLeft.s"
 
-gUnk_08137A3C:: @ 08137A3C
-	.incbin "data_08132B30/gUnk_08137A3C.bin"
+gExitList_TownMinishHoles_Carpenter:: @ 08137A3C
+	.include "exit_lists/gExitList_TownMinishHoles_Carpenter.s"
 
-gUnk_08137A64:: @ 08137A64
-	.incbin "data_08132B30/gUnk_08137A64.bin"
+gExitList_TownMinishHoles_Cafe:: @ 08137A64
+	.include "exit_lists/gExitList_TownMinishHoles_Cafe.s"
 
-gUnk_08137A8C:: @ 08137A8C
-	.incbin "data_08132B30/gUnk_08137A8C.bin"
+gExitList_TownMinishHoles_LibraryBookshelf:: @ 08137A8C
+	.include "exit_lists/gExitList_TownMinishHoles_LibraryBookshelf.s"
 
-gUnk_08137ADC:: @ 08137ADC
-	.incbin "data_08132B30/gUnk_08137ADC.bin"
+gExitList_TownMinishHoles_LibrariBookHouse:: @ 08137ADC
+	.include "exit_lists/gExitList_TownMinishHoles_LibrariBookHouse.s"
 
-gUnk_08137B04:: @ 08137B04
-	.incbin "data_08132B30/gUnk_08137B04.bin"
+gExitList_TownMinishHoles_RemShoeShop:: @ 08137B04
+	.include "exit_lists/gExitList_TownMinishHoles_RemShoeShop.s"
 
-gUnk_08137B2C:: @ 08137B2C
-	.4byte gUnk_081379C4
-	.4byte gUnk_081379EC
-	.4byte gUnk_08137A14
-	.4byte gUnk_08137A3C
-	.4byte gUnk_08137A64
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08137A8C
-	.4byte gUnk_08137ADC
-	.4byte gUnk_08137B04
-	.4byte gExitLists_NoExitList
+gExitLists_TownMinishHoles:: @ 08137B2C
+	.4byte gExitList_TownMinishHoles_MayorsHouse
+	.4byte gExitList_TownMinishHoles_WestOracle
+	.4byte gExitList_TownMinishHoles_DrLeft
+	.4byte gExitList_TownMinishHoles_Carpenter
+	.4byte gExitList_TownMinishHoles_Cafe
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_TownMinishHoles_LibraryBookshelf
+	.4byte gExitList_TownMinishHoles_LibrariBookHouse
+	.4byte gExitList_TownMinishHoles_RemShoeShop
+	.4byte gExitList_NoExitList
 
-gUnk_08137B7C:: @ 08137B7C
-	.incbin "data_08132B30/gUnk_08137B7C.bin"
+gExitList_MinishRafters_Cafe:: @ 08137B7C
+	.include "exit_lists/gExitList_MinishRafters_Cafe.s"
 
-gUnk_08137BB8:: @ 08137BB8
-	.incbin "data_08132B30/gUnk_08137BB8.bin"
+gExitList_MinishRafters_Stockwell:: @ 08137BB8
+	.include "exit_lists/gExitList_MinishRafters_Stockwell.s"
 
-gUnk_08137BF4:: @ 08137BF4
-	.incbin "data_08132B30/gUnk_08137BF4.bin"
+gExitList_MinishRafters_DrLeft:: @ 08137BF4
+	.include "exit_lists/gExitList_MinishRafters_DrLeft.s"
 
-gUnk_08137C1C:: @ 08137C1C
-	.incbin "data_08132B30/gUnk_08137C1C.bin"
+gExitList_MinishRafters_Bakery:: @ 08137C1C
+	.include "exit_lists/gExitList_MinishRafters_Bakery.s"
 
-gUnk_08137C58:: @ 08137C58
-	.4byte gUnk_08137B7C
-	.4byte gUnk_08137BB8
-	.4byte gUnk_08137BF4
-	.4byte gUnk_08137C1C
+gExitLists_MinishRafters:: @ 08137C58
+	.4byte gExitList_MinishRafters_Cafe
+	.4byte gExitList_MinishRafters_Stockwell
+	.4byte gExitList_MinishRafters_DrLeft
+	.4byte gExitList_MinishRafters_Bakery
 
-gUnk_08137C68:: @ 08137C68
-	.incbin "data_08132B30/gUnk_08137C68.bin"
+gExitList_GoronCave_StairsToCave:: @ 08137C68
+	.include "exit_lists/gExitList_GoronCave_StairsToCave.s"
 
-gUnk_08137CA4:: @ 08137CA4
-	.incbin "data_08132B30/gUnk_08137CA4.bin"
+gExitList_GoronCave_Main:: @ 08137CA4
+	.include "exit_lists/gExitList_GoronCave_Main.s"
 
-gUnk_08137CCC:: @ 08137CCC
-	.4byte gUnk_08137C68
-	.4byte gUnk_08137CA4
+gExitLists_GoronCave:: @ 08137CCC
+	.4byte gExitList_GoronCave_StairsToCave
+	.4byte gExitList_GoronCave_Main
 
-gUnk_08137CD4:: @ 08137CD4
-	.incbin "data_08132B30/gUnk_08137CD4.bin"
+gExitList_WindTribeTower_Entrance:: @ 08137CD4
+	.include "exit_lists/gExitList_WindTribeTower_Entrance.s"
 
-gUnk_08137D10:: @ 08137D10
-	.incbin "data_08132B30/gUnk_08137D10.bin"
+gExitList_WindTribeTower_Floor2:: @ 08137D10
+	.include "exit_lists/gExitList_WindTribeTower_Floor2.s"
 
-gUnk_08137D4C:: @ 08137D4C
-	.incbin "data_08132B30/gUnk_08137D4C.bin"
+gExitList_WindTribeTower_Floor3:: @ 08137D4C
+	.include "exit_lists/gExitList_WindTribeTower_Floor3.s"
 
-gUnk_08137D88:: @ 08137D88
-	.incbin "data_08132B30/gUnk_08137D88.bin"
+gExitList_WindTribeTower_Floor4:: @ 08137D88
+	.include "exit_lists/gExitList_WindTribeTower_Floor4.s"
 
-gUnk_08137DC4:: @ 08137DC4
-	.4byte gUnk_08137CD4
-	.4byte gUnk_08137D10
-	.4byte gUnk_08137D4C
-	.4byte gUnk_08137D88
+gExitLists_WindTribeTower:: @ 08137DC4
+	.4byte gExitList_WindTribeTower_Entrance
+	.4byte gExitList_WindTribeTower_Floor2
+	.4byte gExitList_WindTribeTower_Floor3
+	.4byte gExitList_WindTribeTower_Floor4
 
-gUnk_08137DD4:: @ 08137DD4
-	.incbin "data_08132B30/gUnk_08137DD4.bin"
+gExitList_WindTribeTowerRoof_Main:: @ 08137DD4
+	.include "exit_lists/gExitList_WindTribeTowerRoof_Main.s"
 
-gUnk_08137DFC:: @ 08137DFC
-	.4byte gUnk_08137DD4
+gExitLists_WindTribeTowerRoof:: @ 08137DFC
+	.4byte gExitList_WindTribeTowerRoof_Main
 
-gUnk_08137E00:: @ 08137E00
-	.incbin "data_08132B30/gUnk_08137E00.bin"
+gExitList_Caves_Boomerang:: @ 08137E00
+	.include "exit_lists/gExitList_Caves_Boomerang.s"
 
-gUnk_08137E78:: @ 08137E78
-	.incbin "data_08132B30/gUnk_08137E78.bin"
+gExitList_Caves_ToGraveyard:: @ 08137E78
+	.include "exit_lists/gExitList_Caves_ToGraveyard.s"
 
-gUnk_08137EDC:: @ 08137EDC
-	.incbin "data_08132B30/gUnk_08137EDC.bin"
+gExitList_Caves_2:: @ 08137EDC
+	.include "exit_lists/gExitList_Caves_2.s"
 
-gUnk_08137F04:: @ 08137F04
-	.incbin "data_08132B30/gUnk_08137F04.bin"
+gExitList_Caves_3:: @ 08137F04
+	.include "exit_lists/gExitList_Caves_3.s"
 
-gUnk_08137F18:: @ 08137F18
-	.incbin "data_08132B30/gUnk_08137F18.bin"
+gExitList_Caves_4:: @ 08137F18
+	.include "exit_lists/gExitList_Caves_4.s"
 
-gUnk_08137F2C:: @ 08137F2C
-	.incbin "data_08132B30/gUnk_08137F2C.bin"
+gExitList_Caves_5:: @ 08137F2C
+	.include "exit_lists/gExitList_Caves_5.s"
 
-gUnk_08137F40:: @ 08137F40
-	.incbin "data_08132B30/gUnk_08137F40.bin"
+gExitList_Caves_KeeseChest:: @ 08137F40
+	.include "exit_lists/gExitList_Caves_KeeseChest.s"
 
-gUnk_08137F68:: @ 08137F68
-	.incbin "data_08132B30/gUnk_08137F68.bin"
+gExitList_Caves_FairyFountainTrilbyHighlands:: @ 08137F68
+	.include "exit_lists/gExitList_Caves_FairyFountainTrilbyHighlands.s"
 
-gUnk_08137F90:: @ 08137F90
-	.incbin "data_08132B30/gUnk_08137F90.bin"
+gExitList_Caves_FairyFountainLinksHouse:: @ 08137F90
+	.include "exit_lists/gExitList_Caves_FairyFountainLinksHouse.s"
 
-gUnk_08137FB8:: @ 08137FB8
-	.incbin "data_08132B30/gUnk_08137FB8.bin"
+gExitList_Caves_A:: @ 08137FB8
+	.include "exit_lists/gExitList_Caves_A.s"
 
-gUnk_08137FCC:: @ 08137FCC
-	.incbin "data_08132B30/gUnk_08137FCC.bin"
+gExitList_Caves_HyruleTownWaterfall:: @ 08137FCC
+	.include "exit_lists/gExitList_Caves_HyruleTownWaterfall.s"
 
-gUnk_08137FF4:: @ 08137FF4
-	.incbin "data_08132B30/gUnk_08137FF4.bin"
+gExitList_Caves_LonLonRanch:: @ 08137FF4
+	.include "exit_lists/gExitList_Caves_LonLonRanch.s"
 
-gUnk_08138030:: @ 08138030
-	.incbin "data_08132B30/gUnk_08138030.bin"
+gExitList_Caves_TrilbyHighlands:: @ 08138030
+	.include "exit_lists/gExitList_Caves_TrilbyHighlands.s"
 
-gUnk_0813806C:: @ 0813806C
-	.incbin "data_08132B30/gUnk_0813806C.bin"
+gExitList_Caves_LonLonRanchWallet:: @ 0813806C
+	.include "exit_lists/gExitList_Caves_LonLonRanchWallet.s"
 
-gUnk_08138094:: @ 08138094
-	.incbin "data_08132B30/gUnk_08138094.bin"
+gExitList_Caves_RupeeLinksHouse:: @ 08138094
+	.include "exit_lists/gExitList_Caves_RupeeLinksHouse.s"
 
-gUnk_081380BC:: @ 081380BC
-	.incbin "data_08132B30/gUnk_081380BC.bin"
+gExitList_Caves_RupeeTrilbyHighlands:: @ 081380BC
+	.include "exit_lists/gExitList_Caves_RupeeTrilbyHighlands.s"
 
-gUnk_081380E4:: @ 081380E4
-	.incbin "data_08132B30/gUnk_081380E4.bin"
+gExitList_Caves_FairyFountainMoleMitts:: @ 081380E4
+	.include "exit_lists/gExitList_Caves_FairyFountainMoleMitts.s"
 
-gUnk_0813810C:: @ 0813810C
-	.incbin "data_08132B30/gUnk_0813810C.bin"
+gExitList_Caves_KeeseChestSoutheastHyrule:: @ 0813810C
+	.include "exit_lists/gExitList_Caves_KeeseChestSoutheastHyrule.s"
 
-gUnk_08138134:: @ 08138134
-	.incbin "data_08132B30/gUnk_08138134.bin"
+gExitList_Caves_BottleBusinessScrub:: @ 08138134
+	.include "exit_lists/gExitList_Caves_BottleBusinessScrub.s"
 
-gUnk_08138148:: @ 08138148
-	.incbin "data_08132B30/gUnk_08138148.bin"
+gExitList_Caves_HeartPieceHallway:: @ 08138148
+	.include "exit_lists/gExitList_Caves_HeartPieceHallway.s"
 
-gUnk_08138184:: @ 08138184
-	.incbin "data_08132B30/gUnk_08138184.bin"
+gExitList_Caves_FairyFountainBoomerang:: @ 08138184
+	.include "exit_lists/gExitList_Caves_FairyFountainBoomerang.s"
 
-gUnk_081381AC:: @ 081381AC
-	.incbin "data_08132B30/gUnk_081381AC.bin"
+gExitList_Caves_KinstoneBusinessScrub:: @ 081381AC
+	.include "exit_lists/gExitList_Caves_KinstoneBusinessScrub.s"
 
-gUnk_081381D4:: @ 081381D4
-	.4byte gUnk_08137E00
-	.4byte gUnk_08137E78
-	.4byte gUnk_08137EDC
-	.4byte gUnk_08137F04
-	.4byte gUnk_08137F18
-	.4byte gUnk_08137F2C
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08137F40
-	.4byte gUnk_08137F68
-	.4byte gUnk_08137F90
-	.4byte gUnk_08137FB8
-	.4byte gUnk_08137FCC
-	.4byte gUnk_08137FF4
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08138030
-	.4byte gUnk_0813806C
-	.4byte gUnk_08138094
-	.4byte gUnk_081380BC
-	.4byte gUnk_081380E4
-	.4byte gUnk_0813810C
-	.4byte gUnk_08138134
-	.4byte gUnk_08138148
-	.4byte gUnk_08138184
-	.4byte gUnk_081381AC
+gExitLists_Caves:: @ 081381D4
+	.4byte gExitList_Caves_Boomerang
+	.4byte gExitList_Caves_ToGraveyard
+	.4byte gExitList_Caves_2
+	.4byte gExitList_Caves_3
+	.4byte gExitList_Caves_4
+	.4byte gExitList_Caves_5
+	.4byte gExitList_NoExitList
+	.4byte gExitList_Caves_KeeseChest
+	.4byte gExitList_Caves_FairyFountainTrilbyHighlands
+	.4byte gExitList_Caves_FairyFountainLinksHouse
+	.4byte gExitList_Caves_A
+	.4byte gExitList_Caves_HyruleTownWaterfall
+	.4byte gExitList_Caves_LonLonRanch
+	.4byte gExitList_NoExitList
+	.4byte gExitList_Caves_TrilbyHighlands
+	.4byte gExitList_Caves_LonLonRanchWallet
+	.4byte gExitList_Caves_RupeeLinksHouse
+	.4byte gExitList_Caves_RupeeTrilbyHighlands
+	.4byte gExitList_Caves_FairyFountainMoleMitts
+	.4byte gExitList_Caves_KeeseChestSoutheastHyrule
+	.4byte gExitList_Caves_BottleBusinessScrub
+	.4byte gExitList_Caves_HeartPieceHallway
+	.4byte gExitList_Caves_FairyFountainBoomerang
+	.4byte gExitList_Caves_KinstoneBusinessScrub
 
-gUnk_08138234:: @ 08138234
-	.incbin "data_08132B30/gUnk_08138234.bin"
+gExitList_VeilFallsCaves_Hallway2F:: @ 08138234
+	.include "exit_lists/gExitList_VeilFallsCaves_Hallway2F.s"
 
-gUnk_08138284:: @ 08138284
-	.incbin "data_08132B30/gUnk_08138284.bin"
+gExitList_VeilFallsCaves_Hallway1F:: @ 08138284
+	.include "exit_lists/gExitList_VeilFallsCaves_Hallway1F.s"
 
-gUnk_081382E8:: @ 081382E8
-	.incbin "data_08132B30/gUnk_081382E8.bin"
+gExitList_VeilFallsCaves_Entrance:: @ 081382E8
+	.include "exit_lists/gExitList_VeilFallsCaves_Entrance.s"
 
-gUnk_08138324:: @ 08138324
-	.incbin "data_08132B30/gUnk_08138324.bin"
+gExitList_VeilFallsCaves_Exit:: @ 08138324
+	.include "exit_lists/gExitList_VeilFallsCaves_Exit.s"
 
-gUnk_08138360:: @ 08138360
-	.incbin "data_08132B30/gUnk_08138360.bin"
+gExitList_VeilFallsCaves_SecretChest:: @ 08138360
+	.include "exit_lists/gExitList_VeilFallsCaves_SecretChest.s"
 
-gUnk_08138388:: @ 08138388
-	.incbin "data_08132B30/gUnk_08138388.bin"
+gExitList_VeilFallsCaves_SecretStaircases:: @ 08138388
+	.include "exit_lists/gExitList_VeilFallsCaves_SecretStaircases.s"
 
-gUnk_081383C4:: @ 081383C4
-	.incbin "data_08132B30/gUnk_081383C4.bin"
+gExitList_VeilFallsCaves_BlockPuzzle:: @ 081383C4
+	.include "exit_lists/gExitList_VeilFallsCaves_BlockPuzzle.s"
 
-gUnk_08138400:: @ 08138400
-	.incbin "data_08132B30/gUnk_08138400.bin"
+gExitList_VeilFallsCaves_RupeePath:: @ 08138400
+	.include "exit_lists/gExitList_VeilFallsCaves_RupeePath.s"
 
-gUnk_0813843C:: @ 0813843C
-	.incbin "data_08132B30/gUnk_0813843C.bin"
+gExitList_VeilFallsCaves_HeartPiece:: @ 0813843C
+	.include "exit_lists/gExitList_VeilFallsCaves_HeartPiece.s"
 
-gUnk_08138464:: @ 08138464
-	.4byte gUnk_08138234
-	.4byte gUnk_08138284
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_081382E8
-	.4byte gUnk_08138324
-	.4byte gUnk_08138360
-	.4byte gUnk_08138388
-	.4byte gUnk_081383C4
-	.4byte gUnk_08138400
-	.4byte gUnk_0813843C
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_081384A4:: @ 081384A4
-	.incbin "data_08132B30/gUnk_081384A4.bin"
-
-gUnk_081384CC:: @ 081384CC
-	.incbin "data_08132B30/gUnk_081384CC.bin"
-
-gUnk_081384F4:: @ 081384F4
-	.4byte gUnk_081384A4
-	.4byte gUnk_081384CC
-
-gUnk_081384FC:: @ 081384FC
-	.incbin "data_08132B30/gUnk_081384FC.bin"
-
-gUnk_08138524:: @ 08138524
-	.incbin "data_08132B30/gUnk_08138524.bin"
-
-gUnk_0813854C:: @ 0813854C
-	.incbin "data_08132B30/gUnk_0813854C.bin"
-
-gUnk_08138574:: @ 08138574
-	.incbin "data_08132B30/gUnk_08138574.bin"
-
-gUnk_0813859C:: @ 0813859C
-	.incbin "data_08132B30/gUnk_0813859C.bin"
-
-gUnk_081385C4:: @ 081385C4
-	.incbin "data_08132B30/gUnk_081385C4.bin"
-
-gUnk_081385EC:: @ 081385EC
-	.incbin "data_08132B30/gUnk_081385EC.bin"
-
-gUnk_08138628:: @ 08138628
-	.incbin "data_08132B30/gUnk_08138628.bin"
-
-gUnk_08138678:: @ 08138678
-	.4byte gUnk_081384FC
-	.4byte gUnk_08138524
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_0813854C
-	.4byte gUnk_08138574
-	.4byte gUnk_0813859C
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_081385C4
-	.4byte gUnk_081385EC
-	.4byte gUnk_08138628
-
-gUnk_081386A0:: @ 081386A0
-	.incbin "data_08132B30/gUnk_081386A0.bin"
-
-gUnk_081386C8:: @ 081386C8
-	.incbin "data_08132B30/gUnk_081386C8.bin"
-
-gUnk_081386F0:: @ 081386F0
-	.4byte gUnk_081386A0
-	.4byte gUnk_081386C8
-
-gUnk_081386F8:: @ 081386F8
-	.incbin "data_08132B30/gUnk_081386F8.bin"
-
-gUnk_08138720:: @ 08138720
-	.incbin "data_08132B30/gUnk_08138720.bin"
-
-gUnk_08138748:: @ 08138748
-	.4byte gUnk_081386F8
-	.4byte gUnk_08138720
-
-gUnk_08138750:: @ 08138750
-	.incbin "data_08132B30/gUnk_08138750.bin"
-
-gUnk_081387B4:: @ 081387B4
-	.incbin "data_08132B30/gUnk_081387B4.bin"
-
-gUnk_081387F0:: @ 081387F0
-	.4byte gUnk_08138750
-	.4byte gUnk_081387B4
-
-gUnk_081387F8:: @ 081387F8
-	.incbin "data_08132B30/gUnk_081387F8.bin"
-
-gUnk_08138820:: @ 08138820
-	.incbin "data_08132B30/gUnk_08138820.bin"
-
-gUnk_08138848:: @ 08138848
-	.4byte gUnk_081387F8
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08138820
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_081388A8:: @ 081388A8
-	.incbin "data_08132B30/gUnk_081388A8.bin"
-
-gUnk_081388D0:: @ 081388D0
-	.incbin "data_08132B30/gUnk_081388D0.bin"
-
-gUnk_081388F8:: @ 081388F8
-	.4byte gUnk_081388A8
-	.4byte gUnk_081388D0
-
-gUnk_08138900:: @ 08138900
-	.incbin "data_08132B30/gUnk_08138900.bin"
-
-gUnk_08138928:: @ 08138928
-	.incbin "data_08132B30/gUnk_08138928.bin"
-
-gUnk_08138950:: @ 08138950
-	.4byte gUnk_08138900
-	.4byte gUnk_08138928
-
-gUnk_08138958:: @ 08138958
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_0813897C:: @ 0813897C
-.ifdef EU
-	.incbin "data_08132B30/gUnk_0813897C_EU.bin"
-.else
-	.incbin "data_08132B30/gUnk_0813897C_1_USA-JP-DEMO_USA-DEMO_JP.bin"
-.endif
-
-gUnk_081389A4:: @ 081389A4
-.ifdef EU
-	.incbin "data_08132B30/gUnk_081389A4_EU.bin"
-.else
-	.incbin "data_08132B30/gUnk_081389A4_1_USA-JP-DEMO_USA-DEMO_JP.bin"
-.endif
-
-gUnk_081389B8:: @ 081389B8
-.ifdef EU
-	.incbin "data_08132B30/gUnk_081389B8_EU.bin"
-.else
-	.incbin "data_08132B30/gUnk_081389B8_1_USA-JP-DEMO_USA-DEMO_JP.bin"
-.endif
-
-gUnk_081389CC:: @ 081389CC
-.ifdef EU
-	.incbin "data_08132B30/gUnk_081389CC_EU.bin"
-.else
-	.incbin "data_08132B30/gUnk_081389CC_1_USA-JP-DEMO_USA-DEMO_JP.bin"
-.endif	
-
-gUnk_081389E0:: @ 081389E0
-.ifdef EU
-	.incbin "data_08132B30/gUnk_081389E0_EU.bin"
-.else
-	.incbin "data_08132B30/gUnk_081389E0_1_USA-JP-DEMO_USA-DEMO_JP.bin"
-.endif
-
-gUnk_081389F4:: @ 081389F4
-.ifdef EU
-	.incbin "data_08132B30/gUnk_081389F4_EU.bin"
-.else
-	.incbin "data_08132B30/gUnk_081389F4_1_USA-JP-DEMO_USA-DEMO_JP.bin"
-.endif
-
-gUnk_08138A58:: @ 08138A58
-	.incbin "data_08132B30/gUnk_08138A58.bin"
-
-gUnk_08138AA8:: @ 08138AA8
-	.incbin "data_08132B30/gUnk_08138AA8.bin"
-
-gUnk_08138AD0:: @ 08138AD0
-	.incbin "data_08132B30/gUnk_08138AD0.bin"
-
-gUnk_08138AF8:: @ 08138AF8
-	.incbin "data_08132B30/gUnk_08138AF8.bin"
-
-gUnk_08138B48:: @ 08138B48
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_081389A4
-	.4byte gUnk_0813897C
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_081389B8
-	.4byte gUnk_081389F4
-	.4byte gUnk_081389CC
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_081389E0
-	.4byte gUnk_08138A58
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08138AA8
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08138AF8
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_08138BCC:: @ 08138BCC
-	.4byte gUnk_08138AD0
-
-gUnk_08138BD0:: @ 08138BD0
-	.incbin "data_08132B30/gUnk_08138BD0.bin"
-
-gUnk_08138C34:: @ 08138C34
-	.4byte gUnk_08138BD0
-
-gUnk_08138C38:: @ 08138C38
-	.incbin "data_08132B30/gUnk_08138C38.bin"
-
-gUnk_08138C60:: @ 08138C60
-	.incbin "data_08132B30/gUnk_08138C60.bin"
-
-gUnk_08138C88:: @ 08138C88
-	.incbin "data_08132B30/gUnk_08138C88.bin"
-
-gUnk_08138CB0:: @ 08138CB0
-	.incbin "data_08132B30/gUnk_08138CB0.bin"
-
-gUnk_08138CD8:: @ 08138CD8
-	.incbin "data_08132B30/gUnk_08138CD8.bin"
-
-gUnk_08138D00:: @ 08138D00
-	.incbin "data_08132B30/gUnk_08138D00.bin"
-
-gUnk_08138D28:: @ 08138D28
-	.incbin "data_08132B30/gUnk_08138D28.bin"
-
-gUnk_08138D50:: @ 08138D50
-	.4byte gUnk_08138C38
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08138C60
-	.4byte gUnk_08138C88
-	.4byte gUnk_08138CB0
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08138CD8
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08138D00
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08138D28
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_08138DD4:: @ 08138DD4
-	.incbin "data_08132B30/gUnk_08138DD4.bin"
-
-gUnk_08138DFC:: @ 08138DFC
-	.incbin "data_08132B30/gUnk_08138DFC.bin"
-
-gUnk_08138E38:: @ 08138E38
-	.incbin "data_08132B30/gUnk_08138E38.bin"
-
-gUnk_08138E60:: @ 08138E60
-	.incbin "data_08132B30/gUnk_08138E60.bin"
-
-gUnk_08138E9C:: @ 08138E9C
-	.incbin "data_08132B30/gUnk_08138E9C.bin"
-
-gUnk_08138EC4:: @ 08138EC4
-	.incbin "data_08132B30/gUnk_08138EC4.bin"
-
-gUnk_08138EEC:: @ 08138EEC
-	.incbin "data_08132B30/gUnk_08138EEC.bin"
-
-gUnk_08138F14:: @ 08138F14
-	.incbin "data_08132B30/gUnk_08138F14.bin"
-
-gUnk_08138F50:: @ 08138F50
-	.incbin "data_08132B30/gUnk_08138F50.bin"
-
-gUnk_08138F78:: @ 08138F78
-	.incbin "data_08132B30/gUnk_08138F78.bin"
-
-gUnk_08138FA0:: @ 08138FA0
-	.incbin "data_08132B30/gUnk_08138FA0.bin"
-
-gUnk_08138FC8:: @ 08138FC8
-	.incbin "data_08132B30/gUnk_08138FC8.bin"
-
-gUnk_08139004:: @ 08139004
-	.incbin "data_08132B30/gUnk_08139004.bin"
-
-gUnk_08139040:: @ 08139040
-	.incbin "data_08132B30/gUnk_08139040.bin"
-
-gUnk_0813907C:: @ 0813907C
-	.incbin "data_08132B30/gUnk_0813907C.bin"
-
-gUnk_081390B8:: @ 081390B8
-	.incbin "data_08132B30/gUnk_081390B8.bin"
-
-gUnk_081390E0:: @ 081390E0
-	.incbin "data_08132B30/gUnk_081390E0.bin"
-
-gUnk_08139108:: @ 08139108
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08138DD4
-	.4byte gUnk_08138DFC
-	.4byte gUnk_08138E38
-	.4byte gUnk_08138E60
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08138E9C
-	.4byte gUnk_08138EC4
-	.4byte gUnk_08138EEC
-	.4byte gUnk_08138F14
-	.4byte gUnk_08138F50
-	.4byte gUnk_08138F78
-	.4byte gUnk_08138FA0
-	.4byte gUnk_08138FC8
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139004
-	.4byte gUnk_08139040
-	.4byte gUnk_0813907C
-	.4byte gUnk_081390B8
-	.4byte gUnk_081390E0
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_081391A8:: @ 081391A8
-	.incbin "data_08132B30/gUnk_081391A8.bin"
-
-gUnk_081391D0:: @ 081391D0
-	.4byte gUnk_081391A8
-
-gUnk_081391D4:: @ 081391D4
-	.incbin "data_08132B30/gUnk_081391D4.bin"
-
-gUnk_081391FC:: @ 081391FC
-	.4byte gUnk_081391D4
-	.4byte gUnk_081391D4
-
-gUnk_08139204:: @ 08139204
-	.incbin "data_08132B30/gUnk_08139204.bin"
-
-gUnk_0813922C:: @ 0813922C
-	.incbin "data_08132B30/gUnk_0813922C.bin"
-
-gUnk_08139254:: @ 08139254
-	.incbin "data_08132B30/gUnk_08139254.bin"
-
-gUnk_08139290:: @ 08139290
-	.incbin "data_08132B30/gUnk_08139290.bin"
-
-gUnk_081392B8:: @ 081392B8
-	.incbin "data_08132B30/gUnk_081392B8.bin"
-
-gUnk_081392E0:: @ 081392E0
-	.incbin "data_08132B30/gUnk_081392E0.bin"
-
-gUnk_08139308:: @ 08139308
-	.incbin "data_08132B30/gUnk_08139308.bin"
-
-gUnk_08139330:: @ 08139330
-	.incbin "data_08132B30/gUnk_08139330.bin"
-
-gUnk_0813936C:: @ 0813936C
-	.incbin "data_08132B30/gUnk_0813936C.bin"
-
-gUnk_08139394:: @ 08139394
-	.incbin "data_08132B30/gUnk_08139394.bin"
-
-gUnk_081393BC:: @ 081393BC
-	.incbin "data_08132B30/gUnk_081393BC.bin"
-
-gUnk_08139434:: @ 08139434
-	.incbin "data_08132B30/gUnk_08139434.bin"
-
-gUnk_0813945C:: @ 0813945C
-	.incbin "data_08132B30/gUnk_0813945C.bin"
-
-gUnk_08139484:: @ 08139484
-	.incbin "data_08132B30/gUnk_08139484.bin"
-
-gUnk_081394AC:: @ 081394AC
-	.incbin "data_08132B30/gUnk_081394AC.bin"
-
-gUnk_081394D4:: @ 081394D4
-	.incbin "data_08132B30/gUnk_081394D4.bin"
-
-gUnk_081394FC:: @ 081394FC
-	.incbin "data_08132B30/gUnk_081394FC.bin"
-
-gUnk_08139538:: @ 08139538
-	.incbin "data_08132B30/gUnk_08139538.bin"
-
-gUnk_08139560:: @ 08139560
-	.incbin "data_08132B30/gUnk_08139560.bin"
-
-gUnk_08139588:: @ 08139588
-	.incbin "data_08132B30/gUnk_08139588.bin"
-
-gUnk_081395B0:: @ 081395B0
-	.incbin "data_08132B30/gUnk_081395B0.bin"
-
-gUnk_081395D8:: @ 081395D8
-	.4byte gUnk_08139204
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_0813922C
-	.4byte gUnk_0813936C
-	.4byte gUnk_08139484
-	.4byte gUnk_081394AC
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139394
-	.4byte gUnk_081393BC
-	.4byte gUnk_08139434
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139254
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_081394D4
-	.4byte gUnk_0813945C
-	.4byte gUnk_081394FC
-	.4byte gUnk_08139290
-	.4byte gUnk_081392B8
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_081392E0
-	.4byte gUnk_08139308
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139538
-	.4byte gUnk_08139560
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139330
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139588
-	.4byte gUnk_081395B0
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-
-gUnk_081396D8:: @ 081396D8
-	.incbin "data_08132B30/gUnk_081396D8.bin"
-
-gUnk_08139714:: @ 08139714
-	.4byte gUnk_081396D8
-
-gUnk_08139718:: @ 08139718
-	.incbin "data_08132B30/gUnk_08139718.bin"
-
-gUnk_0813972C:: @ 0813972C
-	.incbin "data_08132B30/gUnk_0813972C.bin"
-
-gUnk_08139754:: @ 08139754
-	.incbin "data_08132B30/gUnk_08139754.bin"
-
-gUnk_08139790:: @ 08139790
-	.incbin "data_08132B30/gUnk_08139790.bin"
-
-gUnk_081397B8:: @ 081397B8
-	.incbin "data_08132B30/gUnk_081397B8.bin"
-
-gUnk_081397E0:: @ 081397E0
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139718
-	.4byte gUnk_0813972C
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139754
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139790
-	.4byte gUnk_081397B8
-
-gUnk_08139804:: @ 08139804
-	.incbin "data_08132B30/gUnk_08139804.bin"
-
-gUnk_0813982C:: @ 0813982C
-	.incbin "data_08132B30/gUnk_0813982C.bin"
-
-gUnk_08139854:: @ 08139854
-	.incbin "data_08132B30/gUnk_08139854.bin"
-
-gUnk_0813987C:: @ 0813987C
-	.incbin "data_08132B30/gUnk_0813987C.bin"
-
-gUnk_081398A4:: @ 081398A4
-	.incbin "data_08132B30/gUnk_081398A4.bin"
-
-gUnk_081398CC:: @ 081398CC
-	.incbin "data_08132B30/gUnk_081398CC.bin"
-
-gUnk_08139908:: @ 08139908
-	.incbin "data_08132B30/gUnk_08139908.bin"
-
-gUnk_08139944:: @ 08139944
-	.incbin "data_08132B30/gUnk_08139944.bin"
-
-gUnk_08139980:: @ 08139980
-	.incbin "data_08132B30/gUnk_08139980.bin"
-
-gUnk_081399A8:: @ 081399A8
-	.incbin "data_08132B30/gUnk_081399A8.bin"
-
-gUnk_081399D0:: @ 081399D0
-	.incbin "data_08132B30/gUnk_081399D0.bin"
-
-gUnk_08139A34:: @ 08139A34
-	.incbin "data_08132B30/gUnk_08139A34.bin"
-
-gUnk_08139A5C:: @ 08139A5C
-	.incbin "data_08132B30/gUnk_08139A5C.bin"
-
-gUnk_08139A84:: @ 08139A84
-	.incbin "data_08132B30/gUnk_08139A84.bin"
-
-gUnk_08139AAC:: @ 08139AAC
-	.incbin "data_08132B30/gUnk_08139AAC.bin"
-
-gUnk_08139AFC:: @ 08139AFC
-	.incbin "data_08132B30/gUnk_08139AFC.bin"
-
-gUnk_08139B24:: @ 08139B24
-	.incbin "data_08132B30/gUnk_08139B24.bin"
-
-gUnk_08139B4C:: @ 08139B4C
-	.incbin "data_08132B30/gUnk_08139B4C.bin"
-
-gUnk_08139B88:: @ 08139B88
-	.incbin "data_08132B30/gUnk_08139B88.bin"
-
-gUnk_08139BC4:: @ 08139BC4
-	.incbin "data_08132B30/gUnk_08139BC4.bin"
-
-gUnk_08139BEC:: @ 08139BEC
-	.incbin "data_08132B30/gUnk_08139BEC.bin"
-
-gUnk_08139C28:: @ 08139C28
-	.4byte gUnk_08139804
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_0813982C
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139854
-	.4byte gUnk_0813987C
-	.4byte gUnk_081398A4
-	.4byte gUnk_081398CC
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139908
-	.4byte gUnk_08139944
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139980
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_081399A8
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_081399D0
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139A34
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139A5C
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139A84
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139AAC
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139AFC
-	.4byte gUnk_08139B24
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139B4C
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139B88
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139BC4
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139BEC
-	.4byte gExitLists_NoExitList
+gExitLists_VeilFallsCaves:: @ 08138464
+	.4byte gExitList_VeilFallsCaves_Hallway2F
+	.4byte gExitList_VeilFallsCaves_Hallway1F
+	.4byte gExitList_NoExitList
+	.4byte gExitList_VeilFallsCaves_Entrance
+	.4byte gExitList_VeilFallsCaves_Exit
+	.4byte gExitList_VeilFallsCaves_SecretChest
+	.4byte gExitList_VeilFallsCaves_SecretStaircases
+	.4byte gExitList_VeilFallsCaves_BlockPuzzle
+	.4byte gExitList_VeilFallsCaves_RupeePath
+	.4byte gExitList_VeilFallsCaves_HeartPiece
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitList_RoyalValleyGraves_HeartPiece:: @ 081384A4
+	.include "exit_lists/gExitList_RoyalValleyGraves_HeartPiece.s"
+
+gExitList_RoyalValleyGraves_Gina:: @ 081384CC
+	.include "exit_lists/gExitList_RoyalValleyGraves_Gina.s"
+
+gExitLists_RoyalValleyGraves:: @ 081384F4
+	.4byte gExitList_RoyalValleyGraves_HeartPiece
+	.4byte gExitList_RoyalValleyGraves_Gina
+
+gExitList_MinishCaves_BeanPesto:: @ 081384FC
+	.include "exit_lists/gExitList_MinishCaves_BeanPesto.s"
+
+gExitList_MinishCaves_SoutheastWater1:: @ 08138524
+	.include "exit_lists/gExitList_MinishCaves_SoutheastWater1.s"
+
+gExitList_MinishCaves_Ruins:: @ 0813854C
+	.include "exit_lists/gExitList_MinishCaves_Ruins.s"
+
+gExitList_MinishCaves_OutsideLinksHouse:: @ 08138574
+	.include "exit_lists/gExitList_MinishCaves_OutsideLinksHouse.s"
+
+gExitList_MinishCaves_MinishWoodsNorth1:: @ 0813859C
+	.include "exit_lists/gExitList_MinishCaves_MinishWoodsNorth1.s"
+
+gExitList_MinishCaves_LakeHyliaNorth:: @ 081385C4
+	.include "exit_lists/gExitList_MinishCaves_LakeHyliaNorth.s"
+
+gExitList_MinishCaves_LakeHyliaLibrari:: @ 081385EC
+	.include "exit_lists/gExitList_MinishCaves_LakeHyliaLibrari.s"
+
+gExitList_MinishCaves_MinishWoodsSouthwest:: @ 08138628
+	.include "exit_lists/gExitList_MinishCaves_MinishWoodsSouthwest.s"
+
+gExitLists_MinishCaves:: @ 08138678
+	.4byte gExitList_MinishCaves_BeanPesto
+	.4byte gExitList_MinishCaves_SoutheastWater1
+	.4byte gExitList_NoExitList
+	.4byte gExitList_MinishCaves_Ruins
+	.4byte gExitList_MinishCaves_OutsideLinksHouse
+	.4byte gExitList_MinishCaves_MinishWoodsNorth1
+	.4byte gExitList_NoExitList
+	.4byte gExitList_MinishCaves_LakeHyliaNorth
+	.4byte gExitList_MinishCaves_LakeHyliaLibrari
+	.4byte gExitList_MinishCaves_MinishWoodsSouthwest
+
+gExitList_CastleGardenMinishHoles_East:: @ 081386A0
+	.include "exit_lists/gExitList_CastleGardenMinishHoles_East.s"
+
+gExitList_CastleGardenMinishHoles_West:: @ 081386C8
+	.include "exit_lists/gExitList_CastleGardenMinishHoles_West.s"
+
+gExitLists_CastleGardenMinishHoles:: @ 081386F0
+	.4byte gExitList_CastleGardenMinishHoles_East
+	.4byte gExitList_CastleGardenMinishHoles_West
+
+gExitList_37_0:: @ 081386F8
+	.include "exit_lists/gExitList_37_0.s"
+
+gExitList_37_1:: @ 08138720
+	.include "exit_lists/gExitList_37_1.s"
+
+gExitLists_37:: @ 08138748
+	.4byte gExitList_37_0
+	.4byte gExitList_37_1
+
+gExitList_HyruleTownUnderground_Main:: @ 08138750
+	.include "exit_lists/gExitList_HyruleTownUnderground_Main.s"
+
+gExitList_HyruleTownUnderground_Well:: @ 081387B4
+	.include "exit_lists/gExitList_HyruleTownUnderground_Well.s"
+
+gExitLists_HyruleTownUnderground:: @ 081387F0
+	.4byte gExitList_HyruleTownUnderground_Main
+	.4byte gExitList_HyruleTownUnderground_Well
+
+gExitList_HyruleTownMinishCaves_Entrance:: @ 081387F8
+	.include "exit_lists/gExitList_HyruleTownMinishCaves_Entrance.s"
+
+gExitList_HyruleTownMinishCaves_Entrance2:: @ 08138820
+	.include "exit_lists/gExitList_HyruleTownMinishCaves_Entrance2.s"
+
+gExitLists_HyruleTownMinishCaves:: @ 08138848
+	.4byte gExitList_HyruleTownMinishCaves_Entrance
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_HyruleTownMinishCaves_Entrance2
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitList_GardenFountains_East:: @ 081388A8
+	.include "exit_lists/gExitList_GardenFountains_East.s"
+
+gExitList_GardenFountains_West:: @ 081388D0
+	.include "exit_lists/gExitList_GardenFountains_West.s"
+
+gExitLists_GardenFountains:: @ 081388F8
+	.4byte gExitList_GardenFountains_East
+	.4byte gExitList_GardenFountains_West
+
+gExitList_GreatFairies_Entrance:: @ 08138900
+	.include "exit_lists/gExitList_GreatFairies_Entrance.s"
+
+gExitList_GreatFairies_Exit:: @ 08138928
+	.include "exit_lists/gExitList_GreatFairies_Exit.s"
+
+gExitLists_HyruleCastleCellar:: @ 08138950
+	.4byte gExitList_GreatFairies_Entrance
+	.4byte gExitList_GreatFairies_Exit
+
+gExitLists_40:: @ 08138958
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitList_DeepwoodShrine_StairsToB1:: @ 0813897C
+	.include "exit_lists/gExitList_DeepwoodShrine_StairsToB1.s"
+
+gExitList_DeepwoodShrine_BluePortal:: @ 081389A4
+	.include "exit_lists/gExitList_DeepwoodShrine_BluePortal.s"
+
+gExitList_DeepwoodShrine_Map:: @ 081389B8
+	.include "exit_lists/gExitList_DeepwoodShrine_Map.s"
+
+gExitList_DeepwoodShrine_Button:: @ 081389CC
+	.include "exit_lists/gExitList_DeepwoodShrine_Button.s"
+
+gExitList_DeepwoodShrine_Lever:: @ 081389E0
+	.include "exit_lists/gExitList_DeepwoodShrine_Lever.s"
+
+gExitList_DeepwoodShrine_Barrel:: @ 081389F4
+	.include "exit_lists/gExitList_DeepwoodShrine_Barrel.s"
+
+gExitList_DeepwoodShrine_Entrance:: @ 08138A58
+	.include "exit_lists/gExitList_DeepwoodShrine_Entrance.s"
+
+gExitList_DeepwoodShrine_Compass:: @ 08138AA8
+	.include "exit_lists/gExitList_DeepwoodShrine_Compass.s"
+
+gExitList_DeepwoodShrineBoss_Main:: @ 08138AD0
+	.include "exit_lists/gExitList_DeepwoodShrineBoss_Main.s"
+
+gExitList_DeepwoodShrine_PreBoss:: @ 08138AF8
+	.include "exit_lists/gExitList_DeepwoodShrine_PreBoss.s"
+
+gExitLists_DeepwoodShrine:: @ 08138B48
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DeepwoodShrine_BluePortal
+	.4byte gExitList_DeepwoodShrine_StairsToB1
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DeepwoodShrine_Map
+	.4byte gExitList_DeepwoodShrine_Barrel
+	.4byte gExitList_DeepwoodShrine_Button
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DeepwoodShrine_Lever
+	.4byte gExitList_DeepwoodShrine_Entrance
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DeepwoodShrine_Compass
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DeepwoodShrine_PreBoss
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitLists_DeepwoodShrineBoss:: @ 08138BCC
+	.4byte gExitList_DeepwoodShrineBoss_Main
+
+gExitList_DeepwoodShrineEntry_Main:: @ 08138BD0
+	.include "exit_lists/gExitList_DeepwoodShrineEntry_Main.s"
+
+gExitLists_DeepwoodShrineEntry:: @ 08138C34
+	.4byte gExitList_DeepwoodShrineEntry_Main
+
+gExitList_CaveOfFlames_AfterCane:: @ 08138C38
+	.include "exit_lists/gExitList_CaveOfFlames_AfterCane.s"
+
+gExitList_CaveOfFlames_Entrance:: @ 08138C60
+	.include "exit_lists/gExitList_CaveOfFlames_Entrance.s"
+
+gExitList_CaveOfFlames_MainCart:: @ 08138C88
+	.include "exit_lists/gExitList_CaveOfFlames_MainCart.s"
+
+gExitList_CaveOfFlames_NorthEntrance:: @ 08138CB0
+	.include "exit_lists/gExitList_CaveOfFlames_NorthEntrance.s"
+
+gExitList_CaveOfFlames_MinishSpikes:: @ 08138CD8
+	.include "exit_lists/gExitList_CaveOfFlames_MinishSpikes.s"
+
+gExitList_CaveOfFlames_BeforeGleerok:: @ 08138D00
+	.include "exit_lists/gExitList_CaveOfFlames_BeforeGleerok.s"
+
+gExitList_CaveOfFlames_BossDoor:: @ 08138D28
+	.include "exit_lists/gExitList_CaveOfFlames_BossDoor.s"
+
+gExitLists_CaveOfFlames:: @ 08138D50
+	.4byte gExitList_CaveOfFlames_AfterCane
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_CaveOfFlames_Entrance
+	.4byte gExitList_CaveOfFlames_MainCart
+	.4byte gExitList_CaveOfFlames_NorthEntrance
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_CaveOfFlames_MinishSpikes
+	.4byte gExitList_NoExitList
+	.4byte gExitList_CaveOfFlames_BeforeGleerok
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_CaveOfFlames_BossDoor
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitList_FortressOfWinds_BeforeMazaal:: @ 08138DD4
+	.include "exit_lists/gExitList_FortressOfWinds_BeforeMazaal.s"
+
+gExitList_FortressOfWinds_EastKeyLever:: @ 08138DFC
+	.include "exit_lists/gExitList_FortressOfWinds_EastKeyLever.s"
+
+gExitList_FortressOfWinds_PitPlatforms:: @ 08138E38
+	.include "exit_lists/gExitList_FortressOfWinds_PitPlatforms.s"
+
+gExitList_FortressOfWinds_WestKeyLever:: @ 08138E60
+	.include "exit_lists/gExitList_FortressOfWinds_WestKeyLever.s"
+
+gExitList_FortressOfWinds_Mazaal:: @ 08138E9C
+	.include "exit_lists/gExitList_FortressOfWinds_Mazaal.s"
+
+gExitList_FortressOfWinds_Stalfos:: @ 08138EC4
+	.include "exit_lists/gExitList_FortressOfWinds_Stalfos.s"
+
+gExitList_FortressOfWinds_EntranceMoleMitts:: @ 08138EEC
+	.include "exit_lists/gExitList_FortressOfWinds_EntranceMoleMitts.s"
+
+gExitList_FortressOfWinds_Main2F:: @ 08138F14
+	.include "exit_lists/gExitList_FortressOfWinds_Main2F.s"
+
+gExitList_FortressOfWinds_MinishHole:: @ 08138F50
+	.include "exit_lists/gExitList_FortressOfWinds_MinishHole.s"
+
+gExitList_FortressOfWinds_BossKey:: @ 08138F78
+	.include "exit_lists/gExitList_FortressOfWinds_BossKey.s"
+
+gExitList_FortressOfWinds_WestStairs2F:: @ 08138FA0
+	.include "exit_lists/gExitList_FortressOfWinds_WestStairs2F.s"
+
+gExitList_FortressOfWinds_EastStairs2F:: @ 08138FC8
+	.include "exit_lists/gExitList_FortressOfWinds_EastStairs2F.s"
+
+gExitList_FortressOfWinds_WestStairs1F:: @ 08139004
+	.include "exit_lists/gExitList_FortressOfWinds_WestStairs1F.s"
+
+gExitList_FortressOfWinds_CenterStairs1F:: @ 08139040
+	.include "exit_lists/gExitList_FortressOfWinds_CenterStairs1F.s"
+
+gExitList_FortressOfWinds_EastStairs1F:: @ 0813907C
+	.include "exit_lists/gExitList_FortressOfWinds_EastStairs1F.s"
+
+gExitList_FortressOfWinds_Wizzrobe:: @ 081390B8
+	.include "exit_lists/gExitList_FortressOfWinds_Wizzrobe.s"
+
+gExitList_FortressOfWinds_HeartPiece:: @ 081390E0
+	.include "exit_lists/gExitList_FortressOfWinds_HeartPiece.s"
+
+gExitLists_FortressOfWinds:: @ 08139108
+	.4byte gExitList_NoExitList
+	.4byte gExitList_FortressOfWinds_BeforeMazaal
+	.4byte gExitList_FortressOfWinds_EastKeyLever
+	.4byte gExitList_FortressOfWinds_PitPlatforms
+	.4byte gExitList_FortressOfWinds_WestKeyLever
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_FortressOfWinds_Mazaal
+	.4byte gExitList_FortressOfWinds_Stalfos
+	.4byte gExitList_FortressOfWinds_EntranceMoleMitts
+	.4byte gExitList_FortressOfWinds_Main2F
+	.4byte gExitList_FortressOfWinds_MinishHole
+	.4byte gExitList_FortressOfWinds_BossKey
+	.4byte gExitList_FortressOfWinds_WestStairs2F
+	.4byte gExitList_FortressOfWinds_EastStairs2F
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_FortressOfWinds_WestStairs1F
+	.4byte gExitList_FortressOfWinds_CenterStairs1F
+	.4byte gExitList_FortressOfWinds_EastStairs1F
+	.4byte gExitList_FortressOfWinds_Wizzrobe
+	.4byte gExitList_FortressOfWinds_HeartPiece
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitList_FortressOfWindsTop_Main:: @ 081391A8
+	.include "exit_lists/gExitList_FortressOfWindsTop_Main.s"
+
+gExitLists_FortressOfWindsTop:: @ 081391D0
+	.4byte gExitList_FortressOfWindsTop_Main
+
+gExitList_InnerMazaal_Main:: @ 081391D4
+	.include "exit_lists/gExitList_InnerMazaal_Main.s"
+
+gExitLists_InnerMazaal:: @ 081391FC
+	.4byte gExitList_InnerMazaal_Main
+	.4byte gExitList_InnerMazaal_Main
+
+gExitList_TempleOfDroplets_WestHole:: @ 08139204
+	.include "exit_lists/gExitList_TempleOfDroplets_WestHole.s"
+
+gExitList_TempleOfDroplets_EastHole:: @ 0813922C
+	.include "exit_lists/gExitList_TempleOfDroplets_EastHole.s"
+
+gExitList_TempleOfDroplets_HoleToBlueChuchu:: @ 08139254
+	.include "exit_lists/gExitList_TempleOfDroplets_HoleToBlueChuchu.s"
+
+gExitList_TempleOfDroplets_BigBlueChuchu:: @ 08139290
+	.include "exit_lists/gExitList_TempleOfDroplets_BigBlueChuchu.s"
+
+gExitList_TempleOfDroplets_BigBlueChuchuKey:: @ 081392B8
+	.include "exit_lists/gExitList_TempleOfDroplets_BigBlueChuchuKey.s"
+
+gExitList_TempleOfDroplets_BossKey:: @ 081392E0
+	.include "exit_lists/gExitList_TempleOfDroplets_BossKey.s"
+
+gExitList_TempleOfDroplets_NorthSmallKey:: @ 08139308
+	.include "exit_lists/gExitList_TempleOfDroplets_NorthSmallKey.s"
+
+gExitList_TempleOfDroplets_BlueChuchuKeyLever:: @ 08139330
+	.include "exit_lists/gExitList_TempleOfDroplets_BlueChuchuKeyLever.s"
+
+gExitList_TempleOfDroplets_Entrance:: @ 0813936C
+	.include "exit_lists/gExitList_TempleOfDroplets_Entrance.s"
+
+gExitList_TempleOfDroplets_WaterfallNortheast:: @ 08139394
+	.include "exit_lists/gExitList_TempleOfDroplets_WaterfallNortheast.s"
+
+gExitList_TempleOfDroplets_Element:: @ 081393BC
+	.include "exit_lists/gExitList_TempleOfDroplets_Element.s"
+
+gExitList_TempleOfDroplets_IceCorner:: @ 08139434
+	.include "exit_lists/gExitList_TempleOfDroplets_IceCorner.s"
+
+gExitList_TempleOfDroplets_BigOcto:: @ 0813945C
+	.include "exit_lists/gExitList_TempleOfDroplets_BigOcto.s"
+
+gExitList_TempleOfDroplets_NorthwestStairs:: @ 08139484
+	.include "exit_lists/gExitList_TempleOfDroplets_NorthwestStairs.s"
+
+gExitList_TempleOfDroplets_ScissorsMiniboss:: @ 081394AC
+	.include "exit_lists/gExitList_TempleOfDroplets_ScissorsMiniboss.s"
+
+gExitList_TempleOfDroplets_WaterfallSouthwest:: @ 081394D4
+	.include "exit_lists/gExitList_TempleOfDroplets_WaterfallSouthwest.s"
+
+gExitList_TempleOfDroplets_ToBigBlueChuchu:: @ 081394FC
+	.include "exit_lists/gExitList_TempleOfDroplets_ToBigBlueChuchu.s"
+
+gExitList_TempleOfDroplets_BlockCloneIceBridge:: @ 08139538
+	.include "exit_lists/gExitList_TempleOfDroplets_BlockCloneIceBridge.s"
+
+gExitList_TempleOfDroplets_StairsToScissorsMiniboss:: @ 08139560
+	.include "exit_lists/gExitList_TempleOfDroplets_StairsToScissorsMiniboss.s"
+
+gExitList_TempleOfDroplets_LilypadWestB2:: @ 08139588
+	.include "exit_lists/gExitList_TempleOfDroplets_LilypadWestB2.s"
+
+gExitList_TempleOfDroplets_CompassRoom:: @ 081395B0
+	.include "exit_lists/gExitList_TempleOfDroplets_CompassRoom.s"
+
+gExitLists_TempleOfDroplets:: @ 081395D8
+	.4byte gExitList_TempleOfDroplets_WestHole
+	.4byte gExitList_NoExitList
+	.4byte gExitList_TempleOfDroplets_EastHole
+	.4byte gExitList_TempleOfDroplets_Entrance
+	.4byte gExitList_TempleOfDroplets_NorthwestStairs
+	.4byte gExitList_TempleOfDroplets_ScissorsMiniboss
+	.4byte gExitList_NoExitList
+	.4byte gExitList_TempleOfDroplets_WaterfallNortheast
+	.4byte gExitList_TempleOfDroplets_Element
+	.4byte gExitList_TempleOfDroplets_IceCorner
+	.4byte gExitList_NoExitList
+	.4byte gExitList_TempleOfDroplets_HoleToBlueChuchu
+	.4byte gExitList_NoExitList
+	.4byte gExitList_TempleOfDroplets_WaterfallSouthwest
+	.4byte gExitList_TempleOfDroplets_BigOcto
+	.4byte gExitList_TempleOfDroplets_ToBigBlueChuchu
+	.4byte gExitList_TempleOfDroplets_BigBlueChuchu
+	.4byte gExitList_TempleOfDroplets_BigBlueChuchuKey
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_TempleOfDroplets_BossKey
+	.4byte gExitList_TempleOfDroplets_NorthSmallKey
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_TempleOfDroplets_BlockCloneIceBridge
+	.4byte gExitList_TempleOfDroplets_StairsToScissorsMiniboss
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_TempleOfDroplets_BlueChuchuKeyLever
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_TempleOfDroplets_LilypadWestB2
+	.4byte gExitList_TempleOfDroplets_CompassRoom
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+
+gExitList_61_0:: @ 081396D8
+	.include "exit_lists/gExitList_61_0.s"
+
+gExitLists_61:: @ 08139714
+	.4byte gExitList_61_0
+
+gExitList_RoyalCrypt_WaterRope:: @ 08139718
+	.include "exit_lists/gExitList_RoyalCrypt_WaterRope.s"
+
+gExitList_RoyalCrypt_Gibdo:: @ 0813972C
+	.include "exit_lists/gExitList_RoyalCrypt_Gibdo.s"
+
+gExitList_RoyalCrypt_KeyBlock:: @ 08139754
+	.include "exit_lists/gExitList_RoyalCrypt_KeyBlock.s"
+
+gExitList_RoyalCrypt_MushroomPit:: @ 08139790
+	.include "exit_lists/gExitList_RoyalCrypt_MushroomPit.s"
+
+gExitList_RoyalCrypt_Entrance:: @ 081397B8
+	.include "exit_lists/gExitList_RoyalCrypt_Entrance.s"
+
+gExitLists_RoyalCrypt:: @ 081397E0
+	.4byte gExitList_NoExitList
+	.4byte gExitList_RoyalCrypt_WaterRope
+	.4byte gExitList_RoyalCrypt_Gibdo
+	.4byte gExitList_NoExitList
+	.4byte gExitList_RoyalCrypt_KeyBlock
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_RoyalCrypt_MushroomPit
+	.4byte gExitList_RoyalCrypt_Entrance
+
+gExitList_PalaceOfWinds_0:: @ 08139804
+	.include "exit_lists/gExitList_PalaceOfWinds_0.s"
+
+gExitList_PalaceOfWinds_3:: @ 0813982C
+	.include "exit_lists/gExitList_PalaceOfWinds_3.s"
+
+gExitList_PalaceOfWinds_8:: @ 08139854
+	.include "exit_lists/gExitList_PalaceOfWinds_8.s"
+
+gExitList_PalaceOfWinds_9:: @ 0813987C
+	.include "exit_lists/gExitList_PalaceOfWinds_9.s"
+
+gExitList_PalaceOfWinds_10:: @ 081398A4
+	.include "exit_lists/gExitList_PalaceOfWinds_10.s"
+
+gExitList_PalaceOfWinds_11:: @ 081398CC
+	.include "exit_lists/gExitList_PalaceOfWinds_11.s"
+
+gExitList_PalaceOfWinds_13:: @ 08139908
+	.include "exit_lists/gExitList_PalaceOfWinds_13.s"
+
+gExitList_PalaceOfWinds_14:: @ 08139944
+	.include "exit_lists/gExitList_PalaceOfWinds_14.s"
+
+gExitList_PalaceOfWinds_16:: @ 08139980
+	.include "exit_lists/gExitList_PalaceOfWinds_16.s"
+
+gExitList_PalaceOfWinds_18:: @ 081399A8
+	.include "exit_lists/gExitList_PalaceOfWinds_18.s"
+
+gExitList_PalaceOfWinds_21:: @ 081399D0
+	.include "exit_lists/gExitList_PalaceOfWinds_21.s"
+
+gExitList_PalaceOfWinds_23:: @ 08139A34
+	.include "exit_lists/gExitList_PalaceOfWinds_23.s"
+
+gExitList_PalaceOfWinds_26:: @ 08139A5C
+	.include "exit_lists/gExitList_PalaceOfWinds_26.s"
+
+gExitList_PalaceOfWinds_30:: @ 08139A84
+	.include "exit_lists/gExitList_PalaceOfWinds_30.s"
+
+gExitList_PalaceOfWinds_32:: @ 08139AAC
+	.include "exit_lists/gExitList_PalaceOfWinds_32.s"
+
+gExitList_PalaceOfWinds_35:: @ 08139AFC
+	.include "exit_lists/gExitList_PalaceOfWinds_35.s"
+
+gExitList_PalaceOfWinds_36:: @ 08139B24
+	.include "exit_lists/gExitList_PalaceOfWinds_36.s"
+
+gExitList_PalaceOfWinds_40:: @ 08139B4C
+	.include "exit_lists/gExitList_PalaceOfWinds_40.s"
+
+gExitList_PalaceOfWinds_42:: @ 08139B88
+	.include "exit_lists/gExitList_PalaceOfWinds_42.s"
+
+gExitList_PalaceOfWinds_47:: @ 08139BC4
+	.include "exit_lists/gExitList_PalaceOfWinds_47.s"
+
+gExitList_PalaceOfWinds_50:: @ 08139BEC
+	.include "exit_lists/gExitList_PalaceOfWinds_50.s"
+
+gExitLists_PalaceOfWinds:: @ 08139C28
+	.4byte gExitList_PalaceOfWinds_0
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_3
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_8
+	.4byte gExitList_PalaceOfWinds_9
+	.4byte gExitList_PalaceOfWinds_10
+	.4byte gExitList_PalaceOfWinds_11
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_13
+	.4byte gExitList_PalaceOfWinds_14
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_16
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_18
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_21
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_23
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_26
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_30
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_32
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_35
+	.4byte gExitList_PalaceOfWinds_36
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_40
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_42
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_47
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_PalaceOfWinds_50
+	.4byte gExitList_NoExitList
 	.4byte 0x0000ffff
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 
-gUnk_08139D0C:: @ 08139D0C
-	.incbin "data_08132B30/gUnk_08139D0C.bin"
+gExitList_DarkHyruleCastle_0:: @ 08139D0C
+	.include "exit_lists/gExitList_DarkHyruleCastle_0.s"
 
-gUnk_08139D5C:: @ 08139D5C
-	.incbin "data_08132B30/gUnk_08139D5C.bin"
+gExitList_DarkHyruleCastle_1:: @ 08139D5C
+	.include "exit_lists/gExitList_DarkHyruleCastle_1.s"
 
-gUnk_08139D84:: @ 08139D84
-	.incbin "data_08132B30/gUnk_08139D84.bin"
+gExitList_DarkHyruleCastle_2:: @ 08139D84
+	.include "exit_lists/gExitList_DarkHyruleCastle_2.s"
 
-gUnk_08139DAC:: @ 08139DAC
-	.incbin "data_08132B30/gUnk_08139DAC.bin"
+gExitList_DarkHyruleCastle_3:: @ 08139DAC
+	.include "exit_lists/gExitList_DarkHyruleCastle_3.s"
 
-gUnk_08139DD4:: @ 08139DD4
-	.incbin "data_08132B30/gUnk_08139DD4.bin"
+gExitList_DarkHyruleCastle_4:: @ 08139DD4
+	.include "exit_lists/gExitList_DarkHyruleCastle_4.s"
 
-gUnk_08139DFC:: @ 08139DFC
-	.incbin "data_08132B30/gUnk_08139DFC.bin"
+gExitList_DarkHyruleCastle_5:: @ 08139DFC
+	.include "exit_lists/gExitList_DarkHyruleCastle_5.s"
 
-gUnk_08139E38:: @ 08139E38
-	.incbin "data_08132B30/gUnk_08139E38.bin"
+gExitList_DarkHyruleCastle_6:: @ 08139E38
+	.include "exit_lists/gExitList_DarkHyruleCastle_6.s"
 
-gUnk_08139E74:: @ 08139E74
-	.incbin "data_08132B30/gUnk_08139E74.bin"
+gExitList_DarkHyruleCastle_7:: @ 08139E74
+	.include "exit_lists/gExitList_DarkHyruleCastle_7.s"
 
-gUnk_08139EC4:: @ 08139EC4
-	.incbin "data_08132B30/gUnk_08139EC4.bin"
+gExitList_DarkHyruleCastle_13:: @ 08139EC4
+	.include "exit_lists/gExitList_DarkHyruleCastle_13.s"
 
-gUnk_08139F14:: @ 08139F14
-	.incbin "data_08132B30/gUnk_08139F14.bin"
+gExitList_DarkHyruleCastle_18:: @ 08139F14
+	.include "exit_lists/gExitList_DarkHyruleCastle_18.s"
 
-gUnk_08139F50:: @ 08139F50
-	.incbin "data_08132B30/gUnk_08139F50.bin"
+gExitList_DarkHyruleCastle_20:: @ 08139F50
+	.include "exit_lists/gExitList_DarkHyruleCastle_20.s"
 
-gUnk_08139F78:: @ 08139F78
-	.incbin "data_08132B30/gUnk_08139F78.bin"
+gExitList_DarkHyruleCastle_23:: @ 08139F78
+	.include "exit_lists/gExitList_DarkHyruleCastle_23.s"
 
-gUnk_08139FA0:: @ 08139FA0
-	.incbin "data_08132B30/gUnk_08139FA0.bin"
+gExitList_DarkHyruleCastle_25:: @ 08139FA0
+	.include "exit_lists/gExitList_DarkHyruleCastle_25.s"
 
-gUnk_08139FF0:: @ 08139FF0
-	.incbin "data_08132B30/gUnk_08139FF0.bin"
+gExitList_DarkHyruleCastle_26:: @ 08139FF0
+	.include "exit_lists/gExitList_DarkHyruleCastle_26.s"
 
-gUnk_0813A018:: @ 0813A018
-	.incbin "data_08132B30/gUnk_0813A018.bin"
+gExitList_DarkHyruleCastle_28:: @ 0813A018
+	.include "exit_lists/gExitList_DarkHyruleCastle_28.s"
 
-gUnk_0813A040:: @ 0813A040
-	.incbin "data_08132B30/gUnk_0813A040.bin"
+gExitList_DarkHyruleCastle_29:: @ 0813A040
+	.include "exit_lists/gExitList_DarkHyruleCastle_29.s"
 
-gUnk_0813A090:: @ 0813A090
-	.incbin "data_08132B30/gUnk_0813A090.bin"
+gExitList_DarkHyruleCastle_30:: @ 0813A090
+	.include "exit_lists/gExitList_DarkHyruleCastle_30.s"
 
-gUnk_0813A0B8:: @ 0813A0B8
-	.incbin "data_08132B30/gUnk_0813A0B8.bin"
+gExitList_DarkHyruleCastle_31:: @ 0813A0B8
+	.include "exit_lists/gExitList_DarkHyruleCastle_31.s"
 
-gUnk_0813A0E0:: @ 0813A0E0
-	.incbin "data_08132B30/gUnk_0813A0E0.bin"
+gExitList_DarkHyruleCastle_32:: @ 0813A0E0
+	.include "exit_lists/gExitList_DarkHyruleCastle_32.s"
 
-gUnk_0813A108:: @ 0813A108
-	.incbin "data_08132B30/gUnk_0813A108.bin"
+gExitList_DarkHyruleCastle_33:: @ 0813A108
+	.include "exit_lists/gExitList_DarkHyruleCastle_33.s"
 
-gUnk_0813A130:: @ 0813A130
-	.incbin "data_08132B30/gUnk_0813A130.bin"
+gExitList_DarkHyruleCastle_34:: @ 0813A130
+	.include "exit_lists/gExitList_DarkHyruleCastle_34.s"
 
-gUnk_0813A158:: @ 0813A158
-	.incbin "data_08132B30/gUnk_0813A158.bin"
+gExitList_DarkHyruleCastle_43:: @ 0813A158
+	.include "exit_lists/gExitList_DarkHyruleCastle_43.s"
 
-gUnk_0813A180:: @ 0813A180
-	.incbin "data_08132B30/gUnk_0813A180.bin"
+gExitList_DarkHyruleCastle_44:: @ 0813A180
+	.include "exit_lists/gExitList_DarkHyruleCastle_44.s"
 
-gUnk_0813A1A8:: @ 0813A1A8
-	.incbin "data_08132B30/gUnk_0813A1A8.bin"
+gExitList_DarkHyruleCastle_45:: @ 0813A1A8
+	.include "exit_lists/gExitList_DarkHyruleCastle_45.s"
 
-gUnk_0813A1D0:: @ 0813A1D0
-	.incbin "data_08132B30/gUnk_0813A1D0.bin"
+gExitList_DarkHyruleCastle_46:: @ 0813A1D0
+	.include "exit_lists/gExitList_DarkHyruleCastle_46.s"
 
-gUnk_0813A1F8:: @ 0813A1F8
-	.incbin "data_08132B30/gUnk_0813A1F8.bin"
+gExitList_DarkHyruleCastle_47:: @ 0813A1F8
+	.include "exit_lists/gExitList_DarkHyruleCastle_47.s"
 
-gUnk_0813A220:: @ 0813A220
-	.incbin "data_08132B30/gUnk_0813A220.bin"
+gExitList_DarkHyruleCastle_48:: @ 0813A220
+	.include "exit_lists/gExitList_DarkHyruleCastle_48.s"
 
-gUnk_0813A248:: @ 0813A248
-	.incbin "data_08132B30/gUnk_0813A248.bin"
+gExitList_DarkHyruleCastle_55:: @ 0813A248
+	.include "exit_lists/gExitList_DarkHyruleCastle_55.s"
 
-gUnk_0813A284:: @ 0813A284
-	.incbin "data_08132B30/gUnk_0813A284.bin"
+gExitList_DarkHyruleCastle_56:: @ 0813A284
+	.include "exit_lists/gExitList_DarkHyruleCastle_56.s"
 
-gUnk_0813A2AC:: @ 0813A2AC
-	.4byte gUnk_08139D0C
-	.4byte gUnk_08139D5C
-	.4byte gUnk_08139D84
-	.4byte gUnk_08139DAC
-	.4byte gUnk_08139DD4
-	.4byte gUnk_08139DFC
-	.4byte gUnk_08139E38
-	.4byte gUnk_08139E74
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139EC4
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139F14
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139F50
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139F78
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_08139FA0
-	.4byte gUnk_08139FF0
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_0813A018
-	.4byte gUnk_0813A040
-	.4byte gUnk_0813A090
-	.4byte gUnk_0813A0B8
-	.4byte gUnk_0813A0E0
-	.4byte gUnk_0813A108
-	.4byte gUnk_0813A130
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_0813A158
-	.4byte gUnk_0813A180
-	.4byte gUnk_0813A1A8
-	.4byte gUnk_0813A1D0
-	.4byte gUnk_0813A1F8
-	.4byte gUnk_0813A220
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_0813A248
-	.4byte gUnk_0813A284
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
+gExitLists_DarkHyruleCastle:: @ 0813A2AC
+	.4byte gExitList_DarkHyruleCastle_0
+	.4byte gExitList_DarkHyruleCastle_1
+	.4byte gExitList_DarkHyruleCastle_2
+	.4byte gExitList_DarkHyruleCastle_3
+	.4byte gExitList_DarkHyruleCastle_4
+	.4byte gExitList_DarkHyruleCastle_5
+	.4byte gExitList_DarkHyruleCastle_6
+	.4byte gExitList_DarkHyruleCastle_7
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DarkHyruleCastle_13
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DarkHyruleCastle_18
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DarkHyruleCastle_20
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DarkHyruleCastle_23
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DarkHyruleCastle_25
+	.4byte gExitList_DarkHyruleCastle_26
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DarkHyruleCastle_28
+	.4byte gExitList_DarkHyruleCastle_29
+	.4byte gExitList_DarkHyruleCastle_30
+	.4byte gExitList_DarkHyruleCastle_31
+	.4byte gExitList_DarkHyruleCastle_32
+	.4byte gExitList_DarkHyruleCastle_33
+	.4byte gExitList_DarkHyruleCastle_34
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DarkHyruleCastle_43
+	.4byte gExitList_DarkHyruleCastle_44
+	.4byte gExitList_DarkHyruleCastle_45
+	.4byte gExitList_DarkHyruleCastle_46
+	.4byte gExitList_DarkHyruleCastle_47
+	.4byte gExitList_DarkHyruleCastle_48
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_DarkHyruleCastle_55
+	.4byte gExitList_DarkHyruleCastle_56
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
 	.4byte 0x0000ffff
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 	.4byte 00000000
 
-gUnk_0813A3C0:: @ 0813A3C0
-	.incbin "data_08132B30/gUnk_0813A3C0.bin"
+gExitList_DarkHyruleCastleOutside_ZeldaStatuePlatform:: @ 0813A3C0
+	.include "exit_lists/gExitList_DarkHyruleCastleOutside_ZeldaStatuePlatform.s"
 
-gUnk_0813A3E8:: @ 0813A3E8
-	.incbin "data_08132B30/gUnk_0813A3E8.bin"
+gExitList_DarkHyruleCastleOutside_Garden:: @ 0813A3E8
+	.include "exit_lists/gExitList_DarkHyruleCastleOutside_Garden.s"
 
-gUnk_0813A424:: @ 0813A424
-	.incbin "data_08132B30/gUnk_0813A424.bin"
+gExitList_DarkHyruleCastleOutside_OutsideNorthwest:: @ 0813A424
+	.include "exit_lists/gExitList_DarkHyruleCastleOutside_OutsideNorthwest.s"
 
-gUnk_0813A44C:: @ 0813A44C
-	.incbin "data_08132B30/gUnk_0813A44C.bin"
+gExitList_DarkHyruleCastleOutside_OutsideNortheast:: @ 0813A44C
+	.include "exit_lists/gExitList_DarkHyruleCastleOutside_OutsideNortheast.s"
 
-gUnk_0813A474:: @ 0813A474
-	.incbin "data_08132B30/gUnk_0813A474.bin"
+gExitList_DarkHyruleCastleOutside_OutsideEast:: @ 0813A474
+	.include "exit_lists/gExitList_DarkHyruleCastleOutside_OutsideEast.s"
 
-gUnk_0813A4B0:: @ 0813A4B0
-	.incbin "data_08132B30/gUnk_0813A4B0.bin"
+gExitList_DarkHyruleCastleOutside_OutsideSouthwest:: @ 0813A4B0
+	.include "exit_lists/gExitList_DarkHyruleCastleOutside_OutsideSouthwest.s"
 
-gUnk_0813A4D8:: @ 0813A4D8
-	.incbin "data_08132B30/gUnk_0813A4D8.bin"
+gExitList_DarkHyruleCastleOutside_OutsideSouth:: @ 0813A4D8
+	.include "exit_lists/gExitList_DarkHyruleCastleOutside_OutsideSouth.s"
 
-gUnk_0813A514:: @ 0813A514
-	.incbin "data_08132B30/gUnk_0813A514.bin"
+gExitList_DarkHyruleCastleOutside_OutsideSoutheast:: @ 0813A514
+	.include "exit_lists/gExitList_DarkHyruleCastleOutside_OutsideSoutheast.s"
 
-gUnk_0813A53C:: @ 0813A53C
-	.4byte gUnk_0813A3C0
-	.4byte gUnk_0813A3E8
-	.4byte gUnk_0813A424
-	.4byte gUnk_0813A44C
-	.4byte gUnk_0813A474
-	.4byte gUnk_0813A4B0
-	.4byte gUnk_0813A4D8
-	.4byte gUnk_0813A514
+gExitLists_DarkHyruleCastleOutside:: @ 0813A53C
+	.4byte gExitList_DarkHyruleCastleOutside_ZeldaStatuePlatform
+	.4byte gExitList_DarkHyruleCastleOutside_Garden
+	.4byte gExitList_DarkHyruleCastleOutside_OutsideNorthwest
+	.4byte gExitList_DarkHyruleCastleOutside_OutsideNortheast
+	.4byte gExitList_DarkHyruleCastleOutside_OutsideEast
+	.4byte gExitList_DarkHyruleCastleOutside_OutsideSouthwest
+	.4byte gExitList_DarkHyruleCastleOutside_OutsideSouth
+	.4byte gExitList_DarkHyruleCastleOutside_OutsideSoutheast
 
-gUnk_0813A55C:: @ 0813A55C
-	.incbin "data_08132B30/gUnk_0813A55C.bin"
+gExitList_VaatisArms_First:: @ 0813A55C
+	.include "exit_lists/gExitList_VaatisArms_First.s"
 
-gUnk_0813A584:: @ 0813A584
-	.incbin "data_08132B30/gUnk_0813A584.bin"
+gExitList_VaatisArms_Second:: @ 0813A584
+	.include "exit_lists/gExitList_VaatisArms_Second.s"
 
-gUnk_0813A5AC:: @ 0813A5AC
-	.4byte gUnk_0813A55C
-	.4byte gUnk_0813A584
+gExitLists_VaatisArms:: @ 0813A5AC
+	.4byte gExitList_VaatisArms_First
+	.4byte gExitList_VaatisArms_Second
 
-gUnk_0813A5B4:: @ 0813A5B4
-	.incbin "data_08132B30/gUnk_0813A5B4.bin"
+gExitList_DarkHyruleCastleBridge_Main:: @ 0813A5B4
+	.include "exit_lists/gExitList_DarkHyruleCastleBridge_Main.s"
 
-gUnk_0813A5F0:: @ 0813A5F0
-	.4byte gUnk_0813A5B4
+gExitLists_DarkHyruleCastleBridge:: @ 0813A5F0
+	.4byte gExitList_DarkHyruleCastleBridge_Main
 
-gUnk_0813A5F4:: @ 0813A5F4
-	.incbin "data_08132B30/gUnk_0813A5F4.bin"
+gExitList_HyruleCastle_0:: @ 0813A5F4
+	.include "exit_lists/gExitList_HyruleCastle_0.s"
 
-gUnk_0813A630:: @ 0813A630
-	.incbin "data_08132B30/gUnk_0813A630.bin"
+gExitList_HyruleCastle_1:: @ 0813A630
+	.include "exit_lists/gExitList_HyruleCastle_1.s"
 
-gUnk_0813A66C:: @ 0813A66C
-	.incbin "data_08132B30/gUnk_0813A66C.bin"
+gExitList_HyruleCastle_3:: @ 0813A66C
+	.include "exit_lists/gExitList_HyruleCastle_3.s"
 
-gUnk_0813A6E4:: @ 0813A6E4
-	.4byte gUnk_0813A5F4
-	.4byte gUnk_0813A630
-	.4byte gExitLists_NoExitList
-	.4byte gUnk_0813A66C
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
-	.4byte gExitLists_NoExitList
+gExitLists_HyruleCastle:: @ 0813A6E4
+	.4byte gExitList_HyruleCastle_0
+	.4byte gExitList_HyruleCastle_1
+	.4byte gExitList_NoExitList
+	.4byte gExitList_HyruleCastle_3
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
+	.4byte gExitList_NoExitList
 
-gUnk_0813A704:: @ 0813A704
-	.incbin "data_08132B30/gUnk_0813A704.bin"
+gExitList_SanctuaryEntrance_Main:: @ 0813A704
+	.include "exit_lists/gExitList_SanctuaryEntrance_Main.s"
 
-gUnk_0813A740:: @ 0813A740
-	.4byte gUnk_0813A704
+gExitLists_SanctuaryEntrance:: @ 0813A740
+	.4byte gExitList_SanctuaryEntrance_Main
 
-gUnk_0813A744:: @ 0813A744
-	.incbin "data_08132B30/gUnk_0813A744.bin"
+gExitList_Sanctuary_Hall:: @ 0813A744
+	.include "exit_lists/gExitList_Sanctuary_Hall.s"
 
 gUnk_0813A76C:: @ 0813A76C
 	.incbin "data_08132B30/gUnk_0813A76C.bin"
 
-gUnk_0813A794:: @ 0813A794
-	.incbin "data_08132B30/gUnk_0813A794.bin"
+gExitList_Sanctuary_Main:: @ 0813A794
+	.include "exit_lists/gExitList_Sanctuary_Main.s"
 
-gUnk_0813A7BC:: @ 0813A7BC
-	.incbin "data_08132B30/gUnk_0813A7BC.bin"
+gExitList_Sanctuary_StainedGlass:: @ 0813A7BC
+	.include "exit_lists/gExitList_Sanctuary_StainedGlass.s"
 
-gUnk_0813A7E4:: @ 0813A7E4
-	.4byte gUnk_0813A744
-	.4byte gUnk_0813A794
-	.4byte gUnk_0813A7BC
+gExitLists_Sanctuary:: @ 0813A7E4
+	.4byte gExitList_Sanctuary_Hall
+	.4byte gExitList_Sanctuary_Main
+	.4byte gExitList_Sanctuary_StainedGlass
 
 gExitLists:: @ 0813A7F0
 	.4byte gExitLists_MinishWoods
-	.4byte gUnk_081356BC
-	.4byte gUnk_08134794
-	.4byte gUnk_08134F08
-	.4byte gUnk_08134408
-	.4byte gUnk_081344AC
-	.4byte gUnk_08134A30
-	.4byte gUnk_08135070
-	.4byte gUnk_0813509C
-	.4byte gUnk_081351CC
-	.4byte gUnk_081352D8
-	.4byte gUnk_08134338
-	.4byte gUnk_0813554C
-	.4byte gUnk_081354D0
+	.4byte gExitLists_MinishVillage
+	.4byte gExitLists_HyruleTown
+	.4byte gExitLists_HyruleField
+	.4byte gExitLists_CastorWilds
+	.4byte gExitLists_Ruins
+	.4byte gExitLists_MtCrenel
+	.4byte gExitLists_CastleGarden
+	.4byte gExitLists_CloudTops
+	.4byte gExitLists_RoyalValley
+	.4byte gExitLists_VeilFalls
+	.4byte gExitLists_LakeHylia
+	.4byte gExitLists_LakeWoodsCave
+	.4byte gExitLists_Beanstalks
 	.4byte gExitLists_NoExit
-	.4byte gUnk_08135578
-	.4byte gUnk_08135744
-	.4byte gUnk_0813584C
-	.4byte gUnk_08135928
-	.4byte gUnk_08135974
+	.4byte gExitLists_HyruleDigCaves
+	.4byte gExitLists_MelarisMine
+	.4byte gExitLists_MinishPaths1
+	.4byte gExitLists_CrenelMinishPaths
+	.4byte gExitLists_DigCaves1
 	.4byte gExitLists_NoExit
-	.4byte gUnk_081347C0
-	.4byte gExitLists_NoExit
-	.4byte gExitLists_NoExit
-	.4byte gUnk_08136028
-	.4byte gUnk_0813608C
-	.4byte gUnk_081360C8
+	.4byte gExitLists_FestivalTown
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
+	.4byte gExitLists_OuterFortressOfWinds
+	.4byte gExitLists_HyliaDigCaves
+	.4byte gExitLists_VeilFallsTop
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
-	.4byte gUnk_08135D44
-	.4byte gUnk_08136A78
-	.4byte gUnk_0813639C
-	.4byte gUnk_081367A4
-	.4byte gUnk_08136E40
-	.4byte gUnk_08136FD8
-	.4byte gUnk_08137640
-	.4byte gUnk_08137248
-	.4byte gUnk_0813654C
-	.4byte gUnk_08136604
-	.4byte gUnk_08137774
-	.4byte gUnk_081377D0
-	.4byte gUnk_08137998
-	.4byte gUnk_08137B2C
-	.4byte gUnk_08137C58
-	.4byte gUnk_08137CCC
-	.4byte gUnk_08137DC4
-	.4byte gUnk_08137DFC
-	.4byte gUnk_081381D4
-	.4byte gUnk_08138464
-	.4byte gUnk_081384F4
-	.4byte gUnk_08138678
-	.4byte gUnk_081386F0
-	.4byte gUnk_08138748
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
+	.4byte gExitLists_MinishHouseInteriors
+	.4byte gExitLists_HouseInteriors1
+	.4byte gExitLists_HouseInteriors2
+	.4byte gExitLists_HouseInteriors3
+	.4byte gExitLists_TreeInteriors
+	.4byte gExitLists_Dojos
+	.4byte gExitLists_CrenelCaves
+	.4byte gExitLists_MinishCracks
+	.4byte gExitLists_HouseInteriors4
+	.4byte gExitLists_GreatFairies
+	.4byte gExitLists_CastorCaves
+	.4byte gExitLists_CastorDarknut
+	.4byte gExitLists_ArmosInteriors
+	.4byte gExitLists_TownMinishHoles
+	.4byte gExitLists_MinishRafters
+	.4byte gExitLists_GoronCave
+	.4byte gExitLists_WindTribeTower
+	.4byte gExitLists_WindTribeTowerRoof
+	.4byte gExitLists_Caves
+	.4byte gExitLists_VeilFallsCaves
+	.4byte gExitLists_RoyalValleyGraves
+	.4byte gExitLists_MinishCaves
+	.4byte gExitLists_CastleGardenMinishHoles
+	.4byte gExitLists_37
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
-	.4byte gUnk_08138958
-	.4byte gUnk_081387F0
-	.4byte gUnk_081388F8
-	.4byte gUnk_08138950
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
-	.4byte gUnk_08138958
-	.4byte gExitLists_NoExit
-	.4byte gUnk_08138B48
-	.4byte gUnk_08138BCC
-	.4byte gUnk_08138C34
-	.4byte gExitLists_NoExit
+	.4byte gExitLists_40
+	.4byte gExitLists_HyruleTownUnderground
+	.4byte gExitLists_GardenFountains
+	.4byte gExitLists_HyruleCastleCellar
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
+	.4byte gExitLists_40
+	.4byte gExitLists_NoExit
+	.4byte gExitLists_DeepwoodShrine
+	.4byte gExitLists_DeepwoodShrineBoss
+	.4byte gExitLists_DeepwoodShrineEntry
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
-	.4byte gUnk_08138D50
+	.4byte gExitLists_NoExit
+	.4byte gExitLists_NoExit
+	.4byte gExitLists_NoExit
+	.4byte gExitLists_CaveOfFlames
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
@@ -2389,32 +2360,24 @@ gExitLists:: @ 0813A7F0
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.ifndef DEMO_USA
-	.4byte gUnk_08139108
-	.4byte gUnk_081391D0
-	.4byte gUnk_081391FC
+	.4byte gExitLists_FortressOfWinds
+	.4byte gExitLists_FortressOfWindsTop
+	.4byte gExitLists_InnerMazaal
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.endif
-	.4byte gUnk_081395D8
-	.4byte gUnk_08139714
-	.4byte gUnk_08138848
+	.4byte gExitLists_TempleOfDroplets
+	.4byte gExitLists_61
+	.4byte gExitLists_HyruleTownMinishCaves
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
-	.4byte gUnk_081397E0
-	.4byte gExitLists_NoExit
-	.4byte gExitLists_NoExit
-	.4byte gExitLists_NoExit
-	.4byte gExitLists_NoExit
-	.4byte gExitLists_NoExit
-	.4byte gExitLists_NoExit
-	.4byte gExitLists_NoExit
-	.4byte gUnk_08139C28
+	.4byte gExitLists_RoyalCrypt
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
@@ -2422,7 +2385,7 @@ gExitLists:: @ 0813A7F0
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
-	.4byte gUnk_0813A7E4
+	.4byte gExitLists_PalaceOfWinds
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
@@ -2430,20 +2393,28 @@ gExitLists:: @ 0813A7F0
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
-	.4byte gUnk_0813A6E4
-	.4byte gUnk_0813A740
+	.4byte gExitLists_Sanctuary
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
-	.4byte gUnk_0813A2AC
-	.4byte gUnk_0813A53C
-	.4byte gUnk_0813A5AC
+	.4byte gExitLists_NoExit
+	.4byte gExitLists_HyruleCastle
+	.4byte gExitLists_SanctuaryEntrance
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
-	.4byte gUnk_0813A5F0
+	.4byte gExitLists_NoExit
+	.4byte gExitLists_NoExit
+	.4byte gExitLists_NoExit
+	.4byte gExitLists_NoExit
+	.4byte gExitLists_DarkHyruleCastle
+	.4byte gExitLists_DarkHyruleCastleOutside
+	.4byte gExitLists_VaatisArms
+	.4byte gExitLists_NoExit
+	.4byte gExitLists_NoExit
+	.4byte gExitLists_DarkHyruleCastleBridge
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit
 	.4byte gExitLists_NoExit

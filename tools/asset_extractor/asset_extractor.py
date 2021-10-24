@@ -11,6 +11,7 @@ from assets.fixed_type_gfx import FixedTypeGfx
 from assets.frame_obj_lists import FrameObjLists
 from assets.extra_frame_offsets import ExtraFrameOffsets
 from assets.animation import Animation
+from assets.exit_list import ExitList
 
 verbose = False
 
@@ -130,6 +131,9 @@ def extract_assets(variant, assets_folder):
                     elif mode == 'animation':
                         animation = Animation(path, start, size, options)
                         animation.extract_binary(baserom)
+                    elif mode == 'exit_list':
+                        exit_list = ExitList(path, start, size, options)
+                        exit_list.extract_binary(baserom)
                     elif mode != '':
                         print(f'Asset type {mode} not yet implemented')
 
