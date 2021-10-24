@@ -4,32 +4,32 @@
 	.section .rodata
     .align 2
 
-gUnk_081208C8:: @ 081208C8
-	.incbin "object1E/gUnk_081208C8.bin"
+gSpriteAnimations_Object1E_2:: @ 081208C8
+	.include "animations/gSpriteAnimations_Object1E_2.s"
 
-gUnk_081208FC:: @ 081208FC
-	.incbin "object1E/gUnk_081208FC.bin"
+gSpriteAnimations_Object1E_1:: @ 081208FC
+	.include "animations/gSpriteAnimations_Object1E_1.s"
 
-gUnk_08120930:: @ 08120930
-	.incbin "object1E/gUnk_08120930.bin"
+gSpriteAnimations_Object1E_0:: @ 08120930
+	.include "animations/gSpriteAnimations_Object1E_0.s"
 
-gUnk_08120964:: @ 08120964
-	.incbin "object1E/gUnk_08120964.bin"
+gSpriteAnimations_Object1E_6:: @ 08120964
+	.include "animations/gSpriteAnimations_Object1E_6.s"
 
-gUnk_08120990:: @ 08120990
-	.incbin "object1E/gUnk_08120990.bin"
+gSpriteAnimations_Object1E_5:: @ 08120990
+	.include "animations/gSpriteAnimations_Object1E_5.s"
 
-gUnk_081209BC:: @ 081209BC
-	.incbin "object1E/gUnk_081209BC.bin"
+gSpriteAnimations_Object1E_4:: @ 081209BC
+	.include "animations/gSpriteAnimations_Object1E_4.s"
 
 gSpriteAnimations_Object1E:: @ 081209E8
-	.4byte gUnk_08120930
-	.4byte gUnk_081208FC
-	.4byte gUnk_081208C8
-	.4byte gUnk_081208FC
-	.4byte gUnk_081209BC
-	.4byte gUnk_08120990
-	.4byte gUnk_08120964
-	.4byte gUnk_08120990
+	.4byte gSpriteAnimations_Object1E_0
+	.4byte gSpriteAnimations_Object1E_1
+	.4byte gSpriteAnimations_Object1E_2
+	.4byte gSpriteAnimations_Object1E_1
+	.4byte gSpriteAnimations_Object1E_4
+	.4byte gSpriteAnimations_Object1E_5
+	.4byte gSpriteAnimations_Object1E_6
+	.4byte gSpriteAnimations_Object1E_5
 	.4byte 00000000
 

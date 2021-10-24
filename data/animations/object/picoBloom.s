@@ -4,31 +4,31 @@
 	.section .rodata
 @    .align 2
 
-gUnk_0812357A:: @ 0812357A
-	.incbin "picoBloom/gUnk_0812357A.bin"
+gSpriteAnimations_PicoBloom_0:: @ 0812357A
+	.include "animations/gSpriteAnimations_PicoBloom_0.s"
 
-gUnk_08123593:: @ 08123593
-	.incbin "picoBloom/gUnk_08123593.bin"
+gSpriteAnimations_PicoBloom_3:: @ 08123593
+	.include "animations/gSpriteAnimations_PicoBloom_3.s"
 
-gUnk_081235AC:: @ 081235AC
-	.incbin "picoBloom/gUnk_081235AC.bin"
+gSpriteAnimations_PicoBloom_2:: @ 081235AC
+	.include "animations/gSpriteAnimations_PicoBloom_2.s"
 
-gUnk_081235B1:: @ 081235B1
-	.incbin "picoBloom/gUnk_081235B1.bin"
+gSpriteAnimations_PicoBloom_5:: @ 081235B1
+	.include "animations/gSpriteAnimations_PicoBloom_5.s"
 
-gUnk_081235B6:: @ 081235B6
-	.incbin "picoBloom/gUnk_081235B6.bin"
+gSpriteAnimations_PicoBloom_1:: @ 081235B6
+	.include "animations/gSpriteAnimations_PicoBloom_1.s"
 
-gUnk_081235EB:: @ 081235EB
-	.incbin "picoBloom/gUnk_081235EB.bin"
+gSpriteAnimations_PicoBloom_4:: @ 081235EB
+	.include "animations/gSpriteAnimations_PicoBloom_4.s"
 
 gSpriteAnimations_PicoBloom:: @ 08123620
-	.4byte gUnk_0812357A
-	.4byte gUnk_081235B6
-	.4byte gUnk_081235AC
-	.4byte gUnk_08123593
-	.4byte gUnk_081235EB
-	.4byte gUnk_081235B1
+	.4byte gSpriteAnimations_PicoBloom_0
+	.4byte gSpriteAnimations_PicoBloom_1
+	.4byte gSpriteAnimations_PicoBloom_2
+	.4byte gSpriteAnimations_PicoBloom_3
+	.4byte gSpriteAnimations_PicoBloom_4
+	.4byte gSpriteAnimations_PicoBloom_5
 	.4byte 00000000
 
 gUnk_0812363C:: @ 0812363C

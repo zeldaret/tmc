@@ -3,101 +3,101 @@
 
 	.section .rodata
 
-gUnk_080CBCC8:: @ 080CBCC8
-	.incbin "moldworm/gUnk_080CBCC8.bin"
+gSpriteAnimations_Moldworm_0:: @ 080CBCC8
+	.include "animations/gSpriteAnimations_Moldworm_0.s"
 
-gUnk_080CBCCC:: @ 080CBCCC
-	.incbin "moldworm/gUnk_080CBCCC.bin"
+gSpriteAnimations_Moldworm_1:: @ 080CBCCC
+	.include "animations/gSpriteAnimations_Moldworm_1.s"
 
-gUnk_080CBCD0:: @ 080CBCD0
-	.incbin "moldworm/gUnk_080CBCD0.bin"
+gSpriteAnimations_Moldworm_2:: @ 080CBCD0
+	.include "animations/gSpriteAnimations_Moldworm_2.s"
 
-gUnk_080CBCD4:: @ 080CBCD4
-	.incbin "moldworm/gUnk_080CBCD4.bin"
+gSpriteAnimations_Moldworm_3:: @ 080CBCD4
+	.include "animations/gSpriteAnimations_Moldworm_3.s"
 
-gUnk_080CBCD8:: @ 080CBCD8
-	.incbin "moldworm/gUnk_080CBCD8.bin"
+gSpriteAnimations_Moldworm_4:: @ 080CBCD8
+	.include "animations/gSpriteAnimations_Moldworm_4.s"
 
-gUnk_080CBCDC:: @ 080CBCDC
-	.incbin "moldworm/gUnk_080CBCDC.bin"
+gSpriteAnimations_Moldworm_5:: @ 080CBCDC
+	.include "animations/gSpriteAnimations_Moldworm_5.s"
 
-gUnk_080CBCE0:: @ 080CBCE0
-	.incbin "moldworm/gUnk_080CBCE0.bin"
+gSpriteAnimations_Moldworm_6:: @ 080CBCE0
+	.include "animations/gSpriteAnimations_Moldworm_6.s"
 
-gUnk_080CBCE4:: @ 080CBCE4
-	.incbin "moldworm/gUnk_080CBCE4.bin"
+gSpriteAnimations_Moldworm_7:: @ 080CBCE4
+	.include "animations/gSpriteAnimations_Moldworm_7.s"
 
-gUnk_080CBCE8:: @ 080CBCE8
-	.incbin "moldworm/gUnk_080CBCE8.bin"
+gSpriteAnimations_Moldworm_8:: @ 080CBCE8
+	.include "animations/gSpriteAnimations_Moldworm_8.s"
 
-gUnk_080CBCEC:: @ 080CBCEC
-	.incbin "moldworm/gUnk_080CBCEC.bin"
+gSpriteAnimations_Moldworm_9:: @ 080CBCEC
+	.include "animations/gSpriteAnimations_Moldworm_9.s"
 
-gUnk_080CBCF0:: @ 080CBCF0
-	.incbin "moldworm/gUnk_080CBCF0.bin"
+gSpriteAnimations_Moldworm_10:: @ 080CBCF0
+	.include "animations/gSpriteAnimations_Moldworm_10.s"
 
-gUnk_080CBCF4:: @ 080CBCF4
-	.incbin "moldworm/gUnk_080CBCF4.bin"
+gSpriteAnimations_Moldworm_11:: @ 080CBCF4
+	.include "animations/gSpriteAnimations_Moldworm_11.s"
 
-gUnk_080CBCF8:: @ 080CBCF8
-	.incbin "moldworm/gUnk_080CBCF8.bin"
+gSpriteAnimations_Moldworm_12:: @ 080CBCF8
+	.include "animations/gSpriteAnimations_Moldworm_12.s"
 
-gUnk_080CBCFC:: @ 080CBCFC
-	.incbin "moldworm/gUnk_080CBCFC.bin"
+gSpriteAnimations_Moldworm_13:: @ 080CBCFC
+	.include "animations/gSpriteAnimations_Moldworm_13.s"
 
-gUnk_080CBD00:: @ 080CBD00
-	.incbin "moldworm/gUnk_080CBD00.bin"
+gSpriteAnimations_Moldworm_14:: @ 080CBD00
+	.include "animations/gSpriteAnimations_Moldworm_14.s"
 
-gUnk_080CBD04:: @ 080CBD04
-	.incbin "moldworm/gUnk_080CBD04.bin"
+gSpriteAnimations_Moldworm_15:: @ 080CBD04
+	.include "animations/gSpriteAnimations_Moldworm_15.s"
 
-gUnk_080CBD08:: @ 080CBD08
-	.incbin "moldworm/gUnk_080CBD08.bin"
+gSpriteAnimations_Moldworm_16:: @ 080CBD08
+	.include "animations/gSpriteAnimations_Moldworm_16.s"
 
-gUnk_080CBD0C:: @ 080CBD0C
-	.incbin "moldworm/gUnk_080CBD0C.bin"
+gSpriteAnimations_Moldworm_17:: @ 080CBD0C
+	.include "animations/gSpriteAnimations_Moldworm_17.s"
 
-gUnk_080CBD10:: @ 080CBD10
-	.incbin "moldworm/gUnk_080CBD10.bin"
+gSpriteAnimations_Moldworm_18:: @ 080CBD10
+	.include "animations/gSpriteAnimations_Moldworm_18.s"
 
-gUnk_080CBD14:: @ 080CBD14
-	.incbin "moldworm/gUnk_080CBD14.bin"
+gSpriteAnimations_Moldworm_19:: @ 080CBD14
+	.include "animations/gSpriteAnimations_Moldworm_19.s"
 
-gUnk_080CBD18:: @ 080CBD18
-	.incbin "moldworm/gUnk_080CBD18.bin"
+gSpriteAnimations_Moldworm_20:: @ 080CBD18
+	.include "animations/gSpriteAnimations_Moldworm_20.s"
 
-gUnk_080CBD1C:: @ 080CBD1C
-	.incbin "moldworm/gUnk_080CBD1C.bin"
+gSpriteAnimations_Moldworm_21:: @ 080CBD1C
+	.include "animations/gSpriteAnimations_Moldworm_21.s"
 
-gUnk_080CBD20:: @ 080CBD20
-	.incbin "moldworm/gUnk_080CBD20.bin"
+gSpriteAnimations_Moldworm_22:: @ 080CBD20
+	.include "animations/gSpriteAnimations_Moldworm_22.s"
 
-gUnk_080CBD4C:: @ 080CBD4C
-	.incbin "moldworm/gUnk_080CBD4C.bin"
+gSpriteAnimations_Moldworm_23:: @ 080CBD4C
+	.include "animations/gSpriteAnimations_Moldworm_23.s"
 
 gSpriteAnimations_Moldworm:: @ 080CBD58
-	.4byte gUnk_080CBCC8
-	.4byte gUnk_080CBCCC
-	.4byte gUnk_080CBCD0
-	.4byte gUnk_080CBCD4
-	.4byte gUnk_080CBCD8
-	.4byte gUnk_080CBCDC
-	.4byte gUnk_080CBCE0
-	.4byte gUnk_080CBCE4
-	.4byte gUnk_080CBCE8
-	.4byte gUnk_080CBCEC
-	.4byte gUnk_080CBCF0
-	.4byte gUnk_080CBCF4
-	.4byte gUnk_080CBCF8
-	.4byte gUnk_080CBCFC
-	.4byte gUnk_080CBD00
-	.4byte gUnk_080CBD04
-	.4byte gUnk_080CBD08
-	.4byte gUnk_080CBD0C
-	.4byte gUnk_080CBD10
-	.4byte gUnk_080CBD14
-	.4byte gUnk_080CBD18
-	.4byte gUnk_080CBD1C
-	.4byte gUnk_080CBD20
-	.4byte gUnk_080CBD4C
+	.4byte gSpriteAnimations_Moldworm_0
+	.4byte gSpriteAnimations_Moldworm_1
+	.4byte gSpriteAnimations_Moldworm_2
+	.4byte gSpriteAnimations_Moldworm_3
+	.4byte gSpriteAnimations_Moldworm_4
+	.4byte gSpriteAnimations_Moldworm_5
+	.4byte gSpriteAnimations_Moldworm_6
+	.4byte gSpriteAnimations_Moldworm_7
+	.4byte gSpriteAnimations_Moldworm_8
+	.4byte gSpriteAnimations_Moldworm_9
+	.4byte gSpriteAnimations_Moldworm_10
+	.4byte gSpriteAnimations_Moldworm_11
+	.4byte gSpriteAnimations_Moldworm_12
+	.4byte gSpriteAnimations_Moldworm_13
+	.4byte gSpriteAnimations_Moldworm_14
+	.4byte gSpriteAnimations_Moldworm_15
+	.4byte gSpriteAnimations_Moldworm_16
+	.4byte gSpriteAnimations_Moldworm_17
+	.4byte gSpriteAnimations_Moldworm_18
+	.4byte gSpriteAnimations_Moldworm_19
+	.4byte gSpriteAnimations_Moldworm_20
+	.4byte gSpriteAnimations_Moldworm_21
+	.4byte gSpriteAnimations_Moldworm_22
+	.4byte gSpriteAnimations_Moldworm_23
 	.4byte 00000000

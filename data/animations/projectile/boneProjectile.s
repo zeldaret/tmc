@@ -4,9 +4,9 @@
 	.section .rodata
     .align 2
 
-gUnk_08129634:: @ 08129634
-	.incbin "projectile2/gUnk_08129634.bin"
+gSpriteAnimations_BoneProjectile_0:: @ 08129634
+	.include "animations/gSpriteAnimations_BoneProjectile_0.s"
 
 gSpriteAnimations_BoneProjectile:: @ 08129648
-	.4byte gUnk_08129634
+	.4byte gSpriteAnimations_BoneProjectile_0
 	.4byte 00000000

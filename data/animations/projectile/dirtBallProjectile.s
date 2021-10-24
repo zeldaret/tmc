@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_08129770:: @ 08129770
-	.incbin "projectile6/gUnk_08129770.bin"
+gSpriteAnimations_DirtBallProjectile_0:: @ 08129770
+	.include "animations/gSpriteAnimations_DirtBallProjectile_0.s"
 
-gUnk_08129775:: @ 08129775
-	.incbin "projectile6/gUnk_08129775.bin"
+gSpriteAnimations_DirtBallProjectile_1:: @ 08129775
+	.include "animations/gSpriteAnimations_DirtBallProjectile_1.s"
 
 gSpriteAnimations_DirtBallProjectile:: @ 08129790
-	.4byte gUnk_08129770
-	.4byte gUnk_08129775
+	.4byte gSpriteAnimations_DirtBallProjectile_0
+	.4byte gSpriteAnimations_DirtBallProjectile_1
 	.4byte 00000000

@@ -4,87 +4,87 @@
 	.section .rodata
     .align 2
 
-gUnk_081122C0:: @ 081122C0
-	.incbin "rem/gUnk_081122C0.bin"
+gSpriteAnimations_Rem_1:: @ 081122C0
+	.include "animations/gSpriteAnimations_Rem_1.s"
 
-gUnk_081122C9:: @ 081122C9
-	.incbin "rem/gUnk_081122C9.bin"
+gSpriteAnimations_Rem_0:: @ 081122C9
+	.include "animations/gSpriteAnimations_Rem_0.s"
 
-gUnk_081122D2:: @ 081122D2
-	.incbin "rem/gUnk_081122D2.bin"
+gSpriteAnimations_Rem_3:: @ 081122D2
+	.include "animations/gSpriteAnimations_Rem_3.s"
 
-gUnk_081122DB:: @ 081122DB
-	.incbin "rem/gUnk_081122DB.bin"
+gSpriteAnimations_Rem_5:: @ 081122DB
+	.include "animations/gSpriteAnimations_Rem_5.s"
 
-gUnk_08112300:: @ 08112300
-	.incbin "rem/gUnk_08112300.bin"
+gSpriteAnimations_Rem_4:: @ 08112300
+	.include "animations/gSpriteAnimations_Rem_4.s"
 
-gUnk_08112325:: @ 08112325
-	.incbin "rem/gUnk_08112325.bin"
+gSpriteAnimations_Rem_7:: @ 08112325
+	.include "animations/gSpriteAnimations_Rem_7.s"
 
-gUnk_0811234A:: @ 0811234A
-	.incbin "rem/gUnk_0811234A.bin"
+gSpriteAnimations_Rem_8:: @ 0811234A
+	.include "animations/gSpriteAnimations_Rem_8.s"
 
-gUnk_08112387:: @ 08112387
-	.incbin "rem/gUnk_08112387.bin"
+gSpriteAnimations_Rem_9:: @ 08112387
+	.include "animations/gSpriteAnimations_Rem_9.s"
 
-gUnk_081123A0:: @ 081123A0
-	.incbin "rem/gUnk_081123A0.bin"
+gSpriteAnimations_Rem_10:: @ 081123A0
+	.include "animations/gSpriteAnimations_Rem_10.s"
 
-gUnk_081123C9:: @ 081123C9
-	.incbin "rem/gUnk_081123C9.bin"
+gSpriteAnimations_Rem_11:: @ 081123C9
+	.include "animations/gSpriteAnimations_Rem_11.s"
 
-gUnk_081123EE:: @ 081123EE
-	.incbin "rem/gUnk_081123EE.bin"
+gSpriteAnimations_Rem_15:: @ 081123EE
+	.include "animations/gSpriteAnimations_Rem_15.s"
 
-gUnk_08112467:: @ 08112467
-	.incbin "rem/gUnk_08112467.bin"
+gSpriteAnimations_Rem_12:: @ 08112467
+	.include "animations/gSpriteAnimations_Rem_12.s"
 
-gUnk_081124AC:: @ 081124AC
-	.incbin "rem/gUnk_081124AC.bin"
+gSpriteAnimations_Rem_13:: @ 081124AC
+	.include "animations/gSpriteAnimations_Rem_13.s"
 
-gUnk_081124B5:: @ 081124B5
-	.incbin "rem/gUnk_081124B5.bin"
+gSpriteAnimations_Rem_14:: @ 081124B5
+	.include "animations/gSpriteAnimations_Rem_14.s"
 
-gUnk_081124D2:: @ 081124D2
-	.incbin "rem/gUnk_081124D2.bin"
+gSpriteAnimations_Rem_16:: @ 081124D2
+	.include "animations/gSpriteAnimations_Rem_16.s"
 
-gUnk_081124EB:: @ 081124EB
-	.incbin "rem/gUnk_081124EB.bin"
+gSpriteAnimations_Rem_17:: @ 081124EB
+	.include "animations/gSpriteAnimations_Rem_17.s"
 
-gUnk_081124FF:: @ 081124FF
-	.incbin "rem/gUnk_081124FF.bin"
+gSpriteAnimations_Rem_18:: @ 081124FF
+	.include "animations/gSpriteAnimations_Rem_18.s"
 
-gUnk_08112524:: @ 08112524
-	.incbin "rem/gUnk_08112524.bin"
+gSpriteAnimations_Rem_19:: @ 08112524
+	.include "animations/gSpriteAnimations_Rem_19.s"
 
-gUnk_0811253D:: @ 0811253D
-	.incbin "rem/gUnk_0811253D.bin"
+gSpriteAnimations_Rem_20:: @ 0811253D
+	.include "animations/gSpriteAnimations_Rem_20.s"
 
-gUnk_08112582:: @ 08112582
-	.incbin "rem/gUnk_08112582.bin"
+gSpriteAnimations_Rem_21:: @ 08112582
+	.include "animations/gSpriteAnimations_Rem_21.s"
 
 gSpriteAnimations_Rem:: @ 08112598
-	.4byte gUnk_081122C9
-	.4byte gUnk_081122C0
-	.4byte gUnk_081122C9
-	.4byte gUnk_081122D2
-	.4byte gUnk_08112300
-	.4byte gUnk_081122DB
-	.4byte gUnk_08112300
-	.4byte gUnk_08112325
-	.4byte gUnk_0811234A
-	.4byte gUnk_08112387
-	.4byte gUnk_081123A0
-	.4byte gUnk_081123C9
-	.4byte gUnk_08112467
-	.4byte gUnk_081124AC
-	.4byte gUnk_081124B5
-	.4byte gUnk_081123EE
-	.4byte gUnk_081124D2
-	.4byte gUnk_081124EB
-	.4byte gUnk_081124FF
-	.4byte gUnk_08112524
-	.4byte gUnk_0811253D
-	.4byte gUnk_08112582
+	.4byte gSpriteAnimations_Rem_0
+	.4byte gSpriteAnimations_Rem_1
+	.4byte gSpriteAnimations_Rem_0
+	.4byte gSpriteAnimations_Rem_3
+	.4byte gSpriteAnimations_Rem_4
+	.4byte gSpriteAnimations_Rem_5
+	.4byte gSpriteAnimations_Rem_4
+	.4byte gSpriteAnimations_Rem_7
+	.4byte gSpriteAnimations_Rem_8
+	.4byte gSpriteAnimations_Rem_9
+	.4byte gSpriteAnimations_Rem_10
+	.4byte gSpriteAnimations_Rem_11
+	.4byte gSpriteAnimations_Rem_12
+	.4byte gSpriteAnimations_Rem_13
+	.4byte gSpriteAnimations_Rem_14
+	.4byte gSpriteAnimations_Rem_15
+	.4byte gSpriteAnimations_Rem_16
+	.4byte gSpriteAnimations_Rem_17
+	.4byte gSpriteAnimations_Rem_18
+	.4byte gSpriteAnimations_Rem_19
+	.4byte gSpriteAnimations_Rem_20
+	.4byte gSpriteAnimations_Rem_21
 	.4byte 00000000

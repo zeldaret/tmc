@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_0812261C:: @ 0812261C
-	.incbin "gentariCurtains/gUnk_0812261C.bin"
+gSpriteAnimations_GentariCurtains_0:: @ 0812261C
+	.include "animations/gSpriteAnimations_GentariCurtains_0.s"
 
-gUnk_08122631:: @ 08122631
-	.incbin "gentariCurtains/gUnk_08122631.bin"
+gSpriteAnimations_GentariCurtains_1:: @ 08122631
+	.include "animations/gSpriteAnimations_GentariCurtains_1.s"
 
 gSpriteAnimations_GentariCurtains:: @ 08122638
-	.4byte gUnk_0812261C
-	.4byte gUnk_08122631
+	.4byte gSpriteAnimations_GentariCurtains_0
+	.4byte gSpriteAnimations_GentariCurtains_1
 	.4byte 00000000

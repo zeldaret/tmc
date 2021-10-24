@@ -19,14 +19,14 @@ gUnk_0810FA54:: @ 0810FA54
 gUnk_0810FA5A:: @ 0810FA5A
 	.incbin "sturgeon/gUnk_0810FA5A.bin"
 
-gUnk_0810FB24:: @ 0810FB24
-	.incbin "sturgeon/gUnk_0810FB24.bin"
+gSpriteAnimations_Sturgeon_4:: @ 0810FB24
+	.include "animations/gSpriteAnimations_Sturgeon_4.s"
 
-gUnk_0810FB39:: @ 0810FB39
-	.incbin "sturgeon/gUnk_0810FB39.bin"
+gSpriteAnimations_Sturgeon_5:: @ 0810FB39
+	.include "animations/gSpriteAnimations_Sturgeon_5.s"
 
-gUnk_0810FB4E:: @ 0810FB4E
-	.incbin "sturgeon/gUnk_0810FB4E.bin"
+gSpriteAnimations_Sturgeon_6:: @ 0810FB4E
+	.include "animations/gSpriteAnimations_Sturgeon_6.s"
 
-gUnk_0810FB63:: @ 0810FB63
-	.incbin "sturgeon/gUnk_0810FB63.bin"
+gSpriteAnimations_Sturgeon_7:: @ 0810FB63
+	.include "animations/gSpriteAnimations_Sturgeon_7.s"

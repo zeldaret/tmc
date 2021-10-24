@@ -4,66 +4,66 @@
 	.section .rodata
     .align 2
 
-gUnk_081103E4:: @ 081103E4
-	.incbin "smith/gUnk_081103E4.bin"
+gSpriteAnimations_Smith_0:: @ 081103E4
+	.include "animations/gSpriteAnimations_Smith_0.s"
 
-gUnk_081103E9:: @ 081103E9
-	.incbin "smith/gUnk_081103E9.bin"
+gSpriteAnimations_Smith_1:: @ 081103E9
+	.include "animations/gSpriteAnimations_Smith_1.s"
 
-gUnk_081103EE:: @ 081103EE
-	.incbin "smith/gUnk_081103EE.bin"
+gSpriteAnimations_Smith_2:: @ 081103EE
+	.include "animations/gSpriteAnimations_Smith_2.s"
 
-gUnk_081103F3:: @ 081103F3
-	.incbin "smith/gUnk_081103F3.bin"
+gSpriteAnimations_Smith_3:: @ 081103F3
+	.include "animations/gSpriteAnimations_Smith_3.s"
 
-gUnk_081103F8:: @ 081103F8
-	.incbin "smith/gUnk_081103F8.bin"
+gSpriteAnimations_Smith_4:: @ 081103F8
+	.include "animations/gSpriteAnimations_Smith_4.s"
 
-gUnk_08110409:: @ 08110409
-	.incbin "smith/gUnk_08110409.bin"
+gSpriteAnimations_Smith_6:: @ 08110409
+	.include "animations/gSpriteAnimations_Smith_6.s"
 
-gUnk_0811041A:: @ 0811041A
-	.incbin "smith/gUnk_0811041A.bin"
+gSpriteAnimations_Smith_5:: @ 0811041A
+	.include "animations/gSpriteAnimations_Smith_5.s"
 
-gUnk_0811042B:: @ 0811042B
-	.incbin "smith/gUnk_0811042B.bin"
+gSpriteAnimations_Smith_7:: @ 0811042B
+	.include "animations/gSpriteAnimations_Smith_7.s"
 
-gUnk_0811043C:: @ 0811043C
-	.incbin "smith/gUnk_0811043C.bin"
+gSpriteAnimations_Smith_8:: @ 0811043C
+	.include "animations/gSpriteAnimations_Smith_8.s"
 
-gUnk_08110441:: @ 08110441
-	.incbin "smith/gUnk_08110441.bin"
+gSpriteAnimations_Smith_9:: @ 08110441
+	.include "animations/gSpriteAnimations_Smith_9.s"
 
-gUnk_08110446:: @ 08110446
-	.incbin "smith/gUnk_08110446.bin"
+gSpriteAnimations_Smith_11:: @ 08110446
+	.include "animations/gSpriteAnimations_Smith_11.s"
 
-gUnk_0811044B:: @ 0811044B
-	.incbin "smith/gUnk_0811044B.bin"
+gSpriteAnimations_Smith_12:: @ 0811044B
+	.include "animations/gSpriteAnimations_Smith_12.s"
 
-gUnk_08110474:: @ 08110474
-	.incbin "smith/gUnk_08110474.bin"
+gSpriteAnimations_Smith_13:: @ 08110474
+	.include "animations/gSpriteAnimations_Smith_13.s"
 
-gUnk_08110479:: @ 08110479
-	.incbin "smith/gUnk_08110479.bin"
+gSpriteAnimations_Smith_14:: @ 08110479
+	.include "animations/gSpriteAnimations_Smith_14.s"
 
-gUnk_0811047E:: @ 0811047E
-	.incbin "smith/gUnk_0811047E.bin"
+gSpriteAnimations_Smith_15:: @ 0811047E
+	.include "animations/gSpriteAnimations_Smith_15.s"
 
 gSpriteAnimations_Smith:: @ 08110484
-	.4byte gUnk_081103E4
-	.4byte gUnk_081103E9
-	.4byte gUnk_081103EE
-	.4byte gUnk_081103F3
-	.4byte gUnk_081103F8
-	.4byte gUnk_0811041A
-	.4byte gUnk_08110409
-	.4byte gUnk_0811042B
-	.4byte gUnk_0811043C
-	.4byte gUnk_08110441
-	.4byte gUnk_0811043C
-	.4byte gUnk_08110446
-	.4byte gUnk_0811044B
-	.4byte gUnk_08110474
-	.4byte gUnk_08110479
-	.4byte gUnk_0811047E
+	.4byte gSpriteAnimations_Smith_0
+	.4byte gSpriteAnimations_Smith_1
+	.4byte gSpriteAnimations_Smith_2
+	.4byte gSpriteAnimations_Smith_3
+	.4byte gSpriteAnimations_Smith_4
+	.4byte gSpriteAnimations_Smith_5
+	.4byte gSpriteAnimations_Smith_6
+	.4byte gSpriteAnimations_Smith_7
+	.4byte gSpriteAnimations_Smith_8
+	.4byte gSpriteAnimations_Smith_9
+	.4byte gSpriteAnimations_Smith_8
+	.4byte gSpriteAnimations_Smith_11
+	.4byte gSpriteAnimations_Smith_12
+	.4byte gSpriteAnimations_Smith_13
+	.4byte gSpriteAnimations_Smith_14
+	.4byte gSpriteAnimations_Smith_15
 	.4byte 00000000

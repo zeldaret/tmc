@@ -4,21 +4,21 @@
 	.section .rodata
 @    .align 2
 
-gUnk_0812376A:: @ 0812376A
-	.incbin "smallIceBlock/gUnk_0812376A.bin"
+gSpriteAnimations_SmallIceBlock_0:: @ 0812376A
+	.include "animations/gSpriteAnimations_SmallIceBlock_0.s"
 
-gUnk_0812376E:: @ 0812376E
-	.incbin "smallIceBlock/gUnk_0812376E.bin"
+gSpriteAnimations_SmallIceBlock_1:: @ 0812376E
+	.include "animations/gSpriteAnimations_SmallIceBlock_1.s"
 
-gUnk_08123772:: @ 08123772
-	.incbin "smallIceBlock/gUnk_08123772.bin"
+gSpriteAnimations_SmallIceBlock_2:: @ 08123772
+	.include "animations/gSpriteAnimations_SmallIceBlock_2.s"
 
-gUnk_08123776:: @ 08123776
-	.incbin "smallIceBlock/gUnk_08123776.bin"
+gSpriteAnimations_SmallIceBlock_3:: @ 08123776
+	.include "animations/gSpriteAnimations_SmallIceBlock_3.s"
 
 gSpriteAnimations_SmallIceBlock:: @ 0812378C
-	.4byte gUnk_0812376A
-	.4byte gUnk_0812376E
-	.4byte gUnk_08123772
-	.4byte gUnk_08123776
+	.4byte gSpriteAnimations_SmallIceBlock_0
+	.4byte gSpriteAnimations_SmallIceBlock_1
+	.4byte gSpriteAnimations_SmallIceBlock_2
+	.4byte gSpriteAnimations_SmallIceBlock_3
 	.4byte 00000000

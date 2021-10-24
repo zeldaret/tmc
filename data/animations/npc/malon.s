@@ -4,48 +4,48 @@
 	.section .rodata
     .align 2
 
-gUnk_0810FF70:: @ 0810FF70
-	.incbin "malon/gUnk_0810FF70.bin"
+gSpriteAnimations_Malon_0:: @ 0810FF70
+	.include "animations/gSpriteAnimations_Malon_0.s"
 
-gUnk_0810FF75:: @ 0810FF75
-	.incbin "malon/gUnk_0810FF75.bin"
+gSpriteAnimations_Malon_1:: @ 0810FF75
+	.include "animations/gSpriteAnimations_Malon_1.s"
 
-gUnk_0810FF7A:: @ 0810FF7A
-	.incbin "malon/gUnk_0810FF7A.bin"
+gSpriteAnimations_Malon_2:: @ 0810FF7A
+	.include "animations/gSpriteAnimations_Malon_2.s"
 
-gUnk_0810FF7F:: @ 0810FF7F
-	.incbin "malon/gUnk_0810FF7F.bin"
+gSpriteAnimations_Malon_3:: @ 0810FF7F
+	.include "animations/gSpriteAnimations_Malon_3.s"
 
-gUnk_0810FF84:: @ 0810FF84
-	.incbin "malon/gUnk_0810FF84.bin"
+gSpriteAnimations_Malon_5:: @ 0810FF84
+	.include "animations/gSpriteAnimations_Malon_5.s"
 
-gUnk_0810FFA5:: @ 0810FFA5
-	.incbin "malon/gUnk_0810FFA5.bin"
+gSpriteAnimations_Malon_6:: @ 0810FFA5
+	.include "animations/gSpriteAnimations_Malon_6.s"
 
-gUnk_0810FFB6:: @ 0810FFB6
-	.incbin "malon/gUnk_0810FFB6.bin"
+gSpriteAnimations_Malon_4:: @ 0810FFB6
+	.include "animations/gSpriteAnimations_Malon_4.s"
 
-gUnk_0810FFD7:: @ 0810FFD7
-	.incbin "malon/gUnk_0810FFD7.bin"
+gSpriteAnimations_Malon_12:: @ 0810FFD7
+	.include "animations/gSpriteAnimations_Malon_12.s"
 
-gUnk_08110014:: @ 08110014
-	.incbin "malon/gUnk_08110014.bin"
+gSpriteAnimations_Malon_10:: @ 08110014
+	.include "animations/gSpriteAnimations_Malon_10.s"
 
 gSpriteAnimations_Malon:: @ 08110028
-	.4byte gUnk_0810FF70
-	.4byte gUnk_0810FF75
-	.4byte gUnk_0810FF7A
-	.4byte gUnk_0810FF7F
-	.4byte gUnk_0810FFB6
-	.4byte gUnk_0810FF84
-	.4byte gUnk_0810FFA5
-	.4byte gUnk_0810FFB6
-	.4byte gUnk_0810FF70
-	.4byte gUnk_0810FF75
-	.4byte gUnk_08110014
-	.4byte gUnk_0810FF7F
-	.4byte gUnk_0810FFD7
-	.4byte gUnk_0810FFD7
-	.4byte gUnk_0810FFD7
-	.4byte gUnk_0810FFD7
+	.4byte gSpriteAnimations_Malon_0
+	.4byte gSpriteAnimations_Malon_1
+	.4byte gSpriteAnimations_Malon_2
+	.4byte gSpriteAnimations_Malon_3
+	.4byte gSpriteAnimations_Malon_4
+	.4byte gSpriteAnimations_Malon_5
+	.4byte gSpriteAnimations_Malon_6
+	.4byte gSpriteAnimations_Malon_4
+	.4byte gSpriteAnimations_Malon_0
+	.4byte gSpriteAnimations_Malon_1
+	.4byte gSpriteAnimations_Malon_10
+	.4byte gSpriteAnimations_Malon_3
+	.4byte gSpriteAnimations_Malon_12
+	.4byte gSpriteAnimations_Malon_12
+	.4byte gSpriteAnimations_Malon_12
+	.4byte gSpriteAnimations_Malon_12
 	.4byte 00000000

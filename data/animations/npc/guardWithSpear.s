@@ -4,97 +4,97 @@
 	.section .rodata
     .align 2
 
-gUnk_0810F6E4:: @ 0810F6E4
-	.incbin "guardWithSpear/gUnk_0810F6E4.bin"
+gSpriteAnimations_GuardWithSpear_0:: @ 0810F6E4
+	.include "animations/gSpriteAnimations_GuardWithSpear_0.s"
 
-gUnk_0810F6E9:: @ 0810F6E9
-	.incbin "guardWithSpear/gUnk_0810F6E9.bin"
+gSpriteAnimations_GuardWithSpear_1:: @ 0810F6E9
+	.include "animations/gSpriteAnimations_GuardWithSpear_1.s"
 
-gUnk_0810F6EE:: @ 0810F6EE
-	.incbin "guardWithSpear/gUnk_0810F6EE.bin"
+gSpriteAnimations_GuardWithSpear_2:: @ 0810F6EE
+	.include "animations/gSpriteAnimations_GuardWithSpear_2.s"
 
-gUnk_0810F6F3:: @ 0810F6F3
-	.incbin "guardWithSpear/gUnk_0810F6F3.bin"
+gSpriteAnimations_GuardWithSpear_3:: @ 0810F6F3
+	.include "animations/gSpriteAnimations_GuardWithSpear_3.s"
 
-gUnk_0810F6F8:: @ 0810F6F8
-	.incbin "guardWithSpear/gUnk_0810F6F8.bin"
+gSpriteAnimations_GuardWithSpear_8:: @ 0810F6F8
+	.include "animations/gSpriteAnimations_GuardWithSpear_8.s"
 
-gUnk_0810F6FD:: @ 0810F6FD
-	.incbin "guardWithSpear/gUnk_0810F6FD.bin"
+gSpriteAnimations_GuardWithSpear_9:: @ 0810F6FD
+	.include "animations/gSpriteAnimations_GuardWithSpear_9.s"
 
-gUnk_0810F702:: @ 0810F702
-	.incbin "guardWithSpear/gUnk_0810F702.bin"
+gSpriteAnimations_GuardWithSpear_10:: @ 0810F702
+	.include "animations/gSpriteAnimations_GuardWithSpear_10.s"
 
-gUnk_0810F707:: @ 0810F707
-	.incbin "guardWithSpear/gUnk_0810F707.bin"
+gSpriteAnimations_GuardWithSpear_11:: @ 0810F707
+	.include "animations/gSpriteAnimations_GuardWithSpear_11.s"
 
-gUnk_0810F70C:: @ 0810F70C
-	.incbin "guardWithSpear/gUnk_0810F70C.bin"
+gSpriteAnimations_GuardWithSpear_4:: @ 0810F70C
+	.include "animations/gSpriteAnimations_GuardWithSpear_4.s"
 
-gUnk_0810F71D:: @ 0810F71D
-	.incbin "guardWithSpear/gUnk_0810F71D.bin"
+gSpriteAnimations_GuardWithSpear_5:: @ 0810F71D
+	.include "animations/gSpriteAnimations_GuardWithSpear_5.s"
 
-gUnk_0810F72E:: @ 0810F72E
-	.incbin "guardWithSpear/gUnk_0810F72E.bin"
+gSpriteAnimations_GuardWithSpear_6:: @ 0810F72E
+	.include "animations/gSpriteAnimations_GuardWithSpear_6.s"
 
-gUnk_0810F73F:: @ 0810F73F
-	.incbin "guardWithSpear/gUnk_0810F73F.bin"
+gSpriteAnimations_GuardWithSpear_7:: @ 0810F73F
+	.include "animations/gSpriteAnimations_GuardWithSpear_7.s"
 
-gUnk_0810F750:: @ 0810F750
-	.incbin "guardWithSpear/gUnk_0810F750.bin"
+gSpriteAnimations_GuardWithSpear_12:: @ 0810F750
+	.include "animations/gSpriteAnimations_GuardWithSpear_12.s"
 
-gUnk_0810F761:: @ 0810F761
-	.incbin "guardWithSpear/gUnk_0810F761.bin"
+gSpriteAnimations_GuardWithSpear_13:: @ 0810F761
+	.include "animations/gSpriteAnimations_GuardWithSpear_13.s"
 
-gUnk_0810F772:: @ 0810F772
-	.incbin "guardWithSpear/gUnk_0810F772.bin"
+gSpriteAnimations_GuardWithSpear_14:: @ 0810F772
+	.include "animations/gSpriteAnimations_GuardWithSpear_14.s"
 
-gUnk_0810F783:: @ 0810F783
-	.incbin "guardWithSpear/gUnk_0810F783.bin"
+gSpriteAnimations_GuardWithSpear_15:: @ 0810F783
+	.include "animations/gSpriteAnimations_GuardWithSpear_15.s"
 
-gUnk_0810F794:: @ 0810F794
-	.incbin "guardWithSpear/gUnk_0810F794.bin"
+gSpriteAnimations_GuardWithSpear_16:: @ 0810F794
+	.include "animations/gSpriteAnimations_GuardWithSpear_16.s"
 
-gUnk_0810F799:: @ 0810F799
-	.incbin "guardWithSpear/gUnk_0810F799.bin"
+gSpriteAnimations_GuardWithSpear_21:: @ 0810F799
+	.include "animations/gSpriteAnimations_GuardWithSpear_21.s"
 
-gUnk_0810F7BE:: @ 0810F7BE
-	.incbin "guardWithSpear/gUnk_0810F7BE.bin"
+gSpriteAnimations_GuardWithSpear_17:: @ 0810F7BE
+	.include "animations/gSpriteAnimations_GuardWithSpear_17.s"
 
-gUnk_0810F7C3:: @ 0810F7C3
-	.incbin "guardWithSpear/gUnk_0810F7C3.bin"
+gSpriteAnimations_GuardWithSpear_22:: @ 0810F7C3
+	.include "animations/gSpriteAnimations_GuardWithSpear_22.s"
 
-gUnk_0810F7E8:: @ 0810F7E8
-	.incbin "guardWithSpear/gUnk_0810F7E8.bin"
+gSpriteAnimations_GuardWithSpear_18:: @ 0810F7E8
+	.include "animations/gSpriteAnimations_GuardWithSpear_18.s"
 
-gUnk_0810F7FD:: @ 0810F7FD
-	.incbin "guardWithSpear/gUnk_0810F7FD.bin"
+gSpriteAnimations_GuardWithSpear_19:: @ 0810F7FD
+	.include "animations/gSpriteAnimations_GuardWithSpear_19.s"
 
-gUnk_0810F802:: @ 0810F802
-	.incbin "guardWithSpear/gUnk_0810F802.bin"
+gSpriteAnimations_GuardWithSpear_20:: @ 0810F802
+	.include "animations/gSpriteAnimations_GuardWithSpear_20.s"
 
 gSpriteAnimations_GuardWithSpear:: @ 0810F814
-	.4byte gUnk_0810F6E4
-	.4byte gUnk_0810F6E9
-	.4byte gUnk_0810F6EE
-	.4byte gUnk_0810F6F3
-	.4byte gUnk_0810F70C
-	.4byte gUnk_0810F71D
-	.4byte gUnk_0810F72E
-	.4byte gUnk_0810F73F
-	.4byte gUnk_0810F6F8
-	.4byte gUnk_0810F6FD
-	.4byte gUnk_0810F702
-	.4byte gUnk_0810F707
-	.4byte gUnk_0810F750
-	.4byte gUnk_0810F761
-	.4byte gUnk_0810F772
-	.4byte gUnk_0810F783
-	.4byte gUnk_0810F794
-	.4byte gUnk_0810F7BE
-	.4byte gUnk_0810F7E8
-	.4byte gUnk_0810F7FD
-	.4byte gUnk_0810F802
-	.4byte gUnk_0810F799
-	.4byte gUnk_0810F7C3
+	.4byte gSpriteAnimations_GuardWithSpear_0
+	.4byte gSpriteAnimations_GuardWithSpear_1
+	.4byte gSpriteAnimations_GuardWithSpear_2
+	.4byte gSpriteAnimations_GuardWithSpear_3
+	.4byte gSpriteAnimations_GuardWithSpear_4
+	.4byte gSpriteAnimations_GuardWithSpear_5
+	.4byte gSpriteAnimations_GuardWithSpear_6
+	.4byte gSpriteAnimations_GuardWithSpear_7
+	.4byte gSpriteAnimations_GuardWithSpear_8
+	.4byte gSpriteAnimations_GuardWithSpear_9
+	.4byte gSpriteAnimations_GuardWithSpear_10
+	.4byte gSpriteAnimations_GuardWithSpear_11
+	.4byte gSpriteAnimations_GuardWithSpear_12
+	.4byte gSpriteAnimations_GuardWithSpear_13
+	.4byte gSpriteAnimations_GuardWithSpear_14
+	.4byte gSpriteAnimations_GuardWithSpear_15
+	.4byte gSpriteAnimations_GuardWithSpear_16
+	.4byte gSpriteAnimations_GuardWithSpear_17
+	.4byte gSpriteAnimations_GuardWithSpear_18
+	.4byte gSpriteAnimations_GuardWithSpear_19
+	.4byte gSpriteAnimations_GuardWithSpear_20
+	.4byte gSpriteAnimations_GuardWithSpear_21
+	.4byte gSpriteAnimations_GuardWithSpear_22
 	.4byte 00000000

@@ -22,73 +22,73 @@ gUnk_0812241C:: @ 0812241C
 gUnk_08122436:: @ 08122436
 	.incbin "minecart/gUnk_08122436.bin"
 
-gUnk_08122450:: @ 08122450
-	.incbin "minecart/gUnk_08122450.bin"
+gSpriteAnimations_Minecart_0:: @ 08122450
+	.include "animations/gSpriteAnimations_Minecart_0.s"
 
-gUnk_08122459:: @ 08122459
-	.incbin "minecart/gUnk_08122459.bin"
+gSpriteAnimations_Minecart_2:: @ 08122459
+	.include "animations/gSpriteAnimations_Minecart_2.s"
 
-gUnk_08122462:: @ 08122462
-	.incbin "minecart/gUnk_08122462.bin"
+gSpriteAnimations_Minecart_1:: @ 08122462
+	.include "animations/gSpriteAnimations_Minecart_1.s"
 
-gUnk_0812246B:: @ 0812246B
-	.incbin "minecart/gUnk_0812246B.bin"
+gSpriteAnimations_Minecart_3:: @ 0812246B
+	.include "animations/gSpriteAnimations_Minecart_3.s"
 
-gUnk_08122474:: @ 08122474
-	.incbin "minecart/gUnk_08122474.bin"
+gSpriteAnimations_Minecart_4:: @ 08122474
+	.include "animations/gSpriteAnimations_Minecart_4.s"
 
-gUnk_08122489:: @ 08122489
-	.incbin "minecart/gUnk_08122489.bin"
+gSpriteAnimations_Minecart_5:: @ 08122489
+	.include "animations/gSpriteAnimations_Minecart_5.s"
 
-gUnk_0812249E:: @ 0812249E
-	.incbin "minecart/gUnk_0812249E.bin"
+gSpriteAnimations_Minecart_8:: @ 0812249E
+	.include "animations/gSpriteAnimations_Minecart_8.s"
 
-gUnk_081224B3:: @ 081224B3
-	.incbin "minecart/gUnk_081224B3.bin"
+gSpriteAnimations_Minecart_9:: @ 081224B3
+	.include "animations/gSpriteAnimations_Minecart_9.s"
 
-gUnk_081224C8:: @ 081224C8
-	.incbin "minecart/gUnk_081224C8.bin"
+gSpriteAnimations_Minecart_12:: @ 081224C8
+	.include "animations/gSpriteAnimations_Minecart_12.s"
 
-gUnk_081224E1:: @ 081224E1
-	.incbin "minecart/gUnk_081224E1.bin"
+gSpriteAnimations_Minecart_14:: @ 081224E1
+	.include "animations/gSpriteAnimations_Minecart_14.s"
 
-gUnk_081224F9:: @ 081224F9
-	.incbin "minecart/gUnk_081224F9.bin"
+gSpriteAnimations_Minecart_13:: @ 081224F9
+	.include "animations/gSpriteAnimations_Minecart_13.s"
 
-gUnk_08122511:: @ 08122511
-	.incbin "minecart/gUnk_08122511.bin"
+gSpriteAnimations_Minecart_15:: @ 08122511
+	.include "animations/gSpriteAnimations_Minecart_15.s"
 
-gUnk_08122529:: @ 08122529
-	.incbin "minecart/gUnk_08122529.bin"
+gSpriteAnimations_Minecart_16:: @ 08122529
+	.include "animations/gSpriteAnimations_Minecart_16.s"
 
-gUnk_0812252E:: @ 0812252E
-	.incbin "minecart/gUnk_0812252E.bin"
+gSpriteAnimations_Minecart_18:: @ 0812252E
+	.include "animations/gSpriteAnimations_Minecart_18.s"
 
-gUnk_08122533:: @ 08122533
-	.incbin "minecart/gUnk_08122533.bin"
+gSpriteAnimations_Minecart_17:: @ 08122533
+	.include "animations/gSpriteAnimations_Minecart_17.s"
 
-gUnk_08122538:: @ 08122538
-	.incbin "minecart/gUnk_08122538.bin"
+gSpriteAnimations_Minecart_19:: @ 08122538
+	.include "animations/gSpriteAnimations_Minecart_19.s"
 
 gSpriteAnimations_Minecart:: @ 08122540
-	.4byte gUnk_08122450
-	.4byte gUnk_08122462
-	.4byte gUnk_08122459
-	.4byte gUnk_0812246B
-	.4byte gUnk_08122474
-	.4byte gUnk_08122489
-	.4byte gUnk_08122474
-	.4byte gUnk_08122489
-	.4byte gUnk_0812249E
-	.4byte gUnk_081224B3
-	.4byte gUnk_0812249E
-	.4byte gUnk_081224B3
-	.4byte gUnk_081224C8
-	.4byte gUnk_081224F9
-	.4byte gUnk_081224E1
-	.4byte gUnk_08122511
-	.4byte gUnk_08122529
-	.4byte gUnk_08122533
-	.4byte gUnk_0812252E
-	.4byte gUnk_08122538
+	.4byte gSpriteAnimations_Minecart_0
+	.4byte gSpriteAnimations_Minecart_1
+	.4byte gSpriteAnimations_Minecart_2
+	.4byte gSpriteAnimations_Minecart_3
+	.4byte gSpriteAnimations_Minecart_4
+	.4byte gSpriteAnimations_Minecart_5
+	.4byte gSpriteAnimations_Minecart_4
+	.4byte gSpriteAnimations_Minecart_5
+	.4byte gSpriteAnimations_Minecart_8
+	.4byte gSpriteAnimations_Minecart_9
+	.4byte gSpriteAnimations_Minecart_8
+	.4byte gSpriteAnimations_Minecart_9
+	.4byte gSpriteAnimations_Minecart_12
+	.4byte gSpriteAnimations_Minecart_13
+	.4byte gSpriteAnimations_Minecart_14
+	.4byte gSpriteAnimations_Minecart_15
+	.4byte gSpriteAnimations_Minecart_16
+	.4byte gSpriteAnimations_Minecart_17
+	.4byte gSpriteAnimations_Minecart_18
+	.4byte gSpriteAnimations_Minecart_19
 

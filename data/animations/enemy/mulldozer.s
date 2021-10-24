@@ -4,53 +4,53 @@
 	.section .rodata
  @   .align 2
 
-gUnk_080CEA66:: @ 080CEA66
-	.incbin "mulldozer/gUnk_080CEA66.bin"
+gSpriteAnimations_Mulldozer_0:: @ 080CEA66
+	.include "animations/gSpriteAnimations_Mulldozer_0.s"
 
-gUnk_080CEA6B:: @ 080CEA6B
-	.incbin "mulldozer/gUnk_080CEA6B.bin"
+gSpriteAnimations_Mulldozer_1:: @ 080CEA6B
+	.include "animations/gSpriteAnimations_Mulldozer_1.s"
 
-gUnk_080CEA70:: @ 080CEA70
-	.incbin "mulldozer/gUnk_080CEA70.bin"
+gSpriteAnimations_Mulldozer_2:: @ 080CEA70
+	.include "animations/gSpriteAnimations_Mulldozer_2.s"
 
-gUnk_080CEA75:: @ 080CEA75
-	.incbin "mulldozer/gUnk_080CEA75.bin"
+gSpriteAnimations_Mulldozer_3:: @ 080CEA75
+	.include "animations/gSpriteAnimations_Mulldozer_3.s"
 
-gUnk_080CEA7A:: @ 080CEA7A
-	.incbin "mulldozer/gUnk_080CEA7A.bin"
+gSpriteAnimations_Mulldozer_4:: @ 080CEA7A
+	.include "animations/gSpriteAnimations_Mulldozer_4.s"
 
-gUnk_080CEA8B:: @ 080CEA8B
-	.incbin "mulldozer/gUnk_080CEA8B.bin"
+gSpriteAnimations_Mulldozer_5:: @ 080CEA8B
+	.include "animations/gSpriteAnimations_Mulldozer_5.s"
 
-gUnk_080CEA9C:: @ 080CEA9C
-	.incbin "mulldozer/gUnk_080CEA9C.bin"
+gSpriteAnimations_Mulldozer_6:: @ 080CEA9C
+	.include "animations/gSpriteAnimations_Mulldozer_6.s"
 
-gUnk_080CEAAD:: @ 080CEAAD
-	.incbin "mulldozer/gUnk_080CEAAD.bin"
+gSpriteAnimations_Mulldozer_7:: @ 080CEAAD
+	.include "animations/gSpriteAnimations_Mulldozer_7.s"
 
-gUnk_080CEABE:: @ 080CEABE
-	.incbin "mulldozer/gUnk_080CEABE.bin"
+gSpriteAnimations_Mulldozer_8:: @ 080CEABE
+	.include "animations/gSpriteAnimations_Mulldozer_8.s"
 
-gUnk_080CEACF:: @ 080CEACF
-	.incbin "mulldozer/gUnk_080CEACF.bin"
+gSpriteAnimations_Mulldozer_9:: @ 080CEACF
+	.include "animations/gSpriteAnimations_Mulldozer_9.s"
 
-gUnk_080CEAE0:: @ 080CEAE0
-	.incbin "mulldozer/gUnk_080CEAE0.bin"
+gSpriteAnimations_Mulldozer_10:: @ 080CEAE0
+	.include "animations/gSpriteAnimations_Mulldozer_10.s"
 
-gUnk_080CEAF1:: @ 080CEAF1
-	.incbin "mulldozer/gUnk_080CEAF1.bin"
+gSpriteAnimations_Mulldozer_11:: @ 080CEAF1
+	.include "animations/gSpriteAnimations_Mulldozer_11.s"
 
 gSpriteAnimations_Mulldozer:: @ 080CEB04
-	.4byte gUnk_080CEA66
-	.4byte gUnk_080CEA6B
-	.4byte gUnk_080CEA70
-	.4byte gUnk_080CEA75
-	.4byte gUnk_080CEA7A
-	.4byte gUnk_080CEA8B
-	.4byte gUnk_080CEA9C
-	.4byte gUnk_080CEAAD
-	.4byte gUnk_080CEABE
-	.4byte gUnk_080CEACF
-	.4byte gUnk_080CEAE0
-	.4byte gUnk_080CEAF1
+	.4byte gSpriteAnimations_Mulldozer_0
+	.4byte gSpriteAnimations_Mulldozer_1
+	.4byte gSpriteAnimations_Mulldozer_2
+	.4byte gSpriteAnimations_Mulldozer_3
+	.4byte gSpriteAnimations_Mulldozer_4
+	.4byte gSpriteAnimations_Mulldozer_5
+	.4byte gSpriteAnimations_Mulldozer_6
+	.4byte gSpriteAnimations_Mulldozer_7
+	.4byte gSpriteAnimations_Mulldozer_8
+	.4byte gSpriteAnimations_Mulldozer_9
+	.4byte gSpriteAnimations_Mulldozer_10
+	.4byte gSpriteAnimations_Mulldozer_11
 	.4byte 00000000

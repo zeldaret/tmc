@@ -4,33 +4,33 @@
 	.section .rodata
     .align 2
 
-gUnk_0810CE54:: @ 0810CE54
-	.incbin "pina/gUnk_0810CE54.bin"
+gSpriteAnimations_Pina_0:: @ 0810CE54
+	.include "animations/gSpriteAnimations_Pina_0.s"
 
-gUnk_0810CEA1:: @ 0810CEA1
-	.incbin "pina/gUnk_0810CEA1.bin"
+gSpriteAnimations_Pina_8:: @ 0810CEA1
+	.include "animations/gSpriteAnimations_Pina_8.s"
 
-gUnk_0810CEEE:: @ 0810CEEE
-	.incbin "pina/gUnk_0810CEEE.bin"
+gSpriteAnimations_Pina_9:: @ 0810CEEE
+	.include "animations/gSpriteAnimations_Pina_9.s"
 
-gUnk_0810CF0F:: @ 0810CF0F
-	.incbin "pina/gUnk_0810CF0F.bin"
+gSpriteAnimations_Pina_4:: @ 0810CF0F
+	.include "animations/gSpriteAnimations_Pina_4.s"
 
-gUnk_0810CF14:: @ 0810CF14
-	.incbin "pina/gUnk_0810CF14.bin"
+gSpriteAnimations_Pina_5:: @ 0810CF14
+	.include "animations/gSpriteAnimations_Pina_5.s"
 
-gUnk_0810CF19:: @ 0810CF19
-	.incbin "pina/gUnk_0810CF19.bin"
+gSpriteAnimations_Pina_7:: @ 0810CF19
+	.include "animations/gSpriteAnimations_Pina_7.s"
 
 gSpriteAnimations_Pina:: @ 0810CF20
-	.4byte gUnk_0810CE54
-	.4byte gUnk_0810CE54
-	.4byte gUnk_0810CE54
-	.4byte gUnk_0810CE54
-	.4byte gUnk_0810CF0F
-	.4byte gUnk_0810CF14
-	.4byte gUnk_0810CF0F
-	.4byte gUnk_0810CF19
-	.4byte gUnk_0810CEA1
-	.4byte gUnk_0810CEEE
+	.4byte gSpriteAnimations_Pina_0
+	.4byte gSpriteAnimations_Pina_0
+	.4byte gSpriteAnimations_Pina_0
+	.4byte gSpriteAnimations_Pina_0
+	.4byte gSpriteAnimations_Pina_4
+	.4byte gSpriteAnimations_Pina_5
+	.4byte gSpriteAnimations_Pina_4
+	.4byte gSpriteAnimations_Pina_7
+	.4byte gSpriteAnimations_Pina_8
+	.4byte gSpriteAnimations_Pina_9
 	.4byte 00000000

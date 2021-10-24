@@ -6,546 +6,546 @@
 
 
 
-gUnk_080CD8A3:: @ 080CD8A3
-	.incbin "gleerok/gUnk_080CD8A3.bin"
+gSpriteAnimations_Gleerok_1_36:: @ 080CD8A3
+	.include "animations/gSpriteAnimations_Gleerok_1_36.s"
 
-gUnk_080CD8A7:: @ 080CD8A7
-	.incbin "gleerok/gUnk_080CD8A7.bin"
+gSpriteAnimations_Gleerok_1_37:: @ 080CD8A7
+	.include "animations/gSpriteAnimations_Gleerok_1_37.s"
 
-gUnk_080CD8AB:: @ 080CD8AB
-	.incbin "gleerok/gUnk_080CD8AB.bin"
+gSpriteAnimations_Gleerok_1_38:: @ 080CD8AB
+	.include "animations/gSpriteAnimations_Gleerok_1_38.s"
 
-gUnk_080CD8AF:: @ 080CD8AF
-	.incbin "gleerok/gUnk_080CD8AF.bin"
+gSpriteAnimations_Gleerok_1_39:: @ 080CD8AF
+	.include "animations/gSpriteAnimations_Gleerok_1_39.s"
 
-gUnk_080CD8B3:: @ 080CD8B3
-	.incbin "gleerok/gUnk_080CD8B3.bin"
+gSpriteAnimations_Gleerok_1_40:: @ 080CD8B3
+	.include "animations/gSpriteAnimations_Gleerok_1_40.s"
 
-gUnk_080CD8B7:: @ 080CD8B7
-	.incbin "gleerok/gUnk_080CD8B7.bin"
+gSpriteAnimations_Gleerok_1_41:: @ 080CD8B7
+	.include "animations/gSpriteAnimations_Gleerok_1_41.s"
 
-gUnk_080CD8BB:: @ 080CD8BB
-	.incbin "gleerok/gUnk_080CD8BB.bin"
+gSpriteAnimations_Gleerok_1_42:: @ 080CD8BB
+	.include "animations/gSpriteAnimations_Gleerok_1_42.s"
 
-gUnk_080CD8BF:: @ 080CD8BF
-	.incbin "gleerok/gUnk_080CD8BF.bin"
+gSpriteAnimations_Gleerok_1_43:: @ 080CD8BF
+	.include "animations/gSpriteAnimations_Gleerok_1_43.s"
 
-gUnk_080CD8C3:: @ 080CD8C3
-	.incbin "gleerok/gUnk_080CD8C3.bin"
+gSpriteAnimations_Gleerok_1_44:: @ 080CD8C3
+	.include "animations/gSpriteAnimations_Gleerok_1_44.s"
 
-gUnk_080CD8C7:: @ 080CD8C7
-	.incbin "gleerok/gUnk_080CD8C7.bin"
+gSpriteAnimations_Gleerok_1_45:: @ 080CD8C7
+	.include "animations/gSpriteAnimations_Gleerok_1_45.s"
 
-gUnk_080CD8CB:: @ 080CD8CB
-	.incbin "gleerok/gUnk_080CD8CB.bin"
+gSpriteAnimations_Gleerok_1_46:: @ 080CD8CB
+	.include "animations/gSpriteAnimations_Gleerok_1_46.s"
 
-gUnk_080CD8CF:: @ 080CD8CF
-	.incbin "gleerok/gUnk_080CD8CF.bin"
+gSpriteAnimations_Gleerok_1_47:: @ 080CD8CF
+	.include "animations/gSpriteAnimations_Gleerok_1_47.s"
 
-gUnk_080CD8D3:: @ 080CD8D3
-	.incbin "gleerok/gUnk_080CD8D3.bin"
+gSpriteAnimations_Gleerok_1_24:: @ 080CD8D3
+	.include "animations/gSpriteAnimations_Gleerok_1_24.s"
 
-gUnk_080CD8D7:: @ 080CD8D7
-	.incbin "gleerok/gUnk_080CD8D7.bin"
+gSpriteAnimations_Gleerok_1_25:: @ 080CD8D7
+	.include "animations/gSpriteAnimations_Gleerok_1_25.s"
 
-gUnk_080CD8DB:: @ 080CD8DB
-	.incbin "gleerok/gUnk_080CD8DB.bin"
+gSpriteAnimations_Gleerok_1_26:: @ 080CD8DB
+	.include "animations/gSpriteAnimations_Gleerok_1_26.s"
 
-gUnk_080CD8DF:: @ 080CD8DF
-	.incbin "gleerok/gUnk_080CD8DF.bin"
+gSpriteAnimations_Gleerok_1_27:: @ 080CD8DF
+	.include "animations/gSpriteAnimations_Gleerok_1_27.s"
 
-gUnk_080CD8E3:: @ 080CD8E3
-	.incbin "gleerok/gUnk_080CD8E3.bin"
+gSpriteAnimations_Gleerok_1_28:: @ 080CD8E3
+	.include "animations/gSpriteAnimations_Gleerok_1_28.s"
 
-gUnk_080CD8E7:: @ 080CD8E7
-	.incbin "gleerok/gUnk_080CD8E7.bin"
+gSpriteAnimations_Gleerok_1_29:: @ 080CD8E7
+	.include "animations/gSpriteAnimations_Gleerok_1_29.s"
 
-gUnk_080CD8EB:: @ 080CD8EB
-	.incbin "gleerok/gUnk_080CD8EB.bin"
+gSpriteAnimations_Gleerok_1_30:: @ 080CD8EB
+	.include "animations/gSpriteAnimations_Gleerok_1_30.s"
 
-gUnk_080CD8EF:: @ 080CD8EF
-	.incbin "gleerok/gUnk_080CD8EF.bin"
+gSpriteAnimations_Gleerok_1_31:: @ 080CD8EF
+	.include "animations/gSpriteAnimations_Gleerok_1_31.s"
 
-gUnk_080CD8F3:: @ 080CD8F3
-	.incbin "gleerok/gUnk_080CD8F3.bin"
+gSpriteAnimations_Gleerok_1_32:: @ 080CD8F3
+	.include "animations/gSpriteAnimations_Gleerok_1_32.s"
 
-gUnk_080CD8F7:: @ 080CD8F7
-	.incbin "gleerok/gUnk_080CD8F7.bin"
+gSpriteAnimations_Gleerok_1_33:: @ 080CD8F7
+	.include "animations/gSpriteAnimations_Gleerok_1_33.s"
 
-gUnk_080CD8FB:: @ 080CD8FB
-	.incbin "gleerok/gUnk_080CD8FB.bin"
+gSpriteAnimations_Gleerok_1_34:: @ 080CD8FB
+	.include "animations/gSpriteAnimations_Gleerok_1_34.s"
 
-gUnk_080CD8FF:: @ 080CD8FF
-	.incbin "gleerok/gUnk_080CD8FF.bin"
+gSpriteAnimations_Gleerok_1_35:: @ 080CD8FF
+	.include "animations/gSpriteAnimations_Gleerok_1_35.s"
 
-gUnk_080CD903:: @ 080CD903
-	.incbin "gleerok/gUnk_080CD903.bin"
+gSpriteAnimations_Gleerok_1_12:: @ 080CD903
+	.include "animations/gSpriteAnimations_Gleerok_1_12.s"
 
-gUnk_080CD907:: @ 080CD907
-	.incbin "gleerok/gUnk_080CD907.bin"
+gSpriteAnimations_Gleerok_1_13:: @ 080CD907
+	.include "animations/gSpriteAnimations_Gleerok_1_13.s"
 
-gUnk_080CD90B:: @ 080CD90B
-	.incbin "gleerok/gUnk_080CD90B.bin"
+gSpriteAnimations_Gleerok_1_14:: @ 080CD90B
+	.include "animations/gSpriteAnimations_Gleerok_1_14.s"
 
-gUnk_080CD90F:: @ 080CD90F
-	.incbin "gleerok/gUnk_080CD90F.bin"
+gSpriteAnimations_Gleerok_1_15:: @ 080CD90F
+	.include "animations/gSpriteAnimations_Gleerok_1_15.s"
 
-gUnk_080CD913:: @ 080CD913
-	.incbin "gleerok/gUnk_080CD913.bin"
+gSpriteAnimations_Gleerok_1_16:: @ 080CD913
+	.include "animations/gSpriteAnimations_Gleerok_1_16.s"
 
-gUnk_080CD917:: @ 080CD917
-	.incbin "gleerok/gUnk_080CD917.bin"
+gSpriteAnimations_Gleerok_1_17:: @ 080CD917
+	.include "animations/gSpriteAnimations_Gleerok_1_17.s"
 
-gUnk_080CD91B:: @ 080CD91B
-	.incbin "gleerok/gUnk_080CD91B.bin"
+gSpriteAnimations_Gleerok_1_18:: @ 080CD91B
+	.include "animations/gSpriteAnimations_Gleerok_1_18.s"
 
-gUnk_080CD91F:: @ 080CD91F
-	.incbin "gleerok/gUnk_080CD91F.bin"
+gSpriteAnimations_Gleerok_1_19:: @ 080CD91F
+	.include "animations/gSpriteAnimations_Gleerok_1_19.s"
 
-gUnk_080CD923:: @ 080CD923
-	.incbin "gleerok/gUnk_080CD923.bin"
+gSpriteAnimations_Gleerok_1_20:: @ 080CD923
+	.include "animations/gSpriteAnimations_Gleerok_1_20.s"
 
-gUnk_080CD927:: @ 080CD927
-	.incbin "gleerok/gUnk_080CD927.bin"
+gSpriteAnimations_Gleerok_1_21:: @ 080CD927
+	.include "animations/gSpriteAnimations_Gleerok_1_21.s"
 
-gUnk_080CD92B:: @ 080CD92B
-	.incbin "gleerok/gUnk_080CD92B.bin"
+gSpriteAnimations_Gleerok_1_22:: @ 080CD92B
+	.include "animations/gSpriteAnimations_Gleerok_1_22.s"
 
-gUnk_080CD92F:: @ 080CD92F
-	.incbin "gleerok/gUnk_080CD92F.bin"
+gSpriteAnimations_Gleerok_1_23:: @ 080CD92F
+	.include "animations/gSpriteAnimations_Gleerok_1_23.s"
 
-gUnk_080CD933:: @ 080CD933
-	.incbin "gleerok/gUnk_080CD933.bin"
+gSpriteAnimations_Gleerok_1_0:: @ 080CD933
+	.include "animations/gSpriteAnimations_Gleerok_1_0.s"
 
-gUnk_080CD937:: @ 080CD937
-	.incbin "gleerok/gUnk_080CD937.bin"
+gSpriteAnimations_Gleerok_1_1:: @ 080CD937
+	.include "animations/gSpriteAnimations_Gleerok_1_1.s"
 
-gUnk_080CD93B:: @ 080CD93B
-	.incbin "gleerok/gUnk_080CD93B.bin"
+gSpriteAnimations_Gleerok_1_2:: @ 080CD93B
+	.include "animations/gSpriteAnimations_Gleerok_1_2.s"
 
-gUnk_080CD93F:: @ 080CD93F
-	.incbin "gleerok/gUnk_080CD93F.bin"
+gSpriteAnimations_Gleerok_1_3:: @ 080CD93F
+	.include "animations/gSpriteAnimations_Gleerok_1_3.s"
 
-gUnk_080CD943:: @ 080CD943
-	.incbin "gleerok/gUnk_080CD943.bin"
+gSpriteAnimations_Gleerok_1_4:: @ 080CD943
+	.include "animations/gSpriteAnimations_Gleerok_1_4.s"
 
-gUnk_080CD947:: @ 080CD947
-	.incbin "gleerok/gUnk_080CD947.bin"
+gSpriteAnimations_Gleerok_1_5:: @ 080CD947
+	.include "animations/gSpriteAnimations_Gleerok_1_5.s"
 
-gUnk_080CD94B:: @ 080CD94B
-	.incbin "gleerok/gUnk_080CD94B.bin"
+gSpriteAnimations_Gleerok_1_6:: @ 080CD94B
+	.include "animations/gSpriteAnimations_Gleerok_1_6.s"
 
-gUnk_080CD94F:: @ 080CD94F
-	.incbin "gleerok/gUnk_080CD94F.bin"
+gSpriteAnimations_Gleerok_1_7:: @ 080CD94F
+	.include "animations/gSpriteAnimations_Gleerok_1_7.s"
 
-gUnk_080CD953:: @ 080CD953
-	.incbin "gleerok/gUnk_080CD953.bin"
+gSpriteAnimations_Gleerok_1_8:: @ 080CD953
+	.include "animations/gSpriteAnimations_Gleerok_1_8.s"
 
-gUnk_080CD957:: @ 080CD957
-	.incbin "gleerok/gUnk_080CD957.bin"
+gSpriteAnimations_Gleerok_1_9:: @ 080CD957
+	.include "animations/gSpriteAnimations_Gleerok_1_9.s"
 
-gUnk_080CD95B:: @ 080CD95B
-	.incbin "gleerok/gUnk_080CD95B.bin"
+gSpriteAnimations_Gleerok_1_10:: @ 080CD95B
+	.include "animations/gSpriteAnimations_Gleerok_1_10.s"
 
-gUnk_080CD95F:: @ 080CD95F
-	.incbin "gleerok/gUnk_080CD95F.bin"
+gSpriteAnimations_Gleerok_1_11:: @ 080CD95F
+	.include "animations/gSpriteAnimations_Gleerok_1_11.s"
 
-gUnk_080CD963:: @ 080CD963
-	.incbin "gleerok/gUnk_080CD963.bin"
+gSpriteAnimations_Gleerok_1_48:: @ 080CD963
+	.include "animations/gSpriteAnimations_Gleerok_1_48.s"
 
-gUnk_080CD967:: @ 080CD967
-	.incbin "gleerok/gUnk_080CD967.bin"
+gSpriteAnimations_Gleerok_1_49:: @ 080CD967
+	.include "animations/gSpriteAnimations_Gleerok_1_49.s"
 
-gUnk_080CD96B:: @ 080CD96B
-	.incbin "gleerok/gUnk_080CD96B.bin"
+gSpriteAnimations_Gleerok_1_50:: @ 080CD96B
+	.include "animations/gSpriteAnimations_Gleerok_1_50.s"
 
-gUnk_080CD96F:: @ 080CD96F
-	.incbin "gleerok/gUnk_080CD96F.bin"
+gSpriteAnimations_Gleerok_1_51:: @ 080CD96F
+	.include "animations/gSpriteAnimations_Gleerok_1_51.s"
 
-gUnk_080CD973:: @ 080CD973
-	.incbin "gleerok/gUnk_080CD973.bin"
+gSpriteAnimations_Gleerok_1_52:: @ 080CD973
+	.include "animations/gSpriteAnimations_Gleerok_1_52.s"
 
-gUnk_080CD977:: @ 080CD977
-	.incbin "gleerok/gUnk_080CD977.bin"
+gSpriteAnimations_Gleerok_1_53:: @ 080CD977
+	.include "animations/gSpriteAnimations_Gleerok_1_53.s"
 
-gUnk_080CD97B:: @ 080CD97B
-	.incbin "gleerok/gUnk_080CD97B.bin"
+gSpriteAnimations_Gleerok_1_54:: @ 080CD97B
+	.include "animations/gSpriteAnimations_Gleerok_1_54.s"
 
-gUnk_080CD97F:: @ 080CD97F
-	.incbin "gleerok/gUnk_080CD97F.bin"
+gSpriteAnimations_Gleerok_1_55:: @ 080CD97F
+	.include "animations/gSpriteAnimations_Gleerok_1_55.s"
 
-gUnk_080CD983:: @ 080CD983
-	.incbin "gleerok/gUnk_080CD983.bin"
+gSpriteAnimations_Gleerok_1_56:: @ 080CD983
+	.include "animations/gSpriteAnimations_Gleerok_1_56.s"
 
-gUnk_080CD987:: @ 080CD987
-	.incbin "gleerok/gUnk_080CD987.bin"
+gSpriteAnimations_Gleerok_1_57:: @ 080CD987
+	.include "animations/gSpriteAnimations_Gleerok_1_57.s"
 
-gUnk_080CD98B:: @ 080CD98B
-	.incbin "gleerok/gUnk_080CD98B.bin"
+gSpriteAnimations_Gleerok_1_58:: @ 080CD98B
+	.include "animations/gSpriteAnimations_Gleerok_1_58.s"
 
-gUnk_080CD98F:: @ 080CD98F
-	.incbin "gleerok/gUnk_080CD98F.bin"
+gSpriteAnimations_Gleerok_1_59:: @ 080CD98F
+	.include "animations/gSpriteAnimations_Gleerok_1_59.s"
 
-gUnk_080CD993:: @ 080CD993
-	.incbin "gleerok/gUnk_080CD993.bin"
+gSpriteAnimations_Gleerok_1_60:: @ 080CD993
+	.include "animations/gSpriteAnimations_Gleerok_1_60.s"
 
-gUnk_080CD997:: @ 080CD997
-	.incbin "gleerok/gUnk_080CD997.bin"
+gSpriteAnimations_Gleerok_1_61:: @ 080CD997
+	.include "animations/gSpriteAnimations_Gleerok_1_61.s"
 
-gUnk_080CD99B:: @ 080CD99B
-	.incbin "gleerok/gUnk_080CD99B.bin"
+gSpriteAnimations_Gleerok_1_62:: @ 080CD99B
+	.include "animations/gSpriteAnimations_Gleerok_1_62.s"
 
-gUnk_080CD99F:: @ 080CD99F
-	.incbin "gleerok/gUnk_080CD99F.bin"
+gSpriteAnimations_Gleerok_1_63:: @ 080CD99F
+	.include "animations/gSpriteAnimations_Gleerok_1_63.s"
 
-gUnk_080CD9A3:: @ 080CD9A3
-	.incbin "gleerok/gUnk_080CD9A3.bin"
+gSpriteAnimations_Gleerok_1_64:: @ 080CD9A3
+	.include "animations/gSpriteAnimations_Gleerok_1_64.s"
 
-gUnk_080CD9A7:: @ 080CD9A7
-	.incbin "gleerok/gUnk_080CD9A7.bin"
+gSpriteAnimations_Gleerok_1_65:: @ 080CD9A7
+	.include "animations/gSpriteAnimations_Gleerok_1_65.s"
 
-gUnk_080CD9AB:: @ 080CD9AB
-	.incbin "gleerok/gUnk_080CD9AB.bin"
+gSpriteAnimations_Gleerok_1_66:: @ 080CD9AB
+	.include "animations/gSpriteAnimations_Gleerok_1_66.s"
 
-gUnk_080CD9AF:: @ 080CD9AF
-	.incbin "gleerok/gUnk_080CD9AF.bin"
+gSpriteAnimations_Gleerok_1_67:: @ 080CD9AF
+	.include "animations/gSpriteAnimations_Gleerok_1_67.s"
 
-gUnk_080CD9B3:: @ 080CD9B3
-	.incbin "gleerok/gUnk_080CD9B3.bin"
+gSpriteAnimations_Gleerok_1_68:: @ 080CD9B3
+	.include "animations/gSpriteAnimations_Gleerok_1_68.s"
 
-gUnk_080CD9B7:: @ 080CD9B7
-	.incbin "gleerok/gUnk_080CD9B7.bin"
+gSpriteAnimations_Gleerok_1_69:: @ 080CD9B7
+	.include "animations/gSpriteAnimations_Gleerok_1_69.s"
 
-gUnk_080CD9BB:: @ 080CD9BB
-	.incbin "gleerok/gUnk_080CD9BB.bin"
+gSpriteAnimations_Gleerok_1_70:: @ 080CD9BB
+	.include "animations/gSpriteAnimations_Gleerok_1_70.s"
 
-gUnk_080CD9BF:: @ 080CD9BF
-	.incbin "gleerok/gUnk_080CD9BF.bin"
+gSpriteAnimations_Gleerok_1_71:: @ 080CD9BF
+	.include "animations/gSpriteAnimations_Gleerok_1_71.s"
 
-gUnk_080CD9C3:: @ 080CD9C3
-	.incbin "gleerok/gUnk_080CD9C3.bin"
+gSpriteAnimations_Gleerok_1_72:: @ 080CD9C3
+	.include "animations/gSpriteAnimations_Gleerok_1_72.s"
 
-gUnk_080CD9C7:: @ 080CD9C7
-	.incbin "gleerok/gUnk_080CD9C7.bin"
+gSpriteAnimations_Gleerok_1_73:: @ 080CD9C7
+	.include "animations/gSpriteAnimations_Gleerok_1_73.s"
 
-gUnk_080CD9CB:: @ 080CD9CB
-	.incbin "gleerok/gUnk_080CD9CB.bin"
+gSpriteAnimations_Gleerok_1_76:: @ 080CD9CB
+	.include "animations/gSpriteAnimations_Gleerok_1_76.s"
 
-gUnk_080CD9CF:: @ 080CD9CF
-	.incbin "gleerok/gUnk_080CD9CF.bin"
+gSpriteAnimations_Gleerok_1_77:: @ 080CD9CF
+	.include "animations/gSpriteAnimations_Gleerok_1_77.s"
 
-gUnk_080CD9DF:: @ 080CD9DF
-	.incbin "gleerok/gUnk_080CD9DF.bin"
+gSpriteAnimations_Gleerok_1_78:: @ 080CD9DF
+	.include "animations/gSpriteAnimations_Gleerok_1_78.s"
 
-gUnk_080CD9FB:: @ 080CD9FB
-	.incbin "gleerok/gUnk_080CD9FB.bin"
+gSpriteAnimations_Gleerok_0_0:: @ 080CD9FB
+	.include "animations/gSpriteAnimations_Gleerok_0_0.s"
 
-gUnk_080CD9FF:: @ 080CD9FF
-	.incbin "gleerok/gUnk_080CD9FF.bin"
+gSpriteAnimations_Gleerok_0_1:: @ 080CD9FF
+	.include "animations/gSpriteAnimations_Gleerok_0_1.s"
 
-gUnk_080CDA03:: @ 080CDA03
-	.incbin "gleerok/gUnk_080CDA03.bin"
+gSpriteAnimations_Gleerok_0_2:: @ 080CDA03
+	.include "animations/gSpriteAnimations_Gleerok_0_2.s"
 
-gUnk_080CDA07:: @ 080CDA07
-	.incbin "gleerok/gUnk_080CDA07.bin"
+gSpriteAnimations_Gleerok_0_3:: @ 080CDA07
+	.include "animations/gSpriteAnimations_Gleerok_0_3.s"
 
-gUnk_080CDA0B:: @ 080CDA0B
-	.incbin "gleerok/gUnk_080CDA0B.bin"
+gSpriteAnimations_Gleerok_0_4:: @ 080CDA0B
+	.include "animations/gSpriteAnimations_Gleerok_0_4.s"
 
-gUnk_080CDA0F:: @ 080CDA0F
-	.incbin "gleerok/gUnk_080CDA0F.bin"
+gSpriteAnimations_Gleerok_0_5:: @ 080CDA0F
+	.include "animations/gSpriteAnimations_Gleerok_0_5.s"
 
-gUnk_080CDA13:: @ 080CDA13
-	.incbin "gleerok/gUnk_080CDA13.bin"
+gSpriteAnimations_Gleerok_0_6:: @ 080CDA13
+	.include "animations/gSpriteAnimations_Gleerok_0_6.s"
 
-gUnk_080CDA17:: @ 080CDA17
-	.incbin "gleerok/gUnk_080CDA17.bin"
+gSpriteAnimations_Gleerok_0_7:: @ 080CDA17
+	.include "animations/gSpriteAnimations_Gleerok_0_7.s"
 
-gUnk_080CDA1B:: @ 080CDA1B
-	.incbin "gleerok/gUnk_080CDA1B.bin"
+gSpriteAnimations_Gleerok_0_8:: @ 080CDA1B
+	.include "animations/gSpriteAnimations_Gleerok_0_8.s"
 
-gUnk_080CDA1F:: @ 080CDA1F
-	.incbin "gleerok/gUnk_080CDA1F.bin"
+gSpriteAnimations_Gleerok_0_9:: @ 080CDA1F
+	.include "animations/gSpriteAnimations_Gleerok_0_9.s"
 
-gUnk_080CDA23:: @ 080CDA23
-	.incbin "gleerok/gUnk_080CDA23.bin"
+gSpriteAnimations_Gleerok_0_10:: @ 080CDA23
+	.include "animations/gSpriteAnimations_Gleerok_0_10.s"
 
-gUnk_080CDA27:: @ 080CDA27
-	.incbin "gleerok/gUnk_080CDA27.bin"
+gSpriteAnimations_Gleerok_0_11:: @ 080CDA27
+	.include "animations/gSpriteAnimations_Gleerok_0_11.s"
 
-gUnk_080CDA2B:: @ 080CDA2B
-	.incbin "gleerok/gUnk_080CDA2B.bin"
+gSpriteAnimations_Gleerok_0_12:: @ 080CDA2B
+	.include "animations/gSpriteAnimations_Gleerok_0_12.s"
 
-gUnk_080CDA2F:: @ 080CDA2F
-	.incbin "gleerok/gUnk_080CDA2F.bin"
+gSpriteAnimations_Gleerok_0_13:: @ 080CDA2F
+	.include "animations/gSpriteAnimations_Gleerok_0_13.s"
 
-gUnk_080CDA33:: @ 080CDA33
-	.incbin "gleerok/gUnk_080CDA33.bin"
+gSpriteAnimations_Gleerok_0_14:: @ 080CDA33
+	.include "animations/gSpriteAnimations_Gleerok_0_14.s"
 
-gUnk_080CDA37:: @ 080CDA37
-	.incbin "gleerok/gUnk_080CDA37.bin"
+gSpriteAnimations_Gleerok_0_15:: @ 080CDA37
+	.include "animations/gSpriteAnimations_Gleerok_0_15.s"
 
-gUnk_080CDA3B:: @ 080CDA3B
-	.incbin "gleerok/gUnk_080CDA3B.bin"
+gSpriteAnimations_Gleerok_0_16:: @ 080CDA3B
+	.include "animations/gSpriteAnimations_Gleerok_0_16.s"
 
-gUnk_080CDA3F:: @ 080CDA3F
-	.incbin "gleerok/gUnk_080CDA3F.bin"
+gSpriteAnimations_Gleerok_0_17:: @ 080CDA3F
+	.include "animations/gSpriteAnimations_Gleerok_0_17.s"
 
-gUnk_080CDA43:: @ 080CDA43
-	.incbin "gleerok/gUnk_080CDA43.bin"
+gSpriteAnimations_Gleerok_0_18:: @ 080CDA43
+	.include "animations/gSpriteAnimations_Gleerok_0_18.s"
 
-gUnk_080CDA47:: @ 080CDA47
-	.incbin "gleerok/gUnk_080CDA47.bin"
+gSpriteAnimations_Gleerok_0_19:: @ 080CDA47
+	.include "animations/gSpriteAnimations_Gleerok_0_19.s"
 
-gUnk_080CDA4B:: @ 080CDA4B
-	.incbin "gleerok/gUnk_080CDA4B.bin"
+gSpriteAnimations_Gleerok_0_20:: @ 080CDA4B
+	.include "animations/gSpriteAnimations_Gleerok_0_20.s"
 
-gUnk_080CDA4F:: @ 080CDA4F
-	.incbin "gleerok/gUnk_080CDA4F.bin"
+gSpriteAnimations_Gleerok_0_21:: @ 080CDA4F
+	.include "animations/gSpriteAnimations_Gleerok_0_21.s"
 
-gUnk_080CDA53:: @ 080CDA53
-	.incbin "gleerok/gUnk_080CDA53.bin"
+gSpriteAnimations_Gleerok_0_22:: @ 080CDA53
+	.include "animations/gSpriteAnimations_Gleerok_0_22.s"
 
-gUnk_080CDA57:: @ 080CDA57
-	.incbin "gleerok/gUnk_080CDA57.bin"
+gSpriteAnimations_Gleerok_0_23:: @ 080CDA57
+	.include "animations/gSpriteAnimations_Gleerok_0_23.s"
 
-gUnk_080CDA5B:: @ 080CDA5B
-	.incbin "gleerok/gUnk_080CDA5B.bin"
+gSpriteAnimations_Gleerok_0_26:: @ 080CDA5B
+	.include "animations/gSpriteAnimations_Gleerok_0_26.s"
 
-gUnk_080CDA5F:: @ 080CDA5F
-	.incbin "gleerok/gUnk_080CDA5F.bin"
+gSpriteAnimations_Gleerok_0_25:: @ 080CDA5F
+	.include "animations/gSpriteAnimations_Gleerok_0_25.s"
 
-gUnk_080CDA63:: @ 080CDA63
-	.incbin "gleerok/gUnk_080CDA63.bin"
+gSpriteAnimations_Gleerok_0_24:: @ 080CDA63
+	.include "animations/gSpriteAnimations_Gleerok_0_24.s"
 
-gUnk_080CDA67:: @ 080CDA67
-	.incbin "gleerok/gUnk_080CDA67.bin"
+gSpriteAnimations_Gleerok_0_30:: @ 080CDA67
+	.include "animations/gSpriteAnimations_Gleerok_0_30.s"
 
-gUnk_080CDA6B:: @ 080CDA6B
-	.incbin "gleerok/gUnk_080CDA6B.bin"
+gSpriteAnimations_Gleerok_0_29:: @ 080CDA6B
+	.include "animations/gSpriteAnimations_Gleerok_0_29.s"
 
-gUnk_080CDA6F:: @ 080CDA6F
-	.incbin "gleerok/gUnk_080CDA6F.bin"
+gSpriteAnimations_Gleerok_0_28:: @ 080CDA6F
+	.include "animations/gSpriteAnimations_Gleerok_0_28.s"
 
-gUnk_080CDA73:: @ 080CDA73
-	.incbin "gleerok/gUnk_080CDA73.bin"
+gSpriteAnimations_Gleerok_0_34:: @ 080CDA73
+	.include "animations/gSpriteAnimations_Gleerok_0_34.s"
 
-gUnk_080CDA77:: @ 080CDA77
-	.incbin "gleerok/gUnk_080CDA77.bin"
+gSpriteAnimations_Gleerok_0_33:: @ 080CDA77
+	.include "animations/gSpriteAnimations_Gleerok_0_33.s"
 
-gUnk_080CDA7B:: @ 080CDA7B
-	.incbin "gleerok/gUnk_080CDA7B.bin"
+gSpriteAnimations_Gleerok_0_32:: @ 080CDA7B
+	.include "animations/gSpriteAnimations_Gleerok_0_32.s"
 
-gUnk_080CDA7F:: @ 080CDA7F
-	.incbin "gleerok/gUnk_080CDA7F.bin"
+gSpriteAnimations_Gleerok_0_38:: @ 080CDA7F
+	.include "animations/gSpriteAnimations_Gleerok_0_38.s"
 
-gUnk_080CDA83:: @ 080CDA83
-	.incbin "gleerok/gUnk_080CDA83.bin"
+gSpriteAnimations_Gleerok_0_37:: @ 080CDA83
+	.include "animations/gSpriteAnimations_Gleerok_0_37.s"
 
-gUnk_080CDA87:: @ 080CDA87
-	.incbin "gleerok/gUnk_080CDA87.bin"
+gSpriteAnimations_Gleerok_0_36:: @ 080CDA87
+	.include "animations/gSpriteAnimations_Gleerok_0_36.s"
 
-gUnk_080CDA8B:: @ 080CDA8B
-	.incbin "gleerok/gUnk_080CDA8B.bin"
+gSpriteAnimations_Gleerok_0_40:: @ 080CDA8B
+	.include "animations/gSpriteAnimations_Gleerok_0_40.s"
 
-gUnk_080CDA90:: @ 080CDA90
-	.incbin "gleerok/gUnk_080CDA90.bin"
+gSpriteAnimations_Gleerok_0_41:: @ 080CDA90
+	.include "animations/gSpriteAnimations_Gleerok_0_41.s"
 
-gUnk_080CDA95:: @ 080CDA95
-	.incbin "gleerok/gUnk_080CDA95.bin"
+gSpriteAnimations_Gleerok_0_42:: @ 080CDA95
+	.include "animations/gSpriteAnimations_Gleerok_0_42.s"
 
-gUnk_080CDA9A:: @ 080CDA9A
-	.incbin "gleerok/gUnk_080CDA9A.bin"
+gSpriteAnimations_Gleerok_0_43:: @ 080CDA9A
+	.include "animations/gSpriteAnimations_Gleerok_0_43.s"
 
-gUnk_080CDA9F:: @ 080CDA9F
-	.incbin "gleerok/gUnk_080CDA9F.bin"
+gSpriteAnimations_Gleerok_1_79:: @ 080CDA9F
+	.include "animations/gSpriteAnimations_Gleerok_1_79.s"
 
-gUnk_080CDAC4:: @ 080CDAC4
-	.incbin "gleerok/gUnk_080CDAC4.bin"
+gSpriteAnimations_Gleerok_1_86:: @ 080CDAC4
+	.include "animations/gSpriteAnimations_Gleerok_1_86.s"
 
-gUnk_080CDAD5:: @ 080CDAD5
-	.incbin "gleerok/gUnk_080CDAD5.bin"
+gSpriteAnimations_Gleerok_1_87:: @ 080CDAD5
+	.include "animations/gSpriteAnimations_Gleerok_1_87.s"
 
-gUnk_080CDAE6:: @ 080CDAE6
-	.incbin "gleerok/gUnk_080CDAE6.bin"
+gSpriteAnimations_Gleerok_1_80:: @ 080CDAE6
+	.include "animations/gSpriteAnimations_Gleerok_1_80.s"
 
-gUnk_080CDAF3:: @ 080CDAF3
-	.incbin "gleerok/gUnk_080CDAF3.bin"
+gSpriteAnimations_Gleerok_0_44:: @ 080CDAF3
+	.include "animations/gSpriteAnimations_Gleerok_0_44.s"
 
-gUnk_080CDB03:: @ 080CDB03
-	.incbin "gleerok/gUnk_080CDB03.bin"
+gSpriteAnimations_Gleerok_0_45:: @ 080CDB03
+	.include "animations/gSpriteAnimations_Gleerok_0_45.s"
 
-gUnk_080CDB17:: @ 080CDB17
-	.incbin "gleerok/gUnk_080CDB17.bin"
+gSpriteAnimations_Gleerok_0_46:: @ 080CDB17
+	.include "animations/gSpriteAnimations_Gleerok_0_46.s"
 
-gUnk_080CDB28:: @ 080CDB28
-	.incbin "gleerok/gUnk_080CDB28.bin"
+gSpriteAnimations_Gleerok_1_81:: @ 080CDB28
+	.include "animations/gSpriteAnimations_Gleerok_1_81.s"
 
-gUnk_080CDB39:: @ 080CDB39
-	.incbin "gleerok/gUnk_080CDB39.bin"
+gSpriteAnimations_Gleerok_1_82:: @ 080CDB39
+	.include "animations/gSpriteAnimations_Gleerok_1_82.s"
 
-gUnk_080CDB5D:: @ 080CDB5D
-	.incbin "gleerok/gUnk_080CDB5D.bin"
+gSpriteAnimations_Gleerok_1_83:: @ 080CDB5D
+	.include "animations/gSpriteAnimations_Gleerok_1_83.s"
 
-gUnk_080CDB6D:: @ 080CDB6D
-	.incbin "gleerok/gUnk_080CDB6D.bin"
+gSpriteAnimations_Gleerok_1_84:: @ 080CDB6D
+	.include "animations/gSpriteAnimations_Gleerok_1_84.s"
 
-gUnk_080CDB7E:: @ 080CDB7E
-	.incbin "gleerok/gUnk_080CDB7E.bin"
+gSpriteAnimations_Gleerok_1_85:: @ 080CDB7E
+	.include "animations/gSpriteAnimations_Gleerok_1_85.s"
 
-gUnk_080CDB92:: @ 080CDB92
-	.incbin "gleerok/gUnk_080CDB92.bin"
+gSpriteAnimations_Gleerok_0_47:: @ 080CDB92
+	.include "animations/gSpriteAnimations_Gleerok_0_47.s"
 
-gUnk_080CDBAB:: @ 080CDBAB
-	.incbin "gleerok/gUnk_080CDBAB.bin"
+gSpriteAnimations_Gleerok_0_48:: @ 080CDBAB
+	.include "animations/gSpriteAnimations_Gleerok_0_48.s"
 
-gUnk_080CDBC4:: @ 080CDBC4
-	.incbin "gleerok/gUnk_080CDBC4.bin"
+gSpriteAnimations_Gleerok_0_49:: @ 080CDBC4
+	.include "animations/gSpriteAnimations_Gleerok_0_49.s"
 
-gUnk_080CDBDD:: @ 080CDBDD
-	.incbin "gleerok/gUnk_080CDBDD.bin"
+gSpriteAnimations_Gleerok_0_50:: @ 080CDBDD
+	.include "animations/gSpriteAnimations_Gleerok_0_50.s"
 
 gSpriteAnimations_Gleerok_1:: @ 080CDC00
-	.4byte gUnk_080CD933
-	.4byte gUnk_080CD937
-	.4byte gUnk_080CD93B
-	.4byte gUnk_080CD93F
-	.4byte gUnk_080CD943
-	.4byte gUnk_080CD947
-	.4byte gUnk_080CD94B
-	.4byte gUnk_080CD94F
-	.4byte gUnk_080CD953
-	.4byte gUnk_080CD957
-	.4byte gUnk_080CD95B
-	.4byte gUnk_080CD95F
-	.4byte gUnk_080CD903
-	.4byte gUnk_080CD907
-	.4byte gUnk_080CD90B
-	.4byte gUnk_080CD90F
-	.4byte gUnk_080CD913
-	.4byte gUnk_080CD917
-	.4byte gUnk_080CD91B
-	.4byte gUnk_080CD91F
-	.4byte gUnk_080CD923
-	.4byte gUnk_080CD927
-	.4byte gUnk_080CD92B
-	.4byte gUnk_080CD92F
-	.4byte gUnk_080CD8D3
-	.4byte gUnk_080CD8D7
-	.4byte gUnk_080CD8DB
-	.4byte gUnk_080CD8DF
-	.4byte gUnk_080CD8E3
-	.4byte gUnk_080CD8E7
-	.4byte gUnk_080CD8EB
-	.4byte gUnk_080CD8EF
-	.4byte gUnk_080CD8F3
-	.4byte gUnk_080CD8F7
-	.4byte gUnk_080CD8FB
-	.4byte gUnk_080CD8FF
-	.4byte gUnk_080CD8A3
-	.4byte gUnk_080CD8A7
-	.4byte gUnk_080CD8AB
-	.4byte gUnk_080CD8AF
-	.4byte gUnk_080CD8B3
-	.4byte gUnk_080CD8B7
-	.4byte gUnk_080CD8BB
-	.4byte gUnk_080CD8BF
-	.4byte gUnk_080CD8C3
-	.4byte gUnk_080CD8C7
-	.4byte gUnk_080CD8CB
-	.4byte gUnk_080CD8CF
-	.4byte gUnk_080CD963
-	.4byte gUnk_080CD967
-	.4byte gUnk_080CD96B
-	.4byte gUnk_080CD96F
-	.4byte gUnk_080CD973
-	.4byte gUnk_080CD977
-	.4byte gUnk_080CD97B
-	.4byte gUnk_080CD97F
-	.4byte gUnk_080CD983
-	.4byte gUnk_080CD987
-	.4byte gUnk_080CD98B
-	.4byte gUnk_080CD98F
-	.4byte gUnk_080CD993
-	.4byte gUnk_080CD997
-	.4byte gUnk_080CD99B
-	.4byte gUnk_080CD99F
-	.4byte gUnk_080CD9A3
-	.4byte gUnk_080CD9A7
-	.4byte gUnk_080CD9AB
-	.4byte gUnk_080CD9AF
-	.4byte gUnk_080CD9B3
-	.4byte gUnk_080CD9B7
-	.4byte gUnk_080CD9BB
-	.4byte gUnk_080CD9BF
-	.4byte gUnk_080CD9C3
-	.4byte gUnk_080CD9C7
-	.4byte gUnk_080CD9C3
-	.4byte gUnk_080CD9C7
-	.4byte gUnk_080CD9CB
-	.4byte gUnk_080CD9CF
-	.4byte gUnk_080CD9DF
-	.4byte gUnk_080CDA9F
-	.4byte gUnk_080CDAE6
-	.4byte gUnk_080CDB28
-	.4byte gUnk_080CDB39
-	.4byte gUnk_080CDB5D
-	.4byte gUnk_080CDB6D
-	.4byte gUnk_080CDB7E
-	.4byte gUnk_080CDAC4
-	.4byte gUnk_080CDAD5
+	.4byte gSpriteAnimations_Gleerok_1_0
+	.4byte gSpriteAnimations_Gleerok_1_1
+	.4byte gSpriteAnimations_Gleerok_1_2
+	.4byte gSpriteAnimations_Gleerok_1_3
+	.4byte gSpriteAnimations_Gleerok_1_4
+	.4byte gSpriteAnimations_Gleerok_1_5
+	.4byte gSpriteAnimations_Gleerok_1_6
+	.4byte gSpriteAnimations_Gleerok_1_7
+	.4byte gSpriteAnimations_Gleerok_1_8
+	.4byte gSpriteAnimations_Gleerok_1_9
+	.4byte gSpriteAnimations_Gleerok_1_10
+	.4byte gSpriteAnimations_Gleerok_1_11
+	.4byte gSpriteAnimations_Gleerok_1_12
+	.4byte gSpriteAnimations_Gleerok_1_13
+	.4byte gSpriteAnimations_Gleerok_1_14
+	.4byte gSpriteAnimations_Gleerok_1_15
+	.4byte gSpriteAnimations_Gleerok_1_16
+	.4byte gSpriteAnimations_Gleerok_1_17
+	.4byte gSpriteAnimations_Gleerok_1_18
+	.4byte gSpriteAnimations_Gleerok_1_19
+	.4byte gSpriteAnimations_Gleerok_1_20
+	.4byte gSpriteAnimations_Gleerok_1_21
+	.4byte gSpriteAnimations_Gleerok_1_22
+	.4byte gSpriteAnimations_Gleerok_1_23
+	.4byte gSpriteAnimations_Gleerok_1_24
+	.4byte gSpriteAnimations_Gleerok_1_25
+	.4byte gSpriteAnimations_Gleerok_1_26
+	.4byte gSpriteAnimations_Gleerok_1_27
+	.4byte gSpriteAnimations_Gleerok_1_28
+	.4byte gSpriteAnimations_Gleerok_1_29
+	.4byte gSpriteAnimations_Gleerok_1_30
+	.4byte gSpriteAnimations_Gleerok_1_31
+	.4byte gSpriteAnimations_Gleerok_1_32
+	.4byte gSpriteAnimations_Gleerok_1_33
+	.4byte gSpriteAnimations_Gleerok_1_34
+	.4byte gSpriteAnimations_Gleerok_1_35
+	.4byte gSpriteAnimations_Gleerok_1_36
+	.4byte gSpriteAnimations_Gleerok_1_37
+	.4byte gSpriteAnimations_Gleerok_1_38
+	.4byte gSpriteAnimations_Gleerok_1_39
+	.4byte gSpriteAnimations_Gleerok_1_40
+	.4byte gSpriteAnimations_Gleerok_1_41
+	.4byte gSpriteAnimations_Gleerok_1_42
+	.4byte gSpriteAnimations_Gleerok_1_43
+	.4byte gSpriteAnimations_Gleerok_1_44
+	.4byte gSpriteAnimations_Gleerok_1_45
+	.4byte gSpriteAnimations_Gleerok_1_46
+	.4byte gSpriteAnimations_Gleerok_1_47
+	.4byte gSpriteAnimations_Gleerok_1_48
+	.4byte gSpriteAnimations_Gleerok_1_49
+	.4byte gSpriteAnimations_Gleerok_1_50
+	.4byte gSpriteAnimations_Gleerok_1_51
+	.4byte gSpriteAnimations_Gleerok_1_52
+	.4byte gSpriteAnimations_Gleerok_1_53
+	.4byte gSpriteAnimations_Gleerok_1_54
+	.4byte gSpriteAnimations_Gleerok_1_55
+	.4byte gSpriteAnimations_Gleerok_1_56
+	.4byte gSpriteAnimations_Gleerok_1_57
+	.4byte gSpriteAnimations_Gleerok_1_58
+	.4byte gSpriteAnimations_Gleerok_1_59
+	.4byte gSpriteAnimations_Gleerok_1_60
+	.4byte gSpriteAnimations_Gleerok_1_61
+	.4byte gSpriteAnimations_Gleerok_1_62
+	.4byte gSpriteAnimations_Gleerok_1_63
+	.4byte gSpriteAnimations_Gleerok_1_64
+	.4byte gSpriteAnimations_Gleerok_1_65
+	.4byte gSpriteAnimations_Gleerok_1_66
+	.4byte gSpriteAnimations_Gleerok_1_67
+	.4byte gSpriteAnimations_Gleerok_1_68
+	.4byte gSpriteAnimations_Gleerok_1_69
+	.4byte gSpriteAnimations_Gleerok_1_70
+	.4byte gSpriteAnimations_Gleerok_1_71
+	.4byte gSpriteAnimations_Gleerok_1_72
+	.4byte gSpriteAnimations_Gleerok_1_73
+	.4byte gSpriteAnimations_Gleerok_1_72
+	.4byte gSpriteAnimations_Gleerok_1_73
+	.4byte gSpriteAnimations_Gleerok_1_76
+	.4byte gSpriteAnimations_Gleerok_1_77
+	.4byte gSpriteAnimations_Gleerok_1_78
+	.4byte gSpriteAnimations_Gleerok_1_79
+	.4byte gSpriteAnimations_Gleerok_1_80
+	.4byte gSpriteAnimations_Gleerok_1_81
+	.4byte gSpriteAnimations_Gleerok_1_82
+	.4byte gSpriteAnimations_Gleerok_1_83
+	.4byte gSpriteAnimations_Gleerok_1_84
+	.4byte gSpriteAnimations_Gleerok_1_85
+	.4byte gSpriteAnimations_Gleerok_1_86
+	.4byte gSpriteAnimations_Gleerok_1_87
 	.4byte 00000000
 
 gSpriteAnimations_Gleerok_0:: @ 080CDD64
-	.4byte gUnk_080CD9FB
-	.4byte gUnk_080CD9FF
-	.4byte gUnk_080CDA03
-	.4byte gUnk_080CDA07
-	.4byte gUnk_080CDA0B
-	.4byte gUnk_080CDA0F
-	.4byte gUnk_080CDA13
-	.4byte gUnk_080CDA17
-	.4byte gUnk_080CDA1B
-	.4byte gUnk_080CDA1F
-	.4byte gUnk_080CDA23
-	.4byte gUnk_080CDA27
-	.4byte gUnk_080CDA2B
-	.4byte gUnk_080CDA2F
-	.4byte gUnk_080CDA33
-	.4byte gUnk_080CDA37
-	.4byte gUnk_080CDA3B
-	.4byte gUnk_080CDA3F
-	.4byte gUnk_080CDA43
-	.4byte gUnk_080CDA47
-	.4byte gUnk_080CDA4B
-	.4byte gUnk_080CDA4F
-	.4byte gUnk_080CDA53
-	.4byte gUnk_080CDA57
-	.4byte gUnk_080CDA63
-	.4byte gUnk_080CDA5F
-	.4byte gUnk_080CDA5B
-	.4byte gUnk_080CD9FB
-	.4byte gUnk_080CDA6F
-	.4byte gUnk_080CDA6B
-	.4byte gUnk_080CDA67
-	.4byte gUnk_080CDA07
-	.4byte gUnk_080CDA7B
-	.4byte gUnk_080CDA77
-	.4byte gUnk_080CDA73
-	.4byte gUnk_080CDA13
-	.4byte gUnk_080CDA87
-	.4byte gUnk_080CDA83
-	.4byte gUnk_080CDA7F
-	.4byte gUnk_080CDA1F
-	.4byte gUnk_080CDA8B
-	.4byte gUnk_080CDA90
-	.4byte gUnk_080CDA95
-	.4byte gUnk_080CDA9A
-	.4byte gUnk_080CDAF3
-	.4byte gUnk_080CDB03
-	.4byte gUnk_080CDB17
-	.4byte gUnk_080CDB92
-	.4byte gUnk_080CDBAB
-	.4byte gUnk_080CDBC4
-	.4byte gUnk_080CDBDD
+	.4byte gSpriteAnimations_Gleerok_0_0
+	.4byte gSpriteAnimations_Gleerok_0_1
+	.4byte gSpriteAnimations_Gleerok_0_2
+	.4byte gSpriteAnimations_Gleerok_0_3
+	.4byte gSpriteAnimations_Gleerok_0_4
+	.4byte gSpriteAnimations_Gleerok_0_5
+	.4byte gSpriteAnimations_Gleerok_0_6
+	.4byte gSpriteAnimations_Gleerok_0_7
+	.4byte gSpriteAnimations_Gleerok_0_8
+	.4byte gSpriteAnimations_Gleerok_0_9
+	.4byte gSpriteAnimations_Gleerok_0_10
+	.4byte gSpriteAnimations_Gleerok_0_11
+	.4byte gSpriteAnimations_Gleerok_0_12
+	.4byte gSpriteAnimations_Gleerok_0_13
+	.4byte gSpriteAnimations_Gleerok_0_14
+	.4byte gSpriteAnimations_Gleerok_0_15
+	.4byte gSpriteAnimations_Gleerok_0_16
+	.4byte gSpriteAnimations_Gleerok_0_17
+	.4byte gSpriteAnimations_Gleerok_0_18
+	.4byte gSpriteAnimations_Gleerok_0_19
+	.4byte gSpriteAnimations_Gleerok_0_20
+	.4byte gSpriteAnimations_Gleerok_0_21
+	.4byte gSpriteAnimations_Gleerok_0_22
+	.4byte gSpriteAnimations_Gleerok_0_23
+	.4byte gSpriteAnimations_Gleerok_0_24
+	.4byte gSpriteAnimations_Gleerok_0_25
+	.4byte gSpriteAnimations_Gleerok_0_26
+	.4byte gSpriteAnimations_Gleerok_0_0
+	.4byte gSpriteAnimations_Gleerok_0_28
+	.4byte gSpriteAnimations_Gleerok_0_29
+	.4byte gSpriteAnimations_Gleerok_0_30
+	.4byte gSpriteAnimations_Gleerok_0_3
+	.4byte gSpriteAnimations_Gleerok_0_32
+	.4byte gSpriteAnimations_Gleerok_0_33
+	.4byte gSpriteAnimations_Gleerok_0_34
+	.4byte gSpriteAnimations_Gleerok_0_6
+	.4byte gSpriteAnimations_Gleerok_0_36
+	.4byte gSpriteAnimations_Gleerok_0_37
+	.4byte gSpriteAnimations_Gleerok_0_38
+	.4byte gSpriteAnimations_Gleerok_0_9
+	.4byte gSpriteAnimations_Gleerok_0_40
+	.4byte gSpriteAnimations_Gleerok_0_41
+	.4byte gSpriteAnimations_Gleerok_0_42
+	.4byte gSpriteAnimations_Gleerok_0_43
+	.4byte gSpriteAnimations_Gleerok_0_44
+	.4byte gSpriteAnimations_Gleerok_0_45
+	.4byte gSpriteAnimations_Gleerok_0_46
+	.4byte gSpriteAnimations_Gleerok_0_47
+	.4byte gSpriteAnimations_Gleerok_0_48
+	.4byte gSpriteAnimations_Gleerok_0_49
+	.4byte gSpriteAnimations_Gleerok_0_50
 	.4byte 00000000

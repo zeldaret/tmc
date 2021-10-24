@@ -4,25 +4,25 @@
 	.section .rodata
     .align 2
 
-gUnk_08113350:: @ 08113350
-	.incbin "dampe/gUnk_08113350.bin"
+gSpriteAnimations_Dampe_0:: @ 08113350
+	.include "animations/gSpriteAnimations_Dampe_0.s"
 
-gUnk_08113369:: @ 08113369
-	.incbin "dampe/gUnk_08113369.bin"
+gSpriteAnimations_Dampe_4:: @ 08113369
+	.include "animations/gSpriteAnimations_Dampe_4.s"
 
-gUnk_0811336E:: @ 0811336E
-	.incbin "dampe/gUnk_0811336E.bin"
+gSpriteAnimations_Dampe_5:: @ 0811336E
+	.include "animations/gSpriteAnimations_Dampe_5.s"
 
-gUnk_08113377:: @ 08113377
-	.incbin "dampe/gUnk_08113377.bin"
+gSpriteAnimations_Dampe_7:: @ 08113377
+	.include "animations/gSpriteAnimations_Dampe_7.s"
 
 gSpriteAnimations_Dampe:: @ 08113380
-	.4byte gUnk_08113350
-	.4byte gUnk_08113350
-	.4byte gUnk_08113350
-	.4byte gUnk_08113350
-	.4byte gUnk_08113369
-	.4byte gUnk_0811336E
-	.4byte gUnk_08113369
-	.4byte gUnk_08113377
+	.4byte gSpriteAnimations_Dampe_0
+	.4byte gSpriteAnimations_Dampe_0
+	.4byte gSpriteAnimations_Dampe_0
+	.4byte gSpriteAnimations_Dampe_0
+	.4byte gSpriteAnimations_Dampe_4
+	.4byte gSpriteAnimations_Dampe_5
+	.4byte gSpriteAnimations_Dampe_4
+	.4byte gSpriteAnimations_Dampe_7
 	.4byte 00000000

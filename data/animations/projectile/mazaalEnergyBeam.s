@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_08129A70:: @ 08129A70
-	.incbin "projectileE/gUnk_08129A70.bin"
+gSpriteAnimations_MazaalEnergyBeam_0:: @ 08129A70
+	.include "animations/gSpriteAnimations_MazaalEnergyBeam_0.s"
 
-gUnk_08129A89:: @ 08129A89
-	.incbin "projectileE/gUnk_08129A89.bin"
+gSpriteAnimations_MazaalEnergyBeam_1:: @ 08129A89
+	.include "animations/gSpriteAnimations_MazaalEnergyBeam_1.s"
 
 gSpriteAnimations_MazaalEnergyBeam:: @ 08129AB0
-	.4byte gUnk_08129A70
-	.4byte gUnk_08129A89
+	.4byte gSpriteAnimations_MazaalEnergyBeam_0
+	.4byte gSpriteAnimations_MazaalEnergyBeam_1
 	.4byte 00000000

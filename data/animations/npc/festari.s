@@ -4,48 +4,48 @@
 	.section .rodata
     .align 2
 
-gUnk_08109BC8:: @ 08109BC8
-	.incbin "festari/gUnk_08109BC8.bin"
+gSpriteAnimations_Festari_1:: @ 08109BC8
+	.include "animations/gSpriteAnimations_Festari_1.s"
 
-gUnk_08109BCD:: @ 08109BCD
-	.incbin "festari/gUnk_08109BCD.bin"
+gSpriteAnimations_Festari_0:: @ 08109BCD
+	.include "animations/gSpriteAnimations_Festari_0.s"
 
-gUnk_08109BD2:: @ 08109BD2
-	.incbin "festari/gUnk_08109BD2.bin"
+gSpriteAnimations_Festari_3:: @ 08109BD2
+	.include "animations/gSpriteAnimations_Festari_3.s"
 
-gUnk_08109BD7:: @ 08109BD7
-	.incbin "festari/gUnk_08109BD7.bin"
+gSpriteAnimations_Festari_4:: @ 08109BD7
+	.include "animations/gSpriteAnimations_Festari_4.s"
 
-gUnk_08109BE8:: @ 08109BE8
-	.incbin "festari/gUnk_08109BE8.bin"
+gSpriteAnimations_Festari_7:: @ 08109BE8
+	.include "animations/gSpriteAnimations_Festari_7.s"
 
-gUnk_08109BF9:: @ 08109BF9
-	.incbin "festari/gUnk_08109BF9.bin"
+gSpriteAnimations_Festari_9:: @ 08109BF9
+	.include "animations/gSpriteAnimations_Festari_9.s"
 
-gUnk_08109C2E:: @ 08109C2E
-	.incbin "festari/gUnk_08109C2E.bin"
+gSpriteAnimations_Festari_8:: @ 08109C2E
+	.include "animations/gSpriteAnimations_Festari_8.s"
 
-gUnk_08109C4B:: @ 08109C4B
-	.incbin "festari/gUnk_08109C4B.bin"
+gSpriteAnimations_Festari_10:: @ 08109C4B
+	.include "animations/gSpriteAnimations_Festari_10.s"
 
-gUnk_08109C54:: @ 08109C54
-	.incbin "festari/gUnk_08109C54.bin"
+gSpriteAnimations_Festari_11:: @ 08109C54
+	.include "animations/gSpriteAnimations_Festari_11.s"
 
-gUnk_08109C59:: @ 08109C59
-	.incbin "festari/gUnk_08109C59.bin"
+gSpriteAnimations_Festari_12:: @ 08109C59
+	.include "animations/gSpriteAnimations_Festari_12.s"
 
 gSpriteAnimations_Festari:: @ 08109C60
-	.4byte gUnk_08109BCD
-	.4byte gUnk_08109BC8
-	.4byte gUnk_08109BCD
-	.4byte gUnk_08109BD2
-	.4byte gUnk_08109BD7
-	.4byte gUnk_08109BD7
-	.4byte gUnk_08109BD7
-	.4byte gUnk_08109BE8
-	.4byte gUnk_08109C2E
-	.4byte gUnk_08109BF9
-	.4byte gUnk_08109C4B
-	.4byte gUnk_08109C54
-	.4byte gUnk_08109C59
+	.4byte gSpriteAnimations_Festari_0
+	.4byte gSpriteAnimations_Festari_1
+	.4byte gSpriteAnimations_Festari_0
+	.4byte gSpriteAnimations_Festari_3
+	.4byte gSpriteAnimations_Festari_4
+	.4byte gSpriteAnimations_Festari_4
+	.4byte gSpriteAnimations_Festari_4
+	.4byte gSpriteAnimations_Festari_7
+	.4byte gSpriteAnimations_Festari_8
+	.4byte gSpriteAnimations_Festari_9
+	.4byte gSpriteAnimations_Festari_10
+	.4byte gSpriteAnimations_Festari_11
+	.4byte gSpriteAnimations_Festari_12
 	.4byte 00000000

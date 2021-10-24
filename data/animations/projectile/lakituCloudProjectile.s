@@ -4,25 +4,25 @@
 	.section .rodata
     .align 2
 
-gUnk_08129B84:: @ 08129B84
-	.incbin "projectile11/gUnk_08129B84.bin"
+gSpriteAnimations_LakituCloudProjectile_0:: @ 08129B84
+	.include "animations/gSpriteAnimations_LakituCloudProjectile_0.s"
 
-gUnk_08129B95:: @ 08129B95
-	.incbin "projectile11/gUnk_08129B95.bin"
+gSpriteAnimations_LakituCloudProjectile_1:: @ 08129B95
+	.include "animations/gSpriteAnimations_LakituCloudProjectile_1.s"
 
-gUnk_08129BA6:: @ 08129BA6
-	.incbin "projectile11/gUnk_08129BA6.bin"
+gSpriteAnimations_LakituCloudProjectile_4:: @ 08129BA6
+	.include "animations/gSpriteAnimations_LakituCloudProjectile_4.s"
 
-gUnk_08129BB7:: @ 08129BB7
-	.incbin "projectile11/gUnk_08129BB7.bin"
+gSpriteAnimations_LakituCloudProjectile_5:: @ 08129BB7
+	.include "animations/gSpriteAnimations_LakituCloudProjectile_5.s"
 
 gSpriteAnimations_LakituCloudProjectile:: @ 08129BC8
-	.4byte gUnk_08129B84
-	.4byte gUnk_08129B95
-	.4byte gUnk_08129B84
-	.4byte gUnk_08129B95
-	.4byte gUnk_08129BA6
-	.4byte gUnk_08129BB7
-	.4byte gUnk_08129BA6
-	.4byte gUnk_08129BB7
+	.4byte gSpriteAnimations_LakituCloudProjectile_0
+	.4byte gSpriteAnimations_LakituCloudProjectile_1
+	.4byte gSpriteAnimations_LakituCloudProjectile_0
+	.4byte gSpriteAnimations_LakituCloudProjectile_1
+	.4byte gSpriteAnimations_LakituCloudProjectile_4
+	.4byte gSpriteAnimations_LakituCloudProjectile_5
+	.4byte gSpriteAnimations_LakituCloudProjectile_4
+	.4byte gSpriteAnimations_LakituCloudProjectile_5
 	.4byte 00000000

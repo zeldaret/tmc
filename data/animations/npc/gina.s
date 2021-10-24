@@ -5,42 +5,42 @@
     .align 2
 
 
-gUnk_0811352C:: @ 0811352C
-	.incbin "gina/gUnk_0811352C.bin"
+gSpriteAnimations_Gina_0:: @ 0811352C
+	.include "animations/gSpriteAnimations_Gina_0.s"
 
-gUnk_0811354D:: @ 0811354D
-	.incbin "gina/gUnk_0811354D.bin"
+gSpriteAnimations_Gina_1:: @ 0811354D
+	.include "animations/gSpriteAnimations_Gina_1.s"
 
-gUnk_0811356E:: @ 0811356E
-	.incbin "gina/gUnk_0811356E.bin"
+gSpriteAnimations_Gina_3:: @ 0811356E
+	.include "animations/gSpriteAnimations_Gina_3.s"
 
-gUnk_0811358F:: @ 0811358F
-	.incbin "gina/gUnk_0811358F.bin"
+gSpriteAnimations_Gina_8:: @ 0811358F
+	.include "animations/gSpriteAnimations_Gina_8.s"
 
-gUnk_081135B0:: @ 081135B0
-	.incbin "gina/gUnk_081135B0.bin"
+gSpriteAnimations_Gina_12:: @ 081135B0
+	.include "animations/gSpriteAnimations_Gina_12.s"
 
-gUnk_081135DD:: @ 081135DD
-	.incbin "gina/gUnk_081135DD.bin"
+gSpriteAnimations_Gina_5:: @ 081135DD
+	.include "animations/gSpriteAnimations_Gina_5.s"
 
-gUnk_081135E2:: @ 081135E2
-	.incbin "gina/gUnk_081135E2.bin"
+gSpriteAnimations_Gina_4:: @ 081135E2
+	.include "animations/gSpriteAnimations_Gina_4.s"
 
 gSpriteAnimations_Gina:: @ 081135E8
-	.4byte gUnk_0811352C
-	.4byte gUnk_0811354D
-	.4byte gUnk_0811352C
-	.4byte gUnk_0811356E
-	.4byte gUnk_081135E2
-	.4byte gUnk_081135DD
-	.4byte gUnk_081135E2
-	.4byte gUnk_081135E2
-	.4byte gUnk_0811358F
-	.4byte gUnk_0811358F
-	.4byte gUnk_0811358F
-	.4byte gUnk_0811358F
-	.4byte gUnk_081135B0
-	.4byte gUnk_081135B0
-	.4byte gUnk_081135B0
-	.4byte gUnk_081135B0
+	.4byte gSpriteAnimations_Gina_0
+	.4byte gSpriteAnimations_Gina_1
+	.4byte gSpriteAnimations_Gina_0
+	.4byte gSpriteAnimations_Gina_3
+	.4byte gSpriteAnimations_Gina_4
+	.4byte gSpriteAnimations_Gina_5
+	.4byte gSpriteAnimations_Gina_4
+	.4byte gSpriteAnimations_Gina_4
+	.4byte gSpriteAnimations_Gina_8
+	.4byte gSpriteAnimations_Gina_8
+	.4byte gSpriteAnimations_Gina_8
+	.4byte gSpriteAnimations_Gina_8
+	.4byte gSpriteAnimations_Gina_12
+	.4byte gSpriteAnimations_Gina_12
+	.4byte gSpriteAnimations_Gina_12
+	.4byte gSpriteAnimations_Gina_12
 	.4byte 00000000

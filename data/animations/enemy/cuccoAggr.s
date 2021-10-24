@@ -4,24 +4,24 @@
 	.section .rodata
 @    .align 2
 
-gUnk_080CF831:: @ 080CF831
-	.incbin "cuccoAggr/gUnk_080CF831.bin"
+gSpriteAnimations_CuccoAggr_0:: @ 080CF831
+	.include "animations/gSpriteAnimations_CuccoAggr_0.s"
 
-gUnk_080CF836:: @ 080CF836
-	.incbin "cuccoAggr/gUnk_080CF836.bin"
+gSpriteAnimations_CuccoAggr_1:: @ 080CF836
+	.include "animations/gSpriteAnimations_CuccoAggr_1.s"
 
-gUnk_080CF847:: @ 080CF847
-	.incbin "cuccoAggr/gUnk_080CF847.bin"
+gSpriteAnimations_CuccoAggr_2:: @ 080CF847
+	.include "animations/gSpriteAnimations_CuccoAggr_2.s"
 
-gUnk_080CF85F:: @ 080CF85F
-	.incbin "cuccoAggr/gUnk_080CF85F.bin"
+gSpriteAnimations_CuccoAggr_3:: @ 080CF85F
+	.include "animations/gSpriteAnimations_CuccoAggr_3.s"
 
-gUnk_080CF87F:: @ 080CF87F
-	.incbin "cuccoAggr/gUnk_080CF87F.bin"
+gSpriteAnimations_CuccoAggr_4:: @ 080CF87F
+	.include "animations/gSpriteAnimations_CuccoAggr_4.s"
 
 gSpriteAnimations_CuccoAggr:: @ 080CF890
-	.4byte gUnk_080CF831
-	.4byte gUnk_080CF836
-	.4byte gUnk_080CF847
-	.4byte gUnk_080CF85F
-	.4byte gUnk_080CF87F
+	.4byte gSpriteAnimations_CuccoAggr_0
+	.4byte gSpriteAnimations_CuccoAggr_1
+	.4byte gSpriteAnimations_CuccoAggr_2
+	.4byte gSpriteAnimations_CuccoAggr_3
+	.4byte gSpriteAnimations_CuccoAggr_4

@@ -4,54 +4,54 @@
 	.section .rodata
     .align 2
 
-gUnk_08111380:: @ 08111380
-	.incbin "mountainMinish/gUnk_08111380.bin"
+gSpriteAnimations_MountainMinish_0:: @ 08111380
+	.include "animations/gSpriteAnimations_MountainMinish_0.s"
 
-gUnk_08111385:: @ 08111385
-	.incbin "mountainMinish/gUnk_08111385.bin"
+gSpriteAnimations_MountainMinish_1:: @ 08111385
+	.include "animations/gSpriteAnimations_MountainMinish_1.s"
 
-gUnk_0811138A:: @ 0811138A
-	.incbin "mountainMinish/gUnk_0811138A.bin"
+gSpriteAnimations_MountainMinish_2:: @ 0811138A
+	.include "animations/gSpriteAnimations_MountainMinish_2.s"
 
-gUnk_0811138F:: @ 0811138F
-	.incbin "mountainMinish/gUnk_0811138F.bin"
+gSpriteAnimations_MountainMinish_3:: @ 0811138F
+	.include "animations/gSpriteAnimations_MountainMinish_3.s"
 
-gUnk_08111394:: @ 08111394
-	.incbin "mountainMinish/gUnk_08111394.bin"
+gSpriteAnimations_MountainMinish_7:: @ 08111394
+	.include "animations/gSpriteAnimations_MountainMinish_7.s"
 
-gUnk_081113B9:: @ 081113B9
-	.incbin "mountainMinish/gUnk_081113B9.bin"
+gSpriteAnimations_MountainMinish_5:: @ 081113B9
+	.include "animations/gSpriteAnimations_MountainMinish_5.s"
 
-gUnk_081113DE:: @ 081113DE
-	.incbin "mountainMinish/gUnk_081113DE.bin"
+gSpriteAnimations_MountainMinish_4:: @ 081113DE
+	.include "animations/gSpriteAnimations_MountainMinish_4.s"
 
-gUnk_081113FF:: @ 081113FF
-	.incbin "mountainMinish/gUnk_081113FF.bin"
+gSpriteAnimations_MountainMinish_8:: @ 081113FF
+	.include "animations/gSpriteAnimations_MountainMinish_8.s"
 
-gUnk_08111424:: @ 08111424
-	.incbin "mountainMinish/gUnk_08111424.bin"
+gSpriteAnimations_MountainMinish_9:: @ 08111424
+	.include "animations/gSpriteAnimations_MountainMinish_9.s"
 
-gUnk_08111449:: @ 08111449
-	.incbin "mountainMinish/gUnk_08111449.bin"
+gSpriteAnimations_MountainMinish_10:: @ 08111449
+	.include "animations/gSpriteAnimations_MountainMinish_10.s"
 
-gUnk_081114BA:: @ 081114BA
-	.incbin "mountainMinish/gUnk_081114BA.bin"
+gSpriteAnimations_MountainMinish_11:: @ 081114BA
+	.include "animations/gSpriteAnimations_MountainMinish_11.s"
 
-gUnk_081114E3:: @ 081114E3
-	.incbin "mountainMinish/gUnk_081114E3.bin"
+gSpriteAnimations_MountainMinish_12:: @ 081114E3
+	.include "animations/gSpriteAnimations_MountainMinish_12.s"
 
 gSpriteAnimations_MountainMinish:: @ 081114E8
-	.4byte gUnk_08111380
-	.4byte gUnk_08111385
-	.4byte gUnk_0811138A
-	.4byte gUnk_0811138F
-	.4byte gUnk_081113DE
-	.4byte gUnk_081113B9
-	.4byte gUnk_081113DE
-	.4byte gUnk_08111394
-	.4byte gUnk_081113FF
-	.4byte gUnk_08111424
-	.4byte gUnk_08111449
-	.4byte gUnk_081114BA
-	.4byte gUnk_081114E3
+	.4byte gSpriteAnimations_MountainMinish_0
+	.4byte gSpriteAnimations_MountainMinish_1
+	.4byte gSpriteAnimations_MountainMinish_2
+	.4byte gSpriteAnimations_MountainMinish_3
+	.4byte gSpriteAnimations_MountainMinish_4
+	.4byte gSpriteAnimations_MountainMinish_5
+	.4byte gSpriteAnimations_MountainMinish_4
+	.4byte gSpriteAnimations_MountainMinish_7
+	.4byte gSpriteAnimations_MountainMinish_8
+	.4byte gSpriteAnimations_MountainMinish_9
+	.4byte gSpriteAnimations_MountainMinish_10
+	.4byte gSpriteAnimations_MountainMinish_11
+	.4byte gSpriteAnimations_MountainMinish_12
 	.4byte 00000000

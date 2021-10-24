@@ -4,8 +4,8 @@
 	.section .rodata
 @    .align 2
 
-gUnk_08120D86:: @ 08120D86
-	.incbin "pushableStatue/gUnk_08120D86.bin"
+gSpriteAnimations_PushableStatue_0:: @ 08120D86
+	.include "animations/gSpriteAnimations_PushableStatue_0.s"
 
 gSpriteAnimations_PushableStatue:: @ 08120D8C
-	.4byte gUnk_08120D86
+	.4byte gSpriteAnimations_PushableStatue_0

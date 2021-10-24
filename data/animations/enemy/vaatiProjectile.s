@@ -4,17 +4,17 @@
 	.section .rodata
     .align 2
 
-gUnk_080D0688:: @ 080D0688
-	.incbin "vaatiProjectile/gUnk_080D0688.bin"
+gSpriteAnimations_VaatiProjectile_0:: @ 080D0688
+	.include "animations/gSpriteAnimations_VaatiProjectile_0.s"
 
-gUnk_080D06A1:: @ 080D06A1
-	.incbin "vaatiProjectile/gUnk_080D06A1.bin"
+gSpriteAnimations_VaatiProjectile_1:: @ 080D06A1
+	.include "animations/gSpriteAnimations_VaatiProjectile_1.s"
 
-gUnk_080D06B2:: @ 080D06B2
-	.incbin "vaatiProjectile/gUnk_080D06B2.bin"
+gSpriteAnimations_VaatiProjectile_2:: @ 080D06B2
+	.include "animations/gSpriteAnimations_VaatiProjectile_2.s"
 
 gSpriteAnimations_VaatiProjectile:: @ 080D06D0
-	.4byte gUnk_080D0688
-	.4byte gUnk_080D06A1
-	.4byte gUnk_080D06B2
+	.4byte gSpriteAnimations_VaatiProjectile_0
+	.4byte gSpriteAnimations_VaatiProjectile_1
+	.4byte gSpriteAnimations_VaatiProjectile_2
 	.4byte 00000000

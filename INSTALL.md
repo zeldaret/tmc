@@ -1,11 +1,8 @@
 # Install
-First, you must put a The Legend of Zelda: The Minish Cap (U) ROM (with SHA1: `b4bd50e4131b027c334547b4524e2dbbd4227130`) in the root directory of the repository and name it `baserom.gba`. 
-
-## Extract assets
-Run `python tools/asset_extractor/asset_extractor.py usa`.
+First, you must put a The Legend of Zelda: The Minish Cap (U) ROM (with SHA1: `b4bd50e4131b027c334547b4524e2dbbd4227130`) in the root directory of the repository and name it `baserom.gba`.
 
 ## Building other variants
-To build other variants, you need to place the corresponding baserom and then extract the assets, e.g. for JP: `baserom_jp.gba` and run `python tools/asset_extractor/asset_extractor.py jp`.
+To build other variants, you need to place the corresponding baserom before building, e.g. `baserom_jp.gba` for JP.
 
 ## Prerequisites
 

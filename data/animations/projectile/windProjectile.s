@@ -4,53 +4,53 @@
 	.section .rodata
     .align 2
 
-gUnk_081297AC:: @ 081297AC
-	.incbin "projectile7/gUnk_081297AC.bin"
+gSpriteAnimations_WindProjectile_0:: @ 081297AC
+	.include "animations/gSpriteAnimations_WindProjectile_0.s"
 
-gUnk_081297B5:: @ 081297B5
-	.incbin "projectile7/gUnk_081297B5.bin"
+gSpriteAnimations_WindProjectile_1:: @ 081297B5
+	.include "animations/gSpriteAnimations_WindProjectile_1.s"
 
-gUnk_081297BE:: @ 081297BE
-	.incbin "projectile7/gUnk_081297BE.bin"
+gSpriteAnimations_WindProjectile_2:: @ 081297BE
+	.include "animations/gSpriteAnimations_WindProjectile_2.s"
 
-gUnk_081297C7:: @ 081297C7
-	.incbin "projectile7/gUnk_081297C7.bin"
+gSpriteAnimations_WindProjectile_3:: @ 081297C7
+	.include "animations/gSpriteAnimations_WindProjectile_3.s"
 
-gUnk_081297D0:: @ 081297D0
-	.incbin "projectile7/gUnk_081297D0.bin"
+gSpriteAnimations_WindProjectile_4:: @ 081297D0
+	.include "animations/gSpriteAnimations_WindProjectile_4.s"
 
-gUnk_081297D5:: @ 081297D5
-	.incbin "projectile7/gUnk_081297D5.bin"
+gSpriteAnimations_WindProjectile_5:: @ 081297D5
+	.include "animations/gSpriteAnimations_WindProjectile_5.s"
 
-gUnk_081297DA:: @ 081297DA
-	.incbin "projectile7/gUnk_081297DA.bin"
+gSpriteAnimations_WindProjectile_6:: @ 081297DA
+	.include "animations/gSpriteAnimations_WindProjectile_6.s"
 
-gUnk_081297DF:: @ 081297DF
-	.incbin "projectile7/gUnk_081297DF.bin"
+gSpriteAnimations_WindProjectile_7:: @ 081297DF
+	.include "animations/gSpriteAnimations_WindProjectile_7.s"
 
-gUnk_081297E4:: @ 081297E4
-	.incbin "projectile7/gUnk_081297E4.bin"
+gSpriteAnimations_WindProjectile_8:: @ 081297E4
+	.include "animations/gSpriteAnimations_WindProjectile_8.s"
 
-gUnk_081297E9:: @ 081297E9
-	.incbin "projectile7/gUnk_081297E9.bin"
+gSpriteAnimations_WindProjectile_9:: @ 081297E9
+	.include "animations/gSpriteAnimations_WindProjectile_9.s"
 
-gUnk_081297EE:: @ 081297EE
-	.incbin "projectile7/gUnk_081297EE.bin"
+gSpriteAnimations_WindProjectile_10:: @ 081297EE
+	.include "animations/gSpriteAnimations_WindProjectile_10.s"
 
-gUnk_081297F3:: @ 081297F3
-	.incbin "projectile7/gUnk_081297F3.bin"
+gSpriteAnimations_WindProjectile_11:: @ 081297F3
+	.include "animations/gSpriteAnimations_WindProjectile_11.s"
 
 gSpriteAnimations_WindProjectile:: @ 081297F8
-	.4byte gUnk_081297AC
-	.4byte gUnk_081297B5
-	.4byte gUnk_081297BE
-	.4byte gUnk_081297C7
-	.4byte gUnk_081297D0
-	.4byte gUnk_081297D5
-	.4byte gUnk_081297DA
-	.4byte gUnk_081297DF
-	.4byte gUnk_081297E4
-	.4byte gUnk_081297E9
-	.4byte gUnk_081297EE
-	.4byte gUnk_081297F3
+	.4byte gSpriteAnimations_WindProjectile_0
+	.4byte gSpriteAnimations_WindProjectile_1
+	.4byte gSpriteAnimations_WindProjectile_2
+	.4byte gSpriteAnimations_WindProjectile_3
+	.4byte gSpriteAnimations_WindProjectile_4
+	.4byte gSpriteAnimations_WindProjectile_5
+	.4byte gSpriteAnimations_WindProjectile_6
+	.4byte gSpriteAnimations_WindProjectile_7
+	.4byte gSpriteAnimations_WindProjectile_8
+	.4byte gSpriteAnimations_WindProjectile_9
+	.4byte gSpriteAnimations_WindProjectile_10
+	.4byte gSpriteAnimations_WindProjectile_11
 	.4byte 00000000

@@ -5,37 +5,37 @@
     .align 2
 
 
-gUnk_080CDF78:: @ 080CDF78
-	.incbin "wizzrobeWind/gUnk_080CDF78.bin"
+gSpriteAnimations_WizzrobeWind_0:: @ 080CDF78
+	.include "animations/gSpriteAnimations_WizzrobeWind_0.s"
 
-gUnk_080CDF7D:: @ 080CDF7D
-	.incbin "wizzrobeWind/gUnk_080CDF7D.bin"
+gSpriteAnimations_WizzrobeWind_1:: @ 080CDF7D
+	.include "animations/gSpriteAnimations_WizzrobeWind_1.s"
 
-gUnk_080CDF82:: @ 080CDF82
-	.incbin "wizzrobeWind/gUnk_080CDF82.bin"
+gSpriteAnimations_WizzrobeWind_2:: @ 080CDF82
+	.include "animations/gSpriteAnimations_WizzrobeWind_2.s"
 
-gUnk_080CDF87:: @ 080CDF87
-	.incbin "wizzrobeWind/gUnk_080CDF87.bin"
+gSpriteAnimations_WizzrobeWind_3:: @ 080CDF87
+	.include "animations/gSpriteAnimations_WizzrobeWind_3.s"
 
-gUnk_080CDF8C:: @ 080CDF8C
-	.incbin "wizzrobeWind/gUnk_080CDF8C.bin"
+gSpriteAnimations_WizzrobeWind_4:: @ 080CDF8C
+	.include "animations/gSpriteAnimations_WizzrobeWind_4.s"
 
-gUnk_080CDF91:: @ 080CDF91
-	.incbin "wizzrobeWind/gUnk_080CDF91.bin"
+gSpriteAnimations_WizzrobeWind_5:: @ 080CDF91
+	.include "animations/gSpriteAnimations_WizzrobeWind_5.s"
 
-gUnk_080CDF96:: @ 080CDF96
-	.incbin "wizzrobeWind/gUnk_080CDF96.bin"
+gSpriteAnimations_WizzrobeWind_6:: @ 080CDF96
+	.include "animations/gSpriteAnimations_WizzrobeWind_6.s"
 
-gUnk_080CDF9B:: @ 080CDF9B
-	.incbin "wizzrobeWind/gUnk_080CDF9B.bin"
+gSpriteAnimations_WizzrobeWind_7:: @ 080CDF9B
+	.include "animations/gSpriteAnimations_WizzrobeWind_7.s"
 
 gSpriteAnimations_WizzrobeWind:: @ 080CDFA0
-	.4byte gUnk_080CDF78
-	.4byte gUnk_080CDF7D
-	.4byte gUnk_080CDF82
-	.4byte gUnk_080CDF87
-	.4byte gUnk_080CDF8C
-	.4byte gUnk_080CDF91
-	.4byte gUnk_080CDF96
-	.4byte gUnk_080CDF9B
+	.4byte gSpriteAnimations_WizzrobeWind_0
+	.4byte gSpriteAnimations_WizzrobeWind_1
+	.4byte gSpriteAnimations_WizzrobeWind_2
+	.4byte gSpriteAnimations_WizzrobeWind_3
+	.4byte gSpriteAnimations_WizzrobeWind_4
+	.4byte gSpriteAnimations_WizzrobeWind_5
+	.4byte gSpriteAnimations_WizzrobeWind_6
+	.4byte gSpriteAnimations_WizzrobeWind_7
 	.4byte 00000000

@@ -4,17 +4,17 @@
 	.section .rodata
     .align 2
 
-gUnk_081213FC:: @ 081213FC
-	.incbin "object35/gUnk_081213FC.bin"
+gSpriteAnimations_Object35_0:: @ 081213FC
+	.include "animations/gSpriteAnimations_Object35_0.s"
 
-gUnk_0812140D:: @ 0812140D
-	.incbin "object35/gUnk_0812140D.bin"
+gSpriteAnimations_Object35_1:: @ 0812140D
+	.include "animations/gSpriteAnimations_Object35_1.s"
 
-gUnk_0812141E:: @ 0812141E
-	.incbin "object35/gUnk_0812141E.bin"
+gSpriteAnimations_Object35_2:: @ 0812141E
+	.include "animations/gSpriteAnimations_Object35_2.s"
 
 gSpriteAnimations_Object35:: @ 08121430
-	.4byte gUnk_081213FC
-	.4byte gUnk_0812140D
-	.4byte gUnk_0812141E
+	.4byte gSpriteAnimations_Object35_0
+	.4byte gSpriteAnimations_Object35_1
+	.4byte gSpriteAnimations_Object35_2
 	.4byte 00000000

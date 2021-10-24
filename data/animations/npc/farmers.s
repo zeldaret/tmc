@@ -4,64 +4,64 @@
 	.section .rodata
     .align 2
 
-gUnk_08113168:: @ 08113168
-	.incbin "farmers/gUnk_08113168.bin"
+gSpriteAnimations_Farmers_0_0:: @ 08113168
+	.include "animations/gSpriteAnimations_Farmers_0_0.s"
 
-gUnk_0811318D:: @ 0811318D
-	.incbin "farmers/gUnk_0811318D.bin"
+gSpriteAnimations_Farmers_0_4:: @ 0811318D
+	.include "animations/gSpriteAnimations_Farmers_0_4.s"
 
-gUnk_08113192:: @ 08113192
-	.incbin "farmers/gUnk_08113192.bin"
+gSpriteAnimations_Farmers_0_5:: @ 08113192
+	.include "animations/gSpriteAnimations_Farmers_0_5.s"
 
-gUnk_08113197:: @ 08113197
-	.incbin "farmers/gUnk_08113197.bin"
+gSpriteAnimations_Farmers_0_7:: @ 08113197
+	.include "animations/gSpriteAnimations_Farmers_0_7.s"
 
 gSpriteAnimations_Farmers_0:: @ 0811319C
-	.4byte gUnk_08113168
-	.4byte gUnk_08113168
-	.4byte gUnk_08113168
-	.4byte gUnk_08113168
-	.4byte gUnk_0811318D
-	.4byte gUnk_08113192
-	.4byte gUnk_08113192
-	.4byte gUnk_08113197
-	.4byte gUnk_08113168
-	.4byte gUnk_08113168
-	.4byte gUnk_08113168
-	.4byte gUnk_08113168
-	.4byte gUnk_0811318D
-	.4byte gUnk_08113197
-	.4byte gUnk_08113192
-	.4byte gUnk_08113192
+	.4byte gSpriteAnimations_Farmers_0_0
+	.4byte gSpriteAnimations_Farmers_0_0
+	.4byte gSpriteAnimations_Farmers_0_0
+	.4byte gSpriteAnimations_Farmers_0_0
+	.4byte gSpriteAnimations_Farmers_0_4
+	.4byte gSpriteAnimations_Farmers_0_5
+	.4byte gSpriteAnimations_Farmers_0_5
+	.4byte gSpriteAnimations_Farmers_0_7
+	.4byte gSpriteAnimations_Farmers_0_0
+	.4byte gSpriteAnimations_Farmers_0_0
+	.4byte gSpriteAnimations_Farmers_0_0
+	.4byte gSpriteAnimations_Farmers_0_0
+	.4byte gSpriteAnimations_Farmers_0_4
+	.4byte gSpriteAnimations_Farmers_0_7
+	.4byte gSpriteAnimations_Farmers_0_5
+	.4byte gSpriteAnimations_Farmers_0_5
 	.4byte 00000000
 
-gUnk_081131E0:: @ 081131E0
-	.incbin "farmers/gUnk_081131E0.bin"
+gSpriteAnimations_Farmers_1_0:: @ 081131E0
+	.include "animations/gSpriteAnimations_Farmers_1_0.s"
 
-gUnk_08113205:: @ 08113205
-	.incbin "farmers/gUnk_08113205.bin"
+gSpriteAnimations_Farmers_1_4:: @ 08113205
+	.include "animations/gSpriteAnimations_Farmers_1_4.s"
 
-gUnk_0811320A:: @ 0811320A
-	.incbin "farmers/gUnk_0811320A.bin"
+gSpriteAnimations_Farmers_1_5:: @ 0811320A
+	.include "animations/gSpriteAnimations_Farmers_1_5.s"
 
-gUnk_0811320F:: @ 0811320F
-	.incbin "farmers/gUnk_0811320F.bin"
+gSpriteAnimations_Farmers_1_7:: @ 0811320F
+	.include "animations/gSpriteAnimations_Farmers_1_7.s"
 
 gSpriteAnimations_Farmers_1:: @ 08113214
-	.4byte gUnk_081131E0
-	.4byte gUnk_081131E0
-	.4byte gUnk_081131E0
-	.4byte gUnk_081131E0
-	.4byte gUnk_08113205
-	.4byte gUnk_0811320A
-	.4byte gUnk_0811320A
-	.4byte gUnk_0811320F
-	.4byte gUnk_081131E0
-	.4byte gUnk_081131E0
-	.4byte gUnk_081131E0
-	.4byte gUnk_081131E0
-	.4byte gUnk_08113205
-	.4byte gUnk_0811320F
-	.4byte gUnk_0811320A
-	.4byte gUnk_0811320A
+	.4byte gSpriteAnimations_Farmers_1_0
+	.4byte gSpriteAnimations_Farmers_1_0
+	.4byte gSpriteAnimations_Farmers_1_0
+	.4byte gSpriteAnimations_Farmers_1_0
+	.4byte gSpriteAnimations_Farmers_1_4
+	.4byte gSpriteAnimations_Farmers_1_5
+	.4byte gSpriteAnimations_Farmers_1_5
+	.4byte gSpriteAnimations_Farmers_1_7
+	.4byte gSpriteAnimations_Farmers_1_0
+	.4byte gSpriteAnimations_Farmers_1_0
+	.4byte gSpriteAnimations_Farmers_1_0
+	.4byte gSpriteAnimations_Farmers_1_0
+	.4byte gSpriteAnimations_Farmers_1_4
+	.4byte gSpriteAnimations_Farmers_1_7
+	.4byte gSpriteAnimations_Farmers_1_5
+	.4byte gSpriteAnimations_Farmers_1_5
 	.4byte 00000000

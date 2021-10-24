@@ -4,36 +4,36 @@
 	.section .rodata
     .align 2
 
-gUnk_08110658:: @ 08110658
-	.incbin "ministerPotho/gUnk_08110658.bin"
+gSpriteAnimations_MinisterPotho_0:: @ 08110658
+	.include "animations/gSpriteAnimations_MinisterPotho_0.s"
 
-gUnk_0811065D:: @ 0811065D
-	.incbin "ministerPotho/gUnk_0811065D.bin"
+gSpriteAnimations_MinisterPotho_1:: @ 0811065D
+	.include "animations/gSpriteAnimations_MinisterPotho_1.s"
 
-gUnk_08110662:: @ 08110662
-	.incbin "ministerPotho/gUnk_08110662.bin"
+gSpriteAnimations_MinisterPotho_2:: @ 08110662
+	.include "animations/gSpriteAnimations_MinisterPotho_2.s"
 
-gUnk_08110667:: @ 08110667
-	.incbin "ministerPotho/gUnk_08110667.bin"
+gSpriteAnimations_MinisterPotho_3:: @ 08110667
+	.include "animations/gSpriteAnimations_MinisterPotho_3.s"
 
-gUnk_0811066C:: @ 0811066C
-	.incbin "ministerPotho/gUnk_0811066C.bin"
+gSpriteAnimations_MinisterPotho_4:: @ 0811066C
+	.include "animations/gSpriteAnimations_MinisterPotho_4.s"
 
-gUnk_0811067D:: @ 0811067D
-	.incbin "ministerPotho/gUnk_0811067D.bin"
+gSpriteAnimations_MinisterPotho_8:: @ 0811067D
+	.include "animations/gSpriteAnimations_MinisterPotho_8.s"
 
-gUnk_08110682:: @ 08110682
-	.incbin "ministerPotho/gUnk_08110682.bin"
+gSpriteAnimations_MinisterPotho_9:: @ 08110682
+	.include "animations/gSpriteAnimations_MinisterPotho_9.s"
 
 gSpriteAnimations_MinisterPotho:: @ 081106A8
-	.4byte gUnk_08110658
-	.4byte gUnk_0811065D
-	.4byte gUnk_08110662
-	.4byte gUnk_08110667
-	.4byte gUnk_0811066C
-	.4byte gUnk_0811066C
-	.4byte gUnk_0811066C
-	.4byte gUnk_0811066C
-	.4byte gUnk_0811067D
-	.4byte gUnk_08110682
+	.4byte gSpriteAnimations_MinisterPotho_0
+	.4byte gSpriteAnimations_MinisterPotho_1
+	.4byte gSpriteAnimations_MinisterPotho_2
+	.4byte gSpriteAnimations_MinisterPotho_3
+	.4byte gSpriteAnimations_MinisterPotho_4
+	.4byte gSpriteAnimations_MinisterPotho_4
+	.4byte gSpriteAnimations_MinisterPotho_4
+	.4byte gSpriteAnimations_MinisterPotho_4
+	.4byte gSpriteAnimations_MinisterPotho_8
+	.4byte gSpriteAnimations_MinisterPotho_9
 	.4byte 00000000

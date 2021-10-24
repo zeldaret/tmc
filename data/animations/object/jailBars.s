@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_08124994:: @ 08124994
-	.incbin "jailBars/gUnk_08124994.bin"
+gSpriteAnimations_JailBars_0:: @ 08124994
+	.include "animations/gSpriteAnimations_JailBars_0.s"
 
-gUnk_081249A0:: @ 081249A0
-	.incbin "jailBars/gUnk_081249A0.bin"
+gSpriteAnimations_JailBars_1:: @ 081249A0
+	.include "animations/gSpriteAnimations_JailBars_1.s"
 
 gSpriteAnimations_JailBars:: @ 081249AC
-	.4byte gUnk_08124994
-	.4byte gUnk_081249A0
+	.4byte gSpriteAnimations_JailBars_0
+	.4byte gSpriteAnimations_JailBars_1
 	.4byte 00000000

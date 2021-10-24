@@ -4,25 +4,25 @@
 	.section .rodata
     .align 2
 
-gUnk_0810CAFC:: @ 0810CAFC
-	.incbin "brocco/gUnk_0810CAFC.bin"
+gSpriteAnimations_Brocco_0:: @ 0810CAFC
+	.include "animations/gSpriteAnimations_Brocco_0.s"
 
-gUnk_0810CB45:: @ 0810CB45
-	.incbin "brocco/gUnk_0810CB45.bin"
+gSpriteAnimations_Brocco_4:: @ 0810CB45
+	.include "animations/gSpriteAnimations_Brocco_4.s"
 
-gUnk_0810CB4A:: @ 0810CB4A
-	.incbin "brocco/gUnk_0810CB4A.bin"
+gSpriteAnimations_Brocco_5:: @ 0810CB4A
+	.include "animations/gSpriteAnimations_Brocco_5.s"
 
-gUnk_0810CB4F:: @ 0810CB4F
-	.incbin "brocco/gUnk_0810CB4F.bin"
+gSpriteAnimations_Brocco_7:: @ 0810CB4F
+	.include "animations/gSpriteAnimations_Brocco_7.s"
 
 gSpriteAnimations_Brocco:: @ 0810CB54
-	.4byte gUnk_0810CAFC
-	.4byte gUnk_0810CAFC
-	.4byte gUnk_0810CAFC
-	.4byte gUnk_0810CAFC
-	.4byte gUnk_0810CB45
-	.4byte gUnk_0810CB4A
-	.4byte gUnk_0810CB45
-	.4byte gUnk_0810CB4F
+	.4byte gSpriteAnimations_Brocco_0
+	.4byte gSpriteAnimations_Brocco_0
+	.4byte gSpriteAnimations_Brocco_0
+	.4byte gSpriteAnimations_Brocco_0
+	.4byte gSpriteAnimations_Brocco_4
+	.4byte gSpriteAnimations_Brocco_5
+	.4byte gSpriteAnimations_Brocco_4
+	.4byte gSpriteAnimations_Brocco_7
 	.4byte 00000000

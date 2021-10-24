@@ -4,109 +4,109 @@
 
 	.section .rodata
 
-gUnk_080CCA0A:: @ 080CCA0A
-	.incbin "businessScrub/gUnk_080CCA0A.bin"
+gSpriteAnimations_BusinessScrub_2:: @ 080CCA0A
+	.include "animations/gSpriteAnimations_BusinessScrub_2.s"
 
-gUnk_080CCA1F:: @ 080CCA1F
-	.incbin "businessScrub/gUnk_080CCA1F.bin"
+gSpriteAnimations_BusinessScrub_0:: @ 080CCA1F
+	.include "animations/gSpriteAnimations_BusinessScrub_0.s"
 
-gUnk_080CCA34:: @ 080CCA34
-	.incbin "businessScrub/gUnk_080CCA34.bin"
+gSpriteAnimations_BusinessScrub_1:: @ 080CCA34
+	.include "animations/gSpriteAnimations_BusinessScrub_1.s"
 
-gUnk_080CCA49:: @ 080CCA49
-	.incbin "businessScrub/gUnk_080CCA49.bin"
+gSpriteAnimations_BusinessScrub_3:: @ 080CCA49
+	.include "animations/gSpriteAnimations_BusinessScrub_3.s"
 
-gUnk_080CCA5E:: @ 080CCA5E
-	.incbin "businessScrub/gUnk_080CCA5E.bin"
+gSpriteAnimations_BusinessScrub_14:: @ 080CCA5E
+	.include "animations/gSpriteAnimations_BusinessScrub_14.s"
 
-gUnk_080CCA6F:: @ 080CCA6F
-	.incbin "businessScrub/gUnk_080CCA6F.bin"
+gSpriteAnimations_BusinessScrub_12:: @ 080CCA6F
+	.include "animations/gSpriteAnimations_BusinessScrub_12.s"
 
-gUnk_080CCA80:: @ 080CCA80
-	.incbin "businessScrub/gUnk_080CCA80.bin"
+gSpriteAnimations_BusinessScrub_13:: @ 080CCA80
+	.include "animations/gSpriteAnimations_BusinessScrub_13.s"
 
-gUnk_080CCA91:: @ 080CCA91
-	.incbin "businessScrub/gUnk_080CCA91.bin"
+gSpriteAnimations_BusinessScrub_15:: @ 080CCA91
+	.include "animations/gSpriteAnimations_BusinessScrub_15.s"
 
-gUnk_080CCAA2:: @ 080CCAA2
-	.incbin "businessScrub/gUnk_080CCAA2.bin"
+gSpriteAnimations_BusinessScrub_6:: @ 080CCAA2
+	.include "animations/gSpriteAnimations_BusinessScrub_6.s"
 
-gUnk_080CCAA7:: @ 080CCAA7
-	.incbin "businessScrub/gUnk_080CCAA7.bin"
+gSpriteAnimations_BusinessScrub_4:: @ 080CCAA7
+	.include "animations/gSpriteAnimations_BusinessScrub_4.s"
 
-gUnk_080CCAAC:: @ 080CCAAC
-	.incbin "businessScrub/gUnk_080CCAAC.bin"
+gSpriteAnimations_BusinessScrub_5:: @ 080CCAAC
+	.include "animations/gSpriteAnimations_BusinessScrub_5.s"
 
-gUnk_080CCAB1:: @ 080CCAB1
-	.incbin "businessScrub/gUnk_080CCAB1.bin"
+gSpriteAnimations_BusinessScrub_7:: @ 080CCAB1
+	.include "animations/gSpriteAnimations_BusinessScrub_7.s"
 
-gUnk_080CCAB6:: @ 080CCAB6
-	.incbin "businessScrub/gUnk_080CCAB6.bin"
+gSpriteAnimations_BusinessScrub_10:: @ 080CCAB6
+	.include "animations/gSpriteAnimations_BusinessScrub_10.s"
 
-gUnk_080CCAC6:: @ 080CCAC6
-	.incbin "businessScrub/gUnk_080CCAC6.bin"
+gSpriteAnimations_BusinessScrub_8:: @ 080CCAC6
+	.include "animations/gSpriteAnimations_BusinessScrub_8.s"
 
-gUnk_080CCAD6:: @ 080CCAD6
-	.incbin "businessScrub/gUnk_080CCAD6.bin"
+gSpriteAnimations_BusinessScrub_9:: @ 080CCAD6
+	.include "animations/gSpriteAnimations_BusinessScrub_9.s"
 
-gUnk_080CCAE6:: @ 080CCAE6
-	.incbin "businessScrub/gUnk_080CCAE6.bin"
+gSpriteAnimations_BusinessScrub_11:: @ 080CCAE6
+	.include "animations/gSpriteAnimations_BusinessScrub_11.s"
 
-gUnk_080CCAF6:: @ 080CCAF6
-	.incbin "businessScrub/gUnk_080CCAF6.bin"
+gSpriteAnimations_BusinessScrub_18:: @ 080CCAF6
+	.include "animations/gSpriteAnimations_BusinessScrub_18.s"
 
-gUnk_080CCB07:: @ 080CCB07
-	.incbin "businessScrub/gUnk_080CCB07.bin"
+gSpriteAnimations_BusinessScrub_16:: @ 080CCB07
+	.include "animations/gSpriteAnimations_BusinessScrub_16.s"
 
-gUnk_080CCB18:: @ 080CCB18
-	.incbin "businessScrub/gUnk_080CCB18.bin"
+gSpriteAnimations_BusinessScrub_17:: @ 080CCB18
+	.include "animations/gSpriteAnimations_BusinessScrub_17.s"
 
-gUnk_080CCB29:: @ 080CCB29
-	.incbin "businessScrub/gUnk_080CCB29.bin"
+gSpriteAnimations_BusinessScrub_19:: @ 080CCB29
+	.include "animations/gSpriteAnimations_BusinessScrub_19.s"
 
-gUnk_080CCB3A:: @ 080CCB3A
-	.incbin "businessScrub/gUnk_080CCB3A.bin"
+gSpriteAnimations_BusinessScrub_22:: @ 080CCB3A
+	.include "animations/gSpriteAnimations_BusinessScrub_22.s"
 
-gUnk_080CCB47:: @ 080CCB47
-	.incbin "businessScrub/gUnk_080CCB47.bin"
+gSpriteAnimations_BusinessScrub_20:: @ 080CCB47
+	.include "animations/gSpriteAnimations_BusinessScrub_20.s"
 
-gUnk_080CCB54:: @ 080CCB54
-	.incbin "businessScrub/gUnk_080CCB54.bin"
+gSpriteAnimations_BusinessScrub_21:: @ 080CCB54
+	.include "animations/gSpriteAnimations_BusinessScrub_21.s"
 
-gUnk_080CCB61:: @ 080CCB61
-	.incbin "businessScrub/gUnk_080CCB61.bin"
+gSpriteAnimations_BusinessScrub_23:: @ 080CCB61
+	.include "animations/gSpriteAnimations_BusinessScrub_23.s"
 
-gUnk_080CCB6E:: @ 080CCB6E
-	.incbin "businessScrub/gUnk_080CCB6E.bin"
+gSpriteAnimations_BusinessScrub_24:: @ 080CCB6E
+	.include "animations/gSpriteAnimations_BusinessScrub_24.s"
 
-gUnk_080CCB7F:: @ 080CCB7F
-	.incbin "businessScrub/gUnk_080CCB7F.bin"
+gSpriteAnimations_BusinessScrub_25:: @ 080CCB7F
+	.include "animations/gSpriteAnimations_BusinessScrub_25.s"
 
 gSpriteAnimations_BusinessScrub:: @ 080CCB94
-	.4byte gUnk_080CCA1F
-	.4byte gUnk_080CCA34
-	.4byte gUnk_080CCA0A
-	.4byte gUnk_080CCA49
-	.4byte gUnk_080CCAA7
-	.4byte gUnk_080CCAAC
-	.4byte gUnk_080CCAA2
-	.4byte gUnk_080CCAB1
-	.4byte gUnk_080CCAC6
-	.4byte gUnk_080CCAD6
-	.4byte gUnk_080CCAB6
-	.4byte gUnk_080CCAE6
-	.4byte gUnk_080CCA6F
-	.4byte gUnk_080CCA80
-	.4byte gUnk_080CCA5E
-	.4byte gUnk_080CCA91
-	.4byte gUnk_080CCB07
-	.4byte gUnk_080CCB18
-	.4byte gUnk_080CCAF6
-	.4byte gUnk_080CCB29
-	.4byte gUnk_080CCB47
-	.4byte gUnk_080CCB54
-	.4byte gUnk_080CCB3A
-	.4byte gUnk_080CCB61
-	.4byte gUnk_080CCB6E
-	.4byte gUnk_080CCB7F
+	.4byte gSpriteAnimations_BusinessScrub_0
+	.4byte gSpriteAnimations_BusinessScrub_1
+	.4byte gSpriteAnimations_BusinessScrub_2
+	.4byte gSpriteAnimations_BusinessScrub_3
+	.4byte gSpriteAnimations_BusinessScrub_4
+	.4byte gSpriteAnimations_BusinessScrub_5
+	.4byte gSpriteAnimations_BusinessScrub_6
+	.4byte gSpriteAnimations_BusinessScrub_7
+	.4byte gSpriteAnimations_BusinessScrub_8
+	.4byte gSpriteAnimations_BusinessScrub_9
+	.4byte gSpriteAnimations_BusinessScrub_10
+	.4byte gSpriteAnimations_BusinessScrub_11
+	.4byte gSpriteAnimations_BusinessScrub_12
+	.4byte gSpriteAnimations_BusinessScrub_13
+	.4byte gSpriteAnimations_BusinessScrub_14
+	.4byte gSpriteAnimations_BusinessScrub_15
+	.4byte gSpriteAnimations_BusinessScrub_16
+	.4byte gSpriteAnimations_BusinessScrub_17
+	.4byte gSpriteAnimations_BusinessScrub_18
+	.4byte gSpriteAnimations_BusinessScrub_19
+	.4byte gSpriteAnimations_BusinessScrub_20
+	.4byte gSpriteAnimations_BusinessScrub_21
+	.4byte gSpriteAnimations_BusinessScrub_22
+	.4byte gSpriteAnimations_BusinessScrub_23
+	.4byte gSpriteAnimations_BusinessScrub_24
+	.4byte gSpriteAnimations_BusinessScrub_25
 	.4byte 00000000

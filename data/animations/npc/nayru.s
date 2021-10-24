@@ -4,25 +4,25 @@
 	.section .rodata
     .align 2
 
-gUnk_0810F9B0:: @ 0810F9B0
-	.incbin "nayru/gUnk_0810F9B0.bin"
+gSpriteAnimations_Nayru_0:: @ 0810F9B0
+	.include "animations/gSpriteAnimations_Nayru_0.s"
 
-gUnk_0810F9B5:: @ 0810F9B5
-	.incbin "nayru/gUnk_0810F9B5.bin"
+gSpriteAnimations_Nayru_3:: @ 0810F9B5
+	.include "animations/gSpriteAnimations_Nayru_3.s"
 
-gUnk_0810F9BA:: @ 0810F9BA
-	.incbin "nayru/gUnk_0810F9BA.bin"
+gSpriteAnimations_Nayru_1:: @ 0810F9BA
+	.include "animations/gSpriteAnimations_Nayru_1.s"
 
-gUnk_0810F9BF:: @ 0810F9BF
-	.incbin "nayru/gUnk_0810F9BF.bin"
+gSpriteAnimations_Nayru_4:: @ 0810F9BF
+	.include "animations/gSpriteAnimations_Nayru_4.s"
 
 gSpriteAnimations_Nayru:: @ 0810F9D0
-	.4byte gUnk_0810F9B0
-	.4byte gUnk_0810F9BA
-	.4byte gUnk_0810F9B0
-	.4byte gUnk_0810F9B5
-	.4byte gUnk_0810F9BF
-	.4byte gUnk_0810F9BF
-	.4byte gUnk_0810F9BF
-	.4byte gUnk_0810F9BF
+	.4byte gSpriteAnimations_Nayru_0
+	.4byte gSpriteAnimations_Nayru_1
+	.4byte gSpriteAnimations_Nayru_0
+	.4byte gSpriteAnimations_Nayru_3
+	.4byte gSpriteAnimations_Nayru_4
+	.4byte gSpriteAnimations_Nayru_4
+	.4byte gSpriteAnimations_Nayru_4
+	.4byte gSpriteAnimations_Nayru_4
 	.4byte 00000000

@@ -3,17 +3,17 @@
 
 	.section .rodata
 
-gUnk_080CB96C:: @ 080CB96C
-	.incbin "rockChuchu/gUnk_080CB96C.bin"
+gSpriteAnimations_RockChuchu_0:: @ 080CB96C
+	.include "animations/gSpriteAnimations_RockChuchu_0.s"
 
-gUnk_080CB995:: @ 080CB995
-	.incbin "rockChuchu/gUnk_080CB995.bin"
+gSpriteAnimations_RockChuchu_1:: @ 080CB995
+	.include "animations/gSpriteAnimations_RockChuchu_1.s"
 
-gUnk_080CB9D6:: @ 080CB9D6
-	.incbin "rockChuchu/gUnk_080CB9D6.bin"
+gSpriteAnimations_RockChuchu_2:: @ 080CB9D6
+	.include "animations/gSpriteAnimations_RockChuchu_2.s"
 
 gSpriteAnimations_RockChuchu:: @ 080CBA18
-	.4byte gUnk_080CB96C
-	.4byte gUnk_080CB995
-	.4byte gUnk_080CB9D6
+	.4byte gSpriteAnimations_RockChuchu_0
+	.4byte gSpriteAnimations_RockChuchu_1
+	.4byte gSpriteAnimations_RockChuchu_2
 	.4byte 00000000

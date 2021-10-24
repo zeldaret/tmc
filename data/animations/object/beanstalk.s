@@ -4,62 +4,62 @@
 	.section .rodata
 @    .align 2
 
-gUnk_08120EF9:: @ 08120EF9
-	.incbin "beanstalk/gUnk_08120EF9.bin"
+gSpriteAnimations_Beanstalk_1_0:: @ 08120EF9
+	.include "animations/gSpriteAnimations_Beanstalk_1_0.s"
 
-gUnk_08120F2A:: @ 08120F2A
-	.incbin "beanstalk/gUnk_08120F2A.bin"
+gSpriteAnimations_Beanstalk_1_1:: @ 08120F2A
+	.include "animations/gSpriteAnimations_Beanstalk_1_1.s"
 
-gUnk_08120F2E:: @ 08120F2E
-	.incbin "beanstalk/gUnk_08120F2E.bin"
+gSpriteAnimations_Beanstalk_1_2:: @ 08120F2E
+	.include "animations/gSpriteAnimations_Beanstalk_1_2.s"
 
-gUnk_08120F32:: @ 08120F32
-	.incbin "beanstalk/gUnk_08120F32.bin"
+gSpriteAnimations_Beanstalk_1_3:: @ 08120F32
+	.include "animations/gSpriteAnimations_Beanstalk_1_3.s"
 
-gUnk_08120F5A:: @ 08120F5A
-	.incbin "beanstalk/gUnk_08120F5A.bin"
+gSpriteAnimations_Beanstalk_1_4:: @ 08120F5A
+	.include "animations/gSpriteAnimations_Beanstalk_1_4.s"
 
-gUnk_08120F5E:: @ 08120F5E
-	.incbin "beanstalk/gUnk_08120F5E.bin"
+gSpriteAnimations_Beanstalk_1_5:: @ 08120F5E
+	.include "animations/gSpriteAnimations_Beanstalk_1_5.s"
 
-gUnk_08120F7E:: @ 08120F7E
-	.incbin "beanstalk/gUnk_08120F7E.bin"
+gSpriteAnimations_Beanstalk_1_6:: @ 08120F7E
+	.include "animations/gSpriteAnimations_Beanstalk_1_6.s"
 
-gUnk_08120FA6:: @ 08120FA6
-	.incbin "beanstalk/gUnk_08120FA6.bin"
+gSpriteAnimations_Beanstalk_1_7:: @ 08120FA6
+	.include "animations/gSpriteAnimations_Beanstalk_1_7.s"
 
-gUnk_08120FAA:: @ 08120FAA
-	.incbin "beanstalk/gUnk_08120FAA.bin"
+gSpriteAnimations_Beanstalk_1_8:: @ 08120FAA
+	.include "animations/gSpriteAnimations_Beanstalk_1_8.s"
 
-gUnk_08120FCA:: @ 08120FCA
-	.incbin "beanstalk/gUnk_08120FCA.bin"
+gSpriteAnimations_Beanstalk_1_9:: @ 08120FCA
+	.include "animations/gSpriteAnimations_Beanstalk_1_9.s"
 
-gUnk_08120FF2:: @ 08120FF2
-	.incbin "beanstalk/gUnk_08120FF2.bin"
+gSpriteAnimations_Beanstalk_1_10:: @ 08120FF2
+	.include "animations/gSpriteAnimations_Beanstalk_1_10.s"
 
-gUnk_08120FF6:: @ 08120FF6
-	.incbin "beanstalk/gUnk_08120FF6.bin"
+gSpriteAnimations_Beanstalk_1_11:: @ 08120FF6
+	.include "animations/gSpriteAnimations_Beanstalk_1_11.s"
 
-gUnk_08121016:: @ 08121016
-	.incbin "beanstalk/gUnk_08121016.bin"
+gSpriteAnimations_Beanstalk_1_12:: @ 08121016
+	.include "animations/gSpriteAnimations_Beanstalk_1_12.s"
 
 gSpriteAnimations_Beanstalk_0:: @ 0812101C
-	.4byte gUnk_08120E8C
-	.4byte gUnk_08120ED1
+	.4byte gSpriteAnimations_Beanstalk_0_0
+	.4byte gSpriteAnimations_Beanstalk_0_1
 	.4byte 00000000
 
 gSpriteAnimations_Beanstalk_1:: @ 08121028
-	.4byte gUnk_08120EF9
-	.4byte gUnk_08120F2A
-	.4byte gUnk_08120F2E
-	.4byte gUnk_08120F32
-	.4byte gUnk_08120F5A
-	.4byte gUnk_08120F5E
-	.4byte gUnk_08120F7E
-	.4byte gUnk_08120FA6
-	.4byte gUnk_08120FAA
-	.4byte gUnk_08120FCA
-	.4byte gUnk_08120FF2
-	.4byte gUnk_08120FF6
-	.4byte gUnk_08121016
+	.4byte gSpriteAnimations_Beanstalk_1_0
+	.4byte gSpriteAnimations_Beanstalk_1_1
+	.4byte gSpriteAnimations_Beanstalk_1_2
+	.4byte gSpriteAnimations_Beanstalk_1_3
+	.4byte gSpriteAnimations_Beanstalk_1_4
+	.4byte gSpriteAnimations_Beanstalk_1_5
+	.4byte gSpriteAnimations_Beanstalk_1_6
+	.4byte gSpriteAnimations_Beanstalk_1_7
+	.4byte gSpriteAnimations_Beanstalk_1_8
+	.4byte gSpriteAnimations_Beanstalk_1_9
+	.4byte gSpriteAnimations_Beanstalk_1_10
+	.4byte gSpriteAnimations_Beanstalk_1_11
+	.4byte gSpriteAnimations_Beanstalk_1_12
 	.4byte 00000000

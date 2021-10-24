@@ -6,25 +6,25 @@
 
 
 
-gUnk_080CDEFC:: @ 080CDEFC
-	.incbin "tektite/gUnk_080CDEFC.bin"
+gSpriteAnimations_Tektite_0:: @ 080CDEFC
+	.include "animations/gSpriteAnimations_Tektite_0.s"
 
-gUnk_080CDF09:: @ 080CDF09
-	.incbin "tektite/gUnk_080CDF09.bin"
+gSpriteAnimations_Tektite_1:: @ 080CDF09
+	.include "animations/gSpriteAnimations_Tektite_1.s"
 
-gUnk_080CDF1A:: @ 080CDF1A
-	.incbin "tektite/gUnk_080CDF1A.bin"
+gSpriteAnimations_Tektite_2:: @ 080CDF1A
+	.include "animations/gSpriteAnimations_Tektite_2.s"
 
-gUnk_080CDF27:: @ 080CDF27
-	.incbin "tektite/gUnk_080CDF27.bin"
+gSpriteAnimations_Tektite_3:: @ 080CDF27
+	.include "animations/gSpriteAnimations_Tektite_3.s"
 
-gUnk_080CDF33:: @ 080CDF33
-	.incbin "tektite/gUnk_080CDF33.bin"
+gSpriteAnimations_Tektite_4:: @ 080CDF33
+	.include "animations/gSpriteAnimations_Tektite_4.s"
 
 gSpriteAnimations_Tektite:: @ 080CDF38
-	.4byte gUnk_080CDEFC
-	.4byte gUnk_080CDF09
-	.4byte gUnk_080CDF1A
-	.4byte gUnk_080CDF27
-	.4byte gUnk_080CDF33
+	.4byte gSpriteAnimations_Tektite_0
+	.4byte gSpriteAnimations_Tektite_1
+	.4byte gSpriteAnimations_Tektite_2
+	.4byte gSpriteAnimations_Tektite_3
+	.4byte gSpriteAnimations_Tektite_4
 	.4byte 00000000

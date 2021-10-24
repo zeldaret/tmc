@@ -3,45 +3,45 @@
 
 	.section .rodata
 
-gUnk_080CD31C:: @ 080CD31C
-	.incbin "spikedBeetle/gUnk_080CD31C.bin"
+gSpriteAnimations_SpikedBeetle_0:: @ 080CD31C
+	.include "animations/gSpriteAnimations_SpikedBeetle_0.s"
 
-gUnk_080CD32D:: @ 080CD32D
-	.incbin "spikedBeetle/gUnk_080CD32D.bin"
+gSpriteAnimations_SpikedBeetle_1:: @ 080CD32D
+	.include "animations/gSpriteAnimations_SpikedBeetle_1.s"
 
-gUnk_080CD33E:: @ 080CD33E
-	.incbin "spikedBeetle/gUnk_080CD33E.bin"
+gSpriteAnimations_SpikedBeetle_2:: @ 080CD33E
+	.include "animations/gSpriteAnimations_SpikedBeetle_2.s"
 
-gUnk_080CD34F:: @ 080CD34F
-	.incbin "spikedBeetle/gUnk_080CD34F.bin"
+gSpriteAnimations_SpikedBeetle_3:: @ 080CD34F
+	.include "animations/gSpriteAnimations_SpikedBeetle_3.s"
 
-gUnk_080CD360:: @ 080CD360
-	.incbin "spikedBeetle/gUnk_080CD360.bin"
+gSpriteAnimations_SpikedBeetle_4:: @ 080CD360
+	.include "animations/gSpriteAnimations_SpikedBeetle_4.s"
 
-gUnk_080CD368:: @ 080CD368
-	.incbin "spikedBeetle/gUnk_080CD368.bin"
+gSpriteAnimations_SpikedBeetle_5:: @ 080CD368
+	.include "animations/gSpriteAnimations_SpikedBeetle_5.s"
 
-gUnk_080CD370:: @ 080CD370
-	.incbin "spikedBeetle/gUnk_080CD370.bin"
+gSpriteAnimations_SpikedBeetle_6:: @ 080CD370
+	.include "animations/gSpriteAnimations_SpikedBeetle_6.s"
 
-gUnk_080CD378:: @ 080CD378
-	.incbin "spikedBeetle/gUnk_080CD378.bin"
+gSpriteAnimations_SpikedBeetle_7:: @ 080CD378
+	.include "animations/gSpriteAnimations_SpikedBeetle_7.s"
 
-gUnk_080CD380:: @ 080CD380
-	.incbin "spikedBeetle/gUnk_080CD380.bin"
+gSpriteAnimations_SpikedBeetle_8:: @ 080CD380
+	.include "animations/gSpriteAnimations_SpikedBeetle_8.s"
 
-gUnk_080CD391:: @ 080CD391
-	.incbin "spikedBeetle/gUnk_080CD391.bin"
+gSpriteAnimations_SpikedBeetle_9:: @ 080CD391
+	.include "animations/gSpriteAnimations_SpikedBeetle_9.s"
 
 gSpriteAnimations_SpikedBeetle:: @ 080CD398
-	.4byte gUnk_080CD31C
-	.4byte gUnk_080CD32D
-	.4byte gUnk_080CD33E
-	.4byte gUnk_080CD34F
-	.4byte gUnk_080CD360
-	.4byte gUnk_080CD368
-	.4byte gUnk_080CD370
-	.4byte gUnk_080CD378
-	.4byte gUnk_080CD380
-	.4byte gUnk_080CD391
+	.4byte gSpriteAnimations_SpikedBeetle_0
+	.4byte gSpriteAnimations_SpikedBeetle_1
+	.4byte gSpriteAnimations_SpikedBeetle_2
+	.4byte gSpriteAnimations_SpikedBeetle_3
+	.4byte gSpriteAnimations_SpikedBeetle_4
+	.4byte gSpriteAnimations_SpikedBeetle_5
+	.4byte gSpriteAnimations_SpikedBeetle_6
+	.4byte gSpriteAnimations_SpikedBeetle_7
+	.4byte gSpriteAnimations_SpikedBeetle_8
+	.4byte gSpriteAnimations_SpikedBeetle_9
 	.4byte 00000000

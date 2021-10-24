@@ -3,53 +3,53 @@
 
 	.section .rodata
 
-gUnk_080CD474:: @ 080CD474
-	.incbin "helmasaur/gUnk_080CD474.bin"
+gSpriteAnimations_Helmasaur_0:: @ 080CD474
+	.include "animations/gSpriteAnimations_Helmasaur_0.s"
 
-gUnk_080CD485:: @ 080CD485
-	.incbin "helmasaur/gUnk_080CD485.bin"
+gSpriteAnimations_Helmasaur_1:: @ 080CD485
+	.include "animations/gSpriteAnimations_Helmasaur_1.s"
 
-gUnk_080CD496:: @ 080CD496
-	.incbin "helmasaur/gUnk_080CD496.bin"
+gSpriteAnimations_Helmasaur_2:: @ 080CD496
+	.include "animations/gSpriteAnimations_Helmasaur_2.s"
 
-gUnk_080CD4A7:: @ 080CD4A7
-	.incbin "helmasaur/gUnk_080CD4A7.bin"
+gSpriteAnimations_Helmasaur_3:: @ 080CD4A7
+	.include "animations/gSpriteAnimations_Helmasaur_3.s"
 
-gUnk_080CD4B8:: @ 080CD4B8
-	.incbin "helmasaur/gUnk_080CD4B8.bin"
+gSpriteAnimations_Helmasaur_4:: @ 080CD4B8
+	.include "animations/gSpriteAnimations_Helmasaur_4.s"
 
-gUnk_080CD4C9:: @ 080CD4C9
-	.incbin "helmasaur/gUnk_080CD4C9.bin"
+gSpriteAnimations_Helmasaur_5:: @ 080CD4C9
+	.include "animations/gSpriteAnimations_Helmasaur_5.s"
 
-gUnk_080CD4DA:: @ 080CD4DA
-	.incbin "helmasaur/gUnk_080CD4DA.bin"
+gSpriteAnimations_Helmasaur_6:: @ 080CD4DA
+	.include "animations/gSpriteAnimations_Helmasaur_6.s"
 
-gUnk_080CD4EB:: @ 080CD4EB
-	.incbin "helmasaur/gUnk_080CD4EB.bin"
+gSpriteAnimations_Helmasaur_7:: @ 080CD4EB
+	.include "animations/gSpriteAnimations_Helmasaur_7.s"
 
-gUnk_080CD4FC:: @ 080CD4FC
-	.incbin "helmasaur/gUnk_080CD4FC.bin"
+gSpriteAnimations_Helmasaur_8:: @ 080CD4FC
+	.include "animations/gSpriteAnimations_Helmasaur_8.s"
 
-gUnk_080CD500:: @ 080CD500
-	.incbin "helmasaur/gUnk_080CD500.bin"
+gSpriteAnimations_Helmasaur_9:: @ 080CD500
+	.include "animations/gSpriteAnimations_Helmasaur_9.s"
 
-gUnk_080CD504:: @ 080CD504
-	.incbin "helmasaur/gUnk_080CD504.bin"
+gSpriteAnimations_Helmasaur_10:: @ 080CD504
+	.include "animations/gSpriteAnimations_Helmasaur_10.s"
 
-gUnk_080CD508:: @ 080CD508
-	.incbin "helmasaur/gUnk_080CD508.bin"
+gSpriteAnimations_Helmasaur_11:: @ 080CD508
+	.include "animations/gSpriteAnimations_Helmasaur_11.s"
 
 gSpriteAnimations_Helmasaur:: @ 080CD50C
-	.4byte gUnk_080CD474
-	.4byte gUnk_080CD485
-	.4byte gUnk_080CD496
-	.4byte gUnk_080CD4A7
-	.4byte gUnk_080CD4B8
-	.4byte gUnk_080CD4C9
-	.4byte gUnk_080CD4DA
-	.4byte gUnk_080CD4EB
-	.4byte gUnk_080CD4FC
-	.4byte gUnk_080CD500
-	.4byte gUnk_080CD504
-	.4byte gUnk_080CD508
+	.4byte gSpriteAnimations_Helmasaur_0
+	.4byte gSpriteAnimations_Helmasaur_1
+	.4byte gSpriteAnimations_Helmasaur_2
+	.4byte gSpriteAnimations_Helmasaur_3
+	.4byte gSpriteAnimations_Helmasaur_4
+	.4byte gSpriteAnimations_Helmasaur_5
+	.4byte gSpriteAnimations_Helmasaur_6
+	.4byte gSpriteAnimations_Helmasaur_7
+	.4byte gSpriteAnimations_Helmasaur_8
+	.4byte gSpriteAnimations_Helmasaur_9
+	.4byte gSpriteAnimations_Helmasaur_10
+	.4byte gSpriteAnimations_Helmasaur_11
 	.4byte 00000000

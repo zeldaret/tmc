@@ -4,75 +4,75 @@
 	.section .rodata
 @    .align 2
 
-gUnk_080D04D7:: @ 080D04D7
-	.incbin "vaatiRebornEnemy/gUnk_080D04D7.bin"
+gSpriteAnimations_VaatiRebornEnemy_0_0:: @ 080D04D7
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_0_0.s"
 
-gUnk_080D04E8:: @ 080D04E8
-	.incbin "vaatiRebornEnemy/gUnk_080D04E8.bin"
+gSpriteAnimations_VaatiRebornEnemy_0_1:: @ 080D04E8
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_0_1.s"
 
-gUnk_080D0501:: @ 080D0501
-	.incbin "vaatiRebornEnemy/gUnk_080D0501.bin"
+gSpriteAnimations_VaatiRebornEnemy_0_2:: @ 080D0501
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_0_2.s"
 
-gUnk_080D050D:: @ 080D050D
-	.incbin "vaatiRebornEnemy/gUnk_080D050D.bin"
+gSpriteAnimations_VaatiRebornEnemy_0_3:: @ 080D050D
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_0_3.s"
 
-gUnk_080D0531:: @ 080D0531
-	.incbin "vaatiRebornEnemy/gUnk_080D0531.bin"
+gSpriteAnimations_VaatiRebornEnemy_0_4:: @ 080D0531
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_0_4.s"
 
 gSpriteAnimations_VaatiRebornEnemy_0:: @ 080D0558
-	.4byte gUnk_080D04D7
-	.4byte gUnk_080D04E8
-	.4byte gUnk_080D0501
-	.4byte gUnk_080D050D
-	.4byte gUnk_080D0531
+	.4byte gSpriteAnimations_VaatiRebornEnemy_0_0
+	.4byte gSpriteAnimations_VaatiRebornEnemy_0_1
+	.4byte gSpriteAnimations_VaatiRebornEnemy_0_2
+	.4byte gSpriteAnimations_VaatiRebornEnemy_0_3
+	.4byte gSpriteAnimations_VaatiRebornEnemy_0_4
 	.4byte 00000000
 
-gUnk_080D0570:: @ 080D0570
-	.incbin "vaatiRebornEnemy/gUnk_080D0570.bin"
+gSpriteAnimations_VaatiRebornEnemy_1_0:: @ 080D0570
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_1_0.s"
 
-gUnk_080D0575:: @ 080D0575
-	.incbin "vaatiRebornEnemy/gUnk_080D0575.bin"
+gSpriteAnimations_VaatiRebornEnemy_1_1:: @ 080D0575
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_1_1.s"
 
-gUnk_080D0585:: @ 080D0585
-	.incbin "vaatiRebornEnemy/gUnk_080D0585.bin"
+gSpriteAnimations_VaatiRebornEnemy_1_2:: @ 080D0585
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_1_2.s"
 
 gSpriteAnimations_VaatiRebornEnemy_1:: @ 080D058C
-	.4byte gUnk_080D0570
-	.4byte gUnk_080D0575
-	.4byte gUnk_080D0585
+	.4byte gSpriteAnimations_VaatiRebornEnemy_1_0
+	.4byte gSpriteAnimations_VaatiRebornEnemy_1_1
+	.4byte gSpriteAnimations_VaatiRebornEnemy_1_2
 	.4byte 00000000
 
-gUnk_080D059C:: @ 080D059C
-	.incbin "vaatiRebornEnemy/gUnk_080D059C.bin"
+gSpriteAnimations_VaatiRebornEnemy_2_0:: @ 080D059C
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_2_0.s"
 
-gUnk_080D05AD:: @ 080D05AD
-	.incbin "vaatiRebornEnemy/gUnk_080D05AD.bin"
+gSpriteAnimations_VaatiRebornEnemy_2_2:: @ 080D05AD
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_2_2.s"
 
-gUnk_080D05BE:: @ 080D05BE
-	.incbin "vaatiRebornEnemy/gUnk_080D05BE.bin"
+gSpriteAnimations_VaatiRebornEnemy_2_1:: @ 080D05BE
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_2_1.s"
 
-gUnk_080D05CF:: @ 080D05CF
-	.incbin "vaatiRebornEnemy/gUnk_080D05CF.bin"
+gSpriteAnimations_VaatiRebornEnemy_2_3:: @ 080D05CF
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_2_3.s"
 
 gSpriteAnimations_VaatiRebornEnemy_2:: @ 080D05E0
-	.4byte gUnk_080D059C
-	.4byte gUnk_080D05BE
-	.4byte gUnk_080D05AD
-	.4byte gUnk_080D05CF
+	.4byte gSpriteAnimations_VaatiRebornEnemy_2_0
+	.4byte gSpriteAnimations_VaatiRebornEnemy_2_1
+	.4byte gSpriteAnimations_VaatiRebornEnemy_2_2
+	.4byte gSpriteAnimations_VaatiRebornEnemy_2_3
 	.4byte 00000000
 
-gUnk_080D05F4:: @ 080D05F4
-	.incbin "vaatiRebornEnemy/gUnk_080D05F4.bin"
+gSpriteAnimations_VaatiRebornEnemy_3_0:: @ 080D05F4
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_3_0.s"
 
-gUnk_080D0609:: @ 080D0609
-	.incbin "vaatiRebornEnemy/gUnk_080D0609.bin"
+gSpriteAnimations_VaatiRebornEnemy_3_1:: @ 080D0609
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_3_1.s"
 
-gUnk_080D061E:: @ 080D061E
-	.incbin "vaatiRebornEnemy/gUnk_080D061E.bin"
+gSpriteAnimations_VaatiRebornEnemy_3_3:: @ 080D061E
+	.include "animations/gSpriteAnimations_VaatiRebornEnemy_3_3.s"
 
 gSpriteAnimations_VaatiRebornEnemy_3:: @ 080D0634
-	.4byte gUnk_080D05F4
-	.4byte gUnk_080D0609
-	.4byte gUnk_080D05F4
-	.4byte gUnk_080D061E
+	.4byte gSpriteAnimations_VaatiRebornEnemy_3_0
+	.4byte gSpriteAnimations_VaatiRebornEnemy_3_1
+	.4byte gSpriteAnimations_VaatiRebornEnemy_3_0
+	.4byte gSpriteAnimations_VaatiRebornEnemy_3_3
 	.4byte 00000000

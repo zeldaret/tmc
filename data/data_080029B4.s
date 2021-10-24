@@ -170,7 +170,7 @@ gSpritePtrs:: @ 080029B4
 	.4byte gSprite_081DF834
 	.4byte 00000000
 
-	.4byte gSpriteAnimations_Object6A
+	.4byte gSpriteAnimations_Object6A_9
 	.4byte gSpriteFrames_33
 	.4byte gSprite_081DF834
 	.4byte 00000000

@@ -4,49 +4,49 @@
 	.section .rodata
     .align 2
 
-gUnk_080D16DC:: @ 080D16DC
-	.incbin "slime/gUnk_080D16DC.bin"
+gSpriteAnimations_Slime_0:: @ 080D16DC
+	.include "animations/gSpriteAnimations_Slime_0.s"
 
-gUnk_080D16E5:: @ 080D16E5
-	.incbin "slime/gUnk_080D16E5.bin"
+gSpriteAnimations_Slime_1:: @ 080D16E5
+	.include "animations/gSpriteAnimations_Slime_1.s"
 
-gUnk_080D16F5:: @ 080D16F5
-	.incbin "slime/gUnk_080D16F5.bin"
+gSpriteAnimations_Slime_2:: @ 080D16F5
+	.include "animations/gSpriteAnimations_Slime_2.s"
 
-gUnk_080D170D:: @ 080D170D
-	.incbin "slime/gUnk_080D170D.bin"
+gSpriteAnimations_Slime_3:: @ 080D170D
+	.include "animations/gSpriteAnimations_Slime_3.s"
 
-gUnk_080D171D:: @ 080D171D
-	.incbin "slime/gUnk_080D171D.bin"
+gSpriteAnimations_Slime_4:: @ 080D171D
+	.include "animations/gSpriteAnimations_Slime_4.s"
 
-gUnk_080D1741:: @ 080D1741
-	.incbin "slime/gUnk_080D1741.bin"
+gSpriteAnimations_Slime_5:: @ 080D1741
+	.include "animations/gSpriteAnimations_Slime_5.s"
 
-gUnk_080D1761:: @ 080D1761
-	.incbin "slime/gUnk_080D1761.bin"
+gSpriteAnimations_Slime_6:: @ 080D1761
+	.include "animations/gSpriteAnimations_Slime_6.s"
 
-gUnk_080D176A:: @ 080D176A
-	.incbin "slime/gUnk_080D176A.bin"
+gSpriteAnimations_Slime_7:: @ 080D176A
+	.include "animations/gSpriteAnimations_Slime_7.s"
 
-gUnk_080D1773:: @ 080D1773
-	.incbin "slime/gUnk_080D1773.bin"
+gSpriteAnimations_Slime_8:: @ 080D1773
+	.include "animations/gSpriteAnimations_Slime_8.s"
 
-gUnk_080D1778:: @ 080D1778
-	.incbin "slime/gUnk_080D1778.bin"
+gSpriteAnimations_Slime_9:: @ 080D1778
+	.include "animations/gSpriteAnimations_Slime_9.s"
 
-gUnk_080D177D:: @ 080D177D
-	.incbin "slime/gUnk_080D177D.bin"
+gSpriteAnimations_Slime_10:: @ 080D177D
+	.include "animations/gSpriteAnimations_Slime_10.s"
 
 gSpriteAnimations_Slime:: @ 080D1790
-	.4byte gUnk_080D16DC
-	.4byte gUnk_080D16E5
-	.4byte gUnk_080D16F5
-	.4byte gUnk_080D170D
-	.4byte gUnk_080D171D
-	.4byte gUnk_080D1741
-	.4byte gUnk_080D1761
-	.4byte gUnk_080D176A
-	.4byte gUnk_080D1773
-	.4byte gUnk_080D1778
-	.4byte gUnk_080D177D
+	.4byte gSpriteAnimations_Slime_0
+	.4byte gSpriteAnimations_Slime_1
+	.4byte gSpriteAnimations_Slime_2
+	.4byte gSpriteAnimations_Slime_3
+	.4byte gSpriteAnimations_Slime_4
+	.4byte gSpriteAnimations_Slime_5
+	.4byte gSpriteAnimations_Slime_6
+	.4byte gSpriteAnimations_Slime_7
+	.4byte gSpriteAnimations_Slime_8
+	.4byte gSpriteAnimations_Slime_9
+	.4byte gSpriteAnimations_Slime_10
 	.4byte 00000000

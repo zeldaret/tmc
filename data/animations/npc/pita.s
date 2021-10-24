@@ -4,19 +4,19 @@
 	.section .rodata
  @   .align 2
 
-gUnk_0810C445:: @ 0810C445
-	.incbin "pita/gUnk_0810C445.bin"
+gSpriteAnimations_Pita_0:: @ 0810C445
+	.include "animations/gSpriteAnimations_Pita_0.s"
 
-gUnk_0810C44A:: @ 0810C44A
-	.incbin "pita/gUnk_0810C44A.bin"
+gSpriteAnimations_Pita_4:: @ 0810C44A
+	.include "animations/gSpriteAnimations_Pita_4.s"
 
 gSpriteAnimations_Pita:: @ 0810C468
-	.4byte gUnk_0810C445
-	.4byte gUnk_0810C445
-	.4byte gUnk_0810C445
-	.4byte gUnk_0810C445
-	.4byte gUnk_0810C44A
-	.4byte gUnk_0810C44A
-	.4byte gUnk_0810C44A
-	.4byte gUnk_0810C44A
+	.4byte gSpriteAnimations_Pita_0
+	.4byte gSpriteAnimations_Pita_0
+	.4byte gSpriteAnimations_Pita_0
+	.4byte gSpriteAnimations_Pita_0
+	.4byte gSpriteAnimations_Pita_4
+	.4byte gSpriteAnimations_Pita_4
+	.4byte gSpriteAnimations_Pita_4
+	.4byte gSpriteAnimations_Pita_4
 	.4byte 00000000

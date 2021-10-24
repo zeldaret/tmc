@@ -7,45 +7,45 @@
 gUnk_080CA2B4:: @ 080CA2B4
 	.incbin "chuchu/gUnk_080CA2B4.bin"
 
-gUnk_080CA2BE:: @ 080CA2BE
-	.incbin "chuchu/gUnk_080CA2BE.bin"
+gSpriteAnimations_Chuchu_0:: @ 080CA2BE
+	.include "animations/gSpriteAnimations_Chuchu_0.s"
 
-gUnk_080CA2EA:: @ 080CA2EA
-	.incbin "chuchu/gUnk_080CA2EA.bin"
+gSpriteAnimations_Chuchu_1:: @ 080CA2EA
+	.include "animations/gSpriteAnimations_Chuchu_1.s"
 
-gUnk_080CA2FB:: @ 080CA2FB
-	.incbin "chuchu/gUnk_080CA2FB.bin"
+gSpriteAnimations_Chuchu_2:: @ 080CA2FB
+	.include "animations/gSpriteAnimations_Chuchu_2.s"
 
-gUnk_080CA33C:: @ 080CA33C
-	.incbin "chuchu/gUnk_080CA33C.bin"
+gSpriteAnimations_Chuchu_3:: @ 080CA33C
+	.include "animations/gSpriteAnimations_Chuchu_3.s"
 
-gUnk_080CA358:: @ 080CA358
-	.incbin "chuchu/gUnk_080CA358.bin"
+gSpriteAnimations_Chuchu_4:: @ 080CA358
+	.include "animations/gSpriteAnimations_Chuchu_4.s"
 
-gUnk_080CA364:: @ 080CA364
-	.incbin "chuchu/gUnk_080CA364.bin"
+gSpriteAnimations_Chuchu_5:: @ 080CA364
+	.include "animations/gSpriteAnimations_Chuchu_5.s"
 
-gUnk_080CA370:: @ 080CA370
-	.incbin "chuchu/gUnk_080CA370.bin"
+gSpriteAnimations_Chuchu_6:: @ 080CA370
+	.include "animations/gSpriteAnimations_Chuchu_6.s"
 
-gUnk_080CA3B1:: @ 080CA3B1
-	.incbin "chuchu/gUnk_080CA3B1.bin"
+gSpriteAnimations_Chuchu_7:: @ 080CA3B1
+	.include "animations/gSpriteAnimations_Chuchu_7.s"
 
-gUnk_080CA3C5:: @ 080CA3C5
-	.incbin "chuchu/gUnk_080CA3C5.bin"
+gSpriteAnimations_Chuchu_8:: @ 080CA3C5
+	.include "animations/gSpriteAnimations_Chuchu_8.s"
 
-gUnk_080CA42E:: @ 080CA42E
-	.incbin "chuchu/gUnk_080CA42E.bin"
+gSpriteAnimations_Chuchu_9:: @ 080CA42E
+	.include "animations/gSpriteAnimations_Chuchu_9.s"
 
 gSpriteAnimations_Chuchu:: @ 080CA470
-	.4byte gUnk_080CA2BE
-	.4byte gUnk_080CA2EA
-	.4byte gUnk_080CA2FB
-	.4byte gUnk_080CA33C
-	.4byte gUnk_080CA358
-	.4byte gUnk_080CA364
-	.4byte gUnk_080CA370
-	.4byte gUnk_080CA3B1
-	.4byte gUnk_080CA3C5
-	.4byte gUnk_080CA42E
+	.4byte gSpriteAnimations_Chuchu_0
+	.4byte gSpriteAnimations_Chuchu_1
+	.4byte gSpriteAnimations_Chuchu_2
+	.4byte gSpriteAnimations_Chuchu_3
+	.4byte gSpriteAnimations_Chuchu_4
+	.4byte gSpriteAnimations_Chuchu_5
+	.4byte gSpriteAnimations_Chuchu_6
+	.4byte gSpriteAnimations_Chuchu_7
+	.4byte gSpriteAnimations_Chuchu_8
+	.4byte gSpriteAnimations_Chuchu_9
 	.4byte 00000000

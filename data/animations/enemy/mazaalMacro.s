@@ -4,17 +4,17 @@
 	.section .rodata
     .align 2
 
-gUnk_080CEF08:: @ 080CEF08
-	.incbin "mazaalMacro/gUnk_080CEF08.bin"
+gSpriteAnimations_MazaalMacro_1:: @ 080CEF08
+	.include "animations/gSpriteAnimations_MazaalMacro_1.s"
 
-gUnk_080CEF0C:: @ 080CEF0C
-	.incbin "mazaalMacro/gUnk_080CEF0C.bin"
+gSpriteAnimations_MazaalMacro_0:: @ 080CEF0C
+	.include "animations/gSpriteAnimations_MazaalMacro_0.s"
 
-gUnk_080CEF1D:: @ 080CEF1D
-	.incbin "mazaalMacro/gUnk_080CEF1D.bin"
+gSpriteAnimations_MazaalMacro_2:: @ 080CEF1D
+	.include "animations/gSpriteAnimations_MazaalMacro_2.s"
 
 gSpriteAnimations_MazaalMacro:: @ 080CEF24
-	.4byte gUnk_080CEF0C
-	.4byte gUnk_080CEF08
-	.4byte gUnk_080CEF1D
+	.4byte gSpriteAnimations_MazaalMacro_0
+	.4byte gSpriteAnimations_MazaalMacro_1
+	.4byte gSpriteAnimations_MazaalMacro_2
 	.4byte 00000000

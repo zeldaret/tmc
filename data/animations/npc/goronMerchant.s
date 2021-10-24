@@ -4,28 +4,28 @@
 	.section .rodata
 @    .align 2
 
-gUnk_08111BBE:: @ 08111BBE
-	.incbin "goronMerchant/gUnk_08111BBE.bin"
+gSpriteAnimations_GoronMerchant_1:: @ 08111BBE
+	.include "animations/gSpriteAnimations_GoronMerchant_1.s"
 
-gUnk_08111BC3:: @ 08111BC3
-	.incbin "goronMerchant/gUnk_08111BC3.bin"
+gSpriteAnimations_GoronMerchant_0:: @ 08111BC3
+	.include "animations/gSpriteAnimations_GoronMerchant_0.s"
 
-gUnk_08111BC8:: @ 08111BC8
-	.incbin "goronMerchant/gUnk_08111BC8.bin"
+gSpriteAnimations_GoronMerchant_3:: @ 08111BC8
+	.include "animations/gSpriteAnimations_GoronMerchant_3.s"
 
-gUnk_08111BCD:: @ 08111BCD
-	.incbin "goronMerchant/gUnk_08111BCD.bin"
+gSpriteAnimations_GoronMerchant_5:: @ 08111BCD
+	.include "animations/gSpriteAnimations_GoronMerchant_5.s"
 
-gUnk_08111BF2:: @ 08111BF2
-	.incbin "goronMerchant/gUnk_08111BF2.bin"
+gSpriteAnimations_GoronMerchant_7:: @ 08111BF2
+	.include "animations/gSpriteAnimations_GoronMerchant_7.s"
 
 gSpriteAnimations_GoronMerchant:: @ 08111C18
-	.4byte gUnk_08111BC3
-	.4byte gUnk_08111BBE
-	.4byte gUnk_08111BC3
-	.4byte gUnk_08111BC8
-	.4byte gUnk_08111BC3
-	.4byte gUnk_08111BCD
-	.4byte gUnk_08111BC3
-	.4byte gUnk_08111BF2
+	.4byte gSpriteAnimations_GoronMerchant_0
+	.4byte gSpriteAnimations_GoronMerchant_1
+	.4byte gSpriteAnimations_GoronMerchant_0
+	.4byte gSpriteAnimations_GoronMerchant_3
+	.4byte gSpriteAnimations_GoronMerchant_0
+	.4byte gSpriteAnimations_GoronMerchant_5
+	.4byte gSpriteAnimations_GoronMerchant_0
+	.4byte gSpriteAnimations_GoronMerchant_7
 	.4byte 00000000

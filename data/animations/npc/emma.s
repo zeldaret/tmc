@@ -4,15 +4,15 @@
 	.section .rodata
     .align 2
 
-gUnk_081138DC:: @ 081138DC
-	.incbin "emma/gUnk_081138DC.bin"
+gSpriteAnimations_Emma_0:: @ 081138DC
+	.include "animations/gSpriteAnimations_Emma_0.s"
 
-gUnk_081138E1:: @ 081138E1
-	.incbin "emma/gUnk_081138E1.bin"
+gSpriteAnimations_Emma_2:: @ 081138E1
+	.include "animations/gSpriteAnimations_Emma_2.s"
 
 gSpriteAnimations_Emma:: @ 081138FC
-	.4byte gUnk_081138DC
-	.4byte gUnk_081138DC
-	.4byte gUnk_081138E1
-	.4byte gUnk_081138DC
+	.4byte gSpriteAnimations_Emma_0
+	.4byte gSpriteAnimations_Emma_0
+	.4byte gSpriteAnimations_Emma_2
+	.4byte gSpriteAnimations_Emma_0
 	.4byte 00000000

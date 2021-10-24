@@ -4,22 +4,22 @@
 	.section .rodata
     .align 2
 
-gUnk_081106E8:: @ 081106E8
-	.incbin "npc26/gUnk_081106E8.bin"
+gSpriteAnimations_Npc26_0:: @ 081106E8
+	.include "animations/gSpriteAnimations_Npc26_0.s"
 
-gUnk_081106ED:: @ 081106ED
-	.incbin "npc26/gUnk_081106ED.bin"
+gSpriteAnimations_Npc26_4:: @ 081106ED
+	.include "animations/gSpriteAnimations_Npc26_4.s"
 
-gUnk_081106FE:: @ 081106FE
-	.incbin "npc26/gUnk_081106FE.bin"
+gSpriteAnimations_Npc26_6:: @ 081106FE
+	.include "animations/gSpriteAnimations_Npc26_6.s"
 
 gSpriteAnimations_Npc26:: @ 08110710
-	.4byte gUnk_081106E8
-	.4byte gUnk_081106E8
-	.4byte gUnk_081106E8
-	.4byte gUnk_081106E8
-	.4byte gUnk_081106ED
-	.4byte gUnk_081106ED
-	.4byte gUnk_081106FE
-	.4byte gUnk_081106FE
+	.4byte gSpriteAnimations_Npc26_0
+	.4byte gSpriteAnimations_Npc26_0
+	.4byte gSpriteAnimations_Npc26_0
+	.4byte gSpriteAnimations_Npc26_0
+	.4byte gSpriteAnimations_Npc26_4
+	.4byte gSpriteAnimations_Npc26_4
+	.4byte gSpriteAnimations_Npc26_6
+	.4byte gSpriteAnimations_Npc26_6
 	.4byte 00000000

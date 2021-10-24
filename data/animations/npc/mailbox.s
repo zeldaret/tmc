@@ -4,22 +4,22 @@
 	.section .rodata
     .align 2
 
-gUnk_0810C814:: @ 0810C814
-	.incbin "mailbox/gUnk_0810C814.bin"
+gSpriteAnimations_Mailbox_0:: @ 0810C814
+	.include "animations/gSpriteAnimations_Mailbox_0.s"
 
-gUnk_0810C819:: @ 0810C819
-	.incbin "mailbox/gUnk_0810C819.bin"
+gSpriteAnimations_Mailbox_4:: @ 0810C819
+	.include "animations/gSpriteAnimations_Mailbox_4.s"
 
-gUnk_0810C84A:: @ 0810C84A
-	.incbin "mailbox/gUnk_0810C84A.bin"
+gSpriteAnimations_Mailbox_8:: @ 0810C84A
+	.include "animations/gSpriteAnimations_Mailbox_8.s"
 
 gSpriteAnimations_Mailbox:: @ 0810C868
-	.4byte gUnk_0810C814
-	.4byte gUnk_0810C814
-	.4byte gUnk_0810C814
-	.4byte gUnk_0810C814
-	.4byte gUnk_0810C819
-	.4byte gUnk_0810C819
-	.4byte gUnk_0810C819
-	.4byte gUnk_0810C819
-	.4byte gUnk_0810C84A
+	.4byte gSpriteAnimations_Mailbox_0
+	.4byte gSpriteAnimations_Mailbox_0
+	.4byte gSpriteAnimations_Mailbox_0
+	.4byte gSpriteAnimations_Mailbox_0
+	.4byte gSpriteAnimations_Mailbox_4
+	.4byte gSpriteAnimations_Mailbox_4
+	.4byte gSpriteAnimations_Mailbox_4
+	.4byte gSpriteAnimations_Mailbox_4
+	.4byte gSpriteAnimations_Mailbox_8

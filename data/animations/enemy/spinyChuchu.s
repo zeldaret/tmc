@@ -3,33 +3,33 @@
 
 	.section .rodata
 
-gUnk_080CBA64:: @ 080CBA64
-	.incbin "spinyChuchu/gUnk_080CBA64.bin"
+gSpriteAnimations_SpinyChuchu_0:: @ 080CBA64
+	.include "animations/gSpriteAnimations_SpinyChuchu_0.s"
 
-gUnk_080CBAA5:: @ 080CBAA5
-	.incbin "spinyChuchu/gUnk_080CBAA5.bin"
+gSpriteAnimations_SpinyChuchu_1:: @ 080CBAA5
+	.include "animations/gSpriteAnimations_SpinyChuchu_1.s"
 
-gUnk_080CBAE5:: @ 080CBAE5
-	.incbin "spinyChuchu/gUnk_080CBAE5.bin"
+gSpriteAnimations_SpinyChuchu_2:: @ 080CBAE5
+	.include "animations/gSpriteAnimations_SpinyChuchu_2.s"
 
-gUnk_080CBAFD:: @ 080CBAFD
-	.incbin "spinyChuchu/gUnk_080CBAFD.bin"
+gSpriteAnimations_SpinyChuchu_3:: @ 080CBAFD
+	.include "animations/gSpriteAnimations_SpinyChuchu_3.s"
 
-gUnk_080CBB21:: @ 080CBB21
-	.incbin "spinyChuchu/gUnk_080CBB21.bin"
+gSpriteAnimations_SpinyChuchu_4:: @ 080CBB21
+	.include "animations/gSpriteAnimations_SpinyChuchu_4.s"
 
-gUnk_080CBB32:: @ 080CBB32
-	.incbin "spinyChuchu/gUnk_080CBB32.bin"
+gSpriteAnimations_SpinyChuchu_5:: @ 080CBB32
+	.include "animations/gSpriteAnimations_SpinyChuchu_5.s"
 
-gUnk_080CBB3F:: @ 080CBB3F
-	.incbin "spinyChuchu/gUnk_080CBB3F.bin"
+gSpriteAnimations_SpinyChuchu_6:: @ 080CBB3F
+	.include "animations/gSpriteAnimations_SpinyChuchu_6.s"
 
 gSpriteAnimations_SpinyChuchu:: @ 080CBB44
-	.4byte gUnk_080CBA64
-	.4byte gUnk_080CBAA5
-	.4byte gUnk_080CBAE5
-	.4byte gUnk_080CBAFD
-	.4byte gUnk_080CBB21
-	.4byte gUnk_080CBB32
-	.4byte gUnk_080CBB3F
+	.4byte gSpriteAnimations_SpinyChuchu_0
+	.4byte gSpriteAnimations_SpinyChuchu_1
+	.4byte gSpriteAnimations_SpinyChuchu_2
+	.4byte gSpriteAnimations_SpinyChuchu_3
+	.4byte gSpriteAnimations_SpinyChuchu_4
+	.4byte gSpriteAnimations_SpinyChuchu_5
+	.4byte gSpriteAnimations_SpinyChuchu_6
 	.4byte 00000000

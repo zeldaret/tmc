@@ -4,28 +4,28 @@
 	.section .rodata
     .align 2
 
-gUnk_081137B0:: @ 081137B0
-	.incbin "mama/gUnk_081137B0.bin"
+gSpriteAnimations_Mama_4:: @ 081137B0
+	.include "animations/gSpriteAnimations_Mama_4.s"
 
-gUnk_081137E9:: @ 081137E9
-	.incbin "mama/gUnk_081137E9.bin"
+gSpriteAnimations_Mama_0:: @ 081137E9
+	.include "animations/gSpriteAnimations_Mama_0.s"
 
-gUnk_08113892:: @ 08113892
-	.incbin "mama/gUnk_08113892.bin"
+gSpriteAnimations_Mama_1:: @ 08113892
+	.include "animations/gSpriteAnimations_Mama_1.s"
 
-gUnk_08113897:: @ 08113897
-	.incbin "mama/gUnk_08113897.bin"
+gSpriteAnimations_Mama_2:: @ 08113897
+	.include "animations/gSpriteAnimations_Mama_2.s"
 
-gUnk_081138B0:: @ 081138B0
-	.incbin "mama/gUnk_081138B0.bin"
+gSpriteAnimations_Mama_3:: @ 081138B0
+	.include "animations/gSpriteAnimations_Mama_3.s"
 
 gSpriteAnimations_Mama:: @ 081138B8
-	.4byte gUnk_081137E9
-	.4byte gUnk_08113892
-	.4byte gUnk_08113897
-	.4byte gUnk_081138B0
-	.4byte gUnk_081137B0
-	.4byte gUnk_081137B0
-	.4byte gUnk_081137B0
-	.4byte gUnk_081137B0
+	.4byte gSpriteAnimations_Mama_0
+	.4byte gSpriteAnimations_Mama_1
+	.4byte gSpriteAnimations_Mama_2
+	.4byte gSpriteAnimations_Mama_3
+	.4byte gSpriteAnimations_Mama_4
+	.4byte gSpriteAnimations_Mama_4
+	.4byte gSpriteAnimations_Mama_4
+	.4byte gSpriteAnimations_Mama_4
 	.4byte 00000000

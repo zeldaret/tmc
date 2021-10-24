@@ -3,9 +3,9 @@
 
 	.section .rodata
 
-gUnk_080CD258:: @ 080CD258
-	.incbin "spark/gUnk_080CD258.bin"
+gSpriteAnimations_Spark_0:: @ 080CD258
+	.include "animations/gSpriteAnimations_Spark_0.s"
 
 gSpriteAnimations_Spark:: @ 080CD274
-	.4byte gUnk_080CD258
+	.4byte gSpriteAnimations_Spark_0
 	.4byte 00000000

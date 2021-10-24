@@ -4,85 +4,85 @@
 	.section .rodata
     .align 2
 
-gUnk_08110D08:: @ 08110D08
-	.incbin "carpenter/gUnk_08110D08.bin"
+gSpriteAnimations_Carpenter_0:: @ 08110D08
+	.include "animations/gSpriteAnimations_Carpenter_0.s"
 
-gUnk_08110D2D:: @ 08110D2D
-	.incbin "carpenter/gUnk_08110D2D.bin"
+gSpriteAnimations_Carpenter_5:: @ 08110D2D
+	.include "animations/gSpriteAnimations_Carpenter_5.s"
 
-gUnk_08110D32:: @ 08110D32
-	.incbin "carpenter/gUnk_08110D32.bin"
+gSpriteAnimations_Carpenter_7:: @ 08110D32
+	.include "animations/gSpriteAnimations_Carpenter_7.s"
 
-gUnk_08110D37:: @ 08110D37
-	.incbin "carpenter/gUnk_08110D37.bin"
+gSpriteAnimations_Carpenter_4:: @ 08110D37
+	.include "animations/gSpriteAnimations_Carpenter_4.s"
 
-gUnk_08110D3C:: @ 08110D3C
-	.incbin "carpenter/gUnk_08110D3C.bin"
+gSpriteAnimations_Carpenter_8:: @ 08110D3C
+	.include "animations/gSpriteAnimations_Carpenter_8.s"
 
-gUnk_08110D61:: @ 08110D61
-	.incbin "carpenter/gUnk_08110D61.bin"
+gSpriteAnimations_Carpenter_13:: @ 08110D61
+	.include "animations/gSpriteAnimations_Carpenter_13.s"
 
-gUnk_08110D66:: @ 08110D66
-	.incbin "carpenter/gUnk_08110D66.bin"
+gSpriteAnimations_Carpenter_15:: @ 08110D66
+	.include "animations/gSpriteAnimations_Carpenter_15.s"
 
-gUnk_08110D6B:: @ 08110D6B
-	.incbin "carpenter/gUnk_08110D6B.bin"
+gSpriteAnimations_Carpenter_12:: @ 08110D6B
+	.include "animations/gSpriteAnimations_Carpenter_12.s"
 
-gUnk_08110D70:: @ 08110D70
-	.incbin "carpenter/gUnk_08110D70.bin"
+gSpriteAnimations_Carpenter_16:: @ 08110D70
+	.include "animations/gSpriteAnimations_Carpenter_16.s"
 
-gUnk_08110D8D:: @ 08110D8D
-	.incbin "carpenter/gUnk_08110D8D.bin"
+gSpriteAnimations_Carpenter_20:: @ 08110D8D
+	.include "animations/gSpriteAnimations_Carpenter_20.s"
 
-gUnk_08110D92:: @ 08110D92
-	.incbin "carpenter/gUnk_08110D92.bin"
+gSpriteAnimations_Carpenter_23:: @ 08110D92
+	.include "animations/gSpriteAnimations_Carpenter_23.s"
 
-gUnk_08110D97:: @ 08110D97
-	.incbin "carpenter/gUnk_08110D97.bin"
+gSpriteAnimations_Carpenter_21:: @ 08110D97
+	.include "animations/gSpriteAnimations_Carpenter_21.s"
 
-gUnk_08110D9C:: @ 08110D9C
-	.incbin "carpenter/gUnk_08110D9C.bin"
+gSpriteAnimations_Carpenter_24:: @ 08110D9C
+	.include "animations/gSpriteAnimations_Carpenter_24.s"
 
-gUnk_08110DB9:: @ 08110DB9
-	.incbin "carpenter/gUnk_08110DB9.bin"
+gSpriteAnimations_Carpenter_28:: @ 08110DB9
+	.include "animations/gSpriteAnimations_Carpenter_28.s"
 
-gUnk_08110DBE:: @ 08110DBE
-	.incbin "carpenter/gUnk_08110DBE.bin"
+gSpriteAnimations_Carpenter_31:: @ 08110DBE
+	.include "animations/gSpriteAnimations_Carpenter_31.s"
 
-gUnk_08110DC3:: @ 08110DC3
-	.incbin "carpenter/gUnk_08110DC3.bin"
+gSpriteAnimations_Carpenter_29:: @ 08110DC3
+	.include "animations/gSpriteAnimations_Carpenter_29.s"
 
 gSpriteAnimations_Carpenter:: @ 08110DC8
-	.4byte gUnk_08110D08
-	.4byte gUnk_08110D08
-	.4byte gUnk_08110D08
-	.4byte gUnk_08110D08
-	.4byte gUnk_08110D37
-	.4byte gUnk_08110D2D
-	.4byte gUnk_08110D2D
-	.4byte gUnk_08110D32
-	.4byte gUnk_08110D3C
-	.4byte gUnk_08110D3C
-	.4byte gUnk_08110D3C
-	.4byte gUnk_08110D3C
-	.4byte gUnk_08110D6B
-	.4byte gUnk_08110D61
-	.4byte gUnk_08110D61
-	.4byte gUnk_08110D66
-	.4byte gUnk_08110D70
-	.4byte gUnk_08110D70
-	.4byte gUnk_08110D70
-	.4byte gUnk_08110D70
-	.4byte gUnk_08110D8D
-	.4byte gUnk_08110D97
-	.4byte gUnk_08110D8D
-	.4byte gUnk_08110D92
-	.4byte gUnk_08110D9C
-	.4byte gUnk_08110D9C
-	.4byte gUnk_08110D9C
-	.4byte gUnk_08110D9C
-	.4byte gUnk_08110DB9
-	.4byte gUnk_08110DC3
-	.4byte gUnk_08110DB9
-	.4byte gUnk_08110DBE
+	.4byte gSpriteAnimations_Carpenter_0
+	.4byte gSpriteAnimations_Carpenter_0
+	.4byte gSpriteAnimations_Carpenter_0
+	.4byte gSpriteAnimations_Carpenter_0
+	.4byte gSpriteAnimations_Carpenter_4
+	.4byte gSpriteAnimations_Carpenter_5
+	.4byte gSpriteAnimations_Carpenter_5
+	.4byte gSpriteAnimations_Carpenter_7
+	.4byte gSpriteAnimations_Carpenter_8
+	.4byte gSpriteAnimations_Carpenter_8
+	.4byte gSpriteAnimations_Carpenter_8
+	.4byte gSpriteAnimations_Carpenter_8
+	.4byte gSpriteAnimations_Carpenter_12
+	.4byte gSpriteAnimations_Carpenter_13
+	.4byte gSpriteAnimations_Carpenter_13
+	.4byte gSpriteAnimations_Carpenter_15
+	.4byte gSpriteAnimations_Carpenter_16
+	.4byte gSpriteAnimations_Carpenter_16
+	.4byte gSpriteAnimations_Carpenter_16
+	.4byte gSpriteAnimations_Carpenter_16
+	.4byte gSpriteAnimations_Carpenter_20
+	.4byte gSpriteAnimations_Carpenter_21
+	.4byte gSpriteAnimations_Carpenter_20
+	.4byte gSpriteAnimations_Carpenter_23
+	.4byte gSpriteAnimations_Carpenter_24
+	.4byte gSpriteAnimations_Carpenter_24
+	.4byte gSpriteAnimations_Carpenter_24
+	.4byte gSpriteAnimations_Carpenter_24
+	.4byte gSpriteAnimations_Carpenter_28
+	.4byte gSpriteAnimations_Carpenter_29
+	.4byte gSpriteAnimations_Carpenter_28
+	.4byte gSpriteAnimations_Carpenter_31
 	.4byte 00000000

@@ -4,38 +4,38 @@
 	.section .rodata
     .align 2
 
-gUnk_08111AC4:: @ 08111AC4
-	.incbin "goron/gUnk_08111AC4.bin"
+gSpriteAnimations_Goron_0:: @ 08111AC4
+	.include "animations/gSpriteAnimations_Goron_0.s"
 
-gUnk_08111AC9:: @ 08111AC9
-	.incbin "goron/gUnk_08111AC9.bin"
+gSpriteAnimations_Goron_1:: @ 08111AC9
+	.include "animations/gSpriteAnimations_Goron_1.s"
 
-gUnk_08111ACE:: @ 08111ACE
-	.incbin "goron/gUnk_08111ACE.bin"
+gSpriteAnimations_Goron_2:: @ 08111ACE
+	.include "animations/gSpriteAnimations_Goron_2.s"
 
-gUnk_08111AD3:: @ 08111AD3
-	.incbin "goron/gUnk_08111AD3.bin"
+gSpriteAnimations_Goron_3:: @ 08111AD3
+	.include "animations/gSpriteAnimations_Goron_3.s"
 
-gUnk_08111AD8:: @ 08111AD8
-	.incbin "goron/gUnk_08111AD8.bin"
+gSpriteAnimations_Goron_5:: @ 08111AD8
+	.include "animations/gSpriteAnimations_Goron_5.s"
 
-gUnk_08111AF9:: @ 08111AF9
-	.incbin "goron/gUnk_08111AF9.bin"
+gSpriteAnimations_Goron_7:: @ 08111AF9
+	.include "animations/gSpriteAnimations_Goron_7.s"
 
-gUnk_08111B1A:: @ 08111B1A
-	.incbin "goron/gUnk_08111B1A.bin"
+gSpriteAnimations_Goron_4:: @ 08111B1A
+	.include "animations/gSpriteAnimations_Goron_4.s"
 
-gUnk_08111B3B:: @ 08111B3B
-	.incbin "goron/gUnk_08111B3B.bin"
+gSpriteAnimations_Goron_8:: @ 08111B3B
+	.include "animations/gSpriteAnimations_Goron_8.s"
 
 gSpriteAnimations_Goron:: @ 08111B60
-	.4byte gUnk_08111AC4
-	.4byte gUnk_08111AC9
-	.4byte gUnk_08111ACE
-	.4byte gUnk_08111AD3
-	.4byte gUnk_08111B1A
-	.4byte gUnk_08111AD8
-	.4byte gUnk_08111ACE
-	.4byte gUnk_08111AF9
-	.4byte gUnk_08111B3B
+	.4byte gSpriteAnimations_Goron_0
+	.4byte gSpriteAnimations_Goron_1
+	.4byte gSpriteAnimations_Goron_2
+	.4byte gSpriteAnimations_Goron_3
+	.4byte gSpriteAnimations_Goron_4
+	.4byte gSpriteAnimations_Goron_5
+	.4byte gSpriteAnimations_Goron_2
+	.4byte gSpriteAnimations_Goron_7
+	.4byte gSpriteAnimations_Goron_8
 	.4byte 00000000

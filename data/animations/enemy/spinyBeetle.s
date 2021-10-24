@@ -4,25 +4,25 @@
 	.section .rodata
     .align 2
 
-gUnk_080CEC24:: @ 080CEC24
-	.incbin "spinyBeetle/gUnk_080CEC24.bin"
+gSpriteAnimations_SpinyBeetle_0:: @ 080CEC24
+	.include "animations/gSpriteAnimations_SpinyBeetle_0.s"
 
-gUnk_080CEC29:: @ 080CEC29
-	.incbin "spinyBeetle/gUnk_080CEC29.bin"
+gSpriteAnimations_SpinyBeetle_1:: @ 080CEC29
+	.include "animations/gSpriteAnimations_SpinyBeetle_1.s"
 
-gUnk_080CEC42:: @ 080CEC42
-	.incbin "spinyBeetle/gUnk_080CEC42.bin"
+gSpriteAnimations_SpinyBeetle_2:: @ 080CEC42
+	.include "animations/gSpriteAnimations_SpinyBeetle_2.s"
 
-gUnk_080CEC4B:: @ 080CEC4B
-	.incbin "spinyBeetle/gUnk_080CEC4B.bin"
+gSpriteAnimations_SpinyBeetle_3:: @ 080CEC4B
+	.include "animations/gSpriteAnimations_SpinyBeetle_3.s"
 
-gUnk_080CEC5C:: @ 080CEC5C
-	.incbin "spinyBeetle/gUnk_080CEC5C.bin"
+gSpriteAnimations_SpinyBeetle_4:: @ 080CEC5C
+	.include "animations/gSpriteAnimations_SpinyBeetle_4.s"
 
 gSpriteAnimations_SpinyBeetle:: @ 080CEC70
-	.4byte gUnk_080CEC24
-	.4byte gUnk_080CEC29
-	.4byte gUnk_080CEC42
-	.4byte gUnk_080CEC4B
-	.4byte gUnk_080CEC5C
+	.4byte gSpriteAnimations_SpinyBeetle_0
+	.4byte gSpriteAnimations_SpinyBeetle_1
+	.4byte gSpriteAnimations_SpinyBeetle_2
+	.4byte gSpriteAnimations_SpinyBeetle_3
+	.4byte gSpriteAnimations_SpinyBeetle_4
 	.4byte 00000000

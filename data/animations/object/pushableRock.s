@@ -4,30 +4,30 @@
 	.section .rodata
     .align 2
 
-gUnk_08121090:: @ 08121090
-	.incbin "pushableRock/gUnk_08121090.bin"
+gSpriteAnimations_PushableRock_0:: @ 08121090
+	.include "animations/gSpriteAnimations_PushableRock_0.s"
 
-gUnk_08121094:: @ 08121094
-	.incbin "pushableRock/gUnk_08121094.bin"
+gSpriteAnimations_PushableRock_1:: @ 08121094
+	.include "animations/gSpriteAnimations_PushableRock_1.s"
 
-gUnk_081210D0:: @ 081210D0
-	.incbin "pushableRock/gUnk_081210D0.bin"
+gSpriteAnimations_PushableRock_2:: @ 081210D0
+	.include "animations/gSpriteAnimations_PushableRock_2.s"
 
-gUnk_0812110C:: @ 0812110C
-	.incbin "pushableRock/gUnk_0812110C.bin"
+gSpriteAnimations_PushableRock_3:: @ 0812110C
+	.include "animations/gSpriteAnimations_PushableRock_3.s"
 
-gUnk_08121148:: @ 08121148
-	.incbin "pushableRock/gUnk_08121148.bin"
+gSpriteAnimations_PushableRock_5:: @ 08121148
+	.include "animations/gSpriteAnimations_PushableRock_5.s"
 
-gUnk_08121154:: @ 08121154
-	.incbin "pushableRock/gUnk_08121154.bin"
+gSpriteAnimations_PushableRock_6:: @ 08121154
+	.include "animations/gSpriteAnimations_PushableRock_6.s"
 
 gSpriteAnimations_PushableRock:: @ 08121158
-	.4byte gUnk_08121090
-	.4byte gUnk_08121094
-	.4byte gUnk_081210D0
-	.4byte gUnk_0812110C
-	.4byte gUnk_081210D0
-	.4byte gUnk_08121148
-	.4byte gUnk_08121154
+	.4byte gSpriteAnimations_PushableRock_0
+	.4byte gSpriteAnimations_PushableRock_1
+	.4byte gSpriteAnimations_PushableRock_2
+	.4byte gSpriteAnimations_PushableRock_3
+	.4byte gSpriteAnimations_PushableRock_2
+	.4byte gSpriteAnimations_PushableRock_5
+	.4byte gSpriteAnimations_PushableRock_6
 	.4byte 00000000

@@ -4,25 +4,25 @@
 	.section .rodata
     .align 2
 
-gUnk_0811F8B8:: @ 0811F8B8
-	.incbin "chestSpawner/gUnk_0811F8B8.bin"
+gSpriteAnimations_ChestSpawner_0:: @ 0811F8B8
+	.include "animations/gSpriteAnimations_ChestSpawner_0.s"
 
-gUnk_0811F8C9:: @ 0811F8C9
-	.incbin "chestSpawner/gUnk_0811F8C9.bin"
+gSpriteAnimations_ChestSpawner_1:: @ 0811F8C9
+	.include "animations/gSpriteAnimations_ChestSpawner_1.s"
 
-gUnk_0811F8CE:: @ 0811F8CE
-	.incbin "chestSpawner/gUnk_0811F8CE.bin"
+gSpriteAnimations_ChestSpawner_4:: @ 0811F8CE
+	.include "animations/gSpriteAnimations_ChestSpawner_4.s"
 
-gUnk_0811F8D3:: @ 0811F8D3
-	.incbin "chestSpawner/gUnk_0811F8D3.bin"
+gSpriteAnimations_ChestSpawner_2:: @ 0811F8D3
+	.include "animations/gSpriteAnimations_ChestSpawner_2.s"
 
-gUnk_0811F8E8:: @ 0811F8E8
-	.incbin "chestSpawner/gUnk_0811F8E8.bin"
+gSpriteAnimations_ChestSpawner_3:: @ 0811F8E8
+	.include "animations/gSpriteAnimations_ChestSpawner_3.s"
 
 gSpriteAnimations_ChestSpawner:: @ 0811F8F0
-	.4byte gUnk_0811F8B8
-	.4byte gUnk_0811F8C9
-	.4byte gUnk_0811F8D3
-	.4byte gUnk_0811F8E8
-	.4byte gUnk_0811F8CE
+	.4byte gSpriteAnimations_ChestSpawner_0
+	.4byte gSpriteAnimations_ChestSpawner_1
+	.4byte gSpriteAnimations_ChestSpawner_2
+	.4byte gSpriteAnimations_ChestSpawner_3
+	.4byte gSpriteAnimations_ChestSpawner_4
 	.4byte 00000000

@@ -4,53 +4,37 @@
 	.section .rodata
     .align 2
 
-gSpriteAnimations_IceProjectile_0:: @gSpriteAnimations_IceProjectile_0
-	.byte 4, 2, 0x0, 0x0
-	.byte 5, 2, 0x0, 0x80
-	.byte 2 @ keyframe count
-gSpriteAnimations_IceProjectile_1:: @gSpriteAnimations_IceProjectile_1
-	.byte 2, 2, 0x40, 0x0
-	.byte 3, 2, 0x40, 0x80
-	.byte 2 @ keyframe count
-gSpriteAnimations_IceProjectile_2:: @gSpriteAnimations_IceProjectile_2
-	.byte 0, 2, 0x0, 0x0
-	.byte 1, 2, 0x0, 0x80
-	.byte 2 @ keyframe count
-gSpriteAnimations_IceProjectile_3:: @gSpriteAnimations_IceProjectile_3
-	.byte 2, 2, 0x0, 0x0
-	.byte 3, 2, 0x0, 0x80
-	.byte 2 @ keyframe count
-gSpriteAnimations_IceProjectile_4:: @gSpriteAnimations_IceProjectile_4
-	.byte 6, 4, 0x0, 0x0
-	.byte 7, 4, 0x0, 0x0
-	.byte 8, 4, 0x0, 0x0
-	.byte 9, 4, 0x0, 0x80
-	.byte 4 @ keyframe count
-gSpriteAnimations_IceProjectile_5:: @gSpriteAnimations_IceProjectile_5
-	.byte 7, 4, 0x0, 0x0
-	.byte 8, 4, 0x0, 0x0
-	.byte 9, 4, 0x0, 0x0
-	.byte 6, 4, 0x0, 0x80
-	.byte 4 @ keyframe count
-gSpriteAnimations_IceProjectile_6:: @gSpriteAnimations_IceProjectile_6
-	.byte 8, 4, 0x0, 0x0
-	.byte 9, 4, 0x0, 0x0
-	.byte 6, 4, 0x0, 0x0
-	.byte 7, 4, 0x0, 0x80
-	.byte 4 @ keyframe count
-gSpriteAnimations_IceProjectile_7:: @gSpriteAnimations_IceProjectile_7
-	.byte 9, 4, 0x0, 0x0
-	.byte 6, 4, 0x0, 0x0
-	.byte 7, 4, 0x0, 0x0
-	.byte 8, 4, 0x0, 0x80
-	.byte 4 @ keyframe count
-gSpriteAnimations_IceProjectile::
-	.4byte gSpriteAnimations_IceProjectile_0
-	.4byte gSpriteAnimations_IceProjectile_1
-	.4byte gSpriteAnimations_IceProjectile_2
-	.4byte gSpriteAnimations_IceProjectile_3
-	.4byte gSpriteAnimations_IceProjectile_4
-	.4byte gSpriteAnimations_IceProjectile_5
-	.4byte gSpriteAnimations_IceProjectile_6
-	.4byte gSpriteAnimations_IceProjectile_7
-	.4byte 0
+gUnk_081298C8:: @ 081298C8
+	.incbin "projectile9/gUnk_081298C8.bin"
+
+gUnk_081298D1:: @ 081298D1
+	.incbin "projectile9/gUnk_081298D1.bin"
+
+gUnk_081298DA:: @ 081298DA
+	.incbin "projectile9/gUnk_081298DA.bin"
+
+gUnk_081298E3:: @ 081298E3
+	.incbin "projectile9/gUnk_081298E3.bin"
+
+gUnk_081298EC:: @ 081298EC
+	.incbin "projectile9/gUnk_081298EC.bin"
+
+gUnk_081298FD:: @ 081298FD
+	.incbin "projectile9/gUnk_081298FD.bin"
+
+gUnk_0812990E:: @ 0812990E
+	.incbin "projectile9/gUnk_0812990E.bin"
+
+gUnk_0812991F:: @ 0812991F
+	.incbin "projectile9/gUnk_0812991F.bin"
+
+gSpriteAnimations_IceProjectile:: @ 08129930
+	.4byte gUnk_081298C8
+	.4byte gUnk_081298D1
+	.4byte gUnk_081298DA
+	.4byte gUnk_081298E3
+	.4byte gUnk_081298EC
+	.4byte gUnk_081298FD
+	.4byte gUnk_0812990E
+	.4byte gUnk_0812991F
+	.4byte 00000000

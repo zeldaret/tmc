@@ -38,8 +38,8 @@ gUnk_08120E84:: @ 08120E84
 	.4byte sub_0808A220
 	.4byte nullsub_518
 
-gUnk_08120E8C:: @ 08120E8C
-	.incbin "beanstalk/gUnk_08120E8C.bin"
+gSpriteAnimations_Beanstalk_0_0:: @ 08120E8C
+	.include "animations/gSpriteAnimations_Beanstalk_0_0.s"
 
-gUnk_08120ED1:: @ 08120ED1
-	.incbin "beanstalk/gUnk_08120ED1.bin"
+gSpriteAnimations_Beanstalk_0_1:: @ 08120ED1
+	.include "animations/gSpriteAnimations_Beanstalk_0_1.s"

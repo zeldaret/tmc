@@ -74,117 +74,117 @@ gSpriteAnimation_Vaati_1:: @ 081107CC
 	.4byte gUnk_081107BC
 	.4byte 00000000
 
-gUnk_08110840:: @ 08110840
-	.incbin "vaati/gUnk_08110840.bin"
+gSpriteAnimations_Vaati_0:: @ 08110840
+	.include "animations/gSpriteAnimations_Vaati_0.s"
 
-gUnk_08110859:: @ 08110859
-	.incbin "vaati/gUnk_08110859.bin"
+gSpriteAnimations_Vaati_1:: @ 08110859
+	.include "animations/gSpriteAnimations_Vaati_1.s"
 
-gUnk_0811085E:: @ 0811085E
-	.incbin "vaati/gUnk_0811085E.bin"
+gSpriteAnimations_Vaati_2:: @ 0811085E
+	.include "animations/gSpriteAnimations_Vaati_2.s"
 
-gUnk_08110877:: @ 08110877
-	.incbin "vaati/gUnk_08110877.bin"
+gSpriteAnimations_Vaati_3:: @ 08110877
+	.include "animations/gSpriteAnimations_Vaati_3.s"
 
-gUnk_0811087C:: @ 0811087C
-	.incbin "vaati/gUnk_0811087C.bin"
+gSpriteAnimations_Vaati_4:: @ 0811087C
+	.include "animations/gSpriteAnimations_Vaati_4.s"
 
-gUnk_0811089A:: @ 0811089A
-	.incbin "vaati/gUnk_0811089A.bin"
+gSpriteAnimations_Vaati_6:: @ 0811089A
+	.include "animations/gSpriteAnimations_Vaati_6.s"
 
-gUnk_081108B3:: @ 081108B3
-	.incbin "vaati/gUnk_081108B3.bin"
+gSpriteAnimations_Vaati_16:: @ 081108B3
+	.include "animations/gSpriteAnimations_Vaati_16.s"
 
-gUnk_081108CC:: @ 081108CC
-	.incbin "vaati/gUnk_081108CC.bin"
+gSpriteAnimations_Vaati_18:: @ 081108CC
+	.include "animations/gSpriteAnimations_Vaati_18.s"
 
-gUnk_081108E5:: @ 081108E5
-	.incbin "vaati/gUnk_081108E5.bin"
+gSpriteAnimations_Vaati_24:: @ 081108E5
+	.include "animations/gSpriteAnimations_Vaati_24.s"
 
-gUnk_081108F2:: @ 081108F2
-	.incbin "vaati/gUnk_081108F2.bin"
+gSpriteAnimations_Vaati_26:: @ 081108F2
+	.include "animations/gSpriteAnimations_Vaati_26.s"
 
-gUnk_081108FF:: @ 081108FF
-	.incbin "vaati/gUnk_081108FF.bin"
+gSpriteAnimations_Vaati_40:: @ 081108FF
+	.include "animations/gSpriteAnimations_Vaati_40.s"
 
-gUnk_08110918:: @ 08110918
-	.incbin "vaati/gUnk_08110918.bin"
+gSpriteAnimations_Vaati_28:: @ 08110918
+	.include "animations/gSpriteAnimations_Vaati_28.s"
 
-gUnk_0811091D:: @ 0811091D
-	.incbin "vaati/gUnk_0811091D.bin"
+gSpriteAnimations_Vaati_30:: @ 0811091D
+	.include "animations/gSpriteAnimations_Vaati_30.s"
 
-gUnk_08110922:: @ 08110922
-	.incbin "vaati/gUnk_08110922.bin"
+gSpriteAnimations_Vaati_31:: @ 08110922
+	.include "animations/gSpriteAnimations_Vaati_31.s"
 
-gUnk_08110927:: @ 08110927
-	.incbin "vaati/gUnk_08110927.bin"
+gSpriteAnimations_Vaati_29:: @ 08110927
+	.include "animations/gSpriteAnimations_Vaati_29.s"
 
-gUnk_0811092C:: @ 0811092C
-	.incbin "vaati/gUnk_0811092C.bin"
+gSpriteAnimations_Vaati_44:: @ 0811092C
+	.include "animations/gSpriteAnimations_Vaati_44.s"
 
-gUnk_08110931:: @ 08110931
-	.incbin "vaati/gUnk_08110931.bin"
+gSpriteAnimations_Vaati_32:: @ 08110931
+	.include "animations/gSpriteAnimations_Vaati_32.s"
 
-gUnk_081109F2:: @ 081109F2
-	.incbin "vaati/gUnk_081109F2.bin"
+gSpriteAnimations_Vaati_36:: @ 081109F2
+	.include "animations/gSpriteAnimations_Vaati_36.s"
 
-gUnk_08110AD7:: @ 08110AD7
-	.incbin "vaati/gUnk_08110AD7.bin"
+gSpriteAnimations_Vaati_48:: @ 08110AD7
+	.include "animations/gSpriteAnimations_Vaati_48.s"
 
-gUnk_08110AEC:: @ 08110AEC
-	.incbin "vaati/gUnk_08110AEC.bin"
+gSpriteAnimations_Vaati_50:: @ 08110AEC
+	.include "animations/gSpriteAnimations_Vaati_50.s"
 
 gSpriteAnimations_Vaati:: @ 08110B04
-	.4byte gUnk_08110840
-	.4byte gUnk_08110859
-	.4byte gUnk_0811085E
-	.4byte gUnk_08110877
-	.4byte gUnk_0811087C
-	.4byte gUnk_0811087C
-	.4byte gUnk_0811089A
-	.4byte gUnk_0811087C
-	.4byte gUnk_08110840
-	.4byte gUnk_08110859
-	.4byte gUnk_0811085E
-	.4byte gUnk_08110877
-	.4byte gUnk_0811087C
-	.4byte gUnk_0811087C
-	.4byte gUnk_0811089A
-	.4byte gUnk_0811087C
-	.4byte gUnk_081108B3
-	.4byte gUnk_081108B3
-	.4byte gUnk_081108CC
-	.4byte gUnk_081108B3
-	.4byte gUnk_081108B3
-	.4byte gUnk_081108B3
-	.4byte gUnk_081108CC
-	.4byte gUnk_081108B3
-	.4byte gUnk_081108E5
-	.4byte gUnk_081108E5
-	.4byte gUnk_081108F2
-	.4byte gUnk_081108E5
-	.4byte gUnk_08110918
-	.4byte gUnk_08110927
-	.4byte gUnk_0811091D
-	.4byte gUnk_08110922
-	.4byte gUnk_08110931
-	.4byte gUnk_08110931
-	.4byte gUnk_08110931
-	.4byte gUnk_08110931
-	.4byte gUnk_081109F2
-	.4byte gUnk_081109F2
-	.4byte gUnk_081109F2
-	.4byte gUnk_081109F2
-	.4byte gUnk_081108FF
-	.4byte gUnk_081108FF
-	.4byte gUnk_081108FF
-	.4byte gUnk_081108FF
-	.4byte gUnk_0811092C
-	.4byte gUnk_0811092C
-	.4byte gUnk_0811092C
-	.4byte gUnk_0811092C
-	.4byte gUnk_08110AD7
-	.4byte gUnk_08110AD7
-	.4byte gUnk_08110AEC
-	.4byte gUnk_08110AEC
+	.4byte gSpriteAnimations_Vaati_0
+	.4byte gSpriteAnimations_Vaati_1
+	.4byte gSpriteAnimations_Vaati_2
+	.4byte gSpriteAnimations_Vaati_3
+	.4byte gSpriteAnimations_Vaati_4
+	.4byte gSpriteAnimations_Vaati_4
+	.4byte gSpriteAnimations_Vaati_6
+	.4byte gSpriteAnimations_Vaati_4
+	.4byte gSpriteAnimations_Vaati_0
+	.4byte gSpriteAnimations_Vaati_1
+	.4byte gSpriteAnimations_Vaati_2
+	.4byte gSpriteAnimations_Vaati_3
+	.4byte gSpriteAnimations_Vaati_4
+	.4byte gSpriteAnimations_Vaati_4
+	.4byte gSpriteAnimations_Vaati_6
+	.4byte gSpriteAnimations_Vaati_4
+	.4byte gSpriteAnimations_Vaati_16
+	.4byte gSpriteAnimations_Vaati_16
+	.4byte gSpriteAnimations_Vaati_18
+	.4byte gSpriteAnimations_Vaati_16
+	.4byte gSpriteAnimations_Vaati_16
+	.4byte gSpriteAnimations_Vaati_16
+	.4byte gSpriteAnimations_Vaati_18
+	.4byte gSpriteAnimations_Vaati_16
+	.4byte gSpriteAnimations_Vaati_24
+	.4byte gSpriteAnimations_Vaati_24
+	.4byte gSpriteAnimations_Vaati_26
+	.4byte gSpriteAnimations_Vaati_24
+	.4byte gSpriteAnimations_Vaati_28
+	.4byte gSpriteAnimations_Vaati_29
+	.4byte gSpriteAnimations_Vaati_30
+	.4byte gSpriteAnimations_Vaati_31
+	.4byte gSpriteAnimations_Vaati_32
+	.4byte gSpriteAnimations_Vaati_32
+	.4byte gSpriteAnimations_Vaati_32
+	.4byte gSpriteAnimations_Vaati_32
+	.4byte gSpriteAnimations_Vaati_36
+	.4byte gSpriteAnimations_Vaati_36
+	.4byte gSpriteAnimations_Vaati_36
+	.4byte gSpriteAnimations_Vaati_36
+	.4byte gSpriteAnimations_Vaati_40
+	.4byte gSpriteAnimations_Vaati_40
+	.4byte gSpriteAnimations_Vaati_40
+	.4byte gSpriteAnimations_Vaati_40
+	.4byte gSpriteAnimations_Vaati_44
+	.4byte gSpriteAnimations_Vaati_44
+	.4byte gSpriteAnimations_Vaati_44
+	.4byte gSpriteAnimations_Vaati_44
+	.4byte gSpriteAnimations_Vaati_48
+	.4byte gSpriteAnimations_Vaati_48
+	.4byte gSpriteAnimations_Vaati_50
+	.4byte gSpriteAnimations_Vaati_50
 	.4byte 00000000

@@ -4,71 +4,71 @@
 
 	.section .rodata
 
-gUnk_080CC7E0:: @ 080CC7E0
-	.incbin "spearMoblin/gUnk_080CC7E0.bin"
+gSpriteAnimations_SpearMoblin_0:: @ 080CC7E0
+	.include "animations/gSpriteAnimations_SpearMoblin_0.s"
 
-gUnk_080CC7E9:: @ 080CC7E9
-	.incbin "spearMoblin/gUnk_080CC7E9.bin"
+gSpriteAnimations_SpearMoblin_1:: @ 080CC7E9
+	.include "animations/gSpriteAnimations_SpearMoblin_1.s"
 
-gUnk_080CC7F2:: @ 080CC7F2
-	.incbin "spearMoblin/gUnk_080CC7F2.bin"
+gSpriteAnimations_SpearMoblin_2:: @ 080CC7F2
+	.include "animations/gSpriteAnimations_SpearMoblin_2.s"
 
-gUnk_080CC7FB:: @ 080CC7FB
-	.incbin "spearMoblin/gUnk_080CC7FB.bin"
+gSpriteAnimations_SpearMoblin_3:: @ 080CC7FB
+	.include "animations/gSpriteAnimations_SpearMoblin_3.s"
 
-gUnk_080CC804:: @ 080CC804
-	.incbin "spearMoblin/gUnk_080CC804.bin"
+gSpriteAnimations_SpearMoblin_4:: @ 080CC804
+	.include "animations/gSpriteAnimations_SpearMoblin_4.s"
 
-gUnk_080CC815:: @ 080CC815
-	.incbin "spearMoblin/gUnk_080CC815.bin"
+gSpriteAnimations_SpearMoblin_5:: @ 080CC815
+	.include "animations/gSpriteAnimations_SpearMoblin_5.s"
 
-gUnk_080CC826:: @ 080CC826
-	.incbin "spearMoblin/gUnk_080CC826.bin"
+gSpriteAnimations_SpearMoblin_6:: @ 080CC826
+	.include "animations/gSpriteAnimations_SpearMoblin_6.s"
 
-gUnk_080CC837:: @ 080CC837
-	.incbin "spearMoblin/gUnk_080CC837.bin"
+gSpriteAnimations_SpearMoblin_7:: @ 080CC837
+	.include "animations/gSpriteAnimations_SpearMoblin_7.s"
 
-gUnk_080CC848:: @ 080CC848
-	.incbin "spearMoblin/gUnk_080CC848.bin"
+gSpriteAnimations_SpearMoblin_8:: @ 080CC848
+	.include "animations/gSpriteAnimations_SpearMoblin_8.s"
 
-gUnk_080CC859:: @ 080CC859
-	.incbin "spearMoblin/gUnk_080CC859.bin"
+gSpriteAnimations_SpearMoblin_9:: @ 080CC859
+	.include "animations/gSpriteAnimations_SpearMoblin_9.s"
 
-gUnk_080CC86A:: @ 080CC86A
-	.incbin "spearMoblin/gUnk_080CC86A.bin"
+gSpriteAnimations_SpearMoblin_10:: @ 080CC86A
+	.include "animations/gSpriteAnimations_SpearMoblin_10.s"
 
-gUnk_080CC87B:: @ 080CC87B
-	.incbin "spearMoblin/gUnk_080CC87B.bin"
+gSpriteAnimations_SpearMoblin_11:: @ 080CC87B
+	.include "animations/gSpriteAnimations_SpearMoblin_11.s"
 
-gUnk_080CC88C:: @ 080CC88C
-	.incbin "spearMoblin/gUnk_080CC88C.bin"
+gSpriteAnimations_SpearMoblin_12:: @ 080CC88C
+	.include "animations/gSpriteAnimations_SpearMoblin_12.s"
 
-gUnk_080CC8A1:: @ 080CC8A1
-	.incbin "spearMoblin/gUnk_080CC8A1.bin"
+gSpriteAnimations_SpearMoblin_13:: @ 080CC8A1
+	.include "animations/gSpriteAnimations_SpearMoblin_13.s"
 
-gUnk_080CC8B6:: @ 080CC8B6
-	.incbin "spearMoblin/gUnk_080CC8B6.bin"
+gSpriteAnimations_SpearMoblin_14:: @ 080CC8B6
+	.include "animations/gSpriteAnimations_SpearMoblin_14.s"
 
-gUnk_080CC8CB:: @ 080CC8CB
-	.incbin "spearMoblin/gUnk_080CC8CB.bin"
+gSpriteAnimations_SpearMoblin_15:: @ 080CC8CB
+	.include "animations/gSpriteAnimations_SpearMoblin_15.s"
 
 gSpriteAnimations_SpearMoblin:: @ 080CC8E0
-	.4byte gUnk_080CC7E0
-	.4byte gUnk_080CC7E9
-	.4byte gUnk_080CC7F2
-	.4byte gUnk_080CC7FB
-	.4byte gUnk_080CC804
-	.4byte gUnk_080CC815
-	.4byte gUnk_080CC826
-	.4byte gUnk_080CC837
-	.4byte gUnk_080CC848
-	.4byte gUnk_080CC859
-	.4byte gUnk_080CC86A
-	.4byte gUnk_080CC87B
-	.4byte gUnk_080CC88C
-	.4byte gUnk_080CC8A1
-	.4byte gUnk_080CC8B6
-	.4byte gUnk_080CC8CB
+	.4byte gSpriteAnimations_SpearMoblin_0
+	.4byte gSpriteAnimations_SpearMoblin_1
+	.4byte gSpriteAnimations_SpearMoblin_2
+	.4byte gSpriteAnimations_SpearMoblin_3
+	.4byte gSpriteAnimations_SpearMoblin_4
+	.4byte gSpriteAnimations_SpearMoblin_5
+	.4byte gSpriteAnimations_SpearMoblin_6
+	.4byte gSpriteAnimations_SpearMoblin_7
+	.4byte gSpriteAnimations_SpearMoblin_8
+	.4byte gSpriteAnimations_SpearMoblin_9
+	.4byte gSpriteAnimations_SpearMoblin_10
+	.4byte gSpriteAnimations_SpearMoblin_11
+	.4byte gSpriteAnimations_SpearMoblin_12
+	.4byte gSpriteAnimations_SpearMoblin_13
+	.4byte gSpriteAnimations_SpearMoblin_14
+	.4byte gSpriteAnimations_SpearMoblin_15
 	.4byte 00000000
 
 gUnk_080CC924:: @ 080CC924

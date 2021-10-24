@@ -4,41 +4,41 @@
 	.section .rodata
     .align 2
 
-gUnk_08121514:: @ 08121514
-	.incbin "bossDoor/gUnk_08121514.bin"
+gSpriteAnimations_BossDoor_0:: @ 08121514
+	.include "animations/gSpriteAnimations_BossDoor_0.s"
 
-gUnk_08121538:: @ 08121538
-	.incbin "bossDoor/gUnk_08121538.bin"
+gSpriteAnimations_BossDoor_1:: @ 08121538
+	.include "animations/gSpriteAnimations_BossDoor_1.s"
 
-gUnk_0812155C:: @ 0812155C
-	.incbin "bossDoor/gUnk_0812155C.bin"
+gSpriteAnimations_BossDoor_2:: @ 0812155C
+	.include "animations/gSpriteAnimations_BossDoor_2.s"
 
-gUnk_08121580:: @ 08121580
-	.incbin "bossDoor/gUnk_08121580.bin"
+gSpriteAnimations_BossDoor_3:: @ 08121580
+	.include "animations/gSpriteAnimations_BossDoor_3.s"
 
-gUnk_081215A4:: @ 081215A4
-	.incbin "bossDoor/gUnk_081215A4.bin"
+gSpriteAnimations_BossDoor_4:: @ 081215A4
+	.include "animations/gSpriteAnimations_BossDoor_4.s"
 
-gUnk_081215A8:: @ 081215A8
-	.incbin "bossDoor/gUnk_081215A8.bin"
+gSpriteAnimations_BossDoor_5:: @ 081215A8
+	.include "animations/gSpriteAnimations_BossDoor_5.s"
 
-gUnk_081215AC:: @ 081215AC
-	.incbin "bossDoor/gUnk_081215AC.bin"
+gSpriteAnimations_BossDoor_6:: @ 081215AC
+	.include "animations/gSpriteAnimations_BossDoor_6.s"
 
-gUnk_081215B0:: @ 081215B0
-	.incbin "bossDoor/gUnk_081215B0.bin"
+gSpriteAnimations_BossDoor_7:: @ 081215B0
+	.include "animations/gSpriteAnimations_BossDoor_7.s"
 
 gSpriteAnimations_BossDoor:: @ 081215B4
-	.4byte gUnk_08121514
-	.4byte gUnk_08121538
-	.4byte gUnk_0812155C
-	.4byte gUnk_08121580
-	.4byte gUnk_081215A4
-	.4byte gUnk_081215A8
-	.4byte gUnk_081215AC
-	.4byte gUnk_081215B0
-	.4byte gUnk_081215A4
-	.4byte gUnk_081215A8
-	.4byte gUnk_081215AC
-	.4byte gUnk_081215B0
+	.4byte gSpriteAnimations_BossDoor_0
+	.4byte gSpriteAnimations_BossDoor_1
+	.4byte gSpriteAnimations_BossDoor_2
+	.4byte gSpriteAnimations_BossDoor_3
+	.4byte gSpriteAnimations_BossDoor_4
+	.4byte gSpriteAnimations_BossDoor_5
+	.4byte gSpriteAnimations_BossDoor_6
+	.4byte gSpriteAnimations_BossDoor_7
+	.4byte gSpriteAnimations_BossDoor_4
+	.4byte gSpriteAnimations_BossDoor_5
+	.4byte gSpriteAnimations_BossDoor_6
+	.4byte gSpriteAnimations_BossDoor_7
 	.4byte 00000000

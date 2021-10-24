@@ -4,32 +4,32 @@
 	.section .rodata
     .align 2
 
-gUnk_0810FC54:: @ 0810FC54
-	.incbin "tingleSiblings/gUnk_0810FC54.bin"
+gSpriteAnimations_TingleSiblings_1:: @ 0810FC54
+	.include "animations/gSpriteAnimations_TingleSiblings_1.s"
 
-gUnk_0810FC5E:: @ 0810FC5E
-	.incbin "tingleSiblings/gUnk_0810FC5E.bin"
+gSpriteAnimations_TingleSiblings_0:: @ 0810FC5E
+	.include "animations/gSpriteAnimations_TingleSiblings_0.s"
 
-gUnk_0810FC68:: @ 0810FC68
-	.incbin "tingleSiblings/gUnk_0810FC68.bin"
+gSpriteAnimations_TingleSiblings_3:: @ 0810FC68
+	.include "animations/gSpriteAnimations_TingleSiblings_3.s"
 
-gUnk_0810FCAD:: @ 0810FCAD
-	.incbin "tingleSiblings/gUnk_0810FCAD.bin"
+gSpriteAnimations_TingleSiblings_4:: @ 0810FCAD
+	.include "animations/gSpriteAnimations_TingleSiblings_4.s"
 
-gUnk_0810FCCE:: @ 0810FCCE
-	.incbin "tingleSiblings/gUnk_0810FCCE.bin"
+gSpriteAnimations_TingleSiblings_8:: @ 0810FCCE
+	.include "animations/gSpriteAnimations_TingleSiblings_8.s"
 
 gSpriteAnimations_TingleSiblings:: @ 0810FD6C
-	.4byte gUnk_0810FC5E
-	.4byte gUnk_0810FC54
-	.4byte gUnk_0810FC5E
-	.4byte gUnk_0810FC68
-	.4byte gUnk_0810FCAD
-	.4byte gUnk_0810FCAD
-	.4byte gUnk_0810FCAD
-	.4byte gUnk_0810FCAD
-	.4byte gUnk_0810FCCE
-	.4byte gUnk_0810FCCE
-	.4byte gUnk_0810FCCE
-	.4byte gUnk_0810FCCE
+	.4byte gSpriteAnimations_TingleSiblings_0
+	.4byte gSpriteAnimations_TingleSiblings_1
+	.4byte gSpriteAnimations_TingleSiblings_0
+	.4byte gSpriteAnimations_TingleSiblings_3
+	.4byte gSpriteAnimations_TingleSiblings_4
+	.4byte gSpriteAnimations_TingleSiblings_4
+	.4byte gSpriteAnimations_TingleSiblings_4
+	.4byte gSpriteAnimations_TingleSiblings_4
+	.4byte gSpriteAnimations_TingleSiblings_8
+	.4byte gSpriteAnimations_TingleSiblings_8
+	.4byte gSpriteAnimations_TingleSiblings_8
+	.4byte gSpriteAnimations_TingleSiblings_8
 	.4byte 00000000

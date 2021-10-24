@@ -3,13 +3,13 @@
 
 	.section .rodata
 
-gUnk_080CD5A4:: @ 080CD5A4
-	.incbin "fallingBoulder/gUnk_080CD5A4.bin"
+gSpriteAnimations_FallingBoulder_0:: @ 080CD5A4
+	.include "animations/gSpriteAnimations_FallingBoulder_0.s"
 
-gUnk_080CD5B5:: @ 080CD5B5
-	.incbin "fallingBoulder/gUnk_080CD5B5.bin"
+gSpriteAnimations_FallingBoulder_1:: @ 080CD5B5
+	.include "animations/gSpriteAnimations_FallingBoulder_1.s"
 
 gSpriteAnimations_FallingBoulder:: @ 080CD5C8
-	.4byte gUnk_080CD5A4
-	.4byte gUnk_080CD5B5
+	.4byte gSpriteAnimations_FallingBoulder_0
+	.4byte gSpriteAnimations_FallingBoulder_1
 	.4byte 00000000

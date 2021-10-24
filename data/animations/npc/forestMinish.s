@@ -4,181 +4,181 @@
 	.section .rodata
 @    .align 2
 
-gUnk_0810A36A:: @ 0810A36A
-	.incbin "forestMinish/gUnk_0810A36A.bin"
+gSpriteAnimations_ForestMinish_0:: @ 0810A36A
+	.include "animations/gSpriteAnimations_ForestMinish_0.s"
 
-gUnk_0810A36F:: @ 0810A36F
-	.incbin "forestMinish/gUnk_0810A36F.bin"
+gSpriteAnimations_ForestMinish_1:: @ 0810A36F
+	.include "animations/gSpriteAnimations_ForestMinish_1.s"
 
-gUnk_0810A374:: @ 0810A374
-	.incbin "forestMinish/gUnk_0810A374.bin"
+gSpriteAnimations_ForestMinish_2:: @ 0810A374
+	.include "animations/gSpriteAnimations_ForestMinish_2.s"
 
-gUnk_0810A379:: @ 0810A379
-	.incbin "forestMinish/gUnk_0810A379.bin"
+gSpriteAnimations_ForestMinish_3:: @ 0810A379
+	.include "animations/gSpriteAnimations_ForestMinish_3.s"
 
-gUnk_0810A37E:: @ 0810A37E
-	.incbin "forestMinish/gUnk_0810A37E.bin"
+gSpriteAnimations_ForestMinish_4:: @ 0810A37E
+	.include "animations/gSpriteAnimations_ForestMinish_4.s"
 
-gUnk_0810A39F:: @ 0810A39F
-	.incbin "forestMinish/gUnk_0810A39F.bin"
+gSpriteAnimations_ForestMinish_5:: @ 0810A39F
+	.include "animations/gSpriteAnimations_ForestMinish_5.s"
 
-gUnk_0810A3C0:: @ 0810A3C0
-	.incbin "forestMinish/gUnk_0810A3C0.bin"
+gSpriteAnimations_ForestMinish_6:: @ 0810A3C0
+	.include "animations/gSpriteAnimations_ForestMinish_6.s"
 
-gUnk_0810A3E1:: @ 0810A3E1
-	.incbin "forestMinish/gUnk_0810A3E1.bin"
+gSpriteAnimations_ForestMinish_7:: @ 0810A3E1
+	.include "animations/gSpriteAnimations_ForestMinish_7.s"
 
-gUnk_0810A402:: @ 0810A402
-	.incbin "forestMinish/gUnk_0810A402.bin"
+gSpriteAnimations_ForestMinish_8:: @ 0810A402
+	.include "animations/gSpriteAnimations_ForestMinish_8.s"
 
-gUnk_0810A407:: @ 0810A407
-	.incbin "forestMinish/gUnk_0810A407.bin"
+gSpriteAnimations_ForestMinish_9:: @ 0810A407
+	.include "animations/gSpriteAnimations_ForestMinish_9.s"
 
-gUnk_0810A40C:: @ 0810A40C
-	.incbin "forestMinish/gUnk_0810A40C.bin"
+gSpriteAnimations_ForestMinish_10:: @ 0810A40C
+	.include "animations/gSpriteAnimations_ForestMinish_10.s"
 
-gUnk_0810A411:: @ 0810A411
-	.incbin "forestMinish/gUnk_0810A411.bin"
+gSpriteAnimations_ForestMinish_11:: @ 0810A411
+	.include "animations/gSpriteAnimations_ForestMinish_11.s"
 
-gUnk_0810A416:: @ 0810A416
-	.incbin "forestMinish/gUnk_0810A416.bin"
+gSpriteAnimations_ForestMinish_12:: @ 0810A416
+	.include "animations/gSpriteAnimations_ForestMinish_12.s"
 
-gUnk_0810A423:: @ 0810A423
-	.incbin "forestMinish/gUnk_0810A423.bin"
+gSpriteAnimations_ForestMinish_13:: @ 0810A423
+	.include "animations/gSpriteAnimations_ForestMinish_13.s"
 
-gUnk_0810A430:: @ 0810A430
-	.incbin "forestMinish/gUnk_0810A430.bin"
+gSpriteAnimations_ForestMinish_14:: @ 0810A430
+	.include "animations/gSpriteAnimations_ForestMinish_14.s"
 
-gUnk_0810A43D:: @ 0810A43D
-	.incbin "forestMinish/gUnk_0810A43D.bin"
+gSpriteAnimations_ForestMinish_15:: @ 0810A43D
+	.include "animations/gSpriteAnimations_ForestMinish_15.s"
 
-gUnk_0810A44A:: @ 0810A44A
-	.incbin "forestMinish/gUnk_0810A44A.bin"
+gSpriteAnimations_ForestMinish_16:: @ 0810A44A
+	.include "animations/gSpriteAnimations_ForestMinish_16.s"
 
-gUnk_0810A457:: @ 0810A457
-	.incbin "forestMinish/gUnk_0810A457.bin"
+gSpriteAnimations_ForestMinish_17:: @ 0810A457
+	.include "animations/gSpriteAnimations_ForestMinish_17.s"
 
-gUnk_0810A464:: @ 0810A464
-	.incbin "forestMinish/gUnk_0810A464.bin"
+gSpriteAnimations_ForestMinish_18:: @ 0810A464
+	.include "animations/gSpriteAnimations_ForestMinish_18.s"
 
-gUnk_0810A471:: @ 0810A471
-	.incbin "forestMinish/gUnk_0810A471.bin"
+gSpriteAnimations_ForestMinish_19:: @ 0810A471
+	.include "animations/gSpriteAnimations_ForestMinish_19.s"
 
-gUnk_0810A47E:: @ 0810A47E
-	.incbin "forestMinish/gUnk_0810A47E.bin"
+gSpriteAnimations_ForestMinish_20:: @ 0810A47E
+	.include "animations/gSpriteAnimations_ForestMinish_20.s"
 
-gUnk_0810A48B:: @ 0810A48B
-	.incbin "forestMinish/gUnk_0810A48B.bin"
+gSpriteAnimations_ForestMinish_21:: @ 0810A48B
+	.include "animations/gSpriteAnimations_ForestMinish_21.s"
 
-gUnk_0810A498:: @ 0810A498
-	.incbin "forestMinish/gUnk_0810A498.bin"
+gSpriteAnimations_ForestMinish_22:: @ 0810A498
+	.include "animations/gSpriteAnimations_ForestMinish_22.s"
 
-gUnk_0810A4A5:: @ 0810A4A5
-	.incbin "forestMinish/gUnk_0810A4A5.bin"
+gSpriteAnimations_ForestMinish_23:: @ 0810A4A5
+	.include "animations/gSpriteAnimations_ForestMinish_23.s"
 
-gUnk_0810A4B2:: @ 0810A4B2
-	.incbin "forestMinish/gUnk_0810A4B2.bin"
+gSpriteAnimations_ForestMinish_24:: @ 0810A4B2
+	.include "animations/gSpriteAnimations_ForestMinish_24.s"
 
-gUnk_0810A4BF:: @ 0810A4BF
-	.incbin "forestMinish/gUnk_0810A4BF.bin"
+gSpriteAnimations_ForestMinish_25:: @ 0810A4BF
+	.include "animations/gSpriteAnimations_ForestMinish_25.s"
 
-gUnk_0810A4CC:: @ 0810A4CC
-	.incbin "forestMinish/gUnk_0810A4CC.bin"
+gSpriteAnimations_ForestMinish_26:: @ 0810A4CC
+	.include "animations/gSpriteAnimations_ForestMinish_26.s"
 
-gUnk_0810A4D9:: @ 0810A4D9
-	.incbin "forestMinish/gUnk_0810A4D9.bin"
+gSpriteAnimations_ForestMinish_27:: @ 0810A4D9
+	.include "animations/gSpriteAnimations_ForestMinish_27.s"
 
-gUnk_0810A4E6:: @ 0810A4E6
-	.incbin "forestMinish/gUnk_0810A4E6.bin"
+gSpriteAnimations_ForestMinish_28:: @ 0810A4E6
+	.include "animations/gSpriteAnimations_ForestMinish_28.s"
 
-gUnk_0810A4F3:: @ 0810A4F3
-	.incbin "forestMinish/gUnk_0810A4F3.bin"
+gSpriteAnimations_ForestMinish_29:: @ 0810A4F3
+	.include "animations/gSpriteAnimations_ForestMinish_29.s"
 
-gUnk_0810A500:: @ 0810A500
-	.incbin "forestMinish/gUnk_0810A500.bin"
+gSpriteAnimations_ForestMinish_30:: @ 0810A500
+	.include "animations/gSpriteAnimations_ForestMinish_30.s"
 
-gUnk_0810A50D:: @ 0810A50D
-	.incbin "forestMinish/gUnk_0810A50D.bin"
+gSpriteAnimations_ForestMinish_31:: @ 0810A50D
+	.include "animations/gSpriteAnimations_ForestMinish_31.s"
 
-gUnk_0810A51A:: @ 0810A51A
-	.incbin "forestMinish/gUnk_0810A51A.bin"
+gSpriteAnimations_ForestMinish_32:: @ 0810A51A
+	.include "animations/gSpriteAnimations_ForestMinish_32.s"
 
-gUnk_0810A527:: @ 0810A527
-	.incbin "forestMinish/gUnk_0810A527.bin"
+gSpriteAnimations_ForestMinish_33:: @ 0810A527
+	.include "animations/gSpriteAnimations_ForestMinish_33.s"
 
-gUnk_0810A534:: @ 0810A534
-	.incbin "forestMinish/gUnk_0810A534.bin"
+gSpriteAnimations_ForestMinish_34:: @ 0810A534
+	.include "animations/gSpriteAnimations_ForestMinish_34.s"
 
-gUnk_0810A541:: @ 0810A541
-	.incbin "forestMinish/gUnk_0810A541.bin"
+gSpriteAnimations_ForestMinish_35:: @ 0810A541
+	.include "animations/gSpriteAnimations_ForestMinish_35.s"
 
-gUnk_0810A54E:: @ 0810A54E
-	.incbin "forestMinish/gUnk_0810A54E.bin"
+gSpriteAnimations_ForestMinish_36:: @ 0810A54E
+	.include "animations/gSpriteAnimations_ForestMinish_36.s"
 
-gUnk_0810A55B:: @ 0810A55B
-	.incbin "forestMinish/gUnk_0810A55B.bin"
+gSpriteAnimations_ForestMinish_37:: @ 0810A55B
+	.include "animations/gSpriteAnimations_ForestMinish_37.s"
 
-gUnk_0810A568:: @ 0810A568
-	.incbin "forestMinish/gUnk_0810A568.bin"
+gSpriteAnimations_ForestMinish_38:: @ 0810A568
+	.include "animations/gSpriteAnimations_ForestMinish_38.s"
 
-gUnk_0810A575:: @ 0810A575
-	.incbin "forestMinish/gUnk_0810A575.bin"
+gSpriteAnimations_ForestMinish_39:: @ 0810A575
+	.include "animations/gSpriteAnimations_ForestMinish_39.s"
 
-gUnk_0810A582:: @ 0810A582
-	.incbin "forestMinish/gUnk_0810A582.bin"
+gSpriteAnimations_ForestMinish_40:: @ 0810A582
+	.include "animations/gSpriteAnimations_ForestMinish_40.s"
 
-gUnk_0810A58F:: @ 0810A58F
-	.incbin "forestMinish/gUnk_0810A58F.bin"
+gSpriteAnimations_ForestMinish_41:: @ 0810A58F
+	.include "animations/gSpriteAnimations_ForestMinish_41.s"
 
-gUnk_0810A59C:: @ 0810A59C
-	.incbin "forestMinish/gUnk_0810A59C.bin"
+gSpriteAnimations_ForestMinish_42:: @ 0810A59C
+	.include "animations/gSpriteAnimations_ForestMinish_42.s"
 
-gUnk_0810A5A9:: @ 0810A5A9
-	.incbin "forestMinish/gUnk_0810A5A9.bin"
+gSpriteAnimations_ForestMinish_43:: @ 0810A5A9
+	.include "animations/gSpriteAnimations_ForestMinish_43.s"
 
 gSpriteAnimations_ForestMinish:: @ 0810A5B8 
-	.4byte gUnk_0810A36A
-	.4byte gUnk_0810A36F
-	.4byte gUnk_0810A374
-	.4byte gUnk_0810A379
-	.4byte gUnk_0810A37E
-	.4byte gUnk_0810A39F
-	.4byte gUnk_0810A3C0
-	.4byte gUnk_0810A3E1
-	.4byte gUnk_0810A402
-	.4byte gUnk_0810A407
-	.4byte gUnk_0810A40C
-	.4byte gUnk_0810A411
-	.4byte gUnk_0810A416
-	.4byte gUnk_0810A423
-	.4byte gUnk_0810A430
-	.4byte gUnk_0810A43D
-	.4byte gUnk_0810A44A
-	.4byte gUnk_0810A457
-	.4byte gUnk_0810A464
-	.4byte gUnk_0810A471
-	.4byte gUnk_0810A47E
-	.4byte gUnk_0810A48B
-	.4byte gUnk_0810A498
-	.4byte gUnk_0810A4A5
-	.4byte gUnk_0810A4B2
-	.4byte gUnk_0810A4BF
-	.4byte gUnk_0810A4CC
-	.4byte gUnk_0810A4D9
-	.4byte gUnk_0810A4E6
-	.4byte gUnk_0810A4F3
-	.4byte gUnk_0810A500
-	.4byte gUnk_0810A50D
-	.4byte gUnk_0810A51A
-	.4byte gUnk_0810A527
-	.4byte gUnk_0810A534
-	.4byte gUnk_0810A541
-	.4byte gUnk_0810A54E
-	.4byte gUnk_0810A55B
-	.4byte gUnk_0810A568
-	.4byte gUnk_0810A575
-	.4byte gUnk_0810A582
-	.4byte gUnk_0810A58F
-	.4byte gUnk_0810A59C
-	.4byte gUnk_0810A5A9
+	.4byte gSpriteAnimations_ForestMinish_0
+	.4byte gSpriteAnimations_ForestMinish_1
+	.4byte gSpriteAnimations_ForestMinish_2
+	.4byte gSpriteAnimations_ForestMinish_3
+	.4byte gSpriteAnimations_ForestMinish_4
+	.4byte gSpriteAnimations_ForestMinish_5
+	.4byte gSpriteAnimations_ForestMinish_6
+	.4byte gSpriteAnimations_ForestMinish_7
+	.4byte gSpriteAnimations_ForestMinish_8
+	.4byte gSpriteAnimations_ForestMinish_9
+	.4byte gSpriteAnimations_ForestMinish_10
+	.4byte gSpriteAnimations_ForestMinish_11
+	.4byte gSpriteAnimations_ForestMinish_12
+	.4byte gSpriteAnimations_ForestMinish_13
+	.4byte gSpriteAnimations_ForestMinish_14
+	.4byte gSpriteAnimations_ForestMinish_15
+	.4byte gSpriteAnimations_ForestMinish_16
+	.4byte gSpriteAnimations_ForestMinish_17
+	.4byte gSpriteAnimations_ForestMinish_18
+	.4byte gSpriteAnimations_ForestMinish_19
+	.4byte gSpriteAnimations_ForestMinish_20
+	.4byte gSpriteAnimations_ForestMinish_21
+	.4byte gSpriteAnimations_ForestMinish_22
+	.4byte gSpriteAnimations_ForestMinish_23
+	.4byte gSpriteAnimations_ForestMinish_24
+	.4byte gSpriteAnimations_ForestMinish_25
+	.4byte gSpriteAnimations_ForestMinish_26
+	.4byte gSpriteAnimations_ForestMinish_27
+	.4byte gSpriteAnimations_ForestMinish_28
+	.4byte gSpriteAnimations_ForestMinish_29
+	.4byte gSpriteAnimations_ForestMinish_30
+	.4byte gSpriteAnimations_ForestMinish_31
+	.4byte gSpriteAnimations_ForestMinish_32
+	.4byte gSpriteAnimations_ForestMinish_33
+	.4byte gSpriteAnimations_ForestMinish_34
+	.4byte gSpriteAnimations_ForestMinish_35
+	.4byte gSpriteAnimations_ForestMinish_36
+	.4byte gSpriteAnimations_ForestMinish_37
+	.4byte gSpriteAnimations_ForestMinish_38
+	.4byte gSpriteAnimations_ForestMinish_39
+	.4byte gSpriteAnimations_ForestMinish_40
+	.4byte gSpriteAnimations_ForestMinish_41
+	.4byte gSpriteAnimations_ForestMinish_42
+	.4byte gSpriteAnimations_ForestMinish_43
 	.4byte 00000000

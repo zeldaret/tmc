@@ -4,37 +4,37 @@
 	.section .rodata
     .align 2
 
-gUnk_0810FEE0:: @ 0810FEE0
-	.incbin "talon/gUnk_0810FEE0.bin"
+gSpriteAnimations_Talon_2:: @ 0810FEE0
+	.include "animations/gSpriteAnimations_Talon_2.s"
 
-gUnk_0810FEE5:: @ 0810FEE5
-	.incbin "talon/gUnk_0810FEE5.bin"
+gSpriteAnimations_Talon_0:: @ 0810FEE5
+	.include "animations/gSpriteAnimations_Talon_0.s"
 
-gUnk_0810FEEA:: @ 0810FEEA
-	.incbin "talon/gUnk_0810FEEA.bin"
+gSpriteAnimations_Talon_3:: @ 0810FEEA
+	.include "animations/gSpriteAnimations_Talon_3.s"
 
-gUnk_0810FEEF:: @ 0810FEEF
-	.incbin "talon/gUnk_0810FEEF.bin"
+gSpriteAnimations_Talon_1:: @ 0810FEEF
+	.include "animations/gSpriteAnimations_Talon_1.s"
 
-gUnk_0810FEF4:: @ 0810FEF4
-	.incbin "talon/gUnk_0810FEF4.bin"
+gSpriteAnimations_Talon_4:: @ 0810FEF4
+	.include "animations/gSpriteAnimations_Talon_4.s"
 
-gUnk_0810FF05:: @ 0810FF05
-	.incbin "talon/gUnk_0810FF05.bin"
+gSpriteAnimations_Talon_5:: @ 0810FF05
+	.include "animations/gSpriteAnimations_Talon_5.s"
 
-gUnk_0810FF16:: @ 0810FF16
-	.incbin "talon/gUnk_0810FF16.bin"
+gSpriteAnimations_Talon_6:: @ 0810FF16
+	.include "animations/gSpriteAnimations_Talon_6.s"
 
-gUnk_0810FF27:: @ 0810FF27
-	.incbin "talon/gUnk_0810FF27.bin"
+gSpriteAnimations_Talon_7:: @ 0810FF27
+	.include "animations/gSpriteAnimations_Talon_7.s"
 
 gSpriteAnimations_Talon:: @ 0810FF38
-	.4byte gUnk_0810FEE5
-	.4byte gUnk_0810FEEF
-	.4byte gUnk_0810FEE0
-	.4byte gUnk_0810FEEA
-	.4byte gUnk_0810FEF4
-	.4byte gUnk_0810FF05
-	.4byte gUnk_0810FF16
-	.4byte gUnk_0810FF27
+	.4byte gSpriteAnimations_Talon_0
+	.4byte gSpriteAnimations_Talon_1
+	.4byte gSpriteAnimations_Talon_2
+	.4byte gSpriteAnimations_Talon_3
+	.4byte gSpriteAnimations_Talon_4
+	.4byte gSpriteAnimations_Talon_5
+	.4byte gSpriteAnimations_Talon_6
+	.4byte gSpriteAnimations_Talon_7
 	.4byte 00000000

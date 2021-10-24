@@ -4,21 +4,21 @@
 	.section .rodata
     .align 2
 
-gUnk_081144C8:: @ 081144C8
-	.incbin "smallTownMinish/gUnk_081144C8.bin"
+gSpriteAnimations_SmallTownMinish_0:: @ 081144C8
+	.include "animations/gSpriteAnimations_SmallTownMinish_0.s"
 
-gUnk_081144CD:: @ 081144CD
-	.incbin "smallTownMinish/gUnk_081144CD.bin"
+gSpriteAnimations_SmallTownMinish_1:: @ 081144CD
+	.include "animations/gSpriteAnimations_SmallTownMinish_1.s"
 
-gUnk_081144D2:: @ 081144D2
-	.incbin "smallTownMinish/gUnk_081144D2.bin"
+gSpriteAnimations_SmallTownMinish_2:: @ 081144D2
+	.include "animations/gSpriteAnimations_SmallTownMinish_2.s"
 
-gUnk_081144D7:: @ 081144D7
-	.incbin "smallTownMinish/gUnk_081144D7.bin"
+gSpriteAnimations_SmallTownMinish_3:: @ 081144D7
+	.include "animations/gSpriteAnimations_SmallTownMinish_3.s"
 
 gSpriteAnimations_SmallTownMinish:: @ 081144DC
-	.4byte gUnk_081144C8
-	.4byte gUnk_081144CD
-	.4byte gUnk_081144D2
-	.4byte gUnk_081144D7
+	.4byte gSpriteAnimations_SmallTownMinish_0
+	.4byte gSpriteAnimations_SmallTownMinish_1
+	.4byte gSpriteAnimations_SmallTownMinish_2
+	.4byte gSpriteAnimations_SmallTownMinish_3
 	.4byte 00000000

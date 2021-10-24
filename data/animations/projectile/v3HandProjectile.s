@@ -4,21 +4,21 @@
 	.section .rodata
     .align 2
 
-gUnk_0812A860:: @ 0812A860
-	.incbin "projectile20/gUnk_0812A860.bin"
+gSpriteAnimations_V3HandProjectile_0:: @ 0812A860
+	.include "animations/gSpriteAnimations_V3HandProjectile_0.s"
 
-gUnk_0812A871:: @ 0812A871
-	.incbin "projectile20/gUnk_0812A871.bin"
+gSpriteAnimations_V3HandProjectile_1:: @ 0812A871
+	.include "animations/gSpriteAnimations_V3HandProjectile_1.s"
 
-gUnk_0812A8CA:: @ 0812A8CA
-	.incbin "projectile20/gUnk_0812A8CA.bin"
+gSpriteAnimations_V3HandProjectile_2:: @ 0812A8CA
+	.include "animations/gSpriteAnimations_V3HandProjectile_2.s"
 
-gUnk_0812A92B:: @ 0812A92B
-	.incbin "projectile20/gUnk_0812A92B.bin"
+gSpriteAnimations_V3HandProjectile_3:: @ 0812A92B
+	.include "animations/gSpriteAnimations_V3HandProjectile_3.s"
 
 gSpriteAnimations_V3HandProjectile:: @ 0812A940
-	.4byte gUnk_0812A860
-	.4byte gUnk_0812A871
-	.4byte gUnk_0812A8CA
-	.4byte gUnk_0812A92B
+	.4byte gSpriteAnimations_V3HandProjectile_0
+	.4byte gSpriteAnimations_V3HandProjectile_1
+	.4byte gSpriteAnimations_V3HandProjectile_2
+	.4byte gSpriteAnimations_V3HandProjectile_3
 	.4byte 00000000

@@ -4,16 +4,16 @@
 	.section .rodata
     .align 2
 
-gUnk_08113004:: @ 08113004
-	.incbin "moblinLady/gUnk_08113004.bin"
+gSpriteAnimations_MoblinLady_1_0:: @ 08113004
+	.include "animations/gSpriteAnimations_MoblinLady_1_0.s"
 
 gSpriteAnimations_MoblinLady_1:: @ 08113024
-	.4byte gUnk_08113004
-	.incbin "moblinLady/gSpriteAnimations_MoblinLady_1.bin"
+	.4byte gSpriteAnimations_MoblinLady_1_0
+	.include "animations/gSpriteAnimations_MoblinLady_1.s"
 
-gUnk_0811302C:: @ 0811302C
-	.incbin "moblinLady/gUnk_0811302C.bin"
+gSpriteAnimations_MoblinLady_0:: @ 0811302C
+	.include "animations/gSpriteAnimations_MoblinLady_0.s"
 
 gSpriteAnimations_MoblinLady:: @ 08113070
-	.4byte gUnk_0811302C
+	.4byte gSpriteAnimations_MoblinLady_0
 	.4byte 00000000

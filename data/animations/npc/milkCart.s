@@ -4,19 +4,19 @@
 	.section .rodata
     .align 2
 
-gUnk_08110120:: @ 08110120
-	.incbin "milkCart/gUnk_08110120.bin"
+gSpriteAnimations_MilkCart_0:: @ 08110120
+	.include "animations/gSpriteAnimations_MilkCart_0.s"
 
-gUnk_08110125:: @ 08110125
-	.incbin "milkCart/gUnk_08110125.bin"
+gSpriteAnimations_MilkCart_4:: @ 08110125
+	.include "animations/gSpriteAnimations_MilkCart_4.s"
 
 gSpriteAnimations_MilkCart:: @ 08110138
-	.4byte gUnk_08110120
-	.4byte gUnk_08110120
-	.4byte gUnk_08110120
-	.4byte gUnk_08110120
-	.4byte gUnk_08110125
-	.4byte gUnk_08110125
-	.4byte gUnk_08110125
-	.4byte gUnk_08110125
+	.4byte gSpriteAnimations_MilkCart_0
+	.4byte gSpriteAnimations_MilkCart_0
+	.4byte gSpriteAnimations_MilkCart_0
+	.4byte gSpriteAnimations_MilkCart_0
+	.4byte gSpriteAnimations_MilkCart_4
+	.4byte gSpriteAnimations_MilkCart_4
+	.4byte gSpriteAnimations_MilkCart_4
+	.4byte gSpriteAnimations_MilkCart_4
 	.4byte 00000000

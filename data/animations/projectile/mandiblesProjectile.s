@@ -4,133 +4,133 @@
 	.section .rodata
     .align 2
 
-gUnk_08129D1C:: @ 08129D1C
-	.incbin "projectile13/gUnk_08129D1C.bin"
+gSpriteAnimations_MandiblesProjectile_0:: @ 08129D1C
+	.include "animations/gSpriteAnimations_MandiblesProjectile_0.s"
 
-gUnk_08129D21:: @ 08129D21
-	.incbin "projectile13/gUnk_08129D21.bin"
+gSpriteAnimations_MandiblesProjectile_1:: @ 08129D21
+	.include "animations/gSpriteAnimations_MandiblesProjectile_1.s"
 
-gUnk_08129D26:: @ 08129D26
-	.incbin "projectile13/gUnk_08129D26.bin"
+gSpriteAnimations_MandiblesProjectile_2:: @ 08129D26
+	.include "animations/gSpriteAnimations_MandiblesProjectile_2.s"
 
-gUnk_08129D2B:: @ 08129D2B
-	.incbin "projectile13/gUnk_08129D2B.bin"
+gSpriteAnimations_MandiblesProjectile_3:: @ 08129D2B
+	.include "animations/gSpriteAnimations_MandiblesProjectile_3.s"
 
-gUnk_08129D30:: @ 08129D30
-	.incbin "projectile13/gUnk_08129D30.bin"
+gSpriteAnimations_MandiblesProjectile_4:: @ 08129D30
+	.include "animations/gSpriteAnimations_MandiblesProjectile_4.s"
 
-gUnk_08129D35:: @ 08129D35
-	.incbin "projectile13/gUnk_08129D35.bin"
+gSpriteAnimations_MandiblesProjectile_5:: @ 08129D35
+	.include "animations/gSpriteAnimations_MandiblesProjectile_5.s"
 
-gUnk_08129D3A:: @ 08129D3A
-	.incbin "projectile13/gUnk_08129D3A.bin"
+gSpriteAnimations_MandiblesProjectile_6:: @ 08129D3A
+	.include "animations/gSpriteAnimations_MandiblesProjectile_6.s"
 
-gUnk_08129D3F:: @ 08129D3F
-	.incbin "projectile13/gUnk_08129D3F.bin"
+gSpriteAnimations_MandiblesProjectile_7:: @ 08129D3F
+	.include "animations/gSpriteAnimations_MandiblesProjectile_7.s"
 
-gUnk_08129D44:: @ 08129D44
-	.incbin "projectile13/gUnk_08129D44.bin"
+gSpriteAnimations_MandiblesProjectile_8:: @ 08129D44
+	.include "animations/gSpriteAnimations_MandiblesProjectile_8.s"
 
-gUnk_08129D55:: @ 08129D55
-	.incbin "projectile13/gUnk_08129D55.bin"
+gSpriteAnimations_MandiblesProjectile_9:: @ 08129D55
+	.include "animations/gSpriteAnimations_MandiblesProjectile_9.s"
 
-gUnk_08129D66:: @ 08129D66
-	.incbin "projectile13/gUnk_08129D66.bin"
+gSpriteAnimations_MandiblesProjectile_10:: @ 08129D66
+	.include "animations/gSpriteAnimations_MandiblesProjectile_10.s"
 
-gUnk_08129D77:: @ 08129D77
-	.incbin "projectile13/gUnk_08129D77.bin"
+gSpriteAnimations_MandiblesProjectile_11:: @ 08129D77
+	.include "animations/gSpriteAnimations_MandiblesProjectile_11.s"
 
-gUnk_08129D88:: @ 08129D88
-	.incbin "projectile13/gUnk_08129D88.bin"
+gSpriteAnimations_MandiblesProjectile_12:: @ 08129D88
+	.include "animations/gSpriteAnimations_MandiblesProjectile_12.s"
 
-gUnk_08129D99:: @ 08129D99
-	.incbin "projectile13/gUnk_08129D99.bin"
+gSpriteAnimations_MandiblesProjectile_13:: @ 08129D99
+	.include "animations/gSpriteAnimations_MandiblesProjectile_13.s"
 
-gUnk_08129DAA:: @ 08129DAA
-	.incbin "projectile13/gUnk_08129DAA.bin"
+gSpriteAnimations_MandiblesProjectile_14:: @ 08129DAA
+	.include "animations/gSpriteAnimations_MandiblesProjectile_14.s"
 
-gUnk_08129DBB:: @ 08129DBB
-	.incbin "projectile13/gUnk_08129DBB.bin"
+gSpriteAnimations_MandiblesProjectile_15:: @ 08129DBB
+	.include "animations/gSpriteAnimations_MandiblesProjectile_15.s"
 
-gUnk_08129DCC:: @ 08129DCC
-	.incbin "projectile13/gUnk_08129DCC.bin"
+gSpriteAnimations_MandiblesProjectile_16:: @ 08129DCC
+	.include "animations/gSpriteAnimations_MandiblesProjectile_16.s"
 
-gUnk_08129DD8:: @ 08129DD8
-	.incbin "projectile13/gUnk_08129DD8.bin"
+gSpriteAnimations_MandiblesProjectile_17:: @ 08129DD8
+	.include "animations/gSpriteAnimations_MandiblesProjectile_17.s"
 
-gUnk_08129DE4:: @ 08129DE4
-	.incbin "projectile13/gUnk_08129DE4.bin"
+gSpriteAnimations_MandiblesProjectile_18:: @ 08129DE4
+	.include "animations/gSpriteAnimations_MandiblesProjectile_18.s"
 
-gUnk_08129DF0:: @ 08129DF0
-	.incbin "projectile13/gUnk_08129DF0.bin"
+gSpriteAnimations_MandiblesProjectile_19:: @ 08129DF0
+	.include "animations/gSpriteAnimations_MandiblesProjectile_19.s"
 
-gUnk_08129DFC:: @ 08129DFC
-	.incbin "projectile13/gUnk_08129DFC.bin"
+gSpriteAnimations_MandiblesProjectile_20:: @ 08129DFC
+	.include "animations/gSpriteAnimations_MandiblesProjectile_20.s"
 
-gUnk_08129E08:: @ 08129E08
-	.incbin "projectile13/gUnk_08129E08.bin"
+gSpriteAnimations_MandiblesProjectile_21:: @ 08129E08
+	.include "animations/gSpriteAnimations_MandiblesProjectile_21.s"
 
-gUnk_08129E14:: @ 08129E14
-	.incbin "projectile13/gUnk_08129E14.bin"
+gSpriteAnimations_MandiblesProjectile_22:: @ 08129E14
+	.include "animations/gSpriteAnimations_MandiblesProjectile_22.s"
 
-gUnk_08129E20:: @ 08129E20
-	.incbin "projectile13/gUnk_08129E20.bin"
+gSpriteAnimations_MandiblesProjectile_23:: @ 08129E20
+	.include "animations/gSpriteAnimations_MandiblesProjectile_23.s"
 
-gUnk_08129E2C:: @ 08129E2C
-	.incbin "projectile13/gUnk_08129E2C.bin"
+gSpriteAnimations_MandiblesProjectile_24:: @ 08129E2C
+	.include "animations/gSpriteAnimations_MandiblesProjectile_24.s"
 
-gUnk_08129E4D:: @ 08129E4D
-	.incbin "projectile13/gUnk_08129E4D.bin"
+gSpriteAnimations_MandiblesProjectile_25:: @ 08129E4D
+	.include "animations/gSpriteAnimations_MandiblesProjectile_25.s"
 
-gUnk_08129E6E:: @ 08129E6E
-	.incbin "projectile13/gUnk_08129E6E.bin"
+gSpriteAnimations_MandiblesProjectile_26:: @ 08129E6E
+	.include "animations/gSpriteAnimations_MandiblesProjectile_26.s"
 
-gUnk_08129E8F:: @ 08129E8F
-	.incbin "projectile13/gUnk_08129E8F.bin"
+gSpriteAnimations_MandiblesProjectile_27:: @ 08129E8F
+	.include "animations/gSpriteAnimations_MandiblesProjectile_27.s"
 
-gUnk_08129EB0:: @ 08129EB0
-	.incbin "projectile13/gUnk_08129EB0.bin"
+gSpriteAnimations_MandiblesProjectile_28:: @ 08129EB0
+	.include "animations/gSpriteAnimations_MandiblesProjectile_28.s"
 
-gUnk_08129ED1:: @ 08129ED1
-	.incbin "projectile13/gUnk_08129ED1.bin"
+gSpriteAnimations_MandiblesProjectile_29:: @ 08129ED1
+	.include "animations/gSpriteAnimations_MandiblesProjectile_29.s"
 
-gUnk_08129EF2:: @ 08129EF2
-	.incbin "projectile13/gUnk_08129EF2.bin"
+gSpriteAnimations_MandiblesProjectile_30:: @ 08129EF2
+	.include "animations/gSpriteAnimations_MandiblesProjectile_30.s"
 
-gUnk_08129F13:: @ 08129F13
-	.incbin "projectile13/gUnk_08129F13.bin"
+gSpriteAnimations_MandiblesProjectile_31:: @ 08129F13
+	.include "animations/gSpriteAnimations_MandiblesProjectile_31.s"
 
 gSpriteAnimations_MandiblesProjectile:: @ 08129F34
-	.4byte gUnk_08129D1C
-	.4byte gUnk_08129D21
-	.4byte gUnk_08129D26
-	.4byte gUnk_08129D2B
-	.4byte gUnk_08129D30
-	.4byte gUnk_08129D35
-	.4byte gUnk_08129D3A
-	.4byte gUnk_08129D3F
-	.4byte gUnk_08129D44
-	.4byte gUnk_08129D55
-	.4byte gUnk_08129D66
-	.4byte gUnk_08129D77
-	.4byte gUnk_08129D88
-	.4byte gUnk_08129D99
-	.4byte gUnk_08129DAA
-	.4byte gUnk_08129DBB
-	.4byte gUnk_08129DCC
-	.4byte gUnk_08129DD8
-	.4byte gUnk_08129DE4
-	.4byte gUnk_08129DF0
-	.4byte gUnk_08129DFC
-	.4byte gUnk_08129E08
-	.4byte gUnk_08129E14
-	.4byte gUnk_08129E20
-	.4byte gUnk_08129E2C
-	.4byte gUnk_08129E4D
-	.4byte gUnk_08129E6E
-	.4byte gUnk_08129E8F
-	.4byte gUnk_08129EB0
-	.4byte gUnk_08129ED1
-	.4byte gUnk_08129EF2
-	.4byte gUnk_08129F13
+	.4byte gSpriteAnimations_MandiblesProjectile_0
+	.4byte gSpriteAnimations_MandiblesProjectile_1
+	.4byte gSpriteAnimations_MandiblesProjectile_2
+	.4byte gSpriteAnimations_MandiblesProjectile_3
+	.4byte gSpriteAnimations_MandiblesProjectile_4
+	.4byte gSpriteAnimations_MandiblesProjectile_5
+	.4byte gSpriteAnimations_MandiblesProjectile_6
+	.4byte gSpriteAnimations_MandiblesProjectile_7
+	.4byte gSpriteAnimations_MandiblesProjectile_8
+	.4byte gSpriteAnimations_MandiblesProjectile_9
+	.4byte gSpriteAnimations_MandiblesProjectile_10
+	.4byte gSpriteAnimations_MandiblesProjectile_11
+	.4byte gSpriteAnimations_MandiblesProjectile_12
+	.4byte gSpriteAnimations_MandiblesProjectile_13
+	.4byte gSpriteAnimations_MandiblesProjectile_14
+	.4byte gSpriteAnimations_MandiblesProjectile_15
+	.4byte gSpriteAnimations_MandiblesProjectile_16
+	.4byte gSpriteAnimations_MandiblesProjectile_17
+	.4byte gSpriteAnimations_MandiblesProjectile_18
+	.4byte gSpriteAnimations_MandiblesProjectile_19
+	.4byte gSpriteAnimations_MandiblesProjectile_20
+	.4byte gSpriteAnimations_MandiblesProjectile_21
+	.4byte gSpriteAnimations_MandiblesProjectile_22
+	.4byte gSpriteAnimations_MandiblesProjectile_23
+	.4byte gSpriteAnimations_MandiblesProjectile_24
+	.4byte gSpriteAnimations_MandiblesProjectile_25
+	.4byte gSpriteAnimations_MandiblesProjectile_26
+	.4byte gSpriteAnimations_MandiblesProjectile_27
+	.4byte gSpriteAnimations_MandiblesProjectile_28
+	.4byte gSpriteAnimations_MandiblesProjectile_29
+	.4byte gSpriteAnimations_MandiblesProjectile_30
+	.4byte gSpriteAnimations_MandiblesProjectile_31
 	.4byte 00000000

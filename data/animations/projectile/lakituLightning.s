@@ -4,9 +4,9 @@
 	.section .rodata
     .align 2
 
-gUnk_08129C08:: @ 08129C08
-	.incbin "projectile12/gUnk_08129C08.bin"
+gSpriteAnimations_LakituLightning_0:: @ 08129C08
+	.include "animations/gSpriteAnimations_LakituLightning_0.s"
 
 gSpriteAnimations_LakituLightning:: @ 08129C74
-	.4byte gUnk_08129C08
+	.4byte gSpriteAnimations_LakituLightning_0
 	.4byte 00000000

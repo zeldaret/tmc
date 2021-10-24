@@ -3,37 +3,37 @@
 
 	.section .rodata
 
-gUnk_080CBF30:: @ 080CBF30
-	.incbin "pesto/gUnk_080CBF30.bin"
+gSpriteAnimations_Pesto_0:: @ 080CBF30
+	.include "animations/gSpriteAnimations_Pesto_0.s"
 
-gUnk_080CBF39:: @ 080CBF39
-	.incbin "pesto/gUnk_080CBF39.bin"
+gSpriteAnimations_Pesto_1:: @ 080CBF39
+	.include "animations/gSpriteAnimations_Pesto_1.s"
 
-gUnk_080CBF42:: @ 080CBF42
-	.incbin "pesto/gUnk_080CBF42.bin"
+gSpriteAnimations_Pesto_2:: @ 080CBF42
+	.include "animations/gSpriteAnimations_Pesto_2.s"
 
-gUnk_080CBF4B:: @ 080CBF4B
-	.incbin "pesto/gUnk_080CBF4B.bin"
+gSpriteAnimations_Pesto_3:: @ 080CBF4B
+	.include "animations/gSpriteAnimations_Pesto_3.s"
 
-gUnk_080CBF54:: @ 080CBF54
-	.incbin "pesto/gUnk_080CBF54.bin"
+gSpriteAnimations_Pesto_4:: @ 080CBF54
+	.include "animations/gSpriteAnimations_Pesto_4.s"
 
-gUnk_080CBF5D:: @ 080CBF5D
-	.incbin "pesto/gUnk_080CBF5D.bin"
+gSpriteAnimations_Pesto_5:: @ 080CBF5D
+	.include "animations/gSpriteAnimations_Pesto_5.s"
 
-gUnk_080CBF66:: @ 080CBF66
-	.incbin "pesto/gUnk_080CBF66.bin"
+gSpriteAnimations_Pesto_6:: @ 080CBF66
+	.include "animations/gSpriteAnimations_Pesto_6.s"
 
-gUnk_080CBF6F:: @ 080CBF6F
-	.incbin "pesto/gUnk_080CBF6F.bin"
+gSpriteAnimations_Pesto_7:: @ 080CBF6F
+	.include "animations/gSpriteAnimations_Pesto_7.s"
 
 gSpriteAnimations_Pesto:: @ 080CBF78
-	.4byte gUnk_080CBF30
-	.4byte gUnk_080CBF39
-	.4byte gUnk_080CBF42
-	.4byte gUnk_080CBF4B
-	.4byte gUnk_080CBF54
-	.4byte gUnk_080CBF5D
-	.4byte gUnk_080CBF66
-	.4byte gUnk_080CBF6F
+	.4byte gSpriteAnimations_Pesto_0
+	.4byte gSpriteAnimations_Pesto_1
+	.4byte gSpriteAnimations_Pesto_2
+	.4byte gSpriteAnimations_Pesto_3
+	.4byte gSpriteAnimations_Pesto_4
+	.4byte gSpriteAnimations_Pesto_5
+	.4byte gSpriteAnimations_Pesto_6
+	.4byte gSpriteAnimations_Pesto_7
 	.4byte 00000000

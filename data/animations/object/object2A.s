@@ -4,9 +4,9 @@
 	.section .rodata
     .align 2
 
-gUnk_08120DD8:: @ 08120DD8
-	.incbin "object2A/gUnk_08120DD8.bin"
+gSpriteAnimations_Object2A_0:: @ 08120DD8
+	.include "animations/gSpriteAnimations_Object2A_0.s"
 
 gSpriteAnimations_Object2A:: @ 08120DEC
-	.4byte gUnk_08120DD8
+	.4byte gSpriteAnimations_Object2A_0
 	.4byte 00000000

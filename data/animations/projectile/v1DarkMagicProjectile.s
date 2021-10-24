@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_0812A44C:: @ 0812A44C
-	.incbin "projectile18/gUnk_0812A44C.bin"
+gSpriteAnimations_V1DarkMagicProjectile_0:: @ 0812A44C
+	.include "animations/gSpriteAnimations_V1DarkMagicProjectile_0.s"
 
-gUnk_0812A46D:: @ 0812A46D
-	.incbin "projectile18/gUnk_0812A46D.bin"
+gSpriteAnimations_V1DarkMagicProjectile_1:: @ 0812A46D
+	.include "animations/gSpriteAnimations_V1DarkMagicProjectile_1.s"
 
 gSpriteAnimations_V1DarkMagicProjectile:: @ 0812A488
-	.4byte gUnk_0812A44C
-	.4byte gUnk_0812A46D
+	.4byte gSpriteAnimations_V1DarkMagicProjectile_0
+	.4byte gSpriteAnimations_V1DarkMagicProjectile_1
 	.4byte 00000000

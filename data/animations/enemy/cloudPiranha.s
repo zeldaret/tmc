@@ -4,53 +4,53 @@
 	.section .rodata
     .align 2
 
-gUnk_080CF530:: @ 080CF530
-	.incbin "cloudPiranha/gUnk_080CF530.bin"
+gSpriteAnimations_CloudPiranha_0:: @ 080CF530
+	.include "animations/gSpriteAnimations_CloudPiranha_0.s"
 
-gUnk_080CF53D:: @ 080CF53D
-	.incbin "cloudPiranha/gUnk_080CF53D.bin"
+gSpriteAnimations_CloudPiranha_1:: @ 080CF53D
+	.include "animations/gSpriteAnimations_CloudPiranha_1.s"
 
-gUnk_080CF54A:: @ 080CF54A
-	.incbin "cloudPiranha/gUnk_080CF54A.bin"
+gSpriteAnimations_CloudPiranha_2:: @ 080CF54A
+	.include "animations/gSpriteAnimations_CloudPiranha_2.s"
 
-gUnk_080CF557:: @ 080CF557
-	.incbin "cloudPiranha/gUnk_080CF557.bin"
+gSpriteAnimations_CloudPiranha_3:: @ 080CF557
+	.include "animations/gSpriteAnimations_CloudPiranha_3.s"
 
-gUnk_080CF564:: @ 080CF564
-	.incbin "cloudPiranha/gUnk_080CF564.bin"
+gSpriteAnimations_CloudPiranha_4:: @ 080CF564
+	.include "animations/gSpriteAnimations_CloudPiranha_4.s"
 
-gUnk_080CF571:: @ 080CF571
-	.incbin "cloudPiranha/gUnk_080CF571.bin"
+gSpriteAnimations_CloudPiranha_5:: @ 080CF571
+	.include "animations/gSpriteAnimations_CloudPiranha_5.s"
 
-gUnk_080CF57E:: @ 080CF57E
-	.incbin "cloudPiranha/gUnk_080CF57E.bin"
+gSpriteAnimations_CloudPiranha_6:: @ 080CF57E
+	.include "animations/gSpriteAnimations_CloudPiranha_6.s"
 
-gUnk_080CF58B:: @ 080CF58B
-	.incbin "cloudPiranha/gUnk_080CF58B.bin"
+gSpriteAnimations_CloudPiranha_7:: @ 080CF58B
+	.include "animations/gSpriteAnimations_CloudPiranha_7.s"
 
-gUnk_080CF598:: @ 080CF598
-	.incbin "cloudPiranha/gUnk_080CF598.bin"
+gSpriteAnimations_CloudPiranha_8:: @ 080CF598
+	.include "animations/gSpriteAnimations_CloudPiranha_8.s"
 
-gUnk_080CF5A5:: @ 080CF5A5
-	.incbin "cloudPiranha/gUnk_080CF5A5.bin"
+gSpriteAnimations_CloudPiranha_9:: @ 080CF5A5
+	.include "animations/gSpriteAnimations_CloudPiranha_9.s"
 
-gUnk_080CF5B2:: @ 080CF5B2
-	.incbin "cloudPiranha/gUnk_080CF5B2.bin"
+gSpriteAnimations_CloudPiranha_10:: @ 080CF5B2
+	.include "animations/gSpriteAnimations_CloudPiranha_10.s"
 
-gUnk_080CF5BF:: @ 080CF5BF
-	.incbin "cloudPiranha/gUnk_080CF5BF.bin"
+gSpriteAnimations_CloudPiranha_11:: @ 080CF5BF
+	.include "animations/gSpriteAnimations_CloudPiranha_11.s"
 
 gSpriteAnimations_CloudPiranha:: @ 080CF5CC
-	.4byte gUnk_080CF530
-	.4byte gUnk_080CF53D
-	.4byte gUnk_080CF54A
-	.4byte gUnk_080CF557
-	.4byte gUnk_080CF564
-	.4byte gUnk_080CF571
-	.4byte gUnk_080CF57E
-	.4byte gUnk_080CF58B
-	.4byte gUnk_080CF598
-	.4byte gUnk_080CF5A5
-	.4byte gUnk_080CF5B2
-	.4byte gUnk_080CF5BF
+	.4byte gSpriteAnimations_CloudPiranha_0
+	.4byte gSpriteAnimations_CloudPiranha_1
+	.4byte gSpriteAnimations_CloudPiranha_2
+	.4byte gSpriteAnimations_CloudPiranha_3
+	.4byte gSpriteAnimations_CloudPiranha_4
+	.4byte gSpriteAnimations_CloudPiranha_5
+	.4byte gSpriteAnimations_CloudPiranha_6
+	.4byte gSpriteAnimations_CloudPiranha_7
+	.4byte gSpriteAnimations_CloudPiranha_8
+	.4byte gSpriteAnimations_CloudPiranha_9
+	.4byte gSpriteAnimations_CloudPiranha_10
+	.4byte gSpriteAnimations_CloudPiranha_11
 	.4byte 00000000

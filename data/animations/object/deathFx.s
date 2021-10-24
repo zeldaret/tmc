@@ -4,24 +4,24 @@
 	.section .rodata
     .align 2
 
-gUnk_0811ECD4:: @ 0811ECD4
-	.incbin "deathFx/gUnk_0811ECD4.bin"
+gSpriteAnimations_DeathFx_1_0:: @ 0811ECD4
+	.include "animations/gSpriteAnimations_DeathFx_1_0.s"
 
-gUnk_0811ED4D:: @ 0811ED4D
-	.incbin "deathFx/gUnk_0811ED4D.bin"
+gSpriteAnimations_DeathFx_1_2:: @ 0811ED4D
+	.include "animations/gSpriteAnimations_DeathFx_1_2.s"
 
-gUnk_0811ED86:: @ 0811ED86
-	.incbin "deathFx/gUnk_0811ED86.bin"
+gSpriteAnimations_DeathFx_1_1:: @ 0811ED86
+	.include "animations/gSpriteAnimations_DeathFx_1_1.s"
 
-gUnk_0811EDB7:: @ 0811EDB7
-	.incbin "deathFx/gUnk_0811EDB7.bin"
+gSpriteAnimations_DeathFx_0_0:: @ 0811EDB7
+	.include "animations/gSpriteAnimations_DeathFx_0_0.s"
 
 gSpriteAnimations_DeathFx_1:: @ 0811EE10
-	.4byte gUnk_0811ECD4
-	.4byte gUnk_0811ED86
-	.4byte gUnk_0811ED4D
+	.4byte gSpriteAnimations_DeathFx_1_0
+	.4byte gSpriteAnimations_DeathFx_1_1
+	.4byte gSpriteAnimations_DeathFx_1_2
 	.4byte 00000000
 
 gSpriteAnimations_DeathFx_0:: @ 0811EE20
-	.4byte gUnk_0811EDB7
+	.4byte gSpriteAnimations_DeathFx_0_0
 	.4byte 00000000

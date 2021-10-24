@@ -761,131 +761,131 @@ gUnk_08126EE4:: @ 08126EE4
 gUnk_08126EEC:: @ 08126EEC
 	.incbin "data_08125104/gUnk_08126EEC.bin"
 
-gUnk_08126EF4:: @ 08126EF4
-	.incbin "data_08125104/gUnk_08126EF4.bin"
+gSpriteAnimations_166_0:: @ 08126EF4
+	.include "animations/gSpriteAnimations_166_0.s"
 
-gUnk_08126EF8:: @ 08126EF8
-	.incbin "data_08125104/gUnk_08126EF8.bin"
+gSpriteAnimations_166_1:: @ 08126EF8
+	.include "animations/gSpriteAnimations_166_1.s"
 
-gUnk_08126EFD:: @ 08126EFD
-	.incbin "data_08125104/gUnk_08126EFD.bin"
+gSpriteAnimations_166_2:: @ 08126EFD
+	.include "animations/gSpriteAnimations_166_2.s"
 
-gUnk_08126F02:: @ 08126F02
-	.incbin "data_08125104/gUnk_08126F02.bin"
+gSpriteAnimations_166_3:: @ 08126F02
+	.include "animations/gSpriteAnimations_166_3.s"
 
-gUnk_08126F13:: @ 08126F13
-	.incbin "data_08125104/gUnk_08126F13.bin"
+gSpriteAnimations_166_7:: @ 08126F13
+	.include "animations/gSpriteAnimations_166_7.s"
 
-gUnk_08126F28:: @ 08126F28
-	.incbin "data_08125104/gUnk_08126F28.bin"
+gSpriteAnimations_166_8:: @ 08126F28
+	.include "animations/gSpriteAnimations_166_8.s"
 
-gUnk_08126F3D:: @ 08126F3D
-	.incbin "data_08125104/gUnk_08126F3D.bin"
+gSpriteAnimations_166_4:: @ 08126F3D
+	.include "animations/gSpriteAnimations_166_4.s"
 
-gUnk_08126F4E:: @ 08126F4E
-	.incbin "data_08125104/gUnk_08126F4E.bin"
+gSpriteAnimations_166_22:: @ 08126F4E
+	.include "animations/gSpriteAnimations_166_22.s"
 
-gUnk_08126F5F:: @ 08126F5F
-	.incbin "data_08125104/gUnk_08126F5F.bin"
+gSpriteAnimations_166_23:: @ 08126F5F
+	.include "animations/gSpriteAnimations_166_23.s"
 
-gUnk_08126F70:: @ 08126F70
-	.incbin "data_08125104/gUnk_08126F70.bin"
+gSpriteAnimations_166_6:: @ 08126F70
+	.include "animations/gSpriteAnimations_166_6.s"
 
-gUnk_08126F81:: @ 08126F81
-	.incbin "data_08125104/gUnk_08126F81.bin"
+gSpriteAnimations_166_5:: @ 08126F81
+	.include "animations/gSpriteAnimations_166_5.s"
 
-gUnk_08126F8A:: @ 08126F8A
-	.incbin "data_08125104/gUnk_08126F8A.bin"
+gSpriteAnimations_166_9:: @ 08126F8A
+	.include "animations/gSpriteAnimations_166_9.s"
 
-gUnk_08126F96:: @ 08126F96
-	.incbin "data_08125104/gUnk_08126F96.bin"
+gSpriteAnimations_166_10:: @ 08126F96
+	.include "animations/gSpriteAnimations_166_10.s"
 
-gUnk_08126FA3:: @ 08126FA3
-	.incbin "data_08125104/gUnk_08126FA3.bin"
+gSpriteAnimations_166_13:: @ 08126FA3
+	.include "animations/gSpriteAnimations_166_13.s"
 
-gUnk_08126FB3:: @ 08126FB3
-	.incbin "data_08125104/gUnk_08126FB3.bin"
+gSpriteAnimations_166_16:: @ 08126FB3
+	.include "animations/gSpriteAnimations_166_16.s"
 
-gUnk_08126FC3:: @ 08126FC3
-	.incbin "data_08125104/gUnk_08126FC3.bin"
+gSpriteAnimations_166_11:: @ 08126FC3
+	.include "animations/gSpriteAnimations_166_11.s"
 
-gUnk_08126FE4:: @ 08126FE4
-	.incbin "data_08125104/gUnk_08126FE4.bin"
+gSpriteAnimations_166_14:: @ 08126FE4
+	.include "animations/gSpriteAnimations_166_14.s"
 
-gUnk_08126FF8:: @ 08126FF8
-	.incbin "data_08125104/gUnk_08126FF8.bin"
+gSpriteAnimations_166_12:: @ 08126FF8
+	.include "animations/gSpriteAnimations_166_12.s"
 
-gUnk_08127019:: @ 08127019
-	.incbin "data_08125104/gUnk_08127019.bin"
+gSpriteAnimations_166_15:: @ 08127019
+	.include "animations/gSpriteAnimations_166_15.s"
 
-gUnk_08127031:: @ 08127031
-	.incbin "data_08125104/gUnk_08127031.bin"
+gSpriteAnimations_166_17:: @ 08127031
+	.include "animations/gSpriteAnimations_166_17.s"
 
-gUnk_08127046:: @ 08127046
-	.incbin "data_08125104/gUnk_08127046.bin"
+gSpriteAnimations_166_18:: @ 08127046
+	.include "animations/gSpriteAnimations_166_18.s"
 
-gUnk_0812705B:: @ 0812705B
-	.incbin "data_08125104/gUnk_0812705B.bin"
+gSpriteAnimations_166_19:: @ 0812705B
+	.include "animations/gSpriteAnimations_166_19.s"
 
-gUnk_081270B7:: @ 081270B7
-	.incbin "data_08125104/gUnk_081270B7.bin"
+gSpriteAnimations_166_20:: @ 081270B7
+	.include "animations/gSpriteAnimations_166_20.s"
 
-gUnk_081270E0:: @ 081270E0
-	.incbin "data_08125104/gUnk_081270E0.bin"
+gSpriteAnimations_166_21:: @ 081270E0
+	.include "animations/gSpriteAnimations_166_21.s"
 
-gUnk_081270F1:: @ 081270F1
-	.incbin "data_08125104/gUnk_081270F1.bin"
+gSpriteAnimations_166_24:: @ 081270F1
+	.include "animations/gSpriteAnimations_166_24.s"
 
-gUnk_081270F6:: @ 081270F6
-	.incbin "data_08125104/gUnk_081270F6.bin"
+gSpriteAnimations_166_25:: @ 081270F6
+	.include "animations/gSpriteAnimations_166_25.s"
 
-gUnk_08127107:: @ 08127107
-	.incbin "data_08125104/gUnk_08127107.bin"
+gSpriteAnimations_166_26:: @ 08127107
+	.include "animations/gSpriteAnimations_166_26.s"
 
-gUnk_08127118:: @ 08127118
-	.incbin "data_08125104/gUnk_08127118.bin"
+gSpriteAnimations_166_27:: @ 08127118
+	.include "animations/gSpriteAnimations_166_27.s"
 
-gUnk_08127129:: @ 08127129
-	.incbin "data_08125104/gUnk_08127129.bin"
+gSpriteAnimations_166_28:: @ 08127129
+	.include "animations/gSpriteAnimations_166_28.s"
 
-gUnk_0812713A:: @ 0812713A
-	.incbin "data_08125104/gUnk_0812713A.bin"
+gSpriteAnimations_166_29:: @ 0812713A
+	.include "animations/gSpriteAnimations_166_29.s"
 
-gUnk_08127143:: @ 08127143
-	.incbin "data_08125104/gUnk_08127143.bin"
+gSpriteAnimations_166_30:: @ 08127143
+	.include "animations/gSpriteAnimations_166_30.s"
 
 gSpriteAnimations_166:: @ 0812714C
-	.4byte gUnk_08126EF4
-	.4byte gUnk_08126EF8
-	.4byte gUnk_08126EFD
-	.4byte gUnk_08126F02
-	.4byte gUnk_08126F3D
-	.4byte gUnk_08126F81
-	.4byte gUnk_08126F70
-	.4byte gUnk_08126F13
-	.4byte gUnk_08126F28
-	.4byte gUnk_08126F8A
-	.4byte gUnk_08126F96
-	.4byte gUnk_08126FC3
-	.4byte gUnk_08126FF8
-	.4byte gUnk_08126FA3
-	.4byte gUnk_08126FE4
-	.4byte gUnk_08127019
-	.4byte gUnk_08126FB3
-	.4byte gUnk_08127031
-	.4byte gUnk_08127046
-	.4byte gUnk_0812705B
-	.4byte gUnk_081270B7
-	.4byte gUnk_081270E0
-	.4byte gUnk_08126F4E
-	.4byte gUnk_08126F5F
-	.4byte gUnk_081270F1
-	.4byte gUnk_081270F6
-	.4byte gUnk_08127107
-	.4byte gUnk_08127118
-	.4byte gUnk_08127129
-	.4byte gUnk_0812713A
-	.4byte gUnk_08127143
+	.4byte gSpriteAnimations_166_0
+	.4byte gSpriteAnimations_166_1
+	.4byte gSpriteAnimations_166_2
+	.4byte gSpriteAnimations_166_3
+	.4byte gSpriteAnimations_166_4
+	.4byte gSpriteAnimations_166_5
+	.4byte gSpriteAnimations_166_6
+	.4byte gSpriteAnimations_166_7
+	.4byte gSpriteAnimations_166_8
+	.4byte gSpriteAnimations_166_9
+	.4byte gSpriteAnimations_166_10
+	.4byte gSpriteAnimations_166_11
+	.4byte gSpriteAnimations_166_12
+	.4byte gSpriteAnimations_166_13
+	.4byte gSpriteAnimations_166_14
+	.4byte gSpriteAnimations_166_15
+	.4byte gSpriteAnimations_166_16
+	.4byte gSpriteAnimations_166_17
+	.4byte gSpriteAnimations_166_18
+	.4byte gSpriteAnimations_166_19
+	.4byte gSpriteAnimations_166_20
+	.4byte gSpriteAnimations_166_21
+	.4byte gSpriteAnimations_166_22
+	.4byte gSpriteAnimations_166_23
+	.4byte gSpriteAnimations_166_24
+	.4byte gSpriteAnimations_166_25
+	.4byte gSpriteAnimations_166_26
+	.4byte gSpriteAnimations_166_27
+	.4byte gSpriteAnimations_166_28
+	.4byte gSpriteAnimations_166_29
+	.4byte gSpriteAnimations_166_30
 	.4byte 00000000
 
 gUnk_081271CC:: @ 081271CC

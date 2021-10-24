@@ -10,6 +10,7 @@ from assets.gfx_group import GfxGroup
 from assets.fixed_type_gfx import FixedTypeGfx
 from assets.frame_obj_lists import FrameObjLists
 from assets.extra_frame_offsets import ExtraFrameOffsets
+from assets.animation import Animation
 
 verbose = False
 
@@ -126,6 +127,9 @@ def extract_assets(variant, assets_folder):
                     elif mode == 'extra_frame_offsets':
                         extra_frame_offsets = ExtraFrameOffsets(path, start, size, options)
                         extra_frame_offsets.extract_binary(baserom)
+                    elif mode == 'animation':
+                        animation = Animation(path, start, size, options)
+                        animation.extract_binary(baserom)
                     elif mode != '':
                         print(f'Asset type {mode} not yet implemented')
 

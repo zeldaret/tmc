@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_080D1C70:: @ 080D1C70
-	.incbin "gyorgMale/gUnk_080D1C70.bin"
+gSpriteAnimations_GyorgMale_0:: @ 080D1C70
+	.include "animations/gSpriteAnimations_GyorgMale_0.s"
 
-gUnk_080D1C91:: @ 080D1C91
-	.incbin "gyorgMale/gUnk_080D1C91.bin"
+gSpriteAnimations_GyorgMale_1:: @ 080D1C91
+	.include "animations/gSpriteAnimations_GyorgMale_1.s"
 
 gSpriteAnimations_GyorgMale:: @ 080D1CBC
-	.4byte gUnk_080D1C70
-	.4byte gUnk_080D1C91
+	.4byte gSpriteAnimations_GyorgMale_0
+	.4byte gSpriteAnimations_GyorgMale_1
 	.4byte 00000000

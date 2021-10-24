@@ -4,17 +4,17 @@
 	.section .rodata
     .align 2
 
-gUnk_08123698:: @ 08123698
-	.incbin "bigVortex/gUnk_08123698.bin"
+gSpriteAnimations_BigVortex_0:: @ 08123698
+	.include "animations/gSpriteAnimations_BigVortex_0.s"
 
-gUnk_081236A9:: @ 081236A9
-	.incbin "bigVortex/gUnk_081236A9.bin"
+gSpriteAnimations_BigVortex_1:: @ 081236A9
+	.include "animations/gSpriteAnimations_BigVortex_1.s"
 
-gUnk_081236BA:: @ 081236BA
-	.incbin "bigVortex/gUnk_081236BA.bin"
+gSpriteAnimations_BigVortex_2:: @ 081236BA
+	.include "animations/gSpriteAnimations_BigVortex_2.s"
 
 gSpriteAnimations_BigVortex:: @ 081236CC
-	.4byte gUnk_08123698
-	.4byte gUnk_081236A9
-	.4byte gUnk_081236BA
+	.4byte gSpriteAnimations_BigVortex_0
+	.4byte gSpriteAnimations_BigVortex_1
+	.4byte gSpriteAnimations_BigVortex_2
 	.4byte 00000000

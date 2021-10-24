@@ -5,45 +5,45 @@
     .align 2
 
 
-gUnk_080CEF7C:: @ 080CEF7C
-	.incbin "mazaalHand/gUnk_080CEF7C.bin"
+gSpriteAnimations_MazaalHand_0:: @ 080CEF7C
+	.include "animations/gSpriteAnimations_MazaalHand_0.s"
 
-gUnk_080CEF9D:: @ 080CEF9D
-	.incbin "mazaalHand/gUnk_080CEF9D.bin"
+gSpriteAnimations_MazaalHand_1:: @ 080CEF9D
+	.include "animations/gSpriteAnimations_MazaalHand_1.s"
 
-gUnk_080CEFA5:: @ 080CEFA5
-	.incbin "mazaalHand/gUnk_080CEFA5.bin"
+gSpriteAnimations_MazaalHand_2:: @ 080CEFA5
+	.include "animations/gSpriteAnimations_MazaalHand_2.s"
 
-gUnk_080CEFAE:: @ 080CEFAE
-	.incbin "mazaalHand/gUnk_080CEFAE.bin"
+gSpriteAnimations_MazaalHand_3:: @ 080CEFAE
+	.include "animations/gSpriteAnimations_MazaalHand_3.s"
 
-gUnk_080CEFB2:: @ 080CEFB2
-	.incbin "mazaalHand/gUnk_080CEFB2.bin"
+gSpriteAnimations_MazaalHand_4:: @ 080CEFB2
+	.include "animations/gSpriteAnimations_MazaalHand_4.s"
 
-gUnk_080CEFB6:: @ 080CEFB6
-	.incbin "mazaalHand/gUnk_080CEFB6.bin"
+gSpriteAnimations_MazaalHand_5:: @ 080CEFB6
+	.include "animations/gSpriteAnimations_MazaalHand_5.s"
 
-gUnk_080CEFCB:: @ 080CEFCB
-	.incbin "mazaalHand/gUnk_080CEFCB.bin"
+gSpriteAnimations_MazaalHand_6:: @ 080CEFCB
+	.include "animations/gSpriteAnimations_MazaalHand_6.s"
 
-gUnk_080CEFE0:: @ 080CEFE0
-	.incbin "mazaalHand/gUnk_080CEFE0.bin"
+gSpriteAnimations_MazaalHand_7:: @ 080CEFE0
+	.include "animations/gSpriteAnimations_MazaalHand_7.s"
 
-gUnk_080CEFE9:: @ 080CEFE9
-	.incbin "mazaalHand/gUnk_080CEFE9.bin"
+gSpriteAnimations_MazaalHand_8:: @ 080CEFE9
+	.include "animations/gSpriteAnimations_MazaalHand_8.s"
 
-gUnk_080CF002:: @ 080CF002
-	.incbin "mazaalHand/gUnk_080CF002.bin"
+gSpriteAnimations_MazaalHand_9:: @ 080CF002
+	.include "animations/gSpriteAnimations_MazaalHand_9.s"
 
 gSpriteAnimations_MazaalHand:: @ 080CF014
-	.4byte gUnk_080CEF7C
-	.4byte gUnk_080CEF9D
-	.4byte gUnk_080CEFA5
-	.4byte gUnk_080CEFAE
-	.4byte gUnk_080CEFB2
-	.4byte gUnk_080CEFB6
-	.4byte gUnk_080CEFCB
-	.4byte gUnk_080CEFE0
-	.4byte gUnk_080CEFE9
-	.4byte gUnk_080CF002
+	.4byte gSpriteAnimations_MazaalHand_0
+	.4byte gSpriteAnimations_MazaalHand_1
+	.4byte gSpriteAnimations_MazaalHand_2
+	.4byte gSpriteAnimations_MazaalHand_3
+	.4byte gSpriteAnimations_MazaalHand_4
+	.4byte gSpriteAnimations_MazaalHand_5
+	.4byte gSpriteAnimations_MazaalHand_6
+	.4byte gSpriteAnimations_MazaalHand_7
+	.4byte gSpriteAnimations_MazaalHand_8
+	.4byte gSpriteAnimations_MazaalHand_9
 	.4byte 00000000

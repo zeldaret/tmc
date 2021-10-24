@@ -4,25 +4,25 @@
 	.section .rodata
     .align 2
 
-gUnk_0810F9F4:: @ 0810F9F4
-	.incbin "farore/gUnk_0810F9F4.bin"
+gSpriteAnimations_Farore_0:: @ 0810F9F4
+	.include "animations/gSpriteAnimations_Farore_0.s"
 
-gUnk_0810F9F9:: @ 0810F9F9
-	.incbin "farore/gUnk_0810F9F9.bin"
+gSpriteAnimations_Farore_3:: @ 0810F9F9
+	.include "animations/gSpriteAnimations_Farore_3.s"
 
-gUnk_0810F9FE:: @ 0810F9FE
-	.incbin "farore/gUnk_0810F9FE.bin"
+gSpriteAnimations_Farore_1:: @ 0810F9FE
+	.include "animations/gSpriteAnimations_Farore_1.s"
 
-gUnk_0810FA03:: @ 0810FA03
-	.incbin "farore/gUnk_0810FA03.bin"
+gSpriteAnimations_Farore_4:: @ 0810FA03
+	.include "animations/gSpriteAnimations_Farore_4.s"
 
 gSpriteAnimations_Farore:: @ 0810FA14
-	.4byte gUnk_0810F9F4
-	.4byte gUnk_0810F9FE
-	.4byte gUnk_0810F9F4
-	.4byte gUnk_0810F9F9
-	.4byte gUnk_0810FA03
-	.4byte gUnk_0810FA03
-	.4byte gUnk_0810FA03
-	.4byte gUnk_0810FA03
+	.4byte gSpriteAnimations_Farore_0
+	.4byte gSpriteAnimations_Farore_1
+	.4byte gSpriteAnimations_Farore_0
+	.4byte gSpriteAnimations_Farore_3
+	.4byte gSpriteAnimations_Farore_4
+	.4byte gSpriteAnimations_Farore_4
+	.4byte gSpriteAnimations_Farore_4
+	.4byte gSpriteAnimations_Farore_4
 	.4byte 00000000

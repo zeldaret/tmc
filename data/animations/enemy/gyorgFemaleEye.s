@@ -4,101 +4,101 @@
 	.section .rodata
     .align 2
 
-gUnk_080D2050:: @ 080D2050
-	.incbin "gyorgFemaleEye/gUnk_080D2050.bin"
+gSpriteAnimations_GyorgFemaleEye_0:: @ 080D2050
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_0.s"
 
-gUnk_080D2064:: @ 080D2064
-	.incbin "gyorgFemaleEye/gUnk_080D2064.bin"
+gSpriteAnimations_GyorgFemaleEye_1:: @ 080D2064
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_1.s"
 
-gUnk_080D2078:: @ 080D2078
-	.incbin "gyorgFemaleEye/gUnk_080D2078.bin"
+gSpriteAnimations_GyorgFemaleEye_2:: @ 080D2078
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_2.s"
 
-gUnk_080D208C:: @ 080D208C
-	.incbin "gyorgFemaleEye/gUnk_080D208C.bin"
+gSpriteAnimations_GyorgFemaleEye_3:: @ 080D208C
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_3.s"
 
-gUnk_080D20A0:: @ 080D20A0
-	.incbin "gyorgFemaleEye/gUnk_080D20A0.bin"
+gSpriteAnimations_GyorgFemaleEye_4:: @ 080D20A0
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_4.s"
 
-gUnk_080D20B4:: @ 080D20B4
-	.incbin "gyorgFemaleEye/gUnk_080D20B4.bin"
+gSpriteAnimations_GyorgFemaleEye_5:: @ 080D20B4
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_5.s"
 
-gUnk_080D20C8:: @ 080D20C8
-	.incbin "gyorgFemaleEye/gUnk_080D20C8.bin"
+gSpriteAnimations_GyorgFemaleEye_6:: @ 080D20C8
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_6.s"
 
-gUnk_080D20DC:: @ 080D20DC
-	.incbin "gyorgFemaleEye/gUnk_080D20DC.bin"
+gSpriteAnimations_GyorgFemaleEye_7:: @ 080D20DC
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_7.s"
 
-gUnk_080D20F0:: @ 080D20F0
-	.incbin "gyorgFemaleEye/gUnk_080D20F0.bin"
+gSpriteAnimations_GyorgFemaleEye_8:: @ 080D20F0
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_8.s"
 
-gUnk_080D2104:: @ 080D2104
-	.incbin "gyorgFemaleEye/gUnk_080D2104.bin"
+gSpriteAnimations_GyorgFemaleEye_9:: @ 080D2104
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_9.s"
 
-gUnk_080D2118:: @ 080D2118
-	.incbin "gyorgFemaleEye/gUnk_080D2118.bin"
+gSpriteAnimations_GyorgFemaleEye_10:: @ 080D2118
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_10.s"
 
-gUnk_080D212C:: @ 080D212C
-	.incbin "gyorgFemaleEye/gUnk_080D212C.bin"
+gSpriteAnimations_GyorgFemaleEye_11:: @ 080D212C
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_11.s"
 
-gUnk_080D2140:: @ 080D2140
-	.incbin "gyorgFemaleEye/gUnk_080D2140.bin"
+gSpriteAnimations_GyorgFemaleEye_12:: @ 080D2140
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_12.s"
 
-gUnk_080D2154:: @ 080D2154
-	.incbin "gyorgFemaleEye/gUnk_080D2154.bin"
+gSpriteAnimations_GyorgFemaleEye_13:: @ 080D2154
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_13.s"
 
-gUnk_080D2168:: @ 080D2168
-	.incbin "gyorgFemaleEye/gUnk_080D2168.bin"
+gSpriteAnimations_GyorgFemaleEye_14:: @ 080D2168
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_14.s"
 
-gUnk_080D217C:: @ 080D217C
-	.incbin "gyorgFemaleEye/gUnk_080D217C.bin"
+gSpriteAnimations_GyorgFemaleEye_15:: @ 080D217C
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_15.s"
 
-gUnk_080D2190:: @ 080D2190
-	.incbin "gyorgFemaleEye/gUnk_080D2190.bin"
+gSpriteAnimations_GyorgFemaleEye_16:: @ 080D2190
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_16.s"
 
-gUnk_080D21B9:: @ 080D21B9
-	.incbin "gyorgFemaleEye/gUnk_080D21B9.bin"
+gSpriteAnimations_GyorgFemaleEye_17:: @ 080D21B9
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_17.s"
 
-gUnk_080D21E2:: @ 080D21E2
-	.incbin "gyorgFemaleEye/gUnk_080D21E2.bin"
+gSpriteAnimations_GyorgFemaleEye_18:: @ 080D21E2
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_18.s"
 
-gUnk_080D220B:: @ 080D220B
-	.incbin "gyorgFemaleEye/gUnk_080D220B.bin"
+gSpriteAnimations_GyorgFemaleEye_19:: @ 080D220B
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_19.s"
 
-gUnk_080D2234:: @ 080D2234
-	.incbin "gyorgFemaleEye/gUnk_080D2234.bin"
+gSpriteAnimations_GyorgFemaleEye_20:: @ 080D2234
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_20.s"
 
-gUnk_080D2244:: @ 080D2244
-	.incbin "gyorgFemaleEye/gUnk_080D2244.bin"
+gSpriteAnimations_GyorgFemaleEye_21:: @ 080D2244
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_21.s"
 
-gUnk_080D2254:: @ 080D2254
-	.incbin "gyorgFemaleEye/gUnk_080D2254.bin"
+gSpriteAnimations_GyorgFemaleEye_22:: @ 080D2254
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_22.s"
 
-gUnk_080D2264:: @ 080D2264
-	.incbin "gyorgFemaleEye/gUnk_080D2264.bin"
+gSpriteAnimations_GyorgFemaleEye_23:: @ 080D2264
+	.include "animations/gSpriteAnimations_GyorgFemaleEye_23.s"
 
 gSpriteAnimations_GyorgFemaleEye:: @ 080D2274
-	.4byte gUnk_080D2050
-	.4byte gUnk_080D2064
-	.4byte gUnk_080D2078
-	.4byte gUnk_080D208C
-	.4byte gUnk_080D20A0
-	.4byte gUnk_080D20B4
-	.4byte gUnk_080D20C8
-	.4byte gUnk_080D20DC
-	.4byte gUnk_080D20F0
-	.4byte gUnk_080D2104
-	.4byte gUnk_080D2118
-	.4byte gUnk_080D212C
-	.4byte gUnk_080D2140
-	.4byte gUnk_080D2154
-	.4byte gUnk_080D2168
-	.4byte gUnk_080D217C
-	.4byte gUnk_080D2190
-	.4byte gUnk_080D21B9
-	.4byte gUnk_080D21E2
-	.4byte gUnk_080D220B
-	.4byte gUnk_080D2234
-	.4byte gUnk_080D2244
-	.4byte gUnk_080D2254
-	.4byte gUnk_080D2264
+	.4byte gSpriteAnimations_GyorgFemaleEye_0
+	.4byte gSpriteAnimations_GyorgFemaleEye_1
+	.4byte gSpriteAnimations_GyorgFemaleEye_2
+	.4byte gSpriteAnimations_GyorgFemaleEye_3
+	.4byte gSpriteAnimations_GyorgFemaleEye_4
+	.4byte gSpriteAnimations_GyorgFemaleEye_5
+	.4byte gSpriteAnimations_GyorgFemaleEye_6
+	.4byte gSpriteAnimations_GyorgFemaleEye_7
+	.4byte gSpriteAnimations_GyorgFemaleEye_8
+	.4byte gSpriteAnimations_GyorgFemaleEye_9
+	.4byte gSpriteAnimations_GyorgFemaleEye_10
+	.4byte gSpriteAnimations_GyorgFemaleEye_11
+	.4byte gSpriteAnimations_GyorgFemaleEye_12
+	.4byte gSpriteAnimations_GyorgFemaleEye_13
+	.4byte gSpriteAnimations_GyorgFemaleEye_14
+	.4byte gSpriteAnimations_GyorgFemaleEye_15
+	.4byte gSpriteAnimations_GyorgFemaleEye_16
+	.4byte gSpriteAnimations_GyorgFemaleEye_17
+	.4byte gSpriteAnimations_GyorgFemaleEye_18
+	.4byte gSpriteAnimations_GyorgFemaleEye_19
+	.4byte gSpriteAnimations_GyorgFemaleEye_20
+	.4byte gSpriteAnimations_GyorgFemaleEye_21
+	.4byte gSpriteAnimations_GyorgFemaleEye_22
+	.4byte gSpriteAnimations_GyorgFemaleEye_23
 	.4byte 00000000

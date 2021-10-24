@@ -4,89 +4,89 @@
 	.section .rodata
  @   .align 2
 
-gUnk_080D141E:: @ 080D141E
-	.incbin "vaatiArm/gUnk_080D141E.bin"
+gSpriteAnimations_VaatiArm_0:: @ 080D141E
+	.include "animations/gSpriteAnimations_VaatiArm_0.s"
 
-gUnk_080D142B:: @ 080D142B
-	.incbin "vaatiArm/gUnk_080D142B.bin"
+gSpriteAnimations_VaatiArm_1:: @ 080D142B
+	.include "animations/gSpriteAnimations_VaatiArm_1.s"
 
-gUnk_080D1430:: @ 080D1430
-	.incbin "vaatiArm/gUnk_080D1430.bin"
+gSpriteAnimations_VaatiArm_2:: @ 080D1430
+	.include "animations/gSpriteAnimations_VaatiArm_2.s"
 
-gUnk_080D1435:: @ 080D1435
-	.incbin "vaatiArm/gUnk_080D1435.bin"
+gSpriteAnimations_VaatiArm_3:: @ 080D1435
+	.include "animations/gSpriteAnimations_VaatiArm_3.s"
 
-gUnk_080D143A:: @ 080D143A
-	.incbin "vaatiArm/gUnk_080D143A.bin"
+gSpriteAnimations_VaatiArm_4:: @ 080D143A
+	.include "animations/gSpriteAnimations_VaatiArm_4.s"
 
-gUnk_080D143F:: @ 080D143F
-	.incbin "vaatiArm/gUnk_080D143F.bin"
+gSpriteAnimations_VaatiArm_5:: @ 080D143F
+	.include "animations/gSpriteAnimations_VaatiArm_5.s"
 
-gUnk_080D1444:: @ 080D1444
-	.incbin "vaatiArm/gUnk_080D1444.bin"
+gSpriteAnimations_VaatiArm_6:: @ 080D1444
+	.include "animations/gSpriteAnimations_VaatiArm_6.s"
 
-gUnk_080D1449:: @ 080D1449
-	.incbin "vaatiArm/gUnk_080D1449.bin"
+gSpriteAnimations_VaatiArm_7:: @ 080D1449
+	.include "animations/gSpriteAnimations_VaatiArm_7.s"
 
-gUnk_080D144E:: @ 080D144E
-	.incbin "vaatiArm/gUnk_080D144E.bin"
+gSpriteAnimations_VaatiArm_8:: @ 080D144E
+	.include "animations/gSpriteAnimations_VaatiArm_8.s"
 
-gUnk_080D1453:: @ 080D1453
-	.incbin "vaatiArm/gUnk_080D1453.bin"
+gSpriteAnimations_VaatiArm_9:: @ 080D1453
+	.include "animations/gSpriteAnimations_VaatiArm_9.s"
 
-gUnk_080D1458:: @ 080D1458
-	.incbin "vaatiArm/gUnk_080D1458.bin"
+gSpriteAnimations_VaatiArm_10:: @ 080D1458
+	.include "animations/gSpriteAnimations_VaatiArm_10.s"
 
-gUnk_080D145D:: @ 080D145D
-	.incbin "vaatiArm/gUnk_080D145D.bin"
+gSpriteAnimations_VaatiArm_11:: @ 080D145D
+	.include "animations/gSpriteAnimations_VaatiArm_11.s"
 
-gUnk_080D1462:: @ 080D1462
-	.incbin "vaatiArm/gUnk_080D1462.bin"
+gSpriteAnimations_VaatiArm_12:: @ 080D1462
+	.include "animations/gSpriteAnimations_VaatiArm_12.s"
 
-gUnk_080D1467:: @ 080D1467
-	.incbin "vaatiArm/gUnk_080D1467.bin"
+gSpriteAnimations_VaatiArm_13:: @ 080D1467
+	.include "animations/gSpriteAnimations_VaatiArm_13.s"
 
-gUnk_080D1488:: @ 080D1488
-	.incbin "vaatiArm/gUnk_080D1488.bin"
+gSpriteAnimations_VaatiArm_14:: @ 080D1488
+	.include "animations/gSpriteAnimations_VaatiArm_14.s"
 
-gUnk_080D148D:: @ 080D148D
-	.incbin "vaatiArm/gUnk_080D148D.bin"
+gSpriteAnimations_VaatiArm_15:: @ 080D148D
+	.include "animations/gSpriteAnimations_VaatiArm_15.s"
 
-gUnk_080D14DE:: @ 080D14DE
-	.incbin "vaatiArm/gUnk_080D14DE.bin"
+gSpriteAnimations_VaatiArm_16:: @ 080D14DE
+	.include "animations/gSpriteAnimations_VaatiArm_16.s"
 
-gUnk_080D14F3:: @ 080D14F3
-	.incbin "vaatiArm/gUnk_080D14F3.bin"
+gSpriteAnimations_VaatiArm_17:: @ 080D14F3
+	.include "animations/gSpriteAnimations_VaatiArm_17.s"
 
-gUnk_080D150C:: @ 080D150C
-	.incbin "vaatiArm/gUnk_080D150C.bin"
+gSpriteAnimations_VaatiArm_18:: @ 080D150C
+	.include "animations/gSpriteAnimations_VaatiArm_18.s"
 
-gUnk_080D1525:: @ 080D1525
-	.incbin "vaatiArm/gUnk_080D1525.bin"
+gSpriteAnimations_VaatiArm_19:: @ 080D1525
+	.include "animations/gSpriteAnimations_VaatiArm_19.s"
 
-gUnk_080D152A:: @ 080D152A
-	.incbin "vaatiArm/gUnk_080D152A.bin"
+gSpriteAnimations_VaatiArm_20:: @ 080D152A
+	.include "animations/gSpriteAnimations_VaatiArm_20.s"
 
 gSpriteAnimations_VaatiArm:: @ 080D1530
-	.4byte gUnk_080D141E
-	.4byte gUnk_080D142B
-	.4byte gUnk_080D1430
-	.4byte gUnk_080D1435
-	.4byte gUnk_080D143A
-	.4byte gUnk_080D143F
-	.4byte gUnk_080D1444
-	.4byte gUnk_080D1449
-	.4byte gUnk_080D144E
-	.4byte gUnk_080D1453
-	.4byte gUnk_080D1458
-	.4byte gUnk_080D145D
-	.4byte gUnk_080D1462
-	.4byte gUnk_080D1467
-	.4byte gUnk_080D1488
-	.4byte gUnk_080D148D
-	.4byte gUnk_080D14DE
-	.4byte gUnk_080D14F3
-	.4byte gUnk_080D150C
-	.4byte gUnk_080D1525
-	.4byte gUnk_080D152A
+	.4byte gSpriteAnimations_VaatiArm_0
+	.4byte gSpriteAnimations_VaatiArm_1
+	.4byte gSpriteAnimations_VaatiArm_2
+	.4byte gSpriteAnimations_VaatiArm_3
+	.4byte gSpriteAnimations_VaatiArm_4
+	.4byte gSpriteAnimations_VaatiArm_5
+	.4byte gSpriteAnimations_VaatiArm_6
+	.4byte gSpriteAnimations_VaatiArm_7
+	.4byte gSpriteAnimations_VaatiArm_8
+	.4byte gSpriteAnimations_VaatiArm_9
+	.4byte gSpriteAnimations_VaatiArm_10
+	.4byte gSpriteAnimations_VaatiArm_11
+	.4byte gSpriteAnimations_VaatiArm_12
+	.4byte gSpriteAnimations_VaatiArm_13
+	.4byte gSpriteAnimations_VaatiArm_14
+	.4byte gSpriteAnimations_VaatiArm_15
+	.4byte gSpriteAnimations_VaatiArm_16
+	.4byte gSpriteAnimations_VaatiArm_17
+	.4byte gSpriteAnimations_VaatiArm_18
+	.4byte gSpriteAnimations_VaatiArm_19
+	.4byte gSpriteAnimations_VaatiArm_20
 	.4byte 00000000

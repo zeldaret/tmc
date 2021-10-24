@@ -3,13 +3,13 @@
 
 	.section .rodata
 
-gUnk_080CB706:: @ 080CB706
-	.incbin "keese/gUnk_080CB706.bin"
+gSpriteAnimations_Keese_0:: @ 080CB706
+	.include "animations/gSpriteAnimations_Keese_0.s"
 
-gUnk_080CB71E:: @ 080CB71E
-	.incbin "keese/gUnk_080CB71E.bin"
+gSpriteAnimations_Keese_1:: @ 080CB71E
+	.include "animations/gSpriteAnimations_Keese_1.s"
 
 gSpriteAnimations_Keese:: @ 080CB728
-	.4byte gUnk_080CB706
-	.4byte gUnk_080CB71E
+	.4byte gSpriteAnimations_Keese_0
+	.4byte gSpriteAnimations_Keese_1
 	.4byte 00000000

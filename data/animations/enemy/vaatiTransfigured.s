@@ -4,106 +4,106 @@
 	.section .rodata
     .align 2
 
-gUnk_080D0BA4:: @ 080D0BA4
-	.incbin "vaatiTransfigured/gUnk_080D0BA4.bin"
+gSpriteAnimations_VaatiTransfigured_0_0:: @ 080D0BA4
+	.include "animations/gSpriteAnimations_VaatiTransfigured_0_0.s"
 
-gUnk_080D0BB5:: @ 080D0BB5
-	.incbin "vaatiTransfigured/gUnk_080D0BB5.bin"
+gSpriteAnimations_VaatiTransfigured_0_4:: @ 080D0BB5
+	.include "animations/gSpriteAnimations_VaatiTransfigured_0_4.s"
 
 gSpriteAnimations_VaatiTransfigured_0:: @ 080D0BC4
-	.4byte gUnk_080D0BA4
-	.4byte gUnk_080D0BA4
-	.4byte gUnk_080D0BA4
-	.4byte gUnk_080D0BA4
-	.4byte gUnk_080D0BB5
+	.4byte gSpriteAnimations_VaatiTransfigured_0_0
+	.4byte gSpriteAnimations_VaatiTransfigured_0_0
+	.4byte gSpriteAnimations_VaatiTransfigured_0_0
+	.4byte gSpriteAnimations_VaatiTransfigured_0_0
+	.4byte gSpriteAnimations_VaatiTransfigured_0_4
 	.4byte 00000000
 
-gUnk_080D0BDC:: @ 080D0BDC
-	.incbin "vaatiTransfigured/gUnk_080D0BDC.bin"
+gSpriteAnimations_VaatiTransfigured_2_0:: @ 080D0BDC
+	.include "animations/gSpriteAnimations_VaatiTransfigured_2_0.s"
 
-gUnk_080D0BE1:: @ 080D0BE1
-	.incbin "vaatiTransfigured/gUnk_080D0BE1.bin"
+gSpriteAnimations_VaatiTransfigured_2_4:: @ 080D0BE1
+	.include "animations/gSpriteAnimations_VaatiTransfigured_2_4.s"
 
-gUnk_080D0BED:: @ 080D0BED
-	.incbin "vaatiTransfigured/gUnk_080D0BED.bin"
+gSpriteAnimations_VaatiTransfigured_2_5:: @ 080D0BED
+	.include "animations/gSpriteAnimations_VaatiTransfigured_2_5.s"
 
-gUnk_080D0BF2:: @ 080D0BF2
-	.incbin "vaatiTransfigured/gUnk_080D0BF2.bin"
+gSpriteAnimations_VaatiTransfigured_2_6:: @ 080D0BF2
+	.include "animations/gSpriteAnimations_VaatiTransfigured_2_6.s"
 
-gUnk_080D0BF7:: @ 080D0BF7
-	.incbin "vaatiTransfigured/gUnk_080D0BF7.bin"
+gSpriteAnimations_VaatiTransfigured_2_7:: @ 080D0BF7
+	.include "animations/gSpriteAnimations_VaatiTransfigured_2_7.s"
 
-gUnk_080D0BFC:: @ 080D0BFC
-	.incbin "vaatiTransfigured/gUnk_080D0BFC.bin"
+gSpriteAnimations_VaatiTransfigured_2_8:: @ 080D0BFC
+	.include "animations/gSpriteAnimations_VaatiTransfigured_2_8.s"
 
 gSpriteAnimations_VaatiTransfigured_2:: @ 080D0C0C
-	.4byte gUnk_080D0BDC
-	.4byte gUnk_080D0BDC
-	.4byte gUnk_080D0BDC
-	.4byte gUnk_080D0BDC
-	.4byte gUnk_080D0BE1
-	.4byte gUnk_080D0BED
-	.4byte gUnk_080D0BF2
-	.4byte gUnk_080D0BF7
-	.4byte gUnk_080D0BFC
+	.4byte gSpriteAnimations_VaatiTransfigured_2_0
+	.4byte gSpriteAnimations_VaatiTransfigured_2_0
+	.4byte gSpriteAnimations_VaatiTransfigured_2_0
+	.4byte gSpriteAnimations_VaatiTransfigured_2_0
+	.4byte gSpriteAnimations_VaatiTransfigured_2_4
+	.4byte gSpriteAnimations_VaatiTransfigured_2_5
+	.4byte gSpriteAnimations_VaatiTransfigured_2_6
+	.4byte gSpriteAnimations_VaatiTransfigured_2_7
+	.4byte gSpriteAnimations_VaatiTransfigured_2_8
 	.4byte 00000000
 
-gUnk_080D0C34:: @ 080D0C34
-	.incbin "vaatiTransfigured/gUnk_080D0C34.bin"
+gSpriteAnimations_VaatiTransfigured_1_0:: @ 080D0C34
+	.include "animations/gSpriteAnimations_VaatiTransfigured_1_0.s"
 
-gUnk_080D0C55:: @ 080D0C55
-	.incbin "vaatiTransfigured/gUnk_080D0C55.bin"
+gSpriteAnimations_VaatiTransfigured_1_1:: @ 080D0C55
+	.include "animations/gSpriteAnimations_VaatiTransfigured_1_1.s"
 
 gSpriteAnimations_VaatiTransfigured_1:: @ 080D0C88
-	.4byte gUnk_080D0C34
-	.4byte gUnk_080D0C55
-	.4byte gUnk_080D0C34
-	.4byte gUnk_080D0C34
-	.4byte gUnk_080D0C34
+	.4byte gSpriteAnimations_VaatiTransfigured_1_0
+	.4byte gSpriteAnimations_VaatiTransfigured_1_1
+	.4byte gSpriteAnimations_VaatiTransfigured_1_0
+	.4byte gSpriteAnimations_VaatiTransfigured_1_0
+	.4byte gSpriteAnimations_VaatiTransfigured_1_0
 	.4byte 00000000
 
-gUnk_080D0CA0:: @ 080D0CA0
-	.incbin "vaatiTransfigured/gUnk_080D0CA0.bin"
+gSpriteAnimations_VaatiTransfigured_3_0:: @ 080D0CA0
+	.include "animations/gSpriteAnimations_VaatiTransfigured_3_0.s"
 
-gUnk_080D0CA5:: @ 080D0CA5
-	.incbin "vaatiTransfigured/gUnk_080D0CA5.bin"
+gSpriteAnimations_VaatiTransfigured_3_2:: @ 080D0CA5
+	.include "animations/gSpriteAnimations_VaatiTransfigured_3_2.s"
 
-gUnk_080D0CD5:: @ 080D0CD5
-	.incbin "vaatiTransfigured/gUnk_080D0CD5.bin"
+gSpriteAnimations_VaatiTransfigured_3_3:: @ 080D0CD5
+	.include "animations/gSpriteAnimations_VaatiTransfigured_3_3.s"
 
-gUnk_080D0CE6:: @ 080D0CE6
-	.incbin "vaatiTransfigured/gUnk_080D0CE6.bin"
+gSpriteAnimations_VaatiTransfigured_3_4:: @ 080D0CE6
+	.include "animations/gSpriteAnimations_VaatiTransfigured_3_4.s"
 
 gSpriteAnimations_VaatiTransfigured_3:: @ 080D0CF4
-	.4byte gUnk_080D0CA0
-	.4byte gUnk_080D0CA0
-	.4byte gUnk_080D0CA5
-	.4byte gUnk_080D0CD5
-	.4byte gUnk_080D0CE6
+	.4byte gSpriteAnimations_VaatiTransfigured_3_0
+	.4byte gSpriteAnimations_VaatiTransfigured_3_0
+	.4byte gSpriteAnimations_VaatiTransfigured_3_2
+	.4byte gSpriteAnimations_VaatiTransfigured_3_3
+	.4byte gSpriteAnimations_VaatiTransfigured_3_4
 	.4byte 00000000
 
-gUnk_080D0D0C:: @ 080D0D0C
-	.incbin "vaatiTransfigured/gUnk_080D0D0C.bin"
+gSpriteAnimations_VaatiTransfigured_4_0:: @ 080D0D0C
+	.include "animations/gSpriteAnimations_VaatiTransfigured_4_0.s"
 
 gSpriteAnimations_VaatiTransfigured_4:: @ 080D0D40
-	.4byte gUnk_080D0D0C
-	.incbin "vaatiTransfigured/gSpriteAnimations_VaatiTransfigured_4.bin"
+	.4byte gSpriteAnimations_VaatiTransfigured_4_0
+	.include "animations/gSpriteAnimations_VaatiTransfigured_4.s"
 
-gUnk_080D0D48:: @ 080D0D48
-	.incbin "vaatiTransfigured/gUnk_080D0D48.bin"
+gSpriteAnimations_VaatiTransfigured_5_0:: @ 080D0D48
+	.include "animations/gSpriteAnimations_VaatiTransfigured_5_0.s"
 
-gUnk_080D0D78:: @ 080D0D78
-	.incbin "vaatiTransfigured/gUnk_080D0D78.bin"
+gSpriteAnimations_VaatiTransfigured_5_1:: @ 080D0D78
+	.include "animations/gSpriteAnimations_VaatiTransfigured_5_1.s"
 
-gUnk_080D0D91:: @ 080D0D91
-	.incbin "vaatiTransfigured/gUnk_080D0D91.bin"
+gSpriteAnimations_VaatiTransfigured_5_2:: @ 080D0D91
+	.include "animations/gSpriteAnimations_VaatiTransfigured_5_2.s"
 
-gUnk_080D0DA1:: @ 080D0DA1
-	.incbin "vaatiTransfigured/gUnk_080D0DA1.bin"
+gSpriteAnimations_VaatiTransfigured_5_3:: @ 080D0DA1
+	.include "animations/gSpriteAnimations_VaatiTransfigured_5_3.s"
 
 gSpriteAnimations_VaatiTransfigured_5:: @ 080D0DB0
-	.4byte gUnk_080D0D48
-	.4byte gUnk_080D0D78
-	.4byte gUnk_080D0D91
-	.4byte gUnk_080D0DA1
+	.4byte gSpriteAnimations_VaatiTransfigured_5_0
+	.4byte gSpriteAnimations_VaatiTransfigured_5_1
+	.4byte gSpriteAnimations_VaatiTransfigured_5_2
+	.4byte gSpriteAnimations_VaatiTransfigured_5_3
 	.4byte 00000000

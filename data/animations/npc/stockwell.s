@@ -4,33 +4,33 @@
 	.section .rodata
     .align 2
 
-gUnk_0810FDE8:: @ 0810FDE8
-	.incbin "stockwell/gUnk_0810FDE8.bin"
+gSpriteAnimations_Stockwell_1:: @ 0810FDE8
+	.include "animations/gSpriteAnimations_Stockwell_1.s"
 
-gUnk_0810FDED:: @ 0810FDED
-	.incbin "stockwell/gUnk_0810FDED.bin"
+gSpriteAnimations_Stockwell_0:: @ 0810FDED
+	.include "animations/gSpriteAnimations_Stockwell_0.s"
 
-gUnk_0810FDF2:: @ 0810FDF2
-	.incbin "stockwell/gUnk_0810FDF2.bin"
+gSpriteAnimations_Stockwell_3:: @ 0810FDF2
+	.include "animations/gSpriteAnimations_Stockwell_3.s"
 
-gUnk_0810FDF7:: @ 0810FDF7
-	.incbin "stockwell/gUnk_0810FDF7.bin"
+gSpriteAnimations_Stockwell_4:: @ 0810FDF7
+	.include "animations/gSpriteAnimations_Stockwell_4.s"
 
-gUnk_0810FE03:: @ 0810FE03
-	.incbin "stockwell/gUnk_0810FE03.bin"
+gSpriteAnimations_Stockwell_5:: @ 0810FE03
+	.include "animations/gSpriteAnimations_Stockwell_5.s"
 
-gUnk_0810FE1F:: @ 0810FE1F
-	.incbin "stockwell/gUnk_0810FE1F.bin"
+gSpriteAnimations_Stockwell_6:: @ 0810FE1F
+	.include "animations/gSpriteAnimations_Stockwell_6.s"
 
-gUnk_0810FE68:: @ 0810FE68
-	.incbin "stockwell/gUnk_0810FE68.bin"
+gSpriteAnimations_Stockwell_7:: @ 0810FE68
+	.include "animations/gSpriteAnimations_Stockwell_7.s"
 
 gSpriteAnimations_Stockwell:: @ 0810FE90
-	.4byte gUnk_0810FDED
-	.4byte gUnk_0810FDE8
-	.4byte gUnk_0810FDED
-	.4byte gUnk_0810FDF2
-	.4byte gUnk_0810FDF7
-	.4byte gUnk_0810FE03
-	.4byte gUnk_0810FE1F
-	.4byte gUnk_0810FE68
+	.4byte gSpriteAnimations_Stockwell_0
+	.4byte gSpriteAnimations_Stockwell_1
+	.4byte gSpriteAnimations_Stockwell_0
+	.4byte gSpriteAnimations_Stockwell_3
+	.4byte gSpriteAnimations_Stockwell_4
+	.4byte gSpriteAnimations_Stockwell_5
+	.4byte gSpriteAnimations_Stockwell_6
+	.4byte gSpriteAnimations_Stockwell_7

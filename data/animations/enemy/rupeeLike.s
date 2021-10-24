@@ -3,37 +3,37 @@
 
 	.section .rodata
 
-gUnk_080CCC4A:: @ 080CCC4A
-	.incbin "rupeeLike/gUnk_080CCC4A.bin"
+gSpriteAnimations_RupeeLike_0:: @ 080CCC4A
+	.include "animations/gSpriteAnimations_RupeeLike_0.s"
 
-gUnk_080CCC5F:: @ 080CCC5F
-	.incbin "rupeeLike/gUnk_080CCC5F.bin"
+gSpriteAnimations_RupeeLike_1:: @ 080CCC5F
+	.include "animations/gSpriteAnimations_RupeeLike_1.s"
 
-gUnk_080CCC74:: @ 080CCC74
-	.incbin "rupeeLike/gUnk_080CCC74.bin"
+gSpriteAnimations_RupeeLike_2:: @ 080CCC74
+	.include "animations/gSpriteAnimations_RupeeLike_2.s"
 
-gUnk_080CCC9C:: @ 080CCC9C
-	.incbin "rupeeLike/gUnk_080CCC9C.bin"
+gSpriteAnimations_RupeeLike_3:: @ 080CCC9C
+	.include "animations/gSpriteAnimations_RupeeLike_3.s"
 
-gUnk_080CCCB4:: @ 080CCCB4
-	.incbin "rupeeLike/gUnk_080CCCB4.bin"
+gSpriteAnimations_RupeeLike_4:: @ 080CCCB4
+	.include "animations/gSpriteAnimations_RupeeLike_4.s"
 
-gUnk_080CCCC9:: @ 080CCCC9
-	.incbin "rupeeLike/gUnk_080CCCC9.bin"
+gSpriteAnimations_RupeeLike_5:: @ 080CCCC9
+	.include "animations/gSpriteAnimations_RupeeLike_5.s"
 
-gUnk_080CCCDE:: @ 080CCCDE
-	.incbin "rupeeLike/gUnk_080CCCDE.bin"
+gSpriteAnimations_RupeeLike_6:: @ 080CCCDE
+	.include "animations/gSpriteAnimations_RupeeLike_6.s"
 
-gUnk_080CCD06:: @ 080CCD06
-	.incbin "rupeeLike/gUnk_080CCD06.bin"
+gSpriteAnimations_RupeeLike_7:: @ 080CCD06
+	.include "animations/gSpriteAnimations_RupeeLike_7.s"
 
 gSpriteAnimations_RupeeLike:: @ 080CCD20
-	.4byte gUnk_080CCC4A
-	.4byte gUnk_080CCC5F
-	.4byte gUnk_080CCC74
-	.4byte gUnk_080CCC9C
-	.4byte gUnk_080CCCB4
-	.4byte gUnk_080CCCC9
-	.4byte gUnk_080CCCDE
-	.4byte gUnk_080CCD06
+	.4byte gSpriteAnimations_RupeeLike_0
+	.4byte gSpriteAnimations_RupeeLike_1
+	.4byte gSpriteAnimations_RupeeLike_2
+	.4byte gSpriteAnimations_RupeeLike_3
+	.4byte gSpriteAnimations_RupeeLike_4
+	.4byte gSpriteAnimations_RupeeLike_5
+	.4byte gSpriteAnimations_RupeeLike_6
+	.4byte gSpriteAnimations_RupeeLike_7
 	.4byte 00000000

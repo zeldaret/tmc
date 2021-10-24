@@ -4,28 +4,28 @@
 	.section .rodata
     .align 2
 
-gUnk_08123F0C:: @ 08123F0C
-	.incbin "bird/gUnk_08123F0C.bin"
+gSpriteAnimations_Bird_1_0:: @ 08123F0C
+	.include "animations/gSpriteAnimations_Bird_1_0.s"
 
 gSpriteAnimations_Bird_1:: @ 08123F20
-	.4byte gUnk_08123F0C
-	.incbin "bird/gSpriteAnimations_Bird_1.bin"
+	.4byte gSpriteAnimations_Bird_1_0
+	.include "animations/gSpriteAnimations_Bird_1.s"
 
-gUnk_08123F28:: @ 08123F28
-	.incbin "bird/gUnk_08123F28.bin"
+gSpriteAnimations_Bird_0_0:: @ 08123F28
+	.include "animations/gSpriteAnimations_Bird_0_0.s"
 
-gUnk_08123F49:: @ 08123F49
-	.incbin "bird/gUnk_08123F49.bin"
+gSpriteAnimations_Bird_0_1:: @ 08123F49
+	.include "animations/gSpriteAnimations_Bird_0_1.s"
 
-gUnk_08123F62:: @ 08123F62
-	.incbin "bird/gUnk_08123F62.bin"
+gSpriteAnimations_Bird_0_2:: @ 08123F62
+	.include "animations/gSpriteAnimations_Bird_0_2.s"
 
-gUnk_08123F7B:: @ 08123F7B
-	.incbin "bird/gUnk_08123F7B.bin"
+gSpriteAnimations_Bird_0_3:: @ 08123F7B
+	.include "animations/gSpriteAnimations_Bird_0_3.s"
 
 gSpriteAnimations_Bird:: @ 08123F9C
-	.4byte gUnk_08123F28
-	.4byte gUnk_08123F49
-	.4byte gUnk_08123F62
-	.4byte gUnk_08123F7B
+	.4byte gSpriteAnimations_Bird_0_0
+	.4byte gSpriteAnimations_Bird_0_1
+	.4byte gSpriteAnimations_Bird_0_2
+	.4byte gSpriteAnimations_Bird_0_3
 	.4byte 00000000

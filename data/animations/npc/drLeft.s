@@ -4,45 +4,45 @@
 	.section .rodata
     .align 2
 
-gUnk_081133B8:: @ 081133B8
-	.incbin "drLeft/gUnk_081133B8.bin"
+gSpriteAnimations_DrLeft_0:: @ 081133B8
+	.include "animations/gSpriteAnimations_DrLeft_0.s"
 
-gUnk_081133E9:: @ 081133E9
-	.incbin "drLeft/gUnk_081133E9.bin"
+gSpriteAnimations_DrLeft_12:: @ 081133E9
+	.include "animations/gSpriteAnimations_DrLeft_12.s"
 
-gUnk_081133FA:: @ 081133FA
-	.incbin "drLeft/gUnk_081133FA.bin"
+gSpriteAnimations_DrLeft_13:: @ 081133FA
+	.include "animations/gSpriteAnimations_DrLeft_13.s"
 
-gUnk_08113413:: @ 08113413
-	.incbin "drLeft/gUnk_08113413.bin"
+gSpriteAnimations_DrLeft_14:: @ 08113413
+	.include "animations/gSpriteAnimations_DrLeft_14.s"
 
-gUnk_08113434:: @ 08113434
-	.incbin "drLeft/gUnk_08113434.bin"
+gSpriteAnimations_DrLeft_5:: @ 08113434
+	.include "animations/gSpriteAnimations_DrLeft_5.s"
 
-gUnk_0811343D:: @ 0811343D
-	.incbin "drLeft/gUnk_0811343D.bin"
+gSpriteAnimations_DrLeft_4:: @ 0811343D
+	.include "animations/gSpriteAnimations_DrLeft_4.s"
 
-gUnk_08113446:: @ 08113446
-	.incbin "drLeft/gUnk_08113446.bin"
+gSpriteAnimations_DrLeft_7:: @ 08113446
+	.include "animations/gSpriteAnimations_DrLeft_7.s"
 
-gUnk_0811344F:: @ 0811344F
-	.incbin "drLeft/gUnk_0811344F.bin"
+gSpriteAnimations_DrLeft_8:: @ 0811344F
+	.include "animations/gSpriteAnimations_DrLeft_8.s"
 
 gSpriteAnimations_DrLeft:: @ 08113490
-	.4byte gUnk_081133B8
-	.4byte gUnk_081133B8
-	.4byte gUnk_081133B8
-	.4byte gUnk_081133B8
-	.4byte gUnk_0811343D
-	.4byte gUnk_08113434
-	.4byte gUnk_0811343D
-	.4byte gUnk_08113446
-	.4byte gUnk_0811344F
-	.4byte gUnk_0811344F
-	.4byte gUnk_0811344F
-	.4byte gUnk_0811344F
-	.4byte gUnk_081133E9
-	.4byte gUnk_081133FA
-	.4byte gUnk_08113413
-	.4byte gUnk_081133FA
+	.4byte gSpriteAnimations_DrLeft_0
+	.4byte gSpriteAnimations_DrLeft_0
+	.4byte gSpriteAnimations_DrLeft_0
+	.4byte gSpriteAnimations_DrLeft_0
+	.4byte gSpriteAnimations_DrLeft_4
+	.4byte gSpriteAnimations_DrLeft_5
+	.4byte gSpriteAnimations_DrLeft_4
+	.4byte gSpriteAnimations_DrLeft_7
+	.4byte gSpriteAnimations_DrLeft_8
+	.4byte gSpriteAnimations_DrLeft_8
+	.4byte gSpriteAnimations_DrLeft_8
+	.4byte gSpriteAnimations_DrLeft_8
+	.4byte gSpriteAnimations_DrLeft_12
+	.4byte gSpriteAnimations_DrLeft_13
+	.4byte gSpriteAnimations_DrLeft_14
+	.4byte gSpriteAnimations_DrLeft_13
 	.4byte 00000000

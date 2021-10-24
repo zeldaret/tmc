@@ -5,29 +5,29 @@
     .align 2
 
 
-gUnk_080CE9B0:: @ 080CE9B0
-	.incbin "crow/gUnk_080CE9B0.bin"
+gSpriteAnimations_Crow_0:: @ 080CE9B0
+	.include "animations/gSpriteAnimations_Crow_0.s"
 
-gUnk_080CE9B5:: @ 080CE9B5
-	.incbin "crow/gUnk_080CE9B5.bin"
+gSpriteAnimations_Crow_1:: @ 080CE9B5
+	.include "animations/gSpriteAnimations_Crow_1.s"
 
-gUnk_080CE9BA:: @ 080CE9BA
-	.incbin "crow/gUnk_080CE9BA.bin"
+gSpriteAnimations_Crow_2:: @ 080CE9BA
+	.include "animations/gSpriteAnimations_Crow_2.s"
 
-gUnk_080CE9CB:: @ 080CE9CB
-	.incbin "crow/gUnk_080CE9CB.bin"
+gSpriteAnimations_Crow_3:: @ 080CE9CB
+	.include "animations/gSpriteAnimations_Crow_3.s"
 
-gUnk_080CE9DC:: @ 080CE9DC
-	.incbin "crow/gUnk_080CE9DC.bin"
+gSpriteAnimations_Crow_4:: @ 080CE9DC
+	.include "animations/gSpriteAnimations_Crow_4.s"
 
-gUnk_080CE9ED:: @ 080CE9ED
-	.incbin "crow/gUnk_080CE9ED.bin"
+gSpriteAnimations_Crow_5:: @ 080CE9ED
+	.include "animations/gSpriteAnimations_Crow_5.s"
 
 gSpriteAnimations_Crow:: @ 080CEA00
-	.4byte gUnk_080CE9B0
-	.4byte gUnk_080CE9B5
-	.4byte gUnk_080CE9BA
-	.4byte gUnk_080CE9CB
-	.4byte gUnk_080CE9DC
-	.4byte gUnk_080CE9ED
+	.4byte gSpriteAnimations_Crow_0
+	.4byte gSpriteAnimations_Crow_1
+	.4byte gSpriteAnimations_Crow_2
+	.4byte gSpriteAnimations_Crow_3
+	.4byte gSpriteAnimations_Crow_4
+	.4byte gSpriteAnimations_Crow_5
 	.4byte 00000000

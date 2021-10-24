@@ -4,41 +4,41 @@
 	.section .rodata
     .align 2
 
-gUnk_080D1DA0:: @ 080D1DA0
-	.incbin "enemy5F/gUnk_080D1DA0.bin"
+gSpriteAnimations_Enemy5F_0:: @ 080D1DA0
+	.include "animations/gSpriteAnimations_Enemy5F_0.s"
 
-gUnk_080D1DC8:: @ 080D1DC8
-	.incbin "enemy5F/gUnk_080D1DC8.bin"
+gSpriteAnimations_Enemy5F_1:: @ 080D1DC8
+	.include "animations/gSpriteAnimations_Enemy5F_1.s"
 
-gUnk_080D1DCC:: @ 080D1DCC
-	.incbin "enemy5F/gUnk_080D1DCC.bin"
+gSpriteAnimations_Enemy5F_2:: @ 080D1DCC
+	.include "animations/gSpriteAnimations_Enemy5F_2.s"
 
-gUnk_080D1DD0:: @ 080D1DD0
-	.incbin "enemy5F/gUnk_080D1DD0.bin"
+gSpriteAnimations_Enemy5F_4:: @ 080D1DD0
+	.include "animations/gSpriteAnimations_Enemy5F_4.s"
 
-gUnk_080D1DDC:: @ 080D1DDC
-	.incbin "enemy5F/gUnk_080D1DDC.bin"
+gSpriteAnimations_Enemy5F_3:: @ 080D1DDC
+	.include "animations/gSpriteAnimations_Enemy5F_3.s"
 
-gUnk_080D1DE8:: @ 080D1DE8
-	.incbin "enemy5F/gUnk_080D1DE8.bin"
+gSpriteAnimations_Enemy5F_5:: @ 080D1DE8
+	.include "animations/gSpriteAnimations_Enemy5F_5.s"
 
-gUnk_080D1E05:: @ 080D1E05
-	.incbin "enemy5F/gUnk_080D1E05.bin"
+gSpriteAnimations_Enemy5F_6:: @ 080D1E05
+	.include "animations/gSpriteAnimations_Enemy5F_6.s"
 
-gUnk_080D1E21:: @ 080D1E21
-	.incbin "enemy5F/gUnk_080D1E21.bin"
+gSpriteAnimations_Enemy5F_7:: @ 080D1E21
+	.include "animations/gSpriteAnimations_Enemy5F_7.s"
 
-gUnk_080D1E32:: @ 080D1E32
-	.incbin "enemy5F/gUnk_080D1E32.bin"
+gSpriteAnimations_Enemy5F_8:: @ 080D1E32
+	.include "animations/gSpriteAnimations_Enemy5F_8.s"
 
 gSpriteAnimations_Enemy5F:: @ 080D1E44
-	.4byte gUnk_080D1DA0
-	.4byte gUnk_080D1DC8
-	.4byte gUnk_080D1DCC
-	.4byte gUnk_080D1DDC
-	.4byte gUnk_080D1DD0
-	.4byte gUnk_080D1DE8
-	.4byte gUnk_080D1E05
-	.4byte gUnk_080D1E21
-	.4byte gUnk_080D1E32
+	.4byte gSpriteAnimations_Enemy5F_0
+	.4byte gSpriteAnimations_Enemy5F_1
+	.4byte gSpriteAnimations_Enemy5F_2
+	.4byte gSpriteAnimations_Enemy5F_3
+	.4byte gSpriteAnimations_Enemy5F_4
+	.4byte gSpriteAnimations_Enemy5F_5
+	.4byte gSpriteAnimations_Enemy5F_6
+	.4byte gSpriteAnimations_Enemy5F_7
+	.4byte gSpriteAnimations_Enemy5F_8
 	.4byte 00000000

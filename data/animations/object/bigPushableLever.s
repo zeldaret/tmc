@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_081236FC:: @ 081236FC
-	.incbin "bigPushableLever/gUnk_081236FC.bin"
+gSpriteAnimations_BigPushableLever_0:: @ 081236FC
+	.include "animations/gSpriteAnimations_BigPushableLever_0.s"
 
-gUnk_08123711:: @ 08123711
-	.incbin "bigPushableLever/gUnk_08123711.bin"
+gSpriteAnimations_BigPushableLever_1:: @ 08123711
+	.include "animations/gSpriteAnimations_BigPushableLever_1.s"
 
 gSpriteAnimations_BigPushableLever:: @ 08123728
-	.4byte gUnk_081236FC
-	.4byte gUnk_08123711
+	.4byte gSpriteAnimations_BigPushableLever_0
+	.4byte gSpriteAnimations_BigPushableLever_1
 	.4byte 00000000

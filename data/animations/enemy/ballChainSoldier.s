@@ -4,140 +4,140 @@
 	.section .rodata
     .align 2
 
-gUnk_080D0744:: @ 080D0744
-	.incbin "ballChainSoldier/gUnk_080D0744.bin"
+gSpriteAnimations_BallChainSoldier_0:: @ 080D0744
+	.include "animations/gSpriteAnimations_BallChainSoldier_0.s"
 
-gUnk_080D0748:: @ 080D0748
-	.incbin "ballChainSoldier/gUnk_080D0748.bin"
+gSpriteAnimations_BallChainSoldier_19:: @ 080D0748
+	.include "animations/gSpriteAnimations_BallChainSoldier_19.s"
 
-gUnk_080D074C:: @ 080D074C
-	.incbin "ballChainSoldier/gUnk_080D074C.bin"
+gSpriteAnimations_BallChainSoldier_18:: @ 080D074C
+	.include "animations/gSpriteAnimations_BallChainSoldier_18.s"
 
-gUnk_080D0750:: @ 080D0750
-	.incbin "ballChainSoldier/gUnk_080D0750.bin"
+gSpriteAnimations_BallChainSoldier_17:: @ 080D0750
+	.include "animations/gSpriteAnimations_BallChainSoldier_17.s"
 
-gUnk_080D0754:: @ 080D0754
-	.incbin "ballChainSoldier/gUnk_080D0754.bin"
+gSpriteAnimations_BallChainSoldier_16:: @ 080D0754
+	.include "animations/gSpriteAnimations_BallChainSoldier_16.s"
 
-gUnk_080D0758:: @ 080D0758
-	.incbin "ballChainSoldier/gUnk_080D0758.bin"
+gSpriteAnimations_BallChainSoldier_4:: @ 080D0758
+	.include "animations/gSpriteAnimations_BallChainSoldier_4.s"
 
-gUnk_080D075C:: @ 080D075C
-	.incbin "ballChainSoldier/gUnk_080D075C.bin"
+gSpriteAnimations_BallChainSoldier_7:: @ 080D075C
+	.include "animations/gSpriteAnimations_BallChainSoldier_7.s"
 
-gUnk_080D0760:: @ 080D0760
-	.incbin "ballChainSoldier/gUnk_080D0760.bin"
+gSpriteAnimations_BallChainSoldier_6:: @ 080D0760
+	.include "animations/gSpriteAnimations_BallChainSoldier_6.s"
 
-gUnk_080D0764:: @ 080D0764
-	.incbin "ballChainSoldier/gUnk_080D0764.bin"
+gSpriteAnimations_BallChainSoldier_5:: @ 080D0764
+	.include "animations/gSpriteAnimations_BallChainSoldier_5.s"
 
-gUnk_080D0768:: @ 080D0768
-	.incbin "ballChainSoldier/gUnk_080D0768.bin"
+gSpriteAnimations_BallChainSoldier_20:: @ 080D0768
+	.include "animations/gSpriteAnimations_BallChainSoldier_20.s"
 
-gUnk_080D076C:: @ 080D076C
-	.incbin "ballChainSoldier/gUnk_080D076C.bin"
+gSpriteAnimations_BallChainSoldier_23:: @ 080D076C
+	.include "animations/gSpriteAnimations_BallChainSoldier_23.s"
 
-gUnk_080D0770:: @ 080D0770
-	.incbin "ballChainSoldier/gUnk_080D0770.bin"
+gSpriteAnimations_BallChainSoldier_22:: @ 080D0770
+	.include "animations/gSpriteAnimations_BallChainSoldier_22.s"
 
-gUnk_080D0774:: @ 080D0774
-	.incbin "ballChainSoldier/gUnk_080D0774.bin"
+gSpriteAnimations_BallChainSoldier_21:: @ 080D0774
+	.include "animations/gSpriteAnimations_BallChainSoldier_21.s"
 
-gUnk_080D0778:: @ 080D0778
-	.incbin "ballChainSoldier/gUnk_080D0778.bin"
+gSpriteAnimations_BallChainSoldier_9:: @ 080D0778
+	.include "animations/gSpriteAnimations_BallChainSoldier_9.s"
 
-gUnk_080D077C:: @ 080D077C
-	.incbin "ballChainSoldier/gUnk_080D077C.bin"
+gSpriteAnimations_BallChainSoldier_8:: @ 080D077C
+	.include "animations/gSpriteAnimations_BallChainSoldier_8.s"
 
-gUnk_080D0780:: @ 080D0780
-	.incbin "ballChainSoldier/gUnk_080D0780.bin"
+gSpriteAnimations_BallChainSoldier_11:: @ 080D0780
+	.include "animations/gSpriteAnimations_BallChainSoldier_11.s"
 
-gUnk_080D0784:: @ 080D0784
-	.incbin "ballChainSoldier/gUnk_080D0784.bin"
+gSpriteAnimations_BallChainSoldier_10:: @ 080D0784
+	.include "animations/gSpriteAnimations_BallChainSoldier_10.s"
 
-gUnk_080D0788:: @ 080D0788
-	.incbin "ballChainSoldier/gUnk_080D0788.bin"
+gSpriteAnimations_BallChainSoldier_25:: @ 080D0788
+	.include "animations/gSpriteAnimations_BallChainSoldier_25.s"
 
-gUnk_080D078C:: @ 080D078C
-	.incbin "ballChainSoldier/gUnk_080D078C.bin"
+gSpriteAnimations_BallChainSoldier_24:: @ 080D078C
+	.include "animations/gSpriteAnimations_BallChainSoldier_24.s"
 
-gUnk_080D0790:: @ 080D0790
-	.incbin "ballChainSoldier/gUnk_080D0790.bin"
+gSpriteAnimations_BallChainSoldier_27:: @ 080D0790
+	.include "animations/gSpriteAnimations_BallChainSoldier_27.s"
 
-gUnk_080D0794:: @ 080D0794
-	.incbin "ballChainSoldier/gUnk_080D0794.bin"
+gSpriteAnimations_BallChainSoldier_26:: @ 080D0794
+	.include "animations/gSpriteAnimations_BallChainSoldier_26.s"
 
-gUnk_080D0798:: @ 080D0798
-	.incbin "ballChainSoldier/gUnk_080D0798.bin"
+gSpriteAnimations_BallChainSoldier_12:: @ 080D0798
+	.include "animations/gSpriteAnimations_BallChainSoldier_12.s"
 
-gUnk_080D079C:: @ 080D079C
-	.incbin "ballChainSoldier/gUnk_080D079C.bin"
+gSpriteAnimations_BallChainSoldier_13:: @ 080D079C
+	.include "animations/gSpriteAnimations_BallChainSoldier_13.s"
 
-gUnk_080D07A0:: @ 080D07A0
-	.incbin "ballChainSoldier/gUnk_080D07A0.bin"
+gSpriteAnimations_BallChainSoldier_14:: @ 080D07A0
+	.include "animations/gSpriteAnimations_BallChainSoldier_14.s"
 
-gUnk_080D07A4:: @ 080D07A4
-	.incbin "ballChainSoldier/gUnk_080D07A4.bin"
+gSpriteAnimations_BallChainSoldier_15:: @ 080D07A4
+	.include "animations/gSpriteAnimations_BallChainSoldier_15.s"
 
-gUnk_080D07A8:: @ 080D07A8
-	.incbin "ballChainSoldier/gUnk_080D07A8.bin"
+gSpriteAnimations_BallChainSoldier_28:: @ 080D07A8
+	.include "animations/gSpriteAnimations_BallChainSoldier_28.s"
 
-gUnk_080D07AC:: @ 080D07AC
-	.incbin "ballChainSoldier/gUnk_080D07AC.bin"
+gSpriteAnimations_BallChainSoldier_29:: @ 080D07AC
+	.include "animations/gSpriteAnimations_BallChainSoldier_29.s"
 
-gUnk_080D07B0:: @ 080D07B0
-	.incbin "ballChainSoldier/gUnk_080D07B0.bin"
+gSpriteAnimations_BallChainSoldier_30:: @ 080D07B0
+	.include "animations/gSpriteAnimations_BallChainSoldier_30.s"
 
-gUnk_080D07B4:: @ 080D07B4
-	.incbin "ballChainSoldier/gUnk_080D07B4.bin"
+gSpriteAnimations_BallChainSoldier_31:: @ 080D07B4
+	.include "animations/gSpriteAnimations_BallChainSoldier_31.s"
 
-gUnk_080D07B8:: @ 080D07B8
-	.incbin "ballChainSoldier/gUnk_080D07B8.bin"
+gSpriteAnimations_BallChainSoldier_32:: @ 080D07B8
+	.include "animations/gSpriteAnimations_BallChainSoldier_32.s"
 
-gUnk_080D07C5:: @ 080D07C5
-	.incbin "ballChainSoldier/gUnk_080D07C5.bin"
+gSpriteAnimations_BallChainSoldier_33:: @ 080D07C5
+	.include "animations/gSpriteAnimations_BallChainSoldier_33.s"
 
-gUnk_080D07D2:: @ 080D07D2
-	.incbin "ballChainSoldier/gUnk_080D07D2.bin"
+gSpriteAnimations_BallChainSoldier_34:: @ 080D07D2
+	.include "animations/gSpriteAnimations_BallChainSoldier_34.s"
 
-gUnk_080D07DF:: @ 080D07DF
-	.incbin "ballChainSoldier/gUnk_080D07DF.bin"
+gSpriteAnimations_BallChainSoldier_35:: @ 080D07DF
+	.include "animations/gSpriteAnimations_BallChainSoldier_35.s"
 
 gSpriteAnimations_BallChainSoldier:: @ 080D07EC
-	.4byte gUnk_080D0744
-	.4byte gUnk_080D0740
-	.4byte gUnk_080D073C
-	.4byte gUnk_080D0738
-	.4byte gUnk_080D0758
-	.4byte gUnk_080D0764
-	.4byte gUnk_080D0760
-	.4byte gUnk_080D075C
-	.4byte gUnk_080D077C
-	.4byte gUnk_080D0778
-	.4byte gUnk_080D0784
-	.4byte gUnk_080D0780
-	.4byte gUnk_080D0798
-	.4byte gUnk_080D079C
-	.4byte gUnk_080D07A0
-	.4byte gUnk_080D07A4
-	.4byte gUnk_080D0754
-	.4byte gUnk_080D0750
-	.4byte gUnk_080D074C
-	.4byte gUnk_080D0748
-	.4byte gUnk_080D0768
-	.4byte gUnk_080D0774
-	.4byte gUnk_080D0770
-	.4byte gUnk_080D076C
-	.4byte gUnk_080D078C
-	.4byte gUnk_080D0788
-	.4byte gUnk_080D0794
-	.4byte gUnk_080D0790
-	.4byte gUnk_080D07A8
-	.4byte gUnk_080D07AC
-	.4byte gUnk_080D07B0
-	.4byte gUnk_080D07B4
-	.4byte gUnk_080D07B8
-	.4byte gUnk_080D07C5
-	.4byte gUnk_080D07D2
-	.4byte gUnk_080D07DF
+	.4byte gSpriteAnimations_BallChainSoldier_0
+	.4byte gSpriteAnimations_BallChainSoldier_1
+	.4byte gSpriteAnimations_BallChainSoldier_2
+	.4byte gSpriteAnimations_BallChainSoldier_3
+	.4byte gSpriteAnimations_BallChainSoldier_4
+	.4byte gSpriteAnimations_BallChainSoldier_5
+	.4byte gSpriteAnimations_BallChainSoldier_6
+	.4byte gSpriteAnimations_BallChainSoldier_7
+	.4byte gSpriteAnimations_BallChainSoldier_8
+	.4byte gSpriteAnimations_BallChainSoldier_9
+	.4byte gSpriteAnimations_BallChainSoldier_10
+	.4byte gSpriteAnimations_BallChainSoldier_11
+	.4byte gSpriteAnimations_BallChainSoldier_12
+	.4byte gSpriteAnimations_BallChainSoldier_13
+	.4byte gSpriteAnimations_BallChainSoldier_14
+	.4byte gSpriteAnimations_BallChainSoldier_15
+	.4byte gSpriteAnimations_BallChainSoldier_16
+	.4byte gSpriteAnimations_BallChainSoldier_17
+	.4byte gSpriteAnimations_BallChainSoldier_18
+	.4byte gSpriteAnimations_BallChainSoldier_19
+	.4byte gSpriteAnimations_BallChainSoldier_20
+	.4byte gSpriteAnimations_BallChainSoldier_21
+	.4byte gSpriteAnimations_BallChainSoldier_22
+	.4byte gSpriteAnimations_BallChainSoldier_23
+	.4byte gSpriteAnimations_BallChainSoldier_24
+	.4byte gSpriteAnimations_BallChainSoldier_25
+	.4byte gSpriteAnimations_BallChainSoldier_26
+	.4byte gSpriteAnimations_BallChainSoldier_27
+	.4byte gSpriteAnimations_BallChainSoldier_28
+	.4byte gSpriteAnimations_BallChainSoldier_29
+	.4byte gSpriteAnimations_BallChainSoldier_30
+	.4byte gSpriteAnimations_BallChainSoldier_31
+	.4byte gSpriteAnimations_BallChainSoldier_32
+	.4byte gSpriteAnimations_BallChainSoldier_33
+	.4byte gSpriteAnimations_BallChainSoldier_34
+	.4byte gSpriteAnimations_BallChainSoldier_35
 	.4byte 00000000

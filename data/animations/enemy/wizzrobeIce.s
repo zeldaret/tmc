@@ -4,37 +4,37 @@
 	.section .rodata
     .align 2
 
-gUnk_080CE098:: @ 080CE098
-	.incbin "wizzrobeIce/gUnk_080CE098.bin"
+gSpriteAnimations_WizzrobeIce_0:: @ 080CE098
+	.include "animations/gSpriteAnimations_WizzrobeIce_0.s"
 
-gUnk_080CE0A5:: @ 080CE0A5
-	.incbin "wizzrobeIce/gUnk_080CE0A5.bin"
+gSpriteAnimations_WizzrobeIce_1:: @ 080CE0A5
+	.include "animations/gSpriteAnimations_WizzrobeIce_1.s"
 
-gUnk_080CE0B2:: @ 080CE0B2
-	.incbin "wizzrobeIce/gUnk_080CE0B2.bin"
+gSpriteAnimations_WizzrobeIce_2:: @ 080CE0B2
+	.include "animations/gSpriteAnimations_WizzrobeIce_2.s"
 
-gUnk_080CE0BF:: @ 080CE0BF
-	.incbin "wizzrobeIce/gUnk_080CE0BF.bin"
+gSpriteAnimations_WizzrobeIce_3:: @ 080CE0BF
+	.include "animations/gSpriteAnimations_WizzrobeIce_3.s"
 
-gUnk_080CE0CC:: @ 080CE0CC
-	.incbin "wizzrobeIce/gUnk_080CE0CC.bin"
+gSpriteAnimations_WizzrobeIce_4:: @ 080CE0CC
+	.include "animations/gSpriteAnimations_WizzrobeIce_4.s"
 
-gUnk_080CE0D9:: @ 080CE0D9
-	.incbin "wizzrobeIce/gUnk_080CE0D9.bin"
+gSpriteAnimations_WizzrobeIce_5:: @ 080CE0D9
+	.include "animations/gSpriteAnimations_WizzrobeIce_5.s"
 
-gUnk_080CE0E6:: @ 080CE0E6
-	.incbin "wizzrobeIce/gUnk_080CE0E6.bin"
+gSpriteAnimations_WizzrobeIce_6:: @ 080CE0E6
+	.include "animations/gSpriteAnimations_WizzrobeIce_6.s"
 
-gUnk_080CE0F3:: @ 080CE0F3
-	.incbin "wizzrobeIce/gUnk_080CE0F3.bin"
+gSpriteAnimations_WizzrobeIce_7:: @ 080CE0F3
+	.include "animations/gSpriteAnimations_WizzrobeIce_7.s"
 
 gSpriteAnimations_WizzrobeIce:: @ 080CE100
-	.4byte gUnk_080CE098
-	.4byte gUnk_080CE0A5
-	.4byte gUnk_080CE0B2
-	.4byte gUnk_080CE0BF
-	.4byte gUnk_080CE0CC
-	.4byte gUnk_080CE0D9
-	.4byte gUnk_080CE0E6
-	.4byte gUnk_080CE0F3
+	.4byte gSpriteAnimations_WizzrobeIce_0
+	.4byte gSpriteAnimations_WizzrobeIce_1
+	.4byte gSpriteAnimations_WizzrobeIce_2
+	.4byte gSpriteAnimations_WizzrobeIce_3
+	.4byte gSpriteAnimations_WizzrobeIce_4
+	.4byte gSpriteAnimations_WizzrobeIce_5
+	.4byte gSpriteAnimations_WizzrobeIce_6
+	.4byte gSpriteAnimations_WizzrobeIce_7
 	.4byte 00000000

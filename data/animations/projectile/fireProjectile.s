@@ -4,37 +4,37 @@
 	.section .rodata
     .align 2
 
-gUnk_0812983C:: @ 0812983C
-	.incbin "projectile8/gUnk_0812983C.bin"
+gSpriteAnimations_FireProjectile_0:: @ 0812983C
+	.include "animations/gSpriteAnimations_FireProjectile_0.s"
 
-gUnk_08129845:: @ 08129845
-	.incbin "projectile8/gUnk_08129845.bin"
+gSpriteAnimations_FireProjectile_1:: @ 08129845
+	.include "animations/gSpriteAnimations_FireProjectile_1.s"
 
-gUnk_0812984E:: @ 0812984E
-	.incbin "projectile8/gUnk_0812984E.bin"
+gSpriteAnimations_FireProjectile_2:: @ 0812984E
+	.include "animations/gSpriteAnimations_FireProjectile_2.s"
 
-gUnk_08129857:: @ 08129857
-	.incbin "projectile8/gUnk_08129857.bin"
+gSpriteAnimations_FireProjectile_3:: @ 08129857
+	.include "animations/gSpriteAnimations_FireProjectile_3.s"
 
-gUnk_08129860:: @ 08129860
-	.incbin "projectile8/gUnk_08129860.bin"
+gSpriteAnimations_FireProjectile_4:: @ 08129860
+	.include "animations/gSpriteAnimations_FireProjectile_4.s"
 
-gUnk_0812986D:: @ 0812986D
-	.incbin "projectile8/gUnk_0812986D.bin"
+gSpriteAnimations_FireProjectile_5:: @ 0812986D
+	.include "animations/gSpriteAnimations_FireProjectile_5.s"
 
-gUnk_0812987A:: @ 0812987A
-	.incbin "projectile8/gUnk_0812987A.bin"
+gSpriteAnimations_FireProjectile_6:: @ 0812987A
+	.include "animations/gSpriteAnimations_FireProjectile_6.s"
 
-gUnk_08129887:: @ 08129887
-	.incbin "projectile8/gUnk_08129887.bin"
+gSpriteAnimations_FireProjectile_7:: @ 08129887
+	.include "animations/gSpriteAnimations_FireProjectile_7.s"
 
 gSpriteAnimations_FireProjectile:: @ 08129894
-	.4byte gUnk_0812983C
-	.4byte gUnk_08129845
-	.4byte gUnk_0812984E
-	.4byte gUnk_08129857
-	.4byte gUnk_08129860
-	.4byte gUnk_0812986D
-	.4byte gUnk_0812987A
-	.4byte gUnk_08129887
+	.4byte gSpriteAnimations_FireProjectile_0
+	.4byte gSpriteAnimations_FireProjectile_1
+	.4byte gSpriteAnimations_FireProjectile_2
+	.4byte gSpriteAnimations_FireProjectile_3
+	.4byte gSpriteAnimations_FireProjectile_4
+	.4byte gSpriteAnimations_FireProjectile_5
+	.4byte gSpriteAnimations_FireProjectile_6
+	.4byte gSpriteAnimations_FireProjectile_7
 	.4byte 00000000

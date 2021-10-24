@@ -4,64 +4,64 @@
 	.section .rodata
     .align 2
 
-gUnk_080CF14C:: @ 080CF14C
-	.incbin "octorokBoss/gUnk_080CF14C.bin"
+gSpriteAnimations_OctorokBoss_1_0:: @ 080CF14C
+	.include "animations/gSpriteAnimations_OctorokBoss_1_0.s"
 
-gUnk_080CF150:: @ 080CF150
-	.incbin "octorokBoss/gUnk_080CF150.bin"
+gSpriteAnimations_OctorokBoss_1_1:: @ 080CF150
+	.include "animations/gSpriteAnimations_OctorokBoss_1_1.s"
 
-gUnk_080CF154:: @ 080CF154
-	.incbin "octorokBoss/gUnk_080CF154.bin"
+gSpriteAnimations_OctorokBoss_1_2:: @ 080CF154
+	.include "animations/gSpriteAnimations_OctorokBoss_1_2.s"
 
-gUnk_080CF158:: @ 080CF158
-	.incbin "octorokBoss/gUnk_080CF158.bin"
+gSpriteAnimations_OctorokBoss_0_1:: @ 080CF158
+	.include "animations/gSpriteAnimations_OctorokBoss_0_1.s"
 
-gUnk_080CF16D:: @ 080CF16D
-	.incbin "octorokBoss/gUnk_080CF16D.bin"
+gSpriteAnimations_OctorokBoss_0_2:: @ 080CF16D
+	.include "animations/gSpriteAnimations_OctorokBoss_0_2.s"
 
-gUnk_080CF182:: @ 080CF182
-	.incbin "octorokBoss/gUnk_080CF182.bin"
+gSpriteAnimations_OctorokBoss_1_3:: @ 080CF182
+	.include "animations/gSpriteAnimations_OctorokBoss_1_3.s"
 
-gUnk_080CF186:: @ 080CF186
-	.incbin "octorokBoss/gUnk_080CF186.bin"
+gSpriteAnimations_OctorokBoss_0_0:: @ 080CF186
+	.include "animations/gSpriteAnimations_OctorokBoss_0_0.s"
 
-gUnk_080CF197:: @ 080CF197
-	.incbin "octorokBoss/gUnk_080CF197.bin"
+gSpriteAnimations_OctorokBoss_1_4:: @ 080CF197
+	.include "animations/gSpriteAnimations_OctorokBoss_1_4.s"
 
-gUnk_080CF1AC:: @ 080CF1AC
-	.incbin "octorokBoss/gUnk_080CF1AC.bin"
+gSpriteAnimations_OctorokBoss_1_5:: @ 080CF1AC
+	.include "animations/gSpriteAnimations_OctorokBoss_1_5.s"
 
-gUnk_080CF1BD:: @ 080CF1BD
-	.incbin "octorokBoss/gUnk_080CF1BD.bin"
+gSpriteAnimations_OctorokBoss_1_6:: @ 080CF1BD
+	.include "animations/gSpriteAnimations_OctorokBoss_1_6.s"
 
-gUnk_080CF1DD:: @ 080CF1DD
-	.incbin "octorokBoss/gUnk_080CF1DD.bin"
+gSpriteAnimations_OctorokBoss_1_7:: @ 080CF1DD
+	.include "animations/gSpriteAnimations_OctorokBoss_1_7.s"
 
-gUnk_080CF1E2:: @ 080CF1E2
-	.incbin "octorokBoss/gUnk_080CF1E2.bin"
+gSpriteAnimations_OctorokBoss_1_8:: @ 080CF1E2
+	.include "animations/gSpriteAnimations_OctorokBoss_1_8.s"
 
-gUnk_080CF1FB:: @ 080CF1FB
-	.incbin "octorokBoss/gUnk_080CF1FB.bin"
+gSpriteAnimations_OctorokBoss_1_9:: @ 080CF1FB
+	.include "animations/gSpriteAnimations_OctorokBoss_1_9.s"
 
-gUnk_080CF1FF:: @ 080CF1FF
-	.incbin "octorokBoss/gUnk_080CF1FF.bin"
+gSpriteAnimations_OctorokBoss_1_10:: @ 080CF1FF
+	.include "animations/gSpriteAnimations_OctorokBoss_1_10.s"
 
 gSpriteAnimations_OctorokBoss_1:: @ 080CF204
-	.4byte gUnk_080CF14C
-	.4byte gUnk_080CF150
-	.4byte gUnk_080CF154
-	.4byte gUnk_080CF182
-	.4byte gUnk_080CF197
-	.4byte gUnk_080CF1AC
-	.4byte gUnk_080CF1BD
-	.4byte gUnk_080CF1DD
-	.4byte gUnk_080CF1E2
-	.4byte gUnk_080CF1FB
-	.4byte gUnk_080CF1FF
+	.4byte gSpriteAnimations_OctorokBoss_1_0
+	.4byte gSpriteAnimations_OctorokBoss_1_1
+	.4byte gSpriteAnimations_OctorokBoss_1_2
+	.4byte gSpriteAnimations_OctorokBoss_1_3
+	.4byte gSpriteAnimations_OctorokBoss_1_4
+	.4byte gSpriteAnimations_OctorokBoss_1_5
+	.4byte gSpriteAnimations_OctorokBoss_1_6
+	.4byte gSpriteAnimations_OctorokBoss_1_7
+	.4byte gSpriteAnimations_OctorokBoss_1_8
+	.4byte gSpriteAnimations_OctorokBoss_1_9
+	.4byte gSpriteAnimations_OctorokBoss_1_10
 	.4byte 00000000
 
 gSpriteAnimations_OctorokBoss_0:: @ 080CF234
-	.4byte gUnk_080CF186
-	.4byte gUnk_080CF158
-	.4byte gUnk_080CF16D
+	.4byte gSpriteAnimations_OctorokBoss_0_0
+	.4byte gSpriteAnimations_OctorokBoss_0_1
+	.4byte gSpriteAnimations_OctorokBoss_0_2
 	.4byte 00000000

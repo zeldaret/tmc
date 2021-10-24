@@ -4,18 +4,18 @@
 	.section .rodata
     .align 2
 
-gUnk_08120AE8:: @ 08120AE8
-	.incbin "figurineDevice/gUnk_08120AE8.bin"
+gSpriteAnimations_FigurineDevice_0:: @ 08120AE8
+	.include "animations/gSpriteAnimations_FigurineDevice_0.s"
 
-gUnk_08120AED:: @ 08120AED
-	.incbin "figurineDevice/gUnk_08120AED.bin"
+gSpriteAnimations_FigurineDevice_1:: @ 08120AED
+	.include "animations/gSpriteAnimations_FigurineDevice_1.s"
 
-gUnk_08120B01:: @ 08120B01
-	.incbin "figurineDevice/gUnk_08120B01.bin"
+gSpriteAnimations_FigurineDevice_2:: @ 08120B01
+	.include "animations/gSpriteAnimations_FigurineDevice_2.s"
 
 gSpriteAnimations_FigurineDevice:: @ 08120B10
-	.4byte gUnk_08120AE8
-	.4byte gUnk_08120AED
-	.4byte gUnk_08120B01
+	.4byte gSpriteAnimations_FigurineDevice_0
+	.4byte gSpriteAnimations_FigurineDevice_1
+	.4byte gSpriteAnimations_FigurineDevice_2
 	.4byte 00000000
 

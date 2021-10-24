@@ -38,41 +38,41 @@ gUnk_08111154:: @ 08111154
 	.4byte gUnk_08111144
 	.4byte gUnk_0811114C
 
-gUnk_08111174:: @ 08111174
-	.incbin "cat/gUnk_08111174.bin"
+gSpriteAnimations_Cat_0:: @ 08111174
+	.include "animations/gSpriteAnimations_Cat_0.s"
 
-gUnk_081111B0:: @ 081111B0
-	.incbin "cat/gUnk_081111B0.bin"
+gSpriteAnimations_Cat_1:: @ 081111B0
+	.include "animations/gSpriteAnimations_Cat_1.s"
 
-gUnk_081111B9:: @ 081111B9
-	.incbin "cat/gUnk_081111B9.bin"
+gSpriteAnimations_Cat_2:: @ 081111B9
+	.include "animations/gSpriteAnimations_Cat_2.s"
 
-gUnk_081111C2:: @ 081111C2
-	.incbin "cat/gUnk_081111C2.bin"
+gSpriteAnimations_Cat_3:: @ 081111C2
+	.include "animations/gSpriteAnimations_Cat_3.s"
 
-gUnk_081111D3:: @ 081111D3
-	.incbin "cat/gUnk_081111D3.bin"
+gSpriteAnimations_Cat_4:: @ 081111D3
+	.include "animations/gSpriteAnimations_Cat_4.s"
 
-gUnk_081111EB:: @ 081111EB
-	.incbin "cat/gUnk_081111EB.bin"
+gSpriteAnimations_Cat_5:: @ 081111EB
+	.include "animations/gSpriteAnimations_Cat_5.s"
 
-gUnk_08111204:: @ 08111204
-	.incbin "cat/gUnk_08111204.bin"
+gSpriteAnimations_Cat_6:: @ 08111204
+	.include "animations/gSpriteAnimations_Cat_6.s"
 
-gUnk_0811122C:: @ 0811122C
-	.incbin "cat/gUnk_0811122C.bin"
+gSpriteAnimations_Cat_7:: @ 0811122C
+	.include "animations/gSpriteAnimations_Cat_7.s"
 
-gUnk_08111238:: @ 08111238
-	.incbin "cat/gUnk_08111238.bin"
+gSpriteAnimations_Cat_8:: @ 08111238
+	.include "animations/gSpriteAnimations_Cat_8.s"
 
 gSpriteAnimations_Cat:: @ 0811125C
-	.4byte gUnk_08111174
-	.4byte gUnk_081111B0
-	.4byte gUnk_081111B9
-	.4byte gUnk_081111C2
-	.4byte gUnk_081111D3
-	.4byte gUnk_081111EB
-	.4byte gUnk_08111204
-	.4byte gUnk_0811122C
-	.4byte gUnk_08111238
+	.4byte gSpriteAnimations_Cat_0
+	.4byte gSpriteAnimations_Cat_1
+	.4byte gSpriteAnimations_Cat_2
+	.4byte gSpriteAnimations_Cat_3
+	.4byte gSpriteAnimations_Cat_4
+	.4byte gSpriteAnimations_Cat_5
+	.4byte gSpriteAnimations_Cat_6
+	.4byte gSpriteAnimations_Cat_7
+	.4byte gSpriteAnimations_Cat_8
 	.4byte 00000000

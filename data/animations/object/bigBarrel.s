@@ -4,12 +4,12 @@
 	.section .rodata
 @    .align 2
 
-gUnk_08120C66:: @ 08120C66
-	.incbin "bigBarrel/gUnk_08120C66.bin"
+gSpriteAnimations_BigBarrel_0:: @ 08120C66
+	.include "animations/gSpriteAnimations_BigBarrel_0.s"
 
-gUnk_08120C6F:: @ 08120C6F
-	.incbin "bigBarrel/gUnk_08120C6F.bin"
+gSpriteAnimations_BigBarrel_1:: @ 08120C6F
+	.include "animations/gSpriteAnimations_BigBarrel_1.s"
 
 gSpriteAnimations_BigBarrel:: @ 08120C78
-	.4byte gUnk_08120C66
-	.4byte gUnk_08120C6F
+	.4byte gSpriteAnimations_BigBarrel_0
+	.4byte gSpriteAnimations_BigBarrel_1

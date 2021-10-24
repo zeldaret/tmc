@@ -4,21 +4,21 @@
 	.section .rodata
     .align 2
 
-gUnk_0810C3C8:: @ 0810C3C8
-	.incbin "wheaton/gUnk_0810C3C8.bin"
+gSpriteAnimations_Wheaton_0:: @ 0810C3C8
+	.include "animations/gSpriteAnimations_Wheaton_0.s"
 
-gUnk_0810C3E1:: @ 0810C3E1
-	.incbin "wheaton/gUnk_0810C3E1.bin"
+gSpriteAnimations_Wheaton_1:: @ 0810C3E1
+	.include "animations/gSpriteAnimations_Wheaton_1.s"
 
-gUnk_0810C3F2:: @ 0810C3F2
-	.incbin "wheaton/gUnk_0810C3F2.bin"
+gSpriteAnimations_Wheaton_2:: @ 0810C3F2
+	.include "animations/gSpriteAnimations_Wheaton_2.s"
 
-gUnk_0810C403:: @ 0810C403
-	.incbin "wheaton/gUnk_0810C403.bin"
+gSpriteAnimations_Wheaton_3:: @ 0810C403
+	.include "animations/gSpriteAnimations_Wheaton_3.s"
 
 gSpriteAnimations_Wheaton:: @ 0810C414
-	.4byte gUnk_0810C3C8
-	.4byte gUnk_0810C3E1
-	.4byte gUnk_0810C3F2
-	.4byte gUnk_0810C403
+	.4byte gSpriteAnimations_Wheaton_0
+	.4byte gSpriteAnimations_Wheaton_1
+	.4byte gSpriteAnimations_Wheaton_2
+	.4byte gSpriteAnimations_Wheaton_3
 	.4byte 00000000

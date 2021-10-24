@@ -4,13 +4,13 @@
 	.section .rodata
     .align 2
 
-gUnk_080CEBAC:: @ 080CEBAC
-	.incbin "wisp/gUnk_080CEBAC.bin"
+gSpriteAnimations_Wisp_0:: @ 080CEBAC
+	.include "animations/gSpriteAnimations_Wisp_0.s"
 
-gUnk_080CEBBD:: @ 080CEBBD
-	.incbin "wisp/gUnk_080CEBBD.bin"
+gSpriteAnimations_Wisp_1:: @ 080CEBBD
+	.include "animations/gSpriteAnimations_Wisp_1.s"
 
 gSpriteAnimations_Wisp:: @ 080CEBD0
-	.4byte gUnk_080CEBAC
-	.4byte gUnk_080CEBBD
+	.4byte gSpriteAnimations_Wisp_0
+	.4byte gSpriteAnimations_Wisp_1
 	.4byte 00000000

@@ -3,21 +3,21 @@
 
 	.section .rodata
 
-gUnk_080CD184:: @ 080CD184
-	.incbin "bombPeahat/gUnk_080CD184.bin"
+gSpriteAnimations_BombPeahat_0:: @ 080CD184
+	.include "animations/gSpriteAnimations_BombPeahat_0.s"
 
-gUnk_080CD195:: @ 080CD195
-	.incbin "bombPeahat/gUnk_080CD195.bin"
+gSpriteAnimations_BombPeahat_1:: @ 080CD195
+	.include "animations/gSpriteAnimations_BombPeahat_1.s"
 
-gUnk_080CD1D6:: @ 080CD1D6
-	.incbin "bombPeahat/gUnk_080CD1D6.bin"
+gSpriteAnimations_BombPeahat_2:: @ 080CD1D6
+	.include "animations/gSpriteAnimations_BombPeahat_2.s"
 
-gUnk_080CD217:: @ 080CD217
-	.incbin "bombPeahat/gUnk_080CD217.bin"
+gSpriteAnimations_BombPeahat_3:: @ 080CD217
+	.include "animations/gSpriteAnimations_BombPeahat_3.s"
 
 gSpriteAnimations_BombPeahat:: @ 080CD220
-	.4byte gUnk_080CD184
-	.4byte gUnk_080CD195
-	.4byte gUnk_080CD1D6
-	.4byte gUnk_080CD217
+	.4byte gSpriteAnimations_BombPeahat_0
+	.4byte gSpriteAnimations_BombPeahat_1
+	.4byte gSpriteAnimations_BombPeahat_2
+	.4byte gSpriteAnimations_BombPeahat_3
 	.4byte 00000000

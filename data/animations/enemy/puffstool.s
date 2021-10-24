@@ -3,42 +3,42 @@
 
 	.section .rodata
 
-gUnk_080CC0CA:: @ 080CC0CA
-	.incbin "puffstool/gUnk_080CC0CA.bin"
+gSpriteAnimations_Puffstool_0:: @ 080CC0CA
+	.include "animations/gSpriteAnimations_Puffstool_0.s"
 
-gUnk_080CC10B:: @ 080CC10B
-	.incbin "puffstool/gUnk_080CC10B.bin"
+gSpriteAnimations_Puffstool_1:: @ 080CC10B
+	.include "animations/gSpriteAnimations_Puffstool_1.s"
 
-gUnk_080CC118:: @ 080CC118
-	.incbin "puffstool/gUnk_080CC118.bin"
+gSpriteAnimations_Puffstool_2:: @ 080CC118
+	.include "animations/gSpriteAnimations_Puffstool_2.s"
 
-gUnk_080CC121:: @ 080CC121
-	.incbin "puffstool/gUnk_080CC121.bin"
+gSpriteAnimations_Puffstool_3:: @ 080CC121
+	.include "animations/gSpriteAnimations_Puffstool_3.s"
 
-gUnk_080CC131:: @ 080CC131
-	.incbin "puffstool/gUnk_080CC131.bin"
+gSpriteAnimations_Puffstool_4:: @ 080CC131
+	.include "animations/gSpriteAnimations_Puffstool_4.s"
 
-gUnk_080CC13E:: @ 080CC13E
-	.incbin "puffstool/gUnk_080CC13E.bin"
+gSpriteAnimations_Puffstool_5:: @ 080CC13E
+	.include "animations/gSpriteAnimations_Puffstool_5.s"
 
-gUnk_080CC14B:: @ 080CC14B
-	.incbin "puffstool/gUnk_080CC14B.bin"
+gSpriteAnimations_Puffstool_6:: @ 080CC14B
+	.include "animations/gSpriteAnimations_Puffstool_6.s"
 
-gUnk_080CC158:: @ 080CC158
-	.incbin "puffstool/gUnk_080CC158.bin"
+gSpriteAnimations_Puffstool_7:: @ 080CC158
+	.include "animations/gSpriteAnimations_Puffstool_7.s"
 
-gUnk_080CC165:: @ 080CC165
-	.incbin "puffstool/gUnk_080CC165.bin"
+gSpriteAnimations_Puffstool_8:: @ 080CC165
+	.include "animations/gSpriteAnimations_Puffstool_8.s"
 
 gSpriteAnimations_Puffstool:: @ 080CC174
-	.4byte gUnk_080CC0CA
-	.4byte gUnk_080CC10B
-	.4byte gUnk_080CC118
-	.4byte gUnk_080CC121
-	.4byte gUnk_080CC131
-	.4byte gUnk_080CC13E
-	.4byte gUnk_080CC14B
-	.4byte gUnk_080CC158
-	.4byte gUnk_080CC165
+	.4byte gSpriteAnimations_Puffstool_0
+	.4byte gSpriteAnimations_Puffstool_1
+	.4byte gSpriteAnimations_Puffstool_2
+	.4byte gSpriteAnimations_Puffstool_3
+	.4byte gSpriteAnimations_Puffstool_4
+	.4byte gSpriteAnimations_Puffstool_5
+	.4byte gSpriteAnimations_Puffstool_6
+	.4byte gSpriteAnimations_Puffstool_7
+	.4byte gSpriteAnimations_Puffstool_8
 	.4byte 00000000
 

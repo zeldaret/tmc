@@ -4,9 +4,9 @@
 	.section .rodata
     .align 2
 
-gUnk_08123E2C:: @ 08123E2C
-	.incbin "bakerOven/gUnk_08123E2C.bin"
+gSpriteAnimations_BakerOven_0:: @ 08123E2C
+	.include "animations/gSpriteAnimations_BakerOven_0.s"
 
 gSpriteAnimations_BakerOven:: @ 08123E78
-	.4byte gUnk_08123E2C
+	.4byte gSpriteAnimations_BakerOven_0
 	.4byte 00000000

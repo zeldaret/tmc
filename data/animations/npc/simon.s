@@ -4,35 +4,35 @@
 	.section .rodata
     .align 2
 
-gUnk_0811362C:: @ 0811362C
-	.incbin "simon/gUnk_0811362C.bin"
+gSpriteAnimations_Simon_0:: @ 0811362C
+	.include "animations/gSpriteAnimations_Simon_0.s"
 
-gUnk_08113631:: @ 08113631
-	.incbin "simon/gUnk_08113631.bin"
+gSpriteAnimations_Simon_1:: @ 08113631
+	.include "animations/gSpriteAnimations_Simon_1.s"
 
-gUnk_08113636:: @ 08113636
-	.incbin "simon/gUnk_08113636.bin"
+gSpriteAnimations_Simon_3:: @ 08113636
+	.include "animations/gSpriteAnimations_Simon_3.s"
 
-gUnk_0811363B:: @ 0811363B
-	.incbin "simon/gUnk_0811363B.bin"
+gSpriteAnimations_Simon_4:: @ 0811363B
+	.include "animations/gSpriteAnimations_Simon_4.s"
 
-gUnk_08113640:: @ 08113640
-	.incbin "simon/gUnk_08113640.bin"
+gSpriteAnimations_Simon_5:: @ 08113640
+	.include "animations/gSpriteAnimations_Simon_5.s"
 
-gUnk_08113645:: @ 08113645
-	.incbin "simon/gUnk_08113645.bin"
+gSpriteAnimations_Simon_7:: @ 08113645
+	.include "animations/gSpriteAnimations_Simon_7.s"
 
-gUnk_0811364A:: @ 0811364A
-	.incbin "simon/gUnk_0811364A.bin"
+gSpriteAnimations_Simon_8:: @ 0811364A
+	.include "animations/gSpriteAnimations_Simon_8.s"
 
 gSpriteAnimations_Simon:: @ 081136B0
-	.4byte gUnk_0811362C
-	.4byte gUnk_08113631
-	.4byte gUnk_0811362C
-	.4byte gUnk_08113636
-	.4byte gUnk_0811363B
-	.4byte gUnk_08113640
-	.4byte gUnk_0811363B
-	.4byte gUnk_08113645
-	.4byte gUnk_0811364A
+	.4byte gSpriteAnimations_Simon_0
+	.4byte gSpriteAnimations_Simon_1
+	.4byte gSpriteAnimations_Simon_0
+	.4byte gSpriteAnimations_Simon_3
+	.4byte gSpriteAnimations_Simon_4
+	.4byte gSpriteAnimations_Simon_5
+	.4byte gSpriteAnimations_Simon_4
+	.4byte gSpriteAnimations_Simon_7
+	.4byte gSpriteAnimations_Simon_8
 	.4byte 00000000

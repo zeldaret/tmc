@@ -4,66 +4,66 @@
 	.section .rodata
     .align 2
 
-gUnk_080CE30C:: @ 080CE30C
-	.incbin "eyegore/gUnk_080CE30C.bin"
+gSpriteAnimations_Eyegore_2:: @ 080CE30C
+	.include "animations/gSpriteAnimations_Eyegore_2.s"
 
-gUnk_080CE31C:: @ 080CE31C
-	.incbin "eyegore/gUnk_080CE31C.bin"
+gSpriteAnimations_Eyegore_6:: @ 080CE31C
+	.include "animations/gSpriteAnimations_Eyegore_6.s"
 
-gUnk_080CE335:: @ 080CE335
-	.incbin "eyegore/gUnk_080CE335.bin"
+gSpriteAnimations_Eyegore_0:: @ 080CE335
+	.include "animations/gSpriteAnimations_Eyegore_0.s"
 
-gUnk_080CE345:: @ 080CE345
-	.incbin "eyegore/gUnk_080CE345.bin"
+gSpriteAnimations_Eyegore_4:: @ 080CE345
+	.include "animations/gSpriteAnimations_Eyegore_4.s"
 
-gUnk_080CE35E:: @ 080CE35E
-	.incbin "eyegore/gUnk_080CE35E.bin"
+gSpriteAnimations_Eyegore_3:: @ 080CE35E
+	.include "animations/gSpriteAnimations_Eyegore_3.s"
 
-gUnk_080CE36E:: @ 080CE36E
-	.incbin "eyegore/gUnk_080CE36E.bin"
+gSpriteAnimations_Eyegore_7:: @ 080CE36E
+	.include "animations/gSpriteAnimations_Eyegore_7.s"
 
-gUnk_080CE387:: @ 080CE387
-	.incbin "eyegore/gUnk_080CE387.bin"
+gSpriteAnimations_Eyegore_1:: @ 080CE387
+	.include "animations/gSpriteAnimations_Eyegore_1.s"
 
-gUnk_080CE397:: @ 080CE397
-	.incbin "eyegore/gUnk_080CE397.bin"
+gSpriteAnimations_Eyegore_5:: @ 080CE397
+	.include "animations/gSpriteAnimations_Eyegore_5.s"
 
-gUnk_080CE3B0:: @ 080CE3B0
-	.incbin "eyegore/gUnk_080CE3B0.bin"
+gSpriteAnimations_Eyegore_10:: @ 080CE3B0
+	.include "animations/gSpriteAnimations_Eyegore_10.s"
 
-gUnk_080CE3BC:: @ 080CE3BC
-	.incbin "eyegore/gUnk_080CE3BC.bin"
+gSpriteAnimations_Eyegore_8:: @ 080CE3BC
+	.include "animations/gSpriteAnimations_Eyegore_8.s"
 
-gUnk_080CE3C8:: @ 080CE3C8
-	.incbin "eyegore/gUnk_080CE3C8.bin"
+gSpriteAnimations_Eyegore_11:: @ 080CE3C8
+	.include "animations/gSpriteAnimations_Eyegore_11.s"
 
-gUnk_080CE3D4:: @ 080CE3D4
-	.incbin "eyegore/gUnk_080CE3D4.bin"
+gSpriteAnimations_Eyegore_9:: @ 080CE3D4
+	.include "animations/gSpriteAnimations_Eyegore_9.s"
 
-gUnk_080CE3E0:: @ 080CE3E0
-	.incbin "eyegore/gUnk_080CE3E0.bin"
+gSpriteAnimations_Eyegore_14:: @ 080CE3E0
+	.include "animations/gSpriteAnimations_Eyegore_14.s"
 
-gUnk_080CE3EC:: @ 080CE3EC
-	.incbin "eyegore/gUnk_080CE3EC.bin"
+gSpriteAnimations_Eyegore_15:: @ 080CE3EC
+	.include "animations/gSpriteAnimations_Eyegore_15.s"
 
-gUnk_080CE3F8:: @ 080CE3F8
-	.incbin "eyegore/gUnk_080CE3F8.bin"
+gSpriteAnimations_Eyegore_13:: @ 080CE3F8
+	.include "animations/gSpriteAnimations_Eyegore_13.s"
 
 gSpriteAnimations_Eyegore:: @ 080CE404
-	.4byte gUnk_080CE335
-	.4byte gUnk_080CE387
-	.4byte gUnk_080CE30C
-	.4byte gUnk_080CE35E
-	.4byte gUnk_080CE345
-	.4byte gUnk_080CE397
-	.4byte gUnk_080CE31C
-	.4byte gUnk_080CE36E
-	.4byte gUnk_080CE3BC
-	.4byte gUnk_080CE3D4
-	.4byte gUnk_080CE3B0
-	.4byte gUnk_080CE3C8
-	.4byte gUnk_080CE3BC
-	.4byte gUnk_080CE3F8
-	.4byte gUnk_080CE3E0
-	.4byte gUnk_080CE3EC
+	.4byte gSpriteAnimations_Eyegore_0
+	.4byte gSpriteAnimations_Eyegore_1
+	.4byte gSpriteAnimations_Eyegore_2
+	.4byte gSpriteAnimations_Eyegore_3
+	.4byte gSpriteAnimations_Eyegore_4
+	.4byte gSpriteAnimations_Eyegore_5
+	.4byte gSpriteAnimations_Eyegore_6
+	.4byte gSpriteAnimations_Eyegore_7
+	.4byte gSpriteAnimations_Eyegore_8
+	.4byte gSpriteAnimations_Eyegore_9
+	.4byte gSpriteAnimations_Eyegore_10
+	.4byte gSpriteAnimations_Eyegore_11
+	.4byte gSpriteAnimations_Eyegore_8
+	.4byte gSpriteAnimations_Eyegore_13
+	.4byte gSpriteAnimations_Eyegore_14
+	.4byte gSpriteAnimations_Eyegore_15
 	.4byte 00000000

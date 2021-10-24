@@ -4,24 +4,24 @@
 	.section .rodata
 @    .align 2
 
-gUnk_08120BF1:: @ 08120BF1
-	.incbin "object24/gUnk_08120BF1.bin"
+gSpriteAnimations_Object24_0:: @ 08120BF1
+	.include "animations/gSpriteAnimations_Object24_0.s"
 
-gUnk_08120BF5:: @ 08120BF5
-	.incbin "object24/gUnk_08120BF5.bin"
+gSpriteAnimations_Object24_1:: @ 08120BF5
+	.include "animations/gSpriteAnimations_Object24_1.s"
 
-gUnk_08120BF9:: @ 08120BF9
-	.incbin "object24/gUnk_08120BF9.bin"
+gSpriteAnimations_Object24_2:: @ 08120BF9
+	.include "animations/gSpriteAnimations_Object24_2.s"
 
-gUnk_08120BFD:: @ 08120BFD
-	.incbin "object24/gUnk_08120BFD.bin"
+gSpriteAnimations_Object24_3:: @ 08120BFD
+	.include "animations/gSpriteAnimations_Object24_3.s"
 
-gUnk_08120C01:: @ 08120C01
-	.incbin "object24/gUnk_08120C01.bin"
+gSpriteAnimations_Object24_4:: @ 08120C01
+	.include "animations/gSpriteAnimations_Object24_4.s"
 
 gSpriteAnimations_Object24:: @ 08120C08
-	.4byte gUnk_08120BF1
-	.4byte gUnk_08120BF5
-	.4byte gUnk_08120BF9
-	.4byte gUnk_08120BFD
-	.4byte gUnk_08120C01
+	.4byte gSpriteAnimations_Object24_0
+	.4byte gSpriteAnimations_Object24_1
+	.4byte gSpriteAnimations_Object24_2
+	.4byte gSpriteAnimations_Object24_3
+	.4byte gSpriteAnimations_Object24_4

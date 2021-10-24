@@ -4,60 +4,60 @@
 	.section .rodata
     .align 2
 
-gUnk_081217E0:: @ 081217E0
-	.incbin "object43/gUnk_081217E0.bin"
+gSpriteAnimations_Object43_0:: @ 081217E0
+	.include "animations/gSpriteAnimations_Object43_0.s"
 
-gUnk_08121864:: @ 08121864
-	.incbin "object43/gUnk_08121864.bin"
+gSpriteAnimations_Object43_1:: @ 08121864
+	.include "animations/gSpriteAnimations_Object43_1.s"
 
-gUnk_081218E8:: @ 081218E8
-	.incbin "object43/gUnk_081218E8.bin"
+gSpriteAnimations_Object43_2:: @ 081218E8
+	.include "animations/gSpriteAnimations_Object43_2.s"
 
-gUnk_0812196C:: @ 0812196C
-	.incbin "object43/gUnk_0812196C.bin"
+gSpriteAnimations_Object43_3:: @ 0812196C
+	.include "animations/gSpriteAnimations_Object43_3.s"
 
-gUnk_081219F0:: @ 081219F0
-	.incbin "object43/gUnk_081219F0.bin"
+gSpriteAnimations_Object43_4:: @ 081219F0
+	.include "animations/gSpriteAnimations_Object43_4.s"
 
-gUnk_08121A2D:: @ 08121A2D
-	.incbin "object43/gUnk_08121A2D.bin"
+gSpriteAnimations_Object43_5:: @ 08121A2D
+	.include "animations/gSpriteAnimations_Object43_5.s"
 
-gUnk_08121A6A:: @ 08121A6A
-	.incbin "object43/gUnk_08121A6A.bin"
+gSpriteAnimations_Object43_6:: @ 08121A6A
+	.include "animations/gSpriteAnimations_Object43_6.s"
 
-gUnk_08121AA7:: @ 08121AA7
-	.incbin "object43/gUnk_08121AA7.bin"
+gSpriteAnimations_Object43_7:: @ 08121AA7
+	.include "animations/gSpriteAnimations_Object43_7.s"
 
-gUnk_08121AE4:: @ 08121AE4
-	.incbin "object43/gUnk_08121AE4.bin"
+gSpriteAnimations_Object43_8:: @ 08121AE4
+	.include "animations/gSpriteAnimations_Object43_8.s"
 
-gUnk_08121AF4:: @ 08121AF4
-	.incbin "object43/gUnk_08121AF4.bin"
+gSpriteAnimations_Object43_9:: @ 08121AF4
+	.include "animations/gSpriteAnimations_Object43_9.s"
 
-gUnk_08121B04:: @ 08121B04
-	.incbin "object43/gUnk_08121B04.bin"
+gSpriteAnimations_Object43_10:: @ 08121B04
+	.include "animations/gSpriteAnimations_Object43_10.s"
 
-gUnk_08121B14:: @ 08121B14
-	.incbin "object43/gUnk_08121B14.bin"
+gSpriteAnimations_Object43_11:: @ 08121B14
+	.include "animations/gSpriteAnimations_Object43_11.s"
 
-gUnk_08121B24:: @ 08121B24
-	.incbin "object43/gUnk_08121B24.bin"
+gSpriteAnimations_Object43_12:: @ 08121B24
+	.include "animations/gSpriteAnimations_Object43_12.s"
 
 gSpriteAnimations_Object43:: @ 08121B48
-	.4byte gUnk_081217E0
-	.4byte gUnk_08121864
-	.4byte gUnk_081218E8
-	.4byte gUnk_0812196C
-	.4byte gUnk_081219F0
-	.4byte gUnk_08121A2D
-	.4byte gUnk_08121A6A
-	.4byte gUnk_08121AA7
-	.4byte gUnk_08121AE4
-	.4byte gUnk_08121AF4
-	.4byte gUnk_08121B04
-	.4byte gUnk_08121B14
-	.4byte gUnk_08121B24
-	.4byte gUnk_08121B24
-	.4byte gUnk_08121B24
-	.4byte gUnk_08121B24
+	.4byte gSpriteAnimations_Object43_0
+	.4byte gSpriteAnimations_Object43_1
+	.4byte gSpriteAnimations_Object43_2
+	.4byte gSpriteAnimations_Object43_3
+	.4byte gSpriteAnimations_Object43_4
+	.4byte gSpriteAnimations_Object43_5
+	.4byte gSpriteAnimations_Object43_6
+	.4byte gSpriteAnimations_Object43_7
+	.4byte gSpriteAnimations_Object43_8
+	.4byte gSpriteAnimations_Object43_9
+	.4byte gSpriteAnimations_Object43_10
+	.4byte gSpriteAnimations_Object43_11
+	.4byte gSpriteAnimations_Object43_12
+	.4byte gSpriteAnimations_Object43_12
+	.4byte gSpriteAnimations_Object43_12
+	.4byte gSpriteAnimations_Object43_12
 	.4byte 00000000

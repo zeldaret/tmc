@@ -4,53 +4,53 @@
 	.section .rodata
     .align 2
 
-gUnk_0811F0DC:: @ 0811F0DC
-	.incbin "pot/gUnk_0811F0DC.bin"
+gSpriteAnimations_Pot_0:: @ 0811F0DC
+	.include "animations/gSpriteAnimations_Pot_0.s"
 
-gUnk_0811F0E1:: @ 0811F0E1
-	.incbin "pot/gUnk_0811F0E1.bin"
+gSpriteAnimations_Pot_1:: @ 0811F0E1
+	.include "animations/gSpriteAnimations_Pot_1.s"
 
-gUnk_0811F0E6:: @ 0811F0E6
-	.incbin "pot/gUnk_0811F0E6.bin"
+gSpriteAnimations_Pot_2:: @ 0811F0E6
+	.include "animations/gSpriteAnimations_Pot_2.s"
 
-gUnk_0811F0EB:: @ 0811F0EB
-	.incbin "pot/gUnk_0811F0EB.bin"
+gSpriteAnimations_Pot_3:: @ 0811F0EB
+	.include "animations/gSpriteAnimations_Pot_3.s"
 
-gUnk_0811F0F0:: @ 0811F0F0
-	.incbin "pot/gUnk_0811F0F0.bin"
+gSpriteAnimations_Pot_4:: @ 0811F0F0
+	.include "animations/gSpriteAnimations_Pot_4.s"
 
-gUnk_0811F0F5:: @ 0811F0F5
-	.incbin "pot/gUnk_0811F0F5.bin"
+gSpriteAnimations_Pot_5:: @ 0811F0F5
+	.include "animations/gSpriteAnimations_Pot_5.s"
 
-gUnk_0811F0FA:: @ 0811F0FA
-	.incbin "pot/gUnk_0811F0FA.bin"
+gSpriteAnimations_Pot_6:: @ 0811F0FA
+	.include "animations/gSpriteAnimations_Pot_6.s"
 
-gUnk_0811F0FF:: @ 0811F0FF
-	.incbin "pot/gUnk_0811F0FF.bin"
+gSpriteAnimations_Pot_7:: @ 0811F0FF
+	.include "animations/gSpriteAnimations_Pot_7.s"
 
-gUnk_0811F104:: @ 0811F104
-	.incbin "pot/gUnk_0811F104.bin"
+gSpriteAnimations_Pot_8:: @ 0811F104
+	.include "animations/gSpriteAnimations_Pot_8.s"
 
-gUnk_0811F109:: @ 0811F109
-	.incbin "pot/gUnk_0811F109.bin"
+gSpriteAnimations_Pot_9:: @ 0811F109
+	.include "animations/gSpriteAnimations_Pot_9.s"
 
-gUnk_0811F10E:: @ 0811F10E
-	.incbin "pot/gUnk_0811F10E.bin"
+gSpriteAnimations_Pot_10:: @ 0811F10E
+	.include "animations/gSpriteAnimations_Pot_10.s"
 
-gUnk_0811F113:: @ 0811F113
-	.incbin "pot/gUnk_0811F113.bin"
+gSpriteAnimations_Pot_11:: @ 0811F113
+	.include "animations/gSpriteAnimations_Pot_11.s"
 
 gSpriteAnimations_Pot:: @ 0811F118
-	.4byte gUnk_0811F0DC
-	.4byte gUnk_0811F0E1
-	.4byte gUnk_0811F0E6
-	.4byte gUnk_0811F0EB
-	.4byte gUnk_0811F0F0
-	.4byte gUnk_0811F0F5
-	.4byte gUnk_0811F0FA
-	.4byte gUnk_0811F0FF
-	.4byte gUnk_0811F104
-	.4byte gUnk_0811F109
-	.4byte gUnk_0811F10E
-	.4byte gUnk_0811F113
+	.4byte gSpriteAnimations_Pot_0
+	.4byte gSpriteAnimations_Pot_1
+	.4byte gSpriteAnimations_Pot_2
+	.4byte gSpriteAnimations_Pot_3
+	.4byte gSpriteAnimations_Pot_4
+	.4byte gSpriteAnimations_Pot_5
+	.4byte gSpriteAnimations_Pot_6
+	.4byte gSpriteAnimations_Pot_7
+	.4byte gSpriteAnimations_Pot_8
+	.4byte gSpriteAnimations_Pot_9
+	.4byte gSpriteAnimations_Pot_10
+	.4byte gSpriteAnimations_Pot_11
 	.4byte 00000000

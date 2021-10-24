@@ -8,16 +8,16 @@ gUnk_08123E80:: @ 08123E80
 	.4byte sub_0809CEA8
 	.4byte sub_0809CEC0
 
-gUnk_08123E88:: @ 08123E88
-	.incbin "object93/gUnk_08123E88.bin"
+gSpriteAnimations_Object93_0_0:: @ 08123E88
+	.include "animations/gSpriteAnimations_Object93_0_0.s"
 
 gSpriteAnimations_Object93_0:: @ 08123E9C
-	.4byte gUnk_08123E88
-	.incbin "object93/gSpriteAnimations_Object93_0.bin"
+	.4byte gSpriteAnimations_Object93_0_0
+	.include "animations/gSpriteAnimations_Object93_0.s"
 
-gUnk_08123EA4:: @ 08123EA4
-	.incbin "object93/gUnk_08123EA4.bin"
+gSpriteAnimations_Object93_1_0:: @ 08123EA4
+	.include "animations/gSpriteAnimations_Object93_1_0.s"
 
 gSpriteAnimations_Object93_1:: @ 08123EB8
-	.4byte gUnk_08123EA4
-	.incbin "object93/gSpriteAnimations_Object93_1.bin"
+	.4byte gSpriteAnimations_Object93_1_0
+	.include "animations/gSpriteAnimations_Object93_1.s"

@@ -5,21 +5,21 @@
     .align 2
 
 
-gUnk_080D1CF0:: @ 080D1CF0
-	.incbin "curtain/gUnk_080D1CF0.bin"
+gSpriteAnimations_Curtain_0:: @ 080D1CF0
+	.include "animations/gSpriteAnimations_Curtain_0.s"
 
-gUnk_080D1CF9:: @ 080D1CF9
-	.incbin "curtain/gUnk_080D1CF9.bin"
+gSpriteAnimations_Curtain_1:: @ 080D1CF9
+	.include "animations/gSpriteAnimations_Curtain_1.s"
 
-gUnk_080D1D02:: @ 080D1D02
-	.incbin "curtain/gUnk_080D1D02.bin"
+gSpriteAnimations_Curtain_2:: @ 080D1D02
+	.include "animations/gSpriteAnimations_Curtain_2.s"
 
-gUnk_080D1D26:: @ 080D1D26
-	.incbin "curtain/gUnk_080D1D26.bin"
+gSpriteAnimations_Curtain_3:: @ 080D1D26
+	.include "animations/gSpriteAnimations_Curtain_3.s"
 
 gSpriteAnimations_Curtain:: @ 080D1D34
-	.4byte gUnk_080D1CF0
-	.4byte gUnk_080D1CF9
-	.4byte gUnk_080D1D02
-	.4byte gUnk_080D1D26
+	.4byte gSpriteAnimations_Curtain_0
+	.4byte gSpriteAnimations_Curtain_1
+	.4byte gSpriteAnimations_Curtain_2
+	.4byte gSpriteAnimations_Curtain_3
 	.4byte 00000000

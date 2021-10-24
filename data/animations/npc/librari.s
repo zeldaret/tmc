@@ -4,34 +4,34 @@
 	.section .rodata
 @    .align 2
 
-gUnk_08112D5A:: @ 08112D5A
-	.incbin "librari/gUnk_08112D5A.bin"
+gSpriteAnimations_Librari_0:: @ 08112D5A
+	.include "animations/gSpriteAnimations_Librari_0.s"
 
-gUnk_08112D6F:: @ 08112D6F
-	.incbin "librari/gUnk_08112D6F.bin"
+gSpriteAnimations_Librari_8:: @ 08112D6F
+	.include "animations/gSpriteAnimations_Librari_8.s"
 
-gUnk_08112D78:: @ 08112D78
-	.incbin "librari/gUnk_08112D78.bin"
+gSpriteAnimations_Librari_4:: @ 08112D78
+	.include "animations/gSpriteAnimations_Librari_4.s"
 
-gUnk_08112D89:: @ 08112D89
-	.incbin "librari/gUnk_08112D89.bin"
+gSpriteAnimations_Librari_6:: @ 08112D89
+	.include "animations/gSpriteAnimations_Librari_6.s"
 
-gUnk_08112D9A:: @ 08112D9A
-	.incbin "librari/gUnk_08112D9A.bin"
+gSpriteAnimations_Librari_9:: @ 08112D9A
+	.include "animations/gSpriteAnimations_Librari_9.s"
 
-gUnk_08112DE7:: @ 08112DE7
-	.incbin "librari/gUnk_08112DE7.bin"
+gSpriteAnimations_Librari_10:: @ 08112DE7
+	.include "animations/gSpriteAnimations_Librari_10.s"
 
 gSpriteAnimations_Librari:: @ 08112DEC
-	.4byte gUnk_08112D5A
-	.4byte gUnk_08112D5A
-	.4byte gUnk_08112D5A
-	.4byte gUnk_08112D5A
-	.4byte gUnk_08112D78
-	.4byte gUnk_08112D78
-	.4byte gUnk_08112D89
-	.4byte gUnk_08112D89
-	.4byte gUnk_08112D6F
-	.4byte gUnk_08112D9A
-	.4byte gUnk_08112DE7
+	.4byte gSpriteAnimations_Librari_0
+	.4byte gSpriteAnimations_Librari_0
+	.4byte gSpriteAnimations_Librari_0
+	.4byte gSpriteAnimations_Librari_0
+	.4byte gSpriteAnimations_Librari_4
+	.4byte gSpriteAnimations_Librari_4
+	.4byte gSpriteAnimations_Librari_6
+	.4byte gSpriteAnimations_Librari_6
+	.4byte gSpriteAnimations_Librari_8
+	.4byte gSpriteAnimations_Librari_9
+	.4byte gSpriteAnimations_Librari_10
 	.4byte 00000000

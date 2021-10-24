@@ -72,5 +72,5 @@ gUnk_0811172A:: @ 0811172A
 gUnk_08111740:: @ 08111740
 	.incbin "bladeBrothers/gUnk_08111740.bin"
 
-gUnk_0811176C:: @ 0811176C
-	.incbin "bladeBrothers/gUnk_0811176C.bin"
+gSpriteAnimations_BladeBrothers_1_1:: @ 0811176C
+	.include "animations/gSpriteAnimations_BladeBrothers_1_1.s"

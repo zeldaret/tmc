@@ -4,50 +4,50 @@
 	.section .rodata
     .align 2
 
-gUnk_08113FC0:: @ 08113FC0
-	.incbin "mayorHagen/gUnk_08113FC0.bin"
+gSpriteAnimations_MayorHagen_0:: @ 08113FC0
+	.include "animations/gSpriteAnimations_MayorHagen_0.s"
 
-gUnk_08113FC5:: @ 08113FC5
-	.incbin "mayorHagen/gUnk_08113FC5.bin"
+gSpriteAnimations_MayorHagen_1:: @ 08113FC5
+	.include "animations/gSpriteAnimations_MayorHagen_1.s"
 
-gUnk_08113FCA:: @ 08113FCA
-	.incbin "mayorHagen/gUnk_08113FCA.bin"
+gSpriteAnimations_MayorHagen_2:: @ 08113FCA
+	.include "animations/gSpriteAnimations_MayorHagen_2.s"
 
-gUnk_08113FCF:: @ 08113FCF
-	.incbin "mayorHagen/gUnk_08113FCF.bin"
+gSpriteAnimations_MayorHagen_3:: @ 08113FCF
+	.include "animations/gSpriteAnimations_MayorHagen_3.s"
 
-gUnk_08113FD4:: @ 08113FD4
-	.incbin "mayorHagen/gUnk_08113FD4.bin"
+gSpriteAnimations_MayorHagen_11:: @ 08113FD4
+	.include "animations/gSpriteAnimations_MayorHagen_11.s"
 
-gUnk_08113FE5:: @ 08113FE5
-	.incbin "mayorHagen/gUnk_08113FE5.bin"
+gSpriteAnimations_MayorHagen_8:: @ 08113FE5
+	.include "animations/gSpriteAnimations_MayorHagen_8.s"
 
-gUnk_08114032:: @ 08114032
-	.incbin "mayorHagen/gUnk_08114032.bin"
+gSpriteAnimations_MayorHagen_4:: @ 08114032
+	.include "animations/gSpriteAnimations_MayorHagen_4.s"
 
-gUnk_0811403F:: @ 0811403F
-	.incbin "mayorHagen/gUnk_0811403F.bin"
+gSpriteAnimations_MayorHagen_7:: @ 0811403F
+	.include "animations/gSpriteAnimations_MayorHagen_7.s"
 
-gUnk_08114050:: @ 08114050
-	.incbin "mayorHagen/gUnk_08114050.bin"
+gSpriteAnimations_MayorHagen_5:: @ 08114050
+	.include "animations/gSpriteAnimations_MayorHagen_5.s"
 
-gUnk_08114061:: @ 08114061
-	.incbin "mayorHagen/gUnk_08114061.bin"
+gSpriteAnimations_MayorHagen_9:: @ 08114061
+	.include "animations/gSpriteAnimations_MayorHagen_9.s"
 
-gUnk_0811408A:: @ 0811408A
-	.incbin "mayorHagen/gUnk_0811408A.bin"
+gSpriteAnimations_MayorHagen_10:: @ 0811408A
+	.include "animations/gSpriteAnimations_MayorHagen_10.s"
 
 gSpriteAnimations_MayorHagen:: @ 08114098
-	.4byte gUnk_08113FC0
-	.4byte gUnk_08113FC5
-	.4byte gUnk_08113FCA
-	.4byte gUnk_08113FCF
-	.4byte gUnk_08114032
-	.4byte gUnk_08114050
-	.4byte gUnk_08114032
-	.4byte gUnk_0811403F
-	.4byte gUnk_08113FE5
-	.4byte gUnk_08114061
-	.4byte gUnk_0811408A
-	.4byte gUnk_08113FD4
+	.4byte gSpriteAnimations_MayorHagen_0
+	.4byte gSpriteAnimations_MayorHagen_1
+	.4byte gSpriteAnimations_MayorHagen_2
+	.4byte gSpriteAnimations_MayorHagen_3
+	.4byte gSpriteAnimations_MayorHagen_4
+	.4byte gSpriteAnimations_MayorHagen_5
+	.4byte gSpriteAnimations_MayorHagen_4
+	.4byte gSpriteAnimations_MayorHagen_7
+	.4byte gSpriteAnimations_MayorHagen_8
+	.4byte gSpriteAnimations_MayorHagen_9
+	.4byte gSpriteAnimations_MayorHagen_10
+	.4byte gSpriteAnimations_MayorHagen_11
 	.4byte 00000000

@@ -14,44 +14,44 @@ gUnk_081207A4:: @ 081207A4
 gUnk_081207AC:: @ 081207AC
 	.incbin "greatFairy/gUnk_081207AC.bin"
 
-gUnk_081207B0:: @ 081207B0
-	.incbin "greatFairy/gUnk_081207B0.bin"
+gSpriteAnimations_GreatFairy_0:: @ 081207B0
+	.include "animations/gSpriteAnimations_GreatFairy_0.s"
 
-gUnk_081207C1:: @ 081207C1
-	.incbin "greatFairy/gUnk_081207C1.bin"
+gSpriteAnimations_GreatFairy_2:: @ 081207C1
+	.include "animations/gSpriteAnimations_GreatFairy_2.s"
 
-gUnk_081207D2:: @ 081207D2
-	.incbin "greatFairy/gUnk_081207D2.bin"
+gSpriteAnimations_GreatFairy_1:: @ 081207D2
+	.include "animations/gSpriteAnimations_GreatFairy_1.s"
 
-gUnk_081207D7:: @ 081207D7
-	.incbin "greatFairy/gUnk_081207D7.bin"
+gSpriteAnimations_GreatFairy_9:: @ 081207D7
+	.include "animations/gSpriteAnimations_GreatFairy_9.s"
 
-gUnk_081207F4:: @ 081207F4
-	.incbin "greatFairy/gUnk_081207F4.bin"
+gSpriteAnimations_GreatFairy_5:: @ 081207F4
+	.include "animations/gSpriteAnimations_GreatFairy_5.s"
 
-gUnk_08120819:: @ 08120819
-	.incbin "greatFairy/gUnk_08120819.bin"
+gSpriteAnimations_GreatFairy_6:: @ 08120819
+	.include "animations/gSpriteAnimations_GreatFairy_6.s"
 
-gUnk_08120826:: @ 08120826
-	.incbin "greatFairy/gUnk_08120826.bin"
+gSpriteAnimations_GreatFairy_7:: @ 08120826
+	.include "animations/gSpriteAnimations_GreatFairy_7.s"
 
-gUnk_0812082F:: @ 0812082F
-	.incbin "greatFairy/gUnk_0812082F.bin"
+gSpriteAnimations_GreatFairy_3:: @ 0812082F
+	.include "animations/gSpriteAnimations_GreatFairy_3.s"
 
-gUnk_08120850:: @ 08120850
-	.incbin "greatFairy/gUnk_08120850.bin"
+gSpriteAnimations_GreatFairy_4:: @ 08120850
+	.include "animations/gSpriteAnimations_GreatFairy_4.s"
 
-gUnk_08120855:: @ 08120855
-	.incbin "greatFairy/gUnk_08120855.bin"
+gSpriteAnimations_GreatFairy_8:: @ 08120855
+	.include "animations/gSpriteAnimations_GreatFairy_8.s"
 
 gSpriteAnimations_GreatFairy:: @ 08120878
-	.4byte gUnk_081207B0
-	.4byte gUnk_081207D2
-	.4byte gUnk_081207C1
-	.4byte gUnk_0812082F
-	.4byte gUnk_08120850
-	.4byte gUnk_081207F4
-	.4byte gUnk_08120819
-	.4byte gUnk_08120826
-	.4byte gUnk_08120855
-	.4byte gUnk_081207D7
+	.4byte gSpriteAnimations_GreatFairy_0
+	.4byte gSpriteAnimations_GreatFairy_1
+	.4byte gSpriteAnimations_GreatFairy_2
+	.4byte gSpriteAnimations_GreatFairy_3
+	.4byte gSpriteAnimations_GreatFairy_4
+	.4byte gSpriteAnimations_GreatFairy_5
+	.4byte gSpriteAnimations_GreatFairy_6
+	.4byte gSpriteAnimations_GreatFairy_7
+	.4byte gSpriteAnimations_GreatFairy_8
+	.4byte gSpriteAnimations_GreatFairy_9

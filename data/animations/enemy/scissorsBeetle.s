@@ -4,85 +4,85 @@
 	.section .rodata
     .align 2
 
-gUnk_080CF644:: @ 080CF644
-	.incbin "scissorsBeetle/gUnk_080CF644.bin"
+gSpriteAnimations_ScissorsBeetle_0:: @ 080CF644
+	.include "animations/gSpriteAnimations_ScissorsBeetle_0.s"
 
-gUnk_080CF649:: @ 080CF649
-	.incbin "scissorsBeetle/gUnk_080CF649.bin"
+gSpriteAnimations_ScissorsBeetle_1:: @ 080CF649
+	.include "animations/gSpriteAnimations_ScissorsBeetle_1.s"
 
-gUnk_080CF64E:: @ 080CF64E
-	.incbin "scissorsBeetle/gUnk_080CF64E.bin"
+gSpriteAnimations_ScissorsBeetle_2:: @ 080CF64E
+	.include "animations/gSpriteAnimations_ScissorsBeetle_2.s"
 
-gUnk_080CF653:: @ 080CF653
-	.incbin "scissorsBeetle/gUnk_080CF653.bin"
+gSpriteAnimations_ScissorsBeetle_3:: @ 080CF653
+	.include "animations/gSpriteAnimations_ScissorsBeetle_3.s"
 
-gUnk_080CF658:: @ 080CF658
-	.incbin "scissorsBeetle/gUnk_080CF658.bin"
+gSpriteAnimations_ScissorsBeetle_4:: @ 080CF658
+	.include "animations/gSpriteAnimations_ScissorsBeetle_4.s"
 
-gUnk_080CF669:: @ 080CF669
-	.incbin "scissorsBeetle/gUnk_080CF669.bin"
+gSpriteAnimations_ScissorsBeetle_5:: @ 080CF669
+	.include "animations/gSpriteAnimations_ScissorsBeetle_5.s"
 
-gUnk_080CF67A:: @ 080CF67A
-	.incbin "scissorsBeetle/gUnk_080CF67A.bin"
+gSpriteAnimations_ScissorsBeetle_6:: @ 080CF67A
+	.include "animations/gSpriteAnimations_ScissorsBeetle_6.s"
 
-gUnk_080CF68B:: @ 080CF68B
-	.incbin "scissorsBeetle/gUnk_080CF68B.bin"
+gSpriteAnimations_ScissorsBeetle_7:: @ 080CF68B
+	.include "animations/gSpriteAnimations_ScissorsBeetle_7.s"
 
-gUnk_080CF69C:: @ 080CF69C
-	.incbin "scissorsBeetle/gUnk_080CF69C.bin"
+gSpriteAnimations_ScissorsBeetle_8:: @ 080CF69C
+	.include "animations/gSpriteAnimations_ScissorsBeetle_8.s"
 
-gUnk_080CF6A1:: @ 080CF6A1
-	.incbin "scissorsBeetle/gUnk_080CF6A1.bin"
+gSpriteAnimations_ScissorsBeetle_9:: @ 080CF6A1
+	.include "animations/gSpriteAnimations_ScissorsBeetle_9.s"
 
-gUnk_080CF6A6:: @ 080CF6A6
-	.incbin "scissorsBeetle/gUnk_080CF6A6.bin"
+gSpriteAnimations_ScissorsBeetle_10:: @ 080CF6A6
+	.include "animations/gSpriteAnimations_ScissorsBeetle_10.s"
 
-gUnk_080CF6AB:: @ 080CF6AB
-	.incbin "scissorsBeetle/gUnk_080CF6AB.bin"
+gSpriteAnimations_ScissorsBeetle_11:: @ 080CF6AB
+	.include "animations/gSpriteAnimations_ScissorsBeetle_11.s"
 
-gUnk_080CF6B0:: @ 080CF6B0
-	.incbin "scissorsBeetle/gUnk_080CF6B0.bin"
+gSpriteAnimations_ScissorsBeetle_12:: @ 080CF6B0
+	.include "animations/gSpriteAnimations_ScissorsBeetle_12.s"
 
-gUnk_080CF6C1:: @ 080CF6C1
-	.incbin "scissorsBeetle/gUnk_080CF6C1.bin"
+gSpriteAnimations_ScissorsBeetle_13:: @ 080CF6C1
+	.include "animations/gSpriteAnimations_ScissorsBeetle_13.s"
 
-gUnk_080CF6D2:: @ 080CF6D2
-	.incbin "scissorsBeetle/gUnk_080CF6D2.bin"
+gSpriteAnimations_ScissorsBeetle_14:: @ 080CF6D2
+	.include "animations/gSpriteAnimations_ScissorsBeetle_14.s"
 
-gUnk_080CF6E3:: @ 080CF6E3
-	.incbin "scissorsBeetle/gUnk_080CF6E3.bin"
+gSpriteAnimations_ScissorsBeetle_15:: @ 080CF6E3
+	.include "animations/gSpriteAnimations_ScissorsBeetle_15.s"
 
-gUnk_080CF6F4:: @ 080CF6F4
-	.incbin "scissorsBeetle/gUnk_080CF6F4.bin"
+gSpriteAnimations_ScissorsBeetle_16:: @ 080CF6F4
+	.include "animations/gSpriteAnimations_ScissorsBeetle_16.s"
 
-gUnk_080CF700:: @ 080CF700
-	.incbin "scissorsBeetle/gUnk_080CF700.bin"
+gSpriteAnimations_ScissorsBeetle_17:: @ 080CF700
+	.include "animations/gSpriteAnimations_ScissorsBeetle_17.s"
 
-gUnk_080CF70C:: @ 080CF70C
-	.incbin "scissorsBeetle/gUnk_080CF70C.bin"
+gSpriteAnimations_ScissorsBeetle_18:: @ 080CF70C
+	.include "animations/gSpriteAnimations_ScissorsBeetle_18.s"
 
-gUnk_080CF718:: @ 080CF718
-	.incbin "scissorsBeetle/gUnk_080CF718.bin"
+gSpriteAnimations_ScissorsBeetle_19:: @ 080CF718
+	.include "animations/gSpriteAnimations_ScissorsBeetle_19.s"
 
 gSpriteAnimations_ScissorsBeetle:: @ 080CF724
-	.4byte gUnk_080CF644
-	.4byte gUnk_080CF649
-	.4byte gUnk_080CF64E
-	.4byte gUnk_080CF653
-	.4byte gUnk_080CF658
-	.4byte gUnk_080CF669
-	.4byte gUnk_080CF67A
-	.4byte gUnk_080CF68B
-	.4byte gUnk_080CF69C
-	.4byte gUnk_080CF6A1
-	.4byte gUnk_080CF6A6
-	.4byte gUnk_080CF6AB
-	.4byte gUnk_080CF6B0
-	.4byte gUnk_080CF6C1
-	.4byte gUnk_080CF6D2
-	.4byte gUnk_080CF6E3
-	.4byte gUnk_080CF6F4
-	.4byte gUnk_080CF700
-	.4byte gUnk_080CF70C
-	.4byte gUnk_080CF718
+	.4byte gSpriteAnimations_ScissorsBeetle_0
+	.4byte gSpriteAnimations_ScissorsBeetle_1
+	.4byte gSpriteAnimations_ScissorsBeetle_2
+	.4byte gSpriteAnimations_ScissorsBeetle_3
+	.4byte gSpriteAnimations_ScissorsBeetle_4
+	.4byte gSpriteAnimations_ScissorsBeetle_5
+	.4byte gSpriteAnimations_ScissorsBeetle_6
+	.4byte gSpriteAnimations_ScissorsBeetle_7
+	.4byte gSpriteAnimations_ScissorsBeetle_8
+	.4byte gSpriteAnimations_ScissorsBeetle_9
+	.4byte gSpriteAnimations_ScissorsBeetle_10
+	.4byte gSpriteAnimations_ScissorsBeetle_11
+	.4byte gSpriteAnimations_ScissorsBeetle_12
+	.4byte gSpriteAnimations_ScissorsBeetle_13
+	.4byte gSpriteAnimations_ScissorsBeetle_14
+	.4byte gSpriteAnimations_ScissorsBeetle_15
+	.4byte gSpriteAnimations_ScissorsBeetle_16
+	.4byte gSpriteAnimations_ScissorsBeetle_17
+	.4byte gSpriteAnimations_ScissorsBeetle_18
+	.4byte gSpriteAnimations_ScissorsBeetle_19
 	.4byte 00000000

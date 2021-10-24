@@ -4,105 +4,105 @@
 	.section .rodata
     .align 2
 
-gUnk_080CFD60:: @ 080CFD60
-	.incbin "mazaalBracelet/gUnk_080CFD60.bin"
+gSpriteAnimations_MazaalBracelet_0:: @ 080CFD60
+	.include "animations/gSpriteAnimations_MazaalBracelet_0.s"
 
-gUnk_080CFD71:: @ 080CFD71
-	.incbin "mazaalBracelet/gUnk_080CFD71.bin"
+gSpriteAnimations_MazaalBracelet_1:: @ 080CFD71
+	.include "animations/gSpriteAnimations_MazaalBracelet_1.s"
 
-gUnk_080CFD82:: @ 080CFD82
-	.incbin "mazaalBracelet/gUnk_080CFD82.bin"
+gSpriteAnimations_MazaalBracelet_2:: @ 080CFD82
+	.include "animations/gSpriteAnimations_MazaalBracelet_2.s"
 
-gUnk_080CFDD6:: @ 080CFDD6
-	.incbin "mazaalBracelet/gUnk_080CFDD6.bin"
+gSpriteAnimations_MazaalBracelet_3:: @ 080CFDD6
+	.include "animations/gSpriteAnimations_MazaalBracelet_3.s"
 
-gUnk_080CFE2A:: @ 080CFE2A
-	.incbin "mazaalBracelet/gUnk_080CFE2A.bin"
+gSpriteAnimations_MazaalBracelet_4:: @ 080CFE2A
+	.include "animations/gSpriteAnimations_MazaalBracelet_4.s"
 
-gUnk_080CFE37:: @ 080CFE37
-	.incbin "mazaalBracelet/gUnk_080CFE37.bin"
+gSpriteAnimations_MazaalBracelet_5:: @ 080CFE37
+	.include "animations/gSpriteAnimations_MazaalBracelet_5.s"
 
-gUnk_080CFE44:: @ 080CFE44
-	.incbin "mazaalBracelet/gUnk_080CFE44.bin"
+gSpriteAnimations_MazaalBracelet_6:: @ 080CFE44
+	.include "animations/gSpriteAnimations_MazaalBracelet_6.s"
 
-gUnk_080CFE4C:: @ 080CFE4C
-	.incbin "mazaalBracelet/gUnk_080CFE4C.bin"
+gSpriteAnimations_MazaalBracelet_7:: @ 080CFE4C
+	.include "animations/gSpriteAnimations_MazaalBracelet_7.s"
 
-gUnk_080CFE54:: @ 080CFE54
-	.incbin "mazaalBracelet/gUnk_080CFE54.bin"
+gSpriteAnimations_MazaalBracelet_8:: @ 080CFE54
+	.include "animations/gSpriteAnimations_MazaalBracelet_8.s"
 
-gUnk_080CFE58:: @ 080CFE58
-	.incbin "mazaalBracelet/gUnk_080CFE58.bin"
+gSpriteAnimations_MazaalBracelet_9:: @ 080CFE58
+	.include "animations/gSpriteAnimations_MazaalBracelet_9.s"
 
-gUnk_080CFE5C:: @ 080CFE5C
-	.incbin "mazaalBracelet/gUnk_080CFE5C.bin"
+gSpriteAnimations_MazaalBracelet_10:: @ 080CFE5C
+	.include "animations/gSpriteAnimations_MazaalBracelet_10.s"
 
-gUnk_080CFE60:: @ 080CFE60
-	.incbin "mazaalBracelet/gUnk_080CFE60.bin"
+gSpriteAnimations_MazaalBracelet_11:: @ 080CFE60
+	.include "animations/gSpriteAnimations_MazaalBracelet_11.s"
 
-gUnk_080CFE71:: @ 080CFE71
-	.incbin "mazaalBracelet/gUnk_080CFE71.bin"
+gSpriteAnimations_MazaalBracelet_12:: @ 080CFE71
+	.include "animations/gSpriteAnimations_MazaalBracelet_12.s"
 
-gUnk_080CFE76:: @ 080CFE76
-	.incbin "mazaalBracelet/gUnk_080CFE76.bin"
+gSpriteAnimations_MazaalBracelet_13:: @ 080CFE76
+	.include "animations/gSpriteAnimations_MazaalBracelet_13.s"
 
-gUnk_080CFE7B:: @ 080CFE7B
-	.incbin "mazaalBracelet/gUnk_080CFE7B.bin"
+gSpriteAnimations_MazaalBracelet_14:: @ 080CFE7B
+	.include "animations/gSpriteAnimations_MazaalBracelet_14.s"
 
-gUnk_080CFE80:: @ 080CFE80
-	.incbin "mazaalBracelet/gUnk_080CFE80.bin"
+gSpriteAnimations_MazaalBracelet_15:: @ 080CFE80
+	.include "animations/gSpriteAnimations_MazaalBracelet_15.s"
 
-gUnk_080CFE85:: @ 080CFE85
-	.incbin "mazaalBracelet/gUnk_080CFE85.bin"
+gSpriteAnimations_MazaalBracelet_16:: @ 080CFE85
+	.include "animations/gSpriteAnimations_MazaalBracelet_16.s"
 
-gUnk_080CFE8A:: @ 080CFE8A
-	.incbin "mazaalBracelet/gUnk_080CFE8A.bin"
+gSpriteAnimations_MazaalBracelet_17:: @ 080CFE8A
+	.include "animations/gSpriteAnimations_MazaalBracelet_17.s"
 
-gUnk_080CFE8F:: @ 080CFE8F
-	.incbin "mazaalBracelet/gUnk_080CFE8F.bin"
+gSpriteAnimations_MazaalBracelet_18:: @ 080CFE8F
+	.include "animations/gSpriteAnimations_MazaalBracelet_18.s"
 
-gUnk_080CFE94:: @ 080CFE94
-	.incbin "mazaalBracelet/gUnk_080CFE94.bin"
+gSpriteAnimations_MazaalBracelet_19:: @ 080CFE94
+	.include "animations/gSpriteAnimations_MazaalBracelet_19.s"
 
-gUnk_080CFE99:: @ 080CFE99
-	.incbin "mazaalBracelet/gUnk_080CFE99.bin"
+gSpriteAnimations_MazaalBracelet_20:: @ 080CFE99
+	.include "animations/gSpriteAnimations_MazaalBracelet_20.s"
 
-gUnk_080CFE9E:: @ 080CFE9E
-	.incbin "mazaalBracelet/gUnk_080CFE9E.bin"
+gSpriteAnimations_MazaalBracelet_21:: @ 080CFE9E
+	.include "animations/gSpriteAnimations_MazaalBracelet_21.s"
 
-gUnk_080CFEA3:: @ 080CFEA3
-	.incbin "mazaalBracelet/gUnk_080CFEA3.bin"
+gSpriteAnimations_MazaalBracelet_22:: @ 080CFEA3
+	.include "animations/gSpriteAnimations_MazaalBracelet_22.s"
 
-gUnk_080CFEB0:: @ 080CFEB0
-	.incbin "mazaalBracelet/gUnk_080CFEB0.bin"
+gSpriteAnimations_MazaalBracelet_23:: @ 080CFEB0
+	.include "animations/gSpriteAnimations_MazaalBracelet_23.s"
 
-gUnk_080CFEC1:: @ 080CFEC1
-	.incbin "mazaalBracelet/gUnk_080CFEC1.bin"
+gSpriteAnimations_MazaalBracelet_24:: @ 080CFEC1
+	.include "animations/gSpriteAnimations_MazaalBracelet_24.s"
 
 gSpriteAnimations_MazaalBracelet:: @ 080CFED4
-	.4byte gUnk_080CFD60
-	.4byte gUnk_080CFD71
-	.4byte gUnk_080CFD82
-	.4byte gUnk_080CFDD6
-	.4byte gUnk_080CFE2A
-	.4byte gUnk_080CFE37
-	.4byte gUnk_080CFE44
-	.4byte gUnk_080CFE4C
-	.4byte gUnk_080CFE54
-	.4byte gUnk_080CFE58
-	.4byte gUnk_080CFE5C
-	.4byte gUnk_080CFE60
-	.4byte gUnk_080CFE71
-	.4byte gUnk_080CFE76
-	.4byte gUnk_080CFE7B
-	.4byte gUnk_080CFE80
-	.4byte gUnk_080CFE85
-	.4byte gUnk_080CFE8A
-	.4byte gUnk_080CFE8F
-	.4byte gUnk_080CFE94
-	.4byte gUnk_080CFE99
-	.4byte gUnk_080CFE9E
-	.4byte gUnk_080CFEA3
-	.4byte gUnk_080CFEB0
-	.4byte gUnk_080CFEC1
+	.4byte gSpriteAnimations_MazaalBracelet_0
+	.4byte gSpriteAnimations_MazaalBracelet_1
+	.4byte gSpriteAnimations_MazaalBracelet_2
+	.4byte gSpriteAnimations_MazaalBracelet_3
+	.4byte gSpriteAnimations_MazaalBracelet_4
+	.4byte gSpriteAnimations_MazaalBracelet_5
+	.4byte gSpriteAnimations_MazaalBracelet_6
+	.4byte gSpriteAnimations_MazaalBracelet_7
+	.4byte gSpriteAnimations_MazaalBracelet_8
+	.4byte gSpriteAnimations_MazaalBracelet_9
+	.4byte gSpriteAnimations_MazaalBracelet_10
+	.4byte gSpriteAnimations_MazaalBracelet_11
+	.4byte gSpriteAnimations_MazaalBracelet_12
+	.4byte gSpriteAnimations_MazaalBracelet_13
+	.4byte gSpriteAnimations_MazaalBracelet_14
+	.4byte gSpriteAnimations_MazaalBracelet_15
+	.4byte gSpriteAnimations_MazaalBracelet_16
+	.4byte gSpriteAnimations_MazaalBracelet_17
+	.4byte gSpriteAnimations_MazaalBracelet_18
+	.4byte gSpriteAnimations_MazaalBracelet_19
+	.4byte gSpriteAnimations_MazaalBracelet_20
+	.4byte gSpriteAnimations_MazaalBracelet_21
+	.4byte gSpriteAnimations_MazaalBracelet_22
+	.4byte gSpriteAnimations_MazaalBracelet_23
+	.4byte gSpriteAnimations_MazaalBracelet_24
 	.4byte 00000000

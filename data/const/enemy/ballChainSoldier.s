@@ -34,11 +34,11 @@ gUnk_080D0728:: @ 080D0728
 gUnk_080D0730:: @ 080D0730
 	.incbin "ballChainSoldier/gUnk_080D0730.bin"
 
-gUnk_080D0738:: @ 080D0738
-	.incbin "ballChainSoldier/gUnk_080D0738.bin"
+gSpriteAnimations_BallChainSoldier_3:: @ 080D0738
+	.include "animations/gSpriteAnimations_BallChainSoldier_3.s"
 
-gUnk_080D073C:: @ 080D073C
-	.incbin "ballChainSoldier/gUnk_080D073C.bin"
+gSpriteAnimations_BallChainSoldier_2:: @ 080D073C
+	.include "animations/gSpriteAnimations_BallChainSoldier_2.s"
 
-gUnk_080D0740:: @ 080D0740
-	.incbin "ballChainSoldier/gUnk_080D0740.bin"
+gSpriteAnimations_BallChainSoldier_1:: @ 080D0740
+	.include "animations/gSpriteAnimations_BallChainSoldier_1.s"

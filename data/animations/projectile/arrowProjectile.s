@@ -5,20 +5,20 @@
     .align 2
 
 
-gUnk_08129A28:: @ 08129A28
-	.incbin "projectileD/gUnk_08129A28.bin"
+gSpriteAnimations_ArrowProjectile_0:: @ 08129A28
+	.include "animations/gSpriteAnimations_ArrowProjectile_0.s"
 
-gUnk_08129A2D:: @ 08129A2D
-	.incbin "projectileD/gUnk_08129A2D.bin"
+gSpriteAnimations_ArrowProjectile_1:: @ 08129A2D
+	.include "animations/gSpriteAnimations_ArrowProjectile_1.s"
 
-gUnk_08129A32:: @ 08129A32
-	.incbin "projectileD/gUnk_08129A32.bin"
+gSpriteAnimations_ArrowProjectile_2:: @ 08129A32
+	.include "animations/gSpriteAnimations_ArrowProjectile_2.s"
 
-gUnk_08129A43:: @ 08129A43
-	.incbin "projectileD/gUnk_08129A43.bin"
+gSpriteAnimations_ArrowProjectile_3:: @ 08129A43
+	.include "animations/gSpriteAnimations_ArrowProjectile_3.s"
 
 gSpriteAnimations_ArrowProjectile:: @ 08129A54
-	.4byte gUnk_08129A28
-	.4byte gUnk_08129A2D
-	.4byte gUnk_08129A32
-	.4byte gUnk_08129A43
+	.4byte gSpriteAnimations_ArrowProjectile_0
+	.4byte gSpriteAnimations_ArrowProjectile_1
+	.4byte gSpriteAnimations_ArrowProjectile_2
+	.4byte gSpriteAnimations_ArrowProjectile_3
