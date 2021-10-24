@@ -12,6 +12,7 @@ from assets.frame_obj_lists import FrameObjLists
 from assets.extra_frame_offsets import ExtraFrameOffsets
 from assets.animation import Animation
 from assets.exit_list import ExitList
+from assets.entity_list import EntityList
 
 verbose = False
 
@@ -134,6 +135,9 @@ def extract_assets(variant, assets_folder):
                     elif mode == 'exit_list':
                         exit_list = ExitList(path, start, size, options)
                         exit_list.extract_binary(baserom)
+                    elif mode == 'entity_list':
+                        entity_list = EntityList(path, start, size, options)
+                        entity_list.extract_binary(baserom)
                     elif mode != '':
                         print(f'Asset type {mode} not yet implemented')
 

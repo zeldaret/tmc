@@ -24,7 +24,7 @@ class ExitList(BaseAsset):
             unknown_5 = reader.read_u16()
             padding_1 = reader.read_u16()
             if transition_type == 0xffff:
-                lines.append(f'\t.2byte 0xffff, 0, 0, 0,0,0,0,0,0,0 @ terminator\n')
+                lines.append(f'\t.4byte 0xffff, 0,0,0,0 @ terminator\n')
                 break
             lines.append(f'\t.2byte {transition_type} @ transition_type\n')
             lines.append(f'\t.2byte {x_pos}, {y_pos} @ pos\n')

@@ -610,7 +610,7 @@ script_080122EC:
 	DoPostScriptAction 0x000b
 	Call sub_08061FB0
 	Call sub_08061F94
-	LoadRoomEntityList gUnk_080F2758
+	LoadRoomEntityList gUnk_additional2_HouseInteriors2_Percy
 	DoPostScriptAction 0x0008
 	Wait 0x003c
 	PlaySound SFX_SECRET

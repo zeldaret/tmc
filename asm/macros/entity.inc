@@ -64,8 +64,48 @@
 	.2byte 0x00, 0x00
 	.endm
 
+	.macro entity_raw type:req, subtype:req, collision=0, unknown:req, paramA=0, paramB=0, x=0, y=0, paramC=0
+	.byte \type | ((\collision) << 4)
+	.byte \unknown
+	.byte \subtype
+	.byte \paramA
+	.4byte \paramB
+	.2byte \x
+	.2byte \y
+	.4byte \paramC
+	.endm
+
+	.macro manager subtype:req, collision=0, unknown=0xf, paramA=0, paramB=0, x=0, y=0, paramC=0
+	entity_raw type=9, subtype=\subtype, collision=\collision, unknown=\unknown, paramA=\paramA, paramB=\paramB, x=\x, y=\y, paramC=\paramC
+	.endm
+
+	.macro object_raw subtype:req, collision=0, unknown=0xf, paramA=0, paramB=0, x=0, y=0, paramC=0
+	entity_raw type=6, subtype=\subtype, collision=\collision, unknown=\unknown, paramA=\paramA, paramB=\paramB, x=\x, y=\y, paramC=\paramC
+	.endm
+
+	.macro enemy_raw subtype:req, collision=0, unknown=0xf, paramA=0, paramB=0, x=0, y=0, paramC=0
+	entity_raw type=3, subtype=\subtype, collision=\collision, unknown=\unknown, paramA=\paramA, paramB=\paramB, x=\x, y=\y, paramC=\paramC
+	.endm
+
+	.macro npc_raw subtype:req, collision=0, unknown=0x4f, paramA=0, paramB=0, x=0, y=0, script:req
+	entity_raw type=7, subtype=\subtype, collision=\collision, unknown=\unknown, paramA=\paramA, paramB=\paramB, x=\x, y=\y, paramC=\script
+	.endm
+
+	.macro projectile_raw subtype:req, collision=0, unknown=0xf, paramA=0, paramB=0, x=0, y=0, paramC=0
+	entity_raw type=4, subtype=\subtype, collision=\collision, unknown=\unknown, paramA=\paramA, paramB=\paramB, x=\x, y=\y, paramC=\paramC
+	.endm
+
 	.macro entity_list_end
 	.byte 0xFF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.endm
+
+	.macro tile_entity_list_end
+	.byte 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+	.endm
+
+	.macro tile_entity type:req, paramA=0, paramB=0, paramC=0, paramD=0
+	.byte \type, \paramA
+	.2byte \paramB, \paramC, \paramD
 	.endm
 
 	.macro chest type, id, item, subnum, tileset_id
