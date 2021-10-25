@@ -52,7 +52,7 @@ void sub_080318DC(Entity* this) {
 
     if (this->bitfield != 0x80 && this->bitfield != 0x81) {
         if (this->type == 1) {
-            if (this->action < 7 && this->field_0x42) {
+            if (this->action < 7 && this->knockbackDuration != 0) {
                 brother = this->attachedEntity;
                 if (brother) {
                     brother->parent = this->parent;
@@ -72,7 +72,7 @@ void sub_080318DC(Entity* this) {
 
                 this->action = 9;
                 this->spritePriority.b1 = 1;
-                if (this->field_0x3e < 0x10) {
+                if (this->knockbackDirection < 0x10) {
                     this->spriteSettings.b.flipX = 0;
                 } else {
                     this->spriteSettings.b.flipX = 1;
@@ -81,19 +81,19 @@ void sub_080318DC(Entity* this) {
             }
 
             if (this->currentHealth == 0) {
-                this->field_0x3e = ((this->field_0x3e + (7 & Random())) - 4) & 0x1f;
-                this->field_0x42 += this->type2 * 3;
+                this->knockbackDirection = ((this->knockbackDirection + (7 & Random())) - 4) & 0x1f;
+                this->knockbackDuration += this->type2 * 3;
                 sub_08032338(this);
             }
         }
 
-        if (this->field_0x42 && this->frames.all & 0x10) {
+        if (this->knockbackDuration != 0 && this->frames.all & 0x10) {
             if (this->type == 0) {
                 this->action = 8;
             } else {
                 this->action = 9;
             }
-            if (this->field_0x3e < 0x10) {
+            if (this->knockbackDirection < 0x10) {
                 this->spriteSettings.b.flipX = 0;
             } else {
                 this->spriteSettings.b.flipX = 1;

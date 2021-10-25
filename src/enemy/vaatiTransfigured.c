@@ -1068,7 +1068,7 @@ void sub_080409B0(Entity* this) {
     }
 
     if (this->field_0x80.HALF.HI < 3) {
-        if (this->field_0x42 != 0) {
+        if (this->knockbackDuration != 0) {
             sub_080AF18C(this);
         }
     } else {

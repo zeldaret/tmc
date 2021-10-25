@@ -102,7 +102,7 @@ void DeleteEntity(Entity* ent) {
         ent->spriteSettings.b.draw = 0;
         ent->field_0x3c = 0;
         ent->bitfield = 0;
-        ent->field_0x42 = 0;
+        ent->knockbackDuration = 0;
         ent->currentHealth = 0;
         UnlinkEntity(ent);
         ent->next = NULL;

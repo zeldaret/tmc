@@ -54,11 +54,11 @@ void sub_08020668(Entity* this) {
 
 void sub_080206E0(Entity* this) {
     if (Rollobite_TryToHoleUp(this)) {
-        this->field_0x42 = 0;
+        this->knockbackDuration = 0;
     } else if (Rollobite_IsRolledUp(this)) {
-        this->field_0x42--;
-        sub_080AE58C(this, this->field_0x3e, 10);
-        sub_080AE7E8(this, this->field_0x46, this->field_0x3e, 10);
+        this->knockbackDuration--;
+        sub_080AE58C(this, this->knockbackDirection, 10);
+        sub_080AE7E8(this, this->field_0x46, this->knockbackDirection, 10);
     } else {
         sub_08001324(this);
     }

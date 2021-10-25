@@ -49,8 +49,8 @@ void sub_080AAC44(Entity* this) {
             CopyPosition(this->parent, this);
         }
     }
-    if (this->field_0x42 != 0) {
-        this->field_0x42 = 0;
+    if (this->knockbackDuration != 0) {
+        this->knockbackDuration = 0;
     }
 }
 

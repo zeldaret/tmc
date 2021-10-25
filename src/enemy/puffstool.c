@@ -75,7 +75,7 @@ void sub_08025020(Entity* this) {
                 this->field_0x20 = 0;
             }
             this->iframes = -0xc;
-            this->field_0x42 = 0;
+            this->knockbackDuration = 0;
             if (this->field_0x80.HALF.LO == 0) {
                 this->animationState = (*(Entity**)&this->field_0x4c)->direction >> 3;
                 InitializeAnimation(this, this->animationState + 4);

@@ -58,7 +58,7 @@ NONMATCH("asm/non_matching/gibdo/sub_080374A4.inc", void sub_080374A4(Entity* th
             } else {
                 if ((u8)(this->action - 1) < 2) {
                     this->action = 1;
-                    x = DirectionTurnAround(this->field_0x3e);
+                    x = DirectionTurnAround(this->knockbackDirection);
                     this->direction = x;
                     this->animationState = x >> 3;
                     InitAnimationForceUpdate(this, this->animationState);
@@ -342,8 +342,8 @@ void sub_08037A58(Entity* this) {
     this->damageType = 0x26;
     this->flags2 |= 1;
     this->iframes = 0xf4;
-    this->field_0x3e = (this->animationState << 3) ^ 0x10;
-    this->field_0x42 = 8;
+    this->knockbackDirection = DirectionFromAnimationState(this->animationState) ^ 0x10;
+    this->knockbackDuration = 8;
     this->field_0x46 = 0x180;
     this->field_0x76.HALF.LO = 0x3c;
     InitAnimationForceUpdate(this, this->animationState + 0x10);
@@ -353,8 +353,8 @@ void sub_08037ACC(Entity* this) {
     gPlayerState.flags.all &= 0xFFFFFEFF;
     gPlayerEntity.flags |= 0x80;
     gPlayerEntity.iframes = 0x1e;
-    gPlayerEntity.field_0x3e = DirectionFromAnimationState(this->animationState);
-    gPlayerEntity.field_0x42 = 4;
+    gPlayerEntity.knockbackDirection = DirectionFromAnimationState(this->animationState);
+    gPlayerEntity.knockbackDuration = 4;
     gPlayerEntity.field_0x46 = 0x180;
 }
 // Damage player maybe?

@@ -30,7 +30,7 @@ void sub_080A8470(Entity* this) {
         }
         DeleteEntity(this);
     } else {
-        this->direction = (this->field_0x3e + 4) & 0x18;
+        this->direction = DirectionRoundUp(this->knockbackDirection);
         if ((u8)(this->bitfield + 0x7e) < 2) {
             sub_080A8680(this);
         } else {
@@ -74,14 +74,14 @@ void DekuSeedProjectile_Action1(Entity* this) {
         parent = this->parent;
         if ((parent->next != NULL) && (sub_080177A0(this, parent) != 0)) {
             this->iframes = 0x10;
-            this->field_0x3e = -this->direction;
+            this->knockbackDirection = -this->direction;
             this->bitfield = -0x80;
-            this->field_0x42 = 0xc;
+            this->knockbackDuration = 0xc;
             this->field_0x46 = 0;
             parent->iframes = 0x10;
-            parent->field_0x3e = this->direction;
+            parent->knockbackDirection = this->direction;
             parent->bitfield = -0x3e;
-            parent->field_0x42 = 0xc;
+            parent->knockbackDuration = 0xc;
             parent->field_0x46 = 0;
         }
     }
