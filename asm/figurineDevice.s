@@ -1098,7 +1098,7 @@ sub_08088160: @ 0x08088160
 	push {r4, lr}
 	adds r2, r0, #0
 	lsls r1, r1, #3
-	ldr r0, _08087FB0 @ =0x080FC094
+	ldr r0, _08087FB0 @ =gUnk_080FC3E4
 	adds r1, r1, r0
 	movs r4, #0
 	adds r0, r2, #0
@@ -1116,7 +1116,7 @@ sub_08088160: @ 0x08088160
 	beq _08087FBC
 	b _0808806A
 	.align 2, 0
-_08087FB0: .4byte 0x080FC094
+_08087FB0: .4byte gUnk_080FC3E4
 _08087FB4:
 	cmp r0, #0x20
 	beq _08087FCA
