@@ -28,7 +28,7 @@ typedef struct {
 
 extern void (*const gUnk_081085D8[])(Manager*);
 
-void sub_0805A280(Manager* this) {
+void Manager15_Main(Manager* this) {
     gUnk_081085D8[this->unk_0a](this);
 }
 
@@ -296,8 +296,6 @@ void sub_0805A758(Manager15* this) {
     }
 }
 
-extern void sub_0805E4E0(Manager*, u32);
-
 void sub_0805A76C(Manager15* this) {
     if ((gPlayerEntity.currentHealth != 0) && (gPlayerEntity.height.HALF.HI == 0) && (!gPlayerState.field_0x2c)) {
         switch (gPlayerState.field_0xa9) {
@@ -307,7 +305,7 @@ void sub_0805A76C(Manager15* this) {
                     this->manager.action++;
                     sub_08004168(&gPlayerEntity);
                     gPlayerEntity.animationState = 4;
-                    sub_0805E4E0(&this->manager, 0x258);
+                    sub_0805E4E0((Entity*)this, 0x258);
                     sub_08078A90(0xFF);
                     gUnk_02034490[0] = 1;
                     gRoomControls.cameraTarget = 0;
@@ -427,7 +425,7 @@ void sub_0805A94C(Manager15* this) {
     gScreen.controls.window1VerticalDimensions = (tmp1 << 8 | tmp2);
 }
 
-NONMATCH("asm/non_matching/manager15/sub_0805A9CC.inc", void sub_0805A9CC(Manager15* this)) {
+void sub_0805A9CC(Manager15* this) {
     int tmp1, tmp2;
     void* tmp3;
     gScreen.affine.bg3xOffset = gRoomControls.roomScrollX - this->unk_24 + this->unk_34;
@@ -444,17 +442,14 @@ NONMATCH("asm/non_matching/manager15/sub_0805A9CC.inc", void sub_0805A9CC(Manage
     gScreen.controls.window1HorizontalDimensions = tmp1 << 8 | tmp2;
     tmp1 = gRoomControls.roomScrollY - this->unk_26 + this->unk_36;
     gScreen.affine.bg3yOffset = tmp1 & 0x3F;
-    if (tmp1 < 0)
-        tmp1 += 0x3F;
-    tmp3 = (&gBG3Buffer[(tmp1 >> 6 << 9)]);
-    gScreen.affine.bg2Tilemap = (u32*)tmp3; // TODO .unk5
+    tmp3 = (&gBG3Buffer[((tmp1 / 0x40) << 8)]);
+    gScreen.affine.bg3Tilemap = (u32*)tmp3;
     gScreen.controls.window1VerticalDimensions = 0xa0;
     if (this->unk_28 == tmp3)
         return;
     this->unk_28 = tmp3;
-    gScreen.affine.bg2Updated = 1; // TODO .unk4
+    gScreen.affine.bg3Updated = 1;
 }
-END_NONMATCH
 
 extern struct { u8 unk_00[0x20]; } gUnk_085A97A0[];
 extern u16 gUnk_081085B8[];
@@ -477,7 +472,7 @@ void sub_0805AA58(Manager15* this) {
 
 void sub_0805AAC8(Manager15* this) {
     sub_0805AAF0(this->unk_23);
-    sub_0805A280(&this->manager);
+    Manager15_Main(&this->manager);
 }
 
 extern u16 gUnk_08108648[];

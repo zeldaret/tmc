@@ -12,7 +12,7 @@ extern void (*const gUnk_08107C48[])(Entity*);
 
 extern u8 gUnk_08107C40[];
 
-void Manager1(Entity* this) {
+void Manager1_Main(Entity* this) {
     u8 bVar1;
     u8* pbVar2;
 
@@ -56,3 +56,17 @@ void sub_08057118(Entity* this) {
     gScreen.controls.alphaBlend = 0x1000;
     sub_08052D74(this, sub_080570B8, sub_080570F8);
 }
+
+ASM_FUNC("asm/non_matching/manager1/sub_08057174.inc", void sub_08057174())
+
+ASM_FUNC("asm/non_matching/manager1/sub_0805728C.inc", void sub_0805728C())
+
+ASM_FUNC("asm/non_matching/manager1/sub_080572D4.inc", void sub_080572D4())
+
+ASM_FUNC("asm/non_matching/manager1/sub_0805732C.inc", void sub_0805732C())
+
+ASM_FUNC("asm/non_matching/manager1/nullsub_494.inc", void nullsub_494())
+
+ASM_FUNC("asm/non_matching/manager1/sub_080573AC.inc", void sub_080573AC())
+
+ASM_FUNC("asm/non_matching/manager1/sub_08057450.inc", void sub_08057450())

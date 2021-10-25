@@ -71,7 +71,7 @@ sub_0803E580: @ 0x0803E580
 	adds r0, r5, #0
 	movs r1, #0x19
 	movs r2, #0
-	bl sub_0804A98C
+	bl CreateProjectileWithParent
 	cmp r0, #0
 	beq _0803E5E4
 	str r5, [r0, #0x50]

@@ -3,9 +3,7 @@
 #include "manager.h"
 #include "functions.h"
 
-extern void DoExitTransition(void*);
-
-void sub_08057CB4(Manager6* this) {
+void Manager6_Main(Manager6* this) {
     u32 tmp;
     Manager6WarpData* i;
     if (this->manager.action == 0) {

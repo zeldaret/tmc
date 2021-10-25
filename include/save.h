@@ -50,7 +50,8 @@ typedef struct {
     /*0x141*/ u8 unk141[0x34f];
     /*0x490*/ u32 unk490;
     /*0x494*/ u32 unk494;
-    /*0x498*/ u8 filler498[0x10];
+    /*0x498*/ u32 unk498;
+    /*0x49C*/ u8 filler49C[0xC];
     /*0x4a8*/ u32 unk_4a8;
     /*0x4ac*/ u8 filler4ac[0x8];
 } SaveFile;

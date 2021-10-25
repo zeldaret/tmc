@@ -4,10 +4,9 @@
 #include "functions.h"
 
 extern void sub_08001328(Entity*);
-extern void DoExitTransition(u32*);
 
 extern Entity* gUnk_020000B0;
-extern u32* gUnk_0813AB1C[];
+extern ScreenTransitionData* gUnk_0813AB1C[];
 
 void sub_0802CF64(Entity*);
 void sub_0802CF8C(Entity*);

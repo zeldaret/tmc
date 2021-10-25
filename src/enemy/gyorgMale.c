@@ -109,7 +109,7 @@ void GyorgMale(Entity* this) {
 }
 
 void sub_08046898(Entity* this) {
-    Entity* tmp = sub_080A7EE0(0x22);
+    Entity* tmp = CreateProjectile(0x22);
     u32 tmp2;
     if (!tmp)
         return;
@@ -402,7 +402,7 @@ void sub_08046EF4(Entity* this) {
     if ((--this->field_0xf & 0xFF) == 0) {
         Entity* tmp;
         this->field_0xf = (Random() & 0x38) + 0x78;
-        tmp = sub_080A7EE0(0x23);
+        tmp = CreateProjectile(0x23);
         if (tmp) {
             tmp->collisionLayer = 2;
             tmp->parent = this;
@@ -426,7 +426,7 @@ void sub_08046F64(Entity* this) {
     if (--this->field_0x7c.HALF.HI == 0) {
         Entity* tmp;
         this->field_0x7c.HALF.HI = 0x78;
-        tmp = sub_080A7EE0(0x23);
+        tmp = CreateProjectile(0x23);
         if (tmp) {
             tmp->collisionLayer = 2;
             tmp->parent = this;

@@ -12,18 +12,18 @@ typedef struct {
 } Manager28;
 
 void Manager28_Init(Manager28*);
-void Manager28_Main(Manager28*);
+void Manager28_Main2(Manager28*);
 u32 Manager28_FindMatchingEntities(Manager28*);
 Entity* Manager28_FindMatchingEntity(EntityData*);
 void Manager28_RemoveDeletedEntities(Manager28*);
 
-void (*const Manager28_ActionFuncs[])(Manager28*) = { Manager28_Init, Manager28_Main };
+void (*const Manager28_ActionFuncs[])(Manager28*) = { Manager28_Init, Manager28_Main2 };
 
 enum Manager28_Action { Init = 0, Main = 1 };
 
 enum Manager28_InitState { DoInit = 0, DoNotInit = 1 };
 
-void Manager28_Entry(Manager28* this) {
+void Manager28_Main(Manager28* this) {
     Manager28_ActionFuncs[this->manager.action](this);
 }
 
@@ -56,7 +56,7 @@ void Manager28_Init(Manager28* this) {
     }
 }
 
-void Manager28_Main(Manager28* this) {
+void Manager28_Main2(Manager28* this) {
     s32 n;
     s32 i;
     s32 j;

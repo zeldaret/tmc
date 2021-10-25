@@ -3161,7 +3161,7 @@ extern EntityData gUnk_080E72E4;
 
 void sub_0804D384(void) {
 
-    sub_0805AF60(0);
+    Manager19_Main(0);
     if (CheckGlobalFlag(LV5_CLEAR)) {
         LoadRoomEntityList(&gUnk_080E7314);
     }
@@ -3184,7 +3184,7 @@ u32 sub_0804D3F8() {
 }
 
 void sub_0804D3FC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D408() {
@@ -3192,7 +3192,7 @@ u32 sub_0804D408() {
 }
 
 void sub_0804D40C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D418() {
@@ -3200,7 +3200,7 @@ u32 sub_0804D418() {
 }
 
 void sub_0804D41C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D428() {
@@ -3208,7 +3208,7 @@ u32 sub_0804D428() {
 }
 
 void sub_0804D42C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D438() {
@@ -3216,7 +3216,7 @@ u32 sub_0804D438() {
 }
 
 void sub_0804D43C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D448() {
@@ -3224,7 +3224,7 @@ u32 sub_0804D448() {
 }
 
 void sub_0804D44C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D458() {
@@ -3232,7 +3232,7 @@ u32 sub_0804D458() {
 }
 
 void sub_0804D45C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D468() {
@@ -3240,7 +3240,7 @@ u32 sub_0804D468() {
 }
 
 void sub_0804D46C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D478() {
@@ -3248,7 +3248,7 @@ u32 sub_0804D478() {
 }
 
 void sub_0804D47C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D488() {
@@ -3256,7 +3256,7 @@ u32 sub_0804D488() {
 }
 
 void sub_0804D48C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D498() {
@@ -3264,7 +3264,7 @@ u32 sub_0804D498() {
 }
 
 void sub_0804D49C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D4A8() {
@@ -3272,7 +3272,7 @@ u32 sub_0804D4A8() {
 }
 
 void sub_0804D4AC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D4B8() {
@@ -3280,7 +3280,7 @@ u32 sub_0804D4B8() {
 }
 
 void sub_0804D4BC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D4C8() {
@@ -3288,7 +3288,7 @@ u32 sub_0804D4C8() {
 }
 
 void sub_0804D4CC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D4D8() {
@@ -3296,7 +3296,7 @@ u32 sub_0804D4D8() {
 }
 
 void sub_0804D4DC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D4E8() {
@@ -3304,7 +3304,7 @@ u32 sub_0804D4E8() {
 }
 
 void sub_0804D4EC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D4F8() {
@@ -3312,7 +3312,7 @@ u32 sub_0804D4F8() {
 }
 
 void sub_0804D4FC() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D508() {
@@ -3320,7 +3320,7 @@ u32 sub_0804D508() {
 }
 
 void sub_0804D50C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D518() {
@@ -3328,7 +3328,7 @@ u32 sub_0804D518() {
 }
 
 void sub_0804D51C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D528() {
@@ -3336,7 +3336,7 @@ u32 sub_0804D528() {
 }
 
 void sub_0804D52C() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D538() {
@@ -3351,7 +3351,7 @@ u32 sub_0804D540() {
 }
 
 void sub_0804D544() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D550() {
@@ -3359,7 +3359,7 @@ u32 sub_0804D550() {
 }
 
 void sub_0804D554() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D560() {
@@ -3367,7 +3367,7 @@ u32 sub_0804D560() {
 }
 
 void sub_0804D564() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D570() {
@@ -3375,7 +3375,7 @@ u32 sub_0804D570() {
 }
 
 void sub_0804D574() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D580() {
@@ -3383,7 +3383,7 @@ u32 sub_0804D580() {
 }
 
 void sub_0804D584() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D590() {
@@ -3433,7 +3433,7 @@ u32 sub_0804D5C0() {
 }
 
 void sub_0804D5C4() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D5D0() {
@@ -3441,7 +3441,7 @@ u32 sub_0804D5D0() {
 }
 
 void sub_0804D5D4() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D5E0() {
@@ -3449,7 +3449,7 @@ u32 sub_0804D5E0() {
 }
 
 void sub_0804D5E4() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D5F0() {
@@ -3457,7 +3457,7 @@ u32 sub_0804D5F0() {
 }
 
 void sub_0804D5F4() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D600() {
@@ -3507,7 +3507,7 @@ u32 sub_0804D630() {
 }
 
 void sub_0804D634() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D640() {
@@ -3517,7 +3517,7 @@ u32 sub_0804D640() {
 extern EntityData gUnk_080EA09C;
 
 void sub_0804D644(void) {
-    sub_0805AF60(0);
+    Manager19_Main(0);
     if (!CheckLocalFlag(0x70)) {
         LoadRoomEntityList(&gUnk_080EA09C);
     }
@@ -3528,7 +3528,7 @@ u32 sub_0804D664() {
 }
 
 void sub_0804D668() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D674() {
@@ -3536,7 +3536,7 @@ u32 sub_0804D674() {
 }
 
 void sub_0804D678() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D684() {
@@ -3544,7 +3544,7 @@ u32 sub_0804D684() {
 }
 
 void sub_0804D688() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D694() {
@@ -3552,7 +3552,7 @@ u32 sub_0804D694() {
 }
 
 void sub_0804D698() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D6A4() {
@@ -3560,7 +3560,7 @@ u32 sub_0804D6A4() {
 }
 
 void sub_0804D6A8() {
-    sub_0805AF60(0);
+    Manager19_Main(0);
 }
 
 u32 sub_0804D6B4() {
@@ -3591,7 +3591,7 @@ u32 sub_0804D6EC() {
 }
 
 void sub_0804D6F0(void) {
-    sub_0805D3C8(0);
+    Manager2F_Main(0);
 
     if ((gScreenTransition.field_0x38 & 1) && gScreenTransition.field_0x39) {
         if (gScreenTransition.field_0x3c == 1) {
@@ -5612,7 +5612,7 @@ u32 sub_0804F22C() {
 }
 
 void sub_0804F230() {
-    sub_0805ADD8(0);
+    Manager18_Main(0);
 }
 
 u32 sub_0804F23C(void) {
@@ -5632,7 +5632,7 @@ extern EntityData gUnk_080F70D8;
 extern EntityData gUnk_080F7088;
 
 void sub_0804F25C(void) {
-    sub_0805ADD8(0);
+    Manager18_Main(0);
 #if defined(JP) || defined(EU)
     if (!CheckLocalFlag(0x6b)) {
 #else
@@ -5663,7 +5663,7 @@ u32 sub_0804F2E8() {
 }
 
 void sub_0804F2EC() {
-    sub_0805ADD8(0);
+    Manager18_Main(0);
 }
 
 u32 sub_0804F2F8() {
@@ -5671,7 +5671,7 @@ u32 sub_0804F2F8() {
 }
 
 void sub_0804F2FC() {
-    sub_0805ADD8(0);
+    Manager18_Main(0);
 }
 
 extern u32 gUnk_080F7680;
@@ -5687,7 +5687,7 @@ extern EntityData gUnk_080F7500;
 extern EntityData gUnk_080F7550;
 
 void sub_0804F330(void) {
-    sub_0805ADD8(0);
+    Manager18_Main(0);
     if (gSave.unk8 > 3) {
         LoadRoomEntityList(&gUnk_080F7500);
     }
@@ -5712,7 +5712,7 @@ extern EntityData gUnk_080F78A0;
 
 void sub_0804F3B0(void) {
 
-    sub_0805ADD8(0);
+    Manager18_Main(0);
     if (CheckLocalFlagByOffset(0x200, 0x8f)) {
         if (!CheckGlobalFlag(INLOCK)) {
             LoadRoomEntityList(&gUnk_080F77C0);
@@ -5761,7 +5761,7 @@ u32 Vars_HyruleField_OutsideCastle(void) {
 }
 
 void sub_0804F4E4() {
-    sub_0805ADD8(0);
+    Manager18_Main(0);
     sub_0804F578();
 }
 
@@ -5950,7 +5950,7 @@ extern EntityData gUnk_080F806C;
 
 void Load_HyruleField_OutsideCastleWest(void) {
 
-    sub_0805ADD8(0);
+    Manager18_Main(0);
     if ((gSave.unk8 > 3) && CheckGlobalFlag(TINGLE_TALK1ST)) {
         LoadRoomEntityList(&gUnk_080F806C);
     }
@@ -5963,8 +5963,7 @@ u32 Vars_HyruleField_TrilbyHighlands() {
 extern EntityData gUnk_080F82E0;
 
 void Load_HyruleField_TrilbyHighlands(void) {
-
-    sub_0805ADD8(0);
+    Manager18_Main(0);
 #if defined(JP) || defined(EU)
     if (CheckGlobalFlag(LV2_CLEAR) && GetInventoryValue(0x3) && !CheckLocalFlag(0x9b)) {
 #else
@@ -5982,7 +5981,7 @@ extern EntityData gUnk_080F8430;
 
 void sub_0804FA68(void) {
 
-    sub_0805ADD8(0);
+    Manager18_Main(0);
     if (CheckKinstoneFused(0x21) && !CheckLocalFlagByOffset(0x200, 0x42)) {
         LoadRoomEntityList(&gUnk_080F8430);
     }

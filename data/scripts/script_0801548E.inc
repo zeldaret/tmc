@@ -11,7 +11,7 @@ SCRIPT_START script_0801548E
 	WaitForSomething2 0x00010000
 	_0807E5F8 0x00048000
 	WaitForSomething2 0x00010000
-	CallWithArg sub_0805DE18, 0x00000001
+	CallWithArg DeleteManager36, 0x00000001
 	_0807F0C8 0x0000, 0x0000
 	TextboxNoOverlapFollowPos 0x1312, 0x000c
 	_0807EA94 

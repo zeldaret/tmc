@@ -2,7 +2,7 @@
 #include "manager.h"
 #include "flags.h"
 
-void sub_080599B8(Manager11* this) {
+void Manager11_Main(Manager11* this) {
     if (!this->manager.action) {
         this->manager.action = 1;
         if (CheckFlags(this->unk_3c)) {

@@ -18,7 +18,7 @@ typedef struct {
     u16 unk_3e;
 } Manager20;
 
-void sub_0805B7A0(Manager20* this) {
+void Manager20_Main(Manager20* this) {
     Entity* tmp = CreateObject(this->manager.unk_0e, this->manager.unk_0a, this->manager.unk_0b);
     if (!tmp)
         return;

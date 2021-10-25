@@ -201,12 +201,12 @@ _080A0E50:
 	lsls r0, r1, #2
 	adds r0, r0, r1
 	lsls r0, r0, #2
-	ldr r1, _080A0E70 @ =0x0813AA18
+	ldr r1, _080A0E70 @ =gUnk_0813ADEC
 	adds r0, r0, r1
 	bl DoExitTransition
 	b _080A0E8C
 	.align 2, 0
-_080A0E70: .4byte 0x0813AA18
+_080A0E70: .4byte gUnk_0813ADEC
 _080A0E74:
 	ldr r0, _080A0E90 @ =0x030010A0
 	ldr r0, [r0]

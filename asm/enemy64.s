@@ -139,7 +139,7 @@ _08049144:
 	bl sub_0807B7D8
 _0804916E:
 	movs r0, #0x22
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _080491E4
@@ -560,7 +560,7 @@ _0804948C:
 	cmp r0, #0
 	beq _080494B2
 	movs r0, #0x23
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r2, r0, #0
 	cmp r2, #0
 	beq _080494B2

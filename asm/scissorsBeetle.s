@@ -122,7 +122,7 @@ sub_08038984: @ 0x08038984
 	push {r4, r5, r6, lr}
 	adds r5, r0, #0
 	movs r0, #0x13
-	bl sub_080A7EE0
+	bl CreateProjectile
 	adds r6, r0, #0
 	cmp r6, #0
 	beq _080389E6

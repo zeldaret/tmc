@@ -70,7 +70,7 @@ void Manager7_Main(Manager7* this) {
         sub_08052D74(this, sub_08057E30, 0);
     }
     if (sub_08057E40(this)) {
-        tmp = gRoomVars.unk_10;
+        tmp = (u32)gRoomVars.unk_10[0];
         if (this->unk_20 != tmp) {
             this->unk_20 = tmp;
             this->manager.unk_0e = 0;
@@ -109,13 +109,13 @@ void Manager7_Main(Manager7* this) {
 #endif
 
 void sub_08057E30(Manager7* this) {
-    sub_08057E7C(gRoomVars.unk_10);
+    sub_08057E7C(gRoomVars.unk_10[0]);
 }
 
 u32 sub_08057E40(Manager7* this) {
     u32 tmp = sub_08056300(gUnk_08108050);
     if (tmp != 0xFF) {
-        gRoomVars.unk_10 = tmp;
+        gRoomVars.unk_10[0] = tmp;
         return 1;
     } else {
         return 0;
@@ -143,6 +143,6 @@ void sub_08057E7C(u32 unk1) {
     for (tmp = 0; tmp < 8; tmp++, tmp2 += 2) {
         DmaSet(3, &gGlobalGfxAndPalettes[tmp2[0]], tmp2[1], 0x84000400);
     }
-    gRoomVars.unk_10 = unk1;
+    gRoomVars.unk_10[0] = unk1;
 }
 #endif

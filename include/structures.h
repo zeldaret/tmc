@@ -39,7 +39,7 @@ extern struct_02000010 gUnk_02000010;
 typedef struct {
     s32 frameCount; // regular frame count? does anything reset it?
     u8 field_0x4[0x2];
-    u16 field_0x8;
+    u16 field_0x6;
     bool8 transitioningOut;
     u8 transitionType; // transition when changing areas
     u16 field_0xa;     // seems to be a tile type
@@ -56,9 +56,13 @@ typedef struct {
     u8 field_0x24[0x14];
     u8 field_0x38;
     u8 field_0x39;
-    u16 field_0x3a;
+    u8 field_0x3a;
+    u8 field_0x3b;
     u8 field_0x3c;
-    u8 filler[6];
+    u8 field_0x3d;
+    u16 field_0x3e;
+    u16 field_0x40;
+    u16 field_0x42;
     u16 field_0x44;
     u16 field_0x46;
     u16 field_0x48;
@@ -169,6 +173,9 @@ typedef struct {
     u8 unk3;
     u8 freezeTime;
     u8 unk9;
+    u8 unk_0xa;
+    u8 unk_0xb;
+    u16 unk_0xc;
 } EntityHandler;
 
 extern EntityHandler gUnk_03003DC0;

@@ -34,7 +34,7 @@ script_080134F8:
 	CallWithArg sub_08095D8C, script_08014118
 	EndBlock 
 	Wait 0x003c
-	CallWithArg sub_0805DDEC, 0x00000000
+	CallWithArg CreateManager36, 0x00000000
 	_0807E5F8 0x00000200
 	WaitForSomething2 0x00002000
 	PlaySound SFX_1D2
@@ -44,7 +44,7 @@ script_080134F8:
 	WaitForSomething2 0x00004000
 	Wait 0x0078
 	_0807E5F8 0x00000060
-	CallWithArg sub_0805DE18, 0x00000000
+	CallWithArg DeleteManager36, 0x00000000
 	Wait 0x0078
 	_0807E5F8 0x00000080
 	WaitForSomething2 0x00000100
@@ -69,5 +69,5 @@ script_080134F8:
 	TextboxNoOverlapFollowPos 0x0503, 0x000c
 	_0807EA94 
 	_0807E5F8 0x00040000
-	CallWithArg sub_0805DDEC, 0x00000001
+	CallWithArg CreateManager36, 0x00000001
 	_0807F0C8 0xffff, 0x0000

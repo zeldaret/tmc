@@ -50,7 +50,7 @@ _0809E372:
 	movs r6, #0xe
 _0809E392:
 	movs r0, #0x17
-	bl sub_080A7EE0
+	bl CreateProjectile
 	strb r6, [r0, #0xe]
 	str r4, [r0, #0x50]
 	adds r6, #0xc

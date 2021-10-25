@@ -92,7 +92,6 @@ void sub_08059064(ManagerF*);
 void sub_080592EC(ManagerF*);
 void sub_0805930C(ManagerF*);
 u32 sub_080593CC(ManagerF*);
-void sub_0805E4E0(ManagerF*, u32);
 
 // to be moved to headers
 extern EntityData gUnk_080F4B88[];
@@ -151,7 +150,7 @@ void sub_08058FB0(ManagerF* this) {
             if (CheckFlags(this->unk_3e)) {
                 this->manager.action = 2;
                 this->manager.unk_0e = 120;
-                sub_0805E4E0(this, 0xF0);
+                sub_0805E4E0((Entity*)this, 0xF0);
                 sub_08059064(this);
             }
             break;
@@ -241,7 +240,7 @@ void sub_08059124(ManagerF* this) {
             break;
         case 1:
             if (CheckFlags(this->unk_3e)) {
-                sub_0805E4E0(this, 0x4b);
+                sub_0805E4E0((Entity*)this, 0x4b);
                 this->manager.unk_0e = 0x2d;
                 this->manager.action++;
             }

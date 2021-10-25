@@ -11,6 +11,7 @@
 #include "random.h"
 #include "audio.h"
 #include "functions.h"
+#include "main.h"
 
 void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
 void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
@@ -301,6 +302,9 @@ const ScriptCommand gScriptCommands[] = { ScriptCommandNop,
                                           ScriptCommand_0807F0B4,
                                           ScriptCommand_0807F0C8 };
 
+extern u16* gUnk_08001A7C[];
+extern u8 gUnk_08114F30[];
+extern u8 gUnk_08114F34[];
 extern const u16 gUnk_08016984;
 extern u8 gUnk_0811E514[];
 extern u8 gUnk_0811E510[];
@@ -1524,3 +1528,623 @@ void ScriptCommand_0807F0B4(Entity* entity, ScriptExecutionContext* context) {
 void ScriptCommand_0807F0C8(Entity* entity, ScriptExecutionContext* context) {
     sub_08080964(context->scriptInstructionPointer[1], context->scriptInstructionPointer[2]);
 }
+
+extern u8 gUnk_0811E750[];
+extern u8 gUnk_0811E758[];
+extern u8 gUnk_0811E760[];
+
+void sub_0807F0D8(Entity* entity, ScriptExecutionContext* context) {
+    context->condition = (-(u32)gInput.newKeys | ((u32)gInput.newKeys)) >> 0x1f;
+}
+
+void sub_0807F0EC(Entity* entity, ScriptExecutionContext* context) {
+    context->intVariable = (s32)Random() % (s32)context->intVariable;
+}
+
+void sub_0807F100(Entity* entity, ScriptExecutionContext* context) {
+    u32 rand;
+
+    rand = Random();
+    entity->animationState = rand & 6;
+    context->unk_1A = gUnk_0811E750[(rand >> 8) & 7];
+}
+
+void sub_0807F128(Entity* entity, ScriptExecutionContext* context) {
+    u32 rand;
+
+    rand = Random();
+    entity->animationState = gUnk_0811E758[rand & 7];
+    context->unk_1A = gUnk_0811E760[(rand >> 8) & 7];
+}
+
+void sub_0807F158(Entity* entity, ScriptExecutionContext* context) {
+    entity->collisionLayer = 1;
+    UpdateSpriteForCollisionLayer(entity);
+}
+
+void sub_0807F168(Entity* entity, ScriptExecutionContext* context) {
+    gPlayerEntity.collisionLayer = 1;
+    UpdateSpriteForCollisionLayer(&gPlayerEntity);
+}
+
+void sub_0807F180(Entity* entity, ScriptExecutionContext* context) {
+    entity->collisionLayer = 2;
+    UpdateSpriteForCollisionLayer(entity);
+}
+
+void sub_0807F190(Entity* entity, ScriptExecutionContext* context) {
+    DoFade(4, 256);
+}
+
+void sub_0807F1A0(Entity* entity, ScriptExecutionContext* context) {
+    sub_0807DEDC(entity, context, gPlayerEntity.x.HALF.HI, gPlayerEntity.y.HALF.HI);
+    gActiveScriptInfo.flags |= 1;
+}
+
+void sub_0807F1C4(Entity* entity, ScriptExecutionContext* context) {
+    if ((gPlayerState.flags.all & 8) != 0) {
+        gPlayerState.field_0x8 = 0x459;
+    } else {
+        gPlayerState.field_0x8 = 0x1bc;
+    }
+}
+
+void sub_0807F1E8(Entity* entity, ScriptExecutionContext* context) {
+    if ((gPlayerState.flags.all & 8) != 0) {
+        gPlayerState.field_0x8 = 0x45a;
+    } else {
+        gPlayerState.field_0x8 = 0x2bd;
+    }
+}
+
+void sub_0807F210(Entity* entity, ScriptExecutionContext* context) {
+    if ((gPlayerState.flags.all & 8) != 0) {
+        gPlayerState.field_0x8 = 0x41c;
+    } else {
+        gPlayerState.field_0x8 = 0x80c;
+    }
+}
+
+void sub_0807F238(Entity* entity, ScriptExecutionContext* context) {
+    gPlayerState.field_0x8 = context->intVariable;
+}
+
+void sub_0807F244(Entity* entity, ScriptExecutionContext* context) {
+    u32 slot;
+    u32 item;
+
+    item = context->intVariable & 0xFFFF;
+    slot = context->intVariable >> 0x10;
+    item &= 0xFFFF;
+    switch (item) {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 6:
+            // Pick greatest sword unlocked
+            item = 1;
+            if (GetInventoryValue(2))
+                item = 2;
+            if (GetInventoryValue(3))
+                item = 3;
+            if (GetInventoryValue(4))
+                item = 4;
+            if (GetInventoryValue(6))
+                item = 6;
+            break;
+    }
+    ForceEquipItem(item, slot);
+}
+
+void sub_0807F29C(Entity* entity, ScriptExecutionContext* context) {
+    sub_0805ED14((void*)context->intVariable);
+}
+
+void sub_0807F2A8(Entity* entity, ScriptExecutionContext* context) {
+    if (gPlayerState.field_0x9c == 0) {
+        gActiveScriptInfo.flags |= 1;
+    } else {
+        gActiveScriptInfo.commandSize = 0;
+    }
+}
+
+void sub_0807F2D4(Entity* entity, ScriptExecutionContext* context) {
+    if ((entity->frames.all & 0x80) != 0) {
+        gActiveScriptInfo.flags |= 1;
+    } else {
+        gActiveScriptInfo.commandSize = 0;
+    }
+}
+
+void sub_0807F304(Entity* entity, ScriptExecutionContext* context) {
+    if ((gPlayerEntity.frames.all & 0x80) != 0) {
+        gActiveScriptInfo.flags |= 1;
+    } else {
+        gActiveScriptInfo.commandSize = 0;
+    }
+}
+
+void sub_0807F338(Entity* entity, ScriptExecutionContext* context) {
+    entity->hitbox = NULL;
+    entity->field_0x17 &= ~1;
+}
+
+void sub_0807F348(Entity* entity, ScriptExecutionContext* context) {
+    sub_0805E3A0(entity, 2);
+}
+
+void sub_0807F354(Entity* entity, ScriptExecutionContext* context) {
+    sub_0805E3A0(entity, 6);
+}
+
+void sub_0807F360(Entity* entity, ScriptExecutionContext* context) {
+    sub_0805E3A0(entity, 3);
+}
+
+void sub_0807F36C(Entity* entity, ScriptExecutionContext* context) {
+    Entity* fx;
+    fx = CreateFx(entity, 0x41, 0);
+    if (fx != NULL) {
+        fx->spritePriority.b0 = 1;
+        PositionRelative(entity, fx, 0, -524288);
+        if (Random() & 1)
+            fx->spriteSettings.b.flipX = 1;
+        if (Random() & 1)
+            fx->spriteSettings.b.flipY = 1;
+    }
+}
+
+void sub_0807F3C8(Entity* entity, ScriptExecutionContext* context) {
+    sub_0807F36C(entity, context);
+    SoundReq(SFX_BUTTON_DEPRESS);
+}
+
+void sub_0807F3D8(Entity* entity, ScriptExecutionContext* context) {
+    InitAnimationForceUpdate(entity, context->intVariable + (entity->animationState >> 1));
+    entity->field_0x80.HWORD = entity->animIndex;
+}
+
+void sub_0807F3F8(Entity* entity, ScriptExecutionContext* context) {
+    CreateSpeechBubbleExclamationMark(&gPlayerEntity, 8, -24);
+}
+
+void sub_0807F40C(Entity* entity, ScriptExecutionContext* context) {
+    CreateSpeechBubbleQuestionMark(&gPlayerEntity, 8, -24);
+}
+
+void sub_0807F420(Entity* entity, ScriptExecutionContext* context) {
+    MenuFadeIn(context->intVariable & 0xff, (u8)(context->intVariable >> 8));
+}
+
+void sub_0807F434(Entity* entity, ScriptExecutionContext* context) {
+    switch (entity->interactType) {
+        case 1:
+            entity->interactType = 0;
+            context->intVariable = 1;
+            break;
+        case 2:
+            entity->interactType = 0;
+            context->intVariable = 2;
+            break;
+        default:
+            context->intVariable = 0;
+            break;
+    }
+    gActiveScriptInfo.flags |= 1;
+}
+
+void sub_0807F464(Entity* entity, ScriptExecutionContext* context) {
+    s32 s32Var;
+
+    if (!context->unk_18) {
+        context->unk_18++;
+        context->postScriptActions |= 2;
+        s32Var = context->intVariable;
+        context->x.HALF.HI = gRoomControls.roomOriginX + s32Var;
+        context->y.HALF.HI = entity->y.HALF.HI;
+        if (s32Var > entity->x.HALF.HI - gRoomControls.roomOriginX) {
+            entity->direction = 64;
+            entity->animationState = (entity->animationState & 0x80) | 2;
+        } else {
+            entity->direction = -64;
+            entity->animationState = (entity->animationState & 0x80) | 6;
+        }
+    }
+    sub_0806F62C(entity, entity->speed, entity->direction);
+    if (((context->x.HALF.HI - entity->x.HALF.HI) ^ ((entity->direction & 0x80) << 24)) < 0)
+        entity->x.HALF.HI = context->x.HALF.HI;
+    else
+        gActiveScriptInfo.commandSize = 0;
+}
+
+void sub_0807F4F8(Entity* entity, ScriptExecutionContext* context) {
+    s32 s32Var;
+
+    if (!context->unk_18) {
+        context->unk_18++;
+        context->postScriptActions |= 2;
+        s32Var = context->intVariable;
+        context->x.HALF.HI = entity->x.HALF.HI;
+        context->y.HALF.HI = gRoomControls.roomOriginY + s32Var;
+        if (s32Var > entity->y.HALF.HI - gRoomControls.roomOriginY) {
+            entity->direction = 128;
+            entity->animationState = (entity->animationState & 0x80) | 4;
+        } else {
+            entity->direction = 0;
+            entity->animationState = (entity->animationState & 0x80);
+        }
+    }
+    sub_0806F62C(entity, entity->speed, entity->direction);
+    if (((context->y.HALF.HI - entity->y.HALF.HI) ^ ((entity->direction & 0x80) << 24)) >= 0)
+        entity->y.HALF.HI = context->y.HALF.HI;
+    else
+        gActiveScriptInfo.commandSize = 0;
+}
+
+void sub_0807F584(Entity* entity, ScriptExecutionContext* context) {
+    context->intVariable = gPlayerEntity.animationState >> 1;
+}
+
+void sub_0807F594(Entity* entity, ScriptExecutionContext* context) {
+    if (gPlayerState.field_0xa8)
+        gActiveScriptInfo.commandSize = 0;
+}
+
+void sub_0807F5B0(Entity* entity, ScriptExecutionContext* context) {
+    gPlayerState.field_0x27[0] = context->intVariable;
+}
+
+void sub_0807F5C0(Entity* entity, ScriptExecutionContext* context) {
+    s32 left;
+    s32 bottom;
+
+    if (gRoomControls.cameraTarget != NULL) {
+        left = gRoomControls.cameraTarget->x.HALF.HI - DISPLAY_WIDTH / 2;
+        bottom = gRoomControls.cameraTarget->y.HALF.HI - DISPLAY_HEIGHT / 2;
+
+        if (left < gRoomControls.roomOriginX)
+            left = gRoomControls.roomOriginX;
+        if (left > gRoomControls.roomOriginX + gRoomControls.width - DISPLAY_WIDTH)
+            left = gRoomControls.roomOriginX + gRoomControls.width - DISPLAY_WIDTH;
+        if (bottom < gRoomControls.roomOriginY)
+            bottom = gRoomControls.roomOriginY;
+        if (bottom > gRoomControls.roomOriginY + gRoomControls.height - DISPLAY_HEIGHT)
+            bottom = gRoomControls.roomOriginY + gRoomControls.height - DISPLAY_HEIGHT;
+
+        if (left == gRoomControls.roomScrollX && bottom == gRoomControls.roomScrollY)
+            gActiveScriptInfo.flags |= 1u;
+        else
+            gActiveScriptInfo.commandSize = 0;
+    }
+}
+
+void sub_0807F634(Entity* entity, ScriptExecutionContext* context) {
+    u16* p = (u16*)context->intVariable;
+    sub_0801DFB4(entity, p[0], p[1], p[2]);
+    gPlayerState.field_0x8b = 3;
+}
+
+void sub_0807F650(Entity* entity, ScriptExecutionContext* context) {
+    u32 p = sub_08002632(entity);
+    sub_0801DFB4(entity, gUnk_08001A7C[p][0], gUnk_08001A7C[p][1], gUnk_08001A7C[p][2]);
+    gPlayerState.field_0x8b = 3;
+}
+
+void sub_0807F680(Entity* entity, ScriptExecutionContext* context) {
+    context->condition = gPlayerEntity.x.HALF.HI - gRoomControls.roomOriginX > (s32)(context->intVariable & 0xffff);
+    gActiveScriptInfo.flags |= 1;
+}
+
+void sub_0807F6B4(Entity* entity, ScriptExecutionContext* context) {
+    context->condition = gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY > (s32)(context->intVariable & 0xffff);
+    gActiveScriptInfo.flags |= 1;
+}
+
+void sub_0807F6E8(Entity* entity, ScriptExecutionContext* context) {
+    gPlayerState.flags.all |= context->intVariable;
+}
+
+void sub_0807F6F8(Entity* entity, ScriptExecutionContext* context) {
+    gPlayerState.flags.all &= ~context->intVariable;
+}
+
+void sub_0807F708(Entity* entity, ScriptExecutionContext* context) {
+    ShowNPCDialogue(entity, (Dialog*)context->intVariable);
+}
+
+void sub_0807F714(Entity* entity, ScriptExecutionContext* context) {
+    entity->spriteRendering.b3 = gUnk_08114F30[entity->spriteRendering.b3];
+    ResolveEntityOnTop(entity, entity);
+}
+
+void sub_0807F738(Entity* entity, ScriptExecutionContext* context) {
+    entity->spriteRendering.b3 = gUnk_08114F34[entity->spriteRendering.b3];
+    sub_0806FAD8(entity, entity);
+}
+
+void sub_0807F75C(Entity* entity, ScriptExecutionContext* context) {
+    s32 s32Var = context->intVariable;
+    gPlayerEntity.x.HALF.HI = (s32Var >> 16) + gRoomControls.roomOriginX;
+    gPlayerEntity.y.HALF.HI = (s32Var & 0xffff) + gRoomControls.roomOriginY;
+}
+
+void sub_0807F77C(Entity* entity, ScriptExecutionContext* context) {
+    if (context->condition)
+        context->intVariable = 1;
+    else
+        context->intVariable = 0;
+}
+
+void sub_0807F78C(Entity* entity, ScriptExecutionContext* context) {
+    u32 item = context->intVariable;
+    u32 msg;
+    u32 price;
+
+    if (context->intVariable == 0)
+        item = gRoomVars.itemForSaleIndex;
+
+    msg = GetSaleItemConfirmMessageID(item);
+    price = GetItemPrice(item);
+    TextboxNoOverlap(msg, entity);
+    gTextBox.field_0x10 = (u16)price;
+}
+
+void sub_0807F7C4(Entity* entity, ScriptExecutionContext* context) {
+    u32 item = context->intVariable;
+    u32 msg;
+    u32 price;
+
+    if (context->intVariable == 0)
+        item = gRoomVars.itemForSaleIndex;
+
+    context->condition = GetItemPrice(item) <= gSave.stats.rupees;
+    gActiveScriptInfo.flags |= 1;
+}
+
+void sub_0807F800(Entity* entity, ScriptExecutionContext* context) {
+    u32 item = context->intVariable;
+    u32 msg;
+    u32 price;
+
+    if (context->intVariable == 0)
+        item = gRoomVars.itemForSaleIndex;
+
+    price = GetItemPrice(item);
+    ModRupees(-price);
+    sub_080A7C18(item, 0, 0);
+    gRoomVars.itemForSaleIndex = 0;
+    gActiveScriptInfo.flags |= 1;
+}
+
+void sub_0807F83C(Entity* entity, ScriptExecutionContext* context) {
+    sub_08079184();
+}
+
+void sub_0807F844(Entity* entity, ScriptExecutionContext* context) {
+    gRoomControls.cameraTarget = entity;
+    sub_080809D4();
+}
+
+void sub_0807F854(Entity* entity, ScriptExecutionContext* context) {
+    u32 value;
+    u32 idx;
+
+    idx = (context->intVariable >> 0x10) & 3;
+    value = context->intVariable & 0xffff;
+    switch (idx) {
+        case 0:
+        case 1:
+            gTextBox.field_0x10 = value;
+            break;
+        case 2:
+            gTextBox.field_0x14 = value;
+            break;
+        case 3:
+            gTextBox.field_0x18 = value;
+            break;
+        case 4:
+            gTextBox.field_0x1c = value;
+            break;
+    }
+}
+
+void sub_0807F8BC(Entity* entity, ScriptExecutionContext* context) {
+    if (sub_080040A8(entity))
+        context->condition = 1;
+    else
+        context->condition = 0;
+}
+
+void sub_0807F8D0(Entity* entity, ScriptExecutionContext* context) {
+    sub_08003FC4(entity, context->intVariable);
+    gActiveScriptInfo.flags |= 1;
+}
+
+void sub_0807F8E8(Entity* entity, ScriptExecutionContext* context) {
+    Entity* c = CreateObjectWithParent(entity, 0xA6, 0, 0);
+    if (c != NULL) {
+        c->parent = entity;
+        c->field_0x86.HWORD = (context->intVariable & 0x3ff) | 0x8000;
+    }
+}
+
+void sub_0807F918(Entity* entity, ScriptExecutionContext* context) {
+    PutItemOnSlot(context->intVariable);
+}
+
+void sub_0807F924(Entity* entity, ScriptExecutionContext* context) {
+    sub_0807879C(entity);
+}
+
+void sub_0807F92C(Entity* entity, ScriptExecutionContext* context) {
+    sub_080787C0(entity);
+}
+
+void sub_0807F934(Entity* entity, ScriptExecutionContext* context) {
+    sub_080787B4(entity);
+}
+
+void sub_0807F93C(Entity* entity, ScriptExecutionContext* context) {
+    CreateSpeechBubbleSleep(entity, (context->intVariable >> 8) & 0xff, context->intVariable & 0xff);
+}
+
+void sub_0807F950(Entity* entity, ScriptExecutionContext* context) {
+    Entity* c = FindEntity(6, 0x56, 6, 0, 2);
+    if (c != NULL)
+        DeleteEntity(c);
+}
+
+void sub_0807F970(Entity* entity, ScriptExecutionContext* context) {
+    context->condition = context->intVariable == gCurrentTextBox._28;
+}
+
+void sub_0807F98C(Entity* entity, ScriptExecutionContext* context) {
+    entity->height.WORD = context->intVariable;
+}
+
+void sub_0807F994(Entity* entity, ScriptExecutionContext* context) {
+    entity->spriteOffsetX = (s32)context->intVariable >> 0x10;
+    entity->spriteOffsetY = context->intVariable & 0xffff;
+}
+
+void sub_0807F9A4(Entity* entity, ScriptExecutionContext* context) {
+    switch (gPlayerState.field_0xa8) {
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+        case 19:
+        case 20:
+        case 21:
+        case 22:
+        case 23:
+        case 24:
+        case 27:
+        case 28:
+            gActiveScriptInfo.commandSize = 0;
+            break;
+        default:
+            gActiveScriptInfo.flags |= 1u;
+            break;
+    }
+}
+
+void sub_0807FA40(Entity* entity, ScriptExecutionContext* context) {
+    switch (gPlayerState.field_0xa8) {
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 11:
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+        case 20:
+        case 21:
+        case 22:
+        case 23:
+        case 24:
+        case 27:
+        case 28:
+            gActiveScriptInfo.commandSize = 0;
+            break;
+        default:
+            gActiveScriptInfo.flags |= 1u;
+            break;
+    }
+}
+
+void sub_0807FADC(Entity* entity, ScriptExecutionContext* context) {
+    switch (context->unk_18) {
+        case 0:
+            context->unk_18++;
+            sub_0808C650(entity, context->intVariable);
+            break;
+        case 1:
+            if (sub_0808C67C())
+                context->unk_18++;
+            break;
+        case 2:
+            sub_0808C688();
+            return;
+    }
+    gActiveScriptInfo.commandSize = 0;
+}
+
+void sub_0807FB28(Entity* entity, ScriptExecutionContext* context) {
+    if (!context->unk_18)
+        sub_0801D7BC(0x7fff, 1);
+
+    context->unk_18++;
+    if (context->unk_18 >= context->intVariable)
+        sub_0801D7BC(0, 0);
+    else
+        gActiveScriptInfo.commandSize = 0;
+}
+
+void sub_0807FB64(Entity* entity, ScriptExecutionContext* context) {
+    gPlayerEntity.iframes = context->intVariable;
+}
+
+void sub_0807FB74(Entity* entity, ScriptExecutionContext* context) {
+    gPlayerState.swimState = 0;
+    gPlayerEntity.field_0x3c &= ~4;
+}
+
+void sub_0807FB94(Entity* entity, ScriptExecutionContext* context) {
+    InitScreen(SCREEN_CREDITS);
+}
+
+void sub_0807FBA0(Entity* entity, ScriptExecutionContext* context) {
+    entity->x.HALF.HI = gRoomControls.roomScrollX + 120;
+    entity->y.HALF.HI = gRoomControls.roomScrollY + 80;
+}
+
+void sub_0807FBB4(Entity* entity, ScriptExecutionContext* context) {
+    gPlayerState.field_0x1a[0] |= 0x80;
+}
+
+void sub_0807FBC4(Entity* entity, ScriptExecutionContext* context) {
+    sub_0805E4A0(entity);
+}
+
+void sub_0807FBCC(Entity* entity, ScriptExecutionContext* context) {
+    sub_0805E4CC(entity);
+}
+
+void sub_0807FBD4(Entity* entity, ScriptExecutionContext* context) {
+    sub_0806F62C(entity, entity->speed, entity->direction);
+    if (sub_080040A8(entity))
+        gActiveScriptInfo.commandSize = 0;
+}
+
+#ifndef EU
+void sub_0807FBFC(Entity* entity, ScriptExecutionContext* context) {
+    gSave.stats.charm = 0;
+    gSave.stats.charmTimer = 0;
+    gSave.stats.unkB = 0;
+    gSave.stats.unkTimer = 0;
+    gSave.stats.effect = 0;
+    gSave.stats.effectTimer = 0;
+}
+
+#if defined(USA) || defined(DEMO)
+void sub_0807FC24(Entity* entity, ScriptExecutionContext* context) {
+    u32 idx = gRoomControls.roomID == 1 ? 0xcf : 0xd1;
+    SetLocalFlag(idx);
+}
+#endif
+#endif

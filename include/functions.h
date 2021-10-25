@@ -9,6 +9,7 @@
 #include "player.h"
 #include "room.h"
 #include "structures.h"
+#include "script.h"
 
 // Identified - to be sorted into header files
 extern void ShowNPCDialogue(Entity*, Dialog*);
@@ -42,7 +43,21 @@ extern void ResetPlayer(void);
 extern u32 IsItemEquipped(u32);
 extern void DeleteManager(Manager*);
 extern bool32 CheckPlayerInRegion(u32 centerX, u32 centerY, u32 radiusX, u32 radiusY);
+extern Entity* CreateProjectileWithParent(Entity*, u8, u8);
+extern u32 GetBottleContaining(u32);
 extern u32 GetTileTypeByEntity(Entity*);
+extern u32 GetSaleItemConfirmMessageID(u32);
+extern void FlushSprites(void);
+extern void DispReset(u32);
+extern void InitSoundPlayingInfo(void);
+extern void InitDMA(void);
+extern Entity* CreateProjectile(u32);
+extern void RegisterPlayerHitbox();
+extern s32 GetItemPrice();
+extern void DoExitTransition(ScreenTransitionData*);
+extern void CreateDustAt(u32, u32, u32);
+extern void PutItemOnSlot(u32 itemID);
+extern void CreateSpeechBubbleSleep(Entity*, u32, u32);
 
 // Unidentified
 extern u32 sub_0806ED78(Entity*);
@@ -80,8 +95,6 @@ extern u32 sub_08049FA0(Entity*);
 extern u32 sub_08049FDC(Entity*, u32);
 extern u32 sub_080041A0(Entity*, Entity*, u32, u32);
 extern u32 sub_08049EE4(Entity*);
-extern Entity* sub_0804A98C(Entity*, u8, u8);
-extern u32 GetBottleContaining(u32);
 extern void sub_08077E54(ItemBehavior*);
 extern void sub_080042BA(Entity*, u32);
 extern bool32 sub_08077F24(ItemBehavior*, u32);
@@ -92,7 +105,6 @@ extern s32 sub_0807887C(Entity*, u32, u32);
 extern s32 sub_08078904();
 extern void sub_0805E5A8(void);
 extern void sub_0805E5C0(void);
-extern void FlushSprites(void);
 extern void sub_080AD9B0(void);
 extern void sub_080AD918(void);
 extern void sub_0801E104(void);
@@ -118,7 +130,6 @@ extern u32 sub_08060354(void);
 extern void sub_08057E64(void);
 extern void sub_0809F814(u32);
 extern void sub_080300E8(void);
-extern void DispReset(u32);
 extern void sub_08058D34(void);
 extern void sub_0807AABC(Entity*);
 extern void sub_08078A90(u32);
@@ -142,7 +153,6 @@ extern void sub_080AF2E4(void);
 extern void sub_0804F578(void);
 extern void sub_08059994(void);
 extern s32 sub_0801CFA8(u32);
-extern void InitSoundPlayingInfo(void);
 extern void sub_080ADA14(u32, u32); // trampoline to sub_080B27F4
 extern void sub_0801E1B8(u32, u32);
 extern void sub_0801E1EC(s32, s32, s32);
@@ -171,7 +181,6 @@ extern void sub_0807A108(void);
 extern u32 sub_0801766C(Entity*);
 extern void sub_08004168(Entity*);
 extern u32 sub_08052638(u32);
-extern void InitDMA(void);
 extern void sub_08056208(void);
 extern void sub_08050384();
 extern u32 sub_0806F520();
@@ -181,7 +190,6 @@ extern void sub_0804A7D4(Entity*);
 extern void sub_08033744(Entity*);
 extern void sub_0800417E(Entity*, u32);
 extern void sub_080784C8();
-extern void RegisterPlayerHitbox();
 extern u32 sub_0808288C(Entity*, u32, u32, u32);
 extern void sub_0806FDA0(Entity*);
 extern void sub_080AE008(Entity*, u32, u32);
@@ -206,7 +214,7 @@ extern void sub_0802F45C(Entity*);
 extern u32 sub_0800419C(Entity*, Entity*, u32, u32);
 extern void sub_08004542(Entity*);
 extern void sub_08077B20();
-extern u32 sub_080040A8(Entity*);
+extern bool32 sub_080040A8(Entity*);
 extern u32 sub_08017850(Entity*);
 extern void sub_080809D4(void);
 extern void sub_08080CB4(Entity*);
@@ -227,7 +235,6 @@ extern u32 sub_0805F7A0(u32);
 extern u32* sub_0805F25C(u32);
 extern u32 sub_080045DA(s32, s32);
 u32 sub_0806FCB8(Entity*, u32, u32, u32);
-extern Entity* sub_080A7EE0(u32);
 extern void sub_080A1D70(Entity*, u32);
 extern void sub_0806F62C(Entity*, u32, u32);
 extern void sub_080A1ED0(u32, u32, u32);
@@ -241,7 +248,6 @@ extern u32 sub_08052734(); // has Dungeon Map?
 extern u32 sub_08052764(); // has Dungeon Compass?
 extern u32 sub_0805279C(); // has Dungeon Big Key?
 extern u32 sub_080527CC(); // num Dungeon small keys?
-extern u32 GetItemPrice();
 extern void sub_08078790(Entity*, u32);
 extern void sub_080788E0(Entity*);
 extern void sub_08078AA8(u32, u32);
@@ -267,6 +273,15 @@ extern void sub_0805EEB4(u8*, u32);
 extern void sub_08056BDC(u32);
 extern void sub_08056F88(u32, u32);
 extern void sub_0805F8E4(u32 r0, WStruct* r1);
+extern u32 sub_08002632(Entity*);
+extern void sub_0807879C(Entity*);
+extern void sub_080787C0(Entity*);
+extern void sub_080787B4(Entity*);
+extern void sub_0808C650(Entity*, u32);
+extern u32 sub_0808C67C(void);
+extern void sub_0808C688(void);
+extern void sub_0805E4A0(Entity*);
+extern void sub_0805E4CC(Entity*);
 
 extern Entity* sub_08077C94(ItemBehavior*, u32);
 extern Entity* sub_08077C0C(ItemBehavior*, u32);
@@ -282,10 +297,13 @@ extern void sub_08078E84(Entity*, Entity*);
 extern void sub_080042D0(Entity*, u32, u16);
 
 extern u32 sub_080002A8(u32, u32, u32);
-extern void CreateDustAt(u32, u32, u32);
 extern void sub_080806BC(u32, u32, u32, u32);
 
 extern void sub_080186C0(u32);
 extern void sub_0801855C(void);
+
+extern u32 sub_0807CAEC(u32);
+extern void sub_0807CAC8(u32);
+extern void sub_0805E4E0(Entity*, u32);
 
 #endif

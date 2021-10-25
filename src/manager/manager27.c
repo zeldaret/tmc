@@ -15,7 +15,7 @@ void (*const gUnk_08108D10[])(Entity*) = { sub_0805C874, sub_0805C894, sub_0805C
 
 const u8 gUnk_08108D20[] = { 0x6F, 0x70, 0x71, 0x72, 0x71, 0x70 };
 
-void Manager27(Entity* this) {
+void Manager27_Main(Entity* this) {
 
     gUnk_08108D10[this->action](this);
     if (CheckLocalFlagByOffset(0x300, this->type + 0x67)) {

@@ -232,7 +232,7 @@ void sub_08032794(Entity* this) {
 void sub_080327C8(Entity* this) {
     Entity* child;
 
-    child = sub_0804A98C(this, 11, 0);
+    child = CreateProjectileWithParent(this, 11, 0);
     if (child != NULL) {
         child->parent = this;
         this->attachedEntity = child;
