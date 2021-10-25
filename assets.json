@@ -32420,7 +32420,7 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_080D6138.bin",
+    "path": "data_080D5360/Entities_MinishPaths1_MayorsCabin_gUnk_080D6138.bin",
     "start": 876856,
     "size": 96
   },
@@ -32442,7 +32442,7 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_080D6210.bin",
+    "path": "data_080D5360/Entities_HouseInteriors1_Mayor_080D6210.bin",
     "start": 877072,
     "size": 80
   },
@@ -32464,7 +32464,7 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_Mayor.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_Mayor.bin",
     "start": 877288,
     "size": 20
   },
@@ -32606,17 +32606,17 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_Library2F.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_Library2F.bin",
     "start": 878192,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors1_Library2F.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors1_Library2F.bin",
     "start": 878212,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors1_Library2F.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors1_Library2F.bin",
     "start": 878228,
     "size": 20
   },
@@ -32633,12 +32633,12 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_Library1F.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_Library1F.bin",
     "start": 878324,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_Library1F_1.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_Library1F_1.bin",
     "start": 878340,
     "size": 16
   },
@@ -32653,12 +32653,12 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors1_Library1F.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors1_Library1F.bin",
     "start": 878388,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors1_Library1F_1.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors1_Library1F_1.bin",
     "start": 878404,
     "size": 64
   },
@@ -32963,47 +32963,47 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_InnEast2F.bin",
     "start": 880092,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_1.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_InnEast2F_1.bin",
     "start": 880104,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_2.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_InnEast2F_2.bin",
     "start": 880120,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_3.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_InnEast2F_3.bin",
     "start": 880136,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_4.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_InnEast2F_4.bin",
     "start": 880152,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_5.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_InnEast2F_5.bin",
     "start": 880168,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_6.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_InnEast2F_6.bin",
     "start": 880184,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_7.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_InnEast2F_7.bin",
     "start": 880200,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_8.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_InnEast2F_8.bin",
     "start": 880216,
     "size": 20
   },
@@ -33048,7 +33048,7 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_InnMinishHeartPiece.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_InnMinishHeartPiece.bin",
     "start": 880608,
     "size": 20
   },
@@ -33179,12 +33179,12 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors1_SchoolEast.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors1_SchoolEast.bin",
     "start": 881288,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors1_SchoolEast.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors1_SchoolEast.bin",
     "start": 881308,
     "size": 20
   },
@@ -33439,7 +33439,7 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleCastle_3.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleCastle_3.bin",
     "start": 882320,
     "size": 64
   },
@@ -34938,7 +34938,7 @@
     "size": 112
   },
   {
-    "path": "data_080D5360/gUnk_additional11_CastorWilds_Main_JP.bin",
+    "path": "data_080D5360/gUnk_additional_13_CastorWilds_Main_JP.bin",
     "variants": [
       "JP"
     ],
@@ -34948,7 +34948,7 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional11_CastorWilds_Main_1_DEMO_JP.bin",
+    "path": "data_080D5360/gUnk_additional_13_CastorWilds_Main_1_DEMO_JP.bin",
     "variants": [
       "DEMO_JP"
     ],
@@ -34958,7 +34958,7 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional11_CastorWilds_Main_2_EU.bin",
+    "path": "data_080D5360/gUnk_additional_13_CastorWilds_Main_2_EU.bin",
     "variants": [
       "EU"
     ],
@@ -34968,7 +34968,7 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional11_CastorWilds_Main_3_USA-DEMO_USA.bin",
+    "path": "data_080D5360/gUnk_additional_13_CastorWilds_Main_3_USA-DEMO_USA.bin",
     "variants": [
       "USA",
       "DEMO_USA"
@@ -35004,7 +35004,7 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional8_CastorWilds_Main.bin",
+    "path": "data_080D5360/gUnk_additional_10_CastorWilds_Main.bin",
     "start": 892456,
     "size": 48
   },
@@ -35048,52 +35048,52 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CastorWilds_Main.bin",
+    "path": "data_080D5360/gUnk_additional_8_CastorWilds_Main.bin",
     "start": 892520,
     "size": 64
   },
   {
-    "path": "data_080D5360/gUnk_additional1_CastorWilds_Main.bin",
+    "path": "data_080D5360/gUnk_additional_9_CastorWilds_Main.bin",
     "start": 892584,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_CastorWilds_Main.bin",
+    "path": "data_080D5360/gUnk_additional_a_CastorWilds_Main.bin",
     "start": 892604,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional3_CastorWilds_Main.bin",
+    "path": "data_080D5360/gUnk_additional_b_CastorWilds_Main.bin",
     "start": 892624,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional4_CastorWilds_Main.bin",
+    "path": "data_080D5360/gUnk_additional_c_CastorWilds_Main.bin",
     "start": 892644,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional5_CastorWilds_Main.bin",
+    "path": "data_080D5360/gUnk_additional_d_CastorWilds_Main.bin",
     "start": 892664,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional6_CastorWilds_Main.bin",
+    "path": "data_080D5360/gUnk_additional_e_CastorWilds_Main.bin",
     "start": 892684,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional7_CastorWilds_Main.bin",
+    "path": "data_080D5360/gUnk_additional_f_CastorWilds_Main.bin",
     "start": 892704,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional9_CastorWilds_Main.bin",
+    "path": "data_080D5360/gUnk_additional_11_CastorWilds_Main.bin",
     "start": 892724,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional10_CastorWilds_Main.bin",
+    "path": "data_080D5360/gUnk_additional_12_CastorWilds_Main.bin",
     "start": 892740,
     "size": 20
   },
@@ -35245,7 +35245,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CastorDarknut_Main.bin",
+    "path": "data_080D5360/gUnk_additional_8_CastorDarknut_Main.bin",
     "start": 893656,
     "size": 32
   },
@@ -35472,12 +35472,12 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MinishHouseInteriors_GentariExit.bin",
+    "path": "data_080D5360/gUnk_additional_8_MinishHouseInteriors_GentariExit.bin",
     "start": 894660,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_MinishHouseInteriors_GentariExit.bin",
+    "path": "data_080D5360/gUnk_additional_9_MinishHouseInteriors_GentariExit.bin",
     "start": 894676,
     "size": 20
   },
@@ -35511,17 +35511,17 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MinishHouseInteriors_Festari.bin",
+    "path": "data_080D5360/gUnk_additional_8_MinishHouseInteriors_Festari.bin",
     "start": 894840,
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional1_MinishHouseInteriors_Festari.bin",
+    "path": "data_080D5360/gUnk_additional_9_MinishHouseInteriors_Festari.bin",
     "start": 894864,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_MinishHouseInteriors_Festari.bin",
+    "path": "data_080D5360/gUnk_additional_a_MinishHouseInteriors_Festari.bin",
     "start": 894884,
     "size": 20
   },
@@ -35742,7 +35742,7 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MinishHouseInteriors_BarrelMinish.bin",
+    "path": "data_080D5360/gUnk_additional_8_MinishHouseInteriors_BarrelMinish.bin",
     "start": 896684,
     "size": 8
   },
@@ -36256,12 +36256,12 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional2_TownMinishHoles_LibraryBookshelf.bin",
+    "path": "data_080D5360/gUnk_additional_a_TownMinishHoles_LibraryBookshelf.bin",
     "start": 899104,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional2_TownMinishHoles_LibraryBookshelf_1.bin",
+    "path": "data_080D5360/gUnk_additional_a_TownMinishHoles_LibraryBookshelf_1.bin",
     "start": 899120,
     "size": 16
   },
@@ -36293,12 +36293,12 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_TownMinishHoles_LibraryBookshelf.bin",
+    "path": "data_080D5360/gUnk_additional_8_TownMinishHoles_LibraryBookshelf.bin",
     "start": 899480,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_TownMinishHoles_LibraryBookshelf.bin",
+    "path": "data_080D5360/gUnk_additional_9_TownMinishHoles_LibraryBookshelf.bin",
     "start": 899496,
     "size": 20
   },
@@ -36887,7 +36887,7 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MinishCracks_CastleWildsBowHole.bin",
+    "path": "data_080D5360/gUnk_additional_8_MinishCracks_CastleWildsBowHole.bin",
     "start": 904032,
     "size": 96
   },
@@ -37180,42 +37180,42 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MelarisMine_Main.bin",
+    "path": "data_080D5360/gUnk_additional_8_MelarisMine_Main.bin",
     "start": 905748,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MelarisMine_Main_1.bin",
+    "path": "data_080D5360/gUnk_additional_8_MelarisMine_Main_1.bin",
     "start": 905764,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MelarisMine_Main_2.bin",
+    "path": "data_080D5360/gUnk_additional_8_MelarisMine_Main_2.bin",
     "start": 905780,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MelarisMine_Main_3.bin",
+    "path": "data_080D5360/gUnk_additional_8_MelarisMine_Main_3.bin",
     "start": 905796,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MelarisMine_Main_4.bin",
+    "path": "data_080D5360/gUnk_additional_8_MelarisMine_Main_4.bin",
     "start": 905812,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MelarisMine_Main_5.bin",
+    "path": "data_080D5360/gUnk_additional_8_MelarisMine_Main_5.bin",
     "start": 905828,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_MelarisMine_Main.bin",
+    "path": "data_080D5360/gUnk_additional_9_MelarisMine_Main.bin",
     "start": 905844,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_MelarisMine_Main_1.bin",
+    "path": "data_080D5360/gUnk_additional_9_MelarisMine_Main_1.bin",
     "start": 905860,
     "size": 16
   },
@@ -37366,7 +37366,7 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CloudTops_Middle.bin",
+    "path": "data_080D5360/gUnk_additional_8_CloudTops_Middle.bin",
     "start": 906700,
     "size": 240
   },
@@ -37523,7 +37523,7 @@
     "size": 64
   },
   {
-    "path": "data_080D5360/gUnk_additional4_CloudTops_Bottom.bin",
+    "path": "data_080D5360/gUnk_additional_c_CloudTops_Bottom.bin",
     "start": 907296,
     "size": 32
   },
@@ -37567,7 +37567,7 @@
     "size": 64
   },
   {
-    "path": "data_080D5360/gUnk_additional5_CloudTops_Bottom.bin",
+    "path": "data_080D5360/gUnk_additional_d_CloudTops_Bottom.bin",
     "start": 907392,
     "size": 32
   },
@@ -37578,7 +37578,7 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CloudTops_Bottom_EU.bin",
+    "path": "data_080D5360/gUnk_additional_8_CloudTops_Bottom_EU.bin",
     "variants": [
       "EU"
     ],
@@ -37588,7 +37588,7 @@
     "size": 168
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CloudTops_Bottom_1_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "data_080D5360/gUnk_additional_8_CloudTops_Bottom_1_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -37599,7 +37599,7 @@
     "size": 168
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CloudTops_Bottom_2_EU.bin",
+    "path": "data_080D5360/gUnk_additional_8_CloudTops_Bottom_2_EU.bin",
     "variants": [
       "EU"
     ],
@@ -37609,7 +37609,7 @@
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CloudTops_Bottom_3_EU.bin",
+    "path": "data_080D5360/gUnk_additional_8_CloudTops_Bottom_3_EU.bin",
     "variants": [
       "EU"
     ],
@@ -37619,7 +37619,7 @@
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CloudTops_Bottom_4_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "data_080D5360/gUnk_additional_8_CloudTops_Bottom_4_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -37630,7 +37630,7 @@
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CloudTops_Bottom_5_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "data_080D5360/gUnk_additional_8_CloudTops_Bottom_5_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -37641,72 +37641,72 @@
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CloudTops_Bottom_6.bin",
+    "path": "data_080D5360/gUnk_additional_8_CloudTops_Bottom_6.bin",
     "start": 907708,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CloudTops_Bottom_7.bin",
+    "path": "data_080D5360/gUnk_additional_8_CloudTops_Bottom_7.bin",
     "start": 907724,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CloudTops_Bottom_8.bin",
+    "path": "data_080D5360/gUnk_additional_8_CloudTops_Bottom_8.bin",
     "start": 907740,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CloudTops_Bottom_9.bin",
+    "path": "data_080D5360/gUnk_additional_8_CloudTops_Bottom_9.bin",
     "start": 907756,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CloudTops_Bottom_10.bin",
+    "path": "data_080D5360/gUnk_additional_8_CloudTops_Bottom_10.bin",
     "start": 907772,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CloudTops_Bottom_11.bin",
+    "path": "data_080D5360/gUnk_additional_8_CloudTops_Bottom_11.bin",
     "start": 907788,
     "size": 100
   },
   {
-    "path": "data_080D5360/gUnk_additional1_CloudTops_Bottom.bin",
+    "path": "data_080D5360/gUnk_additional_9_CloudTops_Bottom.bin",
     "start": 907888,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional1_CloudTops_Bottom_1.bin",
+    "path": "data_080D5360/gUnk_additional_9_CloudTops_Bottom_1.bin",
     "start": 907900,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_CloudTops_Bottom_2.bin",
+    "path": "data_080D5360/gUnk_additional_9_CloudTops_Bottom_2.bin",
     "start": 907916,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_CloudTops_Bottom_3.bin",
+    "path": "data_080D5360/gUnk_additional_9_CloudTops_Bottom_3.bin",
     "start": 907932,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_CloudTops_Bottom_4.bin",
+    "path": "data_080D5360/gUnk_additional_9_CloudTops_Bottom_4.bin",
     "start": 907948,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_CloudTops_Bottom_5.bin",
+    "path": "data_080D5360/gUnk_additional_9_CloudTops_Bottom_5.bin",
     "start": 907964,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_CloudTops_Bottom_6.bin",
+    "path": "data_080D5360/gUnk_additional_9_CloudTops_Bottom_6.bin",
     "start": 907980,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_CloudTops_Bottom_7.bin",
+    "path": "data_080D5360/gUnk_additional_9_CloudTops_Bottom_7.bin",
     "start": 907996,
     "size": 20
   },
@@ -37722,12 +37722,12 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional2_CloudTops_Bottom.bin",
+    "path": "data_080D5360/gUnk_additional_a_CloudTops_Bottom.bin",
     "start": 908136,
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional3_CloudTops_Bottom.bin",
+    "path": "data_080D5360/gUnk_additional_b_CloudTops_Bottom.bin",
     "start": 908184,
     "size": 48
   },
@@ -37826,27 +37826,27 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_Ruins_Entrance.bin",
+    "path": "data_080D5360/gUnk_additional_8_Ruins_Entrance.bin",
     "start": 908512,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_Ruins_Entrance.bin",
+    "path": "data_080D5360/gUnk_additional_9_Ruins_Entrance.bin",
     "start": 908528,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_Ruins_Entrance.bin",
+    "path": "data_080D5360/gUnk_additional_a_Ruins_Entrance.bin",
     "start": 908548,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional3_Ruins_Entrance.bin",
+    "path": "data_080D5360/gUnk_additional_b_Ruins_Entrance.bin",
     "start": 908568,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional4_Ruins_Entrance.bin",
+    "path": "data_080D5360/gUnk_additional_c_Ruins_Entrance.bin",
     "start": 908588,
     "size": 20
   },
@@ -37911,12 +37911,12 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_Ruins_Beanstalk.bin",
+    "path": "data_080D5360/gUnk_additional_8_Ruins_Beanstalk.bin",
     "start": 908796,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_Ruins_Beanstalk.bin",
+    "path": "data_080D5360/gUnk_additional_9_Ruins_Beanstalk.bin",
     "start": 908812,
     "size": 20
   },
@@ -37981,7 +37981,7 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional2_Ruins_TripleTektites.bin",
+    "path": "data_080D5360/gUnk_additional_a_Ruins_TripleTektites.bin",
     "start": 909000,
     "size": 64
   },
@@ -37991,12 +37991,12 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_Ruins_TripleTektites.bin",
+    "path": "data_080D5360/gUnk_additional_8_Ruins_TripleTektites.bin",
     "start": 909072,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_Ruins_TripleTektites.bin",
+    "path": "data_080D5360/gUnk_additional_9_Ruins_TripleTektites.bin",
     "start": 909088,
     "size": 20
   },
@@ -38134,7 +38134,7 @@
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional0_Ruins_FortressEntrance.bin",
+    "path": "data_080D5360/gUnk_additional_8_Ruins_FortressEntrance.bin",
     "start": 909592,
     "size": 20
   },
@@ -38204,12 +38204,12 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional5_Ruins_Armos.bin",
+    "path": "data_080D5360/gUnk_additional_d_Ruins_Armos.bin",
     "start": 909920,
     "size": 80
   },
   {
-    "path": "data_080D5360/gUnk_additional6_Ruins_Armos.bin",
+    "path": "data_080D5360/gUnk_additional_e_Ruins_Armos.bin",
     "start": 910000,
     "size": 112
   },
@@ -38253,27 +38253,27 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_Ruins_Armos.bin",
+    "path": "data_080D5360/gUnk_additional_8_Ruins_Armos.bin",
     "start": 910136,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_Ruins_Armos.bin",
+    "path": "data_080D5360/gUnk_additional_9_Ruins_Armos.bin",
     "start": 910156,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_Ruins_Armos.bin",
+    "path": "data_080D5360/gUnk_additional_a_Ruins_Armos.bin",
     "start": 910176,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional3_Ruins_Armos.bin",
+    "path": "data_080D5360/gUnk_additional_b_Ruins_Armos.bin",
     "start": 910196,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional4_Ruins_Armos.bin",
+    "path": "data_080D5360/gUnk_additional_c_Ruins_Armos.bin",
     "start": 910216,
     "size": 20
   },
@@ -38289,7 +38289,7 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DeepwoodShrine_Madderpillar.bin",
+    "path": "data_080D5360/gUnk_additional_8_DeepwoodShrine_Madderpillar.bin",
     "start": 910568,
     "size": 80
   },
@@ -38305,22 +38305,22 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DeepwoodShrine_BluePortal.bin",
+    "path": "data_080D5360/gUnk_additional_8_DeepwoodShrine_BluePortal.bin",
     "start": 911076,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional1_DeepwoodShrine_BluePortal.bin",
+    "path": "data_080D5360/gUnk_additional_9_DeepwoodShrine_BluePortal.bin",
     "start": 911108,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional2_DeepwoodShrine_BluePortal.bin",
+    "path": "data_080D5360/gUnk_additional_a_DeepwoodShrine_BluePortal.bin",
     "start": 911140,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional3_DeepwoodShrine_BluePortal.bin",
+    "path": "data_080D5360/gUnk_additional_b_DeepwoodShrine_BluePortal.bin",
     "start": 911172,
     "size": 32
   },
@@ -38347,7 +38347,7 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DeepwoodShrine_StairsToB1.bin",
+    "path": "data_080D5360/gUnk_additional_8_DeepwoodShrine_StairsToB1.bin",
     "start": 911412,
     "size": 48
   },
@@ -38420,7 +38420,7 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DeepwoodShrine_Barrel.bin",
+    "path": "data_080D5360/gUnk_additional_8_DeepwoodShrine_Barrel.bin",
     "start": 912352,
     "size": 48
   },
@@ -38459,7 +38459,7 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DeepwoodShrine_Mulldozer.bin",
+    "path": "data_080D5360/gUnk_additional_8_DeepwoodShrine_Mulldozer.bin",
     "start": 912892,
     "size": 64
   },
@@ -38515,7 +38515,7 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DeepwoodShrine_Entrance.bin",
+    "path": "data_080D5360/gUnk_additional_8_DeepwoodShrine_Entrance.bin",
     "start": 913792,
     "size": 16
   },
@@ -38721,17 +38721,17 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional1_DeepwoodShrineBoss_Main.bin",
+    "path": "data_080D5360/gUnk_additional_9_DeepwoodShrineBoss_Main.bin",
     "start": 915740,
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional2_DeepwoodShrineBoss_Main.bin",
+    "path": "data_080D5360/gUnk_additional_a_DeepwoodShrineBoss_Main.bin",
     "start": 915788,
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DeepwoodShrineBoss_Main.bin",
+    "path": "data_080D5360/gUnk_additional_8_DeepwoodShrineBoss_Main.bin",
     "start": 915836,
     "size": 32
   },
@@ -38825,7 +38825,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_AfterCane.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_AfterCane.bin",
     "start": 916672,
     "size": 48
   },
@@ -38853,7 +38853,7 @@
     "size": 40
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_SpinyChus.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_SpinyChus.bin",
     "start": 917004,
     "size": 144
   },
@@ -38904,7 +38904,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_Entrance.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_Entrance.bin",
     "start": 917832,
     "size": 64
   },
@@ -38955,7 +38955,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_NorthEntrance.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_NorthEntrance.bin",
     "start": 918684,
     "size": 16
   },
@@ -39006,7 +39006,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_Helmasaur.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_Helmasaur.bin",
     "start": 919592,
     "size": 80
   },
@@ -39034,7 +39034,7 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_Rollobite.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_Rollobite.bin",
     "start": 920032,
     "size": 28
   },
@@ -39067,7 +39067,7 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_MinishLava.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_MinishLava.bin",
     "start": 920452,
     "size": 144
   },
@@ -39095,12 +39095,12 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_MinishSpikes.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_MinishSpikes.bin",
     "start": 921080,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional1_CaveOfFlames_MinishSpikes.bin",
+    "path": "data_080D5360/gUnk_additional_9_CaveOfFlames_MinishSpikes.bin",
     "start": 921110,
     "size": 30
   },
@@ -39202,12 +39202,12 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_PathBossKey2.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_PathBossKey2.bin",
     "start": 922036,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional1_CaveOfFlames_PathBossKey2.bin",
+    "path": "data_080D5360/gUnk_additional_9_CaveOfFlames_PathBossKey2.bin",
     "start": 922066,
     "size": 30
   },
@@ -39235,7 +39235,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_Compass.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_Compass.bin",
     "start": 922304,
     "size": 48
   },
@@ -39286,47 +39286,47 @@
     "size": 40
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor.bin",
     "start": 923076,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_1.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_1.bin",
     "start": 923112,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_2.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_2.bin",
     "start": 923128,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_3.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_3.bin",
     "start": 923144,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_4.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_4.bin",
     "start": 923160,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_5.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_5.bin",
     "start": 923176,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_6.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_6.bin",
     "start": 923192,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_7.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_7.bin",
     "start": 923208,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_8.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_8.bin",
     "start": 923224,
     "size": 28
   },
@@ -39385,17 +39385,17 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional1_CaveOfFlamesBoss_Main.bin",
+    "path": "data_080D5360/gUnk_additional_9_CaveOfFlamesBoss_Main.bin",
     "start": 923620,
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional2_CaveOfFlamesBoss_Main.bin",
+    "path": "data_080D5360/gUnk_additional_a_CaveOfFlamesBoss_Main.bin",
     "start": 923668,
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CaveOfFlamesBoss_Main.bin",
+    "path": "data_080D5360/gUnk_additional_8_CaveOfFlamesBoss_Main.bin",
     "start": 923716,
     "size": 32
   },
@@ -39422,7 +39422,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_Eyegore.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_Eyegore.bin",
     "start": 923992,
     "size": 64
   },
@@ -39467,12 +39467,12 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_EastKeyLever.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_EastKeyLever.bin",
     "start": 925020,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_FortressOfWinds_EastKeyLever.bin",
+    "path": "data_080D5360/gUnk_additional_9_FortressOfWinds_EastKeyLever.bin",
     "start": 925040,
     "size": 20
   },
@@ -39494,17 +39494,17 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_PitPlatforms.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_PitPlatforms.bin",
     "start": 925420,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional1_FortressOfWinds_PitPlatforms.bin",
+    "path": "data_080D5360/gUnk_additional_9_FortressOfWinds_PitPlatforms.bin",
     "start": 925450,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional2_FortressOfWinds_PitPlatforms.bin",
+    "path": "data_080D5360/gUnk_additional_a_FortressOfWinds_PitPlatforms.bin",
     "start": 925480,
     "size": 32
   },
@@ -39526,17 +39526,17 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_WestKeyLever.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_WestKeyLever.bin",
     "start": 925924,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional1_FortressOfWinds_WestKeyLever.bin",
+    "path": "data_080D5360/gUnk_additional_9_FortressOfWinds_WestKeyLever.bin",
     "start": 925956,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_FortressOfWinds_WestKeyLever.bin",
+    "path": "data_080D5360/gUnk_additional_a_FortressOfWinds_WestKeyLever.bin",
     "start": 925976,
     "size": 20
   },
@@ -39564,7 +39564,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_Darknut.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_Darknut.bin",
     "start": 926416,
     "size": 64
   },
@@ -39609,7 +39609,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_Pit.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_Pit.bin",
     "start": 927044,
     "size": 32
   },
@@ -39637,7 +39637,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_Wallmaster.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_Wallmaster.bin",
     "start": 927416,
     "size": 64
   },
@@ -39665,7 +39665,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_Clone.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_Clone.bin",
     "start": 927948,
     "size": 32
   },
@@ -39693,22 +39693,22 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_SpikeTraps.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_SpikeTraps.bin",
     "start": 928208,
     "size": 54
   },
   {
-    "path": "data_080D5360/gUnk_additional1_FortressOfWinds_SpikeTraps.bin",
+    "path": "data_080D5360/gUnk_additional_9_FortressOfWinds_SpikeTraps.bin",
     "start": 928262,
     "size": 54
   },
   {
-    "path": "data_080D5360/gUnk_additional2_FortressOfWinds_SpikeTraps.bin",
+    "path": "data_080D5360/gUnk_additional_a_FortressOfWinds_SpikeTraps.bin",
     "start": 928316,
     "size": 54
   },
   {
-    "path": "data_080D5360/gUnk_additional3_FortressOfWinds_SpikeTraps.bin",
+    "path": "data_080D5360/gUnk_additional_b_FortressOfWinds_SpikeTraps.bin",
     "start": 928370,
     "size": 54
   },
@@ -39730,12 +39730,12 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_Mazaal.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_Mazaal.bin",
     "start": 928712,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional1_FortressOfWinds_Mazaal.bin",
+    "path": "data_080D5360/gUnk_additional_9_FortressOfWinds_Mazaal.bin",
     "start": 928744,
     "size": 32
   },
@@ -39763,7 +39763,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_Stalfos.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_Stalfos.bin",
     "start": 929024,
     "size": 96
   },
@@ -39835,12 +39835,12 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_Main2F.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_Main2F.bin",
     "start": 929812,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional1_FortressOfWinds_Main2F.bin",
+    "path": "data_080D5360/gUnk_additional_9_FortressOfWinds_Main2F.bin",
     "start": 929844,
     "size": 32
   },
@@ -39862,7 +39862,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_MinishHole.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_MinishHole.bin",
     "start": 930076,
     "size": 20
   },
@@ -40010,7 +40010,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_FortressOfWinds_Wizzrobe.bin",
+    "path": "data_080D5360/gUnk_additional_8_FortressOfWinds_Wizzrobe.bin",
     "start": 931428,
     "size": 48
   },
@@ -40208,7 +40208,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_TempleOfDroplets_ScissorsMiniboss.bin",
+    "path": "data_080D5360/gUnk_additional_8_TempleOfDroplets_ScissorsMiniboss.bin",
     "start": 933392,
     "size": 80
   },
@@ -40282,22 +40282,22 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_TempleOfDroplets_Element.bin",
+    "path": "data_080D5360/gUnk_additional_8_TempleOfDroplets_Element.bin",
     "start": 934532,
     "size": 10
   },
   {
-    "path": "data_080D5360/gUnk_additional1_TempleOfDroplets_Element.bin",
+    "path": "data_080D5360/gUnk_additional_9_TempleOfDroplets_Element.bin",
     "start": 934542,
     "size": 10
   },
   {
-    "path": "data_080D5360/gUnk_additional2_TempleOfDroplets_Element.bin",
+    "path": "data_080D5360/gUnk_additional_a_TempleOfDroplets_Element.bin",
     "start": 934552,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional3_TempleOfDroplets_Element.bin",
+    "path": "data_080D5360/gUnk_additional_b_TempleOfDroplets_Element.bin",
     "start": 934568,
     "size": 20
   },
@@ -40342,67 +40342,67 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_TempleOfDroplets_IcePitMaze.bin",
+    "path": "data_080D5360/gUnk_additional_8_TempleOfDroplets_IcePitMaze.bin",
     "start": 935084,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional1_TempleOfDroplets_IcePitMaze.bin",
+    "path": "data_080D5360/gUnk_additional_9_TempleOfDroplets_IcePitMaze.bin",
     "start": 935114,
     "size": 36
   },
   {
-    "path": "data_080D5360/gUnk_additional2_TempleOfDroplets_IcePitMaze.bin",
+    "path": "data_080D5360/gUnk_additional_a_TempleOfDroplets_IcePitMaze.bin",
     "start": 935150,
     "size": 36
   },
   {
-    "path": "data_080D5360/gUnk_additional3_TempleOfDroplets_IcePitMaze.bin",
+    "path": "data_080D5360/gUnk_additional_b_TempleOfDroplets_IcePitMaze.bin",
     "start": 935186,
     "size": 36
   },
   {
-    "path": "data_080D5360/gUnk_additional4_TempleOfDroplets_IcePitMaze.bin",
+    "path": "data_080D5360/gUnk_additional_c_TempleOfDroplets_IcePitMaze.bin",
     "start": 935222,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional5_TempleOfDroplets_IcePitMaze.bin",
+    "path": "data_080D5360/gUnk_additional_d_TempleOfDroplets_IcePitMaze.bin",
     "start": 935252,
     "size": 36
   },
   {
-    "path": "data_080D5360/gUnk_additional6_TempleOfDroplets_IcePitMaze.bin",
+    "path": "data_080D5360/gUnk_additional_e_TempleOfDroplets_IcePitMaze.bin",
     "start": 935288,
     "size": 36
   },
   {
-    "path": "data_080D5360/gUnk_additional7_TempleOfDroplets_IcePitMaze.bin",
+    "path": "data_080D5360/gUnk_additional_f_TempleOfDroplets_IcePitMaze.bin",
     "start": 935324,
     "size": 36
   },
   {
-    "path": "data_080D5360/gUnk_additional8_TempleOfDroplets_IcePitMaze.bin",
+    "path": "data_080D5360/gUnk_additional_10_TempleOfDroplets_IcePitMaze.bin",
     "start": 935360,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional9_TempleOfDroplets_IcePitMaze.bin",
+    "path": "data_080D5360/gUnk_additional_11_TempleOfDroplets_IcePitMaze.bin",
     "start": 935390,
     "size": 36
   },
   {
-    "path": "data_080D5360/gUnk_additional10_TempleOfDroplets_IcePitMaze.bin",
+    "path": "data_080D5360/gUnk_additional_12_TempleOfDroplets_IcePitMaze.bin",
     "start": 935426,
     "size": 36
   },
   {
-    "path": "data_080D5360/gUnk_additional11_TempleOfDroplets_IcePitMaze.bin",
+    "path": "data_080D5360/gUnk_additional_13_TempleOfDroplets_IcePitMaze.bin",
     "start": 935462,
     "size": 36
   },
   {
-    "path": "data_080D5360/gUnk_additional12_TempleOfDroplets_IcePitMaze.bin",
+    "path": "data_080D5360/gUnk_additional_14_TempleOfDroplets_IcePitMaze.bin",
     "start": 935498,
     "size": 30
   },
@@ -40464,17 +40464,17 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional1_TempleOfDroplets_BigOcto.bin",
+    "path": "data_080D5360/gUnk_additional_9_TempleOfDroplets_BigOcto.bin",
     "start": 936388,
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional2_TempleOfDroplets_BigOcto.bin",
+    "path": "data_080D5360/gUnk_additional_a_TempleOfDroplets_BigOcto.bin",
     "start": 936436,
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional0_TempleOfDroplets_BigOcto.bin",
+    "path": "data_080D5360/gUnk_additional_8_TempleOfDroplets_BigOcto.bin",
     "start": 936484,
     "size": 32
   },
@@ -40561,7 +40561,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_TempleOfDroplets_BigBlueChuchuKey.bin",
+    "path": "data_080D5360/gUnk_additional_8_TempleOfDroplets_BigBlueChuchuKey.bin",
     "start": 937280,
     "size": 12
   },
@@ -40583,7 +40583,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_TempleOfDroplets_BossKey.bin",
+    "path": "data_080D5360/gUnk_additional_8_TempleOfDroplets_BossKey.bin",
     "start": 937472,
     "size": 12
   },
@@ -40605,7 +40605,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_TempleOfDroplets_NorthSmallKey.bin",
+    "path": "data_080D5360/gUnk_additional_8_TempleOfDroplets_NorthSmallKey.bin",
     "start": 937664,
     "size": 12
   },
@@ -40837,7 +40837,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_TempleOfDroplets_Madderpillars.bin",
+    "path": "data_080D5360/gUnk_additional_8_TempleOfDroplets_Madderpillars.bin",
     "start": 941248,
     "size": 48
   },
@@ -40909,7 +40909,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_TempleOfDroplets_MulldozerKey.bin",
+    "path": "data_080D5360/gUnk_additional_8_TempleOfDroplets_MulldozerKey.bin",
     "start": 941892,
     "size": 112
   },
@@ -40954,7 +40954,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_TempleOfDroplets_LilypadWestB2.bin",
+    "path": "data_080D5360/gUnk_additional_8_TempleOfDroplets_LilypadWestB2.bin",
     "start": 942728,
     "size": 32
   },
@@ -40993,7 +40993,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_TempleOfDroplets_LanternScissors.bin",
+    "path": "data_080D5360/gUnk_additional_8_TempleOfDroplets_LanternScissors.bin",
     "start": 943188,
     "size": 80
   },
@@ -41032,7 +41032,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_TempleOfDroplets_LilypadEastB2.bin",
+    "path": "data_080D5360/gUnk_additional_8_TempleOfDroplets_LilypadEastB2.bin",
     "start": 943800,
     "size": 32
   },
@@ -41103,7 +41103,7 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_RoyalCrypt_WaterRope.bin",
+    "path": "data_080D5360/gUnk_additional_8_RoyalCrypt_WaterRope.bin",
     "start": 944788,
     "size": 64
   },
@@ -41159,12 +41159,12 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_RoyalCrypt_KeyBlock.bin",
+    "path": "data_080D5360/gUnk_additional_8_RoyalCrypt_KeyBlock.bin",
     "start": 945536,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional1_RoyalCrypt_KeyBlock.bin",
+    "path": "data_080D5360/gUnk_additional_9_RoyalCrypt_KeyBlock.bin",
     "start": 945566,
     "size": 102
   },
@@ -41258,12 +41258,12 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_0.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_0.bin",
     "start": 946916,
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional1_PalaceOfWinds_0.bin",
+    "path": "data_080D5360/gUnk_additional_9_PalaceOfWinds_0.bin",
     "start": 946964,
     "size": 48
   },
@@ -41364,7 +41364,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_5.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_5.bin",
     "start": 948084,
     "size": 96
   },
@@ -41420,7 +41420,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_8.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_8.bin",
     "start": 948960,
     "size": 48
   },
@@ -41493,7 +41493,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_12.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_12.bin",
     "start": 949924,
     "size": 32
   },
@@ -41651,7 +41651,7 @@
     "size": 40
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_21.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_21.bin",
     "start": 952320,
     "size": 36
   },
@@ -41673,7 +41673,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_22.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_22.bin",
     "start": 952632,
     "size": 80
   },
@@ -41712,17 +41712,17 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_PalaceOfWinds_24.bin",
+    "path": "data_080D5360/gUnk_additional_9_PalaceOfWinds_24.bin",
     "start": 953148,
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional2_PalaceOfWinds_24.bin",
+    "path": "data_080D5360/gUnk_additional_a_PalaceOfWinds_24.bin",
     "start": 953196,
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_24.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_24.bin",
     "start": 953244,
     "size": 36
   },
@@ -41744,7 +41744,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_25.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_25.bin",
     "start": 953484,
     "size": 36
   },
@@ -41800,7 +41800,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_28.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_28.bin",
     "start": 954380,
     "size": 64
   },
@@ -41890,17 +41890,17 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_33.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_33.bin",
     "start": 955600,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional1_PalaceOfWinds_33.bin",
+    "path": "data_080D5360/gUnk_additional_9_PalaceOfWinds_33.bin",
     "start": 955630,
     "size": 18
   },
   {
-    "path": "data_080D5360/gUnk_additional2_PalaceOfWinds_33.bin",
+    "path": "data_080D5360/gUnk_additional_a_PalaceOfWinds_33.bin",
     "start": 955648,
     "size": 24
   },
@@ -41922,7 +41922,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_34.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_34.bin",
     "start": 956068,
     "size": 48
   },
@@ -41961,22 +41961,22 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_36.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_36.bin",
     "start": 956728,
     "size": 54
   },
   {
-    "path": "data_080D5360/gUnk_additional1_PalaceOfWinds_36.bin",
+    "path": "data_080D5360/gUnk_additional_9_PalaceOfWinds_36.bin",
     "start": 956782,
     "size": 54
   },
   {
-    "path": "data_080D5360/gUnk_additional2_PalaceOfWinds_36.bin",
+    "path": "data_080D5360/gUnk_additional_a_PalaceOfWinds_36.bin",
     "start": 956836,
     "size": 54
   },
   {
-    "path": "data_080D5360/gUnk_additional3_PalaceOfWinds_36.bin",
+    "path": "data_080D5360/gUnk_additional_b_PalaceOfWinds_36.bin",
     "start": 956890,
     "size": 54
   },
@@ -42066,7 +42066,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_41.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_41.bin",
     "start": 957816,
     "size": 48
   },
@@ -42105,17 +42105,17 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_43.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_43.bin",
     "start": 958148,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional1_PalaceOfWinds_43.bin",
+    "path": "data_080D5360/gUnk_additional_9_PalaceOfWinds_43.bin",
     "start": 958178,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional2_PalaceOfWinds_43.bin",
+    "path": "data_080D5360/gUnk_additional_a_PalaceOfWinds_43.bin",
     "start": 958208,
     "size": 32
   },
@@ -42159,17 +42159,17 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_44.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_44.bin",
     "start": 958756,
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional1_PalaceOfWinds_44.bin",
+    "path": "data_080D5360/gUnk_additional_9_PalaceOfWinds_44.bin",
     "start": 958804,
     "size": 80
   },
   {
-    "path": "data_080D5360/gUnk_additional2_PalaceOfWinds_44.bin",
+    "path": "data_080D5360/gUnk_additional_a_PalaceOfWinds_44.bin",
     "start": 958884,
     "size": 112
   },
@@ -42208,17 +42208,17 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_PalaceOfWinds_46.bin",
+    "path": "data_080D5360/gUnk_additional_8_PalaceOfWinds_46.bin",
     "start": 959528,
     "size": 80
   },
   {
-    "path": "data_080D5360/gUnk_additional1_PalaceOfWinds_46.bin",
+    "path": "data_080D5360/gUnk_additional_9_PalaceOfWinds_46.bin",
     "start": 959608,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional2_PalaceOfWinds_46.bin",
+    "path": "data_080D5360/gUnk_additional_a_PalaceOfWinds_46.bin",
     "start": 959638,
     "size": 38
   },
@@ -42706,7 +42706,7 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastleOutside_OutsideNortheast.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastleOutside_OutsideNortheast.bin",
     "start": 962712,
     "size": 12
   },
@@ -42779,7 +42779,7 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastleOutside_OutsideSoutheast.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastleOutside_OutsideSoutheast.bin",
     "start": 963624,
     "size": 24
   },
@@ -42801,17 +42801,17 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastleOutside_8.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastleOutside_8.bin",
     "start": 963852,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional1_DarkHyruleCastleOutside_8.bin",
+    "path": "data_080D5360/gUnk_additional_9_DarkHyruleCastleOutside_8.bin",
     "start": 963882,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional2_DarkHyruleCastleOutside_8.bin",
+    "path": "data_080D5360/gUnk_additional_a_DarkHyruleCastleOutside_8.bin",
     "start": 963912,
     "size": 32
   },
@@ -43070,7 +43070,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_6.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_6.bin",
     "start": 965556,
     "size": 96
   },
@@ -43143,12 +43143,12 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_10.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_10.bin",
     "start": 966616,
     "size": 60
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_10_1.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_10_1.bin",
     "start": 966680,
     "size": 32
   },
@@ -43170,12 +43170,12 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_11.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_11.bin",
     "start": 966844,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional1_DarkHyruleCastle_11.bin",
+    "path": "data_080D5360/gUnk_additional_9_DarkHyruleCastle_11.bin",
     "start": 966876,
     "size": 16
   },
@@ -43236,7 +43236,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_14.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_14.bin",
     "start": 967540,
     "size": 80
   },
@@ -43280,7 +43280,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_16.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_16.bin",
     "start": 968080,
     "size": 112
   },
@@ -43302,7 +43302,7 @@
     "size": 40
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_17.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_17.bin",
     "start": 968492,
     "size": 80
   },
@@ -43346,7 +43346,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_19.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_19.bin",
     "start": 968904,
     "size": 112
   },
@@ -43368,7 +43368,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_20.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_20.bin",
     "start": 969196,
     "size": 48
   },
@@ -43395,7 +43395,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_21.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_21.bin",
     "start": 969472,
     "size": 80
   },
@@ -43485,12 +43485,12 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_26.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_26.bin",
     "start": 970468,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional1_DarkHyruleCastle_26.bin",
+    "path": "data_080D5360/gUnk_additional_9_DarkHyruleCastle_26.bin",
     "start": 970500,
     "size": 16
   },
@@ -43601,7 +43601,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_31.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_31.bin",
     "start": 971388,
     "size": 48
   },
@@ -43743,7 +43743,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_38.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_38.bin",
     "start": 972552,
     "size": 24
   },
@@ -43765,7 +43765,7 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_39.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_39.bin",
     "start": 972780,
     "size": 224
   },
@@ -44015,7 +44015,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_DarkHyruleCastle_52.bin",
+    "path": "data_080D5360/gUnk_additional_8_DarkHyruleCastle_52.bin",
     "start": 975432,
     "size": 24
   },
@@ -44511,812 +44511,812 @@
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional5_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_d_HyruleTown_0.bin",
     "start": 978328,
     "size": 128
   },
   {
-    "path": "data_080D5360/gUnk_additional8_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_10_HyruleTown_0.bin",
     "start": 978456,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional9_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_11_HyruleTown_0.bin",
     "start": 978476,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional10_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_12_HyruleTown_0.bin",
     "start": 978496,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional11_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_13_HyruleTown_0.bin",
     "start": 978516,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional12_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_14_HyruleTown_0.bin",
     "start": 978536,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional13_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_15_HyruleTown_0.bin",
     "start": 978556,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional14_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_16_HyruleTown_0.bin",
     "start": 978576,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional15_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_17_HyruleTown_0.bin",
     "start": 978596,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional16_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_18_HyruleTown_0.bin",
     "start": 978616,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional17_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_19_HyruleTown_0.bin",
     "start": 978636,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional18_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_1a_HyruleTown_0.bin",
     "start": 978656,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional19_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_1b_HyruleTown_0.bin",
     "start": 978676,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional20_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_1c_HyruleTown_0.bin",
     "start": 978696,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional21_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_1d_HyruleTown_0.bin",
     "start": 978716,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional22_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_1e_HyruleTown_0.bin",
     "start": 978736,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional23_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_1f_HyruleTown_0.bin",
     "start": 978756,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional6_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_e_HyruleTown_0.bin",
     "start": 978776,
     "size": 84
   },
   {
-    "path": "data_080D5360/gUnk_additional24_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_20_HyruleTown_0.bin",
     "start": 978860,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional25_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_21_HyruleTown_0.bin",
     "start": 978880,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional26_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_22_HyruleTown_0.bin",
     "start": 978900,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional27_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_23_HyruleTown_0.bin",
     "start": 978920,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional28_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_24_HyruleTown_0.bin",
     "start": 978940,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional29_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_25_HyruleTown_0.bin",
     "start": 978960,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional30_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_26_HyruleTown_0.bin",
     "start": 978980,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional31_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_27_HyruleTown_0.bin",
     "start": 979000,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional32_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_28_HyruleTown_0.bin",
     "start": 979020,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional33_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_29_HyruleTown_0.bin",
     "start": 979040,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional34_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_2a_HyruleTown_0.bin",
     "start": 979060,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional35_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_2b_HyruleTown_0.bin",
     "start": 979080,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional36_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_2c_HyruleTown_0.bin",
     "start": 979100,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0.bin",
     "start": 979120,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_1.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_1.bin",
     "start": 979132,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_2.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_2.bin",
     "start": 979148,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_3.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_3.bin",
     "start": 979164,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_4.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_4.bin",
     "start": 979180,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_5.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_5.bin",
     "start": 979196,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_6.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_6.bin",
     "start": 979212,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_7.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_7.bin",
     "start": 979228,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_8.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_8.bin",
     "start": 979244,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_9.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_9.bin",
     "start": 979260,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_10.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_10.bin",
     "start": 979276,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_11.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_11.bin",
     "start": 979292,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_12.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_12.bin",
     "start": 979308,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_13.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_13.bin",
     "start": 979324,
     "size": 60
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_14.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_14.bin",
     "start": 979388,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_15.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_15.bin",
     "start": 979404,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_16.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_16.bin",
     "start": 979420,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_17.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_17.bin",
     "start": 979436,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_18.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_18.bin",
     "start": 979452,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_19.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_19.bin",
     "start": 979468,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_20.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_20.bin",
     "start": 979484,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_21.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_21.bin",
     "start": 979500,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_22.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_22.bin",
     "start": 979516,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_23.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_23.bin",
     "start": 979532,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_24.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_24.bin",
     "start": 979548,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_25.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_25.bin",
     "start": 979564,
     "size": 44
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_26.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_26.bin",
     "start": 979612,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_27.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_27.bin",
     "start": 979628,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_28.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_28.bin",
     "start": 979644,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_29.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_29.bin",
     "start": 979660,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_30.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_30.bin",
     "start": 979676,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_31.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_31.bin",
     "start": 979692,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_32.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_32.bin",
     "start": 979708,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_33.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_33.bin",
     "start": 979724,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_34.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_34.bin",
     "start": 979740,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_35.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_35.bin",
     "start": 979756,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_36.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_36.bin",
     "start": 979772,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_37.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_37.bin",
     "start": 979788,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_38.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_38.bin",
     "start": 979804,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_39.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_39.bin",
     "start": 979820,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_40.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_40.bin",
     "start": 979836,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_41.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_41.bin",
     "start": 979852,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_42.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_42.bin",
     "start": 979868,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_43.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_43.bin",
     "start": 979884,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_44.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_44.bin",
     "start": 979900,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_45.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_45.bin",
     "start": 979916,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_46.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_46.bin",
     "start": 979932,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_47.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_47.bin",
     "start": 979948,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_48.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_48.bin",
     "start": 979964,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_49.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_49.bin",
     "start": 979980,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_50.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_50.bin",
     "start": 979996,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_51.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_51.bin",
     "start": 980012,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_52.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_52.bin",
     "start": 980028,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_53.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_53.bin",
     "start": 980044,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_54.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_54.bin",
     "start": 980060,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_55.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_55.bin",
     "start": 980076,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_56.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_56.bin",
     "start": 980092,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_57.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_57.bin",
     "start": 980108,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_58.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_58.bin",
     "start": 980124,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_59.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_59.bin",
     "start": 980140,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_60.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_60.bin",
     "start": 980156,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_61.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_61.bin",
     "start": 980172,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_62.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_62.bin",
     "start": 980188,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_63.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_63.bin",
     "start": 980204,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_64.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_64.bin",
     "start": 980220,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_65.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_65.bin",
     "start": 980236,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_66.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_66.bin",
     "start": 980252,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_67.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_67.bin",
     "start": 980268,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_68.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_68.bin",
     "start": 980284,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_69.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_69.bin",
     "start": 980300,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_70.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_70.bin",
     "start": 980316,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_71.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_71.bin",
     "start": 980332,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleTown_0_72.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleTown_0_72.bin",
     "start": 980348,
     "size": 84
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleTown_0.bin",
     "start": 980432,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleTown_0_1.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleTown_0_1.bin",
     "start": 980444,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional37_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_2d_HyruleTown_0.bin",
     "start": 980464,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional37_HyruleTown_0_1.bin",
+    "path": "data_080D5360/gUnk_additional_2d_HyruleTown_0_1.bin",
     "start": 980476,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional38_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_2e_HyruleTown_0.bin",
     "start": 980496,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional38_HyruleTown_0_1.bin",
+    "path": "data_080D5360/gUnk_additional_2e_HyruleTown_0_1.bin",
     "start": 980508,
     "size": 36
   },
   {
-    "path": "data_080D5360/gUnk_additional39_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_2f_HyruleTown_0.bin",
     "start": 980544,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional39_HyruleTown_0_1.bin",
+    "path": "data_080D5360/gUnk_additional_2f_HyruleTown_0_1.bin",
     "start": 980556,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional40_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_30_HyruleTown_0.bin",
     "start": 980576,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional40_HyruleTown_0_1.bin",
+    "path": "data_080D5360/gUnk_additional_30_HyruleTown_0_1.bin",
     "start": 980588,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional41_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_31_HyruleTown_0.bin",
     "start": 980608,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional41_HyruleTown_0_1.bin",
+    "path": "data_080D5360/gUnk_additional_31_HyruleTown_0_1.bin",
     "start": 980620,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional42_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_32_HyruleTown_0.bin",
     "start": 980640,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional42_HyruleTown_0_1.bin",
+    "path": "data_080D5360/gUnk_additional_32_HyruleTown_0_1.bin",
     "start": 980652,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional44_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_34_HyruleTown_0.bin",
     "start": 980672,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional45_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_35_HyruleTown_0.bin",
     "start": 980704,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional46_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_36_HyruleTown_0.bin",
     "start": 980736,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional47_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_37_HyruleTown_0.bin",
     "start": 980768,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional48_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_38_HyruleTown_0.bin",
     "start": 980800,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional48_HyruleTown_0_1.bin",
+    "path": "data_080D5360/gUnk_additional_38_HyruleTown_0_1.bin",
     "start": 980812,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional49_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_39_HyruleTown_0.bin",
     "start": 980832,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional49_HyruleTown_0_1.bin",
+    "path": "data_080D5360/gUnk_additional_39_HyruleTown_0_1.bin",
     "start": 980844,
     "size": 52
   },
   {
-    "path": "data_080D5360/gUnk_additional50_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_3a_HyruleTown_0.bin",
     "start": 980896,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional50_HyruleTown_0_1.bin",
+    "path": "data_080D5360/gUnk_additional_3a_HyruleTown_0_1.bin",
     "start": 980908,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1.bin",
     "start": 980928,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_1.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_1.bin",
     "start": 980940,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_2.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_2.bin",
     "start": 980956,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_3.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_3.bin",
     "start": 980972,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_4.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_4.bin",
     "start": 980988,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_5.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_5.bin",
     "start": 981004,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_6.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_6.bin",
     "start": 981020,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_7.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_7.bin",
     "start": 981036,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_8.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_8.bin",
     "start": 981052,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_9.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_9.bin",
     "start": 981068,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_10.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_10.bin",
     "start": 981084,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_11.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_11.bin",
     "start": 981100,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_12.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_12.bin",
     "start": 981116,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_13.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_13.bin",
     "start": 981132,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_14.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_14.bin",
     "start": 981148,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_15.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_15.bin",
     "start": 981164,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_16.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_16.bin",
     "start": 981180,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_17.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_17.bin",
     "start": 981196,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_18.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_18.bin",
     "start": 981212,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_19.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_19.bin",
     "start": 981228,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_20.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_20.bin",
     "start": 981244,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_21.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_21.bin",
     "start": 981260,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_22.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_22.bin",
     "start": 981276,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_23.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_23.bin",
     "start": 981292,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_24.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_24.bin",
     "start": 981308,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_25.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_25.bin",
     "start": 981324,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_1_26.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_1_26.bin",
     "start": 981340,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleTown_0.bin",
     "start": 981360,
     "size": 40
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_a_HyruleTown_0.bin",
     "start": 981400,
     "size": 40
   },
   {
-    "path": "data_080D5360/gUnk_additional3_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_b_HyruleTown_0.bin",
     "start": 981440,
     "size": 36
   },
   {
-    "path": "data_080D5360/gUnk_additional4_HyruleTown_0.bin",
+    "path": "data_080D5360/gUnk_additional_c_HyruleTown_0.bin",
     "start": 981476,
     "size": 44
   },
   {
-    "path": "data_080D5360/gUnk_additional4_HyruleTown_0_1.bin",
+    "path": "data_080D5360/gUnk_additional_c_HyruleTown_0_1.bin",
     "start": 981524,
     "size": 116
   },
   {
-    "path": "data_080D5360/gUnk_additional4_HyruleTown_0_2.bin",
+    "path": "data_080D5360/gUnk_additional_c_HyruleTown_0_2.bin",
     "start": 981644,
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleTown_1.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleTown_1.bin",
     "start": 981668,
     "size": 72
   },
@@ -45417,7 +45417,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleTownMinishCaves_MulldozerFight.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleTownMinishCaves_MulldozerFight.bin",
     "start": 983120,
     "size": 80
   },
@@ -45521,7 +45521,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleTownMinishCaves_Flippers.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleTownMinishCaves_Flippers.bin",
     "start": 983460,
     "size": 48
   },
@@ -46035,42 +46035,42 @@
     "size": 31
   },
   {
-    "path": "data_080D5360/gUnk_additional0_CastleGarden_Main.bin",
+    "path": "data_080D5360/gUnk_additional_8_CastleGarden_Main.bin",
     "start": 985648,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional1_CastleGarden_Main.bin",
+    "path": "data_080D5360/gUnk_additional_9_CastleGarden_Main.bin",
     "start": 985680,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_CastleGarden_Main.bin",
+    "path": "data_080D5360/gUnk_additional_a_CastleGarden_Main.bin",
     "start": 985700,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional3_CastleGarden_Main.bin",
+    "path": "data_080D5360/gUnk_additional_b_CastleGarden_Main.bin",
     "start": 985720,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional4_CastleGarden_Main.bin",
+    "path": "data_080D5360/gUnk_additional_c_CastleGarden_Main.bin",
     "start": 985740,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional5_CastleGarden_Main.bin",
+    "path": "data_080D5360/gUnk_additional_d_CastleGarden_Main.bin",
     "start": 985772,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional6_CastleGarden_Main.bin",
+    "path": "data_080D5360/gUnk_additional_e_CastleGarden_Main.bin",
     "start": 985792,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional7_CastleGarden_Main.bin",
+    "path": "data_080D5360/gUnk_additional_f_CastleGarden_Main.bin",
     "start": 985812,
     "size": 20
   },
@@ -46177,77 +46177,77 @@
     "size": 128
   },
   {
-    "path": "data_080D5360/gUnk_additional0_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_8_SimonsSimulation_Main.bin",
     "start": 986780,
     "size": 288
   },
   {
-    "path": "data_080D5360/gUnk_additional1_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_9_SimonsSimulation_Main.bin",
     "start": 987068,
     "size": 224
   },
   {
-    "path": "data_080D5360/gUnk_additional2_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_a_SimonsSimulation_Main.bin",
     "start": 987292,
     "size": 336
   },
   {
-    "path": "data_080D5360/gUnk_additional3_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_b_SimonsSimulation_Main.bin",
     "start": 987628,
     "size": 272
   },
   {
-    "path": "data_080D5360/gUnk_additional4_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_c_SimonsSimulation_Main.bin",
     "start": 987900,
     "size": 272
   },
   {
-    "path": "data_080D5360/gUnk_additional5_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_d_SimonsSimulation_Main.bin",
     "start": 988172,
     "size": 208
   },
   {
-    "path": "data_080D5360/gUnk_additional6_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_e_SimonsSimulation_Main.bin",
     "start": 988380,
     "size": 288
   },
   {
-    "path": "data_080D5360/gUnk_additional7_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_f_SimonsSimulation_Main.bin",
     "start": 988668,
     "size": 272
   },
   {
-    "path": "data_080D5360/gUnk_additional8_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_10_SimonsSimulation_Main.bin",
     "start": 988940,
     "size": 208
   },
   {
-    "path": "data_080D5360/gUnk_additional9_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_11_SimonsSimulation_Main.bin",
     "start": 989148,
     "size": 176
   },
   {
-    "path": "data_080D5360/gUnk_additional10_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_12_SimonsSimulation_Main.bin",
     "start": 989324,
     "size": 208
   },
   {
-    "path": "data_080D5360/gUnk_additional11_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_13_SimonsSimulation_Main.bin",
     "start": 989532,
     "size": 208
   },
   {
-    "path": "data_080D5360/gUnk_additional12_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_14_SimonsSimulation_Main.bin",
     "start": 989740,
     "size": 176
   },
   {
-    "path": "data_080D5360/gUnk_additional13_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_15_SimonsSimulation_Main.bin",
     "start": 989916,
     "size": 176
   },
   {
-    "path": "data_080D5360/gUnk_additional14_SimonsSimulation_Main.bin",
+    "path": "data_080D5360/gUnk_additional_16_SimonsSimulation_Main.bin",
     "start": 990092,
     "size": 96
   },
@@ -46301,12 +46301,12 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors2_Stranger.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_Stranger.bin",
     "start": 990496,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors2_Stranger.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors2_Stranger.bin",
     "start": 990516,
     "size": 20
   },
@@ -46364,17 +46364,17 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors2_WestOracle.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_WestOracle.bin",
     "start": 990840,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors2_WestOracle.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors2_WestOracle.bin",
     "start": 990860,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors2_WestOracle.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors2_WestOracle.bin",
     "start": 990880,
     "size": 32
   },
@@ -46402,17 +46402,17 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors2_2.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_2.bin",
     "start": 991156,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors2_2.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors2_2.bin",
     "start": 991176,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors2_2.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors2_2.bin",
     "start": 991196,
     "size": 16
   },
@@ -46440,17 +46440,17 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors2_3.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_3.bin",
     "start": 991440,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors2_3.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors2_3.bin",
     "start": 991460,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors2_3.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors2_3.bin",
     "start": 991480,
     "size": 16
   },
@@ -46499,32 +46499,32 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors2_DrLeft.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_DrLeft.bin",
     "start": 991868,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors2_DrLeft.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors2_DrLeft.bin",
     "start": 991888,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors2_DrLeft.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors2_DrLeft.bin",
     "start": 991908,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional5_HouseInteriors2_DrLeft.bin",
+    "path": "data_080D5360/gUnk_additional_d_HouseInteriors2_DrLeft.bin",
     "start": 991928,
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional3_HouseInteriors2_DrLeft.bin",
+    "path": "data_080D5360/gUnk_additional_b_HouseInteriors2_DrLeft.bin",
     "start": 991952,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional4_HouseInteriors2_DrLeft.bin",
+    "path": "data_080D5360/gUnk_additional_c_HouseInteriors2_DrLeft.bin",
     "start": 991968,
     "size": 20
   },
@@ -46535,12 +46535,12 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional4_HouseInteriors2_Romio.bin",
+    "path": "data_080D5360/gUnk_additional_c_HouseInteriors2_Romio.bin",
     "start": 992108,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional4_HouseInteriors2_Romio_1.bin",
+    "path": "data_080D5360/gUnk_additional_c_HouseInteriors2_Romio_1.bin",
     "start": 992124,
     "size": 16
   },
@@ -46587,27 +46587,27 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional5_HouseInteriors2_Romio.bin",
+    "path": "data_080D5360/gUnk_additional_d_HouseInteriors2_Romio.bin",
     "start": 992372,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors2_Romio.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_Romio.bin",
     "start": 992392,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors2_Romio.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors2_Romio.bin",
     "start": 992408,
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors2_Romio.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors2_Romio.bin",
     "start": 992432,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional3_HouseInteriors2_Romio.bin",
+    "path": "data_080D5360/gUnk_additional_b_HouseInteriors2_Romio.bin",
     "start": 992452,
     "size": 20
   },
@@ -46675,17 +46675,17 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors2_Julietta.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_Julietta.bin",
     "start": 992920,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors2_Julietta.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors2_Julietta.bin",
     "start": 992936,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors2_Julietta.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors2_Julietta.bin",
     "start": 992956,
     "size": 16
   },
@@ -46696,22 +46696,22 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors2_Percy.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors2_Percy.bin",
     "start": 993048,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors2_Percy_1.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors2_Percy_1.bin",
     "start": 993064,
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors2_Percy.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors2_Percy.bin",
     "start": 993112,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors2_Percy_1.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors2_Percy_1.bin",
     "start": 993128,
     "size": 48
   },
@@ -46758,7 +46758,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors2_Percy.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_Percy.bin",
     "start": 993392,
     "size": 24
   },
@@ -46839,7 +46839,7 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors2_A.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_A.bin",
     "start": 993924,
     "size": 24
   },
@@ -46867,7 +46867,7 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors2_B.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_B.bin",
     "start": 994136,
     "size": 32
   },
@@ -46945,22 +46945,22 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional3_HouseInteriors2_Cucco.bin",
+    "path": "data_080D5360/gUnk_additional_b_HouseInteriors2_Cucco.bin",
     "start": 994612,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors2_Cucco.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_Cucco.bin",
     "start": 994632,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors2_Cucco.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors2_Cucco.bin",
     "start": 994648,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors2_Cucco.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors2_Cucco.bin",
     "start": 994664,
     "size": 20
   },
@@ -47108,7 +47108,7 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors2_Stockwell.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors2_Stockwell.bin",
     "start": 995684,
     "size": 16
   },
@@ -47199,17 +47199,17 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors4_Carpenter.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors4_Carpenter.bin",
     "start": 996216,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors4_Carpenter.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors4_Carpenter.bin",
     "start": 996236,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors4_Carpenter.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors4_Carpenter.bin",
     "start": 996256,
     "size": 40
   },
@@ -47286,12 +47286,12 @@
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors4_RanchHouseWest.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors4_RanchHouseWest.bin",
     "start": 997164,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors4_RanchHouseWest.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors4_RanchHouseWest.bin",
     "start": 997184,
     "size": 24
   },
@@ -47335,12 +47335,12 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors4_RanchHouseEast.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors4_RanchHouseEast.bin",
     "start": 997592,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors4_RanchHouseEast.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors4_RanchHouseEast.bin",
     "start": 997612,
     "size": 8
   },
@@ -47368,7 +47368,7 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors4_FarmHouse.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors4_FarmHouse.bin",
     "start": 997860,
     "size": 16
   },
@@ -47401,22 +47401,22 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors4_Mayor.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors4_Mayor.bin",
     "start": 998208,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors4_Mayor.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors4_Mayor.bin",
     "start": 998224,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors4_Mayor.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors4_Mayor.bin",
     "start": 998244,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional3_HouseInteriors4_Mayor.bin",
+    "path": "data_080D5360/gUnk_additional_b_HouseInteriors4_Mayor.bin",
     "start": 998260,
     "size": 80
   },
@@ -47479,32 +47479,32 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_LakeHylia_Main.bin",
+    "path": "data_080D5360/gUnk_additional_8_LakeHylia_Main.bin",
     "start": 999412,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional1_LakeHylia_Main.bin",
+    "path": "data_080D5360/gUnk_additional_9_LakeHylia_Main.bin",
     "start": 999444,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_LakeHylia_Main.bin",
+    "path": "data_080D5360/gUnk_additional_a_LakeHylia_Main.bin",
     "start": 999464,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional3_LakeHylia_Main.bin",
+    "path": "data_080D5360/gUnk_additional_b_LakeHylia_Main.bin",
     "start": 999484,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional4_LakeHylia_Main.bin",
+    "path": "data_080D5360/gUnk_additional_c_LakeHylia_Main.bin",
     "start": 999504,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional5_LakeHylia_Main.bin",
+    "path": "data_080D5360/gUnk_additional_d_LakeHylia_Main.bin",
     "start": 999520,
     "size": 20
   },
@@ -47569,12 +47569,12 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_LakeHylia_Beanstalk.bin",
+    "path": "data_080D5360/gUnk_additional_8_LakeHylia_Beanstalk.bin",
     "start": 999828,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_LakeHylia_Beanstalk.bin",
+    "path": "data_080D5360/gUnk_additional_9_LakeHylia_Beanstalk.bin",
     "start": 999844,
     "size": 20
   },
@@ -47852,7 +47852,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_OuterFortressOfWinds_SmallKey.bin",
+    "path": "data_080D5360/gUnk_additional_8_OuterFortressOfWinds_SmallKey.bin",
     "start": 1002696,
     "size": 20
   },
@@ -47967,52 +47967,52 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional9_MinishWoods_Main.bin",
+    "path": "data_080D5360/gUnk_additional_11_MinishWoods_Main.bin",
     "start": 1003696,
     "size": 72
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MinishWoods_Main.bin",
+    "path": "data_080D5360/gUnk_additional_8_MinishWoods_Main.bin",
     "start": 1003768,
     "size": 40
   },
   {
-    "path": "data_080D5360/gUnk_additional1_MinishWoods_Main.bin",
+    "path": "data_080D5360/gUnk_additional_9_MinishWoods_Main.bin",
     "start": 1003808,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_MinishWoods_Main.bin",
+    "path": "data_080D5360/gUnk_additional_a_MinishWoods_Main.bin",
     "start": 1003828,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional3_MinishWoods_Main.bin",
+    "path": "data_080D5360/gUnk_additional_b_MinishWoods_Main.bin",
     "start": 1003848,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional4_MinishWoods_Main.bin",
+    "path": "data_080D5360/gUnk_additional_c_MinishWoods_Main.bin",
     "start": 1003868,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional5_MinishWoods_Main.bin",
+    "path": "data_080D5360/gUnk_additional_d_MinishWoods_Main.bin",
     "start": 1003888,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional6_MinishWoods_Main.bin",
+    "path": "data_080D5360/gUnk_additional_e_MinishWoods_Main.bin",
     "start": 1003904,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional10_MinishWoods_Main.bin",
+    "path": "data_080D5360/gUnk_additional_12_MinishWoods_Main.bin",
     "start": 1003924,
     "size": 30
   },
   {
-    "path": "data_080D5360/gUnk_additional11_MinishWoods_Main.bin",
+    "path": "data_080D5360/gUnk_additional_13_MinishWoods_Main.bin",
     "start": 1003954,
     "size": 30
   },
@@ -48022,7 +48022,7 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional8_MinishWoods_Main.bin",
+    "path": "data_080D5360/gUnk_additional_10_MinishWoods_Main.bin",
     "start": 1004016,
     "size": 48
   },
@@ -48472,7 +48472,7 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors3_StockwellShop.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors3_StockwellShop.bin",
     "start": 1005856,
     "size": 20
   },
@@ -48536,22 +48536,22 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors3_Cafe.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors3_Cafe.bin",
     "start": 1006224,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors3_Cafe.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors3_Cafe.bin",
     "start": 1006244,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors3_Cafe.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors3_Cafe.bin",
     "start": 1006264,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional3_HouseInteriors3_Cafe.bin",
+    "path": "data_080D5360/gUnk_additional_b_HouseInteriors3_Cafe.bin",
     "start": 1006284,
     "size": 16
   },
@@ -48610,12 +48610,12 @@
     }
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors3_RemShoeShop.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors3_RemShoeShop.bin",
     "start": 1006532,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors3_RemShoeShop.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors3_RemShoeShop.bin",
     "start": 1006548,
     "size": 20
   },
@@ -48666,17 +48666,17 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors3_Bakery.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors3_Bakery.bin",
     "start": 1006920,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors3_Bakery.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors3_Bakery.bin",
     "start": 1006940,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors3_Bakery.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors3_Bakery.bin",
     "start": 1006960,
     "size": 20
   },
@@ -48766,32 +48766,32 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors3_BorlovEntrance.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors3_BorlovEntrance.bin",
     "start": 1007416,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HouseInteriors3_BorlovEntrance_1.bin",
+    "path": "data_080D5360/gUnk_additional_8_HouseInteriors3_BorlovEntrance_1.bin",
     "start": 1007432,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors3_BorlovEntrance.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors3_BorlovEntrance.bin",
     "start": 1007448,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HouseInteriors3_BorlovEntrance_1.bin",
+    "path": "data_080D5360/gUnk_additional_9_HouseInteriors3_BorlovEntrance_1.bin",
     "start": 1007464,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors3_BorlovEntrance.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors3_BorlovEntrance.bin",
     "start": 1007480,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HouseInteriors3_BorlovEntrance_1.bin",
+    "path": "data_080D5360/gUnk_additional_a_HouseInteriors3_BorlovEntrance_1.bin",
     "start": 1007496,
     "size": 16
   },
@@ -49401,12 +49401,12 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleField_WesternWoodSouth.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleField_WesternWoodSouth.bin",
     "start": 1011660,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleField_WesternWoodSouth.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleField_WesternWoodSouth.bin",
     "start": 1011676,
     "size": 20
   },
@@ -49540,12 +49540,12 @@
     "size": 136
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleField_LinksHouseExterior.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleField_LinksHouseExterior.bin",
     "start": 1012384,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleField_LinksHouseExterior.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleField_LinksHouseExterior.bin",
     "start": 1012400,
     "size": 20
   },
@@ -49701,12 +49701,12 @@
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleField_FromMinishWoodsNorth.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleField_FromMinishWoodsNorth.bin",
     "start": 1012900,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleField_FromMinishWoodsNorth.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleField_FromMinishWoodsNorth.bin",
     "start": 1012916,
     "size": 20
   },
@@ -49722,17 +49722,17 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleField_Farmers.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleField_Farmers.bin",
     "start": 1013024,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleField_Farmers_1.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleField_Farmers_1.bin",
     "start": 1013036,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleField_Farmers_2.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleField_Farmers_2.bin",
     "start": 1013052,
     "size": 20
   },
@@ -49742,32 +49742,32 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleField_Farmers.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleField_Farmers.bin",
     "start": 1013104,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleField_Farmers_1.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleField_Farmers_1.bin",
     "start": 1013116,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleField_Farmers_2.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleField_Farmers_2.bin",
     "start": 1013132,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleField_Farmers_3.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleField_Farmers_3.bin",
     "start": 1013148,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleField_Farmers_4.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleField_Farmers_4.bin",
     "start": 1013164,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleField_Farmers_5.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleField_Farmers_5.bin",
     "start": 1013180,
     "size": 20
   },
@@ -49871,7 +49871,7 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional3_HyruleField_LonLonRanch.bin",
+    "path": "data_080D5360/gUnk_additional_b_HyruleField_LonLonRanch.bin",
     "start": 1013616,
     "size": 80
   },
@@ -49906,17 +49906,17 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional4_HyruleField_LonLonRanch.bin",
+    "path": "data_080D5360/gUnk_additional_c_HyruleField_LonLonRanch.bin",
     "start": 1013808,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional4_HyruleField_LonLonRanch_1.bin",
+    "path": "data_080D5360/gUnk_additional_c_HyruleField_LonLonRanch_1.bin",
     "start": 1013820,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional4_HyruleField_LonLonRanch_2.bin",
+    "path": "data_080D5360/gUnk_additional_c_HyruleField_LonLonRanch_2.bin",
     "start": 1013836,
     "size": 20
   },
@@ -49926,12 +49926,12 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional5_HyruleField_LonLonRanch.bin",
+    "path": "data_080D5360/gUnk_additional_d_HyruleField_LonLonRanch.bin",
     "start": 1013888,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional5_HyruleField_LonLonRanch_1.bin",
+    "path": "data_080D5360/gUnk_additional_d_HyruleField_LonLonRanch_1.bin",
     "start": 1013900,
     "size": 20
   },
@@ -49957,12 +49957,12 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional10_HyruleField_LonLonRanch.bin",
+    "path": "data_080D5360/gUnk_additional_12_HyruleField_LonLonRanch.bin",
     "start": 1013952,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional10_HyruleField_LonLonRanch_1.bin",
+    "path": "data_080D5360/gUnk_additional_12_HyruleField_LonLonRanch_1.bin",
     "start": 1013964,
     "size": 20
   },
@@ -50010,7 +50010,7 @@
     "type": "entity_list"
   },
   {
-    "path": "data_080D5360/gUnk_additional6_HyruleField_LonLonRanch_EU.bin",
+    "path": "data_080D5360/gUnk_additional_e_HyruleField_LonLonRanch_EU.bin",
     "variants": [
       "EU"
     ],
@@ -50020,7 +50020,7 @@
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional6_HyruleField_LonLonRanch_1_EU.bin",
+    "path": "data_080D5360/gUnk_additional_e_HyruleField_LonLonRanch_1_EU.bin",
     "variants": [
       "EU"
     ],
@@ -50030,7 +50030,7 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional6_HyruleField_LonLonRanch_2_USA-JP-DEMO_USA-DEMO_JP.bin",
+    "path": "data_080D5360/gUnk_additional_e_HyruleField_LonLonRanch_2_USA-JP-DEMO_USA-DEMO_JP.bin",
     "variants": [
       "USA",
       "JP",
@@ -50046,12 +50046,12 @@
     }
   },
   {
-    "path": "data_080D5360/gUnk_additional9_HyruleField_LonLonRanch.bin",
+    "path": "data_080D5360/gUnk_additional_11_HyruleField_LonLonRanch.bin",
     "start": 1014304,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional9_HyruleField_LonLonRanch_1.bin",
+    "path": "data_080D5360/gUnk_additional_11_HyruleField_LonLonRanch_1.bin",
     "start": 1014316,
     "size": 24
   },
@@ -50101,27 +50101,27 @@
     "size": 72
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleField_LonLonRanch.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleField_LonLonRanch.bin",
     "start": 1014588,
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleField_LonLonRanch.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleField_LonLonRanch.bin",
     "start": 1014612,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HyruleField_LonLonRanch.bin",
+    "path": "data_080D5360/gUnk_additional_a_HyruleField_LonLonRanch.bin",
     "start": 1014632,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional7_HyruleField_LonLonRanch.bin",
+    "path": "data_080D5360/gUnk_additional_f_HyruleField_LonLonRanch.bin",
     "start": 1014652,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional8_HyruleField_LonLonRanch.bin",
+    "path": "data_080D5360/gUnk_additional_10_HyruleField_LonLonRanch.bin",
     "start": 1014672,
     "size": 20
   },
@@ -50205,42 +50205,42 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle.bin",
+    "path": "data_080D5360/gUnk_additional_e_HyruleField_OutsideCastle.bin",
     "start": 1015024,
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_1.bin",
+    "path": "data_080D5360/gUnk_additional_e_HyruleField_OutsideCastle_1.bin",
     "start": 1015036,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_2.bin",
+    "path": "data_080D5360/gUnk_additional_e_HyruleField_OutsideCastle_2.bin",
     "start": 1015052,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_3.bin",
+    "path": "data_080D5360/gUnk_additional_e_HyruleField_OutsideCastle_3.bin",
     "start": 1015068,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_4.bin",
+    "path": "data_080D5360/gUnk_additional_e_HyruleField_OutsideCastle_4.bin",
     "start": 1015084,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_5.bin",
+    "path": "data_080D5360/gUnk_additional_e_HyruleField_OutsideCastle_5.bin",
     "start": 1015100,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_6.bin",
+    "path": "data_080D5360/gUnk_additional_e_HyruleField_OutsideCastle_6.bin",
     "start": 1015116,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_7.bin",
+    "path": "data_080D5360/gUnk_additional_e_HyruleField_OutsideCastle_7.bin",
     "start": 1015132,
     "size": 20
   },
@@ -50270,12 +50270,12 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional5_HyruleField_OutsideCastle.bin",
+    "path": "data_080D5360/gUnk_additional_d_HyruleField_OutsideCastle.bin",
     "start": 1015264,
     "size": 12
   },
   {
-    "path": "data_080D5360/gUnk_additional5_HyruleField_OutsideCastle_1.bin",
+    "path": "data_080D5360/gUnk_additional_d_HyruleField_OutsideCastle_1.bin",
     "start": 1015280,
     "size": 48
   },
@@ -50325,17 +50325,17 @@
     "size": 112
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleField_OutsideCastle.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleField_OutsideCastle.bin",
     "start": 1015680,
     "size": 24
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleField_OutsideCastle.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleField_OutsideCastle.bin",
     "start": 1015704,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_HyruleField_OutsideCastle.bin",
+    "path": "data_080D5360/gUnk_additional_a_HyruleField_OutsideCastle.bin",
     "start": 1015724,
     "size": 20
   },
@@ -50345,7 +50345,7 @@
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional4_HyruleField_OutsideCastle.bin",
+    "path": "data_080D5360/gUnk_additional_c_HyruleField_OutsideCastle.bin",
     "start": 1015792,
     "size": 48
   },
@@ -50454,12 +50454,12 @@
     "size": 40
   },
   {
-    "path": "data_080D5360/gUnk_additional0_HyruleField_OutsideCastleWest.bin",
+    "path": "data_080D5360/gUnk_additional_8_HyruleField_OutsideCastleWest.bin",
     "start": 1016260,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_HyruleField_OutsideCastleWest.bin",
+    "path": "data_080D5360/gUnk_additional_9_HyruleField_OutsideCastleWest.bin",
     "start": 1016276,
     "size": 20
   },
@@ -50641,7 +50641,7 @@
     "size": 48
   },
   {
-    "path": "data_080D5360/gUnk_additional0_Caves_Boomerang.bin",
+    "path": "data_080D5360/gUnk_additional_8_Caves_Boomerang.bin",
     "start": 1017384,
     "size": 32
   },
@@ -51322,12 +51322,12 @@
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional0_VeilFalls_Main.bin",
+    "path": "data_080D5360/gUnk_additional_8_VeilFalls_Main.bin",
     "start": 1021060,
     "size": 16
   },
   {
-    "path": "data_080D5360/gUnk_additional1_VeilFalls_Main.bin",
+    "path": "data_080D5360/gUnk_additional_9_VeilFalls_Main.bin",
     "start": 1021076,
     "size": 20
   },
@@ -52336,22 +52336,22 @@
     "size": 8
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MtCrenel_MountainTop.bin",
+    "path": "data_080D5360/gUnk_additional_8_MtCrenel_MountainTop.bin",
     "start": 1027600,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional1_MtCrenel_MountainTop.bin",
+    "path": "data_080D5360/gUnk_additional_9_MtCrenel_MountainTop.bin",
     "start": 1027632,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_MtCrenel_MountainTop.bin",
+    "path": "data_080D5360/gUnk_additional_a_MtCrenel_MountainTop.bin",
     "start": 1027652,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional3_MtCrenel_MountainTop.bin",
+    "path": "data_080D5360/gUnk_additional_b_MtCrenel_MountainTop.bin",
     "start": 1027672,
     "size": 20
   },
@@ -52484,22 +52484,22 @@
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MtCrenel_CaveOfFlamesEntrance.bin",
+    "path": "data_080D5360/gUnk_additional_8_MtCrenel_CaveOfFlamesEntrance.bin",
     "start": 1028628,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional1_MtCrenel_CaveOfFlamesEntrance.bin",
+    "path": "data_080D5360/gUnk_additional_9_MtCrenel_CaveOfFlamesEntrance.bin",
     "start": 1028660,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_MtCrenel_CaveOfFlamesEntrance.bin",
+    "path": "data_080D5360/gUnk_additional_a_MtCrenel_CaveOfFlamesEntrance.bin",
     "start": 1028680,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional3_MtCrenel_CaveOfFlamesEntrance.bin",
+    "path": "data_080D5360/gUnk_additional_b_MtCrenel_CaveOfFlamesEntrance.bin",
     "start": 1028700,
     "size": 20
   },
@@ -52655,22 +52655,22 @@
     }
   },
   {
-    "path": "data_080D5360/gUnk_additional0_MtCrenel_Entrance.bin",
+    "path": "data_080D5360/gUnk_additional_8_MtCrenel_Entrance.bin",
     "start": 1029960,
     "size": 32
   },
   {
-    "path": "data_080D5360/gUnk_additional1_MtCrenel_Entrance.bin",
+    "path": "data_080D5360/gUnk_additional_9_MtCrenel_Entrance.bin",
     "start": 1029992,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional2_MtCrenel_Entrance.bin",
+    "path": "data_080D5360/gUnk_additional_a_MtCrenel_Entrance.bin",
     "start": 1030012,
     "size": 20
   },
   {
-    "path": "data_080D5360/gUnk_additional3_MtCrenel_Entrance.bin",
+    "path": "data_080D5360/gUnk_additional_b_MtCrenel_Entrance.bin",
     "start": 1030032,
     "size": 20
   },

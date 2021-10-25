@@ -1882,8 +1882,13 @@ Entities_MinishPaths1_MayorsCabin_1:: @ 080D60C8
 	manager subtype=0x2, unknown=0x18
 	entity_list_end
 
-gUnk_080D6138:: @ 080D6138
-	.incbin "data_080D5360/gUnk_080D6138.bin"
+Entities_MinishPaths1_MayorsCabin_gUnk_080D6138:: @ 080D6138
+	enemy_raw subtype=0x11, x=0x48, y=0x148
+	enemy_raw subtype=0x11, x=0xa8, y=0x148
+	enemy_raw subtype=0x11, x=0x78, y=0x158
+	enemy_raw subtype=0x11, x=0x98, y=0x188
+	enemy_raw subtype=0x11, x=0x58, y=0x198
+	entity_list_end
 
 TileEntities_MinishPaths1_MayorsCabin:: @ 080D6198
 	tile_entity_list_end
@@ -1905,8 +1910,12 @@ Entities_HouseInteriors1_Mayor_0:: @ 080D61C0
 	manager subtype=0xa, x=0x905, y=0x103, unknown=0x0, paramB=0xb550000, paramC=0xc4
 	entity_list_end
 
-gUnk_080D6210:: @ 080D6210
-	.incbin "data_080D5360/gUnk_080D6210.bin"
+Entities_HouseInteriors1_Mayor_080D6210:: @ 080D6210
+	object_raw subtype=0x5c, x=0x38, y=0x28, collision=1, paramB=0x3080, paramC=0x1b0000
+	object_raw subtype=0x5c, x=0x58, y=0x28, collision=1, paramA=0x1, paramB=0x3040, paramC=0x1c0000
+	object_raw subtype=0x5c, x=0xb8, y=0x28, collision=1, paramB=0x3041, paramC=0x1d0000
+	object_raw subtype=0x5c, x=0xd8, y=0x28, collision=1, paramA=0x1, paramB=0x3041, paramC=0x1e0000
+	entity_list_end
 
 Entities_HouseInteriors1_Mayor_1:: @ 080D6260
 	object_raw subtype=0x4f, x=0x68, y=0xb8, paramA=0x4, paramB=0x2
@@ -1923,8 +1932,8 @@ Enemies_HouseInteriors1_Mayor:: @ 080D62D0
 TileEntities_HouseInteriors1_Mayor:: @ 080D62E0
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors1_Mayor:: @ 080D62E8
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_Mayor.bin"
+gUnk_additional_8_HouseInteriors1_Mayor:: @ 080D62E8
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors1_Mayor.bin"
 
 Room_HouseInteriors1_Mayor:: @ 080D62FC
 	.4byte Entities_HouseInteriors1_Mayor_0
@@ -1935,40 +1944,47 @@ Room_HouseInteriors1_Mayor:: @ 080D62FC
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors1_Mayor
 	.4byte sub_StateChange_HouseInteriors1_Mayor
-	.4byte gUnk_additional0_HouseInteriors1_Mayor
+	.4byte gUnk_additional_8_HouseInteriors1_Mayor
 
 Entities_HouseInteriors1_PostOffice_0:: @ 080D6320
 	npc_raw subtype=0xa, x=0x48, y=0x38, script=script_08010794
 	entity_list_end
 
 gUnk_080D6340:: @ 080D6340
-	.incbin "data_080D5360/gUnk_080D6340.bin"
-	.4byte script_08010734
-	.incbin "data_080D5360/gUnk_080D6340_1.bin"
+	npc_raw subtype=0xc, x=0x68, y=0x38, script=script_08010734
+	entity_list_end
 
 gUnk_080D6360:: @ 080D6360
-	.incbin "data_080D5360/gUnk_080D6360.bin"
+	object_raw subtype=0x60, x=0x88, y=0x40
+	entity_list_end
 
 gUnk_080D6380:: @ 080D6380
-	.incbin "data_080D5360/gUnk_080D6380.bin"
+	object_raw subtype=0x60, x=0x98, y=0x40, paramA=0x1
+	entity_list_end
 
 gUnk_080D63A0:: @ 080D63A0
-	.incbin "data_080D5360/gUnk_080D63A0.bin"
+	object_raw subtype=0x60, x=0xa8, y=0x40, paramA=0x2
+	entity_list_end
 
 gUnk_080D63C0:: @ 080D63C0
-	.incbin "data_080D5360/gUnk_080D63C0.bin"
+	object_raw subtype=0x60, x=0xb8, y=0x40, paramA=0x3
+	entity_list_end
 
 gUnk_080D63E0:: @ 080D63E0
-	.incbin "data_080D5360/gUnk_080D63E0.bin"
+	object_raw subtype=0x60, x=0x88, y=0x68, paramA=0x4
+	entity_list_end
 
 gUnk_080D6400:: @ 080D6400
-	.incbin "data_080D5360/gUnk_080D6400.bin"
+	object_raw subtype=0x60, x=0x98, y=0x68, paramA=0x5
+	entity_list_end
 
 gUnk_080D6420:: @ 080D6420
-	.incbin "data_080D5360/gUnk_080D6420.bin"
+	object_raw subtype=0x60, x=0xa8, y=0x68, paramA=0x6
+	entity_list_end
 
 gUnk_080D6440:: @ 080D6440
-	.incbin "data_080D5360/gUnk_080D6440.bin"
+	object_raw subtype=0x60, x=0xb8, y=0x68, paramA=0x7
+	entity_list_end
 
 Entities_HouseInteriors1_PostOffice_1:: @ 080D6460
 	object_raw subtype=0x4f, x=0x78, y=0xa8, paramA=0x4, paramB=0x2
@@ -2007,12 +2023,12 @@ Entities_HouseInteriors1_Library2F_0:: @ 080D6538
 	entity_list_end
 
 gUnk_080D6558:: @ 080D6558
-	.incbin "data_080D5360/gUnk_080D6558.bin"
+	npc_raw subtype=0x1a, x=0xa8, y=0x48, unknown=0xf, script=0x0
+	entity_list_end
 
 gUnk_080D6578:: @ 080D6578
-	.incbin "data_080D5360/gUnk_080D6578.bin"
-	.4byte script_0800ED5C
-	.incbin "data_080D5360/gUnk_080D6578_1.bin"
+	npc_raw subtype=0x1a, x=0x38, y=0x40, paramA=0x2, script=script_0800ED5C
+	entity_list_end
 
 Entities_HouseInteriors1_Library2F_1:: @ 080D6598
 	object_raw subtype=0x4d, x=0xa8, y=0x28, collision=1, paramB=0x1
@@ -2025,10 +2041,12 @@ Entities_HouseInteriors1_Library2F_1:: @ 080D6598
 	entity_list_end
 
 gUnk_080D6618:: @ 080D6618
-	.incbin "data_080D5360/gUnk_080D6618.bin"
+	object_raw subtype=0x4d, x=0x48, y=0x28, collision=1, paramA=0x25, paramB=0x1
+	entity_list_end
 
 gUnk_080D6638:: @ 080D6638
-	.incbin "data_080D5360/gUnk_080D6638.bin"
+	object_raw subtype=0x4d, x=0x48, y=0x28, collision=1, paramA=0x25
+	entity_list_end
 
 Enemies_HouseInteriors1_Library2F:: @ 080D6658
 	entity_list_end
@@ -2036,14 +2054,15 @@ Enemies_HouseInteriors1_Library2F:: @ 080D6658
 TileEntities_HouseInteriors1_Library2F:: @ 080D6668
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors1_Library2F:: @ 080D6670
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_Library2F.bin"
+gUnk_additional_8_HouseInteriors1_Library2F:: @ 080D6670
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors1_Library2F.bin"
 
-gUnk_additional1_HouseInteriors1_Library2F:: @ 080D6684
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors1_Library2F.bin"
+gUnk_additional_9_HouseInteriors1_Library2F:: @ 080D6684
+	exit_region_raw centerX=0x48, centerY=0x34, halfWidth=0x18, halfHeight=0x4, exitIndex=0xa, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional2_HouseInteriors1_Library2F:: @ 080D6694
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors1_Library2F.bin"
+gUnk_additional_a_HouseInteriors1_Library2F:: @ 080D6694
+	exit_raw transition=0x1, destX=0xa8, destY=0x1a8, destArea=0x2d, destRoom=0x10, unknownA=0x1
 
 Room_HouseInteriors1_Library2F:: @ 080D66A8
 	.4byte Entities_HouseInteriors1_Library2F_0
@@ -2054,35 +2073,33 @@ Room_HouseInteriors1_Library2F:: @ 080D66A8
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors1_Library2F
 	.4byte sub_StateChange_HouseInteriors1_Library2F
-	.4byte gUnk_additional0_HouseInteriors1_Library2F
-	.4byte gUnk_additional1_HouseInteriors1_Library2F
-	.4byte gUnk_additional2_HouseInteriors1_Library2F
+	.4byte gUnk_additional_8_HouseInteriors1_Library2F
+	.4byte gUnk_additional_9_HouseInteriors1_Library2F
+	.4byte gUnk_additional_a_HouseInteriors1_Library2F
 
 Entities_HouseInteriors1_Library1F_0:: @ 080D66D4
 	npc_raw subtype=0x3d, x=0x128, y=0xa8, script=script_08008B5C
 	entity_list_end
 
-gUnk_additional0_HouseInteriors1_Library1F:: @ 080D66F4
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_Library1F.bin"
-	.4byte script_08008B90
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_Library1F_1.bin"
+gUnk_additional_8_HouseInteriors1_Library1F:: @ 080D66F4
+	npc_raw subtype=0x3d, x=0xa8, y=0xa8, paramA=0x1, script=script_08008B90
+	entity_list_end
 
 gUnk_080D6714:: @ 080D6714
-	.incbin "data_080D5360/gUnk_080D6714.bin"
-	.4byte script_08008D8C
-	.incbin "data_080D5360/gUnk_080D6714_1.bin"
+	npc_raw subtype=0x6, x=0x38, y=0x40, paramB=0x400, script=script_08008D8C
+	entity_list_end
 
-gUnk_additional1_HouseInteriors1_Library1F:: @ 080D6734
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors1_Library1F.bin"
-	.4byte script_08008BC0
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors1_Library1F_1.bin"
+gUnk_additional_9_HouseInteriors1_Library1F:: @ 080D6734
+	npc_raw subtype=0x3d, x=0xa8, y=0xa8, paramA=0x1, script=script_08008BC0
+	object_raw subtype=0x8c, x=0x98, y=0x90, collision=1, paramB=0x3
+	object_raw subtype=0x8c, x=0xac, y=0x90, collision=1, paramA=0x1, paramB=0x3
+	object_raw subtype=0x8c, x=0xc0, y=0x90, collision=1, paramA=0x2, paramB=0x3
+	entity_list_end
 
 gUnk_080D6784:: @ 080D6784
-	.incbin "data_080D5360/gUnk_080D6784.bin"
-	.4byte script_08008D50
-	.incbin "data_080D5360/gUnk_080D6784_1.bin"
-	.4byte script_08008C64
-	.incbin "data_080D5360/gUnk_080D6784_2.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_08008D50
+	npc_raw subtype=0x1a, x=0x68, y=0x18, paramA=0x1, script=script_08008C64
+	entity_list_end
 
 Entities_HouseInteriors1_Library1F_1:: @ 080D67B4
 	object_raw subtype=0x4d, x=0x38, y=0x28, collision=1
@@ -2118,8 +2135,8 @@ Room_HouseInteriors1_Library1F:: @ 080D68CC
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors1_Library1F
 	.4byte sub_StateChange_HouseInteriors1_Library1F
-	.4byte gUnk_additional0_HouseInteriors1_Library1F
-	.4byte gUnk_additional1_HouseInteriors1_Library1F
+	.4byte gUnk_additional_8_HouseInteriors1_Library1F
+	.4byte gUnk_additional_9_HouseInteriors1_Library1F
 
 Entities_HouseInteriors1_Inn1F_0:: @ 080D68F4
 	npc_raw subtype=0x47, x=0x40, y=0x38, script=script_0800E824
@@ -2127,18 +2144,9 @@ Entities_HouseInteriors1_Inn1F_0:: @ 080D68F4
 	entity_list_end
 
 gUnk_080D6924:: @ 080D6924
-	.4byte 0x07074F07
-	.4byte 0x00000400
-	.4byte 0x003800E8
-	.4byte script_080103B0
-	.4byte 0x08074F07
-	.4byte 0x00000400
-	.4byte 0x006800E8
-	.4byte script_080103B0
-	.4byte 0x000000FF
-	.4byte 0x00000000
-	.4byte 0x00000000
-	.4byte 0x00000000
+	npc_raw subtype=0x7, x=0xe8, y=0x38, paramA=0x7, paramB=0x400, script=script_080103B0
+	npc_raw subtype=0x7, x=0xe8, y=0x68, paramA=0x8, paramB=0x400, script=script_080103B0
+	entity_list_end
 
 Entities_HouseInteriors1_Inn1F_1:: @ 080D6954
 	object_raw subtype=0x4f, x=0x68, y=0x98, paramA=0x4, paramB=0x2
@@ -2277,49 +2285,37 @@ Entities_HouseInteriors1_InnWest2F_0:: @ 080D6BE4
 	entity_list_end
 
 UpperInn_Oracles:: @ 080D6BF4
-	.incbin "data_080D5360/UpperInn_Oracles.bin"
-	.4byte script_08011C7C
-	.incbin "data_080D5360/UpperInn_Oracles_1.bin"
-	.4byte script_08011D28
-	.incbin "data_080D5360/UpperInn_Oracles_2.bin"
-	.4byte script_08011DD4
-	.incbin "data_080D5360/UpperInn_Oracles_3.bin"
+	npc_raw subtype=0x17, x=0x70, y=0x48, script=script_08011C7C
+	npc_raw subtype=0x18, x=0x88, y=0x48, script=script_08011D28
+	npc_raw subtype=0x19, x=0xa0, y=0x48, script=script_08011DD4
+	entity_list_end
 
 UpperInn_NoFarore:: @ 080D6C34
-	.incbin "data_080D5360/UpperInn_NoFarore.bin"
-	.4byte script_08011E80
-	.incbin "data_080D5360/UpperInn_NoFarore_1.bin"
-	.4byte script_08011F0C
-	.incbin "data_080D5360/UpperInn_NoFarore_2.bin"
+	npc_raw subtype=0x17, x=0x7c, y=0x48, script=script_08011E80
+	npc_raw subtype=0x18, x=0x94, y=0x48, script=script_08011F0C
+	entity_list_end
 
 UpperInn_NoDin:: @ 080D6C64
-	.incbin "data_080D5360/UpperInn_NoDin.bin"
-	.4byte script_08011F0C
-	.incbin "data_080D5360/UpperInn_NoDin_1.bin"
-	.4byte script_08011F98
-	.incbin "data_080D5360/UpperInn_NoDin_2.bin"
+	npc_raw subtype=0x18, x=0x7c, y=0x48, script=script_08011F0C
+	npc_raw subtype=0x19, x=0x94, y=0x48, script=script_08011F98
+	entity_list_end
 
 UpperInn_NoNayru:: @ 080D6C94
-	.incbin "data_080D5360/UpperInn_NoNayru.bin"
-	.4byte script_08011E80
-	.incbin "data_080D5360/UpperInn_NoNayru_1.bin"
-	.4byte script_08011F98
-	.incbin "data_080D5360/UpperInn_NoNayru_2.bin"
+	npc_raw subtype=0x17, x=0x7c, y=0x48, script=script_08011E80
+	npc_raw subtype=0x19, x=0x94, y=0x48, script=script_08011F98
+	entity_list_end
 
 UpperInn_Din:: @ 080D6CC4
-	.incbin "data_080D5360/UpperInn_Din.bin"
-	.4byte script_080121C8
-	.incbin "data_080D5360/UpperInn_Din_1.bin"
+	npc_raw subtype=0x17, x=0x88, y=0x48, script=script_080121C8
+	entity_list_end
 
 UpperInn_Nayru:: @ 080D6CE4
-	.incbin "data_080D5360/UpperInn_Nayru.bin"
-	.4byte script_08012200
-	.incbin "data_080D5360/UpperInn_Nayru_1.bin"
+	npc_raw subtype=0x18, x=0x88, y=0x48, script=script_08012200
+	entity_list_end
 
 UpperInn_Farore:: @ 080D6D04
-	.incbin "data_080D5360/UpperInn_Farore.bin"
-	.4byte script_08012238
-	.incbin "data_080D5360/UpperInn_Farore_1.bin"
+	npc_raw subtype=0x19, x=0x88, y=0x48, script=script_08012238
+	entity_list_end
 
 Entities_HouseInteriors1_InnWest2F_1:: @ 080D6D24
 	object_raw subtype=0x4f, x=0x68, y=0x98, paramA=0x4, paramB=0x2
@@ -2349,24 +2345,16 @@ Entities_HouseInteriors1_InnEast2F_0:: @ 080D6DBC
 	manager subtype=0x16, paramA=0x8
 	entity_list_end
 
-gUnk_additional0_HouseInteriors1_InnEast2F:: @ 080D6DDC
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F.bin"
-	.4byte script_0800ED04
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_1.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_2.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_3.bin"
-	.4byte script_0800D59C
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_4.bin"
-	.4byte script_0800D59C
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_5.bin"
-	.4byte script_0800D59C
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_6.bin"
-	.4byte script_080100FC
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_7.bin"
-	.4byte script_080100FC
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_InnEast2F_8.bin"
+gUnk_additional_8_HouseInteriors1_InnEast2F:: @ 080D6DDC
+	delayed_entity_raw subtype=0x13, x=0x76, y=0xc0, layer=1, paramA=0x1, paramB=0x2, paramC=script_0800ED04, conditions=0x3f8
+	delayed_entity_raw subtype=0x7, x=0x68, y=0x98, layer=1, paramC=script_080103B0, paramD=0x4, conditions=0x300
+	delayed_entity_raw subtype=0x7, x=0x48, y=0x98, layer=1, paramA=0x6, paramC=script_080103B0, paramD=0x4, conditions=0x300
+	delayed_entity_raw subtype=0x7, x=0x48, y=0x98, layer=1, paramA=0x6, paramC=script_0800D59C, paramD=0x4, conditions=0x10
+	delayed_entity_raw subtype=0x7, x=0x38, y=0xc8, layer=1, paramA=0x7, paramC=script_0800D59C, paramD=0x4, conditions=0x10
+	delayed_entity_raw subtype=0x7, x=0x58, y=0xd8, layer=1, paramA=0x8, paramC=script_0800D59C, paramD=0x4, conditions=0x10
+	delayed_entity_raw subtype=0x6, x=0x58, y=0xa8, layer=1, paramA=0x14, paramC=script_080100FC, paramD=0x4, conditions=0x3c0
+	delayed_entity_raw subtype=0x6, x=0x48, y=0x168, layer=1, paramA=0x10, paramC=script_080100FC, paramD=0x4, conditions=0x300
+	entity_list_end
 
 Entities_HouseInteriors1_InnEast2F_1:: @ 080D6E6C
 	object_raw subtype=0x4f, x=0x8, y=0x48, paramA=0x5, paramB=0x3
@@ -2398,7 +2386,7 @@ Room_HouseInteriors1_InnEast2F:: @ 080D6F54
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors1_InnEast2F
 	.4byte sub_StateChange_HouseInteriors1_InnEast2F
-	.4byte gUnk_additional0_HouseInteriors1_InnEast2F
+	.4byte gUnk_additional_8_HouseInteriors1_InnEast2F
 
 Entities_HouseInteriors1_InnMinishHeartPiece_0:: @ 080D6F78
 	object_raw subtype=0x0, x=0x58, y=0x34, collision=1, paramA=0x63, paramB=0x400, paramC=0xb80000
@@ -2415,8 +2403,8 @@ Enemies_HouseInteriors1_InnMinishHeartPiece:: @ 080D6FC8
 TileEntities_HouseInteriors1_InnMinishHeartPiece:: @ 080D6FD8
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors1_InnMinishHeartPiece:: @ 080D6FE0
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_InnMinishHeartPiece.bin"
+gUnk_additional_8_HouseInteriors1_InnMinishHeartPiece:: @ 080D6FE0
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors1_InnMinishHeartPiece.bin"
 
 Room_HouseInteriors1_InnMinishHeartPiece:: @ 080D6FF4
 	.4byte Entities_HouseInteriors1_InnMinishHeartPiece_0
@@ -2427,16 +2415,15 @@ Room_HouseInteriors1_InnMinishHeartPiece:: @ 080D6FF4
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors1_InnMinishHeartPiece
 	.4byte sub_StateChange_HouseInteriors1_InnMinishHeartPiece
-	.4byte gUnk_additional0_HouseInteriors1_InnMinishHeartPiece
+	.4byte gUnk_additional_8_HouseInteriors1_InnMinishHeartPiece
 
 Entities_HouseInteriors1_SchoolWest_0:: @ 080D7018
 	object_raw subtype=0x5f, x=0x78, y=0x48
 	entity_list_end
 
 gUnk_080D7038:: @ 080D7038
-	.incbin "data_080D5360/gUnk_080D7038.bin"
-	.4byte script_0800E7F4
-	.incbin "data_080D5360/gUnk_080D7038_1.bin"
+	npc_raw subtype=0x48, x=0x78, y=0x78, paramA=0x1, script=script_0800E7F4
+	entity_list_end
 
 Entities_HouseInteriors1_SchoolWest_1:: @ 080D7058
 	object_raw subtype=0x4f, x=0x78, y=0xe8, paramA=0x4, paramB=0x2
@@ -2470,37 +2457,28 @@ Entities_HouseInteriors1_SchoolEast_0:: @ 080D7120
 	entity_list_end
 
 gUnk_080D7140:: @ 080D7140
-	.incbin "data_080D5360/gUnk_080D7140.bin"
-	.4byte script_08010644
-	.incbin "data_080D5360/gUnk_080D7140_1.bin"
-	.4byte script_08010644
-	.incbin "data_080D5360/gUnk_080D7140_2.bin"
+	npc_raw subtype=0x7, x=0x48, y=0x40, paramA=0x1, paramB=0x200, script=script_08010644
+	npc_raw subtype=0x7, x=0x48, y=0x70, paramA=0x2, paramB=0x200, script=script_08010644
+	entity_list_end
 
 gUnk_080D7170:: @ 080D7170
-	.incbin "data_080D5360/gUnk_080D7170.bin"
-	.4byte script_0801061C
-	.incbin "data_080D5360/gUnk_080D7170_1.bin"
-	.4byte script_08010650
-	.incbin "data_080D5360/gUnk_080D7170_2.bin"
+	npc_raw subtype=0x7, x=0xa8, y=0x40, paramB=0x200, script=script_0801061C
+	npc_raw subtype=0x7, x=0x78, y=0x40, paramA=0x3, paramB=0x200, script=script_08010650
+	entity_list_end
 
 gUnk_080D71A0:: @ 080D71A0
-	.incbin "data_080D5360/gUnk_080D71A0.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_080D71A0_1.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_080D71A0_2.bin"
+	npc_raw subtype=0x7, x=0x68, y=0x68, paramA=0x1, paramB=0x400, script=script_080103B0
+	npc_raw subtype=0x7, x=0x98, y=0x48, paramA=0x2, paramB=0x400, script=script_080103B0
+	entity_list_end
 
 gUnk_080D71D0:: @ 080D71D0
-	.incbin "data_080D5360/gUnk_080D71D0.bin"
-	.4byte script_0800E7F4
-	.incbin "data_080D5360/gUnk_080D71D0_1.bin"
+	npc_raw subtype=0x48, x=0x110, y=0x48, script=script_0800E7F4
+	entity_list_end
 
 gUnk_080D71F0:: @ 080D71F0
-	.incbin "data_080D5360/gUnk_080D71F0.bin"
-	.4byte script_0800E7F4
-	.incbin "data_080D5360/gUnk_080D71F0_1.bin"
-	.4byte script_0800E7F4
-	.incbin "data_080D5360/gUnk_080D71F0_2.bin"
+	npc_raw subtype=0x48, x=0xe8, y=0x58, script=script_0800E7F4
+	npc_raw subtype=0x48, x=0x28, y=0x48, paramA=0x1, script=script_0800E7F4
+	entity_list_end
 
 Entities_HouseInteriors1_SchoolEast_1:: @ 080D7220
 	object_raw subtype=0x4f, x=0x8, y=0x58, paramA=0x5, paramB=0x3
@@ -2515,11 +2493,11 @@ Enemies_HouseInteriors1_SchoolEast:: @ 080D7270
 TileEntities_HouseInteriors1_SchoolEast:: @ 080D7280
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors1_SchoolEast:: @ 080D7288
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors1_SchoolEast.bin"
+gUnk_additional_8_HouseInteriors1_SchoolEast:: @ 080D7288
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors1_SchoolEast.bin"
 
-gUnk_additional1_HouseInteriors1_SchoolEast:: @ 080D729C
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors1_SchoolEast.bin"
+gUnk_additional_9_HouseInteriors1_SchoolEast:: @ 080D729C
+	.incbin "data_080D5360/gUnk_additional_9_HouseInteriors1_SchoolEast.bin"
 
 Room_HouseInteriors1_SchoolEast:: @ 080D72B0
 	.4byte Entities_HouseInteriors1_SchoolEast_0
@@ -2530,8 +2508,8 @@ Room_HouseInteriors1_SchoolEast:: @ 080D72B0
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors1_SchoolEast
 	.4byte sub_StateChange_HouseInteriors1_SchoolEast
-	.4byte gUnk_additional0_HouseInteriors1_SchoolEast
-	.4byte gUnk_additional1_HouseInteriors1_SchoolEast
+	.4byte gUnk_additional_8_HouseInteriors1_SchoolEast
+	.4byte gUnk_additional_9_HouseInteriors1_SchoolEast
 
 Entities_HyruleCastle_0_0:: @ 080D72D8
 	npc_raw subtype=0x15, x=0xb8, y=0x38, script=script_08008DC0
@@ -2543,12 +2521,12 @@ Entities_HyruleCastle_0_1:: @ 080D7308
 	entity_list_end
 
 gUnk_080D7328:: @ 080D7328
-	.incbin "data_080D5360/gUnk_080D7328.bin"
+	object_raw subtype=0x8, x=0x48, y=0xd8
+	entity_list_end
 
 gUnk_080D7348:: @ 080D7348
-	.incbin "data_080D5360/gUnk_080D7348.bin"
-	.4byte script_0800A734
-	.incbin "data_080D5360/gUnk_080D7348_1.bin"
+	npc_raw subtype=0x4e, script=script_0800A734
+	entity_list_end
 
 Enemies_HyruleCastle_0:: @ 080D7368
 	entity_list_end
@@ -2570,25 +2548,23 @@ Entities_HyruleCastle_1_0:: @ 080D73A0
 	entity_list_end
 
 gUnk_080D73B0:: @ 080D73B0
-	.incbin "data_080D5360/gUnk_080D73B0.bin"
+	object_raw subtype=0x8, x=0x58, y=0x28
+	object_raw subtype=0x8, x=0x198, y=0x28
+	entity_list_end
 
 gUnk_080D73E0:: @ 080D73E0
-	.incbin "data_080D5360/gUnk_080D73E0.bin"
+	npc_raw subtype=0x15, x=0xb8, y=0x58, unknown=0xf, collision=1, paramA=0x4, paramB=0x26, script=0x0
+	npc_raw subtype=0x15, x=0xb8, y=0x1b8, unknown=0xf, collision=1, paramA=0x5, paramB=0x27, script=0x0
+	entity_list_end
 
 gUnk_080D7410:: @ 080D7410
-	.incbin "data_080D5360/gUnk_080D7410.bin"
-	.4byte script_0800A764
-	.incbin "data_080D5360/gUnk_080D7410_1.bin"
-	.4byte script_0800A7E4
-	.incbin "data_080D5360/gUnk_080D7410_2.bin"
-	.4byte script_0800A820
-	.incbin "data_080D5360/gUnk_080D7410_3.bin"
-	.4byte script_0800A85C
-	.incbin "data_080D5360/gUnk_080D7410_4.bin"
-	.4byte script_0800A898
-	.incbin "data_080D5360/gUnk_080D7410_5.bin"
-	.4byte script_0800A8D4
-	.incbin "data_080D5360/gUnk_080D7410_6.bin"
+	npc_raw subtype=0x4e, script=script_0800A764
+	npc_raw subtype=0x15, x=0xb8, y=0x1a8, paramB=0x28, script=script_0800A7E4
+	npc_raw subtype=0x15, x=0xf8, y=0x1b8, paramB=0x29, script=script_0800A820
+	npc_raw subtype=0x15, x=0x138, y=0x1d8, paramB=0x2a, script=script_0800A85C
+	npc_raw subtype=0x16, x=0xd8, y=0x1c8, script=script_0800A898
+	npc_raw subtype=0x16, x=0x118, y=0x1b8, script=script_0800A8D4
+	entity_list_end
 
 Enemies_HyruleCastle_1:: @ 080D7480
 	entity_list_end
@@ -2610,54 +2586,35 @@ Entities_HyruleCastle_2_0:: @ 080D74B8
 	entity_list_end
 
 gUnk_080D74C8:: @ 080D74C8
-	.incbin "data_080D5360/gUnk_080D74C8.bin"
-	.4byte script_08008E08
-	.incbin "data_080D5360/gUnk_080D74C8_1.bin"
-	.4byte script_08008FFC
-	.incbin "data_080D5360/gUnk_080D74C8_2.bin"
-	.4byte script_08008FFC
-	.incbin "data_080D5360/gUnk_080D74C8_3.bin"
-	.4byte script_08008FFC
-	.incbin "data_080D5360/gUnk_080D74C8_4.bin"
-	.4byte script_08008FFC
-	.incbin "data_080D5360/gUnk_080D74C8_5.bin"
-	.4byte script_08008FFC
-	.incbin "data_080D5360/gUnk_080D74C8_6.bin"
-	.4byte script_08008FFC
-	.incbin "data_080D5360/gUnk_080D74C8_7.bin"
-	.4byte script_08009080
-	.incbin "data_080D5360/gUnk_080D74C8_8.bin"
-	.4byte script_0800903C
-	.incbin "data_080D5360/gUnk_080D74C8_9.bin"
-	.4byte script_08009198
-	.incbin "data_080D5360/gUnk_080D74C8_10.bin"
-	.4byte script_080092F0
-	.incbin "data_080D5360/gUnk_080D74C8_11.bin"
+	npc_raw subtype=0x4e, script=script_08008E08
+	npc_raw subtype=0x15, x=0x78, y=0x98, paramB=0x2, script=script_08008FFC
+	npc_raw subtype=0x15, x=0x78, y=0xb8, paramB=0x3, script=script_08008FFC
+	npc_raw subtype=0x15, x=0x78, y=0xd8, paramB=0x4, script=script_08008FFC
+	npc_raw subtype=0x15, x=0x98, y=0x98, paramB=0x5, script=script_08008FFC
+	npc_raw subtype=0x15, x=0x98, y=0xb8, paramB=0x6, script=script_08008FFC
+	npc_raw subtype=0x15, x=0x98, y=0xd8, paramB=0x7, script=script_08008FFC
+	npc_raw subtype=0x24, x=0x88, y=0x58, script=script_08009080
+	npc_raw subtype=0x25, x=0x68, y=0x58, script=script_0800903C
+	npc_raw subtype=0x22, x=0xb8, y=0x78, script=script_08009198
+	npc_raw subtype=0x28, x=0xb8, y=0x58, script=script_080092F0
+	entity_list_end
 
 gUnk_080D7588:: @ 080D7588
-	.incbin "data_080D5360/gUnk_080D7588.bin"
-	.4byte script_08009274
-	.incbin "data_080D5360/gUnk_080D7588_1.bin"
-	.4byte script_080092D4
-	.incbin "data_080D5360/gUnk_080D7588_2.bin"
-	.4byte script_080092A8
-	.incbin "data_080D5360/gUnk_080D7588_3.bin"
-	.4byte script_080092F0
-	.incbin "data_080D5360/gUnk_080D7588_4.bin"
+	npc_raw subtype=0x25, x=0x68, y=0x58, script=script_08009274
+	npc_raw subtype=0x24, x=0x88, y=0x58, script=script_080092D4
+	npc_raw subtype=0x22, x=0xa8, y=0x78, script=script_080092A8
+	npc_raw subtype=0x28, x=0xb8, y=0x58, script=script_080092F0
+	entity_list_end
 
 gUnk_080D75D8:: @ 080D75D8
-	.incbin "data_080D5360/gUnk_080D75D8.bin"
-	.4byte script_08009274
-	.incbin "data_080D5360/gUnk_080D75D8_1.bin"
-	.4byte script_080092D4
-	.incbin "data_080D5360/gUnk_080D75D8_2.bin"
-	.4byte script_080092F0
-	.incbin "data_080D5360/gUnk_080D75D8_3.bin"
+	npc_raw subtype=0x25, x=0x68, y=0x58, script=script_08009274
+	npc_raw subtype=0x24, x=0x88, y=0x58, script=script_080092D4
+	npc_raw subtype=0x28, x=0xb8, y=0x58, script=script_080092F0
+	entity_list_end
 
 gUnk_080D7618:: @ 080D7618
-	.incbin "data_080D5360/gUnk_080D7618.bin"
-	.4byte script_0800A6D4
-	.incbin "data_080D5360/gUnk_080D7618_1.bin"
+	npc_raw subtype=0x4e, script=script_0800A6D4
+	entity_list_end
 
 Enemies_HyruleCastle_2:: @ 080D7638
 	entity_list_end
@@ -2679,8 +2636,11 @@ Entities_HyruleCastle_3_0:: @ 080D7670
 	object_raw subtype=0x8, x=0x48, y=0x298, paramA=0x3, paramC=0x4045ffff
 	entity_list_end
 
-gUnk_additional0_HyruleCastle_3:: @ 080D7690
-	.incbin "data_080D5360/gUnk_additional0_HyruleCastle_3.bin"
+gUnk_additional_8_HyruleCastle_3:: @ 080D7690
+	object_raw subtype=0x8, x=0x88, y=0x278, paramC=0xffff
+	object_raw subtype=0x8, x=0x68, y=0x18, paramC=0xffff
+	object_raw subtype=0x8, x=0x1c8, y=0x18, paramC=0xffff
+	entity_list_end
 
 Enemies_HyruleCastle_3:: @ 080D76D0
 	entity_list_end
@@ -2697,7 +2657,7 @@ Room_HyruleCastle_3:: @ 080D76E8
 	.4byte 0x00000000
 	.4byte sub_unk3_HyruleCastle_3
 	.4byte sub_StateChange_HyruleCastle_3
-	.4byte gUnk_additional0_HyruleCastle_3
+	.4byte gUnk_additional_8_HyruleCastle_3
 
 Entities_HyruleCastle_4_0:: @ 080D770C
 	npc_raw subtype=0x16, x=0x58, y=0x50, script=script_0800B8B8
@@ -2989,7 +2949,10 @@ Entities_GreatFairies_Exit_0:: @ 080D7D04
 	entity_list_end
 
 gUnk_080D7D34:: @ 080D7D34
-	.incbin "data_080D5360/gUnk_080D7D34.bin"
+	object_raw subtype=0x6a, x=0xd8, y=0x58, collision=1, paramA=0x5, paramB=0x302
+	object_raw subtype=0x6a, x=0xcc, y=0x48, collision=1, paramA=0x5, paramB=0x102
+	object_raw subtype=0x6a, x=0xd0, y=0x68, collision=1, paramA=0x5, paramB=0x102
+	entity_list_end
 
 Enemies_GreatFairies_Exit:: @ 080D7D74
 	enemy_raw subtype=0x2c, x=0x78, y=0x58
@@ -3173,7 +3136,11 @@ Entities_Dojos_Grimblade_0:: @ 080D824C
 	entity_list_end
 
 gUnk_080D827C:: @ 080D827C
-	.incbin "data_080D5360/gUnk_080D827C.bin"
+	manager subtype=0x23, x=0x28, y=0x28, paramA=0x2, paramB=0x4002, paramC=0x80000000
+	manager subtype=0x23, x=0xc8, y=0x28, paramA=0x2, paramB=0x4002, paramC=0x80010000
+	manager subtype=0x2e, unknown=0x0, paramB=0x100, paramC=0x84000000
+	manager subtype=0x11, paramC=0x84000003
+	entity_list_end
 
 Entities_Dojos_Grimblade_1:: @ 080D82CC
 	object_raw subtype=0x4f, x=0x78, y=0xb8, paramA=0x9, paramB=0x2
@@ -3454,64 +3421,43 @@ Entities_GoronCave_Main_0:: @ 080D89C4
 	entity_list_end
 
 gUnk_080D89E4:: @ 080D89E4
-	.incbin "data_080D5360/gUnk_080D89E4.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D89E4_1.bin"
+	npc_raw subtype=0x32, x=0x68, y=0x228, script=script_0800B9B4
+	entity_list_end
 
 gUnk_080D8A04:: @ 080D8A04
-	.incbin "data_080D5360/gUnk_080D8A04.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8A04_1.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8A04_2.bin"
+	npc_raw subtype=0x32, x=0x48, y=0x178, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x68, y=0x178, paramA=0x1, script=script_0800B9B4
+	entity_list_end
 
 gUnk_080D8A34:: @ 080D8A34
-	.incbin "data_080D5360/gUnk_080D8A34.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8A34_1.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8A34_2.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8A34_3.bin"
+	npc_raw subtype=0x32, x=0x48, y=0x178, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x68, y=0x178, paramA=0x1, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x88, y=0x178, paramA=0x2, script=script_0800B9B4
+	entity_list_end
 
 gUnk_080D8A74:: @ 080D8A74
-	.incbin "data_080D5360/gUnk_080D8A74.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8A74_1.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8A74_2.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8A74_3.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8A74_4.bin"
+	npc_raw subtype=0x32, x=0x28, y=0xd8, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x48, y=0xd8, paramA=0x1, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x68, y=0xd8, paramA=0x2, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x88, y=0xd8, paramA=0x3, script=script_0800B9B4
+	entity_list_end
 
 gUnk_080D8AC4:: @ 080D8AC4
-	.incbin "data_080D5360/gUnk_080D8AC4.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8AC4_1.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8AC4_2.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8AC4_3.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8AC4_4.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8AC4_5.bin"
+	npc_raw subtype=0x32, x=0x28, y=0xd8, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x48, y=0xd8, paramA=0x1, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x68, y=0xd8, paramA=0x2, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x88, y=0xd8, paramA=0x3, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0xa8, y=0xd8, paramA=0x4, script=script_0800B9B4
+	entity_list_end
 
 gUnk_080D8B24:: @ 080D8B24
-	.incbin "data_080D5360/gUnk_080D8B24.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8B24_1.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8B24_2.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8B24_3.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8B24_4.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8B24_5.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_080D8B24_6.bin"
+	npc_raw subtype=0x32, x=0x28, y=0x98, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x48, y=0x98, paramA=0x1, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x68, y=0x98, paramA=0x2, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0x88, y=0x98, paramA=0x3, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0xa8, y=0x98, paramA=0x4, script=script_0800B9B4
+	npc_raw subtype=0x32, x=0xc8, y=0x98, paramA=0x5, script=script_0800B9B4
+	entity_list_end
 
 Enemies_GoronCave_Main:: @ 080D8B94
 	entity_list_end
@@ -3595,7 +3541,6 @@ Area_EzloCutscene_Main:: @ 080D8F98
 	.4byte sub_StateChange_EzloCutscene_Main
 
 Entities_RoyalValley_Main_0:: @ 080D8FB8
-@EU
 	manager subtype=0xf, paramA=0x7
 	object_raw subtype=0x3, x=0xd8, y=0x98, paramA=0x1, paramC=0x80000000
 	object_raw subtype=0x3, x=0xe8, y=0xa8, paramA=0x1, paramC=0x80010000
@@ -3872,7 +3817,9 @@ Entities_MinishRafters_DrLeft_0:: @ 080D97C0
 	entity_list_end
 
 gUnk_080D9800:: @ 080D9800
-	.incbin "data_080D5360/gUnk_080D9800.bin"
+	object_raw subtype=0x4d, x=0x1a0, y=0x50, collision=1, paramA=0x37
+	object_raw subtype=0x88, x=0x170, y=0x58
+	entity_list_end
 
 Entities_MinishRafters_DrLeft_1:: @ 080D9830
 	object_raw subtype=0x4f, x=0xe8, y=0x8, paramA=0x1d
@@ -4005,7 +3952,7 @@ gUnk_080D9C38:: @ 080D9C38
 	manager subtype=0xe, unknown=0x1f, paramA=0x13, paramC=0x80000000
 	entity_list_end
 
-gUnk_additional11_CastorWilds_Main:: @ 080D9CA8
+gUnk_additional_13_CastorWilds_Main:: @ 080D9CA8
 .ifdef EU_JP
 	manager subtype=0xa, x=0x1e38, y=0x705, unknown=0x0, paramB=0xb660000, paramC=0x1c
 .else
@@ -4014,12 +3961,12 @@ gUnk_additional11_CastorWilds_Main:: @ 080D9CA8
 	entity_list_end
 
 gUnk_080D9CC8:: @ 080D9CC8
-	.incbin "data_080D5360/gUnk_080D9CC8.bin"
+	manager subtype=0x6, paramA=0x11
+	entity_list_end
 
 gUnk_080D9CE8:: @ 080D9CE8
-	.incbin "data_080D5360/gUnk_080D9CE8.bin"
-	.4byte script_0800B00C
-	.incbin "data_080D5360/gUnk_080D9CE8_1.bin"
+	object_raw subtype=0xbb, x=0x228, y=0x398, unknown=0x4f, paramB=0x5, paramC=script_0800B00C
+	entity_list_end
 
 Entities_CastorWilds_Main_1:: @ 080D9D08
 	manager subtype=0x6, paramA=0x8
@@ -4043,8 +3990,10 @@ Enemies_CastorWilds_Main:: @ 080D9D38
 	enemy_raw subtype=0x3, x=0x168, y=0x358, paramB=0x142c0000, paramC=0x31000e0
 	entity_list_end
 
-gUnk_additional8_CastorWilds_Main:: @ 080D9E28
-	.incbin "data_080D5360/gUnk_additional8_CastorWilds_Main.bin"
+gUnk_additional_10_CastorWilds_Main:: @ 080D9E28
+	enemy_raw subtype=0x17, x=0xc8, y=0x1e8, paramA=0x2
+	enemy_raw subtype=0x17, x=0xe8, y=0x1e8, paramA=0x2
+	entity_list_end
 
 TileEntities_CastorWilds_Main:: @ 080D9E58
 .ifdef EU_JP
@@ -4054,35 +4003,43 @@ TileEntities_CastorWilds_Main:: @ 080D9E58
 .endif
 	tile_entity_list_end
 
-gUnk_additional0_CastorWilds_Main:: @ 080D9E68
-	.incbin "data_080D5360/gUnk_additional0_CastorWilds_Main.bin"
+gUnk_additional_8_CastorWilds_Main:: @ 080D9E68
+	exit_region_raw centerX=0x28, centerY=0x70, halfWidth=0x8, halfHeight=0x2, exitIndex=0x9, bitfield=0x1
+	exit_region_raw centerX=0x28, centerY=0xa0, halfWidth=0x8, halfHeight=0x2, exitIndex=0xa, bitfield=0x1
+	exit_region_raw centerX=0x28, centerY=0x48, halfWidth=0x3, halfHeight=0x3, exitIndex=0xb, bitfield=0x1
+	exit_region_raw centerX=0x398, centerY=0x38, halfWidth=0x8, halfHeight=0x8, exitIndex=0xc, bitfield=0x11
+	exit_region_raw centerX=0xc8, centerY=0x48, halfWidth=0x2, halfHeight=0x2, exitIndex=0xd, bitfield=0x1
+	exit_region_raw centerX=0x38, centerY=0x138, halfWidth=0x2, halfHeight=0x2, exitIndex=0xe, bitfield=0x1
+	exit_region_raw centerX=0x168, centerY=0x2d8, halfWidth=0x2, halfHeight=0x2, exitIndex=0xf, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional1_CastorWilds_Main:: @ 080D9EA8
-	.incbin "data_080D5360/gUnk_additional1_CastorWilds_Main.bin"
+gUnk_additional_9_CastorWilds_Main:: @ 080D9EA8
+	exit_raw transition=0x1, destX=0x78, destY=0x18, destArea=0x11, destRoom=0x1, unknownA=0x1, unknownC=0x4
 
-gUnk_additional2_CastorWilds_Main:: @ 080D9EBC
-	.incbin "data_080D5360/gUnk_additional2_CastorWilds_Main.bin"
+gUnk_additional_a_CastorWilds_Main:: @ 080D9EBC
+	exit_raw transition=0x1, destX=0x78, destY=0x318, destArea=0x11, destRoom=0x1, unknownA=0x1
 
-gUnk_additional3_CastorWilds_Main:: @ 080D9ED0
-	.incbin "data_080D5360/gUnk_additional3_CastorWilds_Main.bin"
+gUnk_additional_b_CastorWilds_Main:: @ 080D9ED0
+	exit_raw transition=0x1, destX=0x98, destY=0x30, destArea=0x27, destRoom=0x6, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
-gUnk_additional4_CastorWilds_Main:: @ 080D9EE4
-	.incbin "data_080D5360/gUnk_additional4_CastorWilds_Main.bin"
+gUnk_additional_c_CastorWilds_Main:: @ 080D9EE4
+	exit_raw transition=0x1, destX=0x78, destY=0x88, destArea=0x25, destRoom=0xd, unknownA=0x1
 
-gUnk_additional5_CastorWilds_Main:: @ 080D9EF8
-	.incbin "data_080D5360/gUnk_additional5_CastorWilds_Main.bin"
+gUnk_additional_d_CastorWilds_Main:: @ 080D9EF8
+	exit_raw transition=0x1, destX=0x78, destY=0x38, destArea=0x27, destRoom=0x9, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
-gUnk_additional6_CastorWilds_Main:: @ 080D9F0C
-	.incbin "data_080D5360/gUnk_additional6_CastorWilds_Main.bin"
+gUnk_additional_e_CastorWilds_Main:: @ 080D9F0C
+	exit_raw transition=0x1, destX=0x78, destY=0x38, destArea=0x27, destRoom=0xa, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
-gUnk_additional7_CastorWilds_Main:: @ 080D9F20
-	.incbin "data_080D5360/gUnk_additional7_CastorWilds_Main.bin"
+gUnk_additional_f_CastorWilds_Main:: @ 080D9F20
+	exit_raw transition=0x1, destX=0x78, destY=0x38, destArea=0x27, destRoom=0xb, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
-gUnk_additional9_CastorWilds_Main:: @ 080D9F34
-	.incbin "data_080D5360/gUnk_additional9_CastorWilds_Main.bin"
+gUnk_additional_11_CastorWilds_Main:: @ 080D9F34
+	exit_region_raw centerX=0x18, centerY=0x58, halfWidth=0x3, halfHeight=0x3, exitIndex=0x12, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional10_CastorWilds_Main:: @ 080D9F44
-	.incbin "data_080D5360/gUnk_additional10_CastorWilds_Main.bin"
+gUnk_additional_12_CastorWilds_Main:: @ 080D9F44
+	exit_raw transition=0x1, destX=0x78, destY=0x38, destArea=0x27, destRoom=0xd, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
 Room_CastorWilds_Main:: @ 080D9F58
 	.4byte Entities_CastorWilds_Main_0
@@ -4093,18 +4050,18 @@ Room_CastorWilds_Main:: @ 080D9F58
 	.4byte 0x00000000
 	.4byte sub_unk3_CastorWilds_Main
 	.4byte sub_StateChange_CastorWilds_Main
-	.4byte gUnk_additional0_CastorWilds_Main
-	.4byte gUnk_additional1_CastorWilds_Main
-	.4byte gUnk_additional2_CastorWilds_Main
-	.4byte gUnk_additional3_CastorWilds_Main
-	.4byte gUnk_additional4_CastorWilds_Main
-	.4byte gUnk_additional5_CastorWilds_Main
-	.4byte gUnk_additional6_CastorWilds_Main
-	.4byte gUnk_additional7_CastorWilds_Main
-	.4byte gUnk_additional8_CastorWilds_Main
-	.4byte gUnk_additional9_CastorWilds_Main
-	.4byte gUnk_additional10_CastorWilds_Main
-	.4byte gUnk_additional11_CastorWilds_Main
+	.4byte gUnk_additional_8_CastorWilds_Main
+	.4byte gUnk_additional_9_CastorWilds_Main
+	.4byte gUnk_additional_a_CastorWilds_Main
+	.4byte gUnk_additional_b_CastorWilds_Main
+	.4byte gUnk_additional_c_CastorWilds_Main
+	.4byte gUnk_additional_d_CastorWilds_Main
+	.4byte gUnk_additional_e_CastorWilds_Main
+	.4byte gUnk_additional_f_CastorWilds_Main
+	.4byte gUnk_additional_10_CastorWilds_Main
+	.4byte gUnk_additional_11_CastorWilds_Main
+	.4byte gUnk_additional_12_CastorWilds_Main
+	.4byte gUnk_additional_13_CastorWilds_Main
 
 Entities_CastorCaves_South_0:: @ 080D9FA8
 	entity_list_end
@@ -4232,12 +4189,15 @@ Entities_CastorDarknut_Main_0:: @ 080DA210
 	entity_list_end
 
 gUnk_080DA230:: @ 080DA230
-	.incbin "data_080D5360/gUnk_080DA230.bin"
-	.4byte script_0800B17C
-	.incbin "data_080D5360/gUnk_080DA230_1.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800B17C
+	object_raw subtype=0xc, x=0x88, y=0x68, paramA=0x1, paramC=0x390000
+	entity_list_end
 
 gUnk_080DA260:: @ 080DA260
-	.incbin "data_080D5360/gUnk_080DA260.bin"
+	object_raw subtype=0x8, x=0x88, y=0xb8, paramA=0x12, paramC=0x39ffff
+	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x398000
+	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb100000, paramC=0x80000039
+	entity_list_end
 
 Entities_CastorDarknut_Main_1:: @ 080DA2A0
 	entity_list_end
@@ -4250,8 +4210,9 @@ TileEntities_CastorDarknut_Main:: @ 080DA2C0
 	tile_entity type=0xd, paramB=0x2d00
 	tile_entity_list_end
 
-gUnk_additional0_CastorDarknut_Main:: @ 080DA2D8
-	.incbin "data_080D5360/gUnk_additional0_CastorDarknut_Main.bin"
+gUnk_additional_8_CastorDarknut_Main:: @ 080DA2D8
+	enemy_raw subtype=0x5, x=0x88, y=0x50, unknown=0x2f
+	entity_list_end
 
 Room_CastorDarknut_Main:: @ 080DA2F8
 	.4byte Entities_CastorDarknut_Main_0
@@ -4262,7 +4223,7 @@ Room_CastorDarknut_Main:: @ 080DA2F8
 	.4byte 0x00000000
 	.4byte sub_unk3_CastorDarknut_Main
 	.4byte sub_StateChange_CastorDarknut_Main
-	.4byte gUnk_additional0_CastorDarknut_Main
+	.4byte gUnk_additional_8_CastorDarknut_Main
 
 Entities_CastorDarknut_Hall_0:: @ 080DA31C
 	entity_list_end
@@ -4439,11 +4400,12 @@ Enemies_MinishHouseInteriors_GentariExit:: @ 080DA6AC
 TileEntities_MinishHouseInteriors_GentariExit:: @ 080DA6BC
 	tile_entity_list_end
 
-gUnk_additional0_MinishHouseInteriors_GentariExit:: @ 080DA6C4
-	.incbin "data_080D5360/gUnk_additional0_MinishHouseInteriors_GentariExit.bin"
+gUnk_additional_8_MinishHouseInteriors_GentariExit:: @ 
+	exit_region_raw centerX=0x44, centerY=0x50, halfWidth=0x4, halfHeight=0x8, exitIndex=0x9, bitfield=0x11
+	exit_region_list_end
 
-gUnk_additional1_MinishHouseInteriors_GentariExit:: @ 080DA6D4
-	.incbin "data_080D5360/gUnk_additional1_MinishHouseInteriors_GentariExit.bin"
+gUnk_additional_9_MinishHouseInteriors_GentariExit:: @ 080DA6D4
+	exit_raw transition=0x1, destX=0x28, destY=0x70, destArea=0x1, unknownA=0x1, unknownC=0x6
 
 Room_MinishHouseInteriors_GentariExit:: @ 080DA6E8
 	.4byte Entities_MinishHouseInteriors_GentariExit_0
@@ -4454,8 +4416,8 @@ Room_MinishHouseInteriors_GentariExit:: @ 080DA6E8
 	.4byte 0x00000000
 	.4byte sub_unk3_MinishHouseInteriors_GentariExit
 	.4byte sub_StateChange_MinishHouseInteriors_GentariExit
-	.4byte gUnk_additional0_MinishHouseInteriors_GentariExit
-	.4byte gUnk_additional1_MinishHouseInteriors_GentariExit
+	.4byte gUnk_additional_8_MinishHouseInteriors_GentariExit
+	.4byte gUnk_additional_9_MinishHouseInteriors_GentariExit
 
 Entities_MinishHouseInteriors_Festari_0:: @ 080DA710
 	npc_raw subtype=0x2, x=0xe8, y=0x48, script=script_0800C634
@@ -4472,14 +4434,14 @@ Enemies_MinishHouseInteriors_Festari:: @ 080DA760
 TileEntities_MinishHouseInteriors_Festari:: @ 080DA770
 	tile_entity_list_end
 
-gUnk_additional0_MinishHouseInteriors_Festari:: @ 080DA778
-	.incbin "data_080D5360/gUnk_additional0_MinishHouseInteriors_Festari.bin"
+gUnk_additional_8_MinishHouseInteriors_Festari:: @ 080DA778
+	.incbin "data_080D5360/gUnk_additional_8_MinishHouseInteriors_Festari.bin"
 
-gUnk_additional1_MinishHouseInteriors_Festari:: @ 080DA790
-	.incbin "data_080D5360/gUnk_additional1_MinishHouseInteriors_Festari.bin"
+gUnk_additional_9_MinishHouseInteriors_Festari:: @ 080DA790
+	.incbin "data_080D5360/gUnk_additional_9_MinishHouseInteriors_Festari.bin"
 
-gUnk_additional2_MinishHouseInteriors_Festari:: @ 080DA7A4
-	.incbin "data_080D5360/gUnk_additional2_MinishHouseInteriors_Festari.bin"
+gUnk_additional_a_MinishHouseInteriors_Festari:: @ 080DA7A4
+	.incbin "data_080D5360/gUnk_additional_a_MinishHouseInteriors_Festari.bin"
 
 Room_MinishHouseInteriors_Festari:: @ 080DA7B8
 	.4byte Entities_MinishHouseInteriors_Festari_0
@@ -4490,9 +4452,9 @@ Room_MinishHouseInteriors_Festari:: @ 080DA7B8
 	.4byte 0x00000000
 	.4byte sub_unk3_MinishHouseInteriors_Festari
 	.4byte sub_StateChange_MinishHouseInteriors_Festari
-	.4byte gUnk_additional0_MinishHouseInteriors_Festari
-	.4byte gUnk_additional1_MinishHouseInteriors_Festari
-	.4byte gUnk_additional2_MinishHouseInteriors_Festari
+	.4byte gUnk_additional_8_MinishHouseInteriors_Festari
+	.4byte gUnk_additional_9_MinishHouseInteriors_Festari
+	.4byte gUnk_additional_a_MinishHouseInteriors_Festari
 
 Entities_MinishHouseInteriors_Red_0:: @ 080DA7E4
 	npc_raw subtype=0x3, x=0x80, y=0x58, unknown=0xf, paramB=0x21c, script=0x0
@@ -4650,37 +4612,69 @@ Entities_MinishHouseInteriors_BarrelMinish_0:: @ 080DAAD4
 	entity_list_end
 
 gUnk_080DAB44:: @ 080DAB44
-	.incbin "data_080D5360/gUnk_080DAB44.bin"
+	object_raw subtype=0x6a, x=0x30, y=0x40, paramA=0x7
+	entity_list_end
 
 gUnk_080DAB64:: @ 080DAB64
-	.incbin "data_080D5360/gUnk_080DAB64.bin"
+	npc_raw subtype=0x3, x=0xc0, y=0x48, unknown=0xf, paramB=0x216, script=0x0
+	entity_list_end
 
 gUnk_080DAB84:: @ 080DAB84
-	.incbin "data_080D5360/gUnk_080DAB84.bin"
+	object_raw subtype=0x7f, x=0xa0, y=0x58, paramA=0x5, paramB=0x2
+	object_raw subtype=0x7f, x=0xa0, y=0x78, paramA=0x5, paramB=0x2
+	object_raw subtype=0x7f, x=0xa0, y=0x98, paramA=0x5, paramB=0x2
+	entity_list_end
 
 gUnk_080DABC4:: @ 080DABC4
-	.incbin "data_080D5360/gUnk_080DABC4.bin"
+	object_raw subtype=0x7f, x=0xc0, y=0x58, paramA=0x4, paramB=0x2
+	object_raw subtype=0x7f, x=0xc0, y=0x78, paramA=0x4, paramB=0x2
+	object_raw subtype=0x7f, x=0xc0, y=0x98, paramA=0x4, paramB=0x2
+	entity_list_end
 
 gUnk_080DAC04:: @ 080DAC04
-	.incbin "data_080D5360/gUnk_080DAC04.bin"
+	object_raw subtype=0x7f, x=0x48, y=0x20, paramA=0x1, paramB=0x2
+	object_raw subtype=0x7f, x=0x68, y=0x20, paramA=0x1, paramB=0x2
+	object_raw subtype=0x7f, x=0x88, y=0x20, paramA=0x1, paramB=0x2
+	object_raw subtype=0x7f, x=0xa8, y=0x20, paramA=0x1, paramB=0x2
+	entity_list_end
 
 gUnk_080DAC54:: @ 080DAC54
-	.incbin "data_080D5360/gUnk_080DAC54.bin"
+	object_raw subtype=0x7f, x=0xa0, y=0x58, paramA=0x5
+	object_raw subtype=0x7f, x=0xa0, y=0x78, paramA=0x5
+	object_raw subtype=0x7f, x=0xa0, y=0x98, paramA=0x5
+	entity_list_end
 
 gUnk_080DAC94:: @ 080DAC94
-	.incbin "data_080D5360/gUnk_080DAC94.bin"
+	object_raw subtype=0x7f, x=0xc0, y=0x58, paramA=0x4
+	object_raw subtype=0x7f, x=0xc0, y=0x78, paramA=0x4
+	object_raw subtype=0x7f, x=0xc0, y=0x98, paramA=0x4
+	entity_list_end
 
 gUnk_080DACD4:: @ 080DACD4
-	.incbin "data_080D5360/gUnk_080DACD4.bin"
+	object_raw subtype=0x7f, x=0x48, y=0x20, paramA=0x1
+	object_raw subtype=0x7f, x=0x68, y=0x20, paramA=0x1
+	object_raw subtype=0x7f, x=0x88, y=0x20, paramA=0x1
+	object_raw subtype=0x7f, x=0xa8, y=0x20, paramA=0x1
+	entity_list_end
 
 gUnk_080DAD24:: @ 080DAD24
-	.incbin "data_080D5360/gUnk_080DAD24.bin"
+	object_raw subtype=0x7f, x=0xa0, y=0x58, paramA=0x5, paramB=0x1
+	object_raw subtype=0x7f, x=0xa0, y=0x78, paramA=0x5, paramB=0x1
+	object_raw subtype=0x7f, x=0xa0, y=0x98, paramA=0x5, paramB=0x1
+	entity_list_end
 
 gUnk_080DAD64:: @ 080DAD64
-	.incbin "data_080D5360/gUnk_080DAD64.bin"
+	object_raw subtype=0x7f, x=0xc0, y=0x58, paramA=0x4, paramB=0x1
+	object_raw subtype=0x7f, x=0xc0, y=0x78, paramA=0x4, paramB=0x1
+	object_raw subtype=0x7f, x=0xc0, y=0x98, paramA=0x4, paramB=0x1
+	entity_list_end
 
 gUnk_080DADA4:: @ 080DADA4
-	.incbin "data_080D5360/gUnk_080DADA4.bin"
+	object_raw subtype=0x7f, x=0x48, y=0x20, paramA=0x1, paramB=0x1
+	object_raw subtype=0x7f, x=0x68, y=0x20, paramA=0x1, paramB=0x1
+	object_raw subtype=0x7f, x=0x88, y=0x20, paramA=0x1, paramB=0x1
+	object_raw subtype=0x7f, x=0xa8, y=0x20, paramA=0x1, paramB=0x1
+	entity_list_end
 
 Entities_MinishHouseInteriors_BarrelMinish_1:: @ 080DADF4
 	object_raw subtype=0x4d, x=0x58, y=0xf8, collision=1, paramA=0xb, paramB=0x1
@@ -4700,8 +4694,8 @@ Enemies_MinishHouseInteriors_BarrelMinish:: @ 080DAE94
 TileEntities_MinishHouseInteriors_BarrelMinish:: @ 080DAEA4
 	tile_entity_list_end
 
-gUnk_additional0_MinishHouseInteriors_BarrelMinish:: @ 080DAEAC
-	.incbin "data_080D5360/gUnk_additional0_MinishHouseInteriors_BarrelMinish.bin"
+gUnk_additional_8_MinishHouseInteriors_BarrelMinish:: @ 080DAEAC
+	.incbin "data_080D5360/gUnk_additional_8_MinishHouseInteriors_BarrelMinish.bin"
 
 Room_MinishHouseInteriors_BarrelMinish:: @ 080DAEB4
 	.4byte Entities_MinishHouseInteriors_BarrelMinish_0
@@ -4712,15 +4706,14 @@ Room_MinishHouseInteriors_BarrelMinish:: @ 080DAEB4
 	.4byte 0x00000000
 	.4byte sub_unk3_MinishHouseInteriors_BarrelMinish
 	.4byte sub_StateChange_MinishHouseInteriors_BarrelMinish
-	.4byte gUnk_additional0_MinishHouseInteriors_BarrelMinish
+	.4byte gUnk_additional_8_MinishHouseInteriors_BarrelMinish
 
 Entities_MinishHouseInteriors_MelariMinesSouthwest_0:: @ 080DAED8
 	entity_list_end
 
 gUnk_080DAEE8:: @ 080DAEE8
-	.incbin "data_080D5360/gUnk_080DAEE8.bin"
-	.4byte script_0800D308
-	.incbin "data_080D5360/gUnk_080DAEE8_1.bin"
+	npc_raw subtype=0x2f, x=0x58, y=0x58, paramB=0x100, script=script_0800D308
+	entity_list_end
 
 Entities_MinishHouseInteriors_MelariMinesSouthwest_1:: @ 080DAF08
 	object_raw subtype=0x6f, x=0x78, y=0x10, paramA=0xc
@@ -4747,9 +4740,8 @@ Entities_MinishHouseInteriors_MelariMinesSoutheast_0:: @ 080DAF70
 	entity_list_end
 
 gUnk_080DAF80:: @ 080DAF80
-	.incbin "data_080D5360/gUnk_080DAF80.bin"
-	.4byte script_0800CF50
-	.incbin "data_080D5360/gUnk_080DAF80_1.bin"
+	npc_raw subtype=0x2d, x=0xa8, y=0x48, paramA=0x4, paramB=0x7, script=script_0800CF50
+	entity_list_end
 
 Entities_MinishHouseInteriors_MelariMinesSoutheast_1:: @ 080DAFA0
 	object_raw subtype=0x6f, x=0x78, y=0x10, paramA=0xd
@@ -4776,9 +4768,8 @@ Entities_MinishHouseInteriors_MelariMinesEast_0:: @ 080DB008
 	entity_list_end
 
 gUnk_080DB018:: @ 080DB018
-	.incbin "data_080D5360/gUnk_080DB018.bin"
-	.4byte script_0800CF50
-	.incbin "data_080D5360/gUnk_080DB018_1.bin"
+	npc_raw subtype=0x2d, x=0x130, y=0x58, paramA=0x4, paramB=0x8, script=script_0800CF50
+	entity_list_end
 
 Entities_MinishHouseInteriors_MelariMinesEast_1:: @ 080DB038
 	object_raw subtype=0x6f, x=0x10, y=0x50, paramA=0xe
@@ -4879,9 +4870,8 @@ Entities_MinishHouseInteriors_Librari_0:: @ 080DB228
 	entity_list_end
 
 gUnk_080DB238:: @ 080DB238
-	.incbin "data_080D5360/gUnk_080DB238.bin"
-	.4byte script_08012430
-	.incbin "data_080D5360/gUnk_080DB238_1.bin"
+	npc_raw subtype=0x39, x=0x78, y=0x48, script=script_08012430
+	entity_list_end
 
 Entities_MinishHouseInteriors_Librari_1:: @ 080DB258
 	object_raw subtype=0x6f, x=0x78, y=0x90
@@ -5003,18 +4993,14 @@ Entities_TownMinishHoles_MayorsHouse_0:: @ 080DB490
 	entity_list_end
 
 gUnk_080DB4A0:: @ 080DB4A0
-	.incbin "data_080D5360/gUnk_080DB4A0.bin"
-	.4byte script_0800E6E8
-	.incbin "data_080D5360/gUnk_080DB4A0_1.bin"
-	.4byte script_0800E6E8
-	.incbin "data_080D5360/gUnk_080DB4A0_2.bin"
+	npc_raw subtype=0x38, x=0x68, y=0x48, paramB=0x205, script=script_0800E6E8
+	npc_raw subtype=0x38, x=0x88, y=0x48, paramA=0x3, paramB=0x206, script=script_0800E6E8
+	entity_list_end
 
 gUnk_080DB4D0:: @ 080DB4D0
-	.incbin "data_080D5360/gUnk_080DB4D0.bin"
-	.4byte script_0800ED90
-	.incbin "data_080D5360/gUnk_080DB4D0_1.bin"
-	.4byte script_0800EE50
-	.incbin "data_080D5360/gUnk_080DB4D0_2.bin"
+	npc_raw subtype=0x38, x=0x68, y=0x48, paramB=0x205, script=script_0800ED90
+	npc_raw subtype=0x38, x=0x88, y=0x48, paramA=0x3, paramB=0x206, script=script_0800EE50
+	entity_list_end
 
 Entities_TownMinishHoles_MayorsHouse_1:: @ 080DB500
 	object_raw subtype=0x6f, x=0x78, y=0x90, paramA=0xf
@@ -5165,10 +5151,9 @@ Entities_TownMinishHoles_LibraryBookshelf_0:: @ 080DB800
 	npc_raw subtype=0x38, x=0xc0, y=0xd0, paramB=0x201, script=script_0800E6E8
 	entity_list_end
 
-gUnk_additional2_TownMinishHoles_LibraryBookshelf:: @ 080DB820
-	.incbin "data_080D5360/gUnk_additional2_TownMinishHoles_LibraryBookshelf.bin"
-	.4byte script_0800E6E8
-	.incbin "data_080D5360/gUnk_additional2_TownMinishHoles_LibraryBookshelf_1.bin"
+gUnk_additional_a_TownMinishHoles_LibraryBookshelf:: @ 080DB820
+	npc_raw subtype=0x38, x=0x80, y=0x158, paramA=0x2, paramB=0x200, script=script_0800E6E8
+	entity_list_end
 
 Entities_TownMinishHoles_LibraryBookshelf_1:: @ 080DB840
 	object_raw subtype=0x65, x=0x20, y=0x78, paramA=0x2
@@ -5184,7 +5169,8 @@ Entities_TownMinishHoles_LibraryBookshelf_1:: @ 080DB840
 	entity_list_end
 
 gUnk_080DB8F0:: @ 080DB8F0
-	.incbin "data_080D5360/gUnk_080DB8F0.bin"
+	object_raw subtype=0x5d, x=0xf8, y=0xc8, paramA=0x2
+	entity_list_end
 
 gUnk_080DB910:: @ 080DB910
 	.incbin "data_080D5360/gUnk_080DB910.bin"
@@ -5195,11 +5181,12 @@ Enemies_TownMinishHoles_LibraryBookshelf:: @ 080DB980
 TileEntities_TownMinishHoles_LibraryBookshelf:: @ 080DB990
 	tile_entity_list_end
 
-gUnk_additional0_TownMinishHoles_LibraryBookshelf:: @ 080DB998
-	.incbin "data_080D5360/gUnk_additional0_TownMinishHoles_LibraryBookshelf.bin"
+gUnk_additional_8_TownMinishHoles_LibraryBookshelf:: @ 080DB998
+	exit_region_raw centerX=0xf2, centerY=0xc8, halfWidth=0xc, halfHeight=0x4, exitIndex=0x9, bitfield=0x11
+	exit_region_list_end
 
-gUnk_additional1_TownMinishHoles_LibraryBookshelf:: @ 080DB9A8
-	.incbin "data_080D5360/gUnk_additional1_TownMinishHoles_LibraryBookshelf.bin"
+gUnk_additional_9_TownMinishHoles_LibraryBookshelf:: @ 080DB9A8
+	exit_raw transition=0x1, destX=0x78, destY=0xc8, destArea=0x2d, destRoom=0x11, unknownA=0x1
 
 Room_TownMinishHoles_LibraryBookshelf:: @ 080DB9BC
 	.4byte Entities_TownMinishHoles_LibraryBookshelf_0
@@ -5210,18 +5197,17 @@ Room_TownMinishHoles_LibraryBookshelf:: @ 080DB9BC
 	.4byte 0x00000000
 	.4byte sub_unk3_TownMinishHoles_LibraryBookshelf
 	.4byte sub_StateChange_TownMinishHoles_LibraryBookshelf
-	.4byte gUnk_additional0_TownMinishHoles_LibraryBookshelf
-	.4byte gUnk_additional1_TownMinishHoles_LibraryBookshelf
-	.4byte gUnk_additional2_TownMinishHoles_LibraryBookshelf
+	.4byte gUnk_additional_8_TownMinishHoles_LibraryBookshelf
+	.4byte gUnk_additional_9_TownMinishHoles_LibraryBookshelf
+	.4byte gUnk_additional_a_TownMinishHoles_LibraryBookshelf
 
 Entities_TownMinishHoles_LibrariBookHouse_0:: @ 080DB9E8
 	npc_raw subtype=0x39, x=0x78, y=0x58, script=script_0800E964
 	entity_list_end
 
 gUnk_080DBA08:: @ 080DBA08
-	.incbin "data_080D5360/gUnk_080DBA08.bin"
-	.4byte script_0800E6E8
-	.incbin "data_080D5360/gUnk_080DBA08_1.bin"
+	npc_raw subtype=0x38, x=0x90, y=0x80, paramA=0x2, paramB=0x200, script=script_0800E6E8
+	entity_list_end
 
 Entities_TownMinishHoles_LibrariBookHouse_1:: @ 080DBA28
 	object_raw subtype=0x6f, x=0x78, y=0xd8, paramA=0xb
@@ -5251,33 +5237,28 @@ Entities_TownMinishHoles_RemShoeShop_0:: @ 080DBAA0
 	entity_list_end
 
 gUnk_080DBAD0:: @ 080DBAD0
-	.incbin "data_080D5360/gUnk_080DBAD0.bin"
-	.4byte script_08013114
-	.incbin "data_080D5360/gUnk_080DBAD0_1.bin"
-	.4byte script_08013114
-	.incbin "data_080D5360/gUnk_080DBAD0_2.bin"
-	.4byte script_08013114
-	.incbin "data_080D5360/gUnk_080DBAD0_3.bin"
+	npc_raw subtype=0x38, x=0x68, y=0x88, paramB=0x200, script=script_08013114
+	npc_raw subtype=0x38, x=0x98, y=0xa8, paramB=0x200, script=script_08013114
+	npc_raw subtype=0x38, x=0xd8, y=0x78, paramB=0x200, script=script_08013114
+	entity_list_end
 
 gUnk_080DBB10:: @ 080DBB10
-	.incbin "data_080D5360/gUnk_080DBB10.bin"
-	.4byte script_08013114
-	.incbin "data_080D5360/gUnk_080DBB10_1.bin"
-	.4byte script_08013114
-	.incbin "data_080D5360/gUnk_080DBB10_2.bin"
-	.4byte script_08013114
-	.incbin "data_080D5360/gUnk_080DBB10_3.bin"
+	npc_raw subtype=0x38, x=0x92, y=0xe8, paramB=0x200, script=script_08013114
+	npc_raw subtype=0x38, x=0xb8, y=0xb8, paramB=0x200, script=script_08013114
+	npc_raw subtype=0x38, x=0xee, y=0xd0, paramB=0x200, script=script_08013114
+	entity_list_end
 
 gUnk_080DBB50:: @ 080DBB50
-	.incbin "data_080D5360/gUnk_080DBB50.bin"
+	object_raw subtype=0x7c, x=0xf8, y=0xe0, paramB=0x1
+	entity_list_end
 
 gUnk_080DBB70:: @ 080DBB70
-	.incbin "data_080D5360/gUnk_080DBB70.bin"
+	object_raw subtype=0x7c, x=0xa0, y=0x78
+	entity_list_end
 
 gUnk_080DBB90:: @ 080DBB90
-	.incbin "data_080D5360/gUnk_080DBB90.bin"
-	.4byte script_08013188
-	.incbin "data_080D5360/gUnk_080DBB90_1.bin"
+	object_raw subtype=0x69, unknown=0x48, paramC=script_08013188
+	entity_list_end
 
 Enemies_TownMinishHoles_RemShoeShop:: @ 080DBBB0
 	entity_list_end
@@ -5572,24 +5553,44 @@ Entities_MinishVillage_Main_0:: @ 080DC280
 	entity_list_end
 
 gUnk_080DC390:: @ 080DC390
-	.incbin "data_080D5360/gUnk_080DC390.bin"
+	npc_raw subtype=0x3, x=0x1e8, y=0x2e8, unknown=0xf, collision=1, paramB=0x21a, script=0x0
+	npc_raw subtype=0x3, x=0x48, y=0x258, unknown=0xf, collision=1, paramB=0x21b, script=0x0
+	npc_raw subtype=0x3, x=0x128, y=0x238, unknown=0xf, collision=1, paramB=0x21c, script=0x0
+	npc_raw subtype=0x3, x=0x168, y=0x1e8, unknown=0xf, collision=1, paramB=0x21d, script=0x0
+	npc_raw subtype=0x3, x=0x1a8, y=0x21a, unknown=0xf, collision=1, paramB=0x21e, script=0x0
+	entity_list_end
 
 gUnk_080DC3F0:: @ 080DC3F0
-	.incbin "data_080D5360/gUnk_080DC3F0.bin"
+	npc_raw subtype=0x3, x=0x340, y=0x1e8, unknown=0xf, collision=1, paramB=0x316, script=0x0
+	npc_raw subtype=0x3, x=0x340, y=0x1f8, unknown=0xf, collision=1, paramB=0x317, script=0x0
+	npc_raw subtype=0x3, x=0x378, y=0x298, unknown=0xf, collision=1, paramB=0x221, script=0x0
+	entity_list_end
 
 gUnk_080DC430:: @ 080DC430
-	.incbin "data_080D5360/gUnk_080DC430.bin"
+	npc_raw subtype=0x3, x=0x378, y=0x1f8, unknown=0xf, collision=1, paramB=0x219, script=0x0
+	npc_raw subtype=0x3, x=0x238, y=0xf8, unknown=0xf, collision=1, paramB=0x11f, script=0x0
+	npc_raw subtype=0x3, x=0x258, y=0xf8, unknown=0xf, collision=1, paramB=0x320, script=0x0
+	entity_list_end
 
 gUnk_080DC470:: @ 080DC470
-	.incbin "data_080D5360/gUnk_080DC470.bin"
+	npc_raw subtype=0x3, x=0x218, y=0x348, unknown=0xf, collision=1, paramB=0x222, script=0x0
+	object_raw subtype=0x4d, x=0x1fc, y=0x338, collision=1, paramA=0x18
+	object_raw subtype=0x4d, x=0x1f4, y=0x368, collision=1, paramA=0x18
+	object_raw subtype=0x4d, x=0x21c, y=0x368, collision=1, paramA=0x18
+	entity_list_end
 
 gUnk_080DC4C0:: @ 080DC4C0
-	.incbin "data_080D5360/gUnk_080DC4C0.bin"
-	.4byte script_0800C91C
-	.incbin "data_080D5360/gUnk_080DC4C0_1.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800C91C
+	npc_raw subtype=0x3, x=0x208, y=0x2f0, unknown=0xf, collision=1, paramB=0x227, script=0x0
+	npc_raw subtype=0x3, x=0x198, y=0x330, unknown=0xf, collision=1, paramB=0x128, script=0x0
+	npc_raw subtype=0x3, x=0x278, y=0x330, unknown=0xf, collision=1, paramB=0x329, script=0x0
+	npc_raw subtype=0x3, x=0x198, y=0x330, unknown=0xf, collision=1, paramB=0x12a, script=0x0
+	npc_raw subtype=0x3, x=0x278, y=0x330, unknown=0xf, collision=1, paramB=0x32b, script=0x0
+	entity_list_end
 
 gUnk_080DC530:: @ 080DC530
-	.incbin "data_080D5360/gUnk_080DC530.bin"
+	npc_raw subtype=0x3, x=0x278, y=0xd8, unknown=0xf, collision=1, paramB=0x223, script=0x0
+	entity_list_end
 
 Enemies_MinishVillage_Main:: @ 080DC550
 	entity_list_end
@@ -5873,14 +5874,21 @@ Entities_MinishCracks_CastleWildsBowHole_0:: @ 080DCAF0
 	entity_list_end
 
 gUnk_080DCB10:: @ 080DCB10
-	.incbin "data_080D5360/gUnk_080DCB10.bin"
+	manager subtype=0x1e, paramB=0xa000f0, paramC=0x80010000
+	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80008001
+	entity_list_end
 
 Entities_MinishCracks_CastleWildsBowHole_1:: @ 080DCB40
 	object_raw subtype=0x4d, x=0x98, y=0x28, collision=1, paramA=0xb
 	entity_list_end
 
-gUnk_additional0_MinishCracks_CastleWildsBowHole:: @ 080DCB60
-	.incbin "data_080D5360/gUnk_additional0_MinishCracks_CastleWildsBowHole.bin"
+gUnk_additional_8_MinishCracks_CastleWildsBowHole:: @ 080DCB60
+	enemy_raw subtype=0x32, x=0x78, y=0x48, collision=1, paramA=0x1
+	enemy_raw subtype=0x32, x=0x78, y=0x48, collision=1, paramA=0x1
+	enemy_raw subtype=0x32, x=0x78, y=0x48, collision=1, paramA=0x1
+	enemy_raw subtype=0x32, x=0x78, y=0x48, collision=1, paramA=0x1
+	enemy_raw subtype=0x32, x=0x78, y=0x48, collision=1, paramA=0x1
+	entity_list_end
 
 TileEntities_MinishCracks_CastleWildsBowHole:: @ 080DCBC0
 	tile_entity type=0x3, paramA=0x10, paramB=0x9, paramC=0x78, paramD=0x48
@@ -5896,7 +5904,7 @@ Room_MinishCracks_CastleWildsBowHole:: @ 080DCBD8
 	.4byte 0x00000000
 	.4byte sub_unk3_MinishCracks_CastleWildsBowHole
 	.4byte sub_StateChange_MinishCracks_CastleWildsBowHole
-	.4byte gUnk_additional0_MinishCracks_CastleWildsBowHole
+	.4byte gUnk_additional_8_MinishCracks_CastleWildsBowHole
 
 Entities_MinishCracks_RuinsEntrance_0:: @ 080DCBFC
 	npc_raw subtype=0x3, x=0xa8, y=0x48, unknown=0xf, paramB=0x215, script=0x0
@@ -6185,28 +6193,21 @@ Entities_MelarisMine_Main_0:: @ 080DD144
 	object_raw subtype=0x0, x=0x148, y=0x148, collision=1, paramA=0x5c, paramB=0x76e, paramC=0xc00000
 	entity_list_end
 
-gUnk_additional0_MelarisMine_Main:: @ 080DD214
-	.incbin "data_080D5360/gUnk_additional0_MelarisMine_Main.bin"
-	.4byte script_0800D278
-	.incbin "data_080D5360/gUnk_additional0_MelarisMine_Main_1.bin"
-	.4byte script_0800D278
-	.incbin "data_080D5360/gUnk_additional0_MelarisMine_Main_2.bin"
-	.4byte script_0800CFAC
-	.incbin "data_080D5360/gUnk_additional0_MelarisMine_Main_3.bin"
-	.4byte script_0800D218
-	.incbin "data_080D5360/gUnk_additional0_MelarisMine_Main_4.bin"
-	.4byte script_0800D254
-	.incbin "data_080D5360/gUnk_additional0_MelarisMine_Main_5.bin"
+gUnk_additional_8_MelarisMine_Main:: @ 080DD214
+	npc_raw subtype=0x2d, x=0x1ba, y=0x138, paramA=0x6, paramB=0x5, script=script_0800D278
+	npc_raw subtype=0x2d, x=0x1ba, y=0x148, paramA=0x6, paramB=0x6, script=script_0800D278
+	npc_raw subtype=0x2f, x=0x190, y=0x140, script=script_0800CFAC
+	object_raw subtype=0x6a, x=0x1a8, y=0x138, unknown=0x4f, paramA=0x8, paramC=script_0800D218
+	object_raw subtype=0x6a, x=0x1a8, y=0x138, unknown=0x4f, paramA=0x9, paramC=script_0800D254
+	entity_list_end
 
-gUnk_additional1_MelarisMine_Main:: @ 080DD274
-	.incbin "data_080D5360/gUnk_additional1_MelarisMine_Main.bin"
-	.4byte script_0800D350
-	.incbin "data_080D5360/gUnk_additional1_MelarisMine_Main_1.bin"
+gUnk_additional_9_MelarisMine_Main:: @ 080DD274
+	npc_raw subtype=0x2d, x=0x80, y=0x130, paramA=0x2, paramB=0x4, script=script_0800D350
+	entity_list_end
 
 gUnk_080DD294:: @ 080DD294
-	.incbin "data_080D5360/gUnk_080DD294.bin"
-	.4byte script_0800CF50
-	.incbin "data_080D5360/gUnk_080DD294_1.bin"
+	npc_raw subtype=0x2d, x=0xa0, y=0x130, paramA=0x4, paramB=0x4, script=script_0800CF50
+	entity_list_end
 
 Entities_MelarisMine_Main_1:: @ 080DD2B4
 	object_raw subtype=0x50, x=0x28, y=0x18
@@ -6230,8 +6231,8 @@ Room_MelarisMine_Main:: @ 080DD31C
 	.4byte 0x00000000
 	.4byte sub_unk3_MelarisMine_Main
 	.4byte sub_StateChange_MelarisMine_Main
-	.4byte gUnk_additional0_MelarisMine_Main
-	.4byte gUnk_additional1_MelarisMine_Main
+	.4byte gUnk_additional_8_MelarisMine_Main
+	.4byte gUnk_additional_9_MelarisMine_Main
 
 Entities_CloudTops_House_0:: @ 080DD344
 .ifdef EU_JP
@@ -6311,8 +6312,22 @@ Entities_CloudTops_Middle_1:: @ 080DD49C
 	manager subtype=0x1a, unknown=0x8, paramA=0x1e
 	entity_list_end
 
-gUnk_additional0_CloudTops_Middle:: @ 080DD5CC
-	.incbin "data_080D5360/gUnk_additional0_CloudTops_Middle.bin"
+gUnk_additional_8_CloudTops_Middle:: @ 080DD5CC
+	delayed_entity_raw subtype=0x5e, x=0xb8, y=0xa0, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x188, y=0xe0, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x220, y=0xb0, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x2a8, y=0xe8, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x318, y=0xa0, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x208, y=0x140, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0xa8, y=0x1a0, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x288, y=0x220, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x128, y=0x268, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x348, y=0x248, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x388, y=0x2a0, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x268, y=0x330, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x118, y=0x120, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0xf8, y=0x1f8, layer=1, conditions=0xffff
+	entity_list_end
 
 Enemies_CloudTops_Middle:: @ 080DD6BC
 	entity_list_end
@@ -6346,19 +6361,17 @@ Room_CloudTops_Middle:: @ 080DD70C
 	.4byte 0x00000000
 	.4byte sub_unk3_CloudTops_Middle
 	.4byte sub_StateChange_CloudTops_Middle
-	.4byte gUnk_additional0_CloudTops_Middle
+	.4byte gUnk_additional_8_CloudTops_Middle
 
 gUnk_080DD730:: @ 080DD730
-	.incbin "data_080D5360/gUnk_080DD730.bin"
+	object_raw subtype=0xa3, x=0x1e8, y=0x1b8
+	entity_list_end
 
 gUnk_080DD750:: @ 080DD750
-	.incbin "data_080D5360/gUnk_080DD750.bin"
-	.4byte script_0800D710
-	.incbin "data_080D5360/gUnk_080DD750_1.bin"
-	.4byte script_0800D7DC
-	.incbin "data_080D5360/gUnk_080DD750_2.bin"
-	.4byte script_0800D76C
-	.incbin "data_080D5360/gUnk_080DD750_3.bin"
+	object_raw subtype=0x69, x=0x1e8, y=0x1b8, unknown=0x4f, paramC=script_0800D710
+	npc_raw subtype=0x49, x=0x268, y=0x1d8, paramA=0x1, paramB=0x60b, script=script_0800D7DC
+	npc_raw subtype=0x49, x=0x1a8, y=0x1f8, paramA=0x3, paramB=0x40a, script=script_0800D76C
+	entity_list_end
 
 Entities_CloudTops_Bottom_0:: @ 080DD790
 	manager subtype=0x16, paramA=0x9, paramB=0x18
@@ -6384,8 +6397,9 @@ gUnk_080DD7E0:: @ 080DD7E0
 .endif
 	entity_list_end
 
-gUnk_additional4_CloudTops_Bottom:: @ 080DD820
-	.incbin "data_080D5360/gUnk_additional4_CloudTops_Bottom.bin"
+gUnk_additional_c_CloudTops_Bottom:: @ 080DD820
+	object_raw subtype=0xf, x=0x248, y=0x48, paramA=0x43, paramB=0x40
+	entity_list_end
 
 gUnk_080DD840:: @ 080DD840
 .ifdef EU_JP
@@ -6400,8 +6414,9 @@ gUnk_080DD840:: @ 080DD840
 	entity_list_end
 .endif
 
-gUnk_additional5_CloudTops_Bottom:: @ 080DD880
-	.incbin "data_080D5360/gUnk_additional5_CloudTops_Bottom.bin"
+gUnk_additional_d_CloudTops_Bottom:: @ 080DD880
+	object_raw subtype=0xf, x=0x268, y=0x2d8, paramA=0x43, paramB=0x40
+	entity_list_end
 
 Entities_CloudTops_Bottom_1:: @ 080DD8A0
 	manager subtype=0x1d, unknown=0x8, paramA=0x1
@@ -6410,54 +6425,68 @@ Entities_CloudTops_Bottom_1:: @ 080DD8A0
 	object_raw subtype=0x82, x=0x1e8, y=0x1b8, paramB=0x2, paramC=0x40240000
 	entity_list_end
 
-gUnk_additional0_CloudTops_Bottom:: @ 080DD8F0
+gUnk_additional_8_CloudTops_Bottom:: @ 080DD8F0
 .ifdef EU
-    @ TODO only small differences
-	.incbin "data_080D5360/gUnk_additional0_CloudTops_Bottom_EU.bin"
+	delayed_entity_raw subtype=0x5e, x=0x308, y=0x198, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x48, y=0x148, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x338, y=0x48, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x388, y=0x118, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0xe8, y=0x368, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x178, y=0x2c8, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x188, y=0x388, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x1e8, y=0x398, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x338, y=0x2e8, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x378, y=0x398, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x398, y=0x1a8, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x248, y=0x48, layer=1, paramB=0x1, paramC=script_0800D6D0, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x268, y=0x2d8, layer=1, paramB=0x1, paramC=script_0800D6F0, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x40, layer=1, paramA=0x12, paramB=0x1, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x138, y=0x2c0, layer=1, paramA=0x12, paramB=0x2, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x48, y=0x30, layer=1, paramA=0x12, paramB=0x3, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x2f8, y=0x1d0, layer=1, paramA=0x12, paramB=0x4, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x2d0, layer=1, paramA=0x12, paramB=0x5, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0xbe, x=0x228, y=0x1a0, layer=2, conditions=0xffff
+	delayed_entity_raw subtype=0xbe, x=0x1c8, y=0x1e0, layer=2, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0xbe, x=0x1b8, y=0x1a0, layer=2, paramB=0x2, conditions=0xffff
+	delayed_entity_raw subtype=0xbe, x=0x218, y=0x1c0, layer=2, paramB=0x3, conditions=0xffff
+	delayed_entity_raw subtype=0xbe, x=0x228, y=0x1e0, layer=2, paramB=0x4, conditions=0xffff
+	entity_list_end
 .else
-	.incbin "data_080D5360/gUnk_additional0_CloudTops_Bottom_1_USA-JP-DEMO_USA-DEMO_JP.bin"
+	delayed_entity_raw subtype=0x5e, x=0x308, y=0x198, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x48, y=0x148, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x338, y=0x48, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x388, y=0x118, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0xe8, y=0x368, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x178, y=0x2c8, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x188, y=0x388, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x338, y=0x2e8, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x378, y=0x398, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x398, y=0x1a8, layer=1, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x248, y=0x48, layer=1, paramB=0x1, paramC=script_0800D6D0, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x268, y=0x2d8, layer=1, paramB=0x1, paramC=script_0800D6F0, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x1e8, y=0x398, layer=1, paramB=0x1, paramC=script_0800D6F0, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x40, layer=1, paramA=0x12, paramB=0x1, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x138, y=0x2c0, layer=1, paramA=0x12, paramB=0x2, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x48, y=0x30, layer=1, paramA=0x12, paramB=0x3, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x2f8, y=0x1d0, layer=1, paramA=0x12, paramB=0x4, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x6a, x=0x3a8, y=0x2d0, layer=1, paramA=0x12, paramB=0x5, paramC=script_0800D6B4, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0xbe, x=0x228, y=0x1a0, layer=2, conditions=0xffff
+	delayed_entity_raw subtype=0xbe, x=0x1c8, y=0x1e0, layer=2, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0xbe, x=0x1b8, y=0x1a0, layer=2, paramB=0x2, conditions=0xffff
+	delayed_entity_raw subtype=0xbe, x=0x218, y=0x1c0, layer=2, paramB=0x3, conditions=0xffff
+	delayed_entity_raw subtype=0xbe, x=0x228, y=0x1e0, layer=2, paramB=0x4, conditions=0xffff
+	entity_list_end
 .endif
 
-.ifdef EU
-	.4byte 0
-	.incbin "data_080D5360/gUnk_additional0_CloudTops_Bottom_2_EU.bin"
-	.4byte script_0800D6D0
-	.incbin "data_080D5360/gUnk_additional0_CloudTops_Bottom_3_EU.bin"
-.else
-	.4byte script_0800D6D0
-	.incbin "data_080D5360/gUnk_additional0_CloudTops_Bottom_4_USA-JP-DEMO_USA-DEMO_JP.bin"
-	.4byte script_0800D6F0
-	.incbin "data_080D5360/gUnk_additional0_CloudTops_Bottom_5_USA-JP-DEMO_USA-DEMO_JP.bin"
-.endif
-	.4byte script_0800D6F0
-	.incbin "data_080D5360/gUnk_additional0_CloudTops_Bottom_6.bin"
-	.4byte script_0800D6B4
-	.incbin "data_080D5360/gUnk_additional0_CloudTops_Bottom_7.bin"
-	.4byte script_0800D6B4
-	.incbin "data_080D5360/gUnk_additional0_CloudTops_Bottom_8.bin"
-	.4byte script_0800D6B4
-	.incbin "data_080D5360/gUnk_additional0_CloudTops_Bottom_9.bin"
-	.4byte script_0800D6B4
-	.incbin "data_080D5360/gUnk_additional0_CloudTops_Bottom_10.bin"
-	.4byte script_0800D6B4
-	.incbin "data_080D5360/gUnk_additional0_CloudTops_Bottom_11.bin"
-
-gUnk_additional1_CloudTops_Bottom:: @ 080DDA70
-	.incbin "data_080D5360/gUnk_additional1_CloudTops_Bottom.bin"
-	.4byte script_0800D60C
-	.incbin "data_080D5360/gUnk_additional1_CloudTops_Bottom_1.bin"
-	.4byte script_0800D60C
-	.incbin "data_080D5360/gUnk_additional1_CloudTops_Bottom_2.bin"
-	.4byte script_0800D60C
-	.incbin "data_080D5360/gUnk_additional1_CloudTops_Bottom_3.bin"
-	.4byte script_0800D60C
-	.incbin "data_080D5360/gUnk_additional1_CloudTops_Bottom_4.bin"
-	.4byte script_0800D60C
-	.incbin "data_080D5360/gUnk_additional1_CloudTops_Bottom_5.bin"
-	.4byte script_08014C94
-	.incbin "data_080D5360/gUnk_additional1_CloudTops_Bottom_6.bin"
-	.4byte script_08014C94
-	.incbin "data_080D5360/gUnk_additional1_CloudTops_Bottom_7.bin"
+gUnk_additional_9_CloudTops_Bottom:: @ 080DDA70
+	delayed_entity_raw subtype=0x4e, x=0x3a8, y=0x48, layer=1, paramA=0x1, paramC=script_0800D60C, conditions=0xffff
+	delayed_entity_raw subtype=0x4e, x=0x138, y=0x2c8, layer=1, paramA=0x2, paramC=script_0800D60C, conditions=0xffff
+	delayed_entity_raw subtype=0x4e, x=0x48, y=0x38, layer=1, paramA=0x3, paramC=script_0800D60C, conditions=0xffff
+	delayed_entity_raw subtype=0x4e, x=0x2f8, y=0x1d8, layer=1, paramA=0x4, paramC=script_0800D60C, conditions=0xffff
+	delayed_entity_raw subtype=0x4e, x=0x3a8, y=0x2d8, layer=1, paramA=0x5, paramC=script_0800D60C, conditions=0xffff
+	delayed_entity_raw subtype=0x49, x=0x2d8, y=0x1d8, layer=1, paramA=0x1, paramB=0xb, paramC=script_08014C94, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x49, x=0x1a8, y=0x1f8, layer=1, paramA=0x3, paramB=0xa, paramC=script_08014C94, paramD=0x4, conditions=0xffff
+	entity_list_end
 
 Enemies_CloudTops_Bottom:: @ 080DDAF0
 	enemy_raw subtype=0x3f, x=0x388, y=0x148, paramB=0x1e100000, paramC=0xe00350
@@ -6471,11 +6500,15 @@ Enemies_CloudTops_Bottom:: @ 080DDAF0
 TileEntities_CloudTops_Bottom:: @ 080DDB60
 	tile_entity_list_end
 
-gUnk_additional2_CloudTops_Bottom:: @ 080DDB68
-	.incbin "data_080D5360/gUnk_additional2_CloudTops_Bottom.bin"
+gUnk_additional_a_CloudTops_Bottom:: @ 080DDB68
+	enemy_raw subtype=0x3f, x=0x1b8, y=0x58, paramB=0x101e0000, paramC=0x200180
+	enemy_raw subtype=0x3f, x=0x208, y=0x68, paramB=0x101e0000, paramC=0x200180
+	entity_list_end
 
-gUnk_additional3_CloudTops_Bottom:: @ 080DDB98
-	.incbin "data_080D5360/gUnk_additional3_CloudTops_Bottom.bin"
+gUnk_additional_b_CloudTops_Bottom:: @ 080DDB98
+	enemy_raw subtype=0x3f, x=0x238, y=0x308, paramB=0xa1a0000, paramC=0x3000380
+	enemy_raw subtype=0x3f, x=0x258, y=0x358, paramB=0xa1a0000, paramC=0x3000380
+	entity_list_end
 
 Room_CloudTops_Bottom:: @ 080DDBC8
 	.4byte Entities_CloudTops_Bottom_0
@@ -6486,12 +6519,12 @@ Room_CloudTops_Bottom:: @ 080DDBC8
 	.4byte 0x00000000
 	.4byte sub_unk3_CloudTops_Bottom
 	.4byte sub_StateChange_CloudTops_Bottom
-	.4byte gUnk_additional0_CloudTops_Bottom
-	.4byte gUnk_additional1_CloudTops_Bottom
-	.4byte gUnk_additional2_CloudTops_Bottom
-	.4byte gUnk_additional3_CloudTops_Bottom
-	.4byte gUnk_additional4_CloudTops_Bottom
-	.4byte gUnk_additional5_CloudTops_Bottom
+	.4byte gUnk_additional_8_CloudTops_Bottom
+	.4byte gUnk_additional_9_CloudTops_Bottom
+	.4byte gUnk_additional_a_CloudTops_Bottom
+	.4byte gUnk_additional_b_CloudTops_Bottom
+	.4byte gUnk_additional_c_CloudTops_Bottom
+	.4byte gUnk_additional_d_CloudTops_Bottom
 
 Entities_Ruins_Entrance_0:: @ 080DDC00
 .ifdef EU_JP
@@ -6524,20 +6557,21 @@ TileEntities_Ruins_Entrance:: @ 080DDCD0
 .endif
 	tile_entity_list_end
 
-gUnk_additional0_Ruins_Entrance:: @ 080DDCE0
-	.incbin "data_080D5360/gUnk_additional0_Ruins_Entrance.bin"
+gUnk_additional_8_Ruins_Entrance:: @ 080DDCE0
+	exit_region_raw centerX=0x48, centerY=0x188, halfWidth=0x3, halfHeight=0x3, exitIndex=0x9, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional1_Ruins_Entrance:: @ 080DDCF0
-	.incbin "data_080D5360/gUnk_additional1_Ruins_Entrance.bin"
+gUnk_additional_9_Ruins_Entrance:: @ 080DDCF0
+	exit_raw transition=0x1, destX=0x98, destY=0x28, destArea=0x27, destRoom=0x7, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
-gUnk_additional2_Ruins_Entrance:: @ 080DDD04
-	.incbin "data_080D5360/gUnk_additional2_Ruins_Entrance.bin"
+gUnk_additional_a_Ruins_Entrance:: @ 080DDD04
+	.incbin "data_080D5360/gUnk_additional_a_Ruins_Entrance.bin"
 
-gUnk_additional3_Ruins_Entrance:: @ 080DDD18
-	.incbin "data_080D5360/gUnk_additional3_Ruins_Entrance.bin"
+gUnk_additional_b_Ruins_Entrance:: @ 080DDD18
+	.incbin "data_080D5360/gUnk_additional_b_Ruins_Entrance.bin"
 
-gUnk_additional4_Ruins_Entrance:: @ 080DDD2C
-	.incbin "data_080D5360/gUnk_additional4_Ruins_Entrance.bin"
+gUnk_additional_c_Ruins_Entrance:: @ 080DDD2C
+	.incbin "data_080D5360/gUnk_additional_c_Ruins_Entrance.bin"
 
 Room_Ruins_Entrance:: @ 080DDD40
 	.4byte Entities_Ruins_Entrance_0
@@ -6548,11 +6582,11 @@ Room_Ruins_Entrance:: @ 080DDD40
 	.4byte 0x00000000
 	.4byte sub_unk3_Ruins_Entrance
 	.4byte sub_StateChange_Ruins_Entrance
-	.4byte gUnk_additional0_Ruins_Entrance
-	.4byte gUnk_additional1_Ruins_Entrance
-	.4byte gUnk_additional2_Ruins_Entrance
-	.4byte gUnk_additional3_Ruins_Entrance
-	.4byte gUnk_additional4_Ruins_Entrance
+	.4byte gUnk_additional_8_Ruins_Entrance
+	.4byte gUnk_additional_9_Ruins_Entrance
+	.4byte gUnk_additional_a_Ruins_Entrance
+	.4byte gUnk_additional_b_Ruins_Entrance
+	.4byte gUnk_additional_c_Ruins_Entrance
 
 Entities_Ruins_Beanstalk_0:: @ 080DDD74
 	entity_list_end
@@ -6575,11 +6609,12 @@ Enemies_Ruins_Beanstalk:: @ 080DDDB4
 TileEntities_Ruins_Beanstalk:: @ 080DDDF4
 	tile_entity_list_end
 
-gUnk_additional0_Ruins_Beanstalk:: @ 080DDDFC
-	.incbin "data_080D5360/gUnk_additional0_Ruins_Beanstalk.bin"
+gUnk_additional_8_Ruins_Beanstalk:: @ 080DDDFC
+	exit_region_raw centerX=0x48, centerY=0x4, halfWidth=0x8, halfHeight=0x4, exitIndex=0x9, bitfield=0x11
+	exit_region_list_end
 
-gUnk_additional1_Ruins_Beanstalk:: @ 080DDE0C
-	.incbin "data_080D5360/gUnk_additional1_Ruins_Beanstalk.bin"
+gUnk_additional_9_Ruins_Beanstalk:: @ 080DDE0C
+	exit_raw transition=0x1, destX=0x78, destY=0x98, destArea=0xd, destRoom=0x12, unknownA=0x1
 
 Room_Ruins_Beanstalk:: @ 080DDE20
 	.4byte Entities_Ruins_Beanstalk_0
@@ -6590,8 +6625,8 @@ Room_Ruins_Beanstalk:: @ 080DDE20
 	.4byte 0x00000000
 	.4byte sub_unk3_Ruins_Beanstalk
 	.4byte sub_StateChange_Ruins_Beanstalk
-	.4byte gUnk_additional0_Ruins_Beanstalk
-	.4byte gUnk_additional1_Ruins_Beanstalk
+	.4byte gUnk_additional_8_Ruins_Beanstalk
+	.4byte gUnk_additional_9_Ruins_Beanstalk
 
 Entities_Ruins_TripleTektites_0:: @ 080DDE48
 .ifdef EU_JP
@@ -6606,7 +6641,8 @@ Entities_Ruins_TripleTektites_0:: @ 080DDE48
 	entity_list_end
 
 gUnk_080DDE88:: @ 080DDE88
-	.incbin "data_080D5360/gUnk_080DDE88.bin"
+	manager subtype=0x6, paramA=0x8
+	entity_list_end
 
 Entities_Ruins_TripleTektites_1:: @ 080DDEA8
 	entity_list_end
@@ -6614,17 +6650,21 @@ Entities_Ruins_TripleTektites_1:: @ 080DDEA8
 Enemies_Ruins_TripleTektites:: @ 080DDEB8
 	entity_list_end
 
-gUnk_additional2_Ruins_TripleTektites:: @ 080DDEC8
-	.incbin "data_080D5360/gUnk_additional2_Ruins_TripleTektites.bin"
+gUnk_additional_a_Ruins_TripleTektites:: @ 080DDEC8
+	enemy_raw subtype=0x26, x=0x38, y=0x38
+	enemy_raw subtype=0x26, x=0x88, y=0x28
+	enemy_raw subtype=0x26, x=0xa8, y=0x38
+	entity_list_end
 
 TileEntities_Ruins_TripleTektites:: @ 080DDF08
 	tile_entity_list_end
 
-gUnk_additional0_Ruins_TripleTektites:: @ 080DDF10
-	.incbin "data_080D5360/gUnk_additional0_Ruins_TripleTektites.bin"
+gUnk_additional_8_Ruins_TripleTektites:: @ 080DDF10
+	exit_region_raw centerX=0xc8, centerY=0x58, halfWidth=0x3, halfHeight=0x3, exitIndex=0x9, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional1_Ruins_TripleTektites:: @ 080DDF20
-	.incbin "data_080D5360/gUnk_additional1_Ruins_TripleTektites.bin"
+gUnk_additional_9_Ruins_TripleTektites:: @ 080DDF20
+	exit_raw transition=0x1, destX=0x78, destY=0x38, destArea=0x27, destRoom=0xc, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
 Room_Ruins_TripleTektites:: @ 080DDF34
 	.4byte Entities_Ruins_TripleTektites_0
@@ -6635,9 +6675,9 @@ Room_Ruins_TripleTektites:: @ 080DDF34
 	.4byte 0x00000000
 	.4byte sub_unk3_Ruins_TripleTektites
 	.4byte sub_StateChange_Ruins_TripleTektites
-	.4byte gUnk_additional0_Ruins_TripleTektites
-	.4byte gUnk_additional1_Ruins_TripleTektites
-	.4byte gUnk_additional2_Ruins_TripleTektites
+	.4byte gUnk_additional_8_Ruins_TripleTektites
+	.4byte gUnk_additional_9_Ruins_TripleTektites
+	.4byte gUnk_additional_a_Ruins_TripleTektites
 
 Entities_Ruins_LadderToTektites_0:: @ 080DDF60
 	entity_list_end
@@ -6673,9 +6713,8 @@ Entities_Ruins_FortressEntrance_0:: @ 080DDFE8
 	entity_list_end
 
 gUnk_080DE008:: @ 080DE008
-	.incbin "data_080D5360/gUnk_080DE008.bin"
-	.4byte script_0800AF8C
-	.incbin "data_080D5360/gUnk_080DE008_1.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800AF8C
+	entity_list_end
 
 Entities_Ruins_FortressEntrance_1:: @ 080DE028
 	manager subtype=0x3, x=0x48, y=0x40, unknown=0x0, paramB=0x102
@@ -6709,8 +6748,8 @@ TileEntities_Ruins_FortressEntrance:: @ 080DE0E8
 .endif
 	tile_entity_list_end
 
-gUnk_additional0_Ruins_FortressEntrance:: @ 080DE118
-	.incbin "data_080D5360/gUnk_additional0_Ruins_FortressEntrance.bin"
+gUnk_additional_8_Ruins_FortressEntrance:: @ 080DE118
+	.incbin "data_080D5360/gUnk_additional_8_Ruins_FortressEntrance.bin"
 
 Room_Ruins_FortressEntrance:: @ 080DE12C
 	.4byte Entities_Ruins_FortressEntrance_0
@@ -6721,7 +6760,7 @@ Room_Ruins_FortressEntrance:: @ 080DE12C
 	.4byte 0x00000000
 	.4byte sub_unk3_Ruins_FortressEntrance
 	.4byte sub_StateChange_Ruins_FortressEntrance
-	.4byte gUnk_additional0_Ruins_FortressEntrance
+	.4byte gUnk_additional_8_Ruins_FortressEntrance
 
 Entities_Ruins_Armos_0:: @ 080DE150
 .ifdef EU_JP
@@ -6746,10 +6785,12 @@ Entities_Ruins_Armos_0:: @ 080DE150
 	entity_list_end
 
 gUnk_080DE1E0:: @ 080DE1E0
-	.incbin "data_080D5360/gUnk_080DE1E0.bin"
+	manager subtype=0xb, unknown=0x0, paramB=0xd, paramC=0x80000000
+	entity_list_end
 
 gUnk_080DE200:: @ 080DE200
-	.incbin "data_080D5360/gUnk_080DE200.bin"
+	manager subtype=0xb, unknown=0x0, paramB=0xe, paramC=0x80010000
+	entity_list_end
 
 Entities_Ruins_Armos_1:: @ 080DE220
 	manager subtype=0x3, x=0xa8, y=0x30, unknown=0x0, paramB=0x102
@@ -6759,11 +6800,21 @@ Enemies_Ruins_Armos:: @ 080DE240
 	enemy_raw subtype=0x2a, x=0x48, y=0x58, paramA=0x1, paramB=0x122c0208, paramC=0x100010
 	entity_list_end
 
-gUnk_additional5_Ruins_Armos:: @ 080DE260
-	.incbin "data_080D5360/gUnk_additional5_Ruins_Armos.bin"
+gUnk_additional_d_Ruins_Armos:: @ 080DE260
+	enemy_raw subtype=0x2a, x=0x88, y=0x58, paramB=0x122c0309, paramC=0x100010
+	enemy_raw subtype=0x2a, x=0xc8, y=0x58, paramB=0x122c040a, paramC=0x100010
+	enemy_raw subtype=0x2a, x=0x108, y=0x58, paramB=0x122c050b, paramC=0x100010
+	manager subtype=0x28, unknown=0x3, paramB=0xd
+	entity_list_end
 
-gUnk_additional6_Ruins_Armos:: @ 080DE2B0
-	.incbin "data_080D5360/gUnk_additional6_Ruins_Armos.bin"
+gUnk_additional_e_Ruins_Armos:: @ 080DE2B0
+	enemy_raw subtype=0x35, x=0x1c8, y=0x58, paramA=0x1
+	enemy_raw subtype=0x35, x=0x1b8, y=0x98, paramA=0x1
+	manager subtype=0x28, unknown=0x3, paramB=0xe
+	enemy_raw subtype=0x2c, x=0x58, y=0xc8, paramB=0x83c0000, paramC=0xb00010
+	enemy_raw subtype=0x2c, x=0x1c8, y=0x78, paramB=0x1c0c0000, paramC=0x100190
+	enemy_raw subtype=0x2c, x=0x1c8, y=0xd8, paramB=0x1c0c0000, paramC=0x100190
+	entity_list_end
 
 TileEntities_Ruins_Armos:: @ 080DE320
 .ifdef EU_JP
@@ -6779,20 +6830,20 @@ TileEntities_Ruins_Armos:: @ 080DE320
 .endif
 	tile_entity_list_end
 
-gUnk_additional0_Ruins_Armos:: @ 080DE338
-	.incbin "data_080D5360/gUnk_additional0_Ruins_Armos.bin"
+gUnk_additional_8_Ruins_Armos:: @ 080DE338
+	.incbin "data_080D5360/gUnk_additional_8_Ruins_Armos.bin"
 
-gUnk_additional1_Ruins_Armos:: @ 080DE34C
-	.incbin "data_080D5360/gUnk_additional1_Ruins_Armos.bin"
+gUnk_additional_9_Ruins_Armos:: @ 080DE34C
+	.incbin "data_080D5360/gUnk_additional_9_Ruins_Armos.bin"
 
-gUnk_additional2_Ruins_Armos:: @ 080DE360
-	.incbin "data_080D5360/gUnk_additional2_Ruins_Armos.bin"
+gUnk_additional_a_Ruins_Armos:: @ 080DE360
+	.incbin "data_080D5360/gUnk_additional_a_Ruins_Armos.bin"
 
-gUnk_additional3_Ruins_Armos:: @ 080DE374
-	.incbin "data_080D5360/gUnk_additional3_Ruins_Armos.bin"
+gUnk_additional_b_Ruins_Armos:: @ 080DE374
+	.incbin "data_080D5360/gUnk_additional_b_Ruins_Armos.bin"
 
-gUnk_additional4_Ruins_Armos:: @ 080DE388
-	.incbin "data_080D5360/gUnk_additional4_Ruins_Armos.bin"
+gUnk_additional_c_Ruins_Armos:: @ 080DE388
+	.incbin "data_080D5360/gUnk_additional_c_Ruins_Armos.bin"
 
 Room_Ruins_Armos:: @ 080DE39C
 	.4byte Entities_Ruins_Armos_0
@@ -6803,13 +6854,13 @@ Room_Ruins_Armos:: @ 080DE39C
 	.4byte 0x00000000
 	.4byte sub_unk3_Ruins_Armos
 	.4byte sub_StateChange_Ruins_Armos
-	.4byte gUnk_additional0_Ruins_Armos
-	.4byte gUnk_additional1_Ruins_Armos
-	.4byte gUnk_additional2_Ruins_Armos
-	.4byte gUnk_additional3_Ruins_Armos
-	.4byte gUnk_additional4_Ruins_Armos
-	.4byte gUnk_additional5_Ruins_Armos
-	.4byte gUnk_additional6_Ruins_Armos
+	.4byte gUnk_additional_8_Ruins_Armos
+	.4byte gUnk_additional_9_Ruins_Armos
+	.4byte gUnk_additional_a_Ruins_Armos
+	.4byte gUnk_additional_b_Ruins_Armos
+	.4byte gUnk_additional_c_Ruins_Armos
+	.4byte gUnk_additional_d_Ruins_Armos
+	.4byte gUnk_additional_e_Ruins_Armos
 
 Entities_DeepwoodShrine_Madderpillar_0:: @ 080DE3D8
 	manager subtype=0x1e, x=0x40, y=0x40, paramB=0x70009d, paramC=0x80000000
@@ -6829,10 +6880,15 @@ Entities_DeepwoodShrine_Madderpillar_0:: @ 080DE3D8
 	entity_list_end
 
 gUnk_080DE4C8:: @ 080DE4C8
-	.incbin "data_080D5360/gUnk_080DE4C8.bin"
+	manager subtype=0xf, unknown=0x0, paramA=0xd, paramC=0x170000
+	entity_list_end
 
-gUnk_additional0_DeepwoodShrine_Madderpillar:: @ 080DE4E8
-	.incbin "data_080D5360/gUnk_additional0_DeepwoodShrine_Madderpillar.bin"
+gUnk_additional_8_DeepwoodShrine_Madderpillar:: @ 080DE4E8
+	enemy_raw subtype=0x18, x=0x98, y=0x88
+	manager subtype=0x2e, x=0x2d, unknown=0x0, paramB=0x100, paramC=0x80000000
+	object_raw subtype=0x8, x=0xe8, y=0x58, paramA=0x5, paramC=0x8000ffff
+	manager subtype=0xa, x=0x404, y=0x70a, unknown=0x0, paramA=0x3, paramB=0xb000000, paramC=0x80000017
+	entity_list_end
 
 TileEntities_DeepwoodShrine_Madderpillar:: @ 080DE538
 	tile_entity type=0x1, paramA=0x1
@@ -6848,7 +6904,7 @@ Room_DeepwoodShrine_Madderpillar:: @ 080DE550
 	.4byte 0x00000000
 	.4byte sub_unk3_DeepwoodShrine_Madderpillar
 	.4byte sub_StateChange_DeepwoodShrine_Madderpillar
-	.4byte gUnk_additional0_DeepwoodShrine_Madderpillar
+	.4byte gUnk_additional_8_DeepwoodShrine_Madderpillar
 
 Entities_DeepwoodShrine_BluePortal_0:: @ 080DE574
 	object_raw subtype=0x3, x=0x108, y=0x98, paramC=0x1c0000
@@ -6875,17 +6931,21 @@ Entities_DeepwoodShrine_BluePortal_0:: @ 080DE574
 	object_raw subtype=0x0, x=0xe8, y=0x34, collision=2, paramA=0x63, paramB=0x400, paramC=0x4f0000
 	entity_list_end
 
-gUnk_additional0_DeepwoodShrine_BluePortal:: @ 080DE6E4
-	.incbin "data_080D5360/gUnk_additional0_DeepwoodShrine_BluePortal.bin"
+gUnk_additional_8_DeepwoodShrine_BluePortal:: @ 080DE6E4
+	enemy_raw subtype=0x12, x=0x128, y=0x68
+	entity_list_end
 
-gUnk_additional1_DeepwoodShrine_BluePortal:: @ 080DE704
-	.incbin "data_080D5360/gUnk_additional1_DeepwoodShrine_BluePortal.bin"
+gUnk_additional_9_DeepwoodShrine_BluePortal:: @ 080DE704
+	enemy_raw subtype=0x12, x=0x158, y=0x68
+	entity_list_end
 
-gUnk_additional2_DeepwoodShrine_BluePortal:: @ 080DE724
-	.incbin "data_080D5360/gUnk_additional2_DeepwoodShrine_BluePortal.bin"
+gUnk_additional_a_DeepwoodShrine_BluePortal:: @ 080DE724
+	enemy_raw subtype=0x12, x=0x128, y=0x98
+	entity_list_end
 
-gUnk_additional3_DeepwoodShrine_BluePortal:: @ 080DE744
-	.incbin "data_080D5360/gUnk_additional3_DeepwoodShrine_BluePortal.bin"
+gUnk_additional_b_DeepwoodShrine_BluePortal:: @ 080DE744
+	enemy_raw subtype=0x12, x=0x158, y=0x98
+	entity_list_end
 
 Enemies_DeepwoodShrine_BluePortal:: @ 080DE764
 	enemy_raw subtype=0x12, x=0x58, y=0x68
@@ -6907,10 +6967,10 @@ Room_DeepwoodShrine_BluePortal:: @ 080DE7B4
 	.4byte 0x00000000
 	.4byte sub_unk3_DeepwoodShrine_BluePortal
 	.4byte sub_StateChange_DeepwoodShrine_BluePortal
-	.4byte gUnk_additional0_DeepwoodShrine_BluePortal
-	.4byte gUnk_additional1_DeepwoodShrine_BluePortal
-	.4byte gUnk_additional2_DeepwoodShrine_BluePortal
-	.4byte gUnk_additional3_DeepwoodShrine_BluePortal
+	.4byte gUnk_additional_8_DeepwoodShrine_BluePortal
+	.4byte gUnk_additional_9_DeepwoodShrine_BluePortal
+	.4byte gUnk_additional_a_DeepwoodShrine_BluePortal
+	.4byte gUnk_additional_b_DeepwoodShrine_BluePortal
 
 Entities_DeepwoodShrine_StairsToB1_0:: @ 080DE7E4
 	object_raw subtype=0x5, x=0x108, y=0xb8
@@ -6918,10 +6978,13 @@ Entities_DeepwoodShrine_StairsToB1_0:: @ 080DE7E4
 	entity_list_end
 
 gUnk_080DE814:: @ 080DE814
-	.incbin "data_080D5360/gUnk_080DE814.bin"
+	manager subtype=0xd, x=0x285, y=0x1, paramA=0x8, paramC=0x4b0000
+	entity_list_end
 
-gUnk_additional0_DeepwoodShrine_StairsToB1:: @ 080DE834
-	.incbin "data_080D5360/gUnk_additional0_DeepwoodShrine_StairsToB1.bin"
+gUnk_additional_8_DeepwoodShrine_StairsToB1:: @ 080DE834
+	object_raw subtype=0x3, x=0x58, y=0xa8, paramC=0x4c0000
+	object_raw subtype=0xc, x=0x58, y=0x88, paramB=0x1e00, paramC=0x4c0000
+	entity_list_end
 
 Enemies_DeepwoodShrine_StairsToB1:: @ 080DE864
 	enemy_raw subtype=0x32, x=0x78, y=0x48
@@ -6942,7 +7005,7 @@ Room_DeepwoodShrine_StairsToB1:: @ 080DE8AC
 	.4byte 0x00000000
 	.4byte sub_unk3_DeepwoodShrine_StairsToB1
 	.4byte sub_StateChange_DeepwoodShrine_StairsToB1
-	.4byte gUnk_additional0_DeepwoodShrine_StairsToB1
+	.4byte gUnk_additional_8_DeepwoodShrine_StairsToB1
 
 Entities_DeepwoodShrine_PotBridge_0:: @ 080DE8D0
 	manager subtype=0x20, x=0x48, y=0x48, paramB=0x10c80500, paramC=0x261048
@@ -7041,8 +7104,10 @@ Entities_DeepwoodShrine_Barrel_0:: @ 080DEB30
 	manager subtype=0xd, x=0x144, y=0x1, paramA=0x8, paramC=0x80020000
 	entity_list_end
 
-gUnk_additional0_DeepwoodShrine_Barrel:: @ 080DEBE0
-	.incbin "data_080D5360/gUnk_additional0_DeepwoodShrine_Barrel.bin"
+gUnk_additional_8_DeepwoodShrine_Barrel:: @ 080DEBE0
+	object_raw subtype=0x3, x=0x48, y=0x58, paramC=0x80030000
+	object_raw subtype=0xc, x=0x48, y=0x38, paramB=0x1e00, paramC=0x80030000
+	entity_list_end
 
 Enemies_DeepwoodShrine_Barrel:: @ 080DEC10
 	enemy_raw subtype=0x12, x=0x58, y=0x58
@@ -7064,7 +7129,7 @@ Room_DeepwoodShrine_Barrel:: @ 080DEC68
 	.4byte 0x00000000
 	.4byte sub_unk3_DeepwoodShrine_Barrel
 	.4byte sub_StateChange_DeepwoodShrine_Barrel
-	.4byte gUnk_additional0_DeepwoodShrine_Barrel
+	.4byte gUnk_additional_8_DeepwoodShrine_Barrel
 
 Entities_DeepwoodShrine_Button_0:: @ 080DEC8C
 	object_raw subtype=0x3, x=0x38, y=0xc8, paramC=0x2d0000
@@ -7106,8 +7171,11 @@ Entities_DeepwoodShrine_Mulldozer_0:: @ 080DED8C
 	manager subtype=0x17, x=0x88, y=0x58, paramA=0x53, paramB=0x10200, paramC=0x530030
 	entity_list_end
 
-gUnk_additional0_DeepwoodShrine_Mulldozer:: @ 080DEDFC
-	.incbin "data_080D5360/gUnk_additional0_DeepwoodShrine_Mulldozer.bin"
+gUnk_additional_8_DeepwoodShrine_Mulldozer:: @ 080DEDFC
+	enemy_raw subtype=0x32, x=0x58, y=0x78, unknown=0x2f
+	enemy_raw subtype=0x32, x=0xb8, y=0x78, unknown=0x2f
+	enemy_raw subtype=0x32, x=0x88, y=0x38, unknown=0x2f
+	entity_list_end
 
 Enemies_DeepwoodShrine_Mulldozer:: @ 080DEE3C
 	entity_list_end
@@ -7125,7 +7193,7 @@ Room_DeepwoodShrine_Mulldozer:: @ 080DEE5C
 	.4byte 0x00000000
 	.4byte sub_unk3_DeepwoodShrine_Mulldozer
 	.4byte sub_StateChange_DeepwoodShrine_Mulldozer
-	.4byte gUnk_additional0_DeepwoodShrine_Mulldozer
+	.4byte gUnk_additional_8_DeepwoodShrine_Mulldozer
 
 Entities_DeepwoodShrine_Pillars_0:: @ 080DEE80
 	object_raw subtype=0x3, x=0x98, y=0x48, paramA=0x1, paramC=0x80000000
@@ -7207,8 +7275,8 @@ Entities_DeepwoodShrine_Entrance_0:: @ 080DF0B0
 	object_raw subtype=0x5, x=0x118, y=0xa8, collision=1, paramA=0x5f
 	entity_list_end
 
-gUnk_additional0_DeepwoodShrine_Entrance:: @ 080DF180
-	.incbin "data_080D5360/gUnk_additional0_DeepwoodShrine_Entrance.bin"
+gUnk_additional_8_DeepwoodShrine_Entrance:: @ 080DF180
+	.incbin "data_080D5360/gUnk_additional_8_DeepwoodShrine_Entrance.bin"
 
 Enemies_DeepwoodShrine_Entrance:: @ 080DF190
 	entity_list_end
@@ -7226,7 +7294,7 @@ Room_DeepwoodShrine_Entrance:: @ 080DF1B0
 	.4byte 0x00000000
 	.4byte sub_unk3_DeepwoodShrine_Entrance
 	.4byte sub_StateChange_DeepwoodShrine_Entrance
-	.4byte gUnk_additional0_DeepwoodShrine_Entrance
+	.4byte gUnk_additional_8_DeepwoodShrine_Entrance
 
 Entities_DeepwoodShrine_Torch_0:: @ 080DF1D4
 	object_raw subtype=0x8, x=0xa8, y=0x28, paramA=0x8, paramC=0x3c0000
@@ -7480,14 +7548,19 @@ Entities_DeepwoodShrineBoss_Main_0:: @ 080DF88C
 	object_raw subtype=0x5, x=0xd8, y=0xb8, paramA=0x5f
 	entity_list_end
 
-gUnk_additional1_DeepwoodShrineBoss_Main:: @ 080DF91C
-	.incbin "data_080D5360/gUnk_additional1_DeepwoodShrineBoss_Main.bin"
+gUnk_additional_9_DeepwoodShrineBoss_Main:: @ 080DF91C
+	object_raw subtype=0xac, x=0x88, y=0x68, paramA=0x40
+	manager subtype=0xe, y=0x3c, unknown=0x1f, paramA=0xa, paramC=0x80000000
+	entity_list_end
 
-gUnk_additional2_DeepwoodShrineBoss_Main:: @ 080DF94C
-	.incbin "data_080D5360/gUnk_additional2_DeepwoodShrineBoss_Main.bin"
+gUnk_additional_a_DeepwoodShrineBoss_Main:: @ 080DF94C
+	object_raw subtype=0x34, x=0x88, y=0x98, paramA=0x2, paramB=0x4a, paramC=0x400201c7
+	object_raw subtype=0x47, x=0x88, y=0x58, paramC=0x40020047
+	entity_list_end
 
-gUnk_additional0_DeepwoodShrineBoss_Main:: @ 080DF97C
-	.incbin "data_080D5360/gUnk_additional0_DeepwoodShrineBoss_Main.bin"
+gUnk_additional_8_DeepwoodShrineBoss_Main:: @ 080DF97C
+	enemy_raw subtype=0x13, x=0x88, y=0x78
+	entity_list_end
 
 TileEntities_DeepwoodShrineBoss_Main:: @ 080DF99C
 	tile_entity type=0x1, paramA=0x13
@@ -7502,9 +7575,9 @@ Room_DeepwoodShrineBoss_Main:: @ 080DF9AC
 	.4byte 0x00000000
 	.4byte sub_unk3_DeepwoodShrineBoss_Main
 	.4byte sub_StateChange_DeepwoodShrineBoss_Main
-	.4byte gUnk_additional0_DeepwoodShrineBoss_Main
-	.4byte gUnk_additional1_DeepwoodShrineBoss_Main
-	.4byte gUnk_additional2_DeepwoodShrineBoss_Main
+	.4byte gUnk_additional_8_DeepwoodShrineBoss_Main
+	.4byte gUnk_additional_9_DeepwoodShrineBoss_Main
+	.4byte gUnk_additional_a_DeepwoodShrineBoss_Main
 
 Entities_DeepwoodShrine_PreBoss_0:: @ 080DF9D8
 	object_raw subtype=0x39, x=0xa8, y=0x38, paramC=0x49ffff
@@ -7565,9 +7638,8 @@ Entities_DeepwoodShrineEntry_Main_0:: @ 080DFB68
 	entity_list_end
 
 gUnk_080DFB78:: @ 080DFB78
-	.incbin "data_080D5360/gUnk_080DFB78.bin"
-	.4byte script_0800AF44
-	.incbin "data_080D5360/gUnk_080DFB78_1.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800AF44
+	entity_list_end
 
 Enemies_DeepwoodShrineEntry_Main:: @ 080DFB98
 	entity_list_end
@@ -7609,8 +7681,8 @@ TileEntities_CaveOfFlames_AfterCane:: @ 080DFCB0
 	tile_entity type=0x1, paramA=0x1
 	tile_entity_list_end
 
-gUnk_additional0_CaveOfFlames_AfterCane:: @ 080DFCC0
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_AfterCane.bin"
+gUnk_additional_8_CaveOfFlames_AfterCane:: @ 080DFCC0
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_AfterCane.bin"
 
 Room_CaveOfFlames_AfterCane:: @ 080DFCF0
 	.4byte Entities_CaveOfFlames_AfterCane_0
@@ -7621,7 +7693,7 @@ Room_CaveOfFlames_AfterCane:: @ 080DFCF0
 	.4byte 0x00000000
 	.4byte sub_unk3_CaveOfFlames_AfterCane
 	.4byte sub_StateChange_CaveOfFlames_AfterCane
-	.4byte gUnk_additional0_CaveOfFlames_AfterCane
+	.4byte gUnk_additional_8_CaveOfFlames_AfterCane
 
 Entities_CaveOfFlames_SpinyChus_0:: @ 080DFD14
 	object_raw subtype=0x55, x=0x128, y=0x78, paramA=0x1
@@ -7649,8 +7721,16 @@ TileEntities_CaveOfFlames_SpinyChus:: @ 080DFDE4
 	tile_entity type=0x1, paramA=0x2
 	tile_entity_list_end
 
-gUnk_additional0_CaveOfFlames_SpinyChus:: @ 080DFE0C
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_SpinyChus.bin"
+gUnk_additional_8_CaveOfFlames_SpinyChus:: @ 080DFE0C
+	enemy_raw subtype=0xb, x=0x80, y=0x48, paramA=0x1, paramB=0x800
+	enemy_raw subtype=0xb, x=0xa8, y=0x58, paramA=0x1, paramB=0x1000
+	enemy_raw subtype=0xb, x=0xb0, y=0x78, paramA=0x1, paramB=0x1800
+	enemy_raw subtype=0xb, x=0xa8, y=0x98, paramA=0x1, paramB=0x2000
+	enemy_raw subtype=0xb, x=0x80, y=0xa8, paramA=0x1, paramB=0x2800
+	enemy_raw subtype=0xb, x=0x58, y=0x98, paramA=0x1, paramB=0x3000
+	enemy_raw subtype=0xb, x=0x50, y=0x78, paramA=0x1, paramB=0x3800
+	enemy_raw subtype=0xb, x=0x58, y=0x58, paramA=0x1, paramB=0x4000
+	entity_list_end
 
 Room_CaveOfFlames_SpinyChus:: @ 080DFE9C
 	.4byte Entities_CaveOfFlames_SpinyChus_0
@@ -7661,7 +7741,7 @@ Room_CaveOfFlames_SpinyChus:: @ 080DFE9C
 	.4byte 0x00000000
 	.4byte sub_unk3_CaveOfFlames_SpinyChus
 	.4byte sub_StateChange_CaveOfFlames_SpinyChus
-	.4byte gUnk_additional0_CaveOfFlames_SpinyChus
+	.4byte gUnk_additional_8_CaveOfFlames_SpinyChus
 
 Entities_CaveOfFlames_CartToSpinyChus_0:: @ 080DFEC0
 	object_raw subtype=0x55, x=0x98, y=0x68, paramA=0x1, paramB=0x1
@@ -7730,8 +7810,8 @@ TileEntities_CaveOfFlames_Entrance:: @ 080E0138
 	tile_entity type=0x1, paramA=0x4
 	tile_entity_list_end
 
-gUnk_additional0_CaveOfFlames_Entrance:: @ 080E0148
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_Entrance.bin"
+gUnk_additional_8_CaveOfFlames_Entrance:: @ 080E0148
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_Entrance.bin"
 
 Room_CaveOfFlames_Entrance:: @ 080E0188
 	.4byte Entities_CaveOfFlames_Entrance_0
@@ -7742,7 +7822,7 @@ Room_CaveOfFlames_Entrance:: @ 080E0188
 	.4byte 0x00000000
 	.4byte sub_unk3_CaveOfFlames_Entrance
 	.4byte sub_StateChange_CaveOfFlames_Entrance
-	.4byte gUnk_additional0_CaveOfFlames_Entrance
+	.4byte gUnk_additional_8_CaveOfFlames_Entrance
 
 Entities_CaveOfFlames_MainCart_0:: @ 080E01AC
 	object_raw subtype=0x8, x=0x258, y=0x38, paramA=0x9, paramC=0x1dffff
@@ -7817,8 +7897,8 @@ TileEntities_CaveOfFlames_NorthEntrance:: @ 080E048C
 	tile_entity type=0x1, paramA=0x6
 	tile_entity_list_end
 
-gUnk_additional0_CaveOfFlames_NorthEntrance:: @ 080E049C
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_NorthEntrance.bin"
+gUnk_additional_8_CaveOfFlames_NorthEntrance:: @ 080E049C
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_NorthEntrance.bin"
 
 Room_CaveOfFlames_NorthEntrance:: @ 080E04AC
 	.4byte Entities_CaveOfFlames_NorthEntrance_0
@@ -7829,7 +7909,7 @@ Room_CaveOfFlames_NorthEntrance:: @ 080E04AC
 	.4byte 0x00000000
 	.4byte sub_unk3_CaveOfFlames_NorthEntrance
 	.4byte sub_StateChange_CaveOfFlames_NorthEntrance
-	.4byte gUnk_additional0_CaveOfFlames_NorthEntrance
+	.4byte gUnk_additional_8_CaveOfFlames_NorthEntrance
 
 Entities_CaveOfFlames_CartWest_0:: @ 080E04D0
 	object_raw subtype=0x6c, x=0x1b8, y=0x38, paramA=0x1
@@ -7912,8 +7992,12 @@ TileEntities_CaveOfFlames_Helmasaur:: @ 080E0810
 	tile_entity type=0x1, paramA=0x8
 	tile_entity_list_end
 
-gUnk_additional0_CaveOfFlames_Helmasaur:: @ 080E0828
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_Helmasaur.bin"
+gUnk_additional_8_CaveOfFlames_Helmasaur:: @ 080E0828
+	enemy_raw subtype=0x20, x=0x58, y=0x48
+	enemy_raw subtype=0x20, x=0x78, y=0x68
+	enemy_raw subtype=0x20, x=0x98, y=0x58
+	enemy_raw subtype=0x20, x=0x78, y=0xa8
+	entity_list_end
 
 Room_CaveOfFlames_Helmasaur:: @ 080E0878
 	.4byte Entities_CaveOfFlames_Helmasaur_0
@@ -7924,7 +8008,7 @@ Room_CaveOfFlames_Helmasaur:: @ 080E0878
 	.4byte 0x00000000
 	.4byte sub_unk3_CaveOfFlames_Helmasaur
 	.4byte sub_StateChange_CaveOfFlames_Helmasaur
-	.4byte gUnk_additional0_CaveOfFlames_Helmasaur
+	.4byte gUnk_additional_8_CaveOfFlames_Helmasaur
 
 Entities_CaveOfFlames_Rollobite_0:: @ 080E089C
 	object_raw subtype=0x59, paramB=0x8
@@ -7956,9 +8040,9 @@ TileEntities_CaveOfFlames_Rollobite:: @ 080E09BC
 	tile_entity type=0x1, paramA=0x9
 	tile_entity_list_end
 
-gUnk_additional0_CaveOfFlames_Rollobite:: @ 080E09DC
+gUnk_additional_8_CaveOfFlames_Rollobite:: @ 080E09DC
 	.4byte gUnk_080E09FC
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_Rollobite.bin"
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_Rollobite.bin"
 
 gUnk_080E09FC:: @ 080E09FC
 	.incbin "data_080D5360/gUnk_080E09FC.bin"
@@ -7972,7 +8056,7 @@ Room_CaveOfFlames_Rollobite:: @ 080E0A20
 	.4byte 0x00000000
 	.4byte sub_unk3_CaveOfFlames_Rollobite
 	.4byte sub_StateChange_CaveOfFlames_Rollobite
-	.4byte gUnk_additional0_CaveOfFlames_Rollobite
+	.4byte gUnk_additional_8_CaveOfFlames_Rollobite
 
 Entities_CaveOfFlames_MinishLava_0:: @ 080E0A44
 	object_raw subtype=0xc, x=0x120, y=0x38, paramA=0x4, paramB=0x2a
@@ -8004,8 +8088,8 @@ TileEntities_CaveOfFlames_MinishLava:: @ 080E0B64
 	tile_entity type=0x1, paramA=0xa
 	tile_entity_list_end
 
-gUnk_additional0_CaveOfFlames_MinishLava:: @ 080E0B84
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_MinishLava.bin"
+gUnk_additional_8_CaveOfFlames_MinishLava:: @ 080E0B84
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_MinishLava.bin"
 
 Room_CaveOfFlames_MinishLava:: @ 080E0C14
 	.4byte Entities_CaveOfFlames_MinishLava_0
@@ -8016,7 +8100,7 @@ Room_CaveOfFlames_MinishLava:: @ 080E0C14
 	.4byte 0x00000000
 	.4byte sub_unk3_CaveOfFlames_MinishLava
 	.4byte sub_StateChange_CaveOfFlames_MinishLava
-	.4byte gUnk_additional0_CaveOfFlames_MinishLava
+	.4byte gUnk_additional_8_CaveOfFlames_MinishLava
 
 Entities_CaveOfFlames_MinishSpikes_0:: @ 080E0C38
 	object_raw subtype=0x55, x=0xf8, y=0x78, paramB=0x201
@@ -8056,11 +8140,11 @@ TileEntities_CaveOfFlames_MinishSpikes:: @ 080E0DD8
 	tile_entity type=0x1, paramA=0xb
 	tile_entity_list_end
 
-gUnk_additional0_CaveOfFlames_MinishSpikes:: @ 080E0DF8
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_MinishSpikes.bin"
+gUnk_additional_8_CaveOfFlames_MinishSpikes:: @ 080E0DF8
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_MinishSpikes.bin"
 
-gUnk_additional1_CaveOfFlames_MinishSpikes:: @ 080E0E16
-	.incbin "data_080D5360/gUnk_additional1_CaveOfFlames_MinishSpikes.bin"
+gUnk_additional_9_CaveOfFlames_MinishSpikes:: @ 080E0E16
+	.incbin "data_080D5360/gUnk_additional_9_CaveOfFlames_MinishSpikes.bin"
 
 Room_CaveOfFlames_MinishSpikes:: @ 080E0E34
 	.4byte Entities_CaveOfFlames_MinishSpikes_0
@@ -8071,8 +8155,8 @@ Room_CaveOfFlames_MinishSpikes:: @ 080E0E34
 	.4byte 0x00000000
 	.4byte sub_unk3_CaveOfFlames_MinishSpikes
 	.4byte sub_StateChange_CaveOfFlames_MinishSpikes
-	.4byte gUnk_additional0_CaveOfFlames_MinishSpikes
-	.4byte gUnk_additional1_CaveOfFlames_MinishSpikes
+	.4byte gUnk_additional_8_CaveOfFlames_MinishSpikes
+	.4byte gUnk_additional_9_CaveOfFlames_MinishSpikes
 
 Entities_CaveOfFlames_RollobiteSwitch_0:: @ 080E0E5C
 	object_raw subtype=0x55, x=0x248, y=0x68, paramB=0x200
@@ -8189,11 +8273,11 @@ TileEntities_CaveOfFlames_PathBossKey2:: @ 080E119C
 	tile_entity type=0x1, paramA=0xf
 	tile_entity_list_end
 
-gUnk_additional0_CaveOfFlames_PathBossKey2:: @ 080E11B4
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_PathBossKey2.bin"
+gUnk_additional_8_CaveOfFlames_PathBossKey2:: @ 080E11B4
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_PathBossKey2.bin"
 
-gUnk_additional1_CaveOfFlames_PathBossKey2:: @ 080E11D2
-	.incbin "data_080D5360/gUnk_additional1_CaveOfFlames_PathBossKey2.bin"
+gUnk_additional_9_CaveOfFlames_PathBossKey2:: @ 080E11D2
+	.incbin "data_080D5360/gUnk_additional_9_CaveOfFlames_PathBossKey2.bin"
 
 Room_CaveOfFlames_PathBossKey2:: @ 080E11F0
 	.4byte Entities_CaveOfFlames_PathBossKey2_0
@@ -8204,8 +8288,8 @@ Room_CaveOfFlames_PathBossKey2:: @ 080E11F0
 	.4byte 0x00000000
 	.4byte sub_unk3_CaveOfFlames_PathBossKey2
 	.4byte sub_StateChange_CaveOfFlames_PathBossKey2
-	.4byte gUnk_additional0_CaveOfFlames_PathBossKey2
-	.4byte gUnk_additional1_CaveOfFlames_PathBossKey2
+	.4byte gUnk_additional_8_CaveOfFlames_PathBossKey2
+	.4byte gUnk_additional_9_CaveOfFlames_PathBossKey2
 
 Entities_CaveOfFlames_Compass_0:: @ 080E1218
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x310000
@@ -8227,8 +8311,10 @@ TileEntities_CaveOfFlames_Compass:: @ 080E12A8
 	tile_entity type=0x1, paramA=0x10
 	tile_entity_list_end
 
-gUnk_additional0_CaveOfFlames_Compass:: @ 080E12C0
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_Compass.bin"
+gUnk_additional_8_CaveOfFlames_Compass:: @ 080E12C0
+	enemy_raw subtype=0x1e, x=0x48, y=0x48
+	enemy_raw subtype=0x1e, x=0xa8, y=0x48
+	entity_list_end
 
 Room_CaveOfFlames_Compass:: @ 080E12F0
 	.4byte Entities_CaveOfFlames_Compass_0
@@ -8239,7 +8325,7 @@ Room_CaveOfFlames_Compass:: @ 080E12F0
 	.4byte 0x00000000
 	.4byte sub_unk3_CaveOfFlames_Compass
 	.4byte sub_StateChange_CaveOfFlames_Compass
-	.4byte gUnk_additional0_CaveOfFlames_Compass
+	.4byte gUnk_additional_8_CaveOfFlames_Compass
 
 Entities_CaveOfFlames_Bobomb_0:: @ 080E1314
 	object_raw subtype=0x5, x=0x68, y=0x68
@@ -8312,24 +8398,24 @@ TileEntities_CaveOfFlames_BossDoor:: @ 080E159C
 	tile_entity type=0x1, paramA=0x12
 	tile_entity_list_end
 
-gUnk_additional0_CaveOfFlames_BossDoor:: @ 080E15C4
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor.bin"
+gUnk_additional_8_CaveOfFlames_BossDoor:: @ 080E15C4
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor.bin"
 	.4byte gUnk_080E1674
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_1.bin"
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_1.bin"
 	.4byte gUnk_080E16AA
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_2.bin"
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_2.bin"
 	.4byte gUnk_080E16CE
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_3.bin"
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_3.bin"
 	.4byte gUnk_080E16EC
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_4.bin"
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_4.bin"
 	.4byte gUnk_080E170A
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_5.bin"
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_5.bin"
 	.4byte gUnk_080E16EC
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_6.bin"
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_6.bin"
 	.4byte gUnk_080E170A
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_7.bin"
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_7.bin"
 	.4byte gUnk_080E16EC
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlames_BossDoor_8.bin"
+	.incbin "data_080D5360/gUnk_additional_8_CaveOfFlames_BossDoor_8.bin"
 
 gUnk_080E1674:: @ 080E1674
 	.incbin "data_080D5360/gUnk_080E1674.bin"
@@ -8355,7 +8441,7 @@ Room_CaveOfFlames_BossDoor:: @ 080E1728
 	.4byte 0x00000000
 	.4byte sub_unk3_CaveOfFlames_BossDoor
 	.4byte sub_StateChange_CaveOfFlames_BossDoor
-	.4byte gUnk_additional0_CaveOfFlames_BossDoor
+	.4byte gUnk_additional_8_CaveOfFlames_BossDoor
 
 Entities_CaveOfFlames_18_0:: @ 080E174C
 	entity_list_end
@@ -8385,14 +8471,19 @@ Entities_CaveOfFlamesBoss_Main_0:: @ 080E17A4
 	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb030000, paramC=0x4003
 	entity_list_end
 
-gUnk_additional1_CaveOfFlamesBoss_Main:: @ 080E17E4
-	.incbin "data_080D5360/gUnk_additional1_CaveOfFlamesBoss_Main.bin"
+gUnk_additional_9_CaveOfFlamesBoss_Main:: @ 080E17E4
+	object_raw subtype=0xac, x=0xc0, y=0x90, paramA=0x41
+	manager subtype=0xe, y=0x3c, unknown=0x1f, paramA=0xa, paramC=0x80000000
+	entity_list_end
 
-gUnk_additional2_CaveOfFlamesBoss_Main:: @ 080E1814
-	.incbin "data_080D5360/gUnk_additional2_CaveOfFlamesBoss_Main.bin"
+gUnk_additional_a_CaveOfFlamesBoss_Main:: @ 080E1814
+	object_raw subtype=0x34, x=0xc0, y=0x38, collision=1, paramA=0x2, paramB=0x206, paramC=0x40030246
+	object_raw subtype=0x47, x=0xa8, y=0x38, paramC=0x4003003a
+	entity_list_end
 
-gUnk_additional0_CaveOfFlamesBoss_Main:: @ 080E1844
-	.incbin "data_080D5360/gUnk_additional0_CaveOfFlamesBoss_Main.bin"
+gUnk_additional_8_CaveOfFlamesBoss_Main:: @ 080E1844
+	enemy_raw subtype=0x24, x=0xc0, y=0x98
+	entity_list_end
 
 TileEntities_CaveOfFlamesBoss_Main:: @ 080E1864
 	tile_entity type=0x1, paramA=0x13
@@ -8407,9 +8498,9 @@ Room_CaveOfFlamesBoss_Main:: @ 080E1874
 	.4byte 0x00000000
 	.4byte sub_unk3_CaveOfFlamesBoss_Main
 	.4byte sub_StateChange_CaveOfFlamesBoss_Main
-	.4byte gUnk_additional0_CaveOfFlamesBoss_Main
-	.4byte gUnk_additional1_CaveOfFlamesBoss_Main
-	.4byte gUnk_additional2_CaveOfFlamesBoss_Main
+	.4byte gUnk_additional_8_CaveOfFlamesBoss_Main
+	.4byte gUnk_additional_9_CaveOfFlamesBoss_Main
+	.4byte gUnk_additional_a_CaveOfFlamesBoss_Main
 
 Entities_FortressOfWinds_Eyegore_0:: @ 080E18A0
 	object_raw subtype=0x3, x=0x58, y=0x88, paramA=0x1, paramC=0x80000000
@@ -8430,8 +8521,11 @@ TileEntities_FortressOfWinds_Eyegore:: @ 080E1940
 	tile_entity type=0x1, paramA=0x1
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_Eyegore:: @ 080E1958
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_Eyegore.bin"
+gUnk_additional_8_FortressOfWinds_Eyegore:: @ 080E1958
+	enemy_raw subtype=0x2b, x=0x60, y=0x50, paramB=0xe188400, paramC=0x300020
+	enemy_raw subtype=0x2b, x=0xa0, y=0x50, paramB=0xe188400, paramC=0x300020
+	manager subtype=0x28, unknown=0x3, paramB=0x8
+	entity_list_end
 
 Room_FortressOfWinds_Eyegore:: @ 080E1998
 	.4byte Entities_FortressOfWinds_Eyegore_0
@@ -8442,7 +8536,7 @@ Room_FortressOfWinds_Eyegore:: @ 080E1998
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_Eyegore
 	.4byte sub_StateChange_FortressOfWinds_Eyegore
-	.4byte gUnk_additional0_FortressOfWinds_Eyegore
+	.4byte gUnk_additional_8_FortressOfWinds_Eyegore
 
 Entities_FortressOfWinds_BeforeMazaal_0:: @ 080E19BC
 	enemy_raw subtype=0x43, x=0x68, y=0x68
@@ -8526,11 +8620,11 @@ TileEntities_FortressOfWinds_EastKeyLever:: @ 080E1D4C
 	tile_entity type=0x1, paramA=0x3
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_EastKeyLever:: @ 080E1D5C
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_EastKeyLever.bin"
+gUnk_additional_8_FortressOfWinds_EastKeyLever:: @ 080E1D5C
+	.incbin "data_080D5360/gUnk_additional_8_FortressOfWinds_EastKeyLever.bin"
 
-gUnk_additional1_FortressOfWinds_EastKeyLever:: @ 080E1D70
-	.incbin "data_080D5360/gUnk_additional1_FortressOfWinds_EastKeyLever.bin"
+gUnk_additional_9_FortressOfWinds_EastKeyLever:: @ 080E1D70
+	.incbin "data_080D5360/gUnk_additional_9_FortressOfWinds_EastKeyLever.bin"
 
 Room_FortressOfWinds_EastKeyLever:: @ 080E1D84
 	.4byte Entities_FortressOfWinds_EastKeyLever_0
@@ -8541,8 +8635,8 @@ Room_FortressOfWinds_EastKeyLever:: @ 080E1D84
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_EastKeyLever
 	.4byte sub_StateChange_FortressOfWinds_EastKeyLever
-	.4byte gUnk_additional0_FortressOfWinds_EastKeyLever
-	.4byte gUnk_additional1_FortressOfWinds_EastKeyLever
+	.4byte gUnk_additional_8_FortressOfWinds_EastKeyLever
+	.4byte gUnk_additional_9_FortressOfWinds_EastKeyLever
 
 Entities_FortressOfWinds_PitPlatforms_0:: @ 080E1DAC
 	object_raw subtype=0x23, x=0x56, y=0x28, paramB=0x5a00, paramC=0x80000021
@@ -8571,14 +8665,14 @@ TileEntities_FortressOfWinds_PitPlatforms:: @ 080E1EDC
 	tile_entity type=0x1, paramA=0x4
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_PitPlatforms:: @ 080E1EEC
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_PitPlatforms.bin"
+gUnk_additional_8_FortressOfWinds_PitPlatforms:: @ 080E1EEC
+	.incbin "data_080D5360/gUnk_additional_8_FortressOfWinds_PitPlatforms.bin"
 
-gUnk_additional1_FortressOfWinds_PitPlatforms:: @ 080E1F0A
-	.incbin "data_080D5360/gUnk_additional1_FortressOfWinds_PitPlatforms.bin"
+gUnk_additional_9_FortressOfWinds_PitPlatforms:: @ 080E1F0A
+	.incbin "data_080D5360/gUnk_additional_9_FortressOfWinds_PitPlatforms.bin"
 
-gUnk_additional2_FortressOfWinds_PitPlatforms:: @ 080E1F28
-	.incbin "data_080D5360/gUnk_additional2_FortressOfWinds_PitPlatforms.bin"
+gUnk_additional_a_FortressOfWinds_PitPlatforms:: @ 080E1F28
+	.incbin "data_080D5360/gUnk_additional_a_FortressOfWinds_PitPlatforms.bin"
 
 Room_FortressOfWinds_PitPlatforms:: @ 080E1F48
 	.4byte Entities_FortressOfWinds_PitPlatforms_0
@@ -8589,9 +8683,9 @@ Room_FortressOfWinds_PitPlatforms:: @ 080E1F48
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_PitPlatforms
 	.4byte sub_StateChange_FortressOfWinds_PitPlatforms
-	.4byte gUnk_additional0_FortressOfWinds_PitPlatforms
-	.4byte gUnk_additional1_FortressOfWinds_PitPlatforms
-	.4byte gUnk_additional2_FortressOfWinds_PitPlatforms
+	.4byte gUnk_additional_8_FortressOfWinds_PitPlatforms
+	.4byte gUnk_additional_9_FortressOfWinds_PitPlatforms
+	.4byte gUnk_additional_a_FortressOfWinds_PitPlatforms
 
 Entities_FortressOfWinds_WestKeyLever_0:: @ 080E1F74
 	manager subtype=0x1a, unknown=0x8, paramA=0x4
@@ -8623,14 +8717,14 @@ TileEntities_FortressOfWinds_WestKeyLever:: @ 080E20D4
 	tile_entity type=0x1, paramA=0x5
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_WestKeyLever:: @ 080E20E4
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_WestKeyLever.bin"
+gUnk_additional_8_FortressOfWinds_WestKeyLever:: @ 080E20E4
+	.incbin "data_080D5360/gUnk_additional_8_FortressOfWinds_WestKeyLever.bin"
 
-gUnk_additional1_FortressOfWinds_WestKeyLever:: @ 080E2104
-	.incbin "data_080D5360/gUnk_additional1_FortressOfWinds_WestKeyLever.bin"
+gUnk_additional_9_FortressOfWinds_WestKeyLever:: @ 080E2104
+	.incbin "data_080D5360/gUnk_additional_9_FortressOfWinds_WestKeyLever.bin"
 
-gUnk_additional2_FortressOfWinds_WestKeyLever:: @ 080E2118
-	.incbin "data_080D5360/gUnk_additional2_FortressOfWinds_WestKeyLever.bin"
+gUnk_additional_a_FortressOfWinds_WestKeyLever:: @ 080E2118
+	.incbin "data_080D5360/gUnk_additional_a_FortressOfWinds_WestKeyLever.bin"
 
 Room_FortressOfWinds_WestKeyLever:: @ 080E212C
 	.4byte Entities_FortressOfWinds_WestKeyLever_0
@@ -8641,9 +8735,9 @@ Room_FortressOfWinds_WestKeyLever:: @ 080E212C
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_WestKeyLever
 	.4byte sub_StateChange_FortressOfWinds_WestKeyLever
-	.4byte gUnk_additional0_FortressOfWinds_WestKeyLever
-	.4byte gUnk_additional1_FortressOfWinds_WestKeyLever
-	.4byte gUnk_additional2_FortressOfWinds_WestKeyLever
+	.4byte gUnk_additional_8_FortressOfWinds_WestKeyLever
+	.4byte gUnk_additional_9_FortressOfWinds_WestKeyLever
+	.4byte gUnk_additional_a_FortressOfWinds_WestKeyLever
 
 Entities_FortressOfWinds_Darknut_0:: @ 080E2158
 	manager subtype=0x1e, x=0x70, y=0x80, paramB=0x200030, paramC=0x80000000
@@ -8678,8 +8772,11 @@ TileEntities_FortressOfWinds_Darknut:: @ 080E22B8
 	tile_entity type=0x1, paramA=0x8
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_Darknut:: @ 080E22D0
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_Darknut.bin"
+gUnk_additional_8_FortressOfWinds_Darknut:: @ 080E22D0
+	enemy_raw subtype=0x5, x=0x88, y=0x58, unknown=0x2f, paramA=0x1, paramB=0x10160000, paramC=0x200030
+	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x2, paramC=0x48ffff
+	object_raw subtype=0x8, x=0xe8, y=0x78, paramA=0x1, paramC=0x48ffff
+	entity_list_end
 
 Room_FortressOfWinds_Darknut:: @ 080E2310
 	.4byte Entities_FortressOfWinds_Darknut_0
@@ -8690,7 +8787,7 @@ Room_FortressOfWinds_Darknut:: @ 080E2310
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_Darknut
 	.4byte sub_StateChange_FortressOfWinds_Darknut
-	.4byte gUnk_additional0_FortressOfWinds_Darknut
+	.4byte gUnk_additional_8_FortressOfWinds_Darknut
 
 Entities_FortressOfWinds_EyeBridge_0:: @ 080E2334
 	object_raw subtype=0x23, x=0x28, y=0x58, paramA=0x3, paramC=0x80000028
@@ -8749,8 +8846,8 @@ TileEntities_FortressOfWinds_Pit:: @ 080E2534
 	tile_entity type=0x1, paramA=0xa
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_Pit:: @ 080E2544
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_Pit.bin"
+gUnk_additional_8_FortressOfWinds_Pit:: @ 080E2544
+	.incbin "data_080D5360/gUnk_additional_8_FortressOfWinds_Pit.bin"
 
 Room_FortressOfWinds_Pit:: @ 080E2564
 	.4byte Entities_FortressOfWinds_Pit_0
@@ -8761,7 +8858,7 @@ Room_FortressOfWinds_Pit:: @ 080E2564
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_Pit
 	.4byte sub_StateChange_FortressOfWinds_Pit
-	.4byte gUnk_additional0_FortressOfWinds_Pit
+	.4byte gUnk_additional_8_FortressOfWinds_Pit
 
 Entities_FortressOfWinds_Wallmaster_0:: @ 080E2588
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x2a0000
@@ -8791,8 +8888,11 @@ TileEntities_FortressOfWinds_Wallmaster:: @ 080E26A8
 	tile_entity type=0x1, paramA=0xb
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_Wallmaster:: @ 080E26B8
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_Wallmaster.bin"
+gUnk_additional_8_FortressOfWinds_Wallmaster:: @ 080E26B8
+	enemy_raw subtype=0x23, x=0x48, y=0x28, paramB=0xe160000, paramC=0x400030
+	enemy_raw subtype=0x23, x=0x58, y=0xa8, paramB=0xe160000, paramC=0x400030
+	enemy_raw subtype=0x23, x=0xa8, y=0x58, paramB=0xe160000, paramC=0x400030
+	entity_list_end
 
 Room_FortressOfWinds_Wallmaster:: @ 080E26F8
 	.4byte Entities_FortressOfWinds_Wallmaster_0
@@ -8803,7 +8903,7 @@ Room_FortressOfWinds_Wallmaster:: @ 080E26F8
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_Wallmaster
 	.4byte sub_StateChange_FortressOfWinds_Wallmaster
-	.4byte gUnk_additional0_FortressOfWinds_Wallmaster
+	.4byte gUnk_additional_8_FortressOfWinds_Wallmaster
 
 Entities_FortressOfWinds_Clone_0:: @ 080E271C
 	object_raw subtype=0x3, x=0xa8, y=0xc8, paramA=0x1, paramC=0x80000002
@@ -8841,8 +8941,8 @@ TileEntities_FortressOfWinds_Clone:: @ 080E28BC
 	tile_entity type=0x1, paramA=0xc
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_Clone:: @ 080E28CC
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_Clone.bin"
+gUnk_additional_8_FortressOfWinds_Clone:: @ 080E28CC
+	.incbin "data_080D5360/gUnk_additional_8_FortressOfWinds_Clone.bin"
 
 Room_FortressOfWinds_Clone:: @ 080E28EC
 	.4byte Entities_FortressOfWinds_Clone_0
@@ -8853,7 +8953,7 @@ Room_FortressOfWinds_Clone:: @ 080E28EC
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_Clone
 	.4byte sub_StateChange_FortressOfWinds_Clone
-	.4byte gUnk_additional0_FortressOfWinds_Clone
+	.4byte gUnk_additional_8_FortressOfWinds_Clone
 
 Entities_FortressOfWinds_SpikeTraps_0:: @ 080E2910
 	object_raw subtype=0x3, x=0xd8, y=0x68, paramC=0x2f0000
@@ -8876,17 +8976,17 @@ TileEntities_FortressOfWinds_SpikeTraps:: @ 080E29C0
 	tile_entity type=0x1, paramA=0xd
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_SpikeTraps:: @ 080E29D0
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_SpikeTraps.bin"
+gUnk_additional_8_FortressOfWinds_SpikeTraps:: @ 080E29D0
+	.incbin "data_080D5360/gUnk_additional_8_FortressOfWinds_SpikeTraps.bin"
 
-gUnk_additional1_FortressOfWinds_SpikeTraps:: @ 080E2A06
-	.incbin "data_080D5360/gUnk_additional1_FortressOfWinds_SpikeTraps.bin"
+gUnk_additional_9_FortressOfWinds_SpikeTraps:: @ 080E2A06
+	.incbin "data_080D5360/gUnk_additional_9_FortressOfWinds_SpikeTraps.bin"
 
-gUnk_additional2_FortressOfWinds_SpikeTraps:: @ 080E2A3C
-	.incbin "data_080D5360/gUnk_additional2_FortressOfWinds_SpikeTraps.bin"
+gUnk_additional_a_FortressOfWinds_SpikeTraps:: @ 080E2A3C
+	.incbin "data_080D5360/gUnk_additional_a_FortressOfWinds_SpikeTraps.bin"
 
-gUnk_additional3_FortressOfWinds_SpikeTraps:: @ 080E2A72
-	.incbin "data_080D5360/gUnk_additional3_FortressOfWinds_SpikeTraps.bin"
+gUnk_additional_b_FortressOfWinds_SpikeTraps:: @ 080E2A72
+	.incbin "data_080D5360/gUnk_additional_b_FortressOfWinds_SpikeTraps.bin"
 
 Room_FortressOfWinds_SpikeTraps:: @ 080E2AA8
 	.4byte Entities_FortressOfWinds_SpikeTraps_0
@@ -8897,10 +8997,10 @@ Room_FortressOfWinds_SpikeTraps:: @ 080E2AA8
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_SpikeTraps
 	.4byte sub_StateChange_FortressOfWinds_SpikeTraps
-	.4byte gUnk_additional0_FortressOfWinds_SpikeTraps
-	.4byte gUnk_additional1_FortressOfWinds_SpikeTraps
-	.4byte gUnk_additional2_FortressOfWinds_SpikeTraps
-	.4byte gUnk_additional3_FortressOfWinds_SpikeTraps
+	.4byte gUnk_additional_8_FortressOfWinds_SpikeTraps
+	.4byte gUnk_additional_9_FortressOfWinds_SpikeTraps
+	.4byte gUnk_additional_a_FortressOfWinds_SpikeTraps
+	.4byte gUnk_additional_b_FortressOfWinds_SpikeTraps
 
 Entities_FortressOfWinds_Mazaal_0:: @ 080E2AD8
 	object_raw subtype=0x89, x=0xb8, y=0x38, paramA=0x8, paramB=0x9
@@ -8924,11 +9024,11 @@ TileEntities_FortressOfWinds_Mazaal:: @ 080E2BB8
 	tile_entity type=0x1, paramA=0xe
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_Mazaal:: @ 080E2BC8
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_Mazaal.bin"
+gUnk_additional_8_FortressOfWinds_Mazaal:: @ 080E2BC8
+	.incbin "data_080D5360/gUnk_additional_8_FortressOfWinds_Mazaal.bin"
 
-gUnk_additional1_FortressOfWinds_Mazaal:: @ 080E2BE8
-	.incbin "data_080D5360/gUnk_additional1_FortressOfWinds_Mazaal.bin"
+gUnk_additional_9_FortressOfWinds_Mazaal:: @ 080E2BE8
+	.incbin "data_080D5360/gUnk_additional_9_FortressOfWinds_Mazaal.bin"
 
 Room_FortressOfWinds_Mazaal:: @ 080E2C08
 	.4byte Entities_FortressOfWinds_Mazaal_0
@@ -8939,8 +9039,8 @@ Room_FortressOfWinds_Mazaal:: @ 080E2C08
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_Mazaal
 	.4byte sub_StateChange_FortressOfWinds_Mazaal
-	.4byte gUnk_additional0_FortressOfWinds_Mazaal
-	.4byte gUnk_additional1_FortressOfWinds_Mazaal
+	.4byte gUnk_additional_8_FortressOfWinds_Mazaal
+	.4byte gUnk_additional_9_FortressOfWinds_Mazaal
 
 Entities_FortressOfWinds_Stalfos_0:: @ 080E2C30
 	object_raw subtype=0x8, x=0xe8, y=0x98, paramA=0x11, paramC=0x49ffff
@@ -8964,8 +9064,13 @@ TileEntities_FortressOfWinds_Stalfos:: @ 080E2CF0
 	tile_entity type=0x1, paramA=0xf
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_Stalfos:: @ 080E2D00
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_Stalfos.bin"
+gUnk_additional_8_FortressOfWinds_Stalfos:: @ 080E2D00
+	enemy_raw subtype=0x42, x=0x68, y=0x68, unknown=0x2f, paramB=0xa120000, paramC=0x600040
+	enemy_raw subtype=0x42, x=0xa8, y=0x68, unknown=0x2f, paramB=0xa120000, paramC=0x600040
+	enemy_raw subtype=0x42, x=0x68, y=0xa8, unknown=0x2f, paramB=0xa120000, paramC=0x600040
+	enemy_raw subtype=0x42, x=0xa8, y=0xa8, unknown=0x2f, paramB=0xa120000, paramC=0x600040
+	manager subtype=0x28, unknown=0x3, paramB=0x8
+	entity_list_end
 
 Room_FortressOfWinds_Stalfos:: @ 080E2D60
 	.4byte Entities_FortressOfWinds_Stalfos_0
@@ -8976,7 +9081,7 @@ Room_FortressOfWinds_Stalfos:: @ 080E2D60
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_Stalfos
 	.4byte sub_StateChange_FortressOfWinds_Stalfos
-	.4byte gUnk_additional0_FortressOfWinds_Stalfos
+	.4byte gUnk_additional_8_FortressOfWinds_Stalfos
 
 Entities_FortressOfWinds_EntranceMoleMitts_0:: @ 080E2D84
 	object_raw subtype=0x23, x=0x28, y=0x68, paramA=0x3, paramC=0x330033
@@ -9044,11 +9149,13 @@ TileEntities_FortressOfWinds_Main2F:: @ 080E2FFC
 	tile_entity type=0x1, paramA=0x11
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_Main2F:: @ 080E3014
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_Main2F.bin"
+gUnk_additional_8_FortressOfWinds_Main2F:: @ 080E3014
+	enemy_raw subtype=0x2b, x=0x30, y=0x90, paramB=0x1e1a0000, paramC=0x800020
+	entity_list_end
 
-gUnk_additional1_FortressOfWinds_Main2F:: @ 080E3034
-	.incbin "data_080D5360/gUnk_additional1_FortressOfWinds_Main2F.bin"
+gUnk_additional_9_FortressOfWinds_Main2F:: @ 080E3034
+	enemy_raw subtype=0x2b, x=0xe0, y=0x90, paramB=0x1e1a0000, paramC=0x800020
+	entity_list_end
 
 Room_FortressOfWinds_Main2F:: @ 080E3054
 	.4byte Entities_FortressOfWinds_Main2F_0
@@ -9059,8 +9166,8 @@ Room_FortressOfWinds_Main2F:: @ 080E3054
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_Main2F
 	.4byte sub_StateChange_Dojos_Waveblade1
-	.4byte gUnk_additional0_FortressOfWinds_Main2F
-	.4byte gUnk_additional1_FortressOfWinds_Main2F
+	.4byte gUnk_additional_8_FortressOfWinds_Main2F
+	.4byte gUnk_additional_9_FortressOfWinds_Main2F
 
 Entities_FortressOfWinds_MinishHole_0:: @ 080E307C
 	object_raw subtype=0x4e, x=0x78, y=0x20, collision=2, paramB=0x800
@@ -9079,8 +9186,8 @@ TileEntities_FortressOfWinds_MinishHole:: @ 080E310C
 	tile_entity type=0x1, paramA=0x12
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_MinishHole:: @ 080E311C
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_MinishHole.bin"
+gUnk_additional_8_FortressOfWinds_MinishHole:: @ 080E311C
+	.incbin "data_080D5360/gUnk_additional_8_FortressOfWinds_MinishHole.bin"
 
 Room_FortressOfWinds_MinishHole:: @ 080E3130
 	.4byte Entities_FortressOfWinds_MinishHole_0
@@ -9091,7 +9198,7 @@ Room_FortressOfWinds_MinishHole:: @ 080E3130
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_MinishHole
 	.4byte sub_StateChange_Dojos_Waveblade2
-	.4byte gUnk_additional0_FortressOfWinds_MinishHole
+	.4byte gUnk_additional_8_FortressOfWinds_MinishHole
 
 Entities_FortressOfWinds_BossKey_0:: @ 080E3154
 	object_raw subtype=0xc, x=0xc0, y=0x48, paramA=0x4, paramB=0x3a
@@ -9281,8 +9388,10 @@ TileEntities_FortressOfWinds_Wizzrobe:: @ 080E364C
 	tile_entity type=0x1, paramA=0x19
 	tile_entity_list_end
 
-gUnk_additional0_FortressOfWinds_Wizzrobe:: @ 080E3664
-	.incbin "data_080D5360/gUnk_additional0_FortressOfWinds_Wizzrobe.bin"
+gUnk_additional_8_FortressOfWinds_Wizzrobe:: @ 080E3664
+	enemy_raw subtype=0x27, x=0x48, y=0x68, paramB=0x10120000, paramC=0x300030
+	enemy_raw subtype=0x27, x=0xa8, y=0x68, paramB=0x10120000, paramC=0x300030
+	entity_list_end
 
 Room_FortressOfWinds_Wizzrobe:: @ 080E3694
 	.4byte Entities_FortressOfWinds_Wizzrobe_0
@@ -9293,7 +9402,7 @@ Room_FortressOfWinds_Wizzrobe:: @ 080E3694
 	.4byte 0x00000000
 	.4byte sub_unk3_FortressOfWinds_Wizzrobe
 	.4byte sub_StateChange_Dojos_Waveblade9
-	.4byte gUnk_additional0_FortressOfWinds_Wizzrobe
+	.4byte gUnk_additional_8_FortressOfWinds_Wizzrobe
 
 Entities_FortressOfWinds_HeartPiece_0:: @ 080E36B8
 	object_raw subtype=0x74, x=0xb8, y=0x48, collision=1, paramC=0xffff0000
@@ -9354,7 +9463,8 @@ gUnk_080E3830:: @ 080E3830
 	.incbin "data_080D5360/gUnk_080E3830.bin"
 
 gUnk_080E3850:: @ 080E3850
-	.incbin "data_080D5360/gUnk_080E3850.bin"
+	object_raw subtype=0x95, x=0xa0, y=0xb0, paramA=0x2
+	entity_list_end
 
 Entities_FortressOfWindsTop_Main_1:: @ 080E3870
 	object_raw subtype=0x72, x=0xa0, y=0x58
@@ -9547,8 +9657,12 @@ TileEntities_TempleOfDroplets_ScissorsMiniboss:: @ 080E3E00
 	tile_entity type=0x1, paramA=0x6
 	tile_entity_list_end
 
-gUnk_additional0_TempleOfDroplets_ScissorsMiniboss:: @ 080E3E10
-	.incbin "data_080D5360/gUnk_additional0_TempleOfDroplets_ScissorsMiniboss.bin"
+gUnk_additional_8_TempleOfDroplets_ScissorsMiniboss:: @ 080E3E10
+	enemy_raw subtype=0x40, x=0x58, y=0x58, unknown=0x2f
+	enemy_raw subtype=0x40, x=0xb8, y=0x58, unknown=0x2f
+	enemy_raw subtype=0x40, x=0x88, y=0x88, unknown=0x2f
+	manager subtype=0x28, unknown=0x3, paramB=0x8
+	entity_list_end
 
 Room_TempleOfDroplets_ScissorsMiniboss:: @ 080E3E60
 	.4byte Entities_TempleOfDroplets_ScissorsMiniboss_0
@@ -9559,7 +9673,7 @@ Room_TempleOfDroplets_ScissorsMiniboss:: @ 080E3E60
 	.4byte 0x00000000
 	.4byte sub_unk3_TempleOfDroplets_ScissorsMiniboss
 	.4byte sub_StateChange_TempleOfDroplets_ScissorsMiniboss
-	.4byte gUnk_additional0_TempleOfDroplets_ScissorsMiniboss
+	.4byte gUnk_additional_8_TempleOfDroplets_ScissorsMiniboss
 
 Entities_TempleOfDroplets_WaterfallNorthwest_0:: @ 080E3E84
 	object_raw subtype=0x8, x=0xb8, y=0x168, paramA=0x9, paramC=0x2f0030
@@ -9668,17 +9782,18 @@ TileEntities_TempleOfDroplets_Element:: @ 080E4274
 	tile_entity type=0x1, paramA=0x9
 	tile_entity_list_end
 
-gUnk_additional0_TempleOfDroplets_Element:: @ 080E4284
-	.incbin "data_080D5360/gUnk_additional0_TempleOfDroplets_Element.bin"
+gUnk_additional_8_TempleOfDroplets_Element:: @ 080E4284
+	.incbin "data_080D5360/gUnk_additional_8_TempleOfDroplets_Element.bin"
 
-gUnk_additional1_TempleOfDroplets_Element:: @ 080E428E
-	.incbin "data_080D5360/gUnk_additional1_TempleOfDroplets_Element.bin"
+gUnk_additional_9_TempleOfDroplets_Element:: @ 080E428E
+	.incbin "data_080D5360/gUnk_additional_9_TempleOfDroplets_Element.bin"
 
-gUnk_additional2_TempleOfDroplets_Element:: @ 080E4298
-	.incbin "data_080D5360/gUnk_additional2_TempleOfDroplets_Element.bin"
+gUnk_additional_a_TempleOfDroplets_Element:: @ 080E4298
+	exit_region_raw centerX=0x108, centerY=0x19e, halfWidth=0x38, halfHeight=0x4, exitIndex=0xb, bitfield=0x11
+	exit_region_list_end
 
-gUnk_additional3_TempleOfDroplets_Element:: @ 080E42A8
-	.incbin "data_080D5360/gUnk_additional3_TempleOfDroplets_Element.bin"
+gUnk_additional_b_TempleOfDroplets_Element:: @ 080E42A8
+	exit_raw transition=0x1, destX=0x108, destY=0x18, destArea=0x60, destRoom=0xe, unknownA=0x1, unknownC=0x4
 
 Room_TempleOfDroplets_Element:: @ 080E42BC
 	.4byte Entities_TempleOfDroplets_Element_0
@@ -9689,10 +9804,10 @@ Room_TempleOfDroplets_Element:: @ 080E42BC
 	.4byte 0x00000000
 	.4byte sub_unk3_TempleOfDroplets_Element
 	.4byte sub_StateChange_TempleOfDroplets_Element
-	.4byte gUnk_additional0_TempleOfDroplets_Element
-	.4byte gUnk_additional1_TempleOfDroplets_Element
-	.4byte gUnk_additional2_TempleOfDroplets_Element
-	.4byte gUnk_additional3_TempleOfDroplets_Element
+	.4byte gUnk_additional_8_TempleOfDroplets_Element
+	.4byte gUnk_additional_9_TempleOfDroplets_Element
+	.4byte gUnk_additional_a_TempleOfDroplets_Element
+	.4byte gUnk_additional_b_TempleOfDroplets_Element
 
 Entities_TempleOfDroplets_IceCorner_0:: @ 080E42EC
 	entity_list_end
@@ -9747,44 +9862,44 @@ TileEntities_TempleOfDroplets_IcePitMaze:: @ 080E4494
 	tile_entity type=0x1, paramA=0xb
 	tile_entity_list_end
 
-gUnk_additional0_TempleOfDroplets_IcePitMaze:: @ 080E44AC
-	.incbin "data_080D5360/gUnk_additional0_TempleOfDroplets_IcePitMaze.bin"
+gUnk_additional_8_TempleOfDroplets_IcePitMaze:: @ 080E44AC
+	.incbin "data_080D5360/gUnk_additional_8_TempleOfDroplets_IcePitMaze.bin"
 
-gUnk_additional1_TempleOfDroplets_IcePitMaze:: @ 080E44CA
-	.incbin "data_080D5360/gUnk_additional1_TempleOfDroplets_IcePitMaze.bin"
+gUnk_additional_9_TempleOfDroplets_IcePitMaze:: @ 080E44CA
+	.incbin "data_080D5360/gUnk_additional_9_TempleOfDroplets_IcePitMaze.bin"
 
-gUnk_additional2_TempleOfDroplets_IcePitMaze:: @ 080E44EE
-	.incbin "data_080D5360/gUnk_additional2_TempleOfDroplets_IcePitMaze.bin"
+gUnk_additional_a_TempleOfDroplets_IcePitMaze:: @ 080E44EE
+	.incbin "data_080D5360/gUnk_additional_a_TempleOfDroplets_IcePitMaze.bin"
 
-gUnk_additional3_TempleOfDroplets_IcePitMaze:: @ 080E4512
-	.incbin "data_080D5360/gUnk_additional3_TempleOfDroplets_IcePitMaze.bin"
+gUnk_additional_b_TempleOfDroplets_IcePitMaze:: @ 080E4512
+	.incbin "data_080D5360/gUnk_additional_b_TempleOfDroplets_IcePitMaze.bin"
 
-gUnk_additional4_TempleOfDroplets_IcePitMaze:: @ 080E4536
-	.incbin "data_080D5360/gUnk_additional4_TempleOfDroplets_IcePitMaze.bin"
+gUnk_additional_c_TempleOfDroplets_IcePitMaze:: @ 080E4536
+	.incbin "data_080D5360/gUnk_additional_c_TempleOfDroplets_IcePitMaze.bin"
 
-gUnk_additional5_TempleOfDroplets_IcePitMaze:: @ 080E4554
-	.incbin "data_080D5360/gUnk_additional5_TempleOfDroplets_IcePitMaze.bin"
+gUnk_additional_d_TempleOfDroplets_IcePitMaze:: @ 080E4554
+	.incbin "data_080D5360/gUnk_additional_d_TempleOfDroplets_IcePitMaze.bin"
 
-gUnk_additional6_TempleOfDroplets_IcePitMaze:: @ 080E4578
-	.incbin "data_080D5360/gUnk_additional6_TempleOfDroplets_IcePitMaze.bin"
+gUnk_additional_e_TempleOfDroplets_IcePitMaze:: @ 080E4578
+	.incbin "data_080D5360/gUnk_additional_e_TempleOfDroplets_IcePitMaze.bin"
 
-gUnk_additional7_TempleOfDroplets_IcePitMaze:: @ 080E459C
-	.incbin "data_080D5360/gUnk_additional7_TempleOfDroplets_IcePitMaze.bin"
+gUnk_additional_f_TempleOfDroplets_IcePitMaze:: @ 080E459C
+	.incbin "data_080D5360/gUnk_additional_f_TempleOfDroplets_IcePitMaze.bin"
 
-gUnk_additional8_TempleOfDroplets_IcePitMaze:: @ 080E45C0
-	.incbin "data_080D5360/gUnk_additional8_TempleOfDroplets_IcePitMaze.bin"
+gUnk_additional_10_TempleOfDroplets_IcePitMaze:: @ 080E45C0
+	.incbin "data_080D5360/gUnk_additional_10_TempleOfDroplets_IcePitMaze.bin"
 
-gUnk_additional9_TempleOfDroplets_IcePitMaze:: @ 080E45DE
-	.incbin "data_080D5360/gUnk_additional9_TempleOfDroplets_IcePitMaze.bin"
+gUnk_additional_11_TempleOfDroplets_IcePitMaze:: @ 080E45DE
+	.incbin "data_080D5360/gUnk_additional_11_TempleOfDroplets_IcePitMaze.bin"
 
-gUnk_additional10_TempleOfDroplets_IcePitMaze:: @ 080E4602
-	.incbin "data_080D5360/gUnk_additional10_TempleOfDroplets_IcePitMaze.bin"
+gUnk_additional_12_TempleOfDroplets_IcePitMaze:: @ 080E4602
+	.incbin "data_080D5360/gUnk_additional_12_TempleOfDroplets_IcePitMaze.bin"
 
-gUnk_additional11_TempleOfDroplets_IcePitMaze:: @ 080E4626
-	.incbin "data_080D5360/gUnk_additional11_TempleOfDroplets_IcePitMaze.bin"
+gUnk_additional_13_TempleOfDroplets_IcePitMaze:: @ 080E4626
+	.incbin "data_080D5360/gUnk_additional_13_TempleOfDroplets_IcePitMaze.bin"
 
-gUnk_additional12_TempleOfDroplets_IcePitMaze:: @ 080E464A
-	.incbin "data_080D5360/gUnk_additional12_TempleOfDroplets_IcePitMaze.bin"
+gUnk_additional_14_TempleOfDroplets_IcePitMaze:: @ 080E464A
+	.incbin "data_080D5360/gUnk_additional_14_TempleOfDroplets_IcePitMaze.bin"
 
 Room_TempleOfDroplets_IcePitMaze:: @ 080E4668
 	.4byte Entities_TempleOfDroplets_IcePitMaze_0
@@ -9795,19 +9910,19 @@ Room_TempleOfDroplets_IcePitMaze:: @ 080E4668
 	.4byte 0x00000000
 	.4byte sub_unk3_TempleOfDroplets_IcePitMaze
 	.4byte sub_StateChange_TempleOfDroplets_IcePitMaze
-	.4byte gUnk_additional0_TempleOfDroplets_IcePitMaze
-	.4byte gUnk_additional1_TempleOfDroplets_IcePitMaze
-	.4byte gUnk_additional2_TempleOfDroplets_IcePitMaze
-	.4byte gUnk_additional3_TempleOfDroplets_IcePitMaze
-	.4byte gUnk_additional4_TempleOfDroplets_IcePitMaze
-	.4byte gUnk_additional5_TempleOfDroplets_IcePitMaze
-	.4byte gUnk_additional6_TempleOfDroplets_IcePitMaze
-	.4byte gUnk_additional7_TempleOfDroplets_IcePitMaze
-	.4byte gUnk_additional8_TempleOfDroplets_IcePitMaze
-	.4byte gUnk_additional9_TempleOfDroplets_IcePitMaze
-	.4byte gUnk_additional10_TempleOfDroplets_IcePitMaze
-	.4byte gUnk_additional11_TempleOfDroplets_IcePitMaze
-	.4byte gUnk_additional12_TempleOfDroplets_IcePitMaze
+	.4byte gUnk_additional_8_TempleOfDroplets_IcePitMaze
+	.4byte gUnk_additional_9_TempleOfDroplets_IcePitMaze
+	.4byte gUnk_additional_a_TempleOfDroplets_IcePitMaze
+	.4byte gUnk_additional_b_TempleOfDroplets_IcePitMaze
+	.4byte gUnk_additional_c_TempleOfDroplets_IcePitMaze
+	.4byte gUnk_additional_d_TempleOfDroplets_IcePitMaze
+	.4byte gUnk_additional_e_TempleOfDroplets_IcePitMaze
+	.4byte gUnk_additional_f_TempleOfDroplets_IcePitMaze
+	.4byte gUnk_additional_10_TempleOfDroplets_IcePitMaze
+	.4byte gUnk_additional_11_TempleOfDroplets_IcePitMaze
+	.4byte gUnk_additional_12_TempleOfDroplets_IcePitMaze
+	.4byte gUnk_additional_13_TempleOfDroplets_IcePitMaze
+	.4byte gUnk_additional_14_TempleOfDroplets_IcePitMaze
 
 Entities_TempleOfDroplets_HoleToBlueChuchu_0:: @ 080E46BC
 	object_raw subtype=0x12, x=0xb8, y=0x68, paramC=0x6c0000
@@ -9905,14 +10020,19 @@ Entities_TempleOfDroplets_BigOcto_0:: @ 080E4944
 	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb070000, paramC=0x4005
 	entity_list_end
 
-gUnk_additional1_TempleOfDroplets_BigOcto:: @ 080E49C4
-	.incbin "data_080D5360/gUnk_additional1_TempleOfDroplets_BigOcto.bin"
+gUnk_additional_9_TempleOfDroplets_BigOcto:: @ 080E49C4
+	object_raw subtype=0xac, x=0x108, y=0x78, collision=1, paramA=0x42
+	manager subtype=0xe, y=0x3c, unknown=0x1f, paramA=0xa, paramC=0x80000000
+	entity_list_end
 
-gUnk_additional2_TempleOfDroplets_BigOcto:: @ 080E49F4
-	.incbin "data_080D5360/gUnk_additional2_TempleOfDroplets_BigOcto.bin"
+gUnk_additional_a_TempleOfDroplets_BigOcto:: @ 080E49F4
+	object_raw subtype=0x34, x=0x108, y=0xa8, paramA=0x2, paramB=0x360, paramC=0x40050390
+	object_raw subtype=0x47, x=0x108, y=0x58, paramC=0x40050040
+	entity_list_end
 
-gUnk_additional0_TempleOfDroplets_BigOcto:: @ 080E4A24
-	.incbin "data_080D5360/gUnk_additional0_TempleOfDroplets_BigOcto.bin"
+gUnk_additional_8_TempleOfDroplets_BigOcto:: @ 080E4A24
+	enemy_raw subtype=0x39, x=0x108, y=0xa8
+	entity_list_end
 
 TileEntities_TempleOfDroplets_BigOcto:: @ 080E4A44
 	tile_entity type=0x9
@@ -9928,9 +10048,9 @@ Room_TempleOfDroplets_BigOcto:: @ 080E4A5C
 	.4byte 0x00000000
 	.4byte sub_unk3_TempleOfDroplets_BigOcto
 	.4byte sub_StateChange_TempleOfDroplets_BigOcto
-	.4byte gUnk_additional0_TempleOfDroplets_BigOcto
-	.4byte gUnk_additional1_TempleOfDroplets_BigOcto
-	.4byte gUnk_additional2_TempleOfDroplets_BigOcto
+	.4byte gUnk_additional_8_TempleOfDroplets_BigOcto
+	.4byte gUnk_additional_9_TempleOfDroplets_BigOcto
+	.4byte gUnk_additional_a_TempleOfDroplets_BigOcto
 
 Entities_TempleOfDroplets_ToBigBlueChuchu_0:: @ 080E4A88
 	object_raw subtype=0x85, x=0x40, y=0x70, paramC=0x420000
@@ -9971,7 +10091,8 @@ Entities_TempleOfDroplets_BigBlueChuchu_0:: @ 080E4B68
 	entity_list_end
 
 gUnk_080E4BD8:: @ 080E4BD8
-	.incbin "data_080D5360/gUnk_080E4BD8.bin"
+	manager subtype=0x1e, x=0xa0, y=0x20, paramB=0x200040, paramC=0x80000000
+	entity_list_end
 
 Entities_TempleOfDroplets_BigBlueChuchu_1:: @ 080E4BF8
 	entity_list_end
@@ -10006,10 +10127,12 @@ Entities_TempleOfDroplets_BigBlueChuchuKey_0:: @ 080E4C88
 	entity_list_end
 
 gUnk_080E4CD8:: @ 080E4CD8
-	.incbin "data_080D5360/gUnk_080E4CD8.bin"
+	manager subtype=0x15, x=0x78, y=0x68, unknown=0x8, paramA=0x2, paramB=0x80008, paramC=0x4b0000
+	entity_list_end
 
 gUnk_080E4CF8:: @ 080E4CF8
-	.incbin "data_080D5360/gUnk_080E4CF8.bin"
+	manager subtype=0x15, x=0x78, y=0x68, unknown=0x8, paramA=0x7, paramB=0x80008, paramC=0x4b0000
+	entity_list_end
 
 Enemies_TempleOfDroplets_BigBlueChuchuKey:: @ 080E4D18
 	entity_list_end
@@ -10019,8 +10142,8 @@ TileEntities_TempleOfDroplets_BigBlueChuchuKey:: @ 080E4D28
 	tile_entity type=0x1, paramA=0x12
 	tile_entity_list_end
 
-gUnk_additional0_TempleOfDroplets_BigBlueChuchuKey:: @ 080E4D40
-	.incbin "data_080D5360/gUnk_additional0_TempleOfDroplets_BigBlueChuchuKey.bin"
+gUnk_additional_8_TempleOfDroplets_BigBlueChuchuKey:: @ 080E4D40
+	.incbin "data_080D5360/gUnk_additional_8_TempleOfDroplets_BigBlueChuchuKey.bin"
 
 Room_TempleOfDroplets_BigBlueChuchuKey:: @ 080E4D4C
 	.4byte Entities_TempleOfDroplets_BigBlueChuchuKey_0
@@ -10031,7 +10154,7 @@ Room_TempleOfDroplets_BigBlueChuchuKey:: @ 080E4D4C
 	.4byte 0x00000000
 	.4byte sub_unk3_TempleOfDroplets_BigBlueChuchuKey
 	.4byte sub_StateChange_TempleOfDroplets_BigBlueChuchuKey
-	.4byte gUnk_additional0_TempleOfDroplets_BigBlueChuchuKey
+	.4byte gUnk_additional_8_TempleOfDroplets_BigBlueChuchuKey
 
 Entities_TempleOfDroplets_BossKey_0:: @ 080E4D70
 	manager subtype=0x15, x=0x88, y=0x68, unknown=0x8, paramA=0x2, paramB=0xfff8, paramC=0x4e00a2
@@ -10049,8 +10172,8 @@ TileEntities_TempleOfDroplets_BossKey:: @ 080E4DF0
 	tile_entity type=0x1, paramA=0x13
 	tile_entity_list_end
 
-gUnk_additional0_TempleOfDroplets_BossKey:: @ 080E4E00
-	.incbin "data_080D5360/gUnk_additional0_TempleOfDroplets_BossKey.bin"
+gUnk_additional_8_TempleOfDroplets_BossKey:: @ 080E4E00
+	.incbin "data_080D5360/gUnk_additional_8_TempleOfDroplets_BossKey.bin"
 
 Room_TempleOfDroplets_BossKey:: @ 080E4E0C
 	.4byte Entities_TempleOfDroplets_BossKey_0
@@ -10061,7 +10184,7 @@ Room_TempleOfDroplets_BossKey:: @ 080E4E0C
 	.4byte 0x00000000
 	.4byte sub_unk3_TempleOfDroplets_BossKey
 	.4byte sub_StateChange_Dojos_73
-	.4byte gUnk_additional0_TempleOfDroplets_BossKey
+	.4byte gUnk_additional_8_TempleOfDroplets_BossKey
 
 Entities_TempleOfDroplets_NorthSmallKey_0:: @ 080E4E30
 	object_raw subtype=0x7b, x=0xd8, y=0x68, paramC=0x510000
@@ -10079,8 +10202,8 @@ TileEntities_TempleOfDroplets_NorthSmallKey:: @ 080E4EB0
 	tile_entity type=0x1, paramA=0x14
 	tile_entity_list_end
 
-gUnk_additional0_TempleOfDroplets_NorthSmallKey:: @ 080E4EC0
-	.incbin "data_080D5360/gUnk_additional0_TempleOfDroplets_NorthSmallKey.bin"
+gUnk_additional_8_TempleOfDroplets_NorthSmallKey:: @ 080E4EC0
+	.incbin "data_080D5360/gUnk_additional_8_TempleOfDroplets_NorthSmallKey.bin"
 
 Room_TempleOfDroplets_NorthSmallKey:: @ 080E4ECC
 	.4byte Entities_TempleOfDroplets_NorthSmallKey_0
@@ -10091,7 +10214,7 @@ Room_TempleOfDroplets_NorthSmallKey:: @ 080E4ECC
 	.4byte 0x00000000
 	.4byte sub_unk3_TempleOfDroplets_NorthSmallKey
 	.4byte sub_StateChange_Dojos_74
-	.4byte gUnk_additional0_TempleOfDroplets_NorthSmallKey
+	.4byte gUnk_additional_8_TempleOfDroplets_NorthSmallKey
 
 Entities_TempleOfDroplets_BlockCloneButtonPuzzle_0:: @ 080E4EF0
 	object_raw subtype=0x3, x=0x58, y=0x38, paramA=0x1, paramC=0x80000001
@@ -10329,10 +10452,12 @@ Entities_TempleOfDroplets_LilypadIceBlocks_0:: @ 080E5480
 	entity_list_end
 
 gUnk_080E5660:: @ 080E5660
-	.incbin "data_080D5360/gUnk_080E5660.bin"
+	object_raw subtype=0x84, x=0xc8, y=0x148
+	entity_list_end
 
 gUnk_080E5680:: @ 080E5680
-	.incbin "data_080D5360/gUnk_080E5680.bin"
+	object_raw subtype=0x84, x=0x98, y=0x188
+	entity_list_end
 
 Enemies_TempleOfDroplets_LilypadIceBlocks:: @ 080E56A0
 	enemy_raw subtype=0x11, x=0x58, y=0x1c8, paramB=0x241c0000, paramC=0x1200030
@@ -10504,8 +10629,10 @@ TileEntities_TempleOfDroplets_Madderpillars:: @ 080E5CA8
 	tile_entity type=0x1, paramA=0x1f
 	tile_entity_list_end
 
-gUnk_additional0_TempleOfDroplets_Madderpillars:: @ 080E5CC0
-	.incbin "data_080D5360/gUnk_additional0_TempleOfDroplets_Madderpillars.bin"
+gUnk_additional_8_TempleOfDroplets_Madderpillars:: @ 080E5CC0
+	enemy_raw subtype=0x18, x=0x38, y=0x68
+	enemy_raw subtype=0x18, x=0xb8, y=0x68
+	entity_list_end
 
 Room_TempleOfDroplets_Madderpillars:: @ 080E5CF0
 	.4byte Entities_TempleOfDroplets_Madderpillars_0
@@ -10516,7 +10643,7 @@ Room_TempleOfDroplets_Madderpillars:: @ 080E5CF0
 	.4byte 0x00000000
 	.4byte sub_unk3_TempleOfDroplets_Madderpillars
 	.4byte sub_StateChange_Dojos_84
-	.4byte gUnk_additional0_TempleOfDroplets_Madderpillars
+	.4byte gUnk_additional_8_TempleOfDroplets_Madderpillars
 
 Entities_TempleOfDroplets_AfterMadderpillars_0:: @ 080E5D14
 	object_raw subtype=0x8, x=0x38, y=0x68, paramA=0x3, paramC=0x66ffff
@@ -10557,10 +10684,12 @@ Entities_TempleOfDroplets_BlueChuchuKeyLever_0:: @ 080E5DCC
 	entity_list_end
 
 gUnk_080E5E3C:: @ 080E5E3C
-	.incbin "data_080D5360/gUnk_080E5E3C.bin"
+	manager subtype=0x15, x=0xb8, y=0x68, unknown=0x8, paramA=0x2, paramB=0xffc8, paramC=0x6c0000
+	entity_list_end
 
 gUnk_080E5E5C:: @ 080E5E5C
-	.incbin "data_080D5360/gUnk_080E5E5C.bin"
+	manager subtype=0x15, x=0xb8, y=0x68, unknown=0x8, paramA=0x3, paramB=0xffc8, paramC=0x6c0000
+	entity_list_end
 
 Enemies_TempleOfDroplets_BlueChuchuKeyLever:: @ 080E5E7C
 	entity_list_end
@@ -10595,8 +10724,14 @@ TileEntities_TempleOfDroplets_MulldozerKey:: @ 080E5F2C
 	tile_entity type=0x1, paramA=0x22
 	tile_entity_list_end
 
-gUnk_additional0_TempleOfDroplets_MulldozerKey:: @ 080E5F44
-	.incbin "data_080D5360/gUnk_additional0_TempleOfDroplets_MulldozerKey.bin"
+gUnk_additional_8_TempleOfDroplets_MulldozerKey:: @ 080E5F44
+	enemy_raw subtype=0x32, x=0x58, y=0x58
+	enemy_raw subtype=0x32, x=0x78, y=0x78
+	enemy_raw subtype=0x32, x=0x98, y=0x58
+	enemy_raw subtype=0x32, x=0x58, y=0x78, paramA=0x1
+	enemy_raw subtype=0x32, x=0x78, y=0x58, paramA=0x1
+	enemy_raw subtype=0x32, x=0x98, y=0x78, paramA=0x1
+	entity_list_end
 
 Room_TempleOfDroplets_MulldozerKey:: @ 080E5FB4
 	.4byte Entities_TempleOfDroplets_MulldozerKey_0
@@ -10607,7 +10742,7 @@ Room_TempleOfDroplets_MulldozerKey:: @ 080E5FB4
 	.4byte 0x00000000
 	.4byte sub_unk3_TempleOfDroplets_MulldozerKey
 	.4byte sub_StateChange_Dojos_86
-	.4byte gUnk_additional0_TempleOfDroplets_MulldozerKey
+	.4byte gUnk_additional_8_TempleOfDroplets_MulldozerKey
 
 Entities_TempleOfDroplets_BombWall_0:: @ 080E5FD8
 	object_raw subtype=0x3, x=0xb8, y=0x98, paramC=0x700002
@@ -10677,8 +10812,8 @@ TileEntities_TempleOfDroplets_LilypadWestB2:: @ 080E6270
 	tile_entity type=0x1, paramA=0x24
 	tile_entity_list_end
 
-gUnk_additional0_TempleOfDroplets_LilypadWestB2:: @ 080E6288
-	.incbin "data_080D5360/gUnk_additional0_TempleOfDroplets_LilypadWestB2.bin"
+gUnk_additional_8_TempleOfDroplets_LilypadWestB2:: @ 080E6288
+	.incbin "data_080D5360/gUnk_additional_8_TempleOfDroplets_LilypadWestB2.bin"
 
 Room_TempleOfDroplets_LilypadWestB2:: @ 080E62A8
 	.4byte Entities_TempleOfDroplets_LilypadWestB2_0
@@ -10689,7 +10824,7 @@ Room_TempleOfDroplets_LilypadWestB2:: @ 080E62A8
 	.4byte 0x00000000
 	.4byte sub_unk3_TempleOfDroplets_LilypadWestB2
 	.4byte sub_StateChange_Dojos_88
-	.4byte gUnk_additional0_TempleOfDroplets_LilypadWestB2
+	.4byte gUnk_additional_8_TempleOfDroplets_LilypadWestB2
 
 Entities_TempleOfDroplets_CompassRoom_0:: @ 080E62CC
 	object_raw subtype=0x8, x=0xa8, y=0xb8, paramA=0x2, paramC=0x7bffff
@@ -10740,8 +10875,12 @@ TileEntities_TempleOfDroplets_LanternScissors:: @ 080E643C
 	tile_entity type=0x1, paramA=0x26
 	tile_entity_list_end
 
-gUnk_additional0_TempleOfDroplets_LanternScissors:: @ 080E6454
-	.incbin "data_080D5360/gUnk_additional0_TempleOfDroplets_LanternScissors.bin"
+gUnk_additional_8_TempleOfDroplets_LanternScissors:: @ 080E6454
+	enemy_raw subtype=0x40, x=0x68, y=0x58, unknown=0x2f
+	enemy_raw subtype=0x40, x=0x78, y=0x88, unknown=0x2f
+	enemy_raw subtype=0x40, x=0x88, y=0x68, unknown=0x2f
+	manager subtype=0x28, unknown=0x3, paramB=0x8
+	entity_list_end
 
 Room_TempleOfDroplets_LanternScissors:: @ 080E64A4
 	.4byte Entities_TempleOfDroplets_LanternScissors_0
@@ -10752,7 +10891,7 @@ Room_TempleOfDroplets_LanternScissors:: @ 080E64A4
 	.4byte 0x00000000
 	.4byte sub_unk3_TempleOfDroplets_LanternScissors
 	.4byte sub_StateChange_Dojos_90
-	.4byte gUnk_additional0_TempleOfDroplets_LanternScissors
+	.4byte gUnk_additional_8_TempleOfDroplets_LanternScissors
 
 Entities_TempleOfDroplets_LilypadMiddleB2_0:: @ 080E64C8
 	object_raw subtype=0x0, x=0x98, y=0x98, collision=1, paramA=0x53, paramB=0x800, paramC=0x7a0000
@@ -10807,8 +10946,9 @@ TileEntities_TempleOfDroplets_LilypadEastB2:: @ 080E66A8
 	tile_entity type=0x1, paramA=0x28
 	tile_entity_list_end
 
-gUnk_additional0_TempleOfDroplets_LilypadEastB2:: @ 080E66B8
-	.incbin "data_080D5360/gUnk_additional0_TempleOfDroplets_LilypadEastB2.bin"
+gUnk_additional_8_TempleOfDroplets_LilypadEastB2:: @ 080E66B8
+	enemy_raw subtype=0x18, x=0xa8, y=0x68
+	entity_list_end
 
 Room_TempleOfDroplets_LilypadEastB2:: @ 080E66D8
 	.4byte Entities_TempleOfDroplets_LilypadEastB2_0
@@ -10819,7 +10959,7 @@ Room_TempleOfDroplets_LilypadEastB2:: @ 080E66D8
 	.4byte 0x00000000
 	.4byte sub_unk3_TempleOfDroplets_LilypadEastB2
 	.4byte sub_StateChange_Dojos_92
-	.4byte gUnk_additional0_TempleOfDroplets_LilypadEastB2
+	.4byte gUnk_additional_8_TempleOfDroplets_LilypadEastB2
 
 Entities_TempleOfDroplets_FlameBarBlockPuzzle_0:: @ 080E66FC
 	object_raw subtype=0x8, x=0x78, y=0x28, paramC=0x54ffff
@@ -10834,24 +10974,9 @@ Enemies_TempleOfDroplets_FlameBarBlockPuzzle:: @ 080E673C
 
 TileEntities_TempleOfDroplets_FlameBarBlockPuzzle:: @ 080E676C
 	tile_entity type=0x1, paramA=0x82
-	tile_entity_list_end@ unaccounted bytes
-	.byte 255
-	.byte 0
-	.byte 0
-	.byte 0
-	.byte 0
-	.byte 0
-	.byte 0
-	.byte 0
-	.byte 0
-	.byte 0
-	.byte 0
-	.byte 0
-	.byte 0
-	.byte 0
-	.byte 0
-	.byte 0
-
+	tile_entity_list_end
+	
+	entity_list_end
 
 Room_TempleOfDroplets_FlameBarBlockPuzzle:: @ 080E678C
 	.4byte Entities_TempleOfDroplets_FlameBarBlockPuzzle_0
@@ -10891,11 +11016,9 @@ Entities_RoyalCrypt_KingGustaf_0:: @ 080E67AC
 	entity_list_end
 
 gUnk_080E693C:: @ 080E693C
-	.incbin "data_080D5360/gUnk_080E693C.bin"
-	.4byte script_0800D954
-	.incbin "data_080D5360/gUnk_080E693C_1.bin"
-	.4byte script_0800DA28
-	.incbin "data_080D5360/gUnk_080E693C_2.bin"
+	npc_raw subtype=0x42, x=0x118, y=0x48, script=script_0800D954
+	object_raw subtype=0x6a, x=0x118, y=0x28, unknown=0x4f, paramA=0x12, paramB=0x9, paramC=script_0800DA28
+	entity_list_end
 
 Enemies_RoyalCrypt_KingGustaf:: @ 080E696C
 	entity_list_end
@@ -10935,8 +11058,11 @@ Enemies_RoyalCrypt_WaterRope:: @ 080E6A7C
 TileEntities_RoyalCrypt_WaterRope:: @ 080E6A8C
 	tile_entity_list_end
 
-gUnk_additional0_RoyalCrypt_WaterRope:: @ 080E6A94
-	.incbin "data_080D5360/gUnk_additional0_RoyalCrypt_WaterRope.bin"
+gUnk_additional_8_RoyalCrypt_WaterRope:: @ 080E6A94
+	object_raw subtype=0x8, x=0x88, y=0xc8, paramA=0x12, paramC=0x19ffff
+	enemy_raw subtype=0x3b, x=0x58, y=0x78, unknown=0x2f
+	enemy_raw subtype=0x3b, x=0xb8, y=0x78, unknown=0x2f
+	entity_list_end
 
 Room_RoyalCrypt_WaterRope:: @ 080E6AD4
 	.4byte Entities_RoyalCrypt_WaterRope_0
@@ -10947,7 +11073,7 @@ Room_RoyalCrypt_WaterRope:: @ 080E6AD4
 	.4byte 0x00000000
 	.4byte sub_unk3_RoyalCrypt_WaterRope
 	.4byte sub_StateChange_Dojos_94
-	.4byte gUnk_additional0_RoyalCrypt_WaterRope
+	.4byte gUnk_additional_8_RoyalCrypt_WaterRope
 
 Entities_RoyalCrypt_Gibdo_0:: @ 080E6AF8
 	entity_list_end
@@ -11026,11 +11152,11 @@ TileEntities_RoyalCrypt_KeyBlock:: @ 080E6D68
 	tile_entity type=0xa, paramA=0x1, paramB=0x28, paramC=0x2d2, paramD=0x26
 	tile_entity_list_end
 
-gUnk_additional0_RoyalCrypt_KeyBlock:: @ 080E6D80
-	.incbin "data_080D5360/gUnk_additional0_RoyalCrypt_KeyBlock.bin"
+gUnk_additional_8_RoyalCrypt_KeyBlock:: @ 080E6D80
+	.incbin "data_080D5360/gUnk_additional_8_RoyalCrypt_KeyBlock.bin"
 
-gUnk_additional1_RoyalCrypt_KeyBlock:: @ 080E6D9E
-	.incbin "data_080D5360/gUnk_additional1_RoyalCrypt_KeyBlock.bin"
+gUnk_additional_9_RoyalCrypt_KeyBlock:: @ 080E6D9E
+	.incbin "data_080D5360/gUnk_additional_9_RoyalCrypt_KeyBlock.bin"
 
 Room_RoyalCrypt_KeyBlock:: @ 080E6E04
 	.4byte Entities_RoyalCrypt_KeyBlock_0
@@ -11041,8 +11167,8 @@ Room_RoyalCrypt_KeyBlock:: @ 080E6E04
 	.4byte 0x00000000
 	.4byte sub_unk3_RoyalCrypt_KeyBlock
 	.4byte sub_StateChange_Dojos_97
-	.4byte gUnk_additional0_RoyalCrypt_KeyBlock
-	.4byte gUnk_additional1_RoyalCrypt_KeyBlock
+	.4byte gUnk_additional_8_RoyalCrypt_KeyBlock
+	.4byte gUnk_additional_9_RoyalCrypt_KeyBlock
 
 Entities_RoyalCrypt_5_0:: @ 080E6E2C
 	object_raw subtype=0x5, x=0x118, y=0x28
@@ -11148,10 +11274,12 @@ Entities_RoyalCrypt_Entrance_0:: @ 080E716C
 	entity_list_end
 
 gUnk_080E718C:: @ 080E718C
-	.incbin "data_080D5360/gUnk_080E718C.bin"
+	object_raw subtype=0xc0, x=0x58, y=0x48, paramB=0x5d3b, paramC=0xc40000
+	entity_list_end
 
 gUnk_080E71AC:: @ 080E71AC
-	.incbin "data_080D5360/gUnk_080E71AC.bin"
+	object_raw subtype=0xc0, x=0xb8, y=0x48, paramA=0x1, paramB=0x533b, paramC=0xc50000
+	entity_list_end
 
 Enemies_RoyalCrypt_Entrance:: @ 080E71CC
 	enemy_raw subtype=0x3b, x=0x58, y=0x48, unknown=0x2f, paramA=0x1
@@ -11184,13 +11312,18 @@ Entities_PalaceOfWinds_0_0:: @ 080E7224
 	entity_list_end
 
 gUnk_080E72C4:: @ 080E72C4
-	.incbin "data_080D5360/gUnk_080E72C4.bin"
+	object_raw subtype=0x82, x=0x1d8, y=0xc8, paramB=0x4
+	entity_list_end
 
-gUnk_additional0_PalaceOfWinds_0:: @ 080E72E4
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_0.bin"
+gUnk_additional_8_PalaceOfWinds_0:: @ 080E72E4
+	object_raw subtype=0xac, x=0x1d8, y=0xc8, paramA=0x43
+	manager subtype=0xe, y=0x3c, unknown=0x1f, paramA=0x9, paramC=0x80000000
+	entity_list_end
 
-gUnk_additional1_PalaceOfWinds_0:: @ 080E7314
-	.incbin "data_080D5360/gUnk_additional1_PalaceOfWinds_0.bin"
+gUnk_additional_9_PalaceOfWinds_0:: @ 080E7314
+	object_raw subtype=0x34, x=0x1b8, y=0x108, paramA=0x2, paramB=0x31, paramC=0x400601c7
+	object_raw subtype=0x47, x=0x1f8, y=0x108, paramC=0x4006007d
+	entity_list_end
 
 Enemies_PalaceOfWinds_0:: @ 080E7344
 	entity_list_end
@@ -11208,8 +11341,8 @@ Room_PalaceOfWinds_0:: @ 080E7364
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_0
 	.4byte sub_StateChange_PalaceOfWinds_0
-	.4byte gUnk_additional0_PalaceOfWinds_0
-	.4byte gUnk_additional1_PalaceOfWinds_0
+	.4byte gUnk_additional_8_PalaceOfWinds_0
+	.4byte gUnk_additional_9_PalaceOfWinds_0
 
 Entities_PalaceOfWinds_1_0:: @ 080E738C
 	manager subtype=0x19, unknown=0x8
@@ -11342,8 +11475,13 @@ TileEntities_PalaceOfWinds_5:: @ 080E7764
 	tile_entity type=0x1, paramA=0x6
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_5:: @ 080E7774
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_5.bin"
+gUnk_additional_8_PalaceOfWinds_5:: @ 080E7774
+	enemy_raw subtype=0x29, x=0x78, y=0x158, paramB=0xe140000, paramC=0x1500030
+	enemy_raw subtype=0x29, x=0x78, y=0x1b8, paramB=0xe140000, paramC=0x1500030
+	enemy_raw subtype=0x15, x=0x48, y=0x188, unknown=0x2f, paramB=0xe140000, paramC=0x1500030
+	enemy_raw subtype=0x15, x=0x78, y=0x188, unknown=0x2f, paramB=0xe140000, paramC=0x1500030
+	object_raw subtype=0x8, x=0xd8, y=0x198, paramA=0x11, paramC=0x810000
+	entity_list_end
 
 Room_PalaceOfWinds_5:: @ 080E77D4
 	.4byte Entities_PalaceOfWinds_5_0
@@ -11354,7 +11492,7 @@ Room_PalaceOfWinds_5:: @ 080E77D4
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_5
 	.4byte sub_StateChange_PalaceOfWinds_5
-	.4byte gUnk_additional0_PalaceOfWinds_5
+	.4byte gUnk_additional_8_PalaceOfWinds_5
 
 Entities_PalaceOfWinds_6_0:: @ 080E77F8
 	manager subtype=0x19, unknown=0x8
@@ -11440,8 +11578,10 @@ TileEntities_PalaceOfWinds_8:: @ 080E7AD0
 	tile_entity type=0x1, paramA=0x9
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_8:: @ 080E7AE0
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_8.bin"
+gUnk_additional_8_PalaceOfWinds_8:: @ 080E7AE0
+	enemy_raw subtype=0x4c, x=0x58, y=0xa8, paramB=0x1c120000, paramC=0x300030
+	enemy_raw subtype=0x4c, x=0x98, y=0xa8, paramB=0x1c120000, paramC=0x300038
+	entity_list_end
 
 Room_PalaceOfWinds_8:: @ 080E7B10
 	.4byte Entities_PalaceOfWinds_8_0
@@ -11452,7 +11592,7 @@ Room_PalaceOfWinds_8:: @ 080E7B10
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_8
 	.4byte sub_StateChange_PalaceOfWinds_8
-	.4byte gUnk_additional0_PalaceOfWinds_8
+	.4byte gUnk_additional_8_PalaceOfWinds_8
 
 Entities_PalaceOfWinds_9_0:: @ 080E7B34
 	manager subtype=0x19, unknown=0x8
@@ -11563,8 +11703,9 @@ TileEntities_PalaceOfWinds_12:: @ 080E7E8C
 	tile_entity type=0x1, paramA=0xd
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_12:: @ 080E7EA4
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_12.bin"
+gUnk_additional_8_PalaceOfWinds_12:: @ 080E7EA4
+	enemy_raw subtype=0x5, x=0x78, y=0x58, unknown=0x2f, paramA=0x2
+	entity_list_end
 
 Room_PalaceOfWinds_12:: @ 080E7EC4
 	.4byte Entities_PalaceOfWinds_12_0
@@ -11575,7 +11716,7 @@ Room_PalaceOfWinds_12:: @ 080E7EC4
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_12
 	.4byte sub_StateChange_PalaceOfWinds_12
-	.4byte gUnk_additional0_PalaceOfWinds_12
+	.4byte gUnk_additional_8_PalaceOfWinds_12
 
 Entities_PalaceOfWinds_13_0:: @ 080E7EE8
 	manager subtype=0x19, unknown=0x8
@@ -11853,8 +11994,8 @@ TileEntities_PalaceOfWinds_21:: @ 080E87D8
 	tile_entity type=0x1, paramA=0x16
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_21:: @ 080E8800
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_21.bin"
+gUnk_additional_8_PalaceOfWinds_21:: @ 080E8800
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_21.bin"
 
 Room_PalaceOfWinds_21:: @ 080E8824
 	.4byte Entities_PalaceOfWinds_21_0
@@ -11865,7 +12006,7 @@ Room_PalaceOfWinds_21:: @ 080E8824
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_21
 	.4byte sub_StateChange_PalaceOfWinds_21
-	.4byte gUnk_additional0_PalaceOfWinds_21
+	.4byte gUnk_additional_8_PalaceOfWinds_21
 
 Entities_PalaceOfWinds_22_0:: @ 080E8848
 	manager subtype=0x19, unknown=0x8
@@ -11889,8 +12030,8 @@ TileEntities_PalaceOfWinds_22:: @ 080E8928
 	tile_entity type=0x1, paramA=0x17
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_22:: @ 080E8938
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_22.bin"
+gUnk_additional_8_PalaceOfWinds_22:: @ 080E8938
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_22.bin"
 
 Room_PalaceOfWinds_22:: @ 080E8988
 	.4byte Entities_PalaceOfWinds_22_0
@@ -11901,7 +12042,7 @@ Room_PalaceOfWinds_22:: @ 080E8988
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_22
 	.4byte sub_StateChange_PalaceOfWinds_22
-	.4byte gUnk_additional0_PalaceOfWinds_22
+	.4byte gUnk_additional_8_PalaceOfWinds_22
 
 Entities_PalaceOfWinds_23_0:: @ 080E89AC
 	manager subtype=0x19, unknown=0x8
@@ -11950,14 +12091,18 @@ TileEntities_PalaceOfWinds_24:: @ 080E8B2C
 	tile_entity type=0x1, paramA=0x19
 	tile_entity_list_end
 
-gUnk_additional1_PalaceOfWinds_24:: @ 080E8B3C
-	.incbin "data_080D5360/gUnk_additional1_PalaceOfWinds_24.bin"
+gUnk_additional_9_PalaceOfWinds_24:: @ 080E8B3C
+	object_raw subtype=0x16, x=0x58, y=0x108, paramA=0x3, paramB=0x8
+	object_raw subtype=0x16, x=0x58, y=0x138, paramA=0x3, paramB=0x8
+	entity_list_end
 
-gUnk_additional2_PalaceOfWinds_24:: @ 080E8B6C
-	.incbin "data_080D5360/gUnk_additional2_PalaceOfWinds_24.bin"
+gUnk_additional_a_PalaceOfWinds_24:: @ 080E8B6C
+	object_raw subtype=0x16, x=0xb8, y=0x108, paramA=0x3, paramB=0x8
+	object_raw subtype=0x16, x=0xb8, y=0x138, paramA=0x3, paramB=0x8
+	entity_list_end
 
-gUnk_additional0_PalaceOfWinds_24:: @ 080E8B9C
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_24.bin"
+gUnk_additional_8_PalaceOfWinds_24:: @ 080E8B9C
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_24.bin"
 
 Room_PalaceOfWinds_24:: @ 080E8BC0
 	.4byte Entities_PalaceOfWinds_24_0
@@ -11968,9 +12113,9 @@ Room_PalaceOfWinds_24:: @ 080E8BC0
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_24
 	.4byte sub_StateChange_PalaceOfWinds_24
-	.4byte gUnk_additional0_PalaceOfWinds_24
-	.4byte gUnk_additional1_PalaceOfWinds_24
-	.4byte gUnk_additional2_PalaceOfWinds_24
+	.4byte gUnk_additional_8_PalaceOfWinds_24
+	.4byte gUnk_additional_9_PalaceOfWinds_24
+	.4byte gUnk_additional_a_PalaceOfWinds_24
 
 Entities_PalaceOfWinds_25_0:: @ 080E8BEC
 	manager subtype=0x19, unknown=0x8
@@ -11989,8 +12134,8 @@ TileEntities_PalaceOfWinds_25:: @ 080E8C7C
 	tile_entity type=0x1, paramA=0x1a
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_25:: @ 080E8C8C
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_25.bin"
+gUnk_additional_8_PalaceOfWinds_25:: @ 080E8C8C
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_25.bin"
 
 Room_PalaceOfWinds_25:: @ 080E8CB0
 	.4byte Entities_PalaceOfWinds_25_0
@@ -12001,7 +12146,7 @@ Room_PalaceOfWinds_25:: @ 080E8CB0
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_25
 	.4byte sub_StateChange_PalaceOfWinds_25
-	.4byte gUnk_additional0_PalaceOfWinds_25
+	.4byte gUnk_additional_8_PalaceOfWinds_25
 
 Entities_PalaceOfWinds_26_0:: @ 080E8CD4
 	manager subtype=0x19, unknown=0x8
@@ -12092,8 +12237,11 @@ TileEntities_PalaceOfWinds_28:: @ 080E8FF4
 	tile_entity type=0x1, paramA=0x1d
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_28:: @ 080E900C
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_28.bin"
+gUnk_additional_8_PalaceOfWinds_28:: @ 080E900C
+	enemy_raw subtype=0x28, x=0x78, y=0x28, paramB=0xe160000, paramC=0x200020
+	enemy_raw subtype=0x28, x=0x58, y=0x48, paramB=0xe160000, paramC=0x200020
+	enemy_raw subtype=0x28, x=0x98, y=0x48, paramB=0xe160000, paramC=0x200020
+	entity_list_end
 
 Room_PalaceOfWinds_28:: @ 080E904C
 	.4byte Entities_PalaceOfWinds_28_0
@@ -12104,7 +12252,7 @@ Room_PalaceOfWinds_28:: @ 080E904C
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_28
 	.4byte sub_StateChange_PalaceOfWinds_28
-	.4byte gUnk_additional0_PalaceOfWinds_28
+	.4byte gUnk_additional_8_PalaceOfWinds_28
 
 Entities_PalaceOfWinds_29_0:: @ 080E9070
 	object_raw subtype=0x74, x=0xb8, y=0x78, collision=1, paramC=0xffff0000
@@ -12243,14 +12391,14 @@ TileEntities_PalaceOfWinds_33:: @ 080E94C0
 	tile_entity type=0x1, paramA=0x22
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_33:: @ 080E94D0
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_33.bin"
+gUnk_additional_8_PalaceOfWinds_33:: @ 080E94D0
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_33.bin"
 
-gUnk_additional1_PalaceOfWinds_33:: @ 080E94EE
-	.incbin "data_080D5360/gUnk_additional1_PalaceOfWinds_33.bin"
+gUnk_additional_9_PalaceOfWinds_33:: @ 080E94EE
+	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_33.bin"
 
-gUnk_additional2_PalaceOfWinds_33:: @ 080E9500
-	.incbin "data_080D5360/gUnk_additional2_PalaceOfWinds_33.bin"
+gUnk_additional_a_PalaceOfWinds_33:: @ 080E9500
+	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_33.bin"
 
 Room_PalaceOfWinds_33:: @ 080E9518
 	.4byte Entities_PalaceOfWinds_33_0
@@ -12261,9 +12409,9 @@ Room_PalaceOfWinds_33:: @ 080E9518
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_33
 	.4byte sub_StateChange_PalaceOfWinds_33
-	.4byte gUnk_additional0_PalaceOfWinds_33
-	.4byte gUnk_additional1_PalaceOfWinds_33
-	.4byte gUnk_additional2_PalaceOfWinds_33
+	.4byte gUnk_additional_8_PalaceOfWinds_33
+	.4byte gUnk_additional_9_PalaceOfWinds_33
+	.4byte gUnk_additional_a_PalaceOfWinds_33
 
 Entities_PalaceOfWinds_34_0:: @ 080E9544
 	manager subtype=0x19, unknown=0x8
@@ -12294,8 +12442,10 @@ TileEntities_PalaceOfWinds_34:: @ 080E9694
 	tile_entity type=0x1, paramA=0x23
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_34:: @ 080E96A4
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_34.bin"
+gUnk_additional_8_PalaceOfWinds_34:: @ 080E96A4
+	enemy_raw subtype=0x1e, x=0x38, y=0x118, unknown=0x2f
+	enemy_raw subtype=0x1e, x=0xb8, y=0x118, unknown=0x2f
+	entity_list_end
 
 Room_PalaceOfWinds_34:: @ 080E96D4
 	.4byte Entities_PalaceOfWinds_34_0
@@ -12306,7 +12456,7 @@ Room_PalaceOfWinds_34:: @ 080E96D4
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_34
 	.4byte sub_StateChange_PalaceOfWinds_34
-	.4byte gUnk_additional0_PalaceOfWinds_34
+	.4byte gUnk_additional_8_PalaceOfWinds_34
 
 Entities_PalaceOfWinds_35_0:: @ 080E96F8
 	manager subtype=0x19, unknown=0x8
@@ -12366,17 +12516,17 @@ TileEntities_PalaceOfWinds_36:: @ 080E9928
 	tile_entity type=0x1, paramA=0x25
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_36:: @ 080E9938
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_36.bin"
+gUnk_additional_8_PalaceOfWinds_36:: @ 080E9938
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_36.bin"
 
-gUnk_additional1_PalaceOfWinds_36:: @ 080E996E
-	.incbin "data_080D5360/gUnk_additional1_PalaceOfWinds_36.bin"
+gUnk_additional_9_PalaceOfWinds_36:: @ 080E996E
+	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_36.bin"
 
-gUnk_additional2_PalaceOfWinds_36:: @ 080E99A4
-	.incbin "data_080D5360/gUnk_additional2_PalaceOfWinds_36.bin"
+gUnk_additional_a_PalaceOfWinds_36:: @ 080E99A4
+	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_36.bin"
 
-gUnk_additional3_PalaceOfWinds_36:: @ 080E99DA
-	.incbin "data_080D5360/gUnk_additional3_PalaceOfWinds_36.bin"
+gUnk_additional_b_PalaceOfWinds_36:: @ 080E99DA
+	.incbin "data_080D5360/gUnk_additional_b_PalaceOfWinds_36.bin"
 
 Room_PalaceOfWinds_36:: @ 080E9A10
 	.4byte Entities_PalaceOfWinds_36_0
@@ -12387,10 +12537,10 @@ Room_PalaceOfWinds_36:: @ 080E9A10
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_36
 	.4byte sub_StateChange_PalaceOfWinds_36
-	.4byte gUnk_additional0_PalaceOfWinds_36
-	.4byte gUnk_additional1_PalaceOfWinds_36
-	.4byte gUnk_additional2_PalaceOfWinds_36
-	.4byte gUnk_additional3_PalaceOfWinds_36
+	.4byte gUnk_additional_8_PalaceOfWinds_36
+	.4byte gUnk_additional_9_PalaceOfWinds_36
+	.4byte gUnk_additional_a_PalaceOfWinds_36
+	.4byte gUnk_additional_b_PalaceOfWinds_36
 
 Entities_PalaceOfWinds_37_0:: @ 080E9A40
 	manager subtype=0x1a, unknown=0x8, paramA=0x2d
@@ -12511,8 +12661,10 @@ TileEntities_PalaceOfWinds_41:: @ 080E9D60
 	tile_entity type=0x1, paramA=0x2a
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_41:: @ 080E9D78
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_41.bin"
+gUnk_additional_8_PalaceOfWinds_41:: @ 080E9D78
+	enemy_raw subtype=0x27, x=0x38, y=0x48, paramB=0xa120000, paramC=0x300030
+	enemy_raw subtype=0x29, x=0xb8, y=0x48, paramB=0xa120000, paramC=0x300030
+	entity_list_end
 
 Room_PalaceOfWinds_41:: @ 080E9DA8
 	.4byte Entities_PalaceOfWinds_41_0
@@ -12523,7 +12675,7 @@ Room_PalaceOfWinds_41:: @ 080E9DA8
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_41
 	.4byte sub_StateChange_PalaceOfWinds_41
-	.4byte gUnk_additional0_PalaceOfWinds_41
+	.4byte gUnk_additional_8_PalaceOfWinds_41
 
 Entities_PalaceOfWinds_42_0:: @ 080E9DCC
 	object_raw subtype=0x8, x=0x18, y=0x68, paramA=0x3, paramC=0x6dffff
@@ -12563,14 +12715,14 @@ TileEntities_PalaceOfWinds_43:: @ 080E9EAC
 	tile_entity type=0x1, paramA=0x2c
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_43:: @ 080E9EC4
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_43.bin"
+gUnk_additional_8_PalaceOfWinds_43:: @ 080E9EC4
+	.incbin "data_080D5360/gUnk_additional_8_PalaceOfWinds_43.bin"
 
-gUnk_additional1_PalaceOfWinds_43:: @ 080E9EE2
-	.incbin "data_080D5360/gUnk_additional1_PalaceOfWinds_43.bin"
+gUnk_additional_9_PalaceOfWinds_43:: @ 080E9EE2
+	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_43.bin"
 
-gUnk_additional2_PalaceOfWinds_43:: @ 080E9F00
-	.incbin "data_080D5360/gUnk_additional2_PalaceOfWinds_43.bin"
+gUnk_additional_a_PalaceOfWinds_43:: @ 080E9F00
+	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_43.bin"
 
 Room_PalaceOfWinds_43:: @ 080E9F20
 	.4byte Entities_PalaceOfWinds_43_0
@@ -12581,9 +12733,9 @@ Room_PalaceOfWinds_43:: @ 080E9F20
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_43
 	.4byte sub_StateChange_PalaceOfWinds_43
-	.4byte gUnk_additional0_PalaceOfWinds_43
-	.4byte gUnk_additional1_PalaceOfWinds_43
-	.4byte gUnk_additional2_PalaceOfWinds_43
+	.4byte gUnk_additional_8_PalaceOfWinds_43
+	.4byte gUnk_additional_9_PalaceOfWinds_43
+	.4byte gUnk_additional_a_PalaceOfWinds_43
 
 Entities_PalaceOfWinds_44_0:: @ 080E9F4C
 .ifdef EU
@@ -12624,7 +12776,11 @@ Entities_PalaceOfWinds_44_0:: @ 080E9F4C
 	entity_list_end
 
 gUnk_080EA09C:: @ 080EA09C
-	.incbin "data_080D5360/gUnk_080EA09C.bin"
+	manager subtype=0x1e, x=0x28, y=0xd8, paramB=0x2000c0, paramC=0x80000000
+	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80018000
+	manager subtype=0xb, unknown=0x0, paramB=0x9, paramC=0x80028001
+	manager subtype=0xb, unknown=0x0, paramB=0xa, paramC=0x708002
+	entity_list_end
 
 Enemies_PalaceOfWinds_44:: @ 080EA0EC
 	projectile_raw subtype=0x1e, x=0x118, y=0x180, unknown=0x3, paramA=0x2, paramC=0x800080
@@ -12635,14 +12791,26 @@ TileEntities_PalaceOfWinds_44:: @ 080EA10C
 	tile_entity type=0x1, paramA=0x2d
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_44:: @ 080EA124
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_44.bin"
+gUnk_additional_8_PalaceOfWinds_44:: @ 080EA124
+	enemy_raw subtype=0x27, x=0x38, y=0xd8, paramB=0xe120000, paramC=0xa00030
+	enemy_raw subtype=0x27, x=0xb8, y=0xd8, paramB=0xe120000, paramC=0xa00030
+	entity_list_end
 
-gUnk_additional1_PalaceOfWinds_44:: @ 080EA154
-	.incbin "data_080D5360/gUnk_additional1_PalaceOfWinds_44.bin"
+gUnk_additional_9_PalaceOfWinds_44:: @ 080EA154
+	enemy_raw subtype=0x27, x=0x38, y=0xd8, paramB=0xe120000, paramC=0xa00030
+	enemy_raw subtype=0x27, x=0xb8, y=0xd8, paramB=0xe120000, paramC=0xa00030
+	enemy_raw subtype=0x27, x=0x78, y=0xb8, paramB=0xe120000, paramC=0xa00030
+	enemy_raw subtype=0x27, x=0x78, y=0xf8, paramB=0xe120000, paramC=0xa00030
+	entity_list_end
 
-gUnk_additional2_PalaceOfWinds_44:: @ 080EA1A4
-	.incbin "data_080D5360/gUnk_additional2_PalaceOfWinds_44.bin"
+gUnk_additional_a_PalaceOfWinds_44:: @ 080EA1A4
+	enemy_raw subtype=0x27, x=0x38, y=0xd8, paramB=0xe120000, paramC=0xa00030
+	enemy_raw subtype=0x27, x=0xb8, y=0xd8, paramB=0xe120000, paramC=0xa00030
+	enemy_raw subtype=0x27, x=0x68, y=0xb8, paramB=0xe120000, paramC=0xa00030
+	enemy_raw subtype=0x27, x=0x68, y=0xf8, paramB=0xe120000, paramC=0xa00030
+	enemy_raw subtype=0x27, x=0x88, y=0xb8, paramB=0xe120000, paramC=0xa00030
+	enemy_raw subtype=0x27, x=0x88, y=0xf8, paramB=0xe120000, paramC=0xa00030
+	entity_list_end
 
 Room_PalaceOfWinds_44:: @ 080EA214
 	.4byte Entities_PalaceOfWinds_44_0
@@ -12653,9 +12821,9 @@ Room_PalaceOfWinds_44:: @ 080EA214
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_44
 	.4byte sub_StateChange_PalaceOfWinds_44
-	.4byte gUnk_additional0_PalaceOfWinds_44
-	.4byte gUnk_additional1_PalaceOfWinds_44
-	.4byte gUnk_additional2_PalaceOfWinds_44
+	.4byte gUnk_additional_8_PalaceOfWinds_44
+	.4byte gUnk_additional_9_PalaceOfWinds_44
+	.4byte gUnk_additional_a_PalaceOfWinds_44
 
 Entities_PalaceOfWinds_45_0:: @ 080EA240
 	manager subtype=0x19, unknown=0x8
@@ -12710,14 +12878,18 @@ TileEntities_PalaceOfWinds_46:: @ 080EA418
 	tile_entity type=0x1, paramA=0x2f
 	tile_entity_list_end
 
-gUnk_additional0_PalaceOfWinds_46:: @ 080EA428
-	.incbin "data_080D5360/gUnk_additional0_PalaceOfWinds_46.bin"
+gUnk_additional_8_PalaceOfWinds_46:: @ 080EA428
+	object_raw subtype=0x16, x=0x68, y=0x1b8, paramA=0x3, paramB=0xa
+	object_raw subtype=0x16, x=0x90, y=0x1b0, paramA=0x2, paramB=0xa
+	object_raw subtype=0x16, x=0x60, y=0x1e0, paramA=0x2, paramB=0xa
+	object_raw subtype=0x16, x=0x88, y=0x1d8, paramA=0x3, paramB=0xa
+	entity_list_end
 
-gUnk_additional1_PalaceOfWinds_46:: @ 080EA478
-	.incbin "data_080D5360/gUnk_additional1_PalaceOfWinds_46.bin"
+gUnk_additional_9_PalaceOfWinds_46:: @ 080EA478
+	.incbin "data_080D5360/gUnk_additional_9_PalaceOfWinds_46.bin"
 
-gUnk_additional2_PalaceOfWinds_46:: @ 080EA496
-	.incbin "data_080D5360/gUnk_additional2_PalaceOfWinds_46.bin"
+gUnk_additional_a_PalaceOfWinds_46:: @ 080EA496
+	.incbin "data_080D5360/gUnk_additional_a_PalaceOfWinds_46.bin"
 
 Room_PalaceOfWinds_46:: @ 080EA4BC
 	.4byte Entities_PalaceOfWinds_46_0
@@ -12728,9 +12900,9 @@ Room_PalaceOfWinds_46:: @ 080EA4BC
 	.4byte 0x00000000
 	.4byte sub_unk3_PalaceOfWinds_46
 	.4byte sub_StateChange_PalaceOfWinds_46
-	.4byte gUnk_additional0_PalaceOfWinds_46
-	.4byte gUnk_additional1_PalaceOfWinds_46
-	.4byte gUnk_additional2_PalaceOfWinds_46
+	.4byte gUnk_additional_8_PalaceOfWinds_46
+	.4byte gUnk_additional_9_PalaceOfWinds_46
+	.4byte gUnk_additional_a_PalaceOfWinds_46
 
 Entities_PalaceOfWinds_47_0:: @ 080EA4E8
 	manager subtype=0x19, unknown=0x8
@@ -13032,20 +13204,16 @@ Entities_DarkHyruleCastleOutside_ZeldaStatuePlatform_1:: @ 080EAD48
 	entity_list_end
 
 gUnk_080EAD68:: @ 080EAD68
-	.incbin "data_080D5360/gUnk_080EAD68.bin"
-	.4byte script_0800DA60
-	.incbin "data_080D5360/gUnk_080EAD68_1.bin"
-	.4byte script_0800DB18
-	.incbin "data_080D5360/gUnk_080EAD68_2.bin"
-	.4byte script_0800DB28
-	.incbin "data_080D5360/gUnk_080EAD68_3.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800DA60
+	npc_raw subtype=0x28, x=0x78, y=0x68, script=script_0800DB18
+	npc_raw subtype=0x27, x=0x78, y=0x96, paramA=0x1, script=script_0800DB28
+	object_raw subtype=0xab, x=0x78, y=0x138
+	entity_list_end
 
 gUnk_080EADB8:: @ 080EADB8
-	.incbin "data_080D5360/gUnk_080EADB8.bin"
-	.4byte script_0800DB78
-	.incbin "data_080D5360/gUnk_080EADB8_1.bin"
-	.4byte script_0800DCAC
-	.incbin "data_080D5360/gUnk_080EADB8_2.bin"
+	npc_raw subtype=0x4e, script=script_0800DB78
+	npc_raw subtype=0x28, x=0x78, y=0x68, script=script_0800DCAC
+	entity_list_end
 
 Enemies_DarkHyruleCastleOutside_ZeldaStatuePlatform:: @ 080EADE8
 	entity_list_end
@@ -13071,37 +13239,26 @@ Entities_DarkHyruleCastleOutside_Garden_0:: @ 080EAE40
 	entity_list_end
 
 gUnk_080EAE60:: @ 080EAE60
-	.incbin "data_080D5360/gUnk_080EAE60.bin"
-	.4byte script_0800E0BC
-	.incbin "data_080D5360/gUnk_080EAE60_1.bin"
-	.4byte script_0800E154
-	.incbin "data_080D5360/gUnk_080EAE60_2.bin"
-	.4byte script_0800E200
-.ifdef EU
-	.incbin "data_080D5360/gUnk_080EAE60_3_EU.bin"
-	@ TODO 0x10 bytes between here is missing in EU
-	.incbin "data_080D5360/gUnk_080EAE60_4_EU.bin"
-.else
-	.incbin "data_080D5360/gUnk_080EAE60_5_USA-JP-DEMO_USA-DEMO_JP.bin"
+	npc_raw subtype=0x25, x=0xb8, y=0x138, script=script_0800E0BC
+	npc_raw subtype=0x15, x=0x68, y=0x118, paramB=0x24, script=script_0800E154
+	npc_raw subtype=0x15, x=0x88, y=0x180, paramB=0x25, script=script_0800E200
+	manager subtype=0xa, x=0xf02, y=0x90d, unknown=0x0, paramB=0xb250000, paramC=0x85
+.ifndef EU
+	manager subtype=0xf, paramA=0xe
 .endif
+	entity_list_end
 
 gUnk_080EAEC0:: @ 080EAEC0
-	.incbin "data_080D5360/gUnk_080EAEC0.bin"
-	.4byte script_0800A1D8
-	.incbin "data_080D5360/gUnk_080EAEC0_1.bin"
-	.4byte script_0800A340
-	.incbin "data_080D5360/gUnk_080EAEC0_2.bin"
-	.4byte script_0800A3D8
-	.incbin "data_080D5360/gUnk_080EAEC0_3.bin"
-	.4byte script_0800A590
-	.incbin "data_080D5360/gUnk_080EAEC0_4.bin"
-	.4byte script_0800A500
-	.incbin "data_080D5360/gUnk_080EAEC0_5.bin"
+	npc_raw subtype=0x4e, script=script_0800A1D8
+	npc_raw subtype=0xf, x=0x88, y=0x68, script=script_0800A340
+	npc_raw subtype=0x28, x=0x58, y=0x88, script=script_0800A3D8
+	npc_raw subtype=0x4d, x=0x88, y=0x88, script=script_0800A590
+	object_raw subtype=0x6a, x=0x88, y=0xa8, unknown=0x4f, paramA=0x1, paramC=script_0800A500
+	entity_list_end
 
 gUnk_080EAF20:: @ 080EAF20
-	.incbin "data_080D5360/gUnk_080EAF20.bin"
-	.4byte script_0800AAD8
-	.incbin "data_080D5360/gUnk_080EAF20_1.bin"
+	npc_raw subtype=0x4e, script=script_0800AAD8
+	entity_list_end
 
 Entities_DarkHyruleCastleOutside_Garden_1:: @ 080EAF40
 	object_raw subtype=0x3e, x=0x88, y=0x40, collision=1, paramA=0x2
@@ -13161,8 +13318,8 @@ Enemies_DarkHyruleCastleOutside_OutsideNortheast:: @ 080EB070
 TileEntities_DarkHyruleCastleOutside_OutsideNortheast:: @ 080EB090
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastleOutside_OutsideNortheast:: @ 080EB098
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastleOutside_OutsideNortheast.bin"
+gUnk_additional_8_DarkHyruleCastleOutside_OutsideNortheast:: @ 080EB098
+	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastleOutside_OutsideNortheast.bin"
 
 Room_DarkHyruleCastleOutside_OutsideNortheast:: @ 080EB0A4
 	.4byte Entities_DarkHyruleCastleOutside_OutsideNortheast_0
@@ -13173,7 +13330,7 @@ Room_DarkHyruleCastleOutside_OutsideNortheast:: @ 080EB0A4
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastleOutside_OutsideNortheast
 	.4byte sub_StateChange_Dojos_ToGrimblade1
-	.4byte gUnk_additional0_DarkHyruleCastleOutside_OutsideNortheast
+	.4byte gUnk_additional_8_DarkHyruleCastleOutside_OutsideNortheast
 
 Entities_DarkHyruleCastleOutside_OutsideEast_0:: @ 080EB0C8
 	object_raw subtype=0x5, x=0x48, y=0x88
@@ -13279,8 +13436,8 @@ Enemies_DarkHyruleCastleOutside_OutsideSoutheast:: @ 080EB3F0
 TileEntities_DarkHyruleCastleOutside_OutsideSoutheast:: @ 080EB420
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastleOutside_OutsideSoutheast:: @ 080EB428
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastleOutside_OutsideSoutheast.bin"
+gUnk_additional_8_DarkHyruleCastleOutside_OutsideSoutheast:: @ 080EB428
+	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastleOutside_OutsideSoutheast.bin"
 
 Room_DarkHyruleCastleOutside_OutsideSoutheast:: @ 080EB440
 	.4byte Entities_DarkHyruleCastleOutside_OutsideSoutheast_0
@@ -13291,7 +13448,7 @@ Room_DarkHyruleCastleOutside_OutsideSoutheast:: @ 080EB440
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastleOutside_OutsideSoutheast
 	.4byte sub_StateChange_Dojos_ToGrimblade5
-	.4byte gUnk_additional0_DarkHyruleCastleOutside_OutsideSoutheast
+	.4byte gUnk_additional_8_DarkHyruleCastleOutside_OutsideSoutheast
 
 Entities_DarkHyruleCastleOutside_8_0:: @ 080EB464
 	object_raw subtype=0x5e, x=0x98, y=0x138
@@ -13310,14 +13467,14 @@ Enemies_DarkHyruleCastleOutside_8:: @ 080EB4A4
 TileEntities_DarkHyruleCastleOutside_8:: @ 080EB504
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastleOutside_8:: @ 080EB50C
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastleOutside_8.bin"
+gUnk_additional_8_DarkHyruleCastleOutside_8:: @ 080EB50C
+	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastleOutside_8.bin"
 
-gUnk_additional1_DarkHyruleCastleOutside_8:: @ 080EB52A
-	.incbin "data_080D5360/gUnk_additional1_DarkHyruleCastleOutside_8.bin"
+gUnk_additional_9_DarkHyruleCastleOutside_8:: @ 080EB52A
+	.incbin "data_080D5360/gUnk_additional_9_DarkHyruleCastleOutside_8.bin"
 
-gUnk_additional2_DarkHyruleCastleOutside_8:: @ 080EB548
-	.incbin "data_080D5360/gUnk_additional2_DarkHyruleCastleOutside_8.bin"
+gUnk_additional_a_DarkHyruleCastleOutside_8:: @ 080EB548
+	.incbin "data_080D5360/gUnk_additional_a_DarkHyruleCastleOutside_8.bin"
 
 Room_DarkHyruleCastleOutside_8:: @ 080EB568
 	.4byte Entities_DarkHyruleCastleOutside_8_0
@@ -13328,9 +13485,9 @@ Room_DarkHyruleCastleOutside_8:: @ 080EB568
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastleOutside_8
 	.4byte sub_StateChange_Dojos_ToGrimblade6
-	.4byte gUnk_additional0_DarkHyruleCastleOutside_8
-	.4byte gUnk_additional1_DarkHyruleCastleOutside_8
-	.4byte gUnk_additional2_DarkHyruleCastleOutside_8
+	.4byte gUnk_additional_8_DarkHyruleCastleOutside_8
+	.4byte gUnk_additional_9_DarkHyruleCastleOutside_8
+	.4byte gUnk_additional_a_DarkHyruleCastleOutside_8
 
 Entities_DarkHyruleCastle_0_0:: @ 080EB594
 	object_raw subtype=0x8, x=0x228, y=0xd8, paramA=0x8, paramC=0x3dffff
@@ -13339,16 +13496,17 @@ Entities_DarkHyruleCastle_0_0:: @ 080EB594
 	entity_list_end
 
 gUnk_080EB5D4:: @ 080EB5D4
-	.incbin "data_080D5360/gUnk_080EB5D4.bin"
-	.4byte script_0800DE78
-	.incbin "data_080D5360/gUnk_080EB5D4_1.bin"
-	.4byte script_0800DED4
-	.incbin "data_080D5360/gUnk_080EB5D4_2.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800DE78
+	npc_raw subtype=0x28, x=0xd8, y=0x178, script=script_0800DED4
+	entity_list_end
 
 gUnk_080EB604:: @ 080EB604
-	.incbin "data_080D5360/gUnk_080EB604.bin"
-	.4byte script_0800A704
-	.incbin "data_080D5360/gUnk_080EB604_1.bin"
+	npc_raw subtype=0x4e, script=script_0800A704
+	object_raw subtype=0x6a, x=0x1e8, y=0x1d8, collision=1, paramA=0x5, paramB=0x2
+	object_raw subtype=0x6a, x=0x198, y=0x198, collision=1, paramA=0x5, paramB=0x102
+	object_raw subtype=0x6a, x=0x150, y=0x1c0, collision=1, paramA=0x5, paramB=0x202
+	object_raw subtype=0x6a, x=0x1d8, y=0x198, collision=1, paramA=0x5, paramB=0x302
+	entity_list_end
 
 Enemies_DarkHyruleCastle_0:: @ 080EB664
 	entity_list_end
@@ -13358,7 +13516,14 @@ TileEntities_DarkHyruleCastle_0:: @ 080EB674
 	tile_entity_list_end
 
 gUnk_080EB684:: @ 080EB684
-	.incbin "data_080D5360/gUnk_080EB684.bin"
+	object_raw subtype=0x6a, x=0x178, y=0x1e8, collision=1, paramA=0x5, paramB=0x102
+	object_raw subtype=0x6a, x=0x198, y=0x1e8, collision=1, paramA=0x5, paramB=0x302
+	object_raw subtype=0x6a, x=0x1b8, y=0x1e8, collision=1, paramA=0x5, paramB=0x102
+	object_raw subtype=0x6a, x=0x178, y=0xd8, collision=1, paramA=0x5, paramB=0x102
+	object_raw subtype=0x6a, x=0x198, y=0xd8, collision=1, paramA=0x5, paramB=0x302
+	object_raw subtype=0x6a, x=0x1b8, y=0xd8, collision=1, paramA=0x5, paramB=0x102
+	object_raw subtype=0x6a, x=0x200, y=0x158, collision=1, paramA=0x5, paramB=0x102
+	entity_list_end
 
 Room_DarkHyruleCastle_0:: @ 080EB704
 	.4byte Entities_DarkHyruleCastle_0_0
@@ -13495,26 +13660,32 @@ Entities_DarkHyruleCastle_6_0:: @ 080EB9E4
 	entity_list_end
 
 gUnk_080EB9F4:: @ 080EB9F4
-	.incbin "data_080D5360/gUnk_080EB9F4.bin"
-	.4byte script_0800E544
-.ifdef EU
-	.incbin "data_080D5360/gUnk_080EB9F4_1_EU.bin"
-	.incbin "data_080D5360/gUnk_080EB9F4_2_EU.bin"
-.else
-	.incbin "data_080D5360/gUnk_080EB9F4_3_USA-JP-DEMO_USA-DEMO_JP.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800E544
+	manager subtype=0x1e, x=0x30, y=0xa0, paramB=0x2000f0, paramC=0x80000000
+	manager subtype=0x35, x=0xa8, y=0x58, paramB=0x3c1e00, paramC=0x80008001
+	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80028001
+	manager subtype=0x35, x=0xa8, y=0x28, paramB=0x3c1e00, paramC=0x80028003
+	object_raw subtype=0x8, x=0xa8, y=0x28, paramC=0x8003ffff
+.ifndef EU
+	object_raw subtype=0x5, x=0x38, y=0x38, paramA=0x5f
+	object_raw subtype=0x5, x=0x118, y=0x38, paramA=0x5f
+	object_raw subtype=0x5, x=0x38, y=0xc8, paramA=0x5f
+	object_raw subtype=0x5, x=0x118, y=0xc8, paramA=0x5f
 .endif
+	entity_list_end
 
 gUnk_080EBAA4:: @ 080EBAA4
-	.incbin "data_080D5360/gUnk_080EBAA4.bin"
-	.4byte script_0800DF24
-	.incbin "data_080D5360/gUnk_080EBAA4_1.bin"
-	.4byte script_0800DFB4
-	.incbin "data_080D5360/gUnk_080EBAA4_2.bin"
+	npc_raw subtype=0x27, x=0xa8, y=0x58, paramA=0x1, script=script_0800DF24
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800DFB4
+	object_raw subtype=0x8, x=0xa8, y=0x28, paramC=0xffff
+	object_raw subtype=0x39, x=0xa8, y=0xd8, paramA=0x6, paramC=0xffff
+	entity_list_end
 
 gUnk_080EBAF4:: @ 080EBAF4
-	.incbin "data_080D5360/gUnk_080EBAF4.bin"
-	.4byte script_0800E050
-	.incbin "data_080D5360/gUnk_080EBAF4_1.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800E050
+	object_raw subtype=0x8, x=0xa8, y=0x28, paramC=0x80000000
+	object_raw subtype=0x39, x=0xa8, y=0xd8, paramA=0x6, paramC=0x80000000
+	entity_list_end
 
 Enemies_DarkHyruleCastle_6:: @ 080EBB34
 	enemy_raw subtype=0x4a, x=0xa8, y=0x58, paramB=0x10120000, paramC=0x380050
@@ -13531,8 +13702,13 @@ TileEntities_DarkHyruleCastle_6:: @ 080EBBA4
 	tile_entity type=0x1, paramA=0x7
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_6:: @ 080EBBB4
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_6.bin"
+gUnk_additional_8_DarkHyruleCastle_6:: @ 080EBBB4
+	enemy_raw subtype=0x5, x=0x88, y=0x58, unknown=0x2f, paramA=0x2
+	enemy_raw subtype=0x5, x=0xa8, y=0x58, unknown=0x2f, paramA=0x3
+	enemy_raw subtype=0x5, x=0xc8, y=0x58, unknown=0x2f, paramA=0x2
+	manager subtype=0x28, unknown=0x3, paramB=0x8
+	object_raw subtype=0x39, x=0xa8, y=0xd8, paramA=0x6, paramC=0xffff
+	entity_list_end
 
 Room_DarkHyruleCastle_6:: @ 080EBC14
 	.4byte Entities_DarkHyruleCastle_6_0
@@ -13543,7 +13719,7 @@ Room_DarkHyruleCastle_6:: @ 080EBC14
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_6
 	.4byte sub_StateChange_DarkHyruleCastle_6
-	.4byte gUnk_additional0_DarkHyruleCastle_6
+	.4byte gUnk_additional_8_DarkHyruleCastle_6
 
 Entities_DarkHyruleCastle_7_0:: @ 080EBC38
 	manager subtype=0x1a, unknown=0x8, paramA=0x34
@@ -13658,10 +13834,13 @@ TileEntities_DarkHyruleCastle_10:: @ 080EBFC0
 	tile_entity type=0x1, paramA=0xb
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_10:: @ 080EBFD8
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_10.bin"
-	.4byte script_0800E5C4
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_10_1.bin"
+gUnk_additional_8_DarkHyruleCastle_10:: @ 080EBFD8
+	enemy_raw subtype=0x5, x=0x88, y=0x38, unknown=0x2f, paramA=0x3, paramB=0xe160000, paramC=0x300030
+	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x12, paramC=0x86ffff
+	object_raw subtype=0x39, x=0x88, y=0x28, paramA=0x4, paramC=0x86ffff
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800E5C4
+	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0a0000, paramC=0x86
+	entity_list_end
 
 Room_DarkHyruleCastle_10:: @ 080EC038
 	.4byte Entities_DarkHyruleCastle_10_0
@@ -13672,7 +13851,7 @@ Room_DarkHyruleCastle_10:: @ 080EC038
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_10
 	.4byte sub_StateChange_Dojos_ToSplitblade5
-	.4byte gUnk_additional0_DarkHyruleCastle_10
+	.4byte gUnk_additional_8_DarkHyruleCastle_10
 
 Entities_DarkHyruleCastle_11_0:: @ 080EC05C
 	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x490000
@@ -13687,11 +13866,12 @@ TileEntities_DarkHyruleCastle_11:: @ 080EC0AC
 	tile_entity type=0x1, paramA=0xc
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_11:: @ 080EC0BC
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_11.bin"
+gUnk_additional_8_DarkHyruleCastle_11:: @ 080EC0BC
+	enemy_raw subtype=0x50, paramB=0xe160900, paramC=0x300030
+	entity_list_end
 
-gUnk_additional1_DarkHyruleCastle_11:: @ 080EC0DC
-	.incbin "data_080D5360/gUnk_additional1_DarkHyruleCastle_11.bin"
+gUnk_additional_9_DarkHyruleCastle_11:: @ 080EC0DC
+	.incbin "data_080D5360/gUnk_additional_9_DarkHyruleCastle_11.bin"
 
 Room_DarkHyruleCastle_11:: @ 080EC0EC
 	.4byte Entities_DarkHyruleCastle_11_0
@@ -13702,8 +13882,8 @@ Room_DarkHyruleCastle_11:: @ 080EC0EC
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_11
 	.4byte sub_StateChange_Dojos_ToSplitblade6
-	.4byte gUnk_additional0_DarkHyruleCastle_11
-	.4byte gUnk_additional1_DarkHyruleCastle_11
+	.4byte gUnk_additional_8_DarkHyruleCastle_11
+	.4byte gUnk_additional_9_DarkHyruleCastle_11
 
 Entities_DarkHyruleCastle_12_0:: @ 080EC114
 	object_raw subtype=0x8, x=0x88, y=0x28, paramC=0x4bffff
@@ -13766,7 +13946,14 @@ Entities_DarkHyruleCastle_14_0:: @ 080EC2AC
 	entity_list_end
 
 gUnk_080EC2CC:: @ 080EC2CC
-	.incbin "data_080D5360/gUnk_080EC2CC.bin"
+	manager subtype=0xf, unknown=0x0, paramA=0xd
+	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80010000
+	manager subtype=0x1e, x=0x30, y=0x30, paramB=0x7000a8, paramC=0x80000000
+	manager subtype=0x2e, x=0x2d, unknown=0x0, paramB=0x100, paramC=0x80000000
+	manager subtype=0x2e, x=0x23, unknown=0x0, paramB=0x100, paramC=0x80010000
+	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x8001004c
+	manager subtype=0x35, x=0x88, y=0x28, paramB=0x3c1e00, paramC=0x4c0088
+	entity_list_end
 
 Enemies_DarkHyruleCastle_14:: @ 080EC34C
 	entity_list_end
@@ -13776,8 +13963,12 @@ TileEntities_DarkHyruleCastle_14:: @ 080EC35C
 	tile_entity type=0x1, paramA=0xf
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_14:: @ 080EC374
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_14.bin"
+gUnk_additional_8_DarkHyruleCastle_14:: @ 080EC374
+	enemy_raw subtype=0x5, x=0x88, y=0x68, paramA=0x2
+	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x12, paramC=0x4cffff
+	object_raw subtype=0x8, x=0xe8, y=0x68, paramA=0x11, paramC=0x4cffff
+	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0f0000, paramC=0x4c
+	entity_list_end
 
 Room_DarkHyruleCastle_14:: @ 080EC3C4
 	.4byte Entities_DarkHyruleCastle_14_0
@@ -13788,7 +13979,7 @@ Room_DarkHyruleCastle_14:: @ 080EC3C4
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_14
 	.4byte sub_StateChange_DarkHyruleCastle_14
-	.4byte gUnk_additional0_DarkHyruleCastle_14
+	.4byte gUnk_additional_8_DarkHyruleCastle_14
 
 Entities_DarkHyruleCastle_15_0:: @ 080EC3E8
 	object_raw subtype=0x5, x=0x38, y=0x98
@@ -13824,7 +14015,14 @@ Entities_DarkHyruleCastle_16_0:: @ 080EC4C8
 	entity_list_end
 
 gUnk_080EC4E8:: @ 080EC4E8
-	.incbin "data_080D5360/gUnk_080EC4E8.bin"
+	manager subtype=0xf, unknown=0x0, paramA=0xd
+	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80010000
+	manager subtype=0x1e, x=0x38, y=0x30, paramB=0x7000a8, paramC=0x80000000
+	manager subtype=0x2e, x=0x2d, unknown=0x0, paramB=0x100, paramC=0x80000000
+	manager subtype=0x2e, x=0x23, unknown=0x0, paramB=0x100, paramC=0x80010000
+	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x8001004d
+	manager subtype=0x35, x=0x88, y=0x28, paramB=0x3c1e00, paramC=0x4d0089
+	entity_list_end
 
 Enemies_DarkHyruleCastle_16:: @ 080EC568
 	entity_list_end
@@ -13834,8 +14032,14 @@ TileEntities_DarkHyruleCastle_16:: @ 080EC578
 	tile_entity type=0x1, paramA=0x11
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_16:: @ 080EC590
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_16.bin"
+gUnk_additional_8_DarkHyruleCastle_16:: @ 080EC590
+	enemy_raw subtype=0x5, x=0x70, y=0x68, paramA=0x1
+	enemy_raw subtype=0x5, x=0xa0, y=0x68
+	manager subtype=0x28, unknown=0x3, paramB=0x8
+	object_raw subtype=0x8, x=0x88, y=0xa8, paramA=0x12, paramC=0x4dffff
+	object_raw subtype=0x8, x=0x28, y=0x68, paramA=0x13, paramC=0x4dffff
+	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0f0000, paramC=0x4d
+	entity_list_end
 
 Room_DarkHyruleCastle_16:: @ 080EC600
 	.4byte Entities_DarkHyruleCastle_16_0
@@ -13846,7 +14050,7 @@ Room_DarkHyruleCastle_16:: @ 080EC600
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_16
 	.4byte sub_StateChange_DarkHyruleCastle_16
-	.4byte gUnk_additional0_DarkHyruleCastle_16
+	.4byte gUnk_additional_8_DarkHyruleCastle_16
 
 Entities_DarkHyruleCastle_17_0:: @ 080EC624
 	object_raw subtype=0x9d, x=0x40, y=0x20, paramA=0x1, paramC=0x8000004e
@@ -13873,8 +14077,8 @@ TileEntities_DarkHyruleCastle_17:: @ 080EC704
 	tile_entity type=0x1, paramA=0x13
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_17:: @ 080EC72C
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_17.bin"
+gUnk_additional_8_DarkHyruleCastle_17:: @ 080EC72C
+	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastle_17.bin"
 
 Room_DarkHyruleCastle_17:: @ 080EC77C
 	.4byte Entities_DarkHyruleCastle_17_0
@@ -13885,7 +14089,7 @@ Room_DarkHyruleCastle_17:: @ 080EC77C
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_17
 	.4byte sub_StateChange_Dojos_ToGreatblade0
-	.4byte gUnk_additional0_DarkHyruleCastle_17
+	.4byte gUnk_additional_8_DarkHyruleCastle_17
 
 Entities_DarkHyruleCastle_18_0:: @ 080EC7A0
 	object_raw subtype=0x98, x=0x78, y=0x88, unknown=0x3, paramB=0x10302
@@ -13913,7 +14117,14 @@ Entities_DarkHyruleCastle_19_0:: @ 080EC800
 	entity_list_end
 
 gUnk_080EC820:: @ 080EC820
-	.incbin "data_080D5360/gUnk_080EC820.bin"
+	manager subtype=0xf, unknown=0x0, paramA=0xd
+	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80010000
+	manager subtype=0x1e, x=0x38, y=0x30, paramB=0x7000a8, paramC=0x80000000
+	manager subtype=0x2e, x=0x2d, unknown=0x0, paramB=0x100, paramC=0x80000000
+	manager subtype=0x2e, x=0x23, unknown=0x0, paramB=0x100, paramC=0x80010000
+	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x80010053
+	manager subtype=0x35, x=0x88, y=0xa8, paramB=0x3c1e00, paramC=0x53008a
+	entity_list_end
 
 Enemies_DarkHyruleCastle_19:: @ 080EC8A0
 	entity_list_end
@@ -13923,8 +14134,14 @@ TileEntities_DarkHyruleCastle_19:: @ 080EC8B0
 	tile_entity type=0x1, paramA=0x14
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_19:: @ 080EC8C8
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_19.bin"
+gUnk_additional_8_DarkHyruleCastle_19:: @ 080EC8C8
+	enemy_raw subtype=0x5, x=0x70, y=0x68
+	enemy_raw subtype=0x5, x=0xa0, y=0x68, paramA=0x1
+	manager subtype=0x28, unknown=0x3, paramB=0x8
+	object_raw subtype=0x8, x=0x88, y=0x28, paramA=0x10, paramC=0x53ffff
+	object_raw subtype=0x8, x=0xe8, y=0x68, paramA=0x11, paramC=0x53ffff
+	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0f0000, paramC=0x53
+	entity_list_end
 
 Room_DarkHyruleCastle_19:: @ 080EC938
 	.4byte Entities_DarkHyruleCastle_19_0
@@ -13935,7 +14152,7 @@ Room_DarkHyruleCastle_19:: @ 080EC938
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_19
 	.4byte sub_StateChange_DarkHyruleCastle_19
-	.4byte gUnk_additional0_DarkHyruleCastle_19
+	.4byte gUnk_additional_8_DarkHyruleCastle_19
 
 Entities_DarkHyruleCastle_20_0:: @ 080EC95C
 	object_raw subtype=0x39, x=0x88, y=0x28, paramC=0x55ffff
@@ -13953,8 +14170,10 @@ TileEntities_DarkHyruleCastle_20:: @ 080EC9DC
 	tile_entity type=0x1, paramA=0x15
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_20:: @ 080EC9EC
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_20.bin"
+gUnk_additional_8_DarkHyruleCastle_20:: @ 080EC9EC
+	enemy_raw subtype=0x4c, x=0x78, y=0x58, paramB=0xa120000, paramC=0x400040
+	enemy_raw subtype=0x4c, x=0x98, y=0x58, paramB=0xa120000, paramC=0x400040
+	entity_list_end
 
 Room_DarkHyruleCastle_20:: @ 080ECA1C
 	.4byte Entities_DarkHyruleCastle_20_0
@@ -13965,14 +14184,21 @@ Room_DarkHyruleCastle_20:: @ 080ECA1C
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_20
 	.4byte sub_StateChange_Dojos_ToGreatblade2
-	.4byte gUnk_additional0_DarkHyruleCastle_20
+	.4byte gUnk_additional_8_DarkHyruleCastle_20
 
 Entities_DarkHyruleCastle_21_0:: @ 080ECA40
 	object_raw subtype=0x39, x=0x88, y=0xa8, paramA=0x6, paramC=0x8cffff
 	entity_list_end
 
 gUnk_080ECA60:: @ 080ECA60
-	.incbin "data_080D5360/gUnk_080ECA60.bin"
+	manager subtype=0xf, unknown=0x0, paramA=0xd
+	manager subtype=0xb, unknown=0x0, paramB=0x8, paramC=0x80010000
+	manager subtype=0x1e, x=0x38, y=0x30, paramB=0x7000a8, paramC=0x80000000
+	manager subtype=0x2e, x=0x2d, unknown=0x0, paramB=0x100, paramC=0x80000000
+	manager subtype=0x2e, x=0x23, unknown=0x0, paramB=0x100, paramC=0x80010000
+	manager subtype=0x2e, unknown=0x0, paramB=0x3c00, paramC=0x80010056
+	manager subtype=0x35, x=0x88, y=0xa8, paramB=0x3c1e00, paramC=0x56008c
+	entity_list_end
 
 Enemies_DarkHyruleCastle_21:: @ 080ECAE0
 	entity_list_end
@@ -13981,8 +14207,12 @@ TileEntities_DarkHyruleCastle_21:: @ 080ECAF0
 	tile_entity type=0x1, paramA=0x16
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_21:: @ 080ECB00
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_21.bin"
+gUnk_additional_8_DarkHyruleCastle_21:: @ 080ECB00
+	enemy_raw subtype=0x5, x=0x88, y=0x68, paramA=0x2
+	object_raw subtype=0x8, x=0x88, y=0x28, paramA=0x10, paramC=0x56ffff
+	object_raw subtype=0x8, x=0x28, y=0x68, paramA=0x13, paramC=0x56ffff
+	manager subtype=0xa, y=0x3f3f, unknown=0x0, paramA=0x3, paramB=0xb0f0000, paramC=0x4c
+	entity_list_end
 
 Room_DarkHyruleCastle_21:: @ 080ECB50
 	.4byte Entities_DarkHyruleCastle_21_0
@@ -13993,7 +14223,7 @@ Room_DarkHyruleCastle_21:: @ 080ECB50
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_21
 	.4byte sub_StateChange_DarkHyruleCastle_21
-	.4byte gUnk_additional0_DarkHyruleCastle_21
+	.4byte gUnk_additional_8_DarkHyruleCastle_21
 
 Entities_DarkHyruleCastle_22_0:: @ 080ECB74
 	manager subtype=0x30, x=0x38, y=0x58, paramB=0x6082101, paramC=0x80018000
@@ -14117,11 +14347,12 @@ TileEntities_DarkHyruleCastle_26:: @ 080ECED4
 	tile_entity type=0x1, paramA=0x1b
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_26:: @ 080ECEE4
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_26.bin"
+gUnk_additional_8_DarkHyruleCastle_26:: @ 080ECEE4
+	enemy_raw subtype=0x50, paramB=0xa160900, paramC=0x300030
+	entity_list_end
 
-gUnk_additional1_DarkHyruleCastle_26:: @ 080ECF04
-	.incbin "data_080D5360/gUnk_additional1_DarkHyruleCastle_26.bin"
+gUnk_additional_9_DarkHyruleCastle_26:: @ 080ECF04
+	.incbin "data_080D5360/gUnk_additional_9_DarkHyruleCastle_26.bin"
 
 Room_DarkHyruleCastle_26:: @ 080ECF14
 	.4byte Entities_DarkHyruleCastle_26_0
@@ -14132,8 +14363,8 @@ Room_DarkHyruleCastle_26:: @ 080ECF14
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_26
 	.4byte sub_StateChange_Dojos_ToGreatblade7
-	.4byte gUnk_additional0_DarkHyruleCastle_26
-	.4byte gUnk_additional1_DarkHyruleCastle_26
+	.4byte gUnk_additional_8_DarkHyruleCastle_26
+	.4byte gUnk_additional_9_DarkHyruleCastle_26
 
 Entities_DarkHyruleCastle_27_0:: @ 080ECF3C
 	entity_list_end
@@ -14167,7 +14398,10 @@ TileEntities_DarkHyruleCastle_28:: @ 080ECFBC
 	tile_entity_list_end
 
 gUnk_080ECFCC:: @ 080ECFCC
-	.incbin "data_080D5360/gUnk_080ECFCC.bin"
+	object_raw subtype=0x6a, x=0x108, y=0x30, collision=1, paramA=0x5, paramB=0x102
+	object_raw subtype=0x6a, x=0x108, y=0x50, collision=1, paramA=0x5, paramB=0x302
+	object_raw subtype=0x6a, x=0x108, y=0x70, collision=1, paramA=0x5, paramB=0x102
+	entity_list_end
 
 Room_DarkHyruleCastle_28:: @ 080ED00C
 	.4byte Entities_DarkHyruleCastle_28_0
@@ -14256,9 +14490,11 @@ Entities_DarkHyruleCastle_31_0:: @ 080ED194
 	entity_list_end
 
 gUnk_080ED1E4:: @ 080ED1E4
-	.incbin "data_080D5360/gUnk_080ED1E4.bin"
-	.4byte script_0800A6A4
-	.incbin "data_080D5360/gUnk_080ED1E4_1.bin"
+	npc_raw subtype=0x4e, script=script_0800A6A4
+	object_raw subtype=0x6a, x=0xc0, y=0x40, collision=1, paramA=0x5, paramB=0x102
+	object_raw subtype=0x6a, x=0xa0, y=0x80, collision=1, paramA=0x5, paramB=0x202
+	object_raw subtype=0x6a, x=0x50, y=0x60, collision=1, paramA=0x5, paramB=0x302
+	entity_list_end
 
 Entities_DarkHyruleCastle_31_1:: @ 080ED234
 	object_raw subtype=0x5f, x=0x88, y=0x48, paramA=0x1, paramC=0x5e0000
@@ -14272,8 +14508,10 @@ TileEntities_DarkHyruleCastle_31:: @ 080ED264
 	tile_entity type=0x1, paramA=0x20
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_31:: @ 080ED27C
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_31.bin"
+gUnk_additional_8_DarkHyruleCastle_31:: @ 080ED27C
+	enemy_raw subtype=0x5, x=0x88, y=0x68, unknown=0x2f, paramA=0x2
+	object_raw subtype=0x39, x=0x88, y=0xa8, paramA=0x6, paramC=0x8effff
+	entity_list_end
 
 Room_DarkHyruleCastle_31:: @ 080ED2AC
 	.4byte Entities_DarkHyruleCastle_31_0
@@ -14284,7 +14522,7 @@ Room_DarkHyruleCastle_31:: @ 080ED2AC
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_31
 	.4byte sub_StateChange_DarkHyruleCastle_31
-	.4byte gUnk_additional0_DarkHyruleCastle_31
+	.4byte gUnk_additional_8_DarkHyruleCastle_31
 
 Entities_DarkHyruleCastle_32_0:: @ 080ED2D0
 	object_raw subtype=0xc, x=0x50, y=0x28, collision=1, paramA=0x4, paramB=0x5f
@@ -14457,8 +14695,8 @@ TileEntities_DarkHyruleCastle_38:: @ 080ED6F8
 	tile_entity type=0x1, paramA=0x27
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_38:: @ 080ED708
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_38.bin"
+gUnk_additional_8_DarkHyruleCastle_38:: @ 080ED708
+	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastle_38.bin"
 
 Room_DarkHyruleCastle_38:: @ 080ED720
 	.4byte Entities_DarkHyruleCastle_38_0
@@ -14469,7 +14707,7 @@ Room_DarkHyruleCastle_38:: @ 080ED720
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_38
 	.4byte sub_StateChange_Dojos_ToScarblade7
-	.4byte gUnk_additional0_DarkHyruleCastle_38
+	.4byte gUnk_additional_8_DarkHyruleCastle_38
 
 Entities_DarkHyruleCastle_39_0:: @ 080ED744
 	object_raw subtype=0x3, x=0x38, y=0xc8, paramA=0x1, paramC=0x80000002
@@ -14489,8 +14727,8 @@ TileEntities_DarkHyruleCastle_39:: @ 080ED7D4
 	tile_entity type=0x1, paramA=0x28
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_39:: @ 080ED7EC
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_39.bin"
+gUnk_additional_8_DarkHyruleCastle_39:: @ 080ED7EC
+	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastle_39.bin"
 
 Room_DarkHyruleCastle_39:: @ 080ED8CC
 	.4byte Entities_DarkHyruleCastle_39_0
@@ -14501,7 +14739,7 @@ Room_DarkHyruleCastle_39:: @ 080ED8CC
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_39
 	.4byte sub_StateChange_Dojos_ToScarblade8
-	.4byte gUnk_additional0_DarkHyruleCastle_39
+	.4byte gUnk_additional_8_DarkHyruleCastle_39
 
 Entities_DarkHyruleCastle_40_0:: @ 080ED8F0
 	entity_list_end
@@ -14851,8 +15089,8 @@ TileEntities_DarkHyruleCastle_52:: @ 080EE238
 	tile_entity type=0x1, paramA=0x35
 	tile_entity_list_end
 
-gUnk_additional0_DarkHyruleCastle_52:: @ 080EE248
-	.incbin "data_080D5360/gUnk_additional0_DarkHyruleCastle_52.bin"
+gUnk_additional_8_DarkHyruleCastle_52:: @ 080EE248
+	.incbin "data_080D5360/gUnk_additional_8_DarkHyruleCastle_52.bin"
 
 Room_DarkHyruleCastle_52:: @ 080EE260
 	.4byte Entities_DarkHyruleCastle_52_0
@@ -14863,7 +15101,7 @@ Room_DarkHyruleCastle_52:: @ 080EE260
 	.4byte 0x00000000
 	.4byte sub_unk3_DarkHyruleCastle_52
 	.4byte sub_StateChange_Ruins_Beanstalk1
-	.4byte gUnk_additional0_DarkHyruleCastle_52
+	.4byte gUnk_additional_8_DarkHyruleCastle_52
 
 Entities_DarkHyruleCastle_53_0:: @ 080EE284
 	object_raw subtype=0x8, x=0x58, y=0xa8, paramA=0xa, paramC=0x6affff
@@ -14884,7 +15122,10 @@ TileEntities_DarkHyruleCastle_53:: @ 080EE304
 	tile_entity_list_end
 
 gUnk_080EE314:: @ 080EE314
-	.incbin "data_080D5360/gUnk_080EE314.bin"
+	object_raw subtype=0x6a, x=0x38, y=0x8, collision=2, paramA=0x5, paramB=0x102
+	object_raw subtype=0x6a, x=0x58, y=0x8, collision=2, paramA=0x5, paramB=0x302
+	object_raw subtype=0x6a, x=0x78, y=0x8, collision=2, paramA=0x5, paramB=0x102
+	entity_list_end
 
 Room_DarkHyruleCastle_53:: @ 080EE354
 	.4byte Entities_DarkHyruleCastle_53_0
@@ -14962,7 +15203,10 @@ TileEntities_DarkHyruleCastle_55:: @ 080EE5C4
 	tile_entity_list_end
 
 gUnk_080EE5DC:: @ 080EE5DC
-	.incbin "data_080D5360/gUnk_080EE5DC.bin"
+	object_raw subtype=0x6a, x=0x128, y=0xf0, collision=2, paramA=0x5, paramB=0x102
+	object_raw subtype=0x6a, x=0x130, y=0x110, collision=2, paramA=0x5, paramB=0x302
+	object_raw subtype=0x6a, x=0x128, y=0x130, collision=2, paramA=0x5, paramB=0x102
+	entity_list_end
 
 Room_DarkHyruleCastle_55:: @ 080EE61C
 	.4byte Entities_DarkHyruleCastle_55_0
@@ -15006,13 +15250,10 @@ Entities_DarkHyruleCastle_57_0:: @ 080EE68C
 	entity_list_end
 
 gUnk_080EE71C:: @ 080EE71C
-	.incbin "data_080D5360/gUnk_080EE71C.bin"
-	.4byte script_0800E408
-	.incbin "data_080D5360/gUnk_080EE71C_1.bin"
-	.4byte script_0800E434
-	.incbin "data_080D5360/gUnk_080EE71C_2.bin"
-	.4byte script_0800E46C
-	.incbin "data_080D5360/gUnk_080EE71C_3.bin"
+	npc_raw subtype=0x25, x=0x138, y=0x38, script=script_0800E408
+	npc_raw subtype=0x15, x=0x128, y=0x88, paramB=0x24, script=script_0800E434
+	npc_raw subtype=0x15, x=0x168, y=0x88, paramB=0x25, script=script_0800E46C
+	entity_list_end
 
 Enemies_DarkHyruleCastle_57:: @ 080EE75C
 	entity_list_end
@@ -15084,76 +15325,75 @@ Entities_HyruleTown_0_0:: @ 080EE80C
 	entity_list_end
 
 gUnk_080EE88C:: @ 080EE88C
-	.incbin "data_080D5360/gUnk_080EE88C.bin"
-	.4byte script_0800F090
-	.incbin "data_080D5360/gUnk_080EE88C_1.bin"
+	npc_raw subtype=0x4e, script=script_0800F090
+	entity_list_end
 
 gUnk_080EE8AC:: @ 080EE8AC
-	.4byte 0x00534F07
-	.4byte 0x00000000
-	.4byte 0x03280158
-	.4byte script_0800F184
-	.4byte 0x06074F07
-	.4byte 0x00000000
-	.4byte 0x03280148
-	.4byte script_0800F39C
-	.4byte 0x07074F07
-	.4byte 0x00000000
-	.4byte 0x03280134
-	.4byte script_0800F430
-	.4byte 0x08074F07
-	.4byte 0x00000000
-	.4byte 0x03280120
-	.4byte script_0800F4C4
-	.4byte 0x000000FF
-	.4byte 0x00000000
-	.4byte 0x00000000
-	.4byte 0x00000000
+	npc_raw subtype=0x53, x=0x158, y=0x328, script=script_0800F184
+	npc_raw subtype=0x7, x=0x148, y=0x328, paramA=0x6, script=script_0800F39C
+	npc_raw subtype=0x7, x=0x134, y=0x328, paramA=0x7, script=script_0800F430
+	npc_raw subtype=0x7, x=0x120, y=0x328, paramA=0x8, script=script_0800F4C4
+	entity_list_end
 
 gUnk_080EE8FC:: @ 080EE8FC
-	.incbin "data_080D5360/gUnk_080EE8FC.bin"
+	manager subtype=0x16, paramA=0x8, paramB=0x52
+	entity_list_end
 
 gUnk_080EE91C:: @ 080EE91C
-	.incbin "data_080D5360/gUnk_080EE91C.bin"
+	manager subtype=0x16, paramA=0x2d, paramB=0x54
+	entity_list_end
 
 gUnk_080EE93C:: @ 080EE93C
-	.incbin "data_080D5360/gUnk_080EE93C.bin"
+	manager subtype=0x16, paramA=0x2e, paramB=0x56
+	entity_list_end
 
 gUnk_080EE95C:: @ 080EE95C
-	.incbin "data_080D5360/gUnk_080EE95C.bin"
+	manager subtype=0x16, paramA=0x2f, paramB=0x59
+	entity_list_end
 
 gUnk_080EE97C:: @ 080EE97C
-	.incbin "data_080D5360/gUnk_080EE97C.bin"
+	manager subtype=0x16, paramA=0x30, paramB=0x59
+	entity_list_end
 
 gUnk_080EE99C:: @ 080EE99C
-	.incbin "data_080D5360/gUnk_080EE99C.bin"
+	manager subtype=0x16, paramA=0x31, paramB=0x59
+	entity_list_end
 
 gUnk_080EE9BC:: @ 080EE9BC
-	.incbin "data_080D5360/gUnk_080EE9BC.bin"
+	manager subtype=0x16, paramA=0x32, paramB=0x59
+	entity_list_end
 
 gUnk_080EE9DC:: @ 080EE9DC
-	.incbin "data_080D5360/gUnk_080EE9DC.bin"
+	manager subtype=0x16, paramA=0x34, paramB=0x5b
+	entity_list_end
 
 gUnk_080EE9FC:: @ 080EE9FC
-	.incbin "data_080D5360/gUnk_080EE9FC.bin"
+	manager subtype=0x16, paramA=0x35, paramB=0x5b
+	entity_list_end
 
 gUnk_080EEA1C:: @ 080EEA1C
-	.incbin "data_080D5360/gUnk_080EEA1C.bin"
+	manager subtype=0x16, paramA=0x36, paramB=0x5b
+	entity_list_end
 
 gUnk_080EEA3C:: @ 080EEA3C
-	.incbin "data_080D5360/gUnk_080EEA3C.bin"
+	manager subtype=0x16, paramA=0x37, paramB=0x5b
+	entity_list_end
 
 gUnk_080EEA5C:: @ 080EEA5C
-	.incbin "data_080D5360/gUnk_080EEA5C.bin"
+	manager subtype=0x16, paramA=0x38, paramB=0x5d
+	entity_list_end
 
 gUnk_080EEA7C:: @ 080EEA7C
-	.incbin "data_080D5360/gUnk_080EEA7C.bin"
+	manager subtype=0x16, paramA=0x39, paramB=0x5f
+	entity_list_end
 
 gUnk_080EEA9C:: @ 080EEA9C
-	.incbin "data_080D5360/gUnk_080EEA9C.bin"
+	manager subtype=0x16, paramA=0x3a, paramB=0x63
+	entity_list_end
 
 gUnk_080EEABC:: @ 080EEABC
-	.incbin "data_080D5360/gUnk_080EEABC.bin"
+	manager subtype=0x33
+	entity_list_end
 
 Entities_HyruleTown_0_1:: @ 080EEADC
 	manager subtype=0x12
@@ -15172,15 +15412,16 @@ Entities_HyruleTown_0_1:: @ 080EEADC
 	entity_list_end
 
 gUnk_080EEB6C:: @ 080EEB6C
-	.incbin "data_080D5360/gUnk_080EEB6C.bin"
+	object_raw subtype=0x2d, x=0x28, y=0x206
+	entity_list_end
 
 gUnk_080EEB8C:: @ 080EEB8C
-	.incbin "data_080D5360/gUnk_080EEB8C.bin"
+	object_raw subtype=0x2d, x=0x2f8, y=0x2b6
+	entity_list_end
 
 gUnk_080EEBAC:: @ 080EEBAC
-	.incbin "data_080D5360/gUnk_080EEBAC.bin"
-	.4byte script_0800B00C
-	.incbin "data_080D5360/gUnk_080EEBAC_1.bin"
+	object_raw subtype=0xbb, x=0x278, y=0x58, unknown=0x4f, paramB=0x3, paramC=script_0800B00C
+	entity_list_end
 
 Entities_HyruleTown_1_0:: @ 080EEBCC
 	manager subtype=0x16, paramA=0x9
@@ -15206,7 +15447,8 @@ Entities_HyruleTown_1_1:: @ 080EEC4C
 .endif
 	entity_list_end 
 gUnk_080EECBC:: @ 080EECBC
-	.incbin "data_080D5360/gUnk_080EECBC.bin"
+	enemy_raw subtype=0x53, x=0x220, y=0x250
+	entity_list_end
 
 TileEntities_HyruleTown_0:: @ 080EECDC
 	tile_entity type=0x5, paramB=0x100, paramC=0x342, paramD=0x601
@@ -15237,381 +15479,314 @@ gUnk_080EED7A:: @ 080EED7A
 gUnk_080EED8C:: @ 080EED8C
 	.incbin "data_080D5360/gUnk_080EED8C.bin"
 
-gUnk_additional5_HyruleTown_0:: @ 080EED98
-	.incbin "data_080D5360/gUnk_additional5_HyruleTown_0.bin"
+gUnk_additional_d_HyruleTown_0:: @ 080EED98
+	exit_region_raw centerX=0xe0, centerY=0x52, halfWidth=0x3, halfHeight=0x2, exitIndex=0x10, bitfield=0x1
+	exit_region_raw centerX=0x9c, centerY=0x12e, halfWidth=0x3, halfHeight=0x2, exitIndex=0x11, bitfield=0x1
+	exit_region_raw centerX=0x8c, centerY=0x29e, halfWidth=0x4, halfHeight=0x2, exitIndex=0x12, bitfield=0x1
+	exit_region_raw centerX=0x174, centerY=0x192, halfWidth=0x2, halfHeight=0x2, exitIndex=0x14, bitfield=0x1
+	exit_region_raw centerX=0x2c2, centerY=0x1ec, halfWidth=0x2, halfHeight=0x2, exitIndex=0x15, bitfield=0x1
+	exit_region_raw centerX=0x3ac, centerY=0x17e, halfWidth=0x4, halfHeight=0x2, exitIndex=0x16, bitfield=0x1
+	exit_region_raw centerX=0x38e, centerY=0x334, halfWidth=0x2, halfHeight=0x2, exitIndex=0x17, bitfield=0x1
+	exit_region_raw centerX=0x398, centerY=0x60, halfWidth=0x8, halfHeight=0x2, exitIndex=0x18, bitfield=0x1
+	exit_region_raw centerX=0x2a, centerY=0x20d, halfWidth=0x8, halfHeight=0x2, exitIndex=0x19, bitfield=0x1
+	exit_region_raw centerX=0x1b2, centerY=0x2b4, halfWidth=0x8, halfHeight=0x2, exitIndex=0x1a, bitfield=0x2
+	exit_region_raw centerX=0x242, centerY=0x2b4, halfWidth=0x8, halfHeight=0x2, exitIndex=0x1b, bitfield=0x2
+	exit_region_raw centerX=0x2da, centerY=0x2bc, halfWidth=0x8, halfHeight=0x2, exitIndex=0x1c, bitfield=0x2
+	exit_region_raw centerX=0x2fa, centerY=0x2bc, halfWidth=0x8, halfHeight=0x2, exitIndex=0x1d, bitfield=0x2
+	exit_region_raw centerX=0x352, centerY=0x2bc, halfWidth=0x8, halfHeight=0x2, exitIndex=0x1e, bitfield=0x2
+	exit_region_raw centerX=0x3aa, centerY=0x31c, halfWidth=0x8, halfHeight=0x2, exitIndex=0x1f, bitfield=0x2
+	exit_region_list_end
 
-gUnk_additional8_HyruleTown_0:: @ 080EEE18
-	.incbin "data_080D5360/gUnk_additional8_HyruleTown_0.bin"
+gUnk_additional_10_HyruleTown_0:: @ 080EEE18
+	exit_raw transition=0x1, destX=0x60, destY=0x128, destArea=0x62, destRoom=0x15, unknownA=0x1
 
-gUnk_additional9_HyruleTown_0:: @ 080EEE2C
-	.incbin "data_080D5360/gUnk_additional9_HyruleTown_0.bin"
+gUnk_additional_11_HyruleTown_0:: @ 080EEE2C
+	exit_raw transition=0x1, destX=0x78, destY=0x24, destArea=0x22, unknownA=0x1, unknownB=0x1, unknownC=0x4
 
-gUnk_additional10_HyruleTown_0:: @ 080EEE40
-	.incbin "data_080D5360/gUnk_additional10_HyruleTown_0.bin"
+gUnk_additional_12_HyruleTown_0:: @ 080EEE40
+	exit_raw transition=0x1, destX=0x68, destY=0x44, destArea=0x28, unknownA=0x1, unknownB=0x1, unknownC=0x4
 
-gUnk_additional11_HyruleTown_0:: @ 080EEE54
-	.incbin "data_080D5360/gUnk_additional11_HyruleTown_0.bin"
+gUnk_additional_13_HyruleTown_0:: @ 080EEE54
+	exit_raw transition=0x1, destX=0x24, destY=0x58, destArea=0x23, destRoom=0x2, unknownA=0x1, unknownB=0x1, unknownC=0x2
 
-gUnk_additional12_HyruleTown_0:: @ 080EEE68
-	.incbin "data_080D5360/gUnk_additional12_HyruleTown_0.bin"
+gUnk_additional_14_HyruleTown_0:: @ 080EEE68
+	exit_raw transition=0x1, destX=0x108, destY=0xf0, destArea=0x62, unknownA=0x1
 
-gUnk_additional13_HyruleTown_0:: @ 080EEE7C
-	.incbin "data_080D5360/gUnk_additional13_HyruleTown_0.bin"
+gUnk_additional_15_HyruleTown_0:: @ 080EEE7C
+	exit_raw transition=0x1, destX=0xc8, destY=0x78, destArea=0x23, destRoom=0x3, unknownA=0x1, unknownB=0x1, unknownC=0x6
 
-gUnk_additional14_HyruleTown_0:: @ 080EEE90
-	.incbin "data_080D5360/gUnk_additional14_HyruleTown_0.bin"
+gUnk_additional_16_HyruleTown_0:: @ 080EEE90
+	exit_raw transition=0x1, destX=0x98, destY=0x24, destArea=0x21, destRoom=0xa, unknownA=0x1, unknownB=0x1, unknownC=0x4
 
-gUnk_additional15_HyruleTown_0:: @ 080EEEA4
-	.incbin "data_080D5360/gUnk_additional15_HyruleTown_0.bin"
+gUnk_additional_17_HyruleTown_0:: @ 080EEEA4
+	exit_raw transition=0x1, destX=0x28, destY=0x60, destArea=0x22, destRoom=0xc, unknownA=0x1, unknownB=0x1, unknownC=0x2
 
-gUnk_additional16_HyruleTown_0:: @ 080EEEB8
-	.incbin "data_080D5360/gUnk_additional16_HyruleTown_0.bin"
+gUnk_additional_18_HyruleTown_0:: @ 080EEEB8
+	exit_raw transition=0x1, destX=0x80, destY=0x318, destArea=0x11, destRoom=0x2, unknownA=0x1
 
-gUnk_additional17_HyruleTown_0:: @ 080EEECC
-	.incbin "data_080D5360/gUnk_additional17_HyruleTown_0.bin"
+gUnk_additional_19_HyruleTown_0:: @ 080EEECC
+	exit_raw transition=0x1, destX=0x48, destY=0x56, destArea=0x22, destRoom=0x4, unknownA=0x1, unknownB=0x1, unknownC=0x4
 
-gUnk_additional18_HyruleTown_0:: @ 080EEEE0
-	.incbin "data_080D5360/gUnk_additional18_HyruleTown_0.bin"
+gUnk_additional_1a_HyruleTown_0:: @ 080EEEE0
+	exit_raw transition=0x1, destX=0x1c8, destY=0xc0, destArea=0x2e, unknownA=0x1, unknownC=0x6
 
-gUnk_additional19_HyruleTown_0:: @ 080EEEF4
-	.incbin "data_080D5360/gUnk_additional19_HyruleTown_0.bin"
+gUnk_additional_1b_HyruleTown_0:: @ 080EEEF4
+	exit_raw transition=0x1, destX=0x28, destY=0xc0, destArea=0x2e, destRoom=0x1, unknownA=0x1, unknownC=0x2
 
-gUnk_additional20_HyruleTown_0:: @ 080EEF08
-	.incbin "data_080D5360/gUnk_additional20_HyruleTown_0.bin"
+gUnk_additional_1c_HyruleTown_0:: @ 080EEF08
+	exit_raw transition=0x1, destX=0x48, destY=0x36, destArea=0x22, destRoom=0x6, unknownA=0x1, unknownB=0x1, unknownC=0x4
 
-gUnk_additional21_HyruleTown_0:: @ 080EEF1C
-	.incbin "data_080D5360/gUnk_additional21_HyruleTown_0.bin"
+gUnk_additional_1d_HyruleTown_0:: @ 080EEF1C
+	exit_raw transition=0x1, destX=0x98, destY=0x36, destArea=0x22, destRoom=0x6, unknownA=0x1, unknownB=0x1, unknownC=0x4
 
-gUnk_additional22_HyruleTown_0:: @ 080EEF30
-	.incbin "data_080D5360/gUnk_additional22_HyruleTown_0.bin"
+gUnk_additional_1e_HyruleTown_0:: @ 080EEF30
+	exit_raw transition=0x1, destX=0xb8, destY=0x56, destArea=0x22, destRoom=0x7, unknownA=0x1, unknownB=0x1, unknownC=0x4
 
-gUnk_additional23_HyruleTown_0:: @ 080EEF44
-	.incbin "data_080D5360/gUnk_additional23_HyruleTown_0.bin"
+gUnk_additional_1f_HyruleTown_0:: @ 080EEF44
+	exit_raw transition=0x1, destX=0x58, destY=0x36, destArea=0x22, destRoom=0xc, unknownA=0x1, unknownB=0x1, unknownC=0x4
 
-gUnk_additional6_HyruleTown_0:: @ 080EEF58
-	.incbin "data_080D5360/gUnk_additional6_HyruleTown_0.bin"
+gUnk_additional_e_HyruleTown_0:: @ 080EEF58
+	minish_entrance x=0x124, y=0x50, actionDelay=0x20
+	minish_entrance x=0x2f8, y=0x70, actionDelay=0x21
+	minish_entrance x=0x7c, y=0x168, actionDelay=0x22
+	minish_entrance x=0x56, y=0x1c0, unknown=0x4, actionDelay=0x23
+	minish_entrance x=0x56, y=0x1c0, unknown=0x6, actionDelay=0x24
+	minish_entrance x=0x56, y=0x1c0, unknown=0x5, actionDelay=0x25
+	minish_entrance x=0x54, y=0x248, actionDelay=0x26
+	minish_entrance x=0x180, y=0x2f0, actionDelay=0x27
+	minish_entrance x=0x2d0, y=0x2f8, actionDelay=0x28
+	minish_entrance x=0x344, y=0x70, actionDelay=0x2c
+	.4byte 0
 
-gUnk_additional24_HyruleTown_0:: @ 080EEFAC
-	.incbin "data_080D5360/gUnk_additional24_HyruleTown_0.bin"
+gUnk_additional_20_HyruleTown_0:: @ 080EEFAC
+	.incbin "data_080D5360/gUnk_additional_20_HyruleTown_0.bin"
 
-gUnk_additional25_HyruleTown_0:: @ 080EEFC0
-	.incbin "data_080D5360/gUnk_additional25_HyruleTown_0.bin"
+gUnk_additional_21_HyruleTown_0:: @ 080EEFC0
+	.incbin "data_080D5360/gUnk_additional_21_HyruleTown_0.bin"
 
-gUnk_additional26_HyruleTown_0:: @ 080EEFD4
-	.incbin "data_080D5360/gUnk_additional26_HyruleTown_0.bin"
+gUnk_additional_22_HyruleTown_0:: @ 080EEFD4
+	.incbin "data_080D5360/gUnk_additional_22_HyruleTown_0.bin"
 
-gUnk_additional27_HyruleTown_0:: @ 080EEFE8
-	.incbin "data_080D5360/gUnk_additional27_HyruleTown_0.bin"
+gUnk_additional_23_HyruleTown_0:: @ 080EEFE8
+	.incbin "data_080D5360/gUnk_additional_23_HyruleTown_0.bin"
 
-gUnk_additional28_HyruleTown_0:: @ 080EEFFC
-	.incbin "data_080D5360/gUnk_additional28_HyruleTown_0.bin"
+gUnk_additional_24_HyruleTown_0:: @ 080EEFFC
+	.incbin "data_080D5360/gUnk_additional_24_HyruleTown_0.bin"
 
-gUnk_additional29_HyruleTown_0:: @ 080EF010
-	.incbin "data_080D5360/gUnk_additional29_HyruleTown_0.bin"
+gUnk_additional_25_HyruleTown_0:: @ 080EF010
+	.incbin "data_080D5360/gUnk_additional_25_HyruleTown_0.bin"
 
-gUnk_additional30_HyruleTown_0:: @ 080EF024
-	.incbin "data_080D5360/gUnk_additional30_HyruleTown_0.bin"
+gUnk_additional_26_HyruleTown_0:: @ 080EF024
+	.incbin "data_080D5360/gUnk_additional_26_HyruleTown_0.bin"
 
-gUnk_additional31_HyruleTown_0:: @ 080EF038
-	.incbin "data_080D5360/gUnk_additional31_HyruleTown_0.bin"
+gUnk_additional_27_HyruleTown_0:: @ 080EF038
+	.incbin "data_080D5360/gUnk_additional_27_HyruleTown_0.bin"
 
-gUnk_additional32_HyruleTown_0:: @ 080EF04C
-	.incbin "data_080D5360/gUnk_additional32_HyruleTown_0.bin"
+gUnk_additional_28_HyruleTown_0:: @ 080EF04C
+	.incbin "data_080D5360/gUnk_additional_28_HyruleTown_0.bin"
 
-gUnk_additional33_HyruleTown_0:: @ 080EF060
-	.incbin "data_080D5360/gUnk_additional33_HyruleTown_0.bin"
+gUnk_additional_29_HyruleTown_0:: @ 080EF060
+	.incbin "data_080D5360/gUnk_additional_29_HyruleTown_0.bin"
 
-gUnk_additional34_HyruleTown_0:: @ 080EF074
-	.incbin "data_080D5360/gUnk_additional34_HyruleTown_0.bin"
+gUnk_additional_2a_HyruleTown_0:: @ 080EF074
+	.incbin "data_080D5360/gUnk_additional_2a_HyruleTown_0.bin"
 
-gUnk_additional35_HyruleTown_0:: @ 080EF088
-	.incbin "data_080D5360/gUnk_additional35_HyruleTown_0.bin"
+gUnk_additional_2b_HyruleTown_0:: @ 080EF088
+	.incbin "data_080D5360/gUnk_additional_2b_HyruleTown_0.bin"
 
-gUnk_additional36_HyruleTown_0:: @ 080EF09C
-	.incbin "data_080D5360/gUnk_additional36_HyruleTown_0.bin"
+gUnk_additional_2c_HyruleTown_0:: @ 080EF09C
+	.incbin "data_080D5360/gUnk_additional_2c_HyruleTown_0.bin"
 
-gUnk_additional7_HyruleTown_0:: @ 080EF0B0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0.bin"
-	.4byte script_080100C8
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_1.bin"
-	.4byte script_080100FC
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_2.bin"
-	.4byte script_080100FC
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_3.bin"
-	.4byte script_080100C8
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_4.bin"
-	.4byte script_080100FC
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_5.bin"
-	.4byte script_080100FC
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_6.bin"
-	.4byte script_080100FC
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_7.bin"
-	.4byte script_080100FC
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_8.bin"
-	.4byte script_080100C8
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_9.bin"
-	.4byte script_080100FC
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_10.bin"
-	.4byte script_080100FC
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_11.bin"
-	.4byte script_0800E7F4
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_12.bin"
-	.4byte script_08010148
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_13.bin"
-	.4byte script_08010294
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_14.bin"
-	.4byte script_080102E0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_15.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_16.bin"
-	.4byte script_080102E0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_17.bin"
-	.4byte script_080102E0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_18.bin"
-	.4byte script_080102E0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_19.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_20.bin"
-	.4byte script_080102E0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_21.bin"
-	.4byte script_080102E0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_22.bin"
-	.4byte script_080102E0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_23.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_24.bin"
-	.4byte script_080102E0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_25.bin"
-	.4byte script_08010428
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_26.bin"
-	.4byte script_080100C8
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_27.bin"
-	.4byte script_08010454
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_28.bin"
-	.4byte script_080104A0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_29.bin"
-	.4byte script_0801030C
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_30.bin"
-	.4byte script_0801030C
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_31.bin"
-	.4byte script_0801030C
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_32.bin"
-	.4byte script_0801030C
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_33.bin"
-	.4byte script_0801030C
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_34.bin"
-	.4byte script_0801030C
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_35.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_36.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_37.bin"
-	.4byte script_080102E0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_38.bin"
-	.4byte script_080102E0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_39.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_40.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_41.bin"
-	.4byte script_080102E0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_42.bin"
-	.4byte script_080102E0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_43.bin"
-	.4byte script_0800FF18
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_44.bin"
-	.4byte script_0800FF74
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_45.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_46.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_47.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_48.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_49.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_50.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_51.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_52.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_53.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_54.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_55.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_56.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_57.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_58.bin"
-	.4byte script_080103F8
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_59.bin"
-	.4byte script_0800FEBC
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_60.bin"
-	.4byte script_080103D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_61.bin"
-	.4byte script_0800ED04
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_62.bin"
-	.4byte script_0800ED04
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_63.bin"
-	.4byte script_080108D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_64.bin"
-	.4byte script_080108D0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_65.bin"
-	.4byte script_08010964
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_66.bin"
-	.4byte script_080109A0
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_67.bin"
-	.4byte script_08010B68
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_68.bin"
-	.4byte script_08010B68
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_69.bin"
-	.4byte script_08010B68
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_70.bin"
-	.4byte script_08010B68
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_71.bin"
-	.4byte script_08010B68
-	.incbin "data_080D5360/gUnk_additional7_HyruleTown_0_72.bin"
+gUnk_additional_f_HyruleTown_0:: @ 080EF0B0
+	delayed_entity_raw subtype=0x6, x=0x298, y=0x268, layer=1, paramA=0x8, paramC=script_080100C8, paramD=0x4, conditions=0x1c
+	delayed_entity_raw subtype=0x6, x=0x238, y=0x118, layer=1, paramA=0xa, paramC=script_080100FC, paramD=0x4, conditions=0x1fc
+	delayed_entity_raw subtype=0x6, x=0x1a8, y=0x308, layer=1, paramA=0xb, paramC=script_080100FC, paramD=0x4, conditions=0x1fc
+	delayed_entity_raw subtype=0x6, x=0x2ec, y=0x2a8, layer=1, paramA=0x6, paramC=script_080100C8, paramD=0x2, conditions=0x3c
+	delayed_entity_raw subtype=0x6, x=0x1d8, y=0x228, layer=1, paramA=0x6, paramC=script_080100FC, paramD=0x4, conditions=0xc0
+	delayed_entity_raw subtype=0x6, x=0x328, y=0x168, layer=1, paramA=0x1, paramC=script_080100FC, paramD=0x4, conditions=0xfc
+	delayed_entity_raw subtype=0x6, x=0x1c8, y=0x278, layer=1, paramA=0x2, paramC=script_080100FC, paramD=0x4, conditions=0xfc
+	delayed_entity_raw subtype=0x6, x=0x58, y=0x328, layer=1, paramA=0x11, paramC=script_080100FC, paramD=0x4, conditions=0x1fc
+	delayed_entity_raw subtype=0x6, x=0x88, y=0x1a8, layer=1, paramA=0x12, paramC=script_080100C8, paramD=0x6, conditions=0xfc
+	delayed_entity_raw subtype=0x6, x=0x1e8, y=0x1a8, layer=1, paramA=0x13, paramC=script_080100FC, paramD=0x4, conditions=0x1e0
+	delayed_entity_raw subtype=0x6, x=0x238, y=0x308, layer=1, paramA=0x10, paramC=script_080100FC, paramD=0x2, conditions=0xfc
+	delayed_entity_raw subtype=0x48, x=0x2c8, y=0xac, layer=1, paramA=0x1, paramC=script_0800E7F4, paramD=0x4, conditions=0x3c
+	delayed_entity_raw subtype=0x45, x=0x358, y=0x378, layer=1, paramC=script_08010148, paramD=0x6, conditions=0x3fc
+	delayed_entity_raw subtype=0x2c, x=0x168, y=0x13c, layer=1, paramA=0x1, paramD=0x20, conditions=0x1fc
+	delayed_entity_raw subtype=0x2c, x=0x13c, y=0x158, layer=1, paramA=0x2, paramD=0x20, conditions=0x1fc
+	delayed_entity_raw subtype=0x2c, x=0x1c8, y=0x34e, layer=2, paramA=0x5, paramD=0x60, conditions=0x1fc
+	delayed_entity_raw subtype=0x7, x=0x368, y=0xd8, layer=1, paramA=0x6, paramC=script_08010294, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x188, y=0x268, layer=1, paramA=0x6, paramC=script_080102E0, paramD=0x6, conditions=0x20
+	delayed_entity_raw subtype=0x7, x=0x328, y=0x268, layer=1, paramA=0x6, paramC=script_080103B0, paramD=0x4, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x158, y=0x78, layer=2, paramA=0x6, paramC=script_080102E0, paramD=0x4, conditions=0x80
+	delayed_entity_raw subtype=0x7, x=0x158, y=0x1b8, layer=1, paramA=0x7, paramC=script_080102E0, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x280, y=0x268, layer=1, paramA=0x7, paramC=script_080102E0, conditions=0x20
+	delayed_entity_raw subtype=0x7, x=0x308, y=0x238, layer=1, paramA=0x7, paramC=script_080103B0, paramD=0x4, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x168, y=0x78, layer=2, paramA=0x7, paramC=script_080102E0, paramD=0x4, conditions=0x80
+	delayed_entity_raw subtype=0x7, x=0x168, y=0x1b8, layer=1, paramA=0x8, paramC=script_080102E0, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x2b0, y=0x268, layer=1, paramA=0x8, paramC=script_080102E0, conditions=0x20
+	delayed_entity_raw subtype=0x7, x=0x2d8, y=0x248, layer=1, paramA=0x8, paramC=script_080103B0, paramD=0x4, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x178, y=0x78, layer=2, paramA=0x8, paramC=script_080102E0, paramD=0x4, conditions=0x80
+	delayed_entity_raw subtype=0x35, x=0x398, y=0x2c8, layer=1, paramA=0x1, paramB=0x1, conditions=0x1fc
+	delayed_entity_raw subtype=0x35, x=0x78, y=0x220, layer=1, paramA=0x2, paramB=0x2, conditions=0x1fc
+	delayed_entity_raw subtype=0xb, x=0x218, y=0x1c8, layer=1, paramC=script_08010428, conditions=0xfc
+	delayed_entity_raw subtype=0x6, x=0x304, y=0x2a8, layer=1, paramA=0x7, paramC=script_080100C8, paramD=0x6, conditions=0x3c
+	delayed_entity_raw subtype=0x12, x=0x1d0, y=0x1f8, layer=1, paramC=script_08010454, conditions=0x1fc
+	delayed_entity_raw subtype=0x14, x=0x1d0, y=0x248, layer=1, paramC=script_080104A0, conditions=0x1fc
+	delayed_entity_raw subtype=0x7, x=0x318, y=0xa8, layer=1, paramC=script_0801030C, paramD=0x4, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x338, y=0x98, layer=1, paramA=0x1, paramC=script_0801030C, paramD=0x4, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x358, y=0xa8, layer=1, paramA=0x2, paramC=script_0801030C, paramD=0x4, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x378, y=0x88, layer=1, paramA=0x3, paramC=script_0801030C, paramD=0x4, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x398, y=0x98, layer=1, paramA=0x4, paramC=script_0801030C, paramD=0x4, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x3b8, y=0x88, layer=1, paramA=0x5, paramC=script_0801030C, paramD=0x4, conditions=0xc
+	delayed_entity_raw subtype=0x7, x=0x378, y=0x98, layer=1, paramC=script_080103B0, paramD=0x4, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x3a8, y=0x98, layer=1, paramA=0x3, paramC=script_080103B0, paramD=0x4, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x308, y=0x98, layer=1, paramA=0x4, paramC=script_080102E0, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x318, y=0x98, layer=1, paramA=0x5, paramC=script_080102E0, conditions=0x40
+	delayed_entity_raw subtype=0x7, x=0x348, y=0x98, layer=1, paramA=0x1, paramC=script_080103B0, paramD=0x4, conditions=0x80
+	delayed_entity_raw subtype=0x7, x=0x3a8, y=0x98, layer=1, paramA=0x2, paramC=script_080103B0, paramD=0x4, conditions=0x80
+	delayed_entity_raw subtype=0x7, x=0x368, y=0x58, layer=1, paramA=0x4, paramC=script_080102E0, conditions=0x80
+	delayed_entity_raw subtype=0x7, x=0x378, y=0x58, layer=1, paramA=0x5, paramC=script_080102E0, conditions=0x80
+	delayed_entity_raw subtype=0x8, x=0x3e0, y=0xd8, layer=1, paramB=0x80, paramC=script_0800FF18, paramD=0x1, conditions=0xc
+	delayed_entity_raw subtype=0x8, x=0x18, y=0x108, layer=1, paramB=0x81, paramC=script_0800FF74, paramD=0x1, conditions=0xc
+	delayed_entity_raw subtype=0x8, x=0x68, y=0xf8, layer=1, paramB=0x82, paramC=script_080103D0, conditions=0x30
+	delayed_entity_raw subtype=0x8, x=0x1f8, y=0x98, layer=1, paramB=0x83, paramC=script_080103D0, conditions=0x1f0
+	delayed_entity_raw subtype=0x8, x=0x48, y=0x158, layer=1, paramB=0x84, paramC=script_080103D0, conditions=0x300
+	delayed_entity_raw subtype=0x8, x=0x398, y=0xe8, layer=1, paramB=0x85, paramC=script_080103D0, conditions=0x30
+	delayed_entity_raw subtype=0x8, x=0x398, y=0x128, layer=1, paramB=0x86, paramC=script_080103D0, conditions=0x300
+	delayed_entity_raw subtype=0x8, x=0x48, y=0x2b8, layer=1, paramB=0x87, paramC=script_080103D0, conditions=0x210
+	delayed_entity_raw subtype=0x8, x=0x118, y=0x248, layer=1, paramB=0x88, paramC=script_080103D0, conditions=0x1f0
+	delayed_entity_raw subtype=0x8, x=0x208, y=0x318, layer=1, paramB=0x89, paramC=script_080103D0, conditions=0x3f0
+	delayed_entity_raw subtype=0x8, x=0x388, y=0x2f8, layer=1, paramB=0x8a, paramC=script_080103D0, conditions=0x230
+	delayed_entity_raw subtype=0x8, x=0x1c8, y=0x288, layer=1, paramB=0x8b, paramC=script_080103D0, conditions=0x300
+	delayed_entity_raw subtype=0x8, x=0x1f8, y=0x1b8, layer=1, paramB=0x8c, paramC=script_080103D0, conditions=0x200
+	delayed_entity_raw subtype=0x8, x=0x188, y=0x338, layer=1, paramB=0x8d, paramC=script_080103D0, conditions=0x200
+	delayed_entity_raw subtype=0x8, x=0x238, y=0x118, layer=1, paramB=0x8e, paramC=script_080103D0, conditions=0x200
+	delayed_entity_raw subtype=0x8, x=0x168, y=0xb8, layer=1, paramB=0x8f, paramC=script_080103F8, conditions=0x200
+	delayed_entity_raw subtype=0x8, x=0x1f8, y=0x50, layer=1, paramB=0x90, paramC=script_0800FEBC, paramD=0x1, conditions=0xc
+	delayed_entity_raw subtype=0x8, x=0x48, y=0x2c8, layer=1, paramB=0x91, paramC=script_080103D0, conditions=0x20
+	delayed_entity_raw subtype=0x13, x=0x13b, y=0x2c8, layer=1, paramB=0x3, paramC=script_0800ED04, paramD=0x1, conditions=0x3c0
+	delayed_entity_raw subtype=0x13, x=0x167, y=0x2e2, layer=1, paramA=0x3, paramB=0x4, paramC=script_0800ED04, conditions=0x80
+	delayed_entity_raw subtype=0x4e, x=0x368, y=0x1b6, layer=1, paramC=script_080108D0, conditions=0x6
+	delayed_entity_raw subtype=0x4e, x=0x388, y=0x256, layer=1, paramC=script_080108D0, conditions=0x6
+	delayed_entity_raw subtype=0x4e, x=0x178, y=0x252, layer=1, paramC=script_08010964, conditions=0x1e
+	delayed_entity_raw subtype=0x4e, x=0x178, y=0x292, layer=1, paramC=script_080109A0, conditions=0x3fe
+	delayed_entity_raw subtype=0x52, x=0x50, y=0x398, layer=1, paramC=script_08010B68, conditions=0x1f0
+	delayed_entity_raw subtype=0x52, x=0x188, y=0x1aa, layer=1, paramA=0x1, paramB=0x1, paramC=script_08010B68, conditions=0x1f0
+	delayed_entity_raw subtype=0x52, x=0x3c8, y=0x2f8, layer=1, paramA=0x2, paramB=0x2, paramC=script_08010B68, conditions=0x1f0
+	delayed_entity_raw subtype=0x52, x=0x138, y=0x10a, layer=1, paramA=0x3, paramB=0x3, paramC=script_08010B68, conditions=0x1e0
+	delayed_entity_raw subtype=0x52, x=0x338, y=0x3a, layer=2, paramA=0x4, paramB=0x4, paramC=script_08010B68, conditions=0x1c0
+	delayed_entity_raw subtype=0x54, x=0x3c0, y=0x31c, layer=2, conditions=0x1fc
+	delayed_entity_raw subtype=0x55, x=0x11c, y=0x364, layer=1, conditions=0x1fc
+	delayed_entity_raw subtype=0x10, x=0x48, y=0x80, layer=2, conditions=0x3fe
+	entity_list_end
+	delayed_entity_raw subtype=0x0
 
-gUnk_additional0_HyruleTown_0:: @ 080EF5D0
-	.incbin "data_080D5360/gUnk_additional0_HyruleTown_0.bin"
-	.4byte script_08010264
-	.incbin "data_080D5360/gUnk_additional0_HyruleTown_0_1.bin"
+gUnk_additional_8_HyruleTown_0:: @ 080EF5D0
+	delayed_entity_raw subtype=0x21, x=0x388, y=0x338, layer=1, paramA=0x1, paramC=script_08010264, conditions=0x3fc
+	entity_list_end
 
-gUnk_additional37_HyruleTown_0:: @ 080EF5F0
-	.incbin "data_080D5360/gUnk_additional37_HyruleTown_0.bin"
-	.4byte script_080107D0
-	.incbin "data_080D5360/gUnk_additional37_HyruleTown_0_1.bin"
+gUnk_additional_2d_HyruleTown_0:: @ 080EF5F0
+	delayed_entity_raw subtype=0x33, x=0x220, y=0x1f8, layer=1, paramC=script_080107D0, conditions=0x3f0
+	entity_list_end
 
-gUnk_additional38_HyruleTown_0:: @ 080EF610
-	.incbin "data_080D5360/gUnk_additional38_HyruleTown_0.bin"
-	.4byte script_080104EC
-	.incbin "data_080D5360/gUnk_additional38_HyruleTown_0_1.bin"
+gUnk_additional_2e_HyruleTown_0:: @ 080EF610
+	delayed_entity_raw subtype=0x11, x=0x220, y=0x248, layer=1, paramA=0x1, paramC=script_080104EC, conditions=0x3f0
+	delayed_entity_raw subtype=0x50, x=0x220, y=0x250, layer=1, conditions=0x3f0
+	entity_list_end
 
-gUnk_additional39_HyruleTown_0:: @ 080EF640
-	.incbin "data_080D5360/gUnk_additional39_HyruleTown_0.bin"
-	.4byte script_0800FDA0
-	.incbin "data_080D5360/gUnk_additional39_HyruleTown_0_1.bin"
+gUnk_additional_2f_HyruleTown_0:: @ 080EF640
+	delayed_entity_raw subtype=0x34, x=0x2b8, y=0x378, layer=1, paramC=script_0800FDA0, conditions=0x3f0
+	entity_list_end
 
-gUnk_additional40_HyruleTown_0:: @ 080EF660
-	.incbin "data_080D5360/gUnk_additional40_HyruleTown_0.bin"
-	.4byte script_0800FDCC
-	.incbin "data_080D5360/gUnk_additional40_HyruleTown_0_1.bin"
+gUnk_additional_30_HyruleTown_0:: @ 080EF660
+	delayed_entity_raw subtype=0x34, x=0x68, y=0x1c8, layer=1, paramC=script_0800FDCC, conditions=0x3f0
+	entity_list_end
 
-gUnk_additional41_HyruleTown_0:: @ 080EF680
-	.incbin "data_080D5360/gUnk_additional41_HyruleTown_0.bin"
-	.4byte script_0800FE44
-	.incbin "data_080D5360/gUnk_additional41_HyruleTown_0_1.bin"
+gUnk_additional_31_HyruleTown_0:: @ 080EF680
+	delayed_entity_raw subtype=0x34, x=0x138, y=0x108, layer=1, paramC=script_0800FE44, conditions=0x1f0
+	entity_list_end
 
-gUnk_additional42_HyruleTown_0:: @ 080EF6A0
-	.incbin "data_080D5360/gUnk_additional42_HyruleTown_0.bin"
-	.4byte script_0800FDA0
-	.incbin "data_080D5360/gUnk_additional42_HyruleTown_0_1.bin"
+gUnk_additional_32_HyruleTown_0:: @ 080EF6A0
+	delayed_entity_raw subtype=0x34, x=0x40, y=0x1d0, layer=1, paramC=script_0800FDA0, conditions=0x3f0
+	entity_list_end
 
-gUnk_additional44_HyruleTown_0:: @ 080EF6C0
-	.incbin "data_080D5360/gUnk_additional44_HyruleTown_0.bin"
+gUnk_additional_34_HyruleTown_0:: @ 080EF6C0
+	delayed_entity_raw subtype=0x4f, x=0x2f8, y=0x360, layer=1, conditions=0x3ff
+	entity_list_end
 
-gUnk_additional45_HyruleTown_0:: @ 080EF6E0
-	.incbin "data_080D5360/gUnk_additional45_HyruleTown_0.bin"
+gUnk_additional_35_HyruleTown_0:: @ 080EF6E0
+	delayed_entity_raw subtype=0x4f, x=0x2f8, y=0x360, layer=1, paramA=0x1, conditions=0x3f0
+	entity_list_end
 
-gUnk_additional46_HyruleTown_0:: @ 080EF700
-	.incbin "data_080D5360/gUnk_additional46_HyruleTown_0.bin"
+gUnk_additional_36_HyruleTown_0:: @ 080EF700
+	delayed_entity_raw subtype=0x4f, x=0x2f8, y=0x360, layer=1, paramA=0x2, conditions=0x3f0
+	entity_list_end
 
-gUnk_additional47_HyruleTown_0:: @ 080EF720
-	.incbin "data_080D5360/gUnk_additional47_HyruleTown_0.bin"
+gUnk_additional_37_HyruleTown_0:: @ 080EF720
+	delayed_entity_raw subtype=0x4f, x=0x2f8, y=0x360, layer=1, paramA=0x3, conditions=0x3f0
+	entity_list_end
 
-gUnk_additional48_HyruleTown_0:: @ 080EF740
-	.incbin "data_080D5360/gUnk_additional48_HyruleTown_0.bin"
-	.4byte script_08010A98
-	.incbin "data_080D5360/gUnk_additional48_HyruleTown_0_1.bin"
+gUnk_additional_38_HyruleTown_0:: @ 080EF740
+	delayed_entity_raw subtype=0x2a, x=0x80, y=0x88, layer=1, paramA=0x2, paramC=script_08010A98, conditions=0x3e0
+	entity_list_end
 
-gUnk_additional49_HyruleTown_0:: @ 080EF760
-	.incbin "data_080D5360/gUnk_additional49_HyruleTown_0.bin"
-	.4byte script_08014F30
-	.incbin "data_080D5360/gUnk_additional49_HyruleTown_0_1.bin"
+gUnk_additional_39_HyruleTown_0:: @ 080EF760
+	delayed_entity_raw subtype=0x1e, x=0x1a8, y=0xf8, layer=1, paramA=0x1, paramC=script_08014F30, conditions=0x3f0
+	delayed_entity_raw subtype=0x1f, x=0x1c0, y=0xf8, layer=1, conditions=0x3f0
+	delayed_entity_raw subtype=0x20, x=0x1d0, y=0xf8, layer=1, conditions=0x3f0
+	entity_list_end
 
-gUnk_additional50_HyruleTown_0:: @ 080EF7A0
-	.incbin "data_080D5360/gUnk_additional50_HyruleTown_0.bin"
-	.4byte script_080100C8
-	.incbin "data_080D5360/gUnk_additional50_HyruleTown_0_1.bin"
+gUnk_additional_3a_HyruleTown_0:: @ 080EF7A0
+	delayed_entity_raw subtype=0x6, x=0x168, y=0xb8, layer=1, paramC=script_080100C8, paramD=0x4, conditions=0x3c
+	entity_list_end
 
-gUnk_additional1_HyruleTown_1:: @ 080EF7C0
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1.bin"
-	.4byte script_0800F554
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_1.bin"
-	.4byte script_0800F554
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_2.bin"
-	.4byte script_0800F584
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_3.bin"
-	.4byte script_0800F584
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_4.bin"
-	.4byte script_08010454
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_5.bin"
-	.4byte script_0800F5EC
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_6.bin"
-	.4byte script_0800F688
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_7.bin"
-	.4byte script_0800F6E0
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_8.bin"
-	.4byte script_0800F6E0
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_9.bin"
-	.4byte script_0800F554
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_10.bin"
-	.4byte script_0800F554
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_11.bin"
-	.4byte script_0800F554
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_12.bin"
-	.4byte script_0800F554
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_13.bin"
-	.4byte script_0800F650
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_14.bin"
-	.4byte script_0800F554
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_15.bin"
-	.4byte script_0800F628
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_16.bin"
-	.4byte script_0800F628
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_17.bin"
-	.4byte script_0800F554
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_18.bin"
-	.4byte script_0800F5B0
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_19.bin"
-	.4byte script_0800F584
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_20.bin"
-	.4byte script_0800F554
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_21.bin"
-	.4byte script_0800F554
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_22.bin"
-	.4byte script_0800F554
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_23.bin"
-	.4byte script_0800F554
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_24.bin"
-	.4byte script_0800F724
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_25.bin"
-	.4byte script_0800F724
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_1_26.bin"
+gUnk_additional_9_HyruleTown_1:: @ 080EF7C0
+	delayed_entity_raw subtype=0x6, x=0xe8, y=0x2f8, layer=1, paramA=0x8, paramC=script_0800F554, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0xa0, y=0x248, layer=1, paramA=0x1, paramC=script_0800F554, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0x90, y=0x258, layer=1, paramA=0x4, paramC=script_0800F584, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0xb0, y=0x258, layer=1, paramC=script_0800F584, conditions=0xffff
+	delayed_entity_raw subtype=0x12, x=0xa0, y=0x1f8, layer=1, paramC=script_08010454, conditions=0xffff
+	delayed_entity_raw subtype=0x11, x=0xf0, y=0x1f8, layer=1, paramC=script_0800F5EC, conditions=0xffff
+	delayed_entity_raw subtype=0x14, x=0xf0, y=0x248, layer=1, paramC=script_0800F688, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0xbe, y=0x198, layer=1, paramA=0x7, paramC=script_0800F6E0, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0xd2, y=0x198, layer=1, paramA=0x8, paramC=script_0800F6E0, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x78, y=0x198, layer=1, paramC=script_0800F554, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x60, y=0x210, layer=1, paramA=0x2, paramC=script_0800F554, paramD=0x2, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x60, y=0x250, layer=1, paramA=0xa, paramC=script_0800F554, paramD=0x2, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x60, y=0x290, layer=1, paramA=0xb, paramC=script_0800F554, paramD=0x2, conditions=0xffff
+	delayed_entity_raw subtype=0x3a, x=0x118, y=0x19a, layer=1, paramB=0x3, paramC=script_0800F650, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x128, y=0x1f0, layer=1, paramA=0x6, paramC=script_0800F554, paramD=0x6, conditions=0xffff
+	delayed_entity_raw subtype=0x49, x=0x104, y=0xd0, layer=1, paramA=0x3, paramB=0x8, paramC=script_0800F628, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x49, x=0xf0, y=0xd0, layer=1, paramA=0x1, paramB=0x9, paramC=script_0800F628, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x128, y=0x1c8, layer=1, paramA=0x4, paramC=script_0800F554, paramD=0x6, conditions=0xffff
+	delayed_entity_raw subtype=0x8, x=0xe8, y=0xa8, layer=1, paramB=0x23, paramC=script_0800F5B0, paramD=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0x98, y=0xc8, layer=1, paramA=0x6, paramC=script_0800F584, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0xb0, y=0x220, layer=1, paramA=0x5, paramC=script_0800F554, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0xf0, y=0x298, layer=1, paramA=0x7, paramC=script_0800F554, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x88, y=0x1e0, layer=1, paramA=0xd, paramC=script_0800F554, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x6, x=0x98, y=0x1e0, layer=1, paramA=0xe, paramC=script_0800F554, paramD=0x4, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0x98, y=0xe8, layer=1, paramA=0x7, paramC=script_0800F724, conditions=0xffff
+	delayed_entity_raw subtype=0x7, x=0xa8, y=0xe8, layer=1, paramA=0x8, paramC=script_0800F724, conditions=0xffff
+	entity_list_end
 
-gUnk_additional1_HyruleTown_0:: @ 080EF970
-	.incbin "data_080D5360/gUnk_additional1_HyruleTown_0.bin"
+gUnk_additional_9_HyruleTown_0:: @ 080EF970
+	.incbin "data_080D5360/gUnk_additional_9_HyruleTown_0.bin"
 
-gUnk_additional2_HyruleTown_0:: @ 080EF998
-	.incbin "data_080D5360/gUnk_additional2_HyruleTown_0.bin"
+gUnk_additional_a_HyruleTown_0:: @ 080EF998
+	.incbin "data_080D5360/gUnk_additional_a_HyruleTown_0.bin"
 
-gUnk_additional3_HyruleTown_0:: @ 080EF9C0
-	.incbin "data_080D5360/gUnk_additional3_HyruleTown_0.bin"
+gUnk_additional_b_HyruleTown_0:: @ 080EF9C0
+	.incbin "data_080D5360/gUnk_additional_b_HyruleTown_0.bin"
 
-gUnk_additional4_HyruleTown_0:: @ 080EF9E4
-	.incbin "data_080D5360/gUnk_additional4_HyruleTown_0.bin"
+gUnk_additional_c_HyruleTown_0:: @ 080EF9E4
+	.incbin "data_080D5360/gUnk_additional_c_HyruleTown_0.bin"
 	.4byte script_0800EF40
-	.incbin "data_080D5360/gUnk_additional4_HyruleTown_0_1.bin"
+	.incbin "data_080D5360/gUnk_additional_c_HyruleTown_0_1.bin"
 	.4byte script_0801090C
-	.incbin "data_080D5360/gUnk_additional4_HyruleTown_0_2.bin"
+	.incbin "data_080D5360/gUnk_additional_c_HyruleTown_0_2.bin"
 
-gUnk_additional0_HyruleTown_1:: @ 080EFAA4
-	.incbin "data_080D5360/gUnk_additional0_HyruleTown_1.bin"
+gUnk_additional_8_HyruleTown_1:: @ 080EFAA4
+	.incbin "data_080D5360/gUnk_additional_8_HyruleTown_1.bin"
 
 Room_HyruleTown_0:: @ 080EFAEC
 	.4byte Entities_HyruleTown_0_0
@@ -15622,57 +15797,57 @@ Room_HyruleTown_0:: @ 080EFAEC
 	.4byte 0x00000000
 	.4byte sub_unk3_HyruleTown_0
 	.4byte sub_StateChange_HyruleTown_0
-	.4byte gUnk_additional0_HyruleTown_0
-	.4byte gUnk_additional1_HyruleTown_0
-	.4byte gUnk_additional2_HyruleTown_0
-	.4byte gUnk_additional3_HyruleTown_0
-	.4byte gUnk_additional4_HyruleTown_0
-	.4byte gUnk_additional5_HyruleTown_0
-	.4byte gUnk_additional6_HyruleTown_0
-	.4byte gUnk_additional7_HyruleTown_0
-	.4byte gUnk_additional8_HyruleTown_0
-	.4byte gUnk_additional9_HyruleTown_0
-	.4byte gUnk_additional10_HyruleTown_0
-	.4byte gUnk_additional11_HyruleTown_0
-	.4byte gUnk_additional12_HyruleTown_0
-	.4byte gUnk_additional13_HyruleTown_0
-	.4byte gUnk_additional14_HyruleTown_0
-	.4byte gUnk_additional15_HyruleTown_0
-	.4byte gUnk_additional16_HyruleTown_0
-	.4byte gUnk_additional17_HyruleTown_0
-	.4byte gUnk_additional18_HyruleTown_0
-	.4byte gUnk_additional19_HyruleTown_0
-	.4byte gUnk_additional20_HyruleTown_0
-	.4byte gUnk_additional21_HyruleTown_0
-	.4byte gUnk_additional22_HyruleTown_0
-	.4byte gUnk_additional23_HyruleTown_0
-	.4byte gUnk_additional24_HyruleTown_0
-	.4byte gUnk_additional25_HyruleTown_0
-	.4byte gUnk_additional26_HyruleTown_0
-	.4byte gUnk_additional27_HyruleTown_0
-	.4byte gUnk_additional28_HyruleTown_0
-	.4byte gUnk_additional29_HyruleTown_0
-	.4byte gUnk_additional30_HyruleTown_0
-	.4byte gUnk_additional31_HyruleTown_0
-	.4byte gUnk_additional32_HyruleTown_0
-	.4byte gUnk_additional33_HyruleTown_0
-	.4byte gUnk_additional34_HyruleTown_0
-	.4byte gUnk_additional35_HyruleTown_0
-	.4byte gUnk_additional36_HyruleTown_0
-	.4byte gUnk_additional37_HyruleTown_0
-	.4byte gUnk_additional38_HyruleTown_0
-	.4byte gUnk_additional39_HyruleTown_0
-	.4byte gUnk_additional40_HyruleTown_0
-	.4byte gUnk_additional41_HyruleTown_0
-	.4byte gUnk_additional42_HyruleTown_0
+	.4byte gUnk_additional_8_HyruleTown_0
+	.4byte gUnk_additional_9_HyruleTown_0
+	.4byte gUnk_additional_a_HyruleTown_0
+	.4byte gUnk_additional_b_HyruleTown_0
+	.4byte gUnk_additional_c_HyruleTown_0
+	.4byte gUnk_additional_d_HyruleTown_0
+	.4byte gUnk_additional_e_HyruleTown_0
+	.4byte gUnk_additional_f_HyruleTown_0
+	.4byte gUnk_additional_10_HyruleTown_0
+	.4byte gUnk_additional_11_HyruleTown_0
+	.4byte gUnk_additional_12_HyruleTown_0
+	.4byte gUnk_additional_13_HyruleTown_0
+	.4byte gUnk_additional_14_HyruleTown_0
+	.4byte gUnk_additional_15_HyruleTown_0
+	.4byte gUnk_additional_16_HyruleTown_0
+	.4byte gUnk_additional_17_HyruleTown_0
+	.4byte gUnk_additional_18_HyruleTown_0
+	.4byte gUnk_additional_19_HyruleTown_0
+	.4byte gUnk_additional_1a_HyruleTown_0
+	.4byte gUnk_additional_1b_HyruleTown_0
+	.4byte gUnk_additional_1c_HyruleTown_0
+	.4byte gUnk_additional_1d_HyruleTown_0
+	.4byte gUnk_additional_1e_HyruleTown_0
+	.4byte gUnk_additional_1f_HyruleTown_0
+	.4byte gUnk_additional_20_HyruleTown_0
+	.4byte gUnk_additional_21_HyruleTown_0
+	.4byte gUnk_additional_22_HyruleTown_0
+	.4byte gUnk_additional_23_HyruleTown_0
+	.4byte gUnk_additional_24_HyruleTown_0
+	.4byte gUnk_additional_25_HyruleTown_0
+	.4byte gUnk_additional_26_HyruleTown_0
+	.4byte gUnk_additional_27_HyruleTown_0
+	.4byte gUnk_additional_28_HyruleTown_0
+	.4byte gUnk_additional_29_HyruleTown_0
+	.4byte gUnk_additional_2a_HyruleTown_0
+	.4byte gUnk_additional_2b_HyruleTown_0
+	.4byte gUnk_additional_2c_HyruleTown_0
+	.4byte gUnk_additional_2d_HyruleTown_0
+	.4byte gUnk_additional_2e_HyruleTown_0
+	.4byte gUnk_additional_2f_HyruleTown_0
+	.4byte gUnk_additional_30_HyruleTown_0
+	.4byte gUnk_additional_31_HyruleTown_0
+	.4byte gUnk_additional_32_HyruleTown_0
 	.4byte 0x00000000
-	.4byte gUnk_additional44_HyruleTown_0
-	.4byte gUnk_additional45_HyruleTown_0
-	.4byte gUnk_additional46_HyruleTown_0
-	.4byte gUnk_additional47_HyruleTown_0
-	.4byte gUnk_additional48_HyruleTown_0
-	.4byte gUnk_additional49_HyruleTown_0
-	.4byte gUnk_additional50_HyruleTown_0
+	.4byte gUnk_additional_34_HyruleTown_0
+	.4byte gUnk_additional_35_HyruleTown_0
+	.4byte gUnk_additional_36_HyruleTown_0
+	.4byte gUnk_additional_37_HyruleTown_0
+	.4byte gUnk_additional_38_HyruleTown_0
+	.4byte gUnk_additional_39_HyruleTown_0
+	.4byte gUnk_additional_3a_HyruleTown_0
 
 Room_HyruleTown_1:: @ 080EFBD8
 	.4byte Entities_HyruleTown_1_0
@@ -15683,15 +15858,17 @@ Room_HyruleTown_1:: @ 080EFBD8
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_StateChange_HyruleTown_0
-	.4byte gUnk_additional0_HyruleTown_1
-	.4byte gUnk_additional1_HyruleTown_1
+	.4byte gUnk_additional_8_HyruleTown_1
+	.4byte gUnk_additional_9_HyruleTown_1
 
 Room_HyruleTown_2:: @ 080EFC00
 	.4byte Entities_HyruleTown_0_0
 	.4byte Entities_HyruleTown_0_1
-	.incbin "data_080D5360/Room_HyruleTown_2.bin"
+	.4byte 0
 	.4byte TileEntities_HyruleTown_0
-	.incbin "data_080D5360/Room_HyruleTown_2_1.bin"
+	.4byte 0
+	.4byte 0
+	.4byte 0
 	.4byte sub_StateChange_HyruleTown_0
 
 Room_HyruleTown_3:: @ 080EFC20
@@ -15866,8 +16043,12 @@ TileEntities_HyruleTownMinishCaves_MulldozerFight:: @ 080F0040
 	tile_entity type=0x3, paramA=0xf, paramB=0x45, paramC=0x88, paramD=0x68
 	tile_entity_list_end
 
-gUnk_additional0_HyruleTownMinishCaves_MulldozerFight:: @ 080F0050
-	.incbin "data_080D5360/gUnk_additional0_HyruleTownMinishCaves_MulldozerFight.bin"
+gUnk_additional_8_HyruleTownMinishCaves_MulldozerFight:: @ 080F0050
+	enemy_raw subtype=0x32, x=0x48, y=0x38, paramA=0x1
+	enemy_raw subtype=0x32, x=0xc8, y=0x38, paramA=0x1
+	enemy_raw subtype=0x32, x=0x48, y=0xa8, paramA=0x1
+	enemy_raw subtype=0x32, x=0xc8, y=0xa8, paramA=0x1
+	entity_list_end
 
 Room_HyruleTownMinishCaves_MulldozerFight:: @ 080F00A0
 	.4byte Entities_HyruleTownMinishCaves_MulldozerFight_0
@@ -15878,7 +16059,7 @@ Room_HyruleTownMinishCaves_MulldozerFight:: @ 080F00A0
 	.4byte 0x00000000
 	.4byte sub_unk3_HyruleTownMinishCaves_MulldozerFight
 	.4byte sub_StateChange_HyruleTownMinishCaves_MulldozerFight
-	.4byte gUnk_additional0_HyruleTownMinishCaves_MulldozerFight
+	.4byte gUnk_additional_8_HyruleTownMinishCaves_MulldozerFight
 
 Entities_HyruleTownMinishCaves_WestChest_0:: @ 080F00C4
 	entity_list_end
@@ -15896,10 +16077,11 @@ TileEntities_HyruleTownMinishCaves_WestChest:: @ 080F00E4
 
 Room_HyruleTownMinishCaves_WestChest:: @ 080F00F4
 	.4byte Entities_HyruleTownMinishCaves_WestChest_0
-	.incbin "data_080D5360/Room_HyruleTownMinishCaves_WestChest.bin"
+	.4byte 0
 	.4byte Enemies_HyruleTownMinishCaves_WestChest
 	.4byte TileEntities_HyruleTownMinishCaves_WestChest
-	.incbin "data_080D5360/Room_HyruleTownMinishCaves_WestChest_1.bin"
+	.4byte 0
+	.4byte 0
 	.4byte sub_unk3_HyruleTownMinishCaves_WestChest
 	.4byte sub_StateChange_HyruleTownMinishCaves_WestChest
 
@@ -15921,8 +16103,10 @@ TileEntities_HyruleTownMinishCaves_Flippers:: @ 080F0194
 	tile_entity type=0x3, paramA=0x14, paramB=0x46, paramC=0xd8, paramD=0x28
 	tile_entity_list_end
 
-gUnk_additional0_HyruleTownMinishCaves_Flippers:: @ 080F01A4
-	.incbin "data_080D5360/gUnk_additional0_HyruleTownMinishCaves_Flippers.bin"
+gUnk_additional_8_HyruleTownMinishCaves_Flippers:: @ 080F01A4
+	enemy_raw subtype=0x40, x=0xc8, y=0x48, unknown=0x2f, paramB=0xe0e0000, paramC=0x3000a0
+	enemy_raw subtype=0x40, x=0xe8, y=0x48, unknown=0x2f, paramB=0xe0e0000, paramC=0x3000a0
+	entity_list_end
 
 Room_HyruleTownMinishCaves_Flippers:: @ 080F01D4
 	.4byte Entities_HyruleTownMinishCaves_Flippers_0
@@ -15933,7 +16117,7 @@ Room_HyruleTownMinishCaves_Flippers:: @ 080F01D4
 	.4byte 0x00000000
 	.4byte sub_unk3_HyruleTownMinishCaves_Flippers
 	.4byte sub_StateChange_HyruleTownMinishCaves_Flippers
-	.4byte gUnk_additional0_HyruleTownMinishCaves_Flippers
+	.4byte gUnk_additional_8_HyruleTownMinishCaves_Flippers
 
 Entities_HyruleTownMinishCaves_Librari_0:: @ 080F01F8
 	entity_list_end
@@ -16116,100 +16300,71 @@ Entities_CastleGarden_Main_0:: @ 080F0630
 	entity_list_end
 
 gUnk_080F0650:: @ 080F0650
-	.incbin "data_080D5360/gUnk_080F0650.bin"
-	.4byte script_08011128
-	.incbin "data_080D5360/gUnk_080F0650_1.bin"
-	.4byte script_080119B0
-	.incbin "data_080D5360/gUnk_080F0650_2.bin"
-	.4byte script_080119B0
-	.incbin "data_080D5360/gUnk_080F0650_3.bin"
-	.4byte script_080119D8
-	.incbin "data_080D5360/gUnk_080F0650_4.bin"
-	.4byte script_080119F0
-	.incbin "data_080D5360/gUnk_080F0650_5.bin"
+	npc_raw subtype=0x25, x=0x1e8, y=0x40, script=script_08011128
+	npc_raw subtype=0x15, x=0x228, y=0x88, paramB=0x10c, script=script_080119B0
+	npc_raw subtype=0x15, x=0x1c8, y=0xc8, paramB=0x10d, script=script_080119B0
+	npc_raw subtype=0x15, x=0x1d8, y=0x1e8, paramB=0xe, script=script_080119D8
+	npc_raw subtype=0x15, x=0x218, y=0x1e8, paramB=0xf, script=script_080119F0
+	entity_list_end
 
 gUnk_080F06B0:: @ 080F06B0
-	.incbin "data_080D5360/gUnk_080F06B0.bin"
-	.4byte script_08010BEC
-	.incbin "data_080D5360/gUnk_080F06B0_1.bin"
-	.4byte script_080111CC
-	.incbin "data_080D5360/gUnk_080F06B0_2.bin"
+	npc_raw subtype=0x4e, script=script_08010BEC
+	npc_raw subtype=0x28, x=0x1c8, y=0x88, script=script_080111CC
+	entity_list_end
 
 gUnk_080F06E0:: @ 080F06E0
-	.incbin "data_080D5360/gUnk_080F06E0.bin"
-	.4byte script_08011640
-	.incbin "data_080D5360/gUnk_080F06E0_1.bin"
-	.4byte script_080112C4
-	.incbin "data_080D5360/gUnk_080F06E0_2.bin"
-	.4byte script_080112C4
-	.incbin "data_080D5360/gUnk_080F06E0_3.bin"
-	.4byte script_080112C4
-	.incbin "data_080D5360/gUnk_080F06E0_4.bin"
-	.4byte script_080112C4
-	.incbin "data_080D5360/gUnk_080F06E0_5.bin"
-	.4byte script_080115D0
-	.incbin "data_080D5360/gUnk_080F06E0_6.bin"
-	.4byte script_08011608
-	.incbin "data_080D5360/gUnk_080F06E0_7.bin"
-	.4byte script_080116A8
-	.incbin "data_080D5360/gUnk_080F06E0_8.bin"
+	npc_raw subtype=0x24, x=0x1f8, y=0x28, script=script_08011640
+	npc_raw subtype=0x15, x=0x1e8, y=0x68, paramB=0x10, script=script_080112C4
+	npc_raw subtype=0x15, x=0x208, y=0x68, paramA=0x1, paramB=0x11, script=script_080112C4
+	npc_raw subtype=0x15, x=0x1e8, y=0x48, paramA=0x2, paramB=0x12, script=script_080112C4
+	npc_raw subtype=0x15, x=0x208, y=0x48, paramA=0x3, paramB=0x13, script=script_080112C4
+	npc_raw subtype=0x15, x=0x1e8, y=0x1e8, paramA=0x4, paramB=0x14, script=script_080115D0
+	npc_raw subtype=0x15, x=0x208, y=0x1e8, paramA=0x5, paramB=0x15, script=script_08011608
+	npc_raw subtype=0x27, x=0x1f8, y=0x230, paramA=0x1, script=script_080116A8
+	entity_list_end
 
 gUnk_080F0770:: @ 080F0770
-	.incbin "data_080D5360/gUnk_080F0770.bin"
-	.4byte script_08011930
-	.incbin "data_080D5360/gUnk_080F0770_1.bin"
-	.4byte script_08011930
-	.incbin "data_080D5360/gUnk_080F0770_2.bin"
-	.4byte script_08011930
-	.incbin "data_080D5360/gUnk_080F0770_3.bin"
-	.4byte script_08011930
-	.incbin "data_080D5360/gUnk_080F0770_4.bin"
-	.4byte script_08011930
-	.incbin "data_080D5360/gUnk_080F0770_5.bin"
-	.4byte script_08011930
-	.incbin "data_080D5360/gUnk_080F0770_6.bin"
-	.4byte script_08011930
-	.incbin "data_080D5360/gUnk_080F0770_7.bin"
-	.4byte script_08011930
-	.incbin "data_080D5360/gUnk_080F0770_8.bin"
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramC=script_08011930
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x1001, paramC=script_08011930
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x2002, paramC=script_08011930
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x3003, paramC=script_08011930
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x4004, paramC=script_08011930
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x5005, paramC=script_08011930
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x6006, paramC=script_08011930
+	object_raw subtype=0x6a, x=0x1f8, y=0x78, unknown=0x4f, paramA=0xe, paramB=0x7007, paramC=script_08011930
+	entity_list_end
 
 gUnk_080F0800:: @ 080F0800
-	.incbin "data_080D5360/gUnk_080F0800.bin"
-	.4byte script_0801194C
-	.incbin "data_080D5360/gUnk_080F0800_1.bin"
-	.4byte script_08011964
-	.incbin "data_080D5360/gUnk_080F0800_2.bin"
-	.4byte script_08011958
-	.incbin "data_080D5360/gUnk_080F0800_3.bin"
-	.4byte script_08011964
-	.incbin "data_080D5360/gUnk_080F0800_4.bin"
+	npc_raw subtype=0x15, x=0x188, y=0xa0, paramB=0x16, script=script_0801194C
+	npc_raw subtype=0x15, x=0x128, y=0x19b, paramB=0x17, script=script_08011964
+	npc_raw subtype=0x15, x=0x268, y=0xa0, paramB=0x18, script=script_08011958
+	npc_raw subtype=0x15, x=0x2c8, y=0x19b, paramB=0x19, script=script_08011964
+	entity_list_end
 
 gUnk_080F0850:: @ 080F0850
-	.incbin "data_080D5360/gUnk_080F0850.bin"
-	.4byte script_08011A64
-	.incbin "data_080D5360/gUnk_080F0850_1.bin"
+	npc_raw subtype=0x15, x=0x188, y=0xa0, paramB=0x1c, script=script_08011A64
+	entity_list_end
 
 gUnk_080F0870:: @ 080F0870
-	.incbin "data_080D5360/gUnk_080F0870.bin"
-	.4byte script_080119E4
-	.incbin "data_080D5360/gUnk_080F0870_1.bin"
+	npc_raw subtype=0x15, x=0x128, y=0x19b, paramB=0x22, script=script_080119E4
+	entity_list_end
 
 gUnk_080F0890:: @ 080F0890
-	.incbin "data_080D5360/gUnk_080F0890.bin"
-	.4byte script_08011AE4
-	.incbin "data_080D5360/gUnk_080F0890_1.bin"
+	npc_raw subtype=0x15, x=0x128, y=0x198, unknown=0xf, collision=1, paramB=0x1e, script=0x0
+	npc_raw subtype=0x15, x=0x98, y=0xc8, unknown=0xf, collision=1, paramA=0x1, paramB=0x1f, script=0x0
+	npc_raw subtype=0x15, x=0x68, y=0x168, unknown=0xf, collision=1, paramA=0x2, paramB=0x20, script=0x0
+	npc_raw subtype=0x15, x=0x48, y=0x168, unknown=0xf, collision=1, paramA=0x3, paramB=0x21, script=0x0
+	npc_raw subtype=0x4e, script=script_08011AE4
+	entity_list_end
 
 gUnk_080F08F0:: @ 080F08F0
-	.incbin "data_080D5360/gUnk_080F08F0.bin"
-	.4byte script_08011A2C
-	.incbin "data_080D5360/gUnk_080F08F0_1.bin"
-	.4byte script_08011A2C
-	.incbin "data_080D5360/gUnk_080F08F0_2.bin"
+	npc_raw subtype=0x15, x=0x1ec, y=0x38, paramB=0x1a, script=script_08011A2C
+	npc_raw subtype=0x15, x=0x204, y=0x38, paramB=0x1b, script=script_08011A2C
+	entity_list_end
 
 gUnk_080F0920:: @ 080F0920
-	.incbin "data_080D5360/gUnk_080F0920.bin"
-	.4byte script_08011B20
-	.incbin "data_080D5360/gUnk_080F0920_1.bin"
+	npc_raw subtype=0x4e, script=script_08011B20
+	entity_list_end
 
 Entities_CastleGarden_Main_1:: @ 080F0940
 	manager subtype=0x6, paramA=0x8
@@ -16257,29 +16412,32 @@ TileEntities_CastleGarden_Main:: @ 080F0A10
 .endif
 	tile_entity_list_end
 
-gUnk_additional0_CastleGarden_Main:: @ 080F0A30
-	.incbin "data_080D5360/gUnk_additional0_CastleGarden_Main.bin"
+gUnk_additional_8_CastleGarden_Main:: @ 080F0A30
+	exit_region_raw centerX=0x3a8, centerY=0x48, halfWidth=0x3, halfHeight=0x3, exitIndex=0x9, bitfield=0x1
+	exit_region_raw centerX=0x308, centerY=0x28, halfWidth=0x3, halfHeight=0x3, exitIndex=0xa, bitfield=0x1
+	exit_region_raw centerX=0xe8, centerY=0x28, halfWidth=0x3, halfHeight=0x3, exitIndex=0xb, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional1_CastleGarden_Main:: @ 080F0A50
-	.incbin "data_080D5360/gUnk_additional1_CastleGarden_Main.bin"
+gUnk_additional_9_CastleGarden_Main:: @ 080F0A50
+	exit_raw transition=0x1, destX=0x98, destY=0x30, destArea=0x27, destRoom=0x2, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
-gUnk_additional2_CastleGarden_Main:: @ 080F0A64
-	.incbin "data_080D5360/gUnk_additional2_CastleGarden_Main.bin"
+gUnk_additional_a_CastleGarden_Main:: @ 080F0A64
+	exit_raw transition=0x1, destX=0x78, destY=0xb8, destArea=0x36, unknownA=0x1
 
-gUnk_additional3_CastleGarden_Main:: @ 080F0A78
-	.incbin "data_080D5360/gUnk_additional3_CastleGarden_Main.bin"
+gUnk_additional_b_CastleGarden_Main:: @ 080F0A78
+	exit_raw transition=0x1, destX=0x78, destY=0xb8, destArea=0x36, destRoom=0x1, unknownA=0x1
 
-gUnk_additional4_CastleGarden_Main:: @ 080F0A8C
-	.incbin "data_080D5360/gUnk_additional4_CastleGarden_Main.bin"
+gUnk_additional_c_CastleGarden_Main:: @ 080F0A8C
+	.incbin "data_080D5360/gUnk_additional_c_CastleGarden_Main.bin"
 
-gUnk_additional5_CastleGarden_Main:: @ 080F0AAC
-	.incbin "data_080D5360/gUnk_additional5_CastleGarden_Main.bin"
+gUnk_additional_d_CastleGarden_Main:: @ 080F0AAC
+	.incbin "data_080D5360/gUnk_additional_d_CastleGarden_Main.bin"
 
-gUnk_additional6_CastleGarden_Main:: @ 080F0AC0
-	.incbin "data_080D5360/gUnk_additional6_CastleGarden_Main.bin"
+gUnk_additional_e_CastleGarden_Main:: @ 080F0AC0
+	.incbin "data_080D5360/gUnk_additional_e_CastleGarden_Main.bin"
 
-gUnk_additional7_CastleGarden_Main:: @ 080F0AD4
-	.incbin "data_080D5360/gUnk_additional7_CastleGarden_Main.bin"
+gUnk_additional_f_CastleGarden_Main:: @ 080F0AD4
+	.incbin "data_080D5360/gUnk_additional_f_CastleGarden_Main.bin"
 
 Room_CastleGarden_Main:: @ 080F0AE8
 	.4byte Entities_CastleGarden_Main_0
@@ -16290,14 +16448,14 @@ Room_CastleGarden_Main:: @ 080F0AE8
 	.4byte 0x00000000
 	.4byte sub_unk3_CastleGarden_Main
 	.4byte sub_StateChange_CastleGarden_Main
-	.4byte gUnk_additional0_CastleGarden_Main
-	.4byte gUnk_additional1_CastleGarden_Main
-	.4byte gUnk_additional2_CastleGarden_Main
-	.4byte gUnk_additional3_CastleGarden_Main
-	.4byte gUnk_additional4_CastleGarden_Main
-	.4byte gUnk_additional5_CastleGarden_Main
-	.4byte gUnk_additional6_CastleGarden_Main
-	.4byte gUnk_additional7_CastleGarden_Main
+	.4byte gUnk_additional_8_CastleGarden_Main
+	.4byte gUnk_additional_9_CastleGarden_Main
+	.4byte gUnk_additional_a_CastleGarden_Main
+	.4byte gUnk_additional_b_CastleGarden_Main
+	.4byte gUnk_additional_c_CastleGarden_Main
+	.4byte gUnk_additional_d_CastleGarden_Main
+	.4byte gUnk_additional_e_CastleGarden_Main
+	.4byte gUnk_additional_f_CastleGarden_Main
 
 Entities_SimonsSimulation_Main_0:: @ 080F0B28
 	object_raw subtype=0x69, x=0x98, y=0x88, unknown=0x4f, paramC=script_08011BE4
@@ -16380,50 +16538,50 @@ gUnk_080F0E08:: @ 080F0E08
 gUnk_080F0E1C:: @ 080F0E1C
 	.incbin "data_080D5360/gUnk_080F0E1C.bin"
 
-gUnk_additional0_SimonsSimulation_Main:: @ 080F0E9C
-	.incbin "data_080D5360/gUnk_additional0_SimonsSimulation_Main.bin"
+gUnk_additional_8_SimonsSimulation_Main:: @ 080F0E9C
+	.incbin "data_080D5360/gUnk_additional_8_SimonsSimulation_Main.bin"
 
-gUnk_additional1_SimonsSimulation_Main:: @ 080F0FBC
-	.incbin "data_080D5360/gUnk_additional1_SimonsSimulation_Main.bin"
+gUnk_additional_9_SimonsSimulation_Main:: @ 080F0FBC
+	.incbin "data_080D5360/gUnk_additional_9_SimonsSimulation_Main.bin"
 
-gUnk_additional2_SimonsSimulation_Main:: @ 080F109C
-	.incbin "data_080D5360/gUnk_additional2_SimonsSimulation_Main.bin"
+gUnk_additional_a_SimonsSimulation_Main:: @ 080F109C
+	.incbin "data_080D5360/gUnk_additional_a_SimonsSimulation_Main.bin"
 
-gUnk_additional3_SimonsSimulation_Main:: @ 080F11EC
-	.incbin "data_080D5360/gUnk_additional3_SimonsSimulation_Main.bin"
+gUnk_additional_b_SimonsSimulation_Main:: @ 080F11EC
+	.incbin "data_080D5360/gUnk_additional_b_SimonsSimulation_Main.bin"
 
-gUnk_additional4_SimonsSimulation_Main:: @ 080F12FC
-	.incbin "data_080D5360/gUnk_additional4_SimonsSimulation_Main.bin"
+gUnk_additional_c_SimonsSimulation_Main:: @ 080F12FC
+	.incbin "data_080D5360/gUnk_additional_c_SimonsSimulation_Main.bin"
 
-gUnk_additional5_SimonsSimulation_Main:: @ 080F140C
-	.incbin "data_080D5360/gUnk_additional5_SimonsSimulation_Main.bin"
+gUnk_additional_d_SimonsSimulation_Main:: @ 080F140C
+	.incbin "data_080D5360/gUnk_additional_d_SimonsSimulation_Main.bin"
 
-gUnk_additional6_SimonsSimulation_Main:: @ 080F14DC
-	.incbin "data_080D5360/gUnk_additional6_SimonsSimulation_Main.bin"
+gUnk_additional_e_SimonsSimulation_Main:: @ 080F14DC
+	.incbin "data_080D5360/gUnk_additional_e_SimonsSimulation_Main.bin"
 
-gUnk_additional7_SimonsSimulation_Main:: @ 080F15FC
-	.incbin "data_080D5360/gUnk_additional7_SimonsSimulation_Main.bin"
+gUnk_additional_f_SimonsSimulation_Main:: @ 080F15FC
+	.incbin "data_080D5360/gUnk_additional_f_SimonsSimulation_Main.bin"
 
-gUnk_additional8_SimonsSimulation_Main:: @ 080F170C
-	.incbin "data_080D5360/gUnk_additional8_SimonsSimulation_Main.bin"
+gUnk_additional_10_SimonsSimulation_Main:: @ 080F170C
+	.incbin "data_080D5360/gUnk_additional_10_SimonsSimulation_Main.bin"
 
-gUnk_additional9_SimonsSimulation_Main:: @ 080F17DC
-	.incbin "data_080D5360/gUnk_additional9_SimonsSimulation_Main.bin"
+gUnk_additional_11_SimonsSimulation_Main:: @ 080F17DC
+	.incbin "data_080D5360/gUnk_additional_11_SimonsSimulation_Main.bin"
 
-gUnk_additional10_SimonsSimulation_Main:: @ 080F188C
-	.incbin "data_080D5360/gUnk_additional10_SimonsSimulation_Main.bin"
+gUnk_additional_12_SimonsSimulation_Main:: @ 080F188C
+	.incbin "data_080D5360/gUnk_additional_12_SimonsSimulation_Main.bin"
 
-gUnk_additional11_SimonsSimulation_Main:: @ 080F195C
-	.incbin "data_080D5360/gUnk_additional11_SimonsSimulation_Main.bin"
+gUnk_additional_13_SimonsSimulation_Main:: @ 080F195C
+	.incbin "data_080D5360/gUnk_additional_13_SimonsSimulation_Main.bin"
 
-gUnk_additional12_SimonsSimulation_Main:: @ 080F1A2C
-	.incbin "data_080D5360/gUnk_additional12_SimonsSimulation_Main.bin"
+gUnk_additional_14_SimonsSimulation_Main:: @ 080F1A2C
+	.incbin "data_080D5360/gUnk_additional_14_SimonsSimulation_Main.bin"
 
-gUnk_additional13_SimonsSimulation_Main:: @ 080F1ADC
-	.incbin "data_080D5360/gUnk_additional13_SimonsSimulation_Main.bin"
+gUnk_additional_15_SimonsSimulation_Main:: @ 080F1ADC
+	.incbin "data_080D5360/gUnk_additional_15_SimonsSimulation_Main.bin"
 
-gUnk_additional14_SimonsSimulation_Main:: @ 080F1B8C
-	.incbin "data_080D5360/gUnk_additional14_SimonsSimulation_Main.bin"
+gUnk_additional_16_SimonsSimulation_Main:: @ 080F1B8C
+	.incbin "data_080D5360/gUnk_additional_16_SimonsSimulation_Main.bin"
 
 Area_SimonsSimulation_Main:: @ 080F1BEC
 	.4byte Entities_SimonsSimulation_Main_0
@@ -16434,35 +16592,33 @@ Area_SimonsSimulation_Main:: @ 080F1BEC
 	.4byte 0x00000000
 	.4byte sub_unk3_SimonsSimulation_Main
 	.4byte sub_StateChange_SimonsSimulation_Main
-	.4byte gUnk_additional0_SimonsSimulation_Main
-	.4byte gUnk_additional1_SimonsSimulation_Main
-	.4byte gUnk_additional2_SimonsSimulation_Main
-	.4byte gUnk_additional3_SimonsSimulation_Main
-	.4byte gUnk_additional4_SimonsSimulation_Main
-	.4byte gUnk_additional5_SimonsSimulation_Main
-	.4byte gUnk_additional6_SimonsSimulation_Main
-	.4byte gUnk_additional7_SimonsSimulation_Main
-	.4byte gUnk_additional8_SimonsSimulation_Main
-	.4byte gUnk_additional9_SimonsSimulation_Main
-	.4byte gUnk_additional10_SimonsSimulation_Main
-	.4byte gUnk_additional11_SimonsSimulation_Main
-	.4byte gUnk_additional12_SimonsSimulation_Main
-	.4byte gUnk_additional13_SimonsSimulation_Main
-	.4byte gUnk_additional14_SimonsSimulation_Main
+	.4byte gUnk_additional_8_SimonsSimulation_Main
+	.4byte gUnk_additional_9_SimonsSimulation_Main
+	.4byte gUnk_additional_a_SimonsSimulation_Main
+	.4byte gUnk_additional_b_SimonsSimulation_Main
+	.4byte gUnk_additional_c_SimonsSimulation_Main
+	.4byte gUnk_additional_d_SimonsSimulation_Main
+	.4byte gUnk_additional_e_SimonsSimulation_Main
+	.4byte gUnk_additional_f_SimonsSimulation_Main
+	.4byte gUnk_additional_10_SimonsSimulation_Main
+	.4byte gUnk_additional_11_SimonsSimulation_Main
+	.4byte gUnk_additional_12_SimonsSimulation_Main
+	.4byte gUnk_additional_13_SimonsSimulation_Main
+	.4byte gUnk_additional_14_SimonsSimulation_Main
+	.4byte gUnk_additional_15_SimonsSimulation_Main
+	.4byte gUnk_additional_16_SimonsSimulation_Main
 
 Entities_HouseInteriors2_Stranger_0:: @ 080F1C48
 	npc_raw subtype=0x49, x=0x88, y=0x48, script=script_0800EAF8
 	entity_list_end
 
 gUnk_080F1C68:: @ 080F1C68
-	.incbin "data_080D5360/gUnk_080F1C68.bin"
-	.4byte script_08010B68
-	.incbin "data_080D5360/gUnk_080F1C68_1.bin"
+	npc_raw subtype=0x52, x=0x7a, y=0x22, paramB=0x5, script=script_08010B68
+	entity_list_end
 
 gUnk_080F1C88:: @ 080F1C88
-	.incbin "data_080D5360/gUnk_080F1C88.bin"
-	.4byte script_08010B68
-	.incbin "data_080D5360/gUnk_080F1C88_1.bin"
+	npc_raw subtype=0x52, x=0x72, y=0x22, paramB=0x6, script=script_08010B68
+	entity_list_end
 
 Entities_HouseInteriors2_Stranger_1:: @ 080F1CA8
 	object_raw subtype=0x4d, x=0x8c, y=0x28, collision=1, paramA=0x24
@@ -16478,11 +16634,11 @@ Enemies_HouseInteriors2_Stranger:: @ 080F1D08
 TileEntities_HouseInteriors2_Stranger:: @ 080F1D18
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors2_Stranger:: @ 080F1D20
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors2_Stranger.bin"
+gUnk_additional_8_HouseInteriors2_Stranger:: @ 080F1D20
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors2_Stranger.bin"
 
-gUnk_additional1_HouseInteriors2_Stranger:: @ 080F1D34
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors2_Stranger.bin"
+gUnk_additional_9_HouseInteriors2_Stranger:: @ 080F1D34
+	.incbin "data_080D5360/gUnk_additional_9_HouseInteriors2_Stranger.bin"
 
 Room_HouseInteriors2_Stranger:: @ 080F1D48
 	.4byte Entities_HouseInteriors2_Stranger_0
@@ -16493,27 +16649,24 @@ Room_HouseInteriors2_Stranger:: @ 080F1D48
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors2_Stranger
 	.4byte sub_StateChange_HouseInteriors2_Stranger
-	.4byte gUnk_additional0_HouseInteriors2_Stranger
-	.4byte gUnk_additional1_HouseInteriors2_Stranger
+	.4byte gUnk_additional_8_HouseInteriors2_Stranger
+	.4byte gUnk_additional_9_HouseInteriors2_Stranger
 
 Entities_HouseInteriors2_WestOracle_0:: @ 080F1D70
 	manager subtype=0x26, paramA=0x9, paramB=0x28ff
 	entity_list_end
 
 gUnk_080F1D90:: @ 080F1D90
-	.incbin "data_080D5360/gUnk_080F1D90.bin"
-	.4byte script_08012024
-	.incbin "data_080D5360/gUnk_080F1D90_1.bin"
+	npc_raw subtype=0x17, x=0x78, y=0x68, script=script_08012024
+	entity_list_end
 
 gUnk_080F1DB0:: @ 080F1DB0
-	.incbin "data_080D5360/gUnk_080F1DB0.bin"
-	.4byte script_080120B0
-	.incbin "data_080D5360/gUnk_080F1DB0_1.bin"
+	npc_raw subtype=0x18, x=0x78, y=0x68, script=script_080120B0
+	entity_list_end
 
 gUnk_080F1DD0:: @ 080F1DD0
-	.incbin "data_080D5360/gUnk_080F1DD0.bin"
-	.4byte script_0801213C
-	.incbin "data_080D5360/gUnk_080F1DD0_1.bin"
+	npc_raw subtype=0x19, x=0x78, y=0x68, script=script_0801213C
+	entity_list_end
 
 Entities_HouseInteriors2_WestOracle_1:: @ 080F1DF0
 	object_raw subtype=0x4f, x=0x78, y=0xb8, paramB=0x2
@@ -16530,14 +16683,14 @@ Enemies_HouseInteriors2_WestOracle:: @ 080F1E60
 TileEntities_HouseInteriors2_WestOracle:: @ 080F1E70
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors2_WestOracle:: @ 080F1E78
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors2_WestOracle.bin"
+gUnk_additional_8_HouseInteriors2_WestOracle:: @ 080F1E78
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors2_WestOracle.bin"
 
-gUnk_additional2_HouseInteriors2_WestOracle:: @ 080F1E8C
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors2_WestOracle.bin"
+gUnk_additional_a_HouseInteriors2_WestOracle:: @ 080F1E8C
+	.incbin "data_080D5360/gUnk_additional_a_HouseInteriors2_WestOracle.bin"
 
-gUnk_additional1_HouseInteriors2_WestOracle:: @ 080F1EA0
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors2_WestOracle.bin"
+gUnk_additional_9_HouseInteriors2_WestOracle:: @ 080F1EA0
+	.incbin "data_080D5360/gUnk_additional_9_HouseInteriors2_WestOracle.bin"
 
 Room_HouseInteriors2_WestOracle:: @ 080F1EC0
 	.4byte Entities_HouseInteriors2_WestOracle_0
@@ -16548,9 +16701,9 @@ Room_HouseInteriors2_WestOracle:: @ 080F1EC0
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors2_WestOracle
 	.4byte sub_StateChange_HouseInteriors2_WestOracle
-	.4byte gUnk_additional0_HouseInteriors2_WestOracle
-	.4byte gUnk_additional1_HouseInteriors2_WestOracle
-	.4byte gUnk_additional2_HouseInteriors2_WestOracle
+	.4byte gUnk_additional_8_HouseInteriors2_WestOracle
+	.4byte gUnk_additional_9_HouseInteriors2_WestOracle
+	.4byte gUnk_additional_a_HouseInteriors2_WestOracle
 
 Entities_HouseInteriors2_2_0:: @ 080F1EEC
 	manager subtype=0x26, paramA=0xa, paramB=0x28ff
@@ -16573,14 +16726,14 @@ Enemies_HouseInteriors2_2:: @ 080F1F9C
 TileEntities_HouseInteriors2_2:: @ 080F1FAC
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors2_2:: @ 080F1FB4
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors2_2.bin"
+gUnk_additional_8_HouseInteriors2_2:: @ 080F1FB4
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors2_2.bin"
 
-gUnk_additional1_HouseInteriors2_2:: @ 080F1FC8
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors2_2.bin"
+gUnk_additional_9_HouseInteriors2_2:: @ 080F1FC8
+	.incbin "data_080D5360/gUnk_additional_9_HouseInteriors2_2.bin"
 
-gUnk_additional2_HouseInteriors2_2:: @ 080F1FDC
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors2_2.bin"
+gUnk_additional_a_HouseInteriors2_2:: @ 080F1FDC
+	.incbin "data_080D5360/gUnk_additional_a_HouseInteriors2_2.bin"
 
 Room_HouseInteriors2_2:: @ 080F1FEC
 	.4byte Entities_HouseInteriors2_2_0
@@ -16591,9 +16744,9 @@ Room_HouseInteriors2_2:: @ 080F1FEC
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors2_2
 	.4byte sub_StateChange_Ruins_Beanstalk5
-	.4byte gUnk_additional0_HouseInteriors2_2
-	.4byte gUnk_additional1_HouseInteriors2_2
-	.4byte gUnk_additional2_HouseInteriors2_2
+	.4byte gUnk_additional_8_HouseInteriors2_2
+	.4byte gUnk_additional_9_HouseInteriors2_2
+	.4byte gUnk_additional_a_HouseInteriors2_2
 
 Entities_HouseInteriors2_3_0:: @ 080F2018
 	manager subtype=0x26, paramA=0xa, paramB=0x28ff
@@ -16615,14 +16768,14 @@ Enemies_HouseInteriors2_3:: @ 080F20B8
 TileEntities_HouseInteriors2_3:: @ 080F20C8
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors2_3:: @ 080F20D0
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors2_3.bin"
+gUnk_additional_8_HouseInteriors2_3:: @ 080F20D0
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors2_3.bin"
 
-gUnk_additional1_HouseInteriors2_3:: @ 080F20E4
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors2_3.bin"
+gUnk_additional_9_HouseInteriors2_3:: @ 080F20E4
+	.incbin "data_080D5360/gUnk_additional_9_HouseInteriors2_3.bin"
 
-gUnk_additional2_HouseInteriors2_3:: @ 080F20F8
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors2_3.bin"
+gUnk_additional_a_HouseInteriors2_3:: @ 080F20F8
+	.incbin "data_080D5360/gUnk_additional_a_HouseInteriors2_3.bin"
 
 Room_HouseInteriors2_3:: @ 080F2108
 	.4byte Entities_HouseInteriors2_3_0
@@ -16633,9 +16786,9 @@ Room_HouseInteriors2_3:: @ 080F2108
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors2_3
 	.4byte sub_StateChange_Ruins_Beanstalk6
-	.4byte gUnk_additional0_HouseInteriors2_3
-	.4byte gUnk_additional1_HouseInteriors2_3
-	.4byte gUnk_additional2_HouseInteriors2_3
+	.4byte gUnk_additional_8_HouseInteriors2_3
+	.4byte gUnk_additional_9_HouseInteriors2_3
+	.4byte gUnk_additional_a_HouseInteriors2_3
 
 Entities_HouseInteriors2_DrLeft_0:: @ 080F2134
 	npc_raw subtype=0x41, x=0x78, y=0x68, script=script_0800EAA4
@@ -16644,13 +16797,16 @@ Entities_HouseInteriors2_DrLeft_0:: @ 080F2134
 	entity_list_end
 
 gUnk_080F2174:: @ 080F2174
-	.incbin "data_080D5360/gUnk_080F2174.bin"
+	npc_raw subtype=0x41, x=0x78, y=0x6c, unknown=0xf, paramA=0x1, script=0x0
+	entity_list_end
 
 gUnk_080F2194:: @ 080F2194
-	.incbin "data_080D5360/gUnk_080F2194.bin"
+	object_raw subtype=0x8c, x=0x98, y=0x58, collision=1, paramA=0x1, paramB=0x1, paramC=0x6f0000
+	entity_list_end
 
 gUnk_080F21B4:: @ 080F21B4
-	.incbin "data_080D5360/gUnk_080F21B4.bin"
+	object_raw subtype=0x5d, x=0x78, y=0xa8, paramA=0x1, paramB=0x102
+	entity_list_end
 
 Entities_HouseInteriors2_DrLeft_1:: @ 080F21D4
 	object_raw subtype=0x4f, x=0x78, y=0xb8, paramB=0x2
@@ -16669,23 +16825,24 @@ Enemies_HouseInteriors2_DrLeft:: @ 080F2264
 TileEntities_HouseInteriors2_DrLeft:: @ 080F2274
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors2_DrLeft:: @ 080F227C
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors2_DrLeft.bin"
+gUnk_additional_8_HouseInteriors2_DrLeft:: @ 080F227C
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors2_DrLeft.bin"
 
-gUnk_additional1_HouseInteriors2_DrLeft:: @ 080F2290
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors2_DrLeft.bin"
+gUnk_additional_9_HouseInteriors2_DrLeft:: @ 080F2290
+	.incbin "data_080D5360/gUnk_additional_9_HouseInteriors2_DrLeft.bin"
 
-gUnk_additional2_HouseInteriors2_DrLeft:: @ 080F22A4
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors2_DrLeft.bin"
+gUnk_additional_a_HouseInteriors2_DrLeft:: @ 080F22A4
+	.incbin "data_080D5360/gUnk_additional_a_HouseInteriors2_DrLeft.bin"
 
-gUnk_additional5_HouseInteriors2_DrLeft:: @ 080F22B8
-	.incbin "data_080D5360/gUnk_additional5_HouseInteriors2_DrLeft.bin"
+gUnk_additional_d_HouseInteriors2_DrLeft:: @ 080F22B8
+	.incbin "data_080D5360/gUnk_additional_d_HouseInteriors2_DrLeft.bin"
 
-gUnk_additional3_HouseInteriors2_DrLeft:: @ 080F22D0
-	.incbin "data_080D5360/gUnk_additional3_HouseInteriors2_DrLeft.bin"
+gUnk_additional_b_HouseInteriors2_DrLeft:: @ 080F22D0
+	exit_region_raw centerX=0x48, centerY=0x4a, halfWidth=0x8, halfHeight=0x2, exitIndex=0xc, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional4_HouseInteriors2_DrLeft:: @ 080F22E0
-	.incbin "data_080D5360/gUnk_additional4_HouseInteriors2_DrLeft.bin"
+gUnk_additional_c_HouseInteriors2_DrLeft:: @ 080F22E0
+	exit_raw transition=0x1, destX=0x34, destY=0x20c, destArea=0x2, unknownA=0x1, unknownB=0x1, unknownC=0x2
 
 Room_HouseInteriors2_DrLeft:: @ 080F22F4
 	.4byte Entities_HouseInteriors2_DrLeft_0
@@ -16696,12 +16853,12 @@ Room_HouseInteriors2_DrLeft:: @ 080F22F4
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors2_DrLeft
 	.4byte sub_StateChange_HouseInteriors2_DrLeft
-	.4byte gUnk_additional0_HouseInteriors2_DrLeft
-	.4byte gUnk_additional1_HouseInteriors2_DrLeft
-	.4byte gUnk_additional2_HouseInteriors2_DrLeft
-	.4byte gUnk_additional3_HouseInteriors2_DrLeft
-	.4byte gUnk_additional4_HouseInteriors2_DrLeft
-	.4byte gUnk_additional5_HouseInteriors2_DrLeft
+	.4byte gUnk_additional_8_HouseInteriors2_DrLeft
+	.4byte gUnk_additional_9_HouseInteriors2_DrLeft
+	.4byte gUnk_additional_a_HouseInteriors2_DrLeft
+	.4byte gUnk_additional_b_HouseInteriors2_DrLeft
+	.4byte gUnk_additional_c_HouseInteriors2_DrLeft
+	.4byte gUnk_additional_d_HouseInteriors2_DrLeft
 
 Entities_HouseInteriors2_Romio_0:: @ 080F232C
 	npc_raw subtype=0x35, x=0x48, y=0x68, unknown=0xf, paramA=0x3, paramB=0x3, script=0x0
@@ -16709,22 +16866,18 @@ Entities_HouseInteriors2_Romio_0:: @ 080F232C
 	manager subtype=0xa, x=0x50b, y=0x202, unknown=0x0, paramA=0x2, paramB=0xb240000, paramC=0xc3
 	entity_list_end
 
-gUnk_additional4_HouseInteriors2_Romio:: @ 080F236C
-	.incbin "data_080D5360/gUnk_additional4_HouseInteriors2_Romio.bin"
-	.4byte script_0800EB2C
-	.incbin "data_080D5360/gUnk_additional4_HouseInteriors2_Romio_1.bin"
+gUnk_additional_c_HouseInteriors2_Romio:: @ 080F236C
+	npc_raw subtype=0x6, x=0x78, y=0x48, paramA=0xd, paramB=0x400, script=script_0800EB2C
+	entity_list_end
 
 gUnk_080F238C:: @ 080F238C
-	.incbin "data_080D5360/gUnk_080F238C.bin"
-	.4byte script_0800EB64
-	.incbin "data_080D5360/gUnk_080F238C_1.bin"
-	.4byte script_0800EC14
-	.incbin "data_080D5360/gUnk_080F238C_2.bin"
+	npc_raw subtype=0x6, x=0xb8, y=0x74, paramA=0xd, paramB=0x400, script=script_0800EB64
+	npc_raw subtype=0x6, x=0xa4, y=0x74, paramA=0xe, paramB=0x400, script=script_0800EC14
+	entity_list_end
 
 gUnk_080F23BC:: @ 080F23BC
-	.incbin "data_080D5360/gUnk_080F23BC.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_080F23BC_1.bin"
+	npc_raw subtype=0x7, x=0x88, y=0x48, paramA=0x4, paramB=0x400, script=script_080103B0
+	entity_list_end
 
 Entities_HouseInteriors2_Romio_1:: @ 080F23DC
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramB=0x2
@@ -16742,20 +16895,22 @@ Enemies_HouseInteriors2_Romio:: @ 080F245C
 TileEntities_HouseInteriors2_Romio:: @ 080F246C
 	tile_entity_list_end
 
-gUnk_additional5_HouseInteriors2_Romio:: @ 080F2474
-	.incbin "data_080D5360/gUnk_additional5_HouseInteriors2_Romio.bin"
+gUnk_additional_d_HouseInteriors2_Romio:: @ 080F2474
+	.incbin "data_080D5360/gUnk_additional_d_HouseInteriors2_Romio.bin"
 
-gUnk_additional0_HouseInteriors2_Romio:: @ 080F2488
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors2_Romio.bin"
+gUnk_additional_8_HouseInteriors2_Romio:: @ 080F2488
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors2_Romio.bin"
 
-gUnk_additional1_HouseInteriors2_Romio:: @ 080F2498
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors2_Romio.bin"
+gUnk_additional_9_HouseInteriors2_Romio:: @ 080F2498
+	exit_region_raw centerX=0x48, centerY=0x2a, halfWidth=0x8, halfHeight=0x2, exitIndex=0xa, bitfield=0x1
+	exit_region_raw centerX=0x98, centerY=0x2a, halfWidth=0x8, halfHeight=0x2, exitIndex=0xb, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional2_HouseInteriors2_Romio:: @ 080F24B0
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors2_Romio.bin"
+gUnk_additional_a_HouseInteriors2_Romio:: @ 080F24B0
+	exit_raw transition=0x1, destX=0x2e4, destY=0x2be, destArea=0x2, unknownA=0x2, unknownB=0x1, unknownC=0x2
 
-gUnk_additional3_HouseInteriors2_Romio:: @ 080F24C4
-	.incbin "data_080D5360/gUnk_additional3_HouseInteriors2_Romio.bin"
+gUnk_additional_b_HouseInteriors2_Romio: @ 080F24C4
+	exit_raw transition=0x1, destX=0x304, destY=0x2be, destArea=0x2, unknownA=0x2, unknownB=0x1, unknownC=0x2
 
 Room_HouseInteriors2_Romio:: @ 080F24D8
 	.4byte Entities_HouseInteriors2_Romio_0
@@ -16766,12 +16921,12 @@ Room_HouseInteriors2_Romio:: @ 080F24D8
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors2_Romio
 	.4byte sub_StateChange_HouseInteriors2_Romio
-	.4byte gUnk_additional0_HouseInteriors2_Romio
-	.4byte gUnk_additional1_HouseInteriors2_Romio
-	.4byte gUnk_additional2_HouseInteriors2_Romio
-	.4byte gUnk_additional3_HouseInteriors2_Romio
-	.4byte gUnk_additional4_HouseInteriors2_Romio
-	.4byte gUnk_additional5_HouseInteriors2_Romio
+	.4byte gUnk_additional_8_HouseInteriors2_Romio
+	.4byte gUnk_additional_9_HouseInteriors2_Romio
+	.4byte gUnk_additional_a_HouseInteriors2_Romio
+	.4byte gUnk_additional_b_HouseInteriors2_Romio
+	.4byte gUnk_additional_c_HouseInteriors2_Romio
+	.4byte gUnk_additional_d_HouseInteriors2_Romio
 
 Entities_HouseInteriors2_Julietta_0:: @ 080F2510
 	npc_raw subtype=0x2c, x=0x38, y=0x78, unknown=0xf, collision=1, paramA=0x4, paramB=0x4000, script=0x0
@@ -16782,24 +16937,23 @@ Entities_HouseInteriors2_Julietta_0:: @ 080F2510
 	entity_list_end
 
 gUnk_080F2570:: @ 080F2570
-	.incbin "data_080D5360/gUnk_080F2570.bin"
-	.4byte script_0800EC54
-	.incbin "data_080D5360/gUnk_080F2570_1.bin"
+	npc_raw subtype=0x6, x=0xb0, y=0x6d, paramA=0xe, paramB=0x400, script=script_0800EC54
+	entity_list_end
 
 gUnk_080F2590:: @ 080F2590
-	.incbin "data_080D5360/gUnk_080F2590.bin"
-	.4byte script_0800EBC0
-	.incbin "data_080D5360/gUnk_080F2590_1.bin"
-	.4byte script_0800EC54
-	.incbin "data_080D5360/gUnk_080F2590_2.bin"
+	npc_raw subtype=0x6, x=0x78, y=0x68, paramA=0x7, paramB=0x400, script=script_0800EBC0
+	npc_raw subtype=0x6, x=0x48, y=0x78, paramA=0xe, paramB=0x400, script=script_0800EC54
+	entity_list_end
 
 gUnk_080F25C0:: @ 080F25C0
-	.incbin "data_080D5360/gUnk_080F25C0.bin"
+	object_raw subtype=0x8c, x=0x6c, y=0x36, collision=1, paramC=0x6c0000
+	object_raw subtype=0x5a, x=0xb0, y=0x80, collision=1, paramA=0x2, paramB=0x1
+	manager subtype=0xa, x=0x402, y=0x406, unknown=0x0, paramB=0xb600000, paramC=0xcc
+	entity_list_end
 
 gUnk_080F2600:: @ 080F2600
-	.incbin "data_080D5360/gUnk_080F2600.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_080F2600_1.bin"
+	npc_raw subtype=0x7, x=0x28, y=0x98, paramA=0x3, paramB=0x400, script=script_080103B0
+	entity_list_end
 
 Entities_HouseInteriors2_Julietta_1:: @ 080F2620
 	object_raw subtype=0x4f, x=0x78, y=0xb8, paramB=0x2
@@ -16816,14 +16970,15 @@ TileEntities_HouseInteriors2_Julietta:: @ 080F2680
 	tile_entity type=0x5, paramB=0x1b00, paramC=0x20b, paramD=0x61b
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors2_Julietta:: @ 080F2698
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors2_Julietta.bin"
+gUnk_additional_8_HouseInteriors2_Julietta:: @ 080F2698
+	exit_region_raw centerX=0xb8, centerY=0x4a, halfWidth=0x8, halfHeight=0x2, exitIndex=0x9, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional1_HouseInteriors2_Julietta:: @ 080F26A8
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors2_Julietta.bin"
+gUnk_additional_9_HouseInteriors2_Julietta:: @ 080F26A8
+	exit_raw transition=0x1, destX=0x348, destY=0x2be, destArea=0x2, unknownA=0x2, unknownB=0x1, unknownC=0x6
 
-gUnk_additional2_HouseInteriors2_Julietta:: @ 080F26BC
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors2_Julietta.bin"
+gUnk_additional_a_HouseInteriors2_Julietta:: @ 080F26BC
+	.incbin "data_080D5360/gUnk_additional_a_HouseInteriors2_Julietta.bin"
 
 Room_HouseInteriors2_Julietta:: @ 080F26CC
 	.4byte Entities_HouseInteriors2_Julietta_0
@@ -16834,33 +16989,37 @@ Room_HouseInteriors2_Julietta:: @ 080F26CC
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors2_Julietta
 	.4byte sub_StateChange_HouseInteriors2_Julietta
-	.4byte gUnk_additional0_HouseInteriors2_Julietta
-	.4byte gUnk_additional1_HouseInteriors2_Julietta
-	.4byte gUnk_additional2_HouseInteriors2_Julietta
+	.4byte gUnk_additional_8_HouseInteriors2_Julietta
+	.4byte gUnk_additional_9_HouseInteriors2_Julietta
+	.4byte gUnk_additional_a_HouseInteriors2_Julietta
 
 Entities_HouseInteriors2_Percy_0:: @ 080F26F8
 	manager subtype=0x26, paramA=0x8, paramB=0xff
 	entity_list_end
 
-gUnk_additional1_HouseInteriors2_Percy:: @ 080F2718
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors2_Percy.bin"
-	.4byte script_08012270
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors2_Percy_1.bin"
+gUnk_additional_9_HouseInteriors2_Percy:: @ 080F2718
+	npc_raw subtype=0x6, x=0x78, y=0x58, paramA=0xc, paramB=0x400, script=script_08012270
+	manager subtype=0x23, x=0x68, y=0x48, paramA=0x2, paramB=0x4002, paramC=0x80000000
+	manager subtype=0x23, x=0x88, y=0x48, paramA=0x2, paramB=0x4002, paramC=0x80010000
+	entity_list_end
 
-gUnk_additional2_HouseInteriors2_Percy:: @ 080F2758
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors2_Percy.bin"
-	.4byte script_0801232C
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors2_Percy_1.bin"
+gUnk_additional_a_HouseInteriors2_Percy:: @ 080F2758
+	npc_raw subtype=0x3c, x=0x78, y=0x58, script=script_0801232C
+	manager subtype=0x23, x=0x68, y=0x48, paramB=0x2, paramC=0x430000
+	manager subtype=0x23, x=0x88, y=0x48, paramB=0x2, paramC=0x430000
+	entity_list_end
 
 gUnk_080F2798:: @ 080F2798
-	.incbin "data_080D5360/gUnk_080F2798.bin"
-	.4byte script_08012E88
-	.incbin "data_080D5360/gUnk_080F2798_1.bin"
+	npc_raw subtype=0x3a, x=0x78, y=0x58, paramB=0x1, script=script_08012E88
+	manager subtype=0x23, x=0x68, y=0x48, paramB=0x2, paramC=0x430000
+	manager subtype=0x23, x=0x88, y=0x48, paramB=0x2, paramC=0x430000
+	entity_list_end
 
 gUnk_080F27D8:: @ 080F27D8
-	.incbin "data_080D5360/gUnk_080F27D8.bin"
-	.4byte script_08012E88
-	.incbin "data_080D5360/gUnk_080F27D8_1.bin"
+	npc_raw subtype=0x3a, x=0x78, y=0x58, paramB=0x4, script=script_08012E88
+	manager subtype=0x23, x=0x68, y=0x48, paramB=0x2, paramC=0x430000
+	manager subtype=0x23, x=0x88, y=0x48, paramB=0x2, paramC=0x430000
+	entity_list_end
 
 Entities_HouseInteriors2_Percy_1:: @ 080F2818
 	object_raw subtype=0x4f, x=0x78, y=0xa8, paramB=0x2
@@ -16874,10 +17033,11 @@ TileEntities_HouseInteriors2_Percy:: @ 080F2858
 	tile_entity_list_end
 
 gUnk_080F2860:: @ 080F2860
-	.incbin "data_080D5360/gUnk_080F2860.bin"
+	manager subtype=0x0, unknown=0x0, paramA=0x80
 
-gUnk_additional0_HouseInteriors2_Percy:: @ 080F2870
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors2_Percy.bin"
+
+gUnk_additional_8_HouseInteriors2_Percy:: @ 080F2870
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors2_Percy.bin"
 
 Room_HouseInteriors2_Percy:: @ 080F2888
 	.4byte Entities_HouseInteriors2_Percy_0
@@ -16888,28 +17048,25 @@ Room_HouseInteriors2_Percy:: @ 080F2888
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors2_Percy
 	.4byte sub_StateChange_HouseInteriors2_Percy
-	.4byte gUnk_additional0_HouseInteriors2_Percy
-	.4byte gUnk_additional1_HouseInteriors2_Percy
-	.4byte gUnk_additional2_HouseInteriors2_Percy
+	.4byte gUnk_additional_8_HouseInteriors2_Percy
+	.4byte gUnk_additional_9_HouseInteriors2_Percy
+	.4byte gUnk_additional_a_HouseInteriors2_Percy
 
 Entities_HouseInteriors2_EastOracle_0:: @ 080F28B4
 	object_raw subtype=0x8d, x=0x38, y=0x28, paramC=0xa80000
 	entity_list_end
 
 gUnk_080F28D4:: @ 080F28D4
-	.incbin "data_080D5360/gUnk_080F28D4.bin"
-	.4byte script_08012024
-	.incbin "data_080D5360/gUnk_080F28D4_1.bin"
+	npc_raw subtype=0x17, x=0x78, y=0x48, script=script_08012024
+	entity_list_end
 
 gUnk_080F28F4:: @ 080F28F4
-	.incbin "data_080D5360/gUnk_080F28F4.bin"
-	.4byte script_080120B0
-	.incbin "data_080D5360/gUnk_080F28F4_1.bin"
+	npc_raw subtype=0x18, x=0x78, y=0x48, script=script_080120B0
+	entity_list_end
 
 gUnk_080F2914:: @ 080F2914
-	.incbin "data_080D5360/gUnk_080F2914.bin"
-	.4byte script_0801213C
-	.incbin "data_080D5360/gUnk_080F2914_1.bin"
+	npc_raw subtype=0x19, x=0x78, y=0x48, script=script_0801213C
+	entity_list_end
 
 Entities_HouseInteriors2_EastOracle_1:: @ 080F2934
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramB=0x2
@@ -16955,8 +17112,8 @@ Enemies_HouseInteriors2_A:: @ 080F2A6C
 TileEntities_HouseInteriors2_A:: @ 080F2A7C
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors2_A:: @ 080F2A84
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors2_A.bin"
+gUnk_additional_8_HouseInteriors2_A:: @ 080F2A84
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors2_A.bin"
 
 Room_HouseInteriors2_A:: @ 080F2A9C
 	.4byte Entities_HouseInteriors2_A_0
@@ -16967,7 +17124,7 @@ Room_HouseInteriors2_A:: @ 080F2A9C
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors2_A
 	.4byte sub_StateChange_Ruins_Beanstalk7
-	.4byte gUnk_additional0_HouseInteriors2_A
+	.4byte gUnk_additional_8_HouseInteriors2_A
 
 Entities_HouseInteriors2_B_0:: @ 080F2AC0
 	manager subtype=0x26, paramA=0x8, paramB=0xff
@@ -16987,8 +17144,8 @@ Enemies_HouseInteriors2_B:: @ 080F2B40
 TileEntities_HouseInteriors2_B:: @ 080F2B50
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors2_B:: @ 080F2B58
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors2_B.bin"
+gUnk_additional_8_HouseInteriors2_B:: @ 080F2B58
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors2_B.bin"
 
 Room_HouseInteriors2_B:: @ 080F2B78
 	.4byte Entities_HouseInteriors2_B_0
@@ -16999,7 +17156,7 @@ Room_HouseInteriors2_B:: @ 080F2B78
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors2_B
 	.4byte sub_StateChange_Ruins_Beanstalk8
-	.4byte gUnk_additional0_HouseInteriors2_B
+	.4byte gUnk_additional_8_HouseInteriors2_B
 
 Entities_HouseInteriors2_Cucco_0:: @ 080F2B9C
 	enemy_raw subtype=0xc, x=0x70, y=0x40
@@ -17038,17 +17195,18 @@ Enemies_HouseInteriors2_Cucco:: @ 080F2D1C
 TileEntities_HouseInteriors2_Cucco:: @ 080F2D2C
 	tile_entity_list_end
 
-gUnk_additional3_HouseInteriors2_Cucco:: @ 080F2D34
-	.incbin "data_080D5360/gUnk_additional3_HouseInteriors2_Cucco.bin"
+gUnk_additional_b_HouseInteriors2_Cucco:: @ 080F2D34
+	.incbin "data_080D5360/gUnk_additional_b_HouseInteriors2_Cucco.bin"
 
-gUnk_additional0_HouseInteriors2_Cucco:: @ 080F2D48
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors2_Cucco.bin"
+gUnk_additional_8_HouseInteriors2_Cucco:: @ 080F2D48
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors2_Cucco.bin"
 
-gUnk_additional1_HouseInteriors2_Cucco:: @ 080F2D58
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors2_Cucco.bin"
+gUnk_additional_9_HouseInteriors2_Cucco:: @ 080F2D58
+	exit_region_raw centerX=0x58, centerY=0x2a, halfWidth=0x8, halfHeight=0x2, exitIndex=0xa, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional2_HouseInteriors2_Cucco:: @ 080F2D68
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors2_Cucco.bin"
+gUnk_additional_a_HouseInteriors2_Cucco:: @ 080F2D68
+	exit_raw transition=0x1, destX=0x3b4, destY=0x31c, destArea=0x2, unknownA=0x2, unknownB=0x1, unknownC=0x6
 
 Room_HouseInteriors2_Cucco:: @ 080F2D7C
 	.4byte Entities_HouseInteriors2_Cucco_0
@@ -17059,10 +17217,10 @@ Room_HouseInteriors2_Cucco:: @ 080F2D7C
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors2_Cucco
 	.4byte sub_StateChange_Ruins_Beanstalk9
-	.4byte gUnk_additional0_HouseInteriors2_Cucco
-	.4byte gUnk_additional1_HouseInteriors2_Cucco
-	.4byte gUnk_additional2_HouseInteriors2_Cucco
-	.4byte gUnk_additional3_HouseInteriors2_Cucco
+	.4byte gUnk_additional_8_HouseInteriors2_Cucco
+	.4byte gUnk_additional_9_HouseInteriors2_Cucco
+	.4byte gUnk_additional_a_HouseInteriors2_Cucco
+	.4byte gUnk_additional_b_HouseInteriors2_Cucco
 
 Entities_HouseInteriors2_LinksHouseEntrance_0:: @ 080F2DAC
 	manager subtype=0xa, x=0x706, y=0x103, unknown=0x0, paramB=0xb510000, paramC=0xc8
@@ -17077,7 +17235,8 @@ Entities_HouseInteriors2_LinksHouseEntrance_1:: @ 080F2DCC
 	entity_list_end
 
 gUnk_080F2E2C:: @ 080F2E2C
-	.incbin "data_080D5360/gUnk_080F2E2C.bin"
+	object_raw subtype=0x5d, x=0x78, y=0x88, paramA=0x4, paramB=0x100
+	entity_list_end
 
 Enemies_HouseInteriors2_LinksHouseEntrance:: @ 080F2E4C
 	entity_list_end
@@ -17099,16 +17258,13 @@ Entities_HouseInteriors2_LinksHouseSmith_0:: @ 080F2E84
 	entity_list_end
 
 gUnk_080F2E94:: @ 080F2E94
-	.incbin "data_080D5360/gUnk_080F2E94.bin"
-	.4byte script_08009B78
-	.incbin "data_080D5360/gUnk_080F2E94_1.bin"
-	.4byte script_08009C68
-	.incbin "data_080D5360/gUnk_080F2E94_2.bin"
+	npc_raw subtype=0x22, x=0x80, y=0x50, script=script_08009B78
+	npc_raw subtype=0x28, x=0x60, y=0x50, script=script_08009C68
+	entity_list_end
 
 gUnk_080F2EC4:: @ 080F2EC4
-	.incbin "data_080D5360/gUnk_080F2EC4.bin"
-	.4byte script_08009DB0
-	.incbin "data_080D5360/gUnk_080F2EC4_1.bin"
+	npc_raw subtype=0x22, x=0xb8, y=0x60, script=script_08009DB0
+	entity_list_end
 
 Entities_HouseInteriors2_LinksHouseSmith_1:: @ 080F2EE4
 	object_raw subtype=0x5, x=0x28, y=0x28
@@ -17143,9 +17299,8 @@ Entities_HouseInteriors2_Dampe_0:: @ 080F2FB4
 	entity_list_end
 
 gUnk_080F2FD4:: @ 080F2FD4
-	.incbin "data_080D5360/gUnk_080F2FD4.bin"
-	.4byte script_080095CC
-	.incbin "data_080D5360/gUnk_080F2FD4_1.bin"
+	npc_raw subtype=0x40, x=0x78, y=0x58, script=script_080095CC
+	entity_list_end
 
 Entities_HouseInteriors2_Dampe_1:: @ 080F2FF4
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramB=0x2
@@ -17178,7 +17333,8 @@ Entities_HouseInteriors2_Stockwell_0:: @ 080F309C
 	entity_list_end
 
 gUnk_080F30CC:: @ 080F30CC
-	.incbin "data_080D5360/gUnk_080F30CC.bin"
+	object_raw subtype=0x6a, x=0x98, y=0x58, paramA=0x6
+	entity_list_end
 
 Entities_HouseInteriors2_Stockwell_1:: @ 080F30EC
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x20, paramB=0x2
@@ -17194,8 +17350,8 @@ Enemies_HouseInteriors2_Stockwell:: @ 080F314C
 TileEntities_HouseInteriors2_Stockwell:: @ 080F315C
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors2_Stockwell:: @ 080F3164
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors2_Stockwell.bin"
+gUnk_additional_8_HouseInteriors2_Stockwell:: @ 080F3164
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors2_Stockwell.bin"
 
 Room_HouseInteriors2_Stockwell:: @ 080F3174
 	.4byte Entities_HouseInteriors2_Stockwell_0
@@ -17206,7 +17362,7 @@ Room_HouseInteriors2_Stockwell:: @ 080F3174
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors2_Stockwell
 	.4byte sub_StateChange_HouseInteriors2_Stockwell
-	.4byte gUnk_additional0_HouseInteriors2_Stockwell
+	.4byte gUnk_additional_8_HouseInteriors2_Stockwell
 
 Entities_HouseInteriors2_LinksHouseBedroom_0:: @ 080F3198
 	manager subtype=0xa, x=0x302, y=0x107, unknown=0x0, paramB=0xb520000, paramC=0xc9
@@ -17215,9 +17371,8 @@ Entities_HouseInteriors2_LinksHouseBedroom_0:: @ 080F3198
 	entity_list_end
 
 gUnk_080F31D8:: @ 080F31D8
-	.incbin "data_080D5360/gUnk_080F31D8.bin"
-	.4byte script_08009DEC
-	.incbin "data_080D5360/gUnk_080F31D8_1.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_08009DEC
+	entity_list_end
 
 Entities_HouseInteriors2_LinksHouseBedroom_1:: @ 080F31F8
 	object_raw subtype=0x4f, x=0x58, y=0x8, paramA=0x1
@@ -17243,17 +17398,13 @@ Entities_HouseInteriors4_Carpenter_0:: @ 080F3250
 	entity_list_end
 
 gUnk_080F3260:: @ 080F3260
-	.incbin "data_080D5360/gUnk_080F3260.bin"
-	.4byte script_08009538
-	.incbin "data_080D5360/gUnk_080F3260_1.bin"
-	.4byte script_08009574
-	.incbin "data_080D5360/gUnk_080F3260_2.bin"
-	.4byte script_08009574
-	.incbin "data_080D5360/gUnk_080F3260_3.bin"
-	.4byte script_08009574
-	.incbin "data_080D5360/gUnk_080F3260_4.bin"
-	.4byte script_08009574
-	.incbin "data_080D5360/gUnk_080F3260_5.bin"
+	npc_raw subtype=0x29, x=0x78, y=0x70, script=script_08009538
+	npc_raw subtype=0x2a, x=0x38, y=0x88, script=script_08009574
+	npc_raw subtype=0x2a, x=0x58, y=0x88, paramA=0x1, script=script_08009574
+	npc_raw subtype=0x2a, x=0x98, y=0x88, paramA=0x3, script=script_08009574
+	entity_list_end
+	npc_raw subtype=0x2a, x=0x60, y=0x58, paramA=0x2, script=script_08009574
+	entity_list_end
 
 Entities_HouseInteriors4_Carpenter_1:: @ 080F32D0
 	object_raw subtype=0x4f, x=0x78, y=0xb8, paramA=0x10, paramB=0x2
@@ -17272,14 +17423,14 @@ Enemies_HouseInteriors4_Carpenter:: @ 080F3360
 TileEntities_HouseInteriors4_Carpenter:: @ 080F3370
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors4_Carpenter:: @ 080F3378
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors4_Carpenter.bin"
+gUnk_additional_8_HouseInteriors4_Carpenter:: @ 080F3378
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors4_Carpenter.bin"
 
-gUnk_additional1_HouseInteriors4_Carpenter:: @ 080F338C
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors4_Carpenter.bin"
+gUnk_additional_9_HouseInteriors4_Carpenter:: @ 080F338C
+	.incbin "data_080D5360/gUnk_additional_9_HouseInteriors4_Carpenter.bin"
 
-gUnk_additional2_HouseInteriors4_Carpenter:: @ 080F33A0
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors4_Carpenter.bin"
+gUnk_additional_a_HouseInteriors4_Carpenter:: @ 080F33A0
+	.incbin "data_080D5360/gUnk_additional_a_HouseInteriors4_Carpenter.bin"
 
 Room_HouseInteriors4_Carpenter:: @ 080F33C8
 	.4byte Entities_HouseInteriors4_Carpenter_0
@@ -17290,9 +17441,9 @@ Room_HouseInteriors4_Carpenter:: @ 080F33C8
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors4_Carpenter
 	.4byte sub_StateChange_HouseInteriors4_Carpenter
-	.4byte gUnk_additional0_HouseInteriors4_Carpenter
-	.4byte gUnk_additional1_HouseInteriors4_Carpenter
-	.4byte gUnk_additional2_HouseInteriors4_Carpenter
+	.4byte gUnk_additional_8_HouseInteriors4_Carpenter
+	.4byte gUnk_additional_9_HouseInteriors4_Carpenter
+	.4byte gUnk_additional_a_HouseInteriors4_Carpenter
 
 Entities_HouseInteriors4_Swiftblade_0:: @ 080F33F4
 	npc_raw subtype=0x30, x=0x78, y=0x28, paramA=0x1, script=script_080161E8
@@ -17333,9 +17484,8 @@ Entities_HouseInteriors4_RanchHouseWest_0:: @ 080F35E4
 	entity_list_end
 
 gUnk_080F3604:: @ 080F3604
-	.incbin "data_080D5360/gUnk_080F3604.bin"
-	.4byte script_08014EF8
-	.incbin "data_080D5360/gUnk_080F3604_1.bin"
+	npc_raw subtype=0x1e, x=0x68, y=0x58, script=script_08014EF8
+	entity_list_end
 
 Entities_HouseInteriors4_RanchHouseWest_1:: @ 080F3624
 	object_raw subtype=0x4f, x=0x68, y=0x98, paramA=0x10, paramB=0x2
@@ -17358,13 +17508,15 @@ TileEntities_HouseInteriors4_RanchHouseWest:: @ 080F36F4
 	tile_entity_list_end
 
 gUnk_080F36FC:: @ 080F36FC
-	.incbin "data_080D5360/gUnk_080F36FC.bin"
+	object_raw subtype=0x5d, x=0xb8, y=0x58, paramB=0x101
+	object_raw subtype=0x5d, x=0x68, y=0x88, paramA=0x5, paramB=0x100
+	entity_list_end
 
-gUnk_additional0_HouseInteriors4_RanchHouseWest:: @ 080F372C
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors4_RanchHouseWest.bin"
+gUnk_additional_8_HouseInteriors4_RanchHouseWest:: @ 080F372C
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors4_RanchHouseWest.bin"
 
-gUnk_additional1_HouseInteriors4_RanchHouseWest:: @ 080F3740
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors4_RanchHouseWest.bin"
+gUnk_additional_9_HouseInteriors4_RanchHouseWest:: @ 080F3740
+	.incbin "data_080D5360/gUnk_additional_9_HouseInteriors4_RanchHouseWest.bin"
 
 Room_HouseInteriors4_RanchHouseWest:: @ 080F3758
 	.4byte Entities_HouseInteriors4_RanchHouseWest_0
@@ -17375,8 +17527,8 @@ Room_HouseInteriors4_RanchHouseWest:: @ 080F3758
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors4_RanchHouseWest
 	.4byte sub_StateChange_HouseInteriors4_RanchHouseWest
-	.4byte gUnk_additional0_HouseInteriors4_RanchHouseWest
-	.4byte gUnk_additional1_HouseInteriors4_RanchHouseWest
+	.4byte gUnk_additional_8_HouseInteriors4_RanchHouseWest
+	.4byte gUnk_additional_9_HouseInteriors4_RanchHouseWest
 
 Entities_HouseInteriors4_RanchHouseEast_0:: @ 080F3780
 	npc_raw subtype=0x31, x=0xb0, y=0x48, unknown=0xf, paramB=0x101, script=0x0
@@ -17386,9 +17538,8 @@ Entities_HouseInteriors4_RanchHouseEast_0:: @ 080F3780
 	entity_list_end
 
 gUnk_080F37D0:: @ 080F37D0
-	.incbin "data_080D5360/gUnk_080F37D0.bin"
-	.4byte script_08014ECC
-	.incbin "data_080D5360/gUnk_080F37D0_1.bin"
+	npc_raw subtype=0x1d, x=0x48, y=0x38, script=script_08014ECC
+	entity_list_end
 
 Entities_HouseInteriors4_RanchHouseEast_1:: @ 080F37F0
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x10, paramB=0x2
@@ -17411,11 +17562,11 @@ Enemies_HouseInteriors4_RanchHouseEast:: @ 080F38C0
 TileEntities_HouseInteriors4_RanchHouseEast:: @ 080F38D0
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors4_RanchHouseEast:: @ 080F38D8
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors4_RanchHouseEast.bin"
+gUnk_additional_8_HouseInteriors4_RanchHouseEast:: @ 080F38D8
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors4_RanchHouseEast.bin"
 
-gUnk_additional1_HouseInteriors4_RanchHouseEast:: @ 080F38EC
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors4_RanchHouseEast.bin"
+gUnk_additional_9_HouseInteriors4_RanchHouseEast:: @ 080F38EC
+	.incbin "data_080D5360/gUnk_additional_9_HouseInteriors4_RanchHouseEast.bin"
 
 Room_HouseInteriors4_RanchHouseEast:: @ 080F38F4
 	.4byte Entities_HouseInteriors4_RanchHouseEast_0
@@ -17426,8 +17577,8 @@ Room_HouseInteriors4_RanchHouseEast:: @ 080F38F4
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors4_RanchHouseEast
 	.4byte sub_StateChange_HouseInteriors4_RanchHouseEast
-	.4byte gUnk_additional0_HouseInteriors4_RanchHouseEast
-	.4byte gUnk_additional1_HouseInteriors4_RanchHouseEast
+	.4byte gUnk_additional_8_HouseInteriors4_RanchHouseEast
+	.4byte gUnk_additional_9_HouseInteriors4_RanchHouseEast
 
 Entities_HouseInteriors4_FarmHouse_0:: @ 080F391C
 	manager subtype=0x26, paramA=0x8, paramB=0x8ff
@@ -17450,8 +17601,8 @@ Enemies_HouseInteriors4_FarmHouse:: @ 080F39CC
 TileEntities_HouseInteriors4_FarmHouse:: @ 080F39DC
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors4_FarmHouse:: @ 080F39E4
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors4_FarmHouse.bin"
+gUnk_additional_8_HouseInteriors4_FarmHouse:: @ 080F39E4
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors4_FarmHouse.bin"
 
 Room_HouseInteriors4_FarmHouse:: @ 080F39F4
 	.4byte Entities_HouseInteriors4_FarmHouse_0
@@ -17462,7 +17613,7 @@ Room_HouseInteriors4_FarmHouse:: @ 080F39F4
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors4_FarmHouse
 	.4byte sub_StateChange_Ruins_LadderToTektites0
-	.4byte gUnk_additional0_HouseInteriors4_FarmHouse
+	.4byte gUnk_additional_8_HouseInteriors4_FarmHouse
 
 Entities_HouseInteriors4_Mayor_0:: @ 080F3A18
 	manager subtype=0x26, paramA=0xa, paramB=0x28ff
@@ -17470,7 +17621,8 @@ Entities_HouseInteriors4_Mayor_0:: @ 080F3A18
 	entity_list_end
 
 gUnk_080F3A48:: @ 080F3A48
-	.incbin "data_080D5360/gUnk_080F3A48.bin"
+	object_raw subtype=0x8c, x=0x78, y=0x36, collision=1, paramA=0x2, paramC=0x720000
+	entity_list_end
 
 Entities_HouseInteriors4_Mayor_1:: @ 080F3A68
 	object_raw subtype=0x4f, x=0xb8, y=0x30, paramA=0x18
@@ -17493,17 +17645,18 @@ TileEntities_HouseInteriors4_Mayor:: @ 080F3B28
 	tile_entity type=0x5, paramB=0x1d00, paramC=0x203, paramD=0x61d
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors4_Mayor:: @ 080F3B40
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors4_Mayor.bin"
+gUnk_additional_8_HouseInteriors4_Mayor:: @ 080F3B40
+	exit_region_raw centerX=0xb0, centerY=0x38, halfWidth=0x10, halfHeight=0x2, exitIndex=0x9, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional1_HouseInteriors4_Mayor:: @ 080F3B50
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors4_Mayor.bin"
+gUnk_additional_9_HouseInteriors4_Mayor:: @ 080F3B50
+	exit_raw transition=0x1, destX=0x78, destY=0x318, destArea=0x11, destRoom=0x4, unknownA=0x1
 
-gUnk_additional2_HouseInteriors4_Mayor:: @ 080F3B64
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors4_Mayor.bin"
+gUnk_additional_a_HouseInteriors4_Mayor:: @ 080F3B64
+	.incbin "data_080D5360/gUnk_additional_a_HouseInteriors4_Mayor.bin"
 
-gUnk_additional3_HouseInteriors4_Mayor:: @ 080F3B74
-	.incbin "data_080D5360/gUnk_additional3_HouseInteriors4_Mayor.bin"
+gUnk_additional_b_HouseInteriors4_Mayor:: @ 080F3B74
+	.incbin "data_080D5360/gUnk_additional_b_HouseInteriors4_Mayor.bin"
 
 Room_HouseInteriors4_Mayor:: @ 080F3BC4
 	.4byte Entities_HouseInteriors4_Mayor_0
@@ -17514,10 +17667,10 @@ Room_HouseInteriors4_Mayor:: @ 080F3BC4
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors4_Mayor
 	.4byte sub_StateChange_HouseInteriors4_Mayor
-	.4byte gUnk_additional0_HouseInteriors4_Mayor
-	.4byte gUnk_additional1_HouseInteriors4_Mayor
-	.4byte gUnk_additional2_HouseInteriors4_Mayor
-	.4byte gUnk_additional3_HouseInteriors4_Mayor
+	.4byte gUnk_additional_8_HouseInteriors4_Mayor
+	.4byte gUnk_additional_9_HouseInteriors4_Mayor
+	.4byte gUnk_additional_a_HouseInteriors4_Mayor
+	.4byte gUnk_additional_b_HouseInteriors4_Mayor
 
 Entities_LakeHylia_Main_0:: @ 080F3BF4
 	manager subtype=0x4
@@ -17527,19 +17680,17 @@ Entities_LakeHylia_Main_0:: @ 080F3BF4
 	entity_list_end
 
 gUnk_080F3C44:: @ 080F3C44
-	.incbin "data_080D5360/gUnk_080F3C44.bin"
-	.4byte script_080168F4
-	.incbin "data_080D5360/gUnk_080F3C44_1.bin"
+	npc_raw subtype=0x1b, x=0x148, y=0x108, paramA=0x3, script=script_080168F4
+	entity_list_end
 
 gUnk_080F3C64:: @ 080F3C64
-	.incbin "data_080D5360/gUnk_080F3C64.bin"
-	.4byte script_0800AFB0
-	.incbin "data_080D5360/gUnk_080F3C64_1.bin"
-	.4byte script_08012360
-	.incbin "data_080D5360/gUnk_080F3C64_2.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800AFB0
+	npc_raw subtype=0x42, x=0x128, y=0x180, script=script_08012360
+	entity_list_end
 
 gUnk_080F3C94:: @ 080F3C94
-	.incbin "data_080D5360/gUnk_080F3C94.bin"
+	manager subtype=0x6, paramA=0xc
+	entity_list_end
 
 Entities_LakeHylia_Main_1:: @ 080F3CB4
 	manager subtype=0x6, paramA=0x8
@@ -17583,23 +17734,27 @@ TileEntities_LakeHylia_Main:: @ 080F3FE4
 	tile_entity type=0x5, paramB=0x1600, paramC=0xd86, paramD=0x616
 	tile_entity_list_end
 
-gUnk_additional0_LakeHylia_Main:: @ 080F3FF4
-	.incbin "data_080D5360/gUnk_additional0_LakeHylia_Main.bin"
+gUnk_additional_8_LakeHylia_Main:: @ 080F3FF4
+	exit_region_raw centerX=0x2d8, centerY=0x108, halfWidth=0x3, halfHeight=0x3, exitIndex=0x9, bitfield=0x1
+	exit_region_raw centerX=0x2a8, centerY=0x31e, halfWidth=0x3, halfHeight=0x3, exitIndex=0xa, bitfield=0x1
+	exit_region_raw centerX=0x1b8, centerY=0x1c8, halfWidth=0x3, halfHeight=0x3, exitIndex=0xb, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional1_LakeHylia_Main:: @ 080F4014
-	.incbin "data_080D5360/gUnk_additional1_LakeHylia_Main.bin"
+gUnk_additional_9_LakeHylia_Main:: @ 080F4014
+	exit_raw transition=0x1, destX=0x98, destY=0x30, destArea=0x27, destRoom=0x1, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
-gUnk_additional2_LakeHylia_Main:: @ 080F4028
-	.incbin "data_080D5360/gUnk_additional2_LakeHylia_Main.bin"
+gUnk_additional_a_LakeHylia_Main:: @ 080F4028
+	exit_raw transition=0x1, destX=0x78, destY=0x18, destArea=0x11, destRoom=0x4, unknownA=0x1, unknownC=0x4
 
-gUnk_additional3_LakeHylia_Main:: @ 080F403C
-	.incbin "data_080D5360/gUnk_additional3_LakeHylia_Main.bin"
+gUnk_additional_b_LakeHylia_Main:: @ 080F403C
+	exit_raw transition=0x1, destX=0x378, destY=0x68, destArea=0x35, destRoom=0x8, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
-gUnk_additional4_LakeHylia_Main:: @ 080F4050
-	.incbin "data_080D5360/gUnk_additional4_LakeHylia_Main.bin"
+gUnk_additional_c_LakeHylia_Main:: @ 080F4050
+	exit_region_raw centerX=0x98, centerY=0x208, halfWidth=0x3, halfHeight=0x3, exitIndex=0xd, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional5_LakeHylia_Main:: @ 080F4060
-	.incbin "data_080D5360/gUnk_additional5_LakeHylia_Main.bin"
+gUnk_additional_d_LakeHylia_Main:: @ 080F4060
+	exit_raw transition=0x1, destX=0x48, destY=0x68, destArea=0x35, destRoom=0x8, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
 Room_LakeHylia_Main:: @ 080F4074
 	.4byte Entities_LakeHylia_Main_0
@@ -17610,12 +17765,12 @@ Room_LakeHylia_Main:: @ 080F4074
 	.4byte 0x00000000
 	.4byte sub_unk3_LakeHylia_Main
 	.4byte sub_StateChange_LakeHylia_Main
-	.4byte gUnk_additional0_LakeHylia_Main
-	.4byte gUnk_additional1_LakeHylia_Main
-	.4byte gUnk_additional2_LakeHylia_Main
-	.4byte gUnk_additional3_LakeHylia_Main
-	.4byte gUnk_additional4_LakeHylia_Main
-	.4byte gUnk_additional5_LakeHylia_Main
+	.4byte gUnk_additional_8_LakeHylia_Main
+	.4byte gUnk_additional_9_LakeHylia_Main
+	.4byte gUnk_additional_a_LakeHylia_Main
+	.4byte gUnk_additional_b_LakeHylia_Main
+	.4byte gUnk_additional_c_LakeHylia_Main
+	.4byte gUnk_additional_d_LakeHylia_Main
 
 Entities_LakeHylia_Beanstalk_0:: @ 080F40AC
 	entity_list_end
@@ -17644,11 +17799,12 @@ Enemies_LakeHylia_Beanstalk:: @ 080F40EC
 TileEntities_LakeHylia_Beanstalk:: @ 080F418C
 	tile_entity_list_end
 
-gUnk_additional0_LakeHylia_Beanstalk:: @ 080F4194
-	.incbin "data_080D5360/gUnk_additional0_LakeHylia_Beanstalk.bin"
+gUnk_additional_8_LakeHylia_Beanstalk:: @ 080F4194
+	exit_region_raw centerX=0x228, centerY=0x4, halfWidth=0x8, halfHeight=0x4, exitIndex=0x9, bitfield=0x11
+	exit_region_list_end
 
-gUnk_additional1_LakeHylia_Beanstalk:: @ 080F41A4
-	.incbin "data_080D5360/gUnk_additional1_LakeHylia_Beanstalk.bin"
+gUnk_additional_9_LakeHylia_Beanstalk:: @ 080F41A4
+	exit_raw transition=0x1, destX=0x78, destY=0x98, destArea=0xd, destRoom=0x11, unknownA=0x1
 
 Room_LakeHylia_Beanstalk:: @ 080F41B8
 	.4byte Entities_LakeHylia_Beanstalk_0
@@ -17659,8 +17815,8 @@ Room_LakeHylia_Beanstalk:: @ 080F41B8
 	.4byte 0x00000000
 	.4byte sub_unk3_LakeHylia_Beanstalk
 	.4byte sub_StateChange_Ruins_LadderToTektites1
-	.4byte gUnk_additional0_LakeHylia_Beanstalk
-	.4byte gUnk_additional1_LakeHylia_Beanstalk
+	.4byte gUnk_additional_8_LakeHylia_Beanstalk
+	.4byte gUnk_additional_9_LakeHylia_Beanstalk
 
 Entities_LakeWoodsCave_Main_0:: @ 080F41E0
 	npc_raw subtype=0x4e, x=0x308, y=0x178, paramA=0x9, script=script_0800B964
@@ -18049,8 +18205,8 @@ TileEntities_OuterFortressOfWinds_SmallKey:: @ 080F4CB8
 	tile_entity type=0x1, paramA=0x66
 	tile_entity_list_end
 
-gUnk_additional0_OuterFortressOfWinds_SmallKey:: @ 080F4CC8
-	.incbin "data_080D5360/gUnk_additional0_OuterFortressOfWinds_SmallKey.bin"
+gUnk_additional_8_OuterFortressOfWinds_SmallKey:: @ 080F4CC8
+	.incbin "data_080D5360/gUnk_additional_8_OuterFortressOfWinds_SmallKey.bin"
 
 Room_OuterFortressOfWinds_SmallKey:: @ 080F4CDC
 	.4byte Entities_OuterFortressOfWinds_SmallKey_0
@@ -18061,7 +18217,7 @@ Room_OuterFortressOfWinds_SmallKey:: @ 080F4CDC
 	.4byte 0x00000000
 	.4byte sub_unk3_OuterFortressOfWinds_SmallKey
 	.4byte sub_StateChange_OuterFortressOfWinds_SmallKey
-	.4byte gUnk_additional0_OuterFortressOfWinds_SmallKey
+	.4byte gUnk_additional_8_OuterFortressOfWinds_SmallKey
 
 Entities_MinishWoods_Main_0:: @ 080F4D00
 	object_minish_lilypad x=0x1F8, y=0x3D8, room_property=0x12
@@ -18092,33 +18248,26 @@ gUnk_080F4D50:: @ 080F4D50
 	entity_list_end
 
 gUnk_080F4D70:: @080F4D70
-	.incbin "data_080D5360/gUnk_080F4D70.bin"
-	.4byte script_080126FC
-	.incbin "data_080D5360/gUnk_080F4D70_1.bin"
-	.4byte script_08012BA8
-	.incbin "data_080D5360/gUnk_080F4D70_2.bin"
-	.4byte script_08012BF8
-	.incbin "data_080D5360/gUnk_080F4D70_3.bin"
+	npc_raw subtype=0x4d, x=0x388, y=0x168, script=script_080126FC
+	object_raw subtype=0x6a, x=0x358, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_08012BA8
+	object_raw subtype=0x6a, x=0x3b8, y=0x168, unknown=0x4f, paramA=0x13, paramC=script_08012BF8
+	entity_list_end
 
 gUnk_080F4DB0:: @ 080F4DB0
-	.incbin "data_080D5360/gUnk_080F4DB0.bin"
-	.4byte script_08012C98
-	.incbin "data_080D5360/gUnk_080F4DB0_1.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_08012C98
+	entity_list_end
 
 gUnk_080F4DD0:: @ 080F4DD0
-	.incbin "data_080D5360/gUnk_080F4DD0.bin"
-	.4byte script_08012CD8
-	.incbin "data_080D5360/gUnk_080F4DD0_1.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_08012CD8
+	entity_list_end
 
 gUnk_080F4DF0:: @ 080F4DF0
-	.incbin "data_080D5360/gUnk_080F4DF0.bin"
-	.4byte script_08012D18
-	.incbin "data_080D5360/gUnk_080F4DF0_1.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_08012D18
+	entity_list_end
 
 gUnk_080F4E10:: @ 080F4E10
-	.incbin "data_080D5360/gUnk_080F4E10.bin"
-	.4byte script_0800B00C
-	.incbin "data_080D5360/gUnk_080F4E10_1.bin"
+	object_raw subtype=0xbb, x=0x128, y=0x2a8, unknown=0x4f, paramB=0x7, paramC=script_0800B00C
+	entity_list_end
 
 Entities_MinishWoods_Main_1:: @ 080F4E30
 	manager subtype=0x1, unknown=0x18, paramA=0x11
@@ -18168,41 +18317,46 @@ Enemies_MinishWoods_Main:: @ 080F4F30
 	enemy_tree_item x=0x370, y=0x290, unknown=0xC
 	entity_list_end
 
-gUnk_additional9_MinishWoods_Main:: @ 080F50B0
-	.incbin "data_080D5360/gUnk_additional9_MinishWoods_Main.bin"
+gUnk_additional_11_MinishWoods_Main:: @ 080F50B0
+	.incbin "data_080D5360/gUnk_additional_11_MinishWoods_Main.bin"
 
-gUnk_additional0_MinishWoods_Main:: @ 080F50F8
-	.incbin "data_080D5360/gUnk_additional0_MinishWoods_Main.bin"
+gUnk_additional_8_MinishWoods_Main:: @ 080F50F8
+	exit_region_raw centerX=0x1d8, centerY=0x388, halfWidth=0x8, halfHeight=0x8, exitIndex=0x9, bitfield=0x1
+	exit_region_raw centerX=0x1d0, centerY=0x344, halfWidth=0x10, halfHeight=0x8, exitIndex=0xa, bitfield=0x1
+	exit_region_raw centerX=0x1b4, centerY=0x348, halfWidth=0x8, halfHeight=0x10, exitIndex=0xb, bitfield=0x1
+	exit_region_raw centerX=0x1c8, centerY=0x26c, halfWidth=0x10, halfHeight=0x4, exitIndex=0xc, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional1_MinishWoods_Main:: @ 080F5120
-	.incbin "data_080D5360/gUnk_additional1_MinishWoods_Main.bin"
+gUnk_additional_9_MinishWoods_Main:: @ 080F5120
+	exit_raw transition=0x1, destX=0x88, destY=0x308, destArea=0x11, unknownA=0x1
 
-gUnk_additional2_MinishWoods_Main:: @ 080F5134
-	.incbin "data_080D5360/gUnk_additional2_MinishWoods_Main.bin"
+gUnk_additional_a_MinishWoods_Main:: @ 080F5134
+	exit_raw transition=0x1, destX=0xe8, destY=0x48, destArea=0x20, destRoom=0x2, unknownA=0x1, unknownC=0x4
 
-gUnk_additional3_MinishWoods_Main:: @ 080F5148
-	.incbin "data_080D5360/gUnk_additional3_MinishWoods_Main.bin"
+gUnk_additional_b_MinishWoods_Main:: @ 080F5148
+	exit_raw transition=0x1, destX=0xc, destY=0x68, destArea=0x1, unknownA=0x1, unknownC=0x2
 
-gUnk_additional4_MinishWoods_Main:: @ 080F515C
-	.incbin "data_080D5360/gUnk_additional4_MinishWoods_Main.bin"
+gUnk_additional_c_MinishWoods_Main:: @ 080F515C
+	exit_raw transition=0x1, destX=0x78, destY=0xe8, destArea=0x4a, unknownA=0x1
 
-gUnk_additional5_MinishWoods_Main:: @ 080F5170
-	.incbin "data_080D5360/gUnk_additional5_MinishWoods_Main.bin"
+gUnk_additional_d_MinishWoods_Main:: @ 080F5170
+	exit_region_raw centerX=0x218, centerY=0x3c8, halfWidth=0x3, halfHeight=0x3, exitIndex=0xe, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional6_MinishWoods_Main:: @ 080F5180
-	.incbin "data_080D5360/gUnk_additional6_MinishWoods_Main.bin"
+gUnk_additional_e_MinishWoods_Main:: @ 080F5180
+	exit_raw transition=0x1, destX=0x78, destY=0x38, destArea=0x27, destRoom=0x8, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
-gUnk_additional10_MinishWoods_Main:: @ 080F5194
-	.incbin "data_080D5360/gUnk_additional10_MinishWoods_Main.bin"
+gUnk_additional_12_MinishWoods_Main:: @ 080F5194
+	.incbin "data_080D5360/gUnk_additional_12_MinishWoods_Main.bin"
 
-gUnk_additional11_MinishWoods_Main:: @ 080F51B2
-	.incbin "data_080D5360/gUnk_additional11_MinishWoods_Main.bin"
+gUnk_additional_13_MinishWoods_Main:: @ 080F51B2
+	.incbin "data_080D5360/gUnk_additional_13_MinishWoods_Main.bin"
 
 gUnk_080F51D0:: @ 080F51D0
 	.incbin "data_080D5360/gUnk_080F51D0.bin"
 
-gUnk_additional8_MinishWoods_Main:: @ 080F51F0
-	.incbin "data_080D5360/gUnk_additional8_MinishWoods_Main.bin"
+gUnk_additional_10_MinishWoods_Main:: @ 080F51F0
+	.incbin "data_080D5360/gUnk_additional_10_MinishWoods_Main.bin"
 
 TileEntities_MinishWoods_Main:: @ 080F5220
 .ifdef EU_JP
@@ -18237,18 +18391,18 @@ Room_MinishWoods_Main:: @ 080F5260
 	.4byte 0x00000000
 	.4byte sub_unk3_MinishWoods_Main
 	.4byte sub_StateChange_MinishWoods_Main
-	.4byte gUnk_additional0_MinishWoods_Main
-	.4byte gUnk_additional1_MinishWoods_Main
-	.4byte gUnk_additional2_MinishWoods_Main
-	.4byte gUnk_additional3_MinishWoods_Main
-	.4byte gUnk_additional4_MinishWoods_Main
-	.4byte gUnk_additional5_MinishWoods_Main
-	.4byte gUnk_additional6_MinishWoods_Main
+	.4byte gUnk_additional_8_MinishWoods_Main
+	.4byte gUnk_additional_9_MinishWoods_Main
+	.4byte gUnk_additional_a_MinishWoods_Main
+	.4byte gUnk_additional_b_MinishWoods_Main
+	.4byte gUnk_additional_c_MinishWoods_Main
+	.4byte gUnk_additional_d_MinishWoods_Main
+	.4byte gUnk_additional_e_MinishWoods_Main
 	.4byte 0x00000000
-	.4byte gUnk_additional8_MinishWoods_Main
-	.4byte gUnk_additional9_MinishWoods_Main
-	.4byte gUnk_additional10_MinishWoods_Main
-	.4byte gUnk_additional11_MinishWoods_Main
+	.4byte gUnk_additional_10_MinishWoods_Main
+	.4byte gUnk_additional_11_MinishWoods_Main
+	.4byte gUnk_additional_12_MinishWoods_Main
+	.4byte gUnk_additional_13_MinishWoods_Main
 
 Entities_Empty_Main_0:: @ 080F52B0
 	entity_list_end
@@ -18436,35 +18590,48 @@ Entities_HouseInteriors3_StockwellShop_0:: @ 080F5738
 	entity_list_end
 
 gUnk_080F5758:: @ 080F5758
-	.incbin "data_080D5360/gUnk_080F5758.bin"
+	object_raw subtype=0x2, x=0x2d, y=0x40, paramA=0xd
+	object_raw subtype=0x2, x=0x40, y=0x40, paramA=0x6c
+	entity_list_end
 
 gUnk_080F5788:: @ 080F5788
-	.incbin "data_080D5360/gUnk_080F5788.bin"
+	object_raw subtype=0x2, x=0x2d, y=0x80, paramA=0x61, paramB=0x1e
+	entity_list_end
 
 gUnk_080F57A8:: @ 080F57A8
-	.incbin "data_080D5360/gUnk_080F57A8.bin"
+	object_raw subtype=0x2, x=0x52, y=0x40, paramA=0x64
+	entity_list_end
 
 gUnk_080F57C8:: @ 080F57C8
-	.incbin "data_080D5360/gUnk_080F57C8.bin"
+	object_raw subtype=0x2, x=0x52, y=0x40, paramA=0x6d
+	entity_list_end
 
 gUnk_080F57E8:: @ 080F57E8
-	.incbin "data_080D5360/gUnk_080F57E8.bin"
+	object_raw subtype=0x2, x=0x90, y=0x40, paramA=0x36
+	entity_list_end
+	object_raw subtype=0x2, x=0x90, y=0x40, paramA=0x1c
+	entity_list_end
 
 gUnk_080F5828:: @ 080F5828
-	.incbin "data_080D5360/gUnk_080F5828.bin"
+	object_raw subtype=0x2, x=0x52, y=0x80, paramA=0x66
+	entity_list_end
 
 gUnk_080F5848:: @ 080F5848
-	.incbin "data_080D5360/gUnk_080F5848.bin"
+	object_raw subtype=0x2, x=0x52, y=0x80, paramA=0x6f
+	entity_list_end
 
 gUnk_080F5868:: @ 080F5868
-	.incbin "data_080D5360/gUnk_080F5868.bin"
+	object_raw subtype=0x2, x=0x40, y=0x80, paramA=0x6e
+	entity_list_end
 
 gUnk_080F5888:: @ 080F5888
-	.incbin "data_080D5360/gUnk_080F5888.bin"
+	object_raw subtype=0x2, x=0x64, y=0x40, paramA=0xb
+	entity_list_end
 
-gUnk_080F58A8:: @ 080F58A8
 .ifndef EU
-	.incbin "data_080D5360/gUnk_080F58A8_USA-JP-DEMO_USA-DEMO_JP.bin"
+gUnk_080F58A8:: @ 080F58A8
+	object_raw subtype=0x2, x=0x64, y=0x40, paramA=0x65
+	entity_list_end
 .endif
 
 Entities_HouseInteriors3_StockwellShop_1:: @ 080F58C8
@@ -18479,8 +18646,8 @@ Enemies_HouseInteriors3_StockwellShop:: @ 080F5908
 TileEntities_HouseInteriors3_StockwellShop:: @ 080F5918
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors3_StockwellShop:: @ 080F5920
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors3_StockwellShop.bin"
+gUnk_additional_8_HouseInteriors3_StockwellShop:: @ 080F5920
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors3_StockwellShop.bin"
 
 Room_HouseInteriors3_StockwellShop:: @ 080F5934
 	.4byte Entities_HouseInteriors3_StockwellShop_0
@@ -18491,7 +18658,7 @@ Room_HouseInteriors3_StockwellShop:: @ 080F5934
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors3_StockwellShop
 	.4byte sub_StateChange_HouseInteriors3_StockwellShop
-	.4byte gUnk_additional0_HouseInteriors3_StockwellShop
+	.4byte gUnk_additional_8_HouseInteriors3_StockwellShop
 
 Entities_HouseInteriors3_Cafe_0:: @ 080F5958
 	npc_raw subtype=0x46, x=0x64, y=0x78, script=script_0800E920
@@ -18521,17 +18688,17 @@ Enemies_HouseInteriors3_Cafe:: @ 080F5A78
 TileEntities_HouseInteriors3_Cafe:: @ 080F5A88
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors3_Cafe:: @ 080F5A90
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors3_Cafe.bin"
+gUnk_additional_8_HouseInteriors3_Cafe:: @ 080F5A90
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors3_Cafe.bin"
 
-gUnk_additional1_HouseInteriors3_Cafe:: @ 080F5AA4
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors3_Cafe.bin"
+gUnk_additional_9_HouseInteriors3_Cafe:: @ 080F5AA4
+	.incbin "data_080D5360/gUnk_additional_9_HouseInteriors3_Cafe.bin"
 
-gUnk_additional2_HouseInteriors3_Cafe:: @ 080F5AB8
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors3_Cafe.bin"
+gUnk_additional_a_HouseInteriors3_Cafe:: @ 080F5AB8
+	.incbin "data_080D5360/gUnk_additional_a_HouseInteriors3_Cafe.bin"
 
-gUnk_additional3_HouseInteriors3_Cafe:: @ 080F5ACC
-	.incbin "data_080D5360/gUnk_additional3_HouseInteriors3_Cafe.bin"
+gUnk_additional_b_HouseInteriors3_Cafe:: @ 080F5ACC
+	.incbin "data_080D5360/gUnk_additional_b_HouseInteriors3_Cafe.bin"
 
 Room_HouseInteriors3_Cafe:: @ 080F5ADC
 	.4byte Entities_HouseInteriors3_Cafe_0
@@ -18542,10 +18709,10 @@ Room_HouseInteriors3_Cafe:: @ 080F5ADC
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors3_Cafe
 	.4byte sub_StateChange_HouseInteriors3_Cafe
-	.4byte gUnk_additional0_HouseInteriors3_Cafe
-	.4byte gUnk_additional1_HouseInteriors3_Cafe
-	.4byte gUnk_additional2_HouseInteriors3_Cafe
-	.4byte gUnk_additional3_HouseInteriors3_Cafe
+	.4byte gUnk_additional_8_HouseInteriors3_Cafe
+	.4byte gUnk_additional_9_HouseInteriors3_Cafe
+	.4byte gUnk_additional_a_HouseInteriors3_Cafe
+	.4byte gUnk_additional_b_HouseInteriors3_Cafe
 
 Entities_HouseInteriors3_RemShoeShop_0:: @ 080F5B0C
 	npc_raw subtype=0x37, x=0x68, y=0x41, unknown=0xf, script=0x0
@@ -18554,7 +18721,8 @@ Entities_HouseInteriors3_RemShoeShop_0:: @ 080F5B0C
 
 gUnk_080F5B3C:: @ 080F5B3C
 .ifndef EU
-	.incbin "data_080D5360/gUnk_080F5B3C_USA-JP-DEMO_USA-DEMO_JP.bin"
+	manager subtype=0xa, x=0x108, y=0x802, unknown=0x0, paramB=0xb6e0000, paramC=0xce
+	entity_list_end
 .endif
 
 Entities_HouseInteriors3_RemShoeShop_1:: @ 080F5B5C
@@ -18575,11 +18743,12 @@ gUnk_080F5168::
 	.incbin "data_080D5360/gUnk_080F5168_EU.bin"
 .endif
 
-gUnk_additional0_HouseInteriors3_RemShoeShop:: @ 080F5BC4
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors3_RemShoeShop.bin"
+gUnk_additional_8_HouseInteriors3_RemShoeShop:: @ 080F5BC4
+	exit_region_raw centerX=0x74, centerY=0x58, halfWidth=0x4, halfHeight=0x4, exitIndex=0x9, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional1_HouseInteriors3_RemShoeShop:: @ 080F5BD4
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors3_RemShoeShop.bin"
+gUnk_additional_9_HouseInteriors3_RemShoeShop:: @ 080F5BD4
+	exit_raw transition=0x1, destX=0x118, destY=0x10f, destArea=0x2d, destRoom=0x12, unknownA=0x1
 
 Room_HouseInteriors3_RemShoeShop:: @ 080F5BE8
 	.4byte Entities_HouseInteriors3_RemShoeShop_0
@@ -18590,8 +18759,8 @@ Room_HouseInteriors3_RemShoeShop:: @ 080F5BE8
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors3_RemShoeShop
 	.4byte sub_StateChange_HouseInteriors3_RemShoeShop
-	.4byte gUnk_additional0_HouseInteriors3_RemShoeShop
-	.4byte gUnk_additional1_HouseInteriors3_RemShoeShop
+	.4byte gUnk_additional_8_HouseInteriors3_RemShoeShop
+	.4byte gUnk_additional_9_HouseInteriors3_RemShoeShop
 .ifdef EU
 	.4byte gUnk_080F5168
 .endif
@@ -18624,14 +18793,14 @@ Enemies_HouseInteriors3_Bakery:: @ 080F5D30
 TileEntities_HouseInteriors3_Bakery:: @ 080F5D40
 	tile_entity_list_end
 
-gUnk_additional0_HouseInteriors3_Bakery:: @ 080F5D48
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors3_Bakery.bin"
+gUnk_additional_8_HouseInteriors3_Bakery:: @ 080F5D48
+	.incbin "data_080D5360/gUnk_additional_8_HouseInteriors3_Bakery.bin"
 
-gUnk_additional1_HouseInteriors3_Bakery:: @ 080F5D5C
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors3_Bakery.bin"
+gUnk_additional_9_HouseInteriors3_Bakery:: @ 080F5D5C
+	.incbin "data_080D5360/gUnk_additional_9_HouseInteriors3_Bakery.bin"
 
-gUnk_additional2_HouseInteriors3_Bakery:: @ 080F5D70
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors3_Bakery.bin"
+gUnk_additional_a_HouseInteriors3_Bakery:: @ 080F5D70
+	.incbin "data_080D5360/gUnk_additional_a_HouseInteriors3_Bakery.bin"
 
 Room_HouseInteriors3_Bakery:: @ 080F5D84
 	.4byte Entities_HouseInteriors3_Bakery_0
@@ -18642,18 +18811,17 @@ Room_HouseInteriors3_Bakery:: @ 080F5D84
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors3_Bakery
 	.4byte sub_StateChange_HouseInteriors3_Bakery
-	.4byte gUnk_additional0_HouseInteriors3_Bakery
-	.4byte gUnk_additional1_HouseInteriors3_Bakery
-	.4byte gUnk_additional2_HouseInteriors3_Bakery
+	.4byte gUnk_additional_8_HouseInteriors3_Bakery
+	.4byte gUnk_additional_9_HouseInteriors3_Bakery
+	.4byte gUnk_additional_a_HouseInteriors3_Bakery
 
 Entities_HouseInteriors3_Simon_0:: @ 080F5DB0
 	npc_raw subtype=0x44, x=0xb0, y=0x40, script=script_08011B40
 	entity_list_end
 
 gUnk_080F5DD0:: @ 080F5DD0
-	.incbin "data_080D5360/gUnk_080F5DD0.bin"
-	.4byte script_080103B0
-	.incbin "data_080D5360/gUnk_080F5DD0_1.bin"
+	npc_raw subtype=0x7, x=0x88, y=0x48, paramA=0x5, paramB=0x400, script=script_080103B0
+	entity_list_end
 
 Entities_HouseInteriors3_Simon_1:: @ 080F5DF0
 	object_raw subtype=0x4f, x=0xe8, y=0x68, paramA=0x2, paramB=0x1
@@ -18680,7 +18848,8 @@ Entities_HouseInteriors3_FigurineHouse_0:: @ 080F5E48
 	entity_list_end
 
 gUnk_080F5E68:: @ 080F5E68
-	.incbin "data_080D5360/gUnk_080F5E68.bin"
+	object_raw subtype=0x5d, x=0xd8, y=0x58, paramA=0x1, paramB=0x101
+	entity_list_end
 
 Entities_HouseInteriors3_FigurineHouse_1:: @ 080F5E88
 	object_raw subtype=0x4f, x=0x8, y=0x58, paramA=0x2, paramB=0x3
@@ -18711,20 +18880,17 @@ Entities_HouseInteriors3_BorlovEntrance_0:: @ 080F5F18
 	object_raw subtype=0x69, unknown=0x4f, paramC=script_08014548
 	entity_list_end
 
-gUnk_additional0_HouseInteriors3_BorlovEntrance:: @ 080F5F38
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors3_BorlovEntrance.bin"
-	.4byte script_080100C8
-	.incbin "data_080D5360/gUnk_additional0_HouseInteriors3_BorlovEntrance_1.bin"
+gUnk_additional_8_HouseInteriors3_BorlovEntrance:: @ 080F5F38
+	npc_raw subtype=0x6, x=0x38, y=0x78, paramA=0x8, paramB=0x400, script=script_080100C8
+	entity_list_end
 
-gUnk_additional1_HouseInteriors3_BorlovEntrance:: @ 080F5F58
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors3_BorlovEntrance.bin"
-	.4byte script_08014450
-	.incbin "data_080D5360/gUnk_additional1_HouseInteriors3_BorlovEntrance_1.bin"
+gUnk_additional_9_HouseInteriors3_BorlovEntrance:: @ 080F5F58
+	npc_raw subtype=0x3f, x=0x78, y=0x48, paramA=0x1, script=script_08014450
+	entity_list_end
 
-gUnk_additional2_HouseInteriors3_BorlovEntrance:: @ 080F5F78
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors3_BorlovEntrance.bin"
-	.4byte script_0801450C
-	.incbin "data_080D5360/gUnk_additional2_HouseInteriors3_BorlovEntrance_1.bin"
+gUnk_additional_a_HouseInteriors3_BorlovEntrance:: @ 080F5F78
+	npc_raw subtype=0x3f, x=0x78, y=0x48, paramA=0x1, script=script_0801450C
+	entity_list_end
 
 Entities_HouseInteriors3_BorlovEntrance_1:: @ 080F5F98
 	object_raw subtype=0x4f, x=0x78, y=0xa8, paramA=0x2, paramB=0x2
@@ -18747,9 +18913,9 @@ Room_HouseInteriors3_BorlovEntrance:: @ 080F5FF0
 	.4byte 0x00000000
 	.4byte sub_unk3_HouseInteriors3_BorlovEntrance
 	.4byte sub_StateChange_HouseInteriors3_BorlovEntrance
-	.4byte gUnk_additional0_HouseInteriors3_BorlovEntrance
-	.4byte gUnk_additional1_HouseInteriors3_BorlovEntrance
-	.4byte gUnk_additional2_HouseInteriors3_BorlovEntrance
+	.4byte gUnk_additional_8_HouseInteriors3_BorlovEntrance
+	.4byte gUnk_additional_9_HouseInteriors3_BorlovEntrance
+	.4byte gUnk_additional_a_HouseInteriors3_BorlovEntrance
 
 Entities_HouseInteriors3_Carlov_0:: @ 080F601C
 	npc_raw subtype=0x3f, x=0x78, y=0x39, script=script_08014628
@@ -18813,7 +18979,8 @@ Entities_WindTribeTower_Entrance_0:: @ 080F617C
 	entity_list_end
 
 gUnk_080F61BC:: @ 080F61BC
-	.incbin "data_080D5360/gUnk_080F61BC.bin"
+	object_raw subtype=0xb8, x=0xb8, y=0x58, collision=1, paramB=0x1
+	entity_list_end
 
 Entities_WindTribeTower_Entrance_1:: @ 080F61DC
 	object_raw subtype=0x4f, x=0x38, y=0x98, paramA=0x15, paramB=0x2
@@ -18850,16 +19017,14 @@ Entities_WindTribeTower_Floor2_0:: @ 080F62A4
 	entity_list_end
 
 gUnk_080F62E4:: @ 080F62E4
-	.incbin "data_080D5360/gUnk_080F62E4.bin"
-	.4byte script_08014B34
-	.incbin "data_080D5360/gUnk_080F62E4_1.bin"
-	.4byte script_08014A28
-	.incbin "data_080D5360/gUnk_080F62E4_2.bin"
+	object_raw subtype=0x18, x=0xa0, y=0x28
+	npc_raw subtype=0x4a, x=0xa0, y=0x38, script=script_08014B34
+	npc_raw subtype=0x49, x=0x88, y=0xfc, paramA=0x5, paramB=0x406, script=script_08014A28
+	entity_list_end
 
 gUnk_080F6324:: @ 080F6324
-	.incbin "data_080D5360/gUnk_080F6324.bin"
-	.4byte script_08014C2C
-	.incbin "data_080D5360/gUnk_080F6324_1.bin"
+	npc_raw subtype=0x4a, x=0xa0, y=0x58, paramA=0x3, script=script_08014C2C
+	entity_list_end
 
 Entities_WindTribeTower_Floor2_1:: @ 080F6344
 	object_raw subtype=0x4f, x=0x38, y=0x98, paramA=0x15, paramB=0x2
@@ -18931,14 +19096,12 @@ Entities_WindTribeTower_Floor4_0:: @ 080F6504
 	entity_list_end
 
 gUnk_080F6564:: @ 080F6564
-	.incbin "data_080D5360/gUnk_080F6564.bin"
-	.4byte script_080149CC
-	.incbin "data_080D5360/gUnk_080F6564_1.bin"
+	npc_raw subtype=0x49, x=0x88, y=0xf8, paramA=0x3, paramB=0x404, script=script_080149CC
+	entity_list_end
 
 gUnk_080F6584:: @ 080F6584
-	.incbin "data_080D5360/gUnk_080F6584.bin"
-	.4byte script_080149CC
-	.incbin "data_080D5360/gUnk_080F6584_1.bin"
+	npc_raw subtype=0x49, x=0x68, y=0xf8, paramA=0x3, paramB=0x404, script=script_080149CC
+	entity_list_end
 
 Entities_WindTribeTower_Floor4_1:: @ 080F65A4
 	object_raw subtype=0x4f, x=0x38, y=0x98, paramA=0x15, paramB=0x2
@@ -18975,9 +19138,8 @@ Entities_WindTribeTowerRoof_Main_0:: @ 080F664C
 	entity_list_end
 
 gUnk_080F66AC:: @ 080F66AC
-	.incbin "data_080D5360/gUnk_080F66AC.bin"
-	.4byte script_0800AFE8
-	.incbin "data_080D5360/gUnk_080F66AC_1.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800AFE8
+	entity_list_end
 
 Entities_WindTribeTowerRoof_Main_1:: @ 080F66CC
 	manager subtype=0x1b, unknown=0x8, paramA=0x5
@@ -19338,11 +19500,12 @@ TileEntities_HyruleField_WesternWoodSouth:: @ 080F6FBC
 	tile_entity type=0xc, paramA=0x7
 	tile_entity_list_end
 
-gUnk_additional0_HyruleField_WesternWoodSouth:: @ 080F6FCC
-	.incbin "data_080D5360/gUnk_additional0_HyruleField_WesternWoodSouth.bin"
+gUnk_additional_8_HyruleField_WesternWoodSouth:: @ 080F6FCC
+	exit_region_raw centerX=0x38, centerY=0x8, halfWidth=0x8, halfHeight=0x4, exitIndex=0x9, bitfield=0x11
+	exit_region_list_end
 
-gUnk_additional1_HyruleField_WesternWoodSouth:: @ 080F6FDC
-	.incbin "data_080D5360/gUnk_additional1_HyruleField_WesternWoodSouth.bin"
+gUnk_additional_9_HyruleField_WesternWoodSouth:: @ 080F6FDC
+	exit_raw transition=0x1, destX=0x78, destY=0x98, destArea=0xd, destRoom=0x14, unknownA=0x1
 
 Room_HyruleField_WesternWoodSouth:: @ 080F6FF0
 	.4byte Entities_HyruleField_WesternWoodSouth_0
@@ -19353,8 +19516,8 @@ Room_HyruleField_WesternWoodSouth:: @ 080F6FF0
 	.4byte 0x00000000
 	.4byte sub_unk3_HyruleField_WesternWoodSouth
 	.4byte sub_StateChange_HyruleField_WesternWoodSouth
-	.4byte gUnk_additional0_HyruleField_WesternWoodSouth
-	.4byte gUnk_additional1_HyruleField_WesternWoodSouth
+	.4byte gUnk_additional_8_HyruleField_WesternWoodSouth
+	.4byte gUnk_additional_9_HyruleField_WesternWoodSouth
 
 Entities_HyruleField_LinksHouseExterior_0:: @ 080F7018
 	object_raw subtype=0x0, x=0x278, y=0x188, paramA=0x56, paramB=0x700
@@ -19366,21 +19529,17 @@ Entities_HyruleField_LinksHouseExterior_0:: @ 080F7018
 	entity_list_end
 
 gUnk_080F7088:: @ 080F7088
-	.incbin "data_080D5360/gUnk_080F7088.bin"
-	.4byte script_080168F4
-	.incbin "data_080D5360/gUnk_080F7088_1.bin"
+	npc_raw subtype=0x1b, x=0x3b8, y=0x118, script=script_080168F4
+	entity_list_end
 
 gUnk_080F70A8:: @ 080F70A8
-	.incbin "data_080D5360/gUnk_080F70A8.bin"
-	.4byte script_08014CDC
-	.incbin "data_080D5360/gUnk_080F70A8_1.bin"
-	.4byte script_08014DCC
-	.incbin "data_080D5360/gUnk_080F70A8_2.bin"
+	npc_raw subtype=0x28, x=0x1e8, y=0x180, script=script_08014CDC
+	npc_raw subtype=0x4e, x=0x238, y=0x1a8, script=script_08014DCC
+	entity_list_end
 
 gUnk_080F70D8:: @ 080F70D8
-	.incbin "data_080D5360/gUnk_080F70D8.bin"
-	.4byte script_0800B00C
-	.incbin "data_080D5360/gUnk_080F70D8_1.bin"
+	object_raw subtype=0xbb, x=0x2c8, y=0x128, unknown=0x4f, paramB=0x6, paramC=script_0800B00C
+	entity_list_end
 
 Entities_HyruleField_LinksHouseExterior_1:: @ 080F70F8
 	object_raw subtype=0x19, x=0x290, y=0x193, collision=1, paramA=0x3, paramB=0x2
@@ -19444,11 +19603,11 @@ TileEntities_HyruleField_LinksHouseExterior:: @ 080F7218
 	tile_entity type=0x5, paramB=0x700, paramC=0x15c, paramD=0x607
 	tile_entity_list_end
 
-gUnk_additional0_HyruleField_LinksHouseExterior:: @ 080F72A0
-	.incbin "data_080D5360/gUnk_additional0_HyruleField_LinksHouseExterior.bin"
+gUnk_additional_8_HyruleField_LinksHouseExterior:: @ 080F72A0
+	.incbin "data_080D5360/gUnk_additional_8_HyruleField_LinksHouseExterior.bin"
 
-gUnk_additional1_HyruleField_LinksHouseExterior:: @ 080F72B0
-	.incbin "data_080D5360/gUnk_additional1_HyruleField_LinksHouseExterior.bin"
+gUnk_additional_9_HyruleField_LinksHouseExterior:: @ 080F72B0
+	.incbin "data_080D5360/gUnk_additional_9_HyruleField_LinksHouseExterior.bin"
 
 Room_HyruleField_LinksHouseExterior:: @ 080F72C4
 	.4byte Entities_HyruleField_LinksHouseExterior_0
@@ -19459,8 +19618,8 @@ Room_HyruleField_LinksHouseExterior:: @ 080F72C4
 	.4byte 0x00000000
 	.4byte sub_unk3_HyruleField_LinksHouseExterior
 	.4byte sub_StateChange_HyruleField_LinksHouseExterior
-	.4byte gUnk_additional0_HyruleField_LinksHouseExterior
-	.4byte gUnk_additional1_HyruleField_LinksHouseExterior
+	.4byte gUnk_additional_8_HyruleField_LinksHouseExterior
+	.4byte gUnk_additional_9_HyruleField_LinksHouseExterior
 
 Entities_HyruleField_FromMinishWoods_0:: @ 080F72EC
 	object_raw subtype=0x32, x=0xb8, y=0xa8
@@ -19530,11 +19689,12 @@ TileEntities_HyruleField_FromMinishWoodsNorth:: @ 080F748C
 .endif
 	tile_entity_list_end
 
-gUnk_additional0_HyruleField_FromMinishWoodsNorth:: @ 080F74A4
-	.incbin "data_080D5360/gUnk_additional0_HyruleField_FromMinishWoodsNorth.bin"
+gUnk_additional_8_HyruleField_FromMinishWoodsNorth:: @ 080F74A4
+	exit_region_raw centerX=0x48, centerY=0xc, halfWidth=0x8, halfHeight=0x4, exitIndex=0x9, bitfield=0x11
+	exit_region_list_end
 
-gUnk_additional1_HyruleField_FromMinishWoodsNorth:: @ 080F74B4
-	.incbin "data_080D5360/gUnk_additional1_HyruleField_FromMinishWoodsNorth.bin"
+gUnk_additional_9_HyruleField_FromMinishWoodsNorth:: @ 080F74B4
+	exit_raw transition=0x1, destX=0x78, destY=0x98, destArea=0xd, destRoom=0x13, unknownA=0x1
 
 Room_HyruleField_FromMinishWoodsNorth:: @ 080F74C8
 	.4byte Entities_HyruleField_FromMinishWoodsNorth_0
@@ -19545,37 +19705,32 @@ Room_HyruleField_FromMinishWoodsNorth:: @ 080F74C8
 	.4byte 0x00000000
 	.4byte sub_unk3_HyruleField_FromMinishWoodsNorth
 	.4byte sub_StateChange_HyruleField_FromMinishWoodsNorth
-	.4byte gUnk_additional0_HyruleField_FromMinishWoodsNorth
-	.4byte gUnk_additional1_HyruleField_FromMinishWoodsNorth
+	.4byte gUnk_additional_8_HyruleField_FromMinishWoodsNorth
+	.4byte gUnk_additional_9_HyruleField_FromMinishWoodsNorth
 
 Entities_HyruleField_Farmers_0:: @ 080F74F0
 	entity_list_end
 
 gUnk_080F7500:: @ 080F7500
-	.incbin "data_080D5360/gUnk_080F7500.bin"
+	manager subtype=0x16, paramA=0x8
+	entity_list_end
 
-gUnk_additional0_HyruleField_Farmers:: @ 080F7520
-	.incbin "data_080D5360/gUnk_additional0_HyruleField_Farmers.bin"
-	.4byte script_0800B0D0
-	.incbin "data_080D5360/gUnk_additional0_HyruleField_Farmers_1.bin"
-	.4byte script_0800B0D0
-	.incbin "data_080D5360/gUnk_additional0_HyruleField_Farmers_2.bin"
+gUnk_additional_8_HyruleField_Farmers:: @ 080F7520
+	delayed_entity_raw subtype=0x3e, x=0xb8, y=0xe8, layer=1, paramC=script_0800B0D0, conditions=0xffff
+	delayed_entity_raw subtype=0x3e, x=0x68, y=0x128, layer=1, paramA=0x1, paramC=script_0800B0D0, paramD=0x1, conditions=0xffff
+	entity_list_end
 
 gUnk_080F7550:: @ 080F7550
-	.incbin "data_080D5360/gUnk_080F7550.bin"
+	manager subtype=0x16, paramA=0x9, paramB=0x3
+	entity_list_end
 
-gUnk_additional1_HyruleField_Farmers:: @ 080F7570
-	.incbin "data_080D5360/gUnk_additional1_HyruleField_Farmers.bin"
-	.4byte script_080094FC
-	.incbin "data_080D5360/gUnk_additional1_HyruleField_Farmers_1.bin"
-	.4byte script_08009574
-	.incbin "data_080D5360/gUnk_additional1_HyruleField_Farmers_2.bin"
-	.4byte script_08009574
-	.incbin "data_080D5360/gUnk_additional1_HyruleField_Farmers_3.bin"
-	.4byte script_08009574
-	.incbin "data_080D5360/gUnk_additional1_HyruleField_Farmers_4.bin"
-	.4byte script_08009574
-	.incbin "data_080D5360/gUnk_additional1_HyruleField_Farmers_5.bin"
+gUnk_additional_9_HyruleField_Farmers:: @ 080F7570
+	delayed_entity_raw subtype=0x29, x=0x148, y=0xf0, layer=1, paramC=script_080094FC, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x128, y=0xd0, layer=1, paramC=script_08009574, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x1a8, y=0x100, layer=1, paramA=0x1, paramC=script_08009574, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x138, y=0x98, layer=1, paramA=0x2, paramC=script_08009574, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x148, y=0x88, layer=1, paramA=0x3, paramC=script_08009574, conditions=0xffff
+	entity_list_end
 
 Entities_HyruleField_Farmers_1:: @ 080F75D0
 	manager subtype=0x4
@@ -19620,8 +19775,8 @@ Room_HyruleField_Farmers:: @ 080F76F8
 	.4byte 0x00000000
 	.4byte sub_unk3_HyruleField_Farmers
 	.4byte sub_StateChange_HyruleField_Farmers
-	.4byte gUnk_additional0_HyruleField_Farmers
-	.4byte gUnk_additional1_HyruleField_Farmers
+	.4byte gUnk_additional_8_HyruleField_Farmers
+	.4byte gUnk_additional_9_HyruleField_Farmers
 
 Entities_HyruleField_LonLonRanch_0:: @ 080F7720
 	manager subtype=0x16, paramA=0xb
@@ -19636,51 +19791,50 @@ Entities_HyruleField_LonLonRanch_0:: @ 080F7720
 .endif
 	entity_list_end
 
-gUnk_additional3_HyruleField_LonLonRanch:: @ 080F7770
-	.incbin "data_080D5360/gUnk_additional3_HyruleField_LonLonRanch.bin"
+gUnk_additional_b_HyruleField_LonLonRanch:: @ 080F7770
+	delayed_entity_raw subtype=0x31, x=0x148, y=0x1c8, layer=1, paramA=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x31, x=0x1b8, y=0x1b8, layer=1, paramA=0x2, paramB=0x1, conditions=0xffff
+	delayed_entity_raw subtype=0x31, x=0x1b8, y=0x1f8, layer=1, paramA=0x3, paramB=0x2, conditions=0xffff
+	delayed_entity_raw subtype=0x31, x=0x1e8, y=0x268, layer=1, paramA=0x4, paramB=0x3, conditions=0xffff
+	entity_list_end
 
 gUnk_080F77C0:: @ 080F77C0
-	.incbin "data_080D5360/gUnk_080F77C0.bin"
-	.4byte script_0800B3A4
-	.incbin "data_080D5360/gUnk_080F77C0_1.bin"
-	.4byte script_0800B4AC
-	.incbin "data_080D5360/gUnk_080F77C0_2.bin"
+	npc_raw subtype=0x1d, x=0x130, y=0x290, script=script_0800B3A4
+	npc_raw subtype=0x1e, x=0x120, y=0x270, script=script_0800B4AC
+	entity_list_end
 
 gUnk_080F77F0:: @ 080F77F0
-	.incbin "data_080D5360/gUnk_080F77F0.bin"
-	.4byte script_0800B5EC
-	.incbin "data_080D5360/gUnk_080F77F0_1.bin"
+	npc_raw subtype=0x1e, x=0x13e, y=0x280, script=script_0800B5EC
+	entity_list_end
 
 gUnk_080F7810:: @ 080F7810
-	.incbin "data_080D5360/gUnk_080F7810.bin"
+	manager subtype=0x16, paramA=0xc, paramB=0x5
+	entity_list_end
 
-gUnk_additional4_HyruleField_LonLonRanch:: @ 080F7830
-	.incbin "data_080D5360/gUnk_additional4_HyruleField_LonLonRanch.bin"
-	.4byte script_08014E14
-	.incbin "data_080D5360/gUnk_additional4_HyruleField_LonLonRanch_1.bin"
-	.4byte script_08014E14
-	.incbin "data_080D5360/gUnk_additional4_HyruleField_LonLonRanch_2.bin"
+gUnk_additional_c_HyruleField_LonLonRanch:: @ 080F7830
+	delayed_entity_raw subtype=0x8, x=0xc8, y=0x228, layer=1, paramB=0x8, paramC=script_08014E14, conditions=0xffff
+	delayed_entity_raw subtype=0x8, x=0x38, y=0x218, layer=1, paramB=0x9, paramC=script_08014E14, conditions=0xffff
+	entity_list_end
 
 gUnk_080F7860:: @ 080F7860
-	.incbin "data_080D5360/gUnk_080F7860.bin"
+	manager subtype=0x16, paramA=0xd, paramB=0x8
+	entity_list_end
 
-gUnk_additional5_HyruleField_LonLonRanch:: @ 080F7880
-	.incbin "data_080D5360/gUnk_additional5_HyruleField_LonLonRanch.bin"
-	.4byte script_0800B9B4
-	.incbin "data_080D5360/gUnk_additional5_HyruleField_LonLonRanch_1.bin"
+gUnk_additional_d_HyruleField_LonLonRanch:: @ 080F7880
+	delayed_entity_raw subtype=0x32, x=0x88, y=0x368, layer=1, paramC=script_0800B9B4, conditions=0xffff
+	entity_list_end
 
 gUnk_080F78A0:: @ 080F78A0
 .ifdef EU
-	@ TODO only small differences
-	.incbin "data_080D5360/gUnk_080F78A0_EU.bin"
+	manager subtype=0x16, paramA=0x12, paramB=0xe
 .else
-	.incbin "data_080D5360/gUnk_080F78A0_1_USA-JP-DEMO_USA-DEMO_JP.bin"
+	manager subtype=0x16, paramA=0x12, paramB=0xf
 .endif
+	entity_list_end
 
-gUnk_additional10_HyruleField_LonLonRanch:: @ 080F78C0
-	.incbin "data_080D5360/gUnk_additional10_HyruleField_LonLonRanch.bin"
-	.4byte script_080168F4
-	.incbin "data_080D5360/gUnk_additional10_HyruleField_LonLonRanch_1.bin"
+gUnk_additional_12_HyruleField_LonLonRanch:: @ 080F78C0
+	delayed_entity_raw subtype=0x1b, x=0xb8, y=0x108, layer=1, paramA=0x1, paramC=script_080168F4, conditions=0xfff0
+	entity_list_end
 
 Entities_HyruleField_LonLonRanch_1:: @ 080F78E0
 	manager subtype=0x16, paramA=0xe, paramB=0x10a
@@ -19711,18 +19865,19 @@ Entities_HyruleField_LonLonRanch_1:: @ 080F78E0
 	manager subtype=0x18
 	entity_list_end
 
-gUnk_additional6_HyruleField_LonLonRanch:: @ 080F79D0
-.ifdef EU
-	.incbin "data_080D5360/gUnk_additional6_HyruleField_LonLonRanch_EU.bin"
-	.incbin "data_080D5360/gUnk_additional6_HyruleField_LonLonRanch_1_EU.bin"
-.else
-	.incbin "data_080D5360/gUnk_additional6_HyruleField_LonLonRanch_2_USA-JP-DEMO_USA-DEMO_JP.bin"
+gUnk_additional_e_HyruleField_LonLonRanch:: @ 080F79D0
+	delayed_entity_raw subtype=0x5e, x=0x188, y=0x78, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x268, y=0x188, layer=1, conditions=0xffff
+	delayed_entity_raw subtype=0x5e, x=0x198, y=0x358, layer=1, conditions=0xffff
+.ifndef EU
+	delayed_entity_raw subtype=0x5e, x=0x108, y=0x328, layer=1, conditions=0xffff
 .endif
+	entity_list_end
 
-gUnk_additional9_HyruleField_LonLonRanch:: @ 080F7A20
-	.incbin "data_080D5360/gUnk_additional9_HyruleField_LonLonRanch.bin"
+gUnk_additional_11_HyruleField_LonLonRanch:: @ 080F7A20
+	.incbin "data_080D5360/gUnk_additional_11_HyruleField_LonLonRanch.bin"
 	.4byte script_0800B574
-	.incbin "data_080D5360/gUnk_additional9_HyruleField_LonLonRanch_1.bin"
+	.incbin "data_080D5360/gUnk_additional_11_HyruleField_LonLonRanch_1.bin"
 
 Enemies_HyruleField_LonLonRanch:: @ 080F7A44
 	enemy_raw subtype=0x2e, x=0x68, y=0x108, paramB=0x2a140000, paramC=0x800020
@@ -19756,20 +19911,22 @@ TileEntities_HyruleField_LonLonRanch:: @ 080F7AF4
 	tile_entity type=0x5, paramB=0x1300, paramC=0x6a8, paramD=0x613
 	tile_entity_list_end
 
-gUnk_additional0_HyruleField_LonLonRanch:: @ 080F7B3C
-	.incbin "data_080D5360/gUnk_additional0_HyruleField_LonLonRanch.bin"
+gUnk_additional_8_HyruleField_LonLonRanch:: @ 080F7B3C
+	exit_region_raw centerX=0x1e0, centerY=0x16f, halfWidth=0x8, halfHeight=0x4, exitIndex=0x9, bitfield=0x1
+	exit_region_raw centerX=0x238, centerY=0x18, halfWidth=0x3, halfHeight=0x3, exitIndex=0xf, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional1_HyruleField_LonLonRanch:: @ 080F7B54
-	.incbin "data_080D5360/gUnk_additional1_HyruleField_LonLonRanch.bin"
+gUnk_additional_9_HyruleField_LonLonRanch:: @ 080F7B54
+	exit_raw transition=0x1, destX=0x80, destY=0x318, destArea=0x11, destRoom=0x3, unknownA=0x1
 
-gUnk_additional2_HyruleField_LonLonRanch:: @ 080F7B68
-	.incbin "data_080D5360/gUnk_additional2_HyruleField_LonLonRanch.bin"
+gUnk_additional_a_HyruleField_LonLonRanch:: @ 080F7B68
+	.incbin "data_080D5360/gUnk_additional_a_HyruleField_LonLonRanch.bin"
 
-gUnk_additional7_HyruleField_LonLonRanch:: @ 080F7B7C
-	.incbin "data_080D5360/gUnk_additional7_HyruleField_LonLonRanch.bin"
+gUnk_additional_f_HyruleField_LonLonRanch:: @ 080F7B7C
+	exit_raw transition=0x1, destX=0x78, destY=0x38, destArea=0x27, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
-gUnk_additional8_HyruleField_LonLonRanch:: @ 080F7B90
-	.incbin "data_080D5360/gUnk_additional8_HyruleField_LonLonRanch.bin"
+gUnk_additional_10_HyruleField_LonLonRanch:: @ 080F7B90
+	.incbin "data_080D5360/gUnk_additional_10_HyruleField_LonLonRanch.bin"
 
 Room_HyruleField_LonLonRanch:: @ 080F7BA4
 	.4byte Entities_HyruleField_LonLonRanch_0
@@ -19780,17 +19937,17 @@ Room_HyruleField_LonLonRanch:: @ 080F7BA4
 	.4byte 0x00000000
 	.4byte sub_unk3_HyruleField_LonLonRanch
 	.4byte sub_StateChange_HyruleField_LonLonRanch
-	.4byte gUnk_additional0_HyruleField_LonLonRanch
-	.4byte gUnk_additional1_HyruleField_LonLonRanch
-	.4byte gUnk_additional2_HyruleField_LonLonRanch
-	.4byte gUnk_additional3_HyruleField_LonLonRanch
-	.4byte gUnk_additional4_HyruleField_LonLonRanch
-	.4byte gUnk_additional5_HyruleField_LonLonRanch
-	.4byte gUnk_additional6_HyruleField_LonLonRanch
-	.4byte gUnk_additional7_HyruleField_LonLonRanch
-	.4byte gUnk_additional8_HyruleField_LonLonRanch
-	.4byte gUnk_additional9_HyruleField_LonLonRanch
-	.4byte gUnk_additional10_HyruleField_LonLonRanch
+	.4byte gUnk_additional_8_HyruleField_LonLonRanch
+	.4byte gUnk_additional_9_HyruleField_LonLonRanch
+	.4byte gUnk_additional_a_HyruleField_LonLonRanch
+	.4byte gUnk_additional_b_HyruleField_LonLonRanch
+	.4byte gUnk_additional_c_HyruleField_LonLonRanch
+	.4byte gUnk_additional_d_HyruleField_LonLonRanch
+	.4byte gUnk_additional_e_HyruleField_LonLonRanch
+	.4byte gUnk_additional_f_HyruleField_LonLonRanch
+	.4byte gUnk_additional_10_HyruleField_LonLonRanch
+	.4byte gUnk_additional_11_HyruleField_LonLonRanch
+	.4byte gUnk_additional_12_HyruleField_LonLonRanch
 
 Entities_HyruleField_OutsideCastle_0:: @ 080F7BF0
 	entity_list_end
@@ -19814,53 +19971,44 @@ Entities_HyruleField_OutsideCastle_1:: @ 080F7C00
 	entity_list_end
 
 gUnk_080F7C80:: @ 080F7C80
-	.incbin "data_080D5360/gUnk_080F7C80.bin"
-	.4byte script_08014FBC
-	.incbin "data_080D5360/gUnk_080F7C80_1.bin"
-	.4byte script_08015234
-	.incbin "data_080D5360/gUnk_080F7C80_2.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_08014FBC
+	npc_raw subtype=0x27, x=0x1f8, y=0x108, paramA=0x1, script=script_08015234
+	entity_list_end
 
 gUnk_080F7CB0:: @ 080F7CB0
-	.incbin "data_080D5360/gUnk_080F7CB0.bin"
-	.4byte script_08015390
-	.incbin "data_080D5360/gUnk_080F7CB0_1.bin"
+	npc_raw subtype=0x4d, x=0x1e8, y=0x148, script=script_08015390
+	entity_list_end
 
 gUnk_080F7CD0:: @ 080F7CD0
-	.incbin "data_080D5360/gUnk_080F7CD0.bin"
+	manager subtype=0x16, paramA=0xe
+	entity_list_end
 
-gUnk_additional6_HyruleField_OutsideCastle:: @ 080F7CF0
-	.incbin "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle.bin"
-	.4byte script_080094FC
-	.incbin "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_1.bin"
-	.4byte script_08009574
-	.incbin "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_2.bin"
-	.4byte script_08009574
-	.incbin "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_3.bin"
-	.4byte script_08009574
-	.incbin "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_4.bin"
-	.4byte script_08009574
-	.incbin "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_5.bin"
-	.4byte script_08014E14
-	.incbin "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_6.bin"
-	.4byte script_08014E14
-	.incbin "data_080D5360/gUnk_additional6_HyruleField_OutsideCastle_7.bin"
+gUnk_additional_e_HyruleField_OutsideCastle:: @ 080F7CF0
+	delayed_entity_raw subtype=0x29, x=0x208, y=0x2c8, layer=1, paramC=script_080094FC, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x1c8, y=0x2f0, layer=1, paramC=script_08009574, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x258, y=0x2b0, layer=1, paramA=0x1, paramC=script_08009574, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x228, y=0x2b8, layer=1, paramA=0x2, paramC=script_08009574, conditions=0xffff
+	delayed_entity_raw subtype=0x2a, x=0x208, y=0x2f8, layer=1, paramA=0x3, paramC=script_08009574, conditions=0xffff
+	delayed_entity_raw subtype=0x8, x=0x278, y=0x2c8, layer=1, paramB=0xa, paramC=script_08014E14, conditions=0xffff
+	delayed_entity_raw subtype=0x8, x=0x198, y=0x2b8, layer=1, paramB=0xb, paramC=script_08014E14, conditions=0xffff
+	entity_list_end
 
 gUnk_080F7D70:: @ 080F7D70
-	.incbin "data_080D5360/gUnk_080F7D70.bin"
-	.4byte script_080157AC
-	.incbin "data_080D5360/gUnk_080F7D70_1.bin"
-	.4byte script_08015B34
-	.incbin "data_080D5360/gUnk_080F7D70_2.bin"
-	.4byte script_08015958
-	.incbin "data_080D5360/gUnk_080F7D70_3.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_080157AC
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_08015B34
+	npc_raw subtype=0x28, x=0x1e8, y=0x168, script=script_08015958
+	enemy_raw subtype=0x5b, x=0x248, y=0x1eb
+	entity_list_end
 
 gUnk_080F7DC0:: @ 080F7DC0
-	.incbin "data_080D5360/gUnk_080F7DC0.bin"
+	manager subtype=0xe, unknown=0x1f, paramA=0xd, paramC=0x80640000
+	entity_list_end
 
-gUnk_additional5_HyruleField_OutsideCastle:: @ 080F7DE0
-	.incbin "data_080D5360/gUnk_additional5_HyruleField_OutsideCastle.bin"
-	.4byte script_08015BA8
-	.incbin "data_080D5360/gUnk_additional5_HyruleField_OutsideCastle_1.bin"
+gUnk_additional_d_HyruleField_OutsideCastle:: @ 080F7DE0
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_08015BA8
+	manager subtype=0x5, x=0x9, y=0x25, paramB=0x89, paramC=0x80650001
+	manager subtype=0x5, x=0x9, y=0x26, paramB=0x89, paramC=0x80650001
+	entity_list_end
 
 Enemies_HyruleField_OutsideCastle:: @ 080F7E20
 	enemy_raw subtype=0x0, x=0x338, y=0x118, paramB=0x6080000, paramC=0xf00310
@@ -19912,20 +20060,22 @@ TileEntities_HyruleField_OutsideCastle:: @ 080F7F10
 	tile_entity_list_end
 .endif
 
-gUnk_additional0_HyruleField_OutsideCastle:: @ 080F7F80
-	.incbin "data_080D5360/gUnk_additional0_HyruleField_OutsideCastle.bin"
+gUnk_additional_8_HyruleField_OutsideCastle:: @ 080F7F80
+	exit_region_raw centerX=0x3c8, centerY=0x188, halfWidth=0x3, halfHeight=0x3, exitIndex=0x9, bitfield=0x1
+	exit_region_raw centerX=0xc8, centerY=0x1e8, halfWidth=0x8, halfHeight=0x8, exitIndex=0xa, bitfield=0x11
+	exit_region_list_end
 
-gUnk_additional1_HyruleField_OutsideCastle:: @ 080F7F98
-	.incbin "data_080D5360/gUnk_additional1_HyruleField_OutsideCastle.bin"
+gUnk_additional_9_HyruleField_OutsideCastle:: @ 080F7F98
+	exit_raw transition=0x1, destX=0x58, destY=0x30, destArea=0x27, destRoom=0x4, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
-gUnk_additional2_HyruleField_OutsideCastle:: @ 080F7FAC
-	.incbin "data_080D5360/gUnk_additional2_HyruleField_OutsideCastle.bin"
+gUnk_additional_a_HyruleField_OutsideCastle:: @ 080F7FAC
+	exit_raw transition=0x1, destX=0x78, destY=0x88, destArea=0x25, destRoom=0xc, unknownA=0x1
 
 gUnk_080F7FC0:: @ 080F7FC0
 	.incbin "data_080D5360/gUnk_080F7FC0.bin"
 
-gUnk_additional4_HyruleField_OutsideCastle:: @ 080F7FF0
-	.incbin "data_080D5360/gUnk_additional4_HyruleField_OutsideCastle.bin"
+gUnk_additional_c_HyruleField_OutsideCastle:: @ 080F7FF0
+	.incbin "data_080D5360/gUnk_additional_c_HyruleField_OutsideCastle.bin"
 
 Room_HyruleField_OutsideCastle:: @ 080F8020
 	.4byte Entities_HyruleField_OutsideCastle_0
@@ -19936,21 +20086,20 @@ Room_HyruleField_OutsideCastle:: @ 080F8020
 	.4byte 0x00000000
 	.4byte sub_unk3_HyruleField_OutsideCastle
 	.4byte sub_StateChange_HyruleField_OutsideCastle
-	.4byte gUnk_additional0_HyruleField_OutsideCastle
-	.4byte gUnk_additional1_HyruleField_OutsideCastle
-	.4byte gUnk_additional2_HyruleField_OutsideCastle
+	.4byte gUnk_additional_8_HyruleField_OutsideCastle
+	.4byte gUnk_additional_9_HyruleField_OutsideCastle
+	.4byte gUnk_additional_a_HyruleField_OutsideCastle
 	.4byte 0x00000000
-	.4byte gUnk_additional4_HyruleField_OutsideCastle
-	.4byte gUnk_additional5_HyruleField_OutsideCastle
-	.4byte gUnk_additional6_HyruleField_OutsideCastle
+	.4byte gUnk_additional_c_HyruleField_OutsideCastle
+	.4byte gUnk_additional_d_HyruleField_OutsideCastle
+	.4byte gUnk_additional_e_HyruleField_OutsideCastle
 
 Entities_HyruleField_OutsideCastle_0West:: @ 080F805C
 	entity_list_end
 
 gUnk_080F806C:: @ 080F806C
-	.incbin "data_080D5360/gUnk_080F806C.bin"
-	.4byte script_080168F4
-	.incbin "data_080D5360/gUnk_080F806C_1.bin"
+	npc_raw subtype=0x1b, x=0xb8, y=0x78, paramA=0x2, script=script_080168F4
+	entity_list_end
 
 Entities_HyruleField_OutsideCastle_1West:: @ 080F808C
 .ifdef EU_JP
@@ -19997,11 +20146,12 @@ TileEntities_HyruleField_OutsideCastleWest:: @ 080F819C
 	tile_entity_list_end
 .endif
 
-gUnk_additional0_HyruleField_OutsideCastleWest:: @ 080F81C4
-	.incbin "data_080D5360/gUnk_additional0_HyruleField_OutsideCastleWest.bin"
+gUnk_additional_8_HyruleField_OutsideCastleWest:: @ 080F81C4
+	exit_region_raw centerX=0x28, centerY=0x52, halfWidth=0x4, halfHeight=0x2, exitIndex=0x9, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional1_HyruleField_OutsideCastleWest:: @ 080F81D4
-	.incbin "data_080D5360/gUnk_additional1_HyruleField_OutsideCastleWest.bin"
+gUnk_additional_9_HyruleField_OutsideCastleWest:: @ 080F81D4
+	exit_raw transition=0x1, destX=0x78, destY=0x78, destArea=0x20, destRoom=0x22, unknownA=0x1
 
 Room_HyruleField_OutsideCastleWest:: @ 080F81E8
 	.4byte Entities_HyruleField_OutsideCastle_0West
@@ -20012,8 +20162,8 @@ Room_HyruleField_OutsideCastleWest:: @ 080F81E8
 	.4byte 0x00000000
 	.4byte sub_unk3_HyruleField_OutsideCastleWest
 	.4byte sub_StateChange_HyruleField_OutsideCastleWest
-	.4byte gUnk_additional0_HyruleField_OutsideCastleWest
-	.4byte gUnk_additional1_HyruleField_OutsideCastleWest
+	.4byte gUnk_additional_8_HyruleField_OutsideCastleWest
+	.4byte gUnk_additional_9_HyruleField_OutsideCastleWest
 
 Entities_HyruleField_TrilbyHighlands_0:: @ 080F8210
 .ifdef EU_JP
@@ -20045,9 +20195,8 @@ Entities_HyruleField_TrilbyHighlands_0:: @ 080F8210
 .endif
 
 gUnk_080F82E0:: @ 080F82E0
-	.incbin "data_080D5360/gUnk_080F82E0.bin"
-	.4byte script_08015BE8
-	.incbin "data_080D5360/gUnk_080F82E0_1.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_08015BE8
+	entity_list_end
 
 Entities_HyruleField_TrilbyHighlands_1:: @ 080F8300
 	manager subtype=0x18
@@ -20094,9 +20243,8 @@ Entities_HyruleField_PercysHouse_0:: @ 080F8420
 	entity_list_end
 
 gUnk_080F8430:: @ 080F8430
-	.incbin "data_080D5360/gUnk_080F8430.bin"
-	.4byte script_08012EC0
-	.incbin "data_080D5360/gUnk_080F8430_1.bin"
+	npc_raw subtype=0x3a, x=0x68, y=0x58, paramB=0x2, script=script_08012EC0
+	entity_list_end
 
 Entities_HyruleField_PercysHouse_1:: @ 080F8450
 	object_raw subtype=0x19, x=0x90, y=0x53, collision=1, paramA=0x2, paramB=0x2
@@ -20147,13 +20295,17 @@ Entities_Caves_Boomerang_0:: @ 080F84E8
 	entity_list_end
 
 gUnk_080F85D8:: @ 080F85D8
-	.incbin "data_080D5360/gUnk_080F85D8.bin"
+	object_raw subtype=0x41, x=0xa8, y=0xc8, paramA=0x1
+	entity_list_end
 
 gUnk_080F85F8:: @ 080F85F8
-	.incbin "data_080D5360/gUnk_080F85F8.bin"
+	manager subtype=0x35, x=0xa8, y=0xc8, paramB=0xf01e00, paramC=0xc098000
+	manager subtype=0xe, unknown=0x1f, paramA=0x8, paramC=0x80000000
+	entity_list_end
 
-gUnk_additional0_Caves_Boomerang:: @ 080F8628
-	.incbin "data_080D5360/gUnk_additional0_Caves_Boomerang.bin"
+gUnk_additional_8_Caves_Boomerang:: @ 080F8628
+	object_raw subtype=0x41, x=0xa8, y=0xc8, paramA=0x1, paramB=0x100
+	entity_list_end
 
 Enemies_Caves_Boomerang:: @ 080F8648
 	entity_list_end
@@ -20175,7 +20327,7 @@ Room_Caves_Boomerang:: @ 080F8688
 	.4byte 0x00000000
 	.4byte sub_unk3_Caves_Boomerang
 	.4byte sub_StateChange_Caves_Boomerang
-	.4byte gUnk_additional0_Caves_Boomerang
+	.4byte gUnk_additional_8_Caves_Boomerang
 
 Entities_Caves_ToGraveyard_0:: @ 080F86AC
 	object_raw subtype=0x41, x=0x38, y=0x48, paramA=0x1
@@ -20784,23 +20936,13 @@ Entities_VeilFalls_Main_0:: @ 080F9264
 .endif
 
 gUnk_080F9304:: @ 080F9304
-	.incbin "data_080D5360/gUnk_080F9304.bin"
-	.4byte script_0800B00C
-	.incbin "data_080D5360/gUnk_080F9304_1.bin"
+	object_raw subtype=0xbb, x=0xf8, y=0xf8, unknown=0x4f, paramB=0x1, paramC=script_0800B00C
+	entity_list_end
 
 Entities_VeilFalls_Main_1:: @ 080F9324
-	.4byte 0x0B4E4F07
-	.4byte 0x00000000
-	.4byte 0x01FD0038
-	.4byte script_08015FC0
-	.4byte 0x08060F09
-	.4byte 0x00000000
-	.4byte 0x00000000
-	.4byte 0x00000000
-	.4byte 0x000000FF
-	.4byte 0x00000000
-	.4byte 0x00000000
-	.4byte 0x00000000
+	npc_raw subtype=0x4e, x=0x38, y=0x1fd, paramA=0xb, script=script_08015FC0
+	manager subtype=0x6, paramA=0x8
+	entity_list_end
 
 Enemies_VeilFalls_Main:: @ 080F9354
 	enemy_raw subtype=0x35, x=0x138, y=0xc8, paramA=0x1
@@ -20831,11 +20973,12 @@ TileEntities_VeilFalls_Main:: @ 080F9474
 	tile_entity_list_end
 .endif
 
-gUnk_additional0_VeilFalls_Main:: @ 080F9484
-	.incbin "data_080D5360/gUnk_additional0_VeilFalls_Main.bin"
+gUnk_additional_8_VeilFalls_Main:: @ 080F9484
+	exit_region_raw centerX=0xf8, centerY=0x348, halfWidth=0x8, halfHeight=0x8, exitIndex=0x9, bitfield=0x11
+	exit_region_list_end
 
-gUnk_additional1_VeilFalls_Main:: @ 080F9494
-	.incbin "data_080D5360/gUnk_additional1_VeilFalls_Main.bin"
+gUnk_additional_9_VeilFalls_Main:: @ 080F9494
+	exit_raw transition=0x1, destX=0x78, destY=0x88, destArea=0x25, destRoom=0xb, unknownA=0x1
 
 Room_VeilFalls_Main:: @ 080F94A8
 	.4byte Entities_VeilFalls_Main_0
@@ -20846,8 +20989,8 @@ Room_VeilFalls_Main:: @ 080F94A8
 	.4byte 0x00000000
 	.4byte sub_unk3_VeilFalls_Main
 	.4byte sub_StateChange_VeilFalls_Main
-	.4byte gUnk_additional0_VeilFalls_Main
-	.4byte gUnk_additional1_VeilFalls_Main
+	.4byte gUnk_additional_8_VeilFalls_Main
+	.4byte gUnk_additional_9_VeilFalls_Main
 
 Entities_VeilFallsCaves_Hallway2F_0:: @ 080F94D0
 	object_raw subtype=0x5, x=0xf8, y=0x38, collision=1
@@ -21128,14 +21271,12 @@ gUnk_080F9BF8:: @ 080F9BF8
 .endif
 
 gUnk_080F9C38:: @ 080F9C38
-	.incbin "data_080D5360/gUnk_080F9C38.bin"
-	.4byte script_080094A4
-	.incbin "data_080D5360/gUnk_080F9C38_1.bin"
+	object_raw subtype=0x6a, x=0x108, y=0x88, unknown=0x4f, paramA=0x29, paramC=script_080094A4
+	entity_list_end
 
 gUnk_080F9C58:: @ 080F9C58
-	.incbin "data_080D5360/gUnk_080F9C58.bin"
-	.4byte script_080094CC
-	.incbin "data_080D5360/gUnk_080F9C58_1.bin"
+	object_raw subtype=0x6a, x=0x118, y=0x88, unknown=0x4f, paramA=0x2a, paramC=script_080094CC
+	entity_list_end
 
 Entities_VeilFallsTop_Main_1:: @ 080F9C78
 	manager subtype=0x1b, unknown=0x8, paramA=0x2
@@ -21278,12 +21419,13 @@ Entities_TreeInteriors_WitchHut_1:: @ 080F9F58
 	entity_list_end
 
 gUnk_080F9F88:: @ 080F9F88
-	.incbin "data_080D5360/gUnk_080F9F88.bin"
+	object_raw subtype=0x2, x=0x98, y=0x48, paramA=0x38, paramB=0x100
+	entity_list_end
 
 gUnk_080F9FA8:: @ 080F9FA8
-	.incbin "data_080D5360/gUnk_080F9FA8.bin"
-	.4byte script_08016190
-	.incbin "data_080D5360/gUnk_080F9FA8_1.bin"
+	object_raw subtype=0x4d, x=0x98, y=0x48, collision=1, paramA=0x8
+	object_raw subtype=0x69, x=0x98, y=0x48, unknown=0x4f, paramC=script_08016190
+	entity_list_end
 
 Enemies_TreeInteriors_WitchHut:: @ 080F9FD8
 	entity_list_end
@@ -21303,12 +21445,13 @@ Room_TreeInteriors_WitchHut:: @ 080F9FF8
 	.4byte sub_StateChange_TreeInteriors_WitchHut
 
 gUnk_080FA018:: @ 080FA018
-	.incbin "data_080D5360/gUnk_080FA018.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA038:: @ 080FA038
-	.incbin "data_080D5360/gUnk_080FA038.bin"
+	entity_list_end
 
-gUnk_080FA048:: @ 080FA048
+gUnk_080FA048:: @ 080FA048  @TODO broken room definition?
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte gUnk_080FA018
@@ -21318,15 +21461,16 @@ gUnk_080FA048:: @ 080FA048
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FCD4
-	.4byte sub_StateChange_FortressOfWinds_Wallmaster4
+	.4byte nullsub_434
 
 gUnk_080FA070:: @ 080FA070
-	.incbin "data_080D5360/gUnk_080FA070.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA090:: @ 080FA090
-	.incbin "data_080D5360/gUnk_080FA090.bin"
+	entity_list_end
 
-gUnk_080FA0A0:: @ 080FA0A0
+gUnk_080FA0A0:: @ 080FA0A0  @TODO broken room definition?
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte gUnk_080FA070
@@ -21336,15 +21480,16 @@ gUnk_080FA0A0:: @ 080FA0A0
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FCDC
-	.4byte sub_StateChange_FortressOfWinds_Wallmaster5
+	.4byte nullsub_435
 
 gUnk_080FA0C8:: @ 080FA0C8
-	.incbin "data_080D5360/gUnk_080FA0C8.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA0E8:: @ 080FA0E8
-	.incbin "data_080D5360/gUnk_080FA0E8.bin"
+	entity_list_end
 
-gUnk_080FA0F8:: @ 080FA0F8
+gUnk_080FA0F8:: @ 080FA0F8  @TODO broken room definition?
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte gUnk_080FA0C8
@@ -21354,15 +21499,16 @@ gUnk_080FA0F8:: @ 080FA0F8
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FCE4
-	.4byte sub_StateChange_FortressOfWinds_Wallmaster6
+	.4byte nullsub_436
 
 gUnk_080FA120:: @ 080FA120
-	.incbin "data_080D5360/gUnk_080FA120.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA140:: @ 080FA140
-	.incbin "data_080D5360/gUnk_080FA140.bin"
+	entity_list_end
 
-gUnk_080FA150:: @ 080FA150
+gUnk_080FA150:: @ 080FA150  @TODO broken room definition?
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte gUnk_080FA120
@@ -21372,15 +21518,16 @@ gUnk_080FA150:: @ 080FA150
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FCEC
-	.4byte sub_StateChange_FortressOfWinds_Wallmaster7
+	.4byte nullsub_437
 
 gUnk_080FA178:: @ 080FA178
-	.incbin "data_080D5360/gUnk_080FA178.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA198:: @ 080FA198
-	.incbin "data_080D5360/gUnk_080FA198.bin"
+	entity_list_end
 
-gUnk_080FA1A8:: @ 080FA1A8
+gUnk_080FA1A8:: @ 080FA1A8  @TODO broken room definition?
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte gUnk_080FA178
@@ -21390,15 +21537,16 @@ gUnk_080FA1A8:: @ 080FA1A8
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FCF4
-	.4byte sub_StateChange_FortressOfWinds_Wallmaster8
+	.4byte nullsub_438
 
 gUnk_080FA1D0:: @ 080FA1D0
-	.incbin "data_080D5360/gUnk_080FA1D0.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA1F0:: @ 080FA1F0
-	.incbin "data_080D5360/gUnk_080FA1F0.bin"
+	entity_list_end
 
-gUnk_080FA200:: @ 080FA200
+gUnk_080FA200:: @ 080FA200  @TODO broken room definition?
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte gUnk_080FA1D0
@@ -21408,15 +21556,16 @@ gUnk_080FA200:: @ 080FA200
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FCFC
-	.4byte sub_StateChange_FortressOfWinds_Wallmaster9
+	.4byte nullsub_439
 
 gUnk_080FA228:: @ 080FA228
-	.incbin "data_080D5360/gUnk_080FA228.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA248:: @ 080FA248
-	.incbin "data_080D5360/gUnk_080FA248.bin"
+	entity_list_end
 
-gUnk_080FA258:: @ 080FA258
+gUnk_080FA258:: @ 080FA258  @TODO broken room definition?
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte gUnk_080FA228
@@ -21426,15 +21575,16 @@ gUnk_080FA258:: @ 080FA258
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FD04
-	.4byte sub_StateChange_FortressOfWinds_Clone0
+	.4byte nullsub_440
 
 gUnk_080FA280:: @ 080FA280
-	.incbin "data_080D5360/gUnk_080FA280.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA2A0:: @ 080FA2A0
-	.incbin "data_080D5360/gUnk_080FA2A0.bin"
+	entity_list_end
 
-gUnk_080FA2B0:: @ 080FA2B0
+gUnk_080FA2B0:: @ 080FA2B0  @TODO broken room definition?
 	.4byte 0x6E5C1702
 	.4byte 0x000100C7
 	.4byte 0x00000000
@@ -21446,15 +21596,16 @@ gUnk_080FA2B0:: @ 080FA2B0
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FD0C
-	.4byte sub_StateChange_FortressOfWinds_Clone1
+	.4byte nullsub_441
 
 gUnk_080FA2E0:: @ 080FA2E0
-	.incbin "data_080D5360/gUnk_080FA2E0.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA300:: @ 080FA300
-	.incbin "data_080D5360/gUnk_080FA300.bin"
+	entity_list_end
 
-gUnk_080FA310:: @ 080FA310
+gUnk_080FA310:: @ 080FA310  @TODO broken room definition?
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte gUnk_080FA2E0
@@ -21464,15 +21615,16 @@ gUnk_080FA310:: @ 080FA310
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FD14
-	.4byte sub_StateChange_FortressOfWinds_Clone2
+	.4byte nullsub_442
 
 gUnk_080FA338:: @ 080FA338
-	.incbin "data_080D5360/gUnk_080FA338.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA358:: @ 080FA358
-	.incbin "data_080D5360/gUnk_080FA358.bin"
+	entity_list_end
 
-gUnk_080FA368:: @ 080FA368
+gUnk_080FA368:: @ 080FA368  @TODO broken room definition?
 	.4byte 0x6F5C1802
 	.4byte 0x000100C7
 	.4byte 0x00000000
@@ -21484,15 +21636,16 @@ gUnk_080FA368:: @ 080FA368
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FD1C
-	.4byte sub_StateChange_FortressOfWinds_Clone3
+	.4byte nullsub_443
 
 gUnk_080FA398:: @ 080FA398
-	.incbin "data_080D5360/gUnk_080FA398.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA3B8:: @ 080FA3B8
-	.incbin "data_080D5360/gUnk_080FA3B8.bin"
+	entity_list_end
 
-gUnk_080FA3C8:: @ 080FA3C8
+gUnk_080FA3C8:: @ 080FA3C8  @TODO broken room definition?
 	.4byte 0x705C1902
 	.4byte 0x000100C7
 	.4byte 0x00000000
@@ -21504,15 +21657,16 @@ gUnk_080FA3C8:: @ 080FA3C8
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FD24
-	.4byte sub_StateChange_FortressOfWinds_Clone4
+	.4byte nullsub_444
 
 gUnk_080FA3F8:: @ 080FA3F8
-	.incbin "data_080D5360/gUnk_080FA3F8.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA418:: @ 080FA418
-	.incbin "data_080D5360/gUnk_080FA418.bin"
+	entity_list_end
 
-gUnk_080FA428:: @ 080FA428
+gUnk_080FA428:: @ 080FA428  @TODO broken room definition?
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte gUnk_080FA3F8
@@ -21522,15 +21676,16 @@ gUnk_080FA428:: @ 080FA428
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FD2C
-	.4byte sub_StateChange_FortressOfWinds_Clone5
+	.4byte nullsub_445
 
 gUnk_080FA450:: @ 080FA450
-	.incbin "data_080D5360/gUnk_080FA450.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA470:: @ 080FA470
-	.incbin "data_080D5360/gUnk_080FA470.bin"
+	entity_list_end
 
-gUnk_080FA480:: @ 080FA480
+gUnk_080FA480:: @ 080FA480  @TODO broken room definition?
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte gUnk_080FA450
@@ -21540,15 +21695,16 @@ gUnk_080FA480:: @ 080FA480
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FD34
-	.4byte sub_StateChange_FortressOfWinds_Clone6
+	.4byte nullsub_446
 
 gUnk_080FA4A8:: @ 080FA4A8
-	.incbin "data_080D5360/gUnk_080FA4A8.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA4C8:: @ 080FA4C8
-	.incbin "data_080D5360/gUnk_080FA4C8.bin"
+	entity_list_end
 
-gUnk_080FA4D8:: @ 080FA4D8
+gUnk_080FA4D8:: @ 080FA4D8  @TODO broken room definition?
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte gUnk_080FA4A8
@@ -21558,15 +21714,16 @@ gUnk_080FA4D8:: @ 080FA4D8
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FD3C
-	.4byte sub_StateChange_FortressOfWinds_Clone7
+	.4byte nullsub_447
 
 gUnk_080FA500:: @ 080FA500
-	.incbin "data_080D5360/gUnk_080FA500.bin"
+	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
+	entity_list_end
 
 gUnk_080FA520:: @ 080FA520
-	.incbin "data_080D5360/gUnk_080FA520.bin"
+	entity_list_end
 
-gUnk_080FA530:: @ 080FA530
+gUnk_080FA530:: @ 080FA530  @TODO broken room definition?
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte gUnk_080FA500
@@ -21576,7 +21733,7 @@ gUnk_080FA530:: @ 080FA530
 	.4byte 0x00000000
 	.4byte 0x00000000
 	.4byte sub_0804FD44
-	.4byte sub_StateChange_FortressOfWinds_Clone8
+	.4byte nullsub_448
 
 Entities_TreeInteriors_StairsToCarlov_0:: @ 080FA558
 	object_raw subtype=0x4f, x=0x78, y=0x98, paramA=0x6, paramB=0x2
@@ -21603,9 +21760,8 @@ Entities_TreeInteriors_PercysTreehouse_0:: @ 080FA5B0
 	entity_list_end
 
 gUnk_080FA5D0:: @ 080FA5D0
-	.incbin "data_080D5360/gUnk_080FA5D0.bin"
-	.4byte script_08012E88
-	.incbin "data_080D5360/gUnk_080FA5D0_1.bin"
+	npc_raw subtype=0x3a, x=0x78, y=0x58, script=script_08012E88
+	entity_list_end
 
 Entities_TreeInteriors_PercysTreehouse_1:: @ 080FA5F0
 	object_raw subtype=0x4d, x=0x78, y=0x28, collision=1
@@ -21959,20 +22115,23 @@ Entities_MtCrenel_MountainTop_1:: @ 080FAC88
 .endif
 
 gUnk_080FACB8:: @ 080FACB8
-	.incbin "data_080D5360/gUnk_080FACB8.bin"
+	manager subtype=0x10
+	manager subtype=0x6, paramA=0x8
+	manager subtype=0x3, x=0x288, y=0x28, unknown=0x0, paramA=0x1, paramB=0x102
+	manager subtype=0x3, x=0x388, y=0x28, unknown=0x0, paramA=0x1, paramB=0x102
+	object_raw subtype=0x7a, x=0x1d8, y=0xb8, paramA=0x1
+	object_raw subtype=0x7a, x=0x1e8, y=0xa8, paramA=0x1
+	object_raw subtype=0x7a, x=0x1f8, y=0xa0, paramA=0x1
+	object_raw subtype=0x7a, x=0x208, y=0xc0, paramA=0x1
+	entity_list_end
 
 gUnk_080FAD48:: @ 080FAD48
-	.incbin "data_080D5360/gUnk_080FAD48.bin"
-	.4byte script_0800A9F4
-	.incbin "data_080D5360/gUnk_080FAD48_1.bin"
-	.4byte script_0800AA48
-	.incbin "data_080D5360/gUnk_080FAD48_2.bin"
-	.4byte script_0800AA6C
-	.incbin "data_080D5360/gUnk_080FAD48_3.bin"
-	.4byte script_0800AA90
-	.incbin "data_080D5360/gUnk_080FAD48_4.bin"
-	.4byte script_0800AAB4
-	.incbin "data_080D5360/gUnk_080FAD48_5.bin"
+	npc_raw subtype=0x4e, script=script_0800A9F4
+	object_raw subtype=0x6a, x=0xf8, y=0x38, unknown=0x4f, paramA=0x20, paramC=script_0800AA48
+	object_raw subtype=0x6a, x=0x168, y=0x48, unknown=0x4f, paramA=0x20, paramC=script_0800AA6C
+	object_raw subtype=0x6a, x=0x138, y=0x68, unknown=0x4f, paramA=0x21, paramC=script_0800AA90
+	object_raw subtype=0x6a, x=0xe8, y=0x88, unknown=0x4f, paramA=0x21, paramC=script_0800AAB4
+	entity_list_end
 
 Enemies_MtCrenel_MountainTop:: @ 080FADA8
 	enemy_raw subtype=0x26, x=0x48, y=0x88, paramA=0x1
@@ -21985,17 +22144,20 @@ Enemies_MtCrenel_MountainTop:: @ 080FADA8
 TileEntities_MtCrenel_MountainTop:: @ 080FAE08
 	tile_entity_list_end
 
-gUnk_additional0_MtCrenel_MountainTop:: @ 080FAE10
-	.incbin "data_080D5360/gUnk_additional0_MtCrenel_MountainTop.bin"
+gUnk_additional_8_MtCrenel_MountainTop:: @ 080FAE10
+	exit_region_raw centerX=0x2d0, centerY=0x98, halfWidth=0x4, halfHeight=0x8, exitIndex=0x9, bitfield=0x1
+	exit_region_raw centerX=0x2ee, centerY=0x98, halfWidth=0x4, halfHeight=0x8, exitIndex=0xa, bitfield=0x1
+	exit_region_raw centerX=0x98, centerY=0x4, halfWidth=0x8, halfHeight=0x4, exitIndex=0xb, bitfield=0x11
+	exit_region_list_end
 
-gUnk_additional1_MtCrenel_MountainTop:: @ 080FAE30
-	.incbin "data_080D5360/gUnk_additional1_MtCrenel_MountainTop.bin"
+gUnk_additional_9_MtCrenel_MountainTop:: @ 080FAE30
+	exit_raw transition=0x1, destX=0x8, destY=0x50, destArea=0x12, destRoom=0x2, unknownA=0x1, unknownC=0x2
 
-gUnk_additional2_MtCrenel_MountainTop:: @ 080FAE44
-	.incbin "data_080D5360/gUnk_additional2_MtCrenel_MountainTop.bin"
+gUnk_additional_a_MtCrenel_MountainTop:: @ 080FAE44
+	exit_raw transition=0x1, destX=0x318, destY=0x50, destArea=0x12, destRoom=0x2, unknownA=0x1, unknownC=0x6
 
-gUnk_additional3_MtCrenel_MountainTop:: @ 080FAE58
-	.incbin "data_080D5360/gUnk_additional3_MtCrenel_MountainTop.bin"
+gUnk_additional_b_MtCrenel_MountainTop:: @ 080FAE58
+	exit_raw transition=0x1, destX=0x78, destY=0x98, destArea=0xd, destRoom=0x10, unknownA=0x1
 
 Room_MtCrenel_MountainTop:: @ 080FAE6C
 	.4byte Entities_MtCrenel_MountainTop_0
@@ -22006,10 +22168,10 @@ Room_MtCrenel_MountainTop:: @ 080FAE6C
 	.4byte 0x00000000
 	.4byte sub_unk3_MtCrenel_MountainTop
 	.4byte sub_StateChange_MtCrenel_MountainTop
-	.4byte gUnk_additional0_MtCrenel_MountainTop
-	.4byte gUnk_additional1_MtCrenel_MountainTop
-	.4byte gUnk_additional2_MtCrenel_MountainTop
-	.4byte gUnk_additional3_MtCrenel_MountainTop
+	.4byte gUnk_additional_8_MtCrenel_MountainTop
+	.4byte gUnk_additional_9_MtCrenel_MountainTop
+	.4byte gUnk_additional_a_MtCrenel_MountainTop
+	.4byte gUnk_additional_b_MtCrenel_MountainTop
 
 Entities_MtCrenel_WallClimb_0:: @ 080FAE9C
 	manager subtype=0x4
@@ -22056,14 +22218,12 @@ Entities_MtCrenel_CaveOfFlamesEntrance_0:: @ 080FAFD4
 	entity_list_end
 
 gUnk_080FAFE4:: @ 080FAFE4
-	.incbin "data_080D5360/gUnk_080FAFE4.bin"
-	.4byte script_0800AF68
-	.incbin "data_080D5360/gUnk_080FAFE4_1.bin"
+	object_raw subtype=0x69, unknown=0x4f, paramC=script_0800AF68
+	entity_list_end
 
 gUnk_080FB004:: @ 080FB004
-	.incbin "data_080D5360/gUnk_080FB004.bin"
-	.4byte script_0800B00C
-	.incbin "data_080D5360/gUnk_080FB004_1.bin"
+	object_raw subtype=0xbb, x=0x98, y=0xf8, unknown=0x4f, paramC=script_0800B00C
+	entity_list_end
 
 Entities_MtCrenel_CaveOfFlamesEntrance_1:: @ 080FB024
 	manager subtype=0x1b, unknown=0x8, paramA=0x1
@@ -22111,17 +22271,20 @@ TileEntities_MtCrenel_CaveOfFlamesEntrance:: @ 080FB1F4
 	tile_entity_list_end
 .endif
 
-gUnk_additional0_MtCrenel_CaveOfFlamesEntrance:: @ 080FB214
-	.incbin "data_080D5360/gUnk_additional0_MtCrenel_CaveOfFlamesEntrance.bin"
+gUnk_additional_8_MtCrenel_CaveOfFlamesEntrance:: @ 080FB214
+	exit_region_raw centerX=0xd2, centerY=0x108, halfWidth=0x4, halfHeight=0x8, exitIndex=0x9, bitfield=0x1
+	exit_region_raw centerX=0xee, centerY=0x108, halfWidth=0x4, halfHeight=0x8, exitIndex=0xa, bitfield=0x1
+	exit_region_raw centerX=0xc0, centerY=0x138, halfWidth=0x4, halfHeight=0x8, exitIndex=0xb, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional1_MtCrenel_CaveOfFlamesEntrance:: @ 080FB234
-	.incbin "data_080D5360/gUnk_additional1_MtCrenel_CaveOfFlamesEntrance.bin"
+gUnk_additional_9_MtCrenel_CaveOfFlamesEntrance:: @ 080FB234
+	exit_raw transition=0x1, destX=0x8, destY=0x50, destArea=0x12, destRoom=0x3, unknownA=0x1, unknownC=0x2
 
-gUnk_additional2_MtCrenel_CaveOfFlamesEntrance:: @ 080FB248
-	.incbin "data_080D5360/gUnk_additional2_MtCrenel_CaveOfFlamesEntrance.bin"
+gUnk_additional_a_MtCrenel_CaveOfFlamesEntrance:: @ 080FB248
+	exit_raw transition=0x1, destX=0x318, destY=0x50, destArea=0x12, destRoom=0x3, unknownA=0x1, unknownC=0x6
 
-gUnk_additional3_MtCrenel_CaveOfFlamesEntrance:: @ 080FB25C
-	.incbin "data_080D5360/gUnk_additional3_MtCrenel_CaveOfFlamesEntrance.bin"
+gUnk_additional_b_MtCrenel_CaveOfFlamesEntrance:: @ 080FB25C
+	exit_raw transition=0x1, destX=0x80, destY=0x128, destArea=0x10, unknownA=0x1, unknownC=0x2
 
 Room_MtCrenel_CaveOfFlamesEntrance:: @ 080FB270
 	.4byte Entities_MtCrenel_CaveOfFlamesEntrance_0
@@ -22132,10 +22295,10 @@ Room_MtCrenel_CaveOfFlamesEntrance:: @ 080FB270
 	.4byte 0x00000000
 	.4byte sub_unk3_MtCrenel_CaveOfFlamesEntrance
 	.4byte sub_StateChange_MtCrenel_CaveOfFlamesEntrance
-	.4byte gUnk_additional0_MtCrenel_CaveOfFlamesEntrance
-	.4byte gUnk_additional1_MtCrenel_CaveOfFlamesEntrance
-	.4byte gUnk_additional2_MtCrenel_CaveOfFlamesEntrance
-	.4byte gUnk_additional3_MtCrenel_CaveOfFlamesEntrance
+	.4byte gUnk_additional_8_MtCrenel_CaveOfFlamesEntrance
+	.4byte gUnk_additional_9_MtCrenel_CaveOfFlamesEntrance
+	.4byte gUnk_additional_a_MtCrenel_CaveOfFlamesEntrance
+	.4byte gUnk_additional_b_MtCrenel_CaveOfFlamesEntrance
 
 Entities_MtCrenel_GustJarShortcut_0:: @ 080FB2A0
 	object_raw subtype=0x32, x=0x388, y=0x78
@@ -22294,17 +22457,20 @@ TileEntities_MtCrenel_Entrance:: @ 080FB700
 	tile_entity_list_end
 .endif
 
-gUnk_additional0_MtCrenel_Entrance:: @ 080FB748
-	.incbin "data_080D5360/gUnk_additional0_MtCrenel_Entrance.bin"
+gUnk_additional_8_MtCrenel_Entrance:: @ 080FB748
+	exit_region_raw centerX=0xd2, centerY=0x5c, halfWidth=0x3, halfHeight=0x2, exitIndex=0x9, bitfield=0x1
+	exit_region_raw centerX=0x372, centerY=0xec, halfWidth=0x3, halfHeight=0x2, exitIndex=0xa, bitfield=0x1
+	exit_region_raw centerX=0x158, centerY=0x58, halfWidth=0x3, halfHeight=0x3, exitIndex=0xb, bitfield=0x1
+	exit_region_list_end
 
-gUnk_additional1_MtCrenel_Entrance:: @ 080FB768
-	.incbin "data_080D5360/gUnk_additional1_MtCrenel_Entrance.bin"
+gUnk_additional_9_MtCrenel_Entrance:: @ 080FB768
+	exit_raw transition=0x1, destX=0x80, destY=0x318, destArea=0x12, unknownA=0x1
 
-gUnk_additional2_MtCrenel_Entrance:: @ 080FB77C
-	.incbin "data_080D5360/gUnk_additional2_MtCrenel_Entrance.bin"
+gUnk_additional_a_MtCrenel_Entrance:: @ 080FB77C
+	exit_raw transition=0x1, destX=0x80, destY=0x318, destArea=0x12, destRoom=0x1, unknownA=0x1
 
-gUnk_additional3_MtCrenel_Entrance:: @ 080FB790
-	.incbin "data_080D5360/gUnk_additional3_MtCrenel_Entrance.bin"
+gUnk_additional_b_MtCrenel_Entrance:: @ 080FB790
+	exit_raw transition=0x1, destX=0x98, destY=0x30, destArea=0x27, destRoom=0x3, unknownA=0x1, unknownB=0x2, unknownC=0x4
 
 Room_MtCrenel_Entrance:: @ 080FB7A4
 	.4byte Entities_MtCrenel_Entrance_0
@@ -22315,10 +22481,10 @@ Room_MtCrenel_Entrance:: @ 080FB7A4
 	.4byte 0x00000000
 	.4byte sub_unk3_MtCrenel_Entrance
 	.4byte sub_StateChange_MtCrenel_Entrance
-	.4byte gUnk_additional0_MtCrenel_Entrance
-	.4byte gUnk_additional1_MtCrenel_Entrance
-	.4byte gUnk_additional2_MtCrenel_Entrance
-	.4byte gUnk_additional3_MtCrenel_Entrance
+	.4byte gUnk_additional_8_MtCrenel_Entrance
+	.4byte gUnk_additional_9_MtCrenel_Entrance
+	.4byte gUnk_additional_a_MtCrenel_Entrance
+	.4byte gUnk_additional_b_MtCrenel_Entrance
 
 Entities_CrenelCaves_BlockPushing_0:: @ 080FB7D4
 	object_raw subtype=0x32, x=0x218, y=0x118

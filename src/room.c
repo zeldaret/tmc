@@ -216,14 +216,14 @@ u32 sub_unk3_MinishPaths1_MayorsCabin() {
     return 1;
 }
 
-extern EntityData gUnk_080D6138;
+extern EntityData Entities_MinishPaths1_MayorsCabin_gUnk_080D6138;
 
 void sub_StateChange_MinishPaths1_MayorsCabin(void) {
 
     sub_080575C8(0x20);
 
     if (gPlayerEntity.y.HALF.HI - gRoomControls.roomOriginY > 0x40)
-        LoadRoomEntityList(&gUnk_080D6138);
+        LoadRoomEntityList(&Entities_MinishPaths1_MayorsCabin_gUnk_080D6138);
 }
 
 void sub_unk1_MinishPaths1_MayorsCabin() {
@@ -234,12 +234,12 @@ u32 sub_unk3_HouseInteriors1_Mayor() {
     return 1;
 }
 
-extern EntityData gUnk_080D6210;
+extern EntityData Entities_HouseInteriors1_Mayor_080D6210;
 
 void sub_StateChange_HouseInteriors1_Mayor(void) {
 
     if ((u16)gScreenTransition.playerStartPos.HALF.y > 0x40)
-        LoadRoomEntityList(&gUnk_080D6210);
+        LoadRoomEntityList(&Entities_HouseInteriors1_Mayor_080D6210);
 }
 
 u32 sub_unk3_HouseInteriors1_PostOffice() {
@@ -346,8 +346,8 @@ u32 sub_unk3_HouseInteriors1_Library1F() {
 }
 
 extern EntityData gUnk_080D6714;
-extern EntityData gUnk_additional1_HouseInteriors1_Library1F;
-extern EntityData gUnk_additional0_HouseInteriors1_Library1F;
+extern EntityData gUnk_additional_9_HouseInteriors1_Library1F;
+extern EntityData gUnk_additional_8_HouseInteriors1_Library1F;
 
 void sub_StateChange_HouseInteriors1_Library1F(void) {
     if (gSave.unk8 > 4) {
@@ -355,9 +355,9 @@ void sub_StateChange_HouseInteriors1_Library1F(void) {
     }
     // flippers
     if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START) && CheckLocalFlag(0x6a)) {
-        LoadRoomEntityList(&gUnk_additional1_HouseInteriors1_Library1F);
+        LoadRoomEntityList(&gUnk_additional_9_HouseInteriors1_Library1F);
     } else {
-        LoadRoomEntityList(&gUnk_additional0_HouseInteriors1_Library1F);
+        LoadRoomEntityList(&gUnk_additional_8_HouseInteriors1_Library1F);
     }
 }
 
@@ -657,7 +657,7 @@ u32 sub_unk3_HyruleCastle_3() {
     return 1;
 }
 
-extern EntityData gUnk_additional0_HyruleCastle_3;
+extern EntityData gUnk_additional_8_HyruleCastle_3;
 
 void sub_StateChange_HyruleCastle_3(void) {
 #if defined(JP) || defined(EU) || defined(DEMO_JP)
@@ -665,7 +665,7 @@ void sub_StateChange_HyruleCastle_3(void) {
 #else
     if (CheckLocalFlag(0x9c)) {
 #endif
-        LoadRoomEntityList(&gUnk_additional0_HyruleCastle_3);
+        LoadRoomEntityList(&gUnk_additional_8_HyruleCastle_3);
     }
 }
 
@@ -1599,14 +1599,14 @@ u32 sub_unk3_TownMinishHoles_LibraryBookshelf(void) {
 }
 
 extern EntityData gUnk_080DB8F0;
-extern EntityData gUnk_additional2_TownMinishHoles_LibraryBookshelf;
+extern EntityData gUnk_additional_a_TownMinishHoles_LibraryBookshelf;
 
 void sub_StateChange_TownMinishHoles_LibraryBookshelf(void) {
 
     LoadRoomEntityList(&gUnk_080DB8F0);
     // flippers
     if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START)) {
-        LoadRoomEntityList(&gUnk_additional2_TownMinishHoles_LibraryBookshelf);
+        LoadRoomEntityList(&gUnk_additional_a_TownMinishHoles_LibraryBookshelf);
     }
     sub_0801AFE4();
 }
@@ -1951,17 +1951,17 @@ u32 sub_unk3_MelarisMine_Main() {
     return 1;
 }
 
-extern EntityData gUnk_additional0_MelarisMine_Main;
-extern EntityData gUnk_additional1_MelarisMine_Main;
+extern EntityData gUnk_additional_8_MelarisMine_Main;
+extern EntityData gUnk_additional_9_MelarisMine_Main;
 extern EntityData gUnk_080DD294;
 
 void sub_StateChange_MelarisMine_Main(void) {
 
     if (!CheckGlobalFlag(WHITE_SWORD_END)) {
-        LoadRoomEntityList(&gUnk_additional0_MelarisMine_Main);
+        LoadRoomEntityList(&gUnk_additional_8_MelarisMine_Main);
     }
     if (!CheckLocalFlag(0x7f)) {
-        LoadRoomEntityList(&gUnk_additional1_MelarisMine_Main);
+        LoadRoomEntityList(&gUnk_additional_9_MelarisMine_Main);
     } else {
         LoadRoomEntityList(&gUnk_080DD294);
     }
@@ -2142,7 +2142,7 @@ u32 sub_unk3_DeepwoodShrine_StairsToB1() {
 }
 
 extern EntityData gUnk_080DE814;
-extern EntityData gUnk_additional0_DeepwoodShrine_StairsToB1;
+extern EntityData gUnk_additional_8_DeepwoodShrine_StairsToB1;
 
 void sub_StateChange_DeepwoodShrine_StairsToB1(void) {
 
@@ -2150,7 +2150,7 @@ void sub_StateChange_DeepwoodShrine_StairsToB1(void) {
         LoadRoomEntityList(&gUnk_080DE814);
     } else {
         if (!CheckLocalFlag(0x4c)) {
-            LoadRoomEntityList(&gUnk_additional0_DeepwoodShrine_StairsToB1);
+            LoadRoomEntityList(&gUnk_additional_8_DeepwoodShrine_StairsToB1);
             SetTileType(0x79, 0x285, 1);
         } else {
             SetTileType(0x7a, 0x285, 1);
@@ -2302,7 +2302,7 @@ u32 sub_unk3_DeepwoodShrineBoss_Main() {
     return 1;
 }
 
-extern EntityData gUnk_additional2_DeepwoodShrineBoss_Main;
+extern EntityData gUnk_additional_a_DeepwoodShrineBoss_Main;
 
 extern u8 gUnk_02000070;
 extern u32 gUsedPalettes;
@@ -2319,7 +2319,7 @@ void sub_StateChange_DeepwoodShrineBoss_Main(void) {
         DispReset(1);
     }
     if (CheckGlobalFlag(LV1_CLEAR)) {
-        LoadRoomEntityList(&gUnk_additional2_DeepwoodShrineBoss_Main);
+        LoadRoomEntityList(&gUnk_additional_a_DeepwoodShrineBoss_Main);
     } else {
         SoundReq(SONG_STOP_BGM);
         gArea.musicIndex = gArea.pMusicIndex;
@@ -2507,7 +2507,7 @@ u32 sub_unk3_CaveOfFlamesBoss_Main() {
     return 1;
 }
 
-extern EntityData gUnk_additional2_CaveOfFlamesBoss_Main;
+extern EntityData gUnk_additional_a_CaveOfFlamesBoss_Main;
 
 extern u32 gUnk_0200B650;
 
@@ -2517,7 +2517,7 @@ void sub_StateChange_CaveOfFlamesBoss_Main(void) {
         gUnk_0200B650 = 0;
         gScreen.lcd.displayControl &= 0xfdff;
         sub_0807AABC(&gPlayerEntity);
-        LoadRoomEntityList(&gUnk_additional2_CaveOfFlamesBoss_Main);
+        LoadRoomEntityList(&gUnk_additional_a_CaveOfFlamesBoss_Main);
     } else {
         SoundReq(SONG_STOP_BGM);
         gArea.musicIndex = gArea.pMusicIndex;
@@ -2844,12 +2844,12 @@ u32 sub_unk3_TempleOfDroplets_BigOcto() {
     return 1;
 }
 
-extern EntityData gUnk_additional2_TempleOfDroplets_BigOcto;
+extern EntityData gUnk_additional_a_TempleOfDroplets_BigOcto;
 
 void sub_StateChange_TempleOfDroplets_BigOcto(void) {
     sub_0805308C(0x100);
     if (CheckGlobalFlag(LV4_CLEAR)) {
-        LoadRoomEntityList(&gUnk_additional2_TempleOfDroplets_BigOcto);
+        LoadRoomEntityList(&gUnk_additional_a_TempleOfDroplets_BigOcto);
     } else {
         SoundReq(SONG_STOP_BGM);
         gArea.musicIndex = gArea.pMusicIndex;
@@ -3161,15 +3161,15 @@ u32 sub_unk3_PalaceOfWinds_0() {
     return 1;
 }
 
-extern EntityData gUnk_additional1_PalaceOfWinds_0;
+extern EntityData gUnk_additional_9_PalaceOfWinds_0;
 extern EntityData gUnk_080E72C4;
-extern EntityData gUnk_additional0_PalaceOfWinds_0;
+extern EntityData gUnk_additional_8_PalaceOfWinds_0;
 
 void sub_StateChange_PalaceOfWinds_0(void) {
 
     Manager19_Main(0);
     if (CheckGlobalFlag(LV5_CLEAR)) {
-        LoadRoomEntityList(&gUnk_additional1_PalaceOfWinds_0);
+        LoadRoomEntityList(&gUnk_additional_9_PalaceOfWinds_0);
     }
     if (!CheckLocalFlag(0x7b)) {
         LoadRoomEntityList(&gUnk_080E72C4);
@@ -3178,7 +3178,7 @@ void sub_StateChange_PalaceOfWinds_0(void) {
         // wind element
         if (!GetInventoryValue(0x43)) {
             sub_08078A90(3);
-            LoadRoomEntityList(&gUnk_additional0_PalaceOfWinds_0);
+            LoadRoomEntityList(&gUnk_additional_8_PalaceOfWinds_0);
             gArea.musicIndex = gArea.pMusicIndex;
             SoundReq(SONG_STOP_BGM);
         }
@@ -4692,7 +4692,7 @@ u32 sub_unk3_HouseInteriors2_Romio() {
 
 extern EntityData gUnk_080F23BC;
 extern EntityData gUnk_080F238C;
-extern EntityData gUnk_additional4_HouseInteriors2_Romio;
+extern EntityData gUnk_additional_c_HouseInteriors2_Romio;
 
 void sub_StateChange_HouseInteriors2_Romio(void) {
 
@@ -4703,7 +4703,7 @@ void sub_StateChange_HouseInteriors2_Romio(void) {
     if (!GetInventoryValue(0x46) && CheckGlobalFlag(MIZUKAKI_START)) {
         LoadRoomEntityList(&gUnk_080F238C);
     } else {
-        LoadRoomEntityList(&gUnk_additional4_HouseInteriors2_Romio);
+        LoadRoomEntityList(&gUnk_additional_c_HouseInteriors2_Romio);
     }
 }
 
@@ -4753,9 +4753,9 @@ u32 sub_unk3_HouseInteriors2_Percy() {
     return 1;
 }
 
-extern EntityData gUnk_additional1_HouseInteriors2_Percy;
+extern EntityData gUnk_additional_9_HouseInteriors2_Percy;
 extern EntityData gUnk_080F2860;
-extern EntityData gUnk_additional2_HouseInteriors2_Percy;
+extern EntityData gUnk_additional_a_HouseInteriors2_Percy;
 extern EntityData gUnk_080F27D8;
 extern EntityData gUnk_080F2798;
 
@@ -4763,10 +4763,10 @@ void sub_StateChange_HouseInteriors2_Percy(void) {
     if (CheckKinstoneFused(0x21)) {
         if (!CheckLocalFlag(0x42)) {
             if (!CheckLocalFlag(0x43)) {
-                LoadRoomEntityList(&gUnk_additional1_HouseInteriors2_Percy);
+                LoadRoomEntityList(&gUnk_additional_9_HouseInteriors2_Percy);
                 LoadRoomTileEntities(&gUnk_080F2860);
             } else {
-                LoadRoomEntityList(&gUnk_additional2_HouseInteriors2_Percy);
+                LoadRoomEntityList(&gUnk_additional_a_HouseInteriors2_Percy);
             }
         } else if (!CheckLocalFlag(0x3f)) {
             LoadRoomEntityList(&gUnk_080F27D8);
@@ -5425,19 +5425,19 @@ u32 sub_unk3_HouseInteriors3_BorlovEntrance() {
     return 1;
 }
 
-extern EntityData gUnk_additional0_HouseInteriors3_BorlovEntrance;
-extern EntityData gUnk_additional1_HouseInteriors3_BorlovEntrance;
-extern EntityData gUnk_additional2_HouseInteriors3_BorlovEntrance;
+extern EntityData gUnk_additional_8_HouseInteriors3_BorlovEntrance;
+extern EntityData gUnk_additional_9_HouseInteriors3_BorlovEntrance;
+extern EntityData gUnk_additional_a_HouseInteriors3_BorlovEntrance;
 
 void sub_StateChange_HouseInteriors3_BorlovEntrance(void) {
 
     if (gSave.unk8 > 4) {
-        LoadRoomEntityList(&gUnk_additional0_HouseInteriors3_BorlovEntrance);
+        LoadRoomEntityList(&gUnk_additional_8_HouseInteriors3_BorlovEntrance);
     }
     if (!CheckLocalFlag(0x92)) {
-        LoadRoomEntityList(&gUnk_additional1_HouseInteriors3_BorlovEntrance);
+        LoadRoomEntityList(&gUnk_additional_9_HouseInteriors3_BorlovEntrance);
     } else {
-        LoadRoomEntityList(&gUnk_additional2_HouseInteriors3_BorlovEntrance);
+        LoadRoomEntityList(&gUnk_additional_a_HouseInteriors3_BorlovEntrance);
     }
 }
 
@@ -6337,105 +6337,105 @@ u32 sub_0804FCD4() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Wallmaster4() {
+void nullsub_434() {
 }
 
 u32 sub_0804FCDC() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Wallmaster5() {
+void nullsub_435() {
 }
 
 u32 sub_0804FCE4() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Wallmaster6() {
+void nullsub_436() {
 }
 
 u32 sub_0804FCEC() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Wallmaster7() {
+void nullsub_437() {
 }
 
 u32 sub_0804FCF4() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Wallmaster8() {
+void nullsub_438() {
 }
 
 u32 sub_0804FCFC() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Wallmaster9() {
+void nullsub_439() {
 }
 
 u32 sub_0804FD04() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Clone0() {
+void nullsub_440() {
 }
 
 u32 sub_0804FD0C() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Clone1() {
+void nullsub_441() {
 }
 
 u32 sub_0804FD14() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Clone2() {
+void nullsub_442() {
 }
 
 u32 sub_0804FD1C() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Clone3() {
+void nullsub_443() {
 }
 
 u32 sub_0804FD24() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Clone4() {
+void nullsub_444() {
 }
 
 u32 sub_0804FD2C() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Clone5() {
+void nullsub_445() {
 }
 
 u32 sub_0804FD34() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Clone6() {
+void nullsub_446() {
 }
 
 u32 sub_0804FD3C() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Clone7() {
+void nullsub_447() {
 }
 
 u32 sub_0804FD44() {
     return 1;
 }
 
-void sub_StateChange_FortressOfWinds_Clone8() {
+void nullsub_448() {
 }
 
 u32 sub_unk3_TreeInteriors_StairsToCarlov() {
