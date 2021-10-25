@@ -37,9 +37,9 @@ void sub_0802A454(Entity* this) {
         }
     }
 
-    if (this->field_0x42)
-        if (this->field_0x42 > 4)
-            this->field_0x42 -= 4;
+    if (this->knockbackDuration != 0)
+        if (this->knockbackDuration > 4)
+            this->knockbackDuration -= 4;
 
     if (this->field_0x43 != 0) {
         sub_0804A9FC(this, 0x1c);

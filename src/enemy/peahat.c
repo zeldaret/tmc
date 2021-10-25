@@ -234,7 +234,7 @@ void Peahat_Stunned(Entity* this) {
             }
 
             if (this->direction == 0xff)
-                this->direction = this->field_0x3e;
+                this->direction = this->knockbackDirection;
 
             ProcessMovement(this);
             GetNextFrame(this);

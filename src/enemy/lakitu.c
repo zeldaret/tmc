@@ -64,7 +64,7 @@ void sub_0803C784(Entity* this) {
             Entity* fx = CreateFx(this, 2, 0);
 
             if (fx != NULL) {
-                u32 angle = (this->field_0x3e ^ 0x10) << 3;
+                u32 angle = (this->knockbackDirection ^ 0x10) << 3;
                 s32 sine;
 
                 sine = gSineTable[angle];

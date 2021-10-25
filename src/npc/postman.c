@@ -67,7 +67,7 @@ void sub_0806045C(Entity* this) {
             TextboxNoOverlapFollow(0);
             break;
         default:
-            bVar1 = this->field_0x3e;
+            bVar1 = this->knockbackDirection;
             if (bVar1 != this->animationState) {
                 this->animationState = bVar1;
                 InitAnimationForceUpdate(this, 4 + bVar1);

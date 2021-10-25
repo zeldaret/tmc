@@ -27,7 +27,7 @@ void sub_080A832C(Entity* this) {
 
     if (this->bitfield == 0x80) {
         this->iframes = 0x10;
-        this->field_0x42 = 0xc;
+        this->knockbackDuration = 0xc;
         this->field_0x46 = 0x180;
         this->parent->bitfield = this->bitfield;
     }
@@ -37,10 +37,10 @@ void sub_080A832C(Entity* this) {
     } else {
         this->parent->iframes = -tmp;
     }
-    this->parent->field_0x42 = this->field_0x42;
+    this->parent->knockbackDuration = this->knockbackDuration;
     this->parent->field_0x46 = this->field_0x46;
-    this->parent->field_0x3e = this->field_0x3e;
-    this->field_0x42 = 0;
+    this->parent->knockbackDirection = this->knockbackDirection;
+    this->knockbackDuration = 0;
 }
 
 void MoblinSpear_Init(Entity* this) {

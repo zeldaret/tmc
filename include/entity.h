@@ -109,11 +109,11 @@ typedef struct Entity {
     /*0x3b*/ u8 flags2;
     /*0x3c*/ u8 field_0x3c;
     /*0x3d*/ s8 iframes;
-    /*0x3e*/ u8 field_0x3e;
+    /*0x3e*/ u8 knockbackDirection;
     /*0x3f*/ u8 damageType;
     /*0x40*/ u8 field_0x40;
     /*0x41*/ u8 bitfield;
-    /*0x42*/ u8 field_0x42;
+    /*0x42*/ u8 knockbackDuration;
     /*0x43*/ u8 field_0x43;
     /*0x44*/ u8 field_0x44;
     /*0x45*/ u8 currentHealth;

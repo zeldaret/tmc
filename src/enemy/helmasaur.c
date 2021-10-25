@@ -48,7 +48,7 @@ void sub_0802BBC4(Entity* this) {
             case 2:
             case 3:
                 if (this->action == 4) {
-                    this->field_0x42 = 0;
+                    this->knockbackDuration = 0;
                     sub_0802C218(this);
                 }
                 break;

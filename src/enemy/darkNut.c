@@ -64,7 +64,7 @@ void sub_08020BB8(Entity* this) {
             this->action = 11;
             this->actionDelay = gUnk_080CAB0C[this->type];
             this->damageType = 81;
-            sub_08021218(this, 8, DirectionToAnimationState(this->field_0x3e ^ 0x10));
+            sub_08021218(this, 8, DirectionToAnimationState(this->knockbackDirection ^ 0x10));
             sub_08021588(this);
             sub_0804A9FC(this, 0x1c);
             break;
@@ -72,7 +72,7 @@ void sub_08020BB8(Entity* this) {
             this->action = 11;
             this->actionDelay = gUnk_080CAB10[this->type];
             this->damageType = 81;
-            sub_08021218(this, 8, DirectionToAnimationState(this->field_0x3e ^ 0x10));
+            sub_08021218(this, 8, DirectionToAnimationState(this->knockbackDirection ^ 0x10));
             sub_08021588(this);
             sub_0804A9FC(this, 0x1c);
             break;
