@@ -5,33 +5,10 @@
     .align 2
 
 gAssets:: @ 08324AE4
-	.incbin "data_08132B30/gAssets.bin"
-	.incbin "tilesets/gTileset_MinishWoods_0_0.4bpp.lz"
-	.incbin "tilesets/gTileset_MinishWoods_0_1.4bpp.lz"
-	.incbin "tilesets/gTileset_MinishWoods_0_2.4bpp.lz"
-	.incbin "data_08132B30/gAssets_1.bin"
+	.include "data/assets.s"
+.align 2
 
-@ TODO EU differs from here
-.ifdef EU
-	.incbin "data_08132B30/gAssets_2_EU.bin"
-.else
-	.incbin "data_08132B30/gAssets_3_USA-JP-DEMO_USA-DEMO_JP.bin"
 
-@ TODO JP differs from here
-.ifdef JP
-	.incbin "data_08132B30/gAssets_4_JP.bin"
-.else
-@ TODO JP differs from here
-.ifdef DEMO_JP
-	.incbin "data_08132B30/gAssets_5_DEMO_JP.bin"
-.else
-	.incbin "data_08132B30/gAssets_6_USA-DEMO_USA.bin"
-
-.endif
-.endif
-.endif
-
-@ TODO JP and EU differ to here
 
 gGlobalGfxAndPalettes:: @ 085A2E80
 	.incbin "data_08132B30/gGlobalGfxAndPalettes.bin"
