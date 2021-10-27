@@ -4,7 +4,7 @@
 	.section .rodata
     .align 2
 
-gAssets:: @ 08324AE4
+gMapData:: @ 08324AE4
 	.include "data/assets.s"
 .align 2
 

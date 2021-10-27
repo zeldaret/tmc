@@ -35,111 +35,116 @@ def extract_assets(variant, assets_folder):
     with open(baserom_path, 'rb') as file:
         baserom = bytearray(file.read())
 
-    config_modified = os.path.getmtime('assets.json')
-    # json_modified = os.path.getmtime('assets.json')
-    # if json_modified < config_modified:
-    #     print('Convert yaml to json...', flush=True)
-    #     subprocess.check_call('cat assets.yaml | yq . > assets.json', shell=True)
 
-    with open('assets.json') as file:
-        current_offset = 0
-        #print('Parsing yaml...', flush=True)
-        #assets = yaml.safe_load(file)
-        #print('done', flush=True)
-        print('Parsing json...', flush=True)
-        assets = json.load(file)
-        print('done', flush=True)
-        for asset in assets:
-            if 'offsets' in asset: # Offset definition
-                if variant in asset['offsets']:
-                    current_offset = asset['offsets'][variant]
-            elif 'path' in asset: # Asset definition
+    # Handle all json config files in the assets folder
+    configs = [x for x in os.listdir('assets') if x.endswith('.json')] # TODO this would break with a folder that is named .json
 
-                if 'variants' in asset:
-                    if variant not in asset['variants']:
-                        # This asset is not used in the current variant
-                        continue
+    print(configs)
 
-                path = os.path.join(assets_folder, asset['path'])
+    for config in configs:
+        path = os.path.join('assets', config)
+        config_modified = os.path.getmtime(path)
 
-                extract_file = False
+        with open(path) as file:
+            current_offset = 0
+            #print('Parsing yaml...', flush=True)
+            #assets = yaml.safe_load(file)
+            #print('done', flush=True)
+            print(f'Parsing {config}...', flush=True)
+            assets = json.load(file)
+            print('done', flush=True)
+            for asset in assets:
+                if 'offsets' in asset: # Offset definition
+                    if variant in asset['offsets']:
+                        current_offset = asset['offsets'][variant]
+                elif 'path' in asset: # Asset definition
 
-                if os.path.isfile(path):
-                    file_modified = os.path.getmtime(path)
-                    if file_modified < config_modified:
+                    if 'variants' in asset:
+                        if variant not in asset['variants']:
+                            # This asset is not used in the current variant
+                            continue
+
+                    path = os.path.join(assets_folder, asset['path'])
+
+                    extract_file = False
+
+                    if os.path.isfile(path):
+                        file_modified = os.path.getmtime(path)
+                        if file_modified < config_modified:
+                            if verbose:
+                                print(f'{path} was created before the config was modified.')
+                            extract_file = True
+                        # TODO Extract when source file (depends on type) was modified after target file
+                        #print(f'{file_modified} {config_modified}')
+                    else:
                         if verbose:
-                            print(f'{path} was created before the config was modified.')
+                            print(f'{path} does not yet exist.')
                         extract_file = True
-                    # TODO Extract when source file (depends on type) was modified after target file
-                    #print(f'{file_modified} {config_modified}')
-                else:
-                    if verbose:
-                        print(f'{path} does not yet exist.')
-                    extract_file = True
 
 
-                if extract_file:
-                    if verbose:
-                        print(f'Extracting {path}...')
-                    start = 0
-                    if 'start' in asset:
-                        # Apply offset to the start of the USA variant
-                        start = asset['start'] + current_offset
-                    elif 'starts' in asset:
-                        # Use start for the current variant
-                        start = asset['starts'][variant]
+                    if extract_file:
+                        if verbose:
+                            print(f'Extracting {path}...')
 
-                    mode = ''
-                    if 'type' in asset:
-                        mode = asset['type']
+                        start = 0
+                        if 'start' in asset:
+                            # Apply offset to the start of the USA variant
+                            start = asset['start'] + current_offset
+                        elif 'starts' in asset:
+                            # Use start for the current variant
+                            start = asset['starts'][variant]
 
-                    Path(os.path.dirname(path)).mkdir(parents=True, exist_ok=True)
+                        mode = ''
+                        if 'type' in asset:
+                            mode = asset['type']
 
-                    if 'size' in asset: # The asset has a size and want to be extracted first.
-                        size = asset['size'] # TODO can different sizes for the different variants ever occur?
+                        Path(os.path.dirname(path)).mkdir(parents=True, exist_ok=True)
 
-                        with open(path, 'wb') as output:
-                            output.write(baserom[start:start+size])
-                    # If an asset has no size, the extraction tool reads the baserom iself.
+                        if 'size' in asset: # The asset has a size and want to be extracted first.
+                            size = asset['size'] # TODO can different sizes for the different variants ever occur?
 
-                    options = asset['options'] if 'options' in asset else []
+                            with open(path, 'wb') as output:
+                                output.write(baserom[start:start+size])
+                        # If an asset has no size, the extraction tool reads the baserom iself.
 
-                    if mode == 'tileset':
-                        extract_tileset(path)
-                    elif mode == 'palette':
-                        extract_palette(path)
-                    elif mode == 'graphic':
-                        extract_graphic(path, options)
-                    elif mode == 'midi':
-                        extract_midi(path, baserom_path, start, options)
-                    elif mode == 'aif':
-                        extract_aif(path, options)
-                    elif mode == 'palette_group':
-                        palette_group = PaletteGroup(path, start, size, options)
-                        palette_group.extract_binary(baserom)
-                    elif mode == 'gfx_group':
-                        gfx_group = GfxGroup(path, start, size, options)
-                        gfx_group.extract_binary(baserom)
-                    elif mode == 'fixed_type_gfx':
-                        fixed_type_gfx = FixedTypeGfx(path, start, size, options)
-                        fixed_type_gfx.extract_binary(baserom)
-                    elif mode == 'frame_obj_lists':
-                        frame_obj_lists = FrameObjLists(path, start, size, options)
-                        frame_obj_lists.extract_binary(baserom)
-                    elif mode == 'extra_frame_offsets':
-                        extra_frame_offsets = ExtraFrameOffsets(path, start, size, options)
-                        extra_frame_offsets.extract_binary(baserom)
-                    elif mode == 'animation':
-                        animation = Animation(path, start, size, options)
-                        animation.extract_binary(baserom)
-                    elif mode == 'exit_list':
-                        exit_list = ExitList(path, start, size, options)
-                        exit_list.extract_binary(baserom)
-                    elif mode == 'entity_list':
-                        entity_list = EntityList(path, start, size, options)
-                        entity_list.extract_binary(baserom)
-                    elif mode != '':
-                        print(f'Asset type {mode} not yet implemented')
+                        options = asset['options'] if 'options' in asset else []
+
+                        if mode == 'tileset':
+                            extract_tileset(path)
+                        elif mode == 'palette':
+                            extract_palette(path)
+                        elif mode == 'graphic':
+                            extract_graphic(path, options)
+                        elif mode == 'midi':
+                            extract_midi(path, baserom_path, start, options)
+                        elif mode == 'aif':
+                            extract_aif(path, options)
+                        elif mode == 'palette_group':
+                            palette_group = PaletteGroup(path, start, size, options)
+                            palette_group.extract_binary(baserom)
+                        elif mode == 'gfx_group':
+                            gfx_group = GfxGroup(path, start, size, options)
+                            gfx_group.extract_binary(baserom)
+                        elif mode == 'fixed_type_gfx':
+                            fixed_type_gfx = FixedTypeGfx(path, start, size, options)
+                            fixed_type_gfx.extract_binary(baserom)
+                        elif mode == 'frame_obj_lists':
+                            frame_obj_lists = FrameObjLists(path, start, size, options)
+                            frame_obj_lists.extract_binary(baserom)
+                        elif mode == 'extra_frame_offsets':
+                            extra_frame_offsets = ExtraFrameOffsets(path, start, size, options)
+                            extra_frame_offsets.extract_binary(baserom)
+                        elif mode == 'animation':
+                            animation = Animation(path, start, size, options)
+                            animation.extract_binary(baserom)
+                        elif mode == 'exit_list':
+                            exit_list = ExitList(path, start, size, options)
+                            exit_list.extract_binary(baserom)
+                        elif mode == 'entity_list':
+                            entity_list = EntityList(path, start, size, options)
+                            entity_list.extract_binary(baserom)
+                        elif mode != '':
+                            print(f'Asset type {mode} not yet implemented')
 
 
 

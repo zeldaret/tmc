@@ -5,7 +5,7 @@ extern void LoadPalettes(const u8*, s32, s32);
 
 extern u16 gMetatilesBottom[];
 extern u16 gMetatilesTop[];
-extern u8 gAssets;
+extern u8 gMapData;
 
 extern const u8 gUnk_020176E0[];
 
@@ -13,7 +13,7 @@ void sub_0807C960(void* dest, u32 offset) {
     void* src;
 
     if (offset != -1) {
-        src = &gAssets + (offset & 0x7fffffff);
+        src = &gMapData + (offset & 0x7fffffff);
         if ((u32)dest >> 0x18 == 6) {
             LZ77UnCompVram(src, (void*)dest);
         } else {

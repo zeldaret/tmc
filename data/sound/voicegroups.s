@@ -3757,37 +3757,6 @@ voicegroup033:: @ 08A07394
 	voice_directsound 60, 0, gUnk_08A84DCC, 255, 0, 255, 165
 	voice_directsound 60, 0, gUnk_08A5496C, 255, 0, 255, 165
 
-@ .ifdef EU
-@     @ TODO only small differences
-@ 	.incbin "voicegroups/voicegroup033_EU.bin"
-@ 	.4byte 0x2
-@ 	.incbin "voicegroups/voicegroup033_1_EU.bin"
-@ .else
-@ 	.incbin "voicegroups/voicegroup033_2_USA-JP-DEMO_USA-DEMO_JP.bin"
-@ 	.4byte gUnk_08A12ED0
-@ 	.incbin "voicegroups/voicegroup033_3_USA-JP-DEMO_USA-DEMO_JP.bin"
-@ .endif
-@ 	.4byte gUnk_08A16610
-@ .ifdef EU
-@     @ TODO only small differences
-@ 	.incbin "voicegroups/voicegroup033_4_EU.bin"
-@ .else
-@ 	.incbin "voicegroups/voicegroup033_5_USA-JP-DEMO_USA-DEMO_JP.bin"
-@ .endif
-@ 	.4byte gUnk_08A12ED0
-@ .ifdef EU
-@     @ TODO only small differences
-@ 	.incbin "voicegroups/voicegroup033_6_EU.bin"
-@ .else
-@ 	.incbin "voicegroups/voicegroup033_7_USA-JP-DEMO_USA-DEMO_JP.bin"
-@ .endif
-@ 	.4byte gUnk_08A1A54C
-@ 	.incbin "voicegroups/voicegroup033_8.bin"
-@ 	.4byte gUnk_08A84DCC
-@ 	.incbin "voicegroups/voicegroup033_9.bin"
-@ 	.4byte gUnk_08A5496C
-@ 	.incbin "voicegroups/voicegroup033_10.bin"
-
 voicegroup034:: @ 08A07610
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
