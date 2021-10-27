@@ -5,8 +5,8 @@
 
 	.text
 
-	thumb_func_start sub_08050154
-sub_08050154: @ 0x08050154
+	thumb_func_start UpdateFade
+UpdateFade: @ 0x08050154
 	push {r4, r5, r6, lr}
 	ldr r4, _08050180 @ =gFadeControl
 	ldrh r0, [r4, #8]

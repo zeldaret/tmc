@@ -198,7 +198,6 @@ s32 fade(s32 target, s32 current) {
 
 void doPlaySound(u32 sound) {
     u32 volume;
-    u32 iVar2;
     MusicPlayerInfo* musicPlayerInfo;
 
     if (sound == 0)
@@ -209,8 +208,7 @@ void doPlaySound(u32 sound) {
     } else {
         volume = gSoundPlayingInfo.volumeSfx;
     }
-    iVar2 = gSoundPlayingInfo.volumeMaster;
-    volume = iVar2 * volume / 0x100;
+    volume = gSoundPlayingInfo.volumeMaster * volume / 0x100;
     musicPlayerInfo = gMusicPlayers[gSongTable[sound].musicPlayerIndex].info;
     m4aMPlayImmInit(musicPlayerInfo);
     m4aMPlayVolumeControl(musicPlayerInfo, 0xffff, volume);

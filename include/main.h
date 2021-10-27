@@ -89,7 +89,7 @@ extern void DoSoftReset(void);
 extern void sub_08056260(void);
 extern void VBlankIntrWait();
 extern void MessageUpdate(void);
-extern void sub_08050154(void);
+extern void UpdateFade(void);
 
 extern u8 gUnk_03003DE4;
 

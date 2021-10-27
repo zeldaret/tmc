@@ -31,7 +31,7 @@ script_08012368:
 	StopBgm
 	BeginBlock 
 	_0807E778 0x0004
-	_0807E788 0x00007fff
+	SetFadeMask 0x00007fff
 	DoFade5 
 	_0807E858 0x0080
 	EndBlock 
@@ -55,7 +55,7 @@ script_08012368:
 	Wait 0x003c
 	BeginBlock 
 	_0807E778 0x0004
-	_0807E788 0xffffffff
+	SetFadeMask 0xffffffff
 	DoFade4 
 	_0807E858 0x0080
 	EndBlock 

@@ -329,7 +329,7 @@
 	.2byte \s
 .endm
 
-.macro _0807E788 w:req
+.macro SetFadeMask w:req
 	.2byte 0x0c39
 	.4byte \w
 .endm

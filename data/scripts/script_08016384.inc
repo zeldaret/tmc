@@ -62,4 +62,4 @@ SCRIPT_START script_08016384
 	WaitFor_1 
 	WaitFor_2 
 	_0807E778 0x0004
-	_0807E788 0x0000ffff
+	SetFadeMask 0x0000ffff

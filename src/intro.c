@@ -285,7 +285,7 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
                     gIntroState.subState++;
                     gScreen.bg.bg1yOffset = 0;
                     gScreen.bg.bg1Control = 0xc09;
-                    gFadeControl.field_0x4 = 0x40;
+                    gFadeControl.mask = 0x00000040;
                     DoFade(6, 0x10);
                     SoundReq(SFX_F8);
                 }
@@ -293,7 +293,7 @@ static void HandleJapaneseTitlescreenAnimationIntro(void) {
             break;
         case 1:
             if (!gFadeControl.active) {
-                gFadeControl.field_0x4 = -1;
+                gFadeControl.mask = 0xFFFFFFFF;
                 gIntroState.subState++;
 #if defined(JP) || defined(EU)
                 gIntroState.timer = 120;
