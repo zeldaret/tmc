@@ -2,6 +2,7 @@
 #include "enemy.h"
 #include "functions.h"
 #include "player.h"
+#include "effects.h"
 
 extern void sub_0800449C(Entity*, u32);
 extern void sub_08079D84(void);
@@ -26,7 +27,7 @@ void nullsub_539(Entity* this) {
 
 void sub_080A9CF0(Entity* this) {
     if (sub_0806F520() == 0) {
-        CreateFx(this, 2, 0);
+        CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();
     }
     LakituCloudProjectile_SubActions[this->subAction](this);
@@ -46,7 +47,7 @@ void LakituCloudProjectile_SubAction2(Entity* this) {
             sub_0800449C(&gPlayerEntity, 0x7a);
             sub_08079D84();
         }
-        CreateFx(this, 2, 0);
+        CreateFx(this, FX_DEATH, 0);
         DeleteThisEntity();
     }
 }

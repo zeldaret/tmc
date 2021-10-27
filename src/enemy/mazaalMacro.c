@@ -5,6 +5,7 @@
 #include "script.h"
 #include "structures.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void sub_0807B600(u32);
 
@@ -43,7 +44,7 @@ void (*const gUnk_080CEEB0[])(Entity*) = {
     sub_08034E30, sub_08034E68, sub_08034EC0, sub_08034ED8, sub_08034EE4, sub_08034F58,
 };
 
-const u8 gUnk_080CEEC8[] = { 0x46, 0x46, 0x47, 0x48 };
+const u8 gUnk_080CEEC8[] = { FX_GIANT_EXPLOSION, FX_GIANT_EXPLOSION, FX_GIANT_EXPLOSION2, FX_GIANT_EXPLOSION3 };
 const u8 gUnk_080CEECC[] = { 0x58, 0x68, 0x88, 0x68, 0xb8, 0x68, 0x58, 0xa8, 0x88, 0xa8, 0xb8, 0xa8 };
 const s16 gUnk_080CEED8[] = { -0x82, -0x81, -0x80, -0x7f, -0x7e, -0x42, -0x41, -0x40, -0x3f, -0x3e, -2,   -1,
                               1,     2,     0x3e,  0x3f,  0x40,  0x41,  0x42,  0x7e,  0x7f,  0x80,  0x81, 0x82 };
@@ -113,7 +114,7 @@ void sub_08034D4C(Entity* this) {
 
 void sub_08034DC8(Entity* this) {
     if (gScreenTransition.field_0x39 == 0) {
-        CreateFx(this, 0x51, 0);
+        CreateFx(this, FX_GIANT_EXPLOSION4, 0);
         sub_0807BA8C(COORD_TO_TILE(this), this->collisionLayer);
         DeleteThisEntity();
     }

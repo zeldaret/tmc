@@ -2,6 +2,7 @@
 #include "enemy.h"
 #include "audio.h"
 #include "functions.h"
+#include "effects.h"
 
 extern s32 sub_080AF090(Entity*);
 extern s32 sub_080A7EB0(Entity*);
@@ -56,7 +57,7 @@ void sub_080ACB90(Entity* this) {
     Entity* parent = this->parent;
     if ((this->x.HALF.HI == parent->x.HALF.HI) && (this->y.HALF.HI <= parent->y.HALF.HI)) {
         parent->field_0xf = 1;
-        CreateFx(this, 0x1f, 0x40);
+        CreateFx(this, FX_REFLECT2, 0x40);
         EnqueueSFX(SFX_ITEM_GLOVES_KNOCKBACK);
         DeleteThisEntity();
     }

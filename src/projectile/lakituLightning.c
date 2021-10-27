@@ -1,5 +1,6 @@
 #include "entity.h"
 #include "enemy.h"
+#include "effects.h"
 
 extern s32 sub_080AF090(Entity*);
 extern s32 sub_080A7EB0(Entity*);
@@ -35,7 +36,7 @@ void LakituLightning_Action1(Entity* this) {
     GetNextFrame(this);
     sub_080AF090(this);
     if ((this->collisions != 0) || (--this->actionDelay == 0)) {
-        CreateFx(this, 0x4f, 0);
+        CreateFx(this, FX_BLUE_EFC, 0);
         DeleteThisEntity();
     }
     if (sub_080A7EB0(this) != 0) {

@@ -2,6 +2,7 @@
 #include "audio.h"
 #include "structures.h"
 #include "functions.h"
+#include "effects.h"
 
 void sub_080485D8(Entity*);
 void sub_080485FC(Entity*);
@@ -158,7 +159,7 @@ void VaatiWrathEyeAction7(Entity* this) {
         this->actionDelay = 0x3c;
         this->flags &= 0x7f;
         this->spriteSettings.b.draw = 0;
-        CreateFx(this, 0x1f, 0x40);
+        CreateFx(this, FX_REFLECT2, 0x40);
         this->parent->field_0x7a.HALF.HI |= 0x10 << this->type;
     } else {
         if (--this->actionDelay != 0) {

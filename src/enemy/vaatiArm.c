@@ -6,6 +6,7 @@
 #include "random.h"
 #include "utils.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void DoExitTransition(ScreenTransitionData*);
 
@@ -1064,7 +1065,7 @@ static inline void deleteThing(Entity* this, const u32 index) {
         if (index == 1) {
             this->spriteSettings.b.draw = 0;
         }
-        CreateFx(((VaatiArm_HeapStruct*)this->myHeap)->entities[index], 0x51, 0);
+        CreateFx(((VaatiArm_HeapStruct*)this->myHeap)->entities[index], FX_GIANT_EXPLOSION4, 0);
         ((VaatiArm_HeapStruct*)this->myHeap)->entities[index]->myHeap = NULL;
         DeleteEntity(((VaatiArm_HeapStruct*)this->myHeap)->entities[index]);
     }
@@ -1331,7 +1332,7 @@ void sub_08043D08(Entity* this) {
     entity->spriteSettings.b.draw = 0;
     InitializeAnimation(entity, 0x13);
     sub_0804AA1C(entity);
-    fx = CreateFx(entity, 0x51, 0);
+    fx = CreateFx(entity, FX_GIANT_EXPLOSION4, 0);
     if (fx != NULL) {
         fx->x.HALF.HI += gUnk_080D13E9[this->type2];
         fx->y.HALF.HI -= 6;

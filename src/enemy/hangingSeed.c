@@ -1,6 +1,7 @@
 #include "entity.h"
 #include "enemy.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*const gHangingSeedFunctions[])(Entity*);
 extern void (*const gUnk_080CB588[])(Entity*);
@@ -15,7 +16,7 @@ void HangingSeed_OnTick(Entity* this) {
 
 void sub_080216FC(Entity* this) {
     if (this->bitfield & 0x80) {
-        CreateFx(this, 3, 0x80);
+        CreateFx(this, FX_BUSH, 0x80);
         DeleteThisEntity();
     }
 }

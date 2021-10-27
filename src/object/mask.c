@@ -6,6 +6,7 @@
 #include "player.h"
 #include "flags.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*MaskActionFuncs[])(Entity*);
 
@@ -111,7 +112,7 @@ void sub_08092B0C(Entity* this) {
                 break;
         }
 
-        CreateFx(this, 5, 0);
+        CreateFx(this, FX_POT_SHATTER, 0);
 
         sub_0805457C(this, 3);
     } else {

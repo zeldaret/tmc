@@ -9,6 +9,7 @@
 #include "npc.h"
 #include "audio.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*gUnk_081115C0[])(Entity*);
 extern void (*gUnk_081115D0[])(Entity*);
@@ -165,7 +166,7 @@ void sub_08068BD0(Entity* this) {
 void sub_08068BEC(Entity* this, u32 unused) {
     Entity* target;
 
-    target = CreateFx(this, 0x44, 0);
+    target = CreateFx(this, FX_WHITE_SPLASH, 0);
     if (target) {
         target->spritePriority.b0 = 1;
         PositionRelative(this, target, 0, -0x100000);

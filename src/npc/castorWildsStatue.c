@@ -2,6 +2,7 @@
 #include "script.h"
 #include "functions.h"
 #include "flags.h"
+#include "effects.h"
 
 extern Hitbox gUnk_08110E94;
 
@@ -87,7 +88,7 @@ void sub_08067534(Entity* this) {
     Entity* entity;
     s32 i;
     for (i = 0; i < 2; ++i) {
-        entity = CreateFx(this, 2, 0);
+        entity = CreateFx(this, FX_DEATH, 0);
         if (entity != NULL) {
             entity->x.HALF.HI += gUnk_08110E64[i];
             entity->y.HALF.HI += 0x1c;

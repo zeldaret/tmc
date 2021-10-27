@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 extern u8 gEntCount;
 extern Hitbox gUnk_080FD298;
@@ -163,7 +164,7 @@ void sub_08029B2C(Entity* this) {
     if (sub_0802A14C(this)) {
         if (this->field_0x86.HALF.LO) {
             if (--this->actionDelay == 0) {
-                CreateFx(this, 0x48, 0);
+                CreateFx(this, FX_GIANT_EXPLOSION3, 0);
                 DeleteEntity(this);
             }
         } else {
@@ -241,7 +242,7 @@ void sub_08029C6C(Entity* this) {
 
 void sub_08029C98(Entity* this) {
     if (sub_0802A14C(this)) {
-        CreateFx(this, 0x48, 0);
+        CreateFx(this, FX_GIANT_EXPLOSION3, 0);
         DeleteEntity(this);
     } else {
         gUnk_080CCDA8[this->action](this);

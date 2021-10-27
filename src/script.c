@@ -12,6 +12,7 @@
 #include "audio.h"
 #include "functions.h"
 #include "main.h"
+#include "effects.h"
 
 void InitScriptForEntity(Entity*, ScriptExecutionContext*, u16*);
 void InitScriptExecutionContext(ScriptExecutionContext* context, u16* script);
@@ -1684,7 +1685,7 @@ void sub_0807F360(Entity* entity, ScriptExecutionContext* context) {
 
 void sub_0807F36C(Entity* entity, ScriptExecutionContext* context) {
     Entity* fx;
-    fx = CreateFx(entity, 0x41, 0);
+    fx = CreateFx(entity, FX_REFLECT4, 0);
     if (fx != NULL) {
         fx->spritePriority.b0 = 1;
         PositionRelative(entity, fx, 0, -524288);

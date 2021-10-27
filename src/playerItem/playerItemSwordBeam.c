@@ -3,6 +3,7 @@
 #include "coord.h"
 #include "functions.h"
 #include "audio.h"
+#include "effects.h"
 
 extern void (*const gUnk_080B43F4[])(Entity*);
 
@@ -70,11 +71,11 @@ void sub_08019580(Entity* this) {
         }
         if ((sub_080002F0(TILE(this->x.HALF.HI, this->y.HALF.HI), gPlayerEntity.collisionLayer, 0x80) == 0) &&
             (sub_080040D8(this, &gUnk_08003E44, this->x.HALF.HI, this->y.HALF.HI) != 0)) {
-            CreateFx(this, 0x19, 0);
+            CreateFx(this, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();
         }
         if (this->bitfield != 0) {
-            CreateFx(this, 0x19, 0);
+            CreateFx(this, FX_SWORD_MAGIC, 0);
             DeleteThisEntity();
         }
         if (sub_08008790(this, 0xc) != NULL) {

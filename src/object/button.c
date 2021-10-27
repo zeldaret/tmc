@@ -4,6 +4,7 @@
 #include "room.h"
 #include "audio.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void (*const gUnk_0811EE38[])(Entity*);
 
@@ -231,13 +232,13 @@ u32 sub_08081F00(u32* unk1, u32* unk2) {
 }
 
 void sub_08081F24(Entity* this) {
-    Entity* fx = CreateFx(this, 0x11, 0x40);
+    Entity* fx = CreateFx(this, FX_DASH, 0x40);
     if (fx) {
         fx->scriptedScene = 3;
         fx->x.HALF.HI += 7;
         fx->y.HALF.HI += 5;
     }
-    fx = CreateFx(this, 0x11, 0x40);
+    fx = CreateFx(this, FX_DASH, 0x40);
     if (fx) {
         fx->scriptedScene = 3;
         fx->x.HALF.HI -= 7;

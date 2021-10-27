@@ -10,6 +10,7 @@
 #include "manager.h"
 #include "utils.h"
 #include "npc.h"
+#include "effects.h"
 
 extern u8 gUnk_03003DE0;
 extern u8 gUnk_03000C30;
@@ -227,7 +228,7 @@ void HandlePlayerLife(Entity* this) {
     } else if ((gSave.stats.effectTimer == 0) || --gSave.stats.effectTimer == 0) {
         gSave.stats.effect = 0;
     } else if ((gSave.stats.effectTimer & 0x3f) == 0) {
-        CreateFx(this, 0x55 + gSave.stats.effect, 0);
+        CreateFx(this, FX_AURA_BASE + gSave.stats.effect, 0);
     }
 }
 #endif

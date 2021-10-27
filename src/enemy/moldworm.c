@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "random.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void sub_0800449C(Entity*, u32);
 extern bool32 sub_08023A38(u32);
@@ -177,7 +178,7 @@ void sub_08023330(Entity* this) {
         this->field_0x7c.BYTES.byte3 = 0;
         sub_08023A88(this, this->animationState);
         CopyPosition(this, this->attachedEntity);
-        CreateFx(this, 4, 0);
+        CreateFx(this, FX_ROCK, 0);
     }
 }
 
@@ -199,7 +200,7 @@ void sub_08023398(Entity* this) {
             this->damageType = 0x85;
             this->attachedEntity->actionDelay = 1;
             sub_08023A68(this);
-            CreateFx(this, 4, 0);
+            CreateFx(this, FX_ROCK, 0);
             return;
         }
         this->field_0x78.HWORD = 0x28;

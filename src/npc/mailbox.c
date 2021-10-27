@@ -2,6 +2,7 @@
 #include "entity.h"
 #include "textbox.h"
 #include "functions.h"
+#include "effects.h"
 
 extern void sub_08063280();
 
@@ -58,5 +59,5 @@ void sub_08063280(Entity* this, u32 unused) {
     var = e->frames.all & 0x7F;
     e->frames.all ^= var;
     if (var == 2)
-        CreateFx(e, 49, 0);
+        CreateFx(e, FX_MAILBOX_UNUSED, 0);
 }
