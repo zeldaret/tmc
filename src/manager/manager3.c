@@ -7,6 +7,7 @@
 #include "random.h"
 #include "audio.h"
 #include "object.h"
+#include "functions.h"
 
 // Facilitates the usage of minish portals.
 
@@ -25,7 +26,6 @@ typedef struct {
 } Manager3;
 
 extern s8 gUnk_08107C6C[];
-extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 extern u32 sub_08057810(void);
 extern u32 sub_080002C0(u16, u16, u8);
 extern void sub_080577AC(u32, u32, u32);

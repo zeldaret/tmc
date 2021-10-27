@@ -5,7 +5,6 @@
 
 extern s16 sub_080001DA(u32, u32); // ?
 extern void sub_08049CF4();
-extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 void sub_080221C0();
 
 typedef struct {

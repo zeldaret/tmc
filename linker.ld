@@ -761,6 +761,7 @@ SECTIONS {
         asm/object35.o(.text);
         asm/object36.o(.text);
         asm/object37.o(.text);
+        src/object/jarPortal.o(.text);
         asm/jarPortal.o(.text);
         asm/bossDoor.o(.text);
         asm/object3A.o(.text);

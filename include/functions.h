@@ -58,6 +58,7 @@ extern void DoExitTransition(ScreenTransitionData*);
 extern void CreateDustAt(u32, u32, u32);
 extern void PutItemOnSlot(u32 itemID);
 extern void CreateSpeechBubbleSleep(Entity*, u32, u32);
+extern u32 CheckPlayerProximity(u32, u32, u32, u32);
 
 // Unidentified
 extern u32 sub_0806ED78(Entity*);
