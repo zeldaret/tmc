@@ -61543,7 +61543,7 @@
     "size": 17568
   },
   {
-    "path": "data_08132B30/gUnk_085A7320.bin",
+    "path": "data_08132B30/gPalette_549.bin",
     "start": 5927712,
     "size": 9344
   },
@@ -62575,7 +62575,7 @@
   {
     "path": "data_08132B30/gUnk_086E8460.bin",
     "start": 7242848,
-    "size": 1406624
+    "size": 161088
   },
   {
     "path": "figurines/gFigurineGfx1.4bpp",

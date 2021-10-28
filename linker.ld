@@ -1724,10 +1724,10 @@ SECTIONS {
         data/gfx/sprite_gfx.o(.rodata);
         data/gfx/frame_obj_lists.o(.rodata);
         data/gfx_08324AE4.o(.rodata);
-        data/gfx/figurine_pals.o(.rodata);
-        data/gfx_085BD620.o(.rodata);
-        data/gfx/figurine_gfx.o(.rodata);
-        data/gfx_808C2280.o(.rodata);
+/*        data/gfx/figurine_pals.o(.rodata);*/
+        /*data/gfx_085BD620.o(.rodata);*/
+        /*data/gfx/figurine_gfx.o(.rodata);*/
+        /*data/gfx_808C2280.o(.rodata);*/
         data/strings.o(.rodata);
         data/gfx/sprite_table.o(.rodata);
         src/gba/m4a.o(.rodata);

@@ -113,7 +113,7 @@ def extract_assets(variant, assets_folder):
                             extract_tileset(path)
                         elif mode == 'palette':
                             extract_palette(path)
-                        elif mode == 'graphic':
+                        elif mode == 'graphic' or mode == 'gfx':
                             extract_graphic(path, options)
                         elif mode == 'midi':
                             extract_midi(path, baserom_path, start, options)
@@ -143,6 +143,8 @@ def extract_assets(variant, assets_folder):
                         elif mode == 'entity_list':
                             entity_list = EntityList(path, start, size, options)
                             entity_list.extract_binary(baserom)
+                        elif mode == 'unknown':
+                            pass
                         elif mode != '':
                             print(f'Asset type {mode} not yet implemented')
 
@@ -167,8 +169,13 @@ def extract_palette(path):
     run_gbagfx(path, base+'.pal', [])
 
 def extract_graphic(path, options):
-    assert(path.endswith('.4bpp'))
-    base = path[0:-5]
+    if path.endswith('.4bpp'):
+        base = path[0:-5]
+    elif path.endswith('.4bpp.lz'):
+        base = path[0:-8]
+    else:
+        assert(False, f'Invalid graphic extension {path}')
+    
     params = []
     for key in options:
         params.append('-'+key)
