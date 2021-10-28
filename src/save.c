@@ -57,11 +57,11 @@ asm("demoPointer1: .incbin \"baserom_demo.gba\", 0x11e010, 0x500");
 asm("demoPointer2: .incbin \"baserom_demo.gba\", 0x11e510, 0x500");
 asm("demoPointer3: .incbin \"baserom_demo.gba\", 0x11ea10, 0x500");
 
-extern const u32 demoPointer1;
-extern const u32 demoPointer2;
-extern const u32 demoPointer3;
+extern const u8 demoPointer1[];
+extern const u8 demoPointer2[];
+extern const u8 demoPointer3[];
 
-const u32 demoPointers[] = { (u32)&demoPointer1, (u32)&demoPointer2, (u32)&demoPointer3 };
+const u8* const demoPointers[] = { demoPointer1, demoPointer2, demoPointer3 };
 
 #else
 
