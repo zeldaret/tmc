@@ -35,7 +35,7 @@ void GuardLineOfSight(Entity* this) {
                     entity = CreateProjectile(0xc);
                     if (entity != NULL) {
                         entity->type = 1;
-                        tmp = this->parent->field_0x3e;
+                        tmp = this->parent->knockbackDirection;
                         entity->direction = (gUnk_081299C8[(this->actionDelay >> 2 & 7)] + (tmp << 3)) & 0x1f;
                         entity->parent = this->parent;
                         CopyPosition(this, entity);

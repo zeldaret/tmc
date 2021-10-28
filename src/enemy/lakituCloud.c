@@ -24,7 +24,7 @@ void sub_0803CCD4(Entity* this) {
 }
 
 void sub_0803CCEC(Entity* this) {
-    this->field_0x42 = 0;
+    this->knockbackDuration = 0;
     sub_0803CCD4(this);
 }
 

@@ -1653,6 +1653,8 @@ data/const/object/object1D.o(.rodata);
     data/const/demoScreen.o(.rodata);
 #endif
         data/data_08127280.o(.rodata);
+        src/itemMenuTable.o(.rodata);
+        data/data_08128BF4.o(.rodata);
         data/const/playerItem/playerItemSword.o(.rodata);
         data/data_08129320.o(.rodata);
         src/projectile/darkNutSwordSlash.o(.rodata);

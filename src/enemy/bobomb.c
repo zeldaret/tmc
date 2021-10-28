@@ -30,8 +30,8 @@ void sub_0802C688(Entity* this) {
             case 0:
             case 1:
                 if (this->field_0x82.HALF.LO) {
-                    this->field_0x42 = 0;
-                    gPlayerEntity.field_0x42 = 4;
+                    this->knockbackDuration = 0;
+                    gPlayerEntity.knockbackDuration = 4;
                 }
                 return;
             case 0xe:
@@ -39,7 +39,7 @@ void sub_0802C688(Entity* this) {
             case 0x15:
             case 0x16:
                 this->action = 3;
-                this->field_0x42 = 0;
+                this->knockbackDuration = 0;
                 sub_0802CBC4(this);
                 return;
         }

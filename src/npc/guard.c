@@ -85,8 +85,8 @@ void sub_08063DC8(Entity* this) {
         InitAnimationForceUpdate(this, this->animationState + 4);
     } else {
         sub_0806EE20(this);
-        if (this->field_0x3e != this->animationState) {
-            this->animationState = this->field_0x3e;
+        if (this->knockbackDirection != this->animationState) {
+            this->animationState = this->knockbackDirection;
             InitializeAnimation(this, this->animationState + 4);
         } else {
             GetNextFrame(this);

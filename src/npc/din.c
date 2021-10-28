@@ -5,8 +5,6 @@
 #include "functions.h"
 #include "save.h"
 
-extern u32 sub_08002632(Entity*);
-
 void Din(Entity* this) {
     switch (this->action) {
         case 0:

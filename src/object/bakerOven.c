@@ -66,8 +66,8 @@ void sub_0809CD0C(Entity* this) {
             ModHealth(-2);
             sub_0800449C(&gPlayerEntity, 0x7a);
             gPlayerEntity.iframes = 16;
-            gPlayerEntity.field_0x3e = 16;
-            gPlayerEntity.field_0x42 = 12;
+            gPlayerEntity.knockbackDirection = 16;
+            gPlayerEntity.knockbackDuration = 12;
             gPlayerEntity.field_0x46 = 16;
         }
     }

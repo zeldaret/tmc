@@ -27,7 +27,7 @@ void sub_080AB544(Entity* this) {
 
     if (this->iframes < -4) {
         this->action = 2;
-        this->direction = this->field_0x3e;
+        this->direction = this->knockbackDirection;
         tmp = (this->type ^ 2) << 3;
         if (this->direction - tmp + 1 < 3) {
             this->direction = tmp;

@@ -23,7 +23,7 @@ void sub_080A8064(Entity* this) {
     if (this->bitfield == 0x80) {
         DeleteEntity(this);
     } else {
-        this->direction = this->field_0x3e;
+        this->direction = this->knockbackDirection;
         sub_080A8178(this);
     }
 }

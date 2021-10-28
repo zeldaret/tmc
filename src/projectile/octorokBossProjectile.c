@@ -84,7 +84,7 @@ void OctorokBossProjectile_Action1(Entity* this) {
                 if ((this->bitfield & 0x7f) == 0) {
                     OctorokBossProjectile_Action2(this);
                 }
-                this->direction = this->field_0x3e << 3;
+                this->direction = this->knockbackDirection << 3;
                 this->speed = 0x400;
                 this->type2 = 1;
                 this->actionDelay = 0;
@@ -98,9 +98,9 @@ void OctorokBossProjectile_Action1(Entity* this) {
                     this->parent->currentHealth -= 1;
                     this->parent->iframes = 0x1e;
                     if (this->parent->field_0x7c.BYTES.byte0 != 0) {
-                        this->parent->field_0x42 = 0x18;
+                        this->parent->knockbackDuration = 0x18;
                         this->parent->field_0x46 = 0x200;
-                        this->parent->field_0x3e = this->direction >> 3;
+                        this->parent->knockbackDirection = this->direction >> 3;
                     }
                     SoundReq(SFX_BOSS_HIT);
                     OctorokBossProjectile_Action2(this);

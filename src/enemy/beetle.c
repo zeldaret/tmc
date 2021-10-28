@@ -48,7 +48,7 @@ void sub_08021780(Entity* this) {
     }
 
     if (this->currentHealth == 0)
-        this->field_0x42 = 0;
+        this->knockbackDuration = 0;
 
     sub_0804AA30(this, gUnk_080CB590);
 }
