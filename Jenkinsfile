@@ -9,6 +9,7 @@ pipeline {
                 sh 'cd ${AGBCC} && ./install.sh ${WORKSPACE} && cd ${WORKSPACE}'
                 sh 'cp /usr/local/etc/roms/tmc.us.gba baserom.gba'
                 sh 'cp /usr/local/etc/roms/tmc.demo.gba baserom_demo.gba'
+                sh 'cp /usr/local/etc/roms/tmc.demo.jp.gba baserom_demo_jp.gba'
                 sh 'cp /usr/local/etc/roms/tmc.jp.gba baserom_jp.gba'
                 sh 'cp /usr/local/etc/roms/tmc.eu.gba baserom_eu.gba'
                 sh 'make -j setup'
