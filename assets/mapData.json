@@ -4564,7 +4564,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_0_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_0_0.8bpp.lz",
     "start": 4582652,
     "size": 17751,
     "type": "tileset"
@@ -4582,7 +4582,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_1_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_1_0.8bpp.lz",
     "start": 4604164,
     "size": 11540,
     "type": "tileset"
@@ -4600,7 +4600,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_2_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_2_0.8bpp.lz",
     "start": 4616860,
     "size": 9324,
     "type": "tileset"
@@ -4618,7 +4618,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_3_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_3_0.8bpp.lz",
     "start": 4627280,
     "size": 9204,
     "type": "tileset"
@@ -4636,7 +4636,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_4_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_4_0.8bpp.lz",
     "start": 4637568,
     "size": 8933,
     "type": "tileset"
@@ -4654,7 +4654,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_5_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_5_0.8bpp.lz",
     "start": 4647596,
     "size": 10216,
     "type": "tileset"
@@ -4672,7 +4672,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_6_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_6_0.8bpp.lz",
     "start": 4659316,
     "size": 20013,
     "type": "tileset"
@@ -4690,7 +4690,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_7_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_7_0.8bpp.lz",
     "start": 4681224,
     "size": 13589,
     "type": "tileset"
@@ -4708,7 +4708,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_8_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_8_0.8bpp.lz",
     "start": 4697552,
     "size": 16289,
     "type": "tileset"
@@ -4726,7 +4726,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_9_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_9_0.8bpp.lz",
     "start": 4715288,
     "size": 11535,
     "type": "tileset"
@@ -4744,7 +4744,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_10_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_10_0.8bpp.lz",
     "start": 4728260,
     "size": 11703,
     "type": "tileset"
@@ -4762,7 +4762,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_11_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_11_0.8bpp.lz",
     "start": 4741872,
     "size": 9865,
     "type": "tileset"
@@ -4786,7 +4786,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_12_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_12_0.8bpp.lz",
     "start": 4776476,
     "size": 12221,
     "type": "tileset"
@@ -4804,7 +4804,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_13_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_13_0.8bpp.lz",
     "start": 4789884,
     "size": 11968,
     "type": "tileset"
@@ -4822,7 +4822,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_14_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_14_0.8bpp.lz",
     "start": 4803020,
     "size": 12141,
     "type": "tileset"
@@ -4840,7 +4840,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_15_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_15_0.8bpp.lz",
     "start": 4816332,
     "size": 7859,
     "type": "tileset"
@@ -4858,7 +4858,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_16_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_16_0.8bpp.lz",
     "start": 4825372,
     "size": 12332,
     "type": "tileset"
@@ -4876,7 +4876,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_17_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_17_0.8bpp.lz",
     "start": 4838892,
     "size": 10416,
     "type": "tileset"
@@ -4894,7 +4894,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_18_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_18_0.8bpp.lz",
     "start": 4850488,
     "size": 12716,
     "type": "tileset"
@@ -4912,7 +4912,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_MinishHouseInteriors_19_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_MinishHouseInteriors_19_0.8bpp.lz",
     "start": 4864384,
     "size": 12254,
     "type": "tileset"
@@ -4930,7 +4930,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_0_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_TownMinishHoles_0_0.8bpp.lz",
     "start": 4877984,
     "size": 8598,
     "type": "tileset"
@@ -4948,7 +4948,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_1_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_TownMinishHoles_1_0.8bpp.lz",
     "start": 4888052,
     "size": 10686,
     "type": "tileset"
@@ -4966,7 +4966,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_2_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_TownMinishHoles_2_0.8bpp.lz",
     "start": 4900128,
     "size": 9694,
     "type": "tileset"
@@ -4984,7 +4984,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_3_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_TownMinishHoles_3_0.8bpp.lz",
     "start": 4911288,
     "size": 10723,
     "type": "tileset"
@@ -5002,7 +5002,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_4_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_TownMinishHoles_4_0.8bpp.lz",
     "start": 4923412,
     "size": 9306,
     "type": "tileset"
@@ -5020,7 +5020,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_5_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_TownMinishHoles_5_0.8bpp.lz",
     "start": 4934204,
     "size": 12389,
     "type": "tileset"
@@ -5038,7 +5038,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_6_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_TownMinishHoles_6_0.8bpp.lz",
     "start": 4949944,
     "size": 12973,
     "type": "tileset"
@@ -5056,7 +5056,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_7_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_TownMinishHoles_7_0.8bpp.lz",
     "start": 4964716,
     "size": 17700,
     "type": "tileset"
@@ -5074,7 +5074,7 @@
     "type": "map_mapping2"
   },
   {
-    "path": "tilesets/gAreaTileset_TownMinishHoles_8_0.4bpp.lz",
+    "path": "tilesets/gAreaTileset_TownMinishHoles_8_0.8bpp.lz",
     "start": 4985452,
     "size": 13622,
     "type": "tileset"

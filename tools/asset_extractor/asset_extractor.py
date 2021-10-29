@@ -155,11 +155,13 @@ def run_gbagfx(path_in, path_out, options):
     subprocess.check_call([os.path.join('tools', 'gbagfx', 'gbagfx'), path_in, path_out] + options)
 
 def extract_tileset(path):
-    assert(path.endswith('.4bpp.lz'))
+    assert(path.endswith('.4bpp.lz') or path.endswith('.8bpp.lz'))
     base = path[0:-8]
+
+    bpp_extension = path[-8:-3]
     # subprocess.call(['cp', path, path+'.bkp'])
-    run_gbagfx(path, base+'.4bpp', []) # decompress
-    run_gbagfx(base+'.4bpp', base+'.png', ['-mwidth', '32']) # convert to png
+    run_gbagfx(path, base+bpp_extension, []) # decompress
+    run_gbagfx(base+bpp_extension, base+'.png', ['-mwidth', '32']) # convert to png
     # TODO automatically generate tileset entries from tileset_headers.s
     # TODO Possible to set the correct palette? Or not, because there is a set of palettes that can be chosen and the correct palette is only defined by the metatile?
 
@@ -173,8 +175,12 @@ def extract_graphic(path, options):
         base = path[0:-5]
     elif path.endswith('.4bpp.lz'):
         base = path[0:-8]
+    elif path.endswith('.8bpp'):
+        base = path[0:-5]
+    elif path.endswith('.8bpp.lz'):
+        base = path[0:-8]
     else:
-        assert(False, f'Invalid graphic extension {path}')
+        assert False, f'Invalid graphic extension {path}'
     
     params = []
     for key in options:
