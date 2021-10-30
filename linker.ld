@@ -1186,6 +1186,8 @@ SECTIONS {
         data/data_080FC8A4.o(.rodata);
         data/const/playerItem/playerItemLantern.o(.rodata);
         data/data_080FEEB8.o(.rodata);
+        data/gfx/palette_groups.o(.rodata);
+        data/gfx/gfx_groups.o(.rodata);
         src/main.o(.rodata);
         data/map/tileset_headers.o(.rodata);
         data/map/metatile_headers.o(.rodata);

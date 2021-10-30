@@ -1,3 +1,11 @@
+	.include "asm/macros.inc"
+	.include "constants/constants.inc"
+
+	.section .rodata
+    .align 2
+
+	.include "asm/macros/gfx.inc"
+
 @ helper variable
 .ifdef JP
 	JP_D::

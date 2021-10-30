@@ -26,7 +26,7 @@ translationGerman::
 translationSpanish::
 	.incbin "translations/Spanish.bin"
 
-translationItalian::    
+translationItalian::
 	.incbin "translations/Italian.bin"
 
 .else
