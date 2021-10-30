@@ -18279,14 +18279,28 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_29.bin",
+    "path": "assets/gGfx_9_0_JP.bin",
     "start": 9415264,
-    "size": 3840,
+    "size": 1280,
     "type": "unknown",
     "variants": ["USA", "JP", "DEMO_USA", "DEMO_JP"]
   },
   {
-    "path": "assets/gfx_unknown_29.bin",
+    "path": "gfx/gGfx_10_0_JP.4bpp",
+    "start": 9416544,
+    "size": 1280,
+    "type": "gfx",
+    "variants": ["USA", "JP", "DEMO_USA", "DEMO_JP"]
+  },
+  {
+    "path": "gfx/gGfx_11_1_JP.4bpp",
+    "start": 9417824,
+    "size": 1280,
+    "type": "gfx",
+    "variants": ["USA", "JP", "DEMO_USA", "DEMO_JP"]
+  },
+  {
+    "path": "assets/gGfx_9_0_JP.bin",
     "start": 9415264,
     "size": 6400,
     "type": "unknown",
@@ -19081,7 +19095,7 @@
     "type": "gfx"
   },
   {
-    "path": "assets/gfx_unknown_47.bin",
+    "path": "assets/gGfx_117_3_JP.bin",
     "start": 10128352,
     "size": 2048,
     "type": "unknown"

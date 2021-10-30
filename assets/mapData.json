@@ -11013,10 +11013,16 @@
     "type": "map_layer1"
   },
   {
-    "path": "assets/unknown_249.bin",
-    "start": 5890050,
-    "size": 2058,
-    "type": "unknown"
+    "path": "assets/gAreaRoomMap_08107870_0.bin",
+    "start": 5890052,
+    "size": 1168,
+    "type": "map_layer2"
+  },
+  {
+    "path": "assets/gAreaRoomMap_08107870_1.bin",
+    "start": 5891220,
+    "size": 888,
+    "type": "map_layer1"
   },
   {
     "path": "assets/gAreaRoomMap_4D_0_0.bin",

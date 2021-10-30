@@ -1,3 +1,10 @@
+	.include "asm/macros.inc"
+	.include "constants/constants.inc"
+
+	.section .rodata
+    .align 2
+
+gGlobalGfxAndPalettes:: @ 085A2E80
 gPalette_0::
 	.incbin "palettes/gPalette_0.gbapal"
 gPalette_1::
@@ -6139,8 +6146,14 @@ gGfx_15_3::
 	.incbin "gfx/gGfx_15_3.4bpp"
 gGfx_15_4::
 	.incbin "gfx/gGfx_15_4.4bpp"
-gfx_unknown_29::
-	.incbin "assets/gfx_unknown_29.bin"
+gGfx_9_0_JP::
+	.incbin "assets/gGfx_9_0_JP.bin"
+.ifndef EU
+gGfx_10_0_JP::
+	.incbin "gfx/gGfx_10_0_JP.4bpp"
+gGfx_11_1_JP::
+	.incbin "gfx/gGfx_11_1_JP.4bpp"
+.endif
 gGfx_9_0::
 	.incbin "gfx/gGfx_9_0.4bpp"
 gGfx_10_0::
@@ -6401,8 +6414,8 @@ gGfx_111_0::
 	.incbin "gfx/gGfx_111_0.4bpp"
 gGfx_116_3::
 	.incbin "gfx/gGfx_116_3.4bpp"
-gfx_unknown_47::
-	.incbin "assets/gfx_unknown_47.bin"
+gGfx_117_3_JP::
+	.incbin "assets/gGfx_117_3_JP.bin"
 gGfx_117_3::
 	.incbin "gfx/gGfx_117_3.4bpp"
 gGfx_117_4_EU::

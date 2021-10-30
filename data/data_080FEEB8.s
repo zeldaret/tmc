@@ -279,4 +279,7 @@ gUnk_080FF420:: @ 080FF420
 	.4byte nullsub_493
 
 	.include "data/gfx/palette_groups.s"
-	.include "data/gfx/gfx_groups.s"
+
+	@ TODO move to own file
+	.include "asm/macros/gfx.inc"
+	.include "data/gfx/gfx_groups.inc"

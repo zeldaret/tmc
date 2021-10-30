@@ -181,7 +181,6 @@ def extract_graphic(path, options):
         base = path[0:-8]
     else:
         assert False, f'Invalid graphic extension {path}'
-    
     params = []
     for key in options:
         params.append('-'+key)

@@ -1,3 +1,10 @@
+	.include "asm/macros.inc"
+	.include "constants/constants.inc"
+
+	.section .rodata
+	.align 2
+
+gMapData:: @ 08324AE4
 gAreaRoomMap_TownMinishHoles_8_0::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_8_0.bin"
 	.align 2
@@ -1986,7 +1993,7 @@ gAreaRoomMap_MinishHouseInteriors_0_1::
 gAreaRoomMap_MinishHouseInteriors_1_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_1_2.bin"
 gAreaTileset_MinishHouseInteriors_0_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_0_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_0_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_MinishHouseInteriors_1_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_1_1.bin"
@@ -1994,14 +2001,14 @@ gAreaRoomMap_MinishHouseInteriors_1_1::
 gAreaRoomMap_MinishHouseInteriors_2_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_2_2.bin"
 gAreaTileset_MinishHouseInteriors_1_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_1_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_1_0.8bpp.lz"
 gAreaRoomMap_MinishHouseInteriors_2_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_2_1.bin"
 gAreaRoomMap_MinishHouseInteriors_3_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_3_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_2_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_2_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_2_0.8bpp.lz"
 gAreaRoomMap_MinishHouseInteriors_3_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_3_1.bin"
 	.align 2
@@ -2009,13 +2016,13 @@ gAreaRoomMap_MinishHouseInteriors_4_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_4_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_3_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_3_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_3_0.8bpp.lz"
 gAreaRoomMap_MinishHouseInteriors_4_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_4_1.bin"
 gAreaRoomMap_MinishHouseInteriors_5_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_5_2.bin"
 gAreaTileset_MinishHouseInteriors_4_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_4_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_4_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_MinishHouseInteriors_5_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_5_1.bin"
@@ -2024,13 +2031,13 @@ gAreaRoomMap_MinishHouseInteriors_6_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_6_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_5_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_5_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_5_0.8bpp.lz"
 gAreaRoomMap_MinishHouseInteriors_6_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_6_1.bin"
 gAreaRoomMap_MinishHouseInteriors_7_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_7_2.bin"
 gAreaTileset_MinishHouseInteriors_6_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_6_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_6_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_MinishHouseInteriors_7_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_7_1.bin"
@@ -2038,7 +2045,7 @@ gAreaRoomMap_MinishHouseInteriors_8_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_8_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_7_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_7_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_7_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_MinishHouseInteriors_8_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_8_1.bin"
@@ -2047,7 +2054,7 @@ gAreaRoomMap_MinishHouseInteriors_9_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_9_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_8_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_8_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_8_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_MinishHouseInteriors_9_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_9_1.bin"
@@ -2056,7 +2063,7 @@ gAreaRoomMap_MinishHouseInteriors_10_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_10_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_9_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_9_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_9_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_MinishHouseInteriors_10_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_10_1.bin"
@@ -2065,7 +2072,7 @@ gAreaRoomMap_MinishHouseInteriors_11_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_11_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_10_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_10_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_10_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_MinishHouseInteriors_11_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_11_1.bin"
@@ -2073,7 +2080,7 @@ gAreaRoomMap_MinishHouseInteriors_12_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_12_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_11_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_11_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_11_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_MinishHouseInteriors_12_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_12_1.bin"
@@ -2083,7 +2090,7 @@ gAreaRoomMap_MinishHouseInteriors_13_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_13_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_12_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_12_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_12_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_MinishHouseInteriors_13_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_13_1.bin"
@@ -2092,7 +2099,7 @@ gAreaRoomMap_MinishHouseInteriors_14_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_14_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_13_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_13_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_13_0.8bpp.lz"
 gAreaRoomMap_MinishHouseInteriors_14_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_14_1.bin"
 	.align 2
@@ -2100,14 +2107,14 @@ gAreaRoomMap_MinishHouseInteriors_15_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_15_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_14_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_14_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_14_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_MinishHouseInteriors_15_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_15_1.bin"
 gAreaRoomMap_MinishHouseInteriors_16_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_16_2.bin"
 gAreaTileset_MinishHouseInteriors_15_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_15_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_15_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_MinishHouseInteriors_16_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_16_1.bin"
@@ -2116,7 +2123,7 @@ gAreaRoomMap_MinishHouseInteriors_17_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_17_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_16_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_16_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_16_0.8bpp.lz"
 gAreaRoomMap_MinishHouseInteriors_17_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_17_1.bin"
 	.align 2
@@ -2124,14 +2131,14 @@ gAreaRoomMap_MinishHouseInteriors_18_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_18_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_17_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_17_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_17_0.8bpp.lz"
 gAreaRoomMap_MinishHouseInteriors_18_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_18_1.bin"
 	.align 2
 gAreaRoomMap_MinishHouseInteriors_19_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_19_2.bin"
 gAreaTileset_MinishHouseInteriors_18_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_18_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_18_0.8bpp.lz"
 gAreaRoomMap_MinishHouseInteriors_19_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_19_1.bin"
 	.align 2
@@ -2139,7 +2146,7 @@ gAreaRoomMap_MinishHouseInteriors_20_2::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_20_2.bin"
 	.align 2
 gAreaTileset_MinishHouseInteriors_19_0::
-	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_19_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_MinishHouseInteriors_19_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_MinishHouseInteriors_20_1::
 	.incbin "assets/gAreaRoomMap_MinishHouseInteriors_20_1.bin"
@@ -2148,7 +2155,7 @@ gAreaRoomMap_TownMinishHoles_0_2::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_0_2.bin"
 	.align 2
 gAreaTileset_TownMinishHoles_0_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_0_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_TownMinishHoles_0_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_TownMinishHoles_0_1::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_0_1.bin"
@@ -2157,7 +2164,7 @@ gAreaRoomMap_TownMinishHoles_1_2::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_1_2.bin"
 	.align 2
 gAreaTileset_TownMinishHoles_1_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_1_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_TownMinishHoles_1_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_TownMinishHoles_1_1::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_1_1.bin"
@@ -2166,7 +2173,7 @@ gAreaRoomMap_TownMinishHoles_2_2::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_2_2.bin"
 	.align 2
 gAreaTileset_TownMinishHoles_2_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_2_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_TownMinishHoles_2_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_TownMinishHoles_2_1::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_2_1.bin"
@@ -2175,7 +2182,7 @@ gAreaRoomMap_TownMinishHoles_3_2::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_3_2.bin"
 	.align 2
 gAreaTileset_TownMinishHoles_3_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_3_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_TownMinishHoles_3_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_TownMinishHoles_3_1::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_3_1.bin"
@@ -2184,14 +2191,14 @@ gAreaRoomMap_TownMinishHoles_4_2::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_4_2.bin"
 	.align 2
 gAreaTileset_TownMinishHoles_4_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_4_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_TownMinishHoles_4_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_TownMinishHoles_4_1::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_4_1.bin"
 gAreaRoomMap_TownMinishHoles_5_2::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_5_2.bin"
 gAreaTileset_TownMinishHoles_5_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_5_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_TownMinishHoles_5_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_TownMinishHoles_5_1::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_5_1.bin"
@@ -2199,7 +2206,7 @@ gAreaRoomMap_TownMinishHoles_6_2::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_6_2.bin"
 	.align 2
 gAreaTileset_TownMinishHoles_6_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_6_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_TownMinishHoles_6_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_TownMinishHoles_6_1::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_6_1.bin"
@@ -2207,7 +2214,7 @@ gAreaRoomMap_TownMinishHoles_6_1::
 gAreaRoomMap_TownMinishHoles_7_2::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_7_2.bin"
 gAreaTileset_TownMinishHoles_7_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_7_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_TownMinishHoles_7_0.8bpp.lz"
 gAreaRoomMap_TownMinishHoles_7_1::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_7_1.bin"
 	.align 2
@@ -2215,7 +2222,7 @@ gAreaRoomMap_TownMinishHoles_8_2::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_8_2.bin"
 	.align 2
 gAreaTileset_TownMinishHoles_8_0::
-	.incbin "tilesets/gAreaTileset_TownMinishHoles_8_0.4bpp.lz"
+	.incbin "tilesets/gAreaTileset_TownMinishHoles_8_0.8bpp.lz"
 	.align 2
 gAreaRoomMap_TownMinishHoles_8_1::
 	.incbin "assets/gAreaRoomMap_TownMinishHoles_8_1.bin"
@@ -4572,8 +4579,11 @@ gAreaRoomMap_46_7_0::
 	.incbin "assets/gAreaRoomMap_46_7_0.bin"
 gAreaRoomMap_46_7_1::
 	.incbin "assets/gAreaRoomMap_46_7_1.bin"
-unknown_249::
-	.incbin "assets/unknown_249.bin"
+	.align 2
+gAreaRoomMap_08107870_0::
+	.incbin "assets/gAreaRoomMap_08107870_0.bin"
+gAreaRoomMap_08107870_1::
+	.incbin "assets/gAreaRoomMap_08107870_1.bin"
 gAreaRoomMap_4D_0_0::
 	.incbin "assets/gAreaRoomMap_4D_0_0.bin"
 	.align 2
